@@ -78,6 +78,9 @@ func NewRoleAssignment(ctx *pulumi.Context,
 	if args.ResourceGroupName == nil {
 		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
 	}
+	if args.Role == nil {
+		return nil, errors.New("invalid value for required argument 'Role'")
+	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
 			Type: pulumi.String("azure-nextgen:customerinsights:RoleAssignment"),
@@ -157,7 +160,7 @@ type roleAssignmentArgs struct {
 	// The name of the resource group.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// Type of roles.
-	Role string `pulumi:"role"`
+	Role RoleTypes `pulumi:"role"`
 	// The Role assignments set for the assignment.
 	RoleAssignments *ResourceSetDescription `pulumi:"roleAssignments"`
 	// Sas Policies set for the assignment.
@@ -201,7 +204,7 @@ type RoleAssignmentArgs struct {
 	// The name of the resource group.
 	ResourceGroupName pulumi.StringInput
 	// Type of roles.
-	Role RoleTypes
+	Role RoleTypesInput
 	// The Role assignments set for the assignment.
 	RoleAssignments ResourceSetDescriptionPtrInput
 	// Sas Policies set for the assignment.
@@ -237,9 +240,7 @@ func (i *RoleAssignment) ToRoleAssignmentOutputWithContext(ctx context.Context) 
 	return pulumi.ToOutputWithContext(ctx, i).(RoleAssignmentOutput)
 }
 
-type RoleAssignmentOutput struct {
-	*pulumi.OutputState
-}
+type RoleAssignmentOutput struct{ *pulumi.OutputState }
 
 func (RoleAssignmentOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*RoleAssignment)(nil))

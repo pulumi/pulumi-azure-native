@@ -7,7 +7,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// NamedValue details.
 func LookupNamedValue(ctx *pulumi.Context, args *LookupNamedValueArgs, opts ...pulumi.InvokeOption) (*LookupNamedValueResult, error) {
 	var rv LookupNamedValueResult
 	err := ctx.Invoke("azure-native:apimanagement/v20191201preview:getNamedValue", args, &rv, opts...)
@@ -18,28 +17,18 @@ func LookupNamedValue(ctx *pulumi.Context, args *LookupNamedValueArgs, opts ...p
 }
 
 type LookupNamedValueArgs struct {
-	// Identifier of the NamedValue.
-	NamedValueId string `pulumi:"namedValueId"`
-	// The name of the resource group.
+	NamedValueId      string `pulumi:"namedValueId"`
 	ResourceGroupName string `pulumi:"resourceGroupName"`
-	// The name of the API Management service.
-	ServiceName string `pulumi:"serviceName"`
+	ServiceName       string `pulumi:"serviceName"`
 }
 
 // NamedValue details.
 type LookupNamedValueResult struct {
-	// Unique name of NamedValue. It may contain only letters, digits, period, dash, and underscore characters.
-	DisplayName string `pulumi:"displayName"`
-	// Resource ID.
-	Id string `pulumi:"id"`
-	// Resource name.
-	Name string `pulumi:"name"`
-	// Determines whether the value is a secret and should be encrypted or not. Default value is false.
-	Secret *bool `pulumi:"secret"`
-	// Optional tags that when provided can be used to filter the NamedValue list.
-	Tags []string `pulumi:"tags"`
-	// Resource type for API Management resource.
-	Type string `pulumi:"type"`
-	// Value of the NamedValue. Can contain policy expressions. It may not be empty or consist only of whitespace. This property will not be filled on 'GET' operations! Use '/listSecrets' POST request to get the value.
-	Value *string `pulumi:"value"`
+	DisplayName string   `pulumi:"displayName"`
+	Id          string   `pulumi:"id"`
+	Name        string   `pulumi:"name"`
+	Secret      *bool    `pulumi:"secret"`
+	Tags        []string `pulumi:"tags"`
+	Type        string   `pulumi:"type"`
+	Value       *string  `pulumi:"value"`
 }

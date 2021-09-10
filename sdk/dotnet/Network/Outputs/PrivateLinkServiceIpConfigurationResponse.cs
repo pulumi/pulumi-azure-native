@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.Network.Outputs
 {
 
+    /// <summary>
+    /// The private link service ip configuration.
+    /// </summary>
     [OutputType]
     public sealed class PrivateLinkServiceIpConfigurationResponse
     {

@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.ServiceFabric.V20210101Preview.Outputs
 {
 
+    /// <summary>
+    /// Represents a scaling trigger related to an average load of a metric/resource of a partition.
+    /// </summary>
     [OutputType]
     public sealed class AveragePartitionLoadScalingTriggerResponse
     {

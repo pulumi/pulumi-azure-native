@@ -7,7 +7,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Describes a Machine Extension.
 func LookupMachineExtension(ctx *pulumi.Context, args *LookupMachineExtensionArgs, opts ...pulumi.InvokeOption) (*LookupMachineExtensionResult, error) {
 	var rv LookupMachineExtensionResult
 	err := ctx.Invoke("azure-native:hybridcompute/v20200730preview:getMachineExtension", args, &rv, opts...)
@@ -18,40 +17,24 @@ func LookupMachineExtension(ctx *pulumi.Context, args *LookupMachineExtensionArg
 }
 
 type LookupMachineExtensionArgs struct {
-	// The name of the machine extension.
-	ExtensionName string `pulumi:"extensionName"`
-	// The name of the machine containing the extension.
-	Name string `pulumi:"name"`
-	// The name of the resource group.
+	ExtensionName     string `pulumi:"extensionName"`
+	Name              string `pulumi:"name"`
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 }
 
 // Describes a Machine Extension.
 type LookupMachineExtensionResult struct {
-	// Indicates whether the extension should use a newer minor version if one is available at deployment time. Once deployed, however, the extension will not upgrade minor versions unless redeployed, even with this property set to true.
-	AutoUpgradeMinorVersion *bool `pulumi:"autoUpgradeMinorVersion"`
-	// How the extension handler should be forced to update even if the extension configuration has not changed.
-	ForceUpdateTag *string `pulumi:"forceUpdateTag"`
-	// Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
-	Id string `pulumi:"id"`
-	// The machine extension instance view.
-	InstanceView *MachineExtensionPropertiesResponseInstanceView `pulumi:"instanceView"`
-	// The geo-location where the resource lives
-	Location string `pulumi:"location"`
-	// The name of the resource
-	Name string `pulumi:"name"`
-	// The extension can contain either protectedSettings or protectedSettingsFromKeyVault or no protected settings at all.
-	ProtectedSettings interface{} `pulumi:"protectedSettings"`
-	// The provisioning state, which only appears in the response.
-	ProvisioningState string `pulumi:"provisioningState"`
-	// The name of the extension handler publisher.
-	Publisher *string `pulumi:"publisher"`
-	// Json formatted public settings for the extension.
-	Settings interface{} `pulumi:"settings"`
-	// Resource tags.
-	Tags map[string]string `pulumi:"tags"`
-	// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
-	Type string `pulumi:"type"`
-	// Specifies the version of the script handler.
-	TypeHandlerVersion *string `pulumi:"typeHandlerVersion"`
+	AutoUpgradeMinorVersion *bool                                           `pulumi:"autoUpgradeMinorVersion"`
+	ForceUpdateTag          *string                                         `pulumi:"forceUpdateTag"`
+	Id                      string                                          `pulumi:"id"`
+	InstanceView            *MachineExtensionPropertiesResponseInstanceView `pulumi:"instanceView"`
+	Location                string                                          `pulumi:"location"`
+	Name                    string                                          `pulumi:"name"`
+	ProtectedSettings       interface{}                                     `pulumi:"protectedSettings"`
+	ProvisioningState       string                                          `pulumi:"provisioningState"`
+	Publisher               *string                                         `pulumi:"publisher"`
+	Settings                interface{}                                     `pulumi:"settings"`
+	Tags                    map[string]string                               `pulumi:"tags"`
+	Type                    string                                          `pulumi:"type"`
+	TypeHandlerVersion      *string                                         `pulumi:"typeHandlerVersion"`
 }

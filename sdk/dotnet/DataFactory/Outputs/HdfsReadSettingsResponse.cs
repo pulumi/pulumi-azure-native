@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.DataFactory.Outputs
 {
 
+    /// <summary>
+    /// HDFS read settings.
+    /// </summary>
     [OutputType]
     public sealed class HdfsReadSettingsResponse
     {

@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.ContainerService.V20200301.Outputs
 {
 
+    /// <summary>
+    /// Parameters to be applied to the cluster-autoscaler when enabled
+    /// </summary>
     [OutputType]
     public sealed class ManagedClusterPropertiesResponseAutoScalerProfile
     {

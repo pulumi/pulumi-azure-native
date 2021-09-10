@@ -11,35 +11,21 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Class representing an Event Grid data connection.
 type EventGridDataConnection struct {
 	pulumi.CustomResourceState
 
-	// The name of blob storage event type to process.
-	BlobStorageEventType pulumi.StringPtrOutput `pulumi:"blobStorageEventType"`
-	// The event hub consumer group.
-	ConsumerGroup pulumi.StringOutput `pulumi:"consumerGroup"`
-	// The data format of the message. Optionally the data format can be added to each message.
-	DataFormat pulumi.StringPtrOutput `pulumi:"dataFormat"`
-	// The resource ID where the event grid is configured to send events.
-	EventHubResourceId pulumi.StringOutput `pulumi:"eventHubResourceId"`
-	// A Boolean value that, if set to true, indicates that ingestion should ignore the first record of every file
-	IgnoreFirstRecord pulumi.BoolPtrOutput `pulumi:"ignoreFirstRecord"`
-	// Kind of the endpoint for the data connection
-	// Expected value is 'EventGrid'.
-	Kind pulumi.StringOutput `pulumi:"kind"`
-	// Resource location.
-	Location pulumi.StringPtrOutput `pulumi:"location"`
-	// The mapping rule to be used to ingest the data. Optionally the mapping information can be added to each message.
-	MappingRuleName pulumi.StringPtrOutput `pulumi:"mappingRuleName"`
-	// The name of the resource
-	Name pulumi.StringOutput `pulumi:"name"`
-	// The resource ID of the storage account where the data resides.
-	StorageAccountResourceId pulumi.StringOutput `pulumi:"storageAccountResourceId"`
-	// The table where the data should be ingested. Optionally the table information can be added to each message.
-	TableName pulumi.StringPtrOutput `pulumi:"tableName"`
-	// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
-	Type pulumi.StringOutput `pulumi:"type"`
+	BlobStorageEventType     pulumi.StringPtrOutput `pulumi:"blobStorageEventType"`
+	ConsumerGroup            pulumi.StringOutput    `pulumi:"consumerGroup"`
+	DataFormat               pulumi.StringPtrOutput `pulumi:"dataFormat"`
+	EventHubResourceId       pulumi.StringOutput    `pulumi:"eventHubResourceId"`
+	IgnoreFirstRecord        pulumi.BoolPtrOutput   `pulumi:"ignoreFirstRecord"`
+	Kind                     pulumi.StringOutput    `pulumi:"kind"`
+	Location                 pulumi.StringPtrOutput `pulumi:"location"`
+	MappingRuleName          pulumi.StringPtrOutput `pulumi:"mappingRuleName"`
+	Name                     pulumi.StringOutput    `pulumi:"name"`
+	StorageAccountResourceId pulumi.StringOutput    `pulumi:"storageAccountResourceId"`
+	TableName                pulumi.StringPtrOutput `pulumi:"tableName"`
+	Type                     pulumi.StringOutput    `pulumi:"type"`
 }
 
 // NewEventGridDataConnection registers a new resource with the given unique name, arguments, and options.
@@ -163,68 +149,38 @@ func (EventGridDataConnectionState) ElementType() reflect.Type {
 }
 
 type eventGridDataConnectionArgs struct {
-	// The name of blob storage event type to process.
-	BlobStorageEventType *string `pulumi:"blobStorageEventType"`
-	// The name of the Kusto cluster.
-	ClusterName string `pulumi:"clusterName"`
-	// The event hub consumer group.
-	ConsumerGroup string `pulumi:"consumerGroup"`
-	// The name of the data connection.
-	DataConnectionName *string `pulumi:"dataConnectionName"`
-	// The data format of the message. Optionally the data format can be added to each message.
-	DataFormat *string `pulumi:"dataFormat"`
-	// The name of the database in the Kusto cluster.
-	DatabaseName string `pulumi:"databaseName"`
-	// The resource ID where the event grid is configured to send events.
-	EventHubResourceId string `pulumi:"eventHubResourceId"`
-	// A Boolean value that, if set to true, indicates that ingestion should ignore the first record of every file
-	IgnoreFirstRecord *bool `pulumi:"ignoreFirstRecord"`
-	// Kind of the endpoint for the data connection
-	// Expected value is 'EventGrid'.
-	Kind string `pulumi:"kind"`
-	// Resource location.
-	Location *string `pulumi:"location"`
-	// The mapping rule to be used to ingest the data. Optionally the mapping information can be added to each message.
-	MappingRuleName *string `pulumi:"mappingRuleName"`
-	// The name of the resource group containing the Kusto cluster.
-	ResourceGroupName string `pulumi:"resourceGroupName"`
-	// The resource ID of the storage account where the data resides.
-	StorageAccountResourceId string `pulumi:"storageAccountResourceId"`
-	// The table where the data should be ingested. Optionally the table information can be added to each message.
-	TableName *string `pulumi:"tableName"`
+	BlobStorageEventType     *string `pulumi:"blobStorageEventType"`
+	ClusterName              string  `pulumi:"clusterName"`
+	ConsumerGroup            string  `pulumi:"consumerGroup"`
+	DataConnectionName       *string `pulumi:"dataConnectionName"`
+	DataFormat               *string `pulumi:"dataFormat"`
+	DatabaseName             string  `pulumi:"databaseName"`
+	EventHubResourceId       string  `pulumi:"eventHubResourceId"`
+	IgnoreFirstRecord        *bool   `pulumi:"ignoreFirstRecord"`
+	Kind                     string  `pulumi:"kind"`
+	Location                 *string `pulumi:"location"`
+	MappingRuleName          *string `pulumi:"mappingRuleName"`
+	ResourceGroupName        string  `pulumi:"resourceGroupName"`
+	StorageAccountResourceId string  `pulumi:"storageAccountResourceId"`
+	TableName                *string `pulumi:"tableName"`
 }
 
 // The set of arguments for constructing a EventGridDataConnection resource.
 type EventGridDataConnectionArgs struct {
-	// The name of blob storage event type to process.
-	BlobStorageEventType pulumi.StringPtrInput
-	// The name of the Kusto cluster.
-	ClusterName pulumi.StringInput
-	// The event hub consumer group.
-	ConsumerGroup pulumi.StringInput
-	// The name of the data connection.
-	DataConnectionName pulumi.StringPtrInput
-	// The data format of the message. Optionally the data format can be added to each message.
-	DataFormat pulumi.StringPtrInput
-	// The name of the database in the Kusto cluster.
-	DatabaseName pulumi.StringInput
-	// The resource ID where the event grid is configured to send events.
-	EventHubResourceId pulumi.StringInput
-	// A Boolean value that, if set to true, indicates that ingestion should ignore the first record of every file
-	IgnoreFirstRecord pulumi.BoolPtrInput
-	// Kind of the endpoint for the data connection
-	// Expected value is 'EventGrid'.
-	Kind pulumi.StringInput
-	// Resource location.
-	Location pulumi.StringPtrInput
-	// The mapping rule to be used to ingest the data. Optionally the mapping information can be added to each message.
-	MappingRuleName pulumi.StringPtrInput
-	// The name of the resource group containing the Kusto cluster.
-	ResourceGroupName pulumi.StringInput
-	// The resource ID of the storage account where the data resides.
+	BlobStorageEventType     pulumi.StringPtrInput
+	ClusterName              pulumi.StringInput
+	ConsumerGroup            pulumi.StringInput
+	DataConnectionName       pulumi.StringPtrInput
+	DataFormat               pulumi.StringPtrInput
+	DatabaseName             pulumi.StringInput
+	EventHubResourceId       pulumi.StringInput
+	IgnoreFirstRecord        pulumi.BoolPtrInput
+	Kind                     pulumi.StringInput
+	Location                 pulumi.StringPtrInput
+	MappingRuleName          pulumi.StringPtrInput
+	ResourceGroupName        pulumi.StringInput
 	StorageAccountResourceId pulumi.StringInput
-	// The table where the data should be ingested. Optionally the table information can be added to each message.
-	TableName pulumi.StringPtrInput
+	TableName                pulumi.StringPtrInput
 }
 
 func (EventGridDataConnectionArgs) ElementType() reflect.Type {
@@ -250,9 +206,7 @@ func (i *EventGridDataConnection) ToEventGridDataConnectionOutputWithContext(ctx
 	return pulumi.ToOutputWithContext(ctx, i).(EventGridDataConnectionOutput)
 }
 
-type EventGridDataConnectionOutput struct {
-	*pulumi.OutputState
-}
+type EventGridDataConnectionOutput struct{ *pulumi.OutputState }
 
 func (EventGridDataConnectionOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*EventGridDataConnection)(nil))

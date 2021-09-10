@@ -7,7 +7,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// The Account access keys.
 func ListAccountKeys(ctx *pulumi.Context, args *ListAccountKeysArgs, opts ...pulumi.InvokeOption) (*ListAccountKeysResult, error) {
 	var rv ListAccountKeysResult
 	err := ctx.Invoke("azure-native:purview/v20210701:listAccountKeys", args, &rv, opts...)
@@ -18,16 +17,12 @@ func ListAccountKeys(ctx *pulumi.Context, args *ListAccountKeysArgs, opts ...pul
 }
 
 type ListAccountKeysArgs struct {
-	// The name of the account.
-	AccountName string `pulumi:"accountName"`
-	// The resource group name.
+	AccountName       string `pulumi:"accountName"`
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 }
 
 // The Account access keys.
 type ListAccountKeysResult struct {
-	// Gets or sets the primary connection string.
-	AtlasKafkaPrimaryEndpoint *string `pulumi:"atlasKafkaPrimaryEndpoint"`
-	// Gets or sets the secondary connection string.
+	AtlasKafkaPrimaryEndpoint   *string `pulumi:"atlasKafkaPrimaryEndpoint"`
 	AtlasKafkaSecondaryEndpoint *string `pulumi:"atlasKafkaSecondaryEndpoint"`
 }

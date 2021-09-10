@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.DataCatalog.Outputs
 {
 
+    /// <summary>
+    /// User principals.
+    /// </summary>
     [OutputType]
     public sealed class PrincipalsResponse
     {

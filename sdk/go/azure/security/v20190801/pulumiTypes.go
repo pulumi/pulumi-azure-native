@@ -10,14 +10,10 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Properties of the additional workspaces.
 type AdditionalWorkspacesProperties struct {
-	// List of data types sent to workspace
 	DataTypes []string `pulumi:"dataTypes"`
-	// Workspace type.
-	Type *string `pulumi:"type"`
-	// Workspace resource id
-	Workspace *string `pulumi:"workspace"`
+	Type      *string  `pulumi:"type"`
+	Workspace *string  `pulumi:"workspace"`
 }
 
 // AdditionalWorkspacesPropertiesInput is an input type that accepts AdditionalWorkspacesPropertiesArgs and AdditionalWorkspacesPropertiesOutput values.
@@ -31,14 +27,10 @@ type AdditionalWorkspacesPropertiesInput interface {
 	ToAdditionalWorkspacesPropertiesOutputWithContext(context.Context) AdditionalWorkspacesPropertiesOutput
 }
 
-// Properties of the additional workspaces.
 type AdditionalWorkspacesPropertiesArgs struct {
-	// List of data types sent to workspace
 	DataTypes pulumi.StringArrayInput `pulumi:"dataTypes"`
-	// Workspace type.
-	Type pulumi.StringPtrInput `pulumi:"type"`
-	// Workspace resource id
-	Workspace pulumi.StringPtrInput `pulumi:"workspace"`
+	Type      pulumi.StringPtrInput   `pulumi:"type"`
+	Workspace pulumi.StringPtrInput   `pulumi:"workspace"`
 }
 
 func (AdditionalWorkspacesPropertiesArgs) ElementType() reflect.Type {
@@ -78,7 +70,6 @@ func (i AdditionalWorkspacesPropertiesArray) ToAdditionalWorkspacesPropertiesArr
 	return pulumi.ToOutputWithContext(ctx, i).(AdditionalWorkspacesPropertiesArrayOutput)
 }
 
-// Properties of the additional workspaces.
 type AdditionalWorkspacesPropertiesOutput struct{ *pulumi.OutputState }
 
 func (AdditionalWorkspacesPropertiesOutput) ElementType() reflect.Type {
@@ -93,17 +84,14 @@ func (o AdditionalWorkspacesPropertiesOutput) ToAdditionalWorkspacesPropertiesOu
 	return o
 }
 
-// List of data types sent to workspace
 func (o AdditionalWorkspacesPropertiesOutput) DataTypes() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v AdditionalWorkspacesProperties) []string { return v.DataTypes }).(pulumi.StringArrayOutput)
 }
 
-// Workspace type.
 func (o AdditionalWorkspacesPropertiesOutput) Type() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AdditionalWorkspacesProperties) *string { return v.Type }).(pulumi.StringPtrOutput)
 }
 
-// Workspace resource id
 func (o AdditionalWorkspacesPropertiesOutput) Workspace() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AdditionalWorkspacesProperties) *string { return v.Workspace }).(pulumi.StringPtrOutput)
 }
@@ -128,14 +116,10 @@ func (o AdditionalWorkspacesPropertiesArrayOutput) Index(i pulumi.IntInput) Addi
 	}).(AdditionalWorkspacesPropertiesOutput)
 }
 
-// Properties of the additional workspaces.
 type AdditionalWorkspacesPropertiesResponse struct {
-	// List of data types sent to workspace
 	DataTypes []string `pulumi:"dataTypes"`
-	// Workspace type.
-	Type *string `pulumi:"type"`
-	// Workspace resource id
-	Workspace *string `pulumi:"workspace"`
+	Type      *string  `pulumi:"type"`
+	Workspace *string  `pulumi:"workspace"`
 }
 
 // AdditionalWorkspacesPropertiesResponseInput is an input type that accepts AdditionalWorkspacesPropertiesResponseArgs and AdditionalWorkspacesPropertiesResponseOutput values.
@@ -149,14 +133,10 @@ type AdditionalWorkspacesPropertiesResponseInput interface {
 	ToAdditionalWorkspacesPropertiesResponseOutputWithContext(context.Context) AdditionalWorkspacesPropertiesResponseOutput
 }
 
-// Properties of the additional workspaces.
 type AdditionalWorkspacesPropertiesResponseArgs struct {
-	// List of data types sent to workspace
 	DataTypes pulumi.StringArrayInput `pulumi:"dataTypes"`
-	// Workspace type.
-	Type pulumi.StringPtrInput `pulumi:"type"`
-	// Workspace resource id
-	Workspace pulumi.StringPtrInput `pulumi:"workspace"`
+	Type      pulumi.StringPtrInput   `pulumi:"type"`
+	Workspace pulumi.StringPtrInput   `pulumi:"workspace"`
 }
 
 func (AdditionalWorkspacesPropertiesResponseArgs) ElementType() reflect.Type {
@@ -196,7 +176,6 @@ func (i AdditionalWorkspacesPropertiesResponseArray) ToAdditionalWorkspacesPrope
 	return pulumi.ToOutputWithContext(ctx, i).(AdditionalWorkspacesPropertiesResponseArrayOutput)
 }
 
-// Properties of the additional workspaces.
 type AdditionalWorkspacesPropertiesResponseOutput struct{ *pulumi.OutputState }
 
 func (AdditionalWorkspacesPropertiesResponseOutput) ElementType() reflect.Type {
@@ -211,17 +190,14 @@ func (o AdditionalWorkspacesPropertiesResponseOutput) ToAdditionalWorkspacesProp
 	return o
 }
 
-// List of data types sent to workspace
 func (o AdditionalWorkspacesPropertiesResponseOutput) DataTypes() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v AdditionalWorkspacesPropertiesResponse) []string { return v.DataTypes }).(pulumi.StringArrayOutput)
 }
 
-// Workspace type.
 func (o AdditionalWorkspacesPropertiesResponseOutput) Type() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AdditionalWorkspacesPropertiesResponse) *string { return v.Type }).(pulumi.StringPtrOutput)
 }
 
-// Workspace resource id
 func (o AdditionalWorkspacesPropertiesResponseOutput) Workspace() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AdditionalWorkspacesPropertiesResponse) *string { return v.Workspace }).(pulumi.StringPtrOutput)
 }
@@ -246,15 +222,10 @@ func (o AdditionalWorkspacesPropertiesResponseArrayOutput) Index(i pulumi.IntInp
 	}).(AdditionalWorkspacesPropertiesResponseOutput)
 }
 
-// A custom alert rule that checks if a value (depends on the custom alert type) is allowed.
 type AllowlistCustomAlertRule struct {
-	// The values to allow. The format of the values depends on the rule type.
 	AllowlistValues []string `pulumi:"allowlistValues"`
-	// Status of the custom alert.
-	IsEnabled bool `pulumi:"isEnabled"`
-	// The type of the custom alert rule.
-	// Expected value is 'AllowlistCustomAlertRule'.
-	RuleType string `pulumi:"ruleType"`
+	IsEnabled       bool     `pulumi:"isEnabled"`
+	RuleType        string   `pulumi:"ruleType"`
 }
 
 // AllowlistCustomAlertRuleInput is an input type that accepts AllowlistCustomAlertRuleArgs and AllowlistCustomAlertRuleOutput values.
@@ -268,15 +239,10 @@ type AllowlistCustomAlertRuleInput interface {
 	ToAllowlistCustomAlertRuleOutputWithContext(context.Context) AllowlistCustomAlertRuleOutput
 }
 
-// A custom alert rule that checks if a value (depends on the custom alert type) is allowed.
 type AllowlistCustomAlertRuleArgs struct {
-	// The values to allow. The format of the values depends on the rule type.
 	AllowlistValues pulumi.StringArrayInput `pulumi:"allowlistValues"`
-	// Status of the custom alert.
-	IsEnabled pulumi.BoolInput `pulumi:"isEnabled"`
-	// The type of the custom alert rule.
-	// Expected value is 'AllowlistCustomAlertRule'.
-	RuleType pulumi.StringInput `pulumi:"ruleType"`
+	IsEnabled       pulumi.BoolInput        `pulumi:"isEnabled"`
+	RuleType        pulumi.StringInput      `pulumi:"ruleType"`
 }
 
 func (AllowlistCustomAlertRuleArgs) ElementType() reflect.Type {
@@ -316,7 +282,6 @@ func (i AllowlistCustomAlertRuleArray) ToAllowlistCustomAlertRuleArrayOutputWith
 	return pulumi.ToOutputWithContext(ctx, i).(AllowlistCustomAlertRuleArrayOutput)
 }
 
-// A custom alert rule that checks if a value (depends on the custom alert type) is allowed.
 type AllowlistCustomAlertRuleOutput struct{ *pulumi.OutputState }
 
 func (AllowlistCustomAlertRuleOutput) ElementType() reflect.Type {
@@ -331,18 +296,14 @@ func (o AllowlistCustomAlertRuleOutput) ToAllowlistCustomAlertRuleOutputWithCont
 	return o
 }
 
-// The values to allow. The format of the values depends on the rule type.
 func (o AllowlistCustomAlertRuleOutput) AllowlistValues() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v AllowlistCustomAlertRule) []string { return v.AllowlistValues }).(pulumi.StringArrayOutput)
 }
 
-// Status of the custom alert.
 func (o AllowlistCustomAlertRuleOutput) IsEnabled() pulumi.BoolOutput {
 	return o.ApplyT(func(v AllowlistCustomAlertRule) bool { return v.IsEnabled }).(pulumi.BoolOutput)
 }
 
-// The type of the custom alert rule.
-// Expected value is 'AllowlistCustomAlertRule'.
 func (o AllowlistCustomAlertRuleOutput) RuleType() pulumi.StringOutput {
 	return o.ApplyT(func(v AllowlistCustomAlertRule) string { return v.RuleType }).(pulumi.StringOutput)
 }
@@ -367,21 +328,13 @@ func (o AllowlistCustomAlertRuleArrayOutput) Index(i pulumi.IntInput) AllowlistC
 	}).(AllowlistCustomAlertRuleOutput)
 }
 
-// A custom alert rule that checks if a value (depends on the custom alert type) is allowed.
 type AllowlistCustomAlertRuleResponse struct {
-	// The values to allow. The format of the values depends on the rule type.
 	AllowlistValues []string `pulumi:"allowlistValues"`
-	// The description of the custom alert.
-	Description string `pulumi:"description"`
-	// The display name of the custom alert.
-	DisplayName string `pulumi:"displayName"`
-	// Status of the custom alert.
-	IsEnabled bool `pulumi:"isEnabled"`
-	// The type of the custom alert rule.
-	// Expected value is 'AllowlistCustomAlertRule'.
-	RuleType string `pulumi:"ruleType"`
-	// The value type of the items in the list.
-	ValueType string `pulumi:"valueType"`
+	Description     string   `pulumi:"description"`
+	DisplayName     string   `pulumi:"displayName"`
+	IsEnabled       bool     `pulumi:"isEnabled"`
+	RuleType        string   `pulumi:"ruleType"`
+	ValueType       string   `pulumi:"valueType"`
 }
 
 // AllowlistCustomAlertRuleResponseInput is an input type that accepts AllowlistCustomAlertRuleResponseArgs and AllowlistCustomAlertRuleResponseOutput values.
@@ -395,21 +348,13 @@ type AllowlistCustomAlertRuleResponseInput interface {
 	ToAllowlistCustomAlertRuleResponseOutputWithContext(context.Context) AllowlistCustomAlertRuleResponseOutput
 }
 
-// A custom alert rule that checks if a value (depends on the custom alert type) is allowed.
 type AllowlistCustomAlertRuleResponseArgs struct {
-	// The values to allow. The format of the values depends on the rule type.
 	AllowlistValues pulumi.StringArrayInput `pulumi:"allowlistValues"`
-	// The description of the custom alert.
-	Description pulumi.StringInput `pulumi:"description"`
-	// The display name of the custom alert.
-	DisplayName pulumi.StringInput `pulumi:"displayName"`
-	// Status of the custom alert.
-	IsEnabled pulumi.BoolInput `pulumi:"isEnabled"`
-	// The type of the custom alert rule.
-	// Expected value is 'AllowlistCustomAlertRule'.
-	RuleType pulumi.StringInput `pulumi:"ruleType"`
-	// The value type of the items in the list.
-	ValueType pulumi.StringInput `pulumi:"valueType"`
+	Description     pulumi.StringInput      `pulumi:"description"`
+	DisplayName     pulumi.StringInput      `pulumi:"displayName"`
+	IsEnabled       pulumi.BoolInput        `pulumi:"isEnabled"`
+	RuleType        pulumi.StringInput      `pulumi:"ruleType"`
+	ValueType       pulumi.StringInput      `pulumi:"valueType"`
 }
 
 func (AllowlistCustomAlertRuleResponseArgs) ElementType() reflect.Type {
@@ -449,7 +394,6 @@ func (i AllowlistCustomAlertRuleResponseArray) ToAllowlistCustomAlertRuleRespons
 	return pulumi.ToOutputWithContext(ctx, i).(AllowlistCustomAlertRuleResponseArrayOutput)
 }
 
-// A custom alert rule that checks if a value (depends on the custom alert type) is allowed.
 type AllowlistCustomAlertRuleResponseOutput struct{ *pulumi.OutputState }
 
 func (AllowlistCustomAlertRuleResponseOutput) ElementType() reflect.Type {
@@ -464,33 +408,26 @@ func (o AllowlistCustomAlertRuleResponseOutput) ToAllowlistCustomAlertRuleRespon
 	return o
 }
 
-// The values to allow. The format of the values depends on the rule type.
 func (o AllowlistCustomAlertRuleResponseOutput) AllowlistValues() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v AllowlistCustomAlertRuleResponse) []string { return v.AllowlistValues }).(pulumi.StringArrayOutput)
 }
 
-// The description of the custom alert.
 func (o AllowlistCustomAlertRuleResponseOutput) Description() pulumi.StringOutput {
 	return o.ApplyT(func(v AllowlistCustomAlertRuleResponse) string { return v.Description }).(pulumi.StringOutput)
 }
 
-// The display name of the custom alert.
 func (o AllowlistCustomAlertRuleResponseOutput) DisplayName() pulumi.StringOutput {
 	return o.ApplyT(func(v AllowlistCustomAlertRuleResponse) string { return v.DisplayName }).(pulumi.StringOutput)
 }
 
-// Status of the custom alert.
 func (o AllowlistCustomAlertRuleResponseOutput) IsEnabled() pulumi.BoolOutput {
 	return o.ApplyT(func(v AllowlistCustomAlertRuleResponse) bool { return v.IsEnabled }).(pulumi.BoolOutput)
 }
 
-// The type of the custom alert rule.
-// Expected value is 'AllowlistCustomAlertRule'.
 func (o AllowlistCustomAlertRuleResponseOutput) RuleType() pulumi.StringOutput {
 	return o.ApplyT(func(v AllowlistCustomAlertRuleResponse) string { return v.RuleType }).(pulumi.StringOutput)
 }
 
-// The value type of the items in the list.
 func (o AllowlistCustomAlertRuleResponseOutput) ValueType() pulumi.StringOutput {
 	return o.ApplyT(func(v AllowlistCustomAlertRuleResponse) string { return v.ValueType }).(pulumi.StringOutput)
 }
@@ -515,15 +452,10 @@ func (o AllowlistCustomAlertRuleResponseArrayOutput) Index(i pulumi.IntInput) Al
 	}).(AllowlistCustomAlertRuleResponseOutput)
 }
 
-// A custom alert rule that checks if a value (depends on the custom alert type) is denied.
 type DenylistCustomAlertRule struct {
-	// The values to deny. The format of the values depends on the rule type.
 	DenylistValues []string `pulumi:"denylistValues"`
-	// Status of the custom alert.
-	IsEnabled bool `pulumi:"isEnabled"`
-	// The type of the custom alert rule.
-	// Expected value is 'DenylistCustomAlertRule'.
-	RuleType string `pulumi:"ruleType"`
+	IsEnabled      bool     `pulumi:"isEnabled"`
+	RuleType       string   `pulumi:"ruleType"`
 }
 
 // DenylistCustomAlertRuleInput is an input type that accepts DenylistCustomAlertRuleArgs and DenylistCustomAlertRuleOutput values.
@@ -537,15 +469,10 @@ type DenylistCustomAlertRuleInput interface {
 	ToDenylistCustomAlertRuleOutputWithContext(context.Context) DenylistCustomAlertRuleOutput
 }
 
-// A custom alert rule that checks if a value (depends on the custom alert type) is denied.
 type DenylistCustomAlertRuleArgs struct {
-	// The values to deny. The format of the values depends on the rule type.
 	DenylistValues pulumi.StringArrayInput `pulumi:"denylistValues"`
-	// Status of the custom alert.
-	IsEnabled pulumi.BoolInput `pulumi:"isEnabled"`
-	// The type of the custom alert rule.
-	// Expected value is 'DenylistCustomAlertRule'.
-	RuleType pulumi.StringInput `pulumi:"ruleType"`
+	IsEnabled      pulumi.BoolInput        `pulumi:"isEnabled"`
+	RuleType       pulumi.StringInput      `pulumi:"ruleType"`
 }
 
 func (DenylistCustomAlertRuleArgs) ElementType() reflect.Type {
@@ -585,7 +512,6 @@ func (i DenylistCustomAlertRuleArray) ToDenylistCustomAlertRuleArrayOutputWithCo
 	return pulumi.ToOutputWithContext(ctx, i).(DenylistCustomAlertRuleArrayOutput)
 }
 
-// A custom alert rule that checks if a value (depends on the custom alert type) is denied.
 type DenylistCustomAlertRuleOutput struct{ *pulumi.OutputState }
 
 func (DenylistCustomAlertRuleOutput) ElementType() reflect.Type {
@@ -600,18 +526,14 @@ func (o DenylistCustomAlertRuleOutput) ToDenylistCustomAlertRuleOutputWithContex
 	return o
 }
 
-// The values to deny. The format of the values depends on the rule type.
 func (o DenylistCustomAlertRuleOutput) DenylistValues() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v DenylistCustomAlertRule) []string { return v.DenylistValues }).(pulumi.StringArrayOutput)
 }
 
-// Status of the custom alert.
 func (o DenylistCustomAlertRuleOutput) IsEnabled() pulumi.BoolOutput {
 	return o.ApplyT(func(v DenylistCustomAlertRule) bool { return v.IsEnabled }).(pulumi.BoolOutput)
 }
 
-// The type of the custom alert rule.
-// Expected value is 'DenylistCustomAlertRule'.
 func (o DenylistCustomAlertRuleOutput) RuleType() pulumi.StringOutput {
 	return o.ApplyT(func(v DenylistCustomAlertRule) string { return v.RuleType }).(pulumi.StringOutput)
 }
@@ -636,21 +558,13 @@ func (o DenylistCustomAlertRuleArrayOutput) Index(i pulumi.IntInput) DenylistCus
 	}).(DenylistCustomAlertRuleOutput)
 }
 
-// A custom alert rule that checks if a value (depends on the custom alert type) is denied.
 type DenylistCustomAlertRuleResponse struct {
-	// The values to deny. The format of the values depends on the rule type.
 	DenylistValues []string `pulumi:"denylistValues"`
-	// The description of the custom alert.
-	Description string `pulumi:"description"`
-	// The display name of the custom alert.
-	DisplayName string `pulumi:"displayName"`
-	// Status of the custom alert.
-	IsEnabled bool `pulumi:"isEnabled"`
-	// The type of the custom alert rule.
-	// Expected value is 'DenylistCustomAlertRule'.
-	RuleType string `pulumi:"ruleType"`
-	// The value type of the items in the list.
-	ValueType string `pulumi:"valueType"`
+	Description    string   `pulumi:"description"`
+	DisplayName    string   `pulumi:"displayName"`
+	IsEnabled      bool     `pulumi:"isEnabled"`
+	RuleType       string   `pulumi:"ruleType"`
+	ValueType      string   `pulumi:"valueType"`
 }
 
 // DenylistCustomAlertRuleResponseInput is an input type that accepts DenylistCustomAlertRuleResponseArgs and DenylistCustomAlertRuleResponseOutput values.
@@ -664,21 +578,13 @@ type DenylistCustomAlertRuleResponseInput interface {
 	ToDenylistCustomAlertRuleResponseOutputWithContext(context.Context) DenylistCustomAlertRuleResponseOutput
 }
 
-// A custom alert rule that checks if a value (depends on the custom alert type) is denied.
 type DenylistCustomAlertRuleResponseArgs struct {
-	// The values to deny. The format of the values depends on the rule type.
 	DenylistValues pulumi.StringArrayInput `pulumi:"denylistValues"`
-	// The description of the custom alert.
-	Description pulumi.StringInput `pulumi:"description"`
-	// The display name of the custom alert.
-	DisplayName pulumi.StringInput `pulumi:"displayName"`
-	// Status of the custom alert.
-	IsEnabled pulumi.BoolInput `pulumi:"isEnabled"`
-	// The type of the custom alert rule.
-	// Expected value is 'DenylistCustomAlertRule'.
-	RuleType pulumi.StringInput `pulumi:"ruleType"`
-	// The value type of the items in the list.
-	ValueType pulumi.StringInput `pulumi:"valueType"`
+	Description    pulumi.StringInput      `pulumi:"description"`
+	DisplayName    pulumi.StringInput      `pulumi:"displayName"`
+	IsEnabled      pulumi.BoolInput        `pulumi:"isEnabled"`
+	RuleType       pulumi.StringInput      `pulumi:"ruleType"`
+	ValueType      pulumi.StringInput      `pulumi:"valueType"`
 }
 
 func (DenylistCustomAlertRuleResponseArgs) ElementType() reflect.Type {
@@ -718,7 +624,6 @@ func (i DenylistCustomAlertRuleResponseArray) ToDenylistCustomAlertRuleResponseA
 	return pulumi.ToOutputWithContext(ctx, i).(DenylistCustomAlertRuleResponseArrayOutput)
 }
 
-// A custom alert rule that checks if a value (depends on the custom alert type) is denied.
 type DenylistCustomAlertRuleResponseOutput struct{ *pulumi.OutputState }
 
 func (DenylistCustomAlertRuleResponseOutput) ElementType() reflect.Type {
@@ -733,33 +638,26 @@ func (o DenylistCustomAlertRuleResponseOutput) ToDenylistCustomAlertRuleResponse
 	return o
 }
 
-// The values to deny. The format of the values depends on the rule type.
 func (o DenylistCustomAlertRuleResponseOutput) DenylistValues() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v DenylistCustomAlertRuleResponse) []string { return v.DenylistValues }).(pulumi.StringArrayOutput)
 }
 
-// The description of the custom alert.
 func (o DenylistCustomAlertRuleResponseOutput) Description() pulumi.StringOutput {
 	return o.ApplyT(func(v DenylistCustomAlertRuleResponse) string { return v.Description }).(pulumi.StringOutput)
 }
 
-// The display name of the custom alert.
 func (o DenylistCustomAlertRuleResponseOutput) DisplayName() pulumi.StringOutput {
 	return o.ApplyT(func(v DenylistCustomAlertRuleResponse) string { return v.DisplayName }).(pulumi.StringOutput)
 }
 
-// Status of the custom alert.
 func (o DenylistCustomAlertRuleResponseOutput) IsEnabled() pulumi.BoolOutput {
 	return o.ApplyT(func(v DenylistCustomAlertRuleResponse) bool { return v.IsEnabled }).(pulumi.BoolOutput)
 }
 
-// The type of the custom alert rule.
-// Expected value is 'DenylistCustomAlertRule'.
 func (o DenylistCustomAlertRuleResponseOutput) RuleType() pulumi.StringOutput {
 	return o.ApplyT(func(v DenylistCustomAlertRuleResponse) string { return v.RuleType }).(pulumi.StringOutput)
 }
 
-// The value type of the items in the list.
 func (o DenylistCustomAlertRuleResponseOutput) ValueType() pulumi.StringOutput {
 	return o.ApplyT(func(v DenylistCustomAlertRuleResponse) string { return v.ValueType }).(pulumi.StringOutput)
 }
@@ -784,12 +682,9 @@ func (o DenylistCustomAlertRuleResponseArrayOutput) Index(i pulumi.IntInput) Den
 	}).(DenylistCustomAlertRuleResponseOutput)
 }
 
-// The type of IoT Security recommendation.
 type RecommendationConfigurationProperties struct {
-	// The type of IoT Security recommendation.
 	RecommendationType string `pulumi:"recommendationType"`
-	// Recommendation status. When the recommendation status is disabled recommendations are not generated.
-	Status string `pulumi:"status"`
+	Status             string `pulumi:"status"`
 }
 
 // RecommendationConfigurationPropertiesInput is an input type that accepts RecommendationConfigurationPropertiesArgs and RecommendationConfigurationPropertiesOutput values.
@@ -803,12 +698,9 @@ type RecommendationConfigurationPropertiesInput interface {
 	ToRecommendationConfigurationPropertiesOutputWithContext(context.Context) RecommendationConfigurationPropertiesOutput
 }
 
-// The type of IoT Security recommendation.
 type RecommendationConfigurationPropertiesArgs struct {
-	// The type of IoT Security recommendation.
 	RecommendationType pulumi.StringInput `pulumi:"recommendationType"`
-	// Recommendation status. When the recommendation status is disabled recommendations are not generated.
-	Status pulumi.StringInput `pulumi:"status"`
+	Status             pulumi.StringInput `pulumi:"status"`
 }
 
 func (RecommendationConfigurationPropertiesArgs) ElementType() reflect.Type {
@@ -848,7 +740,6 @@ func (i RecommendationConfigurationPropertiesArray) ToRecommendationConfiguratio
 	return pulumi.ToOutputWithContext(ctx, i).(RecommendationConfigurationPropertiesArrayOutput)
 }
 
-// The type of IoT Security recommendation.
 type RecommendationConfigurationPropertiesOutput struct{ *pulumi.OutputState }
 
 func (RecommendationConfigurationPropertiesOutput) ElementType() reflect.Type {
@@ -863,12 +754,10 @@ func (o RecommendationConfigurationPropertiesOutput) ToRecommendationConfigurati
 	return o
 }
 
-// The type of IoT Security recommendation.
 func (o RecommendationConfigurationPropertiesOutput) RecommendationType() pulumi.StringOutput {
 	return o.ApplyT(func(v RecommendationConfigurationProperties) string { return v.RecommendationType }).(pulumi.StringOutput)
 }
 
-// Recommendation status. When the recommendation status is disabled recommendations are not generated.
 func (o RecommendationConfigurationPropertiesOutput) Status() pulumi.StringOutput {
 	return o.ApplyT(func(v RecommendationConfigurationProperties) string { return v.Status }).(pulumi.StringOutput)
 }
@@ -893,13 +782,10 @@ func (o RecommendationConfigurationPropertiesArrayOutput) Index(i pulumi.IntInpu
 	}).(RecommendationConfigurationPropertiesOutput)
 }
 
-// The type of IoT Security recommendation.
 type RecommendationConfigurationPropertiesResponse struct {
-	Name string `pulumi:"name"`
-	// The type of IoT Security recommendation.
+	Name               string `pulumi:"name"`
 	RecommendationType string `pulumi:"recommendationType"`
-	// Recommendation status. When the recommendation status is disabled recommendations are not generated.
-	Status string `pulumi:"status"`
+	Status             string `pulumi:"status"`
 }
 
 // RecommendationConfigurationPropertiesResponseInput is an input type that accepts RecommendationConfigurationPropertiesResponseArgs and RecommendationConfigurationPropertiesResponseOutput values.
@@ -913,13 +799,10 @@ type RecommendationConfigurationPropertiesResponseInput interface {
 	ToRecommendationConfigurationPropertiesResponseOutputWithContext(context.Context) RecommendationConfigurationPropertiesResponseOutput
 }
 
-// The type of IoT Security recommendation.
 type RecommendationConfigurationPropertiesResponseArgs struct {
-	Name pulumi.StringInput `pulumi:"name"`
-	// The type of IoT Security recommendation.
+	Name               pulumi.StringInput `pulumi:"name"`
 	RecommendationType pulumi.StringInput `pulumi:"recommendationType"`
-	// Recommendation status. When the recommendation status is disabled recommendations are not generated.
-	Status pulumi.StringInput `pulumi:"status"`
+	Status             pulumi.StringInput `pulumi:"status"`
 }
 
 func (RecommendationConfigurationPropertiesResponseArgs) ElementType() reflect.Type {
@@ -959,7 +842,6 @@ func (i RecommendationConfigurationPropertiesResponseArray) ToRecommendationConf
 	return pulumi.ToOutputWithContext(ctx, i).(RecommendationConfigurationPropertiesResponseArrayOutput)
 }
 
-// The type of IoT Security recommendation.
 type RecommendationConfigurationPropertiesResponseOutput struct{ *pulumi.OutputState }
 
 func (RecommendationConfigurationPropertiesResponseOutput) ElementType() reflect.Type {
@@ -978,12 +860,10 @@ func (o RecommendationConfigurationPropertiesResponseOutput) Name() pulumi.Strin
 	return o.ApplyT(func(v RecommendationConfigurationPropertiesResponse) string { return v.Name }).(pulumi.StringOutput)
 }
 
-// The type of IoT Security recommendation.
 func (o RecommendationConfigurationPropertiesResponseOutput) RecommendationType() pulumi.StringOutput {
 	return o.ApplyT(func(v RecommendationConfigurationPropertiesResponse) string { return v.RecommendationType }).(pulumi.StringOutput)
 }
 
-// Recommendation status. When the recommendation status is disabled recommendations are not generated.
 func (o RecommendationConfigurationPropertiesResponseOutput) Status() pulumi.StringOutput {
 	return o.ApplyT(func(v RecommendationConfigurationPropertiesResponse) string { return v.Status }).(pulumi.StringOutput)
 }
@@ -1008,19 +888,12 @@ func (o RecommendationConfigurationPropertiesResponseArrayOutput) Index(i pulumi
 	}).(RecommendationConfigurationPropertiesResponseOutput)
 }
 
-// Metadata pertaining to creation and last modification of the resource.
 type SystemDataResponse struct {
-	// The timestamp of resource creation (UTC).
-	CreatedAt *string `pulumi:"createdAt"`
-	// The identity that created the resource.
-	CreatedBy *string `pulumi:"createdBy"`
-	// The type of identity that created the resource.
-	CreatedByType *string `pulumi:"createdByType"`
-	// The timestamp of resource last modification (UTC)
-	LastModifiedAt *string `pulumi:"lastModifiedAt"`
-	// The identity that last modified the resource.
-	LastModifiedBy *string `pulumi:"lastModifiedBy"`
-	// The type of identity that last modified the resource.
+	CreatedAt          *string `pulumi:"createdAt"`
+	CreatedBy          *string `pulumi:"createdBy"`
+	CreatedByType      *string `pulumi:"createdByType"`
+	LastModifiedAt     *string `pulumi:"lastModifiedAt"`
+	LastModifiedBy     *string `pulumi:"lastModifiedBy"`
 	LastModifiedByType *string `pulumi:"lastModifiedByType"`
 }
 
@@ -1035,19 +908,12 @@ type SystemDataResponseInput interface {
 	ToSystemDataResponseOutputWithContext(context.Context) SystemDataResponseOutput
 }
 
-// Metadata pertaining to creation and last modification of the resource.
 type SystemDataResponseArgs struct {
-	// The timestamp of resource creation (UTC).
-	CreatedAt pulumi.StringPtrInput `pulumi:"createdAt"`
-	// The identity that created the resource.
-	CreatedBy pulumi.StringPtrInput `pulumi:"createdBy"`
-	// The type of identity that created the resource.
-	CreatedByType pulumi.StringPtrInput `pulumi:"createdByType"`
-	// The timestamp of resource last modification (UTC)
-	LastModifiedAt pulumi.StringPtrInput `pulumi:"lastModifiedAt"`
-	// The identity that last modified the resource.
-	LastModifiedBy pulumi.StringPtrInput `pulumi:"lastModifiedBy"`
-	// The type of identity that last modified the resource.
+	CreatedAt          pulumi.StringPtrInput `pulumi:"createdAt"`
+	CreatedBy          pulumi.StringPtrInput `pulumi:"createdBy"`
+	CreatedByType      pulumi.StringPtrInput `pulumi:"createdByType"`
+	LastModifiedAt     pulumi.StringPtrInput `pulumi:"lastModifiedAt"`
+	LastModifiedBy     pulumi.StringPtrInput `pulumi:"lastModifiedBy"`
 	LastModifiedByType pulumi.StringPtrInput `pulumi:"lastModifiedByType"`
 }
 
@@ -1104,7 +970,6 @@ func (i *systemDataResponsePtrType) ToSystemDataResponsePtrOutputWithContext(ctx
 	return pulumi.ToOutputWithContext(ctx, i).(SystemDataResponsePtrOutput)
 }
 
-// Metadata pertaining to creation and last modification of the resource.
 type SystemDataResponseOutput struct{ *pulumi.OutputState }
 
 func (SystemDataResponseOutput) ElementType() reflect.Type {
@@ -1124,37 +989,31 @@ func (o SystemDataResponseOutput) ToSystemDataResponsePtrOutput() SystemDataResp
 }
 
 func (o SystemDataResponseOutput) ToSystemDataResponsePtrOutputWithContext(ctx context.Context) SystemDataResponsePtrOutput {
-	return o.ApplyT(func(v SystemDataResponse) *SystemDataResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v SystemDataResponse) *SystemDataResponse {
 		return &v
 	}).(SystemDataResponsePtrOutput)
 }
 
-// The timestamp of resource creation (UTC).
 func (o SystemDataResponseOutput) CreatedAt() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SystemDataResponse) *string { return v.CreatedAt }).(pulumi.StringPtrOutput)
 }
 
-// The identity that created the resource.
 func (o SystemDataResponseOutput) CreatedBy() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SystemDataResponse) *string { return v.CreatedBy }).(pulumi.StringPtrOutput)
 }
 
-// The type of identity that created the resource.
 func (o SystemDataResponseOutput) CreatedByType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SystemDataResponse) *string { return v.CreatedByType }).(pulumi.StringPtrOutput)
 }
 
-// The timestamp of resource last modification (UTC)
 func (o SystemDataResponseOutput) LastModifiedAt() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SystemDataResponse) *string { return v.LastModifiedAt }).(pulumi.StringPtrOutput)
 }
 
-// The identity that last modified the resource.
 func (o SystemDataResponseOutput) LastModifiedBy() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SystemDataResponse) *string { return v.LastModifiedBy }).(pulumi.StringPtrOutput)
 }
 
-// The type of identity that last modified the resource.
 func (o SystemDataResponseOutput) LastModifiedByType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SystemDataResponse) *string { return v.LastModifiedByType }).(pulumi.StringPtrOutput)
 }
@@ -1174,10 +1033,15 @@ func (o SystemDataResponsePtrOutput) ToSystemDataResponsePtrOutputWithContext(ct
 }
 
 func (o SystemDataResponsePtrOutput) Elem() SystemDataResponseOutput {
-	return o.ApplyT(func(v *SystemDataResponse) SystemDataResponse { return *v }).(SystemDataResponseOutput)
+	return o.ApplyT(func(v *SystemDataResponse) SystemDataResponse {
+		if v != nil {
+			return *v
+		}
+		var ret SystemDataResponse
+		return ret
+	}).(SystemDataResponseOutput)
 }
 
-// The timestamp of resource creation (UTC).
 func (o SystemDataResponsePtrOutput) CreatedAt() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SystemDataResponse) *string {
 		if v == nil {
@@ -1187,7 +1051,6 @@ func (o SystemDataResponsePtrOutput) CreatedAt() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The identity that created the resource.
 func (o SystemDataResponsePtrOutput) CreatedBy() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SystemDataResponse) *string {
 		if v == nil {
@@ -1197,7 +1060,6 @@ func (o SystemDataResponsePtrOutput) CreatedBy() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The type of identity that created the resource.
 func (o SystemDataResponsePtrOutput) CreatedByType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SystemDataResponse) *string {
 		if v == nil {
@@ -1207,7 +1069,6 @@ func (o SystemDataResponsePtrOutput) CreatedByType() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The timestamp of resource last modification (UTC)
 func (o SystemDataResponsePtrOutput) LastModifiedAt() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SystemDataResponse) *string {
 		if v == nil {
@@ -1217,7 +1078,6 @@ func (o SystemDataResponsePtrOutput) LastModifiedAt() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The identity that last modified the resource.
 func (o SystemDataResponsePtrOutput) LastModifiedBy() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SystemDataResponse) *string {
 		if v == nil {
@@ -1227,7 +1087,6 @@ func (o SystemDataResponsePtrOutput) LastModifiedBy() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The type of identity that last modified the resource.
 func (o SystemDataResponsePtrOutput) LastModifiedByType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SystemDataResponse) *string {
 		if v == nil {
@@ -1237,17 +1096,11 @@ func (o SystemDataResponsePtrOutput) LastModifiedByType() pulumi.StringPtrOutput
 	}).(pulumi.StringPtrOutput)
 }
 
-// A custom alert rule that checks if a value (depends on the custom alert type) is within the given range.
 type ThresholdCustomAlertRule struct {
-	// Status of the custom alert.
-	IsEnabled bool `pulumi:"isEnabled"`
-	// The maximum threshold.
-	MaxThreshold int `pulumi:"maxThreshold"`
-	// The minimum threshold.
-	MinThreshold int `pulumi:"minThreshold"`
-	// The type of the custom alert rule.
-	// Expected value is 'ThresholdCustomAlertRule'.
-	RuleType string `pulumi:"ruleType"`
+	IsEnabled    bool   `pulumi:"isEnabled"`
+	MaxThreshold int    `pulumi:"maxThreshold"`
+	MinThreshold int    `pulumi:"minThreshold"`
+	RuleType     string `pulumi:"ruleType"`
 }
 
 // ThresholdCustomAlertRuleInput is an input type that accepts ThresholdCustomAlertRuleArgs and ThresholdCustomAlertRuleOutput values.
@@ -1261,17 +1114,11 @@ type ThresholdCustomAlertRuleInput interface {
 	ToThresholdCustomAlertRuleOutputWithContext(context.Context) ThresholdCustomAlertRuleOutput
 }
 
-// A custom alert rule that checks if a value (depends on the custom alert type) is within the given range.
 type ThresholdCustomAlertRuleArgs struct {
-	// Status of the custom alert.
-	IsEnabled pulumi.BoolInput `pulumi:"isEnabled"`
-	// The maximum threshold.
-	MaxThreshold pulumi.IntInput `pulumi:"maxThreshold"`
-	// The minimum threshold.
-	MinThreshold pulumi.IntInput `pulumi:"minThreshold"`
-	// The type of the custom alert rule.
-	// Expected value is 'ThresholdCustomAlertRule'.
-	RuleType pulumi.StringInput `pulumi:"ruleType"`
+	IsEnabled    pulumi.BoolInput   `pulumi:"isEnabled"`
+	MaxThreshold pulumi.IntInput    `pulumi:"maxThreshold"`
+	MinThreshold pulumi.IntInput    `pulumi:"minThreshold"`
+	RuleType     pulumi.StringInput `pulumi:"ruleType"`
 }
 
 func (ThresholdCustomAlertRuleArgs) ElementType() reflect.Type {
@@ -1311,7 +1158,6 @@ func (i ThresholdCustomAlertRuleArray) ToThresholdCustomAlertRuleArrayOutputWith
 	return pulumi.ToOutputWithContext(ctx, i).(ThresholdCustomAlertRuleArrayOutput)
 }
 
-// A custom alert rule that checks if a value (depends on the custom alert type) is within the given range.
 type ThresholdCustomAlertRuleOutput struct{ *pulumi.OutputState }
 
 func (ThresholdCustomAlertRuleOutput) ElementType() reflect.Type {
@@ -1326,23 +1172,18 @@ func (o ThresholdCustomAlertRuleOutput) ToThresholdCustomAlertRuleOutputWithCont
 	return o
 }
 
-// Status of the custom alert.
 func (o ThresholdCustomAlertRuleOutput) IsEnabled() pulumi.BoolOutput {
 	return o.ApplyT(func(v ThresholdCustomAlertRule) bool { return v.IsEnabled }).(pulumi.BoolOutput)
 }
 
-// The maximum threshold.
 func (o ThresholdCustomAlertRuleOutput) MaxThreshold() pulumi.IntOutput {
 	return o.ApplyT(func(v ThresholdCustomAlertRule) int { return v.MaxThreshold }).(pulumi.IntOutput)
 }
 
-// The minimum threshold.
 func (o ThresholdCustomAlertRuleOutput) MinThreshold() pulumi.IntOutput {
 	return o.ApplyT(func(v ThresholdCustomAlertRule) int { return v.MinThreshold }).(pulumi.IntOutput)
 }
 
-// The type of the custom alert rule.
-// Expected value is 'ThresholdCustomAlertRule'.
 func (o ThresholdCustomAlertRuleOutput) RuleType() pulumi.StringOutput {
 	return o.ApplyT(func(v ThresholdCustomAlertRule) string { return v.RuleType }).(pulumi.StringOutput)
 }
@@ -1367,21 +1208,13 @@ func (o ThresholdCustomAlertRuleArrayOutput) Index(i pulumi.IntInput) ThresholdC
 	}).(ThresholdCustomAlertRuleOutput)
 }
 
-// A custom alert rule that checks if a value (depends on the custom alert type) is within the given range.
 type ThresholdCustomAlertRuleResponse struct {
-	// The description of the custom alert.
-	Description string `pulumi:"description"`
-	// The display name of the custom alert.
-	DisplayName string `pulumi:"displayName"`
-	// Status of the custom alert.
-	IsEnabled bool `pulumi:"isEnabled"`
-	// The maximum threshold.
-	MaxThreshold int `pulumi:"maxThreshold"`
-	// The minimum threshold.
-	MinThreshold int `pulumi:"minThreshold"`
-	// The type of the custom alert rule.
-	// Expected value is 'ThresholdCustomAlertRule'.
-	RuleType string `pulumi:"ruleType"`
+	Description  string `pulumi:"description"`
+	DisplayName  string `pulumi:"displayName"`
+	IsEnabled    bool   `pulumi:"isEnabled"`
+	MaxThreshold int    `pulumi:"maxThreshold"`
+	MinThreshold int    `pulumi:"minThreshold"`
+	RuleType     string `pulumi:"ruleType"`
 }
 
 // ThresholdCustomAlertRuleResponseInput is an input type that accepts ThresholdCustomAlertRuleResponseArgs and ThresholdCustomAlertRuleResponseOutput values.
@@ -1395,21 +1228,13 @@ type ThresholdCustomAlertRuleResponseInput interface {
 	ToThresholdCustomAlertRuleResponseOutputWithContext(context.Context) ThresholdCustomAlertRuleResponseOutput
 }
 
-// A custom alert rule that checks if a value (depends on the custom alert type) is within the given range.
 type ThresholdCustomAlertRuleResponseArgs struct {
-	// The description of the custom alert.
-	Description pulumi.StringInput `pulumi:"description"`
-	// The display name of the custom alert.
-	DisplayName pulumi.StringInput `pulumi:"displayName"`
-	// Status of the custom alert.
-	IsEnabled pulumi.BoolInput `pulumi:"isEnabled"`
-	// The maximum threshold.
-	MaxThreshold pulumi.IntInput `pulumi:"maxThreshold"`
-	// The minimum threshold.
-	MinThreshold pulumi.IntInput `pulumi:"minThreshold"`
-	// The type of the custom alert rule.
-	// Expected value is 'ThresholdCustomAlertRule'.
-	RuleType pulumi.StringInput `pulumi:"ruleType"`
+	Description  pulumi.StringInput `pulumi:"description"`
+	DisplayName  pulumi.StringInput `pulumi:"displayName"`
+	IsEnabled    pulumi.BoolInput   `pulumi:"isEnabled"`
+	MaxThreshold pulumi.IntInput    `pulumi:"maxThreshold"`
+	MinThreshold pulumi.IntInput    `pulumi:"minThreshold"`
+	RuleType     pulumi.StringInput `pulumi:"ruleType"`
 }
 
 func (ThresholdCustomAlertRuleResponseArgs) ElementType() reflect.Type {
@@ -1449,7 +1274,6 @@ func (i ThresholdCustomAlertRuleResponseArray) ToThresholdCustomAlertRuleRespons
 	return pulumi.ToOutputWithContext(ctx, i).(ThresholdCustomAlertRuleResponseArrayOutput)
 }
 
-// A custom alert rule that checks if a value (depends on the custom alert type) is within the given range.
 type ThresholdCustomAlertRuleResponseOutput struct{ *pulumi.OutputState }
 
 func (ThresholdCustomAlertRuleResponseOutput) ElementType() reflect.Type {
@@ -1464,33 +1288,26 @@ func (o ThresholdCustomAlertRuleResponseOutput) ToThresholdCustomAlertRuleRespon
 	return o
 }
 
-// The description of the custom alert.
 func (o ThresholdCustomAlertRuleResponseOutput) Description() pulumi.StringOutput {
 	return o.ApplyT(func(v ThresholdCustomAlertRuleResponse) string { return v.Description }).(pulumi.StringOutput)
 }
 
-// The display name of the custom alert.
 func (o ThresholdCustomAlertRuleResponseOutput) DisplayName() pulumi.StringOutput {
 	return o.ApplyT(func(v ThresholdCustomAlertRuleResponse) string { return v.DisplayName }).(pulumi.StringOutput)
 }
 
-// Status of the custom alert.
 func (o ThresholdCustomAlertRuleResponseOutput) IsEnabled() pulumi.BoolOutput {
 	return o.ApplyT(func(v ThresholdCustomAlertRuleResponse) bool { return v.IsEnabled }).(pulumi.BoolOutput)
 }
 
-// The maximum threshold.
 func (o ThresholdCustomAlertRuleResponseOutput) MaxThreshold() pulumi.IntOutput {
 	return o.ApplyT(func(v ThresholdCustomAlertRuleResponse) int { return v.MaxThreshold }).(pulumi.IntOutput)
 }
 
-// The minimum threshold.
 func (o ThresholdCustomAlertRuleResponseOutput) MinThreshold() pulumi.IntOutput {
 	return o.ApplyT(func(v ThresholdCustomAlertRuleResponse) int { return v.MinThreshold }).(pulumi.IntOutput)
 }
 
-// The type of the custom alert rule.
-// Expected value is 'ThresholdCustomAlertRule'.
 func (o ThresholdCustomAlertRuleResponseOutput) RuleType() pulumi.StringOutput {
 	return o.ApplyT(func(v ThresholdCustomAlertRuleResponse) string { return v.RuleType }).(pulumi.StringOutput)
 }
@@ -1515,18 +1332,11 @@ func (o ThresholdCustomAlertRuleResponseArrayOutput) Index(i pulumi.IntInput) Th
 	}).(ThresholdCustomAlertRuleResponseOutput)
 }
 
-// A custom alert rule that checks if the number of activities (depends on the custom alert type) in a time window is within the given range.
 type TimeWindowCustomAlertRule struct {
-	// Status of the custom alert.
-	IsEnabled bool `pulumi:"isEnabled"`
-	// The maximum threshold.
-	MaxThreshold int `pulumi:"maxThreshold"`
-	// The minimum threshold.
-	MinThreshold int `pulumi:"minThreshold"`
-	// The type of the custom alert rule.
-	// Expected value is 'TimeWindowCustomAlertRule'.
-	RuleType string `pulumi:"ruleType"`
-	// The time window size in iso8601 format.
+	IsEnabled      bool   `pulumi:"isEnabled"`
+	MaxThreshold   int    `pulumi:"maxThreshold"`
+	MinThreshold   int    `pulumi:"minThreshold"`
+	RuleType       string `pulumi:"ruleType"`
 	TimeWindowSize string `pulumi:"timeWindowSize"`
 }
 
@@ -1541,18 +1351,11 @@ type TimeWindowCustomAlertRuleInput interface {
 	ToTimeWindowCustomAlertRuleOutputWithContext(context.Context) TimeWindowCustomAlertRuleOutput
 }
 
-// A custom alert rule that checks if the number of activities (depends on the custom alert type) in a time window is within the given range.
 type TimeWindowCustomAlertRuleArgs struct {
-	// Status of the custom alert.
-	IsEnabled pulumi.BoolInput `pulumi:"isEnabled"`
-	// The maximum threshold.
-	MaxThreshold pulumi.IntInput `pulumi:"maxThreshold"`
-	// The minimum threshold.
-	MinThreshold pulumi.IntInput `pulumi:"minThreshold"`
-	// The type of the custom alert rule.
-	// Expected value is 'TimeWindowCustomAlertRule'.
-	RuleType pulumi.StringInput `pulumi:"ruleType"`
-	// The time window size in iso8601 format.
+	IsEnabled      pulumi.BoolInput   `pulumi:"isEnabled"`
+	MaxThreshold   pulumi.IntInput    `pulumi:"maxThreshold"`
+	MinThreshold   pulumi.IntInput    `pulumi:"minThreshold"`
+	RuleType       pulumi.StringInput `pulumi:"ruleType"`
 	TimeWindowSize pulumi.StringInput `pulumi:"timeWindowSize"`
 }
 
@@ -1593,7 +1396,6 @@ func (i TimeWindowCustomAlertRuleArray) ToTimeWindowCustomAlertRuleArrayOutputWi
 	return pulumi.ToOutputWithContext(ctx, i).(TimeWindowCustomAlertRuleArrayOutput)
 }
 
-// A custom alert rule that checks if the number of activities (depends on the custom alert type) in a time window is within the given range.
 type TimeWindowCustomAlertRuleOutput struct{ *pulumi.OutputState }
 
 func (TimeWindowCustomAlertRuleOutput) ElementType() reflect.Type {
@@ -1608,28 +1410,22 @@ func (o TimeWindowCustomAlertRuleOutput) ToTimeWindowCustomAlertRuleOutputWithCo
 	return o
 }
 
-// Status of the custom alert.
 func (o TimeWindowCustomAlertRuleOutput) IsEnabled() pulumi.BoolOutput {
 	return o.ApplyT(func(v TimeWindowCustomAlertRule) bool { return v.IsEnabled }).(pulumi.BoolOutput)
 }
 
-// The maximum threshold.
 func (o TimeWindowCustomAlertRuleOutput) MaxThreshold() pulumi.IntOutput {
 	return o.ApplyT(func(v TimeWindowCustomAlertRule) int { return v.MaxThreshold }).(pulumi.IntOutput)
 }
 
-// The minimum threshold.
 func (o TimeWindowCustomAlertRuleOutput) MinThreshold() pulumi.IntOutput {
 	return o.ApplyT(func(v TimeWindowCustomAlertRule) int { return v.MinThreshold }).(pulumi.IntOutput)
 }
 
-// The type of the custom alert rule.
-// Expected value is 'TimeWindowCustomAlertRule'.
 func (o TimeWindowCustomAlertRuleOutput) RuleType() pulumi.StringOutput {
 	return o.ApplyT(func(v TimeWindowCustomAlertRule) string { return v.RuleType }).(pulumi.StringOutput)
 }
 
-// The time window size in iso8601 format.
 func (o TimeWindowCustomAlertRuleOutput) TimeWindowSize() pulumi.StringOutput {
 	return o.ApplyT(func(v TimeWindowCustomAlertRule) string { return v.TimeWindowSize }).(pulumi.StringOutput)
 }
@@ -1654,22 +1450,13 @@ func (o TimeWindowCustomAlertRuleArrayOutput) Index(i pulumi.IntInput) TimeWindo
 	}).(TimeWindowCustomAlertRuleOutput)
 }
 
-// A custom alert rule that checks if the number of activities (depends on the custom alert type) in a time window is within the given range.
 type TimeWindowCustomAlertRuleResponse struct {
-	// The description of the custom alert.
-	Description string `pulumi:"description"`
-	// The display name of the custom alert.
-	DisplayName string `pulumi:"displayName"`
-	// Status of the custom alert.
-	IsEnabled bool `pulumi:"isEnabled"`
-	// The maximum threshold.
-	MaxThreshold int `pulumi:"maxThreshold"`
-	// The minimum threshold.
-	MinThreshold int `pulumi:"minThreshold"`
-	// The type of the custom alert rule.
-	// Expected value is 'TimeWindowCustomAlertRule'.
-	RuleType string `pulumi:"ruleType"`
-	// The time window size in iso8601 format.
+	Description    string `pulumi:"description"`
+	DisplayName    string `pulumi:"displayName"`
+	IsEnabled      bool   `pulumi:"isEnabled"`
+	MaxThreshold   int    `pulumi:"maxThreshold"`
+	MinThreshold   int    `pulumi:"minThreshold"`
+	RuleType       string `pulumi:"ruleType"`
 	TimeWindowSize string `pulumi:"timeWindowSize"`
 }
 
@@ -1684,22 +1471,13 @@ type TimeWindowCustomAlertRuleResponseInput interface {
 	ToTimeWindowCustomAlertRuleResponseOutputWithContext(context.Context) TimeWindowCustomAlertRuleResponseOutput
 }
 
-// A custom alert rule that checks if the number of activities (depends on the custom alert type) in a time window is within the given range.
 type TimeWindowCustomAlertRuleResponseArgs struct {
-	// The description of the custom alert.
-	Description pulumi.StringInput `pulumi:"description"`
-	// The display name of the custom alert.
-	DisplayName pulumi.StringInput `pulumi:"displayName"`
-	// Status of the custom alert.
-	IsEnabled pulumi.BoolInput `pulumi:"isEnabled"`
-	// The maximum threshold.
-	MaxThreshold pulumi.IntInput `pulumi:"maxThreshold"`
-	// The minimum threshold.
-	MinThreshold pulumi.IntInput `pulumi:"minThreshold"`
-	// The type of the custom alert rule.
-	// Expected value is 'TimeWindowCustomAlertRule'.
-	RuleType pulumi.StringInput `pulumi:"ruleType"`
-	// The time window size in iso8601 format.
+	Description    pulumi.StringInput `pulumi:"description"`
+	DisplayName    pulumi.StringInput `pulumi:"displayName"`
+	IsEnabled      pulumi.BoolInput   `pulumi:"isEnabled"`
+	MaxThreshold   pulumi.IntInput    `pulumi:"maxThreshold"`
+	MinThreshold   pulumi.IntInput    `pulumi:"minThreshold"`
+	RuleType       pulumi.StringInput `pulumi:"ruleType"`
 	TimeWindowSize pulumi.StringInput `pulumi:"timeWindowSize"`
 }
 
@@ -1740,7 +1518,6 @@ func (i TimeWindowCustomAlertRuleResponseArray) ToTimeWindowCustomAlertRuleRespo
 	return pulumi.ToOutputWithContext(ctx, i).(TimeWindowCustomAlertRuleResponseArrayOutput)
 }
 
-// A custom alert rule that checks if the number of activities (depends on the custom alert type) in a time window is within the given range.
 type TimeWindowCustomAlertRuleResponseOutput struct{ *pulumi.OutputState }
 
 func (TimeWindowCustomAlertRuleResponseOutput) ElementType() reflect.Type {
@@ -1755,38 +1532,30 @@ func (o TimeWindowCustomAlertRuleResponseOutput) ToTimeWindowCustomAlertRuleResp
 	return o
 }
 
-// The description of the custom alert.
 func (o TimeWindowCustomAlertRuleResponseOutput) Description() pulumi.StringOutput {
 	return o.ApplyT(func(v TimeWindowCustomAlertRuleResponse) string { return v.Description }).(pulumi.StringOutput)
 }
 
-// The display name of the custom alert.
 func (o TimeWindowCustomAlertRuleResponseOutput) DisplayName() pulumi.StringOutput {
 	return o.ApplyT(func(v TimeWindowCustomAlertRuleResponse) string { return v.DisplayName }).(pulumi.StringOutput)
 }
 
-// Status of the custom alert.
 func (o TimeWindowCustomAlertRuleResponseOutput) IsEnabled() pulumi.BoolOutput {
 	return o.ApplyT(func(v TimeWindowCustomAlertRuleResponse) bool { return v.IsEnabled }).(pulumi.BoolOutput)
 }
 
-// The maximum threshold.
 func (o TimeWindowCustomAlertRuleResponseOutput) MaxThreshold() pulumi.IntOutput {
 	return o.ApplyT(func(v TimeWindowCustomAlertRuleResponse) int { return v.MaxThreshold }).(pulumi.IntOutput)
 }
 
-// The minimum threshold.
 func (o TimeWindowCustomAlertRuleResponseOutput) MinThreshold() pulumi.IntOutput {
 	return o.ApplyT(func(v TimeWindowCustomAlertRuleResponse) int { return v.MinThreshold }).(pulumi.IntOutput)
 }
 
-// The type of the custom alert rule.
-// Expected value is 'TimeWindowCustomAlertRule'.
 func (o TimeWindowCustomAlertRuleResponseOutput) RuleType() pulumi.StringOutput {
 	return o.ApplyT(func(v TimeWindowCustomAlertRuleResponse) string { return v.RuleType }).(pulumi.StringOutput)
 }
 
-// The time window size in iso8601 format.
 func (o TimeWindowCustomAlertRuleResponseOutput) TimeWindowSize() pulumi.StringOutput {
 	return o.ApplyT(func(v TimeWindowCustomAlertRuleResponse) string { return v.TimeWindowSize }).(pulumi.StringOutput)
 }
@@ -1811,11 +1580,8 @@ func (o TimeWindowCustomAlertRuleResponseArrayOutput) Index(i pulumi.IntInput) T
 	}).(TimeWindowCustomAlertRuleResponseOutput)
 }
 
-// Properties of the IoT Security solution's user defined resources.
 type UserDefinedResourcesProperties struct {
-	// Azure Resource Graph query which represents the security solution's user defined resources. Required to start with "where type != "Microsoft.Devices/IotHubs""
-	Query string `pulumi:"query"`
-	// List of Azure subscription ids on which the user defined resources query should be executed.
+	Query              string   `pulumi:"query"`
 	QuerySubscriptions []string `pulumi:"querySubscriptions"`
 }
 
@@ -1830,11 +1596,8 @@ type UserDefinedResourcesPropertiesInput interface {
 	ToUserDefinedResourcesPropertiesOutputWithContext(context.Context) UserDefinedResourcesPropertiesOutput
 }
 
-// Properties of the IoT Security solution's user defined resources.
 type UserDefinedResourcesPropertiesArgs struct {
-	// Azure Resource Graph query which represents the security solution's user defined resources. Required to start with "where type != "Microsoft.Devices/IotHubs""
-	Query pulumi.StringInput `pulumi:"query"`
-	// List of Azure subscription ids on which the user defined resources query should be executed.
+	Query              pulumi.StringInput      `pulumi:"query"`
 	QuerySubscriptions pulumi.StringArrayInput `pulumi:"querySubscriptions"`
 }
 
@@ -1891,7 +1654,6 @@ func (i *userDefinedResourcesPropertiesPtrType) ToUserDefinedResourcesProperties
 	return pulumi.ToOutputWithContext(ctx, i).(UserDefinedResourcesPropertiesPtrOutput)
 }
 
-// Properties of the IoT Security solution's user defined resources.
 type UserDefinedResourcesPropertiesOutput struct{ *pulumi.OutputState }
 
 func (UserDefinedResourcesPropertiesOutput) ElementType() reflect.Type {
@@ -1911,17 +1673,15 @@ func (o UserDefinedResourcesPropertiesOutput) ToUserDefinedResourcesPropertiesPt
 }
 
 func (o UserDefinedResourcesPropertiesOutput) ToUserDefinedResourcesPropertiesPtrOutputWithContext(ctx context.Context) UserDefinedResourcesPropertiesPtrOutput {
-	return o.ApplyT(func(v UserDefinedResourcesProperties) *UserDefinedResourcesProperties {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v UserDefinedResourcesProperties) *UserDefinedResourcesProperties {
 		return &v
 	}).(UserDefinedResourcesPropertiesPtrOutput)
 }
 
-// Azure Resource Graph query which represents the security solution's user defined resources. Required to start with "where type != "Microsoft.Devices/IotHubs""
 func (o UserDefinedResourcesPropertiesOutput) Query() pulumi.StringOutput {
 	return o.ApplyT(func(v UserDefinedResourcesProperties) string { return v.Query }).(pulumi.StringOutput)
 }
 
-// List of Azure subscription ids on which the user defined resources query should be executed.
 func (o UserDefinedResourcesPropertiesOutput) QuerySubscriptions() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v UserDefinedResourcesProperties) []string { return v.QuerySubscriptions }).(pulumi.StringArrayOutput)
 }
@@ -1941,10 +1701,15 @@ func (o UserDefinedResourcesPropertiesPtrOutput) ToUserDefinedResourcesPropertie
 }
 
 func (o UserDefinedResourcesPropertiesPtrOutput) Elem() UserDefinedResourcesPropertiesOutput {
-	return o.ApplyT(func(v *UserDefinedResourcesProperties) UserDefinedResourcesProperties { return *v }).(UserDefinedResourcesPropertiesOutput)
+	return o.ApplyT(func(v *UserDefinedResourcesProperties) UserDefinedResourcesProperties {
+		if v != nil {
+			return *v
+		}
+		var ret UserDefinedResourcesProperties
+		return ret
+	}).(UserDefinedResourcesPropertiesOutput)
 }
 
-// Azure Resource Graph query which represents the security solution's user defined resources. Required to start with "where type != "Microsoft.Devices/IotHubs""
 func (o UserDefinedResourcesPropertiesPtrOutput) Query() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *UserDefinedResourcesProperties) *string {
 		if v == nil {
@@ -1954,7 +1719,6 @@ func (o UserDefinedResourcesPropertiesPtrOutput) Query() pulumi.StringPtrOutput 
 	}).(pulumi.StringPtrOutput)
 }
 
-// List of Azure subscription ids on which the user defined resources query should be executed.
 func (o UserDefinedResourcesPropertiesPtrOutput) QuerySubscriptions() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *UserDefinedResourcesProperties) []string {
 		if v == nil {
@@ -1964,11 +1728,8 @@ func (o UserDefinedResourcesPropertiesPtrOutput) QuerySubscriptions() pulumi.Str
 	}).(pulumi.StringArrayOutput)
 }
 
-// Properties of the IoT Security solution's user defined resources.
 type UserDefinedResourcesPropertiesResponse struct {
-	// Azure Resource Graph query which represents the security solution's user defined resources. Required to start with "where type != "Microsoft.Devices/IotHubs""
-	Query string `pulumi:"query"`
-	// List of Azure subscription ids on which the user defined resources query should be executed.
+	Query              string   `pulumi:"query"`
 	QuerySubscriptions []string `pulumi:"querySubscriptions"`
 }
 
@@ -1983,11 +1744,8 @@ type UserDefinedResourcesPropertiesResponseInput interface {
 	ToUserDefinedResourcesPropertiesResponseOutputWithContext(context.Context) UserDefinedResourcesPropertiesResponseOutput
 }
 
-// Properties of the IoT Security solution's user defined resources.
 type UserDefinedResourcesPropertiesResponseArgs struct {
-	// Azure Resource Graph query which represents the security solution's user defined resources. Required to start with "where type != "Microsoft.Devices/IotHubs""
-	Query pulumi.StringInput `pulumi:"query"`
-	// List of Azure subscription ids on which the user defined resources query should be executed.
+	Query              pulumi.StringInput      `pulumi:"query"`
 	QuerySubscriptions pulumi.StringArrayInput `pulumi:"querySubscriptions"`
 }
 
@@ -2044,7 +1802,6 @@ func (i *userDefinedResourcesPropertiesResponsePtrType) ToUserDefinedResourcesPr
 	return pulumi.ToOutputWithContext(ctx, i).(UserDefinedResourcesPropertiesResponsePtrOutput)
 }
 
-// Properties of the IoT Security solution's user defined resources.
 type UserDefinedResourcesPropertiesResponseOutput struct{ *pulumi.OutputState }
 
 func (UserDefinedResourcesPropertiesResponseOutput) ElementType() reflect.Type {
@@ -2064,17 +1821,15 @@ func (o UserDefinedResourcesPropertiesResponseOutput) ToUserDefinedResourcesProp
 }
 
 func (o UserDefinedResourcesPropertiesResponseOutput) ToUserDefinedResourcesPropertiesResponsePtrOutputWithContext(ctx context.Context) UserDefinedResourcesPropertiesResponsePtrOutput {
-	return o.ApplyT(func(v UserDefinedResourcesPropertiesResponse) *UserDefinedResourcesPropertiesResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v UserDefinedResourcesPropertiesResponse) *UserDefinedResourcesPropertiesResponse {
 		return &v
 	}).(UserDefinedResourcesPropertiesResponsePtrOutput)
 }
 
-// Azure Resource Graph query which represents the security solution's user defined resources. Required to start with "where type != "Microsoft.Devices/IotHubs""
 func (o UserDefinedResourcesPropertiesResponseOutput) Query() pulumi.StringOutput {
 	return o.ApplyT(func(v UserDefinedResourcesPropertiesResponse) string { return v.Query }).(pulumi.StringOutput)
 }
 
-// List of Azure subscription ids on which the user defined resources query should be executed.
 func (o UserDefinedResourcesPropertiesResponseOutput) QuerySubscriptions() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v UserDefinedResourcesPropertiesResponse) []string { return v.QuerySubscriptions }).(pulumi.StringArrayOutput)
 }
@@ -2094,10 +1849,15 @@ func (o UserDefinedResourcesPropertiesResponsePtrOutput) ToUserDefinedResourcesP
 }
 
 func (o UserDefinedResourcesPropertiesResponsePtrOutput) Elem() UserDefinedResourcesPropertiesResponseOutput {
-	return o.ApplyT(func(v *UserDefinedResourcesPropertiesResponse) UserDefinedResourcesPropertiesResponse { return *v }).(UserDefinedResourcesPropertiesResponseOutput)
+	return o.ApplyT(func(v *UserDefinedResourcesPropertiesResponse) UserDefinedResourcesPropertiesResponse {
+		if v != nil {
+			return *v
+		}
+		var ret UserDefinedResourcesPropertiesResponse
+		return ret
+	}).(UserDefinedResourcesPropertiesResponseOutput)
 }
 
-// Azure Resource Graph query which represents the security solution's user defined resources. Required to start with "where type != "Microsoft.Devices/IotHubs""
 func (o UserDefinedResourcesPropertiesResponsePtrOutput) Query() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *UserDefinedResourcesPropertiesResponse) *string {
 		if v == nil {
@@ -2107,7 +1867,6 @@ func (o UserDefinedResourcesPropertiesResponsePtrOutput) Query() pulumi.StringPt
 	}).(pulumi.StringPtrOutput)
 }
 
-// List of Azure subscription ids on which the user defined resources query should be executed.
 func (o UserDefinedResourcesPropertiesResponsePtrOutput) QuerySubscriptions() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *UserDefinedResourcesPropertiesResponse) []string {
 		if v == nil {

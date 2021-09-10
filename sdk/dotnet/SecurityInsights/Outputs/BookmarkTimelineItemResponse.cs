@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.SecurityInsights.Outputs
 {
 
+    /// <summary>
+    /// Represents bookmark timeline item.
+    /// </summary>
     [OutputType]
     public sealed class BookmarkTimelineItemResponse
     {

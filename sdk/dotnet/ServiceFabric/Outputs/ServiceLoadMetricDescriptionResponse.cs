@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.ServiceFabric.Outputs
 {
 
+    /// <summary>
+    /// Specifies a metric to load balance a service during runtime.
+    /// </summary>
     [OutputType]
     public sealed class ServiceLoadMetricDescriptionResponse
     {

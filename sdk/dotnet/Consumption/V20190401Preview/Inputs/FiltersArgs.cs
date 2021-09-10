@@ -52,14 +52,14 @@ namespace Pulumi.AzureNative.Consumption.V20190401Preview.Inputs
         }
 
         [Input("tags")]
-        private InputMap<ImmutableArray<Input<string>>>? _tags;
+        private InputMap<ImmutableArray<string>>? _tags;
 
         /// <summary>
         /// The dictionary of filters on tags.
         /// </summary>
-        public InputMap<ImmutableArray<Input<string>>> Tags
+        public InputMap<ImmutableArray<string>> Tags
         {
-            get => _tags ?? (_tags = new InputMap<ImmutableArray<Input<string>>>());
+            get => _tags ?? (_tags = new InputMap<ImmutableArray<string>>());
             set => _tags = value;
         }
 

@@ -10,10 +10,8 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Identity for the connected cluster.
 type ConnectedClusterIdentity struct {
-	// The type of identity used for the connected cluster. The type 'SystemAssigned, includes a system created identity. The type 'None' means no identity is assigned to the connected cluster.
-	Type string `pulumi:"type"`
+	Type ResourceIdentityType `pulumi:"type"`
 }
 
 // ConnectedClusterIdentityInput is an input type that accepts ConnectedClusterIdentityArgs and ConnectedClusterIdentityOutput values.
@@ -27,10 +25,8 @@ type ConnectedClusterIdentityInput interface {
 	ToConnectedClusterIdentityOutputWithContext(context.Context) ConnectedClusterIdentityOutput
 }
 
-// Identity for the connected cluster.
 type ConnectedClusterIdentityArgs struct {
-	// The type of identity used for the connected cluster. The type 'SystemAssigned, includes a system created identity. The type 'None' means no identity is assigned to the connected cluster.
-	Type ResourceIdentityType `pulumi:"type"`
+	Type ResourceIdentityTypeInput `pulumi:"type"`
 }
 
 func (ConnectedClusterIdentityArgs) ElementType() reflect.Type {
@@ -86,7 +82,6 @@ func (i *connectedClusterIdentityPtrType) ToConnectedClusterIdentityPtrOutputWit
 	return pulumi.ToOutputWithContext(ctx, i).(ConnectedClusterIdentityPtrOutput)
 }
 
-// Identity for the connected cluster.
 type ConnectedClusterIdentityOutput struct{ *pulumi.OutputState }
 
 func (ConnectedClusterIdentityOutput) ElementType() reflect.Type {
@@ -106,14 +101,13 @@ func (o ConnectedClusterIdentityOutput) ToConnectedClusterIdentityPtrOutput() Co
 }
 
 func (o ConnectedClusterIdentityOutput) ToConnectedClusterIdentityPtrOutputWithContext(ctx context.Context) ConnectedClusterIdentityPtrOutput {
-	return o.ApplyT(func(v ConnectedClusterIdentity) *ConnectedClusterIdentity {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ConnectedClusterIdentity) *ConnectedClusterIdentity {
 		return &v
 	}).(ConnectedClusterIdentityPtrOutput)
 }
 
-// The type of identity used for the connected cluster. The type 'SystemAssigned, includes a system created identity. The type 'None' means no identity is assigned to the connected cluster.
-func (o ConnectedClusterIdentityOutput) Type() pulumi.StringOutput {
-	return o.ApplyT(func(v ConnectedClusterIdentity) string { return v.Type }).(pulumi.StringOutput)
+func (o ConnectedClusterIdentityOutput) Type() ResourceIdentityTypeOutput {
+	return o.ApplyT(func(v ConnectedClusterIdentity) ResourceIdentityType { return v.Type }).(ResourceIdentityTypeOutput)
 }
 
 type ConnectedClusterIdentityPtrOutput struct{ *pulumi.OutputState }
@@ -131,27 +125,28 @@ func (o ConnectedClusterIdentityPtrOutput) ToConnectedClusterIdentityPtrOutputWi
 }
 
 func (o ConnectedClusterIdentityPtrOutput) Elem() ConnectedClusterIdentityOutput {
-	return o.ApplyT(func(v *ConnectedClusterIdentity) ConnectedClusterIdentity { return *v }).(ConnectedClusterIdentityOutput)
+	return o.ApplyT(func(v *ConnectedClusterIdentity) ConnectedClusterIdentity {
+		if v != nil {
+			return *v
+		}
+		var ret ConnectedClusterIdentity
+		return ret
+	}).(ConnectedClusterIdentityOutput)
 }
 
-// The type of identity used for the connected cluster. The type 'SystemAssigned, includes a system created identity. The type 'None' means no identity is assigned to the connected cluster.
-func (o ConnectedClusterIdentityPtrOutput) Type() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *ConnectedClusterIdentity) *string {
+func (o ConnectedClusterIdentityPtrOutput) Type() ResourceIdentityTypePtrOutput {
+	return o.ApplyT(func(v *ConnectedClusterIdentity) *ResourceIdentityType {
 		if v == nil {
 			return nil
 		}
 		return &v.Type
-	}).(pulumi.StringPtrOutput)
+	}).(ResourceIdentityTypePtrOutput)
 }
 
-// Identity for the connected cluster.
 type ConnectedClusterIdentityResponse struct {
-	// The principal id of connected cluster identity. This property will only be provided for a system assigned identity.
 	PrincipalId string `pulumi:"principalId"`
-	// The tenant id associated with the connected cluster. This property will only be provided for a system assigned identity.
-	TenantId string `pulumi:"tenantId"`
-	// The type of identity used for the connected cluster. The type 'SystemAssigned, includes a system created identity. The type 'None' means no identity is assigned to the connected cluster.
-	Type string `pulumi:"type"`
+	TenantId    string `pulumi:"tenantId"`
+	Type        string `pulumi:"type"`
 }
 
 // ConnectedClusterIdentityResponseInput is an input type that accepts ConnectedClusterIdentityResponseArgs and ConnectedClusterIdentityResponseOutput values.
@@ -165,14 +160,10 @@ type ConnectedClusterIdentityResponseInput interface {
 	ToConnectedClusterIdentityResponseOutputWithContext(context.Context) ConnectedClusterIdentityResponseOutput
 }
 
-// Identity for the connected cluster.
 type ConnectedClusterIdentityResponseArgs struct {
-	// The principal id of connected cluster identity. This property will only be provided for a system assigned identity.
 	PrincipalId pulumi.StringInput `pulumi:"principalId"`
-	// The tenant id associated with the connected cluster. This property will only be provided for a system assigned identity.
-	TenantId pulumi.StringInput `pulumi:"tenantId"`
-	// The type of identity used for the connected cluster. The type 'SystemAssigned, includes a system created identity. The type 'None' means no identity is assigned to the connected cluster.
-	Type pulumi.StringInput `pulumi:"type"`
+	TenantId    pulumi.StringInput `pulumi:"tenantId"`
+	Type        pulumi.StringInput `pulumi:"type"`
 }
 
 func (ConnectedClusterIdentityResponseArgs) ElementType() reflect.Type {
@@ -228,7 +219,6 @@ func (i *connectedClusterIdentityResponsePtrType) ToConnectedClusterIdentityResp
 	return pulumi.ToOutputWithContext(ctx, i).(ConnectedClusterIdentityResponsePtrOutput)
 }
 
-// Identity for the connected cluster.
 type ConnectedClusterIdentityResponseOutput struct{ *pulumi.OutputState }
 
 func (ConnectedClusterIdentityResponseOutput) ElementType() reflect.Type {
@@ -248,22 +238,19 @@ func (o ConnectedClusterIdentityResponseOutput) ToConnectedClusterIdentityRespon
 }
 
 func (o ConnectedClusterIdentityResponseOutput) ToConnectedClusterIdentityResponsePtrOutputWithContext(ctx context.Context) ConnectedClusterIdentityResponsePtrOutput {
-	return o.ApplyT(func(v ConnectedClusterIdentityResponse) *ConnectedClusterIdentityResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ConnectedClusterIdentityResponse) *ConnectedClusterIdentityResponse {
 		return &v
 	}).(ConnectedClusterIdentityResponsePtrOutput)
 }
 
-// The principal id of connected cluster identity. This property will only be provided for a system assigned identity.
 func (o ConnectedClusterIdentityResponseOutput) PrincipalId() pulumi.StringOutput {
 	return o.ApplyT(func(v ConnectedClusterIdentityResponse) string { return v.PrincipalId }).(pulumi.StringOutput)
 }
 
-// The tenant id associated with the connected cluster. This property will only be provided for a system assigned identity.
 func (o ConnectedClusterIdentityResponseOutput) TenantId() pulumi.StringOutput {
 	return o.ApplyT(func(v ConnectedClusterIdentityResponse) string { return v.TenantId }).(pulumi.StringOutput)
 }
 
-// The type of identity used for the connected cluster. The type 'SystemAssigned, includes a system created identity. The type 'None' means no identity is assigned to the connected cluster.
 func (o ConnectedClusterIdentityResponseOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v ConnectedClusterIdentityResponse) string { return v.Type }).(pulumi.StringOutput)
 }
@@ -283,10 +270,15 @@ func (o ConnectedClusterIdentityResponsePtrOutput) ToConnectedClusterIdentityRes
 }
 
 func (o ConnectedClusterIdentityResponsePtrOutput) Elem() ConnectedClusterIdentityResponseOutput {
-	return o.ApplyT(func(v *ConnectedClusterIdentityResponse) ConnectedClusterIdentityResponse { return *v }).(ConnectedClusterIdentityResponseOutput)
+	return o.ApplyT(func(v *ConnectedClusterIdentityResponse) ConnectedClusterIdentityResponse {
+		if v != nil {
+			return *v
+		}
+		var ret ConnectedClusterIdentityResponse
+		return ret
+	}).(ConnectedClusterIdentityResponseOutput)
 }
 
-// The principal id of connected cluster identity. This property will only be provided for a system assigned identity.
 func (o ConnectedClusterIdentityResponsePtrOutput) PrincipalId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ConnectedClusterIdentityResponse) *string {
 		if v == nil {
@@ -296,7 +288,6 @@ func (o ConnectedClusterIdentityResponsePtrOutput) PrincipalId() pulumi.StringPt
 	}).(pulumi.StringPtrOutput)
 }
 
-// The tenant id associated with the connected cluster. This property will only be provided for a system assigned identity.
 func (o ConnectedClusterIdentityResponsePtrOutput) TenantId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ConnectedClusterIdentityResponse) *string {
 		if v == nil {
@@ -306,7 +297,6 @@ func (o ConnectedClusterIdentityResponsePtrOutput) TenantId() pulumi.StringPtrOu
 	}).(pulumi.StringPtrOutput)
 }
 
-// The type of identity used for the connected cluster. The type 'SystemAssigned, includes a system created identity. The type 'None' means no identity is assigned to the connected cluster.
 func (o ConnectedClusterIdentityResponsePtrOutput) Type() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ConnectedClusterIdentityResponse) *string {
 		if v == nil {
@@ -316,19 +306,12 @@ func (o ConnectedClusterIdentityResponsePtrOutput) Type() pulumi.StringPtrOutput
 	}).(pulumi.StringPtrOutput)
 }
 
-// Metadata pertaining to creation and last modification of the resource.
 type SystemDataResponse struct {
-	// The timestamp of resource creation (UTC).
-	CreatedAt *string `pulumi:"createdAt"`
-	// The identity that created the resource.
-	CreatedBy *string `pulumi:"createdBy"`
-	// The type of identity that created the resource.
-	CreatedByType *string `pulumi:"createdByType"`
-	// The timestamp of resource modification (UTC).
-	LastModifiedAt *string `pulumi:"lastModifiedAt"`
-	// The identity that last modified the resource.
-	LastModifiedBy *string `pulumi:"lastModifiedBy"`
-	// The type of identity that last modified the resource.
+	CreatedAt          *string `pulumi:"createdAt"`
+	CreatedBy          *string `pulumi:"createdBy"`
+	CreatedByType      *string `pulumi:"createdByType"`
+	LastModifiedAt     *string `pulumi:"lastModifiedAt"`
+	LastModifiedBy     *string `pulumi:"lastModifiedBy"`
 	LastModifiedByType *string `pulumi:"lastModifiedByType"`
 }
 
@@ -343,19 +326,12 @@ type SystemDataResponseInput interface {
 	ToSystemDataResponseOutputWithContext(context.Context) SystemDataResponseOutput
 }
 
-// Metadata pertaining to creation and last modification of the resource.
 type SystemDataResponseArgs struct {
-	// The timestamp of resource creation (UTC).
-	CreatedAt pulumi.StringPtrInput `pulumi:"createdAt"`
-	// The identity that created the resource.
-	CreatedBy pulumi.StringPtrInput `pulumi:"createdBy"`
-	// The type of identity that created the resource.
-	CreatedByType pulumi.StringPtrInput `pulumi:"createdByType"`
-	// The timestamp of resource modification (UTC).
-	LastModifiedAt pulumi.StringPtrInput `pulumi:"lastModifiedAt"`
-	// The identity that last modified the resource.
-	LastModifiedBy pulumi.StringPtrInput `pulumi:"lastModifiedBy"`
-	// The type of identity that last modified the resource.
+	CreatedAt          pulumi.StringPtrInput `pulumi:"createdAt"`
+	CreatedBy          pulumi.StringPtrInput `pulumi:"createdBy"`
+	CreatedByType      pulumi.StringPtrInput `pulumi:"createdByType"`
+	LastModifiedAt     pulumi.StringPtrInput `pulumi:"lastModifiedAt"`
+	LastModifiedBy     pulumi.StringPtrInput `pulumi:"lastModifiedBy"`
 	LastModifiedByType pulumi.StringPtrInput `pulumi:"lastModifiedByType"`
 }
 
@@ -412,7 +388,6 @@ func (i *systemDataResponsePtrType) ToSystemDataResponsePtrOutputWithContext(ctx
 	return pulumi.ToOutputWithContext(ctx, i).(SystemDataResponsePtrOutput)
 }
 
-// Metadata pertaining to creation and last modification of the resource.
 type SystemDataResponseOutput struct{ *pulumi.OutputState }
 
 func (SystemDataResponseOutput) ElementType() reflect.Type {
@@ -432,37 +407,31 @@ func (o SystemDataResponseOutput) ToSystemDataResponsePtrOutput() SystemDataResp
 }
 
 func (o SystemDataResponseOutput) ToSystemDataResponsePtrOutputWithContext(ctx context.Context) SystemDataResponsePtrOutput {
-	return o.ApplyT(func(v SystemDataResponse) *SystemDataResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v SystemDataResponse) *SystemDataResponse {
 		return &v
 	}).(SystemDataResponsePtrOutput)
 }
 
-// The timestamp of resource creation (UTC).
 func (o SystemDataResponseOutput) CreatedAt() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SystemDataResponse) *string { return v.CreatedAt }).(pulumi.StringPtrOutput)
 }
 
-// The identity that created the resource.
 func (o SystemDataResponseOutput) CreatedBy() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SystemDataResponse) *string { return v.CreatedBy }).(pulumi.StringPtrOutput)
 }
 
-// The type of identity that created the resource.
 func (o SystemDataResponseOutput) CreatedByType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SystemDataResponse) *string { return v.CreatedByType }).(pulumi.StringPtrOutput)
 }
 
-// The timestamp of resource modification (UTC).
 func (o SystemDataResponseOutput) LastModifiedAt() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SystemDataResponse) *string { return v.LastModifiedAt }).(pulumi.StringPtrOutput)
 }
 
-// The identity that last modified the resource.
 func (o SystemDataResponseOutput) LastModifiedBy() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SystemDataResponse) *string { return v.LastModifiedBy }).(pulumi.StringPtrOutput)
 }
 
-// The type of identity that last modified the resource.
 func (o SystemDataResponseOutput) LastModifiedByType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SystemDataResponse) *string { return v.LastModifiedByType }).(pulumi.StringPtrOutput)
 }
@@ -482,10 +451,15 @@ func (o SystemDataResponsePtrOutput) ToSystemDataResponsePtrOutputWithContext(ct
 }
 
 func (o SystemDataResponsePtrOutput) Elem() SystemDataResponseOutput {
-	return o.ApplyT(func(v *SystemDataResponse) SystemDataResponse { return *v }).(SystemDataResponseOutput)
+	return o.ApplyT(func(v *SystemDataResponse) SystemDataResponse {
+		if v != nil {
+			return *v
+		}
+		var ret SystemDataResponse
+		return ret
+	}).(SystemDataResponseOutput)
 }
 
-// The timestamp of resource creation (UTC).
 func (o SystemDataResponsePtrOutput) CreatedAt() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SystemDataResponse) *string {
 		if v == nil {
@@ -495,7 +469,6 @@ func (o SystemDataResponsePtrOutput) CreatedAt() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The identity that created the resource.
 func (o SystemDataResponsePtrOutput) CreatedBy() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SystemDataResponse) *string {
 		if v == nil {
@@ -505,7 +478,6 @@ func (o SystemDataResponsePtrOutput) CreatedBy() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The type of identity that created the resource.
 func (o SystemDataResponsePtrOutput) CreatedByType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SystemDataResponse) *string {
 		if v == nil {
@@ -515,7 +487,6 @@ func (o SystemDataResponsePtrOutput) CreatedByType() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The timestamp of resource modification (UTC).
 func (o SystemDataResponsePtrOutput) LastModifiedAt() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SystemDataResponse) *string {
 		if v == nil {
@@ -525,7 +496,6 @@ func (o SystemDataResponsePtrOutput) LastModifiedAt() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The identity that last modified the resource.
 func (o SystemDataResponsePtrOutput) LastModifiedBy() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SystemDataResponse) *string {
 		if v == nil {
@@ -535,7 +505,6 @@ func (o SystemDataResponsePtrOutput) LastModifiedBy() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The type of identity that last modified the resource.
 func (o SystemDataResponsePtrOutput) LastModifiedByType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SystemDataResponse) *string {
 		if v == nil {

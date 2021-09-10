@@ -151,9 +151,7 @@ func (i *AFDEndpoint) ToAFDEndpointOutputWithContext(ctx context.Context) AFDEnd
 	return pulumi.ToOutputWithContext(ctx, i).(AFDEndpointOutput)
 }
 
-type AFDEndpointOutput struct {
-	*pulumi.OutputState
-}
+type AFDEndpointOutput struct{ *pulumi.OutputState }
 
 func (AFDEndpointOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*AFDEndpoint)(nil))

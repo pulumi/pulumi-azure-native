@@ -11,24 +11,16 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// SpatialAnchorsAccount Response.
 type SpatialAnchorsAccount struct {
 	pulumi.CustomResourceState
 
-	// Correspond domain name of certain Spatial Anchors Account
-	AccountDomain pulumi.StringOutput `pulumi:"accountDomain"`
-	// unique id of certain Spatial Anchors Account data contract.
-	AccountId pulumi.StringOutput `pulumi:"accountId"`
-	// The identity associated with this account
-	Identity IdentityResponsePtrOutput `pulumi:"identity"`
-	// The geo-location where the resource lives
-	Location pulumi.StringOutput `pulumi:"location"`
-	// The name of the resource
-	Name pulumi.StringOutput `pulumi:"name"`
-	// Resource tags.
-	Tags pulumi.StringMapOutput `pulumi:"tags"`
-	// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
-	Type pulumi.StringOutput `pulumi:"type"`
+	AccountDomain pulumi.StringOutput       `pulumi:"accountDomain"`
+	AccountId     pulumi.StringOutput       `pulumi:"accountId"`
+	Identity      IdentityResponsePtrOutput `pulumi:"identity"`
+	Location      pulumi.StringOutput       `pulumi:"location"`
+	Name          pulumi.StringOutput       `pulumi:"name"`
+	Tags          pulumi.StringMapOutput    `pulumi:"tags"`
+	Type          pulumi.StringOutput       `pulumi:"type"`
 }
 
 // NewSpatialAnchorsAccount registers a new resource with the given unique name, arguments, and options.
@@ -109,30 +101,20 @@ func (SpatialAnchorsAccountState) ElementType() reflect.Type {
 }
 
 type spatialAnchorsAccountArgs struct {
-	// The identity associated with this account
-	Identity *Identity `pulumi:"identity"`
-	// The geo-location where the resource lives
-	Location *string `pulumi:"location"`
-	// Name of an Azure resource group.
-	ResourceGroupName string `pulumi:"resourceGroupName"`
-	// Name of an Mixed Reality Spatial Anchors Account.
-	SpatialAnchorsAccountName *string `pulumi:"spatialAnchorsAccountName"`
-	// Resource tags.
-	Tags map[string]string `pulumi:"tags"`
+	Identity                  *Identity         `pulumi:"identity"`
+	Location                  *string           `pulumi:"location"`
+	ResourceGroupName         string            `pulumi:"resourceGroupName"`
+	SpatialAnchorsAccountName *string           `pulumi:"spatialAnchorsAccountName"`
+	Tags                      map[string]string `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a SpatialAnchorsAccount resource.
 type SpatialAnchorsAccountArgs struct {
-	// The identity associated with this account
-	Identity IdentityPtrInput
-	// The geo-location where the resource lives
-	Location pulumi.StringPtrInput
-	// Name of an Azure resource group.
-	ResourceGroupName pulumi.StringInput
-	// Name of an Mixed Reality Spatial Anchors Account.
+	Identity                  IdentityPtrInput
+	Location                  pulumi.StringPtrInput
+	ResourceGroupName         pulumi.StringInput
 	SpatialAnchorsAccountName pulumi.StringPtrInput
-	// Resource tags.
-	Tags pulumi.StringMapInput
+	Tags                      pulumi.StringMapInput
 }
 
 func (SpatialAnchorsAccountArgs) ElementType() reflect.Type {
@@ -158,9 +140,7 @@ func (i *SpatialAnchorsAccount) ToSpatialAnchorsAccountOutputWithContext(ctx con
 	return pulumi.ToOutputWithContext(ctx, i).(SpatialAnchorsAccountOutput)
 }
 
-type SpatialAnchorsAccountOutput struct {
-	*pulumi.OutputState
-}
+type SpatialAnchorsAccountOutput struct{ *pulumi.OutputState }
 
 func (SpatialAnchorsAccountOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*SpatialAnchorsAccount)(nil))

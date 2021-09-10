@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.AnalysisServices.V20170801.Outputs
 {
 
+    /// <summary>
+    /// Represents the SKU name and Azure pricing tier for Analysis Services resource.
+    /// </summary>
     [OutputType]
     public sealed class ResourceSkuResponse
     {

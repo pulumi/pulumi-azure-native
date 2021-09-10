@@ -10,16 +10,12 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Subscription Information with the alias.
 type SubscriptionAlias struct {
 	pulumi.CustomResourceState
 
-	// Alias ID.
-	Name pulumi.StringOutput `pulumi:"name"`
-	// Put Alias response properties.
+	Name       pulumi.StringOutput                      `pulumi:"name"`
 	Properties PutAliasResponsePropertiesResponseOutput `pulumi:"properties"`
-	// Resource type, Microsoft.Subscription/aliases.
-	Type pulumi.StringOutput `pulumi:"type"`
+	Type       pulumi.StringOutput                      `pulumi:"type"`
 }
 
 // NewSubscriptionAlias registers a new resource with the given unique name, arguments, and options.
@@ -79,17 +75,13 @@ func (SubscriptionAliasState) ElementType() reflect.Type {
 }
 
 type subscriptionAliasArgs struct {
-	// Name for this subscription creation request also known as alias. Note that this is not the same as subscription name and this doesn’t have any other lifecycle need beyond the request for subscription creation.
-	AliasName *string `pulumi:"aliasName"`
-	// Put alias request properties.
+	AliasName  *string                    `pulumi:"aliasName"`
 	Properties *PutAliasRequestProperties `pulumi:"properties"`
 }
 
 // The set of arguments for constructing a SubscriptionAlias resource.
 type SubscriptionAliasArgs struct {
-	// Name for this subscription creation request also known as alias. Note that this is not the same as subscription name and this doesn’t have any other lifecycle need beyond the request for subscription creation.
-	AliasName pulumi.StringPtrInput
-	// Put alias request properties.
+	AliasName  pulumi.StringPtrInput
 	Properties PutAliasRequestPropertiesPtrInput
 }
 
@@ -116,9 +108,7 @@ func (i *SubscriptionAlias) ToSubscriptionAliasOutputWithContext(ctx context.Con
 	return pulumi.ToOutputWithContext(ctx, i).(SubscriptionAliasOutput)
 }
 
-type SubscriptionAliasOutput struct {
-	*pulumi.OutputState
-}
+type SubscriptionAliasOutput struct{ *pulumi.OutputState }
 
 func (SubscriptionAliasOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*SubscriptionAlias)(nil))

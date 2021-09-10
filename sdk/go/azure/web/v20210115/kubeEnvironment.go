@@ -11,41 +11,23 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// A Kubernetes cluster specialized for web workloads by Azure App Service
 type KubeEnvironment struct {
 	pulumi.CustomResourceState
 
-	AksResourceID pulumi.StringPtrOutput `pulumi:"aksResourceID"`
-	// Cluster configuration which enables the log daemon to export
-	// app logs to a destination. Currently only "log-analytics" is
-	// supported
-	AppLogsConfiguration AppLogsConfigurationResponsePtrOutput `pulumi:"appLogsConfiguration"`
-	// Cluster configuration which determines the ARC cluster
-	// components types. Eg: Choosing between BuildService kind,
-	// FrontEnd Service ArtifactsStorageType etc.
-	ArcConfiguration ArcConfigurationResponsePtrOutput `pulumi:"arcConfiguration"`
-	// Default Domain Name for the cluster
-	DefaultDomain pulumi.StringOutput `pulumi:"defaultDomain"`
-	// Any errors that occurred during deployment or deployment validation
-	DeploymentErrors pulumi.StringOutput `pulumi:"deploymentErrors"`
-	// Extended Location.
-	ExtendedLocation ExtendedLocationResponsePtrOutput `pulumi:"extendedLocation"`
-	// Only visible within Vnet/Subnet
-	InternalLoadBalancerEnabled pulumi.BoolPtrOutput `pulumi:"internalLoadBalancerEnabled"`
-	// Kind of resource.
-	Kind pulumi.StringPtrOutput `pulumi:"kind"`
-	// Resource Location.
-	Location pulumi.StringOutput `pulumi:"location"`
-	// Resource Name.
-	Name pulumi.StringOutput `pulumi:"name"`
-	// Provisioning state of the Kubernetes Environment.
-	ProvisioningState pulumi.StringOutput `pulumi:"provisioningState"`
-	// Static IP of the KubeEnvironment
-	StaticIp pulumi.StringPtrOutput `pulumi:"staticIp"`
-	// Resource tags.
-	Tags pulumi.StringMapOutput `pulumi:"tags"`
-	// Resource type.
-	Type pulumi.StringOutput `pulumi:"type"`
+	AksResourceID               pulumi.StringPtrOutput                `pulumi:"aksResourceID"`
+	AppLogsConfiguration        AppLogsConfigurationResponsePtrOutput `pulumi:"appLogsConfiguration"`
+	ArcConfiguration            ArcConfigurationResponsePtrOutput     `pulumi:"arcConfiguration"`
+	DefaultDomain               pulumi.StringOutput                   `pulumi:"defaultDomain"`
+	DeploymentErrors            pulumi.StringOutput                   `pulumi:"deploymentErrors"`
+	ExtendedLocation            ExtendedLocationResponsePtrOutput     `pulumi:"extendedLocation"`
+	InternalLoadBalancerEnabled pulumi.BoolPtrOutput                  `pulumi:"internalLoadBalancerEnabled"`
+	Kind                        pulumi.StringPtrOutput                `pulumi:"kind"`
+	Location                    pulumi.StringOutput                   `pulumi:"location"`
+	Name                        pulumi.StringOutput                   `pulumi:"name"`
+	ProvisioningState           pulumi.StringOutput                   `pulumi:"provisioningState"`
+	StaticIp                    pulumi.StringPtrOutput                `pulumi:"staticIp"`
+	Tags                        pulumi.StringMapOutput                `pulumi:"tags"`
+	Type                        pulumi.StringOutput                   `pulumi:"type"`
 }
 
 // NewKubeEnvironment registers a new resource with the given unique name, arguments, and options.
@@ -114,60 +96,32 @@ func (KubeEnvironmentState) ElementType() reflect.Type {
 }
 
 type kubeEnvironmentArgs struct {
-	AksResourceID *string `pulumi:"aksResourceID"`
-	// Cluster configuration which enables the log daemon to export
-	// app logs to a destination. Currently only "log-analytics" is
-	// supported
-	AppLogsConfiguration *AppLogsConfiguration `pulumi:"appLogsConfiguration"`
-	// Cluster configuration which determines the ARC cluster
-	// components types. Eg: Choosing between BuildService kind,
-	// FrontEnd Service ArtifactsStorageType etc.
-	ArcConfiguration *ArcConfiguration `pulumi:"arcConfiguration"`
-	// Extended Location.
-	ExtendedLocation *ExtendedLocation `pulumi:"extendedLocation"`
-	// Only visible within Vnet/Subnet
-	InternalLoadBalancerEnabled *bool `pulumi:"internalLoadBalancerEnabled"`
-	// Kind of resource.
-	Kind *string `pulumi:"kind"`
-	// Resource Location.
-	Location *string `pulumi:"location"`
-	// Name of the Kubernetes Environment.
-	Name *string `pulumi:"name"`
-	// Name of the resource group to which the resource belongs.
-	ResourceGroupName string `pulumi:"resourceGroupName"`
-	// Static IP of the KubeEnvironment
-	StaticIp *string `pulumi:"staticIp"`
-	// Resource tags.
-	Tags map[string]string `pulumi:"tags"`
+	AksResourceID               *string               `pulumi:"aksResourceID"`
+	AppLogsConfiguration        *AppLogsConfiguration `pulumi:"appLogsConfiguration"`
+	ArcConfiguration            *ArcConfiguration     `pulumi:"arcConfiguration"`
+	ExtendedLocation            *ExtendedLocation     `pulumi:"extendedLocation"`
+	InternalLoadBalancerEnabled *bool                 `pulumi:"internalLoadBalancerEnabled"`
+	Kind                        *string               `pulumi:"kind"`
+	Location                    *string               `pulumi:"location"`
+	Name                        *string               `pulumi:"name"`
+	ResourceGroupName           string                `pulumi:"resourceGroupName"`
+	StaticIp                    *string               `pulumi:"staticIp"`
+	Tags                        map[string]string     `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a KubeEnvironment resource.
 type KubeEnvironmentArgs struct {
-	AksResourceID pulumi.StringPtrInput
-	// Cluster configuration which enables the log daemon to export
-	// app logs to a destination. Currently only "log-analytics" is
-	// supported
-	AppLogsConfiguration AppLogsConfigurationPtrInput
-	// Cluster configuration which determines the ARC cluster
-	// components types. Eg: Choosing between BuildService kind,
-	// FrontEnd Service ArtifactsStorageType etc.
-	ArcConfiguration ArcConfigurationPtrInput
-	// Extended Location.
-	ExtendedLocation ExtendedLocationPtrInput
-	// Only visible within Vnet/Subnet
+	AksResourceID               pulumi.StringPtrInput
+	AppLogsConfiguration        AppLogsConfigurationPtrInput
+	ArcConfiguration            ArcConfigurationPtrInput
+	ExtendedLocation            ExtendedLocationPtrInput
 	InternalLoadBalancerEnabled pulumi.BoolPtrInput
-	// Kind of resource.
-	Kind pulumi.StringPtrInput
-	// Resource Location.
-	Location pulumi.StringPtrInput
-	// Name of the Kubernetes Environment.
-	Name pulumi.StringPtrInput
-	// Name of the resource group to which the resource belongs.
-	ResourceGroupName pulumi.StringInput
-	// Static IP of the KubeEnvironment
-	StaticIp pulumi.StringPtrInput
-	// Resource tags.
-	Tags pulumi.StringMapInput
+	Kind                        pulumi.StringPtrInput
+	Location                    pulumi.StringPtrInput
+	Name                        pulumi.StringPtrInput
+	ResourceGroupName           pulumi.StringInput
+	StaticIp                    pulumi.StringPtrInput
+	Tags                        pulumi.StringMapInput
 }
 
 func (KubeEnvironmentArgs) ElementType() reflect.Type {
@@ -193,9 +147,7 @@ func (i *KubeEnvironment) ToKubeEnvironmentOutputWithContext(ctx context.Context
 	return pulumi.ToOutputWithContext(ctx, i).(KubeEnvironmentOutput)
 }
 
-type KubeEnvironmentOutput struct {
-	*pulumi.OutputState
-}
+type KubeEnvironmentOutput struct{ *pulumi.OutputState }
 
 func (KubeEnvironmentOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*KubeEnvironment)(nil))

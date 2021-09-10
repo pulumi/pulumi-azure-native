@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.Resources.V20160901.Outputs
 {
 
+    /// <summary>
+    /// Deployment dependency information.
+    /// </summary>
     [OutputType]
     public sealed class BasicDependencyResponse
     {

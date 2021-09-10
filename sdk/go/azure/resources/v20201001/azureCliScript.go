@@ -11,55 +11,31 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Object model for the Azure CLI script.
 type AzureCliScript struct {
 	pulumi.CustomResourceState
 
-	// Command line arguments to pass to the script. Arguments are separated by spaces. ex: -Name blue* -Location 'West US 2'
-	Arguments pulumi.StringPtrOutput `pulumi:"arguments"`
-	// Azure CLI module version to be used.
-	AzCliVersion pulumi.StringOutput `pulumi:"azCliVersion"`
-	// The clean up preference when the script execution gets in a terminal state. Default setting is 'Always'.
-	CleanupPreference pulumi.StringPtrOutput `pulumi:"cleanupPreference"`
-	// Container settings.
-	ContainerSettings ContainerConfigurationResponsePtrOutput `pulumi:"containerSettings"`
-	// The environment variables to pass over to the script.
-	EnvironmentVariables EnvironmentVariableResponseArrayOutput `pulumi:"environmentVariables"`
-	// Gets or sets how the deployment script should be forced to execute even if the script resource has not changed. Can be current time stamp or a GUID.
-	ForceUpdateTag pulumi.StringPtrOutput `pulumi:"forceUpdateTag"`
-	// Optional property. Managed identity to be used for this deployment script. Currently, only user-assigned MSI is supported.
-	Identity ManagedServiceIdentityResponsePtrOutput `pulumi:"identity"`
-	// Type of the script.
-	// Expected value is 'AzureCLI'.
-	Kind pulumi.StringOutput `pulumi:"kind"`
-	// The location of the ACI and the storage account for the deployment script.
-	Location pulumi.StringOutput `pulumi:"location"`
-	// Name of this resource.
-	Name pulumi.StringOutput `pulumi:"name"`
-	// List of script outputs.
-	Outputs pulumi.MapOutput `pulumi:"outputs"`
-	// Uri for the script. This is the entry point for the external script.
-	PrimaryScriptUri pulumi.StringPtrOutput `pulumi:"primaryScriptUri"`
-	// State of the script execution. This only appears in the response.
-	ProvisioningState pulumi.StringOutput `pulumi:"provisioningState"`
-	// Interval for which the service retains the script resource after it reaches a terminal state. Resource will be deleted when this duration expires. Duration is based on ISO 8601 pattern (for example P1D means one day).
-	RetentionInterval pulumi.StringOutput `pulumi:"retentionInterval"`
-	// Script body.
-	ScriptContent pulumi.StringPtrOutput `pulumi:"scriptContent"`
-	// Contains the results of script execution.
-	Status ScriptStatusResponseOutput `pulumi:"status"`
-	// Storage Account settings.
+	Arguments              pulumi.StringPtrOutput                       `pulumi:"arguments"`
+	AzCliVersion           pulumi.StringOutput                          `pulumi:"azCliVersion"`
+	CleanupPreference      pulumi.StringPtrOutput                       `pulumi:"cleanupPreference"`
+	ContainerSettings      ContainerConfigurationResponsePtrOutput      `pulumi:"containerSettings"`
+	EnvironmentVariables   EnvironmentVariableResponseArrayOutput       `pulumi:"environmentVariables"`
+	ForceUpdateTag         pulumi.StringPtrOutput                       `pulumi:"forceUpdateTag"`
+	Identity               ManagedServiceIdentityResponsePtrOutput      `pulumi:"identity"`
+	Kind                   pulumi.StringOutput                          `pulumi:"kind"`
+	Location               pulumi.StringOutput                          `pulumi:"location"`
+	Name                   pulumi.StringOutput                          `pulumi:"name"`
+	Outputs                pulumi.MapOutput                             `pulumi:"outputs"`
+	PrimaryScriptUri       pulumi.StringPtrOutput                       `pulumi:"primaryScriptUri"`
+	ProvisioningState      pulumi.StringOutput                          `pulumi:"provisioningState"`
+	RetentionInterval      pulumi.StringOutput                          `pulumi:"retentionInterval"`
+	ScriptContent          pulumi.StringPtrOutput                       `pulumi:"scriptContent"`
+	Status                 ScriptStatusResponseOutput                   `pulumi:"status"`
 	StorageAccountSettings StorageAccountConfigurationResponsePtrOutput `pulumi:"storageAccountSettings"`
-	// Supporting files for the external script.
-	SupportingScriptUris pulumi.StringArrayOutput `pulumi:"supportingScriptUris"`
-	// The system metadata related to this resource.
-	SystemData SystemDataResponseOutput `pulumi:"systemData"`
-	// Resource tags.
-	Tags pulumi.StringMapOutput `pulumi:"tags"`
-	// Maximum allowed script execution time specified in ISO 8601 format. Default value is P1D
-	Timeout pulumi.StringPtrOutput `pulumi:"timeout"`
-	// Type of this resource.
-	Type pulumi.StringOutput `pulumi:"type"`
+	SupportingScriptUris   pulumi.StringArrayOutput                     `pulumi:"supportingScriptUris"`
+	SystemData             SystemDataResponseOutput                     `pulumi:"systemData"`
+	Tags                   pulumi.StringMapOutput                       `pulumi:"tags"`
+	Timeout                pulumi.StringPtrOutput                       `pulumi:"timeout"`
+	Type                   pulumi.StringOutput                          `pulumi:"type"`
 }
 
 // NewAzureCliScript registers a new resource with the given unique name, arguments, and options.
@@ -138,84 +114,46 @@ func (AzureCliScriptState) ElementType() reflect.Type {
 }
 
 type azureCliScriptArgs struct {
-	// Command line arguments to pass to the script. Arguments are separated by spaces. ex: -Name blue* -Location 'West US 2'
-	Arguments *string `pulumi:"arguments"`
-	// Azure CLI module version to be used.
-	AzCliVersion string `pulumi:"azCliVersion"`
-	// The clean up preference when the script execution gets in a terminal state. Default setting is 'Always'.
-	CleanupPreference *string `pulumi:"cleanupPreference"`
-	// Container settings.
-	ContainerSettings *ContainerConfiguration `pulumi:"containerSettings"`
-	// The environment variables to pass over to the script.
-	EnvironmentVariables []EnvironmentVariable `pulumi:"environmentVariables"`
-	// Gets or sets how the deployment script should be forced to execute even if the script resource has not changed. Can be current time stamp or a GUID.
-	ForceUpdateTag *string `pulumi:"forceUpdateTag"`
-	// Optional property. Managed identity to be used for this deployment script. Currently, only user-assigned MSI is supported.
-	Identity *ManagedServiceIdentity `pulumi:"identity"`
-	// Type of the script.
-	// Expected value is 'AzureCLI'.
-	Kind string `pulumi:"kind"`
-	// The location of the ACI and the storage account for the deployment script.
-	Location *string `pulumi:"location"`
-	// Uri for the script. This is the entry point for the external script.
-	PrimaryScriptUri *string `pulumi:"primaryScriptUri"`
-	// The name of the resource group. The name is case insensitive.
-	ResourceGroupName string `pulumi:"resourceGroupName"`
-	// Interval for which the service retains the script resource after it reaches a terminal state. Resource will be deleted when this duration expires. Duration is based on ISO 8601 pattern (for example P1D means one day).
-	RetentionInterval string `pulumi:"retentionInterval"`
-	// Script body.
-	ScriptContent *string `pulumi:"scriptContent"`
-	// Name of the deployment script.
-	ScriptName *string `pulumi:"scriptName"`
-	// Storage Account settings.
+	Arguments              *string                      `pulumi:"arguments"`
+	AzCliVersion           string                       `pulumi:"azCliVersion"`
+	CleanupPreference      *string                      `pulumi:"cleanupPreference"`
+	ContainerSettings      *ContainerConfiguration      `pulumi:"containerSettings"`
+	EnvironmentVariables   []EnvironmentVariable        `pulumi:"environmentVariables"`
+	ForceUpdateTag         *string                      `pulumi:"forceUpdateTag"`
+	Identity               *ManagedServiceIdentity      `pulumi:"identity"`
+	Kind                   string                       `pulumi:"kind"`
+	Location               *string                      `pulumi:"location"`
+	PrimaryScriptUri       *string                      `pulumi:"primaryScriptUri"`
+	ResourceGroupName      string                       `pulumi:"resourceGroupName"`
+	RetentionInterval      string                       `pulumi:"retentionInterval"`
+	ScriptContent          *string                      `pulumi:"scriptContent"`
+	ScriptName             *string                      `pulumi:"scriptName"`
 	StorageAccountSettings *StorageAccountConfiguration `pulumi:"storageAccountSettings"`
-	// Supporting files for the external script.
-	SupportingScriptUris []string `pulumi:"supportingScriptUris"`
-	// Resource tags.
-	Tags map[string]string `pulumi:"tags"`
-	// Maximum allowed script execution time specified in ISO 8601 format. Default value is P1D
-	Timeout *string `pulumi:"timeout"`
+	SupportingScriptUris   []string                     `pulumi:"supportingScriptUris"`
+	Tags                   map[string]string            `pulumi:"tags"`
+	Timeout                *string                      `pulumi:"timeout"`
 }
 
 // The set of arguments for constructing a AzureCliScript resource.
 type AzureCliScriptArgs struct {
-	// Command line arguments to pass to the script. Arguments are separated by spaces. ex: -Name blue* -Location 'West US 2'
-	Arguments pulumi.StringPtrInput
-	// Azure CLI module version to be used.
-	AzCliVersion pulumi.StringInput
-	// The clean up preference when the script execution gets in a terminal state. Default setting is 'Always'.
-	CleanupPreference pulumi.StringPtrInput
-	// Container settings.
-	ContainerSettings ContainerConfigurationPtrInput
-	// The environment variables to pass over to the script.
-	EnvironmentVariables EnvironmentVariableArrayInput
-	// Gets or sets how the deployment script should be forced to execute even if the script resource has not changed. Can be current time stamp or a GUID.
-	ForceUpdateTag pulumi.StringPtrInput
-	// Optional property. Managed identity to be used for this deployment script. Currently, only user-assigned MSI is supported.
-	Identity ManagedServiceIdentityPtrInput
-	// Type of the script.
-	// Expected value is 'AzureCLI'.
-	Kind pulumi.StringInput
-	// The location of the ACI and the storage account for the deployment script.
-	Location pulumi.StringPtrInput
-	// Uri for the script. This is the entry point for the external script.
-	PrimaryScriptUri pulumi.StringPtrInput
-	// The name of the resource group. The name is case insensitive.
-	ResourceGroupName pulumi.StringInput
-	// Interval for which the service retains the script resource after it reaches a terminal state. Resource will be deleted when this duration expires. Duration is based on ISO 8601 pattern (for example P1D means one day).
-	RetentionInterval pulumi.StringInput
-	// Script body.
-	ScriptContent pulumi.StringPtrInput
-	// Name of the deployment script.
-	ScriptName pulumi.StringPtrInput
-	// Storage Account settings.
+	Arguments              pulumi.StringPtrInput
+	AzCliVersion           pulumi.StringInput
+	CleanupPreference      pulumi.StringPtrInput
+	ContainerSettings      ContainerConfigurationPtrInput
+	EnvironmentVariables   EnvironmentVariableArrayInput
+	ForceUpdateTag         pulumi.StringPtrInput
+	Identity               ManagedServiceIdentityPtrInput
+	Kind                   pulumi.StringInput
+	Location               pulumi.StringPtrInput
+	PrimaryScriptUri       pulumi.StringPtrInput
+	ResourceGroupName      pulumi.StringInput
+	RetentionInterval      pulumi.StringInput
+	ScriptContent          pulumi.StringPtrInput
+	ScriptName             pulumi.StringPtrInput
 	StorageAccountSettings StorageAccountConfigurationPtrInput
-	// Supporting files for the external script.
-	SupportingScriptUris pulumi.StringArrayInput
-	// Resource tags.
-	Tags pulumi.StringMapInput
-	// Maximum allowed script execution time specified in ISO 8601 format. Default value is P1D
-	Timeout pulumi.StringPtrInput
+	SupportingScriptUris   pulumi.StringArrayInput
+	Tags                   pulumi.StringMapInput
+	Timeout                pulumi.StringPtrInput
 }
 
 func (AzureCliScriptArgs) ElementType() reflect.Type {
@@ -241,9 +179,7 @@ func (i *AzureCliScript) ToAzureCliScriptOutputWithContext(ctx context.Context) 
 	return pulumi.ToOutputWithContext(ctx, i).(AzureCliScriptOutput)
 }
 
-type AzureCliScriptOutput struct {
-	*pulumi.OutputState
-}
+type AzureCliScriptOutput struct{ *pulumi.OutputState }
 
 func (AzureCliScriptOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*AzureCliScript)(nil))

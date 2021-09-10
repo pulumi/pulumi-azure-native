@@ -7,7 +7,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// A list of streaming jobs. Populated by a List operation.
 func ListClusterStreamingJobs(ctx *pulumi.Context, args *ListClusterStreamingJobsArgs, opts ...pulumi.InvokeOption) (*ListClusterStreamingJobsResult, error) {
 	var rv ListClusterStreamingJobsResult
 	err := ctx.Invoke("azure-native:streamanalytics/v20200301preview:listClusterStreamingJobs", args, &rv, opts...)
@@ -18,16 +17,12 @@ func ListClusterStreamingJobs(ctx *pulumi.Context, args *ListClusterStreamingJob
 }
 
 type ListClusterStreamingJobsArgs struct {
-	// The name of the cluster.
-	ClusterName string `pulumi:"clusterName"`
-	// The name of the resource group. The name is case insensitive.
+	ClusterName       string `pulumi:"clusterName"`
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 }
 
 // A list of streaming jobs. Populated by a List operation.
 type ListClusterStreamingJobsResult struct {
-	// The URL to fetch the next set of streaming jobs.
-	NextLink string `pulumi:"nextLink"`
-	// A list of streaming jobs.
-	Value []ClusterJobResponse `pulumi:"value"`
+	NextLink string               `pulumi:"nextLink"`
+	Value    []ClusterJobResponse `pulumi:"value"`
 }

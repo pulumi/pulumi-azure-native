@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.ServiceFabric.V20210501.Outputs
 {
 
+    /// <summary>
+    /// Identities for the virtual machine scale set under the node type.
+    /// </summary>
     [OutputType]
     public sealed class VmManagedIdentityResponse
     {

@@ -11,38 +11,23 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Linked Subscription information.
 type LinkedSubscription struct {
 	pulumi.CustomResourceState
 
-	// The status of the remote management connection of the Azure Stack device.
-	DeviceConnectionStatus pulumi.StringOutput `pulumi:"deviceConnectionStatus"`
-	// The identifier of the Azure Stack device for remote management.
-	DeviceId pulumi.StringOutput `pulumi:"deviceId"`
-	// The connection state of the Azure Stack device.
-	DeviceLinkState pulumi.StringOutput `pulumi:"deviceLinkState"`
-	// The object identifier associated with the Azure Stack device connecting to Azure.
-	DeviceObjectId pulumi.StringOutput `pulumi:"deviceObjectId"`
-	// The entity tag used for optimistic concurrency when modifying the resource.
-	Etag pulumi.StringPtrOutput `pulumi:"etag"`
-	// The kind of the resource.
-	Kind pulumi.StringOutput `pulumi:"kind"`
-	// The last remote management connection time for the Azure Stack device connected to the linked subscription resource.
-	LastConnectedTime pulumi.StringOutput `pulumi:"lastConnectedTime"`
-	// The identifier associated with the device subscription.
-	LinkedSubscriptionId pulumi.StringPtrOutput `pulumi:"linkedSubscriptionId"`
-	// Location of the resource.
-	Location pulumi.StringOutput `pulumi:"location"`
-	// Name of the resource.
-	Name pulumi.StringOutput `pulumi:"name"`
-	// The identifier associated with the device registration.
-	RegistrationResourceId pulumi.StringPtrOutput `pulumi:"registrationResourceId"`
-	// Metadata pertaining to creation and last modification of the resource.
-	SystemData SystemDataResponseOutput `pulumi:"systemData"`
-	// Custom tags for the resource.
-	Tags pulumi.StringMapOutput `pulumi:"tags"`
-	// Type of Resource.
-	Type pulumi.StringOutput `pulumi:"type"`
+	DeviceConnectionStatus pulumi.StringOutput      `pulumi:"deviceConnectionStatus"`
+	DeviceId               pulumi.StringOutput      `pulumi:"deviceId"`
+	DeviceLinkState        pulumi.StringOutput      `pulumi:"deviceLinkState"`
+	DeviceObjectId         pulumi.StringOutput      `pulumi:"deviceObjectId"`
+	Etag                   pulumi.StringPtrOutput   `pulumi:"etag"`
+	Kind                   pulumi.StringOutput      `pulumi:"kind"`
+	LastConnectedTime      pulumi.StringOutput      `pulumi:"lastConnectedTime"`
+	LinkedSubscriptionId   pulumi.StringPtrOutput   `pulumi:"linkedSubscriptionId"`
+	Location               pulumi.StringOutput      `pulumi:"location"`
+	Name                   pulumi.StringOutput      `pulumi:"name"`
+	RegistrationResourceId pulumi.StringPtrOutput   `pulumi:"registrationResourceId"`
+	SystemData             SystemDataResponseOutput `pulumi:"systemData"`
+	Tags                   pulumi.StringMapOutput   `pulumi:"tags"`
+	Type                   pulumi.StringOutput      `pulumi:"type"`
 }
 
 // NewLinkedSubscription registers a new resource with the given unique name, arguments, and options.
@@ -105,30 +90,20 @@ func (LinkedSubscriptionState) ElementType() reflect.Type {
 }
 
 type linkedSubscriptionArgs struct {
-	// The identifier associated with the device subscription.
-	LinkedSubscriptionId string `pulumi:"linkedSubscriptionId"`
-	// Name of the Linked Subscription resource.
+	LinkedSubscriptionId   string  `pulumi:"linkedSubscriptionId"`
 	LinkedSubscriptionName *string `pulumi:"linkedSubscriptionName"`
-	// Location of the resource.
-	Location *string `pulumi:"location"`
-	// The identifier associated with the device registration.
-	RegistrationResourceId string `pulumi:"registrationResourceId"`
-	// Name of the resource group.
-	ResourceGroup string `pulumi:"resourceGroup"`
+	Location               *string `pulumi:"location"`
+	RegistrationResourceId string  `pulumi:"registrationResourceId"`
+	ResourceGroup          string  `pulumi:"resourceGroup"`
 }
 
 // The set of arguments for constructing a LinkedSubscription resource.
 type LinkedSubscriptionArgs struct {
-	// The identifier associated with the device subscription.
-	LinkedSubscriptionId pulumi.StringInput
-	// Name of the Linked Subscription resource.
+	LinkedSubscriptionId   pulumi.StringInput
 	LinkedSubscriptionName pulumi.StringPtrInput
-	// Location of the resource.
-	Location pulumi.StringPtrInput
-	// The identifier associated with the device registration.
+	Location               pulumi.StringPtrInput
 	RegistrationResourceId pulumi.StringInput
-	// Name of the resource group.
-	ResourceGroup pulumi.StringInput
+	ResourceGroup          pulumi.StringInput
 }
 
 func (LinkedSubscriptionArgs) ElementType() reflect.Type {
@@ -154,9 +129,7 @@ func (i *LinkedSubscription) ToLinkedSubscriptionOutputWithContext(ctx context.C
 	return pulumi.ToOutputWithContext(ctx, i).(LinkedSubscriptionOutput)
 }
 
-type LinkedSubscriptionOutput struct {
-	*pulumi.OutputState
-}
+type LinkedSubscriptionOutput struct{ *pulumi.OutputState }
 
 func (LinkedSubscriptionOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*LinkedSubscription)(nil))

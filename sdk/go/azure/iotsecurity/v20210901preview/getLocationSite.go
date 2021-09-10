@@ -7,7 +7,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// IoT site model
 func LookupLocationSite(ctx *pulumi.Context, args *LookupLocationSiteArgs, opts ...pulumi.InvokeOption) (*LookupLocationSiteResult, error) {
 	var rv LookupLocationSiteResult
 	err := ctx.Invoke("azure-native:iotsecurity/v20210901preview:getLocationSite", args, &rv, opts...)
@@ -18,24 +17,16 @@ func LookupLocationSite(ctx *pulumi.Context, args *LookupLocationSiteArgs, opts 
 }
 
 type LookupLocationSiteArgs struct {
-	// Defender for IoT location
 	IotDefenderLocation string `pulumi:"iotDefenderLocation"`
-	// Site Name
-	SiteName string `pulumi:"siteName"`
+	SiteName            string `pulumi:"siteName"`
 }
 
 // IoT site model
 type LookupLocationSiteResult struct {
-	// Display name of the IoT site
-	DisplayName string `pulumi:"displayName"`
-	// Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
-	Id string `pulumi:"id"`
-	// The name of the resource
-	Name string `pulumi:"name"`
-	// Azure Resource Manager metadata containing createdBy and modifiedBy information.
-	SystemData SystemDataResponse `pulumi:"systemData"`
-	// Tags of the IoT site
-	Tags map[string]string `pulumi:"tags"`
-	// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
-	Type string `pulumi:"type"`
+	DisplayName string             `pulumi:"displayName"`
+	Id          string             `pulumi:"id"`
+	Name        string             `pulumi:"name"`
+	SystemData  SystemDataResponse `pulumi:"systemData"`
+	Tags        map[string]string  `pulumi:"tags"`
+	Type        string             `pulumi:"type"`
 }

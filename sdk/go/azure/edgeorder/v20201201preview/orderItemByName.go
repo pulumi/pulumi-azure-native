@@ -11,28 +11,18 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Represents order item contract
 type OrderItemByName struct {
 	pulumi.CustomResourceState
 
-	// Represents shipping and return address for order item
-	AddressDetails AddressDetailsResponseOutput `pulumi:"addressDetails"`
-	// The geo-location where the resource lives
-	Location pulumi.StringOutput `pulumi:"location"`
-	// The name of the resource
-	Name pulumi.StringOutput `pulumi:"name"`
-	// Id of the order to which order item belongs to
-	OrderId pulumi.StringOutput `pulumi:"orderId"`
-	// Represents order item details.
+	AddressDetails   AddressDetailsResponseOutput   `pulumi:"addressDetails"`
+	Location         pulumi.StringOutput            `pulumi:"location"`
+	Name             pulumi.StringOutput            `pulumi:"name"`
+	OrderId          pulumi.StringOutput            `pulumi:"orderId"`
 	OrderItemDetails OrderItemDetailsResponseOutput `pulumi:"orderItemDetails"`
-	// Start time of order item
-	StartTime pulumi.StringOutput `pulumi:"startTime"`
-	// Represents resource creation and update time
-	SystemData SystemDataResponseOutput `pulumi:"systemData"`
-	// Resource tags.
-	Tags pulumi.StringMapOutput `pulumi:"tags"`
-	// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
-	Type pulumi.StringOutput `pulumi:"type"`
+	StartTime        pulumi.StringOutput            `pulumi:"startTime"`
+	SystemData       SystemDataResponseOutput       `pulumi:"systemData"`
+	Tags             pulumi.StringMapOutput         `pulumi:"tags"`
+	Type             pulumi.StringOutput            `pulumi:"type"`
 }
 
 // NewOrderItemByName registers a new resource with the given unique name, arguments, and options.
@@ -98,38 +88,24 @@ func (OrderItemByNameState) ElementType() reflect.Type {
 }
 
 type orderItemByNameArgs struct {
-	// Represents shipping and return address for order item
-	AddressDetails AddressDetails `pulumi:"addressDetails"`
-	// The geo-location where the resource lives
-	Location *string `pulumi:"location"`
-	// Id of the order to which order item belongs to
-	OrderId string `pulumi:"orderId"`
-	// Represents order item details.
-	OrderItemDetails OrderItemDetails `pulumi:"orderItemDetails"`
-	// The name of the order item
-	OrderItemName *string `pulumi:"orderItemName"`
-	// The name of the resource group. The name is case insensitive.
-	ResourceGroupName string `pulumi:"resourceGroupName"`
-	// Resource tags.
-	Tags map[string]string `pulumi:"tags"`
+	AddressDetails    AddressDetails    `pulumi:"addressDetails"`
+	Location          *string           `pulumi:"location"`
+	OrderId           string            `pulumi:"orderId"`
+	OrderItemDetails  OrderItemDetails  `pulumi:"orderItemDetails"`
+	OrderItemName     *string           `pulumi:"orderItemName"`
+	ResourceGroupName string            `pulumi:"resourceGroupName"`
+	Tags              map[string]string `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a OrderItemByName resource.
 type OrderItemByNameArgs struct {
-	// Represents shipping and return address for order item
-	AddressDetails AddressDetailsInput
-	// The geo-location where the resource lives
-	Location pulumi.StringPtrInput
-	// Id of the order to which order item belongs to
-	OrderId pulumi.StringInput
-	// Represents order item details.
-	OrderItemDetails OrderItemDetailsInput
-	// The name of the order item
-	OrderItemName pulumi.StringPtrInput
-	// The name of the resource group. The name is case insensitive.
+	AddressDetails    AddressDetailsInput
+	Location          pulumi.StringPtrInput
+	OrderId           pulumi.StringInput
+	OrderItemDetails  OrderItemDetailsInput
+	OrderItemName     pulumi.StringPtrInput
 	ResourceGroupName pulumi.StringInput
-	// Resource tags.
-	Tags pulumi.StringMapInput
+	Tags              pulumi.StringMapInput
 }
 
 func (OrderItemByNameArgs) ElementType() reflect.Type {
@@ -155,9 +131,7 @@ func (i *OrderItemByName) ToOrderItemByNameOutputWithContext(ctx context.Context
 	return pulumi.ToOutputWithContext(ctx, i).(OrderItemByNameOutput)
 }
 
-type OrderItemByNameOutput struct {
-	*pulumi.OutputState
-}
+type OrderItemByNameOutput struct{ *pulumi.OutputState }
 
 func (OrderItemByNameOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*OrderItemByName)(nil))

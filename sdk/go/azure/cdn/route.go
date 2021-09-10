@@ -137,7 +137,7 @@ type routeArgs struct {
 	// Name of the CDN profile which is unique within the resource group.
 	ProfileName string `pulumi:"profileName"`
 	// Defines how CDN caches requests that include query strings. You can ignore any query strings when caching, bypass caching to prevent requests that contain query strings from being cached, or cache every request with a unique URL.
-	QueryStringCachingBehavior *string `pulumi:"queryStringCachingBehavior"`
+	QueryStringCachingBehavior *AfdQueryStringCachingBehavior `pulumi:"queryStringCachingBehavior"`
 	// Name of the Resource group within the Azure subscription.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// Name of the routing rule.
@@ -173,7 +173,7 @@ type RouteArgs struct {
 	// Name of the CDN profile which is unique within the resource group.
 	ProfileName pulumi.StringInput
 	// Defines how CDN caches requests that include query strings. You can ignore any query strings when caching, bypass caching to prevent requests that contain query strings from being cached, or cache every request with a unique URL.
-	QueryStringCachingBehavior *AfdQueryStringCachingBehavior
+	QueryStringCachingBehavior AfdQueryStringCachingBehaviorPtrInput
 	// Name of the Resource group within the Azure subscription.
 	ResourceGroupName pulumi.StringInput
 	// Name of the routing rule.
@@ -207,9 +207,7 @@ func (i *Route) ToRouteOutputWithContext(ctx context.Context) RouteOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(RouteOutput)
 }
 
-type RouteOutput struct {
-	*pulumi.OutputState
-}
+type RouteOutput struct{ *pulumi.OutputState }
 
 func (RouteOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*Route)(nil))

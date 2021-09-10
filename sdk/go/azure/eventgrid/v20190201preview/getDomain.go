@@ -7,7 +7,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// EventGrid Domain
 func LookupDomain(ctx *pulumi.Context, args *LookupDomainArgs, opts ...pulumi.InvokeOption) (*LookupDomainResult, error) {
 	var rv LookupDomainResult
 	err := ctx.Invoke("azure-native:eventgrid/v20190201preview:getDomain", args, &rv, opts...)
@@ -18,30 +17,19 @@ func LookupDomain(ctx *pulumi.Context, args *LookupDomainArgs, opts ...pulumi.In
 }
 
 type LookupDomainArgs struct {
-	// Name of the domain
-	DomainName string `pulumi:"domainName"`
-	// The name of the resource group within the user's subscription.
+	DomainName        string `pulumi:"domainName"`
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 }
 
 // EventGrid Domain
 type LookupDomainResult struct {
-	// Endpoint for the domain.
-	Endpoint string `pulumi:"endpoint"`
-	// Fully qualified identifier of the resource
-	Id string `pulumi:"id"`
-	// This determines the format that Event Grid should expect for incoming events published to the domain.
-	InputSchema *string `pulumi:"inputSchema"`
-	// Information about the InputSchemaMapping which specified the info about mapping event payload.
+	Endpoint           string                          `pulumi:"endpoint"`
+	Id                 string                          `pulumi:"id"`
+	InputSchema        *string                         `pulumi:"inputSchema"`
 	InputSchemaMapping *JsonInputSchemaMappingResponse `pulumi:"inputSchemaMapping"`
-	// Location of the resource
-	Location string `pulumi:"location"`
-	// Name of the resource
-	Name string `pulumi:"name"`
-	// Provisioning state of the domain.
-	ProvisioningState string `pulumi:"provisioningState"`
-	// Tags of the resource
-	Tags map[string]string `pulumi:"tags"`
-	// Type of the resource
-	Type string `pulumi:"type"`
+	Location           string                          `pulumi:"location"`
+	Name               string                          `pulumi:"name"`
+	ProvisioningState  string                          `pulumi:"provisioningState"`
+	Tags               map[string]string               `pulumi:"tags"`
+	Type               string                          `pulumi:"type"`
 }

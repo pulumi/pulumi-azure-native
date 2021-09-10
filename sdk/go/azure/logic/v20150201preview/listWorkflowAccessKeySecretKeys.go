@@ -17,17 +17,12 @@ func ListWorkflowAccessKeySecretKeys(ctx *pulumi.Context, args *ListWorkflowAcce
 }
 
 type ListWorkflowAccessKeySecretKeysArgs struct {
-	// The workflow access key name.
-	AccessKeyName string `pulumi:"accessKeyName"`
-	// The resource group name.
+	AccessKeyName     string `pulumi:"accessKeyName"`
 	ResourceGroupName string `pulumi:"resourceGroupName"`
-	// The workflow name.
-	WorkflowName string `pulumi:"workflowName"`
+	WorkflowName      string `pulumi:"workflowName"`
 }
 
 type ListWorkflowAccessKeySecretKeysResult struct {
-	// Gets the primary secret key.
-	PrimarySecretKey string `pulumi:"primarySecretKey"`
-	// Gets the secondary secret key.
+	PrimarySecretKey   string `pulumi:"primarySecretKey"`
 	SecondarySecretKey string `pulumi:"secondarySecretKey"`
 }

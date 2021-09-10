@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.MachineLearning.V20160501Preview.Outputs
 {
 
+    /// <summary>
+    /// Sample input data for the service's input(s).
+    /// </summary>
     [OutputType]
     public sealed class ExampleRequestResponse
     {

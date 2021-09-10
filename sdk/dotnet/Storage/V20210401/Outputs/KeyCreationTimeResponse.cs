@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.Storage.V20210401.Outputs
 {
 
+    /// <summary>
+    /// Storage account keys creation time.
+    /// </summary>
     [OutputType]
     public sealed class KeyCreationTimeResponse
     {

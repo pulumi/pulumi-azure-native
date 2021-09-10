@@ -7,7 +7,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// A SQL DB Table data set mapping.
 func LookupSqlDBTableDataSetMapping(ctx *pulumi.Context, args *LookupSqlDBTableDataSetMappingArgs, opts ...pulumi.InvokeOption) (*LookupSqlDBTableDataSetMappingResult, error) {
 	var rv LookupSqlDBTableDataSetMappingResult
 	err := ctx.Invoke("azure-native:datashare/v20181101preview:getSqlDBTableDataSetMapping", args, &rv, opts...)
@@ -18,39 +17,23 @@ func LookupSqlDBTableDataSetMapping(ctx *pulumi.Context, args *LookupSqlDBTableD
 }
 
 type LookupSqlDBTableDataSetMappingArgs struct {
-	// The name of the share account.
-	AccountName string `pulumi:"accountName"`
-	// The name of the dataSetMapping.
-	DataSetMappingName string `pulumi:"dataSetMappingName"`
-	// The resource group name.
-	ResourceGroupName string `pulumi:"resourceGroupName"`
-	// The name of the shareSubscription.
+	AccountName           string `pulumi:"accountName"`
+	DataSetMappingName    string `pulumi:"dataSetMappingName"`
+	ResourceGroupName     string `pulumi:"resourceGroupName"`
 	ShareSubscriptionName string `pulumi:"shareSubscriptionName"`
 }
 
 // A SQL DB Table data set mapping.
 type LookupSqlDBTableDataSetMappingResult struct {
-	// The id of the source data set.
-	DataSetId string `pulumi:"dataSetId"`
-	// Gets the status of the data set mapping.
+	DataSetId            string `pulumi:"dataSetId"`
 	DataSetMappingStatus string `pulumi:"dataSetMappingStatus"`
-	// DatabaseName name of the sink data set
-	DatabaseName string `pulumi:"databaseName"`
-	// The resource id of the azure resource
-	Id string `pulumi:"id"`
-	// Kind of data set mapping.
-	// Expected value is 'SqlDBTable'.
-	Kind string `pulumi:"kind"`
-	// Name of the azure resource
-	Name string `pulumi:"name"`
-	// Provisioning state of the data set mapping.
-	ProvisioningState string `pulumi:"provisioningState"`
-	// Schema of the table. Default value is dbo.
-	SchemaName string `pulumi:"schemaName"`
-	// Resource id of SQL server
-	SqlServerResourceId string `pulumi:"sqlServerResourceId"`
-	// SQL DB table name.
-	TableName string `pulumi:"tableName"`
-	// Type of the azure resource
-	Type string `pulumi:"type"`
+	DatabaseName         string `pulumi:"databaseName"`
+	Id                   string `pulumi:"id"`
+	Kind                 string `pulumi:"kind"`
+	Name                 string `pulumi:"name"`
+	ProvisioningState    string `pulumi:"provisioningState"`
+	SchemaName           string `pulumi:"schemaName"`
+	SqlServerResourceId  string `pulumi:"sqlServerResourceId"`
+	TableName            string `pulumi:"tableName"`
+	Type                 string `pulumi:"type"`
 }

@@ -7,7 +7,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// An Asset Filter.
 func LookupAssetFilter(ctx *pulumi.Context, args *LookupAssetFilterArgs, opts ...pulumi.InvokeOption) (*LookupAssetFilterResult, error) {
 	var rv LookupAssetFilterResult
 	err := ctx.Invoke("azure-native:media/v20180701:getAssetFilter", args, &rv, opts...)
@@ -18,28 +17,18 @@ func LookupAssetFilter(ctx *pulumi.Context, args *LookupAssetFilterArgs, opts ..
 }
 
 type LookupAssetFilterArgs struct {
-	// The Media Services account name.
-	AccountName string `pulumi:"accountName"`
-	// The Asset name.
-	AssetName string `pulumi:"assetName"`
-	// The Asset Filter name
-	FilterName string `pulumi:"filterName"`
-	// The name of the resource group within the Azure subscription.
+	AccountName       string `pulumi:"accountName"`
+	AssetName         string `pulumi:"assetName"`
+	FilterName        string `pulumi:"filterName"`
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 }
 
 // An Asset Filter.
 type LookupAssetFilterResult struct {
-	// The first quality.
-	FirstQuality *FirstQualityResponse `pulumi:"firstQuality"`
-	// Fully qualified resource ID for the resource.
-	Id string `pulumi:"id"`
-	// The name of the resource.
-	Name string `pulumi:"name"`
-	// The presentation time range.
+	FirstQuality          *FirstQualityResponse          `pulumi:"firstQuality"`
+	Id                    string                         `pulumi:"id"`
+	Name                  string                         `pulumi:"name"`
 	PresentationTimeRange *PresentationTimeRangeResponse `pulumi:"presentationTimeRange"`
-	// The tracks selection conditions.
-	Tracks []FilterTrackSelectionResponse `pulumi:"tracks"`
-	// The type of the resource.
-	Type string `pulumi:"type"`
+	Tracks                []FilterTrackSelectionResponse `pulumi:"tracks"`
+	Type                  string                         `pulumi:"type"`
 }

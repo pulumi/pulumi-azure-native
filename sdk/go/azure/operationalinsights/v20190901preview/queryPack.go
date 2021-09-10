@@ -11,26 +11,17 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// An Log Analytics QueryPack definition.
 type QueryPack struct {
 	pulumi.CustomResourceState
 
-	// Resource location
-	Location pulumi.StringOutput `pulumi:"location"`
-	// Azure resource name
-	Name pulumi.StringOutput `pulumi:"name"`
-	// Current state of this QueryPack: whether or not is has been provisioned within the resource group it is defined. Users cannot change this value but are able to read from it. Values will include Succeeded, Deploying, Canceled, and Failed.
-	ProvisioningState pulumi.StringOutput `pulumi:"provisioningState"`
-	// The unique ID of your application. This field cannot be changed.
-	QueryPackId pulumi.StringOutput `pulumi:"queryPackId"`
-	// Resource tags
-	Tags pulumi.StringMapOutput `pulumi:"tags"`
-	// Creation Date for the Log Analytics QueryPack, in ISO 8601 format.
-	TimeCreated pulumi.StringOutput `pulumi:"timeCreated"`
-	// Last modified date of the Log Analytics QueryPack, in ISO 8601 format.
-	TimeModified pulumi.StringOutput `pulumi:"timeModified"`
-	// Azure resource type
-	Type pulumi.StringOutput `pulumi:"type"`
+	Location          pulumi.StringOutput    `pulumi:"location"`
+	Name              pulumi.StringOutput    `pulumi:"name"`
+	ProvisioningState pulumi.StringOutput    `pulumi:"provisioningState"`
+	QueryPackId       pulumi.StringOutput    `pulumi:"queryPackId"`
+	Tags              pulumi.StringMapOutput `pulumi:"tags"`
+	TimeCreated       pulumi.StringOutput    `pulumi:"timeCreated"`
+	TimeModified      pulumi.StringOutput    `pulumi:"timeModified"`
+	Type              pulumi.StringOutput    `pulumi:"type"`
 }
 
 // NewQueryPack registers a new resource with the given unique name, arguments, and options.
@@ -87,26 +78,18 @@ func (QueryPackState) ElementType() reflect.Type {
 }
 
 type queryPackArgs struct {
-	// Resource location
-	Location *string `pulumi:"location"`
-	// The name of the Log Analytics QueryPack resource.
-	QueryPackName *string `pulumi:"queryPackName"`
-	// The name of the resource group. The name is case insensitive.
-	ResourceGroupName string `pulumi:"resourceGroupName"`
-	// Resource tags
-	Tags map[string]string `pulumi:"tags"`
+	Location          *string           `pulumi:"location"`
+	QueryPackName     *string           `pulumi:"queryPackName"`
+	ResourceGroupName string            `pulumi:"resourceGroupName"`
+	Tags              map[string]string `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a QueryPack resource.
 type QueryPackArgs struct {
-	// Resource location
-	Location pulumi.StringPtrInput
-	// The name of the Log Analytics QueryPack resource.
-	QueryPackName pulumi.StringPtrInput
-	// The name of the resource group. The name is case insensitive.
+	Location          pulumi.StringPtrInput
+	QueryPackName     pulumi.StringPtrInput
 	ResourceGroupName pulumi.StringInput
-	// Resource tags
-	Tags pulumi.StringMapInput
+	Tags              pulumi.StringMapInput
 }
 
 func (QueryPackArgs) ElementType() reflect.Type {
@@ -132,9 +115,7 @@ func (i *QueryPack) ToQueryPackOutputWithContext(ctx context.Context) QueryPackO
 	return pulumi.ToOutputWithContext(ctx, i).(QueryPackOutput)
 }
 
-type QueryPackOutput struct {
-	*pulumi.OutputState
-}
+type QueryPackOutput struct{ *pulumi.OutputState }
 
 func (QueryPackOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*QueryPack)(nil))

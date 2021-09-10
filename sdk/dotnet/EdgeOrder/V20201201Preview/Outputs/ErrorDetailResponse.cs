@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.EdgeOrder.V20201201Preview.Outputs
 {
 
+    /// <summary>
+    /// The error detail.
+    /// </summary>
     [OutputType]
     public sealed class ErrorDetailResponse
     {

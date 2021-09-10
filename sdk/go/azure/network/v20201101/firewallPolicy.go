@@ -11,48 +11,28 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// FirewallPolicy Resource.
 type FirewallPolicy struct {
 	pulumi.CustomResourceState
 
-	// The parent firewall policy from which rules are inherited.
-	BasePolicy SubResourceResponsePtrOutput `pulumi:"basePolicy"`
-	// List of references to Child Firewall Policies.
-	ChildPolicies SubResourceResponseArrayOutput `pulumi:"childPolicies"`
-	// DNS Proxy Settings definition.
-	DnsSettings DnsSettingsResponsePtrOutput `pulumi:"dnsSettings"`
-	// A unique read-only string that changes whenever the resource is updated.
-	Etag pulumi.StringOutput `pulumi:"etag"`
-	// List of references to Azure Firewalls that this Firewall Policy is associated with.
-	Firewalls SubResourceResponseArrayOutput `pulumi:"firewalls"`
-	// The identity of the firewall policy.
-	Identity ManagedServiceIdentityResponsePtrOutput `pulumi:"identity"`
-	// Insights on Firewall Policy.
-	Insights FirewallPolicyInsightsResponsePtrOutput `pulumi:"insights"`
-	// The configuration for Intrusion detection.
-	IntrusionDetection FirewallPolicyIntrusionDetectionResponsePtrOutput `pulumi:"intrusionDetection"`
-	// Resource location.
-	Location pulumi.StringPtrOutput `pulumi:"location"`
-	// Resource name.
-	Name pulumi.StringOutput `pulumi:"name"`
-	// The provisioning state of the firewall policy resource.
-	ProvisioningState pulumi.StringOutput `pulumi:"provisioningState"`
-	// List of references to FirewallPolicyRuleCollectionGroups.
-	RuleCollectionGroups SubResourceResponseArrayOutput `pulumi:"ruleCollectionGroups"`
-	// The Firewall Policy SKU.
-	Sku FirewallPolicySkuResponsePtrOutput `pulumi:"sku"`
-	// The private IP addresses/IP ranges to which traffic will not be SNAT.
-	Snat FirewallPolicySNATResponsePtrOutput `pulumi:"snat"`
-	// Resource tags.
-	Tags pulumi.StringMapOutput `pulumi:"tags"`
-	// The operation mode for Threat Intelligence.
-	ThreatIntelMode pulumi.StringPtrOutput `pulumi:"threatIntelMode"`
-	// ThreatIntel Whitelist for Firewall Policy.
+	BasePolicy           SubResourceResponsePtrOutput                        `pulumi:"basePolicy"`
+	ChildPolicies        SubResourceResponseArrayOutput                      `pulumi:"childPolicies"`
+	DnsSettings          DnsSettingsResponsePtrOutput                        `pulumi:"dnsSettings"`
+	Etag                 pulumi.StringOutput                                 `pulumi:"etag"`
+	Firewalls            SubResourceResponseArrayOutput                      `pulumi:"firewalls"`
+	Identity             ManagedServiceIdentityResponsePtrOutput             `pulumi:"identity"`
+	Insights             FirewallPolicyInsightsResponsePtrOutput             `pulumi:"insights"`
+	IntrusionDetection   FirewallPolicyIntrusionDetectionResponsePtrOutput   `pulumi:"intrusionDetection"`
+	Location             pulumi.StringPtrOutput                              `pulumi:"location"`
+	Name                 pulumi.StringOutput                                 `pulumi:"name"`
+	ProvisioningState    pulumi.StringOutput                                 `pulumi:"provisioningState"`
+	RuleCollectionGroups SubResourceResponseArrayOutput                      `pulumi:"ruleCollectionGroups"`
+	Sku                  FirewallPolicySkuResponsePtrOutput                  `pulumi:"sku"`
+	Snat                 FirewallPolicySNATResponsePtrOutput                 `pulumi:"snat"`
+	Tags                 pulumi.StringMapOutput                              `pulumi:"tags"`
+	ThreatIntelMode      pulumi.StringPtrOutput                              `pulumi:"threatIntelMode"`
 	ThreatIntelWhitelist FirewallPolicyThreatIntelWhitelistResponsePtrOutput `pulumi:"threatIntelWhitelist"`
-	// TLS Configuration definition.
-	TransportSecurity FirewallPolicyTransportSecurityResponsePtrOutput `pulumi:"transportSecurity"`
-	// Resource type.
-	Type pulumi.StringOutput `pulumi:"type"`
+	TransportSecurity    FirewallPolicyTransportSecurityResponsePtrOutput    `pulumi:"transportSecurity"`
+	Type                 pulumi.StringOutput                                 `pulumi:"type"`
 }
 
 // NewFirewallPolicy registers a new resource with the given unique name, arguments, and options.
@@ -193,70 +173,40 @@ func (FirewallPolicyState) ElementType() reflect.Type {
 }
 
 type firewallPolicyArgs struct {
-	// The parent firewall policy from which rules are inherited.
-	BasePolicy *SubResource `pulumi:"basePolicy"`
-	// DNS Proxy Settings definition.
-	DnsSettings *DnsSettings `pulumi:"dnsSettings"`
-	// The name of the Firewall Policy.
-	FirewallPolicyName *string `pulumi:"firewallPolicyName"`
-	// Resource ID.
-	Id *string `pulumi:"id"`
-	// The identity of the firewall policy.
-	Identity *ManagedServiceIdentity `pulumi:"identity"`
-	// Insights on Firewall Policy.
-	Insights *FirewallPolicyInsights `pulumi:"insights"`
-	// The configuration for Intrusion detection.
-	IntrusionDetection *FirewallPolicyIntrusionDetection `pulumi:"intrusionDetection"`
-	// Resource location.
-	Location *string `pulumi:"location"`
-	// The name of the resource group.
-	ResourceGroupName string `pulumi:"resourceGroupName"`
-	// The Firewall Policy SKU.
-	Sku *FirewallPolicySku `pulumi:"sku"`
-	// The private IP addresses/IP ranges to which traffic will not be SNAT.
-	Snat *FirewallPolicySNAT `pulumi:"snat"`
-	// Resource tags.
-	Tags map[string]string `pulumi:"tags"`
-	// The operation mode for Threat Intelligence.
-	ThreatIntelMode *string `pulumi:"threatIntelMode"`
-	// ThreatIntel Whitelist for Firewall Policy.
+	BasePolicy           *SubResource                        `pulumi:"basePolicy"`
+	DnsSettings          *DnsSettings                        `pulumi:"dnsSettings"`
+	FirewallPolicyName   *string                             `pulumi:"firewallPolicyName"`
+	Id                   *string                             `pulumi:"id"`
+	Identity             *ManagedServiceIdentity             `pulumi:"identity"`
+	Insights             *FirewallPolicyInsights             `pulumi:"insights"`
+	IntrusionDetection   *FirewallPolicyIntrusionDetection   `pulumi:"intrusionDetection"`
+	Location             *string                             `pulumi:"location"`
+	ResourceGroupName    string                              `pulumi:"resourceGroupName"`
+	Sku                  *FirewallPolicySku                  `pulumi:"sku"`
+	Snat                 *FirewallPolicySNAT                 `pulumi:"snat"`
+	Tags                 map[string]string                   `pulumi:"tags"`
+	ThreatIntelMode      *string                             `pulumi:"threatIntelMode"`
 	ThreatIntelWhitelist *FirewallPolicyThreatIntelWhitelist `pulumi:"threatIntelWhitelist"`
-	// TLS Configuration definition.
-	TransportSecurity *FirewallPolicyTransportSecurity `pulumi:"transportSecurity"`
+	TransportSecurity    *FirewallPolicyTransportSecurity    `pulumi:"transportSecurity"`
 }
 
 // The set of arguments for constructing a FirewallPolicy resource.
 type FirewallPolicyArgs struct {
-	// The parent firewall policy from which rules are inherited.
-	BasePolicy SubResourcePtrInput
-	// DNS Proxy Settings definition.
-	DnsSettings DnsSettingsPtrInput
-	// The name of the Firewall Policy.
-	FirewallPolicyName pulumi.StringPtrInput
-	// Resource ID.
-	Id pulumi.StringPtrInput
-	// The identity of the firewall policy.
-	Identity ManagedServiceIdentityPtrInput
-	// Insights on Firewall Policy.
-	Insights FirewallPolicyInsightsPtrInput
-	// The configuration for Intrusion detection.
-	IntrusionDetection FirewallPolicyIntrusionDetectionPtrInput
-	// Resource location.
-	Location pulumi.StringPtrInput
-	// The name of the resource group.
-	ResourceGroupName pulumi.StringInput
-	// The Firewall Policy SKU.
-	Sku FirewallPolicySkuPtrInput
-	// The private IP addresses/IP ranges to which traffic will not be SNAT.
-	Snat FirewallPolicySNATPtrInput
-	// Resource tags.
-	Tags pulumi.StringMapInput
-	// The operation mode for Threat Intelligence.
-	ThreatIntelMode pulumi.StringPtrInput
-	// ThreatIntel Whitelist for Firewall Policy.
+	BasePolicy           SubResourcePtrInput
+	DnsSettings          DnsSettingsPtrInput
+	FirewallPolicyName   pulumi.StringPtrInput
+	Id                   pulumi.StringPtrInput
+	Identity             ManagedServiceIdentityPtrInput
+	Insights             FirewallPolicyInsightsPtrInput
+	IntrusionDetection   FirewallPolicyIntrusionDetectionPtrInput
+	Location             pulumi.StringPtrInput
+	ResourceGroupName    pulumi.StringInput
+	Sku                  FirewallPolicySkuPtrInput
+	Snat                 FirewallPolicySNATPtrInput
+	Tags                 pulumi.StringMapInput
+	ThreatIntelMode      pulumi.StringPtrInput
 	ThreatIntelWhitelist FirewallPolicyThreatIntelWhitelistPtrInput
-	// TLS Configuration definition.
-	TransportSecurity FirewallPolicyTransportSecurityPtrInput
+	TransportSecurity    FirewallPolicyTransportSecurityPtrInput
 }
 
 func (FirewallPolicyArgs) ElementType() reflect.Type {
@@ -282,9 +232,7 @@ func (i *FirewallPolicy) ToFirewallPolicyOutputWithContext(ctx context.Context) 
 	return pulumi.ToOutputWithContext(ctx, i).(FirewallPolicyOutput)
 }
 
-type FirewallPolicyOutput struct {
-	*pulumi.OutputState
-}
+type FirewallPolicyOutput struct{ *pulumi.OutputState }
 
 func (FirewallPolicyOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*FirewallPolicy)(nil))

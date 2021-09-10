@@ -11,22 +11,15 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Contact details for security issues
 type SecurityContact struct {
 	pulumi.CustomResourceState
 
-	// Whether to send security alerts notifications to the security contact
-	AlertNotifications pulumi.StringOutput `pulumi:"alertNotifications"`
-	// Whether to send security alerts notifications to subscription admins
-	AlertsToAdmins pulumi.StringOutput `pulumi:"alertsToAdmins"`
-	// The email of this security contact
-	Email pulumi.StringOutput `pulumi:"email"`
-	// Resource name
-	Name pulumi.StringOutput `pulumi:"name"`
-	// The phone number of this security contact
-	Phone pulumi.StringPtrOutput `pulumi:"phone"`
-	// Resource type
-	Type pulumi.StringOutput `pulumi:"type"`
+	AlertNotifications pulumi.StringOutput    `pulumi:"alertNotifications"`
+	AlertsToAdmins     pulumi.StringOutput    `pulumi:"alertsToAdmins"`
+	Email              pulumi.StringOutput    `pulumi:"email"`
+	Name               pulumi.StringOutput    `pulumi:"name"`
+	Phone              pulumi.StringPtrOutput `pulumi:"phone"`
+	Type               pulumi.StringOutput    `pulumi:"type"`
 }
 
 // NewSecurityContact registers a new resource with the given unique name, arguments, and options.
@@ -95,29 +88,19 @@ func (SecurityContactState) ElementType() reflect.Type {
 }
 
 type securityContactArgs struct {
-	// Whether to send security alerts notifications to the security contact
-	AlertNotifications string `pulumi:"alertNotifications"`
-	// Whether to send security alerts notifications to subscription admins
-	AlertsToAdmins string `pulumi:"alertsToAdmins"`
-	// The email of this security contact
-	Email string `pulumi:"email"`
-	// The phone number of this security contact
-	Phone *string `pulumi:"phone"`
-	// Name of the security contact object
+	AlertNotifications  string  `pulumi:"alertNotifications"`
+	AlertsToAdmins      string  `pulumi:"alertsToAdmins"`
+	Email               string  `pulumi:"email"`
+	Phone               *string `pulumi:"phone"`
 	SecurityContactName *string `pulumi:"securityContactName"`
 }
 
 // The set of arguments for constructing a SecurityContact resource.
 type SecurityContactArgs struct {
-	// Whether to send security alerts notifications to the security contact
-	AlertNotifications pulumi.StringInput
-	// Whether to send security alerts notifications to subscription admins
-	AlertsToAdmins pulumi.StringInput
-	// The email of this security contact
-	Email pulumi.StringInput
-	// The phone number of this security contact
-	Phone pulumi.StringPtrInput
-	// Name of the security contact object
+	AlertNotifications  pulumi.StringInput
+	AlertsToAdmins      pulumi.StringInput
+	Email               pulumi.StringInput
+	Phone               pulumi.StringPtrInput
 	SecurityContactName pulumi.StringPtrInput
 }
 
@@ -144,9 +127,7 @@ func (i *SecurityContact) ToSecurityContactOutputWithContext(ctx context.Context
 	return pulumi.ToOutputWithContext(ctx, i).(SecurityContactOutput)
 }
 
-type SecurityContactOutput struct {
-	*pulumi.OutputState
-}
+type SecurityContactOutput struct{ *pulumi.OutputState }
 
 func (SecurityContactOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*SecurityContact)(nil))

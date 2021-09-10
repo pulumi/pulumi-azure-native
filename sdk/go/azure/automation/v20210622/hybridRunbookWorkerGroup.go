@@ -11,22 +11,15 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Definition of hybrid runbook worker group.
 type HybridRunbookWorkerGroup struct {
 	pulumi.CustomResourceState
 
-	// Sets the credential of a worker group.
-	Credential RunAsCredentialAssociationPropertyResponsePtrOutput `pulumi:"credential"`
-	// Type of the HybridWorkerGroup.
-	GroupType pulumi.StringPtrOutput `pulumi:"groupType"`
-	// Gets or sets the list of hybrid runbook workers.
-	HybridRunbookWorkers HybridRunbookWorkerLegacyResponseArrayOutput `pulumi:"hybridRunbookWorkers"`
-	// Gets or sets the name of the group.
-	Name pulumi.StringPtrOutput `pulumi:"name"`
-	// Resource system metadata.
-	SystemData SystemDataResponseOutput `pulumi:"systemData"`
-	// The type of the resource.
-	Type pulumi.StringOutput `pulumi:"type"`
+	Credential           RunAsCredentialAssociationPropertyResponsePtrOutput `pulumi:"credential"`
+	GroupType            pulumi.StringPtrOutput                              `pulumi:"groupType"`
+	HybridRunbookWorkers HybridRunbookWorkerLegacyResponseArrayOutput        `pulumi:"hybridRunbookWorkers"`
+	Name                 pulumi.StringPtrOutput                              `pulumi:"name"`
+	SystemData           SystemDataResponseOutput                            `pulumi:"systemData"`
+	Type                 pulumi.StringOutput                                 `pulumi:"type"`
 }
 
 // NewHybridRunbookWorkerGroup registers a new resource with the given unique name, arguments, and options.
@@ -86,26 +79,18 @@ func (HybridRunbookWorkerGroupState) ElementType() reflect.Type {
 }
 
 type hybridRunbookWorkerGroupArgs struct {
-	// The name of the automation account.
-	AutomationAccountName string `pulumi:"automationAccountName"`
-	// Sets the credential of a worker group.
-	Credential *RunAsCredentialAssociationProperty `pulumi:"credential"`
-	// The hybrid runbook worker group name
-	HybridRunbookWorkerGroupName *string `pulumi:"hybridRunbookWorkerGroupName"`
-	// Name of an Azure Resource group.
-	ResourceGroupName string `pulumi:"resourceGroupName"`
+	AutomationAccountName        string                              `pulumi:"automationAccountName"`
+	Credential                   *RunAsCredentialAssociationProperty `pulumi:"credential"`
+	HybridRunbookWorkerGroupName *string                             `pulumi:"hybridRunbookWorkerGroupName"`
+	ResourceGroupName            string                              `pulumi:"resourceGroupName"`
 }
 
 // The set of arguments for constructing a HybridRunbookWorkerGroup resource.
 type HybridRunbookWorkerGroupArgs struct {
-	// The name of the automation account.
-	AutomationAccountName pulumi.StringInput
-	// Sets the credential of a worker group.
-	Credential RunAsCredentialAssociationPropertyPtrInput
-	// The hybrid runbook worker group name
+	AutomationAccountName        pulumi.StringInput
+	Credential                   RunAsCredentialAssociationPropertyPtrInput
 	HybridRunbookWorkerGroupName pulumi.StringPtrInput
-	// Name of an Azure Resource group.
-	ResourceGroupName pulumi.StringInput
+	ResourceGroupName            pulumi.StringInput
 }
 
 func (HybridRunbookWorkerGroupArgs) ElementType() reflect.Type {
@@ -131,9 +116,7 @@ func (i *HybridRunbookWorkerGroup) ToHybridRunbookWorkerGroupOutputWithContext(c
 	return pulumi.ToOutputWithContext(ctx, i).(HybridRunbookWorkerGroupOutput)
 }
 
-type HybridRunbookWorkerGroupOutput struct {
-	*pulumi.OutputState
-}
+type HybridRunbookWorkerGroupOutput struct{ *pulumi.OutputState }
 
 func (HybridRunbookWorkerGroupOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*HybridRunbookWorkerGroup)(nil))

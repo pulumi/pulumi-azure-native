@@ -11,24 +11,16 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Bot resource definition
 type Getbot struct {
 	pulumi.CustomResourceState
 
-	// The geo-location where the resource lives
-	Location pulumi.StringOutput `pulumi:"location"`
-	// The name of the resource
-	Name pulumi.StringOutput `pulumi:"name"`
-	// The set of properties specific to healthcare bot resource.
+	Location   pulumi.StringOutput               `pulumi:"location"`
+	Name       pulumi.StringOutput               `pulumi:"name"`
 	Properties HealthBotPropertiesResponseOutput `pulumi:"properties"`
-	// SKU of the HealthBot.
-	Sku SkuResponsePtrOutput `pulumi:"sku"`
-	// Metadata pertaining to creation and last modification of the resource
-	SystemData SystemDataResponseOutput `pulumi:"systemData"`
-	// Resource tags.
-	Tags pulumi.StringMapOutput `pulumi:"tags"`
-	// The type of the resource.
-	Type pulumi.StringOutput `pulumi:"type"`
+	Sku        SkuResponsePtrOutput              `pulumi:"sku"`
+	SystemData SystemDataResponseOutput          `pulumi:"systemData"`
+	Tags       pulumi.StringMapOutput            `pulumi:"tags"`
+	Type       pulumi.StringOutput               `pulumi:"type"`
 }
 
 // NewGetbot registers a new resource with the given unique name, arguments, and options.
@@ -109,30 +101,20 @@ func (GetbotState) ElementType() reflect.Type {
 }
 
 type getbotArgs struct {
-	// The geo-location where the resource lives
-	Location *string `pulumi:"location"`
-	// The name of the Bot resource group in the user subscription.
-	ResourceGroupName string `pulumi:"resourceGroupName"`
-	// The name of the Bot resource.
-	ResourceName *string `pulumi:"resourceName"`
-	// SKU of the HealthBot.
-	Sku *Sku `pulumi:"sku"`
-	// Resource tags.
-	Tags map[string]string `pulumi:"tags"`
+	Location          *string           `pulumi:"location"`
+	ResourceGroupName string            `pulumi:"resourceGroupName"`
+	ResourceName      *string           `pulumi:"resourceName"`
+	Sku               *Sku              `pulumi:"sku"`
+	Tags              map[string]string `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a Getbot resource.
 type GetbotArgs struct {
-	// The geo-location where the resource lives
-	Location pulumi.StringPtrInput
-	// The name of the Bot resource group in the user subscription.
+	Location          pulumi.StringPtrInput
 	ResourceGroupName pulumi.StringInput
-	// The name of the Bot resource.
-	ResourceName pulumi.StringPtrInput
-	// SKU of the HealthBot.
-	Sku SkuPtrInput
-	// Resource tags.
-	Tags pulumi.StringMapInput
+	ResourceName      pulumi.StringPtrInput
+	Sku               SkuPtrInput
+	Tags              pulumi.StringMapInput
 }
 
 func (GetbotArgs) ElementType() reflect.Type {
@@ -158,9 +140,7 @@ func (i *Getbot) ToGetbotOutputWithContext(ctx context.Context) GetbotOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(GetbotOutput)
 }
 
-type GetbotOutput struct {
-	*pulumi.OutputState
-}
+type GetbotOutput struct{ *pulumi.OutputState }
 
 func (GetbotOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*Getbot)(nil))

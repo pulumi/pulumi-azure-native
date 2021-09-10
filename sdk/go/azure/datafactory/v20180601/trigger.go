@@ -11,18 +11,13 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Trigger resource type.
 type Trigger struct {
 	pulumi.CustomResourceState
 
-	// Etag identifies change in the resource.
-	Etag pulumi.StringOutput `pulumi:"etag"`
-	// The resource name.
-	Name pulumi.StringOutput `pulumi:"name"`
-	// Properties of the trigger.
-	Properties pulumi.AnyOutput `pulumi:"properties"`
-	// The resource type.
-	Type pulumi.StringOutput `pulumi:"type"`
+	Etag       pulumi.StringOutput `pulumi:"etag"`
+	Name       pulumi.StringOutput `pulumi:"name"`
+	Properties pulumi.AnyOutput    `pulumi:"properties"`
+	Type       pulumi.StringOutput `pulumi:"type"`
 }
 
 // NewTrigger registers a new resource with the given unique name, arguments, and options.
@@ -91,26 +86,18 @@ func (TriggerState) ElementType() reflect.Type {
 }
 
 type triggerArgs struct {
-	// The factory name.
-	FactoryName string `pulumi:"factoryName"`
-	// Properties of the trigger.
-	Properties interface{} `pulumi:"properties"`
-	// The resource group name.
-	ResourceGroupName string `pulumi:"resourceGroupName"`
-	// The trigger name.
-	TriggerName *string `pulumi:"triggerName"`
+	FactoryName       string      `pulumi:"factoryName"`
+	Properties        interface{} `pulumi:"properties"`
+	ResourceGroupName string      `pulumi:"resourceGroupName"`
+	TriggerName       *string     `pulumi:"triggerName"`
 }
 
 // The set of arguments for constructing a Trigger resource.
 type TriggerArgs struct {
-	// The factory name.
-	FactoryName pulumi.StringInput
-	// Properties of the trigger.
-	Properties pulumi.Input
-	// The resource group name.
+	FactoryName       pulumi.StringInput
+	Properties        pulumi.Input
 	ResourceGroupName pulumi.StringInput
-	// The trigger name.
-	TriggerName pulumi.StringPtrInput
+	TriggerName       pulumi.StringPtrInput
 }
 
 func (TriggerArgs) ElementType() reflect.Type {
@@ -136,9 +123,7 @@ func (i *Trigger) ToTriggerOutputWithContext(ctx context.Context) TriggerOutput 
 	return pulumi.ToOutputWithContext(ctx, i).(TriggerOutput)
 }
 
-type TriggerOutput struct {
-	*pulumi.OutputState
-}
+type TriggerOutput struct{ *pulumi.OutputState }
 
 func (TriggerOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*Trigger)(nil))

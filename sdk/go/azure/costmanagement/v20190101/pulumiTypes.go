@@ -10,13 +10,9 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// The destination information for the delivery of the export. To allow access to a storage account, you must register the account's subscription with the Microsoft.CostManagementExports resource provider. This is required once per subscription. When creating an export in the Azure portal, it is done automatically. However, API users need to register the subscription. For more information see https://docs.microsoft.com/en-us/azure/azure-resource-manager/resource-manager-supported-services .
 type ExportDeliveryDestination struct {
-	// The name of the container where exports will be uploaded.
-	Container string `pulumi:"container"`
-	// The resource id of the storage account where exports will be delivered.
-	ResourceId string `pulumi:"resourceId"`
-	// The name of the directory where exports will be uploaded.
+	Container      string  `pulumi:"container"`
+	ResourceId     string  `pulumi:"resourceId"`
 	RootFolderPath *string `pulumi:"rootFolderPath"`
 }
 
@@ -31,13 +27,9 @@ type ExportDeliveryDestinationInput interface {
 	ToExportDeliveryDestinationOutputWithContext(context.Context) ExportDeliveryDestinationOutput
 }
 
-// The destination information for the delivery of the export. To allow access to a storage account, you must register the account's subscription with the Microsoft.CostManagementExports resource provider. This is required once per subscription. When creating an export in the Azure portal, it is done automatically. However, API users need to register the subscription. For more information see https://docs.microsoft.com/en-us/azure/azure-resource-manager/resource-manager-supported-services .
 type ExportDeliveryDestinationArgs struct {
-	// The name of the container where exports will be uploaded.
-	Container pulumi.StringInput `pulumi:"container"`
-	// The resource id of the storage account where exports will be delivered.
-	ResourceId pulumi.StringInput `pulumi:"resourceId"`
-	// The name of the directory where exports will be uploaded.
+	Container      pulumi.StringInput    `pulumi:"container"`
+	ResourceId     pulumi.StringInput    `pulumi:"resourceId"`
 	RootFolderPath pulumi.StringPtrInput `pulumi:"rootFolderPath"`
 }
 
@@ -94,7 +86,6 @@ func (i *exportDeliveryDestinationPtrType) ToExportDeliveryDestinationPtrOutputW
 	return pulumi.ToOutputWithContext(ctx, i).(ExportDeliveryDestinationPtrOutput)
 }
 
-// The destination information for the delivery of the export. To allow access to a storage account, you must register the account's subscription with the Microsoft.CostManagementExports resource provider. This is required once per subscription. When creating an export in the Azure portal, it is done automatically. However, API users need to register the subscription. For more information see https://docs.microsoft.com/en-us/azure/azure-resource-manager/resource-manager-supported-services .
 type ExportDeliveryDestinationOutput struct{ *pulumi.OutputState }
 
 func (ExportDeliveryDestinationOutput) ElementType() reflect.Type {
@@ -114,22 +105,19 @@ func (o ExportDeliveryDestinationOutput) ToExportDeliveryDestinationPtrOutput() 
 }
 
 func (o ExportDeliveryDestinationOutput) ToExportDeliveryDestinationPtrOutputWithContext(ctx context.Context) ExportDeliveryDestinationPtrOutput {
-	return o.ApplyT(func(v ExportDeliveryDestination) *ExportDeliveryDestination {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ExportDeliveryDestination) *ExportDeliveryDestination {
 		return &v
 	}).(ExportDeliveryDestinationPtrOutput)
 }
 
-// The name of the container where exports will be uploaded.
 func (o ExportDeliveryDestinationOutput) Container() pulumi.StringOutput {
 	return o.ApplyT(func(v ExportDeliveryDestination) string { return v.Container }).(pulumi.StringOutput)
 }
 
-// The resource id of the storage account where exports will be delivered.
 func (o ExportDeliveryDestinationOutput) ResourceId() pulumi.StringOutput {
 	return o.ApplyT(func(v ExportDeliveryDestination) string { return v.ResourceId }).(pulumi.StringOutput)
 }
 
-// The name of the directory where exports will be uploaded.
 func (o ExportDeliveryDestinationOutput) RootFolderPath() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ExportDeliveryDestination) *string { return v.RootFolderPath }).(pulumi.StringPtrOutput)
 }
@@ -149,10 +137,15 @@ func (o ExportDeliveryDestinationPtrOutput) ToExportDeliveryDestinationPtrOutput
 }
 
 func (o ExportDeliveryDestinationPtrOutput) Elem() ExportDeliveryDestinationOutput {
-	return o.ApplyT(func(v *ExportDeliveryDestination) ExportDeliveryDestination { return *v }).(ExportDeliveryDestinationOutput)
+	return o.ApplyT(func(v *ExportDeliveryDestination) ExportDeliveryDestination {
+		if v != nil {
+			return *v
+		}
+		var ret ExportDeliveryDestination
+		return ret
+	}).(ExportDeliveryDestinationOutput)
 }
 
-// The name of the container where exports will be uploaded.
 func (o ExportDeliveryDestinationPtrOutput) Container() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ExportDeliveryDestination) *string {
 		if v == nil {
@@ -162,7 +155,6 @@ func (o ExportDeliveryDestinationPtrOutput) Container() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The resource id of the storage account where exports will be delivered.
 func (o ExportDeliveryDestinationPtrOutput) ResourceId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ExportDeliveryDestination) *string {
 		if v == nil {
@@ -172,7 +164,6 @@ func (o ExportDeliveryDestinationPtrOutput) ResourceId() pulumi.StringPtrOutput 
 	}).(pulumi.StringPtrOutput)
 }
 
-// The name of the directory where exports will be uploaded.
 func (o ExportDeliveryDestinationPtrOutput) RootFolderPath() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ExportDeliveryDestination) *string {
 		if v == nil {
@@ -182,13 +173,9 @@ func (o ExportDeliveryDestinationPtrOutput) RootFolderPath() pulumi.StringPtrOut
 	}).(pulumi.StringPtrOutput)
 }
 
-// The destination information for the delivery of the export. To allow access to a storage account, you must register the account's subscription with the Microsoft.CostManagementExports resource provider. This is required once per subscription. When creating an export in the Azure portal, it is done automatically. However, API users need to register the subscription. For more information see https://docs.microsoft.com/en-us/azure/azure-resource-manager/resource-manager-supported-services .
 type ExportDeliveryDestinationResponse struct {
-	// The name of the container where exports will be uploaded.
-	Container string `pulumi:"container"`
-	// The resource id of the storage account where exports will be delivered.
-	ResourceId string `pulumi:"resourceId"`
-	// The name of the directory where exports will be uploaded.
+	Container      string  `pulumi:"container"`
+	ResourceId     string  `pulumi:"resourceId"`
 	RootFolderPath *string `pulumi:"rootFolderPath"`
 }
 
@@ -203,13 +190,9 @@ type ExportDeliveryDestinationResponseInput interface {
 	ToExportDeliveryDestinationResponseOutputWithContext(context.Context) ExportDeliveryDestinationResponseOutput
 }
 
-// The destination information for the delivery of the export. To allow access to a storage account, you must register the account's subscription with the Microsoft.CostManagementExports resource provider. This is required once per subscription. When creating an export in the Azure portal, it is done automatically. However, API users need to register the subscription. For more information see https://docs.microsoft.com/en-us/azure/azure-resource-manager/resource-manager-supported-services .
 type ExportDeliveryDestinationResponseArgs struct {
-	// The name of the container where exports will be uploaded.
-	Container pulumi.StringInput `pulumi:"container"`
-	// The resource id of the storage account where exports will be delivered.
-	ResourceId pulumi.StringInput `pulumi:"resourceId"`
-	// The name of the directory where exports will be uploaded.
+	Container      pulumi.StringInput    `pulumi:"container"`
+	ResourceId     pulumi.StringInput    `pulumi:"resourceId"`
 	RootFolderPath pulumi.StringPtrInput `pulumi:"rootFolderPath"`
 }
 
@@ -266,7 +249,6 @@ func (i *exportDeliveryDestinationResponsePtrType) ToExportDeliveryDestinationRe
 	return pulumi.ToOutputWithContext(ctx, i).(ExportDeliveryDestinationResponsePtrOutput)
 }
 
-// The destination information for the delivery of the export. To allow access to a storage account, you must register the account's subscription with the Microsoft.CostManagementExports resource provider. This is required once per subscription. When creating an export in the Azure portal, it is done automatically. However, API users need to register the subscription. For more information see https://docs.microsoft.com/en-us/azure/azure-resource-manager/resource-manager-supported-services .
 type ExportDeliveryDestinationResponseOutput struct{ *pulumi.OutputState }
 
 func (ExportDeliveryDestinationResponseOutput) ElementType() reflect.Type {
@@ -286,22 +268,19 @@ func (o ExportDeliveryDestinationResponseOutput) ToExportDeliveryDestinationResp
 }
 
 func (o ExportDeliveryDestinationResponseOutput) ToExportDeliveryDestinationResponsePtrOutputWithContext(ctx context.Context) ExportDeliveryDestinationResponsePtrOutput {
-	return o.ApplyT(func(v ExportDeliveryDestinationResponse) *ExportDeliveryDestinationResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ExportDeliveryDestinationResponse) *ExportDeliveryDestinationResponse {
 		return &v
 	}).(ExportDeliveryDestinationResponsePtrOutput)
 }
 
-// The name of the container where exports will be uploaded.
 func (o ExportDeliveryDestinationResponseOutput) Container() pulumi.StringOutput {
 	return o.ApplyT(func(v ExportDeliveryDestinationResponse) string { return v.Container }).(pulumi.StringOutput)
 }
 
-// The resource id of the storage account where exports will be delivered.
 func (o ExportDeliveryDestinationResponseOutput) ResourceId() pulumi.StringOutput {
 	return o.ApplyT(func(v ExportDeliveryDestinationResponse) string { return v.ResourceId }).(pulumi.StringOutput)
 }
 
-// The name of the directory where exports will be uploaded.
 func (o ExportDeliveryDestinationResponseOutput) RootFolderPath() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ExportDeliveryDestinationResponse) *string { return v.RootFolderPath }).(pulumi.StringPtrOutput)
 }
@@ -321,10 +300,15 @@ func (o ExportDeliveryDestinationResponsePtrOutput) ToExportDeliveryDestinationR
 }
 
 func (o ExportDeliveryDestinationResponsePtrOutput) Elem() ExportDeliveryDestinationResponseOutput {
-	return o.ApplyT(func(v *ExportDeliveryDestinationResponse) ExportDeliveryDestinationResponse { return *v }).(ExportDeliveryDestinationResponseOutput)
+	return o.ApplyT(func(v *ExportDeliveryDestinationResponse) ExportDeliveryDestinationResponse {
+		if v != nil {
+			return *v
+		}
+		var ret ExportDeliveryDestinationResponse
+		return ret
+	}).(ExportDeliveryDestinationResponseOutput)
 }
 
-// The name of the container where exports will be uploaded.
 func (o ExportDeliveryDestinationResponsePtrOutput) Container() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ExportDeliveryDestinationResponse) *string {
 		if v == nil {
@@ -334,7 +318,6 @@ func (o ExportDeliveryDestinationResponsePtrOutput) Container() pulumi.StringPtr
 	}).(pulumi.StringPtrOutput)
 }
 
-// The resource id of the storage account where exports will be delivered.
 func (o ExportDeliveryDestinationResponsePtrOutput) ResourceId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ExportDeliveryDestinationResponse) *string {
 		if v == nil {
@@ -344,7 +327,6 @@ func (o ExportDeliveryDestinationResponsePtrOutput) ResourceId() pulumi.StringPt
 	}).(pulumi.StringPtrOutput)
 }
 
-// The name of the directory where exports will be uploaded.
 func (o ExportDeliveryDestinationResponsePtrOutput) RootFolderPath() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ExportDeliveryDestinationResponse) *string {
 		if v == nil {
@@ -354,9 +336,7 @@ func (o ExportDeliveryDestinationResponsePtrOutput) RootFolderPath() pulumi.Stri
 	}).(pulumi.StringPtrOutput)
 }
 
-// The delivery information associated with a export.
 type ExportDeliveryInfo struct {
-	// Has destination for the export being delivered.
 	Destination ExportDeliveryDestination `pulumi:"destination"`
 }
 
@@ -371,9 +351,7 @@ type ExportDeliveryInfoInput interface {
 	ToExportDeliveryInfoOutputWithContext(context.Context) ExportDeliveryInfoOutput
 }
 
-// The delivery information associated with a export.
 type ExportDeliveryInfoArgs struct {
-	// Has destination for the export being delivered.
 	Destination ExportDeliveryDestinationInput `pulumi:"destination"`
 }
 
@@ -430,7 +408,6 @@ func (i *exportDeliveryInfoPtrType) ToExportDeliveryInfoPtrOutputWithContext(ctx
 	return pulumi.ToOutputWithContext(ctx, i).(ExportDeliveryInfoPtrOutput)
 }
 
-// The delivery information associated with a export.
 type ExportDeliveryInfoOutput struct{ *pulumi.OutputState }
 
 func (ExportDeliveryInfoOutput) ElementType() reflect.Type {
@@ -450,12 +427,11 @@ func (o ExportDeliveryInfoOutput) ToExportDeliveryInfoPtrOutput() ExportDelivery
 }
 
 func (o ExportDeliveryInfoOutput) ToExportDeliveryInfoPtrOutputWithContext(ctx context.Context) ExportDeliveryInfoPtrOutput {
-	return o.ApplyT(func(v ExportDeliveryInfo) *ExportDeliveryInfo {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ExportDeliveryInfo) *ExportDeliveryInfo {
 		return &v
 	}).(ExportDeliveryInfoPtrOutput)
 }
 
-// Has destination for the export being delivered.
 func (o ExportDeliveryInfoOutput) Destination() ExportDeliveryDestinationOutput {
 	return o.ApplyT(func(v ExportDeliveryInfo) ExportDeliveryDestination { return v.Destination }).(ExportDeliveryDestinationOutput)
 }
@@ -475,10 +451,15 @@ func (o ExportDeliveryInfoPtrOutput) ToExportDeliveryInfoPtrOutputWithContext(ct
 }
 
 func (o ExportDeliveryInfoPtrOutput) Elem() ExportDeliveryInfoOutput {
-	return o.ApplyT(func(v *ExportDeliveryInfo) ExportDeliveryInfo { return *v }).(ExportDeliveryInfoOutput)
+	return o.ApplyT(func(v *ExportDeliveryInfo) ExportDeliveryInfo {
+		if v != nil {
+			return *v
+		}
+		var ret ExportDeliveryInfo
+		return ret
+	}).(ExportDeliveryInfoOutput)
 }
 
-// Has destination for the export being delivered.
 func (o ExportDeliveryInfoPtrOutput) Destination() ExportDeliveryDestinationPtrOutput {
 	return o.ApplyT(func(v *ExportDeliveryInfo) *ExportDeliveryDestination {
 		if v == nil {
@@ -488,9 +469,7 @@ func (o ExportDeliveryInfoPtrOutput) Destination() ExportDeliveryDestinationPtrO
 	}).(ExportDeliveryDestinationPtrOutput)
 }
 
-// The delivery information associated with a export.
 type ExportDeliveryInfoResponse struct {
-	// Has destination for the export being delivered.
 	Destination ExportDeliveryDestinationResponse `pulumi:"destination"`
 }
 
@@ -505,9 +484,7 @@ type ExportDeliveryInfoResponseInput interface {
 	ToExportDeliveryInfoResponseOutputWithContext(context.Context) ExportDeliveryInfoResponseOutput
 }
 
-// The delivery information associated with a export.
 type ExportDeliveryInfoResponseArgs struct {
-	// Has destination for the export being delivered.
 	Destination ExportDeliveryDestinationResponseInput `pulumi:"destination"`
 }
 
@@ -564,7 +541,6 @@ func (i *exportDeliveryInfoResponsePtrType) ToExportDeliveryInfoResponsePtrOutpu
 	return pulumi.ToOutputWithContext(ctx, i).(ExportDeliveryInfoResponsePtrOutput)
 }
 
-// The delivery information associated with a export.
 type ExportDeliveryInfoResponseOutput struct{ *pulumi.OutputState }
 
 func (ExportDeliveryInfoResponseOutput) ElementType() reflect.Type {
@@ -584,12 +560,11 @@ func (o ExportDeliveryInfoResponseOutput) ToExportDeliveryInfoResponsePtrOutput(
 }
 
 func (o ExportDeliveryInfoResponseOutput) ToExportDeliveryInfoResponsePtrOutputWithContext(ctx context.Context) ExportDeliveryInfoResponsePtrOutput {
-	return o.ApplyT(func(v ExportDeliveryInfoResponse) *ExportDeliveryInfoResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ExportDeliveryInfoResponse) *ExportDeliveryInfoResponse {
 		return &v
 	}).(ExportDeliveryInfoResponsePtrOutput)
 }
 
-// Has destination for the export being delivered.
 func (o ExportDeliveryInfoResponseOutput) Destination() ExportDeliveryDestinationResponseOutput {
 	return o.ApplyT(func(v ExportDeliveryInfoResponse) ExportDeliveryDestinationResponse { return v.Destination }).(ExportDeliveryDestinationResponseOutput)
 }
@@ -609,10 +584,15 @@ func (o ExportDeliveryInfoResponsePtrOutput) ToExportDeliveryInfoResponsePtrOutp
 }
 
 func (o ExportDeliveryInfoResponsePtrOutput) Elem() ExportDeliveryInfoResponseOutput {
-	return o.ApplyT(func(v *ExportDeliveryInfoResponse) ExportDeliveryInfoResponse { return *v }).(ExportDeliveryInfoResponseOutput)
+	return o.ApplyT(func(v *ExportDeliveryInfoResponse) ExportDeliveryInfoResponse {
+		if v != nil {
+			return *v
+		}
+		var ret ExportDeliveryInfoResponse
+		return ret
+	}).(ExportDeliveryInfoResponseOutput)
 }
 
-// Has destination for the export being delivered.
 func (o ExportDeliveryInfoResponsePtrOutput) Destination() ExportDeliveryDestinationResponsePtrOutput {
 	return o.ApplyT(func(v *ExportDeliveryInfoResponse) *ExportDeliveryDestinationResponse {
 		if v == nil {
@@ -622,12 +602,9 @@ func (o ExportDeliveryInfoResponsePtrOutput) Destination() ExportDeliveryDestina
 	}).(ExportDeliveryDestinationResponsePtrOutput)
 }
 
-// The start and end date for recurrence schedule.
 type ExportRecurrencePeriod struct {
-	// The start date of recurrence.
-	From string `pulumi:"from"`
-	// The end date of recurrence.
-	To *string `pulumi:"to"`
+	From string  `pulumi:"from"`
+	To   *string `pulumi:"to"`
 }
 
 // ExportRecurrencePeriodInput is an input type that accepts ExportRecurrencePeriodArgs and ExportRecurrencePeriodOutput values.
@@ -641,12 +618,9 @@ type ExportRecurrencePeriodInput interface {
 	ToExportRecurrencePeriodOutputWithContext(context.Context) ExportRecurrencePeriodOutput
 }
 
-// The start and end date for recurrence schedule.
 type ExportRecurrencePeriodArgs struct {
-	// The start date of recurrence.
-	From pulumi.StringInput `pulumi:"from"`
-	// The end date of recurrence.
-	To pulumi.StringPtrInput `pulumi:"to"`
+	From pulumi.StringInput    `pulumi:"from"`
+	To   pulumi.StringPtrInput `pulumi:"to"`
 }
 
 func (ExportRecurrencePeriodArgs) ElementType() reflect.Type {
@@ -702,7 +676,6 @@ func (i *exportRecurrencePeriodPtrType) ToExportRecurrencePeriodPtrOutputWithCon
 	return pulumi.ToOutputWithContext(ctx, i).(ExportRecurrencePeriodPtrOutput)
 }
 
-// The start and end date for recurrence schedule.
 type ExportRecurrencePeriodOutput struct{ *pulumi.OutputState }
 
 func (ExportRecurrencePeriodOutput) ElementType() reflect.Type {
@@ -722,17 +695,15 @@ func (o ExportRecurrencePeriodOutput) ToExportRecurrencePeriodPtrOutput() Export
 }
 
 func (o ExportRecurrencePeriodOutput) ToExportRecurrencePeriodPtrOutputWithContext(ctx context.Context) ExportRecurrencePeriodPtrOutput {
-	return o.ApplyT(func(v ExportRecurrencePeriod) *ExportRecurrencePeriod {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ExportRecurrencePeriod) *ExportRecurrencePeriod {
 		return &v
 	}).(ExportRecurrencePeriodPtrOutput)
 }
 
-// The start date of recurrence.
 func (o ExportRecurrencePeriodOutput) From() pulumi.StringOutput {
 	return o.ApplyT(func(v ExportRecurrencePeriod) string { return v.From }).(pulumi.StringOutput)
 }
 
-// The end date of recurrence.
 func (o ExportRecurrencePeriodOutput) To() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ExportRecurrencePeriod) *string { return v.To }).(pulumi.StringPtrOutput)
 }
@@ -752,10 +723,15 @@ func (o ExportRecurrencePeriodPtrOutput) ToExportRecurrencePeriodPtrOutputWithCo
 }
 
 func (o ExportRecurrencePeriodPtrOutput) Elem() ExportRecurrencePeriodOutput {
-	return o.ApplyT(func(v *ExportRecurrencePeriod) ExportRecurrencePeriod { return *v }).(ExportRecurrencePeriodOutput)
+	return o.ApplyT(func(v *ExportRecurrencePeriod) ExportRecurrencePeriod {
+		if v != nil {
+			return *v
+		}
+		var ret ExportRecurrencePeriod
+		return ret
+	}).(ExportRecurrencePeriodOutput)
 }
 
-// The start date of recurrence.
 func (o ExportRecurrencePeriodPtrOutput) From() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ExportRecurrencePeriod) *string {
 		if v == nil {
@@ -765,7 +741,6 @@ func (o ExportRecurrencePeriodPtrOutput) From() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The end date of recurrence.
 func (o ExportRecurrencePeriodPtrOutput) To() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ExportRecurrencePeriod) *string {
 		if v == nil {
@@ -775,12 +750,9 @@ func (o ExportRecurrencePeriodPtrOutput) To() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The start and end date for recurrence schedule.
 type ExportRecurrencePeriodResponse struct {
-	// The start date of recurrence.
-	From string `pulumi:"from"`
-	// The end date of recurrence.
-	To *string `pulumi:"to"`
+	From string  `pulumi:"from"`
+	To   *string `pulumi:"to"`
 }
 
 // ExportRecurrencePeriodResponseInput is an input type that accepts ExportRecurrencePeriodResponseArgs and ExportRecurrencePeriodResponseOutput values.
@@ -794,12 +766,9 @@ type ExportRecurrencePeriodResponseInput interface {
 	ToExportRecurrencePeriodResponseOutputWithContext(context.Context) ExportRecurrencePeriodResponseOutput
 }
 
-// The start and end date for recurrence schedule.
 type ExportRecurrencePeriodResponseArgs struct {
-	// The start date of recurrence.
-	From pulumi.StringInput `pulumi:"from"`
-	// The end date of recurrence.
-	To pulumi.StringPtrInput `pulumi:"to"`
+	From pulumi.StringInput    `pulumi:"from"`
+	To   pulumi.StringPtrInput `pulumi:"to"`
 }
 
 func (ExportRecurrencePeriodResponseArgs) ElementType() reflect.Type {
@@ -855,7 +824,6 @@ func (i *exportRecurrencePeriodResponsePtrType) ToExportRecurrencePeriodResponse
 	return pulumi.ToOutputWithContext(ctx, i).(ExportRecurrencePeriodResponsePtrOutput)
 }
 
-// The start and end date for recurrence schedule.
 type ExportRecurrencePeriodResponseOutput struct{ *pulumi.OutputState }
 
 func (ExportRecurrencePeriodResponseOutput) ElementType() reflect.Type {
@@ -875,17 +843,15 @@ func (o ExportRecurrencePeriodResponseOutput) ToExportRecurrencePeriodResponsePt
 }
 
 func (o ExportRecurrencePeriodResponseOutput) ToExportRecurrencePeriodResponsePtrOutputWithContext(ctx context.Context) ExportRecurrencePeriodResponsePtrOutput {
-	return o.ApplyT(func(v ExportRecurrencePeriodResponse) *ExportRecurrencePeriodResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ExportRecurrencePeriodResponse) *ExportRecurrencePeriodResponse {
 		return &v
 	}).(ExportRecurrencePeriodResponsePtrOutput)
 }
 
-// The start date of recurrence.
 func (o ExportRecurrencePeriodResponseOutput) From() pulumi.StringOutput {
 	return o.ApplyT(func(v ExportRecurrencePeriodResponse) string { return v.From }).(pulumi.StringOutput)
 }
 
-// The end date of recurrence.
 func (o ExportRecurrencePeriodResponseOutput) To() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ExportRecurrencePeriodResponse) *string { return v.To }).(pulumi.StringPtrOutput)
 }
@@ -905,10 +871,15 @@ func (o ExportRecurrencePeriodResponsePtrOutput) ToExportRecurrencePeriodRespons
 }
 
 func (o ExportRecurrencePeriodResponsePtrOutput) Elem() ExportRecurrencePeriodResponseOutput {
-	return o.ApplyT(func(v *ExportRecurrencePeriodResponse) ExportRecurrencePeriodResponse { return *v }).(ExportRecurrencePeriodResponseOutput)
+	return o.ApplyT(func(v *ExportRecurrencePeriodResponse) ExportRecurrencePeriodResponse {
+		if v != nil {
+			return *v
+		}
+		var ret ExportRecurrencePeriodResponse
+		return ret
+	}).(ExportRecurrencePeriodResponseOutput)
 }
 
-// The start date of recurrence.
 func (o ExportRecurrencePeriodResponsePtrOutput) From() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ExportRecurrencePeriodResponse) *string {
 		if v == nil {
@@ -918,7 +889,6 @@ func (o ExportRecurrencePeriodResponsePtrOutput) From() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The end date of recurrence.
 func (o ExportRecurrencePeriodResponsePtrOutput) To() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ExportRecurrencePeriodResponse) *string {
 		if v == nil {
@@ -928,14 +898,10 @@ func (o ExportRecurrencePeriodResponsePtrOutput) To() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The schedule associated with a export.
 type ExportSchedule struct {
-	// The schedule recurrence.
-	Recurrence string `pulumi:"recurrence"`
-	// Has start and end date of the recurrence. The start date must be in future. If present, the end date must be greater than start date.
+	Recurrence       string                  `pulumi:"recurrence"`
 	RecurrencePeriod *ExportRecurrencePeriod `pulumi:"recurrencePeriod"`
-	// The status of the schedule. Whether active or not. If inactive, the export's scheduled execution is paused.
-	Status *string `pulumi:"status"`
+	Status           *string                 `pulumi:"status"`
 }
 
 // ExportScheduleInput is an input type that accepts ExportScheduleArgs and ExportScheduleOutput values.
@@ -949,14 +915,10 @@ type ExportScheduleInput interface {
 	ToExportScheduleOutputWithContext(context.Context) ExportScheduleOutput
 }
 
-// The schedule associated with a export.
 type ExportScheduleArgs struct {
-	// The schedule recurrence.
-	Recurrence pulumi.StringInput `pulumi:"recurrence"`
-	// Has start and end date of the recurrence. The start date must be in future. If present, the end date must be greater than start date.
+	Recurrence       pulumi.StringInput             `pulumi:"recurrence"`
 	RecurrencePeriod ExportRecurrencePeriodPtrInput `pulumi:"recurrencePeriod"`
-	// The status of the schedule. Whether active or not. If inactive, the export's scheduled execution is paused.
-	Status pulumi.StringPtrInput `pulumi:"status"`
+	Status           pulumi.StringPtrInput          `pulumi:"status"`
 }
 
 func (ExportScheduleArgs) ElementType() reflect.Type {
@@ -1012,7 +974,6 @@ func (i *exportSchedulePtrType) ToExportSchedulePtrOutputWithContext(ctx context
 	return pulumi.ToOutputWithContext(ctx, i).(ExportSchedulePtrOutput)
 }
 
-// The schedule associated with a export.
 type ExportScheduleOutput struct{ *pulumi.OutputState }
 
 func (ExportScheduleOutput) ElementType() reflect.Type {
@@ -1032,22 +993,19 @@ func (o ExportScheduleOutput) ToExportSchedulePtrOutput() ExportSchedulePtrOutpu
 }
 
 func (o ExportScheduleOutput) ToExportSchedulePtrOutputWithContext(ctx context.Context) ExportSchedulePtrOutput {
-	return o.ApplyT(func(v ExportSchedule) *ExportSchedule {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ExportSchedule) *ExportSchedule {
 		return &v
 	}).(ExportSchedulePtrOutput)
 }
 
-// The schedule recurrence.
 func (o ExportScheduleOutput) Recurrence() pulumi.StringOutput {
 	return o.ApplyT(func(v ExportSchedule) string { return v.Recurrence }).(pulumi.StringOutput)
 }
 
-// Has start and end date of the recurrence. The start date must be in future. If present, the end date must be greater than start date.
 func (o ExportScheduleOutput) RecurrencePeriod() ExportRecurrencePeriodPtrOutput {
 	return o.ApplyT(func(v ExportSchedule) *ExportRecurrencePeriod { return v.RecurrencePeriod }).(ExportRecurrencePeriodPtrOutput)
 }
 
-// The status of the schedule. Whether active or not. If inactive, the export's scheduled execution is paused.
 func (o ExportScheduleOutput) Status() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ExportSchedule) *string { return v.Status }).(pulumi.StringPtrOutput)
 }
@@ -1067,10 +1025,15 @@ func (o ExportSchedulePtrOutput) ToExportSchedulePtrOutputWithContext(ctx contex
 }
 
 func (o ExportSchedulePtrOutput) Elem() ExportScheduleOutput {
-	return o.ApplyT(func(v *ExportSchedule) ExportSchedule { return *v }).(ExportScheduleOutput)
+	return o.ApplyT(func(v *ExportSchedule) ExportSchedule {
+		if v != nil {
+			return *v
+		}
+		var ret ExportSchedule
+		return ret
+	}).(ExportScheduleOutput)
 }
 
-// The schedule recurrence.
 func (o ExportSchedulePtrOutput) Recurrence() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ExportSchedule) *string {
 		if v == nil {
@@ -1080,7 +1043,6 @@ func (o ExportSchedulePtrOutput) Recurrence() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Has start and end date of the recurrence. The start date must be in future. If present, the end date must be greater than start date.
 func (o ExportSchedulePtrOutput) RecurrencePeriod() ExportRecurrencePeriodPtrOutput {
 	return o.ApplyT(func(v *ExportSchedule) *ExportRecurrencePeriod {
 		if v == nil {
@@ -1090,7 +1052,6 @@ func (o ExportSchedulePtrOutput) RecurrencePeriod() ExportRecurrencePeriodPtrOut
 	}).(ExportRecurrencePeriodPtrOutput)
 }
 
-// The status of the schedule. Whether active or not. If inactive, the export's scheduled execution is paused.
 func (o ExportSchedulePtrOutput) Status() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ExportSchedule) *string {
 		if v == nil {
@@ -1100,14 +1061,10 @@ func (o ExportSchedulePtrOutput) Status() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The schedule associated with a export.
 type ExportScheduleResponse struct {
-	// The schedule recurrence.
-	Recurrence string `pulumi:"recurrence"`
-	// Has start and end date of the recurrence. The start date must be in future. If present, the end date must be greater than start date.
+	Recurrence       string                          `pulumi:"recurrence"`
 	RecurrencePeriod *ExportRecurrencePeriodResponse `pulumi:"recurrencePeriod"`
-	// The status of the schedule. Whether active or not. If inactive, the export's scheduled execution is paused.
-	Status *string `pulumi:"status"`
+	Status           *string                         `pulumi:"status"`
 }
 
 // ExportScheduleResponseInput is an input type that accepts ExportScheduleResponseArgs and ExportScheduleResponseOutput values.
@@ -1121,14 +1078,10 @@ type ExportScheduleResponseInput interface {
 	ToExportScheduleResponseOutputWithContext(context.Context) ExportScheduleResponseOutput
 }
 
-// The schedule associated with a export.
 type ExportScheduleResponseArgs struct {
-	// The schedule recurrence.
-	Recurrence pulumi.StringInput `pulumi:"recurrence"`
-	// Has start and end date of the recurrence. The start date must be in future. If present, the end date must be greater than start date.
+	Recurrence       pulumi.StringInput                     `pulumi:"recurrence"`
 	RecurrencePeriod ExportRecurrencePeriodResponsePtrInput `pulumi:"recurrencePeriod"`
-	// The status of the schedule. Whether active or not. If inactive, the export's scheduled execution is paused.
-	Status pulumi.StringPtrInput `pulumi:"status"`
+	Status           pulumi.StringPtrInput                  `pulumi:"status"`
 }
 
 func (ExportScheduleResponseArgs) ElementType() reflect.Type {
@@ -1184,7 +1137,6 @@ func (i *exportScheduleResponsePtrType) ToExportScheduleResponsePtrOutputWithCon
 	return pulumi.ToOutputWithContext(ctx, i).(ExportScheduleResponsePtrOutput)
 }
 
-// The schedule associated with a export.
 type ExportScheduleResponseOutput struct{ *pulumi.OutputState }
 
 func (ExportScheduleResponseOutput) ElementType() reflect.Type {
@@ -1204,22 +1156,19 @@ func (o ExportScheduleResponseOutput) ToExportScheduleResponsePtrOutput() Export
 }
 
 func (o ExportScheduleResponseOutput) ToExportScheduleResponsePtrOutputWithContext(ctx context.Context) ExportScheduleResponsePtrOutput {
-	return o.ApplyT(func(v ExportScheduleResponse) *ExportScheduleResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ExportScheduleResponse) *ExportScheduleResponse {
 		return &v
 	}).(ExportScheduleResponsePtrOutput)
 }
 
-// The schedule recurrence.
 func (o ExportScheduleResponseOutput) Recurrence() pulumi.StringOutput {
 	return o.ApplyT(func(v ExportScheduleResponse) string { return v.Recurrence }).(pulumi.StringOutput)
 }
 
-// Has start and end date of the recurrence. The start date must be in future. If present, the end date must be greater than start date.
 func (o ExportScheduleResponseOutput) RecurrencePeriod() ExportRecurrencePeriodResponsePtrOutput {
 	return o.ApplyT(func(v ExportScheduleResponse) *ExportRecurrencePeriodResponse { return v.RecurrencePeriod }).(ExportRecurrencePeriodResponsePtrOutput)
 }
 
-// The status of the schedule. Whether active or not. If inactive, the export's scheduled execution is paused.
 func (o ExportScheduleResponseOutput) Status() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ExportScheduleResponse) *string { return v.Status }).(pulumi.StringPtrOutput)
 }
@@ -1239,10 +1188,15 @@ func (o ExportScheduleResponsePtrOutput) ToExportScheduleResponsePtrOutputWithCo
 }
 
 func (o ExportScheduleResponsePtrOutput) Elem() ExportScheduleResponseOutput {
-	return o.ApplyT(func(v *ExportScheduleResponse) ExportScheduleResponse { return *v }).(ExportScheduleResponseOutput)
+	return o.ApplyT(func(v *ExportScheduleResponse) ExportScheduleResponse {
+		if v != nil {
+			return *v
+		}
+		var ret ExportScheduleResponse
+		return ret
+	}).(ExportScheduleResponseOutput)
 }
 
-// The schedule recurrence.
 func (o ExportScheduleResponsePtrOutput) Recurrence() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ExportScheduleResponse) *string {
 		if v == nil {
@@ -1252,7 +1206,6 @@ func (o ExportScheduleResponsePtrOutput) Recurrence() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Has start and end date of the recurrence. The start date must be in future. If present, the end date must be greater than start date.
 func (o ExportScheduleResponsePtrOutput) RecurrencePeriod() ExportRecurrencePeriodResponsePtrOutput {
 	return o.ApplyT(func(v *ExportScheduleResponse) *ExportRecurrencePeriodResponse {
 		if v == nil {
@@ -1262,7 +1215,6 @@ func (o ExportScheduleResponsePtrOutput) RecurrencePeriod() ExportRecurrencePeri
 	}).(ExportRecurrencePeriodResponsePtrOutput)
 }
 
-// The status of the schedule. Whether active or not. If inactive, the export's scheduled execution is paused.
 func (o ExportScheduleResponsePtrOutput) Status() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ExportScheduleResponse) *string {
 		if v == nil {
@@ -1272,12 +1224,9 @@ func (o ExportScheduleResponsePtrOutput) Status() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The aggregation expression to be used in the query.
 type QueryAggregation struct {
-	// The name of the aggregation function to use.
 	Function string `pulumi:"function"`
-	// The name of the column to aggregate.
-	Name string `pulumi:"name"`
+	Name     string `pulumi:"name"`
 }
 
 // QueryAggregationInput is an input type that accepts QueryAggregationArgs and QueryAggregationOutput values.
@@ -1291,12 +1240,9 @@ type QueryAggregationInput interface {
 	ToQueryAggregationOutputWithContext(context.Context) QueryAggregationOutput
 }
 
-// The aggregation expression to be used in the query.
 type QueryAggregationArgs struct {
-	// The name of the aggregation function to use.
 	Function pulumi.StringInput `pulumi:"function"`
-	// The name of the column to aggregate.
-	Name pulumi.StringInput `pulumi:"name"`
+	Name     pulumi.StringInput `pulumi:"name"`
 }
 
 func (QueryAggregationArgs) ElementType() reflect.Type {
@@ -1336,7 +1282,6 @@ func (i QueryAggregationMap) ToQueryAggregationMapOutputWithContext(ctx context.
 	return pulumi.ToOutputWithContext(ctx, i).(QueryAggregationMapOutput)
 }
 
-// The aggregation expression to be used in the query.
 type QueryAggregationOutput struct{ *pulumi.OutputState }
 
 func (QueryAggregationOutput) ElementType() reflect.Type {
@@ -1351,12 +1296,10 @@ func (o QueryAggregationOutput) ToQueryAggregationOutputWithContext(ctx context.
 	return o
 }
 
-// The name of the aggregation function to use.
 func (o QueryAggregationOutput) Function() pulumi.StringOutput {
 	return o.ApplyT(func(v QueryAggregation) string { return v.Function }).(pulumi.StringOutput)
 }
 
-// The name of the column to aggregate.
 func (o QueryAggregationOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v QueryAggregation) string { return v.Name }).(pulumi.StringOutput)
 }
@@ -1381,12 +1324,9 @@ func (o QueryAggregationMapOutput) MapIndex(k pulumi.StringInput) QueryAggregati
 	}).(QueryAggregationOutput)
 }
 
-// The aggregation expression to be used in the query.
 type QueryAggregationResponse struct {
-	// The name of the aggregation function to use.
 	Function string `pulumi:"function"`
-	// The name of the column to aggregate.
-	Name string `pulumi:"name"`
+	Name     string `pulumi:"name"`
 }
 
 // QueryAggregationResponseInput is an input type that accepts QueryAggregationResponseArgs and QueryAggregationResponseOutput values.
@@ -1400,12 +1340,9 @@ type QueryAggregationResponseInput interface {
 	ToQueryAggregationResponseOutputWithContext(context.Context) QueryAggregationResponseOutput
 }
 
-// The aggregation expression to be used in the query.
 type QueryAggregationResponseArgs struct {
-	// The name of the aggregation function to use.
 	Function pulumi.StringInput `pulumi:"function"`
-	// The name of the column to aggregate.
-	Name pulumi.StringInput `pulumi:"name"`
+	Name     pulumi.StringInput `pulumi:"name"`
 }
 
 func (QueryAggregationResponseArgs) ElementType() reflect.Type {
@@ -1445,7 +1382,6 @@ func (i QueryAggregationResponseMap) ToQueryAggregationResponseMapOutputWithCont
 	return pulumi.ToOutputWithContext(ctx, i).(QueryAggregationResponseMapOutput)
 }
 
-// The aggregation expression to be used in the query.
 type QueryAggregationResponseOutput struct{ *pulumi.OutputState }
 
 func (QueryAggregationResponseOutput) ElementType() reflect.Type {
@@ -1460,12 +1396,10 @@ func (o QueryAggregationResponseOutput) ToQueryAggregationResponseOutputWithCont
 	return o
 }
 
-// The name of the aggregation function to use.
 func (o QueryAggregationResponseOutput) Function() pulumi.StringOutput {
 	return o.ApplyT(func(v QueryAggregationResponse) string { return v.Function }).(pulumi.StringOutput)
 }
 
-// The name of the column to aggregate.
 func (o QueryAggregationResponseOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v QueryAggregationResponse) string { return v.Name }).(pulumi.StringOutput)
 }
@@ -1490,14 +1424,10 @@ func (o QueryAggregationResponseMapOutput) MapIndex(k pulumi.StringInput) QueryA
 	}).(QueryAggregationResponseOutput)
 }
 
-// The comparison expression to be used in the query.
 type QueryComparisonExpression struct {
-	// The name of the column to use in comparison.
-	Name string `pulumi:"name"`
-	// The operator to use for comparison.
-	Operator string `pulumi:"operator"`
-	// Array of values to use for comparison
-	Values []string `pulumi:"values"`
+	Name     string   `pulumi:"name"`
+	Operator string   `pulumi:"operator"`
+	Values   []string `pulumi:"values"`
 }
 
 // QueryComparisonExpressionInput is an input type that accepts QueryComparisonExpressionArgs and QueryComparisonExpressionOutput values.
@@ -1511,14 +1441,10 @@ type QueryComparisonExpressionInput interface {
 	ToQueryComparisonExpressionOutputWithContext(context.Context) QueryComparisonExpressionOutput
 }
 
-// The comparison expression to be used in the query.
 type QueryComparisonExpressionArgs struct {
-	// The name of the column to use in comparison.
-	Name pulumi.StringInput `pulumi:"name"`
-	// The operator to use for comparison.
-	Operator pulumi.StringInput `pulumi:"operator"`
-	// Array of values to use for comparison
-	Values pulumi.StringArrayInput `pulumi:"values"`
+	Name     pulumi.StringInput      `pulumi:"name"`
+	Operator pulumi.StringInput      `pulumi:"operator"`
+	Values   pulumi.StringArrayInput `pulumi:"values"`
 }
 
 func (QueryComparisonExpressionArgs) ElementType() reflect.Type {
@@ -1574,7 +1500,6 @@ func (i *queryComparisonExpressionPtrType) ToQueryComparisonExpressionPtrOutputW
 	return pulumi.ToOutputWithContext(ctx, i).(QueryComparisonExpressionPtrOutput)
 }
 
-// The comparison expression to be used in the query.
 type QueryComparisonExpressionOutput struct{ *pulumi.OutputState }
 
 func (QueryComparisonExpressionOutput) ElementType() reflect.Type {
@@ -1594,22 +1519,19 @@ func (o QueryComparisonExpressionOutput) ToQueryComparisonExpressionPtrOutput() 
 }
 
 func (o QueryComparisonExpressionOutput) ToQueryComparisonExpressionPtrOutputWithContext(ctx context.Context) QueryComparisonExpressionPtrOutput {
-	return o.ApplyT(func(v QueryComparisonExpression) *QueryComparisonExpression {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v QueryComparisonExpression) *QueryComparisonExpression {
 		return &v
 	}).(QueryComparisonExpressionPtrOutput)
 }
 
-// The name of the column to use in comparison.
 func (o QueryComparisonExpressionOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v QueryComparisonExpression) string { return v.Name }).(pulumi.StringOutput)
 }
 
-// The operator to use for comparison.
 func (o QueryComparisonExpressionOutput) Operator() pulumi.StringOutput {
 	return o.ApplyT(func(v QueryComparisonExpression) string { return v.Operator }).(pulumi.StringOutput)
 }
 
-// Array of values to use for comparison
 func (o QueryComparisonExpressionOutput) Values() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v QueryComparisonExpression) []string { return v.Values }).(pulumi.StringArrayOutput)
 }
@@ -1629,10 +1551,15 @@ func (o QueryComparisonExpressionPtrOutput) ToQueryComparisonExpressionPtrOutput
 }
 
 func (o QueryComparisonExpressionPtrOutput) Elem() QueryComparisonExpressionOutput {
-	return o.ApplyT(func(v *QueryComparisonExpression) QueryComparisonExpression { return *v }).(QueryComparisonExpressionOutput)
+	return o.ApplyT(func(v *QueryComparisonExpression) QueryComparisonExpression {
+		if v != nil {
+			return *v
+		}
+		var ret QueryComparisonExpression
+		return ret
+	}).(QueryComparisonExpressionOutput)
 }
 
-// The name of the column to use in comparison.
 func (o QueryComparisonExpressionPtrOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *QueryComparisonExpression) *string {
 		if v == nil {
@@ -1642,7 +1569,6 @@ func (o QueryComparisonExpressionPtrOutput) Name() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The operator to use for comparison.
 func (o QueryComparisonExpressionPtrOutput) Operator() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *QueryComparisonExpression) *string {
 		if v == nil {
@@ -1652,7 +1578,6 @@ func (o QueryComparisonExpressionPtrOutput) Operator() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Array of values to use for comparison
 func (o QueryComparisonExpressionPtrOutput) Values() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *QueryComparisonExpression) []string {
 		if v == nil {
@@ -1662,14 +1587,10 @@ func (o QueryComparisonExpressionPtrOutput) Values() pulumi.StringArrayOutput {
 	}).(pulumi.StringArrayOutput)
 }
 
-// The comparison expression to be used in the query.
 type QueryComparisonExpressionResponse struct {
-	// The name of the column to use in comparison.
-	Name string `pulumi:"name"`
-	// The operator to use for comparison.
-	Operator string `pulumi:"operator"`
-	// Array of values to use for comparison
-	Values []string `pulumi:"values"`
+	Name     string   `pulumi:"name"`
+	Operator string   `pulumi:"operator"`
+	Values   []string `pulumi:"values"`
 }
 
 // QueryComparisonExpressionResponseInput is an input type that accepts QueryComparisonExpressionResponseArgs and QueryComparisonExpressionResponseOutput values.
@@ -1683,14 +1604,10 @@ type QueryComparisonExpressionResponseInput interface {
 	ToQueryComparisonExpressionResponseOutputWithContext(context.Context) QueryComparisonExpressionResponseOutput
 }
 
-// The comparison expression to be used in the query.
 type QueryComparisonExpressionResponseArgs struct {
-	// The name of the column to use in comparison.
-	Name pulumi.StringInput `pulumi:"name"`
-	// The operator to use for comparison.
-	Operator pulumi.StringInput `pulumi:"operator"`
-	// Array of values to use for comparison
-	Values pulumi.StringArrayInput `pulumi:"values"`
+	Name     pulumi.StringInput      `pulumi:"name"`
+	Operator pulumi.StringInput      `pulumi:"operator"`
+	Values   pulumi.StringArrayInput `pulumi:"values"`
 }
 
 func (QueryComparisonExpressionResponseArgs) ElementType() reflect.Type {
@@ -1746,7 +1663,6 @@ func (i *queryComparisonExpressionResponsePtrType) ToQueryComparisonExpressionRe
 	return pulumi.ToOutputWithContext(ctx, i).(QueryComparisonExpressionResponsePtrOutput)
 }
 
-// The comparison expression to be used in the query.
 type QueryComparisonExpressionResponseOutput struct{ *pulumi.OutputState }
 
 func (QueryComparisonExpressionResponseOutput) ElementType() reflect.Type {
@@ -1766,22 +1682,19 @@ func (o QueryComparisonExpressionResponseOutput) ToQueryComparisonExpressionResp
 }
 
 func (o QueryComparisonExpressionResponseOutput) ToQueryComparisonExpressionResponsePtrOutputWithContext(ctx context.Context) QueryComparisonExpressionResponsePtrOutput {
-	return o.ApplyT(func(v QueryComparisonExpressionResponse) *QueryComparisonExpressionResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v QueryComparisonExpressionResponse) *QueryComparisonExpressionResponse {
 		return &v
 	}).(QueryComparisonExpressionResponsePtrOutput)
 }
 
-// The name of the column to use in comparison.
 func (o QueryComparisonExpressionResponseOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v QueryComparisonExpressionResponse) string { return v.Name }).(pulumi.StringOutput)
 }
 
-// The operator to use for comparison.
 func (o QueryComparisonExpressionResponseOutput) Operator() pulumi.StringOutput {
 	return o.ApplyT(func(v QueryComparisonExpressionResponse) string { return v.Operator }).(pulumi.StringOutput)
 }
 
-// Array of values to use for comparison
 func (o QueryComparisonExpressionResponseOutput) Values() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v QueryComparisonExpressionResponse) []string { return v.Values }).(pulumi.StringArrayOutput)
 }
@@ -1801,10 +1714,15 @@ func (o QueryComparisonExpressionResponsePtrOutput) ToQueryComparisonExpressionR
 }
 
 func (o QueryComparisonExpressionResponsePtrOutput) Elem() QueryComparisonExpressionResponseOutput {
-	return o.ApplyT(func(v *QueryComparisonExpressionResponse) QueryComparisonExpressionResponse { return *v }).(QueryComparisonExpressionResponseOutput)
+	return o.ApplyT(func(v *QueryComparisonExpressionResponse) QueryComparisonExpressionResponse {
+		if v != nil {
+			return *v
+		}
+		var ret QueryComparisonExpressionResponse
+		return ret
+	}).(QueryComparisonExpressionResponseOutput)
 }
 
-// The name of the column to use in comparison.
 func (o QueryComparisonExpressionResponsePtrOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *QueryComparisonExpressionResponse) *string {
 		if v == nil {
@@ -1814,7 +1732,6 @@ func (o QueryComparisonExpressionResponsePtrOutput) Name() pulumi.StringPtrOutpu
 	}).(pulumi.StringPtrOutput)
 }
 
-// The operator to use for comparison.
 func (o QueryComparisonExpressionResponsePtrOutput) Operator() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *QueryComparisonExpressionResponse) *string {
 		if v == nil {
@@ -1824,7 +1741,6 @@ func (o QueryComparisonExpressionResponsePtrOutput) Operator() pulumi.StringPtrO
 	}).(pulumi.StringPtrOutput)
 }
 
-// Array of values to use for comparison
 func (o QueryComparisonExpressionResponsePtrOutput) Values() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *QueryComparisonExpressionResponse) []string {
 		if v == nil {
@@ -1834,20 +1750,13 @@ func (o QueryComparisonExpressionResponsePtrOutput) Values() pulumi.StringArrayO
 	}).(pulumi.StringArrayOutput)
 }
 
-// The definition of data present in the query.
 type QueryDataset struct {
-	// Dictionary of aggregation expression to use in the query. The key of each item in the dictionary is the alias for the aggregated column. Query can have up to 2 aggregation clauses.
-	Aggregation map[string]QueryAggregation `pulumi:"aggregation"`
-	// Has configuration information for the data in the export. The configuration will be ignored if aggregation and grouping are provided.
-	Configuration *QueryDatasetConfiguration `pulumi:"configuration"`
-	// The filter expression to use in the query. Please reference our Query API REST documentation for how to properly format the filter.
-	Filter *QueryFilter `pulumi:"filter"`
-	// The granularity of rows in the query.
-	Granularity *string `pulumi:"granularity"`
-	// Array of group by expression to use in the query. Query can have up to 2 group by clauses.
-	Grouping []QueryGrouping `pulumi:"grouping"`
-	// Array of sorting by columns in query.
-	Sorting []QuerySortingConfiguration `pulumi:"sorting"`
+	Aggregation   map[string]QueryAggregation `pulumi:"aggregation"`
+	Configuration *QueryDatasetConfiguration  `pulumi:"configuration"`
+	Filter        *QueryFilter                `pulumi:"filter"`
+	Granularity   *string                     `pulumi:"granularity"`
+	Grouping      []QueryGrouping             `pulumi:"grouping"`
+	Sorting       []QuerySortingConfiguration `pulumi:"sorting"`
 }
 
 // QueryDatasetInput is an input type that accepts QueryDatasetArgs and QueryDatasetOutput values.
@@ -1861,20 +1770,13 @@ type QueryDatasetInput interface {
 	ToQueryDatasetOutputWithContext(context.Context) QueryDatasetOutput
 }
 
-// The definition of data present in the query.
 type QueryDatasetArgs struct {
-	// Dictionary of aggregation expression to use in the query. The key of each item in the dictionary is the alias for the aggregated column. Query can have up to 2 aggregation clauses.
-	Aggregation QueryAggregationMapInput `pulumi:"aggregation"`
-	// Has configuration information for the data in the export. The configuration will be ignored if aggregation and grouping are provided.
-	Configuration QueryDatasetConfigurationPtrInput `pulumi:"configuration"`
-	// The filter expression to use in the query. Please reference our Query API REST documentation for how to properly format the filter.
-	Filter QueryFilterPtrInput `pulumi:"filter"`
-	// The granularity of rows in the query.
-	Granularity pulumi.StringPtrInput `pulumi:"granularity"`
-	// Array of group by expression to use in the query. Query can have up to 2 group by clauses.
-	Grouping QueryGroupingArrayInput `pulumi:"grouping"`
-	// Array of sorting by columns in query.
-	Sorting QuerySortingConfigurationArrayInput `pulumi:"sorting"`
+	Aggregation   QueryAggregationMapInput            `pulumi:"aggregation"`
+	Configuration QueryDatasetConfigurationPtrInput   `pulumi:"configuration"`
+	Filter        QueryFilterPtrInput                 `pulumi:"filter"`
+	Granularity   pulumi.StringPtrInput               `pulumi:"granularity"`
+	Grouping      QueryGroupingArrayInput             `pulumi:"grouping"`
+	Sorting       QuerySortingConfigurationArrayInput `pulumi:"sorting"`
 }
 
 func (QueryDatasetArgs) ElementType() reflect.Type {
@@ -1930,7 +1832,6 @@ func (i *queryDatasetPtrType) ToQueryDatasetPtrOutputWithContext(ctx context.Con
 	return pulumi.ToOutputWithContext(ctx, i).(QueryDatasetPtrOutput)
 }
 
-// The definition of data present in the query.
 type QueryDatasetOutput struct{ *pulumi.OutputState }
 
 func (QueryDatasetOutput) ElementType() reflect.Type {
@@ -1950,37 +1851,31 @@ func (o QueryDatasetOutput) ToQueryDatasetPtrOutput() QueryDatasetPtrOutput {
 }
 
 func (o QueryDatasetOutput) ToQueryDatasetPtrOutputWithContext(ctx context.Context) QueryDatasetPtrOutput {
-	return o.ApplyT(func(v QueryDataset) *QueryDataset {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v QueryDataset) *QueryDataset {
 		return &v
 	}).(QueryDatasetPtrOutput)
 }
 
-// Dictionary of aggregation expression to use in the query. The key of each item in the dictionary is the alias for the aggregated column. Query can have up to 2 aggregation clauses.
 func (o QueryDatasetOutput) Aggregation() QueryAggregationMapOutput {
 	return o.ApplyT(func(v QueryDataset) map[string]QueryAggregation { return v.Aggregation }).(QueryAggregationMapOutput)
 }
 
-// Has configuration information for the data in the export. The configuration will be ignored if aggregation and grouping are provided.
 func (o QueryDatasetOutput) Configuration() QueryDatasetConfigurationPtrOutput {
 	return o.ApplyT(func(v QueryDataset) *QueryDatasetConfiguration { return v.Configuration }).(QueryDatasetConfigurationPtrOutput)
 }
 
-// The filter expression to use in the query. Please reference our Query API REST documentation for how to properly format the filter.
 func (o QueryDatasetOutput) Filter() QueryFilterPtrOutput {
 	return o.ApplyT(func(v QueryDataset) *QueryFilter { return v.Filter }).(QueryFilterPtrOutput)
 }
 
-// The granularity of rows in the query.
 func (o QueryDatasetOutput) Granularity() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v QueryDataset) *string { return v.Granularity }).(pulumi.StringPtrOutput)
 }
 
-// Array of group by expression to use in the query. Query can have up to 2 group by clauses.
 func (o QueryDatasetOutput) Grouping() QueryGroupingArrayOutput {
 	return o.ApplyT(func(v QueryDataset) []QueryGrouping { return v.Grouping }).(QueryGroupingArrayOutput)
 }
 
-// Array of sorting by columns in query.
 func (o QueryDatasetOutput) Sorting() QuerySortingConfigurationArrayOutput {
 	return o.ApplyT(func(v QueryDataset) []QuerySortingConfiguration { return v.Sorting }).(QuerySortingConfigurationArrayOutput)
 }
@@ -2000,10 +1895,15 @@ func (o QueryDatasetPtrOutput) ToQueryDatasetPtrOutputWithContext(ctx context.Co
 }
 
 func (o QueryDatasetPtrOutput) Elem() QueryDatasetOutput {
-	return o.ApplyT(func(v *QueryDataset) QueryDataset { return *v }).(QueryDatasetOutput)
+	return o.ApplyT(func(v *QueryDataset) QueryDataset {
+		if v != nil {
+			return *v
+		}
+		var ret QueryDataset
+		return ret
+	}).(QueryDatasetOutput)
 }
 
-// Dictionary of aggregation expression to use in the query. The key of each item in the dictionary is the alias for the aggregated column. Query can have up to 2 aggregation clauses.
 func (o QueryDatasetPtrOutput) Aggregation() QueryAggregationMapOutput {
 	return o.ApplyT(func(v *QueryDataset) map[string]QueryAggregation {
 		if v == nil {
@@ -2013,7 +1913,6 @@ func (o QueryDatasetPtrOutput) Aggregation() QueryAggregationMapOutput {
 	}).(QueryAggregationMapOutput)
 }
 
-// Has configuration information for the data in the export. The configuration will be ignored if aggregation and grouping are provided.
 func (o QueryDatasetPtrOutput) Configuration() QueryDatasetConfigurationPtrOutput {
 	return o.ApplyT(func(v *QueryDataset) *QueryDatasetConfiguration {
 		if v == nil {
@@ -2023,7 +1922,6 @@ func (o QueryDatasetPtrOutput) Configuration() QueryDatasetConfigurationPtrOutpu
 	}).(QueryDatasetConfigurationPtrOutput)
 }
 
-// The filter expression to use in the query. Please reference our Query API REST documentation for how to properly format the filter.
 func (o QueryDatasetPtrOutput) Filter() QueryFilterPtrOutput {
 	return o.ApplyT(func(v *QueryDataset) *QueryFilter {
 		if v == nil {
@@ -2033,7 +1931,6 @@ func (o QueryDatasetPtrOutput) Filter() QueryFilterPtrOutput {
 	}).(QueryFilterPtrOutput)
 }
 
-// The granularity of rows in the query.
 func (o QueryDatasetPtrOutput) Granularity() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *QueryDataset) *string {
 		if v == nil {
@@ -2043,7 +1940,6 @@ func (o QueryDatasetPtrOutput) Granularity() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Array of group by expression to use in the query. Query can have up to 2 group by clauses.
 func (o QueryDatasetPtrOutput) Grouping() QueryGroupingArrayOutput {
 	return o.ApplyT(func(v *QueryDataset) []QueryGrouping {
 		if v == nil {
@@ -2053,7 +1949,6 @@ func (o QueryDatasetPtrOutput) Grouping() QueryGroupingArrayOutput {
 	}).(QueryGroupingArrayOutput)
 }
 
-// Array of sorting by columns in query.
 func (o QueryDatasetPtrOutput) Sorting() QuerySortingConfigurationArrayOutput {
 	return o.ApplyT(func(v *QueryDataset) []QuerySortingConfiguration {
 		if v == nil {
@@ -2063,9 +1958,7 @@ func (o QueryDatasetPtrOutput) Sorting() QuerySortingConfigurationArrayOutput {
 	}).(QuerySortingConfigurationArrayOutput)
 }
 
-// The configuration of dataset in the query.
 type QueryDatasetConfiguration struct {
-	// Array of column names to be included in the query. Any valid query column name is allowed. If not provided, then query includes all columns.
 	Columns []string `pulumi:"columns"`
 }
 
@@ -2080,9 +1973,7 @@ type QueryDatasetConfigurationInput interface {
 	ToQueryDatasetConfigurationOutputWithContext(context.Context) QueryDatasetConfigurationOutput
 }
 
-// The configuration of dataset in the query.
 type QueryDatasetConfigurationArgs struct {
-	// Array of column names to be included in the query. Any valid query column name is allowed. If not provided, then query includes all columns.
 	Columns pulumi.StringArrayInput `pulumi:"columns"`
 }
 
@@ -2139,7 +2030,6 @@ func (i *queryDatasetConfigurationPtrType) ToQueryDatasetConfigurationPtrOutputW
 	return pulumi.ToOutputWithContext(ctx, i).(QueryDatasetConfigurationPtrOutput)
 }
 
-// The configuration of dataset in the query.
 type QueryDatasetConfigurationOutput struct{ *pulumi.OutputState }
 
 func (QueryDatasetConfigurationOutput) ElementType() reflect.Type {
@@ -2159,12 +2049,11 @@ func (o QueryDatasetConfigurationOutput) ToQueryDatasetConfigurationPtrOutput() 
 }
 
 func (o QueryDatasetConfigurationOutput) ToQueryDatasetConfigurationPtrOutputWithContext(ctx context.Context) QueryDatasetConfigurationPtrOutput {
-	return o.ApplyT(func(v QueryDatasetConfiguration) *QueryDatasetConfiguration {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v QueryDatasetConfiguration) *QueryDatasetConfiguration {
 		return &v
 	}).(QueryDatasetConfigurationPtrOutput)
 }
 
-// Array of column names to be included in the query. Any valid query column name is allowed. If not provided, then query includes all columns.
 func (o QueryDatasetConfigurationOutput) Columns() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v QueryDatasetConfiguration) []string { return v.Columns }).(pulumi.StringArrayOutput)
 }
@@ -2184,10 +2073,15 @@ func (o QueryDatasetConfigurationPtrOutput) ToQueryDatasetConfigurationPtrOutput
 }
 
 func (o QueryDatasetConfigurationPtrOutput) Elem() QueryDatasetConfigurationOutput {
-	return o.ApplyT(func(v *QueryDatasetConfiguration) QueryDatasetConfiguration { return *v }).(QueryDatasetConfigurationOutput)
+	return o.ApplyT(func(v *QueryDatasetConfiguration) QueryDatasetConfiguration {
+		if v != nil {
+			return *v
+		}
+		var ret QueryDatasetConfiguration
+		return ret
+	}).(QueryDatasetConfigurationOutput)
 }
 
-// Array of column names to be included in the query. Any valid query column name is allowed. If not provided, then query includes all columns.
 func (o QueryDatasetConfigurationPtrOutput) Columns() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *QueryDatasetConfiguration) []string {
 		if v == nil {
@@ -2197,9 +2091,7 @@ func (o QueryDatasetConfigurationPtrOutput) Columns() pulumi.StringArrayOutput {
 	}).(pulumi.StringArrayOutput)
 }
 
-// The configuration of dataset in the query.
 type QueryDatasetConfigurationResponse struct {
-	// Array of column names to be included in the query. Any valid query column name is allowed. If not provided, then query includes all columns.
 	Columns []string `pulumi:"columns"`
 }
 
@@ -2214,9 +2106,7 @@ type QueryDatasetConfigurationResponseInput interface {
 	ToQueryDatasetConfigurationResponseOutputWithContext(context.Context) QueryDatasetConfigurationResponseOutput
 }
 
-// The configuration of dataset in the query.
 type QueryDatasetConfigurationResponseArgs struct {
-	// Array of column names to be included in the query. Any valid query column name is allowed. If not provided, then query includes all columns.
 	Columns pulumi.StringArrayInput `pulumi:"columns"`
 }
 
@@ -2273,7 +2163,6 @@ func (i *queryDatasetConfigurationResponsePtrType) ToQueryDatasetConfigurationRe
 	return pulumi.ToOutputWithContext(ctx, i).(QueryDatasetConfigurationResponsePtrOutput)
 }
 
-// The configuration of dataset in the query.
 type QueryDatasetConfigurationResponseOutput struct{ *pulumi.OutputState }
 
 func (QueryDatasetConfigurationResponseOutput) ElementType() reflect.Type {
@@ -2293,12 +2182,11 @@ func (o QueryDatasetConfigurationResponseOutput) ToQueryDatasetConfigurationResp
 }
 
 func (o QueryDatasetConfigurationResponseOutput) ToQueryDatasetConfigurationResponsePtrOutputWithContext(ctx context.Context) QueryDatasetConfigurationResponsePtrOutput {
-	return o.ApplyT(func(v QueryDatasetConfigurationResponse) *QueryDatasetConfigurationResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v QueryDatasetConfigurationResponse) *QueryDatasetConfigurationResponse {
 		return &v
 	}).(QueryDatasetConfigurationResponsePtrOutput)
 }
 
-// Array of column names to be included in the query. Any valid query column name is allowed. If not provided, then query includes all columns.
 func (o QueryDatasetConfigurationResponseOutput) Columns() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v QueryDatasetConfigurationResponse) []string { return v.Columns }).(pulumi.StringArrayOutput)
 }
@@ -2318,10 +2206,15 @@ func (o QueryDatasetConfigurationResponsePtrOutput) ToQueryDatasetConfigurationR
 }
 
 func (o QueryDatasetConfigurationResponsePtrOutput) Elem() QueryDatasetConfigurationResponseOutput {
-	return o.ApplyT(func(v *QueryDatasetConfigurationResponse) QueryDatasetConfigurationResponse { return *v }).(QueryDatasetConfigurationResponseOutput)
+	return o.ApplyT(func(v *QueryDatasetConfigurationResponse) QueryDatasetConfigurationResponse {
+		if v != nil {
+			return *v
+		}
+		var ret QueryDatasetConfigurationResponse
+		return ret
+	}).(QueryDatasetConfigurationResponseOutput)
 }
 
-// Array of column names to be included in the query. Any valid query column name is allowed. If not provided, then query includes all columns.
 func (o QueryDatasetConfigurationResponsePtrOutput) Columns() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *QueryDatasetConfigurationResponse) []string {
 		if v == nil {
@@ -2331,20 +2224,13 @@ func (o QueryDatasetConfigurationResponsePtrOutput) Columns() pulumi.StringArray
 	}).(pulumi.StringArrayOutput)
 }
 
-// The definition of data present in the query.
 type QueryDatasetResponse struct {
-	// Dictionary of aggregation expression to use in the query. The key of each item in the dictionary is the alias for the aggregated column. Query can have up to 2 aggregation clauses.
-	Aggregation map[string]QueryAggregationResponse `pulumi:"aggregation"`
-	// Has configuration information for the data in the export. The configuration will be ignored if aggregation and grouping are provided.
-	Configuration *QueryDatasetConfigurationResponse `pulumi:"configuration"`
-	// The filter expression to use in the query. Please reference our Query API REST documentation for how to properly format the filter.
-	Filter *QueryFilterResponse `pulumi:"filter"`
-	// The granularity of rows in the query.
-	Granularity *string `pulumi:"granularity"`
-	// Array of group by expression to use in the query. Query can have up to 2 group by clauses.
-	Grouping []QueryGroupingResponse `pulumi:"grouping"`
-	// Array of sorting by columns in query.
-	Sorting []QuerySortingConfigurationResponse `pulumi:"sorting"`
+	Aggregation   map[string]QueryAggregationResponse `pulumi:"aggregation"`
+	Configuration *QueryDatasetConfigurationResponse  `pulumi:"configuration"`
+	Filter        *QueryFilterResponse                `pulumi:"filter"`
+	Granularity   *string                             `pulumi:"granularity"`
+	Grouping      []QueryGroupingResponse             `pulumi:"grouping"`
+	Sorting       []QuerySortingConfigurationResponse `pulumi:"sorting"`
 }
 
 // QueryDatasetResponseInput is an input type that accepts QueryDatasetResponseArgs and QueryDatasetResponseOutput values.
@@ -2358,20 +2244,13 @@ type QueryDatasetResponseInput interface {
 	ToQueryDatasetResponseOutputWithContext(context.Context) QueryDatasetResponseOutput
 }
 
-// The definition of data present in the query.
 type QueryDatasetResponseArgs struct {
-	// Dictionary of aggregation expression to use in the query. The key of each item in the dictionary is the alias for the aggregated column. Query can have up to 2 aggregation clauses.
-	Aggregation QueryAggregationResponseMapInput `pulumi:"aggregation"`
-	// Has configuration information for the data in the export. The configuration will be ignored if aggregation and grouping are provided.
-	Configuration QueryDatasetConfigurationResponsePtrInput `pulumi:"configuration"`
-	// The filter expression to use in the query. Please reference our Query API REST documentation for how to properly format the filter.
-	Filter QueryFilterResponsePtrInput `pulumi:"filter"`
-	// The granularity of rows in the query.
-	Granularity pulumi.StringPtrInput `pulumi:"granularity"`
-	// Array of group by expression to use in the query. Query can have up to 2 group by clauses.
-	Grouping QueryGroupingResponseArrayInput `pulumi:"grouping"`
-	// Array of sorting by columns in query.
-	Sorting QuerySortingConfigurationResponseArrayInput `pulumi:"sorting"`
+	Aggregation   QueryAggregationResponseMapInput            `pulumi:"aggregation"`
+	Configuration QueryDatasetConfigurationResponsePtrInput   `pulumi:"configuration"`
+	Filter        QueryFilterResponsePtrInput                 `pulumi:"filter"`
+	Granularity   pulumi.StringPtrInput                       `pulumi:"granularity"`
+	Grouping      QueryGroupingResponseArrayInput             `pulumi:"grouping"`
+	Sorting       QuerySortingConfigurationResponseArrayInput `pulumi:"sorting"`
 }
 
 func (QueryDatasetResponseArgs) ElementType() reflect.Type {
@@ -2427,7 +2306,6 @@ func (i *queryDatasetResponsePtrType) ToQueryDatasetResponsePtrOutputWithContext
 	return pulumi.ToOutputWithContext(ctx, i).(QueryDatasetResponsePtrOutput)
 }
 
-// The definition of data present in the query.
 type QueryDatasetResponseOutput struct{ *pulumi.OutputState }
 
 func (QueryDatasetResponseOutput) ElementType() reflect.Type {
@@ -2447,37 +2325,31 @@ func (o QueryDatasetResponseOutput) ToQueryDatasetResponsePtrOutput() QueryDatas
 }
 
 func (o QueryDatasetResponseOutput) ToQueryDatasetResponsePtrOutputWithContext(ctx context.Context) QueryDatasetResponsePtrOutput {
-	return o.ApplyT(func(v QueryDatasetResponse) *QueryDatasetResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v QueryDatasetResponse) *QueryDatasetResponse {
 		return &v
 	}).(QueryDatasetResponsePtrOutput)
 }
 
-// Dictionary of aggregation expression to use in the query. The key of each item in the dictionary is the alias for the aggregated column. Query can have up to 2 aggregation clauses.
 func (o QueryDatasetResponseOutput) Aggregation() QueryAggregationResponseMapOutput {
 	return o.ApplyT(func(v QueryDatasetResponse) map[string]QueryAggregationResponse { return v.Aggregation }).(QueryAggregationResponseMapOutput)
 }
 
-// Has configuration information for the data in the export. The configuration will be ignored if aggregation and grouping are provided.
 func (o QueryDatasetResponseOutput) Configuration() QueryDatasetConfigurationResponsePtrOutput {
 	return o.ApplyT(func(v QueryDatasetResponse) *QueryDatasetConfigurationResponse { return v.Configuration }).(QueryDatasetConfigurationResponsePtrOutput)
 }
 
-// The filter expression to use in the query. Please reference our Query API REST documentation for how to properly format the filter.
 func (o QueryDatasetResponseOutput) Filter() QueryFilterResponsePtrOutput {
 	return o.ApplyT(func(v QueryDatasetResponse) *QueryFilterResponse { return v.Filter }).(QueryFilterResponsePtrOutput)
 }
 
-// The granularity of rows in the query.
 func (o QueryDatasetResponseOutput) Granularity() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v QueryDatasetResponse) *string { return v.Granularity }).(pulumi.StringPtrOutput)
 }
 
-// Array of group by expression to use in the query. Query can have up to 2 group by clauses.
 func (o QueryDatasetResponseOutput) Grouping() QueryGroupingResponseArrayOutput {
 	return o.ApplyT(func(v QueryDatasetResponse) []QueryGroupingResponse { return v.Grouping }).(QueryGroupingResponseArrayOutput)
 }
 
-// Array of sorting by columns in query.
 func (o QueryDatasetResponseOutput) Sorting() QuerySortingConfigurationResponseArrayOutput {
 	return o.ApplyT(func(v QueryDatasetResponse) []QuerySortingConfigurationResponse { return v.Sorting }).(QuerySortingConfigurationResponseArrayOutput)
 }
@@ -2497,10 +2369,15 @@ func (o QueryDatasetResponsePtrOutput) ToQueryDatasetResponsePtrOutputWithContex
 }
 
 func (o QueryDatasetResponsePtrOutput) Elem() QueryDatasetResponseOutput {
-	return o.ApplyT(func(v *QueryDatasetResponse) QueryDatasetResponse { return *v }).(QueryDatasetResponseOutput)
+	return o.ApplyT(func(v *QueryDatasetResponse) QueryDatasetResponse {
+		if v != nil {
+			return *v
+		}
+		var ret QueryDatasetResponse
+		return ret
+	}).(QueryDatasetResponseOutput)
 }
 
-// Dictionary of aggregation expression to use in the query. The key of each item in the dictionary is the alias for the aggregated column. Query can have up to 2 aggregation clauses.
 func (o QueryDatasetResponsePtrOutput) Aggregation() QueryAggregationResponseMapOutput {
 	return o.ApplyT(func(v *QueryDatasetResponse) map[string]QueryAggregationResponse {
 		if v == nil {
@@ -2510,7 +2387,6 @@ func (o QueryDatasetResponsePtrOutput) Aggregation() QueryAggregationResponseMap
 	}).(QueryAggregationResponseMapOutput)
 }
 
-// Has configuration information for the data in the export. The configuration will be ignored if aggregation and grouping are provided.
 func (o QueryDatasetResponsePtrOutput) Configuration() QueryDatasetConfigurationResponsePtrOutput {
 	return o.ApplyT(func(v *QueryDatasetResponse) *QueryDatasetConfigurationResponse {
 		if v == nil {
@@ -2520,7 +2396,6 @@ func (o QueryDatasetResponsePtrOutput) Configuration() QueryDatasetConfiguration
 	}).(QueryDatasetConfigurationResponsePtrOutput)
 }
 
-// The filter expression to use in the query. Please reference our Query API REST documentation for how to properly format the filter.
 func (o QueryDatasetResponsePtrOutput) Filter() QueryFilterResponsePtrOutput {
 	return o.ApplyT(func(v *QueryDatasetResponse) *QueryFilterResponse {
 		if v == nil {
@@ -2530,7 +2405,6 @@ func (o QueryDatasetResponsePtrOutput) Filter() QueryFilterResponsePtrOutput {
 	}).(QueryFilterResponsePtrOutput)
 }
 
-// The granularity of rows in the query.
 func (o QueryDatasetResponsePtrOutput) Granularity() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *QueryDatasetResponse) *string {
 		if v == nil {
@@ -2540,7 +2414,6 @@ func (o QueryDatasetResponsePtrOutput) Granularity() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Array of group by expression to use in the query. Query can have up to 2 group by clauses.
 func (o QueryDatasetResponsePtrOutput) Grouping() QueryGroupingResponseArrayOutput {
 	return o.ApplyT(func(v *QueryDatasetResponse) []QueryGroupingResponse {
 		if v == nil {
@@ -2550,7 +2423,6 @@ func (o QueryDatasetResponsePtrOutput) Grouping() QueryGroupingResponseArrayOutp
 	}).(QueryGroupingResponseArrayOutput)
 }
 
-// Array of sorting by columns in query.
 func (o QueryDatasetResponsePtrOutput) Sorting() QuerySortingConfigurationResponseArrayOutput {
 	return o.ApplyT(func(v *QueryDatasetResponse) []QuerySortingConfigurationResponse {
 		if v == nil {
@@ -2560,16 +2432,11 @@ func (o QueryDatasetResponsePtrOutput) Sorting() QuerySortingConfigurationRespon
 	}).(QuerySortingConfigurationResponseArrayOutput)
 }
 
-// The definition of a query.
 type QueryDefinition struct {
-	// Has definition for data in this query.
-	Dataset *QueryDataset `pulumi:"dataset"`
-	// Has time period for pulling data for the query.
+	Dataset    *QueryDataset    `pulumi:"dataset"`
 	TimePeriod *QueryTimePeriod `pulumi:"timePeriod"`
-	// The time frame for pulling data for the query. If custom, then a specific time period must be provided.
-	Timeframe string `pulumi:"timeframe"`
-	// The type of the query.
-	Type string `pulumi:"type"`
+	Timeframe  string           `pulumi:"timeframe"`
+	Type       string           `pulumi:"type"`
 }
 
 // QueryDefinitionInput is an input type that accepts QueryDefinitionArgs and QueryDefinitionOutput values.
@@ -2583,16 +2450,11 @@ type QueryDefinitionInput interface {
 	ToQueryDefinitionOutputWithContext(context.Context) QueryDefinitionOutput
 }
 
-// The definition of a query.
 type QueryDefinitionArgs struct {
-	// Has definition for data in this query.
-	Dataset QueryDatasetPtrInput `pulumi:"dataset"`
-	// Has time period for pulling data for the query.
+	Dataset    QueryDatasetPtrInput    `pulumi:"dataset"`
 	TimePeriod QueryTimePeriodPtrInput `pulumi:"timePeriod"`
-	// The time frame for pulling data for the query. If custom, then a specific time period must be provided.
-	Timeframe pulumi.StringInput `pulumi:"timeframe"`
-	// The type of the query.
-	Type pulumi.StringInput `pulumi:"type"`
+	Timeframe  pulumi.StringInput      `pulumi:"timeframe"`
+	Type       pulumi.StringInput      `pulumi:"type"`
 }
 
 func (QueryDefinitionArgs) ElementType() reflect.Type {
@@ -2648,7 +2510,6 @@ func (i *queryDefinitionPtrType) ToQueryDefinitionPtrOutputWithContext(ctx conte
 	return pulumi.ToOutputWithContext(ctx, i).(QueryDefinitionPtrOutput)
 }
 
-// The definition of a query.
 type QueryDefinitionOutput struct{ *pulumi.OutputState }
 
 func (QueryDefinitionOutput) ElementType() reflect.Type {
@@ -2668,27 +2529,23 @@ func (o QueryDefinitionOutput) ToQueryDefinitionPtrOutput() QueryDefinitionPtrOu
 }
 
 func (o QueryDefinitionOutput) ToQueryDefinitionPtrOutputWithContext(ctx context.Context) QueryDefinitionPtrOutput {
-	return o.ApplyT(func(v QueryDefinition) *QueryDefinition {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v QueryDefinition) *QueryDefinition {
 		return &v
 	}).(QueryDefinitionPtrOutput)
 }
 
-// Has definition for data in this query.
 func (o QueryDefinitionOutput) Dataset() QueryDatasetPtrOutput {
 	return o.ApplyT(func(v QueryDefinition) *QueryDataset { return v.Dataset }).(QueryDatasetPtrOutput)
 }
 
-// Has time period for pulling data for the query.
 func (o QueryDefinitionOutput) TimePeriod() QueryTimePeriodPtrOutput {
 	return o.ApplyT(func(v QueryDefinition) *QueryTimePeriod { return v.TimePeriod }).(QueryTimePeriodPtrOutput)
 }
 
-// The time frame for pulling data for the query. If custom, then a specific time period must be provided.
 func (o QueryDefinitionOutput) Timeframe() pulumi.StringOutput {
 	return o.ApplyT(func(v QueryDefinition) string { return v.Timeframe }).(pulumi.StringOutput)
 }
 
-// The type of the query.
 func (o QueryDefinitionOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v QueryDefinition) string { return v.Type }).(pulumi.StringOutput)
 }
@@ -2708,10 +2565,15 @@ func (o QueryDefinitionPtrOutput) ToQueryDefinitionPtrOutputWithContext(ctx cont
 }
 
 func (o QueryDefinitionPtrOutput) Elem() QueryDefinitionOutput {
-	return o.ApplyT(func(v *QueryDefinition) QueryDefinition { return *v }).(QueryDefinitionOutput)
+	return o.ApplyT(func(v *QueryDefinition) QueryDefinition {
+		if v != nil {
+			return *v
+		}
+		var ret QueryDefinition
+		return ret
+	}).(QueryDefinitionOutput)
 }
 
-// Has definition for data in this query.
 func (o QueryDefinitionPtrOutput) Dataset() QueryDatasetPtrOutput {
 	return o.ApplyT(func(v *QueryDefinition) *QueryDataset {
 		if v == nil {
@@ -2721,7 +2583,6 @@ func (o QueryDefinitionPtrOutput) Dataset() QueryDatasetPtrOutput {
 	}).(QueryDatasetPtrOutput)
 }
 
-// Has time period for pulling data for the query.
 func (o QueryDefinitionPtrOutput) TimePeriod() QueryTimePeriodPtrOutput {
 	return o.ApplyT(func(v *QueryDefinition) *QueryTimePeriod {
 		if v == nil {
@@ -2731,7 +2592,6 @@ func (o QueryDefinitionPtrOutput) TimePeriod() QueryTimePeriodPtrOutput {
 	}).(QueryTimePeriodPtrOutput)
 }
 
-// The time frame for pulling data for the query. If custom, then a specific time period must be provided.
 func (o QueryDefinitionPtrOutput) Timeframe() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *QueryDefinition) *string {
 		if v == nil {
@@ -2741,7 +2601,6 @@ func (o QueryDefinitionPtrOutput) Timeframe() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The type of the query.
 func (o QueryDefinitionPtrOutput) Type() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *QueryDefinition) *string {
 		if v == nil {
@@ -2751,16 +2610,11 @@ func (o QueryDefinitionPtrOutput) Type() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The definition of a query.
 type QueryDefinitionResponse struct {
-	// Has definition for data in this query.
-	Dataset *QueryDatasetResponse `pulumi:"dataset"`
-	// Has time period for pulling data for the query.
+	Dataset    *QueryDatasetResponse    `pulumi:"dataset"`
 	TimePeriod *QueryTimePeriodResponse `pulumi:"timePeriod"`
-	// The time frame for pulling data for the query. If custom, then a specific time period must be provided.
-	Timeframe string `pulumi:"timeframe"`
-	// The type of the query.
-	Type string `pulumi:"type"`
+	Timeframe  string                   `pulumi:"timeframe"`
+	Type       string                   `pulumi:"type"`
 }
 
 // QueryDefinitionResponseInput is an input type that accepts QueryDefinitionResponseArgs and QueryDefinitionResponseOutput values.
@@ -2774,16 +2628,11 @@ type QueryDefinitionResponseInput interface {
 	ToQueryDefinitionResponseOutputWithContext(context.Context) QueryDefinitionResponseOutput
 }
 
-// The definition of a query.
 type QueryDefinitionResponseArgs struct {
-	// Has definition for data in this query.
-	Dataset QueryDatasetResponsePtrInput `pulumi:"dataset"`
-	// Has time period for pulling data for the query.
+	Dataset    QueryDatasetResponsePtrInput    `pulumi:"dataset"`
 	TimePeriod QueryTimePeriodResponsePtrInput `pulumi:"timePeriod"`
-	// The time frame for pulling data for the query. If custom, then a specific time period must be provided.
-	Timeframe pulumi.StringInput `pulumi:"timeframe"`
-	// The type of the query.
-	Type pulumi.StringInput `pulumi:"type"`
+	Timeframe  pulumi.StringInput              `pulumi:"timeframe"`
+	Type       pulumi.StringInput              `pulumi:"type"`
 }
 
 func (QueryDefinitionResponseArgs) ElementType() reflect.Type {
@@ -2839,7 +2688,6 @@ func (i *queryDefinitionResponsePtrType) ToQueryDefinitionResponsePtrOutputWithC
 	return pulumi.ToOutputWithContext(ctx, i).(QueryDefinitionResponsePtrOutput)
 }
 
-// The definition of a query.
 type QueryDefinitionResponseOutput struct{ *pulumi.OutputState }
 
 func (QueryDefinitionResponseOutput) ElementType() reflect.Type {
@@ -2859,27 +2707,23 @@ func (o QueryDefinitionResponseOutput) ToQueryDefinitionResponsePtrOutput() Quer
 }
 
 func (o QueryDefinitionResponseOutput) ToQueryDefinitionResponsePtrOutputWithContext(ctx context.Context) QueryDefinitionResponsePtrOutput {
-	return o.ApplyT(func(v QueryDefinitionResponse) *QueryDefinitionResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v QueryDefinitionResponse) *QueryDefinitionResponse {
 		return &v
 	}).(QueryDefinitionResponsePtrOutput)
 }
 
-// Has definition for data in this query.
 func (o QueryDefinitionResponseOutput) Dataset() QueryDatasetResponsePtrOutput {
 	return o.ApplyT(func(v QueryDefinitionResponse) *QueryDatasetResponse { return v.Dataset }).(QueryDatasetResponsePtrOutput)
 }
 
-// Has time period for pulling data for the query.
 func (o QueryDefinitionResponseOutput) TimePeriod() QueryTimePeriodResponsePtrOutput {
 	return o.ApplyT(func(v QueryDefinitionResponse) *QueryTimePeriodResponse { return v.TimePeriod }).(QueryTimePeriodResponsePtrOutput)
 }
 
-// The time frame for pulling data for the query. If custom, then a specific time period must be provided.
 func (o QueryDefinitionResponseOutput) Timeframe() pulumi.StringOutput {
 	return o.ApplyT(func(v QueryDefinitionResponse) string { return v.Timeframe }).(pulumi.StringOutput)
 }
 
-// The type of the query.
 func (o QueryDefinitionResponseOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v QueryDefinitionResponse) string { return v.Type }).(pulumi.StringOutput)
 }
@@ -2899,10 +2743,15 @@ func (o QueryDefinitionResponsePtrOutput) ToQueryDefinitionResponsePtrOutputWith
 }
 
 func (o QueryDefinitionResponsePtrOutput) Elem() QueryDefinitionResponseOutput {
-	return o.ApplyT(func(v *QueryDefinitionResponse) QueryDefinitionResponse { return *v }).(QueryDefinitionResponseOutput)
+	return o.ApplyT(func(v *QueryDefinitionResponse) QueryDefinitionResponse {
+		if v != nil {
+			return *v
+		}
+		var ret QueryDefinitionResponse
+		return ret
+	}).(QueryDefinitionResponseOutput)
 }
 
-// Has definition for data in this query.
 func (o QueryDefinitionResponsePtrOutput) Dataset() QueryDatasetResponsePtrOutput {
 	return o.ApplyT(func(v *QueryDefinitionResponse) *QueryDatasetResponse {
 		if v == nil {
@@ -2912,7 +2761,6 @@ func (o QueryDefinitionResponsePtrOutput) Dataset() QueryDatasetResponsePtrOutpu
 	}).(QueryDatasetResponsePtrOutput)
 }
 
-// Has time period for pulling data for the query.
 func (o QueryDefinitionResponsePtrOutput) TimePeriod() QueryTimePeriodResponsePtrOutput {
 	return o.ApplyT(func(v *QueryDefinitionResponse) *QueryTimePeriodResponse {
 		if v == nil {
@@ -2922,7 +2770,6 @@ func (o QueryDefinitionResponsePtrOutput) TimePeriod() QueryTimePeriodResponsePt
 	}).(QueryTimePeriodResponsePtrOutput)
 }
 
-// The time frame for pulling data for the query. If custom, then a specific time period must be provided.
 func (o QueryDefinitionResponsePtrOutput) Timeframe() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *QueryDefinitionResponse) *string {
 		if v == nil {
@@ -2932,7 +2779,6 @@ func (o QueryDefinitionResponsePtrOutput) Timeframe() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The type of the query.
 func (o QueryDefinitionResponsePtrOutput) Type() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *QueryDefinitionResponse) *string {
 		if v == nil {
@@ -2942,18 +2788,12 @@ func (o QueryDefinitionResponsePtrOutput) Type() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The filter expression to be used in the export.
 type QueryFilter struct {
-	// The logical "AND" expression. Must have at least 2 items.
-	And []QueryFilter `pulumi:"and"`
-	// Has comparison expression for a dimension
+	And       []QueryFilter              `pulumi:"and"`
 	Dimension *QueryComparisonExpression `pulumi:"dimension"`
-	// The logical "NOT" expression.
-	Not *QueryFilter `pulumi:"not"`
-	// The logical "OR" expression. Must have at least 2 items.
-	Or []QueryFilter `pulumi:"or"`
-	// Has comparison expression for a tag
-	Tag *QueryComparisonExpression `pulumi:"tag"`
+	Not       *QueryFilter               `pulumi:"not"`
+	Or        []QueryFilter              `pulumi:"or"`
+	Tag       *QueryComparisonExpression `pulumi:"tag"`
 }
 
 // QueryFilterInput is an input type that accepts QueryFilterArgs and QueryFilterOutput values.
@@ -2967,18 +2807,12 @@ type QueryFilterInput interface {
 	ToQueryFilterOutputWithContext(context.Context) QueryFilterOutput
 }
 
-// The filter expression to be used in the export.
 type QueryFilterArgs struct {
-	// The logical "AND" expression. Must have at least 2 items.
-	And QueryFilterArrayInput `pulumi:"and"`
-	// Has comparison expression for a dimension
+	And       QueryFilterArrayInput             `pulumi:"and"`
 	Dimension QueryComparisonExpressionPtrInput `pulumi:"dimension"`
-	// The logical "NOT" expression.
-	Not QueryFilterPtrInput `pulumi:"not"`
-	// The logical "OR" expression. Must have at least 2 items.
-	Or QueryFilterArrayInput `pulumi:"or"`
-	// Has comparison expression for a tag
-	Tag QueryComparisonExpressionPtrInput `pulumi:"tag"`
+	Not       QueryFilterPtrInput               `pulumi:"not"`
+	Or        QueryFilterArrayInput             `pulumi:"or"`
+	Tag       QueryComparisonExpressionPtrInput `pulumi:"tag"`
 }
 
 func (QueryFilterArgs) ElementType() reflect.Type {
@@ -3059,7 +2893,6 @@ func (i QueryFilterArray) ToQueryFilterArrayOutputWithContext(ctx context.Contex
 	return pulumi.ToOutputWithContext(ctx, i).(QueryFilterArrayOutput)
 }
 
-// The filter expression to be used in the export.
 type QueryFilterOutput struct{ *pulumi.OutputState }
 
 func (QueryFilterOutput) ElementType() reflect.Type {
@@ -3079,32 +2912,27 @@ func (o QueryFilterOutput) ToQueryFilterPtrOutput() QueryFilterPtrOutput {
 }
 
 func (o QueryFilterOutput) ToQueryFilterPtrOutputWithContext(ctx context.Context) QueryFilterPtrOutput {
-	return o.ApplyT(func(v QueryFilter) *QueryFilter {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v QueryFilter) *QueryFilter {
 		return &v
 	}).(QueryFilterPtrOutput)
 }
 
-// The logical "AND" expression. Must have at least 2 items.
 func (o QueryFilterOutput) And() QueryFilterArrayOutput {
 	return o.ApplyT(func(v QueryFilter) []QueryFilter { return v.And }).(QueryFilterArrayOutput)
 }
 
-// Has comparison expression for a dimension
 func (o QueryFilterOutput) Dimension() QueryComparisonExpressionPtrOutput {
 	return o.ApplyT(func(v QueryFilter) *QueryComparisonExpression { return v.Dimension }).(QueryComparisonExpressionPtrOutput)
 }
 
-// The logical "NOT" expression.
 func (o QueryFilterOutput) Not() QueryFilterPtrOutput {
 	return o.ApplyT(func(v QueryFilter) *QueryFilter { return v.Not }).(QueryFilterPtrOutput)
 }
 
-// The logical "OR" expression. Must have at least 2 items.
 func (o QueryFilterOutput) Or() QueryFilterArrayOutput {
 	return o.ApplyT(func(v QueryFilter) []QueryFilter { return v.Or }).(QueryFilterArrayOutput)
 }
 
-// Has comparison expression for a tag
 func (o QueryFilterOutput) Tag() QueryComparisonExpressionPtrOutput {
 	return o.ApplyT(func(v QueryFilter) *QueryComparisonExpression { return v.Tag }).(QueryComparisonExpressionPtrOutput)
 }
@@ -3124,10 +2952,15 @@ func (o QueryFilterPtrOutput) ToQueryFilterPtrOutputWithContext(ctx context.Cont
 }
 
 func (o QueryFilterPtrOutput) Elem() QueryFilterOutput {
-	return o.ApplyT(func(v *QueryFilter) QueryFilter { return *v }).(QueryFilterOutput)
+	return o.ApplyT(func(v *QueryFilter) QueryFilter {
+		if v != nil {
+			return *v
+		}
+		var ret QueryFilter
+		return ret
+	}).(QueryFilterOutput)
 }
 
-// The logical "AND" expression. Must have at least 2 items.
 func (o QueryFilterPtrOutput) And() QueryFilterArrayOutput {
 	return o.ApplyT(func(v *QueryFilter) []QueryFilter {
 		if v == nil {
@@ -3137,7 +2970,6 @@ func (o QueryFilterPtrOutput) And() QueryFilterArrayOutput {
 	}).(QueryFilterArrayOutput)
 }
 
-// Has comparison expression for a dimension
 func (o QueryFilterPtrOutput) Dimension() QueryComparisonExpressionPtrOutput {
 	return o.ApplyT(func(v *QueryFilter) *QueryComparisonExpression {
 		if v == nil {
@@ -3147,7 +2979,6 @@ func (o QueryFilterPtrOutput) Dimension() QueryComparisonExpressionPtrOutput {
 	}).(QueryComparisonExpressionPtrOutput)
 }
 
-// The logical "NOT" expression.
 func (o QueryFilterPtrOutput) Not() QueryFilterPtrOutput {
 	return o.ApplyT(func(v *QueryFilter) *QueryFilter {
 		if v == nil {
@@ -3157,7 +2988,6 @@ func (o QueryFilterPtrOutput) Not() QueryFilterPtrOutput {
 	}).(QueryFilterPtrOutput)
 }
 
-// The logical "OR" expression. Must have at least 2 items.
 func (o QueryFilterPtrOutput) Or() QueryFilterArrayOutput {
 	return o.ApplyT(func(v *QueryFilter) []QueryFilter {
 		if v == nil {
@@ -3167,7 +2997,6 @@ func (o QueryFilterPtrOutput) Or() QueryFilterArrayOutput {
 	}).(QueryFilterArrayOutput)
 }
 
-// Has comparison expression for a tag
 func (o QueryFilterPtrOutput) Tag() QueryComparisonExpressionPtrOutput {
 	return o.ApplyT(func(v *QueryFilter) *QueryComparisonExpression {
 		if v == nil {
@@ -3197,18 +3026,12 @@ func (o QueryFilterArrayOutput) Index(i pulumi.IntInput) QueryFilterOutput {
 	}).(QueryFilterOutput)
 }
 
-// The filter expression to be used in the export.
 type QueryFilterResponse struct {
-	// The logical "AND" expression. Must have at least 2 items.
-	And []QueryFilterResponse `pulumi:"and"`
-	// Has comparison expression for a dimension
+	And       []QueryFilterResponse              `pulumi:"and"`
 	Dimension *QueryComparisonExpressionResponse `pulumi:"dimension"`
-	// The logical "NOT" expression.
-	Not *QueryFilterResponse `pulumi:"not"`
-	// The logical "OR" expression. Must have at least 2 items.
-	Or []QueryFilterResponse `pulumi:"or"`
-	// Has comparison expression for a tag
-	Tag *QueryComparisonExpressionResponse `pulumi:"tag"`
+	Not       *QueryFilterResponse               `pulumi:"not"`
+	Or        []QueryFilterResponse              `pulumi:"or"`
+	Tag       *QueryComparisonExpressionResponse `pulumi:"tag"`
 }
 
 // QueryFilterResponseInput is an input type that accepts QueryFilterResponseArgs and QueryFilterResponseOutput values.
@@ -3222,18 +3045,12 @@ type QueryFilterResponseInput interface {
 	ToQueryFilterResponseOutputWithContext(context.Context) QueryFilterResponseOutput
 }
 
-// The filter expression to be used in the export.
 type QueryFilterResponseArgs struct {
-	// The logical "AND" expression. Must have at least 2 items.
-	And QueryFilterResponseArrayInput `pulumi:"and"`
-	// Has comparison expression for a dimension
+	And       QueryFilterResponseArrayInput             `pulumi:"and"`
 	Dimension QueryComparisonExpressionResponsePtrInput `pulumi:"dimension"`
-	// The logical "NOT" expression.
-	Not QueryFilterResponsePtrInput `pulumi:"not"`
-	// The logical "OR" expression. Must have at least 2 items.
-	Or QueryFilterResponseArrayInput `pulumi:"or"`
-	// Has comparison expression for a tag
-	Tag QueryComparisonExpressionResponsePtrInput `pulumi:"tag"`
+	Not       QueryFilterResponsePtrInput               `pulumi:"not"`
+	Or        QueryFilterResponseArrayInput             `pulumi:"or"`
+	Tag       QueryComparisonExpressionResponsePtrInput `pulumi:"tag"`
 }
 
 func (QueryFilterResponseArgs) ElementType() reflect.Type {
@@ -3314,7 +3131,6 @@ func (i QueryFilterResponseArray) ToQueryFilterResponseArrayOutputWithContext(ct
 	return pulumi.ToOutputWithContext(ctx, i).(QueryFilterResponseArrayOutput)
 }
 
-// The filter expression to be used in the export.
 type QueryFilterResponseOutput struct{ *pulumi.OutputState }
 
 func (QueryFilterResponseOutput) ElementType() reflect.Type {
@@ -3334,32 +3150,27 @@ func (o QueryFilterResponseOutput) ToQueryFilterResponsePtrOutput() QueryFilterR
 }
 
 func (o QueryFilterResponseOutput) ToQueryFilterResponsePtrOutputWithContext(ctx context.Context) QueryFilterResponsePtrOutput {
-	return o.ApplyT(func(v QueryFilterResponse) *QueryFilterResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v QueryFilterResponse) *QueryFilterResponse {
 		return &v
 	}).(QueryFilterResponsePtrOutput)
 }
 
-// The logical "AND" expression. Must have at least 2 items.
 func (o QueryFilterResponseOutput) And() QueryFilterResponseArrayOutput {
 	return o.ApplyT(func(v QueryFilterResponse) []QueryFilterResponse { return v.And }).(QueryFilterResponseArrayOutput)
 }
 
-// Has comparison expression for a dimension
 func (o QueryFilterResponseOutput) Dimension() QueryComparisonExpressionResponsePtrOutput {
 	return o.ApplyT(func(v QueryFilterResponse) *QueryComparisonExpressionResponse { return v.Dimension }).(QueryComparisonExpressionResponsePtrOutput)
 }
 
-// The logical "NOT" expression.
 func (o QueryFilterResponseOutput) Not() QueryFilterResponsePtrOutput {
 	return o.ApplyT(func(v QueryFilterResponse) *QueryFilterResponse { return v.Not }).(QueryFilterResponsePtrOutput)
 }
 
-// The logical "OR" expression. Must have at least 2 items.
 func (o QueryFilterResponseOutput) Or() QueryFilterResponseArrayOutput {
 	return o.ApplyT(func(v QueryFilterResponse) []QueryFilterResponse { return v.Or }).(QueryFilterResponseArrayOutput)
 }
 
-// Has comparison expression for a tag
 func (o QueryFilterResponseOutput) Tag() QueryComparisonExpressionResponsePtrOutput {
 	return o.ApplyT(func(v QueryFilterResponse) *QueryComparisonExpressionResponse { return v.Tag }).(QueryComparisonExpressionResponsePtrOutput)
 }
@@ -3379,10 +3190,15 @@ func (o QueryFilterResponsePtrOutput) ToQueryFilterResponsePtrOutputWithContext(
 }
 
 func (o QueryFilterResponsePtrOutput) Elem() QueryFilterResponseOutput {
-	return o.ApplyT(func(v *QueryFilterResponse) QueryFilterResponse { return *v }).(QueryFilterResponseOutput)
+	return o.ApplyT(func(v *QueryFilterResponse) QueryFilterResponse {
+		if v != nil {
+			return *v
+		}
+		var ret QueryFilterResponse
+		return ret
+	}).(QueryFilterResponseOutput)
 }
 
-// The logical "AND" expression. Must have at least 2 items.
 func (o QueryFilterResponsePtrOutput) And() QueryFilterResponseArrayOutput {
 	return o.ApplyT(func(v *QueryFilterResponse) []QueryFilterResponse {
 		if v == nil {
@@ -3392,7 +3208,6 @@ func (o QueryFilterResponsePtrOutput) And() QueryFilterResponseArrayOutput {
 	}).(QueryFilterResponseArrayOutput)
 }
 
-// Has comparison expression for a dimension
 func (o QueryFilterResponsePtrOutput) Dimension() QueryComparisonExpressionResponsePtrOutput {
 	return o.ApplyT(func(v *QueryFilterResponse) *QueryComparisonExpressionResponse {
 		if v == nil {
@@ -3402,7 +3217,6 @@ func (o QueryFilterResponsePtrOutput) Dimension() QueryComparisonExpressionRespo
 	}).(QueryComparisonExpressionResponsePtrOutput)
 }
 
-// The logical "NOT" expression.
 func (o QueryFilterResponsePtrOutput) Not() QueryFilterResponsePtrOutput {
 	return o.ApplyT(func(v *QueryFilterResponse) *QueryFilterResponse {
 		if v == nil {
@@ -3412,7 +3226,6 @@ func (o QueryFilterResponsePtrOutput) Not() QueryFilterResponsePtrOutput {
 	}).(QueryFilterResponsePtrOutput)
 }
 
-// The logical "OR" expression. Must have at least 2 items.
 func (o QueryFilterResponsePtrOutput) Or() QueryFilterResponseArrayOutput {
 	return o.ApplyT(func(v *QueryFilterResponse) []QueryFilterResponse {
 		if v == nil {
@@ -3422,7 +3235,6 @@ func (o QueryFilterResponsePtrOutput) Or() QueryFilterResponseArrayOutput {
 	}).(QueryFilterResponseArrayOutput)
 }
 
-// Has comparison expression for a tag
 func (o QueryFilterResponsePtrOutput) Tag() QueryComparisonExpressionResponsePtrOutput {
 	return o.ApplyT(func(v *QueryFilterResponse) *QueryComparisonExpressionResponse {
 		if v == nil {
@@ -3452,11 +3264,8 @@ func (o QueryFilterResponseArrayOutput) Index(i pulumi.IntInput) QueryFilterResp
 	}).(QueryFilterResponseOutput)
 }
 
-// The group by expression to be used in the query.
 type QueryGrouping struct {
-	// The name of the column to group.
 	Name string `pulumi:"name"`
-	// Has type of the column to group.
 	Type string `pulumi:"type"`
 }
 
@@ -3471,11 +3280,8 @@ type QueryGroupingInput interface {
 	ToQueryGroupingOutputWithContext(context.Context) QueryGroupingOutput
 }
 
-// The group by expression to be used in the query.
 type QueryGroupingArgs struct {
-	// The name of the column to group.
 	Name pulumi.StringInput `pulumi:"name"`
-	// Has type of the column to group.
 	Type pulumi.StringInput `pulumi:"type"`
 }
 
@@ -3516,7 +3322,6 @@ func (i QueryGroupingArray) ToQueryGroupingArrayOutputWithContext(ctx context.Co
 	return pulumi.ToOutputWithContext(ctx, i).(QueryGroupingArrayOutput)
 }
 
-// The group by expression to be used in the query.
 type QueryGroupingOutput struct{ *pulumi.OutputState }
 
 func (QueryGroupingOutput) ElementType() reflect.Type {
@@ -3531,12 +3336,10 @@ func (o QueryGroupingOutput) ToQueryGroupingOutputWithContext(ctx context.Contex
 	return o
 }
 
-// The name of the column to group.
 func (o QueryGroupingOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v QueryGrouping) string { return v.Name }).(pulumi.StringOutput)
 }
 
-// Has type of the column to group.
 func (o QueryGroupingOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v QueryGrouping) string { return v.Type }).(pulumi.StringOutput)
 }
@@ -3561,11 +3364,8 @@ func (o QueryGroupingArrayOutput) Index(i pulumi.IntInput) QueryGroupingOutput {
 	}).(QueryGroupingOutput)
 }
 
-// The group by expression to be used in the query.
 type QueryGroupingResponse struct {
-	// The name of the column to group.
 	Name string `pulumi:"name"`
-	// Has type of the column to group.
 	Type string `pulumi:"type"`
 }
 
@@ -3580,11 +3380,8 @@ type QueryGroupingResponseInput interface {
 	ToQueryGroupingResponseOutputWithContext(context.Context) QueryGroupingResponseOutput
 }
 
-// The group by expression to be used in the query.
 type QueryGroupingResponseArgs struct {
-	// The name of the column to group.
 	Name pulumi.StringInput `pulumi:"name"`
-	// Has type of the column to group.
 	Type pulumi.StringInput `pulumi:"type"`
 }
 
@@ -3625,7 +3422,6 @@ func (i QueryGroupingResponseArray) ToQueryGroupingResponseArrayOutputWithContex
 	return pulumi.ToOutputWithContext(ctx, i).(QueryGroupingResponseArrayOutput)
 }
 
-// The group by expression to be used in the query.
 type QueryGroupingResponseOutput struct{ *pulumi.OutputState }
 
 func (QueryGroupingResponseOutput) ElementType() reflect.Type {
@@ -3640,12 +3436,10 @@ func (o QueryGroupingResponseOutput) ToQueryGroupingResponseOutputWithContext(ct
 	return o
 }
 
-// The name of the column to group.
 func (o QueryGroupingResponseOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v QueryGroupingResponse) string { return v.Name }).(pulumi.StringOutput)
 }
 
-// Has type of the column to group.
 func (o QueryGroupingResponseOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v QueryGroupingResponse) string { return v.Type }).(pulumi.StringOutput)
 }
@@ -3670,11 +3464,8 @@ func (o QueryGroupingResponseArrayOutput) Index(i pulumi.IntInput) QueryGrouping
 	}).(QueryGroupingResponseOutput)
 }
 
-// The configuration for sorting in the query.
 type QuerySortingConfiguration struct {
-	// The name of the column to use in sorting.
-	Name *string `pulumi:"name"`
-	// The sorting direction
+	Name                  *string `pulumi:"name"`
 	QuerySortingDirection *string `pulumi:"querySortingDirection"`
 }
 
@@ -3689,11 +3480,8 @@ type QuerySortingConfigurationInput interface {
 	ToQuerySortingConfigurationOutputWithContext(context.Context) QuerySortingConfigurationOutput
 }
 
-// The configuration for sorting in the query.
 type QuerySortingConfigurationArgs struct {
-	// The name of the column to use in sorting.
-	Name pulumi.StringPtrInput `pulumi:"name"`
-	// The sorting direction
+	Name                  pulumi.StringPtrInput `pulumi:"name"`
 	QuerySortingDirection pulumi.StringPtrInput `pulumi:"querySortingDirection"`
 }
 
@@ -3734,7 +3522,6 @@ func (i QuerySortingConfigurationArray) ToQuerySortingConfigurationArrayOutputWi
 	return pulumi.ToOutputWithContext(ctx, i).(QuerySortingConfigurationArrayOutput)
 }
 
-// The configuration for sorting in the query.
 type QuerySortingConfigurationOutput struct{ *pulumi.OutputState }
 
 func (QuerySortingConfigurationOutput) ElementType() reflect.Type {
@@ -3749,12 +3536,10 @@ func (o QuerySortingConfigurationOutput) ToQuerySortingConfigurationOutputWithCo
 	return o
 }
 
-// The name of the column to use in sorting.
 func (o QuerySortingConfigurationOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v QuerySortingConfiguration) *string { return v.Name }).(pulumi.StringPtrOutput)
 }
 
-// The sorting direction
 func (o QuerySortingConfigurationOutput) QuerySortingDirection() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v QuerySortingConfiguration) *string { return v.QuerySortingDirection }).(pulumi.StringPtrOutput)
 }
@@ -3779,11 +3564,8 @@ func (o QuerySortingConfigurationArrayOutput) Index(i pulumi.IntInput) QuerySort
 	}).(QuerySortingConfigurationOutput)
 }
 
-// The configuration for sorting in the query.
 type QuerySortingConfigurationResponse struct {
-	// The name of the column to use in sorting.
-	Name *string `pulumi:"name"`
-	// The sorting direction
+	Name                  *string `pulumi:"name"`
 	QuerySortingDirection *string `pulumi:"querySortingDirection"`
 }
 
@@ -3798,11 +3580,8 @@ type QuerySortingConfigurationResponseInput interface {
 	ToQuerySortingConfigurationResponseOutputWithContext(context.Context) QuerySortingConfigurationResponseOutput
 }
 
-// The configuration for sorting in the query.
 type QuerySortingConfigurationResponseArgs struct {
-	// The name of the column to use in sorting.
-	Name pulumi.StringPtrInput `pulumi:"name"`
-	// The sorting direction
+	Name                  pulumi.StringPtrInput `pulumi:"name"`
 	QuerySortingDirection pulumi.StringPtrInput `pulumi:"querySortingDirection"`
 }
 
@@ -3843,7 +3622,6 @@ func (i QuerySortingConfigurationResponseArray) ToQuerySortingConfigurationRespo
 	return pulumi.ToOutputWithContext(ctx, i).(QuerySortingConfigurationResponseArrayOutput)
 }
 
-// The configuration for sorting in the query.
 type QuerySortingConfigurationResponseOutput struct{ *pulumi.OutputState }
 
 func (QuerySortingConfigurationResponseOutput) ElementType() reflect.Type {
@@ -3858,12 +3636,10 @@ func (o QuerySortingConfigurationResponseOutput) ToQuerySortingConfigurationResp
 	return o
 }
 
-// The name of the column to use in sorting.
 func (o QuerySortingConfigurationResponseOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v QuerySortingConfigurationResponse) *string { return v.Name }).(pulumi.StringPtrOutput)
 }
 
-// The sorting direction
 func (o QuerySortingConfigurationResponseOutput) QuerySortingDirection() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v QuerySortingConfigurationResponse) *string { return v.QuerySortingDirection }).(pulumi.StringPtrOutput)
 }
@@ -3888,12 +3664,9 @@ func (o QuerySortingConfigurationResponseArrayOutput) Index(i pulumi.IntInput) Q
 	}).(QuerySortingConfigurationResponseOutput)
 }
 
-// The start and end date for pulling data for the query.
 type QueryTimePeriod struct {
-	// The start date to pull data from.
 	From string `pulumi:"from"`
-	// The end date to pull data to.
-	To string `pulumi:"to"`
+	To   string `pulumi:"to"`
 }
 
 // QueryTimePeriodInput is an input type that accepts QueryTimePeriodArgs and QueryTimePeriodOutput values.
@@ -3907,12 +3680,9 @@ type QueryTimePeriodInput interface {
 	ToQueryTimePeriodOutputWithContext(context.Context) QueryTimePeriodOutput
 }
 
-// The start and end date for pulling data for the query.
 type QueryTimePeriodArgs struct {
-	// The start date to pull data from.
 	From pulumi.StringInput `pulumi:"from"`
-	// The end date to pull data to.
-	To pulumi.StringInput `pulumi:"to"`
+	To   pulumi.StringInput `pulumi:"to"`
 }
 
 func (QueryTimePeriodArgs) ElementType() reflect.Type {
@@ -3968,7 +3738,6 @@ func (i *queryTimePeriodPtrType) ToQueryTimePeriodPtrOutputWithContext(ctx conte
 	return pulumi.ToOutputWithContext(ctx, i).(QueryTimePeriodPtrOutput)
 }
 
-// The start and end date for pulling data for the query.
 type QueryTimePeriodOutput struct{ *pulumi.OutputState }
 
 func (QueryTimePeriodOutput) ElementType() reflect.Type {
@@ -3988,17 +3757,15 @@ func (o QueryTimePeriodOutput) ToQueryTimePeriodPtrOutput() QueryTimePeriodPtrOu
 }
 
 func (o QueryTimePeriodOutput) ToQueryTimePeriodPtrOutputWithContext(ctx context.Context) QueryTimePeriodPtrOutput {
-	return o.ApplyT(func(v QueryTimePeriod) *QueryTimePeriod {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v QueryTimePeriod) *QueryTimePeriod {
 		return &v
 	}).(QueryTimePeriodPtrOutput)
 }
 
-// The start date to pull data from.
 func (o QueryTimePeriodOutput) From() pulumi.StringOutput {
 	return o.ApplyT(func(v QueryTimePeriod) string { return v.From }).(pulumi.StringOutput)
 }
 
-// The end date to pull data to.
 func (o QueryTimePeriodOutput) To() pulumi.StringOutput {
 	return o.ApplyT(func(v QueryTimePeriod) string { return v.To }).(pulumi.StringOutput)
 }
@@ -4018,10 +3785,15 @@ func (o QueryTimePeriodPtrOutput) ToQueryTimePeriodPtrOutputWithContext(ctx cont
 }
 
 func (o QueryTimePeriodPtrOutput) Elem() QueryTimePeriodOutput {
-	return o.ApplyT(func(v *QueryTimePeriod) QueryTimePeriod { return *v }).(QueryTimePeriodOutput)
+	return o.ApplyT(func(v *QueryTimePeriod) QueryTimePeriod {
+		if v != nil {
+			return *v
+		}
+		var ret QueryTimePeriod
+		return ret
+	}).(QueryTimePeriodOutput)
 }
 
-// The start date to pull data from.
 func (o QueryTimePeriodPtrOutput) From() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *QueryTimePeriod) *string {
 		if v == nil {
@@ -4031,7 +3803,6 @@ func (o QueryTimePeriodPtrOutput) From() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The end date to pull data to.
 func (o QueryTimePeriodPtrOutput) To() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *QueryTimePeriod) *string {
 		if v == nil {
@@ -4041,12 +3812,9 @@ func (o QueryTimePeriodPtrOutput) To() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The start and end date for pulling data for the query.
 type QueryTimePeriodResponse struct {
-	// The start date to pull data from.
 	From string `pulumi:"from"`
-	// The end date to pull data to.
-	To string `pulumi:"to"`
+	To   string `pulumi:"to"`
 }
 
 // QueryTimePeriodResponseInput is an input type that accepts QueryTimePeriodResponseArgs and QueryTimePeriodResponseOutput values.
@@ -4060,12 +3828,9 @@ type QueryTimePeriodResponseInput interface {
 	ToQueryTimePeriodResponseOutputWithContext(context.Context) QueryTimePeriodResponseOutput
 }
 
-// The start and end date for pulling data for the query.
 type QueryTimePeriodResponseArgs struct {
-	// The start date to pull data from.
 	From pulumi.StringInput `pulumi:"from"`
-	// The end date to pull data to.
-	To pulumi.StringInput `pulumi:"to"`
+	To   pulumi.StringInput `pulumi:"to"`
 }
 
 func (QueryTimePeriodResponseArgs) ElementType() reflect.Type {
@@ -4121,7 +3886,6 @@ func (i *queryTimePeriodResponsePtrType) ToQueryTimePeriodResponsePtrOutputWithC
 	return pulumi.ToOutputWithContext(ctx, i).(QueryTimePeriodResponsePtrOutput)
 }
 
-// The start and end date for pulling data for the query.
 type QueryTimePeriodResponseOutput struct{ *pulumi.OutputState }
 
 func (QueryTimePeriodResponseOutput) ElementType() reflect.Type {
@@ -4141,17 +3905,15 @@ func (o QueryTimePeriodResponseOutput) ToQueryTimePeriodResponsePtrOutput() Quer
 }
 
 func (o QueryTimePeriodResponseOutput) ToQueryTimePeriodResponsePtrOutputWithContext(ctx context.Context) QueryTimePeriodResponsePtrOutput {
-	return o.ApplyT(func(v QueryTimePeriodResponse) *QueryTimePeriodResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v QueryTimePeriodResponse) *QueryTimePeriodResponse {
 		return &v
 	}).(QueryTimePeriodResponsePtrOutput)
 }
 
-// The start date to pull data from.
 func (o QueryTimePeriodResponseOutput) From() pulumi.StringOutput {
 	return o.ApplyT(func(v QueryTimePeriodResponse) string { return v.From }).(pulumi.StringOutput)
 }
 
-// The end date to pull data to.
 func (o QueryTimePeriodResponseOutput) To() pulumi.StringOutput {
 	return o.ApplyT(func(v QueryTimePeriodResponse) string { return v.To }).(pulumi.StringOutput)
 }
@@ -4171,10 +3933,15 @@ func (o QueryTimePeriodResponsePtrOutput) ToQueryTimePeriodResponsePtrOutputWith
 }
 
 func (o QueryTimePeriodResponsePtrOutput) Elem() QueryTimePeriodResponseOutput {
-	return o.ApplyT(func(v *QueryTimePeriodResponse) QueryTimePeriodResponse { return *v }).(QueryTimePeriodResponseOutput)
+	return o.ApplyT(func(v *QueryTimePeriodResponse) QueryTimePeriodResponse {
+		if v != nil {
+			return *v
+		}
+		var ret QueryTimePeriodResponse
+		return ret
+	}).(QueryTimePeriodResponseOutput)
 }
 
-// The start date to pull data from.
 func (o QueryTimePeriodResponsePtrOutput) From() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *QueryTimePeriodResponse) *string {
 		if v == nil {
@@ -4184,7 +3951,6 @@ func (o QueryTimePeriodResponsePtrOutput) From() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The end date to pull data to.
 func (o QueryTimePeriodResponsePtrOutput) To() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *QueryTimePeriodResponse) *string {
 		if v == nil {

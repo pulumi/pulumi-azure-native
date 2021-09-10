@@ -11,22 +11,15 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Service Endpoint policy definitions.
 type ServiceEndpointPolicyDefinition struct {
 	pulumi.CustomResourceState
 
-	// A description for this rule. Restricted to 140 chars.
-	Description pulumi.StringPtrOutput `pulumi:"description"`
-	// A unique read-only string that changes whenever the resource is updated.
-	Etag pulumi.StringOutput `pulumi:"etag"`
-	// The name of the resource that is unique within a resource group. This name can be used to access the resource.
-	Name pulumi.StringPtrOutput `pulumi:"name"`
-	// The provisioning state of the service endpoint policy definition resource.
-	ProvisioningState pulumi.StringOutput `pulumi:"provisioningState"`
-	// Service endpoint name.
-	Service pulumi.StringPtrOutput `pulumi:"service"`
-	// A list of service resources.
-	ServiceResources pulumi.StringArrayOutput `pulumi:"serviceResources"`
+	Description       pulumi.StringPtrOutput   `pulumi:"description"`
+	Etag              pulumi.StringOutput      `pulumi:"etag"`
+	Name              pulumi.StringPtrOutput   `pulumi:"name"`
+	ProvisioningState pulumi.StringOutput      `pulumi:"provisioningState"`
+	Service           pulumi.StringPtrOutput   `pulumi:"service"`
+	ServiceResources  pulumi.StringArrayOutput `pulumi:"serviceResources"`
 }
 
 // NewServiceEndpointPolicyDefinition registers a new resource with the given unique name, arguments, and options.
@@ -212,42 +205,26 @@ func (ServiceEndpointPolicyDefinitionState) ElementType() reflect.Type {
 }
 
 type serviceEndpointPolicyDefinitionArgs struct {
-	// A description for this rule. Restricted to 140 chars.
-	Description *string `pulumi:"description"`
-	// Resource ID.
-	Id *string `pulumi:"id"`
-	// The name of the resource that is unique within a resource group. This name can be used to access the resource.
-	Name *string `pulumi:"name"`
-	// The name of the resource group.
-	ResourceGroupName string `pulumi:"resourceGroupName"`
-	// Service endpoint name.
-	Service *string `pulumi:"service"`
-	// The name of the service endpoint policy definition name.
-	ServiceEndpointPolicyDefinitionName *string `pulumi:"serviceEndpointPolicyDefinitionName"`
-	// The name of the service endpoint policy.
-	ServiceEndpointPolicyName string `pulumi:"serviceEndpointPolicyName"`
-	// A list of service resources.
-	ServiceResources []string `pulumi:"serviceResources"`
+	Description                         *string  `pulumi:"description"`
+	Id                                  *string  `pulumi:"id"`
+	Name                                *string  `pulumi:"name"`
+	ResourceGroupName                   string   `pulumi:"resourceGroupName"`
+	Service                             *string  `pulumi:"service"`
+	ServiceEndpointPolicyDefinitionName *string  `pulumi:"serviceEndpointPolicyDefinitionName"`
+	ServiceEndpointPolicyName           string   `pulumi:"serviceEndpointPolicyName"`
+	ServiceResources                    []string `pulumi:"serviceResources"`
 }
 
 // The set of arguments for constructing a ServiceEndpointPolicyDefinition resource.
 type ServiceEndpointPolicyDefinitionArgs struct {
-	// A description for this rule. Restricted to 140 chars.
-	Description pulumi.StringPtrInput
-	// Resource ID.
-	Id pulumi.StringPtrInput
-	// The name of the resource that is unique within a resource group. This name can be used to access the resource.
-	Name pulumi.StringPtrInput
-	// The name of the resource group.
-	ResourceGroupName pulumi.StringInput
-	// Service endpoint name.
-	Service pulumi.StringPtrInput
-	// The name of the service endpoint policy definition name.
+	Description                         pulumi.StringPtrInput
+	Id                                  pulumi.StringPtrInput
+	Name                                pulumi.StringPtrInput
+	ResourceGroupName                   pulumi.StringInput
+	Service                             pulumi.StringPtrInput
 	ServiceEndpointPolicyDefinitionName pulumi.StringPtrInput
-	// The name of the service endpoint policy.
-	ServiceEndpointPolicyName pulumi.StringInput
-	// A list of service resources.
-	ServiceResources pulumi.StringArrayInput
+	ServiceEndpointPolicyName           pulumi.StringInput
+	ServiceResources                    pulumi.StringArrayInput
 }
 
 func (ServiceEndpointPolicyDefinitionArgs) ElementType() reflect.Type {
@@ -273,9 +250,7 @@ func (i *ServiceEndpointPolicyDefinition) ToServiceEndpointPolicyDefinitionOutpu
 	return pulumi.ToOutputWithContext(ctx, i).(ServiceEndpointPolicyDefinitionOutput)
 }
 
-type ServiceEndpointPolicyDefinitionOutput struct {
-	*pulumi.OutputState
-}
+type ServiceEndpointPolicyDefinitionOutput struct{ *pulumi.OutputState }
 
 func (ServiceEndpointPolicyDefinitionOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*ServiceEndpointPolicyDefinition)(nil))

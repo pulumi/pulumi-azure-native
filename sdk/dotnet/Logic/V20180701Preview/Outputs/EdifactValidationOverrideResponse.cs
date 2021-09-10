@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.Logic.V20180701Preview.Outputs
 {
 
+    /// <summary>
+    /// The Edifact validation override settings.
+    /// </summary>
     [OutputType]
     public sealed class EdifactValidationOverrideResponse
     {

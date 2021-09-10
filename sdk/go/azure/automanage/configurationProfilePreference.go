@@ -131,9 +131,7 @@ func (i *ConfigurationProfilePreference) ToConfigurationProfilePreferenceOutputW
 	return pulumi.ToOutputWithContext(ctx, i).(ConfigurationProfilePreferenceOutput)
 }
 
-type ConfigurationProfilePreferenceOutput struct {
-	*pulumi.OutputState
-}
+type ConfigurationProfilePreferenceOutput struct{ *pulumi.OutputState }
 
 func (ConfigurationProfilePreferenceOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*ConfigurationProfilePreference)(nil))

@@ -11,21 +11,15 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Private Endpoint Connection ARM resource.
 type WebAppPrivateEndpointConnection struct {
 	pulumi.CustomResourceState
 
-	// Kind of resource.
-	Kind pulumi.StringPtrOutput `pulumi:"kind"`
-	// Resource Name.
-	Name pulumi.StringOutput `pulumi:"name"`
-	// PrivateEndpoint of a remote private endpoint connection
-	PrivateEndpoint ArmIdWrapperResponsePtrOutput `pulumi:"privateEndpoint"`
-	// The state of a private link connection
+	Kind                              pulumi.StringPtrOutput                      `pulumi:"kind"`
+	Name                              pulumi.StringOutput                         `pulumi:"name"`
+	PrivateEndpoint                   ArmIdWrapperResponsePtrOutput               `pulumi:"privateEndpoint"`
 	PrivateLinkServiceConnectionState PrivateLinkConnectionStateResponsePtrOutput `pulumi:"privateLinkServiceConnectionState"`
 	ProvisioningState                 pulumi.StringOutput                         `pulumi:"provisioningState"`
-	// Resource type.
-	Type pulumi.StringOutput `pulumi:"type"`
+	Type                              pulumi.StringOutput                         `pulumi:"type"`
 }
 
 // NewWebAppPrivateEndpointConnection registers a new resource with the given unique name, arguments, and options.
@@ -127,28 +121,20 @@ func (WebAppPrivateEndpointConnectionState) ElementType() reflect.Type {
 }
 
 type webAppPrivateEndpointConnectionArgs struct {
-	// Kind of resource.
-	Kind *string `pulumi:"kind"`
-	// Name of the site.
-	Name                          string  `pulumi:"name"`
-	PrivateEndpointConnectionName *string `pulumi:"privateEndpointConnectionName"`
-	// The state of a private link connection
+	Kind                              *string                     `pulumi:"kind"`
+	Name                              string                      `pulumi:"name"`
+	PrivateEndpointConnectionName     *string                     `pulumi:"privateEndpointConnectionName"`
 	PrivateLinkServiceConnectionState *PrivateLinkConnectionState `pulumi:"privateLinkServiceConnectionState"`
-	// Name of the resource group to which the resource belongs.
-	ResourceGroupName string `pulumi:"resourceGroupName"`
+	ResourceGroupName                 string                      `pulumi:"resourceGroupName"`
 }
 
 // The set of arguments for constructing a WebAppPrivateEndpointConnection resource.
 type WebAppPrivateEndpointConnectionArgs struct {
-	// Kind of resource.
-	Kind pulumi.StringPtrInput
-	// Name of the site.
-	Name                          pulumi.StringInput
-	PrivateEndpointConnectionName pulumi.StringPtrInput
-	// The state of a private link connection
+	Kind                              pulumi.StringPtrInput
+	Name                              pulumi.StringInput
+	PrivateEndpointConnectionName     pulumi.StringPtrInput
 	PrivateLinkServiceConnectionState PrivateLinkConnectionStatePtrInput
-	// Name of the resource group to which the resource belongs.
-	ResourceGroupName pulumi.StringInput
+	ResourceGroupName                 pulumi.StringInput
 }
 
 func (WebAppPrivateEndpointConnectionArgs) ElementType() reflect.Type {
@@ -174,9 +160,7 @@ func (i *WebAppPrivateEndpointConnection) ToWebAppPrivateEndpointConnectionOutpu
 	return pulumi.ToOutputWithContext(ctx, i).(WebAppPrivateEndpointConnectionOutput)
 }
 
-type WebAppPrivateEndpointConnectionOutput struct {
-	*pulumi.OutputState
-}
+type WebAppPrivateEndpointConnectionOutput struct{ *pulumi.OutputState }
 
 func (WebAppPrivateEndpointConnectionOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*WebAppPrivateEndpointConnection)(nil))

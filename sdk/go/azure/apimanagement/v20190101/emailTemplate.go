@@ -11,26 +11,17 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Email Template details.
 type EmailTemplate struct {
 	pulumi.CustomResourceState
 
-	// Email Template Body. This should be a valid XDocument
-	Body pulumi.StringOutput `pulumi:"body"`
-	// Description of the Email Template.
-	Description pulumi.StringPtrOutput `pulumi:"description"`
-	// Whether the template is the default template provided by Api Management or has been edited.
-	IsDefault pulumi.BoolOutput `pulumi:"isDefault"`
-	// Resource name.
-	Name pulumi.StringOutput `pulumi:"name"`
-	// Email Template Parameter values.
-	Parameters EmailTemplateParametersContractPropertiesResponseArrayOutput `pulumi:"parameters"`
-	// Subject of the Template.
-	Subject pulumi.StringOutput `pulumi:"subject"`
-	// Title of the Template.
-	Title pulumi.StringPtrOutput `pulumi:"title"`
-	// Resource type for API Management resource.
-	Type pulumi.StringOutput `pulumi:"type"`
+	Body        pulumi.StringOutput                                          `pulumi:"body"`
+	Description pulumi.StringPtrOutput                                       `pulumi:"description"`
+	IsDefault   pulumi.BoolOutput                                            `pulumi:"isDefault"`
+	Name        pulumi.StringOutput                                          `pulumi:"name"`
+	Parameters  EmailTemplateParametersContractPropertiesResponseArrayOutput `pulumi:"parameters"`
+	Subject     pulumi.StringOutput                                          `pulumi:"subject"`
+	Title       pulumi.StringPtrOutput                                       `pulumi:"title"`
+	Type        pulumi.StringOutput                                          `pulumi:"type"`
 }
 
 // NewEmailTemplate registers a new resource with the given unique name, arguments, and options.
@@ -138,42 +129,26 @@ func (EmailTemplateState) ElementType() reflect.Type {
 }
 
 type emailTemplateArgs struct {
-	// Email Template Body. This should be a valid XDocument
-	Body *string `pulumi:"body"`
-	// Description of the Email Template.
-	Description *string `pulumi:"description"`
-	// Email Template Parameter values.
-	Parameters []EmailTemplateParametersContractProperties `pulumi:"parameters"`
-	// The name of the resource group.
-	ResourceGroupName string `pulumi:"resourceGroupName"`
-	// The name of the API Management service.
-	ServiceName string `pulumi:"serviceName"`
-	// Subject of the Template.
-	Subject *string `pulumi:"subject"`
-	// Email Template Name Identifier.
-	TemplateName *string `pulumi:"templateName"`
-	// Title of the Template.
-	Title *string `pulumi:"title"`
+	Body              *string                                     `pulumi:"body"`
+	Description       *string                                     `pulumi:"description"`
+	Parameters        []EmailTemplateParametersContractProperties `pulumi:"parameters"`
+	ResourceGroupName string                                      `pulumi:"resourceGroupName"`
+	ServiceName       string                                      `pulumi:"serviceName"`
+	Subject           *string                                     `pulumi:"subject"`
+	TemplateName      *string                                     `pulumi:"templateName"`
+	Title             *string                                     `pulumi:"title"`
 }
 
 // The set of arguments for constructing a EmailTemplate resource.
 type EmailTemplateArgs struct {
-	// Email Template Body. This should be a valid XDocument
-	Body pulumi.StringPtrInput
-	// Description of the Email Template.
-	Description pulumi.StringPtrInput
-	// Email Template Parameter values.
-	Parameters EmailTemplateParametersContractPropertiesArrayInput
-	// The name of the resource group.
+	Body              pulumi.StringPtrInput
+	Description       pulumi.StringPtrInput
+	Parameters        EmailTemplateParametersContractPropertiesArrayInput
 	ResourceGroupName pulumi.StringInput
-	// The name of the API Management service.
-	ServiceName pulumi.StringInput
-	// Subject of the Template.
-	Subject pulumi.StringPtrInput
-	// Email Template Name Identifier.
-	TemplateName pulumi.StringPtrInput
-	// Title of the Template.
-	Title pulumi.StringPtrInput
+	ServiceName       pulumi.StringInput
+	Subject           pulumi.StringPtrInput
+	TemplateName      pulumi.StringPtrInput
+	Title             pulumi.StringPtrInput
 }
 
 func (EmailTemplateArgs) ElementType() reflect.Type {
@@ -199,9 +174,7 @@ func (i *EmailTemplate) ToEmailTemplateOutputWithContext(ctx context.Context) Em
 	return pulumi.ToOutputWithContext(ctx, i).(EmailTemplateOutput)
 }
 
-type EmailTemplateOutput struct {
-	*pulumi.OutputState
-}
+type EmailTemplateOutput struct{ *pulumi.OutputState }
 
 func (EmailTemplateOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*EmailTemplate)(nil))

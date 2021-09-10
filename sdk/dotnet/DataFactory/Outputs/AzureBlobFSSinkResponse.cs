@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.DataFactory.Outputs
 {
 
+    /// <summary>
+    /// A copy activity Azure Data Lake Storage Gen2 sink.
+    /// </summary>
     [OutputType]
     public sealed class AzureBlobFSSinkResponse
     {

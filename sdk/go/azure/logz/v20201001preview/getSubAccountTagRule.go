@@ -7,7 +7,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Capture logs and metrics of Azure resources based on ARM tags.
 func LookupSubAccountTagRule(ctx *pulumi.Context, args *LookupSubAccountTagRuleArgs, opts ...pulumi.InvokeOption) (*LookupSubAccountTagRuleResult, error) {
 	var rv LookupSubAccountTagRuleResult
 	err := ctx.Invoke("azure-native:logz/v20201001preview:getSubAccountTagRule", args, &rv, opts...)
@@ -18,25 +17,17 @@ func LookupSubAccountTagRule(ctx *pulumi.Context, args *LookupSubAccountTagRuleA
 }
 
 type LookupSubAccountTagRuleArgs struct {
-	// Monitor resource name
-	MonitorName string `pulumi:"monitorName"`
-	// The name of the resource group. The name is case insensitive.
+	MonitorName       string `pulumi:"monitorName"`
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	RuleSetName       string `pulumi:"ruleSetName"`
-	// Sub Account resource name
-	SubAccountName string `pulumi:"subAccountName"`
+	SubAccountName    string `pulumi:"subAccountName"`
 }
 
 // Capture logs and metrics of Azure resources based on ARM tags.
 type LookupSubAccountTagRuleResult struct {
-	// The id of the rule set.
-	Id string `pulumi:"id"`
-	// Name of the rule set.
-	Name string `pulumi:"name"`
-	// Definition of the properties for a TagRules resource.
+	Id         string                               `pulumi:"id"`
+	Name       string                               `pulumi:"name"`
 	Properties MonitoringTagRulesPropertiesResponse `pulumi:"properties"`
-	// The system metadata relating to this resource
-	SystemData SystemDataResponse `pulumi:"systemData"`
-	// The type of the rule set.
-	Type string `pulumi:"type"`
+	SystemData SystemDataResponse                   `pulumi:"systemData"`
+	Type       string                               `pulumi:"type"`
 }

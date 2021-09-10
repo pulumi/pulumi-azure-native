@@ -11,19 +11,14 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Friendly RuleSet name mapping to the any RuleSet or secret related information.
 type RuleSet struct {
 	pulumi.CustomResourceState
 
-	DeploymentStatus pulumi.StringOutput `pulumi:"deploymentStatus"`
-	// Resource name.
-	Name pulumi.StringOutput `pulumi:"name"`
-	// Provisioning status
-	ProvisioningState pulumi.StringOutput `pulumi:"provisioningState"`
-	// Read only system data
-	SystemData SystemDataResponseOutput `pulumi:"systemData"`
-	// Resource type.
-	Type pulumi.StringOutput `pulumi:"type"`
+	DeploymentStatus  pulumi.StringOutput      `pulumi:"deploymentStatus"`
+	Name              pulumi.StringOutput      `pulumi:"name"`
+	ProvisioningState pulumi.StringOutput      `pulumi:"provisioningState"`
+	SystemData        SystemDataResponseOutput `pulumi:"systemData"`
+	Type              pulumi.StringOutput      `pulumi:"type"`
 }
 
 // NewRuleSet registers a new resource with the given unique name, arguments, and options.
@@ -83,22 +78,16 @@ func (RuleSetState) ElementType() reflect.Type {
 }
 
 type ruleSetArgs struct {
-	// Name of the CDN profile which is unique within the resource group.
-	ProfileName string `pulumi:"profileName"`
-	// Name of the Resource group within the Azure subscription.
-	ResourceGroupName string `pulumi:"resourceGroupName"`
-	// Name of the rule set under the profile which is unique globally
-	RuleSetName *string `pulumi:"ruleSetName"`
+	ProfileName       string  `pulumi:"profileName"`
+	ResourceGroupName string  `pulumi:"resourceGroupName"`
+	RuleSetName       *string `pulumi:"ruleSetName"`
 }
 
 // The set of arguments for constructing a RuleSet resource.
 type RuleSetArgs struct {
-	// Name of the CDN profile which is unique within the resource group.
-	ProfileName pulumi.StringInput
-	// Name of the Resource group within the Azure subscription.
+	ProfileName       pulumi.StringInput
 	ResourceGroupName pulumi.StringInput
-	// Name of the rule set under the profile which is unique globally
-	RuleSetName pulumi.StringPtrInput
+	RuleSetName       pulumi.StringPtrInput
 }
 
 func (RuleSetArgs) ElementType() reflect.Type {
@@ -124,9 +113,7 @@ func (i *RuleSet) ToRuleSetOutputWithContext(ctx context.Context) RuleSetOutput 
 	return pulumi.ToOutputWithContext(ctx, i).(RuleSetOutput)
 }
 
-type RuleSetOutput struct {
-	*pulumi.OutputState
-}
+type RuleSetOutput struct{ *pulumi.OutputState }
 
 func (RuleSetOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*RuleSet)(nil))

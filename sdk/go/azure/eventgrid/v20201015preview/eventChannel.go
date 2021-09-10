@@ -11,32 +11,19 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Event Channel.
 type EventChannel struct {
 	pulumi.CustomResourceState
 
-	// Represents the destination of an event channel.
-	Destination EventChannelDestinationResponsePtrOutput `pulumi:"destination"`
-	// Expiration time of the event channel. If this timer expires while the corresponding partner topic is never activated,
-	// the event channel and corresponding partner topic are deleted.
-	ExpirationTimeIfNotActivatedUtc pulumi.StringPtrOutput `pulumi:"expirationTimeIfNotActivatedUtc"`
-	// Information about the filter for the event channel.
-	Filter EventChannelFilterResponsePtrOutput `pulumi:"filter"`
-	// Name of the resource.
-	Name pulumi.StringOutput `pulumi:"name"`
-	// Friendly description about the topic. This can be set by the publisher/partner to show custom description for the customer partner topic.
-	// This will be helpful to remove any ambiguity of the origin of creation of the partner topic for the customer.
-	PartnerTopicFriendlyDescription pulumi.StringPtrOutput `pulumi:"partnerTopicFriendlyDescription"`
-	// The readiness state of the corresponding partner topic.
-	PartnerTopicReadinessState pulumi.StringOutput `pulumi:"partnerTopicReadinessState"`
-	// Provisioning state of the event channel.
-	ProvisioningState pulumi.StringOutput `pulumi:"provisioningState"`
-	// Source of the event channel. This represents a unique resource in the partner's resource model.
-	Source EventChannelSourceResponsePtrOutput `pulumi:"source"`
-	// The system metadata relating to Event Channel resource.
-	SystemData SystemDataResponseOutput `pulumi:"systemData"`
-	// Type of the resource.
-	Type pulumi.StringOutput `pulumi:"type"`
+	Destination                     EventChannelDestinationResponsePtrOutput `pulumi:"destination"`
+	ExpirationTimeIfNotActivatedUtc pulumi.StringPtrOutput                   `pulumi:"expirationTimeIfNotActivatedUtc"`
+	Filter                          EventChannelFilterResponsePtrOutput      `pulumi:"filter"`
+	Name                            pulumi.StringOutput                      `pulumi:"name"`
+	PartnerTopicFriendlyDescription pulumi.StringPtrOutput                   `pulumi:"partnerTopicFriendlyDescription"`
+	PartnerTopicReadinessState      pulumi.StringOutput                      `pulumi:"partnerTopicReadinessState"`
+	ProvisioningState               pulumi.StringOutput                      `pulumi:"provisioningState"`
+	Source                          EventChannelSourceResponsePtrOutput      `pulumi:"source"`
+	SystemData                      SystemDataResponseOutput                 `pulumi:"systemData"`
+	Type                            pulumi.StringOutput                      `pulumi:"type"`
 }
 
 // NewEventChannel registers a new resource with the given unique name, arguments, and options.
@@ -108,46 +95,26 @@ func (EventChannelState) ElementType() reflect.Type {
 }
 
 type eventChannelArgs struct {
-	// Represents the destination of an event channel.
-	Destination *EventChannelDestination `pulumi:"destination"`
-	// Name of the event channel.
-	EventChannelName *string `pulumi:"eventChannelName"`
-	// Expiration time of the event channel. If this timer expires while the corresponding partner topic is never activated,
-	// the event channel and corresponding partner topic are deleted.
-	ExpirationTimeIfNotActivatedUtc *string `pulumi:"expirationTimeIfNotActivatedUtc"`
-	// Information about the filter for the event channel.
-	Filter *EventChannelFilter `pulumi:"filter"`
-	// Name of the partner namespace.
-	PartnerNamespaceName string `pulumi:"partnerNamespaceName"`
-	// Friendly description about the topic. This can be set by the publisher/partner to show custom description for the customer partner topic.
-	// This will be helpful to remove any ambiguity of the origin of creation of the partner topic for the customer.
-	PartnerTopicFriendlyDescription *string `pulumi:"partnerTopicFriendlyDescription"`
-	// The name of the resource group within the user's subscription.
-	ResourceGroupName string `pulumi:"resourceGroupName"`
-	// Source of the event channel. This represents a unique resource in the partner's resource model.
-	Source *EventChannelSource `pulumi:"source"`
+	Destination                     *EventChannelDestination `pulumi:"destination"`
+	EventChannelName                *string                  `pulumi:"eventChannelName"`
+	ExpirationTimeIfNotActivatedUtc *string                  `pulumi:"expirationTimeIfNotActivatedUtc"`
+	Filter                          *EventChannelFilter      `pulumi:"filter"`
+	PartnerNamespaceName            string                   `pulumi:"partnerNamespaceName"`
+	PartnerTopicFriendlyDescription *string                  `pulumi:"partnerTopicFriendlyDescription"`
+	ResourceGroupName               string                   `pulumi:"resourceGroupName"`
+	Source                          *EventChannelSource      `pulumi:"source"`
 }
 
 // The set of arguments for constructing a EventChannel resource.
 type EventChannelArgs struct {
-	// Represents the destination of an event channel.
-	Destination EventChannelDestinationPtrInput
-	// Name of the event channel.
-	EventChannelName pulumi.StringPtrInput
-	// Expiration time of the event channel. If this timer expires while the corresponding partner topic is never activated,
-	// the event channel and corresponding partner topic are deleted.
+	Destination                     EventChannelDestinationPtrInput
+	EventChannelName                pulumi.StringPtrInput
 	ExpirationTimeIfNotActivatedUtc pulumi.StringPtrInput
-	// Information about the filter for the event channel.
-	Filter EventChannelFilterPtrInput
-	// Name of the partner namespace.
-	PartnerNamespaceName pulumi.StringInput
-	// Friendly description about the topic. This can be set by the publisher/partner to show custom description for the customer partner topic.
-	// This will be helpful to remove any ambiguity of the origin of creation of the partner topic for the customer.
+	Filter                          EventChannelFilterPtrInput
+	PartnerNamespaceName            pulumi.StringInput
 	PartnerTopicFriendlyDescription pulumi.StringPtrInput
-	// The name of the resource group within the user's subscription.
-	ResourceGroupName pulumi.StringInput
-	// Source of the event channel. This represents a unique resource in the partner's resource model.
-	Source EventChannelSourcePtrInput
+	ResourceGroupName               pulumi.StringInput
+	Source                          EventChannelSourcePtrInput
 }
 
 func (EventChannelArgs) ElementType() reflect.Type {
@@ -173,9 +140,7 @@ func (i *EventChannel) ToEventChannelOutputWithContext(ctx context.Context) Even
 	return pulumi.ToOutputWithContext(ctx, i).(EventChannelOutput)
 }
 
-type EventChannelOutput struct {
-	*pulumi.OutputState
-}
+type EventChannelOutput struct{ *pulumi.OutputState }
 
 func (EventChannelOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*EventChannel)(nil))

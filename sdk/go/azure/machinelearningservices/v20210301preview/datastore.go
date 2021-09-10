@@ -11,18 +11,13 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Azure Resource Manager resource envelope.
 type Datastore struct {
 	pulumi.CustomResourceState
 
-	// The name of the resource
-	Name pulumi.StringOutput `pulumi:"name"`
-	// Additional attributes of the entity.
+	Name       pulumi.StringOutput               `pulumi:"name"`
 	Properties DatastorePropertiesResponseOutput `pulumi:"properties"`
-	// System data associated with resource provider
-	SystemData SystemDataResponseOutput `pulumi:"systemData"`
-	// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
-	Type pulumi.StringOutput `pulumi:"type"`
+	SystemData SystemDataResponseOutput          `pulumi:"systemData"`
+	Type       pulumi.StringOutput               `pulumi:"type"`
 }
 
 // NewDatastore registers a new resource with the given unique name, arguments, and options.
@@ -91,30 +86,20 @@ func (DatastoreState) ElementType() reflect.Type {
 }
 
 type datastoreArgs struct {
-	// Datastore name.
-	Name *string `pulumi:"name"`
-	// Additional attributes of the entity.
-	Properties DatastoreProperties `pulumi:"properties"`
-	// The name of the resource group. The name is case insensitive.
-	ResourceGroupName string `pulumi:"resourceGroupName"`
-	// Flag to skip validation.
-	SkipValidation *bool `pulumi:"skipValidation"`
-	// Name of Azure Machine Learning workspace.
-	WorkspaceName string `pulumi:"workspaceName"`
+	Name              *string             `pulumi:"name"`
+	Properties        DatastoreProperties `pulumi:"properties"`
+	ResourceGroupName string              `pulumi:"resourceGroupName"`
+	SkipValidation    *bool               `pulumi:"skipValidation"`
+	WorkspaceName     string              `pulumi:"workspaceName"`
 }
 
 // The set of arguments for constructing a Datastore resource.
 type DatastoreArgs struct {
-	// Datastore name.
-	Name pulumi.StringPtrInput
-	// Additional attributes of the entity.
-	Properties DatastorePropertiesInput
-	// The name of the resource group. The name is case insensitive.
+	Name              pulumi.StringPtrInput
+	Properties        DatastorePropertiesInput
 	ResourceGroupName pulumi.StringInput
-	// Flag to skip validation.
-	SkipValidation pulumi.BoolPtrInput
-	// Name of Azure Machine Learning workspace.
-	WorkspaceName pulumi.StringInput
+	SkipValidation    pulumi.BoolPtrInput
+	WorkspaceName     pulumi.StringInput
 }
 
 func (DatastoreArgs) ElementType() reflect.Type {
@@ -140,9 +125,7 @@ func (i *Datastore) ToDatastoreOutputWithContext(ctx context.Context) DatastoreO
 	return pulumi.ToOutputWithContext(ctx, i).(DatastoreOutput)
 }
 
-type DatastoreOutput struct {
-	*pulumi.OutputState
-}
+type DatastoreOutput struct{ *pulumi.OutputState }
 
 func (DatastoreOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*Datastore)(nil))

@@ -7,7 +7,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// List response for get source share Synchronization settings
 func ListShareSubscriptionSourceShareSynchronizationSettings(ctx *pulumi.Context, args *ListShareSubscriptionSourceShareSynchronizationSettingsArgs, opts ...pulumi.InvokeOption) (*ListShareSubscriptionSourceShareSynchronizationSettingsResult, error) {
 	var rv ListShareSubscriptionSourceShareSynchronizationSettingsResult
 	err := ctx.Invoke("azure-native:datashare/v20201001preview:listShareSubscriptionSourceShareSynchronizationSettings", args, &rv, opts...)
@@ -18,20 +17,14 @@ func ListShareSubscriptionSourceShareSynchronizationSettings(ctx *pulumi.Context
 }
 
 type ListShareSubscriptionSourceShareSynchronizationSettingsArgs struct {
-	// The name of the share account.
-	AccountName string `pulumi:"accountName"`
-	// The resource group name.
-	ResourceGroupName string `pulumi:"resourceGroupName"`
-	// The name of the shareSubscription.
-	ShareSubscriptionName string `pulumi:"shareSubscriptionName"`
-	// Continuation token
-	SkipToken *string `pulumi:"skipToken"`
+	AccountName           string  `pulumi:"accountName"`
+	ResourceGroupName     string  `pulumi:"resourceGroupName"`
+	ShareSubscriptionName string  `pulumi:"shareSubscriptionName"`
+	SkipToken             *string `pulumi:"skipToken"`
 }
 
 // List response for get source share Synchronization settings
 type ListShareSubscriptionSourceShareSynchronizationSettingsResult struct {
-	// The Url of next result page.
-	NextLink *string `pulumi:"nextLink"`
-	// Collection of items of type DataTransferObjects.
-	Value []ScheduledSourceSynchronizationSettingResponse `pulumi:"value"`
+	NextLink *string                                         `pulumi:"nextLink"`
+	Value    []ScheduledSourceSynchronizationSettingResponse `pulumi:"value"`
 }

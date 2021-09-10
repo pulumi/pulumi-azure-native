@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.Storage.V20210101.Outputs
 {
 
+    /// <summary>
+    /// Specifies a CORS rule for the Blob service.
+    /// </summary>
     [OutputType]
     public sealed class CorsRuleResponse
     {

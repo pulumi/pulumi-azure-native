@@ -17,29 +17,18 @@ func LookupResourceGuard(ctx *pulumi.Context, args *LookupResourceGuardArgs, opt
 }
 
 type LookupResourceGuardArgs struct {
-	// The name of the resource group where the backup vault is present.
-	ResourceGroupName string `pulumi:"resourceGroupName"`
-	// The name of ResourceGuard
+	ResourceGroupName  string `pulumi:"resourceGroupName"`
 	ResourceGuardsName string `pulumi:"resourceGuardsName"`
 }
 
 type LookupResourceGuardResult struct {
-	// Optional ETag.
-	ETag *string `pulumi:"eTag"`
-	// Resource Id represents the complete path to the resource.
-	Id string `pulumi:"id"`
-	// Input Managed Identity Details
-	Identity *DppIdentityDetailsResponse `pulumi:"identity"`
-	// Resource location.
-	Location *string `pulumi:"location"`
-	// Resource name associated with the resource.
-	Name string `pulumi:"name"`
-	// ResourceGuardResource properties
-	Properties ResourceGuardResponse `pulumi:"properties"`
-	// Metadata pertaining to creation and last modification of the resource.
-	SystemData SystemDataResponse `pulumi:"systemData"`
-	// Resource tags.
-	Tags map[string]string `pulumi:"tags"`
-	// Resource type represents the complete path of the form Namespace/ResourceType/ResourceType/...
-	Type string `pulumi:"type"`
+	ETag       *string                     `pulumi:"eTag"`
+	Id         string                      `pulumi:"id"`
+	Identity   *DppIdentityDetailsResponse `pulumi:"identity"`
+	Location   *string                     `pulumi:"location"`
+	Name       string                      `pulumi:"name"`
+	Properties ResourceGuardResponse       `pulumi:"properties"`
+	SystemData SystemDataResponse          `pulumi:"systemData"`
+	Tags       map[string]string           `pulumi:"tags"`
+	Type       string                      `pulumi:"type"`
 }

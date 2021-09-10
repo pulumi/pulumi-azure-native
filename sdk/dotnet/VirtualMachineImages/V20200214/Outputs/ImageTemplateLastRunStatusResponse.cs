@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.VirtualMachineImages.V20200214.Outputs
 {
 
+    /// <summary>
+    /// Describes the latest status of running an image template
+    /// </summary>
     [OutputType]
     public sealed class ImageTemplateLastRunStatusResponse
     {

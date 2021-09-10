@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.ApiManagement.V20200601Preview.Outputs
 {
 
+    /// <summary>
+    /// API Authentication Settings.
+    /// </summary>
     [OutputType]
     public sealed class AuthenticationSettingsContractResponse
     {

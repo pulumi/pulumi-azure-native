@@ -7,7 +7,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Configuration of App Service site logs.
 func LookupWebAppDiagnosticLogsConfiguration(ctx *pulumi.Context, args *LookupWebAppDiagnosticLogsConfigurationArgs, opts ...pulumi.InvokeOption) (*LookupWebAppDiagnosticLogsConfigurationResult, error) {
 	var rv LookupWebAppDiagnosticLogsConfigurationResult
 	err := ctx.Invoke("azure-native:web/v20210115:getWebAppDiagnosticLogsConfiguration", args, &rv, opts...)
@@ -18,28 +17,18 @@ func LookupWebAppDiagnosticLogsConfiguration(ctx *pulumi.Context, args *LookupWe
 }
 
 type LookupWebAppDiagnosticLogsConfigurationArgs struct {
-	// Name of the app.
-	Name string `pulumi:"name"`
-	// Name of the resource group to which the resource belongs.
+	Name              string `pulumi:"name"`
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 }
 
 // Configuration of App Service site logs.
 type LookupWebAppDiagnosticLogsConfigurationResult struct {
-	// Application logs configuration.
-	ApplicationLogs *ApplicationLogsConfigResponse `pulumi:"applicationLogs"`
-	// Detailed error messages configuration.
-	DetailedErrorMessages *EnabledConfigResponse `pulumi:"detailedErrorMessages"`
-	// Failed requests tracing configuration.
-	FailedRequestsTracing *EnabledConfigResponse `pulumi:"failedRequestsTracing"`
-	// HTTP logs configuration.
-	HttpLogs *HttpLogsConfigResponse `pulumi:"httpLogs"`
-	// Resource Id.
-	Id string `pulumi:"id"`
-	// Kind of resource.
-	Kind *string `pulumi:"kind"`
-	// Resource Name.
-	Name string `pulumi:"name"`
-	// Resource type.
-	Type string `pulumi:"type"`
+	ApplicationLogs       *ApplicationLogsConfigResponse `pulumi:"applicationLogs"`
+	DetailedErrorMessages *EnabledConfigResponse         `pulumi:"detailedErrorMessages"`
+	FailedRequestsTracing *EnabledConfigResponse         `pulumi:"failedRequestsTracing"`
+	HttpLogs              *HttpLogsConfigResponse        `pulumi:"httpLogs"`
+	Id                    string                         `pulumi:"id"`
+	Kind                  *string                        `pulumi:"kind"`
+	Name                  string                         `pulumi:"name"`
+	Type                  string                         `pulumi:"type"`
 }

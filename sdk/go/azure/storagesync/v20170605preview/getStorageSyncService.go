@@ -7,7 +7,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Storage Sync Service object.
 func LookupStorageSyncService(ctx *pulumi.Context, args *LookupStorageSyncServiceArgs, opts ...pulumi.InvokeOption) (*LookupStorageSyncServiceResult, error) {
 	var rv LookupStorageSyncServiceResult
 	err := ctx.Invoke("azure-native:storagesync/v20170605preview:getStorageSyncService", args, &rv, opts...)
@@ -18,26 +17,17 @@ func LookupStorageSyncService(ctx *pulumi.Context, args *LookupStorageSyncServic
 }
 
 type LookupStorageSyncServiceArgs struct {
-	// The name of the resource group within the user's subscription. The name is case insensitive.
-	ResourceGroupName string `pulumi:"resourceGroupName"`
-	// Name of Storage Sync Service resource.
+	ResourceGroupName      string `pulumi:"resourceGroupName"`
 	StorageSyncServiceName string `pulumi:"storageSyncServiceName"`
 }
 
 // Storage Sync Service object.
 type LookupStorageSyncServiceResult struct {
-	// The id of the resource.
-	Id string `pulumi:"id"`
-	// The location of the resource.
-	Location *string `pulumi:"location"`
-	// The name of the resource.
-	Name string `pulumi:"name"`
-	// Storage Sync service status.
-	StorageSyncServiceStatus int `pulumi:"storageSyncServiceStatus"`
-	// Storage Sync service Uid
-	StorageSyncServiceUid string `pulumi:"storageSyncServiceUid"`
-	// The tags of the resource.
-	Tags interface{} `pulumi:"tags"`
-	// The type of the resource
-	Type string `pulumi:"type"`
+	Id                       string      `pulumi:"id"`
+	Location                 *string     `pulumi:"location"`
+	Name                     string      `pulumi:"name"`
+	StorageSyncServiceStatus int         `pulumi:"storageSyncServiceStatus"`
+	StorageSyncServiceUid    string      `pulumi:"storageSyncServiceUid"`
+	Tags                     interface{} `pulumi:"tags"`
+	Type                     string      `pulumi:"type"`
 }

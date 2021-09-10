@@ -120,9 +120,7 @@ func (i *OutboundFirewallRule) ToOutboundFirewallRuleOutputWithContext(ctx conte
 	return pulumi.ToOutputWithContext(ctx, i).(OutboundFirewallRuleOutput)
 }
 
-type OutboundFirewallRuleOutput struct {
-	*pulumi.OutputState
-}
+type OutboundFirewallRuleOutput struct{ *pulumi.OutputState }
 
 func (OutboundFirewallRuleOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*OutboundFirewallRule)(nil))

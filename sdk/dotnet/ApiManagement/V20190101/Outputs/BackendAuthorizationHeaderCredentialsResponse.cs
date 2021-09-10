@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.ApiManagement.V20190101.Outputs
 {
 
+    /// <summary>
+    /// Authorization header information.
+    /// </summary>
     [OutputType]
     public sealed class BackendAuthorizationHeaderCredentialsResponse
     {

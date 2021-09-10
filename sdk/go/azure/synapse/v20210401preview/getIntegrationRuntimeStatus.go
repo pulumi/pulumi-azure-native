@@ -7,7 +7,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Integration runtime status response.
 func GetIntegrationRuntimeStatus(ctx *pulumi.Context, args *GetIntegrationRuntimeStatusArgs, opts ...pulumi.InvokeOption) (*GetIntegrationRuntimeStatusResult, error) {
 	var rv GetIntegrationRuntimeStatusResult
 	err := ctx.Invoke("azure-native:synapse/v20210401preview:getIntegrationRuntimeStatus", args, &rv, opts...)
@@ -18,18 +17,13 @@ func GetIntegrationRuntimeStatus(ctx *pulumi.Context, args *GetIntegrationRuntim
 }
 
 type GetIntegrationRuntimeStatusArgs struct {
-	// Integration runtime name
 	IntegrationRuntimeName string `pulumi:"integrationRuntimeName"`
-	// The name of the resource group. The name is case insensitive.
-	ResourceGroupName string `pulumi:"resourceGroupName"`
-	// The name of the workspace.
-	WorkspaceName string `pulumi:"workspaceName"`
+	ResourceGroupName      string `pulumi:"resourceGroupName"`
+	WorkspaceName          string `pulumi:"workspaceName"`
 }
 
 // Integration runtime status response.
 type GetIntegrationRuntimeStatusResult struct {
-	// The integration runtime name.
-	Name string `pulumi:"name"`
-	// Integration runtime properties.
+	Name       string      `pulumi:"name"`
 	Properties interface{} `pulumi:"properties"`
 }

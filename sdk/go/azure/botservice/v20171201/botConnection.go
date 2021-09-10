@@ -11,26 +11,17 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Bot channel resource definition
 type BotConnection struct {
 	pulumi.CustomResourceState
 
-	// Entity Tag
-	Etag pulumi.StringPtrOutput `pulumi:"etag"`
-	// Required. Gets or sets the Kind of the resource.
-	Kind pulumi.StringPtrOutput `pulumi:"kind"`
-	// Specifies the location of the resource.
-	Location pulumi.StringPtrOutput `pulumi:"location"`
-	// Specifies the name of the resource.
-	Name pulumi.StringOutput `pulumi:"name"`
-	// The set of properties specific to bot channel resource
+	Etag       pulumi.StringPtrOutput                    `pulumi:"etag"`
+	Kind       pulumi.StringPtrOutput                    `pulumi:"kind"`
+	Location   pulumi.StringPtrOutput                    `pulumi:"location"`
+	Name       pulumi.StringOutput                       `pulumi:"name"`
 	Properties ConnectionSettingPropertiesResponseOutput `pulumi:"properties"`
-	// Gets or sets the SKU of the resource.
-	Sku SkuResponsePtrOutput `pulumi:"sku"`
-	// Contains resource tags defined as key/value pairs.
-	Tags pulumi.StringMapOutput `pulumi:"tags"`
-	// Specifies the type of the resource.
-	Type pulumi.StringOutput `pulumi:"type"`
+	Sku        SkuResponsePtrOutput                      `pulumi:"sku"`
+	Tags       pulumi.StringMapOutput                    `pulumi:"tags"`
+	Type       pulumi.StringOutput                       `pulumi:"type"`
 }
 
 // NewBotConnection registers a new resource with the given unique name, arguments, and options.
@@ -114,46 +105,28 @@ func (BotConnectionState) ElementType() reflect.Type {
 }
 
 type botConnectionArgs struct {
-	// The name of the Bot Service Connection Setting resource
-	ConnectionName *string `pulumi:"connectionName"`
-	// Entity Tag
-	Etag *string `pulumi:"etag"`
-	// Required. Gets or sets the Kind of the resource.
-	Kind *string `pulumi:"kind"`
-	// Specifies the location of the resource.
-	Location *string `pulumi:"location"`
-	// The set of properties specific to bot channel resource
-	Properties *ConnectionSettingProperties `pulumi:"properties"`
-	// The name of the Bot resource group in the user subscription.
-	ResourceGroupName string `pulumi:"resourceGroupName"`
-	// The name of the Bot resource.
-	ResourceName string `pulumi:"resourceName"`
-	// Gets or sets the SKU of the resource.
-	Sku *Sku `pulumi:"sku"`
-	// Contains resource tags defined as key/value pairs.
-	Tags map[string]string `pulumi:"tags"`
+	ConnectionName    *string                      `pulumi:"connectionName"`
+	Etag              *string                      `pulumi:"etag"`
+	Kind              *string                      `pulumi:"kind"`
+	Location          *string                      `pulumi:"location"`
+	Properties        *ConnectionSettingProperties `pulumi:"properties"`
+	ResourceGroupName string                       `pulumi:"resourceGroupName"`
+	ResourceName      string                       `pulumi:"resourceName"`
+	Sku               *Sku                         `pulumi:"sku"`
+	Tags              map[string]string            `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a BotConnection resource.
 type BotConnectionArgs struct {
-	// The name of the Bot Service Connection Setting resource
-	ConnectionName pulumi.StringPtrInput
-	// Entity Tag
-	Etag pulumi.StringPtrInput
-	// Required. Gets or sets the Kind of the resource.
-	Kind pulumi.StringPtrInput
-	// Specifies the location of the resource.
-	Location pulumi.StringPtrInput
-	// The set of properties specific to bot channel resource
-	Properties ConnectionSettingPropertiesPtrInput
-	// The name of the Bot resource group in the user subscription.
+	ConnectionName    pulumi.StringPtrInput
+	Etag              pulumi.StringPtrInput
+	Kind              pulumi.StringPtrInput
+	Location          pulumi.StringPtrInput
+	Properties        ConnectionSettingPropertiesPtrInput
 	ResourceGroupName pulumi.StringInput
-	// The name of the Bot resource.
-	ResourceName pulumi.StringInput
-	// Gets or sets the SKU of the resource.
-	Sku SkuPtrInput
-	// Contains resource tags defined as key/value pairs.
-	Tags pulumi.StringMapInput
+	ResourceName      pulumi.StringInput
+	Sku               SkuPtrInput
+	Tags              pulumi.StringMapInput
 }
 
 func (BotConnectionArgs) ElementType() reflect.Type {
@@ -179,9 +152,7 @@ func (i *BotConnection) ToBotConnectionOutputWithContext(ctx context.Context) Bo
 	return pulumi.ToOutputWithContext(ctx, i).(BotConnectionOutput)
 }
 
-type BotConnectionOutput struct {
-	*pulumi.OutputState
-}
+type BotConnectionOutput struct{ *pulumi.OutputState }
 
 func (BotConnectionOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*BotConnection)(nil))

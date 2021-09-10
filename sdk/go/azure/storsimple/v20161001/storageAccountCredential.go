@@ -11,26 +11,17 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// The storage account credential
 type StorageAccountCredential struct {
 	pulumi.CustomResourceState
 
-	// The details of the storage account password
 	AccessKey AsymmetricEncryptedSecretResponsePtrOutput `pulumi:"accessKey"`
-	// The cloud service provider
-	CloudType pulumi.StringOutput `pulumi:"cloudType"`
-	// SSL needs to be enabled or not
-	EnableSSL pulumi.StringOutput `pulumi:"enableSSL"`
-	// The storage endpoint
-	EndPoint pulumi.StringOutput `pulumi:"endPoint"`
-	// The storage account's geo location
-	Location pulumi.StringPtrOutput `pulumi:"location"`
-	// The storage account login
-	Login pulumi.StringOutput `pulumi:"login"`
-	// The name.
-	Name pulumi.StringOutput `pulumi:"name"`
-	// The type.
-	Type pulumi.StringOutput `pulumi:"type"`
+	CloudType pulumi.StringOutput                        `pulumi:"cloudType"`
+	EnableSSL pulumi.StringOutput                        `pulumi:"enableSSL"`
+	EndPoint  pulumi.StringOutput                        `pulumi:"endPoint"`
+	Location  pulumi.StringPtrOutput                     `pulumi:"location"`
+	Login     pulumi.StringOutput                        `pulumi:"login"`
+	Name      pulumi.StringOutput                        `pulumi:"name"`
+	Type      pulumi.StringOutput                        `pulumi:"type"`
 }
 
 // NewStorageAccountCredential registers a new resource with the given unique name, arguments, and options.
@@ -40,6 +31,12 @@ func NewStorageAccountCredential(ctx *pulumi.Context,
 		return nil, errors.New("missing one or more required arguments")
 	}
 
+	if args.CloudType == nil {
+		return nil, errors.New("invalid value for required argument 'CloudType'")
+	}
+	if args.EnableSSL == nil {
+		return nil, errors.New("invalid value for required argument 'EnableSSL'")
+	}
 	if args.EndPoint == nil {
 		return nil, errors.New("invalid value for required argument 'EndPoint'")
 	}
@@ -102,45 +99,27 @@ func (StorageAccountCredentialState) ElementType() reflect.Type {
 }
 
 type storageAccountCredentialArgs struct {
-	// The details of the storage account password
-	AccessKey *AsymmetricEncryptedSecret `pulumi:"accessKey"`
-	// The cloud service provider
-	CloudType string `pulumi:"cloudType"`
-	// The credential name.
-	CredentialName *string `pulumi:"credentialName"`
-	// SSL needs to be enabled or not
-	EnableSSL string `pulumi:"enableSSL"`
-	// The storage endpoint
-	EndPoint string `pulumi:"endPoint"`
-	// The storage account's geo location
-	Location *string `pulumi:"location"`
-	// The storage account login
-	Login string `pulumi:"login"`
-	// The manager name
-	ManagerName string `pulumi:"managerName"`
-	// The resource group name
-	ResourceGroupName string `pulumi:"resourceGroupName"`
+	AccessKey         *AsymmetricEncryptedSecret `pulumi:"accessKey"`
+	CloudType         CloudType                  `pulumi:"cloudType"`
+	CredentialName    *string                    `pulumi:"credentialName"`
+	EnableSSL         SslStatus                  `pulumi:"enableSSL"`
+	EndPoint          string                     `pulumi:"endPoint"`
+	Location          *string                    `pulumi:"location"`
+	Login             string                     `pulumi:"login"`
+	ManagerName       string                     `pulumi:"managerName"`
+	ResourceGroupName string                     `pulumi:"resourceGroupName"`
 }
 
 // The set of arguments for constructing a StorageAccountCredential resource.
 type StorageAccountCredentialArgs struct {
-	// The details of the storage account password
-	AccessKey AsymmetricEncryptedSecretPtrInput
-	// The cloud service provider
-	CloudType CloudType
-	// The credential name.
-	CredentialName pulumi.StringPtrInput
-	// SSL needs to be enabled or not
-	EnableSSL SslStatus
-	// The storage endpoint
-	EndPoint pulumi.StringInput
-	// The storage account's geo location
-	Location pulumi.StringPtrInput
-	// The storage account login
-	Login pulumi.StringInput
-	// The manager name
-	ManagerName pulumi.StringInput
-	// The resource group name
+	AccessKey         AsymmetricEncryptedSecretPtrInput
+	CloudType         CloudTypeInput
+	CredentialName    pulumi.StringPtrInput
+	EnableSSL         SslStatusInput
+	EndPoint          pulumi.StringInput
+	Location          pulumi.StringPtrInput
+	Login             pulumi.StringInput
+	ManagerName       pulumi.StringInput
 	ResourceGroupName pulumi.StringInput
 }
 
@@ -167,9 +146,7 @@ func (i *StorageAccountCredential) ToStorageAccountCredentialOutputWithContext(c
 	return pulumi.ToOutputWithContext(ctx, i).(StorageAccountCredentialOutput)
 }
 
-type StorageAccountCredentialOutput struct {
-	*pulumi.OutputState
-}
+type StorageAccountCredentialOutput struct{ *pulumi.OutputState }
 
 func (StorageAccountCredentialOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*StorageAccountCredential)(nil))

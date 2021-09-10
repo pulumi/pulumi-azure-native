@@ -10,11 +10,8 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// A header to add to the WebTest.
 type HeaderField struct {
-	// The name of the header.
-	HeaderFieldName *string `pulumi:"headerFieldName"`
-	// The value of the header.
+	HeaderFieldName  *string `pulumi:"headerFieldName"`
 	HeaderFieldValue *string `pulumi:"headerFieldValue"`
 }
 
@@ -29,11 +26,8 @@ type HeaderFieldInput interface {
 	ToHeaderFieldOutputWithContext(context.Context) HeaderFieldOutput
 }
 
-// A header to add to the WebTest.
 type HeaderFieldArgs struct {
-	// The name of the header.
-	HeaderFieldName pulumi.StringPtrInput `pulumi:"headerFieldName"`
-	// The value of the header.
+	HeaderFieldName  pulumi.StringPtrInput `pulumi:"headerFieldName"`
 	HeaderFieldValue pulumi.StringPtrInput `pulumi:"headerFieldValue"`
 }
 
@@ -74,7 +68,6 @@ func (i HeaderFieldArray) ToHeaderFieldArrayOutputWithContext(ctx context.Contex
 	return pulumi.ToOutputWithContext(ctx, i).(HeaderFieldArrayOutput)
 }
 
-// A header to add to the WebTest.
 type HeaderFieldOutput struct{ *pulumi.OutputState }
 
 func (HeaderFieldOutput) ElementType() reflect.Type {
@@ -89,12 +82,10 @@ func (o HeaderFieldOutput) ToHeaderFieldOutputWithContext(ctx context.Context) H
 	return o
 }
 
-// The name of the header.
 func (o HeaderFieldOutput) HeaderFieldName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v HeaderField) *string { return v.HeaderFieldName }).(pulumi.StringPtrOutput)
 }
 
-// The value of the header.
 func (o HeaderFieldOutput) HeaderFieldValue() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v HeaderField) *string { return v.HeaderFieldValue }).(pulumi.StringPtrOutput)
 }
@@ -119,11 +110,8 @@ func (o HeaderFieldArrayOutput) Index(i pulumi.IntInput) HeaderFieldOutput {
 	}).(HeaderFieldOutput)
 }
 
-// A header to add to the WebTest.
 type HeaderFieldResponse struct {
-	// The name of the header.
-	HeaderFieldName *string `pulumi:"headerFieldName"`
-	// The value of the header.
+	HeaderFieldName  *string `pulumi:"headerFieldName"`
 	HeaderFieldValue *string `pulumi:"headerFieldValue"`
 }
 
@@ -138,11 +126,8 @@ type HeaderFieldResponseInput interface {
 	ToHeaderFieldResponseOutputWithContext(context.Context) HeaderFieldResponseOutput
 }
 
-// A header to add to the WebTest.
 type HeaderFieldResponseArgs struct {
-	// The name of the header.
-	HeaderFieldName pulumi.StringPtrInput `pulumi:"headerFieldName"`
-	// The value of the header.
+	HeaderFieldName  pulumi.StringPtrInput `pulumi:"headerFieldName"`
 	HeaderFieldValue pulumi.StringPtrInput `pulumi:"headerFieldValue"`
 }
 
@@ -183,7 +168,6 @@ func (i HeaderFieldResponseArray) ToHeaderFieldResponseArrayOutputWithContext(ct
 	return pulumi.ToOutputWithContext(ctx, i).(HeaderFieldResponseArrayOutput)
 }
 
-// A header to add to the WebTest.
 type HeaderFieldResponseOutput struct{ *pulumi.OutputState }
 
 func (HeaderFieldResponseOutput) ElementType() reflect.Type {
@@ -198,12 +182,10 @@ func (o HeaderFieldResponseOutput) ToHeaderFieldResponseOutputWithContext(ctx co
 	return o
 }
 
-// The name of the header.
 func (o HeaderFieldResponseOutput) HeaderFieldName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v HeaderFieldResponse) *string { return v.HeaderFieldName }).(pulumi.StringPtrOutput)
 }
 
-// The value of the header.
 func (o HeaderFieldResponseOutput) HeaderFieldValue() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v HeaderFieldResponse) *string { return v.HeaderFieldValue }).(pulumi.StringPtrOutput)
 }
@@ -228,9 +210,7 @@ func (o HeaderFieldResponseArrayOutput) Index(i pulumi.IntInput) HeaderFieldResp
 	}).(HeaderFieldResponseOutput)
 }
 
-// Geo-physical location to run a WebTest from. You must specify one or more locations for the test to run from.
 type WebTestGeolocation struct {
-	// Location ID for the WebTest to run from.
 	Location *string `pulumi:"location"`
 }
 
@@ -245,9 +225,7 @@ type WebTestGeolocationInput interface {
 	ToWebTestGeolocationOutputWithContext(context.Context) WebTestGeolocationOutput
 }
 
-// Geo-physical location to run a WebTest from. You must specify one or more locations for the test to run from.
 type WebTestGeolocationArgs struct {
-	// Location ID for the WebTest to run from.
 	Location pulumi.StringPtrInput `pulumi:"location"`
 }
 
@@ -288,7 +266,6 @@ func (i WebTestGeolocationArray) ToWebTestGeolocationArrayOutputWithContext(ctx 
 	return pulumi.ToOutputWithContext(ctx, i).(WebTestGeolocationArrayOutput)
 }
 
-// Geo-physical location to run a WebTest from. You must specify one or more locations for the test to run from.
 type WebTestGeolocationOutput struct{ *pulumi.OutputState }
 
 func (WebTestGeolocationOutput) ElementType() reflect.Type {
@@ -303,7 +280,6 @@ func (o WebTestGeolocationOutput) ToWebTestGeolocationOutputWithContext(ctx cont
 	return o
 }
 
-// Location ID for the WebTest to run from.
 func (o WebTestGeolocationOutput) Location() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v WebTestGeolocation) *string { return v.Location }).(pulumi.StringPtrOutput)
 }
@@ -328,9 +304,7 @@ func (o WebTestGeolocationArrayOutput) Index(i pulumi.IntInput) WebTestGeolocati
 	}).(WebTestGeolocationOutput)
 }
 
-// Geo-physical location to run a WebTest from. You must specify one or more locations for the test to run from.
 type WebTestGeolocationResponse struct {
-	// Location ID for the WebTest to run from.
 	Location *string `pulumi:"location"`
 }
 
@@ -345,9 +319,7 @@ type WebTestGeolocationResponseInput interface {
 	ToWebTestGeolocationResponseOutputWithContext(context.Context) WebTestGeolocationResponseOutput
 }
 
-// Geo-physical location to run a WebTest from. You must specify one or more locations for the test to run from.
 type WebTestGeolocationResponseArgs struct {
-	// Location ID for the WebTest to run from.
 	Location pulumi.StringPtrInput `pulumi:"location"`
 }
 
@@ -388,7 +360,6 @@ func (i WebTestGeolocationResponseArray) ToWebTestGeolocationResponseArrayOutput
 	return pulumi.ToOutputWithContext(ctx, i).(WebTestGeolocationResponseArrayOutput)
 }
 
-// Geo-physical location to run a WebTest from. You must specify one or more locations for the test to run from.
 type WebTestGeolocationResponseOutput struct{ *pulumi.OutputState }
 
 func (WebTestGeolocationResponseOutput) ElementType() reflect.Type {
@@ -403,7 +374,6 @@ func (o WebTestGeolocationResponseOutput) ToWebTestGeolocationResponseOutputWith
 	return o
 }
 
-// Location ID for the WebTest to run from.
 func (o WebTestGeolocationResponseOutput) Location() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v WebTestGeolocationResponse) *string { return v.Location }).(pulumi.StringPtrOutput)
 }
@@ -428,9 +398,7 @@ func (o WebTestGeolocationResponseArrayOutput) Index(i pulumi.IntInput) WebTestG
 	}).(WebTestGeolocationResponseOutput)
 }
 
-// An XML configuration specification for a WebTest.
 type WebTestPropertiesConfiguration struct {
-	// The XML specification of a WebTest to run against an application.
 	WebTest *string `pulumi:"webTest"`
 }
 
@@ -445,9 +413,7 @@ type WebTestPropertiesConfigurationInput interface {
 	ToWebTestPropertiesConfigurationOutputWithContext(context.Context) WebTestPropertiesConfigurationOutput
 }
 
-// An XML configuration specification for a WebTest.
 type WebTestPropertiesConfigurationArgs struct {
-	// The XML specification of a WebTest to run against an application.
 	WebTest pulumi.StringPtrInput `pulumi:"webTest"`
 }
 
@@ -504,7 +470,6 @@ func (i *webTestPropertiesConfigurationPtrType) ToWebTestPropertiesConfiguration
 	return pulumi.ToOutputWithContext(ctx, i).(WebTestPropertiesConfigurationPtrOutput)
 }
 
-// An XML configuration specification for a WebTest.
 type WebTestPropertiesConfigurationOutput struct{ *pulumi.OutputState }
 
 func (WebTestPropertiesConfigurationOutput) ElementType() reflect.Type {
@@ -524,12 +489,11 @@ func (o WebTestPropertiesConfigurationOutput) ToWebTestPropertiesConfigurationPt
 }
 
 func (o WebTestPropertiesConfigurationOutput) ToWebTestPropertiesConfigurationPtrOutputWithContext(ctx context.Context) WebTestPropertiesConfigurationPtrOutput {
-	return o.ApplyT(func(v WebTestPropertiesConfiguration) *WebTestPropertiesConfiguration {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v WebTestPropertiesConfiguration) *WebTestPropertiesConfiguration {
 		return &v
 	}).(WebTestPropertiesConfigurationPtrOutput)
 }
 
-// The XML specification of a WebTest to run against an application.
 func (o WebTestPropertiesConfigurationOutput) WebTest() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v WebTestPropertiesConfiguration) *string { return v.WebTest }).(pulumi.StringPtrOutput)
 }
@@ -549,10 +513,15 @@ func (o WebTestPropertiesConfigurationPtrOutput) ToWebTestPropertiesConfiguratio
 }
 
 func (o WebTestPropertiesConfigurationPtrOutput) Elem() WebTestPropertiesConfigurationOutput {
-	return o.ApplyT(func(v *WebTestPropertiesConfiguration) WebTestPropertiesConfiguration { return *v }).(WebTestPropertiesConfigurationOutput)
+	return o.ApplyT(func(v *WebTestPropertiesConfiguration) WebTestPropertiesConfiguration {
+		if v != nil {
+			return *v
+		}
+		var ret WebTestPropertiesConfiguration
+		return ret
+	}).(WebTestPropertiesConfigurationOutput)
 }
 
-// The XML specification of a WebTest to run against an application.
 func (o WebTestPropertiesConfigurationPtrOutput) WebTest() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *WebTestPropertiesConfiguration) *string {
 		if v == nil {
@@ -562,14 +531,10 @@ func (o WebTestPropertiesConfigurationPtrOutput) WebTest() pulumi.StringPtrOutpu
 	}).(pulumi.StringPtrOutput)
 }
 
-// The collection of content validation properties
 type WebTestPropertiesContentValidation struct {
-	// Content to look for in the return of the WebTest.  Must not be null or empty.
-	ContentMatch *string `pulumi:"contentMatch"`
-	// When set, this value makes the ContentMatch validation case insensitive.
-	IgnoreCase *bool `pulumi:"ignoreCase"`
-	// When true, validation will pass if there is a match for the ContentMatch string.  If false, validation will fail if there is a match
-	PassIfTextFound *bool `pulumi:"passIfTextFound"`
+	ContentMatch    *string `pulumi:"contentMatch"`
+	IgnoreCase      *bool   `pulumi:"ignoreCase"`
+	PassIfTextFound *bool   `pulumi:"passIfTextFound"`
 }
 
 // WebTestPropertiesContentValidationInput is an input type that accepts WebTestPropertiesContentValidationArgs and WebTestPropertiesContentValidationOutput values.
@@ -583,14 +548,10 @@ type WebTestPropertiesContentValidationInput interface {
 	ToWebTestPropertiesContentValidationOutputWithContext(context.Context) WebTestPropertiesContentValidationOutput
 }
 
-// The collection of content validation properties
 type WebTestPropertiesContentValidationArgs struct {
-	// Content to look for in the return of the WebTest.  Must not be null or empty.
-	ContentMatch pulumi.StringPtrInput `pulumi:"contentMatch"`
-	// When set, this value makes the ContentMatch validation case insensitive.
-	IgnoreCase pulumi.BoolPtrInput `pulumi:"ignoreCase"`
-	// When true, validation will pass if there is a match for the ContentMatch string.  If false, validation will fail if there is a match
-	PassIfTextFound pulumi.BoolPtrInput `pulumi:"passIfTextFound"`
+	ContentMatch    pulumi.StringPtrInput `pulumi:"contentMatch"`
+	IgnoreCase      pulumi.BoolPtrInput   `pulumi:"ignoreCase"`
+	PassIfTextFound pulumi.BoolPtrInput   `pulumi:"passIfTextFound"`
 }
 
 func (WebTestPropertiesContentValidationArgs) ElementType() reflect.Type {
@@ -646,7 +607,6 @@ func (i *webTestPropertiesContentValidationPtrType) ToWebTestPropertiesContentVa
 	return pulumi.ToOutputWithContext(ctx, i).(WebTestPropertiesContentValidationPtrOutput)
 }
 
-// The collection of content validation properties
 type WebTestPropertiesContentValidationOutput struct{ *pulumi.OutputState }
 
 func (WebTestPropertiesContentValidationOutput) ElementType() reflect.Type {
@@ -666,22 +626,19 @@ func (o WebTestPropertiesContentValidationOutput) ToWebTestPropertiesContentVali
 }
 
 func (o WebTestPropertiesContentValidationOutput) ToWebTestPropertiesContentValidationPtrOutputWithContext(ctx context.Context) WebTestPropertiesContentValidationPtrOutput {
-	return o.ApplyT(func(v WebTestPropertiesContentValidation) *WebTestPropertiesContentValidation {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v WebTestPropertiesContentValidation) *WebTestPropertiesContentValidation {
 		return &v
 	}).(WebTestPropertiesContentValidationPtrOutput)
 }
 
-// Content to look for in the return of the WebTest.  Must not be null or empty.
 func (o WebTestPropertiesContentValidationOutput) ContentMatch() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v WebTestPropertiesContentValidation) *string { return v.ContentMatch }).(pulumi.StringPtrOutput)
 }
 
-// When set, this value makes the ContentMatch validation case insensitive.
 func (o WebTestPropertiesContentValidationOutput) IgnoreCase() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v WebTestPropertiesContentValidation) *bool { return v.IgnoreCase }).(pulumi.BoolPtrOutput)
 }
 
-// When true, validation will pass if there is a match for the ContentMatch string.  If false, validation will fail if there is a match
 func (o WebTestPropertiesContentValidationOutput) PassIfTextFound() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v WebTestPropertiesContentValidation) *bool { return v.PassIfTextFound }).(pulumi.BoolPtrOutput)
 }
@@ -701,10 +658,15 @@ func (o WebTestPropertiesContentValidationPtrOutput) ToWebTestPropertiesContentV
 }
 
 func (o WebTestPropertiesContentValidationPtrOutput) Elem() WebTestPropertiesContentValidationOutput {
-	return o.ApplyT(func(v *WebTestPropertiesContentValidation) WebTestPropertiesContentValidation { return *v }).(WebTestPropertiesContentValidationOutput)
+	return o.ApplyT(func(v *WebTestPropertiesContentValidation) WebTestPropertiesContentValidation {
+		if v != nil {
+			return *v
+		}
+		var ret WebTestPropertiesContentValidation
+		return ret
+	}).(WebTestPropertiesContentValidationOutput)
 }
 
-// Content to look for in the return of the WebTest.  Must not be null or empty.
 func (o WebTestPropertiesContentValidationPtrOutput) ContentMatch() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *WebTestPropertiesContentValidation) *string {
 		if v == nil {
@@ -714,7 +676,6 @@ func (o WebTestPropertiesContentValidationPtrOutput) ContentMatch() pulumi.Strin
 	}).(pulumi.StringPtrOutput)
 }
 
-// When set, this value makes the ContentMatch validation case insensitive.
 func (o WebTestPropertiesContentValidationPtrOutput) IgnoreCase() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *WebTestPropertiesContentValidation) *bool {
 		if v == nil {
@@ -724,7 +685,6 @@ func (o WebTestPropertiesContentValidationPtrOutput) IgnoreCase() pulumi.BoolPtr
 	}).(pulumi.BoolPtrOutput)
 }
 
-// When true, validation will pass if there is a match for the ContentMatch string.  If false, validation will fail if there is a match
 func (o WebTestPropertiesContentValidationPtrOutput) PassIfTextFound() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *WebTestPropertiesContentValidation) *bool {
 		if v == nil {
@@ -734,20 +694,13 @@ func (o WebTestPropertiesContentValidationPtrOutput) PassIfTextFound() pulumi.Bo
 	}).(pulumi.BoolPtrOutput)
 }
 
-// The collection of request properties
 type WebTestPropertiesRequest struct {
-	// Follow redirects for this web test.
-	FollowRedirects *bool `pulumi:"followRedirects"`
-	// List of headers and their values to add to the WebTest call.
-	Headers []HeaderField `pulumi:"headers"`
-	// Http verb to use for this web test.
-	HttpVerb *string `pulumi:"httpVerb"`
-	// Parse Dependent request for this WebTest.
-	ParseDependentRequests *bool `pulumi:"parseDependentRequests"`
-	// Base64 encoded string body to send with this web test.
-	RequestBody *string `pulumi:"requestBody"`
-	// Url location to test.
-	RequestUrl *string `pulumi:"requestUrl"`
+	FollowRedirects        *bool         `pulumi:"followRedirects"`
+	Headers                []HeaderField `pulumi:"headers"`
+	HttpVerb               *string       `pulumi:"httpVerb"`
+	ParseDependentRequests *bool         `pulumi:"parseDependentRequests"`
+	RequestBody            *string       `pulumi:"requestBody"`
+	RequestUrl             *string       `pulumi:"requestUrl"`
 }
 
 // WebTestPropertiesRequestInput is an input type that accepts WebTestPropertiesRequestArgs and WebTestPropertiesRequestOutput values.
@@ -761,20 +714,13 @@ type WebTestPropertiesRequestInput interface {
 	ToWebTestPropertiesRequestOutputWithContext(context.Context) WebTestPropertiesRequestOutput
 }
 
-// The collection of request properties
 type WebTestPropertiesRequestArgs struct {
-	// Follow redirects for this web test.
-	FollowRedirects pulumi.BoolPtrInput `pulumi:"followRedirects"`
-	// List of headers and their values to add to the WebTest call.
-	Headers HeaderFieldArrayInput `pulumi:"headers"`
-	// Http verb to use for this web test.
-	HttpVerb pulumi.StringPtrInput `pulumi:"httpVerb"`
-	// Parse Dependent request for this WebTest.
-	ParseDependentRequests pulumi.BoolPtrInput `pulumi:"parseDependentRequests"`
-	// Base64 encoded string body to send with this web test.
-	RequestBody pulumi.StringPtrInput `pulumi:"requestBody"`
-	// Url location to test.
-	RequestUrl pulumi.StringPtrInput `pulumi:"requestUrl"`
+	FollowRedirects        pulumi.BoolPtrInput   `pulumi:"followRedirects"`
+	Headers                HeaderFieldArrayInput `pulumi:"headers"`
+	HttpVerb               pulumi.StringPtrInput `pulumi:"httpVerb"`
+	ParseDependentRequests pulumi.BoolPtrInput   `pulumi:"parseDependentRequests"`
+	RequestBody            pulumi.StringPtrInput `pulumi:"requestBody"`
+	RequestUrl             pulumi.StringPtrInput `pulumi:"requestUrl"`
 }
 
 func (WebTestPropertiesRequestArgs) ElementType() reflect.Type {
@@ -830,7 +776,6 @@ func (i *webTestPropertiesRequestPtrType) ToWebTestPropertiesRequestPtrOutputWit
 	return pulumi.ToOutputWithContext(ctx, i).(WebTestPropertiesRequestPtrOutput)
 }
 
-// The collection of request properties
 type WebTestPropertiesRequestOutput struct{ *pulumi.OutputState }
 
 func (WebTestPropertiesRequestOutput) ElementType() reflect.Type {
@@ -850,37 +795,31 @@ func (o WebTestPropertiesRequestOutput) ToWebTestPropertiesRequestPtrOutput() We
 }
 
 func (o WebTestPropertiesRequestOutput) ToWebTestPropertiesRequestPtrOutputWithContext(ctx context.Context) WebTestPropertiesRequestPtrOutput {
-	return o.ApplyT(func(v WebTestPropertiesRequest) *WebTestPropertiesRequest {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v WebTestPropertiesRequest) *WebTestPropertiesRequest {
 		return &v
 	}).(WebTestPropertiesRequestPtrOutput)
 }
 
-// Follow redirects for this web test.
 func (o WebTestPropertiesRequestOutput) FollowRedirects() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v WebTestPropertiesRequest) *bool { return v.FollowRedirects }).(pulumi.BoolPtrOutput)
 }
 
-// List of headers and their values to add to the WebTest call.
 func (o WebTestPropertiesRequestOutput) Headers() HeaderFieldArrayOutput {
 	return o.ApplyT(func(v WebTestPropertiesRequest) []HeaderField { return v.Headers }).(HeaderFieldArrayOutput)
 }
 
-// Http verb to use for this web test.
 func (o WebTestPropertiesRequestOutput) HttpVerb() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v WebTestPropertiesRequest) *string { return v.HttpVerb }).(pulumi.StringPtrOutput)
 }
 
-// Parse Dependent request for this WebTest.
 func (o WebTestPropertiesRequestOutput) ParseDependentRequests() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v WebTestPropertiesRequest) *bool { return v.ParseDependentRequests }).(pulumi.BoolPtrOutput)
 }
 
-// Base64 encoded string body to send with this web test.
 func (o WebTestPropertiesRequestOutput) RequestBody() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v WebTestPropertiesRequest) *string { return v.RequestBody }).(pulumi.StringPtrOutput)
 }
 
-// Url location to test.
 func (o WebTestPropertiesRequestOutput) RequestUrl() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v WebTestPropertiesRequest) *string { return v.RequestUrl }).(pulumi.StringPtrOutput)
 }
@@ -900,10 +839,15 @@ func (o WebTestPropertiesRequestPtrOutput) ToWebTestPropertiesRequestPtrOutputWi
 }
 
 func (o WebTestPropertiesRequestPtrOutput) Elem() WebTestPropertiesRequestOutput {
-	return o.ApplyT(func(v *WebTestPropertiesRequest) WebTestPropertiesRequest { return *v }).(WebTestPropertiesRequestOutput)
+	return o.ApplyT(func(v *WebTestPropertiesRequest) WebTestPropertiesRequest {
+		if v != nil {
+			return *v
+		}
+		var ret WebTestPropertiesRequest
+		return ret
+	}).(WebTestPropertiesRequestOutput)
 }
 
-// Follow redirects for this web test.
 func (o WebTestPropertiesRequestPtrOutput) FollowRedirects() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *WebTestPropertiesRequest) *bool {
 		if v == nil {
@@ -913,7 +857,6 @@ func (o WebTestPropertiesRequestPtrOutput) FollowRedirects() pulumi.BoolPtrOutpu
 	}).(pulumi.BoolPtrOutput)
 }
 
-// List of headers and their values to add to the WebTest call.
 func (o WebTestPropertiesRequestPtrOutput) Headers() HeaderFieldArrayOutput {
 	return o.ApplyT(func(v *WebTestPropertiesRequest) []HeaderField {
 		if v == nil {
@@ -923,7 +866,6 @@ func (o WebTestPropertiesRequestPtrOutput) Headers() HeaderFieldArrayOutput {
 	}).(HeaderFieldArrayOutput)
 }
 
-// Http verb to use for this web test.
 func (o WebTestPropertiesRequestPtrOutput) HttpVerb() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *WebTestPropertiesRequest) *string {
 		if v == nil {
@@ -933,7 +875,6 @@ func (o WebTestPropertiesRequestPtrOutput) HttpVerb() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Parse Dependent request for this WebTest.
 func (o WebTestPropertiesRequestPtrOutput) ParseDependentRequests() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *WebTestPropertiesRequest) *bool {
 		if v == nil {
@@ -943,7 +884,6 @@ func (o WebTestPropertiesRequestPtrOutput) ParseDependentRequests() pulumi.BoolP
 	}).(pulumi.BoolPtrOutput)
 }
 
-// Base64 encoded string body to send with this web test.
 func (o WebTestPropertiesRequestPtrOutput) RequestBody() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *WebTestPropertiesRequest) *string {
 		if v == nil {
@@ -953,7 +893,6 @@ func (o WebTestPropertiesRequestPtrOutput) RequestBody() pulumi.StringPtrOutput 
 	}).(pulumi.StringPtrOutput)
 }
 
-// Url location to test.
 func (o WebTestPropertiesRequestPtrOutput) RequestUrl() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *WebTestPropertiesRequest) *string {
 		if v == nil {
@@ -963,9 +902,7 @@ func (o WebTestPropertiesRequestPtrOutput) RequestUrl() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// An XML configuration specification for a WebTest.
 type WebTestPropertiesResponseConfiguration struct {
-	// The XML specification of a WebTest to run against an application.
 	WebTest *string `pulumi:"webTest"`
 }
 
@@ -980,9 +917,7 @@ type WebTestPropertiesResponseConfigurationInput interface {
 	ToWebTestPropertiesResponseConfigurationOutputWithContext(context.Context) WebTestPropertiesResponseConfigurationOutput
 }
 
-// An XML configuration specification for a WebTest.
 type WebTestPropertiesResponseConfigurationArgs struct {
-	// The XML specification of a WebTest to run against an application.
 	WebTest pulumi.StringPtrInput `pulumi:"webTest"`
 }
 
@@ -1039,7 +974,6 @@ func (i *webTestPropertiesResponseConfigurationPtrType) ToWebTestPropertiesRespo
 	return pulumi.ToOutputWithContext(ctx, i).(WebTestPropertiesResponseConfigurationPtrOutput)
 }
 
-// An XML configuration specification for a WebTest.
 type WebTestPropertiesResponseConfigurationOutput struct{ *pulumi.OutputState }
 
 func (WebTestPropertiesResponseConfigurationOutput) ElementType() reflect.Type {
@@ -1059,12 +993,11 @@ func (o WebTestPropertiesResponseConfigurationOutput) ToWebTestPropertiesRespons
 }
 
 func (o WebTestPropertiesResponseConfigurationOutput) ToWebTestPropertiesResponseConfigurationPtrOutputWithContext(ctx context.Context) WebTestPropertiesResponseConfigurationPtrOutput {
-	return o.ApplyT(func(v WebTestPropertiesResponseConfiguration) *WebTestPropertiesResponseConfiguration {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v WebTestPropertiesResponseConfiguration) *WebTestPropertiesResponseConfiguration {
 		return &v
 	}).(WebTestPropertiesResponseConfigurationPtrOutput)
 }
 
-// The XML specification of a WebTest to run against an application.
 func (o WebTestPropertiesResponseConfigurationOutput) WebTest() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v WebTestPropertiesResponseConfiguration) *string { return v.WebTest }).(pulumi.StringPtrOutput)
 }
@@ -1084,10 +1017,15 @@ func (o WebTestPropertiesResponseConfigurationPtrOutput) ToWebTestPropertiesResp
 }
 
 func (o WebTestPropertiesResponseConfigurationPtrOutput) Elem() WebTestPropertiesResponseConfigurationOutput {
-	return o.ApplyT(func(v *WebTestPropertiesResponseConfiguration) WebTestPropertiesResponseConfiguration { return *v }).(WebTestPropertiesResponseConfigurationOutput)
+	return o.ApplyT(func(v *WebTestPropertiesResponseConfiguration) WebTestPropertiesResponseConfiguration {
+		if v != nil {
+			return *v
+		}
+		var ret WebTestPropertiesResponseConfiguration
+		return ret
+	}).(WebTestPropertiesResponseConfigurationOutput)
 }
 
-// The XML specification of a WebTest to run against an application.
 func (o WebTestPropertiesResponseConfigurationPtrOutput) WebTest() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *WebTestPropertiesResponseConfiguration) *string {
 		if v == nil {
@@ -1097,14 +1035,10 @@ func (o WebTestPropertiesResponseConfigurationPtrOutput) WebTest() pulumi.String
 	}).(pulumi.StringPtrOutput)
 }
 
-// The collection of content validation properties
 type WebTestPropertiesResponseContentValidation struct {
-	// Content to look for in the return of the WebTest.  Must not be null or empty.
-	ContentMatch *string `pulumi:"contentMatch"`
-	// When set, this value makes the ContentMatch validation case insensitive.
-	IgnoreCase *bool `pulumi:"ignoreCase"`
-	// When true, validation will pass if there is a match for the ContentMatch string.  If false, validation will fail if there is a match
-	PassIfTextFound *bool `pulumi:"passIfTextFound"`
+	ContentMatch    *string `pulumi:"contentMatch"`
+	IgnoreCase      *bool   `pulumi:"ignoreCase"`
+	PassIfTextFound *bool   `pulumi:"passIfTextFound"`
 }
 
 // WebTestPropertiesResponseContentValidationInput is an input type that accepts WebTestPropertiesResponseContentValidationArgs and WebTestPropertiesResponseContentValidationOutput values.
@@ -1118,14 +1052,10 @@ type WebTestPropertiesResponseContentValidationInput interface {
 	ToWebTestPropertiesResponseContentValidationOutputWithContext(context.Context) WebTestPropertiesResponseContentValidationOutput
 }
 
-// The collection of content validation properties
 type WebTestPropertiesResponseContentValidationArgs struct {
-	// Content to look for in the return of the WebTest.  Must not be null or empty.
-	ContentMatch pulumi.StringPtrInput `pulumi:"contentMatch"`
-	// When set, this value makes the ContentMatch validation case insensitive.
-	IgnoreCase pulumi.BoolPtrInput `pulumi:"ignoreCase"`
-	// When true, validation will pass if there is a match for the ContentMatch string.  If false, validation will fail if there is a match
-	PassIfTextFound pulumi.BoolPtrInput `pulumi:"passIfTextFound"`
+	ContentMatch    pulumi.StringPtrInput `pulumi:"contentMatch"`
+	IgnoreCase      pulumi.BoolPtrInput   `pulumi:"ignoreCase"`
+	PassIfTextFound pulumi.BoolPtrInput   `pulumi:"passIfTextFound"`
 }
 
 func (WebTestPropertiesResponseContentValidationArgs) ElementType() reflect.Type {
@@ -1181,7 +1111,6 @@ func (i *webTestPropertiesResponseContentValidationPtrType) ToWebTestPropertiesR
 	return pulumi.ToOutputWithContext(ctx, i).(WebTestPropertiesResponseContentValidationPtrOutput)
 }
 
-// The collection of content validation properties
 type WebTestPropertiesResponseContentValidationOutput struct{ *pulumi.OutputState }
 
 func (WebTestPropertiesResponseContentValidationOutput) ElementType() reflect.Type {
@@ -1201,22 +1130,19 @@ func (o WebTestPropertiesResponseContentValidationOutput) ToWebTestPropertiesRes
 }
 
 func (o WebTestPropertiesResponseContentValidationOutput) ToWebTestPropertiesResponseContentValidationPtrOutputWithContext(ctx context.Context) WebTestPropertiesResponseContentValidationPtrOutput {
-	return o.ApplyT(func(v WebTestPropertiesResponseContentValidation) *WebTestPropertiesResponseContentValidation {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v WebTestPropertiesResponseContentValidation) *WebTestPropertiesResponseContentValidation {
 		return &v
 	}).(WebTestPropertiesResponseContentValidationPtrOutput)
 }
 
-// Content to look for in the return of the WebTest.  Must not be null or empty.
 func (o WebTestPropertiesResponseContentValidationOutput) ContentMatch() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v WebTestPropertiesResponseContentValidation) *string { return v.ContentMatch }).(pulumi.StringPtrOutput)
 }
 
-// When set, this value makes the ContentMatch validation case insensitive.
 func (o WebTestPropertiesResponseContentValidationOutput) IgnoreCase() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v WebTestPropertiesResponseContentValidation) *bool { return v.IgnoreCase }).(pulumi.BoolPtrOutput)
 }
 
-// When true, validation will pass if there is a match for the ContentMatch string.  If false, validation will fail if there is a match
 func (o WebTestPropertiesResponseContentValidationOutput) PassIfTextFound() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v WebTestPropertiesResponseContentValidation) *bool { return v.PassIfTextFound }).(pulumi.BoolPtrOutput)
 }
@@ -1237,11 +1163,14 @@ func (o WebTestPropertiesResponseContentValidationPtrOutput) ToWebTestProperties
 
 func (o WebTestPropertiesResponseContentValidationPtrOutput) Elem() WebTestPropertiesResponseContentValidationOutput {
 	return o.ApplyT(func(v *WebTestPropertiesResponseContentValidation) WebTestPropertiesResponseContentValidation {
-		return *v
+		if v != nil {
+			return *v
+		}
+		var ret WebTestPropertiesResponseContentValidation
+		return ret
 	}).(WebTestPropertiesResponseContentValidationOutput)
 }
 
-// Content to look for in the return of the WebTest.  Must not be null or empty.
 func (o WebTestPropertiesResponseContentValidationPtrOutput) ContentMatch() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *WebTestPropertiesResponseContentValidation) *string {
 		if v == nil {
@@ -1251,7 +1180,6 @@ func (o WebTestPropertiesResponseContentValidationPtrOutput) ContentMatch() pulu
 	}).(pulumi.StringPtrOutput)
 }
 
-// When set, this value makes the ContentMatch validation case insensitive.
 func (o WebTestPropertiesResponseContentValidationPtrOutput) IgnoreCase() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *WebTestPropertiesResponseContentValidation) *bool {
 		if v == nil {
@@ -1261,7 +1189,6 @@ func (o WebTestPropertiesResponseContentValidationPtrOutput) IgnoreCase() pulumi
 	}).(pulumi.BoolPtrOutput)
 }
 
-// When true, validation will pass if there is a match for the ContentMatch string.  If false, validation will fail if there is a match
 func (o WebTestPropertiesResponseContentValidationPtrOutput) PassIfTextFound() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *WebTestPropertiesResponseContentValidation) *bool {
 		if v == nil {
@@ -1271,20 +1198,13 @@ func (o WebTestPropertiesResponseContentValidationPtrOutput) PassIfTextFound() p
 	}).(pulumi.BoolPtrOutput)
 }
 
-// The collection of request properties
 type WebTestPropertiesResponseRequest struct {
-	// Follow redirects for this web test.
-	FollowRedirects *bool `pulumi:"followRedirects"`
-	// List of headers and their values to add to the WebTest call.
-	Headers []HeaderFieldResponse `pulumi:"headers"`
-	// Http verb to use for this web test.
-	HttpVerb *string `pulumi:"httpVerb"`
-	// Parse Dependent request for this WebTest.
-	ParseDependentRequests *bool `pulumi:"parseDependentRequests"`
-	// Base64 encoded string body to send with this web test.
-	RequestBody *string `pulumi:"requestBody"`
-	// Url location to test.
-	RequestUrl *string `pulumi:"requestUrl"`
+	FollowRedirects        *bool                 `pulumi:"followRedirects"`
+	Headers                []HeaderFieldResponse `pulumi:"headers"`
+	HttpVerb               *string               `pulumi:"httpVerb"`
+	ParseDependentRequests *bool                 `pulumi:"parseDependentRequests"`
+	RequestBody            *string               `pulumi:"requestBody"`
+	RequestUrl             *string               `pulumi:"requestUrl"`
 }
 
 // WebTestPropertiesResponseRequestInput is an input type that accepts WebTestPropertiesResponseRequestArgs and WebTestPropertiesResponseRequestOutput values.
@@ -1298,20 +1218,13 @@ type WebTestPropertiesResponseRequestInput interface {
 	ToWebTestPropertiesResponseRequestOutputWithContext(context.Context) WebTestPropertiesResponseRequestOutput
 }
 
-// The collection of request properties
 type WebTestPropertiesResponseRequestArgs struct {
-	// Follow redirects for this web test.
-	FollowRedirects pulumi.BoolPtrInput `pulumi:"followRedirects"`
-	// List of headers and their values to add to the WebTest call.
-	Headers HeaderFieldResponseArrayInput `pulumi:"headers"`
-	// Http verb to use for this web test.
-	HttpVerb pulumi.StringPtrInput `pulumi:"httpVerb"`
-	// Parse Dependent request for this WebTest.
-	ParseDependentRequests pulumi.BoolPtrInput `pulumi:"parseDependentRequests"`
-	// Base64 encoded string body to send with this web test.
-	RequestBody pulumi.StringPtrInput `pulumi:"requestBody"`
-	// Url location to test.
-	RequestUrl pulumi.StringPtrInput `pulumi:"requestUrl"`
+	FollowRedirects        pulumi.BoolPtrInput           `pulumi:"followRedirects"`
+	Headers                HeaderFieldResponseArrayInput `pulumi:"headers"`
+	HttpVerb               pulumi.StringPtrInput         `pulumi:"httpVerb"`
+	ParseDependentRequests pulumi.BoolPtrInput           `pulumi:"parseDependentRequests"`
+	RequestBody            pulumi.StringPtrInput         `pulumi:"requestBody"`
+	RequestUrl             pulumi.StringPtrInput         `pulumi:"requestUrl"`
 }
 
 func (WebTestPropertiesResponseRequestArgs) ElementType() reflect.Type {
@@ -1367,7 +1280,6 @@ func (i *webTestPropertiesResponseRequestPtrType) ToWebTestPropertiesResponseReq
 	return pulumi.ToOutputWithContext(ctx, i).(WebTestPropertiesResponseRequestPtrOutput)
 }
 
-// The collection of request properties
 type WebTestPropertiesResponseRequestOutput struct{ *pulumi.OutputState }
 
 func (WebTestPropertiesResponseRequestOutput) ElementType() reflect.Type {
@@ -1387,37 +1299,31 @@ func (o WebTestPropertiesResponseRequestOutput) ToWebTestPropertiesResponseReque
 }
 
 func (o WebTestPropertiesResponseRequestOutput) ToWebTestPropertiesResponseRequestPtrOutputWithContext(ctx context.Context) WebTestPropertiesResponseRequestPtrOutput {
-	return o.ApplyT(func(v WebTestPropertiesResponseRequest) *WebTestPropertiesResponseRequest {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v WebTestPropertiesResponseRequest) *WebTestPropertiesResponseRequest {
 		return &v
 	}).(WebTestPropertiesResponseRequestPtrOutput)
 }
 
-// Follow redirects for this web test.
 func (o WebTestPropertiesResponseRequestOutput) FollowRedirects() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v WebTestPropertiesResponseRequest) *bool { return v.FollowRedirects }).(pulumi.BoolPtrOutput)
 }
 
-// List of headers and their values to add to the WebTest call.
 func (o WebTestPropertiesResponseRequestOutput) Headers() HeaderFieldResponseArrayOutput {
 	return o.ApplyT(func(v WebTestPropertiesResponseRequest) []HeaderFieldResponse { return v.Headers }).(HeaderFieldResponseArrayOutput)
 }
 
-// Http verb to use for this web test.
 func (o WebTestPropertiesResponseRequestOutput) HttpVerb() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v WebTestPropertiesResponseRequest) *string { return v.HttpVerb }).(pulumi.StringPtrOutput)
 }
 
-// Parse Dependent request for this WebTest.
 func (o WebTestPropertiesResponseRequestOutput) ParseDependentRequests() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v WebTestPropertiesResponseRequest) *bool { return v.ParseDependentRequests }).(pulumi.BoolPtrOutput)
 }
 
-// Base64 encoded string body to send with this web test.
 func (o WebTestPropertiesResponseRequestOutput) RequestBody() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v WebTestPropertiesResponseRequest) *string { return v.RequestBody }).(pulumi.StringPtrOutput)
 }
 
-// Url location to test.
 func (o WebTestPropertiesResponseRequestOutput) RequestUrl() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v WebTestPropertiesResponseRequest) *string { return v.RequestUrl }).(pulumi.StringPtrOutput)
 }
@@ -1437,10 +1343,15 @@ func (o WebTestPropertiesResponseRequestPtrOutput) ToWebTestPropertiesResponseRe
 }
 
 func (o WebTestPropertiesResponseRequestPtrOutput) Elem() WebTestPropertiesResponseRequestOutput {
-	return o.ApplyT(func(v *WebTestPropertiesResponseRequest) WebTestPropertiesResponseRequest { return *v }).(WebTestPropertiesResponseRequestOutput)
+	return o.ApplyT(func(v *WebTestPropertiesResponseRequest) WebTestPropertiesResponseRequest {
+		if v != nil {
+			return *v
+		}
+		var ret WebTestPropertiesResponseRequest
+		return ret
+	}).(WebTestPropertiesResponseRequestOutput)
 }
 
-// Follow redirects for this web test.
 func (o WebTestPropertiesResponseRequestPtrOutput) FollowRedirects() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *WebTestPropertiesResponseRequest) *bool {
 		if v == nil {
@@ -1450,7 +1361,6 @@ func (o WebTestPropertiesResponseRequestPtrOutput) FollowRedirects() pulumi.Bool
 	}).(pulumi.BoolPtrOutput)
 }
 
-// List of headers and their values to add to the WebTest call.
 func (o WebTestPropertiesResponseRequestPtrOutput) Headers() HeaderFieldResponseArrayOutput {
 	return o.ApplyT(func(v *WebTestPropertiesResponseRequest) []HeaderFieldResponse {
 		if v == nil {
@@ -1460,7 +1370,6 @@ func (o WebTestPropertiesResponseRequestPtrOutput) Headers() HeaderFieldResponse
 	}).(HeaderFieldResponseArrayOutput)
 }
 
-// Http verb to use for this web test.
 func (o WebTestPropertiesResponseRequestPtrOutput) HttpVerb() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *WebTestPropertiesResponseRequest) *string {
 		if v == nil {
@@ -1470,7 +1379,6 @@ func (o WebTestPropertiesResponseRequestPtrOutput) HttpVerb() pulumi.StringPtrOu
 	}).(pulumi.StringPtrOutput)
 }
 
-// Parse Dependent request for this WebTest.
 func (o WebTestPropertiesResponseRequestPtrOutput) ParseDependentRequests() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *WebTestPropertiesResponseRequest) *bool {
 		if v == nil {
@@ -1480,7 +1388,6 @@ func (o WebTestPropertiesResponseRequestPtrOutput) ParseDependentRequests() pulu
 	}).(pulumi.BoolPtrOutput)
 }
 
-// Base64 encoded string body to send with this web test.
 func (o WebTestPropertiesResponseRequestPtrOutput) RequestBody() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *WebTestPropertiesResponseRequest) *string {
 		if v == nil {
@@ -1490,7 +1397,6 @@ func (o WebTestPropertiesResponseRequestPtrOutput) RequestBody() pulumi.StringPt
 	}).(pulumi.StringPtrOutput)
 }
 
-// Url location to test.
 func (o WebTestPropertiesResponseRequestPtrOutput) RequestUrl() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *WebTestPropertiesResponseRequest) *string {
 		if v == nil {
@@ -1500,18 +1406,12 @@ func (o WebTestPropertiesResponseRequestPtrOutput) RequestUrl() pulumi.StringPtr
 	}).(pulumi.StringPtrOutput)
 }
 
-// The collection of validation rule properties
 type WebTestPropertiesResponseValidationRules struct {
-	// The collection of content validation properties
-	ContentValidation *WebTestPropertiesResponseContentValidation `pulumi:"contentValidation"`
-	// Validate that the WebTest returns the http status code provided.
-	ExpectedHttpStatusCode *int `pulumi:"expectedHttpStatusCode"`
-	// When set, validation will ignore the status code.
-	IgnoreHttpsStatusCode *bool `pulumi:"ignoreHttpsStatusCode"`
-	// A number of days to check still remain before the the existing SSL cert expires.  Value must be positive and the SSLCheck must be set to true.
-	SSLCertRemainingLifetimeCheck *int `pulumi:"sSLCertRemainingLifetimeCheck"`
-	// Checks to see if the SSL cert is still valid.
-	SSLCheck *bool `pulumi:"sSLCheck"`
+	ContentValidation             *WebTestPropertiesResponseContentValidation `pulumi:"contentValidation"`
+	ExpectedHttpStatusCode        *int                                        `pulumi:"expectedHttpStatusCode"`
+	IgnoreHttpsStatusCode         *bool                                       `pulumi:"ignoreHttpsStatusCode"`
+	SSLCertRemainingLifetimeCheck *int                                        `pulumi:"sSLCertRemainingLifetimeCheck"`
+	SSLCheck                      *bool                                       `pulumi:"sSLCheck"`
 }
 
 // WebTestPropertiesResponseValidationRulesInput is an input type that accepts WebTestPropertiesResponseValidationRulesArgs and WebTestPropertiesResponseValidationRulesOutput values.
@@ -1525,18 +1425,12 @@ type WebTestPropertiesResponseValidationRulesInput interface {
 	ToWebTestPropertiesResponseValidationRulesOutputWithContext(context.Context) WebTestPropertiesResponseValidationRulesOutput
 }
 
-// The collection of validation rule properties
 type WebTestPropertiesResponseValidationRulesArgs struct {
-	// The collection of content validation properties
-	ContentValidation WebTestPropertiesResponseContentValidationPtrInput `pulumi:"contentValidation"`
-	// Validate that the WebTest returns the http status code provided.
-	ExpectedHttpStatusCode pulumi.IntPtrInput `pulumi:"expectedHttpStatusCode"`
-	// When set, validation will ignore the status code.
-	IgnoreHttpsStatusCode pulumi.BoolPtrInput `pulumi:"ignoreHttpsStatusCode"`
-	// A number of days to check still remain before the the existing SSL cert expires.  Value must be positive and the SSLCheck must be set to true.
-	SSLCertRemainingLifetimeCheck pulumi.IntPtrInput `pulumi:"sSLCertRemainingLifetimeCheck"`
-	// Checks to see if the SSL cert is still valid.
-	SSLCheck pulumi.BoolPtrInput `pulumi:"sSLCheck"`
+	ContentValidation             WebTestPropertiesResponseContentValidationPtrInput `pulumi:"contentValidation"`
+	ExpectedHttpStatusCode        pulumi.IntPtrInput                                 `pulumi:"expectedHttpStatusCode"`
+	IgnoreHttpsStatusCode         pulumi.BoolPtrInput                                `pulumi:"ignoreHttpsStatusCode"`
+	SSLCertRemainingLifetimeCheck pulumi.IntPtrInput                                 `pulumi:"sSLCertRemainingLifetimeCheck"`
+	SSLCheck                      pulumi.BoolPtrInput                                `pulumi:"sSLCheck"`
 }
 
 func (WebTestPropertiesResponseValidationRulesArgs) ElementType() reflect.Type {
@@ -1592,7 +1486,6 @@ func (i *webTestPropertiesResponseValidationRulesPtrType) ToWebTestPropertiesRes
 	return pulumi.ToOutputWithContext(ctx, i).(WebTestPropertiesResponseValidationRulesPtrOutput)
 }
 
-// The collection of validation rule properties
 type WebTestPropertiesResponseValidationRulesOutput struct{ *pulumi.OutputState }
 
 func (WebTestPropertiesResponseValidationRulesOutput) ElementType() reflect.Type {
@@ -1612,34 +1505,29 @@ func (o WebTestPropertiesResponseValidationRulesOutput) ToWebTestPropertiesRespo
 }
 
 func (o WebTestPropertiesResponseValidationRulesOutput) ToWebTestPropertiesResponseValidationRulesPtrOutputWithContext(ctx context.Context) WebTestPropertiesResponseValidationRulesPtrOutput {
-	return o.ApplyT(func(v WebTestPropertiesResponseValidationRules) *WebTestPropertiesResponseValidationRules {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v WebTestPropertiesResponseValidationRules) *WebTestPropertiesResponseValidationRules {
 		return &v
 	}).(WebTestPropertiesResponseValidationRulesPtrOutput)
 }
 
-// The collection of content validation properties
 func (o WebTestPropertiesResponseValidationRulesOutput) ContentValidation() WebTestPropertiesResponseContentValidationPtrOutput {
 	return o.ApplyT(func(v WebTestPropertiesResponseValidationRules) *WebTestPropertiesResponseContentValidation {
 		return v.ContentValidation
 	}).(WebTestPropertiesResponseContentValidationPtrOutput)
 }
 
-// Validate that the WebTest returns the http status code provided.
 func (o WebTestPropertiesResponseValidationRulesOutput) ExpectedHttpStatusCode() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v WebTestPropertiesResponseValidationRules) *int { return v.ExpectedHttpStatusCode }).(pulumi.IntPtrOutput)
 }
 
-// When set, validation will ignore the status code.
 func (o WebTestPropertiesResponseValidationRulesOutput) IgnoreHttpsStatusCode() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v WebTestPropertiesResponseValidationRules) *bool { return v.IgnoreHttpsStatusCode }).(pulumi.BoolPtrOutput)
 }
 
-// A number of days to check still remain before the the existing SSL cert expires.  Value must be positive and the SSLCheck must be set to true.
 func (o WebTestPropertiesResponseValidationRulesOutput) SSLCertRemainingLifetimeCheck() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v WebTestPropertiesResponseValidationRules) *int { return v.SSLCertRemainingLifetimeCheck }).(pulumi.IntPtrOutput)
 }
 
-// Checks to see if the SSL cert is still valid.
 func (o WebTestPropertiesResponseValidationRulesOutput) SSLCheck() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v WebTestPropertiesResponseValidationRules) *bool { return v.SSLCheck }).(pulumi.BoolPtrOutput)
 }
@@ -1659,10 +1547,15 @@ func (o WebTestPropertiesResponseValidationRulesPtrOutput) ToWebTestPropertiesRe
 }
 
 func (o WebTestPropertiesResponseValidationRulesPtrOutput) Elem() WebTestPropertiesResponseValidationRulesOutput {
-	return o.ApplyT(func(v *WebTestPropertiesResponseValidationRules) WebTestPropertiesResponseValidationRules { return *v }).(WebTestPropertiesResponseValidationRulesOutput)
+	return o.ApplyT(func(v *WebTestPropertiesResponseValidationRules) WebTestPropertiesResponseValidationRules {
+		if v != nil {
+			return *v
+		}
+		var ret WebTestPropertiesResponseValidationRules
+		return ret
+	}).(WebTestPropertiesResponseValidationRulesOutput)
 }
 
-// The collection of content validation properties
 func (o WebTestPropertiesResponseValidationRulesPtrOutput) ContentValidation() WebTestPropertiesResponseContentValidationPtrOutput {
 	return o.ApplyT(func(v *WebTestPropertiesResponseValidationRules) *WebTestPropertiesResponseContentValidation {
 		if v == nil {
@@ -1672,7 +1565,6 @@ func (o WebTestPropertiesResponseValidationRulesPtrOutput) ContentValidation() W
 	}).(WebTestPropertiesResponseContentValidationPtrOutput)
 }
 
-// Validate that the WebTest returns the http status code provided.
 func (o WebTestPropertiesResponseValidationRulesPtrOutput) ExpectedHttpStatusCode() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *WebTestPropertiesResponseValidationRules) *int {
 		if v == nil {
@@ -1682,7 +1574,6 @@ func (o WebTestPropertiesResponseValidationRulesPtrOutput) ExpectedHttpStatusCod
 	}).(pulumi.IntPtrOutput)
 }
 
-// When set, validation will ignore the status code.
 func (o WebTestPropertiesResponseValidationRulesPtrOutput) IgnoreHttpsStatusCode() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *WebTestPropertiesResponseValidationRules) *bool {
 		if v == nil {
@@ -1692,7 +1583,6 @@ func (o WebTestPropertiesResponseValidationRulesPtrOutput) IgnoreHttpsStatusCode
 	}).(pulumi.BoolPtrOutput)
 }
 
-// A number of days to check still remain before the the existing SSL cert expires.  Value must be positive and the SSLCheck must be set to true.
 func (o WebTestPropertiesResponseValidationRulesPtrOutput) SSLCertRemainingLifetimeCheck() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *WebTestPropertiesResponseValidationRules) *int {
 		if v == nil {
@@ -1702,7 +1592,6 @@ func (o WebTestPropertiesResponseValidationRulesPtrOutput) SSLCertRemainingLifet
 	}).(pulumi.IntPtrOutput)
 }
 
-// Checks to see if the SSL cert is still valid.
 func (o WebTestPropertiesResponseValidationRulesPtrOutput) SSLCheck() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *WebTestPropertiesResponseValidationRules) *bool {
 		if v == nil {
@@ -1712,18 +1601,12 @@ func (o WebTestPropertiesResponseValidationRulesPtrOutput) SSLCheck() pulumi.Boo
 	}).(pulumi.BoolPtrOutput)
 }
 
-// The collection of validation rule properties
 type WebTestPropertiesValidationRules struct {
-	// The collection of content validation properties
-	ContentValidation *WebTestPropertiesContentValidation `pulumi:"contentValidation"`
-	// Validate that the WebTest returns the http status code provided.
-	ExpectedHttpStatusCode *int `pulumi:"expectedHttpStatusCode"`
-	// When set, validation will ignore the status code.
-	IgnoreHttpsStatusCode *bool `pulumi:"ignoreHttpsStatusCode"`
-	// A number of days to check still remain before the the existing SSL cert expires.  Value must be positive and the SSLCheck must be set to true.
-	SSLCertRemainingLifetimeCheck *int `pulumi:"sSLCertRemainingLifetimeCheck"`
-	// Checks to see if the SSL cert is still valid.
-	SSLCheck *bool `pulumi:"sSLCheck"`
+	ContentValidation             *WebTestPropertiesContentValidation `pulumi:"contentValidation"`
+	ExpectedHttpStatusCode        *int                                `pulumi:"expectedHttpStatusCode"`
+	IgnoreHttpsStatusCode         *bool                               `pulumi:"ignoreHttpsStatusCode"`
+	SSLCertRemainingLifetimeCheck *int                                `pulumi:"sSLCertRemainingLifetimeCheck"`
+	SSLCheck                      *bool                               `pulumi:"sSLCheck"`
 }
 
 // WebTestPropertiesValidationRulesInput is an input type that accepts WebTestPropertiesValidationRulesArgs and WebTestPropertiesValidationRulesOutput values.
@@ -1737,18 +1620,12 @@ type WebTestPropertiesValidationRulesInput interface {
 	ToWebTestPropertiesValidationRulesOutputWithContext(context.Context) WebTestPropertiesValidationRulesOutput
 }
 
-// The collection of validation rule properties
 type WebTestPropertiesValidationRulesArgs struct {
-	// The collection of content validation properties
-	ContentValidation WebTestPropertiesContentValidationPtrInput `pulumi:"contentValidation"`
-	// Validate that the WebTest returns the http status code provided.
-	ExpectedHttpStatusCode pulumi.IntPtrInput `pulumi:"expectedHttpStatusCode"`
-	// When set, validation will ignore the status code.
-	IgnoreHttpsStatusCode pulumi.BoolPtrInput `pulumi:"ignoreHttpsStatusCode"`
-	// A number of days to check still remain before the the existing SSL cert expires.  Value must be positive and the SSLCheck must be set to true.
-	SSLCertRemainingLifetimeCheck pulumi.IntPtrInput `pulumi:"sSLCertRemainingLifetimeCheck"`
-	// Checks to see if the SSL cert is still valid.
-	SSLCheck pulumi.BoolPtrInput `pulumi:"sSLCheck"`
+	ContentValidation             WebTestPropertiesContentValidationPtrInput `pulumi:"contentValidation"`
+	ExpectedHttpStatusCode        pulumi.IntPtrInput                         `pulumi:"expectedHttpStatusCode"`
+	IgnoreHttpsStatusCode         pulumi.BoolPtrInput                        `pulumi:"ignoreHttpsStatusCode"`
+	SSLCertRemainingLifetimeCheck pulumi.IntPtrInput                         `pulumi:"sSLCertRemainingLifetimeCheck"`
+	SSLCheck                      pulumi.BoolPtrInput                        `pulumi:"sSLCheck"`
 }
 
 func (WebTestPropertiesValidationRulesArgs) ElementType() reflect.Type {
@@ -1804,7 +1681,6 @@ func (i *webTestPropertiesValidationRulesPtrType) ToWebTestPropertiesValidationR
 	return pulumi.ToOutputWithContext(ctx, i).(WebTestPropertiesValidationRulesPtrOutput)
 }
 
-// The collection of validation rule properties
 type WebTestPropertiesValidationRulesOutput struct{ *pulumi.OutputState }
 
 func (WebTestPropertiesValidationRulesOutput) ElementType() reflect.Type {
@@ -1824,34 +1700,29 @@ func (o WebTestPropertiesValidationRulesOutput) ToWebTestPropertiesValidationRul
 }
 
 func (o WebTestPropertiesValidationRulesOutput) ToWebTestPropertiesValidationRulesPtrOutputWithContext(ctx context.Context) WebTestPropertiesValidationRulesPtrOutput {
-	return o.ApplyT(func(v WebTestPropertiesValidationRules) *WebTestPropertiesValidationRules {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v WebTestPropertiesValidationRules) *WebTestPropertiesValidationRules {
 		return &v
 	}).(WebTestPropertiesValidationRulesPtrOutput)
 }
 
-// The collection of content validation properties
 func (o WebTestPropertiesValidationRulesOutput) ContentValidation() WebTestPropertiesContentValidationPtrOutput {
 	return o.ApplyT(func(v WebTestPropertiesValidationRules) *WebTestPropertiesContentValidation {
 		return v.ContentValidation
 	}).(WebTestPropertiesContentValidationPtrOutput)
 }
 
-// Validate that the WebTest returns the http status code provided.
 func (o WebTestPropertiesValidationRulesOutput) ExpectedHttpStatusCode() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v WebTestPropertiesValidationRules) *int { return v.ExpectedHttpStatusCode }).(pulumi.IntPtrOutput)
 }
 
-// When set, validation will ignore the status code.
 func (o WebTestPropertiesValidationRulesOutput) IgnoreHttpsStatusCode() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v WebTestPropertiesValidationRules) *bool { return v.IgnoreHttpsStatusCode }).(pulumi.BoolPtrOutput)
 }
 
-// A number of days to check still remain before the the existing SSL cert expires.  Value must be positive and the SSLCheck must be set to true.
 func (o WebTestPropertiesValidationRulesOutput) SSLCertRemainingLifetimeCheck() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v WebTestPropertiesValidationRules) *int { return v.SSLCertRemainingLifetimeCheck }).(pulumi.IntPtrOutput)
 }
 
-// Checks to see if the SSL cert is still valid.
 func (o WebTestPropertiesValidationRulesOutput) SSLCheck() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v WebTestPropertiesValidationRules) *bool { return v.SSLCheck }).(pulumi.BoolPtrOutput)
 }
@@ -1871,10 +1742,15 @@ func (o WebTestPropertiesValidationRulesPtrOutput) ToWebTestPropertiesValidation
 }
 
 func (o WebTestPropertiesValidationRulesPtrOutput) Elem() WebTestPropertiesValidationRulesOutput {
-	return o.ApplyT(func(v *WebTestPropertiesValidationRules) WebTestPropertiesValidationRules { return *v }).(WebTestPropertiesValidationRulesOutput)
+	return o.ApplyT(func(v *WebTestPropertiesValidationRules) WebTestPropertiesValidationRules {
+		if v != nil {
+			return *v
+		}
+		var ret WebTestPropertiesValidationRules
+		return ret
+	}).(WebTestPropertiesValidationRulesOutput)
 }
 
-// The collection of content validation properties
 func (o WebTestPropertiesValidationRulesPtrOutput) ContentValidation() WebTestPropertiesContentValidationPtrOutput {
 	return o.ApplyT(func(v *WebTestPropertiesValidationRules) *WebTestPropertiesContentValidation {
 		if v == nil {
@@ -1884,7 +1760,6 @@ func (o WebTestPropertiesValidationRulesPtrOutput) ContentValidation() WebTestPr
 	}).(WebTestPropertiesContentValidationPtrOutput)
 }
 
-// Validate that the WebTest returns the http status code provided.
 func (o WebTestPropertiesValidationRulesPtrOutput) ExpectedHttpStatusCode() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *WebTestPropertiesValidationRules) *int {
 		if v == nil {
@@ -1894,7 +1769,6 @@ func (o WebTestPropertiesValidationRulesPtrOutput) ExpectedHttpStatusCode() pulu
 	}).(pulumi.IntPtrOutput)
 }
 
-// When set, validation will ignore the status code.
 func (o WebTestPropertiesValidationRulesPtrOutput) IgnoreHttpsStatusCode() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *WebTestPropertiesValidationRules) *bool {
 		if v == nil {
@@ -1904,7 +1778,6 @@ func (o WebTestPropertiesValidationRulesPtrOutput) IgnoreHttpsStatusCode() pulum
 	}).(pulumi.BoolPtrOutput)
 }
 
-// A number of days to check still remain before the the existing SSL cert expires.  Value must be positive and the SSLCheck must be set to true.
 func (o WebTestPropertiesValidationRulesPtrOutput) SSLCertRemainingLifetimeCheck() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *WebTestPropertiesValidationRules) *int {
 		if v == nil {
@@ -1914,7 +1787,6 @@ func (o WebTestPropertiesValidationRulesPtrOutput) SSLCertRemainingLifetimeCheck
 	}).(pulumi.IntPtrOutput)
 }
 
-// Checks to see if the SSL cert is still valid.
 func (o WebTestPropertiesValidationRulesPtrOutput) SSLCheck() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *WebTestPropertiesValidationRules) *bool {
 		if v == nil {

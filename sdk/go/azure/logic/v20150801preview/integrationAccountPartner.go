@@ -14,24 +14,15 @@ import (
 type IntegrationAccountPartner struct {
 	pulumi.CustomResourceState
 
-	// The changed time.
-	ChangedTime pulumi.StringOutput `pulumi:"changedTime"`
-	// The partner content.
-	Content PartnerContentResponsePtrOutput `pulumi:"content"`
-	// The created time.
-	CreatedTime pulumi.StringOutput `pulumi:"createdTime"`
-	// The resource location.
-	Location pulumi.StringPtrOutput `pulumi:"location"`
-	// The metadata.
-	Metadata pulumi.AnyOutput `pulumi:"metadata"`
-	// The resource name.
-	Name pulumi.StringPtrOutput `pulumi:"name"`
-	// The partner type.
-	PartnerType pulumi.StringPtrOutput `pulumi:"partnerType"`
-	// The resource tags.
-	Tags pulumi.StringMapOutput `pulumi:"tags"`
-	// The resource type.
-	Type pulumi.StringPtrOutput `pulumi:"type"`
+	ChangedTime pulumi.StringOutput             `pulumi:"changedTime"`
+	Content     PartnerContentResponsePtrOutput `pulumi:"content"`
+	CreatedTime pulumi.StringOutput             `pulumi:"createdTime"`
+	Location    pulumi.StringPtrOutput          `pulumi:"location"`
+	Metadata    pulumi.AnyOutput                `pulumi:"metadata"`
+	Name        pulumi.StringPtrOutput          `pulumi:"name"`
+	PartnerType pulumi.StringPtrOutput          `pulumi:"partnerType"`
+	Tags        pulumi.StringMapOutput          `pulumi:"tags"`
+	Type        pulumi.StringPtrOutput          `pulumi:"type"`
 }
 
 // NewIntegrationAccountPartner registers a new resource with the given unique name, arguments, and options.
@@ -109,54 +100,32 @@ func (IntegrationAccountPartnerState) ElementType() reflect.Type {
 }
 
 type integrationAccountPartnerArgs struct {
-	// The partner content.
-	Content *PartnerContent `pulumi:"content"`
-	// The resource id.
-	Id *string `pulumi:"id"`
-	// The integration account name.
-	IntegrationAccountName string `pulumi:"integrationAccountName"`
-	// The resource location.
-	Location *string `pulumi:"location"`
-	// The metadata.
-	Metadata interface{} `pulumi:"metadata"`
-	// The resource name.
-	Name *string `pulumi:"name"`
-	// The integration account partner name.
-	PartnerName *string `pulumi:"partnerName"`
-	// The partner type.
-	PartnerType *string `pulumi:"partnerType"`
-	// The resource group name.
-	ResourceGroupName string `pulumi:"resourceGroupName"`
-	// The resource tags.
-	Tags map[string]string `pulumi:"tags"`
-	// The resource type.
-	Type *string `pulumi:"type"`
+	Content                *PartnerContent   `pulumi:"content"`
+	Id                     *string           `pulumi:"id"`
+	IntegrationAccountName string            `pulumi:"integrationAccountName"`
+	Location               *string           `pulumi:"location"`
+	Metadata               interface{}       `pulumi:"metadata"`
+	Name                   *string           `pulumi:"name"`
+	PartnerName            *string           `pulumi:"partnerName"`
+	PartnerType            *PartnerType      `pulumi:"partnerType"`
+	ResourceGroupName      string            `pulumi:"resourceGroupName"`
+	Tags                   map[string]string `pulumi:"tags"`
+	Type                   *string           `pulumi:"type"`
 }
 
 // The set of arguments for constructing a IntegrationAccountPartner resource.
 type IntegrationAccountPartnerArgs struct {
-	// The partner content.
-	Content PartnerContentPtrInput
-	// The resource id.
-	Id pulumi.StringPtrInput
-	// The integration account name.
+	Content                PartnerContentPtrInput
+	Id                     pulumi.StringPtrInput
 	IntegrationAccountName pulumi.StringInput
-	// The resource location.
-	Location pulumi.StringPtrInput
-	// The metadata.
-	Metadata pulumi.Input
-	// The resource name.
-	Name pulumi.StringPtrInput
-	// The integration account partner name.
-	PartnerName pulumi.StringPtrInput
-	// The partner type.
-	PartnerType *PartnerType
-	// The resource group name.
-	ResourceGroupName pulumi.StringInput
-	// The resource tags.
-	Tags pulumi.StringMapInput
-	// The resource type.
-	Type pulumi.StringPtrInput
+	Location               pulumi.StringPtrInput
+	Metadata               pulumi.Input
+	Name                   pulumi.StringPtrInput
+	PartnerName            pulumi.StringPtrInput
+	PartnerType            PartnerTypePtrInput
+	ResourceGroupName      pulumi.StringInput
+	Tags                   pulumi.StringMapInput
+	Type                   pulumi.StringPtrInput
 }
 
 func (IntegrationAccountPartnerArgs) ElementType() reflect.Type {
@@ -182,9 +151,7 @@ func (i *IntegrationAccountPartner) ToIntegrationAccountPartnerOutputWithContext
 	return pulumi.ToOutputWithContext(ctx, i).(IntegrationAccountPartnerOutput)
 }
 
-type IntegrationAccountPartnerOutput struct {
-	*pulumi.OutputState
-}
+type IntegrationAccountPartnerOutput struct{ *pulumi.OutputState }
 
 func (IntegrationAccountPartnerOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*IntegrationAccountPartner)(nil))

@@ -7,7 +7,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Registration information.
 func LookupRegistration(ctx *pulumi.Context, args *LookupRegistrationArgs, opts ...pulumi.InvokeOption) (*LookupRegistrationResult, error) {
 	var rv LookupRegistrationResult
 	err := ctx.Invoke("azure-native:azurestack/v20160101:getRegistration", args, &rv, opts...)
@@ -18,30 +17,19 @@ func LookupRegistration(ctx *pulumi.Context, args *LookupRegistrationArgs, opts 
 }
 
 type LookupRegistrationArgs struct {
-	// Name of the Azure Stack registration.
 	RegistrationName string `pulumi:"registrationName"`
-	// Name of the resource group.
-	ResourceGroup string `pulumi:"resourceGroup"`
+	ResourceGroup    string `pulumi:"resourceGroup"`
 }
 
 // Registration information.
 type LookupRegistrationResult struct {
-	// Specifies the billing mode for the Azure Stack registration.
-	BillingModel *string `pulumi:"billingModel"`
-	// The identifier of the registered Azure Stack.
-	CloudId *string `pulumi:"cloudId"`
-	// The entity tag used for optimistic concurrency when modifying the resource.
-	Etag *string `pulumi:"etag"`
-	// Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
-	Id string `pulumi:"id"`
-	// The geo-location where the resource lives
-	Location string `pulumi:"location"`
-	// The name of the resource
-	Name string `pulumi:"name"`
-	// The object identifier associated with the Azure Stack connecting to Azure.
-	ObjectId *string `pulumi:"objectId"`
-	// Resource tags.
-	Tags map[string]string `pulumi:"tags"`
-	// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
-	Type string `pulumi:"type"`
+	BillingModel *string           `pulumi:"billingModel"`
+	CloudId      *string           `pulumi:"cloudId"`
+	Etag         *string           `pulumi:"etag"`
+	Id           string            `pulumi:"id"`
+	Location     string            `pulumi:"location"`
+	Name         string            `pulumi:"name"`
+	ObjectId     *string           `pulumi:"objectId"`
+	Tags         map[string]string `pulumi:"tags"`
+	Type         string            `pulumi:"type"`
 }

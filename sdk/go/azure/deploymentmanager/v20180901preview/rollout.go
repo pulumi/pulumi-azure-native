@@ -11,28 +11,18 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Defines the PUT rollout request body.
 type Rollout struct {
 	pulumi.CustomResourceState
 
-	// The reference to the artifact source resource Id where the payload is located.
-	ArtifactSourceId pulumi.StringPtrOutput `pulumi:"artifactSourceId"`
-	// The version of the build being deployed.
-	BuildVersion pulumi.StringOutput `pulumi:"buildVersion"`
-	// Identity for the resource.
-	Identity IdentityResponseOutput `pulumi:"identity"`
-	// The geo-location where the resource lives
-	Location pulumi.StringOutput `pulumi:"location"`
-	// The name of the resource
-	Name pulumi.StringOutput `pulumi:"name"`
-	// The list of step groups that define the orchestration.
-	StepGroups StepResponseArrayOutput `pulumi:"stepGroups"`
-	// Resource tags.
-	Tags pulumi.StringMapOutput `pulumi:"tags"`
-	// The resource Id of the service topology from which service units are being referenced in step groups to be deployed.
-	TargetServiceTopologyId pulumi.StringOutput `pulumi:"targetServiceTopologyId"`
-	// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
-	Type pulumi.StringOutput `pulumi:"type"`
+	ArtifactSourceId        pulumi.StringPtrOutput  `pulumi:"artifactSourceId"`
+	BuildVersion            pulumi.StringOutput     `pulumi:"buildVersion"`
+	Identity                IdentityResponseOutput  `pulumi:"identity"`
+	Location                pulumi.StringOutput     `pulumi:"location"`
+	Name                    pulumi.StringOutput     `pulumi:"name"`
+	StepGroups              StepResponseArrayOutput `pulumi:"stepGroups"`
+	Tags                    pulumi.StringMapOutput  `pulumi:"tags"`
+	TargetServiceTopologyId pulumi.StringOutput     `pulumi:"targetServiceTopologyId"`
+	Type                    pulumi.StringOutput     `pulumi:"type"`
 }
 
 // NewRollout registers a new resource with the given unique name, arguments, and options.
@@ -107,45 +97,27 @@ func (RolloutState) ElementType() reflect.Type {
 }
 
 type rolloutArgs struct {
-	// The reference to the artifact source resource Id where the payload is located.
-	ArtifactSourceId *string `pulumi:"artifactSourceId"`
-	// The version of the build being deployed.
-	BuildVersion string `pulumi:"buildVersion"`
-	// Identity for the resource.
-	Identity Identity `pulumi:"identity"`
-	// The geo-location where the resource lives
-	Location *string `pulumi:"location"`
-	// The name of the resource group. The name is case insensitive.
-	ResourceGroupName string `pulumi:"resourceGroupName"`
-	// The rollout name.
-	RolloutName *string `pulumi:"rolloutName"`
-	// The list of step groups that define the orchestration.
-	StepGroups []StepType `pulumi:"stepGroups"`
-	// Resource tags.
-	Tags map[string]string `pulumi:"tags"`
-	// The resource Id of the service topology from which service units are being referenced in step groups to be deployed.
-	TargetServiceTopologyId string `pulumi:"targetServiceTopologyId"`
+	ArtifactSourceId        *string           `pulumi:"artifactSourceId"`
+	BuildVersion            string            `pulumi:"buildVersion"`
+	Identity                Identity          `pulumi:"identity"`
+	Location                *string           `pulumi:"location"`
+	ResourceGroupName       string            `pulumi:"resourceGroupName"`
+	RolloutName             *string           `pulumi:"rolloutName"`
+	StepGroups              []StepType        `pulumi:"stepGroups"`
+	Tags                    map[string]string `pulumi:"tags"`
+	TargetServiceTopologyId string            `pulumi:"targetServiceTopologyId"`
 }
 
 // The set of arguments for constructing a Rollout resource.
 type RolloutArgs struct {
-	// The reference to the artifact source resource Id where the payload is located.
-	ArtifactSourceId pulumi.StringPtrInput
-	// The version of the build being deployed.
-	BuildVersion pulumi.StringInput
-	// Identity for the resource.
-	Identity IdentityInput
-	// The geo-location where the resource lives
-	Location pulumi.StringPtrInput
-	// The name of the resource group. The name is case insensitive.
-	ResourceGroupName pulumi.StringInput
-	// The rollout name.
-	RolloutName pulumi.StringPtrInput
-	// The list of step groups that define the orchestration.
-	StepGroups StepTypeArrayInput
-	// Resource tags.
-	Tags pulumi.StringMapInput
-	// The resource Id of the service topology from which service units are being referenced in step groups to be deployed.
+	ArtifactSourceId        pulumi.StringPtrInput
+	BuildVersion            pulumi.StringInput
+	Identity                IdentityInput
+	Location                pulumi.StringPtrInput
+	ResourceGroupName       pulumi.StringInput
+	RolloutName             pulumi.StringPtrInput
+	StepGroups              StepTypeArrayInput
+	Tags                    pulumi.StringMapInput
 	TargetServiceTopologyId pulumi.StringInput
 }
 
@@ -172,9 +144,7 @@ func (i *Rollout) ToRolloutOutputWithContext(ctx context.Context) RolloutOutput 
 	return pulumi.ToOutputWithContext(ctx, i).(RolloutOutput)
 }
 
-type RolloutOutput struct {
-	*pulumi.OutputState
-}
+type RolloutOutput struct{ *pulumi.OutputState }
 
 func (RolloutOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*Rollout)(nil))

@@ -11,34 +11,21 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// A lab.
 type LabResource struct {
 	pulumi.CustomResourceState
 
-	// The artifact storage account of the lab.
-	ArtifactsStorageAccount pulumi.StringPtrOutput `pulumi:"artifactsStorageAccount"`
-	// The creation date of the lab.
-	CreatedDate pulumi.StringPtrOutput `pulumi:"createdDate"`
-	// The lab's default storage account.
-	DefaultStorageAccount pulumi.StringPtrOutput `pulumi:"defaultStorageAccount"`
-	// The default virtual network identifier of the lab.
-	DefaultVirtualNetworkId pulumi.StringPtrOutput `pulumi:"defaultVirtualNetworkId"`
-	// The type of the lab storage.
-	LabStorageType pulumi.StringPtrOutput `pulumi:"labStorageType"`
-	// The location of the resource.
-	Location pulumi.StringPtrOutput `pulumi:"location"`
-	// The name of the resource.
-	Name pulumi.StringPtrOutput `pulumi:"name"`
-	// The provisioning status of the resource.
-	ProvisioningState pulumi.StringPtrOutput `pulumi:"provisioningState"`
-	// The storage accounts of the lab.
-	StorageAccounts pulumi.StringArrayOutput `pulumi:"storageAccounts"`
-	// The tags of the resource.
-	Tags pulumi.StringMapOutput `pulumi:"tags"`
-	// The type of the resource.
-	Type pulumi.StringPtrOutput `pulumi:"type"`
-	// The name of the key vault of the lab.
-	VaultName pulumi.StringPtrOutput `pulumi:"vaultName"`
+	ArtifactsStorageAccount pulumi.StringPtrOutput   `pulumi:"artifactsStorageAccount"`
+	CreatedDate             pulumi.StringPtrOutput   `pulumi:"createdDate"`
+	DefaultStorageAccount   pulumi.StringPtrOutput   `pulumi:"defaultStorageAccount"`
+	DefaultVirtualNetworkId pulumi.StringPtrOutput   `pulumi:"defaultVirtualNetworkId"`
+	LabStorageType          pulumi.StringPtrOutput   `pulumi:"labStorageType"`
+	Location                pulumi.StringPtrOutput   `pulumi:"location"`
+	Name                    pulumi.StringPtrOutput   `pulumi:"name"`
+	ProvisioningState       pulumi.StringPtrOutput   `pulumi:"provisioningState"`
+	StorageAccounts         pulumi.StringArrayOutput `pulumi:"storageAccounts"`
+	Tags                    pulumi.StringMapOutput   `pulumi:"tags"`
+	Type                    pulumi.StringPtrOutput   `pulumi:"type"`
+	VaultName               pulumi.StringPtrOutput   `pulumi:"vaultName"`
 }
 
 // NewLabResource registers a new resource with the given unique name, arguments, and options.
@@ -107,66 +94,38 @@ func (LabResourceState) ElementType() reflect.Type {
 }
 
 type labResourceArgs struct {
-	// The artifact storage account of the lab.
-	ArtifactsStorageAccount *string `pulumi:"artifactsStorageAccount"`
-	// The creation date of the lab.
-	CreatedDate *string `pulumi:"createdDate"`
-	// The lab's default storage account.
-	DefaultStorageAccount *string `pulumi:"defaultStorageAccount"`
-	// The default virtual network identifier of the lab.
-	DefaultVirtualNetworkId *string `pulumi:"defaultVirtualNetworkId"`
-	// The identifier of the resource.
-	Id *string `pulumi:"id"`
-	// The type of the lab storage.
-	LabStorageType *string `pulumi:"labStorageType"`
-	// The location of the resource.
-	Location *string `pulumi:"location"`
-	// The name of the resource.
-	Name *string `pulumi:"name"`
-	// The provisioning status of the resource.
-	ProvisioningState *string `pulumi:"provisioningState"`
-	// The name of the resource group.
-	ResourceGroupName string `pulumi:"resourceGroupName"`
-	// The storage accounts of the lab.
-	StorageAccounts []string `pulumi:"storageAccounts"`
-	// The tags of the resource.
-	Tags map[string]string `pulumi:"tags"`
-	// The type of the resource.
-	Type *string `pulumi:"type"`
-	// The name of the key vault of the lab.
-	VaultName *string `pulumi:"vaultName"`
+	ArtifactsStorageAccount *string           `pulumi:"artifactsStorageAccount"`
+	CreatedDate             *string           `pulumi:"createdDate"`
+	DefaultStorageAccount   *string           `pulumi:"defaultStorageAccount"`
+	DefaultVirtualNetworkId *string           `pulumi:"defaultVirtualNetworkId"`
+	Id                      *string           `pulumi:"id"`
+	LabStorageType          *string           `pulumi:"labStorageType"`
+	Location                *string           `pulumi:"location"`
+	Name                    *string           `pulumi:"name"`
+	ProvisioningState       *string           `pulumi:"provisioningState"`
+	ResourceGroupName       string            `pulumi:"resourceGroupName"`
+	StorageAccounts         []string          `pulumi:"storageAccounts"`
+	Tags                    map[string]string `pulumi:"tags"`
+	Type                    *string           `pulumi:"type"`
+	VaultName               *string           `pulumi:"vaultName"`
 }
 
 // The set of arguments for constructing a LabResource resource.
 type LabResourceArgs struct {
-	// The artifact storage account of the lab.
 	ArtifactsStorageAccount pulumi.StringPtrInput
-	// The creation date of the lab.
-	CreatedDate pulumi.StringPtrInput
-	// The lab's default storage account.
-	DefaultStorageAccount pulumi.StringPtrInput
-	// The default virtual network identifier of the lab.
+	CreatedDate             pulumi.StringPtrInput
+	DefaultStorageAccount   pulumi.StringPtrInput
 	DefaultVirtualNetworkId pulumi.StringPtrInput
-	// The identifier of the resource.
-	Id pulumi.StringPtrInput
-	// The type of the lab storage.
-	LabStorageType pulumi.StringPtrInput
-	// The location of the resource.
-	Location pulumi.StringPtrInput
-	// The name of the resource.
-	Name pulumi.StringPtrInput
-	// The provisioning status of the resource.
-	ProvisioningState pulumi.StringPtrInput
-	// The name of the resource group.
-	ResourceGroupName pulumi.StringInput
-	// The storage accounts of the lab.
-	StorageAccounts pulumi.StringArrayInput
-	// The tags of the resource.
-	Tags pulumi.StringMapInput
-	// The type of the resource.
-	Type pulumi.StringPtrInput
-	// The name of the key vault of the lab.
-	VaultName pulumi.StringPtrInput
+	Id                      pulumi.StringPtrInput
+	LabStorageType          pulumi.StringPtrInput
+	Location                pulumi.StringPtrInput
+	Name                    pulumi.StringPtrInput
+	ProvisioningState       pulumi.StringPtrInput
+	ResourceGroupName       pulumi.StringInput
+	StorageAccounts         pulumi.StringArrayInput
+	Tags                    pulumi.StringMapInput
+	Type                    pulumi.StringPtrInput
+	VaultName               pulumi.StringPtrInput
 }
 
 func (LabResourceArgs) ElementType() reflect.Type {
@@ -192,9 +151,7 @@ func (i *LabResource) ToLabResourceOutputWithContext(ctx context.Context) LabRes
 	return pulumi.ToOutputWithContext(ctx, i).(LabResourceOutput)
 }
 
-type LabResourceOutput struct {
-	*pulumi.OutputState
-}
+type LabResourceOutput struct{ *pulumi.OutputState }
 
 func (LabResourceOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*LabResource)(nil))

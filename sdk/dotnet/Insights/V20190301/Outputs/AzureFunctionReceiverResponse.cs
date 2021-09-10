@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.Insights.V20190301.Outputs
 {
 
+    /// <summary>
+    /// An azure function receiver.
+    /// </summary>
     [OutputType]
     public sealed class AzureFunctionReceiverResponse
     {

@@ -10,9 +10,7 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// A set of properties that can be defined in the context of a specific item type. Each type may have its own properties.
 type ApplicationInsightsComponentAnalyticsItemProperties struct {
-	// A function alias, used when the type of the item is Function
 	FunctionAlias *string `pulumi:"functionAlias"`
 }
 
@@ -27,9 +25,7 @@ type ApplicationInsightsComponentAnalyticsItemPropertiesInput interface {
 	ToApplicationInsightsComponentAnalyticsItemPropertiesOutputWithContext(context.Context) ApplicationInsightsComponentAnalyticsItemPropertiesOutput
 }
 
-// A set of properties that can be defined in the context of a specific item type. Each type may have its own properties.
 type ApplicationInsightsComponentAnalyticsItemPropertiesArgs struct {
-	// A function alias, used when the type of the item is Function
 	FunctionAlias pulumi.StringPtrInput `pulumi:"functionAlias"`
 }
 
@@ -86,7 +82,6 @@ func (i *applicationInsightsComponentAnalyticsItemPropertiesPtrType) ToApplicati
 	return pulumi.ToOutputWithContext(ctx, i).(ApplicationInsightsComponentAnalyticsItemPropertiesPtrOutput)
 }
 
-// A set of properties that can be defined in the context of a specific item type. Each type may have its own properties.
 type ApplicationInsightsComponentAnalyticsItemPropertiesOutput struct{ *pulumi.OutputState }
 
 func (ApplicationInsightsComponentAnalyticsItemPropertiesOutput) ElementType() reflect.Type {
@@ -106,12 +101,11 @@ func (o ApplicationInsightsComponentAnalyticsItemPropertiesOutput) ToApplication
 }
 
 func (o ApplicationInsightsComponentAnalyticsItemPropertiesOutput) ToApplicationInsightsComponentAnalyticsItemPropertiesPtrOutputWithContext(ctx context.Context) ApplicationInsightsComponentAnalyticsItemPropertiesPtrOutput {
-	return o.ApplyT(func(v ApplicationInsightsComponentAnalyticsItemProperties) *ApplicationInsightsComponentAnalyticsItemProperties {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ApplicationInsightsComponentAnalyticsItemProperties) *ApplicationInsightsComponentAnalyticsItemProperties {
 		return &v
 	}).(ApplicationInsightsComponentAnalyticsItemPropertiesPtrOutput)
 }
 
-// A function alias, used when the type of the item is Function
 func (o ApplicationInsightsComponentAnalyticsItemPropertiesOutput) FunctionAlias() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ApplicationInsightsComponentAnalyticsItemProperties) *string { return v.FunctionAlias }).(pulumi.StringPtrOutput)
 }
@@ -132,11 +126,14 @@ func (o ApplicationInsightsComponentAnalyticsItemPropertiesPtrOutput) ToApplicat
 
 func (o ApplicationInsightsComponentAnalyticsItemPropertiesPtrOutput) Elem() ApplicationInsightsComponentAnalyticsItemPropertiesOutput {
 	return o.ApplyT(func(v *ApplicationInsightsComponentAnalyticsItemProperties) ApplicationInsightsComponentAnalyticsItemProperties {
-		return *v
+		if v != nil {
+			return *v
+		}
+		var ret ApplicationInsightsComponentAnalyticsItemProperties
+		return ret
 	}).(ApplicationInsightsComponentAnalyticsItemPropertiesOutput)
 }
 
-// A function alias, used when the type of the item is Function
 func (o ApplicationInsightsComponentAnalyticsItemPropertiesPtrOutput) FunctionAlias() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ApplicationInsightsComponentAnalyticsItemProperties) *string {
 		if v == nil {
@@ -146,9 +143,7 @@ func (o ApplicationInsightsComponentAnalyticsItemPropertiesPtrOutput) FunctionAl
 	}).(pulumi.StringPtrOutput)
 }
 
-// A set of properties that can be defined in the context of a specific item type. Each type may have its own properties.
 type ApplicationInsightsComponentAnalyticsItemPropertiesResponse struct {
-	// A function alias, used when the type of the item is Function
 	FunctionAlias *string `pulumi:"functionAlias"`
 }
 
@@ -163,9 +158,7 @@ type ApplicationInsightsComponentAnalyticsItemPropertiesResponseInput interface 
 	ToApplicationInsightsComponentAnalyticsItemPropertiesResponseOutputWithContext(context.Context) ApplicationInsightsComponentAnalyticsItemPropertiesResponseOutput
 }
 
-// A set of properties that can be defined in the context of a specific item type. Each type may have its own properties.
 type ApplicationInsightsComponentAnalyticsItemPropertiesResponseArgs struct {
-	// A function alias, used when the type of the item is Function
 	FunctionAlias pulumi.StringPtrInput `pulumi:"functionAlias"`
 }
 
@@ -222,7 +215,6 @@ func (i *applicationInsightsComponentAnalyticsItemPropertiesResponsePtrType) ToA
 	return pulumi.ToOutputWithContext(ctx, i).(ApplicationInsightsComponentAnalyticsItemPropertiesResponsePtrOutput)
 }
 
-// A set of properties that can be defined in the context of a specific item type. Each type may have its own properties.
 type ApplicationInsightsComponentAnalyticsItemPropertiesResponseOutput struct{ *pulumi.OutputState }
 
 func (ApplicationInsightsComponentAnalyticsItemPropertiesResponseOutput) ElementType() reflect.Type {
@@ -242,12 +234,11 @@ func (o ApplicationInsightsComponentAnalyticsItemPropertiesResponseOutput) ToApp
 }
 
 func (o ApplicationInsightsComponentAnalyticsItemPropertiesResponseOutput) ToApplicationInsightsComponentAnalyticsItemPropertiesResponsePtrOutputWithContext(ctx context.Context) ApplicationInsightsComponentAnalyticsItemPropertiesResponsePtrOutput {
-	return o.ApplyT(func(v ApplicationInsightsComponentAnalyticsItemPropertiesResponse) *ApplicationInsightsComponentAnalyticsItemPropertiesResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ApplicationInsightsComponentAnalyticsItemPropertiesResponse) *ApplicationInsightsComponentAnalyticsItemPropertiesResponse {
 		return &v
 	}).(ApplicationInsightsComponentAnalyticsItemPropertiesResponsePtrOutput)
 }
 
-// A function alias, used when the type of the item is Function
 func (o ApplicationInsightsComponentAnalyticsItemPropertiesResponseOutput) FunctionAlias() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ApplicationInsightsComponentAnalyticsItemPropertiesResponse) *string { return v.FunctionAlias }).(pulumi.StringPtrOutput)
 }
@@ -268,11 +259,14 @@ func (o ApplicationInsightsComponentAnalyticsItemPropertiesResponsePtrOutput) To
 
 func (o ApplicationInsightsComponentAnalyticsItemPropertiesResponsePtrOutput) Elem() ApplicationInsightsComponentAnalyticsItemPropertiesResponseOutput {
 	return o.ApplyT(func(v *ApplicationInsightsComponentAnalyticsItemPropertiesResponse) ApplicationInsightsComponentAnalyticsItemPropertiesResponse {
-		return *v
+		if v != nil {
+			return *v
+		}
+		var ret ApplicationInsightsComponentAnalyticsItemPropertiesResponse
+		return ret
 	}).(ApplicationInsightsComponentAnalyticsItemPropertiesResponseOutput)
 }
 
-// A function alias, used when the type of the item is Function
 func (o ApplicationInsightsComponentAnalyticsItemPropertiesResponsePtrOutput) FunctionAlias() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ApplicationInsightsComponentAnalyticsItemPropertiesResponse) *string {
 		if v == nil {
@@ -282,16 +276,11 @@ func (o ApplicationInsightsComponentAnalyticsItemPropertiesResponsePtrOutput) Fu
 	}).(pulumi.StringPtrOutput)
 }
 
-// An Application Insights component daily data volume cap
 type ApplicationInsightsComponentDataVolumeCap struct {
-	// Daily data volume cap in GB.
-	Cap *float64 `pulumi:"cap"`
-	// Do not send a notification email when the daily data volume cap is met.
-	StopSendNotificationWhenHitCap *bool `pulumi:"stopSendNotificationWhenHitCap"`
-	// Reserved, not used for now.
-	StopSendNotificationWhenHitThreshold *bool `pulumi:"stopSendNotificationWhenHitThreshold"`
-	// Reserved, not used for now.
-	WarningThreshold *int `pulumi:"warningThreshold"`
+	Cap                                  *float64 `pulumi:"cap"`
+	StopSendNotificationWhenHitCap       *bool    `pulumi:"stopSendNotificationWhenHitCap"`
+	StopSendNotificationWhenHitThreshold *bool    `pulumi:"stopSendNotificationWhenHitThreshold"`
+	WarningThreshold                     *int     `pulumi:"warningThreshold"`
 }
 
 // ApplicationInsightsComponentDataVolumeCapInput is an input type that accepts ApplicationInsightsComponentDataVolumeCapArgs and ApplicationInsightsComponentDataVolumeCapOutput values.
@@ -305,16 +294,11 @@ type ApplicationInsightsComponentDataVolumeCapInput interface {
 	ToApplicationInsightsComponentDataVolumeCapOutputWithContext(context.Context) ApplicationInsightsComponentDataVolumeCapOutput
 }
 
-// An Application Insights component daily data volume cap
 type ApplicationInsightsComponentDataVolumeCapArgs struct {
-	// Daily data volume cap in GB.
-	Cap pulumi.Float64PtrInput `pulumi:"cap"`
-	// Do not send a notification email when the daily data volume cap is met.
-	StopSendNotificationWhenHitCap pulumi.BoolPtrInput `pulumi:"stopSendNotificationWhenHitCap"`
-	// Reserved, not used for now.
-	StopSendNotificationWhenHitThreshold pulumi.BoolPtrInput `pulumi:"stopSendNotificationWhenHitThreshold"`
-	// Reserved, not used for now.
-	WarningThreshold pulumi.IntPtrInput `pulumi:"warningThreshold"`
+	Cap                                  pulumi.Float64PtrInput `pulumi:"cap"`
+	StopSendNotificationWhenHitCap       pulumi.BoolPtrInput    `pulumi:"stopSendNotificationWhenHitCap"`
+	StopSendNotificationWhenHitThreshold pulumi.BoolPtrInput    `pulumi:"stopSendNotificationWhenHitThreshold"`
+	WarningThreshold                     pulumi.IntPtrInput     `pulumi:"warningThreshold"`
 }
 
 func (ApplicationInsightsComponentDataVolumeCapArgs) ElementType() reflect.Type {
@@ -370,7 +354,6 @@ func (i *applicationInsightsComponentDataVolumeCapPtrType) ToApplicationInsights
 	return pulumi.ToOutputWithContext(ctx, i).(ApplicationInsightsComponentDataVolumeCapPtrOutput)
 }
 
-// An Application Insights component daily data volume cap
 type ApplicationInsightsComponentDataVolumeCapOutput struct{ *pulumi.OutputState }
 
 func (ApplicationInsightsComponentDataVolumeCapOutput) ElementType() reflect.Type {
@@ -390,27 +373,23 @@ func (o ApplicationInsightsComponentDataVolumeCapOutput) ToApplicationInsightsCo
 }
 
 func (o ApplicationInsightsComponentDataVolumeCapOutput) ToApplicationInsightsComponentDataVolumeCapPtrOutputWithContext(ctx context.Context) ApplicationInsightsComponentDataVolumeCapPtrOutput {
-	return o.ApplyT(func(v ApplicationInsightsComponentDataVolumeCap) *ApplicationInsightsComponentDataVolumeCap {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ApplicationInsightsComponentDataVolumeCap) *ApplicationInsightsComponentDataVolumeCap {
 		return &v
 	}).(ApplicationInsightsComponentDataVolumeCapPtrOutput)
 }
 
-// Daily data volume cap in GB.
 func (o ApplicationInsightsComponentDataVolumeCapOutput) Cap() pulumi.Float64PtrOutput {
 	return o.ApplyT(func(v ApplicationInsightsComponentDataVolumeCap) *float64 { return v.Cap }).(pulumi.Float64PtrOutput)
 }
 
-// Do not send a notification email when the daily data volume cap is met.
 func (o ApplicationInsightsComponentDataVolumeCapOutput) StopSendNotificationWhenHitCap() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v ApplicationInsightsComponentDataVolumeCap) *bool { return v.StopSendNotificationWhenHitCap }).(pulumi.BoolPtrOutput)
 }
 
-// Reserved, not used for now.
 func (o ApplicationInsightsComponentDataVolumeCapOutput) StopSendNotificationWhenHitThreshold() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v ApplicationInsightsComponentDataVolumeCap) *bool { return v.StopSendNotificationWhenHitThreshold }).(pulumi.BoolPtrOutput)
 }
 
-// Reserved, not used for now.
 func (o ApplicationInsightsComponentDataVolumeCapOutput) WarningThreshold() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v ApplicationInsightsComponentDataVolumeCap) *int { return v.WarningThreshold }).(pulumi.IntPtrOutput)
 }
@@ -431,11 +410,14 @@ func (o ApplicationInsightsComponentDataVolumeCapPtrOutput) ToApplicationInsight
 
 func (o ApplicationInsightsComponentDataVolumeCapPtrOutput) Elem() ApplicationInsightsComponentDataVolumeCapOutput {
 	return o.ApplyT(func(v *ApplicationInsightsComponentDataVolumeCap) ApplicationInsightsComponentDataVolumeCap {
-		return *v
+		if v != nil {
+			return *v
+		}
+		var ret ApplicationInsightsComponentDataVolumeCap
+		return ret
 	}).(ApplicationInsightsComponentDataVolumeCapOutput)
 }
 
-// Daily data volume cap in GB.
 func (o ApplicationInsightsComponentDataVolumeCapPtrOutput) Cap() pulumi.Float64PtrOutput {
 	return o.ApplyT(func(v *ApplicationInsightsComponentDataVolumeCap) *float64 {
 		if v == nil {
@@ -445,7 +427,6 @@ func (o ApplicationInsightsComponentDataVolumeCapPtrOutput) Cap() pulumi.Float64
 	}).(pulumi.Float64PtrOutput)
 }
 
-// Do not send a notification email when the daily data volume cap is met.
 func (o ApplicationInsightsComponentDataVolumeCapPtrOutput) StopSendNotificationWhenHitCap() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *ApplicationInsightsComponentDataVolumeCap) *bool {
 		if v == nil {
@@ -455,7 +436,6 @@ func (o ApplicationInsightsComponentDataVolumeCapPtrOutput) StopSendNotification
 	}).(pulumi.BoolPtrOutput)
 }
 
-// Reserved, not used for now.
 func (o ApplicationInsightsComponentDataVolumeCapPtrOutput) StopSendNotificationWhenHitThreshold() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *ApplicationInsightsComponentDataVolumeCap) *bool {
 		if v == nil {
@@ -465,7 +445,6 @@ func (o ApplicationInsightsComponentDataVolumeCapPtrOutput) StopSendNotification
 	}).(pulumi.BoolPtrOutput)
 }
 
-// Reserved, not used for now.
 func (o ApplicationInsightsComponentDataVolumeCapPtrOutput) WarningThreshold() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *ApplicationInsightsComponentDataVolumeCap) *int {
 		if v == nil {
@@ -475,20 +454,13 @@ func (o ApplicationInsightsComponentDataVolumeCapPtrOutput) WarningThreshold() p
 	}).(pulumi.IntPtrOutput)
 }
 
-// An Application Insights component daily data volume cap
 type ApplicationInsightsComponentDataVolumeCapResponse struct {
-	// Daily data volume cap in GB.
-	Cap *float64 `pulumi:"cap"`
-	// Maximum daily data volume cap that the user can set for this component.
-	MaxHistoryCap float64 `pulumi:"maxHistoryCap"`
-	// Daily data volume cap UTC reset hour.
-	ResetTime int `pulumi:"resetTime"`
-	// Do not send a notification email when the daily data volume cap is met.
-	StopSendNotificationWhenHitCap *bool `pulumi:"stopSendNotificationWhenHitCap"`
-	// Reserved, not used for now.
-	StopSendNotificationWhenHitThreshold *bool `pulumi:"stopSendNotificationWhenHitThreshold"`
-	// Reserved, not used for now.
-	WarningThreshold *int `pulumi:"warningThreshold"`
+	Cap                                  *float64 `pulumi:"cap"`
+	MaxHistoryCap                        float64  `pulumi:"maxHistoryCap"`
+	ResetTime                            int      `pulumi:"resetTime"`
+	StopSendNotificationWhenHitCap       *bool    `pulumi:"stopSendNotificationWhenHitCap"`
+	StopSendNotificationWhenHitThreshold *bool    `pulumi:"stopSendNotificationWhenHitThreshold"`
+	WarningThreshold                     *int     `pulumi:"warningThreshold"`
 }
 
 // ApplicationInsightsComponentDataVolumeCapResponseInput is an input type that accepts ApplicationInsightsComponentDataVolumeCapResponseArgs and ApplicationInsightsComponentDataVolumeCapResponseOutput values.
@@ -502,20 +474,13 @@ type ApplicationInsightsComponentDataVolumeCapResponseInput interface {
 	ToApplicationInsightsComponentDataVolumeCapResponseOutputWithContext(context.Context) ApplicationInsightsComponentDataVolumeCapResponseOutput
 }
 
-// An Application Insights component daily data volume cap
 type ApplicationInsightsComponentDataVolumeCapResponseArgs struct {
-	// Daily data volume cap in GB.
-	Cap pulumi.Float64PtrInput `pulumi:"cap"`
-	// Maximum daily data volume cap that the user can set for this component.
-	MaxHistoryCap pulumi.Float64Input `pulumi:"maxHistoryCap"`
-	// Daily data volume cap UTC reset hour.
-	ResetTime pulumi.IntInput `pulumi:"resetTime"`
-	// Do not send a notification email when the daily data volume cap is met.
-	StopSendNotificationWhenHitCap pulumi.BoolPtrInput `pulumi:"stopSendNotificationWhenHitCap"`
-	// Reserved, not used for now.
-	StopSendNotificationWhenHitThreshold pulumi.BoolPtrInput `pulumi:"stopSendNotificationWhenHitThreshold"`
-	// Reserved, not used for now.
-	WarningThreshold pulumi.IntPtrInput `pulumi:"warningThreshold"`
+	Cap                                  pulumi.Float64PtrInput `pulumi:"cap"`
+	MaxHistoryCap                        pulumi.Float64Input    `pulumi:"maxHistoryCap"`
+	ResetTime                            pulumi.IntInput        `pulumi:"resetTime"`
+	StopSendNotificationWhenHitCap       pulumi.BoolPtrInput    `pulumi:"stopSendNotificationWhenHitCap"`
+	StopSendNotificationWhenHitThreshold pulumi.BoolPtrInput    `pulumi:"stopSendNotificationWhenHitThreshold"`
+	WarningThreshold                     pulumi.IntPtrInput     `pulumi:"warningThreshold"`
 }
 
 func (ApplicationInsightsComponentDataVolumeCapResponseArgs) ElementType() reflect.Type {
@@ -571,7 +536,6 @@ func (i *applicationInsightsComponentDataVolumeCapResponsePtrType) ToApplication
 	return pulumi.ToOutputWithContext(ctx, i).(ApplicationInsightsComponentDataVolumeCapResponsePtrOutput)
 }
 
-// An Application Insights component daily data volume cap
 type ApplicationInsightsComponentDataVolumeCapResponseOutput struct{ *pulumi.OutputState }
 
 func (ApplicationInsightsComponentDataVolumeCapResponseOutput) ElementType() reflect.Type {
@@ -591,41 +555,35 @@ func (o ApplicationInsightsComponentDataVolumeCapResponseOutput) ToApplicationIn
 }
 
 func (o ApplicationInsightsComponentDataVolumeCapResponseOutput) ToApplicationInsightsComponentDataVolumeCapResponsePtrOutputWithContext(ctx context.Context) ApplicationInsightsComponentDataVolumeCapResponsePtrOutput {
-	return o.ApplyT(func(v ApplicationInsightsComponentDataVolumeCapResponse) *ApplicationInsightsComponentDataVolumeCapResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ApplicationInsightsComponentDataVolumeCapResponse) *ApplicationInsightsComponentDataVolumeCapResponse {
 		return &v
 	}).(ApplicationInsightsComponentDataVolumeCapResponsePtrOutput)
 }
 
-// Daily data volume cap in GB.
 func (o ApplicationInsightsComponentDataVolumeCapResponseOutput) Cap() pulumi.Float64PtrOutput {
 	return o.ApplyT(func(v ApplicationInsightsComponentDataVolumeCapResponse) *float64 { return v.Cap }).(pulumi.Float64PtrOutput)
 }
 
-// Maximum daily data volume cap that the user can set for this component.
 func (o ApplicationInsightsComponentDataVolumeCapResponseOutput) MaxHistoryCap() pulumi.Float64Output {
 	return o.ApplyT(func(v ApplicationInsightsComponentDataVolumeCapResponse) float64 { return v.MaxHistoryCap }).(pulumi.Float64Output)
 }
 
-// Daily data volume cap UTC reset hour.
 func (o ApplicationInsightsComponentDataVolumeCapResponseOutput) ResetTime() pulumi.IntOutput {
 	return o.ApplyT(func(v ApplicationInsightsComponentDataVolumeCapResponse) int { return v.ResetTime }).(pulumi.IntOutput)
 }
 
-// Do not send a notification email when the daily data volume cap is met.
 func (o ApplicationInsightsComponentDataVolumeCapResponseOutput) StopSendNotificationWhenHitCap() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v ApplicationInsightsComponentDataVolumeCapResponse) *bool {
 		return v.StopSendNotificationWhenHitCap
 	}).(pulumi.BoolPtrOutput)
 }
 
-// Reserved, not used for now.
 func (o ApplicationInsightsComponentDataVolumeCapResponseOutput) StopSendNotificationWhenHitThreshold() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v ApplicationInsightsComponentDataVolumeCapResponse) *bool {
 		return v.StopSendNotificationWhenHitThreshold
 	}).(pulumi.BoolPtrOutput)
 }
 
-// Reserved, not used for now.
 func (o ApplicationInsightsComponentDataVolumeCapResponseOutput) WarningThreshold() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v ApplicationInsightsComponentDataVolumeCapResponse) *int { return v.WarningThreshold }).(pulumi.IntPtrOutput)
 }
@@ -646,11 +604,14 @@ func (o ApplicationInsightsComponentDataVolumeCapResponsePtrOutput) ToApplicatio
 
 func (o ApplicationInsightsComponentDataVolumeCapResponsePtrOutput) Elem() ApplicationInsightsComponentDataVolumeCapResponseOutput {
 	return o.ApplyT(func(v *ApplicationInsightsComponentDataVolumeCapResponse) ApplicationInsightsComponentDataVolumeCapResponse {
-		return *v
+		if v != nil {
+			return *v
+		}
+		var ret ApplicationInsightsComponentDataVolumeCapResponse
+		return ret
 	}).(ApplicationInsightsComponentDataVolumeCapResponseOutput)
 }
 
-// Daily data volume cap in GB.
 func (o ApplicationInsightsComponentDataVolumeCapResponsePtrOutput) Cap() pulumi.Float64PtrOutput {
 	return o.ApplyT(func(v *ApplicationInsightsComponentDataVolumeCapResponse) *float64 {
 		if v == nil {
@@ -660,7 +621,6 @@ func (o ApplicationInsightsComponentDataVolumeCapResponsePtrOutput) Cap() pulumi
 	}).(pulumi.Float64PtrOutput)
 }
 
-// Maximum daily data volume cap that the user can set for this component.
 func (o ApplicationInsightsComponentDataVolumeCapResponsePtrOutput) MaxHistoryCap() pulumi.Float64PtrOutput {
 	return o.ApplyT(func(v *ApplicationInsightsComponentDataVolumeCapResponse) *float64 {
 		if v == nil {
@@ -670,7 +630,6 @@ func (o ApplicationInsightsComponentDataVolumeCapResponsePtrOutput) MaxHistoryCa
 	}).(pulumi.Float64PtrOutput)
 }
 
-// Daily data volume cap UTC reset hour.
 func (o ApplicationInsightsComponentDataVolumeCapResponsePtrOutput) ResetTime() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *ApplicationInsightsComponentDataVolumeCapResponse) *int {
 		if v == nil {
@@ -680,7 +639,6 @@ func (o ApplicationInsightsComponentDataVolumeCapResponsePtrOutput) ResetTime() 
 	}).(pulumi.IntPtrOutput)
 }
 
-// Do not send a notification email when the daily data volume cap is met.
 func (o ApplicationInsightsComponentDataVolumeCapResponsePtrOutput) StopSendNotificationWhenHitCap() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *ApplicationInsightsComponentDataVolumeCapResponse) *bool {
 		if v == nil {
@@ -690,7 +648,6 @@ func (o ApplicationInsightsComponentDataVolumeCapResponsePtrOutput) StopSendNoti
 	}).(pulumi.BoolPtrOutput)
 }
 
-// Reserved, not used for now.
 func (o ApplicationInsightsComponentDataVolumeCapResponsePtrOutput) StopSendNotificationWhenHitThreshold() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *ApplicationInsightsComponentDataVolumeCapResponse) *bool {
 		if v == nil {
@@ -700,7 +657,6 @@ func (o ApplicationInsightsComponentDataVolumeCapResponsePtrOutput) StopSendNoti
 	}).(pulumi.BoolPtrOutput)
 }
 
-// Reserved, not used for now.
 func (o ApplicationInsightsComponentDataVolumeCapResponsePtrOutput) WarningThreshold() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *ApplicationInsightsComponentDataVolumeCapResponse) *int {
 		if v == nil {
@@ -710,24 +666,15 @@ func (o ApplicationInsightsComponentDataVolumeCapResponsePtrOutput) WarningThres
 	}).(pulumi.IntPtrOutput)
 }
 
-// Static definitions of the ProactiveDetection configuration rule (same values for all components).
 type ApplicationInsightsComponentProactiveDetectionConfigurationResponseRuleDefinitions struct {
-	// The rule description
-	Description *string `pulumi:"description"`
-	// The rule name as it is displayed in UI
-	DisplayName *string `pulumi:"displayName"`
-	// URL which displays additional info about the proactive detection rule
-	HelpUrl *string `pulumi:"helpUrl"`
-	// A flag indicating whether the rule is enabled by default
-	IsEnabledByDefault *bool `pulumi:"isEnabledByDefault"`
-	// A flag indicating whether the rule is hidden (from the UI)
-	IsHidden *bool `pulumi:"isHidden"`
-	// A flag indicating whether the rule is in preview
-	IsInPreview *bool `pulumi:"isInPreview"`
-	// The rule name
-	Name *string `pulumi:"name"`
-	// A flag indicating whether email notifications are supported for detections for this rule
-	SupportsEmailNotifications *bool `pulumi:"supportsEmailNotifications"`
+	Description                *string `pulumi:"description"`
+	DisplayName                *string `pulumi:"displayName"`
+	HelpUrl                    *string `pulumi:"helpUrl"`
+	IsEnabledByDefault         *bool   `pulumi:"isEnabledByDefault"`
+	IsHidden                   *bool   `pulumi:"isHidden"`
+	IsInPreview                *bool   `pulumi:"isInPreview"`
+	Name                       *string `pulumi:"name"`
+	SupportsEmailNotifications *bool   `pulumi:"supportsEmailNotifications"`
 }
 
 // ApplicationInsightsComponentProactiveDetectionConfigurationResponseRuleDefinitionsInput is an input type that accepts ApplicationInsightsComponentProactiveDetectionConfigurationResponseRuleDefinitionsArgs and ApplicationInsightsComponentProactiveDetectionConfigurationResponseRuleDefinitionsOutput values.
@@ -741,24 +688,15 @@ type ApplicationInsightsComponentProactiveDetectionConfigurationResponseRuleDefi
 	ToApplicationInsightsComponentProactiveDetectionConfigurationResponseRuleDefinitionsOutputWithContext(context.Context) ApplicationInsightsComponentProactiveDetectionConfigurationResponseRuleDefinitionsOutput
 }
 
-// Static definitions of the ProactiveDetection configuration rule (same values for all components).
 type ApplicationInsightsComponentProactiveDetectionConfigurationResponseRuleDefinitionsArgs struct {
-	// The rule description
-	Description pulumi.StringPtrInput `pulumi:"description"`
-	// The rule name as it is displayed in UI
-	DisplayName pulumi.StringPtrInput `pulumi:"displayName"`
-	// URL which displays additional info about the proactive detection rule
-	HelpUrl pulumi.StringPtrInput `pulumi:"helpUrl"`
-	// A flag indicating whether the rule is enabled by default
-	IsEnabledByDefault pulumi.BoolPtrInput `pulumi:"isEnabledByDefault"`
-	// A flag indicating whether the rule is hidden (from the UI)
-	IsHidden pulumi.BoolPtrInput `pulumi:"isHidden"`
-	// A flag indicating whether the rule is in preview
-	IsInPreview pulumi.BoolPtrInput `pulumi:"isInPreview"`
-	// The rule name
-	Name pulumi.StringPtrInput `pulumi:"name"`
-	// A flag indicating whether email notifications are supported for detections for this rule
-	SupportsEmailNotifications pulumi.BoolPtrInput `pulumi:"supportsEmailNotifications"`
+	Description                pulumi.StringPtrInput `pulumi:"description"`
+	DisplayName                pulumi.StringPtrInput `pulumi:"displayName"`
+	HelpUrl                    pulumi.StringPtrInput `pulumi:"helpUrl"`
+	IsEnabledByDefault         pulumi.BoolPtrInput   `pulumi:"isEnabledByDefault"`
+	IsHidden                   pulumi.BoolPtrInput   `pulumi:"isHidden"`
+	IsInPreview                pulumi.BoolPtrInput   `pulumi:"isInPreview"`
+	Name                       pulumi.StringPtrInput `pulumi:"name"`
+	SupportsEmailNotifications pulumi.BoolPtrInput   `pulumi:"supportsEmailNotifications"`
 }
 
 func (ApplicationInsightsComponentProactiveDetectionConfigurationResponseRuleDefinitionsArgs) ElementType() reflect.Type {
@@ -814,7 +752,6 @@ func (i *applicationInsightsComponentProactiveDetectionConfigurationResponseRule
 	return pulumi.ToOutputWithContext(ctx, i).(ApplicationInsightsComponentProactiveDetectionConfigurationResponseRuleDefinitionsPtrOutput)
 }
 
-// Static definitions of the ProactiveDetection configuration rule (same values for all components).
 type ApplicationInsightsComponentProactiveDetectionConfigurationResponseRuleDefinitionsOutput struct{ *pulumi.OutputState }
 
 func (ApplicationInsightsComponentProactiveDetectionConfigurationResponseRuleDefinitionsOutput) ElementType() reflect.Type {
@@ -834,61 +771,53 @@ func (o ApplicationInsightsComponentProactiveDetectionConfigurationResponseRuleD
 }
 
 func (o ApplicationInsightsComponentProactiveDetectionConfigurationResponseRuleDefinitionsOutput) ToApplicationInsightsComponentProactiveDetectionConfigurationResponseRuleDefinitionsPtrOutputWithContext(ctx context.Context) ApplicationInsightsComponentProactiveDetectionConfigurationResponseRuleDefinitionsPtrOutput {
-	return o.ApplyT(func(v ApplicationInsightsComponentProactiveDetectionConfigurationResponseRuleDefinitions) *ApplicationInsightsComponentProactiveDetectionConfigurationResponseRuleDefinitions {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ApplicationInsightsComponentProactiveDetectionConfigurationResponseRuleDefinitions) *ApplicationInsightsComponentProactiveDetectionConfigurationResponseRuleDefinitions {
 		return &v
 	}).(ApplicationInsightsComponentProactiveDetectionConfigurationResponseRuleDefinitionsPtrOutput)
 }
 
-// The rule description
 func (o ApplicationInsightsComponentProactiveDetectionConfigurationResponseRuleDefinitionsOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ApplicationInsightsComponentProactiveDetectionConfigurationResponseRuleDefinitions) *string {
 		return v.Description
 	}).(pulumi.StringPtrOutput)
 }
 
-// The rule name as it is displayed in UI
 func (o ApplicationInsightsComponentProactiveDetectionConfigurationResponseRuleDefinitionsOutput) DisplayName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ApplicationInsightsComponentProactiveDetectionConfigurationResponseRuleDefinitions) *string {
 		return v.DisplayName
 	}).(pulumi.StringPtrOutput)
 }
 
-// URL which displays additional info about the proactive detection rule
 func (o ApplicationInsightsComponentProactiveDetectionConfigurationResponseRuleDefinitionsOutput) HelpUrl() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ApplicationInsightsComponentProactiveDetectionConfigurationResponseRuleDefinitions) *string {
 		return v.HelpUrl
 	}).(pulumi.StringPtrOutput)
 }
 
-// A flag indicating whether the rule is enabled by default
 func (o ApplicationInsightsComponentProactiveDetectionConfigurationResponseRuleDefinitionsOutput) IsEnabledByDefault() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v ApplicationInsightsComponentProactiveDetectionConfigurationResponseRuleDefinitions) *bool {
 		return v.IsEnabledByDefault
 	}).(pulumi.BoolPtrOutput)
 }
 
-// A flag indicating whether the rule is hidden (from the UI)
 func (o ApplicationInsightsComponentProactiveDetectionConfigurationResponseRuleDefinitionsOutput) IsHidden() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v ApplicationInsightsComponentProactiveDetectionConfigurationResponseRuleDefinitions) *bool {
 		return v.IsHidden
 	}).(pulumi.BoolPtrOutput)
 }
 
-// A flag indicating whether the rule is in preview
 func (o ApplicationInsightsComponentProactiveDetectionConfigurationResponseRuleDefinitionsOutput) IsInPreview() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v ApplicationInsightsComponentProactiveDetectionConfigurationResponseRuleDefinitions) *bool {
 		return v.IsInPreview
 	}).(pulumi.BoolPtrOutput)
 }
 
-// The rule name
 func (o ApplicationInsightsComponentProactiveDetectionConfigurationResponseRuleDefinitionsOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ApplicationInsightsComponentProactiveDetectionConfigurationResponseRuleDefinitions) *string {
 		return v.Name
 	}).(pulumi.StringPtrOutput)
 }
 
-// A flag indicating whether email notifications are supported for detections for this rule
 func (o ApplicationInsightsComponentProactiveDetectionConfigurationResponseRuleDefinitionsOutput) SupportsEmailNotifications() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v ApplicationInsightsComponentProactiveDetectionConfigurationResponseRuleDefinitions) *bool {
 		return v.SupportsEmailNotifications
@@ -911,11 +840,14 @@ func (o ApplicationInsightsComponentProactiveDetectionConfigurationResponseRuleD
 
 func (o ApplicationInsightsComponentProactiveDetectionConfigurationResponseRuleDefinitionsPtrOutput) Elem() ApplicationInsightsComponentProactiveDetectionConfigurationResponseRuleDefinitionsOutput {
 	return o.ApplyT(func(v *ApplicationInsightsComponentProactiveDetectionConfigurationResponseRuleDefinitions) ApplicationInsightsComponentProactiveDetectionConfigurationResponseRuleDefinitions {
-		return *v
+		if v != nil {
+			return *v
+		}
+		var ret ApplicationInsightsComponentProactiveDetectionConfigurationResponseRuleDefinitions
+		return ret
 	}).(ApplicationInsightsComponentProactiveDetectionConfigurationResponseRuleDefinitionsOutput)
 }
 
-// The rule description
 func (o ApplicationInsightsComponentProactiveDetectionConfigurationResponseRuleDefinitionsPtrOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ApplicationInsightsComponentProactiveDetectionConfigurationResponseRuleDefinitions) *string {
 		if v == nil {
@@ -925,7 +857,6 @@ func (o ApplicationInsightsComponentProactiveDetectionConfigurationResponseRuleD
 	}).(pulumi.StringPtrOutput)
 }
 
-// The rule name as it is displayed in UI
 func (o ApplicationInsightsComponentProactiveDetectionConfigurationResponseRuleDefinitionsPtrOutput) DisplayName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ApplicationInsightsComponentProactiveDetectionConfigurationResponseRuleDefinitions) *string {
 		if v == nil {
@@ -935,7 +866,6 @@ func (o ApplicationInsightsComponentProactiveDetectionConfigurationResponseRuleD
 	}).(pulumi.StringPtrOutput)
 }
 
-// URL which displays additional info about the proactive detection rule
 func (o ApplicationInsightsComponentProactiveDetectionConfigurationResponseRuleDefinitionsPtrOutput) HelpUrl() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ApplicationInsightsComponentProactiveDetectionConfigurationResponseRuleDefinitions) *string {
 		if v == nil {
@@ -945,7 +875,6 @@ func (o ApplicationInsightsComponentProactiveDetectionConfigurationResponseRuleD
 	}).(pulumi.StringPtrOutput)
 }
 
-// A flag indicating whether the rule is enabled by default
 func (o ApplicationInsightsComponentProactiveDetectionConfigurationResponseRuleDefinitionsPtrOutput) IsEnabledByDefault() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *ApplicationInsightsComponentProactiveDetectionConfigurationResponseRuleDefinitions) *bool {
 		if v == nil {
@@ -955,7 +884,6 @@ func (o ApplicationInsightsComponentProactiveDetectionConfigurationResponseRuleD
 	}).(pulumi.BoolPtrOutput)
 }
 
-// A flag indicating whether the rule is hidden (from the UI)
 func (o ApplicationInsightsComponentProactiveDetectionConfigurationResponseRuleDefinitionsPtrOutput) IsHidden() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *ApplicationInsightsComponentProactiveDetectionConfigurationResponseRuleDefinitions) *bool {
 		if v == nil {
@@ -965,7 +893,6 @@ func (o ApplicationInsightsComponentProactiveDetectionConfigurationResponseRuleD
 	}).(pulumi.BoolPtrOutput)
 }
 
-// A flag indicating whether the rule is in preview
 func (o ApplicationInsightsComponentProactiveDetectionConfigurationResponseRuleDefinitionsPtrOutput) IsInPreview() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *ApplicationInsightsComponentProactiveDetectionConfigurationResponseRuleDefinitions) *bool {
 		if v == nil {
@@ -975,7 +902,6 @@ func (o ApplicationInsightsComponentProactiveDetectionConfigurationResponseRuleD
 	}).(pulumi.BoolPtrOutput)
 }
 
-// The rule name
 func (o ApplicationInsightsComponentProactiveDetectionConfigurationResponseRuleDefinitionsPtrOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ApplicationInsightsComponentProactiveDetectionConfigurationResponseRuleDefinitions) *string {
 		if v == nil {
@@ -985,7 +911,6 @@ func (o ApplicationInsightsComponentProactiveDetectionConfigurationResponseRuleD
 	}).(pulumi.StringPtrOutput)
 }
 
-// A flag indicating whether email notifications are supported for detections for this rule
 func (o ApplicationInsightsComponentProactiveDetectionConfigurationResponseRuleDefinitionsPtrOutput) SupportsEmailNotifications() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *ApplicationInsightsComponentProactiveDetectionConfigurationResponseRuleDefinitions) *bool {
 		if v == nil {
@@ -995,24 +920,15 @@ func (o ApplicationInsightsComponentProactiveDetectionConfigurationResponseRuleD
 	}).(pulumi.BoolPtrOutput)
 }
 
-// Static definitions of the ProactiveDetection configuration rule (same values for all components).
 type ApplicationInsightsComponentProactiveDetectionConfigurationRuleDefinitions struct {
-	// The rule description
-	Description *string `pulumi:"description"`
-	// The rule name as it is displayed in UI
-	DisplayName *string `pulumi:"displayName"`
-	// URL which displays additional info about the proactive detection rule
-	HelpUrl *string `pulumi:"helpUrl"`
-	// A flag indicating whether the rule is enabled by default
-	IsEnabledByDefault *bool `pulumi:"isEnabledByDefault"`
-	// A flag indicating whether the rule is hidden (from the UI)
-	IsHidden *bool `pulumi:"isHidden"`
-	// A flag indicating whether the rule is in preview
-	IsInPreview *bool `pulumi:"isInPreview"`
-	// The rule name
-	Name *string `pulumi:"name"`
-	// A flag indicating whether email notifications are supported for detections for this rule
-	SupportsEmailNotifications *bool `pulumi:"supportsEmailNotifications"`
+	Description                *string `pulumi:"description"`
+	DisplayName                *string `pulumi:"displayName"`
+	HelpUrl                    *string `pulumi:"helpUrl"`
+	IsEnabledByDefault         *bool   `pulumi:"isEnabledByDefault"`
+	IsHidden                   *bool   `pulumi:"isHidden"`
+	IsInPreview                *bool   `pulumi:"isInPreview"`
+	Name                       *string `pulumi:"name"`
+	SupportsEmailNotifications *bool   `pulumi:"supportsEmailNotifications"`
 }
 
 // ApplicationInsightsComponentProactiveDetectionConfigurationRuleDefinitionsInput is an input type that accepts ApplicationInsightsComponentProactiveDetectionConfigurationRuleDefinitionsArgs and ApplicationInsightsComponentProactiveDetectionConfigurationRuleDefinitionsOutput values.
@@ -1026,24 +942,15 @@ type ApplicationInsightsComponentProactiveDetectionConfigurationRuleDefinitionsI
 	ToApplicationInsightsComponentProactiveDetectionConfigurationRuleDefinitionsOutputWithContext(context.Context) ApplicationInsightsComponentProactiveDetectionConfigurationRuleDefinitionsOutput
 }
 
-// Static definitions of the ProactiveDetection configuration rule (same values for all components).
 type ApplicationInsightsComponentProactiveDetectionConfigurationRuleDefinitionsArgs struct {
-	// The rule description
-	Description pulumi.StringPtrInput `pulumi:"description"`
-	// The rule name as it is displayed in UI
-	DisplayName pulumi.StringPtrInput `pulumi:"displayName"`
-	// URL which displays additional info about the proactive detection rule
-	HelpUrl pulumi.StringPtrInput `pulumi:"helpUrl"`
-	// A flag indicating whether the rule is enabled by default
-	IsEnabledByDefault pulumi.BoolPtrInput `pulumi:"isEnabledByDefault"`
-	// A flag indicating whether the rule is hidden (from the UI)
-	IsHidden pulumi.BoolPtrInput `pulumi:"isHidden"`
-	// A flag indicating whether the rule is in preview
-	IsInPreview pulumi.BoolPtrInput `pulumi:"isInPreview"`
-	// The rule name
-	Name pulumi.StringPtrInput `pulumi:"name"`
-	// A flag indicating whether email notifications are supported for detections for this rule
-	SupportsEmailNotifications pulumi.BoolPtrInput `pulumi:"supportsEmailNotifications"`
+	Description                pulumi.StringPtrInput `pulumi:"description"`
+	DisplayName                pulumi.StringPtrInput `pulumi:"displayName"`
+	HelpUrl                    pulumi.StringPtrInput `pulumi:"helpUrl"`
+	IsEnabledByDefault         pulumi.BoolPtrInput   `pulumi:"isEnabledByDefault"`
+	IsHidden                   pulumi.BoolPtrInput   `pulumi:"isHidden"`
+	IsInPreview                pulumi.BoolPtrInput   `pulumi:"isInPreview"`
+	Name                       pulumi.StringPtrInput `pulumi:"name"`
+	SupportsEmailNotifications pulumi.BoolPtrInput   `pulumi:"supportsEmailNotifications"`
 }
 
 func (ApplicationInsightsComponentProactiveDetectionConfigurationRuleDefinitionsArgs) ElementType() reflect.Type {
@@ -1099,7 +1006,6 @@ func (i *applicationInsightsComponentProactiveDetectionConfigurationRuleDefiniti
 	return pulumi.ToOutputWithContext(ctx, i).(ApplicationInsightsComponentProactiveDetectionConfigurationRuleDefinitionsPtrOutput)
 }
 
-// Static definitions of the ProactiveDetection configuration rule (same values for all components).
 type ApplicationInsightsComponentProactiveDetectionConfigurationRuleDefinitionsOutput struct{ *pulumi.OutputState }
 
 func (ApplicationInsightsComponentProactiveDetectionConfigurationRuleDefinitionsOutput) ElementType() reflect.Type {
@@ -1119,61 +1025,53 @@ func (o ApplicationInsightsComponentProactiveDetectionConfigurationRuleDefinitio
 }
 
 func (o ApplicationInsightsComponentProactiveDetectionConfigurationRuleDefinitionsOutput) ToApplicationInsightsComponentProactiveDetectionConfigurationRuleDefinitionsPtrOutputWithContext(ctx context.Context) ApplicationInsightsComponentProactiveDetectionConfigurationRuleDefinitionsPtrOutput {
-	return o.ApplyT(func(v ApplicationInsightsComponentProactiveDetectionConfigurationRuleDefinitions) *ApplicationInsightsComponentProactiveDetectionConfigurationRuleDefinitions {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ApplicationInsightsComponentProactiveDetectionConfigurationRuleDefinitions) *ApplicationInsightsComponentProactiveDetectionConfigurationRuleDefinitions {
 		return &v
 	}).(ApplicationInsightsComponentProactiveDetectionConfigurationRuleDefinitionsPtrOutput)
 }
 
-// The rule description
 func (o ApplicationInsightsComponentProactiveDetectionConfigurationRuleDefinitionsOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ApplicationInsightsComponentProactiveDetectionConfigurationRuleDefinitions) *string {
 		return v.Description
 	}).(pulumi.StringPtrOutput)
 }
 
-// The rule name as it is displayed in UI
 func (o ApplicationInsightsComponentProactiveDetectionConfigurationRuleDefinitionsOutput) DisplayName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ApplicationInsightsComponentProactiveDetectionConfigurationRuleDefinitions) *string {
 		return v.DisplayName
 	}).(pulumi.StringPtrOutput)
 }
 
-// URL which displays additional info about the proactive detection rule
 func (o ApplicationInsightsComponentProactiveDetectionConfigurationRuleDefinitionsOutput) HelpUrl() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ApplicationInsightsComponentProactiveDetectionConfigurationRuleDefinitions) *string {
 		return v.HelpUrl
 	}).(pulumi.StringPtrOutput)
 }
 
-// A flag indicating whether the rule is enabled by default
 func (o ApplicationInsightsComponentProactiveDetectionConfigurationRuleDefinitionsOutput) IsEnabledByDefault() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v ApplicationInsightsComponentProactiveDetectionConfigurationRuleDefinitions) *bool {
 		return v.IsEnabledByDefault
 	}).(pulumi.BoolPtrOutput)
 }
 
-// A flag indicating whether the rule is hidden (from the UI)
 func (o ApplicationInsightsComponentProactiveDetectionConfigurationRuleDefinitionsOutput) IsHidden() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v ApplicationInsightsComponentProactiveDetectionConfigurationRuleDefinitions) *bool {
 		return v.IsHidden
 	}).(pulumi.BoolPtrOutput)
 }
 
-// A flag indicating whether the rule is in preview
 func (o ApplicationInsightsComponentProactiveDetectionConfigurationRuleDefinitionsOutput) IsInPreview() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v ApplicationInsightsComponentProactiveDetectionConfigurationRuleDefinitions) *bool {
 		return v.IsInPreview
 	}).(pulumi.BoolPtrOutput)
 }
 
-// The rule name
 func (o ApplicationInsightsComponentProactiveDetectionConfigurationRuleDefinitionsOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ApplicationInsightsComponentProactiveDetectionConfigurationRuleDefinitions) *string {
 		return v.Name
 	}).(pulumi.StringPtrOutput)
 }
 
-// A flag indicating whether email notifications are supported for detections for this rule
 func (o ApplicationInsightsComponentProactiveDetectionConfigurationRuleDefinitionsOutput) SupportsEmailNotifications() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v ApplicationInsightsComponentProactiveDetectionConfigurationRuleDefinitions) *bool {
 		return v.SupportsEmailNotifications
@@ -1196,11 +1094,14 @@ func (o ApplicationInsightsComponentProactiveDetectionConfigurationRuleDefinitio
 
 func (o ApplicationInsightsComponentProactiveDetectionConfigurationRuleDefinitionsPtrOutput) Elem() ApplicationInsightsComponentProactiveDetectionConfigurationRuleDefinitionsOutput {
 	return o.ApplyT(func(v *ApplicationInsightsComponentProactiveDetectionConfigurationRuleDefinitions) ApplicationInsightsComponentProactiveDetectionConfigurationRuleDefinitions {
-		return *v
+		if v != nil {
+			return *v
+		}
+		var ret ApplicationInsightsComponentProactiveDetectionConfigurationRuleDefinitions
+		return ret
 	}).(ApplicationInsightsComponentProactiveDetectionConfigurationRuleDefinitionsOutput)
 }
 
-// The rule description
 func (o ApplicationInsightsComponentProactiveDetectionConfigurationRuleDefinitionsPtrOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ApplicationInsightsComponentProactiveDetectionConfigurationRuleDefinitions) *string {
 		if v == nil {
@@ -1210,7 +1111,6 @@ func (o ApplicationInsightsComponentProactiveDetectionConfigurationRuleDefinitio
 	}).(pulumi.StringPtrOutput)
 }
 
-// The rule name as it is displayed in UI
 func (o ApplicationInsightsComponentProactiveDetectionConfigurationRuleDefinitionsPtrOutput) DisplayName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ApplicationInsightsComponentProactiveDetectionConfigurationRuleDefinitions) *string {
 		if v == nil {
@@ -1220,7 +1120,6 @@ func (o ApplicationInsightsComponentProactiveDetectionConfigurationRuleDefinitio
 	}).(pulumi.StringPtrOutput)
 }
 
-// URL which displays additional info about the proactive detection rule
 func (o ApplicationInsightsComponentProactiveDetectionConfigurationRuleDefinitionsPtrOutput) HelpUrl() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ApplicationInsightsComponentProactiveDetectionConfigurationRuleDefinitions) *string {
 		if v == nil {
@@ -1230,7 +1129,6 @@ func (o ApplicationInsightsComponentProactiveDetectionConfigurationRuleDefinitio
 	}).(pulumi.StringPtrOutput)
 }
 
-// A flag indicating whether the rule is enabled by default
 func (o ApplicationInsightsComponentProactiveDetectionConfigurationRuleDefinitionsPtrOutput) IsEnabledByDefault() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *ApplicationInsightsComponentProactiveDetectionConfigurationRuleDefinitions) *bool {
 		if v == nil {
@@ -1240,7 +1138,6 @@ func (o ApplicationInsightsComponentProactiveDetectionConfigurationRuleDefinitio
 	}).(pulumi.BoolPtrOutput)
 }
 
-// A flag indicating whether the rule is hidden (from the UI)
 func (o ApplicationInsightsComponentProactiveDetectionConfigurationRuleDefinitionsPtrOutput) IsHidden() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *ApplicationInsightsComponentProactiveDetectionConfigurationRuleDefinitions) *bool {
 		if v == nil {
@@ -1250,7 +1147,6 @@ func (o ApplicationInsightsComponentProactiveDetectionConfigurationRuleDefinitio
 	}).(pulumi.BoolPtrOutput)
 }
 
-// A flag indicating whether the rule is in preview
 func (o ApplicationInsightsComponentProactiveDetectionConfigurationRuleDefinitionsPtrOutput) IsInPreview() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *ApplicationInsightsComponentProactiveDetectionConfigurationRuleDefinitions) *bool {
 		if v == nil {
@@ -1260,7 +1156,6 @@ func (o ApplicationInsightsComponentProactiveDetectionConfigurationRuleDefinitio
 	}).(pulumi.BoolPtrOutput)
 }
 
-// The rule name
 func (o ApplicationInsightsComponentProactiveDetectionConfigurationRuleDefinitionsPtrOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ApplicationInsightsComponentProactiveDetectionConfigurationRuleDefinitions) *string {
 		if v == nil {
@@ -1270,7 +1165,6 @@ func (o ApplicationInsightsComponentProactiveDetectionConfigurationRuleDefinitio
 	}).(pulumi.StringPtrOutput)
 }
 
-// A flag indicating whether email notifications are supported for detections for this rule
 func (o ApplicationInsightsComponentProactiveDetectionConfigurationRuleDefinitionsPtrOutput) SupportsEmailNotifications() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *ApplicationInsightsComponentProactiveDetectionConfigurationRuleDefinitions) *bool {
 		if v == nil {
@@ -1280,12 +1174,9 @@ func (o ApplicationInsightsComponentProactiveDetectionConfigurationRuleDefinitio
 	}).(pulumi.BoolPtrOutput)
 }
 
-// The private link scope resource reference.
 type PrivateLinkScopedResourceResponse struct {
-	// The full resource Id of the private link scope resource.
 	ResourceId *string `pulumi:"resourceId"`
-	// The private link scope unique Identifier.
-	ScopeId *string `pulumi:"scopeId"`
+	ScopeId    *string `pulumi:"scopeId"`
 }
 
 // PrivateLinkScopedResourceResponseInput is an input type that accepts PrivateLinkScopedResourceResponseArgs and PrivateLinkScopedResourceResponseOutput values.
@@ -1299,12 +1190,9 @@ type PrivateLinkScopedResourceResponseInput interface {
 	ToPrivateLinkScopedResourceResponseOutputWithContext(context.Context) PrivateLinkScopedResourceResponseOutput
 }
 
-// The private link scope resource reference.
 type PrivateLinkScopedResourceResponseArgs struct {
-	// The full resource Id of the private link scope resource.
 	ResourceId pulumi.StringPtrInput `pulumi:"resourceId"`
-	// The private link scope unique Identifier.
-	ScopeId pulumi.StringPtrInput `pulumi:"scopeId"`
+	ScopeId    pulumi.StringPtrInput `pulumi:"scopeId"`
 }
 
 func (PrivateLinkScopedResourceResponseArgs) ElementType() reflect.Type {
@@ -1344,7 +1232,6 @@ func (i PrivateLinkScopedResourceResponseArray) ToPrivateLinkScopedResourceRespo
 	return pulumi.ToOutputWithContext(ctx, i).(PrivateLinkScopedResourceResponseArrayOutput)
 }
 
-// The private link scope resource reference.
 type PrivateLinkScopedResourceResponseOutput struct{ *pulumi.OutputState }
 
 func (PrivateLinkScopedResourceResponseOutput) ElementType() reflect.Type {
@@ -1359,12 +1246,10 @@ func (o PrivateLinkScopedResourceResponseOutput) ToPrivateLinkScopedResourceResp
 	return o
 }
 
-// The full resource Id of the private link scope resource.
 func (o PrivateLinkScopedResourceResponseOutput) ResourceId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v PrivateLinkScopedResourceResponse) *string { return v.ResourceId }).(pulumi.StringPtrOutput)
 }
 
-// The private link scope unique Identifier.
 func (o PrivateLinkScopedResourceResponseOutput) ScopeId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v PrivateLinkScopedResourceResponse) *string { return v.ScopeId }).(pulumi.StringPtrOutput)
 }
@@ -1389,9 +1274,7 @@ func (o PrivateLinkScopedResourceResponseArrayOutput) Index(i pulumi.IntInput) P
 	}).(PrivateLinkScopedResourceResponseOutput)
 }
 
-// Geo-physical location to run a web test from. You must specify one or more locations for the test to run from.
 type WebTestGeolocation struct {
-	// Location ID for the webtest to run from.
 	Location *string `pulumi:"location"`
 }
 
@@ -1406,9 +1289,7 @@ type WebTestGeolocationInput interface {
 	ToWebTestGeolocationOutputWithContext(context.Context) WebTestGeolocationOutput
 }
 
-// Geo-physical location to run a web test from. You must specify one or more locations for the test to run from.
 type WebTestGeolocationArgs struct {
-	// Location ID for the webtest to run from.
 	Location pulumi.StringPtrInput `pulumi:"location"`
 }
 
@@ -1449,7 +1330,6 @@ func (i WebTestGeolocationArray) ToWebTestGeolocationArrayOutputWithContext(ctx 
 	return pulumi.ToOutputWithContext(ctx, i).(WebTestGeolocationArrayOutput)
 }
 
-// Geo-physical location to run a web test from. You must specify one or more locations for the test to run from.
 type WebTestGeolocationOutput struct{ *pulumi.OutputState }
 
 func (WebTestGeolocationOutput) ElementType() reflect.Type {
@@ -1464,7 +1344,6 @@ func (o WebTestGeolocationOutput) ToWebTestGeolocationOutputWithContext(ctx cont
 	return o
 }
 
-// Location ID for the webtest to run from.
 func (o WebTestGeolocationOutput) Location() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v WebTestGeolocation) *string { return v.Location }).(pulumi.StringPtrOutput)
 }
@@ -1489,9 +1368,7 @@ func (o WebTestGeolocationArrayOutput) Index(i pulumi.IntInput) WebTestGeolocati
 	}).(WebTestGeolocationOutput)
 }
 
-// Geo-physical location to run a web test from. You must specify one or more locations for the test to run from.
 type WebTestGeolocationResponse struct {
-	// Location ID for the webtest to run from.
 	Location *string `pulumi:"location"`
 }
 
@@ -1506,9 +1383,7 @@ type WebTestGeolocationResponseInput interface {
 	ToWebTestGeolocationResponseOutputWithContext(context.Context) WebTestGeolocationResponseOutput
 }
 
-// Geo-physical location to run a web test from. You must specify one or more locations for the test to run from.
 type WebTestGeolocationResponseArgs struct {
-	// Location ID for the webtest to run from.
 	Location pulumi.StringPtrInput `pulumi:"location"`
 }
 
@@ -1549,7 +1424,6 @@ func (i WebTestGeolocationResponseArray) ToWebTestGeolocationResponseArrayOutput
 	return pulumi.ToOutputWithContext(ctx, i).(WebTestGeolocationResponseArrayOutput)
 }
 
-// Geo-physical location to run a web test from. You must specify one or more locations for the test to run from.
 type WebTestGeolocationResponseOutput struct{ *pulumi.OutputState }
 
 func (WebTestGeolocationResponseOutput) ElementType() reflect.Type {
@@ -1564,7 +1438,6 @@ func (o WebTestGeolocationResponseOutput) ToWebTestGeolocationResponseOutputWith
 	return o
 }
 
-// Location ID for the webtest to run from.
 func (o WebTestGeolocationResponseOutput) Location() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v WebTestGeolocationResponse) *string { return v.Location }).(pulumi.StringPtrOutput)
 }
@@ -1589,9 +1462,7 @@ func (o WebTestGeolocationResponseArrayOutput) Index(i pulumi.IntInput) WebTestG
 	}).(WebTestGeolocationResponseOutput)
 }
 
-// An XML configuration specification for a WebTest.
 type WebTestPropertiesConfiguration struct {
-	// The XML specification of a WebTest to run against an application.
 	WebTest *string `pulumi:"webTest"`
 }
 
@@ -1606,9 +1477,7 @@ type WebTestPropertiesConfigurationInput interface {
 	ToWebTestPropertiesConfigurationOutputWithContext(context.Context) WebTestPropertiesConfigurationOutput
 }
 
-// An XML configuration specification for a WebTest.
 type WebTestPropertiesConfigurationArgs struct {
-	// The XML specification of a WebTest to run against an application.
 	WebTest pulumi.StringPtrInput `pulumi:"webTest"`
 }
 
@@ -1665,7 +1534,6 @@ func (i *webTestPropertiesConfigurationPtrType) ToWebTestPropertiesConfiguration
 	return pulumi.ToOutputWithContext(ctx, i).(WebTestPropertiesConfigurationPtrOutput)
 }
 
-// An XML configuration specification for a WebTest.
 type WebTestPropertiesConfigurationOutput struct{ *pulumi.OutputState }
 
 func (WebTestPropertiesConfigurationOutput) ElementType() reflect.Type {
@@ -1685,12 +1553,11 @@ func (o WebTestPropertiesConfigurationOutput) ToWebTestPropertiesConfigurationPt
 }
 
 func (o WebTestPropertiesConfigurationOutput) ToWebTestPropertiesConfigurationPtrOutputWithContext(ctx context.Context) WebTestPropertiesConfigurationPtrOutput {
-	return o.ApplyT(func(v WebTestPropertiesConfiguration) *WebTestPropertiesConfiguration {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v WebTestPropertiesConfiguration) *WebTestPropertiesConfiguration {
 		return &v
 	}).(WebTestPropertiesConfigurationPtrOutput)
 }
 
-// The XML specification of a WebTest to run against an application.
 func (o WebTestPropertiesConfigurationOutput) WebTest() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v WebTestPropertiesConfiguration) *string { return v.WebTest }).(pulumi.StringPtrOutput)
 }
@@ -1710,10 +1577,15 @@ func (o WebTestPropertiesConfigurationPtrOutput) ToWebTestPropertiesConfiguratio
 }
 
 func (o WebTestPropertiesConfigurationPtrOutput) Elem() WebTestPropertiesConfigurationOutput {
-	return o.ApplyT(func(v *WebTestPropertiesConfiguration) WebTestPropertiesConfiguration { return *v }).(WebTestPropertiesConfigurationOutput)
+	return o.ApplyT(func(v *WebTestPropertiesConfiguration) WebTestPropertiesConfiguration {
+		if v != nil {
+			return *v
+		}
+		var ret WebTestPropertiesConfiguration
+		return ret
+	}).(WebTestPropertiesConfigurationOutput)
 }
 
-// The XML specification of a WebTest to run against an application.
 func (o WebTestPropertiesConfigurationPtrOutput) WebTest() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *WebTestPropertiesConfiguration) *string {
 		if v == nil {
@@ -1723,9 +1595,7 @@ func (o WebTestPropertiesConfigurationPtrOutput) WebTest() pulumi.StringPtrOutpu
 	}).(pulumi.StringPtrOutput)
 }
 
-// An XML configuration specification for a WebTest.
 type WebTestPropertiesResponseConfiguration struct {
-	// The XML specification of a WebTest to run against an application.
 	WebTest *string `pulumi:"webTest"`
 }
 
@@ -1740,9 +1610,7 @@ type WebTestPropertiesResponseConfigurationInput interface {
 	ToWebTestPropertiesResponseConfigurationOutputWithContext(context.Context) WebTestPropertiesResponseConfigurationOutput
 }
 
-// An XML configuration specification for a WebTest.
 type WebTestPropertiesResponseConfigurationArgs struct {
-	// The XML specification of a WebTest to run against an application.
 	WebTest pulumi.StringPtrInput `pulumi:"webTest"`
 }
 
@@ -1799,7 +1667,6 @@ func (i *webTestPropertiesResponseConfigurationPtrType) ToWebTestPropertiesRespo
 	return pulumi.ToOutputWithContext(ctx, i).(WebTestPropertiesResponseConfigurationPtrOutput)
 }
 
-// An XML configuration specification for a WebTest.
 type WebTestPropertiesResponseConfigurationOutput struct{ *pulumi.OutputState }
 
 func (WebTestPropertiesResponseConfigurationOutput) ElementType() reflect.Type {
@@ -1819,12 +1686,11 @@ func (o WebTestPropertiesResponseConfigurationOutput) ToWebTestPropertiesRespons
 }
 
 func (o WebTestPropertiesResponseConfigurationOutput) ToWebTestPropertiesResponseConfigurationPtrOutputWithContext(ctx context.Context) WebTestPropertiesResponseConfigurationPtrOutput {
-	return o.ApplyT(func(v WebTestPropertiesResponseConfiguration) *WebTestPropertiesResponseConfiguration {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v WebTestPropertiesResponseConfiguration) *WebTestPropertiesResponseConfiguration {
 		return &v
 	}).(WebTestPropertiesResponseConfigurationPtrOutput)
 }
 
-// The XML specification of a WebTest to run against an application.
 func (o WebTestPropertiesResponseConfigurationOutput) WebTest() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v WebTestPropertiesResponseConfiguration) *string { return v.WebTest }).(pulumi.StringPtrOutput)
 }
@@ -1844,10 +1710,15 @@ func (o WebTestPropertiesResponseConfigurationPtrOutput) ToWebTestPropertiesResp
 }
 
 func (o WebTestPropertiesResponseConfigurationPtrOutput) Elem() WebTestPropertiesResponseConfigurationOutput {
-	return o.ApplyT(func(v *WebTestPropertiesResponseConfiguration) WebTestPropertiesResponseConfiguration { return *v }).(WebTestPropertiesResponseConfigurationOutput)
+	return o.ApplyT(func(v *WebTestPropertiesResponseConfiguration) WebTestPropertiesResponseConfiguration {
+		if v != nil {
+			return *v
+		}
+		var ret WebTestPropertiesResponseConfiguration
+		return ret
+	}).(WebTestPropertiesResponseConfigurationOutput)
 }
 
-// The XML specification of a WebTest to run against an application.
 func (o WebTestPropertiesResponseConfigurationPtrOutput) WebTest() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *WebTestPropertiesResponseConfiguration) *string {
 		if v == nil {

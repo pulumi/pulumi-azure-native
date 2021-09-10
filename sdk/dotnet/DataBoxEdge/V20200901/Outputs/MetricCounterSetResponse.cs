@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.DataBoxEdge.V20200901.Outputs
 {
 
+    /// <summary>
+    /// The metric counter set
+    /// </summary>
     [OutputType]
     public sealed class MetricCounterSetResponse
     {

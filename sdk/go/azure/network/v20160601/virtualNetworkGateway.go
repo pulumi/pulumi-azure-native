@@ -11,42 +11,25 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// A common class for general resource information
 type VirtualNetworkGateway struct {
 	pulumi.CustomResourceState
 
-	// ActiveActive flag
-	ActiveActive pulumi.BoolPtrOutput `pulumi:"activeActive"`
-	// Virtual network gateway's BGP speaker settings
-	BgpSettings BgpSettingsResponsePtrOutput `pulumi:"bgpSettings"`
-	// EnableBgp Flag
-	EnableBgp pulumi.BoolPtrOutput `pulumi:"enableBgp"`
-	// Gets a unique read-only string that changes whenever the resource is updated
-	Etag pulumi.StringPtrOutput `pulumi:"etag"`
-	// Gets or sets the reference of the LocalNetworkGateway resource which represents Local network site having default routes. Assign Null value in case of removing existing default site setting.
-	GatewayDefaultSite SubResourceResponsePtrOutput `pulumi:"gatewayDefaultSite"`
-	// The type of this virtual network gateway.
-	GatewayType pulumi.StringPtrOutput `pulumi:"gatewayType"`
-	// IpConfigurations for Virtual network gateway.
-	IpConfigurations VirtualNetworkGatewayIPConfigurationResponseArrayOutput `pulumi:"ipConfigurations"`
-	// Resource location
-	Location pulumi.StringPtrOutput `pulumi:"location"`
-	// Resource name
-	Name pulumi.StringOutput `pulumi:"name"`
-	// Gets provisioning state of the VirtualNetworkGateway resource Updating/Deleting/Failed
-	ProvisioningState pulumi.StringPtrOutput `pulumi:"provisioningState"`
-	// Gets or sets resource guid property of the VirtualNetworkGateway resource
-	ResourceGuid pulumi.StringPtrOutput `pulumi:"resourceGuid"`
-	// Gets or sets the reference of the VirtualNetworkGatewaySku resource which represents the sku selected for Virtual network gateway.
-	Sku VirtualNetworkGatewaySkuResponsePtrOutput `pulumi:"sku"`
-	// Resource tags
-	Tags pulumi.StringMapOutput `pulumi:"tags"`
-	// Resource type
-	Type pulumi.StringOutput `pulumi:"type"`
-	// Gets or sets the reference of the VpnClientConfiguration resource which represents the P2S VpnClient configurations.
-	VpnClientConfiguration VpnClientConfigurationResponsePtrOutput `pulumi:"vpnClientConfiguration"`
-	// The type of this virtual network gateway.
-	VpnType pulumi.StringPtrOutput `pulumi:"vpnType"`
+	ActiveActive           pulumi.BoolPtrOutput                                    `pulumi:"activeActive"`
+	BgpSettings            BgpSettingsResponsePtrOutput                            `pulumi:"bgpSettings"`
+	EnableBgp              pulumi.BoolPtrOutput                                    `pulumi:"enableBgp"`
+	Etag                   pulumi.StringPtrOutput                                  `pulumi:"etag"`
+	GatewayDefaultSite     SubResourceResponsePtrOutput                            `pulumi:"gatewayDefaultSite"`
+	GatewayType            pulumi.StringPtrOutput                                  `pulumi:"gatewayType"`
+	IpConfigurations       VirtualNetworkGatewayIPConfigurationResponseArrayOutput `pulumi:"ipConfigurations"`
+	Location               pulumi.StringPtrOutput                                  `pulumi:"location"`
+	Name                   pulumi.StringOutput                                     `pulumi:"name"`
+	ProvisioningState      pulumi.StringPtrOutput                                  `pulumi:"provisioningState"`
+	ResourceGuid           pulumi.StringPtrOutput                                  `pulumi:"resourceGuid"`
+	Sku                    VirtualNetworkGatewaySkuResponsePtrOutput               `pulumi:"sku"`
+	Tags                   pulumi.StringMapOutput                                  `pulumi:"tags"`
+	Type                   pulumi.StringOutput                                     `pulumi:"type"`
+	VpnClientConfiguration VpnClientConfigurationResponsePtrOutput                 `pulumi:"vpnClientConfiguration"`
+	VpnType                pulumi.StringPtrOutput                                  `pulumi:"vpnType"`
 }
 
 // NewVirtualNetworkGateway registers a new resource with the given unique name, arguments, and options.
@@ -319,78 +302,44 @@ func (VirtualNetworkGatewayState) ElementType() reflect.Type {
 }
 
 type virtualNetworkGatewayArgs struct {
-	// ActiveActive flag
-	ActiveActive *bool `pulumi:"activeActive"`
-	// Virtual network gateway's BGP speaker settings
-	BgpSettings *BgpSettings `pulumi:"bgpSettings"`
-	// EnableBgp Flag
-	EnableBgp *bool `pulumi:"enableBgp"`
-	// Gets a unique read-only string that changes whenever the resource is updated
-	Etag *string `pulumi:"etag"`
-	// Gets or sets the reference of the LocalNetworkGateway resource which represents Local network site having default routes. Assign Null value in case of removing existing default site setting.
-	GatewayDefaultSite *SubResource `pulumi:"gatewayDefaultSite"`
-	// The type of this virtual network gateway.
-	GatewayType *string `pulumi:"gatewayType"`
-	// Resource Id
-	Id *string `pulumi:"id"`
-	// IpConfigurations for Virtual network gateway.
-	IpConfigurations []VirtualNetworkGatewayIPConfiguration `pulumi:"ipConfigurations"`
-	// Resource location
-	Location *string `pulumi:"location"`
-	// Gets provisioning state of the VirtualNetworkGateway resource Updating/Deleting/Failed
-	ProvisioningState *string `pulumi:"provisioningState"`
-	// The name of the resource group.
-	ResourceGroupName string `pulumi:"resourceGroupName"`
-	// Gets or sets resource guid property of the VirtualNetworkGateway resource
-	ResourceGuid *string `pulumi:"resourceGuid"`
-	// Gets or sets the reference of the VirtualNetworkGatewaySku resource which represents the sku selected for Virtual network gateway.
-	Sku *VirtualNetworkGatewaySku `pulumi:"sku"`
-	// Resource tags
-	Tags map[string]string `pulumi:"tags"`
-	// The name of the virtual network gateway.
-	VirtualNetworkGatewayName *string `pulumi:"virtualNetworkGatewayName"`
-	// Gets or sets the reference of the VpnClientConfiguration resource which represents the P2S VpnClient configurations.
-	VpnClientConfiguration *VpnClientConfiguration `pulumi:"vpnClientConfiguration"`
-	// The type of this virtual network gateway.
-	VpnType *string `pulumi:"vpnType"`
+	ActiveActive              *bool                                  `pulumi:"activeActive"`
+	BgpSettings               *BgpSettings                           `pulumi:"bgpSettings"`
+	EnableBgp                 *bool                                  `pulumi:"enableBgp"`
+	Etag                      *string                                `pulumi:"etag"`
+	GatewayDefaultSite        *SubResource                           `pulumi:"gatewayDefaultSite"`
+	GatewayType               *string                                `pulumi:"gatewayType"`
+	Id                        *string                                `pulumi:"id"`
+	IpConfigurations          []VirtualNetworkGatewayIPConfiguration `pulumi:"ipConfigurations"`
+	Location                  *string                                `pulumi:"location"`
+	ProvisioningState         *string                                `pulumi:"provisioningState"`
+	ResourceGroupName         string                                 `pulumi:"resourceGroupName"`
+	ResourceGuid              *string                                `pulumi:"resourceGuid"`
+	Sku                       *VirtualNetworkGatewaySku              `pulumi:"sku"`
+	Tags                      map[string]string                      `pulumi:"tags"`
+	VirtualNetworkGatewayName *string                                `pulumi:"virtualNetworkGatewayName"`
+	VpnClientConfiguration    *VpnClientConfiguration                `pulumi:"vpnClientConfiguration"`
+	VpnType                   *string                                `pulumi:"vpnType"`
 }
 
 // The set of arguments for constructing a VirtualNetworkGateway resource.
 type VirtualNetworkGatewayArgs struct {
-	// ActiveActive flag
-	ActiveActive pulumi.BoolPtrInput
-	// Virtual network gateway's BGP speaker settings
-	BgpSettings BgpSettingsPtrInput
-	// EnableBgp Flag
-	EnableBgp pulumi.BoolPtrInput
-	// Gets a unique read-only string that changes whenever the resource is updated
-	Etag pulumi.StringPtrInput
-	// Gets or sets the reference of the LocalNetworkGateway resource which represents Local network site having default routes. Assign Null value in case of removing existing default site setting.
-	GatewayDefaultSite SubResourcePtrInput
-	// The type of this virtual network gateway.
-	GatewayType pulumi.StringPtrInput
-	// Resource Id
-	Id pulumi.StringPtrInput
-	// IpConfigurations for Virtual network gateway.
-	IpConfigurations VirtualNetworkGatewayIPConfigurationArrayInput
-	// Resource location
-	Location pulumi.StringPtrInput
-	// Gets provisioning state of the VirtualNetworkGateway resource Updating/Deleting/Failed
-	ProvisioningState pulumi.StringPtrInput
-	// The name of the resource group.
-	ResourceGroupName pulumi.StringInput
-	// Gets or sets resource guid property of the VirtualNetworkGateway resource
-	ResourceGuid pulumi.StringPtrInput
-	// Gets or sets the reference of the VirtualNetworkGatewaySku resource which represents the sku selected for Virtual network gateway.
-	Sku VirtualNetworkGatewaySkuPtrInput
-	// Resource tags
-	Tags pulumi.StringMapInput
-	// The name of the virtual network gateway.
+	ActiveActive              pulumi.BoolPtrInput
+	BgpSettings               BgpSettingsPtrInput
+	EnableBgp                 pulumi.BoolPtrInput
+	Etag                      pulumi.StringPtrInput
+	GatewayDefaultSite        SubResourcePtrInput
+	GatewayType               pulumi.StringPtrInput
+	Id                        pulumi.StringPtrInput
+	IpConfigurations          VirtualNetworkGatewayIPConfigurationArrayInput
+	Location                  pulumi.StringPtrInput
+	ProvisioningState         pulumi.StringPtrInput
+	ResourceGroupName         pulumi.StringInput
+	ResourceGuid              pulumi.StringPtrInput
+	Sku                       VirtualNetworkGatewaySkuPtrInput
+	Tags                      pulumi.StringMapInput
 	VirtualNetworkGatewayName pulumi.StringPtrInput
-	// Gets or sets the reference of the VpnClientConfiguration resource which represents the P2S VpnClient configurations.
-	VpnClientConfiguration VpnClientConfigurationPtrInput
-	// The type of this virtual network gateway.
-	VpnType pulumi.StringPtrInput
+	VpnClientConfiguration    VpnClientConfigurationPtrInput
+	VpnType                   pulumi.StringPtrInput
 }
 
 func (VirtualNetworkGatewayArgs) ElementType() reflect.Type {
@@ -416,9 +365,7 @@ func (i *VirtualNetworkGateway) ToVirtualNetworkGatewayOutputWithContext(ctx con
 	return pulumi.ToOutputWithContext(ctx, i).(VirtualNetworkGatewayOutput)
 }
 
-type VirtualNetworkGatewayOutput struct {
-	*pulumi.OutputState
-}
+type VirtualNetworkGatewayOutput struct{ *pulumi.OutputState }
 
 func (VirtualNetworkGatewayOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*VirtualNetworkGateway)(nil))

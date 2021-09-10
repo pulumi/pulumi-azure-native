@@ -11,22 +11,15 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Datasources under OMS Workspace.
 type DataSource struct {
 	pulumi.CustomResourceState
 
-	// The ETag of the data source.
-	ETag pulumi.StringPtrOutput `pulumi:"eTag"`
-	// The kind of the DataSource.
-	Kind pulumi.StringOutput `pulumi:"kind"`
-	// Resource name.
-	Name pulumi.StringOutput `pulumi:"name"`
-	// The data source properties in raw json format, each kind of data source have it's own schema.
-	Properties pulumi.AnyOutput `pulumi:"properties"`
-	// Resource tags
-	Tags pulumi.StringMapOutput `pulumi:"tags"`
-	// Resource type.
-	Type pulumi.StringOutput `pulumi:"type"`
+	ETag       pulumi.StringPtrOutput `pulumi:"eTag"`
+	Kind       pulumi.StringOutput    `pulumi:"kind"`
+	Name       pulumi.StringOutput    `pulumi:"name"`
+	Properties pulumi.AnyOutput       `pulumi:"properties"`
+	Tags       pulumi.StringMapOutput `pulumi:"tags"`
+	Type       pulumi.StringOutput    `pulumi:"type"`
 }
 
 // NewDataSource registers a new resource with the given unique name, arguments, and options.
@@ -104,38 +97,24 @@ func (DataSourceState) ElementType() reflect.Type {
 }
 
 type dataSourceArgs struct {
-	// The name of the datasource resource.
-	DataSourceName *string `pulumi:"dataSourceName"`
-	// The ETag of the data source.
-	ETag *string `pulumi:"eTag"`
-	// The kind of the DataSource.
-	Kind string `pulumi:"kind"`
-	// The data source properties in raw json format, each kind of data source have it's own schema.
-	Properties interface{} `pulumi:"properties"`
-	// The name of the resource group to get. The name is case insensitive.
-	ResourceGroupName string `pulumi:"resourceGroupName"`
-	// Resource tags
-	Tags map[string]string `pulumi:"tags"`
-	// Name of the Log Analytics Workspace that will contain the datasource
-	WorkspaceName string `pulumi:"workspaceName"`
+	DataSourceName    *string           `pulumi:"dataSourceName"`
+	ETag              *string           `pulumi:"eTag"`
+	Kind              string            `pulumi:"kind"`
+	Properties        interface{}       `pulumi:"properties"`
+	ResourceGroupName string            `pulumi:"resourceGroupName"`
+	Tags              map[string]string `pulumi:"tags"`
+	WorkspaceName     string            `pulumi:"workspaceName"`
 }
 
 // The set of arguments for constructing a DataSource resource.
 type DataSourceArgs struct {
-	// The name of the datasource resource.
-	DataSourceName pulumi.StringPtrInput
-	// The ETag of the data source.
-	ETag pulumi.StringPtrInput
-	// The kind of the DataSource.
-	Kind pulumi.StringInput
-	// The data source properties in raw json format, each kind of data source have it's own schema.
-	Properties pulumi.Input
-	// The name of the resource group to get. The name is case insensitive.
+	DataSourceName    pulumi.StringPtrInput
+	ETag              pulumi.StringPtrInput
+	Kind              pulumi.StringInput
+	Properties        pulumi.Input
 	ResourceGroupName pulumi.StringInput
-	// Resource tags
-	Tags pulumi.StringMapInput
-	// Name of the Log Analytics Workspace that will contain the datasource
-	WorkspaceName pulumi.StringInput
+	Tags              pulumi.StringMapInput
+	WorkspaceName     pulumi.StringInput
 }
 
 func (DataSourceArgs) ElementType() reflect.Type {
@@ -161,9 +140,7 @@ func (i *DataSource) ToDataSourceOutputWithContext(ctx context.Context) DataSour
 	return pulumi.ToOutputWithContext(ctx, i).(DataSourceOutput)
 }
 
-type DataSourceOutput struct {
-	*pulumi.OutputState
-}
+type DataSourceOutput struct{ *pulumi.OutputState }
 
 func (DataSourceOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*DataSource)(nil))

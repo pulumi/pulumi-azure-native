@@ -11,28 +11,18 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// The description of the service.
 type PrivateLinkServicesForM365SecurityCenter struct {
 	pulumi.CustomResourceState
 
-	// An etag associated with the resource, used for optimistic concurrency when editing it.
-	Etag pulumi.StringPtrOutput `pulumi:"etag"`
-	// Setting indicating whether the service has a managed identity associated with it.
-	Identity ServicesResourceResponseIdentityPtrOutput `pulumi:"identity"`
-	// The kind of the service.
-	Kind pulumi.StringOutput `pulumi:"kind"`
-	// The resource location.
-	Location pulumi.StringOutput `pulumi:"location"`
-	// The resource name.
-	Name pulumi.StringOutput `pulumi:"name"`
-	// The common properties of a service.
-	Properties ServicesPropertiesResponseOutput `pulumi:"properties"`
-	// Required property for system data
-	SystemData SystemDataResponseOutput `pulumi:"systemData"`
-	// The resource tags.
-	Tags pulumi.StringMapOutput `pulumi:"tags"`
-	// The resource type.
-	Type pulumi.StringOutput `pulumi:"type"`
+	Etag       pulumi.StringPtrOutput                    `pulumi:"etag"`
+	Identity   ServicesResourceResponseIdentityPtrOutput `pulumi:"identity"`
+	Kind       pulumi.StringOutput                       `pulumi:"kind"`
+	Location   pulumi.StringOutput                       `pulumi:"location"`
+	Name       pulumi.StringOutput                       `pulumi:"name"`
+	Properties ServicesPropertiesResponseOutput          `pulumi:"properties"`
+	SystemData SystemDataResponseOutput                  `pulumi:"systemData"`
+	Tags       pulumi.StringMapOutput                    `pulumi:"tags"`
+	Type       pulumi.StringOutput                       `pulumi:"type"`
 }
 
 // NewPrivateLinkServicesForM365SecurityCenter registers a new resource with the given unique name, arguments, and options.
@@ -42,6 +32,9 @@ func NewPrivateLinkServicesForM365SecurityCenter(ctx *pulumi.Context,
 		return nil, errors.New("missing one or more required arguments")
 	}
 
+	if args.Kind == nil {
+		return nil, errors.New("invalid value for required argument 'Kind'")
+	}
 	if args.ResourceGroupName == nil {
 		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
 	}
@@ -95,42 +88,26 @@ func (PrivateLinkServicesForM365SecurityCenterState) ElementType() reflect.Type 
 }
 
 type privateLinkServicesForM365SecurityCenterArgs struct {
-	// An etag associated with the resource, used for optimistic concurrency when editing it.
-	Etag *string `pulumi:"etag"`
-	// Setting indicating whether the service has a managed identity associated with it.
-	Identity *ServicesResourceIdentity `pulumi:"identity"`
-	// The kind of the service.
-	Kind string `pulumi:"kind"`
-	// The resource location.
-	Location *string `pulumi:"location"`
-	// The common properties of a service.
-	Properties *ServicesProperties `pulumi:"properties"`
-	// The name of the resource group that contains the service instance.
-	ResourceGroupName string `pulumi:"resourceGroupName"`
-	// The name of the service instance.
-	ResourceName *string `pulumi:"resourceName"`
-	// The resource tags.
-	Tags map[string]string `pulumi:"tags"`
+	Etag              *string                   `pulumi:"etag"`
+	Identity          *ServicesResourceIdentity `pulumi:"identity"`
+	Kind              Kind                      `pulumi:"kind"`
+	Location          *string                   `pulumi:"location"`
+	Properties        *ServicesProperties       `pulumi:"properties"`
+	ResourceGroupName string                    `pulumi:"resourceGroupName"`
+	ResourceName      *string                   `pulumi:"resourceName"`
+	Tags              map[string]string         `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a PrivateLinkServicesForM365SecurityCenter resource.
 type PrivateLinkServicesForM365SecurityCenterArgs struct {
-	// An etag associated with the resource, used for optimistic concurrency when editing it.
-	Etag pulumi.StringPtrInput
-	// Setting indicating whether the service has a managed identity associated with it.
-	Identity ServicesResourceIdentityPtrInput
-	// The kind of the service.
-	Kind Kind
-	// The resource location.
-	Location pulumi.StringPtrInput
-	// The common properties of a service.
-	Properties ServicesPropertiesPtrInput
-	// The name of the resource group that contains the service instance.
+	Etag              pulumi.StringPtrInput
+	Identity          ServicesResourceIdentityPtrInput
+	Kind              KindInput
+	Location          pulumi.StringPtrInput
+	Properties        ServicesPropertiesPtrInput
 	ResourceGroupName pulumi.StringInput
-	// The name of the service instance.
-	ResourceName pulumi.StringPtrInput
-	// The resource tags.
-	Tags pulumi.StringMapInput
+	ResourceName      pulumi.StringPtrInput
+	Tags              pulumi.StringMapInput
 }
 
 func (PrivateLinkServicesForM365SecurityCenterArgs) ElementType() reflect.Type {
@@ -156,9 +133,7 @@ func (i *PrivateLinkServicesForM365SecurityCenter) ToPrivateLinkServicesForM365S
 	return pulumi.ToOutputWithContext(ctx, i).(PrivateLinkServicesForM365SecurityCenterOutput)
 }
 
-type PrivateLinkServicesForM365SecurityCenterOutput struct {
-	*pulumi.OutputState
-}
+type PrivateLinkServicesForM365SecurityCenterOutput struct{ *pulumi.OutputState }
 
 func (PrivateLinkServicesForM365SecurityCenterOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*PrivateLinkServicesForM365SecurityCenter)(nil))

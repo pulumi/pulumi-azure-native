@@ -7,7 +7,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Class representing a Traffic Manager Real User Metrics key response.
 func LookupTrafficManagerUserMetricsKey(ctx *pulumi.Context, args *LookupTrafficManagerUserMetricsKeyArgs, opts ...pulumi.InvokeOption) (*LookupTrafficManagerUserMetricsKeyResult, error) {
 	var rv LookupTrafficManagerUserMetricsKeyResult
 	err := ctx.Invoke("azure-native:network/v20170901preview:getTrafficManagerUserMetricsKey", args, &rv, opts...)
@@ -22,12 +21,8 @@ type LookupTrafficManagerUserMetricsKeyArgs struct {
 
 // Class representing a Traffic Manager Real User Metrics key response.
 type LookupTrafficManagerUserMetricsKeyResult struct {
-	// Fully qualified resource Id for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Network/trafficManagerProfiles/{resourceName}
-	Id string `pulumi:"id"`
-	// The key returned by the Real User Metrics operation.
-	Key *string `pulumi:"key"`
-	// The name of the resource
-	Name string `pulumi:"name"`
-	// The type of the resource. Ex- Microsoft.Network/trafficManagerProfiles.
-	Type string `pulumi:"type"`
+	Id   string  `pulumi:"id"`
+	Key  *string `pulumi:"key"`
+	Name string  `pulumi:"name"`
+	Type string  `pulumi:"type"`
 }

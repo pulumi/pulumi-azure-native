@@ -7,7 +7,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Single item in a List or Get VirtualNetworkRules operation
 func LookupNamespaceVirtualNetworkRule(ctx *pulumi.Context, args *LookupNamespaceVirtualNetworkRuleArgs, opts ...pulumi.InvokeOption) (*LookupNamespaceVirtualNetworkRuleResult, error) {
 	var rv LookupNamespaceVirtualNetworkRuleResult
 	err := ctx.Invoke("azure-native:servicebus/v20180101preview:getNamespaceVirtualNetworkRule", args, &rv, opts...)
@@ -18,22 +17,15 @@ func LookupNamespaceVirtualNetworkRule(ctx *pulumi.Context, args *LookupNamespac
 }
 
 type LookupNamespaceVirtualNetworkRuleArgs struct {
-	// The namespace name
-	NamespaceName string `pulumi:"namespaceName"`
-	// Name of the Resource group within the Azure subscription.
-	ResourceGroupName string `pulumi:"resourceGroupName"`
-	// The Virtual Network Rule name.
+	NamespaceName          string `pulumi:"namespaceName"`
+	ResourceGroupName      string `pulumi:"resourceGroupName"`
 	VirtualNetworkRuleName string `pulumi:"virtualNetworkRuleName"`
 }
 
 // Single item in a List or Get VirtualNetworkRules operation
 type LookupNamespaceVirtualNetworkRuleResult struct {
-	// Resource Id
-	Id string `pulumi:"id"`
-	// Resource name
-	Name string `pulumi:"name"`
-	// Resource type
-	Type string `pulumi:"type"`
-	// Resource ID of Virtual Network Subnet
+	Id                     string  `pulumi:"id"`
+	Name                   string  `pulumi:"name"`
+	Type                   string  `pulumi:"type"`
 	VirtualNetworkSubnetId *string `pulumi:"virtualNetworkSubnetId"`
 }

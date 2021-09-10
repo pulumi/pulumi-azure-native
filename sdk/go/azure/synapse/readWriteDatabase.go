@@ -172,9 +172,7 @@ func (i *ReadWriteDatabase) ToReadWriteDatabaseOutputWithContext(ctx context.Con
 	return pulumi.ToOutputWithContext(ctx, i).(ReadWriteDatabaseOutput)
 }
 
-type ReadWriteDatabaseOutput struct {
-	*pulumi.OutputState
-}
+type ReadWriteDatabaseOutput struct{ *pulumi.OutputState }
 
 func (ReadWriteDatabaseOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*ReadWriteDatabase)(nil))

@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.ServiceFabric.V20210101Preview.Outputs
 {
 
+    /// <summary>
+    /// The properties of a stateful service resource.
+    /// </summary>
     [OutputType]
     public sealed class StatefulServicePropertiesResponse
     {

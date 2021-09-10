@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.Web.V20150801.Outputs
 {
 
+    /// <summary>
+    /// StatusCodeBasedTrigger
+    /// </summary>
     [OutputType]
     public sealed class StatusCodesBasedTriggerResponse
     {

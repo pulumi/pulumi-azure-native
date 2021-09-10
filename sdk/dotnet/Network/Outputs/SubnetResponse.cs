@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.Network.Outputs
 {
 
+    /// <summary>
+    /// Subnet in a virtual network resource.
+    /// </summary>
     [OutputType]
     public sealed class SubnetResponse
     {

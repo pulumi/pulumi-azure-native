@@ -11,23 +11,16 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Remote Private Endpoint Connection ARM resource.
 type AppServiceEnvironmentPrivateEndpointConnection struct {
 	pulumi.CustomResourceState
 
-	// Private IPAddresses mapped to the remote private endpoint
-	IpAddresses pulumi.StringArrayOutput `pulumi:"ipAddresses"`
-	// Kind of resource.
-	Kind pulumi.StringPtrOutput `pulumi:"kind"`
-	// Resource Name.
-	Name pulumi.StringOutput `pulumi:"name"`
-	// PrivateEndpoint of a remote private endpoint connection
-	PrivateEndpoint ArmIdWrapperResponsePtrOutput `pulumi:"privateEndpoint"`
-	// The state of a private link connection
+	IpAddresses                       pulumi.StringArrayOutput                    `pulumi:"ipAddresses"`
+	Kind                              pulumi.StringPtrOutput                      `pulumi:"kind"`
+	Name                              pulumi.StringOutput                         `pulumi:"name"`
+	PrivateEndpoint                   ArmIdWrapperResponsePtrOutput               `pulumi:"privateEndpoint"`
 	PrivateLinkServiceConnectionState PrivateLinkConnectionStateResponsePtrOutput `pulumi:"privateLinkServiceConnectionState"`
 	ProvisioningState                 pulumi.StringOutput                         `pulumi:"provisioningState"`
-	// Resource type.
-	Type pulumi.StringOutput `pulumi:"type"`
+	Type                              pulumi.StringOutput                         `pulumi:"type"`
 }
 
 // NewAppServiceEnvironmentPrivateEndpointConnection registers a new resource with the given unique name, arguments, and options.
@@ -105,28 +98,20 @@ func (AppServiceEnvironmentPrivateEndpointConnectionState) ElementType() reflect
 }
 
 type appServiceEnvironmentPrivateEndpointConnectionArgs struct {
-	// Kind of resource.
-	Kind *string `pulumi:"kind"`
-	// Name of the App Service Environment.
-	Name                          string  `pulumi:"name"`
-	PrivateEndpointConnectionName *string `pulumi:"privateEndpointConnectionName"`
-	// The state of a private link connection
+	Kind                              *string                     `pulumi:"kind"`
+	Name                              string                      `pulumi:"name"`
+	PrivateEndpointConnectionName     *string                     `pulumi:"privateEndpointConnectionName"`
 	PrivateLinkServiceConnectionState *PrivateLinkConnectionState `pulumi:"privateLinkServiceConnectionState"`
-	// Name of the resource group to which the resource belongs.
-	ResourceGroupName string `pulumi:"resourceGroupName"`
+	ResourceGroupName                 string                      `pulumi:"resourceGroupName"`
 }
 
 // The set of arguments for constructing a AppServiceEnvironmentPrivateEndpointConnection resource.
 type AppServiceEnvironmentPrivateEndpointConnectionArgs struct {
-	// Kind of resource.
-	Kind pulumi.StringPtrInput
-	// Name of the App Service Environment.
-	Name                          pulumi.StringInput
-	PrivateEndpointConnectionName pulumi.StringPtrInput
-	// The state of a private link connection
+	Kind                              pulumi.StringPtrInput
+	Name                              pulumi.StringInput
+	PrivateEndpointConnectionName     pulumi.StringPtrInput
 	PrivateLinkServiceConnectionState PrivateLinkConnectionStatePtrInput
-	// Name of the resource group to which the resource belongs.
-	ResourceGroupName pulumi.StringInput
+	ResourceGroupName                 pulumi.StringInput
 }
 
 func (AppServiceEnvironmentPrivateEndpointConnectionArgs) ElementType() reflect.Type {
@@ -152,9 +137,7 @@ func (i *AppServiceEnvironmentPrivateEndpointConnection) ToAppServiceEnvironment
 	return pulumi.ToOutputWithContext(ctx, i).(AppServiceEnvironmentPrivateEndpointConnectionOutput)
 }
 
-type AppServiceEnvironmentPrivateEndpointConnectionOutput struct {
-	*pulumi.OutputState
-}
+type AppServiceEnvironmentPrivateEndpointConnectionOutput struct{ *pulumi.OutputState }
 
 func (AppServiceEnvironmentPrivateEndpointConnectionOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*AppServiceEnvironmentPrivateEndpointConnection)(nil))

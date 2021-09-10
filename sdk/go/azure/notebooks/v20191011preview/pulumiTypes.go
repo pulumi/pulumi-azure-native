@@ -10,7 +10,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// System data for notebook resource
 type NotebookResourceSystemData struct {
 	CreatedAt          *string `pulumi:"createdAt"`
 	CreatedBy          *string `pulumi:"createdBy"`
@@ -31,7 +30,6 @@ type NotebookResourceSystemDataInput interface {
 	ToNotebookResourceSystemDataOutputWithContext(context.Context) NotebookResourceSystemDataOutput
 }
 
-// System data for notebook resource
 type NotebookResourceSystemDataArgs struct {
 	CreatedAt          pulumi.StringPtrInput `pulumi:"createdAt"`
 	CreatedBy          pulumi.StringPtrInput `pulumi:"createdBy"`
@@ -94,7 +92,6 @@ func (i *notebookResourceSystemDataPtrType) ToNotebookResourceSystemDataPtrOutpu
 	return pulumi.ToOutputWithContext(ctx, i).(NotebookResourceSystemDataPtrOutput)
 }
 
-// System data for notebook resource
 type NotebookResourceSystemDataOutput struct{ *pulumi.OutputState }
 
 func (NotebookResourceSystemDataOutput) ElementType() reflect.Type {
@@ -114,10 +111,11 @@ func (o NotebookResourceSystemDataOutput) ToNotebookResourceSystemDataPtrOutput(
 }
 
 func (o NotebookResourceSystemDataOutput) ToNotebookResourceSystemDataPtrOutputWithContext(ctx context.Context) NotebookResourceSystemDataPtrOutput {
-	return o.ApplyT(func(v NotebookResourceSystemData) *NotebookResourceSystemData {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v NotebookResourceSystemData) *NotebookResourceSystemData {
 		return &v
 	}).(NotebookResourceSystemDataPtrOutput)
 }
+
 func (o NotebookResourceSystemDataOutput) CreatedAt() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v NotebookResourceSystemData) *string { return v.CreatedAt }).(pulumi.StringPtrOutput)
 }
@@ -157,7 +155,13 @@ func (o NotebookResourceSystemDataPtrOutput) ToNotebookResourceSystemDataPtrOutp
 }
 
 func (o NotebookResourceSystemDataPtrOutput) Elem() NotebookResourceSystemDataOutput {
-	return o.ApplyT(func(v *NotebookResourceSystemData) NotebookResourceSystemData { return *v }).(NotebookResourceSystemDataOutput)
+	return o.ApplyT(func(v *NotebookResourceSystemData) NotebookResourceSystemData {
+		if v != nil {
+			return *v
+		}
+		var ret NotebookResourceSystemData
+		return ret
+	}).(NotebookResourceSystemDataOutput)
 }
 
 func (o NotebookResourceSystemDataPtrOutput) CreatedAt() pulumi.StringPtrOutput {
@@ -214,7 +218,6 @@ func (o NotebookResourceSystemDataPtrOutput) LastModifiedByType() pulumi.StringP
 	}).(pulumi.StringPtrOutput)
 }
 
-// System data for notebook resource
 type NotebookResourceSystemDataResponse struct {
 	CreatedAt          *string `pulumi:"createdAt"`
 	CreatedBy          *string `pulumi:"createdBy"`
@@ -235,7 +238,6 @@ type NotebookResourceSystemDataResponseInput interface {
 	ToNotebookResourceSystemDataResponseOutputWithContext(context.Context) NotebookResourceSystemDataResponseOutput
 }
 
-// System data for notebook resource
 type NotebookResourceSystemDataResponseArgs struct {
 	CreatedAt          pulumi.StringPtrInput `pulumi:"createdAt"`
 	CreatedBy          pulumi.StringPtrInput `pulumi:"createdBy"`
@@ -298,7 +300,6 @@ func (i *notebookResourceSystemDataResponsePtrType) ToNotebookResourceSystemData
 	return pulumi.ToOutputWithContext(ctx, i).(NotebookResourceSystemDataResponsePtrOutput)
 }
 
-// System data for notebook resource
 type NotebookResourceSystemDataResponseOutput struct{ *pulumi.OutputState }
 
 func (NotebookResourceSystemDataResponseOutput) ElementType() reflect.Type {
@@ -318,10 +319,11 @@ func (o NotebookResourceSystemDataResponseOutput) ToNotebookResourceSystemDataRe
 }
 
 func (o NotebookResourceSystemDataResponseOutput) ToNotebookResourceSystemDataResponsePtrOutputWithContext(ctx context.Context) NotebookResourceSystemDataResponsePtrOutput {
-	return o.ApplyT(func(v NotebookResourceSystemDataResponse) *NotebookResourceSystemDataResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v NotebookResourceSystemDataResponse) *NotebookResourceSystemDataResponse {
 		return &v
 	}).(NotebookResourceSystemDataResponsePtrOutput)
 }
+
 func (o NotebookResourceSystemDataResponseOutput) CreatedAt() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v NotebookResourceSystemDataResponse) *string { return v.CreatedAt }).(pulumi.StringPtrOutput)
 }
@@ -361,7 +363,13 @@ func (o NotebookResourceSystemDataResponsePtrOutput) ToNotebookResourceSystemDat
 }
 
 func (o NotebookResourceSystemDataResponsePtrOutput) Elem() NotebookResourceSystemDataResponseOutput {
-	return o.ApplyT(func(v *NotebookResourceSystemDataResponse) NotebookResourceSystemDataResponse { return *v }).(NotebookResourceSystemDataResponseOutput)
+	return o.ApplyT(func(v *NotebookResourceSystemDataResponse) NotebookResourceSystemDataResponse {
+		if v != nil {
+			return *v
+		}
+		var ret NotebookResourceSystemDataResponse
+		return ret
+	}).(NotebookResourceSystemDataResponseOutput)
 }
 
 func (o NotebookResourceSystemDataResponsePtrOutput) CreatedAt() pulumi.StringPtrOutput {

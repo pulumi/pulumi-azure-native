@@ -173,9 +173,7 @@ func (i *JobAgent) ToJobAgentOutputWithContext(ctx context.Context) JobAgentOutp
 	return pulumi.ToOutputWithContext(ctx, i).(JobAgentOutput)
 }
 
-type JobAgentOutput struct {
-	*pulumi.OutputState
-}
+type JobAgentOutput struct{ *pulumi.OutputState }
 
 func (JobAgentOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*JobAgent)(nil))

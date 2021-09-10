@@ -10,10 +10,8 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Indicates that either the API key or an access token from Azure Active Directory can be used for authentication.
 type DataPlaneAadOrApiKeyAuthOption struct {
-	// Describes what response the data plane API of a Search service would send for requests that failed authentication.
-	AadAuthFailureMode *string `pulumi:"aadAuthFailureMode"`
+	AadAuthFailureMode *AadAuthFailureMode `pulumi:"aadAuthFailureMode"`
 }
 
 // DataPlaneAadOrApiKeyAuthOptionInput is an input type that accepts DataPlaneAadOrApiKeyAuthOptionArgs and DataPlaneAadOrApiKeyAuthOptionOutput values.
@@ -27,10 +25,8 @@ type DataPlaneAadOrApiKeyAuthOptionInput interface {
 	ToDataPlaneAadOrApiKeyAuthOptionOutputWithContext(context.Context) DataPlaneAadOrApiKeyAuthOptionOutput
 }
 
-// Indicates that either the API key or an access token from Azure Active Directory can be used for authentication.
 type DataPlaneAadOrApiKeyAuthOptionArgs struct {
-	// Describes what response the data plane API of a Search service would send for requests that failed authentication.
-	AadAuthFailureMode *AadAuthFailureMode `pulumi:"aadAuthFailureMode"`
+	AadAuthFailureMode AadAuthFailureModePtrInput `pulumi:"aadAuthFailureMode"`
 }
 
 func (DataPlaneAadOrApiKeyAuthOptionArgs) ElementType() reflect.Type {
@@ -86,7 +82,6 @@ func (i *dataPlaneAadOrApiKeyAuthOptionPtrType) ToDataPlaneAadOrApiKeyAuthOption
 	return pulumi.ToOutputWithContext(ctx, i).(DataPlaneAadOrApiKeyAuthOptionPtrOutput)
 }
 
-// Indicates that either the API key or an access token from Azure Active Directory can be used for authentication.
 type DataPlaneAadOrApiKeyAuthOptionOutput struct{ *pulumi.OutputState }
 
 func (DataPlaneAadOrApiKeyAuthOptionOutput) ElementType() reflect.Type {
@@ -106,14 +101,13 @@ func (o DataPlaneAadOrApiKeyAuthOptionOutput) ToDataPlaneAadOrApiKeyAuthOptionPt
 }
 
 func (o DataPlaneAadOrApiKeyAuthOptionOutput) ToDataPlaneAadOrApiKeyAuthOptionPtrOutputWithContext(ctx context.Context) DataPlaneAadOrApiKeyAuthOptionPtrOutput {
-	return o.ApplyT(func(v DataPlaneAadOrApiKeyAuthOption) *DataPlaneAadOrApiKeyAuthOption {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v DataPlaneAadOrApiKeyAuthOption) *DataPlaneAadOrApiKeyAuthOption {
 		return &v
 	}).(DataPlaneAadOrApiKeyAuthOptionPtrOutput)
 }
 
-// Describes what response the data plane API of a Search service would send for requests that failed authentication.
-func (o DataPlaneAadOrApiKeyAuthOptionOutput) AadAuthFailureMode() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v DataPlaneAadOrApiKeyAuthOption) *string { return v.AadAuthFailureMode }).(pulumi.StringPtrOutput)
+func (o DataPlaneAadOrApiKeyAuthOptionOutput) AadAuthFailureMode() AadAuthFailureModePtrOutput {
+	return o.ApplyT(func(v DataPlaneAadOrApiKeyAuthOption) *AadAuthFailureMode { return v.AadAuthFailureMode }).(AadAuthFailureModePtrOutput)
 }
 
 type DataPlaneAadOrApiKeyAuthOptionPtrOutput struct{ *pulumi.OutputState }
@@ -131,22 +125,25 @@ func (o DataPlaneAadOrApiKeyAuthOptionPtrOutput) ToDataPlaneAadOrApiKeyAuthOptio
 }
 
 func (o DataPlaneAadOrApiKeyAuthOptionPtrOutput) Elem() DataPlaneAadOrApiKeyAuthOptionOutput {
-	return o.ApplyT(func(v *DataPlaneAadOrApiKeyAuthOption) DataPlaneAadOrApiKeyAuthOption { return *v }).(DataPlaneAadOrApiKeyAuthOptionOutput)
+	return o.ApplyT(func(v *DataPlaneAadOrApiKeyAuthOption) DataPlaneAadOrApiKeyAuthOption {
+		if v != nil {
+			return *v
+		}
+		var ret DataPlaneAadOrApiKeyAuthOption
+		return ret
+	}).(DataPlaneAadOrApiKeyAuthOptionOutput)
 }
 
-// Describes what response the data plane API of a Search service would send for requests that failed authentication.
-func (o DataPlaneAadOrApiKeyAuthOptionPtrOutput) AadAuthFailureMode() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *DataPlaneAadOrApiKeyAuthOption) *string {
+func (o DataPlaneAadOrApiKeyAuthOptionPtrOutput) AadAuthFailureMode() AadAuthFailureModePtrOutput {
+	return o.ApplyT(func(v *DataPlaneAadOrApiKeyAuthOption) *AadAuthFailureMode {
 		if v == nil {
 			return nil
 		}
 		return v.AadAuthFailureMode
-	}).(pulumi.StringPtrOutput)
+	}).(AadAuthFailureModePtrOutput)
 }
 
-// Indicates that either the API key or an access token from Azure Active Directory can be used for authentication.
 type DataPlaneAadOrApiKeyAuthOptionResponse struct {
-	// Describes what response the data plane API of a Search service would send for requests that failed authentication.
 	AadAuthFailureMode *string `pulumi:"aadAuthFailureMode"`
 }
 
@@ -161,9 +158,7 @@ type DataPlaneAadOrApiKeyAuthOptionResponseInput interface {
 	ToDataPlaneAadOrApiKeyAuthOptionResponseOutputWithContext(context.Context) DataPlaneAadOrApiKeyAuthOptionResponseOutput
 }
 
-// Indicates that either the API key or an access token from Azure Active Directory can be used for authentication.
 type DataPlaneAadOrApiKeyAuthOptionResponseArgs struct {
-	// Describes what response the data plane API of a Search service would send for requests that failed authentication.
 	AadAuthFailureMode pulumi.StringPtrInput `pulumi:"aadAuthFailureMode"`
 }
 
@@ -220,7 +215,6 @@ func (i *dataPlaneAadOrApiKeyAuthOptionResponsePtrType) ToDataPlaneAadOrApiKeyAu
 	return pulumi.ToOutputWithContext(ctx, i).(DataPlaneAadOrApiKeyAuthOptionResponsePtrOutput)
 }
 
-// Indicates that either the API key or an access token from Azure Active Directory can be used for authentication.
 type DataPlaneAadOrApiKeyAuthOptionResponseOutput struct{ *pulumi.OutputState }
 
 func (DataPlaneAadOrApiKeyAuthOptionResponseOutput) ElementType() reflect.Type {
@@ -240,12 +234,11 @@ func (o DataPlaneAadOrApiKeyAuthOptionResponseOutput) ToDataPlaneAadOrApiKeyAuth
 }
 
 func (o DataPlaneAadOrApiKeyAuthOptionResponseOutput) ToDataPlaneAadOrApiKeyAuthOptionResponsePtrOutputWithContext(ctx context.Context) DataPlaneAadOrApiKeyAuthOptionResponsePtrOutput {
-	return o.ApplyT(func(v DataPlaneAadOrApiKeyAuthOptionResponse) *DataPlaneAadOrApiKeyAuthOptionResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v DataPlaneAadOrApiKeyAuthOptionResponse) *DataPlaneAadOrApiKeyAuthOptionResponse {
 		return &v
 	}).(DataPlaneAadOrApiKeyAuthOptionResponsePtrOutput)
 }
 
-// Describes what response the data plane API of a Search service would send for requests that failed authentication.
 func (o DataPlaneAadOrApiKeyAuthOptionResponseOutput) AadAuthFailureMode() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v DataPlaneAadOrApiKeyAuthOptionResponse) *string { return v.AadAuthFailureMode }).(pulumi.StringPtrOutput)
 }
@@ -265,10 +258,15 @@ func (o DataPlaneAadOrApiKeyAuthOptionResponsePtrOutput) ToDataPlaneAadOrApiKeyA
 }
 
 func (o DataPlaneAadOrApiKeyAuthOptionResponsePtrOutput) Elem() DataPlaneAadOrApiKeyAuthOptionResponseOutput {
-	return o.ApplyT(func(v *DataPlaneAadOrApiKeyAuthOptionResponse) DataPlaneAadOrApiKeyAuthOptionResponse { return *v }).(DataPlaneAadOrApiKeyAuthOptionResponseOutput)
+	return o.ApplyT(func(v *DataPlaneAadOrApiKeyAuthOptionResponse) DataPlaneAadOrApiKeyAuthOptionResponse {
+		if v != nil {
+			return *v
+		}
+		var ret DataPlaneAadOrApiKeyAuthOptionResponse
+		return ret
+	}).(DataPlaneAadOrApiKeyAuthOptionResponseOutput)
 }
 
-// Describes what response the data plane API of a Search service would send for requests that failed authentication.
 func (o DataPlaneAadOrApiKeyAuthOptionResponsePtrOutput) AadAuthFailureMode() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *DataPlaneAadOrApiKeyAuthOptionResponse) *string {
 		if v == nil {
@@ -278,12 +276,9 @@ func (o DataPlaneAadOrApiKeyAuthOptionResponsePtrOutput) AadAuthFailureMode() pu
 	}).(pulumi.StringPtrOutput)
 }
 
-// Defines the options for how the data plane API of a Search service authenticates requests. This cannot be set if 'disableLocalAuth' is set to true.
 type DataPlaneAuthOptions struct {
-	// Indicates that either the API key or an access token from Azure Active Directory can be used for authentication.
 	AadOrApiKey *DataPlaneAadOrApiKeyAuthOption `pulumi:"aadOrApiKey"`
-	// Indicates that only the API key needs to be used for authentication.
-	ApiKeyOnly interface{} `pulumi:"apiKeyOnly"`
+	ApiKeyOnly  interface{}                     `pulumi:"apiKeyOnly"`
 }
 
 // DataPlaneAuthOptionsInput is an input type that accepts DataPlaneAuthOptionsArgs and DataPlaneAuthOptionsOutput values.
@@ -297,12 +292,9 @@ type DataPlaneAuthOptionsInput interface {
 	ToDataPlaneAuthOptionsOutputWithContext(context.Context) DataPlaneAuthOptionsOutput
 }
 
-// Defines the options for how the data plane API of a Search service authenticates requests. This cannot be set if 'disableLocalAuth' is set to true.
 type DataPlaneAuthOptionsArgs struct {
-	// Indicates that either the API key or an access token from Azure Active Directory can be used for authentication.
 	AadOrApiKey DataPlaneAadOrApiKeyAuthOptionPtrInput `pulumi:"aadOrApiKey"`
-	// Indicates that only the API key needs to be used for authentication.
-	ApiKeyOnly pulumi.Input `pulumi:"apiKeyOnly"`
+	ApiKeyOnly  pulumi.Input                           `pulumi:"apiKeyOnly"`
 }
 
 func (DataPlaneAuthOptionsArgs) ElementType() reflect.Type {
@@ -358,7 +350,6 @@ func (i *dataPlaneAuthOptionsPtrType) ToDataPlaneAuthOptionsPtrOutputWithContext
 	return pulumi.ToOutputWithContext(ctx, i).(DataPlaneAuthOptionsPtrOutput)
 }
 
-// Defines the options for how the data plane API of a Search service authenticates requests. This cannot be set if 'disableLocalAuth' is set to true.
 type DataPlaneAuthOptionsOutput struct{ *pulumi.OutputState }
 
 func (DataPlaneAuthOptionsOutput) ElementType() reflect.Type {
@@ -378,17 +369,15 @@ func (o DataPlaneAuthOptionsOutput) ToDataPlaneAuthOptionsPtrOutput() DataPlaneA
 }
 
 func (o DataPlaneAuthOptionsOutput) ToDataPlaneAuthOptionsPtrOutputWithContext(ctx context.Context) DataPlaneAuthOptionsPtrOutput {
-	return o.ApplyT(func(v DataPlaneAuthOptions) *DataPlaneAuthOptions {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v DataPlaneAuthOptions) *DataPlaneAuthOptions {
 		return &v
 	}).(DataPlaneAuthOptionsPtrOutput)
 }
 
-// Indicates that either the API key or an access token from Azure Active Directory can be used for authentication.
 func (o DataPlaneAuthOptionsOutput) AadOrApiKey() DataPlaneAadOrApiKeyAuthOptionPtrOutput {
 	return o.ApplyT(func(v DataPlaneAuthOptions) *DataPlaneAadOrApiKeyAuthOption { return v.AadOrApiKey }).(DataPlaneAadOrApiKeyAuthOptionPtrOutput)
 }
 
-// Indicates that only the API key needs to be used for authentication.
 func (o DataPlaneAuthOptionsOutput) ApiKeyOnly() pulumi.AnyOutput {
 	return o.ApplyT(func(v DataPlaneAuthOptions) interface{} { return v.ApiKeyOnly }).(pulumi.AnyOutput)
 }
@@ -408,10 +397,15 @@ func (o DataPlaneAuthOptionsPtrOutput) ToDataPlaneAuthOptionsPtrOutputWithContex
 }
 
 func (o DataPlaneAuthOptionsPtrOutput) Elem() DataPlaneAuthOptionsOutput {
-	return o.ApplyT(func(v *DataPlaneAuthOptions) DataPlaneAuthOptions { return *v }).(DataPlaneAuthOptionsOutput)
+	return o.ApplyT(func(v *DataPlaneAuthOptions) DataPlaneAuthOptions {
+		if v != nil {
+			return *v
+		}
+		var ret DataPlaneAuthOptions
+		return ret
+	}).(DataPlaneAuthOptionsOutput)
 }
 
-// Indicates that either the API key or an access token from Azure Active Directory can be used for authentication.
 func (o DataPlaneAuthOptionsPtrOutput) AadOrApiKey() DataPlaneAadOrApiKeyAuthOptionPtrOutput {
 	return o.ApplyT(func(v *DataPlaneAuthOptions) *DataPlaneAadOrApiKeyAuthOption {
 		if v == nil {
@@ -421,7 +415,6 @@ func (o DataPlaneAuthOptionsPtrOutput) AadOrApiKey() DataPlaneAadOrApiKeyAuthOpt
 	}).(DataPlaneAadOrApiKeyAuthOptionPtrOutput)
 }
 
-// Indicates that only the API key needs to be used for authentication.
 func (o DataPlaneAuthOptionsPtrOutput) ApiKeyOnly() pulumi.AnyOutput {
 	return o.ApplyT(func(v *DataPlaneAuthOptions) interface{} {
 		if v == nil {
@@ -431,12 +424,9 @@ func (o DataPlaneAuthOptionsPtrOutput) ApiKeyOnly() pulumi.AnyOutput {
 	}).(pulumi.AnyOutput)
 }
 
-// Defines the options for how the data plane API of a Search service authenticates requests. This cannot be set if 'disableLocalAuth' is set to true.
 type DataPlaneAuthOptionsResponse struct {
-	// Indicates that either the API key or an access token from Azure Active Directory can be used for authentication.
 	AadOrApiKey *DataPlaneAadOrApiKeyAuthOptionResponse `pulumi:"aadOrApiKey"`
-	// Indicates that only the API key needs to be used for authentication.
-	ApiKeyOnly interface{} `pulumi:"apiKeyOnly"`
+	ApiKeyOnly  interface{}                             `pulumi:"apiKeyOnly"`
 }
 
 // DataPlaneAuthOptionsResponseInput is an input type that accepts DataPlaneAuthOptionsResponseArgs and DataPlaneAuthOptionsResponseOutput values.
@@ -450,12 +440,9 @@ type DataPlaneAuthOptionsResponseInput interface {
 	ToDataPlaneAuthOptionsResponseOutputWithContext(context.Context) DataPlaneAuthOptionsResponseOutput
 }
 
-// Defines the options for how the data plane API of a Search service authenticates requests. This cannot be set if 'disableLocalAuth' is set to true.
 type DataPlaneAuthOptionsResponseArgs struct {
-	// Indicates that either the API key or an access token from Azure Active Directory can be used for authentication.
 	AadOrApiKey DataPlaneAadOrApiKeyAuthOptionResponsePtrInput `pulumi:"aadOrApiKey"`
-	// Indicates that only the API key needs to be used for authentication.
-	ApiKeyOnly pulumi.Input `pulumi:"apiKeyOnly"`
+	ApiKeyOnly  pulumi.Input                                   `pulumi:"apiKeyOnly"`
 }
 
 func (DataPlaneAuthOptionsResponseArgs) ElementType() reflect.Type {
@@ -511,7 +498,6 @@ func (i *dataPlaneAuthOptionsResponsePtrType) ToDataPlaneAuthOptionsResponsePtrO
 	return pulumi.ToOutputWithContext(ctx, i).(DataPlaneAuthOptionsResponsePtrOutput)
 }
 
-// Defines the options for how the data plane API of a Search service authenticates requests. This cannot be set if 'disableLocalAuth' is set to true.
 type DataPlaneAuthOptionsResponseOutput struct{ *pulumi.OutputState }
 
 func (DataPlaneAuthOptionsResponseOutput) ElementType() reflect.Type {
@@ -531,17 +517,15 @@ func (o DataPlaneAuthOptionsResponseOutput) ToDataPlaneAuthOptionsResponsePtrOut
 }
 
 func (o DataPlaneAuthOptionsResponseOutput) ToDataPlaneAuthOptionsResponsePtrOutputWithContext(ctx context.Context) DataPlaneAuthOptionsResponsePtrOutput {
-	return o.ApplyT(func(v DataPlaneAuthOptionsResponse) *DataPlaneAuthOptionsResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v DataPlaneAuthOptionsResponse) *DataPlaneAuthOptionsResponse {
 		return &v
 	}).(DataPlaneAuthOptionsResponsePtrOutput)
 }
 
-// Indicates that either the API key or an access token from Azure Active Directory can be used for authentication.
 func (o DataPlaneAuthOptionsResponseOutput) AadOrApiKey() DataPlaneAadOrApiKeyAuthOptionResponsePtrOutput {
 	return o.ApplyT(func(v DataPlaneAuthOptionsResponse) *DataPlaneAadOrApiKeyAuthOptionResponse { return v.AadOrApiKey }).(DataPlaneAadOrApiKeyAuthOptionResponsePtrOutput)
 }
 
-// Indicates that only the API key needs to be used for authentication.
 func (o DataPlaneAuthOptionsResponseOutput) ApiKeyOnly() pulumi.AnyOutput {
 	return o.ApplyT(func(v DataPlaneAuthOptionsResponse) interface{} { return v.ApiKeyOnly }).(pulumi.AnyOutput)
 }
@@ -561,10 +545,15 @@ func (o DataPlaneAuthOptionsResponsePtrOutput) ToDataPlaneAuthOptionsResponsePtr
 }
 
 func (o DataPlaneAuthOptionsResponsePtrOutput) Elem() DataPlaneAuthOptionsResponseOutput {
-	return o.ApplyT(func(v *DataPlaneAuthOptionsResponse) DataPlaneAuthOptionsResponse { return *v }).(DataPlaneAuthOptionsResponseOutput)
+	return o.ApplyT(func(v *DataPlaneAuthOptionsResponse) DataPlaneAuthOptionsResponse {
+		if v != nil {
+			return *v
+		}
+		var ret DataPlaneAuthOptionsResponse
+		return ret
+	}).(DataPlaneAuthOptionsResponseOutput)
 }
 
-// Indicates that either the API key or an access token from Azure Active Directory can be used for authentication.
 func (o DataPlaneAuthOptionsResponsePtrOutput) AadOrApiKey() DataPlaneAadOrApiKeyAuthOptionResponsePtrOutput {
 	return o.ApplyT(func(v *DataPlaneAuthOptionsResponse) *DataPlaneAadOrApiKeyAuthOptionResponse {
 		if v == nil {
@@ -574,7 +563,6 @@ func (o DataPlaneAuthOptionsResponsePtrOutput) AadOrApiKey() DataPlaneAadOrApiKe
 	}).(DataPlaneAadOrApiKeyAuthOptionResponsePtrOutput)
 }
 
-// Indicates that only the API key needs to be used for authentication.
 func (o DataPlaneAuthOptionsResponsePtrOutput) ApiKeyOnly() pulumi.AnyOutput {
 	return o.ApplyT(func(v *DataPlaneAuthOptionsResponse) interface{} {
 		if v == nil {
@@ -584,10 +572,8 @@ func (o DataPlaneAuthOptionsResponsePtrOutput) ApiKeyOnly() pulumi.AnyOutput {
 	}).(pulumi.AnyOutput)
 }
 
-// Describes a policy that determines how resources within the search service are to be encrypted with Customer Managed Keys.
 type EncryptionWithCmk struct {
-	// Describes how a search service should enforce having one or more non customer encrypted resources.
-	Enforcement *string `pulumi:"enforcement"`
+	Enforcement *SearchEncryptionWithCmk `pulumi:"enforcement"`
 }
 
 // EncryptionWithCmkInput is an input type that accepts EncryptionWithCmkArgs and EncryptionWithCmkOutput values.
@@ -601,10 +587,8 @@ type EncryptionWithCmkInput interface {
 	ToEncryptionWithCmkOutputWithContext(context.Context) EncryptionWithCmkOutput
 }
 
-// Describes a policy that determines how resources within the search service are to be encrypted with Customer Managed Keys.
 type EncryptionWithCmkArgs struct {
-	// Describes how a search service should enforce having one or more non customer encrypted resources.
-	Enforcement *SearchEncryptionWithCmk `pulumi:"enforcement"`
+	Enforcement SearchEncryptionWithCmkPtrInput `pulumi:"enforcement"`
 }
 
 func (EncryptionWithCmkArgs) ElementType() reflect.Type {
@@ -660,7 +644,6 @@ func (i *encryptionWithCmkPtrType) ToEncryptionWithCmkPtrOutputWithContext(ctx c
 	return pulumi.ToOutputWithContext(ctx, i).(EncryptionWithCmkPtrOutput)
 }
 
-// Describes a policy that determines how resources within the search service are to be encrypted with Customer Managed Keys.
 type EncryptionWithCmkOutput struct{ *pulumi.OutputState }
 
 func (EncryptionWithCmkOutput) ElementType() reflect.Type {
@@ -680,14 +663,13 @@ func (o EncryptionWithCmkOutput) ToEncryptionWithCmkPtrOutput() EncryptionWithCm
 }
 
 func (o EncryptionWithCmkOutput) ToEncryptionWithCmkPtrOutputWithContext(ctx context.Context) EncryptionWithCmkPtrOutput {
-	return o.ApplyT(func(v EncryptionWithCmk) *EncryptionWithCmk {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v EncryptionWithCmk) *EncryptionWithCmk {
 		return &v
 	}).(EncryptionWithCmkPtrOutput)
 }
 
-// Describes how a search service should enforce having one or more non customer encrypted resources.
-func (o EncryptionWithCmkOutput) Enforcement() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v EncryptionWithCmk) *string { return v.Enforcement }).(pulumi.StringPtrOutput)
+func (o EncryptionWithCmkOutput) Enforcement() SearchEncryptionWithCmkPtrOutput {
+	return o.ApplyT(func(v EncryptionWithCmk) *SearchEncryptionWithCmk { return v.Enforcement }).(SearchEncryptionWithCmkPtrOutput)
 }
 
 type EncryptionWithCmkPtrOutput struct{ *pulumi.OutputState }
@@ -705,25 +687,27 @@ func (o EncryptionWithCmkPtrOutput) ToEncryptionWithCmkPtrOutputWithContext(ctx 
 }
 
 func (o EncryptionWithCmkPtrOutput) Elem() EncryptionWithCmkOutput {
-	return o.ApplyT(func(v *EncryptionWithCmk) EncryptionWithCmk { return *v }).(EncryptionWithCmkOutput)
+	return o.ApplyT(func(v *EncryptionWithCmk) EncryptionWithCmk {
+		if v != nil {
+			return *v
+		}
+		var ret EncryptionWithCmk
+		return ret
+	}).(EncryptionWithCmkOutput)
 }
 
-// Describes how a search service should enforce having one or more non customer encrypted resources.
-func (o EncryptionWithCmkPtrOutput) Enforcement() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *EncryptionWithCmk) *string {
+func (o EncryptionWithCmkPtrOutput) Enforcement() SearchEncryptionWithCmkPtrOutput {
+	return o.ApplyT(func(v *EncryptionWithCmk) *SearchEncryptionWithCmk {
 		if v == nil {
 			return nil
 		}
 		return v.Enforcement
-	}).(pulumi.StringPtrOutput)
+	}).(SearchEncryptionWithCmkPtrOutput)
 }
 
-// Describes a policy that determines how resources within the search service are to be encrypted with Customer Managed Keys.
 type EncryptionWithCmkResponse struct {
-	// Describes whether the search service is compliant or not with respect to having non customer encrypted resources. If a service has more than one non customer encrypted resource and 'Enforcement' is 'enabled' then the service will be marked as 'nonCompliant'.
-	EncryptionComplianceStatus string `pulumi:"encryptionComplianceStatus"`
-	// Describes how a search service should enforce having one or more non customer encrypted resources.
-	Enforcement *string `pulumi:"enforcement"`
+	EncryptionComplianceStatus string  `pulumi:"encryptionComplianceStatus"`
+	Enforcement                *string `pulumi:"enforcement"`
 }
 
 // EncryptionWithCmkResponseInput is an input type that accepts EncryptionWithCmkResponseArgs and EncryptionWithCmkResponseOutput values.
@@ -737,12 +721,9 @@ type EncryptionWithCmkResponseInput interface {
 	ToEncryptionWithCmkResponseOutputWithContext(context.Context) EncryptionWithCmkResponseOutput
 }
 
-// Describes a policy that determines how resources within the search service are to be encrypted with Customer Managed Keys.
 type EncryptionWithCmkResponseArgs struct {
-	// Describes whether the search service is compliant or not with respect to having non customer encrypted resources. If a service has more than one non customer encrypted resource and 'Enforcement' is 'enabled' then the service will be marked as 'nonCompliant'.
-	EncryptionComplianceStatus pulumi.StringInput `pulumi:"encryptionComplianceStatus"`
-	// Describes how a search service should enforce having one or more non customer encrypted resources.
-	Enforcement pulumi.StringPtrInput `pulumi:"enforcement"`
+	EncryptionComplianceStatus pulumi.StringInput    `pulumi:"encryptionComplianceStatus"`
+	Enforcement                pulumi.StringPtrInput `pulumi:"enforcement"`
 }
 
 func (EncryptionWithCmkResponseArgs) ElementType() reflect.Type {
@@ -798,7 +779,6 @@ func (i *encryptionWithCmkResponsePtrType) ToEncryptionWithCmkResponsePtrOutputW
 	return pulumi.ToOutputWithContext(ctx, i).(EncryptionWithCmkResponsePtrOutput)
 }
 
-// Describes a policy that determines how resources within the search service are to be encrypted with Customer Managed Keys.
 type EncryptionWithCmkResponseOutput struct{ *pulumi.OutputState }
 
 func (EncryptionWithCmkResponseOutput) ElementType() reflect.Type {
@@ -818,17 +798,15 @@ func (o EncryptionWithCmkResponseOutput) ToEncryptionWithCmkResponsePtrOutput() 
 }
 
 func (o EncryptionWithCmkResponseOutput) ToEncryptionWithCmkResponsePtrOutputWithContext(ctx context.Context) EncryptionWithCmkResponsePtrOutput {
-	return o.ApplyT(func(v EncryptionWithCmkResponse) *EncryptionWithCmkResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v EncryptionWithCmkResponse) *EncryptionWithCmkResponse {
 		return &v
 	}).(EncryptionWithCmkResponsePtrOutput)
 }
 
-// Describes whether the search service is compliant or not with respect to having non customer encrypted resources. If a service has more than one non customer encrypted resource and 'Enforcement' is 'enabled' then the service will be marked as 'nonCompliant'.
 func (o EncryptionWithCmkResponseOutput) EncryptionComplianceStatus() pulumi.StringOutput {
 	return o.ApplyT(func(v EncryptionWithCmkResponse) string { return v.EncryptionComplianceStatus }).(pulumi.StringOutput)
 }
 
-// Describes how a search service should enforce having one or more non customer encrypted resources.
 func (o EncryptionWithCmkResponseOutput) Enforcement() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v EncryptionWithCmkResponse) *string { return v.Enforcement }).(pulumi.StringPtrOutput)
 }
@@ -848,10 +826,15 @@ func (o EncryptionWithCmkResponsePtrOutput) ToEncryptionWithCmkResponsePtrOutput
 }
 
 func (o EncryptionWithCmkResponsePtrOutput) Elem() EncryptionWithCmkResponseOutput {
-	return o.ApplyT(func(v *EncryptionWithCmkResponse) EncryptionWithCmkResponse { return *v }).(EncryptionWithCmkResponseOutput)
+	return o.ApplyT(func(v *EncryptionWithCmkResponse) EncryptionWithCmkResponse {
+		if v != nil {
+			return *v
+		}
+		var ret EncryptionWithCmkResponse
+		return ret
+	}).(EncryptionWithCmkResponseOutput)
 }
 
-// Describes whether the search service is compliant or not with respect to having non customer encrypted resources. If a service has more than one non customer encrypted resource and 'Enforcement' is 'enabled' then the service will be marked as 'nonCompliant'.
 func (o EncryptionWithCmkResponsePtrOutput) EncryptionComplianceStatus() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *EncryptionWithCmkResponse) *string {
 		if v == nil {
@@ -861,7 +844,6 @@ func (o EncryptionWithCmkResponsePtrOutput) EncryptionComplianceStatus() pulumi.
 	}).(pulumi.StringPtrOutput)
 }
 
-// Describes how a search service should enforce having one or more non customer encrypted resources.
 func (o EncryptionWithCmkResponsePtrOutput) Enforcement() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *EncryptionWithCmkResponse) *string {
 		if v == nil {
@@ -871,11 +853,8 @@ func (o EncryptionWithCmkResponsePtrOutput) Enforcement() pulumi.StringPtrOutput
 	}).(pulumi.StringPtrOutput)
 }
 
-// Details about the search service identity. A null value indicates that the search service has no identity assigned.
 type Identity struct {
-	// The type of identity used for the resource. The type 'SystemAssigned, UserAssigned' includes both an identity created by the system and a set of user assigned identities. The type 'None' will remove all identities from the service.
-	Type string `pulumi:"type"`
-	// The list of user identities associated with the resource. The user identity dictionary key references will be ARM resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}'.
+	Type                   string                 `pulumi:"type"`
 	UserAssignedIdentities map[string]interface{} `pulumi:"userAssignedIdentities"`
 }
 
@@ -890,12 +869,9 @@ type IdentityInput interface {
 	ToIdentityOutputWithContext(context.Context) IdentityOutput
 }
 
-// Details about the search service identity. A null value indicates that the search service has no identity assigned.
 type IdentityArgs struct {
-	// The type of identity used for the resource. The type 'SystemAssigned, UserAssigned' includes both an identity created by the system and a set of user assigned identities. The type 'None' will remove all identities from the service.
-	Type pulumi.StringInput `pulumi:"type"`
-	// The list of user identities associated with the resource. The user identity dictionary key references will be ARM resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}'.
-	UserAssignedIdentities pulumi.MapInput `pulumi:"userAssignedIdentities"`
+	Type                   pulumi.StringInput `pulumi:"type"`
+	UserAssignedIdentities pulumi.MapInput    `pulumi:"userAssignedIdentities"`
 }
 
 func (IdentityArgs) ElementType() reflect.Type {
@@ -951,7 +927,6 @@ func (i *identityPtrType) ToIdentityPtrOutputWithContext(ctx context.Context) Id
 	return pulumi.ToOutputWithContext(ctx, i).(IdentityPtrOutput)
 }
 
-// Details about the search service identity. A null value indicates that the search service has no identity assigned.
 type IdentityOutput struct{ *pulumi.OutputState }
 
 func (IdentityOutput) ElementType() reflect.Type {
@@ -971,17 +946,15 @@ func (o IdentityOutput) ToIdentityPtrOutput() IdentityPtrOutput {
 }
 
 func (o IdentityOutput) ToIdentityPtrOutputWithContext(ctx context.Context) IdentityPtrOutput {
-	return o.ApplyT(func(v Identity) *Identity {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v Identity) *Identity {
 		return &v
 	}).(IdentityPtrOutput)
 }
 
-// The type of identity used for the resource. The type 'SystemAssigned, UserAssigned' includes both an identity created by the system and a set of user assigned identities. The type 'None' will remove all identities from the service.
 func (o IdentityOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v Identity) string { return v.Type }).(pulumi.StringOutput)
 }
 
-// The list of user identities associated with the resource. The user identity dictionary key references will be ARM resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}'.
 func (o IdentityOutput) UserAssignedIdentities() pulumi.MapOutput {
 	return o.ApplyT(func(v Identity) map[string]interface{} { return v.UserAssignedIdentities }).(pulumi.MapOutput)
 }
@@ -1001,10 +974,15 @@ func (o IdentityPtrOutput) ToIdentityPtrOutputWithContext(ctx context.Context) I
 }
 
 func (o IdentityPtrOutput) Elem() IdentityOutput {
-	return o.ApplyT(func(v *Identity) Identity { return *v }).(IdentityOutput)
+	return o.ApplyT(func(v *Identity) Identity {
+		if v != nil {
+			return *v
+		}
+		var ret Identity
+		return ret
+	}).(IdentityOutput)
 }
 
-// The type of identity used for the resource. The type 'SystemAssigned, UserAssigned' includes both an identity created by the system and a set of user assigned identities. The type 'None' will remove all identities from the service.
 func (o IdentityPtrOutput) Type() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Identity) *string {
 		if v == nil {
@@ -1014,7 +992,6 @@ func (o IdentityPtrOutput) Type() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The list of user identities associated with the resource. The user identity dictionary key references will be ARM resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}'.
 func (o IdentityPtrOutput) UserAssignedIdentities() pulumi.MapOutput {
 	return o.ApplyT(func(v *Identity) map[string]interface{} {
 		if v == nil {
@@ -1024,15 +1001,10 @@ func (o IdentityPtrOutput) UserAssignedIdentities() pulumi.MapOutput {
 	}).(pulumi.MapOutput)
 }
 
-// Details about the search service identity. A null value indicates that the search service has no identity assigned.
 type IdentityResponse struct {
-	// The principal ID of the system-assigned identity of the search service.
-	PrincipalId string `pulumi:"principalId"`
-	// The tenant ID of the system-assigned identity of the search service.
-	TenantId string `pulumi:"tenantId"`
-	// The type of identity used for the resource. The type 'SystemAssigned, UserAssigned' includes both an identity created by the system and a set of user assigned identities. The type 'None' will remove all identities from the service.
-	Type string `pulumi:"type"`
-	// The list of user identities associated with the resource. The user identity dictionary key references will be ARM resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}'.
+	PrincipalId            string                                         `pulumi:"principalId"`
+	TenantId               string                                         `pulumi:"tenantId"`
+	Type                   string                                         `pulumi:"type"`
 	UserAssignedIdentities map[string]UserAssignedManagedIdentityResponse `pulumi:"userAssignedIdentities"`
 }
 
@@ -1047,15 +1019,10 @@ type IdentityResponseInput interface {
 	ToIdentityResponseOutputWithContext(context.Context) IdentityResponseOutput
 }
 
-// Details about the search service identity. A null value indicates that the search service has no identity assigned.
 type IdentityResponseArgs struct {
-	// The principal ID of the system-assigned identity of the search service.
-	PrincipalId pulumi.StringInput `pulumi:"principalId"`
-	// The tenant ID of the system-assigned identity of the search service.
-	TenantId pulumi.StringInput `pulumi:"tenantId"`
-	// The type of identity used for the resource. The type 'SystemAssigned, UserAssigned' includes both an identity created by the system and a set of user assigned identities. The type 'None' will remove all identities from the service.
-	Type pulumi.StringInput `pulumi:"type"`
-	// The list of user identities associated with the resource. The user identity dictionary key references will be ARM resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}'.
+	PrincipalId            pulumi.StringInput                          `pulumi:"principalId"`
+	TenantId               pulumi.StringInput                          `pulumi:"tenantId"`
+	Type                   pulumi.StringInput                          `pulumi:"type"`
 	UserAssignedIdentities UserAssignedManagedIdentityResponseMapInput `pulumi:"userAssignedIdentities"`
 }
 
@@ -1112,7 +1079,6 @@ func (i *identityResponsePtrType) ToIdentityResponsePtrOutputWithContext(ctx con
 	return pulumi.ToOutputWithContext(ctx, i).(IdentityResponsePtrOutput)
 }
 
-// Details about the search service identity. A null value indicates that the search service has no identity assigned.
 type IdentityResponseOutput struct{ *pulumi.OutputState }
 
 func (IdentityResponseOutput) ElementType() reflect.Type {
@@ -1132,27 +1098,23 @@ func (o IdentityResponseOutput) ToIdentityResponsePtrOutput() IdentityResponsePt
 }
 
 func (o IdentityResponseOutput) ToIdentityResponsePtrOutputWithContext(ctx context.Context) IdentityResponsePtrOutput {
-	return o.ApplyT(func(v IdentityResponse) *IdentityResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v IdentityResponse) *IdentityResponse {
 		return &v
 	}).(IdentityResponsePtrOutput)
 }
 
-// The principal ID of the system-assigned identity of the search service.
 func (o IdentityResponseOutput) PrincipalId() pulumi.StringOutput {
 	return o.ApplyT(func(v IdentityResponse) string { return v.PrincipalId }).(pulumi.StringOutput)
 }
 
-// The tenant ID of the system-assigned identity of the search service.
 func (o IdentityResponseOutput) TenantId() pulumi.StringOutput {
 	return o.ApplyT(func(v IdentityResponse) string { return v.TenantId }).(pulumi.StringOutput)
 }
 
-// The type of identity used for the resource. The type 'SystemAssigned, UserAssigned' includes both an identity created by the system and a set of user assigned identities. The type 'None' will remove all identities from the service.
 func (o IdentityResponseOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v IdentityResponse) string { return v.Type }).(pulumi.StringOutput)
 }
 
-// The list of user identities associated with the resource. The user identity dictionary key references will be ARM resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}'.
 func (o IdentityResponseOutput) UserAssignedIdentities() UserAssignedManagedIdentityResponseMapOutput {
 	return o.ApplyT(func(v IdentityResponse) map[string]UserAssignedManagedIdentityResponse {
 		return v.UserAssignedIdentities
@@ -1174,10 +1136,15 @@ func (o IdentityResponsePtrOutput) ToIdentityResponsePtrOutputWithContext(ctx co
 }
 
 func (o IdentityResponsePtrOutput) Elem() IdentityResponseOutput {
-	return o.ApplyT(func(v *IdentityResponse) IdentityResponse { return *v }).(IdentityResponseOutput)
+	return o.ApplyT(func(v *IdentityResponse) IdentityResponse {
+		if v != nil {
+			return *v
+		}
+		var ret IdentityResponse
+		return ret
+	}).(IdentityResponseOutput)
 }
 
-// The principal ID of the system-assigned identity of the search service.
 func (o IdentityResponsePtrOutput) PrincipalId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *IdentityResponse) *string {
 		if v == nil {
@@ -1187,7 +1154,6 @@ func (o IdentityResponsePtrOutput) PrincipalId() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The tenant ID of the system-assigned identity of the search service.
 func (o IdentityResponsePtrOutput) TenantId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *IdentityResponse) *string {
 		if v == nil {
@@ -1197,7 +1163,6 @@ func (o IdentityResponsePtrOutput) TenantId() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The type of identity used for the resource. The type 'SystemAssigned, UserAssigned' includes both an identity created by the system and a set of user assigned identities. The type 'None' will remove all identities from the service.
 func (o IdentityResponsePtrOutput) Type() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *IdentityResponse) *string {
 		if v == nil {
@@ -1207,7 +1172,6 @@ func (o IdentityResponsePtrOutput) Type() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The list of user identities associated with the resource. The user identity dictionary key references will be ARM resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}'.
 func (o IdentityResponsePtrOutput) UserAssignedIdentities() UserAssignedManagedIdentityResponseMapOutput {
 	return o.ApplyT(func(v *IdentityResponse) map[string]UserAssignedManagedIdentityResponse {
 		if v == nil {
@@ -1217,9 +1181,7 @@ func (o IdentityResponsePtrOutput) UserAssignedIdentities() UserAssignedManagedI
 	}).(UserAssignedManagedIdentityResponseMapOutput)
 }
 
-// The IP restriction rule of the Azure Cognitive Search service.
 type IpRule struct {
-	// Value corresponding to a single IPv4 address (eg., 123.1.2.3) or an IP range in CIDR format (eg., 123.1.2.3/24) to be allowed.
 	Value *string `pulumi:"value"`
 }
 
@@ -1234,9 +1196,7 @@ type IpRuleInput interface {
 	ToIpRuleOutputWithContext(context.Context) IpRuleOutput
 }
 
-// The IP restriction rule of the Azure Cognitive Search service.
 type IpRuleArgs struct {
-	// Value corresponding to a single IPv4 address (eg., 123.1.2.3) or an IP range in CIDR format (eg., 123.1.2.3/24) to be allowed.
 	Value pulumi.StringPtrInput `pulumi:"value"`
 }
 
@@ -1277,7 +1237,6 @@ func (i IpRuleArray) ToIpRuleArrayOutputWithContext(ctx context.Context) IpRuleA
 	return pulumi.ToOutputWithContext(ctx, i).(IpRuleArrayOutput)
 }
 
-// The IP restriction rule of the Azure Cognitive Search service.
 type IpRuleOutput struct{ *pulumi.OutputState }
 
 func (IpRuleOutput) ElementType() reflect.Type {
@@ -1292,7 +1251,6 @@ func (o IpRuleOutput) ToIpRuleOutputWithContext(ctx context.Context) IpRuleOutpu
 	return o
 }
 
-// Value corresponding to a single IPv4 address (eg., 123.1.2.3) or an IP range in CIDR format (eg., 123.1.2.3/24) to be allowed.
 func (o IpRuleOutput) Value() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v IpRule) *string { return v.Value }).(pulumi.StringPtrOutput)
 }
@@ -1317,9 +1275,7 @@ func (o IpRuleArrayOutput) Index(i pulumi.IntInput) IpRuleOutput {
 	}).(IpRuleOutput)
 }
 
-// The IP restriction rule of the Azure Cognitive Search service.
 type IpRuleResponse struct {
-	// Value corresponding to a single IPv4 address (eg., 123.1.2.3) or an IP range in CIDR format (eg., 123.1.2.3/24) to be allowed.
 	Value *string `pulumi:"value"`
 }
 
@@ -1334,9 +1290,7 @@ type IpRuleResponseInput interface {
 	ToIpRuleResponseOutputWithContext(context.Context) IpRuleResponseOutput
 }
 
-// The IP restriction rule of the Azure Cognitive Search service.
 type IpRuleResponseArgs struct {
-	// Value corresponding to a single IPv4 address (eg., 123.1.2.3) or an IP range in CIDR format (eg., 123.1.2.3/24) to be allowed.
 	Value pulumi.StringPtrInput `pulumi:"value"`
 }
 
@@ -1377,7 +1331,6 @@ func (i IpRuleResponseArray) ToIpRuleResponseArrayOutputWithContext(ctx context.
 	return pulumi.ToOutputWithContext(ctx, i).(IpRuleResponseArrayOutput)
 }
 
-// The IP restriction rule of the Azure Cognitive Search service.
 type IpRuleResponseOutput struct{ *pulumi.OutputState }
 
 func (IpRuleResponseOutput) ElementType() reflect.Type {
@@ -1392,7 +1345,6 @@ func (o IpRuleResponseOutput) ToIpRuleResponseOutputWithContext(ctx context.Cont
 	return o
 }
 
-// Value corresponding to a single IPv4 address (eg., 123.1.2.3) or an IP range in CIDR format (eg., 123.1.2.3/24) to be allowed.
 func (o IpRuleResponseOutput) Value() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v IpRuleResponse) *string { return v.Value }).(pulumi.StringPtrOutput)
 }
@@ -1417,11 +1369,8 @@ func (o IpRuleResponseArrayOutput) Index(i pulumi.IntInput) IpRuleResponseOutput
 	}).(IpRuleResponseOutput)
 }
 
-// Network specific rules that determine how the Azure Cognitive Search service may be reached.
 type NetworkRuleSet struct {
-	// A specific data exfiltration scenario that is disabled for the service.
-	Bypass *string `pulumi:"bypass"`
-	// A list of IP restriction rules that defines the inbound network(s) with allowing access to the search service endpoint. At the meantime, all other public IP networks are blocked by the firewall. These restriction rules are applied only when the 'publicNetworkAccess' of the search service is 'enabled'; otherwise, traffic over public interface is not allowed even with any public IP rules, and private endpoint connections would be the exclusive access method.
+	Bypass  *string  `pulumi:"bypass"`
 	IpRules []IpRule `pulumi:"ipRules"`
 }
 
@@ -1436,12 +1385,9 @@ type NetworkRuleSetInput interface {
 	ToNetworkRuleSetOutputWithContext(context.Context) NetworkRuleSetOutput
 }
 
-// Network specific rules that determine how the Azure Cognitive Search service may be reached.
 type NetworkRuleSetArgs struct {
-	// A specific data exfiltration scenario that is disabled for the service.
-	Bypass pulumi.StringPtrInput `pulumi:"bypass"`
-	// A list of IP restriction rules that defines the inbound network(s) with allowing access to the search service endpoint. At the meantime, all other public IP networks are blocked by the firewall. These restriction rules are applied only when the 'publicNetworkAccess' of the search service is 'enabled'; otherwise, traffic over public interface is not allowed even with any public IP rules, and private endpoint connections would be the exclusive access method.
-	IpRules IpRuleArrayInput `pulumi:"ipRules"`
+	Bypass  pulumi.StringPtrInput `pulumi:"bypass"`
+	IpRules IpRuleArrayInput      `pulumi:"ipRules"`
 }
 
 func (NetworkRuleSetArgs) ElementType() reflect.Type {
@@ -1497,7 +1443,6 @@ func (i *networkRuleSetPtrType) ToNetworkRuleSetPtrOutputWithContext(ctx context
 	return pulumi.ToOutputWithContext(ctx, i).(NetworkRuleSetPtrOutput)
 }
 
-// Network specific rules that determine how the Azure Cognitive Search service may be reached.
 type NetworkRuleSetOutput struct{ *pulumi.OutputState }
 
 func (NetworkRuleSetOutput) ElementType() reflect.Type {
@@ -1517,17 +1462,15 @@ func (o NetworkRuleSetOutput) ToNetworkRuleSetPtrOutput() NetworkRuleSetPtrOutpu
 }
 
 func (o NetworkRuleSetOutput) ToNetworkRuleSetPtrOutputWithContext(ctx context.Context) NetworkRuleSetPtrOutput {
-	return o.ApplyT(func(v NetworkRuleSet) *NetworkRuleSet {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v NetworkRuleSet) *NetworkRuleSet {
 		return &v
 	}).(NetworkRuleSetPtrOutput)
 }
 
-// A specific data exfiltration scenario that is disabled for the service.
 func (o NetworkRuleSetOutput) Bypass() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v NetworkRuleSet) *string { return v.Bypass }).(pulumi.StringPtrOutput)
 }
 
-// A list of IP restriction rules that defines the inbound network(s) with allowing access to the search service endpoint. At the meantime, all other public IP networks are blocked by the firewall. These restriction rules are applied only when the 'publicNetworkAccess' of the search service is 'enabled'; otherwise, traffic over public interface is not allowed even with any public IP rules, and private endpoint connections would be the exclusive access method.
 func (o NetworkRuleSetOutput) IpRules() IpRuleArrayOutput {
 	return o.ApplyT(func(v NetworkRuleSet) []IpRule { return v.IpRules }).(IpRuleArrayOutput)
 }
@@ -1547,10 +1490,15 @@ func (o NetworkRuleSetPtrOutput) ToNetworkRuleSetPtrOutputWithContext(ctx contex
 }
 
 func (o NetworkRuleSetPtrOutput) Elem() NetworkRuleSetOutput {
-	return o.ApplyT(func(v *NetworkRuleSet) NetworkRuleSet { return *v }).(NetworkRuleSetOutput)
+	return o.ApplyT(func(v *NetworkRuleSet) NetworkRuleSet {
+		if v != nil {
+			return *v
+		}
+		var ret NetworkRuleSet
+		return ret
+	}).(NetworkRuleSetOutput)
 }
 
-// A specific data exfiltration scenario that is disabled for the service.
 func (o NetworkRuleSetPtrOutput) Bypass() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *NetworkRuleSet) *string {
 		if v == nil {
@@ -1560,7 +1508,6 @@ func (o NetworkRuleSetPtrOutput) Bypass() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// A list of IP restriction rules that defines the inbound network(s) with allowing access to the search service endpoint. At the meantime, all other public IP networks are blocked by the firewall. These restriction rules are applied only when the 'publicNetworkAccess' of the search service is 'enabled'; otherwise, traffic over public interface is not allowed even with any public IP rules, and private endpoint connections would be the exclusive access method.
 func (o NetworkRuleSetPtrOutput) IpRules() IpRuleArrayOutput {
 	return o.ApplyT(func(v *NetworkRuleSet) []IpRule {
 		if v == nil {
@@ -1570,11 +1517,8 @@ func (o NetworkRuleSetPtrOutput) IpRules() IpRuleArrayOutput {
 	}).(IpRuleArrayOutput)
 }
 
-// Network specific rules that determine how the Azure Cognitive Search service may be reached.
 type NetworkRuleSetResponse struct {
-	// A specific data exfiltration scenario that is disabled for the service.
-	Bypass *string `pulumi:"bypass"`
-	// A list of IP restriction rules that defines the inbound network(s) with allowing access to the search service endpoint. At the meantime, all other public IP networks are blocked by the firewall. These restriction rules are applied only when the 'publicNetworkAccess' of the search service is 'enabled'; otherwise, traffic over public interface is not allowed even with any public IP rules, and private endpoint connections would be the exclusive access method.
+	Bypass  *string          `pulumi:"bypass"`
 	IpRules []IpRuleResponse `pulumi:"ipRules"`
 }
 
@@ -1589,11 +1533,8 @@ type NetworkRuleSetResponseInput interface {
 	ToNetworkRuleSetResponseOutputWithContext(context.Context) NetworkRuleSetResponseOutput
 }
 
-// Network specific rules that determine how the Azure Cognitive Search service may be reached.
 type NetworkRuleSetResponseArgs struct {
-	// A specific data exfiltration scenario that is disabled for the service.
-	Bypass pulumi.StringPtrInput `pulumi:"bypass"`
-	// A list of IP restriction rules that defines the inbound network(s) with allowing access to the search service endpoint. At the meantime, all other public IP networks are blocked by the firewall. These restriction rules are applied only when the 'publicNetworkAccess' of the search service is 'enabled'; otherwise, traffic over public interface is not allowed even with any public IP rules, and private endpoint connections would be the exclusive access method.
+	Bypass  pulumi.StringPtrInput    `pulumi:"bypass"`
 	IpRules IpRuleResponseArrayInput `pulumi:"ipRules"`
 }
 
@@ -1650,7 +1591,6 @@ func (i *networkRuleSetResponsePtrType) ToNetworkRuleSetResponsePtrOutputWithCon
 	return pulumi.ToOutputWithContext(ctx, i).(NetworkRuleSetResponsePtrOutput)
 }
 
-// Network specific rules that determine how the Azure Cognitive Search service may be reached.
 type NetworkRuleSetResponseOutput struct{ *pulumi.OutputState }
 
 func (NetworkRuleSetResponseOutput) ElementType() reflect.Type {
@@ -1670,17 +1610,15 @@ func (o NetworkRuleSetResponseOutput) ToNetworkRuleSetResponsePtrOutput() Networ
 }
 
 func (o NetworkRuleSetResponseOutput) ToNetworkRuleSetResponsePtrOutputWithContext(ctx context.Context) NetworkRuleSetResponsePtrOutput {
-	return o.ApplyT(func(v NetworkRuleSetResponse) *NetworkRuleSetResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v NetworkRuleSetResponse) *NetworkRuleSetResponse {
 		return &v
 	}).(NetworkRuleSetResponsePtrOutput)
 }
 
-// A specific data exfiltration scenario that is disabled for the service.
 func (o NetworkRuleSetResponseOutput) Bypass() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v NetworkRuleSetResponse) *string { return v.Bypass }).(pulumi.StringPtrOutput)
 }
 
-// A list of IP restriction rules that defines the inbound network(s) with allowing access to the search service endpoint. At the meantime, all other public IP networks are blocked by the firewall. These restriction rules are applied only when the 'publicNetworkAccess' of the search service is 'enabled'; otherwise, traffic over public interface is not allowed even with any public IP rules, and private endpoint connections would be the exclusive access method.
 func (o NetworkRuleSetResponseOutput) IpRules() IpRuleResponseArrayOutput {
 	return o.ApplyT(func(v NetworkRuleSetResponse) []IpRuleResponse { return v.IpRules }).(IpRuleResponseArrayOutput)
 }
@@ -1700,10 +1638,15 @@ func (o NetworkRuleSetResponsePtrOutput) ToNetworkRuleSetResponsePtrOutputWithCo
 }
 
 func (o NetworkRuleSetResponsePtrOutput) Elem() NetworkRuleSetResponseOutput {
-	return o.ApplyT(func(v *NetworkRuleSetResponse) NetworkRuleSetResponse { return *v }).(NetworkRuleSetResponseOutput)
+	return o.ApplyT(func(v *NetworkRuleSetResponse) NetworkRuleSetResponse {
+		if v != nil {
+			return *v
+		}
+		var ret NetworkRuleSetResponse
+		return ret
+	}).(NetworkRuleSetResponseOutput)
 }
 
-// A specific data exfiltration scenario that is disabled for the service.
 func (o NetworkRuleSetResponsePtrOutput) Bypass() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *NetworkRuleSetResponse) *string {
 		if v == nil {
@@ -1713,7 +1656,6 @@ func (o NetworkRuleSetResponsePtrOutput) Bypass() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// A list of IP restriction rules that defines the inbound network(s) with allowing access to the search service endpoint. At the meantime, all other public IP networks are blocked by the firewall. These restriction rules are applied only when the 'publicNetworkAccess' of the search service is 'enabled'; otherwise, traffic over public interface is not allowed even with any public IP rules, and private endpoint connections would be the exclusive access method.
 func (o NetworkRuleSetResponsePtrOutput) IpRules() IpRuleResponseArrayOutput {
 	return o.ApplyT(func(v *NetworkRuleSetResponse) []IpRuleResponse {
 		if v == nil {
@@ -1723,11 +1665,8 @@ func (o NetworkRuleSetResponsePtrOutput) IpRules() IpRuleResponseArrayOutput {
 	}).(IpRuleResponseArrayOutput)
 }
 
-// Describes the properties of an existing Private Endpoint connection to the Azure Cognitive Search service.
 type PrivateEndpointConnectionProperties struct {
-	// The private endpoint resource from Microsoft.Network provider.
-	PrivateEndpoint *PrivateEndpointConnectionPropertiesPrivateEndpoint `pulumi:"privateEndpoint"`
-	// Describes the current state of an existing Private Link Service connection to the Azure Private Endpoint.
+	PrivateEndpoint                   *PrivateEndpointConnectionPropertiesPrivateEndpoint                   `pulumi:"privateEndpoint"`
 	PrivateLinkServiceConnectionState *PrivateEndpointConnectionPropertiesPrivateLinkServiceConnectionState `pulumi:"privateLinkServiceConnectionState"`
 }
 
@@ -1742,11 +1681,8 @@ type PrivateEndpointConnectionPropertiesInput interface {
 	ToPrivateEndpointConnectionPropertiesOutputWithContext(context.Context) PrivateEndpointConnectionPropertiesOutput
 }
 
-// Describes the properties of an existing Private Endpoint connection to the Azure Cognitive Search service.
 type PrivateEndpointConnectionPropertiesArgs struct {
-	// The private endpoint resource from Microsoft.Network provider.
-	PrivateEndpoint PrivateEndpointConnectionPropertiesPrivateEndpointPtrInput `pulumi:"privateEndpoint"`
-	// Describes the current state of an existing Private Link Service connection to the Azure Private Endpoint.
+	PrivateEndpoint                   PrivateEndpointConnectionPropertiesPrivateEndpointPtrInput                   `pulumi:"privateEndpoint"`
 	PrivateLinkServiceConnectionState PrivateEndpointConnectionPropertiesPrivateLinkServiceConnectionStatePtrInput `pulumi:"privateLinkServiceConnectionState"`
 }
 
@@ -1803,7 +1739,6 @@ func (i *privateEndpointConnectionPropertiesPtrType) ToPrivateEndpointConnection
 	return pulumi.ToOutputWithContext(ctx, i).(PrivateEndpointConnectionPropertiesPtrOutput)
 }
 
-// Describes the properties of an existing Private Endpoint connection to the Azure Cognitive Search service.
 type PrivateEndpointConnectionPropertiesOutput struct{ *pulumi.OutputState }
 
 func (PrivateEndpointConnectionPropertiesOutput) ElementType() reflect.Type {
@@ -1823,19 +1758,17 @@ func (o PrivateEndpointConnectionPropertiesOutput) ToPrivateEndpointConnectionPr
 }
 
 func (o PrivateEndpointConnectionPropertiesOutput) ToPrivateEndpointConnectionPropertiesPtrOutputWithContext(ctx context.Context) PrivateEndpointConnectionPropertiesPtrOutput {
-	return o.ApplyT(func(v PrivateEndpointConnectionProperties) *PrivateEndpointConnectionProperties {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v PrivateEndpointConnectionProperties) *PrivateEndpointConnectionProperties {
 		return &v
 	}).(PrivateEndpointConnectionPropertiesPtrOutput)
 }
 
-// The private endpoint resource from Microsoft.Network provider.
 func (o PrivateEndpointConnectionPropertiesOutput) PrivateEndpoint() PrivateEndpointConnectionPropertiesPrivateEndpointPtrOutput {
 	return o.ApplyT(func(v PrivateEndpointConnectionProperties) *PrivateEndpointConnectionPropertiesPrivateEndpoint {
 		return v.PrivateEndpoint
 	}).(PrivateEndpointConnectionPropertiesPrivateEndpointPtrOutput)
 }
 
-// Describes the current state of an existing Private Link Service connection to the Azure Private Endpoint.
 func (o PrivateEndpointConnectionPropertiesOutput) PrivateLinkServiceConnectionState() PrivateEndpointConnectionPropertiesPrivateLinkServiceConnectionStatePtrOutput {
 	return o.ApplyT(func(v PrivateEndpointConnectionProperties) *PrivateEndpointConnectionPropertiesPrivateLinkServiceConnectionState {
 		return v.PrivateLinkServiceConnectionState
@@ -1857,10 +1790,15 @@ func (o PrivateEndpointConnectionPropertiesPtrOutput) ToPrivateEndpointConnectio
 }
 
 func (o PrivateEndpointConnectionPropertiesPtrOutput) Elem() PrivateEndpointConnectionPropertiesOutput {
-	return o.ApplyT(func(v *PrivateEndpointConnectionProperties) PrivateEndpointConnectionProperties { return *v }).(PrivateEndpointConnectionPropertiesOutput)
+	return o.ApplyT(func(v *PrivateEndpointConnectionProperties) PrivateEndpointConnectionProperties {
+		if v != nil {
+			return *v
+		}
+		var ret PrivateEndpointConnectionProperties
+		return ret
+	}).(PrivateEndpointConnectionPropertiesOutput)
 }
 
-// The private endpoint resource from Microsoft.Network provider.
 func (o PrivateEndpointConnectionPropertiesPtrOutput) PrivateEndpoint() PrivateEndpointConnectionPropertiesPrivateEndpointPtrOutput {
 	return o.ApplyT(func(v *PrivateEndpointConnectionProperties) *PrivateEndpointConnectionPropertiesPrivateEndpoint {
 		if v == nil {
@@ -1870,7 +1808,6 @@ func (o PrivateEndpointConnectionPropertiesPtrOutput) PrivateEndpoint() PrivateE
 	}).(PrivateEndpointConnectionPropertiesPrivateEndpointPtrOutput)
 }
 
-// Describes the current state of an existing Private Link Service connection to the Azure Private Endpoint.
 func (o PrivateEndpointConnectionPropertiesPtrOutput) PrivateLinkServiceConnectionState() PrivateEndpointConnectionPropertiesPrivateLinkServiceConnectionStatePtrOutput {
 	return o.ApplyT(func(v *PrivateEndpointConnectionProperties) *PrivateEndpointConnectionPropertiesPrivateLinkServiceConnectionState {
 		if v == nil {
@@ -1880,9 +1817,7 @@ func (o PrivateEndpointConnectionPropertiesPtrOutput) PrivateLinkServiceConnecti
 	}).(PrivateEndpointConnectionPropertiesPrivateLinkServiceConnectionStatePtrOutput)
 }
 
-// The private endpoint resource from Microsoft.Network provider.
 type PrivateEndpointConnectionPropertiesPrivateEndpoint struct {
-	// The resource id of the private endpoint resource from Microsoft.Network provider.
 	Id *string `pulumi:"id"`
 }
 
@@ -1897,9 +1832,7 @@ type PrivateEndpointConnectionPropertiesPrivateEndpointInput interface {
 	ToPrivateEndpointConnectionPropertiesPrivateEndpointOutputWithContext(context.Context) PrivateEndpointConnectionPropertiesPrivateEndpointOutput
 }
 
-// The private endpoint resource from Microsoft.Network provider.
 type PrivateEndpointConnectionPropertiesPrivateEndpointArgs struct {
-	// The resource id of the private endpoint resource from Microsoft.Network provider.
 	Id pulumi.StringPtrInput `pulumi:"id"`
 }
 
@@ -1956,7 +1889,6 @@ func (i *privateEndpointConnectionPropertiesPrivateEndpointPtrType) ToPrivateEnd
 	return pulumi.ToOutputWithContext(ctx, i).(PrivateEndpointConnectionPropertiesPrivateEndpointPtrOutput)
 }
 
-// The private endpoint resource from Microsoft.Network provider.
 type PrivateEndpointConnectionPropertiesPrivateEndpointOutput struct{ *pulumi.OutputState }
 
 func (PrivateEndpointConnectionPropertiesPrivateEndpointOutput) ElementType() reflect.Type {
@@ -1976,12 +1908,11 @@ func (o PrivateEndpointConnectionPropertiesPrivateEndpointOutput) ToPrivateEndpo
 }
 
 func (o PrivateEndpointConnectionPropertiesPrivateEndpointOutput) ToPrivateEndpointConnectionPropertiesPrivateEndpointPtrOutputWithContext(ctx context.Context) PrivateEndpointConnectionPropertiesPrivateEndpointPtrOutput {
-	return o.ApplyT(func(v PrivateEndpointConnectionPropertiesPrivateEndpoint) *PrivateEndpointConnectionPropertiesPrivateEndpoint {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v PrivateEndpointConnectionPropertiesPrivateEndpoint) *PrivateEndpointConnectionPropertiesPrivateEndpoint {
 		return &v
 	}).(PrivateEndpointConnectionPropertiesPrivateEndpointPtrOutput)
 }
 
-// The resource id of the private endpoint resource from Microsoft.Network provider.
 func (o PrivateEndpointConnectionPropertiesPrivateEndpointOutput) Id() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v PrivateEndpointConnectionPropertiesPrivateEndpoint) *string { return v.Id }).(pulumi.StringPtrOutput)
 }
@@ -2002,11 +1933,14 @@ func (o PrivateEndpointConnectionPropertiesPrivateEndpointPtrOutput) ToPrivateEn
 
 func (o PrivateEndpointConnectionPropertiesPrivateEndpointPtrOutput) Elem() PrivateEndpointConnectionPropertiesPrivateEndpointOutput {
 	return o.ApplyT(func(v *PrivateEndpointConnectionPropertiesPrivateEndpoint) PrivateEndpointConnectionPropertiesPrivateEndpoint {
-		return *v
+		if v != nil {
+			return *v
+		}
+		var ret PrivateEndpointConnectionPropertiesPrivateEndpoint
+		return ret
 	}).(PrivateEndpointConnectionPropertiesPrivateEndpointOutput)
 }
 
-// The resource id of the private endpoint resource from Microsoft.Network provider.
 func (o PrivateEndpointConnectionPropertiesPrivateEndpointPtrOutput) Id() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *PrivateEndpointConnectionPropertiesPrivateEndpoint) *string {
 		if v == nil {
@@ -2016,14 +1950,10 @@ func (o PrivateEndpointConnectionPropertiesPrivateEndpointPtrOutput) Id() pulumi
 	}).(pulumi.StringPtrOutput)
 }
 
-// Describes the current state of an existing Private Link Service connection to the Azure Private Endpoint.
 type PrivateEndpointConnectionPropertiesPrivateLinkServiceConnectionState struct {
-	// A description of any extra actions that may be required.
-	ActionsRequired *string `pulumi:"actionsRequired"`
-	// The description for the private link service connection state.
-	Description *string `pulumi:"description"`
-	// Status of the the private link service connection. Can be Pending, Approved, Rejected, or Disconnected.
-	Status *string `pulumi:"status"`
+	ActionsRequired *string                             `pulumi:"actionsRequired"`
+	Description     *string                             `pulumi:"description"`
+	Status          *PrivateLinkServiceConnectionStatus `pulumi:"status"`
 }
 
 // PrivateEndpointConnectionPropertiesPrivateLinkServiceConnectionStateInput is an input type that accepts PrivateEndpointConnectionPropertiesPrivateLinkServiceConnectionStateArgs and PrivateEndpointConnectionPropertiesPrivateLinkServiceConnectionStateOutput values.
@@ -2037,14 +1967,10 @@ type PrivateEndpointConnectionPropertiesPrivateLinkServiceConnectionStateInput i
 	ToPrivateEndpointConnectionPropertiesPrivateLinkServiceConnectionStateOutputWithContext(context.Context) PrivateEndpointConnectionPropertiesPrivateLinkServiceConnectionStateOutput
 }
 
-// Describes the current state of an existing Private Link Service connection to the Azure Private Endpoint.
 type PrivateEndpointConnectionPropertiesPrivateLinkServiceConnectionStateArgs struct {
-	// A description of any extra actions that may be required.
-	ActionsRequired pulumi.StringPtrInput `pulumi:"actionsRequired"`
-	// The description for the private link service connection state.
-	Description pulumi.StringPtrInput `pulumi:"description"`
-	// Status of the the private link service connection. Can be Pending, Approved, Rejected, or Disconnected.
-	Status *PrivateLinkServiceConnectionStatus `pulumi:"status"`
+	ActionsRequired pulumi.StringPtrInput                      `pulumi:"actionsRequired"`
+	Description     pulumi.StringPtrInput                      `pulumi:"description"`
+	Status          PrivateLinkServiceConnectionStatusPtrInput `pulumi:"status"`
 }
 
 func (PrivateEndpointConnectionPropertiesPrivateLinkServiceConnectionStateArgs) ElementType() reflect.Type {
@@ -2100,7 +2026,6 @@ func (i *privateEndpointConnectionPropertiesPrivateLinkServiceConnectionStatePtr
 	return pulumi.ToOutputWithContext(ctx, i).(PrivateEndpointConnectionPropertiesPrivateLinkServiceConnectionStatePtrOutput)
 }
 
-// Describes the current state of an existing Private Link Service connection to the Azure Private Endpoint.
 type PrivateEndpointConnectionPropertiesPrivateLinkServiceConnectionStateOutput struct{ *pulumi.OutputState }
 
 func (PrivateEndpointConnectionPropertiesPrivateLinkServiceConnectionStateOutput) ElementType() reflect.Type {
@@ -2120,28 +2045,27 @@ func (o PrivateEndpointConnectionPropertiesPrivateLinkServiceConnectionStateOutp
 }
 
 func (o PrivateEndpointConnectionPropertiesPrivateLinkServiceConnectionStateOutput) ToPrivateEndpointConnectionPropertiesPrivateLinkServiceConnectionStatePtrOutputWithContext(ctx context.Context) PrivateEndpointConnectionPropertiesPrivateLinkServiceConnectionStatePtrOutput {
-	return o.ApplyT(func(v PrivateEndpointConnectionPropertiesPrivateLinkServiceConnectionState) *PrivateEndpointConnectionPropertiesPrivateLinkServiceConnectionState {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v PrivateEndpointConnectionPropertiesPrivateLinkServiceConnectionState) *PrivateEndpointConnectionPropertiesPrivateLinkServiceConnectionState {
 		return &v
 	}).(PrivateEndpointConnectionPropertiesPrivateLinkServiceConnectionStatePtrOutput)
 }
 
-// A description of any extra actions that may be required.
 func (o PrivateEndpointConnectionPropertiesPrivateLinkServiceConnectionStateOutput) ActionsRequired() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v PrivateEndpointConnectionPropertiesPrivateLinkServiceConnectionState) *string {
 		return v.ActionsRequired
 	}).(pulumi.StringPtrOutput)
 }
 
-// The description for the private link service connection state.
 func (o PrivateEndpointConnectionPropertiesPrivateLinkServiceConnectionStateOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v PrivateEndpointConnectionPropertiesPrivateLinkServiceConnectionState) *string {
 		return v.Description
 	}).(pulumi.StringPtrOutput)
 }
 
-// Status of the the private link service connection. Can be Pending, Approved, Rejected, or Disconnected.
-func (o PrivateEndpointConnectionPropertiesPrivateLinkServiceConnectionStateOutput) Status() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v PrivateEndpointConnectionPropertiesPrivateLinkServiceConnectionState) *string { return v.Status }).(pulumi.StringPtrOutput)
+func (o PrivateEndpointConnectionPropertiesPrivateLinkServiceConnectionStateOutput) Status() PrivateLinkServiceConnectionStatusPtrOutput {
+	return o.ApplyT(func(v PrivateEndpointConnectionPropertiesPrivateLinkServiceConnectionState) *PrivateLinkServiceConnectionStatus {
+		return v.Status
+	}).(PrivateLinkServiceConnectionStatusPtrOutput)
 }
 
 type PrivateEndpointConnectionPropertiesPrivateLinkServiceConnectionStatePtrOutput struct{ *pulumi.OutputState }
@@ -2160,11 +2084,14 @@ func (o PrivateEndpointConnectionPropertiesPrivateLinkServiceConnectionStatePtrO
 
 func (o PrivateEndpointConnectionPropertiesPrivateLinkServiceConnectionStatePtrOutput) Elem() PrivateEndpointConnectionPropertiesPrivateLinkServiceConnectionStateOutput {
 	return o.ApplyT(func(v *PrivateEndpointConnectionPropertiesPrivateLinkServiceConnectionState) PrivateEndpointConnectionPropertiesPrivateLinkServiceConnectionState {
-		return *v
+		if v != nil {
+			return *v
+		}
+		var ret PrivateEndpointConnectionPropertiesPrivateLinkServiceConnectionState
+		return ret
 	}).(PrivateEndpointConnectionPropertiesPrivateLinkServiceConnectionStateOutput)
 }
 
-// A description of any extra actions that may be required.
 func (o PrivateEndpointConnectionPropertiesPrivateLinkServiceConnectionStatePtrOutput) ActionsRequired() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *PrivateEndpointConnectionPropertiesPrivateLinkServiceConnectionState) *string {
 		if v == nil {
@@ -2174,7 +2101,6 @@ func (o PrivateEndpointConnectionPropertiesPrivateLinkServiceConnectionStatePtrO
 	}).(pulumi.StringPtrOutput)
 }
 
-// The description for the private link service connection state.
 func (o PrivateEndpointConnectionPropertiesPrivateLinkServiceConnectionStatePtrOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *PrivateEndpointConnectionPropertiesPrivateLinkServiceConnectionState) *string {
 		if v == nil {
@@ -2184,21 +2110,17 @@ func (o PrivateEndpointConnectionPropertiesPrivateLinkServiceConnectionStatePtrO
 	}).(pulumi.StringPtrOutput)
 }
 
-// Status of the the private link service connection. Can be Pending, Approved, Rejected, or Disconnected.
-func (o PrivateEndpointConnectionPropertiesPrivateLinkServiceConnectionStatePtrOutput) Status() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *PrivateEndpointConnectionPropertiesPrivateLinkServiceConnectionState) *string {
+func (o PrivateEndpointConnectionPropertiesPrivateLinkServiceConnectionStatePtrOutput) Status() PrivateLinkServiceConnectionStatusPtrOutput {
+	return o.ApplyT(func(v *PrivateEndpointConnectionPropertiesPrivateLinkServiceConnectionState) *PrivateLinkServiceConnectionStatus {
 		if v == nil {
 			return nil
 		}
 		return v.Status
-	}).(pulumi.StringPtrOutput)
+	}).(PrivateLinkServiceConnectionStatusPtrOutput)
 }
 
-// Describes the properties of an existing Private Endpoint connection to the Azure Cognitive Search service.
 type PrivateEndpointConnectionPropertiesResponse struct {
-	// The private endpoint resource from Microsoft.Network provider.
-	PrivateEndpoint *PrivateEndpointConnectionPropertiesResponsePrivateEndpoint `pulumi:"privateEndpoint"`
-	// Describes the current state of an existing Private Link Service connection to the Azure Private Endpoint.
+	PrivateEndpoint                   *PrivateEndpointConnectionPropertiesResponsePrivateEndpoint                   `pulumi:"privateEndpoint"`
 	PrivateLinkServiceConnectionState *PrivateEndpointConnectionPropertiesResponsePrivateLinkServiceConnectionState `pulumi:"privateLinkServiceConnectionState"`
 }
 
@@ -2213,11 +2135,8 @@ type PrivateEndpointConnectionPropertiesResponseInput interface {
 	ToPrivateEndpointConnectionPropertiesResponseOutputWithContext(context.Context) PrivateEndpointConnectionPropertiesResponseOutput
 }
 
-// Describes the properties of an existing Private Endpoint connection to the Azure Cognitive Search service.
 type PrivateEndpointConnectionPropertiesResponseArgs struct {
-	// The private endpoint resource from Microsoft.Network provider.
-	PrivateEndpoint PrivateEndpointConnectionPropertiesResponsePrivateEndpointPtrInput `pulumi:"privateEndpoint"`
-	// Describes the current state of an existing Private Link Service connection to the Azure Private Endpoint.
+	PrivateEndpoint                   PrivateEndpointConnectionPropertiesResponsePrivateEndpointPtrInput                   `pulumi:"privateEndpoint"`
 	PrivateLinkServiceConnectionState PrivateEndpointConnectionPropertiesResponsePrivateLinkServiceConnectionStatePtrInput `pulumi:"privateLinkServiceConnectionState"`
 }
 
@@ -2274,7 +2193,6 @@ func (i *privateEndpointConnectionPropertiesResponsePtrType) ToPrivateEndpointCo
 	return pulumi.ToOutputWithContext(ctx, i).(PrivateEndpointConnectionPropertiesResponsePtrOutput)
 }
 
-// Describes the properties of an existing Private Endpoint connection to the Azure Cognitive Search service.
 type PrivateEndpointConnectionPropertiesResponseOutput struct{ *pulumi.OutputState }
 
 func (PrivateEndpointConnectionPropertiesResponseOutput) ElementType() reflect.Type {
@@ -2294,19 +2212,17 @@ func (o PrivateEndpointConnectionPropertiesResponseOutput) ToPrivateEndpointConn
 }
 
 func (o PrivateEndpointConnectionPropertiesResponseOutput) ToPrivateEndpointConnectionPropertiesResponsePtrOutputWithContext(ctx context.Context) PrivateEndpointConnectionPropertiesResponsePtrOutput {
-	return o.ApplyT(func(v PrivateEndpointConnectionPropertiesResponse) *PrivateEndpointConnectionPropertiesResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v PrivateEndpointConnectionPropertiesResponse) *PrivateEndpointConnectionPropertiesResponse {
 		return &v
 	}).(PrivateEndpointConnectionPropertiesResponsePtrOutput)
 }
 
-// The private endpoint resource from Microsoft.Network provider.
 func (o PrivateEndpointConnectionPropertiesResponseOutput) PrivateEndpoint() PrivateEndpointConnectionPropertiesResponsePrivateEndpointPtrOutput {
 	return o.ApplyT(func(v PrivateEndpointConnectionPropertiesResponse) *PrivateEndpointConnectionPropertiesResponsePrivateEndpoint {
 		return v.PrivateEndpoint
 	}).(PrivateEndpointConnectionPropertiesResponsePrivateEndpointPtrOutput)
 }
 
-// Describes the current state of an existing Private Link Service connection to the Azure Private Endpoint.
 func (o PrivateEndpointConnectionPropertiesResponseOutput) PrivateLinkServiceConnectionState() PrivateEndpointConnectionPropertiesResponsePrivateLinkServiceConnectionStatePtrOutput {
 	return o.ApplyT(func(v PrivateEndpointConnectionPropertiesResponse) *PrivateEndpointConnectionPropertiesResponsePrivateLinkServiceConnectionState {
 		return v.PrivateLinkServiceConnectionState
@@ -2329,11 +2245,14 @@ func (o PrivateEndpointConnectionPropertiesResponsePtrOutput) ToPrivateEndpointC
 
 func (o PrivateEndpointConnectionPropertiesResponsePtrOutput) Elem() PrivateEndpointConnectionPropertiesResponseOutput {
 	return o.ApplyT(func(v *PrivateEndpointConnectionPropertiesResponse) PrivateEndpointConnectionPropertiesResponse {
-		return *v
+		if v != nil {
+			return *v
+		}
+		var ret PrivateEndpointConnectionPropertiesResponse
+		return ret
 	}).(PrivateEndpointConnectionPropertiesResponseOutput)
 }
 
-// The private endpoint resource from Microsoft.Network provider.
 func (o PrivateEndpointConnectionPropertiesResponsePtrOutput) PrivateEndpoint() PrivateEndpointConnectionPropertiesResponsePrivateEndpointPtrOutput {
 	return o.ApplyT(func(v *PrivateEndpointConnectionPropertiesResponse) *PrivateEndpointConnectionPropertiesResponsePrivateEndpoint {
 		if v == nil {
@@ -2343,7 +2262,6 @@ func (o PrivateEndpointConnectionPropertiesResponsePtrOutput) PrivateEndpoint() 
 	}).(PrivateEndpointConnectionPropertiesResponsePrivateEndpointPtrOutput)
 }
 
-// Describes the current state of an existing Private Link Service connection to the Azure Private Endpoint.
 func (o PrivateEndpointConnectionPropertiesResponsePtrOutput) PrivateLinkServiceConnectionState() PrivateEndpointConnectionPropertiesResponsePrivateLinkServiceConnectionStatePtrOutput {
 	return o.ApplyT(func(v *PrivateEndpointConnectionPropertiesResponse) *PrivateEndpointConnectionPropertiesResponsePrivateLinkServiceConnectionState {
 		if v == nil {
@@ -2353,9 +2271,7 @@ func (o PrivateEndpointConnectionPropertiesResponsePtrOutput) PrivateLinkService
 	}).(PrivateEndpointConnectionPropertiesResponsePrivateLinkServiceConnectionStatePtrOutput)
 }
 
-// The private endpoint resource from Microsoft.Network provider.
 type PrivateEndpointConnectionPropertiesResponsePrivateEndpoint struct {
-	// The resource id of the private endpoint resource from Microsoft.Network provider.
 	Id *string `pulumi:"id"`
 }
 
@@ -2370,9 +2286,7 @@ type PrivateEndpointConnectionPropertiesResponsePrivateEndpointInput interface {
 	ToPrivateEndpointConnectionPropertiesResponsePrivateEndpointOutputWithContext(context.Context) PrivateEndpointConnectionPropertiesResponsePrivateEndpointOutput
 }
 
-// The private endpoint resource from Microsoft.Network provider.
 type PrivateEndpointConnectionPropertiesResponsePrivateEndpointArgs struct {
-	// The resource id of the private endpoint resource from Microsoft.Network provider.
 	Id pulumi.StringPtrInput `pulumi:"id"`
 }
 
@@ -2429,7 +2343,6 @@ func (i *privateEndpointConnectionPropertiesResponsePrivateEndpointPtrType) ToPr
 	return pulumi.ToOutputWithContext(ctx, i).(PrivateEndpointConnectionPropertiesResponsePrivateEndpointPtrOutput)
 }
 
-// The private endpoint resource from Microsoft.Network provider.
 type PrivateEndpointConnectionPropertiesResponsePrivateEndpointOutput struct{ *pulumi.OutputState }
 
 func (PrivateEndpointConnectionPropertiesResponsePrivateEndpointOutput) ElementType() reflect.Type {
@@ -2449,12 +2362,11 @@ func (o PrivateEndpointConnectionPropertiesResponsePrivateEndpointOutput) ToPriv
 }
 
 func (o PrivateEndpointConnectionPropertiesResponsePrivateEndpointOutput) ToPrivateEndpointConnectionPropertiesResponsePrivateEndpointPtrOutputWithContext(ctx context.Context) PrivateEndpointConnectionPropertiesResponsePrivateEndpointPtrOutput {
-	return o.ApplyT(func(v PrivateEndpointConnectionPropertiesResponsePrivateEndpoint) *PrivateEndpointConnectionPropertiesResponsePrivateEndpoint {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v PrivateEndpointConnectionPropertiesResponsePrivateEndpoint) *PrivateEndpointConnectionPropertiesResponsePrivateEndpoint {
 		return &v
 	}).(PrivateEndpointConnectionPropertiesResponsePrivateEndpointPtrOutput)
 }
 
-// The resource id of the private endpoint resource from Microsoft.Network provider.
 func (o PrivateEndpointConnectionPropertiesResponsePrivateEndpointOutput) Id() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v PrivateEndpointConnectionPropertiesResponsePrivateEndpoint) *string { return v.Id }).(pulumi.StringPtrOutput)
 }
@@ -2475,11 +2387,14 @@ func (o PrivateEndpointConnectionPropertiesResponsePrivateEndpointPtrOutput) ToP
 
 func (o PrivateEndpointConnectionPropertiesResponsePrivateEndpointPtrOutput) Elem() PrivateEndpointConnectionPropertiesResponsePrivateEndpointOutput {
 	return o.ApplyT(func(v *PrivateEndpointConnectionPropertiesResponsePrivateEndpoint) PrivateEndpointConnectionPropertiesResponsePrivateEndpoint {
-		return *v
+		if v != nil {
+			return *v
+		}
+		var ret PrivateEndpointConnectionPropertiesResponsePrivateEndpoint
+		return ret
 	}).(PrivateEndpointConnectionPropertiesResponsePrivateEndpointOutput)
 }
 
-// The resource id of the private endpoint resource from Microsoft.Network provider.
 func (o PrivateEndpointConnectionPropertiesResponsePrivateEndpointPtrOutput) Id() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *PrivateEndpointConnectionPropertiesResponsePrivateEndpoint) *string {
 		if v == nil {
@@ -2489,14 +2404,10 @@ func (o PrivateEndpointConnectionPropertiesResponsePrivateEndpointPtrOutput) Id(
 	}).(pulumi.StringPtrOutput)
 }
 
-// Describes the current state of an existing Private Link Service connection to the Azure Private Endpoint.
 type PrivateEndpointConnectionPropertiesResponsePrivateLinkServiceConnectionState struct {
-	// A description of any extra actions that may be required.
 	ActionsRequired *string `pulumi:"actionsRequired"`
-	// The description for the private link service connection state.
-	Description *string `pulumi:"description"`
-	// Status of the the private link service connection. Can be Pending, Approved, Rejected, or Disconnected.
-	Status *string `pulumi:"status"`
+	Description     *string `pulumi:"description"`
+	Status          *string `pulumi:"status"`
 }
 
 // PrivateEndpointConnectionPropertiesResponsePrivateLinkServiceConnectionStateInput is an input type that accepts PrivateEndpointConnectionPropertiesResponsePrivateLinkServiceConnectionStateArgs and PrivateEndpointConnectionPropertiesResponsePrivateLinkServiceConnectionStateOutput values.
@@ -2510,14 +2421,10 @@ type PrivateEndpointConnectionPropertiesResponsePrivateLinkServiceConnectionStat
 	ToPrivateEndpointConnectionPropertiesResponsePrivateLinkServiceConnectionStateOutputWithContext(context.Context) PrivateEndpointConnectionPropertiesResponsePrivateLinkServiceConnectionStateOutput
 }
 
-// Describes the current state of an existing Private Link Service connection to the Azure Private Endpoint.
 type PrivateEndpointConnectionPropertiesResponsePrivateLinkServiceConnectionStateArgs struct {
-	// A description of any extra actions that may be required.
 	ActionsRequired pulumi.StringPtrInput `pulumi:"actionsRequired"`
-	// The description for the private link service connection state.
-	Description pulumi.StringPtrInput `pulumi:"description"`
-	// Status of the the private link service connection. Can be Pending, Approved, Rejected, or Disconnected.
-	Status pulumi.StringPtrInput `pulumi:"status"`
+	Description     pulumi.StringPtrInput `pulumi:"description"`
+	Status          pulumi.StringPtrInput `pulumi:"status"`
 }
 
 func (PrivateEndpointConnectionPropertiesResponsePrivateLinkServiceConnectionStateArgs) ElementType() reflect.Type {
@@ -2573,7 +2480,6 @@ func (i *privateEndpointConnectionPropertiesResponsePrivateLinkServiceConnection
 	return pulumi.ToOutputWithContext(ctx, i).(PrivateEndpointConnectionPropertiesResponsePrivateLinkServiceConnectionStatePtrOutput)
 }
 
-// Describes the current state of an existing Private Link Service connection to the Azure Private Endpoint.
 type PrivateEndpointConnectionPropertiesResponsePrivateLinkServiceConnectionStateOutput struct{ *pulumi.OutputState }
 
 func (PrivateEndpointConnectionPropertiesResponsePrivateLinkServiceConnectionStateOutput) ElementType() reflect.Type {
@@ -2593,26 +2499,23 @@ func (o PrivateEndpointConnectionPropertiesResponsePrivateLinkServiceConnectionS
 }
 
 func (o PrivateEndpointConnectionPropertiesResponsePrivateLinkServiceConnectionStateOutput) ToPrivateEndpointConnectionPropertiesResponsePrivateLinkServiceConnectionStatePtrOutputWithContext(ctx context.Context) PrivateEndpointConnectionPropertiesResponsePrivateLinkServiceConnectionStatePtrOutput {
-	return o.ApplyT(func(v PrivateEndpointConnectionPropertiesResponsePrivateLinkServiceConnectionState) *PrivateEndpointConnectionPropertiesResponsePrivateLinkServiceConnectionState {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v PrivateEndpointConnectionPropertiesResponsePrivateLinkServiceConnectionState) *PrivateEndpointConnectionPropertiesResponsePrivateLinkServiceConnectionState {
 		return &v
 	}).(PrivateEndpointConnectionPropertiesResponsePrivateLinkServiceConnectionStatePtrOutput)
 }
 
-// A description of any extra actions that may be required.
 func (o PrivateEndpointConnectionPropertiesResponsePrivateLinkServiceConnectionStateOutput) ActionsRequired() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v PrivateEndpointConnectionPropertiesResponsePrivateLinkServiceConnectionState) *string {
 		return v.ActionsRequired
 	}).(pulumi.StringPtrOutput)
 }
 
-// The description for the private link service connection state.
 func (o PrivateEndpointConnectionPropertiesResponsePrivateLinkServiceConnectionStateOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v PrivateEndpointConnectionPropertiesResponsePrivateLinkServiceConnectionState) *string {
 		return v.Description
 	}).(pulumi.StringPtrOutput)
 }
 
-// Status of the the private link service connection. Can be Pending, Approved, Rejected, or Disconnected.
 func (o PrivateEndpointConnectionPropertiesResponsePrivateLinkServiceConnectionStateOutput) Status() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v PrivateEndpointConnectionPropertiesResponsePrivateLinkServiceConnectionState) *string {
 		return v.Status
@@ -2635,11 +2538,14 @@ func (o PrivateEndpointConnectionPropertiesResponsePrivateLinkServiceConnectionS
 
 func (o PrivateEndpointConnectionPropertiesResponsePrivateLinkServiceConnectionStatePtrOutput) Elem() PrivateEndpointConnectionPropertiesResponsePrivateLinkServiceConnectionStateOutput {
 	return o.ApplyT(func(v *PrivateEndpointConnectionPropertiesResponsePrivateLinkServiceConnectionState) PrivateEndpointConnectionPropertiesResponsePrivateLinkServiceConnectionState {
-		return *v
+		if v != nil {
+			return *v
+		}
+		var ret PrivateEndpointConnectionPropertiesResponsePrivateLinkServiceConnectionState
+		return ret
 	}).(PrivateEndpointConnectionPropertiesResponsePrivateLinkServiceConnectionStateOutput)
 }
 
-// A description of any extra actions that may be required.
 func (o PrivateEndpointConnectionPropertiesResponsePrivateLinkServiceConnectionStatePtrOutput) ActionsRequired() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *PrivateEndpointConnectionPropertiesResponsePrivateLinkServiceConnectionState) *string {
 		if v == nil {
@@ -2649,7 +2555,6 @@ func (o PrivateEndpointConnectionPropertiesResponsePrivateLinkServiceConnectionS
 	}).(pulumi.StringPtrOutput)
 }
 
-// The description for the private link service connection state.
 func (o PrivateEndpointConnectionPropertiesResponsePrivateLinkServiceConnectionStatePtrOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *PrivateEndpointConnectionPropertiesResponsePrivateLinkServiceConnectionState) *string {
 		if v == nil {
@@ -2659,7 +2564,6 @@ func (o PrivateEndpointConnectionPropertiesResponsePrivateLinkServiceConnectionS
 	}).(pulumi.StringPtrOutput)
 }
 
-// Status of the the private link service connection. Can be Pending, Approved, Rejected, or Disconnected.
 func (o PrivateEndpointConnectionPropertiesResponsePrivateLinkServiceConnectionStatePtrOutput) Status() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *PrivateEndpointConnectionPropertiesResponsePrivateLinkServiceConnectionState) *string {
 		if v == nil {
@@ -2669,16 +2573,11 @@ func (o PrivateEndpointConnectionPropertiesResponsePrivateLinkServiceConnectionS
 	}).(pulumi.StringPtrOutput)
 }
 
-// Describes an existing Private Endpoint connection to the Azure Cognitive Search service.
 type PrivateEndpointConnectionResponse struct {
-	// Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
-	Id string `pulumi:"id"`
-	// The name of the resource
-	Name string `pulumi:"name"`
-	// Describes the properties of an existing Private Endpoint connection to the Azure Cognitive Search service.
+	Id         string                                       `pulumi:"id"`
+	Name       string                                       `pulumi:"name"`
 	Properties *PrivateEndpointConnectionPropertiesResponse `pulumi:"properties"`
-	// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
-	Type string `pulumi:"type"`
+	Type       string                                       `pulumi:"type"`
 }
 
 // PrivateEndpointConnectionResponseInput is an input type that accepts PrivateEndpointConnectionResponseArgs and PrivateEndpointConnectionResponseOutput values.
@@ -2692,16 +2591,11 @@ type PrivateEndpointConnectionResponseInput interface {
 	ToPrivateEndpointConnectionResponseOutputWithContext(context.Context) PrivateEndpointConnectionResponseOutput
 }
 
-// Describes an existing Private Endpoint connection to the Azure Cognitive Search service.
 type PrivateEndpointConnectionResponseArgs struct {
-	// Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
-	Id pulumi.StringInput `pulumi:"id"`
-	// The name of the resource
-	Name pulumi.StringInput `pulumi:"name"`
-	// Describes the properties of an existing Private Endpoint connection to the Azure Cognitive Search service.
+	Id         pulumi.StringInput                                  `pulumi:"id"`
+	Name       pulumi.StringInput                                  `pulumi:"name"`
 	Properties PrivateEndpointConnectionPropertiesResponsePtrInput `pulumi:"properties"`
-	// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
-	Type pulumi.StringInput `pulumi:"type"`
+	Type       pulumi.StringInput                                  `pulumi:"type"`
 }
 
 func (PrivateEndpointConnectionResponseArgs) ElementType() reflect.Type {
@@ -2741,7 +2635,6 @@ func (i PrivateEndpointConnectionResponseArray) ToPrivateEndpointConnectionRespo
 	return pulumi.ToOutputWithContext(ctx, i).(PrivateEndpointConnectionResponseArrayOutput)
 }
 
-// Describes an existing Private Endpoint connection to the Azure Cognitive Search service.
 type PrivateEndpointConnectionResponseOutput struct{ *pulumi.OutputState }
 
 func (PrivateEndpointConnectionResponseOutput) ElementType() reflect.Type {
@@ -2756,24 +2649,20 @@ func (o PrivateEndpointConnectionResponseOutput) ToPrivateEndpointConnectionResp
 	return o
 }
 
-// Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
 func (o PrivateEndpointConnectionResponseOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v PrivateEndpointConnectionResponse) string { return v.Id }).(pulumi.StringOutput)
 }
 
-// The name of the resource
 func (o PrivateEndpointConnectionResponseOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v PrivateEndpointConnectionResponse) string { return v.Name }).(pulumi.StringOutput)
 }
 
-// Describes the properties of an existing Private Endpoint connection to the Azure Cognitive Search service.
 func (o PrivateEndpointConnectionResponseOutput) Properties() PrivateEndpointConnectionPropertiesResponsePtrOutput {
 	return o.ApplyT(func(v PrivateEndpointConnectionResponse) *PrivateEndpointConnectionPropertiesResponse {
 		return v.Properties
 	}).(PrivateEndpointConnectionPropertiesResponsePtrOutput)
 }
 
-// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
 func (o PrivateEndpointConnectionResponseOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v PrivateEndpointConnectionResponse) string { return v.Type }).(pulumi.StringOutput)
 }
@@ -2798,11 +2687,8 @@ func (o PrivateEndpointConnectionResponseArrayOutput) Index(i pulumi.IntInput) P
 	}).(PrivateEndpointConnectionResponseOutput)
 }
 
-// Describes an API key for a given Azure Cognitive Search service that has permissions for query operations only.
 type QueryKeyResponse struct {
-	// The value of the query API key.
-	Key string `pulumi:"key"`
-	// The name of the query API key; may be empty.
+	Key  string `pulumi:"key"`
 	Name string `pulumi:"name"`
 }
 
@@ -2817,11 +2703,8 @@ type QueryKeyResponseInput interface {
 	ToQueryKeyResponseOutputWithContext(context.Context) QueryKeyResponseOutput
 }
 
-// Describes an API key for a given Azure Cognitive Search service that has permissions for query operations only.
 type QueryKeyResponseArgs struct {
-	// The value of the query API key.
-	Key pulumi.StringInput `pulumi:"key"`
-	// The name of the query API key; may be empty.
+	Key  pulumi.StringInput `pulumi:"key"`
 	Name pulumi.StringInput `pulumi:"name"`
 }
 
@@ -2862,7 +2745,6 @@ func (i QueryKeyResponseArray) ToQueryKeyResponseArrayOutputWithContext(ctx cont
 	return pulumi.ToOutputWithContext(ctx, i).(QueryKeyResponseArrayOutput)
 }
 
-// Describes an API key for a given Azure Cognitive Search service that has permissions for query operations only.
 type QueryKeyResponseOutput struct{ *pulumi.OutputState }
 
 func (QueryKeyResponseOutput) ElementType() reflect.Type {
@@ -2877,12 +2759,10 @@ func (o QueryKeyResponseOutput) ToQueryKeyResponseOutputWithContext(ctx context.
 	return o
 }
 
-// The value of the query API key.
 func (o QueryKeyResponseOutput) Key() pulumi.StringOutput {
 	return o.ApplyT(func(v QueryKeyResponse) string { return v.Key }).(pulumi.StringOutput)
 }
 
-// The name of the query API key; may be empty.
 func (o QueryKeyResponseOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v QueryKeyResponse) string { return v.Name }).(pulumi.StringOutput)
 }
@@ -2907,20 +2787,13 @@ func (o QueryKeyResponseArrayOutput) Index(i pulumi.IntInput) QueryKeyResponseOu
 	}).(QueryKeyResponseOutput)
 }
 
-// Describes the properties of an existing Shared Private Link Resource managed by the Azure Cognitive Search service.
 type SharedPrivateLinkResourceProperties struct {
-	// The group id from the provider of resource the shared private link resource is for.
-	GroupId *string `pulumi:"groupId"`
-	// The resource id of the resource the shared private link resource is for.
+	GroupId               *string `pulumi:"groupId"`
 	PrivateLinkResourceId *string `pulumi:"privateLinkResourceId"`
-	// The provisioning state of the shared private link resource. Can be Updating, Deleting, Failed, Succeeded, Incomplete or other yet to be documented value.
-	ProvisioningState *string `pulumi:"provisioningState"`
-	// The request message for requesting approval of the shared private link resource.
-	RequestMessage *string `pulumi:"requestMessage"`
-	// Optional. Can be used to specify the Azure Resource Manager location of the resource to which a shared private link is to be created. This is only required for those resources whose DNS configuration are regional (such as Azure Kubernetes Service).
-	ResourceRegion *string `pulumi:"resourceRegion"`
-	// Status of the shared private link resource. Can be Pending, Approved, Rejected, Disconnected or other yet to be documented value.
-	Status *string `pulumi:"status"`
+	ProvisioningState     *string `pulumi:"provisioningState"`
+	RequestMessage        *string `pulumi:"requestMessage"`
+	ResourceRegion        *string `pulumi:"resourceRegion"`
+	Status                *string `pulumi:"status"`
 }
 
 // SharedPrivateLinkResourcePropertiesInput is an input type that accepts SharedPrivateLinkResourcePropertiesArgs and SharedPrivateLinkResourcePropertiesOutput values.
@@ -2934,20 +2807,13 @@ type SharedPrivateLinkResourcePropertiesInput interface {
 	ToSharedPrivateLinkResourcePropertiesOutputWithContext(context.Context) SharedPrivateLinkResourcePropertiesOutput
 }
 
-// Describes the properties of an existing Shared Private Link Resource managed by the Azure Cognitive Search service.
 type SharedPrivateLinkResourcePropertiesArgs struct {
-	// The group id from the provider of resource the shared private link resource is for.
-	GroupId pulumi.StringPtrInput `pulumi:"groupId"`
-	// The resource id of the resource the shared private link resource is for.
+	GroupId               pulumi.StringPtrInput `pulumi:"groupId"`
 	PrivateLinkResourceId pulumi.StringPtrInput `pulumi:"privateLinkResourceId"`
-	// The provisioning state of the shared private link resource. Can be Updating, Deleting, Failed, Succeeded, Incomplete or other yet to be documented value.
-	ProvisioningState pulumi.StringPtrInput `pulumi:"provisioningState"`
-	// The request message for requesting approval of the shared private link resource.
-	RequestMessage pulumi.StringPtrInput `pulumi:"requestMessage"`
-	// Optional. Can be used to specify the Azure Resource Manager location of the resource to which a shared private link is to be created. This is only required for those resources whose DNS configuration are regional (such as Azure Kubernetes Service).
-	ResourceRegion pulumi.StringPtrInput `pulumi:"resourceRegion"`
-	// Status of the shared private link resource. Can be Pending, Approved, Rejected, Disconnected or other yet to be documented value.
-	Status pulumi.StringPtrInput `pulumi:"status"`
+	ProvisioningState     pulumi.StringPtrInput `pulumi:"provisioningState"`
+	RequestMessage        pulumi.StringPtrInput `pulumi:"requestMessage"`
+	ResourceRegion        pulumi.StringPtrInput `pulumi:"resourceRegion"`
+	Status                pulumi.StringPtrInput `pulumi:"status"`
 }
 
 func (SharedPrivateLinkResourcePropertiesArgs) ElementType() reflect.Type {
@@ -3003,7 +2869,6 @@ func (i *sharedPrivateLinkResourcePropertiesPtrType) ToSharedPrivateLinkResource
 	return pulumi.ToOutputWithContext(ctx, i).(SharedPrivateLinkResourcePropertiesPtrOutput)
 }
 
-// Describes the properties of an existing Shared Private Link Resource managed by the Azure Cognitive Search service.
 type SharedPrivateLinkResourcePropertiesOutput struct{ *pulumi.OutputState }
 
 func (SharedPrivateLinkResourcePropertiesOutput) ElementType() reflect.Type {
@@ -3023,37 +2888,31 @@ func (o SharedPrivateLinkResourcePropertiesOutput) ToSharedPrivateLinkResourcePr
 }
 
 func (o SharedPrivateLinkResourcePropertiesOutput) ToSharedPrivateLinkResourcePropertiesPtrOutputWithContext(ctx context.Context) SharedPrivateLinkResourcePropertiesPtrOutput {
-	return o.ApplyT(func(v SharedPrivateLinkResourceProperties) *SharedPrivateLinkResourceProperties {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v SharedPrivateLinkResourceProperties) *SharedPrivateLinkResourceProperties {
 		return &v
 	}).(SharedPrivateLinkResourcePropertiesPtrOutput)
 }
 
-// The group id from the provider of resource the shared private link resource is for.
 func (o SharedPrivateLinkResourcePropertiesOutput) GroupId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SharedPrivateLinkResourceProperties) *string { return v.GroupId }).(pulumi.StringPtrOutput)
 }
 
-// The resource id of the resource the shared private link resource is for.
 func (o SharedPrivateLinkResourcePropertiesOutput) PrivateLinkResourceId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SharedPrivateLinkResourceProperties) *string { return v.PrivateLinkResourceId }).(pulumi.StringPtrOutput)
 }
 
-// The provisioning state of the shared private link resource. Can be Updating, Deleting, Failed, Succeeded, Incomplete or other yet to be documented value.
 func (o SharedPrivateLinkResourcePropertiesOutput) ProvisioningState() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SharedPrivateLinkResourceProperties) *string { return v.ProvisioningState }).(pulumi.StringPtrOutput)
 }
 
-// The request message for requesting approval of the shared private link resource.
 func (o SharedPrivateLinkResourcePropertiesOutput) RequestMessage() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SharedPrivateLinkResourceProperties) *string { return v.RequestMessage }).(pulumi.StringPtrOutput)
 }
 
-// Optional. Can be used to specify the Azure Resource Manager location of the resource to which a shared private link is to be created. This is only required for those resources whose DNS configuration are regional (such as Azure Kubernetes Service).
 func (o SharedPrivateLinkResourcePropertiesOutput) ResourceRegion() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SharedPrivateLinkResourceProperties) *string { return v.ResourceRegion }).(pulumi.StringPtrOutput)
 }
 
-// Status of the shared private link resource. Can be Pending, Approved, Rejected, Disconnected or other yet to be documented value.
 func (o SharedPrivateLinkResourcePropertiesOutput) Status() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SharedPrivateLinkResourceProperties) *string { return v.Status }).(pulumi.StringPtrOutput)
 }
@@ -3073,10 +2932,15 @@ func (o SharedPrivateLinkResourcePropertiesPtrOutput) ToSharedPrivateLinkResourc
 }
 
 func (o SharedPrivateLinkResourcePropertiesPtrOutput) Elem() SharedPrivateLinkResourcePropertiesOutput {
-	return o.ApplyT(func(v *SharedPrivateLinkResourceProperties) SharedPrivateLinkResourceProperties { return *v }).(SharedPrivateLinkResourcePropertiesOutput)
+	return o.ApplyT(func(v *SharedPrivateLinkResourceProperties) SharedPrivateLinkResourceProperties {
+		if v != nil {
+			return *v
+		}
+		var ret SharedPrivateLinkResourceProperties
+		return ret
+	}).(SharedPrivateLinkResourcePropertiesOutput)
 }
 
-// The group id from the provider of resource the shared private link resource is for.
 func (o SharedPrivateLinkResourcePropertiesPtrOutput) GroupId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SharedPrivateLinkResourceProperties) *string {
 		if v == nil {
@@ -3086,7 +2950,6 @@ func (o SharedPrivateLinkResourcePropertiesPtrOutput) GroupId() pulumi.StringPtr
 	}).(pulumi.StringPtrOutput)
 }
 
-// The resource id of the resource the shared private link resource is for.
 func (o SharedPrivateLinkResourcePropertiesPtrOutput) PrivateLinkResourceId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SharedPrivateLinkResourceProperties) *string {
 		if v == nil {
@@ -3096,7 +2959,6 @@ func (o SharedPrivateLinkResourcePropertiesPtrOutput) PrivateLinkResourceId() pu
 	}).(pulumi.StringPtrOutput)
 }
 
-// The provisioning state of the shared private link resource. Can be Updating, Deleting, Failed, Succeeded, Incomplete or other yet to be documented value.
 func (o SharedPrivateLinkResourcePropertiesPtrOutput) ProvisioningState() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SharedPrivateLinkResourceProperties) *string {
 		if v == nil {
@@ -3106,7 +2968,6 @@ func (o SharedPrivateLinkResourcePropertiesPtrOutput) ProvisioningState() pulumi
 	}).(pulumi.StringPtrOutput)
 }
 
-// The request message for requesting approval of the shared private link resource.
 func (o SharedPrivateLinkResourcePropertiesPtrOutput) RequestMessage() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SharedPrivateLinkResourceProperties) *string {
 		if v == nil {
@@ -3116,7 +2977,6 @@ func (o SharedPrivateLinkResourcePropertiesPtrOutput) RequestMessage() pulumi.St
 	}).(pulumi.StringPtrOutput)
 }
 
-// Optional. Can be used to specify the Azure Resource Manager location of the resource to which a shared private link is to be created. This is only required for those resources whose DNS configuration are regional (such as Azure Kubernetes Service).
 func (o SharedPrivateLinkResourcePropertiesPtrOutput) ResourceRegion() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SharedPrivateLinkResourceProperties) *string {
 		if v == nil {
@@ -3126,7 +2986,6 @@ func (o SharedPrivateLinkResourcePropertiesPtrOutput) ResourceRegion() pulumi.St
 	}).(pulumi.StringPtrOutput)
 }
 
-// Status of the shared private link resource. Can be Pending, Approved, Rejected, Disconnected or other yet to be documented value.
 func (o SharedPrivateLinkResourcePropertiesPtrOutput) Status() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SharedPrivateLinkResourceProperties) *string {
 		if v == nil {
@@ -3136,20 +2995,13 @@ func (o SharedPrivateLinkResourcePropertiesPtrOutput) Status() pulumi.StringPtrO
 	}).(pulumi.StringPtrOutput)
 }
 
-// Describes the properties of an existing Shared Private Link Resource managed by the Azure Cognitive Search service.
 type SharedPrivateLinkResourcePropertiesResponse struct {
-	// The group id from the provider of resource the shared private link resource is for.
-	GroupId *string `pulumi:"groupId"`
-	// The resource id of the resource the shared private link resource is for.
+	GroupId               *string `pulumi:"groupId"`
 	PrivateLinkResourceId *string `pulumi:"privateLinkResourceId"`
-	// The provisioning state of the shared private link resource. Can be Updating, Deleting, Failed, Succeeded, Incomplete or other yet to be documented value.
-	ProvisioningState *string `pulumi:"provisioningState"`
-	// The request message for requesting approval of the shared private link resource.
-	RequestMessage *string `pulumi:"requestMessage"`
-	// Optional. Can be used to specify the Azure Resource Manager location of the resource to which a shared private link is to be created. This is only required for those resources whose DNS configuration are regional (such as Azure Kubernetes Service).
-	ResourceRegion *string `pulumi:"resourceRegion"`
-	// Status of the shared private link resource. Can be Pending, Approved, Rejected, Disconnected or other yet to be documented value.
-	Status *string `pulumi:"status"`
+	ProvisioningState     *string `pulumi:"provisioningState"`
+	RequestMessage        *string `pulumi:"requestMessage"`
+	ResourceRegion        *string `pulumi:"resourceRegion"`
+	Status                *string `pulumi:"status"`
 }
 
 // SharedPrivateLinkResourcePropertiesResponseInput is an input type that accepts SharedPrivateLinkResourcePropertiesResponseArgs and SharedPrivateLinkResourcePropertiesResponseOutput values.
@@ -3163,20 +3015,13 @@ type SharedPrivateLinkResourcePropertiesResponseInput interface {
 	ToSharedPrivateLinkResourcePropertiesResponseOutputWithContext(context.Context) SharedPrivateLinkResourcePropertiesResponseOutput
 }
 
-// Describes the properties of an existing Shared Private Link Resource managed by the Azure Cognitive Search service.
 type SharedPrivateLinkResourcePropertiesResponseArgs struct {
-	// The group id from the provider of resource the shared private link resource is for.
-	GroupId pulumi.StringPtrInput `pulumi:"groupId"`
-	// The resource id of the resource the shared private link resource is for.
+	GroupId               pulumi.StringPtrInput `pulumi:"groupId"`
 	PrivateLinkResourceId pulumi.StringPtrInput `pulumi:"privateLinkResourceId"`
-	// The provisioning state of the shared private link resource. Can be Updating, Deleting, Failed, Succeeded, Incomplete or other yet to be documented value.
-	ProvisioningState pulumi.StringPtrInput `pulumi:"provisioningState"`
-	// The request message for requesting approval of the shared private link resource.
-	RequestMessage pulumi.StringPtrInput `pulumi:"requestMessage"`
-	// Optional. Can be used to specify the Azure Resource Manager location of the resource to which a shared private link is to be created. This is only required for those resources whose DNS configuration are regional (such as Azure Kubernetes Service).
-	ResourceRegion pulumi.StringPtrInput `pulumi:"resourceRegion"`
-	// Status of the shared private link resource. Can be Pending, Approved, Rejected, Disconnected or other yet to be documented value.
-	Status pulumi.StringPtrInput `pulumi:"status"`
+	ProvisioningState     pulumi.StringPtrInput `pulumi:"provisioningState"`
+	RequestMessage        pulumi.StringPtrInput `pulumi:"requestMessage"`
+	ResourceRegion        pulumi.StringPtrInput `pulumi:"resourceRegion"`
+	Status                pulumi.StringPtrInput `pulumi:"status"`
 }
 
 func (SharedPrivateLinkResourcePropertiesResponseArgs) ElementType() reflect.Type {
@@ -3232,7 +3077,6 @@ func (i *sharedPrivateLinkResourcePropertiesResponsePtrType) ToSharedPrivateLink
 	return pulumi.ToOutputWithContext(ctx, i).(SharedPrivateLinkResourcePropertiesResponsePtrOutput)
 }
 
-// Describes the properties of an existing Shared Private Link Resource managed by the Azure Cognitive Search service.
 type SharedPrivateLinkResourcePropertiesResponseOutput struct{ *pulumi.OutputState }
 
 func (SharedPrivateLinkResourcePropertiesResponseOutput) ElementType() reflect.Type {
@@ -3252,37 +3096,31 @@ func (o SharedPrivateLinkResourcePropertiesResponseOutput) ToSharedPrivateLinkRe
 }
 
 func (o SharedPrivateLinkResourcePropertiesResponseOutput) ToSharedPrivateLinkResourcePropertiesResponsePtrOutputWithContext(ctx context.Context) SharedPrivateLinkResourcePropertiesResponsePtrOutput {
-	return o.ApplyT(func(v SharedPrivateLinkResourcePropertiesResponse) *SharedPrivateLinkResourcePropertiesResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v SharedPrivateLinkResourcePropertiesResponse) *SharedPrivateLinkResourcePropertiesResponse {
 		return &v
 	}).(SharedPrivateLinkResourcePropertiesResponsePtrOutput)
 }
 
-// The group id from the provider of resource the shared private link resource is for.
 func (o SharedPrivateLinkResourcePropertiesResponseOutput) GroupId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SharedPrivateLinkResourcePropertiesResponse) *string { return v.GroupId }).(pulumi.StringPtrOutput)
 }
 
-// The resource id of the resource the shared private link resource is for.
 func (o SharedPrivateLinkResourcePropertiesResponseOutput) PrivateLinkResourceId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SharedPrivateLinkResourcePropertiesResponse) *string { return v.PrivateLinkResourceId }).(pulumi.StringPtrOutput)
 }
 
-// The provisioning state of the shared private link resource. Can be Updating, Deleting, Failed, Succeeded, Incomplete or other yet to be documented value.
 func (o SharedPrivateLinkResourcePropertiesResponseOutput) ProvisioningState() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SharedPrivateLinkResourcePropertiesResponse) *string { return v.ProvisioningState }).(pulumi.StringPtrOutput)
 }
 
-// The request message for requesting approval of the shared private link resource.
 func (o SharedPrivateLinkResourcePropertiesResponseOutput) RequestMessage() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SharedPrivateLinkResourcePropertiesResponse) *string { return v.RequestMessage }).(pulumi.StringPtrOutput)
 }
 
-// Optional. Can be used to specify the Azure Resource Manager location of the resource to which a shared private link is to be created. This is only required for those resources whose DNS configuration are regional (such as Azure Kubernetes Service).
 func (o SharedPrivateLinkResourcePropertiesResponseOutput) ResourceRegion() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SharedPrivateLinkResourcePropertiesResponse) *string { return v.ResourceRegion }).(pulumi.StringPtrOutput)
 }
 
-// Status of the shared private link resource. Can be Pending, Approved, Rejected, Disconnected or other yet to be documented value.
 func (o SharedPrivateLinkResourcePropertiesResponseOutput) Status() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SharedPrivateLinkResourcePropertiesResponse) *string { return v.Status }).(pulumi.StringPtrOutput)
 }
@@ -3303,11 +3141,14 @@ func (o SharedPrivateLinkResourcePropertiesResponsePtrOutput) ToSharedPrivateLin
 
 func (o SharedPrivateLinkResourcePropertiesResponsePtrOutput) Elem() SharedPrivateLinkResourcePropertiesResponseOutput {
 	return o.ApplyT(func(v *SharedPrivateLinkResourcePropertiesResponse) SharedPrivateLinkResourcePropertiesResponse {
-		return *v
+		if v != nil {
+			return *v
+		}
+		var ret SharedPrivateLinkResourcePropertiesResponse
+		return ret
 	}).(SharedPrivateLinkResourcePropertiesResponseOutput)
 }
 
-// The group id from the provider of resource the shared private link resource is for.
 func (o SharedPrivateLinkResourcePropertiesResponsePtrOutput) GroupId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SharedPrivateLinkResourcePropertiesResponse) *string {
 		if v == nil {
@@ -3317,7 +3158,6 @@ func (o SharedPrivateLinkResourcePropertiesResponsePtrOutput) GroupId() pulumi.S
 	}).(pulumi.StringPtrOutput)
 }
 
-// The resource id of the resource the shared private link resource is for.
 func (o SharedPrivateLinkResourcePropertiesResponsePtrOutput) PrivateLinkResourceId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SharedPrivateLinkResourcePropertiesResponse) *string {
 		if v == nil {
@@ -3327,7 +3167,6 @@ func (o SharedPrivateLinkResourcePropertiesResponsePtrOutput) PrivateLinkResourc
 	}).(pulumi.StringPtrOutput)
 }
 
-// The provisioning state of the shared private link resource. Can be Updating, Deleting, Failed, Succeeded, Incomplete or other yet to be documented value.
 func (o SharedPrivateLinkResourcePropertiesResponsePtrOutput) ProvisioningState() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SharedPrivateLinkResourcePropertiesResponse) *string {
 		if v == nil {
@@ -3337,7 +3176,6 @@ func (o SharedPrivateLinkResourcePropertiesResponsePtrOutput) ProvisioningState(
 	}).(pulumi.StringPtrOutput)
 }
 
-// The request message for requesting approval of the shared private link resource.
 func (o SharedPrivateLinkResourcePropertiesResponsePtrOutput) RequestMessage() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SharedPrivateLinkResourcePropertiesResponse) *string {
 		if v == nil {
@@ -3347,7 +3185,6 @@ func (o SharedPrivateLinkResourcePropertiesResponsePtrOutput) RequestMessage() p
 	}).(pulumi.StringPtrOutput)
 }
 
-// Optional. Can be used to specify the Azure Resource Manager location of the resource to which a shared private link is to be created. This is only required for those resources whose DNS configuration are regional (such as Azure Kubernetes Service).
 func (o SharedPrivateLinkResourcePropertiesResponsePtrOutput) ResourceRegion() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SharedPrivateLinkResourcePropertiesResponse) *string {
 		if v == nil {
@@ -3357,7 +3194,6 @@ func (o SharedPrivateLinkResourcePropertiesResponsePtrOutput) ResourceRegion() p
 	}).(pulumi.StringPtrOutput)
 }
 
-// Status of the shared private link resource. Can be Pending, Approved, Rejected, Disconnected or other yet to be documented value.
 func (o SharedPrivateLinkResourcePropertiesResponsePtrOutput) Status() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SharedPrivateLinkResourcePropertiesResponse) *string {
 		if v == nil {
@@ -3367,16 +3203,11 @@ func (o SharedPrivateLinkResourcePropertiesResponsePtrOutput) Status() pulumi.St
 	}).(pulumi.StringPtrOutput)
 }
 
-// Describes a Shared Private Link Resource managed by the Azure Cognitive Search service.
 type SharedPrivateLinkResourceResponse struct {
-	// Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
-	Id string `pulumi:"id"`
-	// The name of the resource
-	Name string `pulumi:"name"`
-	// Describes the properties of a Shared Private Link Resource managed by the Azure Cognitive Search service.
+	Id         string                                       `pulumi:"id"`
+	Name       string                                       `pulumi:"name"`
 	Properties *SharedPrivateLinkResourcePropertiesResponse `pulumi:"properties"`
-	// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
-	Type string `pulumi:"type"`
+	Type       string                                       `pulumi:"type"`
 }
 
 // SharedPrivateLinkResourceResponseInput is an input type that accepts SharedPrivateLinkResourceResponseArgs and SharedPrivateLinkResourceResponseOutput values.
@@ -3390,16 +3221,11 @@ type SharedPrivateLinkResourceResponseInput interface {
 	ToSharedPrivateLinkResourceResponseOutputWithContext(context.Context) SharedPrivateLinkResourceResponseOutput
 }
 
-// Describes a Shared Private Link Resource managed by the Azure Cognitive Search service.
 type SharedPrivateLinkResourceResponseArgs struct {
-	// Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
-	Id pulumi.StringInput `pulumi:"id"`
-	// The name of the resource
-	Name pulumi.StringInput `pulumi:"name"`
-	// Describes the properties of a Shared Private Link Resource managed by the Azure Cognitive Search service.
+	Id         pulumi.StringInput                                  `pulumi:"id"`
+	Name       pulumi.StringInput                                  `pulumi:"name"`
 	Properties SharedPrivateLinkResourcePropertiesResponsePtrInput `pulumi:"properties"`
-	// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
-	Type pulumi.StringInput `pulumi:"type"`
+	Type       pulumi.StringInput                                  `pulumi:"type"`
 }
 
 func (SharedPrivateLinkResourceResponseArgs) ElementType() reflect.Type {
@@ -3439,7 +3265,6 @@ func (i SharedPrivateLinkResourceResponseArray) ToSharedPrivateLinkResourceRespo
 	return pulumi.ToOutputWithContext(ctx, i).(SharedPrivateLinkResourceResponseArrayOutput)
 }
 
-// Describes a Shared Private Link Resource managed by the Azure Cognitive Search service.
 type SharedPrivateLinkResourceResponseOutput struct{ *pulumi.OutputState }
 
 func (SharedPrivateLinkResourceResponseOutput) ElementType() reflect.Type {
@@ -3454,24 +3279,20 @@ func (o SharedPrivateLinkResourceResponseOutput) ToSharedPrivateLinkResourceResp
 	return o
 }
 
-// Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
 func (o SharedPrivateLinkResourceResponseOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v SharedPrivateLinkResourceResponse) string { return v.Id }).(pulumi.StringOutput)
 }
 
-// The name of the resource
 func (o SharedPrivateLinkResourceResponseOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v SharedPrivateLinkResourceResponse) string { return v.Name }).(pulumi.StringOutput)
 }
 
-// Describes the properties of a Shared Private Link Resource managed by the Azure Cognitive Search service.
 func (o SharedPrivateLinkResourceResponseOutput) Properties() SharedPrivateLinkResourcePropertiesResponsePtrOutput {
 	return o.ApplyT(func(v SharedPrivateLinkResourceResponse) *SharedPrivateLinkResourcePropertiesResponse {
 		return v.Properties
 	}).(SharedPrivateLinkResourcePropertiesResponsePtrOutput)
 }
 
-// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
 func (o SharedPrivateLinkResourceResponseOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v SharedPrivateLinkResourceResponse) string { return v.Type }).(pulumi.StringOutput)
 }
@@ -3496,9 +3317,7 @@ func (o SharedPrivateLinkResourceResponseArrayOutput) Index(i pulumi.IntInput) S
 	}).(SharedPrivateLinkResourceResponseOutput)
 }
 
-// Defines the SKU of an Azure Cognitive Search Service, which determines price tier and capacity limits.
 type Sku struct {
-	// The SKU of the search service. Valid values include: 'free': Shared service. 'basic': Dedicated service with up to 3 replicas. 'standard': Dedicated service with up to 12 partitions and 12 replicas. 'standard2': Similar to standard, but with more capacity per search unit. 'standard3': The largest Standard offering with up to 12 partitions and 12 replicas (or up to 3 partitions with more indexes if you also set the hostingMode property to 'highDensity'). 'storage_optimized_l1': Supports 1TB per partition, up to 12 partitions. 'storage_optimized_l2': Supports 2TB per partition, up to 12 partitions.'
 	Name *string `pulumi:"name"`
 }
 
@@ -3513,9 +3332,7 @@ type SkuInput interface {
 	ToSkuOutputWithContext(context.Context) SkuOutput
 }
 
-// Defines the SKU of an Azure Cognitive Search Service, which determines price tier and capacity limits.
 type SkuArgs struct {
-	// The SKU of the search service. Valid values include: 'free': Shared service. 'basic': Dedicated service with up to 3 replicas. 'standard': Dedicated service with up to 12 partitions and 12 replicas. 'standard2': Similar to standard, but with more capacity per search unit. 'standard3': The largest Standard offering with up to 12 partitions and 12 replicas (or up to 3 partitions with more indexes if you also set the hostingMode property to 'highDensity'). 'storage_optimized_l1': Supports 1TB per partition, up to 12 partitions. 'storage_optimized_l2': Supports 2TB per partition, up to 12 partitions.'
 	Name pulumi.StringPtrInput `pulumi:"name"`
 }
 
@@ -3572,7 +3389,6 @@ func (i *skuPtrType) ToSkuPtrOutputWithContext(ctx context.Context) SkuPtrOutput
 	return pulumi.ToOutputWithContext(ctx, i).(SkuPtrOutput)
 }
 
-// Defines the SKU of an Azure Cognitive Search Service, which determines price tier and capacity limits.
 type SkuOutput struct{ *pulumi.OutputState }
 
 func (SkuOutput) ElementType() reflect.Type {
@@ -3592,12 +3408,11 @@ func (o SkuOutput) ToSkuPtrOutput() SkuPtrOutput {
 }
 
 func (o SkuOutput) ToSkuPtrOutputWithContext(ctx context.Context) SkuPtrOutput {
-	return o.ApplyT(func(v Sku) *Sku {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v Sku) *Sku {
 		return &v
 	}).(SkuPtrOutput)
 }
 
-// The SKU of the search service. Valid values include: 'free': Shared service. 'basic': Dedicated service with up to 3 replicas. 'standard': Dedicated service with up to 12 partitions and 12 replicas. 'standard2': Similar to standard, but with more capacity per search unit. 'standard3': The largest Standard offering with up to 12 partitions and 12 replicas (or up to 3 partitions with more indexes if you also set the hostingMode property to 'highDensity'). 'storage_optimized_l1': Supports 1TB per partition, up to 12 partitions. 'storage_optimized_l2': Supports 2TB per partition, up to 12 partitions.'
 func (o SkuOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v Sku) *string { return v.Name }).(pulumi.StringPtrOutput)
 }
@@ -3617,10 +3432,15 @@ func (o SkuPtrOutput) ToSkuPtrOutputWithContext(ctx context.Context) SkuPtrOutpu
 }
 
 func (o SkuPtrOutput) Elem() SkuOutput {
-	return o.ApplyT(func(v *Sku) Sku { return *v }).(SkuOutput)
+	return o.ApplyT(func(v *Sku) Sku {
+		if v != nil {
+			return *v
+		}
+		var ret Sku
+		return ret
+	}).(SkuOutput)
 }
 
-// The SKU of the search service. Valid values include: 'free': Shared service. 'basic': Dedicated service with up to 3 replicas. 'standard': Dedicated service with up to 12 partitions and 12 replicas. 'standard2': Similar to standard, but with more capacity per search unit. 'standard3': The largest Standard offering with up to 12 partitions and 12 replicas (or up to 3 partitions with more indexes if you also set the hostingMode property to 'highDensity'). 'storage_optimized_l1': Supports 1TB per partition, up to 12 partitions. 'storage_optimized_l2': Supports 2TB per partition, up to 12 partitions.'
 func (o SkuPtrOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Sku) *string {
 		if v == nil {
@@ -3630,9 +3450,7 @@ func (o SkuPtrOutput) Name() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Defines the SKU of an Azure Cognitive Search Service, which determines price tier and capacity limits.
 type SkuResponse struct {
-	// The SKU of the search service. Valid values include: 'free': Shared service. 'basic': Dedicated service with up to 3 replicas. 'standard': Dedicated service with up to 12 partitions and 12 replicas. 'standard2': Similar to standard, but with more capacity per search unit. 'standard3': The largest Standard offering with up to 12 partitions and 12 replicas (or up to 3 partitions with more indexes if you also set the hostingMode property to 'highDensity'). 'storage_optimized_l1': Supports 1TB per partition, up to 12 partitions. 'storage_optimized_l2': Supports 2TB per partition, up to 12 partitions.'
 	Name *string `pulumi:"name"`
 }
 
@@ -3647,9 +3465,7 @@ type SkuResponseInput interface {
 	ToSkuResponseOutputWithContext(context.Context) SkuResponseOutput
 }
 
-// Defines the SKU of an Azure Cognitive Search Service, which determines price tier and capacity limits.
 type SkuResponseArgs struct {
-	// The SKU of the search service. Valid values include: 'free': Shared service. 'basic': Dedicated service with up to 3 replicas. 'standard': Dedicated service with up to 12 partitions and 12 replicas. 'standard2': Similar to standard, but with more capacity per search unit. 'standard3': The largest Standard offering with up to 12 partitions and 12 replicas (or up to 3 partitions with more indexes if you also set the hostingMode property to 'highDensity'). 'storage_optimized_l1': Supports 1TB per partition, up to 12 partitions. 'storage_optimized_l2': Supports 2TB per partition, up to 12 partitions.'
 	Name pulumi.StringPtrInput `pulumi:"name"`
 }
 
@@ -3706,7 +3522,6 @@ func (i *skuResponsePtrType) ToSkuResponsePtrOutputWithContext(ctx context.Conte
 	return pulumi.ToOutputWithContext(ctx, i).(SkuResponsePtrOutput)
 }
 
-// Defines the SKU of an Azure Cognitive Search Service, which determines price tier and capacity limits.
 type SkuResponseOutput struct{ *pulumi.OutputState }
 
 func (SkuResponseOutput) ElementType() reflect.Type {
@@ -3726,12 +3541,11 @@ func (o SkuResponseOutput) ToSkuResponsePtrOutput() SkuResponsePtrOutput {
 }
 
 func (o SkuResponseOutput) ToSkuResponsePtrOutputWithContext(ctx context.Context) SkuResponsePtrOutput {
-	return o.ApplyT(func(v SkuResponse) *SkuResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v SkuResponse) *SkuResponse {
 		return &v
 	}).(SkuResponsePtrOutput)
 }
 
-// The SKU of the search service. Valid values include: 'free': Shared service. 'basic': Dedicated service with up to 3 replicas. 'standard': Dedicated service with up to 12 partitions and 12 replicas. 'standard2': Similar to standard, but with more capacity per search unit. 'standard3': The largest Standard offering with up to 12 partitions and 12 replicas (or up to 3 partitions with more indexes if you also set the hostingMode property to 'highDensity'). 'storage_optimized_l1': Supports 1TB per partition, up to 12 partitions. 'storage_optimized_l2': Supports 2TB per partition, up to 12 partitions.'
 func (o SkuResponseOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SkuResponse) *string { return v.Name }).(pulumi.StringPtrOutput)
 }
@@ -3751,10 +3565,15 @@ func (o SkuResponsePtrOutput) ToSkuResponsePtrOutputWithContext(ctx context.Cont
 }
 
 func (o SkuResponsePtrOutput) Elem() SkuResponseOutput {
-	return o.ApplyT(func(v *SkuResponse) SkuResponse { return *v }).(SkuResponseOutput)
+	return o.ApplyT(func(v *SkuResponse) SkuResponse {
+		if v != nil {
+			return *v
+		}
+		var ret SkuResponse
+		return ret
+	}).(SkuResponseOutput)
 }
 
-// The SKU of the search service. Valid values include: 'free': Shared service. 'basic': Dedicated service with up to 3 replicas. 'standard': Dedicated service with up to 12 partitions and 12 replicas. 'standard2': Similar to standard, but with more capacity per search unit. 'standard3': The largest Standard offering with up to 12 partitions and 12 replicas (or up to 3 partitions with more indexes if you also set the hostingMode property to 'highDensity'). 'storage_optimized_l1': Supports 1TB per partition, up to 12 partitions. 'storage_optimized_l2': Supports 2TB per partition, up to 12 partitions.'
 func (o SkuResponsePtrOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SkuResponse) *string {
 		if v == nil {
@@ -3764,11 +3583,8 @@ func (o SkuResponsePtrOutput) Name() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The details of the user assigned managed identity assigned to the search service.
 type UserAssignedManagedIdentityResponse struct {
-	// The client ID of user assigned identity.
-	ClientId string `pulumi:"clientId"`
-	// The principal ID of user assigned identity.
+	ClientId    string `pulumi:"clientId"`
 	PrincipalId string `pulumi:"principalId"`
 }
 
@@ -3783,11 +3599,8 @@ type UserAssignedManagedIdentityResponseInput interface {
 	ToUserAssignedManagedIdentityResponseOutputWithContext(context.Context) UserAssignedManagedIdentityResponseOutput
 }
 
-// The details of the user assigned managed identity assigned to the search service.
 type UserAssignedManagedIdentityResponseArgs struct {
-	// The client ID of user assigned identity.
-	ClientId pulumi.StringInput `pulumi:"clientId"`
-	// The principal ID of user assigned identity.
+	ClientId    pulumi.StringInput `pulumi:"clientId"`
 	PrincipalId pulumi.StringInput `pulumi:"principalId"`
 }
 
@@ -3828,7 +3641,6 @@ func (i UserAssignedManagedIdentityResponseMap) ToUserAssignedManagedIdentityRes
 	return pulumi.ToOutputWithContext(ctx, i).(UserAssignedManagedIdentityResponseMapOutput)
 }
 
-// The details of the user assigned managed identity assigned to the search service.
 type UserAssignedManagedIdentityResponseOutput struct{ *pulumi.OutputState }
 
 func (UserAssignedManagedIdentityResponseOutput) ElementType() reflect.Type {
@@ -3843,12 +3655,10 @@ func (o UserAssignedManagedIdentityResponseOutput) ToUserAssignedManagedIdentity
 	return o
 }
 
-// The client ID of user assigned identity.
 func (o UserAssignedManagedIdentityResponseOutput) ClientId() pulumi.StringOutput {
 	return o.ApplyT(func(v UserAssignedManagedIdentityResponse) string { return v.ClientId }).(pulumi.StringOutput)
 }
 
-// The principal ID of user assigned identity.
 func (o UserAssignedManagedIdentityResponseOutput) PrincipalId() pulumi.StringOutput {
 	return o.ApplyT(func(v UserAssignedManagedIdentityResponse) string { return v.PrincipalId }).(pulumi.StringOutput)
 }

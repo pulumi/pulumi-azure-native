@@ -11,84 +11,46 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// An Azure Cosmos DB database account.
 type DatabaseAccount struct {
 	pulumi.CustomResourceState
 
-	// API specific properties.
-	ApiProperties ApiPropertiesResponsePtrOutput `pulumi:"apiProperties"`
-	// The object representing the policy for taking backups on an account.
-	BackupPolicy pulumi.AnyOutput `pulumi:"backupPolicy"`
-	// List of Cosmos DB capabilities for the account
-	Capabilities CapabilityResponseArrayOutput `pulumi:"capabilities"`
-	// The cassandra connector offer type for the Cosmos DB database C* account.
-	ConnectorOffer pulumi.StringPtrOutput `pulumi:"connectorOffer"`
-	// The consistency policy for the Cosmos DB database account.
-	ConsistencyPolicy ConsistencyPolicyResponsePtrOutput `pulumi:"consistencyPolicy"`
-	// The CORS policy for the Cosmos DB database account.
-	Cors CorsPolicyResponseArrayOutput `pulumi:"cors"`
-	// Enum to indicate the mode of account creation.
-	CreateMode pulumi.StringPtrOutput `pulumi:"createMode"`
-	// The offer type for the Cosmos DB database account. Default value: Standard.
-	DatabaseAccountOfferType pulumi.StringOutput `pulumi:"databaseAccountOfferType"`
-	// Disable write operations on metadata resources (databases, containers, throughput) via account keys
-	DisableKeyBasedMetadataWriteAccess pulumi.BoolPtrOutput `pulumi:"disableKeyBasedMetadataWriteAccess"`
-	// The connection endpoint for the Cosmos DB database account.
-	DocumentEndpoint pulumi.StringOutput `pulumi:"documentEndpoint"`
-	// Flag to indicate whether to enable storage analytics.
-	EnableAnalyticalStorage pulumi.BoolPtrOutput `pulumi:"enableAnalyticalStorage"`
-	// Enables automatic failover of the write region in the rare event that the region is unavailable due to an outage. Automatic failover will result in a new write region for the account and is chosen based on the failover priorities configured for the account.
-	EnableAutomaticFailover pulumi.BoolPtrOutput `pulumi:"enableAutomaticFailover"`
-	// Enables the cassandra connector on the Cosmos DB C* account
-	EnableCassandraConnector pulumi.BoolPtrOutput `pulumi:"enableCassandraConnector"`
-	// Flag to indicate whether Free Tier is enabled.
-	EnableFreeTier pulumi.BoolPtrOutput `pulumi:"enableFreeTier"`
-	// Enables the account to write in multiple locations
-	EnableMultipleWriteLocations pulumi.BoolPtrOutput `pulumi:"enableMultipleWriteLocations"`
-	// An array that contains the regions ordered by their failover priorities.
-	FailoverPolicies FailoverPolicyResponseArrayOutput `pulumi:"failoverPolicies"`
-	// Identity for the resource.
-	Identity ManagedServiceIdentityResponsePtrOutput `pulumi:"identity"`
-	// A unique identifier assigned to the database account
-	InstanceId pulumi.StringOutput `pulumi:"instanceId"`
-	// List of IpRules.
-	IpRules IpAddressOrRangeResponseArrayOutput `pulumi:"ipRules"`
-	// Flag to indicate whether to enable/disable Virtual Network ACL rules.
-	IsVirtualNetworkFilterEnabled pulumi.BoolPtrOutput `pulumi:"isVirtualNetworkFilterEnabled"`
-	// The URI of the key vault
-	KeyVaultKeyUri pulumi.StringPtrOutput `pulumi:"keyVaultKeyUri"`
-	// Indicates the type of database account. This can only be set at database account creation.
-	Kind pulumi.StringPtrOutput `pulumi:"kind"`
-	// The location of the resource group to which the resource belongs.
-	Location pulumi.StringPtrOutput `pulumi:"location"`
-	// An array that contains all of the locations enabled for the Cosmos DB account.
-	Locations LocationResponseArrayOutput `pulumi:"locations"`
-	// The name of the ARM resource.
-	Name pulumi.StringOutput `pulumi:"name"`
-	// Indicates what services are allowed to bypass firewall checks.
-	NetworkAclBypass pulumi.StringPtrOutput `pulumi:"networkAclBypass"`
-	// An array that contains the Resource Ids for Network Acl Bypass for the Cosmos DB account.
-	NetworkAclBypassResourceIds pulumi.StringArrayOutput `pulumi:"networkAclBypassResourceIds"`
-	// List of Private Endpoint Connections configured for the Cosmos DB account.
-	PrivateEndpointConnections PrivateEndpointConnectionResponseArrayOutput `pulumi:"privateEndpointConnections"`
-	// The status of the Cosmos DB account at the time the operation was called. The status can be one of following. 'Creating' – the Cosmos DB account is being created. When an account is in Creating state, only properties that are specified as input for the Create Cosmos DB account operation are returned. 'Succeeded' – the Cosmos DB account is active for use. 'Updating' – the Cosmos DB account is being updated. 'Deleting' – the Cosmos DB account is being deleted. 'Failed' – the Cosmos DB account failed creation. 'DeletionFailed' – the Cosmos DB account deletion failed.
-	ProvisioningState pulumi.StringOutput `pulumi:"provisioningState"`
-	// Whether requests from Public Network are allowed
-	PublicNetworkAccess pulumi.StringPtrOutput `pulumi:"publicNetworkAccess"`
-	// An array that contains of the read locations enabled for the Cosmos DB account.
-	ReadLocations LocationResponseArrayOutput `pulumi:"readLocations"`
-	// Parameters to indicate the information about the restore.
-	RestoreParameters RestoreParametersResponsePtrOutput `pulumi:"restoreParameters"`
-	// The system meta data relating to this resource.
-	SystemData SystemDataResponseOutput `pulumi:"systemData"`
-	// Tags are a list of key-value pairs that describe the resource. These tags can be used in viewing and grouping this resource (across resource groups). A maximum of 15 tags can be provided for a resource. Each tag must have a key no greater than 128 characters and value no greater than 256 characters. For example, the default experience for a template type is set with "defaultExperience": "Cassandra". Current "defaultExperience" values also include "Table", "Graph", "DocumentDB", and "MongoDB".
-	Tags pulumi.StringMapOutput `pulumi:"tags"`
-	// The type of Azure resource.
-	Type pulumi.StringOutput `pulumi:"type"`
-	// List of Virtual Network ACL rules configured for the Cosmos DB account.
-	VirtualNetworkRules VirtualNetworkRuleResponseArrayOutput `pulumi:"virtualNetworkRules"`
-	// An array that contains the write location for the Cosmos DB account.
-	WriteLocations LocationResponseArrayOutput `pulumi:"writeLocations"`
+	ApiProperties                      ApiPropertiesResponsePtrOutput               `pulumi:"apiProperties"`
+	BackupPolicy                       pulumi.AnyOutput                             `pulumi:"backupPolicy"`
+	Capabilities                       CapabilityResponseArrayOutput                `pulumi:"capabilities"`
+	ConnectorOffer                     pulumi.StringPtrOutput                       `pulumi:"connectorOffer"`
+	ConsistencyPolicy                  ConsistencyPolicyResponsePtrOutput           `pulumi:"consistencyPolicy"`
+	Cors                               CorsPolicyResponseArrayOutput                `pulumi:"cors"`
+	CreateMode                         pulumi.StringPtrOutput                       `pulumi:"createMode"`
+	DatabaseAccountOfferType           pulumi.StringOutput                          `pulumi:"databaseAccountOfferType"`
+	DisableKeyBasedMetadataWriteAccess pulumi.BoolPtrOutput                         `pulumi:"disableKeyBasedMetadataWriteAccess"`
+	DocumentEndpoint                   pulumi.StringOutput                          `pulumi:"documentEndpoint"`
+	EnableAnalyticalStorage            pulumi.BoolPtrOutput                         `pulumi:"enableAnalyticalStorage"`
+	EnableAutomaticFailover            pulumi.BoolPtrOutput                         `pulumi:"enableAutomaticFailover"`
+	EnableCassandraConnector           pulumi.BoolPtrOutput                         `pulumi:"enableCassandraConnector"`
+	EnableFreeTier                     pulumi.BoolPtrOutput                         `pulumi:"enableFreeTier"`
+	EnableMultipleWriteLocations       pulumi.BoolPtrOutput                         `pulumi:"enableMultipleWriteLocations"`
+	FailoverPolicies                   FailoverPolicyResponseArrayOutput            `pulumi:"failoverPolicies"`
+	Identity                           ManagedServiceIdentityResponsePtrOutput      `pulumi:"identity"`
+	InstanceId                         pulumi.StringOutput                          `pulumi:"instanceId"`
+	IpRules                            IpAddressOrRangeResponseArrayOutput          `pulumi:"ipRules"`
+	IsVirtualNetworkFilterEnabled      pulumi.BoolPtrOutput                         `pulumi:"isVirtualNetworkFilterEnabled"`
+	KeyVaultKeyUri                     pulumi.StringPtrOutput                       `pulumi:"keyVaultKeyUri"`
+	Kind                               pulumi.StringPtrOutput                       `pulumi:"kind"`
+	Location                           pulumi.StringPtrOutput                       `pulumi:"location"`
+	Locations                          LocationResponseArrayOutput                  `pulumi:"locations"`
+	Name                               pulumi.StringOutput                          `pulumi:"name"`
+	NetworkAclBypass                   pulumi.StringPtrOutput                       `pulumi:"networkAclBypass"`
+	NetworkAclBypassResourceIds        pulumi.StringArrayOutput                     `pulumi:"networkAclBypassResourceIds"`
+	PrivateEndpointConnections         PrivateEndpointConnectionResponseArrayOutput `pulumi:"privateEndpointConnections"`
+	ProvisioningState                  pulumi.StringOutput                          `pulumi:"provisioningState"`
+	PublicNetworkAccess                pulumi.StringPtrOutput                       `pulumi:"publicNetworkAccess"`
+	ReadLocations                      LocationResponseArrayOutput                  `pulumi:"readLocations"`
+	RestoreParameters                  RestoreParametersResponsePtrOutput           `pulumi:"restoreParameters"`
+	SystemData                         SystemDataResponseOutput                     `pulumi:"systemData"`
+	Tags                               pulumi.StringMapOutput                       `pulumi:"tags"`
+	Type                               pulumi.StringOutput                          `pulumi:"type"`
+	VirtualNetworkRules                VirtualNetworkRuleResponseArrayOutput        `pulumi:"virtualNetworkRules"`
+	WriteLocations                     LocationResponseArrayOutput                  `pulumi:"writeLocations"`
 }
 
 // NewDatabaseAccount registers a new resource with the given unique name, arguments, and options.
@@ -259,38 +221,24 @@ func (DatabaseAccountState) ElementType() reflect.Type {
 }
 
 type databaseAccountArgs struct {
-	// Cosmos DB database account name.
-	AccountName *string `pulumi:"accountName"`
-	// Identity for the resource.
-	Identity *ManagedServiceIdentity `pulumi:"identity"`
-	// Indicates the type of database account. This can only be set at database account creation.
-	Kind *string `pulumi:"kind"`
-	// The location of the resource group to which the resource belongs.
-	Location *string `pulumi:"location"`
-	// Properties to create and update Azure Cosmos DB database accounts.
-	Properties interface{} `pulumi:"properties"`
-	// The name of the resource group. The name is case insensitive.
-	ResourceGroupName string `pulumi:"resourceGroupName"`
-	// Tags are a list of key-value pairs that describe the resource. These tags can be used in viewing and grouping this resource (across resource groups). A maximum of 15 tags can be provided for a resource. Each tag must have a key no greater than 128 characters and value no greater than 256 characters. For example, the default experience for a template type is set with "defaultExperience": "Cassandra". Current "defaultExperience" values also include "Table", "Graph", "DocumentDB", and "MongoDB".
-	Tags map[string]string `pulumi:"tags"`
+	AccountName       *string                 `pulumi:"accountName"`
+	Identity          *ManagedServiceIdentity `pulumi:"identity"`
+	Kind              *string                 `pulumi:"kind"`
+	Location          *string                 `pulumi:"location"`
+	Properties        interface{}             `pulumi:"properties"`
+	ResourceGroupName string                  `pulumi:"resourceGroupName"`
+	Tags              map[string]string       `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a DatabaseAccount resource.
 type DatabaseAccountArgs struct {
-	// Cosmos DB database account name.
-	AccountName pulumi.StringPtrInput
-	// Identity for the resource.
-	Identity ManagedServiceIdentityPtrInput
-	// Indicates the type of database account. This can only be set at database account creation.
-	Kind pulumi.StringPtrInput
-	// The location of the resource group to which the resource belongs.
-	Location pulumi.StringPtrInput
-	// Properties to create and update Azure Cosmos DB database accounts.
-	Properties pulumi.Input
-	// The name of the resource group. The name is case insensitive.
+	AccountName       pulumi.StringPtrInput
+	Identity          ManagedServiceIdentityPtrInput
+	Kind              pulumi.StringPtrInput
+	Location          pulumi.StringPtrInput
+	Properties        pulumi.Input
 	ResourceGroupName pulumi.StringInput
-	// Tags are a list of key-value pairs that describe the resource. These tags can be used in viewing and grouping this resource (across resource groups). A maximum of 15 tags can be provided for a resource. Each tag must have a key no greater than 128 characters and value no greater than 256 characters. For example, the default experience for a template type is set with "defaultExperience": "Cassandra". Current "defaultExperience" values also include "Table", "Graph", "DocumentDB", and "MongoDB".
-	Tags pulumi.StringMapInput
+	Tags              pulumi.StringMapInput
 }
 
 func (DatabaseAccountArgs) ElementType() reflect.Type {
@@ -316,9 +264,7 @@ func (i *DatabaseAccount) ToDatabaseAccountOutputWithContext(ctx context.Context
 	return pulumi.ToOutputWithContext(ctx, i).(DatabaseAccountOutput)
 }
 
-type DatabaseAccountOutput struct {
-	*pulumi.OutputState
-}
+type DatabaseAccountOutput struct{ *pulumi.OutputState }
 
 func (DatabaseAccountOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*DatabaseAccount)(nil))

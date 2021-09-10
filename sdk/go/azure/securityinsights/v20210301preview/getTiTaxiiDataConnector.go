@@ -7,7 +7,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Data connector to pull Threat intelligence data from TAXII 2.0/2.1 server
 func LookupTiTaxiiDataConnector(ctx *pulumi.Context, args *LookupTiTaxiiDataConnectorArgs, opts ...pulumi.InvokeOption) (*LookupTiTaxiiDataConnectorResult, error) {
 	var rv LookupTiTaxiiDataConnectorResult
 	err := ctx.Invoke("azure-native:securityinsights/v20210301preview:getTiTaxiiDataConnector", args, &rv, opts...)
@@ -18,49 +17,28 @@ func LookupTiTaxiiDataConnector(ctx *pulumi.Context, args *LookupTiTaxiiDataConn
 }
 
 type LookupTiTaxiiDataConnectorArgs struct {
-	// Connector ID
-	DataConnectorId string `pulumi:"dataConnectorId"`
-	// The namespace of workspaces resource provider- Microsoft.OperationalInsights.
+	DataConnectorId                     string `pulumi:"dataConnectorId"`
 	OperationalInsightsResourceProvider string `pulumi:"operationalInsightsResourceProvider"`
-	// The name of the resource group. The name is case insensitive.
-	ResourceGroupName string `pulumi:"resourceGroupName"`
-	// The name of the workspace.
-	WorkspaceName string `pulumi:"workspaceName"`
+	ResourceGroupName                   string `pulumi:"resourceGroupName"`
+	WorkspaceName                       string `pulumi:"workspaceName"`
 }
 
 // Data connector to pull Threat intelligence data from TAXII 2.0/2.1 server
 type LookupTiTaxiiDataConnectorResult struct {
-	// The collection id of the TAXII server.
-	CollectionId *string `pulumi:"collectionId"`
-	// The available data types for Threat Intelligence TAXII data connector.
-	DataTypes TiTaxiiDataConnectorDataTypesResponse `pulumi:"dataTypes"`
-	// Etag of the azure resource
-	Etag *string `pulumi:"etag"`
-	// The friendly name for the TAXII server.
-	FriendlyName *string `pulumi:"friendlyName"`
-	// Azure resource Id
-	Id string `pulumi:"id"`
-	// The kind of the data connector
-	// Expected value is 'ThreatIntelligenceTaxii'.
-	Kind string `pulumi:"kind"`
-	// Azure resource name
-	Name string `pulumi:"name"`
-	// The password for the TAXII server.
-	Password *string `pulumi:"password"`
-	// The polling frequency for the TAXII server.
-	PollingFrequency string `pulumi:"pollingFrequency"`
-	// Azure Resource Manager metadata containing createdBy and modifiedBy information.
-	SystemData SystemDataResponse `pulumi:"systemData"`
-	// The lookback period for the TAXII server.
-	TaxiiLookbackPeriod *string `pulumi:"taxiiLookbackPeriod"`
-	// The API root for the TAXII server.
-	TaxiiServer *string `pulumi:"taxiiServer"`
-	// The tenant id to connect to, and get the data from.
-	TenantId string `pulumi:"tenantId"`
-	// Azure resource type
-	Type string `pulumi:"type"`
-	// The userName for the TAXII server.
-	UserName *string `pulumi:"userName"`
-	// The workspace id.
-	WorkspaceId *string `pulumi:"workspaceId"`
+	CollectionId        *string                               `pulumi:"collectionId"`
+	DataTypes           TiTaxiiDataConnectorDataTypesResponse `pulumi:"dataTypes"`
+	Etag                *string                               `pulumi:"etag"`
+	FriendlyName        *string                               `pulumi:"friendlyName"`
+	Id                  string                                `pulumi:"id"`
+	Kind                string                                `pulumi:"kind"`
+	Name                string                                `pulumi:"name"`
+	Password            *string                               `pulumi:"password"`
+	PollingFrequency    string                                `pulumi:"pollingFrequency"`
+	SystemData          SystemDataResponse                    `pulumi:"systemData"`
+	TaxiiLookbackPeriod *string                               `pulumi:"taxiiLookbackPeriod"`
+	TaxiiServer         *string                               `pulumi:"taxiiServer"`
+	TenantId            string                                `pulumi:"tenantId"`
+	Type                string                                `pulumi:"type"`
+	UserName            *string                               `pulumi:"userName"`
+	WorkspaceId         *string                               `pulumi:"workspaceId"`
 }

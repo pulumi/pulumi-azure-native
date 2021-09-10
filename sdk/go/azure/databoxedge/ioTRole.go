@@ -239,9 +239,7 @@ func (i *IoTRole) ToIoTRoleOutputWithContext(ctx context.Context) IoTRoleOutput 
 	return pulumi.ToOutputWithContext(ctx, i).(IoTRoleOutput)
 }
 
-type IoTRoleOutput struct {
-	*pulumi.OutputState
-}
+type IoTRoleOutput struct{ *pulumi.OutputState }
 
 func (IoTRoleOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*IoTRole)(nil))

@@ -178,9 +178,7 @@ func (i *ApplicationGatewayPrivateEndpointConnection) ToApplicationGatewayPrivat
 	return pulumi.ToOutputWithContext(ctx, i).(ApplicationGatewayPrivateEndpointConnectionOutput)
 }
 
-type ApplicationGatewayPrivateEndpointConnectionOutput struct {
-	*pulumi.OutputState
-}
+type ApplicationGatewayPrivateEndpointConnectionOutput struct{ *pulumi.OutputState }
 
 func (ApplicationGatewayPrivateEndpointConnectionOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*ApplicationGatewayPrivateEndpointConnection)(nil))

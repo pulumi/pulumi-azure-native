@@ -11,44 +11,26 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Front Door represents a collection of backend endpoints to route traffic to along with rules that specify how traffic is sent there.
 type FrontDoor struct {
 	pulumi.CustomResourceState
 
-	// Backend pools available to routing rules.
-	BackendPools BackendPoolResponseArrayOutput `pulumi:"backendPools"`
-	// Settings for all backendPools
-	BackendPoolsSettings BackendPoolsSettingsResponsePtrOutput `pulumi:"backendPoolsSettings"`
-	// The host that each frontendEndpoint must CNAME to.
-	Cname pulumi.StringOutput `pulumi:"cname"`
-	// Operational status of the Front Door load balancer. Permitted values are 'Enabled' or 'Disabled'
-	EnabledState pulumi.StringPtrOutput `pulumi:"enabledState"`
-	// A friendly name for the frontDoor
-	FriendlyName pulumi.StringPtrOutput `pulumi:"friendlyName"`
-	// The Id of the frontdoor.
-	FrontdoorId pulumi.StringOutput `pulumi:"frontdoorId"`
-	// Frontend endpoints available to routing rules.
-	FrontendEndpoints FrontendEndpointResponseArrayOutput `pulumi:"frontendEndpoints"`
-	// Health probe settings associated with this Front Door instance.
-	HealthProbeSettings HealthProbeSettingsModelResponseArrayOutput `pulumi:"healthProbeSettings"`
-	// Load balancing settings associated with this Front Door instance.
+	BackendPools          BackendPoolResponseArrayOutput                `pulumi:"backendPools"`
+	BackendPoolsSettings  BackendPoolsSettingsResponsePtrOutput         `pulumi:"backendPoolsSettings"`
+	Cname                 pulumi.StringOutput                           `pulumi:"cname"`
+	EnabledState          pulumi.StringPtrOutput                        `pulumi:"enabledState"`
+	FriendlyName          pulumi.StringPtrOutput                        `pulumi:"friendlyName"`
+	FrontdoorId           pulumi.StringOutput                           `pulumi:"frontdoorId"`
+	FrontendEndpoints     FrontendEndpointResponseArrayOutput           `pulumi:"frontendEndpoints"`
+	HealthProbeSettings   HealthProbeSettingsModelResponseArrayOutput   `pulumi:"healthProbeSettings"`
 	LoadBalancingSettings LoadBalancingSettingsModelResponseArrayOutput `pulumi:"loadBalancingSettings"`
-	// Resource location.
-	Location pulumi.StringPtrOutput `pulumi:"location"`
-	// Resource name.
-	Name pulumi.StringOutput `pulumi:"name"`
-	// Provisioning state of the Front Door.
-	ProvisioningState pulumi.StringOutput `pulumi:"provisioningState"`
-	// Resource status of the Front Door.
-	ResourceState pulumi.StringOutput `pulumi:"resourceState"`
-	// Routing rules associated with this Front Door.
-	RoutingRules RoutingRuleResponseArrayOutput `pulumi:"routingRules"`
-	// Rules Engine Configurations available to routing rules.
-	RulesEngines RulesEngineResponseArrayOutput `pulumi:"rulesEngines"`
-	// Resource tags.
-	Tags pulumi.StringMapOutput `pulumi:"tags"`
-	// Resource type.
-	Type pulumi.StringOutput `pulumi:"type"`
+	Location              pulumi.StringPtrOutput                        `pulumi:"location"`
+	Name                  pulumi.StringOutput                           `pulumi:"name"`
+	ProvisioningState     pulumi.StringOutput                           `pulumi:"provisioningState"`
+	ResourceState         pulumi.StringOutput                           `pulumi:"resourceState"`
+	RoutingRules          RoutingRuleResponseArrayOutput                `pulumi:"routingRules"`
+	RulesEngines          RulesEngineResponseArrayOutput                `pulumi:"rulesEngines"`
+	Tags                  pulumi.StringMapOutput                        `pulumi:"tags"`
+	Type                  pulumi.StringOutput                           `pulumi:"type"`
 }
 
 // NewFrontDoor registers a new resource with the given unique name, arguments, and options.
@@ -129,58 +111,34 @@ func (FrontDoorState) ElementType() reflect.Type {
 }
 
 type frontDoorArgs struct {
-	// Backend pools available to routing rules.
-	BackendPools []BackendPool `pulumi:"backendPools"`
-	// Settings for all backendPools
-	BackendPoolsSettings *BackendPoolsSettings `pulumi:"backendPoolsSettings"`
-	// Operational status of the Front Door load balancer. Permitted values are 'Enabled' or 'Disabled'
-	EnabledState *string `pulumi:"enabledState"`
-	// A friendly name for the frontDoor
-	FriendlyName *string `pulumi:"friendlyName"`
-	// Name of the Front Door which is globally unique.
-	FrontDoorName *string `pulumi:"frontDoorName"`
-	// Frontend endpoints available to routing rules.
-	FrontendEndpoints []FrontendEndpoint `pulumi:"frontendEndpoints"`
-	// Health probe settings associated with this Front Door instance.
-	HealthProbeSettings []HealthProbeSettingsModel `pulumi:"healthProbeSettings"`
-	// Load balancing settings associated with this Front Door instance.
+	BackendPools          []BackendPool                `pulumi:"backendPools"`
+	BackendPoolsSettings  *BackendPoolsSettings        `pulumi:"backendPoolsSettings"`
+	EnabledState          *string                      `pulumi:"enabledState"`
+	FriendlyName          *string                      `pulumi:"friendlyName"`
+	FrontDoorName         *string                      `pulumi:"frontDoorName"`
+	FrontendEndpoints     []FrontendEndpoint           `pulumi:"frontendEndpoints"`
+	HealthProbeSettings   []HealthProbeSettingsModel   `pulumi:"healthProbeSettings"`
 	LoadBalancingSettings []LoadBalancingSettingsModel `pulumi:"loadBalancingSettings"`
-	// Resource location.
-	Location *string `pulumi:"location"`
-	// Name of the Resource group within the Azure subscription.
-	ResourceGroupName string `pulumi:"resourceGroupName"`
-	// Routing rules associated with this Front Door.
-	RoutingRules []RoutingRule `pulumi:"routingRules"`
-	// Resource tags.
-	Tags map[string]string `pulumi:"tags"`
+	Location              *string                      `pulumi:"location"`
+	ResourceGroupName     string                       `pulumi:"resourceGroupName"`
+	RoutingRules          []RoutingRule                `pulumi:"routingRules"`
+	Tags                  map[string]string            `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a FrontDoor resource.
 type FrontDoorArgs struct {
-	// Backend pools available to routing rules.
-	BackendPools BackendPoolArrayInput
-	// Settings for all backendPools
-	BackendPoolsSettings BackendPoolsSettingsPtrInput
-	// Operational status of the Front Door load balancer. Permitted values are 'Enabled' or 'Disabled'
-	EnabledState pulumi.StringPtrInput
-	// A friendly name for the frontDoor
-	FriendlyName pulumi.StringPtrInput
-	// Name of the Front Door which is globally unique.
-	FrontDoorName pulumi.StringPtrInput
-	// Frontend endpoints available to routing rules.
-	FrontendEndpoints FrontendEndpointArrayInput
-	// Health probe settings associated with this Front Door instance.
-	HealthProbeSettings HealthProbeSettingsModelArrayInput
-	// Load balancing settings associated with this Front Door instance.
+	BackendPools          BackendPoolArrayInput
+	BackendPoolsSettings  BackendPoolsSettingsPtrInput
+	EnabledState          pulumi.StringPtrInput
+	FriendlyName          pulumi.StringPtrInput
+	FrontDoorName         pulumi.StringPtrInput
+	FrontendEndpoints     FrontendEndpointArrayInput
+	HealthProbeSettings   HealthProbeSettingsModelArrayInput
 	LoadBalancingSettings LoadBalancingSettingsModelArrayInput
-	// Resource location.
-	Location pulumi.StringPtrInput
-	// Name of the Resource group within the Azure subscription.
-	ResourceGroupName pulumi.StringInput
-	// Routing rules associated with this Front Door.
-	RoutingRules RoutingRuleArrayInput
-	// Resource tags.
-	Tags pulumi.StringMapInput
+	Location              pulumi.StringPtrInput
+	ResourceGroupName     pulumi.StringInput
+	RoutingRules          RoutingRuleArrayInput
+	Tags                  pulumi.StringMapInput
 }
 
 func (FrontDoorArgs) ElementType() reflect.Type {
@@ -206,9 +164,7 @@ func (i *FrontDoor) ToFrontDoorOutputWithContext(ctx context.Context) FrontDoorO
 	return pulumi.ToOutputWithContext(ctx, i).(FrontDoorOutput)
 }
 
-type FrontDoorOutput struct {
-	*pulumi.OutputState
-}
+type FrontDoorOutput struct{ *pulumi.OutputState }
 
 func (FrontDoorOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*FrontDoor)(nil))

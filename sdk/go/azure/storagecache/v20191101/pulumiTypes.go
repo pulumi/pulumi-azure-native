@@ -10,11 +10,8 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// An indication of Cache health. Gives more information about health than just that related to provisioning.
 type CacheHealthResponse struct {
-	// List of Cache health states.
-	State *string `pulumi:"state"`
-	// Describes explanation of state.
+	State             *string `pulumi:"state"`
 	StatusDescription *string `pulumi:"statusDescription"`
 }
 
@@ -29,11 +26,8 @@ type CacheHealthResponseInput interface {
 	ToCacheHealthResponseOutputWithContext(context.Context) CacheHealthResponseOutput
 }
 
-// An indication of Cache health. Gives more information about health than just that related to provisioning.
 type CacheHealthResponseArgs struct {
-	// List of Cache health states.
-	State pulumi.StringPtrInput `pulumi:"state"`
-	// Describes explanation of state.
+	State             pulumi.StringPtrInput `pulumi:"state"`
 	StatusDescription pulumi.StringPtrInput `pulumi:"statusDescription"`
 }
 
@@ -90,7 +84,6 @@ func (i *cacheHealthResponsePtrType) ToCacheHealthResponsePtrOutputWithContext(c
 	return pulumi.ToOutputWithContext(ctx, i).(CacheHealthResponsePtrOutput)
 }
 
-// An indication of Cache health. Gives more information about health than just that related to provisioning.
 type CacheHealthResponseOutput struct{ *pulumi.OutputState }
 
 func (CacheHealthResponseOutput) ElementType() reflect.Type {
@@ -110,17 +103,15 @@ func (o CacheHealthResponseOutput) ToCacheHealthResponsePtrOutput() CacheHealthR
 }
 
 func (o CacheHealthResponseOutput) ToCacheHealthResponsePtrOutputWithContext(ctx context.Context) CacheHealthResponsePtrOutput {
-	return o.ApplyT(func(v CacheHealthResponse) *CacheHealthResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v CacheHealthResponse) *CacheHealthResponse {
 		return &v
 	}).(CacheHealthResponsePtrOutput)
 }
 
-// List of Cache health states.
 func (o CacheHealthResponseOutput) State() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v CacheHealthResponse) *string { return v.State }).(pulumi.StringPtrOutput)
 }
 
-// Describes explanation of state.
 func (o CacheHealthResponseOutput) StatusDescription() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v CacheHealthResponse) *string { return v.StatusDescription }).(pulumi.StringPtrOutput)
 }
@@ -140,10 +131,15 @@ func (o CacheHealthResponsePtrOutput) ToCacheHealthResponsePtrOutputWithContext(
 }
 
 func (o CacheHealthResponsePtrOutput) Elem() CacheHealthResponseOutput {
-	return o.ApplyT(func(v *CacheHealthResponse) CacheHealthResponse { return *v }).(CacheHealthResponseOutput)
+	return o.ApplyT(func(v *CacheHealthResponse) CacheHealthResponse {
+		if v != nil {
+			return *v
+		}
+		var ret CacheHealthResponse
+		return ret
+	}).(CacheHealthResponseOutput)
 }
 
-// List of Cache health states.
 func (o CacheHealthResponsePtrOutput) State() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *CacheHealthResponse) *string {
 		if v == nil {
@@ -153,7 +149,6 @@ func (o CacheHealthResponsePtrOutput) State() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Describes explanation of state.
 func (o CacheHealthResponsePtrOutput) StatusDescription() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *CacheHealthResponse) *string {
 		if v == nil {
@@ -163,9 +158,7 @@ func (o CacheHealthResponsePtrOutput) StatusDescription() pulumi.StringPtrOutput
 	}).(pulumi.StringPtrOutput)
 }
 
-// SKU for the Cache.
 type CacheResponseSku struct {
-	// SKU name for this Cache.
 	Name *string `pulumi:"name"`
 }
 
@@ -180,9 +173,7 @@ type CacheResponseSkuInput interface {
 	ToCacheResponseSkuOutputWithContext(context.Context) CacheResponseSkuOutput
 }
 
-// SKU for the Cache.
 type CacheResponseSkuArgs struct {
-	// SKU name for this Cache.
 	Name pulumi.StringPtrInput `pulumi:"name"`
 }
 
@@ -239,7 +230,6 @@ func (i *cacheResponseSkuPtrType) ToCacheResponseSkuPtrOutputWithContext(ctx con
 	return pulumi.ToOutputWithContext(ctx, i).(CacheResponseSkuPtrOutput)
 }
 
-// SKU for the Cache.
 type CacheResponseSkuOutput struct{ *pulumi.OutputState }
 
 func (CacheResponseSkuOutput) ElementType() reflect.Type {
@@ -259,12 +249,11 @@ func (o CacheResponseSkuOutput) ToCacheResponseSkuPtrOutput() CacheResponseSkuPt
 }
 
 func (o CacheResponseSkuOutput) ToCacheResponseSkuPtrOutputWithContext(ctx context.Context) CacheResponseSkuPtrOutput {
-	return o.ApplyT(func(v CacheResponseSku) *CacheResponseSku {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v CacheResponseSku) *CacheResponseSku {
 		return &v
 	}).(CacheResponseSkuPtrOutput)
 }
 
-// SKU name for this Cache.
 func (o CacheResponseSkuOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v CacheResponseSku) *string { return v.Name }).(pulumi.StringPtrOutput)
 }
@@ -284,10 +273,15 @@ func (o CacheResponseSkuPtrOutput) ToCacheResponseSkuPtrOutputWithContext(ctx co
 }
 
 func (o CacheResponseSkuPtrOutput) Elem() CacheResponseSkuOutput {
-	return o.ApplyT(func(v *CacheResponseSku) CacheResponseSku { return *v }).(CacheResponseSkuOutput)
+	return o.ApplyT(func(v *CacheResponseSku) CacheResponseSku {
+		if v != nil {
+			return *v
+		}
+		var ret CacheResponseSku
+		return ret
+	}).(CacheResponseSkuOutput)
 }
 
-// SKU name for this Cache.
 func (o CacheResponseSkuPtrOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *CacheResponseSku) *string {
 		if v == nil {
@@ -297,9 +291,7 @@ func (o CacheResponseSkuPtrOutput) Name() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// SKU for the Cache.
 type CacheSku struct {
-	// SKU name for this Cache.
 	Name *string `pulumi:"name"`
 }
 
@@ -314,9 +306,7 @@ type CacheSkuInput interface {
 	ToCacheSkuOutputWithContext(context.Context) CacheSkuOutput
 }
 
-// SKU for the Cache.
 type CacheSkuArgs struct {
-	// SKU name for this Cache.
 	Name pulumi.StringPtrInput `pulumi:"name"`
 }
 
@@ -373,7 +363,6 @@ func (i *cacheSkuPtrType) ToCacheSkuPtrOutputWithContext(ctx context.Context) Ca
 	return pulumi.ToOutputWithContext(ctx, i).(CacheSkuPtrOutput)
 }
 
-// SKU for the Cache.
 type CacheSkuOutput struct{ *pulumi.OutputState }
 
 func (CacheSkuOutput) ElementType() reflect.Type {
@@ -393,12 +382,11 @@ func (o CacheSkuOutput) ToCacheSkuPtrOutput() CacheSkuPtrOutput {
 }
 
 func (o CacheSkuOutput) ToCacheSkuPtrOutputWithContext(ctx context.Context) CacheSkuPtrOutput {
-	return o.ApplyT(func(v CacheSku) *CacheSku {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v CacheSku) *CacheSku {
 		return &v
 	}).(CacheSkuPtrOutput)
 }
 
-// SKU name for this Cache.
 func (o CacheSkuOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v CacheSku) *string { return v.Name }).(pulumi.StringPtrOutput)
 }
@@ -418,10 +406,15 @@ func (o CacheSkuPtrOutput) ToCacheSkuPtrOutputWithContext(ctx context.Context) C
 }
 
 func (o CacheSkuPtrOutput) Elem() CacheSkuOutput {
-	return o.ApplyT(func(v *CacheSku) CacheSku { return *v }).(CacheSkuOutput)
+	return o.ApplyT(func(v *CacheSku) CacheSku {
+		if v != nil {
+			return *v
+		}
+		var ret CacheSku
+		return ret
+	}).(CacheSkuOutput)
 }
 
-// SKU name for this Cache.
 func (o CacheSkuPtrOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *CacheSku) *string {
 		if v == nil {
@@ -431,17 +424,11 @@ func (o CacheSkuPtrOutput) Name() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Properties describing the software upgrade state of the Cache.
 type CacheUpgradeStatusResponse struct {
-	// Version string of the firmware currently installed on this Cache.
 	CurrentFirmwareVersion string `pulumi:"currentFirmwareVersion"`
-	// Time at which the pending firmware update will automatically be installed on the Cache.
 	FirmwareUpdateDeadline string `pulumi:"firmwareUpdateDeadline"`
-	// True if there is a firmware update ready to install on this Cache. The firmware will automatically be installed after firmwareUpdateDeadline if not triggered earlier via the upgrade operation.
-	FirmwareUpdateStatus string `pulumi:"firmwareUpdateStatus"`
-	// Time of the last successful firmware update.
-	LastFirmwareUpdate string `pulumi:"lastFirmwareUpdate"`
-	// When firmwareUpdateAvailable is true, this field holds the version string for the update.
+	FirmwareUpdateStatus   string `pulumi:"firmwareUpdateStatus"`
+	LastFirmwareUpdate     string `pulumi:"lastFirmwareUpdate"`
 	PendingFirmwareVersion string `pulumi:"pendingFirmwareVersion"`
 }
 
@@ -456,17 +443,11 @@ type CacheUpgradeStatusResponseInput interface {
 	ToCacheUpgradeStatusResponseOutputWithContext(context.Context) CacheUpgradeStatusResponseOutput
 }
 
-// Properties describing the software upgrade state of the Cache.
 type CacheUpgradeStatusResponseArgs struct {
-	// Version string of the firmware currently installed on this Cache.
 	CurrentFirmwareVersion pulumi.StringInput `pulumi:"currentFirmwareVersion"`
-	// Time at which the pending firmware update will automatically be installed on the Cache.
 	FirmwareUpdateDeadline pulumi.StringInput `pulumi:"firmwareUpdateDeadline"`
-	// True if there is a firmware update ready to install on this Cache. The firmware will automatically be installed after firmwareUpdateDeadline if not triggered earlier via the upgrade operation.
-	FirmwareUpdateStatus pulumi.StringInput `pulumi:"firmwareUpdateStatus"`
-	// Time of the last successful firmware update.
-	LastFirmwareUpdate pulumi.StringInput `pulumi:"lastFirmwareUpdate"`
-	// When firmwareUpdateAvailable is true, this field holds the version string for the update.
+	FirmwareUpdateStatus   pulumi.StringInput `pulumi:"firmwareUpdateStatus"`
+	LastFirmwareUpdate     pulumi.StringInput `pulumi:"lastFirmwareUpdate"`
 	PendingFirmwareVersion pulumi.StringInput `pulumi:"pendingFirmwareVersion"`
 }
 
@@ -523,7 +504,6 @@ func (i *cacheUpgradeStatusResponsePtrType) ToCacheUpgradeStatusResponsePtrOutpu
 	return pulumi.ToOutputWithContext(ctx, i).(CacheUpgradeStatusResponsePtrOutput)
 }
 
-// Properties describing the software upgrade state of the Cache.
 type CacheUpgradeStatusResponseOutput struct{ *pulumi.OutputState }
 
 func (CacheUpgradeStatusResponseOutput) ElementType() reflect.Type {
@@ -543,32 +523,27 @@ func (o CacheUpgradeStatusResponseOutput) ToCacheUpgradeStatusResponsePtrOutput(
 }
 
 func (o CacheUpgradeStatusResponseOutput) ToCacheUpgradeStatusResponsePtrOutputWithContext(ctx context.Context) CacheUpgradeStatusResponsePtrOutput {
-	return o.ApplyT(func(v CacheUpgradeStatusResponse) *CacheUpgradeStatusResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v CacheUpgradeStatusResponse) *CacheUpgradeStatusResponse {
 		return &v
 	}).(CacheUpgradeStatusResponsePtrOutput)
 }
 
-// Version string of the firmware currently installed on this Cache.
 func (o CacheUpgradeStatusResponseOutput) CurrentFirmwareVersion() pulumi.StringOutput {
 	return o.ApplyT(func(v CacheUpgradeStatusResponse) string { return v.CurrentFirmwareVersion }).(pulumi.StringOutput)
 }
 
-// Time at which the pending firmware update will automatically be installed on the Cache.
 func (o CacheUpgradeStatusResponseOutput) FirmwareUpdateDeadline() pulumi.StringOutput {
 	return o.ApplyT(func(v CacheUpgradeStatusResponse) string { return v.FirmwareUpdateDeadline }).(pulumi.StringOutput)
 }
 
-// True if there is a firmware update ready to install on this Cache. The firmware will automatically be installed after firmwareUpdateDeadline if not triggered earlier via the upgrade operation.
 func (o CacheUpgradeStatusResponseOutput) FirmwareUpdateStatus() pulumi.StringOutput {
 	return o.ApplyT(func(v CacheUpgradeStatusResponse) string { return v.FirmwareUpdateStatus }).(pulumi.StringOutput)
 }
 
-// Time of the last successful firmware update.
 func (o CacheUpgradeStatusResponseOutput) LastFirmwareUpdate() pulumi.StringOutput {
 	return o.ApplyT(func(v CacheUpgradeStatusResponse) string { return v.LastFirmwareUpdate }).(pulumi.StringOutput)
 }
 
-// When firmwareUpdateAvailable is true, this field holds the version string for the update.
 func (o CacheUpgradeStatusResponseOutput) PendingFirmwareVersion() pulumi.StringOutput {
 	return o.ApplyT(func(v CacheUpgradeStatusResponse) string { return v.PendingFirmwareVersion }).(pulumi.StringOutput)
 }
@@ -588,10 +563,15 @@ func (o CacheUpgradeStatusResponsePtrOutput) ToCacheUpgradeStatusResponsePtrOutp
 }
 
 func (o CacheUpgradeStatusResponsePtrOutput) Elem() CacheUpgradeStatusResponseOutput {
-	return o.ApplyT(func(v *CacheUpgradeStatusResponse) CacheUpgradeStatusResponse { return *v }).(CacheUpgradeStatusResponseOutput)
+	return o.ApplyT(func(v *CacheUpgradeStatusResponse) CacheUpgradeStatusResponse {
+		if v != nil {
+			return *v
+		}
+		var ret CacheUpgradeStatusResponse
+		return ret
+	}).(CacheUpgradeStatusResponseOutput)
 }
 
-// Version string of the firmware currently installed on this Cache.
 func (o CacheUpgradeStatusResponsePtrOutput) CurrentFirmwareVersion() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *CacheUpgradeStatusResponse) *string {
 		if v == nil {
@@ -601,7 +581,6 @@ func (o CacheUpgradeStatusResponsePtrOutput) CurrentFirmwareVersion() pulumi.Str
 	}).(pulumi.StringPtrOutput)
 }
 
-// Time at which the pending firmware update will automatically be installed on the Cache.
 func (o CacheUpgradeStatusResponsePtrOutput) FirmwareUpdateDeadline() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *CacheUpgradeStatusResponse) *string {
 		if v == nil {
@@ -611,7 +590,6 @@ func (o CacheUpgradeStatusResponsePtrOutput) FirmwareUpdateDeadline() pulumi.Str
 	}).(pulumi.StringPtrOutput)
 }
 
-// True if there is a firmware update ready to install on this Cache. The firmware will automatically be installed after firmwareUpdateDeadline if not triggered earlier via the upgrade operation.
 func (o CacheUpgradeStatusResponsePtrOutput) FirmwareUpdateStatus() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *CacheUpgradeStatusResponse) *string {
 		if v == nil {
@@ -621,7 +599,6 @@ func (o CacheUpgradeStatusResponsePtrOutput) FirmwareUpdateStatus() pulumi.Strin
 	}).(pulumi.StringPtrOutput)
 }
 
-// Time of the last successful firmware update.
 func (o CacheUpgradeStatusResponsePtrOutput) LastFirmwareUpdate() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *CacheUpgradeStatusResponse) *string {
 		if v == nil {
@@ -631,7 +608,6 @@ func (o CacheUpgradeStatusResponsePtrOutput) LastFirmwareUpdate() pulumi.StringP
 	}).(pulumi.StringPtrOutput)
 }
 
-// When firmwareUpdateAvailable is true, this field holds the version string for the update.
 func (o CacheUpgradeStatusResponsePtrOutput) PendingFirmwareVersion() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *CacheUpgradeStatusResponse) *string {
 		if v == nil {
@@ -641,9 +617,7 @@ func (o CacheUpgradeStatusResponsePtrOutput) PendingFirmwareVersion() pulumi.Str
 	}).(pulumi.StringPtrOutput)
 }
 
-// Storage container for use as a CLFS Storage Target.
 type ClfsTarget struct {
-	// Resource ID of storage container.
 	Target *string `pulumi:"target"`
 }
 
@@ -658,9 +632,7 @@ type ClfsTargetInput interface {
 	ToClfsTargetOutputWithContext(context.Context) ClfsTargetOutput
 }
 
-// Storage container for use as a CLFS Storage Target.
 type ClfsTargetArgs struct {
-	// Resource ID of storage container.
 	Target pulumi.StringPtrInput `pulumi:"target"`
 }
 
@@ -717,7 +689,6 @@ func (i *clfsTargetPtrType) ToClfsTargetPtrOutputWithContext(ctx context.Context
 	return pulumi.ToOutputWithContext(ctx, i).(ClfsTargetPtrOutput)
 }
 
-// Storage container for use as a CLFS Storage Target.
 type ClfsTargetOutput struct{ *pulumi.OutputState }
 
 func (ClfsTargetOutput) ElementType() reflect.Type {
@@ -737,12 +708,11 @@ func (o ClfsTargetOutput) ToClfsTargetPtrOutput() ClfsTargetPtrOutput {
 }
 
 func (o ClfsTargetOutput) ToClfsTargetPtrOutputWithContext(ctx context.Context) ClfsTargetPtrOutput {
-	return o.ApplyT(func(v ClfsTarget) *ClfsTarget {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ClfsTarget) *ClfsTarget {
 		return &v
 	}).(ClfsTargetPtrOutput)
 }
 
-// Resource ID of storage container.
 func (o ClfsTargetOutput) Target() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ClfsTarget) *string { return v.Target }).(pulumi.StringPtrOutput)
 }
@@ -762,10 +732,15 @@ func (o ClfsTargetPtrOutput) ToClfsTargetPtrOutputWithContext(ctx context.Contex
 }
 
 func (o ClfsTargetPtrOutput) Elem() ClfsTargetOutput {
-	return o.ApplyT(func(v *ClfsTarget) ClfsTarget { return *v }).(ClfsTargetOutput)
+	return o.ApplyT(func(v *ClfsTarget) ClfsTarget {
+		if v != nil {
+			return *v
+		}
+		var ret ClfsTarget
+		return ret
+	}).(ClfsTargetOutput)
 }
 
-// Resource ID of storage container.
 func (o ClfsTargetPtrOutput) Target() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ClfsTarget) *string {
 		if v == nil {
@@ -775,9 +750,7 @@ func (o ClfsTargetPtrOutput) Target() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Storage container for use as a CLFS Storage Target.
 type ClfsTargetResponse struct {
-	// Resource ID of storage container.
 	Target *string `pulumi:"target"`
 }
 
@@ -792,9 +765,7 @@ type ClfsTargetResponseInput interface {
 	ToClfsTargetResponseOutputWithContext(context.Context) ClfsTargetResponseOutput
 }
 
-// Storage container for use as a CLFS Storage Target.
 type ClfsTargetResponseArgs struct {
-	// Resource ID of storage container.
 	Target pulumi.StringPtrInput `pulumi:"target"`
 }
 
@@ -851,7 +822,6 @@ func (i *clfsTargetResponsePtrType) ToClfsTargetResponsePtrOutputWithContext(ctx
 	return pulumi.ToOutputWithContext(ctx, i).(ClfsTargetResponsePtrOutput)
 }
 
-// Storage container for use as a CLFS Storage Target.
 type ClfsTargetResponseOutput struct{ *pulumi.OutputState }
 
 func (ClfsTargetResponseOutput) ElementType() reflect.Type {
@@ -871,12 +841,11 @@ func (o ClfsTargetResponseOutput) ToClfsTargetResponsePtrOutput() ClfsTargetResp
 }
 
 func (o ClfsTargetResponseOutput) ToClfsTargetResponsePtrOutputWithContext(ctx context.Context) ClfsTargetResponsePtrOutput {
-	return o.ApplyT(func(v ClfsTargetResponse) *ClfsTargetResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ClfsTargetResponse) *ClfsTargetResponse {
 		return &v
 	}).(ClfsTargetResponsePtrOutput)
 }
 
-// Resource ID of storage container.
 func (o ClfsTargetResponseOutput) Target() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ClfsTargetResponse) *string { return v.Target }).(pulumi.StringPtrOutput)
 }
@@ -896,10 +865,15 @@ func (o ClfsTargetResponsePtrOutput) ToClfsTargetResponsePtrOutputWithContext(ct
 }
 
 func (o ClfsTargetResponsePtrOutput) Elem() ClfsTargetResponseOutput {
-	return o.ApplyT(func(v *ClfsTargetResponse) ClfsTargetResponse { return *v }).(ClfsTargetResponseOutput)
+	return o.ApplyT(func(v *ClfsTargetResponse) ClfsTargetResponse {
+		if v != nil {
+			return *v
+		}
+		var ret ClfsTargetResponse
+		return ret
+	}).(ClfsTargetResponseOutput)
 }
 
-// Resource ID of storage container.
 func (o ClfsTargetResponsePtrOutput) Target() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ClfsTargetResponse) *string {
 		if v == nil {
@@ -909,14 +883,10 @@ func (o ClfsTargetResponsePtrOutput) Target() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// A namespace junction.
 type NamespaceJunction struct {
-	// Namespace path on a Cache for a Storage Target.
 	NamespacePath *string `pulumi:"namespacePath"`
-	// NFS export where targetPath exists.
-	NfsExport *string `pulumi:"nfsExport"`
-	// Path in Storage Target to which namespacePath points.
-	TargetPath *string `pulumi:"targetPath"`
+	NfsExport     *string `pulumi:"nfsExport"`
+	TargetPath    *string `pulumi:"targetPath"`
 }
 
 // NamespaceJunctionInput is an input type that accepts NamespaceJunctionArgs and NamespaceJunctionOutput values.
@@ -930,14 +900,10 @@ type NamespaceJunctionInput interface {
 	ToNamespaceJunctionOutputWithContext(context.Context) NamespaceJunctionOutput
 }
 
-// A namespace junction.
 type NamespaceJunctionArgs struct {
-	// Namespace path on a Cache for a Storage Target.
 	NamespacePath pulumi.StringPtrInput `pulumi:"namespacePath"`
-	// NFS export where targetPath exists.
-	NfsExport pulumi.StringPtrInput `pulumi:"nfsExport"`
-	// Path in Storage Target to which namespacePath points.
-	TargetPath pulumi.StringPtrInput `pulumi:"targetPath"`
+	NfsExport     pulumi.StringPtrInput `pulumi:"nfsExport"`
+	TargetPath    pulumi.StringPtrInput `pulumi:"targetPath"`
 }
 
 func (NamespaceJunctionArgs) ElementType() reflect.Type {
@@ -977,7 +943,6 @@ func (i NamespaceJunctionArray) ToNamespaceJunctionArrayOutputWithContext(ctx co
 	return pulumi.ToOutputWithContext(ctx, i).(NamespaceJunctionArrayOutput)
 }
 
-// A namespace junction.
 type NamespaceJunctionOutput struct{ *pulumi.OutputState }
 
 func (NamespaceJunctionOutput) ElementType() reflect.Type {
@@ -992,17 +957,14 @@ func (o NamespaceJunctionOutput) ToNamespaceJunctionOutputWithContext(ctx contex
 	return o
 }
 
-// Namespace path on a Cache for a Storage Target.
 func (o NamespaceJunctionOutput) NamespacePath() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v NamespaceJunction) *string { return v.NamespacePath }).(pulumi.StringPtrOutput)
 }
 
-// NFS export where targetPath exists.
 func (o NamespaceJunctionOutput) NfsExport() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v NamespaceJunction) *string { return v.NfsExport }).(pulumi.StringPtrOutput)
 }
 
-// Path in Storage Target to which namespacePath points.
 func (o NamespaceJunctionOutput) TargetPath() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v NamespaceJunction) *string { return v.TargetPath }).(pulumi.StringPtrOutput)
 }
@@ -1027,14 +989,10 @@ func (o NamespaceJunctionArrayOutput) Index(i pulumi.IntInput) NamespaceJunction
 	}).(NamespaceJunctionOutput)
 }
 
-// A namespace junction.
 type NamespaceJunctionResponse struct {
-	// Namespace path on a Cache for a Storage Target.
 	NamespacePath *string `pulumi:"namespacePath"`
-	// NFS export where targetPath exists.
-	NfsExport *string `pulumi:"nfsExport"`
-	// Path in Storage Target to which namespacePath points.
-	TargetPath *string `pulumi:"targetPath"`
+	NfsExport     *string `pulumi:"nfsExport"`
+	TargetPath    *string `pulumi:"targetPath"`
 }
 
 // NamespaceJunctionResponseInput is an input type that accepts NamespaceJunctionResponseArgs and NamespaceJunctionResponseOutput values.
@@ -1048,14 +1006,10 @@ type NamespaceJunctionResponseInput interface {
 	ToNamespaceJunctionResponseOutputWithContext(context.Context) NamespaceJunctionResponseOutput
 }
 
-// A namespace junction.
 type NamespaceJunctionResponseArgs struct {
-	// Namespace path on a Cache for a Storage Target.
 	NamespacePath pulumi.StringPtrInput `pulumi:"namespacePath"`
-	// NFS export where targetPath exists.
-	NfsExport pulumi.StringPtrInput `pulumi:"nfsExport"`
-	// Path in Storage Target to which namespacePath points.
-	TargetPath pulumi.StringPtrInput `pulumi:"targetPath"`
+	NfsExport     pulumi.StringPtrInput `pulumi:"nfsExport"`
+	TargetPath    pulumi.StringPtrInput `pulumi:"targetPath"`
 }
 
 func (NamespaceJunctionResponseArgs) ElementType() reflect.Type {
@@ -1095,7 +1049,6 @@ func (i NamespaceJunctionResponseArray) ToNamespaceJunctionResponseArrayOutputWi
 	return pulumi.ToOutputWithContext(ctx, i).(NamespaceJunctionResponseArrayOutput)
 }
 
-// A namespace junction.
 type NamespaceJunctionResponseOutput struct{ *pulumi.OutputState }
 
 func (NamespaceJunctionResponseOutput) ElementType() reflect.Type {
@@ -1110,17 +1063,14 @@ func (o NamespaceJunctionResponseOutput) ToNamespaceJunctionResponseOutputWithCo
 	return o
 }
 
-// Namespace path on a Cache for a Storage Target.
 func (o NamespaceJunctionResponseOutput) NamespacePath() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v NamespaceJunctionResponse) *string { return v.NamespacePath }).(pulumi.StringPtrOutput)
 }
 
-// NFS export where targetPath exists.
 func (o NamespaceJunctionResponseOutput) NfsExport() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v NamespaceJunctionResponse) *string { return v.NfsExport }).(pulumi.StringPtrOutput)
 }
 
-// Path in Storage Target to which namespacePath points.
 func (o NamespaceJunctionResponseOutput) TargetPath() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v NamespaceJunctionResponse) *string { return v.TargetPath }).(pulumi.StringPtrOutput)
 }
@@ -1145,11 +1095,8 @@ func (o NamespaceJunctionResponseArrayOutput) Index(i pulumi.IntInput) Namespace
 	}).(NamespaceJunctionResponseOutput)
 }
 
-// An NFSv3 mount point for use as a Storage Target.
 type Nfs3Target struct {
-	// IP address or host name of an NFSv3 host (e.g., 10.0.44.44).
-	Target *string `pulumi:"target"`
-	// Identifies the primary usage model to be used for this Storage Target. Get choices from .../usageModels
+	Target     *string `pulumi:"target"`
 	UsageModel *string `pulumi:"usageModel"`
 }
 
@@ -1164,11 +1111,8 @@ type Nfs3TargetInput interface {
 	ToNfs3TargetOutputWithContext(context.Context) Nfs3TargetOutput
 }
 
-// An NFSv3 mount point for use as a Storage Target.
 type Nfs3TargetArgs struct {
-	// IP address or host name of an NFSv3 host (e.g., 10.0.44.44).
-	Target pulumi.StringPtrInput `pulumi:"target"`
-	// Identifies the primary usage model to be used for this Storage Target. Get choices from .../usageModels
+	Target     pulumi.StringPtrInput `pulumi:"target"`
 	UsageModel pulumi.StringPtrInput `pulumi:"usageModel"`
 }
 
@@ -1225,7 +1169,6 @@ func (i *nfs3TargetPtrType) ToNfs3TargetPtrOutputWithContext(ctx context.Context
 	return pulumi.ToOutputWithContext(ctx, i).(Nfs3TargetPtrOutput)
 }
 
-// An NFSv3 mount point for use as a Storage Target.
 type Nfs3TargetOutput struct{ *pulumi.OutputState }
 
 func (Nfs3TargetOutput) ElementType() reflect.Type {
@@ -1245,17 +1188,15 @@ func (o Nfs3TargetOutput) ToNfs3TargetPtrOutput() Nfs3TargetPtrOutput {
 }
 
 func (o Nfs3TargetOutput) ToNfs3TargetPtrOutputWithContext(ctx context.Context) Nfs3TargetPtrOutput {
-	return o.ApplyT(func(v Nfs3Target) *Nfs3Target {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v Nfs3Target) *Nfs3Target {
 		return &v
 	}).(Nfs3TargetPtrOutput)
 }
 
-// IP address or host name of an NFSv3 host (e.g., 10.0.44.44).
 func (o Nfs3TargetOutput) Target() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v Nfs3Target) *string { return v.Target }).(pulumi.StringPtrOutput)
 }
 
-// Identifies the primary usage model to be used for this Storage Target. Get choices from .../usageModels
 func (o Nfs3TargetOutput) UsageModel() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v Nfs3Target) *string { return v.UsageModel }).(pulumi.StringPtrOutput)
 }
@@ -1275,10 +1216,15 @@ func (o Nfs3TargetPtrOutput) ToNfs3TargetPtrOutputWithContext(ctx context.Contex
 }
 
 func (o Nfs3TargetPtrOutput) Elem() Nfs3TargetOutput {
-	return o.ApplyT(func(v *Nfs3Target) Nfs3Target { return *v }).(Nfs3TargetOutput)
+	return o.ApplyT(func(v *Nfs3Target) Nfs3Target {
+		if v != nil {
+			return *v
+		}
+		var ret Nfs3Target
+		return ret
+	}).(Nfs3TargetOutput)
 }
 
-// IP address or host name of an NFSv3 host (e.g., 10.0.44.44).
 func (o Nfs3TargetPtrOutput) Target() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Nfs3Target) *string {
 		if v == nil {
@@ -1288,7 +1234,6 @@ func (o Nfs3TargetPtrOutput) Target() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Identifies the primary usage model to be used for this Storage Target. Get choices from .../usageModels
 func (o Nfs3TargetPtrOutput) UsageModel() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Nfs3Target) *string {
 		if v == nil {
@@ -1298,11 +1243,8 @@ func (o Nfs3TargetPtrOutput) UsageModel() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// An NFSv3 mount point for use as a Storage Target.
 type Nfs3TargetResponse struct {
-	// IP address or host name of an NFSv3 host (e.g., 10.0.44.44).
-	Target *string `pulumi:"target"`
-	// Identifies the primary usage model to be used for this Storage Target. Get choices from .../usageModels
+	Target     *string `pulumi:"target"`
 	UsageModel *string `pulumi:"usageModel"`
 }
 
@@ -1317,11 +1259,8 @@ type Nfs3TargetResponseInput interface {
 	ToNfs3TargetResponseOutputWithContext(context.Context) Nfs3TargetResponseOutput
 }
 
-// An NFSv3 mount point for use as a Storage Target.
 type Nfs3TargetResponseArgs struct {
-	// IP address or host name of an NFSv3 host (e.g., 10.0.44.44).
-	Target pulumi.StringPtrInput `pulumi:"target"`
-	// Identifies the primary usage model to be used for this Storage Target. Get choices from .../usageModels
+	Target     pulumi.StringPtrInput `pulumi:"target"`
 	UsageModel pulumi.StringPtrInput `pulumi:"usageModel"`
 }
 
@@ -1378,7 +1317,6 @@ func (i *nfs3TargetResponsePtrType) ToNfs3TargetResponsePtrOutputWithContext(ctx
 	return pulumi.ToOutputWithContext(ctx, i).(Nfs3TargetResponsePtrOutput)
 }
 
-// An NFSv3 mount point for use as a Storage Target.
 type Nfs3TargetResponseOutput struct{ *pulumi.OutputState }
 
 func (Nfs3TargetResponseOutput) ElementType() reflect.Type {
@@ -1398,17 +1336,15 @@ func (o Nfs3TargetResponseOutput) ToNfs3TargetResponsePtrOutput() Nfs3TargetResp
 }
 
 func (o Nfs3TargetResponseOutput) ToNfs3TargetResponsePtrOutputWithContext(ctx context.Context) Nfs3TargetResponsePtrOutput {
-	return o.ApplyT(func(v Nfs3TargetResponse) *Nfs3TargetResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v Nfs3TargetResponse) *Nfs3TargetResponse {
 		return &v
 	}).(Nfs3TargetResponsePtrOutput)
 }
 
-// IP address or host name of an NFSv3 host (e.g., 10.0.44.44).
 func (o Nfs3TargetResponseOutput) Target() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v Nfs3TargetResponse) *string { return v.Target }).(pulumi.StringPtrOutput)
 }
 
-// Identifies the primary usage model to be used for this Storage Target. Get choices from .../usageModels
 func (o Nfs3TargetResponseOutput) UsageModel() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v Nfs3TargetResponse) *string { return v.UsageModel }).(pulumi.StringPtrOutput)
 }
@@ -1428,10 +1364,15 @@ func (o Nfs3TargetResponsePtrOutput) ToNfs3TargetResponsePtrOutputWithContext(ct
 }
 
 func (o Nfs3TargetResponsePtrOutput) Elem() Nfs3TargetResponseOutput {
-	return o.ApplyT(func(v *Nfs3TargetResponse) Nfs3TargetResponse { return *v }).(Nfs3TargetResponseOutput)
+	return o.ApplyT(func(v *Nfs3TargetResponse) Nfs3TargetResponse {
+		if v != nil {
+			return *v
+		}
+		var ret Nfs3TargetResponse
+		return ret
+	}).(Nfs3TargetResponseOutput)
 }
 
-// IP address or host name of an NFSv3 host (e.g., 10.0.44.44).
 func (o Nfs3TargetResponsePtrOutput) Target() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Nfs3TargetResponse) *string {
 		if v == nil {
@@ -1441,7 +1382,6 @@ func (o Nfs3TargetResponsePtrOutput) Target() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Identifies the primary usage model to be used for this Storage Target. Get choices from .../usageModels
 func (o Nfs3TargetResponsePtrOutput) UsageModel() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Nfs3TargetResponse) *string {
 		if v == nil {
@@ -1451,9 +1391,7 @@ func (o Nfs3TargetResponsePtrOutput) UsageModel() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Storage container for use as an Unknown Storage Target.
 type UnknownTarget struct {
-	// Dictionary of string->string pairs containing information about the Storage Target.
 	UnknownMap map[string]string `pulumi:"unknownMap"`
 }
 
@@ -1468,9 +1406,7 @@ type UnknownTargetInput interface {
 	ToUnknownTargetOutputWithContext(context.Context) UnknownTargetOutput
 }
 
-// Storage container for use as an Unknown Storage Target.
 type UnknownTargetArgs struct {
-	// Dictionary of string->string pairs containing information about the Storage Target.
 	UnknownMap pulumi.StringMapInput `pulumi:"unknownMap"`
 }
 
@@ -1527,7 +1463,6 @@ func (i *unknownTargetPtrType) ToUnknownTargetPtrOutputWithContext(ctx context.C
 	return pulumi.ToOutputWithContext(ctx, i).(UnknownTargetPtrOutput)
 }
 
-// Storage container for use as an Unknown Storage Target.
 type UnknownTargetOutput struct{ *pulumi.OutputState }
 
 func (UnknownTargetOutput) ElementType() reflect.Type {
@@ -1547,12 +1482,11 @@ func (o UnknownTargetOutput) ToUnknownTargetPtrOutput() UnknownTargetPtrOutput {
 }
 
 func (o UnknownTargetOutput) ToUnknownTargetPtrOutputWithContext(ctx context.Context) UnknownTargetPtrOutput {
-	return o.ApplyT(func(v UnknownTarget) *UnknownTarget {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v UnknownTarget) *UnknownTarget {
 		return &v
 	}).(UnknownTargetPtrOutput)
 }
 
-// Dictionary of string->string pairs containing information about the Storage Target.
 func (o UnknownTargetOutput) UnknownMap() pulumi.StringMapOutput {
 	return o.ApplyT(func(v UnknownTarget) map[string]string { return v.UnknownMap }).(pulumi.StringMapOutput)
 }
@@ -1572,10 +1506,15 @@ func (o UnknownTargetPtrOutput) ToUnknownTargetPtrOutputWithContext(ctx context.
 }
 
 func (o UnknownTargetPtrOutput) Elem() UnknownTargetOutput {
-	return o.ApplyT(func(v *UnknownTarget) UnknownTarget { return *v }).(UnknownTargetOutput)
+	return o.ApplyT(func(v *UnknownTarget) UnknownTarget {
+		if v != nil {
+			return *v
+		}
+		var ret UnknownTarget
+		return ret
+	}).(UnknownTargetOutput)
 }
 
-// Dictionary of string->string pairs containing information about the Storage Target.
 func (o UnknownTargetPtrOutput) UnknownMap() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *UnknownTarget) map[string]string {
 		if v == nil {
@@ -1585,9 +1524,7 @@ func (o UnknownTargetPtrOutput) UnknownMap() pulumi.StringMapOutput {
 	}).(pulumi.StringMapOutput)
 }
 
-// Storage container for use as an Unknown Storage Target.
 type UnknownTargetResponse struct {
-	// Dictionary of string->string pairs containing information about the Storage Target.
 	UnknownMap map[string]string `pulumi:"unknownMap"`
 }
 
@@ -1602,9 +1539,7 @@ type UnknownTargetResponseInput interface {
 	ToUnknownTargetResponseOutputWithContext(context.Context) UnknownTargetResponseOutput
 }
 
-// Storage container for use as an Unknown Storage Target.
 type UnknownTargetResponseArgs struct {
-	// Dictionary of string->string pairs containing information about the Storage Target.
 	UnknownMap pulumi.StringMapInput `pulumi:"unknownMap"`
 }
 
@@ -1661,7 +1596,6 @@ func (i *unknownTargetResponsePtrType) ToUnknownTargetResponsePtrOutputWithConte
 	return pulumi.ToOutputWithContext(ctx, i).(UnknownTargetResponsePtrOutput)
 }
 
-// Storage container for use as an Unknown Storage Target.
 type UnknownTargetResponseOutput struct{ *pulumi.OutputState }
 
 func (UnknownTargetResponseOutput) ElementType() reflect.Type {
@@ -1681,12 +1615,11 @@ func (o UnknownTargetResponseOutput) ToUnknownTargetResponsePtrOutput() UnknownT
 }
 
 func (o UnknownTargetResponseOutput) ToUnknownTargetResponsePtrOutputWithContext(ctx context.Context) UnknownTargetResponsePtrOutput {
-	return o.ApplyT(func(v UnknownTargetResponse) *UnknownTargetResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v UnknownTargetResponse) *UnknownTargetResponse {
 		return &v
 	}).(UnknownTargetResponsePtrOutput)
 }
 
-// Dictionary of string->string pairs containing information about the Storage Target.
 func (o UnknownTargetResponseOutput) UnknownMap() pulumi.StringMapOutput {
 	return o.ApplyT(func(v UnknownTargetResponse) map[string]string { return v.UnknownMap }).(pulumi.StringMapOutput)
 }
@@ -1706,10 +1639,15 @@ func (o UnknownTargetResponsePtrOutput) ToUnknownTargetResponsePtrOutputWithCont
 }
 
 func (o UnknownTargetResponsePtrOutput) Elem() UnknownTargetResponseOutput {
-	return o.ApplyT(func(v *UnknownTargetResponse) UnknownTargetResponse { return *v }).(UnknownTargetResponseOutput)
+	return o.ApplyT(func(v *UnknownTargetResponse) UnknownTargetResponse {
+		if v != nil {
+			return *v
+		}
+		var ret UnknownTargetResponse
+		return ret
+	}).(UnknownTargetResponseOutput)
 }
 
-// Dictionary of string->string pairs containing information about the Storage Target.
 func (o UnknownTargetResponsePtrOutput) UnknownMap() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *UnknownTargetResponse) map[string]string {
 		if v == nil {

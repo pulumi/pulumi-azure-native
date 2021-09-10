@@ -10,20 +10,13 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// App resource properties payload
 type AppResourceProperties struct {
-	// Name of the active deployment of the App
-	ActiveDeploymentName *string `pulumi:"activeDeploymentName"`
-	// Fully qualified dns Name.
-	Fqdn *string `pulumi:"fqdn"`
-	// Indicate if only https is allowed.
-	HttpsOnly *bool `pulumi:"httpsOnly"`
-	// Persistent disk settings
-	PersistentDisk *PersistentDisk `pulumi:"persistentDisk"`
-	// Indicates whether the App exposes public endpoint
-	Public *bool `pulumi:"public"`
-	// Temporary disk settings
-	TemporaryDisk *TemporaryDisk `pulumi:"temporaryDisk"`
+	ActiveDeploymentName *string         `pulumi:"activeDeploymentName"`
+	Fqdn                 *string         `pulumi:"fqdn"`
+	HttpsOnly            *bool           `pulumi:"httpsOnly"`
+	PersistentDisk       *PersistentDisk `pulumi:"persistentDisk"`
+	Public               *bool           `pulumi:"public"`
+	TemporaryDisk        *TemporaryDisk  `pulumi:"temporaryDisk"`
 }
 
 // AppResourcePropertiesInput is an input type that accepts AppResourcePropertiesArgs and AppResourcePropertiesOutput values.
@@ -37,20 +30,13 @@ type AppResourcePropertiesInput interface {
 	ToAppResourcePropertiesOutputWithContext(context.Context) AppResourcePropertiesOutput
 }
 
-// App resource properties payload
 type AppResourcePropertiesArgs struct {
-	// Name of the active deployment of the App
-	ActiveDeploymentName pulumi.StringPtrInput `pulumi:"activeDeploymentName"`
-	// Fully qualified dns Name.
-	Fqdn pulumi.StringPtrInput `pulumi:"fqdn"`
-	// Indicate if only https is allowed.
-	HttpsOnly pulumi.BoolPtrInput `pulumi:"httpsOnly"`
-	// Persistent disk settings
-	PersistentDisk PersistentDiskPtrInput `pulumi:"persistentDisk"`
-	// Indicates whether the App exposes public endpoint
-	Public pulumi.BoolPtrInput `pulumi:"public"`
-	// Temporary disk settings
-	TemporaryDisk TemporaryDiskPtrInput `pulumi:"temporaryDisk"`
+	ActiveDeploymentName pulumi.StringPtrInput  `pulumi:"activeDeploymentName"`
+	Fqdn                 pulumi.StringPtrInput  `pulumi:"fqdn"`
+	HttpsOnly            pulumi.BoolPtrInput    `pulumi:"httpsOnly"`
+	PersistentDisk       PersistentDiskPtrInput `pulumi:"persistentDisk"`
+	Public               pulumi.BoolPtrInput    `pulumi:"public"`
+	TemporaryDisk        TemporaryDiskPtrInput  `pulumi:"temporaryDisk"`
 }
 
 func (AppResourcePropertiesArgs) ElementType() reflect.Type {
@@ -106,7 +92,6 @@ func (i *appResourcePropertiesPtrType) ToAppResourcePropertiesPtrOutputWithConte
 	return pulumi.ToOutputWithContext(ctx, i).(AppResourcePropertiesPtrOutput)
 }
 
-// App resource properties payload
 type AppResourcePropertiesOutput struct{ *pulumi.OutputState }
 
 func (AppResourcePropertiesOutput) ElementType() reflect.Type {
@@ -126,37 +111,31 @@ func (o AppResourcePropertiesOutput) ToAppResourcePropertiesPtrOutput() AppResou
 }
 
 func (o AppResourcePropertiesOutput) ToAppResourcePropertiesPtrOutputWithContext(ctx context.Context) AppResourcePropertiesPtrOutput {
-	return o.ApplyT(func(v AppResourceProperties) *AppResourceProperties {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v AppResourceProperties) *AppResourceProperties {
 		return &v
 	}).(AppResourcePropertiesPtrOutput)
 }
 
-// Name of the active deployment of the App
 func (o AppResourcePropertiesOutput) ActiveDeploymentName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AppResourceProperties) *string { return v.ActiveDeploymentName }).(pulumi.StringPtrOutput)
 }
 
-// Fully qualified dns Name.
 func (o AppResourcePropertiesOutput) Fqdn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AppResourceProperties) *string { return v.Fqdn }).(pulumi.StringPtrOutput)
 }
 
-// Indicate if only https is allowed.
 func (o AppResourcePropertiesOutput) HttpsOnly() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v AppResourceProperties) *bool { return v.HttpsOnly }).(pulumi.BoolPtrOutput)
 }
 
-// Persistent disk settings
 func (o AppResourcePropertiesOutput) PersistentDisk() PersistentDiskPtrOutput {
 	return o.ApplyT(func(v AppResourceProperties) *PersistentDisk { return v.PersistentDisk }).(PersistentDiskPtrOutput)
 }
 
-// Indicates whether the App exposes public endpoint
 func (o AppResourcePropertiesOutput) Public() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v AppResourceProperties) *bool { return v.Public }).(pulumi.BoolPtrOutput)
 }
 
-// Temporary disk settings
 func (o AppResourcePropertiesOutput) TemporaryDisk() TemporaryDiskPtrOutput {
 	return o.ApplyT(func(v AppResourceProperties) *TemporaryDisk { return v.TemporaryDisk }).(TemporaryDiskPtrOutput)
 }
@@ -176,10 +155,15 @@ func (o AppResourcePropertiesPtrOutput) ToAppResourcePropertiesPtrOutputWithCont
 }
 
 func (o AppResourcePropertiesPtrOutput) Elem() AppResourcePropertiesOutput {
-	return o.ApplyT(func(v *AppResourceProperties) AppResourceProperties { return *v }).(AppResourcePropertiesOutput)
+	return o.ApplyT(func(v *AppResourceProperties) AppResourceProperties {
+		if v != nil {
+			return *v
+		}
+		var ret AppResourceProperties
+		return ret
+	}).(AppResourcePropertiesOutput)
 }
 
-// Name of the active deployment of the App
 func (o AppResourcePropertiesPtrOutput) ActiveDeploymentName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *AppResourceProperties) *string {
 		if v == nil {
@@ -189,7 +173,6 @@ func (o AppResourcePropertiesPtrOutput) ActiveDeploymentName() pulumi.StringPtrO
 	}).(pulumi.StringPtrOutput)
 }
 
-// Fully qualified dns Name.
 func (o AppResourcePropertiesPtrOutput) Fqdn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *AppResourceProperties) *string {
 		if v == nil {
@@ -199,7 +182,6 @@ func (o AppResourcePropertiesPtrOutput) Fqdn() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Indicate if only https is allowed.
 func (o AppResourcePropertiesPtrOutput) HttpsOnly() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *AppResourceProperties) *bool {
 		if v == nil {
@@ -209,7 +191,6 @@ func (o AppResourcePropertiesPtrOutput) HttpsOnly() pulumi.BoolPtrOutput {
 	}).(pulumi.BoolPtrOutput)
 }
 
-// Persistent disk settings
 func (o AppResourcePropertiesPtrOutput) PersistentDisk() PersistentDiskPtrOutput {
 	return o.ApplyT(func(v *AppResourceProperties) *PersistentDisk {
 		if v == nil {
@@ -219,7 +200,6 @@ func (o AppResourcePropertiesPtrOutput) PersistentDisk() PersistentDiskPtrOutput
 	}).(PersistentDiskPtrOutput)
 }
 
-// Indicates whether the App exposes public endpoint
 func (o AppResourcePropertiesPtrOutput) Public() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *AppResourceProperties) *bool {
 		if v == nil {
@@ -229,7 +209,6 @@ func (o AppResourcePropertiesPtrOutput) Public() pulumi.BoolPtrOutput {
 	}).(pulumi.BoolPtrOutput)
 }
 
-// Temporary disk settings
 func (o AppResourcePropertiesPtrOutput) TemporaryDisk() TemporaryDiskPtrOutput {
 	return o.ApplyT(func(v *AppResourceProperties) *TemporaryDisk {
 		if v == nil {
@@ -239,26 +218,16 @@ func (o AppResourcePropertiesPtrOutput) TemporaryDisk() TemporaryDiskPtrOutput {
 	}).(TemporaryDiskPtrOutput)
 }
 
-// App resource properties payload
 type AppResourcePropertiesResponse struct {
-	// Name of the active deployment of the App
-	ActiveDeploymentName *string `pulumi:"activeDeploymentName"`
-	// Date time when the resource is created
-	CreatedTime string `pulumi:"createdTime"`
-	// Fully qualified dns Name.
-	Fqdn *string `pulumi:"fqdn"`
-	// Indicate if only https is allowed.
-	HttpsOnly *bool `pulumi:"httpsOnly"`
-	// Persistent disk settings
-	PersistentDisk *PersistentDiskResponse `pulumi:"persistentDisk"`
-	// Provisioning state of the App
-	ProvisioningState string `pulumi:"provisioningState"`
-	// Indicates whether the App exposes public endpoint
-	Public *bool `pulumi:"public"`
-	// Temporary disk settings
-	TemporaryDisk *TemporaryDiskResponse `pulumi:"temporaryDisk"`
-	// URL of the App
-	Url string `pulumi:"url"`
+	ActiveDeploymentName *string                 `pulumi:"activeDeploymentName"`
+	CreatedTime          string                  `pulumi:"createdTime"`
+	Fqdn                 *string                 `pulumi:"fqdn"`
+	HttpsOnly            *bool                   `pulumi:"httpsOnly"`
+	PersistentDisk       *PersistentDiskResponse `pulumi:"persistentDisk"`
+	ProvisioningState    string                  `pulumi:"provisioningState"`
+	Public               *bool                   `pulumi:"public"`
+	TemporaryDisk        *TemporaryDiskResponse  `pulumi:"temporaryDisk"`
+	Url                  string                  `pulumi:"url"`
 }
 
 // AppResourcePropertiesResponseInput is an input type that accepts AppResourcePropertiesResponseArgs and AppResourcePropertiesResponseOutput values.
@@ -272,26 +241,16 @@ type AppResourcePropertiesResponseInput interface {
 	ToAppResourcePropertiesResponseOutputWithContext(context.Context) AppResourcePropertiesResponseOutput
 }
 
-// App resource properties payload
 type AppResourcePropertiesResponseArgs struct {
-	// Name of the active deployment of the App
-	ActiveDeploymentName pulumi.StringPtrInput `pulumi:"activeDeploymentName"`
-	// Date time when the resource is created
-	CreatedTime pulumi.StringInput `pulumi:"createdTime"`
-	// Fully qualified dns Name.
-	Fqdn pulumi.StringPtrInput `pulumi:"fqdn"`
-	// Indicate if only https is allowed.
-	HttpsOnly pulumi.BoolPtrInput `pulumi:"httpsOnly"`
-	// Persistent disk settings
-	PersistentDisk PersistentDiskResponsePtrInput `pulumi:"persistentDisk"`
-	// Provisioning state of the App
-	ProvisioningState pulumi.StringInput `pulumi:"provisioningState"`
-	// Indicates whether the App exposes public endpoint
-	Public pulumi.BoolPtrInput `pulumi:"public"`
-	// Temporary disk settings
-	TemporaryDisk TemporaryDiskResponsePtrInput `pulumi:"temporaryDisk"`
-	// URL of the App
-	Url pulumi.StringInput `pulumi:"url"`
+	ActiveDeploymentName pulumi.StringPtrInput          `pulumi:"activeDeploymentName"`
+	CreatedTime          pulumi.StringInput             `pulumi:"createdTime"`
+	Fqdn                 pulumi.StringPtrInput          `pulumi:"fqdn"`
+	HttpsOnly            pulumi.BoolPtrInput            `pulumi:"httpsOnly"`
+	PersistentDisk       PersistentDiskResponsePtrInput `pulumi:"persistentDisk"`
+	ProvisioningState    pulumi.StringInput             `pulumi:"provisioningState"`
+	Public               pulumi.BoolPtrInput            `pulumi:"public"`
+	TemporaryDisk        TemporaryDiskResponsePtrInput  `pulumi:"temporaryDisk"`
+	Url                  pulumi.StringInput             `pulumi:"url"`
 }
 
 func (AppResourcePropertiesResponseArgs) ElementType() reflect.Type {
@@ -347,7 +306,6 @@ func (i *appResourcePropertiesResponsePtrType) ToAppResourcePropertiesResponsePt
 	return pulumi.ToOutputWithContext(ctx, i).(AppResourcePropertiesResponsePtrOutput)
 }
 
-// App resource properties payload
 type AppResourcePropertiesResponseOutput struct{ *pulumi.OutputState }
 
 func (AppResourcePropertiesResponseOutput) ElementType() reflect.Type {
@@ -367,52 +325,43 @@ func (o AppResourcePropertiesResponseOutput) ToAppResourcePropertiesResponsePtrO
 }
 
 func (o AppResourcePropertiesResponseOutput) ToAppResourcePropertiesResponsePtrOutputWithContext(ctx context.Context) AppResourcePropertiesResponsePtrOutput {
-	return o.ApplyT(func(v AppResourcePropertiesResponse) *AppResourcePropertiesResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v AppResourcePropertiesResponse) *AppResourcePropertiesResponse {
 		return &v
 	}).(AppResourcePropertiesResponsePtrOutput)
 }
 
-// Name of the active deployment of the App
 func (o AppResourcePropertiesResponseOutput) ActiveDeploymentName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AppResourcePropertiesResponse) *string { return v.ActiveDeploymentName }).(pulumi.StringPtrOutput)
 }
 
-// Date time when the resource is created
 func (o AppResourcePropertiesResponseOutput) CreatedTime() pulumi.StringOutput {
 	return o.ApplyT(func(v AppResourcePropertiesResponse) string { return v.CreatedTime }).(pulumi.StringOutput)
 }
 
-// Fully qualified dns Name.
 func (o AppResourcePropertiesResponseOutput) Fqdn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AppResourcePropertiesResponse) *string { return v.Fqdn }).(pulumi.StringPtrOutput)
 }
 
-// Indicate if only https is allowed.
 func (o AppResourcePropertiesResponseOutput) HttpsOnly() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v AppResourcePropertiesResponse) *bool { return v.HttpsOnly }).(pulumi.BoolPtrOutput)
 }
 
-// Persistent disk settings
 func (o AppResourcePropertiesResponseOutput) PersistentDisk() PersistentDiskResponsePtrOutput {
 	return o.ApplyT(func(v AppResourcePropertiesResponse) *PersistentDiskResponse { return v.PersistentDisk }).(PersistentDiskResponsePtrOutput)
 }
 
-// Provisioning state of the App
 func (o AppResourcePropertiesResponseOutput) ProvisioningState() pulumi.StringOutput {
 	return o.ApplyT(func(v AppResourcePropertiesResponse) string { return v.ProvisioningState }).(pulumi.StringOutput)
 }
 
-// Indicates whether the App exposes public endpoint
 func (o AppResourcePropertiesResponseOutput) Public() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v AppResourcePropertiesResponse) *bool { return v.Public }).(pulumi.BoolPtrOutput)
 }
 
-// Temporary disk settings
 func (o AppResourcePropertiesResponseOutput) TemporaryDisk() TemporaryDiskResponsePtrOutput {
 	return o.ApplyT(func(v AppResourcePropertiesResponse) *TemporaryDiskResponse { return v.TemporaryDisk }).(TemporaryDiskResponsePtrOutput)
 }
 
-// URL of the App
 func (o AppResourcePropertiesResponseOutput) Url() pulumi.StringOutput {
 	return o.ApplyT(func(v AppResourcePropertiesResponse) string { return v.Url }).(pulumi.StringOutput)
 }
@@ -432,10 +381,15 @@ func (o AppResourcePropertiesResponsePtrOutput) ToAppResourcePropertiesResponseP
 }
 
 func (o AppResourcePropertiesResponsePtrOutput) Elem() AppResourcePropertiesResponseOutput {
-	return o.ApplyT(func(v *AppResourcePropertiesResponse) AppResourcePropertiesResponse { return *v }).(AppResourcePropertiesResponseOutput)
+	return o.ApplyT(func(v *AppResourcePropertiesResponse) AppResourcePropertiesResponse {
+		if v != nil {
+			return *v
+		}
+		var ret AppResourcePropertiesResponse
+		return ret
+	}).(AppResourcePropertiesResponseOutput)
 }
 
-// Name of the active deployment of the App
 func (o AppResourcePropertiesResponsePtrOutput) ActiveDeploymentName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *AppResourcePropertiesResponse) *string {
 		if v == nil {
@@ -445,7 +399,6 @@ func (o AppResourcePropertiesResponsePtrOutput) ActiveDeploymentName() pulumi.St
 	}).(pulumi.StringPtrOutput)
 }
 
-// Date time when the resource is created
 func (o AppResourcePropertiesResponsePtrOutput) CreatedTime() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *AppResourcePropertiesResponse) *string {
 		if v == nil {
@@ -455,7 +408,6 @@ func (o AppResourcePropertiesResponsePtrOutput) CreatedTime() pulumi.StringPtrOu
 	}).(pulumi.StringPtrOutput)
 }
 
-// Fully qualified dns Name.
 func (o AppResourcePropertiesResponsePtrOutput) Fqdn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *AppResourcePropertiesResponse) *string {
 		if v == nil {
@@ -465,7 +417,6 @@ func (o AppResourcePropertiesResponsePtrOutput) Fqdn() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Indicate if only https is allowed.
 func (o AppResourcePropertiesResponsePtrOutput) HttpsOnly() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *AppResourcePropertiesResponse) *bool {
 		if v == nil {
@@ -475,7 +426,6 @@ func (o AppResourcePropertiesResponsePtrOutput) HttpsOnly() pulumi.BoolPtrOutput
 	}).(pulumi.BoolPtrOutput)
 }
 
-// Persistent disk settings
 func (o AppResourcePropertiesResponsePtrOutput) PersistentDisk() PersistentDiskResponsePtrOutput {
 	return o.ApplyT(func(v *AppResourcePropertiesResponse) *PersistentDiskResponse {
 		if v == nil {
@@ -485,7 +435,6 @@ func (o AppResourcePropertiesResponsePtrOutput) PersistentDisk() PersistentDiskR
 	}).(PersistentDiskResponsePtrOutput)
 }
 
-// Provisioning state of the App
 func (o AppResourcePropertiesResponsePtrOutput) ProvisioningState() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *AppResourcePropertiesResponse) *string {
 		if v == nil {
@@ -495,7 +444,6 @@ func (o AppResourcePropertiesResponsePtrOutput) ProvisioningState() pulumi.Strin
 	}).(pulumi.StringPtrOutput)
 }
 
-// Indicates whether the App exposes public endpoint
 func (o AppResourcePropertiesResponsePtrOutput) Public() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *AppResourcePropertiesResponse) *bool {
 		if v == nil {
@@ -505,7 +453,6 @@ func (o AppResourcePropertiesResponsePtrOutput) Public() pulumi.BoolPtrOutput {
 	}).(pulumi.BoolPtrOutput)
 }
 
-// Temporary disk settings
 func (o AppResourcePropertiesResponsePtrOutput) TemporaryDisk() TemporaryDiskResponsePtrOutput {
 	return o.ApplyT(func(v *AppResourcePropertiesResponse) *TemporaryDiskResponse {
 		if v == nil {
@@ -515,7 +462,6 @@ func (o AppResourcePropertiesResponsePtrOutput) TemporaryDisk() TemporaryDiskRes
 	}).(TemporaryDiskResponsePtrOutput)
 }
 
-// URL of the App
 func (o AppResourcePropertiesResponsePtrOutput) Url() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *AppResourcePropertiesResponse) *string {
 		if v == nil {
@@ -525,14 +471,10 @@ func (o AppResourcePropertiesResponsePtrOutput) Url() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Binding resource properties payload
 type BindingResourceProperties struct {
-	// Binding parameters of the Binding resource
 	BindingParameters map[string]interface{} `pulumi:"bindingParameters"`
-	// The key of the bound resource
-	Key *string `pulumi:"key"`
-	// The Azure resource id of the bound resource
-	ResourceId *string `pulumi:"resourceId"`
+	Key               *string                `pulumi:"key"`
+	ResourceId        *string                `pulumi:"resourceId"`
 }
 
 // BindingResourcePropertiesInput is an input type that accepts BindingResourcePropertiesArgs and BindingResourcePropertiesOutput values.
@@ -546,14 +488,10 @@ type BindingResourcePropertiesInput interface {
 	ToBindingResourcePropertiesOutputWithContext(context.Context) BindingResourcePropertiesOutput
 }
 
-// Binding resource properties payload
 type BindingResourcePropertiesArgs struct {
-	// Binding parameters of the Binding resource
-	BindingParameters pulumi.MapInput `pulumi:"bindingParameters"`
-	// The key of the bound resource
-	Key pulumi.StringPtrInput `pulumi:"key"`
-	// The Azure resource id of the bound resource
-	ResourceId pulumi.StringPtrInput `pulumi:"resourceId"`
+	BindingParameters pulumi.MapInput       `pulumi:"bindingParameters"`
+	Key               pulumi.StringPtrInput `pulumi:"key"`
+	ResourceId        pulumi.StringPtrInput `pulumi:"resourceId"`
 }
 
 func (BindingResourcePropertiesArgs) ElementType() reflect.Type {
@@ -609,7 +547,6 @@ func (i *bindingResourcePropertiesPtrType) ToBindingResourcePropertiesPtrOutputW
 	return pulumi.ToOutputWithContext(ctx, i).(BindingResourcePropertiesPtrOutput)
 }
 
-// Binding resource properties payload
 type BindingResourcePropertiesOutput struct{ *pulumi.OutputState }
 
 func (BindingResourcePropertiesOutput) ElementType() reflect.Type {
@@ -629,22 +566,19 @@ func (o BindingResourcePropertiesOutput) ToBindingResourcePropertiesPtrOutput() 
 }
 
 func (o BindingResourcePropertiesOutput) ToBindingResourcePropertiesPtrOutputWithContext(ctx context.Context) BindingResourcePropertiesPtrOutput {
-	return o.ApplyT(func(v BindingResourceProperties) *BindingResourceProperties {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v BindingResourceProperties) *BindingResourceProperties {
 		return &v
 	}).(BindingResourcePropertiesPtrOutput)
 }
 
-// Binding parameters of the Binding resource
 func (o BindingResourcePropertiesOutput) BindingParameters() pulumi.MapOutput {
 	return o.ApplyT(func(v BindingResourceProperties) map[string]interface{} { return v.BindingParameters }).(pulumi.MapOutput)
 }
 
-// The key of the bound resource
 func (o BindingResourcePropertiesOutput) Key() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v BindingResourceProperties) *string { return v.Key }).(pulumi.StringPtrOutput)
 }
 
-// The Azure resource id of the bound resource
 func (o BindingResourcePropertiesOutput) ResourceId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v BindingResourceProperties) *string { return v.ResourceId }).(pulumi.StringPtrOutput)
 }
@@ -664,10 +598,15 @@ func (o BindingResourcePropertiesPtrOutput) ToBindingResourcePropertiesPtrOutput
 }
 
 func (o BindingResourcePropertiesPtrOutput) Elem() BindingResourcePropertiesOutput {
-	return o.ApplyT(func(v *BindingResourceProperties) BindingResourceProperties { return *v }).(BindingResourcePropertiesOutput)
+	return o.ApplyT(func(v *BindingResourceProperties) BindingResourceProperties {
+		if v != nil {
+			return *v
+		}
+		var ret BindingResourceProperties
+		return ret
+	}).(BindingResourcePropertiesOutput)
 }
 
-// Binding parameters of the Binding resource
 func (o BindingResourcePropertiesPtrOutput) BindingParameters() pulumi.MapOutput {
 	return o.ApplyT(func(v *BindingResourceProperties) map[string]interface{} {
 		if v == nil {
@@ -677,7 +616,6 @@ func (o BindingResourcePropertiesPtrOutput) BindingParameters() pulumi.MapOutput
 	}).(pulumi.MapOutput)
 }
 
-// The key of the bound resource
 func (o BindingResourcePropertiesPtrOutput) Key() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *BindingResourceProperties) *string {
 		if v == nil {
@@ -687,7 +625,6 @@ func (o BindingResourcePropertiesPtrOutput) Key() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The Azure resource id of the bound resource
 func (o BindingResourcePropertiesPtrOutput) ResourceId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *BindingResourceProperties) *string {
 		if v == nil {
@@ -697,24 +634,15 @@ func (o BindingResourcePropertiesPtrOutput) ResourceId() pulumi.StringPtrOutput 
 	}).(pulumi.StringPtrOutput)
 }
 
-// Binding resource properties payload
 type BindingResourcePropertiesResponse struct {
-	// Binding parameters of the Binding resource
-	BindingParameters map[string]interface{} `pulumi:"bindingParameters"`
-	// Creation time of the Binding resource
-	CreatedAt string `pulumi:"createdAt"`
-	// The generated Spring Boot property file for this binding. The secret will be deducted.
-	GeneratedProperties string `pulumi:"generatedProperties"`
-	// The key of the bound resource
-	Key *string `pulumi:"key"`
-	// The Azure resource id of the bound resource
-	ResourceId *string `pulumi:"resourceId"`
-	// The name of the bound resource
-	ResourceName string `pulumi:"resourceName"`
-	// The standard Azure resource type of the bound resource
-	ResourceType string `pulumi:"resourceType"`
-	// Update time of the Binding resource
-	UpdatedAt string `pulumi:"updatedAt"`
+	BindingParameters   map[string]interface{} `pulumi:"bindingParameters"`
+	CreatedAt           string                 `pulumi:"createdAt"`
+	GeneratedProperties string                 `pulumi:"generatedProperties"`
+	Key                 *string                `pulumi:"key"`
+	ResourceId          *string                `pulumi:"resourceId"`
+	ResourceName        string                 `pulumi:"resourceName"`
+	ResourceType        string                 `pulumi:"resourceType"`
+	UpdatedAt           string                 `pulumi:"updatedAt"`
 }
 
 // BindingResourcePropertiesResponseInput is an input type that accepts BindingResourcePropertiesResponseArgs and BindingResourcePropertiesResponseOutput values.
@@ -728,24 +656,15 @@ type BindingResourcePropertiesResponseInput interface {
 	ToBindingResourcePropertiesResponseOutputWithContext(context.Context) BindingResourcePropertiesResponseOutput
 }
 
-// Binding resource properties payload
 type BindingResourcePropertiesResponseArgs struct {
-	// Binding parameters of the Binding resource
-	BindingParameters pulumi.MapInput `pulumi:"bindingParameters"`
-	// Creation time of the Binding resource
-	CreatedAt pulumi.StringInput `pulumi:"createdAt"`
-	// The generated Spring Boot property file for this binding. The secret will be deducted.
-	GeneratedProperties pulumi.StringInput `pulumi:"generatedProperties"`
-	// The key of the bound resource
-	Key pulumi.StringPtrInput `pulumi:"key"`
-	// The Azure resource id of the bound resource
-	ResourceId pulumi.StringPtrInput `pulumi:"resourceId"`
-	// The name of the bound resource
-	ResourceName pulumi.StringInput `pulumi:"resourceName"`
-	// The standard Azure resource type of the bound resource
-	ResourceType pulumi.StringInput `pulumi:"resourceType"`
-	// Update time of the Binding resource
-	UpdatedAt pulumi.StringInput `pulumi:"updatedAt"`
+	BindingParameters   pulumi.MapInput       `pulumi:"bindingParameters"`
+	CreatedAt           pulumi.StringInput    `pulumi:"createdAt"`
+	GeneratedProperties pulumi.StringInput    `pulumi:"generatedProperties"`
+	Key                 pulumi.StringPtrInput `pulumi:"key"`
+	ResourceId          pulumi.StringPtrInput `pulumi:"resourceId"`
+	ResourceName        pulumi.StringInput    `pulumi:"resourceName"`
+	ResourceType        pulumi.StringInput    `pulumi:"resourceType"`
+	UpdatedAt           pulumi.StringInput    `pulumi:"updatedAt"`
 }
 
 func (BindingResourcePropertiesResponseArgs) ElementType() reflect.Type {
@@ -801,7 +720,6 @@ func (i *bindingResourcePropertiesResponsePtrType) ToBindingResourcePropertiesRe
 	return pulumi.ToOutputWithContext(ctx, i).(BindingResourcePropertiesResponsePtrOutput)
 }
 
-// Binding resource properties payload
 type BindingResourcePropertiesResponseOutput struct{ *pulumi.OutputState }
 
 func (BindingResourcePropertiesResponseOutput) ElementType() reflect.Type {
@@ -821,47 +739,39 @@ func (o BindingResourcePropertiesResponseOutput) ToBindingResourcePropertiesResp
 }
 
 func (o BindingResourcePropertiesResponseOutput) ToBindingResourcePropertiesResponsePtrOutputWithContext(ctx context.Context) BindingResourcePropertiesResponsePtrOutput {
-	return o.ApplyT(func(v BindingResourcePropertiesResponse) *BindingResourcePropertiesResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v BindingResourcePropertiesResponse) *BindingResourcePropertiesResponse {
 		return &v
 	}).(BindingResourcePropertiesResponsePtrOutput)
 }
 
-// Binding parameters of the Binding resource
 func (o BindingResourcePropertiesResponseOutput) BindingParameters() pulumi.MapOutput {
 	return o.ApplyT(func(v BindingResourcePropertiesResponse) map[string]interface{} { return v.BindingParameters }).(pulumi.MapOutput)
 }
 
-// Creation time of the Binding resource
 func (o BindingResourcePropertiesResponseOutput) CreatedAt() pulumi.StringOutput {
 	return o.ApplyT(func(v BindingResourcePropertiesResponse) string { return v.CreatedAt }).(pulumi.StringOutput)
 }
 
-// The generated Spring Boot property file for this binding. The secret will be deducted.
 func (o BindingResourcePropertiesResponseOutput) GeneratedProperties() pulumi.StringOutput {
 	return o.ApplyT(func(v BindingResourcePropertiesResponse) string { return v.GeneratedProperties }).(pulumi.StringOutput)
 }
 
-// The key of the bound resource
 func (o BindingResourcePropertiesResponseOutput) Key() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v BindingResourcePropertiesResponse) *string { return v.Key }).(pulumi.StringPtrOutput)
 }
 
-// The Azure resource id of the bound resource
 func (o BindingResourcePropertiesResponseOutput) ResourceId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v BindingResourcePropertiesResponse) *string { return v.ResourceId }).(pulumi.StringPtrOutput)
 }
 
-// The name of the bound resource
 func (o BindingResourcePropertiesResponseOutput) ResourceName() pulumi.StringOutput {
 	return o.ApplyT(func(v BindingResourcePropertiesResponse) string { return v.ResourceName }).(pulumi.StringOutput)
 }
 
-// The standard Azure resource type of the bound resource
 func (o BindingResourcePropertiesResponseOutput) ResourceType() pulumi.StringOutput {
 	return o.ApplyT(func(v BindingResourcePropertiesResponse) string { return v.ResourceType }).(pulumi.StringOutput)
 }
 
-// Update time of the Binding resource
 func (o BindingResourcePropertiesResponseOutput) UpdatedAt() pulumi.StringOutput {
 	return o.ApplyT(func(v BindingResourcePropertiesResponse) string { return v.UpdatedAt }).(pulumi.StringOutput)
 }
@@ -881,10 +791,15 @@ func (o BindingResourcePropertiesResponsePtrOutput) ToBindingResourcePropertiesR
 }
 
 func (o BindingResourcePropertiesResponsePtrOutput) Elem() BindingResourcePropertiesResponseOutput {
-	return o.ApplyT(func(v *BindingResourcePropertiesResponse) BindingResourcePropertiesResponse { return *v }).(BindingResourcePropertiesResponseOutput)
+	return o.ApplyT(func(v *BindingResourcePropertiesResponse) BindingResourcePropertiesResponse {
+		if v != nil {
+			return *v
+		}
+		var ret BindingResourcePropertiesResponse
+		return ret
+	}).(BindingResourcePropertiesResponseOutput)
 }
 
-// Binding parameters of the Binding resource
 func (o BindingResourcePropertiesResponsePtrOutput) BindingParameters() pulumi.MapOutput {
 	return o.ApplyT(func(v *BindingResourcePropertiesResponse) map[string]interface{} {
 		if v == nil {
@@ -894,7 +809,6 @@ func (o BindingResourcePropertiesResponsePtrOutput) BindingParameters() pulumi.M
 	}).(pulumi.MapOutput)
 }
 
-// Creation time of the Binding resource
 func (o BindingResourcePropertiesResponsePtrOutput) CreatedAt() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *BindingResourcePropertiesResponse) *string {
 		if v == nil {
@@ -904,7 +818,6 @@ func (o BindingResourcePropertiesResponsePtrOutput) CreatedAt() pulumi.StringPtr
 	}).(pulumi.StringPtrOutput)
 }
 
-// The generated Spring Boot property file for this binding. The secret will be deducted.
 func (o BindingResourcePropertiesResponsePtrOutput) GeneratedProperties() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *BindingResourcePropertiesResponse) *string {
 		if v == nil {
@@ -914,7 +827,6 @@ func (o BindingResourcePropertiesResponsePtrOutput) GeneratedProperties() pulumi
 	}).(pulumi.StringPtrOutput)
 }
 
-// The key of the bound resource
 func (o BindingResourcePropertiesResponsePtrOutput) Key() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *BindingResourcePropertiesResponse) *string {
 		if v == nil {
@@ -924,7 +836,6 @@ func (o BindingResourcePropertiesResponsePtrOutput) Key() pulumi.StringPtrOutput
 	}).(pulumi.StringPtrOutput)
 }
 
-// The Azure resource id of the bound resource
 func (o BindingResourcePropertiesResponsePtrOutput) ResourceId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *BindingResourcePropertiesResponse) *string {
 		if v == nil {
@@ -934,7 +845,6 @@ func (o BindingResourcePropertiesResponsePtrOutput) ResourceId() pulumi.StringPt
 	}).(pulumi.StringPtrOutput)
 }
 
-// The name of the bound resource
 func (o BindingResourcePropertiesResponsePtrOutput) ResourceName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *BindingResourcePropertiesResponse) *string {
 		if v == nil {
@@ -944,7 +854,6 @@ func (o BindingResourcePropertiesResponsePtrOutput) ResourceName() pulumi.String
 	}).(pulumi.StringPtrOutput)
 }
 
-// The standard Azure resource type of the bound resource
 func (o BindingResourcePropertiesResponsePtrOutput) ResourceType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *BindingResourcePropertiesResponse) *string {
 		if v == nil {
@@ -954,7 +863,6 @@ func (o BindingResourcePropertiesResponsePtrOutput) ResourceType() pulumi.String
 	}).(pulumi.StringPtrOutput)
 }
 
-// Update time of the Binding resource
 func (o BindingResourcePropertiesResponsePtrOutput) UpdatedAt() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *BindingResourcePropertiesResponse) *string {
 		if v == nil {
@@ -964,14 +872,10 @@ func (o BindingResourcePropertiesResponsePtrOutput) UpdatedAt() pulumi.StringPtr
 	}).(pulumi.StringPtrOutput)
 }
 
-// Certificate resource payload.
 type CertificateProperties struct {
-	// The certificate version of key vault.
-	CertVersion *string `pulumi:"certVersion"`
-	// The certificate name of key vault.
-	KeyVaultCertName string `pulumi:"keyVaultCertName"`
-	// The vault uri of user key vault.
-	VaultUri string `pulumi:"vaultUri"`
+	CertVersion      *string `pulumi:"certVersion"`
+	KeyVaultCertName string  `pulumi:"keyVaultCertName"`
+	VaultUri         string  `pulumi:"vaultUri"`
 }
 
 // CertificatePropertiesInput is an input type that accepts CertificatePropertiesArgs and CertificatePropertiesOutput values.
@@ -985,14 +889,10 @@ type CertificatePropertiesInput interface {
 	ToCertificatePropertiesOutputWithContext(context.Context) CertificatePropertiesOutput
 }
 
-// Certificate resource payload.
 type CertificatePropertiesArgs struct {
-	// The certificate version of key vault.
-	CertVersion pulumi.StringPtrInput `pulumi:"certVersion"`
-	// The certificate name of key vault.
-	KeyVaultCertName pulumi.StringInput `pulumi:"keyVaultCertName"`
-	// The vault uri of user key vault.
-	VaultUri pulumi.StringInput `pulumi:"vaultUri"`
+	CertVersion      pulumi.StringPtrInput `pulumi:"certVersion"`
+	KeyVaultCertName pulumi.StringInput    `pulumi:"keyVaultCertName"`
+	VaultUri         pulumi.StringInput    `pulumi:"vaultUri"`
 }
 
 func (CertificatePropertiesArgs) ElementType() reflect.Type {
@@ -1048,7 +948,6 @@ func (i *certificatePropertiesPtrType) ToCertificatePropertiesPtrOutputWithConte
 	return pulumi.ToOutputWithContext(ctx, i).(CertificatePropertiesPtrOutput)
 }
 
-// Certificate resource payload.
 type CertificatePropertiesOutput struct{ *pulumi.OutputState }
 
 func (CertificatePropertiesOutput) ElementType() reflect.Type {
@@ -1068,22 +967,19 @@ func (o CertificatePropertiesOutput) ToCertificatePropertiesPtrOutput() Certific
 }
 
 func (o CertificatePropertiesOutput) ToCertificatePropertiesPtrOutputWithContext(ctx context.Context) CertificatePropertiesPtrOutput {
-	return o.ApplyT(func(v CertificateProperties) *CertificateProperties {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v CertificateProperties) *CertificateProperties {
 		return &v
 	}).(CertificatePropertiesPtrOutput)
 }
 
-// The certificate version of key vault.
 func (o CertificatePropertiesOutput) CertVersion() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v CertificateProperties) *string { return v.CertVersion }).(pulumi.StringPtrOutput)
 }
 
-// The certificate name of key vault.
 func (o CertificatePropertiesOutput) KeyVaultCertName() pulumi.StringOutput {
 	return o.ApplyT(func(v CertificateProperties) string { return v.KeyVaultCertName }).(pulumi.StringOutput)
 }
 
-// The vault uri of user key vault.
 func (o CertificatePropertiesOutput) VaultUri() pulumi.StringOutput {
 	return o.ApplyT(func(v CertificateProperties) string { return v.VaultUri }).(pulumi.StringOutput)
 }
@@ -1103,10 +999,15 @@ func (o CertificatePropertiesPtrOutput) ToCertificatePropertiesPtrOutputWithCont
 }
 
 func (o CertificatePropertiesPtrOutput) Elem() CertificatePropertiesOutput {
-	return o.ApplyT(func(v *CertificateProperties) CertificateProperties { return *v }).(CertificatePropertiesOutput)
+	return o.ApplyT(func(v *CertificateProperties) CertificateProperties {
+		if v != nil {
+			return *v
+		}
+		var ret CertificateProperties
+		return ret
+	}).(CertificatePropertiesOutput)
 }
 
-// The certificate version of key vault.
 func (o CertificatePropertiesPtrOutput) CertVersion() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *CertificateProperties) *string {
 		if v == nil {
@@ -1116,7 +1017,6 @@ func (o CertificatePropertiesPtrOutput) CertVersion() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The certificate name of key vault.
 func (o CertificatePropertiesPtrOutput) KeyVaultCertName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *CertificateProperties) *string {
 		if v == nil {
@@ -1126,7 +1026,6 @@ func (o CertificatePropertiesPtrOutput) KeyVaultCertName() pulumi.StringPtrOutpu
 	}).(pulumi.StringPtrOutput)
 }
 
-// The vault uri of user key vault.
 func (o CertificatePropertiesPtrOutput) VaultUri() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *CertificateProperties) *string {
 		if v == nil {
@@ -1136,28 +1035,17 @@ func (o CertificatePropertiesPtrOutput) VaultUri() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Certificate resource payload.
 type CertificatePropertiesResponse struct {
-	// The activate date of certificate.
-	ActivateDate string `pulumi:"activateDate"`
-	// The certificate version of key vault.
-	CertVersion *string `pulumi:"certVersion"`
-	// The domain list of certificate.
-	DnsNames []string `pulumi:"dnsNames"`
-	// The expiration date of certificate.
-	ExpirationDate string `pulumi:"expirationDate"`
-	// The issue date of certificate.
-	IssuedDate string `pulumi:"issuedDate"`
-	// The issuer of certificate.
-	Issuer string `pulumi:"issuer"`
-	// The certificate name of key vault.
-	KeyVaultCertName string `pulumi:"keyVaultCertName"`
-	// The subject name of certificate.
-	SubjectName string `pulumi:"subjectName"`
-	// The thumbprint of certificate.
-	Thumbprint string `pulumi:"thumbprint"`
-	// The vault uri of user key vault.
-	VaultUri string `pulumi:"vaultUri"`
+	ActivateDate     string   `pulumi:"activateDate"`
+	CertVersion      *string  `pulumi:"certVersion"`
+	DnsNames         []string `pulumi:"dnsNames"`
+	ExpirationDate   string   `pulumi:"expirationDate"`
+	IssuedDate       string   `pulumi:"issuedDate"`
+	Issuer           string   `pulumi:"issuer"`
+	KeyVaultCertName string   `pulumi:"keyVaultCertName"`
+	SubjectName      string   `pulumi:"subjectName"`
+	Thumbprint       string   `pulumi:"thumbprint"`
+	VaultUri         string   `pulumi:"vaultUri"`
 }
 
 // CertificatePropertiesResponseInput is an input type that accepts CertificatePropertiesResponseArgs and CertificatePropertiesResponseOutput values.
@@ -1171,28 +1059,17 @@ type CertificatePropertiesResponseInput interface {
 	ToCertificatePropertiesResponseOutputWithContext(context.Context) CertificatePropertiesResponseOutput
 }
 
-// Certificate resource payload.
 type CertificatePropertiesResponseArgs struct {
-	// The activate date of certificate.
-	ActivateDate pulumi.StringInput `pulumi:"activateDate"`
-	// The certificate version of key vault.
-	CertVersion pulumi.StringPtrInput `pulumi:"certVersion"`
-	// The domain list of certificate.
-	DnsNames pulumi.StringArrayInput `pulumi:"dnsNames"`
-	// The expiration date of certificate.
-	ExpirationDate pulumi.StringInput `pulumi:"expirationDate"`
-	// The issue date of certificate.
-	IssuedDate pulumi.StringInput `pulumi:"issuedDate"`
-	// The issuer of certificate.
-	Issuer pulumi.StringInput `pulumi:"issuer"`
-	// The certificate name of key vault.
-	KeyVaultCertName pulumi.StringInput `pulumi:"keyVaultCertName"`
-	// The subject name of certificate.
-	SubjectName pulumi.StringInput `pulumi:"subjectName"`
-	// The thumbprint of certificate.
-	Thumbprint pulumi.StringInput `pulumi:"thumbprint"`
-	// The vault uri of user key vault.
-	VaultUri pulumi.StringInput `pulumi:"vaultUri"`
+	ActivateDate     pulumi.StringInput      `pulumi:"activateDate"`
+	CertVersion      pulumi.StringPtrInput   `pulumi:"certVersion"`
+	DnsNames         pulumi.StringArrayInput `pulumi:"dnsNames"`
+	ExpirationDate   pulumi.StringInput      `pulumi:"expirationDate"`
+	IssuedDate       pulumi.StringInput      `pulumi:"issuedDate"`
+	Issuer           pulumi.StringInput      `pulumi:"issuer"`
+	KeyVaultCertName pulumi.StringInput      `pulumi:"keyVaultCertName"`
+	SubjectName      pulumi.StringInput      `pulumi:"subjectName"`
+	Thumbprint       pulumi.StringInput      `pulumi:"thumbprint"`
+	VaultUri         pulumi.StringInput      `pulumi:"vaultUri"`
 }
 
 func (CertificatePropertiesResponseArgs) ElementType() reflect.Type {
@@ -1248,7 +1125,6 @@ func (i *certificatePropertiesResponsePtrType) ToCertificatePropertiesResponsePt
 	return pulumi.ToOutputWithContext(ctx, i).(CertificatePropertiesResponsePtrOutput)
 }
 
-// Certificate resource payload.
 type CertificatePropertiesResponseOutput struct{ *pulumi.OutputState }
 
 func (CertificatePropertiesResponseOutput) ElementType() reflect.Type {
@@ -1268,57 +1144,47 @@ func (o CertificatePropertiesResponseOutput) ToCertificatePropertiesResponsePtrO
 }
 
 func (o CertificatePropertiesResponseOutput) ToCertificatePropertiesResponsePtrOutputWithContext(ctx context.Context) CertificatePropertiesResponsePtrOutput {
-	return o.ApplyT(func(v CertificatePropertiesResponse) *CertificatePropertiesResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v CertificatePropertiesResponse) *CertificatePropertiesResponse {
 		return &v
 	}).(CertificatePropertiesResponsePtrOutput)
 }
 
-// The activate date of certificate.
 func (o CertificatePropertiesResponseOutput) ActivateDate() pulumi.StringOutput {
 	return o.ApplyT(func(v CertificatePropertiesResponse) string { return v.ActivateDate }).(pulumi.StringOutput)
 }
 
-// The certificate version of key vault.
 func (o CertificatePropertiesResponseOutput) CertVersion() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v CertificatePropertiesResponse) *string { return v.CertVersion }).(pulumi.StringPtrOutput)
 }
 
-// The domain list of certificate.
 func (o CertificatePropertiesResponseOutput) DnsNames() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v CertificatePropertiesResponse) []string { return v.DnsNames }).(pulumi.StringArrayOutput)
 }
 
-// The expiration date of certificate.
 func (o CertificatePropertiesResponseOutput) ExpirationDate() pulumi.StringOutput {
 	return o.ApplyT(func(v CertificatePropertiesResponse) string { return v.ExpirationDate }).(pulumi.StringOutput)
 }
 
-// The issue date of certificate.
 func (o CertificatePropertiesResponseOutput) IssuedDate() pulumi.StringOutput {
 	return o.ApplyT(func(v CertificatePropertiesResponse) string { return v.IssuedDate }).(pulumi.StringOutput)
 }
 
-// The issuer of certificate.
 func (o CertificatePropertiesResponseOutput) Issuer() pulumi.StringOutput {
 	return o.ApplyT(func(v CertificatePropertiesResponse) string { return v.Issuer }).(pulumi.StringOutput)
 }
 
-// The certificate name of key vault.
 func (o CertificatePropertiesResponseOutput) KeyVaultCertName() pulumi.StringOutput {
 	return o.ApplyT(func(v CertificatePropertiesResponse) string { return v.KeyVaultCertName }).(pulumi.StringOutput)
 }
 
-// The subject name of certificate.
 func (o CertificatePropertiesResponseOutput) SubjectName() pulumi.StringOutput {
 	return o.ApplyT(func(v CertificatePropertiesResponse) string { return v.SubjectName }).(pulumi.StringOutput)
 }
 
-// The thumbprint of certificate.
 func (o CertificatePropertiesResponseOutput) Thumbprint() pulumi.StringOutput {
 	return o.ApplyT(func(v CertificatePropertiesResponse) string { return v.Thumbprint }).(pulumi.StringOutput)
 }
 
-// The vault uri of user key vault.
 func (o CertificatePropertiesResponseOutput) VaultUri() pulumi.StringOutput {
 	return o.ApplyT(func(v CertificatePropertiesResponse) string { return v.VaultUri }).(pulumi.StringOutput)
 }
@@ -1338,10 +1204,15 @@ func (o CertificatePropertiesResponsePtrOutput) ToCertificatePropertiesResponseP
 }
 
 func (o CertificatePropertiesResponsePtrOutput) Elem() CertificatePropertiesResponseOutput {
-	return o.ApplyT(func(v *CertificatePropertiesResponse) CertificatePropertiesResponse { return *v }).(CertificatePropertiesResponseOutput)
+	return o.ApplyT(func(v *CertificatePropertiesResponse) CertificatePropertiesResponse {
+		if v != nil {
+			return *v
+		}
+		var ret CertificatePropertiesResponse
+		return ret
+	}).(CertificatePropertiesResponseOutput)
 }
 
-// The activate date of certificate.
 func (o CertificatePropertiesResponsePtrOutput) ActivateDate() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *CertificatePropertiesResponse) *string {
 		if v == nil {
@@ -1351,7 +1222,6 @@ func (o CertificatePropertiesResponsePtrOutput) ActivateDate() pulumi.StringPtrO
 	}).(pulumi.StringPtrOutput)
 }
 
-// The certificate version of key vault.
 func (o CertificatePropertiesResponsePtrOutput) CertVersion() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *CertificatePropertiesResponse) *string {
 		if v == nil {
@@ -1361,7 +1231,6 @@ func (o CertificatePropertiesResponsePtrOutput) CertVersion() pulumi.StringPtrOu
 	}).(pulumi.StringPtrOutput)
 }
 
-// The domain list of certificate.
 func (o CertificatePropertiesResponsePtrOutput) DnsNames() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *CertificatePropertiesResponse) []string {
 		if v == nil {
@@ -1371,7 +1240,6 @@ func (o CertificatePropertiesResponsePtrOutput) DnsNames() pulumi.StringArrayOut
 	}).(pulumi.StringArrayOutput)
 }
 
-// The expiration date of certificate.
 func (o CertificatePropertiesResponsePtrOutput) ExpirationDate() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *CertificatePropertiesResponse) *string {
 		if v == nil {
@@ -1381,7 +1249,6 @@ func (o CertificatePropertiesResponsePtrOutput) ExpirationDate() pulumi.StringPt
 	}).(pulumi.StringPtrOutput)
 }
 
-// The issue date of certificate.
 func (o CertificatePropertiesResponsePtrOutput) IssuedDate() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *CertificatePropertiesResponse) *string {
 		if v == nil {
@@ -1391,7 +1258,6 @@ func (o CertificatePropertiesResponsePtrOutput) IssuedDate() pulumi.StringPtrOut
 	}).(pulumi.StringPtrOutput)
 }
 
-// The issuer of certificate.
 func (o CertificatePropertiesResponsePtrOutput) Issuer() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *CertificatePropertiesResponse) *string {
 		if v == nil {
@@ -1401,7 +1267,6 @@ func (o CertificatePropertiesResponsePtrOutput) Issuer() pulumi.StringPtrOutput 
 	}).(pulumi.StringPtrOutput)
 }
 
-// The certificate name of key vault.
 func (o CertificatePropertiesResponsePtrOutput) KeyVaultCertName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *CertificatePropertiesResponse) *string {
 		if v == nil {
@@ -1411,7 +1276,6 @@ func (o CertificatePropertiesResponsePtrOutput) KeyVaultCertName() pulumi.String
 	}).(pulumi.StringPtrOutput)
 }
 
-// The subject name of certificate.
 func (o CertificatePropertiesResponsePtrOutput) SubjectName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *CertificatePropertiesResponse) *string {
 		if v == nil {
@@ -1421,7 +1285,6 @@ func (o CertificatePropertiesResponsePtrOutput) SubjectName() pulumi.StringPtrOu
 	}).(pulumi.StringPtrOutput)
 }
 
-// The thumbprint of certificate.
 func (o CertificatePropertiesResponsePtrOutput) Thumbprint() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *CertificatePropertiesResponse) *string {
 		if v == nil {
@@ -1431,7 +1294,6 @@ func (o CertificatePropertiesResponsePtrOutput) Thumbprint() pulumi.StringPtrOut
 	}).(pulumi.StringPtrOutput)
 }
 
-// The vault uri of user key vault.
 func (o CertificatePropertiesResponsePtrOutput) VaultUri() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *CertificatePropertiesResponse) *string {
 		if v == nil {
@@ -1441,14 +1303,10 @@ func (o CertificatePropertiesResponsePtrOutput) VaultUri() pulumi.StringPtrOutpu
 	}).(pulumi.StringPtrOutput)
 }
 
-// Service properties payload
 type ClusterResourceProperties struct {
-	// Config server git properties of the Service
 	ConfigServerProperties *ConfigServerProperties `pulumi:"configServerProperties"`
-	// Network profile of the Service
-	NetworkProfile *NetworkProfile `pulumi:"networkProfile"`
-	// Trace properties of the Service
-	Trace *TraceProperties `pulumi:"trace"`
+	NetworkProfile         *NetworkProfile         `pulumi:"networkProfile"`
+	Trace                  *TraceProperties        `pulumi:"trace"`
 }
 
 // ClusterResourcePropertiesInput is an input type that accepts ClusterResourcePropertiesArgs and ClusterResourcePropertiesOutput values.
@@ -1462,14 +1320,10 @@ type ClusterResourcePropertiesInput interface {
 	ToClusterResourcePropertiesOutputWithContext(context.Context) ClusterResourcePropertiesOutput
 }
 
-// Service properties payload
 type ClusterResourcePropertiesArgs struct {
-	// Config server git properties of the Service
 	ConfigServerProperties ConfigServerPropertiesPtrInput `pulumi:"configServerProperties"`
-	// Network profile of the Service
-	NetworkProfile NetworkProfilePtrInput `pulumi:"networkProfile"`
-	// Trace properties of the Service
-	Trace TracePropertiesPtrInput `pulumi:"trace"`
+	NetworkProfile         NetworkProfilePtrInput         `pulumi:"networkProfile"`
+	Trace                  TracePropertiesPtrInput        `pulumi:"trace"`
 }
 
 func (ClusterResourcePropertiesArgs) ElementType() reflect.Type {
@@ -1525,7 +1379,6 @@ func (i *clusterResourcePropertiesPtrType) ToClusterResourcePropertiesPtrOutputW
 	return pulumi.ToOutputWithContext(ctx, i).(ClusterResourcePropertiesPtrOutput)
 }
 
-// Service properties payload
 type ClusterResourcePropertiesOutput struct{ *pulumi.OutputState }
 
 func (ClusterResourcePropertiesOutput) ElementType() reflect.Type {
@@ -1545,22 +1398,19 @@ func (o ClusterResourcePropertiesOutput) ToClusterResourcePropertiesPtrOutput() 
 }
 
 func (o ClusterResourcePropertiesOutput) ToClusterResourcePropertiesPtrOutputWithContext(ctx context.Context) ClusterResourcePropertiesPtrOutput {
-	return o.ApplyT(func(v ClusterResourceProperties) *ClusterResourceProperties {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ClusterResourceProperties) *ClusterResourceProperties {
 		return &v
 	}).(ClusterResourcePropertiesPtrOutput)
 }
 
-// Config server git properties of the Service
 func (o ClusterResourcePropertiesOutput) ConfigServerProperties() ConfigServerPropertiesPtrOutput {
 	return o.ApplyT(func(v ClusterResourceProperties) *ConfigServerProperties { return v.ConfigServerProperties }).(ConfigServerPropertiesPtrOutput)
 }
 
-// Network profile of the Service
 func (o ClusterResourcePropertiesOutput) NetworkProfile() NetworkProfilePtrOutput {
 	return o.ApplyT(func(v ClusterResourceProperties) *NetworkProfile { return v.NetworkProfile }).(NetworkProfilePtrOutput)
 }
 
-// Trace properties of the Service
 func (o ClusterResourcePropertiesOutput) Trace() TracePropertiesPtrOutput {
 	return o.ApplyT(func(v ClusterResourceProperties) *TraceProperties { return v.Trace }).(TracePropertiesPtrOutput)
 }
@@ -1580,10 +1430,15 @@ func (o ClusterResourcePropertiesPtrOutput) ToClusterResourcePropertiesPtrOutput
 }
 
 func (o ClusterResourcePropertiesPtrOutput) Elem() ClusterResourcePropertiesOutput {
-	return o.ApplyT(func(v *ClusterResourceProperties) ClusterResourceProperties { return *v }).(ClusterResourcePropertiesOutput)
+	return o.ApplyT(func(v *ClusterResourceProperties) ClusterResourceProperties {
+		if v != nil {
+			return *v
+		}
+		var ret ClusterResourceProperties
+		return ret
+	}).(ClusterResourcePropertiesOutput)
 }
 
-// Config server git properties of the Service
 func (o ClusterResourcePropertiesPtrOutput) ConfigServerProperties() ConfigServerPropertiesPtrOutput {
 	return o.ApplyT(func(v *ClusterResourceProperties) *ConfigServerProperties {
 		if v == nil {
@@ -1593,7 +1448,6 @@ func (o ClusterResourcePropertiesPtrOutput) ConfigServerProperties() ConfigServe
 	}).(ConfigServerPropertiesPtrOutput)
 }
 
-// Network profile of the Service
 func (o ClusterResourcePropertiesPtrOutput) NetworkProfile() NetworkProfilePtrOutput {
 	return o.ApplyT(func(v *ClusterResourceProperties) *NetworkProfile {
 		if v == nil {
@@ -1603,7 +1457,6 @@ func (o ClusterResourcePropertiesPtrOutput) NetworkProfile() NetworkProfilePtrOu
 	}).(NetworkProfilePtrOutput)
 }
 
-// Trace properties of the Service
 func (o ClusterResourcePropertiesPtrOutput) Trace() TracePropertiesPtrOutput {
 	return o.ApplyT(func(v *ClusterResourceProperties) *TraceProperties {
 		if v == nil {
@@ -1613,20 +1466,13 @@ func (o ClusterResourcePropertiesPtrOutput) Trace() TracePropertiesPtrOutput {
 	}).(TracePropertiesPtrOutput)
 }
 
-// Service properties payload
 type ClusterResourcePropertiesResponse struct {
-	// Config server git properties of the Service
 	ConfigServerProperties *ConfigServerPropertiesResponse `pulumi:"configServerProperties"`
-	// Network profile of the Service
-	NetworkProfile *NetworkProfileResponse `pulumi:"networkProfile"`
-	// Provisioning state of the Service
-	ProvisioningState string `pulumi:"provisioningState"`
-	// ServiceInstanceEntity GUID which uniquely identifies a created resource
-	ServiceId string `pulumi:"serviceId"`
-	// Trace properties of the Service
-	Trace *TracePropertiesResponse `pulumi:"trace"`
-	// Version of the Service
-	Version int `pulumi:"version"`
+	NetworkProfile         *NetworkProfileResponse         `pulumi:"networkProfile"`
+	ProvisioningState      string                          `pulumi:"provisioningState"`
+	ServiceId              string                          `pulumi:"serviceId"`
+	Trace                  *TracePropertiesResponse        `pulumi:"trace"`
+	Version                int                             `pulumi:"version"`
 }
 
 // ClusterResourcePropertiesResponseInput is an input type that accepts ClusterResourcePropertiesResponseArgs and ClusterResourcePropertiesResponseOutput values.
@@ -1640,20 +1486,13 @@ type ClusterResourcePropertiesResponseInput interface {
 	ToClusterResourcePropertiesResponseOutputWithContext(context.Context) ClusterResourcePropertiesResponseOutput
 }
 
-// Service properties payload
 type ClusterResourcePropertiesResponseArgs struct {
-	// Config server git properties of the Service
 	ConfigServerProperties ConfigServerPropertiesResponsePtrInput `pulumi:"configServerProperties"`
-	// Network profile of the Service
-	NetworkProfile NetworkProfileResponsePtrInput `pulumi:"networkProfile"`
-	// Provisioning state of the Service
-	ProvisioningState pulumi.StringInput `pulumi:"provisioningState"`
-	// ServiceInstanceEntity GUID which uniquely identifies a created resource
-	ServiceId pulumi.StringInput `pulumi:"serviceId"`
-	// Trace properties of the Service
-	Trace TracePropertiesResponsePtrInput `pulumi:"trace"`
-	// Version of the Service
-	Version pulumi.IntInput `pulumi:"version"`
+	NetworkProfile         NetworkProfileResponsePtrInput         `pulumi:"networkProfile"`
+	ProvisioningState      pulumi.StringInput                     `pulumi:"provisioningState"`
+	ServiceId              pulumi.StringInput                     `pulumi:"serviceId"`
+	Trace                  TracePropertiesResponsePtrInput        `pulumi:"trace"`
+	Version                pulumi.IntInput                        `pulumi:"version"`
 }
 
 func (ClusterResourcePropertiesResponseArgs) ElementType() reflect.Type {
@@ -1709,7 +1548,6 @@ func (i *clusterResourcePropertiesResponsePtrType) ToClusterResourcePropertiesRe
 	return pulumi.ToOutputWithContext(ctx, i).(ClusterResourcePropertiesResponsePtrOutput)
 }
 
-// Service properties payload
 type ClusterResourcePropertiesResponseOutput struct{ *pulumi.OutputState }
 
 func (ClusterResourcePropertiesResponseOutput) ElementType() reflect.Type {
@@ -1729,39 +1567,33 @@ func (o ClusterResourcePropertiesResponseOutput) ToClusterResourcePropertiesResp
 }
 
 func (o ClusterResourcePropertiesResponseOutput) ToClusterResourcePropertiesResponsePtrOutputWithContext(ctx context.Context) ClusterResourcePropertiesResponsePtrOutput {
-	return o.ApplyT(func(v ClusterResourcePropertiesResponse) *ClusterResourcePropertiesResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ClusterResourcePropertiesResponse) *ClusterResourcePropertiesResponse {
 		return &v
 	}).(ClusterResourcePropertiesResponsePtrOutput)
 }
 
-// Config server git properties of the Service
 func (o ClusterResourcePropertiesResponseOutput) ConfigServerProperties() ConfigServerPropertiesResponsePtrOutput {
 	return o.ApplyT(func(v ClusterResourcePropertiesResponse) *ConfigServerPropertiesResponse {
 		return v.ConfigServerProperties
 	}).(ConfigServerPropertiesResponsePtrOutput)
 }
 
-// Network profile of the Service
 func (o ClusterResourcePropertiesResponseOutput) NetworkProfile() NetworkProfileResponsePtrOutput {
 	return o.ApplyT(func(v ClusterResourcePropertiesResponse) *NetworkProfileResponse { return v.NetworkProfile }).(NetworkProfileResponsePtrOutput)
 }
 
-// Provisioning state of the Service
 func (o ClusterResourcePropertiesResponseOutput) ProvisioningState() pulumi.StringOutput {
 	return o.ApplyT(func(v ClusterResourcePropertiesResponse) string { return v.ProvisioningState }).(pulumi.StringOutput)
 }
 
-// ServiceInstanceEntity GUID which uniquely identifies a created resource
 func (o ClusterResourcePropertiesResponseOutput) ServiceId() pulumi.StringOutput {
 	return o.ApplyT(func(v ClusterResourcePropertiesResponse) string { return v.ServiceId }).(pulumi.StringOutput)
 }
 
-// Trace properties of the Service
 func (o ClusterResourcePropertiesResponseOutput) Trace() TracePropertiesResponsePtrOutput {
 	return o.ApplyT(func(v ClusterResourcePropertiesResponse) *TracePropertiesResponse { return v.Trace }).(TracePropertiesResponsePtrOutput)
 }
 
-// Version of the Service
 func (o ClusterResourcePropertiesResponseOutput) Version() pulumi.IntOutput {
 	return o.ApplyT(func(v ClusterResourcePropertiesResponse) int { return v.Version }).(pulumi.IntOutput)
 }
@@ -1781,10 +1613,15 @@ func (o ClusterResourcePropertiesResponsePtrOutput) ToClusterResourcePropertiesR
 }
 
 func (o ClusterResourcePropertiesResponsePtrOutput) Elem() ClusterResourcePropertiesResponseOutput {
-	return o.ApplyT(func(v *ClusterResourcePropertiesResponse) ClusterResourcePropertiesResponse { return *v }).(ClusterResourcePropertiesResponseOutput)
+	return o.ApplyT(func(v *ClusterResourcePropertiesResponse) ClusterResourcePropertiesResponse {
+		if v != nil {
+			return *v
+		}
+		var ret ClusterResourcePropertiesResponse
+		return ret
+	}).(ClusterResourcePropertiesResponseOutput)
 }
 
-// Config server git properties of the Service
 func (o ClusterResourcePropertiesResponsePtrOutput) ConfigServerProperties() ConfigServerPropertiesResponsePtrOutput {
 	return o.ApplyT(func(v *ClusterResourcePropertiesResponse) *ConfigServerPropertiesResponse {
 		if v == nil {
@@ -1794,7 +1631,6 @@ func (o ClusterResourcePropertiesResponsePtrOutput) ConfigServerProperties() Con
 	}).(ConfigServerPropertiesResponsePtrOutput)
 }
 
-// Network profile of the Service
 func (o ClusterResourcePropertiesResponsePtrOutput) NetworkProfile() NetworkProfileResponsePtrOutput {
 	return o.ApplyT(func(v *ClusterResourcePropertiesResponse) *NetworkProfileResponse {
 		if v == nil {
@@ -1804,7 +1640,6 @@ func (o ClusterResourcePropertiesResponsePtrOutput) NetworkProfile() NetworkProf
 	}).(NetworkProfileResponsePtrOutput)
 }
 
-// Provisioning state of the Service
 func (o ClusterResourcePropertiesResponsePtrOutput) ProvisioningState() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ClusterResourcePropertiesResponse) *string {
 		if v == nil {
@@ -1814,7 +1649,6 @@ func (o ClusterResourcePropertiesResponsePtrOutput) ProvisioningState() pulumi.S
 	}).(pulumi.StringPtrOutput)
 }
 
-// ServiceInstanceEntity GUID which uniquely identifies a created resource
 func (o ClusterResourcePropertiesResponsePtrOutput) ServiceId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ClusterResourcePropertiesResponse) *string {
 		if v == nil {
@@ -1824,7 +1658,6 @@ func (o ClusterResourcePropertiesResponsePtrOutput) ServiceId() pulumi.StringPtr
 	}).(pulumi.StringPtrOutput)
 }
 
-// Trace properties of the Service
 func (o ClusterResourcePropertiesResponsePtrOutput) Trace() TracePropertiesResponsePtrOutput {
 	return o.ApplyT(func(v *ClusterResourcePropertiesResponse) *TracePropertiesResponse {
 		if v == nil {
@@ -1834,7 +1667,6 @@ func (o ClusterResourcePropertiesResponsePtrOutput) Trace() TracePropertiesRespo
 	}).(TracePropertiesResponsePtrOutput)
 }
 
-// Version of the Service
 func (o ClusterResourcePropertiesResponsePtrOutput) Version() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *ClusterResourcePropertiesResponse) *int {
 		if v == nil {
@@ -1844,28 +1676,17 @@ func (o ClusterResourcePropertiesResponsePtrOutput) Version() pulumi.IntPtrOutpu
 	}).(pulumi.IntPtrOutput)
 }
 
-// Property of git.
 type ConfigServerGitProperty struct {
-	// Public sshKey of git repository.
-	HostKey *string `pulumi:"hostKey"`
-	// SshKey algorithm of git repository.
-	HostKeyAlgorithm *string `pulumi:"hostKeyAlgorithm"`
-	// Label of the repository
-	Label *string `pulumi:"label"`
-	// Password of git repository basic auth.
-	Password *string `pulumi:"password"`
-	// Private sshKey algorithm of git repository.
-	PrivateKey *string `pulumi:"privateKey"`
-	// Repositories of git.
-	Repositories []GitPatternRepository `pulumi:"repositories"`
-	// Searching path of the repository
-	SearchPaths []string `pulumi:"searchPaths"`
-	// Strict host key checking or not.
-	StrictHostKeyChecking *bool `pulumi:"strictHostKeyChecking"`
-	// URI of the repository
-	Uri string `pulumi:"uri"`
-	// Username of git repository basic auth.
-	Username *string `pulumi:"username"`
+	HostKey               *string                `pulumi:"hostKey"`
+	HostKeyAlgorithm      *string                `pulumi:"hostKeyAlgorithm"`
+	Label                 *string                `pulumi:"label"`
+	Password              *string                `pulumi:"password"`
+	PrivateKey            *string                `pulumi:"privateKey"`
+	Repositories          []GitPatternRepository `pulumi:"repositories"`
+	SearchPaths           []string               `pulumi:"searchPaths"`
+	StrictHostKeyChecking *bool                  `pulumi:"strictHostKeyChecking"`
+	Uri                   string                 `pulumi:"uri"`
+	Username              *string                `pulumi:"username"`
 }
 
 // ConfigServerGitPropertyInput is an input type that accepts ConfigServerGitPropertyArgs and ConfigServerGitPropertyOutput values.
@@ -1879,28 +1700,17 @@ type ConfigServerGitPropertyInput interface {
 	ToConfigServerGitPropertyOutputWithContext(context.Context) ConfigServerGitPropertyOutput
 }
 
-// Property of git.
 type ConfigServerGitPropertyArgs struct {
-	// Public sshKey of git repository.
-	HostKey pulumi.StringPtrInput `pulumi:"hostKey"`
-	// SshKey algorithm of git repository.
-	HostKeyAlgorithm pulumi.StringPtrInput `pulumi:"hostKeyAlgorithm"`
-	// Label of the repository
-	Label pulumi.StringPtrInput `pulumi:"label"`
-	// Password of git repository basic auth.
-	Password pulumi.StringPtrInput `pulumi:"password"`
-	// Private sshKey algorithm of git repository.
-	PrivateKey pulumi.StringPtrInput `pulumi:"privateKey"`
-	// Repositories of git.
-	Repositories GitPatternRepositoryArrayInput `pulumi:"repositories"`
-	// Searching path of the repository
-	SearchPaths pulumi.StringArrayInput `pulumi:"searchPaths"`
-	// Strict host key checking or not.
-	StrictHostKeyChecking pulumi.BoolPtrInput `pulumi:"strictHostKeyChecking"`
-	// URI of the repository
-	Uri pulumi.StringInput `pulumi:"uri"`
-	// Username of git repository basic auth.
-	Username pulumi.StringPtrInput `pulumi:"username"`
+	HostKey               pulumi.StringPtrInput          `pulumi:"hostKey"`
+	HostKeyAlgorithm      pulumi.StringPtrInput          `pulumi:"hostKeyAlgorithm"`
+	Label                 pulumi.StringPtrInput          `pulumi:"label"`
+	Password              pulumi.StringPtrInput          `pulumi:"password"`
+	PrivateKey            pulumi.StringPtrInput          `pulumi:"privateKey"`
+	Repositories          GitPatternRepositoryArrayInput `pulumi:"repositories"`
+	SearchPaths           pulumi.StringArrayInput        `pulumi:"searchPaths"`
+	StrictHostKeyChecking pulumi.BoolPtrInput            `pulumi:"strictHostKeyChecking"`
+	Uri                   pulumi.StringInput             `pulumi:"uri"`
+	Username              pulumi.StringPtrInput          `pulumi:"username"`
 }
 
 func (ConfigServerGitPropertyArgs) ElementType() reflect.Type {
@@ -1956,7 +1766,6 @@ func (i *configServerGitPropertyPtrType) ToConfigServerGitPropertyPtrOutputWithC
 	return pulumi.ToOutputWithContext(ctx, i).(ConfigServerGitPropertyPtrOutput)
 }
 
-// Property of git.
 type ConfigServerGitPropertyOutput struct{ *pulumi.OutputState }
 
 func (ConfigServerGitPropertyOutput) ElementType() reflect.Type {
@@ -1976,57 +1785,47 @@ func (o ConfigServerGitPropertyOutput) ToConfigServerGitPropertyPtrOutput() Conf
 }
 
 func (o ConfigServerGitPropertyOutput) ToConfigServerGitPropertyPtrOutputWithContext(ctx context.Context) ConfigServerGitPropertyPtrOutput {
-	return o.ApplyT(func(v ConfigServerGitProperty) *ConfigServerGitProperty {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ConfigServerGitProperty) *ConfigServerGitProperty {
 		return &v
 	}).(ConfigServerGitPropertyPtrOutput)
 }
 
-// Public sshKey of git repository.
 func (o ConfigServerGitPropertyOutput) HostKey() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ConfigServerGitProperty) *string { return v.HostKey }).(pulumi.StringPtrOutput)
 }
 
-// SshKey algorithm of git repository.
 func (o ConfigServerGitPropertyOutput) HostKeyAlgorithm() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ConfigServerGitProperty) *string { return v.HostKeyAlgorithm }).(pulumi.StringPtrOutput)
 }
 
-// Label of the repository
 func (o ConfigServerGitPropertyOutput) Label() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ConfigServerGitProperty) *string { return v.Label }).(pulumi.StringPtrOutput)
 }
 
-// Password of git repository basic auth.
 func (o ConfigServerGitPropertyOutput) Password() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ConfigServerGitProperty) *string { return v.Password }).(pulumi.StringPtrOutput)
 }
 
-// Private sshKey algorithm of git repository.
 func (o ConfigServerGitPropertyOutput) PrivateKey() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ConfigServerGitProperty) *string { return v.PrivateKey }).(pulumi.StringPtrOutput)
 }
 
-// Repositories of git.
 func (o ConfigServerGitPropertyOutput) Repositories() GitPatternRepositoryArrayOutput {
 	return o.ApplyT(func(v ConfigServerGitProperty) []GitPatternRepository { return v.Repositories }).(GitPatternRepositoryArrayOutput)
 }
 
-// Searching path of the repository
 func (o ConfigServerGitPropertyOutput) SearchPaths() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v ConfigServerGitProperty) []string { return v.SearchPaths }).(pulumi.StringArrayOutput)
 }
 
-// Strict host key checking or not.
 func (o ConfigServerGitPropertyOutput) StrictHostKeyChecking() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v ConfigServerGitProperty) *bool { return v.StrictHostKeyChecking }).(pulumi.BoolPtrOutput)
 }
 
-// URI of the repository
 func (o ConfigServerGitPropertyOutput) Uri() pulumi.StringOutput {
 	return o.ApplyT(func(v ConfigServerGitProperty) string { return v.Uri }).(pulumi.StringOutput)
 }
 
-// Username of git repository basic auth.
 func (o ConfigServerGitPropertyOutput) Username() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ConfigServerGitProperty) *string { return v.Username }).(pulumi.StringPtrOutput)
 }
@@ -2046,10 +1845,15 @@ func (o ConfigServerGitPropertyPtrOutput) ToConfigServerGitPropertyPtrOutputWith
 }
 
 func (o ConfigServerGitPropertyPtrOutput) Elem() ConfigServerGitPropertyOutput {
-	return o.ApplyT(func(v *ConfigServerGitProperty) ConfigServerGitProperty { return *v }).(ConfigServerGitPropertyOutput)
+	return o.ApplyT(func(v *ConfigServerGitProperty) ConfigServerGitProperty {
+		if v != nil {
+			return *v
+		}
+		var ret ConfigServerGitProperty
+		return ret
+	}).(ConfigServerGitPropertyOutput)
 }
 
-// Public sshKey of git repository.
 func (o ConfigServerGitPropertyPtrOutput) HostKey() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ConfigServerGitProperty) *string {
 		if v == nil {
@@ -2059,7 +1863,6 @@ func (o ConfigServerGitPropertyPtrOutput) HostKey() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// SshKey algorithm of git repository.
 func (o ConfigServerGitPropertyPtrOutput) HostKeyAlgorithm() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ConfigServerGitProperty) *string {
 		if v == nil {
@@ -2069,7 +1872,6 @@ func (o ConfigServerGitPropertyPtrOutput) HostKeyAlgorithm() pulumi.StringPtrOut
 	}).(pulumi.StringPtrOutput)
 }
 
-// Label of the repository
 func (o ConfigServerGitPropertyPtrOutput) Label() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ConfigServerGitProperty) *string {
 		if v == nil {
@@ -2079,7 +1881,6 @@ func (o ConfigServerGitPropertyPtrOutput) Label() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Password of git repository basic auth.
 func (o ConfigServerGitPropertyPtrOutput) Password() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ConfigServerGitProperty) *string {
 		if v == nil {
@@ -2089,7 +1890,6 @@ func (o ConfigServerGitPropertyPtrOutput) Password() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Private sshKey algorithm of git repository.
 func (o ConfigServerGitPropertyPtrOutput) PrivateKey() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ConfigServerGitProperty) *string {
 		if v == nil {
@@ -2099,7 +1899,6 @@ func (o ConfigServerGitPropertyPtrOutput) PrivateKey() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Repositories of git.
 func (o ConfigServerGitPropertyPtrOutput) Repositories() GitPatternRepositoryArrayOutput {
 	return o.ApplyT(func(v *ConfigServerGitProperty) []GitPatternRepository {
 		if v == nil {
@@ -2109,7 +1908,6 @@ func (o ConfigServerGitPropertyPtrOutput) Repositories() GitPatternRepositoryArr
 	}).(GitPatternRepositoryArrayOutput)
 }
 
-// Searching path of the repository
 func (o ConfigServerGitPropertyPtrOutput) SearchPaths() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *ConfigServerGitProperty) []string {
 		if v == nil {
@@ -2119,7 +1917,6 @@ func (o ConfigServerGitPropertyPtrOutput) SearchPaths() pulumi.StringArrayOutput
 	}).(pulumi.StringArrayOutput)
 }
 
-// Strict host key checking or not.
 func (o ConfigServerGitPropertyPtrOutput) StrictHostKeyChecking() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *ConfigServerGitProperty) *bool {
 		if v == nil {
@@ -2129,7 +1926,6 @@ func (o ConfigServerGitPropertyPtrOutput) StrictHostKeyChecking() pulumi.BoolPtr
 	}).(pulumi.BoolPtrOutput)
 }
 
-// URI of the repository
 func (o ConfigServerGitPropertyPtrOutput) Uri() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ConfigServerGitProperty) *string {
 		if v == nil {
@@ -2139,7 +1935,6 @@ func (o ConfigServerGitPropertyPtrOutput) Uri() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Username of git repository basic auth.
 func (o ConfigServerGitPropertyPtrOutput) Username() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ConfigServerGitProperty) *string {
 		if v == nil {
@@ -2149,28 +1944,17 @@ func (o ConfigServerGitPropertyPtrOutput) Username() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Property of git.
 type ConfigServerGitPropertyResponse struct {
-	// Public sshKey of git repository.
-	HostKey *string `pulumi:"hostKey"`
-	// SshKey algorithm of git repository.
-	HostKeyAlgorithm *string `pulumi:"hostKeyAlgorithm"`
-	// Label of the repository
-	Label *string `pulumi:"label"`
-	// Password of git repository basic auth.
-	Password *string `pulumi:"password"`
-	// Private sshKey algorithm of git repository.
-	PrivateKey *string `pulumi:"privateKey"`
-	// Repositories of git.
-	Repositories []GitPatternRepositoryResponse `pulumi:"repositories"`
-	// Searching path of the repository
-	SearchPaths []string `pulumi:"searchPaths"`
-	// Strict host key checking or not.
-	StrictHostKeyChecking *bool `pulumi:"strictHostKeyChecking"`
-	// URI of the repository
-	Uri string `pulumi:"uri"`
-	// Username of git repository basic auth.
-	Username *string `pulumi:"username"`
+	HostKey               *string                        `pulumi:"hostKey"`
+	HostKeyAlgorithm      *string                        `pulumi:"hostKeyAlgorithm"`
+	Label                 *string                        `pulumi:"label"`
+	Password              *string                        `pulumi:"password"`
+	PrivateKey            *string                        `pulumi:"privateKey"`
+	Repositories          []GitPatternRepositoryResponse `pulumi:"repositories"`
+	SearchPaths           []string                       `pulumi:"searchPaths"`
+	StrictHostKeyChecking *bool                          `pulumi:"strictHostKeyChecking"`
+	Uri                   string                         `pulumi:"uri"`
+	Username              *string                        `pulumi:"username"`
 }
 
 // ConfigServerGitPropertyResponseInput is an input type that accepts ConfigServerGitPropertyResponseArgs and ConfigServerGitPropertyResponseOutput values.
@@ -2184,28 +1968,17 @@ type ConfigServerGitPropertyResponseInput interface {
 	ToConfigServerGitPropertyResponseOutputWithContext(context.Context) ConfigServerGitPropertyResponseOutput
 }
 
-// Property of git.
 type ConfigServerGitPropertyResponseArgs struct {
-	// Public sshKey of git repository.
-	HostKey pulumi.StringPtrInput `pulumi:"hostKey"`
-	// SshKey algorithm of git repository.
-	HostKeyAlgorithm pulumi.StringPtrInput `pulumi:"hostKeyAlgorithm"`
-	// Label of the repository
-	Label pulumi.StringPtrInput `pulumi:"label"`
-	// Password of git repository basic auth.
-	Password pulumi.StringPtrInput `pulumi:"password"`
-	// Private sshKey algorithm of git repository.
-	PrivateKey pulumi.StringPtrInput `pulumi:"privateKey"`
-	// Repositories of git.
-	Repositories GitPatternRepositoryResponseArrayInput `pulumi:"repositories"`
-	// Searching path of the repository
-	SearchPaths pulumi.StringArrayInput `pulumi:"searchPaths"`
-	// Strict host key checking or not.
-	StrictHostKeyChecking pulumi.BoolPtrInput `pulumi:"strictHostKeyChecking"`
-	// URI of the repository
-	Uri pulumi.StringInput `pulumi:"uri"`
-	// Username of git repository basic auth.
-	Username pulumi.StringPtrInput `pulumi:"username"`
+	HostKey               pulumi.StringPtrInput                  `pulumi:"hostKey"`
+	HostKeyAlgorithm      pulumi.StringPtrInput                  `pulumi:"hostKeyAlgorithm"`
+	Label                 pulumi.StringPtrInput                  `pulumi:"label"`
+	Password              pulumi.StringPtrInput                  `pulumi:"password"`
+	PrivateKey            pulumi.StringPtrInput                  `pulumi:"privateKey"`
+	Repositories          GitPatternRepositoryResponseArrayInput `pulumi:"repositories"`
+	SearchPaths           pulumi.StringArrayInput                `pulumi:"searchPaths"`
+	StrictHostKeyChecking pulumi.BoolPtrInput                    `pulumi:"strictHostKeyChecking"`
+	Uri                   pulumi.StringInput                     `pulumi:"uri"`
+	Username              pulumi.StringPtrInput                  `pulumi:"username"`
 }
 
 func (ConfigServerGitPropertyResponseArgs) ElementType() reflect.Type {
@@ -2261,7 +2034,6 @@ func (i *configServerGitPropertyResponsePtrType) ToConfigServerGitPropertyRespon
 	return pulumi.ToOutputWithContext(ctx, i).(ConfigServerGitPropertyResponsePtrOutput)
 }
 
-// Property of git.
 type ConfigServerGitPropertyResponseOutput struct{ *pulumi.OutputState }
 
 func (ConfigServerGitPropertyResponseOutput) ElementType() reflect.Type {
@@ -2281,57 +2053,47 @@ func (o ConfigServerGitPropertyResponseOutput) ToConfigServerGitPropertyResponse
 }
 
 func (o ConfigServerGitPropertyResponseOutput) ToConfigServerGitPropertyResponsePtrOutputWithContext(ctx context.Context) ConfigServerGitPropertyResponsePtrOutput {
-	return o.ApplyT(func(v ConfigServerGitPropertyResponse) *ConfigServerGitPropertyResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ConfigServerGitPropertyResponse) *ConfigServerGitPropertyResponse {
 		return &v
 	}).(ConfigServerGitPropertyResponsePtrOutput)
 }
 
-// Public sshKey of git repository.
 func (o ConfigServerGitPropertyResponseOutput) HostKey() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ConfigServerGitPropertyResponse) *string { return v.HostKey }).(pulumi.StringPtrOutput)
 }
 
-// SshKey algorithm of git repository.
 func (o ConfigServerGitPropertyResponseOutput) HostKeyAlgorithm() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ConfigServerGitPropertyResponse) *string { return v.HostKeyAlgorithm }).(pulumi.StringPtrOutput)
 }
 
-// Label of the repository
 func (o ConfigServerGitPropertyResponseOutput) Label() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ConfigServerGitPropertyResponse) *string { return v.Label }).(pulumi.StringPtrOutput)
 }
 
-// Password of git repository basic auth.
 func (o ConfigServerGitPropertyResponseOutput) Password() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ConfigServerGitPropertyResponse) *string { return v.Password }).(pulumi.StringPtrOutput)
 }
 
-// Private sshKey algorithm of git repository.
 func (o ConfigServerGitPropertyResponseOutput) PrivateKey() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ConfigServerGitPropertyResponse) *string { return v.PrivateKey }).(pulumi.StringPtrOutput)
 }
 
-// Repositories of git.
 func (o ConfigServerGitPropertyResponseOutput) Repositories() GitPatternRepositoryResponseArrayOutput {
 	return o.ApplyT(func(v ConfigServerGitPropertyResponse) []GitPatternRepositoryResponse { return v.Repositories }).(GitPatternRepositoryResponseArrayOutput)
 }
 
-// Searching path of the repository
 func (o ConfigServerGitPropertyResponseOutput) SearchPaths() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v ConfigServerGitPropertyResponse) []string { return v.SearchPaths }).(pulumi.StringArrayOutput)
 }
 
-// Strict host key checking or not.
 func (o ConfigServerGitPropertyResponseOutput) StrictHostKeyChecking() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v ConfigServerGitPropertyResponse) *bool { return v.StrictHostKeyChecking }).(pulumi.BoolPtrOutput)
 }
 
-// URI of the repository
 func (o ConfigServerGitPropertyResponseOutput) Uri() pulumi.StringOutput {
 	return o.ApplyT(func(v ConfigServerGitPropertyResponse) string { return v.Uri }).(pulumi.StringOutput)
 }
 
-// Username of git repository basic auth.
 func (o ConfigServerGitPropertyResponseOutput) Username() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ConfigServerGitPropertyResponse) *string { return v.Username }).(pulumi.StringPtrOutput)
 }
@@ -2351,10 +2113,15 @@ func (o ConfigServerGitPropertyResponsePtrOutput) ToConfigServerGitPropertyRespo
 }
 
 func (o ConfigServerGitPropertyResponsePtrOutput) Elem() ConfigServerGitPropertyResponseOutput {
-	return o.ApplyT(func(v *ConfigServerGitPropertyResponse) ConfigServerGitPropertyResponse { return *v }).(ConfigServerGitPropertyResponseOutput)
+	return o.ApplyT(func(v *ConfigServerGitPropertyResponse) ConfigServerGitPropertyResponse {
+		if v != nil {
+			return *v
+		}
+		var ret ConfigServerGitPropertyResponse
+		return ret
+	}).(ConfigServerGitPropertyResponseOutput)
 }
 
-// Public sshKey of git repository.
 func (o ConfigServerGitPropertyResponsePtrOutput) HostKey() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ConfigServerGitPropertyResponse) *string {
 		if v == nil {
@@ -2364,7 +2131,6 @@ func (o ConfigServerGitPropertyResponsePtrOutput) HostKey() pulumi.StringPtrOutp
 	}).(pulumi.StringPtrOutput)
 }
 
-// SshKey algorithm of git repository.
 func (o ConfigServerGitPropertyResponsePtrOutput) HostKeyAlgorithm() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ConfigServerGitPropertyResponse) *string {
 		if v == nil {
@@ -2374,7 +2140,6 @@ func (o ConfigServerGitPropertyResponsePtrOutput) HostKeyAlgorithm() pulumi.Stri
 	}).(pulumi.StringPtrOutput)
 }
 
-// Label of the repository
 func (o ConfigServerGitPropertyResponsePtrOutput) Label() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ConfigServerGitPropertyResponse) *string {
 		if v == nil {
@@ -2384,7 +2149,6 @@ func (o ConfigServerGitPropertyResponsePtrOutput) Label() pulumi.StringPtrOutput
 	}).(pulumi.StringPtrOutput)
 }
 
-// Password of git repository basic auth.
 func (o ConfigServerGitPropertyResponsePtrOutput) Password() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ConfigServerGitPropertyResponse) *string {
 		if v == nil {
@@ -2394,7 +2158,6 @@ func (o ConfigServerGitPropertyResponsePtrOutput) Password() pulumi.StringPtrOut
 	}).(pulumi.StringPtrOutput)
 }
 
-// Private sshKey algorithm of git repository.
 func (o ConfigServerGitPropertyResponsePtrOutput) PrivateKey() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ConfigServerGitPropertyResponse) *string {
 		if v == nil {
@@ -2404,7 +2167,6 @@ func (o ConfigServerGitPropertyResponsePtrOutput) PrivateKey() pulumi.StringPtrO
 	}).(pulumi.StringPtrOutput)
 }
 
-// Repositories of git.
 func (o ConfigServerGitPropertyResponsePtrOutput) Repositories() GitPatternRepositoryResponseArrayOutput {
 	return o.ApplyT(func(v *ConfigServerGitPropertyResponse) []GitPatternRepositoryResponse {
 		if v == nil {
@@ -2414,7 +2176,6 @@ func (o ConfigServerGitPropertyResponsePtrOutput) Repositories() GitPatternRepos
 	}).(GitPatternRepositoryResponseArrayOutput)
 }
 
-// Searching path of the repository
 func (o ConfigServerGitPropertyResponsePtrOutput) SearchPaths() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *ConfigServerGitPropertyResponse) []string {
 		if v == nil {
@@ -2424,7 +2185,6 @@ func (o ConfigServerGitPropertyResponsePtrOutput) SearchPaths() pulumi.StringArr
 	}).(pulumi.StringArrayOutput)
 }
 
-// Strict host key checking or not.
 func (o ConfigServerGitPropertyResponsePtrOutput) StrictHostKeyChecking() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *ConfigServerGitPropertyResponse) *bool {
 		if v == nil {
@@ -2434,7 +2194,6 @@ func (o ConfigServerGitPropertyResponsePtrOutput) StrictHostKeyChecking() pulumi
 	}).(pulumi.BoolPtrOutput)
 }
 
-// URI of the repository
 func (o ConfigServerGitPropertyResponsePtrOutput) Uri() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ConfigServerGitPropertyResponse) *string {
 		if v == nil {
@@ -2444,7 +2203,6 @@ func (o ConfigServerGitPropertyResponsePtrOutput) Uri() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Username of git repository basic auth.
 func (o ConfigServerGitPropertyResponsePtrOutput) Username() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ConfigServerGitPropertyResponse) *string {
 		if v == nil {
@@ -2454,12 +2212,9 @@ func (o ConfigServerGitPropertyResponsePtrOutput) Username() pulumi.StringPtrOut
 	}).(pulumi.StringPtrOutput)
 }
 
-// Config server git properties payload
 type ConfigServerProperties struct {
-	// Settings of config server.
 	ConfigServer *ConfigServerSettings `pulumi:"configServer"`
-	// Error when apply config server settings.
-	Error *Error `pulumi:"error"`
+	Error        *Error                `pulumi:"error"`
 }
 
 // ConfigServerPropertiesInput is an input type that accepts ConfigServerPropertiesArgs and ConfigServerPropertiesOutput values.
@@ -2473,12 +2228,9 @@ type ConfigServerPropertiesInput interface {
 	ToConfigServerPropertiesOutputWithContext(context.Context) ConfigServerPropertiesOutput
 }
 
-// Config server git properties payload
 type ConfigServerPropertiesArgs struct {
-	// Settings of config server.
 	ConfigServer ConfigServerSettingsPtrInput `pulumi:"configServer"`
-	// Error when apply config server settings.
-	Error ErrorPtrInput `pulumi:"error"`
+	Error        ErrorPtrInput                `pulumi:"error"`
 }
 
 func (ConfigServerPropertiesArgs) ElementType() reflect.Type {
@@ -2534,7 +2286,6 @@ func (i *configServerPropertiesPtrType) ToConfigServerPropertiesPtrOutputWithCon
 	return pulumi.ToOutputWithContext(ctx, i).(ConfigServerPropertiesPtrOutput)
 }
 
-// Config server git properties payload
 type ConfigServerPropertiesOutput struct{ *pulumi.OutputState }
 
 func (ConfigServerPropertiesOutput) ElementType() reflect.Type {
@@ -2554,17 +2305,15 @@ func (o ConfigServerPropertiesOutput) ToConfigServerPropertiesPtrOutput() Config
 }
 
 func (o ConfigServerPropertiesOutput) ToConfigServerPropertiesPtrOutputWithContext(ctx context.Context) ConfigServerPropertiesPtrOutput {
-	return o.ApplyT(func(v ConfigServerProperties) *ConfigServerProperties {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ConfigServerProperties) *ConfigServerProperties {
 		return &v
 	}).(ConfigServerPropertiesPtrOutput)
 }
 
-// Settings of config server.
 func (o ConfigServerPropertiesOutput) ConfigServer() ConfigServerSettingsPtrOutput {
 	return o.ApplyT(func(v ConfigServerProperties) *ConfigServerSettings { return v.ConfigServer }).(ConfigServerSettingsPtrOutput)
 }
 
-// Error when apply config server settings.
 func (o ConfigServerPropertiesOutput) Error() ErrorPtrOutput {
 	return o.ApplyT(func(v ConfigServerProperties) *Error { return v.Error }).(ErrorPtrOutput)
 }
@@ -2584,10 +2333,15 @@ func (o ConfigServerPropertiesPtrOutput) ToConfigServerPropertiesPtrOutputWithCo
 }
 
 func (o ConfigServerPropertiesPtrOutput) Elem() ConfigServerPropertiesOutput {
-	return o.ApplyT(func(v *ConfigServerProperties) ConfigServerProperties { return *v }).(ConfigServerPropertiesOutput)
+	return o.ApplyT(func(v *ConfigServerProperties) ConfigServerProperties {
+		if v != nil {
+			return *v
+		}
+		var ret ConfigServerProperties
+		return ret
+	}).(ConfigServerPropertiesOutput)
 }
 
-// Settings of config server.
 func (o ConfigServerPropertiesPtrOutput) ConfigServer() ConfigServerSettingsPtrOutput {
 	return o.ApplyT(func(v *ConfigServerProperties) *ConfigServerSettings {
 		if v == nil {
@@ -2597,7 +2351,6 @@ func (o ConfigServerPropertiesPtrOutput) ConfigServer() ConfigServerSettingsPtrO
 	}).(ConfigServerSettingsPtrOutput)
 }
 
-// Error when apply config server settings.
 func (o ConfigServerPropertiesPtrOutput) Error() ErrorPtrOutput {
 	return o.ApplyT(func(v *ConfigServerProperties) *Error {
 		if v == nil {
@@ -2607,14 +2360,10 @@ func (o ConfigServerPropertiesPtrOutput) Error() ErrorPtrOutput {
 	}).(ErrorPtrOutput)
 }
 
-// Config server git properties payload
 type ConfigServerPropertiesResponse struct {
-	// Settings of config server.
 	ConfigServer *ConfigServerSettingsResponse `pulumi:"configServer"`
-	// Error when apply config server settings.
-	Error *ErrorResponse `pulumi:"error"`
-	// State of the config server.
-	State string `pulumi:"state"`
+	Error        *ErrorResponse                `pulumi:"error"`
+	State        string                        `pulumi:"state"`
 }
 
 // ConfigServerPropertiesResponseInput is an input type that accepts ConfigServerPropertiesResponseArgs and ConfigServerPropertiesResponseOutput values.
@@ -2628,14 +2377,10 @@ type ConfigServerPropertiesResponseInput interface {
 	ToConfigServerPropertiesResponseOutputWithContext(context.Context) ConfigServerPropertiesResponseOutput
 }
 
-// Config server git properties payload
 type ConfigServerPropertiesResponseArgs struct {
-	// Settings of config server.
 	ConfigServer ConfigServerSettingsResponsePtrInput `pulumi:"configServer"`
-	// Error when apply config server settings.
-	Error ErrorResponsePtrInput `pulumi:"error"`
-	// State of the config server.
-	State pulumi.StringInput `pulumi:"state"`
+	Error        ErrorResponsePtrInput                `pulumi:"error"`
+	State        pulumi.StringInput                   `pulumi:"state"`
 }
 
 func (ConfigServerPropertiesResponseArgs) ElementType() reflect.Type {
@@ -2691,7 +2436,6 @@ func (i *configServerPropertiesResponsePtrType) ToConfigServerPropertiesResponse
 	return pulumi.ToOutputWithContext(ctx, i).(ConfigServerPropertiesResponsePtrOutput)
 }
 
-// Config server git properties payload
 type ConfigServerPropertiesResponseOutput struct{ *pulumi.OutputState }
 
 func (ConfigServerPropertiesResponseOutput) ElementType() reflect.Type {
@@ -2711,22 +2455,19 @@ func (o ConfigServerPropertiesResponseOutput) ToConfigServerPropertiesResponsePt
 }
 
 func (o ConfigServerPropertiesResponseOutput) ToConfigServerPropertiesResponsePtrOutputWithContext(ctx context.Context) ConfigServerPropertiesResponsePtrOutput {
-	return o.ApplyT(func(v ConfigServerPropertiesResponse) *ConfigServerPropertiesResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ConfigServerPropertiesResponse) *ConfigServerPropertiesResponse {
 		return &v
 	}).(ConfigServerPropertiesResponsePtrOutput)
 }
 
-// Settings of config server.
 func (o ConfigServerPropertiesResponseOutput) ConfigServer() ConfigServerSettingsResponsePtrOutput {
 	return o.ApplyT(func(v ConfigServerPropertiesResponse) *ConfigServerSettingsResponse { return v.ConfigServer }).(ConfigServerSettingsResponsePtrOutput)
 }
 
-// Error when apply config server settings.
 func (o ConfigServerPropertiesResponseOutput) Error() ErrorResponsePtrOutput {
 	return o.ApplyT(func(v ConfigServerPropertiesResponse) *ErrorResponse { return v.Error }).(ErrorResponsePtrOutput)
 }
 
-// State of the config server.
 func (o ConfigServerPropertiesResponseOutput) State() pulumi.StringOutput {
 	return o.ApplyT(func(v ConfigServerPropertiesResponse) string { return v.State }).(pulumi.StringOutput)
 }
@@ -2746,10 +2487,15 @@ func (o ConfigServerPropertiesResponsePtrOutput) ToConfigServerPropertiesRespons
 }
 
 func (o ConfigServerPropertiesResponsePtrOutput) Elem() ConfigServerPropertiesResponseOutput {
-	return o.ApplyT(func(v *ConfigServerPropertiesResponse) ConfigServerPropertiesResponse { return *v }).(ConfigServerPropertiesResponseOutput)
+	return o.ApplyT(func(v *ConfigServerPropertiesResponse) ConfigServerPropertiesResponse {
+		if v != nil {
+			return *v
+		}
+		var ret ConfigServerPropertiesResponse
+		return ret
+	}).(ConfigServerPropertiesResponseOutput)
 }
 
-// Settings of config server.
 func (o ConfigServerPropertiesResponsePtrOutput) ConfigServer() ConfigServerSettingsResponsePtrOutput {
 	return o.ApplyT(func(v *ConfigServerPropertiesResponse) *ConfigServerSettingsResponse {
 		if v == nil {
@@ -2759,7 +2505,6 @@ func (o ConfigServerPropertiesResponsePtrOutput) ConfigServer() ConfigServerSett
 	}).(ConfigServerSettingsResponsePtrOutput)
 }
 
-// Error when apply config server settings.
 func (o ConfigServerPropertiesResponsePtrOutput) Error() ErrorResponsePtrOutput {
 	return o.ApplyT(func(v *ConfigServerPropertiesResponse) *ErrorResponse {
 		if v == nil {
@@ -2769,7 +2514,6 @@ func (o ConfigServerPropertiesResponsePtrOutput) Error() ErrorResponsePtrOutput 
 	}).(ErrorResponsePtrOutput)
 }
 
-// State of the config server.
 func (o ConfigServerPropertiesResponsePtrOutput) State() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ConfigServerPropertiesResponse) *string {
 		if v == nil {
@@ -2779,9 +2523,7 @@ func (o ConfigServerPropertiesResponsePtrOutput) State() pulumi.StringPtrOutput 
 	}).(pulumi.StringPtrOutput)
 }
 
-// The settings of config server.
 type ConfigServerSettings struct {
-	// Property of git environment.
 	GitProperty *ConfigServerGitProperty `pulumi:"gitProperty"`
 }
 
@@ -2796,9 +2538,7 @@ type ConfigServerSettingsInput interface {
 	ToConfigServerSettingsOutputWithContext(context.Context) ConfigServerSettingsOutput
 }
 
-// The settings of config server.
 type ConfigServerSettingsArgs struct {
-	// Property of git environment.
 	GitProperty ConfigServerGitPropertyPtrInput `pulumi:"gitProperty"`
 }
 
@@ -2855,7 +2595,6 @@ func (i *configServerSettingsPtrType) ToConfigServerSettingsPtrOutputWithContext
 	return pulumi.ToOutputWithContext(ctx, i).(ConfigServerSettingsPtrOutput)
 }
 
-// The settings of config server.
 type ConfigServerSettingsOutput struct{ *pulumi.OutputState }
 
 func (ConfigServerSettingsOutput) ElementType() reflect.Type {
@@ -2875,12 +2614,11 @@ func (o ConfigServerSettingsOutput) ToConfigServerSettingsPtrOutput() ConfigServ
 }
 
 func (o ConfigServerSettingsOutput) ToConfigServerSettingsPtrOutputWithContext(ctx context.Context) ConfigServerSettingsPtrOutput {
-	return o.ApplyT(func(v ConfigServerSettings) *ConfigServerSettings {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ConfigServerSettings) *ConfigServerSettings {
 		return &v
 	}).(ConfigServerSettingsPtrOutput)
 }
 
-// Property of git environment.
 func (o ConfigServerSettingsOutput) GitProperty() ConfigServerGitPropertyPtrOutput {
 	return o.ApplyT(func(v ConfigServerSettings) *ConfigServerGitProperty { return v.GitProperty }).(ConfigServerGitPropertyPtrOutput)
 }
@@ -2900,10 +2638,15 @@ func (o ConfigServerSettingsPtrOutput) ToConfigServerSettingsPtrOutputWithContex
 }
 
 func (o ConfigServerSettingsPtrOutput) Elem() ConfigServerSettingsOutput {
-	return o.ApplyT(func(v *ConfigServerSettings) ConfigServerSettings { return *v }).(ConfigServerSettingsOutput)
+	return o.ApplyT(func(v *ConfigServerSettings) ConfigServerSettings {
+		if v != nil {
+			return *v
+		}
+		var ret ConfigServerSettings
+		return ret
+	}).(ConfigServerSettingsOutput)
 }
 
-// Property of git environment.
 func (o ConfigServerSettingsPtrOutput) GitProperty() ConfigServerGitPropertyPtrOutput {
 	return o.ApplyT(func(v *ConfigServerSettings) *ConfigServerGitProperty {
 		if v == nil {
@@ -2913,9 +2656,7 @@ func (o ConfigServerSettingsPtrOutput) GitProperty() ConfigServerGitPropertyPtrO
 	}).(ConfigServerGitPropertyPtrOutput)
 }
 
-// The settings of config server.
 type ConfigServerSettingsResponse struct {
-	// Property of git environment.
 	GitProperty *ConfigServerGitPropertyResponse `pulumi:"gitProperty"`
 }
 
@@ -2930,9 +2671,7 @@ type ConfigServerSettingsResponseInput interface {
 	ToConfigServerSettingsResponseOutputWithContext(context.Context) ConfigServerSettingsResponseOutput
 }
 
-// The settings of config server.
 type ConfigServerSettingsResponseArgs struct {
-	// Property of git environment.
 	GitProperty ConfigServerGitPropertyResponsePtrInput `pulumi:"gitProperty"`
 }
 
@@ -2989,7 +2728,6 @@ func (i *configServerSettingsResponsePtrType) ToConfigServerSettingsResponsePtrO
 	return pulumi.ToOutputWithContext(ctx, i).(ConfigServerSettingsResponsePtrOutput)
 }
 
-// The settings of config server.
 type ConfigServerSettingsResponseOutput struct{ *pulumi.OutputState }
 
 func (ConfigServerSettingsResponseOutput) ElementType() reflect.Type {
@@ -3009,12 +2747,11 @@ func (o ConfigServerSettingsResponseOutput) ToConfigServerSettingsResponsePtrOut
 }
 
 func (o ConfigServerSettingsResponseOutput) ToConfigServerSettingsResponsePtrOutputWithContext(ctx context.Context) ConfigServerSettingsResponsePtrOutput {
-	return o.ApplyT(func(v ConfigServerSettingsResponse) *ConfigServerSettingsResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ConfigServerSettingsResponse) *ConfigServerSettingsResponse {
 		return &v
 	}).(ConfigServerSettingsResponsePtrOutput)
 }
 
-// Property of git environment.
 func (o ConfigServerSettingsResponseOutput) GitProperty() ConfigServerGitPropertyResponsePtrOutput {
 	return o.ApplyT(func(v ConfigServerSettingsResponse) *ConfigServerGitPropertyResponse { return v.GitProperty }).(ConfigServerGitPropertyResponsePtrOutput)
 }
@@ -3034,10 +2771,15 @@ func (o ConfigServerSettingsResponsePtrOutput) ToConfigServerSettingsResponsePtr
 }
 
 func (o ConfigServerSettingsResponsePtrOutput) Elem() ConfigServerSettingsResponseOutput {
-	return o.ApplyT(func(v *ConfigServerSettingsResponse) ConfigServerSettingsResponse { return *v }).(ConfigServerSettingsResponseOutput)
+	return o.ApplyT(func(v *ConfigServerSettingsResponse) ConfigServerSettingsResponse {
+		if v != nil {
+			return *v
+		}
+		var ret ConfigServerSettingsResponse
+		return ret
+	}).(ConfigServerSettingsResponseOutput)
 }
 
-// Property of git environment.
 func (o ConfigServerSettingsResponsePtrOutput) GitProperty() ConfigServerGitPropertyResponsePtrOutput {
 	return o.ApplyT(func(v *ConfigServerSettingsResponse) *ConfigServerGitPropertyResponse {
 		if v == nil {
@@ -3047,11 +2789,8 @@ func (o ConfigServerSettingsResponsePtrOutput) GitProperty() ConfigServerGitProp
 	}).(ConfigServerGitPropertyResponsePtrOutput)
 }
 
-// Custom domain of app resource payload.
 type CustomDomainProperties struct {
-	// The bound certificate name of domain.
-	CertName *string `pulumi:"certName"`
-	// The thumbprint of bound certificate.
+	CertName   *string `pulumi:"certName"`
 	Thumbprint *string `pulumi:"thumbprint"`
 }
 
@@ -3066,11 +2805,8 @@ type CustomDomainPropertiesInput interface {
 	ToCustomDomainPropertiesOutputWithContext(context.Context) CustomDomainPropertiesOutput
 }
 
-// Custom domain of app resource payload.
 type CustomDomainPropertiesArgs struct {
-	// The bound certificate name of domain.
-	CertName pulumi.StringPtrInput `pulumi:"certName"`
-	// The thumbprint of bound certificate.
+	CertName   pulumi.StringPtrInput `pulumi:"certName"`
 	Thumbprint pulumi.StringPtrInput `pulumi:"thumbprint"`
 }
 
@@ -3127,7 +2863,6 @@ func (i *customDomainPropertiesPtrType) ToCustomDomainPropertiesPtrOutputWithCon
 	return pulumi.ToOutputWithContext(ctx, i).(CustomDomainPropertiesPtrOutput)
 }
 
-// Custom domain of app resource payload.
 type CustomDomainPropertiesOutput struct{ *pulumi.OutputState }
 
 func (CustomDomainPropertiesOutput) ElementType() reflect.Type {
@@ -3147,17 +2882,15 @@ func (o CustomDomainPropertiesOutput) ToCustomDomainPropertiesPtrOutput() Custom
 }
 
 func (o CustomDomainPropertiesOutput) ToCustomDomainPropertiesPtrOutputWithContext(ctx context.Context) CustomDomainPropertiesPtrOutput {
-	return o.ApplyT(func(v CustomDomainProperties) *CustomDomainProperties {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v CustomDomainProperties) *CustomDomainProperties {
 		return &v
 	}).(CustomDomainPropertiesPtrOutput)
 }
 
-// The bound certificate name of domain.
 func (o CustomDomainPropertiesOutput) CertName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v CustomDomainProperties) *string { return v.CertName }).(pulumi.StringPtrOutput)
 }
 
-// The thumbprint of bound certificate.
 func (o CustomDomainPropertiesOutput) Thumbprint() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v CustomDomainProperties) *string { return v.Thumbprint }).(pulumi.StringPtrOutput)
 }
@@ -3177,10 +2910,15 @@ func (o CustomDomainPropertiesPtrOutput) ToCustomDomainPropertiesPtrOutputWithCo
 }
 
 func (o CustomDomainPropertiesPtrOutput) Elem() CustomDomainPropertiesOutput {
-	return o.ApplyT(func(v *CustomDomainProperties) CustomDomainProperties { return *v }).(CustomDomainPropertiesOutput)
+	return o.ApplyT(func(v *CustomDomainProperties) CustomDomainProperties {
+		if v != nil {
+			return *v
+		}
+		var ret CustomDomainProperties
+		return ret
+	}).(CustomDomainPropertiesOutput)
 }
 
-// The bound certificate name of domain.
 func (o CustomDomainPropertiesPtrOutput) CertName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *CustomDomainProperties) *string {
 		if v == nil {
@@ -3190,7 +2928,6 @@ func (o CustomDomainPropertiesPtrOutput) CertName() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The thumbprint of bound certificate.
 func (o CustomDomainPropertiesPtrOutput) Thumbprint() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *CustomDomainProperties) *string {
 		if v == nil {
@@ -3200,13 +2937,9 @@ func (o CustomDomainPropertiesPtrOutput) Thumbprint() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Custom domain of app resource payload.
 type CustomDomainPropertiesResponse struct {
-	// The app name of domain.
-	AppName string `pulumi:"appName"`
-	// The bound certificate name of domain.
-	CertName *string `pulumi:"certName"`
-	// The thumbprint of bound certificate.
+	AppName    string  `pulumi:"appName"`
+	CertName   *string `pulumi:"certName"`
 	Thumbprint *string `pulumi:"thumbprint"`
 }
 
@@ -3221,13 +2954,9 @@ type CustomDomainPropertiesResponseInput interface {
 	ToCustomDomainPropertiesResponseOutputWithContext(context.Context) CustomDomainPropertiesResponseOutput
 }
 
-// Custom domain of app resource payload.
 type CustomDomainPropertiesResponseArgs struct {
-	// The app name of domain.
-	AppName pulumi.StringInput `pulumi:"appName"`
-	// The bound certificate name of domain.
-	CertName pulumi.StringPtrInput `pulumi:"certName"`
-	// The thumbprint of bound certificate.
+	AppName    pulumi.StringInput    `pulumi:"appName"`
+	CertName   pulumi.StringPtrInput `pulumi:"certName"`
 	Thumbprint pulumi.StringPtrInput `pulumi:"thumbprint"`
 }
 
@@ -3284,7 +3013,6 @@ func (i *customDomainPropertiesResponsePtrType) ToCustomDomainPropertiesResponse
 	return pulumi.ToOutputWithContext(ctx, i).(CustomDomainPropertiesResponsePtrOutput)
 }
 
-// Custom domain of app resource payload.
 type CustomDomainPropertiesResponseOutput struct{ *pulumi.OutputState }
 
 func (CustomDomainPropertiesResponseOutput) ElementType() reflect.Type {
@@ -3304,22 +3032,19 @@ func (o CustomDomainPropertiesResponseOutput) ToCustomDomainPropertiesResponsePt
 }
 
 func (o CustomDomainPropertiesResponseOutput) ToCustomDomainPropertiesResponsePtrOutputWithContext(ctx context.Context) CustomDomainPropertiesResponsePtrOutput {
-	return o.ApplyT(func(v CustomDomainPropertiesResponse) *CustomDomainPropertiesResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v CustomDomainPropertiesResponse) *CustomDomainPropertiesResponse {
 		return &v
 	}).(CustomDomainPropertiesResponsePtrOutput)
 }
 
-// The app name of domain.
 func (o CustomDomainPropertiesResponseOutput) AppName() pulumi.StringOutput {
 	return o.ApplyT(func(v CustomDomainPropertiesResponse) string { return v.AppName }).(pulumi.StringOutput)
 }
 
-// The bound certificate name of domain.
 func (o CustomDomainPropertiesResponseOutput) CertName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v CustomDomainPropertiesResponse) *string { return v.CertName }).(pulumi.StringPtrOutput)
 }
 
-// The thumbprint of bound certificate.
 func (o CustomDomainPropertiesResponseOutput) Thumbprint() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v CustomDomainPropertiesResponse) *string { return v.Thumbprint }).(pulumi.StringPtrOutput)
 }
@@ -3339,10 +3064,15 @@ func (o CustomDomainPropertiesResponsePtrOutput) ToCustomDomainPropertiesRespons
 }
 
 func (o CustomDomainPropertiesResponsePtrOutput) Elem() CustomDomainPropertiesResponseOutput {
-	return o.ApplyT(func(v *CustomDomainPropertiesResponse) CustomDomainPropertiesResponse { return *v }).(CustomDomainPropertiesResponseOutput)
+	return o.ApplyT(func(v *CustomDomainPropertiesResponse) CustomDomainPropertiesResponse {
+		if v != nil {
+			return *v
+		}
+		var ret CustomDomainPropertiesResponse
+		return ret
+	}).(CustomDomainPropertiesResponseOutput)
 }
 
-// The app name of domain.
 func (o CustomDomainPropertiesResponsePtrOutput) AppName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *CustomDomainPropertiesResponse) *string {
 		if v == nil {
@@ -3352,7 +3082,6 @@ func (o CustomDomainPropertiesResponsePtrOutput) AppName() pulumi.StringPtrOutpu
 	}).(pulumi.StringPtrOutput)
 }
 
-// The bound certificate name of domain.
 func (o CustomDomainPropertiesResponsePtrOutput) CertName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *CustomDomainPropertiesResponse) *string {
 		if v == nil {
@@ -3362,7 +3091,6 @@ func (o CustomDomainPropertiesResponsePtrOutput) CertName() pulumi.StringPtrOutp
 	}).(pulumi.StringPtrOutput)
 }
 
-// The thumbprint of bound certificate.
 func (o CustomDomainPropertiesResponsePtrOutput) Thumbprint() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *CustomDomainPropertiesResponse) *string {
 		if v == nil {
@@ -3372,18 +3100,12 @@ func (o CustomDomainPropertiesResponsePtrOutput) Thumbprint() pulumi.StringPtrOu
 	}).(pulumi.StringPtrOutput)
 }
 
-// Deployment instance payload
 type DeploymentInstanceResponse struct {
-	// Discovery status of the deployment instance
 	DiscoveryStatus string `pulumi:"discoveryStatus"`
-	// Name of the deployment instance
-	Name string `pulumi:"name"`
-	// Failed reason of the deployment instance
-	Reason string `pulumi:"reason"`
-	// Start time of the deployment instance
-	StartTime string `pulumi:"startTime"`
-	// Status of the deployment instance
-	Status string `pulumi:"status"`
+	Name            string `pulumi:"name"`
+	Reason          string `pulumi:"reason"`
+	StartTime       string `pulumi:"startTime"`
+	Status          string `pulumi:"status"`
 }
 
 // DeploymentInstanceResponseInput is an input type that accepts DeploymentInstanceResponseArgs and DeploymentInstanceResponseOutput values.
@@ -3397,18 +3119,12 @@ type DeploymentInstanceResponseInput interface {
 	ToDeploymentInstanceResponseOutputWithContext(context.Context) DeploymentInstanceResponseOutput
 }
 
-// Deployment instance payload
 type DeploymentInstanceResponseArgs struct {
-	// Discovery status of the deployment instance
 	DiscoveryStatus pulumi.StringInput `pulumi:"discoveryStatus"`
-	// Name of the deployment instance
-	Name pulumi.StringInput `pulumi:"name"`
-	// Failed reason of the deployment instance
-	Reason pulumi.StringInput `pulumi:"reason"`
-	// Start time of the deployment instance
-	StartTime pulumi.StringInput `pulumi:"startTime"`
-	// Status of the deployment instance
-	Status pulumi.StringInput `pulumi:"status"`
+	Name            pulumi.StringInput `pulumi:"name"`
+	Reason          pulumi.StringInput `pulumi:"reason"`
+	StartTime       pulumi.StringInput `pulumi:"startTime"`
+	Status          pulumi.StringInput `pulumi:"status"`
 }
 
 func (DeploymentInstanceResponseArgs) ElementType() reflect.Type {
@@ -3448,7 +3164,6 @@ func (i DeploymentInstanceResponseArray) ToDeploymentInstanceResponseArrayOutput
 	return pulumi.ToOutputWithContext(ctx, i).(DeploymentInstanceResponseArrayOutput)
 }
 
-// Deployment instance payload
 type DeploymentInstanceResponseOutput struct{ *pulumi.OutputState }
 
 func (DeploymentInstanceResponseOutput) ElementType() reflect.Type {
@@ -3463,27 +3178,22 @@ func (o DeploymentInstanceResponseOutput) ToDeploymentInstanceResponseOutputWith
 	return o
 }
 
-// Discovery status of the deployment instance
 func (o DeploymentInstanceResponseOutput) DiscoveryStatus() pulumi.StringOutput {
 	return o.ApplyT(func(v DeploymentInstanceResponse) string { return v.DiscoveryStatus }).(pulumi.StringOutput)
 }
 
-// Name of the deployment instance
 func (o DeploymentInstanceResponseOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v DeploymentInstanceResponse) string { return v.Name }).(pulumi.StringOutput)
 }
 
-// Failed reason of the deployment instance
 func (o DeploymentInstanceResponseOutput) Reason() pulumi.StringOutput {
 	return o.ApplyT(func(v DeploymentInstanceResponse) string { return v.Reason }).(pulumi.StringOutput)
 }
 
-// Start time of the deployment instance
 func (o DeploymentInstanceResponseOutput) StartTime() pulumi.StringOutput {
 	return o.ApplyT(func(v DeploymentInstanceResponse) string { return v.StartTime }).(pulumi.StringOutput)
 }
 
-// Status of the deployment instance
 func (o DeploymentInstanceResponseOutput) Status() pulumi.StringOutput {
 	return o.ApplyT(func(v DeploymentInstanceResponse) string { return v.Status }).(pulumi.StringOutput)
 }
@@ -3508,12 +3218,9 @@ func (o DeploymentInstanceResponseArrayOutput) Index(i pulumi.IntInput) Deployme
 	}).(DeploymentInstanceResponseOutput)
 }
 
-// Deployment resource properties payload
 type DeploymentResourceProperties struct {
-	// Deployment settings of the Deployment
 	DeploymentSettings *DeploymentSettings `pulumi:"deploymentSettings"`
-	// Uploaded source information of the deployment.
-	Source *UserSourceInfo `pulumi:"source"`
+	Source             *UserSourceInfo     `pulumi:"source"`
 }
 
 // DeploymentResourcePropertiesInput is an input type that accepts DeploymentResourcePropertiesArgs and DeploymentResourcePropertiesOutput values.
@@ -3527,12 +3234,9 @@ type DeploymentResourcePropertiesInput interface {
 	ToDeploymentResourcePropertiesOutputWithContext(context.Context) DeploymentResourcePropertiesOutput
 }
 
-// Deployment resource properties payload
 type DeploymentResourcePropertiesArgs struct {
-	// Deployment settings of the Deployment
 	DeploymentSettings DeploymentSettingsPtrInput `pulumi:"deploymentSettings"`
-	// Uploaded source information of the deployment.
-	Source UserSourceInfoPtrInput `pulumi:"source"`
+	Source             UserSourceInfoPtrInput     `pulumi:"source"`
 }
 
 func (DeploymentResourcePropertiesArgs) ElementType() reflect.Type {
@@ -3588,7 +3292,6 @@ func (i *deploymentResourcePropertiesPtrType) ToDeploymentResourcePropertiesPtrO
 	return pulumi.ToOutputWithContext(ctx, i).(DeploymentResourcePropertiesPtrOutput)
 }
 
-// Deployment resource properties payload
 type DeploymentResourcePropertiesOutput struct{ *pulumi.OutputState }
 
 func (DeploymentResourcePropertiesOutput) ElementType() reflect.Type {
@@ -3608,17 +3311,15 @@ func (o DeploymentResourcePropertiesOutput) ToDeploymentResourcePropertiesPtrOut
 }
 
 func (o DeploymentResourcePropertiesOutput) ToDeploymentResourcePropertiesPtrOutputWithContext(ctx context.Context) DeploymentResourcePropertiesPtrOutput {
-	return o.ApplyT(func(v DeploymentResourceProperties) *DeploymentResourceProperties {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v DeploymentResourceProperties) *DeploymentResourceProperties {
 		return &v
 	}).(DeploymentResourcePropertiesPtrOutput)
 }
 
-// Deployment settings of the Deployment
 func (o DeploymentResourcePropertiesOutput) DeploymentSettings() DeploymentSettingsPtrOutput {
 	return o.ApplyT(func(v DeploymentResourceProperties) *DeploymentSettings { return v.DeploymentSettings }).(DeploymentSettingsPtrOutput)
 }
 
-// Uploaded source information of the deployment.
 func (o DeploymentResourcePropertiesOutput) Source() UserSourceInfoPtrOutput {
 	return o.ApplyT(func(v DeploymentResourceProperties) *UserSourceInfo { return v.Source }).(UserSourceInfoPtrOutput)
 }
@@ -3638,10 +3339,15 @@ func (o DeploymentResourcePropertiesPtrOutput) ToDeploymentResourcePropertiesPtr
 }
 
 func (o DeploymentResourcePropertiesPtrOutput) Elem() DeploymentResourcePropertiesOutput {
-	return o.ApplyT(func(v *DeploymentResourceProperties) DeploymentResourceProperties { return *v }).(DeploymentResourcePropertiesOutput)
+	return o.ApplyT(func(v *DeploymentResourceProperties) DeploymentResourceProperties {
+		if v != nil {
+			return *v
+		}
+		var ret DeploymentResourceProperties
+		return ret
+	}).(DeploymentResourcePropertiesOutput)
 }
 
-// Deployment settings of the Deployment
 func (o DeploymentResourcePropertiesPtrOutput) DeploymentSettings() DeploymentSettingsPtrOutput {
 	return o.ApplyT(func(v *DeploymentResourceProperties) *DeploymentSettings {
 		if v == nil {
@@ -3651,7 +3357,6 @@ func (o DeploymentResourcePropertiesPtrOutput) DeploymentSettings() DeploymentSe
 	}).(DeploymentSettingsPtrOutput)
 }
 
-// Uploaded source information of the deployment.
 func (o DeploymentResourcePropertiesPtrOutput) Source() UserSourceInfoPtrOutput {
 	return o.ApplyT(func(v *DeploymentResourceProperties) *UserSourceInfo {
 		if v == nil {
@@ -3661,24 +3366,15 @@ func (o DeploymentResourcePropertiesPtrOutput) Source() UserSourceInfoPtrOutput 
 	}).(UserSourceInfoPtrOutput)
 }
 
-// Deployment resource properties payload
 type DeploymentResourcePropertiesResponse struct {
-	// Indicates whether the Deployment is active
-	Active bool `pulumi:"active"`
-	// App name of the deployment
-	AppName string `pulumi:"appName"`
-	// Date time when the resource is created
-	CreatedTime string `pulumi:"createdTime"`
-	// Deployment settings of the Deployment
-	DeploymentSettings *DeploymentSettingsResponse `pulumi:"deploymentSettings"`
-	// Collection of instances belong to the Deployment
-	Instances []DeploymentInstanceResponse `pulumi:"instances"`
-	// Provisioning state of the Deployment
-	ProvisioningState string `pulumi:"provisioningState"`
-	// Uploaded source information of the deployment.
-	Source *UserSourceInfoResponse `pulumi:"source"`
-	// Status of the Deployment
-	Status string `pulumi:"status"`
+	Active             bool                         `pulumi:"active"`
+	AppName            string                       `pulumi:"appName"`
+	CreatedTime        string                       `pulumi:"createdTime"`
+	DeploymentSettings *DeploymentSettingsResponse  `pulumi:"deploymentSettings"`
+	Instances          []DeploymentInstanceResponse `pulumi:"instances"`
+	ProvisioningState  string                       `pulumi:"provisioningState"`
+	Source             *UserSourceInfoResponse      `pulumi:"source"`
+	Status             string                       `pulumi:"status"`
 }
 
 // DeploymentResourcePropertiesResponseInput is an input type that accepts DeploymentResourcePropertiesResponseArgs and DeploymentResourcePropertiesResponseOutput values.
@@ -3692,24 +3388,15 @@ type DeploymentResourcePropertiesResponseInput interface {
 	ToDeploymentResourcePropertiesResponseOutputWithContext(context.Context) DeploymentResourcePropertiesResponseOutput
 }
 
-// Deployment resource properties payload
 type DeploymentResourcePropertiesResponseArgs struct {
-	// Indicates whether the Deployment is active
-	Active pulumi.BoolInput `pulumi:"active"`
-	// App name of the deployment
-	AppName pulumi.StringInput `pulumi:"appName"`
-	// Date time when the resource is created
-	CreatedTime pulumi.StringInput `pulumi:"createdTime"`
-	// Deployment settings of the Deployment
-	DeploymentSettings DeploymentSettingsResponsePtrInput `pulumi:"deploymentSettings"`
-	// Collection of instances belong to the Deployment
-	Instances DeploymentInstanceResponseArrayInput `pulumi:"instances"`
-	// Provisioning state of the Deployment
-	ProvisioningState pulumi.StringInput `pulumi:"provisioningState"`
-	// Uploaded source information of the deployment.
-	Source UserSourceInfoResponsePtrInput `pulumi:"source"`
-	// Status of the Deployment
-	Status pulumi.StringInput `pulumi:"status"`
+	Active             pulumi.BoolInput                     `pulumi:"active"`
+	AppName            pulumi.StringInput                   `pulumi:"appName"`
+	CreatedTime        pulumi.StringInput                   `pulumi:"createdTime"`
+	DeploymentSettings DeploymentSettingsResponsePtrInput   `pulumi:"deploymentSettings"`
+	Instances          DeploymentInstanceResponseArrayInput `pulumi:"instances"`
+	ProvisioningState  pulumi.StringInput                   `pulumi:"provisioningState"`
+	Source             UserSourceInfoResponsePtrInput       `pulumi:"source"`
+	Status             pulumi.StringInput                   `pulumi:"status"`
 }
 
 func (DeploymentResourcePropertiesResponseArgs) ElementType() reflect.Type {
@@ -3765,7 +3452,6 @@ func (i *deploymentResourcePropertiesResponsePtrType) ToDeploymentResourceProper
 	return pulumi.ToOutputWithContext(ctx, i).(DeploymentResourcePropertiesResponsePtrOutput)
 }
 
-// Deployment resource properties payload
 type DeploymentResourcePropertiesResponseOutput struct{ *pulumi.OutputState }
 
 func (DeploymentResourcePropertiesResponseOutput) ElementType() reflect.Type {
@@ -3785,47 +3471,39 @@ func (o DeploymentResourcePropertiesResponseOutput) ToDeploymentResourceProperti
 }
 
 func (o DeploymentResourcePropertiesResponseOutput) ToDeploymentResourcePropertiesResponsePtrOutputWithContext(ctx context.Context) DeploymentResourcePropertiesResponsePtrOutput {
-	return o.ApplyT(func(v DeploymentResourcePropertiesResponse) *DeploymentResourcePropertiesResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v DeploymentResourcePropertiesResponse) *DeploymentResourcePropertiesResponse {
 		return &v
 	}).(DeploymentResourcePropertiesResponsePtrOutput)
 }
 
-// Indicates whether the Deployment is active
 func (o DeploymentResourcePropertiesResponseOutput) Active() pulumi.BoolOutput {
 	return o.ApplyT(func(v DeploymentResourcePropertiesResponse) bool { return v.Active }).(pulumi.BoolOutput)
 }
 
-// App name of the deployment
 func (o DeploymentResourcePropertiesResponseOutput) AppName() pulumi.StringOutput {
 	return o.ApplyT(func(v DeploymentResourcePropertiesResponse) string { return v.AppName }).(pulumi.StringOutput)
 }
 
-// Date time when the resource is created
 func (o DeploymentResourcePropertiesResponseOutput) CreatedTime() pulumi.StringOutput {
 	return o.ApplyT(func(v DeploymentResourcePropertiesResponse) string { return v.CreatedTime }).(pulumi.StringOutput)
 }
 
-// Deployment settings of the Deployment
 func (o DeploymentResourcePropertiesResponseOutput) DeploymentSettings() DeploymentSettingsResponsePtrOutput {
 	return o.ApplyT(func(v DeploymentResourcePropertiesResponse) *DeploymentSettingsResponse { return v.DeploymentSettings }).(DeploymentSettingsResponsePtrOutput)
 }
 
-// Collection of instances belong to the Deployment
 func (o DeploymentResourcePropertiesResponseOutput) Instances() DeploymentInstanceResponseArrayOutput {
 	return o.ApplyT(func(v DeploymentResourcePropertiesResponse) []DeploymentInstanceResponse { return v.Instances }).(DeploymentInstanceResponseArrayOutput)
 }
 
-// Provisioning state of the Deployment
 func (o DeploymentResourcePropertiesResponseOutput) ProvisioningState() pulumi.StringOutput {
 	return o.ApplyT(func(v DeploymentResourcePropertiesResponse) string { return v.ProvisioningState }).(pulumi.StringOutput)
 }
 
-// Uploaded source information of the deployment.
 func (o DeploymentResourcePropertiesResponseOutput) Source() UserSourceInfoResponsePtrOutput {
 	return o.ApplyT(func(v DeploymentResourcePropertiesResponse) *UserSourceInfoResponse { return v.Source }).(UserSourceInfoResponsePtrOutput)
 }
 
-// Status of the Deployment
 func (o DeploymentResourcePropertiesResponseOutput) Status() pulumi.StringOutput {
 	return o.ApplyT(func(v DeploymentResourcePropertiesResponse) string { return v.Status }).(pulumi.StringOutput)
 }
@@ -3845,10 +3523,15 @@ func (o DeploymentResourcePropertiesResponsePtrOutput) ToDeploymentResourcePrope
 }
 
 func (o DeploymentResourcePropertiesResponsePtrOutput) Elem() DeploymentResourcePropertiesResponseOutput {
-	return o.ApplyT(func(v *DeploymentResourcePropertiesResponse) DeploymentResourcePropertiesResponse { return *v }).(DeploymentResourcePropertiesResponseOutput)
+	return o.ApplyT(func(v *DeploymentResourcePropertiesResponse) DeploymentResourcePropertiesResponse {
+		if v != nil {
+			return *v
+		}
+		var ret DeploymentResourcePropertiesResponse
+		return ret
+	}).(DeploymentResourcePropertiesResponseOutput)
 }
 
-// Indicates whether the Deployment is active
 func (o DeploymentResourcePropertiesResponsePtrOutput) Active() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *DeploymentResourcePropertiesResponse) *bool {
 		if v == nil {
@@ -3858,7 +3541,6 @@ func (o DeploymentResourcePropertiesResponsePtrOutput) Active() pulumi.BoolPtrOu
 	}).(pulumi.BoolPtrOutput)
 }
 
-// App name of the deployment
 func (o DeploymentResourcePropertiesResponsePtrOutput) AppName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *DeploymentResourcePropertiesResponse) *string {
 		if v == nil {
@@ -3868,7 +3550,6 @@ func (o DeploymentResourcePropertiesResponsePtrOutput) AppName() pulumi.StringPt
 	}).(pulumi.StringPtrOutput)
 }
 
-// Date time when the resource is created
 func (o DeploymentResourcePropertiesResponsePtrOutput) CreatedTime() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *DeploymentResourcePropertiesResponse) *string {
 		if v == nil {
@@ -3878,7 +3559,6 @@ func (o DeploymentResourcePropertiesResponsePtrOutput) CreatedTime() pulumi.Stri
 	}).(pulumi.StringPtrOutput)
 }
 
-// Deployment settings of the Deployment
 func (o DeploymentResourcePropertiesResponsePtrOutput) DeploymentSettings() DeploymentSettingsResponsePtrOutput {
 	return o.ApplyT(func(v *DeploymentResourcePropertiesResponse) *DeploymentSettingsResponse {
 		if v == nil {
@@ -3888,7 +3568,6 @@ func (o DeploymentResourcePropertiesResponsePtrOutput) DeploymentSettings() Depl
 	}).(DeploymentSettingsResponsePtrOutput)
 }
 
-// Collection of instances belong to the Deployment
 func (o DeploymentResourcePropertiesResponsePtrOutput) Instances() DeploymentInstanceResponseArrayOutput {
 	return o.ApplyT(func(v *DeploymentResourcePropertiesResponse) []DeploymentInstanceResponse {
 		if v == nil {
@@ -3898,7 +3577,6 @@ func (o DeploymentResourcePropertiesResponsePtrOutput) Instances() DeploymentIns
 	}).(DeploymentInstanceResponseArrayOutput)
 }
 
-// Provisioning state of the Deployment
 func (o DeploymentResourcePropertiesResponsePtrOutput) ProvisioningState() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *DeploymentResourcePropertiesResponse) *string {
 		if v == nil {
@@ -3908,7 +3586,6 @@ func (o DeploymentResourcePropertiesResponsePtrOutput) ProvisioningState() pulum
 	}).(pulumi.StringPtrOutput)
 }
 
-// Uploaded source information of the deployment.
 func (o DeploymentResourcePropertiesResponsePtrOutput) Source() UserSourceInfoResponsePtrOutput {
 	return o.ApplyT(func(v *DeploymentResourcePropertiesResponse) *UserSourceInfoResponse {
 		if v == nil {
@@ -3918,7 +3595,6 @@ func (o DeploymentResourcePropertiesResponsePtrOutput) Source() UserSourceInfoRe
 	}).(UserSourceInfoResponsePtrOutput)
 }
 
-// Status of the Deployment
 func (o DeploymentResourcePropertiesResponsePtrOutput) Status() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *DeploymentResourcePropertiesResponse) *string {
 		if v == nil {
@@ -3928,22 +3604,14 @@ func (o DeploymentResourcePropertiesResponsePtrOutput) Status() pulumi.StringPtr
 	}).(pulumi.StringPtrOutput)
 }
 
-// Deployment settings payload
 type DeploymentSettings struct {
-	// Required CPU, basic tier should be 1, standard tier should be in range (1, 4)
-	Cpu *int `pulumi:"cpu"`
-	// Collection of environment variables
+	Cpu                  *int              `pulumi:"cpu"`
 	EnvironmentVariables map[string]string `pulumi:"environmentVariables"`
-	// Instance count, basic tier should be in range (1, 25), standard tier should be in range (1, 500)
-	InstanceCount *int `pulumi:"instanceCount"`
-	// JVM parameter
-	JvmOptions *string `pulumi:"jvmOptions"`
-	// Required Memory size in GB, basic tier should be in range (1, 2), standard tier should be in range (1, 8)
-	MemoryInGB *int `pulumi:"memoryInGB"`
-	// The path to the .NET executable relative to zip root
-	NetCoreMainEntryPath *string `pulumi:"netCoreMainEntryPath"`
-	// Runtime version
-	RuntimeVersion *string `pulumi:"runtimeVersion"`
+	InstanceCount        *int              `pulumi:"instanceCount"`
+	JvmOptions           *string           `pulumi:"jvmOptions"`
+	MemoryInGB           *int              `pulumi:"memoryInGB"`
+	NetCoreMainEntryPath *string           `pulumi:"netCoreMainEntryPath"`
+	RuntimeVersion       *string           `pulumi:"runtimeVersion"`
 }
 
 // DeploymentSettingsInput is an input type that accepts DeploymentSettingsArgs and DeploymentSettingsOutput values.
@@ -3957,22 +3625,14 @@ type DeploymentSettingsInput interface {
 	ToDeploymentSettingsOutputWithContext(context.Context) DeploymentSettingsOutput
 }
 
-// Deployment settings payload
 type DeploymentSettingsArgs struct {
-	// Required CPU, basic tier should be 1, standard tier should be in range (1, 4)
-	Cpu pulumi.IntPtrInput `pulumi:"cpu"`
-	// Collection of environment variables
+	Cpu                  pulumi.IntPtrInput    `pulumi:"cpu"`
 	EnvironmentVariables pulumi.StringMapInput `pulumi:"environmentVariables"`
-	// Instance count, basic tier should be in range (1, 25), standard tier should be in range (1, 500)
-	InstanceCount pulumi.IntPtrInput `pulumi:"instanceCount"`
-	// JVM parameter
-	JvmOptions pulumi.StringPtrInput `pulumi:"jvmOptions"`
-	// Required Memory size in GB, basic tier should be in range (1, 2), standard tier should be in range (1, 8)
-	MemoryInGB pulumi.IntPtrInput `pulumi:"memoryInGB"`
-	// The path to the .NET executable relative to zip root
+	InstanceCount        pulumi.IntPtrInput    `pulumi:"instanceCount"`
+	JvmOptions           pulumi.StringPtrInput `pulumi:"jvmOptions"`
+	MemoryInGB           pulumi.IntPtrInput    `pulumi:"memoryInGB"`
 	NetCoreMainEntryPath pulumi.StringPtrInput `pulumi:"netCoreMainEntryPath"`
-	// Runtime version
-	RuntimeVersion pulumi.StringPtrInput `pulumi:"runtimeVersion"`
+	RuntimeVersion       pulumi.StringPtrInput `pulumi:"runtimeVersion"`
 }
 
 func (DeploymentSettingsArgs) ElementType() reflect.Type {
@@ -4028,7 +3688,6 @@ func (i *deploymentSettingsPtrType) ToDeploymentSettingsPtrOutputWithContext(ctx
 	return pulumi.ToOutputWithContext(ctx, i).(DeploymentSettingsPtrOutput)
 }
 
-// Deployment settings payload
 type DeploymentSettingsOutput struct{ *pulumi.OutputState }
 
 func (DeploymentSettingsOutput) ElementType() reflect.Type {
@@ -4048,42 +3707,35 @@ func (o DeploymentSettingsOutput) ToDeploymentSettingsPtrOutput() DeploymentSett
 }
 
 func (o DeploymentSettingsOutput) ToDeploymentSettingsPtrOutputWithContext(ctx context.Context) DeploymentSettingsPtrOutput {
-	return o.ApplyT(func(v DeploymentSettings) *DeploymentSettings {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v DeploymentSettings) *DeploymentSettings {
 		return &v
 	}).(DeploymentSettingsPtrOutput)
 }
 
-// Required CPU, basic tier should be 1, standard tier should be in range (1, 4)
 func (o DeploymentSettingsOutput) Cpu() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v DeploymentSettings) *int { return v.Cpu }).(pulumi.IntPtrOutput)
 }
 
-// Collection of environment variables
 func (o DeploymentSettingsOutput) EnvironmentVariables() pulumi.StringMapOutput {
 	return o.ApplyT(func(v DeploymentSettings) map[string]string { return v.EnvironmentVariables }).(pulumi.StringMapOutput)
 }
 
-// Instance count, basic tier should be in range (1, 25), standard tier should be in range (1, 500)
 func (o DeploymentSettingsOutput) InstanceCount() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v DeploymentSettings) *int { return v.InstanceCount }).(pulumi.IntPtrOutput)
 }
 
-// JVM parameter
 func (o DeploymentSettingsOutput) JvmOptions() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v DeploymentSettings) *string { return v.JvmOptions }).(pulumi.StringPtrOutput)
 }
 
-// Required Memory size in GB, basic tier should be in range (1, 2), standard tier should be in range (1, 8)
 func (o DeploymentSettingsOutput) MemoryInGB() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v DeploymentSettings) *int { return v.MemoryInGB }).(pulumi.IntPtrOutput)
 }
 
-// The path to the .NET executable relative to zip root
 func (o DeploymentSettingsOutput) NetCoreMainEntryPath() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v DeploymentSettings) *string { return v.NetCoreMainEntryPath }).(pulumi.StringPtrOutput)
 }
 
-// Runtime version
 func (o DeploymentSettingsOutput) RuntimeVersion() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v DeploymentSettings) *string { return v.RuntimeVersion }).(pulumi.StringPtrOutput)
 }
@@ -4103,10 +3755,15 @@ func (o DeploymentSettingsPtrOutput) ToDeploymentSettingsPtrOutputWithContext(ct
 }
 
 func (o DeploymentSettingsPtrOutput) Elem() DeploymentSettingsOutput {
-	return o.ApplyT(func(v *DeploymentSettings) DeploymentSettings { return *v }).(DeploymentSettingsOutput)
+	return o.ApplyT(func(v *DeploymentSettings) DeploymentSettings {
+		if v != nil {
+			return *v
+		}
+		var ret DeploymentSettings
+		return ret
+	}).(DeploymentSettingsOutput)
 }
 
-// Required CPU, basic tier should be 1, standard tier should be in range (1, 4)
 func (o DeploymentSettingsPtrOutput) Cpu() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *DeploymentSettings) *int {
 		if v == nil {
@@ -4116,7 +3773,6 @@ func (o DeploymentSettingsPtrOutput) Cpu() pulumi.IntPtrOutput {
 	}).(pulumi.IntPtrOutput)
 }
 
-// Collection of environment variables
 func (o DeploymentSettingsPtrOutput) EnvironmentVariables() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *DeploymentSettings) map[string]string {
 		if v == nil {
@@ -4126,7 +3782,6 @@ func (o DeploymentSettingsPtrOutput) EnvironmentVariables() pulumi.StringMapOutp
 	}).(pulumi.StringMapOutput)
 }
 
-// Instance count, basic tier should be in range (1, 25), standard tier should be in range (1, 500)
 func (o DeploymentSettingsPtrOutput) InstanceCount() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *DeploymentSettings) *int {
 		if v == nil {
@@ -4136,7 +3791,6 @@ func (o DeploymentSettingsPtrOutput) InstanceCount() pulumi.IntPtrOutput {
 	}).(pulumi.IntPtrOutput)
 }
 
-// JVM parameter
 func (o DeploymentSettingsPtrOutput) JvmOptions() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *DeploymentSettings) *string {
 		if v == nil {
@@ -4146,7 +3800,6 @@ func (o DeploymentSettingsPtrOutput) JvmOptions() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Required Memory size in GB, basic tier should be in range (1, 2), standard tier should be in range (1, 8)
 func (o DeploymentSettingsPtrOutput) MemoryInGB() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *DeploymentSettings) *int {
 		if v == nil {
@@ -4156,7 +3809,6 @@ func (o DeploymentSettingsPtrOutput) MemoryInGB() pulumi.IntPtrOutput {
 	}).(pulumi.IntPtrOutput)
 }
 
-// The path to the .NET executable relative to zip root
 func (o DeploymentSettingsPtrOutput) NetCoreMainEntryPath() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *DeploymentSettings) *string {
 		if v == nil {
@@ -4166,7 +3818,6 @@ func (o DeploymentSettingsPtrOutput) NetCoreMainEntryPath() pulumi.StringPtrOutp
 	}).(pulumi.StringPtrOutput)
 }
 
-// Runtime version
 func (o DeploymentSettingsPtrOutput) RuntimeVersion() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *DeploymentSettings) *string {
 		if v == nil {
@@ -4176,22 +3827,14 @@ func (o DeploymentSettingsPtrOutput) RuntimeVersion() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Deployment settings payload
 type DeploymentSettingsResponse struct {
-	// Required CPU, basic tier should be 1, standard tier should be in range (1, 4)
-	Cpu *int `pulumi:"cpu"`
-	// Collection of environment variables
+	Cpu                  *int              `pulumi:"cpu"`
 	EnvironmentVariables map[string]string `pulumi:"environmentVariables"`
-	// Instance count, basic tier should be in range (1, 25), standard tier should be in range (1, 500)
-	InstanceCount *int `pulumi:"instanceCount"`
-	// JVM parameter
-	JvmOptions *string `pulumi:"jvmOptions"`
-	// Required Memory size in GB, basic tier should be in range (1, 2), standard tier should be in range (1, 8)
-	MemoryInGB *int `pulumi:"memoryInGB"`
-	// The path to the .NET executable relative to zip root
-	NetCoreMainEntryPath *string `pulumi:"netCoreMainEntryPath"`
-	// Runtime version
-	RuntimeVersion *string `pulumi:"runtimeVersion"`
+	InstanceCount        *int              `pulumi:"instanceCount"`
+	JvmOptions           *string           `pulumi:"jvmOptions"`
+	MemoryInGB           *int              `pulumi:"memoryInGB"`
+	NetCoreMainEntryPath *string           `pulumi:"netCoreMainEntryPath"`
+	RuntimeVersion       *string           `pulumi:"runtimeVersion"`
 }
 
 // DeploymentSettingsResponseInput is an input type that accepts DeploymentSettingsResponseArgs and DeploymentSettingsResponseOutput values.
@@ -4205,22 +3848,14 @@ type DeploymentSettingsResponseInput interface {
 	ToDeploymentSettingsResponseOutputWithContext(context.Context) DeploymentSettingsResponseOutput
 }
 
-// Deployment settings payload
 type DeploymentSettingsResponseArgs struct {
-	// Required CPU, basic tier should be 1, standard tier should be in range (1, 4)
-	Cpu pulumi.IntPtrInput `pulumi:"cpu"`
-	// Collection of environment variables
+	Cpu                  pulumi.IntPtrInput    `pulumi:"cpu"`
 	EnvironmentVariables pulumi.StringMapInput `pulumi:"environmentVariables"`
-	// Instance count, basic tier should be in range (1, 25), standard tier should be in range (1, 500)
-	InstanceCount pulumi.IntPtrInput `pulumi:"instanceCount"`
-	// JVM parameter
-	JvmOptions pulumi.StringPtrInput `pulumi:"jvmOptions"`
-	// Required Memory size in GB, basic tier should be in range (1, 2), standard tier should be in range (1, 8)
-	MemoryInGB pulumi.IntPtrInput `pulumi:"memoryInGB"`
-	// The path to the .NET executable relative to zip root
+	InstanceCount        pulumi.IntPtrInput    `pulumi:"instanceCount"`
+	JvmOptions           pulumi.StringPtrInput `pulumi:"jvmOptions"`
+	MemoryInGB           pulumi.IntPtrInput    `pulumi:"memoryInGB"`
 	NetCoreMainEntryPath pulumi.StringPtrInput `pulumi:"netCoreMainEntryPath"`
-	// Runtime version
-	RuntimeVersion pulumi.StringPtrInput `pulumi:"runtimeVersion"`
+	RuntimeVersion       pulumi.StringPtrInput `pulumi:"runtimeVersion"`
 }
 
 func (DeploymentSettingsResponseArgs) ElementType() reflect.Type {
@@ -4276,7 +3911,6 @@ func (i *deploymentSettingsResponsePtrType) ToDeploymentSettingsResponsePtrOutpu
 	return pulumi.ToOutputWithContext(ctx, i).(DeploymentSettingsResponsePtrOutput)
 }
 
-// Deployment settings payload
 type DeploymentSettingsResponseOutput struct{ *pulumi.OutputState }
 
 func (DeploymentSettingsResponseOutput) ElementType() reflect.Type {
@@ -4296,42 +3930,35 @@ func (o DeploymentSettingsResponseOutput) ToDeploymentSettingsResponsePtrOutput(
 }
 
 func (o DeploymentSettingsResponseOutput) ToDeploymentSettingsResponsePtrOutputWithContext(ctx context.Context) DeploymentSettingsResponsePtrOutput {
-	return o.ApplyT(func(v DeploymentSettingsResponse) *DeploymentSettingsResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v DeploymentSettingsResponse) *DeploymentSettingsResponse {
 		return &v
 	}).(DeploymentSettingsResponsePtrOutput)
 }
 
-// Required CPU, basic tier should be 1, standard tier should be in range (1, 4)
 func (o DeploymentSettingsResponseOutput) Cpu() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v DeploymentSettingsResponse) *int { return v.Cpu }).(pulumi.IntPtrOutput)
 }
 
-// Collection of environment variables
 func (o DeploymentSettingsResponseOutput) EnvironmentVariables() pulumi.StringMapOutput {
 	return o.ApplyT(func(v DeploymentSettingsResponse) map[string]string { return v.EnvironmentVariables }).(pulumi.StringMapOutput)
 }
 
-// Instance count, basic tier should be in range (1, 25), standard tier should be in range (1, 500)
 func (o DeploymentSettingsResponseOutput) InstanceCount() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v DeploymentSettingsResponse) *int { return v.InstanceCount }).(pulumi.IntPtrOutput)
 }
 
-// JVM parameter
 func (o DeploymentSettingsResponseOutput) JvmOptions() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v DeploymentSettingsResponse) *string { return v.JvmOptions }).(pulumi.StringPtrOutput)
 }
 
-// Required Memory size in GB, basic tier should be in range (1, 2), standard tier should be in range (1, 8)
 func (o DeploymentSettingsResponseOutput) MemoryInGB() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v DeploymentSettingsResponse) *int { return v.MemoryInGB }).(pulumi.IntPtrOutput)
 }
 
-// The path to the .NET executable relative to zip root
 func (o DeploymentSettingsResponseOutput) NetCoreMainEntryPath() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v DeploymentSettingsResponse) *string { return v.NetCoreMainEntryPath }).(pulumi.StringPtrOutput)
 }
 
-// Runtime version
 func (o DeploymentSettingsResponseOutput) RuntimeVersion() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v DeploymentSettingsResponse) *string { return v.RuntimeVersion }).(pulumi.StringPtrOutput)
 }
@@ -4351,10 +3978,15 @@ func (o DeploymentSettingsResponsePtrOutput) ToDeploymentSettingsResponsePtrOutp
 }
 
 func (o DeploymentSettingsResponsePtrOutput) Elem() DeploymentSettingsResponseOutput {
-	return o.ApplyT(func(v *DeploymentSettingsResponse) DeploymentSettingsResponse { return *v }).(DeploymentSettingsResponseOutput)
+	return o.ApplyT(func(v *DeploymentSettingsResponse) DeploymentSettingsResponse {
+		if v != nil {
+			return *v
+		}
+		var ret DeploymentSettingsResponse
+		return ret
+	}).(DeploymentSettingsResponseOutput)
 }
 
-// Required CPU, basic tier should be 1, standard tier should be in range (1, 4)
 func (o DeploymentSettingsResponsePtrOutput) Cpu() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *DeploymentSettingsResponse) *int {
 		if v == nil {
@@ -4364,7 +3996,6 @@ func (o DeploymentSettingsResponsePtrOutput) Cpu() pulumi.IntPtrOutput {
 	}).(pulumi.IntPtrOutput)
 }
 
-// Collection of environment variables
 func (o DeploymentSettingsResponsePtrOutput) EnvironmentVariables() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *DeploymentSettingsResponse) map[string]string {
 		if v == nil {
@@ -4374,7 +4005,6 @@ func (o DeploymentSettingsResponsePtrOutput) EnvironmentVariables() pulumi.Strin
 	}).(pulumi.StringMapOutput)
 }
 
-// Instance count, basic tier should be in range (1, 25), standard tier should be in range (1, 500)
 func (o DeploymentSettingsResponsePtrOutput) InstanceCount() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *DeploymentSettingsResponse) *int {
 		if v == nil {
@@ -4384,7 +4014,6 @@ func (o DeploymentSettingsResponsePtrOutput) InstanceCount() pulumi.IntPtrOutput
 	}).(pulumi.IntPtrOutput)
 }
 
-// JVM parameter
 func (o DeploymentSettingsResponsePtrOutput) JvmOptions() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *DeploymentSettingsResponse) *string {
 		if v == nil {
@@ -4394,7 +4023,6 @@ func (o DeploymentSettingsResponsePtrOutput) JvmOptions() pulumi.StringPtrOutput
 	}).(pulumi.StringPtrOutput)
 }
 
-// Required Memory size in GB, basic tier should be in range (1, 2), standard tier should be in range (1, 8)
 func (o DeploymentSettingsResponsePtrOutput) MemoryInGB() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *DeploymentSettingsResponse) *int {
 		if v == nil {
@@ -4404,7 +4032,6 @@ func (o DeploymentSettingsResponsePtrOutput) MemoryInGB() pulumi.IntPtrOutput {
 	}).(pulumi.IntPtrOutput)
 }
 
-// The path to the .NET executable relative to zip root
 func (o DeploymentSettingsResponsePtrOutput) NetCoreMainEntryPath() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *DeploymentSettingsResponse) *string {
 		if v == nil {
@@ -4414,7 +4041,6 @@ func (o DeploymentSettingsResponsePtrOutput) NetCoreMainEntryPath() pulumi.Strin
 	}).(pulumi.StringPtrOutput)
 }
 
-// Runtime version
 func (o DeploymentSettingsResponsePtrOutput) RuntimeVersion() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *DeploymentSettingsResponse) *string {
 		if v == nil {
@@ -4424,11 +4050,8 @@ func (o DeploymentSettingsResponsePtrOutput) RuntimeVersion() pulumi.StringPtrOu
 	}).(pulumi.StringPtrOutput)
 }
 
-// The error code compose of code and message.
 type Error struct {
-	// The code of error.
-	Code *string `pulumi:"code"`
-	// The message of error.
+	Code    *string `pulumi:"code"`
 	Message *string `pulumi:"message"`
 }
 
@@ -4443,11 +4066,8 @@ type ErrorInput interface {
 	ToErrorOutputWithContext(context.Context) ErrorOutput
 }
 
-// The error code compose of code and message.
 type ErrorArgs struct {
-	// The code of error.
-	Code pulumi.StringPtrInput `pulumi:"code"`
-	// The message of error.
+	Code    pulumi.StringPtrInput `pulumi:"code"`
 	Message pulumi.StringPtrInput `pulumi:"message"`
 }
 
@@ -4504,7 +4124,6 @@ func (i *errorPtrType) ToErrorPtrOutputWithContext(ctx context.Context) ErrorPtr
 	return pulumi.ToOutputWithContext(ctx, i).(ErrorPtrOutput)
 }
 
-// The error code compose of code and message.
 type ErrorOutput struct{ *pulumi.OutputState }
 
 func (ErrorOutput) ElementType() reflect.Type {
@@ -4524,17 +4143,15 @@ func (o ErrorOutput) ToErrorPtrOutput() ErrorPtrOutput {
 }
 
 func (o ErrorOutput) ToErrorPtrOutputWithContext(ctx context.Context) ErrorPtrOutput {
-	return o.ApplyT(func(v Error) *Error {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v Error) *Error {
 		return &v
 	}).(ErrorPtrOutput)
 }
 
-// The code of error.
 func (o ErrorOutput) Code() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v Error) *string { return v.Code }).(pulumi.StringPtrOutput)
 }
 
-// The message of error.
 func (o ErrorOutput) Message() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v Error) *string { return v.Message }).(pulumi.StringPtrOutput)
 }
@@ -4554,10 +4171,15 @@ func (o ErrorPtrOutput) ToErrorPtrOutputWithContext(ctx context.Context) ErrorPt
 }
 
 func (o ErrorPtrOutput) Elem() ErrorOutput {
-	return o.ApplyT(func(v *Error) Error { return *v }).(ErrorOutput)
+	return o.ApplyT(func(v *Error) Error {
+		if v != nil {
+			return *v
+		}
+		var ret Error
+		return ret
+	}).(ErrorOutput)
 }
 
-// The code of error.
 func (o ErrorPtrOutput) Code() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Error) *string {
 		if v == nil {
@@ -4567,7 +4189,6 @@ func (o ErrorPtrOutput) Code() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The message of error.
 func (o ErrorPtrOutput) Message() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Error) *string {
 		if v == nil {
@@ -4577,11 +4198,8 @@ func (o ErrorPtrOutput) Message() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The error code compose of code and message.
 type ErrorResponse struct {
-	// The code of error.
-	Code *string `pulumi:"code"`
-	// The message of error.
+	Code    *string `pulumi:"code"`
 	Message *string `pulumi:"message"`
 }
 
@@ -4596,11 +4214,8 @@ type ErrorResponseInput interface {
 	ToErrorResponseOutputWithContext(context.Context) ErrorResponseOutput
 }
 
-// The error code compose of code and message.
 type ErrorResponseArgs struct {
-	// The code of error.
-	Code pulumi.StringPtrInput `pulumi:"code"`
-	// The message of error.
+	Code    pulumi.StringPtrInput `pulumi:"code"`
 	Message pulumi.StringPtrInput `pulumi:"message"`
 }
 
@@ -4657,7 +4272,6 @@ func (i *errorResponsePtrType) ToErrorResponsePtrOutputWithContext(ctx context.C
 	return pulumi.ToOutputWithContext(ctx, i).(ErrorResponsePtrOutput)
 }
 
-// The error code compose of code and message.
 type ErrorResponseOutput struct{ *pulumi.OutputState }
 
 func (ErrorResponseOutput) ElementType() reflect.Type {
@@ -4677,17 +4291,15 @@ func (o ErrorResponseOutput) ToErrorResponsePtrOutput() ErrorResponsePtrOutput {
 }
 
 func (o ErrorResponseOutput) ToErrorResponsePtrOutputWithContext(ctx context.Context) ErrorResponsePtrOutput {
-	return o.ApplyT(func(v ErrorResponse) *ErrorResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ErrorResponse) *ErrorResponse {
 		return &v
 	}).(ErrorResponsePtrOutput)
 }
 
-// The code of error.
 func (o ErrorResponseOutput) Code() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ErrorResponse) *string { return v.Code }).(pulumi.StringPtrOutput)
 }
 
-// The message of error.
 func (o ErrorResponseOutput) Message() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ErrorResponse) *string { return v.Message }).(pulumi.StringPtrOutput)
 }
@@ -4707,10 +4319,15 @@ func (o ErrorResponsePtrOutput) ToErrorResponsePtrOutputWithContext(ctx context.
 }
 
 func (o ErrorResponsePtrOutput) Elem() ErrorResponseOutput {
-	return o.ApplyT(func(v *ErrorResponse) ErrorResponse { return *v }).(ErrorResponseOutput)
+	return o.ApplyT(func(v *ErrorResponse) ErrorResponse {
+		if v != nil {
+			return *v
+		}
+		var ret ErrorResponse
+		return ret
+	}).(ErrorResponseOutput)
 }
 
-// The code of error.
 func (o ErrorResponsePtrOutput) Code() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ErrorResponse) *string {
 		if v == nil {
@@ -4720,7 +4337,6 @@ func (o ErrorResponsePtrOutput) Code() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The message of error.
 func (o ErrorResponsePtrOutput) Message() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ErrorResponse) *string {
 		if v == nil {
@@ -4730,30 +4346,18 @@ func (o ErrorResponsePtrOutput) Message() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Git repository property payload
 type GitPatternRepository struct {
-	// Public sshKey of git repository.
-	HostKey *string `pulumi:"hostKey"`
-	// SshKey algorithm of git repository.
-	HostKeyAlgorithm *string `pulumi:"hostKeyAlgorithm"`
-	// Label of the repository
-	Label *string `pulumi:"label"`
-	// Name of the repository
-	Name string `pulumi:"name"`
-	// Password of git repository basic auth.
-	Password *string `pulumi:"password"`
-	// Collection of pattern of the repository
-	Pattern []string `pulumi:"pattern"`
-	// Private sshKey algorithm of git repository.
-	PrivateKey *string `pulumi:"privateKey"`
-	// Searching path of the repository
-	SearchPaths []string `pulumi:"searchPaths"`
-	// Strict host key checking or not.
-	StrictHostKeyChecking *bool `pulumi:"strictHostKeyChecking"`
-	// URI of the repository
-	Uri string `pulumi:"uri"`
-	// Username of git repository basic auth.
-	Username *string `pulumi:"username"`
+	HostKey               *string  `pulumi:"hostKey"`
+	HostKeyAlgorithm      *string  `pulumi:"hostKeyAlgorithm"`
+	Label                 *string  `pulumi:"label"`
+	Name                  string   `pulumi:"name"`
+	Password              *string  `pulumi:"password"`
+	Pattern               []string `pulumi:"pattern"`
+	PrivateKey            *string  `pulumi:"privateKey"`
+	SearchPaths           []string `pulumi:"searchPaths"`
+	StrictHostKeyChecking *bool    `pulumi:"strictHostKeyChecking"`
+	Uri                   string   `pulumi:"uri"`
+	Username              *string  `pulumi:"username"`
 }
 
 // GitPatternRepositoryInput is an input type that accepts GitPatternRepositoryArgs and GitPatternRepositoryOutput values.
@@ -4767,30 +4371,18 @@ type GitPatternRepositoryInput interface {
 	ToGitPatternRepositoryOutputWithContext(context.Context) GitPatternRepositoryOutput
 }
 
-// Git repository property payload
 type GitPatternRepositoryArgs struct {
-	// Public sshKey of git repository.
-	HostKey pulumi.StringPtrInput `pulumi:"hostKey"`
-	// SshKey algorithm of git repository.
-	HostKeyAlgorithm pulumi.StringPtrInput `pulumi:"hostKeyAlgorithm"`
-	// Label of the repository
-	Label pulumi.StringPtrInput `pulumi:"label"`
-	// Name of the repository
-	Name pulumi.StringInput `pulumi:"name"`
-	// Password of git repository basic auth.
-	Password pulumi.StringPtrInput `pulumi:"password"`
-	// Collection of pattern of the repository
-	Pattern pulumi.StringArrayInput `pulumi:"pattern"`
-	// Private sshKey algorithm of git repository.
-	PrivateKey pulumi.StringPtrInput `pulumi:"privateKey"`
-	// Searching path of the repository
-	SearchPaths pulumi.StringArrayInput `pulumi:"searchPaths"`
-	// Strict host key checking or not.
-	StrictHostKeyChecking pulumi.BoolPtrInput `pulumi:"strictHostKeyChecking"`
-	// URI of the repository
-	Uri pulumi.StringInput `pulumi:"uri"`
-	// Username of git repository basic auth.
-	Username pulumi.StringPtrInput `pulumi:"username"`
+	HostKey               pulumi.StringPtrInput   `pulumi:"hostKey"`
+	HostKeyAlgorithm      pulumi.StringPtrInput   `pulumi:"hostKeyAlgorithm"`
+	Label                 pulumi.StringPtrInput   `pulumi:"label"`
+	Name                  pulumi.StringInput      `pulumi:"name"`
+	Password              pulumi.StringPtrInput   `pulumi:"password"`
+	Pattern               pulumi.StringArrayInput `pulumi:"pattern"`
+	PrivateKey            pulumi.StringPtrInput   `pulumi:"privateKey"`
+	SearchPaths           pulumi.StringArrayInput `pulumi:"searchPaths"`
+	StrictHostKeyChecking pulumi.BoolPtrInput     `pulumi:"strictHostKeyChecking"`
+	Uri                   pulumi.StringInput      `pulumi:"uri"`
+	Username              pulumi.StringPtrInput   `pulumi:"username"`
 }
 
 func (GitPatternRepositoryArgs) ElementType() reflect.Type {
@@ -4830,7 +4422,6 @@ func (i GitPatternRepositoryArray) ToGitPatternRepositoryArrayOutputWithContext(
 	return pulumi.ToOutputWithContext(ctx, i).(GitPatternRepositoryArrayOutput)
 }
 
-// Git repository property payload
 type GitPatternRepositoryOutput struct{ *pulumi.OutputState }
 
 func (GitPatternRepositoryOutput) ElementType() reflect.Type {
@@ -4845,57 +4436,46 @@ func (o GitPatternRepositoryOutput) ToGitPatternRepositoryOutputWithContext(ctx 
 	return o
 }
 
-// Public sshKey of git repository.
 func (o GitPatternRepositoryOutput) HostKey() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v GitPatternRepository) *string { return v.HostKey }).(pulumi.StringPtrOutput)
 }
 
-// SshKey algorithm of git repository.
 func (o GitPatternRepositoryOutput) HostKeyAlgorithm() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v GitPatternRepository) *string { return v.HostKeyAlgorithm }).(pulumi.StringPtrOutput)
 }
 
-// Label of the repository
 func (o GitPatternRepositoryOutput) Label() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v GitPatternRepository) *string { return v.Label }).(pulumi.StringPtrOutput)
 }
 
-// Name of the repository
 func (o GitPatternRepositoryOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v GitPatternRepository) string { return v.Name }).(pulumi.StringOutput)
 }
 
-// Password of git repository basic auth.
 func (o GitPatternRepositoryOutput) Password() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v GitPatternRepository) *string { return v.Password }).(pulumi.StringPtrOutput)
 }
 
-// Collection of pattern of the repository
 func (o GitPatternRepositoryOutput) Pattern() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v GitPatternRepository) []string { return v.Pattern }).(pulumi.StringArrayOutput)
 }
 
-// Private sshKey algorithm of git repository.
 func (o GitPatternRepositoryOutput) PrivateKey() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v GitPatternRepository) *string { return v.PrivateKey }).(pulumi.StringPtrOutput)
 }
 
-// Searching path of the repository
 func (o GitPatternRepositoryOutput) SearchPaths() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v GitPatternRepository) []string { return v.SearchPaths }).(pulumi.StringArrayOutput)
 }
 
-// Strict host key checking or not.
 func (o GitPatternRepositoryOutput) StrictHostKeyChecking() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v GitPatternRepository) *bool { return v.StrictHostKeyChecking }).(pulumi.BoolPtrOutput)
 }
 
-// URI of the repository
 func (o GitPatternRepositoryOutput) Uri() pulumi.StringOutput {
 	return o.ApplyT(func(v GitPatternRepository) string { return v.Uri }).(pulumi.StringOutput)
 }
 
-// Username of git repository basic auth.
 func (o GitPatternRepositoryOutput) Username() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v GitPatternRepository) *string { return v.Username }).(pulumi.StringPtrOutput)
 }
@@ -4920,30 +4500,18 @@ func (o GitPatternRepositoryArrayOutput) Index(i pulumi.IntInput) GitPatternRepo
 	}).(GitPatternRepositoryOutput)
 }
 
-// Git repository property payload
 type GitPatternRepositoryResponse struct {
-	// Public sshKey of git repository.
-	HostKey *string `pulumi:"hostKey"`
-	// SshKey algorithm of git repository.
-	HostKeyAlgorithm *string `pulumi:"hostKeyAlgorithm"`
-	// Label of the repository
-	Label *string `pulumi:"label"`
-	// Name of the repository
-	Name string `pulumi:"name"`
-	// Password of git repository basic auth.
-	Password *string `pulumi:"password"`
-	// Collection of pattern of the repository
-	Pattern []string `pulumi:"pattern"`
-	// Private sshKey algorithm of git repository.
-	PrivateKey *string `pulumi:"privateKey"`
-	// Searching path of the repository
-	SearchPaths []string `pulumi:"searchPaths"`
-	// Strict host key checking or not.
-	StrictHostKeyChecking *bool `pulumi:"strictHostKeyChecking"`
-	// URI of the repository
-	Uri string `pulumi:"uri"`
-	// Username of git repository basic auth.
-	Username *string `pulumi:"username"`
+	HostKey               *string  `pulumi:"hostKey"`
+	HostKeyAlgorithm      *string  `pulumi:"hostKeyAlgorithm"`
+	Label                 *string  `pulumi:"label"`
+	Name                  string   `pulumi:"name"`
+	Password              *string  `pulumi:"password"`
+	Pattern               []string `pulumi:"pattern"`
+	PrivateKey            *string  `pulumi:"privateKey"`
+	SearchPaths           []string `pulumi:"searchPaths"`
+	StrictHostKeyChecking *bool    `pulumi:"strictHostKeyChecking"`
+	Uri                   string   `pulumi:"uri"`
+	Username              *string  `pulumi:"username"`
 }
 
 // GitPatternRepositoryResponseInput is an input type that accepts GitPatternRepositoryResponseArgs and GitPatternRepositoryResponseOutput values.
@@ -4957,30 +4525,18 @@ type GitPatternRepositoryResponseInput interface {
 	ToGitPatternRepositoryResponseOutputWithContext(context.Context) GitPatternRepositoryResponseOutput
 }
 
-// Git repository property payload
 type GitPatternRepositoryResponseArgs struct {
-	// Public sshKey of git repository.
-	HostKey pulumi.StringPtrInput `pulumi:"hostKey"`
-	// SshKey algorithm of git repository.
-	HostKeyAlgorithm pulumi.StringPtrInput `pulumi:"hostKeyAlgorithm"`
-	// Label of the repository
-	Label pulumi.StringPtrInput `pulumi:"label"`
-	// Name of the repository
-	Name pulumi.StringInput `pulumi:"name"`
-	// Password of git repository basic auth.
-	Password pulumi.StringPtrInput `pulumi:"password"`
-	// Collection of pattern of the repository
-	Pattern pulumi.StringArrayInput `pulumi:"pattern"`
-	// Private sshKey algorithm of git repository.
-	PrivateKey pulumi.StringPtrInput `pulumi:"privateKey"`
-	// Searching path of the repository
-	SearchPaths pulumi.StringArrayInput `pulumi:"searchPaths"`
-	// Strict host key checking or not.
-	StrictHostKeyChecking pulumi.BoolPtrInput `pulumi:"strictHostKeyChecking"`
-	// URI of the repository
-	Uri pulumi.StringInput `pulumi:"uri"`
-	// Username of git repository basic auth.
-	Username pulumi.StringPtrInput `pulumi:"username"`
+	HostKey               pulumi.StringPtrInput   `pulumi:"hostKey"`
+	HostKeyAlgorithm      pulumi.StringPtrInput   `pulumi:"hostKeyAlgorithm"`
+	Label                 pulumi.StringPtrInput   `pulumi:"label"`
+	Name                  pulumi.StringInput      `pulumi:"name"`
+	Password              pulumi.StringPtrInput   `pulumi:"password"`
+	Pattern               pulumi.StringArrayInput `pulumi:"pattern"`
+	PrivateKey            pulumi.StringPtrInput   `pulumi:"privateKey"`
+	SearchPaths           pulumi.StringArrayInput `pulumi:"searchPaths"`
+	StrictHostKeyChecking pulumi.BoolPtrInput     `pulumi:"strictHostKeyChecking"`
+	Uri                   pulumi.StringInput      `pulumi:"uri"`
+	Username              pulumi.StringPtrInput   `pulumi:"username"`
 }
 
 func (GitPatternRepositoryResponseArgs) ElementType() reflect.Type {
@@ -5020,7 +4576,6 @@ func (i GitPatternRepositoryResponseArray) ToGitPatternRepositoryResponseArrayOu
 	return pulumi.ToOutputWithContext(ctx, i).(GitPatternRepositoryResponseArrayOutput)
 }
 
-// Git repository property payload
 type GitPatternRepositoryResponseOutput struct{ *pulumi.OutputState }
 
 func (GitPatternRepositoryResponseOutput) ElementType() reflect.Type {
@@ -5035,57 +4590,46 @@ func (o GitPatternRepositoryResponseOutput) ToGitPatternRepositoryResponseOutput
 	return o
 }
 
-// Public sshKey of git repository.
 func (o GitPatternRepositoryResponseOutput) HostKey() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v GitPatternRepositoryResponse) *string { return v.HostKey }).(pulumi.StringPtrOutput)
 }
 
-// SshKey algorithm of git repository.
 func (o GitPatternRepositoryResponseOutput) HostKeyAlgorithm() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v GitPatternRepositoryResponse) *string { return v.HostKeyAlgorithm }).(pulumi.StringPtrOutput)
 }
 
-// Label of the repository
 func (o GitPatternRepositoryResponseOutput) Label() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v GitPatternRepositoryResponse) *string { return v.Label }).(pulumi.StringPtrOutput)
 }
 
-// Name of the repository
 func (o GitPatternRepositoryResponseOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v GitPatternRepositoryResponse) string { return v.Name }).(pulumi.StringOutput)
 }
 
-// Password of git repository basic auth.
 func (o GitPatternRepositoryResponseOutput) Password() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v GitPatternRepositoryResponse) *string { return v.Password }).(pulumi.StringPtrOutput)
 }
 
-// Collection of pattern of the repository
 func (o GitPatternRepositoryResponseOutput) Pattern() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v GitPatternRepositoryResponse) []string { return v.Pattern }).(pulumi.StringArrayOutput)
 }
 
-// Private sshKey algorithm of git repository.
 func (o GitPatternRepositoryResponseOutput) PrivateKey() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v GitPatternRepositoryResponse) *string { return v.PrivateKey }).(pulumi.StringPtrOutput)
 }
 
-// Searching path of the repository
 func (o GitPatternRepositoryResponseOutput) SearchPaths() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v GitPatternRepositoryResponse) []string { return v.SearchPaths }).(pulumi.StringArrayOutput)
 }
 
-// Strict host key checking or not.
 func (o GitPatternRepositoryResponseOutput) StrictHostKeyChecking() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v GitPatternRepositoryResponse) *bool { return v.StrictHostKeyChecking }).(pulumi.BoolPtrOutput)
 }
 
-// URI of the repository
 func (o GitPatternRepositoryResponseOutput) Uri() pulumi.StringOutput {
 	return o.ApplyT(func(v GitPatternRepositoryResponse) string { return v.Uri }).(pulumi.StringOutput)
 }
 
-// Username of git repository basic auth.
 func (o GitPatternRepositoryResponseOutput) Username() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v GitPatternRepositoryResponse) *string { return v.Username }).(pulumi.StringPtrOutput)
 }
@@ -5110,7 +4654,6 @@ func (o GitPatternRepositoryResponseArrayOutput) Index(i pulumi.IntInput) GitPat
 	}).(GitPatternRepositoryResponseOutput)
 }
 
-// Managed identity properties retrieved from ARM request headers.
 type ManagedIdentityProperties struct {
 	PrincipalId *string `pulumi:"principalId"`
 	TenantId    *string `pulumi:"tenantId"`
@@ -5128,7 +4671,6 @@ type ManagedIdentityPropertiesInput interface {
 	ToManagedIdentityPropertiesOutputWithContext(context.Context) ManagedIdentityPropertiesOutput
 }
 
-// Managed identity properties retrieved from ARM request headers.
 type ManagedIdentityPropertiesArgs struct {
 	PrincipalId pulumi.StringPtrInput `pulumi:"principalId"`
 	TenantId    pulumi.StringPtrInput `pulumi:"tenantId"`
@@ -5188,7 +4730,6 @@ func (i *managedIdentityPropertiesPtrType) ToManagedIdentityPropertiesPtrOutputW
 	return pulumi.ToOutputWithContext(ctx, i).(ManagedIdentityPropertiesPtrOutput)
 }
 
-// Managed identity properties retrieved from ARM request headers.
 type ManagedIdentityPropertiesOutput struct{ *pulumi.OutputState }
 
 func (ManagedIdentityPropertiesOutput) ElementType() reflect.Type {
@@ -5208,10 +4749,11 @@ func (o ManagedIdentityPropertiesOutput) ToManagedIdentityPropertiesPtrOutput() 
 }
 
 func (o ManagedIdentityPropertiesOutput) ToManagedIdentityPropertiesPtrOutputWithContext(ctx context.Context) ManagedIdentityPropertiesPtrOutput {
-	return o.ApplyT(func(v ManagedIdentityProperties) *ManagedIdentityProperties {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ManagedIdentityProperties) *ManagedIdentityProperties {
 		return &v
 	}).(ManagedIdentityPropertiesPtrOutput)
 }
+
 func (o ManagedIdentityPropertiesOutput) PrincipalId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ManagedIdentityProperties) *string { return v.PrincipalId }).(pulumi.StringPtrOutput)
 }
@@ -5239,7 +4781,13 @@ func (o ManagedIdentityPropertiesPtrOutput) ToManagedIdentityPropertiesPtrOutput
 }
 
 func (o ManagedIdentityPropertiesPtrOutput) Elem() ManagedIdentityPropertiesOutput {
-	return o.ApplyT(func(v *ManagedIdentityProperties) ManagedIdentityProperties { return *v }).(ManagedIdentityPropertiesOutput)
+	return o.ApplyT(func(v *ManagedIdentityProperties) ManagedIdentityProperties {
+		if v != nil {
+			return *v
+		}
+		var ret ManagedIdentityProperties
+		return ret
+	}).(ManagedIdentityPropertiesOutput)
 }
 
 func (o ManagedIdentityPropertiesPtrOutput) PrincipalId() pulumi.StringPtrOutput {
@@ -5269,7 +4817,6 @@ func (o ManagedIdentityPropertiesPtrOutput) Type() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Managed identity properties retrieved from ARM request headers.
 type ManagedIdentityPropertiesResponse struct {
 	PrincipalId *string `pulumi:"principalId"`
 	TenantId    *string `pulumi:"tenantId"`
@@ -5287,7 +4834,6 @@ type ManagedIdentityPropertiesResponseInput interface {
 	ToManagedIdentityPropertiesResponseOutputWithContext(context.Context) ManagedIdentityPropertiesResponseOutput
 }
 
-// Managed identity properties retrieved from ARM request headers.
 type ManagedIdentityPropertiesResponseArgs struct {
 	PrincipalId pulumi.StringPtrInput `pulumi:"principalId"`
 	TenantId    pulumi.StringPtrInput `pulumi:"tenantId"`
@@ -5347,7 +4893,6 @@ func (i *managedIdentityPropertiesResponsePtrType) ToManagedIdentityPropertiesRe
 	return pulumi.ToOutputWithContext(ctx, i).(ManagedIdentityPropertiesResponsePtrOutput)
 }
 
-// Managed identity properties retrieved from ARM request headers.
 type ManagedIdentityPropertiesResponseOutput struct{ *pulumi.OutputState }
 
 func (ManagedIdentityPropertiesResponseOutput) ElementType() reflect.Type {
@@ -5367,10 +4912,11 @@ func (o ManagedIdentityPropertiesResponseOutput) ToManagedIdentityPropertiesResp
 }
 
 func (o ManagedIdentityPropertiesResponseOutput) ToManagedIdentityPropertiesResponsePtrOutputWithContext(ctx context.Context) ManagedIdentityPropertiesResponsePtrOutput {
-	return o.ApplyT(func(v ManagedIdentityPropertiesResponse) *ManagedIdentityPropertiesResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ManagedIdentityPropertiesResponse) *ManagedIdentityPropertiesResponse {
 		return &v
 	}).(ManagedIdentityPropertiesResponsePtrOutput)
 }
+
 func (o ManagedIdentityPropertiesResponseOutput) PrincipalId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ManagedIdentityPropertiesResponse) *string { return v.PrincipalId }).(pulumi.StringPtrOutput)
 }
@@ -5398,7 +4944,13 @@ func (o ManagedIdentityPropertiesResponsePtrOutput) ToManagedIdentityPropertiesR
 }
 
 func (o ManagedIdentityPropertiesResponsePtrOutput) Elem() ManagedIdentityPropertiesResponseOutput {
-	return o.ApplyT(func(v *ManagedIdentityPropertiesResponse) ManagedIdentityPropertiesResponse { return *v }).(ManagedIdentityPropertiesResponseOutput)
+	return o.ApplyT(func(v *ManagedIdentityPropertiesResponse) ManagedIdentityPropertiesResponse {
+		if v != nil {
+			return *v
+		}
+		var ret ManagedIdentityPropertiesResponse
+		return ret
+	}).(ManagedIdentityPropertiesResponseOutput)
 }
 
 func (o ManagedIdentityPropertiesResponsePtrOutput) PrincipalId() pulumi.StringPtrOutput {
@@ -5428,18 +4980,12 @@ func (o ManagedIdentityPropertiesResponsePtrOutput) Type() pulumi.StringPtrOutpu
 	}).(pulumi.StringPtrOutput)
 }
 
-// Service network profile payload
 type NetworkProfile struct {
-	// Name of the resource group containing network resources of Azure Spring Cloud Apps
-	AppNetworkResourceGroup *string `pulumi:"appNetworkResourceGroup"`
-	// Fully qualified resource Id of the subnet to host Azure Spring Cloud Apps
-	AppSubnetId *string `pulumi:"appSubnetId"`
-	// Azure Spring Cloud service reserved CIDR
-	ServiceCidr *string `pulumi:"serviceCidr"`
-	// Name of the resource group containing network resources of Azure Spring Cloud Service Runtime
+	AppNetworkResourceGroup            *string `pulumi:"appNetworkResourceGroup"`
+	AppSubnetId                        *string `pulumi:"appSubnetId"`
+	ServiceCidr                        *string `pulumi:"serviceCidr"`
 	ServiceRuntimeNetworkResourceGroup *string `pulumi:"serviceRuntimeNetworkResourceGroup"`
-	// Fully qualified resource Id of the subnet to host Azure Spring Cloud Service Runtime
-	ServiceRuntimeSubnetId *string `pulumi:"serviceRuntimeSubnetId"`
+	ServiceRuntimeSubnetId             *string `pulumi:"serviceRuntimeSubnetId"`
 }
 
 // NetworkProfileInput is an input type that accepts NetworkProfileArgs and NetworkProfileOutput values.
@@ -5453,18 +4999,12 @@ type NetworkProfileInput interface {
 	ToNetworkProfileOutputWithContext(context.Context) NetworkProfileOutput
 }
 
-// Service network profile payload
 type NetworkProfileArgs struct {
-	// Name of the resource group containing network resources of Azure Spring Cloud Apps
-	AppNetworkResourceGroup pulumi.StringPtrInput `pulumi:"appNetworkResourceGroup"`
-	// Fully qualified resource Id of the subnet to host Azure Spring Cloud Apps
-	AppSubnetId pulumi.StringPtrInput `pulumi:"appSubnetId"`
-	// Azure Spring Cloud service reserved CIDR
-	ServiceCidr pulumi.StringPtrInput `pulumi:"serviceCidr"`
-	// Name of the resource group containing network resources of Azure Spring Cloud Service Runtime
+	AppNetworkResourceGroup            pulumi.StringPtrInput `pulumi:"appNetworkResourceGroup"`
+	AppSubnetId                        pulumi.StringPtrInput `pulumi:"appSubnetId"`
+	ServiceCidr                        pulumi.StringPtrInput `pulumi:"serviceCidr"`
 	ServiceRuntimeNetworkResourceGroup pulumi.StringPtrInput `pulumi:"serviceRuntimeNetworkResourceGroup"`
-	// Fully qualified resource Id of the subnet to host Azure Spring Cloud Service Runtime
-	ServiceRuntimeSubnetId pulumi.StringPtrInput `pulumi:"serviceRuntimeSubnetId"`
+	ServiceRuntimeSubnetId             pulumi.StringPtrInput `pulumi:"serviceRuntimeSubnetId"`
 }
 
 func (NetworkProfileArgs) ElementType() reflect.Type {
@@ -5520,7 +5060,6 @@ func (i *networkProfilePtrType) ToNetworkProfilePtrOutputWithContext(ctx context
 	return pulumi.ToOutputWithContext(ctx, i).(NetworkProfilePtrOutput)
 }
 
-// Service network profile payload
 type NetworkProfileOutput struct{ *pulumi.OutputState }
 
 func (NetworkProfileOutput) ElementType() reflect.Type {
@@ -5540,32 +5079,27 @@ func (o NetworkProfileOutput) ToNetworkProfilePtrOutput() NetworkProfilePtrOutpu
 }
 
 func (o NetworkProfileOutput) ToNetworkProfilePtrOutputWithContext(ctx context.Context) NetworkProfilePtrOutput {
-	return o.ApplyT(func(v NetworkProfile) *NetworkProfile {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v NetworkProfile) *NetworkProfile {
 		return &v
 	}).(NetworkProfilePtrOutput)
 }
 
-// Name of the resource group containing network resources of Azure Spring Cloud Apps
 func (o NetworkProfileOutput) AppNetworkResourceGroup() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v NetworkProfile) *string { return v.AppNetworkResourceGroup }).(pulumi.StringPtrOutput)
 }
 
-// Fully qualified resource Id of the subnet to host Azure Spring Cloud Apps
 func (o NetworkProfileOutput) AppSubnetId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v NetworkProfile) *string { return v.AppSubnetId }).(pulumi.StringPtrOutput)
 }
 
-// Azure Spring Cloud service reserved CIDR
 func (o NetworkProfileOutput) ServiceCidr() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v NetworkProfile) *string { return v.ServiceCidr }).(pulumi.StringPtrOutput)
 }
 
-// Name of the resource group containing network resources of Azure Spring Cloud Service Runtime
 func (o NetworkProfileOutput) ServiceRuntimeNetworkResourceGroup() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v NetworkProfile) *string { return v.ServiceRuntimeNetworkResourceGroup }).(pulumi.StringPtrOutput)
 }
 
-// Fully qualified resource Id of the subnet to host Azure Spring Cloud Service Runtime
 func (o NetworkProfileOutput) ServiceRuntimeSubnetId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v NetworkProfile) *string { return v.ServiceRuntimeSubnetId }).(pulumi.StringPtrOutput)
 }
@@ -5585,10 +5119,15 @@ func (o NetworkProfilePtrOutput) ToNetworkProfilePtrOutputWithContext(ctx contex
 }
 
 func (o NetworkProfilePtrOutput) Elem() NetworkProfileOutput {
-	return o.ApplyT(func(v *NetworkProfile) NetworkProfile { return *v }).(NetworkProfileOutput)
+	return o.ApplyT(func(v *NetworkProfile) NetworkProfile {
+		if v != nil {
+			return *v
+		}
+		var ret NetworkProfile
+		return ret
+	}).(NetworkProfileOutput)
 }
 
-// Name of the resource group containing network resources of Azure Spring Cloud Apps
 func (o NetworkProfilePtrOutput) AppNetworkResourceGroup() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *NetworkProfile) *string {
 		if v == nil {
@@ -5598,7 +5137,6 @@ func (o NetworkProfilePtrOutput) AppNetworkResourceGroup() pulumi.StringPtrOutpu
 	}).(pulumi.StringPtrOutput)
 }
 
-// Fully qualified resource Id of the subnet to host Azure Spring Cloud Apps
 func (o NetworkProfilePtrOutput) AppSubnetId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *NetworkProfile) *string {
 		if v == nil {
@@ -5608,7 +5146,6 @@ func (o NetworkProfilePtrOutput) AppSubnetId() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Azure Spring Cloud service reserved CIDR
 func (o NetworkProfilePtrOutput) ServiceCidr() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *NetworkProfile) *string {
 		if v == nil {
@@ -5618,7 +5155,6 @@ func (o NetworkProfilePtrOutput) ServiceCidr() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Name of the resource group containing network resources of Azure Spring Cloud Service Runtime
 func (o NetworkProfilePtrOutput) ServiceRuntimeNetworkResourceGroup() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *NetworkProfile) *string {
 		if v == nil {
@@ -5628,7 +5164,6 @@ func (o NetworkProfilePtrOutput) ServiceRuntimeNetworkResourceGroup() pulumi.Str
 	}).(pulumi.StringPtrOutput)
 }
 
-// Fully qualified resource Id of the subnet to host Azure Spring Cloud Service Runtime
 func (o NetworkProfilePtrOutput) ServiceRuntimeSubnetId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *NetworkProfile) *string {
 		if v == nil {
@@ -5638,22 +5173,14 @@ func (o NetworkProfilePtrOutput) ServiceRuntimeSubnetId() pulumi.StringPtrOutput
 	}).(pulumi.StringPtrOutput)
 }
 
-// Service network profile payload
 type NetworkProfileResponse struct {
-	// Name of the resource group containing network resources of Azure Spring Cloud Apps
-	AppNetworkResourceGroup *string `pulumi:"appNetworkResourceGroup"`
-	// Fully qualified resource Id of the subnet to host Azure Spring Cloud Apps
-	AppSubnetId *string `pulumi:"appSubnetId"`
-	// Desired outbound IP resources for Azure Spring Cloud instance.
-	OutboundIPs NetworkProfileResponseOutboundIPs `pulumi:"outboundIPs"`
-	// Required inbound or outbound traffics for Azure Spring Cloud instance.
-	RequiredTraffics []RequiredTrafficResponse `pulumi:"requiredTraffics"`
-	// Azure Spring Cloud service reserved CIDR
-	ServiceCidr *string `pulumi:"serviceCidr"`
-	// Name of the resource group containing network resources of Azure Spring Cloud Service Runtime
-	ServiceRuntimeNetworkResourceGroup *string `pulumi:"serviceRuntimeNetworkResourceGroup"`
-	// Fully qualified resource Id of the subnet to host Azure Spring Cloud Service Runtime
-	ServiceRuntimeSubnetId *string `pulumi:"serviceRuntimeSubnetId"`
+	AppNetworkResourceGroup            *string                           `pulumi:"appNetworkResourceGroup"`
+	AppSubnetId                        *string                           `pulumi:"appSubnetId"`
+	OutboundIPs                        NetworkProfileResponseOutboundIPs `pulumi:"outboundIPs"`
+	RequiredTraffics                   []RequiredTrafficResponse         `pulumi:"requiredTraffics"`
+	ServiceCidr                        *string                           `pulumi:"serviceCidr"`
+	ServiceRuntimeNetworkResourceGroup *string                           `pulumi:"serviceRuntimeNetworkResourceGroup"`
+	ServiceRuntimeSubnetId             *string                           `pulumi:"serviceRuntimeSubnetId"`
 }
 
 // NetworkProfileResponseInput is an input type that accepts NetworkProfileResponseArgs and NetworkProfileResponseOutput values.
@@ -5667,22 +5194,14 @@ type NetworkProfileResponseInput interface {
 	ToNetworkProfileResponseOutputWithContext(context.Context) NetworkProfileResponseOutput
 }
 
-// Service network profile payload
 type NetworkProfileResponseArgs struct {
-	// Name of the resource group containing network resources of Azure Spring Cloud Apps
-	AppNetworkResourceGroup pulumi.StringPtrInput `pulumi:"appNetworkResourceGroup"`
-	// Fully qualified resource Id of the subnet to host Azure Spring Cloud Apps
-	AppSubnetId pulumi.StringPtrInput `pulumi:"appSubnetId"`
-	// Desired outbound IP resources for Azure Spring Cloud instance.
-	OutboundIPs NetworkProfileResponseOutboundIPsInput `pulumi:"outboundIPs"`
-	// Required inbound or outbound traffics for Azure Spring Cloud instance.
-	RequiredTraffics RequiredTrafficResponseArrayInput `pulumi:"requiredTraffics"`
-	// Azure Spring Cloud service reserved CIDR
-	ServiceCidr pulumi.StringPtrInput `pulumi:"serviceCidr"`
-	// Name of the resource group containing network resources of Azure Spring Cloud Service Runtime
-	ServiceRuntimeNetworkResourceGroup pulumi.StringPtrInput `pulumi:"serviceRuntimeNetworkResourceGroup"`
-	// Fully qualified resource Id of the subnet to host Azure Spring Cloud Service Runtime
-	ServiceRuntimeSubnetId pulumi.StringPtrInput `pulumi:"serviceRuntimeSubnetId"`
+	AppNetworkResourceGroup            pulumi.StringPtrInput                  `pulumi:"appNetworkResourceGroup"`
+	AppSubnetId                        pulumi.StringPtrInput                  `pulumi:"appSubnetId"`
+	OutboundIPs                        NetworkProfileResponseOutboundIPsInput `pulumi:"outboundIPs"`
+	RequiredTraffics                   RequiredTrafficResponseArrayInput      `pulumi:"requiredTraffics"`
+	ServiceCidr                        pulumi.StringPtrInput                  `pulumi:"serviceCidr"`
+	ServiceRuntimeNetworkResourceGroup pulumi.StringPtrInput                  `pulumi:"serviceRuntimeNetworkResourceGroup"`
+	ServiceRuntimeSubnetId             pulumi.StringPtrInput                  `pulumi:"serviceRuntimeSubnetId"`
 }
 
 func (NetworkProfileResponseArgs) ElementType() reflect.Type {
@@ -5738,7 +5257,6 @@ func (i *networkProfileResponsePtrType) ToNetworkProfileResponsePtrOutputWithCon
 	return pulumi.ToOutputWithContext(ctx, i).(NetworkProfileResponsePtrOutput)
 }
 
-// Service network profile payload
 type NetworkProfileResponseOutput struct{ *pulumi.OutputState }
 
 func (NetworkProfileResponseOutput) ElementType() reflect.Type {
@@ -5758,42 +5276,35 @@ func (o NetworkProfileResponseOutput) ToNetworkProfileResponsePtrOutput() Networ
 }
 
 func (o NetworkProfileResponseOutput) ToNetworkProfileResponsePtrOutputWithContext(ctx context.Context) NetworkProfileResponsePtrOutput {
-	return o.ApplyT(func(v NetworkProfileResponse) *NetworkProfileResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v NetworkProfileResponse) *NetworkProfileResponse {
 		return &v
 	}).(NetworkProfileResponsePtrOutput)
 }
 
-// Name of the resource group containing network resources of Azure Spring Cloud Apps
 func (o NetworkProfileResponseOutput) AppNetworkResourceGroup() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v NetworkProfileResponse) *string { return v.AppNetworkResourceGroup }).(pulumi.StringPtrOutput)
 }
 
-// Fully qualified resource Id of the subnet to host Azure Spring Cloud Apps
 func (o NetworkProfileResponseOutput) AppSubnetId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v NetworkProfileResponse) *string { return v.AppSubnetId }).(pulumi.StringPtrOutput)
 }
 
-// Desired outbound IP resources for Azure Spring Cloud instance.
 func (o NetworkProfileResponseOutput) OutboundIPs() NetworkProfileResponseOutboundIPsOutput {
 	return o.ApplyT(func(v NetworkProfileResponse) NetworkProfileResponseOutboundIPs { return v.OutboundIPs }).(NetworkProfileResponseOutboundIPsOutput)
 }
 
-// Required inbound or outbound traffics for Azure Spring Cloud instance.
 func (o NetworkProfileResponseOutput) RequiredTraffics() RequiredTrafficResponseArrayOutput {
 	return o.ApplyT(func(v NetworkProfileResponse) []RequiredTrafficResponse { return v.RequiredTraffics }).(RequiredTrafficResponseArrayOutput)
 }
 
-// Azure Spring Cloud service reserved CIDR
 func (o NetworkProfileResponseOutput) ServiceCidr() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v NetworkProfileResponse) *string { return v.ServiceCidr }).(pulumi.StringPtrOutput)
 }
 
-// Name of the resource group containing network resources of Azure Spring Cloud Service Runtime
 func (o NetworkProfileResponseOutput) ServiceRuntimeNetworkResourceGroup() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v NetworkProfileResponse) *string { return v.ServiceRuntimeNetworkResourceGroup }).(pulumi.StringPtrOutput)
 }
 
-// Fully qualified resource Id of the subnet to host Azure Spring Cloud Service Runtime
 func (o NetworkProfileResponseOutput) ServiceRuntimeSubnetId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v NetworkProfileResponse) *string { return v.ServiceRuntimeSubnetId }).(pulumi.StringPtrOutput)
 }
@@ -5813,10 +5324,15 @@ func (o NetworkProfileResponsePtrOutput) ToNetworkProfileResponsePtrOutputWithCo
 }
 
 func (o NetworkProfileResponsePtrOutput) Elem() NetworkProfileResponseOutput {
-	return o.ApplyT(func(v *NetworkProfileResponse) NetworkProfileResponse { return *v }).(NetworkProfileResponseOutput)
+	return o.ApplyT(func(v *NetworkProfileResponse) NetworkProfileResponse {
+		if v != nil {
+			return *v
+		}
+		var ret NetworkProfileResponse
+		return ret
+	}).(NetworkProfileResponseOutput)
 }
 
-// Name of the resource group containing network resources of Azure Spring Cloud Apps
 func (o NetworkProfileResponsePtrOutput) AppNetworkResourceGroup() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *NetworkProfileResponse) *string {
 		if v == nil {
@@ -5826,7 +5342,6 @@ func (o NetworkProfileResponsePtrOutput) AppNetworkResourceGroup() pulumi.String
 	}).(pulumi.StringPtrOutput)
 }
 
-// Fully qualified resource Id of the subnet to host Azure Spring Cloud Apps
 func (o NetworkProfileResponsePtrOutput) AppSubnetId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *NetworkProfileResponse) *string {
 		if v == nil {
@@ -5836,7 +5351,6 @@ func (o NetworkProfileResponsePtrOutput) AppSubnetId() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Desired outbound IP resources for Azure Spring Cloud instance.
 func (o NetworkProfileResponsePtrOutput) OutboundIPs() NetworkProfileResponseOutboundIPsPtrOutput {
 	return o.ApplyT(func(v *NetworkProfileResponse) *NetworkProfileResponseOutboundIPs {
 		if v == nil {
@@ -5846,7 +5360,6 @@ func (o NetworkProfileResponsePtrOutput) OutboundIPs() NetworkProfileResponseOut
 	}).(NetworkProfileResponseOutboundIPsPtrOutput)
 }
 
-// Required inbound or outbound traffics for Azure Spring Cloud instance.
 func (o NetworkProfileResponsePtrOutput) RequiredTraffics() RequiredTrafficResponseArrayOutput {
 	return o.ApplyT(func(v *NetworkProfileResponse) []RequiredTrafficResponse {
 		if v == nil {
@@ -5856,7 +5369,6 @@ func (o NetworkProfileResponsePtrOutput) RequiredTraffics() RequiredTrafficRespo
 	}).(RequiredTrafficResponseArrayOutput)
 }
 
-// Azure Spring Cloud service reserved CIDR
 func (o NetworkProfileResponsePtrOutput) ServiceCidr() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *NetworkProfileResponse) *string {
 		if v == nil {
@@ -5866,7 +5378,6 @@ func (o NetworkProfileResponsePtrOutput) ServiceCidr() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Name of the resource group containing network resources of Azure Spring Cloud Service Runtime
 func (o NetworkProfileResponsePtrOutput) ServiceRuntimeNetworkResourceGroup() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *NetworkProfileResponse) *string {
 		if v == nil {
@@ -5876,7 +5387,6 @@ func (o NetworkProfileResponsePtrOutput) ServiceRuntimeNetworkResourceGroup() pu
 	}).(pulumi.StringPtrOutput)
 }
 
-// Fully qualified resource Id of the subnet to host Azure Spring Cloud Service Runtime
 func (o NetworkProfileResponsePtrOutput) ServiceRuntimeSubnetId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *NetworkProfileResponse) *string {
 		if v == nil {
@@ -5886,9 +5396,7 @@ func (o NetworkProfileResponsePtrOutput) ServiceRuntimeSubnetId() pulumi.StringP
 	}).(pulumi.StringPtrOutput)
 }
 
-// Desired outbound IP resources for Azure Spring Cloud instance.
 type NetworkProfileResponseOutboundIPs struct {
-	// A list of public IP addresses.
 	PublicIPs []string `pulumi:"publicIPs"`
 }
 
@@ -5903,9 +5411,7 @@ type NetworkProfileResponseOutboundIPsInput interface {
 	ToNetworkProfileResponseOutboundIPsOutputWithContext(context.Context) NetworkProfileResponseOutboundIPsOutput
 }
 
-// Desired outbound IP resources for Azure Spring Cloud instance.
 type NetworkProfileResponseOutboundIPsArgs struct {
-	// A list of public IP addresses.
 	PublicIPs pulumi.StringArrayInput `pulumi:"publicIPs"`
 }
 
@@ -5962,7 +5468,6 @@ func (i *networkProfileResponseOutboundIPsPtrType) ToNetworkProfileResponseOutbo
 	return pulumi.ToOutputWithContext(ctx, i).(NetworkProfileResponseOutboundIPsPtrOutput)
 }
 
-// Desired outbound IP resources for Azure Spring Cloud instance.
 type NetworkProfileResponseOutboundIPsOutput struct{ *pulumi.OutputState }
 
 func (NetworkProfileResponseOutboundIPsOutput) ElementType() reflect.Type {
@@ -5982,12 +5487,11 @@ func (o NetworkProfileResponseOutboundIPsOutput) ToNetworkProfileResponseOutboun
 }
 
 func (o NetworkProfileResponseOutboundIPsOutput) ToNetworkProfileResponseOutboundIPsPtrOutputWithContext(ctx context.Context) NetworkProfileResponseOutboundIPsPtrOutput {
-	return o.ApplyT(func(v NetworkProfileResponseOutboundIPs) *NetworkProfileResponseOutboundIPs {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v NetworkProfileResponseOutboundIPs) *NetworkProfileResponseOutboundIPs {
 		return &v
 	}).(NetworkProfileResponseOutboundIPsPtrOutput)
 }
 
-// A list of public IP addresses.
 func (o NetworkProfileResponseOutboundIPsOutput) PublicIPs() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v NetworkProfileResponseOutboundIPs) []string { return v.PublicIPs }).(pulumi.StringArrayOutput)
 }
@@ -6007,10 +5511,15 @@ func (o NetworkProfileResponseOutboundIPsPtrOutput) ToNetworkProfileResponseOutb
 }
 
 func (o NetworkProfileResponseOutboundIPsPtrOutput) Elem() NetworkProfileResponseOutboundIPsOutput {
-	return o.ApplyT(func(v *NetworkProfileResponseOutboundIPs) NetworkProfileResponseOutboundIPs { return *v }).(NetworkProfileResponseOutboundIPsOutput)
+	return o.ApplyT(func(v *NetworkProfileResponseOutboundIPs) NetworkProfileResponseOutboundIPs {
+		if v != nil {
+			return *v
+		}
+		var ret NetworkProfileResponseOutboundIPs
+		return ret
+	}).(NetworkProfileResponseOutboundIPsOutput)
 }
 
-// A list of public IP addresses.
 func (o NetworkProfileResponseOutboundIPsPtrOutput) PublicIPs() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *NetworkProfileResponseOutboundIPs) []string {
 		if v == nil {
@@ -6020,12 +5529,9 @@ func (o NetworkProfileResponseOutboundIPsPtrOutput) PublicIPs() pulumi.StringArr
 	}).(pulumi.StringArrayOutput)
 }
 
-// Persistent disk payload
 type PersistentDisk struct {
-	// Mount path of the persistent disk
 	MountPath *string `pulumi:"mountPath"`
-	// Size of the persistent disk in GB
-	SizeInGB *int `pulumi:"sizeInGB"`
+	SizeInGB  *int    `pulumi:"sizeInGB"`
 }
 
 // PersistentDiskInput is an input type that accepts PersistentDiskArgs and PersistentDiskOutput values.
@@ -6039,12 +5545,9 @@ type PersistentDiskInput interface {
 	ToPersistentDiskOutputWithContext(context.Context) PersistentDiskOutput
 }
 
-// Persistent disk payload
 type PersistentDiskArgs struct {
-	// Mount path of the persistent disk
 	MountPath pulumi.StringPtrInput `pulumi:"mountPath"`
-	// Size of the persistent disk in GB
-	SizeInGB pulumi.IntPtrInput `pulumi:"sizeInGB"`
+	SizeInGB  pulumi.IntPtrInput    `pulumi:"sizeInGB"`
 }
 
 func (PersistentDiskArgs) ElementType() reflect.Type {
@@ -6100,7 +5603,6 @@ func (i *persistentDiskPtrType) ToPersistentDiskPtrOutputWithContext(ctx context
 	return pulumi.ToOutputWithContext(ctx, i).(PersistentDiskPtrOutput)
 }
 
-// Persistent disk payload
 type PersistentDiskOutput struct{ *pulumi.OutputState }
 
 func (PersistentDiskOutput) ElementType() reflect.Type {
@@ -6120,17 +5622,15 @@ func (o PersistentDiskOutput) ToPersistentDiskPtrOutput() PersistentDiskPtrOutpu
 }
 
 func (o PersistentDiskOutput) ToPersistentDiskPtrOutputWithContext(ctx context.Context) PersistentDiskPtrOutput {
-	return o.ApplyT(func(v PersistentDisk) *PersistentDisk {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v PersistentDisk) *PersistentDisk {
 		return &v
 	}).(PersistentDiskPtrOutput)
 }
 
-// Mount path of the persistent disk
 func (o PersistentDiskOutput) MountPath() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v PersistentDisk) *string { return v.MountPath }).(pulumi.StringPtrOutput)
 }
 
-// Size of the persistent disk in GB
 func (o PersistentDiskOutput) SizeInGB() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v PersistentDisk) *int { return v.SizeInGB }).(pulumi.IntPtrOutput)
 }
@@ -6150,10 +5650,15 @@ func (o PersistentDiskPtrOutput) ToPersistentDiskPtrOutputWithContext(ctx contex
 }
 
 func (o PersistentDiskPtrOutput) Elem() PersistentDiskOutput {
-	return o.ApplyT(func(v *PersistentDisk) PersistentDisk { return *v }).(PersistentDiskOutput)
+	return o.ApplyT(func(v *PersistentDisk) PersistentDisk {
+		if v != nil {
+			return *v
+		}
+		var ret PersistentDisk
+		return ret
+	}).(PersistentDiskOutput)
 }
 
-// Mount path of the persistent disk
 func (o PersistentDiskPtrOutput) MountPath() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *PersistentDisk) *string {
 		if v == nil {
@@ -6163,7 +5668,6 @@ func (o PersistentDiskPtrOutput) MountPath() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Size of the persistent disk in GB
 func (o PersistentDiskPtrOutput) SizeInGB() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *PersistentDisk) *int {
 		if v == nil {
@@ -6173,14 +5677,10 @@ func (o PersistentDiskPtrOutput) SizeInGB() pulumi.IntPtrOutput {
 	}).(pulumi.IntPtrOutput)
 }
 
-// Persistent disk payload
 type PersistentDiskResponse struct {
-	// Mount path of the persistent disk
 	MountPath *string `pulumi:"mountPath"`
-	// Size of the persistent disk in GB
-	SizeInGB *int `pulumi:"sizeInGB"`
-	// Size of the used persistent disk in GB
-	UsedInGB int `pulumi:"usedInGB"`
+	SizeInGB  *int    `pulumi:"sizeInGB"`
+	UsedInGB  int     `pulumi:"usedInGB"`
 }
 
 // PersistentDiskResponseInput is an input type that accepts PersistentDiskResponseArgs and PersistentDiskResponseOutput values.
@@ -6194,14 +5694,10 @@ type PersistentDiskResponseInput interface {
 	ToPersistentDiskResponseOutputWithContext(context.Context) PersistentDiskResponseOutput
 }
 
-// Persistent disk payload
 type PersistentDiskResponseArgs struct {
-	// Mount path of the persistent disk
 	MountPath pulumi.StringPtrInput `pulumi:"mountPath"`
-	// Size of the persistent disk in GB
-	SizeInGB pulumi.IntPtrInput `pulumi:"sizeInGB"`
-	// Size of the used persistent disk in GB
-	UsedInGB pulumi.IntInput `pulumi:"usedInGB"`
+	SizeInGB  pulumi.IntPtrInput    `pulumi:"sizeInGB"`
+	UsedInGB  pulumi.IntInput       `pulumi:"usedInGB"`
 }
 
 func (PersistentDiskResponseArgs) ElementType() reflect.Type {
@@ -6257,7 +5753,6 @@ func (i *persistentDiskResponsePtrType) ToPersistentDiskResponsePtrOutputWithCon
 	return pulumi.ToOutputWithContext(ctx, i).(PersistentDiskResponsePtrOutput)
 }
 
-// Persistent disk payload
 type PersistentDiskResponseOutput struct{ *pulumi.OutputState }
 
 func (PersistentDiskResponseOutput) ElementType() reflect.Type {
@@ -6277,22 +5772,19 @@ func (o PersistentDiskResponseOutput) ToPersistentDiskResponsePtrOutput() Persis
 }
 
 func (o PersistentDiskResponseOutput) ToPersistentDiskResponsePtrOutputWithContext(ctx context.Context) PersistentDiskResponsePtrOutput {
-	return o.ApplyT(func(v PersistentDiskResponse) *PersistentDiskResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v PersistentDiskResponse) *PersistentDiskResponse {
 		return &v
 	}).(PersistentDiskResponsePtrOutput)
 }
 
-// Mount path of the persistent disk
 func (o PersistentDiskResponseOutput) MountPath() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v PersistentDiskResponse) *string { return v.MountPath }).(pulumi.StringPtrOutput)
 }
 
-// Size of the persistent disk in GB
 func (o PersistentDiskResponseOutput) SizeInGB() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v PersistentDiskResponse) *int { return v.SizeInGB }).(pulumi.IntPtrOutput)
 }
 
-// Size of the used persistent disk in GB
 func (o PersistentDiskResponseOutput) UsedInGB() pulumi.IntOutput {
 	return o.ApplyT(func(v PersistentDiskResponse) int { return v.UsedInGB }).(pulumi.IntOutput)
 }
@@ -6312,10 +5804,15 @@ func (o PersistentDiskResponsePtrOutput) ToPersistentDiskResponsePtrOutputWithCo
 }
 
 func (o PersistentDiskResponsePtrOutput) Elem() PersistentDiskResponseOutput {
-	return o.ApplyT(func(v *PersistentDiskResponse) PersistentDiskResponse { return *v }).(PersistentDiskResponseOutput)
+	return o.ApplyT(func(v *PersistentDiskResponse) PersistentDiskResponse {
+		if v != nil {
+			return *v
+		}
+		var ret PersistentDiskResponse
+		return ret
+	}).(PersistentDiskResponseOutput)
 }
 
-// Mount path of the persistent disk
 func (o PersistentDiskResponsePtrOutput) MountPath() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *PersistentDiskResponse) *string {
 		if v == nil {
@@ -6325,7 +5822,6 @@ func (o PersistentDiskResponsePtrOutput) MountPath() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Size of the persistent disk in GB
 func (o PersistentDiskResponsePtrOutput) SizeInGB() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *PersistentDiskResponse) *int {
 		if v == nil {
@@ -6335,7 +5831,6 @@ func (o PersistentDiskResponsePtrOutput) SizeInGB() pulumi.IntPtrOutput {
 	}).(pulumi.IntPtrOutput)
 }
 
-// Size of the used persistent disk in GB
 func (o PersistentDiskResponsePtrOutput) UsedInGB() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *PersistentDiskResponse) *int {
 		if v == nil {
@@ -6345,18 +5840,12 @@ func (o PersistentDiskResponsePtrOutput) UsedInGB() pulumi.IntPtrOutput {
 	}).(pulumi.IntPtrOutput)
 }
 
-// Required inbound or outbound traffic for Azure Spring Cloud instance.
 type RequiredTrafficResponse struct {
-	// The direction of required traffic
-	Direction string `pulumi:"direction"`
-	// The FQDN list of required traffic
-	Fqdns []string `pulumi:"fqdns"`
-	// The ip list of required traffic
-	Ips []string `pulumi:"ips"`
-	// The port of required traffic
-	Port int `pulumi:"port"`
-	// The protocol of required traffic
-	Protocol string `pulumi:"protocol"`
+	Direction string   `pulumi:"direction"`
+	Fqdns     []string `pulumi:"fqdns"`
+	Ips       []string `pulumi:"ips"`
+	Port      int      `pulumi:"port"`
+	Protocol  string   `pulumi:"protocol"`
 }
 
 // RequiredTrafficResponseInput is an input type that accepts RequiredTrafficResponseArgs and RequiredTrafficResponseOutput values.
@@ -6370,18 +5859,12 @@ type RequiredTrafficResponseInput interface {
 	ToRequiredTrafficResponseOutputWithContext(context.Context) RequiredTrafficResponseOutput
 }
 
-// Required inbound or outbound traffic for Azure Spring Cloud instance.
 type RequiredTrafficResponseArgs struct {
-	// The direction of required traffic
-	Direction pulumi.StringInput `pulumi:"direction"`
-	// The FQDN list of required traffic
-	Fqdns pulumi.StringArrayInput `pulumi:"fqdns"`
-	// The ip list of required traffic
-	Ips pulumi.StringArrayInput `pulumi:"ips"`
-	// The port of required traffic
-	Port pulumi.IntInput `pulumi:"port"`
-	// The protocol of required traffic
-	Protocol pulumi.StringInput `pulumi:"protocol"`
+	Direction pulumi.StringInput      `pulumi:"direction"`
+	Fqdns     pulumi.StringArrayInput `pulumi:"fqdns"`
+	Ips       pulumi.StringArrayInput `pulumi:"ips"`
+	Port      pulumi.IntInput         `pulumi:"port"`
+	Protocol  pulumi.StringInput      `pulumi:"protocol"`
 }
 
 func (RequiredTrafficResponseArgs) ElementType() reflect.Type {
@@ -6421,7 +5904,6 @@ func (i RequiredTrafficResponseArray) ToRequiredTrafficResponseArrayOutputWithCo
 	return pulumi.ToOutputWithContext(ctx, i).(RequiredTrafficResponseArrayOutput)
 }
 
-// Required inbound or outbound traffic for Azure Spring Cloud instance.
 type RequiredTrafficResponseOutput struct{ *pulumi.OutputState }
 
 func (RequiredTrafficResponseOutput) ElementType() reflect.Type {
@@ -6436,27 +5918,22 @@ func (o RequiredTrafficResponseOutput) ToRequiredTrafficResponseOutputWithContex
 	return o
 }
 
-// The direction of required traffic
 func (o RequiredTrafficResponseOutput) Direction() pulumi.StringOutput {
 	return o.ApplyT(func(v RequiredTrafficResponse) string { return v.Direction }).(pulumi.StringOutput)
 }
 
-// The FQDN list of required traffic
 func (o RequiredTrafficResponseOutput) Fqdns() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v RequiredTrafficResponse) []string { return v.Fqdns }).(pulumi.StringArrayOutput)
 }
 
-// The ip list of required traffic
 func (o RequiredTrafficResponseOutput) Ips() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v RequiredTrafficResponse) []string { return v.Ips }).(pulumi.StringArrayOutput)
 }
 
-// The port of required traffic
 func (o RequiredTrafficResponseOutput) Port() pulumi.IntOutput {
 	return o.ApplyT(func(v RequiredTrafficResponse) int { return v.Port }).(pulumi.IntOutput)
 }
 
-// The protocol of required traffic
 func (o RequiredTrafficResponseOutput) Protocol() pulumi.StringOutput {
 	return o.ApplyT(func(v RequiredTrafficResponse) string { return v.Protocol }).(pulumi.StringOutput)
 }
@@ -6481,14 +5958,10 @@ func (o RequiredTrafficResponseArrayOutput) Index(i pulumi.IntInput) RequiredTra
 	}).(RequiredTrafficResponseOutput)
 }
 
-// Sku of Azure Spring Cloud
 type Sku struct {
-	// Current capacity of the target resource
-	Capacity *int `pulumi:"capacity"`
-	// Name of the Sku
-	Name *string `pulumi:"name"`
-	// Tier of the Sku
-	Tier *string `pulumi:"tier"`
+	Capacity *int    `pulumi:"capacity"`
+	Name     *string `pulumi:"name"`
+	Tier     *string `pulumi:"tier"`
 }
 
 // SkuInput is an input type that accepts SkuArgs and SkuOutput values.
@@ -6502,14 +5975,10 @@ type SkuInput interface {
 	ToSkuOutputWithContext(context.Context) SkuOutput
 }
 
-// Sku of Azure Spring Cloud
 type SkuArgs struct {
-	// Current capacity of the target resource
-	Capacity pulumi.IntPtrInput `pulumi:"capacity"`
-	// Name of the Sku
-	Name pulumi.StringPtrInput `pulumi:"name"`
-	// Tier of the Sku
-	Tier pulumi.StringPtrInput `pulumi:"tier"`
+	Capacity pulumi.IntPtrInput    `pulumi:"capacity"`
+	Name     pulumi.StringPtrInput `pulumi:"name"`
+	Tier     pulumi.StringPtrInput `pulumi:"tier"`
 }
 
 func (SkuArgs) ElementType() reflect.Type {
@@ -6565,7 +6034,6 @@ func (i *skuPtrType) ToSkuPtrOutputWithContext(ctx context.Context) SkuPtrOutput
 	return pulumi.ToOutputWithContext(ctx, i).(SkuPtrOutput)
 }
 
-// Sku of Azure Spring Cloud
 type SkuOutput struct{ *pulumi.OutputState }
 
 func (SkuOutput) ElementType() reflect.Type {
@@ -6585,22 +6053,19 @@ func (o SkuOutput) ToSkuPtrOutput() SkuPtrOutput {
 }
 
 func (o SkuOutput) ToSkuPtrOutputWithContext(ctx context.Context) SkuPtrOutput {
-	return o.ApplyT(func(v Sku) *Sku {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v Sku) *Sku {
 		return &v
 	}).(SkuPtrOutput)
 }
 
-// Current capacity of the target resource
 func (o SkuOutput) Capacity() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v Sku) *int { return v.Capacity }).(pulumi.IntPtrOutput)
 }
 
-// Name of the Sku
 func (o SkuOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v Sku) *string { return v.Name }).(pulumi.StringPtrOutput)
 }
 
-// Tier of the Sku
 func (o SkuOutput) Tier() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v Sku) *string { return v.Tier }).(pulumi.StringPtrOutput)
 }
@@ -6620,10 +6085,15 @@ func (o SkuPtrOutput) ToSkuPtrOutputWithContext(ctx context.Context) SkuPtrOutpu
 }
 
 func (o SkuPtrOutput) Elem() SkuOutput {
-	return o.ApplyT(func(v *Sku) Sku { return *v }).(SkuOutput)
+	return o.ApplyT(func(v *Sku) Sku {
+		if v != nil {
+			return *v
+		}
+		var ret Sku
+		return ret
+	}).(SkuOutput)
 }
 
-// Current capacity of the target resource
 func (o SkuPtrOutput) Capacity() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *Sku) *int {
 		if v == nil {
@@ -6633,7 +6103,6 @@ func (o SkuPtrOutput) Capacity() pulumi.IntPtrOutput {
 	}).(pulumi.IntPtrOutput)
 }
 
-// Name of the Sku
 func (o SkuPtrOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Sku) *string {
 		if v == nil {
@@ -6643,7 +6112,6 @@ func (o SkuPtrOutput) Name() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Tier of the Sku
 func (o SkuPtrOutput) Tier() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Sku) *string {
 		if v == nil {
@@ -6653,14 +6121,10 @@ func (o SkuPtrOutput) Tier() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Sku of Azure Spring Cloud
 type SkuResponse struct {
-	// Current capacity of the target resource
-	Capacity *int `pulumi:"capacity"`
-	// Name of the Sku
-	Name *string `pulumi:"name"`
-	// Tier of the Sku
-	Tier *string `pulumi:"tier"`
+	Capacity *int    `pulumi:"capacity"`
+	Name     *string `pulumi:"name"`
+	Tier     *string `pulumi:"tier"`
 }
 
 // SkuResponseInput is an input type that accepts SkuResponseArgs and SkuResponseOutput values.
@@ -6674,14 +6138,10 @@ type SkuResponseInput interface {
 	ToSkuResponseOutputWithContext(context.Context) SkuResponseOutput
 }
 
-// Sku of Azure Spring Cloud
 type SkuResponseArgs struct {
-	// Current capacity of the target resource
-	Capacity pulumi.IntPtrInput `pulumi:"capacity"`
-	// Name of the Sku
-	Name pulumi.StringPtrInput `pulumi:"name"`
-	// Tier of the Sku
-	Tier pulumi.StringPtrInput `pulumi:"tier"`
+	Capacity pulumi.IntPtrInput    `pulumi:"capacity"`
+	Name     pulumi.StringPtrInput `pulumi:"name"`
+	Tier     pulumi.StringPtrInput `pulumi:"tier"`
 }
 
 func (SkuResponseArgs) ElementType() reflect.Type {
@@ -6737,7 +6197,6 @@ func (i *skuResponsePtrType) ToSkuResponsePtrOutputWithContext(ctx context.Conte
 	return pulumi.ToOutputWithContext(ctx, i).(SkuResponsePtrOutput)
 }
 
-// Sku of Azure Spring Cloud
 type SkuResponseOutput struct{ *pulumi.OutputState }
 
 func (SkuResponseOutput) ElementType() reflect.Type {
@@ -6757,22 +6216,19 @@ func (o SkuResponseOutput) ToSkuResponsePtrOutput() SkuResponsePtrOutput {
 }
 
 func (o SkuResponseOutput) ToSkuResponsePtrOutputWithContext(ctx context.Context) SkuResponsePtrOutput {
-	return o.ApplyT(func(v SkuResponse) *SkuResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v SkuResponse) *SkuResponse {
 		return &v
 	}).(SkuResponsePtrOutput)
 }
 
-// Current capacity of the target resource
 func (o SkuResponseOutput) Capacity() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v SkuResponse) *int { return v.Capacity }).(pulumi.IntPtrOutput)
 }
 
-// Name of the Sku
 func (o SkuResponseOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SkuResponse) *string { return v.Name }).(pulumi.StringPtrOutput)
 }
 
-// Tier of the Sku
 func (o SkuResponseOutput) Tier() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SkuResponse) *string { return v.Tier }).(pulumi.StringPtrOutput)
 }
@@ -6792,10 +6248,15 @@ func (o SkuResponsePtrOutput) ToSkuResponsePtrOutputWithContext(ctx context.Cont
 }
 
 func (o SkuResponsePtrOutput) Elem() SkuResponseOutput {
-	return o.ApplyT(func(v *SkuResponse) SkuResponse { return *v }).(SkuResponseOutput)
+	return o.ApplyT(func(v *SkuResponse) SkuResponse {
+		if v != nil {
+			return *v
+		}
+		var ret SkuResponse
+		return ret
+	}).(SkuResponseOutput)
 }
 
-// Current capacity of the target resource
 func (o SkuResponsePtrOutput) Capacity() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *SkuResponse) *int {
 		if v == nil {
@@ -6805,7 +6266,6 @@ func (o SkuResponsePtrOutput) Capacity() pulumi.IntPtrOutput {
 	}).(pulumi.IntPtrOutput)
 }
 
-// Name of the Sku
 func (o SkuResponsePtrOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SkuResponse) *string {
 		if v == nil {
@@ -6815,7 +6275,6 @@ func (o SkuResponsePtrOutput) Name() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Tier of the Sku
 func (o SkuResponsePtrOutput) Tier() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SkuResponse) *string {
 		if v == nil {
@@ -6825,12 +6284,9 @@ func (o SkuResponsePtrOutput) Tier() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Temporary disk payload
 type TemporaryDisk struct {
-	// Mount path of the temporary disk
 	MountPath *string `pulumi:"mountPath"`
-	// Size of the temporary disk in GB
-	SizeInGB *int `pulumi:"sizeInGB"`
+	SizeInGB  *int    `pulumi:"sizeInGB"`
 }
 
 // TemporaryDiskInput is an input type that accepts TemporaryDiskArgs and TemporaryDiskOutput values.
@@ -6844,12 +6300,9 @@ type TemporaryDiskInput interface {
 	ToTemporaryDiskOutputWithContext(context.Context) TemporaryDiskOutput
 }
 
-// Temporary disk payload
 type TemporaryDiskArgs struct {
-	// Mount path of the temporary disk
 	MountPath pulumi.StringPtrInput `pulumi:"mountPath"`
-	// Size of the temporary disk in GB
-	SizeInGB pulumi.IntPtrInput `pulumi:"sizeInGB"`
+	SizeInGB  pulumi.IntPtrInput    `pulumi:"sizeInGB"`
 }
 
 func (TemporaryDiskArgs) ElementType() reflect.Type {
@@ -6905,7 +6358,6 @@ func (i *temporaryDiskPtrType) ToTemporaryDiskPtrOutputWithContext(ctx context.C
 	return pulumi.ToOutputWithContext(ctx, i).(TemporaryDiskPtrOutput)
 }
 
-// Temporary disk payload
 type TemporaryDiskOutput struct{ *pulumi.OutputState }
 
 func (TemporaryDiskOutput) ElementType() reflect.Type {
@@ -6925,17 +6377,15 @@ func (o TemporaryDiskOutput) ToTemporaryDiskPtrOutput() TemporaryDiskPtrOutput {
 }
 
 func (o TemporaryDiskOutput) ToTemporaryDiskPtrOutputWithContext(ctx context.Context) TemporaryDiskPtrOutput {
-	return o.ApplyT(func(v TemporaryDisk) *TemporaryDisk {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v TemporaryDisk) *TemporaryDisk {
 		return &v
 	}).(TemporaryDiskPtrOutput)
 }
 
-// Mount path of the temporary disk
 func (o TemporaryDiskOutput) MountPath() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v TemporaryDisk) *string { return v.MountPath }).(pulumi.StringPtrOutput)
 }
 
-// Size of the temporary disk in GB
 func (o TemporaryDiskOutput) SizeInGB() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v TemporaryDisk) *int { return v.SizeInGB }).(pulumi.IntPtrOutput)
 }
@@ -6955,10 +6405,15 @@ func (o TemporaryDiskPtrOutput) ToTemporaryDiskPtrOutputWithContext(ctx context.
 }
 
 func (o TemporaryDiskPtrOutput) Elem() TemporaryDiskOutput {
-	return o.ApplyT(func(v *TemporaryDisk) TemporaryDisk { return *v }).(TemporaryDiskOutput)
+	return o.ApplyT(func(v *TemporaryDisk) TemporaryDisk {
+		if v != nil {
+			return *v
+		}
+		var ret TemporaryDisk
+		return ret
+	}).(TemporaryDiskOutput)
 }
 
-// Mount path of the temporary disk
 func (o TemporaryDiskPtrOutput) MountPath() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *TemporaryDisk) *string {
 		if v == nil {
@@ -6968,7 +6423,6 @@ func (o TemporaryDiskPtrOutput) MountPath() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Size of the temporary disk in GB
 func (o TemporaryDiskPtrOutput) SizeInGB() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *TemporaryDisk) *int {
 		if v == nil {
@@ -6978,12 +6432,9 @@ func (o TemporaryDiskPtrOutput) SizeInGB() pulumi.IntPtrOutput {
 	}).(pulumi.IntPtrOutput)
 }
 
-// Temporary disk payload
 type TemporaryDiskResponse struct {
-	// Mount path of the temporary disk
 	MountPath *string `pulumi:"mountPath"`
-	// Size of the temporary disk in GB
-	SizeInGB *int `pulumi:"sizeInGB"`
+	SizeInGB  *int    `pulumi:"sizeInGB"`
 }
 
 // TemporaryDiskResponseInput is an input type that accepts TemporaryDiskResponseArgs and TemporaryDiskResponseOutput values.
@@ -6997,12 +6448,9 @@ type TemporaryDiskResponseInput interface {
 	ToTemporaryDiskResponseOutputWithContext(context.Context) TemporaryDiskResponseOutput
 }
 
-// Temporary disk payload
 type TemporaryDiskResponseArgs struct {
-	// Mount path of the temporary disk
 	MountPath pulumi.StringPtrInput `pulumi:"mountPath"`
-	// Size of the temporary disk in GB
-	SizeInGB pulumi.IntPtrInput `pulumi:"sizeInGB"`
+	SizeInGB  pulumi.IntPtrInput    `pulumi:"sizeInGB"`
 }
 
 func (TemporaryDiskResponseArgs) ElementType() reflect.Type {
@@ -7058,7 +6506,6 @@ func (i *temporaryDiskResponsePtrType) ToTemporaryDiskResponsePtrOutputWithConte
 	return pulumi.ToOutputWithContext(ctx, i).(TemporaryDiskResponsePtrOutput)
 }
 
-// Temporary disk payload
 type TemporaryDiskResponseOutput struct{ *pulumi.OutputState }
 
 func (TemporaryDiskResponseOutput) ElementType() reflect.Type {
@@ -7078,17 +6525,15 @@ func (o TemporaryDiskResponseOutput) ToTemporaryDiskResponsePtrOutput() Temporar
 }
 
 func (o TemporaryDiskResponseOutput) ToTemporaryDiskResponsePtrOutputWithContext(ctx context.Context) TemporaryDiskResponsePtrOutput {
-	return o.ApplyT(func(v TemporaryDiskResponse) *TemporaryDiskResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v TemporaryDiskResponse) *TemporaryDiskResponse {
 		return &v
 	}).(TemporaryDiskResponsePtrOutput)
 }
 
-// Mount path of the temporary disk
 func (o TemporaryDiskResponseOutput) MountPath() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v TemporaryDiskResponse) *string { return v.MountPath }).(pulumi.StringPtrOutput)
 }
 
-// Size of the temporary disk in GB
 func (o TemporaryDiskResponseOutput) SizeInGB() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v TemporaryDiskResponse) *int { return v.SizeInGB }).(pulumi.IntPtrOutput)
 }
@@ -7108,10 +6553,15 @@ func (o TemporaryDiskResponsePtrOutput) ToTemporaryDiskResponsePtrOutputWithCont
 }
 
 func (o TemporaryDiskResponsePtrOutput) Elem() TemporaryDiskResponseOutput {
-	return o.ApplyT(func(v *TemporaryDiskResponse) TemporaryDiskResponse { return *v }).(TemporaryDiskResponseOutput)
+	return o.ApplyT(func(v *TemporaryDiskResponse) TemporaryDiskResponse {
+		if v != nil {
+			return *v
+		}
+		var ret TemporaryDiskResponse
+		return ret
+	}).(TemporaryDiskResponseOutput)
 }
 
-// Mount path of the temporary disk
 func (o TemporaryDiskResponsePtrOutput) MountPath() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *TemporaryDiskResponse) *string {
 		if v == nil {
@@ -7121,7 +6571,6 @@ func (o TemporaryDiskResponsePtrOutput) MountPath() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Size of the temporary disk in GB
 func (o TemporaryDiskResponsePtrOutput) SizeInGB() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *TemporaryDiskResponse) *int {
 		if v == nil {
@@ -7131,14 +6580,10 @@ func (o TemporaryDiskResponsePtrOutput) SizeInGB() pulumi.IntPtrOutput {
 	}).(pulumi.IntPtrOutput)
 }
 
-// Trace properties payload
 type TraceProperties struct {
-	// Target application insight instrumentation key
 	AppInsightInstrumentationKey *string `pulumi:"appInsightInstrumentationKey"`
-	// Indicates whether enable the tracing functionality
-	Enabled *bool `pulumi:"enabled"`
-	// Error when apply trace proxy changes.
-	Error *Error `pulumi:"error"`
+	Enabled                      *bool   `pulumi:"enabled"`
+	Error                        *Error  `pulumi:"error"`
 }
 
 // TracePropertiesInput is an input type that accepts TracePropertiesArgs and TracePropertiesOutput values.
@@ -7152,14 +6597,10 @@ type TracePropertiesInput interface {
 	ToTracePropertiesOutputWithContext(context.Context) TracePropertiesOutput
 }
 
-// Trace properties payload
 type TracePropertiesArgs struct {
-	// Target application insight instrumentation key
 	AppInsightInstrumentationKey pulumi.StringPtrInput `pulumi:"appInsightInstrumentationKey"`
-	// Indicates whether enable the tracing functionality
-	Enabled pulumi.BoolPtrInput `pulumi:"enabled"`
-	// Error when apply trace proxy changes.
-	Error ErrorPtrInput `pulumi:"error"`
+	Enabled                      pulumi.BoolPtrInput   `pulumi:"enabled"`
+	Error                        ErrorPtrInput         `pulumi:"error"`
 }
 
 func (TracePropertiesArgs) ElementType() reflect.Type {
@@ -7215,7 +6656,6 @@ func (i *tracePropertiesPtrType) ToTracePropertiesPtrOutputWithContext(ctx conte
 	return pulumi.ToOutputWithContext(ctx, i).(TracePropertiesPtrOutput)
 }
 
-// Trace properties payload
 type TracePropertiesOutput struct{ *pulumi.OutputState }
 
 func (TracePropertiesOutput) ElementType() reflect.Type {
@@ -7235,22 +6675,19 @@ func (o TracePropertiesOutput) ToTracePropertiesPtrOutput() TracePropertiesPtrOu
 }
 
 func (o TracePropertiesOutput) ToTracePropertiesPtrOutputWithContext(ctx context.Context) TracePropertiesPtrOutput {
-	return o.ApplyT(func(v TraceProperties) *TraceProperties {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v TraceProperties) *TraceProperties {
 		return &v
 	}).(TracePropertiesPtrOutput)
 }
 
-// Target application insight instrumentation key
 func (o TracePropertiesOutput) AppInsightInstrumentationKey() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v TraceProperties) *string { return v.AppInsightInstrumentationKey }).(pulumi.StringPtrOutput)
 }
 
-// Indicates whether enable the tracing functionality
 func (o TracePropertiesOutput) Enabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v TraceProperties) *bool { return v.Enabled }).(pulumi.BoolPtrOutput)
 }
 
-// Error when apply trace proxy changes.
 func (o TracePropertiesOutput) Error() ErrorPtrOutput {
 	return o.ApplyT(func(v TraceProperties) *Error { return v.Error }).(ErrorPtrOutput)
 }
@@ -7270,10 +6707,15 @@ func (o TracePropertiesPtrOutput) ToTracePropertiesPtrOutputWithContext(ctx cont
 }
 
 func (o TracePropertiesPtrOutput) Elem() TracePropertiesOutput {
-	return o.ApplyT(func(v *TraceProperties) TraceProperties { return *v }).(TracePropertiesOutput)
+	return o.ApplyT(func(v *TraceProperties) TraceProperties {
+		if v != nil {
+			return *v
+		}
+		var ret TraceProperties
+		return ret
+	}).(TracePropertiesOutput)
 }
 
-// Target application insight instrumentation key
 func (o TracePropertiesPtrOutput) AppInsightInstrumentationKey() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *TraceProperties) *string {
 		if v == nil {
@@ -7283,7 +6725,6 @@ func (o TracePropertiesPtrOutput) AppInsightInstrumentationKey() pulumi.StringPt
 	}).(pulumi.StringPtrOutput)
 }
 
-// Indicates whether enable the tracing functionality
 func (o TracePropertiesPtrOutput) Enabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *TraceProperties) *bool {
 		if v == nil {
@@ -7293,7 +6734,6 @@ func (o TracePropertiesPtrOutput) Enabled() pulumi.BoolPtrOutput {
 	}).(pulumi.BoolPtrOutput)
 }
 
-// Error when apply trace proxy changes.
 func (o TracePropertiesPtrOutput) Error() ErrorPtrOutput {
 	return o.ApplyT(func(v *TraceProperties) *Error {
 		if v == nil {
@@ -7303,16 +6743,11 @@ func (o TracePropertiesPtrOutput) Error() ErrorPtrOutput {
 	}).(ErrorPtrOutput)
 }
 
-// Trace properties payload
 type TracePropertiesResponse struct {
-	// Target application insight instrumentation key
-	AppInsightInstrumentationKey *string `pulumi:"appInsightInstrumentationKey"`
-	// Indicates whether enable the tracing functionality
-	Enabled *bool `pulumi:"enabled"`
-	// Error when apply trace proxy changes.
-	Error *ErrorResponse `pulumi:"error"`
-	// State of the trace proxy.
-	State string `pulumi:"state"`
+	AppInsightInstrumentationKey *string        `pulumi:"appInsightInstrumentationKey"`
+	Enabled                      *bool          `pulumi:"enabled"`
+	Error                        *ErrorResponse `pulumi:"error"`
+	State                        string         `pulumi:"state"`
 }
 
 // TracePropertiesResponseInput is an input type that accepts TracePropertiesResponseArgs and TracePropertiesResponseOutput values.
@@ -7326,16 +6761,11 @@ type TracePropertiesResponseInput interface {
 	ToTracePropertiesResponseOutputWithContext(context.Context) TracePropertiesResponseOutput
 }
 
-// Trace properties payload
 type TracePropertiesResponseArgs struct {
-	// Target application insight instrumentation key
 	AppInsightInstrumentationKey pulumi.StringPtrInput `pulumi:"appInsightInstrumentationKey"`
-	// Indicates whether enable the tracing functionality
-	Enabled pulumi.BoolPtrInput `pulumi:"enabled"`
-	// Error when apply trace proxy changes.
-	Error ErrorResponsePtrInput `pulumi:"error"`
-	// State of the trace proxy.
-	State pulumi.StringInput `pulumi:"state"`
+	Enabled                      pulumi.BoolPtrInput   `pulumi:"enabled"`
+	Error                        ErrorResponsePtrInput `pulumi:"error"`
+	State                        pulumi.StringInput    `pulumi:"state"`
 }
 
 func (TracePropertiesResponseArgs) ElementType() reflect.Type {
@@ -7391,7 +6821,6 @@ func (i *tracePropertiesResponsePtrType) ToTracePropertiesResponsePtrOutputWithC
 	return pulumi.ToOutputWithContext(ctx, i).(TracePropertiesResponsePtrOutput)
 }
 
-// Trace properties payload
 type TracePropertiesResponseOutput struct{ *pulumi.OutputState }
 
 func (TracePropertiesResponseOutput) ElementType() reflect.Type {
@@ -7411,27 +6840,23 @@ func (o TracePropertiesResponseOutput) ToTracePropertiesResponsePtrOutput() Trac
 }
 
 func (o TracePropertiesResponseOutput) ToTracePropertiesResponsePtrOutputWithContext(ctx context.Context) TracePropertiesResponsePtrOutput {
-	return o.ApplyT(func(v TracePropertiesResponse) *TracePropertiesResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v TracePropertiesResponse) *TracePropertiesResponse {
 		return &v
 	}).(TracePropertiesResponsePtrOutput)
 }
 
-// Target application insight instrumentation key
 func (o TracePropertiesResponseOutput) AppInsightInstrumentationKey() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v TracePropertiesResponse) *string { return v.AppInsightInstrumentationKey }).(pulumi.StringPtrOutput)
 }
 
-// Indicates whether enable the tracing functionality
 func (o TracePropertiesResponseOutput) Enabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v TracePropertiesResponse) *bool { return v.Enabled }).(pulumi.BoolPtrOutput)
 }
 
-// Error when apply trace proxy changes.
 func (o TracePropertiesResponseOutput) Error() ErrorResponsePtrOutput {
 	return o.ApplyT(func(v TracePropertiesResponse) *ErrorResponse { return v.Error }).(ErrorResponsePtrOutput)
 }
 
-// State of the trace proxy.
 func (o TracePropertiesResponseOutput) State() pulumi.StringOutput {
 	return o.ApplyT(func(v TracePropertiesResponse) string { return v.State }).(pulumi.StringOutput)
 }
@@ -7451,10 +6876,15 @@ func (o TracePropertiesResponsePtrOutput) ToTracePropertiesResponsePtrOutputWith
 }
 
 func (o TracePropertiesResponsePtrOutput) Elem() TracePropertiesResponseOutput {
-	return o.ApplyT(func(v *TracePropertiesResponse) TracePropertiesResponse { return *v }).(TracePropertiesResponseOutput)
+	return o.ApplyT(func(v *TracePropertiesResponse) TracePropertiesResponse {
+		if v != nil {
+			return *v
+		}
+		var ret TracePropertiesResponse
+		return ret
+	}).(TracePropertiesResponseOutput)
 }
 
-// Target application insight instrumentation key
 func (o TracePropertiesResponsePtrOutput) AppInsightInstrumentationKey() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *TracePropertiesResponse) *string {
 		if v == nil {
@@ -7464,7 +6894,6 @@ func (o TracePropertiesResponsePtrOutput) AppInsightInstrumentationKey() pulumi.
 	}).(pulumi.StringPtrOutput)
 }
 
-// Indicates whether enable the tracing functionality
 func (o TracePropertiesResponsePtrOutput) Enabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *TracePropertiesResponse) *bool {
 		if v == nil {
@@ -7474,7 +6903,6 @@ func (o TracePropertiesResponsePtrOutput) Enabled() pulumi.BoolPtrOutput {
 	}).(pulumi.BoolPtrOutput)
 }
 
-// Error when apply trace proxy changes.
 func (o TracePropertiesResponsePtrOutput) Error() ErrorResponsePtrOutput {
 	return o.ApplyT(func(v *TracePropertiesResponse) *ErrorResponse {
 		if v == nil {
@@ -7484,7 +6912,6 @@ func (o TracePropertiesResponsePtrOutput) Error() ErrorResponsePtrOutput {
 	}).(ErrorResponsePtrOutput)
 }
 
-// State of the trace proxy.
 func (o TracePropertiesResponsePtrOutput) State() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *TracePropertiesResponse) *string {
 		if v == nil {
@@ -7494,17 +6921,11 @@ func (o TracePropertiesResponsePtrOutput) State() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Source information for a deployment
 type UserSourceInfo struct {
-	// Selector for the artifact to be used for the deployment for multi-module projects. This should be
-	// the relative path to the target module/project.
 	ArtifactSelector *string `pulumi:"artifactSelector"`
-	// Relative path of the storage which stores the source
-	RelativePath *string `pulumi:"relativePath"`
-	// Type of the source uploaded
-	Type *string `pulumi:"type"`
-	// Version of the source
-	Version *string `pulumi:"version"`
+	RelativePath     *string `pulumi:"relativePath"`
+	Type             *string `pulumi:"type"`
+	Version          *string `pulumi:"version"`
 }
 
 // UserSourceInfoInput is an input type that accepts UserSourceInfoArgs and UserSourceInfoOutput values.
@@ -7518,17 +6939,11 @@ type UserSourceInfoInput interface {
 	ToUserSourceInfoOutputWithContext(context.Context) UserSourceInfoOutput
 }
 
-// Source information for a deployment
 type UserSourceInfoArgs struct {
-	// Selector for the artifact to be used for the deployment for multi-module projects. This should be
-	// the relative path to the target module/project.
 	ArtifactSelector pulumi.StringPtrInput `pulumi:"artifactSelector"`
-	// Relative path of the storage which stores the source
-	RelativePath pulumi.StringPtrInput `pulumi:"relativePath"`
-	// Type of the source uploaded
-	Type pulumi.StringPtrInput `pulumi:"type"`
-	// Version of the source
-	Version pulumi.StringPtrInput `pulumi:"version"`
+	RelativePath     pulumi.StringPtrInput `pulumi:"relativePath"`
+	Type             pulumi.StringPtrInput `pulumi:"type"`
+	Version          pulumi.StringPtrInput `pulumi:"version"`
 }
 
 func (UserSourceInfoArgs) ElementType() reflect.Type {
@@ -7584,7 +6999,6 @@ func (i *userSourceInfoPtrType) ToUserSourceInfoPtrOutputWithContext(ctx context
 	return pulumi.ToOutputWithContext(ctx, i).(UserSourceInfoPtrOutput)
 }
 
-// Source information for a deployment
 type UserSourceInfoOutput struct{ *pulumi.OutputState }
 
 func (UserSourceInfoOutput) ElementType() reflect.Type {
@@ -7604,28 +7018,23 @@ func (o UserSourceInfoOutput) ToUserSourceInfoPtrOutput() UserSourceInfoPtrOutpu
 }
 
 func (o UserSourceInfoOutput) ToUserSourceInfoPtrOutputWithContext(ctx context.Context) UserSourceInfoPtrOutput {
-	return o.ApplyT(func(v UserSourceInfo) *UserSourceInfo {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v UserSourceInfo) *UserSourceInfo {
 		return &v
 	}).(UserSourceInfoPtrOutput)
 }
 
-// Selector for the artifact to be used for the deployment for multi-module projects. This should be
-// the relative path to the target module/project.
 func (o UserSourceInfoOutput) ArtifactSelector() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v UserSourceInfo) *string { return v.ArtifactSelector }).(pulumi.StringPtrOutput)
 }
 
-// Relative path of the storage which stores the source
 func (o UserSourceInfoOutput) RelativePath() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v UserSourceInfo) *string { return v.RelativePath }).(pulumi.StringPtrOutput)
 }
 
-// Type of the source uploaded
 func (o UserSourceInfoOutput) Type() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v UserSourceInfo) *string { return v.Type }).(pulumi.StringPtrOutput)
 }
 
-// Version of the source
 func (o UserSourceInfoOutput) Version() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v UserSourceInfo) *string { return v.Version }).(pulumi.StringPtrOutput)
 }
@@ -7645,11 +7054,15 @@ func (o UserSourceInfoPtrOutput) ToUserSourceInfoPtrOutputWithContext(ctx contex
 }
 
 func (o UserSourceInfoPtrOutput) Elem() UserSourceInfoOutput {
-	return o.ApplyT(func(v *UserSourceInfo) UserSourceInfo { return *v }).(UserSourceInfoOutput)
+	return o.ApplyT(func(v *UserSourceInfo) UserSourceInfo {
+		if v != nil {
+			return *v
+		}
+		var ret UserSourceInfo
+		return ret
+	}).(UserSourceInfoOutput)
 }
 
-// Selector for the artifact to be used for the deployment for multi-module projects. This should be
-// the relative path to the target module/project.
 func (o UserSourceInfoPtrOutput) ArtifactSelector() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *UserSourceInfo) *string {
 		if v == nil {
@@ -7659,7 +7072,6 @@ func (o UserSourceInfoPtrOutput) ArtifactSelector() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Relative path of the storage which stores the source
 func (o UserSourceInfoPtrOutput) RelativePath() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *UserSourceInfo) *string {
 		if v == nil {
@@ -7669,7 +7081,6 @@ func (o UserSourceInfoPtrOutput) RelativePath() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Type of the source uploaded
 func (o UserSourceInfoPtrOutput) Type() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *UserSourceInfo) *string {
 		if v == nil {
@@ -7679,7 +7090,6 @@ func (o UserSourceInfoPtrOutput) Type() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Version of the source
 func (o UserSourceInfoPtrOutput) Version() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *UserSourceInfo) *string {
 		if v == nil {
@@ -7689,17 +7099,11 @@ func (o UserSourceInfoPtrOutput) Version() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Source information for a deployment
 type UserSourceInfoResponse struct {
-	// Selector for the artifact to be used for the deployment for multi-module projects. This should be
-	// the relative path to the target module/project.
 	ArtifactSelector *string `pulumi:"artifactSelector"`
-	// Relative path of the storage which stores the source
-	RelativePath *string `pulumi:"relativePath"`
-	// Type of the source uploaded
-	Type *string `pulumi:"type"`
-	// Version of the source
-	Version *string `pulumi:"version"`
+	RelativePath     *string `pulumi:"relativePath"`
+	Type             *string `pulumi:"type"`
+	Version          *string `pulumi:"version"`
 }
 
 // UserSourceInfoResponseInput is an input type that accepts UserSourceInfoResponseArgs and UserSourceInfoResponseOutput values.
@@ -7713,17 +7117,11 @@ type UserSourceInfoResponseInput interface {
 	ToUserSourceInfoResponseOutputWithContext(context.Context) UserSourceInfoResponseOutput
 }
 
-// Source information for a deployment
 type UserSourceInfoResponseArgs struct {
-	// Selector for the artifact to be used for the deployment for multi-module projects. This should be
-	// the relative path to the target module/project.
 	ArtifactSelector pulumi.StringPtrInput `pulumi:"artifactSelector"`
-	// Relative path of the storage which stores the source
-	RelativePath pulumi.StringPtrInput `pulumi:"relativePath"`
-	// Type of the source uploaded
-	Type pulumi.StringPtrInput `pulumi:"type"`
-	// Version of the source
-	Version pulumi.StringPtrInput `pulumi:"version"`
+	RelativePath     pulumi.StringPtrInput `pulumi:"relativePath"`
+	Type             pulumi.StringPtrInput `pulumi:"type"`
+	Version          pulumi.StringPtrInput `pulumi:"version"`
 }
 
 func (UserSourceInfoResponseArgs) ElementType() reflect.Type {
@@ -7779,7 +7177,6 @@ func (i *userSourceInfoResponsePtrType) ToUserSourceInfoResponsePtrOutputWithCon
 	return pulumi.ToOutputWithContext(ctx, i).(UserSourceInfoResponsePtrOutput)
 }
 
-// Source information for a deployment
 type UserSourceInfoResponseOutput struct{ *pulumi.OutputState }
 
 func (UserSourceInfoResponseOutput) ElementType() reflect.Type {
@@ -7799,28 +7196,23 @@ func (o UserSourceInfoResponseOutput) ToUserSourceInfoResponsePtrOutput() UserSo
 }
 
 func (o UserSourceInfoResponseOutput) ToUserSourceInfoResponsePtrOutputWithContext(ctx context.Context) UserSourceInfoResponsePtrOutput {
-	return o.ApplyT(func(v UserSourceInfoResponse) *UserSourceInfoResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v UserSourceInfoResponse) *UserSourceInfoResponse {
 		return &v
 	}).(UserSourceInfoResponsePtrOutput)
 }
 
-// Selector for the artifact to be used for the deployment for multi-module projects. This should be
-// the relative path to the target module/project.
 func (o UserSourceInfoResponseOutput) ArtifactSelector() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v UserSourceInfoResponse) *string { return v.ArtifactSelector }).(pulumi.StringPtrOutput)
 }
 
-// Relative path of the storage which stores the source
 func (o UserSourceInfoResponseOutput) RelativePath() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v UserSourceInfoResponse) *string { return v.RelativePath }).(pulumi.StringPtrOutput)
 }
 
-// Type of the source uploaded
 func (o UserSourceInfoResponseOutput) Type() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v UserSourceInfoResponse) *string { return v.Type }).(pulumi.StringPtrOutput)
 }
 
-// Version of the source
 func (o UserSourceInfoResponseOutput) Version() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v UserSourceInfoResponse) *string { return v.Version }).(pulumi.StringPtrOutput)
 }
@@ -7840,11 +7232,15 @@ func (o UserSourceInfoResponsePtrOutput) ToUserSourceInfoResponsePtrOutputWithCo
 }
 
 func (o UserSourceInfoResponsePtrOutput) Elem() UserSourceInfoResponseOutput {
-	return o.ApplyT(func(v *UserSourceInfoResponse) UserSourceInfoResponse { return *v }).(UserSourceInfoResponseOutput)
+	return o.ApplyT(func(v *UserSourceInfoResponse) UserSourceInfoResponse {
+		if v != nil {
+			return *v
+		}
+		var ret UserSourceInfoResponse
+		return ret
+	}).(UserSourceInfoResponseOutput)
 }
 
-// Selector for the artifact to be used for the deployment for multi-module projects. This should be
-// the relative path to the target module/project.
 func (o UserSourceInfoResponsePtrOutput) ArtifactSelector() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *UserSourceInfoResponse) *string {
 		if v == nil {
@@ -7854,7 +7250,6 @@ func (o UserSourceInfoResponsePtrOutput) ArtifactSelector() pulumi.StringPtrOutp
 	}).(pulumi.StringPtrOutput)
 }
 
-// Relative path of the storage which stores the source
 func (o UserSourceInfoResponsePtrOutput) RelativePath() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *UserSourceInfoResponse) *string {
 		if v == nil {
@@ -7864,7 +7259,6 @@ func (o UserSourceInfoResponsePtrOutput) RelativePath() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Type of the source uploaded
 func (o UserSourceInfoResponsePtrOutput) Type() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *UserSourceInfoResponse) *string {
 		if v == nil {
@@ -7874,7 +7268,6 @@ func (o UserSourceInfoResponsePtrOutput) Type() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Version of the source
 func (o UserSourceInfoResponsePtrOutput) Version() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *UserSourceInfoResponse) *string {
 		if v == nil {

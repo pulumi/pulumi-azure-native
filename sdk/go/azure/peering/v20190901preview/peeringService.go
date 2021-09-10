@@ -11,24 +11,16 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Peering Service
 type PeeringService struct {
 	pulumi.CustomResourceState
 
-	// The location of the resource.
-	Location pulumi.StringOutput `pulumi:"location"`
-	// The name of the resource.
-	Name pulumi.StringOutput `pulumi:"name"`
-	// The PeeringServiceLocation of the Customer.
+	Location               pulumi.StringOutput    `pulumi:"location"`
+	Name                   pulumi.StringOutput    `pulumi:"name"`
 	PeeringServiceLocation pulumi.StringPtrOutput `pulumi:"peeringServiceLocation"`
-	// The MAPS Provider Name.
 	PeeringServiceProvider pulumi.StringPtrOutput `pulumi:"peeringServiceProvider"`
-	// The provisioning state of the resource.
-	ProvisioningState pulumi.StringOutput `pulumi:"provisioningState"`
-	// The resource tags.
-	Tags pulumi.StringMapOutput `pulumi:"tags"`
-	// The type of the resource.
-	Type pulumi.StringOutput `pulumi:"type"`
+	ProvisioningState      pulumi.StringOutput    `pulumi:"provisioningState"`
+	Tags                   pulumi.StringMapOutput `pulumi:"tags"`
+	Type                   pulumi.StringOutput    `pulumi:"type"`
 }
 
 // NewPeeringService registers a new resource with the given unique name, arguments, and options.
@@ -121,34 +113,22 @@ func (PeeringServiceState) ElementType() reflect.Type {
 }
 
 type peeringServiceArgs struct {
-	// The location of the resource.
-	Location *string `pulumi:"location"`
-	// The PeeringServiceLocation of the Customer.
-	PeeringServiceLocation *string `pulumi:"peeringServiceLocation"`
-	// The name of the peering service.
-	PeeringServiceName *string `pulumi:"peeringServiceName"`
-	// The MAPS Provider Name.
-	PeeringServiceProvider *string `pulumi:"peeringServiceProvider"`
-	// The name of the resource group.
-	ResourceGroupName string `pulumi:"resourceGroupName"`
-	// The resource tags.
-	Tags map[string]string `pulumi:"tags"`
+	Location               *string           `pulumi:"location"`
+	PeeringServiceLocation *string           `pulumi:"peeringServiceLocation"`
+	PeeringServiceName     *string           `pulumi:"peeringServiceName"`
+	PeeringServiceProvider *string           `pulumi:"peeringServiceProvider"`
+	ResourceGroupName      string            `pulumi:"resourceGroupName"`
+	Tags                   map[string]string `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a PeeringService resource.
 type PeeringServiceArgs struct {
-	// The location of the resource.
-	Location pulumi.StringPtrInput
-	// The PeeringServiceLocation of the Customer.
+	Location               pulumi.StringPtrInput
 	PeeringServiceLocation pulumi.StringPtrInput
-	// The name of the peering service.
-	PeeringServiceName pulumi.StringPtrInput
-	// The MAPS Provider Name.
+	PeeringServiceName     pulumi.StringPtrInput
 	PeeringServiceProvider pulumi.StringPtrInput
-	// The name of the resource group.
-	ResourceGroupName pulumi.StringInput
-	// The resource tags.
-	Tags pulumi.StringMapInput
+	ResourceGroupName      pulumi.StringInput
+	Tags                   pulumi.StringMapInput
 }
 
 func (PeeringServiceArgs) ElementType() reflect.Type {
@@ -174,9 +154,7 @@ func (i *PeeringService) ToPeeringServiceOutputWithContext(ctx context.Context) 
 	return pulumi.ToOutputWithContext(ctx, i).(PeeringServiceOutput)
 }
 
-type PeeringServiceOutput struct {
-	*pulumi.OutputState
-}
+type PeeringServiceOutput struct{ *pulumi.OutputState }
 
 func (PeeringServiceOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*PeeringService)(nil))

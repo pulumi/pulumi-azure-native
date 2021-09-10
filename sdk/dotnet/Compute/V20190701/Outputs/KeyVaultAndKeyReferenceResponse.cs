@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.Compute.V20190701.Outputs
 {
 
+    /// <summary>
+    /// Key Vault Key Url and vault id of KeK, KeK is optional and when provided is used to unwrap the encryptionKey
+    /// </summary>
     [OutputType]
     public sealed class KeyVaultAndKeyReferenceResponse
     {

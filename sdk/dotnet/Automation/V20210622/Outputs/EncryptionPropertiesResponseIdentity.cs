@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.Automation.V20210622.Outputs
 {
 
+    /// <summary>
+    /// User identity used for CMK.
+    /// </summary>
     [OutputType]
     public sealed class EncryptionPropertiesResponseIdentity
     {

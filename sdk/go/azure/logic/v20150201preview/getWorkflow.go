@@ -17,43 +17,25 @@ func LookupWorkflow(ctx *pulumi.Context, args *LookupWorkflowArgs, opts ...pulum
 }
 
 type LookupWorkflowArgs struct {
-	// The resource group name.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
-	// The workflow name.
-	WorkflowName string `pulumi:"workflowName"`
+	WorkflowName      string `pulumi:"workflowName"`
 }
 
 type LookupWorkflowResult struct {
-	// Gets the access endpoint.
-	AccessEndpoint string `pulumi:"accessEndpoint"`
-	// Gets the changed time.
-	ChangedTime string `pulumi:"changedTime"`
-	// Gets the created time.
-	CreatedTime string `pulumi:"createdTime"`
-	// Gets or sets the definition.
-	Definition interface{} `pulumi:"definition"`
-	// Gets or sets the link to definition.
-	DefinitionLink *ContentLinkResponse `pulumi:"definitionLink"`
-	// Gets or sets the resource id.
-	Id *string `pulumi:"id"`
-	// Gets or sets the resource location.
-	Location *string `pulumi:"location"`
-	// Gets the resource name.
-	Name *string `pulumi:"name"`
-	// Gets or sets the parameters.
-	Parameters map[string]WorkflowParameterResponse `pulumi:"parameters"`
-	// Gets or sets the link to parameters.
-	ParametersLink *ContentLinkResponse `pulumi:"parametersLink"`
-	// Gets the provisioning state.
-	ProvisioningState string `pulumi:"provisioningState"`
-	// Gets or sets the sku.
-	Sku *SkuResponse `pulumi:"sku"`
-	// Gets or sets the state.
-	State *string `pulumi:"state"`
-	// Gets or sets the resource tags.
-	Tags map[string]string `pulumi:"tags"`
-	// Gets the resource type.
-	Type *string `pulumi:"type"`
-	// Gets the version.
-	Version string `pulumi:"version"`
+	AccessEndpoint    string                               `pulumi:"accessEndpoint"`
+	ChangedTime       string                               `pulumi:"changedTime"`
+	CreatedTime       string                               `pulumi:"createdTime"`
+	Definition        interface{}                          `pulumi:"definition"`
+	DefinitionLink    *ContentLinkResponse                 `pulumi:"definitionLink"`
+	Id                *string                              `pulumi:"id"`
+	Location          *string                              `pulumi:"location"`
+	Name              *string                              `pulumi:"name"`
+	Parameters        map[string]WorkflowParameterResponse `pulumi:"parameters"`
+	ParametersLink    *ContentLinkResponse                 `pulumi:"parametersLink"`
+	ProvisioningState string                               `pulumi:"provisioningState"`
+	Sku               *SkuResponse                         `pulumi:"sku"`
+	State             *string                              `pulumi:"state"`
+	Tags              map[string]string                    `pulumi:"tags"`
+	Type              *string                              `pulumi:"type"`
+	Version           string                               `pulumi:"version"`
 }

@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.Compute.Outputs
 {
 
+    /// <summary>
+    /// Dedicated host unutilized capacity.
+    /// </summary>
     [OutputType]
     public sealed class DedicatedHostAvailableCapacityResponse
     {

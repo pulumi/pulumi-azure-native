@@ -10,12 +10,10 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Data source object contains configuration to collect telemetry and one or more sinks to send that telemetry data to
 type DataSource struct {
 	Configuration DataSourceConfiguration `pulumi:"configuration"`
-	// Datasource kind
-	Kind  string              `pulumi:"kind"`
-	Sinks []SinkConfiguration `pulumi:"sinks"`
+	Kind          string                  `pulumi:"kind"`
+	Sinks         []SinkConfiguration     `pulumi:"sinks"`
 }
 
 // DataSourceInput is an input type that accepts DataSourceArgs and DataSourceOutput values.
@@ -29,12 +27,10 @@ type DataSourceInput interface {
 	ToDataSourceOutputWithContext(context.Context) DataSourceOutput
 }
 
-// Data source object contains configuration to collect telemetry and one or more sinks to send that telemetry data to
 type DataSourceArgs struct {
 	Configuration DataSourceConfigurationInput `pulumi:"configuration"`
-	// Datasource kind
-	Kind  pulumi.StringInput          `pulumi:"kind"`
-	Sinks SinkConfigurationArrayInput `pulumi:"sinks"`
+	Kind          pulumi.StringInput           `pulumi:"kind"`
+	Sinks         SinkConfigurationArrayInput  `pulumi:"sinks"`
 }
 
 func (DataSourceArgs) ElementType() reflect.Type {
@@ -74,7 +70,6 @@ func (i DataSourceArray) ToDataSourceArrayOutputWithContext(ctx context.Context)
 	return pulumi.ToOutputWithContext(ctx, i).(DataSourceArrayOutput)
 }
 
-// Data source object contains configuration to collect telemetry and one or more sinks to send that telemetry data to
 type DataSourceOutput struct{ *pulumi.OutputState }
 
 func (DataSourceOutput) ElementType() reflect.Type {
@@ -93,7 +88,6 @@ func (o DataSourceOutput) Configuration() DataSourceConfigurationOutput {
 	return o.ApplyT(func(v DataSource) DataSourceConfiguration { return v.Configuration }).(DataSourceConfigurationOutput)
 }
 
-// Datasource kind
 func (o DataSourceOutput) Kind() pulumi.StringOutput {
 	return o.ApplyT(func(v DataSource) string { return v.Kind }).(pulumi.StringOutput)
 }
@@ -123,12 +117,9 @@ func (o DataSourceArrayOutput) Index(i pulumi.IntInput) DataSourceOutput {
 }
 
 type DataSourceConfiguration struct {
-	// Windows event logs configuration.
-	EventLogs []EventLogConfiguration `pulumi:"eventLogs"`
-	// Performance counter configuration
+	EventLogs    []EventLogConfiguration           `pulumi:"eventLogs"`
 	PerfCounters []PerformanceCounterConfiguration `pulumi:"perfCounters"`
-	// ETW providers configuration
-	Providers []EtwProviderConfiguration `pulumi:"providers"`
+	Providers    []EtwProviderConfiguration        `pulumi:"providers"`
 }
 
 // DataSourceConfigurationInput is an input type that accepts DataSourceConfigurationArgs and DataSourceConfigurationOutput values.
@@ -143,12 +134,9 @@ type DataSourceConfigurationInput interface {
 }
 
 type DataSourceConfigurationArgs struct {
-	// Windows event logs configuration.
-	EventLogs EventLogConfigurationArrayInput `pulumi:"eventLogs"`
-	// Performance counter configuration
+	EventLogs    EventLogConfigurationArrayInput           `pulumi:"eventLogs"`
 	PerfCounters PerformanceCounterConfigurationArrayInput `pulumi:"perfCounters"`
-	// ETW providers configuration
-	Providers EtwProviderConfigurationArrayInput `pulumi:"providers"`
+	Providers    EtwProviderConfigurationArrayInput        `pulumi:"providers"`
 }
 
 func (DataSourceConfigurationArgs) ElementType() reflect.Type {
@@ -177,28 +165,22 @@ func (o DataSourceConfigurationOutput) ToDataSourceConfigurationOutputWithContex
 	return o
 }
 
-// Windows event logs configuration.
 func (o DataSourceConfigurationOutput) EventLogs() EventLogConfigurationArrayOutput {
 	return o.ApplyT(func(v DataSourceConfiguration) []EventLogConfiguration { return v.EventLogs }).(EventLogConfigurationArrayOutput)
 }
 
-// Performance counter configuration
 func (o DataSourceConfigurationOutput) PerfCounters() PerformanceCounterConfigurationArrayOutput {
 	return o.ApplyT(func(v DataSourceConfiguration) []PerformanceCounterConfiguration { return v.PerfCounters }).(PerformanceCounterConfigurationArrayOutput)
 }
 
-// ETW providers configuration
 func (o DataSourceConfigurationOutput) Providers() EtwProviderConfigurationArrayOutput {
 	return o.ApplyT(func(v DataSourceConfiguration) []EtwProviderConfiguration { return v.Providers }).(EtwProviderConfigurationArrayOutput)
 }
 
 type DataSourceConfigurationResponse struct {
-	// Windows event logs configuration.
-	EventLogs []EventLogConfigurationResponse `pulumi:"eventLogs"`
-	// Performance counter configuration
+	EventLogs    []EventLogConfigurationResponse           `pulumi:"eventLogs"`
 	PerfCounters []PerformanceCounterConfigurationResponse `pulumi:"perfCounters"`
-	// ETW providers configuration
-	Providers []EtwProviderConfigurationResponse `pulumi:"providers"`
+	Providers    []EtwProviderConfigurationResponse        `pulumi:"providers"`
 }
 
 // DataSourceConfigurationResponseInput is an input type that accepts DataSourceConfigurationResponseArgs and DataSourceConfigurationResponseOutput values.
@@ -213,12 +195,9 @@ type DataSourceConfigurationResponseInput interface {
 }
 
 type DataSourceConfigurationResponseArgs struct {
-	// Windows event logs configuration.
-	EventLogs EventLogConfigurationResponseArrayInput `pulumi:"eventLogs"`
-	// Performance counter configuration
+	EventLogs    EventLogConfigurationResponseArrayInput           `pulumi:"eventLogs"`
 	PerfCounters PerformanceCounterConfigurationResponseArrayInput `pulumi:"perfCounters"`
-	// ETW providers configuration
-	Providers EtwProviderConfigurationResponseArrayInput `pulumi:"providers"`
+	Providers    EtwProviderConfigurationResponseArrayInput        `pulumi:"providers"`
 }
 
 func (DataSourceConfigurationResponseArgs) ElementType() reflect.Type {
@@ -247,29 +226,24 @@ func (o DataSourceConfigurationResponseOutput) ToDataSourceConfigurationResponse
 	return o
 }
 
-// Windows event logs configuration.
 func (o DataSourceConfigurationResponseOutput) EventLogs() EventLogConfigurationResponseArrayOutput {
 	return o.ApplyT(func(v DataSourceConfigurationResponse) []EventLogConfigurationResponse { return v.EventLogs }).(EventLogConfigurationResponseArrayOutput)
 }
 
-// Performance counter configuration
 func (o DataSourceConfigurationResponseOutput) PerfCounters() PerformanceCounterConfigurationResponseArrayOutput {
 	return o.ApplyT(func(v DataSourceConfigurationResponse) []PerformanceCounterConfigurationResponse {
 		return v.PerfCounters
 	}).(PerformanceCounterConfigurationResponseArrayOutput)
 }
 
-// ETW providers configuration
 func (o DataSourceConfigurationResponseOutput) Providers() EtwProviderConfigurationResponseArrayOutput {
 	return o.ApplyT(func(v DataSourceConfigurationResponse) []EtwProviderConfigurationResponse { return v.Providers }).(EtwProviderConfigurationResponseArrayOutput)
 }
 
-// Data source object contains configuration to collect telemetry and one or more sinks to send that telemetry data to
 type DataSourceResponse struct {
 	Configuration DataSourceConfigurationResponse `pulumi:"configuration"`
-	// Datasource kind
-	Kind  string                      `pulumi:"kind"`
-	Sinks []SinkConfigurationResponse `pulumi:"sinks"`
+	Kind          string                          `pulumi:"kind"`
+	Sinks         []SinkConfigurationResponse     `pulumi:"sinks"`
 }
 
 // DataSourceResponseInput is an input type that accepts DataSourceResponseArgs and DataSourceResponseOutput values.
@@ -283,12 +257,10 @@ type DataSourceResponseInput interface {
 	ToDataSourceResponseOutputWithContext(context.Context) DataSourceResponseOutput
 }
 
-// Data source object contains configuration to collect telemetry and one or more sinks to send that telemetry data to
 type DataSourceResponseArgs struct {
 	Configuration DataSourceConfigurationResponseInput `pulumi:"configuration"`
-	// Datasource kind
-	Kind  pulumi.StringInput                  `pulumi:"kind"`
-	Sinks SinkConfigurationResponseArrayInput `pulumi:"sinks"`
+	Kind          pulumi.StringInput                   `pulumi:"kind"`
+	Sinks         SinkConfigurationResponseArrayInput  `pulumi:"sinks"`
 }
 
 func (DataSourceResponseArgs) ElementType() reflect.Type {
@@ -328,7 +300,6 @@ func (i DataSourceResponseArray) ToDataSourceResponseArrayOutputWithContext(ctx 
 	return pulumi.ToOutputWithContext(ctx, i).(DataSourceResponseArrayOutput)
 }
 
-// Data source object contains configuration to collect telemetry and one or more sinks to send that telemetry data to
 type DataSourceResponseOutput struct{ *pulumi.OutputState }
 
 func (DataSourceResponseOutput) ElementType() reflect.Type {
@@ -347,7 +318,6 @@ func (o DataSourceResponseOutput) Configuration() DataSourceConfigurationRespons
 	return o.ApplyT(func(v DataSourceResponse) DataSourceConfigurationResponse { return v.Configuration }).(DataSourceConfigurationResponseOutput)
 }
 
-// Datasource kind
 func (o DataSourceResponseOutput) Kind() pulumi.StringOutput {
 	return o.ApplyT(func(v DataSourceResponse) string { return v.Kind }).(pulumi.StringOutput)
 }

@@ -11,24 +11,16 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// An environment is a set of time-series data available for query, and is the top level Azure Time Series Insights resource.
-//
 // Deprecated: Please use one of the variants: Gen1Environment, Gen2Environment.
 type Environment struct {
 	pulumi.CustomResourceState
 
-	// The kind of the environment.
-	Kind pulumi.StringOutput `pulumi:"kind"`
-	// Resource location
-	Location pulumi.StringOutput `pulumi:"location"`
-	// Resource name
-	Name pulumi.StringOutput `pulumi:"name"`
-	// The sku determines the type of environment, either Gen1 (S1 or S2) or Gen2 (L1). For Gen1 environments the sku determines the capacity of the environment, the ingress rate, and the billing rate.
-	Sku SkuResponseOutput `pulumi:"sku"`
-	// Resource tags
-	Tags pulumi.StringMapOutput `pulumi:"tags"`
-	// Resource type
-	Type pulumi.StringOutput `pulumi:"type"`
+	Kind     pulumi.StringOutput    `pulumi:"kind"`
+	Location pulumi.StringOutput    `pulumi:"location"`
+	Name     pulumi.StringOutput    `pulumi:"name"`
+	Sku      SkuResponseOutput      `pulumi:"sku"`
+	Tags     pulumi.StringMapOutput `pulumi:"tags"`
+	Type     pulumi.StringOutput    `pulumi:"type"`
 }
 
 // NewEnvironment registers a new resource with the given unique name, arguments, and options.
@@ -115,34 +107,22 @@ func (EnvironmentState) ElementType() reflect.Type {
 }
 
 type environmentArgs struct {
-	// Name of the environment
-	EnvironmentName *string `pulumi:"environmentName"`
-	// The kind of the environment.
-	Kind string `pulumi:"kind"`
-	// The location of the resource.
-	Location *string `pulumi:"location"`
-	// Name of an Azure Resource group.
-	ResourceGroupName string `pulumi:"resourceGroupName"`
-	// The sku determines the type of environment, either Gen1 (S1 or S2) or Gen2 (L1). For Gen1 environments the sku determines the capacity of the environment, the ingress rate, and the billing rate.
-	Sku Sku `pulumi:"sku"`
-	// Key-value pairs of additional properties for the resource.
-	Tags map[string]string `pulumi:"tags"`
+	EnvironmentName   *string           `pulumi:"environmentName"`
+	Kind              string            `pulumi:"kind"`
+	Location          *string           `pulumi:"location"`
+	ResourceGroupName string            `pulumi:"resourceGroupName"`
+	Sku               Sku               `pulumi:"sku"`
+	Tags              map[string]string `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a Environment resource.
 type EnvironmentArgs struct {
-	// Name of the environment
-	EnvironmentName pulumi.StringPtrInput
-	// The kind of the environment.
-	Kind pulumi.StringInput
-	// The location of the resource.
-	Location pulumi.StringPtrInput
-	// Name of an Azure Resource group.
+	EnvironmentName   pulumi.StringPtrInput
+	Kind              pulumi.StringInput
+	Location          pulumi.StringPtrInput
 	ResourceGroupName pulumi.StringInput
-	// The sku determines the type of environment, either Gen1 (S1 or S2) or Gen2 (L1). For Gen1 environments the sku determines the capacity of the environment, the ingress rate, and the billing rate.
-	Sku SkuInput
-	// Key-value pairs of additional properties for the resource.
-	Tags pulumi.StringMapInput
+	Sku               SkuInput
+	Tags              pulumi.StringMapInput
 }
 
 func (EnvironmentArgs) ElementType() reflect.Type {
@@ -168,9 +148,7 @@ func (i *Environment) ToEnvironmentOutputWithContext(ctx context.Context) Enviro
 	return pulumi.ToOutputWithContext(ctx, i).(EnvironmentOutput)
 }
 
-type EnvironmentOutput struct {
-	*pulumi.OutputState
-}
+type EnvironmentOutput struct{ *pulumi.OutputState }
 
 func (EnvironmentOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*Environment)(nil))

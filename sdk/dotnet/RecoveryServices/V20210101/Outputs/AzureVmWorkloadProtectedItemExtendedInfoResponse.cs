@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.RecoveryServices.V20210101.Outputs
 {
 
+    /// <summary>
+    /// Additional information on Azure Workload for SQL specific backup item.
+    /// </summary>
     [OutputType]
     public sealed class AzureVmWorkloadProtectedItemExtendedInfoResponse
     {

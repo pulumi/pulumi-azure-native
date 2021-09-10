@@ -11,18 +11,13 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// The application type name resource
 type ApplicationType struct {
 	pulumi.CustomResourceState
 
-	// Azure resource location.
-	Location pulumi.StringPtrOutput `pulumi:"location"`
-	// Azure resource name.
-	Name pulumi.StringOutput `pulumi:"name"`
-	// The current deployment or provisioning state, which only appears in the response.
-	ProvisioningState pulumi.StringOutput `pulumi:"provisioningState"`
-	// Azure resource type.
-	Type pulumi.StringOutput `pulumi:"type"`
+	Location          pulumi.StringPtrOutput `pulumi:"location"`
+	Name              pulumi.StringOutput    `pulumi:"name"`
+	ProvisioningState pulumi.StringOutput    `pulumi:"provisioningState"`
+	Type              pulumi.StringOutput    `pulumi:"type"`
 }
 
 // NewApplicationType registers a new resource with the given unique name, arguments, and options.
@@ -124,26 +119,18 @@ func (ApplicationTypeState) ElementType() reflect.Type {
 }
 
 type applicationTypeArgs struct {
-	// The name of the application type name resource.
 	ApplicationTypeName *string `pulumi:"applicationTypeName"`
-	// The name of the cluster resource.
-	ClusterName string `pulumi:"clusterName"`
-	// Azure resource location.
-	Location *string `pulumi:"location"`
-	// The name of the resource group.
-	ResourceGroupName string `pulumi:"resourceGroupName"`
+	ClusterName         string  `pulumi:"clusterName"`
+	Location            *string `pulumi:"location"`
+	ResourceGroupName   string  `pulumi:"resourceGroupName"`
 }
 
 // The set of arguments for constructing a ApplicationType resource.
 type ApplicationTypeArgs struct {
-	// The name of the application type name resource.
 	ApplicationTypeName pulumi.StringPtrInput
-	// The name of the cluster resource.
-	ClusterName pulumi.StringInput
-	// Azure resource location.
-	Location pulumi.StringPtrInput
-	// The name of the resource group.
-	ResourceGroupName pulumi.StringInput
+	ClusterName         pulumi.StringInput
+	Location            pulumi.StringPtrInput
+	ResourceGroupName   pulumi.StringInput
 }
 
 func (ApplicationTypeArgs) ElementType() reflect.Type {
@@ -169,9 +156,7 @@ func (i *ApplicationType) ToApplicationTypeOutputWithContext(ctx context.Context
 	return pulumi.ToOutputWithContext(ctx, i).(ApplicationTypeOutput)
 }
 
-type ApplicationTypeOutput struct {
-	*pulumi.OutputState
-}
+type ApplicationTypeOutput struct{ *pulumi.OutputState }
 
 func (ApplicationTypeOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*ApplicationType)(nil))

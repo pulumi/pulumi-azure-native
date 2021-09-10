@@ -7,7 +7,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// A class representing the access keys of a CommunicationService.
 func ListCommunicationServiceKeys(ctx *pulumi.Context, args *ListCommunicationServiceKeysArgs, opts ...pulumi.InvokeOption) (*ListCommunicationServiceKeysResult, error) {
 	var rv ListCommunicationServiceKeysResult
 	err := ctx.Invoke("azure-native:communication/v20200820:listCommunicationServiceKeys", args, &rv, opts...)
@@ -18,20 +17,14 @@ func ListCommunicationServiceKeys(ctx *pulumi.Context, args *ListCommunicationSe
 }
 
 type ListCommunicationServiceKeysArgs struct {
-	// The name of the CommunicationService resource.
 	CommunicationServiceName string `pulumi:"communicationServiceName"`
-	// The name of the resource group. The name is case insensitive.
-	ResourceGroupName string `pulumi:"resourceGroupName"`
+	ResourceGroupName        string `pulumi:"resourceGroupName"`
 }
 
 // A class representing the access keys of a CommunicationService.
 type ListCommunicationServiceKeysResult struct {
-	// CommunicationService connection string constructed via the primaryKey
-	PrimaryConnectionString *string `pulumi:"primaryConnectionString"`
-	// The primary access key.
-	PrimaryKey *string `pulumi:"primaryKey"`
-	// CommunicationService connection string constructed via the secondaryKey
+	PrimaryConnectionString   *string `pulumi:"primaryConnectionString"`
+	PrimaryKey                *string `pulumi:"primaryKey"`
 	SecondaryConnectionString *string `pulumi:"secondaryConnectionString"`
-	// The secondary access key.
-	SecondaryKey *string `pulumi:"secondaryKey"`
+	SecondaryKey              *string `pulumi:"secondaryKey"`
 }

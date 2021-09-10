@@ -7,7 +7,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Threat intelligence information object.
 func LookupThreatIntelligenceIndicator(ctx *pulumi.Context, args *LookupThreatIntelligenceIndicatorArgs, opts ...pulumi.InvokeOption) (*LookupThreatIntelligenceIndicatorResult, error) {
 	var rv LookupThreatIntelligenceIndicatorResult
 	err := ctx.Invoke("azure-native:securityinsights/v20210401:getThreatIntelligenceIndicator", args, &rv, opts...)
@@ -18,28 +17,18 @@ func LookupThreatIntelligenceIndicator(ctx *pulumi.Context, args *LookupThreatIn
 }
 
 type LookupThreatIntelligenceIndicatorArgs struct {
-	// Threat intelligence indicator name field.
-	Name string `pulumi:"name"`
-	// The namespace of workspaces resource provider- Microsoft.OperationalInsights.
+	Name                                string `pulumi:"name"`
 	OperationalInsightsResourceProvider string `pulumi:"operationalInsightsResourceProvider"`
-	// The name of the resource group within the user's subscription. The name is case insensitive.
-	ResourceGroupName string `pulumi:"resourceGroupName"`
-	// The name of the workspace.
-	WorkspaceName string `pulumi:"workspaceName"`
+	ResourceGroupName                   string `pulumi:"resourceGroupName"`
+	WorkspaceName                       string `pulumi:"workspaceName"`
 }
 
 // Threat intelligence information object.
 type LookupThreatIntelligenceIndicatorResult struct {
-	// Etag of the azure resource
-	Etag *string `pulumi:"etag"`
-	// Azure resource Id
-	Id string `pulumi:"id"`
-	// The kind of the entity.
-	Kind string `pulumi:"kind"`
-	// Azure resource name
-	Name string `pulumi:"name"`
-	// Azure Resource Manager metadata containing createdBy and modifiedBy information.
+	Etag       *string            `pulumi:"etag"`
+	Id         string             `pulumi:"id"`
+	Kind       string             `pulumi:"kind"`
+	Name       string             `pulumi:"name"`
 	SystemData SystemDataResponse `pulumi:"systemData"`
-	// Azure resource type
-	Type string `pulumi:"type"`
+	Type       string             `pulumi:"type"`
 }

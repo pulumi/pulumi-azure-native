@@ -163,9 +163,7 @@ func (i *AnalyticsItem) ToAnalyticsItemOutputWithContext(ctx context.Context) An
 	return pulumi.ToOutputWithContext(ctx, i).(AnalyticsItemOutput)
 }
 
-type AnalyticsItemOutput struct {
-	*pulumi.OutputState
-}
+type AnalyticsItemOutput struct{ *pulumi.OutputState }
 
 func (AnalyticsItemOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*AnalyticsItem)(nil))

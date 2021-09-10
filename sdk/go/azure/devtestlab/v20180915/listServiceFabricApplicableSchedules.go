@@ -7,7 +7,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Schedules applicable to a virtual machine. The schedules may have been defined on a VM or on lab level.
 func ListServiceFabricApplicableSchedules(ctx *pulumi.Context, args *ListServiceFabricApplicableSchedulesArgs, opts ...pulumi.InvokeOption) (*ListServiceFabricApplicableSchedulesResult, error) {
 	var rv ListServiceFabricApplicableSchedulesResult
 	err := ctx.Invoke("azure-native:devtestlab/v20180915:listServiceFabricApplicableSchedules", args, &rv, opts...)
@@ -18,30 +17,19 @@ func ListServiceFabricApplicableSchedules(ctx *pulumi.Context, args *ListService
 }
 
 type ListServiceFabricApplicableSchedulesArgs struct {
-	// The name of the lab.
-	LabName string `pulumi:"labName"`
-	// The name of the service fabric.
-	Name string `pulumi:"name"`
-	// The name of the resource group.
+	LabName           string `pulumi:"labName"`
+	Name              string `pulumi:"name"`
 	ResourceGroupName string `pulumi:"resourceGroupName"`
-	// The name of the user profile.
-	UserName string `pulumi:"userName"`
+	UserName          string `pulumi:"userName"`
 }
 
 // Schedules applicable to a virtual machine. The schedules may have been defined on a VM or on lab level.
 type ListServiceFabricApplicableSchedulesResult struct {
-	// The identifier of the resource.
-	Id string `pulumi:"id"`
-	// The auto-shutdown schedule, if one has been set at the lab or lab resource level.
+	Id             string            `pulumi:"id"`
 	LabVmsShutdown *ScheduleResponse `pulumi:"labVmsShutdown"`
-	// The auto-startup schedule, if one has been set at the lab or lab resource level.
-	LabVmsStartup *ScheduleResponse `pulumi:"labVmsStartup"`
-	// The location of the resource.
-	Location *string `pulumi:"location"`
-	// The name of the resource.
-	Name string `pulumi:"name"`
-	// The tags of the resource.
-	Tags map[string]string `pulumi:"tags"`
-	// The type of the resource.
-	Type string `pulumi:"type"`
+	LabVmsStartup  *ScheduleResponse `pulumi:"labVmsStartup"`
+	Location       *string           `pulumi:"location"`
+	Name           string            `pulumi:"name"`
+	Tags           map[string]string `pulumi:"tags"`
+	Type           string            `pulumi:"type"`
 }

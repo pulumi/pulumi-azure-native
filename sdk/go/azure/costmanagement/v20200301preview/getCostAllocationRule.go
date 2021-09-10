@@ -7,7 +7,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// The cost allocation rule model definition
 func LookupCostAllocationRule(ctx *pulumi.Context, args *LookupCostAllocationRuleArgs, opts ...pulumi.InvokeOption) (*LookupCostAllocationRuleResult, error) {
 	var rv LookupCostAllocationRuleResult
 	err := ctx.Invoke("azure-native:costmanagement/v20200301preview:getCostAllocationRule", args, &rv, opts...)
@@ -18,20 +17,14 @@ func LookupCostAllocationRule(ctx *pulumi.Context, args *LookupCostAllocationRul
 }
 
 type LookupCostAllocationRuleArgs struct {
-	// BillingAccount ID
 	BillingAccountId string `pulumi:"billingAccountId"`
-	// Cost allocation rule name. The name cannot include spaces or any non alphanumeric characters other than '_' and '-'. The max length is 260 characters.
-	RuleName string `pulumi:"ruleName"`
+	RuleName         string `pulumi:"ruleName"`
 }
 
 // The cost allocation rule model definition
 type LookupCostAllocationRuleResult struct {
-	// Azure Resource Manager Id for the rule. This is a read ony value.
-	Id string `pulumi:"id"`
-	// Name of the rule. This is a read only value.
-	Name string `pulumi:"name"`
-	// Cost allocation rule properties
+	Id         string                               `pulumi:"id"`
+	Name       string                               `pulumi:"name"`
 	Properties CostAllocationRulePropertiesResponse `pulumi:"properties"`
-	// Resource type of the rule. This is a read only value of Microsoft.CostManagement/CostAllocationRule.
-	Type string `pulumi:"type"`
+	Type       string                               `pulumi:"type"`
 }

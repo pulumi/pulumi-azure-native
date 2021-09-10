@@ -11,19 +11,14 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// An Azure Cosmos DB Cassandra table.
 type CassandraResourceCassandraTable struct {
 	pulumi.CustomResourceState
 
-	// The location of the resource group to which the resource belongs.
-	Location pulumi.StringPtrOutput `pulumi:"location"`
-	// The name of the ARM resource.
+	Location pulumi.StringPtrOutput                               `pulumi:"location"`
 	Name     pulumi.StringOutput                                  `pulumi:"name"`
 	Resource CassandraTableGetPropertiesResponseResourcePtrOutput `pulumi:"resource"`
-	// Tags are a list of key-value pairs that describe the resource. These tags can be used in viewing and grouping this resource (across resource groups). A maximum of 15 tags can be provided for a resource. Each tag must have a key no greater than 128 characters and value no greater than 256 characters. For example, the default experience for a template type is set with "defaultExperience": "Cassandra". Current "defaultExperience" values also include "Table", "Graph", "DocumentDB", and "MongoDB".
-	Tags pulumi.StringMapOutput `pulumi:"tags"`
-	// The type of Azure resource.
-	Type pulumi.StringOutput `pulumi:"type"`
+	Tags     pulumi.StringMapOutput                               `pulumi:"tags"`
+	Type     pulumi.StringOutput                                  `pulumi:"type"`
 }
 
 // NewCassandraResourceCassandraTable registers a new resource with the given unique name, arguments, and options.
@@ -200,42 +195,26 @@ func (CassandraResourceCassandraTableState) ElementType() reflect.Type {
 }
 
 type cassandraResourceCassandraTableArgs struct {
-	// Cosmos DB database account name.
-	AccountName string `pulumi:"accountName"`
-	// Cosmos DB keyspace name.
-	KeyspaceName string `pulumi:"keyspaceName"`
-	// The location of the resource group to which the resource belongs.
-	Location *string `pulumi:"location"`
-	// A key-value pair of options to be applied for the request. This corresponds to the headers sent with the request.
-	Options map[string]string `pulumi:"options"`
-	// The standard JSON format of a Cassandra table
-	Resource CassandraTableResource `pulumi:"resource"`
-	// Name of an Azure resource group.
-	ResourceGroupName string `pulumi:"resourceGroupName"`
-	// Cosmos DB table name.
-	TableName *string `pulumi:"tableName"`
-	// Tags are a list of key-value pairs that describe the resource. These tags can be used in viewing and grouping this resource (across resource groups). A maximum of 15 tags can be provided for a resource. Each tag must have a key no greater than 128 characters and value no greater than 256 characters. For example, the default experience for a template type is set with "defaultExperience": "Cassandra". Current "defaultExperience" values also include "Table", "Graph", "DocumentDB", and "MongoDB".
-	Tags map[string]string `pulumi:"tags"`
+	AccountName       string                 `pulumi:"accountName"`
+	KeyspaceName      string                 `pulumi:"keyspaceName"`
+	Location          *string                `pulumi:"location"`
+	Options           map[string]string      `pulumi:"options"`
+	Resource          CassandraTableResource `pulumi:"resource"`
+	ResourceGroupName string                 `pulumi:"resourceGroupName"`
+	TableName         *string                `pulumi:"tableName"`
+	Tags              map[string]string      `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a CassandraResourceCassandraTable resource.
 type CassandraResourceCassandraTableArgs struct {
-	// Cosmos DB database account name.
-	AccountName pulumi.StringInput
-	// Cosmos DB keyspace name.
-	KeyspaceName pulumi.StringInput
-	// The location of the resource group to which the resource belongs.
-	Location pulumi.StringPtrInput
-	// A key-value pair of options to be applied for the request. This corresponds to the headers sent with the request.
-	Options pulumi.StringMapInput
-	// The standard JSON format of a Cassandra table
-	Resource CassandraTableResourceInput
-	// Name of an Azure resource group.
+	AccountName       pulumi.StringInput
+	KeyspaceName      pulumi.StringInput
+	Location          pulumi.StringPtrInput
+	Options           pulumi.StringMapInput
+	Resource          CassandraTableResourceInput
 	ResourceGroupName pulumi.StringInput
-	// Cosmos DB table name.
-	TableName pulumi.StringPtrInput
-	// Tags are a list of key-value pairs that describe the resource. These tags can be used in viewing and grouping this resource (across resource groups). A maximum of 15 tags can be provided for a resource. Each tag must have a key no greater than 128 characters and value no greater than 256 characters. For example, the default experience for a template type is set with "defaultExperience": "Cassandra". Current "defaultExperience" values also include "Table", "Graph", "DocumentDB", and "MongoDB".
-	Tags pulumi.StringMapInput
+	TableName         pulumi.StringPtrInput
+	Tags              pulumi.StringMapInput
 }
 
 func (CassandraResourceCassandraTableArgs) ElementType() reflect.Type {
@@ -261,9 +240,7 @@ func (i *CassandraResourceCassandraTable) ToCassandraResourceCassandraTableOutpu
 	return pulumi.ToOutputWithContext(ctx, i).(CassandraResourceCassandraTableOutput)
 }
 
-type CassandraResourceCassandraTableOutput struct {
-	*pulumi.OutputState
-}
+type CassandraResourceCassandraTableOutput struct{ *pulumi.OutputState }
 
 func (CassandraResourceCassandraTableOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*CassandraResourceCassandraTable)(nil))

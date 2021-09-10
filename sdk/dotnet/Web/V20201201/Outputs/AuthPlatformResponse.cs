@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.Web.V20201201.Outputs
 {
 
+    /// <summary>
+    /// The configuration settings of the platform of App Service Authentication/Authorization.
+    /// </summary>
     [OutputType]
     public sealed class AuthPlatformResponse
     {

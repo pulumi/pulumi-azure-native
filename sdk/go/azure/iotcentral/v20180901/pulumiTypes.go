@@ -10,9 +10,7 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Information about the SKU of the IoT Central application.
 type AppSkuInfo struct {
-	// The name of the SKU.
 	Name string `pulumi:"name"`
 }
 
@@ -27,9 +25,7 @@ type AppSkuInfoInput interface {
 	ToAppSkuInfoOutputWithContext(context.Context) AppSkuInfoOutput
 }
 
-// Information about the SKU of the IoT Central application.
 type AppSkuInfoArgs struct {
-	// The name of the SKU.
 	Name pulumi.StringInput `pulumi:"name"`
 }
 
@@ -86,7 +82,6 @@ func (i *appSkuInfoPtrType) ToAppSkuInfoPtrOutputWithContext(ctx context.Context
 	return pulumi.ToOutputWithContext(ctx, i).(AppSkuInfoPtrOutput)
 }
 
-// Information about the SKU of the IoT Central application.
 type AppSkuInfoOutput struct{ *pulumi.OutputState }
 
 func (AppSkuInfoOutput) ElementType() reflect.Type {
@@ -106,12 +101,11 @@ func (o AppSkuInfoOutput) ToAppSkuInfoPtrOutput() AppSkuInfoPtrOutput {
 }
 
 func (o AppSkuInfoOutput) ToAppSkuInfoPtrOutputWithContext(ctx context.Context) AppSkuInfoPtrOutput {
-	return o.ApplyT(func(v AppSkuInfo) *AppSkuInfo {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v AppSkuInfo) *AppSkuInfo {
 		return &v
 	}).(AppSkuInfoPtrOutput)
 }
 
-// The name of the SKU.
 func (o AppSkuInfoOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v AppSkuInfo) string { return v.Name }).(pulumi.StringOutput)
 }
@@ -131,10 +125,15 @@ func (o AppSkuInfoPtrOutput) ToAppSkuInfoPtrOutputWithContext(ctx context.Contex
 }
 
 func (o AppSkuInfoPtrOutput) Elem() AppSkuInfoOutput {
-	return o.ApplyT(func(v *AppSkuInfo) AppSkuInfo { return *v }).(AppSkuInfoOutput)
+	return o.ApplyT(func(v *AppSkuInfo) AppSkuInfo {
+		if v != nil {
+			return *v
+		}
+		var ret AppSkuInfo
+		return ret
+	}).(AppSkuInfoOutput)
 }
 
-// The name of the SKU.
 func (o AppSkuInfoPtrOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *AppSkuInfo) *string {
 		if v == nil {
@@ -144,9 +143,7 @@ func (o AppSkuInfoPtrOutput) Name() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Information about the SKU of the IoT Central application.
 type AppSkuInfoResponse struct {
-	// The name of the SKU.
 	Name string `pulumi:"name"`
 }
 
@@ -161,9 +158,7 @@ type AppSkuInfoResponseInput interface {
 	ToAppSkuInfoResponseOutputWithContext(context.Context) AppSkuInfoResponseOutput
 }
 
-// Information about the SKU of the IoT Central application.
 type AppSkuInfoResponseArgs struct {
-	// The name of the SKU.
 	Name pulumi.StringInput `pulumi:"name"`
 }
 
@@ -220,7 +215,6 @@ func (i *appSkuInfoResponsePtrType) ToAppSkuInfoResponsePtrOutputWithContext(ctx
 	return pulumi.ToOutputWithContext(ctx, i).(AppSkuInfoResponsePtrOutput)
 }
 
-// Information about the SKU of the IoT Central application.
 type AppSkuInfoResponseOutput struct{ *pulumi.OutputState }
 
 func (AppSkuInfoResponseOutput) ElementType() reflect.Type {
@@ -240,12 +234,11 @@ func (o AppSkuInfoResponseOutput) ToAppSkuInfoResponsePtrOutput() AppSkuInfoResp
 }
 
 func (o AppSkuInfoResponseOutput) ToAppSkuInfoResponsePtrOutputWithContext(ctx context.Context) AppSkuInfoResponsePtrOutput {
-	return o.ApplyT(func(v AppSkuInfoResponse) *AppSkuInfoResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v AppSkuInfoResponse) *AppSkuInfoResponse {
 		return &v
 	}).(AppSkuInfoResponsePtrOutput)
 }
 
-// The name of the SKU.
 func (o AppSkuInfoResponseOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v AppSkuInfoResponse) string { return v.Name }).(pulumi.StringOutput)
 }
@@ -265,10 +258,15 @@ func (o AppSkuInfoResponsePtrOutput) ToAppSkuInfoResponsePtrOutputWithContext(ct
 }
 
 func (o AppSkuInfoResponsePtrOutput) Elem() AppSkuInfoResponseOutput {
-	return o.ApplyT(func(v *AppSkuInfoResponse) AppSkuInfoResponse { return *v }).(AppSkuInfoResponseOutput)
+	return o.ApplyT(func(v *AppSkuInfoResponse) AppSkuInfoResponse {
+		if v != nil {
+			return *v
+		}
+		var ret AppSkuInfoResponse
+		return ret
+	}).(AppSkuInfoResponseOutput)
 }
 
-// The name of the SKU.
 func (o AppSkuInfoResponsePtrOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *AppSkuInfoResponse) *string {
 		if v == nil {

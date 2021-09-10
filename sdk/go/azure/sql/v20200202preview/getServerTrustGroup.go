@@ -7,7 +7,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// A server trust group.
 func LookupServerTrustGroup(ctx *pulumi.Context, args *LookupServerTrustGroupArgs, opts ...pulumi.InvokeOption) (*LookupServerTrustGroupResult, error) {
 	var rv LookupServerTrustGroupResult
 	err := ctx.Invoke("azure-native:sql/v20200202preview:getServerTrustGroup", args, &rv, opts...)
@@ -18,24 +17,16 @@ func LookupServerTrustGroup(ctx *pulumi.Context, args *LookupServerTrustGroupArg
 }
 
 type LookupServerTrustGroupArgs struct {
-	// The name of the region where the resource is located.
-	LocationName string `pulumi:"locationName"`
-	// The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
-	ResourceGroupName string `pulumi:"resourceGroupName"`
-	// The name of the server trust group.
+	LocationName         string `pulumi:"locationName"`
+	ResourceGroupName    string `pulumi:"resourceGroupName"`
 	ServerTrustGroupName string `pulumi:"serverTrustGroupName"`
 }
 
 // A server trust group.
 type LookupServerTrustGroupResult struct {
-	// Group members information for the server trust group.
 	GroupMembers []ServerInfoResponse `pulumi:"groupMembers"`
-	// Resource ID.
-	Id string `pulumi:"id"`
-	// Resource name.
-	Name string `pulumi:"name"`
-	// Trust scope of the server trust group.
-	TrustScopes []string `pulumi:"trustScopes"`
-	// Resource type.
-	Type string `pulumi:"type"`
+	Id           string               `pulumi:"id"`
+	Name         string               `pulumi:"name"`
+	TrustScopes  []string             `pulumi:"trustScopes"`
+	Type         string               `pulumi:"type"`
 }

@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.StorageCache.V20210501.Outputs
 {
 
+    /// <summary>
+    /// Active Directory settings used to join a cache to a domain.
+    /// </summary>
     [OutputType]
     public sealed class CacheActiveDirectorySettingsResponse
     {

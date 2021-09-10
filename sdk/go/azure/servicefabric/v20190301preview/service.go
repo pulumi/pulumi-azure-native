@@ -11,40 +11,24 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// The service resource.
 type Service struct {
 	pulumi.CustomResourceState
 
-	// A list that describes the correlation of the service with other services.
-	CorrelationScheme ServiceCorrelationDescriptionResponseArrayOutput `pulumi:"correlationScheme"`
-	// Specifies the move cost for the service.
-	DefaultMoveCost pulumi.StringPtrOutput `pulumi:"defaultMoveCost"`
-	// Azure resource etag.
-	Etag pulumi.StringOutput `pulumi:"etag"`
-	// Azure resource location.
-	Location pulumi.StringPtrOutput `pulumi:"location"`
-	// Azure resource name.
-	Name pulumi.StringOutput `pulumi:"name"`
-	// Describes how the service is partitioned.
-	PartitionDescription pulumi.AnyOutput `pulumi:"partitionDescription"`
-	// The placement constraints as a string. Placement constraints are boolean expressions on node properties and allow for restricting a service to particular nodes based on the service requirements. For example, to place a service on nodes where NodeType is blue specify the following: "NodeColor == blue)".
-	PlacementConstraints pulumi.StringPtrOutput `pulumi:"placementConstraints"`
-	// The current deployment or provisioning state, which only appears in the response
-	ProvisioningState pulumi.StringOutput `pulumi:"provisioningState"`
-	// The kind of service (Stateless or Stateful).
-	ServiceKind pulumi.StringOutput `pulumi:"serviceKind"`
-	// The service load metrics is given as an array of ServiceLoadMetricDescription objects.
-	ServiceLoadMetrics ServiceLoadMetricDescriptionResponseArrayOutput `pulumi:"serviceLoadMetrics"`
-	// The activation Mode of the service package
-	ServicePackageActivationMode pulumi.StringPtrOutput `pulumi:"servicePackageActivationMode"`
-	// A list that describes the correlation of the service with other services.
-	ServicePlacementPolicies ServicePlacementPolicyDescriptionResponseArrayOutput `pulumi:"servicePlacementPolicies"`
-	// The name of the service type
-	ServiceTypeName pulumi.StringPtrOutput `pulumi:"serviceTypeName"`
-	// Azure resource tags.
-	Tags pulumi.StringMapOutput `pulumi:"tags"`
-	// Azure resource type.
-	Type pulumi.StringOutput `pulumi:"type"`
+	CorrelationScheme            ServiceCorrelationDescriptionResponseArrayOutput     `pulumi:"correlationScheme"`
+	DefaultMoveCost              pulumi.StringPtrOutput                               `pulumi:"defaultMoveCost"`
+	Etag                         pulumi.StringOutput                                  `pulumi:"etag"`
+	Location                     pulumi.StringPtrOutput                               `pulumi:"location"`
+	Name                         pulumi.StringOutput                                  `pulumi:"name"`
+	PartitionDescription         pulumi.AnyOutput                                     `pulumi:"partitionDescription"`
+	PlacementConstraints         pulumi.StringPtrOutput                               `pulumi:"placementConstraints"`
+	ProvisioningState            pulumi.StringOutput                                  `pulumi:"provisioningState"`
+	ServiceKind                  pulumi.StringOutput                                  `pulumi:"serviceKind"`
+	ServiceLoadMetrics           ServiceLoadMetricDescriptionResponseArrayOutput      `pulumi:"serviceLoadMetrics"`
+	ServicePackageActivationMode pulumi.StringPtrOutput                               `pulumi:"servicePackageActivationMode"`
+	ServicePlacementPolicies     ServicePlacementPolicyDescriptionResponseArrayOutput `pulumi:"servicePlacementPolicies"`
+	ServiceTypeName              pulumi.StringPtrOutput                               `pulumi:"serviceTypeName"`
+	Tags                         pulumi.StringMapOutput                               `pulumi:"tags"`
+	Type                         pulumi.StringOutput                                  `pulumi:"type"`
 }
 
 // NewService registers a new resource with the given unique name, arguments, and options.
@@ -152,70 +136,40 @@ func (ServiceState) ElementType() reflect.Type {
 }
 
 type serviceArgs struct {
-	// The name of the application resource.
-	ApplicationName string `pulumi:"applicationName"`
-	// The name of the cluster resource.
-	ClusterName string `pulumi:"clusterName"`
-	// A list that describes the correlation of the service with other services.
-	CorrelationScheme []ServiceCorrelationDescription `pulumi:"correlationScheme"`
-	// Specifies the move cost for the service.
-	DefaultMoveCost *string `pulumi:"defaultMoveCost"`
-	// Azure resource location.
-	Location *string `pulumi:"location"`
-	// Describes how the service is partitioned.
-	PartitionDescription interface{} `pulumi:"partitionDescription"`
-	// The placement constraints as a string. Placement constraints are boolean expressions on node properties and allow for restricting a service to particular nodes based on the service requirements. For example, to place a service on nodes where NodeType is blue specify the following: "NodeColor == blue)".
-	PlacementConstraints *string `pulumi:"placementConstraints"`
-	// The name of the resource group.
-	ResourceGroupName string `pulumi:"resourceGroupName"`
-	// The kind of service (Stateless or Stateful).
-	ServiceKind string `pulumi:"serviceKind"`
-	// The service load metrics is given as an array of ServiceLoadMetricDescription objects.
-	ServiceLoadMetrics []ServiceLoadMetricDescription `pulumi:"serviceLoadMetrics"`
-	// The name of the service resource in the format of {applicationName}~{serviceName}.
-	ServiceName *string `pulumi:"serviceName"`
-	// The activation Mode of the service package
-	ServicePackageActivationMode *string `pulumi:"servicePackageActivationMode"`
-	// A list that describes the correlation of the service with other services.
-	ServicePlacementPolicies []ServicePlacementPolicyDescription `pulumi:"servicePlacementPolicies"`
-	// The name of the service type
-	ServiceTypeName *string `pulumi:"serviceTypeName"`
-	// Azure resource tags.
-	Tags map[string]string `pulumi:"tags"`
+	ApplicationName              string                              `pulumi:"applicationName"`
+	ClusterName                  string                              `pulumi:"clusterName"`
+	CorrelationScheme            []ServiceCorrelationDescription     `pulumi:"correlationScheme"`
+	DefaultMoveCost              *string                             `pulumi:"defaultMoveCost"`
+	Location                     *string                             `pulumi:"location"`
+	PartitionDescription         interface{}                         `pulumi:"partitionDescription"`
+	PlacementConstraints         *string                             `pulumi:"placementConstraints"`
+	ResourceGroupName            string                              `pulumi:"resourceGroupName"`
+	ServiceKind                  string                              `pulumi:"serviceKind"`
+	ServiceLoadMetrics           []ServiceLoadMetricDescription      `pulumi:"serviceLoadMetrics"`
+	ServiceName                  *string                             `pulumi:"serviceName"`
+	ServicePackageActivationMode *string                             `pulumi:"servicePackageActivationMode"`
+	ServicePlacementPolicies     []ServicePlacementPolicyDescription `pulumi:"servicePlacementPolicies"`
+	ServiceTypeName              *string                             `pulumi:"serviceTypeName"`
+	Tags                         map[string]string                   `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a Service resource.
 type ServiceArgs struct {
-	// The name of the application resource.
-	ApplicationName pulumi.StringInput
-	// The name of the cluster resource.
-	ClusterName pulumi.StringInput
-	// A list that describes the correlation of the service with other services.
-	CorrelationScheme ServiceCorrelationDescriptionArrayInput
-	// Specifies the move cost for the service.
-	DefaultMoveCost pulumi.StringPtrInput
-	// Azure resource location.
-	Location pulumi.StringPtrInput
-	// Describes how the service is partitioned.
-	PartitionDescription pulumi.Input
-	// The placement constraints as a string. Placement constraints are boolean expressions on node properties and allow for restricting a service to particular nodes based on the service requirements. For example, to place a service on nodes where NodeType is blue specify the following: "NodeColor == blue)".
-	PlacementConstraints pulumi.StringPtrInput
-	// The name of the resource group.
-	ResourceGroupName pulumi.StringInput
-	// The kind of service (Stateless or Stateful).
-	ServiceKind pulumi.StringInput
-	// The service load metrics is given as an array of ServiceLoadMetricDescription objects.
-	ServiceLoadMetrics ServiceLoadMetricDescriptionArrayInput
-	// The name of the service resource in the format of {applicationName}~{serviceName}.
-	ServiceName pulumi.StringPtrInput
-	// The activation Mode of the service package
+	ApplicationName              pulumi.StringInput
+	ClusterName                  pulumi.StringInput
+	CorrelationScheme            ServiceCorrelationDescriptionArrayInput
+	DefaultMoveCost              pulumi.StringPtrInput
+	Location                     pulumi.StringPtrInput
+	PartitionDescription         pulumi.Input
+	PlacementConstraints         pulumi.StringPtrInput
+	ResourceGroupName            pulumi.StringInput
+	ServiceKind                  pulumi.StringInput
+	ServiceLoadMetrics           ServiceLoadMetricDescriptionArrayInput
+	ServiceName                  pulumi.StringPtrInput
 	ServicePackageActivationMode pulumi.StringPtrInput
-	// A list that describes the correlation of the service with other services.
-	ServicePlacementPolicies ServicePlacementPolicyDescriptionArrayInput
-	// The name of the service type
-	ServiceTypeName pulumi.StringPtrInput
-	// Azure resource tags.
-	Tags pulumi.StringMapInput
+	ServicePlacementPolicies     ServicePlacementPolicyDescriptionArrayInput
+	ServiceTypeName              pulumi.StringPtrInput
+	Tags                         pulumi.StringMapInput
 }
 
 func (ServiceArgs) ElementType() reflect.Type {
@@ -241,9 +195,7 @@ func (i *Service) ToServiceOutputWithContext(ctx context.Context) ServiceOutput 
 	return pulumi.ToOutputWithContext(ctx, i).(ServiceOutput)
 }
 
-type ServiceOutput struct {
-	*pulumi.OutputState
-}
+type ServiceOutput struct{ *pulumi.OutputState }
 
 func (ServiceOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*Service)(nil))

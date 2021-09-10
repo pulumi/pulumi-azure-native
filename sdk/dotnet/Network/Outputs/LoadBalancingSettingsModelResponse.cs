@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.Network.Outputs
 {
 
+    /// <summary>
+    /// Load balancing settings for a backend pool
+    /// </summary>
     [OutputType]
     public sealed class LoadBalancingSettingsModelResponse
     {

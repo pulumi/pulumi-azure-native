@@ -7,7 +7,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// The StorSimple Manager
 func LookupManager(ctx *pulumi.Context, args *LookupManagerArgs, opts ...pulumi.InvokeOption) (*LookupManagerResult, error) {
 	var rv LookupManagerResult
 	err := ctx.Invoke("azure-native:storsimple/v20161001:getManager", args, &rv, opts...)
@@ -18,30 +17,19 @@ func LookupManager(ctx *pulumi.Context, args *LookupManagerArgs, opts ...pulumi.
 }
 
 type LookupManagerArgs struct {
-	// The manager name
-	ManagerName string `pulumi:"managerName"`
-	// The resource group name
+	ManagerName       string `pulumi:"managerName"`
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 }
 
 // The StorSimple Manager
 type LookupManagerResult struct {
-	// Specifies if the Manager is Garda or Helsinki
 	CisIntrinsicSettings *ManagerIntrinsicSettingsResponse `pulumi:"cisIntrinsicSettings"`
-	// ETag of the Manager
-	Etag *string `pulumi:"etag"`
-	// The Resource Id
-	Id string `pulumi:"id"`
-	// The Geo location of the Manager
-	Location string `pulumi:"location"`
-	// The Resource Name
-	Name string `pulumi:"name"`
-	// Specifies the state of the resource as it is getting provisioned. Value of "Succeeded" means the Manager was successfully created
-	ProvisioningState string `pulumi:"provisioningState"`
-	// Specifies the Sku
-	Sku *ManagerSkuResponse `pulumi:"sku"`
-	// Tags attached to the Manager
-	Tags map[string]string `pulumi:"tags"`
-	// The Resource type
-	Type string `pulumi:"type"`
+	Etag                 *string                           `pulumi:"etag"`
+	Id                   string                            `pulumi:"id"`
+	Location             string                            `pulumi:"location"`
+	Name                 string                            `pulumi:"name"`
+	ProvisioningState    string                            `pulumi:"provisioningState"`
+	Sku                  *ManagerSkuResponse               `pulumi:"sku"`
+	Tags                 map[string]string                 `pulumi:"tags"`
+	Type                 string                            `pulumi:"type"`
 }

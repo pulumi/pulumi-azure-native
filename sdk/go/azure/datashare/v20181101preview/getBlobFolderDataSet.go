@@ -7,7 +7,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// An Azure storage blob folder data set.
 func LookupBlobFolderDataSet(ctx *pulumi.Context, args *LookupBlobFolderDataSetArgs, opts ...pulumi.InvokeOption) (*LookupBlobFolderDataSetResult, error) {
 	var rv LookupBlobFolderDataSetResult
 	err := ctx.Invoke("azure-native:datashare/v20181101preview:getBlobFolderDataSet", args, &rv, opts...)
@@ -18,37 +17,22 @@ func LookupBlobFolderDataSet(ctx *pulumi.Context, args *LookupBlobFolderDataSetA
 }
 
 type LookupBlobFolderDataSetArgs struct {
-	// The name of the share account.
-	AccountName string `pulumi:"accountName"`
-	// The name of the dataSet.
-	DataSetName string `pulumi:"dataSetName"`
-	// The resource group name.
+	AccountName       string `pulumi:"accountName"`
+	DataSetName       string `pulumi:"dataSetName"`
 	ResourceGroupName string `pulumi:"resourceGroupName"`
-	// The name of the share.
-	ShareName string `pulumi:"shareName"`
+	ShareName         string `pulumi:"shareName"`
 }
 
 // An Azure storage blob folder data set.
 type LookupBlobFolderDataSetResult struct {
-	// Container that has the file path.
-	ContainerName string `pulumi:"containerName"`
-	// Unique id for identifying a data set resource
-	DataSetId string `pulumi:"dataSetId"`
-	// The resource id of the azure resource
-	Id string `pulumi:"id"`
-	// Kind of data set.
-	// Expected value is 'BlobFolder'.
-	Kind string `pulumi:"kind"`
-	// Name of the azure resource
-	Name string `pulumi:"name"`
-	// Prefix for blob folder
-	Prefix string `pulumi:"prefix"`
-	// Resource group of storage account
-	ResourceGroup string `pulumi:"resourceGroup"`
-	// Storage account name of the source data set
+	ContainerName      string `pulumi:"containerName"`
+	DataSetId          string `pulumi:"dataSetId"`
+	Id                 string `pulumi:"id"`
+	Kind               string `pulumi:"kind"`
+	Name               string `pulumi:"name"`
+	Prefix             string `pulumi:"prefix"`
+	ResourceGroup      string `pulumi:"resourceGroup"`
 	StorageAccountName string `pulumi:"storageAccountName"`
-	// Subscription id of storage account
-	SubscriptionId string `pulumi:"subscriptionId"`
-	// Type of the azure resource
-	Type string `pulumi:"type"`
+	SubscriptionId     string `pulumi:"subscriptionId"`
+	Type               string `pulumi:"type"`
 }

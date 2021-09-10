@@ -11,26 +11,17 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Specifies information about the Shared Image Gallery that you want to create or update.
 type Gallery struct {
 	pulumi.CustomResourceState
 
-	// The description of this Shared Image Gallery resource. This property is updatable.
-	Description pulumi.StringPtrOutput `pulumi:"description"`
-	// Describes the gallery unique name.
-	Identifier GalleryIdentifierResponsePtrOutput `pulumi:"identifier"`
-	// Resource location
-	Location pulumi.StringOutput `pulumi:"location"`
-	// Resource name
-	Name pulumi.StringOutput `pulumi:"name"`
-	// The provisioning state, which only appears in the response.
-	ProvisioningState pulumi.StringOutput `pulumi:"provisioningState"`
-	// Profile for gallery sharing to subscription or tenant
-	SharingProfile SharingProfileResponsePtrOutput `pulumi:"sharingProfile"`
-	// Resource tags
-	Tags pulumi.StringMapOutput `pulumi:"tags"`
-	// Resource type
-	Type pulumi.StringOutput `pulumi:"type"`
+	Description       pulumi.StringPtrOutput             `pulumi:"description"`
+	Identifier        GalleryIdentifierResponsePtrOutput `pulumi:"identifier"`
+	Location          pulumi.StringOutput                `pulumi:"location"`
+	Name              pulumi.StringOutput                `pulumi:"name"`
+	ProvisioningState pulumi.StringOutput                `pulumi:"provisioningState"`
+	SharingProfile    SharingProfileResponsePtrOutput    `pulumi:"sharingProfile"`
+	Tags              pulumi.StringMapOutput             `pulumi:"tags"`
+	Type              pulumi.StringOutput                `pulumi:"type"`
 }
 
 // NewGallery registers a new resource with the given unique name, arguments, and options.
@@ -117,34 +108,22 @@ func (GalleryState) ElementType() reflect.Type {
 }
 
 type galleryArgs struct {
-	// The description of this Shared Image Gallery resource. This property is updatable.
-	Description *string `pulumi:"description"`
-	// The name of the Shared Image Gallery. The allowed characters are alphabets and numbers with dots and periods allowed in the middle. The maximum length is 80 characters.
-	GalleryName *string `pulumi:"galleryName"`
-	// Resource location
-	Location *string `pulumi:"location"`
-	// The name of the resource group.
-	ResourceGroupName string `pulumi:"resourceGroupName"`
-	// Profile for gallery sharing to subscription or tenant
-	SharingProfile *SharingProfile `pulumi:"sharingProfile"`
-	// Resource tags
-	Tags map[string]string `pulumi:"tags"`
+	Description       *string           `pulumi:"description"`
+	GalleryName       *string           `pulumi:"galleryName"`
+	Location          *string           `pulumi:"location"`
+	ResourceGroupName string            `pulumi:"resourceGroupName"`
+	SharingProfile    *SharingProfile   `pulumi:"sharingProfile"`
+	Tags              map[string]string `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a Gallery resource.
 type GalleryArgs struct {
-	// The description of this Shared Image Gallery resource. This property is updatable.
-	Description pulumi.StringPtrInput
-	// The name of the Shared Image Gallery. The allowed characters are alphabets and numbers with dots and periods allowed in the middle. The maximum length is 80 characters.
-	GalleryName pulumi.StringPtrInput
-	// Resource location
-	Location pulumi.StringPtrInput
-	// The name of the resource group.
+	Description       pulumi.StringPtrInput
+	GalleryName       pulumi.StringPtrInput
+	Location          pulumi.StringPtrInput
 	ResourceGroupName pulumi.StringInput
-	// Profile for gallery sharing to subscription or tenant
-	SharingProfile SharingProfilePtrInput
-	// Resource tags
-	Tags pulumi.StringMapInput
+	SharingProfile    SharingProfilePtrInput
+	Tags              pulumi.StringMapInput
 }
 
 func (GalleryArgs) ElementType() reflect.Type {
@@ -170,9 +149,7 @@ func (i *Gallery) ToGalleryOutputWithContext(ctx context.Context) GalleryOutput 
 	return pulumi.ToOutputWithContext(ctx, i).(GalleryOutput)
 }
 
-type GalleryOutput struct {
-	*pulumi.OutputState
-}
+type GalleryOutput struct{ *pulumi.OutputState }
 
 func (GalleryOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*Gallery)(nil))

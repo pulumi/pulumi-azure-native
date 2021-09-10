@@ -7,7 +7,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// The properties of a response to source upload request.
 func ListRegistryBuildSourceUploadUrl(ctx *pulumi.Context, args *ListRegistryBuildSourceUploadUrlArgs, opts ...pulumi.InvokeOption) (*ListRegistryBuildSourceUploadUrlResult, error) {
 	var rv ListRegistryBuildSourceUploadUrlResult
 	err := ctx.Invoke("azure-native:containerregistry/v20190401:listRegistryBuildSourceUploadUrl", args, &rv, opts...)
@@ -18,16 +17,12 @@ func ListRegistryBuildSourceUploadUrl(ctx *pulumi.Context, args *ListRegistryBui
 }
 
 type ListRegistryBuildSourceUploadUrlArgs struct {
-	// The name of the container registry.
-	RegistryName string `pulumi:"registryName"`
-	// The name of the resource group to which the container registry belongs.
+	RegistryName      string `pulumi:"registryName"`
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 }
 
 // The properties of a response to source upload request.
 type ListRegistryBuildSourceUploadUrlResult struct {
-	// The relative path to the source. This is used to submit the subsequent queue build request.
 	RelativePath *string `pulumi:"relativePath"`
-	// The URL where the client can upload the source.
-	UploadUrl *string `pulumi:"uploadUrl"`
+	UploadUrl    *string `pulumi:"uploadUrl"`
 }

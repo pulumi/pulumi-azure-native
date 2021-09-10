@@ -11,24 +11,16 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Definition of the connection type.
 type ConnectionType struct {
 	pulumi.CustomResourceState
 
-	// Gets the creation time.
-	CreationTime pulumi.StringOutput `pulumi:"creationTime"`
-	// Gets or sets the description.
-	Description pulumi.StringPtrOutput `pulumi:"description"`
-	// Gets the field definitions of the connection type.
+	CreationTime     pulumi.StringOutput              `pulumi:"creationTime"`
+	Description      pulumi.StringPtrOutput           `pulumi:"description"`
 	FieldDefinitions FieldDefinitionResponseMapOutput `pulumi:"fieldDefinitions"`
-	// Gets or sets a Boolean value to indicate if the connection type is global.
-	IsGlobal pulumi.BoolPtrOutput `pulumi:"isGlobal"`
-	// Gets or sets the last modified time.
-	LastModifiedTime pulumi.StringPtrOutput `pulumi:"lastModifiedTime"`
-	// Gets the name of the connection type.
-	Name pulumi.StringOutput `pulumi:"name"`
-	// Resource type
-	Type pulumi.StringOutput `pulumi:"type"`
+	IsGlobal         pulumi.BoolPtrOutput             `pulumi:"isGlobal"`
+	LastModifiedTime pulumi.StringPtrOutput           `pulumi:"lastModifiedTime"`
+	Name             pulumi.StringOutput              `pulumi:"name"`
+	Type             pulumi.StringOutput              `pulumi:"type"`
 }
 
 // NewConnectionType registers a new resource with the given unique name, arguments, and options.
@@ -106,34 +98,22 @@ func (ConnectionTypeState) ElementType() reflect.Type {
 }
 
 type connectionTypeArgs struct {
-	// The name of the automation account.
-	AutomationAccountName string `pulumi:"automationAccountName"`
-	// The parameters supplied to the create or update connection type operation.
-	ConnectionTypeName *string `pulumi:"connectionTypeName"`
-	// Gets or sets the field definitions of the connection type.
-	FieldDefinitions map[string]FieldDefinition `pulumi:"fieldDefinitions"`
-	// Gets or sets a Boolean value to indicate if the connection type is global.
-	IsGlobal *bool `pulumi:"isGlobal"`
-	// Gets or sets the name of the connection type.
-	Name string `pulumi:"name"`
-	// Name of an Azure Resource group.
-	ResourceGroupName string `pulumi:"resourceGroupName"`
+	AutomationAccountName string                     `pulumi:"automationAccountName"`
+	ConnectionTypeName    *string                    `pulumi:"connectionTypeName"`
+	FieldDefinitions      map[string]FieldDefinition `pulumi:"fieldDefinitions"`
+	IsGlobal              *bool                      `pulumi:"isGlobal"`
+	Name                  string                     `pulumi:"name"`
+	ResourceGroupName     string                     `pulumi:"resourceGroupName"`
 }
 
 // The set of arguments for constructing a ConnectionType resource.
 type ConnectionTypeArgs struct {
-	// The name of the automation account.
 	AutomationAccountName pulumi.StringInput
-	// The parameters supplied to the create or update connection type operation.
-	ConnectionTypeName pulumi.StringPtrInput
-	// Gets or sets the field definitions of the connection type.
-	FieldDefinitions FieldDefinitionMapInput
-	// Gets or sets a Boolean value to indicate if the connection type is global.
-	IsGlobal pulumi.BoolPtrInput
-	// Gets or sets the name of the connection type.
-	Name pulumi.StringInput
-	// Name of an Azure Resource group.
-	ResourceGroupName pulumi.StringInput
+	ConnectionTypeName    pulumi.StringPtrInput
+	FieldDefinitions      FieldDefinitionMapInput
+	IsGlobal              pulumi.BoolPtrInput
+	Name                  pulumi.StringInput
+	ResourceGroupName     pulumi.StringInput
 }
 
 func (ConnectionTypeArgs) ElementType() reflect.Type {
@@ -159,9 +139,7 @@ func (i *ConnectionType) ToConnectionTypeOutputWithContext(ctx context.Context) 
 	return pulumi.ToOutputWithContext(ctx, i).(ConnectionTypeOutput)
 }
 
-type ConnectionTypeOutput struct {
-	*pulumi.OutputState
-}
+type ConnectionTypeOutput struct{ *pulumi.OutputState }
 
 func (ConnectionTypeOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*ConnectionType)(nil))

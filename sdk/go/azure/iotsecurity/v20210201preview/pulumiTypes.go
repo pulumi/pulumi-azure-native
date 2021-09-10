@@ -10,9 +10,7 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// MDE integration configuration
 type DefenderSettingsPropertiesMdeIntegration struct {
-	// Integration status
 	Status string `pulumi:"status"`
 }
 
@@ -27,9 +25,7 @@ type DefenderSettingsPropertiesMdeIntegrationInput interface {
 	ToDefenderSettingsPropertiesMdeIntegrationOutputWithContext(context.Context) DefenderSettingsPropertiesMdeIntegrationOutput
 }
 
-// MDE integration configuration
 type DefenderSettingsPropertiesMdeIntegrationArgs struct {
-	// Integration status
 	Status pulumi.StringInput `pulumi:"status"`
 }
 
@@ -86,7 +82,6 @@ func (i *defenderSettingsPropertiesMdeIntegrationPtrType) ToDefenderSettingsProp
 	return pulumi.ToOutputWithContext(ctx, i).(DefenderSettingsPropertiesMdeIntegrationPtrOutput)
 }
 
-// MDE integration configuration
 type DefenderSettingsPropertiesMdeIntegrationOutput struct{ *pulumi.OutputState }
 
 func (DefenderSettingsPropertiesMdeIntegrationOutput) ElementType() reflect.Type {
@@ -106,12 +101,11 @@ func (o DefenderSettingsPropertiesMdeIntegrationOutput) ToDefenderSettingsProper
 }
 
 func (o DefenderSettingsPropertiesMdeIntegrationOutput) ToDefenderSettingsPropertiesMdeIntegrationPtrOutputWithContext(ctx context.Context) DefenderSettingsPropertiesMdeIntegrationPtrOutput {
-	return o.ApplyT(func(v DefenderSettingsPropertiesMdeIntegration) *DefenderSettingsPropertiesMdeIntegration {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v DefenderSettingsPropertiesMdeIntegration) *DefenderSettingsPropertiesMdeIntegration {
 		return &v
 	}).(DefenderSettingsPropertiesMdeIntegrationPtrOutput)
 }
 
-// Integration status
 func (o DefenderSettingsPropertiesMdeIntegrationOutput) Status() pulumi.StringOutput {
 	return o.ApplyT(func(v DefenderSettingsPropertiesMdeIntegration) string { return v.Status }).(pulumi.StringOutput)
 }
@@ -131,10 +125,15 @@ func (o DefenderSettingsPropertiesMdeIntegrationPtrOutput) ToDefenderSettingsPro
 }
 
 func (o DefenderSettingsPropertiesMdeIntegrationPtrOutput) Elem() DefenderSettingsPropertiesMdeIntegrationOutput {
-	return o.ApplyT(func(v *DefenderSettingsPropertiesMdeIntegration) DefenderSettingsPropertiesMdeIntegration { return *v }).(DefenderSettingsPropertiesMdeIntegrationOutput)
+	return o.ApplyT(func(v *DefenderSettingsPropertiesMdeIntegration) DefenderSettingsPropertiesMdeIntegration {
+		if v != nil {
+			return *v
+		}
+		var ret DefenderSettingsPropertiesMdeIntegration
+		return ret
+	}).(DefenderSettingsPropertiesMdeIntegrationOutput)
 }
 
-// Integration status
 func (o DefenderSettingsPropertiesMdeIntegrationPtrOutput) Status() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *DefenderSettingsPropertiesMdeIntegration) *string {
 		if v == nil {
@@ -144,9 +143,7 @@ func (o DefenderSettingsPropertiesMdeIntegrationPtrOutput) Status() pulumi.Strin
 	}).(pulumi.StringPtrOutput)
 }
 
-// MDE integration configuration
 type DefenderSettingsPropertiesResponseMdeIntegration struct {
-	// Integration status
 	Status string `pulumi:"status"`
 }
 
@@ -161,9 +158,7 @@ type DefenderSettingsPropertiesResponseMdeIntegrationInput interface {
 	ToDefenderSettingsPropertiesResponseMdeIntegrationOutputWithContext(context.Context) DefenderSettingsPropertiesResponseMdeIntegrationOutput
 }
 
-// MDE integration configuration
 type DefenderSettingsPropertiesResponseMdeIntegrationArgs struct {
-	// Integration status
 	Status pulumi.StringInput `pulumi:"status"`
 }
 
@@ -220,7 +215,6 @@ func (i *defenderSettingsPropertiesResponseMdeIntegrationPtrType) ToDefenderSett
 	return pulumi.ToOutputWithContext(ctx, i).(DefenderSettingsPropertiesResponseMdeIntegrationPtrOutput)
 }
 
-// MDE integration configuration
 type DefenderSettingsPropertiesResponseMdeIntegrationOutput struct{ *pulumi.OutputState }
 
 func (DefenderSettingsPropertiesResponseMdeIntegrationOutput) ElementType() reflect.Type {
@@ -240,12 +234,11 @@ func (o DefenderSettingsPropertiesResponseMdeIntegrationOutput) ToDefenderSettin
 }
 
 func (o DefenderSettingsPropertiesResponseMdeIntegrationOutput) ToDefenderSettingsPropertiesResponseMdeIntegrationPtrOutputWithContext(ctx context.Context) DefenderSettingsPropertiesResponseMdeIntegrationPtrOutput {
-	return o.ApplyT(func(v DefenderSettingsPropertiesResponseMdeIntegration) *DefenderSettingsPropertiesResponseMdeIntegration {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v DefenderSettingsPropertiesResponseMdeIntegration) *DefenderSettingsPropertiesResponseMdeIntegration {
 		return &v
 	}).(DefenderSettingsPropertiesResponseMdeIntegrationPtrOutput)
 }
 
-// Integration status
 func (o DefenderSettingsPropertiesResponseMdeIntegrationOutput) Status() pulumi.StringOutput {
 	return o.ApplyT(func(v DefenderSettingsPropertiesResponseMdeIntegration) string { return v.Status }).(pulumi.StringOutput)
 }
@@ -266,11 +259,14 @@ func (o DefenderSettingsPropertiesResponseMdeIntegrationPtrOutput) ToDefenderSet
 
 func (o DefenderSettingsPropertiesResponseMdeIntegrationPtrOutput) Elem() DefenderSettingsPropertiesResponseMdeIntegrationOutput {
 	return o.ApplyT(func(v *DefenderSettingsPropertiesResponseMdeIntegration) DefenderSettingsPropertiesResponseMdeIntegration {
-		return *v
+		if v != nil {
+			return *v
+		}
+		var ret DefenderSettingsPropertiesResponseMdeIntegration
+		return ret
 	}).(DefenderSettingsPropertiesResponseMdeIntegrationOutput)
 }
 
-// Integration status
 func (o DefenderSettingsPropertiesResponseMdeIntegrationPtrOutput) Status() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *DefenderSettingsPropertiesResponseMdeIntegration) *string {
 		if v == nil {
@@ -280,19 +276,12 @@ func (o DefenderSettingsPropertiesResponseMdeIntegrationPtrOutput) Status() pulu
 	}).(pulumi.StringPtrOutput)
 }
 
-// Metadata pertaining to creation and last modification of the resource.
 type SystemDataResponse struct {
-	// The timestamp of resource creation (UTC).
-	CreatedAt *string `pulumi:"createdAt"`
-	// The identity that created the resource.
-	CreatedBy *string `pulumi:"createdBy"`
-	// The type of identity that created the resource.
-	CreatedByType *string `pulumi:"createdByType"`
-	// The timestamp of resource last modification (UTC)
-	LastModifiedAt *string `pulumi:"lastModifiedAt"`
-	// The identity that last modified the resource.
-	LastModifiedBy *string `pulumi:"lastModifiedBy"`
-	// The type of identity that last modified the resource.
+	CreatedAt          *string `pulumi:"createdAt"`
+	CreatedBy          *string `pulumi:"createdBy"`
+	CreatedByType      *string `pulumi:"createdByType"`
+	LastModifiedAt     *string `pulumi:"lastModifiedAt"`
+	LastModifiedBy     *string `pulumi:"lastModifiedBy"`
 	LastModifiedByType *string `pulumi:"lastModifiedByType"`
 }
 
@@ -307,19 +296,12 @@ type SystemDataResponseInput interface {
 	ToSystemDataResponseOutputWithContext(context.Context) SystemDataResponseOutput
 }
 
-// Metadata pertaining to creation and last modification of the resource.
 type SystemDataResponseArgs struct {
-	// The timestamp of resource creation (UTC).
-	CreatedAt pulumi.StringPtrInput `pulumi:"createdAt"`
-	// The identity that created the resource.
-	CreatedBy pulumi.StringPtrInput `pulumi:"createdBy"`
-	// The type of identity that created the resource.
-	CreatedByType pulumi.StringPtrInput `pulumi:"createdByType"`
-	// The timestamp of resource last modification (UTC)
-	LastModifiedAt pulumi.StringPtrInput `pulumi:"lastModifiedAt"`
-	// The identity that last modified the resource.
-	LastModifiedBy pulumi.StringPtrInput `pulumi:"lastModifiedBy"`
-	// The type of identity that last modified the resource.
+	CreatedAt          pulumi.StringPtrInput `pulumi:"createdAt"`
+	CreatedBy          pulumi.StringPtrInput `pulumi:"createdBy"`
+	CreatedByType      pulumi.StringPtrInput `pulumi:"createdByType"`
+	LastModifiedAt     pulumi.StringPtrInput `pulumi:"lastModifiedAt"`
+	LastModifiedBy     pulumi.StringPtrInput `pulumi:"lastModifiedBy"`
 	LastModifiedByType pulumi.StringPtrInput `pulumi:"lastModifiedByType"`
 }
 
@@ -376,7 +358,6 @@ func (i *systemDataResponsePtrType) ToSystemDataResponsePtrOutputWithContext(ctx
 	return pulumi.ToOutputWithContext(ctx, i).(SystemDataResponsePtrOutput)
 }
 
-// Metadata pertaining to creation and last modification of the resource.
 type SystemDataResponseOutput struct{ *pulumi.OutputState }
 
 func (SystemDataResponseOutput) ElementType() reflect.Type {
@@ -396,37 +377,31 @@ func (o SystemDataResponseOutput) ToSystemDataResponsePtrOutput() SystemDataResp
 }
 
 func (o SystemDataResponseOutput) ToSystemDataResponsePtrOutputWithContext(ctx context.Context) SystemDataResponsePtrOutput {
-	return o.ApplyT(func(v SystemDataResponse) *SystemDataResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v SystemDataResponse) *SystemDataResponse {
 		return &v
 	}).(SystemDataResponsePtrOutput)
 }
 
-// The timestamp of resource creation (UTC).
 func (o SystemDataResponseOutput) CreatedAt() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SystemDataResponse) *string { return v.CreatedAt }).(pulumi.StringPtrOutput)
 }
 
-// The identity that created the resource.
 func (o SystemDataResponseOutput) CreatedBy() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SystemDataResponse) *string { return v.CreatedBy }).(pulumi.StringPtrOutput)
 }
 
-// The type of identity that created the resource.
 func (o SystemDataResponseOutput) CreatedByType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SystemDataResponse) *string { return v.CreatedByType }).(pulumi.StringPtrOutput)
 }
 
-// The timestamp of resource last modification (UTC)
 func (o SystemDataResponseOutput) LastModifiedAt() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SystemDataResponse) *string { return v.LastModifiedAt }).(pulumi.StringPtrOutput)
 }
 
-// The identity that last modified the resource.
 func (o SystemDataResponseOutput) LastModifiedBy() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SystemDataResponse) *string { return v.LastModifiedBy }).(pulumi.StringPtrOutput)
 }
 
-// The type of identity that last modified the resource.
 func (o SystemDataResponseOutput) LastModifiedByType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SystemDataResponse) *string { return v.LastModifiedByType }).(pulumi.StringPtrOutput)
 }
@@ -446,10 +421,15 @@ func (o SystemDataResponsePtrOutput) ToSystemDataResponsePtrOutputWithContext(ct
 }
 
 func (o SystemDataResponsePtrOutput) Elem() SystemDataResponseOutput {
-	return o.ApplyT(func(v *SystemDataResponse) SystemDataResponse { return *v }).(SystemDataResponseOutput)
+	return o.ApplyT(func(v *SystemDataResponse) SystemDataResponse {
+		if v != nil {
+			return *v
+		}
+		var ret SystemDataResponse
+		return ret
+	}).(SystemDataResponseOutput)
 }
 
-// The timestamp of resource creation (UTC).
 func (o SystemDataResponsePtrOutput) CreatedAt() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SystemDataResponse) *string {
 		if v == nil {
@@ -459,7 +439,6 @@ func (o SystemDataResponsePtrOutput) CreatedAt() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The identity that created the resource.
 func (o SystemDataResponsePtrOutput) CreatedBy() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SystemDataResponse) *string {
 		if v == nil {
@@ -469,7 +448,6 @@ func (o SystemDataResponsePtrOutput) CreatedBy() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The type of identity that created the resource.
 func (o SystemDataResponsePtrOutput) CreatedByType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SystemDataResponse) *string {
 		if v == nil {
@@ -479,7 +457,6 @@ func (o SystemDataResponsePtrOutput) CreatedByType() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The timestamp of resource last modification (UTC)
 func (o SystemDataResponsePtrOutput) LastModifiedAt() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SystemDataResponse) *string {
 		if v == nil {
@@ -489,7 +466,6 @@ func (o SystemDataResponsePtrOutput) LastModifiedAt() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The identity that last modified the resource.
 func (o SystemDataResponsePtrOutput) LastModifiedBy() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SystemDataResponse) *string {
 		if v == nil {
@@ -499,7 +475,6 @@ func (o SystemDataResponsePtrOutput) LastModifiedBy() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The type of identity that last modified the resource.
 func (o SystemDataResponsePtrOutput) LastModifiedByType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SystemDataResponse) *string {
 		if v == nil {

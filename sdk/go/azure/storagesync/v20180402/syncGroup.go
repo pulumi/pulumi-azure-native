@@ -11,18 +11,13 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Sync Group object.
 type SyncGroup struct {
 	pulumi.CustomResourceState
 
-	// The name of the resource
-	Name pulumi.StringOutput `pulumi:"name"`
-	// Sync group status
-	SyncGroupStatus pulumi.StringOutput `pulumi:"syncGroupStatus"`
-	// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
-	Type pulumi.StringOutput `pulumi:"type"`
-	// Unique Id
-	UniqueId pulumi.StringPtrOutput `pulumi:"uniqueId"`
+	Name            pulumi.StringOutput    `pulumi:"name"`
+	SyncGroupStatus pulumi.StringOutput    `pulumi:"syncGroupStatus"`
+	Type            pulumi.StringOutput    `pulumi:"type"`
+	UniqueId        pulumi.StringPtrOutput `pulumi:"uniqueId"`
 }
 
 // NewSyncGroup registers a new resource with the given unique name, arguments, and options.
@@ -136,30 +131,20 @@ func (SyncGroupState) ElementType() reflect.Type {
 }
 
 type syncGroupArgs struct {
-	// Required. Gets or sets the location of the resource. This will be one of the supported and registered Azure Geo Regions (e.g. West US, East US, Southeast Asia, etc.). The geo region of a resource cannot be changed once it is created, but if an identical geo region is specified on update, the request will succeed.
-	Location *string `pulumi:"location"`
-	// The name of the resource group. The name is case insensitive.
-	ResourceGroupName string `pulumi:"resourceGroupName"`
-	// Name of Storage Sync Service resource.
-	StorageSyncServiceName string `pulumi:"storageSyncServiceName"`
-	// Name of Sync Group resource.
-	SyncGroupName *string `pulumi:"syncGroupName"`
-	// Gets or sets a list of key value pairs that describe the resource. These tags can be used for viewing and grouping this resource (across resource groups). A maximum of 15 tags can be provided for a resource. Each tag must have a key with a length no greater than 128 characters and a value with a length no greater than 256 characters.
-	Tags map[string]string `pulumi:"tags"`
+	Location               *string           `pulumi:"location"`
+	ResourceGroupName      string            `pulumi:"resourceGroupName"`
+	StorageSyncServiceName string            `pulumi:"storageSyncServiceName"`
+	SyncGroupName          *string           `pulumi:"syncGroupName"`
+	Tags                   map[string]string `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a SyncGroup resource.
 type SyncGroupArgs struct {
-	// Required. Gets or sets the location of the resource. This will be one of the supported and registered Azure Geo Regions (e.g. West US, East US, Southeast Asia, etc.). The geo region of a resource cannot be changed once it is created, but if an identical geo region is specified on update, the request will succeed.
-	Location pulumi.StringPtrInput
-	// The name of the resource group. The name is case insensitive.
-	ResourceGroupName pulumi.StringInput
-	// Name of Storage Sync Service resource.
+	Location               pulumi.StringPtrInput
+	ResourceGroupName      pulumi.StringInput
 	StorageSyncServiceName pulumi.StringInput
-	// Name of Sync Group resource.
-	SyncGroupName pulumi.StringPtrInput
-	// Gets or sets a list of key value pairs that describe the resource. These tags can be used for viewing and grouping this resource (across resource groups). A maximum of 15 tags can be provided for a resource. Each tag must have a key with a length no greater than 128 characters and a value with a length no greater than 256 characters.
-	Tags pulumi.StringMapInput
+	SyncGroupName          pulumi.StringPtrInput
+	Tags                   pulumi.StringMapInput
 }
 
 func (SyncGroupArgs) ElementType() reflect.Type {
@@ -185,9 +170,7 @@ func (i *SyncGroup) ToSyncGroupOutputWithContext(ctx context.Context) SyncGroupO
 	return pulumi.ToOutputWithContext(ctx, i).(SyncGroupOutput)
 }
 
-type SyncGroupOutput struct {
-	*pulumi.OutputState
-}
+type SyncGroupOutput struct{ *pulumi.OutputState }
 
 func (SyncGroupOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*SyncGroup)(nil))

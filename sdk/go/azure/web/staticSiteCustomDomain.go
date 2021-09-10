@@ -160,9 +160,7 @@ func (i *StaticSiteCustomDomain) ToStaticSiteCustomDomainOutputWithContext(ctx c
 	return pulumi.ToOutputWithContext(ctx, i).(StaticSiteCustomDomainOutput)
 }
 
-type StaticSiteCustomDomainOutput struct {
-	*pulumi.OutputState
-}
+type StaticSiteCustomDomainOutput struct{ *pulumi.OutputState }
 
 func (StaticSiteCustomDomainOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*StaticSiteCustomDomain)(nil))

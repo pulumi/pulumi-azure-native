@@ -11,22 +11,15 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Cache details.
 type Cache struct {
 	pulumi.CustomResourceState
 
-	// Runtime connection string to cache
-	ConnectionString pulumi.StringOutput `pulumi:"connectionString"`
-	// Cache description
-	Description pulumi.StringPtrOutput `pulumi:"description"`
-	// Resource name.
-	Name pulumi.StringOutput `pulumi:"name"`
-	// Original uri of entity in external system cache points to
-	ResourceId pulumi.StringPtrOutput `pulumi:"resourceId"`
-	// Resource type for API Management resource.
-	Type pulumi.StringOutput `pulumi:"type"`
-	// Location identifier to use cache from (should be either 'default' or valid Azure region identifier)
-	UseFromLocation pulumi.StringOutput `pulumi:"useFromLocation"`
+	ConnectionString pulumi.StringOutput    `pulumi:"connectionString"`
+	Description      pulumi.StringPtrOutput `pulumi:"description"`
+	Name             pulumi.StringOutput    `pulumi:"name"`
+	ResourceId       pulumi.StringPtrOutput `pulumi:"resourceId"`
+	Type             pulumi.StringOutput    `pulumi:"type"`
+	UseFromLocation  pulumi.StringOutput    `pulumi:"useFromLocation"`
 }
 
 // NewCache registers a new resource with the given unique name, arguments, and options.
@@ -128,38 +121,24 @@ func (CacheState) ElementType() reflect.Type {
 }
 
 type cacheArgs struct {
-	// Identifier of the Cache entity. Cache identifier (should be either 'default' or valid Azure region identifier).
-	CacheId *string `pulumi:"cacheId"`
-	// Runtime connection string to cache
-	ConnectionString string `pulumi:"connectionString"`
-	// Cache description
-	Description *string `pulumi:"description"`
-	// The name of the resource group.
-	ResourceGroupName string `pulumi:"resourceGroupName"`
-	// Original uri of entity in external system cache points to
-	ResourceId *string `pulumi:"resourceId"`
-	// The name of the API Management service.
-	ServiceName string `pulumi:"serviceName"`
-	// Location identifier to use cache from (should be either 'default' or valid Azure region identifier)
-	UseFromLocation string `pulumi:"useFromLocation"`
+	CacheId           *string `pulumi:"cacheId"`
+	ConnectionString  string  `pulumi:"connectionString"`
+	Description       *string `pulumi:"description"`
+	ResourceGroupName string  `pulumi:"resourceGroupName"`
+	ResourceId        *string `pulumi:"resourceId"`
+	ServiceName       string  `pulumi:"serviceName"`
+	UseFromLocation   string  `pulumi:"useFromLocation"`
 }
 
 // The set of arguments for constructing a Cache resource.
 type CacheArgs struct {
-	// Identifier of the Cache entity. Cache identifier (should be either 'default' or valid Azure region identifier).
-	CacheId pulumi.StringPtrInput
-	// Runtime connection string to cache
-	ConnectionString pulumi.StringInput
-	// Cache description
-	Description pulumi.StringPtrInput
-	// The name of the resource group.
+	CacheId           pulumi.StringPtrInput
+	ConnectionString  pulumi.StringInput
+	Description       pulumi.StringPtrInput
 	ResourceGroupName pulumi.StringInput
-	// Original uri of entity in external system cache points to
-	ResourceId pulumi.StringPtrInput
-	// The name of the API Management service.
-	ServiceName pulumi.StringInput
-	// Location identifier to use cache from (should be either 'default' or valid Azure region identifier)
-	UseFromLocation pulumi.StringInput
+	ResourceId        pulumi.StringPtrInput
+	ServiceName       pulumi.StringInput
+	UseFromLocation   pulumi.StringInput
 }
 
 func (CacheArgs) ElementType() reflect.Type {
@@ -185,9 +164,7 @@ func (i *Cache) ToCacheOutputWithContext(ctx context.Context) CacheOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(CacheOutput)
 }
 
-type CacheOutput struct {
-	*pulumi.OutputState
-}
+type CacheOutput struct{ *pulumi.OutputState }
 
 func (CacheOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*Cache)(nil))

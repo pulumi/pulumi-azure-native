@@ -11,26 +11,16 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// An object that represents a scope map for a container registry.
 type ScopeMap struct {
 	pulumi.CustomResourceState
 
-	// The list of scoped permissions for registry artifacts.
-	// E.g. repositories/repository-name/content/read,
-	// repositories/repository-name/metadata/write
-	Actions pulumi.StringArrayOutput `pulumi:"actions"`
-	// The creation date of scope map.
-	CreationDate pulumi.StringOutput `pulumi:"creationDate"`
-	// The user friendly description of the scope map.
-	Description pulumi.StringPtrOutput `pulumi:"description"`
-	// The name of the resource.
-	Name pulumi.StringOutput `pulumi:"name"`
-	// Provisioning state of the resource.
-	ProvisioningState pulumi.StringOutput `pulumi:"provisioningState"`
-	// Metadata pertaining to creation and last modification of the resource.
-	SystemData SystemDataResponseOutput `pulumi:"systemData"`
-	// The type of the resource.
-	Type pulumi.StringOutput `pulumi:"type"`
+	Actions           pulumi.StringArrayOutput `pulumi:"actions"`
+	CreationDate      pulumi.StringOutput      `pulumi:"creationDate"`
+	Description       pulumi.StringPtrOutput   `pulumi:"description"`
+	Name              pulumi.StringOutput      `pulumi:"name"`
+	ProvisioningState pulumi.StringOutput      `pulumi:"provisioningState"`
+	SystemData        SystemDataResponseOutput `pulumi:"systemData"`
+	Type              pulumi.StringOutput      `pulumi:"type"`
 }
 
 // NewScopeMap registers a new resource with the given unique name, arguments, and options.
@@ -105,34 +95,20 @@ func (ScopeMapState) ElementType() reflect.Type {
 }
 
 type scopeMapArgs struct {
-	// The list of scoped permissions for registry artifacts.
-	// E.g. repositories/repository-name/content/read,
-	// repositories/repository-name/metadata/write
-	Actions []string `pulumi:"actions"`
-	// The user friendly description of the scope map.
-	Description *string `pulumi:"description"`
-	// The name of the container registry.
-	RegistryName string `pulumi:"registryName"`
-	// The name of the resource group to which the container registry belongs.
-	ResourceGroupName string `pulumi:"resourceGroupName"`
-	// The name of the scope map.
-	ScopeMapName *string `pulumi:"scopeMapName"`
+	Actions           []string `pulumi:"actions"`
+	Description       *string  `pulumi:"description"`
+	RegistryName      string   `pulumi:"registryName"`
+	ResourceGroupName string   `pulumi:"resourceGroupName"`
+	ScopeMapName      *string  `pulumi:"scopeMapName"`
 }
 
 // The set of arguments for constructing a ScopeMap resource.
 type ScopeMapArgs struct {
-	// The list of scoped permissions for registry artifacts.
-	// E.g. repositories/repository-name/content/read,
-	// repositories/repository-name/metadata/write
-	Actions pulumi.StringArrayInput
-	// The user friendly description of the scope map.
-	Description pulumi.StringPtrInput
-	// The name of the container registry.
-	RegistryName pulumi.StringInput
-	// The name of the resource group to which the container registry belongs.
+	Actions           pulumi.StringArrayInput
+	Description       pulumi.StringPtrInput
+	RegistryName      pulumi.StringInput
 	ResourceGroupName pulumi.StringInput
-	// The name of the scope map.
-	ScopeMapName pulumi.StringPtrInput
+	ScopeMapName      pulumi.StringPtrInput
 }
 
 func (ScopeMapArgs) ElementType() reflect.Type {
@@ -158,9 +134,7 @@ func (i *ScopeMap) ToScopeMapOutputWithContext(ctx context.Context) ScopeMapOutp
 	return pulumi.ToOutputWithContext(ctx, i).(ScopeMapOutput)
 }
 
-type ScopeMapOutput struct {
-	*pulumi.OutputState
-}
+type ScopeMapOutput struct{ *pulumi.OutputState }
 
 func (ScopeMapOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*ScopeMap)(nil))

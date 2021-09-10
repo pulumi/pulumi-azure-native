@@ -189,9 +189,7 @@ func (i *AssessmentMetadataInSubscription) ToAssessmentMetadataInSubscriptionOut
 	return pulumi.ToOutputWithContext(ctx, i).(AssessmentMetadataInSubscriptionOutput)
 }
 
-type AssessmentMetadataInSubscriptionOutput struct {
-	*pulumi.OutputState
-}
+type AssessmentMetadataInSubscriptionOutput struct{ *pulumi.OutputState }
 
 func (AssessmentMetadataInSubscriptionOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*AssessmentMetadataInSubscription)(nil))

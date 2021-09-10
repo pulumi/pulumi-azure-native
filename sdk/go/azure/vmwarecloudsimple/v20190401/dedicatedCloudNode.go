@@ -11,46 +11,27 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Dedicated cloud node model
 type DedicatedCloudNode struct {
 	pulumi.CustomResourceState
 
-	// Availability Zone id, e.g. "az1"
-	AvailabilityZoneId pulumi.StringOutput `pulumi:"availabilityZoneId"`
-	// Availability Zone name, e.g. "Availability Zone 1"
-	AvailabilityZoneName pulumi.StringOutput `pulumi:"availabilityZoneName"`
-	// VMWare Cloud Rack Name
-	CloudRackName pulumi.StringOutput `pulumi:"cloudRackName"`
-	// date time the resource was created
-	Created pulumi.AnyOutput `pulumi:"created"`
-	// Azure region
-	Location pulumi.StringOutput `pulumi:"location"`
-	// SKU's name
-	Name pulumi.StringOutput `pulumi:"name"`
-	// count of nodes to create
-	NodesCount pulumi.IntOutput `pulumi:"nodesCount"`
-	// Placement Group id, e.g. "n1"
-	PlacementGroupId pulumi.StringOutput `pulumi:"placementGroupId"`
-	// Placement Name, e.g. "Placement Group 1"
-	PlacementGroupName pulumi.StringOutput `pulumi:"placementGroupName"`
-	// Private Cloud Id
-	PrivateCloudId pulumi.StringOutput `pulumi:"privateCloudId"`
-	// Resource Pool Name
-	PrivateCloudName pulumi.StringOutput `pulumi:"privateCloudName"`
-	// The provisioning status of the resource
-	ProvisioningState pulumi.StringOutput `pulumi:"provisioningState"`
-	// purchase id
-	PurchaseId pulumi.StringOutput `pulumi:"purchaseId"`
-	// Dedicated Cloud Nodes SKU
-	Sku SkuResponsePtrOutput `pulumi:"sku"`
-	// Node status, indicates is private cloud set up on this node or not
-	Status pulumi.StringOutput `pulumi:"status"`
-	// Dedicated Cloud Nodes tags
-	Tags pulumi.StringMapOutput `pulumi:"tags"`
-	// {resourceProviderNamespace}/{resourceType}
-	Type pulumi.StringOutput `pulumi:"type"`
-	// VMWare Cluster Name
-	VmwareClusterName pulumi.StringOutput `pulumi:"vmwareClusterName"`
+	AvailabilityZoneId   pulumi.StringOutput    `pulumi:"availabilityZoneId"`
+	AvailabilityZoneName pulumi.StringOutput    `pulumi:"availabilityZoneName"`
+	CloudRackName        pulumi.StringOutput    `pulumi:"cloudRackName"`
+	Created              pulumi.AnyOutput       `pulumi:"created"`
+	Location             pulumi.StringOutput    `pulumi:"location"`
+	Name                 pulumi.StringOutput    `pulumi:"name"`
+	NodesCount           pulumi.IntOutput       `pulumi:"nodesCount"`
+	PlacementGroupId     pulumi.StringOutput    `pulumi:"placementGroupId"`
+	PlacementGroupName   pulumi.StringOutput    `pulumi:"placementGroupName"`
+	PrivateCloudId       pulumi.StringOutput    `pulumi:"privateCloudId"`
+	PrivateCloudName     pulumi.StringOutput    `pulumi:"privateCloudName"`
+	ProvisioningState    pulumi.StringOutput    `pulumi:"provisioningState"`
+	PurchaseId           pulumi.StringOutput    `pulumi:"purchaseId"`
+	Sku                  SkuResponsePtrOutput   `pulumi:"sku"`
+	Status               pulumi.StringOutput    `pulumi:"status"`
+	Tags                 pulumi.StringMapOutput `pulumi:"tags"`
+	Type                 pulumi.StringOutput    `pulumi:"type"`
+	VmwareClusterName    pulumi.StringOutput    `pulumi:"vmwareClusterName"`
 }
 
 // NewDedicatedCloudNode registers a new resource with the given unique name, arguments, and options.
@@ -125,54 +106,32 @@ func (DedicatedCloudNodeState) ElementType() reflect.Type {
 }
 
 type dedicatedCloudNodeArgs struct {
-	// Availability Zone id, e.g. "az1"
-	AvailabilityZoneId string `pulumi:"availabilityZoneId"`
-	// dedicated cloud node name
-	DedicatedCloudNodeName *string `pulumi:"dedicatedCloudNodeName"`
-	// SKU's id
-	Id string `pulumi:"id"`
-	// Azure region
-	Location *string `pulumi:"location"`
-	// SKU's name
-	Name string `pulumi:"name"`
-	// count of nodes to create
-	NodesCount int `pulumi:"nodesCount"`
-	// Placement Group id, e.g. "n1"
-	PlacementGroupId string `pulumi:"placementGroupId"`
-	// purchase id
-	PurchaseId string `pulumi:"purchaseId"`
-	// The name of the resource group
-	ResourceGroupName string `pulumi:"resourceGroupName"`
-	// Dedicated Cloud Nodes SKU
-	Sku *Sku `pulumi:"sku"`
-	// Dedicated Cloud Nodes tags
-	Tags map[string]string `pulumi:"tags"`
+	AvailabilityZoneId     string            `pulumi:"availabilityZoneId"`
+	DedicatedCloudNodeName *string           `pulumi:"dedicatedCloudNodeName"`
+	Id                     string            `pulumi:"id"`
+	Location               *string           `pulumi:"location"`
+	Name                   string            `pulumi:"name"`
+	NodesCount             int               `pulumi:"nodesCount"`
+	PlacementGroupId       string            `pulumi:"placementGroupId"`
+	PurchaseId             string            `pulumi:"purchaseId"`
+	ResourceGroupName      string            `pulumi:"resourceGroupName"`
+	Sku                    *Sku              `pulumi:"sku"`
+	Tags                   map[string]string `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a DedicatedCloudNode resource.
 type DedicatedCloudNodeArgs struct {
-	// Availability Zone id, e.g. "az1"
-	AvailabilityZoneId pulumi.StringInput
-	// dedicated cloud node name
+	AvailabilityZoneId     pulumi.StringInput
 	DedicatedCloudNodeName pulumi.StringPtrInput
-	// SKU's id
-	Id pulumi.StringInput
-	// Azure region
-	Location pulumi.StringPtrInput
-	// SKU's name
-	Name pulumi.StringInput
-	// count of nodes to create
-	NodesCount pulumi.IntInput
-	// Placement Group id, e.g. "n1"
-	PlacementGroupId pulumi.StringInput
-	// purchase id
-	PurchaseId pulumi.StringInput
-	// The name of the resource group
-	ResourceGroupName pulumi.StringInput
-	// Dedicated Cloud Nodes SKU
-	Sku SkuPtrInput
-	// Dedicated Cloud Nodes tags
-	Tags pulumi.StringMapInput
+	Id                     pulumi.StringInput
+	Location               pulumi.StringPtrInput
+	Name                   pulumi.StringInput
+	NodesCount             pulumi.IntInput
+	PlacementGroupId       pulumi.StringInput
+	PurchaseId             pulumi.StringInput
+	ResourceGroupName      pulumi.StringInput
+	Sku                    SkuPtrInput
+	Tags                   pulumi.StringMapInput
 }
 
 func (DedicatedCloudNodeArgs) ElementType() reflect.Type {
@@ -198,9 +157,7 @@ func (i *DedicatedCloudNode) ToDedicatedCloudNodeOutputWithContext(ctx context.C
 	return pulumi.ToOutputWithContext(ctx, i).(DedicatedCloudNodeOutput)
 }
 
-type DedicatedCloudNodeOutput struct {
-	*pulumi.OutputState
-}
+type DedicatedCloudNodeOutput struct{ *pulumi.OutputState }
 
 func (DedicatedCloudNodeOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*DedicatedCloudNode)(nil))

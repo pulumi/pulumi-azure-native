@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.DataFactory.V20180601.Outputs
 {
 
+    /// <summary>
+    /// Base class for all control activities like IfCondition, ForEach , Until.
+    /// </summary>
     [OutputType]
     public sealed class ControlActivityResponse
     {

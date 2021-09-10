@@ -11,20 +11,14 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// ExpressRoute Circuit Authorization
 type Authorization struct {
 	pulumi.CustomResourceState
 
-	// The ID of the ExpressRoute Circuit Authorization
-	ExpressRouteAuthorizationId pulumi.StringOutput `pulumi:"expressRouteAuthorizationId"`
-	// The key of the ExpressRoute Circuit Authorization
+	ExpressRouteAuthorizationId  pulumi.StringOutput `pulumi:"expressRouteAuthorizationId"`
 	ExpressRouteAuthorizationKey pulumi.StringOutput `pulumi:"expressRouteAuthorizationKey"`
-	// Resource name.
-	Name pulumi.StringOutput `pulumi:"name"`
-	// The state of the  ExpressRoute Circuit Authorization provisioning
-	ProvisioningState pulumi.StringOutput `pulumi:"provisioningState"`
-	// Resource type.
-	Type pulumi.StringOutput `pulumi:"type"`
+	Name                         pulumi.StringOutput `pulumi:"name"`
+	ProvisioningState            pulumi.StringOutput `pulumi:"provisioningState"`
+	Type                         pulumi.StringOutput `pulumi:"type"`
 }
 
 // NewAuthorization registers a new resource with the given unique name, arguments, and options.
@@ -102,21 +96,15 @@ func (AuthorizationState) ElementType() reflect.Type {
 }
 
 type authorizationArgs struct {
-	// Name of the ExpressRoute Circuit Authorization in the private cloud
 	AuthorizationName *string `pulumi:"authorizationName"`
-	// The name of the private cloud.
-	PrivateCloudName string `pulumi:"privateCloudName"`
-	// The name of the resource group. The name is case insensitive.
-	ResourceGroupName string `pulumi:"resourceGroupName"`
+	PrivateCloudName  string  `pulumi:"privateCloudName"`
+	ResourceGroupName string  `pulumi:"resourceGroupName"`
 }
 
 // The set of arguments for constructing a Authorization resource.
 type AuthorizationArgs struct {
-	// Name of the ExpressRoute Circuit Authorization in the private cloud
 	AuthorizationName pulumi.StringPtrInput
-	// The name of the private cloud.
-	PrivateCloudName pulumi.StringInput
-	// The name of the resource group. The name is case insensitive.
+	PrivateCloudName  pulumi.StringInput
 	ResourceGroupName pulumi.StringInput
 }
 
@@ -143,9 +131,7 @@ func (i *Authorization) ToAuthorizationOutputWithContext(ctx context.Context) Au
 	return pulumi.ToOutputWithContext(ctx, i).(AuthorizationOutput)
 }
 
-type AuthorizationOutput struct {
-	*pulumi.OutputState
-}
+type AuthorizationOutput struct{ *pulumi.OutputState }
 
 func (AuthorizationOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*Authorization)(nil))

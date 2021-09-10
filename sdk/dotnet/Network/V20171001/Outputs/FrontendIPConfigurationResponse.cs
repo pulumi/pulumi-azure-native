@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.Network.V20171001.Outputs
 {
 
+    /// <summary>
+    /// Frontend IP address of the load balancer.
+    /// </summary>
     [OutputType]
     public sealed class FrontendIPConfigurationResponse
     {

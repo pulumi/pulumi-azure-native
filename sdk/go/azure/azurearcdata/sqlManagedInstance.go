@@ -160,9 +160,7 @@ func (i *SqlManagedInstance) ToSqlManagedInstanceOutputWithContext(ctx context.C
 	return pulumi.ToOutputWithContext(ctx, i).(SqlManagedInstanceOutput)
 }
 
-type SqlManagedInstanceOutput struct {
-	*pulumi.OutputState
-}
+type SqlManagedInstanceOutput struct{ *pulumi.OutputState }
 
 func (SqlManagedInstanceOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*SqlManagedInstance)(nil))

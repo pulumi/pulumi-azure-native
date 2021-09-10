@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.DataMigration.V20210630.Outputs
 {
 
+    /// <summary>
+    /// Properties for the task that migrates Oracle to Azure Database for PostgreSQL for online migrations
+    /// </summary>
     [OutputType]
     public sealed class MigrateOracleAzureDbForPostgreSqlSyncTaskPropertiesResponse
     {

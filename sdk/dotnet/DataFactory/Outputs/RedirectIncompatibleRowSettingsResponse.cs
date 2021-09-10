@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.DataFactory.Outputs
 {
 
+    /// <summary>
+    /// Redirect incompatible row settings
+    /// </summary>
     [OutputType]
     public sealed class RedirectIncompatibleRowSettingsResponse
     {

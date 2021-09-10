@@ -11,20 +11,14 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// App resource payload
 type App struct {
 	pulumi.CustomResourceState
 
-	// The Managed Identity type of the app resource
-	Identity ManagedIdentityPropertiesResponsePtrOutput `pulumi:"identity"`
-	// The GEO location of the application, always the same with its parent resource
-	Location pulumi.StringPtrOutput `pulumi:"location"`
-	// The name of the resource.
-	Name pulumi.StringOutput `pulumi:"name"`
-	// Properties of the App resource
-	Properties AppResourcePropertiesResponseOutput `pulumi:"properties"`
-	// The type of the resource.
-	Type pulumi.StringOutput `pulumi:"type"`
+	Identity   ManagedIdentityPropertiesResponsePtrOutput `pulumi:"identity"`
+	Location   pulumi.StringPtrOutput                     `pulumi:"location"`
+	Name       pulumi.StringOutput                        `pulumi:"name"`
+	Properties AppResourcePropertiesResponseOutput        `pulumi:"properties"`
+	Type       pulumi.StringOutput                        `pulumi:"type"`
 }
 
 // NewApp registers a new resource with the given unique name, arguments, and options.
@@ -102,34 +96,22 @@ func (AppState) ElementType() reflect.Type {
 }
 
 type appArgs struct {
-	// The name of the App resource.
-	AppName *string `pulumi:"appName"`
-	// The Managed Identity type of the app resource
-	Identity *ManagedIdentityProperties `pulumi:"identity"`
-	// The GEO location of the application, always the same with its parent resource
-	Location *string `pulumi:"location"`
-	// Properties of the App resource
-	Properties *AppResourceProperties `pulumi:"properties"`
-	// The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
-	ResourceGroupName string `pulumi:"resourceGroupName"`
-	// The name of the Service resource.
-	ServiceName string `pulumi:"serviceName"`
+	AppName           *string                    `pulumi:"appName"`
+	Identity          *ManagedIdentityProperties `pulumi:"identity"`
+	Location          *string                    `pulumi:"location"`
+	Properties        *AppResourceProperties     `pulumi:"properties"`
+	ResourceGroupName string                     `pulumi:"resourceGroupName"`
+	ServiceName       string                     `pulumi:"serviceName"`
 }
 
 // The set of arguments for constructing a App resource.
 type AppArgs struct {
-	// The name of the App resource.
-	AppName pulumi.StringPtrInput
-	// The Managed Identity type of the app resource
-	Identity ManagedIdentityPropertiesPtrInput
-	// The GEO location of the application, always the same with its parent resource
-	Location pulumi.StringPtrInput
-	// Properties of the App resource
-	Properties AppResourcePropertiesPtrInput
-	// The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
+	AppName           pulumi.StringPtrInput
+	Identity          ManagedIdentityPropertiesPtrInput
+	Location          pulumi.StringPtrInput
+	Properties        AppResourcePropertiesPtrInput
 	ResourceGroupName pulumi.StringInput
-	// The name of the Service resource.
-	ServiceName pulumi.StringInput
+	ServiceName       pulumi.StringInput
 }
 
 func (AppArgs) ElementType() reflect.Type {
@@ -155,9 +137,7 @@ func (i *App) ToAppOutputWithContext(ctx context.Context) AppOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(AppOutput)
 }
 
-type AppOutput struct {
-	*pulumi.OutputState
-}
+type AppOutput struct{ *pulumi.OutputState }
 
 func (AppOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*App)(nil))

@@ -7,7 +7,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// The Customer Notification Event resource.
 func LookupCustomerEvent(ctx *pulumi.Context, args *LookupCustomerEventArgs, opts ...pulumi.InvokeOption) (*LookupCustomerEventResult, error) {
 	var rv LookupCustomerEventResult
 	err := ctx.Invoke("azure-native:testbase/v20201216preview:getCustomerEvent", args, &rv, opts...)
@@ -18,26 +17,17 @@ func LookupCustomerEvent(ctx *pulumi.Context, args *LookupCustomerEventArgs, opt
 }
 
 type LookupCustomerEventArgs struct {
-	// The resource name of the Test Base Customer event.
-	CustomerEventName string `pulumi:"customerEventName"`
-	// The name of the resource group that contains the resource.
-	ResourceGroupName string `pulumi:"resourceGroupName"`
-	// The resource name of the Test Base Account.
+	CustomerEventName   string `pulumi:"customerEventName"`
+	ResourceGroupName   string `pulumi:"resourceGroupName"`
 	TestBaseAccountName string `pulumi:"testBaseAccountName"`
 }
 
 // The Customer Notification Event resource.
 type LookupCustomerEventResult struct {
-	// The name of the event subscribed to.
-	EventName string `pulumi:"eventName"`
-	// Resource ID.
-	Id string `pulumi:"id"`
-	// Resource name.
-	Name string `pulumi:"name"`
-	// The notification event receivers.
-	Receivers []NotificationEventReceiverResponse `pulumi:"receivers"`
-	// The system metadata relating to this resource
-	SystemData SystemDataResponse `pulumi:"systemData"`
-	// Resource type.
-	Type string `pulumi:"type"`
+	EventName  string                              `pulumi:"eventName"`
+	Id         string                              `pulumi:"id"`
+	Name       string                              `pulumi:"name"`
+	Receivers  []NotificationEventReceiverResponse `pulumi:"receivers"`
+	SystemData SystemDataResponse                  `pulumi:"systemData"`
+	Type       string                              `pulumi:"type"`
 }

@@ -11,32 +11,20 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Virtual Network Tap resource.
 type VirtualNetworkTap struct {
 	pulumi.CustomResourceState
 
-	// The reference to the private IP address on the internal Load Balancer that will receive the tap.
-	DestinationLoadBalancerFrontEndIPConfiguration FrontendIPConfigurationResponsePtrOutput `pulumi:"destinationLoadBalancerFrontEndIPConfiguration"`
-	// The reference to the private IP Address of the collector nic that will receive the tap.
-	DestinationNetworkInterfaceIPConfiguration NetworkInterfaceIPConfigurationResponsePtrOutput `pulumi:"destinationNetworkInterfaceIPConfiguration"`
-	// The VXLAN destination port that will receive the tapped traffic.
-	DestinationPort pulumi.IntPtrOutput `pulumi:"destinationPort"`
-	// A unique read-only string that changes whenever the resource is updated.
-	Etag pulumi.StringPtrOutput `pulumi:"etag"`
-	// Resource location.
-	Location pulumi.StringPtrOutput `pulumi:"location"`
-	// Resource name.
-	Name pulumi.StringOutput `pulumi:"name"`
-	// Specifies the list of resource IDs for the network interface IP configuration that needs to be tapped.
-	NetworkInterfaceTapConfigurations NetworkInterfaceTapConfigurationResponseArrayOutput `pulumi:"networkInterfaceTapConfigurations"`
-	// The provisioning state of the virtual network tap resource.
-	ProvisioningState pulumi.StringOutput `pulumi:"provisioningState"`
-	// The resource GUID property of the virtual network tap resource.
-	ResourceGuid pulumi.StringOutput `pulumi:"resourceGuid"`
-	// Resource tags.
-	Tags pulumi.StringMapOutput `pulumi:"tags"`
-	// Resource type.
-	Type pulumi.StringOutput `pulumi:"type"`
+	DestinationLoadBalancerFrontEndIPConfiguration FrontendIPConfigurationResponsePtrOutput            `pulumi:"destinationLoadBalancerFrontEndIPConfiguration"`
+	DestinationNetworkInterfaceIPConfiguration     NetworkInterfaceIPConfigurationResponsePtrOutput    `pulumi:"destinationNetworkInterfaceIPConfiguration"`
+	DestinationPort                                pulumi.IntPtrOutput                                 `pulumi:"destinationPort"`
+	Etag                                           pulumi.StringPtrOutput                              `pulumi:"etag"`
+	Location                                       pulumi.StringPtrOutput                              `pulumi:"location"`
+	Name                                           pulumi.StringOutput                                 `pulumi:"name"`
+	NetworkInterfaceTapConfigurations              NetworkInterfaceTapConfigurationResponseArrayOutput `pulumi:"networkInterfaceTapConfigurations"`
+	ProvisioningState                              pulumi.StringOutput                                 `pulumi:"provisioningState"`
+	ResourceGuid                                   pulumi.StringOutput                                 `pulumi:"resourceGuid"`
+	Tags                                           pulumi.StringMapOutput                              `pulumi:"tags"`
+	Type                                           pulumi.StringOutput                                 `pulumi:"type"`
 }
 
 // NewVirtualNetworkTap registers a new resource with the given unique name, arguments, and options.
@@ -213,46 +201,28 @@ func (VirtualNetworkTapState) ElementType() reflect.Type {
 }
 
 type virtualNetworkTapArgs struct {
-	// The reference to the private IP address on the internal Load Balancer that will receive the tap.
-	DestinationLoadBalancerFrontEndIPConfiguration *FrontendIPConfiguration `pulumi:"destinationLoadBalancerFrontEndIPConfiguration"`
-	// The reference to the private IP Address of the collector nic that will receive the tap.
-	DestinationNetworkInterfaceIPConfiguration *NetworkInterfaceIPConfiguration `pulumi:"destinationNetworkInterfaceIPConfiguration"`
-	// The VXLAN destination port that will receive the tapped traffic.
-	DestinationPort *int `pulumi:"destinationPort"`
-	// A unique read-only string that changes whenever the resource is updated.
-	Etag *string `pulumi:"etag"`
-	// Resource ID.
-	Id *string `pulumi:"id"`
-	// Resource location.
-	Location *string `pulumi:"location"`
-	// The name of the resource group.
-	ResourceGroupName string `pulumi:"resourceGroupName"`
-	// Resource tags.
-	Tags map[string]string `pulumi:"tags"`
-	// The name of the virtual network tap.
-	TapName *string `pulumi:"tapName"`
+	DestinationLoadBalancerFrontEndIPConfiguration *FrontendIPConfiguration         `pulumi:"destinationLoadBalancerFrontEndIPConfiguration"`
+	DestinationNetworkInterfaceIPConfiguration     *NetworkInterfaceIPConfiguration `pulumi:"destinationNetworkInterfaceIPConfiguration"`
+	DestinationPort                                *int                             `pulumi:"destinationPort"`
+	Etag                                           *string                          `pulumi:"etag"`
+	Id                                             *string                          `pulumi:"id"`
+	Location                                       *string                          `pulumi:"location"`
+	ResourceGroupName                              string                           `pulumi:"resourceGroupName"`
+	Tags                                           map[string]string                `pulumi:"tags"`
+	TapName                                        *string                          `pulumi:"tapName"`
 }
 
 // The set of arguments for constructing a VirtualNetworkTap resource.
 type VirtualNetworkTapArgs struct {
-	// The reference to the private IP address on the internal Load Balancer that will receive the tap.
 	DestinationLoadBalancerFrontEndIPConfiguration FrontendIPConfigurationPtrInput
-	// The reference to the private IP Address of the collector nic that will receive the tap.
-	DestinationNetworkInterfaceIPConfiguration NetworkInterfaceIPConfigurationPtrInput
-	// The VXLAN destination port that will receive the tapped traffic.
-	DestinationPort pulumi.IntPtrInput
-	// A unique read-only string that changes whenever the resource is updated.
-	Etag pulumi.StringPtrInput
-	// Resource ID.
-	Id pulumi.StringPtrInput
-	// Resource location.
-	Location pulumi.StringPtrInput
-	// The name of the resource group.
-	ResourceGroupName pulumi.StringInput
-	// Resource tags.
-	Tags pulumi.StringMapInput
-	// The name of the virtual network tap.
-	TapName pulumi.StringPtrInput
+	DestinationNetworkInterfaceIPConfiguration     NetworkInterfaceIPConfigurationPtrInput
+	DestinationPort                                pulumi.IntPtrInput
+	Etag                                           pulumi.StringPtrInput
+	Id                                             pulumi.StringPtrInput
+	Location                                       pulumi.StringPtrInput
+	ResourceGroupName                              pulumi.StringInput
+	Tags                                           pulumi.StringMapInput
+	TapName                                        pulumi.StringPtrInput
 }
 
 func (VirtualNetworkTapArgs) ElementType() reflect.Type {
@@ -278,9 +248,7 @@ func (i *VirtualNetworkTap) ToVirtualNetworkTapOutputWithContext(ctx context.Con
 	return pulumi.ToOutputWithContext(ctx, i).(VirtualNetworkTapOutput)
 }
 
-type VirtualNetworkTapOutput struct {
-	*pulumi.OutputState
-}
+type VirtualNetworkTapOutput struct{ *pulumi.OutputState }
 
 func (VirtualNetworkTapOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*VirtualNetworkTap)(nil))

@@ -7,7 +7,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// The image definition.
 func GetImageUploadUrlForEntityType(ctx *pulumi.Context, args *GetImageUploadUrlForEntityTypeArgs, opts ...pulumi.InvokeOption) (*GetImageUploadUrlForEntityTypeResult, error) {
 	var rv GetImageUploadUrlForEntityTypeResult
 	err := ctx.Invoke("azure-native:customerinsights/v20170426:getImageUploadUrlForEntityType", args, &rv, opts...)
@@ -18,24 +17,16 @@ func GetImageUploadUrlForEntityType(ctx *pulumi.Context, args *GetImageUploadUrl
 }
 
 type GetImageUploadUrlForEntityTypeArgs struct {
-	// Type of entity. Can be Profile or Interaction.
-	EntityType *string `pulumi:"entityType"`
-	// Name of the entity type.
-	EntityTypeName *string `pulumi:"entityTypeName"`
-	// The name of the hub.
-	HubName string `pulumi:"hubName"`
-	// Relative path of the image.
-	RelativePath *string `pulumi:"relativePath"`
-	// The name of the resource group.
-	ResourceGroupName string `pulumi:"resourceGroupName"`
+	EntityType        *string `pulumi:"entityType"`
+	EntityTypeName    *string `pulumi:"entityTypeName"`
+	HubName           string  `pulumi:"hubName"`
+	RelativePath      *string `pulumi:"relativePath"`
+	ResourceGroupName string  `pulumi:"resourceGroupName"`
 }
 
 // The image definition.
 type GetImageUploadUrlForEntityTypeResult struct {
-	// Content URL for the image blob.
-	ContentUrl *string `pulumi:"contentUrl"`
-	// Whether image exists already.
-	ImageExists *bool `pulumi:"imageExists"`
-	// Relative path of the image.
+	ContentUrl   *string `pulumi:"contentUrl"`
+	ImageExists  *bool   `pulumi:"imageExists"`
 	RelativePath *string `pulumi:"relativePath"`
 }

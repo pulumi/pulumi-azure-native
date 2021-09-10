@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.Portal.Outputs
 {
 
+    /// <summary>
+    /// A dashboard part.
+    /// </summary>
     [OutputType]
     public sealed class DashboardPartsResponse
     {

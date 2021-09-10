@@ -7,7 +7,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// The properties of the EventHubConsumerGroupInfo object.
 func LookupIotHubResourceEventHubConsumerGroup(ctx *pulumi.Context, args *LookupIotHubResourceEventHubConsumerGroupArgs, opts ...pulumi.InvokeOption) (*LookupIotHubResourceEventHubConsumerGroupResult, error) {
 	var rv LookupIotHubResourceEventHubConsumerGroupResult
 	err := ctx.Invoke("azure-native:devices/v20160203:getIotHubResourceEventHubConsumerGroup", args, &rv, opts...)
@@ -18,22 +17,15 @@ func LookupIotHubResourceEventHubConsumerGroup(ctx *pulumi.Context, args *Lookup
 }
 
 type LookupIotHubResourceEventHubConsumerGroupArgs struct {
-	// The name of the Event Hub-compatible endpoint in the IoT hub.
 	EventHubEndpointName string `pulumi:"eventHubEndpointName"`
-	// The name of the consumer group to retrieve.
-	Name string `pulumi:"name"`
-	// The name of the resource group that contains the IoT hub.
-	ResourceGroupName string `pulumi:"resourceGroupName"`
-	// The name of the IoT hub.
-	ResourceName string `pulumi:"resourceName"`
+	Name                 string `pulumi:"name"`
+	ResourceGroupName    string `pulumi:"resourceGroupName"`
+	ResourceName         string `pulumi:"resourceName"`
 }
 
 // The properties of the EventHubConsumerGroupInfo object.
 type LookupIotHubResourceEventHubConsumerGroupResult struct {
-	// The Event Hub-compatible consumer group identifier.
-	Id *string `pulumi:"id"`
-	// The Event Hub-compatible consumer group name.
-	Name *string `pulumi:"name"`
-	// The tags.
+	Id   *string           `pulumi:"id"`
+	Name *string           `pulumi:"name"`
 	Tags map[string]string `pulumi:"tags"`
 }

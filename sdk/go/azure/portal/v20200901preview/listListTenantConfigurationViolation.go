@@ -7,7 +7,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// List of list of items that violate tenant's configuration.
 func ListListTenantConfigurationViolation(ctx *pulumi.Context, args *ListListTenantConfigurationViolationArgs, opts ...pulumi.InvokeOption) (*ListListTenantConfigurationViolationResult, error) {
 	var rv ListListTenantConfigurationViolationResult
 	err := ctx.Invoke("azure-native:portal/v20200901preview:listListTenantConfigurationViolation", args, &rv, opts...)
@@ -22,8 +21,6 @@ type ListListTenantConfigurationViolationArgs struct {
 
 // List of list of items that violate tenant's configuration.
 type ListListTenantConfigurationViolationResult struct {
-	// The URL to use for getting the next set of results.
-	NextLink *string `pulumi:"nextLink"`
-	// The array of violations.
-	Value []ViolationResponse `pulumi:"value"`
+	NextLink *string             `pulumi:"nextLink"`
+	Value    []ViolationResponse `pulumi:"value"`
 }

@@ -7,7 +7,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Guest configuration assignment is an association between a machine and guest configuration.
 func LookupGuestConfigurationAssignment(ctx *pulumi.Context, args *LookupGuestConfigurationAssignmentArgs, opts ...pulumi.InvokeOption) (*LookupGuestConfigurationAssignmentResult, error) {
 	var rv LookupGuestConfigurationAssignmentResult
 	err := ctx.Invoke("azure-native:guestconfiguration/v20210125:getGuestConfigurationAssignment", args, &rv, opts...)
@@ -18,26 +17,17 @@ func LookupGuestConfigurationAssignment(ctx *pulumi.Context, args *LookupGuestCo
 }
 
 type LookupGuestConfigurationAssignmentArgs struct {
-	// The guest configuration assignment name.
 	GuestConfigurationAssignmentName string `pulumi:"guestConfigurationAssignmentName"`
-	// The resource group name.
-	ResourceGroupName string `pulumi:"resourceGroupName"`
-	// The name of the virtual machine.
-	VmName string `pulumi:"vmName"`
+	ResourceGroupName                string `pulumi:"resourceGroupName"`
+	VmName                           string `pulumi:"vmName"`
 }
 
 // Guest configuration assignment is an association between a machine and guest configuration.
 type LookupGuestConfigurationAssignmentResult struct {
-	// ARM resource id of the guest configuration assignment.
-	Id string `pulumi:"id"`
-	// Region where the VM is located.
-	Location *string `pulumi:"location"`
-	// Name of the guest configuration assignment.
-	Name *string `pulumi:"name"`
-	// Properties of the Guest configuration assignment.
+	Id         string                                         `pulumi:"id"`
+	Location   *string                                        `pulumi:"location"`
+	Name       *string                                        `pulumi:"name"`
 	Properties GuestConfigurationAssignmentPropertiesResponse `pulumi:"properties"`
-	// Azure Resource Manager metadata containing createdBy and modifiedBy information.
-	SystemData SystemDataResponse `pulumi:"systemData"`
-	// The type of the resource.
-	Type string `pulumi:"type"`
+	SystemData SystemDataResponse                             `pulumi:"systemData"`
+	Type       string                                         `pulumi:"type"`
 }

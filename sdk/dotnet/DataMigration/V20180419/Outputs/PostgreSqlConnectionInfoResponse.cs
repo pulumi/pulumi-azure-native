@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.DataMigration.V20180419.Outputs
 {
 
+    /// <summary>
+    /// Information for connecting to PostgreSQL server
+    /// </summary>
     [OutputType]
     public sealed class PostgreSqlConnectionInfoResponse
     {

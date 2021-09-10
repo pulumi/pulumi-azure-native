@@ -11,50 +11,29 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Information about managed application definition.
 type ApplicationDefinition struct {
 	pulumi.CustomResourceState
 
-	// The collection of managed application artifacts. The portal will use the files specified as artifacts to construct the user experience of creating a managed application from a managed application definition.
-	Artifacts ApplicationDefinitionArtifactResponseArrayOutput `pulumi:"artifacts"`
-	// The managed application provider authorizations.
-	Authorizations ApplicationAuthorizationResponseArrayOutput `pulumi:"authorizations"`
-	// The createUiDefinition json for the backing template with Microsoft.Solutions/applications resource. It can be a JObject or well-formed JSON string.
-	CreateUiDefinition pulumi.AnyOutput `pulumi:"createUiDefinition"`
-	// The managed application deployment policy.
-	DeploymentPolicy ApplicationDeploymentPolicyResponsePtrOutput `pulumi:"deploymentPolicy"`
-	// The managed application definition description.
-	Description pulumi.StringPtrOutput `pulumi:"description"`
-	// The managed application definition display name.
-	DisplayName pulumi.StringPtrOutput `pulumi:"displayName"`
-	// A value indicating whether the package is enabled or not.
-	IsEnabled pulumi.BoolPtrOutput `pulumi:"isEnabled"`
-	// Resource location
-	Location pulumi.StringPtrOutput `pulumi:"location"`
-	// The managed application lock level.
-	LockLevel pulumi.StringOutput `pulumi:"lockLevel"`
-	// The managed application locking policy.
-	LockingPolicy ApplicationPackageLockingPolicyDefinitionResponsePtrOutput `pulumi:"lockingPolicy"`
-	// The inline main template json which has resources to be provisioned. It can be a JObject or well-formed JSON string.
-	MainTemplate pulumi.AnyOutput `pulumi:"mainTemplate"`
-	// ID of the resource that manages this resource.
-	ManagedBy pulumi.StringPtrOutput `pulumi:"managedBy"`
-	// The managed application management policy that determines publisher's access to the managed resource group.
-	ManagementPolicy ApplicationManagementPolicyResponsePtrOutput `pulumi:"managementPolicy"`
-	// Resource name
-	Name pulumi.StringOutput `pulumi:"name"`
-	// The managed application notification policy.
-	NotificationPolicy ApplicationNotificationPolicyResponsePtrOutput `pulumi:"notificationPolicy"`
-	// The managed application definition package file Uri. Use this element
-	PackageFileUri pulumi.StringPtrOutput `pulumi:"packageFileUri"`
-	// The managed application provider policies.
-	Policies ApplicationPolicyResponseArrayOutput `pulumi:"policies"`
-	// The SKU of the resource.
-	Sku SkuResponsePtrOutput `pulumi:"sku"`
-	// Resource tags
-	Tags pulumi.StringMapOutput `pulumi:"tags"`
-	// Resource type
-	Type pulumi.StringOutput `pulumi:"type"`
+	Artifacts          ApplicationDefinitionArtifactResponseArrayOutput           `pulumi:"artifacts"`
+	Authorizations     ApplicationAuthorizationResponseArrayOutput                `pulumi:"authorizations"`
+	CreateUiDefinition pulumi.AnyOutput                                           `pulumi:"createUiDefinition"`
+	DeploymentPolicy   ApplicationDeploymentPolicyResponsePtrOutput               `pulumi:"deploymentPolicy"`
+	Description        pulumi.StringPtrOutput                                     `pulumi:"description"`
+	DisplayName        pulumi.StringPtrOutput                                     `pulumi:"displayName"`
+	IsEnabled          pulumi.BoolPtrOutput                                       `pulumi:"isEnabled"`
+	Location           pulumi.StringPtrOutput                                     `pulumi:"location"`
+	LockLevel          pulumi.StringOutput                                        `pulumi:"lockLevel"`
+	LockingPolicy      ApplicationPackageLockingPolicyDefinitionResponsePtrOutput `pulumi:"lockingPolicy"`
+	MainTemplate       pulumi.AnyOutput                                           `pulumi:"mainTemplate"`
+	ManagedBy          pulumi.StringPtrOutput                                     `pulumi:"managedBy"`
+	ManagementPolicy   ApplicationManagementPolicyResponsePtrOutput               `pulumi:"managementPolicy"`
+	Name               pulumi.StringOutput                                        `pulumi:"name"`
+	NotificationPolicy ApplicationNotificationPolicyResponsePtrOutput             `pulumi:"notificationPolicy"`
+	PackageFileUri     pulumi.StringPtrOutput                                     `pulumi:"packageFileUri"`
+	Policies           ApplicationPolicyResponseArrayOutput                       `pulumi:"policies"`
+	Sku                SkuResponsePtrOutput                                       `pulumi:"sku"`
+	Tags               pulumi.StringMapOutput                                     `pulumi:"tags"`
+	Type               pulumi.StringOutput                                        `pulumi:"type"`
 }
 
 // NewApplicationDefinition registers a new resource with the given unique name, arguments, and options.
@@ -64,6 +43,9 @@ func NewApplicationDefinition(ctx *pulumi.Context,
 		return nil, errors.New("missing one or more required arguments")
 	}
 
+	if args.LockLevel == nil {
+		return nil, errors.New("invalid value for required argument 'LockLevel'")
+	}
 	if args.ResourceGroupName == nil {
 		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
 	}
@@ -135,90 +117,50 @@ func (ApplicationDefinitionState) ElementType() reflect.Type {
 }
 
 type applicationDefinitionArgs struct {
-	// The name of the managed application definition.
-	ApplicationDefinitionName *string `pulumi:"applicationDefinitionName"`
-	// The collection of managed application artifacts. The portal will use the files specified as artifacts to construct the user experience of creating a managed application from a managed application definition.
-	Artifacts []ApplicationDefinitionArtifact `pulumi:"artifacts"`
-	// The managed application provider authorizations.
-	Authorizations []ApplicationAuthorization `pulumi:"authorizations"`
-	// The createUiDefinition json for the backing template with Microsoft.Solutions/applications resource. It can be a JObject or well-formed JSON string.
-	CreateUiDefinition interface{} `pulumi:"createUiDefinition"`
-	// The managed application deployment policy.
-	DeploymentPolicy *ApplicationDeploymentPolicy `pulumi:"deploymentPolicy"`
-	// The managed application definition description.
-	Description *string `pulumi:"description"`
-	// The managed application definition display name.
-	DisplayName *string `pulumi:"displayName"`
-	// A value indicating whether the package is enabled or not.
-	IsEnabled *bool `pulumi:"isEnabled"`
-	// Resource location
-	Location *string `pulumi:"location"`
-	// The managed application lock level.
-	LockLevel string `pulumi:"lockLevel"`
-	// The managed application locking policy.
-	LockingPolicy *ApplicationPackageLockingPolicyDefinition `pulumi:"lockingPolicy"`
-	// The inline main template json which has resources to be provisioned. It can be a JObject or well-formed JSON string.
-	MainTemplate interface{} `pulumi:"mainTemplate"`
-	// ID of the resource that manages this resource.
-	ManagedBy *string `pulumi:"managedBy"`
-	// The managed application management policy that determines publisher's access to the managed resource group.
-	ManagementPolicy *ApplicationManagementPolicy `pulumi:"managementPolicy"`
-	// The managed application notification policy.
-	NotificationPolicy *ApplicationNotificationPolicy `pulumi:"notificationPolicy"`
-	// The managed application definition package file Uri. Use this element
-	PackageFileUri *string `pulumi:"packageFileUri"`
-	// The managed application provider policies.
-	Policies []ApplicationPolicy `pulumi:"policies"`
-	// The name of the resource group. The name is case insensitive.
-	ResourceGroupName string `pulumi:"resourceGroupName"`
-	// The SKU of the resource.
-	Sku *Sku `pulumi:"sku"`
-	// Resource tags
-	Tags map[string]string `pulumi:"tags"`
+	ApplicationDefinitionName *string                                    `pulumi:"applicationDefinitionName"`
+	Artifacts                 []ApplicationDefinitionArtifact            `pulumi:"artifacts"`
+	Authorizations            []ApplicationAuthorization                 `pulumi:"authorizations"`
+	CreateUiDefinition        interface{}                                `pulumi:"createUiDefinition"`
+	DeploymentPolicy          *ApplicationDeploymentPolicy               `pulumi:"deploymentPolicy"`
+	Description               *string                                    `pulumi:"description"`
+	DisplayName               *string                                    `pulumi:"displayName"`
+	IsEnabled                 *bool                                      `pulumi:"isEnabled"`
+	Location                  *string                                    `pulumi:"location"`
+	LockLevel                 ApplicationLockLevel                       `pulumi:"lockLevel"`
+	LockingPolicy             *ApplicationPackageLockingPolicyDefinition `pulumi:"lockingPolicy"`
+	MainTemplate              interface{}                                `pulumi:"mainTemplate"`
+	ManagedBy                 *string                                    `pulumi:"managedBy"`
+	ManagementPolicy          *ApplicationManagementPolicy               `pulumi:"managementPolicy"`
+	NotificationPolicy        *ApplicationNotificationPolicy             `pulumi:"notificationPolicy"`
+	PackageFileUri            *string                                    `pulumi:"packageFileUri"`
+	Policies                  []ApplicationPolicy                        `pulumi:"policies"`
+	ResourceGroupName         string                                     `pulumi:"resourceGroupName"`
+	Sku                       *Sku                                       `pulumi:"sku"`
+	Tags                      map[string]string                          `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a ApplicationDefinition resource.
 type ApplicationDefinitionArgs struct {
-	// The name of the managed application definition.
 	ApplicationDefinitionName pulumi.StringPtrInput
-	// The collection of managed application artifacts. The portal will use the files specified as artifacts to construct the user experience of creating a managed application from a managed application definition.
-	Artifacts ApplicationDefinitionArtifactArrayInput
-	// The managed application provider authorizations.
-	Authorizations ApplicationAuthorizationArrayInput
-	// The createUiDefinition json for the backing template with Microsoft.Solutions/applications resource. It can be a JObject or well-formed JSON string.
-	CreateUiDefinition pulumi.Input
-	// The managed application deployment policy.
-	DeploymentPolicy ApplicationDeploymentPolicyPtrInput
-	// The managed application definition description.
-	Description pulumi.StringPtrInput
-	// The managed application definition display name.
-	DisplayName pulumi.StringPtrInput
-	// A value indicating whether the package is enabled or not.
-	IsEnabled pulumi.BoolPtrInput
-	// Resource location
-	Location pulumi.StringPtrInput
-	// The managed application lock level.
-	LockLevel ApplicationLockLevel
-	// The managed application locking policy.
-	LockingPolicy ApplicationPackageLockingPolicyDefinitionPtrInput
-	// The inline main template json which has resources to be provisioned. It can be a JObject or well-formed JSON string.
-	MainTemplate pulumi.Input
-	// ID of the resource that manages this resource.
-	ManagedBy pulumi.StringPtrInput
-	// The managed application management policy that determines publisher's access to the managed resource group.
-	ManagementPolicy ApplicationManagementPolicyPtrInput
-	// The managed application notification policy.
-	NotificationPolicy ApplicationNotificationPolicyPtrInput
-	// The managed application definition package file Uri. Use this element
-	PackageFileUri pulumi.StringPtrInput
-	// The managed application provider policies.
-	Policies ApplicationPolicyArrayInput
-	// The name of the resource group. The name is case insensitive.
-	ResourceGroupName pulumi.StringInput
-	// The SKU of the resource.
-	Sku SkuPtrInput
-	// Resource tags
-	Tags pulumi.StringMapInput
+	Artifacts                 ApplicationDefinitionArtifactArrayInput
+	Authorizations            ApplicationAuthorizationArrayInput
+	CreateUiDefinition        pulumi.Input
+	DeploymentPolicy          ApplicationDeploymentPolicyPtrInput
+	Description               pulumi.StringPtrInput
+	DisplayName               pulumi.StringPtrInput
+	IsEnabled                 pulumi.BoolPtrInput
+	Location                  pulumi.StringPtrInput
+	LockLevel                 ApplicationLockLevelInput
+	LockingPolicy             ApplicationPackageLockingPolicyDefinitionPtrInput
+	MainTemplate              pulumi.Input
+	ManagedBy                 pulumi.StringPtrInput
+	ManagementPolicy          ApplicationManagementPolicyPtrInput
+	NotificationPolicy        ApplicationNotificationPolicyPtrInput
+	PackageFileUri            pulumi.StringPtrInput
+	Policies                  ApplicationPolicyArrayInput
+	ResourceGroupName         pulumi.StringInput
+	Sku                       SkuPtrInput
+	Tags                      pulumi.StringMapInput
 }
 
 func (ApplicationDefinitionArgs) ElementType() reflect.Type {
@@ -244,9 +186,7 @@ func (i *ApplicationDefinition) ToApplicationDefinitionOutputWithContext(ctx con
 	return pulumi.ToOutputWithContext(ctx, i).(ApplicationDefinitionOutput)
 }
 
-type ApplicationDefinitionOutput struct {
-	*pulumi.OutputState
-}
+type ApplicationDefinitionOutput struct{ *pulumi.OutputState }
 
 func (ApplicationDefinitionOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*ApplicationDefinition)(nil))

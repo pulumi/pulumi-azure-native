@@ -11,48 +11,28 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// CDN endpoint is the entity within a CDN profile containing configuration information such as origin, protocol, content caching and delivery behavior. The CDN endpoint uses the URL format <endpointname>.azureedge.net.
 type Endpoint struct {
 	pulumi.CustomResourceState
 
-	// List of content types on which compression applies. The value should be a valid MIME type.
-	ContentTypesToCompress pulumi.StringArrayOutput `pulumi:"contentTypesToCompress"`
-	// A policy that specifies the delivery rules to be used for an endpoint.
-	DeliveryPolicy EndpointPropertiesUpdateParametersResponseDeliveryPolicyPtrOutput `pulumi:"deliveryPolicy"`
-	// List of rules defining the user's geo access within a CDN endpoint. Each geo filter defines an access rule to a specified path or content, e.g. block APAC for path /pictures/
-	GeoFilters GeoFilterResponseArrayOutput `pulumi:"geoFilters"`
-	// The host name of the endpoint structured as {endpointName}.{DNSZone}, e.g. contoso.azureedge.net
-	HostName pulumi.StringOutput `pulumi:"hostName"`
-	// Indicates whether content compression is enabled on CDN. Default value is false. If compression is enabled, content will be served as compressed if user requests for a compressed version. Content won't be compressed on CDN when requested content is smaller than 1 byte or larger than 1 MB.
-	IsCompressionEnabled pulumi.BoolPtrOutput `pulumi:"isCompressionEnabled"`
-	// Indicates whether HTTP traffic is allowed on the endpoint. Default value is true. At least one protocol (HTTP or HTTPS) must be allowed.
-	IsHttpAllowed pulumi.BoolPtrOutput `pulumi:"isHttpAllowed"`
-	// Indicates whether HTTPS traffic is allowed on the endpoint. Default value is true. At least one protocol (HTTP or HTTPS) must be allowed.
-	IsHttpsAllowed pulumi.BoolPtrOutput `pulumi:"isHttpsAllowed"`
-	// Resource location.
-	Location pulumi.StringOutput `pulumi:"location"`
-	// Resource name.
-	Name pulumi.StringOutput `pulumi:"name"`
-	// Specifies what scenario the customer wants this CDN endpoint to optimize for, e.g. Download, Media services. With this information, CDN can apply scenario driven optimization.
-	OptimizationType pulumi.StringPtrOutput `pulumi:"optimizationType"`
-	// The host header value sent to the origin with each request. If you leave this blank, the request hostname determines this value. Azure CDN origins, such as Web Apps, Blob Storage, and Cloud Services require this host header value to match the origin hostname by default.
-	OriginHostHeader pulumi.StringPtrOutput `pulumi:"originHostHeader"`
-	// A directory path on the origin that CDN can use to retrieve content from, e.g. contoso.cloudapp.net/originpath.
-	OriginPath pulumi.StringPtrOutput `pulumi:"originPath"`
-	// The source of the content being delivered via CDN.
-	Origins DeepCreatedOriginResponseArrayOutput `pulumi:"origins"`
-	// Path to a file hosted on the origin which helps accelerate delivery of the dynamic content and calculate the most optimal routes for the CDN. This is relative to the origin path.
-	ProbePath pulumi.StringPtrOutput `pulumi:"probePath"`
-	// Provisioning status of the endpoint.
-	ProvisioningState pulumi.StringOutput `pulumi:"provisioningState"`
-	// Defines how CDN caches requests that include query strings. You can ignore any query strings when caching, bypass caching to prevent requests that contain query strings from being cached, or cache every request with a unique URL.
-	QueryStringCachingBehavior pulumi.StringPtrOutput `pulumi:"queryStringCachingBehavior"`
-	// Resource status of the endpoint.
-	ResourceState pulumi.StringOutput `pulumi:"resourceState"`
-	// Resource tags.
-	Tags pulumi.StringMapOutput `pulumi:"tags"`
-	// Resource type.
-	Type pulumi.StringOutput `pulumi:"type"`
+	ContentTypesToCompress     pulumi.StringArrayOutput                                          `pulumi:"contentTypesToCompress"`
+	DeliveryPolicy             EndpointPropertiesUpdateParametersResponseDeliveryPolicyPtrOutput `pulumi:"deliveryPolicy"`
+	GeoFilters                 GeoFilterResponseArrayOutput                                      `pulumi:"geoFilters"`
+	HostName                   pulumi.StringOutput                                               `pulumi:"hostName"`
+	IsCompressionEnabled       pulumi.BoolPtrOutput                                              `pulumi:"isCompressionEnabled"`
+	IsHttpAllowed              pulumi.BoolPtrOutput                                              `pulumi:"isHttpAllowed"`
+	IsHttpsAllowed             pulumi.BoolPtrOutput                                              `pulumi:"isHttpsAllowed"`
+	Location                   pulumi.StringOutput                                               `pulumi:"location"`
+	Name                       pulumi.StringOutput                                               `pulumi:"name"`
+	OptimizationType           pulumi.StringPtrOutput                                            `pulumi:"optimizationType"`
+	OriginHostHeader           pulumi.StringPtrOutput                                            `pulumi:"originHostHeader"`
+	OriginPath                 pulumi.StringPtrOutput                                            `pulumi:"originPath"`
+	Origins                    DeepCreatedOriginResponseArrayOutput                              `pulumi:"origins"`
+	ProbePath                  pulumi.StringPtrOutput                                            `pulumi:"probePath"`
+	ProvisioningState          pulumi.StringOutput                                               `pulumi:"provisioningState"`
+	QueryStringCachingBehavior pulumi.StringPtrOutput                                            `pulumi:"queryStringCachingBehavior"`
+	ResourceState              pulumi.StringOutput                                               `pulumi:"resourceState"`
+	Tags                       pulumi.StringMapOutput                                            `pulumi:"tags"`
+	Type                       pulumi.StringOutput                                               `pulumi:"type"`
 }
 
 // NewEndpoint registers a new resource with the given unique name, arguments, and options.
@@ -181,78 +161,44 @@ func (EndpointState) ElementType() reflect.Type {
 }
 
 type endpointArgs struct {
-	// List of content types on which compression applies. The value should be a valid MIME type.
-	ContentTypesToCompress []string `pulumi:"contentTypesToCompress"`
-	// A policy that specifies the delivery rules to be used for an endpoint.
-	DeliveryPolicy *EndpointPropertiesUpdateParametersDeliveryPolicy `pulumi:"deliveryPolicy"`
-	// Name of the endpoint under the profile which is unique globally.
-	EndpointName *string `pulumi:"endpointName"`
-	// List of rules defining the user's geo access within a CDN endpoint. Each geo filter defines an access rule to a specified path or content, e.g. block APAC for path /pictures/
-	GeoFilters []GeoFilter `pulumi:"geoFilters"`
-	// Indicates whether content compression is enabled on CDN. Default value is false. If compression is enabled, content will be served as compressed if user requests for a compressed version. Content won't be compressed on CDN when requested content is smaller than 1 byte or larger than 1 MB.
-	IsCompressionEnabled *bool `pulumi:"isCompressionEnabled"`
-	// Indicates whether HTTP traffic is allowed on the endpoint. Default value is true. At least one protocol (HTTP or HTTPS) must be allowed.
-	IsHttpAllowed *bool `pulumi:"isHttpAllowed"`
-	// Indicates whether HTTPS traffic is allowed on the endpoint. Default value is true. At least one protocol (HTTP or HTTPS) must be allowed.
-	IsHttpsAllowed *bool `pulumi:"isHttpsAllowed"`
-	// Resource location.
-	Location *string `pulumi:"location"`
-	// Specifies what scenario the customer wants this CDN endpoint to optimize for, e.g. Download, Media services. With this information, CDN can apply scenario driven optimization.
-	OptimizationType *string `pulumi:"optimizationType"`
-	// The host header value sent to the origin with each request. If you leave this blank, the request hostname determines this value. Azure CDN origins, such as Web Apps, Blob Storage, and Cloud Services require this host header value to match the origin hostname by default.
-	OriginHostHeader *string `pulumi:"originHostHeader"`
-	// A directory path on the origin that CDN can use to retrieve content from, e.g. contoso.cloudapp.net/originpath.
-	OriginPath *string `pulumi:"originPath"`
-	// The source of the content being delivered via CDN.
-	Origins []DeepCreatedOrigin `pulumi:"origins"`
-	// Path to a file hosted on the origin which helps accelerate delivery of the dynamic content and calculate the most optimal routes for the CDN. This is relative to the origin path.
-	ProbePath *string `pulumi:"probePath"`
-	// Name of the CDN profile which is unique within the resource group.
-	ProfileName string `pulumi:"profileName"`
-	// Defines how CDN caches requests that include query strings. You can ignore any query strings when caching, bypass caching to prevent requests that contain query strings from being cached, or cache every request with a unique URL.
-	QueryStringCachingBehavior *string `pulumi:"queryStringCachingBehavior"`
-	// Name of the Resource group within the Azure subscription.
-	ResourceGroupName string `pulumi:"resourceGroupName"`
-	// Resource tags.
-	Tags map[string]string `pulumi:"tags"`
+	ContentTypesToCompress     []string                                          `pulumi:"contentTypesToCompress"`
+	DeliveryPolicy             *EndpointPropertiesUpdateParametersDeliveryPolicy `pulumi:"deliveryPolicy"`
+	EndpointName               *string                                           `pulumi:"endpointName"`
+	GeoFilters                 []GeoFilter                                       `pulumi:"geoFilters"`
+	IsCompressionEnabled       *bool                                             `pulumi:"isCompressionEnabled"`
+	IsHttpAllowed              *bool                                             `pulumi:"isHttpAllowed"`
+	IsHttpsAllowed             *bool                                             `pulumi:"isHttpsAllowed"`
+	Location                   *string                                           `pulumi:"location"`
+	OptimizationType           *string                                           `pulumi:"optimizationType"`
+	OriginHostHeader           *string                                           `pulumi:"originHostHeader"`
+	OriginPath                 *string                                           `pulumi:"originPath"`
+	Origins                    []DeepCreatedOrigin                               `pulumi:"origins"`
+	ProbePath                  *string                                           `pulumi:"probePath"`
+	ProfileName                string                                            `pulumi:"profileName"`
+	QueryStringCachingBehavior *QueryStringCachingBehavior                       `pulumi:"queryStringCachingBehavior"`
+	ResourceGroupName          string                                            `pulumi:"resourceGroupName"`
+	Tags                       map[string]string                                 `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a Endpoint resource.
 type EndpointArgs struct {
-	// List of content types on which compression applies. The value should be a valid MIME type.
-	ContentTypesToCompress pulumi.StringArrayInput
-	// A policy that specifies the delivery rules to be used for an endpoint.
-	DeliveryPolicy EndpointPropertiesUpdateParametersDeliveryPolicyPtrInput
-	// Name of the endpoint under the profile which is unique globally.
-	EndpointName pulumi.StringPtrInput
-	// List of rules defining the user's geo access within a CDN endpoint. Each geo filter defines an access rule to a specified path or content, e.g. block APAC for path /pictures/
-	GeoFilters GeoFilterArrayInput
-	// Indicates whether content compression is enabled on CDN. Default value is false. If compression is enabled, content will be served as compressed if user requests for a compressed version. Content won't be compressed on CDN when requested content is smaller than 1 byte or larger than 1 MB.
-	IsCompressionEnabled pulumi.BoolPtrInput
-	// Indicates whether HTTP traffic is allowed on the endpoint. Default value is true. At least one protocol (HTTP or HTTPS) must be allowed.
-	IsHttpAllowed pulumi.BoolPtrInput
-	// Indicates whether HTTPS traffic is allowed on the endpoint. Default value is true. At least one protocol (HTTP or HTTPS) must be allowed.
-	IsHttpsAllowed pulumi.BoolPtrInput
-	// Resource location.
-	Location pulumi.StringPtrInput
-	// Specifies what scenario the customer wants this CDN endpoint to optimize for, e.g. Download, Media services. With this information, CDN can apply scenario driven optimization.
-	OptimizationType pulumi.StringPtrInput
-	// The host header value sent to the origin with each request. If you leave this blank, the request hostname determines this value. Azure CDN origins, such as Web Apps, Blob Storage, and Cloud Services require this host header value to match the origin hostname by default.
-	OriginHostHeader pulumi.StringPtrInput
-	// A directory path on the origin that CDN can use to retrieve content from, e.g. contoso.cloudapp.net/originpath.
-	OriginPath pulumi.StringPtrInput
-	// The source of the content being delivered via CDN.
-	Origins DeepCreatedOriginArrayInput
-	// Path to a file hosted on the origin which helps accelerate delivery of the dynamic content and calculate the most optimal routes for the CDN. This is relative to the origin path.
-	ProbePath pulumi.StringPtrInput
-	// Name of the CDN profile which is unique within the resource group.
-	ProfileName pulumi.StringInput
-	// Defines how CDN caches requests that include query strings. You can ignore any query strings when caching, bypass caching to prevent requests that contain query strings from being cached, or cache every request with a unique URL.
-	QueryStringCachingBehavior *QueryStringCachingBehavior
-	// Name of the Resource group within the Azure subscription.
-	ResourceGroupName pulumi.StringInput
-	// Resource tags.
-	Tags pulumi.StringMapInput
+	ContentTypesToCompress     pulumi.StringArrayInput
+	DeliveryPolicy             EndpointPropertiesUpdateParametersDeliveryPolicyPtrInput
+	EndpointName               pulumi.StringPtrInput
+	GeoFilters                 GeoFilterArrayInput
+	IsCompressionEnabled       pulumi.BoolPtrInput
+	IsHttpAllowed              pulumi.BoolPtrInput
+	IsHttpsAllowed             pulumi.BoolPtrInput
+	Location                   pulumi.StringPtrInput
+	OptimizationType           pulumi.StringPtrInput
+	OriginHostHeader           pulumi.StringPtrInput
+	OriginPath                 pulumi.StringPtrInput
+	Origins                    DeepCreatedOriginArrayInput
+	ProbePath                  pulumi.StringPtrInput
+	ProfileName                pulumi.StringInput
+	QueryStringCachingBehavior QueryStringCachingBehaviorPtrInput
+	ResourceGroupName          pulumi.StringInput
+	Tags                       pulumi.StringMapInput
 }
 
 func (EndpointArgs) ElementType() reflect.Type {
@@ -278,9 +224,7 @@ func (i *Endpoint) ToEndpointOutputWithContext(ctx context.Context) EndpointOutp
 	return pulumi.ToOutputWithContext(ctx, i).(EndpointOutput)
 }
 
-type EndpointOutput struct {
-	*pulumi.OutputState
-}
+type EndpointOutput struct{ *pulumi.OutputState }
 
 func (EndpointOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*Endpoint)(nil))

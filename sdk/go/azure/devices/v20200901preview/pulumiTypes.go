@@ -10,11 +10,8 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// The set of ARM identities associated with the IoT DPS resource.
 type ArmIdentity struct {
-	// Identity type. Only allowed values are SystemAssigned and UserAssigned. Comma separated if both for ex: SystemAssigned,UserAssigned.
-	IdentityType *string `pulumi:"identityType"`
-	// The set of UserAssigned identities associated with the IoT DPS resource.
+	IdentityType           *string                `pulumi:"identityType"`
 	UserAssignedIdentities map[string]interface{} `pulumi:"userAssignedIdentities"`
 }
 
@@ -29,12 +26,9 @@ type ArmIdentityInput interface {
 	ToArmIdentityOutputWithContext(context.Context) ArmIdentityOutput
 }
 
-// The set of ARM identities associated with the IoT DPS resource.
 type ArmIdentityArgs struct {
-	// Identity type. Only allowed values are SystemAssigned and UserAssigned. Comma separated if both for ex: SystemAssigned,UserAssigned.
-	IdentityType pulumi.StringPtrInput `pulumi:"identityType"`
-	// The set of UserAssigned identities associated with the IoT DPS resource.
-	UserAssignedIdentities pulumi.MapInput `pulumi:"userAssignedIdentities"`
+	IdentityType           pulumi.StringPtrInput `pulumi:"identityType"`
+	UserAssignedIdentities pulumi.MapInput       `pulumi:"userAssignedIdentities"`
 }
 
 func (ArmIdentityArgs) ElementType() reflect.Type {
@@ -90,7 +84,6 @@ func (i *armIdentityPtrType) ToArmIdentityPtrOutputWithContext(ctx context.Conte
 	return pulumi.ToOutputWithContext(ctx, i).(ArmIdentityPtrOutput)
 }
 
-// The set of ARM identities associated with the IoT DPS resource.
 type ArmIdentityOutput struct{ *pulumi.OutputState }
 
 func (ArmIdentityOutput) ElementType() reflect.Type {
@@ -110,17 +103,15 @@ func (o ArmIdentityOutput) ToArmIdentityPtrOutput() ArmIdentityPtrOutput {
 }
 
 func (o ArmIdentityOutput) ToArmIdentityPtrOutputWithContext(ctx context.Context) ArmIdentityPtrOutput {
-	return o.ApplyT(func(v ArmIdentity) *ArmIdentity {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ArmIdentity) *ArmIdentity {
 		return &v
 	}).(ArmIdentityPtrOutput)
 }
 
-// Identity type. Only allowed values are SystemAssigned and UserAssigned. Comma separated if both for ex: SystemAssigned,UserAssigned.
 func (o ArmIdentityOutput) IdentityType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ArmIdentity) *string { return v.IdentityType }).(pulumi.StringPtrOutput)
 }
 
-// The set of UserAssigned identities associated with the IoT DPS resource.
 func (o ArmIdentityOutput) UserAssignedIdentities() pulumi.MapOutput {
 	return o.ApplyT(func(v ArmIdentity) map[string]interface{} { return v.UserAssignedIdentities }).(pulumi.MapOutput)
 }
@@ -140,10 +131,15 @@ func (o ArmIdentityPtrOutput) ToArmIdentityPtrOutputWithContext(ctx context.Cont
 }
 
 func (o ArmIdentityPtrOutput) Elem() ArmIdentityOutput {
-	return o.ApplyT(func(v *ArmIdentity) ArmIdentity { return *v }).(ArmIdentityOutput)
+	return o.ApplyT(func(v *ArmIdentity) ArmIdentity {
+		if v != nil {
+			return *v
+		}
+		var ret ArmIdentity
+		return ret
+	}).(ArmIdentityOutput)
 }
 
-// Identity type. Only allowed values are SystemAssigned and UserAssigned. Comma separated if both for ex: SystemAssigned,UserAssigned.
 func (o ArmIdentityPtrOutput) IdentityType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ArmIdentity) *string {
 		if v == nil {
@@ -153,7 +149,6 @@ func (o ArmIdentityPtrOutput) IdentityType() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The set of UserAssigned identities associated with the IoT DPS resource.
 func (o ArmIdentityPtrOutput) UserAssignedIdentities() pulumi.MapOutput {
 	return o.ApplyT(func(v *ArmIdentity) map[string]interface{} {
 		if v == nil {
@@ -163,15 +158,10 @@ func (o ArmIdentityPtrOutput) UserAssignedIdentities() pulumi.MapOutput {
 	}).(pulumi.MapOutput)
 }
 
-// The set of ARM identities associated with the IoT DPS resource.
 type ArmIdentityResponse struct {
-	// Identity type. Only allowed values are SystemAssigned and UserAssigned. Comma separated if both for ex: SystemAssigned,UserAssigned.
-	IdentityType *string `pulumi:"identityType"`
-	// Principal Id
-	PrincipalId string `pulumi:"principalId"`
-	// Tenant Id
-	TenantId string `pulumi:"tenantId"`
-	// The set of UserAssigned identities associated with the IoT DPS resource.
+	IdentityType           *string                            `pulumi:"identityType"`
+	PrincipalId            string                             `pulumi:"principalId"`
+	TenantId               string                             `pulumi:"tenantId"`
 	UserAssignedIdentities map[string]ArmUserIdentityResponse `pulumi:"userAssignedIdentities"`
 }
 
@@ -186,15 +176,10 @@ type ArmIdentityResponseInput interface {
 	ToArmIdentityResponseOutputWithContext(context.Context) ArmIdentityResponseOutput
 }
 
-// The set of ARM identities associated with the IoT DPS resource.
 type ArmIdentityResponseArgs struct {
-	// Identity type. Only allowed values are SystemAssigned and UserAssigned. Comma separated if both for ex: SystemAssigned,UserAssigned.
-	IdentityType pulumi.StringPtrInput `pulumi:"identityType"`
-	// Principal Id
-	PrincipalId pulumi.StringInput `pulumi:"principalId"`
-	// Tenant Id
-	TenantId pulumi.StringInput `pulumi:"tenantId"`
-	// The set of UserAssigned identities associated with the IoT DPS resource.
+	IdentityType           pulumi.StringPtrInput           `pulumi:"identityType"`
+	PrincipalId            pulumi.StringInput              `pulumi:"principalId"`
+	TenantId               pulumi.StringInput              `pulumi:"tenantId"`
 	UserAssignedIdentities ArmUserIdentityResponseMapInput `pulumi:"userAssignedIdentities"`
 }
 
@@ -251,7 +236,6 @@ func (i *armIdentityResponsePtrType) ToArmIdentityResponsePtrOutputWithContext(c
 	return pulumi.ToOutputWithContext(ctx, i).(ArmIdentityResponsePtrOutput)
 }
 
-// The set of ARM identities associated with the IoT DPS resource.
 type ArmIdentityResponseOutput struct{ *pulumi.OutputState }
 
 func (ArmIdentityResponseOutput) ElementType() reflect.Type {
@@ -271,27 +255,23 @@ func (o ArmIdentityResponseOutput) ToArmIdentityResponsePtrOutput() ArmIdentityR
 }
 
 func (o ArmIdentityResponseOutput) ToArmIdentityResponsePtrOutputWithContext(ctx context.Context) ArmIdentityResponsePtrOutput {
-	return o.ApplyT(func(v ArmIdentityResponse) *ArmIdentityResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ArmIdentityResponse) *ArmIdentityResponse {
 		return &v
 	}).(ArmIdentityResponsePtrOutput)
 }
 
-// Identity type. Only allowed values are SystemAssigned and UserAssigned. Comma separated if both for ex: SystemAssigned,UserAssigned.
 func (o ArmIdentityResponseOutput) IdentityType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ArmIdentityResponse) *string { return v.IdentityType }).(pulumi.StringPtrOutput)
 }
 
-// Principal Id
 func (o ArmIdentityResponseOutput) PrincipalId() pulumi.StringOutput {
 	return o.ApplyT(func(v ArmIdentityResponse) string { return v.PrincipalId }).(pulumi.StringOutput)
 }
 
-// Tenant Id
 func (o ArmIdentityResponseOutput) TenantId() pulumi.StringOutput {
 	return o.ApplyT(func(v ArmIdentityResponse) string { return v.TenantId }).(pulumi.StringOutput)
 }
 
-// The set of UserAssigned identities associated with the IoT DPS resource.
 func (o ArmIdentityResponseOutput) UserAssignedIdentities() ArmUserIdentityResponseMapOutput {
 	return o.ApplyT(func(v ArmIdentityResponse) map[string]ArmUserIdentityResponse { return v.UserAssignedIdentities }).(ArmUserIdentityResponseMapOutput)
 }
@@ -311,10 +291,15 @@ func (o ArmIdentityResponsePtrOutput) ToArmIdentityResponsePtrOutputWithContext(
 }
 
 func (o ArmIdentityResponsePtrOutput) Elem() ArmIdentityResponseOutput {
-	return o.ApplyT(func(v *ArmIdentityResponse) ArmIdentityResponse { return *v }).(ArmIdentityResponseOutput)
+	return o.ApplyT(func(v *ArmIdentityResponse) ArmIdentityResponse {
+		if v != nil {
+			return *v
+		}
+		var ret ArmIdentityResponse
+		return ret
+	}).(ArmIdentityResponseOutput)
 }
 
-// Identity type. Only allowed values are SystemAssigned and UserAssigned. Comma separated if both for ex: SystemAssigned,UserAssigned.
 func (o ArmIdentityResponsePtrOutput) IdentityType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ArmIdentityResponse) *string {
 		if v == nil {
@@ -324,7 +309,6 @@ func (o ArmIdentityResponsePtrOutput) IdentityType() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Principal Id
 func (o ArmIdentityResponsePtrOutput) PrincipalId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ArmIdentityResponse) *string {
 		if v == nil {
@@ -334,7 +318,6 @@ func (o ArmIdentityResponsePtrOutput) PrincipalId() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Tenant Id
 func (o ArmIdentityResponsePtrOutput) TenantId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ArmIdentityResponse) *string {
 		if v == nil {
@@ -344,7 +327,6 @@ func (o ArmIdentityResponsePtrOutput) TenantId() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The set of UserAssigned identities associated with the IoT DPS resource.
 func (o ArmIdentityResponsePtrOutput) UserAssignedIdentities() ArmUserIdentityResponseMapOutput {
 	return o.ApplyT(func(v *ArmIdentityResponse) map[string]ArmUserIdentityResponse {
 		if v == nil {
@@ -354,11 +336,8 @@ func (o ArmIdentityResponsePtrOutput) UserAssignedIdentities() ArmUserIdentityRe
 	}).(ArmUserIdentityResponseMapOutput)
 }
 
-// The ARM UserAssigned identity information
 type ArmUserIdentityResponse struct {
-	// Client Id
-	ClientId string `pulumi:"clientId"`
-	// Principal Id
+	ClientId    string `pulumi:"clientId"`
 	PrincipalId string `pulumi:"principalId"`
 }
 
@@ -373,11 +352,8 @@ type ArmUserIdentityResponseInput interface {
 	ToArmUserIdentityResponseOutputWithContext(context.Context) ArmUserIdentityResponseOutput
 }
 
-// The ARM UserAssigned identity information
 type ArmUserIdentityResponseArgs struct {
-	// Client Id
-	ClientId pulumi.StringInput `pulumi:"clientId"`
-	// Principal Id
+	ClientId    pulumi.StringInput `pulumi:"clientId"`
 	PrincipalId pulumi.StringInput `pulumi:"principalId"`
 }
 
@@ -418,7 +394,6 @@ func (i ArmUserIdentityResponseMap) ToArmUserIdentityResponseMapOutputWithContex
 	return pulumi.ToOutputWithContext(ctx, i).(ArmUserIdentityResponseMapOutput)
 }
 
-// The ARM UserAssigned identity information
 type ArmUserIdentityResponseOutput struct{ *pulumi.OutputState }
 
 func (ArmUserIdentityResponseOutput) ElementType() reflect.Type {
@@ -433,12 +408,10 @@ func (o ArmUserIdentityResponseOutput) ToArmUserIdentityResponseOutputWithContex
 	return o
 }
 
-// Client Id
 func (o ArmUserIdentityResponseOutput) ClientId() pulumi.StringOutput {
 	return o.ApplyT(func(v ArmUserIdentityResponse) string { return v.ClientId }).(pulumi.StringOutput)
 }
 
-// Principal Id
 func (o ArmUserIdentityResponseOutput) PrincipalId() pulumi.StringOutput {
 	return o.ApplyT(func(v ArmUserIdentityResponse) string { return v.PrincipalId }).(pulumi.StringOutput)
 }
@@ -463,20 +436,13 @@ func (o ArmUserIdentityResponseMapOutput) MapIndex(k pulumi.StringInput) ArmUser
 	}).(ArmUserIdentityResponseOutput)
 }
 
-// The description of an X509 CA Certificate.
 type CertificatePropertiesResponse struct {
-	// The certificate's creation date and time.
-	Created string `pulumi:"created"`
-	// The certificate's expiration date and time.
-	Expiry string `pulumi:"expiry"`
-	// Determines whether certificate has been verified.
-	IsVerified bool `pulumi:"isVerified"`
-	// The certificate's subject name.
-	Subject string `pulumi:"subject"`
-	// The certificate's thumbprint.
+	Created    string `pulumi:"created"`
+	Expiry     string `pulumi:"expiry"`
+	IsVerified bool   `pulumi:"isVerified"`
+	Subject    string `pulumi:"subject"`
 	Thumbprint string `pulumi:"thumbprint"`
-	// The certificate's last update date and time.
-	Updated string `pulumi:"updated"`
+	Updated    string `pulumi:"updated"`
 }
 
 // CertificatePropertiesResponseInput is an input type that accepts CertificatePropertiesResponseArgs and CertificatePropertiesResponseOutput values.
@@ -490,20 +456,13 @@ type CertificatePropertiesResponseInput interface {
 	ToCertificatePropertiesResponseOutputWithContext(context.Context) CertificatePropertiesResponseOutput
 }
 
-// The description of an X509 CA Certificate.
 type CertificatePropertiesResponseArgs struct {
-	// The certificate's creation date and time.
-	Created pulumi.StringInput `pulumi:"created"`
-	// The certificate's expiration date and time.
-	Expiry pulumi.StringInput `pulumi:"expiry"`
-	// Determines whether certificate has been verified.
-	IsVerified pulumi.BoolInput `pulumi:"isVerified"`
-	// The certificate's subject name.
-	Subject pulumi.StringInput `pulumi:"subject"`
-	// The certificate's thumbprint.
+	Created    pulumi.StringInput `pulumi:"created"`
+	Expiry     pulumi.StringInput `pulumi:"expiry"`
+	IsVerified pulumi.BoolInput   `pulumi:"isVerified"`
+	Subject    pulumi.StringInput `pulumi:"subject"`
 	Thumbprint pulumi.StringInput `pulumi:"thumbprint"`
-	// The certificate's last update date and time.
-	Updated pulumi.StringInput `pulumi:"updated"`
+	Updated    pulumi.StringInput `pulumi:"updated"`
 }
 
 func (CertificatePropertiesResponseArgs) ElementType() reflect.Type {
@@ -559,7 +518,6 @@ func (i *certificatePropertiesResponsePtrType) ToCertificatePropertiesResponsePt
 	return pulumi.ToOutputWithContext(ctx, i).(CertificatePropertiesResponsePtrOutput)
 }
 
-// The description of an X509 CA Certificate.
 type CertificatePropertiesResponseOutput struct{ *pulumi.OutputState }
 
 func (CertificatePropertiesResponseOutput) ElementType() reflect.Type {
@@ -579,37 +537,31 @@ func (o CertificatePropertiesResponseOutput) ToCertificatePropertiesResponsePtrO
 }
 
 func (o CertificatePropertiesResponseOutput) ToCertificatePropertiesResponsePtrOutputWithContext(ctx context.Context) CertificatePropertiesResponsePtrOutput {
-	return o.ApplyT(func(v CertificatePropertiesResponse) *CertificatePropertiesResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v CertificatePropertiesResponse) *CertificatePropertiesResponse {
 		return &v
 	}).(CertificatePropertiesResponsePtrOutput)
 }
 
-// The certificate's creation date and time.
 func (o CertificatePropertiesResponseOutput) Created() pulumi.StringOutput {
 	return o.ApplyT(func(v CertificatePropertiesResponse) string { return v.Created }).(pulumi.StringOutput)
 }
 
-// The certificate's expiration date and time.
 func (o CertificatePropertiesResponseOutput) Expiry() pulumi.StringOutput {
 	return o.ApplyT(func(v CertificatePropertiesResponse) string { return v.Expiry }).(pulumi.StringOutput)
 }
 
-// Determines whether certificate has been verified.
 func (o CertificatePropertiesResponseOutput) IsVerified() pulumi.BoolOutput {
 	return o.ApplyT(func(v CertificatePropertiesResponse) bool { return v.IsVerified }).(pulumi.BoolOutput)
 }
 
-// The certificate's subject name.
 func (o CertificatePropertiesResponseOutput) Subject() pulumi.StringOutput {
 	return o.ApplyT(func(v CertificatePropertiesResponse) string { return v.Subject }).(pulumi.StringOutput)
 }
 
-// The certificate's thumbprint.
 func (o CertificatePropertiesResponseOutput) Thumbprint() pulumi.StringOutput {
 	return o.ApplyT(func(v CertificatePropertiesResponse) string { return v.Thumbprint }).(pulumi.StringOutput)
 }
 
-// The certificate's last update date and time.
 func (o CertificatePropertiesResponseOutput) Updated() pulumi.StringOutput {
 	return o.ApplyT(func(v CertificatePropertiesResponse) string { return v.Updated }).(pulumi.StringOutput)
 }
@@ -629,10 +581,15 @@ func (o CertificatePropertiesResponsePtrOutput) ToCertificatePropertiesResponseP
 }
 
 func (o CertificatePropertiesResponsePtrOutput) Elem() CertificatePropertiesResponseOutput {
-	return o.ApplyT(func(v *CertificatePropertiesResponse) CertificatePropertiesResponse { return *v }).(CertificatePropertiesResponseOutput)
+	return o.ApplyT(func(v *CertificatePropertiesResponse) CertificatePropertiesResponse {
+		if v != nil {
+			return *v
+		}
+		var ret CertificatePropertiesResponse
+		return ret
+	}).(CertificatePropertiesResponseOutput)
 }
 
-// The certificate's creation date and time.
 func (o CertificatePropertiesResponsePtrOutput) Created() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *CertificatePropertiesResponse) *string {
 		if v == nil {
@@ -642,7 +599,6 @@ func (o CertificatePropertiesResponsePtrOutput) Created() pulumi.StringPtrOutput
 	}).(pulumi.StringPtrOutput)
 }
 
-// The certificate's expiration date and time.
 func (o CertificatePropertiesResponsePtrOutput) Expiry() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *CertificatePropertiesResponse) *string {
 		if v == nil {
@@ -652,7 +608,6 @@ func (o CertificatePropertiesResponsePtrOutput) Expiry() pulumi.StringPtrOutput 
 	}).(pulumi.StringPtrOutput)
 }
 
-// Determines whether certificate has been verified.
 func (o CertificatePropertiesResponsePtrOutput) IsVerified() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *CertificatePropertiesResponse) *bool {
 		if v == nil {
@@ -662,7 +617,6 @@ func (o CertificatePropertiesResponsePtrOutput) IsVerified() pulumi.BoolPtrOutpu
 	}).(pulumi.BoolPtrOutput)
 }
 
-// The certificate's subject name.
 func (o CertificatePropertiesResponsePtrOutput) Subject() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *CertificatePropertiesResponse) *string {
 		if v == nil {
@@ -672,7 +626,6 @@ func (o CertificatePropertiesResponsePtrOutput) Subject() pulumi.StringPtrOutput
 	}).(pulumi.StringPtrOutput)
 }
 
-// The certificate's thumbprint.
 func (o CertificatePropertiesResponsePtrOutput) Thumbprint() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *CertificatePropertiesResponse) *string {
 		if v == nil {
@@ -682,7 +635,6 @@ func (o CertificatePropertiesResponsePtrOutput) Thumbprint() pulumi.StringPtrOut
 	}).(pulumi.StringPtrOutput)
 }
 
-// The certificate's last update date and time.
 func (o CertificatePropertiesResponsePtrOutput) Updated() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *CertificatePropertiesResponse) *string {
 		if v == nil {
@@ -692,9 +644,7 @@ func (o CertificatePropertiesResponsePtrOutput) Updated() pulumi.StringPtrOutput
 	}).(pulumi.StringPtrOutput)
 }
 
-// The properties of the identity used to access the key encryption key in KeyVault.
 type EncryptionKeyIdentity struct {
-	// The user assigned identity.
 	UserAssignedIdentity *string `pulumi:"userAssignedIdentity"`
 }
 
@@ -709,9 +659,7 @@ type EncryptionKeyIdentityInput interface {
 	ToEncryptionKeyIdentityOutputWithContext(context.Context) EncryptionKeyIdentityOutput
 }
 
-// The properties of the identity used to access the key encryption key in KeyVault.
 type EncryptionKeyIdentityArgs struct {
-	// The user assigned identity.
 	UserAssignedIdentity pulumi.StringPtrInput `pulumi:"userAssignedIdentity"`
 }
 
@@ -768,7 +716,6 @@ func (i *encryptionKeyIdentityPtrType) ToEncryptionKeyIdentityPtrOutputWithConte
 	return pulumi.ToOutputWithContext(ctx, i).(EncryptionKeyIdentityPtrOutput)
 }
 
-// The properties of the identity used to access the key encryption key in KeyVault.
 type EncryptionKeyIdentityOutput struct{ *pulumi.OutputState }
 
 func (EncryptionKeyIdentityOutput) ElementType() reflect.Type {
@@ -788,12 +735,11 @@ func (o EncryptionKeyIdentityOutput) ToEncryptionKeyIdentityPtrOutput() Encrypti
 }
 
 func (o EncryptionKeyIdentityOutput) ToEncryptionKeyIdentityPtrOutputWithContext(ctx context.Context) EncryptionKeyIdentityPtrOutput {
-	return o.ApplyT(func(v EncryptionKeyIdentity) *EncryptionKeyIdentity {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v EncryptionKeyIdentity) *EncryptionKeyIdentity {
 		return &v
 	}).(EncryptionKeyIdentityPtrOutput)
 }
 
-// The user assigned identity.
 func (o EncryptionKeyIdentityOutput) UserAssignedIdentity() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v EncryptionKeyIdentity) *string { return v.UserAssignedIdentity }).(pulumi.StringPtrOutput)
 }
@@ -813,10 +759,15 @@ func (o EncryptionKeyIdentityPtrOutput) ToEncryptionKeyIdentityPtrOutputWithCont
 }
 
 func (o EncryptionKeyIdentityPtrOutput) Elem() EncryptionKeyIdentityOutput {
-	return o.ApplyT(func(v *EncryptionKeyIdentity) EncryptionKeyIdentity { return *v }).(EncryptionKeyIdentityOutput)
+	return o.ApplyT(func(v *EncryptionKeyIdentity) EncryptionKeyIdentity {
+		if v != nil {
+			return *v
+		}
+		var ret EncryptionKeyIdentity
+		return ret
+	}).(EncryptionKeyIdentityOutput)
 }
 
-// The user assigned identity.
 func (o EncryptionKeyIdentityPtrOutput) UserAssignedIdentity() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *EncryptionKeyIdentity) *string {
 		if v == nil {
@@ -826,9 +777,7 @@ func (o EncryptionKeyIdentityPtrOutput) UserAssignedIdentity() pulumi.StringPtrO
 	}).(pulumi.StringPtrOutput)
 }
 
-// The properties of the identity used to access the key encryption key in KeyVault.
 type EncryptionKeyIdentityResponse struct {
-	// The user assigned identity.
 	UserAssignedIdentity *string `pulumi:"userAssignedIdentity"`
 }
 
@@ -843,9 +792,7 @@ type EncryptionKeyIdentityResponseInput interface {
 	ToEncryptionKeyIdentityResponseOutputWithContext(context.Context) EncryptionKeyIdentityResponseOutput
 }
 
-// The properties of the identity used to access the key encryption key in KeyVault.
 type EncryptionKeyIdentityResponseArgs struct {
-	// The user assigned identity.
 	UserAssignedIdentity pulumi.StringPtrInput `pulumi:"userAssignedIdentity"`
 }
 
@@ -902,7 +849,6 @@ func (i *encryptionKeyIdentityResponsePtrType) ToEncryptionKeyIdentityResponsePt
 	return pulumi.ToOutputWithContext(ctx, i).(EncryptionKeyIdentityResponsePtrOutput)
 }
 
-// The properties of the identity used to access the key encryption key in KeyVault.
 type EncryptionKeyIdentityResponseOutput struct{ *pulumi.OutputState }
 
 func (EncryptionKeyIdentityResponseOutput) ElementType() reflect.Type {
@@ -922,12 +868,11 @@ func (o EncryptionKeyIdentityResponseOutput) ToEncryptionKeyIdentityResponsePtrO
 }
 
 func (o EncryptionKeyIdentityResponseOutput) ToEncryptionKeyIdentityResponsePtrOutputWithContext(ctx context.Context) EncryptionKeyIdentityResponsePtrOutput {
-	return o.ApplyT(func(v EncryptionKeyIdentityResponse) *EncryptionKeyIdentityResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v EncryptionKeyIdentityResponse) *EncryptionKeyIdentityResponse {
 		return &v
 	}).(EncryptionKeyIdentityResponsePtrOutput)
 }
 
-// The user assigned identity.
 func (o EncryptionKeyIdentityResponseOutput) UserAssignedIdentity() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v EncryptionKeyIdentityResponse) *string { return v.UserAssignedIdentity }).(pulumi.StringPtrOutput)
 }
@@ -947,10 +892,15 @@ func (o EncryptionKeyIdentityResponsePtrOutput) ToEncryptionKeyIdentityResponseP
 }
 
 func (o EncryptionKeyIdentityResponsePtrOutput) Elem() EncryptionKeyIdentityResponseOutput {
-	return o.ApplyT(func(v *EncryptionKeyIdentityResponse) EncryptionKeyIdentityResponse { return *v }).(EncryptionKeyIdentityResponseOutput)
+	return o.ApplyT(func(v *EncryptionKeyIdentityResponse) EncryptionKeyIdentityResponse {
+		if v != nil {
+			return *v
+		}
+		var ret EncryptionKeyIdentityResponse
+		return ret
+	}).(EncryptionKeyIdentityResponseOutput)
 }
 
-// The user assigned identity.
 func (o EncryptionKeyIdentityResponsePtrOutput) UserAssignedIdentity() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *EncryptionKeyIdentityResponse) *string {
 		if v == nil {
@@ -960,13 +910,9 @@ func (o EncryptionKeyIdentityResponsePtrOutput) UserAssignedIdentity() pulumi.St
 	}).(pulumi.StringPtrOutput)
 }
 
-// The customer-managed encryption key (CMK) properties for the IoT DPS instance.
 type EncryptionPropertiesDescription struct {
-	// The identity used to access the encryption key in KeyVault.
-	Identity *EncryptionKeyIdentity `pulumi:"identity"`
-	// The source of the encryption key. Typically, Microsoft.KeyVault
-	KeySource *string `pulumi:"keySource"`
-	// The properties of the encryption key configured in KeyVault.
+	Identity           *EncryptionKeyIdentity  `pulumi:"identity"`
+	KeySource          *string                 `pulumi:"keySource"`
 	KeyVaultProperties []KeyVaultKeyProperties `pulumi:"keyVaultProperties"`
 }
 
@@ -981,13 +927,9 @@ type EncryptionPropertiesDescriptionInput interface {
 	ToEncryptionPropertiesDescriptionOutputWithContext(context.Context) EncryptionPropertiesDescriptionOutput
 }
 
-// The customer-managed encryption key (CMK) properties for the IoT DPS instance.
 type EncryptionPropertiesDescriptionArgs struct {
-	// The identity used to access the encryption key in KeyVault.
-	Identity EncryptionKeyIdentityPtrInput `pulumi:"identity"`
-	// The source of the encryption key. Typically, Microsoft.KeyVault
-	KeySource pulumi.StringPtrInput `pulumi:"keySource"`
-	// The properties of the encryption key configured in KeyVault.
+	Identity           EncryptionKeyIdentityPtrInput   `pulumi:"identity"`
+	KeySource          pulumi.StringPtrInput           `pulumi:"keySource"`
 	KeyVaultProperties KeyVaultKeyPropertiesArrayInput `pulumi:"keyVaultProperties"`
 }
 
@@ -1044,7 +986,6 @@ func (i *encryptionPropertiesDescriptionPtrType) ToEncryptionPropertiesDescripti
 	return pulumi.ToOutputWithContext(ctx, i).(EncryptionPropertiesDescriptionPtrOutput)
 }
 
-// The customer-managed encryption key (CMK) properties for the IoT DPS instance.
 type EncryptionPropertiesDescriptionOutput struct{ *pulumi.OutputState }
 
 func (EncryptionPropertiesDescriptionOutput) ElementType() reflect.Type {
@@ -1064,22 +1005,19 @@ func (o EncryptionPropertiesDescriptionOutput) ToEncryptionPropertiesDescription
 }
 
 func (o EncryptionPropertiesDescriptionOutput) ToEncryptionPropertiesDescriptionPtrOutputWithContext(ctx context.Context) EncryptionPropertiesDescriptionPtrOutput {
-	return o.ApplyT(func(v EncryptionPropertiesDescription) *EncryptionPropertiesDescription {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v EncryptionPropertiesDescription) *EncryptionPropertiesDescription {
 		return &v
 	}).(EncryptionPropertiesDescriptionPtrOutput)
 }
 
-// The identity used to access the encryption key in KeyVault.
 func (o EncryptionPropertiesDescriptionOutput) Identity() EncryptionKeyIdentityPtrOutput {
 	return o.ApplyT(func(v EncryptionPropertiesDescription) *EncryptionKeyIdentity { return v.Identity }).(EncryptionKeyIdentityPtrOutput)
 }
 
-// The source of the encryption key. Typically, Microsoft.KeyVault
 func (o EncryptionPropertiesDescriptionOutput) KeySource() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v EncryptionPropertiesDescription) *string { return v.KeySource }).(pulumi.StringPtrOutput)
 }
 
-// The properties of the encryption key configured in KeyVault.
 func (o EncryptionPropertiesDescriptionOutput) KeyVaultProperties() KeyVaultKeyPropertiesArrayOutput {
 	return o.ApplyT(func(v EncryptionPropertiesDescription) []KeyVaultKeyProperties { return v.KeyVaultProperties }).(KeyVaultKeyPropertiesArrayOutput)
 }
@@ -1099,10 +1037,15 @@ func (o EncryptionPropertiesDescriptionPtrOutput) ToEncryptionPropertiesDescript
 }
 
 func (o EncryptionPropertiesDescriptionPtrOutput) Elem() EncryptionPropertiesDescriptionOutput {
-	return o.ApplyT(func(v *EncryptionPropertiesDescription) EncryptionPropertiesDescription { return *v }).(EncryptionPropertiesDescriptionOutput)
+	return o.ApplyT(func(v *EncryptionPropertiesDescription) EncryptionPropertiesDescription {
+		if v != nil {
+			return *v
+		}
+		var ret EncryptionPropertiesDescription
+		return ret
+	}).(EncryptionPropertiesDescriptionOutput)
 }
 
-// The identity used to access the encryption key in KeyVault.
 func (o EncryptionPropertiesDescriptionPtrOutput) Identity() EncryptionKeyIdentityPtrOutput {
 	return o.ApplyT(func(v *EncryptionPropertiesDescription) *EncryptionKeyIdentity {
 		if v == nil {
@@ -1112,7 +1055,6 @@ func (o EncryptionPropertiesDescriptionPtrOutput) Identity() EncryptionKeyIdenti
 	}).(EncryptionKeyIdentityPtrOutput)
 }
 
-// The source of the encryption key. Typically, Microsoft.KeyVault
 func (o EncryptionPropertiesDescriptionPtrOutput) KeySource() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *EncryptionPropertiesDescription) *string {
 		if v == nil {
@@ -1122,7 +1064,6 @@ func (o EncryptionPropertiesDescriptionPtrOutput) KeySource() pulumi.StringPtrOu
 	}).(pulumi.StringPtrOutput)
 }
 
-// The properties of the encryption key configured in KeyVault.
 func (o EncryptionPropertiesDescriptionPtrOutput) KeyVaultProperties() KeyVaultKeyPropertiesArrayOutput {
 	return o.ApplyT(func(v *EncryptionPropertiesDescription) []KeyVaultKeyProperties {
 		if v == nil {
@@ -1132,13 +1073,9 @@ func (o EncryptionPropertiesDescriptionPtrOutput) KeyVaultProperties() KeyVaultK
 	}).(KeyVaultKeyPropertiesArrayOutput)
 }
 
-// The customer-managed encryption key (CMK) properties for the IoT DPS instance.
 type EncryptionPropertiesDescriptionResponse struct {
-	// The identity used to access the encryption key in KeyVault.
-	Identity *EncryptionKeyIdentityResponse `pulumi:"identity"`
-	// The source of the encryption key. Typically, Microsoft.KeyVault
-	KeySource *string `pulumi:"keySource"`
-	// The properties of the encryption key configured in KeyVault.
+	Identity           *EncryptionKeyIdentityResponse  `pulumi:"identity"`
+	KeySource          *string                         `pulumi:"keySource"`
 	KeyVaultProperties []KeyVaultKeyPropertiesResponse `pulumi:"keyVaultProperties"`
 }
 
@@ -1153,13 +1090,9 @@ type EncryptionPropertiesDescriptionResponseInput interface {
 	ToEncryptionPropertiesDescriptionResponseOutputWithContext(context.Context) EncryptionPropertiesDescriptionResponseOutput
 }
 
-// The customer-managed encryption key (CMK) properties for the IoT DPS instance.
 type EncryptionPropertiesDescriptionResponseArgs struct {
-	// The identity used to access the encryption key in KeyVault.
-	Identity EncryptionKeyIdentityResponsePtrInput `pulumi:"identity"`
-	// The source of the encryption key. Typically, Microsoft.KeyVault
-	KeySource pulumi.StringPtrInput `pulumi:"keySource"`
-	// The properties of the encryption key configured in KeyVault.
+	Identity           EncryptionKeyIdentityResponsePtrInput   `pulumi:"identity"`
+	KeySource          pulumi.StringPtrInput                   `pulumi:"keySource"`
 	KeyVaultProperties KeyVaultKeyPropertiesResponseArrayInput `pulumi:"keyVaultProperties"`
 }
 
@@ -1216,7 +1149,6 @@ func (i *encryptionPropertiesDescriptionResponsePtrType) ToEncryptionPropertiesD
 	return pulumi.ToOutputWithContext(ctx, i).(EncryptionPropertiesDescriptionResponsePtrOutput)
 }
 
-// The customer-managed encryption key (CMK) properties for the IoT DPS instance.
 type EncryptionPropertiesDescriptionResponseOutput struct{ *pulumi.OutputState }
 
 func (EncryptionPropertiesDescriptionResponseOutput) ElementType() reflect.Type {
@@ -1236,22 +1168,19 @@ func (o EncryptionPropertiesDescriptionResponseOutput) ToEncryptionPropertiesDes
 }
 
 func (o EncryptionPropertiesDescriptionResponseOutput) ToEncryptionPropertiesDescriptionResponsePtrOutputWithContext(ctx context.Context) EncryptionPropertiesDescriptionResponsePtrOutput {
-	return o.ApplyT(func(v EncryptionPropertiesDescriptionResponse) *EncryptionPropertiesDescriptionResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v EncryptionPropertiesDescriptionResponse) *EncryptionPropertiesDescriptionResponse {
 		return &v
 	}).(EncryptionPropertiesDescriptionResponsePtrOutput)
 }
 
-// The identity used to access the encryption key in KeyVault.
 func (o EncryptionPropertiesDescriptionResponseOutput) Identity() EncryptionKeyIdentityResponsePtrOutput {
 	return o.ApplyT(func(v EncryptionPropertiesDescriptionResponse) *EncryptionKeyIdentityResponse { return v.Identity }).(EncryptionKeyIdentityResponsePtrOutput)
 }
 
-// The source of the encryption key. Typically, Microsoft.KeyVault
 func (o EncryptionPropertiesDescriptionResponseOutput) KeySource() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v EncryptionPropertiesDescriptionResponse) *string { return v.KeySource }).(pulumi.StringPtrOutput)
 }
 
-// The properties of the encryption key configured in KeyVault.
 func (o EncryptionPropertiesDescriptionResponseOutput) KeyVaultProperties() KeyVaultKeyPropertiesResponseArrayOutput {
 	return o.ApplyT(func(v EncryptionPropertiesDescriptionResponse) []KeyVaultKeyPropertiesResponse {
 		return v.KeyVaultProperties
@@ -1273,10 +1202,15 @@ func (o EncryptionPropertiesDescriptionResponsePtrOutput) ToEncryptionProperties
 }
 
 func (o EncryptionPropertiesDescriptionResponsePtrOutput) Elem() EncryptionPropertiesDescriptionResponseOutput {
-	return o.ApplyT(func(v *EncryptionPropertiesDescriptionResponse) EncryptionPropertiesDescriptionResponse { return *v }).(EncryptionPropertiesDescriptionResponseOutput)
+	return o.ApplyT(func(v *EncryptionPropertiesDescriptionResponse) EncryptionPropertiesDescriptionResponse {
+		if v != nil {
+			return *v
+		}
+		var ret EncryptionPropertiesDescriptionResponse
+		return ret
+	}).(EncryptionPropertiesDescriptionResponseOutput)
 }
 
-// The identity used to access the encryption key in KeyVault.
 func (o EncryptionPropertiesDescriptionResponsePtrOutput) Identity() EncryptionKeyIdentityResponsePtrOutput {
 	return o.ApplyT(func(v *EncryptionPropertiesDescriptionResponse) *EncryptionKeyIdentityResponse {
 		if v == nil {
@@ -1286,7 +1220,6 @@ func (o EncryptionPropertiesDescriptionResponsePtrOutput) Identity() EncryptionK
 	}).(EncryptionKeyIdentityResponsePtrOutput)
 }
 
-// The source of the encryption key. Typically, Microsoft.KeyVault
 func (o EncryptionPropertiesDescriptionResponsePtrOutput) KeySource() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *EncryptionPropertiesDescriptionResponse) *string {
 		if v == nil {
@@ -1296,7 +1229,6 @@ func (o EncryptionPropertiesDescriptionResponsePtrOutput) KeySource() pulumi.Str
 	}).(pulumi.StringPtrOutput)
 }
 
-// The properties of the encryption key configured in KeyVault.
 func (o EncryptionPropertiesDescriptionResponsePtrOutput) KeyVaultProperties() KeyVaultKeyPropertiesResponseArrayOutput {
 	return o.ApplyT(func(v *EncryptionPropertiesDescriptionResponse) []KeyVaultKeyPropertiesResponse {
 		if v == nil {
@@ -1306,26 +1238,16 @@ func (o EncryptionPropertiesDescriptionResponsePtrOutput) KeyVaultProperties() K
 	}).(KeyVaultKeyPropertiesResponseArrayOutput)
 }
 
-// the service specific properties of a provisioning service, including keys, linked iot hubs, current state, and system generated properties such as hostname and idScope
 type IotDpsPropertiesDescription struct {
-	// Allocation policy to be used by this provisioning service.
-	AllocationPolicy *string `pulumi:"allocationPolicy"`
-	// List of authorization keys for a provisioning service.
-	AuthorizationPolicies []SharedAccessSignatureAuthorizationRuleAccessRightsDescription `pulumi:"authorizationPolicies"`
-	// The encryption properties for the IoT DPS instance.
-	Encryption *EncryptionPropertiesDescription `pulumi:"encryption"`
-	// List of IoT hubs associated with this provisioning service.
-	IotHubs []IotHubDefinitionDescription `pulumi:"iotHubs"`
-	// The IP filter rules.
-	IpFilterRules []TargetIpFilterRule `pulumi:"ipFilterRules"`
-	// Private endpoint connections created on this IotHub
-	PrivateEndpointConnections []PrivateEndpointConnection `pulumi:"privateEndpointConnections"`
-	// The ARM provisioning state of the provisioning service.
-	ProvisioningState *string `pulumi:"provisioningState"`
-	// Whether requests from Public Network are allowed
-	PublicNetworkAccess *string `pulumi:"publicNetworkAccess"`
-	// Current state of the provisioning service.
-	State *string `pulumi:"state"`
+	AllocationPolicy           *string                                                         `pulumi:"allocationPolicy"`
+	AuthorizationPolicies      []SharedAccessSignatureAuthorizationRuleAccessRightsDescription `pulumi:"authorizationPolicies"`
+	Encryption                 *EncryptionPropertiesDescription                                `pulumi:"encryption"`
+	IotHubs                    []IotHubDefinitionDescription                                   `pulumi:"iotHubs"`
+	IpFilterRules              []TargetIpFilterRule                                            `pulumi:"ipFilterRules"`
+	PrivateEndpointConnections []PrivateEndpointConnection                                     `pulumi:"privateEndpointConnections"`
+	ProvisioningState          *string                                                         `pulumi:"provisioningState"`
+	PublicNetworkAccess        *string                                                         `pulumi:"publicNetworkAccess"`
+	State                      *string                                                         `pulumi:"state"`
 }
 
 // IotDpsPropertiesDescriptionInput is an input type that accepts IotDpsPropertiesDescriptionArgs and IotDpsPropertiesDescriptionOutput values.
@@ -1339,26 +1261,16 @@ type IotDpsPropertiesDescriptionInput interface {
 	ToIotDpsPropertiesDescriptionOutputWithContext(context.Context) IotDpsPropertiesDescriptionOutput
 }
 
-// the service specific properties of a provisioning service, including keys, linked iot hubs, current state, and system generated properties such as hostname and idScope
 type IotDpsPropertiesDescriptionArgs struct {
-	// Allocation policy to be used by this provisioning service.
-	AllocationPolicy pulumi.StringPtrInput `pulumi:"allocationPolicy"`
-	// List of authorization keys for a provisioning service.
-	AuthorizationPolicies SharedAccessSignatureAuthorizationRuleAccessRightsDescriptionArrayInput `pulumi:"authorizationPolicies"`
-	// The encryption properties for the IoT DPS instance.
-	Encryption EncryptionPropertiesDescriptionPtrInput `pulumi:"encryption"`
-	// List of IoT hubs associated with this provisioning service.
-	IotHubs IotHubDefinitionDescriptionArrayInput `pulumi:"iotHubs"`
-	// The IP filter rules.
-	IpFilterRules TargetIpFilterRuleArrayInput `pulumi:"ipFilterRules"`
-	// Private endpoint connections created on this IotHub
-	PrivateEndpointConnections PrivateEndpointConnectionArrayInput `pulumi:"privateEndpointConnections"`
-	// The ARM provisioning state of the provisioning service.
-	ProvisioningState pulumi.StringPtrInput `pulumi:"provisioningState"`
-	// Whether requests from Public Network are allowed
-	PublicNetworkAccess pulumi.StringPtrInput `pulumi:"publicNetworkAccess"`
-	// Current state of the provisioning service.
-	State pulumi.StringPtrInput `pulumi:"state"`
+	AllocationPolicy           pulumi.StringPtrInput                                                   `pulumi:"allocationPolicy"`
+	AuthorizationPolicies      SharedAccessSignatureAuthorizationRuleAccessRightsDescriptionArrayInput `pulumi:"authorizationPolicies"`
+	Encryption                 EncryptionPropertiesDescriptionPtrInput                                 `pulumi:"encryption"`
+	IotHubs                    IotHubDefinitionDescriptionArrayInput                                   `pulumi:"iotHubs"`
+	IpFilterRules              TargetIpFilterRuleArrayInput                                            `pulumi:"ipFilterRules"`
+	PrivateEndpointConnections PrivateEndpointConnectionArrayInput                                     `pulumi:"privateEndpointConnections"`
+	ProvisioningState          pulumi.StringPtrInput                                                   `pulumi:"provisioningState"`
+	PublicNetworkAccess        pulumi.StringPtrInput                                                   `pulumi:"publicNetworkAccess"`
+	State                      pulumi.StringPtrInput                                                   `pulumi:"state"`
 }
 
 func (IotDpsPropertiesDescriptionArgs) ElementType() reflect.Type {
@@ -1414,7 +1326,6 @@ func (i *iotDpsPropertiesDescriptionPtrType) ToIotDpsPropertiesDescriptionPtrOut
 	return pulumi.ToOutputWithContext(ctx, i).(IotDpsPropertiesDescriptionPtrOutput)
 }
 
-// the service specific properties of a provisioning service, including keys, linked iot hubs, current state, and system generated properties such as hostname and idScope
 type IotDpsPropertiesDescriptionOutput struct{ *pulumi.OutputState }
 
 func (IotDpsPropertiesDescriptionOutput) ElementType() reflect.Type {
@@ -1434,54 +1345,45 @@ func (o IotDpsPropertiesDescriptionOutput) ToIotDpsPropertiesDescriptionPtrOutpu
 }
 
 func (o IotDpsPropertiesDescriptionOutput) ToIotDpsPropertiesDescriptionPtrOutputWithContext(ctx context.Context) IotDpsPropertiesDescriptionPtrOutput {
-	return o.ApplyT(func(v IotDpsPropertiesDescription) *IotDpsPropertiesDescription {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v IotDpsPropertiesDescription) *IotDpsPropertiesDescription {
 		return &v
 	}).(IotDpsPropertiesDescriptionPtrOutput)
 }
 
-// Allocation policy to be used by this provisioning service.
 func (o IotDpsPropertiesDescriptionOutput) AllocationPolicy() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v IotDpsPropertiesDescription) *string { return v.AllocationPolicy }).(pulumi.StringPtrOutput)
 }
 
-// List of authorization keys for a provisioning service.
 func (o IotDpsPropertiesDescriptionOutput) AuthorizationPolicies() SharedAccessSignatureAuthorizationRuleAccessRightsDescriptionArrayOutput {
 	return o.ApplyT(func(v IotDpsPropertiesDescription) []SharedAccessSignatureAuthorizationRuleAccessRightsDescription {
 		return v.AuthorizationPolicies
 	}).(SharedAccessSignatureAuthorizationRuleAccessRightsDescriptionArrayOutput)
 }
 
-// The encryption properties for the IoT DPS instance.
 func (o IotDpsPropertiesDescriptionOutput) Encryption() EncryptionPropertiesDescriptionPtrOutput {
 	return o.ApplyT(func(v IotDpsPropertiesDescription) *EncryptionPropertiesDescription { return v.Encryption }).(EncryptionPropertiesDescriptionPtrOutput)
 }
 
-// List of IoT hubs associated with this provisioning service.
 func (o IotDpsPropertiesDescriptionOutput) IotHubs() IotHubDefinitionDescriptionArrayOutput {
 	return o.ApplyT(func(v IotDpsPropertiesDescription) []IotHubDefinitionDescription { return v.IotHubs }).(IotHubDefinitionDescriptionArrayOutput)
 }
 
-// The IP filter rules.
 func (o IotDpsPropertiesDescriptionOutput) IpFilterRules() TargetIpFilterRuleArrayOutput {
 	return o.ApplyT(func(v IotDpsPropertiesDescription) []TargetIpFilterRule { return v.IpFilterRules }).(TargetIpFilterRuleArrayOutput)
 }
 
-// Private endpoint connections created on this IotHub
 func (o IotDpsPropertiesDescriptionOutput) PrivateEndpointConnections() PrivateEndpointConnectionArrayOutput {
 	return o.ApplyT(func(v IotDpsPropertiesDescription) []PrivateEndpointConnection { return v.PrivateEndpointConnections }).(PrivateEndpointConnectionArrayOutput)
 }
 
-// The ARM provisioning state of the provisioning service.
 func (o IotDpsPropertiesDescriptionOutput) ProvisioningState() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v IotDpsPropertiesDescription) *string { return v.ProvisioningState }).(pulumi.StringPtrOutput)
 }
 
-// Whether requests from Public Network are allowed
 func (o IotDpsPropertiesDescriptionOutput) PublicNetworkAccess() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v IotDpsPropertiesDescription) *string { return v.PublicNetworkAccess }).(pulumi.StringPtrOutput)
 }
 
-// Current state of the provisioning service.
 func (o IotDpsPropertiesDescriptionOutput) State() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v IotDpsPropertiesDescription) *string { return v.State }).(pulumi.StringPtrOutput)
 }
@@ -1501,10 +1403,15 @@ func (o IotDpsPropertiesDescriptionPtrOutput) ToIotDpsPropertiesDescriptionPtrOu
 }
 
 func (o IotDpsPropertiesDescriptionPtrOutput) Elem() IotDpsPropertiesDescriptionOutput {
-	return o.ApplyT(func(v *IotDpsPropertiesDescription) IotDpsPropertiesDescription { return *v }).(IotDpsPropertiesDescriptionOutput)
+	return o.ApplyT(func(v *IotDpsPropertiesDescription) IotDpsPropertiesDescription {
+		if v != nil {
+			return *v
+		}
+		var ret IotDpsPropertiesDescription
+		return ret
+	}).(IotDpsPropertiesDescriptionOutput)
 }
 
-// Allocation policy to be used by this provisioning service.
 func (o IotDpsPropertiesDescriptionPtrOutput) AllocationPolicy() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *IotDpsPropertiesDescription) *string {
 		if v == nil {
@@ -1514,7 +1421,6 @@ func (o IotDpsPropertiesDescriptionPtrOutput) AllocationPolicy() pulumi.StringPt
 	}).(pulumi.StringPtrOutput)
 }
 
-// List of authorization keys for a provisioning service.
 func (o IotDpsPropertiesDescriptionPtrOutput) AuthorizationPolicies() SharedAccessSignatureAuthorizationRuleAccessRightsDescriptionArrayOutput {
 	return o.ApplyT(func(v *IotDpsPropertiesDescription) []SharedAccessSignatureAuthorizationRuleAccessRightsDescription {
 		if v == nil {
@@ -1524,7 +1430,6 @@ func (o IotDpsPropertiesDescriptionPtrOutput) AuthorizationPolicies() SharedAcce
 	}).(SharedAccessSignatureAuthorizationRuleAccessRightsDescriptionArrayOutput)
 }
 
-// The encryption properties for the IoT DPS instance.
 func (o IotDpsPropertiesDescriptionPtrOutput) Encryption() EncryptionPropertiesDescriptionPtrOutput {
 	return o.ApplyT(func(v *IotDpsPropertiesDescription) *EncryptionPropertiesDescription {
 		if v == nil {
@@ -1534,7 +1439,6 @@ func (o IotDpsPropertiesDescriptionPtrOutput) Encryption() EncryptionPropertiesD
 	}).(EncryptionPropertiesDescriptionPtrOutput)
 }
 
-// List of IoT hubs associated with this provisioning service.
 func (o IotDpsPropertiesDescriptionPtrOutput) IotHubs() IotHubDefinitionDescriptionArrayOutput {
 	return o.ApplyT(func(v *IotDpsPropertiesDescription) []IotHubDefinitionDescription {
 		if v == nil {
@@ -1544,7 +1448,6 @@ func (o IotDpsPropertiesDescriptionPtrOutput) IotHubs() IotHubDefinitionDescript
 	}).(IotHubDefinitionDescriptionArrayOutput)
 }
 
-// The IP filter rules.
 func (o IotDpsPropertiesDescriptionPtrOutput) IpFilterRules() TargetIpFilterRuleArrayOutput {
 	return o.ApplyT(func(v *IotDpsPropertiesDescription) []TargetIpFilterRule {
 		if v == nil {
@@ -1554,7 +1457,6 @@ func (o IotDpsPropertiesDescriptionPtrOutput) IpFilterRules() TargetIpFilterRule
 	}).(TargetIpFilterRuleArrayOutput)
 }
 
-// Private endpoint connections created on this IotHub
 func (o IotDpsPropertiesDescriptionPtrOutput) PrivateEndpointConnections() PrivateEndpointConnectionArrayOutput {
 	return o.ApplyT(func(v *IotDpsPropertiesDescription) []PrivateEndpointConnection {
 		if v == nil {
@@ -1564,7 +1466,6 @@ func (o IotDpsPropertiesDescriptionPtrOutput) PrivateEndpointConnections() Priva
 	}).(PrivateEndpointConnectionArrayOutput)
 }
 
-// The ARM provisioning state of the provisioning service.
 func (o IotDpsPropertiesDescriptionPtrOutput) ProvisioningState() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *IotDpsPropertiesDescription) *string {
 		if v == nil {
@@ -1574,7 +1475,6 @@ func (o IotDpsPropertiesDescriptionPtrOutput) ProvisioningState() pulumi.StringP
 	}).(pulumi.StringPtrOutput)
 }
 
-// Whether requests from Public Network are allowed
 func (o IotDpsPropertiesDescriptionPtrOutput) PublicNetworkAccess() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *IotDpsPropertiesDescription) *string {
 		if v == nil {
@@ -1584,7 +1484,6 @@ func (o IotDpsPropertiesDescriptionPtrOutput) PublicNetworkAccess() pulumi.Strin
 	}).(pulumi.StringPtrOutput)
 }
 
-// Current state of the provisioning service.
 func (o IotDpsPropertiesDescriptionPtrOutput) State() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *IotDpsPropertiesDescription) *string {
 		if v == nil {
@@ -1594,32 +1493,19 @@ func (o IotDpsPropertiesDescriptionPtrOutput) State() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// the service specific properties of a provisioning service, including keys, linked iot hubs, current state, and system generated properties such as hostname and idScope
 type IotDpsPropertiesDescriptionResponse struct {
-	// Allocation policy to be used by this provisioning service.
-	AllocationPolicy *string `pulumi:"allocationPolicy"`
-	// List of authorization keys for a provisioning service.
-	AuthorizationPolicies []SharedAccessSignatureAuthorizationRuleAccessRightsDescriptionResponse `pulumi:"authorizationPolicies"`
-	// Device endpoint for this provisioning service.
-	DeviceProvisioningHostName string `pulumi:"deviceProvisioningHostName"`
-	// The encryption properties for the IoT DPS instance.
-	Encryption *EncryptionPropertiesDescriptionResponse `pulumi:"encryption"`
-	// Unique identifier of this provisioning service.
-	IdScope string `pulumi:"idScope"`
-	// List of IoT hubs associated with this provisioning service.
-	IotHubs []IotHubDefinitionDescriptionResponse `pulumi:"iotHubs"`
-	// The IP filter rules.
-	IpFilterRules []TargetIpFilterRuleResponse `pulumi:"ipFilterRules"`
-	// Private endpoint connections created on this IotHub
-	PrivateEndpointConnections []PrivateEndpointConnectionResponse `pulumi:"privateEndpointConnections"`
-	// The ARM provisioning state of the provisioning service.
-	ProvisioningState *string `pulumi:"provisioningState"`
-	// Whether requests from Public Network are allowed
-	PublicNetworkAccess *string `pulumi:"publicNetworkAccess"`
-	// Service endpoint for provisioning service.
-	ServiceOperationsHostName string `pulumi:"serviceOperationsHostName"`
-	// Current state of the provisioning service.
-	State *string `pulumi:"state"`
+	AllocationPolicy           *string                                                                 `pulumi:"allocationPolicy"`
+	AuthorizationPolicies      []SharedAccessSignatureAuthorizationRuleAccessRightsDescriptionResponse `pulumi:"authorizationPolicies"`
+	DeviceProvisioningHostName string                                                                  `pulumi:"deviceProvisioningHostName"`
+	Encryption                 *EncryptionPropertiesDescriptionResponse                                `pulumi:"encryption"`
+	IdScope                    string                                                                  `pulumi:"idScope"`
+	IotHubs                    []IotHubDefinitionDescriptionResponse                                   `pulumi:"iotHubs"`
+	IpFilterRules              []TargetIpFilterRuleResponse                                            `pulumi:"ipFilterRules"`
+	PrivateEndpointConnections []PrivateEndpointConnectionResponse                                     `pulumi:"privateEndpointConnections"`
+	ProvisioningState          *string                                                                 `pulumi:"provisioningState"`
+	PublicNetworkAccess        *string                                                                 `pulumi:"publicNetworkAccess"`
+	ServiceOperationsHostName  string                                                                  `pulumi:"serviceOperationsHostName"`
+	State                      *string                                                                 `pulumi:"state"`
 }
 
 // IotDpsPropertiesDescriptionResponseInput is an input type that accepts IotDpsPropertiesDescriptionResponseArgs and IotDpsPropertiesDescriptionResponseOutput values.
@@ -1633,32 +1519,19 @@ type IotDpsPropertiesDescriptionResponseInput interface {
 	ToIotDpsPropertiesDescriptionResponseOutputWithContext(context.Context) IotDpsPropertiesDescriptionResponseOutput
 }
 
-// the service specific properties of a provisioning service, including keys, linked iot hubs, current state, and system generated properties such as hostname and idScope
 type IotDpsPropertiesDescriptionResponseArgs struct {
-	// Allocation policy to be used by this provisioning service.
-	AllocationPolicy pulumi.StringPtrInput `pulumi:"allocationPolicy"`
-	// List of authorization keys for a provisioning service.
-	AuthorizationPolicies SharedAccessSignatureAuthorizationRuleAccessRightsDescriptionResponseArrayInput `pulumi:"authorizationPolicies"`
-	// Device endpoint for this provisioning service.
-	DeviceProvisioningHostName pulumi.StringInput `pulumi:"deviceProvisioningHostName"`
-	// The encryption properties for the IoT DPS instance.
-	Encryption EncryptionPropertiesDescriptionResponsePtrInput `pulumi:"encryption"`
-	// Unique identifier of this provisioning service.
-	IdScope pulumi.StringInput `pulumi:"idScope"`
-	// List of IoT hubs associated with this provisioning service.
-	IotHubs IotHubDefinitionDescriptionResponseArrayInput `pulumi:"iotHubs"`
-	// The IP filter rules.
-	IpFilterRules TargetIpFilterRuleResponseArrayInput `pulumi:"ipFilterRules"`
-	// Private endpoint connections created on this IotHub
-	PrivateEndpointConnections PrivateEndpointConnectionResponseArrayInput `pulumi:"privateEndpointConnections"`
-	// The ARM provisioning state of the provisioning service.
-	ProvisioningState pulumi.StringPtrInput `pulumi:"provisioningState"`
-	// Whether requests from Public Network are allowed
-	PublicNetworkAccess pulumi.StringPtrInput `pulumi:"publicNetworkAccess"`
-	// Service endpoint for provisioning service.
-	ServiceOperationsHostName pulumi.StringInput `pulumi:"serviceOperationsHostName"`
-	// Current state of the provisioning service.
-	State pulumi.StringPtrInput `pulumi:"state"`
+	AllocationPolicy           pulumi.StringPtrInput                                                           `pulumi:"allocationPolicy"`
+	AuthorizationPolicies      SharedAccessSignatureAuthorizationRuleAccessRightsDescriptionResponseArrayInput `pulumi:"authorizationPolicies"`
+	DeviceProvisioningHostName pulumi.StringInput                                                              `pulumi:"deviceProvisioningHostName"`
+	Encryption                 EncryptionPropertiesDescriptionResponsePtrInput                                 `pulumi:"encryption"`
+	IdScope                    pulumi.StringInput                                                              `pulumi:"idScope"`
+	IotHubs                    IotHubDefinitionDescriptionResponseArrayInput                                   `pulumi:"iotHubs"`
+	IpFilterRules              TargetIpFilterRuleResponseArrayInput                                            `pulumi:"ipFilterRules"`
+	PrivateEndpointConnections PrivateEndpointConnectionResponseArrayInput                                     `pulumi:"privateEndpointConnections"`
+	ProvisioningState          pulumi.StringPtrInput                                                           `pulumi:"provisioningState"`
+	PublicNetworkAccess        pulumi.StringPtrInput                                                           `pulumi:"publicNetworkAccess"`
+	ServiceOperationsHostName  pulumi.StringInput                                                              `pulumi:"serviceOperationsHostName"`
+	State                      pulumi.StringPtrInput                                                           `pulumi:"state"`
 }
 
 func (IotDpsPropertiesDescriptionResponseArgs) ElementType() reflect.Type {
@@ -1714,7 +1587,6 @@ func (i *iotDpsPropertiesDescriptionResponsePtrType) ToIotDpsPropertiesDescripti
 	return pulumi.ToOutputWithContext(ctx, i).(IotDpsPropertiesDescriptionResponsePtrOutput)
 }
 
-// the service specific properties of a provisioning service, including keys, linked iot hubs, current state, and system generated properties such as hostname and idScope
 type IotDpsPropertiesDescriptionResponseOutput struct{ *pulumi.OutputState }
 
 func (IotDpsPropertiesDescriptionResponseOutput) ElementType() reflect.Type {
@@ -1734,73 +1606,61 @@ func (o IotDpsPropertiesDescriptionResponseOutput) ToIotDpsPropertiesDescription
 }
 
 func (o IotDpsPropertiesDescriptionResponseOutput) ToIotDpsPropertiesDescriptionResponsePtrOutputWithContext(ctx context.Context) IotDpsPropertiesDescriptionResponsePtrOutput {
-	return o.ApplyT(func(v IotDpsPropertiesDescriptionResponse) *IotDpsPropertiesDescriptionResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v IotDpsPropertiesDescriptionResponse) *IotDpsPropertiesDescriptionResponse {
 		return &v
 	}).(IotDpsPropertiesDescriptionResponsePtrOutput)
 }
 
-// Allocation policy to be used by this provisioning service.
 func (o IotDpsPropertiesDescriptionResponseOutput) AllocationPolicy() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v IotDpsPropertiesDescriptionResponse) *string { return v.AllocationPolicy }).(pulumi.StringPtrOutput)
 }
 
-// List of authorization keys for a provisioning service.
 func (o IotDpsPropertiesDescriptionResponseOutput) AuthorizationPolicies() SharedAccessSignatureAuthorizationRuleAccessRightsDescriptionResponseArrayOutput {
 	return o.ApplyT(func(v IotDpsPropertiesDescriptionResponse) []SharedAccessSignatureAuthorizationRuleAccessRightsDescriptionResponse {
 		return v.AuthorizationPolicies
 	}).(SharedAccessSignatureAuthorizationRuleAccessRightsDescriptionResponseArrayOutput)
 }
 
-// Device endpoint for this provisioning service.
 func (o IotDpsPropertiesDescriptionResponseOutput) DeviceProvisioningHostName() pulumi.StringOutput {
 	return o.ApplyT(func(v IotDpsPropertiesDescriptionResponse) string { return v.DeviceProvisioningHostName }).(pulumi.StringOutput)
 }
 
-// The encryption properties for the IoT DPS instance.
 func (o IotDpsPropertiesDescriptionResponseOutput) Encryption() EncryptionPropertiesDescriptionResponsePtrOutput {
 	return o.ApplyT(func(v IotDpsPropertiesDescriptionResponse) *EncryptionPropertiesDescriptionResponse {
 		return v.Encryption
 	}).(EncryptionPropertiesDescriptionResponsePtrOutput)
 }
 
-// Unique identifier of this provisioning service.
 func (o IotDpsPropertiesDescriptionResponseOutput) IdScope() pulumi.StringOutput {
 	return o.ApplyT(func(v IotDpsPropertiesDescriptionResponse) string { return v.IdScope }).(pulumi.StringOutput)
 }
 
-// List of IoT hubs associated with this provisioning service.
 func (o IotDpsPropertiesDescriptionResponseOutput) IotHubs() IotHubDefinitionDescriptionResponseArrayOutput {
 	return o.ApplyT(func(v IotDpsPropertiesDescriptionResponse) []IotHubDefinitionDescriptionResponse { return v.IotHubs }).(IotHubDefinitionDescriptionResponseArrayOutput)
 }
 
-// The IP filter rules.
 func (o IotDpsPropertiesDescriptionResponseOutput) IpFilterRules() TargetIpFilterRuleResponseArrayOutput {
 	return o.ApplyT(func(v IotDpsPropertiesDescriptionResponse) []TargetIpFilterRuleResponse { return v.IpFilterRules }).(TargetIpFilterRuleResponseArrayOutput)
 }
 
-// Private endpoint connections created on this IotHub
 func (o IotDpsPropertiesDescriptionResponseOutput) PrivateEndpointConnections() PrivateEndpointConnectionResponseArrayOutput {
 	return o.ApplyT(func(v IotDpsPropertiesDescriptionResponse) []PrivateEndpointConnectionResponse {
 		return v.PrivateEndpointConnections
 	}).(PrivateEndpointConnectionResponseArrayOutput)
 }
 
-// The ARM provisioning state of the provisioning service.
 func (o IotDpsPropertiesDescriptionResponseOutput) ProvisioningState() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v IotDpsPropertiesDescriptionResponse) *string { return v.ProvisioningState }).(pulumi.StringPtrOutput)
 }
 
-// Whether requests from Public Network are allowed
 func (o IotDpsPropertiesDescriptionResponseOutput) PublicNetworkAccess() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v IotDpsPropertiesDescriptionResponse) *string { return v.PublicNetworkAccess }).(pulumi.StringPtrOutput)
 }
 
-// Service endpoint for provisioning service.
 func (o IotDpsPropertiesDescriptionResponseOutput) ServiceOperationsHostName() pulumi.StringOutput {
 	return o.ApplyT(func(v IotDpsPropertiesDescriptionResponse) string { return v.ServiceOperationsHostName }).(pulumi.StringOutput)
 }
 
-// Current state of the provisioning service.
 func (o IotDpsPropertiesDescriptionResponseOutput) State() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v IotDpsPropertiesDescriptionResponse) *string { return v.State }).(pulumi.StringPtrOutput)
 }
@@ -1820,10 +1680,15 @@ func (o IotDpsPropertiesDescriptionResponsePtrOutput) ToIotDpsPropertiesDescript
 }
 
 func (o IotDpsPropertiesDescriptionResponsePtrOutput) Elem() IotDpsPropertiesDescriptionResponseOutput {
-	return o.ApplyT(func(v *IotDpsPropertiesDescriptionResponse) IotDpsPropertiesDescriptionResponse { return *v }).(IotDpsPropertiesDescriptionResponseOutput)
+	return o.ApplyT(func(v *IotDpsPropertiesDescriptionResponse) IotDpsPropertiesDescriptionResponse {
+		if v != nil {
+			return *v
+		}
+		var ret IotDpsPropertiesDescriptionResponse
+		return ret
+	}).(IotDpsPropertiesDescriptionResponseOutput)
 }
 
-// Allocation policy to be used by this provisioning service.
 func (o IotDpsPropertiesDescriptionResponsePtrOutput) AllocationPolicy() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *IotDpsPropertiesDescriptionResponse) *string {
 		if v == nil {
@@ -1833,7 +1698,6 @@ func (o IotDpsPropertiesDescriptionResponsePtrOutput) AllocationPolicy() pulumi.
 	}).(pulumi.StringPtrOutput)
 }
 
-// List of authorization keys for a provisioning service.
 func (o IotDpsPropertiesDescriptionResponsePtrOutput) AuthorizationPolicies() SharedAccessSignatureAuthorizationRuleAccessRightsDescriptionResponseArrayOutput {
 	return o.ApplyT(func(v *IotDpsPropertiesDescriptionResponse) []SharedAccessSignatureAuthorizationRuleAccessRightsDescriptionResponse {
 		if v == nil {
@@ -1843,7 +1707,6 @@ func (o IotDpsPropertiesDescriptionResponsePtrOutput) AuthorizationPolicies() Sh
 	}).(SharedAccessSignatureAuthorizationRuleAccessRightsDescriptionResponseArrayOutput)
 }
 
-// Device endpoint for this provisioning service.
 func (o IotDpsPropertiesDescriptionResponsePtrOutput) DeviceProvisioningHostName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *IotDpsPropertiesDescriptionResponse) *string {
 		if v == nil {
@@ -1853,7 +1716,6 @@ func (o IotDpsPropertiesDescriptionResponsePtrOutput) DeviceProvisioningHostName
 	}).(pulumi.StringPtrOutput)
 }
 
-// The encryption properties for the IoT DPS instance.
 func (o IotDpsPropertiesDescriptionResponsePtrOutput) Encryption() EncryptionPropertiesDescriptionResponsePtrOutput {
 	return o.ApplyT(func(v *IotDpsPropertiesDescriptionResponse) *EncryptionPropertiesDescriptionResponse {
 		if v == nil {
@@ -1863,7 +1725,6 @@ func (o IotDpsPropertiesDescriptionResponsePtrOutput) Encryption() EncryptionPro
 	}).(EncryptionPropertiesDescriptionResponsePtrOutput)
 }
 
-// Unique identifier of this provisioning service.
 func (o IotDpsPropertiesDescriptionResponsePtrOutput) IdScope() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *IotDpsPropertiesDescriptionResponse) *string {
 		if v == nil {
@@ -1873,7 +1734,6 @@ func (o IotDpsPropertiesDescriptionResponsePtrOutput) IdScope() pulumi.StringPtr
 	}).(pulumi.StringPtrOutput)
 }
 
-// List of IoT hubs associated with this provisioning service.
 func (o IotDpsPropertiesDescriptionResponsePtrOutput) IotHubs() IotHubDefinitionDescriptionResponseArrayOutput {
 	return o.ApplyT(func(v *IotDpsPropertiesDescriptionResponse) []IotHubDefinitionDescriptionResponse {
 		if v == nil {
@@ -1883,7 +1743,6 @@ func (o IotDpsPropertiesDescriptionResponsePtrOutput) IotHubs() IotHubDefinition
 	}).(IotHubDefinitionDescriptionResponseArrayOutput)
 }
 
-// The IP filter rules.
 func (o IotDpsPropertiesDescriptionResponsePtrOutput) IpFilterRules() TargetIpFilterRuleResponseArrayOutput {
 	return o.ApplyT(func(v *IotDpsPropertiesDescriptionResponse) []TargetIpFilterRuleResponse {
 		if v == nil {
@@ -1893,7 +1752,6 @@ func (o IotDpsPropertiesDescriptionResponsePtrOutput) IpFilterRules() TargetIpFi
 	}).(TargetIpFilterRuleResponseArrayOutput)
 }
 
-// Private endpoint connections created on this IotHub
 func (o IotDpsPropertiesDescriptionResponsePtrOutput) PrivateEndpointConnections() PrivateEndpointConnectionResponseArrayOutput {
 	return o.ApplyT(func(v *IotDpsPropertiesDescriptionResponse) []PrivateEndpointConnectionResponse {
 		if v == nil {
@@ -1903,7 +1761,6 @@ func (o IotDpsPropertiesDescriptionResponsePtrOutput) PrivateEndpointConnections
 	}).(PrivateEndpointConnectionResponseArrayOutput)
 }
 
-// The ARM provisioning state of the provisioning service.
 func (o IotDpsPropertiesDescriptionResponsePtrOutput) ProvisioningState() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *IotDpsPropertiesDescriptionResponse) *string {
 		if v == nil {
@@ -1913,7 +1770,6 @@ func (o IotDpsPropertiesDescriptionResponsePtrOutput) ProvisioningState() pulumi
 	}).(pulumi.StringPtrOutput)
 }
 
-// Whether requests from Public Network are allowed
 func (o IotDpsPropertiesDescriptionResponsePtrOutput) PublicNetworkAccess() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *IotDpsPropertiesDescriptionResponse) *string {
 		if v == nil {
@@ -1923,7 +1779,6 @@ func (o IotDpsPropertiesDescriptionResponsePtrOutput) PublicNetworkAccess() pulu
 	}).(pulumi.StringPtrOutput)
 }
 
-// Service endpoint for provisioning service.
 func (o IotDpsPropertiesDescriptionResponsePtrOutput) ServiceOperationsHostName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *IotDpsPropertiesDescriptionResponse) *string {
 		if v == nil {
@@ -1933,7 +1788,6 @@ func (o IotDpsPropertiesDescriptionResponsePtrOutput) ServiceOperationsHostName(
 	}).(pulumi.StringPtrOutput)
 }
 
-// Current state of the provisioning service.
 func (o IotDpsPropertiesDescriptionResponsePtrOutput) State() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *IotDpsPropertiesDescriptionResponse) *string {
 		if v == nil {
@@ -1943,12 +1797,9 @@ func (o IotDpsPropertiesDescriptionResponsePtrOutput) State() pulumi.StringPtrOu
 	}).(pulumi.StringPtrOutput)
 }
 
-// List of possible provisioning service SKUs.
 type IotDpsSkuInfo struct {
-	// The number of units to provision
 	Capacity *float64 `pulumi:"capacity"`
-	// Sku name.
-	Name *string `pulumi:"name"`
+	Name     *string  `pulumi:"name"`
 }
 
 // IotDpsSkuInfoInput is an input type that accepts IotDpsSkuInfoArgs and IotDpsSkuInfoOutput values.
@@ -1962,12 +1813,9 @@ type IotDpsSkuInfoInput interface {
 	ToIotDpsSkuInfoOutputWithContext(context.Context) IotDpsSkuInfoOutput
 }
 
-// List of possible provisioning service SKUs.
 type IotDpsSkuInfoArgs struct {
-	// The number of units to provision
 	Capacity pulumi.Float64PtrInput `pulumi:"capacity"`
-	// Sku name.
-	Name pulumi.StringPtrInput `pulumi:"name"`
+	Name     pulumi.StringPtrInput  `pulumi:"name"`
 }
 
 func (IotDpsSkuInfoArgs) ElementType() reflect.Type {
@@ -2023,7 +1871,6 @@ func (i *iotDpsSkuInfoPtrType) ToIotDpsSkuInfoPtrOutputWithContext(ctx context.C
 	return pulumi.ToOutputWithContext(ctx, i).(IotDpsSkuInfoPtrOutput)
 }
 
-// List of possible provisioning service SKUs.
 type IotDpsSkuInfoOutput struct{ *pulumi.OutputState }
 
 func (IotDpsSkuInfoOutput) ElementType() reflect.Type {
@@ -2043,17 +1890,15 @@ func (o IotDpsSkuInfoOutput) ToIotDpsSkuInfoPtrOutput() IotDpsSkuInfoPtrOutput {
 }
 
 func (o IotDpsSkuInfoOutput) ToIotDpsSkuInfoPtrOutputWithContext(ctx context.Context) IotDpsSkuInfoPtrOutput {
-	return o.ApplyT(func(v IotDpsSkuInfo) *IotDpsSkuInfo {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v IotDpsSkuInfo) *IotDpsSkuInfo {
 		return &v
 	}).(IotDpsSkuInfoPtrOutput)
 }
 
-// The number of units to provision
 func (o IotDpsSkuInfoOutput) Capacity() pulumi.Float64PtrOutput {
 	return o.ApplyT(func(v IotDpsSkuInfo) *float64 { return v.Capacity }).(pulumi.Float64PtrOutput)
 }
 
-// Sku name.
 func (o IotDpsSkuInfoOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v IotDpsSkuInfo) *string { return v.Name }).(pulumi.StringPtrOutput)
 }
@@ -2073,10 +1918,15 @@ func (o IotDpsSkuInfoPtrOutput) ToIotDpsSkuInfoPtrOutputWithContext(ctx context.
 }
 
 func (o IotDpsSkuInfoPtrOutput) Elem() IotDpsSkuInfoOutput {
-	return o.ApplyT(func(v *IotDpsSkuInfo) IotDpsSkuInfo { return *v }).(IotDpsSkuInfoOutput)
+	return o.ApplyT(func(v *IotDpsSkuInfo) IotDpsSkuInfo {
+		if v != nil {
+			return *v
+		}
+		var ret IotDpsSkuInfo
+		return ret
+	}).(IotDpsSkuInfoOutput)
 }
 
-// The number of units to provision
 func (o IotDpsSkuInfoPtrOutput) Capacity() pulumi.Float64PtrOutput {
 	return o.ApplyT(func(v *IotDpsSkuInfo) *float64 {
 		if v == nil {
@@ -2086,7 +1936,6 @@ func (o IotDpsSkuInfoPtrOutput) Capacity() pulumi.Float64PtrOutput {
 	}).(pulumi.Float64PtrOutput)
 }
 
-// Sku name.
 func (o IotDpsSkuInfoPtrOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *IotDpsSkuInfo) *string {
 		if v == nil {
@@ -2096,14 +1945,10 @@ func (o IotDpsSkuInfoPtrOutput) Name() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// List of possible provisioning service SKUs.
 type IotDpsSkuInfoResponse struct {
-	// The number of units to provision
 	Capacity *float64 `pulumi:"capacity"`
-	// Sku name.
-	Name *string `pulumi:"name"`
-	// Pricing tier name of the provisioning service.
-	Tier string `pulumi:"tier"`
+	Name     *string  `pulumi:"name"`
+	Tier     string   `pulumi:"tier"`
 }
 
 // IotDpsSkuInfoResponseInput is an input type that accepts IotDpsSkuInfoResponseArgs and IotDpsSkuInfoResponseOutput values.
@@ -2117,14 +1962,10 @@ type IotDpsSkuInfoResponseInput interface {
 	ToIotDpsSkuInfoResponseOutputWithContext(context.Context) IotDpsSkuInfoResponseOutput
 }
 
-// List of possible provisioning service SKUs.
 type IotDpsSkuInfoResponseArgs struct {
-	// The number of units to provision
 	Capacity pulumi.Float64PtrInput `pulumi:"capacity"`
-	// Sku name.
-	Name pulumi.StringPtrInput `pulumi:"name"`
-	// Pricing tier name of the provisioning service.
-	Tier pulumi.StringInput `pulumi:"tier"`
+	Name     pulumi.StringPtrInput  `pulumi:"name"`
+	Tier     pulumi.StringInput     `pulumi:"tier"`
 }
 
 func (IotDpsSkuInfoResponseArgs) ElementType() reflect.Type {
@@ -2180,7 +2021,6 @@ func (i *iotDpsSkuInfoResponsePtrType) ToIotDpsSkuInfoResponsePtrOutputWithConte
 	return pulumi.ToOutputWithContext(ctx, i).(IotDpsSkuInfoResponsePtrOutput)
 }
 
-// List of possible provisioning service SKUs.
 type IotDpsSkuInfoResponseOutput struct{ *pulumi.OutputState }
 
 func (IotDpsSkuInfoResponseOutput) ElementType() reflect.Type {
@@ -2200,22 +2040,19 @@ func (o IotDpsSkuInfoResponseOutput) ToIotDpsSkuInfoResponsePtrOutput() IotDpsSk
 }
 
 func (o IotDpsSkuInfoResponseOutput) ToIotDpsSkuInfoResponsePtrOutputWithContext(ctx context.Context) IotDpsSkuInfoResponsePtrOutput {
-	return o.ApplyT(func(v IotDpsSkuInfoResponse) *IotDpsSkuInfoResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v IotDpsSkuInfoResponse) *IotDpsSkuInfoResponse {
 		return &v
 	}).(IotDpsSkuInfoResponsePtrOutput)
 }
 
-// The number of units to provision
 func (o IotDpsSkuInfoResponseOutput) Capacity() pulumi.Float64PtrOutput {
 	return o.ApplyT(func(v IotDpsSkuInfoResponse) *float64 { return v.Capacity }).(pulumi.Float64PtrOutput)
 }
 
-// Sku name.
 func (o IotDpsSkuInfoResponseOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v IotDpsSkuInfoResponse) *string { return v.Name }).(pulumi.StringPtrOutput)
 }
 
-// Pricing tier name of the provisioning service.
 func (o IotDpsSkuInfoResponseOutput) Tier() pulumi.StringOutput {
 	return o.ApplyT(func(v IotDpsSkuInfoResponse) string { return v.Tier }).(pulumi.StringOutput)
 }
@@ -2235,10 +2072,15 @@ func (o IotDpsSkuInfoResponsePtrOutput) ToIotDpsSkuInfoResponsePtrOutputWithCont
 }
 
 func (o IotDpsSkuInfoResponsePtrOutput) Elem() IotDpsSkuInfoResponseOutput {
-	return o.ApplyT(func(v *IotDpsSkuInfoResponse) IotDpsSkuInfoResponse { return *v }).(IotDpsSkuInfoResponseOutput)
+	return o.ApplyT(func(v *IotDpsSkuInfoResponse) IotDpsSkuInfoResponse {
+		if v != nil {
+			return *v
+		}
+		var ret IotDpsSkuInfoResponse
+		return ret
+	}).(IotDpsSkuInfoResponseOutput)
 }
 
-// The number of units to provision
 func (o IotDpsSkuInfoResponsePtrOutput) Capacity() pulumi.Float64PtrOutput {
 	return o.ApplyT(func(v *IotDpsSkuInfoResponse) *float64 {
 		if v == nil {
@@ -2248,7 +2090,6 @@ func (o IotDpsSkuInfoResponsePtrOutput) Capacity() pulumi.Float64PtrOutput {
 	}).(pulumi.Float64PtrOutput)
 }
 
-// Sku name.
 func (o IotDpsSkuInfoResponsePtrOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *IotDpsSkuInfoResponse) *string {
 		if v == nil {
@@ -2258,7 +2099,6 @@ func (o IotDpsSkuInfoResponsePtrOutput) Name() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Pricing tier name of the provisioning service.
 func (o IotDpsSkuInfoResponsePtrOutput) Tier() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *IotDpsSkuInfoResponse) *string {
 		if v == nil {
@@ -2268,16 +2108,11 @@ func (o IotDpsSkuInfoResponsePtrOutput) Tier() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Description of the IoT hub.
 type IotHubDefinitionDescription struct {
-	// weight to apply for a given iot h.
-	AllocationWeight *int `pulumi:"allocationWeight"`
-	// flag for applying allocationPolicy or not for a given iot hub.
-	ApplyAllocationPolicy *bool `pulumi:"applyAllocationPolicy"`
-	// Connection string of the IoT hub.
-	ConnectionString string `pulumi:"connectionString"`
-	// ARM region of the IoT hub.
-	Location string `pulumi:"location"`
+	AllocationWeight      *int   `pulumi:"allocationWeight"`
+	ApplyAllocationPolicy *bool  `pulumi:"applyAllocationPolicy"`
+	ConnectionString      string `pulumi:"connectionString"`
+	Location              string `pulumi:"location"`
 }
 
 // IotHubDefinitionDescriptionInput is an input type that accepts IotHubDefinitionDescriptionArgs and IotHubDefinitionDescriptionOutput values.
@@ -2291,16 +2126,11 @@ type IotHubDefinitionDescriptionInput interface {
 	ToIotHubDefinitionDescriptionOutputWithContext(context.Context) IotHubDefinitionDescriptionOutput
 }
 
-// Description of the IoT hub.
 type IotHubDefinitionDescriptionArgs struct {
-	// weight to apply for a given iot h.
-	AllocationWeight pulumi.IntPtrInput `pulumi:"allocationWeight"`
-	// flag for applying allocationPolicy or not for a given iot hub.
+	AllocationWeight      pulumi.IntPtrInput  `pulumi:"allocationWeight"`
 	ApplyAllocationPolicy pulumi.BoolPtrInput `pulumi:"applyAllocationPolicy"`
-	// Connection string of the IoT hub.
-	ConnectionString pulumi.StringInput `pulumi:"connectionString"`
-	// ARM region of the IoT hub.
-	Location pulumi.StringInput `pulumi:"location"`
+	ConnectionString      pulumi.StringInput  `pulumi:"connectionString"`
+	Location              pulumi.StringInput  `pulumi:"location"`
 }
 
 func (IotHubDefinitionDescriptionArgs) ElementType() reflect.Type {
@@ -2340,7 +2170,6 @@ func (i IotHubDefinitionDescriptionArray) ToIotHubDefinitionDescriptionArrayOutp
 	return pulumi.ToOutputWithContext(ctx, i).(IotHubDefinitionDescriptionArrayOutput)
 }
 
-// Description of the IoT hub.
 type IotHubDefinitionDescriptionOutput struct{ *pulumi.OutputState }
 
 func (IotHubDefinitionDescriptionOutput) ElementType() reflect.Type {
@@ -2355,22 +2184,18 @@ func (o IotHubDefinitionDescriptionOutput) ToIotHubDefinitionDescriptionOutputWi
 	return o
 }
 
-// weight to apply for a given iot h.
 func (o IotHubDefinitionDescriptionOutput) AllocationWeight() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v IotHubDefinitionDescription) *int { return v.AllocationWeight }).(pulumi.IntPtrOutput)
 }
 
-// flag for applying allocationPolicy or not for a given iot hub.
 func (o IotHubDefinitionDescriptionOutput) ApplyAllocationPolicy() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v IotHubDefinitionDescription) *bool { return v.ApplyAllocationPolicy }).(pulumi.BoolPtrOutput)
 }
 
-// Connection string of the IoT hub.
 func (o IotHubDefinitionDescriptionOutput) ConnectionString() pulumi.StringOutput {
 	return o.ApplyT(func(v IotHubDefinitionDescription) string { return v.ConnectionString }).(pulumi.StringOutput)
 }
 
-// ARM region of the IoT hub.
 func (o IotHubDefinitionDescriptionOutput) Location() pulumi.StringOutput {
 	return o.ApplyT(func(v IotHubDefinitionDescription) string { return v.Location }).(pulumi.StringOutput)
 }
@@ -2395,18 +2220,12 @@ func (o IotHubDefinitionDescriptionArrayOutput) Index(i pulumi.IntInput) IotHubD
 	}).(IotHubDefinitionDescriptionOutput)
 }
 
-// Description of the IoT hub.
 type IotHubDefinitionDescriptionResponse struct {
-	// weight to apply for a given iot h.
-	AllocationWeight *int `pulumi:"allocationWeight"`
-	// flag for applying allocationPolicy or not for a given iot hub.
-	ApplyAllocationPolicy *bool `pulumi:"applyAllocationPolicy"`
-	// Connection string of the IoT hub.
-	ConnectionString string `pulumi:"connectionString"`
-	// ARM region of the IoT hub.
-	Location string `pulumi:"location"`
-	// Host name of the IoT hub.
-	Name string `pulumi:"name"`
+	AllocationWeight      *int   `pulumi:"allocationWeight"`
+	ApplyAllocationPolicy *bool  `pulumi:"applyAllocationPolicy"`
+	ConnectionString      string `pulumi:"connectionString"`
+	Location              string `pulumi:"location"`
+	Name                  string `pulumi:"name"`
 }
 
 // IotHubDefinitionDescriptionResponseInput is an input type that accepts IotHubDefinitionDescriptionResponseArgs and IotHubDefinitionDescriptionResponseOutput values.
@@ -2420,18 +2239,12 @@ type IotHubDefinitionDescriptionResponseInput interface {
 	ToIotHubDefinitionDescriptionResponseOutputWithContext(context.Context) IotHubDefinitionDescriptionResponseOutput
 }
 
-// Description of the IoT hub.
 type IotHubDefinitionDescriptionResponseArgs struct {
-	// weight to apply for a given iot h.
-	AllocationWeight pulumi.IntPtrInput `pulumi:"allocationWeight"`
-	// flag for applying allocationPolicy or not for a given iot hub.
+	AllocationWeight      pulumi.IntPtrInput  `pulumi:"allocationWeight"`
 	ApplyAllocationPolicy pulumi.BoolPtrInput `pulumi:"applyAllocationPolicy"`
-	// Connection string of the IoT hub.
-	ConnectionString pulumi.StringInput `pulumi:"connectionString"`
-	// ARM region of the IoT hub.
-	Location pulumi.StringInput `pulumi:"location"`
-	// Host name of the IoT hub.
-	Name pulumi.StringInput `pulumi:"name"`
+	ConnectionString      pulumi.StringInput  `pulumi:"connectionString"`
+	Location              pulumi.StringInput  `pulumi:"location"`
+	Name                  pulumi.StringInput  `pulumi:"name"`
 }
 
 func (IotHubDefinitionDescriptionResponseArgs) ElementType() reflect.Type {
@@ -2471,7 +2284,6 @@ func (i IotHubDefinitionDescriptionResponseArray) ToIotHubDefinitionDescriptionR
 	return pulumi.ToOutputWithContext(ctx, i).(IotHubDefinitionDescriptionResponseArrayOutput)
 }
 
-// Description of the IoT hub.
 type IotHubDefinitionDescriptionResponseOutput struct{ *pulumi.OutputState }
 
 func (IotHubDefinitionDescriptionResponseOutput) ElementType() reflect.Type {
@@ -2486,27 +2298,22 @@ func (o IotHubDefinitionDescriptionResponseOutput) ToIotHubDefinitionDescription
 	return o
 }
 
-// weight to apply for a given iot h.
 func (o IotHubDefinitionDescriptionResponseOutput) AllocationWeight() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v IotHubDefinitionDescriptionResponse) *int { return v.AllocationWeight }).(pulumi.IntPtrOutput)
 }
 
-// flag for applying allocationPolicy or not for a given iot hub.
 func (o IotHubDefinitionDescriptionResponseOutput) ApplyAllocationPolicy() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v IotHubDefinitionDescriptionResponse) *bool { return v.ApplyAllocationPolicy }).(pulumi.BoolPtrOutput)
 }
 
-// Connection string of the IoT hub.
 func (o IotHubDefinitionDescriptionResponseOutput) ConnectionString() pulumi.StringOutput {
 	return o.ApplyT(func(v IotHubDefinitionDescriptionResponse) string { return v.ConnectionString }).(pulumi.StringOutput)
 }
 
-// ARM region of the IoT hub.
 func (o IotHubDefinitionDescriptionResponseOutput) Location() pulumi.StringOutput {
 	return o.ApplyT(func(v IotHubDefinitionDescriptionResponse) string { return v.Location }).(pulumi.StringOutput)
 }
 
-// Host name of the IoT hub.
 func (o IotHubDefinitionDescriptionResponseOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v IotHubDefinitionDescriptionResponse) string { return v.Name }).(pulumi.StringOutput)
 }
@@ -2531,9 +2338,7 @@ func (o IotHubDefinitionDescriptionResponseArrayOutput) Index(i pulumi.IntInput)
 	}).(IotHubDefinitionDescriptionResponseOutput)
 }
 
-// The properties of the KeyVault key.
 type KeyVaultKeyProperties struct {
-	// The identifier of the key.
 	KeyIdentifier *string `pulumi:"keyIdentifier"`
 }
 
@@ -2548,9 +2353,7 @@ type KeyVaultKeyPropertiesInput interface {
 	ToKeyVaultKeyPropertiesOutputWithContext(context.Context) KeyVaultKeyPropertiesOutput
 }
 
-// The properties of the KeyVault key.
 type KeyVaultKeyPropertiesArgs struct {
-	// The identifier of the key.
 	KeyIdentifier pulumi.StringPtrInput `pulumi:"keyIdentifier"`
 }
 
@@ -2591,7 +2394,6 @@ func (i KeyVaultKeyPropertiesArray) ToKeyVaultKeyPropertiesArrayOutputWithContex
 	return pulumi.ToOutputWithContext(ctx, i).(KeyVaultKeyPropertiesArrayOutput)
 }
 
-// The properties of the KeyVault key.
 type KeyVaultKeyPropertiesOutput struct{ *pulumi.OutputState }
 
 func (KeyVaultKeyPropertiesOutput) ElementType() reflect.Type {
@@ -2606,7 +2408,6 @@ func (o KeyVaultKeyPropertiesOutput) ToKeyVaultKeyPropertiesOutputWithContext(ct
 	return o
 }
 
-// The identifier of the key.
 func (o KeyVaultKeyPropertiesOutput) KeyIdentifier() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v KeyVaultKeyProperties) *string { return v.KeyIdentifier }).(pulumi.StringPtrOutput)
 }
@@ -2631,9 +2432,7 @@ func (o KeyVaultKeyPropertiesArrayOutput) Index(i pulumi.IntInput) KeyVaultKeyPr
 	}).(KeyVaultKeyPropertiesOutput)
 }
 
-// The properties of the KeyVault key.
 type KeyVaultKeyPropertiesResponse struct {
-	// The identifier of the key.
 	KeyIdentifier *string `pulumi:"keyIdentifier"`
 }
 
@@ -2648,9 +2447,7 @@ type KeyVaultKeyPropertiesResponseInput interface {
 	ToKeyVaultKeyPropertiesResponseOutputWithContext(context.Context) KeyVaultKeyPropertiesResponseOutput
 }
 
-// The properties of the KeyVault key.
 type KeyVaultKeyPropertiesResponseArgs struct {
-	// The identifier of the key.
 	KeyIdentifier pulumi.StringPtrInput `pulumi:"keyIdentifier"`
 }
 
@@ -2691,7 +2488,6 @@ func (i KeyVaultKeyPropertiesResponseArray) ToKeyVaultKeyPropertiesResponseArray
 	return pulumi.ToOutputWithContext(ctx, i).(KeyVaultKeyPropertiesResponseArrayOutput)
 }
 
-// The properties of the KeyVault key.
 type KeyVaultKeyPropertiesResponseOutput struct{ *pulumi.OutputState }
 
 func (KeyVaultKeyPropertiesResponseOutput) ElementType() reflect.Type {
@@ -2706,7 +2502,6 @@ func (o KeyVaultKeyPropertiesResponseOutput) ToKeyVaultKeyPropertiesResponseOutp
 	return o
 }
 
-// The identifier of the key.
 func (o KeyVaultKeyPropertiesResponseOutput) KeyIdentifier() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v KeyVaultKeyPropertiesResponse) *string { return v.KeyIdentifier }).(pulumi.StringPtrOutput)
 }
@@ -2731,9 +2526,7 @@ func (o KeyVaultKeyPropertiesResponseArrayOutput) Index(i pulumi.IntInput) KeyVa
 	}).(KeyVaultKeyPropertiesResponseOutput)
 }
 
-// The private endpoint connection of a provisioning service
 type PrivateEndpointConnection struct {
-	// The properties of a private endpoint connection
 	Properties PrivateEndpointConnectionProperties `pulumi:"properties"`
 }
 
@@ -2748,9 +2541,7 @@ type PrivateEndpointConnectionInput interface {
 	ToPrivateEndpointConnectionOutputWithContext(context.Context) PrivateEndpointConnectionOutput
 }
 
-// The private endpoint connection of a provisioning service
 type PrivateEndpointConnectionArgs struct {
-	// The properties of a private endpoint connection
 	Properties PrivateEndpointConnectionPropertiesInput `pulumi:"properties"`
 }
 
@@ -2791,7 +2582,6 @@ func (i PrivateEndpointConnectionArray) ToPrivateEndpointConnectionArrayOutputWi
 	return pulumi.ToOutputWithContext(ctx, i).(PrivateEndpointConnectionArrayOutput)
 }
 
-// The private endpoint connection of a provisioning service
 type PrivateEndpointConnectionOutput struct{ *pulumi.OutputState }
 
 func (PrivateEndpointConnectionOutput) ElementType() reflect.Type {
@@ -2806,7 +2596,6 @@ func (o PrivateEndpointConnectionOutput) ToPrivateEndpointConnectionOutputWithCo
 	return o
 }
 
-// The properties of a private endpoint connection
 func (o PrivateEndpointConnectionOutput) Properties() PrivateEndpointConnectionPropertiesOutput {
 	return o.ApplyT(func(v PrivateEndpointConnection) PrivateEndpointConnectionProperties { return v.Properties }).(PrivateEndpointConnectionPropertiesOutput)
 }
@@ -2831,9 +2620,7 @@ func (o PrivateEndpointConnectionArrayOutput) Index(i pulumi.IntInput) PrivateEn
 	}).(PrivateEndpointConnectionOutput)
 }
 
-// The properties of a private endpoint connection
 type PrivateEndpointConnectionProperties struct {
-	// The current state of a private endpoint connection
 	PrivateLinkServiceConnectionState PrivateLinkServiceConnectionState `pulumi:"privateLinkServiceConnectionState"`
 }
 
@@ -2848,9 +2635,7 @@ type PrivateEndpointConnectionPropertiesInput interface {
 	ToPrivateEndpointConnectionPropertiesOutputWithContext(context.Context) PrivateEndpointConnectionPropertiesOutput
 }
 
-// The properties of a private endpoint connection
 type PrivateEndpointConnectionPropertiesArgs struct {
-	// The current state of a private endpoint connection
 	PrivateLinkServiceConnectionState PrivateLinkServiceConnectionStateInput `pulumi:"privateLinkServiceConnectionState"`
 }
 
@@ -2907,7 +2692,6 @@ func (i *privateEndpointConnectionPropertiesPtrType) ToPrivateEndpointConnection
 	return pulumi.ToOutputWithContext(ctx, i).(PrivateEndpointConnectionPropertiesPtrOutput)
 }
 
-// The properties of a private endpoint connection
 type PrivateEndpointConnectionPropertiesOutput struct{ *pulumi.OutputState }
 
 func (PrivateEndpointConnectionPropertiesOutput) ElementType() reflect.Type {
@@ -2927,12 +2711,11 @@ func (o PrivateEndpointConnectionPropertiesOutput) ToPrivateEndpointConnectionPr
 }
 
 func (o PrivateEndpointConnectionPropertiesOutput) ToPrivateEndpointConnectionPropertiesPtrOutputWithContext(ctx context.Context) PrivateEndpointConnectionPropertiesPtrOutput {
-	return o.ApplyT(func(v PrivateEndpointConnectionProperties) *PrivateEndpointConnectionProperties {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v PrivateEndpointConnectionProperties) *PrivateEndpointConnectionProperties {
 		return &v
 	}).(PrivateEndpointConnectionPropertiesPtrOutput)
 }
 
-// The current state of a private endpoint connection
 func (o PrivateEndpointConnectionPropertiesOutput) PrivateLinkServiceConnectionState() PrivateLinkServiceConnectionStateOutput {
 	return o.ApplyT(func(v PrivateEndpointConnectionProperties) PrivateLinkServiceConnectionState {
 		return v.PrivateLinkServiceConnectionState
@@ -2954,10 +2737,15 @@ func (o PrivateEndpointConnectionPropertiesPtrOutput) ToPrivateEndpointConnectio
 }
 
 func (o PrivateEndpointConnectionPropertiesPtrOutput) Elem() PrivateEndpointConnectionPropertiesOutput {
-	return o.ApplyT(func(v *PrivateEndpointConnectionProperties) PrivateEndpointConnectionProperties { return *v }).(PrivateEndpointConnectionPropertiesOutput)
+	return o.ApplyT(func(v *PrivateEndpointConnectionProperties) PrivateEndpointConnectionProperties {
+		if v != nil {
+			return *v
+		}
+		var ret PrivateEndpointConnectionProperties
+		return ret
+	}).(PrivateEndpointConnectionPropertiesOutput)
 }
 
-// The current state of a private endpoint connection
 func (o PrivateEndpointConnectionPropertiesPtrOutput) PrivateLinkServiceConnectionState() PrivateLinkServiceConnectionStatePtrOutput {
 	return o.ApplyT(func(v *PrivateEndpointConnectionProperties) *PrivateLinkServiceConnectionState {
 		if v == nil {
@@ -2967,11 +2755,8 @@ func (o PrivateEndpointConnectionPropertiesPtrOutput) PrivateLinkServiceConnecti
 	}).(PrivateLinkServiceConnectionStatePtrOutput)
 }
 
-// The properties of a private endpoint connection
 type PrivateEndpointConnectionPropertiesResponse struct {
-	// The private endpoint property of a private endpoint connection
-	PrivateEndpoint *PrivateEndpointResponse `pulumi:"privateEndpoint"`
-	// The current state of a private endpoint connection
+	PrivateEndpoint                   *PrivateEndpointResponse                  `pulumi:"privateEndpoint"`
 	PrivateLinkServiceConnectionState PrivateLinkServiceConnectionStateResponse `pulumi:"privateLinkServiceConnectionState"`
 }
 
@@ -2986,11 +2771,8 @@ type PrivateEndpointConnectionPropertiesResponseInput interface {
 	ToPrivateEndpointConnectionPropertiesResponseOutputWithContext(context.Context) PrivateEndpointConnectionPropertiesResponseOutput
 }
 
-// The properties of a private endpoint connection
 type PrivateEndpointConnectionPropertiesResponseArgs struct {
-	// The private endpoint property of a private endpoint connection
-	PrivateEndpoint PrivateEndpointResponsePtrInput `pulumi:"privateEndpoint"`
-	// The current state of a private endpoint connection
+	PrivateEndpoint                   PrivateEndpointResponsePtrInput                `pulumi:"privateEndpoint"`
 	PrivateLinkServiceConnectionState PrivateLinkServiceConnectionStateResponseInput `pulumi:"privateLinkServiceConnectionState"`
 }
 
@@ -3047,7 +2829,6 @@ func (i *privateEndpointConnectionPropertiesResponsePtrType) ToPrivateEndpointCo
 	return pulumi.ToOutputWithContext(ctx, i).(PrivateEndpointConnectionPropertiesResponsePtrOutput)
 }
 
-// The properties of a private endpoint connection
 type PrivateEndpointConnectionPropertiesResponseOutput struct{ *pulumi.OutputState }
 
 func (PrivateEndpointConnectionPropertiesResponseOutput) ElementType() reflect.Type {
@@ -3067,17 +2848,15 @@ func (o PrivateEndpointConnectionPropertiesResponseOutput) ToPrivateEndpointConn
 }
 
 func (o PrivateEndpointConnectionPropertiesResponseOutput) ToPrivateEndpointConnectionPropertiesResponsePtrOutputWithContext(ctx context.Context) PrivateEndpointConnectionPropertiesResponsePtrOutput {
-	return o.ApplyT(func(v PrivateEndpointConnectionPropertiesResponse) *PrivateEndpointConnectionPropertiesResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v PrivateEndpointConnectionPropertiesResponse) *PrivateEndpointConnectionPropertiesResponse {
 		return &v
 	}).(PrivateEndpointConnectionPropertiesResponsePtrOutput)
 }
 
-// The private endpoint property of a private endpoint connection
 func (o PrivateEndpointConnectionPropertiesResponseOutput) PrivateEndpoint() PrivateEndpointResponsePtrOutput {
 	return o.ApplyT(func(v PrivateEndpointConnectionPropertiesResponse) *PrivateEndpointResponse { return v.PrivateEndpoint }).(PrivateEndpointResponsePtrOutput)
 }
 
-// The current state of a private endpoint connection
 func (o PrivateEndpointConnectionPropertiesResponseOutput) PrivateLinkServiceConnectionState() PrivateLinkServiceConnectionStateResponseOutput {
 	return o.ApplyT(func(v PrivateEndpointConnectionPropertiesResponse) PrivateLinkServiceConnectionStateResponse {
 		return v.PrivateLinkServiceConnectionState
@@ -3100,11 +2879,14 @@ func (o PrivateEndpointConnectionPropertiesResponsePtrOutput) ToPrivateEndpointC
 
 func (o PrivateEndpointConnectionPropertiesResponsePtrOutput) Elem() PrivateEndpointConnectionPropertiesResponseOutput {
 	return o.ApplyT(func(v *PrivateEndpointConnectionPropertiesResponse) PrivateEndpointConnectionPropertiesResponse {
-		return *v
+		if v != nil {
+			return *v
+		}
+		var ret PrivateEndpointConnectionPropertiesResponse
+		return ret
 	}).(PrivateEndpointConnectionPropertiesResponseOutput)
 }
 
-// The private endpoint property of a private endpoint connection
 func (o PrivateEndpointConnectionPropertiesResponsePtrOutput) PrivateEndpoint() PrivateEndpointResponsePtrOutput {
 	return o.ApplyT(func(v *PrivateEndpointConnectionPropertiesResponse) *PrivateEndpointResponse {
 		if v == nil {
@@ -3114,7 +2896,6 @@ func (o PrivateEndpointConnectionPropertiesResponsePtrOutput) PrivateEndpoint() 
 	}).(PrivateEndpointResponsePtrOutput)
 }
 
-// The current state of a private endpoint connection
 func (o PrivateEndpointConnectionPropertiesResponsePtrOutput) PrivateLinkServiceConnectionState() PrivateLinkServiceConnectionStateResponsePtrOutput {
 	return o.ApplyT(func(v *PrivateEndpointConnectionPropertiesResponse) *PrivateLinkServiceConnectionStateResponse {
 		if v == nil {
@@ -3124,16 +2905,11 @@ func (o PrivateEndpointConnectionPropertiesResponsePtrOutput) PrivateLinkService
 	}).(PrivateLinkServiceConnectionStateResponsePtrOutput)
 }
 
-// The private endpoint connection of a provisioning service
 type PrivateEndpointConnectionResponse struct {
-	// The resource identifier.
-	Id string `pulumi:"id"`
-	// The resource name.
-	Name string `pulumi:"name"`
-	// The properties of a private endpoint connection
+	Id         string                                      `pulumi:"id"`
+	Name       string                                      `pulumi:"name"`
 	Properties PrivateEndpointConnectionPropertiesResponse `pulumi:"properties"`
-	// The resource type.
-	Type string `pulumi:"type"`
+	Type       string                                      `pulumi:"type"`
 }
 
 // PrivateEndpointConnectionResponseInput is an input type that accepts PrivateEndpointConnectionResponseArgs and PrivateEndpointConnectionResponseOutput values.
@@ -3147,16 +2923,11 @@ type PrivateEndpointConnectionResponseInput interface {
 	ToPrivateEndpointConnectionResponseOutputWithContext(context.Context) PrivateEndpointConnectionResponseOutput
 }
 
-// The private endpoint connection of a provisioning service
 type PrivateEndpointConnectionResponseArgs struct {
-	// The resource identifier.
-	Id pulumi.StringInput `pulumi:"id"`
-	// The resource name.
-	Name pulumi.StringInput `pulumi:"name"`
-	// The properties of a private endpoint connection
+	Id         pulumi.StringInput                               `pulumi:"id"`
+	Name       pulumi.StringInput                               `pulumi:"name"`
 	Properties PrivateEndpointConnectionPropertiesResponseInput `pulumi:"properties"`
-	// The resource type.
-	Type pulumi.StringInput `pulumi:"type"`
+	Type       pulumi.StringInput                               `pulumi:"type"`
 }
 
 func (PrivateEndpointConnectionResponseArgs) ElementType() reflect.Type {
@@ -3196,7 +2967,6 @@ func (i PrivateEndpointConnectionResponseArray) ToPrivateEndpointConnectionRespo
 	return pulumi.ToOutputWithContext(ctx, i).(PrivateEndpointConnectionResponseArrayOutput)
 }
 
-// The private endpoint connection of a provisioning service
 type PrivateEndpointConnectionResponseOutput struct{ *pulumi.OutputState }
 
 func (PrivateEndpointConnectionResponseOutput) ElementType() reflect.Type {
@@ -3211,24 +2981,20 @@ func (o PrivateEndpointConnectionResponseOutput) ToPrivateEndpointConnectionResp
 	return o
 }
 
-// The resource identifier.
 func (o PrivateEndpointConnectionResponseOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v PrivateEndpointConnectionResponse) string { return v.Id }).(pulumi.StringOutput)
 }
 
-// The resource name.
 func (o PrivateEndpointConnectionResponseOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v PrivateEndpointConnectionResponse) string { return v.Name }).(pulumi.StringOutput)
 }
 
-// The properties of a private endpoint connection
 func (o PrivateEndpointConnectionResponseOutput) Properties() PrivateEndpointConnectionPropertiesResponseOutput {
 	return o.ApplyT(func(v PrivateEndpointConnectionResponse) PrivateEndpointConnectionPropertiesResponse {
 		return v.Properties
 	}).(PrivateEndpointConnectionPropertiesResponseOutput)
 }
 
-// The resource type.
 func (o PrivateEndpointConnectionResponseOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v PrivateEndpointConnectionResponse) string { return v.Type }).(pulumi.StringOutput)
 }
@@ -3253,9 +3019,7 @@ func (o PrivateEndpointConnectionResponseArrayOutput) Index(i pulumi.IntInput) P
 	}).(PrivateEndpointConnectionResponseOutput)
 }
 
-// The private endpoint property of a private endpoint connection
 type PrivateEndpointResponse struct {
-	// The resource identifier.
 	Id string `pulumi:"id"`
 }
 
@@ -3270,9 +3034,7 @@ type PrivateEndpointResponseInput interface {
 	ToPrivateEndpointResponseOutputWithContext(context.Context) PrivateEndpointResponseOutput
 }
 
-// The private endpoint property of a private endpoint connection
 type PrivateEndpointResponseArgs struct {
-	// The resource identifier.
 	Id pulumi.StringInput `pulumi:"id"`
 }
 
@@ -3329,7 +3091,6 @@ func (i *privateEndpointResponsePtrType) ToPrivateEndpointResponsePtrOutputWithC
 	return pulumi.ToOutputWithContext(ctx, i).(PrivateEndpointResponsePtrOutput)
 }
 
-// The private endpoint property of a private endpoint connection
 type PrivateEndpointResponseOutput struct{ *pulumi.OutputState }
 
 func (PrivateEndpointResponseOutput) ElementType() reflect.Type {
@@ -3349,12 +3110,11 @@ func (o PrivateEndpointResponseOutput) ToPrivateEndpointResponsePtrOutput() Priv
 }
 
 func (o PrivateEndpointResponseOutput) ToPrivateEndpointResponsePtrOutputWithContext(ctx context.Context) PrivateEndpointResponsePtrOutput {
-	return o.ApplyT(func(v PrivateEndpointResponse) *PrivateEndpointResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v PrivateEndpointResponse) *PrivateEndpointResponse {
 		return &v
 	}).(PrivateEndpointResponsePtrOutput)
 }
 
-// The resource identifier.
 func (o PrivateEndpointResponseOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v PrivateEndpointResponse) string { return v.Id }).(pulumi.StringOutput)
 }
@@ -3374,10 +3134,15 @@ func (o PrivateEndpointResponsePtrOutput) ToPrivateEndpointResponsePtrOutputWith
 }
 
 func (o PrivateEndpointResponsePtrOutput) Elem() PrivateEndpointResponseOutput {
-	return o.ApplyT(func(v *PrivateEndpointResponse) PrivateEndpointResponse { return *v }).(PrivateEndpointResponseOutput)
+	return o.ApplyT(func(v *PrivateEndpointResponse) PrivateEndpointResponse {
+		if v != nil {
+			return *v
+		}
+		var ret PrivateEndpointResponse
+		return ret
+	}).(PrivateEndpointResponseOutput)
 }
 
-// The resource identifier.
 func (o PrivateEndpointResponsePtrOutput) Id() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *PrivateEndpointResponse) *string {
 		if v == nil {
@@ -3387,14 +3152,10 @@ func (o PrivateEndpointResponsePtrOutput) Id() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The current state of a private endpoint connection
 type PrivateLinkServiceConnectionState struct {
-	// Actions required for a private endpoint connection
 	ActionsRequired *string `pulumi:"actionsRequired"`
-	// The description for the current state of a private endpoint connection
-	Description string `pulumi:"description"`
-	// The status of a private endpoint connection
-	Status string `pulumi:"status"`
+	Description     string  `pulumi:"description"`
+	Status          string  `pulumi:"status"`
 }
 
 // PrivateLinkServiceConnectionStateInput is an input type that accepts PrivateLinkServiceConnectionStateArgs and PrivateLinkServiceConnectionStateOutput values.
@@ -3408,14 +3169,10 @@ type PrivateLinkServiceConnectionStateInput interface {
 	ToPrivateLinkServiceConnectionStateOutputWithContext(context.Context) PrivateLinkServiceConnectionStateOutput
 }
 
-// The current state of a private endpoint connection
 type PrivateLinkServiceConnectionStateArgs struct {
-	// Actions required for a private endpoint connection
 	ActionsRequired pulumi.StringPtrInput `pulumi:"actionsRequired"`
-	// The description for the current state of a private endpoint connection
-	Description pulumi.StringInput `pulumi:"description"`
-	// The status of a private endpoint connection
-	Status pulumi.StringInput `pulumi:"status"`
+	Description     pulumi.StringInput    `pulumi:"description"`
+	Status          pulumi.StringInput    `pulumi:"status"`
 }
 
 func (PrivateLinkServiceConnectionStateArgs) ElementType() reflect.Type {
@@ -3471,7 +3228,6 @@ func (i *privateLinkServiceConnectionStatePtrType) ToPrivateLinkServiceConnectio
 	return pulumi.ToOutputWithContext(ctx, i).(PrivateLinkServiceConnectionStatePtrOutput)
 }
 
-// The current state of a private endpoint connection
 type PrivateLinkServiceConnectionStateOutput struct{ *pulumi.OutputState }
 
 func (PrivateLinkServiceConnectionStateOutput) ElementType() reflect.Type {
@@ -3491,22 +3247,19 @@ func (o PrivateLinkServiceConnectionStateOutput) ToPrivateLinkServiceConnectionS
 }
 
 func (o PrivateLinkServiceConnectionStateOutput) ToPrivateLinkServiceConnectionStatePtrOutputWithContext(ctx context.Context) PrivateLinkServiceConnectionStatePtrOutput {
-	return o.ApplyT(func(v PrivateLinkServiceConnectionState) *PrivateLinkServiceConnectionState {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v PrivateLinkServiceConnectionState) *PrivateLinkServiceConnectionState {
 		return &v
 	}).(PrivateLinkServiceConnectionStatePtrOutput)
 }
 
-// Actions required for a private endpoint connection
 func (o PrivateLinkServiceConnectionStateOutput) ActionsRequired() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v PrivateLinkServiceConnectionState) *string { return v.ActionsRequired }).(pulumi.StringPtrOutput)
 }
 
-// The description for the current state of a private endpoint connection
 func (o PrivateLinkServiceConnectionStateOutput) Description() pulumi.StringOutput {
 	return o.ApplyT(func(v PrivateLinkServiceConnectionState) string { return v.Description }).(pulumi.StringOutput)
 }
 
-// The status of a private endpoint connection
 func (o PrivateLinkServiceConnectionStateOutput) Status() pulumi.StringOutput {
 	return o.ApplyT(func(v PrivateLinkServiceConnectionState) string { return v.Status }).(pulumi.StringOutput)
 }
@@ -3526,10 +3279,15 @@ func (o PrivateLinkServiceConnectionStatePtrOutput) ToPrivateLinkServiceConnecti
 }
 
 func (o PrivateLinkServiceConnectionStatePtrOutput) Elem() PrivateLinkServiceConnectionStateOutput {
-	return o.ApplyT(func(v *PrivateLinkServiceConnectionState) PrivateLinkServiceConnectionState { return *v }).(PrivateLinkServiceConnectionStateOutput)
+	return o.ApplyT(func(v *PrivateLinkServiceConnectionState) PrivateLinkServiceConnectionState {
+		if v != nil {
+			return *v
+		}
+		var ret PrivateLinkServiceConnectionState
+		return ret
+	}).(PrivateLinkServiceConnectionStateOutput)
 }
 
-// Actions required for a private endpoint connection
 func (o PrivateLinkServiceConnectionStatePtrOutput) ActionsRequired() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *PrivateLinkServiceConnectionState) *string {
 		if v == nil {
@@ -3539,7 +3297,6 @@ func (o PrivateLinkServiceConnectionStatePtrOutput) ActionsRequired() pulumi.Str
 	}).(pulumi.StringPtrOutput)
 }
 
-// The description for the current state of a private endpoint connection
 func (o PrivateLinkServiceConnectionStatePtrOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *PrivateLinkServiceConnectionState) *string {
 		if v == nil {
@@ -3549,7 +3306,6 @@ func (o PrivateLinkServiceConnectionStatePtrOutput) Description() pulumi.StringP
 	}).(pulumi.StringPtrOutput)
 }
 
-// The status of a private endpoint connection
 func (o PrivateLinkServiceConnectionStatePtrOutput) Status() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *PrivateLinkServiceConnectionState) *string {
 		if v == nil {
@@ -3559,14 +3315,10 @@ func (o PrivateLinkServiceConnectionStatePtrOutput) Status() pulumi.StringPtrOut
 	}).(pulumi.StringPtrOutput)
 }
 
-// The current state of a private endpoint connection
 type PrivateLinkServiceConnectionStateResponse struct {
-	// Actions required for a private endpoint connection
 	ActionsRequired *string `pulumi:"actionsRequired"`
-	// The description for the current state of a private endpoint connection
-	Description string `pulumi:"description"`
-	// The status of a private endpoint connection
-	Status string `pulumi:"status"`
+	Description     string  `pulumi:"description"`
+	Status          string  `pulumi:"status"`
 }
 
 // PrivateLinkServiceConnectionStateResponseInput is an input type that accepts PrivateLinkServiceConnectionStateResponseArgs and PrivateLinkServiceConnectionStateResponseOutput values.
@@ -3580,14 +3332,10 @@ type PrivateLinkServiceConnectionStateResponseInput interface {
 	ToPrivateLinkServiceConnectionStateResponseOutputWithContext(context.Context) PrivateLinkServiceConnectionStateResponseOutput
 }
 
-// The current state of a private endpoint connection
 type PrivateLinkServiceConnectionStateResponseArgs struct {
-	// Actions required for a private endpoint connection
 	ActionsRequired pulumi.StringPtrInput `pulumi:"actionsRequired"`
-	// The description for the current state of a private endpoint connection
-	Description pulumi.StringInput `pulumi:"description"`
-	// The status of a private endpoint connection
-	Status pulumi.StringInput `pulumi:"status"`
+	Description     pulumi.StringInput    `pulumi:"description"`
+	Status          pulumi.StringInput    `pulumi:"status"`
 }
 
 func (PrivateLinkServiceConnectionStateResponseArgs) ElementType() reflect.Type {
@@ -3643,7 +3391,6 @@ func (i *privateLinkServiceConnectionStateResponsePtrType) ToPrivateLinkServiceC
 	return pulumi.ToOutputWithContext(ctx, i).(PrivateLinkServiceConnectionStateResponsePtrOutput)
 }
 
-// The current state of a private endpoint connection
 type PrivateLinkServiceConnectionStateResponseOutput struct{ *pulumi.OutputState }
 
 func (PrivateLinkServiceConnectionStateResponseOutput) ElementType() reflect.Type {
@@ -3663,22 +3410,19 @@ func (o PrivateLinkServiceConnectionStateResponseOutput) ToPrivateLinkServiceCon
 }
 
 func (o PrivateLinkServiceConnectionStateResponseOutput) ToPrivateLinkServiceConnectionStateResponsePtrOutputWithContext(ctx context.Context) PrivateLinkServiceConnectionStateResponsePtrOutput {
-	return o.ApplyT(func(v PrivateLinkServiceConnectionStateResponse) *PrivateLinkServiceConnectionStateResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v PrivateLinkServiceConnectionStateResponse) *PrivateLinkServiceConnectionStateResponse {
 		return &v
 	}).(PrivateLinkServiceConnectionStateResponsePtrOutput)
 }
 
-// Actions required for a private endpoint connection
 func (o PrivateLinkServiceConnectionStateResponseOutput) ActionsRequired() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v PrivateLinkServiceConnectionStateResponse) *string { return v.ActionsRequired }).(pulumi.StringPtrOutput)
 }
 
-// The description for the current state of a private endpoint connection
 func (o PrivateLinkServiceConnectionStateResponseOutput) Description() pulumi.StringOutput {
 	return o.ApplyT(func(v PrivateLinkServiceConnectionStateResponse) string { return v.Description }).(pulumi.StringOutput)
 }
 
-// The status of a private endpoint connection
 func (o PrivateLinkServiceConnectionStateResponseOutput) Status() pulumi.StringOutput {
 	return o.ApplyT(func(v PrivateLinkServiceConnectionStateResponse) string { return v.Status }).(pulumi.StringOutput)
 }
@@ -3699,11 +3443,14 @@ func (o PrivateLinkServiceConnectionStateResponsePtrOutput) ToPrivateLinkService
 
 func (o PrivateLinkServiceConnectionStateResponsePtrOutput) Elem() PrivateLinkServiceConnectionStateResponseOutput {
 	return o.ApplyT(func(v *PrivateLinkServiceConnectionStateResponse) PrivateLinkServiceConnectionStateResponse {
-		return *v
+		if v != nil {
+			return *v
+		}
+		var ret PrivateLinkServiceConnectionStateResponse
+		return ret
 	}).(PrivateLinkServiceConnectionStateResponseOutput)
 }
 
-// Actions required for a private endpoint connection
 func (o PrivateLinkServiceConnectionStateResponsePtrOutput) ActionsRequired() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *PrivateLinkServiceConnectionStateResponse) *string {
 		if v == nil {
@@ -3713,7 +3460,6 @@ func (o PrivateLinkServiceConnectionStateResponsePtrOutput) ActionsRequired() pu
 	}).(pulumi.StringPtrOutput)
 }
 
-// The description for the current state of a private endpoint connection
 func (o PrivateLinkServiceConnectionStateResponsePtrOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *PrivateLinkServiceConnectionStateResponse) *string {
 		if v == nil {
@@ -3723,7 +3469,6 @@ func (o PrivateLinkServiceConnectionStateResponsePtrOutput) Description() pulumi
 	}).(pulumi.StringPtrOutput)
 }
 
-// The status of a private endpoint connection
 func (o PrivateLinkServiceConnectionStateResponsePtrOutput) Status() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *PrivateLinkServiceConnectionStateResponse) *string {
 		if v == nil {
@@ -3733,15 +3478,10 @@ func (o PrivateLinkServiceConnectionStateResponsePtrOutput) Status() pulumi.Stri
 	}).(pulumi.StringPtrOutput)
 }
 
-// Description of the shared access key.
 type SharedAccessSignatureAuthorizationRuleAccessRightsDescription struct {
-	// Name of the key.
-	KeyName string `pulumi:"keyName"`
-	// Primary SAS key value.
-	PrimaryKey *string `pulumi:"primaryKey"`
-	// Rights that this key has.
-	Rights string `pulumi:"rights"`
-	// Secondary SAS key value.
+	KeyName      string  `pulumi:"keyName"`
+	PrimaryKey   *string `pulumi:"primaryKey"`
+	Rights       string  `pulumi:"rights"`
 	SecondaryKey *string `pulumi:"secondaryKey"`
 }
 
@@ -3756,15 +3496,10 @@ type SharedAccessSignatureAuthorizationRuleAccessRightsDescriptionInput interfac
 	ToSharedAccessSignatureAuthorizationRuleAccessRightsDescriptionOutputWithContext(context.Context) SharedAccessSignatureAuthorizationRuleAccessRightsDescriptionOutput
 }
 
-// Description of the shared access key.
 type SharedAccessSignatureAuthorizationRuleAccessRightsDescriptionArgs struct {
-	// Name of the key.
-	KeyName pulumi.StringInput `pulumi:"keyName"`
-	// Primary SAS key value.
-	PrimaryKey pulumi.StringPtrInput `pulumi:"primaryKey"`
-	// Rights that this key has.
-	Rights pulumi.StringInput `pulumi:"rights"`
-	// Secondary SAS key value.
+	KeyName      pulumi.StringInput    `pulumi:"keyName"`
+	PrimaryKey   pulumi.StringPtrInput `pulumi:"primaryKey"`
+	Rights       pulumi.StringInput    `pulumi:"rights"`
 	SecondaryKey pulumi.StringPtrInput `pulumi:"secondaryKey"`
 }
 
@@ -3805,7 +3540,6 @@ func (i SharedAccessSignatureAuthorizationRuleAccessRightsDescriptionArray) ToSh
 	return pulumi.ToOutputWithContext(ctx, i).(SharedAccessSignatureAuthorizationRuleAccessRightsDescriptionArrayOutput)
 }
 
-// Description of the shared access key.
 type SharedAccessSignatureAuthorizationRuleAccessRightsDescriptionOutput struct{ *pulumi.OutputState }
 
 func (SharedAccessSignatureAuthorizationRuleAccessRightsDescriptionOutput) ElementType() reflect.Type {
@@ -3820,22 +3554,18 @@ func (o SharedAccessSignatureAuthorizationRuleAccessRightsDescriptionOutput) ToS
 	return o
 }
 
-// Name of the key.
 func (o SharedAccessSignatureAuthorizationRuleAccessRightsDescriptionOutput) KeyName() pulumi.StringOutput {
 	return o.ApplyT(func(v SharedAccessSignatureAuthorizationRuleAccessRightsDescription) string { return v.KeyName }).(pulumi.StringOutput)
 }
 
-// Primary SAS key value.
 func (o SharedAccessSignatureAuthorizationRuleAccessRightsDescriptionOutput) PrimaryKey() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SharedAccessSignatureAuthorizationRuleAccessRightsDescription) *string { return v.PrimaryKey }).(pulumi.StringPtrOutput)
 }
 
-// Rights that this key has.
 func (o SharedAccessSignatureAuthorizationRuleAccessRightsDescriptionOutput) Rights() pulumi.StringOutput {
 	return o.ApplyT(func(v SharedAccessSignatureAuthorizationRuleAccessRightsDescription) string { return v.Rights }).(pulumi.StringOutput)
 }
 
-// Secondary SAS key value.
 func (o SharedAccessSignatureAuthorizationRuleAccessRightsDescriptionOutput) SecondaryKey() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SharedAccessSignatureAuthorizationRuleAccessRightsDescription) *string { return v.SecondaryKey }).(pulumi.StringPtrOutput)
 }
@@ -3860,15 +3590,10 @@ func (o SharedAccessSignatureAuthorizationRuleAccessRightsDescriptionArrayOutput
 	}).(SharedAccessSignatureAuthorizationRuleAccessRightsDescriptionOutput)
 }
 
-// Description of the shared access key.
 type SharedAccessSignatureAuthorizationRuleAccessRightsDescriptionResponse struct {
-	// Name of the key.
-	KeyName string `pulumi:"keyName"`
-	// Primary SAS key value.
-	PrimaryKey *string `pulumi:"primaryKey"`
-	// Rights that this key has.
-	Rights string `pulumi:"rights"`
-	// Secondary SAS key value.
+	KeyName      string  `pulumi:"keyName"`
+	PrimaryKey   *string `pulumi:"primaryKey"`
+	Rights       string  `pulumi:"rights"`
 	SecondaryKey *string `pulumi:"secondaryKey"`
 }
 
@@ -3883,15 +3608,10 @@ type SharedAccessSignatureAuthorizationRuleAccessRightsDescriptionResponseInput 
 	ToSharedAccessSignatureAuthorizationRuleAccessRightsDescriptionResponseOutputWithContext(context.Context) SharedAccessSignatureAuthorizationRuleAccessRightsDescriptionResponseOutput
 }
 
-// Description of the shared access key.
 type SharedAccessSignatureAuthorizationRuleAccessRightsDescriptionResponseArgs struct {
-	// Name of the key.
-	KeyName pulumi.StringInput `pulumi:"keyName"`
-	// Primary SAS key value.
-	PrimaryKey pulumi.StringPtrInput `pulumi:"primaryKey"`
-	// Rights that this key has.
-	Rights pulumi.StringInput `pulumi:"rights"`
-	// Secondary SAS key value.
+	KeyName      pulumi.StringInput    `pulumi:"keyName"`
+	PrimaryKey   pulumi.StringPtrInput `pulumi:"primaryKey"`
+	Rights       pulumi.StringInput    `pulumi:"rights"`
 	SecondaryKey pulumi.StringPtrInput `pulumi:"secondaryKey"`
 }
 
@@ -3932,7 +3652,6 @@ func (i SharedAccessSignatureAuthorizationRuleAccessRightsDescriptionResponseArr
 	return pulumi.ToOutputWithContext(ctx, i).(SharedAccessSignatureAuthorizationRuleAccessRightsDescriptionResponseArrayOutput)
 }
 
-// Description of the shared access key.
 type SharedAccessSignatureAuthorizationRuleAccessRightsDescriptionResponseOutput struct{ *pulumi.OutputState }
 
 func (SharedAccessSignatureAuthorizationRuleAccessRightsDescriptionResponseOutput) ElementType() reflect.Type {
@@ -3947,24 +3666,20 @@ func (o SharedAccessSignatureAuthorizationRuleAccessRightsDescriptionResponseOut
 	return o
 }
 
-// Name of the key.
 func (o SharedAccessSignatureAuthorizationRuleAccessRightsDescriptionResponseOutput) KeyName() pulumi.StringOutput {
 	return o.ApplyT(func(v SharedAccessSignatureAuthorizationRuleAccessRightsDescriptionResponse) string { return v.KeyName }).(pulumi.StringOutput)
 }
 
-// Primary SAS key value.
 func (o SharedAccessSignatureAuthorizationRuleAccessRightsDescriptionResponseOutput) PrimaryKey() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SharedAccessSignatureAuthorizationRuleAccessRightsDescriptionResponse) *string {
 		return v.PrimaryKey
 	}).(pulumi.StringPtrOutput)
 }
 
-// Rights that this key has.
 func (o SharedAccessSignatureAuthorizationRuleAccessRightsDescriptionResponseOutput) Rights() pulumi.StringOutput {
 	return o.ApplyT(func(v SharedAccessSignatureAuthorizationRuleAccessRightsDescriptionResponse) string { return v.Rights }).(pulumi.StringOutput)
 }
 
-// Secondary SAS key value.
 func (o SharedAccessSignatureAuthorizationRuleAccessRightsDescriptionResponseOutput) SecondaryKey() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SharedAccessSignatureAuthorizationRuleAccessRightsDescriptionResponse) *string {
 		return v.SecondaryKey
@@ -3991,16 +3706,11 @@ func (o SharedAccessSignatureAuthorizationRuleAccessRightsDescriptionResponseArr
 	}).(SharedAccessSignatureAuthorizationRuleAccessRightsDescriptionResponseOutput)
 }
 
-// The IP filter rules for a provisioning Service.
 type TargetIpFilterRule struct {
-	// The desired action for requests captured by this rule.
-	Action string `pulumi:"action"`
-	// The name of the IP filter rule.
-	FilterName string `pulumi:"filterName"`
-	// A string that contains the IP address range in CIDR notation for the rule.
-	IpMask string `pulumi:"ipMask"`
-	// Target for requests captured by this rule.
-	Target *string `pulumi:"target"`
+	Action     IpFilterActionType  `pulumi:"action"`
+	FilterName string              `pulumi:"filterName"`
+	IpMask     string              `pulumi:"ipMask"`
+	Target     *IpFilterTargetType `pulumi:"target"`
 }
 
 // TargetIpFilterRuleInput is an input type that accepts TargetIpFilterRuleArgs and TargetIpFilterRuleOutput values.
@@ -4014,16 +3724,11 @@ type TargetIpFilterRuleInput interface {
 	ToTargetIpFilterRuleOutputWithContext(context.Context) TargetIpFilterRuleOutput
 }
 
-// The IP filter rules for a provisioning Service.
 type TargetIpFilterRuleArgs struct {
-	// The desired action for requests captured by this rule.
-	Action IpFilterActionType `pulumi:"action"`
-	// The name of the IP filter rule.
-	FilterName pulumi.StringInput `pulumi:"filterName"`
-	// A string that contains the IP address range in CIDR notation for the rule.
-	IpMask pulumi.StringInput `pulumi:"ipMask"`
-	// Target for requests captured by this rule.
-	Target *IpFilterTargetType `pulumi:"target"`
+	Action     IpFilterActionTypeInput    `pulumi:"action"`
+	FilterName pulumi.StringInput         `pulumi:"filterName"`
+	IpMask     pulumi.StringInput         `pulumi:"ipMask"`
+	Target     IpFilterTargetTypePtrInput `pulumi:"target"`
 }
 
 func (TargetIpFilterRuleArgs) ElementType() reflect.Type {
@@ -4063,7 +3768,6 @@ func (i TargetIpFilterRuleArray) ToTargetIpFilterRuleArrayOutputWithContext(ctx 
 	return pulumi.ToOutputWithContext(ctx, i).(TargetIpFilterRuleArrayOutput)
 }
 
-// The IP filter rules for a provisioning Service.
 type TargetIpFilterRuleOutput struct{ *pulumi.OutputState }
 
 func (TargetIpFilterRuleOutput) ElementType() reflect.Type {
@@ -4078,24 +3782,20 @@ func (o TargetIpFilterRuleOutput) ToTargetIpFilterRuleOutputWithContext(ctx cont
 	return o
 }
 
-// The desired action for requests captured by this rule.
-func (o TargetIpFilterRuleOutput) Action() pulumi.StringOutput {
-	return o.ApplyT(func(v TargetIpFilterRule) string { return v.Action }).(pulumi.StringOutput)
+func (o TargetIpFilterRuleOutput) Action() IpFilterActionTypeOutput {
+	return o.ApplyT(func(v TargetIpFilterRule) IpFilterActionType { return v.Action }).(IpFilterActionTypeOutput)
 }
 
-// The name of the IP filter rule.
 func (o TargetIpFilterRuleOutput) FilterName() pulumi.StringOutput {
 	return o.ApplyT(func(v TargetIpFilterRule) string { return v.FilterName }).(pulumi.StringOutput)
 }
 
-// A string that contains the IP address range in CIDR notation for the rule.
 func (o TargetIpFilterRuleOutput) IpMask() pulumi.StringOutput {
 	return o.ApplyT(func(v TargetIpFilterRule) string { return v.IpMask }).(pulumi.StringOutput)
 }
 
-// Target for requests captured by this rule.
-func (o TargetIpFilterRuleOutput) Target() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v TargetIpFilterRule) *string { return v.Target }).(pulumi.StringPtrOutput)
+func (o TargetIpFilterRuleOutput) Target() IpFilterTargetTypePtrOutput {
+	return o.ApplyT(func(v TargetIpFilterRule) *IpFilterTargetType { return v.Target }).(IpFilterTargetTypePtrOutput)
 }
 
 type TargetIpFilterRuleArrayOutput struct{ *pulumi.OutputState }
@@ -4118,16 +3818,11 @@ func (o TargetIpFilterRuleArrayOutput) Index(i pulumi.IntInput) TargetIpFilterRu
 	}).(TargetIpFilterRuleOutput)
 }
 
-// The IP filter rules for a provisioning Service.
 type TargetIpFilterRuleResponse struct {
-	// The desired action for requests captured by this rule.
-	Action string `pulumi:"action"`
-	// The name of the IP filter rule.
-	FilterName string `pulumi:"filterName"`
-	// A string that contains the IP address range in CIDR notation for the rule.
-	IpMask string `pulumi:"ipMask"`
-	// Target for requests captured by this rule.
-	Target *string `pulumi:"target"`
+	Action     string  `pulumi:"action"`
+	FilterName string  `pulumi:"filterName"`
+	IpMask     string  `pulumi:"ipMask"`
+	Target     *string `pulumi:"target"`
 }
 
 // TargetIpFilterRuleResponseInput is an input type that accepts TargetIpFilterRuleResponseArgs and TargetIpFilterRuleResponseOutput values.
@@ -4141,16 +3836,11 @@ type TargetIpFilterRuleResponseInput interface {
 	ToTargetIpFilterRuleResponseOutputWithContext(context.Context) TargetIpFilterRuleResponseOutput
 }
 
-// The IP filter rules for a provisioning Service.
 type TargetIpFilterRuleResponseArgs struct {
-	// The desired action for requests captured by this rule.
-	Action pulumi.StringInput `pulumi:"action"`
-	// The name of the IP filter rule.
-	FilterName pulumi.StringInput `pulumi:"filterName"`
-	// A string that contains the IP address range in CIDR notation for the rule.
-	IpMask pulumi.StringInput `pulumi:"ipMask"`
-	// Target for requests captured by this rule.
-	Target pulumi.StringPtrInput `pulumi:"target"`
+	Action     pulumi.StringInput    `pulumi:"action"`
+	FilterName pulumi.StringInput    `pulumi:"filterName"`
+	IpMask     pulumi.StringInput    `pulumi:"ipMask"`
+	Target     pulumi.StringPtrInput `pulumi:"target"`
 }
 
 func (TargetIpFilterRuleResponseArgs) ElementType() reflect.Type {
@@ -4190,7 +3880,6 @@ func (i TargetIpFilterRuleResponseArray) ToTargetIpFilterRuleResponseArrayOutput
 	return pulumi.ToOutputWithContext(ctx, i).(TargetIpFilterRuleResponseArrayOutput)
 }
 
-// The IP filter rules for a provisioning Service.
 type TargetIpFilterRuleResponseOutput struct{ *pulumi.OutputState }
 
 func (TargetIpFilterRuleResponseOutput) ElementType() reflect.Type {
@@ -4205,22 +3894,18 @@ func (o TargetIpFilterRuleResponseOutput) ToTargetIpFilterRuleResponseOutputWith
 	return o
 }
 
-// The desired action for requests captured by this rule.
 func (o TargetIpFilterRuleResponseOutput) Action() pulumi.StringOutput {
 	return o.ApplyT(func(v TargetIpFilterRuleResponse) string { return v.Action }).(pulumi.StringOutput)
 }
 
-// The name of the IP filter rule.
 func (o TargetIpFilterRuleResponseOutput) FilterName() pulumi.StringOutput {
 	return o.ApplyT(func(v TargetIpFilterRuleResponse) string { return v.FilterName }).(pulumi.StringOutput)
 }
 
-// A string that contains the IP address range in CIDR notation for the rule.
 func (o TargetIpFilterRuleResponseOutput) IpMask() pulumi.StringOutput {
 	return o.ApplyT(func(v TargetIpFilterRuleResponse) string { return v.IpMask }).(pulumi.StringOutput)
 }
 
-// Target for requests captured by this rule.
 func (o TargetIpFilterRuleResponseOutput) Target() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v TargetIpFilterRuleResponse) *string { return v.Target }).(pulumi.StringPtrOutput)
 }

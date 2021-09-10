@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.ServiceFabric.V20210501.Outputs
 {
 
+    /// <summary>
+    /// Describes the policy to be used for placement of a Service Fabric service where the instances or replicas of that service must be placed in a particular domain.
+    /// </summary>
     [OutputType]
     public sealed class ServicePlacementRequiredDomainPolicyResponse
     {

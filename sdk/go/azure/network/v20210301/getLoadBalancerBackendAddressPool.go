@@ -7,7 +7,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Pool of backend IP addresses.
 func LookupLoadBalancerBackendAddressPool(ctx *pulumi.Context, args *LookupLoadBalancerBackendAddressPoolArgs, opts ...pulumi.InvokeOption) (*LookupLoadBalancerBackendAddressPoolResult, error) {
 	var rv LookupLoadBalancerBackendAddressPoolResult
 	err := ctx.Invoke("azure-native:network/v20210301:getLoadBalancerBackendAddressPool", args, &rv, opts...)
@@ -18,38 +17,23 @@ func LookupLoadBalancerBackendAddressPool(ctx *pulumi.Context, args *LookupLoadB
 }
 
 type LookupLoadBalancerBackendAddressPoolArgs struct {
-	// The name of the backend address pool.
 	BackendAddressPoolName string `pulumi:"backendAddressPoolName"`
-	// The name of the load balancer.
-	LoadBalancerName string `pulumi:"loadBalancerName"`
-	// The name of the resource group.
-	ResourceGroupName string `pulumi:"resourceGroupName"`
+	LoadBalancerName       string `pulumi:"loadBalancerName"`
+	ResourceGroupName      string `pulumi:"resourceGroupName"`
 }
 
 // Pool of backend IP addresses.
 type LookupLoadBalancerBackendAddressPoolResult struct {
-	// An array of references to IP addresses defined in network interfaces.
-	BackendIPConfigurations []NetworkInterfaceIPConfigurationResponse `pulumi:"backendIPConfigurations"`
-	// A unique read-only string that changes whenever the resource is updated.
-	Etag string `pulumi:"etag"`
-	// Resource ID.
-	Id *string `pulumi:"id"`
-	// An array of backend addresses.
-	LoadBalancerBackendAddresses []LoadBalancerBackendAddressResponse `pulumi:"loadBalancerBackendAddresses"`
-	// An array of references to load balancing rules that use this backend address pool.
-	LoadBalancingRules []SubResourceResponse `pulumi:"loadBalancingRules"`
-	// The location of the backend address pool.
-	Location *string `pulumi:"location"`
-	// The name of the resource that is unique within the set of backend address pools used by the load balancer. This name can be used to access the resource.
-	Name *string `pulumi:"name"`
-	// A reference to an outbound rule that uses this backend address pool.
-	OutboundRule SubResourceResponse `pulumi:"outboundRule"`
-	// An array of references to outbound rules that use this backend address pool.
-	OutboundRules []SubResourceResponse `pulumi:"outboundRules"`
-	// The provisioning state of the backend address pool resource.
-	ProvisioningState string `pulumi:"provisioningState"`
-	// An array of gateway load balancer tunnel interfaces.
-	TunnelInterfaces []GatewayLoadBalancerTunnelInterfaceResponse `pulumi:"tunnelInterfaces"`
-	// Type of the resource.
-	Type string `pulumi:"type"`
+	BackendIPConfigurations      []NetworkInterfaceIPConfigurationResponse    `pulumi:"backendIPConfigurations"`
+	Etag                         string                                       `pulumi:"etag"`
+	Id                           *string                                      `pulumi:"id"`
+	LoadBalancerBackendAddresses []LoadBalancerBackendAddressResponse         `pulumi:"loadBalancerBackendAddresses"`
+	LoadBalancingRules           []SubResourceResponse                        `pulumi:"loadBalancingRules"`
+	Location                     *string                                      `pulumi:"location"`
+	Name                         *string                                      `pulumi:"name"`
+	OutboundRule                 SubResourceResponse                          `pulumi:"outboundRule"`
+	OutboundRules                []SubResourceResponse                        `pulumi:"outboundRules"`
+	ProvisioningState            string                                       `pulumi:"provisioningState"`
+	TunnelInterfaces             []GatewayLoadBalancerTunnelInterfaceResponse `pulumi:"tunnelInterfaces"`
+	Type                         string                                       `pulumi:"type"`
 }

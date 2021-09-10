@@ -11,27 +11,17 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Compute role.
 type IoTRole struct {
 	pulumi.CustomResourceState
 
-	// Host OS supported by the IoT role.
-	HostPlatform pulumi.StringOutput `pulumi:"hostPlatform"`
-	// IoT device metadata to which data box edge device needs to be connected.
-	IoTDeviceDetails IoTDeviceInfoResponseOutput `pulumi:"ioTDeviceDetails"`
-	// IoT edge device to which the IoT role needs to be configured.
-	IoTEdgeDeviceDetails IoTDeviceInfoResponseOutput `pulumi:"ioTEdgeDeviceDetails"`
-	// Role type.
-	// Expected value is 'IOT'.
-	Kind pulumi.StringOutput `pulumi:"kind"`
-	// The object name.
-	Name pulumi.StringOutput `pulumi:"name"`
-	// Role status.
-	RoleStatus pulumi.StringOutput `pulumi:"roleStatus"`
-	// Mount points of shares in role(s).
-	ShareMappings MountPointMapResponseArrayOutput `pulumi:"shareMappings"`
-	// The hierarchical type of the object.
-	Type pulumi.StringOutput `pulumi:"type"`
+	HostPlatform         pulumi.StringOutput              `pulumi:"hostPlatform"`
+	IoTDeviceDetails     IoTDeviceInfoResponseOutput      `pulumi:"ioTDeviceDetails"`
+	IoTEdgeDeviceDetails IoTDeviceInfoResponseOutput      `pulumi:"ioTEdgeDeviceDetails"`
+	Kind                 pulumi.StringOutput              `pulumi:"kind"`
+	Name                 pulumi.StringOutput              `pulumi:"name"`
+	RoleStatus           pulumi.StringOutput              `pulumi:"roleStatus"`
+	ShareMappings        MountPointMapResponseArrayOutput `pulumi:"shareMappings"`
+	Type                 pulumi.StringOutput              `pulumi:"type"`
 }
 
 // NewIoTRole registers a new resource with the given unique name, arguments, and options.
@@ -155,48 +145,28 @@ func (IoTRoleState) ElementType() reflect.Type {
 }
 
 type ioTRoleArgs struct {
-	// The device name.
-	DeviceName string `pulumi:"deviceName"`
-	// Host OS supported by the IoT role.
-	HostPlatform string `pulumi:"hostPlatform"`
-	// IoT device metadata to which data box edge device needs to be connected.
-	IoTDeviceDetails IoTDeviceInfo `pulumi:"ioTDeviceDetails"`
-	// IoT edge device to which the IoT role needs to be configured.
-	IoTEdgeDeviceDetails IoTDeviceInfo `pulumi:"ioTEdgeDeviceDetails"`
-	// Role type.
-	// Expected value is 'IOT'.
-	Kind string `pulumi:"kind"`
-	// The role name.
-	Name *string `pulumi:"name"`
-	// The resource group name.
-	ResourceGroupName string `pulumi:"resourceGroupName"`
-	// Role status.
-	RoleStatus string `pulumi:"roleStatus"`
-	// Mount points of shares in role(s).
-	ShareMappings []MountPointMap `pulumi:"shareMappings"`
+	DeviceName           string          `pulumi:"deviceName"`
+	HostPlatform         string          `pulumi:"hostPlatform"`
+	IoTDeviceDetails     IoTDeviceInfo   `pulumi:"ioTDeviceDetails"`
+	IoTEdgeDeviceDetails IoTDeviceInfo   `pulumi:"ioTEdgeDeviceDetails"`
+	Kind                 string          `pulumi:"kind"`
+	Name                 *string         `pulumi:"name"`
+	ResourceGroupName    string          `pulumi:"resourceGroupName"`
+	RoleStatus           string          `pulumi:"roleStatus"`
+	ShareMappings        []MountPointMap `pulumi:"shareMappings"`
 }
 
 // The set of arguments for constructing a IoTRole resource.
 type IoTRoleArgs struct {
-	// The device name.
-	DeviceName pulumi.StringInput
-	// Host OS supported by the IoT role.
-	HostPlatform pulumi.StringInput
-	// IoT device metadata to which data box edge device needs to be connected.
-	IoTDeviceDetails IoTDeviceInfoInput
-	// IoT edge device to which the IoT role needs to be configured.
+	DeviceName           pulumi.StringInput
+	HostPlatform         pulumi.StringInput
+	IoTDeviceDetails     IoTDeviceInfoInput
 	IoTEdgeDeviceDetails IoTDeviceInfoInput
-	// Role type.
-	// Expected value is 'IOT'.
-	Kind pulumi.StringInput
-	// The role name.
-	Name pulumi.StringPtrInput
-	// The resource group name.
-	ResourceGroupName pulumi.StringInput
-	// Role status.
-	RoleStatus pulumi.StringInput
-	// Mount points of shares in role(s).
-	ShareMappings MountPointMapArrayInput
+	Kind                 pulumi.StringInput
+	Name                 pulumi.StringPtrInput
+	ResourceGroupName    pulumi.StringInput
+	RoleStatus           pulumi.StringInput
+	ShareMappings        MountPointMapArrayInput
 }
 
 func (IoTRoleArgs) ElementType() reflect.Type {
@@ -222,9 +192,7 @@ func (i *IoTRole) ToIoTRoleOutputWithContext(ctx context.Context) IoTRoleOutput 
 	return pulumi.ToOutputWithContext(ctx, i).(IoTRoleOutput)
 }
 
-type IoTRoleOutput struct {
-	*pulumi.OutputState
-}
+type IoTRoleOutput struct{ *pulumi.OutputState }
 
 func (IoTRoleOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*IoTRole)(nil))

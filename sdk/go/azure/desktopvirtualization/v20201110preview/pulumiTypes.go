@@ -10,22 +10,14 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Schema for MSIX Package Application properties.
 type MsixPackageApplications struct {
-	// Package Application Id, found in appxmanifest.xml.
-	AppId *string `pulumi:"appId"`
-	// Used to activate Package Application. Consists of Package Name and ApplicationID. Found in appxmanifest.xml.
+	AppId          *string `pulumi:"appId"`
 	AppUserModelID *string `pulumi:"appUserModelID"`
-	// Description of Package Application.
-	Description *string `pulumi:"description"`
-	// User friendly name.
-	FriendlyName *string `pulumi:"friendlyName"`
-	// User friendly name.
-	IconImageName *string `pulumi:"iconImageName"`
-	// the icon a 64 bit string as a byte array.
-	RawIcon *string `pulumi:"rawIcon"`
-	// the icon a 64 bit string as a byte array.
-	RawPng *string `pulumi:"rawPng"`
+	Description    *string `pulumi:"description"`
+	FriendlyName   *string `pulumi:"friendlyName"`
+	IconImageName  *string `pulumi:"iconImageName"`
+	RawIcon        *string `pulumi:"rawIcon"`
+	RawPng         *string `pulumi:"rawPng"`
 }
 
 // MsixPackageApplicationsInput is an input type that accepts MsixPackageApplicationsArgs and MsixPackageApplicationsOutput values.
@@ -39,22 +31,14 @@ type MsixPackageApplicationsInput interface {
 	ToMsixPackageApplicationsOutputWithContext(context.Context) MsixPackageApplicationsOutput
 }
 
-// Schema for MSIX Package Application properties.
 type MsixPackageApplicationsArgs struct {
-	// Package Application Id, found in appxmanifest.xml.
-	AppId pulumi.StringPtrInput `pulumi:"appId"`
-	// Used to activate Package Application. Consists of Package Name and ApplicationID. Found in appxmanifest.xml.
+	AppId          pulumi.StringPtrInput `pulumi:"appId"`
 	AppUserModelID pulumi.StringPtrInput `pulumi:"appUserModelID"`
-	// Description of Package Application.
-	Description pulumi.StringPtrInput `pulumi:"description"`
-	// User friendly name.
-	FriendlyName pulumi.StringPtrInput `pulumi:"friendlyName"`
-	// User friendly name.
-	IconImageName pulumi.StringPtrInput `pulumi:"iconImageName"`
-	// the icon a 64 bit string as a byte array.
-	RawIcon pulumi.StringPtrInput `pulumi:"rawIcon"`
-	// the icon a 64 bit string as a byte array.
-	RawPng pulumi.StringPtrInput `pulumi:"rawPng"`
+	Description    pulumi.StringPtrInput `pulumi:"description"`
+	FriendlyName   pulumi.StringPtrInput `pulumi:"friendlyName"`
+	IconImageName  pulumi.StringPtrInput `pulumi:"iconImageName"`
+	RawIcon        pulumi.StringPtrInput `pulumi:"rawIcon"`
+	RawPng         pulumi.StringPtrInput `pulumi:"rawPng"`
 }
 
 func (MsixPackageApplicationsArgs) ElementType() reflect.Type {
@@ -94,7 +78,6 @@ func (i MsixPackageApplicationsArray) ToMsixPackageApplicationsArrayOutputWithCo
 	return pulumi.ToOutputWithContext(ctx, i).(MsixPackageApplicationsArrayOutput)
 }
 
-// Schema for MSIX Package Application properties.
 type MsixPackageApplicationsOutput struct{ *pulumi.OutputState }
 
 func (MsixPackageApplicationsOutput) ElementType() reflect.Type {
@@ -109,37 +92,30 @@ func (o MsixPackageApplicationsOutput) ToMsixPackageApplicationsOutputWithContex
 	return o
 }
 
-// Package Application Id, found in appxmanifest.xml.
 func (o MsixPackageApplicationsOutput) AppId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v MsixPackageApplications) *string { return v.AppId }).(pulumi.StringPtrOutput)
 }
 
-// Used to activate Package Application. Consists of Package Name and ApplicationID. Found in appxmanifest.xml.
 func (o MsixPackageApplicationsOutput) AppUserModelID() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v MsixPackageApplications) *string { return v.AppUserModelID }).(pulumi.StringPtrOutput)
 }
 
-// Description of Package Application.
 func (o MsixPackageApplicationsOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v MsixPackageApplications) *string { return v.Description }).(pulumi.StringPtrOutput)
 }
 
-// User friendly name.
 func (o MsixPackageApplicationsOutput) FriendlyName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v MsixPackageApplications) *string { return v.FriendlyName }).(pulumi.StringPtrOutput)
 }
 
-// User friendly name.
 func (o MsixPackageApplicationsOutput) IconImageName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v MsixPackageApplications) *string { return v.IconImageName }).(pulumi.StringPtrOutput)
 }
 
-// the icon a 64 bit string as a byte array.
 func (o MsixPackageApplicationsOutput) RawIcon() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v MsixPackageApplications) *string { return v.RawIcon }).(pulumi.StringPtrOutput)
 }
 
-// the icon a 64 bit string as a byte array.
 func (o MsixPackageApplicationsOutput) RawPng() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v MsixPackageApplications) *string { return v.RawPng }).(pulumi.StringPtrOutput)
 }
@@ -164,22 +140,14 @@ func (o MsixPackageApplicationsArrayOutput) Index(i pulumi.IntInput) MsixPackage
 	}).(MsixPackageApplicationsOutput)
 }
 
-// Schema for MSIX Package Application properties.
 type MsixPackageApplicationsResponse struct {
-	// Package Application Id, found in appxmanifest.xml.
-	AppId *string `pulumi:"appId"`
-	// Used to activate Package Application. Consists of Package Name and ApplicationID. Found in appxmanifest.xml.
+	AppId          *string `pulumi:"appId"`
 	AppUserModelID *string `pulumi:"appUserModelID"`
-	// Description of Package Application.
-	Description *string `pulumi:"description"`
-	// User friendly name.
-	FriendlyName *string `pulumi:"friendlyName"`
-	// User friendly name.
-	IconImageName *string `pulumi:"iconImageName"`
-	// the icon a 64 bit string as a byte array.
-	RawIcon *string `pulumi:"rawIcon"`
-	// the icon a 64 bit string as a byte array.
-	RawPng *string `pulumi:"rawPng"`
+	Description    *string `pulumi:"description"`
+	FriendlyName   *string `pulumi:"friendlyName"`
+	IconImageName  *string `pulumi:"iconImageName"`
+	RawIcon        *string `pulumi:"rawIcon"`
+	RawPng         *string `pulumi:"rawPng"`
 }
 
 // MsixPackageApplicationsResponseInput is an input type that accepts MsixPackageApplicationsResponseArgs and MsixPackageApplicationsResponseOutput values.
@@ -193,22 +161,14 @@ type MsixPackageApplicationsResponseInput interface {
 	ToMsixPackageApplicationsResponseOutputWithContext(context.Context) MsixPackageApplicationsResponseOutput
 }
 
-// Schema for MSIX Package Application properties.
 type MsixPackageApplicationsResponseArgs struct {
-	// Package Application Id, found in appxmanifest.xml.
-	AppId pulumi.StringPtrInput `pulumi:"appId"`
-	// Used to activate Package Application. Consists of Package Name and ApplicationID. Found in appxmanifest.xml.
+	AppId          pulumi.StringPtrInput `pulumi:"appId"`
 	AppUserModelID pulumi.StringPtrInput `pulumi:"appUserModelID"`
-	// Description of Package Application.
-	Description pulumi.StringPtrInput `pulumi:"description"`
-	// User friendly name.
-	FriendlyName pulumi.StringPtrInput `pulumi:"friendlyName"`
-	// User friendly name.
-	IconImageName pulumi.StringPtrInput `pulumi:"iconImageName"`
-	// the icon a 64 bit string as a byte array.
-	RawIcon pulumi.StringPtrInput `pulumi:"rawIcon"`
-	// the icon a 64 bit string as a byte array.
-	RawPng pulumi.StringPtrInput `pulumi:"rawPng"`
+	Description    pulumi.StringPtrInput `pulumi:"description"`
+	FriendlyName   pulumi.StringPtrInput `pulumi:"friendlyName"`
+	IconImageName  pulumi.StringPtrInput `pulumi:"iconImageName"`
+	RawIcon        pulumi.StringPtrInput `pulumi:"rawIcon"`
+	RawPng         pulumi.StringPtrInput `pulumi:"rawPng"`
 }
 
 func (MsixPackageApplicationsResponseArgs) ElementType() reflect.Type {
@@ -248,7 +208,6 @@ func (i MsixPackageApplicationsResponseArray) ToMsixPackageApplicationsResponseA
 	return pulumi.ToOutputWithContext(ctx, i).(MsixPackageApplicationsResponseArrayOutput)
 }
 
-// Schema for MSIX Package Application properties.
 type MsixPackageApplicationsResponseOutput struct{ *pulumi.OutputState }
 
 func (MsixPackageApplicationsResponseOutput) ElementType() reflect.Type {
@@ -263,37 +222,30 @@ func (o MsixPackageApplicationsResponseOutput) ToMsixPackageApplicationsResponse
 	return o
 }
 
-// Package Application Id, found in appxmanifest.xml.
 func (o MsixPackageApplicationsResponseOutput) AppId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v MsixPackageApplicationsResponse) *string { return v.AppId }).(pulumi.StringPtrOutput)
 }
 
-// Used to activate Package Application. Consists of Package Name and ApplicationID. Found in appxmanifest.xml.
 func (o MsixPackageApplicationsResponseOutput) AppUserModelID() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v MsixPackageApplicationsResponse) *string { return v.AppUserModelID }).(pulumi.StringPtrOutput)
 }
 
-// Description of Package Application.
 func (o MsixPackageApplicationsResponseOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v MsixPackageApplicationsResponse) *string { return v.Description }).(pulumi.StringPtrOutput)
 }
 
-// User friendly name.
 func (o MsixPackageApplicationsResponseOutput) FriendlyName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v MsixPackageApplicationsResponse) *string { return v.FriendlyName }).(pulumi.StringPtrOutput)
 }
 
-// User friendly name.
 func (o MsixPackageApplicationsResponseOutput) IconImageName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v MsixPackageApplicationsResponse) *string { return v.IconImageName }).(pulumi.StringPtrOutput)
 }
 
-// the icon a 64 bit string as a byte array.
 func (o MsixPackageApplicationsResponseOutput) RawIcon() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v MsixPackageApplicationsResponse) *string { return v.RawIcon }).(pulumi.StringPtrOutput)
 }
 
-// the icon a 64 bit string as a byte array.
 func (o MsixPackageApplicationsResponseOutput) RawPng() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v MsixPackageApplicationsResponse) *string { return v.RawPng }).(pulumi.StringPtrOutput)
 }
@@ -318,14 +270,10 @@ func (o MsixPackageApplicationsResponseArrayOutput) Index(i pulumi.IntInput) Msi
 	}).(MsixPackageApplicationsResponseOutput)
 }
 
-// Schema for MSIX Package Dependencies properties.
 type MsixPackageDependencies struct {
-	// Name of package dependency.
 	DependencyName *string `pulumi:"dependencyName"`
-	// Dependency version required.
-	MinVersion *string `pulumi:"minVersion"`
-	// Name of dependency publisher.
-	Publisher *string `pulumi:"publisher"`
+	MinVersion     *string `pulumi:"minVersion"`
+	Publisher      *string `pulumi:"publisher"`
 }
 
 // MsixPackageDependenciesInput is an input type that accepts MsixPackageDependenciesArgs and MsixPackageDependenciesOutput values.
@@ -339,14 +287,10 @@ type MsixPackageDependenciesInput interface {
 	ToMsixPackageDependenciesOutputWithContext(context.Context) MsixPackageDependenciesOutput
 }
 
-// Schema for MSIX Package Dependencies properties.
 type MsixPackageDependenciesArgs struct {
-	// Name of package dependency.
 	DependencyName pulumi.StringPtrInput `pulumi:"dependencyName"`
-	// Dependency version required.
-	MinVersion pulumi.StringPtrInput `pulumi:"minVersion"`
-	// Name of dependency publisher.
-	Publisher pulumi.StringPtrInput `pulumi:"publisher"`
+	MinVersion     pulumi.StringPtrInput `pulumi:"minVersion"`
+	Publisher      pulumi.StringPtrInput `pulumi:"publisher"`
 }
 
 func (MsixPackageDependenciesArgs) ElementType() reflect.Type {
@@ -386,7 +330,6 @@ func (i MsixPackageDependenciesArray) ToMsixPackageDependenciesArrayOutputWithCo
 	return pulumi.ToOutputWithContext(ctx, i).(MsixPackageDependenciesArrayOutput)
 }
 
-// Schema for MSIX Package Dependencies properties.
 type MsixPackageDependenciesOutput struct{ *pulumi.OutputState }
 
 func (MsixPackageDependenciesOutput) ElementType() reflect.Type {
@@ -401,17 +344,14 @@ func (o MsixPackageDependenciesOutput) ToMsixPackageDependenciesOutputWithContex
 	return o
 }
 
-// Name of package dependency.
 func (o MsixPackageDependenciesOutput) DependencyName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v MsixPackageDependencies) *string { return v.DependencyName }).(pulumi.StringPtrOutput)
 }
 
-// Dependency version required.
 func (o MsixPackageDependenciesOutput) MinVersion() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v MsixPackageDependencies) *string { return v.MinVersion }).(pulumi.StringPtrOutput)
 }
 
-// Name of dependency publisher.
 func (o MsixPackageDependenciesOutput) Publisher() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v MsixPackageDependencies) *string { return v.Publisher }).(pulumi.StringPtrOutput)
 }
@@ -436,14 +376,10 @@ func (o MsixPackageDependenciesArrayOutput) Index(i pulumi.IntInput) MsixPackage
 	}).(MsixPackageDependenciesOutput)
 }
 
-// Schema for MSIX Package Dependencies properties.
 type MsixPackageDependenciesResponse struct {
-	// Name of package dependency.
 	DependencyName *string `pulumi:"dependencyName"`
-	// Dependency version required.
-	MinVersion *string `pulumi:"minVersion"`
-	// Name of dependency publisher.
-	Publisher *string `pulumi:"publisher"`
+	MinVersion     *string `pulumi:"minVersion"`
+	Publisher      *string `pulumi:"publisher"`
 }
 
 // MsixPackageDependenciesResponseInput is an input type that accepts MsixPackageDependenciesResponseArgs and MsixPackageDependenciesResponseOutput values.
@@ -457,14 +393,10 @@ type MsixPackageDependenciesResponseInput interface {
 	ToMsixPackageDependenciesResponseOutputWithContext(context.Context) MsixPackageDependenciesResponseOutput
 }
 
-// Schema for MSIX Package Dependencies properties.
 type MsixPackageDependenciesResponseArgs struct {
-	// Name of package dependency.
 	DependencyName pulumi.StringPtrInput `pulumi:"dependencyName"`
-	// Dependency version required.
-	MinVersion pulumi.StringPtrInput `pulumi:"minVersion"`
-	// Name of dependency publisher.
-	Publisher pulumi.StringPtrInput `pulumi:"publisher"`
+	MinVersion     pulumi.StringPtrInput `pulumi:"minVersion"`
+	Publisher      pulumi.StringPtrInput `pulumi:"publisher"`
 }
 
 func (MsixPackageDependenciesResponseArgs) ElementType() reflect.Type {
@@ -504,7 +436,6 @@ func (i MsixPackageDependenciesResponseArray) ToMsixPackageDependenciesResponseA
 	return pulumi.ToOutputWithContext(ctx, i).(MsixPackageDependenciesResponseArrayOutput)
 }
 
-// Schema for MSIX Package Dependencies properties.
 type MsixPackageDependenciesResponseOutput struct{ *pulumi.OutputState }
 
 func (MsixPackageDependenciesResponseOutput) ElementType() reflect.Type {
@@ -519,17 +450,14 @@ func (o MsixPackageDependenciesResponseOutput) ToMsixPackageDependenciesResponse
 	return o
 }
 
-// Name of package dependency.
 func (o MsixPackageDependenciesResponseOutput) DependencyName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v MsixPackageDependenciesResponse) *string { return v.DependencyName }).(pulumi.StringPtrOutput)
 }
 
-// Dependency version required.
 func (o MsixPackageDependenciesResponseOutput) MinVersion() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v MsixPackageDependenciesResponse) *string { return v.MinVersion }).(pulumi.StringPtrOutput)
 }
 
-// Name of dependency publisher.
 func (o MsixPackageDependenciesResponseOutput) Publisher() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v MsixPackageDependenciesResponse) *string { return v.Publisher }).(pulumi.StringPtrOutput)
 }
@@ -554,14 +482,10 @@ func (o MsixPackageDependenciesResponseArrayOutput) Index(i pulumi.IntInput) Msi
 	}).(MsixPackageDependenciesResponseOutput)
 }
 
-// Represents a RegistrationInfo definition.
 type RegistrationInfo struct {
-	// Expiration time of registration token.
-	ExpirationTime *string `pulumi:"expirationTime"`
-	// The type of resetting the token.
+	ExpirationTime             *string `pulumi:"expirationTime"`
 	RegistrationTokenOperation *string `pulumi:"registrationTokenOperation"`
-	// The registration token base64 encoded string.
-	Token *string `pulumi:"token"`
+	Token                      *string `pulumi:"token"`
 }
 
 // RegistrationInfoInput is an input type that accepts RegistrationInfoArgs and RegistrationInfoOutput values.
@@ -575,14 +499,10 @@ type RegistrationInfoInput interface {
 	ToRegistrationInfoOutputWithContext(context.Context) RegistrationInfoOutput
 }
 
-// Represents a RegistrationInfo definition.
 type RegistrationInfoArgs struct {
-	// Expiration time of registration token.
-	ExpirationTime pulumi.StringPtrInput `pulumi:"expirationTime"`
-	// The type of resetting the token.
+	ExpirationTime             pulumi.StringPtrInput `pulumi:"expirationTime"`
 	RegistrationTokenOperation pulumi.StringPtrInput `pulumi:"registrationTokenOperation"`
-	// The registration token base64 encoded string.
-	Token pulumi.StringPtrInput `pulumi:"token"`
+	Token                      pulumi.StringPtrInput `pulumi:"token"`
 }
 
 func (RegistrationInfoArgs) ElementType() reflect.Type {
@@ -638,7 +558,6 @@ func (i *registrationInfoPtrType) ToRegistrationInfoPtrOutputWithContext(ctx con
 	return pulumi.ToOutputWithContext(ctx, i).(RegistrationInfoPtrOutput)
 }
 
-// Represents a RegistrationInfo definition.
 type RegistrationInfoOutput struct{ *pulumi.OutputState }
 
 func (RegistrationInfoOutput) ElementType() reflect.Type {
@@ -658,22 +577,19 @@ func (o RegistrationInfoOutput) ToRegistrationInfoPtrOutput() RegistrationInfoPt
 }
 
 func (o RegistrationInfoOutput) ToRegistrationInfoPtrOutputWithContext(ctx context.Context) RegistrationInfoPtrOutput {
-	return o.ApplyT(func(v RegistrationInfo) *RegistrationInfo {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v RegistrationInfo) *RegistrationInfo {
 		return &v
 	}).(RegistrationInfoPtrOutput)
 }
 
-// Expiration time of registration token.
 func (o RegistrationInfoOutput) ExpirationTime() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v RegistrationInfo) *string { return v.ExpirationTime }).(pulumi.StringPtrOutput)
 }
 
-// The type of resetting the token.
 func (o RegistrationInfoOutput) RegistrationTokenOperation() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v RegistrationInfo) *string { return v.RegistrationTokenOperation }).(pulumi.StringPtrOutput)
 }
 
-// The registration token base64 encoded string.
 func (o RegistrationInfoOutput) Token() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v RegistrationInfo) *string { return v.Token }).(pulumi.StringPtrOutput)
 }
@@ -693,10 +609,15 @@ func (o RegistrationInfoPtrOutput) ToRegistrationInfoPtrOutputWithContext(ctx co
 }
 
 func (o RegistrationInfoPtrOutput) Elem() RegistrationInfoOutput {
-	return o.ApplyT(func(v *RegistrationInfo) RegistrationInfo { return *v }).(RegistrationInfoOutput)
+	return o.ApplyT(func(v *RegistrationInfo) RegistrationInfo {
+		if v != nil {
+			return *v
+		}
+		var ret RegistrationInfo
+		return ret
+	}).(RegistrationInfoOutput)
 }
 
-// Expiration time of registration token.
 func (o RegistrationInfoPtrOutput) ExpirationTime() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *RegistrationInfo) *string {
 		if v == nil {
@@ -706,7 +627,6 @@ func (o RegistrationInfoPtrOutput) ExpirationTime() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The type of resetting the token.
 func (o RegistrationInfoPtrOutput) RegistrationTokenOperation() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *RegistrationInfo) *string {
 		if v == nil {
@@ -716,7 +636,6 @@ func (o RegistrationInfoPtrOutput) RegistrationTokenOperation() pulumi.StringPtr
 	}).(pulumi.StringPtrOutput)
 }
 
-// The registration token base64 encoded string.
 func (o RegistrationInfoPtrOutput) Token() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *RegistrationInfo) *string {
 		if v == nil {
@@ -726,14 +645,10 @@ func (o RegistrationInfoPtrOutput) Token() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Represents a RegistrationInfo definition.
 type RegistrationInfoResponse struct {
-	// Expiration time of registration token.
-	ExpirationTime *string `pulumi:"expirationTime"`
-	// The type of resetting the token.
+	ExpirationTime             *string `pulumi:"expirationTime"`
 	RegistrationTokenOperation *string `pulumi:"registrationTokenOperation"`
-	// The registration token base64 encoded string.
-	Token *string `pulumi:"token"`
+	Token                      *string `pulumi:"token"`
 }
 
 // RegistrationInfoResponseInput is an input type that accepts RegistrationInfoResponseArgs and RegistrationInfoResponseOutput values.
@@ -747,14 +662,10 @@ type RegistrationInfoResponseInput interface {
 	ToRegistrationInfoResponseOutputWithContext(context.Context) RegistrationInfoResponseOutput
 }
 
-// Represents a RegistrationInfo definition.
 type RegistrationInfoResponseArgs struct {
-	// Expiration time of registration token.
-	ExpirationTime pulumi.StringPtrInput `pulumi:"expirationTime"`
-	// The type of resetting the token.
+	ExpirationTime             pulumi.StringPtrInput `pulumi:"expirationTime"`
 	RegistrationTokenOperation pulumi.StringPtrInput `pulumi:"registrationTokenOperation"`
-	// The registration token base64 encoded string.
-	Token pulumi.StringPtrInput `pulumi:"token"`
+	Token                      pulumi.StringPtrInput `pulumi:"token"`
 }
 
 func (RegistrationInfoResponseArgs) ElementType() reflect.Type {
@@ -810,7 +721,6 @@ func (i *registrationInfoResponsePtrType) ToRegistrationInfoResponsePtrOutputWit
 	return pulumi.ToOutputWithContext(ctx, i).(RegistrationInfoResponsePtrOutput)
 }
 
-// Represents a RegistrationInfo definition.
 type RegistrationInfoResponseOutput struct{ *pulumi.OutputState }
 
 func (RegistrationInfoResponseOutput) ElementType() reflect.Type {
@@ -830,22 +740,19 @@ func (o RegistrationInfoResponseOutput) ToRegistrationInfoResponsePtrOutput() Re
 }
 
 func (o RegistrationInfoResponseOutput) ToRegistrationInfoResponsePtrOutputWithContext(ctx context.Context) RegistrationInfoResponsePtrOutput {
-	return o.ApplyT(func(v RegistrationInfoResponse) *RegistrationInfoResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v RegistrationInfoResponse) *RegistrationInfoResponse {
 		return &v
 	}).(RegistrationInfoResponsePtrOutput)
 }
 
-// Expiration time of registration token.
 func (o RegistrationInfoResponseOutput) ExpirationTime() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v RegistrationInfoResponse) *string { return v.ExpirationTime }).(pulumi.StringPtrOutput)
 }
 
-// The type of resetting the token.
 func (o RegistrationInfoResponseOutput) RegistrationTokenOperation() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v RegistrationInfoResponse) *string { return v.RegistrationTokenOperation }).(pulumi.StringPtrOutput)
 }
 
-// The registration token base64 encoded string.
 func (o RegistrationInfoResponseOutput) Token() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v RegistrationInfoResponse) *string { return v.Token }).(pulumi.StringPtrOutput)
 }
@@ -865,10 +772,15 @@ func (o RegistrationInfoResponsePtrOutput) ToRegistrationInfoResponsePtrOutputWi
 }
 
 func (o RegistrationInfoResponsePtrOutput) Elem() RegistrationInfoResponseOutput {
-	return o.ApplyT(func(v *RegistrationInfoResponse) RegistrationInfoResponse { return *v }).(RegistrationInfoResponseOutput)
+	return o.ApplyT(func(v *RegistrationInfoResponse) RegistrationInfoResponse {
+		if v != nil {
+			return *v
+		}
+		var ret RegistrationInfoResponse
+		return ret
+	}).(RegistrationInfoResponseOutput)
 }
 
-// Expiration time of registration token.
 func (o RegistrationInfoResponsePtrOutput) ExpirationTime() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *RegistrationInfoResponse) *string {
 		if v == nil {
@@ -878,7 +790,6 @@ func (o RegistrationInfoResponsePtrOutput) ExpirationTime() pulumi.StringPtrOutp
 	}).(pulumi.StringPtrOutput)
 }
 
-// The type of resetting the token.
 func (o RegistrationInfoResponsePtrOutput) RegistrationTokenOperation() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *RegistrationInfoResponse) *string {
 		if v == nil {
@@ -888,7 +799,6 @@ func (o RegistrationInfoResponsePtrOutput) RegistrationTokenOperation() pulumi.S
 	}).(pulumi.StringPtrOutput)
 }
 
-// The registration token base64 encoded string.
 func (o RegistrationInfoResponsePtrOutput) Token() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *RegistrationInfoResponse) *string {
 		if v == nil {
@@ -898,12 +808,9 @@ func (o RegistrationInfoResponsePtrOutput) Token() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Scaling plan reference to hostpool.
 type ScalingHostPoolReference struct {
-	// Arm path of referenced hostpool.
-	HostPoolArmPath *string `pulumi:"hostPoolArmPath"`
-	// Is the scaling plan enabled for this hostpool.
-	ScalingPlanEnabled *bool `pulumi:"scalingPlanEnabled"`
+	HostPoolArmPath    *string `pulumi:"hostPoolArmPath"`
+	ScalingPlanEnabled *bool   `pulumi:"scalingPlanEnabled"`
 }
 
 // ScalingHostPoolReferenceInput is an input type that accepts ScalingHostPoolReferenceArgs and ScalingHostPoolReferenceOutput values.
@@ -917,12 +824,9 @@ type ScalingHostPoolReferenceInput interface {
 	ToScalingHostPoolReferenceOutputWithContext(context.Context) ScalingHostPoolReferenceOutput
 }
 
-// Scaling plan reference to hostpool.
 type ScalingHostPoolReferenceArgs struct {
-	// Arm path of referenced hostpool.
-	HostPoolArmPath pulumi.StringPtrInput `pulumi:"hostPoolArmPath"`
-	// Is the scaling plan enabled for this hostpool.
-	ScalingPlanEnabled pulumi.BoolPtrInput `pulumi:"scalingPlanEnabled"`
+	HostPoolArmPath    pulumi.StringPtrInput `pulumi:"hostPoolArmPath"`
+	ScalingPlanEnabled pulumi.BoolPtrInput   `pulumi:"scalingPlanEnabled"`
 }
 
 func (ScalingHostPoolReferenceArgs) ElementType() reflect.Type {
@@ -962,7 +866,6 @@ func (i ScalingHostPoolReferenceArray) ToScalingHostPoolReferenceArrayOutputWith
 	return pulumi.ToOutputWithContext(ctx, i).(ScalingHostPoolReferenceArrayOutput)
 }
 
-// Scaling plan reference to hostpool.
 type ScalingHostPoolReferenceOutput struct{ *pulumi.OutputState }
 
 func (ScalingHostPoolReferenceOutput) ElementType() reflect.Type {
@@ -977,12 +880,10 @@ func (o ScalingHostPoolReferenceOutput) ToScalingHostPoolReferenceOutputWithCont
 	return o
 }
 
-// Arm path of referenced hostpool.
 func (o ScalingHostPoolReferenceOutput) HostPoolArmPath() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ScalingHostPoolReference) *string { return v.HostPoolArmPath }).(pulumi.StringPtrOutput)
 }
 
-// Is the scaling plan enabled for this hostpool.
 func (o ScalingHostPoolReferenceOutput) ScalingPlanEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v ScalingHostPoolReference) *bool { return v.ScalingPlanEnabled }).(pulumi.BoolPtrOutput)
 }
@@ -1007,12 +908,9 @@ func (o ScalingHostPoolReferenceArrayOutput) Index(i pulumi.IntInput) ScalingHos
 	}).(ScalingHostPoolReferenceOutput)
 }
 
-// Scaling plan reference to hostpool.
 type ScalingHostPoolReferenceResponse struct {
-	// Arm path of referenced hostpool.
-	HostPoolArmPath *string `pulumi:"hostPoolArmPath"`
-	// Is the scaling plan enabled for this hostpool.
-	ScalingPlanEnabled *bool `pulumi:"scalingPlanEnabled"`
+	HostPoolArmPath    *string `pulumi:"hostPoolArmPath"`
+	ScalingPlanEnabled *bool   `pulumi:"scalingPlanEnabled"`
 }
 
 // ScalingHostPoolReferenceResponseInput is an input type that accepts ScalingHostPoolReferenceResponseArgs and ScalingHostPoolReferenceResponseOutput values.
@@ -1026,12 +924,9 @@ type ScalingHostPoolReferenceResponseInput interface {
 	ToScalingHostPoolReferenceResponseOutputWithContext(context.Context) ScalingHostPoolReferenceResponseOutput
 }
 
-// Scaling plan reference to hostpool.
 type ScalingHostPoolReferenceResponseArgs struct {
-	// Arm path of referenced hostpool.
-	HostPoolArmPath pulumi.StringPtrInput `pulumi:"hostPoolArmPath"`
-	// Is the scaling plan enabled for this hostpool.
-	ScalingPlanEnabled pulumi.BoolPtrInput `pulumi:"scalingPlanEnabled"`
+	HostPoolArmPath    pulumi.StringPtrInput `pulumi:"hostPoolArmPath"`
+	ScalingPlanEnabled pulumi.BoolPtrInput   `pulumi:"scalingPlanEnabled"`
 }
 
 func (ScalingHostPoolReferenceResponseArgs) ElementType() reflect.Type {
@@ -1071,7 +966,6 @@ func (i ScalingHostPoolReferenceResponseArray) ToScalingHostPoolReferenceRespons
 	return pulumi.ToOutputWithContext(ctx, i).(ScalingHostPoolReferenceResponseArrayOutput)
 }
 
-// Scaling plan reference to hostpool.
 type ScalingHostPoolReferenceResponseOutput struct{ *pulumi.OutputState }
 
 func (ScalingHostPoolReferenceResponseOutput) ElementType() reflect.Type {
@@ -1086,12 +980,10 @@ func (o ScalingHostPoolReferenceResponseOutput) ToScalingHostPoolReferenceRespon
 	return o
 }
 
-// Arm path of referenced hostpool.
 func (o ScalingHostPoolReferenceResponseOutput) HostPoolArmPath() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ScalingHostPoolReferenceResponse) *string { return v.HostPoolArmPath }).(pulumi.StringPtrOutput)
 }
 
-// Is the scaling plan enabled for this hostpool.
 func (o ScalingHostPoolReferenceResponseOutput) ScalingPlanEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v ScalingHostPoolReferenceResponse) *bool { return v.ScalingPlanEnabled }).(pulumi.BoolPtrOutput)
 }
@@ -1116,44 +1008,25 @@ func (o ScalingHostPoolReferenceResponseArrayOutput) Index(i pulumi.IntInput) Sc
 	}).(ScalingHostPoolReferenceResponseOutput)
 }
 
-// Scaling plan schedule.
 type ScalingSchedule struct {
-	// Set of days of the week on which this schedule is active.
-	DaysOfWeek []string `pulumi:"daysOfWeek"`
-	// Name of the scaling schedule.
-	Name *string `pulumi:"name"`
-	// Load balancing algorithm for off-peak period.
-	OffPeakLoadBalancingAlgorithm *string `pulumi:"offPeakLoadBalancingAlgorithm"`
-	// Starting time for off-peak period.
-	OffPeakStartTime *string `pulumi:"offPeakStartTime"`
-	// Load balancing algorithm for peak period.
-	PeakLoadBalancingAlgorithm *string `pulumi:"peakLoadBalancingAlgorithm"`
-	// Starting time for peak period.
-	PeakStartTime *string `pulumi:"peakStartTime"`
-	// Capacity threshold for ramp down period.
-	RampDownCapacityThresholdPct *int `pulumi:"rampDownCapacityThresholdPct"`
-	// Should users be logged off forcefully from hosts.
-	RampDownForceLogoffUsers *bool `pulumi:"rampDownForceLogoffUsers"`
-	// Load balancing algorithm for ramp down period.
-	RampDownLoadBalancingAlgorithm *string `pulumi:"rampDownLoadBalancingAlgorithm"`
-	// Minimum host percentage for ramp down period.
-	RampDownMinimumHostsPct *int `pulumi:"rampDownMinimumHostsPct"`
-	// Notification message for users during ramp down period.
-	RampDownNotificationMessage *string `pulumi:"rampDownNotificationMessage"`
-	// Starting time for ramp down period.
-	RampDownStartTime *string `pulumi:"rampDownStartTime"`
-	// Specifies when to stop hosts during ramp down period.
-	RampDownStopHostsWhen *string `pulumi:"rampDownStopHostsWhen"`
-	// Number of minutes to wait to stop hosts during ramp down period.
-	RampDownWaitTimeMinutes *int `pulumi:"rampDownWaitTimeMinutes"`
-	// Capacity threshold for ramp up period.
-	RampUpCapacityThresholdPct *int `pulumi:"rampUpCapacityThresholdPct"`
-	// Load balancing algorithm for ramp up period.
-	RampUpLoadBalancingAlgorithm *string `pulumi:"rampUpLoadBalancingAlgorithm"`
-	// Minimum host percentage for ramp up period.
-	RampUpMinimumHostsPct *int `pulumi:"rampUpMinimumHostsPct"`
-	// Starting time for ramp up period.
-	RampUpStartTime *string `pulumi:"rampUpStartTime"`
+	DaysOfWeek                     []string `pulumi:"daysOfWeek"`
+	Name                           *string  `pulumi:"name"`
+	OffPeakLoadBalancingAlgorithm  *string  `pulumi:"offPeakLoadBalancingAlgorithm"`
+	OffPeakStartTime               *string  `pulumi:"offPeakStartTime"`
+	PeakLoadBalancingAlgorithm     *string  `pulumi:"peakLoadBalancingAlgorithm"`
+	PeakStartTime                  *string  `pulumi:"peakStartTime"`
+	RampDownCapacityThresholdPct   *int     `pulumi:"rampDownCapacityThresholdPct"`
+	RampDownForceLogoffUsers       *bool    `pulumi:"rampDownForceLogoffUsers"`
+	RampDownLoadBalancingAlgorithm *string  `pulumi:"rampDownLoadBalancingAlgorithm"`
+	RampDownMinimumHostsPct        *int     `pulumi:"rampDownMinimumHostsPct"`
+	RampDownNotificationMessage    *string  `pulumi:"rampDownNotificationMessage"`
+	RampDownStartTime              *string  `pulumi:"rampDownStartTime"`
+	RampDownStopHostsWhen          *string  `pulumi:"rampDownStopHostsWhen"`
+	RampDownWaitTimeMinutes        *int     `pulumi:"rampDownWaitTimeMinutes"`
+	RampUpCapacityThresholdPct     *int     `pulumi:"rampUpCapacityThresholdPct"`
+	RampUpLoadBalancingAlgorithm   *string  `pulumi:"rampUpLoadBalancingAlgorithm"`
+	RampUpMinimumHostsPct          *int     `pulumi:"rampUpMinimumHostsPct"`
+	RampUpStartTime                *string  `pulumi:"rampUpStartTime"`
 }
 
 // ScalingScheduleInput is an input type that accepts ScalingScheduleArgs and ScalingScheduleOutput values.
@@ -1167,44 +1040,25 @@ type ScalingScheduleInput interface {
 	ToScalingScheduleOutputWithContext(context.Context) ScalingScheduleOutput
 }
 
-// Scaling plan schedule.
 type ScalingScheduleArgs struct {
-	// Set of days of the week on which this schedule is active.
-	DaysOfWeek pulumi.StringArrayInput `pulumi:"daysOfWeek"`
-	// Name of the scaling schedule.
-	Name pulumi.StringPtrInput `pulumi:"name"`
-	// Load balancing algorithm for off-peak period.
-	OffPeakLoadBalancingAlgorithm pulumi.StringPtrInput `pulumi:"offPeakLoadBalancingAlgorithm"`
-	// Starting time for off-peak period.
-	OffPeakStartTime pulumi.StringPtrInput `pulumi:"offPeakStartTime"`
-	// Load balancing algorithm for peak period.
-	PeakLoadBalancingAlgorithm pulumi.StringPtrInput `pulumi:"peakLoadBalancingAlgorithm"`
-	// Starting time for peak period.
-	PeakStartTime pulumi.StringPtrInput `pulumi:"peakStartTime"`
-	// Capacity threshold for ramp down period.
-	RampDownCapacityThresholdPct pulumi.IntPtrInput `pulumi:"rampDownCapacityThresholdPct"`
-	// Should users be logged off forcefully from hosts.
-	RampDownForceLogoffUsers pulumi.BoolPtrInput `pulumi:"rampDownForceLogoffUsers"`
-	// Load balancing algorithm for ramp down period.
-	RampDownLoadBalancingAlgorithm pulumi.StringPtrInput `pulumi:"rampDownLoadBalancingAlgorithm"`
-	// Minimum host percentage for ramp down period.
-	RampDownMinimumHostsPct pulumi.IntPtrInput `pulumi:"rampDownMinimumHostsPct"`
-	// Notification message for users during ramp down period.
-	RampDownNotificationMessage pulumi.StringPtrInput `pulumi:"rampDownNotificationMessage"`
-	// Starting time for ramp down period.
-	RampDownStartTime pulumi.StringPtrInput `pulumi:"rampDownStartTime"`
-	// Specifies when to stop hosts during ramp down period.
-	RampDownStopHostsWhen pulumi.StringPtrInput `pulumi:"rampDownStopHostsWhen"`
-	// Number of minutes to wait to stop hosts during ramp down period.
-	RampDownWaitTimeMinutes pulumi.IntPtrInput `pulumi:"rampDownWaitTimeMinutes"`
-	// Capacity threshold for ramp up period.
-	RampUpCapacityThresholdPct pulumi.IntPtrInput `pulumi:"rampUpCapacityThresholdPct"`
-	// Load balancing algorithm for ramp up period.
-	RampUpLoadBalancingAlgorithm pulumi.StringPtrInput `pulumi:"rampUpLoadBalancingAlgorithm"`
-	// Minimum host percentage for ramp up period.
-	RampUpMinimumHostsPct pulumi.IntPtrInput `pulumi:"rampUpMinimumHostsPct"`
-	// Starting time for ramp up period.
-	RampUpStartTime pulumi.StringPtrInput `pulumi:"rampUpStartTime"`
+	DaysOfWeek                     pulumi.StringArrayInput `pulumi:"daysOfWeek"`
+	Name                           pulumi.StringPtrInput   `pulumi:"name"`
+	OffPeakLoadBalancingAlgorithm  pulumi.StringPtrInput   `pulumi:"offPeakLoadBalancingAlgorithm"`
+	OffPeakStartTime               pulumi.StringPtrInput   `pulumi:"offPeakStartTime"`
+	PeakLoadBalancingAlgorithm     pulumi.StringPtrInput   `pulumi:"peakLoadBalancingAlgorithm"`
+	PeakStartTime                  pulumi.StringPtrInput   `pulumi:"peakStartTime"`
+	RampDownCapacityThresholdPct   pulumi.IntPtrInput      `pulumi:"rampDownCapacityThresholdPct"`
+	RampDownForceLogoffUsers       pulumi.BoolPtrInput     `pulumi:"rampDownForceLogoffUsers"`
+	RampDownLoadBalancingAlgorithm pulumi.StringPtrInput   `pulumi:"rampDownLoadBalancingAlgorithm"`
+	RampDownMinimumHostsPct        pulumi.IntPtrInput      `pulumi:"rampDownMinimumHostsPct"`
+	RampDownNotificationMessage    pulumi.StringPtrInput   `pulumi:"rampDownNotificationMessage"`
+	RampDownStartTime              pulumi.StringPtrInput   `pulumi:"rampDownStartTime"`
+	RampDownStopHostsWhen          pulumi.StringPtrInput   `pulumi:"rampDownStopHostsWhen"`
+	RampDownWaitTimeMinutes        pulumi.IntPtrInput      `pulumi:"rampDownWaitTimeMinutes"`
+	RampUpCapacityThresholdPct     pulumi.IntPtrInput      `pulumi:"rampUpCapacityThresholdPct"`
+	RampUpLoadBalancingAlgorithm   pulumi.StringPtrInput   `pulumi:"rampUpLoadBalancingAlgorithm"`
+	RampUpMinimumHostsPct          pulumi.IntPtrInput      `pulumi:"rampUpMinimumHostsPct"`
+	RampUpStartTime                pulumi.StringPtrInput   `pulumi:"rampUpStartTime"`
 }
 
 func (ScalingScheduleArgs) ElementType() reflect.Type {
@@ -1244,7 +1098,6 @@ func (i ScalingScheduleArray) ToScalingScheduleArrayOutputWithContext(ctx contex
 	return pulumi.ToOutputWithContext(ctx, i).(ScalingScheduleArrayOutput)
 }
 
-// Scaling plan schedule.
 type ScalingScheduleOutput struct{ *pulumi.OutputState }
 
 func (ScalingScheduleOutput) ElementType() reflect.Type {
@@ -1259,92 +1112,74 @@ func (o ScalingScheduleOutput) ToScalingScheduleOutputWithContext(ctx context.Co
 	return o
 }
 
-// Set of days of the week on which this schedule is active.
 func (o ScalingScheduleOutput) DaysOfWeek() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v ScalingSchedule) []string { return v.DaysOfWeek }).(pulumi.StringArrayOutput)
 }
 
-// Name of the scaling schedule.
 func (o ScalingScheduleOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ScalingSchedule) *string { return v.Name }).(pulumi.StringPtrOutput)
 }
 
-// Load balancing algorithm for off-peak period.
 func (o ScalingScheduleOutput) OffPeakLoadBalancingAlgorithm() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ScalingSchedule) *string { return v.OffPeakLoadBalancingAlgorithm }).(pulumi.StringPtrOutput)
 }
 
-// Starting time for off-peak period.
 func (o ScalingScheduleOutput) OffPeakStartTime() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ScalingSchedule) *string { return v.OffPeakStartTime }).(pulumi.StringPtrOutput)
 }
 
-// Load balancing algorithm for peak period.
 func (o ScalingScheduleOutput) PeakLoadBalancingAlgorithm() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ScalingSchedule) *string { return v.PeakLoadBalancingAlgorithm }).(pulumi.StringPtrOutput)
 }
 
-// Starting time for peak period.
 func (o ScalingScheduleOutput) PeakStartTime() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ScalingSchedule) *string { return v.PeakStartTime }).(pulumi.StringPtrOutput)
 }
 
-// Capacity threshold for ramp down period.
 func (o ScalingScheduleOutput) RampDownCapacityThresholdPct() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v ScalingSchedule) *int { return v.RampDownCapacityThresholdPct }).(pulumi.IntPtrOutput)
 }
 
-// Should users be logged off forcefully from hosts.
 func (o ScalingScheduleOutput) RampDownForceLogoffUsers() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v ScalingSchedule) *bool { return v.RampDownForceLogoffUsers }).(pulumi.BoolPtrOutput)
 }
 
-// Load balancing algorithm for ramp down period.
 func (o ScalingScheduleOutput) RampDownLoadBalancingAlgorithm() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ScalingSchedule) *string { return v.RampDownLoadBalancingAlgorithm }).(pulumi.StringPtrOutput)
 }
 
-// Minimum host percentage for ramp down period.
 func (o ScalingScheduleOutput) RampDownMinimumHostsPct() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v ScalingSchedule) *int { return v.RampDownMinimumHostsPct }).(pulumi.IntPtrOutput)
 }
 
-// Notification message for users during ramp down period.
 func (o ScalingScheduleOutput) RampDownNotificationMessage() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ScalingSchedule) *string { return v.RampDownNotificationMessage }).(pulumi.StringPtrOutput)
 }
 
-// Starting time for ramp down period.
 func (o ScalingScheduleOutput) RampDownStartTime() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ScalingSchedule) *string { return v.RampDownStartTime }).(pulumi.StringPtrOutput)
 }
 
-// Specifies when to stop hosts during ramp down period.
 func (o ScalingScheduleOutput) RampDownStopHostsWhen() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ScalingSchedule) *string { return v.RampDownStopHostsWhen }).(pulumi.StringPtrOutput)
 }
 
-// Number of minutes to wait to stop hosts during ramp down period.
 func (o ScalingScheduleOutput) RampDownWaitTimeMinutes() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v ScalingSchedule) *int { return v.RampDownWaitTimeMinutes }).(pulumi.IntPtrOutput)
 }
 
-// Capacity threshold for ramp up period.
 func (o ScalingScheduleOutput) RampUpCapacityThresholdPct() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v ScalingSchedule) *int { return v.RampUpCapacityThresholdPct }).(pulumi.IntPtrOutput)
 }
 
-// Load balancing algorithm for ramp up period.
 func (o ScalingScheduleOutput) RampUpLoadBalancingAlgorithm() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ScalingSchedule) *string { return v.RampUpLoadBalancingAlgorithm }).(pulumi.StringPtrOutput)
 }
 
-// Minimum host percentage for ramp up period.
 func (o ScalingScheduleOutput) RampUpMinimumHostsPct() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v ScalingSchedule) *int { return v.RampUpMinimumHostsPct }).(pulumi.IntPtrOutput)
 }
 
-// Starting time for ramp up period.
 func (o ScalingScheduleOutput) RampUpStartTime() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ScalingSchedule) *string { return v.RampUpStartTime }).(pulumi.StringPtrOutput)
 }
@@ -1369,44 +1204,25 @@ func (o ScalingScheduleArrayOutput) Index(i pulumi.IntInput) ScalingScheduleOutp
 	}).(ScalingScheduleOutput)
 }
 
-// Scaling plan schedule.
 type ScalingScheduleResponse struct {
-	// Set of days of the week on which this schedule is active.
-	DaysOfWeek []string `pulumi:"daysOfWeek"`
-	// Name of the scaling schedule.
-	Name *string `pulumi:"name"`
-	// Load balancing algorithm for off-peak period.
-	OffPeakLoadBalancingAlgorithm *string `pulumi:"offPeakLoadBalancingAlgorithm"`
-	// Starting time for off-peak period.
-	OffPeakStartTime *string `pulumi:"offPeakStartTime"`
-	// Load balancing algorithm for peak period.
-	PeakLoadBalancingAlgorithm *string `pulumi:"peakLoadBalancingAlgorithm"`
-	// Starting time for peak period.
-	PeakStartTime *string `pulumi:"peakStartTime"`
-	// Capacity threshold for ramp down period.
-	RampDownCapacityThresholdPct *int `pulumi:"rampDownCapacityThresholdPct"`
-	// Should users be logged off forcefully from hosts.
-	RampDownForceLogoffUsers *bool `pulumi:"rampDownForceLogoffUsers"`
-	// Load balancing algorithm for ramp down period.
-	RampDownLoadBalancingAlgorithm *string `pulumi:"rampDownLoadBalancingAlgorithm"`
-	// Minimum host percentage for ramp down period.
-	RampDownMinimumHostsPct *int `pulumi:"rampDownMinimumHostsPct"`
-	// Notification message for users during ramp down period.
-	RampDownNotificationMessage *string `pulumi:"rampDownNotificationMessage"`
-	// Starting time for ramp down period.
-	RampDownStartTime *string `pulumi:"rampDownStartTime"`
-	// Specifies when to stop hosts during ramp down period.
-	RampDownStopHostsWhen *string `pulumi:"rampDownStopHostsWhen"`
-	// Number of minutes to wait to stop hosts during ramp down period.
-	RampDownWaitTimeMinutes *int `pulumi:"rampDownWaitTimeMinutes"`
-	// Capacity threshold for ramp up period.
-	RampUpCapacityThresholdPct *int `pulumi:"rampUpCapacityThresholdPct"`
-	// Load balancing algorithm for ramp up period.
-	RampUpLoadBalancingAlgorithm *string `pulumi:"rampUpLoadBalancingAlgorithm"`
-	// Minimum host percentage for ramp up period.
-	RampUpMinimumHostsPct *int `pulumi:"rampUpMinimumHostsPct"`
-	// Starting time for ramp up period.
-	RampUpStartTime *string `pulumi:"rampUpStartTime"`
+	DaysOfWeek                     []string `pulumi:"daysOfWeek"`
+	Name                           *string  `pulumi:"name"`
+	OffPeakLoadBalancingAlgorithm  *string  `pulumi:"offPeakLoadBalancingAlgorithm"`
+	OffPeakStartTime               *string  `pulumi:"offPeakStartTime"`
+	PeakLoadBalancingAlgorithm     *string  `pulumi:"peakLoadBalancingAlgorithm"`
+	PeakStartTime                  *string  `pulumi:"peakStartTime"`
+	RampDownCapacityThresholdPct   *int     `pulumi:"rampDownCapacityThresholdPct"`
+	RampDownForceLogoffUsers       *bool    `pulumi:"rampDownForceLogoffUsers"`
+	RampDownLoadBalancingAlgorithm *string  `pulumi:"rampDownLoadBalancingAlgorithm"`
+	RampDownMinimumHostsPct        *int     `pulumi:"rampDownMinimumHostsPct"`
+	RampDownNotificationMessage    *string  `pulumi:"rampDownNotificationMessage"`
+	RampDownStartTime              *string  `pulumi:"rampDownStartTime"`
+	RampDownStopHostsWhen          *string  `pulumi:"rampDownStopHostsWhen"`
+	RampDownWaitTimeMinutes        *int     `pulumi:"rampDownWaitTimeMinutes"`
+	RampUpCapacityThresholdPct     *int     `pulumi:"rampUpCapacityThresholdPct"`
+	RampUpLoadBalancingAlgorithm   *string  `pulumi:"rampUpLoadBalancingAlgorithm"`
+	RampUpMinimumHostsPct          *int     `pulumi:"rampUpMinimumHostsPct"`
+	RampUpStartTime                *string  `pulumi:"rampUpStartTime"`
 }
 
 // ScalingScheduleResponseInput is an input type that accepts ScalingScheduleResponseArgs and ScalingScheduleResponseOutput values.
@@ -1420,44 +1236,25 @@ type ScalingScheduleResponseInput interface {
 	ToScalingScheduleResponseOutputWithContext(context.Context) ScalingScheduleResponseOutput
 }
 
-// Scaling plan schedule.
 type ScalingScheduleResponseArgs struct {
-	// Set of days of the week on which this schedule is active.
-	DaysOfWeek pulumi.StringArrayInput `pulumi:"daysOfWeek"`
-	// Name of the scaling schedule.
-	Name pulumi.StringPtrInput `pulumi:"name"`
-	// Load balancing algorithm for off-peak period.
-	OffPeakLoadBalancingAlgorithm pulumi.StringPtrInput `pulumi:"offPeakLoadBalancingAlgorithm"`
-	// Starting time for off-peak period.
-	OffPeakStartTime pulumi.StringPtrInput `pulumi:"offPeakStartTime"`
-	// Load balancing algorithm for peak period.
-	PeakLoadBalancingAlgorithm pulumi.StringPtrInput `pulumi:"peakLoadBalancingAlgorithm"`
-	// Starting time for peak period.
-	PeakStartTime pulumi.StringPtrInput `pulumi:"peakStartTime"`
-	// Capacity threshold for ramp down period.
-	RampDownCapacityThresholdPct pulumi.IntPtrInput `pulumi:"rampDownCapacityThresholdPct"`
-	// Should users be logged off forcefully from hosts.
-	RampDownForceLogoffUsers pulumi.BoolPtrInput `pulumi:"rampDownForceLogoffUsers"`
-	// Load balancing algorithm for ramp down period.
-	RampDownLoadBalancingAlgorithm pulumi.StringPtrInput `pulumi:"rampDownLoadBalancingAlgorithm"`
-	// Minimum host percentage for ramp down period.
-	RampDownMinimumHostsPct pulumi.IntPtrInput `pulumi:"rampDownMinimumHostsPct"`
-	// Notification message for users during ramp down period.
-	RampDownNotificationMessage pulumi.StringPtrInput `pulumi:"rampDownNotificationMessage"`
-	// Starting time for ramp down period.
-	RampDownStartTime pulumi.StringPtrInput `pulumi:"rampDownStartTime"`
-	// Specifies when to stop hosts during ramp down period.
-	RampDownStopHostsWhen pulumi.StringPtrInput `pulumi:"rampDownStopHostsWhen"`
-	// Number of minutes to wait to stop hosts during ramp down period.
-	RampDownWaitTimeMinutes pulumi.IntPtrInput `pulumi:"rampDownWaitTimeMinutes"`
-	// Capacity threshold for ramp up period.
-	RampUpCapacityThresholdPct pulumi.IntPtrInput `pulumi:"rampUpCapacityThresholdPct"`
-	// Load balancing algorithm for ramp up period.
-	RampUpLoadBalancingAlgorithm pulumi.StringPtrInput `pulumi:"rampUpLoadBalancingAlgorithm"`
-	// Minimum host percentage for ramp up period.
-	RampUpMinimumHostsPct pulumi.IntPtrInput `pulumi:"rampUpMinimumHostsPct"`
-	// Starting time for ramp up period.
-	RampUpStartTime pulumi.StringPtrInput `pulumi:"rampUpStartTime"`
+	DaysOfWeek                     pulumi.StringArrayInput `pulumi:"daysOfWeek"`
+	Name                           pulumi.StringPtrInput   `pulumi:"name"`
+	OffPeakLoadBalancingAlgorithm  pulumi.StringPtrInput   `pulumi:"offPeakLoadBalancingAlgorithm"`
+	OffPeakStartTime               pulumi.StringPtrInput   `pulumi:"offPeakStartTime"`
+	PeakLoadBalancingAlgorithm     pulumi.StringPtrInput   `pulumi:"peakLoadBalancingAlgorithm"`
+	PeakStartTime                  pulumi.StringPtrInput   `pulumi:"peakStartTime"`
+	RampDownCapacityThresholdPct   pulumi.IntPtrInput      `pulumi:"rampDownCapacityThresholdPct"`
+	RampDownForceLogoffUsers       pulumi.BoolPtrInput     `pulumi:"rampDownForceLogoffUsers"`
+	RampDownLoadBalancingAlgorithm pulumi.StringPtrInput   `pulumi:"rampDownLoadBalancingAlgorithm"`
+	RampDownMinimumHostsPct        pulumi.IntPtrInput      `pulumi:"rampDownMinimumHostsPct"`
+	RampDownNotificationMessage    pulumi.StringPtrInput   `pulumi:"rampDownNotificationMessage"`
+	RampDownStartTime              pulumi.StringPtrInput   `pulumi:"rampDownStartTime"`
+	RampDownStopHostsWhen          pulumi.StringPtrInput   `pulumi:"rampDownStopHostsWhen"`
+	RampDownWaitTimeMinutes        pulumi.IntPtrInput      `pulumi:"rampDownWaitTimeMinutes"`
+	RampUpCapacityThresholdPct     pulumi.IntPtrInput      `pulumi:"rampUpCapacityThresholdPct"`
+	RampUpLoadBalancingAlgorithm   pulumi.StringPtrInput   `pulumi:"rampUpLoadBalancingAlgorithm"`
+	RampUpMinimumHostsPct          pulumi.IntPtrInput      `pulumi:"rampUpMinimumHostsPct"`
+	RampUpStartTime                pulumi.StringPtrInput   `pulumi:"rampUpStartTime"`
 }
 
 func (ScalingScheduleResponseArgs) ElementType() reflect.Type {
@@ -1497,7 +1294,6 @@ func (i ScalingScheduleResponseArray) ToScalingScheduleResponseArrayOutputWithCo
 	return pulumi.ToOutputWithContext(ctx, i).(ScalingScheduleResponseArrayOutput)
 }
 
-// Scaling plan schedule.
 type ScalingScheduleResponseOutput struct{ *pulumi.OutputState }
 
 func (ScalingScheduleResponseOutput) ElementType() reflect.Type {
@@ -1512,92 +1308,74 @@ func (o ScalingScheduleResponseOutput) ToScalingScheduleResponseOutputWithContex
 	return o
 }
 
-// Set of days of the week on which this schedule is active.
 func (o ScalingScheduleResponseOutput) DaysOfWeek() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v ScalingScheduleResponse) []string { return v.DaysOfWeek }).(pulumi.StringArrayOutput)
 }
 
-// Name of the scaling schedule.
 func (o ScalingScheduleResponseOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ScalingScheduleResponse) *string { return v.Name }).(pulumi.StringPtrOutput)
 }
 
-// Load balancing algorithm for off-peak period.
 func (o ScalingScheduleResponseOutput) OffPeakLoadBalancingAlgorithm() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ScalingScheduleResponse) *string { return v.OffPeakLoadBalancingAlgorithm }).(pulumi.StringPtrOutput)
 }
 
-// Starting time for off-peak period.
 func (o ScalingScheduleResponseOutput) OffPeakStartTime() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ScalingScheduleResponse) *string { return v.OffPeakStartTime }).(pulumi.StringPtrOutput)
 }
 
-// Load balancing algorithm for peak period.
 func (o ScalingScheduleResponseOutput) PeakLoadBalancingAlgorithm() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ScalingScheduleResponse) *string { return v.PeakLoadBalancingAlgorithm }).(pulumi.StringPtrOutput)
 }
 
-// Starting time for peak period.
 func (o ScalingScheduleResponseOutput) PeakStartTime() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ScalingScheduleResponse) *string { return v.PeakStartTime }).(pulumi.StringPtrOutput)
 }
 
-// Capacity threshold for ramp down period.
 func (o ScalingScheduleResponseOutput) RampDownCapacityThresholdPct() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v ScalingScheduleResponse) *int { return v.RampDownCapacityThresholdPct }).(pulumi.IntPtrOutput)
 }
 
-// Should users be logged off forcefully from hosts.
 func (o ScalingScheduleResponseOutput) RampDownForceLogoffUsers() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v ScalingScheduleResponse) *bool { return v.RampDownForceLogoffUsers }).(pulumi.BoolPtrOutput)
 }
 
-// Load balancing algorithm for ramp down period.
 func (o ScalingScheduleResponseOutput) RampDownLoadBalancingAlgorithm() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ScalingScheduleResponse) *string { return v.RampDownLoadBalancingAlgorithm }).(pulumi.StringPtrOutput)
 }
 
-// Minimum host percentage for ramp down period.
 func (o ScalingScheduleResponseOutput) RampDownMinimumHostsPct() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v ScalingScheduleResponse) *int { return v.RampDownMinimumHostsPct }).(pulumi.IntPtrOutput)
 }
 
-// Notification message for users during ramp down period.
 func (o ScalingScheduleResponseOutput) RampDownNotificationMessage() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ScalingScheduleResponse) *string { return v.RampDownNotificationMessage }).(pulumi.StringPtrOutput)
 }
 
-// Starting time for ramp down period.
 func (o ScalingScheduleResponseOutput) RampDownStartTime() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ScalingScheduleResponse) *string { return v.RampDownStartTime }).(pulumi.StringPtrOutput)
 }
 
-// Specifies when to stop hosts during ramp down period.
 func (o ScalingScheduleResponseOutput) RampDownStopHostsWhen() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ScalingScheduleResponse) *string { return v.RampDownStopHostsWhen }).(pulumi.StringPtrOutput)
 }
 
-// Number of minutes to wait to stop hosts during ramp down period.
 func (o ScalingScheduleResponseOutput) RampDownWaitTimeMinutes() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v ScalingScheduleResponse) *int { return v.RampDownWaitTimeMinutes }).(pulumi.IntPtrOutput)
 }
 
-// Capacity threshold for ramp up period.
 func (o ScalingScheduleResponseOutput) RampUpCapacityThresholdPct() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v ScalingScheduleResponse) *int { return v.RampUpCapacityThresholdPct }).(pulumi.IntPtrOutput)
 }
 
-// Load balancing algorithm for ramp up period.
 func (o ScalingScheduleResponseOutput) RampUpLoadBalancingAlgorithm() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ScalingScheduleResponse) *string { return v.RampUpLoadBalancingAlgorithm }).(pulumi.StringPtrOutput)
 }
 
-// Minimum host percentage for ramp up period.
 func (o ScalingScheduleResponseOutput) RampUpMinimumHostsPct() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v ScalingScheduleResponse) *int { return v.RampUpMinimumHostsPct }).(pulumi.IntPtrOutput)
 }
 
-// Starting time for ramp up period.
 func (o ScalingScheduleResponseOutput) RampUpStartTime() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ScalingScheduleResponse) *string { return v.RampUpStartTime }).(pulumi.StringPtrOutput)
 }

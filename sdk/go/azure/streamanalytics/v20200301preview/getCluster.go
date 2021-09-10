@@ -7,7 +7,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// A Stream Analytics Cluster object
 func LookupCluster(ctx *pulumi.Context, args *LookupClusterArgs, opts ...pulumi.InvokeOption) (*LookupClusterResult, error) {
 	var rv LookupClusterResult
 	err := ctx.Invoke("azure-native:streamanalytics/v20200301preview:getCluster", args, &rv, opts...)
@@ -18,28 +17,18 @@ func LookupCluster(ctx *pulumi.Context, args *LookupClusterArgs, opts ...pulumi.
 }
 
 type LookupClusterArgs struct {
-	// The name of the cluster.
-	ClusterName string `pulumi:"clusterName"`
-	// The name of the resource group. The name is case insensitive.
+	ClusterName       string `pulumi:"clusterName"`
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 }
 
 // A Stream Analytics Cluster object
 type LookupClusterResult struct {
-	// The current entity tag for the cluster. This is an opaque string. You can use it to detect whether the resource has changed between requests. You can also use it in the If-Match or If-None-Match headers for write operations for optimistic concurrency.
-	Etag string `pulumi:"etag"`
-	// Fully qualified resource Id for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
-	Id string `pulumi:"id"`
-	// The geo-location where the resource lives
-	Location *string `pulumi:"location"`
-	// The name of the resource
-	Name string `pulumi:"name"`
-	// The properties associated with a Stream Analytics cluster.
+	Etag       string                    `pulumi:"etag"`
+	Id         string                    `pulumi:"id"`
+	Location   *string                   `pulumi:"location"`
+	Name       string                    `pulumi:"name"`
 	Properties ClusterPropertiesResponse `pulumi:"properties"`
-	// The SKU of the cluster. This determines the size/capacity of the cluster. Required on PUT (CreateOrUpdate) requests.
-	Sku *ClusterSkuResponse `pulumi:"sku"`
-	// Resource tags.
-	Tags map[string]string `pulumi:"tags"`
-	// The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
-	Type string `pulumi:"type"`
+	Sku        *ClusterSkuResponse       `pulumi:"sku"`
+	Tags       map[string]string         `pulumi:"tags"`
+	Type       string                    `pulumi:"type"`
 }

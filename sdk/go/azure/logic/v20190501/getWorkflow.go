@@ -7,7 +7,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// The workflow type.
 func LookupWorkflow(ctx *pulumi.Context, args *LookupWorkflowArgs, opts ...pulumi.InvokeOption) (*LookupWorkflowResult, error) {
 	var rv LookupWorkflowResult
 	err := ctx.Invoke("azure-native:logic/v20190501:getWorkflow", args, &rv, opts...)
@@ -18,48 +17,28 @@ func LookupWorkflow(ctx *pulumi.Context, args *LookupWorkflowArgs, opts ...pulum
 }
 
 type LookupWorkflowArgs struct {
-	// The resource group name.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
-	// The workflow name.
-	WorkflowName string `pulumi:"workflowName"`
+	WorkflowName      string `pulumi:"workflowName"`
 }
 
 // The workflow type.
 type LookupWorkflowResult struct {
-	// The access control configuration.
-	AccessControl *FlowAccessControlConfigurationResponse `pulumi:"accessControl"`
-	// Gets the access endpoint.
-	AccessEndpoint string `pulumi:"accessEndpoint"`
-	// Gets the changed time.
-	ChangedTime string `pulumi:"changedTime"`
-	// Gets the created time.
-	CreatedTime string `pulumi:"createdTime"`
-	// The definition.
-	Definition interface{} `pulumi:"definition"`
-	// The endpoints configuration.
-	EndpointsConfiguration *FlowEndpointsConfigurationResponse `pulumi:"endpointsConfiguration"`
-	// The resource id.
-	Id string `pulumi:"id"`
-	// The integration account.
-	IntegrationAccount *ResourceReferenceResponse `pulumi:"integrationAccount"`
-	// The integration service environment.
-	IntegrationServiceEnvironment *ResourceReferenceResponse `pulumi:"integrationServiceEnvironment"`
-	// The resource location.
-	Location *string `pulumi:"location"`
-	// Gets the resource name.
-	Name string `pulumi:"name"`
-	// The parameters.
-	Parameters map[string]WorkflowParameterResponse `pulumi:"parameters"`
-	// Gets the provisioning state.
-	ProvisioningState string `pulumi:"provisioningState"`
-	// The sku.
-	Sku SkuResponse `pulumi:"sku"`
-	// The state.
-	State *string `pulumi:"state"`
-	// The resource tags.
-	Tags map[string]string `pulumi:"tags"`
-	// Gets the resource type.
-	Type string `pulumi:"type"`
-	// Gets the version.
-	Version string `pulumi:"version"`
+	AccessControl                 *FlowAccessControlConfigurationResponse `pulumi:"accessControl"`
+	AccessEndpoint                string                                  `pulumi:"accessEndpoint"`
+	ChangedTime                   string                                  `pulumi:"changedTime"`
+	CreatedTime                   string                                  `pulumi:"createdTime"`
+	Definition                    interface{}                             `pulumi:"definition"`
+	EndpointsConfiguration        *FlowEndpointsConfigurationResponse     `pulumi:"endpointsConfiguration"`
+	Id                            string                                  `pulumi:"id"`
+	IntegrationAccount            *ResourceReferenceResponse              `pulumi:"integrationAccount"`
+	IntegrationServiceEnvironment *ResourceReferenceResponse              `pulumi:"integrationServiceEnvironment"`
+	Location                      *string                                 `pulumi:"location"`
+	Name                          string                                  `pulumi:"name"`
+	Parameters                    map[string]WorkflowParameterResponse    `pulumi:"parameters"`
+	ProvisioningState             string                                  `pulumi:"provisioningState"`
+	Sku                           SkuResponse                             `pulumi:"sku"`
+	State                         *string                                 `pulumi:"state"`
+	Tags                          map[string]string                       `pulumi:"tags"`
+	Type                          string                                  `pulumi:"type"`
+	Version                       string                                  `pulumi:"version"`
 }

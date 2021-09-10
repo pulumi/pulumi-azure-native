@@ -7,7 +7,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// RouteTable resource
 func LookupRouteTable(ctx *pulumi.Context, args *LookupRouteTableArgs, opts ...pulumi.InvokeOption) (*LookupRouteTableResult, error) {
 	var rv LookupRouteTableResult
 	err := ctx.Invoke("azure-native:network/v20160330:getRouteTable", args, &rv, opts...)
@@ -18,32 +17,20 @@ func LookupRouteTable(ctx *pulumi.Context, args *LookupRouteTableArgs, opts ...p
 }
 
 type LookupRouteTableArgs struct {
-	// expand references resources.
-	Expand *string `pulumi:"expand"`
-	// The name of the resource group.
-	ResourceGroupName string `pulumi:"resourceGroupName"`
-	// The name of the route table.
-	RouteTableName string `pulumi:"routeTableName"`
+	Expand            *string `pulumi:"expand"`
+	ResourceGroupName string  `pulumi:"resourceGroupName"`
+	RouteTableName    string  `pulumi:"routeTableName"`
 }
 
 // RouteTable resource
 type LookupRouteTableResult struct {
-	// Gets a unique read-only string that changes whenever the resource is updated
-	Etag *string `pulumi:"etag"`
-	// Resource Id
-	Id *string `pulumi:"id"`
-	// Resource location
-	Location *string `pulumi:"location"`
-	// Resource name
-	Name string `pulumi:"name"`
-	// Gets or sets Provisioning state of the resource Updating/Deleting/Failed
-	ProvisioningState *string `pulumi:"provisioningState"`
-	// Gets or sets Routes in a Route Table
-	Routes []RouteResponse `pulumi:"routes"`
-	// Gets collection of references to subnets
-	Subnets []SubnetResponse `pulumi:"subnets"`
-	// Resource tags
-	Tags map[string]string `pulumi:"tags"`
-	// Resource type
-	Type string `pulumi:"type"`
+	Etag              *string           `pulumi:"etag"`
+	Id                *string           `pulumi:"id"`
+	Location          *string           `pulumi:"location"`
+	Name              string            `pulumi:"name"`
+	ProvisioningState *string           `pulumi:"provisioningState"`
+	Routes            []RouteResponse   `pulumi:"routes"`
+	Subnets           []SubnetResponse  `pulumi:"subnets"`
+	Tags              map[string]string `pulumi:"tags"`
+	Type              string            `pulumi:"type"`
 }

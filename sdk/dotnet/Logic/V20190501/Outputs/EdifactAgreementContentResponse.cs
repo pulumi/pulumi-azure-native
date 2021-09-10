@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.Logic.V20190501.Outputs
 {
 
+    /// <summary>
+    /// The Edifact agreement content.
+    /// </summary>
     [OutputType]
     public sealed class EdifactAgreementContentResponse
     {

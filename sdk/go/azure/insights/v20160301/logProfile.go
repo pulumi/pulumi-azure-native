@@ -11,28 +11,18 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// The log profile resource.
 type LogProfile struct {
 	pulumi.CustomResourceState
 
-	// the categories of the logs. These categories are created as is convenient to the user. Some values are: 'Write', 'Delete', and/or 'Action.'
-	Categories pulumi.StringArrayOutput `pulumi:"categories"`
-	// Resource location
-	Location pulumi.StringOutput `pulumi:"location"`
-	// List of regions for which Activity Log events should be stored or streamed. It is a comma separated list of valid ARM locations including the 'global' location.
-	Locations pulumi.StringArrayOutput `pulumi:"locations"`
-	// Azure resource name
-	Name pulumi.StringOutput `pulumi:"name"`
-	// the retention policy for the events in the log.
-	RetentionPolicy RetentionPolicyResponseOutput `pulumi:"retentionPolicy"`
-	// The service bus rule ID of the service bus namespace in which you would like to have Event Hubs created for streaming the Activity Log. The rule ID is of the format: '{service bus resource ID}/authorizationrules/{key name}'.
-	ServiceBusRuleId pulumi.StringPtrOutput `pulumi:"serviceBusRuleId"`
-	// the resource id of the storage account to which you would like to send the Activity Log.
-	StorageAccountId pulumi.StringPtrOutput `pulumi:"storageAccountId"`
-	// Resource tags
-	Tags pulumi.StringMapOutput `pulumi:"tags"`
-	// Azure resource type
-	Type pulumi.StringOutput `pulumi:"type"`
+	Categories       pulumi.StringArrayOutput      `pulumi:"categories"`
+	Location         pulumi.StringOutput           `pulumi:"location"`
+	Locations        pulumi.StringArrayOutput      `pulumi:"locations"`
+	Name             pulumi.StringOutput           `pulumi:"name"`
+	RetentionPolicy  RetentionPolicyResponseOutput `pulumi:"retentionPolicy"`
+	ServiceBusRuleId pulumi.StringPtrOutput        `pulumi:"serviceBusRuleId"`
+	StorageAccountId pulumi.StringPtrOutput        `pulumi:"storageAccountId"`
+	Tags             pulumi.StringMapOutput        `pulumi:"tags"`
+	Type             pulumi.StringOutput           `pulumi:"type"`
 }
 
 // NewLogProfile registers a new resource with the given unique name, arguments, and options.
@@ -95,42 +85,26 @@ func (LogProfileState) ElementType() reflect.Type {
 }
 
 type logProfileArgs struct {
-	// the categories of the logs. These categories are created as is convenient to the user. Some values are: 'Write', 'Delete', and/or 'Action.'
-	Categories []string `pulumi:"categories"`
-	// Resource location
-	Location *string `pulumi:"location"`
-	// List of regions for which Activity Log events should be stored or streamed. It is a comma separated list of valid ARM locations including the 'global' location.
-	Locations []string `pulumi:"locations"`
-	// The name of the log profile.
-	LogProfileName *string `pulumi:"logProfileName"`
-	// the retention policy for the events in the log.
-	RetentionPolicy RetentionPolicy `pulumi:"retentionPolicy"`
-	// The service bus rule ID of the service bus namespace in which you would like to have Event Hubs created for streaming the Activity Log. The rule ID is of the format: '{service bus resource ID}/authorizationrules/{key name}'.
-	ServiceBusRuleId *string `pulumi:"serviceBusRuleId"`
-	// the resource id of the storage account to which you would like to send the Activity Log.
-	StorageAccountId *string `pulumi:"storageAccountId"`
-	// Resource tags
-	Tags map[string]string `pulumi:"tags"`
+	Categories       []string          `pulumi:"categories"`
+	Location         *string           `pulumi:"location"`
+	Locations        []string          `pulumi:"locations"`
+	LogProfileName   *string           `pulumi:"logProfileName"`
+	RetentionPolicy  RetentionPolicy   `pulumi:"retentionPolicy"`
+	ServiceBusRuleId *string           `pulumi:"serviceBusRuleId"`
+	StorageAccountId *string           `pulumi:"storageAccountId"`
+	Tags             map[string]string `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a LogProfile resource.
 type LogProfileArgs struct {
-	// the categories of the logs. These categories are created as is convenient to the user. Some values are: 'Write', 'Delete', and/or 'Action.'
-	Categories pulumi.StringArrayInput
-	// Resource location
-	Location pulumi.StringPtrInput
-	// List of regions for which Activity Log events should be stored or streamed. It is a comma separated list of valid ARM locations including the 'global' location.
-	Locations pulumi.StringArrayInput
-	// The name of the log profile.
-	LogProfileName pulumi.StringPtrInput
-	// the retention policy for the events in the log.
-	RetentionPolicy RetentionPolicyInput
-	// The service bus rule ID of the service bus namespace in which you would like to have Event Hubs created for streaming the Activity Log. The rule ID is of the format: '{service bus resource ID}/authorizationrules/{key name}'.
+	Categories       pulumi.StringArrayInput
+	Location         pulumi.StringPtrInput
+	Locations        pulumi.StringArrayInput
+	LogProfileName   pulumi.StringPtrInput
+	RetentionPolicy  RetentionPolicyInput
 	ServiceBusRuleId pulumi.StringPtrInput
-	// the resource id of the storage account to which you would like to send the Activity Log.
 	StorageAccountId pulumi.StringPtrInput
-	// Resource tags
-	Tags pulumi.StringMapInput
+	Tags             pulumi.StringMapInput
 }
 
 func (LogProfileArgs) ElementType() reflect.Type {
@@ -156,9 +130,7 @@ func (i *LogProfile) ToLogProfileOutputWithContext(ctx context.Context) LogProfi
 	return pulumi.ToOutputWithContext(ctx, i).(LogProfileOutput)
 }
 
-type LogProfileOutput struct {
-	*pulumi.OutputState
-}
+type LogProfileOutput struct{ *pulumi.OutputState }
 
 func (LogProfileOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*LogProfile)(nil))

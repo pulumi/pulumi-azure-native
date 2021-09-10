@@ -7,7 +7,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Datasources under OMS Workspace.
 func LookupDataSource(ctx *pulumi.Context, args *LookupDataSourceArgs, opts ...pulumi.InvokeOption) (*LookupDataSourceResult, error) {
 	var rv LookupDataSourceResult
 	err := ctx.Invoke("azure-native:operationalinsights/v20200801:getDataSource", args, &rv, opts...)
@@ -18,28 +17,18 @@ func LookupDataSource(ctx *pulumi.Context, args *LookupDataSourceArgs, opts ...p
 }
 
 type LookupDataSourceArgs struct {
-	// Name of the datasource
-	DataSourceName string `pulumi:"dataSourceName"`
-	// The name of the resource group. The name is case insensitive.
+	DataSourceName    string `pulumi:"dataSourceName"`
 	ResourceGroupName string `pulumi:"resourceGroupName"`
-	// The name of the workspace.
-	WorkspaceName string `pulumi:"workspaceName"`
+	WorkspaceName     string `pulumi:"workspaceName"`
 }
 
 // Datasources under OMS Workspace.
 type LookupDataSourceResult struct {
-	// The ETag of the data source.
-	Etag *string `pulumi:"etag"`
-	// Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
-	Id string `pulumi:"id"`
-	// The kind of the DataSource.
-	Kind string `pulumi:"kind"`
-	// The name of the resource
-	Name string `pulumi:"name"`
-	// The data source properties in raw json format, each kind of data source have it's own schema.
-	Properties interface{} `pulumi:"properties"`
-	// Resource tags.
-	Tags map[string]string `pulumi:"tags"`
-	// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
-	Type string `pulumi:"type"`
+	Etag       *string           `pulumi:"etag"`
+	Id         string            `pulumi:"id"`
+	Kind       string            `pulumi:"kind"`
+	Name       string            `pulumi:"name"`
+	Properties interface{}       `pulumi:"properties"`
+	Tags       map[string]string `pulumi:"tags"`
+	Type       string            `pulumi:"type"`
 }

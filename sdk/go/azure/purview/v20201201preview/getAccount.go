@@ -7,7 +7,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Account resource
 func LookupAccount(ctx *pulumi.Context, args *LookupAccountArgs, opts ...pulumi.InvokeOption) (*LookupAccountResult, error) {
 	var rv LookupAccountResult
 	err := ctx.Invoke("azure-native:purview/v20201201preview:getAccount", args, &rv, opts...)
@@ -18,51 +17,29 @@ func LookupAccount(ctx *pulumi.Context, args *LookupAccountArgs, opts ...pulumi.
 }
 
 type LookupAccountArgs struct {
-	// The name of the account.
-	AccountName string `pulumi:"accountName"`
-	// The resource group name.
+	AccountName       string `pulumi:"accountName"`
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 }
 
 // Account resource
 type LookupAccountResult struct {
-	// Cloud connectors.
-	// External cloud identifier used as part of scanning configuration.
-	CloudConnectors *CloudConnectorsResponse `pulumi:"cloudConnectors"`
-	// Gets the time at which the entity was created.
-	CreatedAt string `pulumi:"createdAt"`
-	// Gets the creator of the entity.
-	CreatedBy string `pulumi:"createdBy"`
-	// Gets the creators of the entity's object id.
-	CreatedByObjectId string `pulumi:"createdByObjectId"`
-	// The URIs that are the public endpoints of the account.
-	Endpoints AccountPropertiesResponseEndpoints `pulumi:"endpoints"`
-	// Gets or sets the friendly name.
-	FriendlyName string `pulumi:"friendlyName"`
-	// Gets or sets the identifier.
-	Id string `pulumi:"id"`
-	// Identity Info on the tracked resource
-	Identity *IdentityResponse `pulumi:"identity"`
-	// Gets or sets the location.
-	Location *string `pulumi:"location"`
-	// Gets or sets the managed resource group name
-	ManagedResourceGroupName *string `pulumi:"managedResourceGroupName"`
-	// Gets the resource identifiers of the managed resources.
-	ManagedResources AccountPropertiesResponseManagedResources `pulumi:"managedResources"`
-	// Gets or sets the name.
-	Name string `pulumi:"name"`
-	// Gets the private endpoint connections information.
-	PrivateEndpointConnections []PrivateEndpointConnectionResponse `pulumi:"privateEndpointConnections"`
-	// Gets or sets the state of the provisioning.
-	ProvisioningState string `pulumi:"provisioningState"`
-	// Gets or sets the public network access.
-	PublicNetworkAccess *string `pulumi:"publicNetworkAccess"`
-	// Gets or sets the Sku.
-	Sku *AccountSkuResponse `pulumi:"sku"`
-	// Metadata pertaining to creation and last modification of the resource.
-	SystemData AccountPropertiesResponseSystemData `pulumi:"systemData"`
-	// Tags on the azure resource.
-	Tags map[string]string `pulumi:"tags"`
-	// Gets or sets the type.
-	Type string `pulumi:"type"`
+	CloudConnectors            *CloudConnectorsResponse                  `pulumi:"cloudConnectors"`
+	CreatedAt                  string                                    `pulumi:"createdAt"`
+	CreatedBy                  string                                    `pulumi:"createdBy"`
+	CreatedByObjectId          string                                    `pulumi:"createdByObjectId"`
+	Endpoints                  AccountPropertiesResponseEndpoints        `pulumi:"endpoints"`
+	FriendlyName               string                                    `pulumi:"friendlyName"`
+	Id                         string                                    `pulumi:"id"`
+	Identity                   *IdentityResponse                         `pulumi:"identity"`
+	Location                   *string                                   `pulumi:"location"`
+	ManagedResourceGroupName   *string                                   `pulumi:"managedResourceGroupName"`
+	ManagedResources           AccountPropertiesResponseManagedResources `pulumi:"managedResources"`
+	Name                       string                                    `pulumi:"name"`
+	PrivateEndpointConnections []PrivateEndpointConnectionResponse       `pulumi:"privateEndpointConnections"`
+	ProvisioningState          string                                    `pulumi:"provisioningState"`
+	PublicNetworkAccess        *string                                   `pulumi:"publicNetworkAccess"`
+	Sku                        *AccountSkuResponse                       `pulumi:"sku"`
+	SystemData                 AccountPropertiesResponseSystemData       `pulumi:"systemData"`
+	Tags                       map[string]string                         `pulumi:"tags"`
+	Type                       string                                    `pulumi:"type"`
 }

@@ -11,28 +11,18 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// The top level data export resource container.
 type DataExport struct {
 	pulumi.CustomResourceState
 
-	// The latest data export rule modification time.
-	CreatedDate pulumi.StringPtrOutput `pulumi:"createdDate"`
-	// The data export rule ID.
-	DataExportId pulumi.StringPtrOutput `pulumi:"dataExportId"`
-	// Active when enabled.
-	Enable pulumi.BoolPtrOutput `pulumi:"enable"`
-	// Optional. Allows to define an Event Hub name. Not applicable when destination is Storage Account.
-	EventHubName pulumi.StringPtrOutput `pulumi:"eventHubName"`
-	// Date and time when the export was last modified.
-	LastModifiedDate pulumi.StringPtrOutput `pulumi:"lastModifiedDate"`
-	// Resource name.
-	Name pulumi.StringOutput `pulumi:"name"`
-	// The destination resource ID. This can be copied from the Properties entry of the destination resource in Azure.
-	ResourceId pulumi.StringOutput `pulumi:"resourceId"`
-	// An array of tables to export, for example: [“Heartbeat, SecurityEvent”].
-	TableNames pulumi.StringArrayOutput `pulumi:"tableNames"`
-	// Resource type.
-	Type pulumi.StringOutput `pulumi:"type"`
+	CreatedDate      pulumi.StringPtrOutput   `pulumi:"createdDate"`
+	DataExportId     pulumi.StringPtrOutput   `pulumi:"dataExportId"`
+	Enable           pulumi.BoolPtrOutput     `pulumi:"enable"`
+	EventHubName     pulumi.StringPtrOutput   `pulumi:"eventHubName"`
+	LastModifiedDate pulumi.StringPtrOutput   `pulumi:"lastModifiedDate"`
+	Name             pulumi.StringOutput      `pulumi:"name"`
+	ResourceId       pulumi.StringOutput      `pulumi:"resourceId"`
+	TableNames       pulumi.StringArrayOutput `pulumi:"tableNames"`
+	Type             pulumi.StringOutput      `pulumi:"type"`
 }
 
 // NewDataExport registers a new resource with the given unique name, arguments, and options.
@@ -110,50 +100,30 @@ func (DataExportState) ElementType() reflect.Type {
 }
 
 type dataExportArgs struct {
-	// The latest data export rule modification time.
-	CreatedDate *string `pulumi:"createdDate"`
-	// The data export rule ID.
-	DataExportId *string `pulumi:"dataExportId"`
-	// The data export rule name.
-	DataExportName *string `pulumi:"dataExportName"`
-	// Active when enabled.
-	Enable *bool `pulumi:"enable"`
-	// Optional. Allows to define an Event Hub name. Not applicable when destination is Storage Account.
-	EventHubName *string `pulumi:"eventHubName"`
-	// Date and time when the export was last modified.
-	LastModifiedDate *string `pulumi:"lastModifiedDate"`
-	// The name of the resource group to get. The name is case insensitive.
-	ResourceGroupName string `pulumi:"resourceGroupName"`
-	// The destination resource ID. This can be copied from the Properties entry of the destination resource in Azure.
-	ResourceId string `pulumi:"resourceId"`
-	// An array of tables to export, for example: [“Heartbeat, SecurityEvent”].
-	TableNames []string `pulumi:"tableNames"`
-	// The Log Analytics workspace name.
-	WorkspaceName string `pulumi:"workspaceName"`
+	CreatedDate       *string  `pulumi:"createdDate"`
+	DataExportId      *string  `pulumi:"dataExportId"`
+	DataExportName    *string  `pulumi:"dataExportName"`
+	Enable            *bool    `pulumi:"enable"`
+	EventHubName      *string  `pulumi:"eventHubName"`
+	LastModifiedDate  *string  `pulumi:"lastModifiedDate"`
+	ResourceGroupName string   `pulumi:"resourceGroupName"`
+	ResourceId        string   `pulumi:"resourceId"`
+	TableNames        []string `pulumi:"tableNames"`
+	WorkspaceName     string   `pulumi:"workspaceName"`
 }
 
 // The set of arguments for constructing a DataExport resource.
 type DataExportArgs struct {
-	// The latest data export rule modification time.
-	CreatedDate pulumi.StringPtrInput
-	// The data export rule ID.
-	DataExportId pulumi.StringPtrInput
-	// The data export rule name.
-	DataExportName pulumi.StringPtrInput
-	// Active when enabled.
-	Enable pulumi.BoolPtrInput
-	// Optional. Allows to define an Event Hub name. Not applicable when destination is Storage Account.
-	EventHubName pulumi.StringPtrInput
-	// Date and time when the export was last modified.
-	LastModifiedDate pulumi.StringPtrInput
-	// The name of the resource group to get. The name is case insensitive.
+	CreatedDate       pulumi.StringPtrInput
+	DataExportId      pulumi.StringPtrInput
+	DataExportName    pulumi.StringPtrInput
+	Enable            pulumi.BoolPtrInput
+	EventHubName      pulumi.StringPtrInput
+	LastModifiedDate  pulumi.StringPtrInput
 	ResourceGroupName pulumi.StringInput
-	// The destination resource ID. This can be copied from the Properties entry of the destination resource in Azure.
-	ResourceId pulumi.StringInput
-	// An array of tables to export, for example: [“Heartbeat, SecurityEvent”].
-	TableNames pulumi.StringArrayInput
-	// The Log Analytics workspace name.
-	WorkspaceName pulumi.StringInput
+	ResourceId        pulumi.StringInput
+	TableNames        pulumi.StringArrayInput
+	WorkspaceName     pulumi.StringInput
 }
 
 func (DataExportArgs) ElementType() reflect.Type {
@@ -179,9 +149,7 @@ func (i *DataExport) ToDataExportOutputWithContext(ctx context.Context) DataExpo
 	return pulumi.ToOutputWithContext(ctx, i).(DataExportOutput)
 }
 
-type DataExportOutput struct {
-	*pulumi.OutputState
-}
+type DataExportOutput struct{ *pulumi.OutputState }
 
 func (DataExportOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*DataExport)(nil))

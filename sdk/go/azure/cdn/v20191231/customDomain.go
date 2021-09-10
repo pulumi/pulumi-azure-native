@@ -11,26 +11,17 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Friendly domain name mapping to the endpoint hostname that the customer provides for branding purposes, e.g. www.contoso.com.
 type CustomDomain struct {
 	pulumi.CustomResourceState
 
-	// Provisioning status of Custom Https of the custom domain.
-	CustomHttpsProvisioningState pulumi.StringOutput `pulumi:"customHttpsProvisioningState"`
-	// Provisioning substate shows the progress of custom HTTPS enabling/disabling process step by step.
-	CustomHttpsProvisioningSubstate pulumi.StringOutput `pulumi:"customHttpsProvisioningSubstate"`
-	// The host name of the custom domain. Must be a domain name.
-	HostName pulumi.StringOutput `pulumi:"hostName"`
-	// Resource name.
-	Name pulumi.StringOutput `pulumi:"name"`
-	// Provisioning status of the custom domain.
-	ProvisioningState pulumi.StringOutput `pulumi:"provisioningState"`
-	// Resource status of the custom domain.
-	ResourceState pulumi.StringOutput `pulumi:"resourceState"`
-	// Resource type.
-	Type pulumi.StringOutput `pulumi:"type"`
-	// Special validation or data may be required when delivering CDN to some regions due to local compliance reasons. E.g. ICP license number of a custom domain is required to deliver content in China.
-	ValidationData pulumi.StringPtrOutput `pulumi:"validationData"`
+	CustomHttpsProvisioningState    pulumi.StringOutput    `pulumi:"customHttpsProvisioningState"`
+	CustomHttpsProvisioningSubstate pulumi.StringOutput    `pulumi:"customHttpsProvisioningSubstate"`
+	HostName                        pulumi.StringOutput    `pulumi:"hostName"`
+	Name                            pulumi.StringOutput    `pulumi:"name"`
+	ProvisioningState               pulumi.StringOutput    `pulumi:"provisioningState"`
+	ResourceState                   pulumi.StringOutput    `pulumi:"resourceState"`
+	Type                            pulumi.StringOutput    `pulumi:"type"`
+	ValidationData                  pulumi.StringPtrOutput `pulumi:"validationData"`
 }
 
 // NewCustomDomain registers a new resource with the given unique name, arguments, and options.
@@ -162,29 +153,19 @@ func (CustomDomainState) ElementType() reflect.Type {
 }
 
 type customDomainArgs struct {
-	// Name of the custom domain within an endpoint.
-	CustomDomainName *string `pulumi:"customDomainName"`
-	// Name of the endpoint under the profile which is unique globally.
-	EndpointName string `pulumi:"endpointName"`
-	// The host name of the custom domain. Must be a domain name.
-	HostName string `pulumi:"hostName"`
-	// Name of the CDN profile which is unique within the resource group.
-	ProfileName string `pulumi:"profileName"`
-	// Name of the Resource group within the Azure subscription.
-	ResourceGroupName string `pulumi:"resourceGroupName"`
+	CustomDomainName  *string `pulumi:"customDomainName"`
+	EndpointName      string  `pulumi:"endpointName"`
+	HostName          string  `pulumi:"hostName"`
+	ProfileName       string  `pulumi:"profileName"`
+	ResourceGroupName string  `pulumi:"resourceGroupName"`
 }
 
 // The set of arguments for constructing a CustomDomain resource.
 type CustomDomainArgs struct {
-	// Name of the custom domain within an endpoint.
-	CustomDomainName pulumi.StringPtrInput
-	// Name of the endpoint under the profile which is unique globally.
-	EndpointName pulumi.StringInput
-	// The host name of the custom domain. Must be a domain name.
-	HostName pulumi.StringInput
-	// Name of the CDN profile which is unique within the resource group.
-	ProfileName pulumi.StringInput
-	// Name of the Resource group within the Azure subscription.
+	CustomDomainName  pulumi.StringPtrInput
+	EndpointName      pulumi.StringInput
+	HostName          pulumi.StringInput
+	ProfileName       pulumi.StringInput
 	ResourceGroupName pulumi.StringInput
 }
 
@@ -211,9 +192,7 @@ func (i *CustomDomain) ToCustomDomainOutputWithContext(ctx context.Context) Cust
 	return pulumi.ToOutputWithContext(ctx, i).(CustomDomainOutput)
 }
 
-type CustomDomainOutput struct {
-	*pulumi.OutputState
-}
+type CustomDomainOutput struct{ *pulumi.OutputState }
 
 func (CustomDomainOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*CustomDomain)(nil))

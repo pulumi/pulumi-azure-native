@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.DigitalTwins.V20201201.Outputs
 {
 
+    /// <summary>
+    /// The private endpoint connection of a Digital Twin.
+    /// </summary>
     [OutputType]
     public sealed class PrivateEndpointConnectionResponse
     {

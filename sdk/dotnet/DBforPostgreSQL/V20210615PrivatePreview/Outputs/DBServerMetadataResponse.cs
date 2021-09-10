@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.DBforPostgreSQL.V20210615PrivatePreview.Outputs
 {
 
+    /// <summary>
+    /// Database server metadata.
+    /// </summary>
     [OutputType]
     public sealed class DBServerMetadataResponse
     {

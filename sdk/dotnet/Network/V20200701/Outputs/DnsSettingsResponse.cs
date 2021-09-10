@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.Network.V20200701.Outputs
 {
 
+    /// <summary>
+    /// DNS Proxy Settings in Firewall Policy.
+    /// </summary>
     [OutputType]
     public sealed class DnsSettingsResponse
     {

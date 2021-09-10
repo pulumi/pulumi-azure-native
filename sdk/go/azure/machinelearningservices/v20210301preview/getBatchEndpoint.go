@@ -17,31 +17,19 @@ func LookupBatchEndpoint(ctx *pulumi.Context, args *LookupBatchEndpointArgs, opt
 }
 
 type LookupBatchEndpointArgs struct {
-	// Name for the Batch Endpoint.
-	EndpointName string `pulumi:"endpointName"`
-	// The name of the resource group. The name is case insensitive.
+	EndpointName      string `pulumi:"endpointName"`
 	ResourceGroupName string `pulumi:"resourceGroupName"`
-	// Name of Azure Machine Learning workspace.
-	WorkspaceName string `pulumi:"workspaceName"`
+	WorkspaceName     string `pulumi:"workspaceName"`
 }
 
 type LookupBatchEndpointResult struct {
-	// Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
-	Id string `pulumi:"id"`
-	// Service identity associated with a resource.
-	Identity *ResourceIdentityResponse `pulumi:"identity"`
-	// Metadata used by portal/tooling/etc to render different UX experiences for resources of the same type.
-	Kind *string `pulumi:"kind"`
-	// The geo-location where the resource lives
-	Location string `pulumi:"location"`
-	// The name of the resource
-	Name string `pulumi:"name"`
-	// Additional attributes of the entity.
-	Properties BatchEndpointResponse `pulumi:"properties"`
-	// System data associated with resource provider
-	SystemData SystemDataResponse `pulumi:"systemData"`
-	// Resource tags.
-	Tags map[string]string `pulumi:"tags"`
-	// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
-	Type string `pulumi:"type"`
+	Id         string                    `pulumi:"id"`
+	Identity   *ResourceIdentityResponse `pulumi:"identity"`
+	Kind       *string                   `pulumi:"kind"`
+	Location   string                    `pulumi:"location"`
+	Name       string                    `pulumi:"name"`
+	Properties BatchEndpointResponse     `pulumi:"properties"`
+	SystemData SystemDataResponse        `pulumi:"systemData"`
+	Tags       map[string]string         `pulumi:"tags"`
+	Type       string                    `pulumi:"type"`
 }

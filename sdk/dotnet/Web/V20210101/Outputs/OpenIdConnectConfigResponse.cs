@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.Web.V20210101.Outputs
 {
 
+    /// <summary>
+    /// The configuration settings of the endpoints used for the custom Open ID Connect provider.
+    /// </summary>
     [OutputType]
     public sealed class OpenIdConnectConfigResponse
     {

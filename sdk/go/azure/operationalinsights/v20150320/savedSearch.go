@@ -11,26 +11,17 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Value object for saved search results.
 type SavedSearch struct {
 	pulumi.CustomResourceState
 
-	// The category of the saved search. This helps the user to find a saved search faster.
-	Category pulumi.StringOutput `pulumi:"category"`
-	// Saved search display name.
-	DisplayName pulumi.StringOutput `pulumi:"displayName"`
-	// The ETag of the saved search.
-	ETag pulumi.StringPtrOutput `pulumi:"eTag"`
-	// The name of the saved search.
-	Name pulumi.StringOutput `pulumi:"name"`
-	// The query expression for the saved search. Please see https://docs.microsoft.com/en-us/azure/log-analytics/log-analytics-search-reference for reference.
-	Query pulumi.StringOutput `pulumi:"query"`
-	// The tags attached to the saved search.
-	Tags TagResponseArrayOutput `pulumi:"tags"`
-	// The type of the saved search.
-	Type pulumi.StringOutput `pulumi:"type"`
-	// The version number of the query language. The current version is 2 and is the default.
-	Version pulumi.Float64PtrOutput `pulumi:"version"`
+	Category    pulumi.StringOutput     `pulumi:"category"`
+	DisplayName pulumi.StringOutput     `pulumi:"displayName"`
+	ETag        pulumi.StringPtrOutput  `pulumi:"eTag"`
+	Name        pulumi.StringOutput     `pulumi:"name"`
+	Query       pulumi.StringOutput     `pulumi:"query"`
+	Tags        TagResponseArrayOutput  `pulumi:"tags"`
+	Type        pulumi.StringOutput     `pulumi:"type"`
+	Version     pulumi.Float64PtrOutput `pulumi:"version"`
 }
 
 // NewSavedSearch registers a new resource with the given unique name, arguments, and options.
@@ -111,46 +102,28 @@ func (SavedSearchState) ElementType() reflect.Type {
 }
 
 type savedSearchArgs struct {
-	// The category of the saved search. This helps the user to find a saved search faster.
-	Category string `pulumi:"category"`
-	// Saved search display name.
-	DisplayName string `pulumi:"displayName"`
-	// The ETag of the saved search.
-	ETag *string `pulumi:"eTag"`
-	// The query expression for the saved search. Please see https://docs.microsoft.com/en-us/azure/log-analytics/log-analytics-search-reference for reference.
-	Query string `pulumi:"query"`
-	// The Resource Group name.
-	ResourceGroupName string `pulumi:"resourceGroupName"`
-	// The id of the saved search.
-	SavedSearchId *string `pulumi:"savedSearchId"`
-	// The tags attached to the saved search.
-	Tags []Tag `pulumi:"tags"`
-	// The version number of the query language. The current version is 2 and is the default.
-	Version *float64 `pulumi:"version"`
-	// The Log Analytics Workspace name.
-	WorkspaceName string `pulumi:"workspaceName"`
+	Category          string   `pulumi:"category"`
+	DisplayName       string   `pulumi:"displayName"`
+	ETag              *string  `pulumi:"eTag"`
+	Query             string   `pulumi:"query"`
+	ResourceGroupName string   `pulumi:"resourceGroupName"`
+	SavedSearchId     *string  `pulumi:"savedSearchId"`
+	Tags              []Tag    `pulumi:"tags"`
+	Version           *float64 `pulumi:"version"`
+	WorkspaceName     string   `pulumi:"workspaceName"`
 }
 
 // The set of arguments for constructing a SavedSearch resource.
 type SavedSearchArgs struct {
-	// The category of the saved search. This helps the user to find a saved search faster.
-	Category pulumi.StringInput
-	// Saved search display name.
-	DisplayName pulumi.StringInput
-	// The ETag of the saved search.
-	ETag pulumi.StringPtrInput
-	// The query expression for the saved search. Please see https://docs.microsoft.com/en-us/azure/log-analytics/log-analytics-search-reference for reference.
-	Query pulumi.StringInput
-	// The Resource Group name.
+	Category          pulumi.StringInput
+	DisplayName       pulumi.StringInput
+	ETag              pulumi.StringPtrInput
+	Query             pulumi.StringInput
 	ResourceGroupName pulumi.StringInput
-	// The id of the saved search.
-	SavedSearchId pulumi.StringPtrInput
-	// The tags attached to the saved search.
-	Tags TagArrayInput
-	// The version number of the query language. The current version is 2 and is the default.
-	Version pulumi.Float64PtrInput
-	// The Log Analytics Workspace name.
-	WorkspaceName pulumi.StringInput
+	SavedSearchId     pulumi.StringPtrInput
+	Tags              TagArrayInput
+	Version           pulumi.Float64PtrInput
+	WorkspaceName     pulumi.StringInput
 }
 
 func (SavedSearchArgs) ElementType() reflect.Type {
@@ -176,9 +149,7 @@ func (i *SavedSearch) ToSavedSearchOutputWithContext(ctx context.Context) SavedS
 	return pulumi.ToOutputWithContext(ctx, i).(SavedSearchOutput)
 }
 
-type SavedSearchOutput struct {
-	*pulumi.OutputState
-}
+type SavedSearchOutput struct{ *pulumi.OutputState }
 
 func (SavedSearchOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*SavedSearch)(nil))

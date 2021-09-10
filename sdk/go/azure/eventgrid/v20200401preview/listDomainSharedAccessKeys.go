@@ -7,7 +7,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Shared access keys of the Domain.
 func ListDomainSharedAccessKeys(ctx *pulumi.Context, args *ListDomainSharedAccessKeysArgs, opts ...pulumi.InvokeOption) (*ListDomainSharedAccessKeysResult, error) {
 	var rv ListDomainSharedAccessKeysResult
 	err := ctx.Invoke("azure-native:eventgrid/v20200401preview:listDomainSharedAccessKeys", args, &rv, opts...)
@@ -18,16 +17,12 @@ func ListDomainSharedAccessKeys(ctx *pulumi.Context, args *ListDomainSharedAcces
 }
 
 type ListDomainSharedAccessKeysArgs struct {
-	// Name of the domain.
-	DomainName string `pulumi:"domainName"`
-	// The name of the resource group within the user's subscription.
+	DomainName        string `pulumi:"domainName"`
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 }
 
 // Shared access keys of the Domain.
 type ListDomainSharedAccessKeysResult struct {
-	// Shared access key1 for the domain.
 	Key1 *string `pulumi:"key1"`
-	// Shared access key2 for the domain.
 	Key2 *string `pulumi:"key2"`
 }

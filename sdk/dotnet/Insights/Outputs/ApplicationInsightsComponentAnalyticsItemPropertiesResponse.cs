@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.Insights.Outputs
 {
 
+    /// <summary>
+    /// A set of properties that can be defined in the context of a specific item type. Each type may have its own properties.
+    /// </summary>
     [OutputType]
     public sealed class ApplicationInsightsComponentAnalyticsItemPropertiesResponse
     {

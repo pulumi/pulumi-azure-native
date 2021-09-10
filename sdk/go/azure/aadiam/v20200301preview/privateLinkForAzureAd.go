@@ -11,28 +11,18 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// PrivateLink Policy configuration object.
 type PrivateLinkForAzureAd struct {
 	pulumi.CustomResourceState
 
-	// Flag indicating whether all tenants are allowed
-	AllTenants pulumi.BoolPtrOutput `pulumi:"allTenants"`
-	// Name of this resource.
-	Name pulumi.StringPtrOutput `pulumi:"name"`
-	// Guid of the owner tenant
-	OwnerTenantId pulumi.StringPtrOutput `pulumi:"ownerTenantId"`
-	// Name of the resource group
-	ResourceGroup pulumi.StringPtrOutput `pulumi:"resourceGroup"`
-	// Name of the private link policy resource
-	ResourceName pulumi.StringPtrOutput `pulumi:"resourceName"`
-	// Subscription Identifier
-	SubscriptionId pulumi.StringPtrOutput `pulumi:"subscriptionId"`
-	// Resource tags.
-	Tags pulumi.StringMapOutput `pulumi:"tags"`
-	// The list of tenantIds.
-	Tenants pulumi.StringArrayOutput `pulumi:"tenants"`
-	// Type of this resource.
-	Type pulumi.StringOutput `pulumi:"type"`
+	AllTenants     pulumi.BoolPtrOutput     `pulumi:"allTenants"`
+	Name           pulumi.StringPtrOutput   `pulumi:"name"`
+	OwnerTenantId  pulumi.StringPtrOutput   `pulumi:"ownerTenantId"`
+	ResourceGroup  pulumi.StringPtrOutput   `pulumi:"resourceGroup"`
+	ResourceName   pulumi.StringPtrOutput   `pulumi:"resourceName"`
+	SubscriptionId pulumi.StringPtrOutput   `pulumi:"subscriptionId"`
+	Tags           pulumi.StringMapOutput   `pulumi:"tags"`
+	Tenants        pulumi.StringArrayOutput `pulumi:"tenants"`
+	Type           pulumi.StringOutput      `pulumi:"type"`
 }
 
 // NewPrivateLinkForAzureAd registers a new resource with the given unique name, arguments, and options.
@@ -95,50 +85,30 @@ func (PrivateLinkForAzureAdState) ElementType() reflect.Type {
 }
 
 type privateLinkForAzureAdArgs struct {
-	// Flag indicating whether all tenants are allowed
-	AllTenants *bool `pulumi:"allTenants"`
-	// Name of this resource.
-	Name *string `pulumi:"name"`
-	// Guid of the owner tenant
-	OwnerTenantId *string `pulumi:"ownerTenantId"`
-	// The name of the private link policy in Azure AD.
-	PolicyName *string `pulumi:"policyName"`
-	// Name of the resource group
-	ResourceGroup *string `pulumi:"resourceGroup"`
-	// Name of an Azure resource group.
-	ResourceGroupName string `pulumi:"resourceGroupName"`
-	// Name of the private link policy resource
-	ResourceName *string `pulumi:"resourceName"`
-	// Subscription Identifier
-	SubscriptionId *string `pulumi:"subscriptionId"`
-	// Resource tags.
-	Tags map[string]string `pulumi:"tags"`
-	// The list of tenantIds.
-	Tenants []string `pulumi:"tenants"`
+	AllTenants        *bool             `pulumi:"allTenants"`
+	Name              *string           `pulumi:"name"`
+	OwnerTenantId     *string           `pulumi:"ownerTenantId"`
+	PolicyName        *string           `pulumi:"policyName"`
+	ResourceGroup     *string           `pulumi:"resourceGroup"`
+	ResourceGroupName string            `pulumi:"resourceGroupName"`
+	ResourceName      *string           `pulumi:"resourceName"`
+	SubscriptionId    *string           `pulumi:"subscriptionId"`
+	Tags              map[string]string `pulumi:"tags"`
+	Tenants           []string          `pulumi:"tenants"`
 }
 
 // The set of arguments for constructing a PrivateLinkForAzureAd resource.
 type PrivateLinkForAzureAdArgs struct {
-	// Flag indicating whether all tenants are allowed
-	AllTenants pulumi.BoolPtrInput
-	// Name of this resource.
-	Name pulumi.StringPtrInput
-	// Guid of the owner tenant
-	OwnerTenantId pulumi.StringPtrInput
-	// The name of the private link policy in Azure AD.
-	PolicyName pulumi.StringPtrInput
-	// Name of the resource group
-	ResourceGroup pulumi.StringPtrInput
-	// Name of an Azure resource group.
+	AllTenants        pulumi.BoolPtrInput
+	Name              pulumi.StringPtrInput
+	OwnerTenantId     pulumi.StringPtrInput
+	PolicyName        pulumi.StringPtrInput
+	ResourceGroup     pulumi.StringPtrInput
 	ResourceGroupName pulumi.StringInput
-	// Name of the private link policy resource
-	ResourceName pulumi.StringPtrInput
-	// Subscription Identifier
-	SubscriptionId pulumi.StringPtrInput
-	// Resource tags.
-	Tags pulumi.StringMapInput
-	// The list of tenantIds.
-	Tenants pulumi.StringArrayInput
+	ResourceName      pulumi.StringPtrInput
+	SubscriptionId    pulumi.StringPtrInput
+	Tags              pulumi.StringMapInput
+	Tenants           pulumi.StringArrayInput
 }
 
 func (PrivateLinkForAzureAdArgs) ElementType() reflect.Type {
@@ -164,9 +134,7 @@ func (i *PrivateLinkForAzureAd) ToPrivateLinkForAzureAdOutputWithContext(ctx con
 	return pulumi.ToOutputWithContext(ctx, i).(PrivateLinkForAzureAdOutput)
 }
 
-type PrivateLinkForAzureAdOutput struct {
-	*pulumi.OutputState
-}
+type PrivateLinkForAzureAdOutput struct{ *pulumi.OutputState }
 
 func (PrivateLinkForAzureAdOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*PrivateLinkForAzureAd)(nil))

@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.StreamAnalytics.Outputs
 {
 
+    /// <summary>
+    /// Condition applicable to the resource, or to the job overall, that warrant customer attention.
+    /// </summary>
     [OutputType]
     public sealed class DiagnosticConditionResponse
     {

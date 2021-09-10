@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.DataFactory.V20180601.Outputs
 {
 
+    /// <summary>
+    /// Base class for all execution activities.
+    /// </summary>
     [OutputType]
     public sealed class ExecutionActivityResponse
     {

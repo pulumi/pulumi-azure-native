@@ -11,22 +11,15 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Base class for backup items.
 type ProtectedItem struct {
 	pulumi.CustomResourceState
 
-	// Optional ETag.
-	ETag pulumi.StringPtrOutput `pulumi:"eTag"`
-	// Resource location.
-	Location pulumi.StringPtrOutput `pulumi:"location"`
-	// Resource name associated with the resource.
-	Name pulumi.StringOutput `pulumi:"name"`
-	// ProtectedItemResource properties
-	Properties pulumi.AnyOutput `pulumi:"properties"`
-	// Resource tags.
-	Tags pulumi.StringMapOutput `pulumi:"tags"`
-	// Resource type represents the complete path of the form Namespace/ResourceType/ResourceType/...
-	Type pulumi.StringOutput `pulumi:"type"`
+	ETag       pulumi.StringPtrOutput `pulumi:"eTag"`
+	Location   pulumi.StringPtrOutput `pulumi:"location"`
+	Name       pulumi.StringOutput    `pulumi:"name"`
+	Properties pulumi.AnyOutput       `pulumi:"properties"`
+	Tags       pulumi.StringMapOutput `pulumi:"tags"`
+	Type       pulumi.StringOutput    `pulumi:"type"`
 }
 
 // NewProtectedItem registers a new resource with the given unique name, arguments, and options.
@@ -164,46 +157,28 @@ func (ProtectedItemState) ElementType() reflect.Type {
 }
 
 type protectedItemArgs struct {
-	// Container name associated with the backup item.
-	ContainerName string `pulumi:"containerName"`
-	// Optional ETag.
-	ETag *string `pulumi:"eTag"`
-	// Fabric name associated with the backup item.
-	FabricName string `pulumi:"fabricName"`
-	// Resource location.
-	Location *string `pulumi:"location"`
-	// ProtectedItemResource properties
-	Properties interface{} `pulumi:"properties"`
-	// Item name to be backed up.
-	ProtectedItemName *string `pulumi:"protectedItemName"`
-	// The name of the resource group where the recovery services vault is present.
-	ResourceGroupName string `pulumi:"resourceGroupName"`
-	// Resource tags.
-	Tags map[string]string `pulumi:"tags"`
-	// The name of the recovery services vault.
-	VaultName string `pulumi:"vaultName"`
+	ContainerName     string            `pulumi:"containerName"`
+	ETag              *string           `pulumi:"eTag"`
+	FabricName        string            `pulumi:"fabricName"`
+	Location          *string           `pulumi:"location"`
+	Properties        interface{}       `pulumi:"properties"`
+	ProtectedItemName *string           `pulumi:"protectedItemName"`
+	ResourceGroupName string            `pulumi:"resourceGroupName"`
+	Tags              map[string]string `pulumi:"tags"`
+	VaultName         string            `pulumi:"vaultName"`
 }
 
 // The set of arguments for constructing a ProtectedItem resource.
 type ProtectedItemArgs struct {
-	// Container name associated with the backup item.
-	ContainerName pulumi.StringInput
-	// Optional ETag.
-	ETag pulumi.StringPtrInput
-	// Fabric name associated with the backup item.
-	FabricName pulumi.StringInput
-	// Resource location.
-	Location pulumi.StringPtrInput
-	// ProtectedItemResource properties
-	Properties pulumi.Input
-	// Item name to be backed up.
+	ContainerName     pulumi.StringInput
+	ETag              pulumi.StringPtrInput
+	FabricName        pulumi.StringInput
+	Location          pulumi.StringPtrInput
+	Properties        pulumi.Input
 	ProtectedItemName pulumi.StringPtrInput
-	// The name of the resource group where the recovery services vault is present.
 	ResourceGroupName pulumi.StringInput
-	// Resource tags.
-	Tags pulumi.StringMapInput
-	// The name of the recovery services vault.
-	VaultName pulumi.StringInput
+	Tags              pulumi.StringMapInput
+	VaultName         pulumi.StringInput
 }
 
 func (ProtectedItemArgs) ElementType() reflect.Type {
@@ -229,9 +204,7 @@ func (i *ProtectedItem) ToProtectedItemOutputWithContext(ctx context.Context) Pr
 	return pulumi.ToOutputWithContext(ctx, i).(ProtectedItemOutput)
 }
 
-type ProtectedItemOutput struct {
-	*pulumi.OutputState
-}
+type ProtectedItemOutput struct{ *pulumi.OutputState }
 
 func (ProtectedItemOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*ProtectedItem)(nil))

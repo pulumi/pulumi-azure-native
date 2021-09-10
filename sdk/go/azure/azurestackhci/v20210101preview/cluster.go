@@ -11,54 +11,31 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Cluster details.
 type Cluster struct {
 	pulumi.CustomResourceState
 
-	// App id of cluster AAD identity.
-	AadClientId pulumi.StringOutput `pulumi:"aadClientId"`
-	// Tenant id of cluster AAD identity.
-	AadTenantId pulumi.StringOutput `pulumi:"aadTenantId"`
-	// Type of billing applied to the resource.
-	BillingModel pulumi.StringOutput `pulumi:"billingModel"`
-	// Unique, immutable resource id.
-	CloudId pulumi.StringOutput `pulumi:"cloudId"`
-	// Endpoint configured for management from the Azure portal
-	CloudManagementEndpoint pulumi.StringPtrOutput `pulumi:"cloudManagementEndpoint"`
-	// The timestamp of resource creation (UTC).
-	CreatedAt pulumi.StringPtrOutput `pulumi:"createdAt"`
-	// The identity that created the resource.
-	CreatedBy pulumi.StringPtrOutput `pulumi:"createdBy"`
-	// The type of identity that created the resource.
-	CreatedByType pulumi.StringPtrOutput `pulumi:"createdByType"`
-	// Most recent billing meter timestamp.
-	LastBillingTimestamp pulumi.StringOutput `pulumi:"lastBillingTimestamp"`
-	// The timestamp of resource last modification (UTC)
-	LastModifiedAt pulumi.StringPtrOutput `pulumi:"lastModifiedAt"`
-	// The identity that last modified the resource.
-	LastModifiedBy pulumi.StringPtrOutput `pulumi:"lastModifiedBy"`
-	// The type of identity that last modified the resource.
-	LastModifiedByType pulumi.StringPtrOutput `pulumi:"lastModifiedByType"`
-	// Most recent cluster sync timestamp.
-	LastSyncTimestamp pulumi.StringOutput `pulumi:"lastSyncTimestamp"`
-	// The geo-location where the resource lives
-	Location pulumi.StringOutput `pulumi:"location"`
-	// The name of the resource
-	Name pulumi.StringOutput `pulumi:"name"`
-	// Provisioning state.
-	ProvisioningState pulumi.StringOutput `pulumi:"provisioningState"`
-	// First cluster sync timestamp.
-	RegistrationTimestamp pulumi.StringOutput `pulumi:"registrationTimestamp"`
-	// Properties reported by cluster agent.
-	ReportedProperties ClusterReportedPropertiesResponseOutput `pulumi:"reportedProperties"`
-	// Status of the cluster agent.
-	Status pulumi.StringOutput `pulumi:"status"`
-	// Resource tags.
-	Tags pulumi.StringMapOutput `pulumi:"tags"`
-	// Number of days remaining in the trial period.
-	TrialDaysRemaining pulumi.Float64Output `pulumi:"trialDaysRemaining"`
-	// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
-	Type pulumi.StringOutput `pulumi:"type"`
+	AadClientId             pulumi.StringOutput                     `pulumi:"aadClientId"`
+	AadTenantId             pulumi.StringOutput                     `pulumi:"aadTenantId"`
+	BillingModel            pulumi.StringOutput                     `pulumi:"billingModel"`
+	CloudId                 pulumi.StringOutput                     `pulumi:"cloudId"`
+	CloudManagementEndpoint pulumi.StringPtrOutput                  `pulumi:"cloudManagementEndpoint"`
+	CreatedAt               pulumi.StringPtrOutput                  `pulumi:"createdAt"`
+	CreatedBy               pulumi.StringPtrOutput                  `pulumi:"createdBy"`
+	CreatedByType           pulumi.StringPtrOutput                  `pulumi:"createdByType"`
+	LastBillingTimestamp    pulumi.StringOutput                     `pulumi:"lastBillingTimestamp"`
+	LastModifiedAt          pulumi.StringPtrOutput                  `pulumi:"lastModifiedAt"`
+	LastModifiedBy          pulumi.StringPtrOutput                  `pulumi:"lastModifiedBy"`
+	LastModifiedByType      pulumi.StringPtrOutput                  `pulumi:"lastModifiedByType"`
+	LastSyncTimestamp       pulumi.StringOutput                     `pulumi:"lastSyncTimestamp"`
+	Location                pulumi.StringOutput                     `pulumi:"location"`
+	Name                    pulumi.StringOutput                     `pulumi:"name"`
+	ProvisioningState       pulumi.StringOutput                     `pulumi:"provisioningState"`
+	RegistrationTimestamp   pulumi.StringOutput                     `pulumi:"registrationTimestamp"`
+	ReportedProperties      ClusterReportedPropertiesResponseOutput `pulumi:"reportedProperties"`
+	Status                  pulumi.StringOutput                     `pulumi:"status"`
+	Tags                    pulumi.StringMapOutput                  `pulumi:"tags"`
+	TrialDaysRemaining      pulumi.Float64Output                    `pulumi:"trialDaysRemaining"`
+	Type                    pulumi.StringOutput                     `pulumi:"type"`
 }
 
 // NewCluster registers a new resource with the given unique name, arguments, and options.
@@ -139,62 +116,36 @@ func (ClusterState) ElementType() reflect.Type {
 }
 
 type clusterArgs struct {
-	// App id of cluster AAD identity.
-	AadClientId string `pulumi:"aadClientId"`
-	// Tenant id of cluster AAD identity.
-	AadTenantId string `pulumi:"aadTenantId"`
-	// Endpoint configured for management from the Azure portal
-	CloudManagementEndpoint *string `pulumi:"cloudManagementEndpoint"`
-	// The name of the cluster.
-	ClusterName *string `pulumi:"clusterName"`
-	// The timestamp of resource creation (UTC).
-	CreatedAt *string `pulumi:"createdAt"`
-	// The identity that created the resource.
-	CreatedBy *string `pulumi:"createdBy"`
-	// The type of identity that created the resource.
-	CreatedByType *string `pulumi:"createdByType"`
-	// The timestamp of resource last modification (UTC)
-	LastModifiedAt *string `pulumi:"lastModifiedAt"`
-	// The identity that last modified the resource.
-	LastModifiedBy *string `pulumi:"lastModifiedBy"`
-	// The type of identity that last modified the resource.
-	LastModifiedByType *string `pulumi:"lastModifiedByType"`
-	// The geo-location where the resource lives
-	Location *string `pulumi:"location"`
-	// The name of the resource group. The name is case insensitive.
-	ResourceGroupName string `pulumi:"resourceGroupName"`
-	// Resource tags.
-	Tags map[string]string `pulumi:"tags"`
+	AadClientId             string            `pulumi:"aadClientId"`
+	AadTenantId             string            `pulumi:"aadTenantId"`
+	CloudManagementEndpoint *string           `pulumi:"cloudManagementEndpoint"`
+	ClusterName             *string           `pulumi:"clusterName"`
+	CreatedAt               *string           `pulumi:"createdAt"`
+	CreatedBy               *string           `pulumi:"createdBy"`
+	CreatedByType           *string           `pulumi:"createdByType"`
+	LastModifiedAt          *string           `pulumi:"lastModifiedAt"`
+	LastModifiedBy          *string           `pulumi:"lastModifiedBy"`
+	LastModifiedByType      *string           `pulumi:"lastModifiedByType"`
+	Location                *string           `pulumi:"location"`
+	ResourceGroupName       string            `pulumi:"resourceGroupName"`
+	Tags                    map[string]string `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a Cluster resource.
 type ClusterArgs struct {
-	// App id of cluster AAD identity.
-	AadClientId pulumi.StringInput
-	// Tenant id of cluster AAD identity.
-	AadTenantId pulumi.StringInput
-	// Endpoint configured for management from the Azure portal
+	AadClientId             pulumi.StringInput
+	AadTenantId             pulumi.StringInput
 	CloudManagementEndpoint pulumi.StringPtrInput
-	// The name of the cluster.
-	ClusterName pulumi.StringPtrInput
-	// The timestamp of resource creation (UTC).
-	CreatedAt pulumi.StringPtrInput
-	// The identity that created the resource.
-	CreatedBy pulumi.StringPtrInput
-	// The type of identity that created the resource.
-	CreatedByType pulumi.StringPtrInput
-	// The timestamp of resource last modification (UTC)
-	LastModifiedAt pulumi.StringPtrInput
-	// The identity that last modified the resource.
-	LastModifiedBy pulumi.StringPtrInput
-	// The type of identity that last modified the resource.
-	LastModifiedByType pulumi.StringPtrInput
-	// The geo-location where the resource lives
-	Location pulumi.StringPtrInput
-	// The name of the resource group. The name is case insensitive.
-	ResourceGroupName pulumi.StringInput
-	// Resource tags.
-	Tags pulumi.StringMapInput
+	ClusterName             pulumi.StringPtrInput
+	CreatedAt               pulumi.StringPtrInput
+	CreatedBy               pulumi.StringPtrInput
+	CreatedByType           pulumi.StringPtrInput
+	LastModifiedAt          pulumi.StringPtrInput
+	LastModifiedBy          pulumi.StringPtrInput
+	LastModifiedByType      pulumi.StringPtrInput
+	Location                pulumi.StringPtrInput
+	ResourceGroupName       pulumi.StringInput
+	Tags                    pulumi.StringMapInput
 }
 
 func (ClusterArgs) ElementType() reflect.Type {
@@ -220,9 +171,7 @@ func (i *Cluster) ToClusterOutputWithContext(ctx context.Context) ClusterOutput 
 	return pulumi.ToOutputWithContext(ctx, i).(ClusterOutput)
 }
 
-type ClusterOutput struct {
-	*pulumi.OutputState
-}
+type ClusterOutput struct{ *pulumi.OutputState }
 
 func (ClusterOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*Cluster)(nil))

@@ -7,7 +7,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Describes a Machine Extension.
 func LookupMachineExtension(ctx *pulumi.Context, args *LookupMachineExtensionArgs, opts ...pulumi.InvokeOption) (*LookupMachineExtensionResult, error) {
 	var rv LookupMachineExtensionResult
 	err := ctx.Invoke("azure-native:hybridcompute/v20210325preview:getMachineExtension", args, &rv, opts...)
@@ -18,28 +17,18 @@ func LookupMachineExtension(ctx *pulumi.Context, args *LookupMachineExtensionArg
 }
 
 type LookupMachineExtensionArgs struct {
-	// The name of the machine extension.
-	ExtensionName string `pulumi:"extensionName"`
-	// The name of the machine containing the extension.
-	MachineName string `pulumi:"machineName"`
-	// The name of the resource group. The name is case insensitive.
+	ExtensionName     string `pulumi:"extensionName"`
+	MachineName       string `pulumi:"machineName"`
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 }
 
 // Describes a Machine Extension.
 type LookupMachineExtensionResult struct {
-	// Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
-	Id string `pulumi:"id"`
-	// The geo-location where the resource lives
-	Location string `pulumi:"location"`
-	// The name of the resource
-	Name string `pulumi:"name"`
-	// Describes Machine Extension Properties.
+	Id         string                             `pulumi:"id"`
+	Location   string                             `pulumi:"location"`
+	Name       string                             `pulumi:"name"`
 	Properties MachineExtensionPropertiesResponse `pulumi:"properties"`
-	// The system meta data relating to this resource.
-	SystemData SystemDataResponse `pulumi:"systemData"`
-	// Resource tags.
-	Tags map[string]string `pulumi:"tags"`
-	// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
-	Type string `pulumi:"type"`
+	SystemData SystemDataResponse                 `pulumi:"systemData"`
+	Tags       map[string]string                  `pulumi:"tags"`
+	Type       string                             `pulumi:"type"`
 }

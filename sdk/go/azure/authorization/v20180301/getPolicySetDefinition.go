@@ -7,7 +7,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// The policy set definition.
 func LookupPolicySetDefinition(ctx *pulumi.Context, args *LookupPolicySetDefinitionArgs, opts ...pulumi.InvokeOption) (*LookupPolicySetDefinitionResult, error) {
 	var rv LookupPolicySetDefinitionResult
 	err := ctx.Invoke("azure-native:authorization/v20180301:getPolicySetDefinition", args, &rv, opts...)
@@ -18,28 +17,18 @@ func LookupPolicySetDefinition(ctx *pulumi.Context, args *LookupPolicySetDefinit
 }
 
 type LookupPolicySetDefinitionArgs struct {
-	// The name of the policy set definition to get.
 	PolicySetDefinitionName string `pulumi:"policySetDefinitionName"`
 }
 
 // The policy set definition.
 type LookupPolicySetDefinitionResult struct {
-	// The policy set definition description.
-	Description *string `pulumi:"description"`
-	// The display name of the policy set definition.
-	DisplayName *string `pulumi:"displayName"`
-	// The ID of the policy set definition.
-	Id string `pulumi:"id"`
-	// The policy set definition metadata.
-	Metadata interface{} `pulumi:"metadata"`
-	// The name of the policy set definition.
-	Name string `pulumi:"name"`
-	// The policy set definition parameters that can be used in policy definition references.
-	Parameters interface{} `pulumi:"parameters"`
-	// An array of policy definition references.
+	Description       *string                             `pulumi:"description"`
+	DisplayName       *string                             `pulumi:"displayName"`
+	Id                string                              `pulumi:"id"`
+	Metadata          interface{}                         `pulumi:"metadata"`
+	Name              string                              `pulumi:"name"`
+	Parameters        interface{}                         `pulumi:"parameters"`
 	PolicyDefinitions []PolicyDefinitionReferenceResponse `pulumi:"policyDefinitions"`
-	// The type of policy definition. Possible values are NotSpecified, BuiltIn, and Custom.
-	PolicyType *string `pulumi:"policyType"`
-	// The type of the resource (Microsoft.Authorization/policySetDefinitions).
-	Type string `pulumi:"type"`
+	PolicyType        *string                             `pulumi:"policyType"`
+	Type              string                              `pulumi:"type"`
 }

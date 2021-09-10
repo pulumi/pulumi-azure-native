@@ -7,7 +7,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Azure DevOps Pipeline used to configure Continuous Integration (CI) & Continuous Delivery (CD) for Azure resources.
 func LookupPipeline(ctx *pulumi.Context, args *LookupPipelineArgs, opts ...pulumi.InvokeOption) (*LookupPipelineResult, error) {
 	var rv LookupPipelineResult
 	err := ctx.Invoke("azure-native:devops/v20190701preview:getPipeline", args, &rv, opts...)
@@ -18,30 +17,19 @@ func LookupPipeline(ctx *pulumi.Context, args *LookupPipelineArgs, opts ...pulum
 }
 
 type LookupPipelineArgs struct {
-	// The name of the Azure Pipeline resource in ARM.
-	PipelineName string `pulumi:"pipelineName"`
-	// Name of the resource group within the Azure subscription.
+	PipelineName      string `pulumi:"pipelineName"`
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 }
 
 // Azure DevOps Pipeline used to configure Continuous Integration (CI) & Continuous Delivery (CD) for Azure resources.
 type LookupPipelineResult struct {
-	// Configuration used to bootstrap the Pipeline.
 	BootstrapConfiguration BootstrapConfigurationResponse `pulumi:"bootstrapConfiguration"`
-	// Resource Id
-	Id string `pulumi:"id"`
-	// Resource Location
-	Location *string `pulumi:"location"`
-	// Resource Name
-	Name string `pulumi:"name"`
-	// Reference to the Azure DevOps Organization containing the Pipeline.
-	Organization OrganizationReferenceResponse `pulumi:"organization"`
-	// Unique identifier of the Azure Pipeline within the Azure DevOps Project.
-	PipelineId int `pulumi:"pipelineId"`
-	// Reference to the Azure DevOps Project containing the Pipeline.
-	Project ProjectReferenceResponse `pulumi:"project"`
-	// Resource Tags
-	Tags map[string]string `pulumi:"tags"`
-	// Resource Type
-	Type string `pulumi:"type"`
+	Id                     string                         `pulumi:"id"`
+	Location               *string                        `pulumi:"location"`
+	Name                   string                         `pulumi:"name"`
+	Organization           OrganizationReferenceResponse  `pulumi:"organization"`
+	PipelineId             int                            `pulumi:"pipelineId"`
+	Project                ProjectReferenceResponse       `pulumi:"project"`
+	Tags                   map[string]string              `pulumi:"tags"`
+	Type                   string                         `pulumi:"type"`
 }

@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.VMwareCloudSimple.Outputs
 {
 
+    /// <summary>
+    /// Resource pool model
+    /// </summary>
     [OutputType]
     public sealed class ResourcePoolResponse
     {

@@ -11,26 +11,17 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// The top level storage insight resource container.
 type StorageInsightConfig struct {
 	pulumi.CustomResourceState
 
-	// The names of the blob containers that the workspace should read
-	Containers pulumi.StringArrayOutput `pulumi:"containers"`
-	// The ETag of the storage insight.
-	ETag pulumi.StringPtrOutput `pulumi:"eTag"`
-	// The name of the resource
-	Name pulumi.StringOutput `pulumi:"name"`
-	// The status of the storage insight
-	Status StorageInsightStatusResponseOutput `pulumi:"status"`
-	// The storage account connection details
-	StorageAccount StorageAccountResponseOutput `pulumi:"storageAccount"`
-	// The names of the Azure tables that the workspace should read
-	Tables pulumi.StringArrayOutput `pulumi:"tables"`
-	// Resource tags.
-	Tags pulumi.StringMapOutput `pulumi:"tags"`
-	// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
-	Type pulumi.StringOutput `pulumi:"type"`
+	Containers     pulumi.StringArrayOutput           `pulumi:"containers"`
+	ETag           pulumi.StringPtrOutput             `pulumi:"eTag"`
+	Name           pulumi.StringOutput                `pulumi:"name"`
+	Status         StorageInsightStatusResponseOutput `pulumi:"status"`
+	StorageAccount StorageAccountResponseOutput       `pulumi:"storageAccount"`
+	Tables         pulumi.StringArrayOutput           `pulumi:"tables"`
+	Tags           pulumi.StringMapOutput             `pulumi:"tags"`
+	Type           pulumi.StringOutput                `pulumi:"type"`
 }
 
 // NewStorageInsightConfig registers a new resource with the given unique name, arguments, and options.
@@ -105,42 +96,26 @@ func (StorageInsightConfigState) ElementType() reflect.Type {
 }
 
 type storageInsightConfigArgs struct {
-	// The names of the blob containers that the workspace should read
-	Containers []string `pulumi:"containers"`
-	// The ETag of the storage insight.
-	ETag *string `pulumi:"eTag"`
-	// The name of the resource group. The name is case insensitive.
-	ResourceGroupName string `pulumi:"resourceGroupName"`
-	// The storage account connection details
-	StorageAccount StorageAccount `pulumi:"storageAccount"`
-	// Name of the storageInsightsConfigs resource
-	StorageInsightName *string `pulumi:"storageInsightName"`
-	// The names of the Azure tables that the workspace should read
-	Tables []string `pulumi:"tables"`
-	// Resource tags.
-	Tags map[string]string `pulumi:"tags"`
-	// The name of the workspace.
-	WorkspaceName string `pulumi:"workspaceName"`
+	Containers         []string          `pulumi:"containers"`
+	ETag               *string           `pulumi:"eTag"`
+	ResourceGroupName  string            `pulumi:"resourceGroupName"`
+	StorageAccount     StorageAccount    `pulumi:"storageAccount"`
+	StorageInsightName *string           `pulumi:"storageInsightName"`
+	Tables             []string          `pulumi:"tables"`
+	Tags               map[string]string `pulumi:"tags"`
+	WorkspaceName      string            `pulumi:"workspaceName"`
 }
 
 // The set of arguments for constructing a StorageInsightConfig resource.
 type StorageInsightConfigArgs struct {
-	// The names of the blob containers that the workspace should read
-	Containers pulumi.StringArrayInput
-	// The ETag of the storage insight.
-	ETag pulumi.StringPtrInput
-	// The name of the resource group. The name is case insensitive.
-	ResourceGroupName pulumi.StringInput
-	// The storage account connection details
-	StorageAccount StorageAccountInput
-	// Name of the storageInsightsConfigs resource
+	Containers         pulumi.StringArrayInput
+	ETag               pulumi.StringPtrInput
+	ResourceGroupName  pulumi.StringInput
+	StorageAccount     StorageAccountInput
 	StorageInsightName pulumi.StringPtrInput
-	// The names of the Azure tables that the workspace should read
-	Tables pulumi.StringArrayInput
-	// Resource tags.
-	Tags pulumi.StringMapInput
-	// The name of the workspace.
-	WorkspaceName pulumi.StringInput
+	Tables             pulumi.StringArrayInput
+	Tags               pulumi.StringMapInput
+	WorkspaceName      pulumi.StringInput
 }
 
 func (StorageInsightConfigArgs) ElementType() reflect.Type {
@@ -166,9 +141,7 @@ func (i *StorageInsightConfig) ToStorageInsightConfigOutputWithContext(ctx conte
 	return pulumi.ToOutputWithContext(ctx, i).(StorageInsightConfigOutput)
 }
 
-type StorageInsightConfigOutput struct {
-	*pulumi.OutputState
-}
+type StorageInsightConfigOutput struct{ *pulumi.OutputState }
 
 func (StorageInsightConfigOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*StorageInsightConfig)(nil))

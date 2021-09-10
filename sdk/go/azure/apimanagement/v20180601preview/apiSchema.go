@@ -11,18 +11,13 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Schema Contract details.
 type ApiSchema struct {
 	pulumi.CustomResourceState
 
-	// Must be a valid a media type used in a Content-Type header as defined in the RFC 2616. Media type of the schema document (e.g. application/json, application/xml).
-	ContentType pulumi.StringOutput `pulumi:"contentType"`
-	// Resource name.
-	Name pulumi.StringOutput `pulumi:"name"`
-	// Resource type for API Management resource.
-	Type pulumi.StringOutput `pulumi:"type"`
-	// Json escaped string defining the document representing the Schema.
-	Value pulumi.StringPtrOutput `pulumi:"value"`
+	ContentType pulumi.StringOutput    `pulumi:"contentType"`
+	Name        pulumi.StringOutput    `pulumi:"name"`
+	Type        pulumi.StringOutput    `pulumi:"type"`
+	Value       pulumi.StringPtrOutput `pulumi:"value"`
 }
 
 // NewApiSchema registers a new resource with the given unique name, arguments, and options.
@@ -136,34 +131,22 @@ func (ApiSchemaState) ElementType() reflect.Type {
 }
 
 type apiSchemaArgs struct {
-	// API revision identifier. Must be unique in the current API Management service instance. Non-current revision has ;rev=n as a suffix where n is the revision number.
-	ApiId string `pulumi:"apiId"`
-	// Must be a valid a media type used in a Content-Type header as defined in the RFC 2616. Media type of the schema document (e.g. application/json, application/xml).
-	ContentType string `pulumi:"contentType"`
-	// The name of the resource group.
-	ResourceGroupName string `pulumi:"resourceGroupName"`
-	// Schema identifier within an API. Must be unique in the current API Management service instance.
-	SchemaId *string `pulumi:"schemaId"`
-	// The name of the API Management service.
-	ServiceName string `pulumi:"serviceName"`
-	// Json escaped string defining the document representing the Schema.
-	Value *string `pulumi:"value"`
+	ApiId             string  `pulumi:"apiId"`
+	ContentType       string  `pulumi:"contentType"`
+	ResourceGroupName string  `pulumi:"resourceGroupName"`
+	SchemaId          *string `pulumi:"schemaId"`
+	ServiceName       string  `pulumi:"serviceName"`
+	Value             *string `pulumi:"value"`
 }
 
 // The set of arguments for constructing a ApiSchema resource.
 type ApiSchemaArgs struct {
-	// API revision identifier. Must be unique in the current API Management service instance. Non-current revision has ;rev=n as a suffix where n is the revision number.
-	ApiId pulumi.StringInput
-	// Must be a valid a media type used in a Content-Type header as defined in the RFC 2616. Media type of the schema document (e.g. application/json, application/xml).
-	ContentType pulumi.StringInput
-	// The name of the resource group.
+	ApiId             pulumi.StringInput
+	ContentType       pulumi.StringInput
 	ResourceGroupName pulumi.StringInput
-	// Schema identifier within an API. Must be unique in the current API Management service instance.
-	SchemaId pulumi.StringPtrInput
-	// The name of the API Management service.
-	ServiceName pulumi.StringInput
-	// Json escaped string defining the document representing the Schema.
-	Value pulumi.StringPtrInput
+	SchemaId          pulumi.StringPtrInput
+	ServiceName       pulumi.StringInput
+	Value             pulumi.StringPtrInput
 }
 
 func (ApiSchemaArgs) ElementType() reflect.Type {
@@ -189,9 +172,7 @@ func (i *ApiSchema) ToApiSchemaOutputWithContext(ctx context.Context) ApiSchemaO
 	return pulumi.ToOutputWithContext(ctx, i).(ApiSchemaOutput)
 }
 
-type ApiSchemaOutput struct {
-	*pulumi.OutputState
-}
+type ApiSchemaOutput struct{ *pulumi.OutputState }
 
 func (ApiSchemaOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*ApiSchema)(nil))

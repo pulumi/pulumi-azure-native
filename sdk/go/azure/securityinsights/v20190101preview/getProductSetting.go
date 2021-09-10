@@ -7,8 +7,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// The Setting.
-//
 // Deprecated: Please use one of the variants: Anomalies, EntityAnalytics, EyesOn, IPSyncer, Ueba.
 func LookupProductSetting(ctx *pulumi.Context, args *LookupProductSettingArgs, opts ...pulumi.InvokeOption) (*LookupProductSettingResult, error) {
 	var rv LookupProductSettingResult
@@ -20,26 +18,17 @@ func LookupProductSetting(ctx *pulumi.Context, args *LookupProductSettingArgs, o
 }
 
 type LookupProductSettingArgs struct {
-	// The namespace of workspaces resource provider- Microsoft.OperationalInsights.
 	OperationalInsightsResourceProvider string `pulumi:"operationalInsightsResourceProvider"`
-	// The name of the resource group within the user's subscription. The name is case insensitive.
-	ResourceGroupName string `pulumi:"resourceGroupName"`
-	// The setting name. Supports - Anomalies, EyesOn, EntityAnalytics, Ueba
-	SettingsName string `pulumi:"settingsName"`
-	// The name of the workspace.
-	WorkspaceName string `pulumi:"workspaceName"`
+	ResourceGroupName                   string `pulumi:"resourceGroupName"`
+	SettingsName                        string `pulumi:"settingsName"`
+	WorkspaceName                       string `pulumi:"workspaceName"`
 }
 
 // The Setting.
 type LookupProductSettingResult struct {
-	// Etag of the azure resource
 	Etag *string `pulumi:"etag"`
-	// Azure resource Id
-	Id string `pulumi:"id"`
-	// The kind of the setting
-	Kind string `pulumi:"kind"`
-	// Azure resource name
-	Name string `pulumi:"name"`
-	// Azure resource type
-	Type string `pulumi:"type"`
+	Id   string  `pulumi:"id"`
+	Kind string  `pulumi:"kind"`
+	Name string  `pulumi:"name"`
+	Type string  `pulumi:"type"`
 }

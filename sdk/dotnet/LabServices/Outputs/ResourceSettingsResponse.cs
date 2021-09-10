@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.LabServices.Outputs
 {
 
+    /// <summary>
+    /// Represents resource specific settings
+    /// </summary>
     [OutputType]
     public sealed class ResourceSettingsResponse
     {

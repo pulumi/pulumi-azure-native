@@ -10,11 +10,8 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// An arm role receiver.
 type ArmRoleReceiver struct {
-	// The name of the arm role receiver. Names must be unique across all receivers within an action group.
-	Name string `pulumi:"name"`
-	// The arm role id.
+	Name   string `pulumi:"name"`
 	RoleId string `pulumi:"roleId"`
 }
 
@@ -29,11 +26,8 @@ type ArmRoleReceiverInput interface {
 	ToArmRoleReceiverOutputWithContext(context.Context) ArmRoleReceiverOutput
 }
 
-// An arm role receiver.
 type ArmRoleReceiverArgs struct {
-	// The name of the arm role receiver. Names must be unique across all receivers within an action group.
-	Name pulumi.StringInput `pulumi:"name"`
-	// The arm role id.
+	Name   pulumi.StringInput `pulumi:"name"`
 	RoleId pulumi.StringInput `pulumi:"roleId"`
 }
 
@@ -74,7 +68,6 @@ func (i ArmRoleReceiverArray) ToArmRoleReceiverArrayOutputWithContext(ctx contex
 	return pulumi.ToOutputWithContext(ctx, i).(ArmRoleReceiverArrayOutput)
 }
 
-// An arm role receiver.
 type ArmRoleReceiverOutput struct{ *pulumi.OutputState }
 
 func (ArmRoleReceiverOutput) ElementType() reflect.Type {
@@ -89,12 +82,10 @@ func (o ArmRoleReceiverOutput) ToArmRoleReceiverOutputWithContext(ctx context.Co
 	return o
 }
 
-// The name of the arm role receiver. Names must be unique across all receivers within an action group.
 func (o ArmRoleReceiverOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v ArmRoleReceiver) string { return v.Name }).(pulumi.StringOutput)
 }
 
-// The arm role id.
 func (o ArmRoleReceiverOutput) RoleId() pulumi.StringOutput {
 	return o.ApplyT(func(v ArmRoleReceiver) string { return v.RoleId }).(pulumi.StringOutput)
 }
@@ -119,11 +110,8 @@ func (o ArmRoleReceiverArrayOutput) Index(i pulumi.IntInput) ArmRoleReceiverOutp
 	}).(ArmRoleReceiverOutput)
 }
 
-// An arm role receiver.
 type ArmRoleReceiverResponse struct {
-	// The name of the arm role receiver. Names must be unique across all receivers within an action group.
-	Name string `pulumi:"name"`
-	// The arm role id.
+	Name   string `pulumi:"name"`
 	RoleId string `pulumi:"roleId"`
 }
 
@@ -138,11 +126,8 @@ type ArmRoleReceiverResponseInput interface {
 	ToArmRoleReceiverResponseOutputWithContext(context.Context) ArmRoleReceiverResponseOutput
 }
 
-// An arm role receiver.
 type ArmRoleReceiverResponseArgs struct {
-	// The name of the arm role receiver. Names must be unique across all receivers within an action group.
-	Name pulumi.StringInput `pulumi:"name"`
-	// The arm role id.
+	Name   pulumi.StringInput `pulumi:"name"`
 	RoleId pulumi.StringInput `pulumi:"roleId"`
 }
 
@@ -183,7 +168,6 @@ func (i ArmRoleReceiverResponseArray) ToArmRoleReceiverResponseArrayOutputWithCo
 	return pulumi.ToOutputWithContext(ctx, i).(ArmRoleReceiverResponseArrayOutput)
 }
 
-// An arm role receiver.
 type ArmRoleReceiverResponseOutput struct{ *pulumi.OutputState }
 
 func (ArmRoleReceiverResponseOutput) ElementType() reflect.Type {
@@ -198,12 +182,10 @@ func (o ArmRoleReceiverResponseOutput) ToArmRoleReceiverResponseOutputWithContex
 	return o
 }
 
-// The name of the arm role receiver. Names must be unique across all receivers within an action group.
 func (o ArmRoleReceiverResponseOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v ArmRoleReceiverResponse) string { return v.Name }).(pulumi.StringOutput)
 }
 
-// The arm role id.
 func (o ArmRoleReceiverResponseOutput) RoleId() pulumi.StringOutput {
 	return o.ApplyT(func(v ArmRoleReceiverResponse) string { return v.RoleId }).(pulumi.StringOutput)
 }
@@ -228,20 +210,13 @@ func (o ArmRoleReceiverResponseArrayOutput) Index(i pulumi.IntInput) ArmRoleRece
 	}).(ArmRoleReceiverResponseOutput)
 }
 
-// The Azure Automation Runbook notification receiver.
 type AutomationRunbookReceiver struct {
-	// The Azure automation account Id which holds this runbook and authenticate to Azure resource.
-	AutomationAccountId string `pulumi:"automationAccountId"`
-	// Indicates whether this instance is global runbook.
-	IsGlobalRunbook bool `pulumi:"isGlobalRunbook"`
-	// Indicates name of the webhook.
-	Name *string `pulumi:"name"`
-	// The name for this runbook.
-	RunbookName string `pulumi:"runbookName"`
-	// The URI where webhooks should be sent.
-	ServiceUri *string `pulumi:"serviceUri"`
-	// The resource id for webhook linked to this runbook.
-	WebhookResourceId string `pulumi:"webhookResourceId"`
+	AutomationAccountId string  `pulumi:"automationAccountId"`
+	IsGlobalRunbook     bool    `pulumi:"isGlobalRunbook"`
+	Name                *string `pulumi:"name"`
+	RunbookName         string  `pulumi:"runbookName"`
+	ServiceUri          *string `pulumi:"serviceUri"`
+	WebhookResourceId   string  `pulumi:"webhookResourceId"`
 }
 
 // AutomationRunbookReceiverInput is an input type that accepts AutomationRunbookReceiverArgs and AutomationRunbookReceiverOutput values.
@@ -255,20 +230,13 @@ type AutomationRunbookReceiverInput interface {
 	ToAutomationRunbookReceiverOutputWithContext(context.Context) AutomationRunbookReceiverOutput
 }
 
-// The Azure Automation Runbook notification receiver.
 type AutomationRunbookReceiverArgs struct {
-	// The Azure automation account Id which holds this runbook and authenticate to Azure resource.
-	AutomationAccountId pulumi.StringInput `pulumi:"automationAccountId"`
-	// Indicates whether this instance is global runbook.
-	IsGlobalRunbook pulumi.BoolInput `pulumi:"isGlobalRunbook"`
-	// Indicates name of the webhook.
-	Name pulumi.StringPtrInput `pulumi:"name"`
-	// The name for this runbook.
-	RunbookName pulumi.StringInput `pulumi:"runbookName"`
-	// The URI where webhooks should be sent.
-	ServiceUri pulumi.StringPtrInput `pulumi:"serviceUri"`
-	// The resource id for webhook linked to this runbook.
-	WebhookResourceId pulumi.StringInput `pulumi:"webhookResourceId"`
+	AutomationAccountId pulumi.StringInput    `pulumi:"automationAccountId"`
+	IsGlobalRunbook     pulumi.BoolInput      `pulumi:"isGlobalRunbook"`
+	Name                pulumi.StringPtrInput `pulumi:"name"`
+	RunbookName         pulumi.StringInput    `pulumi:"runbookName"`
+	ServiceUri          pulumi.StringPtrInput `pulumi:"serviceUri"`
+	WebhookResourceId   pulumi.StringInput    `pulumi:"webhookResourceId"`
 }
 
 func (AutomationRunbookReceiverArgs) ElementType() reflect.Type {
@@ -308,7 +276,6 @@ func (i AutomationRunbookReceiverArray) ToAutomationRunbookReceiverArrayOutputWi
 	return pulumi.ToOutputWithContext(ctx, i).(AutomationRunbookReceiverArrayOutput)
 }
 
-// The Azure Automation Runbook notification receiver.
 type AutomationRunbookReceiverOutput struct{ *pulumi.OutputState }
 
 func (AutomationRunbookReceiverOutput) ElementType() reflect.Type {
@@ -323,32 +290,26 @@ func (o AutomationRunbookReceiverOutput) ToAutomationRunbookReceiverOutputWithCo
 	return o
 }
 
-// The Azure automation account Id which holds this runbook and authenticate to Azure resource.
 func (o AutomationRunbookReceiverOutput) AutomationAccountId() pulumi.StringOutput {
 	return o.ApplyT(func(v AutomationRunbookReceiver) string { return v.AutomationAccountId }).(pulumi.StringOutput)
 }
 
-// Indicates whether this instance is global runbook.
 func (o AutomationRunbookReceiverOutput) IsGlobalRunbook() pulumi.BoolOutput {
 	return o.ApplyT(func(v AutomationRunbookReceiver) bool { return v.IsGlobalRunbook }).(pulumi.BoolOutput)
 }
 
-// Indicates name of the webhook.
 func (o AutomationRunbookReceiverOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AutomationRunbookReceiver) *string { return v.Name }).(pulumi.StringPtrOutput)
 }
 
-// The name for this runbook.
 func (o AutomationRunbookReceiverOutput) RunbookName() pulumi.StringOutput {
 	return o.ApplyT(func(v AutomationRunbookReceiver) string { return v.RunbookName }).(pulumi.StringOutput)
 }
 
-// The URI where webhooks should be sent.
 func (o AutomationRunbookReceiverOutput) ServiceUri() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AutomationRunbookReceiver) *string { return v.ServiceUri }).(pulumi.StringPtrOutput)
 }
 
-// The resource id for webhook linked to this runbook.
 func (o AutomationRunbookReceiverOutput) WebhookResourceId() pulumi.StringOutput {
 	return o.ApplyT(func(v AutomationRunbookReceiver) string { return v.WebhookResourceId }).(pulumi.StringOutput)
 }
@@ -373,20 +334,13 @@ func (o AutomationRunbookReceiverArrayOutput) Index(i pulumi.IntInput) Automatio
 	}).(AutomationRunbookReceiverOutput)
 }
 
-// The Azure Automation Runbook notification receiver.
 type AutomationRunbookReceiverResponse struct {
-	// The Azure automation account Id which holds this runbook and authenticate to Azure resource.
-	AutomationAccountId string `pulumi:"automationAccountId"`
-	// Indicates whether this instance is global runbook.
-	IsGlobalRunbook bool `pulumi:"isGlobalRunbook"`
-	// Indicates name of the webhook.
-	Name *string `pulumi:"name"`
-	// The name for this runbook.
-	RunbookName string `pulumi:"runbookName"`
-	// The URI where webhooks should be sent.
-	ServiceUri *string `pulumi:"serviceUri"`
-	// The resource id for webhook linked to this runbook.
-	WebhookResourceId string `pulumi:"webhookResourceId"`
+	AutomationAccountId string  `pulumi:"automationAccountId"`
+	IsGlobalRunbook     bool    `pulumi:"isGlobalRunbook"`
+	Name                *string `pulumi:"name"`
+	RunbookName         string  `pulumi:"runbookName"`
+	ServiceUri          *string `pulumi:"serviceUri"`
+	WebhookResourceId   string  `pulumi:"webhookResourceId"`
 }
 
 // AutomationRunbookReceiverResponseInput is an input type that accepts AutomationRunbookReceiverResponseArgs and AutomationRunbookReceiverResponseOutput values.
@@ -400,20 +354,13 @@ type AutomationRunbookReceiverResponseInput interface {
 	ToAutomationRunbookReceiverResponseOutputWithContext(context.Context) AutomationRunbookReceiverResponseOutput
 }
 
-// The Azure Automation Runbook notification receiver.
 type AutomationRunbookReceiverResponseArgs struct {
-	// The Azure automation account Id which holds this runbook and authenticate to Azure resource.
-	AutomationAccountId pulumi.StringInput `pulumi:"automationAccountId"`
-	// Indicates whether this instance is global runbook.
-	IsGlobalRunbook pulumi.BoolInput `pulumi:"isGlobalRunbook"`
-	// Indicates name of the webhook.
-	Name pulumi.StringPtrInput `pulumi:"name"`
-	// The name for this runbook.
-	RunbookName pulumi.StringInput `pulumi:"runbookName"`
-	// The URI where webhooks should be sent.
-	ServiceUri pulumi.StringPtrInput `pulumi:"serviceUri"`
-	// The resource id for webhook linked to this runbook.
-	WebhookResourceId pulumi.StringInput `pulumi:"webhookResourceId"`
+	AutomationAccountId pulumi.StringInput    `pulumi:"automationAccountId"`
+	IsGlobalRunbook     pulumi.BoolInput      `pulumi:"isGlobalRunbook"`
+	Name                pulumi.StringPtrInput `pulumi:"name"`
+	RunbookName         pulumi.StringInput    `pulumi:"runbookName"`
+	ServiceUri          pulumi.StringPtrInput `pulumi:"serviceUri"`
+	WebhookResourceId   pulumi.StringInput    `pulumi:"webhookResourceId"`
 }
 
 func (AutomationRunbookReceiverResponseArgs) ElementType() reflect.Type {
@@ -453,7 +400,6 @@ func (i AutomationRunbookReceiverResponseArray) ToAutomationRunbookReceiverRespo
 	return pulumi.ToOutputWithContext(ctx, i).(AutomationRunbookReceiverResponseArrayOutput)
 }
 
-// The Azure Automation Runbook notification receiver.
 type AutomationRunbookReceiverResponseOutput struct{ *pulumi.OutputState }
 
 func (AutomationRunbookReceiverResponseOutput) ElementType() reflect.Type {
@@ -468,32 +414,26 @@ func (o AutomationRunbookReceiverResponseOutput) ToAutomationRunbookReceiverResp
 	return o
 }
 
-// The Azure automation account Id which holds this runbook and authenticate to Azure resource.
 func (o AutomationRunbookReceiverResponseOutput) AutomationAccountId() pulumi.StringOutput {
 	return o.ApplyT(func(v AutomationRunbookReceiverResponse) string { return v.AutomationAccountId }).(pulumi.StringOutput)
 }
 
-// Indicates whether this instance is global runbook.
 func (o AutomationRunbookReceiverResponseOutput) IsGlobalRunbook() pulumi.BoolOutput {
 	return o.ApplyT(func(v AutomationRunbookReceiverResponse) bool { return v.IsGlobalRunbook }).(pulumi.BoolOutput)
 }
 
-// Indicates name of the webhook.
 func (o AutomationRunbookReceiverResponseOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AutomationRunbookReceiverResponse) *string { return v.Name }).(pulumi.StringPtrOutput)
 }
 
-// The name for this runbook.
 func (o AutomationRunbookReceiverResponseOutput) RunbookName() pulumi.StringOutput {
 	return o.ApplyT(func(v AutomationRunbookReceiverResponse) string { return v.RunbookName }).(pulumi.StringOutput)
 }
 
-// The URI where webhooks should be sent.
 func (o AutomationRunbookReceiverResponseOutput) ServiceUri() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AutomationRunbookReceiverResponse) *string { return v.ServiceUri }).(pulumi.StringPtrOutput)
 }
 
-// The resource id for webhook linked to this runbook.
 func (o AutomationRunbookReceiverResponseOutput) WebhookResourceId() pulumi.StringOutput {
 	return o.ApplyT(func(v AutomationRunbookReceiverResponse) string { return v.WebhookResourceId }).(pulumi.StringOutput)
 }
@@ -518,12 +458,9 @@ func (o AutomationRunbookReceiverResponseArrayOutput) Index(i pulumi.IntInput) A
 	}).(AutomationRunbookReceiverResponseOutput)
 }
 
-// The Azure mobile App push notification receiver.
 type AzureAppPushReceiver struct {
-	// The email address registered for the Azure mobile app.
 	EmailAddress string `pulumi:"emailAddress"`
-	// The name of the Azure mobile app push receiver. Names must be unique across all receivers within an action group.
-	Name string `pulumi:"name"`
+	Name         string `pulumi:"name"`
 }
 
 // AzureAppPushReceiverInput is an input type that accepts AzureAppPushReceiverArgs and AzureAppPushReceiverOutput values.
@@ -537,12 +474,9 @@ type AzureAppPushReceiverInput interface {
 	ToAzureAppPushReceiverOutputWithContext(context.Context) AzureAppPushReceiverOutput
 }
 
-// The Azure mobile App push notification receiver.
 type AzureAppPushReceiverArgs struct {
-	// The email address registered for the Azure mobile app.
 	EmailAddress pulumi.StringInput `pulumi:"emailAddress"`
-	// The name of the Azure mobile app push receiver. Names must be unique across all receivers within an action group.
-	Name pulumi.StringInput `pulumi:"name"`
+	Name         pulumi.StringInput `pulumi:"name"`
 }
 
 func (AzureAppPushReceiverArgs) ElementType() reflect.Type {
@@ -582,7 +516,6 @@ func (i AzureAppPushReceiverArray) ToAzureAppPushReceiverArrayOutputWithContext(
 	return pulumi.ToOutputWithContext(ctx, i).(AzureAppPushReceiverArrayOutput)
 }
 
-// The Azure mobile App push notification receiver.
 type AzureAppPushReceiverOutput struct{ *pulumi.OutputState }
 
 func (AzureAppPushReceiverOutput) ElementType() reflect.Type {
@@ -597,12 +530,10 @@ func (o AzureAppPushReceiverOutput) ToAzureAppPushReceiverOutputWithContext(ctx 
 	return o
 }
 
-// The email address registered for the Azure mobile app.
 func (o AzureAppPushReceiverOutput) EmailAddress() pulumi.StringOutput {
 	return o.ApplyT(func(v AzureAppPushReceiver) string { return v.EmailAddress }).(pulumi.StringOutput)
 }
 
-// The name of the Azure mobile app push receiver. Names must be unique across all receivers within an action group.
 func (o AzureAppPushReceiverOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v AzureAppPushReceiver) string { return v.Name }).(pulumi.StringOutput)
 }
@@ -627,12 +558,9 @@ func (o AzureAppPushReceiverArrayOutput) Index(i pulumi.IntInput) AzureAppPushRe
 	}).(AzureAppPushReceiverOutput)
 }
 
-// The Azure mobile App push notification receiver.
 type AzureAppPushReceiverResponse struct {
-	// The email address registered for the Azure mobile app.
 	EmailAddress string `pulumi:"emailAddress"`
-	// The name of the Azure mobile app push receiver. Names must be unique across all receivers within an action group.
-	Name string `pulumi:"name"`
+	Name         string `pulumi:"name"`
 }
 
 // AzureAppPushReceiverResponseInput is an input type that accepts AzureAppPushReceiverResponseArgs and AzureAppPushReceiverResponseOutput values.
@@ -646,12 +574,9 @@ type AzureAppPushReceiverResponseInput interface {
 	ToAzureAppPushReceiverResponseOutputWithContext(context.Context) AzureAppPushReceiverResponseOutput
 }
 
-// The Azure mobile App push notification receiver.
 type AzureAppPushReceiverResponseArgs struct {
-	// The email address registered for the Azure mobile app.
 	EmailAddress pulumi.StringInput `pulumi:"emailAddress"`
-	// The name of the Azure mobile app push receiver. Names must be unique across all receivers within an action group.
-	Name pulumi.StringInput `pulumi:"name"`
+	Name         pulumi.StringInput `pulumi:"name"`
 }
 
 func (AzureAppPushReceiverResponseArgs) ElementType() reflect.Type {
@@ -691,7 +616,6 @@ func (i AzureAppPushReceiverResponseArray) ToAzureAppPushReceiverResponseArrayOu
 	return pulumi.ToOutputWithContext(ctx, i).(AzureAppPushReceiverResponseArrayOutput)
 }
 
-// The Azure mobile App push notification receiver.
 type AzureAppPushReceiverResponseOutput struct{ *pulumi.OutputState }
 
 func (AzureAppPushReceiverResponseOutput) ElementType() reflect.Type {
@@ -706,12 +630,10 @@ func (o AzureAppPushReceiverResponseOutput) ToAzureAppPushReceiverResponseOutput
 	return o
 }
 
-// The email address registered for the Azure mobile app.
 func (o AzureAppPushReceiverResponseOutput) EmailAddress() pulumi.StringOutput {
 	return o.ApplyT(func(v AzureAppPushReceiverResponse) string { return v.EmailAddress }).(pulumi.StringOutput)
 }
 
-// The name of the Azure mobile app push receiver. Names must be unique across all receivers within an action group.
 func (o AzureAppPushReceiverResponseOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v AzureAppPushReceiverResponse) string { return v.Name }).(pulumi.StringOutput)
 }
@@ -736,16 +658,11 @@ func (o AzureAppPushReceiverResponseArrayOutput) Index(i pulumi.IntInput) AzureA
 	}).(AzureAppPushReceiverResponseOutput)
 }
 
-// An azure function receiver.
 type AzureFunctionReceiver struct {
-	// The azure resource id of the function app.
 	FunctionAppResourceId string `pulumi:"functionAppResourceId"`
-	// The function name in the function app.
-	FunctionName string `pulumi:"functionName"`
-	// The http trigger url where http request sent to.
-	HttpTriggerUrl string `pulumi:"httpTriggerUrl"`
-	// The name of the azure function receiver. Names must be unique across all receivers within an action group.
-	Name string `pulumi:"name"`
+	FunctionName          string `pulumi:"functionName"`
+	HttpTriggerUrl        string `pulumi:"httpTriggerUrl"`
+	Name                  string `pulumi:"name"`
 }
 
 // AzureFunctionReceiverInput is an input type that accepts AzureFunctionReceiverArgs and AzureFunctionReceiverOutput values.
@@ -759,16 +676,11 @@ type AzureFunctionReceiverInput interface {
 	ToAzureFunctionReceiverOutputWithContext(context.Context) AzureFunctionReceiverOutput
 }
 
-// An azure function receiver.
 type AzureFunctionReceiverArgs struct {
-	// The azure resource id of the function app.
 	FunctionAppResourceId pulumi.StringInput `pulumi:"functionAppResourceId"`
-	// The function name in the function app.
-	FunctionName pulumi.StringInput `pulumi:"functionName"`
-	// The http trigger url where http request sent to.
-	HttpTriggerUrl pulumi.StringInput `pulumi:"httpTriggerUrl"`
-	// The name of the azure function receiver. Names must be unique across all receivers within an action group.
-	Name pulumi.StringInput `pulumi:"name"`
+	FunctionName          pulumi.StringInput `pulumi:"functionName"`
+	HttpTriggerUrl        pulumi.StringInput `pulumi:"httpTriggerUrl"`
+	Name                  pulumi.StringInput `pulumi:"name"`
 }
 
 func (AzureFunctionReceiverArgs) ElementType() reflect.Type {
@@ -808,7 +720,6 @@ func (i AzureFunctionReceiverArray) ToAzureFunctionReceiverArrayOutputWithContex
 	return pulumi.ToOutputWithContext(ctx, i).(AzureFunctionReceiverArrayOutput)
 }
 
-// An azure function receiver.
 type AzureFunctionReceiverOutput struct{ *pulumi.OutputState }
 
 func (AzureFunctionReceiverOutput) ElementType() reflect.Type {
@@ -823,22 +734,18 @@ func (o AzureFunctionReceiverOutput) ToAzureFunctionReceiverOutputWithContext(ct
 	return o
 }
 
-// The azure resource id of the function app.
 func (o AzureFunctionReceiverOutput) FunctionAppResourceId() pulumi.StringOutput {
 	return o.ApplyT(func(v AzureFunctionReceiver) string { return v.FunctionAppResourceId }).(pulumi.StringOutput)
 }
 
-// The function name in the function app.
 func (o AzureFunctionReceiverOutput) FunctionName() pulumi.StringOutput {
 	return o.ApplyT(func(v AzureFunctionReceiver) string { return v.FunctionName }).(pulumi.StringOutput)
 }
 
-// The http trigger url where http request sent to.
 func (o AzureFunctionReceiverOutput) HttpTriggerUrl() pulumi.StringOutput {
 	return o.ApplyT(func(v AzureFunctionReceiver) string { return v.HttpTriggerUrl }).(pulumi.StringOutput)
 }
 
-// The name of the azure function receiver. Names must be unique across all receivers within an action group.
 func (o AzureFunctionReceiverOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v AzureFunctionReceiver) string { return v.Name }).(pulumi.StringOutput)
 }
@@ -863,16 +770,11 @@ func (o AzureFunctionReceiverArrayOutput) Index(i pulumi.IntInput) AzureFunction
 	}).(AzureFunctionReceiverOutput)
 }
 
-// An azure function receiver.
 type AzureFunctionReceiverResponse struct {
-	// The azure resource id of the function app.
 	FunctionAppResourceId string `pulumi:"functionAppResourceId"`
-	// The function name in the function app.
-	FunctionName string `pulumi:"functionName"`
-	// The http trigger url where http request sent to.
-	HttpTriggerUrl string `pulumi:"httpTriggerUrl"`
-	// The name of the azure function receiver. Names must be unique across all receivers within an action group.
-	Name string `pulumi:"name"`
+	FunctionName          string `pulumi:"functionName"`
+	HttpTriggerUrl        string `pulumi:"httpTriggerUrl"`
+	Name                  string `pulumi:"name"`
 }
 
 // AzureFunctionReceiverResponseInput is an input type that accepts AzureFunctionReceiverResponseArgs and AzureFunctionReceiverResponseOutput values.
@@ -886,16 +788,11 @@ type AzureFunctionReceiverResponseInput interface {
 	ToAzureFunctionReceiverResponseOutputWithContext(context.Context) AzureFunctionReceiverResponseOutput
 }
 
-// An azure function receiver.
 type AzureFunctionReceiverResponseArgs struct {
-	// The azure resource id of the function app.
 	FunctionAppResourceId pulumi.StringInput `pulumi:"functionAppResourceId"`
-	// The function name in the function app.
-	FunctionName pulumi.StringInput `pulumi:"functionName"`
-	// The http trigger url where http request sent to.
-	HttpTriggerUrl pulumi.StringInput `pulumi:"httpTriggerUrl"`
-	// The name of the azure function receiver. Names must be unique across all receivers within an action group.
-	Name pulumi.StringInput `pulumi:"name"`
+	FunctionName          pulumi.StringInput `pulumi:"functionName"`
+	HttpTriggerUrl        pulumi.StringInput `pulumi:"httpTriggerUrl"`
+	Name                  pulumi.StringInput `pulumi:"name"`
 }
 
 func (AzureFunctionReceiverResponseArgs) ElementType() reflect.Type {
@@ -935,7 +832,6 @@ func (i AzureFunctionReceiverResponseArray) ToAzureFunctionReceiverResponseArray
 	return pulumi.ToOutputWithContext(ctx, i).(AzureFunctionReceiverResponseArrayOutput)
 }
 
-// An azure function receiver.
 type AzureFunctionReceiverResponseOutput struct{ *pulumi.OutputState }
 
 func (AzureFunctionReceiverResponseOutput) ElementType() reflect.Type {
@@ -950,22 +846,18 @@ func (o AzureFunctionReceiverResponseOutput) ToAzureFunctionReceiverResponseOutp
 	return o
 }
 
-// The azure resource id of the function app.
 func (o AzureFunctionReceiverResponseOutput) FunctionAppResourceId() pulumi.StringOutput {
 	return o.ApplyT(func(v AzureFunctionReceiverResponse) string { return v.FunctionAppResourceId }).(pulumi.StringOutput)
 }
 
-// The function name in the function app.
 func (o AzureFunctionReceiverResponseOutput) FunctionName() pulumi.StringOutput {
 	return o.ApplyT(func(v AzureFunctionReceiverResponse) string { return v.FunctionName }).(pulumi.StringOutput)
 }
 
-// The http trigger url where http request sent to.
 func (o AzureFunctionReceiverResponseOutput) HttpTriggerUrl() pulumi.StringOutput {
 	return o.ApplyT(func(v AzureFunctionReceiverResponse) string { return v.HttpTriggerUrl }).(pulumi.StringOutput)
 }
 
-// The name of the azure function receiver. Names must be unique across all receivers within an action group.
 func (o AzureFunctionReceiverResponseOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v AzureFunctionReceiverResponse) string { return v.Name }).(pulumi.StringOutput)
 }
@@ -990,12 +882,9 @@ func (o AzureFunctionReceiverResponseArrayOutput) Index(i pulumi.IntInput) Azure
 	}).(AzureFunctionReceiverResponseOutput)
 }
 
-// An email receiver.
 type EmailReceiver struct {
-	// The email address of this receiver.
 	EmailAddress string `pulumi:"emailAddress"`
-	// The name of the email receiver. Names must be unique across all receivers within an action group.
-	Name string `pulumi:"name"`
+	Name         string `pulumi:"name"`
 }
 
 // EmailReceiverInput is an input type that accepts EmailReceiverArgs and EmailReceiverOutput values.
@@ -1009,12 +898,9 @@ type EmailReceiverInput interface {
 	ToEmailReceiverOutputWithContext(context.Context) EmailReceiverOutput
 }
 
-// An email receiver.
 type EmailReceiverArgs struct {
-	// The email address of this receiver.
 	EmailAddress pulumi.StringInput `pulumi:"emailAddress"`
-	// The name of the email receiver. Names must be unique across all receivers within an action group.
-	Name pulumi.StringInput `pulumi:"name"`
+	Name         pulumi.StringInput `pulumi:"name"`
 }
 
 func (EmailReceiverArgs) ElementType() reflect.Type {
@@ -1054,7 +940,6 @@ func (i EmailReceiverArray) ToEmailReceiverArrayOutputWithContext(ctx context.Co
 	return pulumi.ToOutputWithContext(ctx, i).(EmailReceiverArrayOutput)
 }
 
-// An email receiver.
 type EmailReceiverOutput struct{ *pulumi.OutputState }
 
 func (EmailReceiverOutput) ElementType() reflect.Type {
@@ -1069,12 +954,10 @@ func (o EmailReceiverOutput) ToEmailReceiverOutputWithContext(ctx context.Contex
 	return o
 }
 
-// The email address of this receiver.
 func (o EmailReceiverOutput) EmailAddress() pulumi.StringOutput {
 	return o.ApplyT(func(v EmailReceiver) string { return v.EmailAddress }).(pulumi.StringOutput)
 }
 
-// The name of the email receiver. Names must be unique across all receivers within an action group.
 func (o EmailReceiverOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v EmailReceiver) string { return v.Name }).(pulumi.StringOutput)
 }
@@ -1099,14 +982,10 @@ func (o EmailReceiverArrayOutput) Index(i pulumi.IntInput) EmailReceiverOutput {
 	}).(EmailReceiverOutput)
 }
 
-// An email receiver.
 type EmailReceiverResponse struct {
-	// The email address of this receiver.
 	EmailAddress string `pulumi:"emailAddress"`
-	// The name of the email receiver. Names must be unique across all receivers within an action group.
-	Name string `pulumi:"name"`
-	// The receiver status of the e-mail.
-	Status string `pulumi:"status"`
+	Name         string `pulumi:"name"`
+	Status       string `pulumi:"status"`
 }
 
 // EmailReceiverResponseInput is an input type that accepts EmailReceiverResponseArgs and EmailReceiverResponseOutput values.
@@ -1120,14 +999,10 @@ type EmailReceiverResponseInput interface {
 	ToEmailReceiverResponseOutputWithContext(context.Context) EmailReceiverResponseOutput
 }
 
-// An email receiver.
 type EmailReceiverResponseArgs struct {
-	// The email address of this receiver.
 	EmailAddress pulumi.StringInput `pulumi:"emailAddress"`
-	// The name of the email receiver. Names must be unique across all receivers within an action group.
-	Name pulumi.StringInput `pulumi:"name"`
-	// The receiver status of the e-mail.
-	Status pulumi.StringInput `pulumi:"status"`
+	Name         pulumi.StringInput `pulumi:"name"`
+	Status       pulumi.StringInput `pulumi:"status"`
 }
 
 func (EmailReceiverResponseArgs) ElementType() reflect.Type {
@@ -1167,7 +1042,6 @@ func (i EmailReceiverResponseArray) ToEmailReceiverResponseArrayOutputWithContex
 	return pulumi.ToOutputWithContext(ctx, i).(EmailReceiverResponseArrayOutput)
 }
 
-// An email receiver.
 type EmailReceiverResponseOutput struct{ *pulumi.OutputState }
 
 func (EmailReceiverResponseOutput) ElementType() reflect.Type {
@@ -1182,17 +1056,14 @@ func (o EmailReceiverResponseOutput) ToEmailReceiverResponseOutputWithContext(ct
 	return o
 }
 
-// The email address of this receiver.
 func (o EmailReceiverResponseOutput) EmailAddress() pulumi.StringOutput {
 	return o.ApplyT(func(v EmailReceiverResponse) string { return v.EmailAddress }).(pulumi.StringOutput)
 }
 
-// The name of the email receiver. Names must be unique across all receivers within an action group.
 func (o EmailReceiverResponseOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v EmailReceiverResponse) string { return v.Name }).(pulumi.StringOutput)
 }
 
-// The receiver status of the e-mail.
 func (o EmailReceiverResponseOutput) Status() pulumi.StringOutput {
 	return o.ApplyT(func(v EmailReceiverResponse) string { return v.Status }).(pulumi.StringOutput)
 }
@@ -1217,18 +1088,12 @@ func (o EmailReceiverResponseArrayOutput) Index(i pulumi.IntInput) EmailReceiver
 	}).(EmailReceiverResponseOutput)
 }
 
-// An Itsm receiver.
 type ItsmReceiver struct {
-	// Unique identification of ITSM connection among multiple defined in above workspace.
-	ConnectionId string `pulumi:"connectionId"`
-	// The name of the Itsm receiver. Names must be unique across all receivers within an action group.
-	Name string `pulumi:"name"`
-	// Region in which workspace resides. Supported values:'centralindia','japaneast','southeastasia','australiasoutheast','uksouth','westcentralus','canadacentral','eastus','westeurope'
-	Region string `pulumi:"region"`
-	// JSON blob for the configurations of the ITSM action. CreateMultipleWorkItems option will be part of this blob as well.
+	ConnectionId        string `pulumi:"connectionId"`
+	Name                string `pulumi:"name"`
+	Region              string `pulumi:"region"`
 	TicketConfiguration string `pulumi:"ticketConfiguration"`
-	// OMS LA instance identifier.
-	WorkspaceId string `pulumi:"workspaceId"`
+	WorkspaceId         string `pulumi:"workspaceId"`
 }
 
 // ItsmReceiverInput is an input type that accepts ItsmReceiverArgs and ItsmReceiverOutput values.
@@ -1242,18 +1107,12 @@ type ItsmReceiverInput interface {
 	ToItsmReceiverOutputWithContext(context.Context) ItsmReceiverOutput
 }
 
-// An Itsm receiver.
 type ItsmReceiverArgs struct {
-	// Unique identification of ITSM connection among multiple defined in above workspace.
-	ConnectionId pulumi.StringInput `pulumi:"connectionId"`
-	// The name of the Itsm receiver. Names must be unique across all receivers within an action group.
-	Name pulumi.StringInput `pulumi:"name"`
-	// Region in which workspace resides. Supported values:'centralindia','japaneast','southeastasia','australiasoutheast','uksouth','westcentralus','canadacentral','eastus','westeurope'
-	Region pulumi.StringInput `pulumi:"region"`
-	// JSON blob for the configurations of the ITSM action. CreateMultipleWorkItems option will be part of this blob as well.
+	ConnectionId        pulumi.StringInput `pulumi:"connectionId"`
+	Name                pulumi.StringInput `pulumi:"name"`
+	Region              pulumi.StringInput `pulumi:"region"`
 	TicketConfiguration pulumi.StringInput `pulumi:"ticketConfiguration"`
-	// OMS LA instance identifier.
-	WorkspaceId pulumi.StringInput `pulumi:"workspaceId"`
+	WorkspaceId         pulumi.StringInput `pulumi:"workspaceId"`
 }
 
 func (ItsmReceiverArgs) ElementType() reflect.Type {
@@ -1293,7 +1152,6 @@ func (i ItsmReceiverArray) ToItsmReceiverArrayOutputWithContext(ctx context.Cont
 	return pulumi.ToOutputWithContext(ctx, i).(ItsmReceiverArrayOutput)
 }
 
-// An Itsm receiver.
 type ItsmReceiverOutput struct{ *pulumi.OutputState }
 
 func (ItsmReceiverOutput) ElementType() reflect.Type {
@@ -1308,27 +1166,22 @@ func (o ItsmReceiverOutput) ToItsmReceiverOutputWithContext(ctx context.Context)
 	return o
 }
 
-// Unique identification of ITSM connection among multiple defined in above workspace.
 func (o ItsmReceiverOutput) ConnectionId() pulumi.StringOutput {
 	return o.ApplyT(func(v ItsmReceiver) string { return v.ConnectionId }).(pulumi.StringOutput)
 }
 
-// The name of the Itsm receiver. Names must be unique across all receivers within an action group.
 func (o ItsmReceiverOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v ItsmReceiver) string { return v.Name }).(pulumi.StringOutput)
 }
 
-// Region in which workspace resides. Supported values:'centralindia','japaneast','southeastasia','australiasoutheast','uksouth','westcentralus','canadacentral','eastus','westeurope'
 func (o ItsmReceiverOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v ItsmReceiver) string { return v.Region }).(pulumi.StringOutput)
 }
 
-// JSON blob for the configurations of the ITSM action. CreateMultipleWorkItems option will be part of this blob as well.
 func (o ItsmReceiverOutput) TicketConfiguration() pulumi.StringOutput {
 	return o.ApplyT(func(v ItsmReceiver) string { return v.TicketConfiguration }).(pulumi.StringOutput)
 }
 
-// OMS LA instance identifier.
 func (o ItsmReceiverOutput) WorkspaceId() pulumi.StringOutput {
 	return o.ApplyT(func(v ItsmReceiver) string { return v.WorkspaceId }).(pulumi.StringOutput)
 }
@@ -1353,18 +1206,12 @@ func (o ItsmReceiverArrayOutput) Index(i pulumi.IntInput) ItsmReceiverOutput {
 	}).(ItsmReceiverOutput)
 }
 
-// An Itsm receiver.
 type ItsmReceiverResponse struct {
-	// Unique identification of ITSM connection among multiple defined in above workspace.
-	ConnectionId string `pulumi:"connectionId"`
-	// The name of the Itsm receiver. Names must be unique across all receivers within an action group.
-	Name string `pulumi:"name"`
-	// Region in which workspace resides. Supported values:'centralindia','japaneast','southeastasia','australiasoutheast','uksouth','westcentralus','canadacentral','eastus','westeurope'
-	Region string `pulumi:"region"`
-	// JSON blob for the configurations of the ITSM action. CreateMultipleWorkItems option will be part of this blob as well.
+	ConnectionId        string `pulumi:"connectionId"`
+	Name                string `pulumi:"name"`
+	Region              string `pulumi:"region"`
 	TicketConfiguration string `pulumi:"ticketConfiguration"`
-	// OMS LA instance identifier.
-	WorkspaceId string `pulumi:"workspaceId"`
+	WorkspaceId         string `pulumi:"workspaceId"`
 }
 
 // ItsmReceiverResponseInput is an input type that accepts ItsmReceiverResponseArgs and ItsmReceiverResponseOutput values.
@@ -1378,18 +1225,12 @@ type ItsmReceiverResponseInput interface {
 	ToItsmReceiverResponseOutputWithContext(context.Context) ItsmReceiverResponseOutput
 }
 
-// An Itsm receiver.
 type ItsmReceiverResponseArgs struct {
-	// Unique identification of ITSM connection among multiple defined in above workspace.
-	ConnectionId pulumi.StringInput `pulumi:"connectionId"`
-	// The name of the Itsm receiver. Names must be unique across all receivers within an action group.
-	Name pulumi.StringInput `pulumi:"name"`
-	// Region in which workspace resides. Supported values:'centralindia','japaneast','southeastasia','australiasoutheast','uksouth','westcentralus','canadacentral','eastus','westeurope'
-	Region pulumi.StringInput `pulumi:"region"`
-	// JSON blob for the configurations of the ITSM action. CreateMultipleWorkItems option will be part of this blob as well.
+	ConnectionId        pulumi.StringInput `pulumi:"connectionId"`
+	Name                pulumi.StringInput `pulumi:"name"`
+	Region              pulumi.StringInput `pulumi:"region"`
 	TicketConfiguration pulumi.StringInput `pulumi:"ticketConfiguration"`
-	// OMS LA instance identifier.
-	WorkspaceId pulumi.StringInput `pulumi:"workspaceId"`
+	WorkspaceId         pulumi.StringInput `pulumi:"workspaceId"`
 }
 
 func (ItsmReceiverResponseArgs) ElementType() reflect.Type {
@@ -1429,7 +1270,6 @@ func (i ItsmReceiverResponseArray) ToItsmReceiverResponseArrayOutputWithContext(
 	return pulumi.ToOutputWithContext(ctx, i).(ItsmReceiverResponseArrayOutput)
 }
 
-// An Itsm receiver.
 type ItsmReceiverResponseOutput struct{ *pulumi.OutputState }
 
 func (ItsmReceiverResponseOutput) ElementType() reflect.Type {
@@ -1444,27 +1284,22 @@ func (o ItsmReceiverResponseOutput) ToItsmReceiverResponseOutputWithContext(ctx 
 	return o
 }
 
-// Unique identification of ITSM connection among multiple defined in above workspace.
 func (o ItsmReceiverResponseOutput) ConnectionId() pulumi.StringOutput {
 	return o.ApplyT(func(v ItsmReceiverResponse) string { return v.ConnectionId }).(pulumi.StringOutput)
 }
 
-// The name of the Itsm receiver. Names must be unique across all receivers within an action group.
 func (o ItsmReceiverResponseOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v ItsmReceiverResponse) string { return v.Name }).(pulumi.StringOutput)
 }
 
-// Region in which workspace resides. Supported values:'centralindia','japaneast','southeastasia','australiasoutheast','uksouth','westcentralus','canadacentral','eastus','westeurope'
 func (o ItsmReceiverResponseOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v ItsmReceiverResponse) string { return v.Region }).(pulumi.StringOutput)
 }
 
-// JSON blob for the configurations of the ITSM action. CreateMultipleWorkItems option will be part of this blob as well.
 func (o ItsmReceiverResponseOutput) TicketConfiguration() pulumi.StringOutput {
 	return o.ApplyT(func(v ItsmReceiverResponse) string { return v.TicketConfiguration }).(pulumi.StringOutput)
 }
 
-// OMS LA instance identifier.
 func (o ItsmReceiverResponseOutput) WorkspaceId() pulumi.StringOutput {
 	return o.ApplyT(func(v ItsmReceiverResponse) string { return v.WorkspaceId }).(pulumi.StringOutput)
 }
@@ -1489,14 +1324,10 @@ func (o ItsmReceiverResponseArrayOutput) Index(i pulumi.IntInput) ItsmReceiverRe
 	}).(ItsmReceiverResponseOutput)
 }
 
-// A logic app receiver.
 type LogicAppReceiver struct {
-	// The callback url where http request sent to.
 	CallbackUrl string `pulumi:"callbackUrl"`
-	// The name of the logic app receiver. Names must be unique across all receivers within an action group.
-	Name string `pulumi:"name"`
-	// The azure resource id of the logic app receiver.
-	ResourceId string `pulumi:"resourceId"`
+	Name        string `pulumi:"name"`
+	ResourceId  string `pulumi:"resourceId"`
 }
 
 // LogicAppReceiverInput is an input type that accepts LogicAppReceiverArgs and LogicAppReceiverOutput values.
@@ -1510,14 +1341,10 @@ type LogicAppReceiverInput interface {
 	ToLogicAppReceiverOutputWithContext(context.Context) LogicAppReceiverOutput
 }
 
-// A logic app receiver.
 type LogicAppReceiverArgs struct {
-	// The callback url where http request sent to.
 	CallbackUrl pulumi.StringInput `pulumi:"callbackUrl"`
-	// The name of the logic app receiver. Names must be unique across all receivers within an action group.
-	Name pulumi.StringInput `pulumi:"name"`
-	// The azure resource id of the logic app receiver.
-	ResourceId pulumi.StringInput `pulumi:"resourceId"`
+	Name        pulumi.StringInput `pulumi:"name"`
+	ResourceId  pulumi.StringInput `pulumi:"resourceId"`
 }
 
 func (LogicAppReceiverArgs) ElementType() reflect.Type {
@@ -1557,7 +1384,6 @@ func (i LogicAppReceiverArray) ToLogicAppReceiverArrayOutputWithContext(ctx cont
 	return pulumi.ToOutputWithContext(ctx, i).(LogicAppReceiverArrayOutput)
 }
 
-// A logic app receiver.
 type LogicAppReceiverOutput struct{ *pulumi.OutputState }
 
 func (LogicAppReceiverOutput) ElementType() reflect.Type {
@@ -1572,17 +1398,14 @@ func (o LogicAppReceiverOutput) ToLogicAppReceiverOutputWithContext(ctx context.
 	return o
 }
 
-// The callback url where http request sent to.
 func (o LogicAppReceiverOutput) CallbackUrl() pulumi.StringOutput {
 	return o.ApplyT(func(v LogicAppReceiver) string { return v.CallbackUrl }).(pulumi.StringOutput)
 }
 
-// The name of the logic app receiver. Names must be unique across all receivers within an action group.
 func (o LogicAppReceiverOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v LogicAppReceiver) string { return v.Name }).(pulumi.StringOutput)
 }
 
-// The azure resource id of the logic app receiver.
 func (o LogicAppReceiverOutput) ResourceId() pulumi.StringOutput {
 	return o.ApplyT(func(v LogicAppReceiver) string { return v.ResourceId }).(pulumi.StringOutput)
 }
@@ -1607,14 +1430,10 @@ func (o LogicAppReceiverArrayOutput) Index(i pulumi.IntInput) LogicAppReceiverOu
 	}).(LogicAppReceiverOutput)
 }
 
-// A logic app receiver.
 type LogicAppReceiverResponse struct {
-	// The callback url where http request sent to.
 	CallbackUrl string `pulumi:"callbackUrl"`
-	// The name of the logic app receiver. Names must be unique across all receivers within an action group.
-	Name string `pulumi:"name"`
-	// The azure resource id of the logic app receiver.
-	ResourceId string `pulumi:"resourceId"`
+	Name        string `pulumi:"name"`
+	ResourceId  string `pulumi:"resourceId"`
 }
 
 // LogicAppReceiverResponseInput is an input type that accepts LogicAppReceiverResponseArgs and LogicAppReceiverResponseOutput values.
@@ -1628,14 +1447,10 @@ type LogicAppReceiverResponseInput interface {
 	ToLogicAppReceiverResponseOutputWithContext(context.Context) LogicAppReceiverResponseOutput
 }
 
-// A logic app receiver.
 type LogicAppReceiverResponseArgs struct {
-	// The callback url where http request sent to.
 	CallbackUrl pulumi.StringInput `pulumi:"callbackUrl"`
-	// The name of the logic app receiver. Names must be unique across all receivers within an action group.
-	Name pulumi.StringInput `pulumi:"name"`
-	// The azure resource id of the logic app receiver.
-	ResourceId pulumi.StringInput `pulumi:"resourceId"`
+	Name        pulumi.StringInput `pulumi:"name"`
+	ResourceId  pulumi.StringInput `pulumi:"resourceId"`
 }
 
 func (LogicAppReceiverResponseArgs) ElementType() reflect.Type {
@@ -1675,7 +1490,6 @@ func (i LogicAppReceiverResponseArray) ToLogicAppReceiverResponseArrayOutputWith
 	return pulumi.ToOutputWithContext(ctx, i).(LogicAppReceiverResponseArrayOutput)
 }
 
-// A logic app receiver.
 type LogicAppReceiverResponseOutput struct{ *pulumi.OutputState }
 
 func (LogicAppReceiverResponseOutput) ElementType() reflect.Type {
@@ -1690,17 +1504,14 @@ func (o LogicAppReceiverResponseOutput) ToLogicAppReceiverResponseOutputWithCont
 	return o
 }
 
-// The callback url where http request sent to.
 func (o LogicAppReceiverResponseOutput) CallbackUrl() pulumi.StringOutput {
 	return o.ApplyT(func(v LogicAppReceiverResponse) string { return v.CallbackUrl }).(pulumi.StringOutput)
 }
 
-// The name of the logic app receiver. Names must be unique across all receivers within an action group.
 func (o LogicAppReceiverResponseOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v LogicAppReceiverResponse) string { return v.Name }).(pulumi.StringOutput)
 }
 
-// The azure resource id of the logic app receiver.
 func (o LogicAppReceiverResponseOutput) ResourceId() pulumi.StringOutput {
 	return o.ApplyT(func(v LogicAppReceiverResponse) string { return v.ResourceId }).(pulumi.StringOutput)
 }
@@ -1725,13 +1536,9 @@ func (o LogicAppReceiverResponseArrayOutput) Index(i pulumi.IntInput) LogicAppRe
 	}).(LogicAppReceiverResponseOutput)
 }
 
-// An SMS receiver.
 type SmsReceiver struct {
-	// The country code of the SMS receiver.
 	CountryCode string `pulumi:"countryCode"`
-	// The name of the SMS receiver. Names must be unique across all receivers within an action group.
-	Name string `pulumi:"name"`
-	// The phone number of the SMS receiver.
+	Name        string `pulumi:"name"`
 	PhoneNumber string `pulumi:"phoneNumber"`
 }
 
@@ -1746,13 +1553,9 @@ type SmsReceiverInput interface {
 	ToSmsReceiverOutputWithContext(context.Context) SmsReceiverOutput
 }
 
-// An SMS receiver.
 type SmsReceiverArgs struct {
-	// The country code of the SMS receiver.
 	CountryCode pulumi.StringInput `pulumi:"countryCode"`
-	// The name of the SMS receiver. Names must be unique across all receivers within an action group.
-	Name pulumi.StringInput `pulumi:"name"`
-	// The phone number of the SMS receiver.
+	Name        pulumi.StringInput `pulumi:"name"`
 	PhoneNumber pulumi.StringInput `pulumi:"phoneNumber"`
 }
 
@@ -1793,7 +1596,6 @@ func (i SmsReceiverArray) ToSmsReceiverArrayOutputWithContext(ctx context.Contex
 	return pulumi.ToOutputWithContext(ctx, i).(SmsReceiverArrayOutput)
 }
 
-// An SMS receiver.
 type SmsReceiverOutput struct{ *pulumi.OutputState }
 
 func (SmsReceiverOutput) ElementType() reflect.Type {
@@ -1808,17 +1610,14 @@ func (o SmsReceiverOutput) ToSmsReceiverOutputWithContext(ctx context.Context) S
 	return o
 }
 
-// The country code of the SMS receiver.
 func (o SmsReceiverOutput) CountryCode() pulumi.StringOutput {
 	return o.ApplyT(func(v SmsReceiver) string { return v.CountryCode }).(pulumi.StringOutput)
 }
 
-// The name of the SMS receiver. Names must be unique across all receivers within an action group.
 func (o SmsReceiverOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v SmsReceiver) string { return v.Name }).(pulumi.StringOutput)
 }
 
-// The phone number of the SMS receiver.
 func (o SmsReceiverOutput) PhoneNumber() pulumi.StringOutput {
 	return o.ApplyT(func(v SmsReceiver) string { return v.PhoneNumber }).(pulumi.StringOutput)
 }
@@ -1843,16 +1642,11 @@ func (o SmsReceiverArrayOutput) Index(i pulumi.IntInput) SmsReceiverOutput {
 	}).(SmsReceiverOutput)
 }
 
-// An SMS receiver.
 type SmsReceiverResponse struct {
-	// The country code of the SMS receiver.
 	CountryCode string `pulumi:"countryCode"`
-	// The name of the SMS receiver. Names must be unique across all receivers within an action group.
-	Name string `pulumi:"name"`
-	// The phone number of the SMS receiver.
+	Name        string `pulumi:"name"`
 	PhoneNumber string `pulumi:"phoneNumber"`
-	// The status of the receiver.
-	Status string `pulumi:"status"`
+	Status      string `pulumi:"status"`
 }
 
 // SmsReceiverResponseInput is an input type that accepts SmsReceiverResponseArgs and SmsReceiverResponseOutput values.
@@ -1866,16 +1660,11 @@ type SmsReceiverResponseInput interface {
 	ToSmsReceiverResponseOutputWithContext(context.Context) SmsReceiverResponseOutput
 }
 
-// An SMS receiver.
 type SmsReceiverResponseArgs struct {
-	// The country code of the SMS receiver.
 	CountryCode pulumi.StringInput `pulumi:"countryCode"`
-	// The name of the SMS receiver. Names must be unique across all receivers within an action group.
-	Name pulumi.StringInput `pulumi:"name"`
-	// The phone number of the SMS receiver.
+	Name        pulumi.StringInput `pulumi:"name"`
 	PhoneNumber pulumi.StringInput `pulumi:"phoneNumber"`
-	// The status of the receiver.
-	Status pulumi.StringInput `pulumi:"status"`
+	Status      pulumi.StringInput `pulumi:"status"`
 }
 
 func (SmsReceiverResponseArgs) ElementType() reflect.Type {
@@ -1915,7 +1704,6 @@ func (i SmsReceiverResponseArray) ToSmsReceiverResponseArrayOutputWithContext(ct
 	return pulumi.ToOutputWithContext(ctx, i).(SmsReceiverResponseArrayOutput)
 }
 
-// An SMS receiver.
 type SmsReceiverResponseOutput struct{ *pulumi.OutputState }
 
 func (SmsReceiverResponseOutput) ElementType() reflect.Type {
@@ -1930,22 +1718,18 @@ func (o SmsReceiverResponseOutput) ToSmsReceiverResponseOutputWithContext(ctx co
 	return o
 }
 
-// The country code of the SMS receiver.
 func (o SmsReceiverResponseOutput) CountryCode() pulumi.StringOutput {
 	return o.ApplyT(func(v SmsReceiverResponse) string { return v.CountryCode }).(pulumi.StringOutput)
 }
 
-// The name of the SMS receiver. Names must be unique across all receivers within an action group.
 func (o SmsReceiverResponseOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v SmsReceiverResponse) string { return v.Name }).(pulumi.StringOutput)
 }
 
-// The phone number of the SMS receiver.
 func (o SmsReceiverResponseOutput) PhoneNumber() pulumi.StringOutput {
 	return o.ApplyT(func(v SmsReceiverResponse) string { return v.PhoneNumber }).(pulumi.StringOutput)
 }
 
-// The status of the receiver.
 func (o SmsReceiverResponseOutput) Status() pulumi.StringOutput {
 	return o.ApplyT(func(v SmsReceiverResponse) string { return v.Status }).(pulumi.StringOutput)
 }
@@ -1970,13 +1754,9 @@ func (o SmsReceiverResponseArrayOutput) Index(i pulumi.IntInput) SmsReceiverResp
 	}).(SmsReceiverResponseOutput)
 }
 
-// A voice receiver.
 type VoiceReceiver struct {
-	// The country code of the voice receiver.
 	CountryCode string `pulumi:"countryCode"`
-	// The name of the voice receiver. Names must be unique across all receivers within an action group.
-	Name string `pulumi:"name"`
-	// The phone number of the voice receiver.
+	Name        string `pulumi:"name"`
 	PhoneNumber string `pulumi:"phoneNumber"`
 }
 
@@ -1991,13 +1771,9 @@ type VoiceReceiverInput interface {
 	ToVoiceReceiverOutputWithContext(context.Context) VoiceReceiverOutput
 }
 
-// A voice receiver.
 type VoiceReceiverArgs struct {
-	// The country code of the voice receiver.
 	CountryCode pulumi.StringInput `pulumi:"countryCode"`
-	// The name of the voice receiver. Names must be unique across all receivers within an action group.
-	Name pulumi.StringInput `pulumi:"name"`
-	// The phone number of the voice receiver.
+	Name        pulumi.StringInput `pulumi:"name"`
 	PhoneNumber pulumi.StringInput `pulumi:"phoneNumber"`
 }
 
@@ -2038,7 +1814,6 @@ func (i VoiceReceiverArray) ToVoiceReceiverArrayOutputWithContext(ctx context.Co
 	return pulumi.ToOutputWithContext(ctx, i).(VoiceReceiverArrayOutput)
 }
 
-// A voice receiver.
 type VoiceReceiverOutput struct{ *pulumi.OutputState }
 
 func (VoiceReceiverOutput) ElementType() reflect.Type {
@@ -2053,17 +1828,14 @@ func (o VoiceReceiverOutput) ToVoiceReceiverOutputWithContext(ctx context.Contex
 	return o
 }
 
-// The country code of the voice receiver.
 func (o VoiceReceiverOutput) CountryCode() pulumi.StringOutput {
 	return o.ApplyT(func(v VoiceReceiver) string { return v.CountryCode }).(pulumi.StringOutput)
 }
 
-// The name of the voice receiver. Names must be unique across all receivers within an action group.
 func (o VoiceReceiverOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v VoiceReceiver) string { return v.Name }).(pulumi.StringOutput)
 }
 
-// The phone number of the voice receiver.
 func (o VoiceReceiverOutput) PhoneNumber() pulumi.StringOutput {
 	return o.ApplyT(func(v VoiceReceiver) string { return v.PhoneNumber }).(pulumi.StringOutput)
 }
@@ -2088,13 +1860,9 @@ func (o VoiceReceiverArrayOutput) Index(i pulumi.IntInput) VoiceReceiverOutput {
 	}).(VoiceReceiverOutput)
 }
 
-// A voice receiver.
 type VoiceReceiverResponse struct {
-	// The country code of the voice receiver.
 	CountryCode string `pulumi:"countryCode"`
-	// The name of the voice receiver. Names must be unique across all receivers within an action group.
-	Name string `pulumi:"name"`
-	// The phone number of the voice receiver.
+	Name        string `pulumi:"name"`
 	PhoneNumber string `pulumi:"phoneNumber"`
 }
 
@@ -2109,13 +1877,9 @@ type VoiceReceiverResponseInput interface {
 	ToVoiceReceiverResponseOutputWithContext(context.Context) VoiceReceiverResponseOutput
 }
 
-// A voice receiver.
 type VoiceReceiverResponseArgs struct {
-	// The country code of the voice receiver.
 	CountryCode pulumi.StringInput `pulumi:"countryCode"`
-	// The name of the voice receiver. Names must be unique across all receivers within an action group.
-	Name pulumi.StringInput `pulumi:"name"`
-	// The phone number of the voice receiver.
+	Name        pulumi.StringInput `pulumi:"name"`
 	PhoneNumber pulumi.StringInput `pulumi:"phoneNumber"`
 }
 
@@ -2156,7 +1920,6 @@ func (i VoiceReceiverResponseArray) ToVoiceReceiverResponseArrayOutputWithContex
 	return pulumi.ToOutputWithContext(ctx, i).(VoiceReceiverResponseArrayOutput)
 }
 
-// A voice receiver.
 type VoiceReceiverResponseOutput struct{ *pulumi.OutputState }
 
 func (VoiceReceiverResponseOutput) ElementType() reflect.Type {
@@ -2171,17 +1934,14 @@ func (o VoiceReceiverResponseOutput) ToVoiceReceiverResponseOutputWithContext(ct
 	return o
 }
 
-// The country code of the voice receiver.
 func (o VoiceReceiverResponseOutput) CountryCode() pulumi.StringOutput {
 	return o.ApplyT(func(v VoiceReceiverResponse) string { return v.CountryCode }).(pulumi.StringOutput)
 }
 
-// The name of the voice receiver. Names must be unique across all receivers within an action group.
 func (o VoiceReceiverResponseOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v VoiceReceiverResponse) string { return v.Name }).(pulumi.StringOutput)
 }
 
-// The phone number of the voice receiver.
 func (o VoiceReceiverResponseOutput) PhoneNumber() pulumi.StringOutput {
 	return o.ApplyT(func(v VoiceReceiverResponse) string { return v.PhoneNumber }).(pulumi.StringOutput)
 }
@@ -2206,11 +1966,8 @@ func (o VoiceReceiverResponseArrayOutput) Index(i pulumi.IntInput) VoiceReceiver
 	}).(VoiceReceiverResponseOutput)
 }
 
-// A webhook receiver.
 type WebhookReceiver struct {
-	// The name of the webhook receiver. Names must be unique across all receivers within an action group.
-	Name string `pulumi:"name"`
-	// The URI where webhooks should be sent.
+	Name       string `pulumi:"name"`
 	ServiceUri string `pulumi:"serviceUri"`
 }
 
@@ -2225,11 +1982,8 @@ type WebhookReceiverInput interface {
 	ToWebhookReceiverOutputWithContext(context.Context) WebhookReceiverOutput
 }
 
-// A webhook receiver.
 type WebhookReceiverArgs struct {
-	// The name of the webhook receiver. Names must be unique across all receivers within an action group.
-	Name pulumi.StringInput `pulumi:"name"`
-	// The URI where webhooks should be sent.
+	Name       pulumi.StringInput `pulumi:"name"`
 	ServiceUri pulumi.StringInput `pulumi:"serviceUri"`
 }
 
@@ -2270,7 +2024,6 @@ func (i WebhookReceiverArray) ToWebhookReceiverArrayOutputWithContext(ctx contex
 	return pulumi.ToOutputWithContext(ctx, i).(WebhookReceiverArrayOutput)
 }
 
-// A webhook receiver.
 type WebhookReceiverOutput struct{ *pulumi.OutputState }
 
 func (WebhookReceiverOutput) ElementType() reflect.Type {
@@ -2285,12 +2038,10 @@ func (o WebhookReceiverOutput) ToWebhookReceiverOutputWithContext(ctx context.Co
 	return o
 }
 
-// The name of the webhook receiver. Names must be unique across all receivers within an action group.
 func (o WebhookReceiverOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v WebhookReceiver) string { return v.Name }).(pulumi.StringOutput)
 }
 
-// The URI where webhooks should be sent.
 func (o WebhookReceiverOutput) ServiceUri() pulumi.StringOutput {
 	return o.ApplyT(func(v WebhookReceiver) string { return v.ServiceUri }).(pulumi.StringOutput)
 }
@@ -2315,11 +2066,8 @@ func (o WebhookReceiverArrayOutput) Index(i pulumi.IntInput) WebhookReceiverOutp
 	}).(WebhookReceiverOutput)
 }
 
-// A webhook receiver.
 type WebhookReceiverResponse struct {
-	// The name of the webhook receiver. Names must be unique across all receivers within an action group.
-	Name string `pulumi:"name"`
-	// The URI where webhooks should be sent.
+	Name       string `pulumi:"name"`
 	ServiceUri string `pulumi:"serviceUri"`
 }
 
@@ -2334,11 +2082,8 @@ type WebhookReceiverResponseInput interface {
 	ToWebhookReceiverResponseOutputWithContext(context.Context) WebhookReceiverResponseOutput
 }
 
-// A webhook receiver.
 type WebhookReceiverResponseArgs struct {
-	// The name of the webhook receiver. Names must be unique across all receivers within an action group.
-	Name pulumi.StringInput `pulumi:"name"`
-	// The URI where webhooks should be sent.
+	Name       pulumi.StringInput `pulumi:"name"`
 	ServiceUri pulumi.StringInput `pulumi:"serviceUri"`
 }
 
@@ -2379,7 +2124,6 @@ func (i WebhookReceiverResponseArray) ToWebhookReceiverResponseArrayOutputWithCo
 	return pulumi.ToOutputWithContext(ctx, i).(WebhookReceiverResponseArrayOutput)
 }
 
-// A webhook receiver.
 type WebhookReceiverResponseOutput struct{ *pulumi.OutputState }
 
 func (WebhookReceiverResponseOutput) ElementType() reflect.Type {
@@ -2394,12 +2138,10 @@ func (o WebhookReceiverResponseOutput) ToWebhookReceiverResponseOutputWithContex
 	return o
 }
 
-// The name of the webhook receiver. Names must be unique across all receivers within an action group.
 func (o WebhookReceiverResponseOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v WebhookReceiverResponse) string { return v.Name }).(pulumi.StringOutput)
 }
 
-// The URI where webhooks should be sent.
 func (o WebhookReceiverResponseOutput) ServiceUri() pulumi.StringOutput {
 	return o.ApplyT(func(v WebhookReceiverResponse) string { return v.ServiceUri }).(pulumi.StringOutput)
 }

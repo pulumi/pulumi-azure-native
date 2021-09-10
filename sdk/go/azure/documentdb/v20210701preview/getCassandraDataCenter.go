@@ -7,7 +7,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// A managed Cassandra data center.
 func LookupCassandraDataCenter(ctx *pulumi.Context, args *LookupCassandraDataCenterArgs, opts ...pulumi.InvokeOption) (*LookupCassandraDataCenterResult, error) {
 	var rv LookupCassandraDataCenterResult
 	err := ctx.Invoke("azure-native:documentdb/v20210701preview:getCassandraDataCenter", args, &rv, opts...)
@@ -18,22 +17,15 @@ func LookupCassandraDataCenter(ctx *pulumi.Context, args *LookupCassandraDataCen
 }
 
 type LookupCassandraDataCenterArgs struct {
-	// Managed Cassandra cluster name.
-	ClusterName string `pulumi:"clusterName"`
-	// Data center name in a managed Cassandra cluster.
-	DataCenterName string `pulumi:"dataCenterName"`
-	// The name of the resource group. The name is case insensitive.
+	ClusterName       string `pulumi:"clusterName"`
+	DataCenterName    string `pulumi:"dataCenterName"`
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 }
 
 // A managed Cassandra data center.
 type LookupCassandraDataCenterResult struct {
-	// The unique resource identifier of the database account.
-	Id string `pulumi:"id"`
-	// The name of the database account.
-	Name string `pulumi:"name"`
-	// Properties of a managed Cassandra data center.
+	Id         string                               `pulumi:"id"`
+	Name       string                               `pulumi:"name"`
 	Properties DataCenterResourceResponseProperties `pulumi:"properties"`
-	// The type of Azure resource.
-	Type string `pulumi:"type"`
+	Type       string                               `pulumi:"type"`
 }

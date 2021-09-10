@@ -10,13 +10,9 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Deployment dependency information.
 type BasicDependencyResponse struct {
-	// Gets or sets the ID of the dependency.
-	Id *string `pulumi:"id"`
-	// Gets or sets the dependency resource name.
+	Id           *string `pulumi:"id"`
 	ResourceName *string `pulumi:"resourceName"`
-	// Gets or sets the dependency resource type.
 	ResourceType *string `pulumi:"resourceType"`
 }
 
@@ -31,13 +27,9 @@ type BasicDependencyResponseInput interface {
 	ToBasicDependencyResponseOutputWithContext(context.Context) BasicDependencyResponseOutput
 }
 
-// Deployment dependency information.
 type BasicDependencyResponseArgs struct {
-	// Gets or sets the ID of the dependency.
-	Id pulumi.StringPtrInput `pulumi:"id"`
-	// Gets or sets the dependency resource name.
+	Id           pulumi.StringPtrInput `pulumi:"id"`
 	ResourceName pulumi.StringPtrInput `pulumi:"resourceName"`
-	// Gets or sets the dependency resource type.
 	ResourceType pulumi.StringPtrInput `pulumi:"resourceType"`
 }
 
@@ -78,7 +70,6 @@ func (i BasicDependencyResponseArray) ToBasicDependencyResponseArrayOutputWithCo
 	return pulumi.ToOutputWithContext(ctx, i).(BasicDependencyResponseArrayOutput)
 }
 
-// Deployment dependency information.
 type BasicDependencyResponseOutput struct{ *pulumi.OutputState }
 
 func (BasicDependencyResponseOutput) ElementType() reflect.Type {
@@ -93,17 +84,14 @@ func (o BasicDependencyResponseOutput) ToBasicDependencyResponseOutputWithContex
 	return o
 }
 
-// Gets or sets the ID of the dependency.
 func (o BasicDependencyResponseOutput) Id() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v BasicDependencyResponse) *string { return v.Id }).(pulumi.StringPtrOutput)
 }
 
-// Gets or sets the dependency resource name.
 func (o BasicDependencyResponseOutput) ResourceName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v BasicDependencyResponse) *string { return v.ResourceName }).(pulumi.StringPtrOutput)
 }
 
-// Gets or sets the dependency resource type.
 func (o BasicDependencyResponseOutput) ResourceType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v BasicDependencyResponse) *string { return v.ResourceType }).(pulumi.StringPtrOutput)
 }
@@ -128,16 +116,11 @@ func (o BasicDependencyResponseArrayOutput) Index(i pulumi.IntInput) BasicDepend
 	}).(BasicDependencyResponseOutput)
 }
 
-// Deployment dependency information.
 type DependencyResponse struct {
-	// Gets the list of dependencies.
-	DependsOn []BasicDependencyResponse `pulumi:"dependsOn"`
-	// Gets or sets the ID of the dependency.
-	Id *string `pulumi:"id"`
-	// Gets or sets the dependency resource name.
-	ResourceName *string `pulumi:"resourceName"`
-	// Gets or sets the dependency resource type.
-	ResourceType *string `pulumi:"resourceType"`
+	DependsOn    []BasicDependencyResponse `pulumi:"dependsOn"`
+	Id           *string                   `pulumi:"id"`
+	ResourceName *string                   `pulumi:"resourceName"`
+	ResourceType *string                   `pulumi:"resourceType"`
 }
 
 // DependencyResponseInput is an input type that accepts DependencyResponseArgs and DependencyResponseOutput values.
@@ -151,16 +134,11 @@ type DependencyResponseInput interface {
 	ToDependencyResponseOutputWithContext(context.Context) DependencyResponseOutput
 }
 
-// Deployment dependency information.
 type DependencyResponseArgs struct {
-	// Gets the list of dependencies.
-	DependsOn BasicDependencyResponseArrayInput `pulumi:"dependsOn"`
-	// Gets or sets the ID of the dependency.
-	Id pulumi.StringPtrInput `pulumi:"id"`
-	// Gets or sets the dependency resource name.
-	ResourceName pulumi.StringPtrInput `pulumi:"resourceName"`
-	// Gets or sets the dependency resource type.
-	ResourceType pulumi.StringPtrInput `pulumi:"resourceType"`
+	DependsOn    BasicDependencyResponseArrayInput `pulumi:"dependsOn"`
+	Id           pulumi.StringPtrInput             `pulumi:"id"`
+	ResourceName pulumi.StringPtrInput             `pulumi:"resourceName"`
+	ResourceType pulumi.StringPtrInput             `pulumi:"resourceType"`
 }
 
 func (DependencyResponseArgs) ElementType() reflect.Type {
@@ -200,7 +178,6 @@ func (i DependencyResponseArray) ToDependencyResponseArrayOutputWithContext(ctx 
 	return pulumi.ToOutputWithContext(ctx, i).(DependencyResponseArrayOutput)
 }
 
-// Deployment dependency information.
 type DependencyResponseOutput struct{ *pulumi.OutputState }
 
 func (DependencyResponseOutput) ElementType() reflect.Type {
@@ -215,22 +192,18 @@ func (o DependencyResponseOutput) ToDependencyResponseOutputWithContext(ctx cont
 	return o
 }
 
-// Gets the list of dependencies.
 func (o DependencyResponseOutput) DependsOn() BasicDependencyResponseArrayOutput {
 	return o.ApplyT(func(v DependencyResponse) []BasicDependencyResponse { return v.DependsOn }).(BasicDependencyResponseArrayOutput)
 }
 
-// Gets or sets the ID of the dependency.
 func (o DependencyResponseOutput) Id() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v DependencyResponse) *string { return v.Id }).(pulumi.StringPtrOutput)
 }
 
-// Gets or sets the dependency resource name.
 func (o DependencyResponseOutput) ResourceName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v DependencyResponse) *string { return v.ResourceName }).(pulumi.StringPtrOutput)
 }
 
-// Gets or sets the dependency resource type.
 func (o DependencyResponseOutput) ResourceType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v DependencyResponse) *string { return v.ResourceType }).(pulumi.StringPtrOutput)
 }
@@ -255,18 +228,12 @@ func (o DependencyResponseArrayOutput) Index(i pulumi.IntInput) DependencyRespon
 	}).(DependencyResponseOutput)
 }
 
-// Deployment properties.
 type DeploymentProperties struct {
-	// Gets or sets the deployment mode.
-	Mode *string `pulumi:"mode"`
-	// Deployment parameters. Use only one of Parameters or ParametersLink.
-	Parameters interface{} `pulumi:"parameters"`
-	// Gets or sets the URI referencing the parameters. Use only one of Parameters or ParametersLink.
+	Mode           *DeploymentMode `pulumi:"mode"`
+	Parameters     interface{}     `pulumi:"parameters"`
 	ParametersLink *ParametersLink `pulumi:"parametersLink"`
-	// Gets or sets the template content. Use only one of Template or TemplateLink.
-	Template interface{} `pulumi:"template"`
-	// Gets or sets the URI referencing the template. Use only one of Template or TemplateLink.
-	TemplateLink *TemplateLink `pulumi:"templateLink"`
+	Template       interface{}     `pulumi:"template"`
+	TemplateLink   *TemplateLink   `pulumi:"templateLink"`
 }
 
 // DeploymentPropertiesInput is an input type that accepts DeploymentPropertiesArgs and DeploymentPropertiesOutput values.
@@ -280,18 +247,12 @@ type DeploymentPropertiesInput interface {
 	ToDeploymentPropertiesOutputWithContext(context.Context) DeploymentPropertiesOutput
 }
 
-// Deployment properties.
 type DeploymentPropertiesArgs struct {
-	// Gets or sets the deployment mode.
-	Mode *DeploymentMode `pulumi:"mode"`
-	// Deployment parameters. Use only one of Parameters or ParametersLink.
-	Parameters pulumi.Input `pulumi:"parameters"`
-	// Gets or sets the URI referencing the parameters. Use only one of Parameters or ParametersLink.
+	Mode           DeploymentModePtrInput `pulumi:"mode"`
+	Parameters     pulumi.Input           `pulumi:"parameters"`
 	ParametersLink ParametersLinkPtrInput `pulumi:"parametersLink"`
-	// Gets or sets the template content. Use only one of Template or TemplateLink.
-	Template pulumi.Input `pulumi:"template"`
-	// Gets or sets the URI referencing the template. Use only one of Template or TemplateLink.
-	TemplateLink TemplateLinkPtrInput `pulumi:"templateLink"`
+	Template       pulumi.Input           `pulumi:"template"`
+	TemplateLink   TemplateLinkPtrInput   `pulumi:"templateLink"`
 }
 
 func (DeploymentPropertiesArgs) ElementType() reflect.Type {
@@ -347,7 +308,6 @@ func (i *deploymentPropertiesPtrType) ToDeploymentPropertiesPtrOutputWithContext
 	return pulumi.ToOutputWithContext(ctx, i).(DeploymentPropertiesPtrOutput)
 }
 
-// Deployment properties.
 type DeploymentPropertiesOutput struct{ *pulumi.OutputState }
 
 func (DeploymentPropertiesOutput) ElementType() reflect.Type {
@@ -367,32 +327,27 @@ func (o DeploymentPropertiesOutput) ToDeploymentPropertiesPtrOutput() Deployment
 }
 
 func (o DeploymentPropertiesOutput) ToDeploymentPropertiesPtrOutputWithContext(ctx context.Context) DeploymentPropertiesPtrOutput {
-	return o.ApplyT(func(v DeploymentProperties) *DeploymentProperties {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v DeploymentProperties) *DeploymentProperties {
 		return &v
 	}).(DeploymentPropertiesPtrOutput)
 }
 
-// Gets or sets the deployment mode.
-func (o DeploymentPropertiesOutput) Mode() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v DeploymentProperties) *string { return v.Mode }).(pulumi.StringPtrOutput)
+func (o DeploymentPropertiesOutput) Mode() DeploymentModePtrOutput {
+	return o.ApplyT(func(v DeploymentProperties) *DeploymentMode { return v.Mode }).(DeploymentModePtrOutput)
 }
 
-// Deployment parameters. Use only one of Parameters or ParametersLink.
 func (o DeploymentPropertiesOutput) Parameters() pulumi.AnyOutput {
 	return o.ApplyT(func(v DeploymentProperties) interface{} { return v.Parameters }).(pulumi.AnyOutput)
 }
 
-// Gets or sets the URI referencing the parameters. Use only one of Parameters or ParametersLink.
 func (o DeploymentPropertiesOutput) ParametersLink() ParametersLinkPtrOutput {
 	return o.ApplyT(func(v DeploymentProperties) *ParametersLink { return v.ParametersLink }).(ParametersLinkPtrOutput)
 }
 
-// Gets or sets the template content. Use only one of Template or TemplateLink.
 func (o DeploymentPropertiesOutput) Template() pulumi.AnyOutput {
 	return o.ApplyT(func(v DeploymentProperties) interface{} { return v.Template }).(pulumi.AnyOutput)
 }
 
-// Gets or sets the URI referencing the template. Use only one of Template or TemplateLink.
 func (o DeploymentPropertiesOutput) TemplateLink() TemplateLinkPtrOutput {
 	return o.ApplyT(func(v DeploymentProperties) *TemplateLink { return v.TemplateLink }).(TemplateLinkPtrOutput)
 }
@@ -412,20 +367,24 @@ func (o DeploymentPropertiesPtrOutput) ToDeploymentPropertiesPtrOutputWithContex
 }
 
 func (o DeploymentPropertiesPtrOutput) Elem() DeploymentPropertiesOutput {
-	return o.ApplyT(func(v *DeploymentProperties) DeploymentProperties { return *v }).(DeploymentPropertiesOutput)
+	return o.ApplyT(func(v *DeploymentProperties) DeploymentProperties {
+		if v != nil {
+			return *v
+		}
+		var ret DeploymentProperties
+		return ret
+	}).(DeploymentPropertiesOutput)
 }
 
-// Gets or sets the deployment mode.
-func (o DeploymentPropertiesPtrOutput) Mode() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *DeploymentProperties) *string {
+func (o DeploymentPropertiesPtrOutput) Mode() DeploymentModePtrOutput {
+	return o.ApplyT(func(v *DeploymentProperties) *DeploymentMode {
 		if v == nil {
 			return nil
 		}
 		return v.Mode
-	}).(pulumi.StringPtrOutput)
+	}).(DeploymentModePtrOutput)
 }
 
-// Deployment parameters. Use only one of Parameters or ParametersLink.
 func (o DeploymentPropertiesPtrOutput) Parameters() pulumi.AnyOutput {
 	return o.ApplyT(func(v *DeploymentProperties) interface{} {
 		if v == nil {
@@ -435,7 +394,6 @@ func (o DeploymentPropertiesPtrOutput) Parameters() pulumi.AnyOutput {
 	}).(pulumi.AnyOutput)
 }
 
-// Gets or sets the URI referencing the parameters. Use only one of Parameters or ParametersLink.
 func (o DeploymentPropertiesPtrOutput) ParametersLink() ParametersLinkPtrOutput {
 	return o.ApplyT(func(v *DeploymentProperties) *ParametersLink {
 		if v == nil {
@@ -445,7 +403,6 @@ func (o DeploymentPropertiesPtrOutput) ParametersLink() ParametersLinkPtrOutput 
 	}).(ParametersLinkPtrOutput)
 }
 
-// Gets or sets the template content. Use only one of Template or TemplateLink.
 func (o DeploymentPropertiesPtrOutput) Template() pulumi.AnyOutput {
 	return o.ApplyT(func(v *DeploymentProperties) interface{} {
 		if v == nil {
@@ -455,7 +412,6 @@ func (o DeploymentPropertiesPtrOutput) Template() pulumi.AnyOutput {
 	}).(pulumi.AnyOutput)
 }
 
-// Gets or sets the URI referencing the template. Use only one of Template or TemplateLink.
 func (o DeploymentPropertiesPtrOutput) TemplateLink() TemplateLinkPtrOutput {
 	return o.ApplyT(func(v *DeploymentProperties) *TemplateLink {
 		if v == nil {
@@ -465,30 +421,18 @@ func (o DeploymentPropertiesPtrOutput) TemplateLink() TemplateLinkPtrOutput {
 	}).(TemplateLinkPtrOutput)
 }
 
-// Deployment properties with additional details.
 type DeploymentPropertiesExtendedResponse struct {
-	// Gets or sets the correlation ID of the deployment.
-	CorrelationId *string `pulumi:"correlationId"`
-	// Gets the list of deployment dependencies.
-	Dependencies []DependencyResponse `pulumi:"dependencies"`
-	// Gets or sets the deployment mode.
-	Mode *string `pulumi:"mode"`
-	// Gets or sets key/value pairs that represent deployment output.
-	Outputs interface{} `pulumi:"outputs"`
-	// Deployment parameters. Use only one of Parameters or ParametersLink.
-	Parameters interface{} `pulumi:"parameters"`
-	// Gets or sets the URI referencing the parameters. Use only one of Parameters or ParametersLink.
-	ParametersLink *ParametersLinkResponse `pulumi:"parametersLink"`
-	// Gets the list of resource providers needed for the deployment.
-	Providers []ProviderResponse `pulumi:"providers"`
-	// Gets or sets the state of the provisioning.
-	ProvisioningState *string `pulumi:"provisioningState"`
-	// Gets or sets the template content. Use only one of Template or TemplateLink.
-	Template interface{} `pulumi:"template"`
-	// Gets or sets the URI referencing the template. Use only one of Template or TemplateLink.
-	TemplateLink *TemplateLinkResponse `pulumi:"templateLink"`
-	// Gets or sets the timestamp of the template deployment.
-	Timestamp *string `pulumi:"timestamp"`
+	CorrelationId     *string                 `pulumi:"correlationId"`
+	Dependencies      []DependencyResponse    `pulumi:"dependencies"`
+	Mode              *string                 `pulumi:"mode"`
+	Outputs           interface{}             `pulumi:"outputs"`
+	Parameters        interface{}             `pulumi:"parameters"`
+	ParametersLink    *ParametersLinkResponse `pulumi:"parametersLink"`
+	Providers         []ProviderResponse      `pulumi:"providers"`
+	ProvisioningState *string                 `pulumi:"provisioningState"`
+	Template          interface{}             `pulumi:"template"`
+	TemplateLink      *TemplateLinkResponse   `pulumi:"templateLink"`
+	Timestamp         *string                 `pulumi:"timestamp"`
 }
 
 // DeploymentPropertiesExtendedResponseInput is an input type that accepts DeploymentPropertiesExtendedResponseArgs and DeploymentPropertiesExtendedResponseOutput values.
@@ -502,30 +446,18 @@ type DeploymentPropertiesExtendedResponseInput interface {
 	ToDeploymentPropertiesExtendedResponseOutputWithContext(context.Context) DeploymentPropertiesExtendedResponseOutput
 }
 
-// Deployment properties with additional details.
 type DeploymentPropertiesExtendedResponseArgs struct {
-	// Gets or sets the correlation ID of the deployment.
-	CorrelationId pulumi.StringPtrInput `pulumi:"correlationId"`
-	// Gets the list of deployment dependencies.
-	Dependencies DependencyResponseArrayInput `pulumi:"dependencies"`
-	// Gets or sets the deployment mode.
-	Mode pulumi.StringPtrInput `pulumi:"mode"`
-	// Gets or sets key/value pairs that represent deployment output.
-	Outputs pulumi.Input `pulumi:"outputs"`
-	// Deployment parameters. Use only one of Parameters or ParametersLink.
-	Parameters pulumi.Input `pulumi:"parameters"`
-	// Gets or sets the URI referencing the parameters. Use only one of Parameters or ParametersLink.
-	ParametersLink ParametersLinkResponsePtrInput `pulumi:"parametersLink"`
-	// Gets the list of resource providers needed for the deployment.
-	Providers ProviderResponseArrayInput `pulumi:"providers"`
-	// Gets or sets the state of the provisioning.
-	ProvisioningState pulumi.StringPtrInput `pulumi:"provisioningState"`
-	// Gets or sets the template content. Use only one of Template or TemplateLink.
-	Template pulumi.Input `pulumi:"template"`
-	// Gets or sets the URI referencing the template. Use only one of Template or TemplateLink.
-	TemplateLink TemplateLinkResponsePtrInput `pulumi:"templateLink"`
-	// Gets or sets the timestamp of the template deployment.
-	Timestamp pulumi.StringPtrInput `pulumi:"timestamp"`
+	CorrelationId     pulumi.StringPtrInput          `pulumi:"correlationId"`
+	Dependencies      DependencyResponseArrayInput   `pulumi:"dependencies"`
+	Mode              pulumi.StringPtrInput          `pulumi:"mode"`
+	Outputs           pulumi.Input                   `pulumi:"outputs"`
+	Parameters        pulumi.Input                   `pulumi:"parameters"`
+	ParametersLink    ParametersLinkResponsePtrInput `pulumi:"parametersLink"`
+	Providers         ProviderResponseArrayInput     `pulumi:"providers"`
+	ProvisioningState pulumi.StringPtrInput          `pulumi:"provisioningState"`
+	Template          pulumi.Input                   `pulumi:"template"`
+	TemplateLink      TemplateLinkResponsePtrInput   `pulumi:"templateLink"`
+	Timestamp         pulumi.StringPtrInput          `pulumi:"timestamp"`
 }
 
 func (DeploymentPropertiesExtendedResponseArgs) ElementType() reflect.Type {
@@ -581,7 +513,6 @@ func (i *deploymentPropertiesExtendedResponsePtrType) ToDeploymentPropertiesExte
 	return pulumi.ToOutputWithContext(ctx, i).(DeploymentPropertiesExtendedResponsePtrOutput)
 }
 
-// Deployment properties with additional details.
 type DeploymentPropertiesExtendedResponseOutput struct{ *pulumi.OutputState }
 
 func (DeploymentPropertiesExtendedResponseOutput) ElementType() reflect.Type {
@@ -601,62 +532,51 @@ func (o DeploymentPropertiesExtendedResponseOutput) ToDeploymentPropertiesExtend
 }
 
 func (o DeploymentPropertiesExtendedResponseOutput) ToDeploymentPropertiesExtendedResponsePtrOutputWithContext(ctx context.Context) DeploymentPropertiesExtendedResponsePtrOutput {
-	return o.ApplyT(func(v DeploymentPropertiesExtendedResponse) *DeploymentPropertiesExtendedResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v DeploymentPropertiesExtendedResponse) *DeploymentPropertiesExtendedResponse {
 		return &v
 	}).(DeploymentPropertiesExtendedResponsePtrOutput)
 }
 
-// Gets or sets the correlation ID of the deployment.
 func (o DeploymentPropertiesExtendedResponseOutput) CorrelationId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v DeploymentPropertiesExtendedResponse) *string { return v.CorrelationId }).(pulumi.StringPtrOutput)
 }
 
-// Gets the list of deployment dependencies.
 func (o DeploymentPropertiesExtendedResponseOutput) Dependencies() DependencyResponseArrayOutput {
 	return o.ApplyT(func(v DeploymentPropertiesExtendedResponse) []DependencyResponse { return v.Dependencies }).(DependencyResponseArrayOutput)
 }
 
-// Gets or sets the deployment mode.
 func (o DeploymentPropertiesExtendedResponseOutput) Mode() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v DeploymentPropertiesExtendedResponse) *string { return v.Mode }).(pulumi.StringPtrOutput)
 }
 
-// Gets or sets key/value pairs that represent deployment output.
 func (o DeploymentPropertiesExtendedResponseOutput) Outputs() pulumi.AnyOutput {
 	return o.ApplyT(func(v DeploymentPropertiesExtendedResponse) interface{} { return v.Outputs }).(pulumi.AnyOutput)
 }
 
-// Deployment parameters. Use only one of Parameters or ParametersLink.
 func (o DeploymentPropertiesExtendedResponseOutput) Parameters() pulumi.AnyOutput {
 	return o.ApplyT(func(v DeploymentPropertiesExtendedResponse) interface{} { return v.Parameters }).(pulumi.AnyOutput)
 }
 
-// Gets or sets the URI referencing the parameters. Use only one of Parameters or ParametersLink.
 func (o DeploymentPropertiesExtendedResponseOutput) ParametersLink() ParametersLinkResponsePtrOutput {
 	return o.ApplyT(func(v DeploymentPropertiesExtendedResponse) *ParametersLinkResponse { return v.ParametersLink }).(ParametersLinkResponsePtrOutput)
 }
 
-// Gets the list of resource providers needed for the deployment.
 func (o DeploymentPropertiesExtendedResponseOutput) Providers() ProviderResponseArrayOutput {
 	return o.ApplyT(func(v DeploymentPropertiesExtendedResponse) []ProviderResponse { return v.Providers }).(ProviderResponseArrayOutput)
 }
 
-// Gets or sets the state of the provisioning.
 func (o DeploymentPropertiesExtendedResponseOutput) ProvisioningState() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v DeploymentPropertiesExtendedResponse) *string { return v.ProvisioningState }).(pulumi.StringPtrOutput)
 }
 
-// Gets or sets the template content. Use only one of Template or TemplateLink.
 func (o DeploymentPropertiesExtendedResponseOutput) Template() pulumi.AnyOutput {
 	return o.ApplyT(func(v DeploymentPropertiesExtendedResponse) interface{} { return v.Template }).(pulumi.AnyOutput)
 }
 
-// Gets or sets the URI referencing the template. Use only one of Template or TemplateLink.
 func (o DeploymentPropertiesExtendedResponseOutput) TemplateLink() TemplateLinkResponsePtrOutput {
 	return o.ApplyT(func(v DeploymentPropertiesExtendedResponse) *TemplateLinkResponse { return v.TemplateLink }).(TemplateLinkResponsePtrOutput)
 }
 
-// Gets or sets the timestamp of the template deployment.
 func (o DeploymentPropertiesExtendedResponseOutput) Timestamp() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v DeploymentPropertiesExtendedResponse) *string { return v.Timestamp }).(pulumi.StringPtrOutput)
 }
@@ -676,10 +596,15 @@ func (o DeploymentPropertiesExtendedResponsePtrOutput) ToDeploymentPropertiesExt
 }
 
 func (o DeploymentPropertiesExtendedResponsePtrOutput) Elem() DeploymentPropertiesExtendedResponseOutput {
-	return o.ApplyT(func(v *DeploymentPropertiesExtendedResponse) DeploymentPropertiesExtendedResponse { return *v }).(DeploymentPropertiesExtendedResponseOutput)
+	return o.ApplyT(func(v *DeploymentPropertiesExtendedResponse) DeploymentPropertiesExtendedResponse {
+		if v != nil {
+			return *v
+		}
+		var ret DeploymentPropertiesExtendedResponse
+		return ret
+	}).(DeploymentPropertiesExtendedResponseOutput)
 }
 
-// Gets or sets the correlation ID of the deployment.
 func (o DeploymentPropertiesExtendedResponsePtrOutput) CorrelationId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *DeploymentPropertiesExtendedResponse) *string {
 		if v == nil {
@@ -689,7 +614,6 @@ func (o DeploymentPropertiesExtendedResponsePtrOutput) CorrelationId() pulumi.St
 	}).(pulumi.StringPtrOutput)
 }
 
-// Gets the list of deployment dependencies.
 func (o DeploymentPropertiesExtendedResponsePtrOutput) Dependencies() DependencyResponseArrayOutput {
 	return o.ApplyT(func(v *DeploymentPropertiesExtendedResponse) []DependencyResponse {
 		if v == nil {
@@ -699,7 +623,6 @@ func (o DeploymentPropertiesExtendedResponsePtrOutput) Dependencies() Dependency
 	}).(DependencyResponseArrayOutput)
 }
 
-// Gets or sets the deployment mode.
 func (o DeploymentPropertiesExtendedResponsePtrOutput) Mode() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *DeploymentPropertiesExtendedResponse) *string {
 		if v == nil {
@@ -709,7 +632,6 @@ func (o DeploymentPropertiesExtendedResponsePtrOutput) Mode() pulumi.StringPtrOu
 	}).(pulumi.StringPtrOutput)
 }
 
-// Gets or sets key/value pairs that represent deployment output.
 func (o DeploymentPropertiesExtendedResponsePtrOutput) Outputs() pulumi.AnyOutput {
 	return o.ApplyT(func(v *DeploymentPropertiesExtendedResponse) interface{} {
 		if v == nil {
@@ -719,7 +641,6 @@ func (o DeploymentPropertiesExtendedResponsePtrOutput) Outputs() pulumi.AnyOutpu
 	}).(pulumi.AnyOutput)
 }
 
-// Deployment parameters. Use only one of Parameters or ParametersLink.
 func (o DeploymentPropertiesExtendedResponsePtrOutput) Parameters() pulumi.AnyOutput {
 	return o.ApplyT(func(v *DeploymentPropertiesExtendedResponse) interface{} {
 		if v == nil {
@@ -729,7 +650,6 @@ func (o DeploymentPropertiesExtendedResponsePtrOutput) Parameters() pulumi.AnyOu
 	}).(pulumi.AnyOutput)
 }
 
-// Gets or sets the URI referencing the parameters. Use only one of Parameters or ParametersLink.
 func (o DeploymentPropertiesExtendedResponsePtrOutput) ParametersLink() ParametersLinkResponsePtrOutput {
 	return o.ApplyT(func(v *DeploymentPropertiesExtendedResponse) *ParametersLinkResponse {
 		if v == nil {
@@ -739,7 +659,6 @@ func (o DeploymentPropertiesExtendedResponsePtrOutput) ParametersLink() Paramete
 	}).(ParametersLinkResponsePtrOutput)
 }
 
-// Gets the list of resource providers needed for the deployment.
 func (o DeploymentPropertiesExtendedResponsePtrOutput) Providers() ProviderResponseArrayOutput {
 	return o.ApplyT(func(v *DeploymentPropertiesExtendedResponse) []ProviderResponse {
 		if v == nil {
@@ -749,7 +668,6 @@ func (o DeploymentPropertiesExtendedResponsePtrOutput) Providers() ProviderRespo
 	}).(ProviderResponseArrayOutput)
 }
 
-// Gets or sets the state of the provisioning.
 func (o DeploymentPropertiesExtendedResponsePtrOutput) ProvisioningState() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *DeploymentPropertiesExtendedResponse) *string {
 		if v == nil {
@@ -759,7 +677,6 @@ func (o DeploymentPropertiesExtendedResponsePtrOutput) ProvisioningState() pulum
 	}).(pulumi.StringPtrOutput)
 }
 
-// Gets or sets the template content. Use only one of Template or TemplateLink.
 func (o DeploymentPropertiesExtendedResponsePtrOutput) Template() pulumi.AnyOutput {
 	return o.ApplyT(func(v *DeploymentPropertiesExtendedResponse) interface{} {
 		if v == nil {
@@ -769,7 +686,6 @@ func (o DeploymentPropertiesExtendedResponsePtrOutput) Template() pulumi.AnyOutp
 	}).(pulumi.AnyOutput)
 }
 
-// Gets or sets the URI referencing the template. Use only one of Template or TemplateLink.
 func (o DeploymentPropertiesExtendedResponsePtrOutput) TemplateLink() TemplateLinkResponsePtrOutput {
 	return o.ApplyT(func(v *DeploymentPropertiesExtendedResponse) *TemplateLinkResponse {
 		if v == nil {
@@ -779,7 +695,6 @@ func (o DeploymentPropertiesExtendedResponsePtrOutput) TemplateLink() TemplateLi
 	}).(TemplateLinkResponsePtrOutput)
 }
 
-// Gets or sets the timestamp of the template deployment.
 func (o DeploymentPropertiesExtendedResponsePtrOutput) Timestamp() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *DeploymentPropertiesExtendedResponse) *string {
 		if v == nil {
@@ -789,12 +704,9 @@ func (o DeploymentPropertiesExtendedResponsePtrOutput) Timestamp() pulumi.String
 	}).(pulumi.StringPtrOutput)
 }
 
-// Entity representing the reference to the deployment parameters.
 type ParametersLink struct {
-	// If included it must match the ContentVersion in the template.
 	ContentVersion *string `pulumi:"contentVersion"`
-	// URI referencing the template.
-	Uri string `pulumi:"uri"`
+	Uri            string  `pulumi:"uri"`
 }
 
 // ParametersLinkInput is an input type that accepts ParametersLinkArgs and ParametersLinkOutput values.
@@ -808,12 +720,9 @@ type ParametersLinkInput interface {
 	ToParametersLinkOutputWithContext(context.Context) ParametersLinkOutput
 }
 
-// Entity representing the reference to the deployment parameters.
 type ParametersLinkArgs struct {
-	// If included it must match the ContentVersion in the template.
 	ContentVersion pulumi.StringPtrInput `pulumi:"contentVersion"`
-	// URI referencing the template.
-	Uri pulumi.StringInput `pulumi:"uri"`
+	Uri            pulumi.StringInput    `pulumi:"uri"`
 }
 
 func (ParametersLinkArgs) ElementType() reflect.Type {
@@ -869,7 +778,6 @@ func (i *parametersLinkPtrType) ToParametersLinkPtrOutputWithContext(ctx context
 	return pulumi.ToOutputWithContext(ctx, i).(ParametersLinkPtrOutput)
 }
 
-// Entity representing the reference to the deployment parameters.
 type ParametersLinkOutput struct{ *pulumi.OutputState }
 
 func (ParametersLinkOutput) ElementType() reflect.Type {
@@ -889,17 +797,15 @@ func (o ParametersLinkOutput) ToParametersLinkPtrOutput() ParametersLinkPtrOutpu
 }
 
 func (o ParametersLinkOutput) ToParametersLinkPtrOutputWithContext(ctx context.Context) ParametersLinkPtrOutput {
-	return o.ApplyT(func(v ParametersLink) *ParametersLink {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ParametersLink) *ParametersLink {
 		return &v
 	}).(ParametersLinkPtrOutput)
 }
 
-// If included it must match the ContentVersion in the template.
 func (o ParametersLinkOutput) ContentVersion() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ParametersLink) *string { return v.ContentVersion }).(pulumi.StringPtrOutput)
 }
 
-// URI referencing the template.
 func (o ParametersLinkOutput) Uri() pulumi.StringOutput {
 	return o.ApplyT(func(v ParametersLink) string { return v.Uri }).(pulumi.StringOutput)
 }
@@ -919,10 +825,15 @@ func (o ParametersLinkPtrOutput) ToParametersLinkPtrOutputWithContext(ctx contex
 }
 
 func (o ParametersLinkPtrOutput) Elem() ParametersLinkOutput {
-	return o.ApplyT(func(v *ParametersLink) ParametersLink { return *v }).(ParametersLinkOutput)
+	return o.ApplyT(func(v *ParametersLink) ParametersLink {
+		if v != nil {
+			return *v
+		}
+		var ret ParametersLink
+		return ret
+	}).(ParametersLinkOutput)
 }
 
-// If included it must match the ContentVersion in the template.
 func (o ParametersLinkPtrOutput) ContentVersion() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ParametersLink) *string {
 		if v == nil {
@@ -932,7 +843,6 @@ func (o ParametersLinkPtrOutput) ContentVersion() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// URI referencing the template.
 func (o ParametersLinkPtrOutput) Uri() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ParametersLink) *string {
 		if v == nil {
@@ -942,12 +852,9 @@ func (o ParametersLinkPtrOutput) Uri() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Entity representing the reference to the deployment parameters.
 type ParametersLinkResponse struct {
-	// If included it must match the ContentVersion in the template.
 	ContentVersion *string `pulumi:"contentVersion"`
-	// URI referencing the template.
-	Uri string `pulumi:"uri"`
+	Uri            string  `pulumi:"uri"`
 }
 
 // ParametersLinkResponseInput is an input type that accepts ParametersLinkResponseArgs and ParametersLinkResponseOutput values.
@@ -961,12 +868,9 @@ type ParametersLinkResponseInput interface {
 	ToParametersLinkResponseOutputWithContext(context.Context) ParametersLinkResponseOutput
 }
 
-// Entity representing the reference to the deployment parameters.
 type ParametersLinkResponseArgs struct {
-	// If included it must match the ContentVersion in the template.
 	ContentVersion pulumi.StringPtrInput `pulumi:"contentVersion"`
-	// URI referencing the template.
-	Uri pulumi.StringInput `pulumi:"uri"`
+	Uri            pulumi.StringInput    `pulumi:"uri"`
 }
 
 func (ParametersLinkResponseArgs) ElementType() reflect.Type {
@@ -1022,7 +926,6 @@ func (i *parametersLinkResponsePtrType) ToParametersLinkResponsePtrOutputWithCon
 	return pulumi.ToOutputWithContext(ctx, i).(ParametersLinkResponsePtrOutput)
 }
 
-// Entity representing the reference to the deployment parameters.
 type ParametersLinkResponseOutput struct{ *pulumi.OutputState }
 
 func (ParametersLinkResponseOutput) ElementType() reflect.Type {
@@ -1042,17 +945,15 @@ func (o ParametersLinkResponseOutput) ToParametersLinkResponsePtrOutput() Parame
 }
 
 func (o ParametersLinkResponseOutput) ToParametersLinkResponsePtrOutputWithContext(ctx context.Context) ParametersLinkResponsePtrOutput {
-	return o.ApplyT(func(v ParametersLinkResponse) *ParametersLinkResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ParametersLinkResponse) *ParametersLinkResponse {
 		return &v
 	}).(ParametersLinkResponsePtrOutput)
 }
 
-// If included it must match the ContentVersion in the template.
 func (o ParametersLinkResponseOutput) ContentVersion() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ParametersLinkResponse) *string { return v.ContentVersion }).(pulumi.StringPtrOutput)
 }
 
-// URI referencing the template.
 func (o ParametersLinkResponseOutput) Uri() pulumi.StringOutput {
 	return o.ApplyT(func(v ParametersLinkResponse) string { return v.Uri }).(pulumi.StringOutput)
 }
@@ -1072,10 +973,15 @@ func (o ParametersLinkResponsePtrOutput) ToParametersLinkResponsePtrOutputWithCo
 }
 
 func (o ParametersLinkResponsePtrOutput) Elem() ParametersLinkResponseOutput {
-	return o.ApplyT(func(v *ParametersLinkResponse) ParametersLinkResponse { return *v }).(ParametersLinkResponseOutput)
+	return o.ApplyT(func(v *ParametersLinkResponse) ParametersLinkResponse {
+		if v != nil {
+			return *v
+		}
+		var ret ParametersLinkResponse
+		return ret
+	}).(ParametersLinkResponseOutput)
 }
 
-// If included it must match the ContentVersion in the template.
 func (o ParametersLinkResponsePtrOutput) ContentVersion() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ParametersLinkResponse) *string {
 		if v == nil {
@@ -1085,7 +991,6 @@ func (o ParametersLinkResponsePtrOutput) ContentVersion() pulumi.StringPtrOutput
 	}).(pulumi.StringPtrOutput)
 }
 
-// URI referencing the template.
 func (o ParametersLinkResponsePtrOutput) Uri() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ParametersLinkResponse) *string {
 		if v == nil {
@@ -1095,16 +1000,11 @@ func (o ParametersLinkResponsePtrOutput) Uri() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Plan for the resource.
 type Plan struct {
-	// Gets or sets the plan ID.
-	Name *string `pulumi:"name"`
-	// Gets or sets the offer ID.
-	Product *string `pulumi:"product"`
-	// Gets or sets the promotion code.
+	Name          *string `pulumi:"name"`
+	Product       *string `pulumi:"product"`
 	PromotionCode *string `pulumi:"promotionCode"`
-	// Gets or sets the publisher ID.
-	Publisher *string `pulumi:"publisher"`
+	Publisher     *string `pulumi:"publisher"`
 }
 
 // PlanInput is an input type that accepts PlanArgs and PlanOutput values.
@@ -1118,16 +1018,11 @@ type PlanInput interface {
 	ToPlanOutputWithContext(context.Context) PlanOutput
 }
 
-// Plan for the resource.
 type PlanArgs struct {
-	// Gets or sets the plan ID.
-	Name pulumi.StringPtrInput `pulumi:"name"`
-	// Gets or sets the offer ID.
-	Product pulumi.StringPtrInput `pulumi:"product"`
-	// Gets or sets the promotion code.
+	Name          pulumi.StringPtrInput `pulumi:"name"`
+	Product       pulumi.StringPtrInput `pulumi:"product"`
 	PromotionCode pulumi.StringPtrInput `pulumi:"promotionCode"`
-	// Gets or sets the publisher ID.
-	Publisher pulumi.StringPtrInput `pulumi:"publisher"`
+	Publisher     pulumi.StringPtrInput `pulumi:"publisher"`
 }
 
 func (PlanArgs) ElementType() reflect.Type {
@@ -1183,7 +1078,6 @@ func (i *planPtrType) ToPlanPtrOutputWithContext(ctx context.Context) PlanPtrOut
 	return pulumi.ToOutputWithContext(ctx, i).(PlanPtrOutput)
 }
 
-// Plan for the resource.
 type PlanOutput struct{ *pulumi.OutputState }
 
 func (PlanOutput) ElementType() reflect.Type {
@@ -1203,27 +1097,23 @@ func (o PlanOutput) ToPlanPtrOutput() PlanPtrOutput {
 }
 
 func (o PlanOutput) ToPlanPtrOutputWithContext(ctx context.Context) PlanPtrOutput {
-	return o.ApplyT(func(v Plan) *Plan {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v Plan) *Plan {
 		return &v
 	}).(PlanPtrOutput)
 }
 
-// Gets or sets the plan ID.
 func (o PlanOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v Plan) *string { return v.Name }).(pulumi.StringPtrOutput)
 }
 
-// Gets or sets the offer ID.
 func (o PlanOutput) Product() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v Plan) *string { return v.Product }).(pulumi.StringPtrOutput)
 }
 
-// Gets or sets the promotion code.
 func (o PlanOutput) PromotionCode() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v Plan) *string { return v.PromotionCode }).(pulumi.StringPtrOutput)
 }
 
-// Gets or sets the publisher ID.
 func (o PlanOutput) Publisher() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v Plan) *string { return v.Publisher }).(pulumi.StringPtrOutput)
 }
@@ -1243,10 +1133,15 @@ func (o PlanPtrOutput) ToPlanPtrOutputWithContext(ctx context.Context) PlanPtrOu
 }
 
 func (o PlanPtrOutput) Elem() PlanOutput {
-	return o.ApplyT(func(v *Plan) Plan { return *v }).(PlanOutput)
+	return o.ApplyT(func(v *Plan) Plan {
+		if v != nil {
+			return *v
+		}
+		var ret Plan
+		return ret
+	}).(PlanOutput)
 }
 
-// Gets or sets the plan ID.
 func (o PlanPtrOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Plan) *string {
 		if v == nil {
@@ -1256,7 +1151,6 @@ func (o PlanPtrOutput) Name() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Gets or sets the offer ID.
 func (o PlanPtrOutput) Product() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Plan) *string {
 		if v == nil {
@@ -1266,7 +1160,6 @@ func (o PlanPtrOutput) Product() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Gets or sets the promotion code.
 func (o PlanPtrOutput) PromotionCode() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Plan) *string {
 		if v == nil {
@@ -1276,7 +1169,6 @@ func (o PlanPtrOutput) PromotionCode() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Gets or sets the publisher ID.
 func (o PlanPtrOutput) Publisher() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Plan) *string {
 		if v == nil {
@@ -1286,16 +1178,11 @@ func (o PlanPtrOutput) Publisher() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Plan for the resource.
 type PlanResponse struct {
-	// Gets or sets the plan ID.
-	Name *string `pulumi:"name"`
-	// Gets or sets the offer ID.
-	Product *string `pulumi:"product"`
-	// Gets or sets the promotion code.
+	Name          *string `pulumi:"name"`
+	Product       *string `pulumi:"product"`
 	PromotionCode *string `pulumi:"promotionCode"`
-	// Gets or sets the publisher ID.
-	Publisher *string `pulumi:"publisher"`
+	Publisher     *string `pulumi:"publisher"`
 }
 
 // PlanResponseInput is an input type that accepts PlanResponseArgs and PlanResponseOutput values.
@@ -1309,16 +1196,11 @@ type PlanResponseInput interface {
 	ToPlanResponseOutputWithContext(context.Context) PlanResponseOutput
 }
 
-// Plan for the resource.
 type PlanResponseArgs struct {
-	// Gets or sets the plan ID.
-	Name pulumi.StringPtrInput `pulumi:"name"`
-	// Gets or sets the offer ID.
-	Product pulumi.StringPtrInput `pulumi:"product"`
-	// Gets or sets the promotion code.
+	Name          pulumi.StringPtrInput `pulumi:"name"`
+	Product       pulumi.StringPtrInput `pulumi:"product"`
 	PromotionCode pulumi.StringPtrInput `pulumi:"promotionCode"`
-	// Gets or sets the publisher ID.
-	Publisher pulumi.StringPtrInput `pulumi:"publisher"`
+	Publisher     pulumi.StringPtrInput `pulumi:"publisher"`
 }
 
 func (PlanResponseArgs) ElementType() reflect.Type {
@@ -1374,7 +1256,6 @@ func (i *planResponsePtrType) ToPlanResponsePtrOutputWithContext(ctx context.Con
 	return pulumi.ToOutputWithContext(ctx, i).(PlanResponsePtrOutput)
 }
 
-// Plan for the resource.
 type PlanResponseOutput struct{ *pulumi.OutputState }
 
 func (PlanResponseOutput) ElementType() reflect.Type {
@@ -1394,27 +1275,23 @@ func (o PlanResponseOutput) ToPlanResponsePtrOutput() PlanResponsePtrOutput {
 }
 
 func (o PlanResponseOutput) ToPlanResponsePtrOutputWithContext(ctx context.Context) PlanResponsePtrOutput {
-	return o.ApplyT(func(v PlanResponse) *PlanResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v PlanResponse) *PlanResponse {
 		return &v
 	}).(PlanResponsePtrOutput)
 }
 
-// Gets or sets the plan ID.
 func (o PlanResponseOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v PlanResponse) *string { return v.Name }).(pulumi.StringPtrOutput)
 }
 
-// Gets or sets the offer ID.
 func (o PlanResponseOutput) Product() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v PlanResponse) *string { return v.Product }).(pulumi.StringPtrOutput)
 }
 
-// Gets or sets the promotion code.
 func (o PlanResponseOutput) PromotionCode() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v PlanResponse) *string { return v.PromotionCode }).(pulumi.StringPtrOutput)
 }
 
-// Gets or sets the publisher ID.
 func (o PlanResponseOutput) Publisher() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v PlanResponse) *string { return v.Publisher }).(pulumi.StringPtrOutput)
 }
@@ -1434,10 +1311,15 @@ func (o PlanResponsePtrOutput) ToPlanResponsePtrOutputWithContext(ctx context.Co
 }
 
 func (o PlanResponsePtrOutput) Elem() PlanResponseOutput {
-	return o.ApplyT(func(v *PlanResponse) PlanResponse { return *v }).(PlanResponseOutput)
+	return o.ApplyT(func(v *PlanResponse) PlanResponse {
+		if v != nil {
+			return *v
+		}
+		var ret PlanResponse
+		return ret
+	}).(PlanResponseOutput)
 }
 
-// Gets or sets the plan ID.
 func (o PlanResponsePtrOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *PlanResponse) *string {
 		if v == nil {
@@ -1447,7 +1329,6 @@ func (o PlanResponsePtrOutput) Name() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Gets or sets the offer ID.
 func (o PlanResponsePtrOutput) Product() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *PlanResponse) *string {
 		if v == nil {
@@ -1457,7 +1338,6 @@ func (o PlanResponsePtrOutput) Product() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Gets or sets the promotion code.
 func (o PlanResponsePtrOutput) PromotionCode() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *PlanResponse) *string {
 		if v == nil {
@@ -1467,7 +1347,6 @@ func (o PlanResponsePtrOutput) PromotionCode() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Gets or sets the publisher ID.
 func (o PlanResponsePtrOutput) Publisher() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *PlanResponse) *string {
 		if v == nil {
@@ -1477,16 +1356,11 @@ func (o PlanResponsePtrOutput) Publisher() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Resource type managed by the resource provider.
 type ProviderResourceTypeResponse struct {
-	// Gets or sets the api version.
-	ApiVersions []string `pulumi:"apiVersions"`
-	// Gets or sets the collection of locations where this resource type can be created in.
-	Locations []string `pulumi:"locations"`
-	// Gets or sets the properties.
-	Properties map[string]string `pulumi:"properties"`
-	// Gets or sets the resource type.
-	ResourceType *string `pulumi:"resourceType"`
+	ApiVersions  []string          `pulumi:"apiVersions"`
+	Locations    []string          `pulumi:"locations"`
+	Properties   map[string]string `pulumi:"properties"`
+	ResourceType *string           `pulumi:"resourceType"`
 }
 
 // ProviderResourceTypeResponseInput is an input type that accepts ProviderResourceTypeResponseArgs and ProviderResourceTypeResponseOutput values.
@@ -1500,16 +1374,11 @@ type ProviderResourceTypeResponseInput interface {
 	ToProviderResourceTypeResponseOutputWithContext(context.Context) ProviderResourceTypeResponseOutput
 }
 
-// Resource type managed by the resource provider.
 type ProviderResourceTypeResponseArgs struct {
-	// Gets or sets the api version.
-	ApiVersions pulumi.StringArrayInput `pulumi:"apiVersions"`
-	// Gets or sets the collection of locations where this resource type can be created in.
-	Locations pulumi.StringArrayInput `pulumi:"locations"`
-	// Gets or sets the properties.
-	Properties pulumi.StringMapInput `pulumi:"properties"`
-	// Gets or sets the resource type.
-	ResourceType pulumi.StringPtrInput `pulumi:"resourceType"`
+	ApiVersions  pulumi.StringArrayInput `pulumi:"apiVersions"`
+	Locations    pulumi.StringArrayInput `pulumi:"locations"`
+	Properties   pulumi.StringMapInput   `pulumi:"properties"`
+	ResourceType pulumi.StringPtrInput   `pulumi:"resourceType"`
 }
 
 func (ProviderResourceTypeResponseArgs) ElementType() reflect.Type {
@@ -1549,7 +1418,6 @@ func (i ProviderResourceTypeResponseArray) ToProviderResourceTypeResponseArrayOu
 	return pulumi.ToOutputWithContext(ctx, i).(ProviderResourceTypeResponseArrayOutput)
 }
 
-// Resource type managed by the resource provider.
 type ProviderResourceTypeResponseOutput struct{ *pulumi.OutputState }
 
 func (ProviderResourceTypeResponseOutput) ElementType() reflect.Type {
@@ -1564,22 +1432,18 @@ func (o ProviderResourceTypeResponseOutput) ToProviderResourceTypeResponseOutput
 	return o
 }
 
-// Gets or sets the api version.
 func (o ProviderResourceTypeResponseOutput) ApiVersions() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v ProviderResourceTypeResponse) []string { return v.ApiVersions }).(pulumi.StringArrayOutput)
 }
 
-// Gets or sets the collection of locations where this resource type can be created in.
 func (o ProviderResourceTypeResponseOutput) Locations() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v ProviderResourceTypeResponse) []string { return v.Locations }).(pulumi.StringArrayOutput)
 }
 
-// Gets or sets the properties.
 func (o ProviderResourceTypeResponseOutput) Properties() pulumi.StringMapOutput {
 	return o.ApplyT(func(v ProviderResourceTypeResponse) map[string]string { return v.Properties }).(pulumi.StringMapOutput)
 }
 
-// Gets or sets the resource type.
 func (o ProviderResourceTypeResponseOutput) ResourceType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ProviderResourceTypeResponse) *string { return v.ResourceType }).(pulumi.StringPtrOutput)
 }
@@ -1604,16 +1468,11 @@ func (o ProviderResourceTypeResponseArrayOutput) Index(i pulumi.IntInput) Provid
 	}).(ProviderResourceTypeResponseOutput)
 }
 
-// Resource provider information.
 type ProviderResponse struct {
-	// Gets or sets the provider id.
-	Id *string `pulumi:"id"`
-	// Gets or sets the namespace of the provider.
-	Namespace *string `pulumi:"namespace"`
-	// Gets or sets the registration state of the provider.
-	RegistrationState *string `pulumi:"registrationState"`
-	// Gets or sets the collection of provider resource types.
-	ResourceTypes []ProviderResourceTypeResponse `pulumi:"resourceTypes"`
+	Id                *string                        `pulumi:"id"`
+	Namespace         *string                        `pulumi:"namespace"`
+	RegistrationState *string                        `pulumi:"registrationState"`
+	ResourceTypes     []ProviderResourceTypeResponse `pulumi:"resourceTypes"`
 }
 
 // ProviderResponseInput is an input type that accepts ProviderResponseArgs and ProviderResponseOutput values.
@@ -1627,16 +1486,11 @@ type ProviderResponseInput interface {
 	ToProviderResponseOutputWithContext(context.Context) ProviderResponseOutput
 }
 
-// Resource provider information.
 type ProviderResponseArgs struct {
-	// Gets or sets the provider id.
-	Id pulumi.StringPtrInput `pulumi:"id"`
-	// Gets or sets the namespace of the provider.
-	Namespace pulumi.StringPtrInput `pulumi:"namespace"`
-	// Gets or sets the registration state of the provider.
-	RegistrationState pulumi.StringPtrInput `pulumi:"registrationState"`
-	// Gets or sets the collection of provider resource types.
-	ResourceTypes ProviderResourceTypeResponseArrayInput `pulumi:"resourceTypes"`
+	Id                pulumi.StringPtrInput                  `pulumi:"id"`
+	Namespace         pulumi.StringPtrInput                  `pulumi:"namespace"`
+	RegistrationState pulumi.StringPtrInput                  `pulumi:"registrationState"`
+	ResourceTypes     ProviderResourceTypeResponseArrayInput `pulumi:"resourceTypes"`
 }
 
 func (ProviderResponseArgs) ElementType() reflect.Type {
@@ -1676,7 +1530,6 @@ func (i ProviderResponseArray) ToProviderResponseArrayOutputWithContext(ctx cont
 	return pulumi.ToOutputWithContext(ctx, i).(ProviderResponseArrayOutput)
 }
 
-// Resource provider information.
 type ProviderResponseOutput struct{ *pulumi.OutputState }
 
 func (ProviderResponseOutput) ElementType() reflect.Type {
@@ -1691,22 +1544,18 @@ func (o ProviderResponseOutput) ToProviderResponseOutputWithContext(ctx context.
 	return o
 }
 
-// Gets or sets the provider id.
 func (o ProviderResponseOutput) Id() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ProviderResponse) *string { return v.Id }).(pulumi.StringPtrOutput)
 }
 
-// Gets or sets the namespace of the provider.
 func (o ProviderResponseOutput) Namespace() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ProviderResponse) *string { return v.Namespace }).(pulumi.StringPtrOutput)
 }
 
-// Gets or sets the registration state of the provider.
 func (o ProviderResponseOutput) RegistrationState() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ProviderResponse) *string { return v.RegistrationState }).(pulumi.StringPtrOutput)
 }
 
-// Gets or sets the collection of provider resource types.
 func (o ProviderResponseOutput) ResourceTypes() ProviderResourceTypeResponseArrayOutput {
 	return o.ApplyT(func(v ProviderResponse) []ProviderResourceTypeResponse { return v.ResourceTypes }).(ProviderResourceTypeResponseArrayOutput)
 }
@@ -1731,9 +1580,7 @@ func (o ProviderResponseArrayOutput) Index(i pulumi.IntInput) ProviderResponseOu
 	}).(ProviderResponseOutput)
 }
 
-// The resource group properties.
 type ResourceGroupPropertiesResponse struct {
-	// Gets resource group provisioning state.
 	ProvisioningState string `pulumi:"provisioningState"`
 }
 
@@ -1748,9 +1595,7 @@ type ResourceGroupPropertiesResponseInput interface {
 	ToResourceGroupPropertiesResponseOutputWithContext(context.Context) ResourceGroupPropertiesResponseOutput
 }
 
-// The resource group properties.
 type ResourceGroupPropertiesResponseArgs struct {
-	// Gets resource group provisioning state.
 	ProvisioningState pulumi.StringInput `pulumi:"provisioningState"`
 }
 
@@ -1807,7 +1652,6 @@ func (i *resourceGroupPropertiesResponsePtrType) ToResourceGroupPropertiesRespon
 	return pulumi.ToOutputWithContext(ctx, i).(ResourceGroupPropertiesResponsePtrOutput)
 }
 
-// The resource group properties.
 type ResourceGroupPropertiesResponseOutput struct{ *pulumi.OutputState }
 
 func (ResourceGroupPropertiesResponseOutput) ElementType() reflect.Type {
@@ -1827,12 +1671,11 @@ func (o ResourceGroupPropertiesResponseOutput) ToResourceGroupPropertiesResponse
 }
 
 func (o ResourceGroupPropertiesResponseOutput) ToResourceGroupPropertiesResponsePtrOutputWithContext(ctx context.Context) ResourceGroupPropertiesResponsePtrOutput {
-	return o.ApplyT(func(v ResourceGroupPropertiesResponse) *ResourceGroupPropertiesResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ResourceGroupPropertiesResponse) *ResourceGroupPropertiesResponse {
 		return &v
 	}).(ResourceGroupPropertiesResponsePtrOutput)
 }
 
-// Gets resource group provisioning state.
 func (o ResourceGroupPropertiesResponseOutput) ProvisioningState() pulumi.StringOutput {
 	return o.ApplyT(func(v ResourceGroupPropertiesResponse) string { return v.ProvisioningState }).(pulumi.StringOutput)
 }
@@ -1852,10 +1695,15 @@ func (o ResourceGroupPropertiesResponsePtrOutput) ToResourceGroupPropertiesRespo
 }
 
 func (o ResourceGroupPropertiesResponsePtrOutput) Elem() ResourceGroupPropertiesResponseOutput {
-	return o.ApplyT(func(v *ResourceGroupPropertiesResponse) ResourceGroupPropertiesResponse { return *v }).(ResourceGroupPropertiesResponseOutput)
+	return o.ApplyT(func(v *ResourceGroupPropertiesResponse) ResourceGroupPropertiesResponse {
+		if v != nil {
+			return *v
+		}
+		var ret ResourceGroupPropertiesResponse
+		return ret
+	}).(ResourceGroupPropertiesResponseOutput)
 }
 
-// Gets resource group provisioning state.
 func (o ResourceGroupPropertiesResponsePtrOutput) ProvisioningState() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ResourceGroupPropertiesResponse) *string {
 		if v == nil {
@@ -1865,12 +1713,9 @@ func (o ResourceGroupPropertiesResponsePtrOutput) ProvisioningState() pulumi.Str
 	}).(pulumi.StringPtrOutput)
 }
 
-// Entity representing the reference to the template.
 type TemplateLink struct {
-	// If included it must match the ContentVersion in the template.
 	ContentVersion *string `pulumi:"contentVersion"`
-	// URI referencing the template.
-	Uri string `pulumi:"uri"`
+	Uri            string  `pulumi:"uri"`
 }
 
 // TemplateLinkInput is an input type that accepts TemplateLinkArgs and TemplateLinkOutput values.
@@ -1884,12 +1729,9 @@ type TemplateLinkInput interface {
 	ToTemplateLinkOutputWithContext(context.Context) TemplateLinkOutput
 }
 
-// Entity representing the reference to the template.
 type TemplateLinkArgs struct {
-	// If included it must match the ContentVersion in the template.
 	ContentVersion pulumi.StringPtrInput `pulumi:"contentVersion"`
-	// URI referencing the template.
-	Uri pulumi.StringInput `pulumi:"uri"`
+	Uri            pulumi.StringInput    `pulumi:"uri"`
 }
 
 func (TemplateLinkArgs) ElementType() reflect.Type {
@@ -1945,7 +1787,6 @@ func (i *templateLinkPtrType) ToTemplateLinkPtrOutputWithContext(ctx context.Con
 	return pulumi.ToOutputWithContext(ctx, i).(TemplateLinkPtrOutput)
 }
 
-// Entity representing the reference to the template.
 type TemplateLinkOutput struct{ *pulumi.OutputState }
 
 func (TemplateLinkOutput) ElementType() reflect.Type {
@@ -1965,17 +1806,15 @@ func (o TemplateLinkOutput) ToTemplateLinkPtrOutput() TemplateLinkPtrOutput {
 }
 
 func (o TemplateLinkOutput) ToTemplateLinkPtrOutputWithContext(ctx context.Context) TemplateLinkPtrOutput {
-	return o.ApplyT(func(v TemplateLink) *TemplateLink {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v TemplateLink) *TemplateLink {
 		return &v
 	}).(TemplateLinkPtrOutput)
 }
 
-// If included it must match the ContentVersion in the template.
 func (o TemplateLinkOutput) ContentVersion() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v TemplateLink) *string { return v.ContentVersion }).(pulumi.StringPtrOutput)
 }
 
-// URI referencing the template.
 func (o TemplateLinkOutput) Uri() pulumi.StringOutput {
 	return o.ApplyT(func(v TemplateLink) string { return v.Uri }).(pulumi.StringOutput)
 }
@@ -1995,10 +1834,15 @@ func (o TemplateLinkPtrOutput) ToTemplateLinkPtrOutputWithContext(ctx context.Co
 }
 
 func (o TemplateLinkPtrOutput) Elem() TemplateLinkOutput {
-	return o.ApplyT(func(v *TemplateLink) TemplateLink { return *v }).(TemplateLinkOutput)
+	return o.ApplyT(func(v *TemplateLink) TemplateLink {
+		if v != nil {
+			return *v
+		}
+		var ret TemplateLink
+		return ret
+	}).(TemplateLinkOutput)
 }
 
-// If included it must match the ContentVersion in the template.
 func (o TemplateLinkPtrOutput) ContentVersion() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *TemplateLink) *string {
 		if v == nil {
@@ -2008,7 +1852,6 @@ func (o TemplateLinkPtrOutput) ContentVersion() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// URI referencing the template.
 func (o TemplateLinkPtrOutput) Uri() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *TemplateLink) *string {
 		if v == nil {
@@ -2018,12 +1861,9 @@ func (o TemplateLinkPtrOutput) Uri() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Entity representing the reference to the template.
 type TemplateLinkResponse struct {
-	// If included it must match the ContentVersion in the template.
 	ContentVersion *string `pulumi:"contentVersion"`
-	// URI referencing the template.
-	Uri string `pulumi:"uri"`
+	Uri            string  `pulumi:"uri"`
 }
 
 // TemplateLinkResponseInput is an input type that accepts TemplateLinkResponseArgs and TemplateLinkResponseOutput values.
@@ -2037,12 +1877,9 @@ type TemplateLinkResponseInput interface {
 	ToTemplateLinkResponseOutputWithContext(context.Context) TemplateLinkResponseOutput
 }
 
-// Entity representing the reference to the template.
 type TemplateLinkResponseArgs struct {
-	// If included it must match the ContentVersion in the template.
 	ContentVersion pulumi.StringPtrInput `pulumi:"contentVersion"`
-	// URI referencing the template.
-	Uri pulumi.StringInput `pulumi:"uri"`
+	Uri            pulumi.StringInput    `pulumi:"uri"`
 }
 
 func (TemplateLinkResponseArgs) ElementType() reflect.Type {
@@ -2098,7 +1935,6 @@ func (i *templateLinkResponsePtrType) ToTemplateLinkResponsePtrOutputWithContext
 	return pulumi.ToOutputWithContext(ctx, i).(TemplateLinkResponsePtrOutput)
 }
 
-// Entity representing the reference to the template.
 type TemplateLinkResponseOutput struct{ *pulumi.OutputState }
 
 func (TemplateLinkResponseOutput) ElementType() reflect.Type {
@@ -2118,17 +1954,15 @@ func (o TemplateLinkResponseOutput) ToTemplateLinkResponsePtrOutput() TemplateLi
 }
 
 func (o TemplateLinkResponseOutput) ToTemplateLinkResponsePtrOutputWithContext(ctx context.Context) TemplateLinkResponsePtrOutput {
-	return o.ApplyT(func(v TemplateLinkResponse) *TemplateLinkResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v TemplateLinkResponse) *TemplateLinkResponse {
 		return &v
 	}).(TemplateLinkResponsePtrOutput)
 }
 
-// If included it must match the ContentVersion in the template.
 func (o TemplateLinkResponseOutput) ContentVersion() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v TemplateLinkResponse) *string { return v.ContentVersion }).(pulumi.StringPtrOutput)
 }
 
-// URI referencing the template.
 func (o TemplateLinkResponseOutput) Uri() pulumi.StringOutput {
 	return o.ApplyT(func(v TemplateLinkResponse) string { return v.Uri }).(pulumi.StringOutput)
 }
@@ -2148,10 +1982,15 @@ func (o TemplateLinkResponsePtrOutput) ToTemplateLinkResponsePtrOutputWithContex
 }
 
 func (o TemplateLinkResponsePtrOutput) Elem() TemplateLinkResponseOutput {
-	return o.ApplyT(func(v *TemplateLinkResponse) TemplateLinkResponse { return *v }).(TemplateLinkResponseOutput)
+	return o.ApplyT(func(v *TemplateLinkResponse) TemplateLinkResponse {
+		if v != nil {
+			return *v
+		}
+		var ret TemplateLinkResponse
+		return ret
+	}).(TemplateLinkResponseOutput)
 }
 
-// If included it must match the ContentVersion in the template.
 func (o TemplateLinkResponsePtrOutput) ContentVersion() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *TemplateLinkResponse) *string {
 		if v == nil {
@@ -2161,7 +2000,6 @@ func (o TemplateLinkResponsePtrOutput) ContentVersion() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// URI referencing the template.
 func (o TemplateLinkResponsePtrOutput) Uri() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *TemplateLinkResponse) *string {
 		if v == nil {

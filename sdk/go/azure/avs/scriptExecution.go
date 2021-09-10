@@ -185,9 +185,7 @@ func (i *ScriptExecution) ToScriptExecutionOutputWithContext(ctx context.Context
 	return pulumi.ToOutputWithContext(ctx, i).(ScriptExecutionOutput)
 }
 
-type ScriptExecutionOutput struct {
-	*pulumi.OutputState
-}
+type ScriptExecutionOutput struct{ *pulumi.OutputState }
 
 func (ScriptExecutionOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*ScriptExecution)(nil))

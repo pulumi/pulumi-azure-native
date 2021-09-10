@@ -11,18 +11,13 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// String dictionary resource.
 type WebAppApplicationSettings struct {
 	pulumi.CustomResourceState
 
-	// Kind of resource.
-	Kind pulumi.StringPtrOutput `pulumi:"kind"`
-	// Resource Name.
-	Name pulumi.StringOutput `pulumi:"name"`
-	// Settings.
+	Kind       pulumi.StringPtrOutput `pulumi:"kind"`
+	Name       pulumi.StringOutput    `pulumi:"name"`
 	Properties pulumi.StringMapOutput `pulumi:"properties"`
-	// Resource type.
-	Type pulumi.StringOutput `pulumi:"type"`
+	Type       pulumi.StringOutput    `pulumi:"type"`
 }
 
 // NewWebAppApplicationSettings registers a new resource with the given unique name, arguments, and options.
@@ -148,25 +143,17 @@ func (WebAppApplicationSettingsState) ElementType() reflect.Type {
 }
 
 type webAppApplicationSettingsArgs struct {
-	// Kind of resource.
-	Kind *string `pulumi:"kind"`
-	// Name of the app.
-	Name string `pulumi:"name"`
-	// Settings.
-	Properties map[string]string `pulumi:"properties"`
-	// Name of the resource group to which the resource belongs.
-	ResourceGroupName string `pulumi:"resourceGroupName"`
+	Kind              *string           `pulumi:"kind"`
+	Name              string            `pulumi:"name"`
+	Properties        map[string]string `pulumi:"properties"`
+	ResourceGroupName string            `pulumi:"resourceGroupName"`
 }
 
 // The set of arguments for constructing a WebAppApplicationSettings resource.
 type WebAppApplicationSettingsArgs struct {
-	// Kind of resource.
-	Kind pulumi.StringPtrInput
-	// Name of the app.
-	Name pulumi.StringInput
-	// Settings.
-	Properties pulumi.StringMapInput
-	// Name of the resource group to which the resource belongs.
+	Kind              pulumi.StringPtrInput
+	Name              pulumi.StringInput
+	Properties        pulumi.StringMapInput
 	ResourceGroupName pulumi.StringInput
 }
 
@@ -193,9 +180,7 @@ func (i *WebAppApplicationSettings) ToWebAppApplicationSettingsOutputWithContext
 	return pulumi.ToOutputWithContext(ctx, i).(WebAppApplicationSettingsOutput)
 }
 
-type WebAppApplicationSettingsOutput struct {
-	*pulumi.OutputState
-}
+type WebAppApplicationSettingsOutput struct{ *pulumi.OutputState }
 
 func (WebAppApplicationSettingsOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*WebAppApplicationSettings)(nil))

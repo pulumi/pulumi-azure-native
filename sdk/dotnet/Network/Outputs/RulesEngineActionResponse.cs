@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.Network.Outputs
 {
 
+    /// <summary>
+    /// One or more actions that will execute, modifying the request and/or response.
+    /// </summary>
     [OutputType]
     public sealed class RulesEngineActionResponse
     {

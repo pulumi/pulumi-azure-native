@@ -177,9 +177,7 @@ func (i *NamedValue) ToNamedValueOutputWithContext(ctx context.Context) NamedVal
 	return pulumi.ToOutputWithContext(ctx, i).(NamedValueOutput)
 }
 
-type NamedValueOutput struct {
-	*pulumi.OutputState
-}
+type NamedValueOutput struct{ *pulumi.OutputState }
 
 func (NamedValueOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*NamedValue)(nil))

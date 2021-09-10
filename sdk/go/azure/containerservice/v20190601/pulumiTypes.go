@@ -10,12 +10,9 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Profile for Linux VMs in the container service cluster.
 type ContainerServiceLinuxProfile struct {
-	// The administrator username to use for Linux VMs.
-	AdminUsername string `pulumi:"adminUsername"`
-	// SSH configuration for Linux-based VMs running on Azure.
-	Ssh ContainerServiceSshConfiguration `pulumi:"ssh"`
+	AdminUsername string                           `pulumi:"adminUsername"`
+	Ssh           ContainerServiceSshConfiguration `pulumi:"ssh"`
 }
 
 // ContainerServiceLinuxProfileInput is an input type that accepts ContainerServiceLinuxProfileArgs and ContainerServiceLinuxProfileOutput values.
@@ -29,12 +26,9 @@ type ContainerServiceLinuxProfileInput interface {
 	ToContainerServiceLinuxProfileOutputWithContext(context.Context) ContainerServiceLinuxProfileOutput
 }
 
-// Profile for Linux VMs in the container service cluster.
 type ContainerServiceLinuxProfileArgs struct {
-	// The administrator username to use for Linux VMs.
-	AdminUsername pulumi.StringInput `pulumi:"adminUsername"`
-	// SSH configuration for Linux-based VMs running on Azure.
-	Ssh ContainerServiceSshConfigurationInput `pulumi:"ssh"`
+	AdminUsername pulumi.StringInput                    `pulumi:"adminUsername"`
+	Ssh           ContainerServiceSshConfigurationInput `pulumi:"ssh"`
 }
 
 func (ContainerServiceLinuxProfileArgs) ElementType() reflect.Type {
@@ -90,7 +84,6 @@ func (i *containerServiceLinuxProfilePtrType) ToContainerServiceLinuxProfilePtrO
 	return pulumi.ToOutputWithContext(ctx, i).(ContainerServiceLinuxProfilePtrOutput)
 }
 
-// Profile for Linux VMs in the container service cluster.
 type ContainerServiceLinuxProfileOutput struct{ *pulumi.OutputState }
 
 func (ContainerServiceLinuxProfileOutput) ElementType() reflect.Type {
@@ -110,17 +103,15 @@ func (o ContainerServiceLinuxProfileOutput) ToContainerServiceLinuxProfilePtrOut
 }
 
 func (o ContainerServiceLinuxProfileOutput) ToContainerServiceLinuxProfilePtrOutputWithContext(ctx context.Context) ContainerServiceLinuxProfilePtrOutput {
-	return o.ApplyT(func(v ContainerServiceLinuxProfile) *ContainerServiceLinuxProfile {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ContainerServiceLinuxProfile) *ContainerServiceLinuxProfile {
 		return &v
 	}).(ContainerServiceLinuxProfilePtrOutput)
 }
 
-// The administrator username to use for Linux VMs.
 func (o ContainerServiceLinuxProfileOutput) AdminUsername() pulumi.StringOutput {
 	return o.ApplyT(func(v ContainerServiceLinuxProfile) string { return v.AdminUsername }).(pulumi.StringOutput)
 }
 
-// SSH configuration for Linux-based VMs running on Azure.
 func (o ContainerServiceLinuxProfileOutput) Ssh() ContainerServiceSshConfigurationOutput {
 	return o.ApplyT(func(v ContainerServiceLinuxProfile) ContainerServiceSshConfiguration { return v.Ssh }).(ContainerServiceSshConfigurationOutput)
 }
@@ -140,10 +131,15 @@ func (o ContainerServiceLinuxProfilePtrOutput) ToContainerServiceLinuxProfilePtr
 }
 
 func (o ContainerServiceLinuxProfilePtrOutput) Elem() ContainerServiceLinuxProfileOutput {
-	return o.ApplyT(func(v *ContainerServiceLinuxProfile) ContainerServiceLinuxProfile { return *v }).(ContainerServiceLinuxProfileOutput)
+	return o.ApplyT(func(v *ContainerServiceLinuxProfile) ContainerServiceLinuxProfile {
+		if v != nil {
+			return *v
+		}
+		var ret ContainerServiceLinuxProfile
+		return ret
+	}).(ContainerServiceLinuxProfileOutput)
 }
 
-// The administrator username to use for Linux VMs.
 func (o ContainerServiceLinuxProfilePtrOutput) AdminUsername() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ContainerServiceLinuxProfile) *string {
 		if v == nil {
@@ -153,7 +149,6 @@ func (o ContainerServiceLinuxProfilePtrOutput) AdminUsername() pulumi.StringPtrO
 	}).(pulumi.StringPtrOutput)
 }
 
-// SSH configuration for Linux-based VMs running on Azure.
 func (o ContainerServiceLinuxProfilePtrOutput) Ssh() ContainerServiceSshConfigurationPtrOutput {
 	return o.ApplyT(func(v *ContainerServiceLinuxProfile) *ContainerServiceSshConfiguration {
 		if v == nil {
@@ -163,12 +158,9 @@ func (o ContainerServiceLinuxProfilePtrOutput) Ssh() ContainerServiceSshConfigur
 	}).(ContainerServiceSshConfigurationPtrOutput)
 }
 
-// Profile for Linux VMs in the container service cluster.
 type ContainerServiceLinuxProfileResponse struct {
-	// The administrator username to use for Linux VMs.
-	AdminUsername string `pulumi:"adminUsername"`
-	// SSH configuration for Linux-based VMs running on Azure.
-	Ssh ContainerServiceSshConfigurationResponse `pulumi:"ssh"`
+	AdminUsername string                                   `pulumi:"adminUsername"`
+	Ssh           ContainerServiceSshConfigurationResponse `pulumi:"ssh"`
 }
 
 // ContainerServiceLinuxProfileResponseInput is an input type that accepts ContainerServiceLinuxProfileResponseArgs and ContainerServiceLinuxProfileResponseOutput values.
@@ -182,12 +174,9 @@ type ContainerServiceLinuxProfileResponseInput interface {
 	ToContainerServiceLinuxProfileResponseOutputWithContext(context.Context) ContainerServiceLinuxProfileResponseOutput
 }
 
-// Profile for Linux VMs in the container service cluster.
 type ContainerServiceLinuxProfileResponseArgs struct {
-	// The administrator username to use for Linux VMs.
-	AdminUsername pulumi.StringInput `pulumi:"adminUsername"`
-	// SSH configuration for Linux-based VMs running on Azure.
-	Ssh ContainerServiceSshConfigurationResponseInput `pulumi:"ssh"`
+	AdminUsername pulumi.StringInput                            `pulumi:"adminUsername"`
+	Ssh           ContainerServiceSshConfigurationResponseInput `pulumi:"ssh"`
 }
 
 func (ContainerServiceLinuxProfileResponseArgs) ElementType() reflect.Type {
@@ -243,7 +232,6 @@ func (i *containerServiceLinuxProfileResponsePtrType) ToContainerServiceLinuxPro
 	return pulumi.ToOutputWithContext(ctx, i).(ContainerServiceLinuxProfileResponsePtrOutput)
 }
 
-// Profile for Linux VMs in the container service cluster.
 type ContainerServiceLinuxProfileResponseOutput struct{ *pulumi.OutputState }
 
 func (ContainerServiceLinuxProfileResponseOutput) ElementType() reflect.Type {
@@ -263,17 +251,15 @@ func (o ContainerServiceLinuxProfileResponseOutput) ToContainerServiceLinuxProfi
 }
 
 func (o ContainerServiceLinuxProfileResponseOutput) ToContainerServiceLinuxProfileResponsePtrOutputWithContext(ctx context.Context) ContainerServiceLinuxProfileResponsePtrOutput {
-	return o.ApplyT(func(v ContainerServiceLinuxProfileResponse) *ContainerServiceLinuxProfileResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ContainerServiceLinuxProfileResponse) *ContainerServiceLinuxProfileResponse {
 		return &v
 	}).(ContainerServiceLinuxProfileResponsePtrOutput)
 }
 
-// The administrator username to use for Linux VMs.
 func (o ContainerServiceLinuxProfileResponseOutput) AdminUsername() pulumi.StringOutput {
 	return o.ApplyT(func(v ContainerServiceLinuxProfileResponse) string { return v.AdminUsername }).(pulumi.StringOutput)
 }
 
-// SSH configuration for Linux-based VMs running on Azure.
 func (o ContainerServiceLinuxProfileResponseOutput) Ssh() ContainerServiceSshConfigurationResponseOutput {
 	return o.ApplyT(func(v ContainerServiceLinuxProfileResponse) ContainerServiceSshConfigurationResponse { return v.Ssh }).(ContainerServiceSshConfigurationResponseOutput)
 }
@@ -293,10 +279,15 @@ func (o ContainerServiceLinuxProfileResponsePtrOutput) ToContainerServiceLinuxPr
 }
 
 func (o ContainerServiceLinuxProfileResponsePtrOutput) Elem() ContainerServiceLinuxProfileResponseOutput {
-	return o.ApplyT(func(v *ContainerServiceLinuxProfileResponse) ContainerServiceLinuxProfileResponse { return *v }).(ContainerServiceLinuxProfileResponseOutput)
+	return o.ApplyT(func(v *ContainerServiceLinuxProfileResponse) ContainerServiceLinuxProfileResponse {
+		if v != nil {
+			return *v
+		}
+		var ret ContainerServiceLinuxProfileResponse
+		return ret
+	}).(ContainerServiceLinuxProfileResponseOutput)
 }
 
-// The administrator username to use for Linux VMs.
 func (o ContainerServiceLinuxProfileResponsePtrOutput) AdminUsername() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ContainerServiceLinuxProfileResponse) *string {
 		if v == nil {
@@ -306,7 +297,6 @@ func (o ContainerServiceLinuxProfileResponsePtrOutput) AdminUsername() pulumi.St
 	}).(pulumi.StringPtrOutput)
 }
 
-// SSH configuration for Linux-based VMs running on Azure.
 func (o ContainerServiceLinuxProfileResponsePtrOutput) Ssh() ContainerServiceSshConfigurationResponsePtrOutput {
 	return o.ApplyT(func(v *ContainerServiceLinuxProfileResponse) *ContainerServiceSshConfigurationResponse {
 		if v == nil {
@@ -316,22 +306,14 @@ func (o ContainerServiceLinuxProfileResponsePtrOutput) Ssh() ContainerServiceSsh
 	}).(ContainerServiceSshConfigurationResponsePtrOutput)
 }
 
-// Profile of network configuration.
 type ContainerServiceNetworkProfile struct {
-	// An IP address assigned to the Kubernetes DNS service. It must be within the Kubernetes service address range specified in serviceCidr.
-	DnsServiceIP *string `pulumi:"dnsServiceIP"`
-	// A CIDR notation IP range assigned to the Docker bridge network. It must not overlap with any Subnet IP ranges or the Kubernetes service address range.
+	DnsServiceIP     *string `pulumi:"dnsServiceIP"`
 	DockerBridgeCidr *string `pulumi:"dockerBridgeCidr"`
-	// The load balancer sku for the managed cluster.
-	LoadBalancerSku *string `pulumi:"loadBalancerSku"`
-	// Network plugin used for building Kubernetes network.
-	NetworkPlugin *string `pulumi:"networkPlugin"`
-	// Network policy used for building Kubernetes network.
-	NetworkPolicy *string `pulumi:"networkPolicy"`
-	// A CIDR notation IP range from which to assign pod IPs when kubenet is used.
-	PodCidr *string `pulumi:"podCidr"`
-	// A CIDR notation IP range from which to assign service cluster IPs. It must not overlap with any Subnet IP ranges.
-	ServiceCidr *string `pulumi:"serviceCidr"`
+	LoadBalancerSku  *string `pulumi:"loadBalancerSku"`
+	NetworkPlugin    *string `pulumi:"networkPlugin"`
+	NetworkPolicy    *string `pulumi:"networkPolicy"`
+	PodCidr          *string `pulumi:"podCidr"`
+	ServiceCidr      *string `pulumi:"serviceCidr"`
 }
 
 // ContainerServiceNetworkProfileInput is an input type that accepts ContainerServiceNetworkProfileArgs and ContainerServiceNetworkProfileOutput values.
@@ -345,22 +327,14 @@ type ContainerServiceNetworkProfileInput interface {
 	ToContainerServiceNetworkProfileOutputWithContext(context.Context) ContainerServiceNetworkProfileOutput
 }
 
-// Profile of network configuration.
 type ContainerServiceNetworkProfileArgs struct {
-	// An IP address assigned to the Kubernetes DNS service. It must be within the Kubernetes service address range specified in serviceCidr.
-	DnsServiceIP pulumi.StringPtrInput `pulumi:"dnsServiceIP"`
-	// A CIDR notation IP range assigned to the Docker bridge network. It must not overlap with any Subnet IP ranges or the Kubernetes service address range.
+	DnsServiceIP     pulumi.StringPtrInput `pulumi:"dnsServiceIP"`
 	DockerBridgeCidr pulumi.StringPtrInput `pulumi:"dockerBridgeCidr"`
-	// The load balancer sku for the managed cluster.
-	LoadBalancerSku pulumi.StringPtrInput `pulumi:"loadBalancerSku"`
-	// Network plugin used for building Kubernetes network.
-	NetworkPlugin pulumi.StringPtrInput `pulumi:"networkPlugin"`
-	// Network policy used for building Kubernetes network.
-	NetworkPolicy pulumi.StringPtrInput `pulumi:"networkPolicy"`
-	// A CIDR notation IP range from which to assign pod IPs when kubenet is used.
-	PodCidr pulumi.StringPtrInput `pulumi:"podCidr"`
-	// A CIDR notation IP range from which to assign service cluster IPs. It must not overlap with any Subnet IP ranges.
-	ServiceCidr pulumi.StringPtrInput `pulumi:"serviceCidr"`
+	LoadBalancerSku  pulumi.StringPtrInput `pulumi:"loadBalancerSku"`
+	NetworkPlugin    pulumi.StringPtrInput `pulumi:"networkPlugin"`
+	NetworkPolicy    pulumi.StringPtrInput `pulumi:"networkPolicy"`
+	PodCidr          pulumi.StringPtrInput `pulumi:"podCidr"`
+	ServiceCidr      pulumi.StringPtrInput `pulumi:"serviceCidr"`
 }
 
 func (ContainerServiceNetworkProfileArgs) ElementType() reflect.Type {
@@ -416,7 +390,6 @@ func (i *containerServiceNetworkProfilePtrType) ToContainerServiceNetworkProfile
 	return pulumi.ToOutputWithContext(ctx, i).(ContainerServiceNetworkProfilePtrOutput)
 }
 
-// Profile of network configuration.
 type ContainerServiceNetworkProfileOutput struct{ *pulumi.OutputState }
 
 func (ContainerServiceNetworkProfileOutput) ElementType() reflect.Type {
@@ -436,42 +409,35 @@ func (o ContainerServiceNetworkProfileOutput) ToContainerServiceNetworkProfilePt
 }
 
 func (o ContainerServiceNetworkProfileOutput) ToContainerServiceNetworkProfilePtrOutputWithContext(ctx context.Context) ContainerServiceNetworkProfilePtrOutput {
-	return o.ApplyT(func(v ContainerServiceNetworkProfile) *ContainerServiceNetworkProfile {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ContainerServiceNetworkProfile) *ContainerServiceNetworkProfile {
 		return &v
 	}).(ContainerServiceNetworkProfilePtrOutput)
 }
 
-// An IP address assigned to the Kubernetes DNS service. It must be within the Kubernetes service address range specified in serviceCidr.
 func (o ContainerServiceNetworkProfileOutput) DnsServiceIP() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ContainerServiceNetworkProfile) *string { return v.DnsServiceIP }).(pulumi.StringPtrOutput)
 }
 
-// A CIDR notation IP range assigned to the Docker bridge network. It must not overlap with any Subnet IP ranges or the Kubernetes service address range.
 func (o ContainerServiceNetworkProfileOutput) DockerBridgeCidr() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ContainerServiceNetworkProfile) *string { return v.DockerBridgeCidr }).(pulumi.StringPtrOutput)
 }
 
-// The load balancer sku for the managed cluster.
 func (o ContainerServiceNetworkProfileOutput) LoadBalancerSku() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ContainerServiceNetworkProfile) *string { return v.LoadBalancerSku }).(pulumi.StringPtrOutput)
 }
 
-// Network plugin used for building Kubernetes network.
 func (o ContainerServiceNetworkProfileOutput) NetworkPlugin() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ContainerServiceNetworkProfile) *string { return v.NetworkPlugin }).(pulumi.StringPtrOutput)
 }
 
-// Network policy used for building Kubernetes network.
 func (o ContainerServiceNetworkProfileOutput) NetworkPolicy() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ContainerServiceNetworkProfile) *string { return v.NetworkPolicy }).(pulumi.StringPtrOutput)
 }
 
-// A CIDR notation IP range from which to assign pod IPs when kubenet is used.
 func (o ContainerServiceNetworkProfileOutput) PodCidr() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ContainerServiceNetworkProfile) *string { return v.PodCidr }).(pulumi.StringPtrOutput)
 }
 
-// A CIDR notation IP range from which to assign service cluster IPs. It must not overlap with any Subnet IP ranges.
 func (o ContainerServiceNetworkProfileOutput) ServiceCidr() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ContainerServiceNetworkProfile) *string { return v.ServiceCidr }).(pulumi.StringPtrOutput)
 }
@@ -491,10 +457,15 @@ func (o ContainerServiceNetworkProfilePtrOutput) ToContainerServiceNetworkProfil
 }
 
 func (o ContainerServiceNetworkProfilePtrOutput) Elem() ContainerServiceNetworkProfileOutput {
-	return o.ApplyT(func(v *ContainerServiceNetworkProfile) ContainerServiceNetworkProfile { return *v }).(ContainerServiceNetworkProfileOutput)
+	return o.ApplyT(func(v *ContainerServiceNetworkProfile) ContainerServiceNetworkProfile {
+		if v != nil {
+			return *v
+		}
+		var ret ContainerServiceNetworkProfile
+		return ret
+	}).(ContainerServiceNetworkProfileOutput)
 }
 
-// An IP address assigned to the Kubernetes DNS service. It must be within the Kubernetes service address range specified in serviceCidr.
 func (o ContainerServiceNetworkProfilePtrOutput) DnsServiceIP() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ContainerServiceNetworkProfile) *string {
 		if v == nil {
@@ -504,7 +475,6 @@ func (o ContainerServiceNetworkProfilePtrOutput) DnsServiceIP() pulumi.StringPtr
 	}).(pulumi.StringPtrOutput)
 }
 
-// A CIDR notation IP range assigned to the Docker bridge network. It must not overlap with any Subnet IP ranges or the Kubernetes service address range.
 func (o ContainerServiceNetworkProfilePtrOutput) DockerBridgeCidr() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ContainerServiceNetworkProfile) *string {
 		if v == nil {
@@ -514,7 +484,6 @@ func (o ContainerServiceNetworkProfilePtrOutput) DockerBridgeCidr() pulumi.Strin
 	}).(pulumi.StringPtrOutput)
 }
 
-// The load balancer sku for the managed cluster.
 func (o ContainerServiceNetworkProfilePtrOutput) LoadBalancerSku() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ContainerServiceNetworkProfile) *string {
 		if v == nil {
@@ -524,7 +493,6 @@ func (o ContainerServiceNetworkProfilePtrOutput) LoadBalancerSku() pulumi.String
 	}).(pulumi.StringPtrOutput)
 }
 
-// Network plugin used for building Kubernetes network.
 func (o ContainerServiceNetworkProfilePtrOutput) NetworkPlugin() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ContainerServiceNetworkProfile) *string {
 		if v == nil {
@@ -534,7 +502,6 @@ func (o ContainerServiceNetworkProfilePtrOutput) NetworkPlugin() pulumi.StringPt
 	}).(pulumi.StringPtrOutput)
 }
 
-// Network policy used for building Kubernetes network.
 func (o ContainerServiceNetworkProfilePtrOutput) NetworkPolicy() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ContainerServiceNetworkProfile) *string {
 		if v == nil {
@@ -544,7 +511,6 @@ func (o ContainerServiceNetworkProfilePtrOutput) NetworkPolicy() pulumi.StringPt
 	}).(pulumi.StringPtrOutput)
 }
 
-// A CIDR notation IP range from which to assign pod IPs when kubenet is used.
 func (o ContainerServiceNetworkProfilePtrOutput) PodCidr() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ContainerServiceNetworkProfile) *string {
 		if v == nil {
@@ -554,7 +520,6 @@ func (o ContainerServiceNetworkProfilePtrOutput) PodCidr() pulumi.StringPtrOutpu
 	}).(pulumi.StringPtrOutput)
 }
 
-// A CIDR notation IP range from which to assign service cluster IPs. It must not overlap with any Subnet IP ranges.
 func (o ContainerServiceNetworkProfilePtrOutput) ServiceCidr() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ContainerServiceNetworkProfile) *string {
 		if v == nil {
@@ -564,22 +529,14 @@ func (o ContainerServiceNetworkProfilePtrOutput) ServiceCidr() pulumi.StringPtrO
 	}).(pulumi.StringPtrOutput)
 }
 
-// Profile of network configuration.
 type ContainerServiceNetworkProfileResponse struct {
-	// An IP address assigned to the Kubernetes DNS service. It must be within the Kubernetes service address range specified in serviceCidr.
-	DnsServiceIP *string `pulumi:"dnsServiceIP"`
-	// A CIDR notation IP range assigned to the Docker bridge network. It must not overlap with any Subnet IP ranges or the Kubernetes service address range.
+	DnsServiceIP     *string `pulumi:"dnsServiceIP"`
 	DockerBridgeCidr *string `pulumi:"dockerBridgeCidr"`
-	// The load balancer sku for the managed cluster.
-	LoadBalancerSku *string `pulumi:"loadBalancerSku"`
-	// Network plugin used for building Kubernetes network.
-	NetworkPlugin *string `pulumi:"networkPlugin"`
-	// Network policy used for building Kubernetes network.
-	NetworkPolicy *string `pulumi:"networkPolicy"`
-	// A CIDR notation IP range from which to assign pod IPs when kubenet is used.
-	PodCidr *string `pulumi:"podCidr"`
-	// A CIDR notation IP range from which to assign service cluster IPs. It must not overlap with any Subnet IP ranges.
-	ServiceCidr *string `pulumi:"serviceCidr"`
+	LoadBalancerSku  *string `pulumi:"loadBalancerSku"`
+	NetworkPlugin    *string `pulumi:"networkPlugin"`
+	NetworkPolicy    *string `pulumi:"networkPolicy"`
+	PodCidr          *string `pulumi:"podCidr"`
+	ServiceCidr      *string `pulumi:"serviceCidr"`
 }
 
 // ContainerServiceNetworkProfileResponseInput is an input type that accepts ContainerServiceNetworkProfileResponseArgs and ContainerServiceNetworkProfileResponseOutput values.
@@ -593,22 +550,14 @@ type ContainerServiceNetworkProfileResponseInput interface {
 	ToContainerServiceNetworkProfileResponseOutputWithContext(context.Context) ContainerServiceNetworkProfileResponseOutput
 }
 
-// Profile of network configuration.
 type ContainerServiceNetworkProfileResponseArgs struct {
-	// An IP address assigned to the Kubernetes DNS service. It must be within the Kubernetes service address range specified in serviceCidr.
-	DnsServiceIP pulumi.StringPtrInput `pulumi:"dnsServiceIP"`
-	// A CIDR notation IP range assigned to the Docker bridge network. It must not overlap with any Subnet IP ranges or the Kubernetes service address range.
+	DnsServiceIP     pulumi.StringPtrInput `pulumi:"dnsServiceIP"`
 	DockerBridgeCidr pulumi.StringPtrInput `pulumi:"dockerBridgeCidr"`
-	// The load balancer sku for the managed cluster.
-	LoadBalancerSku pulumi.StringPtrInput `pulumi:"loadBalancerSku"`
-	// Network plugin used for building Kubernetes network.
-	NetworkPlugin pulumi.StringPtrInput `pulumi:"networkPlugin"`
-	// Network policy used for building Kubernetes network.
-	NetworkPolicy pulumi.StringPtrInput `pulumi:"networkPolicy"`
-	// A CIDR notation IP range from which to assign pod IPs when kubenet is used.
-	PodCidr pulumi.StringPtrInput `pulumi:"podCidr"`
-	// A CIDR notation IP range from which to assign service cluster IPs. It must not overlap with any Subnet IP ranges.
-	ServiceCidr pulumi.StringPtrInput `pulumi:"serviceCidr"`
+	LoadBalancerSku  pulumi.StringPtrInput `pulumi:"loadBalancerSku"`
+	NetworkPlugin    pulumi.StringPtrInput `pulumi:"networkPlugin"`
+	NetworkPolicy    pulumi.StringPtrInput `pulumi:"networkPolicy"`
+	PodCidr          pulumi.StringPtrInput `pulumi:"podCidr"`
+	ServiceCidr      pulumi.StringPtrInput `pulumi:"serviceCidr"`
 }
 
 func (ContainerServiceNetworkProfileResponseArgs) ElementType() reflect.Type {
@@ -664,7 +613,6 @@ func (i *containerServiceNetworkProfileResponsePtrType) ToContainerServiceNetwor
 	return pulumi.ToOutputWithContext(ctx, i).(ContainerServiceNetworkProfileResponsePtrOutput)
 }
 
-// Profile of network configuration.
 type ContainerServiceNetworkProfileResponseOutput struct{ *pulumi.OutputState }
 
 func (ContainerServiceNetworkProfileResponseOutput) ElementType() reflect.Type {
@@ -684,42 +632,35 @@ func (o ContainerServiceNetworkProfileResponseOutput) ToContainerServiceNetworkP
 }
 
 func (o ContainerServiceNetworkProfileResponseOutput) ToContainerServiceNetworkProfileResponsePtrOutputWithContext(ctx context.Context) ContainerServiceNetworkProfileResponsePtrOutput {
-	return o.ApplyT(func(v ContainerServiceNetworkProfileResponse) *ContainerServiceNetworkProfileResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ContainerServiceNetworkProfileResponse) *ContainerServiceNetworkProfileResponse {
 		return &v
 	}).(ContainerServiceNetworkProfileResponsePtrOutput)
 }
 
-// An IP address assigned to the Kubernetes DNS service. It must be within the Kubernetes service address range specified in serviceCidr.
 func (o ContainerServiceNetworkProfileResponseOutput) DnsServiceIP() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ContainerServiceNetworkProfileResponse) *string { return v.DnsServiceIP }).(pulumi.StringPtrOutput)
 }
 
-// A CIDR notation IP range assigned to the Docker bridge network. It must not overlap with any Subnet IP ranges or the Kubernetes service address range.
 func (o ContainerServiceNetworkProfileResponseOutput) DockerBridgeCidr() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ContainerServiceNetworkProfileResponse) *string { return v.DockerBridgeCidr }).(pulumi.StringPtrOutput)
 }
 
-// The load balancer sku for the managed cluster.
 func (o ContainerServiceNetworkProfileResponseOutput) LoadBalancerSku() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ContainerServiceNetworkProfileResponse) *string { return v.LoadBalancerSku }).(pulumi.StringPtrOutput)
 }
 
-// Network plugin used for building Kubernetes network.
 func (o ContainerServiceNetworkProfileResponseOutput) NetworkPlugin() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ContainerServiceNetworkProfileResponse) *string { return v.NetworkPlugin }).(pulumi.StringPtrOutput)
 }
 
-// Network policy used for building Kubernetes network.
 func (o ContainerServiceNetworkProfileResponseOutput) NetworkPolicy() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ContainerServiceNetworkProfileResponse) *string { return v.NetworkPolicy }).(pulumi.StringPtrOutput)
 }
 
-// A CIDR notation IP range from which to assign pod IPs when kubenet is used.
 func (o ContainerServiceNetworkProfileResponseOutput) PodCidr() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ContainerServiceNetworkProfileResponse) *string { return v.PodCidr }).(pulumi.StringPtrOutput)
 }
 
-// A CIDR notation IP range from which to assign service cluster IPs. It must not overlap with any Subnet IP ranges.
 func (o ContainerServiceNetworkProfileResponseOutput) ServiceCidr() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ContainerServiceNetworkProfileResponse) *string { return v.ServiceCidr }).(pulumi.StringPtrOutput)
 }
@@ -739,10 +680,15 @@ func (o ContainerServiceNetworkProfileResponsePtrOutput) ToContainerServiceNetwo
 }
 
 func (o ContainerServiceNetworkProfileResponsePtrOutput) Elem() ContainerServiceNetworkProfileResponseOutput {
-	return o.ApplyT(func(v *ContainerServiceNetworkProfileResponse) ContainerServiceNetworkProfileResponse { return *v }).(ContainerServiceNetworkProfileResponseOutput)
+	return o.ApplyT(func(v *ContainerServiceNetworkProfileResponse) ContainerServiceNetworkProfileResponse {
+		if v != nil {
+			return *v
+		}
+		var ret ContainerServiceNetworkProfileResponse
+		return ret
+	}).(ContainerServiceNetworkProfileResponseOutput)
 }
 
-// An IP address assigned to the Kubernetes DNS service. It must be within the Kubernetes service address range specified in serviceCidr.
 func (o ContainerServiceNetworkProfileResponsePtrOutput) DnsServiceIP() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ContainerServiceNetworkProfileResponse) *string {
 		if v == nil {
@@ -752,7 +698,6 @@ func (o ContainerServiceNetworkProfileResponsePtrOutput) DnsServiceIP() pulumi.S
 	}).(pulumi.StringPtrOutput)
 }
 
-// A CIDR notation IP range assigned to the Docker bridge network. It must not overlap with any Subnet IP ranges or the Kubernetes service address range.
 func (o ContainerServiceNetworkProfileResponsePtrOutput) DockerBridgeCidr() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ContainerServiceNetworkProfileResponse) *string {
 		if v == nil {
@@ -762,7 +707,6 @@ func (o ContainerServiceNetworkProfileResponsePtrOutput) DockerBridgeCidr() pulu
 	}).(pulumi.StringPtrOutput)
 }
 
-// The load balancer sku for the managed cluster.
 func (o ContainerServiceNetworkProfileResponsePtrOutput) LoadBalancerSku() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ContainerServiceNetworkProfileResponse) *string {
 		if v == nil {
@@ -772,7 +716,6 @@ func (o ContainerServiceNetworkProfileResponsePtrOutput) LoadBalancerSku() pulum
 	}).(pulumi.StringPtrOutput)
 }
 
-// Network plugin used for building Kubernetes network.
 func (o ContainerServiceNetworkProfileResponsePtrOutput) NetworkPlugin() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ContainerServiceNetworkProfileResponse) *string {
 		if v == nil {
@@ -782,7 +725,6 @@ func (o ContainerServiceNetworkProfileResponsePtrOutput) NetworkPlugin() pulumi.
 	}).(pulumi.StringPtrOutput)
 }
 
-// Network policy used for building Kubernetes network.
 func (o ContainerServiceNetworkProfileResponsePtrOutput) NetworkPolicy() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ContainerServiceNetworkProfileResponse) *string {
 		if v == nil {
@@ -792,7 +734,6 @@ func (o ContainerServiceNetworkProfileResponsePtrOutput) NetworkPolicy() pulumi.
 	}).(pulumi.StringPtrOutput)
 }
 
-// A CIDR notation IP range from which to assign pod IPs when kubenet is used.
 func (o ContainerServiceNetworkProfileResponsePtrOutput) PodCidr() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ContainerServiceNetworkProfileResponse) *string {
 		if v == nil {
@@ -802,7 +743,6 @@ func (o ContainerServiceNetworkProfileResponsePtrOutput) PodCidr() pulumi.String
 	}).(pulumi.StringPtrOutput)
 }
 
-// A CIDR notation IP range from which to assign service cluster IPs. It must not overlap with any Subnet IP ranges.
 func (o ContainerServiceNetworkProfileResponsePtrOutput) ServiceCidr() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ContainerServiceNetworkProfileResponse) *string {
 		if v == nil {
@@ -812,9 +752,7 @@ func (o ContainerServiceNetworkProfileResponsePtrOutput) ServiceCidr() pulumi.St
 	}).(pulumi.StringPtrOutput)
 }
 
-// SSH configuration for Linux-based VMs running on Azure.
 type ContainerServiceSshConfiguration struct {
-	// The list of SSH public keys used to authenticate with Linux-based VMs. Only expect one key specified.
 	PublicKeys []ContainerServiceSshPublicKey `pulumi:"publicKeys"`
 }
 
@@ -829,9 +767,7 @@ type ContainerServiceSshConfigurationInput interface {
 	ToContainerServiceSshConfigurationOutputWithContext(context.Context) ContainerServiceSshConfigurationOutput
 }
 
-// SSH configuration for Linux-based VMs running on Azure.
 type ContainerServiceSshConfigurationArgs struct {
-	// The list of SSH public keys used to authenticate with Linux-based VMs. Only expect one key specified.
 	PublicKeys ContainerServiceSshPublicKeyArrayInput `pulumi:"publicKeys"`
 }
 
@@ -888,7 +824,6 @@ func (i *containerServiceSshConfigurationPtrType) ToContainerServiceSshConfigura
 	return pulumi.ToOutputWithContext(ctx, i).(ContainerServiceSshConfigurationPtrOutput)
 }
 
-// SSH configuration for Linux-based VMs running on Azure.
 type ContainerServiceSshConfigurationOutput struct{ *pulumi.OutputState }
 
 func (ContainerServiceSshConfigurationOutput) ElementType() reflect.Type {
@@ -908,12 +843,11 @@ func (o ContainerServiceSshConfigurationOutput) ToContainerServiceSshConfigurati
 }
 
 func (o ContainerServiceSshConfigurationOutput) ToContainerServiceSshConfigurationPtrOutputWithContext(ctx context.Context) ContainerServiceSshConfigurationPtrOutput {
-	return o.ApplyT(func(v ContainerServiceSshConfiguration) *ContainerServiceSshConfiguration {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ContainerServiceSshConfiguration) *ContainerServiceSshConfiguration {
 		return &v
 	}).(ContainerServiceSshConfigurationPtrOutput)
 }
 
-// The list of SSH public keys used to authenticate with Linux-based VMs. Only expect one key specified.
 func (o ContainerServiceSshConfigurationOutput) PublicKeys() ContainerServiceSshPublicKeyArrayOutput {
 	return o.ApplyT(func(v ContainerServiceSshConfiguration) []ContainerServiceSshPublicKey { return v.PublicKeys }).(ContainerServiceSshPublicKeyArrayOutput)
 }
@@ -933,10 +867,15 @@ func (o ContainerServiceSshConfigurationPtrOutput) ToContainerServiceSshConfigur
 }
 
 func (o ContainerServiceSshConfigurationPtrOutput) Elem() ContainerServiceSshConfigurationOutput {
-	return o.ApplyT(func(v *ContainerServiceSshConfiguration) ContainerServiceSshConfiguration { return *v }).(ContainerServiceSshConfigurationOutput)
+	return o.ApplyT(func(v *ContainerServiceSshConfiguration) ContainerServiceSshConfiguration {
+		if v != nil {
+			return *v
+		}
+		var ret ContainerServiceSshConfiguration
+		return ret
+	}).(ContainerServiceSshConfigurationOutput)
 }
 
-// The list of SSH public keys used to authenticate with Linux-based VMs. Only expect one key specified.
 func (o ContainerServiceSshConfigurationPtrOutput) PublicKeys() ContainerServiceSshPublicKeyArrayOutput {
 	return o.ApplyT(func(v *ContainerServiceSshConfiguration) []ContainerServiceSshPublicKey {
 		if v == nil {
@@ -946,9 +885,7 @@ func (o ContainerServiceSshConfigurationPtrOutput) PublicKeys() ContainerService
 	}).(ContainerServiceSshPublicKeyArrayOutput)
 }
 
-// SSH configuration for Linux-based VMs running on Azure.
 type ContainerServiceSshConfigurationResponse struct {
-	// The list of SSH public keys used to authenticate with Linux-based VMs. Only expect one key specified.
 	PublicKeys []ContainerServiceSshPublicKeyResponse `pulumi:"publicKeys"`
 }
 
@@ -963,9 +900,7 @@ type ContainerServiceSshConfigurationResponseInput interface {
 	ToContainerServiceSshConfigurationResponseOutputWithContext(context.Context) ContainerServiceSshConfigurationResponseOutput
 }
 
-// SSH configuration for Linux-based VMs running on Azure.
 type ContainerServiceSshConfigurationResponseArgs struct {
-	// The list of SSH public keys used to authenticate with Linux-based VMs. Only expect one key specified.
 	PublicKeys ContainerServiceSshPublicKeyResponseArrayInput `pulumi:"publicKeys"`
 }
 
@@ -1022,7 +957,6 @@ func (i *containerServiceSshConfigurationResponsePtrType) ToContainerServiceSshC
 	return pulumi.ToOutputWithContext(ctx, i).(ContainerServiceSshConfigurationResponsePtrOutput)
 }
 
-// SSH configuration for Linux-based VMs running on Azure.
 type ContainerServiceSshConfigurationResponseOutput struct{ *pulumi.OutputState }
 
 func (ContainerServiceSshConfigurationResponseOutput) ElementType() reflect.Type {
@@ -1042,12 +976,11 @@ func (o ContainerServiceSshConfigurationResponseOutput) ToContainerServiceSshCon
 }
 
 func (o ContainerServiceSshConfigurationResponseOutput) ToContainerServiceSshConfigurationResponsePtrOutputWithContext(ctx context.Context) ContainerServiceSshConfigurationResponsePtrOutput {
-	return o.ApplyT(func(v ContainerServiceSshConfigurationResponse) *ContainerServiceSshConfigurationResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ContainerServiceSshConfigurationResponse) *ContainerServiceSshConfigurationResponse {
 		return &v
 	}).(ContainerServiceSshConfigurationResponsePtrOutput)
 }
 
-// The list of SSH public keys used to authenticate with Linux-based VMs. Only expect one key specified.
 func (o ContainerServiceSshConfigurationResponseOutput) PublicKeys() ContainerServiceSshPublicKeyResponseArrayOutput {
 	return o.ApplyT(func(v ContainerServiceSshConfigurationResponse) []ContainerServiceSshPublicKeyResponse {
 		return v.PublicKeys
@@ -1069,10 +1002,15 @@ func (o ContainerServiceSshConfigurationResponsePtrOutput) ToContainerServiceSsh
 }
 
 func (o ContainerServiceSshConfigurationResponsePtrOutput) Elem() ContainerServiceSshConfigurationResponseOutput {
-	return o.ApplyT(func(v *ContainerServiceSshConfigurationResponse) ContainerServiceSshConfigurationResponse { return *v }).(ContainerServiceSshConfigurationResponseOutput)
+	return o.ApplyT(func(v *ContainerServiceSshConfigurationResponse) ContainerServiceSshConfigurationResponse {
+		if v != nil {
+			return *v
+		}
+		var ret ContainerServiceSshConfigurationResponse
+		return ret
+	}).(ContainerServiceSshConfigurationResponseOutput)
 }
 
-// The list of SSH public keys used to authenticate with Linux-based VMs. Only expect one key specified.
 func (o ContainerServiceSshConfigurationResponsePtrOutput) PublicKeys() ContainerServiceSshPublicKeyResponseArrayOutput {
 	return o.ApplyT(func(v *ContainerServiceSshConfigurationResponse) []ContainerServiceSshPublicKeyResponse {
 		if v == nil {
@@ -1082,9 +1020,7 @@ func (o ContainerServiceSshConfigurationResponsePtrOutput) PublicKeys() Containe
 	}).(ContainerServiceSshPublicKeyResponseArrayOutput)
 }
 
-// Contains information about SSH certificate public key data.
 type ContainerServiceSshPublicKey struct {
-	// Certificate public key used to authenticate with VMs through SSH. The certificate must be in PEM format with or without headers.
 	KeyData string `pulumi:"keyData"`
 }
 
@@ -1099,9 +1035,7 @@ type ContainerServiceSshPublicKeyInput interface {
 	ToContainerServiceSshPublicKeyOutputWithContext(context.Context) ContainerServiceSshPublicKeyOutput
 }
 
-// Contains information about SSH certificate public key data.
 type ContainerServiceSshPublicKeyArgs struct {
-	// Certificate public key used to authenticate with VMs through SSH. The certificate must be in PEM format with or without headers.
 	KeyData pulumi.StringInput `pulumi:"keyData"`
 }
 
@@ -1142,7 +1076,6 @@ func (i ContainerServiceSshPublicKeyArray) ToContainerServiceSshPublicKeyArrayOu
 	return pulumi.ToOutputWithContext(ctx, i).(ContainerServiceSshPublicKeyArrayOutput)
 }
 
-// Contains information about SSH certificate public key data.
 type ContainerServiceSshPublicKeyOutput struct{ *pulumi.OutputState }
 
 func (ContainerServiceSshPublicKeyOutput) ElementType() reflect.Type {
@@ -1157,7 +1090,6 @@ func (o ContainerServiceSshPublicKeyOutput) ToContainerServiceSshPublicKeyOutput
 	return o
 }
 
-// Certificate public key used to authenticate with VMs through SSH. The certificate must be in PEM format with or without headers.
 func (o ContainerServiceSshPublicKeyOutput) KeyData() pulumi.StringOutput {
 	return o.ApplyT(func(v ContainerServiceSshPublicKey) string { return v.KeyData }).(pulumi.StringOutput)
 }
@@ -1182,9 +1114,7 @@ func (o ContainerServiceSshPublicKeyArrayOutput) Index(i pulumi.IntInput) Contai
 	}).(ContainerServiceSshPublicKeyOutput)
 }
 
-// Contains information about SSH certificate public key data.
 type ContainerServiceSshPublicKeyResponse struct {
-	// Certificate public key used to authenticate with VMs through SSH. The certificate must be in PEM format with or without headers.
 	KeyData string `pulumi:"keyData"`
 }
 
@@ -1199,9 +1129,7 @@ type ContainerServiceSshPublicKeyResponseInput interface {
 	ToContainerServiceSshPublicKeyResponseOutputWithContext(context.Context) ContainerServiceSshPublicKeyResponseOutput
 }
 
-// Contains information about SSH certificate public key data.
 type ContainerServiceSshPublicKeyResponseArgs struct {
-	// Certificate public key used to authenticate with VMs through SSH. The certificate must be in PEM format with or without headers.
 	KeyData pulumi.StringInput `pulumi:"keyData"`
 }
 
@@ -1242,7 +1170,6 @@ func (i ContainerServiceSshPublicKeyResponseArray) ToContainerServiceSshPublicKe
 	return pulumi.ToOutputWithContext(ctx, i).(ContainerServiceSshPublicKeyResponseArrayOutput)
 }
 
-// Contains information about SSH certificate public key data.
 type ContainerServiceSshPublicKeyResponseOutput struct{ *pulumi.OutputState }
 
 func (ContainerServiceSshPublicKeyResponseOutput) ElementType() reflect.Type {
@@ -1257,7 +1184,6 @@ func (o ContainerServiceSshPublicKeyResponseOutput) ToContainerServiceSshPublicK
 	return o
 }
 
-// Certificate public key used to authenticate with VMs through SSH. The certificate must be in PEM format with or without headers.
 func (o ContainerServiceSshPublicKeyResponseOutput) KeyData() pulumi.StringOutput {
 	return o.ApplyT(func(v ContainerServiceSshPublicKeyResponse) string { return v.KeyData }).(pulumi.StringOutput)
 }
@@ -1282,11 +1208,8 @@ func (o ContainerServiceSshPublicKeyResponseArrayOutput) Index(i pulumi.IntInput
 	}).(ContainerServiceSshPublicKeyResponseOutput)
 }
 
-// The credential result response.
 type CredentialResultResponse struct {
-	// The name of the credential.
-	Name string `pulumi:"name"`
-	// Base64-encoded Kubernetes configuration file.
+	Name  string `pulumi:"name"`
 	Value string `pulumi:"value"`
 }
 
@@ -1301,11 +1224,8 @@ type CredentialResultResponseInput interface {
 	ToCredentialResultResponseOutputWithContext(context.Context) CredentialResultResponseOutput
 }
 
-// The credential result response.
 type CredentialResultResponseArgs struct {
-	// The name of the credential.
-	Name pulumi.StringInput `pulumi:"name"`
-	// Base64-encoded Kubernetes configuration file.
+	Name  pulumi.StringInput `pulumi:"name"`
 	Value pulumi.StringInput `pulumi:"value"`
 }
 
@@ -1346,7 +1266,6 @@ func (i CredentialResultResponseArray) ToCredentialResultResponseArrayOutputWith
 	return pulumi.ToOutputWithContext(ctx, i).(CredentialResultResponseArrayOutput)
 }
 
-// The credential result response.
 type CredentialResultResponseOutput struct{ *pulumi.OutputState }
 
 func (CredentialResultResponseOutput) ElementType() reflect.Type {
@@ -1361,12 +1280,10 @@ func (o CredentialResultResponseOutput) ToCredentialResultResponseOutputWithCont
 	return o
 }
 
-// The name of the credential.
 func (o CredentialResultResponseOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v CredentialResultResponse) string { return v.Name }).(pulumi.StringOutput)
 }
 
-// Base64-encoded Kubernetes configuration file.
 func (o CredentialResultResponseOutput) Value() pulumi.StringOutput {
 	return o.ApplyT(func(v CredentialResultResponse) string { return v.Value }).(pulumi.StringOutput)
 }
@@ -1391,16 +1308,11 @@ func (o CredentialResultResponseArrayOutput) Index(i pulumi.IntInput) Credential
 	}).(CredentialResultResponseOutput)
 }
 
-// AADProfile specifies attributes for Azure Active Directory integration.
 type ManagedClusterAADProfile struct {
-	// The client AAD application ID.
-	ClientAppID string `pulumi:"clientAppID"`
-	// The server AAD application ID.
-	ServerAppID string `pulumi:"serverAppID"`
-	// The server AAD application secret.
+	ClientAppID     string  `pulumi:"clientAppID"`
+	ServerAppID     string  `pulumi:"serverAppID"`
 	ServerAppSecret *string `pulumi:"serverAppSecret"`
-	// The AAD tenant ID to use for authentication. If not specified, will use the tenant of the deployment subscription.
-	TenantID *string `pulumi:"tenantID"`
+	TenantID        *string `pulumi:"tenantID"`
 }
 
 // ManagedClusterAADProfileInput is an input type that accepts ManagedClusterAADProfileArgs and ManagedClusterAADProfileOutput values.
@@ -1414,16 +1326,11 @@ type ManagedClusterAADProfileInput interface {
 	ToManagedClusterAADProfileOutputWithContext(context.Context) ManagedClusterAADProfileOutput
 }
 
-// AADProfile specifies attributes for Azure Active Directory integration.
 type ManagedClusterAADProfileArgs struct {
-	// The client AAD application ID.
-	ClientAppID pulumi.StringInput `pulumi:"clientAppID"`
-	// The server AAD application ID.
-	ServerAppID pulumi.StringInput `pulumi:"serverAppID"`
-	// The server AAD application secret.
+	ClientAppID     pulumi.StringInput    `pulumi:"clientAppID"`
+	ServerAppID     pulumi.StringInput    `pulumi:"serverAppID"`
 	ServerAppSecret pulumi.StringPtrInput `pulumi:"serverAppSecret"`
-	// The AAD tenant ID to use for authentication. If not specified, will use the tenant of the deployment subscription.
-	TenantID pulumi.StringPtrInput `pulumi:"tenantID"`
+	TenantID        pulumi.StringPtrInput `pulumi:"tenantID"`
 }
 
 func (ManagedClusterAADProfileArgs) ElementType() reflect.Type {
@@ -1479,7 +1386,6 @@ func (i *managedClusterAADProfilePtrType) ToManagedClusterAADProfilePtrOutputWit
 	return pulumi.ToOutputWithContext(ctx, i).(ManagedClusterAADProfilePtrOutput)
 }
 
-// AADProfile specifies attributes for Azure Active Directory integration.
 type ManagedClusterAADProfileOutput struct{ *pulumi.OutputState }
 
 func (ManagedClusterAADProfileOutput) ElementType() reflect.Type {
@@ -1499,27 +1405,23 @@ func (o ManagedClusterAADProfileOutput) ToManagedClusterAADProfilePtrOutput() Ma
 }
 
 func (o ManagedClusterAADProfileOutput) ToManagedClusterAADProfilePtrOutputWithContext(ctx context.Context) ManagedClusterAADProfilePtrOutput {
-	return o.ApplyT(func(v ManagedClusterAADProfile) *ManagedClusterAADProfile {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ManagedClusterAADProfile) *ManagedClusterAADProfile {
 		return &v
 	}).(ManagedClusterAADProfilePtrOutput)
 }
 
-// The client AAD application ID.
 func (o ManagedClusterAADProfileOutput) ClientAppID() pulumi.StringOutput {
 	return o.ApplyT(func(v ManagedClusterAADProfile) string { return v.ClientAppID }).(pulumi.StringOutput)
 }
 
-// The server AAD application ID.
 func (o ManagedClusterAADProfileOutput) ServerAppID() pulumi.StringOutput {
 	return o.ApplyT(func(v ManagedClusterAADProfile) string { return v.ServerAppID }).(pulumi.StringOutput)
 }
 
-// The server AAD application secret.
 func (o ManagedClusterAADProfileOutput) ServerAppSecret() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ManagedClusterAADProfile) *string { return v.ServerAppSecret }).(pulumi.StringPtrOutput)
 }
 
-// The AAD tenant ID to use for authentication. If not specified, will use the tenant of the deployment subscription.
 func (o ManagedClusterAADProfileOutput) TenantID() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ManagedClusterAADProfile) *string { return v.TenantID }).(pulumi.StringPtrOutput)
 }
@@ -1539,10 +1441,15 @@ func (o ManagedClusterAADProfilePtrOutput) ToManagedClusterAADProfilePtrOutputWi
 }
 
 func (o ManagedClusterAADProfilePtrOutput) Elem() ManagedClusterAADProfileOutput {
-	return o.ApplyT(func(v *ManagedClusterAADProfile) ManagedClusterAADProfile { return *v }).(ManagedClusterAADProfileOutput)
+	return o.ApplyT(func(v *ManagedClusterAADProfile) ManagedClusterAADProfile {
+		if v != nil {
+			return *v
+		}
+		var ret ManagedClusterAADProfile
+		return ret
+	}).(ManagedClusterAADProfileOutput)
 }
 
-// The client AAD application ID.
 func (o ManagedClusterAADProfilePtrOutput) ClientAppID() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ManagedClusterAADProfile) *string {
 		if v == nil {
@@ -1552,7 +1459,6 @@ func (o ManagedClusterAADProfilePtrOutput) ClientAppID() pulumi.StringPtrOutput 
 	}).(pulumi.StringPtrOutput)
 }
 
-// The server AAD application ID.
 func (o ManagedClusterAADProfilePtrOutput) ServerAppID() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ManagedClusterAADProfile) *string {
 		if v == nil {
@@ -1562,7 +1468,6 @@ func (o ManagedClusterAADProfilePtrOutput) ServerAppID() pulumi.StringPtrOutput 
 	}).(pulumi.StringPtrOutput)
 }
 
-// The server AAD application secret.
 func (o ManagedClusterAADProfilePtrOutput) ServerAppSecret() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ManagedClusterAADProfile) *string {
 		if v == nil {
@@ -1572,7 +1477,6 @@ func (o ManagedClusterAADProfilePtrOutput) ServerAppSecret() pulumi.StringPtrOut
 	}).(pulumi.StringPtrOutput)
 }
 
-// The AAD tenant ID to use for authentication. If not specified, will use the tenant of the deployment subscription.
 func (o ManagedClusterAADProfilePtrOutput) TenantID() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ManagedClusterAADProfile) *string {
 		if v == nil {
@@ -1582,16 +1486,11 @@ func (o ManagedClusterAADProfilePtrOutput) TenantID() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// AADProfile specifies attributes for Azure Active Directory integration.
 type ManagedClusterAADProfileResponse struct {
-	// The client AAD application ID.
-	ClientAppID string `pulumi:"clientAppID"`
-	// The server AAD application ID.
-	ServerAppID string `pulumi:"serverAppID"`
-	// The server AAD application secret.
+	ClientAppID     string  `pulumi:"clientAppID"`
+	ServerAppID     string  `pulumi:"serverAppID"`
 	ServerAppSecret *string `pulumi:"serverAppSecret"`
-	// The AAD tenant ID to use for authentication. If not specified, will use the tenant of the deployment subscription.
-	TenantID *string `pulumi:"tenantID"`
+	TenantID        *string `pulumi:"tenantID"`
 }
 
 // ManagedClusterAADProfileResponseInput is an input type that accepts ManagedClusterAADProfileResponseArgs and ManagedClusterAADProfileResponseOutput values.
@@ -1605,16 +1504,11 @@ type ManagedClusterAADProfileResponseInput interface {
 	ToManagedClusterAADProfileResponseOutputWithContext(context.Context) ManagedClusterAADProfileResponseOutput
 }
 
-// AADProfile specifies attributes for Azure Active Directory integration.
 type ManagedClusterAADProfileResponseArgs struct {
-	// The client AAD application ID.
-	ClientAppID pulumi.StringInput `pulumi:"clientAppID"`
-	// The server AAD application ID.
-	ServerAppID pulumi.StringInput `pulumi:"serverAppID"`
-	// The server AAD application secret.
+	ClientAppID     pulumi.StringInput    `pulumi:"clientAppID"`
+	ServerAppID     pulumi.StringInput    `pulumi:"serverAppID"`
 	ServerAppSecret pulumi.StringPtrInput `pulumi:"serverAppSecret"`
-	// The AAD tenant ID to use for authentication. If not specified, will use the tenant of the deployment subscription.
-	TenantID pulumi.StringPtrInput `pulumi:"tenantID"`
+	TenantID        pulumi.StringPtrInput `pulumi:"tenantID"`
 }
 
 func (ManagedClusterAADProfileResponseArgs) ElementType() reflect.Type {
@@ -1670,7 +1564,6 @@ func (i *managedClusterAADProfileResponsePtrType) ToManagedClusterAADProfileResp
 	return pulumi.ToOutputWithContext(ctx, i).(ManagedClusterAADProfileResponsePtrOutput)
 }
 
-// AADProfile specifies attributes for Azure Active Directory integration.
 type ManagedClusterAADProfileResponseOutput struct{ *pulumi.OutputState }
 
 func (ManagedClusterAADProfileResponseOutput) ElementType() reflect.Type {
@@ -1690,27 +1583,23 @@ func (o ManagedClusterAADProfileResponseOutput) ToManagedClusterAADProfileRespon
 }
 
 func (o ManagedClusterAADProfileResponseOutput) ToManagedClusterAADProfileResponsePtrOutputWithContext(ctx context.Context) ManagedClusterAADProfileResponsePtrOutput {
-	return o.ApplyT(func(v ManagedClusterAADProfileResponse) *ManagedClusterAADProfileResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ManagedClusterAADProfileResponse) *ManagedClusterAADProfileResponse {
 		return &v
 	}).(ManagedClusterAADProfileResponsePtrOutput)
 }
 
-// The client AAD application ID.
 func (o ManagedClusterAADProfileResponseOutput) ClientAppID() pulumi.StringOutput {
 	return o.ApplyT(func(v ManagedClusterAADProfileResponse) string { return v.ClientAppID }).(pulumi.StringOutput)
 }
 
-// The server AAD application ID.
 func (o ManagedClusterAADProfileResponseOutput) ServerAppID() pulumi.StringOutput {
 	return o.ApplyT(func(v ManagedClusterAADProfileResponse) string { return v.ServerAppID }).(pulumi.StringOutput)
 }
 
-// The server AAD application secret.
 func (o ManagedClusterAADProfileResponseOutput) ServerAppSecret() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ManagedClusterAADProfileResponse) *string { return v.ServerAppSecret }).(pulumi.StringPtrOutput)
 }
 
-// The AAD tenant ID to use for authentication. If not specified, will use the tenant of the deployment subscription.
 func (o ManagedClusterAADProfileResponseOutput) TenantID() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ManagedClusterAADProfileResponse) *string { return v.TenantID }).(pulumi.StringPtrOutput)
 }
@@ -1730,10 +1619,15 @@ func (o ManagedClusterAADProfileResponsePtrOutput) ToManagedClusterAADProfileRes
 }
 
 func (o ManagedClusterAADProfileResponsePtrOutput) Elem() ManagedClusterAADProfileResponseOutput {
-	return o.ApplyT(func(v *ManagedClusterAADProfileResponse) ManagedClusterAADProfileResponse { return *v }).(ManagedClusterAADProfileResponseOutput)
+	return o.ApplyT(func(v *ManagedClusterAADProfileResponse) ManagedClusterAADProfileResponse {
+		if v != nil {
+			return *v
+		}
+		var ret ManagedClusterAADProfileResponse
+		return ret
+	}).(ManagedClusterAADProfileResponseOutput)
 }
 
-// The client AAD application ID.
 func (o ManagedClusterAADProfileResponsePtrOutput) ClientAppID() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ManagedClusterAADProfileResponse) *string {
 		if v == nil {
@@ -1743,7 +1637,6 @@ func (o ManagedClusterAADProfileResponsePtrOutput) ClientAppID() pulumi.StringPt
 	}).(pulumi.StringPtrOutput)
 }
 
-// The server AAD application ID.
 func (o ManagedClusterAADProfileResponsePtrOutput) ServerAppID() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ManagedClusterAADProfileResponse) *string {
 		if v == nil {
@@ -1753,7 +1646,6 @@ func (o ManagedClusterAADProfileResponsePtrOutput) ServerAppID() pulumi.StringPt
 	}).(pulumi.StringPtrOutput)
 }
 
-// The server AAD application secret.
 func (o ManagedClusterAADProfileResponsePtrOutput) ServerAppSecret() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ManagedClusterAADProfileResponse) *string {
 		if v == nil {
@@ -1763,7 +1655,6 @@ func (o ManagedClusterAADProfileResponsePtrOutput) ServerAppSecret() pulumi.Stri
 	}).(pulumi.StringPtrOutput)
 }
 
-// The AAD tenant ID to use for authentication. If not specified, will use the tenant of the deployment subscription.
 func (o ManagedClusterAADProfileResponsePtrOutput) TenantID() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ManagedClusterAADProfileResponse) *string {
 		if v == nil {
@@ -1773,12 +1664,9 @@ func (o ManagedClusterAADProfileResponsePtrOutput) TenantID() pulumi.StringPtrOu
 	}).(pulumi.StringPtrOutput)
 }
 
-// A Kubernetes add-on profile for a managed cluster.
 type ManagedClusterAddonProfile struct {
-	// Key-value pairs for configuring an add-on.
-	Config map[string]string `pulumi:"config"`
-	// Whether the add-on is enabled or not.
-	Enabled bool `pulumi:"enabled"`
+	Config  map[string]string `pulumi:"config"`
+	Enabled bool              `pulumi:"enabled"`
 }
 
 // ManagedClusterAddonProfileInput is an input type that accepts ManagedClusterAddonProfileArgs and ManagedClusterAddonProfileOutput values.
@@ -1792,12 +1680,9 @@ type ManagedClusterAddonProfileInput interface {
 	ToManagedClusterAddonProfileOutputWithContext(context.Context) ManagedClusterAddonProfileOutput
 }
 
-// A Kubernetes add-on profile for a managed cluster.
 type ManagedClusterAddonProfileArgs struct {
-	// Key-value pairs for configuring an add-on.
-	Config pulumi.StringMapInput `pulumi:"config"`
-	// Whether the add-on is enabled or not.
-	Enabled pulumi.BoolInput `pulumi:"enabled"`
+	Config  pulumi.StringMapInput `pulumi:"config"`
+	Enabled pulumi.BoolInput      `pulumi:"enabled"`
 }
 
 func (ManagedClusterAddonProfileArgs) ElementType() reflect.Type {
@@ -1837,7 +1722,6 @@ func (i ManagedClusterAddonProfileMap) ToManagedClusterAddonProfileMapOutputWith
 	return pulumi.ToOutputWithContext(ctx, i).(ManagedClusterAddonProfileMapOutput)
 }
 
-// A Kubernetes add-on profile for a managed cluster.
 type ManagedClusterAddonProfileOutput struct{ *pulumi.OutputState }
 
 func (ManagedClusterAddonProfileOutput) ElementType() reflect.Type {
@@ -1852,12 +1736,10 @@ func (o ManagedClusterAddonProfileOutput) ToManagedClusterAddonProfileOutputWith
 	return o
 }
 
-// Key-value pairs for configuring an add-on.
 func (o ManagedClusterAddonProfileOutput) Config() pulumi.StringMapOutput {
 	return o.ApplyT(func(v ManagedClusterAddonProfile) map[string]string { return v.Config }).(pulumi.StringMapOutput)
 }
 
-// Whether the add-on is enabled or not.
 func (o ManagedClusterAddonProfileOutput) Enabled() pulumi.BoolOutput {
 	return o.ApplyT(func(v ManagedClusterAddonProfile) bool { return v.Enabled }).(pulumi.BoolOutput)
 }
@@ -1882,12 +1764,9 @@ func (o ManagedClusterAddonProfileMapOutput) MapIndex(k pulumi.StringInput) Mana
 	}).(ManagedClusterAddonProfileOutput)
 }
 
-// A Kubernetes add-on profile for a managed cluster.
 type ManagedClusterAddonProfileResponse struct {
-	// Key-value pairs for configuring an add-on.
-	Config map[string]string `pulumi:"config"`
-	// Whether the add-on is enabled or not.
-	Enabled bool `pulumi:"enabled"`
+	Config  map[string]string `pulumi:"config"`
+	Enabled bool              `pulumi:"enabled"`
 }
 
 // ManagedClusterAddonProfileResponseInput is an input type that accepts ManagedClusterAddonProfileResponseArgs and ManagedClusterAddonProfileResponseOutput values.
@@ -1901,12 +1780,9 @@ type ManagedClusterAddonProfileResponseInput interface {
 	ToManagedClusterAddonProfileResponseOutputWithContext(context.Context) ManagedClusterAddonProfileResponseOutput
 }
 
-// A Kubernetes add-on profile for a managed cluster.
 type ManagedClusterAddonProfileResponseArgs struct {
-	// Key-value pairs for configuring an add-on.
-	Config pulumi.StringMapInput `pulumi:"config"`
-	// Whether the add-on is enabled or not.
-	Enabled pulumi.BoolInput `pulumi:"enabled"`
+	Config  pulumi.StringMapInput `pulumi:"config"`
+	Enabled pulumi.BoolInput      `pulumi:"enabled"`
 }
 
 func (ManagedClusterAddonProfileResponseArgs) ElementType() reflect.Type {
@@ -1946,7 +1822,6 @@ func (i ManagedClusterAddonProfileResponseMap) ToManagedClusterAddonProfileRespo
 	return pulumi.ToOutputWithContext(ctx, i).(ManagedClusterAddonProfileResponseMapOutput)
 }
 
-// A Kubernetes add-on profile for a managed cluster.
 type ManagedClusterAddonProfileResponseOutput struct{ *pulumi.OutputState }
 
 func (ManagedClusterAddonProfileResponseOutput) ElementType() reflect.Type {
@@ -1961,12 +1836,10 @@ func (o ManagedClusterAddonProfileResponseOutput) ToManagedClusterAddonProfileRe
 	return o
 }
 
-// Key-value pairs for configuring an add-on.
 func (o ManagedClusterAddonProfileResponseOutput) Config() pulumi.StringMapOutput {
 	return o.ApplyT(func(v ManagedClusterAddonProfileResponse) map[string]string { return v.Config }).(pulumi.StringMapOutput)
 }
 
-// Whether the add-on is enabled or not.
 func (o ManagedClusterAddonProfileResponseOutput) Enabled() pulumi.BoolOutput {
 	return o.ApplyT(func(v ManagedClusterAddonProfileResponse) bool { return v.Enabled }).(pulumi.BoolOutput)
 }
@@ -1991,42 +1864,24 @@ func (o ManagedClusterAddonProfileResponseMapOutput) MapIndex(k pulumi.StringInp
 	}).(ManagedClusterAddonProfileResponseOutput)
 }
 
-// Profile for the container service agent pool.
 type ManagedClusterAgentPoolProfile struct {
-	// (PREVIEW) Availability zones for nodes. Must use VirtualMachineScaleSets AgentPoolType.
-	AvailabilityZones []string `pulumi:"availabilityZones"`
-	// Number of agents (VMs) to host docker containers. Allowed values must be in the range of 1 to 100 (inclusive). The default value is 1.
-	Count *int `pulumi:"count"`
-	// Whether to enable auto-scaler
-	EnableAutoScaling *bool `pulumi:"enableAutoScaling"`
-	// Enable public IP for nodes
-	EnableNodePublicIP *bool `pulumi:"enableNodePublicIP"`
-	// Maximum number of nodes for auto-scaling
-	MaxCount *int `pulumi:"maxCount"`
-	// Maximum number of pods that can run on a node.
-	MaxPods *int `pulumi:"maxPods"`
-	// Minimum number of nodes for auto-scaling
-	MinCount *int `pulumi:"minCount"`
-	// Unique name of the agent pool profile in the context of the subscription and resource group.
-	Name string `pulumi:"name"`
-	// Taints added to new nodes during node pool create and scale. For example, key=value:NoSchedule.
-	NodeTaints []string `pulumi:"nodeTaints"`
-	// Version of orchestrator specified when creating the managed cluster.
-	OrchestratorVersion *string `pulumi:"orchestratorVersion"`
-	// OS Disk Size in GB to be used to specify the disk size for every machine in this master/agent pool. If you specify 0, it will apply the default osDisk size according to the vmSize specified.
-	OsDiskSizeGB *int `pulumi:"osDiskSizeGB"`
-	// OsType to be used to specify os type. Choose from Linux and Windows. Default to Linux.
-	OsType *string `pulumi:"osType"`
-	// ScaleSetEvictionPolicy to be used to specify eviction policy for low priority virtual machine scale set. Default to Delete.
-	ScaleSetEvictionPolicy *string `pulumi:"scaleSetEvictionPolicy"`
-	// ScaleSetPriority to be used to specify virtual machine scale set priority. Default to regular.
-	ScaleSetPriority *string `pulumi:"scaleSetPriority"`
-	// AgentPoolType represents types of an agent pool
-	Type *string `pulumi:"type"`
-	// Size of agent VMs.
-	VmSize *string `pulumi:"vmSize"`
-	// VNet SubnetID specifies the VNet's subnet identifier.
-	VnetSubnetID *string `pulumi:"vnetSubnetID"`
+	AvailabilityZones      []string `pulumi:"availabilityZones"`
+	Count                  *int     `pulumi:"count"`
+	EnableAutoScaling      *bool    `pulumi:"enableAutoScaling"`
+	EnableNodePublicIP     *bool    `pulumi:"enableNodePublicIP"`
+	MaxCount               *int     `pulumi:"maxCount"`
+	MaxPods                *int     `pulumi:"maxPods"`
+	MinCount               *int     `pulumi:"minCount"`
+	Name                   string   `pulumi:"name"`
+	NodeTaints             []string `pulumi:"nodeTaints"`
+	OrchestratorVersion    *string  `pulumi:"orchestratorVersion"`
+	OsDiskSizeGB           *int     `pulumi:"osDiskSizeGB"`
+	OsType                 *string  `pulumi:"osType"`
+	ScaleSetEvictionPolicy *string  `pulumi:"scaleSetEvictionPolicy"`
+	ScaleSetPriority       *string  `pulumi:"scaleSetPriority"`
+	Type                   *string  `pulumi:"type"`
+	VmSize                 *string  `pulumi:"vmSize"`
+	VnetSubnetID           *string  `pulumi:"vnetSubnetID"`
 }
 
 // ManagedClusterAgentPoolProfileInput is an input type that accepts ManagedClusterAgentPoolProfileArgs and ManagedClusterAgentPoolProfileOutput values.
@@ -2040,42 +1895,24 @@ type ManagedClusterAgentPoolProfileInput interface {
 	ToManagedClusterAgentPoolProfileOutputWithContext(context.Context) ManagedClusterAgentPoolProfileOutput
 }
 
-// Profile for the container service agent pool.
 type ManagedClusterAgentPoolProfileArgs struct {
-	// (PREVIEW) Availability zones for nodes. Must use VirtualMachineScaleSets AgentPoolType.
-	AvailabilityZones pulumi.StringArrayInput `pulumi:"availabilityZones"`
-	// Number of agents (VMs) to host docker containers. Allowed values must be in the range of 1 to 100 (inclusive). The default value is 1.
-	Count pulumi.IntPtrInput `pulumi:"count"`
-	// Whether to enable auto-scaler
-	EnableAutoScaling pulumi.BoolPtrInput `pulumi:"enableAutoScaling"`
-	// Enable public IP for nodes
-	EnableNodePublicIP pulumi.BoolPtrInput `pulumi:"enableNodePublicIP"`
-	// Maximum number of nodes for auto-scaling
-	MaxCount pulumi.IntPtrInput `pulumi:"maxCount"`
-	// Maximum number of pods that can run on a node.
-	MaxPods pulumi.IntPtrInput `pulumi:"maxPods"`
-	// Minimum number of nodes for auto-scaling
-	MinCount pulumi.IntPtrInput `pulumi:"minCount"`
-	// Unique name of the agent pool profile in the context of the subscription and resource group.
-	Name pulumi.StringInput `pulumi:"name"`
-	// Taints added to new nodes during node pool create and scale. For example, key=value:NoSchedule.
-	NodeTaints pulumi.StringArrayInput `pulumi:"nodeTaints"`
-	// Version of orchestrator specified when creating the managed cluster.
-	OrchestratorVersion pulumi.StringPtrInput `pulumi:"orchestratorVersion"`
-	// OS Disk Size in GB to be used to specify the disk size for every machine in this master/agent pool. If you specify 0, it will apply the default osDisk size according to the vmSize specified.
-	OsDiskSizeGB pulumi.IntPtrInput `pulumi:"osDiskSizeGB"`
-	// OsType to be used to specify os type. Choose from Linux and Windows. Default to Linux.
-	OsType pulumi.StringPtrInput `pulumi:"osType"`
-	// ScaleSetEvictionPolicy to be used to specify eviction policy for low priority virtual machine scale set. Default to Delete.
-	ScaleSetEvictionPolicy pulumi.StringPtrInput `pulumi:"scaleSetEvictionPolicy"`
-	// ScaleSetPriority to be used to specify virtual machine scale set priority. Default to regular.
-	ScaleSetPriority pulumi.StringPtrInput `pulumi:"scaleSetPriority"`
-	// AgentPoolType represents types of an agent pool
-	Type pulumi.StringPtrInput `pulumi:"type"`
-	// Size of agent VMs.
-	VmSize pulumi.StringPtrInput `pulumi:"vmSize"`
-	// VNet SubnetID specifies the VNet's subnet identifier.
-	VnetSubnetID pulumi.StringPtrInput `pulumi:"vnetSubnetID"`
+	AvailabilityZones      pulumi.StringArrayInput `pulumi:"availabilityZones"`
+	Count                  pulumi.IntPtrInput      `pulumi:"count"`
+	EnableAutoScaling      pulumi.BoolPtrInput     `pulumi:"enableAutoScaling"`
+	EnableNodePublicIP     pulumi.BoolPtrInput     `pulumi:"enableNodePublicIP"`
+	MaxCount               pulumi.IntPtrInput      `pulumi:"maxCount"`
+	MaxPods                pulumi.IntPtrInput      `pulumi:"maxPods"`
+	MinCount               pulumi.IntPtrInput      `pulumi:"minCount"`
+	Name                   pulumi.StringInput      `pulumi:"name"`
+	NodeTaints             pulumi.StringArrayInput `pulumi:"nodeTaints"`
+	OrchestratorVersion    pulumi.StringPtrInput   `pulumi:"orchestratorVersion"`
+	OsDiskSizeGB           pulumi.IntPtrInput      `pulumi:"osDiskSizeGB"`
+	OsType                 pulumi.StringPtrInput   `pulumi:"osType"`
+	ScaleSetEvictionPolicy pulumi.StringPtrInput   `pulumi:"scaleSetEvictionPolicy"`
+	ScaleSetPriority       pulumi.StringPtrInput   `pulumi:"scaleSetPriority"`
+	Type                   pulumi.StringPtrInput   `pulumi:"type"`
+	VmSize                 pulumi.StringPtrInput   `pulumi:"vmSize"`
+	VnetSubnetID           pulumi.StringPtrInput   `pulumi:"vnetSubnetID"`
 }
 
 func (ManagedClusterAgentPoolProfileArgs) ElementType() reflect.Type {
@@ -2115,7 +1952,6 @@ func (i ManagedClusterAgentPoolProfileArray) ToManagedClusterAgentPoolProfileArr
 	return pulumi.ToOutputWithContext(ctx, i).(ManagedClusterAgentPoolProfileArrayOutput)
 }
 
-// Profile for the container service agent pool.
 type ManagedClusterAgentPoolProfileOutput struct{ *pulumi.OutputState }
 
 func (ManagedClusterAgentPoolProfileOutput) ElementType() reflect.Type {
@@ -2130,87 +1966,70 @@ func (o ManagedClusterAgentPoolProfileOutput) ToManagedClusterAgentPoolProfileOu
 	return o
 }
 
-// (PREVIEW) Availability zones for nodes. Must use VirtualMachineScaleSets AgentPoolType.
 func (o ManagedClusterAgentPoolProfileOutput) AvailabilityZones() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v ManagedClusterAgentPoolProfile) []string { return v.AvailabilityZones }).(pulumi.StringArrayOutput)
 }
 
-// Number of agents (VMs) to host docker containers. Allowed values must be in the range of 1 to 100 (inclusive). The default value is 1.
 func (o ManagedClusterAgentPoolProfileOutput) Count() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v ManagedClusterAgentPoolProfile) *int { return v.Count }).(pulumi.IntPtrOutput)
 }
 
-// Whether to enable auto-scaler
 func (o ManagedClusterAgentPoolProfileOutput) EnableAutoScaling() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v ManagedClusterAgentPoolProfile) *bool { return v.EnableAutoScaling }).(pulumi.BoolPtrOutput)
 }
 
-// Enable public IP for nodes
 func (o ManagedClusterAgentPoolProfileOutput) EnableNodePublicIP() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v ManagedClusterAgentPoolProfile) *bool { return v.EnableNodePublicIP }).(pulumi.BoolPtrOutput)
 }
 
-// Maximum number of nodes for auto-scaling
 func (o ManagedClusterAgentPoolProfileOutput) MaxCount() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v ManagedClusterAgentPoolProfile) *int { return v.MaxCount }).(pulumi.IntPtrOutput)
 }
 
-// Maximum number of pods that can run on a node.
 func (o ManagedClusterAgentPoolProfileOutput) MaxPods() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v ManagedClusterAgentPoolProfile) *int { return v.MaxPods }).(pulumi.IntPtrOutput)
 }
 
-// Minimum number of nodes for auto-scaling
 func (o ManagedClusterAgentPoolProfileOutput) MinCount() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v ManagedClusterAgentPoolProfile) *int { return v.MinCount }).(pulumi.IntPtrOutput)
 }
 
-// Unique name of the agent pool profile in the context of the subscription and resource group.
 func (o ManagedClusterAgentPoolProfileOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v ManagedClusterAgentPoolProfile) string { return v.Name }).(pulumi.StringOutput)
 }
 
-// Taints added to new nodes during node pool create and scale. For example, key=value:NoSchedule.
 func (o ManagedClusterAgentPoolProfileOutput) NodeTaints() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v ManagedClusterAgentPoolProfile) []string { return v.NodeTaints }).(pulumi.StringArrayOutput)
 }
 
-// Version of orchestrator specified when creating the managed cluster.
 func (o ManagedClusterAgentPoolProfileOutput) OrchestratorVersion() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ManagedClusterAgentPoolProfile) *string { return v.OrchestratorVersion }).(pulumi.StringPtrOutput)
 }
 
-// OS Disk Size in GB to be used to specify the disk size for every machine in this master/agent pool. If you specify 0, it will apply the default osDisk size according to the vmSize specified.
 func (o ManagedClusterAgentPoolProfileOutput) OsDiskSizeGB() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v ManagedClusterAgentPoolProfile) *int { return v.OsDiskSizeGB }).(pulumi.IntPtrOutput)
 }
 
-// OsType to be used to specify os type. Choose from Linux and Windows. Default to Linux.
 func (o ManagedClusterAgentPoolProfileOutput) OsType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ManagedClusterAgentPoolProfile) *string { return v.OsType }).(pulumi.StringPtrOutput)
 }
 
-// ScaleSetEvictionPolicy to be used to specify eviction policy for low priority virtual machine scale set. Default to Delete.
 func (o ManagedClusterAgentPoolProfileOutput) ScaleSetEvictionPolicy() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ManagedClusterAgentPoolProfile) *string { return v.ScaleSetEvictionPolicy }).(pulumi.StringPtrOutput)
 }
 
-// ScaleSetPriority to be used to specify virtual machine scale set priority. Default to regular.
 func (o ManagedClusterAgentPoolProfileOutput) ScaleSetPriority() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ManagedClusterAgentPoolProfile) *string { return v.ScaleSetPriority }).(pulumi.StringPtrOutput)
 }
 
-// AgentPoolType represents types of an agent pool
 func (o ManagedClusterAgentPoolProfileOutput) Type() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ManagedClusterAgentPoolProfile) *string { return v.Type }).(pulumi.StringPtrOutput)
 }
 
-// Size of agent VMs.
 func (o ManagedClusterAgentPoolProfileOutput) VmSize() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ManagedClusterAgentPoolProfile) *string { return v.VmSize }).(pulumi.StringPtrOutput)
 }
 
-// VNet SubnetID specifies the VNet's subnet identifier.
 func (o ManagedClusterAgentPoolProfileOutput) VnetSubnetID() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ManagedClusterAgentPoolProfile) *string { return v.VnetSubnetID }).(pulumi.StringPtrOutput)
 }
@@ -2235,44 +2054,25 @@ func (o ManagedClusterAgentPoolProfileArrayOutput) Index(i pulumi.IntInput) Mana
 	}).(ManagedClusterAgentPoolProfileOutput)
 }
 
-// Profile for the container service agent pool.
 type ManagedClusterAgentPoolProfileResponse struct {
-	// (PREVIEW) Availability zones for nodes. Must use VirtualMachineScaleSets AgentPoolType.
-	AvailabilityZones []string `pulumi:"availabilityZones"`
-	// Number of agents (VMs) to host docker containers. Allowed values must be in the range of 1 to 100 (inclusive). The default value is 1.
-	Count *int `pulumi:"count"`
-	// Whether to enable auto-scaler
-	EnableAutoScaling *bool `pulumi:"enableAutoScaling"`
-	// Enable public IP for nodes
-	EnableNodePublicIP *bool `pulumi:"enableNodePublicIP"`
-	// Maximum number of nodes for auto-scaling
-	MaxCount *int `pulumi:"maxCount"`
-	// Maximum number of pods that can run on a node.
-	MaxPods *int `pulumi:"maxPods"`
-	// Minimum number of nodes for auto-scaling
-	MinCount *int `pulumi:"minCount"`
-	// Unique name of the agent pool profile in the context of the subscription and resource group.
-	Name string `pulumi:"name"`
-	// Taints added to new nodes during node pool create and scale. For example, key=value:NoSchedule.
-	NodeTaints []string `pulumi:"nodeTaints"`
-	// Version of orchestrator specified when creating the managed cluster.
-	OrchestratorVersion *string `pulumi:"orchestratorVersion"`
-	// OS Disk Size in GB to be used to specify the disk size for every machine in this master/agent pool. If you specify 0, it will apply the default osDisk size according to the vmSize specified.
-	OsDiskSizeGB *int `pulumi:"osDiskSizeGB"`
-	// OsType to be used to specify os type. Choose from Linux and Windows. Default to Linux.
-	OsType *string `pulumi:"osType"`
-	// The current deployment or provisioning state, which only appears in the response.
-	ProvisioningState string `pulumi:"provisioningState"`
-	// ScaleSetEvictionPolicy to be used to specify eviction policy for low priority virtual machine scale set. Default to Delete.
-	ScaleSetEvictionPolicy *string `pulumi:"scaleSetEvictionPolicy"`
-	// ScaleSetPriority to be used to specify virtual machine scale set priority. Default to regular.
-	ScaleSetPriority *string `pulumi:"scaleSetPriority"`
-	// AgentPoolType represents types of an agent pool
-	Type *string `pulumi:"type"`
-	// Size of agent VMs.
-	VmSize *string `pulumi:"vmSize"`
-	// VNet SubnetID specifies the VNet's subnet identifier.
-	VnetSubnetID *string `pulumi:"vnetSubnetID"`
+	AvailabilityZones      []string `pulumi:"availabilityZones"`
+	Count                  *int     `pulumi:"count"`
+	EnableAutoScaling      *bool    `pulumi:"enableAutoScaling"`
+	EnableNodePublicIP     *bool    `pulumi:"enableNodePublicIP"`
+	MaxCount               *int     `pulumi:"maxCount"`
+	MaxPods                *int     `pulumi:"maxPods"`
+	MinCount               *int     `pulumi:"minCount"`
+	Name                   string   `pulumi:"name"`
+	NodeTaints             []string `pulumi:"nodeTaints"`
+	OrchestratorVersion    *string  `pulumi:"orchestratorVersion"`
+	OsDiskSizeGB           *int     `pulumi:"osDiskSizeGB"`
+	OsType                 *string  `pulumi:"osType"`
+	ProvisioningState      string   `pulumi:"provisioningState"`
+	ScaleSetEvictionPolicy *string  `pulumi:"scaleSetEvictionPolicy"`
+	ScaleSetPriority       *string  `pulumi:"scaleSetPriority"`
+	Type                   *string  `pulumi:"type"`
+	VmSize                 *string  `pulumi:"vmSize"`
+	VnetSubnetID           *string  `pulumi:"vnetSubnetID"`
 }
 
 // ManagedClusterAgentPoolProfileResponseInput is an input type that accepts ManagedClusterAgentPoolProfileResponseArgs and ManagedClusterAgentPoolProfileResponseOutput values.
@@ -2286,44 +2086,25 @@ type ManagedClusterAgentPoolProfileResponseInput interface {
 	ToManagedClusterAgentPoolProfileResponseOutputWithContext(context.Context) ManagedClusterAgentPoolProfileResponseOutput
 }
 
-// Profile for the container service agent pool.
 type ManagedClusterAgentPoolProfileResponseArgs struct {
-	// (PREVIEW) Availability zones for nodes. Must use VirtualMachineScaleSets AgentPoolType.
-	AvailabilityZones pulumi.StringArrayInput `pulumi:"availabilityZones"`
-	// Number of agents (VMs) to host docker containers. Allowed values must be in the range of 1 to 100 (inclusive). The default value is 1.
-	Count pulumi.IntPtrInput `pulumi:"count"`
-	// Whether to enable auto-scaler
-	EnableAutoScaling pulumi.BoolPtrInput `pulumi:"enableAutoScaling"`
-	// Enable public IP for nodes
-	EnableNodePublicIP pulumi.BoolPtrInput `pulumi:"enableNodePublicIP"`
-	// Maximum number of nodes for auto-scaling
-	MaxCount pulumi.IntPtrInput `pulumi:"maxCount"`
-	// Maximum number of pods that can run on a node.
-	MaxPods pulumi.IntPtrInput `pulumi:"maxPods"`
-	// Minimum number of nodes for auto-scaling
-	MinCount pulumi.IntPtrInput `pulumi:"minCount"`
-	// Unique name of the agent pool profile in the context of the subscription and resource group.
-	Name pulumi.StringInput `pulumi:"name"`
-	// Taints added to new nodes during node pool create and scale. For example, key=value:NoSchedule.
-	NodeTaints pulumi.StringArrayInput `pulumi:"nodeTaints"`
-	// Version of orchestrator specified when creating the managed cluster.
-	OrchestratorVersion pulumi.StringPtrInput `pulumi:"orchestratorVersion"`
-	// OS Disk Size in GB to be used to specify the disk size for every machine in this master/agent pool. If you specify 0, it will apply the default osDisk size according to the vmSize specified.
-	OsDiskSizeGB pulumi.IntPtrInput `pulumi:"osDiskSizeGB"`
-	// OsType to be used to specify os type. Choose from Linux and Windows. Default to Linux.
-	OsType pulumi.StringPtrInput `pulumi:"osType"`
-	// The current deployment or provisioning state, which only appears in the response.
-	ProvisioningState pulumi.StringInput `pulumi:"provisioningState"`
-	// ScaleSetEvictionPolicy to be used to specify eviction policy for low priority virtual machine scale set. Default to Delete.
-	ScaleSetEvictionPolicy pulumi.StringPtrInput `pulumi:"scaleSetEvictionPolicy"`
-	// ScaleSetPriority to be used to specify virtual machine scale set priority. Default to regular.
-	ScaleSetPriority pulumi.StringPtrInput `pulumi:"scaleSetPriority"`
-	// AgentPoolType represents types of an agent pool
-	Type pulumi.StringPtrInput `pulumi:"type"`
-	// Size of agent VMs.
-	VmSize pulumi.StringPtrInput `pulumi:"vmSize"`
-	// VNet SubnetID specifies the VNet's subnet identifier.
-	VnetSubnetID pulumi.StringPtrInput `pulumi:"vnetSubnetID"`
+	AvailabilityZones      pulumi.StringArrayInput `pulumi:"availabilityZones"`
+	Count                  pulumi.IntPtrInput      `pulumi:"count"`
+	EnableAutoScaling      pulumi.BoolPtrInput     `pulumi:"enableAutoScaling"`
+	EnableNodePublicIP     pulumi.BoolPtrInput     `pulumi:"enableNodePublicIP"`
+	MaxCount               pulumi.IntPtrInput      `pulumi:"maxCount"`
+	MaxPods                pulumi.IntPtrInput      `pulumi:"maxPods"`
+	MinCount               pulumi.IntPtrInput      `pulumi:"minCount"`
+	Name                   pulumi.StringInput      `pulumi:"name"`
+	NodeTaints             pulumi.StringArrayInput `pulumi:"nodeTaints"`
+	OrchestratorVersion    pulumi.StringPtrInput   `pulumi:"orchestratorVersion"`
+	OsDiskSizeGB           pulumi.IntPtrInput      `pulumi:"osDiskSizeGB"`
+	OsType                 pulumi.StringPtrInput   `pulumi:"osType"`
+	ProvisioningState      pulumi.StringInput      `pulumi:"provisioningState"`
+	ScaleSetEvictionPolicy pulumi.StringPtrInput   `pulumi:"scaleSetEvictionPolicy"`
+	ScaleSetPriority       pulumi.StringPtrInput   `pulumi:"scaleSetPriority"`
+	Type                   pulumi.StringPtrInput   `pulumi:"type"`
+	VmSize                 pulumi.StringPtrInput   `pulumi:"vmSize"`
+	VnetSubnetID           pulumi.StringPtrInput   `pulumi:"vnetSubnetID"`
 }
 
 func (ManagedClusterAgentPoolProfileResponseArgs) ElementType() reflect.Type {
@@ -2363,7 +2144,6 @@ func (i ManagedClusterAgentPoolProfileResponseArray) ToManagedClusterAgentPoolPr
 	return pulumi.ToOutputWithContext(ctx, i).(ManagedClusterAgentPoolProfileResponseArrayOutput)
 }
 
-// Profile for the container service agent pool.
 type ManagedClusterAgentPoolProfileResponseOutput struct{ *pulumi.OutputState }
 
 func (ManagedClusterAgentPoolProfileResponseOutput) ElementType() reflect.Type {
@@ -2378,92 +2158,74 @@ func (o ManagedClusterAgentPoolProfileResponseOutput) ToManagedClusterAgentPoolP
 	return o
 }
 
-// (PREVIEW) Availability zones for nodes. Must use VirtualMachineScaleSets AgentPoolType.
 func (o ManagedClusterAgentPoolProfileResponseOutput) AvailabilityZones() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v ManagedClusterAgentPoolProfileResponse) []string { return v.AvailabilityZones }).(pulumi.StringArrayOutput)
 }
 
-// Number of agents (VMs) to host docker containers. Allowed values must be in the range of 1 to 100 (inclusive). The default value is 1.
 func (o ManagedClusterAgentPoolProfileResponseOutput) Count() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v ManagedClusterAgentPoolProfileResponse) *int { return v.Count }).(pulumi.IntPtrOutput)
 }
 
-// Whether to enable auto-scaler
 func (o ManagedClusterAgentPoolProfileResponseOutput) EnableAutoScaling() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v ManagedClusterAgentPoolProfileResponse) *bool { return v.EnableAutoScaling }).(pulumi.BoolPtrOutput)
 }
 
-// Enable public IP for nodes
 func (o ManagedClusterAgentPoolProfileResponseOutput) EnableNodePublicIP() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v ManagedClusterAgentPoolProfileResponse) *bool { return v.EnableNodePublicIP }).(pulumi.BoolPtrOutput)
 }
 
-// Maximum number of nodes for auto-scaling
 func (o ManagedClusterAgentPoolProfileResponseOutput) MaxCount() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v ManagedClusterAgentPoolProfileResponse) *int { return v.MaxCount }).(pulumi.IntPtrOutput)
 }
 
-// Maximum number of pods that can run on a node.
 func (o ManagedClusterAgentPoolProfileResponseOutput) MaxPods() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v ManagedClusterAgentPoolProfileResponse) *int { return v.MaxPods }).(pulumi.IntPtrOutput)
 }
 
-// Minimum number of nodes for auto-scaling
 func (o ManagedClusterAgentPoolProfileResponseOutput) MinCount() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v ManagedClusterAgentPoolProfileResponse) *int { return v.MinCount }).(pulumi.IntPtrOutput)
 }
 
-// Unique name of the agent pool profile in the context of the subscription and resource group.
 func (o ManagedClusterAgentPoolProfileResponseOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v ManagedClusterAgentPoolProfileResponse) string { return v.Name }).(pulumi.StringOutput)
 }
 
-// Taints added to new nodes during node pool create and scale. For example, key=value:NoSchedule.
 func (o ManagedClusterAgentPoolProfileResponseOutput) NodeTaints() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v ManagedClusterAgentPoolProfileResponse) []string { return v.NodeTaints }).(pulumi.StringArrayOutput)
 }
 
-// Version of orchestrator specified when creating the managed cluster.
 func (o ManagedClusterAgentPoolProfileResponseOutput) OrchestratorVersion() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ManagedClusterAgentPoolProfileResponse) *string { return v.OrchestratorVersion }).(pulumi.StringPtrOutput)
 }
 
-// OS Disk Size in GB to be used to specify the disk size for every machine in this master/agent pool. If you specify 0, it will apply the default osDisk size according to the vmSize specified.
 func (o ManagedClusterAgentPoolProfileResponseOutput) OsDiskSizeGB() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v ManagedClusterAgentPoolProfileResponse) *int { return v.OsDiskSizeGB }).(pulumi.IntPtrOutput)
 }
 
-// OsType to be used to specify os type. Choose from Linux and Windows. Default to Linux.
 func (o ManagedClusterAgentPoolProfileResponseOutput) OsType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ManagedClusterAgentPoolProfileResponse) *string { return v.OsType }).(pulumi.StringPtrOutput)
 }
 
-// The current deployment or provisioning state, which only appears in the response.
 func (o ManagedClusterAgentPoolProfileResponseOutput) ProvisioningState() pulumi.StringOutput {
 	return o.ApplyT(func(v ManagedClusterAgentPoolProfileResponse) string { return v.ProvisioningState }).(pulumi.StringOutput)
 }
 
-// ScaleSetEvictionPolicy to be used to specify eviction policy for low priority virtual machine scale set. Default to Delete.
 func (o ManagedClusterAgentPoolProfileResponseOutput) ScaleSetEvictionPolicy() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ManagedClusterAgentPoolProfileResponse) *string { return v.ScaleSetEvictionPolicy }).(pulumi.StringPtrOutput)
 }
 
-// ScaleSetPriority to be used to specify virtual machine scale set priority. Default to regular.
 func (o ManagedClusterAgentPoolProfileResponseOutput) ScaleSetPriority() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ManagedClusterAgentPoolProfileResponse) *string { return v.ScaleSetPriority }).(pulumi.StringPtrOutput)
 }
 
-// AgentPoolType represents types of an agent pool
 func (o ManagedClusterAgentPoolProfileResponseOutput) Type() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ManagedClusterAgentPoolProfileResponse) *string { return v.Type }).(pulumi.StringPtrOutput)
 }
 
-// Size of agent VMs.
 func (o ManagedClusterAgentPoolProfileResponseOutput) VmSize() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ManagedClusterAgentPoolProfileResponse) *string { return v.VmSize }).(pulumi.StringPtrOutput)
 }
 
-// VNet SubnetID specifies the VNet's subnet identifier.
 func (o ManagedClusterAgentPoolProfileResponseOutput) VnetSubnetID() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ManagedClusterAgentPoolProfileResponse) *string { return v.VnetSubnetID }).(pulumi.StringPtrOutput)
 }
@@ -2488,10 +2250,8 @@ func (o ManagedClusterAgentPoolProfileResponseArrayOutput) Index(i pulumi.IntInp
 	}).(ManagedClusterAgentPoolProfileResponseOutput)
 }
 
-// Identity for the managed cluster.
 type ManagedClusterIdentity struct {
-	// The type of identity used for the managed cluster. Type 'SystemAssigned' will use an implicitly created identity in master components and an auto-created user assigned identity in MC_ resource group in agent nodes. Type 'None' will not use MSI for the managed cluster, service principal will be used instead.
-	Type *string `pulumi:"type"`
+	Type *ResourceIdentityType `pulumi:"type"`
 }
 
 // ManagedClusterIdentityInput is an input type that accepts ManagedClusterIdentityArgs and ManagedClusterIdentityOutput values.
@@ -2505,10 +2265,8 @@ type ManagedClusterIdentityInput interface {
 	ToManagedClusterIdentityOutputWithContext(context.Context) ManagedClusterIdentityOutput
 }
 
-// Identity for the managed cluster.
 type ManagedClusterIdentityArgs struct {
-	// The type of identity used for the managed cluster. Type 'SystemAssigned' will use an implicitly created identity in master components and an auto-created user assigned identity in MC_ resource group in agent nodes. Type 'None' will not use MSI for the managed cluster, service principal will be used instead.
-	Type *ResourceIdentityType `pulumi:"type"`
+	Type ResourceIdentityTypePtrInput `pulumi:"type"`
 }
 
 func (ManagedClusterIdentityArgs) ElementType() reflect.Type {
@@ -2564,7 +2322,6 @@ func (i *managedClusterIdentityPtrType) ToManagedClusterIdentityPtrOutputWithCon
 	return pulumi.ToOutputWithContext(ctx, i).(ManagedClusterIdentityPtrOutput)
 }
 
-// Identity for the managed cluster.
 type ManagedClusterIdentityOutput struct{ *pulumi.OutputState }
 
 func (ManagedClusterIdentityOutput) ElementType() reflect.Type {
@@ -2584,14 +2341,13 @@ func (o ManagedClusterIdentityOutput) ToManagedClusterIdentityPtrOutput() Manage
 }
 
 func (o ManagedClusterIdentityOutput) ToManagedClusterIdentityPtrOutputWithContext(ctx context.Context) ManagedClusterIdentityPtrOutput {
-	return o.ApplyT(func(v ManagedClusterIdentity) *ManagedClusterIdentity {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ManagedClusterIdentity) *ManagedClusterIdentity {
 		return &v
 	}).(ManagedClusterIdentityPtrOutput)
 }
 
-// The type of identity used for the managed cluster. Type 'SystemAssigned' will use an implicitly created identity in master components and an auto-created user assigned identity in MC_ resource group in agent nodes. Type 'None' will not use MSI for the managed cluster, service principal will be used instead.
-func (o ManagedClusterIdentityOutput) Type() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v ManagedClusterIdentity) *string { return v.Type }).(pulumi.StringPtrOutput)
+func (o ManagedClusterIdentityOutput) Type() ResourceIdentityTypePtrOutput {
+	return o.ApplyT(func(v ManagedClusterIdentity) *ResourceIdentityType { return v.Type }).(ResourceIdentityTypePtrOutput)
 }
 
 type ManagedClusterIdentityPtrOutput struct{ *pulumi.OutputState }
@@ -2609,27 +2365,28 @@ func (o ManagedClusterIdentityPtrOutput) ToManagedClusterIdentityPtrOutputWithCo
 }
 
 func (o ManagedClusterIdentityPtrOutput) Elem() ManagedClusterIdentityOutput {
-	return o.ApplyT(func(v *ManagedClusterIdentity) ManagedClusterIdentity { return *v }).(ManagedClusterIdentityOutput)
+	return o.ApplyT(func(v *ManagedClusterIdentity) ManagedClusterIdentity {
+		if v != nil {
+			return *v
+		}
+		var ret ManagedClusterIdentity
+		return ret
+	}).(ManagedClusterIdentityOutput)
 }
 
-// The type of identity used for the managed cluster. Type 'SystemAssigned' will use an implicitly created identity in master components and an auto-created user assigned identity in MC_ resource group in agent nodes. Type 'None' will not use MSI for the managed cluster, service principal will be used instead.
-func (o ManagedClusterIdentityPtrOutput) Type() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *ManagedClusterIdentity) *string {
+func (o ManagedClusterIdentityPtrOutput) Type() ResourceIdentityTypePtrOutput {
+	return o.ApplyT(func(v *ManagedClusterIdentity) *ResourceIdentityType {
 		if v == nil {
 			return nil
 		}
 		return v.Type
-	}).(pulumi.StringPtrOutput)
+	}).(ResourceIdentityTypePtrOutput)
 }
 
-// Identity for the managed cluster.
 type ManagedClusterIdentityResponse struct {
-	// The principal id of the system assigned identity which is used by master components.
-	PrincipalId string `pulumi:"principalId"`
-	// The tenant id of the system assigned identity which is used by master components.
-	TenantId string `pulumi:"tenantId"`
-	// The type of identity used for the managed cluster. Type 'SystemAssigned' will use an implicitly created identity in master components and an auto-created user assigned identity in MC_ resource group in agent nodes. Type 'None' will not use MSI for the managed cluster, service principal will be used instead.
-	Type *string `pulumi:"type"`
+	PrincipalId string  `pulumi:"principalId"`
+	TenantId    string  `pulumi:"tenantId"`
+	Type        *string `pulumi:"type"`
 }
 
 // ManagedClusterIdentityResponseInput is an input type that accepts ManagedClusterIdentityResponseArgs and ManagedClusterIdentityResponseOutput values.
@@ -2643,14 +2400,10 @@ type ManagedClusterIdentityResponseInput interface {
 	ToManagedClusterIdentityResponseOutputWithContext(context.Context) ManagedClusterIdentityResponseOutput
 }
 
-// Identity for the managed cluster.
 type ManagedClusterIdentityResponseArgs struct {
-	// The principal id of the system assigned identity which is used by master components.
-	PrincipalId pulumi.StringInput `pulumi:"principalId"`
-	// The tenant id of the system assigned identity which is used by master components.
-	TenantId pulumi.StringInput `pulumi:"tenantId"`
-	// The type of identity used for the managed cluster. Type 'SystemAssigned' will use an implicitly created identity in master components and an auto-created user assigned identity in MC_ resource group in agent nodes. Type 'None' will not use MSI for the managed cluster, service principal will be used instead.
-	Type pulumi.StringPtrInput `pulumi:"type"`
+	PrincipalId pulumi.StringInput    `pulumi:"principalId"`
+	TenantId    pulumi.StringInput    `pulumi:"tenantId"`
+	Type        pulumi.StringPtrInput `pulumi:"type"`
 }
 
 func (ManagedClusterIdentityResponseArgs) ElementType() reflect.Type {
@@ -2706,7 +2459,6 @@ func (i *managedClusterIdentityResponsePtrType) ToManagedClusterIdentityResponse
 	return pulumi.ToOutputWithContext(ctx, i).(ManagedClusterIdentityResponsePtrOutput)
 }
 
-// Identity for the managed cluster.
 type ManagedClusterIdentityResponseOutput struct{ *pulumi.OutputState }
 
 func (ManagedClusterIdentityResponseOutput) ElementType() reflect.Type {
@@ -2726,22 +2478,19 @@ func (o ManagedClusterIdentityResponseOutput) ToManagedClusterIdentityResponsePt
 }
 
 func (o ManagedClusterIdentityResponseOutput) ToManagedClusterIdentityResponsePtrOutputWithContext(ctx context.Context) ManagedClusterIdentityResponsePtrOutput {
-	return o.ApplyT(func(v ManagedClusterIdentityResponse) *ManagedClusterIdentityResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ManagedClusterIdentityResponse) *ManagedClusterIdentityResponse {
 		return &v
 	}).(ManagedClusterIdentityResponsePtrOutput)
 }
 
-// The principal id of the system assigned identity which is used by master components.
 func (o ManagedClusterIdentityResponseOutput) PrincipalId() pulumi.StringOutput {
 	return o.ApplyT(func(v ManagedClusterIdentityResponse) string { return v.PrincipalId }).(pulumi.StringOutput)
 }
 
-// The tenant id of the system assigned identity which is used by master components.
 func (o ManagedClusterIdentityResponseOutput) TenantId() pulumi.StringOutput {
 	return o.ApplyT(func(v ManagedClusterIdentityResponse) string { return v.TenantId }).(pulumi.StringOutput)
 }
 
-// The type of identity used for the managed cluster. Type 'SystemAssigned' will use an implicitly created identity in master components and an auto-created user assigned identity in MC_ resource group in agent nodes. Type 'None' will not use MSI for the managed cluster, service principal will be used instead.
 func (o ManagedClusterIdentityResponseOutput) Type() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ManagedClusterIdentityResponse) *string { return v.Type }).(pulumi.StringPtrOutput)
 }
@@ -2761,10 +2510,15 @@ func (o ManagedClusterIdentityResponsePtrOutput) ToManagedClusterIdentityRespons
 }
 
 func (o ManagedClusterIdentityResponsePtrOutput) Elem() ManagedClusterIdentityResponseOutput {
-	return o.ApplyT(func(v *ManagedClusterIdentityResponse) ManagedClusterIdentityResponse { return *v }).(ManagedClusterIdentityResponseOutput)
+	return o.ApplyT(func(v *ManagedClusterIdentityResponse) ManagedClusterIdentityResponse {
+		if v != nil {
+			return *v
+		}
+		var ret ManagedClusterIdentityResponse
+		return ret
+	}).(ManagedClusterIdentityResponseOutput)
 }
 
-// The principal id of the system assigned identity which is used by master components.
 func (o ManagedClusterIdentityResponsePtrOutput) PrincipalId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ManagedClusterIdentityResponse) *string {
 		if v == nil {
@@ -2774,7 +2528,6 @@ func (o ManagedClusterIdentityResponsePtrOutput) PrincipalId() pulumi.StringPtrO
 	}).(pulumi.StringPtrOutput)
 }
 
-// The tenant id of the system assigned identity which is used by master components.
 func (o ManagedClusterIdentityResponsePtrOutput) TenantId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ManagedClusterIdentityResponse) *string {
 		if v == nil {
@@ -2784,7 +2537,6 @@ func (o ManagedClusterIdentityResponsePtrOutput) TenantId() pulumi.StringPtrOutp
 	}).(pulumi.StringPtrOutput)
 }
 
-// The type of identity used for the managed cluster. Type 'SystemAssigned' will use an implicitly created identity in master components and an auto-created user assigned identity in MC_ resource group in agent nodes. Type 'None' will not use MSI for the managed cluster, service principal will be used instead.
 func (o ManagedClusterIdentityResponsePtrOutput) Type() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ManagedClusterIdentityResponse) *string {
 		if v == nil {
@@ -2794,12 +2546,9 @@ func (o ManagedClusterIdentityResponsePtrOutput) Type() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Information about a service principal identity for the cluster to use for manipulating Azure APIs.
 type ManagedClusterServicePrincipalProfile struct {
-	// The ID for the service principal.
-	ClientId string `pulumi:"clientId"`
-	// The secret password associated with the service principal in plain text.
-	Secret *string `pulumi:"secret"`
+	ClientId string  `pulumi:"clientId"`
+	Secret   *string `pulumi:"secret"`
 }
 
 // ManagedClusterServicePrincipalProfileInput is an input type that accepts ManagedClusterServicePrincipalProfileArgs and ManagedClusterServicePrincipalProfileOutput values.
@@ -2813,12 +2562,9 @@ type ManagedClusterServicePrincipalProfileInput interface {
 	ToManagedClusterServicePrincipalProfileOutputWithContext(context.Context) ManagedClusterServicePrincipalProfileOutput
 }
 
-// Information about a service principal identity for the cluster to use for manipulating Azure APIs.
 type ManagedClusterServicePrincipalProfileArgs struct {
-	// The ID for the service principal.
-	ClientId pulumi.StringInput `pulumi:"clientId"`
-	// The secret password associated with the service principal in plain text.
-	Secret pulumi.StringPtrInput `pulumi:"secret"`
+	ClientId pulumi.StringInput    `pulumi:"clientId"`
+	Secret   pulumi.StringPtrInput `pulumi:"secret"`
 }
 
 func (ManagedClusterServicePrincipalProfileArgs) ElementType() reflect.Type {
@@ -2874,7 +2620,6 @@ func (i *managedClusterServicePrincipalProfilePtrType) ToManagedClusterServicePr
 	return pulumi.ToOutputWithContext(ctx, i).(ManagedClusterServicePrincipalProfilePtrOutput)
 }
 
-// Information about a service principal identity for the cluster to use for manipulating Azure APIs.
 type ManagedClusterServicePrincipalProfileOutput struct{ *pulumi.OutputState }
 
 func (ManagedClusterServicePrincipalProfileOutput) ElementType() reflect.Type {
@@ -2894,17 +2639,15 @@ func (o ManagedClusterServicePrincipalProfileOutput) ToManagedClusterServicePrin
 }
 
 func (o ManagedClusterServicePrincipalProfileOutput) ToManagedClusterServicePrincipalProfilePtrOutputWithContext(ctx context.Context) ManagedClusterServicePrincipalProfilePtrOutput {
-	return o.ApplyT(func(v ManagedClusterServicePrincipalProfile) *ManagedClusterServicePrincipalProfile {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ManagedClusterServicePrincipalProfile) *ManagedClusterServicePrincipalProfile {
 		return &v
 	}).(ManagedClusterServicePrincipalProfilePtrOutput)
 }
 
-// The ID for the service principal.
 func (o ManagedClusterServicePrincipalProfileOutput) ClientId() pulumi.StringOutput {
 	return o.ApplyT(func(v ManagedClusterServicePrincipalProfile) string { return v.ClientId }).(pulumi.StringOutput)
 }
 
-// The secret password associated with the service principal in plain text.
 func (o ManagedClusterServicePrincipalProfileOutput) Secret() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ManagedClusterServicePrincipalProfile) *string { return v.Secret }).(pulumi.StringPtrOutput)
 }
@@ -2924,10 +2667,15 @@ func (o ManagedClusterServicePrincipalProfilePtrOutput) ToManagedClusterServiceP
 }
 
 func (o ManagedClusterServicePrincipalProfilePtrOutput) Elem() ManagedClusterServicePrincipalProfileOutput {
-	return o.ApplyT(func(v *ManagedClusterServicePrincipalProfile) ManagedClusterServicePrincipalProfile { return *v }).(ManagedClusterServicePrincipalProfileOutput)
+	return o.ApplyT(func(v *ManagedClusterServicePrincipalProfile) ManagedClusterServicePrincipalProfile {
+		if v != nil {
+			return *v
+		}
+		var ret ManagedClusterServicePrincipalProfile
+		return ret
+	}).(ManagedClusterServicePrincipalProfileOutput)
 }
 
-// The ID for the service principal.
 func (o ManagedClusterServicePrincipalProfilePtrOutput) ClientId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ManagedClusterServicePrincipalProfile) *string {
 		if v == nil {
@@ -2937,7 +2685,6 @@ func (o ManagedClusterServicePrincipalProfilePtrOutput) ClientId() pulumi.String
 	}).(pulumi.StringPtrOutput)
 }
 
-// The secret password associated with the service principal in plain text.
 func (o ManagedClusterServicePrincipalProfilePtrOutput) Secret() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ManagedClusterServicePrincipalProfile) *string {
 		if v == nil {
@@ -2947,12 +2694,9 @@ func (o ManagedClusterServicePrincipalProfilePtrOutput) Secret() pulumi.StringPt
 	}).(pulumi.StringPtrOutput)
 }
 
-// Information about a service principal identity for the cluster to use for manipulating Azure APIs.
 type ManagedClusterServicePrincipalProfileResponse struct {
-	// The ID for the service principal.
-	ClientId string `pulumi:"clientId"`
-	// The secret password associated with the service principal in plain text.
-	Secret *string `pulumi:"secret"`
+	ClientId string  `pulumi:"clientId"`
+	Secret   *string `pulumi:"secret"`
 }
 
 // ManagedClusterServicePrincipalProfileResponseInput is an input type that accepts ManagedClusterServicePrincipalProfileResponseArgs and ManagedClusterServicePrincipalProfileResponseOutput values.
@@ -2966,12 +2710,9 @@ type ManagedClusterServicePrincipalProfileResponseInput interface {
 	ToManagedClusterServicePrincipalProfileResponseOutputWithContext(context.Context) ManagedClusterServicePrincipalProfileResponseOutput
 }
 
-// Information about a service principal identity for the cluster to use for manipulating Azure APIs.
 type ManagedClusterServicePrincipalProfileResponseArgs struct {
-	// The ID for the service principal.
-	ClientId pulumi.StringInput `pulumi:"clientId"`
-	// The secret password associated with the service principal in plain text.
-	Secret pulumi.StringPtrInput `pulumi:"secret"`
+	ClientId pulumi.StringInput    `pulumi:"clientId"`
+	Secret   pulumi.StringPtrInput `pulumi:"secret"`
 }
 
 func (ManagedClusterServicePrincipalProfileResponseArgs) ElementType() reflect.Type {
@@ -3027,7 +2768,6 @@ func (i *managedClusterServicePrincipalProfileResponsePtrType) ToManagedClusterS
 	return pulumi.ToOutputWithContext(ctx, i).(ManagedClusterServicePrincipalProfileResponsePtrOutput)
 }
 
-// Information about a service principal identity for the cluster to use for manipulating Azure APIs.
 type ManagedClusterServicePrincipalProfileResponseOutput struct{ *pulumi.OutputState }
 
 func (ManagedClusterServicePrincipalProfileResponseOutput) ElementType() reflect.Type {
@@ -3047,17 +2787,15 @@ func (o ManagedClusterServicePrincipalProfileResponseOutput) ToManagedClusterSer
 }
 
 func (o ManagedClusterServicePrincipalProfileResponseOutput) ToManagedClusterServicePrincipalProfileResponsePtrOutputWithContext(ctx context.Context) ManagedClusterServicePrincipalProfileResponsePtrOutput {
-	return o.ApplyT(func(v ManagedClusterServicePrincipalProfileResponse) *ManagedClusterServicePrincipalProfileResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ManagedClusterServicePrincipalProfileResponse) *ManagedClusterServicePrincipalProfileResponse {
 		return &v
 	}).(ManagedClusterServicePrincipalProfileResponsePtrOutput)
 }
 
-// The ID for the service principal.
 func (o ManagedClusterServicePrincipalProfileResponseOutput) ClientId() pulumi.StringOutput {
 	return o.ApplyT(func(v ManagedClusterServicePrincipalProfileResponse) string { return v.ClientId }).(pulumi.StringOutput)
 }
 
-// The secret password associated with the service principal in plain text.
 func (o ManagedClusterServicePrincipalProfileResponseOutput) Secret() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ManagedClusterServicePrincipalProfileResponse) *string { return v.Secret }).(pulumi.StringPtrOutput)
 }
@@ -3078,11 +2816,14 @@ func (o ManagedClusterServicePrincipalProfileResponsePtrOutput) ToManagedCluster
 
 func (o ManagedClusterServicePrincipalProfileResponsePtrOutput) Elem() ManagedClusterServicePrincipalProfileResponseOutput {
 	return o.ApplyT(func(v *ManagedClusterServicePrincipalProfileResponse) ManagedClusterServicePrincipalProfileResponse {
-		return *v
+		if v != nil {
+			return *v
+		}
+		var ret ManagedClusterServicePrincipalProfileResponse
+		return ret
 	}).(ManagedClusterServicePrincipalProfileResponseOutput)
 }
 
-// The ID for the service principal.
 func (o ManagedClusterServicePrincipalProfileResponsePtrOutput) ClientId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ManagedClusterServicePrincipalProfileResponse) *string {
 		if v == nil {
@@ -3092,7 +2833,6 @@ func (o ManagedClusterServicePrincipalProfileResponsePtrOutput) ClientId() pulum
 	}).(pulumi.StringPtrOutput)
 }
 
-// The secret password associated with the service principal in plain text.
 func (o ManagedClusterServicePrincipalProfileResponsePtrOutput) Secret() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ManagedClusterServicePrincipalProfileResponse) *string {
 		if v == nil {
@@ -3102,12 +2842,9 @@ func (o ManagedClusterServicePrincipalProfileResponsePtrOutput) Secret() pulumi.
 	}).(pulumi.StringPtrOutput)
 }
 
-// Profile for Windows VMs in the container service cluster.
 type ManagedClusterWindowsProfile struct {
-	// Specifies the password of the administrator account. <br><br> **Minimum-length:** 8 characters <br><br> **Max-length:** 123 characters <br><br> **Complexity requirements:** 3 out of 4 conditions below need to be fulfilled <br> Has lower characters <br>Has upper characters <br> Has a digit <br> Has a special character (Regex match [\W_]) <br><br> **Disallowed values:** "abc@123", "P@$$w0rd", "P@ssw0rd", "P@ssword123", "Pa$$word", "pass@word1", "Password!", "Password1", "Password22", "iloveyou!"
 	AdminPassword *string `pulumi:"adminPassword"`
-	// Specifies the name of the administrator account. <br><br> **restriction:** Cannot end in "." <br><br> **Disallowed values:** "administrator", "admin", "user", "user1", "test", "user2", "test1", "user3", "admin1", "1", "123", "a", "actuser", "adm", "admin2", "aspnet", "backup", "console", "david", "guest", "john", "owner", "root", "server", "sql", "support", "support_388945a0", "sys", "test2", "test3", "user4", "user5". <br><br> **Minimum-length:** 1 character <br><br> **Max-length:** 20 characters
-	AdminUsername string `pulumi:"adminUsername"`
+	AdminUsername string  `pulumi:"adminUsername"`
 }
 
 // ManagedClusterWindowsProfileInput is an input type that accepts ManagedClusterWindowsProfileArgs and ManagedClusterWindowsProfileOutput values.
@@ -3121,12 +2858,9 @@ type ManagedClusterWindowsProfileInput interface {
 	ToManagedClusterWindowsProfileOutputWithContext(context.Context) ManagedClusterWindowsProfileOutput
 }
 
-// Profile for Windows VMs in the container service cluster.
 type ManagedClusterWindowsProfileArgs struct {
-	// Specifies the password of the administrator account. <br><br> **Minimum-length:** 8 characters <br><br> **Max-length:** 123 characters <br><br> **Complexity requirements:** 3 out of 4 conditions below need to be fulfilled <br> Has lower characters <br>Has upper characters <br> Has a digit <br> Has a special character (Regex match [\W_]) <br><br> **Disallowed values:** "abc@123", "P@$$w0rd", "P@ssw0rd", "P@ssword123", "Pa$$word", "pass@word1", "Password!", "Password1", "Password22", "iloveyou!"
 	AdminPassword pulumi.StringPtrInput `pulumi:"adminPassword"`
-	// Specifies the name of the administrator account. <br><br> **restriction:** Cannot end in "." <br><br> **Disallowed values:** "administrator", "admin", "user", "user1", "test", "user2", "test1", "user3", "admin1", "1", "123", "a", "actuser", "adm", "admin2", "aspnet", "backup", "console", "david", "guest", "john", "owner", "root", "server", "sql", "support", "support_388945a0", "sys", "test2", "test3", "user4", "user5". <br><br> **Minimum-length:** 1 character <br><br> **Max-length:** 20 characters
-	AdminUsername pulumi.StringInput `pulumi:"adminUsername"`
+	AdminUsername pulumi.StringInput    `pulumi:"adminUsername"`
 }
 
 func (ManagedClusterWindowsProfileArgs) ElementType() reflect.Type {
@@ -3182,7 +2916,6 @@ func (i *managedClusterWindowsProfilePtrType) ToManagedClusterWindowsProfilePtrO
 	return pulumi.ToOutputWithContext(ctx, i).(ManagedClusterWindowsProfilePtrOutput)
 }
 
-// Profile for Windows VMs in the container service cluster.
 type ManagedClusterWindowsProfileOutput struct{ *pulumi.OutputState }
 
 func (ManagedClusterWindowsProfileOutput) ElementType() reflect.Type {
@@ -3202,17 +2935,15 @@ func (o ManagedClusterWindowsProfileOutput) ToManagedClusterWindowsProfilePtrOut
 }
 
 func (o ManagedClusterWindowsProfileOutput) ToManagedClusterWindowsProfilePtrOutputWithContext(ctx context.Context) ManagedClusterWindowsProfilePtrOutput {
-	return o.ApplyT(func(v ManagedClusterWindowsProfile) *ManagedClusterWindowsProfile {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ManagedClusterWindowsProfile) *ManagedClusterWindowsProfile {
 		return &v
 	}).(ManagedClusterWindowsProfilePtrOutput)
 }
 
-// Specifies the password of the administrator account. <br><br> **Minimum-length:** 8 characters <br><br> **Max-length:** 123 characters <br><br> **Complexity requirements:** 3 out of 4 conditions below need to be fulfilled <br> Has lower characters <br>Has upper characters <br> Has a digit <br> Has a special character (Regex match [\W_]) <br><br> **Disallowed values:** "abc@123", "P@$$w0rd", "P@ssw0rd", "P@ssword123", "Pa$$word", "pass@word1", "Password!", "Password1", "Password22", "iloveyou!"
 func (o ManagedClusterWindowsProfileOutput) AdminPassword() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ManagedClusterWindowsProfile) *string { return v.AdminPassword }).(pulumi.StringPtrOutput)
 }
 
-// Specifies the name of the administrator account. <br><br> **restriction:** Cannot end in "." <br><br> **Disallowed values:** "administrator", "admin", "user", "user1", "test", "user2", "test1", "user3", "admin1", "1", "123", "a", "actuser", "adm", "admin2", "aspnet", "backup", "console", "david", "guest", "john", "owner", "root", "server", "sql", "support", "support_388945a0", "sys", "test2", "test3", "user4", "user5". <br><br> **Minimum-length:** 1 character <br><br> **Max-length:** 20 characters
 func (o ManagedClusterWindowsProfileOutput) AdminUsername() pulumi.StringOutput {
 	return o.ApplyT(func(v ManagedClusterWindowsProfile) string { return v.AdminUsername }).(pulumi.StringOutput)
 }
@@ -3232,10 +2963,15 @@ func (o ManagedClusterWindowsProfilePtrOutput) ToManagedClusterWindowsProfilePtr
 }
 
 func (o ManagedClusterWindowsProfilePtrOutput) Elem() ManagedClusterWindowsProfileOutput {
-	return o.ApplyT(func(v *ManagedClusterWindowsProfile) ManagedClusterWindowsProfile { return *v }).(ManagedClusterWindowsProfileOutput)
+	return o.ApplyT(func(v *ManagedClusterWindowsProfile) ManagedClusterWindowsProfile {
+		if v != nil {
+			return *v
+		}
+		var ret ManagedClusterWindowsProfile
+		return ret
+	}).(ManagedClusterWindowsProfileOutput)
 }
 
-// Specifies the password of the administrator account. <br><br> **Minimum-length:** 8 characters <br><br> **Max-length:** 123 characters <br><br> **Complexity requirements:** 3 out of 4 conditions below need to be fulfilled <br> Has lower characters <br>Has upper characters <br> Has a digit <br> Has a special character (Regex match [\W_]) <br><br> **Disallowed values:** "abc@123", "P@$$w0rd", "P@ssw0rd", "P@ssword123", "Pa$$word", "pass@word1", "Password!", "Password1", "Password22", "iloveyou!"
 func (o ManagedClusterWindowsProfilePtrOutput) AdminPassword() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ManagedClusterWindowsProfile) *string {
 		if v == nil {
@@ -3245,7 +2981,6 @@ func (o ManagedClusterWindowsProfilePtrOutput) AdminPassword() pulumi.StringPtrO
 	}).(pulumi.StringPtrOutput)
 }
 
-// Specifies the name of the administrator account. <br><br> **restriction:** Cannot end in "." <br><br> **Disallowed values:** "administrator", "admin", "user", "user1", "test", "user2", "test1", "user3", "admin1", "1", "123", "a", "actuser", "adm", "admin2", "aspnet", "backup", "console", "david", "guest", "john", "owner", "root", "server", "sql", "support", "support_388945a0", "sys", "test2", "test3", "user4", "user5". <br><br> **Minimum-length:** 1 character <br><br> **Max-length:** 20 characters
 func (o ManagedClusterWindowsProfilePtrOutput) AdminUsername() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ManagedClusterWindowsProfile) *string {
 		if v == nil {
@@ -3255,12 +2990,9 @@ func (o ManagedClusterWindowsProfilePtrOutput) AdminUsername() pulumi.StringPtrO
 	}).(pulumi.StringPtrOutput)
 }
 
-// Profile for Windows VMs in the container service cluster.
 type ManagedClusterWindowsProfileResponse struct {
-	// Specifies the password of the administrator account. <br><br> **Minimum-length:** 8 characters <br><br> **Max-length:** 123 characters <br><br> **Complexity requirements:** 3 out of 4 conditions below need to be fulfilled <br> Has lower characters <br>Has upper characters <br> Has a digit <br> Has a special character (Regex match [\W_]) <br><br> **Disallowed values:** "abc@123", "P@$$w0rd", "P@ssw0rd", "P@ssword123", "Pa$$word", "pass@word1", "Password!", "Password1", "Password22", "iloveyou!"
 	AdminPassword *string `pulumi:"adminPassword"`
-	// Specifies the name of the administrator account. <br><br> **restriction:** Cannot end in "." <br><br> **Disallowed values:** "administrator", "admin", "user", "user1", "test", "user2", "test1", "user3", "admin1", "1", "123", "a", "actuser", "adm", "admin2", "aspnet", "backup", "console", "david", "guest", "john", "owner", "root", "server", "sql", "support", "support_388945a0", "sys", "test2", "test3", "user4", "user5". <br><br> **Minimum-length:** 1 character <br><br> **Max-length:** 20 characters
-	AdminUsername string `pulumi:"adminUsername"`
+	AdminUsername string  `pulumi:"adminUsername"`
 }
 
 // ManagedClusterWindowsProfileResponseInput is an input type that accepts ManagedClusterWindowsProfileResponseArgs and ManagedClusterWindowsProfileResponseOutput values.
@@ -3274,12 +3006,9 @@ type ManagedClusterWindowsProfileResponseInput interface {
 	ToManagedClusterWindowsProfileResponseOutputWithContext(context.Context) ManagedClusterWindowsProfileResponseOutput
 }
 
-// Profile for Windows VMs in the container service cluster.
 type ManagedClusterWindowsProfileResponseArgs struct {
-	// Specifies the password of the administrator account. <br><br> **Minimum-length:** 8 characters <br><br> **Max-length:** 123 characters <br><br> **Complexity requirements:** 3 out of 4 conditions below need to be fulfilled <br> Has lower characters <br>Has upper characters <br> Has a digit <br> Has a special character (Regex match [\W_]) <br><br> **Disallowed values:** "abc@123", "P@$$w0rd", "P@ssw0rd", "P@ssword123", "Pa$$word", "pass@word1", "Password!", "Password1", "Password22", "iloveyou!"
 	AdminPassword pulumi.StringPtrInput `pulumi:"adminPassword"`
-	// Specifies the name of the administrator account. <br><br> **restriction:** Cannot end in "." <br><br> **Disallowed values:** "administrator", "admin", "user", "user1", "test", "user2", "test1", "user3", "admin1", "1", "123", "a", "actuser", "adm", "admin2", "aspnet", "backup", "console", "david", "guest", "john", "owner", "root", "server", "sql", "support", "support_388945a0", "sys", "test2", "test3", "user4", "user5". <br><br> **Minimum-length:** 1 character <br><br> **Max-length:** 20 characters
-	AdminUsername pulumi.StringInput `pulumi:"adminUsername"`
+	AdminUsername pulumi.StringInput    `pulumi:"adminUsername"`
 }
 
 func (ManagedClusterWindowsProfileResponseArgs) ElementType() reflect.Type {
@@ -3335,7 +3064,6 @@ func (i *managedClusterWindowsProfileResponsePtrType) ToManagedClusterWindowsPro
 	return pulumi.ToOutputWithContext(ctx, i).(ManagedClusterWindowsProfileResponsePtrOutput)
 }
 
-// Profile for Windows VMs in the container service cluster.
 type ManagedClusterWindowsProfileResponseOutput struct{ *pulumi.OutputState }
 
 func (ManagedClusterWindowsProfileResponseOutput) ElementType() reflect.Type {
@@ -3355,17 +3083,15 @@ func (o ManagedClusterWindowsProfileResponseOutput) ToManagedClusterWindowsProfi
 }
 
 func (o ManagedClusterWindowsProfileResponseOutput) ToManagedClusterWindowsProfileResponsePtrOutputWithContext(ctx context.Context) ManagedClusterWindowsProfileResponsePtrOutput {
-	return o.ApplyT(func(v ManagedClusterWindowsProfileResponse) *ManagedClusterWindowsProfileResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ManagedClusterWindowsProfileResponse) *ManagedClusterWindowsProfileResponse {
 		return &v
 	}).(ManagedClusterWindowsProfileResponsePtrOutput)
 }
 
-// Specifies the password of the administrator account. <br><br> **Minimum-length:** 8 characters <br><br> **Max-length:** 123 characters <br><br> **Complexity requirements:** 3 out of 4 conditions below need to be fulfilled <br> Has lower characters <br>Has upper characters <br> Has a digit <br> Has a special character (Regex match [\W_]) <br><br> **Disallowed values:** "abc@123", "P@$$w0rd", "P@ssw0rd", "P@ssword123", "Pa$$word", "pass@word1", "Password!", "Password1", "Password22", "iloveyou!"
 func (o ManagedClusterWindowsProfileResponseOutput) AdminPassword() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ManagedClusterWindowsProfileResponse) *string { return v.AdminPassword }).(pulumi.StringPtrOutput)
 }
 
-// Specifies the name of the administrator account. <br><br> **restriction:** Cannot end in "." <br><br> **Disallowed values:** "administrator", "admin", "user", "user1", "test", "user2", "test1", "user3", "admin1", "1", "123", "a", "actuser", "adm", "admin2", "aspnet", "backup", "console", "david", "guest", "john", "owner", "root", "server", "sql", "support", "support_388945a0", "sys", "test2", "test3", "user4", "user5". <br><br> **Minimum-length:** 1 character <br><br> **Max-length:** 20 characters
 func (o ManagedClusterWindowsProfileResponseOutput) AdminUsername() pulumi.StringOutput {
 	return o.ApplyT(func(v ManagedClusterWindowsProfileResponse) string { return v.AdminUsername }).(pulumi.StringOutput)
 }
@@ -3385,10 +3111,15 @@ func (o ManagedClusterWindowsProfileResponsePtrOutput) ToManagedClusterWindowsPr
 }
 
 func (o ManagedClusterWindowsProfileResponsePtrOutput) Elem() ManagedClusterWindowsProfileResponseOutput {
-	return o.ApplyT(func(v *ManagedClusterWindowsProfileResponse) ManagedClusterWindowsProfileResponse { return *v }).(ManagedClusterWindowsProfileResponseOutput)
+	return o.ApplyT(func(v *ManagedClusterWindowsProfileResponse) ManagedClusterWindowsProfileResponse {
+		if v != nil {
+			return *v
+		}
+		var ret ManagedClusterWindowsProfileResponse
+		return ret
+	}).(ManagedClusterWindowsProfileResponseOutput)
 }
 
-// Specifies the password of the administrator account. <br><br> **Minimum-length:** 8 characters <br><br> **Max-length:** 123 characters <br><br> **Complexity requirements:** 3 out of 4 conditions below need to be fulfilled <br> Has lower characters <br>Has upper characters <br> Has a digit <br> Has a special character (Regex match [\W_]) <br><br> **Disallowed values:** "abc@123", "P@$$w0rd", "P@ssw0rd", "P@ssword123", "Pa$$word", "pass@word1", "Password!", "Password1", "Password22", "iloveyou!"
 func (o ManagedClusterWindowsProfileResponsePtrOutput) AdminPassword() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ManagedClusterWindowsProfileResponse) *string {
 		if v == nil {
@@ -3398,7 +3129,6 @@ func (o ManagedClusterWindowsProfileResponsePtrOutput) AdminPassword() pulumi.St
 	}).(pulumi.StringPtrOutput)
 }
 
-// Specifies the name of the administrator account. <br><br> **restriction:** Cannot end in "." <br><br> **Disallowed values:** "administrator", "admin", "user", "user1", "test", "user2", "test1", "user3", "admin1", "1", "123", "a", "actuser", "adm", "admin2", "aspnet", "backup", "console", "david", "guest", "john", "owner", "root", "server", "sql", "support", "support_388945a0", "sys", "test2", "test3", "user4", "user5". <br><br> **Minimum-length:** 1 character <br><br> **Max-length:** 20 characters
 func (o ManagedClusterWindowsProfileResponsePtrOutput) AdminUsername() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ManagedClusterWindowsProfileResponse) *string {
 		if v == nil {

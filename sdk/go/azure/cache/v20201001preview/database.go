@@ -11,28 +11,18 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Describes a database on the RedisEnterprise cluster
 type Database struct {
 	pulumi.CustomResourceState
 
-	// Specifies whether redis clients can connect using TLS-encrypted or plaintext redis protocols. Default is TLS-encrypted.
-	ClientProtocol pulumi.StringPtrOutput `pulumi:"clientProtocol"`
-	// Clustering policy - default is OSSCluster. Specified at create time.
-	ClusteringPolicy pulumi.StringPtrOutput `pulumi:"clusteringPolicy"`
-	// Redis eviction policy - default is VolatileLRU
-	EvictionPolicy pulumi.StringPtrOutput `pulumi:"evictionPolicy"`
-	// Optional set of redis modules to enable in this database - modules can only be added at creation time.
-	Modules ModuleResponseArrayOutput `pulumi:"modules"`
-	// The name of the resource
-	Name pulumi.StringOutput `pulumi:"name"`
-	// TCP port of the database endpoint. Specified at create time. Defaults to an available port.
-	Port pulumi.IntPtrOutput `pulumi:"port"`
-	// Current provisioning status of the database
-	ProvisioningState pulumi.StringOutput `pulumi:"provisioningState"`
-	// Current resource status of the database
-	ResourceState pulumi.StringOutput `pulumi:"resourceState"`
-	// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
-	Type pulumi.StringOutput `pulumi:"type"`
+	ClientProtocol    pulumi.StringPtrOutput    `pulumi:"clientProtocol"`
+	ClusteringPolicy  pulumi.StringPtrOutput    `pulumi:"clusteringPolicy"`
+	EvictionPolicy    pulumi.StringPtrOutput    `pulumi:"evictionPolicy"`
+	Modules           ModuleResponseArrayOutput `pulumi:"modules"`
+	Name              pulumi.StringOutput       `pulumi:"name"`
+	Port              pulumi.IntPtrOutput       `pulumi:"port"`
+	ProvisioningState pulumi.StringOutput       `pulumi:"provisioningState"`
+	ResourceState     pulumi.StringOutput       `pulumi:"resourceState"`
+	Type              pulumi.StringOutput       `pulumi:"type"`
 }
 
 // NewDatabase registers a new resource with the given unique name, arguments, and options.
@@ -110,41 +100,25 @@ func (DatabaseState) ElementType() reflect.Type {
 }
 
 type databaseArgs struct {
-	// Specifies whether redis clients can connect using TLS-encrypted or plaintext redis protocols. Default is TLS-encrypted.
-	ClientProtocol *string `pulumi:"clientProtocol"`
-	// The name of the RedisEnterprise cluster.
-	ClusterName string `pulumi:"clusterName"`
-	// Clustering policy - default is OSSCluster. Specified at create time.
-	ClusteringPolicy *string `pulumi:"clusteringPolicy"`
-	// The name of the database.
-	DatabaseName *string `pulumi:"databaseName"`
-	// Redis eviction policy - default is VolatileLRU
-	EvictionPolicy *string `pulumi:"evictionPolicy"`
-	// Optional set of redis modules to enable in this database - modules can only be added at creation time.
-	Modules []Module `pulumi:"modules"`
-	// TCP port of the database endpoint. Specified at create time. Defaults to an available port.
-	Port *int `pulumi:"port"`
-	// The name of the resource group.
-	ResourceGroupName string `pulumi:"resourceGroupName"`
+	ClientProtocol    *string  `pulumi:"clientProtocol"`
+	ClusterName       string   `pulumi:"clusterName"`
+	ClusteringPolicy  *string  `pulumi:"clusteringPolicy"`
+	DatabaseName      *string  `pulumi:"databaseName"`
+	EvictionPolicy    *string  `pulumi:"evictionPolicy"`
+	Modules           []Module `pulumi:"modules"`
+	Port              *int     `pulumi:"port"`
+	ResourceGroupName string   `pulumi:"resourceGroupName"`
 }
 
 // The set of arguments for constructing a Database resource.
 type DatabaseArgs struct {
-	// Specifies whether redis clients can connect using TLS-encrypted or plaintext redis protocols. Default is TLS-encrypted.
-	ClientProtocol pulumi.StringPtrInput
-	// The name of the RedisEnterprise cluster.
-	ClusterName pulumi.StringInput
-	// Clustering policy - default is OSSCluster. Specified at create time.
-	ClusteringPolicy pulumi.StringPtrInput
-	// The name of the database.
-	DatabaseName pulumi.StringPtrInput
-	// Redis eviction policy - default is VolatileLRU
-	EvictionPolicy pulumi.StringPtrInput
-	// Optional set of redis modules to enable in this database - modules can only be added at creation time.
-	Modules ModuleArrayInput
-	// TCP port of the database endpoint. Specified at create time. Defaults to an available port.
-	Port pulumi.IntPtrInput
-	// The name of the resource group.
+	ClientProtocol    pulumi.StringPtrInput
+	ClusterName       pulumi.StringInput
+	ClusteringPolicy  pulumi.StringPtrInput
+	DatabaseName      pulumi.StringPtrInput
+	EvictionPolicy    pulumi.StringPtrInput
+	Modules           ModuleArrayInput
+	Port              pulumi.IntPtrInput
 	ResourceGroupName pulumi.StringInput
 }
 
@@ -171,9 +145,7 @@ func (i *Database) ToDatabaseOutputWithContext(ctx context.Context) DatabaseOutp
 	return pulumi.ToOutputWithContext(ctx, i).(DatabaseOutput)
 }
 
-type DatabaseOutput struct {
-	*pulumi.OutputState
-}
+type DatabaseOutput struct{ *pulumi.OutputState }
 
 func (DatabaseOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*Database)(nil))

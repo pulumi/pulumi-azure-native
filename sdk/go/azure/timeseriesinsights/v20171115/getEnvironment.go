@@ -7,7 +7,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// An environment is a set of time-series data available for query, and is the top level Azure Time Series Insights resource.
 func LookupEnvironment(ctx *pulumi.Context, args *LookupEnvironmentArgs, opts ...pulumi.InvokeOption) (*LookupEnvironmentResult, error) {
 	var rv LookupEnvironmentResult
 	err := ctx.Invoke("azure-native:timeseriesinsights/v20171115:getEnvironment", args, &rv, opts...)
@@ -18,42 +17,25 @@ func LookupEnvironment(ctx *pulumi.Context, args *LookupEnvironmentArgs, opts ..
 }
 
 type LookupEnvironmentArgs struct {
-	// The name of the Time Series Insights environment associated with the specified resource group.
-	EnvironmentName string `pulumi:"environmentName"`
-	// Setting $expand=status will include the status of the internal services of the environment in the Time Series Insights service.
-	Expand *string `pulumi:"expand"`
-	// Name of an Azure Resource group.
-	ResourceGroupName string `pulumi:"resourceGroupName"`
+	EnvironmentName   string  `pulumi:"environmentName"`
+	Expand            *string `pulumi:"expand"`
+	ResourceGroupName string  `pulumi:"resourceGroupName"`
 }
 
 // An environment is a set of time-series data available for query, and is the top level Azure Time Series Insights resource.
 type LookupEnvironmentResult struct {
-	// The time the resource was created.
-	CreationTime string `pulumi:"creationTime"`
-	// The fully qualified domain name used to access the environment data, e.g. to query the environment's events or upload reference data for the environment.
-	DataAccessFqdn string `pulumi:"dataAccessFqdn"`
-	// An id used to access the environment data, e.g. to query the environment's events or upload reference data for the environment.
-	DataAccessId string `pulumi:"dataAccessId"`
-	// ISO8601 timespan specifying the minimum number of days the environment's events will be available for query.
-	DataRetentionTime string `pulumi:"dataRetentionTime"`
-	// Resource Id
-	Id string `pulumi:"id"`
-	// Resource location
-	Location string `pulumi:"location"`
-	// Resource name
-	Name string `pulumi:"name"`
-	// The list of partition keys according to which the data in the environment will be ordered.
-	PartitionKeyProperties []PartitionKeyPropertyResponse `pulumi:"partitionKeyProperties"`
-	// Provisioning state of the resource.
-	ProvisioningState string `pulumi:"provisioningState"`
-	// The sku determines the capacity of the environment, the SLA (in queries-per-minute and total capacity), and the billing rate.
-	Sku *SkuResponse `pulumi:"sku"`
-	// An object that represents the status of the environment, and its internal state in the Time Series Insights service.
-	Status EnvironmentStatusResponse `pulumi:"status"`
-	// The behavior the Time Series Insights service should take when the environment's capacity has been exceeded. If "PauseIngress" is specified, new events will not be read from the event source. If "PurgeOldData" is specified, new events will continue to be read and old events will be deleted from the environment. The default behavior is PurgeOldData.
-	StorageLimitExceededBehavior *string `pulumi:"storageLimitExceededBehavior"`
-	// Resource tags
-	Tags map[string]string `pulumi:"tags"`
-	// Resource type
-	Type string `pulumi:"type"`
+	CreationTime                 string                         `pulumi:"creationTime"`
+	DataAccessFqdn               string                         `pulumi:"dataAccessFqdn"`
+	DataAccessId                 string                         `pulumi:"dataAccessId"`
+	DataRetentionTime            string                         `pulumi:"dataRetentionTime"`
+	Id                           string                         `pulumi:"id"`
+	Location                     string                         `pulumi:"location"`
+	Name                         string                         `pulumi:"name"`
+	PartitionKeyProperties       []PartitionKeyPropertyResponse `pulumi:"partitionKeyProperties"`
+	ProvisioningState            string                         `pulumi:"provisioningState"`
+	Sku                          *SkuResponse                   `pulumi:"sku"`
+	Status                       EnvironmentStatusResponse      `pulumi:"status"`
+	StorageLimitExceededBehavior *string                        `pulumi:"storageLimitExceededBehavior"`
+	Tags                         map[string]string              `pulumi:"tags"`
+	Type                         string                         `pulumi:"type"`
 }

@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.RecoveryServices.V20210701.Outputs
 {
 
+    /// <summary>
+    /// Zone details data.
+    /// </summary>
     [OutputType]
     public sealed class A2AZoneDetailsResponse
     {

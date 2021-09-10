@@ -7,7 +7,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Provider details.
 func LookupReplicationRecoveryServicesProvider(ctx *pulumi.Context, args *LookupReplicationRecoveryServicesProviderArgs, opts ...pulumi.InvokeOption) (*LookupReplicationRecoveryServicesProviderResult, error) {
 	var rv LookupReplicationRecoveryServicesProviderResult
 	err := ctx.Invoke("azure-native:recoveryservices/v20210301:getReplicationRecoveryServicesProvider", args, &rv, opts...)
@@ -18,26 +17,17 @@ func LookupReplicationRecoveryServicesProvider(ctx *pulumi.Context, args *Lookup
 }
 
 type LookupReplicationRecoveryServicesProviderArgs struct {
-	// Fabric name.
-	FabricName string `pulumi:"fabricName"`
-	// Recovery services provider name
-	ProviderName string `pulumi:"providerName"`
-	// The name of the resource group where the recovery services vault is present.
+	FabricName        string `pulumi:"fabricName"`
+	ProviderName      string `pulumi:"providerName"`
 	ResourceGroupName string `pulumi:"resourceGroupName"`
-	// The name of the recovery services vault.
-	ResourceName string `pulumi:"resourceName"`
+	ResourceName      string `pulumi:"resourceName"`
 }
 
 // Provider details.
 type LookupReplicationRecoveryServicesProviderResult struct {
-	// Resource Id
-	Id string `pulumi:"id"`
-	// Resource Location
-	Location *string `pulumi:"location"`
-	// Resource Name
-	Name string `pulumi:"name"`
-	// Provider properties.
+	Id         string                                     `pulumi:"id"`
+	Location   *string                                    `pulumi:"location"`
+	Name       string                                     `pulumi:"name"`
 	Properties RecoveryServicesProviderPropertiesResponse `pulumi:"properties"`
-	// Resource Type
-	Type string `pulumi:"type"`
+	Type       string                                     `pulumi:"type"`
 }

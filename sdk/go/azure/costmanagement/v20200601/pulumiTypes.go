@@ -10,18 +10,12 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// The common properties of the export.
 type CommonExportPropertiesResponse struct {
-	// Has the definition for the export.
-	Definition ExportDefinitionResponse `pulumi:"definition"`
-	// Has delivery information for the export.
-	DeliveryInfo ExportDeliveryInfoResponse `pulumi:"deliveryInfo"`
-	// The format of the export being delivered. Currently only 'Csv' is supported.
-	Format *string `pulumi:"format"`
-	// If the export has an active schedule, provides an estimate of the next execution time.
-	NextRunTimeEstimate string `pulumi:"nextRunTimeEstimate"`
-	// If requested, has the most recent execution history for the export.
-	RunHistory *ExportExecutionListResultResponse `pulumi:"runHistory"`
+	Definition          ExportDefinitionResponse           `pulumi:"definition"`
+	DeliveryInfo        ExportDeliveryInfoResponse         `pulumi:"deliveryInfo"`
+	Format              *string                            `pulumi:"format"`
+	NextRunTimeEstimate string                             `pulumi:"nextRunTimeEstimate"`
+	RunHistory          *ExportExecutionListResultResponse `pulumi:"runHistory"`
 }
 
 // CommonExportPropertiesResponseInput is an input type that accepts CommonExportPropertiesResponseArgs and CommonExportPropertiesResponseOutput values.
@@ -35,18 +29,12 @@ type CommonExportPropertiesResponseInput interface {
 	ToCommonExportPropertiesResponseOutputWithContext(context.Context) CommonExportPropertiesResponseOutput
 }
 
-// The common properties of the export.
 type CommonExportPropertiesResponseArgs struct {
-	// Has the definition for the export.
-	Definition ExportDefinitionResponseInput `pulumi:"definition"`
-	// Has delivery information for the export.
-	DeliveryInfo ExportDeliveryInfoResponseInput `pulumi:"deliveryInfo"`
-	// The format of the export being delivered. Currently only 'Csv' is supported.
-	Format pulumi.StringPtrInput `pulumi:"format"`
-	// If the export has an active schedule, provides an estimate of the next execution time.
-	NextRunTimeEstimate pulumi.StringInput `pulumi:"nextRunTimeEstimate"`
-	// If requested, has the most recent execution history for the export.
-	RunHistory ExportExecutionListResultResponsePtrInput `pulumi:"runHistory"`
+	Definition          ExportDefinitionResponseInput             `pulumi:"definition"`
+	DeliveryInfo        ExportDeliveryInfoResponseInput           `pulumi:"deliveryInfo"`
+	Format              pulumi.StringPtrInput                     `pulumi:"format"`
+	NextRunTimeEstimate pulumi.StringInput                        `pulumi:"nextRunTimeEstimate"`
+	RunHistory          ExportExecutionListResultResponsePtrInput `pulumi:"runHistory"`
 }
 
 func (CommonExportPropertiesResponseArgs) ElementType() reflect.Type {
@@ -102,7 +90,6 @@ func (i *commonExportPropertiesResponsePtrType) ToCommonExportPropertiesResponse
 	return pulumi.ToOutputWithContext(ctx, i).(CommonExportPropertiesResponsePtrOutput)
 }
 
-// The common properties of the export.
 type CommonExportPropertiesResponseOutput struct{ *pulumi.OutputState }
 
 func (CommonExportPropertiesResponseOutput) ElementType() reflect.Type {
@@ -122,32 +109,27 @@ func (o CommonExportPropertiesResponseOutput) ToCommonExportPropertiesResponsePt
 }
 
 func (o CommonExportPropertiesResponseOutput) ToCommonExportPropertiesResponsePtrOutputWithContext(ctx context.Context) CommonExportPropertiesResponsePtrOutput {
-	return o.ApplyT(func(v CommonExportPropertiesResponse) *CommonExportPropertiesResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v CommonExportPropertiesResponse) *CommonExportPropertiesResponse {
 		return &v
 	}).(CommonExportPropertiesResponsePtrOutput)
 }
 
-// Has the definition for the export.
 func (o CommonExportPropertiesResponseOutput) Definition() ExportDefinitionResponseOutput {
 	return o.ApplyT(func(v CommonExportPropertiesResponse) ExportDefinitionResponse { return v.Definition }).(ExportDefinitionResponseOutput)
 }
 
-// Has delivery information for the export.
 func (o CommonExportPropertiesResponseOutput) DeliveryInfo() ExportDeliveryInfoResponseOutput {
 	return o.ApplyT(func(v CommonExportPropertiesResponse) ExportDeliveryInfoResponse { return v.DeliveryInfo }).(ExportDeliveryInfoResponseOutput)
 }
 
-// The format of the export being delivered. Currently only 'Csv' is supported.
 func (o CommonExportPropertiesResponseOutput) Format() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v CommonExportPropertiesResponse) *string { return v.Format }).(pulumi.StringPtrOutput)
 }
 
-// If the export has an active schedule, provides an estimate of the next execution time.
 func (o CommonExportPropertiesResponseOutput) NextRunTimeEstimate() pulumi.StringOutput {
 	return o.ApplyT(func(v CommonExportPropertiesResponse) string { return v.NextRunTimeEstimate }).(pulumi.StringOutput)
 }
 
-// If requested, has the most recent execution history for the export.
 func (o CommonExportPropertiesResponseOutput) RunHistory() ExportExecutionListResultResponsePtrOutput {
 	return o.ApplyT(func(v CommonExportPropertiesResponse) *ExportExecutionListResultResponse { return v.RunHistory }).(ExportExecutionListResultResponsePtrOutput)
 }
@@ -167,10 +149,15 @@ func (o CommonExportPropertiesResponsePtrOutput) ToCommonExportPropertiesRespons
 }
 
 func (o CommonExportPropertiesResponsePtrOutput) Elem() CommonExportPropertiesResponseOutput {
-	return o.ApplyT(func(v *CommonExportPropertiesResponse) CommonExportPropertiesResponse { return *v }).(CommonExportPropertiesResponseOutput)
+	return o.ApplyT(func(v *CommonExportPropertiesResponse) CommonExportPropertiesResponse {
+		if v != nil {
+			return *v
+		}
+		var ret CommonExportPropertiesResponse
+		return ret
+	}).(CommonExportPropertiesResponseOutput)
 }
 
-// Has the definition for the export.
 func (o CommonExportPropertiesResponsePtrOutput) Definition() ExportDefinitionResponsePtrOutput {
 	return o.ApplyT(func(v *CommonExportPropertiesResponse) *ExportDefinitionResponse {
 		if v == nil {
@@ -180,7 +167,6 @@ func (o CommonExportPropertiesResponsePtrOutput) Definition() ExportDefinitionRe
 	}).(ExportDefinitionResponsePtrOutput)
 }
 
-// Has delivery information for the export.
 func (o CommonExportPropertiesResponsePtrOutput) DeliveryInfo() ExportDeliveryInfoResponsePtrOutput {
 	return o.ApplyT(func(v *CommonExportPropertiesResponse) *ExportDeliveryInfoResponse {
 		if v == nil {
@@ -190,7 +176,6 @@ func (o CommonExportPropertiesResponsePtrOutput) DeliveryInfo() ExportDeliveryIn
 	}).(ExportDeliveryInfoResponsePtrOutput)
 }
 
-// The format of the export being delivered. Currently only 'Csv' is supported.
 func (o CommonExportPropertiesResponsePtrOutput) Format() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *CommonExportPropertiesResponse) *string {
 		if v == nil {
@@ -200,7 +185,6 @@ func (o CommonExportPropertiesResponsePtrOutput) Format() pulumi.StringPtrOutput
 	}).(pulumi.StringPtrOutput)
 }
 
-// If the export has an active schedule, provides an estimate of the next execution time.
 func (o CommonExportPropertiesResponsePtrOutput) NextRunTimeEstimate() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *CommonExportPropertiesResponse) *string {
 		if v == nil {
@@ -210,7 +194,6 @@ func (o CommonExportPropertiesResponsePtrOutput) NextRunTimeEstimate() pulumi.St
 	}).(pulumi.StringPtrOutput)
 }
 
-// If requested, has the most recent execution history for the export.
 func (o CommonExportPropertiesResponsePtrOutput) RunHistory() ExportExecutionListResultResponsePtrOutput {
 	return o.ApplyT(func(v *CommonExportPropertiesResponse) *ExportExecutionListResultResponse {
 		if v == nil {
@@ -220,11 +203,8 @@ func (o CommonExportPropertiesResponsePtrOutput) RunHistory() ExportExecutionLis
 	}).(ExportExecutionListResultResponsePtrOutput)
 }
 
-// The details of the error.
 type ErrorDetailsResponse struct {
-	// Error code.
-	Code string `pulumi:"code"`
-	// Error message indicating why the operation failed.
+	Code    string `pulumi:"code"`
 	Message string `pulumi:"message"`
 }
 
@@ -239,11 +219,8 @@ type ErrorDetailsResponseInput interface {
 	ToErrorDetailsResponseOutputWithContext(context.Context) ErrorDetailsResponseOutput
 }
 
-// The details of the error.
 type ErrorDetailsResponseArgs struct {
-	// Error code.
-	Code pulumi.StringInput `pulumi:"code"`
-	// Error message indicating why the operation failed.
+	Code    pulumi.StringInput `pulumi:"code"`
 	Message pulumi.StringInput `pulumi:"message"`
 }
 
@@ -300,7 +277,6 @@ func (i *errorDetailsResponsePtrType) ToErrorDetailsResponsePtrOutputWithContext
 	return pulumi.ToOutputWithContext(ctx, i).(ErrorDetailsResponsePtrOutput)
 }
 
-// The details of the error.
 type ErrorDetailsResponseOutput struct{ *pulumi.OutputState }
 
 func (ErrorDetailsResponseOutput) ElementType() reflect.Type {
@@ -320,17 +296,15 @@ func (o ErrorDetailsResponseOutput) ToErrorDetailsResponsePtrOutput() ErrorDetai
 }
 
 func (o ErrorDetailsResponseOutput) ToErrorDetailsResponsePtrOutputWithContext(ctx context.Context) ErrorDetailsResponsePtrOutput {
-	return o.ApplyT(func(v ErrorDetailsResponse) *ErrorDetailsResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ErrorDetailsResponse) *ErrorDetailsResponse {
 		return &v
 	}).(ErrorDetailsResponsePtrOutput)
 }
 
-// Error code.
 func (o ErrorDetailsResponseOutput) Code() pulumi.StringOutput {
 	return o.ApplyT(func(v ErrorDetailsResponse) string { return v.Code }).(pulumi.StringOutput)
 }
 
-// Error message indicating why the operation failed.
 func (o ErrorDetailsResponseOutput) Message() pulumi.StringOutput {
 	return o.ApplyT(func(v ErrorDetailsResponse) string { return v.Message }).(pulumi.StringOutput)
 }
@@ -350,10 +324,15 @@ func (o ErrorDetailsResponsePtrOutput) ToErrorDetailsResponsePtrOutputWithContex
 }
 
 func (o ErrorDetailsResponsePtrOutput) Elem() ErrorDetailsResponseOutput {
-	return o.ApplyT(func(v *ErrorDetailsResponse) ErrorDetailsResponse { return *v }).(ErrorDetailsResponseOutput)
+	return o.ApplyT(func(v *ErrorDetailsResponse) ErrorDetailsResponse {
+		if v != nil {
+			return *v
+		}
+		var ret ErrorDetailsResponse
+		return ret
+	}).(ErrorDetailsResponseOutput)
 }
 
-// Error code.
 func (o ErrorDetailsResponsePtrOutput) Code() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ErrorDetailsResponse) *string {
 		if v == nil {
@@ -363,7 +342,6 @@ func (o ErrorDetailsResponsePtrOutput) Code() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Error message indicating why the operation failed.
 func (o ErrorDetailsResponsePtrOutput) Message() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ErrorDetailsResponse) *string {
 		if v == nil {
@@ -373,12 +351,9 @@ func (o ErrorDetailsResponsePtrOutput) Message() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The definition for data in the export.
 type ExportDataset struct {
-	// The export dataset configuration.
 	Configuration *ExportDatasetConfiguration `pulumi:"configuration"`
-	// The granularity of rows in the export. Currently only 'Daily' is supported.
-	Granularity *string `pulumi:"granularity"`
+	Granularity   *string                     `pulumi:"granularity"`
 }
 
 // ExportDatasetInput is an input type that accepts ExportDatasetArgs and ExportDatasetOutput values.
@@ -392,12 +367,9 @@ type ExportDatasetInput interface {
 	ToExportDatasetOutputWithContext(context.Context) ExportDatasetOutput
 }
 
-// The definition for data in the export.
 type ExportDatasetArgs struct {
-	// The export dataset configuration.
 	Configuration ExportDatasetConfigurationPtrInput `pulumi:"configuration"`
-	// The granularity of rows in the export. Currently only 'Daily' is supported.
-	Granularity pulumi.StringPtrInput `pulumi:"granularity"`
+	Granularity   pulumi.StringPtrInput              `pulumi:"granularity"`
 }
 
 func (ExportDatasetArgs) ElementType() reflect.Type {
@@ -453,7 +425,6 @@ func (i *exportDatasetPtrType) ToExportDatasetPtrOutputWithContext(ctx context.C
 	return pulumi.ToOutputWithContext(ctx, i).(ExportDatasetPtrOutput)
 }
 
-// The definition for data in the export.
 type ExportDatasetOutput struct{ *pulumi.OutputState }
 
 func (ExportDatasetOutput) ElementType() reflect.Type {
@@ -473,17 +444,15 @@ func (o ExportDatasetOutput) ToExportDatasetPtrOutput() ExportDatasetPtrOutput {
 }
 
 func (o ExportDatasetOutput) ToExportDatasetPtrOutputWithContext(ctx context.Context) ExportDatasetPtrOutput {
-	return o.ApplyT(func(v ExportDataset) *ExportDataset {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ExportDataset) *ExportDataset {
 		return &v
 	}).(ExportDatasetPtrOutput)
 }
 
-// The export dataset configuration.
 func (o ExportDatasetOutput) Configuration() ExportDatasetConfigurationPtrOutput {
 	return o.ApplyT(func(v ExportDataset) *ExportDatasetConfiguration { return v.Configuration }).(ExportDatasetConfigurationPtrOutput)
 }
 
-// The granularity of rows in the export. Currently only 'Daily' is supported.
 func (o ExportDatasetOutput) Granularity() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ExportDataset) *string { return v.Granularity }).(pulumi.StringPtrOutput)
 }
@@ -503,10 +472,15 @@ func (o ExportDatasetPtrOutput) ToExportDatasetPtrOutputWithContext(ctx context.
 }
 
 func (o ExportDatasetPtrOutput) Elem() ExportDatasetOutput {
-	return o.ApplyT(func(v *ExportDataset) ExportDataset { return *v }).(ExportDatasetOutput)
+	return o.ApplyT(func(v *ExportDataset) ExportDataset {
+		if v != nil {
+			return *v
+		}
+		var ret ExportDataset
+		return ret
+	}).(ExportDatasetOutput)
 }
 
-// The export dataset configuration.
 func (o ExportDatasetPtrOutput) Configuration() ExportDatasetConfigurationPtrOutput {
 	return o.ApplyT(func(v *ExportDataset) *ExportDatasetConfiguration {
 		if v == nil {
@@ -516,7 +490,6 @@ func (o ExportDatasetPtrOutput) Configuration() ExportDatasetConfigurationPtrOut
 	}).(ExportDatasetConfigurationPtrOutput)
 }
 
-// The granularity of rows in the export. Currently only 'Daily' is supported.
 func (o ExportDatasetPtrOutput) Granularity() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ExportDataset) *string {
 		if v == nil {
@@ -526,9 +499,7 @@ func (o ExportDatasetPtrOutput) Granularity() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The export dataset configuration. Allows columns to be selected for the export. If not provided then the export will include all available columns.
 type ExportDatasetConfiguration struct {
-	// Array of column names to be included in the export. If not provided then the export will include all available columns. The available columns can vary by customer channel (see examples).
 	Columns []string `pulumi:"columns"`
 }
 
@@ -543,9 +514,7 @@ type ExportDatasetConfigurationInput interface {
 	ToExportDatasetConfigurationOutputWithContext(context.Context) ExportDatasetConfigurationOutput
 }
 
-// The export dataset configuration. Allows columns to be selected for the export. If not provided then the export will include all available columns.
 type ExportDatasetConfigurationArgs struct {
-	// Array of column names to be included in the export. If not provided then the export will include all available columns. The available columns can vary by customer channel (see examples).
 	Columns pulumi.StringArrayInput `pulumi:"columns"`
 }
 
@@ -602,7 +571,6 @@ func (i *exportDatasetConfigurationPtrType) ToExportDatasetConfigurationPtrOutpu
 	return pulumi.ToOutputWithContext(ctx, i).(ExportDatasetConfigurationPtrOutput)
 }
 
-// The export dataset configuration. Allows columns to be selected for the export. If not provided then the export will include all available columns.
 type ExportDatasetConfigurationOutput struct{ *pulumi.OutputState }
 
 func (ExportDatasetConfigurationOutput) ElementType() reflect.Type {
@@ -622,12 +590,11 @@ func (o ExportDatasetConfigurationOutput) ToExportDatasetConfigurationPtrOutput(
 }
 
 func (o ExportDatasetConfigurationOutput) ToExportDatasetConfigurationPtrOutputWithContext(ctx context.Context) ExportDatasetConfigurationPtrOutput {
-	return o.ApplyT(func(v ExportDatasetConfiguration) *ExportDatasetConfiguration {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ExportDatasetConfiguration) *ExportDatasetConfiguration {
 		return &v
 	}).(ExportDatasetConfigurationPtrOutput)
 }
 
-// Array of column names to be included in the export. If not provided then the export will include all available columns. The available columns can vary by customer channel (see examples).
 func (o ExportDatasetConfigurationOutput) Columns() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v ExportDatasetConfiguration) []string { return v.Columns }).(pulumi.StringArrayOutput)
 }
@@ -647,10 +614,15 @@ func (o ExportDatasetConfigurationPtrOutput) ToExportDatasetConfigurationPtrOutp
 }
 
 func (o ExportDatasetConfigurationPtrOutput) Elem() ExportDatasetConfigurationOutput {
-	return o.ApplyT(func(v *ExportDatasetConfiguration) ExportDatasetConfiguration { return *v }).(ExportDatasetConfigurationOutput)
+	return o.ApplyT(func(v *ExportDatasetConfiguration) ExportDatasetConfiguration {
+		if v != nil {
+			return *v
+		}
+		var ret ExportDatasetConfiguration
+		return ret
+	}).(ExportDatasetConfigurationOutput)
 }
 
-// Array of column names to be included in the export. If not provided then the export will include all available columns. The available columns can vary by customer channel (see examples).
 func (o ExportDatasetConfigurationPtrOutput) Columns() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *ExportDatasetConfiguration) []string {
 		if v == nil {
@@ -660,9 +632,7 @@ func (o ExportDatasetConfigurationPtrOutput) Columns() pulumi.StringArrayOutput 
 	}).(pulumi.StringArrayOutput)
 }
 
-// The export dataset configuration. Allows columns to be selected for the export. If not provided then the export will include all available columns.
 type ExportDatasetConfigurationResponse struct {
-	// Array of column names to be included in the export. If not provided then the export will include all available columns. The available columns can vary by customer channel (see examples).
 	Columns []string `pulumi:"columns"`
 }
 
@@ -677,9 +647,7 @@ type ExportDatasetConfigurationResponseInput interface {
 	ToExportDatasetConfigurationResponseOutputWithContext(context.Context) ExportDatasetConfigurationResponseOutput
 }
 
-// The export dataset configuration. Allows columns to be selected for the export. If not provided then the export will include all available columns.
 type ExportDatasetConfigurationResponseArgs struct {
-	// Array of column names to be included in the export. If not provided then the export will include all available columns. The available columns can vary by customer channel (see examples).
 	Columns pulumi.StringArrayInput `pulumi:"columns"`
 }
 
@@ -736,7 +704,6 @@ func (i *exportDatasetConfigurationResponsePtrType) ToExportDatasetConfiguration
 	return pulumi.ToOutputWithContext(ctx, i).(ExportDatasetConfigurationResponsePtrOutput)
 }
 
-// The export dataset configuration. Allows columns to be selected for the export. If not provided then the export will include all available columns.
 type ExportDatasetConfigurationResponseOutput struct{ *pulumi.OutputState }
 
 func (ExportDatasetConfigurationResponseOutput) ElementType() reflect.Type {
@@ -756,12 +723,11 @@ func (o ExportDatasetConfigurationResponseOutput) ToExportDatasetConfigurationRe
 }
 
 func (o ExportDatasetConfigurationResponseOutput) ToExportDatasetConfigurationResponsePtrOutputWithContext(ctx context.Context) ExportDatasetConfigurationResponsePtrOutput {
-	return o.ApplyT(func(v ExportDatasetConfigurationResponse) *ExportDatasetConfigurationResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ExportDatasetConfigurationResponse) *ExportDatasetConfigurationResponse {
 		return &v
 	}).(ExportDatasetConfigurationResponsePtrOutput)
 }
 
-// Array of column names to be included in the export. If not provided then the export will include all available columns. The available columns can vary by customer channel (see examples).
 func (o ExportDatasetConfigurationResponseOutput) Columns() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v ExportDatasetConfigurationResponse) []string { return v.Columns }).(pulumi.StringArrayOutput)
 }
@@ -781,10 +747,15 @@ func (o ExportDatasetConfigurationResponsePtrOutput) ToExportDatasetConfiguratio
 }
 
 func (o ExportDatasetConfigurationResponsePtrOutput) Elem() ExportDatasetConfigurationResponseOutput {
-	return o.ApplyT(func(v *ExportDatasetConfigurationResponse) ExportDatasetConfigurationResponse { return *v }).(ExportDatasetConfigurationResponseOutput)
+	return o.ApplyT(func(v *ExportDatasetConfigurationResponse) ExportDatasetConfigurationResponse {
+		if v != nil {
+			return *v
+		}
+		var ret ExportDatasetConfigurationResponse
+		return ret
+	}).(ExportDatasetConfigurationResponseOutput)
 }
 
-// Array of column names to be included in the export. If not provided then the export will include all available columns. The available columns can vary by customer channel (see examples).
 func (o ExportDatasetConfigurationResponsePtrOutput) Columns() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *ExportDatasetConfigurationResponse) []string {
 		if v == nil {
@@ -794,12 +765,9 @@ func (o ExportDatasetConfigurationResponsePtrOutput) Columns() pulumi.StringArra
 	}).(pulumi.StringArrayOutput)
 }
 
-// The definition for data in the export.
 type ExportDatasetResponse struct {
-	// The export dataset configuration.
 	Configuration *ExportDatasetConfigurationResponse `pulumi:"configuration"`
-	// The granularity of rows in the export. Currently only 'Daily' is supported.
-	Granularity *string `pulumi:"granularity"`
+	Granularity   *string                             `pulumi:"granularity"`
 }
 
 // ExportDatasetResponseInput is an input type that accepts ExportDatasetResponseArgs and ExportDatasetResponseOutput values.
@@ -813,12 +781,9 @@ type ExportDatasetResponseInput interface {
 	ToExportDatasetResponseOutputWithContext(context.Context) ExportDatasetResponseOutput
 }
 
-// The definition for data in the export.
 type ExportDatasetResponseArgs struct {
-	// The export dataset configuration.
 	Configuration ExportDatasetConfigurationResponsePtrInput `pulumi:"configuration"`
-	// The granularity of rows in the export. Currently only 'Daily' is supported.
-	Granularity pulumi.StringPtrInput `pulumi:"granularity"`
+	Granularity   pulumi.StringPtrInput                      `pulumi:"granularity"`
 }
 
 func (ExportDatasetResponseArgs) ElementType() reflect.Type {
@@ -874,7 +839,6 @@ func (i *exportDatasetResponsePtrType) ToExportDatasetResponsePtrOutputWithConte
 	return pulumi.ToOutputWithContext(ctx, i).(ExportDatasetResponsePtrOutput)
 }
 
-// The definition for data in the export.
 type ExportDatasetResponseOutput struct{ *pulumi.OutputState }
 
 func (ExportDatasetResponseOutput) ElementType() reflect.Type {
@@ -894,17 +858,15 @@ func (o ExportDatasetResponseOutput) ToExportDatasetResponsePtrOutput() ExportDa
 }
 
 func (o ExportDatasetResponseOutput) ToExportDatasetResponsePtrOutputWithContext(ctx context.Context) ExportDatasetResponsePtrOutput {
-	return o.ApplyT(func(v ExportDatasetResponse) *ExportDatasetResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ExportDatasetResponse) *ExportDatasetResponse {
 		return &v
 	}).(ExportDatasetResponsePtrOutput)
 }
 
-// The export dataset configuration.
 func (o ExportDatasetResponseOutput) Configuration() ExportDatasetConfigurationResponsePtrOutput {
 	return o.ApplyT(func(v ExportDatasetResponse) *ExportDatasetConfigurationResponse { return v.Configuration }).(ExportDatasetConfigurationResponsePtrOutput)
 }
 
-// The granularity of rows in the export. Currently only 'Daily' is supported.
 func (o ExportDatasetResponseOutput) Granularity() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ExportDatasetResponse) *string { return v.Granularity }).(pulumi.StringPtrOutput)
 }
@@ -924,10 +886,15 @@ func (o ExportDatasetResponsePtrOutput) ToExportDatasetResponsePtrOutputWithCont
 }
 
 func (o ExportDatasetResponsePtrOutput) Elem() ExportDatasetResponseOutput {
-	return o.ApplyT(func(v *ExportDatasetResponse) ExportDatasetResponse { return *v }).(ExportDatasetResponseOutput)
+	return o.ApplyT(func(v *ExportDatasetResponse) ExportDatasetResponse {
+		if v != nil {
+			return *v
+		}
+		var ret ExportDatasetResponse
+		return ret
+	}).(ExportDatasetResponseOutput)
 }
 
-// The export dataset configuration.
 func (o ExportDatasetResponsePtrOutput) Configuration() ExportDatasetConfigurationResponsePtrOutput {
 	return o.ApplyT(func(v *ExportDatasetResponse) *ExportDatasetConfigurationResponse {
 		if v == nil {
@@ -937,7 +904,6 @@ func (o ExportDatasetResponsePtrOutput) Configuration() ExportDatasetConfigurati
 	}).(ExportDatasetConfigurationResponsePtrOutput)
 }
 
-// The granularity of rows in the export. Currently only 'Daily' is supported.
 func (o ExportDatasetResponsePtrOutput) Granularity() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ExportDatasetResponse) *string {
 		if v == nil {
@@ -947,16 +913,11 @@ func (o ExportDatasetResponsePtrOutput) Granularity() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The definition of an export.
 type ExportDefinition struct {
-	// The definition for data in the export.
-	DataSet *ExportDataset `pulumi:"dataSet"`
-	// Has time period for pulling data for the export.
+	DataSet    *ExportDataset    `pulumi:"dataSet"`
 	TimePeriod *ExportTimePeriod `pulumi:"timePeriod"`
-	// The time frame for pulling data for the export. If custom, then a specific time period must be provided.
-	Timeframe string `pulumi:"timeframe"`
-	// The type of the export. Note that 'Usage' is equivalent to 'ActualCost' and is applicable to exports that do not yet provide data for charges or amortization for service reservations.
-	Type string `pulumi:"type"`
+	Timeframe  string            `pulumi:"timeframe"`
+	Type       string            `pulumi:"type"`
 }
 
 // ExportDefinitionInput is an input type that accepts ExportDefinitionArgs and ExportDefinitionOutput values.
@@ -970,16 +931,11 @@ type ExportDefinitionInput interface {
 	ToExportDefinitionOutputWithContext(context.Context) ExportDefinitionOutput
 }
 
-// The definition of an export.
 type ExportDefinitionArgs struct {
-	// The definition for data in the export.
-	DataSet ExportDatasetPtrInput `pulumi:"dataSet"`
-	// Has time period for pulling data for the export.
+	DataSet    ExportDatasetPtrInput    `pulumi:"dataSet"`
 	TimePeriod ExportTimePeriodPtrInput `pulumi:"timePeriod"`
-	// The time frame for pulling data for the export. If custom, then a specific time period must be provided.
-	Timeframe pulumi.StringInput `pulumi:"timeframe"`
-	// The type of the export. Note that 'Usage' is equivalent to 'ActualCost' and is applicable to exports that do not yet provide data for charges or amortization for service reservations.
-	Type pulumi.StringInput `pulumi:"type"`
+	Timeframe  pulumi.StringInput       `pulumi:"timeframe"`
+	Type       pulumi.StringInput       `pulumi:"type"`
 }
 
 func (ExportDefinitionArgs) ElementType() reflect.Type {
@@ -1035,7 +991,6 @@ func (i *exportDefinitionPtrType) ToExportDefinitionPtrOutputWithContext(ctx con
 	return pulumi.ToOutputWithContext(ctx, i).(ExportDefinitionPtrOutput)
 }
 
-// The definition of an export.
 type ExportDefinitionOutput struct{ *pulumi.OutputState }
 
 func (ExportDefinitionOutput) ElementType() reflect.Type {
@@ -1055,27 +1010,23 @@ func (o ExportDefinitionOutput) ToExportDefinitionPtrOutput() ExportDefinitionPt
 }
 
 func (o ExportDefinitionOutput) ToExportDefinitionPtrOutputWithContext(ctx context.Context) ExportDefinitionPtrOutput {
-	return o.ApplyT(func(v ExportDefinition) *ExportDefinition {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ExportDefinition) *ExportDefinition {
 		return &v
 	}).(ExportDefinitionPtrOutput)
 }
 
-// The definition for data in the export.
 func (o ExportDefinitionOutput) DataSet() ExportDatasetPtrOutput {
 	return o.ApplyT(func(v ExportDefinition) *ExportDataset { return v.DataSet }).(ExportDatasetPtrOutput)
 }
 
-// Has time period for pulling data for the export.
 func (o ExportDefinitionOutput) TimePeriod() ExportTimePeriodPtrOutput {
 	return o.ApplyT(func(v ExportDefinition) *ExportTimePeriod { return v.TimePeriod }).(ExportTimePeriodPtrOutput)
 }
 
-// The time frame for pulling data for the export. If custom, then a specific time period must be provided.
 func (o ExportDefinitionOutput) Timeframe() pulumi.StringOutput {
 	return o.ApplyT(func(v ExportDefinition) string { return v.Timeframe }).(pulumi.StringOutput)
 }
 
-// The type of the export. Note that 'Usage' is equivalent to 'ActualCost' and is applicable to exports that do not yet provide data for charges or amortization for service reservations.
 func (o ExportDefinitionOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v ExportDefinition) string { return v.Type }).(pulumi.StringOutput)
 }
@@ -1095,10 +1046,15 @@ func (o ExportDefinitionPtrOutput) ToExportDefinitionPtrOutputWithContext(ctx co
 }
 
 func (o ExportDefinitionPtrOutput) Elem() ExportDefinitionOutput {
-	return o.ApplyT(func(v *ExportDefinition) ExportDefinition { return *v }).(ExportDefinitionOutput)
+	return o.ApplyT(func(v *ExportDefinition) ExportDefinition {
+		if v != nil {
+			return *v
+		}
+		var ret ExportDefinition
+		return ret
+	}).(ExportDefinitionOutput)
 }
 
-// The definition for data in the export.
 func (o ExportDefinitionPtrOutput) DataSet() ExportDatasetPtrOutput {
 	return o.ApplyT(func(v *ExportDefinition) *ExportDataset {
 		if v == nil {
@@ -1108,7 +1064,6 @@ func (o ExportDefinitionPtrOutput) DataSet() ExportDatasetPtrOutput {
 	}).(ExportDatasetPtrOutput)
 }
 
-// Has time period for pulling data for the export.
 func (o ExportDefinitionPtrOutput) TimePeriod() ExportTimePeriodPtrOutput {
 	return o.ApplyT(func(v *ExportDefinition) *ExportTimePeriod {
 		if v == nil {
@@ -1118,7 +1073,6 @@ func (o ExportDefinitionPtrOutput) TimePeriod() ExportTimePeriodPtrOutput {
 	}).(ExportTimePeriodPtrOutput)
 }
 
-// The time frame for pulling data for the export. If custom, then a specific time period must be provided.
 func (o ExportDefinitionPtrOutput) Timeframe() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ExportDefinition) *string {
 		if v == nil {
@@ -1128,7 +1082,6 @@ func (o ExportDefinitionPtrOutput) Timeframe() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The type of the export. Note that 'Usage' is equivalent to 'ActualCost' and is applicable to exports that do not yet provide data for charges or amortization for service reservations.
 func (o ExportDefinitionPtrOutput) Type() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ExportDefinition) *string {
 		if v == nil {
@@ -1138,16 +1091,11 @@ func (o ExportDefinitionPtrOutput) Type() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The definition of an export.
 type ExportDefinitionResponse struct {
-	// The definition for data in the export.
-	DataSet *ExportDatasetResponse `pulumi:"dataSet"`
-	// Has time period for pulling data for the export.
+	DataSet    *ExportDatasetResponse    `pulumi:"dataSet"`
 	TimePeriod *ExportTimePeriodResponse `pulumi:"timePeriod"`
-	// The time frame for pulling data for the export. If custom, then a specific time period must be provided.
-	Timeframe string `pulumi:"timeframe"`
-	// The type of the export. Note that 'Usage' is equivalent to 'ActualCost' and is applicable to exports that do not yet provide data for charges or amortization for service reservations.
-	Type string `pulumi:"type"`
+	Timeframe  string                    `pulumi:"timeframe"`
+	Type       string                    `pulumi:"type"`
 }
 
 // ExportDefinitionResponseInput is an input type that accepts ExportDefinitionResponseArgs and ExportDefinitionResponseOutput values.
@@ -1161,16 +1109,11 @@ type ExportDefinitionResponseInput interface {
 	ToExportDefinitionResponseOutputWithContext(context.Context) ExportDefinitionResponseOutput
 }
 
-// The definition of an export.
 type ExportDefinitionResponseArgs struct {
-	// The definition for data in the export.
-	DataSet ExportDatasetResponsePtrInput `pulumi:"dataSet"`
-	// Has time period for pulling data for the export.
+	DataSet    ExportDatasetResponsePtrInput    `pulumi:"dataSet"`
 	TimePeriod ExportTimePeriodResponsePtrInput `pulumi:"timePeriod"`
-	// The time frame for pulling data for the export. If custom, then a specific time period must be provided.
-	Timeframe pulumi.StringInput `pulumi:"timeframe"`
-	// The type of the export. Note that 'Usage' is equivalent to 'ActualCost' and is applicable to exports that do not yet provide data for charges or amortization for service reservations.
-	Type pulumi.StringInput `pulumi:"type"`
+	Timeframe  pulumi.StringInput               `pulumi:"timeframe"`
+	Type       pulumi.StringInput               `pulumi:"type"`
 }
 
 func (ExportDefinitionResponseArgs) ElementType() reflect.Type {
@@ -1226,7 +1169,6 @@ func (i *exportDefinitionResponsePtrType) ToExportDefinitionResponsePtrOutputWit
 	return pulumi.ToOutputWithContext(ctx, i).(ExportDefinitionResponsePtrOutput)
 }
 
-// The definition of an export.
 type ExportDefinitionResponseOutput struct{ *pulumi.OutputState }
 
 func (ExportDefinitionResponseOutput) ElementType() reflect.Type {
@@ -1246,27 +1188,23 @@ func (o ExportDefinitionResponseOutput) ToExportDefinitionResponsePtrOutput() Ex
 }
 
 func (o ExportDefinitionResponseOutput) ToExportDefinitionResponsePtrOutputWithContext(ctx context.Context) ExportDefinitionResponsePtrOutput {
-	return o.ApplyT(func(v ExportDefinitionResponse) *ExportDefinitionResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ExportDefinitionResponse) *ExportDefinitionResponse {
 		return &v
 	}).(ExportDefinitionResponsePtrOutput)
 }
 
-// The definition for data in the export.
 func (o ExportDefinitionResponseOutput) DataSet() ExportDatasetResponsePtrOutput {
 	return o.ApplyT(func(v ExportDefinitionResponse) *ExportDatasetResponse { return v.DataSet }).(ExportDatasetResponsePtrOutput)
 }
 
-// Has time period for pulling data for the export.
 func (o ExportDefinitionResponseOutput) TimePeriod() ExportTimePeriodResponsePtrOutput {
 	return o.ApplyT(func(v ExportDefinitionResponse) *ExportTimePeriodResponse { return v.TimePeriod }).(ExportTimePeriodResponsePtrOutput)
 }
 
-// The time frame for pulling data for the export. If custom, then a specific time period must be provided.
 func (o ExportDefinitionResponseOutput) Timeframe() pulumi.StringOutput {
 	return o.ApplyT(func(v ExportDefinitionResponse) string { return v.Timeframe }).(pulumi.StringOutput)
 }
 
-// The type of the export. Note that 'Usage' is equivalent to 'ActualCost' and is applicable to exports that do not yet provide data for charges or amortization for service reservations.
 func (o ExportDefinitionResponseOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v ExportDefinitionResponse) string { return v.Type }).(pulumi.StringOutput)
 }
@@ -1286,10 +1224,15 @@ func (o ExportDefinitionResponsePtrOutput) ToExportDefinitionResponsePtrOutputWi
 }
 
 func (o ExportDefinitionResponsePtrOutput) Elem() ExportDefinitionResponseOutput {
-	return o.ApplyT(func(v *ExportDefinitionResponse) ExportDefinitionResponse { return *v }).(ExportDefinitionResponseOutput)
+	return o.ApplyT(func(v *ExportDefinitionResponse) ExportDefinitionResponse {
+		if v != nil {
+			return *v
+		}
+		var ret ExportDefinitionResponse
+		return ret
+	}).(ExportDefinitionResponseOutput)
 }
 
-// The definition for data in the export.
 func (o ExportDefinitionResponsePtrOutput) DataSet() ExportDatasetResponsePtrOutput {
 	return o.ApplyT(func(v *ExportDefinitionResponse) *ExportDatasetResponse {
 		if v == nil {
@@ -1299,7 +1242,6 @@ func (o ExportDefinitionResponsePtrOutput) DataSet() ExportDatasetResponsePtrOut
 	}).(ExportDatasetResponsePtrOutput)
 }
 
-// Has time period for pulling data for the export.
 func (o ExportDefinitionResponsePtrOutput) TimePeriod() ExportTimePeriodResponsePtrOutput {
 	return o.ApplyT(func(v *ExportDefinitionResponse) *ExportTimePeriodResponse {
 		if v == nil {
@@ -1309,7 +1251,6 @@ func (o ExportDefinitionResponsePtrOutput) TimePeriod() ExportTimePeriodResponse
 	}).(ExportTimePeriodResponsePtrOutput)
 }
 
-// The time frame for pulling data for the export. If custom, then a specific time period must be provided.
 func (o ExportDefinitionResponsePtrOutput) Timeframe() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ExportDefinitionResponse) *string {
 		if v == nil {
@@ -1319,7 +1260,6 @@ func (o ExportDefinitionResponsePtrOutput) Timeframe() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The type of the export. Note that 'Usage' is equivalent to 'ActualCost' and is applicable to exports that do not yet provide data for charges or amortization for service reservations.
 func (o ExportDefinitionResponsePtrOutput) Type() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ExportDefinitionResponse) *string {
 		if v == nil {
@@ -1329,13 +1269,9 @@ func (o ExportDefinitionResponsePtrOutput) Type() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The destination information for the delivery of the export. To allow access to a storage account, you must register the account's subscription with the Microsoft.CostManagementExports resource provider. This is required once per subscription. When creating an export in the Azure portal, it is done automatically, however API users need to register the subscription. For more information see https://docs.microsoft.com/en-us/azure/azure-resource-manager/resource-manager-supported-services .
 type ExportDeliveryDestination struct {
-	// The name of the container where exports will be uploaded.
-	Container string `pulumi:"container"`
-	// The resource id of the storage account where exports will be delivered.
-	ResourceId string `pulumi:"resourceId"`
-	// The name of the directory where exports will be uploaded.
+	Container      string  `pulumi:"container"`
+	ResourceId     string  `pulumi:"resourceId"`
 	RootFolderPath *string `pulumi:"rootFolderPath"`
 }
 
@@ -1350,13 +1286,9 @@ type ExportDeliveryDestinationInput interface {
 	ToExportDeliveryDestinationOutputWithContext(context.Context) ExportDeliveryDestinationOutput
 }
 
-// The destination information for the delivery of the export. To allow access to a storage account, you must register the account's subscription with the Microsoft.CostManagementExports resource provider. This is required once per subscription. When creating an export in the Azure portal, it is done automatically, however API users need to register the subscription. For more information see https://docs.microsoft.com/en-us/azure/azure-resource-manager/resource-manager-supported-services .
 type ExportDeliveryDestinationArgs struct {
-	// The name of the container where exports will be uploaded.
-	Container pulumi.StringInput `pulumi:"container"`
-	// The resource id of the storage account where exports will be delivered.
-	ResourceId pulumi.StringInput `pulumi:"resourceId"`
-	// The name of the directory where exports will be uploaded.
+	Container      pulumi.StringInput    `pulumi:"container"`
+	ResourceId     pulumi.StringInput    `pulumi:"resourceId"`
 	RootFolderPath pulumi.StringPtrInput `pulumi:"rootFolderPath"`
 }
 
@@ -1413,7 +1345,6 @@ func (i *exportDeliveryDestinationPtrType) ToExportDeliveryDestinationPtrOutputW
 	return pulumi.ToOutputWithContext(ctx, i).(ExportDeliveryDestinationPtrOutput)
 }
 
-// The destination information for the delivery of the export. To allow access to a storage account, you must register the account's subscription with the Microsoft.CostManagementExports resource provider. This is required once per subscription. When creating an export in the Azure portal, it is done automatically, however API users need to register the subscription. For more information see https://docs.microsoft.com/en-us/azure/azure-resource-manager/resource-manager-supported-services .
 type ExportDeliveryDestinationOutput struct{ *pulumi.OutputState }
 
 func (ExportDeliveryDestinationOutput) ElementType() reflect.Type {
@@ -1433,22 +1364,19 @@ func (o ExportDeliveryDestinationOutput) ToExportDeliveryDestinationPtrOutput() 
 }
 
 func (o ExportDeliveryDestinationOutput) ToExportDeliveryDestinationPtrOutputWithContext(ctx context.Context) ExportDeliveryDestinationPtrOutput {
-	return o.ApplyT(func(v ExportDeliveryDestination) *ExportDeliveryDestination {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ExportDeliveryDestination) *ExportDeliveryDestination {
 		return &v
 	}).(ExportDeliveryDestinationPtrOutput)
 }
 
-// The name of the container where exports will be uploaded.
 func (o ExportDeliveryDestinationOutput) Container() pulumi.StringOutput {
 	return o.ApplyT(func(v ExportDeliveryDestination) string { return v.Container }).(pulumi.StringOutput)
 }
 
-// The resource id of the storage account where exports will be delivered.
 func (o ExportDeliveryDestinationOutput) ResourceId() pulumi.StringOutput {
 	return o.ApplyT(func(v ExportDeliveryDestination) string { return v.ResourceId }).(pulumi.StringOutput)
 }
 
-// The name of the directory where exports will be uploaded.
 func (o ExportDeliveryDestinationOutput) RootFolderPath() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ExportDeliveryDestination) *string { return v.RootFolderPath }).(pulumi.StringPtrOutput)
 }
@@ -1468,10 +1396,15 @@ func (o ExportDeliveryDestinationPtrOutput) ToExportDeliveryDestinationPtrOutput
 }
 
 func (o ExportDeliveryDestinationPtrOutput) Elem() ExportDeliveryDestinationOutput {
-	return o.ApplyT(func(v *ExportDeliveryDestination) ExportDeliveryDestination { return *v }).(ExportDeliveryDestinationOutput)
+	return o.ApplyT(func(v *ExportDeliveryDestination) ExportDeliveryDestination {
+		if v != nil {
+			return *v
+		}
+		var ret ExportDeliveryDestination
+		return ret
+	}).(ExportDeliveryDestinationOutput)
 }
 
-// The name of the container where exports will be uploaded.
 func (o ExportDeliveryDestinationPtrOutput) Container() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ExportDeliveryDestination) *string {
 		if v == nil {
@@ -1481,7 +1414,6 @@ func (o ExportDeliveryDestinationPtrOutput) Container() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The resource id of the storage account where exports will be delivered.
 func (o ExportDeliveryDestinationPtrOutput) ResourceId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ExportDeliveryDestination) *string {
 		if v == nil {
@@ -1491,7 +1423,6 @@ func (o ExportDeliveryDestinationPtrOutput) ResourceId() pulumi.StringPtrOutput 
 	}).(pulumi.StringPtrOutput)
 }
 
-// The name of the directory where exports will be uploaded.
 func (o ExportDeliveryDestinationPtrOutput) RootFolderPath() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ExportDeliveryDestination) *string {
 		if v == nil {
@@ -1501,13 +1432,9 @@ func (o ExportDeliveryDestinationPtrOutput) RootFolderPath() pulumi.StringPtrOut
 	}).(pulumi.StringPtrOutput)
 }
 
-// The destination information for the delivery of the export. To allow access to a storage account, you must register the account's subscription with the Microsoft.CostManagementExports resource provider. This is required once per subscription. When creating an export in the Azure portal, it is done automatically, however API users need to register the subscription. For more information see https://docs.microsoft.com/en-us/azure/azure-resource-manager/resource-manager-supported-services .
 type ExportDeliveryDestinationResponse struct {
-	// The name of the container where exports will be uploaded.
-	Container string `pulumi:"container"`
-	// The resource id of the storage account where exports will be delivered.
-	ResourceId string `pulumi:"resourceId"`
-	// The name of the directory where exports will be uploaded.
+	Container      string  `pulumi:"container"`
+	ResourceId     string  `pulumi:"resourceId"`
 	RootFolderPath *string `pulumi:"rootFolderPath"`
 }
 
@@ -1522,13 +1449,9 @@ type ExportDeliveryDestinationResponseInput interface {
 	ToExportDeliveryDestinationResponseOutputWithContext(context.Context) ExportDeliveryDestinationResponseOutput
 }
 
-// The destination information for the delivery of the export. To allow access to a storage account, you must register the account's subscription with the Microsoft.CostManagementExports resource provider. This is required once per subscription. When creating an export in the Azure portal, it is done automatically, however API users need to register the subscription. For more information see https://docs.microsoft.com/en-us/azure/azure-resource-manager/resource-manager-supported-services .
 type ExportDeliveryDestinationResponseArgs struct {
-	// The name of the container where exports will be uploaded.
-	Container pulumi.StringInput `pulumi:"container"`
-	// The resource id of the storage account where exports will be delivered.
-	ResourceId pulumi.StringInput `pulumi:"resourceId"`
-	// The name of the directory where exports will be uploaded.
+	Container      pulumi.StringInput    `pulumi:"container"`
+	ResourceId     pulumi.StringInput    `pulumi:"resourceId"`
 	RootFolderPath pulumi.StringPtrInput `pulumi:"rootFolderPath"`
 }
 
@@ -1585,7 +1508,6 @@ func (i *exportDeliveryDestinationResponsePtrType) ToExportDeliveryDestinationRe
 	return pulumi.ToOutputWithContext(ctx, i).(ExportDeliveryDestinationResponsePtrOutput)
 }
 
-// The destination information for the delivery of the export. To allow access to a storage account, you must register the account's subscription with the Microsoft.CostManagementExports resource provider. This is required once per subscription. When creating an export in the Azure portal, it is done automatically, however API users need to register the subscription. For more information see https://docs.microsoft.com/en-us/azure/azure-resource-manager/resource-manager-supported-services .
 type ExportDeliveryDestinationResponseOutput struct{ *pulumi.OutputState }
 
 func (ExportDeliveryDestinationResponseOutput) ElementType() reflect.Type {
@@ -1605,22 +1527,19 @@ func (o ExportDeliveryDestinationResponseOutput) ToExportDeliveryDestinationResp
 }
 
 func (o ExportDeliveryDestinationResponseOutput) ToExportDeliveryDestinationResponsePtrOutputWithContext(ctx context.Context) ExportDeliveryDestinationResponsePtrOutput {
-	return o.ApplyT(func(v ExportDeliveryDestinationResponse) *ExportDeliveryDestinationResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ExportDeliveryDestinationResponse) *ExportDeliveryDestinationResponse {
 		return &v
 	}).(ExportDeliveryDestinationResponsePtrOutput)
 }
 
-// The name of the container where exports will be uploaded.
 func (o ExportDeliveryDestinationResponseOutput) Container() pulumi.StringOutput {
 	return o.ApplyT(func(v ExportDeliveryDestinationResponse) string { return v.Container }).(pulumi.StringOutput)
 }
 
-// The resource id of the storage account where exports will be delivered.
 func (o ExportDeliveryDestinationResponseOutput) ResourceId() pulumi.StringOutput {
 	return o.ApplyT(func(v ExportDeliveryDestinationResponse) string { return v.ResourceId }).(pulumi.StringOutput)
 }
 
-// The name of the directory where exports will be uploaded.
 func (o ExportDeliveryDestinationResponseOutput) RootFolderPath() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ExportDeliveryDestinationResponse) *string { return v.RootFolderPath }).(pulumi.StringPtrOutput)
 }
@@ -1640,10 +1559,15 @@ func (o ExportDeliveryDestinationResponsePtrOutput) ToExportDeliveryDestinationR
 }
 
 func (o ExportDeliveryDestinationResponsePtrOutput) Elem() ExportDeliveryDestinationResponseOutput {
-	return o.ApplyT(func(v *ExportDeliveryDestinationResponse) ExportDeliveryDestinationResponse { return *v }).(ExportDeliveryDestinationResponseOutput)
+	return o.ApplyT(func(v *ExportDeliveryDestinationResponse) ExportDeliveryDestinationResponse {
+		if v != nil {
+			return *v
+		}
+		var ret ExportDeliveryDestinationResponse
+		return ret
+	}).(ExportDeliveryDestinationResponseOutput)
 }
 
-// The name of the container where exports will be uploaded.
 func (o ExportDeliveryDestinationResponsePtrOutput) Container() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ExportDeliveryDestinationResponse) *string {
 		if v == nil {
@@ -1653,7 +1577,6 @@ func (o ExportDeliveryDestinationResponsePtrOutput) Container() pulumi.StringPtr
 	}).(pulumi.StringPtrOutput)
 }
 
-// The resource id of the storage account where exports will be delivered.
 func (o ExportDeliveryDestinationResponsePtrOutput) ResourceId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ExportDeliveryDestinationResponse) *string {
 		if v == nil {
@@ -1663,7 +1586,6 @@ func (o ExportDeliveryDestinationResponsePtrOutput) ResourceId() pulumi.StringPt
 	}).(pulumi.StringPtrOutput)
 }
 
-// The name of the directory where exports will be uploaded.
 func (o ExportDeliveryDestinationResponsePtrOutput) RootFolderPath() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ExportDeliveryDestinationResponse) *string {
 		if v == nil {
@@ -1673,9 +1595,7 @@ func (o ExportDeliveryDestinationResponsePtrOutput) RootFolderPath() pulumi.Stri
 	}).(pulumi.StringPtrOutput)
 }
 
-// The delivery information associated with a export.
 type ExportDeliveryInfo struct {
-	// Has destination for the export being delivered.
 	Destination ExportDeliveryDestination `pulumi:"destination"`
 }
 
@@ -1690,9 +1610,7 @@ type ExportDeliveryInfoInput interface {
 	ToExportDeliveryInfoOutputWithContext(context.Context) ExportDeliveryInfoOutput
 }
 
-// The delivery information associated with a export.
 type ExportDeliveryInfoArgs struct {
-	// Has destination for the export being delivered.
 	Destination ExportDeliveryDestinationInput `pulumi:"destination"`
 }
 
@@ -1749,7 +1667,6 @@ func (i *exportDeliveryInfoPtrType) ToExportDeliveryInfoPtrOutputWithContext(ctx
 	return pulumi.ToOutputWithContext(ctx, i).(ExportDeliveryInfoPtrOutput)
 }
 
-// The delivery information associated with a export.
 type ExportDeliveryInfoOutput struct{ *pulumi.OutputState }
 
 func (ExportDeliveryInfoOutput) ElementType() reflect.Type {
@@ -1769,12 +1686,11 @@ func (o ExportDeliveryInfoOutput) ToExportDeliveryInfoPtrOutput() ExportDelivery
 }
 
 func (o ExportDeliveryInfoOutput) ToExportDeliveryInfoPtrOutputWithContext(ctx context.Context) ExportDeliveryInfoPtrOutput {
-	return o.ApplyT(func(v ExportDeliveryInfo) *ExportDeliveryInfo {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ExportDeliveryInfo) *ExportDeliveryInfo {
 		return &v
 	}).(ExportDeliveryInfoPtrOutput)
 }
 
-// Has destination for the export being delivered.
 func (o ExportDeliveryInfoOutput) Destination() ExportDeliveryDestinationOutput {
 	return o.ApplyT(func(v ExportDeliveryInfo) ExportDeliveryDestination { return v.Destination }).(ExportDeliveryDestinationOutput)
 }
@@ -1794,10 +1710,15 @@ func (o ExportDeliveryInfoPtrOutput) ToExportDeliveryInfoPtrOutputWithContext(ct
 }
 
 func (o ExportDeliveryInfoPtrOutput) Elem() ExportDeliveryInfoOutput {
-	return o.ApplyT(func(v *ExportDeliveryInfo) ExportDeliveryInfo { return *v }).(ExportDeliveryInfoOutput)
+	return o.ApplyT(func(v *ExportDeliveryInfo) ExportDeliveryInfo {
+		if v != nil {
+			return *v
+		}
+		var ret ExportDeliveryInfo
+		return ret
+	}).(ExportDeliveryInfoOutput)
 }
 
-// Has destination for the export being delivered.
 func (o ExportDeliveryInfoPtrOutput) Destination() ExportDeliveryDestinationPtrOutput {
 	return o.ApplyT(func(v *ExportDeliveryInfo) *ExportDeliveryDestination {
 		if v == nil {
@@ -1807,9 +1728,7 @@ func (o ExportDeliveryInfoPtrOutput) Destination() ExportDeliveryDestinationPtrO
 	}).(ExportDeliveryDestinationPtrOutput)
 }
 
-// The delivery information associated with a export.
 type ExportDeliveryInfoResponse struct {
-	// Has destination for the export being delivered.
 	Destination ExportDeliveryDestinationResponse `pulumi:"destination"`
 }
 
@@ -1824,9 +1743,7 @@ type ExportDeliveryInfoResponseInput interface {
 	ToExportDeliveryInfoResponseOutputWithContext(context.Context) ExportDeliveryInfoResponseOutput
 }
 
-// The delivery information associated with a export.
 type ExportDeliveryInfoResponseArgs struct {
-	// Has destination for the export being delivered.
 	Destination ExportDeliveryDestinationResponseInput `pulumi:"destination"`
 }
 
@@ -1883,7 +1800,6 @@ func (i *exportDeliveryInfoResponsePtrType) ToExportDeliveryInfoResponsePtrOutpu
 	return pulumi.ToOutputWithContext(ctx, i).(ExportDeliveryInfoResponsePtrOutput)
 }
 
-// The delivery information associated with a export.
 type ExportDeliveryInfoResponseOutput struct{ *pulumi.OutputState }
 
 func (ExportDeliveryInfoResponseOutput) ElementType() reflect.Type {
@@ -1903,12 +1819,11 @@ func (o ExportDeliveryInfoResponseOutput) ToExportDeliveryInfoResponsePtrOutput(
 }
 
 func (o ExportDeliveryInfoResponseOutput) ToExportDeliveryInfoResponsePtrOutputWithContext(ctx context.Context) ExportDeliveryInfoResponsePtrOutput {
-	return o.ApplyT(func(v ExportDeliveryInfoResponse) *ExportDeliveryInfoResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ExportDeliveryInfoResponse) *ExportDeliveryInfoResponse {
 		return &v
 	}).(ExportDeliveryInfoResponsePtrOutput)
 }
 
-// Has destination for the export being delivered.
 func (o ExportDeliveryInfoResponseOutput) Destination() ExportDeliveryDestinationResponseOutput {
 	return o.ApplyT(func(v ExportDeliveryInfoResponse) ExportDeliveryDestinationResponse { return v.Destination }).(ExportDeliveryDestinationResponseOutput)
 }
@@ -1928,10 +1843,15 @@ func (o ExportDeliveryInfoResponsePtrOutput) ToExportDeliveryInfoResponsePtrOutp
 }
 
 func (o ExportDeliveryInfoResponsePtrOutput) Elem() ExportDeliveryInfoResponseOutput {
-	return o.ApplyT(func(v *ExportDeliveryInfoResponse) ExportDeliveryInfoResponse { return *v }).(ExportDeliveryInfoResponseOutput)
+	return o.ApplyT(func(v *ExportDeliveryInfoResponse) ExportDeliveryInfoResponse {
+		if v != nil {
+			return *v
+		}
+		var ret ExportDeliveryInfoResponse
+		return ret
+	}).(ExportDeliveryInfoResponseOutput)
 }
 
-// Has destination for the export being delivered.
 func (o ExportDeliveryInfoResponsePtrOutput) Destination() ExportDeliveryDestinationResponsePtrOutput {
 	return o.ApplyT(func(v *ExportDeliveryInfoResponse) *ExportDeliveryDestinationResponse {
 		if v == nil {
@@ -1941,9 +1861,7 @@ func (o ExportDeliveryInfoResponsePtrOutput) Destination() ExportDeliveryDestina
 	}).(ExportDeliveryDestinationResponsePtrOutput)
 }
 
-// Result of listing the execution history of an export.
 type ExportExecutionListResultResponse struct {
-	// A list of export executions.
 	Value []ExportExecutionResponse `pulumi:"value"`
 }
 
@@ -1958,9 +1876,7 @@ type ExportExecutionListResultResponseInput interface {
 	ToExportExecutionListResultResponseOutputWithContext(context.Context) ExportExecutionListResultResponseOutput
 }
 
-// Result of listing the execution history of an export.
 type ExportExecutionListResultResponseArgs struct {
-	// A list of export executions.
 	Value ExportExecutionResponseArrayInput `pulumi:"value"`
 }
 
@@ -2017,7 +1933,6 @@ func (i *exportExecutionListResultResponsePtrType) ToExportExecutionListResultRe
 	return pulumi.ToOutputWithContext(ctx, i).(ExportExecutionListResultResponsePtrOutput)
 }
 
-// Result of listing the execution history of an export.
 type ExportExecutionListResultResponseOutput struct{ *pulumi.OutputState }
 
 func (ExportExecutionListResultResponseOutput) ElementType() reflect.Type {
@@ -2037,12 +1952,11 @@ func (o ExportExecutionListResultResponseOutput) ToExportExecutionListResultResp
 }
 
 func (o ExportExecutionListResultResponseOutput) ToExportExecutionListResultResponsePtrOutputWithContext(ctx context.Context) ExportExecutionListResultResponsePtrOutput {
-	return o.ApplyT(func(v ExportExecutionListResultResponse) *ExportExecutionListResultResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ExportExecutionListResultResponse) *ExportExecutionListResultResponse {
 		return &v
 	}).(ExportExecutionListResultResponsePtrOutput)
 }
 
-// A list of export executions.
 func (o ExportExecutionListResultResponseOutput) Value() ExportExecutionResponseArrayOutput {
 	return o.ApplyT(func(v ExportExecutionListResultResponse) []ExportExecutionResponse { return v.Value }).(ExportExecutionResponseArrayOutput)
 }
@@ -2062,10 +1976,15 @@ func (o ExportExecutionListResultResponsePtrOutput) ToExportExecutionListResultR
 }
 
 func (o ExportExecutionListResultResponsePtrOutput) Elem() ExportExecutionListResultResponseOutput {
-	return o.ApplyT(func(v *ExportExecutionListResultResponse) ExportExecutionListResultResponse { return *v }).(ExportExecutionListResultResponseOutput)
+	return o.ApplyT(func(v *ExportExecutionListResultResponse) ExportExecutionListResultResponse {
+		if v != nil {
+			return *v
+		}
+		var ret ExportExecutionListResultResponse
+		return ret
+	}).(ExportExecutionListResultResponseOutput)
 }
 
-// A list of export executions.
 func (o ExportExecutionListResultResponsePtrOutput) Value() ExportExecutionResponseArrayOutput {
 	return o.ApplyT(func(v *ExportExecutionListResultResponse) []ExportExecutionResponse {
 		if v == nil {
@@ -2075,34 +1994,20 @@ func (o ExportExecutionListResultResponsePtrOutput) Value() ExportExecutionRespo
 	}).(ExportExecutionResponseArrayOutput)
 }
 
-// An export execution.
 type ExportExecutionResponse struct {
-	// eTag of the resource. To handle concurrent update scenario, this field will be used to determine whether the user is updating the latest version or not.
-	ETag *string `pulumi:"eTag"`
-	// The details of any error.
-	Error *ErrorDetailsResponse `pulumi:"error"`
-	// The type of the export execution.
-	ExecutionType *string `pulumi:"executionType"`
-	// The name of the exported file.
-	FileName *string `pulumi:"fileName"`
-	// Resource Id.
-	Id string `pulumi:"id"`
-	// Resource name.
-	Name string `pulumi:"name"`
-	// The time when the export execution finished.
-	ProcessingEndTime *string `pulumi:"processingEndTime"`
-	// The time when export was picked up to be executed.
-	ProcessingStartTime *string `pulumi:"processingStartTime"`
-	// The export settings that were in effect for this execution.
-	RunSettings *CommonExportPropertiesResponse `pulumi:"runSettings"`
-	// The last known status of the export execution.
-	Status *string `pulumi:"status"`
-	// The identifier for the entity that executed the export. For OnDemand executions it is the user email. For scheduled executions it is 'System'.
-	SubmittedBy *string `pulumi:"submittedBy"`
-	// The time when export was queued to be executed.
-	SubmittedTime *string `pulumi:"submittedTime"`
-	// Resource type.
-	Type string `pulumi:"type"`
+	ETag                *string                         `pulumi:"eTag"`
+	Error               *ErrorDetailsResponse           `pulumi:"error"`
+	ExecutionType       *string                         `pulumi:"executionType"`
+	FileName            *string                         `pulumi:"fileName"`
+	Id                  string                          `pulumi:"id"`
+	Name                string                          `pulumi:"name"`
+	ProcessingEndTime   *string                         `pulumi:"processingEndTime"`
+	ProcessingStartTime *string                         `pulumi:"processingStartTime"`
+	RunSettings         *CommonExportPropertiesResponse `pulumi:"runSettings"`
+	Status              *string                         `pulumi:"status"`
+	SubmittedBy         *string                         `pulumi:"submittedBy"`
+	SubmittedTime       *string                         `pulumi:"submittedTime"`
+	Type                string                          `pulumi:"type"`
 }
 
 // ExportExecutionResponseInput is an input type that accepts ExportExecutionResponseArgs and ExportExecutionResponseOutput values.
@@ -2116,34 +2021,20 @@ type ExportExecutionResponseInput interface {
 	ToExportExecutionResponseOutputWithContext(context.Context) ExportExecutionResponseOutput
 }
 
-// An export execution.
 type ExportExecutionResponseArgs struct {
-	// eTag of the resource. To handle concurrent update scenario, this field will be used to determine whether the user is updating the latest version or not.
-	ETag pulumi.StringPtrInput `pulumi:"eTag"`
-	// The details of any error.
-	Error ErrorDetailsResponsePtrInput `pulumi:"error"`
-	// The type of the export execution.
-	ExecutionType pulumi.StringPtrInput `pulumi:"executionType"`
-	// The name of the exported file.
-	FileName pulumi.StringPtrInput `pulumi:"fileName"`
-	// Resource Id.
-	Id pulumi.StringInput `pulumi:"id"`
-	// Resource name.
-	Name pulumi.StringInput `pulumi:"name"`
-	// The time when the export execution finished.
-	ProcessingEndTime pulumi.StringPtrInput `pulumi:"processingEndTime"`
-	// The time when export was picked up to be executed.
-	ProcessingStartTime pulumi.StringPtrInput `pulumi:"processingStartTime"`
-	// The export settings that were in effect for this execution.
-	RunSettings CommonExportPropertiesResponsePtrInput `pulumi:"runSettings"`
-	// The last known status of the export execution.
-	Status pulumi.StringPtrInput `pulumi:"status"`
-	// The identifier for the entity that executed the export. For OnDemand executions it is the user email. For scheduled executions it is 'System'.
-	SubmittedBy pulumi.StringPtrInput `pulumi:"submittedBy"`
-	// The time when export was queued to be executed.
-	SubmittedTime pulumi.StringPtrInput `pulumi:"submittedTime"`
-	// Resource type.
-	Type pulumi.StringInput `pulumi:"type"`
+	ETag                pulumi.StringPtrInput                  `pulumi:"eTag"`
+	Error               ErrorDetailsResponsePtrInput           `pulumi:"error"`
+	ExecutionType       pulumi.StringPtrInput                  `pulumi:"executionType"`
+	FileName            pulumi.StringPtrInput                  `pulumi:"fileName"`
+	Id                  pulumi.StringInput                     `pulumi:"id"`
+	Name                pulumi.StringInput                     `pulumi:"name"`
+	ProcessingEndTime   pulumi.StringPtrInput                  `pulumi:"processingEndTime"`
+	ProcessingStartTime pulumi.StringPtrInput                  `pulumi:"processingStartTime"`
+	RunSettings         CommonExportPropertiesResponsePtrInput `pulumi:"runSettings"`
+	Status              pulumi.StringPtrInput                  `pulumi:"status"`
+	SubmittedBy         pulumi.StringPtrInput                  `pulumi:"submittedBy"`
+	SubmittedTime       pulumi.StringPtrInput                  `pulumi:"submittedTime"`
+	Type                pulumi.StringInput                     `pulumi:"type"`
 }
 
 func (ExportExecutionResponseArgs) ElementType() reflect.Type {
@@ -2183,7 +2074,6 @@ func (i ExportExecutionResponseArray) ToExportExecutionResponseArrayOutputWithCo
 	return pulumi.ToOutputWithContext(ctx, i).(ExportExecutionResponseArrayOutput)
 }
 
-// An export execution.
 type ExportExecutionResponseOutput struct{ *pulumi.OutputState }
 
 func (ExportExecutionResponseOutput) ElementType() reflect.Type {
@@ -2198,67 +2088,54 @@ func (o ExportExecutionResponseOutput) ToExportExecutionResponseOutputWithContex
 	return o
 }
 
-// eTag of the resource. To handle concurrent update scenario, this field will be used to determine whether the user is updating the latest version or not.
 func (o ExportExecutionResponseOutput) ETag() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ExportExecutionResponse) *string { return v.ETag }).(pulumi.StringPtrOutput)
 }
 
-// The details of any error.
 func (o ExportExecutionResponseOutput) Error() ErrorDetailsResponsePtrOutput {
 	return o.ApplyT(func(v ExportExecutionResponse) *ErrorDetailsResponse { return v.Error }).(ErrorDetailsResponsePtrOutput)
 }
 
-// The type of the export execution.
 func (o ExportExecutionResponseOutput) ExecutionType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ExportExecutionResponse) *string { return v.ExecutionType }).(pulumi.StringPtrOutput)
 }
 
-// The name of the exported file.
 func (o ExportExecutionResponseOutput) FileName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ExportExecutionResponse) *string { return v.FileName }).(pulumi.StringPtrOutput)
 }
 
-// Resource Id.
 func (o ExportExecutionResponseOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v ExportExecutionResponse) string { return v.Id }).(pulumi.StringOutput)
 }
 
-// Resource name.
 func (o ExportExecutionResponseOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v ExportExecutionResponse) string { return v.Name }).(pulumi.StringOutput)
 }
 
-// The time when the export execution finished.
 func (o ExportExecutionResponseOutput) ProcessingEndTime() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ExportExecutionResponse) *string { return v.ProcessingEndTime }).(pulumi.StringPtrOutput)
 }
 
-// The time when export was picked up to be executed.
 func (o ExportExecutionResponseOutput) ProcessingStartTime() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ExportExecutionResponse) *string { return v.ProcessingStartTime }).(pulumi.StringPtrOutput)
 }
 
-// The export settings that were in effect for this execution.
 func (o ExportExecutionResponseOutput) RunSettings() CommonExportPropertiesResponsePtrOutput {
 	return o.ApplyT(func(v ExportExecutionResponse) *CommonExportPropertiesResponse { return v.RunSettings }).(CommonExportPropertiesResponsePtrOutput)
 }
 
-// The last known status of the export execution.
 func (o ExportExecutionResponseOutput) Status() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ExportExecutionResponse) *string { return v.Status }).(pulumi.StringPtrOutput)
 }
 
-// The identifier for the entity that executed the export. For OnDemand executions it is the user email. For scheduled executions it is 'System'.
 func (o ExportExecutionResponseOutput) SubmittedBy() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ExportExecutionResponse) *string { return v.SubmittedBy }).(pulumi.StringPtrOutput)
 }
 
-// The time when export was queued to be executed.
 func (o ExportExecutionResponseOutput) SubmittedTime() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ExportExecutionResponse) *string { return v.SubmittedTime }).(pulumi.StringPtrOutput)
 }
 
-// Resource type.
 func (o ExportExecutionResponseOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v ExportExecutionResponse) string { return v.Type }).(pulumi.StringOutput)
 }
@@ -2283,12 +2160,9 @@ func (o ExportExecutionResponseArrayOutput) Index(i pulumi.IntInput) ExportExecu
 	}).(ExportExecutionResponseOutput)
 }
 
-// The start and end date for recurrence schedule.
 type ExportRecurrencePeriod struct {
-	// The start date of recurrence.
-	From string `pulumi:"from"`
-	// The end date of recurrence.
-	To *string `pulumi:"to"`
+	From string  `pulumi:"from"`
+	To   *string `pulumi:"to"`
 }
 
 // ExportRecurrencePeriodInput is an input type that accepts ExportRecurrencePeriodArgs and ExportRecurrencePeriodOutput values.
@@ -2302,12 +2176,9 @@ type ExportRecurrencePeriodInput interface {
 	ToExportRecurrencePeriodOutputWithContext(context.Context) ExportRecurrencePeriodOutput
 }
 
-// The start and end date for recurrence schedule.
 type ExportRecurrencePeriodArgs struct {
-	// The start date of recurrence.
-	From pulumi.StringInput `pulumi:"from"`
-	// The end date of recurrence.
-	To pulumi.StringPtrInput `pulumi:"to"`
+	From pulumi.StringInput    `pulumi:"from"`
+	To   pulumi.StringPtrInput `pulumi:"to"`
 }
 
 func (ExportRecurrencePeriodArgs) ElementType() reflect.Type {
@@ -2363,7 +2234,6 @@ func (i *exportRecurrencePeriodPtrType) ToExportRecurrencePeriodPtrOutputWithCon
 	return pulumi.ToOutputWithContext(ctx, i).(ExportRecurrencePeriodPtrOutput)
 }
 
-// The start and end date for recurrence schedule.
 type ExportRecurrencePeriodOutput struct{ *pulumi.OutputState }
 
 func (ExportRecurrencePeriodOutput) ElementType() reflect.Type {
@@ -2383,17 +2253,15 @@ func (o ExportRecurrencePeriodOutput) ToExportRecurrencePeriodPtrOutput() Export
 }
 
 func (o ExportRecurrencePeriodOutput) ToExportRecurrencePeriodPtrOutputWithContext(ctx context.Context) ExportRecurrencePeriodPtrOutput {
-	return o.ApplyT(func(v ExportRecurrencePeriod) *ExportRecurrencePeriod {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ExportRecurrencePeriod) *ExportRecurrencePeriod {
 		return &v
 	}).(ExportRecurrencePeriodPtrOutput)
 }
 
-// The start date of recurrence.
 func (o ExportRecurrencePeriodOutput) From() pulumi.StringOutput {
 	return o.ApplyT(func(v ExportRecurrencePeriod) string { return v.From }).(pulumi.StringOutput)
 }
 
-// The end date of recurrence.
 func (o ExportRecurrencePeriodOutput) To() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ExportRecurrencePeriod) *string { return v.To }).(pulumi.StringPtrOutput)
 }
@@ -2413,10 +2281,15 @@ func (o ExportRecurrencePeriodPtrOutput) ToExportRecurrencePeriodPtrOutputWithCo
 }
 
 func (o ExportRecurrencePeriodPtrOutput) Elem() ExportRecurrencePeriodOutput {
-	return o.ApplyT(func(v *ExportRecurrencePeriod) ExportRecurrencePeriod { return *v }).(ExportRecurrencePeriodOutput)
+	return o.ApplyT(func(v *ExportRecurrencePeriod) ExportRecurrencePeriod {
+		if v != nil {
+			return *v
+		}
+		var ret ExportRecurrencePeriod
+		return ret
+	}).(ExportRecurrencePeriodOutput)
 }
 
-// The start date of recurrence.
 func (o ExportRecurrencePeriodPtrOutput) From() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ExportRecurrencePeriod) *string {
 		if v == nil {
@@ -2426,7 +2299,6 @@ func (o ExportRecurrencePeriodPtrOutput) From() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The end date of recurrence.
 func (o ExportRecurrencePeriodPtrOutput) To() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ExportRecurrencePeriod) *string {
 		if v == nil {
@@ -2436,12 +2308,9 @@ func (o ExportRecurrencePeriodPtrOutput) To() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The start and end date for recurrence schedule.
 type ExportRecurrencePeriodResponse struct {
-	// The start date of recurrence.
-	From string `pulumi:"from"`
-	// The end date of recurrence.
-	To *string `pulumi:"to"`
+	From string  `pulumi:"from"`
+	To   *string `pulumi:"to"`
 }
 
 // ExportRecurrencePeriodResponseInput is an input type that accepts ExportRecurrencePeriodResponseArgs and ExportRecurrencePeriodResponseOutput values.
@@ -2455,12 +2324,9 @@ type ExportRecurrencePeriodResponseInput interface {
 	ToExportRecurrencePeriodResponseOutputWithContext(context.Context) ExportRecurrencePeriodResponseOutput
 }
 
-// The start and end date for recurrence schedule.
 type ExportRecurrencePeriodResponseArgs struct {
-	// The start date of recurrence.
-	From pulumi.StringInput `pulumi:"from"`
-	// The end date of recurrence.
-	To pulumi.StringPtrInput `pulumi:"to"`
+	From pulumi.StringInput    `pulumi:"from"`
+	To   pulumi.StringPtrInput `pulumi:"to"`
 }
 
 func (ExportRecurrencePeriodResponseArgs) ElementType() reflect.Type {
@@ -2516,7 +2382,6 @@ func (i *exportRecurrencePeriodResponsePtrType) ToExportRecurrencePeriodResponse
 	return pulumi.ToOutputWithContext(ctx, i).(ExportRecurrencePeriodResponsePtrOutput)
 }
 
-// The start and end date for recurrence schedule.
 type ExportRecurrencePeriodResponseOutput struct{ *pulumi.OutputState }
 
 func (ExportRecurrencePeriodResponseOutput) ElementType() reflect.Type {
@@ -2536,17 +2401,15 @@ func (o ExportRecurrencePeriodResponseOutput) ToExportRecurrencePeriodResponsePt
 }
 
 func (o ExportRecurrencePeriodResponseOutput) ToExportRecurrencePeriodResponsePtrOutputWithContext(ctx context.Context) ExportRecurrencePeriodResponsePtrOutput {
-	return o.ApplyT(func(v ExportRecurrencePeriodResponse) *ExportRecurrencePeriodResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ExportRecurrencePeriodResponse) *ExportRecurrencePeriodResponse {
 		return &v
 	}).(ExportRecurrencePeriodResponsePtrOutput)
 }
 
-// The start date of recurrence.
 func (o ExportRecurrencePeriodResponseOutput) From() pulumi.StringOutput {
 	return o.ApplyT(func(v ExportRecurrencePeriodResponse) string { return v.From }).(pulumi.StringOutput)
 }
 
-// The end date of recurrence.
 func (o ExportRecurrencePeriodResponseOutput) To() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ExportRecurrencePeriodResponse) *string { return v.To }).(pulumi.StringPtrOutput)
 }
@@ -2566,10 +2429,15 @@ func (o ExportRecurrencePeriodResponsePtrOutput) ToExportRecurrencePeriodRespons
 }
 
 func (o ExportRecurrencePeriodResponsePtrOutput) Elem() ExportRecurrencePeriodResponseOutput {
-	return o.ApplyT(func(v *ExportRecurrencePeriodResponse) ExportRecurrencePeriodResponse { return *v }).(ExportRecurrencePeriodResponseOutput)
+	return o.ApplyT(func(v *ExportRecurrencePeriodResponse) ExportRecurrencePeriodResponse {
+		if v != nil {
+			return *v
+		}
+		var ret ExportRecurrencePeriodResponse
+		return ret
+	}).(ExportRecurrencePeriodResponseOutput)
 }
 
-// The start date of recurrence.
 func (o ExportRecurrencePeriodResponsePtrOutput) From() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ExportRecurrencePeriodResponse) *string {
 		if v == nil {
@@ -2579,7 +2447,6 @@ func (o ExportRecurrencePeriodResponsePtrOutput) From() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The end date of recurrence.
 func (o ExportRecurrencePeriodResponsePtrOutput) To() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ExportRecurrencePeriodResponse) *string {
 		if v == nil {
@@ -2589,14 +2456,10 @@ func (o ExportRecurrencePeriodResponsePtrOutput) To() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The schedule associated with the export.
 type ExportSchedule struct {
-	// The schedule recurrence.
-	Recurrence *string `pulumi:"recurrence"`
-	// Has start and end date of the recurrence. The start date must be in future. If present, the end date must be greater than start date.
+	Recurrence       *string                 `pulumi:"recurrence"`
 	RecurrencePeriod *ExportRecurrencePeriod `pulumi:"recurrencePeriod"`
-	// The status of the export's schedule. If 'Inactive', the export's schedule is paused.
-	Status *string `pulumi:"status"`
+	Status           *string                 `pulumi:"status"`
 }
 
 // ExportScheduleInput is an input type that accepts ExportScheduleArgs and ExportScheduleOutput values.
@@ -2610,14 +2473,10 @@ type ExportScheduleInput interface {
 	ToExportScheduleOutputWithContext(context.Context) ExportScheduleOutput
 }
 
-// The schedule associated with the export.
 type ExportScheduleArgs struct {
-	// The schedule recurrence.
-	Recurrence pulumi.StringPtrInput `pulumi:"recurrence"`
-	// Has start and end date of the recurrence. The start date must be in future. If present, the end date must be greater than start date.
+	Recurrence       pulumi.StringPtrInput          `pulumi:"recurrence"`
 	RecurrencePeriod ExportRecurrencePeriodPtrInput `pulumi:"recurrencePeriod"`
-	// The status of the export's schedule. If 'Inactive', the export's schedule is paused.
-	Status pulumi.StringPtrInput `pulumi:"status"`
+	Status           pulumi.StringPtrInput          `pulumi:"status"`
 }
 
 func (ExportScheduleArgs) ElementType() reflect.Type {
@@ -2673,7 +2532,6 @@ func (i *exportSchedulePtrType) ToExportSchedulePtrOutputWithContext(ctx context
 	return pulumi.ToOutputWithContext(ctx, i).(ExportSchedulePtrOutput)
 }
 
-// The schedule associated with the export.
 type ExportScheduleOutput struct{ *pulumi.OutputState }
 
 func (ExportScheduleOutput) ElementType() reflect.Type {
@@ -2693,22 +2551,19 @@ func (o ExportScheduleOutput) ToExportSchedulePtrOutput() ExportSchedulePtrOutpu
 }
 
 func (o ExportScheduleOutput) ToExportSchedulePtrOutputWithContext(ctx context.Context) ExportSchedulePtrOutput {
-	return o.ApplyT(func(v ExportSchedule) *ExportSchedule {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ExportSchedule) *ExportSchedule {
 		return &v
 	}).(ExportSchedulePtrOutput)
 }
 
-// The schedule recurrence.
 func (o ExportScheduleOutput) Recurrence() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ExportSchedule) *string { return v.Recurrence }).(pulumi.StringPtrOutput)
 }
 
-// Has start and end date of the recurrence. The start date must be in future. If present, the end date must be greater than start date.
 func (o ExportScheduleOutput) RecurrencePeriod() ExportRecurrencePeriodPtrOutput {
 	return o.ApplyT(func(v ExportSchedule) *ExportRecurrencePeriod { return v.RecurrencePeriod }).(ExportRecurrencePeriodPtrOutput)
 }
 
-// The status of the export's schedule. If 'Inactive', the export's schedule is paused.
 func (o ExportScheduleOutput) Status() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ExportSchedule) *string { return v.Status }).(pulumi.StringPtrOutput)
 }
@@ -2728,10 +2583,15 @@ func (o ExportSchedulePtrOutput) ToExportSchedulePtrOutputWithContext(ctx contex
 }
 
 func (o ExportSchedulePtrOutput) Elem() ExportScheduleOutput {
-	return o.ApplyT(func(v *ExportSchedule) ExportSchedule { return *v }).(ExportScheduleOutput)
+	return o.ApplyT(func(v *ExportSchedule) ExportSchedule {
+		if v != nil {
+			return *v
+		}
+		var ret ExportSchedule
+		return ret
+	}).(ExportScheduleOutput)
 }
 
-// The schedule recurrence.
 func (o ExportSchedulePtrOutput) Recurrence() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ExportSchedule) *string {
 		if v == nil {
@@ -2741,7 +2601,6 @@ func (o ExportSchedulePtrOutput) Recurrence() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Has start and end date of the recurrence. The start date must be in future. If present, the end date must be greater than start date.
 func (o ExportSchedulePtrOutput) RecurrencePeriod() ExportRecurrencePeriodPtrOutput {
 	return o.ApplyT(func(v *ExportSchedule) *ExportRecurrencePeriod {
 		if v == nil {
@@ -2751,7 +2610,6 @@ func (o ExportSchedulePtrOutput) RecurrencePeriod() ExportRecurrencePeriodPtrOut
 	}).(ExportRecurrencePeriodPtrOutput)
 }
 
-// The status of the export's schedule. If 'Inactive', the export's schedule is paused.
 func (o ExportSchedulePtrOutput) Status() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ExportSchedule) *string {
 		if v == nil {
@@ -2761,14 +2619,10 @@ func (o ExportSchedulePtrOutput) Status() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The schedule associated with the export.
 type ExportScheduleResponse struct {
-	// The schedule recurrence.
-	Recurrence *string `pulumi:"recurrence"`
-	// Has start and end date of the recurrence. The start date must be in future. If present, the end date must be greater than start date.
+	Recurrence       *string                         `pulumi:"recurrence"`
 	RecurrencePeriod *ExportRecurrencePeriodResponse `pulumi:"recurrencePeriod"`
-	// The status of the export's schedule. If 'Inactive', the export's schedule is paused.
-	Status *string `pulumi:"status"`
+	Status           *string                         `pulumi:"status"`
 }
 
 // ExportScheduleResponseInput is an input type that accepts ExportScheduleResponseArgs and ExportScheduleResponseOutput values.
@@ -2782,14 +2636,10 @@ type ExportScheduleResponseInput interface {
 	ToExportScheduleResponseOutputWithContext(context.Context) ExportScheduleResponseOutput
 }
 
-// The schedule associated with the export.
 type ExportScheduleResponseArgs struct {
-	// The schedule recurrence.
-	Recurrence pulumi.StringPtrInput `pulumi:"recurrence"`
-	// Has start and end date of the recurrence. The start date must be in future. If present, the end date must be greater than start date.
+	Recurrence       pulumi.StringPtrInput                  `pulumi:"recurrence"`
 	RecurrencePeriod ExportRecurrencePeriodResponsePtrInput `pulumi:"recurrencePeriod"`
-	// The status of the export's schedule. If 'Inactive', the export's schedule is paused.
-	Status pulumi.StringPtrInput `pulumi:"status"`
+	Status           pulumi.StringPtrInput                  `pulumi:"status"`
 }
 
 func (ExportScheduleResponseArgs) ElementType() reflect.Type {
@@ -2845,7 +2695,6 @@ func (i *exportScheduleResponsePtrType) ToExportScheduleResponsePtrOutputWithCon
 	return pulumi.ToOutputWithContext(ctx, i).(ExportScheduleResponsePtrOutput)
 }
 
-// The schedule associated with the export.
 type ExportScheduleResponseOutput struct{ *pulumi.OutputState }
 
 func (ExportScheduleResponseOutput) ElementType() reflect.Type {
@@ -2865,22 +2714,19 @@ func (o ExportScheduleResponseOutput) ToExportScheduleResponsePtrOutput() Export
 }
 
 func (o ExportScheduleResponseOutput) ToExportScheduleResponsePtrOutputWithContext(ctx context.Context) ExportScheduleResponsePtrOutput {
-	return o.ApplyT(func(v ExportScheduleResponse) *ExportScheduleResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ExportScheduleResponse) *ExportScheduleResponse {
 		return &v
 	}).(ExportScheduleResponsePtrOutput)
 }
 
-// The schedule recurrence.
 func (o ExportScheduleResponseOutput) Recurrence() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ExportScheduleResponse) *string { return v.Recurrence }).(pulumi.StringPtrOutput)
 }
 
-// Has start and end date of the recurrence. The start date must be in future. If present, the end date must be greater than start date.
 func (o ExportScheduleResponseOutput) RecurrencePeriod() ExportRecurrencePeriodResponsePtrOutput {
 	return o.ApplyT(func(v ExportScheduleResponse) *ExportRecurrencePeriodResponse { return v.RecurrencePeriod }).(ExportRecurrencePeriodResponsePtrOutput)
 }
 
-// The status of the export's schedule. If 'Inactive', the export's schedule is paused.
 func (o ExportScheduleResponseOutput) Status() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ExportScheduleResponse) *string { return v.Status }).(pulumi.StringPtrOutput)
 }
@@ -2900,10 +2746,15 @@ func (o ExportScheduleResponsePtrOutput) ToExportScheduleResponsePtrOutputWithCo
 }
 
 func (o ExportScheduleResponsePtrOutput) Elem() ExportScheduleResponseOutput {
-	return o.ApplyT(func(v *ExportScheduleResponse) ExportScheduleResponse { return *v }).(ExportScheduleResponseOutput)
+	return o.ApplyT(func(v *ExportScheduleResponse) ExportScheduleResponse {
+		if v != nil {
+			return *v
+		}
+		var ret ExportScheduleResponse
+		return ret
+	}).(ExportScheduleResponseOutput)
 }
 
-// The schedule recurrence.
 func (o ExportScheduleResponsePtrOutput) Recurrence() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ExportScheduleResponse) *string {
 		if v == nil {
@@ -2913,7 +2764,6 @@ func (o ExportScheduleResponsePtrOutput) Recurrence() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Has start and end date of the recurrence. The start date must be in future. If present, the end date must be greater than start date.
 func (o ExportScheduleResponsePtrOutput) RecurrencePeriod() ExportRecurrencePeriodResponsePtrOutput {
 	return o.ApplyT(func(v *ExportScheduleResponse) *ExportRecurrencePeriodResponse {
 		if v == nil {
@@ -2923,7 +2773,6 @@ func (o ExportScheduleResponsePtrOutput) RecurrencePeriod() ExportRecurrencePeri
 	}).(ExportRecurrencePeriodResponsePtrOutput)
 }
 
-// The status of the export's schedule. If 'Inactive', the export's schedule is paused.
 func (o ExportScheduleResponsePtrOutput) Status() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ExportScheduleResponse) *string {
 		if v == nil {
@@ -2933,12 +2782,9 @@ func (o ExportScheduleResponsePtrOutput) Status() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The date range for data in the export. This should only be specified with timeFrame set to 'Custom'. The maximum date range is 3 months.
 type ExportTimePeriod struct {
-	// The start date for export data.
 	From string `pulumi:"from"`
-	// The end date for export data.
-	To string `pulumi:"to"`
+	To   string `pulumi:"to"`
 }
 
 // ExportTimePeriodInput is an input type that accepts ExportTimePeriodArgs and ExportTimePeriodOutput values.
@@ -2952,12 +2798,9 @@ type ExportTimePeriodInput interface {
 	ToExportTimePeriodOutputWithContext(context.Context) ExportTimePeriodOutput
 }
 
-// The date range for data in the export. This should only be specified with timeFrame set to 'Custom'. The maximum date range is 3 months.
 type ExportTimePeriodArgs struct {
-	// The start date for export data.
 	From pulumi.StringInput `pulumi:"from"`
-	// The end date for export data.
-	To pulumi.StringInput `pulumi:"to"`
+	To   pulumi.StringInput `pulumi:"to"`
 }
 
 func (ExportTimePeriodArgs) ElementType() reflect.Type {
@@ -3013,7 +2856,6 @@ func (i *exportTimePeriodPtrType) ToExportTimePeriodPtrOutputWithContext(ctx con
 	return pulumi.ToOutputWithContext(ctx, i).(ExportTimePeriodPtrOutput)
 }
 
-// The date range for data in the export. This should only be specified with timeFrame set to 'Custom'. The maximum date range is 3 months.
 type ExportTimePeriodOutput struct{ *pulumi.OutputState }
 
 func (ExportTimePeriodOutput) ElementType() reflect.Type {
@@ -3033,17 +2875,15 @@ func (o ExportTimePeriodOutput) ToExportTimePeriodPtrOutput() ExportTimePeriodPt
 }
 
 func (o ExportTimePeriodOutput) ToExportTimePeriodPtrOutputWithContext(ctx context.Context) ExportTimePeriodPtrOutput {
-	return o.ApplyT(func(v ExportTimePeriod) *ExportTimePeriod {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ExportTimePeriod) *ExportTimePeriod {
 		return &v
 	}).(ExportTimePeriodPtrOutput)
 }
 
-// The start date for export data.
 func (o ExportTimePeriodOutput) From() pulumi.StringOutput {
 	return o.ApplyT(func(v ExportTimePeriod) string { return v.From }).(pulumi.StringOutput)
 }
 
-// The end date for export data.
 func (o ExportTimePeriodOutput) To() pulumi.StringOutput {
 	return o.ApplyT(func(v ExportTimePeriod) string { return v.To }).(pulumi.StringOutput)
 }
@@ -3063,10 +2903,15 @@ func (o ExportTimePeriodPtrOutput) ToExportTimePeriodPtrOutputWithContext(ctx co
 }
 
 func (o ExportTimePeriodPtrOutput) Elem() ExportTimePeriodOutput {
-	return o.ApplyT(func(v *ExportTimePeriod) ExportTimePeriod { return *v }).(ExportTimePeriodOutput)
+	return o.ApplyT(func(v *ExportTimePeriod) ExportTimePeriod {
+		if v != nil {
+			return *v
+		}
+		var ret ExportTimePeriod
+		return ret
+	}).(ExportTimePeriodOutput)
 }
 
-// The start date for export data.
 func (o ExportTimePeriodPtrOutput) From() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ExportTimePeriod) *string {
 		if v == nil {
@@ -3076,7 +2921,6 @@ func (o ExportTimePeriodPtrOutput) From() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The end date for export data.
 func (o ExportTimePeriodPtrOutput) To() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ExportTimePeriod) *string {
 		if v == nil {
@@ -3086,12 +2930,9 @@ func (o ExportTimePeriodPtrOutput) To() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The date range for data in the export. This should only be specified with timeFrame set to 'Custom'. The maximum date range is 3 months.
 type ExportTimePeriodResponse struct {
-	// The start date for export data.
 	From string `pulumi:"from"`
-	// The end date for export data.
-	To string `pulumi:"to"`
+	To   string `pulumi:"to"`
 }
 
 // ExportTimePeriodResponseInput is an input type that accepts ExportTimePeriodResponseArgs and ExportTimePeriodResponseOutput values.
@@ -3105,12 +2946,9 @@ type ExportTimePeriodResponseInput interface {
 	ToExportTimePeriodResponseOutputWithContext(context.Context) ExportTimePeriodResponseOutput
 }
 
-// The date range for data in the export. This should only be specified with timeFrame set to 'Custom'. The maximum date range is 3 months.
 type ExportTimePeriodResponseArgs struct {
-	// The start date for export data.
 	From pulumi.StringInput `pulumi:"from"`
-	// The end date for export data.
-	To pulumi.StringInput `pulumi:"to"`
+	To   pulumi.StringInput `pulumi:"to"`
 }
 
 func (ExportTimePeriodResponseArgs) ElementType() reflect.Type {
@@ -3166,7 +3004,6 @@ func (i *exportTimePeriodResponsePtrType) ToExportTimePeriodResponsePtrOutputWit
 	return pulumi.ToOutputWithContext(ctx, i).(ExportTimePeriodResponsePtrOutput)
 }
 
-// The date range for data in the export. This should only be specified with timeFrame set to 'Custom'. The maximum date range is 3 months.
 type ExportTimePeriodResponseOutput struct{ *pulumi.OutputState }
 
 func (ExportTimePeriodResponseOutput) ElementType() reflect.Type {
@@ -3186,17 +3023,15 @@ func (o ExportTimePeriodResponseOutput) ToExportTimePeriodResponsePtrOutput() Ex
 }
 
 func (o ExportTimePeriodResponseOutput) ToExportTimePeriodResponsePtrOutputWithContext(ctx context.Context) ExportTimePeriodResponsePtrOutput {
-	return o.ApplyT(func(v ExportTimePeriodResponse) *ExportTimePeriodResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ExportTimePeriodResponse) *ExportTimePeriodResponse {
 		return &v
 	}).(ExportTimePeriodResponsePtrOutput)
 }
 
-// The start date for export data.
 func (o ExportTimePeriodResponseOutput) From() pulumi.StringOutput {
 	return o.ApplyT(func(v ExportTimePeriodResponse) string { return v.From }).(pulumi.StringOutput)
 }
 
-// The end date for export data.
 func (o ExportTimePeriodResponseOutput) To() pulumi.StringOutput {
 	return o.ApplyT(func(v ExportTimePeriodResponse) string { return v.To }).(pulumi.StringOutput)
 }
@@ -3216,10 +3051,15 @@ func (o ExportTimePeriodResponsePtrOutput) ToExportTimePeriodResponsePtrOutputWi
 }
 
 func (o ExportTimePeriodResponsePtrOutput) Elem() ExportTimePeriodResponseOutput {
-	return o.ApplyT(func(v *ExportTimePeriodResponse) ExportTimePeriodResponse { return *v }).(ExportTimePeriodResponseOutput)
+	return o.ApplyT(func(v *ExportTimePeriodResponse) ExportTimePeriodResponse {
+		if v != nil {
+			return *v
+		}
+		var ret ExportTimePeriodResponse
+		return ret
+	}).(ExportTimePeriodResponseOutput)
 }
 
-// The start date for export data.
 func (o ExportTimePeriodResponsePtrOutput) From() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ExportTimePeriodResponse) *string {
 		if v == nil {
@@ -3229,7 +3069,6 @@ func (o ExportTimePeriodResponsePtrOutput) From() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The end date for export data.
 func (o ExportTimePeriodResponsePtrOutput) To() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ExportTimePeriodResponse) *string {
 		if v == nil {
@@ -3239,14 +3078,10 @@ func (o ExportTimePeriodResponsePtrOutput) To() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Each KPI must contain a 'type' and 'enabled' key.
 type KpiProperties struct {
-	// show the KPI in the UI?
-	Enabled *bool `pulumi:"enabled"`
-	// ID of resource related to metric (budget).
-	Id *string `pulumi:"id"`
-	// KPI type (Forecast, Budget).
-	Type *string `pulumi:"type"`
+	Enabled *bool   `pulumi:"enabled"`
+	Id      *string `pulumi:"id"`
+	Type    *string `pulumi:"type"`
 }
 
 // KpiPropertiesInput is an input type that accepts KpiPropertiesArgs and KpiPropertiesOutput values.
@@ -3260,14 +3095,10 @@ type KpiPropertiesInput interface {
 	ToKpiPropertiesOutputWithContext(context.Context) KpiPropertiesOutput
 }
 
-// Each KPI must contain a 'type' and 'enabled' key.
 type KpiPropertiesArgs struct {
-	// show the KPI in the UI?
-	Enabled pulumi.BoolPtrInput `pulumi:"enabled"`
-	// ID of resource related to metric (budget).
-	Id pulumi.StringPtrInput `pulumi:"id"`
-	// KPI type (Forecast, Budget).
-	Type pulumi.StringPtrInput `pulumi:"type"`
+	Enabled pulumi.BoolPtrInput   `pulumi:"enabled"`
+	Id      pulumi.StringPtrInput `pulumi:"id"`
+	Type    pulumi.StringPtrInput `pulumi:"type"`
 }
 
 func (KpiPropertiesArgs) ElementType() reflect.Type {
@@ -3307,7 +3138,6 @@ func (i KpiPropertiesArray) ToKpiPropertiesArrayOutputWithContext(ctx context.Co
 	return pulumi.ToOutputWithContext(ctx, i).(KpiPropertiesArrayOutput)
 }
 
-// Each KPI must contain a 'type' and 'enabled' key.
 type KpiPropertiesOutput struct{ *pulumi.OutputState }
 
 func (KpiPropertiesOutput) ElementType() reflect.Type {
@@ -3322,17 +3152,14 @@ func (o KpiPropertiesOutput) ToKpiPropertiesOutputWithContext(ctx context.Contex
 	return o
 }
 
-// show the KPI in the UI?
 func (o KpiPropertiesOutput) Enabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v KpiProperties) *bool { return v.Enabled }).(pulumi.BoolPtrOutput)
 }
 
-// ID of resource related to metric (budget).
 func (o KpiPropertiesOutput) Id() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v KpiProperties) *string { return v.Id }).(pulumi.StringPtrOutput)
 }
 
-// KPI type (Forecast, Budget).
 func (o KpiPropertiesOutput) Type() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v KpiProperties) *string { return v.Type }).(pulumi.StringPtrOutput)
 }
@@ -3357,14 +3184,10 @@ func (o KpiPropertiesArrayOutput) Index(i pulumi.IntInput) KpiPropertiesOutput {
 	}).(KpiPropertiesOutput)
 }
 
-// Each KPI must contain a 'type' and 'enabled' key.
 type KpiPropertiesResponse struct {
-	// show the KPI in the UI?
-	Enabled *bool `pulumi:"enabled"`
-	// ID of resource related to metric (budget).
-	Id *string `pulumi:"id"`
-	// KPI type (Forecast, Budget).
-	Type *string `pulumi:"type"`
+	Enabled *bool   `pulumi:"enabled"`
+	Id      *string `pulumi:"id"`
+	Type    *string `pulumi:"type"`
 }
 
 // KpiPropertiesResponseInput is an input type that accepts KpiPropertiesResponseArgs and KpiPropertiesResponseOutput values.
@@ -3378,14 +3201,10 @@ type KpiPropertiesResponseInput interface {
 	ToKpiPropertiesResponseOutputWithContext(context.Context) KpiPropertiesResponseOutput
 }
 
-// Each KPI must contain a 'type' and 'enabled' key.
 type KpiPropertiesResponseArgs struct {
-	// show the KPI in the UI?
-	Enabled pulumi.BoolPtrInput `pulumi:"enabled"`
-	// ID of resource related to metric (budget).
-	Id pulumi.StringPtrInput `pulumi:"id"`
-	// KPI type (Forecast, Budget).
-	Type pulumi.StringPtrInput `pulumi:"type"`
+	Enabled pulumi.BoolPtrInput   `pulumi:"enabled"`
+	Id      pulumi.StringPtrInput `pulumi:"id"`
+	Type    pulumi.StringPtrInput `pulumi:"type"`
 }
 
 func (KpiPropertiesResponseArgs) ElementType() reflect.Type {
@@ -3425,7 +3244,6 @@ func (i KpiPropertiesResponseArray) ToKpiPropertiesResponseArrayOutputWithContex
 	return pulumi.ToOutputWithContext(ctx, i).(KpiPropertiesResponseArrayOutput)
 }
 
-// Each KPI must contain a 'type' and 'enabled' key.
 type KpiPropertiesResponseOutput struct{ *pulumi.OutputState }
 
 func (KpiPropertiesResponseOutput) ElementType() reflect.Type {
@@ -3440,17 +3258,14 @@ func (o KpiPropertiesResponseOutput) ToKpiPropertiesResponseOutputWithContext(ct
 	return o
 }
 
-// show the KPI in the UI?
 func (o KpiPropertiesResponseOutput) Enabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v KpiPropertiesResponse) *bool { return v.Enabled }).(pulumi.BoolPtrOutput)
 }
 
-// ID of resource related to metric (budget).
 func (o KpiPropertiesResponseOutput) Id() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v KpiPropertiesResponse) *string { return v.Id }).(pulumi.StringPtrOutput)
 }
 
-// KPI type (Forecast, Budget).
 func (o KpiPropertiesResponseOutput) Type() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v KpiPropertiesResponse) *string { return v.Type }).(pulumi.StringPtrOutput)
 }
@@ -3475,11 +3290,8 @@ func (o KpiPropertiesResponseArrayOutput) Index(i pulumi.IntInput) KpiProperties
 	}).(KpiPropertiesResponseOutput)
 }
 
-// Each pivot must contain a 'type' and 'name'.
 type PivotProperties struct {
-	// Data field to show in view.
 	Name *string `pulumi:"name"`
-	// Data type to show in view.
 	Type *string `pulumi:"type"`
 }
 
@@ -3494,11 +3306,8 @@ type PivotPropertiesInput interface {
 	ToPivotPropertiesOutputWithContext(context.Context) PivotPropertiesOutput
 }
 
-// Each pivot must contain a 'type' and 'name'.
 type PivotPropertiesArgs struct {
-	// Data field to show in view.
 	Name pulumi.StringPtrInput `pulumi:"name"`
-	// Data type to show in view.
 	Type pulumi.StringPtrInput `pulumi:"type"`
 }
 
@@ -3539,7 +3348,6 @@ func (i PivotPropertiesArray) ToPivotPropertiesArrayOutputWithContext(ctx contex
 	return pulumi.ToOutputWithContext(ctx, i).(PivotPropertiesArrayOutput)
 }
 
-// Each pivot must contain a 'type' and 'name'.
 type PivotPropertiesOutput struct{ *pulumi.OutputState }
 
 func (PivotPropertiesOutput) ElementType() reflect.Type {
@@ -3554,12 +3362,10 @@ func (o PivotPropertiesOutput) ToPivotPropertiesOutputWithContext(ctx context.Co
 	return o
 }
 
-// Data field to show in view.
 func (o PivotPropertiesOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v PivotProperties) *string { return v.Name }).(pulumi.StringPtrOutput)
 }
 
-// Data type to show in view.
 func (o PivotPropertiesOutput) Type() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v PivotProperties) *string { return v.Type }).(pulumi.StringPtrOutput)
 }
@@ -3584,11 +3390,8 @@ func (o PivotPropertiesArrayOutput) Index(i pulumi.IntInput) PivotPropertiesOutp
 	}).(PivotPropertiesOutput)
 }
 
-// Each pivot must contain a 'type' and 'name'.
 type PivotPropertiesResponse struct {
-	// Data field to show in view.
 	Name *string `pulumi:"name"`
-	// Data type to show in view.
 	Type *string `pulumi:"type"`
 }
 
@@ -3603,11 +3406,8 @@ type PivotPropertiesResponseInput interface {
 	ToPivotPropertiesResponseOutputWithContext(context.Context) PivotPropertiesResponseOutput
 }
 
-// Each pivot must contain a 'type' and 'name'.
 type PivotPropertiesResponseArgs struct {
-	// Data field to show in view.
 	Name pulumi.StringPtrInput `pulumi:"name"`
-	// Data type to show in view.
 	Type pulumi.StringPtrInput `pulumi:"type"`
 }
 
@@ -3648,7 +3448,6 @@ func (i PivotPropertiesResponseArray) ToPivotPropertiesResponseArrayOutputWithCo
 	return pulumi.ToOutputWithContext(ctx, i).(PivotPropertiesResponseArrayOutput)
 }
 
-// Each pivot must contain a 'type' and 'name'.
 type PivotPropertiesResponseOutput struct{ *pulumi.OutputState }
 
 func (PivotPropertiesResponseOutput) ElementType() reflect.Type {
@@ -3663,12 +3462,10 @@ func (o PivotPropertiesResponseOutput) ToPivotPropertiesResponseOutputWithContex
 	return o
 }
 
-// Data field to show in view.
 func (o PivotPropertiesResponseOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v PivotPropertiesResponse) *string { return v.Name }).(pulumi.StringPtrOutput)
 }
 
-// Data type to show in view.
 func (o PivotPropertiesResponseOutput) Type() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v PivotPropertiesResponse) *string { return v.Type }).(pulumi.StringPtrOutput)
 }
@@ -3693,12 +3490,9 @@ func (o PivotPropertiesResponseArrayOutput) Index(i pulumi.IntInput) PivotProper
 	}).(PivotPropertiesResponseOutput)
 }
 
-// The aggregation expression to be used in the report.
 type ReportConfigAggregation struct {
-	// The name of the aggregation function to use.
 	Function string `pulumi:"function"`
-	// The name of the column to aggregate.
-	Name string `pulumi:"name"`
+	Name     string `pulumi:"name"`
 }
 
 // ReportConfigAggregationInput is an input type that accepts ReportConfigAggregationArgs and ReportConfigAggregationOutput values.
@@ -3712,12 +3506,9 @@ type ReportConfigAggregationInput interface {
 	ToReportConfigAggregationOutputWithContext(context.Context) ReportConfigAggregationOutput
 }
 
-// The aggregation expression to be used in the report.
 type ReportConfigAggregationArgs struct {
-	// The name of the aggregation function to use.
 	Function pulumi.StringInput `pulumi:"function"`
-	// The name of the column to aggregate.
-	Name pulumi.StringInput `pulumi:"name"`
+	Name     pulumi.StringInput `pulumi:"name"`
 }
 
 func (ReportConfigAggregationArgs) ElementType() reflect.Type {
@@ -3757,7 +3548,6 @@ func (i ReportConfigAggregationMap) ToReportConfigAggregationMapOutputWithContex
 	return pulumi.ToOutputWithContext(ctx, i).(ReportConfigAggregationMapOutput)
 }
 
-// The aggregation expression to be used in the report.
 type ReportConfigAggregationOutput struct{ *pulumi.OutputState }
 
 func (ReportConfigAggregationOutput) ElementType() reflect.Type {
@@ -3772,12 +3562,10 @@ func (o ReportConfigAggregationOutput) ToReportConfigAggregationOutputWithContex
 	return o
 }
 
-// The name of the aggregation function to use.
 func (o ReportConfigAggregationOutput) Function() pulumi.StringOutput {
 	return o.ApplyT(func(v ReportConfigAggregation) string { return v.Function }).(pulumi.StringOutput)
 }
 
-// The name of the column to aggregate.
 func (o ReportConfigAggregationOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v ReportConfigAggregation) string { return v.Name }).(pulumi.StringOutput)
 }
@@ -3802,12 +3590,9 @@ func (o ReportConfigAggregationMapOutput) MapIndex(k pulumi.StringInput) ReportC
 	}).(ReportConfigAggregationOutput)
 }
 
-// The aggregation expression to be used in the report.
 type ReportConfigAggregationResponse struct {
-	// The name of the aggregation function to use.
 	Function string `pulumi:"function"`
-	// The name of the column to aggregate.
-	Name string `pulumi:"name"`
+	Name     string `pulumi:"name"`
 }
 
 // ReportConfigAggregationResponseInput is an input type that accepts ReportConfigAggregationResponseArgs and ReportConfigAggregationResponseOutput values.
@@ -3821,12 +3606,9 @@ type ReportConfigAggregationResponseInput interface {
 	ToReportConfigAggregationResponseOutputWithContext(context.Context) ReportConfigAggregationResponseOutput
 }
 
-// The aggregation expression to be used in the report.
 type ReportConfigAggregationResponseArgs struct {
-	// The name of the aggregation function to use.
 	Function pulumi.StringInput `pulumi:"function"`
-	// The name of the column to aggregate.
-	Name pulumi.StringInput `pulumi:"name"`
+	Name     pulumi.StringInput `pulumi:"name"`
 }
 
 func (ReportConfigAggregationResponseArgs) ElementType() reflect.Type {
@@ -3866,7 +3648,6 @@ func (i ReportConfigAggregationResponseMap) ToReportConfigAggregationResponseMap
 	return pulumi.ToOutputWithContext(ctx, i).(ReportConfigAggregationResponseMapOutput)
 }
 
-// The aggregation expression to be used in the report.
 type ReportConfigAggregationResponseOutput struct{ *pulumi.OutputState }
 
 func (ReportConfigAggregationResponseOutput) ElementType() reflect.Type {
@@ -3881,12 +3662,10 @@ func (o ReportConfigAggregationResponseOutput) ToReportConfigAggregationResponse
 	return o
 }
 
-// The name of the aggregation function to use.
 func (o ReportConfigAggregationResponseOutput) Function() pulumi.StringOutput {
 	return o.ApplyT(func(v ReportConfigAggregationResponse) string { return v.Function }).(pulumi.StringOutput)
 }
 
-// The name of the column to aggregate.
 func (o ReportConfigAggregationResponseOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v ReportConfigAggregationResponse) string { return v.Name }).(pulumi.StringOutput)
 }
@@ -3911,14 +3690,10 @@ func (o ReportConfigAggregationResponseMapOutput) MapIndex(k pulumi.StringInput)
 	}).(ReportConfigAggregationResponseOutput)
 }
 
-// The comparison expression to be used in the report.
 type ReportConfigComparisonExpression struct {
-	// The name of the column to use in comparison.
-	Name string `pulumi:"name"`
-	// The operator to use for comparison.
-	Operator string `pulumi:"operator"`
-	// Array of values to use for comparison
-	Values []string `pulumi:"values"`
+	Name     string   `pulumi:"name"`
+	Operator string   `pulumi:"operator"`
+	Values   []string `pulumi:"values"`
 }
 
 // ReportConfigComparisonExpressionInput is an input type that accepts ReportConfigComparisonExpressionArgs and ReportConfigComparisonExpressionOutput values.
@@ -3932,14 +3707,10 @@ type ReportConfigComparisonExpressionInput interface {
 	ToReportConfigComparisonExpressionOutputWithContext(context.Context) ReportConfigComparisonExpressionOutput
 }
 
-// The comparison expression to be used in the report.
 type ReportConfigComparisonExpressionArgs struct {
-	// The name of the column to use in comparison.
-	Name pulumi.StringInput `pulumi:"name"`
-	// The operator to use for comparison.
-	Operator pulumi.StringInput `pulumi:"operator"`
-	// Array of values to use for comparison
-	Values pulumi.StringArrayInput `pulumi:"values"`
+	Name     pulumi.StringInput      `pulumi:"name"`
+	Operator pulumi.StringInput      `pulumi:"operator"`
+	Values   pulumi.StringArrayInput `pulumi:"values"`
 }
 
 func (ReportConfigComparisonExpressionArgs) ElementType() reflect.Type {
@@ -3995,7 +3766,6 @@ func (i *reportConfigComparisonExpressionPtrType) ToReportConfigComparisonExpres
 	return pulumi.ToOutputWithContext(ctx, i).(ReportConfigComparisonExpressionPtrOutput)
 }
 
-// The comparison expression to be used in the report.
 type ReportConfigComparisonExpressionOutput struct{ *pulumi.OutputState }
 
 func (ReportConfigComparisonExpressionOutput) ElementType() reflect.Type {
@@ -4015,22 +3785,19 @@ func (o ReportConfigComparisonExpressionOutput) ToReportConfigComparisonExpressi
 }
 
 func (o ReportConfigComparisonExpressionOutput) ToReportConfigComparisonExpressionPtrOutputWithContext(ctx context.Context) ReportConfigComparisonExpressionPtrOutput {
-	return o.ApplyT(func(v ReportConfigComparisonExpression) *ReportConfigComparisonExpression {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ReportConfigComparisonExpression) *ReportConfigComparisonExpression {
 		return &v
 	}).(ReportConfigComparisonExpressionPtrOutput)
 }
 
-// The name of the column to use in comparison.
 func (o ReportConfigComparisonExpressionOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v ReportConfigComparisonExpression) string { return v.Name }).(pulumi.StringOutput)
 }
 
-// The operator to use for comparison.
 func (o ReportConfigComparisonExpressionOutput) Operator() pulumi.StringOutput {
 	return o.ApplyT(func(v ReportConfigComparisonExpression) string { return v.Operator }).(pulumi.StringOutput)
 }
 
-// Array of values to use for comparison
 func (o ReportConfigComparisonExpressionOutput) Values() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v ReportConfigComparisonExpression) []string { return v.Values }).(pulumi.StringArrayOutput)
 }
@@ -4050,10 +3817,15 @@ func (o ReportConfigComparisonExpressionPtrOutput) ToReportConfigComparisonExpre
 }
 
 func (o ReportConfigComparisonExpressionPtrOutput) Elem() ReportConfigComparisonExpressionOutput {
-	return o.ApplyT(func(v *ReportConfigComparisonExpression) ReportConfigComparisonExpression { return *v }).(ReportConfigComparisonExpressionOutput)
+	return o.ApplyT(func(v *ReportConfigComparisonExpression) ReportConfigComparisonExpression {
+		if v != nil {
+			return *v
+		}
+		var ret ReportConfigComparisonExpression
+		return ret
+	}).(ReportConfigComparisonExpressionOutput)
 }
 
-// The name of the column to use in comparison.
 func (o ReportConfigComparisonExpressionPtrOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ReportConfigComparisonExpression) *string {
 		if v == nil {
@@ -4063,7 +3835,6 @@ func (o ReportConfigComparisonExpressionPtrOutput) Name() pulumi.StringPtrOutput
 	}).(pulumi.StringPtrOutput)
 }
 
-// The operator to use for comparison.
 func (o ReportConfigComparisonExpressionPtrOutput) Operator() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ReportConfigComparisonExpression) *string {
 		if v == nil {
@@ -4073,7 +3844,6 @@ func (o ReportConfigComparisonExpressionPtrOutput) Operator() pulumi.StringPtrOu
 	}).(pulumi.StringPtrOutput)
 }
 
-// Array of values to use for comparison
 func (o ReportConfigComparisonExpressionPtrOutput) Values() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *ReportConfigComparisonExpression) []string {
 		if v == nil {
@@ -4083,14 +3853,10 @@ func (o ReportConfigComparisonExpressionPtrOutput) Values() pulumi.StringArrayOu
 	}).(pulumi.StringArrayOutput)
 }
 
-// The comparison expression to be used in the report.
 type ReportConfigComparisonExpressionResponse struct {
-	// The name of the column to use in comparison.
-	Name string `pulumi:"name"`
-	// The operator to use for comparison.
-	Operator string `pulumi:"operator"`
-	// Array of values to use for comparison
-	Values []string `pulumi:"values"`
+	Name     string   `pulumi:"name"`
+	Operator string   `pulumi:"operator"`
+	Values   []string `pulumi:"values"`
 }
 
 // ReportConfigComparisonExpressionResponseInput is an input type that accepts ReportConfigComparisonExpressionResponseArgs and ReportConfigComparisonExpressionResponseOutput values.
@@ -4104,14 +3870,10 @@ type ReportConfigComparisonExpressionResponseInput interface {
 	ToReportConfigComparisonExpressionResponseOutputWithContext(context.Context) ReportConfigComparisonExpressionResponseOutput
 }
 
-// The comparison expression to be used in the report.
 type ReportConfigComparisonExpressionResponseArgs struct {
-	// The name of the column to use in comparison.
-	Name pulumi.StringInput `pulumi:"name"`
-	// The operator to use for comparison.
-	Operator pulumi.StringInput `pulumi:"operator"`
-	// Array of values to use for comparison
-	Values pulumi.StringArrayInput `pulumi:"values"`
+	Name     pulumi.StringInput      `pulumi:"name"`
+	Operator pulumi.StringInput      `pulumi:"operator"`
+	Values   pulumi.StringArrayInput `pulumi:"values"`
 }
 
 func (ReportConfigComparisonExpressionResponseArgs) ElementType() reflect.Type {
@@ -4167,7 +3929,6 @@ func (i *reportConfigComparisonExpressionResponsePtrType) ToReportConfigComparis
 	return pulumi.ToOutputWithContext(ctx, i).(ReportConfigComparisonExpressionResponsePtrOutput)
 }
 
-// The comparison expression to be used in the report.
 type ReportConfigComparisonExpressionResponseOutput struct{ *pulumi.OutputState }
 
 func (ReportConfigComparisonExpressionResponseOutput) ElementType() reflect.Type {
@@ -4187,22 +3948,19 @@ func (o ReportConfigComparisonExpressionResponseOutput) ToReportConfigComparison
 }
 
 func (o ReportConfigComparisonExpressionResponseOutput) ToReportConfigComparisonExpressionResponsePtrOutputWithContext(ctx context.Context) ReportConfigComparisonExpressionResponsePtrOutput {
-	return o.ApplyT(func(v ReportConfigComparisonExpressionResponse) *ReportConfigComparisonExpressionResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ReportConfigComparisonExpressionResponse) *ReportConfigComparisonExpressionResponse {
 		return &v
 	}).(ReportConfigComparisonExpressionResponsePtrOutput)
 }
 
-// The name of the column to use in comparison.
 func (o ReportConfigComparisonExpressionResponseOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v ReportConfigComparisonExpressionResponse) string { return v.Name }).(pulumi.StringOutput)
 }
 
-// The operator to use for comparison.
 func (o ReportConfigComparisonExpressionResponseOutput) Operator() pulumi.StringOutput {
 	return o.ApplyT(func(v ReportConfigComparisonExpressionResponse) string { return v.Operator }).(pulumi.StringOutput)
 }
 
-// Array of values to use for comparison
 func (o ReportConfigComparisonExpressionResponseOutput) Values() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v ReportConfigComparisonExpressionResponse) []string { return v.Values }).(pulumi.StringArrayOutput)
 }
@@ -4222,10 +3980,15 @@ func (o ReportConfigComparisonExpressionResponsePtrOutput) ToReportConfigCompari
 }
 
 func (o ReportConfigComparisonExpressionResponsePtrOutput) Elem() ReportConfigComparisonExpressionResponseOutput {
-	return o.ApplyT(func(v *ReportConfigComparisonExpressionResponse) ReportConfigComparisonExpressionResponse { return *v }).(ReportConfigComparisonExpressionResponseOutput)
+	return o.ApplyT(func(v *ReportConfigComparisonExpressionResponse) ReportConfigComparisonExpressionResponse {
+		if v != nil {
+			return *v
+		}
+		var ret ReportConfigComparisonExpressionResponse
+		return ret
+	}).(ReportConfigComparisonExpressionResponseOutput)
 }
 
-// The name of the column to use in comparison.
 func (o ReportConfigComparisonExpressionResponsePtrOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ReportConfigComparisonExpressionResponse) *string {
 		if v == nil {
@@ -4235,7 +3998,6 @@ func (o ReportConfigComparisonExpressionResponsePtrOutput) Name() pulumi.StringP
 	}).(pulumi.StringPtrOutput)
 }
 
-// The operator to use for comparison.
 func (o ReportConfigComparisonExpressionResponsePtrOutput) Operator() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ReportConfigComparisonExpressionResponse) *string {
 		if v == nil {
@@ -4245,7 +4007,6 @@ func (o ReportConfigComparisonExpressionResponsePtrOutput) Operator() pulumi.Str
 	}).(pulumi.StringPtrOutput)
 }
 
-// Array of values to use for comparison
 func (o ReportConfigComparisonExpressionResponsePtrOutput) Values() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *ReportConfigComparisonExpressionResponse) []string {
 		if v == nil {
@@ -4255,20 +4016,13 @@ func (o ReportConfigComparisonExpressionResponsePtrOutput) Values() pulumi.Strin
 	}).(pulumi.StringArrayOutput)
 }
 
-// The definition of data present in the report.
 type ReportConfigDataset struct {
-	// Dictionary of aggregation expression to use in the report. The key of each item in the dictionary is the alias for the aggregated column. Report can have up to 2 aggregation clauses.
-	Aggregation map[string]ReportConfigAggregation `pulumi:"aggregation"`
-	// Has configuration information for the data in the report. The configuration will be ignored if aggregation and grouping are provided.
-	Configuration *ReportConfigDatasetConfiguration `pulumi:"configuration"`
-	// Has filter expression to use in the report.
-	Filter *ReportConfigFilter `pulumi:"filter"`
-	// The granularity of rows in the report.
-	Granularity *string `pulumi:"granularity"`
-	// Array of group by expression to use in the report. Report can have up to 2 group by clauses.
-	Grouping []ReportConfigGrouping `pulumi:"grouping"`
-	// Array of order by expression to use in the report.
-	Sorting []ReportConfigSorting `pulumi:"sorting"`
+	Aggregation   map[string]ReportConfigAggregation `pulumi:"aggregation"`
+	Configuration *ReportConfigDatasetConfiguration  `pulumi:"configuration"`
+	Filter        *ReportConfigFilter                `pulumi:"filter"`
+	Granularity   *string                            `pulumi:"granularity"`
+	Grouping      []ReportConfigGrouping             `pulumi:"grouping"`
+	Sorting       []ReportConfigSorting              `pulumi:"sorting"`
 }
 
 // ReportConfigDatasetInput is an input type that accepts ReportConfigDatasetArgs and ReportConfigDatasetOutput values.
@@ -4282,20 +4036,13 @@ type ReportConfigDatasetInput interface {
 	ToReportConfigDatasetOutputWithContext(context.Context) ReportConfigDatasetOutput
 }
 
-// The definition of data present in the report.
 type ReportConfigDatasetArgs struct {
-	// Dictionary of aggregation expression to use in the report. The key of each item in the dictionary is the alias for the aggregated column. Report can have up to 2 aggregation clauses.
-	Aggregation ReportConfigAggregationMapInput `pulumi:"aggregation"`
-	// Has configuration information for the data in the report. The configuration will be ignored if aggregation and grouping are provided.
+	Aggregation   ReportConfigAggregationMapInput          `pulumi:"aggregation"`
 	Configuration ReportConfigDatasetConfigurationPtrInput `pulumi:"configuration"`
-	// Has filter expression to use in the report.
-	Filter ReportConfigFilterPtrInput `pulumi:"filter"`
-	// The granularity of rows in the report.
-	Granularity pulumi.StringPtrInput `pulumi:"granularity"`
-	// Array of group by expression to use in the report. Report can have up to 2 group by clauses.
-	Grouping ReportConfigGroupingArrayInput `pulumi:"grouping"`
-	// Array of order by expression to use in the report.
-	Sorting ReportConfigSortingArrayInput `pulumi:"sorting"`
+	Filter        ReportConfigFilterPtrInput               `pulumi:"filter"`
+	Granularity   pulumi.StringPtrInput                    `pulumi:"granularity"`
+	Grouping      ReportConfigGroupingArrayInput           `pulumi:"grouping"`
+	Sorting       ReportConfigSortingArrayInput            `pulumi:"sorting"`
 }
 
 func (ReportConfigDatasetArgs) ElementType() reflect.Type {
@@ -4351,7 +4098,6 @@ func (i *reportConfigDatasetPtrType) ToReportConfigDatasetPtrOutputWithContext(c
 	return pulumi.ToOutputWithContext(ctx, i).(ReportConfigDatasetPtrOutput)
 }
 
-// The definition of data present in the report.
 type ReportConfigDatasetOutput struct{ *pulumi.OutputState }
 
 func (ReportConfigDatasetOutput) ElementType() reflect.Type {
@@ -4371,37 +4117,31 @@ func (o ReportConfigDatasetOutput) ToReportConfigDatasetPtrOutput() ReportConfig
 }
 
 func (o ReportConfigDatasetOutput) ToReportConfigDatasetPtrOutputWithContext(ctx context.Context) ReportConfigDatasetPtrOutput {
-	return o.ApplyT(func(v ReportConfigDataset) *ReportConfigDataset {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ReportConfigDataset) *ReportConfigDataset {
 		return &v
 	}).(ReportConfigDatasetPtrOutput)
 }
 
-// Dictionary of aggregation expression to use in the report. The key of each item in the dictionary is the alias for the aggregated column. Report can have up to 2 aggregation clauses.
 func (o ReportConfigDatasetOutput) Aggregation() ReportConfigAggregationMapOutput {
 	return o.ApplyT(func(v ReportConfigDataset) map[string]ReportConfigAggregation { return v.Aggregation }).(ReportConfigAggregationMapOutput)
 }
 
-// Has configuration information for the data in the report. The configuration will be ignored if aggregation and grouping are provided.
 func (o ReportConfigDatasetOutput) Configuration() ReportConfigDatasetConfigurationPtrOutput {
 	return o.ApplyT(func(v ReportConfigDataset) *ReportConfigDatasetConfiguration { return v.Configuration }).(ReportConfigDatasetConfigurationPtrOutput)
 }
 
-// Has filter expression to use in the report.
 func (o ReportConfigDatasetOutput) Filter() ReportConfigFilterPtrOutput {
 	return o.ApplyT(func(v ReportConfigDataset) *ReportConfigFilter { return v.Filter }).(ReportConfigFilterPtrOutput)
 }
 
-// The granularity of rows in the report.
 func (o ReportConfigDatasetOutput) Granularity() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ReportConfigDataset) *string { return v.Granularity }).(pulumi.StringPtrOutput)
 }
 
-// Array of group by expression to use in the report. Report can have up to 2 group by clauses.
 func (o ReportConfigDatasetOutput) Grouping() ReportConfigGroupingArrayOutput {
 	return o.ApplyT(func(v ReportConfigDataset) []ReportConfigGrouping { return v.Grouping }).(ReportConfigGroupingArrayOutput)
 }
 
-// Array of order by expression to use in the report.
 func (o ReportConfigDatasetOutput) Sorting() ReportConfigSortingArrayOutput {
 	return o.ApplyT(func(v ReportConfigDataset) []ReportConfigSorting { return v.Sorting }).(ReportConfigSortingArrayOutput)
 }
@@ -4421,10 +4161,15 @@ func (o ReportConfigDatasetPtrOutput) ToReportConfigDatasetPtrOutputWithContext(
 }
 
 func (o ReportConfigDatasetPtrOutput) Elem() ReportConfigDatasetOutput {
-	return o.ApplyT(func(v *ReportConfigDataset) ReportConfigDataset { return *v }).(ReportConfigDatasetOutput)
+	return o.ApplyT(func(v *ReportConfigDataset) ReportConfigDataset {
+		if v != nil {
+			return *v
+		}
+		var ret ReportConfigDataset
+		return ret
+	}).(ReportConfigDatasetOutput)
 }
 
-// Dictionary of aggregation expression to use in the report. The key of each item in the dictionary is the alias for the aggregated column. Report can have up to 2 aggregation clauses.
 func (o ReportConfigDatasetPtrOutput) Aggregation() ReportConfigAggregationMapOutput {
 	return o.ApplyT(func(v *ReportConfigDataset) map[string]ReportConfigAggregation {
 		if v == nil {
@@ -4434,7 +4179,6 @@ func (o ReportConfigDatasetPtrOutput) Aggregation() ReportConfigAggregationMapOu
 	}).(ReportConfigAggregationMapOutput)
 }
 
-// Has configuration information for the data in the report. The configuration will be ignored if aggregation and grouping are provided.
 func (o ReportConfigDatasetPtrOutput) Configuration() ReportConfigDatasetConfigurationPtrOutput {
 	return o.ApplyT(func(v *ReportConfigDataset) *ReportConfigDatasetConfiguration {
 		if v == nil {
@@ -4444,7 +4188,6 @@ func (o ReportConfigDatasetPtrOutput) Configuration() ReportConfigDatasetConfigu
 	}).(ReportConfigDatasetConfigurationPtrOutput)
 }
 
-// Has filter expression to use in the report.
 func (o ReportConfigDatasetPtrOutput) Filter() ReportConfigFilterPtrOutput {
 	return o.ApplyT(func(v *ReportConfigDataset) *ReportConfigFilter {
 		if v == nil {
@@ -4454,7 +4197,6 @@ func (o ReportConfigDatasetPtrOutput) Filter() ReportConfigFilterPtrOutput {
 	}).(ReportConfigFilterPtrOutput)
 }
 
-// The granularity of rows in the report.
 func (o ReportConfigDatasetPtrOutput) Granularity() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ReportConfigDataset) *string {
 		if v == nil {
@@ -4464,7 +4206,6 @@ func (o ReportConfigDatasetPtrOutput) Granularity() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Array of group by expression to use in the report. Report can have up to 2 group by clauses.
 func (o ReportConfigDatasetPtrOutput) Grouping() ReportConfigGroupingArrayOutput {
 	return o.ApplyT(func(v *ReportConfigDataset) []ReportConfigGrouping {
 		if v == nil {
@@ -4474,7 +4215,6 @@ func (o ReportConfigDatasetPtrOutput) Grouping() ReportConfigGroupingArrayOutput
 	}).(ReportConfigGroupingArrayOutput)
 }
 
-// Array of order by expression to use in the report.
 func (o ReportConfigDatasetPtrOutput) Sorting() ReportConfigSortingArrayOutput {
 	return o.ApplyT(func(v *ReportConfigDataset) []ReportConfigSorting {
 		if v == nil {
@@ -4484,9 +4224,7 @@ func (o ReportConfigDatasetPtrOutput) Sorting() ReportConfigSortingArrayOutput {
 	}).(ReportConfigSortingArrayOutput)
 }
 
-// The configuration of dataset in the report.
 type ReportConfigDatasetConfiguration struct {
-	// Array of column names to be included in the report. Any valid report column name is allowed. If not provided, then report includes all columns.
 	Columns []string `pulumi:"columns"`
 }
 
@@ -4501,9 +4239,7 @@ type ReportConfigDatasetConfigurationInput interface {
 	ToReportConfigDatasetConfigurationOutputWithContext(context.Context) ReportConfigDatasetConfigurationOutput
 }
 
-// The configuration of dataset in the report.
 type ReportConfigDatasetConfigurationArgs struct {
-	// Array of column names to be included in the report. Any valid report column name is allowed. If not provided, then report includes all columns.
 	Columns pulumi.StringArrayInput `pulumi:"columns"`
 }
 
@@ -4560,7 +4296,6 @@ func (i *reportConfigDatasetConfigurationPtrType) ToReportConfigDatasetConfigura
 	return pulumi.ToOutputWithContext(ctx, i).(ReportConfigDatasetConfigurationPtrOutput)
 }
 
-// The configuration of dataset in the report.
 type ReportConfigDatasetConfigurationOutput struct{ *pulumi.OutputState }
 
 func (ReportConfigDatasetConfigurationOutput) ElementType() reflect.Type {
@@ -4580,12 +4315,11 @@ func (o ReportConfigDatasetConfigurationOutput) ToReportConfigDatasetConfigurati
 }
 
 func (o ReportConfigDatasetConfigurationOutput) ToReportConfigDatasetConfigurationPtrOutputWithContext(ctx context.Context) ReportConfigDatasetConfigurationPtrOutput {
-	return o.ApplyT(func(v ReportConfigDatasetConfiguration) *ReportConfigDatasetConfiguration {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ReportConfigDatasetConfiguration) *ReportConfigDatasetConfiguration {
 		return &v
 	}).(ReportConfigDatasetConfigurationPtrOutput)
 }
 
-// Array of column names to be included in the report. Any valid report column name is allowed. If not provided, then report includes all columns.
 func (o ReportConfigDatasetConfigurationOutput) Columns() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v ReportConfigDatasetConfiguration) []string { return v.Columns }).(pulumi.StringArrayOutput)
 }
@@ -4605,10 +4339,15 @@ func (o ReportConfigDatasetConfigurationPtrOutput) ToReportConfigDatasetConfigur
 }
 
 func (o ReportConfigDatasetConfigurationPtrOutput) Elem() ReportConfigDatasetConfigurationOutput {
-	return o.ApplyT(func(v *ReportConfigDatasetConfiguration) ReportConfigDatasetConfiguration { return *v }).(ReportConfigDatasetConfigurationOutput)
+	return o.ApplyT(func(v *ReportConfigDatasetConfiguration) ReportConfigDatasetConfiguration {
+		if v != nil {
+			return *v
+		}
+		var ret ReportConfigDatasetConfiguration
+		return ret
+	}).(ReportConfigDatasetConfigurationOutput)
 }
 
-// Array of column names to be included in the report. Any valid report column name is allowed. If not provided, then report includes all columns.
 func (o ReportConfigDatasetConfigurationPtrOutput) Columns() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *ReportConfigDatasetConfiguration) []string {
 		if v == nil {
@@ -4618,9 +4357,7 @@ func (o ReportConfigDatasetConfigurationPtrOutput) Columns() pulumi.StringArrayO
 	}).(pulumi.StringArrayOutput)
 }
 
-// The configuration of dataset in the report.
 type ReportConfigDatasetConfigurationResponse struct {
-	// Array of column names to be included in the report. Any valid report column name is allowed. If not provided, then report includes all columns.
 	Columns []string `pulumi:"columns"`
 }
 
@@ -4635,9 +4372,7 @@ type ReportConfigDatasetConfigurationResponseInput interface {
 	ToReportConfigDatasetConfigurationResponseOutputWithContext(context.Context) ReportConfigDatasetConfigurationResponseOutput
 }
 
-// The configuration of dataset in the report.
 type ReportConfigDatasetConfigurationResponseArgs struct {
-	// Array of column names to be included in the report. Any valid report column name is allowed. If not provided, then report includes all columns.
 	Columns pulumi.StringArrayInput `pulumi:"columns"`
 }
 
@@ -4694,7 +4429,6 @@ func (i *reportConfigDatasetConfigurationResponsePtrType) ToReportConfigDatasetC
 	return pulumi.ToOutputWithContext(ctx, i).(ReportConfigDatasetConfigurationResponsePtrOutput)
 }
 
-// The configuration of dataset in the report.
 type ReportConfigDatasetConfigurationResponseOutput struct{ *pulumi.OutputState }
 
 func (ReportConfigDatasetConfigurationResponseOutput) ElementType() reflect.Type {
@@ -4714,12 +4448,11 @@ func (o ReportConfigDatasetConfigurationResponseOutput) ToReportConfigDatasetCon
 }
 
 func (o ReportConfigDatasetConfigurationResponseOutput) ToReportConfigDatasetConfigurationResponsePtrOutputWithContext(ctx context.Context) ReportConfigDatasetConfigurationResponsePtrOutput {
-	return o.ApplyT(func(v ReportConfigDatasetConfigurationResponse) *ReportConfigDatasetConfigurationResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ReportConfigDatasetConfigurationResponse) *ReportConfigDatasetConfigurationResponse {
 		return &v
 	}).(ReportConfigDatasetConfigurationResponsePtrOutput)
 }
 
-// Array of column names to be included in the report. Any valid report column name is allowed. If not provided, then report includes all columns.
 func (o ReportConfigDatasetConfigurationResponseOutput) Columns() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v ReportConfigDatasetConfigurationResponse) []string { return v.Columns }).(pulumi.StringArrayOutput)
 }
@@ -4739,10 +4472,15 @@ func (o ReportConfigDatasetConfigurationResponsePtrOutput) ToReportConfigDataset
 }
 
 func (o ReportConfigDatasetConfigurationResponsePtrOutput) Elem() ReportConfigDatasetConfigurationResponseOutput {
-	return o.ApplyT(func(v *ReportConfigDatasetConfigurationResponse) ReportConfigDatasetConfigurationResponse { return *v }).(ReportConfigDatasetConfigurationResponseOutput)
+	return o.ApplyT(func(v *ReportConfigDatasetConfigurationResponse) ReportConfigDatasetConfigurationResponse {
+		if v != nil {
+			return *v
+		}
+		var ret ReportConfigDatasetConfigurationResponse
+		return ret
+	}).(ReportConfigDatasetConfigurationResponseOutput)
 }
 
-// Array of column names to be included in the report. Any valid report column name is allowed. If not provided, then report includes all columns.
 func (o ReportConfigDatasetConfigurationResponsePtrOutput) Columns() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *ReportConfigDatasetConfigurationResponse) []string {
 		if v == nil {
@@ -4752,20 +4490,13 @@ func (o ReportConfigDatasetConfigurationResponsePtrOutput) Columns() pulumi.Stri
 	}).(pulumi.StringArrayOutput)
 }
 
-// The definition of data present in the report.
 type ReportConfigDatasetResponse struct {
-	// Dictionary of aggregation expression to use in the report. The key of each item in the dictionary is the alias for the aggregated column. Report can have up to 2 aggregation clauses.
-	Aggregation map[string]ReportConfigAggregationResponse `pulumi:"aggregation"`
-	// Has configuration information for the data in the report. The configuration will be ignored if aggregation and grouping are provided.
-	Configuration *ReportConfigDatasetConfigurationResponse `pulumi:"configuration"`
-	// Has filter expression to use in the report.
-	Filter *ReportConfigFilterResponse `pulumi:"filter"`
-	// The granularity of rows in the report.
-	Granularity *string `pulumi:"granularity"`
-	// Array of group by expression to use in the report. Report can have up to 2 group by clauses.
-	Grouping []ReportConfigGroupingResponse `pulumi:"grouping"`
-	// Array of order by expression to use in the report.
-	Sorting []ReportConfigSortingResponse `pulumi:"sorting"`
+	Aggregation   map[string]ReportConfigAggregationResponse `pulumi:"aggregation"`
+	Configuration *ReportConfigDatasetConfigurationResponse  `pulumi:"configuration"`
+	Filter        *ReportConfigFilterResponse                `pulumi:"filter"`
+	Granularity   *string                                    `pulumi:"granularity"`
+	Grouping      []ReportConfigGroupingResponse             `pulumi:"grouping"`
+	Sorting       []ReportConfigSortingResponse              `pulumi:"sorting"`
 }
 
 // ReportConfigDatasetResponseInput is an input type that accepts ReportConfigDatasetResponseArgs and ReportConfigDatasetResponseOutput values.
@@ -4779,20 +4510,13 @@ type ReportConfigDatasetResponseInput interface {
 	ToReportConfigDatasetResponseOutputWithContext(context.Context) ReportConfigDatasetResponseOutput
 }
 
-// The definition of data present in the report.
 type ReportConfigDatasetResponseArgs struct {
-	// Dictionary of aggregation expression to use in the report. The key of each item in the dictionary is the alias for the aggregated column. Report can have up to 2 aggregation clauses.
-	Aggregation ReportConfigAggregationResponseMapInput `pulumi:"aggregation"`
-	// Has configuration information for the data in the report. The configuration will be ignored if aggregation and grouping are provided.
+	Aggregation   ReportConfigAggregationResponseMapInput          `pulumi:"aggregation"`
 	Configuration ReportConfigDatasetConfigurationResponsePtrInput `pulumi:"configuration"`
-	// Has filter expression to use in the report.
-	Filter ReportConfigFilterResponsePtrInput `pulumi:"filter"`
-	// The granularity of rows in the report.
-	Granularity pulumi.StringPtrInput `pulumi:"granularity"`
-	// Array of group by expression to use in the report. Report can have up to 2 group by clauses.
-	Grouping ReportConfigGroupingResponseArrayInput `pulumi:"grouping"`
-	// Array of order by expression to use in the report.
-	Sorting ReportConfigSortingResponseArrayInput `pulumi:"sorting"`
+	Filter        ReportConfigFilterResponsePtrInput               `pulumi:"filter"`
+	Granularity   pulumi.StringPtrInput                            `pulumi:"granularity"`
+	Grouping      ReportConfigGroupingResponseArrayInput           `pulumi:"grouping"`
+	Sorting       ReportConfigSortingResponseArrayInput            `pulumi:"sorting"`
 }
 
 func (ReportConfigDatasetResponseArgs) ElementType() reflect.Type {
@@ -4848,7 +4572,6 @@ func (i *reportConfigDatasetResponsePtrType) ToReportConfigDatasetResponsePtrOut
 	return pulumi.ToOutputWithContext(ctx, i).(ReportConfigDatasetResponsePtrOutput)
 }
 
-// The definition of data present in the report.
 type ReportConfigDatasetResponseOutput struct{ *pulumi.OutputState }
 
 func (ReportConfigDatasetResponseOutput) ElementType() reflect.Type {
@@ -4868,37 +4591,31 @@ func (o ReportConfigDatasetResponseOutput) ToReportConfigDatasetResponsePtrOutpu
 }
 
 func (o ReportConfigDatasetResponseOutput) ToReportConfigDatasetResponsePtrOutputWithContext(ctx context.Context) ReportConfigDatasetResponsePtrOutput {
-	return o.ApplyT(func(v ReportConfigDatasetResponse) *ReportConfigDatasetResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ReportConfigDatasetResponse) *ReportConfigDatasetResponse {
 		return &v
 	}).(ReportConfigDatasetResponsePtrOutput)
 }
 
-// Dictionary of aggregation expression to use in the report. The key of each item in the dictionary is the alias for the aggregated column. Report can have up to 2 aggregation clauses.
 func (o ReportConfigDatasetResponseOutput) Aggregation() ReportConfigAggregationResponseMapOutput {
 	return o.ApplyT(func(v ReportConfigDatasetResponse) map[string]ReportConfigAggregationResponse { return v.Aggregation }).(ReportConfigAggregationResponseMapOutput)
 }
 
-// Has configuration information for the data in the report. The configuration will be ignored if aggregation and grouping are provided.
 func (o ReportConfigDatasetResponseOutput) Configuration() ReportConfigDatasetConfigurationResponsePtrOutput {
 	return o.ApplyT(func(v ReportConfigDatasetResponse) *ReportConfigDatasetConfigurationResponse { return v.Configuration }).(ReportConfigDatasetConfigurationResponsePtrOutput)
 }
 
-// Has filter expression to use in the report.
 func (o ReportConfigDatasetResponseOutput) Filter() ReportConfigFilterResponsePtrOutput {
 	return o.ApplyT(func(v ReportConfigDatasetResponse) *ReportConfigFilterResponse { return v.Filter }).(ReportConfigFilterResponsePtrOutput)
 }
 
-// The granularity of rows in the report.
 func (o ReportConfigDatasetResponseOutput) Granularity() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ReportConfigDatasetResponse) *string { return v.Granularity }).(pulumi.StringPtrOutput)
 }
 
-// Array of group by expression to use in the report. Report can have up to 2 group by clauses.
 func (o ReportConfigDatasetResponseOutput) Grouping() ReportConfigGroupingResponseArrayOutput {
 	return o.ApplyT(func(v ReportConfigDatasetResponse) []ReportConfigGroupingResponse { return v.Grouping }).(ReportConfigGroupingResponseArrayOutput)
 }
 
-// Array of order by expression to use in the report.
 func (o ReportConfigDatasetResponseOutput) Sorting() ReportConfigSortingResponseArrayOutput {
 	return o.ApplyT(func(v ReportConfigDatasetResponse) []ReportConfigSortingResponse { return v.Sorting }).(ReportConfigSortingResponseArrayOutput)
 }
@@ -4918,10 +4635,15 @@ func (o ReportConfigDatasetResponsePtrOutput) ToReportConfigDatasetResponsePtrOu
 }
 
 func (o ReportConfigDatasetResponsePtrOutput) Elem() ReportConfigDatasetResponseOutput {
-	return o.ApplyT(func(v *ReportConfigDatasetResponse) ReportConfigDatasetResponse { return *v }).(ReportConfigDatasetResponseOutput)
+	return o.ApplyT(func(v *ReportConfigDatasetResponse) ReportConfigDatasetResponse {
+		if v != nil {
+			return *v
+		}
+		var ret ReportConfigDatasetResponse
+		return ret
+	}).(ReportConfigDatasetResponseOutput)
 }
 
-// Dictionary of aggregation expression to use in the report. The key of each item in the dictionary is the alias for the aggregated column. Report can have up to 2 aggregation clauses.
 func (o ReportConfigDatasetResponsePtrOutput) Aggregation() ReportConfigAggregationResponseMapOutput {
 	return o.ApplyT(func(v *ReportConfigDatasetResponse) map[string]ReportConfigAggregationResponse {
 		if v == nil {
@@ -4931,7 +4653,6 @@ func (o ReportConfigDatasetResponsePtrOutput) Aggregation() ReportConfigAggregat
 	}).(ReportConfigAggregationResponseMapOutput)
 }
 
-// Has configuration information for the data in the report. The configuration will be ignored if aggregation and grouping are provided.
 func (o ReportConfigDatasetResponsePtrOutput) Configuration() ReportConfigDatasetConfigurationResponsePtrOutput {
 	return o.ApplyT(func(v *ReportConfigDatasetResponse) *ReportConfigDatasetConfigurationResponse {
 		if v == nil {
@@ -4941,7 +4662,6 @@ func (o ReportConfigDatasetResponsePtrOutput) Configuration() ReportConfigDatase
 	}).(ReportConfigDatasetConfigurationResponsePtrOutput)
 }
 
-// Has filter expression to use in the report.
 func (o ReportConfigDatasetResponsePtrOutput) Filter() ReportConfigFilterResponsePtrOutput {
 	return o.ApplyT(func(v *ReportConfigDatasetResponse) *ReportConfigFilterResponse {
 		if v == nil {
@@ -4951,7 +4671,6 @@ func (o ReportConfigDatasetResponsePtrOutput) Filter() ReportConfigFilterRespons
 	}).(ReportConfigFilterResponsePtrOutput)
 }
 
-// The granularity of rows in the report.
 func (o ReportConfigDatasetResponsePtrOutput) Granularity() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ReportConfigDatasetResponse) *string {
 		if v == nil {
@@ -4961,7 +4680,6 @@ func (o ReportConfigDatasetResponsePtrOutput) Granularity() pulumi.StringPtrOutp
 	}).(pulumi.StringPtrOutput)
 }
 
-// Array of group by expression to use in the report. Report can have up to 2 group by clauses.
 func (o ReportConfigDatasetResponsePtrOutput) Grouping() ReportConfigGroupingResponseArrayOutput {
 	return o.ApplyT(func(v *ReportConfigDatasetResponse) []ReportConfigGroupingResponse {
 		if v == nil {
@@ -4971,7 +4689,6 @@ func (o ReportConfigDatasetResponsePtrOutput) Grouping() ReportConfigGroupingRes
 	}).(ReportConfigGroupingResponseArrayOutput)
 }
 
-// Array of order by expression to use in the report.
 func (o ReportConfigDatasetResponsePtrOutput) Sorting() ReportConfigSortingResponseArrayOutput {
 	return o.ApplyT(func(v *ReportConfigDatasetResponse) []ReportConfigSortingResponse {
 		if v == nil {
@@ -4981,18 +4698,12 @@ func (o ReportConfigDatasetResponsePtrOutput) Sorting() ReportConfigSortingRespo
 	}).(ReportConfigSortingResponseArrayOutput)
 }
 
-// The filter expression to be used in the report.
 type ReportConfigFilter struct {
-	// The logical "AND" expression. Must have at least 2 items.
-	And []ReportConfigFilter `pulumi:"and"`
-	// Has comparison expression for a dimension
+	And       []ReportConfigFilter              `pulumi:"and"`
 	Dimension *ReportConfigComparisonExpression `pulumi:"dimension"`
-	// The logical "NOT" expression.
-	Not *ReportConfigFilter `pulumi:"not"`
-	// The logical "OR" expression. Must have at least 2 items.
-	Or []ReportConfigFilter `pulumi:"or"`
-	// Has comparison expression for a tag
-	Tag *ReportConfigComparisonExpression `pulumi:"tag"`
+	Not       *ReportConfigFilter               `pulumi:"not"`
+	Or        []ReportConfigFilter              `pulumi:"or"`
+	Tag       *ReportConfigComparisonExpression `pulumi:"tag"`
 }
 
 // ReportConfigFilterInput is an input type that accepts ReportConfigFilterArgs and ReportConfigFilterOutput values.
@@ -5006,18 +4717,12 @@ type ReportConfigFilterInput interface {
 	ToReportConfigFilterOutputWithContext(context.Context) ReportConfigFilterOutput
 }
 
-// The filter expression to be used in the report.
 type ReportConfigFilterArgs struct {
-	// The logical "AND" expression. Must have at least 2 items.
-	And ReportConfigFilterArrayInput `pulumi:"and"`
-	// Has comparison expression for a dimension
+	And       ReportConfigFilterArrayInput             `pulumi:"and"`
 	Dimension ReportConfigComparisonExpressionPtrInput `pulumi:"dimension"`
-	// The logical "NOT" expression.
-	Not ReportConfigFilterPtrInput `pulumi:"not"`
-	// The logical "OR" expression. Must have at least 2 items.
-	Or ReportConfigFilterArrayInput `pulumi:"or"`
-	// Has comparison expression for a tag
-	Tag ReportConfigComparisonExpressionPtrInput `pulumi:"tag"`
+	Not       ReportConfigFilterPtrInput               `pulumi:"not"`
+	Or        ReportConfigFilterArrayInput             `pulumi:"or"`
+	Tag       ReportConfigComparisonExpressionPtrInput `pulumi:"tag"`
 }
 
 func (ReportConfigFilterArgs) ElementType() reflect.Type {
@@ -5098,7 +4803,6 @@ func (i ReportConfigFilterArray) ToReportConfigFilterArrayOutputWithContext(ctx 
 	return pulumi.ToOutputWithContext(ctx, i).(ReportConfigFilterArrayOutput)
 }
 
-// The filter expression to be used in the report.
 type ReportConfigFilterOutput struct{ *pulumi.OutputState }
 
 func (ReportConfigFilterOutput) ElementType() reflect.Type {
@@ -5118,32 +4822,27 @@ func (o ReportConfigFilterOutput) ToReportConfigFilterPtrOutput() ReportConfigFi
 }
 
 func (o ReportConfigFilterOutput) ToReportConfigFilterPtrOutputWithContext(ctx context.Context) ReportConfigFilterPtrOutput {
-	return o.ApplyT(func(v ReportConfigFilter) *ReportConfigFilter {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ReportConfigFilter) *ReportConfigFilter {
 		return &v
 	}).(ReportConfigFilterPtrOutput)
 }
 
-// The logical "AND" expression. Must have at least 2 items.
 func (o ReportConfigFilterOutput) And() ReportConfigFilterArrayOutput {
 	return o.ApplyT(func(v ReportConfigFilter) []ReportConfigFilter { return v.And }).(ReportConfigFilterArrayOutput)
 }
 
-// Has comparison expression for a dimension
 func (o ReportConfigFilterOutput) Dimension() ReportConfigComparisonExpressionPtrOutput {
 	return o.ApplyT(func(v ReportConfigFilter) *ReportConfigComparisonExpression { return v.Dimension }).(ReportConfigComparisonExpressionPtrOutput)
 }
 
-// The logical "NOT" expression.
 func (o ReportConfigFilterOutput) Not() ReportConfigFilterPtrOutput {
 	return o.ApplyT(func(v ReportConfigFilter) *ReportConfigFilter { return v.Not }).(ReportConfigFilterPtrOutput)
 }
 
-// The logical "OR" expression. Must have at least 2 items.
 func (o ReportConfigFilterOutput) Or() ReportConfigFilterArrayOutput {
 	return o.ApplyT(func(v ReportConfigFilter) []ReportConfigFilter { return v.Or }).(ReportConfigFilterArrayOutput)
 }
 
-// Has comparison expression for a tag
 func (o ReportConfigFilterOutput) Tag() ReportConfigComparisonExpressionPtrOutput {
 	return o.ApplyT(func(v ReportConfigFilter) *ReportConfigComparisonExpression { return v.Tag }).(ReportConfigComparisonExpressionPtrOutput)
 }
@@ -5163,10 +4862,15 @@ func (o ReportConfigFilterPtrOutput) ToReportConfigFilterPtrOutputWithContext(ct
 }
 
 func (o ReportConfigFilterPtrOutput) Elem() ReportConfigFilterOutput {
-	return o.ApplyT(func(v *ReportConfigFilter) ReportConfigFilter { return *v }).(ReportConfigFilterOutput)
+	return o.ApplyT(func(v *ReportConfigFilter) ReportConfigFilter {
+		if v != nil {
+			return *v
+		}
+		var ret ReportConfigFilter
+		return ret
+	}).(ReportConfigFilterOutput)
 }
 
-// The logical "AND" expression. Must have at least 2 items.
 func (o ReportConfigFilterPtrOutput) And() ReportConfigFilterArrayOutput {
 	return o.ApplyT(func(v *ReportConfigFilter) []ReportConfigFilter {
 		if v == nil {
@@ -5176,7 +4880,6 @@ func (o ReportConfigFilterPtrOutput) And() ReportConfigFilterArrayOutput {
 	}).(ReportConfigFilterArrayOutput)
 }
 
-// Has comparison expression for a dimension
 func (o ReportConfigFilterPtrOutput) Dimension() ReportConfigComparisonExpressionPtrOutput {
 	return o.ApplyT(func(v *ReportConfigFilter) *ReportConfigComparisonExpression {
 		if v == nil {
@@ -5186,7 +4889,6 @@ func (o ReportConfigFilterPtrOutput) Dimension() ReportConfigComparisonExpressio
 	}).(ReportConfigComparisonExpressionPtrOutput)
 }
 
-// The logical "NOT" expression.
 func (o ReportConfigFilterPtrOutput) Not() ReportConfigFilterPtrOutput {
 	return o.ApplyT(func(v *ReportConfigFilter) *ReportConfigFilter {
 		if v == nil {
@@ -5196,7 +4898,6 @@ func (o ReportConfigFilterPtrOutput) Not() ReportConfigFilterPtrOutput {
 	}).(ReportConfigFilterPtrOutput)
 }
 
-// The logical "OR" expression. Must have at least 2 items.
 func (o ReportConfigFilterPtrOutput) Or() ReportConfigFilterArrayOutput {
 	return o.ApplyT(func(v *ReportConfigFilter) []ReportConfigFilter {
 		if v == nil {
@@ -5206,7 +4907,6 @@ func (o ReportConfigFilterPtrOutput) Or() ReportConfigFilterArrayOutput {
 	}).(ReportConfigFilterArrayOutput)
 }
 
-// Has comparison expression for a tag
 func (o ReportConfigFilterPtrOutput) Tag() ReportConfigComparisonExpressionPtrOutput {
 	return o.ApplyT(func(v *ReportConfigFilter) *ReportConfigComparisonExpression {
 		if v == nil {
@@ -5236,18 +4936,12 @@ func (o ReportConfigFilterArrayOutput) Index(i pulumi.IntInput) ReportConfigFilt
 	}).(ReportConfigFilterOutput)
 }
 
-// The filter expression to be used in the report.
 type ReportConfigFilterResponse struct {
-	// The logical "AND" expression. Must have at least 2 items.
-	And []ReportConfigFilterResponse `pulumi:"and"`
-	// Has comparison expression for a dimension
+	And       []ReportConfigFilterResponse              `pulumi:"and"`
 	Dimension *ReportConfigComparisonExpressionResponse `pulumi:"dimension"`
-	// The logical "NOT" expression.
-	Not *ReportConfigFilterResponse `pulumi:"not"`
-	// The logical "OR" expression. Must have at least 2 items.
-	Or []ReportConfigFilterResponse `pulumi:"or"`
-	// Has comparison expression for a tag
-	Tag *ReportConfigComparisonExpressionResponse `pulumi:"tag"`
+	Not       *ReportConfigFilterResponse               `pulumi:"not"`
+	Or        []ReportConfigFilterResponse              `pulumi:"or"`
+	Tag       *ReportConfigComparisonExpressionResponse `pulumi:"tag"`
 }
 
 // ReportConfigFilterResponseInput is an input type that accepts ReportConfigFilterResponseArgs and ReportConfigFilterResponseOutput values.
@@ -5261,18 +4955,12 @@ type ReportConfigFilterResponseInput interface {
 	ToReportConfigFilterResponseOutputWithContext(context.Context) ReportConfigFilterResponseOutput
 }
 
-// The filter expression to be used in the report.
 type ReportConfigFilterResponseArgs struct {
-	// The logical "AND" expression. Must have at least 2 items.
-	And ReportConfigFilterResponseArrayInput `pulumi:"and"`
-	// Has comparison expression for a dimension
+	And       ReportConfigFilterResponseArrayInput             `pulumi:"and"`
 	Dimension ReportConfigComparisonExpressionResponsePtrInput `pulumi:"dimension"`
-	// The logical "NOT" expression.
-	Not ReportConfigFilterResponsePtrInput `pulumi:"not"`
-	// The logical "OR" expression. Must have at least 2 items.
-	Or ReportConfigFilterResponseArrayInput `pulumi:"or"`
-	// Has comparison expression for a tag
-	Tag ReportConfigComparisonExpressionResponsePtrInput `pulumi:"tag"`
+	Not       ReportConfigFilterResponsePtrInput               `pulumi:"not"`
+	Or        ReportConfigFilterResponseArrayInput             `pulumi:"or"`
+	Tag       ReportConfigComparisonExpressionResponsePtrInput `pulumi:"tag"`
 }
 
 func (ReportConfigFilterResponseArgs) ElementType() reflect.Type {
@@ -5353,7 +5041,6 @@ func (i ReportConfigFilterResponseArray) ToReportConfigFilterResponseArrayOutput
 	return pulumi.ToOutputWithContext(ctx, i).(ReportConfigFilterResponseArrayOutput)
 }
 
-// The filter expression to be used in the report.
 type ReportConfigFilterResponseOutput struct{ *pulumi.OutputState }
 
 func (ReportConfigFilterResponseOutput) ElementType() reflect.Type {
@@ -5373,32 +5060,27 @@ func (o ReportConfigFilterResponseOutput) ToReportConfigFilterResponsePtrOutput(
 }
 
 func (o ReportConfigFilterResponseOutput) ToReportConfigFilterResponsePtrOutputWithContext(ctx context.Context) ReportConfigFilterResponsePtrOutput {
-	return o.ApplyT(func(v ReportConfigFilterResponse) *ReportConfigFilterResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ReportConfigFilterResponse) *ReportConfigFilterResponse {
 		return &v
 	}).(ReportConfigFilterResponsePtrOutput)
 }
 
-// The logical "AND" expression. Must have at least 2 items.
 func (o ReportConfigFilterResponseOutput) And() ReportConfigFilterResponseArrayOutput {
 	return o.ApplyT(func(v ReportConfigFilterResponse) []ReportConfigFilterResponse { return v.And }).(ReportConfigFilterResponseArrayOutput)
 }
 
-// Has comparison expression for a dimension
 func (o ReportConfigFilterResponseOutput) Dimension() ReportConfigComparisonExpressionResponsePtrOutput {
 	return o.ApplyT(func(v ReportConfigFilterResponse) *ReportConfigComparisonExpressionResponse { return v.Dimension }).(ReportConfigComparisonExpressionResponsePtrOutput)
 }
 
-// The logical "NOT" expression.
 func (o ReportConfigFilterResponseOutput) Not() ReportConfigFilterResponsePtrOutput {
 	return o.ApplyT(func(v ReportConfigFilterResponse) *ReportConfigFilterResponse { return v.Not }).(ReportConfigFilterResponsePtrOutput)
 }
 
-// The logical "OR" expression. Must have at least 2 items.
 func (o ReportConfigFilterResponseOutput) Or() ReportConfigFilterResponseArrayOutput {
 	return o.ApplyT(func(v ReportConfigFilterResponse) []ReportConfigFilterResponse { return v.Or }).(ReportConfigFilterResponseArrayOutput)
 }
 
-// Has comparison expression for a tag
 func (o ReportConfigFilterResponseOutput) Tag() ReportConfigComparisonExpressionResponsePtrOutput {
 	return o.ApplyT(func(v ReportConfigFilterResponse) *ReportConfigComparisonExpressionResponse { return v.Tag }).(ReportConfigComparisonExpressionResponsePtrOutput)
 }
@@ -5418,10 +5100,15 @@ func (o ReportConfigFilterResponsePtrOutput) ToReportConfigFilterResponsePtrOutp
 }
 
 func (o ReportConfigFilterResponsePtrOutput) Elem() ReportConfigFilterResponseOutput {
-	return o.ApplyT(func(v *ReportConfigFilterResponse) ReportConfigFilterResponse { return *v }).(ReportConfigFilterResponseOutput)
+	return o.ApplyT(func(v *ReportConfigFilterResponse) ReportConfigFilterResponse {
+		if v != nil {
+			return *v
+		}
+		var ret ReportConfigFilterResponse
+		return ret
+	}).(ReportConfigFilterResponseOutput)
 }
 
-// The logical "AND" expression. Must have at least 2 items.
 func (o ReportConfigFilterResponsePtrOutput) And() ReportConfigFilterResponseArrayOutput {
 	return o.ApplyT(func(v *ReportConfigFilterResponse) []ReportConfigFilterResponse {
 		if v == nil {
@@ -5431,7 +5118,6 @@ func (o ReportConfigFilterResponsePtrOutput) And() ReportConfigFilterResponseArr
 	}).(ReportConfigFilterResponseArrayOutput)
 }
 
-// Has comparison expression for a dimension
 func (o ReportConfigFilterResponsePtrOutput) Dimension() ReportConfigComparisonExpressionResponsePtrOutput {
 	return o.ApplyT(func(v *ReportConfigFilterResponse) *ReportConfigComparisonExpressionResponse {
 		if v == nil {
@@ -5441,7 +5127,6 @@ func (o ReportConfigFilterResponsePtrOutput) Dimension() ReportConfigComparisonE
 	}).(ReportConfigComparisonExpressionResponsePtrOutput)
 }
 
-// The logical "NOT" expression.
 func (o ReportConfigFilterResponsePtrOutput) Not() ReportConfigFilterResponsePtrOutput {
 	return o.ApplyT(func(v *ReportConfigFilterResponse) *ReportConfigFilterResponse {
 		if v == nil {
@@ -5451,7 +5136,6 @@ func (o ReportConfigFilterResponsePtrOutput) Not() ReportConfigFilterResponsePtr
 	}).(ReportConfigFilterResponsePtrOutput)
 }
 
-// The logical "OR" expression. Must have at least 2 items.
 func (o ReportConfigFilterResponsePtrOutput) Or() ReportConfigFilterResponseArrayOutput {
 	return o.ApplyT(func(v *ReportConfigFilterResponse) []ReportConfigFilterResponse {
 		if v == nil {
@@ -5461,7 +5145,6 @@ func (o ReportConfigFilterResponsePtrOutput) Or() ReportConfigFilterResponseArra
 	}).(ReportConfigFilterResponseArrayOutput)
 }
 
-// Has comparison expression for a tag
 func (o ReportConfigFilterResponsePtrOutput) Tag() ReportConfigComparisonExpressionResponsePtrOutput {
 	return o.ApplyT(func(v *ReportConfigFilterResponse) *ReportConfigComparisonExpressionResponse {
 		if v == nil {
@@ -5491,11 +5174,8 @@ func (o ReportConfigFilterResponseArrayOutput) Index(i pulumi.IntInput) ReportCo
 	}).(ReportConfigFilterResponseOutput)
 }
 
-// The group by expression to be used in the report.
 type ReportConfigGrouping struct {
-	// The name of the column to group. This version supports subscription lowest possible grain.
 	Name string `pulumi:"name"`
-	// Has type of the column to group.
 	Type string `pulumi:"type"`
 }
 
@@ -5510,11 +5190,8 @@ type ReportConfigGroupingInput interface {
 	ToReportConfigGroupingOutputWithContext(context.Context) ReportConfigGroupingOutput
 }
 
-// The group by expression to be used in the report.
 type ReportConfigGroupingArgs struct {
-	// The name of the column to group. This version supports subscription lowest possible grain.
 	Name pulumi.StringInput `pulumi:"name"`
-	// Has type of the column to group.
 	Type pulumi.StringInput `pulumi:"type"`
 }
 
@@ -5555,7 +5232,6 @@ func (i ReportConfigGroupingArray) ToReportConfigGroupingArrayOutputWithContext(
 	return pulumi.ToOutputWithContext(ctx, i).(ReportConfigGroupingArrayOutput)
 }
 
-// The group by expression to be used in the report.
 type ReportConfigGroupingOutput struct{ *pulumi.OutputState }
 
 func (ReportConfigGroupingOutput) ElementType() reflect.Type {
@@ -5570,12 +5246,10 @@ func (o ReportConfigGroupingOutput) ToReportConfigGroupingOutputWithContext(ctx 
 	return o
 }
 
-// The name of the column to group. This version supports subscription lowest possible grain.
 func (o ReportConfigGroupingOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v ReportConfigGrouping) string { return v.Name }).(pulumi.StringOutput)
 }
 
-// Has type of the column to group.
 func (o ReportConfigGroupingOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v ReportConfigGrouping) string { return v.Type }).(pulumi.StringOutput)
 }
@@ -5600,11 +5274,8 @@ func (o ReportConfigGroupingArrayOutput) Index(i pulumi.IntInput) ReportConfigGr
 	}).(ReportConfigGroupingOutput)
 }
 
-// The group by expression to be used in the report.
 type ReportConfigGroupingResponse struct {
-	// The name of the column to group. This version supports subscription lowest possible grain.
 	Name string `pulumi:"name"`
-	// Has type of the column to group.
 	Type string `pulumi:"type"`
 }
 
@@ -5619,11 +5290,8 @@ type ReportConfigGroupingResponseInput interface {
 	ToReportConfigGroupingResponseOutputWithContext(context.Context) ReportConfigGroupingResponseOutput
 }
 
-// The group by expression to be used in the report.
 type ReportConfigGroupingResponseArgs struct {
-	// The name of the column to group. This version supports subscription lowest possible grain.
 	Name pulumi.StringInput `pulumi:"name"`
-	// Has type of the column to group.
 	Type pulumi.StringInput `pulumi:"type"`
 }
 
@@ -5664,7 +5332,6 @@ func (i ReportConfigGroupingResponseArray) ToReportConfigGroupingResponseArrayOu
 	return pulumi.ToOutputWithContext(ctx, i).(ReportConfigGroupingResponseArrayOutput)
 }
 
-// The group by expression to be used in the report.
 type ReportConfigGroupingResponseOutput struct{ *pulumi.OutputState }
 
 func (ReportConfigGroupingResponseOutput) ElementType() reflect.Type {
@@ -5679,12 +5346,10 @@ func (o ReportConfigGroupingResponseOutput) ToReportConfigGroupingResponseOutput
 	return o
 }
 
-// The name of the column to group. This version supports subscription lowest possible grain.
 func (o ReportConfigGroupingResponseOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v ReportConfigGroupingResponse) string { return v.Name }).(pulumi.StringOutput)
 }
 
-// Has type of the column to group.
 func (o ReportConfigGroupingResponseOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v ReportConfigGroupingResponse) string { return v.Type }).(pulumi.StringOutput)
 }
@@ -5709,12 +5374,9 @@ func (o ReportConfigGroupingResponseArrayOutput) Index(i pulumi.IntInput) Report
 	}).(ReportConfigGroupingResponseOutput)
 }
 
-// The order by expression to be used in the report.
 type ReportConfigSorting struct {
-	// Direction of sort.
 	Direction *string `pulumi:"direction"`
-	// The name of the column to sort.
-	Name string `pulumi:"name"`
+	Name      string  `pulumi:"name"`
 }
 
 // ReportConfigSortingInput is an input type that accepts ReportConfigSortingArgs and ReportConfigSortingOutput values.
@@ -5728,12 +5390,9 @@ type ReportConfigSortingInput interface {
 	ToReportConfigSortingOutputWithContext(context.Context) ReportConfigSortingOutput
 }
 
-// The order by expression to be used in the report.
 type ReportConfigSortingArgs struct {
-	// Direction of sort.
 	Direction pulumi.StringPtrInput `pulumi:"direction"`
-	// The name of the column to sort.
-	Name pulumi.StringInput `pulumi:"name"`
+	Name      pulumi.StringInput    `pulumi:"name"`
 }
 
 func (ReportConfigSortingArgs) ElementType() reflect.Type {
@@ -5773,7 +5432,6 @@ func (i ReportConfigSortingArray) ToReportConfigSortingArrayOutputWithContext(ct
 	return pulumi.ToOutputWithContext(ctx, i).(ReportConfigSortingArrayOutput)
 }
 
-// The order by expression to be used in the report.
 type ReportConfigSortingOutput struct{ *pulumi.OutputState }
 
 func (ReportConfigSortingOutput) ElementType() reflect.Type {
@@ -5788,12 +5446,10 @@ func (o ReportConfigSortingOutput) ToReportConfigSortingOutputWithContext(ctx co
 	return o
 }
 
-// Direction of sort.
 func (o ReportConfigSortingOutput) Direction() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ReportConfigSorting) *string { return v.Direction }).(pulumi.StringPtrOutput)
 }
 
-// The name of the column to sort.
 func (o ReportConfigSortingOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v ReportConfigSorting) string { return v.Name }).(pulumi.StringOutput)
 }
@@ -5818,12 +5474,9 @@ func (o ReportConfigSortingArrayOutput) Index(i pulumi.IntInput) ReportConfigSor
 	}).(ReportConfigSortingOutput)
 }
 
-// The order by expression to be used in the report.
 type ReportConfigSortingResponse struct {
-	// Direction of sort.
 	Direction *string `pulumi:"direction"`
-	// The name of the column to sort.
-	Name string `pulumi:"name"`
+	Name      string  `pulumi:"name"`
 }
 
 // ReportConfigSortingResponseInput is an input type that accepts ReportConfigSortingResponseArgs and ReportConfigSortingResponseOutput values.
@@ -5837,12 +5490,9 @@ type ReportConfigSortingResponseInput interface {
 	ToReportConfigSortingResponseOutputWithContext(context.Context) ReportConfigSortingResponseOutput
 }
 
-// The order by expression to be used in the report.
 type ReportConfigSortingResponseArgs struct {
-	// Direction of sort.
 	Direction pulumi.StringPtrInput `pulumi:"direction"`
-	// The name of the column to sort.
-	Name pulumi.StringInput `pulumi:"name"`
+	Name      pulumi.StringInput    `pulumi:"name"`
 }
 
 func (ReportConfigSortingResponseArgs) ElementType() reflect.Type {
@@ -5882,7 +5532,6 @@ func (i ReportConfigSortingResponseArray) ToReportConfigSortingResponseArrayOutp
 	return pulumi.ToOutputWithContext(ctx, i).(ReportConfigSortingResponseArrayOutput)
 }
 
-// The order by expression to be used in the report.
 type ReportConfigSortingResponseOutput struct{ *pulumi.OutputState }
 
 func (ReportConfigSortingResponseOutput) ElementType() reflect.Type {
@@ -5897,12 +5546,10 @@ func (o ReportConfigSortingResponseOutput) ToReportConfigSortingResponseOutputWi
 	return o
 }
 
-// Direction of sort.
 func (o ReportConfigSortingResponseOutput) Direction() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ReportConfigSortingResponse) *string { return v.Direction }).(pulumi.StringPtrOutput)
 }
 
-// The name of the column to sort.
 func (o ReportConfigSortingResponseOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v ReportConfigSortingResponse) string { return v.Name }).(pulumi.StringOutput)
 }
@@ -5927,12 +5574,9 @@ func (o ReportConfigSortingResponseArrayOutput) Index(i pulumi.IntInput) ReportC
 	}).(ReportConfigSortingResponseOutput)
 }
 
-// The start and end date for pulling data for the report.
 type ReportConfigTimePeriod struct {
-	// The start date to pull data from.
 	From string `pulumi:"from"`
-	// The end date to pull data to.
-	To string `pulumi:"to"`
+	To   string `pulumi:"to"`
 }
 
 // ReportConfigTimePeriodInput is an input type that accepts ReportConfigTimePeriodArgs and ReportConfigTimePeriodOutput values.
@@ -5946,12 +5590,9 @@ type ReportConfigTimePeriodInput interface {
 	ToReportConfigTimePeriodOutputWithContext(context.Context) ReportConfigTimePeriodOutput
 }
 
-// The start and end date for pulling data for the report.
 type ReportConfigTimePeriodArgs struct {
-	// The start date to pull data from.
 	From pulumi.StringInput `pulumi:"from"`
-	// The end date to pull data to.
-	To pulumi.StringInput `pulumi:"to"`
+	To   pulumi.StringInput `pulumi:"to"`
 }
 
 func (ReportConfigTimePeriodArgs) ElementType() reflect.Type {
@@ -6007,7 +5648,6 @@ func (i *reportConfigTimePeriodPtrType) ToReportConfigTimePeriodPtrOutputWithCon
 	return pulumi.ToOutputWithContext(ctx, i).(ReportConfigTimePeriodPtrOutput)
 }
 
-// The start and end date for pulling data for the report.
 type ReportConfigTimePeriodOutput struct{ *pulumi.OutputState }
 
 func (ReportConfigTimePeriodOutput) ElementType() reflect.Type {
@@ -6027,17 +5667,15 @@ func (o ReportConfigTimePeriodOutput) ToReportConfigTimePeriodPtrOutput() Report
 }
 
 func (o ReportConfigTimePeriodOutput) ToReportConfigTimePeriodPtrOutputWithContext(ctx context.Context) ReportConfigTimePeriodPtrOutput {
-	return o.ApplyT(func(v ReportConfigTimePeriod) *ReportConfigTimePeriod {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ReportConfigTimePeriod) *ReportConfigTimePeriod {
 		return &v
 	}).(ReportConfigTimePeriodPtrOutput)
 }
 
-// The start date to pull data from.
 func (o ReportConfigTimePeriodOutput) From() pulumi.StringOutput {
 	return o.ApplyT(func(v ReportConfigTimePeriod) string { return v.From }).(pulumi.StringOutput)
 }
 
-// The end date to pull data to.
 func (o ReportConfigTimePeriodOutput) To() pulumi.StringOutput {
 	return o.ApplyT(func(v ReportConfigTimePeriod) string { return v.To }).(pulumi.StringOutput)
 }
@@ -6057,10 +5695,15 @@ func (o ReportConfigTimePeriodPtrOutput) ToReportConfigTimePeriodPtrOutputWithCo
 }
 
 func (o ReportConfigTimePeriodPtrOutput) Elem() ReportConfigTimePeriodOutput {
-	return o.ApplyT(func(v *ReportConfigTimePeriod) ReportConfigTimePeriod { return *v }).(ReportConfigTimePeriodOutput)
+	return o.ApplyT(func(v *ReportConfigTimePeriod) ReportConfigTimePeriod {
+		if v != nil {
+			return *v
+		}
+		var ret ReportConfigTimePeriod
+		return ret
+	}).(ReportConfigTimePeriodOutput)
 }
 
-// The start date to pull data from.
 func (o ReportConfigTimePeriodPtrOutput) From() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ReportConfigTimePeriod) *string {
 		if v == nil {
@@ -6070,7 +5713,6 @@ func (o ReportConfigTimePeriodPtrOutput) From() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The end date to pull data to.
 func (o ReportConfigTimePeriodPtrOutput) To() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ReportConfigTimePeriod) *string {
 		if v == nil {
@@ -6080,12 +5722,9 @@ func (o ReportConfigTimePeriodPtrOutput) To() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The start and end date for pulling data for the report.
 type ReportConfigTimePeriodResponse struct {
-	// The start date to pull data from.
 	From string `pulumi:"from"`
-	// The end date to pull data to.
-	To string `pulumi:"to"`
+	To   string `pulumi:"to"`
 }
 
 // ReportConfigTimePeriodResponseInput is an input type that accepts ReportConfigTimePeriodResponseArgs and ReportConfigTimePeriodResponseOutput values.
@@ -6099,12 +5738,9 @@ type ReportConfigTimePeriodResponseInput interface {
 	ToReportConfigTimePeriodResponseOutputWithContext(context.Context) ReportConfigTimePeriodResponseOutput
 }
 
-// The start and end date for pulling data for the report.
 type ReportConfigTimePeriodResponseArgs struct {
-	// The start date to pull data from.
 	From pulumi.StringInput `pulumi:"from"`
-	// The end date to pull data to.
-	To pulumi.StringInput `pulumi:"to"`
+	To   pulumi.StringInput `pulumi:"to"`
 }
 
 func (ReportConfigTimePeriodResponseArgs) ElementType() reflect.Type {
@@ -6160,7 +5796,6 @@ func (i *reportConfigTimePeriodResponsePtrType) ToReportConfigTimePeriodResponse
 	return pulumi.ToOutputWithContext(ctx, i).(ReportConfigTimePeriodResponsePtrOutput)
 }
 
-// The start and end date for pulling data for the report.
 type ReportConfigTimePeriodResponseOutput struct{ *pulumi.OutputState }
 
 func (ReportConfigTimePeriodResponseOutput) ElementType() reflect.Type {
@@ -6180,17 +5815,15 @@ func (o ReportConfigTimePeriodResponseOutput) ToReportConfigTimePeriodResponsePt
 }
 
 func (o ReportConfigTimePeriodResponseOutput) ToReportConfigTimePeriodResponsePtrOutputWithContext(ctx context.Context) ReportConfigTimePeriodResponsePtrOutput {
-	return o.ApplyT(func(v ReportConfigTimePeriodResponse) *ReportConfigTimePeriodResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ReportConfigTimePeriodResponse) *ReportConfigTimePeriodResponse {
 		return &v
 	}).(ReportConfigTimePeriodResponsePtrOutput)
 }
 
-// The start date to pull data from.
 func (o ReportConfigTimePeriodResponseOutput) From() pulumi.StringOutput {
 	return o.ApplyT(func(v ReportConfigTimePeriodResponse) string { return v.From }).(pulumi.StringOutput)
 }
 
-// The end date to pull data to.
 func (o ReportConfigTimePeriodResponseOutput) To() pulumi.StringOutput {
 	return o.ApplyT(func(v ReportConfigTimePeriodResponse) string { return v.To }).(pulumi.StringOutput)
 }
@@ -6210,10 +5843,15 @@ func (o ReportConfigTimePeriodResponsePtrOutput) ToReportConfigTimePeriodRespons
 }
 
 func (o ReportConfigTimePeriodResponsePtrOutput) Elem() ReportConfigTimePeriodResponseOutput {
-	return o.ApplyT(func(v *ReportConfigTimePeriodResponse) ReportConfigTimePeriodResponse { return *v }).(ReportConfigTimePeriodResponseOutput)
+	return o.ApplyT(func(v *ReportConfigTimePeriodResponse) ReportConfigTimePeriodResponse {
+		if v != nil {
+			return *v
+		}
+		var ret ReportConfigTimePeriodResponse
+		return ret
+	}).(ReportConfigTimePeriodResponseOutput)
 }
 
-// The start date to pull data from.
 func (o ReportConfigTimePeriodResponsePtrOutput) From() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ReportConfigTimePeriodResponse) *string {
 		if v == nil {
@@ -6223,7 +5861,6 @@ func (o ReportConfigTimePeriodResponsePtrOutput) From() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The end date to pull data to.
 func (o ReportConfigTimePeriodResponsePtrOutput) To() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ReportConfigTimePeriodResponse) *string {
 		if v == nil {

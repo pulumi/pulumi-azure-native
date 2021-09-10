@@ -7,7 +7,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Class representing a Kusto cluster.
 func LookupCluster(ctx *pulumi.Context, args *LookupClusterArgs, opts ...pulumi.InvokeOption) (*LookupClusterResult, error) {
 	var rv LookupClusterResult
 	err := ctx.Invoke("azure-native:kusto/v20170907privatepreview:getCluster", args, &rv, opts...)
@@ -18,36 +17,22 @@ func LookupCluster(ctx *pulumi.Context, args *LookupClusterArgs, opts ...pulumi.
 }
 
 type LookupClusterArgs struct {
-	// The name of the Kusto cluster.
-	ClusterName string `pulumi:"clusterName"`
-	// The name of the resource group containing the Kusto cluster.
+	ClusterName       string `pulumi:"clusterName"`
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 }
 
 // Class representing a Kusto cluster.
 type LookupClusterResult struct {
-	// The cluster data ingestion URI.
-	DataIngestionUri string `pulumi:"dataIngestionUri"`
-	// An ETag of the resource created.
-	Etag string `pulumi:"etag"`
-	// Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
-	Id string `pulumi:"id"`
-	// The geo-location where the resource lives
-	Location string `pulumi:"location"`
-	// The name of the resource
-	Name string `pulumi:"name"`
-	// The provisioned state of the resource.
-	ProvisioningState string `pulumi:"provisioningState"`
-	// The SKU of the cluster.
-	Sku AzureSkuResponse `pulumi:"sku"`
-	// The state of the resource.
-	State string `pulumi:"state"`
-	// Resource tags.
-	Tags map[string]string `pulumi:"tags"`
-	// The cluster's external tenants.
+	DataIngestionUri       string                          `pulumi:"dataIngestionUri"`
+	Etag                   string                          `pulumi:"etag"`
+	Id                     string                          `pulumi:"id"`
+	Location               string                          `pulumi:"location"`
+	Name                   string                          `pulumi:"name"`
+	ProvisioningState      string                          `pulumi:"provisioningState"`
+	Sku                    AzureSkuResponse                `pulumi:"sku"`
+	State                  string                          `pulumi:"state"`
+	Tags                   map[string]string               `pulumi:"tags"`
 	TrustedExternalTenants []TrustedExternalTenantResponse `pulumi:"trustedExternalTenants"`
-	// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
-	Type string `pulumi:"type"`
-	// The cluster URI.
-	Uri string `pulumi:"uri"`
+	Type                   string                          `pulumi:"type"`
+	Uri                    string                          `pulumi:"uri"`
 }

@@ -7,7 +7,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// The Data Box Edge/Gateway device.
 func LookupDevice(ctx *pulumi.Context, args *LookupDeviceArgs, opts ...pulumi.InvokeOption) (*LookupDeviceResult, error) {
 	var rv LookupDeviceResult
 	err := ctx.Invoke("azure-native:databoxedge/v20190701:getDevice", args, &rv, opts...)
@@ -18,54 +17,31 @@ func LookupDevice(ctx *pulumi.Context, args *LookupDeviceArgs, opts ...pulumi.In
 }
 
 type LookupDeviceArgs struct {
-	// The device name.
-	DeviceName string `pulumi:"deviceName"`
-	// The resource group name.
+	DeviceName        string `pulumi:"deviceName"`
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 }
 
 // The Data Box Edge/Gateway device.
 type LookupDeviceResult struct {
-	// Type of compute roles configured.
-	ConfiguredRoleTypes []string `pulumi:"configuredRoleTypes"`
-	// The Data Box Edge/Gateway device culture.
-	Culture string `pulumi:"culture"`
-	// The status of the Data Box Edge/Gateway device.
-	DataBoxEdgeDeviceStatus *string `pulumi:"dataBoxEdgeDeviceStatus"`
-	// The Description of the Data Box Edge/Gateway device.
-	Description *string `pulumi:"description"`
-	// The device software version number of the device (eg: 1.2.18105.6).
-	DeviceHcsVersion string `pulumi:"deviceHcsVersion"`
-	// The Data Box Edge/Gateway device local capacity in MB.
-	DeviceLocalCapacity float64 `pulumi:"deviceLocalCapacity"`
-	// The Data Box Edge/Gateway device model.
-	DeviceModel string `pulumi:"deviceModel"`
-	// The Data Box Edge/Gateway device software version.
-	DeviceSoftwareVersion string `pulumi:"deviceSoftwareVersion"`
-	// The type of the Data Box Edge/Gateway device.
-	DeviceType string `pulumi:"deviceType"`
-	// The etag for the devices.
-	Etag *string `pulumi:"etag"`
-	// The Data Box Edge/Gateway device name.
-	FriendlyName *string `pulumi:"friendlyName"`
-	// The path ID that uniquely identifies the object.
-	Id string `pulumi:"id"`
-	// The location of the device. This is a supported and registered Azure geographical region (for example, West US, East US, or Southeast Asia). The geographical region of a device cannot be changed once it is created, but if an identical geographical region is specified on update, the request will succeed.
-	Location string `pulumi:"location"`
-	// The description of the Data Box Edge/Gateway device model.
-	ModelDescription *string `pulumi:"modelDescription"`
-	// The object name.
-	Name string `pulumi:"name"`
-	// The number of nodes in the cluster.
-	NodeCount int `pulumi:"nodeCount"`
-	// The Serial Number of Data Box Edge/Gateway device.
-	SerialNumber string `pulumi:"serialNumber"`
-	// The SKU type.
-	Sku *SkuResponse `pulumi:"sku"`
-	// The list of tags that describe the device. These tags can be used to view and group this device (across resource groups).
-	Tags map[string]string `pulumi:"tags"`
-	// The Data Box Edge/Gateway device timezone.
-	TimeZone string `pulumi:"timeZone"`
-	// The hierarchical type of the object.
-	Type string `pulumi:"type"`
+	ConfiguredRoleTypes     []string          `pulumi:"configuredRoleTypes"`
+	Culture                 string            `pulumi:"culture"`
+	DataBoxEdgeDeviceStatus *string           `pulumi:"dataBoxEdgeDeviceStatus"`
+	Description             *string           `pulumi:"description"`
+	DeviceHcsVersion        string            `pulumi:"deviceHcsVersion"`
+	DeviceLocalCapacity     float64           `pulumi:"deviceLocalCapacity"`
+	DeviceModel             string            `pulumi:"deviceModel"`
+	DeviceSoftwareVersion   string            `pulumi:"deviceSoftwareVersion"`
+	DeviceType              string            `pulumi:"deviceType"`
+	Etag                    *string           `pulumi:"etag"`
+	FriendlyName            *string           `pulumi:"friendlyName"`
+	Id                      string            `pulumi:"id"`
+	Location                string            `pulumi:"location"`
+	ModelDescription        *string           `pulumi:"modelDescription"`
+	Name                    string            `pulumi:"name"`
+	NodeCount               int               `pulumi:"nodeCount"`
+	SerialNumber            string            `pulumi:"serialNumber"`
+	Sku                     *SkuResponse      `pulumi:"sku"`
+	Tags                    map[string]string `pulumi:"tags"`
+	TimeZone                string            `pulumi:"timeZone"`
+	Type                    string            `pulumi:"type"`
 }

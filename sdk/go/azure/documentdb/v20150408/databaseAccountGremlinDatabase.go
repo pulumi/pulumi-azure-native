@@ -11,24 +11,16 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// An Azure Cosmos DB Gremlin database.
 type DatabaseAccountGremlinDatabase struct {
 	pulumi.CustomResourceState
 
-	// A system generated property representing the resource etag required for optimistic concurrency control.
-	Etag pulumi.StringPtrOutput `pulumi:"etag"`
-	// The location of the resource group to which the resource belongs.
+	Etag     pulumi.StringPtrOutput `pulumi:"etag"`
 	Location pulumi.StringPtrOutput `pulumi:"location"`
-	// The name of the database account.
-	Name pulumi.StringOutput `pulumi:"name"`
-	// A system generated property. A unique identifier.
-	Rid pulumi.StringPtrOutput `pulumi:"rid"`
-	// Tags are a list of key-value pairs that describe the resource. These tags can be used in viewing and grouping this resource (across resource groups). A maximum of 15 tags can be provided for a resource. Each tag must have a key no greater than 128 characters and value no greater than 256 characters. For example, the default experience for a template type is set with "defaultExperience": "Cassandra". Current "defaultExperience" values also include "Table", "Graph", "DocumentDB", and "MongoDB".
-	Tags pulumi.StringMapOutput `pulumi:"tags"`
-	// A system generated property that denotes the last updated timestamp of the resource.
-	Ts pulumi.AnyOutput `pulumi:"ts"`
-	// The type of Azure resource.
-	Type pulumi.StringOutput `pulumi:"type"`
+	Name     pulumi.StringOutput    `pulumi:"name"`
+	Rid      pulumi.StringPtrOutput `pulumi:"rid"`
+	Tags     pulumi.StringMapOutput `pulumi:"tags"`
+	Ts       pulumi.AnyOutput       `pulumi:"ts"`
+	Type     pulumi.StringOutput    `pulumi:"type"`
 }
 
 // NewDatabaseAccountGremlinDatabase registers a new resource with the given unique name, arguments, and options.
@@ -202,29 +194,19 @@ func (DatabaseAccountGremlinDatabaseState) ElementType() reflect.Type {
 }
 
 type databaseAccountGremlinDatabaseArgs struct {
-	// Cosmos DB database account name.
-	AccountName string `pulumi:"accountName"`
-	// Cosmos DB database name.
-	DatabaseName *string `pulumi:"databaseName"`
-	// A key-value pair of options to be applied for the request. This corresponds to the headers sent with the request.
-	Options map[string]string `pulumi:"options"`
-	// The standard JSON format of a Gremlin database
-	Resource GremlinDatabaseResource `pulumi:"resource"`
-	// Name of an Azure resource group.
-	ResourceGroupName string `pulumi:"resourceGroupName"`
+	AccountName       string                  `pulumi:"accountName"`
+	DatabaseName      *string                 `pulumi:"databaseName"`
+	Options           map[string]string       `pulumi:"options"`
+	Resource          GremlinDatabaseResource `pulumi:"resource"`
+	ResourceGroupName string                  `pulumi:"resourceGroupName"`
 }
 
 // The set of arguments for constructing a DatabaseAccountGremlinDatabase resource.
 type DatabaseAccountGremlinDatabaseArgs struct {
-	// Cosmos DB database account name.
-	AccountName pulumi.StringInput
-	// Cosmos DB database name.
-	DatabaseName pulumi.StringPtrInput
-	// A key-value pair of options to be applied for the request. This corresponds to the headers sent with the request.
-	Options pulumi.StringMapInput
-	// The standard JSON format of a Gremlin database
-	Resource GremlinDatabaseResourceInput
-	// Name of an Azure resource group.
+	AccountName       pulumi.StringInput
+	DatabaseName      pulumi.StringPtrInput
+	Options           pulumi.StringMapInput
+	Resource          GremlinDatabaseResourceInput
 	ResourceGroupName pulumi.StringInput
 }
 
@@ -251,9 +233,7 @@ func (i *DatabaseAccountGremlinDatabase) ToDatabaseAccountGremlinDatabaseOutputW
 	return pulumi.ToOutputWithContext(ctx, i).(DatabaseAccountGremlinDatabaseOutput)
 }
 
-type DatabaseAccountGremlinDatabaseOutput struct {
-	*pulumi.OutputState
-}
+type DatabaseAccountGremlinDatabaseOutput struct{ *pulumi.OutputState }
 
 func (DatabaseAccountGremlinDatabaseOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*DatabaseAccountGremlinDatabase)(nil))

@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.MachineLearningServices.Outputs
 {
 
+    /// <summary>
+    /// Read only system data
+    /// </summary>
     [OutputType]
     public sealed class SystemDataResponse
     {

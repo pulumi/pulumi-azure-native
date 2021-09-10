@@ -11,22 +11,15 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// This type describes a value of a secret resource. The name of this resource is the version identifier corresponding to this secret value.
 type SecretValue struct {
 	pulumi.CustomResourceState
 
-	// The geo-location where the resource lives
-	Location pulumi.StringOutput `pulumi:"location"`
-	// The name of the resource
-	Name pulumi.StringOutput `pulumi:"name"`
-	// State of the resource.
-	ProvisioningState pulumi.StringOutput `pulumi:"provisioningState"`
-	// Resource tags.
-	Tags pulumi.StringMapOutput `pulumi:"tags"`
-	// The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
-	Type pulumi.StringOutput `pulumi:"type"`
-	// The actual value of the secret.
-	Value pulumi.StringPtrOutput `pulumi:"value"`
+	Location          pulumi.StringOutput    `pulumi:"location"`
+	Name              pulumi.StringOutput    `pulumi:"name"`
+	ProvisioningState pulumi.StringOutput    `pulumi:"provisioningState"`
+	Tags              pulumi.StringMapOutput `pulumi:"tags"`
+	Type              pulumi.StringOutput    `pulumi:"type"`
+	Value             pulumi.StringPtrOutput `pulumi:"value"`
 }
 
 // NewSecretValue registers a new resource with the given unique name, arguments, and options.
@@ -86,34 +79,22 @@ func (SecretValueState) ElementType() reflect.Type {
 }
 
 type secretValueArgs struct {
-	// The geo-location where the resource lives
-	Location *string `pulumi:"location"`
-	// Azure resource group name
-	ResourceGroupName string `pulumi:"resourceGroupName"`
-	// The name of the secret resource.
-	SecretResourceName string `pulumi:"secretResourceName"`
-	// The name of the secret resource value which is typically the version identifier for the value.
-	SecretValueResourceName *string `pulumi:"secretValueResourceName"`
-	// Resource tags.
-	Tags map[string]string `pulumi:"tags"`
-	// The actual value of the secret.
-	Value *string `pulumi:"value"`
+	Location                *string           `pulumi:"location"`
+	ResourceGroupName       string            `pulumi:"resourceGroupName"`
+	SecretResourceName      string            `pulumi:"secretResourceName"`
+	SecretValueResourceName *string           `pulumi:"secretValueResourceName"`
+	Tags                    map[string]string `pulumi:"tags"`
+	Value                   *string           `pulumi:"value"`
 }
 
 // The set of arguments for constructing a SecretValue resource.
 type SecretValueArgs struct {
-	// The geo-location where the resource lives
-	Location pulumi.StringPtrInput
-	// Azure resource group name
-	ResourceGroupName pulumi.StringInput
-	// The name of the secret resource.
-	SecretResourceName pulumi.StringInput
-	// The name of the secret resource value which is typically the version identifier for the value.
+	Location                pulumi.StringPtrInput
+	ResourceGroupName       pulumi.StringInput
+	SecretResourceName      pulumi.StringInput
 	SecretValueResourceName pulumi.StringPtrInput
-	// Resource tags.
-	Tags pulumi.StringMapInput
-	// The actual value of the secret.
-	Value pulumi.StringPtrInput
+	Tags                    pulumi.StringMapInput
+	Value                   pulumi.StringPtrInput
 }
 
 func (SecretValueArgs) ElementType() reflect.Type {
@@ -139,9 +120,7 @@ func (i *SecretValue) ToSecretValueOutputWithContext(ctx context.Context) Secret
 	return pulumi.ToOutputWithContext(ctx, i).(SecretValueOutput)
 }
 
-type SecretValueOutput struct {
-	*pulumi.OutputState
-}
+type SecretValueOutput struct{ *pulumi.OutputState }
 
 func (SecretValueOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*SecretValue)(nil))

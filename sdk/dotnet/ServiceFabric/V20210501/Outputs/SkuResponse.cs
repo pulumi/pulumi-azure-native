@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.ServiceFabric.V20210501.Outputs
 {
 
+    /// <summary>
+    /// Service Fabric managed cluster Sku definition
+    /// </summary>
     [OutputType]
     public sealed class SkuResponse
     {

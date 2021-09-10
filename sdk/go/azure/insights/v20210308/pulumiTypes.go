@@ -10,9 +10,7 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Customer Managed Identity
 type MyWorkbookManagedIdentity struct {
-	// The identity type.
 	Type *string `pulumi:"type"`
 }
 
@@ -27,9 +25,7 @@ type MyWorkbookManagedIdentityInput interface {
 	ToMyWorkbookManagedIdentityOutputWithContext(context.Context) MyWorkbookManagedIdentityOutput
 }
 
-// Customer Managed Identity
 type MyWorkbookManagedIdentityArgs struct {
-	// The identity type.
 	Type pulumi.StringPtrInput `pulumi:"type"`
 }
 
@@ -86,7 +82,6 @@ func (i *myWorkbookManagedIdentityPtrType) ToMyWorkbookManagedIdentityPtrOutputW
 	return pulumi.ToOutputWithContext(ctx, i).(MyWorkbookManagedIdentityPtrOutput)
 }
 
-// Customer Managed Identity
 type MyWorkbookManagedIdentityOutput struct{ *pulumi.OutputState }
 
 func (MyWorkbookManagedIdentityOutput) ElementType() reflect.Type {
@@ -106,12 +101,11 @@ func (o MyWorkbookManagedIdentityOutput) ToMyWorkbookManagedIdentityPtrOutput() 
 }
 
 func (o MyWorkbookManagedIdentityOutput) ToMyWorkbookManagedIdentityPtrOutputWithContext(ctx context.Context) MyWorkbookManagedIdentityPtrOutput {
-	return o.ApplyT(func(v MyWorkbookManagedIdentity) *MyWorkbookManagedIdentity {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v MyWorkbookManagedIdentity) *MyWorkbookManagedIdentity {
 		return &v
 	}).(MyWorkbookManagedIdentityPtrOutput)
 }
 
-// The identity type.
 func (o MyWorkbookManagedIdentityOutput) Type() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v MyWorkbookManagedIdentity) *string { return v.Type }).(pulumi.StringPtrOutput)
 }
@@ -131,10 +125,15 @@ func (o MyWorkbookManagedIdentityPtrOutput) ToMyWorkbookManagedIdentityPtrOutput
 }
 
 func (o MyWorkbookManagedIdentityPtrOutput) Elem() MyWorkbookManagedIdentityOutput {
-	return o.ApplyT(func(v *MyWorkbookManagedIdentity) MyWorkbookManagedIdentity { return *v }).(MyWorkbookManagedIdentityOutput)
+	return o.ApplyT(func(v *MyWorkbookManagedIdentity) MyWorkbookManagedIdentity {
+		if v != nil {
+			return *v
+		}
+		var ret MyWorkbookManagedIdentity
+		return ret
+	}).(MyWorkbookManagedIdentityOutput)
 }
 
-// The identity type.
 func (o MyWorkbookManagedIdentityPtrOutput) Type() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *MyWorkbookManagedIdentity) *string {
 		if v == nil {
@@ -144,11 +143,8 @@ func (o MyWorkbookManagedIdentityPtrOutput) Type() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Customer Managed Identity
 type MyWorkbookManagedIdentityResponse struct {
-	// The identity type.
-	Type *string `pulumi:"type"`
-	// Customer Managed Identity
+	Type                   *string                                   `pulumi:"type"`
 	UserAssignedIdentities *MyWorkbookUserAssignedIdentitiesResponse `pulumi:"userAssignedIdentities"`
 }
 
@@ -163,11 +159,8 @@ type MyWorkbookManagedIdentityResponseInput interface {
 	ToMyWorkbookManagedIdentityResponseOutputWithContext(context.Context) MyWorkbookManagedIdentityResponseOutput
 }
 
-// Customer Managed Identity
 type MyWorkbookManagedIdentityResponseArgs struct {
-	// The identity type.
-	Type pulumi.StringPtrInput `pulumi:"type"`
-	// Customer Managed Identity
+	Type                   pulumi.StringPtrInput                            `pulumi:"type"`
 	UserAssignedIdentities MyWorkbookUserAssignedIdentitiesResponsePtrInput `pulumi:"userAssignedIdentities"`
 }
 
@@ -224,7 +217,6 @@ func (i *myWorkbookManagedIdentityResponsePtrType) ToMyWorkbookManagedIdentityRe
 	return pulumi.ToOutputWithContext(ctx, i).(MyWorkbookManagedIdentityResponsePtrOutput)
 }
 
-// Customer Managed Identity
 type MyWorkbookManagedIdentityResponseOutput struct{ *pulumi.OutputState }
 
 func (MyWorkbookManagedIdentityResponseOutput) ElementType() reflect.Type {
@@ -244,17 +236,15 @@ func (o MyWorkbookManagedIdentityResponseOutput) ToMyWorkbookManagedIdentityResp
 }
 
 func (o MyWorkbookManagedIdentityResponseOutput) ToMyWorkbookManagedIdentityResponsePtrOutputWithContext(ctx context.Context) MyWorkbookManagedIdentityResponsePtrOutput {
-	return o.ApplyT(func(v MyWorkbookManagedIdentityResponse) *MyWorkbookManagedIdentityResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v MyWorkbookManagedIdentityResponse) *MyWorkbookManagedIdentityResponse {
 		return &v
 	}).(MyWorkbookManagedIdentityResponsePtrOutput)
 }
 
-// The identity type.
 func (o MyWorkbookManagedIdentityResponseOutput) Type() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v MyWorkbookManagedIdentityResponse) *string { return v.Type }).(pulumi.StringPtrOutput)
 }
 
-// Customer Managed Identity
 func (o MyWorkbookManagedIdentityResponseOutput) UserAssignedIdentities() MyWorkbookUserAssignedIdentitiesResponsePtrOutput {
 	return o.ApplyT(func(v MyWorkbookManagedIdentityResponse) *MyWorkbookUserAssignedIdentitiesResponse {
 		return v.UserAssignedIdentities
@@ -276,10 +266,15 @@ func (o MyWorkbookManagedIdentityResponsePtrOutput) ToMyWorkbookManagedIdentityR
 }
 
 func (o MyWorkbookManagedIdentityResponsePtrOutput) Elem() MyWorkbookManagedIdentityResponseOutput {
-	return o.ApplyT(func(v *MyWorkbookManagedIdentityResponse) MyWorkbookManagedIdentityResponse { return *v }).(MyWorkbookManagedIdentityResponseOutput)
+	return o.ApplyT(func(v *MyWorkbookManagedIdentityResponse) MyWorkbookManagedIdentityResponse {
+		if v != nil {
+			return *v
+		}
+		var ret MyWorkbookManagedIdentityResponse
+		return ret
+	}).(MyWorkbookManagedIdentityResponseOutput)
 }
 
-// The identity type.
 func (o MyWorkbookManagedIdentityResponsePtrOutput) Type() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *MyWorkbookManagedIdentityResponse) *string {
 		if v == nil {
@@ -289,7 +284,6 @@ func (o MyWorkbookManagedIdentityResponsePtrOutput) Type() pulumi.StringPtrOutpu
 	}).(pulumi.StringPtrOutput)
 }
 
-// Customer Managed Identity
 func (o MyWorkbookManagedIdentityResponsePtrOutput) UserAssignedIdentities() MyWorkbookUserAssignedIdentitiesResponsePtrOutput {
 	return o.ApplyT(func(v *MyWorkbookManagedIdentityResponse) *MyWorkbookUserAssignedIdentitiesResponse {
 		if v == nil {
@@ -299,12 +293,9 @@ func (o MyWorkbookManagedIdentityResponsePtrOutput) UserAssignedIdentities() MyW
 	}).(MyWorkbookUserAssignedIdentitiesResponsePtrOutput)
 }
 
-// Customer Managed Identity
 type MyWorkbookUserAssignedIdentitiesResponse struct {
-	// The principal ID of resource identity.
 	PrincipalId string `pulumi:"principalId"`
-	// The tenant ID of resource.
-	TenantId string `pulumi:"tenantId"`
+	TenantId    string `pulumi:"tenantId"`
 }
 
 // MyWorkbookUserAssignedIdentitiesResponseInput is an input type that accepts MyWorkbookUserAssignedIdentitiesResponseArgs and MyWorkbookUserAssignedIdentitiesResponseOutput values.
@@ -318,12 +309,9 @@ type MyWorkbookUserAssignedIdentitiesResponseInput interface {
 	ToMyWorkbookUserAssignedIdentitiesResponseOutputWithContext(context.Context) MyWorkbookUserAssignedIdentitiesResponseOutput
 }
 
-// Customer Managed Identity
 type MyWorkbookUserAssignedIdentitiesResponseArgs struct {
-	// The principal ID of resource identity.
 	PrincipalId pulumi.StringInput `pulumi:"principalId"`
-	// The tenant ID of resource.
-	TenantId pulumi.StringInput `pulumi:"tenantId"`
+	TenantId    pulumi.StringInput `pulumi:"tenantId"`
 }
 
 func (MyWorkbookUserAssignedIdentitiesResponseArgs) ElementType() reflect.Type {
@@ -379,7 +367,6 @@ func (i *myWorkbookUserAssignedIdentitiesResponsePtrType) ToMyWorkbookUserAssign
 	return pulumi.ToOutputWithContext(ctx, i).(MyWorkbookUserAssignedIdentitiesResponsePtrOutput)
 }
 
-// Customer Managed Identity
 type MyWorkbookUserAssignedIdentitiesResponseOutput struct{ *pulumi.OutputState }
 
 func (MyWorkbookUserAssignedIdentitiesResponseOutput) ElementType() reflect.Type {
@@ -399,17 +386,15 @@ func (o MyWorkbookUserAssignedIdentitiesResponseOutput) ToMyWorkbookUserAssigned
 }
 
 func (o MyWorkbookUserAssignedIdentitiesResponseOutput) ToMyWorkbookUserAssignedIdentitiesResponsePtrOutputWithContext(ctx context.Context) MyWorkbookUserAssignedIdentitiesResponsePtrOutput {
-	return o.ApplyT(func(v MyWorkbookUserAssignedIdentitiesResponse) *MyWorkbookUserAssignedIdentitiesResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v MyWorkbookUserAssignedIdentitiesResponse) *MyWorkbookUserAssignedIdentitiesResponse {
 		return &v
 	}).(MyWorkbookUserAssignedIdentitiesResponsePtrOutput)
 }
 
-// The principal ID of resource identity.
 func (o MyWorkbookUserAssignedIdentitiesResponseOutput) PrincipalId() pulumi.StringOutput {
 	return o.ApplyT(func(v MyWorkbookUserAssignedIdentitiesResponse) string { return v.PrincipalId }).(pulumi.StringOutput)
 }
 
-// The tenant ID of resource.
 func (o MyWorkbookUserAssignedIdentitiesResponseOutput) TenantId() pulumi.StringOutput {
 	return o.ApplyT(func(v MyWorkbookUserAssignedIdentitiesResponse) string { return v.TenantId }).(pulumi.StringOutput)
 }
@@ -429,10 +414,15 @@ func (o MyWorkbookUserAssignedIdentitiesResponsePtrOutput) ToMyWorkbookUserAssig
 }
 
 func (o MyWorkbookUserAssignedIdentitiesResponsePtrOutput) Elem() MyWorkbookUserAssignedIdentitiesResponseOutput {
-	return o.ApplyT(func(v *MyWorkbookUserAssignedIdentitiesResponse) MyWorkbookUserAssignedIdentitiesResponse { return *v }).(MyWorkbookUserAssignedIdentitiesResponseOutput)
+	return o.ApplyT(func(v *MyWorkbookUserAssignedIdentitiesResponse) MyWorkbookUserAssignedIdentitiesResponse {
+		if v != nil {
+			return *v
+		}
+		var ret MyWorkbookUserAssignedIdentitiesResponse
+		return ret
+	}).(MyWorkbookUserAssignedIdentitiesResponseOutput)
 }
 
-// The principal ID of resource identity.
 func (o MyWorkbookUserAssignedIdentitiesResponsePtrOutput) PrincipalId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *MyWorkbookUserAssignedIdentitiesResponse) *string {
 		if v == nil {
@@ -442,7 +432,6 @@ func (o MyWorkbookUserAssignedIdentitiesResponsePtrOutput) PrincipalId() pulumi.
 	}).(pulumi.StringPtrOutput)
 }
 
-// The tenant ID of resource.
 func (o MyWorkbookUserAssignedIdentitiesResponsePtrOutput) TenantId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *MyWorkbookUserAssignedIdentitiesResponse) *string {
 		if v == nil {
@@ -452,19 +441,12 @@ func (o MyWorkbookUserAssignedIdentitiesResponsePtrOutput) TenantId() pulumi.Str
 	}).(pulumi.StringPtrOutput)
 }
 
-// Metadata pertaining to creation and last modification of the resource.
 type SystemDataResponse struct {
-	// The timestamp of resource creation (UTC).
-	CreatedAt *string `pulumi:"createdAt"`
-	// The identity that created the resource.
-	CreatedBy *string `pulumi:"createdBy"`
-	// The type of identity that created the resource.
-	CreatedByType *string `pulumi:"createdByType"`
-	// The timestamp of resource last modification (UTC)
-	LastModifiedAt *string `pulumi:"lastModifiedAt"`
-	// The identity that last modified the resource.
-	LastModifiedBy *string `pulumi:"lastModifiedBy"`
-	// The type of identity that last modified the resource.
+	CreatedAt          *string `pulumi:"createdAt"`
+	CreatedBy          *string `pulumi:"createdBy"`
+	CreatedByType      *string `pulumi:"createdByType"`
+	LastModifiedAt     *string `pulumi:"lastModifiedAt"`
+	LastModifiedBy     *string `pulumi:"lastModifiedBy"`
 	LastModifiedByType *string `pulumi:"lastModifiedByType"`
 }
 
@@ -479,19 +461,12 @@ type SystemDataResponseInput interface {
 	ToSystemDataResponseOutputWithContext(context.Context) SystemDataResponseOutput
 }
 
-// Metadata pertaining to creation and last modification of the resource.
 type SystemDataResponseArgs struct {
-	// The timestamp of resource creation (UTC).
-	CreatedAt pulumi.StringPtrInput `pulumi:"createdAt"`
-	// The identity that created the resource.
-	CreatedBy pulumi.StringPtrInput `pulumi:"createdBy"`
-	// The type of identity that created the resource.
-	CreatedByType pulumi.StringPtrInput `pulumi:"createdByType"`
-	// The timestamp of resource last modification (UTC)
-	LastModifiedAt pulumi.StringPtrInput `pulumi:"lastModifiedAt"`
-	// The identity that last modified the resource.
-	LastModifiedBy pulumi.StringPtrInput `pulumi:"lastModifiedBy"`
-	// The type of identity that last modified the resource.
+	CreatedAt          pulumi.StringPtrInput `pulumi:"createdAt"`
+	CreatedBy          pulumi.StringPtrInput `pulumi:"createdBy"`
+	CreatedByType      pulumi.StringPtrInput `pulumi:"createdByType"`
+	LastModifiedAt     pulumi.StringPtrInput `pulumi:"lastModifiedAt"`
+	LastModifiedBy     pulumi.StringPtrInput `pulumi:"lastModifiedBy"`
 	LastModifiedByType pulumi.StringPtrInput `pulumi:"lastModifiedByType"`
 }
 
@@ -548,7 +523,6 @@ func (i *systemDataResponsePtrType) ToSystemDataResponsePtrOutputWithContext(ctx
 	return pulumi.ToOutputWithContext(ctx, i).(SystemDataResponsePtrOutput)
 }
 
-// Metadata pertaining to creation and last modification of the resource.
 type SystemDataResponseOutput struct{ *pulumi.OutputState }
 
 func (SystemDataResponseOutput) ElementType() reflect.Type {
@@ -568,37 +542,31 @@ func (o SystemDataResponseOutput) ToSystemDataResponsePtrOutput() SystemDataResp
 }
 
 func (o SystemDataResponseOutput) ToSystemDataResponsePtrOutputWithContext(ctx context.Context) SystemDataResponsePtrOutput {
-	return o.ApplyT(func(v SystemDataResponse) *SystemDataResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v SystemDataResponse) *SystemDataResponse {
 		return &v
 	}).(SystemDataResponsePtrOutput)
 }
 
-// The timestamp of resource creation (UTC).
 func (o SystemDataResponseOutput) CreatedAt() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SystemDataResponse) *string { return v.CreatedAt }).(pulumi.StringPtrOutput)
 }
 
-// The identity that created the resource.
 func (o SystemDataResponseOutput) CreatedBy() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SystemDataResponse) *string { return v.CreatedBy }).(pulumi.StringPtrOutput)
 }
 
-// The type of identity that created the resource.
 func (o SystemDataResponseOutput) CreatedByType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SystemDataResponse) *string { return v.CreatedByType }).(pulumi.StringPtrOutput)
 }
 
-// The timestamp of resource last modification (UTC)
 func (o SystemDataResponseOutput) LastModifiedAt() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SystemDataResponse) *string { return v.LastModifiedAt }).(pulumi.StringPtrOutput)
 }
 
-// The identity that last modified the resource.
 func (o SystemDataResponseOutput) LastModifiedBy() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SystemDataResponse) *string { return v.LastModifiedBy }).(pulumi.StringPtrOutput)
 }
 
-// The type of identity that last modified the resource.
 func (o SystemDataResponseOutput) LastModifiedByType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SystemDataResponse) *string { return v.LastModifiedByType }).(pulumi.StringPtrOutput)
 }
@@ -618,10 +586,15 @@ func (o SystemDataResponsePtrOutput) ToSystemDataResponsePtrOutputWithContext(ct
 }
 
 func (o SystemDataResponsePtrOutput) Elem() SystemDataResponseOutput {
-	return o.ApplyT(func(v *SystemDataResponse) SystemDataResponse { return *v }).(SystemDataResponseOutput)
+	return o.ApplyT(func(v *SystemDataResponse) SystemDataResponse {
+		if v != nil {
+			return *v
+		}
+		var ret SystemDataResponse
+		return ret
+	}).(SystemDataResponseOutput)
 }
 
-// The timestamp of resource creation (UTC).
 func (o SystemDataResponsePtrOutput) CreatedAt() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SystemDataResponse) *string {
 		if v == nil {
@@ -631,7 +604,6 @@ func (o SystemDataResponsePtrOutput) CreatedAt() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The identity that created the resource.
 func (o SystemDataResponsePtrOutput) CreatedBy() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SystemDataResponse) *string {
 		if v == nil {
@@ -641,7 +613,6 @@ func (o SystemDataResponsePtrOutput) CreatedBy() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The type of identity that created the resource.
 func (o SystemDataResponsePtrOutput) CreatedByType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SystemDataResponse) *string {
 		if v == nil {
@@ -651,7 +622,6 @@ func (o SystemDataResponsePtrOutput) CreatedByType() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The timestamp of resource last modification (UTC)
 func (o SystemDataResponsePtrOutput) LastModifiedAt() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SystemDataResponse) *string {
 		if v == nil {
@@ -661,7 +631,6 @@ func (o SystemDataResponsePtrOutput) LastModifiedAt() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The identity that last modified the resource.
 func (o SystemDataResponsePtrOutput) LastModifiedBy() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SystemDataResponse) *string {
 		if v == nil {
@@ -671,7 +640,6 @@ func (o SystemDataResponsePtrOutput) LastModifiedBy() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The type of identity that last modified the resource.
 func (o SystemDataResponsePtrOutput) LastModifiedByType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SystemDataResponse) *string {
 		if v == nil {
@@ -681,9 +649,7 @@ func (o SystemDataResponsePtrOutput) LastModifiedByType() pulumi.StringPtrOutput
 	}).(pulumi.StringPtrOutput)
 }
 
-// Customer Managed Identity
 type WorkbookManagedIdentity struct {
-	// The identity type.
 	Type *string `pulumi:"type"`
 }
 
@@ -698,9 +664,7 @@ type WorkbookManagedIdentityInput interface {
 	ToWorkbookManagedIdentityOutputWithContext(context.Context) WorkbookManagedIdentityOutput
 }
 
-// Customer Managed Identity
 type WorkbookManagedIdentityArgs struct {
-	// The identity type.
 	Type pulumi.StringPtrInput `pulumi:"type"`
 }
 
@@ -757,7 +721,6 @@ func (i *workbookManagedIdentityPtrType) ToWorkbookManagedIdentityPtrOutputWithC
 	return pulumi.ToOutputWithContext(ctx, i).(WorkbookManagedIdentityPtrOutput)
 }
 
-// Customer Managed Identity
 type WorkbookManagedIdentityOutput struct{ *pulumi.OutputState }
 
 func (WorkbookManagedIdentityOutput) ElementType() reflect.Type {
@@ -777,12 +740,11 @@ func (o WorkbookManagedIdentityOutput) ToWorkbookManagedIdentityPtrOutput() Work
 }
 
 func (o WorkbookManagedIdentityOutput) ToWorkbookManagedIdentityPtrOutputWithContext(ctx context.Context) WorkbookManagedIdentityPtrOutput {
-	return o.ApplyT(func(v WorkbookManagedIdentity) *WorkbookManagedIdentity {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v WorkbookManagedIdentity) *WorkbookManagedIdentity {
 		return &v
 	}).(WorkbookManagedIdentityPtrOutput)
 }
 
-// The identity type.
 func (o WorkbookManagedIdentityOutput) Type() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v WorkbookManagedIdentity) *string { return v.Type }).(pulumi.StringPtrOutput)
 }
@@ -802,10 +764,15 @@ func (o WorkbookManagedIdentityPtrOutput) ToWorkbookManagedIdentityPtrOutputWith
 }
 
 func (o WorkbookManagedIdentityPtrOutput) Elem() WorkbookManagedIdentityOutput {
-	return o.ApplyT(func(v *WorkbookManagedIdentity) WorkbookManagedIdentity { return *v }).(WorkbookManagedIdentityOutput)
+	return o.ApplyT(func(v *WorkbookManagedIdentity) WorkbookManagedIdentity {
+		if v != nil {
+			return *v
+		}
+		var ret WorkbookManagedIdentity
+		return ret
+	}).(WorkbookManagedIdentityOutput)
 }
 
-// The identity type.
 func (o WorkbookManagedIdentityPtrOutput) Type() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *WorkbookManagedIdentity) *string {
 		if v == nil {
@@ -815,11 +782,8 @@ func (o WorkbookManagedIdentityPtrOutput) Type() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Customer Managed Identity
 type WorkbookManagedIdentityResponse struct {
-	// The identity type.
-	Type *string `pulumi:"type"`
-	// Customer Managed Identity
+	Type                   *string                                 `pulumi:"type"`
 	UserAssignedIdentities *WorkbookUserAssignedIdentitiesResponse `pulumi:"userAssignedIdentities"`
 }
 
@@ -834,11 +798,8 @@ type WorkbookManagedIdentityResponseInput interface {
 	ToWorkbookManagedIdentityResponseOutputWithContext(context.Context) WorkbookManagedIdentityResponseOutput
 }
 
-// Customer Managed Identity
 type WorkbookManagedIdentityResponseArgs struct {
-	// The identity type.
-	Type pulumi.StringPtrInput `pulumi:"type"`
-	// Customer Managed Identity
+	Type                   pulumi.StringPtrInput                          `pulumi:"type"`
 	UserAssignedIdentities WorkbookUserAssignedIdentitiesResponsePtrInput `pulumi:"userAssignedIdentities"`
 }
 
@@ -895,7 +856,6 @@ func (i *workbookManagedIdentityResponsePtrType) ToWorkbookManagedIdentityRespon
 	return pulumi.ToOutputWithContext(ctx, i).(WorkbookManagedIdentityResponsePtrOutput)
 }
 
-// Customer Managed Identity
 type WorkbookManagedIdentityResponseOutput struct{ *pulumi.OutputState }
 
 func (WorkbookManagedIdentityResponseOutput) ElementType() reflect.Type {
@@ -915,17 +875,15 @@ func (o WorkbookManagedIdentityResponseOutput) ToWorkbookManagedIdentityResponse
 }
 
 func (o WorkbookManagedIdentityResponseOutput) ToWorkbookManagedIdentityResponsePtrOutputWithContext(ctx context.Context) WorkbookManagedIdentityResponsePtrOutput {
-	return o.ApplyT(func(v WorkbookManagedIdentityResponse) *WorkbookManagedIdentityResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v WorkbookManagedIdentityResponse) *WorkbookManagedIdentityResponse {
 		return &v
 	}).(WorkbookManagedIdentityResponsePtrOutput)
 }
 
-// The identity type.
 func (o WorkbookManagedIdentityResponseOutput) Type() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v WorkbookManagedIdentityResponse) *string { return v.Type }).(pulumi.StringPtrOutput)
 }
 
-// Customer Managed Identity
 func (o WorkbookManagedIdentityResponseOutput) UserAssignedIdentities() WorkbookUserAssignedIdentitiesResponsePtrOutput {
 	return o.ApplyT(func(v WorkbookManagedIdentityResponse) *WorkbookUserAssignedIdentitiesResponse {
 		return v.UserAssignedIdentities
@@ -947,10 +905,15 @@ func (o WorkbookManagedIdentityResponsePtrOutput) ToWorkbookManagedIdentityRespo
 }
 
 func (o WorkbookManagedIdentityResponsePtrOutput) Elem() WorkbookManagedIdentityResponseOutput {
-	return o.ApplyT(func(v *WorkbookManagedIdentityResponse) WorkbookManagedIdentityResponse { return *v }).(WorkbookManagedIdentityResponseOutput)
+	return o.ApplyT(func(v *WorkbookManagedIdentityResponse) WorkbookManagedIdentityResponse {
+		if v != nil {
+			return *v
+		}
+		var ret WorkbookManagedIdentityResponse
+		return ret
+	}).(WorkbookManagedIdentityResponseOutput)
 }
 
-// The identity type.
 func (o WorkbookManagedIdentityResponsePtrOutput) Type() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *WorkbookManagedIdentityResponse) *string {
 		if v == nil {
@@ -960,7 +923,6 @@ func (o WorkbookManagedIdentityResponsePtrOutput) Type() pulumi.StringPtrOutput 
 	}).(pulumi.StringPtrOutput)
 }
 
-// Customer Managed Identity
 func (o WorkbookManagedIdentityResponsePtrOutput) UserAssignedIdentities() WorkbookUserAssignedIdentitiesResponsePtrOutput {
 	return o.ApplyT(func(v *WorkbookManagedIdentityResponse) *WorkbookUserAssignedIdentitiesResponse {
 		if v == nil {
@@ -970,14 +932,10 @@ func (o WorkbookManagedIdentityResponsePtrOutput) UserAssignedIdentities() Workb
 	}).(WorkbookUserAssignedIdentitiesResponsePtrOutput)
 }
 
-// Customer Managed Identity
 type WorkbookUserAssignedIdentitiesResponse struct {
-	// The client ID of resource.
-	ClientId string `pulumi:"clientId"`
-	// The principal ID of resource identity.
+	ClientId    string `pulumi:"clientId"`
 	PrincipalId string `pulumi:"principalId"`
-	// The tenant ID of resource.
-	TenantId string `pulumi:"tenantId"`
+	TenantId    string `pulumi:"tenantId"`
 }
 
 // WorkbookUserAssignedIdentitiesResponseInput is an input type that accepts WorkbookUserAssignedIdentitiesResponseArgs and WorkbookUserAssignedIdentitiesResponseOutput values.
@@ -991,14 +949,10 @@ type WorkbookUserAssignedIdentitiesResponseInput interface {
 	ToWorkbookUserAssignedIdentitiesResponseOutputWithContext(context.Context) WorkbookUserAssignedIdentitiesResponseOutput
 }
 
-// Customer Managed Identity
 type WorkbookUserAssignedIdentitiesResponseArgs struct {
-	// The client ID of resource.
-	ClientId pulumi.StringInput `pulumi:"clientId"`
-	// The principal ID of resource identity.
+	ClientId    pulumi.StringInput `pulumi:"clientId"`
 	PrincipalId pulumi.StringInput `pulumi:"principalId"`
-	// The tenant ID of resource.
-	TenantId pulumi.StringInput `pulumi:"tenantId"`
+	TenantId    pulumi.StringInput `pulumi:"tenantId"`
 }
 
 func (WorkbookUserAssignedIdentitiesResponseArgs) ElementType() reflect.Type {
@@ -1054,7 +1008,6 @@ func (i *workbookUserAssignedIdentitiesResponsePtrType) ToWorkbookUserAssignedId
 	return pulumi.ToOutputWithContext(ctx, i).(WorkbookUserAssignedIdentitiesResponsePtrOutput)
 }
 
-// Customer Managed Identity
 type WorkbookUserAssignedIdentitiesResponseOutput struct{ *pulumi.OutputState }
 
 func (WorkbookUserAssignedIdentitiesResponseOutput) ElementType() reflect.Type {
@@ -1074,22 +1027,19 @@ func (o WorkbookUserAssignedIdentitiesResponseOutput) ToWorkbookUserAssignedIden
 }
 
 func (o WorkbookUserAssignedIdentitiesResponseOutput) ToWorkbookUserAssignedIdentitiesResponsePtrOutputWithContext(ctx context.Context) WorkbookUserAssignedIdentitiesResponsePtrOutput {
-	return o.ApplyT(func(v WorkbookUserAssignedIdentitiesResponse) *WorkbookUserAssignedIdentitiesResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v WorkbookUserAssignedIdentitiesResponse) *WorkbookUserAssignedIdentitiesResponse {
 		return &v
 	}).(WorkbookUserAssignedIdentitiesResponsePtrOutput)
 }
 
-// The client ID of resource.
 func (o WorkbookUserAssignedIdentitiesResponseOutput) ClientId() pulumi.StringOutput {
 	return o.ApplyT(func(v WorkbookUserAssignedIdentitiesResponse) string { return v.ClientId }).(pulumi.StringOutput)
 }
 
-// The principal ID of resource identity.
 func (o WorkbookUserAssignedIdentitiesResponseOutput) PrincipalId() pulumi.StringOutput {
 	return o.ApplyT(func(v WorkbookUserAssignedIdentitiesResponse) string { return v.PrincipalId }).(pulumi.StringOutput)
 }
 
-// The tenant ID of resource.
 func (o WorkbookUserAssignedIdentitiesResponseOutput) TenantId() pulumi.StringOutput {
 	return o.ApplyT(func(v WorkbookUserAssignedIdentitiesResponse) string { return v.TenantId }).(pulumi.StringOutput)
 }
@@ -1109,10 +1059,15 @@ func (o WorkbookUserAssignedIdentitiesResponsePtrOutput) ToWorkbookUserAssignedI
 }
 
 func (o WorkbookUserAssignedIdentitiesResponsePtrOutput) Elem() WorkbookUserAssignedIdentitiesResponseOutput {
-	return o.ApplyT(func(v *WorkbookUserAssignedIdentitiesResponse) WorkbookUserAssignedIdentitiesResponse { return *v }).(WorkbookUserAssignedIdentitiesResponseOutput)
+	return o.ApplyT(func(v *WorkbookUserAssignedIdentitiesResponse) WorkbookUserAssignedIdentitiesResponse {
+		if v != nil {
+			return *v
+		}
+		var ret WorkbookUserAssignedIdentitiesResponse
+		return ret
+	}).(WorkbookUserAssignedIdentitiesResponseOutput)
 }
 
-// The client ID of resource.
 func (o WorkbookUserAssignedIdentitiesResponsePtrOutput) ClientId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *WorkbookUserAssignedIdentitiesResponse) *string {
 		if v == nil {
@@ -1122,7 +1077,6 @@ func (o WorkbookUserAssignedIdentitiesResponsePtrOutput) ClientId() pulumi.Strin
 	}).(pulumi.StringPtrOutput)
 }
 
-// The principal ID of resource identity.
 func (o WorkbookUserAssignedIdentitiesResponsePtrOutput) PrincipalId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *WorkbookUserAssignedIdentitiesResponse) *string {
 		if v == nil {
@@ -1132,7 +1086,6 @@ func (o WorkbookUserAssignedIdentitiesResponsePtrOutput) PrincipalId() pulumi.St
 	}).(pulumi.StringPtrOutput)
 }
 
-// The tenant ID of resource.
 func (o WorkbookUserAssignedIdentitiesResponsePtrOutput) TenantId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *WorkbookUserAssignedIdentitiesResponse) *string {
 		if v == nil {

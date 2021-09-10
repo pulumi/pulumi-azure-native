@@ -7,7 +7,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Description of a NotificationHub Resource.
 func LookupNotificationHub(ctx *pulumi.Context, args *LookupNotificationHubArgs, opts ...pulumi.InvokeOption) (*LookupNotificationHubResult, error) {
 	var rv LookupNotificationHubResult
 	err := ctx.Invoke("azure-native:notificationhubs/v20140901:getNotificationHub", args, &rv, opts...)
@@ -18,26 +17,17 @@ func LookupNotificationHub(ctx *pulumi.Context, args *LookupNotificationHubArgs,
 }
 
 type LookupNotificationHubArgs struct {
-	// The namespace name.
-	NamespaceName string `pulumi:"namespaceName"`
-	// The notification hub name.
+	NamespaceName       string `pulumi:"namespaceName"`
 	NotificationHubName string `pulumi:"notificationHubName"`
-	// The name of the resource group.
-	ResourceGroupName string `pulumi:"resourceGroupName"`
+	ResourceGroupName   string `pulumi:"resourceGroupName"`
 }
 
 // Description of a NotificationHub Resource.
 type LookupNotificationHubResult struct {
-	// Gets or sets the id of the created NotificationHub.
-	Id *string `pulumi:"id"`
-	// Gets or sets datacenter location of the NotificationHub.
-	Location *string `pulumi:"location"`
-	// Gets or sets name of the NotificationHub.
-	Name *string `pulumi:"name"`
-	// Gets or sets properties of the NotificationHub.
+	Id         *string                           `pulumi:"id"`
+	Location   *string                           `pulumi:"location"`
+	Name       *string                           `pulumi:"name"`
 	Properties NotificationHubPropertiesResponse `pulumi:"properties"`
-	// Gets or sets tags of the NotificationHub.
-	Tags map[string]string `pulumi:"tags"`
-	// Gets or sets resource type of the NotificationHub.
-	Type *string `pulumi:"type"`
+	Tags       map[string]string                 `pulumi:"tags"`
+	Type       *string                           `pulumi:"type"`
 }

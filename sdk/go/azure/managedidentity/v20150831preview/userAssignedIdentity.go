@@ -11,26 +11,17 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Describes an identity resource.
 type UserAssignedIdentity struct {
 	pulumi.CustomResourceState
 
-	// The id of the app associated with the identity. This is a random generated UUID by MSI.
-	ClientId pulumi.StringOutput `pulumi:"clientId"`
-	//  The ManagedServiceIdentity DataPlane URL that can be queried to obtain the identity credentials.
-	ClientSecretUrl pulumi.StringOutput `pulumi:"clientSecretUrl"`
-	// The geo-location where the resource lives
-	Location pulumi.StringOutput `pulumi:"location"`
-	// The name of the resource
-	Name pulumi.StringOutput `pulumi:"name"`
-	// The id of the service principal object associated with the created identity.
-	PrincipalId pulumi.StringOutput `pulumi:"principalId"`
-	// Resource tags.
-	Tags pulumi.StringMapOutput `pulumi:"tags"`
-	// The id of the tenant which the identity belongs to.
-	TenantId pulumi.StringOutput `pulumi:"tenantId"`
-	// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
-	Type pulumi.StringOutput `pulumi:"type"`
+	ClientId        pulumi.StringOutput    `pulumi:"clientId"`
+	ClientSecretUrl pulumi.StringOutput    `pulumi:"clientSecretUrl"`
+	Location        pulumi.StringOutput    `pulumi:"location"`
+	Name            pulumi.StringOutput    `pulumi:"name"`
+	PrincipalId     pulumi.StringOutput    `pulumi:"principalId"`
+	Tags            pulumi.StringMapOutput `pulumi:"tags"`
+	TenantId        pulumi.StringOutput    `pulumi:"tenantId"`
+	Type            pulumi.StringOutput    `pulumi:"type"`
 }
 
 // NewUserAssignedIdentity registers a new resource with the given unique name, arguments, and options.
@@ -93,26 +84,18 @@ func (UserAssignedIdentityState) ElementType() reflect.Type {
 }
 
 type userAssignedIdentityArgs struct {
-	// The geo-location where the resource lives
-	Location *string `pulumi:"location"`
-	// The name of the Resource Group to which the identity belongs.
-	ResourceGroupName string `pulumi:"resourceGroupName"`
-	// The name of the identity resource.
-	ResourceName *string `pulumi:"resourceName"`
-	// Resource tags.
-	Tags map[string]string `pulumi:"tags"`
+	Location          *string           `pulumi:"location"`
+	ResourceGroupName string            `pulumi:"resourceGroupName"`
+	ResourceName      *string           `pulumi:"resourceName"`
+	Tags              map[string]string `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a UserAssignedIdentity resource.
 type UserAssignedIdentityArgs struct {
-	// The geo-location where the resource lives
-	Location pulumi.StringPtrInput
-	// The name of the Resource Group to which the identity belongs.
+	Location          pulumi.StringPtrInput
 	ResourceGroupName pulumi.StringInput
-	// The name of the identity resource.
-	ResourceName pulumi.StringPtrInput
-	// Resource tags.
-	Tags pulumi.StringMapInput
+	ResourceName      pulumi.StringPtrInput
+	Tags              pulumi.StringMapInput
 }
 
 func (UserAssignedIdentityArgs) ElementType() reflect.Type {
@@ -138,9 +121,7 @@ func (i *UserAssignedIdentity) ToUserAssignedIdentityOutputWithContext(ctx conte
 	return pulumi.ToOutputWithContext(ctx, i).(UserAssignedIdentityOutput)
 }
 
-type UserAssignedIdentityOutput struct {
-	*pulumi.OutputState
-}
+type UserAssignedIdentityOutput struct{ *pulumi.OutputState }
 
 func (UserAssignedIdentityOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*UserAssignedIdentity)(nil))

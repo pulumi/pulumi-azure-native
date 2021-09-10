@@ -115,9 +115,7 @@ func (i *Vendor) ToVendorOutputWithContext(ctx context.Context) VendorOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(VendorOutput)
 }
 
-type VendorOutput struct {
-	*pulumi.OutputState
-}
+type VendorOutput struct{ *pulumi.OutputState }
 
 func (VendorOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*Vendor)(nil))

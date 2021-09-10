@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.Network.Outputs
 {
 
+    /// <summary>
+    /// The HTTP header.
+    /// </summary>
     [OutputType]
     public sealed class HTTPHeaderResponse
     {

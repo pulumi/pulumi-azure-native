@@ -151,9 +151,7 @@ func (i *IscsiTarget) ToIscsiTargetOutputWithContext(ctx context.Context) IscsiT
 	return pulumi.ToOutputWithContext(ctx, i).(IscsiTargetOutput)
 }
 
-type IscsiTargetOutput struct {
-	*pulumi.OutputState
-}
+type IscsiTargetOutput struct{ *pulumi.OutputState }
 
 func (IscsiTargetOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*IscsiTarget)(nil))

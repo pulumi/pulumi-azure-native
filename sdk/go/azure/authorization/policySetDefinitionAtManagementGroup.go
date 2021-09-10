@@ -206,9 +206,7 @@ func (i *PolicySetDefinitionAtManagementGroup) ToPolicySetDefinitionAtManagement
 	return pulumi.ToOutputWithContext(ctx, i).(PolicySetDefinitionAtManagementGroupOutput)
 }
 
-type PolicySetDefinitionAtManagementGroupOutput struct {
-	*pulumi.OutputState
-}
+type PolicySetDefinitionAtManagementGroupOutput struct{ *pulumi.OutputState }
 
 func (PolicySetDefinitionAtManagementGroupOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*PolicySetDefinitionAtManagementGroup)(nil))

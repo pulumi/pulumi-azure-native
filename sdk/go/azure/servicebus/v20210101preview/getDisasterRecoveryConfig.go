@@ -7,7 +7,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Single item in List or Get Alias(Disaster Recovery configuration) operation
 func LookupDisasterRecoveryConfig(ctx *pulumi.Context, args *LookupDisasterRecoveryConfigArgs, opts ...pulumi.InvokeOption) (*LookupDisasterRecoveryConfigResult, error) {
 	var rv LookupDisasterRecoveryConfigResult
 	err := ctx.Invoke("azure-native:servicebus/v20210101preview:getDisasterRecoveryConfig", args, &rv, opts...)
@@ -18,32 +17,20 @@ func LookupDisasterRecoveryConfig(ctx *pulumi.Context, args *LookupDisasterRecov
 }
 
 type LookupDisasterRecoveryConfigArgs struct {
-	// The Disaster Recovery configuration name
-	Alias string `pulumi:"alias"`
-	// The namespace name
-	NamespaceName string `pulumi:"namespaceName"`
-	// Name of the Resource group within the Azure subscription.
+	Alias             string `pulumi:"alias"`
+	NamespaceName     string `pulumi:"namespaceName"`
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 }
 
 // Single item in List or Get Alias(Disaster Recovery configuration) operation
 type LookupDisasterRecoveryConfigResult struct {
-	// Primary/Secondary eventhub namespace name, which is part of GEO DR pairing
-	AlternateName *string `pulumi:"alternateName"`
-	// Resource Id
-	Id string `pulumi:"id"`
-	// Resource name
-	Name string `pulumi:"name"`
-	// ARM Id of the Primary/Secondary eventhub namespace name, which is part of GEO DR pairing
-	PartnerNamespace *string `pulumi:"partnerNamespace"`
-	// Number of entities pending to be replicated.
-	PendingReplicationOperationsCount float64 `pulumi:"pendingReplicationOperationsCount"`
-	// Provisioning state of the Alias(Disaster Recovery configuration) - possible values 'Accepted' or 'Succeeded' or 'Failed'
-	ProvisioningState string `pulumi:"provisioningState"`
-	// role of namespace in GEO DR - possible values 'Primary' or 'PrimaryNotReplicating' or 'Secondary'
-	Role string `pulumi:"role"`
-	// The system meta data relating to this resource.
-	SystemData SystemDataResponse `pulumi:"systemData"`
-	// Resource type
-	Type string `pulumi:"type"`
+	AlternateName                     *string            `pulumi:"alternateName"`
+	Id                                string             `pulumi:"id"`
+	Name                              string             `pulumi:"name"`
+	PartnerNamespace                  *string            `pulumi:"partnerNamespace"`
+	PendingReplicationOperationsCount float64            `pulumi:"pendingReplicationOperationsCount"`
+	ProvisioningState                 string             `pulumi:"provisioningState"`
+	Role                              string             `pulumi:"role"`
+	SystemData                        SystemDataResponse `pulumi:"systemData"`
+	Type                              string             `pulumi:"type"`
 }

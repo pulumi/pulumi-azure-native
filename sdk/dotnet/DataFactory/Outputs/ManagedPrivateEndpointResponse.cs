@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.DataFactory.Outputs
 {
 
+    /// <summary>
+    /// Properties of a managed private endpoint
+    /// </summary>
     [OutputType]
     public sealed class ManagedPrivateEndpointResponse
     {

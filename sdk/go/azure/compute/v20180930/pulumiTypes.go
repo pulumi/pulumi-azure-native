@@ -10,18 +10,12 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Data used when creating a disk.
 type CreationData struct {
-	// This enumerates the possible sources of a disk's creation.
-	CreateOption string `pulumi:"createOption"`
-	// Disk source information.
-	ImageReference *ImageDiskReference `pulumi:"imageReference"`
-	// If createOption is Copy, this is the ARM id of the source snapshot or disk.
-	SourceResourceId *string `pulumi:"sourceResourceId"`
-	// If createOption is Import, this is the URI of a blob to be imported into a managed disk.
-	SourceUri *string `pulumi:"sourceUri"`
-	// If createOption is Import, the Azure Resource Manager identifier of the storage account containing the blob to import as a disk. Required only if the blob is in a different subscription
-	StorageAccountId *string `pulumi:"storageAccountId"`
+	CreateOption     string              `pulumi:"createOption"`
+	ImageReference   *ImageDiskReference `pulumi:"imageReference"`
+	SourceResourceId *string             `pulumi:"sourceResourceId"`
+	SourceUri        *string             `pulumi:"sourceUri"`
+	StorageAccountId *string             `pulumi:"storageAccountId"`
 }
 
 // CreationDataInput is an input type that accepts CreationDataArgs and CreationDataOutput values.
@@ -35,18 +29,12 @@ type CreationDataInput interface {
 	ToCreationDataOutputWithContext(context.Context) CreationDataOutput
 }
 
-// Data used when creating a disk.
 type CreationDataArgs struct {
-	// This enumerates the possible sources of a disk's creation.
-	CreateOption pulumi.StringInput `pulumi:"createOption"`
-	// Disk source information.
-	ImageReference ImageDiskReferencePtrInput `pulumi:"imageReference"`
-	// If createOption is Copy, this is the ARM id of the source snapshot or disk.
-	SourceResourceId pulumi.StringPtrInput `pulumi:"sourceResourceId"`
-	// If createOption is Import, this is the URI of a blob to be imported into a managed disk.
-	SourceUri pulumi.StringPtrInput `pulumi:"sourceUri"`
-	// If createOption is Import, the Azure Resource Manager identifier of the storage account containing the blob to import as a disk. Required only if the blob is in a different subscription
-	StorageAccountId pulumi.StringPtrInput `pulumi:"storageAccountId"`
+	CreateOption     pulumi.StringInput         `pulumi:"createOption"`
+	ImageReference   ImageDiskReferencePtrInput `pulumi:"imageReference"`
+	SourceResourceId pulumi.StringPtrInput      `pulumi:"sourceResourceId"`
+	SourceUri        pulumi.StringPtrInput      `pulumi:"sourceUri"`
+	StorageAccountId pulumi.StringPtrInput      `pulumi:"storageAccountId"`
 }
 
 func (CreationDataArgs) ElementType() reflect.Type {
@@ -102,7 +90,6 @@ func (i *creationDataPtrType) ToCreationDataPtrOutputWithContext(ctx context.Con
 	return pulumi.ToOutputWithContext(ctx, i).(CreationDataPtrOutput)
 }
 
-// Data used when creating a disk.
 type CreationDataOutput struct{ *pulumi.OutputState }
 
 func (CreationDataOutput) ElementType() reflect.Type {
@@ -122,32 +109,27 @@ func (o CreationDataOutput) ToCreationDataPtrOutput() CreationDataPtrOutput {
 }
 
 func (o CreationDataOutput) ToCreationDataPtrOutputWithContext(ctx context.Context) CreationDataPtrOutput {
-	return o.ApplyT(func(v CreationData) *CreationData {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v CreationData) *CreationData {
 		return &v
 	}).(CreationDataPtrOutput)
 }
 
-// This enumerates the possible sources of a disk's creation.
 func (o CreationDataOutput) CreateOption() pulumi.StringOutput {
 	return o.ApplyT(func(v CreationData) string { return v.CreateOption }).(pulumi.StringOutput)
 }
 
-// Disk source information.
 func (o CreationDataOutput) ImageReference() ImageDiskReferencePtrOutput {
 	return o.ApplyT(func(v CreationData) *ImageDiskReference { return v.ImageReference }).(ImageDiskReferencePtrOutput)
 }
 
-// If createOption is Copy, this is the ARM id of the source snapshot or disk.
 func (o CreationDataOutput) SourceResourceId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v CreationData) *string { return v.SourceResourceId }).(pulumi.StringPtrOutput)
 }
 
-// If createOption is Import, this is the URI of a blob to be imported into a managed disk.
 func (o CreationDataOutput) SourceUri() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v CreationData) *string { return v.SourceUri }).(pulumi.StringPtrOutput)
 }
 
-// If createOption is Import, the Azure Resource Manager identifier of the storage account containing the blob to import as a disk. Required only if the blob is in a different subscription
 func (o CreationDataOutput) StorageAccountId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v CreationData) *string { return v.StorageAccountId }).(pulumi.StringPtrOutput)
 }
@@ -167,10 +149,15 @@ func (o CreationDataPtrOutput) ToCreationDataPtrOutputWithContext(ctx context.Co
 }
 
 func (o CreationDataPtrOutput) Elem() CreationDataOutput {
-	return o.ApplyT(func(v *CreationData) CreationData { return *v }).(CreationDataOutput)
+	return o.ApplyT(func(v *CreationData) CreationData {
+		if v != nil {
+			return *v
+		}
+		var ret CreationData
+		return ret
+	}).(CreationDataOutput)
 }
 
-// This enumerates the possible sources of a disk's creation.
 func (o CreationDataPtrOutput) CreateOption() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *CreationData) *string {
 		if v == nil {
@@ -180,7 +167,6 @@ func (o CreationDataPtrOutput) CreateOption() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Disk source information.
 func (o CreationDataPtrOutput) ImageReference() ImageDiskReferencePtrOutput {
 	return o.ApplyT(func(v *CreationData) *ImageDiskReference {
 		if v == nil {
@@ -190,7 +176,6 @@ func (o CreationDataPtrOutput) ImageReference() ImageDiskReferencePtrOutput {
 	}).(ImageDiskReferencePtrOutput)
 }
 
-// If createOption is Copy, this is the ARM id of the source snapshot or disk.
 func (o CreationDataPtrOutput) SourceResourceId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *CreationData) *string {
 		if v == nil {
@@ -200,7 +185,6 @@ func (o CreationDataPtrOutput) SourceResourceId() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// If createOption is Import, this is the URI of a blob to be imported into a managed disk.
 func (o CreationDataPtrOutput) SourceUri() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *CreationData) *string {
 		if v == nil {
@@ -210,7 +194,6 @@ func (o CreationDataPtrOutput) SourceUri() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// If createOption is Import, the Azure Resource Manager identifier of the storage account containing the blob to import as a disk. Required only if the blob is in a different subscription
 func (o CreationDataPtrOutput) StorageAccountId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *CreationData) *string {
 		if v == nil {
@@ -220,18 +203,12 @@ func (o CreationDataPtrOutput) StorageAccountId() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Data used when creating a disk.
 type CreationDataResponse struct {
-	// This enumerates the possible sources of a disk's creation.
-	CreateOption string `pulumi:"createOption"`
-	// Disk source information.
-	ImageReference *ImageDiskReferenceResponse `pulumi:"imageReference"`
-	// If createOption is Copy, this is the ARM id of the source snapshot or disk.
-	SourceResourceId *string `pulumi:"sourceResourceId"`
-	// If createOption is Import, this is the URI of a blob to be imported into a managed disk.
-	SourceUri *string `pulumi:"sourceUri"`
-	// If createOption is Import, the Azure Resource Manager identifier of the storage account containing the blob to import as a disk. Required only if the blob is in a different subscription
-	StorageAccountId *string `pulumi:"storageAccountId"`
+	CreateOption     string                      `pulumi:"createOption"`
+	ImageReference   *ImageDiskReferenceResponse `pulumi:"imageReference"`
+	SourceResourceId *string                     `pulumi:"sourceResourceId"`
+	SourceUri        *string                     `pulumi:"sourceUri"`
+	StorageAccountId *string                     `pulumi:"storageAccountId"`
 }
 
 // CreationDataResponseInput is an input type that accepts CreationDataResponseArgs and CreationDataResponseOutput values.
@@ -245,18 +222,12 @@ type CreationDataResponseInput interface {
 	ToCreationDataResponseOutputWithContext(context.Context) CreationDataResponseOutput
 }
 
-// Data used when creating a disk.
 type CreationDataResponseArgs struct {
-	// This enumerates the possible sources of a disk's creation.
-	CreateOption pulumi.StringInput `pulumi:"createOption"`
-	// Disk source information.
-	ImageReference ImageDiskReferenceResponsePtrInput `pulumi:"imageReference"`
-	// If createOption is Copy, this is the ARM id of the source snapshot or disk.
-	SourceResourceId pulumi.StringPtrInput `pulumi:"sourceResourceId"`
-	// If createOption is Import, this is the URI of a blob to be imported into a managed disk.
-	SourceUri pulumi.StringPtrInput `pulumi:"sourceUri"`
-	// If createOption is Import, the Azure Resource Manager identifier of the storage account containing the blob to import as a disk. Required only if the blob is in a different subscription
-	StorageAccountId pulumi.StringPtrInput `pulumi:"storageAccountId"`
+	CreateOption     pulumi.StringInput                 `pulumi:"createOption"`
+	ImageReference   ImageDiskReferenceResponsePtrInput `pulumi:"imageReference"`
+	SourceResourceId pulumi.StringPtrInput              `pulumi:"sourceResourceId"`
+	SourceUri        pulumi.StringPtrInput              `pulumi:"sourceUri"`
+	StorageAccountId pulumi.StringPtrInput              `pulumi:"storageAccountId"`
 }
 
 func (CreationDataResponseArgs) ElementType() reflect.Type {
@@ -312,7 +283,6 @@ func (i *creationDataResponsePtrType) ToCreationDataResponsePtrOutputWithContext
 	return pulumi.ToOutputWithContext(ctx, i).(CreationDataResponsePtrOutput)
 }
 
-// Data used when creating a disk.
 type CreationDataResponseOutput struct{ *pulumi.OutputState }
 
 func (CreationDataResponseOutput) ElementType() reflect.Type {
@@ -332,32 +302,27 @@ func (o CreationDataResponseOutput) ToCreationDataResponsePtrOutput() CreationDa
 }
 
 func (o CreationDataResponseOutput) ToCreationDataResponsePtrOutputWithContext(ctx context.Context) CreationDataResponsePtrOutput {
-	return o.ApplyT(func(v CreationDataResponse) *CreationDataResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v CreationDataResponse) *CreationDataResponse {
 		return &v
 	}).(CreationDataResponsePtrOutput)
 }
 
-// This enumerates the possible sources of a disk's creation.
 func (o CreationDataResponseOutput) CreateOption() pulumi.StringOutput {
 	return o.ApplyT(func(v CreationDataResponse) string { return v.CreateOption }).(pulumi.StringOutput)
 }
 
-// Disk source information.
 func (o CreationDataResponseOutput) ImageReference() ImageDiskReferenceResponsePtrOutput {
 	return o.ApplyT(func(v CreationDataResponse) *ImageDiskReferenceResponse { return v.ImageReference }).(ImageDiskReferenceResponsePtrOutput)
 }
 
-// If createOption is Copy, this is the ARM id of the source snapshot or disk.
 func (o CreationDataResponseOutput) SourceResourceId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v CreationDataResponse) *string { return v.SourceResourceId }).(pulumi.StringPtrOutput)
 }
 
-// If createOption is Import, this is the URI of a blob to be imported into a managed disk.
 func (o CreationDataResponseOutput) SourceUri() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v CreationDataResponse) *string { return v.SourceUri }).(pulumi.StringPtrOutput)
 }
 
-// If createOption is Import, the Azure Resource Manager identifier of the storage account containing the blob to import as a disk. Required only if the blob is in a different subscription
 func (o CreationDataResponseOutput) StorageAccountId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v CreationDataResponse) *string { return v.StorageAccountId }).(pulumi.StringPtrOutput)
 }
@@ -377,10 +342,15 @@ func (o CreationDataResponsePtrOutput) ToCreationDataResponsePtrOutputWithContex
 }
 
 func (o CreationDataResponsePtrOutput) Elem() CreationDataResponseOutput {
-	return o.ApplyT(func(v *CreationDataResponse) CreationDataResponse { return *v }).(CreationDataResponseOutput)
+	return o.ApplyT(func(v *CreationDataResponse) CreationDataResponse {
+		if v != nil {
+			return *v
+		}
+		var ret CreationDataResponse
+		return ret
+	}).(CreationDataResponseOutput)
 }
 
-// This enumerates the possible sources of a disk's creation.
 func (o CreationDataResponsePtrOutput) CreateOption() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *CreationDataResponse) *string {
 		if v == nil {
@@ -390,7 +360,6 @@ func (o CreationDataResponsePtrOutput) CreateOption() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Disk source information.
 func (o CreationDataResponsePtrOutput) ImageReference() ImageDiskReferenceResponsePtrOutput {
 	return o.ApplyT(func(v *CreationDataResponse) *ImageDiskReferenceResponse {
 		if v == nil {
@@ -400,7 +369,6 @@ func (o CreationDataResponsePtrOutput) ImageReference() ImageDiskReferenceRespon
 	}).(ImageDiskReferenceResponsePtrOutput)
 }
 
-// If createOption is Copy, this is the ARM id of the source snapshot or disk.
 func (o CreationDataResponsePtrOutput) SourceResourceId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *CreationDataResponse) *string {
 		if v == nil {
@@ -410,7 +378,6 @@ func (o CreationDataResponsePtrOutput) SourceResourceId() pulumi.StringPtrOutput
 	}).(pulumi.StringPtrOutput)
 }
 
-// If createOption is Import, this is the URI of a blob to be imported into a managed disk.
 func (o CreationDataResponsePtrOutput) SourceUri() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *CreationDataResponse) *string {
 		if v == nil {
@@ -420,7 +387,6 @@ func (o CreationDataResponsePtrOutput) SourceUri() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// If createOption is Import, the Azure Resource Manager identifier of the storage account containing the blob to import as a disk. Required only if the blob is in a different subscription
 func (o CreationDataResponsePtrOutput) StorageAccountId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *CreationDataResponse) *string {
 		if v == nil {
@@ -430,9 +396,7 @@ func (o CreationDataResponsePtrOutput) StorageAccountId() pulumi.StringPtrOutput
 	}).(pulumi.StringPtrOutput)
 }
 
-// The disks sku name. Can be Standard_LRS, Premium_LRS, StandardSSD_LRS, or UltraSSD_LRS.
 type DiskSku struct {
-	// The sku name.
 	Name *string `pulumi:"name"`
 }
 
@@ -447,9 +411,7 @@ type DiskSkuInput interface {
 	ToDiskSkuOutputWithContext(context.Context) DiskSkuOutput
 }
 
-// The disks sku name. Can be Standard_LRS, Premium_LRS, StandardSSD_LRS, or UltraSSD_LRS.
 type DiskSkuArgs struct {
-	// The sku name.
 	Name pulumi.StringPtrInput `pulumi:"name"`
 }
 
@@ -506,7 +468,6 @@ func (i *diskSkuPtrType) ToDiskSkuPtrOutputWithContext(ctx context.Context) Disk
 	return pulumi.ToOutputWithContext(ctx, i).(DiskSkuPtrOutput)
 }
 
-// The disks sku name. Can be Standard_LRS, Premium_LRS, StandardSSD_LRS, or UltraSSD_LRS.
 type DiskSkuOutput struct{ *pulumi.OutputState }
 
 func (DiskSkuOutput) ElementType() reflect.Type {
@@ -526,12 +487,11 @@ func (o DiskSkuOutput) ToDiskSkuPtrOutput() DiskSkuPtrOutput {
 }
 
 func (o DiskSkuOutput) ToDiskSkuPtrOutputWithContext(ctx context.Context) DiskSkuPtrOutput {
-	return o.ApplyT(func(v DiskSku) *DiskSku {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v DiskSku) *DiskSku {
 		return &v
 	}).(DiskSkuPtrOutput)
 }
 
-// The sku name.
 func (o DiskSkuOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v DiskSku) *string { return v.Name }).(pulumi.StringPtrOutput)
 }
@@ -551,10 +511,15 @@ func (o DiskSkuPtrOutput) ToDiskSkuPtrOutputWithContext(ctx context.Context) Dis
 }
 
 func (o DiskSkuPtrOutput) Elem() DiskSkuOutput {
-	return o.ApplyT(func(v *DiskSku) DiskSku { return *v }).(DiskSkuOutput)
+	return o.ApplyT(func(v *DiskSku) DiskSku {
+		if v != nil {
+			return *v
+		}
+		var ret DiskSku
+		return ret
+	}).(DiskSkuOutput)
 }
 
-// The sku name.
 func (o DiskSkuPtrOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *DiskSku) *string {
 		if v == nil {
@@ -564,12 +529,9 @@ func (o DiskSkuPtrOutput) Name() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The disks sku name. Can be Standard_LRS, Premium_LRS, StandardSSD_LRS, or UltraSSD_LRS.
 type DiskSkuResponse struct {
-	// The sku name.
 	Name *string `pulumi:"name"`
-	// The sku tier.
-	Tier string `pulumi:"tier"`
+	Tier string  `pulumi:"tier"`
 }
 
 // DiskSkuResponseInput is an input type that accepts DiskSkuResponseArgs and DiskSkuResponseOutput values.
@@ -583,12 +545,9 @@ type DiskSkuResponseInput interface {
 	ToDiskSkuResponseOutputWithContext(context.Context) DiskSkuResponseOutput
 }
 
-// The disks sku name. Can be Standard_LRS, Premium_LRS, StandardSSD_LRS, or UltraSSD_LRS.
 type DiskSkuResponseArgs struct {
-	// The sku name.
 	Name pulumi.StringPtrInput `pulumi:"name"`
-	// The sku tier.
-	Tier pulumi.StringInput `pulumi:"tier"`
+	Tier pulumi.StringInput    `pulumi:"tier"`
 }
 
 func (DiskSkuResponseArgs) ElementType() reflect.Type {
@@ -644,7 +603,6 @@ func (i *diskSkuResponsePtrType) ToDiskSkuResponsePtrOutputWithContext(ctx conte
 	return pulumi.ToOutputWithContext(ctx, i).(DiskSkuResponsePtrOutput)
 }
 
-// The disks sku name. Can be Standard_LRS, Premium_LRS, StandardSSD_LRS, or UltraSSD_LRS.
 type DiskSkuResponseOutput struct{ *pulumi.OutputState }
 
 func (DiskSkuResponseOutput) ElementType() reflect.Type {
@@ -664,17 +622,15 @@ func (o DiskSkuResponseOutput) ToDiskSkuResponsePtrOutput() DiskSkuResponsePtrOu
 }
 
 func (o DiskSkuResponseOutput) ToDiskSkuResponsePtrOutputWithContext(ctx context.Context) DiskSkuResponsePtrOutput {
-	return o.ApplyT(func(v DiskSkuResponse) *DiskSkuResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v DiskSkuResponse) *DiskSkuResponse {
 		return &v
 	}).(DiskSkuResponsePtrOutput)
 }
 
-// The sku name.
 func (o DiskSkuResponseOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v DiskSkuResponse) *string { return v.Name }).(pulumi.StringPtrOutput)
 }
 
-// The sku tier.
 func (o DiskSkuResponseOutput) Tier() pulumi.StringOutput {
 	return o.ApplyT(func(v DiskSkuResponse) string { return v.Tier }).(pulumi.StringOutput)
 }
@@ -694,10 +650,15 @@ func (o DiskSkuResponsePtrOutput) ToDiskSkuResponsePtrOutputWithContext(ctx cont
 }
 
 func (o DiskSkuResponsePtrOutput) Elem() DiskSkuResponseOutput {
-	return o.ApplyT(func(v *DiskSkuResponse) DiskSkuResponse { return *v }).(DiskSkuResponseOutput)
+	return o.ApplyT(func(v *DiskSkuResponse) DiskSkuResponse {
+		if v != nil {
+			return *v
+		}
+		var ret DiskSkuResponse
+		return ret
+	}).(DiskSkuResponseOutput)
 }
 
-// The sku name.
 func (o DiskSkuResponsePtrOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *DiskSkuResponse) *string {
 		if v == nil {
@@ -707,7 +668,6 @@ func (o DiskSkuResponsePtrOutput) Name() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The sku tier.
 func (o DiskSkuResponsePtrOutput) Tier() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *DiskSkuResponse) *string {
 		if v == nil {
@@ -717,11 +677,8 @@ func (o DiskSkuResponsePtrOutput) Tier() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Encryption settings for disk or snapshot
 type EncryptionSettingsCollection struct {
-	// Set this flag to true and provide DiskEncryptionKey and optional KeyEncryptionKey to enable encryption. Set this flag to false and remove DiskEncryptionKey and KeyEncryptionKey to disable encryption. If EncryptionSettings is null in the request object, the existing settings remain unchanged.
-	Enabled bool `pulumi:"enabled"`
-	// A collection of encryption settings, one for each disk volume.
+	Enabled            bool                        `pulumi:"enabled"`
 	EncryptionSettings []EncryptionSettingsElement `pulumi:"encryptionSettings"`
 }
 
@@ -736,11 +693,8 @@ type EncryptionSettingsCollectionInput interface {
 	ToEncryptionSettingsCollectionOutputWithContext(context.Context) EncryptionSettingsCollectionOutput
 }
 
-// Encryption settings for disk or snapshot
 type EncryptionSettingsCollectionArgs struct {
-	// Set this flag to true and provide DiskEncryptionKey and optional KeyEncryptionKey to enable encryption. Set this flag to false and remove DiskEncryptionKey and KeyEncryptionKey to disable encryption. If EncryptionSettings is null in the request object, the existing settings remain unchanged.
-	Enabled pulumi.BoolInput `pulumi:"enabled"`
-	// A collection of encryption settings, one for each disk volume.
+	Enabled            pulumi.BoolInput                    `pulumi:"enabled"`
 	EncryptionSettings EncryptionSettingsElementArrayInput `pulumi:"encryptionSettings"`
 }
 
@@ -797,7 +751,6 @@ func (i *encryptionSettingsCollectionPtrType) ToEncryptionSettingsCollectionPtrO
 	return pulumi.ToOutputWithContext(ctx, i).(EncryptionSettingsCollectionPtrOutput)
 }
 
-// Encryption settings for disk or snapshot
 type EncryptionSettingsCollectionOutput struct{ *pulumi.OutputState }
 
 func (EncryptionSettingsCollectionOutput) ElementType() reflect.Type {
@@ -817,17 +770,15 @@ func (o EncryptionSettingsCollectionOutput) ToEncryptionSettingsCollectionPtrOut
 }
 
 func (o EncryptionSettingsCollectionOutput) ToEncryptionSettingsCollectionPtrOutputWithContext(ctx context.Context) EncryptionSettingsCollectionPtrOutput {
-	return o.ApplyT(func(v EncryptionSettingsCollection) *EncryptionSettingsCollection {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v EncryptionSettingsCollection) *EncryptionSettingsCollection {
 		return &v
 	}).(EncryptionSettingsCollectionPtrOutput)
 }
 
-// Set this flag to true and provide DiskEncryptionKey and optional KeyEncryptionKey to enable encryption. Set this flag to false and remove DiskEncryptionKey and KeyEncryptionKey to disable encryption. If EncryptionSettings is null in the request object, the existing settings remain unchanged.
 func (o EncryptionSettingsCollectionOutput) Enabled() pulumi.BoolOutput {
 	return o.ApplyT(func(v EncryptionSettingsCollection) bool { return v.Enabled }).(pulumi.BoolOutput)
 }
 
-// A collection of encryption settings, one for each disk volume.
 func (o EncryptionSettingsCollectionOutput) EncryptionSettings() EncryptionSettingsElementArrayOutput {
 	return o.ApplyT(func(v EncryptionSettingsCollection) []EncryptionSettingsElement { return v.EncryptionSettings }).(EncryptionSettingsElementArrayOutput)
 }
@@ -847,10 +798,15 @@ func (o EncryptionSettingsCollectionPtrOutput) ToEncryptionSettingsCollectionPtr
 }
 
 func (o EncryptionSettingsCollectionPtrOutput) Elem() EncryptionSettingsCollectionOutput {
-	return o.ApplyT(func(v *EncryptionSettingsCollection) EncryptionSettingsCollection { return *v }).(EncryptionSettingsCollectionOutput)
+	return o.ApplyT(func(v *EncryptionSettingsCollection) EncryptionSettingsCollection {
+		if v != nil {
+			return *v
+		}
+		var ret EncryptionSettingsCollection
+		return ret
+	}).(EncryptionSettingsCollectionOutput)
 }
 
-// Set this flag to true and provide DiskEncryptionKey and optional KeyEncryptionKey to enable encryption. Set this flag to false and remove DiskEncryptionKey and KeyEncryptionKey to disable encryption. If EncryptionSettings is null in the request object, the existing settings remain unchanged.
 func (o EncryptionSettingsCollectionPtrOutput) Enabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *EncryptionSettingsCollection) *bool {
 		if v == nil {
@@ -860,7 +816,6 @@ func (o EncryptionSettingsCollectionPtrOutput) Enabled() pulumi.BoolPtrOutput {
 	}).(pulumi.BoolPtrOutput)
 }
 
-// A collection of encryption settings, one for each disk volume.
 func (o EncryptionSettingsCollectionPtrOutput) EncryptionSettings() EncryptionSettingsElementArrayOutput {
 	return o.ApplyT(func(v *EncryptionSettingsCollection) []EncryptionSettingsElement {
 		if v == nil {
@@ -870,11 +825,8 @@ func (o EncryptionSettingsCollectionPtrOutput) EncryptionSettings() EncryptionSe
 	}).(EncryptionSettingsElementArrayOutput)
 }
 
-// Encryption settings for disk or snapshot
 type EncryptionSettingsCollectionResponse struct {
-	// Set this flag to true and provide DiskEncryptionKey and optional KeyEncryptionKey to enable encryption. Set this flag to false and remove DiskEncryptionKey and KeyEncryptionKey to disable encryption. If EncryptionSettings is null in the request object, the existing settings remain unchanged.
-	Enabled bool `pulumi:"enabled"`
-	// A collection of encryption settings, one for each disk volume.
+	Enabled            bool                                `pulumi:"enabled"`
 	EncryptionSettings []EncryptionSettingsElementResponse `pulumi:"encryptionSettings"`
 }
 
@@ -889,11 +841,8 @@ type EncryptionSettingsCollectionResponseInput interface {
 	ToEncryptionSettingsCollectionResponseOutputWithContext(context.Context) EncryptionSettingsCollectionResponseOutput
 }
 
-// Encryption settings for disk or snapshot
 type EncryptionSettingsCollectionResponseArgs struct {
-	// Set this flag to true and provide DiskEncryptionKey and optional KeyEncryptionKey to enable encryption. Set this flag to false and remove DiskEncryptionKey and KeyEncryptionKey to disable encryption. If EncryptionSettings is null in the request object, the existing settings remain unchanged.
-	Enabled pulumi.BoolInput `pulumi:"enabled"`
-	// A collection of encryption settings, one for each disk volume.
+	Enabled            pulumi.BoolInput                            `pulumi:"enabled"`
 	EncryptionSettings EncryptionSettingsElementResponseArrayInput `pulumi:"encryptionSettings"`
 }
 
@@ -950,7 +899,6 @@ func (i *encryptionSettingsCollectionResponsePtrType) ToEncryptionSettingsCollec
 	return pulumi.ToOutputWithContext(ctx, i).(EncryptionSettingsCollectionResponsePtrOutput)
 }
 
-// Encryption settings for disk or snapshot
 type EncryptionSettingsCollectionResponseOutput struct{ *pulumi.OutputState }
 
 func (EncryptionSettingsCollectionResponseOutput) ElementType() reflect.Type {
@@ -970,17 +918,15 @@ func (o EncryptionSettingsCollectionResponseOutput) ToEncryptionSettingsCollecti
 }
 
 func (o EncryptionSettingsCollectionResponseOutput) ToEncryptionSettingsCollectionResponsePtrOutputWithContext(ctx context.Context) EncryptionSettingsCollectionResponsePtrOutput {
-	return o.ApplyT(func(v EncryptionSettingsCollectionResponse) *EncryptionSettingsCollectionResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v EncryptionSettingsCollectionResponse) *EncryptionSettingsCollectionResponse {
 		return &v
 	}).(EncryptionSettingsCollectionResponsePtrOutput)
 }
 
-// Set this flag to true and provide DiskEncryptionKey and optional KeyEncryptionKey to enable encryption. Set this flag to false and remove DiskEncryptionKey and KeyEncryptionKey to disable encryption. If EncryptionSettings is null in the request object, the existing settings remain unchanged.
 func (o EncryptionSettingsCollectionResponseOutput) Enabled() pulumi.BoolOutput {
 	return o.ApplyT(func(v EncryptionSettingsCollectionResponse) bool { return v.Enabled }).(pulumi.BoolOutput)
 }
 
-// A collection of encryption settings, one for each disk volume.
 func (o EncryptionSettingsCollectionResponseOutput) EncryptionSettings() EncryptionSettingsElementResponseArrayOutput {
 	return o.ApplyT(func(v EncryptionSettingsCollectionResponse) []EncryptionSettingsElementResponse {
 		return v.EncryptionSettings
@@ -1002,10 +948,15 @@ func (o EncryptionSettingsCollectionResponsePtrOutput) ToEncryptionSettingsColle
 }
 
 func (o EncryptionSettingsCollectionResponsePtrOutput) Elem() EncryptionSettingsCollectionResponseOutput {
-	return o.ApplyT(func(v *EncryptionSettingsCollectionResponse) EncryptionSettingsCollectionResponse { return *v }).(EncryptionSettingsCollectionResponseOutput)
+	return o.ApplyT(func(v *EncryptionSettingsCollectionResponse) EncryptionSettingsCollectionResponse {
+		if v != nil {
+			return *v
+		}
+		var ret EncryptionSettingsCollectionResponse
+		return ret
+	}).(EncryptionSettingsCollectionResponseOutput)
 }
 
-// Set this flag to true and provide DiskEncryptionKey and optional KeyEncryptionKey to enable encryption. Set this flag to false and remove DiskEncryptionKey and KeyEncryptionKey to disable encryption. If EncryptionSettings is null in the request object, the existing settings remain unchanged.
 func (o EncryptionSettingsCollectionResponsePtrOutput) Enabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *EncryptionSettingsCollectionResponse) *bool {
 		if v == nil {
@@ -1015,7 +966,6 @@ func (o EncryptionSettingsCollectionResponsePtrOutput) Enabled() pulumi.BoolPtrO
 	}).(pulumi.BoolPtrOutput)
 }
 
-// A collection of encryption settings, one for each disk volume.
 func (o EncryptionSettingsCollectionResponsePtrOutput) EncryptionSettings() EncryptionSettingsElementResponseArrayOutput {
 	return o.ApplyT(func(v *EncryptionSettingsCollectionResponse) []EncryptionSettingsElementResponse {
 		if v == nil {
@@ -1025,12 +975,9 @@ func (o EncryptionSettingsCollectionResponsePtrOutput) EncryptionSettings() Encr
 	}).(EncryptionSettingsElementResponseArrayOutput)
 }
 
-// Encryption settings for one disk volume.
 type EncryptionSettingsElement struct {
-	// Key Vault Secret Url and vault id of the disk encryption key
 	DiskEncryptionKey *KeyVaultAndSecretReference `pulumi:"diskEncryptionKey"`
-	// Key Vault Key Url and vault id of the key encryption key. KeyEncryptionKey is optional and when provided is used to unwrap the disk encryption key.
-	KeyEncryptionKey *KeyVaultAndKeyReference `pulumi:"keyEncryptionKey"`
+	KeyEncryptionKey  *KeyVaultAndKeyReference    `pulumi:"keyEncryptionKey"`
 }
 
 // EncryptionSettingsElementInput is an input type that accepts EncryptionSettingsElementArgs and EncryptionSettingsElementOutput values.
@@ -1044,12 +991,9 @@ type EncryptionSettingsElementInput interface {
 	ToEncryptionSettingsElementOutputWithContext(context.Context) EncryptionSettingsElementOutput
 }
 
-// Encryption settings for one disk volume.
 type EncryptionSettingsElementArgs struct {
-	// Key Vault Secret Url and vault id of the disk encryption key
 	DiskEncryptionKey KeyVaultAndSecretReferencePtrInput `pulumi:"diskEncryptionKey"`
-	// Key Vault Key Url and vault id of the key encryption key. KeyEncryptionKey is optional and when provided is used to unwrap the disk encryption key.
-	KeyEncryptionKey KeyVaultAndKeyReferencePtrInput `pulumi:"keyEncryptionKey"`
+	KeyEncryptionKey  KeyVaultAndKeyReferencePtrInput    `pulumi:"keyEncryptionKey"`
 }
 
 func (EncryptionSettingsElementArgs) ElementType() reflect.Type {
@@ -1089,7 +1033,6 @@ func (i EncryptionSettingsElementArray) ToEncryptionSettingsElementArrayOutputWi
 	return pulumi.ToOutputWithContext(ctx, i).(EncryptionSettingsElementArrayOutput)
 }
 
-// Encryption settings for one disk volume.
 type EncryptionSettingsElementOutput struct{ *pulumi.OutputState }
 
 func (EncryptionSettingsElementOutput) ElementType() reflect.Type {
@@ -1104,12 +1047,10 @@ func (o EncryptionSettingsElementOutput) ToEncryptionSettingsElementOutputWithCo
 	return o
 }
 
-// Key Vault Secret Url and vault id of the disk encryption key
 func (o EncryptionSettingsElementOutput) DiskEncryptionKey() KeyVaultAndSecretReferencePtrOutput {
 	return o.ApplyT(func(v EncryptionSettingsElement) *KeyVaultAndSecretReference { return v.DiskEncryptionKey }).(KeyVaultAndSecretReferencePtrOutput)
 }
 
-// Key Vault Key Url and vault id of the key encryption key. KeyEncryptionKey is optional and when provided is used to unwrap the disk encryption key.
 func (o EncryptionSettingsElementOutput) KeyEncryptionKey() KeyVaultAndKeyReferencePtrOutput {
 	return o.ApplyT(func(v EncryptionSettingsElement) *KeyVaultAndKeyReference { return v.KeyEncryptionKey }).(KeyVaultAndKeyReferencePtrOutput)
 }
@@ -1134,12 +1075,9 @@ func (o EncryptionSettingsElementArrayOutput) Index(i pulumi.IntInput) Encryptio
 	}).(EncryptionSettingsElementOutput)
 }
 
-// Encryption settings for one disk volume.
 type EncryptionSettingsElementResponse struct {
-	// Key Vault Secret Url and vault id of the disk encryption key
 	DiskEncryptionKey *KeyVaultAndSecretReferenceResponse `pulumi:"diskEncryptionKey"`
-	// Key Vault Key Url and vault id of the key encryption key. KeyEncryptionKey is optional and when provided is used to unwrap the disk encryption key.
-	KeyEncryptionKey *KeyVaultAndKeyReferenceResponse `pulumi:"keyEncryptionKey"`
+	KeyEncryptionKey  *KeyVaultAndKeyReferenceResponse    `pulumi:"keyEncryptionKey"`
 }
 
 // EncryptionSettingsElementResponseInput is an input type that accepts EncryptionSettingsElementResponseArgs and EncryptionSettingsElementResponseOutput values.
@@ -1153,12 +1091,9 @@ type EncryptionSettingsElementResponseInput interface {
 	ToEncryptionSettingsElementResponseOutputWithContext(context.Context) EncryptionSettingsElementResponseOutput
 }
 
-// Encryption settings for one disk volume.
 type EncryptionSettingsElementResponseArgs struct {
-	// Key Vault Secret Url and vault id of the disk encryption key
 	DiskEncryptionKey KeyVaultAndSecretReferenceResponsePtrInput `pulumi:"diskEncryptionKey"`
-	// Key Vault Key Url and vault id of the key encryption key. KeyEncryptionKey is optional and when provided is used to unwrap the disk encryption key.
-	KeyEncryptionKey KeyVaultAndKeyReferenceResponsePtrInput `pulumi:"keyEncryptionKey"`
+	KeyEncryptionKey  KeyVaultAndKeyReferenceResponsePtrInput    `pulumi:"keyEncryptionKey"`
 }
 
 func (EncryptionSettingsElementResponseArgs) ElementType() reflect.Type {
@@ -1198,7 +1133,6 @@ func (i EncryptionSettingsElementResponseArray) ToEncryptionSettingsElementRespo
 	return pulumi.ToOutputWithContext(ctx, i).(EncryptionSettingsElementResponseArrayOutput)
 }
 
-// Encryption settings for one disk volume.
 type EncryptionSettingsElementResponseOutput struct{ *pulumi.OutputState }
 
 func (EncryptionSettingsElementResponseOutput) ElementType() reflect.Type {
@@ -1213,14 +1147,12 @@ func (o EncryptionSettingsElementResponseOutput) ToEncryptionSettingsElementResp
 	return o
 }
 
-// Key Vault Secret Url and vault id of the disk encryption key
 func (o EncryptionSettingsElementResponseOutput) DiskEncryptionKey() KeyVaultAndSecretReferenceResponsePtrOutput {
 	return o.ApplyT(func(v EncryptionSettingsElementResponse) *KeyVaultAndSecretReferenceResponse {
 		return v.DiskEncryptionKey
 	}).(KeyVaultAndSecretReferenceResponsePtrOutput)
 }
 
-// Key Vault Key Url and vault id of the key encryption key. KeyEncryptionKey is optional and when provided is used to unwrap the disk encryption key.
 func (o EncryptionSettingsElementResponseOutput) KeyEncryptionKey() KeyVaultAndKeyReferenceResponsePtrOutput {
 	return o.ApplyT(func(v EncryptionSettingsElementResponse) *KeyVaultAndKeyReferenceResponse { return v.KeyEncryptionKey }).(KeyVaultAndKeyReferenceResponsePtrOutput)
 }
@@ -1245,12 +1177,9 @@ func (o EncryptionSettingsElementResponseArrayOutput) Index(i pulumi.IntInput) E
 	}).(EncryptionSettingsElementResponseOutput)
 }
 
-// The source image used for creating the disk.
 type ImageDiskReference struct {
-	// A relative uri containing either a Platform Image Repository or user image reference.
-	Id string `pulumi:"id"`
-	// If the disk is created from an image's data disk, this is an index that indicates which of the data disks in the image to use. For OS disks, this field is null.
-	Lun *int `pulumi:"lun"`
+	Id  string `pulumi:"id"`
+	Lun *int   `pulumi:"lun"`
 }
 
 // ImageDiskReferenceInput is an input type that accepts ImageDiskReferenceArgs and ImageDiskReferenceOutput values.
@@ -1264,11 +1193,8 @@ type ImageDiskReferenceInput interface {
 	ToImageDiskReferenceOutputWithContext(context.Context) ImageDiskReferenceOutput
 }
 
-// The source image used for creating the disk.
 type ImageDiskReferenceArgs struct {
-	// A relative uri containing either a Platform Image Repository or user image reference.
-	Id pulumi.StringInput `pulumi:"id"`
-	// If the disk is created from an image's data disk, this is an index that indicates which of the data disks in the image to use. For OS disks, this field is null.
+	Id  pulumi.StringInput `pulumi:"id"`
 	Lun pulumi.IntPtrInput `pulumi:"lun"`
 }
 
@@ -1325,7 +1251,6 @@ func (i *imageDiskReferencePtrType) ToImageDiskReferencePtrOutputWithContext(ctx
 	return pulumi.ToOutputWithContext(ctx, i).(ImageDiskReferencePtrOutput)
 }
 
-// The source image used for creating the disk.
 type ImageDiskReferenceOutput struct{ *pulumi.OutputState }
 
 func (ImageDiskReferenceOutput) ElementType() reflect.Type {
@@ -1345,17 +1270,15 @@ func (o ImageDiskReferenceOutput) ToImageDiskReferencePtrOutput() ImageDiskRefer
 }
 
 func (o ImageDiskReferenceOutput) ToImageDiskReferencePtrOutputWithContext(ctx context.Context) ImageDiskReferencePtrOutput {
-	return o.ApplyT(func(v ImageDiskReference) *ImageDiskReference {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ImageDiskReference) *ImageDiskReference {
 		return &v
 	}).(ImageDiskReferencePtrOutput)
 }
 
-// A relative uri containing either a Platform Image Repository or user image reference.
 func (o ImageDiskReferenceOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v ImageDiskReference) string { return v.Id }).(pulumi.StringOutput)
 }
 
-// If the disk is created from an image's data disk, this is an index that indicates which of the data disks in the image to use. For OS disks, this field is null.
 func (o ImageDiskReferenceOutput) Lun() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v ImageDiskReference) *int { return v.Lun }).(pulumi.IntPtrOutput)
 }
@@ -1375,10 +1298,15 @@ func (o ImageDiskReferencePtrOutput) ToImageDiskReferencePtrOutputWithContext(ct
 }
 
 func (o ImageDiskReferencePtrOutput) Elem() ImageDiskReferenceOutput {
-	return o.ApplyT(func(v *ImageDiskReference) ImageDiskReference { return *v }).(ImageDiskReferenceOutput)
+	return o.ApplyT(func(v *ImageDiskReference) ImageDiskReference {
+		if v != nil {
+			return *v
+		}
+		var ret ImageDiskReference
+		return ret
+	}).(ImageDiskReferenceOutput)
 }
 
-// A relative uri containing either a Platform Image Repository or user image reference.
 func (o ImageDiskReferencePtrOutput) Id() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ImageDiskReference) *string {
 		if v == nil {
@@ -1388,7 +1316,6 @@ func (o ImageDiskReferencePtrOutput) Id() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// If the disk is created from an image's data disk, this is an index that indicates which of the data disks in the image to use. For OS disks, this field is null.
 func (o ImageDiskReferencePtrOutput) Lun() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *ImageDiskReference) *int {
 		if v == nil {
@@ -1398,12 +1325,9 @@ func (o ImageDiskReferencePtrOutput) Lun() pulumi.IntPtrOutput {
 	}).(pulumi.IntPtrOutput)
 }
 
-// The source image used for creating the disk.
 type ImageDiskReferenceResponse struct {
-	// A relative uri containing either a Platform Image Repository or user image reference.
-	Id string `pulumi:"id"`
-	// If the disk is created from an image's data disk, this is an index that indicates which of the data disks in the image to use. For OS disks, this field is null.
-	Lun *int `pulumi:"lun"`
+	Id  string `pulumi:"id"`
+	Lun *int   `pulumi:"lun"`
 }
 
 // ImageDiskReferenceResponseInput is an input type that accepts ImageDiskReferenceResponseArgs and ImageDiskReferenceResponseOutput values.
@@ -1417,11 +1341,8 @@ type ImageDiskReferenceResponseInput interface {
 	ToImageDiskReferenceResponseOutputWithContext(context.Context) ImageDiskReferenceResponseOutput
 }
 
-// The source image used for creating the disk.
 type ImageDiskReferenceResponseArgs struct {
-	// A relative uri containing either a Platform Image Repository or user image reference.
-	Id pulumi.StringInput `pulumi:"id"`
-	// If the disk is created from an image's data disk, this is an index that indicates which of the data disks in the image to use. For OS disks, this field is null.
+	Id  pulumi.StringInput `pulumi:"id"`
 	Lun pulumi.IntPtrInput `pulumi:"lun"`
 }
 
@@ -1478,7 +1399,6 @@ func (i *imageDiskReferenceResponsePtrType) ToImageDiskReferenceResponsePtrOutpu
 	return pulumi.ToOutputWithContext(ctx, i).(ImageDiskReferenceResponsePtrOutput)
 }
 
-// The source image used for creating the disk.
 type ImageDiskReferenceResponseOutput struct{ *pulumi.OutputState }
 
 func (ImageDiskReferenceResponseOutput) ElementType() reflect.Type {
@@ -1498,17 +1418,15 @@ func (o ImageDiskReferenceResponseOutput) ToImageDiskReferenceResponsePtrOutput(
 }
 
 func (o ImageDiskReferenceResponseOutput) ToImageDiskReferenceResponsePtrOutputWithContext(ctx context.Context) ImageDiskReferenceResponsePtrOutput {
-	return o.ApplyT(func(v ImageDiskReferenceResponse) *ImageDiskReferenceResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ImageDiskReferenceResponse) *ImageDiskReferenceResponse {
 		return &v
 	}).(ImageDiskReferenceResponsePtrOutput)
 }
 
-// A relative uri containing either a Platform Image Repository or user image reference.
 func (o ImageDiskReferenceResponseOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v ImageDiskReferenceResponse) string { return v.Id }).(pulumi.StringOutput)
 }
 
-// If the disk is created from an image's data disk, this is an index that indicates which of the data disks in the image to use. For OS disks, this field is null.
 func (o ImageDiskReferenceResponseOutput) Lun() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v ImageDiskReferenceResponse) *int { return v.Lun }).(pulumi.IntPtrOutput)
 }
@@ -1528,10 +1446,15 @@ func (o ImageDiskReferenceResponsePtrOutput) ToImageDiskReferenceResponsePtrOutp
 }
 
 func (o ImageDiskReferenceResponsePtrOutput) Elem() ImageDiskReferenceResponseOutput {
-	return o.ApplyT(func(v *ImageDiskReferenceResponse) ImageDiskReferenceResponse { return *v }).(ImageDiskReferenceResponseOutput)
+	return o.ApplyT(func(v *ImageDiskReferenceResponse) ImageDiskReferenceResponse {
+		if v != nil {
+			return *v
+		}
+		var ret ImageDiskReferenceResponse
+		return ret
+	}).(ImageDiskReferenceResponseOutput)
 }
 
-// A relative uri containing either a Platform Image Repository or user image reference.
 func (o ImageDiskReferenceResponsePtrOutput) Id() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ImageDiskReferenceResponse) *string {
 		if v == nil {
@@ -1541,7 +1464,6 @@ func (o ImageDiskReferenceResponsePtrOutput) Id() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// If the disk is created from an image's data disk, this is an index that indicates which of the data disks in the image to use. For OS disks, this field is null.
 func (o ImageDiskReferenceResponsePtrOutput) Lun() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *ImageDiskReferenceResponse) *int {
 		if v == nil {
@@ -1551,11 +1473,8 @@ func (o ImageDiskReferenceResponsePtrOutput) Lun() pulumi.IntPtrOutput {
 	}).(pulumi.IntPtrOutput)
 }
 
-// Key Vault Key Url and vault id of KeK, KeK is optional and when provided is used to unwrap the encryptionKey
 type KeyVaultAndKeyReference struct {
-	// Url pointing to a key or secret in KeyVault
-	KeyUrl string `pulumi:"keyUrl"`
-	// Resource id of the KeyVault containing the key or secret
+	KeyUrl      string      `pulumi:"keyUrl"`
 	SourceVault SourceVault `pulumi:"sourceVault"`
 }
 
@@ -1570,12 +1489,9 @@ type KeyVaultAndKeyReferenceInput interface {
 	ToKeyVaultAndKeyReferenceOutputWithContext(context.Context) KeyVaultAndKeyReferenceOutput
 }
 
-// Key Vault Key Url and vault id of KeK, KeK is optional and when provided is used to unwrap the encryptionKey
 type KeyVaultAndKeyReferenceArgs struct {
-	// Url pointing to a key or secret in KeyVault
-	KeyUrl pulumi.StringInput `pulumi:"keyUrl"`
-	// Resource id of the KeyVault containing the key or secret
-	SourceVault SourceVaultInput `pulumi:"sourceVault"`
+	KeyUrl      pulumi.StringInput `pulumi:"keyUrl"`
+	SourceVault SourceVaultInput   `pulumi:"sourceVault"`
 }
 
 func (KeyVaultAndKeyReferenceArgs) ElementType() reflect.Type {
@@ -1631,7 +1547,6 @@ func (i *keyVaultAndKeyReferencePtrType) ToKeyVaultAndKeyReferencePtrOutputWithC
 	return pulumi.ToOutputWithContext(ctx, i).(KeyVaultAndKeyReferencePtrOutput)
 }
 
-// Key Vault Key Url and vault id of KeK, KeK is optional and when provided is used to unwrap the encryptionKey
 type KeyVaultAndKeyReferenceOutput struct{ *pulumi.OutputState }
 
 func (KeyVaultAndKeyReferenceOutput) ElementType() reflect.Type {
@@ -1651,17 +1566,15 @@ func (o KeyVaultAndKeyReferenceOutput) ToKeyVaultAndKeyReferencePtrOutput() KeyV
 }
 
 func (o KeyVaultAndKeyReferenceOutput) ToKeyVaultAndKeyReferencePtrOutputWithContext(ctx context.Context) KeyVaultAndKeyReferencePtrOutput {
-	return o.ApplyT(func(v KeyVaultAndKeyReference) *KeyVaultAndKeyReference {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v KeyVaultAndKeyReference) *KeyVaultAndKeyReference {
 		return &v
 	}).(KeyVaultAndKeyReferencePtrOutput)
 }
 
-// Url pointing to a key or secret in KeyVault
 func (o KeyVaultAndKeyReferenceOutput) KeyUrl() pulumi.StringOutput {
 	return o.ApplyT(func(v KeyVaultAndKeyReference) string { return v.KeyUrl }).(pulumi.StringOutput)
 }
 
-// Resource id of the KeyVault containing the key or secret
 func (o KeyVaultAndKeyReferenceOutput) SourceVault() SourceVaultOutput {
 	return o.ApplyT(func(v KeyVaultAndKeyReference) SourceVault { return v.SourceVault }).(SourceVaultOutput)
 }
@@ -1681,10 +1594,15 @@ func (o KeyVaultAndKeyReferencePtrOutput) ToKeyVaultAndKeyReferencePtrOutputWith
 }
 
 func (o KeyVaultAndKeyReferencePtrOutput) Elem() KeyVaultAndKeyReferenceOutput {
-	return o.ApplyT(func(v *KeyVaultAndKeyReference) KeyVaultAndKeyReference { return *v }).(KeyVaultAndKeyReferenceOutput)
+	return o.ApplyT(func(v *KeyVaultAndKeyReference) KeyVaultAndKeyReference {
+		if v != nil {
+			return *v
+		}
+		var ret KeyVaultAndKeyReference
+		return ret
+	}).(KeyVaultAndKeyReferenceOutput)
 }
 
-// Url pointing to a key or secret in KeyVault
 func (o KeyVaultAndKeyReferencePtrOutput) KeyUrl() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *KeyVaultAndKeyReference) *string {
 		if v == nil {
@@ -1694,7 +1612,6 @@ func (o KeyVaultAndKeyReferencePtrOutput) KeyUrl() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Resource id of the KeyVault containing the key or secret
 func (o KeyVaultAndKeyReferencePtrOutput) SourceVault() SourceVaultPtrOutput {
 	return o.ApplyT(func(v *KeyVaultAndKeyReference) *SourceVault {
 		if v == nil {
@@ -1704,11 +1621,8 @@ func (o KeyVaultAndKeyReferencePtrOutput) SourceVault() SourceVaultPtrOutput {
 	}).(SourceVaultPtrOutput)
 }
 
-// Key Vault Key Url and vault id of KeK, KeK is optional and when provided is used to unwrap the encryptionKey
 type KeyVaultAndKeyReferenceResponse struct {
-	// Url pointing to a key or secret in KeyVault
-	KeyUrl string `pulumi:"keyUrl"`
-	// Resource id of the KeyVault containing the key or secret
+	KeyUrl      string              `pulumi:"keyUrl"`
 	SourceVault SourceVaultResponse `pulumi:"sourceVault"`
 }
 
@@ -1723,11 +1637,8 @@ type KeyVaultAndKeyReferenceResponseInput interface {
 	ToKeyVaultAndKeyReferenceResponseOutputWithContext(context.Context) KeyVaultAndKeyReferenceResponseOutput
 }
 
-// Key Vault Key Url and vault id of KeK, KeK is optional and when provided is used to unwrap the encryptionKey
 type KeyVaultAndKeyReferenceResponseArgs struct {
-	// Url pointing to a key or secret in KeyVault
-	KeyUrl pulumi.StringInput `pulumi:"keyUrl"`
-	// Resource id of the KeyVault containing the key or secret
+	KeyUrl      pulumi.StringInput       `pulumi:"keyUrl"`
 	SourceVault SourceVaultResponseInput `pulumi:"sourceVault"`
 }
 
@@ -1784,7 +1695,6 @@ func (i *keyVaultAndKeyReferenceResponsePtrType) ToKeyVaultAndKeyReferenceRespon
 	return pulumi.ToOutputWithContext(ctx, i).(KeyVaultAndKeyReferenceResponsePtrOutput)
 }
 
-// Key Vault Key Url and vault id of KeK, KeK is optional and when provided is used to unwrap the encryptionKey
 type KeyVaultAndKeyReferenceResponseOutput struct{ *pulumi.OutputState }
 
 func (KeyVaultAndKeyReferenceResponseOutput) ElementType() reflect.Type {
@@ -1804,17 +1714,15 @@ func (o KeyVaultAndKeyReferenceResponseOutput) ToKeyVaultAndKeyReferenceResponse
 }
 
 func (o KeyVaultAndKeyReferenceResponseOutput) ToKeyVaultAndKeyReferenceResponsePtrOutputWithContext(ctx context.Context) KeyVaultAndKeyReferenceResponsePtrOutput {
-	return o.ApplyT(func(v KeyVaultAndKeyReferenceResponse) *KeyVaultAndKeyReferenceResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v KeyVaultAndKeyReferenceResponse) *KeyVaultAndKeyReferenceResponse {
 		return &v
 	}).(KeyVaultAndKeyReferenceResponsePtrOutput)
 }
 
-// Url pointing to a key or secret in KeyVault
 func (o KeyVaultAndKeyReferenceResponseOutput) KeyUrl() pulumi.StringOutput {
 	return o.ApplyT(func(v KeyVaultAndKeyReferenceResponse) string { return v.KeyUrl }).(pulumi.StringOutput)
 }
 
-// Resource id of the KeyVault containing the key or secret
 func (o KeyVaultAndKeyReferenceResponseOutput) SourceVault() SourceVaultResponseOutput {
 	return o.ApplyT(func(v KeyVaultAndKeyReferenceResponse) SourceVaultResponse { return v.SourceVault }).(SourceVaultResponseOutput)
 }
@@ -1834,10 +1742,15 @@ func (o KeyVaultAndKeyReferenceResponsePtrOutput) ToKeyVaultAndKeyReferenceRespo
 }
 
 func (o KeyVaultAndKeyReferenceResponsePtrOutput) Elem() KeyVaultAndKeyReferenceResponseOutput {
-	return o.ApplyT(func(v *KeyVaultAndKeyReferenceResponse) KeyVaultAndKeyReferenceResponse { return *v }).(KeyVaultAndKeyReferenceResponseOutput)
+	return o.ApplyT(func(v *KeyVaultAndKeyReferenceResponse) KeyVaultAndKeyReferenceResponse {
+		if v != nil {
+			return *v
+		}
+		var ret KeyVaultAndKeyReferenceResponse
+		return ret
+	}).(KeyVaultAndKeyReferenceResponseOutput)
 }
 
-// Url pointing to a key or secret in KeyVault
 func (o KeyVaultAndKeyReferenceResponsePtrOutput) KeyUrl() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *KeyVaultAndKeyReferenceResponse) *string {
 		if v == nil {
@@ -1847,7 +1760,6 @@ func (o KeyVaultAndKeyReferenceResponsePtrOutput) KeyUrl() pulumi.StringPtrOutpu
 	}).(pulumi.StringPtrOutput)
 }
 
-// Resource id of the KeyVault containing the key or secret
 func (o KeyVaultAndKeyReferenceResponsePtrOutput) SourceVault() SourceVaultResponsePtrOutput {
 	return o.ApplyT(func(v *KeyVaultAndKeyReferenceResponse) *SourceVaultResponse {
 		if v == nil {
@@ -1857,11 +1769,8 @@ func (o KeyVaultAndKeyReferenceResponsePtrOutput) SourceVault() SourceVaultRespo
 	}).(SourceVaultResponsePtrOutput)
 }
 
-// Key Vault Secret Url and vault id of the encryption key
 type KeyVaultAndSecretReference struct {
-	// Url pointing to a key or secret in KeyVault
-	SecretUrl string `pulumi:"secretUrl"`
-	// Resource id of the KeyVault containing the key or secret
+	SecretUrl   string      `pulumi:"secretUrl"`
 	SourceVault SourceVault `pulumi:"sourceVault"`
 }
 
@@ -1876,12 +1785,9 @@ type KeyVaultAndSecretReferenceInput interface {
 	ToKeyVaultAndSecretReferenceOutputWithContext(context.Context) KeyVaultAndSecretReferenceOutput
 }
 
-// Key Vault Secret Url and vault id of the encryption key
 type KeyVaultAndSecretReferenceArgs struct {
-	// Url pointing to a key or secret in KeyVault
-	SecretUrl pulumi.StringInput `pulumi:"secretUrl"`
-	// Resource id of the KeyVault containing the key or secret
-	SourceVault SourceVaultInput `pulumi:"sourceVault"`
+	SecretUrl   pulumi.StringInput `pulumi:"secretUrl"`
+	SourceVault SourceVaultInput   `pulumi:"sourceVault"`
 }
 
 func (KeyVaultAndSecretReferenceArgs) ElementType() reflect.Type {
@@ -1937,7 +1843,6 @@ func (i *keyVaultAndSecretReferencePtrType) ToKeyVaultAndSecretReferencePtrOutpu
 	return pulumi.ToOutputWithContext(ctx, i).(KeyVaultAndSecretReferencePtrOutput)
 }
 
-// Key Vault Secret Url and vault id of the encryption key
 type KeyVaultAndSecretReferenceOutput struct{ *pulumi.OutputState }
 
 func (KeyVaultAndSecretReferenceOutput) ElementType() reflect.Type {
@@ -1957,17 +1862,15 @@ func (o KeyVaultAndSecretReferenceOutput) ToKeyVaultAndSecretReferencePtrOutput(
 }
 
 func (o KeyVaultAndSecretReferenceOutput) ToKeyVaultAndSecretReferencePtrOutputWithContext(ctx context.Context) KeyVaultAndSecretReferencePtrOutput {
-	return o.ApplyT(func(v KeyVaultAndSecretReference) *KeyVaultAndSecretReference {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v KeyVaultAndSecretReference) *KeyVaultAndSecretReference {
 		return &v
 	}).(KeyVaultAndSecretReferencePtrOutput)
 }
 
-// Url pointing to a key or secret in KeyVault
 func (o KeyVaultAndSecretReferenceOutput) SecretUrl() pulumi.StringOutput {
 	return o.ApplyT(func(v KeyVaultAndSecretReference) string { return v.SecretUrl }).(pulumi.StringOutput)
 }
 
-// Resource id of the KeyVault containing the key or secret
 func (o KeyVaultAndSecretReferenceOutput) SourceVault() SourceVaultOutput {
 	return o.ApplyT(func(v KeyVaultAndSecretReference) SourceVault { return v.SourceVault }).(SourceVaultOutput)
 }
@@ -1987,10 +1890,15 @@ func (o KeyVaultAndSecretReferencePtrOutput) ToKeyVaultAndSecretReferencePtrOutp
 }
 
 func (o KeyVaultAndSecretReferencePtrOutput) Elem() KeyVaultAndSecretReferenceOutput {
-	return o.ApplyT(func(v *KeyVaultAndSecretReference) KeyVaultAndSecretReference { return *v }).(KeyVaultAndSecretReferenceOutput)
+	return o.ApplyT(func(v *KeyVaultAndSecretReference) KeyVaultAndSecretReference {
+		if v != nil {
+			return *v
+		}
+		var ret KeyVaultAndSecretReference
+		return ret
+	}).(KeyVaultAndSecretReferenceOutput)
 }
 
-// Url pointing to a key or secret in KeyVault
 func (o KeyVaultAndSecretReferencePtrOutput) SecretUrl() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *KeyVaultAndSecretReference) *string {
 		if v == nil {
@@ -2000,7 +1908,6 @@ func (o KeyVaultAndSecretReferencePtrOutput) SecretUrl() pulumi.StringPtrOutput 
 	}).(pulumi.StringPtrOutput)
 }
 
-// Resource id of the KeyVault containing the key or secret
 func (o KeyVaultAndSecretReferencePtrOutput) SourceVault() SourceVaultPtrOutput {
 	return o.ApplyT(func(v *KeyVaultAndSecretReference) *SourceVault {
 		if v == nil {
@@ -2010,11 +1917,8 @@ func (o KeyVaultAndSecretReferencePtrOutput) SourceVault() SourceVaultPtrOutput 
 	}).(SourceVaultPtrOutput)
 }
 
-// Key Vault Secret Url and vault id of the encryption key
 type KeyVaultAndSecretReferenceResponse struct {
-	// Url pointing to a key or secret in KeyVault
-	SecretUrl string `pulumi:"secretUrl"`
-	// Resource id of the KeyVault containing the key or secret
+	SecretUrl   string              `pulumi:"secretUrl"`
 	SourceVault SourceVaultResponse `pulumi:"sourceVault"`
 }
 
@@ -2029,11 +1933,8 @@ type KeyVaultAndSecretReferenceResponseInput interface {
 	ToKeyVaultAndSecretReferenceResponseOutputWithContext(context.Context) KeyVaultAndSecretReferenceResponseOutput
 }
 
-// Key Vault Secret Url and vault id of the encryption key
 type KeyVaultAndSecretReferenceResponseArgs struct {
-	// Url pointing to a key or secret in KeyVault
-	SecretUrl pulumi.StringInput `pulumi:"secretUrl"`
-	// Resource id of the KeyVault containing the key or secret
+	SecretUrl   pulumi.StringInput       `pulumi:"secretUrl"`
 	SourceVault SourceVaultResponseInput `pulumi:"sourceVault"`
 }
 
@@ -2090,7 +1991,6 @@ func (i *keyVaultAndSecretReferenceResponsePtrType) ToKeyVaultAndSecretReference
 	return pulumi.ToOutputWithContext(ctx, i).(KeyVaultAndSecretReferenceResponsePtrOutput)
 }
 
-// Key Vault Secret Url and vault id of the encryption key
 type KeyVaultAndSecretReferenceResponseOutput struct{ *pulumi.OutputState }
 
 func (KeyVaultAndSecretReferenceResponseOutput) ElementType() reflect.Type {
@@ -2110,17 +2010,15 @@ func (o KeyVaultAndSecretReferenceResponseOutput) ToKeyVaultAndSecretReferenceRe
 }
 
 func (o KeyVaultAndSecretReferenceResponseOutput) ToKeyVaultAndSecretReferenceResponsePtrOutputWithContext(ctx context.Context) KeyVaultAndSecretReferenceResponsePtrOutput {
-	return o.ApplyT(func(v KeyVaultAndSecretReferenceResponse) *KeyVaultAndSecretReferenceResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v KeyVaultAndSecretReferenceResponse) *KeyVaultAndSecretReferenceResponse {
 		return &v
 	}).(KeyVaultAndSecretReferenceResponsePtrOutput)
 }
 
-// Url pointing to a key or secret in KeyVault
 func (o KeyVaultAndSecretReferenceResponseOutput) SecretUrl() pulumi.StringOutput {
 	return o.ApplyT(func(v KeyVaultAndSecretReferenceResponse) string { return v.SecretUrl }).(pulumi.StringOutput)
 }
 
-// Resource id of the KeyVault containing the key or secret
 func (o KeyVaultAndSecretReferenceResponseOutput) SourceVault() SourceVaultResponseOutput {
 	return o.ApplyT(func(v KeyVaultAndSecretReferenceResponse) SourceVaultResponse { return v.SourceVault }).(SourceVaultResponseOutput)
 }
@@ -2140,10 +2038,15 @@ func (o KeyVaultAndSecretReferenceResponsePtrOutput) ToKeyVaultAndSecretReferenc
 }
 
 func (o KeyVaultAndSecretReferenceResponsePtrOutput) Elem() KeyVaultAndSecretReferenceResponseOutput {
-	return o.ApplyT(func(v *KeyVaultAndSecretReferenceResponse) KeyVaultAndSecretReferenceResponse { return *v }).(KeyVaultAndSecretReferenceResponseOutput)
+	return o.ApplyT(func(v *KeyVaultAndSecretReferenceResponse) KeyVaultAndSecretReferenceResponse {
+		if v != nil {
+			return *v
+		}
+		var ret KeyVaultAndSecretReferenceResponse
+		return ret
+	}).(KeyVaultAndSecretReferenceResponseOutput)
 }
 
-// Url pointing to a key or secret in KeyVault
 func (o KeyVaultAndSecretReferenceResponsePtrOutput) SecretUrl() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *KeyVaultAndSecretReferenceResponse) *string {
 		if v == nil {
@@ -2153,7 +2056,6 @@ func (o KeyVaultAndSecretReferenceResponsePtrOutput) SecretUrl() pulumi.StringPt
 	}).(pulumi.StringPtrOutput)
 }
 
-// Resource id of the KeyVault containing the key or secret
 func (o KeyVaultAndSecretReferenceResponsePtrOutput) SourceVault() SourceVaultResponsePtrOutput {
 	return o.ApplyT(func(v *KeyVaultAndSecretReferenceResponse) *SourceVaultResponse {
 		if v == nil {
@@ -2163,9 +2065,7 @@ func (o KeyVaultAndSecretReferenceResponsePtrOutput) SourceVault() SourceVaultRe
 	}).(SourceVaultResponsePtrOutput)
 }
 
-// The snapshots sku name. Can be Standard_LRS, Premium_LRS, or Standard_ZRS.
 type SnapshotSku struct {
-	// The sku name.
 	Name *string `pulumi:"name"`
 }
 
@@ -2180,9 +2080,7 @@ type SnapshotSkuInput interface {
 	ToSnapshotSkuOutputWithContext(context.Context) SnapshotSkuOutput
 }
 
-// The snapshots sku name. Can be Standard_LRS, Premium_LRS, or Standard_ZRS.
 type SnapshotSkuArgs struct {
-	// The sku name.
 	Name pulumi.StringPtrInput `pulumi:"name"`
 }
 
@@ -2239,7 +2137,6 @@ func (i *snapshotSkuPtrType) ToSnapshotSkuPtrOutputWithContext(ctx context.Conte
 	return pulumi.ToOutputWithContext(ctx, i).(SnapshotSkuPtrOutput)
 }
 
-// The snapshots sku name. Can be Standard_LRS, Premium_LRS, or Standard_ZRS.
 type SnapshotSkuOutput struct{ *pulumi.OutputState }
 
 func (SnapshotSkuOutput) ElementType() reflect.Type {
@@ -2259,12 +2156,11 @@ func (o SnapshotSkuOutput) ToSnapshotSkuPtrOutput() SnapshotSkuPtrOutput {
 }
 
 func (o SnapshotSkuOutput) ToSnapshotSkuPtrOutputWithContext(ctx context.Context) SnapshotSkuPtrOutput {
-	return o.ApplyT(func(v SnapshotSku) *SnapshotSku {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v SnapshotSku) *SnapshotSku {
 		return &v
 	}).(SnapshotSkuPtrOutput)
 }
 
-// The sku name.
 func (o SnapshotSkuOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SnapshotSku) *string { return v.Name }).(pulumi.StringPtrOutput)
 }
@@ -2284,10 +2180,15 @@ func (o SnapshotSkuPtrOutput) ToSnapshotSkuPtrOutputWithContext(ctx context.Cont
 }
 
 func (o SnapshotSkuPtrOutput) Elem() SnapshotSkuOutput {
-	return o.ApplyT(func(v *SnapshotSku) SnapshotSku { return *v }).(SnapshotSkuOutput)
+	return o.ApplyT(func(v *SnapshotSku) SnapshotSku {
+		if v != nil {
+			return *v
+		}
+		var ret SnapshotSku
+		return ret
+	}).(SnapshotSkuOutput)
 }
 
-// The sku name.
 func (o SnapshotSkuPtrOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SnapshotSku) *string {
 		if v == nil {
@@ -2297,12 +2198,9 @@ func (o SnapshotSkuPtrOutput) Name() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The snapshots sku name. Can be Standard_LRS, Premium_LRS, or Standard_ZRS.
 type SnapshotSkuResponse struct {
-	// The sku name.
 	Name *string `pulumi:"name"`
-	// The sku tier.
-	Tier string `pulumi:"tier"`
+	Tier string  `pulumi:"tier"`
 }
 
 // SnapshotSkuResponseInput is an input type that accepts SnapshotSkuResponseArgs and SnapshotSkuResponseOutput values.
@@ -2316,12 +2214,9 @@ type SnapshotSkuResponseInput interface {
 	ToSnapshotSkuResponseOutputWithContext(context.Context) SnapshotSkuResponseOutput
 }
 
-// The snapshots sku name. Can be Standard_LRS, Premium_LRS, or Standard_ZRS.
 type SnapshotSkuResponseArgs struct {
-	// The sku name.
 	Name pulumi.StringPtrInput `pulumi:"name"`
-	// The sku tier.
-	Tier pulumi.StringInput `pulumi:"tier"`
+	Tier pulumi.StringInput    `pulumi:"tier"`
 }
 
 func (SnapshotSkuResponseArgs) ElementType() reflect.Type {
@@ -2377,7 +2272,6 @@ func (i *snapshotSkuResponsePtrType) ToSnapshotSkuResponsePtrOutputWithContext(c
 	return pulumi.ToOutputWithContext(ctx, i).(SnapshotSkuResponsePtrOutput)
 }
 
-// The snapshots sku name. Can be Standard_LRS, Premium_LRS, or Standard_ZRS.
 type SnapshotSkuResponseOutput struct{ *pulumi.OutputState }
 
 func (SnapshotSkuResponseOutput) ElementType() reflect.Type {
@@ -2397,17 +2291,15 @@ func (o SnapshotSkuResponseOutput) ToSnapshotSkuResponsePtrOutput() SnapshotSkuR
 }
 
 func (o SnapshotSkuResponseOutput) ToSnapshotSkuResponsePtrOutputWithContext(ctx context.Context) SnapshotSkuResponsePtrOutput {
-	return o.ApplyT(func(v SnapshotSkuResponse) *SnapshotSkuResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v SnapshotSkuResponse) *SnapshotSkuResponse {
 		return &v
 	}).(SnapshotSkuResponsePtrOutput)
 }
 
-// The sku name.
 func (o SnapshotSkuResponseOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SnapshotSkuResponse) *string { return v.Name }).(pulumi.StringPtrOutput)
 }
 
-// The sku tier.
 func (o SnapshotSkuResponseOutput) Tier() pulumi.StringOutput {
 	return o.ApplyT(func(v SnapshotSkuResponse) string { return v.Tier }).(pulumi.StringOutput)
 }
@@ -2427,10 +2319,15 @@ func (o SnapshotSkuResponsePtrOutput) ToSnapshotSkuResponsePtrOutputWithContext(
 }
 
 func (o SnapshotSkuResponsePtrOutput) Elem() SnapshotSkuResponseOutput {
-	return o.ApplyT(func(v *SnapshotSkuResponse) SnapshotSkuResponse { return *v }).(SnapshotSkuResponseOutput)
+	return o.ApplyT(func(v *SnapshotSkuResponse) SnapshotSkuResponse {
+		if v != nil {
+			return *v
+		}
+		var ret SnapshotSkuResponse
+		return ret
+	}).(SnapshotSkuResponseOutput)
 }
 
-// The sku name.
 func (o SnapshotSkuResponsePtrOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SnapshotSkuResponse) *string {
 		if v == nil {
@@ -2440,7 +2337,6 @@ func (o SnapshotSkuResponsePtrOutput) Name() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The sku tier.
 func (o SnapshotSkuResponsePtrOutput) Tier() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SnapshotSkuResponse) *string {
 		if v == nil {
@@ -2450,9 +2346,7 @@ func (o SnapshotSkuResponsePtrOutput) Tier() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The vault id is an Azure Resource Manager Resource id in the form /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.KeyVault/vaults/{vaultName}
 type SourceVault struct {
-	// Resource Id
 	Id *string `pulumi:"id"`
 }
 
@@ -2467,9 +2361,7 @@ type SourceVaultInput interface {
 	ToSourceVaultOutputWithContext(context.Context) SourceVaultOutput
 }
 
-// The vault id is an Azure Resource Manager Resource id in the form /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.KeyVault/vaults/{vaultName}
 type SourceVaultArgs struct {
-	// Resource Id
 	Id pulumi.StringPtrInput `pulumi:"id"`
 }
 
@@ -2526,7 +2418,6 @@ func (i *sourceVaultPtrType) ToSourceVaultPtrOutputWithContext(ctx context.Conte
 	return pulumi.ToOutputWithContext(ctx, i).(SourceVaultPtrOutput)
 }
 
-// The vault id is an Azure Resource Manager Resource id in the form /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.KeyVault/vaults/{vaultName}
 type SourceVaultOutput struct{ *pulumi.OutputState }
 
 func (SourceVaultOutput) ElementType() reflect.Type {
@@ -2546,12 +2437,11 @@ func (o SourceVaultOutput) ToSourceVaultPtrOutput() SourceVaultPtrOutput {
 }
 
 func (o SourceVaultOutput) ToSourceVaultPtrOutputWithContext(ctx context.Context) SourceVaultPtrOutput {
-	return o.ApplyT(func(v SourceVault) *SourceVault {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v SourceVault) *SourceVault {
 		return &v
 	}).(SourceVaultPtrOutput)
 }
 
-// Resource Id
 func (o SourceVaultOutput) Id() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SourceVault) *string { return v.Id }).(pulumi.StringPtrOutput)
 }
@@ -2571,10 +2461,15 @@ func (o SourceVaultPtrOutput) ToSourceVaultPtrOutputWithContext(ctx context.Cont
 }
 
 func (o SourceVaultPtrOutput) Elem() SourceVaultOutput {
-	return o.ApplyT(func(v *SourceVault) SourceVault { return *v }).(SourceVaultOutput)
+	return o.ApplyT(func(v *SourceVault) SourceVault {
+		if v != nil {
+			return *v
+		}
+		var ret SourceVault
+		return ret
+	}).(SourceVaultOutput)
 }
 
-// Resource Id
 func (o SourceVaultPtrOutput) Id() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SourceVault) *string {
 		if v == nil {
@@ -2584,9 +2479,7 @@ func (o SourceVaultPtrOutput) Id() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The vault id is an Azure Resource Manager Resource id in the form /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.KeyVault/vaults/{vaultName}
 type SourceVaultResponse struct {
-	// Resource Id
 	Id *string `pulumi:"id"`
 }
 
@@ -2601,9 +2494,7 @@ type SourceVaultResponseInput interface {
 	ToSourceVaultResponseOutputWithContext(context.Context) SourceVaultResponseOutput
 }
 
-// The vault id is an Azure Resource Manager Resource id in the form /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.KeyVault/vaults/{vaultName}
 type SourceVaultResponseArgs struct {
-	// Resource Id
 	Id pulumi.StringPtrInput `pulumi:"id"`
 }
 
@@ -2660,7 +2551,6 @@ func (i *sourceVaultResponsePtrType) ToSourceVaultResponsePtrOutputWithContext(c
 	return pulumi.ToOutputWithContext(ctx, i).(SourceVaultResponsePtrOutput)
 }
 
-// The vault id is an Azure Resource Manager Resource id in the form /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.KeyVault/vaults/{vaultName}
 type SourceVaultResponseOutput struct{ *pulumi.OutputState }
 
 func (SourceVaultResponseOutput) ElementType() reflect.Type {
@@ -2680,12 +2570,11 @@ func (o SourceVaultResponseOutput) ToSourceVaultResponsePtrOutput() SourceVaultR
 }
 
 func (o SourceVaultResponseOutput) ToSourceVaultResponsePtrOutputWithContext(ctx context.Context) SourceVaultResponsePtrOutput {
-	return o.ApplyT(func(v SourceVaultResponse) *SourceVaultResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v SourceVaultResponse) *SourceVaultResponse {
 		return &v
 	}).(SourceVaultResponsePtrOutput)
 }
 
-// Resource Id
 func (o SourceVaultResponseOutput) Id() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SourceVaultResponse) *string { return v.Id }).(pulumi.StringPtrOutput)
 }
@@ -2705,10 +2594,15 @@ func (o SourceVaultResponsePtrOutput) ToSourceVaultResponsePtrOutputWithContext(
 }
 
 func (o SourceVaultResponsePtrOutput) Elem() SourceVaultResponseOutput {
-	return o.ApplyT(func(v *SourceVaultResponse) SourceVaultResponse { return *v }).(SourceVaultResponseOutput)
+	return o.ApplyT(func(v *SourceVaultResponse) SourceVaultResponse {
+		if v != nil {
+			return *v
+		}
+		var ret SourceVaultResponse
+		return ret
+	}).(SourceVaultResponseOutput)
 }
 
-// Resource Id
 func (o SourceVaultResponsePtrOutput) Id() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SourceVaultResponse) *string {
 		if v == nil {

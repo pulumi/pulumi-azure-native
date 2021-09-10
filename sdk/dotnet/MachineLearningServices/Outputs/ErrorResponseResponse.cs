@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.MachineLearningServices.Outputs
 {
 
+    /// <summary>
+    /// Error response information.
+    /// </summary>
     [OutputType]
     public sealed class ErrorResponseResponse
     {

@@ -11,18 +11,13 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Sync Group object.
 type SyncGroup struct {
 	pulumi.CustomResourceState
 
-	// The name of the resource.
-	Name pulumi.StringOutput `pulumi:"name"`
-	// Sync group status
-	SyncGroupStatus pulumi.StringOutput `pulumi:"syncGroupStatus"`
-	// The type of the resource
-	Type pulumi.StringOutput `pulumi:"type"`
-	// Unique Id
-	UniqueId pulumi.StringPtrOutput `pulumi:"uniqueId"`
+	Name            pulumi.StringOutput    `pulumi:"name"`
+	SyncGroupStatus pulumi.StringOutput    `pulumi:"syncGroupStatus"`
+	Type            pulumi.StringOutput    `pulumi:"type"`
+	UniqueId        pulumi.StringPtrOutput `pulumi:"uniqueId"`
 }
 
 // NewSyncGroup registers a new resource with the given unique name, arguments, and options.
@@ -136,26 +131,18 @@ func (SyncGroupState) ElementType() reflect.Type {
 }
 
 type syncGroupArgs struct {
-	// The name of the resource group within the user's subscription. The name is case insensitive.
-	ResourceGroupName string `pulumi:"resourceGroupName"`
-	// Name of Storage Sync Service resource.
-	StorageSyncServiceName string `pulumi:"storageSyncServiceName"`
-	// Name of Sync Group resource.
-	SyncGroupName *string `pulumi:"syncGroupName"`
-	// Unique Id
-	UniqueId *string `pulumi:"uniqueId"`
+	ResourceGroupName      string  `pulumi:"resourceGroupName"`
+	StorageSyncServiceName string  `pulumi:"storageSyncServiceName"`
+	SyncGroupName          *string `pulumi:"syncGroupName"`
+	UniqueId               *string `pulumi:"uniqueId"`
 }
 
 // The set of arguments for constructing a SyncGroup resource.
 type SyncGroupArgs struct {
-	// The name of the resource group within the user's subscription. The name is case insensitive.
-	ResourceGroupName pulumi.StringInput
-	// Name of Storage Sync Service resource.
+	ResourceGroupName      pulumi.StringInput
 	StorageSyncServiceName pulumi.StringInput
-	// Name of Sync Group resource.
-	SyncGroupName pulumi.StringPtrInput
-	// Unique Id
-	UniqueId pulumi.StringPtrInput
+	SyncGroupName          pulumi.StringPtrInput
+	UniqueId               pulumi.StringPtrInput
 }
 
 func (SyncGroupArgs) ElementType() reflect.Type {
@@ -181,9 +168,7 @@ func (i *SyncGroup) ToSyncGroupOutputWithContext(ctx context.Context) SyncGroupO
 	return pulumi.ToOutputWithContext(ctx, i).(SyncGroupOutput)
 }
 
-type SyncGroupOutput struct {
-	*pulumi.OutputState
-}
+type SyncGroupOutput struct{ *pulumi.OutputState }
 
 func (SyncGroupOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*SyncGroup)(nil))

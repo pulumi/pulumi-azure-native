@@ -11,24 +11,16 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Event Subscription
 type EventSubscription struct {
 	pulumi.CustomResourceState
 
-	// Information about the destination where events have to be delivered for the event subscription.
-	Destination pulumi.AnyOutput `pulumi:"destination"`
-	// Information about the filter for the event subscription.
-	Filter EventSubscriptionFilterResponsePtrOutput `pulumi:"filter"`
-	// List of user defined labels.
-	Labels pulumi.StringArrayOutput `pulumi:"labels"`
-	// Name of the resource
-	Name pulumi.StringOutput `pulumi:"name"`
-	// Provisioning state of the event subscription.
-	ProvisioningState pulumi.StringOutput `pulumi:"provisioningState"`
-	// Name of the topic of the event subscription.
-	Topic pulumi.StringOutput `pulumi:"topic"`
-	// Type of the resource
-	Type pulumi.StringOutput `pulumi:"type"`
+	Destination       pulumi.AnyOutput                         `pulumi:"destination"`
+	Filter            EventSubscriptionFilterResponsePtrOutput `pulumi:"filter"`
+	Labels            pulumi.StringArrayOutput                 `pulumi:"labels"`
+	Name              pulumi.StringOutput                      `pulumi:"name"`
+	ProvisioningState pulumi.StringOutput                      `pulumi:"provisioningState"`
+	Topic             pulumi.StringOutput                      `pulumi:"topic"`
+	Type              pulumi.StringOutput                      `pulumi:"type"`
 }
 
 // NewEventSubscription registers a new resource with the given unique name, arguments, and options.
@@ -157,30 +149,20 @@ func (EventSubscriptionState) ElementType() reflect.Type {
 }
 
 type eventSubscriptionArgs struct {
-	// Information about the destination where events have to be delivered for the event subscription.
-	Destination interface{} `pulumi:"destination"`
-	// Name of the event subscription. Event subscription names must be between 3 and 64 characters in length and should use alphanumeric letters only.
-	EventSubscriptionName *string `pulumi:"eventSubscriptionName"`
-	// Information about the filter for the event subscription.
-	Filter *EventSubscriptionFilter `pulumi:"filter"`
-	// List of user defined labels.
-	Labels []string `pulumi:"labels"`
-	// The identifier of the resource to which the event subscription needs to be created or updated. The scope can be a subscription, or a resource group, or a top level resource belonging to a resource provider namespace, or an EventGrid topic. For example, use '/subscriptions/{subscriptionId}/' for a subscription, '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}' for a resource group, and '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}' for a resource, and '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.EventGrid/topics/{topicName}' for an EventGrid topic.
-	Scope string `pulumi:"scope"`
+	Destination           interface{}              `pulumi:"destination"`
+	EventSubscriptionName *string                  `pulumi:"eventSubscriptionName"`
+	Filter                *EventSubscriptionFilter `pulumi:"filter"`
+	Labels                []string                 `pulumi:"labels"`
+	Scope                 string                   `pulumi:"scope"`
 }
 
 // The set of arguments for constructing a EventSubscription resource.
 type EventSubscriptionArgs struct {
-	// Information about the destination where events have to be delivered for the event subscription.
-	Destination pulumi.Input
-	// Name of the event subscription. Event subscription names must be between 3 and 64 characters in length and should use alphanumeric letters only.
+	Destination           pulumi.Input
 	EventSubscriptionName pulumi.StringPtrInput
-	// Information about the filter for the event subscription.
-	Filter EventSubscriptionFilterPtrInput
-	// List of user defined labels.
-	Labels pulumi.StringArrayInput
-	// The identifier of the resource to which the event subscription needs to be created or updated. The scope can be a subscription, or a resource group, or a top level resource belonging to a resource provider namespace, or an EventGrid topic. For example, use '/subscriptions/{subscriptionId}/' for a subscription, '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}' for a resource group, and '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}' for a resource, and '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.EventGrid/topics/{topicName}' for an EventGrid topic.
-	Scope pulumi.StringInput
+	Filter                EventSubscriptionFilterPtrInput
+	Labels                pulumi.StringArrayInput
+	Scope                 pulumi.StringInput
 }
 
 func (EventSubscriptionArgs) ElementType() reflect.Type {
@@ -206,9 +188,7 @@ func (i *EventSubscription) ToEventSubscriptionOutputWithContext(ctx context.Con
 	return pulumi.ToOutputWithContext(ctx, i).(EventSubscriptionOutput)
 }
 
-type EventSubscriptionOutput struct {
-	*pulumi.OutputState
-}
+type EventSubscriptionOutput struct{ *pulumi.OutputState }
 
 func (EventSubscriptionOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*EventSubscription)(nil))

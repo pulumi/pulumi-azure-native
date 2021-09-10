@@ -7,7 +7,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Hybrid Connection for an App Service app.
 func LookupWebAppRelayServiceConnectionSlot(ctx *pulumi.Context, args *LookupWebAppRelayServiceConnectionSlotArgs, opts ...pulumi.InvokeOption) (*LookupWebAppRelayServiceConnectionSlotResult, error) {
 	var rv LookupWebAppRelayServiceConnectionSlotResult
 	err := ctx.Invoke("azure-native:web/v20160801:getWebAppRelayServiceConnectionSlot", args, &rv, opts...)
@@ -18,31 +17,23 @@ func LookupWebAppRelayServiceConnectionSlot(ctx *pulumi.Context, args *LookupWeb
 }
 
 type LookupWebAppRelayServiceConnectionSlotArgs struct {
-	// Name of the hybrid connection.
-	EntityName string `pulumi:"entityName"`
-	// Name of the app.
-	Name string `pulumi:"name"`
-	// Name of the resource group to which the resource belongs.
+	EntityName        string `pulumi:"entityName"`
+	Name              string `pulumi:"name"`
 	ResourceGroupName string `pulumi:"resourceGroupName"`
-	// Name of the deployment slot. If a slot is not specified, the API will get a hybrid connection for the production slot.
-	Slot string `pulumi:"slot"`
+	Slot              string `pulumi:"slot"`
 }
 
 // Hybrid Connection for an App Service app.
 type LookupWebAppRelayServiceConnectionSlotResult struct {
-	BiztalkUri             *string `pulumi:"biztalkUri"`
-	EntityConnectionString *string `pulumi:"entityConnectionString"`
-	EntityName             *string `pulumi:"entityName"`
-	Hostname               *string `pulumi:"hostname"`
-	// Resource Id.
-	Id string `pulumi:"id"`
-	// Kind of resource.
-	Kind *string `pulumi:"kind"`
-	// Resource Name.
+	BiztalkUri               *string `pulumi:"biztalkUri"`
+	EntityConnectionString   *string `pulumi:"entityConnectionString"`
+	EntityName               *string `pulumi:"entityName"`
+	Hostname                 *string `pulumi:"hostname"`
+	Id                       string  `pulumi:"id"`
+	Kind                     *string `pulumi:"kind"`
 	Name                     string  `pulumi:"name"`
 	Port                     *int    `pulumi:"port"`
 	ResourceConnectionString *string `pulumi:"resourceConnectionString"`
 	ResourceType             *string `pulumi:"resourceType"`
-	// Resource type.
-	Type string `pulumi:"type"`
+	Type                     string  `pulumi:"type"`
 }

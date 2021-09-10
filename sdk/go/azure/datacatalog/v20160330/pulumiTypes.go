@@ -10,12 +10,9 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// User principals.
 type Principals struct {
-	// Object Id for the user
 	ObjectId *string `pulumi:"objectId"`
-	// UPN of the user.
-	Upn *string `pulumi:"upn"`
+	Upn      *string `pulumi:"upn"`
 }
 
 // PrincipalsInput is an input type that accepts PrincipalsArgs and PrincipalsOutput values.
@@ -29,12 +26,9 @@ type PrincipalsInput interface {
 	ToPrincipalsOutputWithContext(context.Context) PrincipalsOutput
 }
 
-// User principals.
 type PrincipalsArgs struct {
-	// Object Id for the user
 	ObjectId pulumi.StringPtrInput `pulumi:"objectId"`
-	// UPN of the user.
-	Upn pulumi.StringPtrInput `pulumi:"upn"`
+	Upn      pulumi.StringPtrInput `pulumi:"upn"`
 }
 
 func (PrincipalsArgs) ElementType() reflect.Type {
@@ -74,7 +68,6 @@ func (i PrincipalsArray) ToPrincipalsArrayOutputWithContext(ctx context.Context)
 	return pulumi.ToOutputWithContext(ctx, i).(PrincipalsArrayOutput)
 }
 
-// User principals.
 type PrincipalsOutput struct{ *pulumi.OutputState }
 
 func (PrincipalsOutput) ElementType() reflect.Type {
@@ -89,12 +82,10 @@ func (o PrincipalsOutput) ToPrincipalsOutputWithContext(ctx context.Context) Pri
 	return o
 }
 
-// Object Id for the user
 func (o PrincipalsOutput) ObjectId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v Principals) *string { return v.ObjectId }).(pulumi.StringPtrOutput)
 }
 
-// UPN of the user.
 func (o PrincipalsOutput) Upn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v Principals) *string { return v.Upn }).(pulumi.StringPtrOutput)
 }
@@ -119,12 +110,9 @@ func (o PrincipalsArrayOutput) Index(i pulumi.IntInput) PrincipalsOutput {
 	}).(PrincipalsOutput)
 }
 
-// User principals.
 type PrincipalsResponse struct {
-	// Object Id for the user
 	ObjectId *string `pulumi:"objectId"`
-	// UPN of the user.
-	Upn *string `pulumi:"upn"`
+	Upn      *string `pulumi:"upn"`
 }
 
 // PrincipalsResponseInput is an input type that accepts PrincipalsResponseArgs and PrincipalsResponseOutput values.
@@ -138,12 +126,9 @@ type PrincipalsResponseInput interface {
 	ToPrincipalsResponseOutputWithContext(context.Context) PrincipalsResponseOutput
 }
 
-// User principals.
 type PrincipalsResponseArgs struct {
-	// Object Id for the user
 	ObjectId pulumi.StringPtrInput `pulumi:"objectId"`
-	// UPN of the user.
-	Upn pulumi.StringPtrInput `pulumi:"upn"`
+	Upn      pulumi.StringPtrInput `pulumi:"upn"`
 }
 
 func (PrincipalsResponseArgs) ElementType() reflect.Type {
@@ -183,7 +168,6 @@ func (i PrincipalsResponseArray) ToPrincipalsResponseArrayOutputWithContext(ctx 
 	return pulumi.ToOutputWithContext(ctx, i).(PrincipalsResponseArrayOutput)
 }
 
-// User principals.
 type PrincipalsResponseOutput struct{ *pulumi.OutputState }
 
 func (PrincipalsResponseOutput) ElementType() reflect.Type {
@@ -198,12 +182,10 @@ func (o PrincipalsResponseOutput) ToPrincipalsResponseOutputWithContext(ctx cont
 	return o
 }
 
-// Object Id for the user
 func (o PrincipalsResponseOutput) ObjectId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v PrincipalsResponse) *string { return v.ObjectId }).(pulumi.StringPtrOutput)
 }
 
-// UPN of the user.
 func (o PrincipalsResponseOutput) Upn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v PrincipalsResponse) *string { return v.Upn }).(pulumi.StringPtrOutput)
 }

@@ -193,9 +193,7 @@ func (i *DeploymentAtSubscriptionScope) ToDeploymentAtSubscriptionScopeOutputWit
 	return pulumi.ToOutputWithContext(ctx, i).(DeploymentAtSubscriptionScopeOutput)
 }
 
-type DeploymentAtSubscriptionScopeOutput struct {
-	*pulumi.OutputState
-}
+type DeploymentAtSubscriptionScopeOutput struct{ *pulumi.OutputState }
 
 func (DeploymentAtSubscriptionScopeOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*DeploymentAtSubscriptionScope)(nil))

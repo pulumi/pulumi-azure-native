@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.ContainerService.V20200101.Outputs
 {
 
+    /// <summary>
+    /// Information of user assigned identity used by this add-on.
+    /// </summary>
     [OutputType]
     public sealed class ManagedClusterAddonProfileResponseIdentity
     {

@@ -11,20 +11,15 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// An Azure Cosmos DB Cassandra keyspace.
 type CassandraResourceCassandraKeyspace struct {
 	pulumi.CustomResourceState
 
-	// The location of the resource group to which the resource belongs.
-	Location pulumi.StringPtrOutput `pulumi:"location"`
-	// The name of the ARM resource.
+	Location pulumi.StringPtrOutput                                  `pulumi:"location"`
 	Name     pulumi.StringOutput                                     `pulumi:"name"`
 	Options  CassandraKeyspaceGetPropertiesResponseOptionsPtrOutput  `pulumi:"options"`
 	Resource CassandraKeyspaceGetPropertiesResponseResourcePtrOutput `pulumi:"resource"`
-	// Tags are a list of key-value pairs that describe the resource. These tags can be used in viewing and grouping this resource (across resource groups). A maximum of 15 tags can be provided for a resource. Each tag must have a key no greater than 128 characters and value no greater than 256 characters. For example, the default experience for a template type is set with "defaultExperience": "Cassandra". Current "defaultExperience" values also include "Table", "Graph", "DocumentDB", and "MongoDB".
-	Tags pulumi.StringMapOutput `pulumi:"tags"`
-	// The type of Azure resource.
-	Type pulumi.StringOutput `pulumi:"type"`
+	Tags     pulumi.StringMapOutput                                  `pulumi:"tags"`
+	Type     pulumi.StringOutput                                     `pulumi:"type"`
 }
 
 // NewCassandraResourceCassandraKeyspace registers a new resource with the given unique name, arguments, and options.
@@ -195,38 +190,24 @@ func (CassandraResourceCassandraKeyspaceState) ElementType() reflect.Type {
 }
 
 type cassandraResourceCassandraKeyspaceArgs struct {
-	// Cosmos DB database account name.
-	AccountName string `pulumi:"accountName"`
-	// Cosmos DB keyspace name.
-	KeyspaceName *string `pulumi:"keyspaceName"`
-	// The location of the resource group to which the resource belongs.
-	Location *string `pulumi:"location"`
-	// A key-value pair of options to be applied for the request. This corresponds to the headers sent with the request.
-	Options *CreateUpdateOptions `pulumi:"options"`
-	// The standard JSON format of a Cassandra keyspace
-	Resource CassandraKeyspaceResource `pulumi:"resource"`
-	// The name of the resource group. The name is case insensitive.
-	ResourceGroupName string `pulumi:"resourceGroupName"`
-	// Tags are a list of key-value pairs that describe the resource. These tags can be used in viewing and grouping this resource (across resource groups). A maximum of 15 tags can be provided for a resource. Each tag must have a key no greater than 128 characters and value no greater than 256 characters. For example, the default experience for a template type is set with "defaultExperience": "Cassandra". Current "defaultExperience" values also include "Table", "Graph", "DocumentDB", and "MongoDB".
-	Tags map[string]string `pulumi:"tags"`
+	AccountName       string                    `pulumi:"accountName"`
+	KeyspaceName      *string                   `pulumi:"keyspaceName"`
+	Location          *string                   `pulumi:"location"`
+	Options           *CreateUpdateOptions      `pulumi:"options"`
+	Resource          CassandraKeyspaceResource `pulumi:"resource"`
+	ResourceGroupName string                    `pulumi:"resourceGroupName"`
+	Tags              map[string]string         `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a CassandraResourceCassandraKeyspace resource.
 type CassandraResourceCassandraKeyspaceArgs struct {
-	// Cosmos DB database account name.
-	AccountName pulumi.StringInput
-	// Cosmos DB keyspace name.
-	KeyspaceName pulumi.StringPtrInput
-	// The location of the resource group to which the resource belongs.
-	Location pulumi.StringPtrInput
-	// A key-value pair of options to be applied for the request. This corresponds to the headers sent with the request.
-	Options CreateUpdateOptionsPtrInput
-	// The standard JSON format of a Cassandra keyspace
-	Resource CassandraKeyspaceResourceInput
-	// The name of the resource group. The name is case insensitive.
+	AccountName       pulumi.StringInput
+	KeyspaceName      pulumi.StringPtrInput
+	Location          pulumi.StringPtrInput
+	Options           CreateUpdateOptionsPtrInput
+	Resource          CassandraKeyspaceResourceInput
 	ResourceGroupName pulumi.StringInput
-	// Tags are a list of key-value pairs that describe the resource. These tags can be used in viewing and grouping this resource (across resource groups). A maximum of 15 tags can be provided for a resource. Each tag must have a key no greater than 128 characters and value no greater than 256 characters. For example, the default experience for a template type is set with "defaultExperience": "Cassandra". Current "defaultExperience" values also include "Table", "Graph", "DocumentDB", and "MongoDB".
-	Tags pulumi.StringMapInput
+	Tags              pulumi.StringMapInput
 }
 
 func (CassandraResourceCassandraKeyspaceArgs) ElementType() reflect.Type {
@@ -252,9 +233,7 @@ func (i *CassandraResourceCassandraKeyspace) ToCassandraResourceCassandraKeyspac
 	return pulumi.ToOutputWithContext(ctx, i).(CassandraResourceCassandraKeyspaceOutput)
 }
 
-type CassandraResourceCassandraKeyspaceOutput struct {
-	*pulumi.OutputState
-}
+type CassandraResourceCassandraKeyspaceOutput struct{ *pulumi.OutputState }
 
 func (CassandraResourceCassandraKeyspaceOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*CassandraResourceCassandraKeyspace)(nil))

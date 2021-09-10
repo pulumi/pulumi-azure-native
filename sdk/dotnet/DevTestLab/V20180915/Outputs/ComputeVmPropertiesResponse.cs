@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.DevTestLab.V20180915.Outputs
 {
 
+    /// <summary>
+    /// Properties of a virtual machine returned by the Microsoft.Compute API.
+    /// </summary>
     [OutputType]
     public sealed class ComputeVmPropertiesResponse
     {

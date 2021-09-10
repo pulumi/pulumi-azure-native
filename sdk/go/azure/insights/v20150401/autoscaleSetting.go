@@ -11,28 +11,18 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// The autoscale setting resource.
 type AutoscaleSetting struct {
 	pulumi.CustomResourceState
 
-	// the enabled flag. Specifies whether automatic scaling is enabled for the resource. The default value is 'true'.
-	Enabled pulumi.BoolPtrOutput `pulumi:"enabled"`
-	// Resource location
-	Location pulumi.StringOutput `pulumi:"location"`
-	// Azure resource name
-	Name pulumi.StringOutput `pulumi:"name"`
-	// the collection of notifications.
-	Notifications AutoscaleNotificationResponseArrayOutput `pulumi:"notifications"`
-	// the collection of automatic scaling profiles that specify different scaling parameters for different time periods. A maximum of 20 profiles can be specified.
-	Profiles AutoscaleProfileResponseArrayOutput `pulumi:"profiles"`
-	// Resource tags
-	Tags pulumi.StringMapOutput `pulumi:"tags"`
-	// the location of the resource that the autoscale setting should be added to.
-	TargetResourceLocation pulumi.StringPtrOutput `pulumi:"targetResourceLocation"`
-	// the resource identifier of the resource that the autoscale setting should be added to.
-	TargetResourceUri pulumi.StringPtrOutput `pulumi:"targetResourceUri"`
-	// Azure resource type
-	Type pulumi.StringOutput `pulumi:"type"`
+	Enabled                pulumi.BoolPtrOutput                     `pulumi:"enabled"`
+	Location               pulumi.StringOutput                      `pulumi:"location"`
+	Name                   pulumi.StringOutput                      `pulumi:"name"`
+	Notifications          AutoscaleNotificationResponseArrayOutput `pulumi:"notifications"`
+	Profiles               AutoscaleProfileResponseArrayOutput      `pulumi:"profiles"`
+	Tags                   pulumi.StringMapOutput                   `pulumi:"tags"`
+	TargetResourceLocation pulumi.StringPtrOutput                   `pulumi:"targetResourceLocation"`
+	TargetResourceUri      pulumi.StringPtrOutput                   `pulumi:"targetResourceUri"`
+	Type                   pulumi.StringOutput                      `pulumi:"type"`
 }
 
 // NewAutoscaleSetting registers a new resource with the given unique name, arguments, and options.
@@ -101,50 +91,30 @@ func (AutoscaleSettingState) ElementType() reflect.Type {
 }
 
 type autoscaleSettingArgs struct {
-	// The autoscale setting name.
-	AutoscaleSettingName *string `pulumi:"autoscaleSettingName"`
-	// the enabled flag. Specifies whether automatic scaling is enabled for the resource. The default value is 'true'.
-	Enabled *bool `pulumi:"enabled"`
-	// Resource location
-	Location *string `pulumi:"location"`
-	// the name of the autoscale setting.
-	Name *string `pulumi:"name"`
-	// the collection of notifications.
-	Notifications []AutoscaleNotification `pulumi:"notifications"`
-	// the collection of automatic scaling profiles that specify different scaling parameters for different time periods. A maximum of 20 profiles can be specified.
-	Profiles []AutoscaleProfile `pulumi:"profiles"`
-	// The name of the resource group.
-	ResourceGroupName string `pulumi:"resourceGroupName"`
-	// Resource tags
-	Tags map[string]string `pulumi:"tags"`
-	// the location of the resource that the autoscale setting should be added to.
-	TargetResourceLocation *string `pulumi:"targetResourceLocation"`
-	// the resource identifier of the resource that the autoscale setting should be added to.
-	TargetResourceUri *string `pulumi:"targetResourceUri"`
+	AutoscaleSettingName   *string                 `pulumi:"autoscaleSettingName"`
+	Enabled                *bool                   `pulumi:"enabled"`
+	Location               *string                 `pulumi:"location"`
+	Name                   *string                 `pulumi:"name"`
+	Notifications          []AutoscaleNotification `pulumi:"notifications"`
+	Profiles               []AutoscaleProfile      `pulumi:"profiles"`
+	ResourceGroupName      string                  `pulumi:"resourceGroupName"`
+	Tags                   map[string]string       `pulumi:"tags"`
+	TargetResourceLocation *string                 `pulumi:"targetResourceLocation"`
+	TargetResourceUri      *string                 `pulumi:"targetResourceUri"`
 }
 
 // The set of arguments for constructing a AutoscaleSetting resource.
 type AutoscaleSettingArgs struct {
-	// The autoscale setting name.
-	AutoscaleSettingName pulumi.StringPtrInput
-	// the enabled flag. Specifies whether automatic scaling is enabled for the resource. The default value is 'true'.
-	Enabled pulumi.BoolPtrInput
-	// Resource location
-	Location pulumi.StringPtrInput
-	// the name of the autoscale setting.
-	Name pulumi.StringPtrInput
-	// the collection of notifications.
-	Notifications AutoscaleNotificationArrayInput
-	// the collection of automatic scaling profiles that specify different scaling parameters for different time periods. A maximum of 20 profiles can be specified.
-	Profiles AutoscaleProfileArrayInput
-	// The name of the resource group.
-	ResourceGroupName pulumi.StringInput
-	// Resource tags
-	Tags pulumi.StringMapInput
-	// the location of the resource that the autoscale setting should be added to.
+	AutoscaleSettingName   pulumi.StringPtrInput
+	Enabled                pulumi.BoolPtrInput
+	Location               pulumi.StringPtrInput
+	Name                   pulumi.StringPtrInput
+	Notifications          AutoscaleNotificationArrayInput
+	Profiles               AutoscaleProfileArrayInput
+	ResourceGroupName      pulumi.StringInput
+	Tags                   pulumi.StringMapInput
 	TargetResourceLocation pulumi.StringPtrInput
-	// the resource identifier of the resource that the autoscale setting should be added to.
-	TargetResourceUri pulumi.StringPtrInput
+	TargetResourceUri      pulumi.StringPtrInput
 }
 
 func (AutoscaleSettingArgs) ElementType() reflect.Type {
@@ -170,9 +140,7 @@ func (i *AutoscaleSetting) ToAutoscaleSettingOutputWithContext(ctx context.Conte
 	return pulumi.ToOutputWithContext(ctx, i).(AutoscaleSettingOutput)
 }
 
-type AutoscaleSettingOutput struct {
-	*pulumi.OutputState
-}
+type AutoscaleSettingOutput struct{ *pulumi.OutputState }
 
 func (AutoscaleSettingOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*AutoscaleSetting)(nil))

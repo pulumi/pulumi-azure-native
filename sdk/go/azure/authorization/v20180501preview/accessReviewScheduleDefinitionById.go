@@ -10,64 +10,36 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Access Review Schedule Definition.
 type AccessReviewScheduleDefinitionById struct {
 	pulumi.CustomResourceState
 
-	// Flag to indicate whether auto-apply capability, to automatically change the target object access resource, is enabled. If not enabled, a user must, after the review completes, apply the access review.
-	AutoApplyDecisionsEnabled pulumi.BoolPtrOutput `pulumi:"autoApplyDecisionsEnabled"`
-	// This specifies the behavior for the autoReview feature when an access review completes.
-	DefaultDecision pulumi.StringPtrOutput `pulumi:"defaultDecision"`
-	// Flag to indicate whether reviewers are required to provide a justification when reviewing access.
-	DefaultDecisionEnabled pulumi.BoolPtrOutput `pulumi:"defaultDecisionEnabled"`
-	// The description provided by the access review creator and visible to admins.
-	DescriptionForAdmins pulumi.StringPtrOutput `pulumi:"descriptionForAdmins"`
-	// The description provided by the access review creator to be shown to reviewers.
-	DescriptionForReviewers pulumi.StringPtrOutput `pulumi:"descriptionForReviewers"`
-	// The display name for the schedule definition.
-	DisplayName pulumi.StringPtrOutput `pulumi:"displayName"`
-	// The DateTime when the review is scheduled to end. Required if type is endDate
-	EndDate pulumi.StringPtrOutput `pulumi:"endDate"`
-	// The duration in days for an instance.
-	InstanceDurationInDays pulumi.IntPtrOutput `pulumi:"instanceDurationInDays"`
-	// This is the collection of instances returned when one does an expand on it.
-	Instances AccessReviewInstanceResponseArrayOutput `pulumi:"instances"`
-	// The interval for recurrence. For a quarterly review, the interval is 3 for type : absoluteMonthly.
-	Interval pulumi.IntPtrOutput `pulumi:"interval"`
-	// Flag to indicate whether the reviewer is required to pass justification when recording a decision.
-	JustificationRequiredOnApproval pulumi.BoolPtrOutput `pulumi:"justificationRequiredOnApproval"`
-	// Flag to indicate whether sending mails to reviewers and the review creator is enabled.
-	MailNotificationsEnabled pulumi.BoolPtrOutput `pulumi:"mailNotificationsEnabled"`
-	// The access review schedule definition unique id.
-	Name pulumi.StringOutput `pulumi:"name"`
-	// The number of times to repeat the access review. Required and must be positive if type is numbered.
-	NumberOfOccurrences pulumi.IntPtrOutput `pulumi:"numberOfOccurrences"`
-	// The identity id
-	PrincipalId pulumi.StringOutput `pulumi:"principalId"`
-	// The identity display name
-	PrincipalName pulumi.StringOutput `pulumi:"principalName"`
-	// The identity type user/servicePrincipal to review
-	PrincipalType pulumi.StringOutput `pulumi:"principalType"`
-	// Flag to indicate whether showing recommendations to reviewers is enabled.
-	RecommendationsEnabled pulumi.BoolPtrOutput `pulumi:"recommendationsEnabled"`
-	// Flag to indicate whether sending reminder emails to reviewers are enabled.
-	ReminderNotificationsEnabled pulumi.BoolPtrOutput `pulumi:"reminderNotificationsEnabled"`
-	// ResourceId in which this review is getting created
-	ResourceId pulumi.StringOutput `pulumi:"resourceId"`
-	// This is the collection of reviewers.
-	Reviewers AccessReviewReviewerResponseArrayOutput `pulumi:"reviewers"`
-	// This field specifies the type of reviewers for a review. Usually for a review, reviewers are explicitly assigned. However, in some cases, the reviewers may not be assigned and instead be chosen dynamically. For example managers review or self review.
-	ReviewersType pulumi.StringOutput `pulumi:"reviewersType"`
-	// This is used to indicate the role being reviewed
-	RoleDefinitionId pulumi.StringOutput `pulumi:"roleDefinitionId"`
-	// The DateTime when the review is scheduled to be start. This could be a date in the future. Required on create.
-	StartDate pulumi.StringPtrOutput `pulumi:"startDate"`
-	// This read-only field specifies the status of an accessReview.
-	Status pulumi.StringOutput `pulumi:"status"`
-	// The resource type.
-	Type pulumi.StringOutput `pulumi:"type"`
-	// The user principal name(if valid)
-	UserPrincipalName pulumi.StringOutput `pulumi:"userPrincipalName"`
+	AutoApplyDecisionsEnabled       pulumi.BoolPtrOutput                    `pulumi:"autoApplyDecisionsEnabled"`
+	DefaultDecision                 pulumi.StringPtrOutput                  `pulumi:"defaultDecision"`
+	DefaultDecisionEnabled          pulumi.BoolPtrOutput                    `pulumi:"defaultDecisionEnabled"`
+	DescriptionForAdmins            pulumi.StringPtrOutput                  `pulumi:"descriptionForAdmins"`
+	DescriptionForReviewers         pulumi.StringPtrOutput                  `pulumi:"descriptionForReviewers"`
+	DisplayName                     pulumi.StringPtrOutput                  `pulumi:"displayName"`
+	EndDate                         pulumi.StringPtrOutput                  `pulumi:"endDate"`
+	InstanceDurationInDays          pulumi.IntPtrOutput                     `pulumi:"instanceDurationInDays"`
+	Instances                       AccessReviewInstanceResponseArrayOutput `pulumi:"instances"`
+	Interval                        pulumi.IntPtrOutput                     `pulumi:"interval"`
+	JustificationRequiredOnApproval pulumi.BoolPtrOutput                    `pulumi:"justificationRequiredOnApproval"`
+	MailNotificationsEnabled        pulumi.BoolPtrOutput                    `pulumi:"mailNotificationsEnabled"`
+	Name                            pulumi.StringOutput                     `pulumi:"name"`
+	NumberOfOccurrences             pulumi.IntPtrOutput                     `pulumi:"numberOfOccurrences"`
+	PrincipalId                     pulumi.StringOutput                     `pulumi:"principalId"`
+	PrincipalName                   pulumi.StringOutput                     `pulumi:"principalName"`
+	PrincipalType                   pulumi.StringOutput                     `pulumi:"principalType"`
+	RecommendationsEnabled          pulumi.BoolPtrOutput                    `pulumi:"recommendationsEnabled"`
+	ReminderNotificationsEnabled    pulumi.BoolPtrOutput                    `pulumi:"reminderNotificationsEnabled"`
+	ResourceId                      pulumi.StringOutput                     `pulumi:"resourceId"`
+	Reviewers                       AccessReviewReviewerResponseArrayOutput `pulumi:"reviewers"`
+	ReviewersType                   pulumi.StringOutput                     `pulumi:"reviewersType"`
+	RoleDefinitionId                pulumi.StringOutput                     `pulumi:"roleDefinitionId"`
+	StartDate                       pulumi.StringPtrOutput                  `pulumi:"startDate"`
+	Status                          pulumi.StringOutput                     `pulumi:"status"`
+	Type                            pulumi.StringOutput                     `pulumi:"type"`
+	UserPrincipalName               pulumi.StringOutput                     `pulumi:"userPrincipalName"`
 }
 
 // NewAccessReviewScheduleDefinitionById registers a new resource with the given unique name, arguments, and options.
@@ -133,86 +105,48 @@ func (AccessReviewScheduleDefinitionByIdState) ElementType() reflect.Type {
 }
 
 type accessReviewScheduleDefinitionByIdArgs struct {
-	// Flag to indicate whether auto-apply capability, to automatically change the target object access resource, is enabled. If not enabled, a user must, after the review completes, apply the access review.
-	AutoApplyDecisionsEnabled *bool `pulumi:"autoApplyDecisionsEnabled"`
-	// This specifies the behavior for the autoReview feature when an access review completes.
-	DefaultDecision *string `pulumi:"defaultDecision"`
-	// Flag to indicate whether reviewers are required to provide a justification when reviewing access.
-	DefaultDecisionEnabled *bool `pulumi:"defaultDecisionEnabled"`
-	// The description provided by the access review creator and visible to admins.
-	DescriptionForAdmins *string `pulumi:"descriptionForAdmins"`
-	// The description provided by the access review creator to be shown to reviewers.
-	DescriptionForReviewers *string `pulumi:"descriptionForReviewers"`
-	// The display name for the schedule definition.
-	DisplayName *string `pulumi:"displayName"`
-	// The DateTime when the review is scheduled to end. Required if type is endDate
-	EndDate *string `pulumi:"endDate"`
-	// The duration in days for an instance.
-	InstanceDurationInDays *int `pulumi:"instanceDurationInDays"`
-	// This is the collection of instances returned when one does an expand on it.
-	Instances []AccessReviewInstance `pulumi:"instances"`
-	// The interval for recurrence. For a quarterly review, the interval is 3 for type : absoluteMonthly.
-	Interval *int `pulumi:"interval"`
-	// Flag to indicate whether the reviewer is required to pass justification when recording a decision.
-	JustificationRequiredOnApproval *bool `pulumi:"justificationRequiredOnApproval"`
-	// Flag to indicate whether sending mails to reviewers and the review creator is enabled.
-	MailNotificationsEnabled *bool `pulumi:"mailNotificationsEnabled"`
-	// The number of times to repeat the access review. Required and must be positive if type is numbered.
-	NumberOfOccurrences *int `pulumi:"numberOfOccurrences"`
-	// Flag to indicate whether showing recommendations to reviewers is enabled.
-	RecommendationsEnabled *bool `pulumi:"recommendationsEnabled"`
-	// Flag to indicate whether sending reminder emails to reviewers are enabled.
-	ReminderNotificationsEnabled *bool `pulumi:"reminderNotificationsEnabled"`
-	// This is the collection of reviewers.
-	Reviewers []AccessReviewReviewer `pulumi:"reviewers"`
-	// The id of the access review schedule definition.
-	ScheduleDefinitionId *string `pulumi:"scheduleDefinitionId"`
-	// The DateTime when the review is scheduled to be start. This could be a date in the future. Required on create.
-	StartDate *string `pulumi:"startDate"`
-	// The recurrence range type. The possible values are: endDate, noEnd, numbered.
-	Type *string `pulumi:"type"`
+	AutoApplyDecisionsEnabled       *bool                  `pulumi:"autoApplyDecisionsEnabled"`
+	DefaultDecision                 *string                `pulumi:"defaultDecision"`
+	DefaultDecisionEnabled          *bool                  `pulumi:"defaultDecisionEnabled"`
+	DescriptionForAdmins            *string                `pulumi:"descriptionForAdmins"`
+	DescriptionForReviewers         *string                `pulumi:"descriptionForReviewers"`
+	DisplayName                     *string                `pulumi:"displayName"`
+	EndDate                         *string                `pulumi:"endDate"`
+	InstanceDurationInDays          *int                   `pulumi:"instanceDurationInDays"`
+	Instances                       []AccessReviewInstance `pulumi:"instances"`
+	Interval                        *int                   `pulumi:"interval"`
+	JustificationRequiredOnApproval *bool                  `pulumi:"justificationRequiredOnApproval"`
+	MailNotificationsEnabled        *bool                  `pulumi:"mailNotificationsEnabled"`
+	NumberOfOccurrences             *int                   `pulumi:"numberOfOccurrences"`
+	RecommendationsEnabled          *bool                  `pulumi:"recommendationsEnabled"`
+	ReminderNotificationsEnabled    *bool                  `pulumi:"reminderNotificationsEnabled"`
+	Reviewers                       []AccessReviewReviewer `pulumi:"reviewers"`
+	ScheduleDefinitionId            *string                `pulumi:"scheduleDefinitionId"`
+	StartDate                       *string                `pulumi:"startDate"`
+	Type                            *string                `pulumi:"type"`
 }
 
 // The set of arguments for constructing a AccessReviewScheduleDefinitionById resource.
 type AccessReviewScheduleDefinitionByIdArgs struct {
-	// Flag to indicate whether auto-apply capability, to automatically change the target object access resource, is enabled. If not enabled, a user must, after the review completes, apply the access review.
-	AutoApplyDecisionsEnabled pulumi.BoolPtrInput
-	// This specifies the behavior for the autoReview feature when an access review completes.
-	DefaultDecision pulumi.StringPtrInput
-	// Flag to indicate whether reviewers are required to provide a justification when reviewing access.
-	DefaultDecisionEnabled pulumi.BoolPtrInput
-	// The description provided by the access review creator and visible to admins.
-	DescriptionForAdmins pulumi.StringPtrInput
-	// The description provided by the access review creator to be shown to reviewers.
-	DescriptionForReviewers pulumi.StringPtrInput
-	// The display name for the schedule definition.
-	DisplayName pulumi.StringPtrInput
-	// The DateTime when the review is scheduled to end. Required if type is endDate
-	EndDate pulumi.StringPtrInput
-	// The duration in days for an instance.
-	InstanceDurationInDays pulumi.IntPtrInput
-	// This is the collection of instances returned when one does an expand on it.
-	Instances AccessReviewInstanceArrayInput
-	// The interval for recurrence. For a quarterly review, the interval is 3 for type : absoluteMonthly.
-	Interval pulumi.IntPtrInput
-	// Flag to indicate whether the reviewer is required to pass justification when recording a decision.
+	AutoApplyDecisionsEnabled       pulumi.BoolPtrInput
+	DefaultDecision                 pulumi.StringPtrInput
+	DefaultDecisionEnabled          pulumi.BoolPtrInput
+	DescriptionForAdmins            pulumi.StringPtrInput
+	DescriptionForReviewers         pulumi.StringPtrInput
+	DisplayName                     pulumi.StringPtrInput
+	EndDate                         pulumi.StringPtrInput
+	InstanceDurationInDays          pulumi.IntPtrInput
+	Instances                       AccessReviewInstanceArrayInput
+	Interval                        pulumi.IntPtrInput
 	JustificationRequiredOnApproval pulumi.BoolPtrInput
-	// Flag to indicate whether sending mails to reviewers and the review creator is enabled.
-	MailNotificationsEnabled pulumi.BoolPtrInput
-	// The number of times to repeat the access review. Required and must be positive if type is numbered.
-	NumberOfOccurrences pulumi.IntPtrInput
-	// Flag to indicate whether showing recommendations to reviewers is enabled.
-	RecommendationsEnabled pulumi.BoolPtrInput
-	// Flag to indicate whether sending reminder emails to reviewers are enabled.
-	ReminderNotificationsEnabled pulumi.BoolPtrInput
-	// This is the collection of reviewers.
-	Reviewers AccessReviewReviewerArrayInput
-	// The id of the access review schedule definition.
-	ScheduleDefinitionId pulumi.StringPtrInput
-	// The DateTime when the review is scheduled to be start. This could be a date in the future. Required on create.
-	StartDate pulumi.StringPtrInput
-	// The recurrence range type. The possible values are: endDate, noEnd, numbered.
-	Type pulumi.StringPtrInput
+	MailNotificationsEnabled        pulumi.BoolPtrInput
+	NumberOfOccurrences             pulumi.IntPtrInput
+	RecommendationsEnabled          pulumi.BoolPtrInput
+	ReminderNotificationsEnabled    pulumi.BoolPtrInput
+	Reviewers                       AccessReviewReviewerArrayInput
+	ScheduleDefinitionId            pulumi.StringPtrInput
+	StartDate                       pulumi.StringPtrInput
+	Type                            pulumi.StringPtrInput
 }
 
 func (AccessReviewScheduleDefinitionByIdArgs) ElementType() reflect.Type {
@@ -238,9 +172,7 @@ func (i *AccessReviewScheduleDefinitionById) ToAccessReviewScheduleDefinitionByI
 	return pulumi.ToOutputWithContext(ctx, i).(AccessReviewScheduleDefinitionByIdOutput)
 }
 
-type AccessReviewScheduleDefinitionByIdOutput struct {
-	*pulumi.OutputState
-}
+type AccessReviewScheduleDefinitionByIdOutput struct{ *pulumi.OutputState }
 
 func (AccessReviewScheduleDefinitionByIdOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*AccessReviewScheduleDefinitionById)(nil))

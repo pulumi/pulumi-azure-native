@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.DataFactory.Outputs
 {
 
+    /// <summary>
+    /// Client secret information for factory's bring your own app repository configuration.
+    /// </summary>
     [OutputType]
     public sealed class GitHubClientSecretResponse
     {

@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.RedHatOpenShift.V20210901Preview.Outputs
 {
 
+    /// <summary>
+    /// APIServerProfile represents an API server profile.
+    /// </summary>
     [OutputType]
     public sealed class APIServerProfileResponse
     {

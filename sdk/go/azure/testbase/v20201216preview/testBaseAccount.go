@@ -11,28 +11,18 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// The Test Base Account resource.
 type TestBaseAccount struct {
 	pulumi.CustomResourceState
 
-	// The access level of the Test Base Account.
-	AccessLevel pulumi.StringOutput `pulumi:"accessLevel"`
-	// Resource Etag.
-	Etag pulumi.StringOutput `pulumi:"etag"`
-	// The geo-location where the resource lives
-	Location pulumi.StringOutput `pulumi:"location"`
-	// Resource name.
-	Name pulumi.StringOutput `pulumi:"name"`
-	// The provisioning state of the resource.
-	ProvisioningState pulumi.StringOutput `pulumi:"provisioningState"`
-	// The SKU of the Test Base Account.
-	Sku TestBaseAccountSKUResponseOutput `pulumi:"sku"`
-	// The system metadata relating to this resource
-	SystemData SystemDataResponseOutput `pulumi:"systemData"`
-	// The tags of the resource.
-	Tags pulumi.StringMapOutput `pulumi:"tags"`
-	// Resource type.
-	Type pulumi.StringOutput `pulumi:"type"`
+	AccessLevel       pulumi.StringOutput              `pulumi:"accessLevel"`
+	Etag              pulumi.StringOutput              `pulumi:"etag"`
+	Location          pulumi.StringOutput              `pulumi:"location"`
+	Name              pulumi.StringOutput              `pulumi:"name"`
+	ProvisioningState pulumi.StringOutput              `pulumi:"provisioningState"`
+	Sku               TestBaseAccountSKUResponseOutput `pulumi:"sku"`
+	SystemData        SystemDataResponseOutput         `pulumi:"systemData"`
+	Tags              pulumi.StringMapOutput           `pulumi:"tags"`
+	Type              pulumi.StringOutput              `pulumi:"type"`
 }
 
 // NewTestBaseAccount registers a new resource with the given unique name, arguments, and options.
@@ -92,33 +82,21 @@ func (TestBaseAccountState) ElementType() reflect.Type {
 }
 
 type testBaseAccountArgs struct {
-	// The geo-location where the resource lives
-	Location *string `pulumi:"location"`
-	// The name of the resource group that contains the resource.
-	ResourceGroupName string `pulumi:"resourceGroupName"`
-	// The flag indicating if we would like to restore the Test Base Accounts which were soft deleted before.
-	Restore *bool `pulumi:"restore"`
-	// The SKU of the Test Base Account.
-	Sku TestBaseAccountSKU `pulumi:"sku"`
-	// The tags of the resource.
-	Tags map[string]string `pulumi:"tags"`
-	// The resource name of the Test Base Account.
-	TestBaseAccountName *string `pulumi:"testBaseAccountName"`
+	Location            *string            `pulumi:"location"`
+	ResourceGroupName   string             `pulumi:"resourceGroupName"`
+	Restore             *bool              `pulumi:"restore"`
+	Sku                 TestBaseAccountSKU `pulumi:"sku"`
+	Tags                map[string]string  `pulumi:"tags"`
+	TestBaseAccountName *string            `pulumi:"testBaseAccountName"`
 }
 
 // The set of arguments for constructing a TestBaseAccount resource.
 type TestBaseAccountArgs struct {
-	// The geo-location where the resource lives
-	Location pulumi.StringPtrInput
-	// The name of the resource group that contains the resource.
-	ResourceGroupName pulumi.StringInput
-	// The flag indicating if we would like to restore the Test Base Accounts which were soft deleted before.
-	Restore pulumi.BoolPtrInput
-	// The SKU of the Test Base Account.
-	Sku TestBaseAccountSKUInput
-	// The tags of the resource.
-	Tags pulumi.StringMapInput
-	// The resource name of the Test Base Account.
+	Location            pulumi.StringPtrInput
+	ResourceGroupName   pulumi.StringInput
+	Restore             pulumi.BoolPtrInput
+	Sku                 TestBaseAccountSKUInput
+	Tags                pulumi.StringMapInput
 	TestBaseAccountName pulumi.StringPtrInput
 }
 
@@ -145,9 +123,7 @@ func (i *TestBaseAccount) ToTestBaseAccountOutputWithContext(ctx context.Context
 	return pulumi.ToOutputWithContext(ctx, i).(TestBaseAccountOutput)
 }
 
-type TestBaseAccountOutput struct {
-	*pulumi.OutputState
-}
+type TestBaseAccountOutput struct{ *pulumi.OutputState }
 
 func (TestBaseAccountOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*TestBaseAccount)(nil))

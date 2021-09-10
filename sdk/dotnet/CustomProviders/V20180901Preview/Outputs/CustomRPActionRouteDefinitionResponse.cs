@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.CustomProviders.V20180901Preview.Outputs
 {
 
+    /// <summary>
+    /// The route definition for an action implemented by the custom resource provider.
+    /// </summary>
     [OutputType]
     public sealed class CustomRPActionRouteDefinitionResponse
     {

@@ -7,7 +7,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Represents the secrets encrypted using Symmetric Encryption Key.
 func ListManagerPublicEncryptionKey(ctx *pulumi.Context, args *ListManagerPublicEncryptionKeyArgs, opts ...pulumi.InvokeOption) (*ListManagerPublicEncryptionKeyResult, error) {
 	var rv ListManagerPublicEncryptionKeyResult
 	err := ctx.Invoke("azure-native:storsimple/v20170601:listManagerPublicEncryptionKey", args, &rv, opts...)
@@ -18,18 +17,13 @@ func ListManagerPublicEncryptionKey(ctx *pulumi.Context, args *ListManagerPublic
 }
 
 type ListManagerPublicEncryptionKeyArgs struct {
-	// The manager name
-	ManagerName string `pulumi:"managerName"`
-	// The resource group name
+	ManagerName       string `pulumi:"managerName"`
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 }
 
 // Represents the secrets encrypted using Symmetric Encryption Key.
 type ListManagerPublicEncryptionKeyResult struct {
-	// The algorithm used to encrypt the "Value".
-	EncryptionAlgorithm string `pulumi:"encryptionAlgorithm"`
-	// The value of the secret itself. If the secret is in plaintext or null then EncryptionAlgorithm will be none.
-	Value string `pulumi:"value"`
-	// The thumbprint of the cert that was used to encrypt "Value".
+	EncryptionAlgorithm        string  `pulumi:"encryptionAlgorithm"`
+	Value                      string  `pulumi:"value"`
 	ValueCertificateThumbprint *string `pulumi:"valueCertificateThumbprint"`
 }

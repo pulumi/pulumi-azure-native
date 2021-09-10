@@ -10,11 +10,8 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Class for site agent properties.
 type SiteAgentProperties struct {
-	// Key vault ARM Id.
-	KeyVaultId *string `pulumi:"keyVaultId"`
-	// Key vault URI.
+	KeyVaultId  *string `pulumi:"keyVaultId"`
 	KeyVaultUri *string `pulumi:"keyVaultUri"`
 }
 
@@ -29,11 +26,8 @@ type SiteAgentPropertiesInput interface {
 	ToSiteAgentPropertiesOutputWithContext(context.Context) SiteAgentPropertiesOutput
 }
 
-// Class for site agent properties.
 type SiteAgentPropertiesArgs struct {
-	// Key vault ARM Id.
-	KeyVaultId pulumi.StringPtrInput `pulumi:"keyVaultId"`
-	// Key vault URI.
+	KeyVaultId  pulumi.StringPtrInput `pulumi:"keyVaultId"`
 	KeyVaultUri pulumi.StringPtrInput `pulumi:"keyVaultUri"`
 }
 
@@ -90,7 +84,6 @@ func (i *siteAgentPropertiesPtrType) ToSiteAgentPropertiesPtrOutputWithContext(c
 	return pulumi.ToOutputWithContext(ctx, i).(SiteAgentPropertiesPtrOutput)
 }
 
-// Class for site agent properties.
 type SiteAgentPropertiesOutput struct{ *pulumi.OutputState }
 
 func (SiteAgentPropertiesOutput) ElementType() reflect.Type {
@@ -110,17 +103,15 @@ func (o SiteAgentPropertiesOutput) ToSiteAgentPropertiesPtrOutput() SiteAgentPro
 }
 
 func (o SiteAgentPropertiesOutput) ToSiteAgentPropertiesPtrOutputWithContext(ctx context.Context) SiteAgentPropertiesPtrOutput {
-	return o.ApplyT(func(v SiteAgentProperties) *SiteAgentProperties {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v SiteAgentProperties) *SiteAgentProperties {
 		return &v
 	}).(SiteAgentPropertiesPtrOutput)
 }
 
-// Key vault ARM Id.
 func (o SiteAgentPropertiesOutput) KeyVaultId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SiteAgentProperties) *string { return v.KeyVaultId }).(pulumi.StringPtrOutput)
 }
 
-// Key vault URI.
 func (o SiteAgentPropertiesOutput) KeyVaultUri() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SiteAgentProperties) *string { return v.KeyVaultUri }).(pulumi.StringPtrOutput)
 }
@@ -140,10 +131,15 @@ func (o SiteAgentPropertiesPtrOutput) ToSiteAgentPropertiesPtrOutputWithContext(
 }
 
 func (o SiteAgentPropertiesPtrOutput) Elem() SiteAgentPropertiesOutput {
-	return o.ApplyT(func(v *SiteAgentProperties) SiteAgentProperties { return *v }).(SiteAgentPropertiesOutput)
+	return o.ApplyT(func(v *SiteAgentProperties) SiteAgentProperties {
+		if v != nil {
+			return *v
+		}
+		var ret SiteAgentProperties
+		return ret
+	}).(SiteAgentPropertiesOutput)
 }
 
-// Key vault ARM Id.
 func (o SiteAgentPropertiesPtrOutput) KeyVaultId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SiteAgentProperties) *string {
 		if v == nil {
@@ -153,7 +149,6 @@ func (o SiteAgentPropertiesPtrOutput) KeyVaultId() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Key vault URI.
 func (o SiteAgentPropertiesPtrOutput) KeyVaultUri() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SiteAgentProperties) *string {
 		if v == nil {
@@ -163,18 +158,12 @@ func (o SiteAgentPropertiesPtrOutput) KeyVaultUri() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Class for site agent properties.
 type SiteAgentPropertiesResponse struct {
-	// ID of the agent.
-	Id string `pulumi:"id"`
-	// Key vault ARM Id.
-	KeyVaultId *string `pulumi:"keyVaultId"`
-	// Key vault URI.
-	KeyVaultUri *string `pulumi:"keyVaultUri"`
-	// Last heartbeat time of the agent in UTC.
-	LastHeartBeatUtc string `pulumi:"lastHeartBeatUtc"`
-	// Version of the agent.
-	Version string `pulumi:"version"`
+	Id               string  `pulumi:"id"`
+	KeyVaultId       *string `pulumi:"keyVaultId"`
+	KeyVaultUri      *string `pulumi:"keyVaultUri"`
+	LastHeartBeatUtc string  `pulumi:"lastHeartBeatUtc"`
+	Version          string  `pulumi:"version"`
 }
 
 // SiteAgentPropertiesResponseInput is an input type that accepts SiteAgentPropertiesResponseArgs and SiteAgentPropertiesResponseOutput values.
@@ -188,18 +177,12 @@ type SiteAgentPropertiesResponseInput interface {
 	ToSiteAgentPropertiesResponseOutputWithContext(context.Context) SiteAgentPropertiesResponseOutput
 }
 
-// Class for site agent properties.
 type SiteAgentPropertiesResponseArgs struct {
-	// ID of the agent.
-	Id pulumi.StringInput `pulumi:"id"`
-	// Key vault ARM Id.
-	KeyVaultId pulumi.StringPtrInput `pulumi:"keyVaultId"`
-	// Key vault URI.
-	KeyVaultUri pulumi.StringPtrInput `pulumi:"keyVaultUri"`
-	// Last heartbeat time of the agent in UTC.
-	LastHeartBeatUtc pulumi.StringInput `pulumi:"lastHeartBeatUtc"`
-	// Version of the agent.
-	Version pulumi.StringInput `pulumi:"version"`
+	Id               pulumi.StringInput    `pulumi:"id"`
+	KeyVaultId       pulumi.StringPtrInput `pulumi:"keyVaultId"`
+	KeyVaultUri      pulumi.StringPtrInput `pulumi:"keyVaultUri"`
+	LastHeartBeatUtc pulumi.StringInput    `pulumi:"lastHeartBeatUtc"`
+	Version          pulumi.StringInput    `pulumi:"version"`
 }
 
 func (SiteAgentPropertiesResponseArgs) ElementType() reflect.Type {
@@ -255,7 +238,6 @@ func (i *siteAgentPropertiesResponsePtrType) ToSiteAgentPropertiesResponsePtrOut
 	return pulumi.ToOutputWithContext(ctx, i).(SiteAgentPropertiesResponsePtrOutput)
 }
 
-// Class for site agent properties.
 type SiteAgentPropertiesResponseOutput struct{ *pulumi.OutputState }
 
 func (SiteAgentPropertiesResponseOutput) ElementType() reflect.Type {
@@ -275,32 +257,27 @@ func (o SiteAgentPropertiesResponseOutput) ToSiteAgentPropertiesResponsePtrOutpu
 }
 
 func (o SiteAgentPropertiesResponseOutput) ToSiteAgentPropertiesResponsePtrOutputWithContext(ctx context.Context) SiteAgentPropertiesResponsePtrOutput {
-	return o.ApplyT(func(v SiteAgentPropertiesResponse) *SiteAgentPropertiesResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v SiteAgentPropertiesResponse) *SiteAgentPropertiesResponse {
 		return &v
 	}).(SiteAgentPropertiesResponsePtrOutput)
 }
 
-// ID of the agent.
 func (o SiteAgentPropertiesResponseOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v SiteAgentPropertiesResponse) string { return v.Id }).(pulumi.StringOutput)
 }
 
-// Key vault ARM Id.
 func (o SiteAgentPropertiesResponseOutput) KeyVaultId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SiteAgentPropertiesResponse) *string { return v.KeyVaultId }).(pulumi.StringPtrOutput)
 }
 
-// Key vault URI.
 func (o SiteAgentPropertiesResponseOutput) KeyVaultUri() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SiteAgentPropertiesResponse) *string { return v.KeyVaultUri }).(pulumi.StringPtrOutput)
 }
 
-// Last heartbeat time of the agent in UTC.
 func (o SiteAgentPropertiesResponseOutput) LastHeartBeatUtc() pulumi.StringOutput {
 	return o.ApplyT(func(v SiteAgentPropertiesResponse) string { return v.LastHeartBeatUtc }).(pulumi.StringOutput)
 }
 
-// Version of the agent.
 func (o SiteAgentPropertiesResponseOutput) Version() pulumi.StringOutput {
 	return o.ApplyT(func(v SiteAgentPropertiesResponse) string { return v.Version }).(pulumi.StringOutput)
 }
@@ -320,10 +297,15 @@ func (o SiteAgentPropertiesResponsePtrOutput) ToSiteAgentPropertiesResponsePtrOu
 }
 
 func (o SiteAgentPropertiesResponsePtrOutput) Elem() SiteAgentPropertiesResponseOutput {
-	return o.ApplyT(func(v *SiteAgentPropertiesResponse) SiteAgentPropertiesResponse { return *v }).(SiteAgentPropertiesResponseOutput)
+	return o.ApplyT(func(v *SiteAgentPropertiesResponse) SiteAgentPropertiesResponse {
+		if v != nil {
+			return *v
+		}
+		var ret SiteAgentPropertiesResponse
+		return ret
+	}).(SiteAgentPropertiesResponseOutput)
 }
 
-// ID of the agent.
 func (o SiteAgentPropertiesResponsePtrOutput) Id() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SiteAgentPropertiesResponse) *string {
 		if v == nil {
@@ -333,7 +315,6 @@ func (o SiteAgentPropertiesResponsePtrOutput) Id() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Key vault ARM Id.
 func (o SiteAgentPropertiesResponsePtrOutput) KeyVaultId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SiteAgentPropertiesResponse) *string {
 		if v == nil {
@@ -343,7 +324,6 @@ func (o SiteAgentPropertiesResponsePtrOutput) KeyVaultId() pulumi.StringPtrOutpu
 	}).(pulumi.StringPtrOutput)
 }
 
-// Key vault URI.
 func (o SiteAgentPropertiesResponsePtrOutput) KeyVaultUri() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SiteAgentPropertiesResponse) *string {
 		if v == nil {
@@ -353,7 +333,6 @@ func (o SiteAgentPropertiesResponsePtrOutput) KeyVaultUri() pulumi.StringPtrOutp
 	}).(pulumi.StringPtrOutput)
 }
 
-// Last heartbeat time of the agent in UTC.
 func (o SiteAgentPropertiesResponsePtrOutput) LastHeartBeatUtc() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SiteAgentPropertiesResponse) *string {
 		if v == nil {
@@ -363,7 +342,6 @@ func (o SiteAgentPropertiesResponsePtrOutput) LastHeartBeatUtc() pulumi.StringPt
 	}).(pulumi.StringPtrOutput)
 }
 
-// Version of the agent.
 func (o SiteAgentPropertiesResponsePtrOutput) Version() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SiteAgentPropertiesResponse) *string {
 		if v == nil {
@@ -373,16 +351,11 @@ func (o SiteAgentPropertiesResponsePtrOutput) Version() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Class for site properties.
 type SiteProperties struct {
-	// On-premises agent details.
-	AgentDetails *SiteAgentProperties `pulumi:"agentDetails"`
-	// Appliance Name.
-	ApplianceName *string `pulumi:"applianceName"`
-	// ARM ID of migration hub solution for SDS.
-	DiscoverySolutionId *string `pulumi:"discoverySolutionId"`
-	// Service principal identity details used by agent for communication to the service.
-	ServicePrincipalIdentityDetails *SiteSpnProperties `pulumi:"servicePrincipalIdentityDetails"`
+	AgentDetails                    *SiteAgentProperties `pulumi:"agentDetails"`
+	ApplianceName                   *string              `pulumi:"applianceName"`
+	DiscoverySolutionId             *string              `pulumi:"discoverySolutionId"`
+	ServicePrincipalIdentityDetails *SiteSpnProperties   `pulumi:"servicePrincipalIdentityDetails"`
 }
 
 // SitePropertiesInput is an input type that accepts SitePropertiesArgs and SitePropertiesOutput values.
@@ -396,16 +369,11 @@ type SitePropertiesInput interface {
 	ToSitePropertiesOutputWithContext(context.Context) SitePropertiesOutput
 }
 
-// Class for site properties.
 type SitePropertiesArgs struct {
-	// On-premises agent details.
-	AgentDetails SiteAgentPropertiesPtrInput `pulumi:"agentDetails"`
-	// Appliance Name.
-	ApplianceName pulumi.StringPtrInput `pulumi:"applianceName"`
-	// ARM ID of migration hub solution for SDS.
-	DiscoverySolutionId pulumi.StringPtrInput `pulumi:"discoverySolutionId"`
-	// Service principal identity details used by agent for communication to the service.
-	ServicePrincipalIdentityDetails SiteSpnPropertiesPtrInput `pulumi:"servicePrincipalIdentityDetails"`
+	AgentDetails                    SiteAgentPropertiesPtrInput `pulumi:"agentDetails"`
+	ApplianceName                   pulumi.StringPtrInput       `pulumi:"applianceName"`
+	DiscoverySolutionId             pulumi.StringPtrInput       `pulumi:"discoverySolutionId"`
+	ServicePrincipalIdentityDetails SiteSpnPropertiesPtrInput   `pulumi:"servicePrincipalIdentityDetails"`
 }
 
 func (SitePropertiesArgs) ElementType() reflect.Type {
@@ -461,7 +429,6 @@ func (i *sitePropertiesPtrType) ToSitePropertiesPtrOutputWithContext(ctx context
 	return pulumi.ToOutputWithContext(ctx, i).(SitePropertiesPtrOutput)
 }
 
-// Class for site properties.
 type SitePropertiesOutput struct{ *pulumi.OutputState }
 
 func (SitePropertiesOutput) ElementType() reflect.Type {
@@ -481,27 +448,23 @@ func (o SitePropertiesOutput) ToSitePropertiesPtrOutput() SitePropertiesPtrOutpu
 }
 
 func (o SitePropertiesOutput) ToSitePropertiesPtrOutputWithContext(ctx context.Context) SitePropertiesPtrOutput {
-	return o.ApplyT(func(v SiteProperties) *SiteProperties {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v SiteProperties) *SiteProperties {
 		return &v
 	}).(SitePropertiesPtrOutput)
 }
 
-// On-premises agent details.
 func (o SitePropertiesOutput) AgentDetails() SiteAgentPropertiesPtrOutput {
 	return o.ApplyT(func(v SiteProperties) *SiteAgentProperties { return v.AgentDetails }).(SiteAgentPropertiesPtrOutput)
 }
 
-// Appliance Name.
 func (o SitePropertiesOutput) ApplianceName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SiteProperties) *string { return v.ApplianceName }).(pulumi.StringPtrOutput)
 }
 
-// ARM ID of migration hub solution for SDS.
 func (o SitePropertiesOutput) DiscoverySolutionId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SiteProperties) *string { return v.DiscoverySolutionId }).(pulumi.StringPtrOutput)
 }
 
-// Service principal identity details used by agent for communication to the service.
 func (o SitePropertiesOutput) ServicePrincipalIdentityDetails() SiteSpnPropertiesPtrOutput {
 	return o.ApplyT(func(v SiteProperties) *SiteSpnProperties { return v.ServicePrincipalIdentityDetails }).(SiteSpnPropertiesPtrOutput)
 }
@@ -521,10 +484,15 @@ func (o SitePropertiesPtrOutput) ToSitePropertiesPtrOutputWithContext(ctx contex
 }
 
 func (o SitePropertiesPtrOutput) Elem() SitePropertiesOutput {
-	return o.ApplyT(func(v *SiteProperties) SiteProperties { return *v }).(SitePropertiesOutput)
+	return o.ApplyT(func(v *SiteProperties) SiteProperties {
+		if v != nil {
+			return *v
+		}
+		var ret SiteProperties
+		return ret
+	}).(SitePropertiesOutput)
 }
 
-// On-premises agent details.
 func (o SitePropertiesPtrOutput) AgentDetails() SiteAgentPropertiesPtrOutput {
 	return o.ApplyT(func(v *SiteProperties) *SiteAgentProperties {
 		if v == nil {
@@ -534,7 +502,6 @@ func (o SitePropertiesPtrOutput) AgentDetails() SiteAgentPropertiesPtrOutput {
 	}).(SiteAgentPropertiesPtrOutput)
 }
 
-// Appliance Name.
 func (o SitePropertiesPtrOutput) ApplianceName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SiteProperties) *string {
 		if v == nil {
@@ -544,7 +511,6 @@ func (o SitePropertiesPtrOutput) ApplianceName() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// ARM ID of migration hub solution for SDS.
 func (o SitePropertiesPtrOutput) DiscoverySolutionId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SiteProperties) *string {
 		if v == nil {
@@ -554,7 +520,6 @@ func (o SitePropertiesPtrOutput) DiscoverySolutionId() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Service principal identity details used by agent for communication to the service.
 func (o SitePropertiesPtrOutput) ServicePrincipalIdentityDetails() SiteSpnPropertiesPtrOutput {
 	return o.ApplyT(func(v *SiteProperties) *SiteSpnProperties {
 		if v == nil {
@@ -564,18 +529,12 @@ func (o SitePropertiesPtrOutput) ServicePrincipalIdentityDetails() SiteSpnProper
 	}).(SiteSpnPropertiesPtrOutput)
 }
 
-// Class for site properties.
 type SitePropertiesResponse struct {
-	// On-premises agent details.
-	AgentDetails *SiteAgentPropertiesResponse `pulumi:"agentDetails"`
-	// Appliance Name.
-	ApplianceName *string `pulumi:"applianceName"`
-	// ARM ID of migration hub solution for SDS.
-	DiscoverySolutionId *string `pulumi:"discoverySolutionId"`
-	// Service endpoint.
-	ServiceEndpoint string `pulumi:"serviceEndpoint"`
-	// Service principal identity details used by agent for communication to the service.
-	ServicePrincipalIdentityDetails *SiteSpnPropertiesResponse `pulumi:"servicePrincipalIdentityDetails"`
+	AgentDetails                    *SiteAgentPropertiesResponse `pulumi:"agentDetails"`
+	ApplianceName                   *string                      `pulumi:"applianceName"`
+	DiscoverySolutionId             *string                      `pulumi:"discoverySolutionId"`
+	ServiceEndpoint                 string                       `pulumi:"serviceEndpoint"`
+	ServicePrincipalIdentityDetails *SiteSpnPropertiesResponse   `pulumi:"servicePrincipalIdentityDetails"`
 }
 
 // SitePropertiesResponseInput is an input type that accepts SitePropertiesResponseArgs and SitePropertiesResponseOutput values.
@@ -589,18 +548,12 @@ type SitePropertiesResponseInput interface {
 	ToSitePropertiesResponseOutputWithContext(context.Context) SitePropertiesResponseOutput
 }
 
-// Class for site properties.
 type SitePropertiesResponseArgs struct {
-	// On-premises agent details.
-	AgentDetails SiteAgentPropertiesResponsePtrInput `pulumi:"agentDetails"`
-	// Appliance Name.
-	ApplianceName pulumi.StringPtrInput `pulumi:"applianceName"`
-	// ARM ID of migration hub solution for SDS.
-	DiscoverySolutionId pulumi.StringPtrInput `pulumi:"discoverySolutionId"`
-	// Service endpoint.
-	ServiceEndpoint pulumi.StringInput `pulumi:"serviceEndpoint"`
-	// Service principal identity details used by agent for communication to the service.
-	ServicePrincipalIdentityDetails SiteSpnPropertiesResponsePtrInput `pulumi:"servicePrincipalIdentityDetails"`
+	AgentDetails                    SiteAgentPropertiesResponsePtrInput `pulumi:"agentDetails"`
+	ApplianceName                   pulumi.StringPtrInput               `pulumi:"applianceName"`
+	DiscoverySolutionId             pulumi.StringPtrInput               `pulumi:"discoverySolutionId"`
+	ServiceEndpoint                 pulumi.StringInput                  `pulumi:"serviceEndpoint"`
+	ServicePrincipalIdentityDetails SiteSpnPropertiesResponsePtrInput   `pulumi:"servicePrincipalIdentityDetails"`
 }
 
 func (SitePropertiesResponseArgs) ElementType() reflect.Type {
@@ -656,7 +609,6 @@ func (i *sitePropertiesResponsePtrType) ToSitePropertiesResponsePtrOutputWithCon
 	return pulumi.ToOutputWithContext(ctx, i).(SitePropertiesResponsePtrOutput)
 }
 
-// Class for site properties.
 type SitePropertiesResponseOutput struct{ *pulumi.OutputState }
 
 func (SitePropertiesResponseOutput) ElementType() reflect.Type {
@@ -676,32 +628,27 @@ func (o SitePropertiesResponseOutput) ToSitePropertiesResponsePtrOutput() SitePr
 }
 
 func (o SitePropertiesResponseOutput) ToSitePropertiesResponsePtrOutputWithContext(ctx context.Context) SitePropertiesResponsePtrOutput {
-	return o.ApplyT(func(v SitePropertiesResponse) *SitePropertiesResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v SitePropertiesResponse) *SitePropertiesResponse {
 		return &v
 	}).(SitePropertiesResponsePtrOutput)
 }
 
-// On-premises agent details.
 func (o SitePropertiesResponseOutput) AgentDetails() SiteAgentPropertiesResponsePtrOutput {
 	return o.ApplyT(func(v SitePropertiesResponse) *SiteAgentPropertiesResponse { return v.AgentDetails }).(SiteAgentPropertiesResponsePtrOutput)
 }
 
-// Appliance Name.
 func (o SitePropertiesResponseOutput) ApplianceName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SitePropertiesResponse) *string { return v.ApplianceName }).(pulumi.StringPtrOutput)
 }
 
-// ARM ID of migration hub solution for SDS.
 func (o SitePropertiesResponseOutput) DiscoverySolutionId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SitePropertiesResponse) *string { return v.DiscoverySolutionId }).(pulumi.StringPtrOutput)
 }
 
-// Service endpoint.
 func (o SitePropertiesResponseOutput) ServiceEndpoint() pulumi.StringOutput {
 	return o.ApplyT(func(v SitePropertiesResponse) string { return v.ServiceEndpoint }).(pulumi.StringOutput)
 }
 
-// Service principal identity details used by agent for communication to the service.
 func (o SitePropertiesResponseOutput) ServicePrincipalIdentityDetails() SiteSpnPropertiesResponsePtrOutput {
 	return o.ApplyT(func(v SitePropertiesResponse) *SiteSpnPropertiesResponse { return v.ServicePrincipalIdentityDetails }).(SiteSpnPropertiesResponsePtrOutput)
 }
@@ -721,10 +668,15 @@ func (o SitePropertiesResponsePtrOutput) ToSitePropertiesResponsePtrOutputWithCo
 }
 
 func (o SitePropertiesResponsePtrOutput) Elem() SitePropertiesResponseOutput {
-	return o.ApplyT(func(v *SitePropertiesResponse) SitePropertiesResponse { return *v }).(SitePropertiesResponseOutput)
+	return o.ApplyT(func(v *SitePropertiesResponse) SitePropertiesResponse {
+		if v != nil {
+			return *v
+		}
+		var ret SitePropertiesResponse
+		return ret
+	}).(SitePropertiesResponseOutput)
 }
 
-// On-premises agent details.
 func (o SitePropertiesResponsePtrOutput) AgentDetails() SiteAgentPropertiesResponsePtrOutput {
 	return o.ApplyT(func(v *SitePropertiesResponse) *SiteAgentPropertiesResponse {
 		if v == nil {
@@ -734,7 +686,6 @@ func (o SitePropertiesResponsePtrOutput) AgentDetails() SiteAgentPropertiesRespo
 	}).(SiteAgentPropertiesResponsePtrOutput)
 }
 
-// Appliance Name.
 func (o SitePropertiesResponsePtrOutput) ApplianceName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SitePropertiesResponse) *string {
 		if v == nil {
@@ -744,7 +695,6 @@ func (o SitePropertiesResponsePtrOutput) ApplianceName() pulumi.StringPtrOutput 
 	}).(pulumi.StringPtrOutput)
 }
 
-// ARM ID of migration hub solution for SDS.
 func (o SitePropertiesResponsePtrOutput) DiscoverySolutionId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SitePropertiesResponse) *string {
 		if v == nil {
@@ -754,7 +704,6 @@ func (o SitePropertiesResponsePtrOutput) DiscoverySolutionId() pulumi.StringPtrO
 	}).(pulumi.StringPtrOutput)
 }
 
-// Service endpoint.
 func (o SitePropertiesResponsePtrOutput) ServiceEndpoint() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SitePropertiesResponse) *string {
 		if v == nil {
@@ -764,7 +713,6 @@ func (o SitePropertiesResponsePtrOutput) ServiceEndpoint() pulumi.StringPtrOutpu
 	}).(pulumi.StringPtrOutput)
 }
 
-// Service principal identity details used by agent for communication to the service.
 func (o SitePropertiesResponsePtrOutput) ServicePrincipalIdentityDetails() SiteSpnPropertiesResponsePtrOutput {
 	return o.ApplyT(func(v *SitePropertiesResponse) *SiteSpnPropertiesResponse {
 		if v == nil {
@@ -774,20 +722,13 @@ func (o SitePropertiesResponsePtrOutput) ServicePrincipalIdentityDetails() SiteS
 	}).(SiteSpnPropertiesResponsePtrOutput)
 }
 
-// Class for site properties.
 type SiteSpnProperties struct {
-	// AAD Authority URL which was used to request the token for the service principal.
-	AadAuthority *string `pulumi:"aadAuthority"`
-	// Application/client Id for the service principal with which the on-premise management/data plane components would communicate with our Azure services.
+	AadAuthority  *string `pulumi:"aadAuthority"`
 	ApplicationId *string `pulumi:"applicationId"`
-	// Intended audience for the service principal.
-	Audience *string `pulumi:"audience"`
-	// Object Id of the service principal with which the on-premise management/data plane components would communicate with our Azure services.
-	ObjectId *string `pulumi:"objectId"`
-	// Raw certificate data for building certificate expiry flows.
-	RawCertData *string `pulumi:"rawCertData"`
-	// Tenant Id for the service principal with which the on-premise management/data plane components would communicate with our Azure services.
-	TenantId *string `pulumi:"tenantId"`
+	Audience      *string `pulumi:"audience"`
+	ObjectId      *string `pulumi:"objectId"`
+	RawCertData   *string `pulumi:"rawCertData"`
+	TenantId      *string `pulumi:"tenantId"`
 }
 
 // SiteSpnPropertiesInput is an input type that accepts SiteSpnPropertiesArgs and SiteSpnPropertiesOutput values.
@@ -801,20 +742,13 @@ type SiteSpnPropertiesInput interface {
 	ToSiteSpnPropertiesOutputWithContext(context.Context) SiteSpnPropertiesOutput
 }
 
-// Class for site properties.
 type SiteSpnPropertiesArgs struct {
-	// AAD Authority URL which was used to request the token for the service principal.
-	AadAuthority pulumi.StringPtrInput `pulumi:"aadAuthority"`
-	// Application/client Id for the service principal with which the on-premise management/data plane components would communicate with our Azure services.
+	AadAuthority  pulumi.StringPtrInput `pulumi:"aadAuthority"`
 	ApplicationId pulumi.StringPtrInput `pulumi:"applicationId"`
-	// Intended audience for the service principal.
-	Audience pulumi.StringPtrInput `pulumi:"audience"`
-	// Object Id of the service principal with which the on-premise management/data plane components would communicate with our Azure services.
-	ObjectId pulumi.StringPtrInput `pulumi:"objectId"`
-	// Raw certificate data for building certificate expiry flows.
-	RawCertData pulumi.StringPtrInput `pulumi:"rawCertData"`
-	// Tenant Id for the service principal with which the on-premise management/data plane components would communicate with our Azure services.
-	TenantId pulumi.StringPtrInput `pulumi:"tenantId"`
+	Audience      pulumi.StringPtrInput `pulumi:"audience"`
+	ObjectId      pulumi.StringPtrInput `pulumi:"objectId"`
+	RawCertData   pulumi.StringPtrInput `pulumi:"rawCertData"`
+	TenantId      pulumi.StringPtrInput `pulumi:"tenantId"`
 }
 
 func (SiteSpnPropertiesArgs) ElementType() reflect.Type {
@@ -870,7 +804,6 @@ func (i *siteSpnPropertiesPtrType) ToSiteSpnPropertiesPtrOutputWithContext(ctx c
 	return pulumi.ToOutputWithContext(ctx, i).(SiteSpnPropertiesPtrOutput)
 }
 
-// Class for site properties.
 type SiteSpnPropertiesOutput struct{ *pulumi.OutputState }
 
 func (SiteSpnPropertiesOutput) ElementType() reflect.Type {
@@ -890,37 +823,31 @@ func (o SiteSpnPropertiesOutput) ToSiteSpnPropertiesPtrOutput() SiteSpnPropertie
 }
 
 func (o SiteSpnPropertiesOutput) ToSiteSpnPropertiesPtrOutputWithContext(ctx context.Context) SiteSpnPropertiesPtrOutput {
-	return o.ApplyT(func(v SiteSpnProperties) *SiteSpnProperties {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v SiteSpnProperties) *SiteSpnProperties {
 		return &v
 	}).(SiteSpnPropertiesPtrOutput)
 }
 
-// AAD Authority URL which was used to request the token for the service principal.
 func (o SiteSpnPropertiesOutput) AadAuthority() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SiteSpnProperties) *string { return v.AadAuthority }).(pulumi.StringPtrOutput)
 }
 
-// Application/client Id for the service principal with which the on-premise management/data plane components would communicate with our Azure services.
 func (o SiteSpnPropertiesOutput) ApplicationId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SiteSpnProperties) *string { return v.ApplicationId }).(pulumi.StringPtrOutput)
 }
 
-// Intended audience for the service principal.
 func (o SiteSpnPropertiesOutput) Audience() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SiteSpnProperties) *string { return v.Audience }).(pulumi.StringPtrOutput)
 }
 
-// Object Id of the service principal with which the on-premise management/data plane components would communicate with our Azure services.
 func (o SiteSpnPropertiesOutput) ObjectId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SiteSpnProperties) *string { return v.ObjectId }).(pulumi.StringPtrOutput)
 }
 
-// Raw certificate data for building certificate expiry flows.
 func (o SiteSpnPropertiesOutput) RawCertData() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SiteSpnProperties) *string { return v.RawCertData }).(pulumi.StringPtrOutput)
 }
 
-// Tenant Id for the service principal with which the on-premise management/data plane components would communicate with our Azure services.
 func (o SiteSpnPropertiesOutput) TenantId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SiteSpnProperties) *string { return v.TenantId }).(pulumi.StringPtrOutput)
 }
@@ -940,10 +867,15 @@ func (o SiteSpnPropertiesPtrOutput) ToSiteSpnPropertiesPtrOutputWithContext(ctx 
 }
 
 func (o SiteSpnPropertiesPtrOutput) Elem() SiteSpnPropertiesOutput {
-	return o.ApplyT(func(v *SiteSpnProperties) SiteSpnProperties { return *v }).(SiteSpnPropertiesOutput)
+	return o.ApplyT(func(v *SiteSpnProperties) SiteSpnProperties {
+		if v != nil {
+			return *v
+		}
+		var ret SiteSpnProperties
+		return ret
+	}).(SiteSpnPropertiesOutput)
 }
 
-// AAD Authority URL which was used to request the token for the service principal.
 func (o SiteSpnPropertiesPtrOutput) AadAuthority() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SiteSpnProperties) *string {
 		if v == nil {
@@ -953,7 +885,6 @@ func (o SiteSpnPropertiesPtrOutput) AadAuthority() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Application/client Id for the service principal with which the on-premise management/data plane components would communicate with our Azure services.
 func (o SiteSpnPropertiesPtrOutput) ApplicationId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SiteSpnProperties) *string {
 		if v == nil {
@@ -963,7 +894,6 @@ func (o SiteSpnPropertiesPtrOutput) ApplicationId() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Intended audience for the service principal.
 func (o SiteSpnPropertiesPtrOutput) Audience() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SiteSpnProperties) *string {
 		if v == nil {
@@ -973,7 +903,6 @@ func (o SiteSpnPropertiesPtrOutput) Audience() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Object Id of the service principal with which the on-premise management/data plane components would communicate with our Azure services.
 func (o SiteSpnPropertiesPtrOutput) ObjectId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SiteSpnProperties) *string {
 		if v == nil {
@@ -983,7 +912,6 @@ func (o SiteSpnPropertiesPtrOutput) ObjectId() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Raw certificate data for building certificate expiry flows.
 func (o SiteSpnPropertiesPtrOutput) RawCertData() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SiteSpnProperties) *string {
 		if v == nil {
@@ -993,7 +921,6 @@ func (o SiteSpnPropertiesPtrOutput) RawCertData() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Tenant Id for the service principal with which the on-premise management/data plane components would communicate with our Azure services.
 func (o SiteSpnPropertiesPtrOutput) TenantId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SiteSpnProperties) *string {
 		if v == nil {
@@ -1003,20 +930,13 @@ func (o SiteSpnPropertiesPtrOutput) TenantId() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Class for site properties.
 type SiteSpnPropertiesResponse struct {
-	// AAD Authority URL which was used to request the token for the service principal.
-	AadAuthority *string `pulumi:"aadAuthority"`
-	// Application/client Id for the service principal with which the on-premise management/data plane components would communicate with our Azure services.
+	AadAuthority  *string `pulumi:"aadAuthority"`
 	ApplicationId *string `pulumi:"applicationId"`
-	// Intended audience for the service principal.
-	Audience *string `pulumi:"audience"`
-	// Object Id of the service principal with which the on-premise management/data plane components would communicate with our Azure services.
-	ObjectId *string `pulumi:"objectId"`
-	// Raw certificate data for building certificate expiry flows.
-	RawCertData *string `pulumi:"rawCertData"`
-	// Tenant Id for the service principal with which the on-premise management/data plane components would communicate with our Azure services.
-	TenantId *string `pulumi:"tenantId"`
+	Audience      *string `pulumi:"audience"`
+	ObjectId      *string `pulumi:"objectId"`
+	RawCertData   *string `pulumi:"rawCertData"`
+	TenantId      *string `pulumi:"tenantId"`
 }
 
 // SiteSpnPropertiesResponseInput is an input type that accepts SiteSpnPropertiesResponseArgs and SiteSpnPropertiesResponseOutput values.
@@ -1030,20 +950,13 @@ type SiteSpnPropertiesResponseInput interface {
 	ToSiteSpnPropertiesResponseOutputWithContext(context.Context) SiteSpnPropertiesResponseOutput
 }
 
-// Class for site properties.
 type SiteSpnPropertiesResponseArgs struct {
-	// AAD Authority URL which was used to request the token for the service principal.
-	AadAuthority pulumi.StringPtrInput `pulumi:"aadAuthority"`
-	// Application/client Id for the service principal with which the on-premise management/data plane components would communicate with our Azure services.
+	AadAuthority  pulumi.StringPtrInput `pulumi:"aadAuthority"`
 	ApplicationId pulumi.StringPtrInput `pulumi:"applicationId"`
-	// Intended audience for the service principal.
-	Audience pulumi.StringPtrInput `pulumi:"audience"`
-	// Object Id of the service principal with which the on-premise management/data plane components would communicate with our Azure services.
-	ObjectId pulumi.StringPtrInput `pulumi:"objectId"`
-	// Raw certificate data for building certificate expiry flows.
-	RawCertData pulumi.StringPtrInput `pulumi:"rawCertData"`
-	// Tenant Id for the service principal with which the on-premise management/data plane components would communicate with our Azure services.
-	TenantId pulumi.StringPtrInput `pulumi:"tenantId"`
+	Audience      pulumi.StringPtrInput `pulumi:"audience"`
+	ObjectId      pulumi.StringPtrInput `pulumi:"objectId"`
+	RawCertData   pulumi.StringPtrInput `pulumi:"rawCertData"`
+	TenantId      pulumi.StringPtrInput `pulumi:"tenantId"`
 }
 
 func (SiteSpnPropertiesResponseArgs) ElementType() reflect.Type {
@@ -1099,7 +1012,6 @@ func (i *siteSpnPropertiesResponsePtrType) ToSiteSpnPropertiesResponsePtrOutputW
 	return pulumi.ToOutputWithContext(ctx, i).(SiteSpnPropertiesResponsePtrOutput)
 }
 
-// Class for site properties.
 type SiteSpnPropertiesResponseOutput struct{ *pulumi.OutputState }
 
 func (SiteSpnPropertiesResponseOutput) ElementType() reflect.Type {
@@ -1119,37 +1031,31 @@ func (o SiteSpnPropertiesResponseOutput) ToSiteSpnPropertiesResponsePtrOutput() 
 }
 
 func (o SiteSpnPropertiesResponseOutput) ToSiteSpnPropertiesResponsePtrOutputWithContext(ctx context.Context) SiteSpnPropertiesResponsePtrOutput {
-	return o.ApplyT(func(v SiteSpnPropertiesResponse) *SiteSpnPropertiesResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v SiteSpnPropertiesResponse) *SiteSpnPropertiesResponse {
 		return &v
 	}).(SiteSpnPropertiesResponsePtrOutput)
 }
 
-// AAD Authority URL which was used to request the token for the service principal.
 func (o SiteSpnPropertiesResponseOutput) AadAuthority() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SiteSpnPropertiesResponse) *string { return v.AadAuthority }).(pulumi.StringPtrOutput)
 }
 
-// Application/client Id for the service principal with which the on-premise management/data plane components would communicate with our Azure services.
 func (o SiteSpnPropertiesResponseOutput) ApplicationId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SiteSpnPropertiesResponse) *string { return v.ApplicationId }).(pulumi.StringPtrOutput)
 }
 
-// Intended audience for the service principal.
 func (o SiteSpnPropertiesResponseOutput) Audience() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SiteSpnPropertiesResponse) *string { return v.Audience }).(pulumi.StringPtrOutput)
 }
 
-// Object Id of the service principal with which the on-premise management/data plane components would communicate with our Azure services.
 func (o SiteSpnPropertiesResponseOutput) ObjectId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SiteSpnPropertiesResponse) *string { return v.ObjectId }).(pulumi.StringPtrOutput)
 }
 
-// Raw certificate data for building certificate expiry flows.
 func (o SiteSpnPropertiesResponseOutput) RawCertData() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SiteSpnPropertiesResponse) *string { return v.RawCertData }).(pulumi.StringPtrOutput)
 }
 
-// Tenant Id for the service principal with which the on-premise management/data plane components would communicate with our Azure services.
 func (o SiteSpnPropertiesResponseOutput) TenantId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SiteSpnPropertiesResponse) *string { return v.TenantId }).(pulumi.StringPtrOutput)
 }
@@ -1169,10 +1075,15 @@ func (o SiteSpnPropertiesResponsePtrOutput) ToSiteSpnPropertiesResponsePtrOutput
 }
 
 func (o SiteSpnPropertiesResponsePtrOutput) Elem() SiteSpnPropertiesResponseOutput {
-	return o.ApplyT(func(v *SiteSpnPropertiesResponse) SiteSpnPropertiesResponse { return *v }).(SiteSpnPropertiesResponseOutput)
+	return o.ApplyT(func(v *SiteSpnPropertiesResponse) SiteSpnPropertiesResponse {
+		if v != nil {
+			return *v
+		}
+		var ret SiteSpnPropertiesResponse
+		return ret
+	}).(SiteSpnPropertiesResponseOutput)
 }
 
-// AAD Authority URL which was used to request the token for the service principal.
 func (o SiteSpnPropertiesResponsePtrOutput) AadAuthority() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SiteSpnPropertiesResponse) *string {
 		if v == nil {
@@ -1182,7 +1093,6 @@ func (o SiteSpnPropertiesResponsePtrOutput) AadAuthority() pulumi.StringPtrOutpu
 	}).(pulumi.StringPtrOutput)
 }
 
-// Application/client Id for the service principal with which the on-premise management/data plane components would communicate with our Azure services.
 func (o SiteSpnPropertiesResponsePtrOutput) ApplicationId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SiteSpnPropertiesResponse) *string {
 		if v == nil {
@@ -1192,7 +1102,6 @@ func (o SiteSpnPropertiesResponsePtrOutput) ApplicationId() pulumi.StringPtrOutp
 	}).(pulumi.StringPtrOutput)
 }
 
-// Intended audience for the service principal.
 func (o SiteSpnPropertiesResponsePtrOutput) Audience() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SiteSpnPropertiesResponse) *string {
 		if v == nil {
@@ -1202,7 +1111,6 @@ func (o SiteSpnPropertiesResponsePtrOutput) Audience() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Object Id of the service principal with which the on-premise management/data plane components would communicate with our Azure services.
 func (o SiteSpnPropertiesResponsePtrOutput) ObjectId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SiteSpnPropertiesResponse) *string {
 		if v == nil {
@@ -1212,7 +1120,6 @@ func (o SiteSpnPropertiesResponsePtrOutput) ObjectId() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Raw certificate data for building certificate expiry flows.
 func (o SiteSpnPropertiesResponsePtrOutput) RawCertData() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SiteSpnPropertiesResponse) *string {
 		if v == nil {
@@ -1222,7 +1129,6 @@ func (o SiteSpnPropertiesResponsePtrOutput) RawCertData() pulumi.StringPtrOutput
 	}).(pulumi.StringPtrOutput)
 }
 
-// Tenant Id for the service principal with which the on-premise management/data plane components would communicate with our Azure services.
 func (o SiteSpnPropertiesResponsePtrOutput) TenantId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SiteSpnPropertiesResponse) *string {
 		if v == nil {

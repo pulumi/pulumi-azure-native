@@ -11,23 +11,15 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// A Synapse Workspace Sql Pool Table data set.
 type SynapseWorkspaceSqlPoolTableDataSet struct {
 	pulumi.CustomResourceState
 
-	// Unique id for identifying a data set resource
-	DataSetId pulumi.StringOutput `pulumi:"dataSetId"`
-	// Kind of data set.
-	// Expected value is 'SynapseWorkspaceSqlPoolTable'.
-	Kind pulumi.StringOutput `pulumi:"kind"`
-	// Name of the azure resource
-	Name pulumi.StringOutput `pulumi:"name"`
-	// Resource id of the Synapse Workspace SQL Pool Table
-	SynapseWorkspaceSqlPoolTableResourceId pulumi.StringOutput `pulumi:"synapseWorkspaceSqlPoolTableResourceId"`
-	// System Data of the Azure resource.
-	SystemData SystemDataResponseOutput `pulumi:"systemData"`
-	// Type of the azure resource
-	Type pulumi.StringOutput `pulumi:"type"`
+	DataSetId                              pulumi.StringOutput      `pulumi:"dataSetId"`
+	Kind                                   pulumi.StringOutput      `pulumi:"kind"`
+	Name                                   pulumi.StringOutput      `pulumi:"name"`
+	SynapseWorkspaceSqlPoolTableResourceId pulumi.StringOutput      `pulumi:"synapseWorkspaceSqlPoolTableResourceId"`
+	SystemData                             SystemDataResponseOutput `pulumi:"systemData"`
+	Type                                   pulumi.StringOutput      `pulumi:"type"`
 }
 
 // NewSynapseWorkspaceSqlPoolTableDataSet registers a new resource with the given unique name, arguments, and options.
@@ -115,35 +107,21 @@ func (SynapseWorkspaceSqlPoolTableDataSetState) ElementType() reflect.Type {
 }
 
 type synapseWorkspaceSqlPoolTableDataSetArgs struct {
-	// The name of the share account.
-	AccountName string `pulumi:"accountName"`
-	// The name of the dataSet.
-	DataSetName *string `pulumi:"dataSetName"`
-	// Kind of data set.
-	// Expected value is 'SynapseWorkspaceSqlPoolTable'.
-	Kind string `pulumi:"kind"`
-	// The resource group name.
-	ResourceGroupName string `pulumi:"resourceGroupName"`
-	// The name of the share to add the data set to.
-	ShareName string `pulumi:"shareName"`
-	// Resource id of the Synapse Workspace SQL Pool Table
-	SynapseWorkspaceSqlPoolTableResourceId string `pulumi:"synapseWorkspaceSqlPoolTableResourceId"`
+	AccountName                            string  `pulumi:"accountName"`
+	DataSetName                            *string `pulumi:"dataSetName"`
+	Kind                                   string  `pulumi:"kind"`
+	ResourceGroupName                      string  `pulumi:"resourceGroupName"`
+	ShareName                              string  `pulumi:"shareName"`
+	SynapseWorkspaceSqlPoolTableResourceId string  `pulumi:"synapseWorkspaceSqlPoolTableResourceId"`
 }
 
 // The set of arguments for constructing a SynapseWorkspaceSqlPoolTableDataSet resource.
 type SynapseWorkspaceSqlPoolTableDataSetArgs struct {
-	// The name of the share account.
-	AccountName pulumi.StringInput
-	// The name of the dataSet.
-	DataSetName pulumi.StringPtrInput
-	// Kind of data set.
-	// Expected value is 'SynapseWorkspaceSqlPoolTable'.
-	Kind pulumi.StringInput
-	// The resource group name.
-	ResourceGroupName pulumi.StringInput
-	// The name of the share to add the data set to.
-	ShareName pulumi.StringInput
-	// Resource id of the Synapse Workspace SQL Pool Table
+	AccountName                            pulumi.StringInput
+	DataSetName                            pulumi.StringPtrInput
+	Kind                                   pulumi.StringInput
+	ResourceGroupName                      pulumi.StringInput
+	ShareName                              pulumi.StringInput
 	SynapseWorkspaceSqlPoolTableResourceId pulumi.StringInput
 }
 
@@ -170,9 +148,7 @@ func (i *SynapseWorkspaceSqlPoolTableDataSet) ToSynapseWorkspaceSqlPoolTableData
 	return pulumi.ToOutputWithContext(ctx, i).(SynapseWorkspaceSqlPoolTableDataSetOutput)
 }
 
-type SynapseWorkspaceSqlPoolTableDataSetOutput struct {
-	*pulumi.OutputState
-}
+type SynapseWorkspaceSqlPoolTableDataSetOutput struct{ *pulumi.OutputState }
 
 func (SynapseWorkspaceSqlPoolTableDataSetOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*SynapseWorkspaceSqlPoolTableDataSet)(nil))

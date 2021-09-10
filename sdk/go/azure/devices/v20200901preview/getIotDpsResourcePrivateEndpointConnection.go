@@ -7,7 +7,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// The private endpoint connection of a provisioning service
 func LookupIotDpsResourcePrivateEndpointConnection(ctx *pulumi.Context, args *LookupIotDpsResourcePrivateEndpointConnectionArgs, opts ...pulumi.InvokeOption) (*LookupIotDpsResourcePrivateEndpointConnectionResult, error) {
 	var rv LookupIotDpsResourcePrivateEndpointConnectionResult
 	err := ctx.Invoke("azure-native:devices/v20200901preview:getIotDpsResourcePrivateEndpointConnection", args, &rv, opts...)
@@ -18,22 +17,15 @@ func LookupIotDpsResourcePrivateEndpointConnection(ctx *pulumi.Context, args *Lo
 }
 
 type LookupIotDpsResourcePrivateEndpointConnectionArgs struct {
-	// The name of the private endpoint connection
 	PrivateEndpointConnectionName string `pulumi:"privateEndpointConnectionName"`
-	// The name of the resource group that contains the provisioning service.
-	ResourceGroupName string `pulumi:"resourceGroupName"`
-	// The name of the provisioning service.
-	ResourceName string `pulumi:"resourceName"`
+	ResourceGroupName             string `pulumi:"resourceGroupName"`
+	ResourceName                  string `pulumi:"resourceName"`
 }
 
 // The private endpoint connection of a provisioning service
 type LookupIotDpsResourcePrivateEndpointConnectionResult struct {
-	// The resource identifier.
-	Id string `pulumi:"id"`
-	// The resource name.
-	Name string `pulumi:"name"`
-	// The properties of a private endpoint connection
+	Id         string                                      `pulumi:"id"`
+	Name       string                                      `pulumi:"name"`
 	Properties PrivateEndpointConnectionPropertiesResponse `pulumi:"properties"`
-	// The resource type.
-	Type string `pulumi:"type"`
+	Type       string                                      `pulumi:"type"`
 }

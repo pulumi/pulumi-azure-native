@@ -7,7 +7,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// List of deployments for a remediation.
 func ListRemediationDeploymentsAtResource(ctx *pulumi.Context, args *ListRemediationDeploymentsAtResourceArgs, opts ...pulumi.InvokeOption) (*ListRemediationDeploymentsAtResourceResult, error) {
 	var rv ListRemediationDeploymentsAtResourceResult
 	err := ctx.Invoke("azure-native:policyinsights/v20180701preview:listRemediationDeploymentsAtResource", args, &rv, opts...)
@@ -18,18 +17,13 @@ func ListRemediationDeploymentsAtResource(ctx *pulumi.Context, args *ListRemedia
 }
 
 type ListRemediationDeploymentsAtResourceArgs struct {
-	// The name of the remediation.
 	RemediationName string `pulumi:"remediationName"`
-	// Resource ID.
-	ResourceId string `pulumi:"resourceId"`
-	// Maximum number of records to return.
-	Top *int `pulumi:"top"`
+	ResourceId      string `pulumi:"resourceId"`
+	Top             *int   `pulumi:"top"`
 }
 
 // List of deployments for a remediation.
 type ListRemediationDeploymentsAtResourceResult struct {
-	// The URL to get the next set of results.
-	NextLink string `pulumi:"nextLink"`
-	// Array of deployments for the remediation.
-	Value []RemediationDeploymentResponse `pulumi:"value"`
+	NextLink string                          `pulumi:"nextLink"`
+	Value    []RemediationDeploymentResponse `pulumi:"value"`
 }

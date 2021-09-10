@@ -11,22 +11,15 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Virtual Router Peering resource.
 type VirtualRouterPeering struct {
 	pulumi.CustomResourceState
 
-	// A unique read-only string that changes whenever the resource is updated.
-	Etag pulumi.StringOutput `pulumi:"etag"`
-	// Name of the virtual router peering that is unique within a virtual router.
-	Name pulumi.StringPtrOutput `pulumi:"name"`
-	// Peer ASN.
-	PeerAsn pulumi.Float64PtrOutput `pulumi:"peerAsn"`
-	// Peer IP.
-	PeerIp pulumi.StringPtrOutput `pulumi:"peerIp"`
-	// The provisioning state of the resource.
-	ProvisioningState pulumi.StringOutput `pulumi:"provisioningState"`
-	// Peering type.
-	Type pulumi.StringOutput `pulumi:"type"`
+	Etag              pulumi.StringOutput     `pulumi:"etag"`
+	Name              pulumi.StringPtrOutput  `pulumi:"name"`
+	PeerAsn           pulumi.Float64PtrOutput `pulumi:"peerAsn"`
+	PeerIp            pulumi.StringPtrOutput  `pulumi:"peerIp"`
+	ProvisioningState pulumi.StringOutput     `pulumi:"provisioningState"`
+	Type              pulumi.StringOutput     `pulumi:"type"`
 }
 
 // NewVirtualRouterPeering registers a new resource with the given unique name, arguments, and options.
@@ -164,37 +157,23 @@ func (VirtualRouterPeeringState) ElementType() reflect.Type {
 }
 
 type virtualRouterPeeringArgs struct {
-	// Resource ID.
-	Id *string `pulumi:"id"`
-	// Name of the virtual router peering that is unique within a virtual router.
-	Name *string `pulumi:"name"`
-	// Peer ASN.
-	PeerAsn *float64 `pulumi:"peerAsn"`
-	// Peer IP.
-	PeerIp *string `pulumi:"peerIp"`
-	// The name of the Virtual Router Peering.
-	PeeringName *string `pulumi:"peeringName"`
-	// The name of the resource group.
-	ResourceGroupName string `pulumi:"resourceGroupName"`
-	// The name of the Virtual Router.
-	VirtualRouterName string `pulumi:"virtualRouterName"`
+	Id                *string  `pulumi:"id"`
+	Name              *string  `pulumi:"name"`
+	PeerAsn           *float64 `pulumi:"peerAsn"`
+	PeerIp            *string  `pulumi:"peerIp"`
+	PeeringName       *string  `pulumi:"peeringName"`
+	ResourceGroupName string   `pulumi:"resourceGroupName"`
+	VirtualRouterName string   `pulumi:"virtualRouterName"`
 }
 
 // The set of arguments for constructing a VirtualRouterPeering resource.
 type VirtualRouterPeeringArgs struct {
-	// Resource ID.
-	Id pulumi.StringPtrInput
-	// Name of the virtual router peering that is unique within a virtual router.
-	Name pulumi.StringPtrInput
-	// Peer ASN.
-	PeerAsn pulumi.Float64PtrInput
-	// Peer IP.
-	PeerIp pulumi.StringPtrInput
-	// The name of the Virtual Router Peering.
-	PeeringName pulumi.StringPtrInput
-	// The name of the resource group.
+	Id                pulumi.StringPtrInput
+	Name              pulumi.StringPtrInput
+	PeerAsn           pulumi.Float64PtrInput
+	PeerIp            pulumi.StringPtrInput
+	PeeringName       pulumi.StringPtrInput
 	ResourceGroupName pulumi.StringInput
-	// The name of the Virtual Router.
 	VirtualRouterName pulumi.StringInput
 }
 
@@ -221,9 +200,7 @@ func (i *VirtualRouterPeering) ToVirtualRouterPeeringOutputWithContext(ctx conte
 	return pulumi.ToOutputWithContext(ctx, i).(VirtualRouterPeeringOutput)
 }
 
-type VirtualRouterPeeringOutput struct {
-	*pulumi.OutputState
-}
+type VirtualRouterPeeringOutput struct{ *pulumi.OutputState }
 
 func (VirtualRouterPeeringOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*VirtualRouterPeering)(nil))

@@ -11,42 +11,25 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Job Resource.
 type Job struct {
 	pulumi.CustomResourceState
 
-	// Reason for cancellation.
-	CancellationReason pulumi.StringOutput `pulumi:"cancellationReason"`
-	// Delivery Info of Job.
-	DeliveryInfo JobDeliveryInfoResponsePtrOutput `pulumi:"deliveryInfo"`
-	// Delivery type of Job.
-	DeliveryType pulumi.StringPtrOutput `pulumi:"deliveryType"`
-	// Details of a job run. This field will only be sent for expand details filter.
-	Details pulumi.AnyOutput `pulumi:"details"`
-	// Top level error for the job.
-	Error ErrorResponseOutput `pulumi:"error"`
-	// Describes whether the job is cancellable or not.
-	IsCancellable pulumi.BoolOutput `pulumi:"isCancellable"`
-	// Flag to indicate cancellation of scheduled job.
-	IsCancellableWithoutFee pulumi.BoolOutput `pulumi:"isCancellableWithoutFee"`
-	// Describes whether the job is deletable or not.
-	IsDeletable pulumi.BoolOutput `pulumi:"isDeletable"`
-	// Describes whether the shipping address is editable or not.
-	IsShippingAddressEditable pulumi.BoolOutput `pulumi:"isShippingAddressEditable"`
-	// The location of the resource. This will be one of the supported and registered Azure Regions (e.g. West US, East US, Southeast Asia, etc.). The region of a resource cannot be changed once it is created, but if an identical region is specified on update the request will succeed.
-	Location pulumi.StringOutput `pulumi:"location"`
-	// Name of the object.
-	Name pulumi.StringOutput `pulumi:"name"`
-	// The sku type.
-	Sku SkuResponseOutput `pulumi:"sku"`
-	// Time at which the job was started in UTC ISO 8601 format.
-	StartTime pulumi.StringOutput `pulumi:"startTime"`
-	// Name of the stage which is in progress.
-	Status pulumi.StringOutput `pulumi:"status"`
-	// The list of key value pairs that describe the resource. These tags can be used in viewing and grouping this resource (across resource groups).
-	Tags pulumi.StringMapOutput `pulumi:"tags"`
-	// Type of the object.
-	Type pulumi.StringOutput `pulumi:"type"`
+	CancellationReason        pulumi.StringOutput              `pulumi:"cancellationReason"`
+	DeliveryInfo              JobDeliveryInfoResponsePtrOutput `pulumi:"deliveryInfo"`
+	DeliveryType              pulumi.StringPtrOutput           `pulumi:"deliveryType"`
+	Details                   pulumi.AnyOutput                 `pulumi:"details"`
+	Error                     ErrorResponseOutput              `pulumi:"error"`
+	IsCancellable             pulumi.BoolOutput                `pulumi:"isCancellable"`
+	IsCancellableWithoutFee   pulumi.BoolOutput                `pulumi:"isCancellableWithoutFee"`
+	IsDeletable               pulumi.BoolOutput                `pulumi:"isDeletable"`
+	IsShippingAddressEditable pulumi.BoolOutput                `pulumi:"isShippingAddressEditable"`
+	Location                  pulumi.StringOutput              `pulumi:"location"`
+	Name                      pulumi.StringOutput              `pulumi:"name"`
+	Sku                       SkuResponseOutput                `pulumi:"sku"`
+	StartTime                 pulumi.StringOutput              `pulumi:"startTime"`
+	Status                    pulumi.StringOutput              `pulumi:"status"`
+	Tags                      pulumi.StringMapOutput           `pulumi:"tags"`
+	Type                      pulumi.StringOutput              `pulumi:"type"`
 }
 
 // NewJob registers a new resource with the given unique name, arguments, and options.
@@ -139,42 +122,26 @@ func (JobState) ElementType() reflect.Type {
 }
 
 type jobArgs struct {
-	// Delivery Info of Job.
-	DeliveryInfo *JobDeliveryInfo `pulumi:"deliveryInfo"`
-	// Delivery type of Job.
-	DeliveryType *string `pulumi:"deliveryType"`
-	// Details of a job run. This field will only be sent for expand details filter.
-	Details interface{} `pulumi:"details"`
-	// The name of the job Resource within the specified resource group. job names must be between 3 and 24 characters in length and use any alphanumeric and underscore only
-	JobName *string `pulumi:"jobName"`
-	// The location of the resource. This will be one of the supported and registered Azure Regions (e.g. West US, East US, Southeast Asia, etc.). The region of a resource cannot be changed once it is created, but if an identical region is specified on update the request will succeed.
-	Location *string `pulumi:"location"`
-	// The Resource Group Name
-	ResourceGroupName string `pulumi:"resourceGroupName"`
-	// The sku type.
-	Sku Sku `pulumi:"sku"`
-	// The list of key value pairs that describe the resource. These tags can be used in viewing and grouping this resource (across resource groups).
-	Tags map[string]string `pulumi:"tags"`
+	DeliveryInfo      *JobDeliveryInfo  `pulumi:"deliveryInfo"`
+	DeliveryType      *string           `pulumi:"deliveryType"`
+	Details           interface{}       `pulumi:"details"`
+	JobName           *string           `pulumi:"jobName"`
+	Location          *string           `pulumi:"location"`
+	ResourceGroupName string            `pulumi:"resourceGroupName"`
+	Sku               Sku               `pulumi:"sku"`
+	Tags              map[string]string `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a Job resource.
 type JobArgs struct {
-	// Delivery Info of Job.
-	DeliveryInfo JobDeliveryInfoPtrInput
-	// Delivery type of Job.
-	DeliveryType pulumi.StringPtrInput
-	// Details of a job run. This field will only be sent for expand details filter.
-	Details pulumi.Input
-	// The name of the job Resource within the specified resource group. job names must be between 3 and 24 characters in length and use any alphanumeric and underscore only
-	JobName pulumi.StringPtrInput
-	// The location of the resource. This will be one of the supported and registered Azure Regions (e.g. West US, East US, Southeast Asia, etc.). The region of a resource cannot be changed once it is created, but if an identical region is specified on update the request will succeed.
-	Location pulumi.StringPtrInput
-	// The Resource Group Name
+	DeliveryInfo      JobDeliveryInfoPtrInput
+	DeliveryType      pulumi.StringPtrInput
+	Details           pulumi.Input
+	JobName           pulumi.StringPtrInput
+	Location          pulumi.StringPtrInput
 	ResourceGroupName pulumi.StringInput
-	// The sku type.
-	Sku SkuInput
-	// The list of key value pairs that describe the resource. These tags can be used in viewing and grouping this resource (across resource groups).
-	Tags pulumi.StringMapInput
+	Sku               SkuInput
+	Tags              pulumi.StringMapInput
 }
 
 func (JobArgs) ElementType() reflect.Type {
@@ -200,9 +167,7 @@ func (i *Job) ToJobOutputWithContext(ctx context.Context) JobOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(JobOutput)
 }
 
-type JobOutput struct {
-	*pulumi.OutputState
-}
+type JobOutput struct{ *pulumi.OutputState }
 
 func (JobOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*Job)(nil))

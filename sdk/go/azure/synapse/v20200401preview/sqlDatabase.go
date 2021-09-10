@@ -11,28 +11,18 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// A sql database resource.
 type SqlDatabase struct {
 	pulumi.CustomResourceState
 
-	// The collation of the database.
-	Collation pulumi.StringPtrOutput `pulumi:"collation"`
-	// The Guid of the database.
-	DatabaseGuid pulumi.StringOutput `pulumi:"databaseGuid"`
-	// The geo-location where the resource lives
-	Location pulumi.StringOutput `pulumi:"location"`
-	// The name of the resource
-	Name pulumi.StringOutput `pulumi:"name"`
-	// Status of the database.
-	Status pulumi.StringOutput `pulumi:"status"`
-	// Storage redundancy of the database.
-	StorageRedundancy pulumi.StringPtrOutput `pulumi:"storageRedundancy"`
-	// SystemData of SqlDatabase.
-	SystemData SystemDataResponseOutput `pulumi:"systemData"`
-	// Resource tags.
-	Tags pulumi.StringMapOutput `pulumi:"tags"`
-	// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
-	Type pulumi.StringOutput `pulumi:"type"`
+	Collation         pulumi.StringPtrOutput   `pulumi:"collation"`
+	DatabaseGuid      pulumi.StringOutput      `pulumi:"databaseGuid"`
+	Location          pulumi.StringOutput      `pulumi:"location"`
+	Name              pulumi.StringOutput      `pulumi:"name"`
+	Status            pulumi.StringOutput      `pulumi:"status"`
+	StorageRedundancy pulumi.StringPtrOutput   `pulumi:"storageRedundancy"`
+	SystemData        SystemDataResponseOutput `pulumi:"systemData"`
+	Tags              pulumi.StringMapOutput   `pulumi:"tags"`
+	Type              pulumi.StringOutput      `pulumi:"type"`
 }
 
 // NewSqlDatabase registers a new resource with the given unique name, arguments, and options.
@@ -86,38 +76,24 @@ func (SqlDatabaseState) ElementType() reflect.Type {
 }
 
 type sqlDatabaseArgs struct {
-	// The collation of the database.
-	Collation *string `pulumi:"collation"`
-	// The geo-location where the resource lives
-	Location *string `pulumi:"location"`
-	// The name of the resource group. The name is case insensitive.
-	ResourceGroupName string `pulumi:"resourceGroupName"`
-	// The name of the sql database.
-	SqlDatabaseName *string `pulumi:"sqlDatabaseName"`
-	// Storage redundancy of the database.
-	StorageRedundancy *string `pulumi:"storageRedundancy"`
-	// Resource tags.
-	Tags map[string]string `pulumi:"tags"`
-	// The name of the workspace.
-	WorkspaceName string `pulumi:"workspaceName"`
+	Collation         *string           `pulumi:"collation"`
+	Location          *string           `pulumi:"location"`
+	ResourceGroupName string            `pulumi:"resourceGroupName"`
+	SqlDatabaseName   *string           `pulumi:"sqlDatabaseName"`
+	StorageRedundancy *string           `pulumi:"storageRedundancy"`
+	Tags              map[string]string `pulumi:"tags"`
+	WorkspaceName     string            `pulumi:"workspaceName"`
 }
 
 // The set of arguments for constructing a SqlDatabase resource.
 type SqlDatabaseArgs struct {
-	// The collation of the database.
-	Collation pulumi.StringPtrInput
-	// The geo-location where the resource lives
-	Location pulumi.StringPtrInput
-	// The name of the resource group. The name is case insensitive.
+	Collation         pulumi.StringPtrInput
+	Location          pulumi.StringPtrInput
 	ResourceGroupName pulumi.StringInput
-	// The name of the sql database.
-	SqlDatabaseName pulumi.StringPtrInput
-	// Storage redundancy of the database.
+	SqlDatabaseName   pulumi.StringPtrInput
 	StorageRedundancy pulumi.StringPtrInput
-	// Resource tags.
-	Tags pulumi.StringMapInput
-	// The name of the workspace.
-	WorkspaceName pulumi.StringInput
+	Tags              pulumi.StringMapInput
+	WorkspaceName     pulumi.StringInput
 }
 
 func (SqlDatabaseArgs) ElementType() reflect.Type {
@@ -143,9 +119,7 @@ func (i *SqlDatabase) ToSqlDatabaseOutputWithContext(ctx context.Context) SqlDat
 	return pulumi.ToOutputWithContext(ctx, i).(SqlDatabaseOutput)
 }
 
-type SqlDatabaseOutput struct {
-	*pulumi.OutputState
-}
+type SqlDatabaseOutput struct{ *pulumi.OutputState }
 
 func (SqlDatabaseOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*SqlDatabase)(nil))

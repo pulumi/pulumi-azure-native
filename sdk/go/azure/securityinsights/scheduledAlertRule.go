@@ -92,6 +92,9 @@ func NewScheduledAlertRule(ctx *pulumi.Context,
 	if args.SuppressionEnabled == nil {
 		return nil, errors.New("invalid value for required argument 'SuppressionEnabled'")
 	}
+	if args.TriggerOperator == nil {
+		return nil, errors.New("invalid value for required argument 'TriggerOperator'")
+	}
 	if args.TriggerThreshold == nil {
 		return nil, errors.New("invalid value for required argument 'TriggerThreshold'")
 	}
@@ -187,7 +190,7 @@ type scheduledAlertRuleArgs struct {
 	// The tactics of the alert rule
 	Tactics []string `pulumi:"tactics"`
 	// The operation against the threshold that triggers alert rule.
-	TriggerOperator string `pulumi:"triggerOperator"`
+	TriggerOperator TriggerOperator `pulumi:"triggerOperator"`
 	// The threshold triggers this alert rule.
 	TriggerThreshold int `pulumi:"triggerThreshold"`
 	// The name of the workspace.
@@ -228,7 +231,7 @@ type ScheduledAlertRuleArgs struct {
 	// The tactics of the alert rule
 	Tactics pulumi.StringArrayInput
 	// The operation against the threshold that triggers alert rule.
-	TriggerOperator TriggerOperator
+	TriggerOperator TriggerOperatorInput
 	// The threshold triggers this alert rule.
 	TriggerThreshold pulumi.IntInput
 	// The name of the workspace.
@@ -258,9 +261,7 @@ func (i *ScheduledAlertRule) ToScheduledAlertRuleOutputWithContext(ctx context.C
 	return pulumi.ToOutputWithContext(ctx, i).(ScheduledAlertRuleOutput)
 }
 
-type ScheduledAlertRuleOutput struct {
-	*pulumi.OutputState
-}
+type ScheduledAlertRuleOutput struct{ *pulumi.OutputState }
 
 func (ScheduledAlertRuleOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*ScheduledAlertRule)(nil))

@@ -7,7 +7,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Registration information.
 func LookupRegistration(ctx *pulumi.Context, args *LookupRegistrationArgs, opts ...pulumi.InvokeOption) (*LookupRegistrationResult, error) {
 	var rv LookupRegistrationResult
 	err := ctx.Invoke("azure-native:azurestack/v20170601:getRegistration", args, &rv, opts...)
@@ -18,30 +17,19 @@ func LookupRegistration(ctx *pulumi.Context, args *LookupRegistrationArgs, opts 
 }
 
 type LookupRegistrationArgs struct {
-	// Name of the Azure Stack registration.
 	RegistrationName string `pulumi:"registrationName"`
-	// Name of the resource group.
-	ResourceGroup string `pulumi:"resourceGroup"`
+	ResourceGroup    string `pulumi:"resourceGroup"`
 }
 
 // Registration information.
 type LookupRegistrationResult struct {
-	// Specifies the billing mode for the Azure Stack registration.
-	BillingModel *string `pulumi:"billingModel"`
-	// The identifier of the registered Azure Stack.
-	CloudId *string `pulumi:"cloudId"`
-	// The entity tag used for optimistic concurrency when modifying the resource.
-	Etag *string `pulumi:"etag"`
-	// ID of the resource.
-	Id string `pulumi:"id"`
-	// Location of the resource.
-	Location string `pulumi:"location"`
-	// Name of the resource.
-	Name string `pulumi:"name"`
-	// The object identifier associated with the Azure Stack connecting to Azure.
-	ObjectId *string `pulumi:"objectId"`
-	// Custom tags for the resource.
-	Tags map[string]string `pulumi:"tags"`
-	// Type of Resource.
-	Type string `pulumi:"type"`
+	BillingModel *string           `pulumi:"billingModel"`
+	CloudId      *string           `pulumi:"cloudId"`
+	Etag         *string           `pulumi:"etag"`
+	Id           string            `pulumi:"id"`
+	Location     string            `pulumi:"location"`
+	Name         string            `pulumi:"name"`
+	ObjectId     *string           `pulumi:"objectId"`
+	Tags         map[string]string `pulumi:"tags"`
+	Type         string            `pulumi:"type"`
 }

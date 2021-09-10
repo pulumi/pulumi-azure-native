@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.Peering.V20210601.Outputs
 {
 
+    /// <summary>
+    /// The details of the event associated with a prefix.
+    /// </summary>
     [OutputType]
     public sealed class PeeringServicePrefixEventResponse
     {

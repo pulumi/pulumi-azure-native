@@ -10,18 +10,12 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Gallery information for a workbook template.
 type WorkbookTemplateGallery struct {
-	// Category for the gallery.
-	Category *string `pulumi:"category"`
-	// Name of the workbook template in the gallery.
-	Name *string `pulumi:"name"`
-	// Order of the template within the gallery.
-	Order *int `pulumi:"order"`
-	// Azure resource type supported by the gallery.
+	Category     *string `pulumi:"category"`
+	Name         *string `pulumi:"name"`
+	Order        *int    `pulumi:"order"`
 	ResourceType *string `pulumi:"resourceType"`
-	// Type of workbook supported by the workbook template.
-	Type *string `pulumi:"type"`
+	Type         *string `pulumi:"type"`
 }
 
 // WorkbookTemplateGalleryInput is an input type that accepts WorkbookTemplateGalleryArgs and WorkbookTemplateGalleryOutput values.
@@ -35,18 +29,12 @@ type WorkbookTemplateGalleryInput interface {
 	ToWorkbookTemplateGalleryOutputWithContext(context.Context) WorkbookTemplateGalleryOutput
 }
 
-// Gallery information for a workbook template.
 type WorkbookTemplateGalleryArgs struct {
-	// Category for the gallery.
-	Category pulumi.StringPtrInput `pulumi:"category"`
-	// Name of the workbook template in the gallery.
-	Name pulumi.StringPtrInput `pulumi:"name"`
-	// Order of the template within the gallery.
-	Order pulumi.IntPtrInput `pulumi:"order"`
-	// Azure resource type supported by the gallery.
+	Category     pulumi.StringPtrInput `pulumi:"category"`
+	Name         pulumi.StringPtrInput `pulumi:"name"`
+	Order        pulumi.IntPtrInput    `pulumi:"order"`
 	ResourceType pulumi.StringPtrInput `pulumi:"resourceType"`
-	// Type of workbook supported by the workbook template.
-	Type pulumi.StringPtrInput `pulumi:"type"`
+	Type         pulumi.StringPtrInput `pulumi:"type"`
 }
 
 func (WorkbookTemplateGalleryArgs) ElementType() reflect.Type {
@@ -86,7 +74,6 @@ func (i WorkbookTemplateGalleryArray) ToWorkbookTemplateGalleryArrayOutputWithCo
 	return pulumi.ToOutputWithContext(ctx, i).(WorkbookTemplateGalleryArrayOutput)
 }
 
-// Gallery information for a workbook template.
 type WorkbookTemplateGalleryOutput struct{ *pulumi.OutputState }
 
 func (WorkbookTemplateGalleryOutput) ElementType() reflect.Type {
@@ -101,27 +88,22 @@ func (o WorkbookTemplateGalleryOutput) ToWorkbookTemplateGalleryOutputWithContex
 	return o
 }
 
-// Category for the gallery.
 func (o WorkbookTemplateGalleryOutput) Category() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v WorkbookTemplateGallery) *string { return v.Category }).(pulumi.StringPtrOutput)
 }
 
-// Name of the workbook template in the gallery.
 func (o WorkbookTemplateGalleryOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v WorkbookTemplateGallery) *string { return v.Name }).(pulumi.StringPtrOutput)
 }
 
-// Order of the template within the gallery.
 func (o WorkbookTemplateGalleryOutput) Order() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v WorkbookTemplateGallery) *int { return v.Order }).(pulumi.IntPtrOutput)
 }
 
-// Azure resource type supported by the gallery.
 func (o WorkbookTemplateGalleryOutput) ResourceType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v WorkbookTemplateGallery) *string { return v.ResourceType }).(pulumi.StringPtrOutput)
 }
 
-// Type of workbook supported by the workbook template.
 func (o WorkbookTemplateGalleryOutput) Type() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v WorkbookTemplateGallery) *string { return v.Type }).(pulumi.StringPtrOutput)
 }
@@ -146,18 +128,12 @@ func (o WorkbookTemplateGalleryArrayOutput) Index(i pulumi.IntInput) WorkbookTem
 	}).(WorkbookTemplateGalleryOutput)
 }
 
-// Gallery information for a workbook template.
 type WorkbookTemplateGalleryResponse struct {
-	// Category for the gallery.
-	Category *string `pulumi:"category"`
-	// Name of the workbook template in the gallery.
-	Name *string `pulumi:"name"`
-	// Order of the template within the gallery.
-	Order *int `pulumi:"order"`
-	// Azure resource type supported by the gallery.
+	Category     *string `pulumi:"category"`
+	Name         *string `pulumi:"name"`
+	Order        *int    `pulumi:"order"`
 	ResourceType *string `pulumi:"resourceType"`
-	// Type of workbook supported by the workbook template.
-	Type *string `pulumi:"type"`
+	Type         *string `pulumi:"type"`
 }
 
 // WorkbookTemplateGalleryResponseInput is an input type that accepts WorkbookTemplateGalleryResponseArgs and WorkbookTemplateGalleryResponseOutput values.
@@ -171,18 +147,12 @@ type WorkbookTemplateGalleryResponseInput interface {
 	ToWorkbookTemplateGalleryResponseOutputWithContext(context.Context) WorkbookTemplateGalleryResponseOutput
 }
 
-// Gallery information for a workbook template.
 type WorkbookTemplateGalleryResponseArgs struct {
-	// Category for the gallery.
-	Category pulumi.StringPtrInput `pulumi:"category"`
-	// Name of the workbook template in the gallery.
-	Name pulumi.StringPtrInput `pulumi:"name"`
-	// Order of the template within the gallery.
-	Order pulumi.IntPtrInput `pulumi:"order"`
-	// Azure resource type supported by the gallery.
+	Category     pulumi.StringPtrInput `pulumi:"category"`
+	Name         pulumi.StringPtrInput `pulumi:"name"`
+	Order        pulumi.IntPtrInput    `pulumi:"order"`
 	ResourceType pulumi.StringPtrInput `pulumi:"resourceType"`
-	// Type of workbook supported by the workbook template.
-	Type pulumi.StringPtrInput `pulumi:"type"`
+	Type         pulumi.StringPtrInput `pulumi:"type"`
 }
 
 func (WorkbookTemplateGalleryResponseArgs) ElementType() reflect.Type {
@@ -222,7 +192,6 @@ func (i WorkbookTemplateGalleryResponseArray) ToWorkbookTemplateGalleryResponseA
 	return pulumi.ToOutputWithContext(ctx, i).(WorkbookTemplateGalleryResponseArrayOutput)
 }
 
-// Gallery information for a workbook template.
 type WorkbookTemplateGalleryResponseOutput struct{ *pulumi.OutputState }
 
 func (WorkbookTemplateGalleryResponseOutput) ElementType() reflect.Type {
@@ -237,27 +206,22 @@ func (o WorkbookTemplateGalleryResponseOutput) ToWorkbookTemplateGalleryResponse
 	return o
 }
 
-// Category for the gallery.
 func (o WorkbookTemplateGalleryResponseOutput) Category() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v WorkbookTemplateGalleryResponse) *string { return v.Category }).(pulumi.StringPtrOutput)
 }
 
-// Name of the workbook template in the gallery.
 func (o WorkbookTemplateGalleryResponseOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v WorkbookTemplateGalleryResponse) *string { return v.Name }).(pulumi.StringPtrOutput)
 }
 
-// Order of the template within the gallery.
 func (o WorkbookTemplateGalleryResponseOutput) Order() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v WorkbookTemplateGalleryResponse) *int { return v.Order }).(pulumi.IntPtrOutput)
 }
 
-// Azure resource type supported by the gallery.
 func (o WorkbookTemplateGalleryResponseOutput) ResourceType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v WorkbookTemplateGalleryResponse) *string { return v.ResourceType }).(pulumi.StringPtrOutput)
 }
 
-// Type of workbook supported by the workbook template.
 func (o WorkbookTemplateGalleryResponseOutput) Type() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v WorkbookTemplateGalleryResponse) *string { return v.Type }).(pulumi.StringPtrOutput)
 }
@@ -282,12 +246,9 @@ func (o WorkbookTemplateGalleryResponseArrayOutput) Index(i pulumi.IntInput) Wor
 	}).(WorkbookTemplateGalleryResponseOutput)
 }
 
-// Localized template data and gallery information.
 type WorkbookTemplateLocalizedGallery struct {
-	// Workbook galleries supported by the template.
-	Galleries []WorkbookTemplateGallery `pulumi:"galleries"`
-	// Valid JSON object containing workbook template payload.
-	TemplateData interface{} `pulumi:"templateData"`
+	Galleries    []WorkbookTemplateGallery `pulumi:"galleries"`
+	TemplateData interface{}               `pulumi:"templateData"`
 }
 
 // WorkbookTemplateLocalizedGalleryInput is an input type that accepts WorkbookTemplateLocalizedGalleryArgs and WorkbookTemplateLocalizedGalleryOutput values.
@@ -301,12 +262,9 @@ type WorkbookTemplateLocalizedGalleryInput interface {
 	ToWorkbookTemplateLocalizedGalleryOutputWithContext(context.Context) WorkbookTemplateLocalizedGalleryOutput
 }
 
-// Localized template data and gallery information.
 type WorkbookTemplateLocalizedGalleryArgs struct {
-	// Workbook galleries supported by the template.
-	Galleries WorkbookTemplateGalleryArrayInput `pulumi:"galleries"`
-	// Valid JSON object containing workbook template payload.
-	TemplateData pulumi.Input `pulumi:"templateData"`
+	Galleries    WorkbookTemplateGalleryArrayInput `pulumi:"galleries"`
+	TemplateData pulumi.Input                      `pulumi:"templateData"`
 }
 
 func (WorkbookTemplateLocalizedGalleryArgs) ElementType() reflect.Type {
@@ -346,7 +304,6 @@ func (i WorkbookTemplateLocalizedGalleryArray) ToWorkbookTemplateLocalizedGaller
 	return pulumi.ToOutputWithContext(ctx, i).(WorkbookTemplateLocalizedGalleryArrayOutput)
 }
 
-// Localized template data and gallery information.
 type WorkbookTemplateLocalizedGalleryOutput struct{ *pulumi.OutputState }
 
 func (WorkbookTemplateLocalizedGalleryOutput) ElementType() reflect.Type {
@@ -361,12 +318,10 @@ func (o WorkbookTemplateLocalizedGalleryOutput) ToWorkbookTemplateLocalizedGalle
 	return o
 }
 
-// Workbook galleries supported by the template.
 func (o WorkbookTemplateLocalizedGalleryOutput) Galleries() WorkbookTemplateGalleryArrayOutput {
 	return o.ApplyT(func(v WorkbookTemplateLocalizedGallery) []WorkbookTemplateGallery { return v.Galleries }).(WorkbookTemplateGalleryArrayOutput)
 }
 
-// Valid JSON object containing workbook template payload.
 func (o WorkbookTemplateLocalizedGalleryOutput) TemplateData() pulumi.AnyOutput {
 	return o.ApplyT(func(v WorkbookTemplateLocalizedGallery) interface{} { return v.TemplateData }).(pulumi.AnyOutput)
 }
@@ -391,12 +346,9 @@ func (o WorkbookTemplateLocalizedGalleryArrayOutput) Index(i pulumi.IntInput) Wo
 	}).(WorkbookTemplateLocalizedGalleryOutput)
 }
 
-// Localized template data and gallery information.
 type WorkbookTemplateLocalizedGalleryResponse struct {
-	// Workbook galleries supported by the template.
-	Galleries []WorkbookTemplateGalleryResponse `pulumi:"galleries"`
-	// Valid JSON object containing workbook template payload.
-	TemplateData interface{} `pulumi:"templateData"`
+	Galleries    []WorkbookTemplateGalleryResponse `pulumi:"galleries"`
+	TemplateData interface{}                       `pulumi:"templateData"`
 }
 
 // WorkbookTemplateLocalizedGalleryResponseInput is an input type that accepts WorkbookTemplateLocalizedGalleryResponseArgs and WorkbookTemplateLocalizedGalleryResponseOutput values.
@@ -410,12 +362,9 @@ type WorkbookTemplateLocalizedGalleryResponseInput interface {
 	ToWorkbookTemplateLocalizedGalleryResponseOutputWithContext(context.Context) WorkbookTemplateLocalizedGalleryResponseOutput
 }
 
-// Localized template data and gallery information.
 type WorkbookTemplateLocalizedGalleryResponseArgs struct {
-	// Workbook galleries supported by the template.
-	Galleries WorkbookTemplateGalleryResponseArrayInput `pulumi:"galleries"`
-	// Valid JSON object containing workbook template payload.
-	TemplateData pulumi.Input `pulumi:"templateData"`
+	Galleries    WorkbookTemplateGalleryResponseArrayInput `pulumi:"galleries"`
+	TemplateData pulumi.Input                              `pulumi:"templateData"`
 }
 
 func (WorkbookTemplateLocalizedGalleryResponseArgs) ElementType() reflect.Type {
@@ -455,7 +404,6 @@ func (i WorkbookTemplateLocalizedGalleryResponseArray) ToWorkbookTemplateLocaliz
 	return pulumi.ToOutputWithContext(ctx, i).(WorkbookTemplateLocalizedGalleryResponseArrayOutput)
 }
 
-// Localized template data and gallery information.
 type WorkbookTemplateLocalizedGalleryResponseOutput struct{ *pulumi.OutputState }
 
 func (WorkbookTemplateLocalizedGalleryResponseOutput) ElementType() reflect.Type {
@@ -470,12 +418,10 @@ func (o WorkbookTemplateLocalizedGalleryResponseOutput) ToWorkbookTemplateLocali
 	return o
 }
 
-// Workbook galleries supported by the template.
 func (o WorkbookTemplateLocalizedGalleryResponseOutput) Galleries() WorkbookTemplateGalleryResponseArrayOutput {
 	return o.ApplyT(func(v WorkbookTemplateLocalizedGalleryResponse) []WorkbookTemplateGalleryResponse { return v.Galleries }).(WorkbookTemplateGalleryResponseArrayOutput)
 }
 
-// Valid JSON object containing workbook template payload.
 func (o WorkbookTemplateLocalizedGalleryResponseOutput) TemplateData() pulumi.AnyOutput {
 	return o.ApplyT(func(v WorkbookTemplateLocalizedGalleryResponse) interface{} { return v.TemplateData }).(pulumi.AnyOutput)
 }
@@ -500,49 +446,49 @@ func (o WorkbookTemplateLocalizedGalleryResponseArrayOutput) Index(i pulumi.IntI
 	}).(WorkbookTemplateLocalizedGalleryResponseOutput)
 }
 
-type WorkbookTemplateLocalizedGalleryArgsArrayMap map[string]WorkbookTemplateLocalizedGalleryArgsArrayInput
+type WorkbookTemplateLocalizedGalleryArrayMap map[string]WorkbookTemplateLocalizedGalleryArrayInput
 
-func (WorkbookTemplateLocalizedGalleryArgsArrayMap) ElementType() reflect.Type {
-	return reflect.TypeOf((*WorkbookTemplateLocalizedGalleryArgsArray)(nil)).Elem()
+func (WorkbookTemplateLocalizedGalleryArrayMap) ElementType() reflect.Type {
+	return reflect.TypeOf((*WorkbookTemplateLocalizedGalleryArray)(nil)).Elem()
 }
 
-func (i WorkbookTemplateLocalizedGalleryArgsArrayMap) ToWorkbookTemplateLocalizedGalleryArgsArrayMapOutput() WorkbookTemplateLocalizedGalleryArgsArrayMapOutput {
-	return i.ToWorkbookTemplateLocalizedGalleryArgsArrayMapOutputWithContext(context.Background())
+func (i WorkbookTemplateLocalizedGalleryArrayMap) ToWorkbookTemplateLocalizedGalleryArrayMapOutput() WorkbookTemplateLocalizedGalleryArrayMapOutput {
+	return i.ToWorkbookTemplateLocalizedGalleryArrayMapOutputWithContext(context.Background())
 }
 
-func (i WorkbookTemplateLocalizedGalleryArgsArrayMap) ToWorkbookTemplateLocalizedGalleryArgsArrayMapOutputWithContext(ctx context.Context) WorkbookTemplateLocalizedGalleryArgsArrayMapOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(WorkbookTemplateLocalizedGalleryArgsArrayMapOutput)
+func (i WorkbookTemplateLocalizedGalleryArrayMap) ToWorkbookTemplateLocalizedGalleryArrayMapOutputWithContext(ctx context.Context) WorkbookTemplateLocalizedGalleryArrayMapOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WorkbookTemplateLocalizedGalleryArrayMapOutput)
 }
 
-type WorkbookTemplateLocalizedGalleryArgsArrayMapOutput struct{ *pulumi.OutputState }
+type WorkbookTemplateLocalizedGalleryArrayMapOutput struct{ *pulumi.OutputState }
 
-func (WorkbookTemplateLocalizedGalleryArgsArrayMapOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*WorkbookTemplateLocalizedGalleryArgsArray)(nil)).Elem()
+func (WorkbookTemplateLocalizedGalleryArrayMapOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*map[string]WorkbookTemplateLocalizedGalleryArray)(nil)).Elem()
 }
 
-func (o WorkbookTemplateLocalizedGalleryArgsArrayMapOutput) ToWorkbookTemplateLocalizedGalleryArgsArrayMapOutput() WorkbookTemplateLocalizedGalleryArgsArrayMapOutput {
+func (o WorkbookTemplateLocalizedGalleryArrayMapOutput) ToWorkbookTemplateLocalizedGalleryArrayMapOutput() WorkbookTemplateLocalizedGalleryArrayMapOutput {
 	return o
 }
 
-func (o WorkbookTemplateLocalizedGalleryArgsArrayMapOutput) ToWorkbookTemplateLocalizedGalleryArgsArrayMapOutputWithContext(ctx context.Context) WorkbookTemplateLocalizedGalleryArgsArrayMapOutput {
+func (o WorkbookTemplateLocalizedGalleryArrayMapOutput) ToWorkbookTemplateLocalizedGalleryArrayMapOutputWithContext(ctx context.Context) WorkbookTemplateLocalizedGalleryArrayMapOutput {
 	return o
 }
 
-func (o WorkbookTemplateLocalizedGalleryArgsArrayMapOutput) MapIndex(k pulumi.StringInput) WorkbookTemplateLocalizedGalleryArgsArrayOutput {
-	return pulumi.All(o, k).ApplyT(func(vs []interface{}) WorkbookTemplateLocalizedGalleryArgsArray {
-		return vs[0].(map[string]WorkbookTemplateLocalizedGalleryArgsArray)[vs[1].(string)]
-	}).(WorkbookTemplateLocalizedGalleryArgsArrayOutput)
+func (o WorkbookTemplateLocalizedGalleryArrayMapOutput) MapIndex(k pulumi.StringInput) WorkbookTemplateLocalizedGalleryArrayOutput {
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) WorkbookTemplateLocalizedGalleryArray {
+		return vs[0].(map[string]WorkbookTemplateLocalizedGalleryArray)[vs[1].(string)]
+	}).(WorkbookTemplateLocalizedGalleryArrayOutput)
 }
 
-// WorkbookTemplateLocalizedGalleryArgsArrayMapInput is an input type that accepts WorkbookTemplateLocalizedGalleryArgsArrayMap and WorkbookTemplateLocalizedGalleryArgsArrayMapOutput values.
-// You can construct a concrete instance of `WorkbookTemplateLocalizedGalleryArgsArrayMapInput` via:
+// WorkbookTemplateLocalizedGalleryArrayMapInput is an input type that accepts WorkbookTemplateLocalizedGalleryArrayMap and WorkbookTemplateLocalizedGalleryArrayMapOutput values.
+// You can construct a concrete instance of `WorkbookTemplateLocalizedGalleryArrayMapInput` via:
 //
-//          WorkbookTemplateLocalizedGalleryArgsArrayMap{ "key": WorkbookTemplateLocalizedGalleryArgsArray{ WorkbookTemplateLocalizedGalleryArgsArgs{...} } }
-type WorkbookTemplateLocalizedGalleryArgsArrayMapInput interface {
+//          WorkbookTemplateLocalizedGalleryArrayMap{ "key": WorkbookTemplateLocalizedGalleryArray{ WorkbookTemplateLocalizedGalleryArgs{...} } }
+type WorkbookTemplateLocalizedGalleryArrayMapInput interface {
 	pulumi.Input
 
-	ToWorkbookTemplateLocalizedGalleryArgsArrayMapOutput() WorkbookTemplateLocalizedGalleryArgsArrayMapOutput
-	ToWorkbookTemplateLocalizedGalleryArgsArrayMapOutputWithContext(context.Context) WorkbookTemplateLocalizedGalleryArgsArrayMapOutput
+	ToWorkbookTemplateLocalizedGalleryArrayMapOutput() WorkbookTemplateLocalizedGalleryArrayMapOutput
+	ToWorkbookTemplateLocalizedGalleryArrayMapOutputWithContext(context.Context) WorkbookTemplateLocalizedGalleryArrayMapOutput
 }
 
 type WorkbookTemplateLocalizedGalleryResponseArrayMap map[string]WorkbookTemplateLocalizedGalleryResponseArrayInput
@@ -562,7 +508,7 @@ func (i WorkbookTemplateLocalizedGalleryResponseArrayMap) ToWorkbookTemplateLoca
 type WorkbookTemplateLocalizedGalleryResponseArrayMapOutput struct{ *pulumi.OutputState }
 
 func (WorkbookTemplateLocalizedGalleryResponseArrayMapOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*WorkbookTemplateLocalizedGalleryResponseArray)(nil)).Elem()
+	return reflect.TypeOf((*map[string]WorkbookTemplateLocalizedGalleryResponseArray)(nil)).Elem()
 }
 
 func (o WorkbookTemplateLocalizedGalleryResponseArrayMapOutput) ToWorkbookTemplateLocalizedGalleryResponseArrayMapOutput() WorkbookTemplateLocalizedGalleryResponseArrayMapOutput {
@@ -599,5 +545,6 @@ func init() {
 	pulumi.RegisterOutputType(WorkbookTemplateLocalizedGalleryArrayOutput{})
 	pulumi.RegisterOutputType(WorkbookTemplateLocalizedGalleryResponseOutput{})
 	pulumi.RegisterOutputType(WorkbookTemplateLocalizedGalleryResponseArrayOutput{})
+	pulumi.RegisterOutputType(WorkbookTemplateLocalizedGalleryArrayMapOutput{})
 	pulumi.RegisterOutputType(WorkbookTemplateLocalizedGalleryResponseArrayMapOutput{})
 }

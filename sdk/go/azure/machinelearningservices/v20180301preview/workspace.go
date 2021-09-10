@@ -11,42 +11,25 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// An object that represents a machine learning workspace.
 type Workspace struct {
 	pulumi.CustomResourceState
 
-	// ARM id of the application insights associated with this workspace. This cannot be changed once the workspace has been created
-	ApplicationInsights pulumi.StringPtrOutput `pulumi:"applicationInsights"`
-	// ARM id of the Batch AI workspace associated with this workspace. This cannot be changed once the workspace has been created
-	BatchaiWorkspace pulumi.StringPtrOutput `pulumi:"batchaiWorkspace"`
-	// ARM id of the container registry associated with this workspace. This cannot be changed once the workspace has been created
-	ContainerRegistry pulumi.StringPtrOutput `pulumi:"containerRegistry"`
-	// The creation time of the machine learning workspace in ISO8601 format.
-	CreationTime pulumi.StringOutput `pulumi:"creationTime"`
-	// The description of this workspace.
-	Description pulumi.StringPtrOutput `pulumi:"description"`
-	// Url for the discovery service to identify regional endpoints for machine learning experimentation services
-	DiscoveryUrl pulumi.StringPtrOutput `pulumi:"discoveryUrl"`
-	// The friendly name for this workspace. This name in mutable
-	FriendlyName pulumi.StringPtrOutput `pulumi:"friendlyName"`
-	// The identity of the resource.
-	Identity IdentityResponsePtrOutput `pulumi:"identity"`
-	// ARM id of the key vault associated with this workspace. This cannot be changed once the workspace has been created
-	KeyVault pulumi.StringPtrOutput `pulumi:"keyVault"`
-	// Specifies the location of the resource.
-	Location pulumi.StringPtrOutput `pulumi:"location"`
-	// Specifies the name of the resource.
-	Name pulumi.StringOutput `pulumi:"name"`
-	// The current deployment state of workspace resource. The provisioningState is to indicate states for resource provisioning.
-	ProvisioningState pulumi.StringOutput `pulumi:"provisioningState"`
-	// ARM id of the storage account associated with this workspace. This cannot be changed once the workspace has been created
-	StorageAccount pulumi.StringPtrOutput `pulumi:"storageAccount"`
-	// Contains resource tags defined as key/value pairs.
-	Tags pulumi.StringMapOutput `pulumi:"tags"`
-	// Specifies the type of the resource.
-	Type pulumi.StringOutput `pulumi:"type"`
-	// The immutable id associated with this workspace.
-	WorkspaceId pulumi.StringOutput `pulumi:"workspaceId"`
+	ApplicationInsights pulumi.StringPtrOutput    `pulumi:"applicationInsights"`
+	BatchaiWorkspace    pulumi.StringPtrOutput    `pulumi:"batchaiWorkspace"`
+	ContainerRegistry   pulumi.StringPtrOutput    `pulumi:"containerRegistry"`
+	CreationTime        pulumi.StringOutput       `pulumi:"creationTime"`
+	Description         pulumi.StringPtrOutput    `pulumi:"description"`
+	DiscoveryUrl        pulumi.StringPtrOutput    `pulumi:"discoveryUrl"`
+	FriendlyName        pulumi.StringPtrOutput    `pulumi:"friendlyName"`
+	Identity            IdentityResponsePtrOutput `pulumi:"identity"`
+	KeyVault            pulumi.StringPtrOutput    `pulumi:"keyVault"`
+	Location            pulumi.StringPtrOutput    `pulumi:"location"`
+	Name                pulumi.StringOutput       `pulumi:"name"`
+	ProvisioningState   pulumi.StringOutput       `pulumi:"provisioningState"`
+	StorageAccount      pulumi.StringPtrOutput    `pulumi:"storageAccount"`
+	Tags                pulumi.StringMapOutput    `pulumi:"tags"`
+	Type                pulumi.StringOutput       `pulumi:"type"`
+	WorkspaceId         pulumi.StringOutput       `pulumi:"workspaceId"`
 }
 
 // NewWorkspace registers a new resource with the given unique name, arguments, and options.
@@ -205,62 +188,36 @@ func (WorkspaceState) ElementType() reflect.Type {
 }
 
 type workspaceArgs struct {
-	// ARM id of the application insights associated with this workspace. This cannot be changed once the workspace has been created
-	ApplicationInsights *string `pulumi:"applicationInsights"`
-	// ARM id of the Batch AI workspace associated with this workspace. This cannot be changed once the workspace has been created
-	BatchaiWorkspace *string `pulumi:"batchaiWorkspace"`
-	// ARM id of the container registry associated with this workspace. This cannot be changed once the workspace has been created
-	ContainerRegistry *string `pulumi:"containerRegistry"`
-	// The description of this workspace.
-	Description *string `pulumi:"description"`
-	// Url for the discovery service to identify regional endpoints for machine learning experimentation services
-	DiscoveryUrl *string `pulumi:"discoveryUrl"`
-	// The friendly name for this workspace. This name in mutable
-	FriendlyName *string `pulumi:"friendlyName"`
-	// The identity of the resource.
-	Identity *Identity `pulumi:"identity"`
-	// ARM id of the key vault associated with this workspace. This cannot be changed once the workspace has been created
-	KeyVault *string `pulumi:"keyVault"`
-	// Specifies the location of the resource.
-	Location *string `pulumi:"location"`
-	// Name of the resource group in which workspace is located.
-	ResourceGroupName string `pulumi:"resourceGroupName"`
-	// ARM id of the storage account associated with this workspace. This cannot be changed once the workspace has been created
-	StorageAccount *string `pulumi:"storageAccount"`
-	// Contains resource tags defined as key/value pairs.
-	Tags map[string]string `pulumi:"tags"`
-	// Name of Azure Machine Learning workspace.
-	WorkspaceName *string `pulumi:"workspaceName"`
+	ApplicationInsights *string           `pulumi:"applicationInsights"`
+	BatchaiWorkspace    *string           `pulumi:"batchaiWorkspace"`
+	ContainerRegistry   *string           `pulumi:"containerRegistry"`
+	Description         *string           `pulumi:"description"`
+	DiscoveryUrl        *string           `pulumi:"discoveryUrl"`
+	FriendlyName        *string           `pulumi:"friendlyName"`
+	Identity            *Identity         `pulumi:"identity"`
+	KeyVault            *string           `pulumi:"keyVault"`
+	Location            *string           `pulumi:"location"`
+	ResourceGroupName   string            `pulumi:"resourceGroupName"`
+	StorageAccount      *string           `pulumi:"storageAccount"`
+	Tags                map[string]string `pulumi:"tags"`
+	WorkspaceName       *string           `pulumi:"workspaceName"`
 }
 
 // The set of arguments for constructing a Workspace resource.
 type WorkspaceArgs struct {
-	// ARM id of the application insights associated with this workspace. This cannot be changed once the workspace has been created
 	ApplicationInsights pulumi.StringPtrInput
-	// ARM id of the Batch AI workspace associated with this workspace. This cannot be changed once the workspace has been created
-	BatchaiWorkspace pulumi.StringPtrInput
-	// ARM id of the container registry associated with this workspace. This cannot be changed once the workspace has been created
-	ContainerRegistry pulumi.StringPtrInput
-	// The description of this workspace.
-	Description pulumi.StringPtrInput
-	// Url for the discovery service to identify regional endpoints for machine learning experimentation services
-	DiscoveryUrl pulumi.StringPtrInput
-	// The friendly name for this workspace. This name in mutable
-	FriendlyName pulumi.StringPtrInput
-	// The identity of the resource.
-	Identity IdentityPtrInput
-	// ARM id of the key vault associated with this workspace. This cannot be changed once the workspace has been created
-	KeyVault pulumi.StringPtrInput
-	// Specifies the location of the resource.
-	Location pulumi.StringPtrInput
-	// Name of the resource group in which workspace is located.
-	ResourceGroupName pulumi.StringInput
-	// ARM id of the storage account associated with this workspace. This cannot be changed once the workspace has been created
-	StorageAccount pulumi.StringPtrInput
-	// Contains resource tags defined as key/value pairs.
-	Tags pulumi.StringMapInput
-	// Name of Azure Machine Learning workspace.
-	WorkspaceName pulumi.StringPtrInput
+	BatchaiWorkspace    pulumi.StringPtrInput
+	ContainerRegistry   pulumi.StringPtrInput
+	Description         pulumi.StringPtrInput
+	DiscoveryUrl        pulumi.StringPtrInput
+	FriendlyName        pulumi.StringPtrInput
+	Identity            IdentityPtrInput
+	KeyVault            pulumi.StringPtrInput
+	Location            pulumi.StringPtrInput
+	ResourceGroupName   pulumi.StringInput
+	StorageAccount      pulumi.StringPtrInput
+	Tags                pulumi.StringMapInput
+	WorkspaceName       pulumi.StringPtrInput
 }
 
 func (WorkspaceArgs) ElementType() reflect.Type {
@@ -286,9 +243,7 @@ func (i *Workspace) ToWorkspaceOutputWithContext(ctx context.Context) WorkspaceO
 	return pulumi.ToOutputWithContext(ctx, i).(WorkspaceOutput)
 }
 
-type WorkspaceOutput struct {
-	*pulumi.OutputState
-}
+type WorkspaceOutput struct{ *pulumi.OutputState }
 
 func (WorkspaceOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*Workspace)(nil))

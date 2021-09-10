@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.Insights.V20210701Preview.Outputs
 {
 
+    /// <summary>
+    /// Properties that define the scope private link mode settings exclusion item. This setting applies to a specific private endpoint connection and overrides the default settings for that private endpoint connection.
+    /// </summary>
     [OutputType]
     public sealed class AccessModeSettingsExclusionResponse
     {

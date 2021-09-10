@@ -7,7 +7,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Data Lake Analytics firewall rule information.
 func LookupFirewallRule(ctx *pulumi.Context, args *LookupFirewallRuleArgs, opts ...pulumi.InvokeOption) (*LookupFirewallRuleResult, error) {
 	var rv LookupFirewallRuleResult
 	err := ctx.Invoke("azure-native:datalakeanalytics/v20161101:getFirewallRule", args, &rv, opts...)
@@ -18,24 +17,16 @@ func LookupFirewallRule(ctx *pulumi.Context, args *LookupFirewallRuleArgs, opts 
 }
 
 type LookupFirewallRuleArgs struct {
-	// The name of the Data Lake Analytics account.
-	AccountName string `pulumi:"accountName"`
-	// The name of the firewall rule to retrieve.
-	FirewallRuleName string `pulumi:"firewallRuleName"`
-	// The name of the Azure resource group.
+	AccountName       string `pulumi:"accountName"`
+	FirewallRuleName  string `pulumi:"firewallRuleName"`
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 }
 
 // Data Lake Analytics firewall rule information.
 type LookupFirewallRuleResult struct {
-	// The end IP address for the firewall rule. This can be either ipv4 or ipv6. Start and End should be in the same protocol.
-	EndIpAddress string `pulumi:"endIpAddress"`
-	// The resource identifier.
-	Id string `pulumi:"id"`
-	// The resource name.
-	Name string `pulumi:"name"`
-	// The start IP address for the firewall rule. This can be either ipv4 or ipv6. Start and End should be in the same protocol.
+	EndIpAddress   string `pulumi:"endIpAddress"`
+	Id             string `pulumi:"id"`
+	Name           string `pulumi:"name"`
 	StartIpAddress string `pulumi:"startIpAddress"`
-	// The resource type.
-	Type string `pulumi:"type"`
+	Type           string `pulumi:"type"`
 }

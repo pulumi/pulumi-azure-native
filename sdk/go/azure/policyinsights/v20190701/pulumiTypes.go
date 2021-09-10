@@ -10,18 +10,12 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Error definition.
 type ErrorDefinitionResponse struct {
-	// Additional scenario specific error details.
-	AdditionalInfo []TypedErrorInfoResponse `pulumi:"additionalInfo"`
-	// Service specific error code which serves as the substatus for the HTTP error code.
-	Code string `pulumi:"code"`
-	// Internal error details.
-	Details []ErrorDefinitionResponse `pulumi:"details"`
-	// Description of the error.
-	Message string `pulumi:"message"`
-	// The target of the error.
-	Target string `pulumi:"target"`
+	AdditionalInfo []TypedErrorInfoResponse  `pulumi:"additionalInfo"`
+	Code           string                    `pulumi:"code"`
+	Details        []ErrorDefinitionResponse `pulumi:"details"`
+	Message        string                    `pulumi:"message"`
+	Target         string                    `pulumi:"target"`
 }
 
 // ErrorDefinitionResponseInput is an input type that accepts ErrorDefinitionResponseArgs and ErrorDefinitionResponseOutput values.
@@ -35,18 +29,12 @@ type ErrorDefinitionResponseInput interface {
 	ToErrorDefinitionResponseOutputWithContext(context.Context) ErrorDefinitionResponseOutput
 }
 
-// Error definition.
 type ErrorDefinitionResponseArgs struct {
-	// Additional scenario specific error details.
-	AdditionalInfo TypedErrorInfoResponseArrayInput `pulumi:"additionalInfo"`
-	// Service specific error code which serves as the substatus for the HTTP error code.
-	Code pulumi.StringInput `pulumi:"code"`
-	// Internal error details.
-	Details ErrorDefinitionResponseArrayInput `pulumi:"details"`
-	// Description of the error.
-	Message pulumi.StringInput `pulumi:"message"`
-	// The target of the error.
-	Target pulumi.StringInput `pulumi:"target"`
+	AdditionalInfo TypedErrorInfoResponseArrayInput  `pulumi:"additionalInfo"`
+	Code           pulumi.StringInput                `pulumi:"code"`
+	Details        ErrorDefinitionResponseArrayInput `pulumi:"details"`
+	Message        pulumi.StringInput                `pulumi:"message"`
+	Target         pulumi.StringInput                `pulumi:"target"`
 }
 
 func (ErrorDefinitionResponseArgs) ElementType() reflect.Type {
@@ -86,7 +74,6 @@ func (i ErrorDefinitionResponseArray) ToErrorDefinitionResponseArrayOutputWithCo
 	return pulumi.ToOutputWithContext(ctx, i).(ErrorDefinitionResponseArrayOutput)
 }
 
-// Error definition.
 type ErrorDefinitionResponseOutput struct{ *pulumi.OutputState }
 
 func (ErrorDefinitionResponseOutput) ElementType() reflect.Type {
@@ -101,27 +88,22 @@ func (o ErrorDefinitionResponseOutput) ToErrorDefinitionResponseOutputWithContex
 	return o
 }
 
-// Additional scenario specific error details.
 func (o ErrorDefinitionResponseOutput) AdditionalInfo() TypedErrorInfoResponseArrayOutput {
 	return o.ApplyT(func(v ErrorDefinitionResponse) []TypedErrorInfoResponse { return v.AdditionalInfo }).(TypedErrorInfoResponseArrayOutput)
 }
 
-// Service specific error code which serves as the substatus for the HTTP error code.
 func (o ErrorDefinitionResponseOutput) Code() pulumi.StringOutput {
 	return o.ApplyT(func(v ErrorDefinitionResponse) string { return v.Code }).(pulumi.StringOutput)
 }
 
-// Internal error details.
 func (o ErrorDefinitionResponseOutput) Details() ErrorDefinitionResponseArrayOutput {
 	return o.ApplyT(func(v ErrorDefinitionResponse) []ErrorDefinitionResponse { return v.Details }).(ErrorDefinitionResponseArrayOutput)
 }
 
-// Description of the error.
 func (o ErrorDefinitionResponseOutput) Message() pulumi.StringOutput {
 	return o.ApplyT(func(v ErrorDefinitionResponse) string { return v.Message }).(pulumi.StringOutput)
 }
 
-// The target of the error.
 func (o ErrorDefinitionResponseOutput) Target() pulumi.StringOutput {
 	return o.ApplyT(func(v ErrorDefinitionResponse) string { return v.Target }).(pulumi.StringOutput)
 }
@@ -146,22 +128,14 @@ func (o ErrorDefinitionResponseArrayOutput) Index(i pulumi.IntInput) ErrorDefini
 	}).(ErrorDefinitionResponseOutput)
 }
 
-// Details of a single deployment created by the remediation.
 type RemediationDeploymentResponse struct {
-	// The time at which the remediation was created.
-	CreatedOn string `pulumi:"createdOn"`
-	// Resource ID of the template deployment that will remediate the resource.
-	DeploymentId string `pulumi:"deploymentId"`
-	// Error encountered while remediated the resource.
-	Error ErrorDefinitionResponse `pulumi:"error"`
-	// The time at which the remediation deployment was last updated.
-	LastUpdatedOn string `pulumi:"lastUpdatedOn"`
-	// Resource ID of the resource that is being remediated by the deployment.
-	RemediatedResourceId string `pulumi:"remediatedResourceId"`
-	// Location of the resource that is being remediated.
-	ResourceLocation string `pulumi:"resourceLocation"`
-	// Status of the remediation deployment.
-	Status string `pulumi:"status"`
+	CreatedOn            string                  `pulumi:"createdOn"`
+	DeploymentId         string                  `pulumi:"deploymentId"`
+	Error                ErrorDefinitionResponse `pulumi:"error"`
+	LastUpdatedOn        string                  `pulumi:"lastUpdatedOn"`
+	RemediatedResourceId string                  `pulumi:"remediatedResourceId"`
+	ResourceLocation     string                  `pulumi:"resourceLocation"`
+	Status               string                  `pulumi:"status"`
 }
 
 // RemediationDeploymentResponseInput is an input type that accepts RemediationDeploymentResponseArgs and RemediationDeploymentResponseOutput values.
@@ -175,22 +149,14 @@ type RemediationDeploymentResponseInput interface {
 	ToRemediationDeploymentResponseOutputWithContext(context.Context) RemediationDeploymentResponseOutput
 }
 
-// Details of a single deployment created by the remediation.
 type RemediationDeploymentResponseArgs struct {
-	// The time at which the remediation was created.
-	CreatedOn pulumi.StringInput `pulumi:"createdOn"`
-	// Resource ID of the template deployment that will remediate the resource.
-	DeploymentId pulumi.StringInput `pulumi:"deploymentId"`
-	// Error encountered while remediated the resource.
-	Error ErrorDefinitionResponseInput `pulumi:"error"`
-	// The time at which the remediation deployment was last updated.
-	LastUpdatedOn pulumi.StringInput `pulumi:"lastUpdatedOn"`
-	// Resource ID of the resource that is being remediated by the deployment.
-	RemediatedResourceId pulumi.StringInput `pulumi:"remediatedResourceId"`
-	// Location of the resource that is being remediated.
-	ResourceLocation pulumi.StringInput `pulumi:"resourceLocation"`
-	// Status of the remediation deployment.
-	Status pulumi.StringInput `pulumi:"status"`
+	CreatedOn            pulumi.StringInput           `pulumi:"createdOn"`
+	DeploymentId         pulumi.StringInput           `pulumi:"deploymentId"`
+	Error                ErrorDefinitionResponseInput `pulumi:"error"`
+	LastUpdatedOn        pulumi.StringInput           `pulumi:"lastUpdatedOn"`
+	RemediatedResourceId pulumi.StringInput           `pulumi:"remediatedResourceId"`
+	ResourceLocation     pulumi.StringInput           `pulumi:"resourceLocation"`
+	Status               pulumi.StringInput           `pulumi:"status"`
 }
 
 func (RemediationDeploymentResponseArgs) ElementType() reflect.Type {
@@ -230,7 +196,6 @@ func (i RemediationDeploymentResponseArray) ToRemediationDeploymentResponseArray
 	return pulumi.ToOutputWithContext(ctx, i).(RemediationDeploymentResponseArrayOutput)
 }
 
-// Details of a single deployment created by the remediation.
 type RemediationDeploymentResponseOutput struct{ *pulumi.OutputState }
 
 func (RemediationDeploymentResponseOutput) ElementType() reflect.Type {
@@ -245,37 +210,30 @@ func (o RemediationDeploymentResponseOutput) ToRemediationDeploymentResponseOutp
 	return o
 }
 
-// The time at which the remediation was created.
 func (o RemediationDeploymentResponseOutput) CreatedOn() pulumi.StringOutput {
 	return o.ApplyT(func(v RemediationDeploymentResponse) string { return v.CreatedOn }).(pulumi.StringOutput)
 }
 
-// Resource ID of the template deployment that will remediate the resource.
 func (o RemediationDeploymentResponseOutput) DeploymentId() pulumi.StringOutput {
 	return o.ApplyT(func(v RemediationDeploymentResponse) string { return v.DeploymentId }).(pulumi.StringOutput)
 }
 
-// Error encountered while remediated the resource.
 func (o RemediationDeploymentResponseOutput) Error() ErrorDefinitionResponseOutput {
 	return o.ApplyT(func(v RemediationDeploymentResponse) ErrorDefinitionResponse { return v.Error }).(ErrorDefinitionResponseOutput)
 }
 
-// The time at which the remediation deployment was last updated.
 func (o RemediationDeploymentResponseOutput) LastUpdatedOn() pulumi.StringOutput {
 	return o.ApplyT(func(v RemediationDeploymentResponse) string { return v.LastUpdatedOn }).(pulumi.StringOutput)
 }
 
-// Resource ID of the resource that is being remediated by the deployment.
 func (o RemediationDeploymentResponseOutput) RemediatedResourceId() pulumi.StringOutput {
 	return o.ApplyT(func(v RemediationDeploymentResponse) string { return v.RemediatedResourceId }).(pulumi.StringOutput)
 }
 
-// Location of the resource that is being remediated.
 func (o RemediationDeploymentResponseOutput) ResourceLocation() pulumi.StringOutput {
 	return o.ApplyT(func(v RemediationDeploymentResponse) string { return v.ResourceLocation }).(pulumi.StringOutput)
 }
 
-// Status of the remediation deployment.
 func (o RemediationDeploymentResponseOutput) Status() pulumi.StringOutput {
 	return o.ApplyT(func(v RemediationDeploymentResponse) string { return v.Status }).(pulumi.StringOutput)
 }
@@ -300,14 +258,10 @@ func (o RemediationDeploymentResponseArrayOutput) Index(i pulumi.IntInput) Remed
 	}).(RemediationDeploymentResponseOutput)
 }
 
-// The deployment status summary for all deployments created by the remediation.
 type RemediationDeploymentSummaryResponse struct {
-	// The number of deployments required by the remediation that have failed.
-	FailedDeployments int `pulumi:"failedDeployments"`
-	// The number of deployments required by the remediation that have succeeded.
+	FailedDeployments     int `pulumi:"failedDeployments"`
 	SuccessfulDeployments int `pulumi:"successfulDeployments"`
-	// The number of deployments required by the remediation.
-	TotalDeployments int `pulumi:"totalDeployments"`
+	TotalDeployments      int `pulumi:"totalDeployments"`
 }
 
 // RemediationDeploymentSummaryResponseInput is an input type that accepts RemediationDeploymentSummaryResponseArgs and RemediationDeploymentSummaryResponseOutput values.
@@ -321,14 +275,10 @@ type RemediationDeploymentSummaryResponseInput interface {
 	ToRemediationDeploymentSummaryResponseOutputWithContext(context.Context) RemediationDeploymentSummaryResponseOutput
 }
 
-// The deployment status summary for all deployments created by the remediation.
 type RemediationDeploymentSummaryResponseArgs struct {
-	// The number of deployments required by the remediation that have failed.
-	FailedDeployments pulumi.IntInput `pulumi:"failedDeployments"`
-	// The number of deployments required by the remediation that have succeeded.
+	FailedDeployments     pulumi.IntInput `pulumi:"failedDeployments"`
 	SuccessfulDeployments pulumi.IntInput `pulumi:"successfulDeployments"`
-	// The number of deployments required by the remediation.
-	TotalDeployments pulumi.IntInput `pulumi:"totalDeployments"`
+	TotalDeployments      pulumi.IntInput `pulumi:"totalDeployments"`
 }
 
 func (RemediationDeploymentSummaryResponseArgs) ElementType() reflect.Type {
@@ -384,7 +334,6 @@ func (i *remediationDeploymentSummaryResponsePtrType) ToRemediationDeploymentSum
 	return pulumi.ToOutputWithContext(ctx, i).(RemediationDeploymentSummaryResponsePtrOutput)
 }
 
-// The deployment status summary for all deployments created by the remediation.
 type RemediationDeploymentSummaryResponseOutput struct{ *pulumi.OutputState }
 
 func (RemediationDeploymentSummaryResponseOutput) ElementType() reflect.Type {
@@ -404,22 +353,19 @@ func (o RemediationDeploymentSummaryResponseOutput) ToRemediationDeploymentSumma
 }
 
 func (o RemediationDeploymentSummaryResponseOutput) ToRemediationDeploymentSummaryResponsePtrOutputWithContext(ctx context.Context) RemediationDeploymentSummaryResponsePtrOutput {
-	return o.ApplyT(func(v RemediationDeploymentSummaryResponse) *RemediationDeploymentSummaryResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v RemediationDeploymentSummaryResponse) *RemediationDeploymentSummaryResponse {
 		return &v
 	}).(RemediationDeploymentSummaryResponsePtrOutput)
 }
 
-// The number of deployments required by the remediation that have failed.
 func (o RemediationDeploymentSummaryResponseOutput) FailedDeployments() pulumi.IntOutput {
 	return o.ApplyT(func(v RemediationDeploymentSummaryResponse) int { return v.FailedDeployments }).(pulumi.IntOutput)
 }
 
-// The number of deployments required by the remediation that have succeeded.
 func (o RemediationDeploymentSummaryResponseOutput) SuccessfulDeployments() pulumi.IntOutput {
 	return o.ApplyT(func(v RemediationDeploymentSummaryResponse) int { return v.SuccessfulDeployments }).(pulumi.IntOutput)
 }
 
-// The number of deployments required by the remediation.
 func (o RemediationDeploymentSummaryResponseOutput) TotalDeployments() pulumi.IntOutput {
 	return o.ApplyT(func(v RemediationDeploymentSummaryResponse) int { return v.TotalDeployments }).(pulumi.IntOutput)
 }
@@ -439,10 +385,15 @@ func (o RemediationDeploymentSummaryResponsePtrOutput) ToRemediationDeploymentSu
 }
 
 func (o RemediationDeploymentSummaryResponsePtrOutput) Elem() RemediationDeploymentSummaryResponseOutput {
-	return o.ApplyT(func(v *RemediationDeploymentSummaryResponse) RemediationDeploymentSummaryResponse { return *v }).(RemediationDeploymentSummaryResponseOutput)
+	return o.ApplyT(func(v *RemediationDeploymentSummaryResponse) RemediationDeploymentSummaryResponse {
+		if v != nil {
+			return *v
+		}
+		var ret RemediationDeploymentSummaryResponse
+		return ret
+	}).(RemediationDeploymentSummaryResponseOutput)
 }
 
-// The number of deployments required by the remediation that have failed.
 func (o RemediationDeploymentSummaryResponsePtrOutput) FailedDeployments() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *RemediationDeploymentSummaryResponse) *int {
 		if v == nil {
@@ -452,7 +403,6 @@ func (o RemediationDeploymentSummaryResponsePtrOutput) FailedDeployments() pulum
 	}).(pulumi.IntPtrOutput)
 }
 
-// The number of deployments required by the remediation that have succeeded.
 func (o RemediationDeploymentSummaryResponsePtrOutput) SuccessfulDeployments() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *RemediationDeploymentSummaryResponse) *int {
 		if v == nil {
@@ -462,7 +412,6 @@ func (o RemediationDeploymentSummaryResponsePtrOutput) SuccessfulDeployments() p
 	}).(pulumi.IntPtrOutput)
 }
 
-// The number of deployments required by the remediation.
 func (o RemediationDeploymentSummaryResponsePtrOutput) TotalDeployments() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *RemediationDeploymentSummaryResponse) *int {
 		if v == nil {
@@ -472,9 +421,7 @@ func (o RemediationDeploymentSummaryResponsePtrOutput) TotalDeployments() pulumi
 	}).(pulumi.IntPtrOutput)
 }
 
-// The filters that will be applied to determine which resources to remediate.
 type RemediationFilters struct {
-	// The resource locations that will be remediated.
 	Locations []string `pulumi:"locations"`
 }
 
@@ -489,9 +436,7 @@ type RemediationFiltersInput interface {
 	ToRemediationFiltersOutputWithContext(context.Context) RemediationFiltersOutput
 }
 
-// The filters that will be applied to determine which resources to remediate.
 type RemediationFiltersArgs struct {
-	// The resource locations that will be remediated.
 	Locations pulumi.StringArrayInput `pulumi:"locations"`
 }
 
@@ -548,7 +493,6 @@ func (i *remediationFiltersPtrType) ToRemediationFiltersPtrOutputWithContext(ctx
 	return pulumi.ToOutputWithContext(ctx, i).(RemediationFiltersPtrOutput)
 }
 
-// The filters that will be applied to determine which resources to remediate.
 type RemediationFiltersOutput struct{ *pulumi.OutputState }
 
 func (RemediationFiltersOutput) ElementType() reflect.Type {
@@ -568,12 +512,11 @@ func (o RemediationFiltersOutput) ToRemediationFiltersPtrOutput() RemediationFil
 }
 
 func (o RemediationFiltersOutput) ToRemediationFiltersPtrOutputWithContext(ctx context.Context) RemediationFiltersPtrOutput {
-	return o.ApplyT(func(v RemediationFilters) *RemediationFilters {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v RemediationFilters) *RemediationFilters {
 		return &v
 	}).(RemediationFiltersPtrOutput)
 }
 
-// The resource locations that will be remediated.
 func (o RemediationFiltersOutput) Locations() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v RemediationFilters) []string { return v.Locations }).(pulumi.StringArrayOutput)
 }
@@ -593,10 +536,15 @@ func (o RemediationFiltersPtrOutput) ToRemediationFiltersPtrOutputWithContext(ct
 }
 
 func (o RemediationFiltersPtrOutput) Elem() RemediationFiltersOutput {
-	return o.ApplyT(func(v *RemediationFilters) RemediationFilters { return *v }).(RemediationFiltersOutput)
+	return o.ApplyT(func(v *RemediationFilters) RemediationFilters {
+		if v != nil {
+			return *v
+		}
+		var ret RemediationFilters
+		return ret
+	}).(RemediationFiltersOutput)
 }
 
-// The resource locations that will be remediated.
 func (o RemediationFiltersPtrOutput) Locations() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *RemediationFilters) []string {
 		if v == nil {
@@ -606,9 +554,7 @@ func (o RemediationFiltersPtrOutput) Locations() pulumi.StringArrayOutput {
 	}).(pulumi.StringArrayOutput)
 }
 
-// The filters that will be applied to determine which resources to remediate.
 type RemediationFiltersResponse struct {
-	// The resource locations that will be remediated.
 	Locations []string `pulumi:"locations"`
 }
 
@@ -623,9 +569,7 @@ type RemediationFiltersResponseInput interface {
 	ToRemediationFiltersResponseOutputWithContext(context.Context) RemediationFiltersResponseOutput
 }
 
-// The filters that will be applied to determine which resources to remediate.
 type RemediationFiltersResponseArgs struct {
-	// The resource locations that will be remediated.
 	Locations pulumi.StringArrayInput `pulumi:"locations"`
 }
 
@@ -682,7 +626,6 @@ func (i *remediationFiltersResponsePtrType) ToRemediationFiltersResponsePtrOutpu
 	return pulumi.ToOutputWithContext(ctx, i).(RemediationFiltersResponsePtrOutput)
 }
 
-// The filters that will be applied to determine which resources to remediate.
 type RemediationFiltersResponseOutput struct{ *pulumi.OutputState }
 
 func (RemediationFiltersResponseOutput) ElementType() reflect.Type {
@@ -702,12 +645,11 @@ func (o RemediationFiltersResponseOutput) ToRemediationFiltersResponsePtrOutput(
 }
 
 func (o RemediationFiltersResponseOutput) ToRemediationFiltersResponsePtrOutputWithContext(ctx context.Context) RemediationFiltersResponsePtrOutput {
-	return o.ApplyT(func(v RemediationFiltersResponse) *RemediationFiltersResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v RemediationFiltersResponse) *RemediationFiltersResponse {
 		return &v
 	}).(RemediationFiltersResponsePtrOutput)
 }
 
-// The resource locations that will be remediated.
 func (o RemediationFiltersResponseOutput) Locations() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v RemediationFiltersResponse) []string { return v.Locations }).(pulumi.StringArrayOutput)
 }
@@ -727,10 +669,15 @@ func (o RemediationFiltersResponsePtrOutput) ToRemediationFiltersResponsePtrOutp
 }
 
 func (o RemediationFiltersResponsePtrOutput) Elem() RemediationFiltersResponseOutput {
-	return o.ApplyT(func(v *RemediationFiltersResponse) RemediationFiltersResponse { return *v }).(RemediationFiltersResponseOutput)
+	return o.ApplyT(func(v *RemediationFiltersResponse) RemediationFiltersResponse {
+		if v != nil {
+			return *v
+		}
+		var ret RemediationFiltersResponse
+		return ret
+	}).(RemediationFiltersResponseOutput)
 }
 
-// The resource locations that will be remediated.
 func (o RemediationFiltersResponsePtrOutput) Locations() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *RemediationFiltersResponse) []string {
 		if v == nil {
@@ -740,12 +687,9 @@ func (o RemediationFiltersResponsePtrOutput) Locations() pulumi.StringArrayOutpu
 	}).(pulumi.StringArrayOutput)
 }
 
-// Scenario specific error details.
 type TypedErrorInfoResponse struct {
-	// The scenario specific error details.
 	Info interface{} `pulumi:"info"`
-	// The type of included error details.
-	Type string `pulumi:"type"`
+	Type string      `pulumi:"type"`
 }
 
 // TypedErrorInfoResponseInput is an input type that accepts TypedErrorInfoResponseArgs and TypedErrorInfoResponseOutput values.
@@ -759,11 +703,8 @@ type TypedErrorInfoResponseInput interface {
 	ToTypedErrorInfoResponseOutputWithContext(context.Context) TypedErrorInfoResponseOutput
 }
 
-// Scenario specific error details.
 type TypedErrorInfoResponseArgs struct {
-	// The scenario specific error details.
-	Info pulumi.Input `pulumi:"info"`
-	// The type of included error details.
+	Info pulumi.Input       `pulumi:"info"`
 	Type pulumi.StringInput `pulumi:"type"`
 }
 
@@ -804,7 +745,6 @@ func (i TypedErrorInfoResponseArray) ToTypedErrorInfoResponseArrayOutputWithCont
 	return pulumi.ToOutputWithContext(ctx, i).(TypedErrorInfoResponseArrayOutput)
 }
 
-// Scenario specific error details.
 type TypedErrorInfoResponseOutput struct{ *pulumi.OutputState }
 
 func (TypedErrorInfoResponseOutput) ElementType() reflect.Type {
@@ -819,12 +759,10 @@ func (o TypedErrorInfoResponseOutput) ToTypedErrorInfoResponseOutputWithContext(
 	return o
 }
 
-// The scenario specific error details.
 func (o TypedErrorInfoResponseOutput) Info() pulumi.AnyOutput {
 	return o.ApplyT(func(v TypedErrorInfoResponse) interface{} { return v.Info }).(pulumi.AnyOutput)
 }
 
-// The type of included error details.
 func (o TypedErrorInfoResponseOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v TypedErrorInfoResponse) string { return v.Type }).(pulumi.StringOutput)
 }

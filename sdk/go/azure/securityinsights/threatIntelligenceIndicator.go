@@ -260,9 +260,7 @@ func (i *ThreatIntelligenceIndicator) ToThreatIntelligenceIndicatorOutputWithCon
 	return pulumi.ToOutputWithContext(ctx, i).(ThreatIntelligenceIndicatorOutput)
 }
 
-type ThreatIntelligenceIndicatorOutput struct {
-	*pulumi.OutputState
-}
+type ThreatIntelligenceIndicatorOutput struct{ *pulumi.OutputState }
 
 func (ThreatIntelligenceIndicatorOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*ThreatIntelligenceIndicator)(nil))

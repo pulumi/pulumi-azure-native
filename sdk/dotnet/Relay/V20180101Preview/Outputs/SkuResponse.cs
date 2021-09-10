@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.Relay.V20180101Preview.Outputs
 {
 
+    /// <summary>
+    /// SKU of the namespace.
+    /// </summary>
     [OutputType]
     public sealed class SkuResponse
     {

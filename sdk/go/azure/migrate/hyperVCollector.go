@@ -123,9 +123,7 @@ func (i *HyperVCollector) ToHyperVCollectorOutputWithContext(ctx context.Context
 	return pulumi.ToOutputWithContext(ctx, i).(HyperVCollectorOutput)
 }
 
-type HyperVCollectorOutput struct {
-	*pulumi.OutputState
-}
+type HyperVCollectorOutput struct{ *pulumi.OutputState }
 
 func (HyperVCollectorOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*HyperVCollector)(nil))

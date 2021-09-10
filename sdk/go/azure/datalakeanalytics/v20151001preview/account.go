@@ -11,72 +11,40 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// A Data Lake Analytics account object, containing all information associated with the named Data Lake Analytics account.
 type Account struct {
 	pulumi.CustomResourceState
 
-	// The unique identifier associated with this Data Lake Analytics account.
-	AccountId pulumi.StringOutput `pulumi:"accountId"`
-	// The list of compute policies associated with this account.
-	ComputePolicies ComputePolicyResponseArrayOutput `pulumi:"computePolicies"`
-	// The account creation time.
-	CreationTime pulumi.StringOutput `pulumi:"creationTime"`
-	// The commitment tier in use for the current month.
-	CurrentTier pulumi.StringOutput `pulumi:"currentTier"`
-	// The list of Data Lake Store accounts associated with this account.
-	DataLakeStoreAccounts DataLakeStoreAccountInformationResponseArrayOutput `pulumi:"dataLakeStoreAccounts"`
-	// The current state of the DebugDataAccessLevel for this account.
-	DebugDataAccessLevel pulumi.StringOutput `pulumi:"debugDataAccessLevel"`
-	// The default Data Lake Store account associated with this account.
-	DefaultDataLakeStoreAccount pulumi.StringOutput `pulumi:"defaultDataLakeStoreAccount"`
-	// The full CName endpoint for this account.
-	Endpoint pulumi.StringOutput `pulumi:"endpoint"`
-	// The current state of allowing or disallowing IPs originating within Azure through the firewall. If the firewall is disabled, this is not enforced.
-	FirewallAllowAzureIps pulumi.StringPtrOutput `pulumi:"firewallAllowAzureIps"`
-	// The list of firewall rules associated with this account.
-	FirewallRules FirewallRuleResponseArrayOutput `pulumi:"firewallRules"`
-	// The current state of the IP address firewall for this account.
-	FirewallState pulumi.StringPtrOutput `pulumi:"firewallState"`
-	// The hierarchical queue state associated with this account.
-	HierarchicalQueueState pulumi.StringOutput `pulumi:"hierarchicalQueueState"`
-	// The list of hiveMetastores associated with this account.
-	HiveMetastores HiveMetastoreResponseArrayOutput `pulumi:"hiveMetastores"`
-	// The account last modified time.
-	LastModifiedTime pulumi.StringOutput `pulumi:"lastModifiedTime"`
-	// The resource location.
-	Location pulumi.StringOutput `pulumi:"location"`
-	// The maximum supported degree of parallelism for this account.
-	MaxDegreeOfParallelism pulumi.IntPtrOutput `pulumi:"maxDegreeOfParallelism"`
-	// The maximum supported degree of parallelism per job for this account.
-	MaxDegreeOfParallelismPerJob pulumi.IntPtrOutput `pulumi:"maxDegreeOfParallelismPerJob"`
-	// The maximum supported jobs running under the account at the same time.
-	MaxJobCount pulumi.IntPtrOutput `pulumi:"maxJobCount"`
-	// The minimum supported priority per job for this account.
-	MinPriorityPerJob pulumi.IntOutput `pulumi:"minPriorityPerJob"`
-	// The resource name.
-	Name pulumi.StringOutput `pulumi:"name"`
-	// The commitment tier for the next month.
-	NewTier pulumi.StringPtrOutput `pulumi:"newTier"`
-	// The provisioning status of the Data Lake Analytics account.
-	ProvisioningState pulumi.StringOutput `pulumi:"provisioningState"`
-	// The list of Data Lake Store accounts associated with this account.
-	PublicDataLakeStoreAccounts DataLakeStoreAccountInformationResponseArrayOutput `pulumi:"publicDataLakeStoreAccounts"`
-	// The number of days that job metadata is retained.
-	QueryStoreRetention pulumi.IntPtrOutput `pulumi:"queryStoreRetention"`
-	// The state of the Data Lake Analytics account.
-	State pulumi.StringOutput `pulumi:"state"`
-	// The list of Azure Blob Storage accounts associated with this account.
-	StorageAccounts StorageAccountInformationResponseArrayOutput `pulumi:"storageAccounts"`
-	// The system defined maximum supported degree of parallelism for this account, which restricts the maximum value of parallelism the user can set for the account.
-	SystemMaxDegreeOfParallelism pulumi.IntOutput `pulumi:"systemMaxDegreeOfParallelism"`
-	// The system defined maximum supported jobs running under the account at the same time, which restricts the maximum number of running jobs the user can set for the account.
-	SystemMaxJobCount pulumi.IntOutput `pulumi:"systemMaxJobCount"`
-	// The resource tags.
-	Tags pulumi.StringMapOutput `pulumi:"tags"`
-	// The resource type.
-	Type pulumi.StringOutput `pulumi:"type"`
-	// The list of virtualNetwork rules associated with this account.
-	VirtualNetworkRules VirtualNetworkRuleResponseArrayOutput `pulumi:"virtualNetworkRules"`
+	AccountId                    pulumi.StringOutput                                `pulumi:"accountId"`
+	ComputePolicies              ComputePolicyResponseArrayOutput                   `pulumi:"computePolicies"`
+	CreationTime                 pulumi.StringOutput                                `pulumi:"creationTime"`
+	CurrentTier                  pulumi.StringOutput                                `pulumi:"currentTier"`
+	DataLakeStoreAccounts        DataLakeStoreAccountInformationResponseArrayOutput `pulumi:"dataLakeStoreAccounts"`
+	DebugDataAccessLevel         pulumi.StringOutput                                `pulumi:"debugDataAccessLevel"`
+	DefaultDataLakeStoreAccount  pulumi.StringOutput                                `pulumi:"defaultDataLakeStoreAccount"`
+	Endpoint                     pulumi.StringOutput                                `pulumi:"endpoint"`
+	FirewallAllowAzureIps        pulumi.StringPtrOutput                             `pulumi:"firewallAllowAzureIps"`
+	FirewallRules                FirewallRuleResponseArrayOutput                    `pulumi:"firewallRules"`
+	FirewallState                pulumi.StringPtrOutput                             `pulumi:"firewallState"`
+	HierarchicalQueueState       pulumi.StringOutput                                `pulumi:"hierarchicalQueueState"`
+	HiveMetastores               HiveMetastoreResponseArrayOutput                   `pulumi:"hiveMetastores"`
+	LastModifiedTime             pulumi.StringOutput                                `pulumi:"lastModifiedTime"`
+	Location                     pulumi.StringOutput                                `pulumi:"location"`
+	MaxDegreeOfParallelism       pulumi.IntPtrOutput                                `pulumi:"maxDegreeOfParallelism"`
+	MaxDegreeOfParallelismPerJob pulumi.IntPtrOutput                                `pulumi:"maxDegreeOfParallelismPerJob"`
+	MaxJobCount                  pulumi.IntPtrOutput                                `pulumi:"maxJobCount"`
+	MinPriorityPerJob            pulumi.IntOutput                                   `pulumi:"minPriorityPerJob"`
+	Name                         pulumi.StringOutput                                `pulumi:"name"`
+	NewTier                      pulumi.StringPtrOutput                             `pulumi:"newTier"`
+	ProvisioningState            pulumi.StringOutput                                `pulumi:"provisioningState"`
+	PublicDataLakeStoreAccounts  DataLakeStoreAccountInformationResponseArrayOutput `pulumi:"publicDataLakeStoreAccounts"`
+	QueryStoreRetention          pulumi.IntPtrOutput                                `pulumi:"queryStoreRetention"`
+	State                        pulumi.StringOutput                                `pulumi:"state"`
+	StorageAccounts              StorageAccountInformationResponseArrayOutput       `pulumi:"storageAccounts"`
+	SystemMaxDegreeOfParallelism pulumi.IntOutput                                   `pulumi:"systemMaxDegreeOfParallelism"`
+	SystemMaxJobCount            pulumi.IntOutput                                   `pulumi:"systemMaxJobCount"`
+	Tags                         pulumi.StringMapOutput                             `pulumi:"tags"`
+	Type                         pulumi.StringOutput                                `pulumi:"type"`
+	VirtualNetworkRules          VirtualNetworkRuleResponseArrayOutput              `pulumi:"virtualNetworkRules"`
 }
 
 // NewAccount registers a new resource with the given unique name, arguments, and options.
@@ -96,12 +64,10 @@ func NewAccount(ctx *pulumi.Context,
 		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
 	}
 	if args.FirewallAllowAzureIps == nil {
-		e := FirewallAllowAzureIpsState("Disabled")
-		args.FirewallAllowAzureIps = &e
+		args.FirewallAllowAzureIps = FirewallAllowAzureIpsState("Disabled")
 	}
 	if args.FirewallState == nil {
-		e := FirewallState("Disabled")
-		args.FirewallState = &e
+		args.FirewallState = FirewallState("Disabled")
 	}
 	if args.MaxDegreeOfParallelismPerJob == nil {
 		args.MaxDegreeOfParallelismPerJob = pulumi.IntPtr(32)
@@ -110,8 +76,7 @@ func NewAccount(ctx *pulumi.Context,
 		args.MaxJobCount = pulumi.IntPtr(20)
 	}
 	if args.NewTier == nil {
-		e := TierType("Consumption")
-		args.NewTier = &e
+		args.NewTier = TierType("Consumption")
 	}
 	if args.QueryStoreRetention == nil {
 		args.QueryStoreRetention = pulumi.IntPtr(30)
@@ -166,78 +131,44 @@ func (AccountState) ElementType() reflect.Type {
 }
 
 type accountArgs struct {
-	// The name of the Data Lake Analytics account to retrieve.
-	AccountName *string `pulumi:"accountName"`
-	// The list of compute policies associated with this account.
-	ComputePolicies []CreateComputePolicyWithAccountParameters `pulumi:"computePolicies"`
-	// The list of Data Lake Store accounts associated with this account.
-	DataLakeStoreAccounts []AddDataLakeStoreWithAccountParameters `pulumi:"dataLakeStoreAccounts"`
-	// The default Data Lake Store account associated with this account.
-	DefaultDataLakeStoreAccount string `pulumi:"defaultDataLakeStoreAccount"`
-	// The current state of allowing or disallowing IPs originating within Azure through the firewall. If the firewall is disabled, this is not enforced.
-	FirewallAllowAzureIps *string `pulumi:"firewallAllowAzureIps"`
-	// The list of firewall rules associated with this account.
-	FirewallRules []CreateFirewallRuleWithAccountParameters `pulumi:"firewallRules"`
-	// The current state of the IP address firewall for this account.
-	FirewallState *string `pulumi:"firewallState"`
-	// The resource location.
-	Location *string `pulumi:"location"`
-	// The maximum supported degree of parallelism for this account.
-	MaxDegreeOfParallelism *int `pulumi:"maxDegreeOfParallelism"`
-	// The maximum supported degree of parallelism per job for this account.
-	MaxDegreeOfParallelismPerJob *int `pulumi:"maxDegreeOfParallelismPerJob"`
-	// The maximum supported jobs running under the account at the same time.
-	MaxJobCount *int `pulumi:"maxJobCount"`
-	// The minimum supported priority per job for this account.
-	MinPriorityPerJob *int `pulumi:"minPriorityPerJob"`
-	// The commitment tier for the next month.
-	NewTier *string `pulumi:"newTier"`
-	// The number of days that job metadata is retained.
-	QueryStoreRetention *int `pulumi:"queryStoreRetention"`
-	// The name of the Azure resource group.
-	ResourceGroupName string `pulumi:"resourceGroupName"`
-	// The list of Azure Blob Storage accounts associated with this account.
-	StorageAccounts []AddStorageAccountWithAccountParameters `pulumi:"storageAccounts"`
-	// The resource tags.
-	Tags map[string]string `pulumi:"tags"`
+	AccountName                  *string                                    `pulumi:"accountName"`
+	ComputePolicies              []CreateComputePolicyWithAccountParameters `pulumi:"computePolicies"`
+	DataLakeStoreAccounts        []AddDataLakeStoreWithAccountParameters    `pulumi:"dataLakeStoreAccounts"`
+	DefaultDataLakeStoreAccount  string                                     `pulumi:"defaultDataLakeStoreAccount"`
+	FirewallAllowAzureIps        *FirewallAllowAzureIpsState                `pulumi:"firewallAllowAzureIps"`
+	FirewallRules                []CreateFirewallRuleWithAccountParameters  `pulumi:"firewallRules"`
+	FirewallState                *FirewallState                             `pulumi:"firewallState"`
+	Location                     *string                                    `pulumi:"location"`
+	MaxDegreeOfParallelism       *int                                       `pulumi:"maxDegreeOfParallelism"`
+	MaxDegreeOfParallelismPerJob *int                                       `pulumi:"maxDegreeOfParallelismPerJob"`
+	MaxJobCount                  *int                                       `pulumi:"maxJobCount"`
+	MinPriorityPerJob            *int                                       `pulumi:"minPriorityPerJob"`
+	NewTier                      *TierType                                  `pulumi:"newTier"`
+	QueryStoreRetention          *int                                       `pulumi:"queryStoreRetention"`
+	ResourceGroupName            string                                     `pulumi:"resourceGroupName"`
+	StorageAccounts              []AddStorageAccountWithAccountParameters   `pulumi:"storageAccounts"`
+	Tags                         map[string]string                          `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a Account resource.
 type AccountArgs struct {
-	// The name of the Data Lake Analytics account to retrieve.
-	AccountName pulumi.StringPtrInput
-	// The list of compute policies associated with this account.
-	ComputePolicies CreateComputePolicyWithAccountParametersArrayInput
-	// The list of Data Lake Store accounts associated with this account.
-	DataLakeStoreAccounts AddDataLakeStoreWithAccountParametersArrayInput
-	// The default Data Lake Store account associated with this account.
-	DefaultDataLakeStoreAccount pulumi.StringInput
-	// The current state of allowing or disallowing IPs originating within Azure through the firewall. If the firewall is disabled, this is not enforced.
-	FirewallAllowAzureIps *FirewallAllowAzureIpsState
-	// The list of firewall rules associated with this account.
-	FirewallRules CreateFirewallRuleWithAccountParametersArrayInput
-	// The current state of the IP address firewall for this account.
-	FirewallState *FirewallState
-	// The resource location.
-	Location pulumi.StringPtrInput
-	// The maximum supported degree of parallelism for this account.
-	MaxDegreeOfParallelism pulumi.IntPtrInput
-	// The maximum supported degree of parallelism per job for this account.
+	AccountName                  pulumi.StringPtrInput
+	ComputePolicies              CreateComputePolicyWithAccountParametersArrayInput
+	DataLakeStoreAccounts        AddDataLakeStoreWithAccountParametersArrayInput
+	DefaultDataLakeStoreAccount  pulumi.StringInput
+	FirewallAllowAzureIps        FirewallAllowAzureIpsStatePtrInput
+	FirewallRules                CreateFirewallRuleWithAccountParametersArrayInput
+	FirewallState                FirewallStatePtrInput
+	Location                     pulumi.StringPtrInput
+	MaxDegreeOfParallelism       pulumi.IntPtrInput
 	MaxDegreeOfParallelismPerJob pulumi.IntPtrInput
-	// The maximum supported jobs running under the account at the same time.
-	MaxJobCount pulumi.IntPtrInput
-	// The minimum supported priority per job for this account.
-	MinPriorityPerJob pulumi.IntPtrInput
-	// The commitment tier for the next month.
-	NewTier *TierType
-	// The number of days that job metadata is retained.
-	QueryStoreRetention pulumi.IntPtrInput
-	// The name of the Azure resource group.
-	ResourceGroupName pulumi.StringInput
-	// The list of Azure Blob Storage accounts associated with this account.
-	StorageAccounts AddStorageAccountWithAccountParametersArrayInput
-	// The resource tags.
-	Tags pulumi.StringMapInput
+	MaxJobCount                  pulumi.IntPtrInput
+	MinPriorityPerJob            pulumi.IntPtrInput
+	NewTier                      TierTypePtrInput
+	QueryStoreRetention          pulumi.IntPtrInput
+	ResourceGroupName            pulumi.StringInput
+	StorageAccounts              AddStorageAccountWithAccountParametersArrayInput
+	Tags                         pulumi.StringMapInput
 }
 
 func (AccountArgs) ElementType() reflect.Type {
@@ -263,9 +194,7 @@ func (i *Account) ToAccountOutputWithContext(ctx context.Context) AccountOutput 
 	return pulumi.ToOutputWithContext(ctx, i).(AccountOutput)
 }
 
-type AccountOutput struct {
-	*pulumi.OutputState
-}
+type AccountOutput struct{ *pulumi.OutputState }
 
 func (AccountOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*Account)(nil))

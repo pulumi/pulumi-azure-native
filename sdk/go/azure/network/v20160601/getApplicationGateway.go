@@ -7,7 +7,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// ApplicationGateways resource
 func LookupApplicationGateway(ctx *pulumi.Context, args *LookupApplicationGatewayArgs, opts ...pulumi.InvokeOption) (*LookupApplicationGatewayResult, error) {
 	var rv LookupApplicationGatewayResult
 	err := ctx.Invoke("azure-native:network/v20160601:getApplicationGateway", args, &rv, opts...)
@@ -18,56 +17,32 @@ func LookupApplicationGateway(ctx *pulumi.Context, args *LookupApplicationGatewa
 }
 
 type LookupApplicationGatewayArgs struct {
-	// The name of the application gateway.
 	ApplicationGatewayName string `pulumi:"applicationGatewayName"`
-	// The name of the resource group.
-	ResourceGroupName string `pulumi:"resourceGroupName"`
+	ResourceGroupName      string `pulumi:"resourceGroupName"`
 }
 
 // ApplicationGateways resource
 type LookupApplicationGatewayResult struct {
-	// Authentication certificates of application gateway resource
-	AuthenticationCertificates []ApplicationGatewayAuthenticationCertificateResponse `pulumi:"authenticationCertificates"`
-	// Backend address pool of application gateway resource
-	BackendAddressPools []ApplicationGatewayBackendAddressPoolResponse `pulumi:"backendAddressPools"`
-	// Backend http settings of application gateway resource
-	BackendHttpSettingsCollection []ApplicationGatewayBackendHttpSettingsResponse `pulumi:"backendHttpSettingsCollection"`
-	// A unique read-only string that changes whenever the resource is updated
-	Etag *string `pulumi:"etag"`
-	// Frontend IP addresses of application gateway resource
-	FrontendIPConfigurations []ApplicationGatewayFrontendIPConfigurationResponse `pulumi:"frontendIPConfigurations"`
-	// Frontend ports of application gateway resource
-	FrontendPorts []ApplicationGatewayFrontendPortResponse `pulumi:"frontendPorts"`
-	// Subnets of application gateway resource
-	GatewayIPConfigurations []ApplicationGatewayIPConfigurationResponse `pulumi:"gatewayIPConfigurations"`
-	// HTTP listeners of application gateway resource
-	HttpListeners []ApplicationGatewayHttpListenerResponse `pulumi:"httpListeners"`
-	// Resource Id
-	Id *string `pulumi:"id"`
-	// Resource location
-	Location *string `pulumi:"location"`
-	// Resource name
-	Name string `pulumi:"name"`
-	// Operational state of application gateway resource
-	OperationalState string `pulumi:"operationalState"`
-	// Probes of application gateway resource
-	Probes []ApplicationGatewayProbeResponse `pulumi:"probes"`
-	// Provisioning state of the ApplicationGateway resource Updating/Deleting/Failed
-	ProvisioningState *string `pulumi:"provisioningState"`
-	// Request routing rules of application gateway resource
-	RequestRoutingRules []ApplicationGatewayRequestRoutingRuleResponse `pulumi:"requestRoutingRules"`
-	// Resource guid property of the ApplicationGateway resource
-	ResourceGuid *string `pulumi:"resourceGuid"`
-	// Sku of application gateway resource
-	Sku *ApplicationGatewaySkuResponse `pulumi:"sku"`
-	// SSL certificates of application gateway resource
-	SslCertificates []ApplicationGatewaySslCertificateResponse `pulumi:"sslCertificates"`
-	// SSL policy of application gateway resource
-	SslPolicy *ApplicationGatewaySslPolicyResponse `pulumi:"sslPolicy"`
-	// Resource tags
-	Tags map[string]string `pulumi:"tags"`
-	// Resource type
-	Type string `pulumi:"type"`
-	// URL path map of application gateway resource
-	UrlPathMaps []ApplicationGatewayUrlPathMapResponse `pulumi:"urlPathMaps"`
+	AuthenticationCertificates    []ApplicationGatewayAuthenticationCertificateResponse `pulumi:"authenticationCertificates"`
+	BackendAddressPools           []ApplicationGatewayBackendAddressPoolResponse        `pulumi:"backendAddressPools"`
+	BackendHttpSettingsCollection []ApplicationGatewayBackendHttpSettingsResponse       `pulumi:"backendHttpSettingsCollection"`
+	Etag                          *string                                               `pulumi:"etag"`
+	FrontendIPConfigurations      []ApplicationGatewayFrontendIPConfigurationResponse   `pulumi:"frontendIPConfigurations"`
+	FrontendPorts                 []ApplicationGatewayFrontendPortResponse              `pulumi:"frontendPorts"`
+	GatewayIPConfigurations       []ApplicationGatewayIPConfigurationResponse           `pulumi:"gatewayIPConfigurations"`
+	HttpListeners                 []ApplicationGatewayHttpListenerResponse              `pulumi:"httpListeners"`
+	Id                            *string                                               `pulumi:"id"`
+	Location                      *string                                               `pulumi:"location"`
+	Name                          string                                                `pulumi:"name"`
+	OperationalState              string                                                `pulumi:"operationalState"`
+	Probes                        []ApplicationGatewayProbeResponse                     `pulumi:"probes"`
+	ProvisioningState             *string                                               `pulumi:"provisioningState"`
+	RequestRoutingRules           []ApplicationGatewayRequestRoutingRuleResponse        `pulumi:"requestRoutingRules"`
+	ResourceGuid                  *string                                               `pulumi:"resourceGuid"`
+	Sku                           *ApplicationGatewaySkuResponse                        `pulumi:"sku"`
+	SslCertificates               []ApplicationGatewaySslCertificateResponse            `pulumi:"sslCertificates"`
+	SslPolicy                     *ApplicationGatewaySslPolicyResponse                  `pulumi:"sslPolicy"`
+	Tags                          map[string]string                                     `pulumi:"tags"`
+	Type                          string                                                `pulumi:"type"`
+	UrlPathMaps                   []ApplicationGatewayUrlPathMapResponse                `pulumi:"urlPathMaps"`
 }

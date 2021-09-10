@@ -11,30 +11,19 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// The management group diagnostic setting resource.
 type ManagementGroupDiagnosticSetting struct {
 	pulumi.CustomResourceState
 
-	// The resource Id for the event hub authorization rule.
-	EventHubAuthorizationRuleId pulumi.StringPtrOutput `pulumi:"eventHubAuthorizationRuleId"`
-	// The name of the event hub. If none is specified, the default event hub will be selected.
-	EventHubName pulumi.StringPtrOutput `pulumi:"eventHubName"`
-	// The list of logs settings.
-	Logs ManagementGroupLogSettingsResponseArrayOutput `pulumi:"logs"`
-	// The full ARM resource ID of the Marketplace resource to which you would like to send Diagnostic Logs.
-	MarketplacePartnerId pulumi.StringPtrOutput `pulumi:"marketplacePartnerId"`
-	// The name of the resource
-	Name pulumi.StringOutput `pulumi:"name"`
-	// The service bus rule Id of the diagnostic setting. This is here to maintain backwards compatibility.
-	ServiceBusRuleId pulumi.StringPtrOutput `pulumi:"serviceBusRuleId"`
-	// The resource ID of the storage account to which you would like to send Diagnostic Logs.
-	StorageAccountId pulumi.StringPtrOutput `pulumi:"storageAccountId"`
-	// The system metadata related to this resource.
-	SystemData SystemDataResponseOutput `pulumi:"systemData"`
-	// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
-	Type pulumi.StringOutput `pulumi:"type"`
-	// The full ARM resource ID of the Log Analytics workspace to which you would like to send Diagnostic Logs. Example: /subscriptions/4b9e8510-67ab-4e9a-95a9-e2f1e570ea9c/resourceGroups/insights-integration/providers/Microsoft.OperationalInsights/workspaces/viruela2
-	WorkspaceId pulumi.StringPtrOutput `pulumi:"workspaceId"`
+	EventHubAuthorizationRuleId pulumi.StringPtrOutput                        `pulumi:"eventHubAuthorizationRuleId"`
+	EventHubName                pulumi.StringPtrOutput                        `pulumi:"eventHubName"`
+	Logs                        ManagementGroupLogSettingsResponseArrayOutput `pulumi:"logs"`
+	MarketplacePartnerId        pulumi.StringPtrOutput                        `pulumi:"marketplacePartnerId"`
+	Name                        pulumi.StringOutput                           `pulumi:"name"`
+	ServiceBusRuleId            pulumi.StringPtrOutput                        `pulumi:"serviceBusRuleId"`
+	StorageAccountId            pulumi.StringPtrOutput                        `pulumi:"storageAccountId"`
+	SystemData                  SystemDataResponseOutput                      `pulumi:"systemData"`
+	Type                        pulumi.StringOutput                           `pulumi:"type"`
+	WorkspaceId                 pulumi.StringPtrOutput                        `pulumi:"workspaceId"`
 }
 
 // NewManagementGroupDiagnosticSetting registers a new resource with the given unique name, arguments, and options.
@@ -97,46 +86,28 @@ func (ManagementGroupDiagnosticSettingState) ElementType() reflect.Type {
 }
 
 type managementGroupDiagnosticSettingArgs struct {
-	// The resource Id for the event hub authorization rule.
-	EventHubAuthorizationRuleId *string `pulumi:"eventHubAuthorizationRuleId"`
-	// The name of the event hub. If none is specified, the default event hub will be selected.
-	EventHubName *string `pulumi:"eventHubName"`
-	// The list of logs settings.
-	Logs []ManagementGroupLogSettings `pulumi:"logs"`
-	// The management group id.
-	ManagementGroupId string `pulumi:"managementGroupId"`
-	// The full ARM resource ID of the Marketplace resource to which you would like to send Diagnostic Logs.
-	MarketplacePartnerId *string `pulumi:"marketplacePartnerId"`
-	// The name of the diagnostic setting.
-	Name *string `pulumi:"name"`
-	// The service bus rule Id of the diagnostic setting. This is here to maintain backwards compatibility.
-	ServiceBusRuleId *string `pulumi:"serviceBusRuleId"`
-	// The resource ID of the storage account to which you would like to send Diagnostic Logs.
-	StorageAccountId *string `pulumi:"storageAccountId"`
-	// The full ARM resource ID of the Log Analytics workspace to which you would like to send Diagnostic Logs. Example: /subscriptions/4b9e8510-67ab-4e9a-95a9-e2f1e570ea9c/resourceGroups/insights-integration/providers/Microsoft.OperationalInsights/workspaces/viruela2
-	WorkspaceId *string `pulumi:"workspaceId"`
+	EventHubAuthorizationRuleId *string                      `pulumi:"eventHubAuthorizationRuleId"`
+	EventHubName                *string                      `pulumi:"eventHubName"`
+	Logs                        []ManagementGroupLogSettings `pulumi:"logs"`
+	ManagementGroupId           string                       `pulumi:"managementGroupId"`
+	MarketplacePartnerId        *string                      `pulumi:"marketplacePartnerId"`
+	Name                        *string                      `pulumi:"name"`
+	ServiceBusRuleId            *string                      `pulumi:"serviceBusRuleId"`
+	StorageAccountId            *string                      `pulumi:"storageAccountId"`
+	WorkspaceId                 *string                      `pulumi:"workspaceId"`
 }
 
 // The set of arguments for constructing a ManagementGroupDiagnosticSetting resource.
 type ManagementGroupDiagnosticSettingArgs struct {
-	// The resource Id for the event hub authorization rule.
 	EventHubAuthorizationRuleId pulumi.StringPtrInput
-	// The name of the event hub. If none is specified, the default event hub will be selected.
-	EventHubName pulumi.StringPtrInput
-	// The list of logs settings.
-	Logs ManagementGroupLogSettingsArrayInput
-	// The management group id.
-	ManagementGroupId pulumi.StringInput
-	// The full ARM resource ID of the Marketplace resource to which you would like to send Diagnostic Logs.
-	MarketplacePartnerId pulumi.StringPtrInput
-	// The name of the diagnostic setting.
-	Name pulumi.StringPtrInput
-	// The service bus rule Id of the diagnostic setting. This is here to maintain backwards compatibility.
-	ServiceBusRuleId pulumi.StringPtrInput
-	// The resource ID of the storage account to which you would like to send Diagnostic Logs.
-	StorageAccountId pulumi.StringPtrInput
-	// The full ARM resource ID of the Log Analytics workspace to which you would like to send Diagnostic Logs. Example: /subscriptions/4b9e8510-67ab-4e9a-95a9-e2f1e570ea9c/resourceGroups/insights-integration/providers/Microsoft.OperationalInsights/workspaces/viruela2
-	WorkspaceId pulumi.StringPtrInput
+	EventHubName                pulumi.StringPtrInput
+	Logs                        ManagementGroupLogSettingsArrayInput
+	ManagementGroupId           pulumi.StringInput
+	MarketplacePartnerId        pulumi.StringPtrInput
+	Name                        pulumi.StringPtrInput
+	ServiceBusRuleId            pulumi.StringPtrInput
+	StorageAccountId            pulumi.StringPtrInput
+	WorkspaceId                 pulumi.StringPtrInput
 }
 
 func (ManagementGroupDiagnosticSettingArgs) ElementType() reflect.Type {
@@ -162,9 +133,7 @@ func (i *ManagementGroupDiagnosticSetting) ToManagementGroupDiagnosticSettingOut
 	return pulumi.ToOutputWithContext(ctx, i).(ManagementGroupDiagnosticSettingOutput)
 }
 
-type ManagementGroupDiagnosticSettingOutput struct {
-	*pulumi.OutputState
-}
+type ManagementGroupDiagnosticSettingOutput struct{ *pulumi.OutputState }
 
 func (ManagementGroupDiagnosticSettingOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*ManagementGroupDiagnosticSetting)(nil))

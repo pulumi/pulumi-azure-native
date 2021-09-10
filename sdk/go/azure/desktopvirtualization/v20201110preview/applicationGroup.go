@@ -11,28 +11,18 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Represents a ApplicationGroup definition.
 type ApplicationGroup struct {
 	pulumi.CustomResourceState
 
-	// Resource Type of ApplicationGroup.
-	ApplicationGroupType pulumi.StringOutput `pulumi:"applicationGroupType"`
-	// Description of ApplicationGroup.
-	Description pulumi.StringPtrOutput `pulumi:"description"`
-	// Friendly name of ApplicationGroup.
-	FriendlyName pulumi.StringPtrOutput `pulumi:"friendlyName"`
-	// HostPool arm path of ApplicationGroup.
-	HostPoolArmPath pulumi.StringOutput `pulumi:"hostPoolArmPath"`
-	// The geo-location where the resource lives
-	Location pulumi.StringOutput `pulumi:"location"`
-	// The name of the resource
-	Name pulumi.StringOutput `pulumi:"name"`
-	// Resource tags.
-	Tags pulumi.StringMapOutput `pulumi:"tags"`
-	// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
-	Type pulumi.StringOutput `pulumi:"type"`
-	// Workspace arm path of ApplicationGroup.
-	WorkspaceArmPath pulumi.StringOutput `pulumi:"workspaceArmPath"`
+	ApplicationGroupType pulumi.StringOutput    `pulumi:"applicationGroupType"`
+	Description          pulumi.StringPtrOutput `pulumi:"description"`
+	FriendlyName         pulumi.StringPtrOutput `pulumi:"friendlyName"`
+	HostPoolArmPath      pulumi.StringOutput    `pulumi:"hostPoolArmPath"`
+	Location             pulumi.StringOutput    `pulumi:"location"`
+	Name                 pulumi.StringOutput    `pulumi:"name"`
+	Tags                 pulumi.StringMapOutput `pulumi:"tags"`
+	Type                 pulumi.StringOutput    `pulumi:"type"`
+	WorkspaceArmPath     pulumi.StringOutput    `pulumi:"workspaceArmPath"`
 }
 
 // NewApplicationGroup registers a new resource with the given unique name, arguments, and options.
@@ -161,42 +151,26 @@ func (ApplicationGroupState) ElementType() reflect.Type {
 }
 
 type applicationGroupArgs struct {
-	// The name of the application group
-	ApplicationGroupName *string `pulumi:"applicationGroupName"`
-	// Resource Type of ApplicationGroup.
-	ApplicationGroupType string `pulumi:"applicationGroupType"`
-	// Description of ApplicationGroup.
-	Description *string `pulumi:"description"`
-	// Friendly name of ApplicationGroup.
-	FriendlyName *string `pulumi:"friendlyName"`
-	// HostPool arm path of ApplicationGroup.
-	HostPoolArmPath string `pulumi:"hostPoolArmPath"`
-	// The geo-location where the resource lives
-	Location *string `pulumi:"location"`
-	// The name of the resource group. The name is case insensitive.
-	ResourceGroupName string `pulumi:"resourceGroupName"`
-	// Resource tags.
-	Tags map[string]string `pulumi:"tags"`
+	ApplicationGroupName *string           `pulumi:"applicationGroupName"`
+	ApplicationGroupType string            `pulumi:"applicationGroupType"`
+	Description          *string           `pulumi:"description"`
+	FriendlyName         *string           `pulumi:"friendlyName"`
+	HostPoolArmPath      string            `pulumi:"hostPoolArmPath"`
+	Location             *string           `pulumi:"location"`
+	ResourceGroupName    string            `pulumi:"resourceGroupName"`
+	Tags                 map[string]string `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a ApplicationGroup resource.
 type ApplicationGroupArgs struct {
-	// The name of the application group
 	ApplicationGroupName pulumi.StringPtrInput
-	// Resource Type of ApplicationGroup.
 	ApplicationGroupType pulumi.StringInput
-	// Description of ApplicationGroup.
-	Description pulumi.StringPtrInput
-	// Friendly name of ApplicationGroup.
-	FriendlyName pulumi.StringPtrInput
-	// HostPool arm path of ApplicationGroup.
-	HostPoolArmPath pulumi.StringInput
-	// The geo-location where the resource lives
-	Location pulumi.StringPtrInput
-	// The name of the resource group. The name is case insensitive.
-	ResourceGroupName pulumi.StringInput
-	// Resource tags.
-	Tags pulumi.StringMapInput
+	Description          pulumi.StringPtrInput
+	FriendlyName         pulumi.StringPtrInput
+	HostPoolArmPath      pulumi.StringInput
+	Location             pulumi.StringPtrInput
+	ResourceGroupName    pulumi.StringInput
+	Tags                 pulumi.StringMapInput
 }
 
 func (ApplicationGroupArgs) ElementType() reflect.Type {
@@ -222,9 +196,7 @@ func (i *ApplicationGroup) ToApplicationGroupOutputWithContext(ctx context.Conte
 	return pulumi.ToOutputWithContext(ctx, i).(ApplicationGroupOutput)
 }
 
-type ApplicationGroupOutput struct {
-	*pulumi.OutputState
-}
+type ApplicationGroupOutput struct{ *pulumi.OutputState }
 
 func (ApplicationGroupOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*ApplicationGroup)(nil))

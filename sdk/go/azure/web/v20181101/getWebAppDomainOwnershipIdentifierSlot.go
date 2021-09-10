@@ -7,7 +7,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// A domain specific resource identifier.
 func LookupWebAppDomainOwnershipIdentifierSlot(ctx *pulumi.Context, args *LookupWebAppDomainOwnershipIdentifierSlotArgs, opts ...pulumi.InvokeOption) (*LookupWebAppDomainOwnershipIdentifierSlotResult, error) {
 	var rv LookupWebAppDomainOwnershipIdentifierSlotResult
 	err := ctx.Invoke("azure-native:web/v20181101:getWebAppDomainOwnershipIdentifierSlot", args, &rv, opts...)
@@ -18,24 +17,16 @@ func LookupWebAppDomainOwnershipIdentifierSlot(ctx *pulumi.Context, args *Lookup
 }
 
 type LookupWebAppDomainOwnershipIdentifierSlotArgs struct {
-	// Name of domain ownership identifier.
 	DomainOwnershipIdentifierName string `pulumi:"domainOwnershipIdentifierName"`
-	// Name of the app.
-	Name string `pulumi:"name"`
-	// Name of the resource group to which the resource belongs.
-	ResourceGroupName string `pulumi:"resourceGroupName"`
-	// Name of the deployment slot. If a slot is not specified, the API will delete the binding for the production slot.
-	Slot string `pulumi:"slot"`
+	Name                          string `pulumi:"name"`
+	ResourceGroupName             string `pulumi:"resourceGroupName"`
+	Slot                          string `pulumi:"slot"`
 }
 
 // A domain specific resource identifier.
 type LookupWebAppDomainOwnershipIdentifierSlotResult struct {
-	// Resource Id.
-	Id string `pulumi:"id"`
-	// Kind of resource.
+	Id   string  `pulumi:"id"`
 	Kind *string `pulumi:"kind"`
-	// Resource Name.
-	Name string `pulumi:"name"`
-	// Resource type.
-	Type string `pulumi:"type"`
+	Name string  `pulumi:"name"`
+	Type string  `pulumi:"type"`
 }

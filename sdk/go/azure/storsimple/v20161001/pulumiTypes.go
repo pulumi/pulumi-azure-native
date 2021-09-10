@@ -10,14 +10,10 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// This class can be used as the Type for any secret entity represented as Password, CertThumbprint, Algorithm. This class is intended to be used when the secret is encrypted with an asymmetric key pair. The encryptionAlgorithm field is mainly for future usage to potentially allow different entities encrypted using different algorithms.
 type AsymmetricEncryptedSecret struct {
-	// Algorithm used to encrypt "Value"
-	EncryptionAlgorithm string `pulumi:"encryptionAlgorithm"`
-	// Thumbprint certificate that was used to encrypt "Value"
-	EncryptionCertificateThumbprint *string `pulumi:"encryptionCertificateThumbprint"`
-	// The value of the secret itself. If the secret is in plaintext then EncryptionAlgorithm will be none and EncryptionCertThumbprint will be null.
-	Value string `pulumi:"value"`
+	EncryptionAlgorithm             EncryptionAlgorithm `pulumi:"encryptionAlgorithm"`
+	EncryptionCertificateThumbprint *string             `pulumi:"encryptionCertificateThumbprint"`
+	Value                           string              `pulumi:"value"`
 }
 
 // AsymmetricEncryptedSecretInput is an input type that accepts AsymmetricEncryptedSecretArgs and AsymmetricEncryptedSecretOutput values.
@@ -31,14 +27,10 @@ type AsymmetricEncryptedSecretInput interface {
 	ToAsymmetricEncryptedSecretOutputWithContext(context.Context) AsymmetricEncryptedSecretOutput
 }
 
-// This class can be used as the Type for any secret entity represented as Password, CertThumbprint, Algorithm. This class is intended to be used when the secret is encrypted with an asymmetric key pair. The encryptionAlgorithm field is mainly for future usage to potentially allow different entities encrypted using different algorithms.
 type AsymmetricEncryptedSecretArgs struct {
-	// Algorithm used to encrypt "Value"
-	EncryptionAlgorithm EncryptionAlgorithm `pulumi:"encryptionAlgorithm"`
-	// Thumbprint certificate that was used to encrypt "Value"
-	EncryptionCertificateThumbprint pulumi.StringPtrInput `pulumi:"encryptionCertificateThumbprint"`
-	// The value of the secret itself. If the secret is in plaintext then EncryptionAlgorithm will be none and EncryptionCertThumbprint will be null.
-	Value pulumi.StringInput `pulumi:"value"`
+	EncryptionAlgorithm             EncryptionAlgorithmInput `pulumi:"encryptionAlgorithm"`
+	EncryptionCertificateThumbprint pulumi.StringPtrInput    `pulumi:"encryptionCertificateThumbprint"`
+	Value                           pulumi.StringInput       `pulumi:"value"`
 }
 
 func (AsymmetricEncryptedSecretArgs) ElementType() reflect.Type {
@@ -94,7 +86,6 @@ func (i *asymmetricEncryptedSecretPtrType) ToAsymmetricEncryptedSecretPtrOutputW
 	return pulumi.ToOutputWithContext(ctx, i).(AsymmetricEncryptedSecretPtrOutput)
 }
 
-// This class can be used as the Type for any secret entity represented as Password, CertThumbprint, Algorithm. This class is intended to be used when the secret is encrypted with an asymmetric key pair. The encryptionAlgorithm field is mainly for future usage to potentially allow different entities encrypted using different algorithms.
 type AsymmetricEncryptedSecretOutput struct{ *pulumi.OutputState }
 
 func (AsymmetricEncryptedSecretOutput) ElementType() reflect.Type {
@@ -114,22 +105,19 @@ func (o AsymmetricEncryptedSecretOutput) ToAsymmetricEncryptedSecretPtrOutput() 
 }
 
 func (o AsymmetricEncryptedSecretOutput) ToAsymmetricEncryptedSecretPtrOutputWithContext(ctx context.Context) AsymmetricEncryptedSecretPtrOutput {
-	return o.ApplyT(func(v AsymmetricEncryptedSecret) *AsymmetricEncryptedSecret {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v AsymmetricEncryptedSecret) *AsymmetricEncryptedSecret {
 		return &v
 	}).(AsymmetricEncryptedSecretPtrOutput)
 }
 
-// Algorithm used to encrypt "Value"
-func (o AsymmetricEncryptedSecretOutput) EncryptionAlgorithm() pulumi.StringOutput {
-	return o.ApplyT(func(v AsymmetricEncryptedSecret) string { return v.EncryptionAlgorithm }).(pulumi.StringOutput)
+func (o AsymmetricEncryptedSecretOutput) EncryptionAlgorithm() EncryptionAlgorithmOutput {
+	return o.ApplyT(func(v AsymmetricEncryptedSecret) EncryptionAlgorithm { return v.EncryptionAlgorithm }).(EncryptionAlgorithmOutput)
 }
 
-// Thumbprint certificate that was used to encrypt "Value"
 func (o AsymmetricEncryptedSecretOutput) EncryptionCertificateThumbprint() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AsymmetricEncryptedSecret) *string { return v.EncryptionCertificateThumbprint }).(pulumi.StringPtrOutput)
 }
 
-// The value of the secret itself. If the secret is in plaintext then EncryptionAlgorithm will be none and EncryptionCertThumbprint will be null.
 func (o AsymmetricEncryptedSecretOutput) Value() pulumi.StringOutput {
 	return o.ApplyT(func(v AsymmetricEncryptedSecret) string { return v.Value }).(pulumi.StringOutput)
 }
@@ -149,20 +137,24 @@ func (o AsymmetricEncryptedSecretPtrOutput) ToAsymmetricEncryptedSecretPtrOutput
 }
 
 func (o AsymmetricEncryptedSecretPtrOutput) Elem() AsymmetricEncryptedSecretOutput {
-	return o.ApplyT(func(v *AsymmetricEncryptedSecret) AsymmetricEncryptedSecret { return *v }).(AsymmetricEncryptedSecretOutput)
+	return o.ApplyT(func(v *AsymmetricEncryptedSecret) AsymmetricEncryptedSecret {
+		if v != nil {
+			return *v
+		}
+		var ret AsymmetricEncryptedSecret
+		return ret
+	}).(AsymmetricEncryptedSecretOutput)
 }
 
-// Algorithm used to encrypt "Value"
-func (o AsymmetricEncryptedSecretPtrOutput) EncryptionAlgorithm() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *AsymmetricEncryptedSecret) *string {
+func (o AsymmetricEncryptedSecretPtrOutput) EncryptionAlgorithm() EncryptionAlgorithmPtrOutput {
+	return o.ApplyT(func(v *AsymmetricEncryptedSecret) *EncryptionAlgorithm {
 		if v == nil {
 			return nil
 		}
 		return &v.EncryptionAlgorithm
-	}).(pulumi.StringPtrOutput)
+	}).(EncryptionAlgorithmPtrOutput)
 }
 
-// Thumbprint certificate that was used to encrypt "Value"
 func (o AsymmetricEncryptedSecretPtrOutput) EncryptionCertificateThumbprint() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *AsymmetricEncryptedSecret) *string {
 		if v == nil {
@@ -172,7 +164,6 @@ func (o AsymmetricEncryptedSecretPtrOutput) EncryptionCertificateThumbprint() pu
 	}).(pulumi.StringPtrOutput)
 }
 
-// The value of the secret itself. If the secret is in plaintext then EncryptionAlgorithm will be none and EncryptionCertThumbprint will be null.
 func (o AsymmetricEncryptedSecretPtrOutput) Value() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *AsymmetricEncryptedSecret) *string {
 		if v == nil {
@@ -182,14 +173,10 @@ func (o AsymmetricEncryptedSecretPtrOutput) Value() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// This class can be used as the Type for any secret entity represented as Password, CertThumbprint, Algorithm. This class is intended to be used when the secret is encrypted with an asymmetric key pair. The encryptionAlgorithm field is mainly for future usage to potentially allow different entities encrypted using different algorithms.
 type AsymmetricEncryptedSecretResponse struct {
-	// Algorithm used to encrypt "Value"
-	EncryptionAlgorithm string `pulumi:"encryptionAlgorithm"`
-	// Thumbprint certificate that was used to encrypt "Value"
+	EncryptionAlgorithm             string  `pulumi:"encryptionAlgorithm"`
 	EncryptionCertificateThumbprint *string `pulumi:"encryptionCertificateThumbprint"`
-	// The value of the secret itself. If the secret is in plaintext then EncryptionAlgorithm will be none and EncryptionCertThumbprint will be null.
-	Value string `pulumi:"value"`
+	Value                           string  `pulumi:"value"`
 }
 
 // AsymmetricEncryptedSecretResponseInput is an input type that accepts AsymmetricEncryptedSecretResponseArgs and AsymmetricEncryptedSecretResponseOutput values.
@@ -203,14 +190,10 @@ type AsymmetricEncryptedSecretResponseInput interface {
 	ToAsymmetricEncryptedSecretResponseOutputWithContext(context.Context) AsymmetricEncryptedSecretResponseOutput
 }
 
-// This class can be used as the Type for any secret entity represented as Password, CertThumbprint, Algorithm. This class is intended to be used when the secret is encrypted with an asymmetric key pair. The encryptionAlgorithm field is mainly for future usage to potentially allow different entities encrypted using different algorithms.
 type AsymmetricEncryptedSecretResponseArgs struct {
-	// Algorithm used to encrypt "Value"
-	EncryptionAlgorithm pulumi.StringInput `pulumi:"encryptionAlgorithm"`
-	// Thumbprint certificate that was used to encrypt "Value"
+	EncryptionAlgorithm             pulumi.StringInput    `pulumi:"encryptionAlgorithm"`
 	EncryptionCertificateThumbprint pulumi.StringPtrInput `pulumi:"encryptionCertificateThumbprint"`
-	// The value of the secret itself. If the secret is in plaintext then EncryptionAlgorithm will be none and EncryptionCertThumbprint will be null.
-	Value pulumi.StringInput `pulumi:"value"`
+	Value                           pulumi.StringInput    `pulumi:"value"`
 }
 
 func (AsymmetricEncryptedSecretResponseArgs) ElementType() reflect.Type {
@@ -266,7 +249,6 @@ func (i *asymmetricEncryptedSecretResponsePtrType) ToAsymmetricEncryptedSecretRe
 	return pulumi.ToOutputWithContext(ctx, i).(AsymmetricEncryptedSecretResponsePtrOutput)
 }
 
-// This class can be used as the Type for any secret entity represented as Password, CertThumbprint, Algorithm. This class is intended to be used when the secret is encrypted with an asymmetric key pair. The encryptionAlgorithm field is mainly for future usage to potentially allow different entities encrypted using different algorithms.
 type AsymmetricEncryptedSecretResponseOutput struct{ *pulumi.OutputState }
 
 func (AsymmetricEncryptedSecretResponseOutput) ElementType() reflect.Type {
@@ -286,22 +268,19 @@ func (o AsymmetricEncryptedSecretResponseOutput) ToAsymmetricEncryptedSecretResp
 }
 
 func (o AsymmetricEncryptedSecretResponseOutput) ToAsymmetricEncryptedSecretResponsePtrOutputWithContext(ctx context.Context) AsymmetricEncryptedSecretResponsePtrOutput {
-	return o.ApplyT(func(v AsymmetricEncryptedSecretResponse) *AsymmetricEncryptedSecretResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v AsymmetricEncryptedSecretResponse) *AsymmetricEncryptedSecretResponse {
 		return &v
 	}).(AsymmetricEncryptedSecretResponsePtrOutput)
 }
 
-// Algorithm used to encrypt "Value"
 func (o AsymmetricEncryptedSecretResponseOutput) EncryptionAlgorithm() pulumi.StringOutput {
 	return o.ApplyT(func(v AsymmetricEncryptedSecretResponse) string { return v.EncryptionAlgorithm }).(pulumi.StringOutput)
 }
 
-// Thumbprint certificate that was used to encrypt "Value"
 func (o AsymmetricEncryptedSecretResponseOutput) EncryptionCertificateThumbprint() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AsymmetricEncryptedSecretResponse) *string { return v.EncryptionCertificateThumbprint }).(pulumi.StringPtrOutput)
 }
 
-// The value of the secret itself. If the secret is in plaintext then EncryptionAlgorithm will be none and EncryptionCertThumbprint will be null.
 func (o AsymmetricEncryptedSecretResponseOutput) Value() pulumi.StringOutput {
 	return o.ApplyT(func(v AsymmetricEncryptedSecretResponse) string { return v.Value }).(pulumi.StringOutput)
 }
@@ -321,10 +300,15 @@ func (o AsymmetricEncryptedSecretResponsePtrOutput) ToAsymmetricEncryptedSecretR
 }
 
 func (o AsymmetricEncryptedSecretResponsePtrOutput) Elem() AsymmetricEncryptedSecretResponseOutput {
-	return o.ApplyT(func(v *AsymmetricEncryptedSecretResponse) AsymmetricEncryptedSecretResponse { return *v }).(AsymmetricEncryptedSecretResponseOutput)
+	return o.ApplyT(func(v *AsymmetricEncryptedSecretResponse) AsymmetricEncryptedSecretResponse {
+		if v != nil {
+			return *v
+		}
+		var ret AsymmetricEncryptedSecretResponse
+		return ret
+	}).(AsymmetricEncryptedSecretResponseOutput)
 }
 
-// Algorithm used to encrypt "Value"
 func (o AsymmetricEncryptedSecretResponsePtrOutput) EncryptionAlgorithm() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *AsymmetricEncryptedSecretResponse) *string {
 		if v == nil {
@@ -334,7 +318,6 @@ func (o AsymmetricEncryptedSecretResponsePtrOutput) EncryptionAlgorithm() pulumi
 	}).(pulumi.StringPtrOutput)
 }
 
-// Thumbprint certificate that was used to encrypt "Value"
 func (o AsymmetricEncryptedSecretResponsePtrOutput) EncryptionCertificateThumbprint() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *AsymmetricEncryptedSecretResponse) *string {
 		if v == nil {
@@ -344,7 +327,6 @@ func (o AsymmetricEncryptedSecretResponsePtrOutput) EncryptionCertificateThumbpr
 	}).(pulumi.StringPtrOutput)
 }
 
-// The value of the secret itself. If the secret is in plaintext then EncryptionAlgorithm will be none and EncryptionCertThumbprint will be null.
 func (o AsymmetricEncryptedSecretResponsePtrOutput) Value() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *AsymmetricEncryptedSecretResponse) *string {
 		if v == nil {
@@ -354,10 +336,8 @@ func (o AsymmetricEncryptedSecretResponsePtrOutput) Value() pulumi.StringPtrOutp
 	}).(pulumi.StringPtrOutput)
 }
 
-// Intrinsic settings which refers to the type of the StorSimple manager
 type ManagerIntrinsicSettings struct {
-	// Refers to the type of the StorSimple Manager
-	Type string `pulumi:"type"`
+	Type ManagerType `pulumi:"type"`
 }
 
 // ManagerIntrinsicSettingsInput is an input type that accepts ManagerIntrinsicSettingsArgs and ManagerIntrinsicSettingsOutput values.
@@ -371,10 +351,8 @@ type ManagerIntrinsicSettingsInput interface {
 	ToManagerIntrinsicSettingsOutputWithContext(context.Context) ManagerIntrinsicSettingsOutput
 }
 
-// Intrinsic settings which refers to the type of the StorSimple manager
 type ManagerIntrinsicSettingsArgs struct {
-	// Refers to the type of the StorSimple Manager
-	Type ManagerType `pulumi:"type"`
+	Type ManagerTypeInput `pulumi:"type"`
 }
 
 func (ManagerIntrinsicSettingsArgs) ElementType() reflect.Type {
@@ -430,7 +408,6 @@ func (i *managerIntrinsicSettingsPtrType) ToManagerIntrinsicSettingsPtrOutputWit
 	return pulumi.ToOutputWithContext(ctx, i).(ManagerIntrinsicSettingsPtrOutput)
 }
 
-// Intrinsic settings which refers to the type of the StorSimple manager
 type ManagerIntrinsicSettingsOutput struct{ *pulumi.OutputState }
 
 func (ManagerIntrinsicSettingsOutput) ElementType() reflect.Type {
@@ -450,14 +427,13 @@ func (o ManagerIntrinsicSettingsOutput) ToManagerIntrinsicSettingsPtrOutput() Ma
 }
 
 func (o ManagerIntrinsicSettingsOutput) ToManagerIntrinsicSettingsPtrOutputWithContext(ctx context.Context) ManagerIntrinsicSettingsPtrOutput {
-	return o.ApplyT(func(v ManagerIntrinsicSettings) *ManagerIntrinsicSettings {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ManagerIntrinsicSettings) *ManagerIntrinsicSettings {
 		return &v
 	}).(ManagerIntrinsicSettingsPtrOutput)
 }
 
-// Refers to the type of the StorSimple Manager
-func (o ManagerIntrinsicSettingsOutput) Type() pulumi.StringOutput {
-	return o.ApplyT(func(v ManagerIntrinsicSettings) string { return v.Type }).(pulumi.StringOutput)
+func (o ManagerIntrinsicSettingsOutput) Type() ManagerTypeOutput {
+	return o.ApplyT(func(v ManagerIntrinsicSettings) ManagerType { return v.Type }).(ManagerTypeOutput)
 }
 
 type ManagerIntrinsicSettingsPtrOutput struct{ *pulumi.OutputState }
@@ -475,22 +451,25 @@ func (o ManagerIntrinsicSettingsPtrOutput) ToManagerIntrinsicSettingsPtrOutputWi
 }
 
 func (o ManagerIntrinsicSettingsPtrOutput) Elem() ManagerIntrinsicSettingsOutput {
-	return o.ApplyT(func(v *ManagerIntrinsicSettings) ManagerIntrinsicSettings { return *v }).(ManagerIntrinsicSettingsOutput)
+	return o.ApplyT(func(v *ManagerIntrinsicSettings) ManagerIntrinsicSettings {
+		if v != nil {
+			return *v
+		}
+		var ret ManagerIntrinsicSettings
+		return ret
+	}).(ManagerIntrinsicSettingsOutput)
 }
 
-// Refers to the type of the StorSimple Manager
-func (o ManagerIntrinsicSettingsPtrOutput) Type() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *ManagerIntrinsicSettings) *string {
+func (o ManagerIntrinsicSettingsPtrOutput) Type() ManagerTypePtrOutput {
+	return o.ApplyT(func(v *ManagerIntrinsicSettings) *ManagerType {
 		if v == nil {
 			return nil
 		}
 		return &v.Type
-	}).(pulumi.StringPtrOutput)
+	}).(ManagerTypePtrOutput)
 }
 
-// Intrinsic settings which refers to the type of the StorSimple manager
 type ManagerIntrinsicSettingsResponse struct {
-	// Refers to the type of the StorSimple Manager
 	Type string `pulumi:"type"`
 }
 
@@ -505,9 +484,7 @@ type ManagerIntrinsicSettingsResponseInput interface {
 	ToManagerIntrinsicSettingsResponseOutputWithContext(context.Context) ManagerIntrinsicSettingsResponseOutput
 }
 
-// Intrinsic settings which refers to the type of the StorSimple manager
 type ManagerIntrinsicSettingsResponseArgs struct {
-	// Refers to the type of the StorSimple Manager
 	Type pulumi.StringInput `pulumi:"type"`
 }
 
@@ -564,7 +541,6 @@ func (i *managerIntrinsicSettingsResponsePtrType) ToManagerIntrinsicSettingsResp
 	return pulumi.ToOutputWithContext(ctx, i).(ManagerIntrinsicSettingsResponsePtrOutput)
 }
 
-// Intrinsic settings which refers to the type of the StorSimple manager
 type ManagerIntrinsicSettingsResponseOutput struct{ *pulumi.OutputState }
 
 func (ManagerIntrinsicSettingsResponseOutput) ElementType() reflect.Type {
@@ -584,12 +560,11 @@ func (o ManagerIntrinsicSettingsResponseOutput) ToManagerIntrinsicSettingsRespon
 }
 
 func (o ManagerIntrinsicSettingsResponseOutput) ToManagerIntrinsicSettingsResponsePtrOutputWithContext(ctx context.Context) ManagerIntrinsicSettingsResponsePtrOutput {
-	return o.ApplyT(func(v ManagerIntrinsicSettingsResponse) *ManagerIntrinsicSettingsResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ManagerIntrinsicSettingsResponse) *ManagerIntrinsicSettingsResponse {
 		return &v
 	}).(ManagerIntrinsicSettingsResponsePtrOutput)
 }
 
-// Refers to the type of the StorSimple Manager
 func (o ManagerIntrinsicSettingsResponseOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v ManagerIntrinsicSettingsResponse) string { return v.Type }).(pulumi.StringOutput)
 }
@@ -609,10 +584,15 @@ func (o ManagerIntrinsicSettingsResponsePtrOutput) ToManagerIntrinsicSettingsRes
 }
 
 func (o ManagerIntrinsicSettingsResponsePtrOutput) Elem() ManagerIntrinsicSettingsResponseOutput {
-	return o.ApplyT(func(v *ManagerIntrinsicSettingsResponse) ManagerIntrinsicSettingsResponse { return *v }).(ManagerIntrinsicSettingsResponseOutput)
+	return o.ApplyT(func(v *ManagerIntrinsicSettingsResponse) ManagerIntrinsicSettingsResponse {
+		if v != nil {
+			return *v
+		}
+		var ret ManagerIntrinsicSettingsResponse
+		return ret
+	}).(ManagerIntrinsicSettingsResponseOutput)
 }
 
-// Refers to the type of the StorSimple Manager
 func (o ManagerIntrinsicSettingsResponsePtrOutput) Type() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ManagerIntrinsicSettingsResponse) *string {
 		if v == nil {
@@ -622,10 +602,8 @@ func (o ManagerIntrinsicSettingsResponsePtrOutput) Type() pulumi.StringPtrOutput
 	}).(pulumi.StringPtrOutput)
 }
 
-// The Sku.
 type ManagerSku struct {
-	// Refers to the sku name which should be "Standard"
-	Name string `pulumi:"name"`
+	Name ManagerSkuType `pulumi:"name"`
 }
 
 // ManagerSkuInput is an input type that accepts ManagerSkuArgs and ManagerSkuOutput values.
@@ -639,10 +617,8 @@ type ManagerSkuInput interface {
 	ToManagerSkuOutputWithContext(context.Context) ManagerSkuOutput
 }
 
-// The Sku.
 type ManagerSkuArgs struct {
-	// Refers to the sku name which should be "Standard"
-	Name ManagerSkuType `pulumi:"name"`
+	Name ManagerSkuTypeInput `pulumi:"name"`
 }
 
 func (ManagerSkuArgs) ElementType() reflect.Type {
@@ -698,7 +674,6 @@ func (i *managerSkuPtrType) ToManagerSkuPtrOutputWithContext(ctx context.Context
 	return pulumi.ToOutputWithContext(ctx, i).(ManagerSkuPtrOutput)
 }
 
-// The Sku.
 type ManagerSkuOutput struct{ *pulumi.OutputState }
 
 func (ManagerSkuOutput) ElementType() reflect.Type {
@@ -718,14 +693,13 @@ func (o ManagerSkuOutput) ToManagerSkuPtrOutput() ManagerSkuPtrOutput {
 }
 
 func (o ManagerSkuOutput) ToManagerSkuPtrOutputWithContext(ctx context.Context) ManagerSkuPtrOutput {
-	return o.ApplyT(func(v ManagerSku) *ManagerSku {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ManagerSku) *ManagerSku {
 		return &v
 	}).(ManagerSkuPtrOutput)
 }
 
-// Refers to the sku name which should be "Standard"
-func (o ManagerSkuOutput) Name() pulumi.StringOutput {
-	return o.ApplyT(func(v ManagerSku) string { return v.Name }).(pulumi.StringOutput)
+func (o ManagerSkuOutput) Name() ManagerSkuTypeOutput {
+	return o.ApplyT(func(v ManagerSku) ManagerSkuType { return v.Name }).(ManagerSkuTypeOutput)
 }
 
 type ManagerSkuPtrOutput struct{ *pulumi.OutputState }
@@ -743,22 +717,25 @@ func (o ManagerSkuPtrOutput) ToManagerSkuPtrOutputWithContext(ctx context.Contex
 }
 
 func (o ManagerSkuPtrOutput) Elem() ManagerSkuOutput {
-	return o.ApplyT(func(v *ManagerSku) ManagerSku { return *v }).(ManagerSkuOutput)
+	return o.ApplyT(func(v *ManagerSku) ManagerSku {
+		if v != nil {
+			return *v
+		}
+		var ret ManagerSku
+		return ret
+	}).(ManagerSkuOutput)
 }
 
-// Refers to the sku name which should be "Standard"
-func (o ManagerSkuPtrOutput) Name() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *ManagerSku) *string {
+func (o ManagerSkuPtrOutput) Name() ManagerSkuTypePtrOutput {
+	return o.ApplyT(func(v *ManagerSku) *ManagerSkuType {
 		if v == nil {
 			return nil
 		}
 		return &v.Name
-	}).(pulumi.StringPtrOutput)
+	}).(ManagerSkuTypePtrOutput)
 }
 
-// The Sku.
 type ManagerSkuResponse struct {
-	// Refers to the sku name which should be "Standard"
 	Name string `pulumi:"name"`
 }
 
@@ -773,9 +750,7 @@ type ManagerSkuResponseInput interface {
 	ToManagerSkuResponseOutputWithContext(context.Context) ManagerSkuResponseOutput
 }
 
-// The Sku.
 type ManagerSkuResponseArgs struct {
-	// Refers to the sku name which should be "Standard"
 	Name pulumi.StringInput `pulumi:"name"`
 }
 
@@ -832,7 +807,6 @@ func (i *managerSkuResponsePtrType) ToManagerSkuResponsePtrOutputWithContext(ctx
 	return pulumi.ToOutputWithContext(ctx, i).(ManagerSkuResponsePtrOutput)
 }
 
-// The Sku.
 type ManagerSkuResponseOutput struct{ *pulumi.OutputState }
 
 func (ManagerSkuResponseOutput) ElementType() reflect.Type {
@@ -852,12 +826,11 @@ func (o ManagerSkuResponseOutput) ToManagerSkuResponsePtrOutput() ManagerSkuResp
 }
 
 func (o ManagerSkuResponseOutput) ToManagerSkuResponsePtrOutputWithContext(ctx context.Context) ManagerSkuResponsePtrOutput {
-	return o.ApplyT(func(v ManagerSkuResponse) *ManagerSkuResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ManagerSkuResponse) *ManagerSkuResponse {
 		return &v
 	}).(ManagerSkuResponsePtrOutput)
 }
 
-// Refers to the sku name which should be "Standard"
 func (o ManagerSkuResponseOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v ManagerSkuResponse) string { return v.Name }).(pulumi.StringOutput)
 }
@@ -877,10 +850,15 @@ func (o ManagerSkuResponsePtrOutput) ToManagerSkuResponsePtrOutputWithContext(ct
 }
 
 func (o ManagerSkuResponsePtrOutput) Elem() ManagerSkuResponseOutput {
-	return o.ApplyT(func(v *ManagerSkuResponse) ManagerSkuResponse { return *v }).(ManagerSkuResponseOutput)
+	return o.ApplyT(func(v *ManagerSkuResponse) ManagerSkuResponse {
+		if v != nil {
+			return *v
+		}
+		var ret ManagerSkuResponse
+		return ret
+	}).(ManagerSkuResponseOutput)
 }
 
-// Refers to the sku name which should be "Standard"
 func (o ManagerSkuResponsePtrOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ManagerSkuResponse) *string {
 		if v == nil {
@@ -890,11 +868,8 @@ func (o ManagerSkuResponsePtrOutput) Name() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The Time.
 type Time struct {
-	// The hour.
-	Hour int `pulumi:"hour"`
-	// The minute.
+	Hour   int `pulumi:"hour"`
 	Minute int `pulumi:"minute"`
 }
 
@@ -909,11 +884,8 @@ type TimeInput interface {
 	ToTimeOutputWithContext(context.Context) TimeOutput
 }
 
-// The Time.
 type TimeArgs struct {
-	// The hour.
-	Hour pulumi.IntInput `pulumi:"hour"`
-	// The minute.
+	Hour   pulumi.IntInput `pulumi:"hour"`
 	Minute pulumi.IntInput `pulumi:"minute"`
 }
 
@@ -970,7 +942,6 @@ func (i *timePtrType) ToTimePtrOutputWithContext(ctx context.Context) TimePtrOut
 	return pulumi.ToOutputWithContext(ctx, i).(TimePtrOutput)
 }
 
-// The Time.
 type TimeOutput struct{ *pulumi.OutputState }
 
 func (TimeOutput) ElementType() reflect.Type {
@@ -990,17 +961,15 @@ func (o TimeOutput) ToTimePtrOutput() TimePtrOutput {
 }
 
 func (o TimeOutput) ToTimePtrOutputWithContext(ctx context.Context) TimePtrOutput {
-	return o.ApplyT(func(v Time) *Time {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v Time) *Time {
 		return &v
 	}).(TimePtrOutput)
 }
 
-// The hour.
 func (o TimeOutput) Hour() pulumi.IntOutput {
 	return o.ApplyT(func(v Time) int { return v.Hour }).(pulumi.IntOutput)
 }
 
-// The minute.
 func (o TimeOutput) Minute() pulumi.IntOutput {
 	return o.ApplyT(func(v Time) int { return v.Minute }).(pulumi.IntOutput)
 }
@@ -1020,10 +989,15 @@ func (o TimePtrOutput) ToTimePtrOutputWithContext(ctx context.Context) TimePtrOu
 }
 
 func (o TimePtrOutput) Elem() TimeOutput {
-	return o.ApplyT(func(v *Time) Time { return *v }).(TimeOutput)
+	return o.ApplyT(func(v *Time) Time {
+		if v != nil {
+			return *v
+		}
+		var ret Time
+		return ret
+	}).(TimeOutput)
 }
 
-// The hour.
 func (o TimePtrOutput) Hour() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *Time) *int {
 		if v == nil {
@@ -1033,7 +1007,6 @@ func (o TimePtrOutput) Hour() pulumi.IntPtrOutput {
 	}).(pulumi.IntPtrOutput)
 }
 
-// The minute.
 func (o TimePtrOutput) Minute() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *Time) *int {
 		if v == nil {
@@ -1043,11 +1016,8 @@ func (o TimePtrOutput) Minute() pulumi.IntPtrOutput {
 	}).(pulumi.IntPtrOutput)
 }
 
-// The Time.
 type TimeResponse struct {
-	// The hour.
-	Hour int `pulumi:"hour"`
-	// The minute.
+	Hour   int `pulumi:"hour"`
 	Minute int `pulumi:"minute"`
 }
 
@@ -1062,11 +1032,8 @@ type TimeResponseInput interface {
 	ToTimeResponseOutputWithContext(context.Context) TimeResponseOutput
 }
 
-// The Time.
 type TimeResponseArgs struct {
-	// The hour.
-	Hour pulumi.IntInput `pulumi:"hour"`
-	// The minute.
+	Hour   pulumi.IntInput `pulumi:"hour"`
 	Minute pulumi.IntInput `pulumi:"minute"`
 }
 
@@ -1123,7 +1090,6 @@ func (i *timeResponsePtrType) ToTimeResponsePtrOutputWithContext(ctx context.Con
 	return pulumi.ToOutputWithContext(ctx, i).(TimeResponsePtrOutput)
 }
 
-// The Time.
 type TimeResponseOutput struct{ *pulumi.OutputState }
 
 func (TimeResponseOutput) ElementType() reflect.Type {
@@ -1143,17 +1109,15 @@ func (o TimeResponseOutput) ToTimeResponsePtrOutput() TimeResponsePtrOutput {
 }
 
 func (o TimeResponseOutput) ToTimeResponsePtrOutputWithContext(ctx context.Context) TimeResponsePtrOutput {
-	return o.ApplyT(func(v TimeResponse) *TimeResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v TimeResponse) *TimeResponse {
 		return &v
 	}).(TimeResponsePtrOutput)
 }
 
-// The hour.
 func (o TimeResponseOutput) Hour() pulumi.IntOutput {
 	return o.ApplyT(func(v TimeResponse) int { return v.Hour }).(pulumi.IntOutput)
 }
 
-// The minute.
 func (o TimeResponseOutput) Minute() pulumi.IntOutput {
 	return o.ApplyT(func(v TimeResponse) int { return v.Minute }).(pulumi.IntOutput)
 }
@@ -1173,10 +1137,15 @@ func (o TimeResponsePtrOutput) ToTimeResponsePtrOutputWithContext(ctx context.Co
 }
 
 func (o TimeResponsePtrOutput) Elem() TimeResponseOutput {
-	return o.ApplyT(func(v *TimeResponse) TimeResponse { return *v }).(TimeResponseOutput)
+	return o.ApplyT(func(v *TimeResponse) TimeResponse {
+		if v != nil {
+			return *v
+		}
+		var ret TimeResponse
+		return ret
+	}).(TimeResponseOutput)
 }
 
-// The hour.
 func (o TimeResponsePtrOutput) Hour() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *TimeResponse) *int {
 		if v == nil {
@@ -1186,7 +1155,6 @@ func (o TimeResponsePtrOutput) Hour() pulumi.IntPtrOutput {
 	}).(pulumi.IntPtrOutput)
 }
 
-// The minute.
 func (o TimeResponsePtrOutput) Minute() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *TimeResponse) *int {
 		if v == nil {

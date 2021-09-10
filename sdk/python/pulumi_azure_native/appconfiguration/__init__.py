@@ -19,12 +19,18 @@ from . import outputs
 
 # Make subpackages available:
 if typing.TYPE_CHECKING:
-    import pulumi_azure_native.appconfiguration.v20190201preview as v20190201preview
-    import pulumi_azure_native.appconfiguration.v20191001 as v20191001
-    import pulumi_azure_native.appconfiguration.v20191101preview as v20191101preview
-    import pulumi_azure_native.appconfiguration.v20200601 as v20200601
-    import pulumi_azure_native.appconfiguration.v20200701preview as v20200701preview
-    import pulumi_azure_native.appconfiguration.v20210301preview as v20210301preview
+    import pulumi_azure_native.appconfiguration.v20190201preview as __v20190201preview
+    v20190201preview = __v20190201preview
+    import pulumi_azure_native.appconfiguration.v20191001 as __v20191001
+    v20191001 = __v20191001
+    import pulumi_azure_native.appconfiguration.v20191101preview as __v20191101preview
+    v20191101preview = __v20191101preview
+    import pulumi_azure_native.appconfiguration.v20200601 as __v20200601
+    v20200601 = __v20200601
+    import pulumi_azure_native.appconfiguration.v20200701preview as __v20200701preview
+    v20200701preview = __v20200701preview
+    import pulumi_azure_native.appconfiguration.v20210301preview as __v20210301preview
+    v20210301preview = __v20210301preview
 else:
     v20190201preview = _utilities.lazy_import('pulumi_azure_native.appconfiguration.v20190201preview')
     v20191001 = _utilities.lazy_import('pulumi_azure_native.appconfiguration.v20191001')

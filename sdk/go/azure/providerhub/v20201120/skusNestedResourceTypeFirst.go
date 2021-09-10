@@ -14,11 +14,9 @@ import (
 type SkusNestedResourceTypeFirst struct {
 	pulumi.CustomResourceState
 
-	// The name of the resource
 	Name       pulumi.StringOutput                 `pulumi:"name"`
 	Properties SkuResourceResponsePropertiesOutput `pulumi:"properties"`
-	// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
-	Type pulumi.StringOutput `pulumi:"type"`
+	Type       pulumi.StringOutput                 `pulumi:"type"`
 }
 
 // NewSkusNestedResourceTypeFirst registers a new resource with the given unique name, arguments, and options.
@@ -93,28 +91,20 @@ func (SkusNestedResourceTypeFirstState) ElementType() reflect.Type {
 }
 
 type skusNestedResourceTypeFirstArgs struct {
-	// The first child resource type.
 	NestedResourceTypeFirst string                 `pulumi:"nestedResourceTypeFirst"`
 	Properties              *SkuResourceProperties `pulumi:"properties"`
-	// The name of the resource provider hosted within ProviderHub.
-	ProviderNamespace string `pulumi:"providerNamespace"`
-	// The resource type.
-	ResourceType string `pulumi:"resourceType"`
-	// The SKU.
-	Sku *string `pulumi:"sku"`
+	ProviderNamespace       string                 `pulumi:"providerNamespace"`
+	ResourceType            string                 `pulumi:"resourceType"`
+	Sku                     *string                `pulumi:"sku"`
 }
 
 // The set of arguments for constructing a SkusNestedResourceTypeFirst resource.
 type SkusNestedResourceTypeFirstArgs struct {
-	// The first child resource type.
 	NestedResourceTypeFirst pulumi.StringInput
 	Properties              SkuResourcePropertiesPtrInput
-	// The name of the resource provider hosted within ProviderHub.
-	ProviderNamespace pulumi.StringInput
-	// The resource type.
-	ResourceType pulumi.StringInput
-	// The SKU.
-	Sku pulumi.StringPtrInput
+	ProviderNamespace       pulumi.StringInput
+	ResourceType            pulumi.StringInput
+	Sku                     pulumi.StringPtrInput
 }
 
 func (SkusNestedResourceTypeFirstArgs) ElementType() reflect.Type {
@@ -140,9 +130,7 @@ func (i *SkusNestedResourceTypeFirst) ToSkusNestedResourceTypeFirstOutputWithCon
 	return pulumi.ToOutputWithContext(ctx, i).(SkusNestedResourceTypeFirstOutput)
 }
 
-type SkusNestedResourceTypeFirstOutput struct {
-	*pulumi.OutputState
-}
+type SkusNestedResourceTypeFirstOutput struct{ *pulumi.OutputState }
 
 func (SkusNestedResourceTypeFirstOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*SkusNestedResourceTypeFirst)(nil))

@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.DBforMySQL.V20210501.Outputs
 {
 
+    /// <summary>
+    /// Storage Profile properties of a server
+    /// </summary>
     [OutputType]
     public sealed class BackupResponse
     {

@@ -11,24 +11,16 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Data controller resource
 type DataController struct {
 	pulumi.CustomResourceState
 
-	// The extendedLocation of the resource.
-	ExtendedLocation ExtendedLocationResponsePtrOutput `pulumi:"extendedLocation"`
-	// The geo-location where the resource lives
-	Location pulumi.StringOutput `pulumi:"location"`
-	// The name of the resource
-	Name pulumi.StringOutput `pulumi:"name"`
-	// The data controller's properties
-	Properties DataControllerPropertiesResponseOutput `pulumi:"properties"`
-	// Read only system data
-	SystemData SystemDataResponseOutput `pulumi:"systemData"`
-	// Resource tags.
-	Tags pulumi.StringMapOutput `pulumi:"tags"`
-	// The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
-	Type pulumi.StringOutput `pulumi:"type"`
+	ExtendedLocation ExtendedLocationResponsePtrOutput      `pulumi:"extendedLocation"`
+	Location         pulumi.StringOutput                    `pulumi:"location"`
+	Name             pulumi.StringOutput                    `pulumi:"name"`
+	Properties       DataControllerPropertiesResponseOutput `pulumi:"properties"`
+	SystemData       SystemDataResponseOutput               `pulumi:"systemData"`
+	Tags             pulumi.StringMapOutput                 `pulumi:"tags"`
+	Type             pulumi.StringOutput                    `pulumi:"type"`
 }
 
 // NewDataController registers a new resource with the given unique name, arguments, and options.
@@ -100,32 +92,22 @@ func (DataControllerState) ElementType() reflect.Type {
 }
 
 type dataControllerArgs struct {
-	DataControllerName *string `pulumi:"dataControllerName"`
-	// The extendedLocation of the resource.
-	ExtendedLocation *ExtendedLocation `pulumi:"extendedLocation"`
-	// The geo-location where the resource lives
-	Location *string `pulumi:"location"`
-	// The data controller's properties
-	Properties DataControllerProperties `pulumi:"properties"`
-	// The name of the Azure resource group
-	ResourceGroupName string `pulumi:"resourceGroupName"`
-	// Resource tags.
-	Tags map[string]string `pulumi:"tags"`
+	DataControllerName *string                  `pulumi:"dataControllerName"`
+	ExtendedLocation   *ExtendedLocation        `pulumi:"extendedLocation"`
+	Location           *string                  `pulumi:"location"`
+	Properties         DataControllerProperties `pulumi:"properties"`
+	ResourceGroupName  string                   `pulumi:"resourceGroupName"`
+	Tags               map[string]string        `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a DataController resource.
 type DataControllerArgs struct {
 	DataControllerName pulumi.StringPtrInput
-	// The extendedLocation of the resource.
-	ExtendedLocation ExtendedLocationPtrInput
-	// The geo-location where the resource lives
-	Location pulumi.StringPtrInput
-	// The data controller's properties
-	Properties DataControllerPropertiesInput
-	// The name of the Azure resource group
-	ResourceGroupName pulumi.StringInput
-	// Resource tags.
-	Tags pulumi.StringMapInput
+	ExtendedLocation   ExtendedLocationPtrInput
+	Location           pulumi.StringPtrInput
+	Properties         DataControllerPropertiesInput
+	ResourceGroupName  pulumi.StringInput
+	Tags               pulumi.StringMapInput
 }
 
 func (DataControllerArgs) ElementType() reflect.Type {
@@ -151,9 +133,7 @@ func (i *DataController) ToDataControllerOutputWithContext(ctx context.Context) 
 	return pulumi.ToOutputWithContext(ctx, i).(DataControllerOutput)
 }
 
-type DataControllerOutput struct {
-	*pulumi.OutputState
-}
+type DataControllerOutput struct{ *pulumi.OutputState }
 
 func (DataControllerOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*DataController)(nil))

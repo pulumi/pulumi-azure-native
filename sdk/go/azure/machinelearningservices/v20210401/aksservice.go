@@ -11,26 +11,17 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Machine Learning service object wrapped into ARM resource envelope.
 type AKSService struct {
 	pulumi.CustomResourceState
 
-	// The identity of the resource.
-	Identity IdentityResponsePtrOutput `pulumi:"identity"`
-	// Specifies the location of the resource.
-	Location pulumi.StringPtrOutput `pulumi:"location"`
-	// Specifies the name of the resource.
-	Name pulumi.StringOutput `pulumi:"name"`
-	// Service properties
-	Properties pulumi.AnyOutput `pulumi:"properties"`
-	// The sku of the workspace.
-	Sku SkuResponsePtrOutput `pulumi:"sku"`
-	// Read only system data
-	SystemData SystemDataResponseOutput `pulumi:"systemData"`
-	// Contains resource tags defined as key/value pairs.
-	Tags pulumi.StringMapOutput `pulumi:"tags"`
-	// Specifies the type of the resource.
-	Type pulumi.StringOutput `pulumi:"type"`
+	Identity   IdentityResponsePtrOutput `pulumi:"identity"`
+	Location   pulumi.StringPtrOutput    `pulumi:"location"`
+	Name       pulumi.StringOutput       `pulumi:"name"`
+	Properties pulumi.AnyOutput          `pulumi:"properties"`
+	Sku        SkuResponsePtrOutput      `pulumi:"sku"`
+	SystemData SystemDataResponseOutput  `pulumi:"systemData"`
+	Tags       pulumi.StringMapOutput    `pulumi:"tags"`
+	Type       pulumi.StringOutput       `pulumi:"type"`
 }
 
 // NewAKSService registers a new resource with the given unique name, arguments, and options.
@@ -118,116 +109,62 @@ func (AKSServiceState) ElementType() reflect.Type {
 }
 
 type aksserviceArgs struct {
-	// Whether or not AAD authentication is enabled.
-	AadAuthEnabled *bool `pulumi:"aadAuthEnabled"`
-	// Whether or not Application Insights is enabled.
-	AppInsightsEnabled *bool `pulumi:"appInsightsEnabled"`
-	// Whether or not authentication is enabled.
-	AuthEnabled *bool `pulumi:"authEnabled"`
-	// The auto scaler properties.
-	AutoScaler *AKSServiceCreateRequestAutoScaler `pulumi:"autoScaler"`
-	// The name of the compute resource.
-	ComputeName *string `pulumi:"computeName"`
-	// The compute environment type for the service.
-	// Expected value is 'AKS'.
-	ComputeType string `pulumi:"computeType"`
-	// The container resource requirements.
-	ContainerResourceRequirements *ContainerResourceRequirements `pulumi:"containerResourceRequirements"`
-	// Details of the data collection options specified.
-	DataCollection *AKSServiceCreateRequestDataCollection `pulumi:"dataCollection"`
-	// The description of the service.
-	Description *string `pulumi:"description"`
-	// The Environment, models and assets needed for inferencing.
-	EnvironmentImageRequest *CreateServiceRequestEnvironmentImageRequest `pulumi:"environmentImageRequest"`
-	// Is this the default variant.
-	IsDefault *bool `pulumi:"isDefault"`
-	// The authentication keys.
-	Keys *CreateServiceRequestKeys `pulumi:"keys"`
-	// The service tag dictionary. Tags are mutable.
-	KvTags map[string]string `pulumi:"kvTags"`
-	// The liveness probe requirements.
-	LivenessProbeRequirements *AKSServiceCreateRequestLivenessProbeRequirements `pulumi:"livenessProbeRequirements"`
-	// The name of the Azure location/region.
-	Location *string `pulumi:"location"`
-	// The maximum number of concurrent requests per container.
-	MaxConcurrentRequestsPerContainer *int `pulumi:"maxConcurrentRequestsPerContainer"`
-	// Maximum time a request will wait in the queue (in milliseconds). After this time, the service will return 503 (Service Unavailable)
-	MaxQueueWaitMs *int `pulumi:"maxQueueWaitMs"`
-	// Kubernetes namespace for the service.
-	Namespace *string `pulumi:"namespace"`
-	// The number of replicas on the cluster.
-	NumReplicas *int `pulumi:"numReplicas"`
-	// The service properties dictionary. Properties are immutable.
-	Properties map[string]string `pulumi:"properties"`
-	// Name of the resource group in which workspace is located.
-	ResourceGroupName string `pulumi:"resourceGroupName"`
-	// The scoring timeout in milliseconds.
-	ScoringTimeoutMs *int `pulumi:"scoringTimeoutMs"`
-	// Name of the Azure Machine Learning service.
-	ServiceName *string `pulumi:"serviceName"`
-	// The amount of traffic variant receives.
-	TrafficPercentile *float64 `pulumi:"trafficPercentile"`
-	// The type of the variant.
-	Type *string `pulumi:"type"`
-	// Name of Azure Machine Learning workspace.
-	WorkspaceName string `pulumi:"workspaceName"`
+	AadAuthEnabled                    *bool                                             `pulumi:"aadAuthEnabled"`
+	AppInsightsEnabled                *bool                                             `pulumi:"appInsightsEnabled"`
+	AuthEnabled                       *bool                                             `pulumi:"authEnabled"`
+	AutoScaler                        *AKSServiceCreateRequestAutoScaler                `pulumi:"autoScaler"`
+	ComputeName                       *string                                           `pulumi:"computeName"`
+	ComputeType                       string                                            `pulumi:"computeType"`
+	ContainerResourceRequirements     *ContainerResourceRequirements                    `pulumi:"containerResourceRequirements"`
+	DataCollection                    *AKSServiceCreateRequestDataCollection            `pulumi:"dataCollection"`
+	Description                       *string                                           `pulumi:"description"`
+	EnvironmentImageRequest           *CreateServiceRequestEnvironmentImageRequest      `pulumi:"environmentImageRequest"`
+	IsDefault                         *bool                                             `pulumi:"isDefault"`
+	Keys                              *CreateServiceRequestKeys                         `pulumi:"keys"`
+	KvTags                            map[string]string                                 `pulumi:"kvTags"`
+	LivenessProbeRequirements         *AKSServiceCreateRequestLivenessProbeRequirements `pulumi:"livenessProbeRequirements"`
+	Location                          *string                                           `pulumi:"location"`
+	MaxConcurrentRequestsPerContainer *int                                              `pulumi:"maxConcurrentRequestsPerContainer"`
+	MaxQueueWaitMs                    *int                                              `pulumi:"maxQueueWaitMs"`
+	Namespace                         *string                                           `pulumi:"namespace"`
+	NumReplicas                       *int                                              `pulumi:"numReplicas"`
+	Properties                        map[string]string                                 `pulumi:"properties"`
+	ResourceGroupName                 string                                            `pulumi:"resourceGroupName"`
+	ScoringTimeoutMs                  *int                                              `pulumi:"scoringTimeoutMs"`
+	ServiceName                       *string                                           `pulumi:"serviceName"`
+	TrafficPercentile                 *float64                                          `pulumi:"trafficPercentile"`
+	Type                              *string                                           `pulumi:"type"`
+	WorkspaceName                     string                                            `pulumi:"workspaceName"`
 }
 
 // The set of arguments for constructing a AKSService resource.
 type AKSServiceArgs struct {
-	// Whether or not AAD authentication is enabled.
-	AadAuthEnabled pulumi.BoolPtrInput
-	// Whether or not Application Insights is enabled.
-	AppInsightsEnabled pulumi.BoolPtrInput
-	// Whether or not authentication is enabled.
-	AuthEnabled pulumi.BoolPtrInput
-	// The auto scaler properties.
-	AutoScaler AKSServiceCreateRequestAutoScalerPtrInput
-	// The name of the compute resource.
-	ComputeName pulumi.StringPtrInput
-	// The compute environment type for the service.
-	// Expected value is 'AKS'.
-	ComputeType pulumi.StringInput
-	// The container resource requirements.
-	ContainerResourceRequirements ContainerResourceRequirementsPtrInput
-	// Details of the data collection options specified.
-	DataCollection AKSServiceCreateRequestDataCollectionPtrInput
-	// The description of the service.
-	Description pulumi.StringPtrInput
-	// The Environment, models and assets needed for inferencing.
-	EnvironmentImageRequest CreateServiceRequestEnvironmentImageRequestPtrInput
-	// Is this the default variant.
-	IsDefault pulumi.BoolPtrInput
-	// The authentication keys.
-	Keys CreateServiceRequestKeysPtrInput
-	// The service tag dictionary. Tags are mutable.
-	KvTags pulumi.StringMapInput
-	// The liveness probe requirements.
-	LivenessProbeRequirements AKSServiceCreateRequestLivenessProbeRequirementsPtrInput
-	// The name of the Azure location/region.
-	Location pulumi.StringPtrInput
-	// The maximum number of concurrent requests per container.
+	AadAuthEnabled                    pulumi.BoolPtrInput
+	AppInsightsEnabled                pulumi.BoolPtrInput
+	AuthEnabled                       pulumi.BoolPtrInput
+	AutoScaler                        AKSServiceCreateRequestAutoScalerPtrInput
+	ComputeName                       pulumi.StringPtrInput
+	ComputeType                       pulumi.StringInput
+	ContainerResourceRequirements     ContainerResourceRequirementsPtrInput
+	DataCollection                    AKSServiceCreateRequestDataCollectionPtrInput
+	Description                       pulumi.StringPtrInput
+	EnvironmentImageRequest           CreateServiceRequestEnvironmentImageRequestPtrInput
+	IsDefault                         pulumi.BoolPtrInput
+	Keys                              CreateServiceRequestKeysPtrInput
+	KvTags                            pulumi.StringMapInput
+	LivenessProbeRequirements         AKSServiceCreateRequestLivenessProbeRequirementsPtrInput
+	Location                          pulumi.StringPtrInput
 	MaxConcurrentRequestsPerContainer pulumi.IntPtrInput
-	// Maximum time a request will wait in the queue (in milliseconds). After this time, the service will return 503 (Service Unavailable)
-	MaxQueueWaitMs pulumi.IntPtrInput
-	// Kubernetes namespace for the service.
-	Namespace pulumi.StringPtrInput
-	// The number of replicas on the cluster.
-	NumReplicas pulumi.IntPtrInput
-	// The service properties dictionary. Properties are immutable.
-	Properties pulumi.StringMapInput
-	// Name of the resource group in which workspace is located.
-	ResourceGroupName pulumi.StringInput
-	// The scoring timeout in milliseconds.
-	ScoringTimeoutMs pulumi.IntPtrInput
-	// Name of the Azure Machine Learning service.
-	ServiceName pulumi.StringPtrInput
-	// The amount of traffic variant receives.
-	TrafficPercentile pulumi.Float64PtrInput
-	// The type of the variant.
-	Type pulumi.StringPtrInput
-	// Name of Azure Machine Learning workspace.
-	WorkspaceName pulumi.StringInput
+	MaxQueueWaitMs                    pulumi.IntPtrInput
+	Namespace                         pulumi.StringPtrInput
+	NumReplicas                       pulumi.IntPtrInput
+	Properties                        pulumi.StringMapInput
+	ResourceGroupName                 pulumi.StringInput
+	ScoringTimeoutMs                  pulumi.IntPtrInput
+	ServiceName                       pulumi.StringPtrInput
+	TrafficPercentile                 pulumi.Float64PtrInput
+	Type                              pulumi.StringPtrInput
+	WorkspaceName                     pulumi.StringInput
 }
 
 func (AKSServiceArgs) ElementType() reflect.Type {
@@ -253,9 +190,7 @@ func (i *AKSService) ToAKSServiceOutputWithContext(ctx context.Context) AKSServi
 	return pulumi.ToOutputWithContext(ctx, i).(AKSServiceOutput)
 }
 
-type AKSServiceOutput struct {
-	*pulumi.OutputState
-}
+type AKSServiceOutput struct{ *pulumi.OutputState }
 
 func (AKSServiceOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*AKSService)(nil))

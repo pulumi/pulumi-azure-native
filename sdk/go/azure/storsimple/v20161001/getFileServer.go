@@ -7,7 +7,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// The file server.
 func LookupFileServer(ctx *pulumi.Context, args *LookupFileServerArgs, opts ...pulumi.InvokeOption) (*LookupFileServerResult, error) {
 	var rv LookupFileServerResult
 	err := ctx.Invoke("azure-native:storsimple/v20161001:getFileServer", args, &rv, opts...)
@@ -18,30 +17,19 @@ func LookupFileServer(ctx *pulumi.Context, args *LookupFileServerArgs, opts ...p
 }
 
 type LookupFileServerArgs struct {
-	// The device name.
-	DeviceName string `pulumi:"deviceName"`
-	// The file server name.
-	FileServerName string `pulumi:"fileServerName"`
-	// The manager name
-	ManagerName string `pulumi:"managerName"`
-	// The resource group name
+	DeviceName        string `pulumi:"deviceName"`
+	FileServerName    string `pulumi:"fileServerName"`
+	ManagerName       string `pulumi:"managerName"`
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 }
 
 // The file server.
 type LookupFileServerResult struct {
-	// The backup policy id.
-	BackupScheduleGroupId string `pulumi:"backupScheduleGroupId"`
-	// The description of the file server
-	Description *string `pulumi:"description"`
-	// Domain of the file server
-	DomainName string `pulumi:"domainName"`
-	// The identifier.
-	Id string `pulumi:"id"`
-	// The name.
-	Name string `pulumi:"name"`
-	// The storage domain id.
-	StorageDomainId string `pulumi:"storageDomainId"`
-	// The type.
-	Type string `pulumi:"type"`
+	BackupScheduleGroupId string  `pulumi:"backupScheduleGroupId"`
+	Description           *string `pulumi:"description"`
+	DomainName            string  `pulumi:"domainName"`
+	Id                    string  `pulumi:"id"`
+	Name                  string  `pulumi:"name"`
+	StorageDomainId       string  `pulumi:"storageDomainId"`
+	Type                  string  `pulumi:"type"`
 }

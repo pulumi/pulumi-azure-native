@@ -14,16 +14,13 @@ import (
 type Monitor struct {
 	pulumi.CustomResourceState
 
-	Identity IdentityPropertiesResponsePtrOutput `pulumi:"identity"`
-	Location pulumi.StringOutput                 `pulumi:"location"`
-	// Name of the monitor resource.
-	Name pulumi.StringOutput `pulumi:"name"`
-	// Properties specific to the monitor resource.
-	Properties MonitorPropertiesResponseOutput `pulumi:"properties"`
-	Sku        ResourceSkuResponsePtrOutput    `pulumi:"sku"`
-	Tags       pulumi.StringMapOutput          `pulumi:"tags"`
-	// The type of the monitor resource.
-	Type pulumi.StringOutput `pulumi:"type"`
+	Identity   IdentityPropertiesResponsePtrOutput `pulumi:"identity"`
+	Location   pulumi.StringOutput                 `pulumi:"location"`
+	Name       pulumi.StringOutput                 `pulumi:"name"`
+	Properties MonitorPropertiesResponseOutput     `pulumi:"properties"`
+	Sku        ResourceSkuResponsePtrOutput        `pulumi:"sku"`
+	Tags       pulumi.StringMapOutput              `pulumi:"tags"`
+	Type       pulumi.StringOutput                 `pulumi:"type"`
 }
 
 // NewMonitor registers a new resource with the given unique name, arguments, and options.
@@ -86,27 +83,21 @@ func (MonitorState) ElementType() reflect.Type {
 }
 
 type monitorArgs struct {
-	Identity *IdentityProperties `pulumi:"identity"`
-	Location *string             `pulumi:"location"`
-	// Monitor resource name
-	MonitorName *string `pulumi:"monitorName"`
-	// Properties specific to the monitor resource.
-	Properties *MonitorProperties `pulumi:"properties"`
-	// The name of the resource group to which the Datadog resource belongs.
-	ResourceGroupName string            `pulumi:"resourceGroupName"`
-	Sku               *ResourceSku      `pulumi:"sku"`
-	Tags              map[string]string `pulumi:"tags"`
+	Identity          *IdentityProperties `pulumi:"identity"`
+	Location          *string             `pulumi:"location"`
+	MonitorName       *string             `pulumi:"monitorName"`
+	Properties        *MonitorProperties  `pulumi:"properties"`
+	ResourceGroupName string              `pulumi:"resourceGroupName"`
+	Sku               *ResourceSku        `pulumi:"sku"`
+	Tags              map[string]string   `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a Monitor resource.
 type MonitorArgs struct {
-	Identity IdentityPropertiesPtrInput
-	Location pulumi.StringPtrInput
-	// Monitor resource name
-	MonitorName pulumi.StringPtrInput
-	// Properties specific to the monitor resource.
-	Properties MonitorPropertiesPtrInput
-	// The name of the resource group to which the Datadog resource belongs.
+	Identity          IdentityPropertiesPtrInput
+	Location          pulumi.StringPtrInput
+	MonitorName       pulumi.StringPtrInput
+	Properties        MonitorPropertiesPtrInput
 	ResourceGroupName pulumi.StringInput
 	Sku               ResourceSkuPtrInput
 	Tags              pulumi.StringMapInput
@@ -135,9 +126,7 @@ func (i *Monitor) ToMonitorOutputWithContext(ctx context.Context) MonitorOutput 
 	return pulumi.ToOutputWithContext(ctx, i).(MonitorOutput)
 }
 
-type MonitorOutput struct {
-	*pulumi.OutputState
-}
+type MonitorOutput struct{ *pulumi.OutputState }
 
 func (MonitorOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*Monitor)(nil))

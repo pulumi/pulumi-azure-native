@@ -11,28 +11,18 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// An object that represents a replication for a container registry.
 type Replication struct {
 	pulumi.CustomResourceState
 
-	// The location of the resource. This cannot be changed after the resource is created.
-	Location pulumi.StringOutput `pulumi:"location"`
-	// The name of the resource.
-	Name pulumi.StringOutput `pulumi:"name"`
-	// The provisioning state of the replication at the time the operation was called.
-	ProvisioningState pulumi.StringOutput `pulumi:"provisioningState"`
-	// Specifies whether the replication's regional endpoint is enabled. Requests will not be routed to a replication whose regional endpoint is disabled, however its data will continue to be synced with other replications.
-	RegionEndpointEnabled pulumi.BoolPtrOutput `pulumi:"regionEndpointEnabled"`
-	// The status of the replication at the time the operation was called.
-	Status StatusResponseOutput `pulumi:"status"`
-	// Metadata pertaining to creation and last modification of the resource.
-	SystemData SystemDataResponseOutput `pulumi:"systemData"`
-	// The tags of the resource.
-	Tags pulumi.StringMapOutput `pulumi:"tags"`
-	// The type of the resource.
-	Type pulumi.StringOutput `pulumi:"type"`
-	// Whether or not zone redundancy is enabled for this container registry replication
-	ZoneRedundancy pulumi.StringPtrOutput `pulumi:"zoneRedundancy"`
+	Location              pulumi.StringOutput      `pulumi:"location"`
+	Name                  pulumi.StringOutput      `pulumi:"name"`
+	ProvisioningState     pulumi.StringOutput      `pulumi:"provisioningState"`
+	RegionEndpointEnabled pulumi.BoolPtrOutput     `pulumi:"regionEndpointEnabled"`
+	Status                StatusResponseOutput     `pulumi:"status"`
+	SystemData            SystemDataResponseOutput `pulumi:"systemData"`
+	Tags                  pulumi.StringMapOutput   `pulumi:"tags"`
+	Type                  pulumi.StringOutput      `pulumi:"type"`
+	ZoneRedundancy        pulumi.StringPtrOutput   `pulumi:"zoneRedundancy"`
 }
 
 // NewReplication registers a new resource with the given unique name, arguments, and options.
@@ -128,38 +118,24 @@ func (ReplicationState) ElementType() reflect.Type {
 }
 
 type replicationArgs struct {
-	// The location of the resource. This cannot be changed after the resource is created.
-	Location *string `pulumi:"location"`
-	// Specifies whether the replication's regional endpoint is enabled. Requests will not be routed to a replication whose regional endpoint is disabled, however its data will continue to be synced with other replications.
-	RegionEndpointEnabled *bool `pulumi:"regionEndpointEnabled"`
-	// The name of the container registry.
-	RegistryName string `pulumi:"registryName"`
-	// The name of the replication.
-	ReplicationName *string `pulumi:"replicationName"`
-	// The name of the resource group to which the container registry belongs.
-	ResourceGroupName string `pulumi:"resourceGroupName"`
-	// The tags of the resource.
-	Tags map[string]string `pulumi:"tags"`
-	// Whether or not zone redundancy is enabled for this container registry replication
-	ZoneRedundancy *string `pulumi:"zoneRedundancy"`
+	Location              *string           `pulumi:"location"`
+	RegionEndpointEnabled *bool             `pulumi:"regionEndpointEnabled"`
+	RegistryName          string            `pulumi:"registryName"`
+	ReplicationName       *string           `pulumi:"replicationName"`
+	ResourceGroupName     string            `pulumi:"resourceGroupName"`
+	Tags                  map[string]string `pulumi:"tags"`
+	ZoneRedundancy        *string           `pulumi:"zoneRedundancy"`
 }
 
 // The set of arguments for constructing a Replication resource.
 type ReplicationArgs struct {
-	// The location of the resource. This cannot be changed after the resource is created.
-	Location pulumi.StringPtrInput
-	// Specifies whether the replication's regional endpoint is enabled. Requests will not be routed to a replication whose regional endpoint is disabled, however its data will continue to be synced with other replications.
+	Location              pulumi.StringPtrInput
 	RegionEndpointEnabled pulumi.BoolPtrInput
-	// The name of the container registry.
-	RegistryName pulumi.StringInput
-	// The name of the replication.
-	ReplicationName pulumi.StringPtrInput
-	// The name of the resource group to which the container registry belongs.
-	ResourceGroupName pulumi.StringInput
-	// The tags of the resource.
-	Tags pulumi.StringMapInput
-	// Whether or not zone redundancy is enabled for this container registry replication
-	ZoneRedundancy pulumi.StringPtrInput
+	RegistryName          pulumi.StringInput
+	ReplicationName       pulumi.StringPtrInput
+	ResourceGroupName     pulumi.StringInput
+	Tags                  pulumi.StringMapInput
+	ZoneRedundancy        pulumi.StringPtrInput
 }
 
 func (ReplicationArgs) ElementType() reflect.Type {
@@ -185,9 +161,7 @@ func (i *Replication) ToReplicationOutputWithContext(ctx context.Context) Replic
 	return pulumi.ToOutputWithContext(ctx, i).(ReplicationOutput)
 }
 
-type ReplicationOutput struct {
-	*pulumi.OutputState
-}
+type ReplicationOutput struct{ *pulumi.OutputState }
 
 func (ReplicationOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*Replication)(nil))

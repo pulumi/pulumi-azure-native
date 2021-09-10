@@ -10,14 +10,10 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Represents the OpenShift networking configuration
 type NetworkProfile struct {
-	// CIDR of the Vnet to peer.
 	PeerVnetId *string `pulumi:"peerVnetId"`
-	// CIDR for the OpenShift Vnet.
-	VnetCidr *string `pulumi:"vnetCidr"`
-	// ID of the Vnet created for OSA cluster.
-	VnetId *string `pulumi:"vnetId"`
+	VnetCidr   *string `pulumi:"vnetCidr"`
+	VnetId     *string `pulumi:"vnetId"`
 }
 
 // NetworkProfileInput is an input type that accepts NetworkProfileArgs and NetworkProfileOutput values.
@@ -31,14 +27,10 @@ type NetworkProfileInput interface {
 	ToNetworkProfileOutputWithContext(context.Context) NetworkProfileOutput
 }
 
-// Represents the OpenShift networking configuration
 type NetworkProfileArgs struct {
-	// CIDR of the Vnet to peer.
 	PeerVnetId pulumi.StringPtrInput `pulumi:"peerVnetId"`
-	// CIDR for the OpenShift Vnet.
-	VnetCidr pulumi.StringPtrInput `pulumi:"vnetCidr"`
-	// ID of the Vnet created for OSA cluster.
-	VnetId pulumi.StringPtrInput `pulumi:"vnetId"`
+	VnetCidr   pulumi.StringPtrInput `pulumi:"vnetCidr"`
+	VnetId     pulumi.StringPtrInput `pulumi:"vnetId"`
 }
 
 func (NetworkProfileArgs) ElementType() reflect.Type {
@@ -94,7 +86,6 @@ func (i *networkProfilePtrType) ToNetworkProfilePtrOutputWithContext(ctx context
 	return pulumi.ToOutputWithContext(ctx, i).(NetworkProfilePtrOutput)
 }
 
-// Represents the OpenShift networking configuration
 type NetworkProfileOutput struct{ *pulumi.OutputState }
 
 func (NetworkProfileOutput) ElementType() reflect.Type {
@@ -114,22 +105,19 @@ func (o NetworkProfileOutput) ToNetworkProfilePtrOutput() NetworkProfilePtrOutpu
 }
 
 func (o NetworkProfileOutput) ToNetworkProfilePtrOutputWithContext(ctx context.Context) NetworkProfilePtrOutput {
-	return o.ApplyT(func(v NetworkProfile) *NetworkProfile {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v NetworkProfile) *NetworkProfile {
 		return &v
 	}).(NetworkProfilePtrOutput)
 }
 
-// CIDR of the Vnet to peer.
 func (o NetworkProfileOutput) PeerVnetId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v NetworkProfile) *string { return v.PeerVnetId }).(pulumi.StringPtrOutput)
 }
 
-// CIDR for the OpenShift Vnet.
 func (o NetworkProfileOutput) VnetCidr() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v NetworkProfile) *string { return v.VnetCidr }).(pulumi.StringPtrOutput)
 }
 
-// ID of the Vnet created for OSA cluster.
 func (o NetworkProfileOutput) VnetId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v NetworkProfile) *string { return v.VnetId }).(pulumi.StringPtrOutput)
 }
@@ -149,10 +137,15 @@ func (o NetworkProfilePtrOutput) ToNetworkProfilePtrOutputWithContext(ctx contex
 }
 
 func (o NetworkProfilePtrOutput) Elem() NetworkProfileOutput {
-	return o.ApplyT(func(v *NetworkProfile) NetworkProfile { return *v }).(NetworkProfileOutput)
+	return o.ApplyT(func(v *NetworkProfile) NetworkProfile {
+		if v != nil {
+			return *v
+		}
+		var ret NetworkProfile
+		return ret
+	}).(NetworkProfileOutput)
 }
 
-// CIDR of the Vnet to peer.
 func (o NetworkProfilePtrOutput) PeerVnetId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *NetworkProfile) *string {
 		if v == nil {
@@ -162,7 +155,6 @@ func (o NetworkProfilePtrOutput) PeerVnetId() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// CIDR for the OpenShift Vnet.
 func (o NetworkProfilePtrOutput) VnetCidr() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *NetworkProfile) *string {
 		if v == nil {
@@ -172,7 +164,6 @@ func (o NetworkProfilePtrOutput) VnetCidr() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// ID of the Vnet created for OSA cluster.
 func (o NetworkProfilePtrOutput) VnetId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *NetworkProfile) *string {
 		if v == nil {
@@ -182,14 +173,10 @@ func (o NetworkProfilePtrOutput) VnetId() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Represents the OpenShift networking configuration
 type NetworkProfileResponse struct {
-	// CIDR of the Vnet to peer.
 	PeerVnetId *string `pulumi:"peerVnetId"`
-	// CIDR for the OpenShift Vnet.
-	VnetCidr *string `pulumi:"vnetCidr"`
-	// ID of the Vnet created for OSA cluster.
-	VnetId *string `pulumi:"vnetId"`
+	VnetCidr   *string `pulumi:"vnetCidr"`
+	VnetId     *string `pulumi:"vnetId"`
 }
 
 // NetworkProfileResponseInput is an input type that accepts NetworkProfileResponseArgs and NetworkProfileResponseOutput values.
@@ -203,14 +190,10 @@ type NetworkProfileResponseInput interface {
 	ToNetworkProfileResponseOutputWithContext(context.Context) NetworkProfileResponseOutput
 }
 
-// Represents the OpenShift networking configuration
 type NetworkProfileResponseArgs struct {
-	// CIDR of the Vnet to peer.
 	PeerVnetId pulumi.StringPtrInput `pulumi:"peerVnetId"`
-	// CIDR for the OpenShift Vnet.
-	VnetCidr pulumi.StringPtrInput `pulumi:"vnetCidr"`
-	// ID of the Vnet created for OSA cluster.
-	VnetId pulumi.StringPtrInput `pulumi:"vnetId"`
+	VnetCidr   pulumi.StringPtrInput `pulumi:"vnetCidr"`
+	VnetId     pulumi.StringPtrInput `pulumi:"vnetId"`
 }
 
 func (NetworkProfileResponseArgs) ElementType() reflect.Type {
@@ -266,7 +249,6 @@ func (i *networkProfileResponsePtrType) ToNetworkProfileResponsePtrOutputWithCon
 	return pulumi.ToOutputWithContext(ctx, i).(NetworkProfileResponsePtrOutput)
 }
 
-// Represents the OpenShift networking configuration
 type NetworkProfileResponseOutput struct{ *pulumi.OutputState }
 
 func (NetworkProfileResponseOutput) ElementType() reflect.Type {
@@ -286,22 +268,19 @@ func (o NetworkProfileResponseOutput) ToNetworkProfileResponsePtrOutput() Networ
 }
 
 func (o NetworkProfileResponseOutput) ToNetworkProfileResponsePtrOutputWithContext(ctx context.Context) NetworkProfileResponsePtrOutput {
-	return o.ApplyT(func(v NetworkProfileResponse) *NetworkProfileResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v NetworkProfileResponse) *NetworkProfileResponse {
 		return &v
 	}).(NetworkProfileResponsePtrOutput)
 }
 
-// CIDR of the Vnet to peer.
 func (o NetworkProfileResponseOutput) PeerVnetId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v NetworkProfileResponse) *string { return v.PeerVnetId }).(pulumi.StringPtrOutput)
 }
 
-// CIDR for the OpenShift Vnet.
 func (o NetworkProfileResponseOutput) VnetCidr() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v NetworkProfileResponse) *string { return v.VnetCidr }).(pulumi.StringPtrOutput)
 }
 
-// ID of the Vnet created for OSA cluster.
 func (o NetworkProfileResponseOutput) VnetId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v NetworkProfileResponse) *string { return v.VnetId }).(pulumi.StringPtrOutput)
 }
@@ -321,10 +300,15 @@ func (o NetworkProfileResponsePtrOutput) ToNetworkProfileResponsePtrOutputWithCo
 }
 
 func (o NetworkProfileResponsePtrOutput) Elem() NetworkProfileResponseOutput {
-	return o.ApplyT(func(v *NetworkProfileResponse) NetworkProfileResponse { return *v }).(NetworkProfileResponseOutput)
+	return o.ApplyT(func(v *NetworkProfileResponse) NetworkProfileResponse {
+		if v != nil {
+			return *v
+		}
+		var ret NetworkProfileResponse
+		return ret
+	}).(NetworkProfileResponseOutput)
 }
 
-// CIDR of the Vnet to peer.
 func (o NetworkProfileResponsePtrOutput) PeerVnetId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *NetworkProfileResponse) *string {
 		if v == nil {
@@ -334,7 +318,6 @@ func (o NetworkProfileResponsePtrOutput) PeerVnetId() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// CIDR for the OpenShift Vnet.
 func (o NetworkProfileResponsePtrOutput) VnetCidr() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *NetworkProfileResponse) *string {
 		if v == nil {
@@ -344,7 +327,6 @@ func (o NetworkProfileResponsePtrOutput) VnetCidr() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// ID of the Vnet created for OSA cluster.
 func (o NetworkProfileResponsePtrOutput) VnetId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *NetworkProfileResponse) *string {
 		if v == nil {
@@ -354,19 +336,12 @@ func (o NetworkProfileResponsePtrOutput) VnetId() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Defines the Identity provider for MS AAD.
 type OpenShiftManagedClusterAADIdentityProvider struct {
-	// The clientId password associated with the provider.
-	ClientId *string `pulumi:"clientId"`
-	// The groupId to be granted cluster admin role.
+	ClientId             *string `pulumi:"clientId"`
 	CustomerAdminGroupId *string `pulumi:"customerAdminGroupId"`
-	// The kind of the provider.
-	// Expected value is 'AADIdentityProvider'.
-	Kind string `pulumi:"kind"`
-	// The secret password associated with the provider.
-	Secret *string `pulumi:"secret"`
-	// The tenantId associated with the provider.
-	TenantId *string `pulumi:"tenantId"`
+	Kind                 string  `pulumi:"kind"`
+	Secret               *string `pulumi:"secret"`
+	TenantId             *string `pulumi:"tenantId"`
 }
 
 // OpenShiftManagedClusterAADIdentityProviderInput is an input type that accepts OpenShiftManagedClusterAADIdentityProviderArgs and OpenShiftManagedClusterAADIdentityProviderOutput values.
@@ -380,19 +355,12 @@ type OpenShiftManagedClusterAADIdentityProviderInput interface {
 	ToOpenShiftManagedClusterAADIdentityProviderOutputWithContext(context.Context) OpenShiftManagedClusterAADIdentityProviderOutput
 }
 
-// Defines the Identity provider for MS AAD.
 type OpenShiftManagedClusterAADIdentityProviderArgs struct {
-	// The clientId password associated with the provider.
-	ClientId pulumi.StringPtrInput `pulumi:"clientId"`
-	// The groupId to be granted cluster admin role.
+	ClientId             pulumi.StringPtrInput `pulumi:"clientId"`
 	CustomerAdminGroupId pulumi.StringPtrInput `pulumi:"customerAdminGroupId"`
-	// The kind of the provider.
-	// Expected value is 'AADIdentityProvider'.
-	Kind pulumi.StringInput `pulumi:"kind"`
-	// The secret password associated with the provider.
-	Secret pulumi.StringPtrInput `pulumi:"secret"`
-	// The tenantId associated with the provider.
-	TenantId pulumi.StringPtrInput `pulumi:"tenantId"`
+	Kind                 pulumi.StringInput    `pulumi:"kind"`
+	Secret               pulumi.StringPtrInput `pulumi:"secret"`
+	TenantId             pulumi.StringPtrInput `pulumi:"tenantId"`
 }
 
 func (OpenShiftManagedClusterAADIdentityProviderArgs) ElementType() reflect.Type {
@@ -448,7 +416,6 @@ func (i *openShiftManagedClusterAADIdentityProviderPtrType) ToOpenShiftManagedCl
 	return pulumi.ToOutputWithContext(ctx, i).(OpenShiftManagedClusterAADIdentityProviderPtrOutput)
 }
 
-// Defines the Identity provider for MS AAD.
 type OpenShiftManagedClusterAADIdentityProviderOutput struct{ *pulumi.OutputState }
 
 func (OpenShiftManagedClusterAADIdentityProviderOutput) ElementType() reflect.Type {
@@ -468,33 +435,27 @@ func (o OpenShiftManagedClusterAADIdentityProviderOutput) ToOpenShiftManagedClus
 }
 
 func (o OpenShiftManagedClusterAADIdentityProviderOutput) ToOpenShiftManagedClusterAADIdentityProviderPtrOutputWithContext(ctx context.Context) OpenShiftManagedClusterAADIdentityProviderPtrOutput {
-	return o.ApplyT(func(v OpenShiftManagedClusterAADIdentityProvider) *OpenShiftManagedClusterAADIdentityProvider {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v OpenShiftManagedClusterAADIdentityProvider) *OpenShiftManagedClusterAADIdentityProvider {
 		return &v
 	}).(OpenShiftManagedClusterAADIdentityProviderPtrOutput)
 }
 
-// The clientId password associated with the provider.
 func (o OpenShiftManagedClusterAADIdentityProviderOutput) ClientId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v OpenShiftManagedClusterAADIdentityProvider) *string { return v.ClientId }).(pulumi.StringPtrOutput)
 }
 
-// The groupId to be granted cluster admin role.
 func (o OpenShiftManagedClusterAADIdentityProviderOutput) CustomerAdminGroupId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v OpenShiftManagedClusterAADIdentityProvider) *string { return v.CustomerAdminGroupId }).(pulumi.StringPtrOutput)
 }
 
-// The kind of the provider.
-// Expected value is 'AADIdentityProvider'.
 func (o OpenShiftManagedClusterAADIdentityProviderOutput) Kind() pulumi.StringOutput {
 	return o.ApplyT(func(v OpenShiftManagedClusterAADIdentityProvider) string { return v.Kind }).(pulumi.StringOutput)
 }
 
-// The secret password associated with the provider.
 func (o OpenShiftManagedClusterAADIdentityProviderOutput) Secret() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v OpenShiftManagedClusterAADIdentityProvider) *string { return v.Secret }).(pulumi.StringPtrOutput)
 }
 
-// The tenantId associated with the provider.
 func (o OpenShiftManagedClusterAADIdentityProviderOutput) TenantId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v OpenShiftManagedClusterAADIdentityProvider) *string { return v.TenantId }).(pulumi.StringPtrOutput)
 }
@@ -515,11 +476,14 @@ func (o OpenShiftManagedClusterAADIdentityProviderPtrOutput) ToOpenShiftManagedC
 
 func (o OpenShiftManagedClusterAADIdentityProviderPtrOutput) Elem() OpenShiftManagedClusterAADIdentityProviderOutput {
 	return o.ApplyT(func(v *OpenShiftManagedClusterAADIdentityProvider) OpenShiftManagedClusterAADIdentityProvider {
-		return *v
+		if v != nil {
+			return *v
+		}
+		var ret OpenShiftManagedClusterAADIdentityProvider
+		return ret
 	}).(OpenShiftManagedClusterAADIdentityProviderOutput)
 }
 
-// The clientId password associated with the provider.
 func (o OpenShiftManagedClusterAADIdentityProviderPtrOutput) ClientId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *OpenShiftManagedClusterAADIdentityProvider) *string {
 		if v == nil {
@@ -529,7 +493,6 @@ func (o OpenShiftManagedClusterAADIdentityProviderPtrOutput) ClientId() pulumi.S
 	}).(pulumi.StringPtrOutput)
 }
 
-// The groupId to be granted cluster admin role.
 func (o OpenShiftManagedClusterAADIdentityProviderPtrOutput) CustomerAdminGroupId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *OpenShiftManagedClusterAADIdentityProvider) *string {
 		if v == nil {
@@ -539,8 +502,6 @@ func (o OpenShiftManagedClusterAADIdentityProviderPtrOutput) CustomerAdminGroupI
 	}).(pulumi.StringPtrOutput)
 }
 
-// The kind of the provider.
-// Expected value is 'AADIdentityProvider'.
 func (o OpenShiftManagedClusterAADIdentityProviderPtrOutput) Kind() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *OpenShiftManagedClusterAADIdentityProvider) *string {
 		if v == nil {
@@ -550,7 +511,6 @@ func (o OpenShiftManagedClusterAADIdentityProviderPtrOutput) Kind() pulumi.Strin
 	}).(pulumi.StringPtrOutput)
 }
 
-// The secret password associated with the provider.
 func (o OpenShiftManagedClusterAADIdentityProviderPtrOutput) Secret() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *OpenShiftManagedClusterAADIdentityProvider) *string {
 		if v == nil {
@@ -560,7 +520,6 @@ func (o OpenShiftManagedClusterAADIdentityProviderPtrOutput) Secret() pulumi.Str
 	}).(pulumi.StringPtrOutput)
 }
 
-// The tenantId associated with the provider.
 func (o OpenShiftManagedClusterAADIdentityProviderPtrOutput) TenantId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *OpenShiftManagedClusterAADIdentityProvider) *string {
 		if v == nil {
@@ -570,19 +529,12 @@ func (o OpenShiftManagedClusterAADIdentityProviderPtrOutput) TenantId() pulumi.S
 	}).(pulumi.StringPtrOutput)
 }
 
-// Defines the Identity provider for MS AAD.
 type OpenShiftManagedClusterAADIdentityProviderResponse struct {
-	// The clientId password associated with the provider.
-	ClientId *string `pulumi:"clientId"`
-	// The groupId to be granted cluster admin role.
+	ClientId             *string `pulumi:"clientId"`
 	CustomerAdminGroupId *string `pulumi:"customerAdminGroupId"`
-	// The kind of the provider.
-	// Expected value is 'AADIdentityProvider'.
-	Kind string `pulumi:"kind"`
-	// The secret password associated with the provider.
-	Secret *string `pulumi:"secret"`
-	// The tenantId associated with the provider.
-	TenantId *string `pulumi:"tenantId"`
+	Kind                 string  `pulumi:"kind"`
+	Secret               *string `pulumi:"secret"`
+	TenantId             *string `pulumi:"tenantId"`
 }
 
 // OpenShiftManagedClusterAADIdentityProviderResponseInput is an input type that accepts OpenShiftManagedClusterAADIdentityProviderResponseArgs and OpenShiftManagedClusterAADIdentityProviderResponseOutput values.
@@ -596,19 +548,12 @@ type OpenShiftManagedClusterAADIdentityProviderResponseInput interface {
 	ToOpenShiftManagedClusterAADIdentityProviderResponseOutputWithContext(context.Context) OpenShiftManagedClusterAADIdentityProviderResponseOutput
 }
 
-// Defines the Identity provider for MS AAD.
 type OpenShiftManagedClusterAADIdentityProviderResponseArgs struct {
-	// The clientId password associated with the provider.
-	ClientId pulumi.StringPtrInput `pulumi:"clientId"`
-	// The groupId to be granted cluster admin role.
+	ClientId             pulumi.StringPtrInput `pulumi:"clientId"`
 	CustomerAdminGroupId pulumi.StringPtrInput `pulumi:"customerAdminGroupId"`
-	// The kind of the provider.
-	// Expected value is 'AADIdentityProvider'.
-	Kind pulumi.StringInput `pulumi:"kind"`
-	// The secret password associated with the provider.
-	Secret pulumi.StringPtrInput `pulumi:"secret"`
-	// The tenantId associated with the provider.
-	TenantId pulumi.StringPtrInput `pulumi:"tenantId"`
+	Kind                 pulumi.StringInput    `pulumi:"kind"`
+	Secret               pulumi.StringPtrInput `pulumi:"secret"`
+	TenantId             pulumi.StringPtrInput `pulumi:"tenantId"`
 }
 
 func (OpenShiftManagedClusterAADIdentityProviderResponseArgs) ElementType() reflect.Type {
@@ -664,7 +609,6 @@ func (i *openShiftManagedClusterAADIdentityProviderResponsePtrType) ToOpenShiftM
 	return pulumi.ToOutputWithContext(ctx, i).(OpenShiftManagedClusterAADIdentityProviderResponsePtrOutput)
 }
 
-// Defines the Identity provider for MS AAD.
 type OpenShiftManagedClusterAADIdentityProviderResponseOutput struct{ *pulumi.OutputState }
 
 func (OpenShiftManagedClusterAADIdentityProviderResponseOutput) ElementType() reflect.Type {
@@ -684,33 +628,27 @@ func (o OpenShiftManagedClusterAADIdentityProviderResponseOutput) ToOpenShiftMan
 }
 
 func (o OpenShiftManagedClusterAADIdentityProviderResponseOutput) ToOpenShiftManagedClusterAADIdentityProviderResponsePtrOutputWithContext(ctx context.Context) OpenShiftManagedClusterAADIdentityProviderResponsePtrOutput {
-	return o.ApplyT(func(v OpenShiftManagedClusterAADIdentityProviderResponse) *OpenShiftManagedClusterAADIdentityProviderResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v OpenShiftManagedClusterAADIdentityProviderResponse) *OpenShiftManagedClusterAADIdentityProviderResponse {
 		return &v
 	}).(OpenShiftManagedClusterAADIdentityProviderResponsePtrOutput)
 }
 
-// The clientId password associated with the provider.
 func (o OpenShiftManagedClusterAADIdentityProviderResponseOutput) ClientId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v OpenShiftManagedClusterAADIdentityProviderResponse) *string { return v.ClientId }).(pulumi.StringPtrOutput)
 }
 
-// The groupId to be granted cluster admin role.
 func (o OpenShiftManagedClusterAADIdentityProviderResponseOutput) CustomerAdminGroupId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v OpenShiftManagedClusterAADIdentityProviderResponse) *string { return v.CustomerAdminGroupId }).(pulumi.StringPtrOutput)
 }
 
-// The kind of the provider.
-// Expected value is 'AADIdentityProvider'.
 func (o OpenShiftManagedClusterAADIdentityProviderResponseOutput) Kind() pulumi.StringOutput {
 	return o.ApplyT(func(v OpenShiftManagedClusterAADIdentityProviderResponse) string { return v.Kind }).(pulumi.StringOutput)
 }
 
-// The secret password associated with the provider.
 func (o OpenShiftManagedClusterAADIdentityProviderResponseOutput) Secret() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v OpenShiftManagedClusterAADIdentityProviderResponse) *string { return v.Secret }).(pulumi.StringPtrOutput)
 }
 
-// The tenantId associated with the provider.
 func (o OpenShiftManagedClusterAADIdentityProviderResponseOutput) TenantId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v OpenShiftManagedClusterAADIdentityProviderResponse) *string { return v.TenantId }).(pulumi.StringPtrOutput)
 }
@@ -731,11 +669,14 @@ func (o OpenShiftManagedClusterAADIdentityProviderResponsePtrOutput) ToOpenShift
 
 func (o OpenShiftManagedClusterAADIdentityProviderResponsePtrOutput) Elem() OpenShiftManagedClusterAADIdentityProviderResponseOutput {
 	return o.ApplyT(func(v *OpenShiftManagedClusterAADIdentityProviderResponse) OpenShiftManagedClusterAADIdentityProviderResponse {
-		return *v
+		if v != nil {
+			return *v
+		}
+		var ret OpenShiftManagedClusterAADIdentityProviderResponse
+		return ret
 	}).(OpenShiftManagedClusterAADIdentityProviderResponseOutput)
 }
 
-// The clientId password associated with the provider.
 func (o OpenShiftManagedClusterAADIdentityProviderResponsePtrOutput) ClientId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *OpenShiftManagedClusterAADIdentityProviderResponse) *string {
 		if v == nil {
@@ -745,7 +686,6 @@ func (o OpenShiftManagedClusterAADIdentityProviderResponsePtrOutput) ClientId() 
 	}).(pulumi.StringPtrOutput)
 }
 
-// The groupId to be granted cluster admin role.
 func (o OpenShiftManagedClusterAADIdentityProviderResponsePtrOutput) CustomerAdminGroupId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *OpenShiftManagedClusterAADIdentityProviderResponse) *string {
 		if v == nil {
@@ -755,8 +695,6 @@ func (o OpenShiftManagedClusterAADIdentityProviderResponsePtrOutput) CustomerAdm
 	}).(pulumi.StringPtrOutput)
 }
 
-// The kind of the provider.
-// Expected value is 'AADIdentityProvider'.
 func (o OpenShiftManagedClusterAADIdentityProviderResponsePtrOutput) Kind() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *OpenShiftManagedClusterAADIdentityProviderResponse) *string {
 		if v == nil {
@@ -766,7 +704,6 @@ func (o OpenShiftManagedClusterAADIdentityProviderResponsePtrOutput) Kind() pulu
 	}).(pulumi.StringPtrOutput)
 }
 
-// The secret password associated with the provider.
 func (o OpenShiftManagedClusterAADIdentityProviderResponsePtrOutput) Secret() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *OpenShiftManagedClusterAADIdentityProviderResponse) *string {
 		if v == nil {
@@ -776,7 +713,6 @@ func (o OpenShiftManagedClusterAADIdentityProviderResponsePtrOutput) Secret() pu
 	}).(pulumi.StringPtrOutput)
 }
 
-// The tenantId associated with the provider.
 func (o OpenShiftManagedClusterAADIdentityProviderResponsePtrOutput) TenantId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *OpenShiftManagedClusterAADIdentityProviderResponse) *string {
 		if v == nil {
@@ -786,20 +722,13 @@ func (o OpenShiftManagedClusterAADIdentityProviderResponsePtrOutput) TenantId() 
 	}).(pulumi.StringPtrOutput)
 }
 
-// Defines the configuration of the OpenShift cluster VMs.
 type OpenShiftManagedClusterAgentPoolProfile struct {
-	// Number of agents (VMs) to host docker containers.
-	Count int `pulumi:"count"`
-	// Unique name of the pool profile in the context of the subscription and resource group.
-	Name string `pulumi:"name"`
-	// OsType to be used to specify os type. Choose from Linux and Windows. Default to Linux.
-	OsType *string `pulumi:"osType"`
-	// Define the role of the AgentPoolProfile.
-	Role *string `pulumi:"role"`
-	// Subnet CIDR for the peering.
+	Count      int     `pulumi:"count"`
+	Name       string  `pulumi:"name"`
+	OsType     *string `pulumi:"osType"`
+	Role       *string `pulumi:"role"`
 	SubnetCidr *string `pulumi:"subnetCidr"`
-	// Size of agent VMs.
-	VmSize string `pulumi:"vmSize"`
+	VmSize     string  `pulumi:"vmSize"`
 }
 
 // OpenShiftManagedClusterAgentPoolProfileInput is an input type that accepts OpenShiftManagedClusterAgentPoolProfileArgs and OpenShiftManagedClusterAgentPoolProfileOutput values.
@@ -813,20 +742,13 @@ type OpenShiftManagedClusterAgentPoolProfileInput interface {
 	ToOpenShiftManagedClusterAgentPoolProfileOutputWithContext(context.Context) OpenShiftManagedClusterAgentPoolProfileOutput
 }
 
-// Defines the configuration of the OpenShift cluster VMs.
 type OpenShiftManagedClusterAgentPoolProfileArgs struct {
-	// Number of agents (VMs) to host docker containers.
-	Count pulumi.IntInput `pulumi:"count"`
-	// Unique name of the pool profile in the context of the subscription and resource group.
-	Name pulumi.StringInput `pulumi:"name"`
-	// OsType to be used to specify os type. Choose from Linux and Windows. Default to Linux.
-	OsType pulumi.StringPtrInput `pulumi:"osType"`
-	// Define the role of the AgentPoolProfile.
-	Role pulumi.StringPtrInput `pulumi:"role"`
-	// Subnet CIDR for the peering.
+	Count      pulumi.IntInput       `pulumi:"count"`
+	Name       pulumi.StringInput    `pulumi:"name"`
+	OsType     pulumi.StringPtrInput `pulumi:"osType"`
+	Role       pulumi.StringPtrInput `pulumi:"role"`
 	SubnetCidr pulumi.StringPtrInput `pulumi:"subnetCidr"`
-	// Size of agent VMs.
-	VmSize pulumi.StringInput `pulumi:"vmSize"`
+	VmSize     pulumi.StringInput    `pulumi:"vmSize"`
 }
 
 func (OpenShiftManagedClusterAgentPoolProfileArgs) ElementType() reflect.Type {
@@ -866,7 +788,6 @@ func (i OpenShiftManagedClusterAgentPoolProfileArray) ToOpenShiftManagedClusterA
 	return pulumi.ToOutputWithContext(ctx, i).(OpenShiftManagedClusterAgentPoolProfileArrayOutput)
 }
 
-// Defines the configuration of the OpenShift cluster VMs.
 type OpenShiftManagedClusterAgentPoolProfileOutput struct{ *pulumi.OutputState }
 
 func (OpenShiftManagedClusterAgentPoolProfileOutput) ElementType() reflect.Type {
@@ -881,32 +802,26 @@ func (o OpenShiftManagedClusterAgentPoolProfileOutput) ToOpenShiftManagedCluster
 	return o
 }
 
-// Number of agents (VMs) to host docker containers.
 func (o OpenShiftManagedClusterAgentPoolProfileOutput) Count() pulumi.IntOutput {
 	return o.ApplyT(func(v OpenShiftManagedClusterAgentPoolProfile) int { return v.Count }).(pulumi.IntOutput)
 }
 
-// Unique name of the pool profile in the context of the subscription and resource group.
 func (o OpenShiftManagedClusterAgentPoolProfileOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v OpenShiftManagedClusterAgentPoolProfile) string { return v.Name }).(pulumi.StringOutput)
 }
 
-// OsType to be used to specify os type. Choose from Linux and Windows. Default to Linux.
 func (o OpenShiftManagedClusterAgentPoolProfileOutput) OsType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v OpenShiftManagedClusterAgentPoolProfile) *string { return v.OsType }).(pulumi.StringPtrOutput)
 }
 
-// Define the role of the AgentPoolProfile.
 func (o OpenShiftManagedClusterAgentPoolProfileOutput) Role() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v OpenShiftManagedClusterAgentPoolProfile) *string { return v.Role }).(pulumi.StringPtrOutput)
 }
 
-// Subnet CIDR for the peering.
 func (o OpenShiftManagedClusterAgentPoolProfileOutput) SubnetCidr() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v OpenShiftManagedClusterAgentPoolProfile) *string { return v.SubnetCidr }).(pulumi.StringPtrOutput)
 }
 
-// Size of agent VMs.
 func (o OpenShiftManagedClusterAgentPoolProfileOutput) VmSize() pulumi.StringOutput {
 	return o.ApplyT(func(v OpenShiftManagedClusterAgentPoolProfile) string { return v.VmSize }).(pulumi.StringOutput)
 }
@@ -931,20 +846,13 @@ func (o OpenShiftManagedClusterAgentPoolProfileArrayOutput) Index(i pulumi.IntIn
 	}).(OpenShiftManagedClusterAgentPoolProfileOutput)
 }
 
-// Defines the configuration of the OpenShift cluster VMs.
 type OpenShiftManagedClusterAgentPoolProfileResponse struct {
-	// Number of agents (VMs) to host docker containers.
-	Count int `pulumi:"count"`
-	// Unique name of the pool profile in the context of the subscription and resource group.
-	Name string `pulumi:"name"`
-	// OsType to be used to specify os type. Choose from Linux and Windows. Default to Linux.
-	OsType *string `pulumi:"osType"`
-	// Define the role of the AgentPoolProfile.
-	Role *string `pulumi:"role"`
-	// Subnet CIDR for the peering.
+	Count      int     `pulumi:"count"`
+	Name       string  `pulumi:"name"`
+	OsType     *string `pulumi:"osType"`
+	Role       *string `pulumi:"role"`
 	SubnetCidr *string `pulumi:"subnetCidr"`
-	// Size of agent VMs.
-	VmSize string `pulumi:"vmSize"`
+	VmSize     string  `pulumi:"vmSize"`
 }
 
 // OpenShiftManagedClusterAgentPoolProfileResponseInput is an input type that accepts OpenShiftManagedClusterAgentPoolProfileResponseArgs and OpenShiftManagedClusterAgentPoolProfileResponseOutput values.
@@ -958,20 +866,13 @@ type OpenShiftManagedClusterAgentPoolProfileResponseInput interface {
 	ToOpenShiftManagedClusterAgentPoolProfileResponseOutputWithContext(context.Context) OpenShiftManagedClusterAgentPoolProfileResponseOutput
 }
 
-// Defines the configuration of the OpenShift cluster VMs.
 type OpenShiftManagedClusterAgentPoolProfileResponseArgs struct {
-	// Number of agents (VMs) to host docker containers.
-	Count pulumi.IntInput `pulumi:"count"`
-	// Unique name of the pool profile in the context of the subscription and resource group.
-	Name pulumi.StringInput `pulumi:"name"`
-	// OsType to be used to specify os type. Choose from Linux and Windows. Default to Linux.
-	OsType pulumi.StringPtrInput `pulumi:"osType"`
-	// Define the role of the AgentPoolProfile.
-	Role pulumi.StringPtrInput `pulumi:"role"`
-	// Subnet CIDR for the peering.
+	Count      pulumi.IntInput       `pulumi:"count"`
+	Name       pulumi.StringInput    `pulumi:"name"`
+	OsType     pulumi.StringPtrInput `pulumi:"osType"`
+	Role       pulumi.StringPtrInput `pulumi:"role"`
 	SubnetCidr pulumi.StringPtrInput `pulumi:"subnetCidr"`
-	// Size of agent VMs.
-	VmSize pulumi.StringInput `pulumi:"vmSize"`
+	VmSize     pulumi.StringInput    `pulumi:"vmSize"`
 }
 
 func (OpenShiftManagedClusterAgentPoolProfileResponseArgs) ElementType() reflect.Type {
@@ -1011,7 +912,6 @@ func (i OpenShiftManagedClusterAgentPoolProfileResponseArray) ToOpenShiftManaged
 	return pulumi.ToOutputWithContext(ctx, i).(OpenShiftManagedClusterAgentPoolProfileResponseArrayOutput)
 }
 
-// Defines the configuration of the OpenShift cluster VMs.
 type OpenShiftManagedClusterAgentPoolProfileResponseOutput struct{ *pulumi.OutputState }
 
 func (OpenShiftManagedClusterAgentPoolProfileResponseOutput) ElementType() reflect.Type {
@@ -1026,32 +926,26 @@ func (o OpenShiftManagedClusterAgentPoolProfileResponseOutput) ToOpenShiftManage
 	return o
 }
 
-// Number of agents (VMs) to host docker containers.
 func (o OpenShiftManagedClusterAgentPoolProfileResponseOutput) Count() pulumi.IntOutput {
 	return o.ApplyT(func(v OpenShiftManagedClusterAgentPoolProfileResponse) int { return v.Count }).(pulumi.IntOutput)
 }
 
-// Unique name of the pool profile in the context of the subscription and resource group.
 func (o OpenShiftManagedClusterAgentPoolProfileResponseOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v OpenShiftManagedClusterAgentPoolProfileResponse) string { return v.Name }).(pulumi.StringOutput)
 }
 
-// OsType to be used to specify os type. Choose from Linux and Windows. Default to Linux.
 func (o OpenShiftManagedClusterAgentPoolProfileResponseOutput) OsType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v OpenShiftManagedClusterAgentPoolProfileResponse) *string { return v.OsType }).(pulumi.StringPtrOutput)
 }
 
-// Define the role of the AgentPoolProfile.
 func (o OpenShiftManagedClusterAgentPoolProfileResponseOutput) Role() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v OpenShiftManagedClusterAgentPoolProfileResponse) *string { return v.Role }).(pulumi.StringPtrOutput)
 }
 
-// Subnet CIDR for the peering.
 func (o OpenShiftManagedClusterAgentPoolProfileResponseOutput) SubnetCidr() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v OpenShiftManagedClusterAgentPoolProfileResponse) *string { return v.SubnetCidr }).(pulumi.StringPtrOutput)
 }
 
-// Size of agent VMs.
 func (o OpenShiftManagedClusterAgentPoolProfileResponseOutput) VmSize() pulumi.StringOutput {
 	return o.ApplyT(func(v OpenShiftManagedClusterAgentPoolProfileResponse) string { return v.VmSize }).(pulumi.StringOutput)
 }
@@ -1076,9 +970,7 @@ func (o OpenShiftManagedClusterAgentPoolProfileResponseArrayOutput) Index(i pulu
 	}).(OpenShiftManagedClusterAgentPoolProfileResponseOutput)
 }
 
-// Defines all possible authentication profiles for the OpenShift cluster.
 type OpenShiftManagedClusterAuthProfile struct {
-	// Type of authentication profile to use.
 	IdentityProviders []OpenShiftManagedClusterIdentityProvider `pulumi:"identityProviders"`
 }
 
@@ -1093,9 +985,7 @@ type OpenShiftManagedClusterAuthProfileInput interface {
 	ToOpenShiftManagedClusterAuthProfileOutputWithContext(context.Context) OpenShiftManagedClusterAuthProfileOutput
 }
 
-// Defines all possible authentication profiles for the OpenShift cluster.
 type OpenShiftManagedClusterAuthProfileArgs struct {
-	// Type of authentication profile to use.
 	IdentityProviders OpenShiftManagedClusterIdentityProviderArrayInput `pulumi:"identityProviders"`
 }
 
@@ -1152,7 +1042,6 @@ func (i *openShiftManagedClusterAuthProfilePtrType) ToOpenShiftManagedClusterAut
 	return pulumi.ToOutputWithContext(ctx, i).(OpenShiftManagedClusterAuthProfilePtrOutput)
 }
 
-// Defines all possible authentication profiles for the OpenShift cluster.
 type OpenShiftManagedClusterAuthProfileOutput struct{ *pulumi.OutputState }
 
 func (OpenShiftManagedClusterAuthProfileOutput) ElementType() reflect.Type {
@@ -1172,12 +1061,11 @@ func (o OpenShiftManagedClusterAuthProfileOutput) ToOpenShiftManagedClusterAuthP
 }
 
 func (o OpenShiftManagedClusterAuthProfileOutput) ToOpenShiftManagedClusterAuthProfilePtrOutputWithContext(ctx context.Context) OpenShiftManagedClusterAuthProfilePtrOutput {
-	return o.ApplyT(func(v OpenShiftManagedClusterAuthProfile) *OpenShiftManagedClusterAuthProfile {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v OpenShiftManagedClusterAuthProfile) *OpenShiftManagedClusterAuthProfile {
 		return &v
 	}).(OpenShiftManagedClusterAuthProfilePtrOutput)
 }
 
-// Type of authentication profile to use.
 func (o OpenShiftManagedClusterAuthProfileOutput) IdentityProviders() OpenShiftManagedClusterIdentityProviderArrayOutput {
 	return o.ApplyT(func(v OpenShiftManagedClusterAuthProfile) []OpenShiftManagedClusterIdentityProvider {
 		return v.IdentityProviders
@@ -1199,10 +1087,15 @@ func (o OpenShiftManagedClusterAuthProfilePtrOutput) ToOpenShiftManagedClusterAu
 }
 
 func (o OpenShiftManagedClusterAuthProfilePtrOutput) Elem() OpenShiftManagedClusterAuthProfileOutput {
-	return o.ApplyT(func(v *OpenShiftManagedClusterAuthProfile) OpenShiftManagedClusterAuthProfile { return *v }).(OpenShiftManagedClusterAuthProfileOutput)
+	return o.ApplyT(func(v *OpenShiftManagedClusterAuthProfile) OpenShiftManagedClusterAuthProfile {
+		if v != nil {
+			return *v
+		}
+		var ret OpenShiftManagedClusterAuthProfile
+		return ret
+	}).(OpenShiftManagedClusterAuthProfileOutput)
 }
 
-// Type of authentication profile to use.
 func (o OpenShiftManagedClusterAuthProfilePtrOutput) IdentityProviders() OpenShiftManagedClusterIdentityProviderArrayOutput {
 	return o.ApplyT(func(v *OpenShiftManagedClusterAuthProfile) []OpenShiftManagedClusterIdentityProvider {
 		if v == nil {
@@ -1212,9 +1105,7 @@ func (o OpenShiftManagedClusterAuthProfilePtrOutput) IdentityProviders() OpenShi
 	}).(OpenShiftManagedClusterIdentityProviderArrayOutput)
 }
 
-// Defines all possible authentication profiles for the OpenShift cluster.
 type OpenShiftManagedClusterAuthProfileResponse struct {
-	// Type of authentication profile to use.
 	IdentityProviders []OpenShiftManagedClusterIdentityProviderResponse `pulumi:"identityProviders"`
 }
 
@@ -1229,9 +1120,7 @@ type OpenShiftManagedClusterAuthProfileResponseInput interface {
 	ToOpenShiftManagedClusterAuthProfileResponseOutputWithContext(context.Context) OpenShiftManagedClusterAuthProfileResponseOutput
 }
 
-// Defines all possible authentication profiles for the OpenShift cluster.
 type OpenShiftManagedClusterAuthProfileResponseArgs struct {
-	// Type of authentication profile to use.
 	IdentityProviders OpenShiftManagedClusterIdentityProviderResponseArrayInput `pulumi:"identityProviders"`
 }
 
@@ -1288,7 +1177,6 @@ func (i *openShiftManagedClusterAuthProfileResponsePtrType) ToOpenShiftManagedCl
 	return pulumi.ToOutputWithContext(ctx, i).(OpenShiftManagedClusterAuthProfileResponsePtrOutput)
 }
 
-// Defines all possible authentication profiles for the OpenShift cluster.
 type OpenShiftManagedClusterAuthProfileResponseOutput struct{ *pulumi.OutputState }
 
 func (OpenShiftManagedClusterAuthProfileResponseOutput) ElementType() reflect.Type {
@@ -1308,12 +1196,11 @@ func (o OpenShiftManagedClusterAuthProfileResponseOutput) ToOpenShiftManagedClus
 }
 
 func (o OpenShiftManagedClusterAuthProfileResponseOutput) ToOpenShiftManagedClusterAuthProfileResponsePtrOutputWithContext(ctx context.Context) OpenShiftManagedClusterAuthProfileResponsePtrOutput {
-	return o.ApplyT(func(v OpenShiftManagedClusterAuthProfileResponse) *OpenShiftManagedClusterAuthProfileResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v OpenShiftManagedClusterAuthProfileResponse) *OpenShiftManagedClusterAuthProfileResponse {
 		return &v
 	}).(OpenShiftManagedClusterAuthProfileResponsePtrOutput)
 }
 
-// Type of authentication profile to use.
 func (o OpenShiftManagedClusterAuthProfileResponseOutput) IdentityProviders() OpenShiftManagedClusterIdentityProviderResponseArrayOutput {
 	return o.ApplyT(func(v OpenShiftManagedClusterAuthProfileResponse) []OpenShiftManagedClusterIdentityProviderResponse {
 		return v.IdentityProviders
@@ -1336,11 +1223,14 @@ func (o OpenShiftManagedClusterAuthProfileResponsePtrOutput) ToOpenShiftManagedC
 
 func (o OpenShiftManagedClusterAuthProfileResponsePtrOutput) Elem() OpenShiftManagedClusterAuthProfileResponseOutput {
 	return o.ApplyT(func(v *OpenShiftManagedClusterAuthProfileResponse) OpenShiftManagedClusterAuthProfileResponse {
-		return *v
+		if v != nil {
+			return *v
+		}
+		var ret OpenShiftManagedClusterAuthProfileResponse
+		return ret
 	}).(OpenShiftManagedClusterAuthProfileResponseOutput)
 }
 
-// Type of authentication profile to use.
 func (o OpenShiftManagedClusterAuthProfileResponsePtrOutput) IdentityProviders() OpenShiftManagedClusterIdentityProviderResponseArrayOutput {
 	return o.ApplyT(func(v *OpenShiftManagedClusterAuthProfileResponse) []OpenShiftManagedClusterIdentityProviderResponse {
 		if v == nil {
@@ -1350,11 +1240,8 @@ func (o OpenShiftManagedClusterAuthProfileResponsePtrOutput) IdentityProviders()
 	}).(OpenShiftManagedClusterIdentityProviderResponseArrayOutput)
 }
 
-// Defines the configuration of the identity providers to be used in the OpenShift cluster.
 type OpenShiftManagedClusterIdentityProvider struct {
-	// Name of the provider.
-	Name *string `pulumi:"name"`
-	// Configuration of the provider.
+	Name     *string                                     `pulumi:"name"`
 	Provider *OpenShiftManagedClusterAADIdentityProvider `pulumi:"provider"`
 }
 
@@ -1369,11 +1256,8 @@ type OpenShiftManagedClusterIdentityProviderInput interface {
 	ToOpenShiftManagedClusterIdentityProviderOutputWithContext(context.Context) OpenShiftManagedClusterIdentityProviderOutput
 }
 
-// Defines the configuration of the identity providers to be used in the OpenShift cluster.
 type OpenShiftManagedClusterIdentityProviderArgs struct {
-	// Name of the provider.
-	Name pulumi.StringPtrInput `pulumi:"name"`
-	// Configuration of the provider.
+	Name     pulumi.StringPtrInput                              `pulumi:"name"`
 	Provider OpenShiftManagedClusterAADIdentityProviderPtrInput `pulumi:"provider"`
 }
 
@@ -1414,7 +1298,6 @@ func (i OpenShiftManagedClusterIdentityProviderArray) ToOpenShiftManagedClusterI
 	return pulumi.ToOutputWithContext(ctx, i).(OpenShiftManagedClusterIdentityProviderArrayOutput)
 }
 
-// Defines the configuration of the identity providers to be used in the OpenShift cluster.
 type OpenShiftManagedClusterIdentityProviderOutput struct{ *pulumi.OutputState }
 
 func (OpenShiftManagedClusterIdentityProviderOutput) ElementType() reflect.Type {
@@ -1429,12 +1312,10 @@ func (o OpenShiftManagedClusterIdentityProviderOutput) ToOpenShiftManagedCluster
 	return o
 }
 
-// Name of the provider.
 func (o OpenShiftManagedClusterIdentityProviderOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v OpenShiftManagedClusterIdentityProvider) *string { return v.Name }).(pulumi.StringPtrOutput)
 }
 
-// Configuration of the provider.
 func (o OpenShiftManagedClusterIdentityProviderOutput) Provider() OpenShiftManagedClusterAADIdentityProviderPtrOutput {
 	return o.ApplyT(func(v OpenShiftManagedClusterIdentityProvider) *OpenShiftManagedClusterAADIdentityProvider {
 		return v.Provider
@@ -1461,11 +1342,8 @@ func (o OpenShiftManagedClusterIdentityProviderArrayOutput) Index(i pulumi.IntIn
 	}).(OpenShiftManagedClusterIdentityProviderOutput)
 }
 
-// Defines the configuration of the identity providers to be used in the OpenShift cluster.
 type OpenShiftManagedClusterIdentityProviderResponse struct {
-	// Name of the provider.
-	Name *string `pulumi:"name"`
-	// Configuration of the provider.
+	Name     *string                                             `pulumi:"name"`
 	Provider *OpenShiftManagedClusterAADIdentityProviderResponse `pulumi:"provider"`
 }
 
@@ -1480,11 +1358,8 @@ type OpenShiftManagedClusterIdentityProviderResponseInput interface {
 	ToOpenShiftManagedClusterIdentityProviderResponseOutputWithContext(context.Context) OpenShiftManagedClusterIdentityProviderResponseOutput
 }
 
-// Defines the configuration of the identity providers to be used in the OpenShift cluster.
 type OpenShiftManagedClusterIdentityProviderResponseArgs struct {
-	// Name of the provider.
-	Name pulumi.StringPtrInput `pulumi:"name"`
-	// Configuration of the provider.
+	Name     pulumi.StringPtrInput                                      `pulumi:"name"`
 	Provider OpenShiftManagedClusterAADIdentityProviderResponsePtrInput `pulumi:"provider"`
 }
 
@@ -1525,7 +1400,6 @@ func (i OpenShiftManagedClusterIdentityProviderResponseArray) ToOpenShiftManaged
 	return pulumi.ToOutputWithContext(ctx, i).(OpenShiftManagedClusterIdentityProviderResponseArrayOutput)
 }
 
-// Defines the configuration of the identity providers to be used in the OpenShift cluster.
 type OpenShiftManagedClusterIdentityProviderResponseOutput struct{ *pulumi.OutputState }
 
 func (OpenShiftManagedClusterIdentityProviderResponseOutput) ElementType() reflect.Type {
@@ -1540,12 +1414,10 @@ func (o OpenShiftManagedClusterIdentityProviderResponseOutput) ToOpenShiftManage
 	return o
 }
 
-// Name of the provider.
 func (o OpenShiftManagedClusterIdentityProviderResponseOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v OpenShiftManagedClusterIdentityProviderResponse) *string { return v.Name }).(pulumi.StringPtrOutput)
 }
 
-// Configuration of the provider.
 func (o OpenShiftManagedClusterIdentityProviderResponseOutput) Provider() OpenShiftManagedClusterAADIdentityProviderResponsePtrOutput {
 	return o.ApplyT(func(v OpenShiftManagedClusterIdentityProviderResponse) *OpenShiftManagedClusterAADIdentityProviderResponse {
 		return v.Provider
@@ -1572,18 +1444,12 @@ func (o OpenShiftManagedClusterIdentityProviderResponseArrayOutput) Index(i pulu
 	}).(OpenShiftManagedClusterIdentityProviderResponseOutput)
 }
 
-// OpenShiftManagedClusterMaterPoolProfile contains configuration for OpenShift master VMs.
 type OpenShiftManagedClusterMasterPoolProfile struct {
-	// Number of masters (VMs) to host docker containers. The default value is 3.
-	Count int `pulumi:"count"`
-	// Unique name of the master pool profile in the context of the subscription and resource group.
-	Name *string `pulumi:"name"`
-	// OsType to be used to specify os type. Choose from Linux and Windows. Default to Linux.
-	OsType *string `pulumi:"osType"`
-	// Subnet CIDR for the peering.
+	Count      int     `pulumi:"count"`
+	Name       *string `pulumi:"name"`
+	OsType     *string `pulumi:"osType"`
 	SubnetCidr *string `pulumi:"subnetCidr"`
-	// Size of agent VMs.
-	VmSize string `pulumi:"vmSize"`
+	VmSize     string  `pulumi:"vmSize"`
 }
 
 // OpenShiftManagedClusterMasterPoolProfileInput is an input type that accepts OpenShiftManagedClusterMasterPoolProfileArgs and OpenShiftManagedClusterMasterPoolProfileOutput values.
@@ -1597,18 +1463,12 @@ type OpenShiftManagedClusterMasterPoolProfileInput interface {
 	ToOpenShiftManagedClusterMasterPoolProfileOutputWithContext(context.Context) OpenShiftManagedClusterMasterPoolProfileOutput
 }
 
-// OpenShiftManagedClusterMaterPoolProfile contains configuration for OpenShift master VMs.
 type OpenShiftManagedClusterMasterPoolProfileArgs struct {
-	// Number of masters (VMs) to host docker containers. The default value is 3.
-	Count pulumi.IntInput `pulumi:"count"`
-	// Unique name of the master pool profile in the context of the subscription and resource group.
-	Name pulumi.StringPtrInput `pulumi:"name"`
-	// OsType to be used to specify os type. Choose from Linux and Windows. Default to Linux.
-	OsType pulumi.StringPtrInput `pulumi:"osType"`
-	// Subnet CIDR for the peering.
+	Count      pulumi.IntInput       `pulumi:"count"`
+	Name       pulumi.StringPtrInput `pulumi:"name"`
+	OsType     pulumi.StringPtrInput `pulumi:"osType"`
 	SubnetCidr pulumi.StringPtrInput `pulumi:"subnetCidr"`
-	// Size of agent VMs.
-	VmSize pulumi.StringInput `pulumi:"vmSize"`
+	VmSize     pulumi.StringInput    `pulumi:"vmSize"`
 }
 
 func (OpenShiftManagedClusterMasterPoolProfileArgs) ElementType() reflect.Type {
@@ -1664,7 +1524,6 @@ func (i *openShiftManagedClusterMasterPoolProfilePtrType) ToOpenShiftManagedClus
 	return pulumi.ToOutputWithContext(ctx, i).(OpenShiftManagedClusterMasterPoolProfilePtrOutput)
 }
 
-// OpenShiftManagedClusterMaterPoolProfile contains configuration for OpenShift master VMs.
 type OpenShiftManagedClusterMasterPoolProfileOutput struct{ *pulumi.OutputState }
 
 func (OpenShiftManagedClusterMasterPoolProfileOutput) ElementType() reflect.Type {
@@ -1684,32 +1543,27 @@ func (o OpenShiftManagedClusterMasterPoolProfileOutput) ToOpenShiftManagedCluste
 }
 
 func (o OpenShiftManagedClusterMasterPoolProfileOutput) ToOpenShiftManagedClusterMasterPoolProfilePtrOutputWithContext(ctx context.Context) OpenShiftManagedClusterMasterPoolProfilePtrOutput {
-	return o.ApplyT(func(v OpenShiftManagedClusterMasterPoolProfile) *OpenShiftManagedClusterMasterPoolProfile {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v OpenShiftManagedClusterMasterPoolProfile) *OpenShiftManagedClusterMasterPoolProfile {
 		return &v
 	}).(OpenShiftManagedClusterMasterPoolProfilePtrOutput)
 }
 
-// Number of masters (VMs) to host docker containers. The default value is 3.
 func (o OpenShiftManagedClusterMasterPoolProfileOutput) Count() pulumi.IntOutput {
 	return o.ApplyT(func(v OpenShiftManagedClusterMasterPoolProfile) int { return v.Count }).(pulumi.IntOutput)
 }
 
-// Unique name of the master pool profile in the context of the subscription and resource group.
 func (o OpenShiftManagedClusterMasterPoolProfileOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v OpenShiftManagedClusterMasterPoolProfile) *string { return v.Name }).(pulumi.StringPtrOutput)
 }
 
-// OsType to be used to specify os type. Choose from Linux and Windows. Default to Linux.
 func (o OpenShiftManagedClusterMasterPoolProfileOutput) OsType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v OpenShiftManagedClusterMasterPoolProfile) *string { return v.OsType }).(pulumi.StringPtrOutput)
 }
 
-// Subnet CIDR for the peering.
 func (o OpenShiftManagedClusterMasterPoolProfileOutput) SubnetCidr() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v OpenShiftManagedClusterMasterPoolProfile) *string { return v.SubnetCidr }).(pulumi.StringPtrOutput)
 }
 
-// Size of agent VMs.
 func (o OpenShiftManagedClusterMasterPoolProfileOutput) VmSize() pulumi.StringOutput {
 	return o.ApplyT(func(v OpenShiftManagedClusterMasterPoolProfile) string { return v.VmSize }).(pulumi.StringOutput)
 }
@@ -1729,10 +1583,15 @@ func (o OpenShiftManagedClusterMasterPoolProfilePtrOutput) ToOpenShiftManagedClu
 }
 
 func (o OpenShiftManagedClusterMasterPoolProfilePtrOutput) Elem() OpenShiftManagedClusterMasterPoolProfileOutput {
-	return o.ApplyT(func(v *OpenShiftManagedClusterMasterPoolProfile) OpenShiftManagedClusterMasterPoolProfile { return *v }).(OpenShiftManagedClusterMasterPoolProfileOutput)
+	return o.ApplyT(func(v *OpenShiftManagedClusterMasterPoolProfile) OpenShiftManagedClusterMasterPoolProfile {
+		if v != nil {
+			return *v
+		}
+		var ret OpenShiftManagedClusterMasterPoolProfile
+		return ret
+	}).(OpenShiftManagedClusterMasterPoolProfileOutput)
 }
 
-// Number of masters (VMs) to host docker containers. The default value is 3.
 func (o OpenShiftManagedClusterMasterPoolProfilePtrOutput) Count() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *OpenShiftManagedClusterMasterPoolProfile) *int {
 		if v == nil {
@@ -1742,7 +1601,6 @@ func (o OpenShiftManagedClusterMasterPoolProfilePtrOutput) Count() pulumi.IntPtr
 	}).(pulumi.IntPtrOutput)
 }
 
-// Unique name of the master pool profile in the context of the subscription and resource group.
 func (o OpenShiftManagedClusterMasterPoolProfilePtrOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *OpenShiftManagedClusterMasterPoolProfile) *string {
 		if v == nil {
@@ -1752,7 +1610,6 @@ func (o OpenShiftManagedClusterMasterPoolProfilePtrOutput) Name() pulumi.StringP
 	}).(pulumi.StringPtrOutput)
 }
 
-// OsType to be used to specify os type. Choose from Linux and Windows. Default to Linux.
 func (o OpenShiftManagedClusterMasterPoolProfilePtrOutput) OsType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *OpenShiftManagedClusterMasterPoolProfile) *string {
 		if v == nil {
@@ -1762,7 +1619,6 @@ func (o OpenShiftManagedClusterMasterPoolProfilePtrOutput) OsType() pulumi.Strin
 	}).(pulumi.StringPtrOutput)
 }
 
-// Subnet CIDR for the peering.
 func (o OpenShiftManagedClusterMasterPoolProfilePtrOutput) SubnetCidr() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *OpenShiftManagedClusterMasterPoolProfile) *string {
 		if v == nil {
@@ -1772,7 +1628,6 @@ func (o OpenShiftManagedClusterMasterPoolProfilePtrOutput) SubnetCidr() pulumi.S
 	}).(pulumi.StringPtrOutput)
 }
 
-// Size of agent VMs.
 func (o OpenShiftManagedClusterMasterPoolProfilePtrOutput) VmSize() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *OpenShiftManagedClusterMasterPoolProfile) *string {
 		if v == nil {
@@ -1782,18 +1637,12 @@ func (o OpenShiftManagedClusterMasterPoolProfilePtrOutput) VmSize() pulumi.Strin
 	}).(pulumi.StringPtrOutput)
 }
 
-// OpenShiftManagedClusterMaterPoolProfile contains configuration for OpenShift master VMs.
 type OpenShiftManagedClusterMasterPoolProfileResponse struct {
-	// Number of masters (VMs) to host docker containers. The default value is 3.
-	Count int `pulumi:"count"`
-	// Unique name of the master pool profile in the context of the subscription and resource group.
-	Name *string `pulumi:"name"`
-	// OsType to be used to specify os type. Choose from Linux and Windows. Default to Linux.
-	OsType *string `pulumi:"osType"`
-	// Subnet CIDR for the peering.
+	Count      int     `pulumi:"count"`
+	Name       *string `pulumi:"name"`
+	OsType     *string `pulumi:"osType"`
 	SubnetCidr *string `pulumi:"subnetCidr"`
-	// Size of agent VMs.
-	VmSize string `pulumi:"vmSize"`
+	VmSize     string  `pulumi:"vmSize"`
 }
 
 // OpenShiftManagedClusterMasterPoolProfileResponseInput is an input type that accepts OpenShiftManagedClusterMasterPoolProfileResponseArgs and OpenShiftManagedClusterMasterPoolProfileResponseOutput values.
@@ -1807,18 +1656,12 @@ type OpenShiftManagedClusterMasterPoolProfileResponseInput interface {
 	ToOpenShiftManagedClusterMasterPoolProfileResponseOutputWithContext(context.Context) OpenShiftManagedClusterMasterPoolProfileResponseOutput
 }
 
-// OpenShiftManagedClusterMaterPoolProfile contains configuration for OpenShift master VMs.
 type OpenShiftManagedClusterMasterPoolProfileResponseArgs struct {
-	// Number of masters (VMs) to host docker containers. The default value is 3.
-	Count pulumi.IntInput `pulumi:"count"`
-	// Unique name of the master pool profile in the context of the subscription and resource group.
-	Name pulumi.StringPtrInput `pulumi:"name"`
-	// OsType to be used to specify os type. Choose from Linux and Windows. Default to Linux.
-	OsType pulumi.StringPtrInput `pulumi:"osType"`
-	// Subnet CIDR for the peering.
+	Count      pulumi.IntInput       `pulumi:"count"`
+	Name       pulumi.StringPtrInput `pulumi:"name"`
+	OsType     pulumi.StringPtrInput `pulumi:"osType"`
 	SubnetCidr pulumi.StringPtrInput `pulumi:"subnetCidr"`
-	// Size of agent VMs.
-	VmSize pulumi.StringInput `pulumi:"vmSize"`
+	VmSize     pulumi.StringInput    `pulumi:"vmSize"`
 }
 
 func (OpenShiftManagedClusterMasterPoolProfileResponseArgs) ElementType() reflect.Type {
@@ -1874,7 +1717,6 @@ func (i *openShiftManagedClusterMasterPoolProfileResponsePtrType) ToOpenShiftMan
 	return pulumi.ToOutputWithContext(ctx, i).(OpenShiftManagedClusterMasterPoolProfileResponsePtrOutput)
 }
 
-// OpenShiftManagedClusterMaterPoolProfile contains configuration for OpenShift master VMs.
 type OpenShiftManagedClusterMasterPoolProfileResponseOutput struct{ *pulumi.OutputState }
 
 func (OpenShiftManagedClusterMasterPoolProfileResponseOutput) ElementType() reflect.Type {
@@ -1894,32 +1736,27 @@ func (o OpenShiftManagedClusterMasterPoolProfileResponseOutput) ToOpenShiftManag
 }
 
 func (o OpenShiftManagedClusterMasterPoolProfileResponseOutput) ToOpenShiftManagedClusterMasterPoolProfileResponsePtrOutputWithContext(ctx context.Context) OpenShiftManagedClusterMasterPoolProfileResponsePtrOutput {
-	return o.ApplyT(func(v OpenShiftManagedClusterMasterPoolProfileResponse) *OpenShiftManagedClusterMasterPoolProfileResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v OpenShiftManagedClusterMasterPoolProfileResponse) *OpenShiftManagedClusterMasterPoolProfileResponse {
 		return &v
 	}).(OpenShiftManagedClusterMasterPoolProfileResponsePtrOutput)
 }
 
-// Number of masters (VMs) to host docker containers. The default value is 3.
 func (o OpenShiftManagedClusterMasterPoolProfileResponseOutput) Count() pulumi.IntOutput {
 	return o.ApplyT(func(v OpenShiftManagedClusterMasterPoolProfileResponse) int { return v.Count }).(pulumi.IntOutput)
 }
 
-// Unique name of the master pool profile in the context of the subscription and resource group.
 func (o OpenShiftManagedClusterMasterPoolProfileResponseOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v OpenShiftManagedClusterMasterPoolProfileResponse) *string { return v.Name }).(pulumi.StringPtrOutput)
 }
 
-// OsType to be used to specify os type. Choose from Linux and Windows. Default to Linux.
 func (o OpenShiftManagedClusterMasterPoolProfileResponseOutput) OsType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v OpenShiftManagedClusterMasterPoolProfileResponse) *string { return v.OsType }).(pulumi.StringPtrOutput)
 }
 
-// Subnet CIDR for the peering.
 func (o OpenShiftManagedClusterMasterPoolProfileResponseOutput) SubnetCidr() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v OpenShiftManagedClusterMasterPoolProfileResponse) *string { return v.SubnetCidr }).(pulumi.StringPtrOutput)
 }
 
-// Size of agent VMs.
 func (o OpenShiftManagedClusterMasterPoolProfileResponseOutput) VmSize() pulumi.StringOutput {
 	return o.ApplyT(func(v OpenShiftManagedClusterMasterPoolProfileResponse) string { return v.VmSize }).(pulumi.StringOutput)
 }
@@ -1940,11 +1777,14 @@ func (o OpenShiftManagedClusterMasterPoolProfileResponsePtrOutput) ToOpenShiftMa
 
 func (o OpenShiftManagedClusterMasterPoolProfileResponsePtrOutput) Elem() OpenShiftManagedClusterMasterPoolProfileResponseOutput {
 	return o.ApplyT(func(v *OpenShiftManagedClusterMasterPoolProfileResponse) OpenShiftManagedClusterMasterPoolProfileResponse {
-		return *v
+		if v != nil {
+			return *v
+		}
+		var ret OpenShiftManagedClusterMasterPoolProfileResponse
+		return ret
 	}).(OpenShiftManagedClusterMasterPoolProfileResponseOutput)
 }
 
-// Number of masters (VMs) to host docker containers. The default value is 3.
 func (o OpenShiftManagedClusterMasterPoolProfileResponsePtrOutput) Count() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *OpenShiftManagedClusterMasterPoolProfileResponse) *int {
 		if v == nil {
@@ -1954,7 +1794,6 @@ func (o OpenShiftManagedClusterMasterPoolProfileResponsePtrOutput) Count() pulum
 	}).(pulumi.IntPtrOutput)
 }
 
-// Unique name of the master pool profile in the context of the subscription and resource group.
 func (o OpenShiftManagedClusterMasterPoolProfileResponsePtrOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *OpenShiftManagedClusterMasterPoolProfileResponse) *string {
 		if v == nil {
@@ -1964,7 +1803,6 @@ func (o OpenShiftManagedClusterMasterPoolProfileResponsePtrOutput) Name() pulumi
 	}).(pulumi.StringPtrOutput)
 }
 
-// OsType to be used to specify os type. Choose from Linux and Windows. Default to Linux.
 func (o OpenShiftManagedClusterMasterPoolProfileResponsePtrOutput) OsType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *OpenShiftManagedClusterMasterPoolProfileResponse) *string {
 		if v == nil {
@@ -1974,7 +1812,6 @@ func (o OpenShiftManagedClusterMasterPoolProfileResponsePtrOutput) OsType() pulu
 	}).(pulumi.StringPtrOutput)
 }
 
-// Subnet CIDR for the peering.
 func (o OpenShiftManagedClusterMasterPoolProfileResponsePtrOutput) SubnetCidr() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *OpenShiftManagedClusterMasterPoolProfileResponse) *string {
 		if v == nil {
@@ -1984,7 +1821,6 @@ func (o OpenShiftManagedClusterMasterPoolProfileResponsePtrOutput) SubnetCidr() 
 	}).(pulumi.StringPtrOutput)
 }
 
-// Size of agent VMs.
 func (o OpenShiftManagedClusterMasterPoolProfileResponsePtrOutput) VmSize() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *OpenShiftManagedClusterMasterPoolProfileResponse) *string {
 		if v == nil {
@@ -1994,9 +1830,7 @@ func (o OpenShiftManagedClusterMasterPoolProfileResponsePtrOutput) VmSize() pulu
 	}).(pulumi.StringPtrOutput)
 }
 
-// Represents an OpenShift router
 type OpenShiftRouterProfile struct {
-	// Name of the router profile.
 	Name *string `pulumi:"name"`
 }
 
@@ -2011,9 +1845,7 @@ type OpenShiftRouterProfileInput interface {
 	ToOpenShiftRouterProfileOutputWithContext(context.Context) OpenShiftRouterProfileOutput
 }
 
-// Represents an OpenShift router
 type OpenShiftRouterProfileArgs struct {
-	// Name of the router profile.
 	Name pulumi.StringPtrInput `pulumi:"name"`
 }
 
@@ -2054,7 +1886,6 @@ func (i OpenShiftRouterProfileArray) ToOpenShiftRouterProfileArrayOutputWithCont
 	return pulumi.ToOutputWithContext(ctx, i).(OpenShiftRouterProfileArrayOutput)
 }
 
-// Represents an OpenShift router
 type OpenShiftRouterProfileOutput struct{ *pulumi.OutputState }
 
 func (OpenShiftRouterProfileOutput) ElementType() reflect.Type {
@@ -2069,7 +1900,6 @@ func (o OpenShiftRouterProfileOutput) ToOpenShiftRouterProfileOutputWithContext(
 	return o
 }
 
-// Name of the router profile.
 func (o OpenShiftRouterProfileOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v OpenShiftRouterProfile) *string { return v.Name }).(pulumi.StringPtrOutput)
 }
@@ -2094,14 +1924,10 @@ func (o OpenShiftRouterProfileArrayOutput) Index(i pulumi.IntInput) OpenShiftRou
 	}).(OpenShiftRouterProfileOutput)
 }
 
-// Represents an OpenShift router
 type OpenShiftRouterProfileResponse struct {
-	// Auto-allocated FQDN for the OpenShift router.
-	Fqdn string `pulumi:"fqdn"`
-	// Name of the router profile.
-	Name *string `pulumi:"name"`
-	// DNS subdomain for OpenShift router.
-	PublicSubdomain string `pulumi:"publicSubdomain"`
+	Fqdn            string  `pulumi:"fqdn"`
+	Name            *string `pulumi:"name"`
+	PublicSubdomain string  `pulumi:"publicSubdomain"`
 }
 
 // OpenShiftRouterProfileResponseInput is an input type that accepts OpenShiftRouterProfileResponseArgs and OpenShiftRouterProfileResponseOutput values.
@@ -2115,14 +1941,10 @@ type OpenShiftRouterProfileResponseInput interface {
 	ToOpenShiftRouterProfileResponseOutputWithContext(context.Context) OpenShiftRouterProfileResponseOutput
 }
 
-// Represents an OpenShift router
 type OpenShiftRouterProfileResponseArgs struct {
-	// Auto-allocated FQDN for the OpenShift router.
-	Fqdn pulumi.StringInput `pulumi:"fqdn"`
-	// Name of the router profile.
-	Name pulumi.StringPtrInput `pulumi:"name"`
-	// DNS subdomain for OpenShift router.
-	PublicSubdomain pulumi.StringInput `pulumi:"publicSubdomain"`
+	Fqdn            pulumi.StringInput    `pulumi:"fqdn"`
+	Name            pulumi.StringPtrInput `pulumi:"name"`
+	PublicSubdomain pulumi.StringInput    `pulumi:"publicSubdomain"`
 }
 
 func (OpenShiftRouterProfileResponseArgs) ElementType() reflect.Type {
@@ -2162,7 +1984,6 @@ func (i OpenShiftRouterProfileResponseArray) ToOpenShiftRouterProfileResponseArr
 	return pulumi.ToOutputWithContext(ctx, i).(OpenShiftRouterProfileResponseArrayOutput)
 }
 
-// Represents an OpenShift router
 type OpenShiftRouterProfileResponseOutput struct{ *pulumi.OutputState }
 
 func (OpenShiftRouterProfileResponseOutput) ElementType() reflect.Type {
@@ -2177,17 +1998,14 @@ func (o OpenShiftRouterProfileResponseOutput) ToOpenShiftRouterProfileResponseOu
 	return o
 }
 
-// Auto-allocated FQDN for the OpenShift router.
 func (o OpenShiftRouterProfileResponseOutput) Fqdn() pulumi.StringOutput {
 	return o.ApplyT(func(v OpenShiftRouterProfileResponse) string { return v.Fqdn }).(pulumi.StringOutput)
 }
 
-// Name of the router profile.
 func (o OpenShiftRouterProfileResponseOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v OpenShiftRouterProfileResponse) *string { return v.Name }).(pulumi.StringPtrOutput)
 }
 
-// DNS subdomain for OpenShift router.
 func (o OpenShiftRouterProfileResponseOutput) PublicSubdomain() pulumi.StringOutput {
 	return o.ApplyT(func(v OpenShiftRouterProfileResponse) string { return v.PublicSubdomain }).(pulumi.StringOutput)
 }
@@ -2212,16 +2030,11 @@ func (o OpenShiftRouterProfileResponseArrayOutput) Index(i pulumi.IntInput) Open
 	}).(OpenShiftRouterProfileResponseOutput)
 }
 
-// Used for establishing the purchase context of any 3rd Party artifact through MarketPlace.
 type PurchasePlan struct {
-	// The plan ID.
-	Name *string `pulumi:"name"`
-	// Specifies the product of the image from the marketplace. This is the same value as Offer under the imageReference element.
-	Product *string `pulumi:"product"`
-	// The promotion code.
+	Name          *string `pulumi:"name"`
+	Product       *string `pulumi:"product"`
 	PromotionCode *string `pulumi:"promotionCode"`
-	// The plan ID.
-	Publisher *string `pulumi:"publisher"`
+	Publisher     *string `pulumi:"publisher"`
 }
 
 // PurchasePlanInput is an input type that accepts PurchasePlanArgs and PurchasePlanOutput values.
@@ -2235,16 +2048,11 @@ type PurchasePlanInput interface {
 	ToPurchasePlanOutputWithContext(context.Context) PurchasePlanOutput
 }
 
-// Used for establishing the purchase context of any 3rd Party artifact through MarketPlace.
 type PurchasePlanArgs struct {
-	// The plan ID.
-	Name pulumi.StringPtrInput `pulumi:"name"`
-	// Specifies the product of the image from the marketplace. This is the same value as Offer under the imageReference element.
-	Product pulumi.StringPtrInput `pulumi:"product"`
-	// The promotion code.
+	Name          pulumi.StringPtrInput `pulumi:"name"`
+	Product       pulumi.StringPtrInput `pulumi:"product"`
 	PromotionCode pulumi.StringPtrInput `pulumi:"promotionCode"`
-	// The plan ID.
-	Publisher pulumi.StringPtrInput `pulumi:"publisher"`
+	Publisher     pulumi.StringPtrInput `pulumi:"publisher"`
 }
 
 func (PurchasePlanArgs) ElementType() reflect.Type {
@@ -2300,7 +2108,6 @@ func (i *purchasePlanPtrType) ToPurchasePlanPtrOutputWithContext(ctx context.Con
 	return pulumi.ToOutputWithContext(ctx, i).(PurchasePlanPtrOutput)
 }
 
-// Used for establishing the purchase context of any 3rd Party artifact through MarketPlace.
 type PurchasePlanOutput struct{ *pulumi.OutputState }
 
 func (PurchasePlanOutput) ElementType() reflect.Type {
@@ -2320,27 +2127,23 @@ func (o PurchasePlanOutput) ToPurchasePlanPtrOutput() PurchasePlanPtrOutput {
 }
 
 func (o PurchasePlanOutput) ToPurchasePlanPtrOutputWithContext(ctx context.Context) PurchasePlanPtrOutput {
-	return o.ApplyT(func(v PurchasePlan) *PurchasePlan {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v PurchasePlan) *PurchasePlan {
 		return &v
 	}).(PurchasePlanPtrOutput)
 }
 
-// The plan ID.
 func (o PurchasePlanOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v PurchasePlan) *string { return v.Name }).(pulumi.StringPtrOutput)
 }
 
-// Specifies the product of the image from the marketplace. This is the same value as Offer under the imageReference element.
 func (o PurchasePlanOutput) Product() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v PurchasePlan) *string { return v.Product }).(pulumi.StringPtrOutput)
 }
 
-// The promotion code.
 func (o PurchasePlanOutput) PromotionCode() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v PurchasePlan) *string { return v.PromotionCode }).(pulumi.StringPtrOutput)
 }
 
-// The plan ID.
 func (o PurchasePlanOutput) Publisher() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v PurchasePlan) *string { return v.Publisher }).(pulumi.StringPtrOutput)
 }
@@ -2360,10 +2163,15 @@ func (o PurchasePlanPtrOutput) ToPurchasePlanPtrOutputWithContext(ctx context.Co
 }
 
 func (o PurchasePlanPtrOutput) Elem() PurchasePlanOutput {
-	return o.ApplyT(func(v *PurchasePlan) PurchasePlan { return *v }).(PurchasePlanOutput)
+	return o.ApplyT(func(v *PurchasePlan) PurchasePlan {
+		if v != nil {
+			return *v
+		}
+		var ret PurchasePlan
+		return ret
+	}).(PurchasePlanOutput)
 }
 
-// The plan ID.
 func (o PurchasePlanPtrOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *PurchasePlan) *string {
 		if v == nil {
@@ -2373,7 +2181,6 @@ func (o PurchasePlanPtrOutput) Name() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Specifies the product of the image from the marketplace. This is the same value as Offer under the imageReference element.
 func (o PurchasePlanPtrOutput) Product() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *PurchasePlan) *string {
 		if v == nil {
@@ -2383,7 +2190,6 @@ func (o PurchasePlanPtrOutput) Product() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The promotion code.
 func (o PurchasePlanPtrOutput) PromotionCode() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *PurchasePlan) *string {
 		if v == nil {
@@ -2393,7 +2199,6 @@ func (o PurchasePlanPtrOutput) PromotionCode() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The plan ID.
 func (o PurchasePlanPtrOutput) Publisher() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *PurchasePlan) *string {
 		if v == nil {
@@ -2403,16 +2208,11 @@ func (o PurchasePlanPtrOutput) Publisher() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Used for establishing the purchase context of any 3rd Party artifact through MarketPlace.
 type PurchasePlanResponse struct {
-	// The plan ID.
-	Name *string `pulumi:"name"`
-	// Specifies the product of the image from the marketplace. This is the same value as Offer under the imageReference element.
-	Product *string `pulumi:"product"`
-	// The promotion code.
+	Name          *string `pulumi:"name"`
+	Product       *string `pulumi:"product"`
 	PromotionCode *string `pulumi:"promotionCode"`
-	// The plan ID.
-	Publisher *string `pulumi:"publisher"`
+	Publisher     *string `pulumi:"publisher"`
 }
 
 // PurchasePlanResponseInput is an input type that accepts PurchasePlanResponseArgs and PurchasePlanResponseOutput values.
@@ -2426,16 +2226,11 @@ type PurchasePlanResponseInput interface {
 	ToPurchasePlanResponseOutputWithContext(context.Context) PurchasePlanResponseOutput
 }
 
-// Used for establishing the purchase context of any 3rd Party artifact through MarketPlace.
 type PurchasePlanResponseArgs struct {
-	// The plan ID.
-	Name pulumi.StringPtrInput `pulumi:"name"`
-	// Specifies the product of the image from the marketplace. This is the same value as Offer under the imageReference element.
-	Product pulumi.StringPtrInput `pulumi:"product"`
-	// The promotion code.
+	Name          pulumi.StringPtrInput `pulumi:"name"`
+	Product       pulumi.StringPtrInput `pulumi:"product"`
 	PromotionCode pulumi.StringPtrInput `pulumi:"promotionCode"`
-	// The plan ID.
-	Publisher pulumi.StringPtrInput `pulumi:"publisher"`
+	Publisher     pulumi.StringPtrInput `pulumi:"publisher"`
 }
 
 func (PurchasePlanResponseArgs) ElementType() reflect.Type {
@@ -2491,7 +2286,6 @@ func (i *purchasePlanResponsePtrType) ToPurchasePlanResponsePtrOutputWithContext
 	return pulumi.ToOutputWithContext(ctx, i).(PurchasePlanResponsePtrOutput)
 }
 
-// Used for establishing the purchase context of any 3rd Party artifact through MarketPlace.
 type PurchasePlanResponseOutput struct{ *pulumi.OutputState }
 
 func (PurchasePlanResponseOutput) ElementType() reflect.Type {
@@ -2511,27 +2305,23 @@ func (o PurchasePlanResponseOutput) ToPurchasePlanResponsePtrOutput() PurchasePl
 }
 
 func (o PurchasePlanResponseOutput) ToPurchasePlanResponsePtrOutputWithContext(ctx context.Context) PurchasePlanResponsePtrOutput {
-	return o.ApplyT(func(v PurchasePlanResponse) *PurchasePlanResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v PurchasePlanResponse) *PurchasePlanResponse {
 		return &v
 	}).(PurchasePlanResponsePtrOutput)
 }
 
-// The plan ID.
 func (o PurchasePlanResponseOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v PurchasePlanResponse) *string { return v.Name }).(pulumi.StringPtrOutput)
 }
 
-// Specifies the product of the image from the marketplace. This is the same value as Offer under the imageReference element.
 func (o PurchasePlanResponseOutput) Product() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v PurchasePlanResponse) *string { return v.Product }).(pulumi.StringPtrOutput)
 }
 
-// The promotion code.
 func (o PurchasePlanResponseOutput) PromotionCode() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v PurchasePlanResponse) *string { return v.PromotionCode }).(pulumi.StringPtrOutput)
 }
 
-// The plan ID.
 func (o PurchasePlanResponseOutput) Publisher() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v PurchasePlanResponse) *string { return v.Publisher }).(pulumi.StringPtrOutput)
 }
@@ -2551,10 +2341,15 @@ func (o PurchasePlanResponsePtrOutput) ToPurchasePlanResponsePtrOutputWithContex
 }
 
 func (o PurchasePlanResponsePtrOutput) Elem() PurchasePlanResponseOutput {
-	return o.ApplyT(func(v *PurchasePlanResponse) PurchasePlanResponse { return *v }).(PurchasePlanResponseOutput)
+	return o.ApplyT(func(v *PurchasePlanResponse) PurchasePlanResponse {
+		if v != nil {
+			return *v
+		}
+		var ret PurchasePlanResponse
+		return ret
+	}).(PurchasePlanResponseOutput)
 }
 
-// The plan ID.
 func (o PurchasePlanResponsePtrOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *PurchasePlanResponse) *string {
 		if v == nil {
@@ -2564,7 +2359,6 @@ func (o PurchasePlanResponsePtrOutput) Name() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Specifies the product of the image from the marketplace. This is the same value as Offer under the imageReference element.
 func (o PurchasePlanResponsePtrOutput) Product() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *PurchasePlanResponse) *string {
 		if v == nil {
@@ -2574,7 +2368,6 @@ func (o PurchasePlanResponsePtrOutput) Product() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The promotion code.
 func (o PurchasePlanResponsePtrOutput) PromotionCode() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *PurchasePlanResponse) *string {
 		if v == nil {
@@ -2584,7 +2377,6 @@ func (o PurchasePlanResponsePtrOutput) PromotionCode() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The plan ID.
 func (o PurchasePlanResponsePtrOutput) Publisher() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *PurchasePlanResponse) *string {
 		if v == nil {

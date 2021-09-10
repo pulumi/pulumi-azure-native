@@ -10,22 +10,15 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// The management group details.
 type ManagementGroup struct {
 	pulumi.CustomResourceState
 
-	// The list of children.
-	Children ManagementGroupChildInfoResponseArrayOutput `pulumi:"children"`
-	// The details of a management group.
-	Details ManagementGroupDetailsResponsePtrOutput `pulumi:"details"`
-	// The friendly name of the management group.
-	DisplayName pulumi.StringPtrOutput `pulumi:"displayName"`
-	// The name of the management group. For example, 00000000-0000-0000-0000-000000000000
-	Name pulumi.StringOutput `pulumi:"name"`
-	// The AAD Tenant ID associated with the management group. For example, 00000000-0000-0000-0000-000000000000
-	TenantId pulumi.StringPtrOutput `pulumi:"tenantId"`
-	// The type of the resource.  For example, /providers/Microsoft.Management/managementGroups
-	Type pulumi.StringOutput `pulumi:"type"`
+	Children    ManagementGroupChildInfoResponseArrayOutput `pulumi:"children"`
+	Details     ManagementGroupDetailsResponsePtrOutput     `pulumi:"details"`
+	DisplayName pulumi.StringPtrOutput                      `pulumi:"displayName"`
+	Name        pulumi.StringOutput                         `pulumi:"name"`
+	TenantId    pulumi.StringPtrOutput                      `pulumi:"tenantId"`
+	Type        pulumi.StringOutput                         `pulumi:"type"`
 }
 
 // NewManagementGroup registers a new resource with the given unique name, arguments, and options.
@@ -121,22 +114,16 @@ func (ManagementGroupState) ElementType() reflect.Type {
 }
 
 type managementGroupArgs struct {
-	// The friendly name of the management group.
 	DisplayName *string `pulumi:"displayName"`
-	// Management Group ID.
-	GroupId *string `pulumi:"groupId"`
-	// (Optional) The fully qualified ID for the parent management group.  For example, /providers/Microsoft.Management/managementGroups/0000000-0000-0000-0000-000000000000
-	ParentId *string `pulumi:"parentId"`
+	GroupId     *string `pulumi:"groupId"`
+	ParentId    *string `pulumi:"parentId"`
 }
 
 // The set of arguments for constructing a ManagementGroup resource.
 type ManagementGroupArgs struct {
-	// The friendly name of the management group.
 	DisplayName pulumi.StringPtrInput
-	// Management Group ID.
-	GroupId pulumi.StringPtrInput
-	// (Optional) The fully qualified ID for the parent management group.  For example, /providers/Microsoft.Management/managementGroups/0000000-0000-0000-0000-000000000000
-	ParentId pulumi.StringPtrInput
+	GroupId     pulumi.StringPtrInput
+	ParentId    pulumi.StringPtrInput
 }
 
 func (ManagementGroupArgs) ElementType() reflect.Type {
@@ -162,9 +149,7 @@ func (i *ManagementGroup) ToManagementGroupOutputWithContext(ctx context.Context
 	return pulumi.ToOutputWithContext(ctx, i).(ManagementGroupOutput)
 }
 
-type ManagementGroupOutput struct {
-	*pulumi.OutputState
-}
+type ManagementGroupOutput struct{ *pulumi.OutputState }
 
 func (ManagementGroupOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*ManagementGroup)(nil))

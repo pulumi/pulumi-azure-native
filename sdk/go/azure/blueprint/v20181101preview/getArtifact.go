@@ -7,8 +7,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Represents a blueprint artifact.
-//
 // Deprecated: Please use one of the variants: PolicyAssignmentArtifact, RoleAssignmentArtifact, TemplateArtifact.
 func LookupArtifact(ctx *pulumi.Context, args *LookupArtifactArgs, opts ...pulumi.InvokeOption) (*LookupArtifactResult, error) {
 	var rv LookupArtifactResult
@@ -20,22 +18,15 @@ func LookupArtifact(ctx *pulumi.Context, args *LookupArtifactArgs, opts ...pulum
 }
 
 type LookupArtifactArgs struct {
-	// Name of the blueprint artifact.
-	ArtifactName string `pulumi:"artifactName"`
-	// Name of the blueprint definition.
+	ArtifactName  string `pulumi:"artifactName"`
 	BlueprintName string `pulumi:"blueprintName"`
-	// The scope of the resource. Valid scopes are: management group (format: '/providers/Microsoft.Management/managementGroups/{managementGroup}'), subscription (format: '/subscriptions/{subscriptionId}').
 	ResourceScope string `pulumi:"resourceScope"`
 }
 
 // Represents a blueprint artifact.
 type LookupArtifactResult struct {
-	// String Id used to locate any resource on Azure.
-	Id string `pulumi:"id"`
-	// Specifies the kind of blueprint artifact.
+	Id   string `pulumi:"id"`
 	Kind string `pulumi:"kind"`
-	// Name of this resource.
 	Name string `pulumi:"name"`
-	// Type of this resource.
 	Type string `pulumi:"type"`
 }

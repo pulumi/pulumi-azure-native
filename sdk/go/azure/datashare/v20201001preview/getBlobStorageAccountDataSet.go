@@ -7,7 +7,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// An Azure blob storage account data set.
 func LookupBlobStorageAccountDataSet(ctx *pulumi.Context, args *LookupBlobStorageAccountDataSetArgs, opts ...pulumi.InvokeOption) (*LookupBlobStorageAccountDataSetResult, error) {
 	var rv LookupBlobStorageAccountDataSetResult
 	err := ctx.Invoke("azure-native:datashare/v20201001preview:getBlobStorageAccountDataSet", args, &rv, opts...)
@@ -18,35 +17,21 @@ func LookupBlobStorageAccountDataSet(ctx *pulumi.Context, args *LookupBlobStorag
 }
 
 type LookupBlobStorageAccountDataSetArgs struct {
-	// The name of the share account.
-	AccountName string `pulumi:"accountName"`
-	// The name of the dataSet.
-	DataSetName string `pulumi:"dataSetName"`
-	// The resource group name.
+	AccountName       string `pulumi:"accountName"`
+	DataSetName       string `pulumi:"dataSetName"`
 	ResourceGroupName string `pulumi:"resourceGroupName"`
-	// The name of the share.
-	ShareName string `pulumi:"shareName"`
+	ShareName         string `pulumi:"shareName"`
 }
 
 // An Azure blob storage account data set.
 type LookupBlobStorageAccountDataSetResult struct {
-	// Unique id for identifying a data set resource
-	DataSetId string `pulumi:"dataSetId"`
-	// The resource id of the azure resource
-	Id string `pulumi:"id"`
-	// Kind of data set.
-	// Expected value is 'BlobStorageAccount'.
-	Kind string `pulumi:"kind"`
-	// Location of the storage account.
-	Location string `pulumi:"location"`
-	// Name of the azure resource
-	Name string `pulumi:"name"`
-	// A list of storage account paths.
-	Paths []BlobStorageAccountPathResponse `pulumi:"paths"`
-	// Resource id of the storage account.
-	StorageAccountResourceId string `pulumi:"storageAccountResourceId"`
-	// System Data of the Azure resource.
-	SystemData SystemDataResponse `pulumi:"systemData"`
-	// Type of the azure resource
-	Type string `pulumi:"type"`
+	DataSetId                string                           `pulumi:"dataSetId"`
+	Id                       string                           `pulumi:"id"`
+	Kind                     string                           `pulumi:"kind"`
+	Location                 string                           `pulumi:"location"`
+	Name                     string                           `pulumi:"name"`
+	Paths                    []BlobStorageAccountPathResponse `pulumi:"paths"`
+	StorageAccountResourceId string                           `pulumi:"storageAccountResourceId"`
+	SystemData               SystemDataResponse               `pulumi:"systemData"`
+	Type                     string                           `pulumi:"type"`
 }

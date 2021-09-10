@@ -7,7 +7,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Site REST Resource.
 func LookupHyperVSite(ctx *pulumi.Context, args *LookupHyperVSiteArgs, opts ...pulumi.InvokeOption) (*LookupHyperVSiteResult, error) {
 	var rv LookupHyperVSiteResult
 	err := ctx.Invoke("azure-native:offazure/v20200101:getHyperVSite", args, &rv, opts...)
@@ -18,25 +17,17 @@ func LookupHyperVSite(ctx *pulumi.Context, args *LookupHyperVSiteArgs, opts ...p
 }
 
 type LookupHyperVSiteArgs struct {
-	// The name of the resource group. The name is case insensitive.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
-	// Site name.
-	SiteName string `pulumi:"siteName"`
+	SiteName          string `pulumi:"siteName"`
 }
 
 // Site REST Resource.
 type LookupHyperVSiteResult struct {
-	// eTag for concurrency control.
-	ETag *string `pulumi:"eTag"`
-	// Resource Id.
-	Id string `pulumi:"id"`
-	// Azure location in which Sites is created.
-	Location *string `pulumi:"location"`
-	// Name of the Hyper-V site.
-	Name *string `pulumi:"name"`
-	// Nested properties of Hyper-V site.
+	ETag       *string                `pulumi:"eTag"`
+	Id         string                 `pulumi:"id"`
+	Location   *string                `pulumi:"location"`
+	Name       *string                `pulumi:"name"`
 	Properties SitePropertiesResponse `pulumi:"properties"`
 	Tags       map[string]string      `pulumi:"tags"`
-	// Type of resource. Type = Microsoft.OffAzure/HyperVSites.
-	Type string `pulumi:"type"`
+	Type       string                 `pulumi:"type"`
 }

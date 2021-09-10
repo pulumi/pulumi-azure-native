@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.HDInsight.Outputs
 {
 
+    /// <summary>
+    /// The HDInsight cluster application GET response.
+    /// </summary>
     [OutputType]
     public sealed class ApplicationPropertiesResponse
     {

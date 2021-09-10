@@ -11,38 +11,23 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// The configuration store along with all resource properties. The Configuration Store will have all information to begin utilizing it.
 type ConfigurationStore struct {
 	pulumi.CustomResourceState
 
-	// The creation date of configuration store.
-	CreationDate pulumi.StringOutput `pulumi:"creationDate"`
-	// Disables all authentication methods other than AAD authentication.
-	DisableLocalAuth pulumi.BoolPtrOutput `pulumi:"disableLocalAuth"`
-	// The encryption settings of the configuration store.
-	Encryption EncryptionPropertiesResponsePtrOutput `pulumi:"encryption"`
-	// The DNS endpoint where the configuration store API will be available.
-	Endpoint pulumi.StringOutput `pulumi:"endpoint"`
-	// The managed identity information, if configured.
-	Identity ResourceIdentityResponsePtrOutput `pulumi:"identity"`
-	// The geo-location where the resource lives
-	Location pulumi.StringOutput `pulumi:"location"`
-	// The name of the resource
-	Name pulumi.StringOutput `pulumi:"name"`
-	// The list of private endpoint connections that are set up for this resource.
+	CreationDate               pulumi.StringOutput                                   `pulumi:"creationDate"`
+	DisableLocalAuth           pulumi.BoolPtrOutput                                  `pulumi:"disableLocalAuth"`
+	Encryption                 EncryptionPropertiesResponsePtrOutput                 `pulumi:"encryption"`
+	Endpoint                   pulumi.StringOutput                                   `pulumi:"endpoint"`
+	Identity                   ResourceIdentityResponsePtrOutput                     `pulumi:"identity"`
+	Location                   pulumi.StringOutput                                   `pulumi:"location"`
+	Name                       pulumi.StringOutput                                   `pulumi:"name"`
 	PrivateEndpointConnections PrivateEndpointConnectionReferenceResponseArrayOutput `pulumi:"privateEndpointConnections"`
-	// The provisioning state of the configuration store.
-	ProvisioningState pulumi.StringOutput `pulumi:"provisioningState"`
-	// Control permission for data plane traffic coming from public networks while private endpoint is enabled.
-	PublicNetworkAccess pulumi.StringPtrOutput `pulumi:"publicNetworkAccess"`
-	// The sku of the configuration store.
-	Sku SkuResponseOutput `pulumi:"sku"`
-	// Resource system metadata.
-	SystemData SystemDataResponseOutput `pulumi:"systemData"`
-	// Resource tags.
-	Tags pulumi.StringMapOutput `pulumi:"tags"`
-	// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
-	Type pulumi.StringOutput `pulumi:"type"`
+	ProvisioningState          pulumi.StringOutput                                   `pulumi:"provisioningState"`
+	PublicNetworkAccess        pulumi.StringPtrOutput                                `pulumi:"publicNetworkAccess"`
+	Sku                        SkuResponseOutput                                     `pulumi:"sku"`
+	SystemData                 SystemDataResponseOutput                              `pulumi:"systemData"`
+	Tags                       pulumi.StringMapOutput                                `pulumi:"tags"`
+	Type                       pulumi.StringOutput                                   `pulumi:"type"`
 }
 
 // NewConfigurationStore registers a new resource with the given unique name, arguments, and options.
@@ -132,46 +117,28 @@ func (ConfigurationStoreState) ElementType() reflect.Type {
 }
 
 type configurationStoreArgs struct {
-	// The name of the configuration store.
-	ConfigStoreName *string `pulumi:"configStoreName"`
-	// Disables all authentication methods other than AAD authentication.
-	DisableLocalAuth *bool `pulumi:"disableLocalAuth"`
-	// The encryption settings of the configuration store.
-	Encryption *EncryptionProperties `pulumi:"encryption"`
-	// The managed identity information, if configured.
-	Identity *ResourceIdentity `pulumi:"identity"`
-	// The geo-location where the resource lives
-	Location *string `pulumi:"location"`
-	// Control permission for data plane traffic coming from public networks while private endpoint is enabled.
-	PublicNetworkAccess *string `pulumi:"publicNetworkAccess"`
-	// The name of the resource group to which the container registry belongs.
-	ResourceGroupName string `pulumi:"resourceGroupName"`
-	// The sku of the configuration store.
-	Sku Sku `pulumi:"sku"`
-	// Resource tags.
-	Tags map[string]string `pulumi:"tags"`
+	ConfigStoreName     *string               `pulumi:"configStoreName"`
+	DisableLocalAuth    *bool                 `pulumi:"disableLocalAuth"`
+	Encryption          *EncryptionProperties `pulumi:"encryption"`
+	Identity            *ResourceIdentity     `pulumi:"identity"`
+	Location            *string               `pulumi:"location"`
+	PublicNetworkAccess *string               `pulumi:"publicNetworkAccess"`
+	ResourceGroupName   string                `pulumi:"resourceGroupName"`
+	Sku                 Sku                   `pulumi:"sku"`
+	Tags                map[string]string     `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a ConfigurationStore resource.
 type ConfigurationStoreArgs struct {
-	// The name of the configuration store.
-	ConfigStoreName pulumi.StringPtrInput
-	// Disables all authentication methods other than AAD authentication.
-	DisableLocalAuth pulumi.BoolPtrInput
-	// The encryption settings of the configuration store.
-	Encryption EncryptionPropertiesPtrInput
-	// The managed identity information, if configured.
-	Identity ResourceIdentityPtrInput
-	// The geo-location where the resource lives
-	Location pulumi.StringPtrInput
-	// Control permission for data plane traffic coming from public networks while private endpoint is enabled.
+	ConfigStoreName     pulumi.StringPtrInput
+	DisableLocalAuth    pulumi.BoolPtrInput
+	Encryption          EncryptionPropertiesPtrInput
+	Identity            ResourceIdentityPtrInput
+	Location            pulumi.StringPtrInput
 	PublicNetworkAccess pulumi.StringPtrInput
-	// The name of the resource group to which the container registry belongs.
-	ResourceGroupName pulumi.StringInput
-	// The sku of the configuration store.
-	Sku SkuInput
-	// Resource tags.
-	Tags pulumi.StringMapInput
+	ResourceGroupName   pulumi.StringInput
+	Sku                 SkuInput
+	Tags                pulumi.StringMapInput
 }
 
 func (ConfigurationStoreArgs) ElementType() reflect.Type {
@@ -197,9 +164,7 @@ func (i *ConfigurationStore) ToConfigurationStoreOutputWithContext(ctx context.C
 	return pulumi.ToOutputWithContext(ctx, i).(ConfigurationStoreOutput)
 }
 
-type ConfigurationStoreOutput struct {
-	*pulumi.OutputState
-}
+type ConfigurationStoreOutput struct{ *pulumi.OutputState }
 
 func (ConfigurationStoreOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*ConfigurationStore)(nil))

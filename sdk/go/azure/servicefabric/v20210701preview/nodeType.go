@@ -11,62 +11,35 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Describes a node type in the cluster, each node type represents sub set of nodes in the cluster.
 type NodeType struct {
 	pulumi.CustomResourceState
 
-	// The range of ports from which cluster assigned port to Service Fabric applications.
-	ApplicationPorts EndpointRangeDescriptionResponsePtrOutput `pulumi:"applicationPorts"`
-	// The capacity tags applied to the nodes in the node type, the cluster resource manager uses these tags to understand how much resource a node has.
-	Capacities pulumi.StringMapOutput `pulumi:"capacities"`
-	// Disk size for each vm in the node type in GBs.
-	DataDiskSizeGB pulumi.IntOutput `pulumi:"dataDiskSizeGB"`
-	// Managed data disk type.
-	DataDiskType pulumi.StringPtrOutput `pulumi:"dataDiskType"`
-	// The range of ephemeral ports that nodes in this node type should be configured with.
-	EphemeralPorts EndpointRangeDescriptionResponsePtrOutput `pulumi:"ephemeralPorts"`
-	// Indicates the node type uses its own frontend configurations instead of the default one for the cluster. This setting can only be specified for non-primary node types and can not be added or removed after the node type is created.
-	FrontendConfigurations FrontendConfigurationResponseArrayOutput `pulumi:"frontendConfigurations"`
-	// Indicates the Service Fabric system services for the cluster will run on this node type. This setting cannot be changed once the node type is created.
-	IsPrimary pulumi.BoolOutput `pulumi:"isPrimary"`
-	// Indicates if the node type can only host Stateless workloads.
-	IsStateless pulumi.BoolPtrOutput `pulumi:"isStateless"`
-	// Indicates if scale set associated with the node type can be composed of multiple placement groups.
-	MultiplePlacementGroups pulumi.BoolPtrOutput `pulumi:"multiplePlacementGroups"`
-	// Azure resource name.
-	Name pulumi.StringOutput `pulumi:"name"`
-	// The Network Security Rules for this node type. This setting can only be specified for node types that are configured with frontend configurations.
-	NetworkSecurityRules NetworkSecurityRuleResponseArrayOutput `pulumi:"networkSecurityRules"`
-	// The placement tags applied to nodes in the node type, which can be used to indicate where certain services (workload) should run.
-	PlacementProperties pulumi.StringMapOutput `pulumi:"placementProperties"`
-	// The provisioning state of the node type resource.
-	ProvisioningState pulumi.StringOutput `pulumi:"provisioningState"`
-	// The node type sku.
-	Sku NodeTypeSkuResponsePtrOutput `pulumi:"sku"`
-	// Metadata pertaining to creation and last modification of the resource.
-	SystemData SystemDataResponseOutput `pulumi:"systemData"`
-	// Azure resource tags.
-	Tags pulumi.StringMapOutput `pulumi:"tags"`
-	// Azure resource type.
-	Type pulumi.StringOutput `pulumi:"type"`
-	// Set of extensions that should be installed onto the virtual machines.
-	VmExtensions VMSSExtensionResponseArrayOutput `pulumi:"vmExtensions"`
-	// The offer type of the Azure Virtual Machines Marketplace image. For example, UbuntuServer or WindowsServer.
-	VmImageOffer pulumi.StringPtrOutput `pulumi:"vmImageOffer"`
-	// The publisher of the Azure Virtual Machines Marketplace image. For example, Canonical or MicrosoftWindowsServer.
-	VmImagePublisher pulumi.StringPtrOutput `pulumi:"vmImagePublisher"`
-	// The SKU of the Azure Virtual Machines Marketplace image. For example, 14.04.0-LTS or 2012-R2-Datacenter.
-	VmImageSku pulumi.StringPtrOutput `pulumi:"vmImageSku"`
-	// The version of the Azure Virtual Machines Marketplace image. A value of 'latest' can be specified to select the latest version of an image. If omitted, the default is 'latest'.
-	VmImageVersion pulumi.StringPtrOutput `pulumi:"vmImageVersion"`
-	// The number of nodes in the node type. <br /><br />**Values:** <br />-1 - Use when auto scale rules are configured or sku.capacity is defined <br /> 0 - Not supported <br /> >0 - Use for manual scale.
-	VmInstanceCount pulumi.IntOutput `pulumi:"vmInstanceCount"`
-	// Identities to assign to the virtual machine scale set under the node type.
-	VmManagedIdentity VmManagedIdentityResponsePtrOutput `pulumi:"vmManagedIdentity"`
-	// The secrets to install in the virtual machines.
-	VmSecrets VaultSecretGroupResponseArrayOutput `pulumi:"vmSecrets"`
-	// The size of virtual machines in the pool. All virtual machines in a pool are the same size. For example, Standard_D3.
-	VmSize pulumi.StringPtrOutput `pulumi:"vmSize"`
+	ApplicationPorts        EndpointRangeDescriptionResponsePtrOutput `pulumi:"applicationPorts"`
+	Capacities              pulumi.StringMapOutput                    `pulumi:"capacities"`
+	DataDiskSizeGB          pulumi.IntOutput                          `pulumi:"dataDiskSizeGB"`
+	DataDiskType            pulumi.StringPtrOutput                    `pulumi:"dataDiskType"`
+	EphemeralPorts          EndpointRangeDescriptionResponsePtrOutput `pulumi:"ephemeralPorts"`
+	FrontendConfigurations  FrontendConfigurationResponseArrayOutput  `pulumi:"frontendConfigurations"`
+	IsPrimary               pulumi.BoolOutput                         `pulumi:"isPrimary"`
+	IsStateless             pulumi.BoolPtrOutput                      `pulumi:"isStateless"`
+	MultiplePlacementGroups pulumi.BoolPtrOutput                      `pulumi:"multiplePlacementGroups"`
+	Name                    pulumi.StringOutput                       `pulumi:"name"`
+	NetworkSecurityRules    NetworkSecurityRuleResponseArrayOutput    `pulumi:"networkSecurityRules"`
+	PlacementProperties     pulumi.StringMapOutput                    `pulumi:"placementProperties"`
+	ProvisioningState       pulumi.StringOutput                       `pulumi:"provisioningState"`
+	Sku                     NodeTypeSkuResponsePtrOutput              `pulumi:"sku"`
+	SystemData              SystemDataResponseOutput                  `pulumi:"systemData"`
+	Tags                    pulumi.StringMapOutput                    `pulumi:"tags"`
+	Type                    pulumi.StringOutput                       `pulumi:"type"`
+	VmExtensions            VMSSExtensionResponseArrayOutput          `pulumi:"vmExtensions"`
+	VmImageOffer            pulumi.StringPtrOutput                    `pulumi:"vmImageOffer"`
+	VmImagePublisher        pulumi.StringPtrOutput                    `pulumi:"vmImagePublisher"`
+	VmImageSku              pulumi.StringPtrOutput                    `pulumi:"vmImageSku"`
+	VmImageVersion          pulumi.StringPtrOutput                    `pulumi:"vmImageVersion"`
+	VmInstanceCount         pulumi.IntOutput                          `pulumi:"vmInstanceCount"`
+	VmManagedIdentity       VmManagedIdentityResponsePtrOutput        `pulumi:"vmManagedIdentity"`
+	VmSecrets               VaultSecretGroupResponseArrayOutput       `pulumi:"vmSecrets"`
+	VmSize                  pulumi.StringPtrOutput                    `pulumi:"vmSize"`
 }
 
 // NewNodeType registers a new resource with the given unique name, arguments, and options.
@@ -159,110 +132,60 @@ func (NodeTypeState) ElementType() reflect.Type {
 }
 
 type nodeTypeArgs struct {
-	// The range of ports from which cluster assigned port to Service Fabric applications.
-	ApplicationPorts *EndpointRangeDescription `pulumi:"applicationPorts"`
-	// The capacity tags applied to the nodes in the node type, the cluster resource manager uses these tags to understand how much resource a node has.
-	Capacities map[string]string `pulumi:"capacities"`
-	// The name of the cluster resource.
-	ClusterName string `pulumi:"clusterName"`
-	// Disk size for each vm in the node type in GBs.
-	DataDiskSizeGB int `pulumi:"dataDiskSizeGB"`
-	// Managed data disk type.
-	DataDiskType *string `pulumi:"dataDiskType"`
-	// The range of ephemeral ports that nodes in this node type should be configured with.
-	EphemeralPorts *EndpointRangeDescription `pulumi:"ephemeralPorts"`
-	// Indicates the node type uses its own frontend configurations instead of the default one for the cluster. This setting can only be specified for non-primary node types and can not be added or removed after the node type is created.
-	FrontendConfigurations []FrontendConfiguration `pulumi:"frontendConfigurations"`
-	// Indicates the Service Fabric system services for the cluster will run on this node type. This setting cannot be changed once the node type is created.
-	IsPrimary bool `pulumi:"isPrimary"`
-	// Indicates if the node type can only host Stateless workloads.
-	IsStateless *bool `pulumi:"isStateless"`
-	// Indicates if scale set associated with the node type can be composed of multiple placement groups.
-	MultiplePlacementGroups *bool `pulumi:"multiplePlacementGroups"`
-	// The Network Security Rules for this node type. This setting can only be specified for node types that are configured with frontend configurations.
-	NetworkSecurityRules []NetworkSecurityRule `pulumi:"networkSecurityRules"`
-	// The name of the node type.
-	NodeTypeName *string `pulumi:"nodeTypeName"`
-	// The placement tags applied to nodes in the node type, which can be used to indicate where certain services (workload) should run.
-	PlacementProperties map[string]string `pulumi:"placementProperties"`
-	// The name of the resource group.
-	ResourceGroupName string `pulumi:"resourceGroupName"`
-	// The node type sku.
-	Sku *NodeTypeSku `pulumi:"sku"`
-	// Azure resource tags.
-	Tags map[string]string `pulumi:"tags"`
-	// Set of extensions that should be installed onto the virtual machines.
-	VmExtensions []VMSSExtension `pulumi:"vmExtensions"`
-	// The offer type of the Azure Virtual Machines Marketplace image. For example, UbuntuServer or WindowsServer.
-	VmImageOffer *string `pulumi:"vmImageOffer"`
-	// The publisher of the Azure Virtual Machines Marketplace image. For example, Canonical or MicrosoftWindowsServer.
-	VmImagePublisher *string `pulumi:"vmImagePublisher"`
-	// The SKU of the Azure Virtual Machines Marketplace image. For example, 14.04.0-LTS or 2012-R2-Datacenter.
-	VmImageSku *string `pulumi:"vmImageSku"`
-	// The version of the Azure Virtual Machines Marketplace image. A value of 'latest' can be specified to select the latest version of an image. If omitted, the default is 'latest'.
-	VmImageVersion *string `pulumi:"vmImageVersion"`
-	// The number of nodes in the node type. <br /><br />**Values:** <br />-1 - Use when auto scale rules are configured or sku.capacity is defined <br /> 0 - Not supported <br /> >0 - Use for manual scale.
-	VmInstanceCount int `pulumi:"vmInstanceCount"`
-	// Identities to assign to the virtual machine scale set under the node type.
-	VmManagedIdentity *VmManagedIdentity `pulumi:"vmManagedIdentity"`
-	// The secrets to install in the virtual machines.
-	VmSecrets []VaultSecretGroup `pulumi:"vmSecrets"`
-	// The size of virtual machines in the pool. All virtual machines in a pool are the same size. For example, Standard_D3.
-	VmSize *string `pulumi:"vmSize"`
+	ApplicationPorts        *EndpointRangeDescription `pulumi:"applicationPorts"`
+	Capacities              map[string]string         `pulumi:"capacities"`
+	ClusterName             string                    `pulumi:"clusterName"`
+	DataDiskSizeGB          int                       `pulumi:"dataDiskSizeGB"`
+	DataDiskType            *string                   `pulumi:"dataDiskType"`
+	EphemeralPorts          *EndpointRangeDescription `pulumi:"ephemeralPorts"`
+	FrontendConfigurations  []FrontendConfiguration   `pulumi:"frontendConfigurations"`
+	IsPrimary               bool                      `pulumi:"isPrimary"`
+	IsStateless             *bool                     `pulumi:"isStateless"`
+	MultiplePlacementGroups *bool                     `pulumi:"multiplePlacementGroups"`
+	NetworkSecurityRules    []NetworkSecurityRule     `pulumi:"networkSecurityRules"`
+	NodeTypeName            *string                   `pulumi:"nodeTypeName"`
+	PlacementProperties     map[string]string         `pulumi:"placementProperties"`
+	ResourceGroupName       string                    `pulumi:"resourceGroupName"`
+	Sku                     *NodeTypeSku              `pulumi:"sku"`
+	Tags                    map[string]string         `pulumi:"tags"`
+	VmExtensions            []VMSSExtension           `pulumi:"vmExtensions"`
+	VmImageOffer            *string                   `pulumi:"vmImageOffer"`
+	VmImagePublisher        *string                   `pulumi:"vmImagePublisher"`
+	VmImageSku              *string                   `pulumi:"vmImageSku"`
+	VmImageVersion          *string                   `pulumi:"vmImageVersion"`
+	VmInstanceCount         int                       `pulumi:"vmInstanceCount"`
+	VmManagedIdentity       *VmManagedIdentity        `pulumi:"vmManagedIdentity"`
+	VmSecrets               []VaultSecretGroup        `pulumi:"vmSecrets"`
+	VmSize                  *string                   `pulumi:"vmSize"`
 }
 
 // The set of arguments for constructing a NodeType resource.
 type NodeTypeArgs struct {
-	// The range of ports from which cluster assigned port to Service Fabric applications.
-	ApplicationPorts EndpointRangeDescriptionPtrInput
-	// The capacity tags applied to the nodes in the node type, the cluster resource manager uses these tags to understand how much resource a node has.
-	Capacities pulumi.StringMapInput
-	// The name of the cluster resource.
-	ClusterName pulumi.StringInput
-	// Disk size for each vm in the node type in GBs.
-	DataDiskSizeGB pulumi.IntInput
-	// Managed data disk type.
-	DataDiskType pulumi.StringPtrInput
-	// The range of ephemeral ports that nodes in this node type should be configured with.
-	EphemeralPorts EndpointRangeDescriptionPtrInput
-	// Indicates the node type uses its own frontend configurations instead of the default one for the cluster. This setting can only be specified for non-primary node types and can not be added or removed after the node type is created.
-	FrontendConfigurations FrontendConfigurationArrayInput
-	// Indicates the Service Fabric system services for the cluster will run on this node type. This setting cannot be changed once the node type is created.
-	IsPrimary pulumi.BoolInput
-	// Indicates if the node type can only host Stateless workloads.
-	IsStateless pulumi.BoolPtrInput
-	// Indicates if scale set associated with the node type can be composed of multiple placement groups.
+	ApplicationPorts        EndpointRangeDescriptionPtrInput
+	Capacities              pulumi.StringMapInput
+	ClusterName             pulumi.StringInput
+	DataDiskSizeGB          pulumi.IntInput
+	DataDiskType            pulumi.StringPtrInput
+	EphemeralPorts          EndpointRangeDescriptionPtrInput
+	FrontendConfigurations  FrontendConfigurationArrayInput
+	IsPrimary               pulumi.BoolInput
+	IsStateless             pulumi.BoolPtrInput
 	MultiplePlacementGroups pulumi.BoolPtrInput
-	// The Network Security Rules for this node type. This setting can only be specified for node types that are configured with frontend configurations.
-	NetworkSecurityRules NetworkSecurityRuleArrayInput
-	// The name of the node type.
-	NodeTypeName pulumi.StringPtrInput
-	// The placement tags applied to nodes in the node type, which can be used to indicate where certain services (workload) should run.
-	PlacementProperties pulumi.StringMapInput
-	// The name of the resource group.
-	ResourceGroupName pulumi.StringInput
-	// The node type sku.
-	Sku NodeTypeSkuPtrInput
-	// Azure resource tags.
-	Tags pulumi.StringMapInput
-	// Set of extensions that should be installed onto the virtual machines.
-	VmExtensions VMSSExtensionArrayInput
-	// The offer type of the Azure Virtual Machines Marketplace image. For example, UbuntuServer or WindowsServer.
-	VmImageOffer pulumi.StringPtrInput
-	// The publisher of the Azure Virtual Machines Marketplace image. For example, Canonical or MicrosoftWindowsServer.
-	VmImagePublisher pulumi.StringPtrInput
-	// The SKU of the Azure Virtual Machines Marketplace image. For example, 14.04.0-LTS or 2012-R2-Datacenter.
-	VmImageSku pulumi.StringPtrInput
-	// The version of the Azure Virtual Machines Marketplace image. A value of 'latest' can be specified to select the latest version of an image. If omitted, the default is 'latest'.
-	VmImageVersion pulumi.StringPtrInput
-	// The number of nodes in the node type. <br /><br />**Values:** <br />-1 - Use when auto scale rules are configured or sku.capacity is defined <br /> 0 - Not supported <br /> >0 - Use for manual scale.
-	VmInstanceCount pulumi.IntInput
-	// Identities to assign to the virtual machine scale set under the node type.
-	VmManagedIdentity VmManagedIdentityPtrInput
-	// The secrets to install in the virtual machines.
-	VmSecrets VaultSecretGroupArrayInput
-	// The size of virtual machines in the pool. All virtual machines in a pool are the same size. For example, Standard_D3.
-	VmSize pulumi.StringPtrInput
+	NetworkSecurityRules    NetworkSecurityRuleArrayInput
+	NodeTypeName            pulumi.StringPtrInput
+	PlacementProperties     pulumi.StringMapInput
+	ResourceGroupName       pulumi.StringInput
+	Sku                     NodeTypeSkuPtrInput
+	Tags                    pulumi.StringMapInput
+	VmExtensions            VMSSExtensionArrayInput
+	VmImageOffer            pulumi.StringPtrInput
+	VmImagePublisher        pulumi.StringPtrInput
+	VmImageSku              pulumi.StringPtrInput
+	VmImageVersion          pulumi.StringPtrInput
+	VmInstanceCount         pulumi.IntInput
+	VmManagedIdentity       VmManagedIdentityPtrInput
+	VmSecrets               VaultSecretGroupArrayInput
+	VmSize                  pulumi.StringPtrInput
 }
 
 func (NodeTypeArgs) ElementType() reflect.Type {
@@ -288,9 +211,7 @@ func (i *NodeType) ToNodeTypeOutputWithContext(ctx context.Context) NodeTypeOutp
 	return pulumi.ToOutputWithContext(ctx, i).(NodeTypeOutput)
 }
 
-type NodeTypeOutput struct {
-	*pulumi.OutputState
-}
+type NodeTypeOutput struct{ *pulumi.OutputState }
 
 func (NodeTypeOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*NodeType)(nil))

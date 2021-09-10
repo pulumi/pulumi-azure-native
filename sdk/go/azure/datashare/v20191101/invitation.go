@@ -11,34 +11,20 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// A Invitation data transfer object.
 type Invitation struct {
 	pulumi.CustomResourceState
 
-	// unique invitation id
-	InvitationId pulumi.StringOutput `pulumi:"invitationId"`
-	// The status of the invitation.
-	InvitationStatus pulumi.StringOutput `pulumi:"invitationStatus"`
-	// Name of the azure resource
-	Name pulumi.StringOutput `pulumi:"name"`
-	// The time the recipient responded to the invitation.
-	RespondedAt pulumi.StringOutput `pulumi:"respondedAt"`
-	// Gets the time at which the invitation was sent.
-	SentAt pulumi.StringOutput `pulumi:"sentAt"`
-	// The target Azure AD Id. Can't be combined with email.
+	InvitationId            pulumi.StringOutput    `pulumi:"invitationId"`
+	InvitationStatus        pulumi.StringOutput    `pulumi:"invitationStatus"`
+	Name                    pulumi.StringOutput    `pulumi:"name"`
+	RespondedAt             pulumi.StringOutput    `pulumi:"respondedAt"`
+	SentAt                  pulumi.StringOutput    `pulumi:"sentAt"`
 	TargetActiveDirectoryId pulumi.StringPtrOutput `pulumi:"targetActiveDirectoryId"`
-	// The email the invitation is directed to.
-	TargetEmail pulumi.StringPtrOutput `pulumi:"targetEmail"`
-	// The target user or application Id that invitation is being sent to.
-	// Must be specified along TargetActiveDirectoryId. This enables sending
-	// invitations to specific users or applications in an AD tenant.
-	TargetObjectId pulumi.StringPtrOutput `pulumi:"targetObjectId"`
-	// Type of the azure resource
-	Type pulumi.StringOutput `pulumi:"type"`
-	// Email of the user who created the resource
-	UserEmail pulumi.StringOutput `pulumi:"userEmail"`
-	// Name of the user who created the resource
-	UserName pulumi.StringOutput `pulumi:"userName"`
+	TargetEmail             pulumi.StringPtrOutput `pulumi:"targetEmail"`
+	TargetObjectId          pulumi.StringPtrOutput `pulumi:"targetObjectId"`
+	Type                    pulumi.StringOutput    `pulumi:"type"`
+	UserEmail               pulumi.StringOutput    `pulumi:"userEmail"`
+	UserName                pulumi.StringOutput    `pulumi:"userName"`
 }
 
 // NewInvitation registers a new resource with the given unique name, arguments, and options.
@@ -119,42 +105,24 @@ func (InvitationState) ElementType() reflect.Type {
 }
 
 type invitationArgs struct {
-	// The name of the share account.
-	AccountName string `pulumi:"accountName"`
-	// The name of the invitation.
-	InvitationName *string `pulumi:"invitationName"`
-	// The resource group name.
-	ResourceGroupName string `pulumi:"resourceGroupName"`
-	// The name of the share to send the invitation for.
-	ShareName string `pulumi:"shareName"`
-	// The target Azure AD Id. Can't be combined with email.
+	AccountName             string  `pulumi:"accountName"`
+	InvitationName          *string `pulumi:"invitationName"`
+	ResourceGroupName       string  `pulumi:"resourceGroupName"`
+	ShareName               string  `pulumi:"shareName"`
 	TargetActiveDirectoryId *string `pulumi:"targetActiveDirectoryId"`
-	// The email the invitation is directed to.
-	TargetEmail *string `pulumi:"targetEmail"`
-	// The target user or application Id that invitation is being sent to.
-	// Must be specified along TargetActiveDirectoryId. This enables sending
-	// invitations to specific users or applications in an AD tenant.
-	TargetObjectId *string `pulumi:"targetObjectId"`
+	TargetEmail             *string `pulumi:"targetEmail"`
+	TargetObjectId          *string `pulumi:"targetObjectId"`
 }
 
 // The set of arguments for constructing a Invitation resource.
 type InvitationArgs struct {
-	// The name of the share account.
-	AccountName pulumi.StringInput
-	// The name of the invitation.
-	InvitationName pulumi.StringPtrInput
-	// The resource group name.
-	ResourceGroupName pulumi.StringInput
-	// The name of the share to send the invitation for.
-	ShareName pulumi.StringInput
-	// The target Azure AD Id. Can't be combined with email.
+	AccountName             pulumi.StringInput
+	InvitationName          pulumi.StringPtrInput
+	ResourceGroupName       pulumi.StringInput
+	ShareName               pulumi.StringInput
 	TargetActiveDirectoryId pulumi.StringPtrInput
-	// The email the invitation is directed to.
-	TargetEmail pulumi.StringPtrInput
-	// The target user or application Id that invitation is being sent to.
-	// Must be specified along TargetActiveDirectoryId. This enables sending
-	// invitations to specific users or applications in an AD tenant.
-	TargetObjectId pulumi.StringPtrInput
+	TargetEmail             pulumi.StringPtrInput
+	TargetObjectId          pulumi.StringPtrInput
 }
 
 func (InvitationArgs) ElementType() reflect.Type {
@@ -180,9 +148,7 @@ func (i *Invitation) ToInvitationOutputWithContext(ctx context.Context) Invitati
 	return pulumi.ToOutputWithContext(ctx, i).(InvitationOutput)
 }
 
-type InvitationOutput struct {
-	*pulumi.OutputState
-}
+type InvitationOutput struct{ *pulumi.OutputState }
 
 func (InvitationOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*Invitation)(nil))

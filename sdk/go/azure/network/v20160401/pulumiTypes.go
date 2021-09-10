@@ -10,9 +10,7 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// An A record.
 type ARecord struct {
-	// The IPv4 address of this A record.
 	Ipv4Address *string `pulumi:"ipv4Address"`
 }
 
@@ -27,9 +25,7 @@ type ARecordInput interface {
 	ToARecordOutputWithContext(context.Context) ARecordOutput
 }
 
-// An A record.
 type ARecordArgs struct {
-	// The IPv4 address of this A record.
 	Ipv4Address pulumi.StringPtrInput `pulumi:"ipv4Address"`
 }
 
@@ -70,7 +66,6 @@ func (i ARecordArray) ToARecordArrayOutputWithContext(ctx context.Context) AReco
 	return pulumi.ToOutputWithContext(ctx, i).(ARecordArrayOutput)
 }
 
-// An A record.
 type ARecordOutput struct{ *pulumi.OutputState }
 
 func (ARecordOutput) ElementType() reflect.Type {
@@ -85,7 +80,6 @@ func (o ARecordOutput) ToARecordOutputWithContext(ctx context.Context) ARecordOu
 	return o
 }
 
-// The IPv4 address of this A record.
 func (o ARecordOutput) Ipv4Address() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ARecord) *string { return v.Ipv4Address }).(pulumi.StringPtrOutput)
 }
@@ -110,9 +104,7 @@ func (o ARecordArrayOutput) Index(i pulumi.IntInput) ARecordOutput {
 	}).(ARecordOutput)
 }
 
-// An A record.
 type ARecordResponse struct {
-	// The IPv4 address of this A record.
 	Ipv4Address *string `pulumi:"ipv4Address"`
 }
 
@@ -127,9 +119,7 @@ type ARecordResponseInput interface {
 	ToARecordResponseOutputWithContext(context.Context) ARecordResponseOutput
 }
 
-// An A record.
 type ARecordResponseArgs struct {
-	// The IPv4 address of this A record.
 	Ipv4Address pulumi.StringPtrInput `pulumi:"ipv4Address"`
 }
 
@@ -170,7 +160,6 @@ func (i ARecordResponseArray) ToARecordResponseArrayOutputWithContext(ctx contex
 	return pulumi.ToOutputWithContext(ctx, i).(ARecordResponseArrayOutput)
 }
 
-// An A record.
 type ARecordResponseOutput struct{ *pulumi.OutputState }
 
 func (ARecordResponseOutput) ElementType() reflect.Type {
@@ -185,7 +174,6 @@ func (o ARecordResponseOutput) ToARecordResponseOutputWithContext(ctx context.Co
 	return o
 }
 
-// The IPv4 address of this A record.
 func (o ARecordResponseOutput) Ipv4Address() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ARecordResponse) *string { return v.Ipv4Address }).(pulumi.StringPtrOutput)
 }
@@ -210,9 +198,7 @@ func (o ARecordResponseArrayOutput) Index(i pulumi.IntInput) ARecordResponseOutp
 	}).(ARecordResponseOutput)
 }
 
-// An AAAA record.
 type AaaaRecord struct {
-	// The IPv6 address of this AAAA record.
 	Ipv6Address *string `pulumi:"ipv6Address"`
 }
 
@@ -227,9 +213,7 @@ type AaaaRecordInput interface {
 	ToAaaaRecordOutputWithContext(context.Context) AaaaRecordOutput
 }
 
-// An AAAA record.
 type AaaaRecordArgs struct {
-	// The IPv6 address of this AAAA record.
 	Ipv6Address pulumi.StringPtrInput `pulumi:"ipv6Address"`
 }
 
@@ -270,7 +254,6 @@ func (i AaaaRecordArray) ToAaaaRecordArrayOutputWithContext(ctx context.Context)
 	return pulumi.ToOutputWithContext(ctx, i).(AaaaRecordArrayOutput)
 }
 
-// An AAAA record.
 type AaaaRecordOutput struct{ *pulumi.OutputState }
 
 func (AaaaRecordOutput) ElementType() reflect.Type {
@@ -285,7 +268,6 @@ func (o AaaaRecordOutput) ToAaaaRecordOutputWithContext(ctx context.Context) Aaa
 	return o
 }
 
-// The IPv6 address of this AAAA record.
 func (o AaaaRecordOutput) Ipv6Address() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AaaaRecord) *string { return v.Ipv6Address }).(pulumi.StringPtrOutput)
 }
@@ -310,9 +292,7 @@ func (o AaaaRecordArrayOutput) Index(i pulumi.IntInput) AaaaRecordOutput {
 	}).(AaaaRecordOutput)
 }
 
-// An AAAA record.
 type AaaaRecordResponse struct {
-	// The IPv6 address of this AAAA record.
 	Ipv6Address *string `pulumi:"ipv6Address"`
 }
 
@@ -327,9 +307,7 @@ type AaaaRecordResponseInput interface {
 	ToAaaaRecordResponseOutputWithContext(context.Context) AaaaRecordResponseOutput
 }
 
-// An AAAA record.
 type AaaaRecordResponseArgs struct {
-	// The IPv6 address of this AAAA record.
 	Ipv6Address pulumi.StringPtrInput `pulumi:"ipv6Address"`
 }
 
@@ -370,7 +348,6 @@ func (i AaaaRecordResponseArray) ToAaaaRecordResponseArrayOutputWithContext(ctx 
 	return pulumi.ToOutputWithContext(ctx, i).(AaaaRecordResponseArrayOutput)
 }
 
-// An AAAA record.
 type AaaaRecordResponseOutput struct{ *pulumi.OutputState }
 
 func (AaaaRecordResponseOutput) ElementType() reflect.Type {
@@ -385,7 +362,6 @@ func (o AaaaRecordResponseOutput) ToAaaaRecordResponseOutputWithContext(ctx cont
 	return o
 }
 
-// The IPv6 address of this AAAA record.
 func (o AaaaRecordResponseOutput) Ipv6Address() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AaaaRecordResponse) *string { return v.Ipv6Address }).(pulumi.StringPtrOutput)
 }
@@ -410,9 +386,7 @@ func (o AaaaRecordResponseArrayOutput) Index(i pulumi.IntInput) AaaaRecordRespon
 	}).(AaaaRecordResponseOutput)
 }
 
-// A CNAME record.
 type CnameRecord struct {
-	// The canonical name for this CNAME record.
 	Cname *string `pulumi:"cname"`
 }
 
@@ -427,9 +401,7 @@ type CnameRecordInput interface {
 	ToCnameRecordOutputWithContext(context.Context) CnameRecordOutput
 }
 
-// A CNAME record.
 type CnameRecordArgs struct {
-	// The canonical name for this CNAME record.
 	Cname pulumi.StringPtrInput `pulumi:"cname"`
 }
 
@@ -486,7 +458,6 @@ func (i *cnameRecordPtrType) ToCnameRecordPtrOutputWithContext(ctx context.Conte
 	return pulumi.ToOutputWithContext(ctx, i).(CnameRecordPtrOutput)
 }
 
-// A CNAME record.
 type CnameRecordOutput struct{ *pulumi.OutputState }
 
 func (CnameRecordOutput) ElementType() reflect.Type {
@@ -506,12 +477,11 @@ func (o CnameRecordOutput) ToCnameRecordPtrOutput() CnameRecordPtrOutput {
 }
 
 func (o CnameRecordOutput) ToCnameRecordPtrOutputWithContext(ctx context.Context) CnameRecordPtrOutput {
-	return o.ApplyT(func(v CnameRecord) *CnameRecord {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v CnameRecord) *CnameRecord {
 		return &v
 	}).(CnameRecordPtrOutput)
 }
 
-// The canonical name for this CNAME record.
 func (o CnameRecordOutput) Cname() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v CnameRecord) *string { return v.Cname }).(pulumi.StringPtrOutput)
 }
@@ -531,10 +501,15 @@ func (o CnameRecordPtrOutput) ToCnameRecordPtrOutputWithContext(ctx context.Cont
 }
 
 func (o CnameRecordPtrOutput) Elem() CnameRecordOutput {
-	return o.ApplyT(func(v *CnameRecord) CnameRecord { return *v }).(CnameRecordOutput)
+	return o.ApplyT(func(v *CnameRecord) CnameRecord {
+		if v != nil {
+			return *v
+		}
+		var ret CnameRecord
+		return ret
+	}).(CnameRecordOutput)
 }
 
-// The canonical name for this CNAME record.
 func (o CnameRecordPtrOutput) Cname() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *CnameRecord) *string {
 		if v == nil {
@@ -544,9 +519,7 @@ func (o CnameRecordPtrOutput) Cname() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// A CNAME record.
 type CnameRecordResponse struct {
-	// The canonical name for this CNAME record.
 	Cname *string `pulumi:"cname"`
 }
 
@@ -561,9 +534,7 @@ type CnameRecordResponseInput interface {
 	ToCnameRecordResponseOutputWithContext(context.Context) CnameRecordResponseOutput
 }
 
-// A CNAME record.
 type CnameRecordResponseArgs struct {
-	// The canonical name for this CNAME record.
 	Cname pulumi.StringPtrInput `pulumi:"cname"`
 }
 
@@ -620,7 +591,6 @@ func (i *cnameRecordResponsePtrType) ToCnameRecordResponsePtrOutputWithContext(c
 	return pulumi.ToOutputWithContext(ctx, i).(CnameRecordResponsePtrOutput)
 }
 
-// A CNAME record.
 type CnameRecordResponseOutput struct{ *pulumi.OutputState }
 
 func (CnameRecordResponseOutput) ElementType() reflect.Type {
@@ -640,12 +610,11 @@ func (o CnameRecordResponseOutput) ToCnameRecordResponsePtrOutput() CnameRecordR
 }
 
 func (o CnameRecordResponseOutput) ToCnameRecordResponsePtrOutputWithContext(ctx context.Context) CnameRecordResponsePtrOutput {
-	return o.ApplyT(func(v CnameRecordResponse) *CnameRecordResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v CnameRecordResponse) *CnameRecordResponse {
 		return &v
 	}).(CnameRecordResponsePtrOutput)
 }
 
-// The canonical name for this CNAME record.
 func (o CnameRecordResponseOutput) Cname() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v CnameRecordResponse) *string { return v.Cname }).(pulumi.StringPtrOutput)
 }
@@ -665,10 +634,15 @@ func (o CnameRecordResponsePtrOutput) ToCnameRecordResponsePtrOutputWithContext(
 }
 
 func (o CnameRecordResponsePtrOutput) Elem() CnameRecordResponseOutput {
-	return o.ApplyT(func(v *CnameRecordResponse) CnameRecordResponse { return *v }).(CnameRecordResponseOutput)
+	return o.ApplyT(func(v *CnameRecordResponse) CnameRecordResponse {
+		if v != nil {
+			return *v
+		}
+		var ret CnameRecordResponse
+		return ret
+	}).(CnameRecordResponseOutput)
 }
 
-// The canonical name for this CNAME record.
 func (o CnameRecordResponsePtrOutput) Cname() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *CnameRecordResponse) *string {
 		if v == nil {
@@ -678,12 +652,9 @@ func (o CnameRecordResponsePtrOutput) Cname() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// An MX record.
 type MxRecord struct {
-	// The domain name of the mail host for this MX record.
-	Exchange *string `pulumi:"exchange"`
-	// The preference value for this MX record.
-	Preference *int `pulumi:"preference"`
+	Exchange   *string `pulumi:"exchange"`
+	Preference *int    `pulumi:"preference"`
 }
 
 // MxRecordInput is an input type that accepts MxRecordArgs and MxRecordOutput values.
@@ -697,12 +668,9 @@ type MxRecordInput interface {
 	ToMxRecordOutputWithContext(context.Context) MxRecordOutput
 }
 
-// An MX record.
 type MxRecordArgs struct {
-	// The domain name of the mail host for this MX record.
-	Exchange pulumi.StringPtrInput `pulumi:"exchange"`
-	// The preference value for this MX record.
-	Preference pulumi.IntPtrInput `pulumi:"preference"`
+	Exchange   pulumi.StringPtrInput `pulumi:"exchange"`
+	Preference pulumi.IntPtrInput    `pulumi:"preference"`
 }
 
 func (MxRecordArgs) ElementType() reflect.Type {
@@ -742,7 +710,6 @@ func (i MxRecordArray) ToMxRecordArrayOutputWithContext(ctx context.Context) MxR
 	return pulumi.ToOutputWithContext(ctx, i).(MxRecordArrayOutput)
 }
 
-// An MX record.
 type MxRecordOutput struct{ *pulumi.OutputState }
 
 func (MxRecordOutput) ElementType() reflect.Type {
@@ -757,12 +724,10 @@ func (o MxRecordOutput) ToMxRecordOutputWithContext(ctx context.Context) MxRecor
 	return o
 }
 
-// The domain name of the mail host for this MX record.
 func (o MxRecordOutput) Exchange() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v MxRecord) *string { return v.Exchange }).(pulumi.StringPtrOutput)
 }
 
-// The preference value for this MX record.
 func (o MxRecordOutput) Preference() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v MxRecord) *int { return v.Preference }).(pulumi.IntPtrOutput)
 }
@@ -787,12 +752,9 @@ func (o MxRecordArrayOutput) Index(i pulumi.IntInput) MxRecordOutput {
 	}).(MxRecordOutput)
 }
 
-// An MX record.
 type MxRecordResponse struct {
-	// The domain name of the mail host for this MX record.
-	Exchange *string `pulumi:"exchange"`
-	// The preference value for this MX record.
-	Preference *int `pulumi:"preference"`
+	Exchange   *string `pulumi:"exchange"`
+	Preference *int    `pulumi:"preference"`
 }
 
 // MxRecordResponseInput is an input type that accepts MxRecordResponseArgs and MxRecordResponseOutput values.
@@ -806,12 +768,9 @@ type MxRecordResponseInput interface {
 	ToMxRecordResponseOutputWithContext(context.Context) MxRecordResponseOutput
 }
 
-// An MX record.
 type MxRecordResponseArgs struct {
-	// The domain name of the mail host for this MX record.
-	Exchange pulumi.StringPtrInput `pulumi:"exchange"`
-	// The preference value for this MX record.
-	Preference pulumi.IntPtrInput `pulumi:"preference"`
+	Exchange   pulumi.StringPtrInput `pulumi:"exchange"`
+	Preference pulumi.IntPtrInput    `pulumi:"preference"`
 }
 
 func (MxRecordResponseArgs) ElementType() reflect.Type {
@@ -851,7 +810,6 @@ func (i MxRecordResponseArray) ToMxRecordResponseArrayOutputWithContext(ctx cont
 	return pulumi.ToOutputWithContext(ctx, i).(MxRecordResponseArrayOutput)
 }
 
-// An MX record.
 type MxRecordResponseOutput struct{ *pulumi.OutputState }
 
 func (MxRecordResponseOutput) ElementType() reflect.Type {
@@ -866,12 +824,10 @@ func (o MxRecordResponseOutput) ToMxRecordResponseOutputWithContext(ctx context.
 	return o
 }
 
-// The domain name of the mail host for this MX record.
 func (o MxRecordResponseOutput) Exchange() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v MxRecordResponse) *string { return v.Exchange }).(pulumi.StringPtrOutput)
 }
 
-// The preference value for this MX record.
 func (o MxRecordResponseOutput) Preference() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v MxRecordResponse) *int { return v.Preference }).(pulumi.IntPtrOutput)
 }
@@ -896,9 +852,7 @@ func (o MxRecordResponseArrayOutput) Index(i pulumi.IntInput) MxRecordResponseOu
 	}).(MxRecordResponseOutput)
 }
 
-// An NS record.
 type NsRecord struct {
-	// The name server name for this NS record.
 	Nsdname *string `pulumi:"nsdname"`
 }
 
@@ -913,9 +867,7 @@ type NsRecordInput interface {
 	ToNsRecordOutputWithContext(context.Context) NsRecordOutput
 }
 
-// An NS record.
 type NsRecordArgs struct {
-	// The name server name for this NS record.
 	Nsdname pulumi.StringPtrInput `pulumi:"nsdname"`
 }
 
@@ -956,7 +908,6 @@ func (i NsRecordArray) ToNsRecordArrayOutputWithContext(ctx context.Context) NsR
 	return pulumi.ToOutputWithContext(ctx, i).(NsRecordArrayOutput)
 }
 
-// An NS record.
 type NsRecordOutput struct{ *pulumi.OutputState }
 
 func (NsRecordOutput) ElementType() reflect.Type {
@@ -971,7 +922,6 @@ func (o NsRecordOutput) ToNsRecordOutputWithContext(ctx context.Context) NsRecor
 	return o
 }
 
-// The name server name for this NS record.
 func (o NsRecordOutput) Nsdname() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v NsRecord) *string { return v.Nsdname }).(pulumi.StringPtrOutput)
 }
@@ -996,9 +946,7 @@ func (o NsRecordArrayOutput) Index(i pulumi.IntInput) NsRecordOutput {
 	}).(NsRecordOutput)
 }
 
-// An NS record.
 type NsRecordResponse struct {
-	// The name server name for this NS record.
 	Nsdname *string `pulumi:"nsdname"`
 }
 
@@ -1013,9 +961,7 @@ type NsRecordResponseInput interface {
 	ToNsRecordResponseOutputWithContext(context.Context) NsRecordResponseOutput
 }
 
-// An NS record.
 type NsRecordResponseArgs struct {
-	// The name server name for this NS record.
 	Nsdname pulumi.StringPtrInput `pulumi:"nsdname"`
 }
 
@@ -1056,7 +1002,6 @@ func (i NsRecordResponseArray) ToNsRecordResponseArrayOutputWithContext(ctx cont
 	return pulumi.ToOutputWithContext(ctx, i).(NsRecordResponseArrayOutput)
 }
 
-// An NS record.
 type NsRecordResponseOutput struct{ *pulumi.OutputState }
 
 func (NsRecordResponseOutput) ElementType() reflect.Type {
@@ -1071,7 +1016,6 @@ func (o NsRecordResponseOutput) ToNsRecordResponseOutputWithContext(ctx context.
 	return o
 }
 
-// The name server name for this NS record.
 func (o NsRecordResponseOutput) Nsdname() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v NsRecordResponse) *string { return v.Nsdname }).(pulumi.StringPtrOutput)
 }
@@ -1096,9 +1040,7 @@ func (o NsRecordResponseArrayOutput) Index(i pulumi.IntInput) NsRecordResponseOu
 	}).(NsRecordResponseOutput)
 }
 
-// A PTR record.
 type PtrRecord struct {
-	// The PTR target domain name for this PTR record.
 	Ptrdname *string `pulumi:"ptrdname"`
 }
 
@@ -1113,9 +1055,7 @@ type PtrRecordInput interface {
 	ToPtrRecordOutputWithContext(context.Context) PtrRecordOutput
 }
 
-// A PTR record.
 type PtrRecordArgs struct {
-	// The PTR target domain name for this PTR record.
 	Ptrdname pulumi.StringPtrInput `pulumi:"ptrdname"`
 }
 
@@ -1156,7 +1096,6 @@ func (i PtrRecordArray) ToPtrRecordArrayOutputWithContext(ctx context.Context) P
 	return pulumi.ToOutputWithContext(ctx, i).(PtrRecordArrayOutput)
 }
 
-// A PTR record.
 type PtrRecordOutput struct{ *pulumi.OutputState }
 
 func (PtrRecordOutput) ElementType() reflect.Type {
@@ -1171,7 +1110,6 @@ func (o PtrRecordOutput) ToPtrRecordOutputWithContext(ctx context.Context) PtrRe
 	return o
 }
 
-// The PTR target domain name for this PTR record.
 func (o PtrRecordOutput) Ptrdname() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v PtrRecord) *string { return v.Ptrdname }).(pulumi.StringPtrOutput)
 }
@@ -1196,9 +1134,7 @@ func (o PtrRecordArrayOutput) Index(i pulumi.IntInput) PtrRecordOutput {
 	}).(PtrRecordOutput)
 }
 
-// A PTR record.
 type PtrRecordResponse struct {
-	// The PTR target domain name for this PTR record.
 	Ptrdname *string `pulumi:"ptrdname"`
 }
 
@@ -1213,9 +1149,7 @@ type PtrRecordResponseInput interface {
 	ToPtrRecordResponseOutputWithContext(context.Context) PtrRecordResponseOutput
 }
 
-// A PTR record.
 type PtrRecordResponseArgs struct {
-	// The PTR target domain name for this PTR record.
 	Ptrdname pulumi.StringPtrInput `pulumi:"ptrdname"`
 }
 
@@ -1256,7 +1190,6 @@ func (i PtrRecordResponseArray) ToPtrRecordResponseArrayOutputWithContext(ctx co
 	return pulumi.ToOutputWithContext(ctx, i).(PtrRecordResponseArrayOutput)
 }
 
-// A PTR record.
 type PtrRecordResponseOutput struct{ *pulumi.OutputState }
 
 func (PtrRecordResponseOutput) ElementType() reflect.Type {
@@ -1271,7 +1204,6 @@ func (o PtrRecordResponseOutput) ToPtrRecordResponseOutputWithContext(ctx contex
 	return o
 }
 
-// The PTR target domain name for this PTR record.
 func (o PtrRecordResponseOutput) Ptrdname() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v PtrRecordResponse) *string { return v.Ptrdname }).(pulumi.StringPtrOutput)
 }
@@ -1296,21 +1228,13 @@ func (o PtrRecordResponseArrayOutput) Index(i pulumi.IntInput) PtrRecordResponse
 	}).(PtrRecordResponseOutput)
 }
 
-// An SOA record.
 type SoaRecord struct {
-	// The email contact for this SOA record.
-	Email *string `pulumi:"email"`
-	// The expire time for this SOA record.
-	ExpireTime *float64 `pulumi:"expireTime"`
-	// The domain name of the authoritative name server for this SOA record.
-	Host *string `pulumi:"host"`
-	// The minimum value for this SOA record. By convention this is used to determine the negative caching duration.
-	MinimumTtl *float64 `pulumi:"minimumTtl"`
-	// The refresh value for this SOA record.
-	RefreshTime *float64 `pulumi:"refreshTime"`
-	// The retry time for this SOA record.
-	RetryTime *float64 `pulumi:"retryTime"`
-	// The serial number for this SOA record.
+	Email        *string  `pulumi:"email"`
+	ExpireTime   *float64 `pulumi:"expireTime"`
+	Host         *string  `pulumi:"host"`
+	MinimumTtl   *float64 `pulumi:"minimumTtl"`
+	RefreshTime  *float64 `pulumi:"refreshTime"`
+	RetryTime    *float64 `pulumi:"retryTime"`
 	SerialNumber *float64 `pulumi:"serialNumber"`
 }
 
@@ -1325,21 +1249,13 @@ type SoaRecordInput interface {
 	ToSoaRecordOutputWithContext(context.Context) SoaRecordOutput
 }
 
-// An SOA record.
 type SoaRecordArgs struct {
-	// The email contact for this SOA record.
-	Email pulumi.StringPtrInput `pulumi:"email"`
-	// The expire time for this SOA record.
-	ExpireTime pulumi.Float64PtrInput `pulumi:"expireTime"`
-	// The domain name of the authoritative name server for this SOA record.
-	Host pulumi.StringPtrInput `pulumi:"host"`
-	// The minimum value for this SOA record. By convention this is used to determine the negative caching duration.
-	MinimumTtl pulumi.Float64PtrInput `pulumi:"minimumTtl"`
-	// The refresh value for this SOA record.
-	RefreshTime pulumi.Float64PtrInput `pulumi:"refreshTime"`
-	// The retry time for this SOA record.
-	RetryTime pulumi.Float64PtrInput `pulumi:"retryTime"`
-	// The serial number for this SOA record.
+	Email        pulumi.StringPtrInput  `pulumi:"email"`
+	ExpireTime   pulumi.Float64PtrInput `pulumi:"expireTime"`
+	Host         pulumi.StringPtrInput  `pulumi:"host"`
+	MinimumTtl   pulumi.Float64PtrInput `pulumi:"minimumTtl"`
+	RefreshTime  pulumi.Float64PtrInput `pulumi:"refreshTime"`
+	RetryTime    pulumi.Float64PtrInput `pulumi:"retryTime"`
 	SerialNumber pulumi.Float64PtrInput `pulumi:"serialNumber"`
 }
 
@@ -1396,7 +1312,6 @@ func (i *soaRecordPtrType) ToSoaRecordPtrOutputWithContext(ctx context.Context) 
 	return pulumi.ToOutputWithContext(ctx, i).(SoaRecordPtrOutput)
 }
 
-// An SOA record.
 type SoaRecordOutput struct{ *pulumi.OutputState }
 
 func (SoaRecordOutput) ElementType() reflect.Type {
@@ -1416,42 +1331,35 @@ func (o SoaRecordOutput) ToSoaRecordPtrOutput() SoaRecordPtrOutput {
 }
 
 func (o SoaRecordOutput) ToSoaRecordPtrOutputWithContext(ctx context.Context) SoaRecordPtrOutput {
-	return o.ApplyT(func(v SoaRecord) *SoaRecord {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v SoaRecord) *SoaRecord {
 		return &v
 	}).(SoaRecordPtrOutput)
 }
 
-// The email contact for this SOA record.
 func (o SoaRecordOutput) Email() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SoaRecord) *string { return v.Email }).(pulumi.StringPtrOutput)
 }
 
-// The expire time for this SOA record.
 func (o SoaRecordOutput) ExpireTime() pulumi.Float64PtrOutput {
 	return o.ApplyT(func(v SoaRecord) *float64 { return v.ExpireTime }).(pulumi.Float64PtrOutput)
 }
 
-// The domain name of the authoritative name server for this SOA record.
 func (o SoaRecordOutput) Host() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SoaRecord) *string { return v.Host }).(pulumi.StringPtrOutput)
 }
 
-// The minimum value for this SOA record. By convention this is used to determine the negative caching duration.
 func (o SoaRecordOutput) MinimumTtl() pulumi.Float64PtrOutput {
 	return o.ApplyT(func(v SoaRecord) *float64 { return v.MinimumTtl }).(pulumi.Float64PtrOutput)
 }
 
-// The refresh value for this SOA record.
 func (o SoaRecordOutput) RefreshTime() pulumi.Float64PtrOutput {
 	return o.ApplyT(func(v SoaRecord) *float64 { return v.RefreshTime }).(pulumi.Float64PtrOutput)
 }
 
-// The retry time for this SOA record.
 func (o SoaRecordOutput) RetryTime() pulumi.Float64PtrOutput {
 	return o.ApplyT(func(v SoaRecord) *float64 { return v.RetryTime }).(pulumi.Float64PtrOutput)
 }
 
-// The serial number for this SOA record.
 func (o SoaRecordOutput) SerialNumber() pulumi.Float64PtrOutput {
 	return o.ApplyT(func(v SoaRecord) *float64 { return v.SerialNumber }).(pulumi.Float64PtrOutput)
 }
@@ -1471,10 +1379,15 @@ func (o SoaRecordPtrOutput) ToSoaRecordPtrOutputWithContext(ctx context.Context)
 }
 
 func (o SoaRecordPtrOutput) Elem() SoaRecordOutput {
-	return o.ApplyT(func(v *SoaRecord) SoaRecord { return *v }).(SoaRecordOutput)
+	return o.ApplyT(func(v *SoaRecord) SoaRecord {
+		if v != nil {
+			return *v
+		}
+		var ret SoaRecord
+		return ret
+	}).(SoaRecordOutput)
 }
 
-// The email contact for this SOA record.
 func (o SoaRecordPtrOutput) Email() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SoaRecord) *string {
 		if v == nil {
@@ -1484,7 +1397,6 @@ func (o SoaRecordPtrOutput) Email() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The expire time for this SOA record.
 func (o SoaRecordPtrOutput) ExpireTime() pulumi.Float64PtrOutput {
 	return o.ApplyT(func(v *SoaRecord) *float64 {
 		if v == nil {
@@ -1494,7 +1406,6 @@ func (o SoaRecordPtrOutput) ExpireTime() pulumi.Float64PtrOutput {
 	}).(pulumi.Float64PtrOutput)
 }
 
-// The domain name of the authoritative name server for this SOA record.
 func (o SoaRecordPtrOutput) Host() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SoaRecord) *string {
 		if v == nil {
@@ -1504,7 +1415,6 @@ func (o SoaRecordPtrOutput) Host() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The minimum value for this SOA record. By convention this is used to determine the negative caching duration.
 func (o SoaRecordPtrOutput) MinimumTtl() pulumi.Float64PtrOutput {
 	return o.ApplyT(func(v *SoaRecord) *float64 {
 		if v == nil {
@@ -1514,7 +1424,6 @@ func (o SoaRecordPtrOutput) MinimumTtl() pulumi.Float64PtrOutput {
 	}).(pulumi.Float64PtrOutput)
 }
 
-// The refresh value for this SOA record.
 func (o SoaRecordPtrOutput) RefreshTime() pulumi.Float64PtrOutput {
 	return o.ApplyT(func(v *SoaRecord) *float64 {
 		if v == nil {
@@ -1524,7 +1433,6 @@ func (o SoaRecordPtrOutput) RefreshTime() pulumi.Float64PtrOutput {
 	}).(pulumi.Float64PtrOutput)
 }
 
-// The retry time for this SOA record.
 func (o SoaRecordPtrOutput) RetryTime() pulumi.Float64PtrOutput {
 	return o.ApplyT(func(v *SoaRecord) *float64 {
 		if v == nil {
@@ -1534,7 +1442,6 @@ func (o SoaRecordPtrOutput) RetryTime() pulumi.Float64PtrOutput {
 	}).(pulumi.Float64PtrOutput)
 }
 
-// The serial number for this SOA record.
 func (o SoaRecordPtrOutput) SerialNumber() pulumi.Float64PtrOutput {
 	return o.ApplyT(func(v *SoaRecord) *float64 {
 		if v == nil {
@@ -1544,21 +1451,13 @@ func (o SoaRecordPtrOutput) SerialNumber() pulumi.Float64PtrOutput {
 	}).(pulumi.Float64PtrOutput)
 }
 
-// An SOA record.
 type SoaRecordResponse struct {
-	// The email contact for this SOA record.
-	Email *string `pulumi:"email"`
-	// The expire time for this SOA record.
-	ExpireTime *float64 `pulumi:"expireTime"`
-	// The domain name of the authoritative name server for this SOA record.
-	Host *string `pulumi:"host"`
-	// The minimum value for this SOA record. By convention this is used to determine the negative caching duration.
-	MinimumTtl *float64 `pulumi:"minimumTtl"`
-	// The refresh value for this SOA record.
-	RefreshTime *float64 `pulumi:"refreshTime"`
-	// The retry time for this SOA record.
-	RetryTime *float64 `pulumi:"retryTime"`
-	// The serial number for this SOA record.
+	Email        *string  `pulumi:"email"`
+	ExpireTime   *float64 `pulumi:"expireTime"`
+	Host         *string  `pulumi:"host"`
+	MinimumTtl   *float64 `pulumi:"minimumTtl"`
+	RefreshTime  *float64 `pulumi:"refreshTime"`
+	RetryTime    *float64 `pulumi:"retryTime"`
 	SerialNumber *float64 `pulumi:"serialNumber"`
 }
 
@@ -1573,21 +1472,13 @@ type SoaRecordResponseInput interface {
 	ToSoaRecordResponseOutputWithContext(context.Context) SoaRecordResponseOutput
 }
 
-// An SOA record.
 type SoaRecordResponseArgs struct {
-	// The email contact for this SOA record.
-	Email pulumi.StringPtrInput `pulumi:"email"`
-	// The expire time for this SOA record.
-	ExpireTime pulumi.Float64PtrInput `pulumi:"expireTime"`
-	// The domain name of the authoritative name server for this SOA record.
-	Host pulumi.StringPtrInput `pulumi:"host"`
-	// The minimum value for this SOA record. By convention this is used to determine the negative caching duration.
-	MinimumTtl pulumi.Float64PtrInput `pulumi:"minimumTtl"`
-	// The refresh value for this SOA record.
-	RefreshTime pulumi.Float64PtrInput `pulumi:"refreshTime"`
-	// The retry time for this SOA record.
-	RetryTime pulumi.Float64PtrInput `pulumi:"retryTime"`
-	// The serial number for this SOA record.
+	Email        pulumi.StringPtrInput  `pulumi:"email"`
+	ExpireTime   pulumi.Float64PtrInput `pulumi:"expireTime"`
+	Host         pulumi.StringPtrInput  `pulumi:"host"`
+	MinimumTtl   pulumi.Float64PtrInput `pulumi:"minimumTtl"`
+	RefreshTime  pulumi.Float64PtrInput `pulumi:"refreshTime"`
+	RetryTime    pulumi.Float64PtrInput `pulumi:"retryTime"`
 	SerialNumber pulumi.Float64PtrInput `pulumi:"serialNumber"`
 }
 
@@ -1644,7 +1535,6 @@ func (i *soaRecordResponsePtrType) ToSoaRecordResponsePtrOutputWithContext(ctx c
 	return pulumi.ToOutputWithContext(ctx, i).(SoaRecordResponsePtrOutput)
 }
 
-// An SOA record.
 type SoaRecordResponseOutput struct{ *pulumi.OutputState }
 
 func (SoaRecordResponseOutput) ElementType() reflect.Type {
@@ -1664,42 +1554,35 @@ func (o SoaRecordResponseOutput) ToSoaRecordResponsePtrOutput() SoaRecordRespons
 }
 
 func (o SoaRecordResponseOutput) ToSoaRecordResponsePtrOutputWithContext(ctx context.Context) SoaRecordResponsePtrOutput {
-	return o.ApplyT(func(v SoaRecordResponse) *SoaRecordResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v SoaRecordResponse) *SoaRecordResponse {
 		return &v
 	}).(SoaRecordResponsePtrOutput)
 }
 
-// The email contact for this SOA record.
 func (o SoaRecordResponseOutput) Email() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SoaRecordResponse) *string { return v.Email }).(pulumi.StringPtrOutput)
 }
 
-// The expire time for this SOA record.
 func (o SoaRecordResponseOutput) ExpireTime() pulumi.Float64PtrOutput {
 	return o.ApplyT(func(v SoaRecordResponse) *float64 { return v.ExpireTime }).(pulumi.Float64PtrOutput)
 }
 
-// The domain name of the authoritative name server for this SOA record.
 func (o SoaRecordResponseOutput) Host() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SoaRecordResponse) *string { return v.Host }).(pulumi.StringPtrOutput)
 }
 
-// The minimum value for this SOA record. By convention this is used to determine the negative caching duration.
 func (o SoaRecordResponseOutput) MinimumTtl() pulumi.Float64PtrOutput {
 	return o.ApplyT(func(v SoaRecordResponse) *float64 { return v.MinimumTtl }).(pulumi.Float64PtrOutput)
 }
 
-// The refresh value for this SOA record.
 func (o SoaRecordResponseOutput) RefreshTime() pulumi.Float64PtrOutput {
 	return o.ApplyT(func(v SoaRecordResponse) *float64 { return v.RefreshTime }).(pulumi.Float64PtrOutput)
 }
 
-// The retry time for this SOA record.
 func (o SoaRecordResponseOutput) RetryTime() pulumi.Float64PtrOutput {
 	return o.ApplyT(func(v SoaRecordResponse) *float64 { return v.RetryTime }).(pulumi.Float64PtrOutput)
 }
 
-// The serial number for this SOA record.
 func (o SoaRecordResponseOutput) SerialNumber() pulumi.Float64PtrOutput {
 	return o.ApplyT(func(v SoaRecordResponse) *float64 { return v.SerialNumber }).(pulumi.Float64PtrOutput)
 }
@@ -1719,10 +1602,15 @@ func (o SoaRecordResponsePtrOutput) ToSoaRecordResponsePtrOutputWithContext(ctx 
 }
 
 func (o SoaRecordResponsePtrOutput) Elem() SoaRecordResponseOutput {
-	return o.ApplyT(func(v *SoaRecordResponse) SoaRecordResponse { return *v }).(SoaRecordResponseOutput)
+	return o.ApplyT(func(v *SoaRecordResponse) SoaRecordResponse {
+		if v != nil {
+			return *v
+		}
+		var ret SoaRecordResponse
+		return ret
+	}).(SoaRecordResponseOutput)
 }
 
-// The email contact for this SOA record.
 func (o SoaRecordResponsePtrOutput) Email() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SoaRecordResponse) *string {
 		if v == nil {
@@ -1732,7 +1620,6 @@ func (o SoaRecordResponsePtrOutput) Email() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The expire time for this SOA record.
 func (o SoaRecordResponsePtrOutput) ExpireTime() pulumi.Float64PtrOutput {
 	return o.ApplyT(func(v *SoaRecordResponse) *float64 {
 		if v == nil {
@@ -1742,7 +1629,6 @@ func (o SoaRecordResponsePtrOutput) ExpireTime() pulumi.Float64PtrOutput {
 	}).(pulumi.Float64PtrOutput)
 }
 
-// The domain name of the authoritative name server for this SOA record.
 func (o SoaRecordResponsePtrOutput) Host() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SoaRecordResponse) *string {
 		if v == nil {
@@ -1752,7 +1638,6 @@ func (o SoaRecordResponsePtrOutput) Host() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The minimum value for this SOA record. By convention this is used to determine the negative caching duration.
 func (o SoaRecordResponsePtrOutput) MinimumTtl() pulumi.Float64PtrOutput {
 	return o.ApplyT(func(v *SoaRecordResponse) *float64 {
 		if v == nil {
@@ -1762,7 +1647,6 @@ func (o SoaRecordResponsePtrOutput) MinimumTtl() pulumi.Float64PtrOutput {
 	}).(pulumi.Float64PtrOutput)
 }
 
-// The refresh value for this SOA record.
 func (o SoaRecordResponsePtrOutput) RefreshTime() pulumi.Float64PtrOutput {
 	return o.ApplyT(func(v *SoaRecordResponse) *float64 {
 		if v == nil {
@@ -1772,7 +1656,6 @@ func (o SoaRecordResponsePtrOutput) RefreshTime() pulumi.Float64PtrOutput {
 	}).(pulumi.Float64PtrOutput)
 }
 
-// The retry time for this SOA record.
 func (o SoaRecordResponsePtrOutput) RetryTime() pulumi.Float64PtrOutput {
 	return o.ApplyT(func(v *SoaRecordResponse) *float64 {
 		if v == nil {
@@ -1782,7 +1665,6 @@ func (o SoaRecordResponsePtrOutput) RetryTime() pulumi.Float64PtrOutput {
 	}).(pulumi.Float64PtrOutput)
 }
 
-// The serial number for this SOA record.
 func (o SoaRecordResponsePtrOutput) SerialNumber() pulumi.Float64PtrOutput {
 	return o.ApplyT(func(v *SoaRecordResponse) *float64 {
 		if v == nil {
@@ -1792,16 +1674,11 @@ func (o SoaRecordResponsePtrOutput) SerialNumber() pulumi.Float64PtrOutput {
 	}).(pulumi.Float64PtrOutput)
 }
 
-// An SRV record.
 type SrvRecord struct {
-	// The port value for this SRV record.
-	Port *int `pulumi:"port"`
-	// The priority value for this SRV record.
-	Priority *int `pulumi:"priority"`
-	// The target domain name for this SRV record.
-	Target *string `pulumi:"target"`
-	// The weight value for this SRV record.
-	Weight *int `pulumi:"weight"`
+	Port     *int    `pulumi:"port"`
+	Priority *int    `pulumi:"priority"`
+	Target   *string `pulumi:"target"`
+	Weight   *int    `pulumi:"weight"`
 }
 
 // SrvRecordInput is an input type that accepts SrvRecordArgs and SrvRecordOutput values.
@@ -1815,16 +1692,11 @@ type SrvRecordInput interface {
 	ToSrvRecordOutputWithContext(context.Context) SrvRecordOutput
 }
 
-// An SRV record.
 type SrvRecordArgs struct {
-	// The port value for this SRV record.
-	Port pulumi.IntPtrInput `pulumi:"port"`
-	// The priority value for this SRV record.
-	Priority pulumi.IntPtrInput `pulumi:"priority"`
-	// The target domain name for this SRV record.
-	Target pulumi.StringPtrInput `pulumi:"target"`
-	// The weight value for this SRV record.
-	Weight pulumi.IntPtrInput `pulumi:"weight"`
+	Port     pulumi.IntPtrInput    `pulumi:"port"`
+	Priority pulumi.IntPtrInput    `pulumi:"priority"`
+	Target   pulumi.StringPtrInput `pulumi:"target"`
+	Weight   pulumi.IntPtrInput    `pulumi:"weight"`
 }
 
 func (SrvRecordArgs) ElementType() reflect.Type {
@@ -1864,7 +1736,6 @@ func (i SrvRecordArray) ToSrvRecordArrayOutputWithContext(ctx context.Context) S
 	return pulumi.ToOutputWithContext(ctx, i).(SrvRecordArrayOutput)
 }
 
-// An SRV record.
 type SrvRecordOutput struct{ *pulumi.OutputState }
 
 func (SrvRecordOutput) ElementType() reflect.Type {
@@ -1879,22 +1750,18 @@ func (o SrvRecordOutput) ToSrvRecordOutputWithContext(ctx context.Context) SrvRe
 	return o
 }
 
-// The port value for this SRV record.
 func (o SrvRecordOutput) Port() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v SrvRecord) *int { return v.Port }).(pulumi.IntPtrOutput)
 }
 
-// The priority value for this SRV record.
 func (o SrvRecordOutput) Priority() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v SrvRecord) *int { return v.Priority }).(pulumi.IntPtrOutput)
 }
 
-// The target domain name for this SRV record.
 func (o SrvRecordOutput) Target() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SrvRecord) *string { return v.Target }).(pulumi.StringPtrOutput)
 }
 
-// The weight value for this SRV record.
 func (o SrvRecordOutput) Weight() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v SrvRecord) *int { return v.Weight }).(pulumi.IntPtrOutput)
 }
@@ -1919,16 +1786,11 @@ func (o SrvRecordArrayOutput) Index(i pulumi.IntInput) SrvRecordOutput {
 	}).(SrvRecordOutput)
 }
 
-// An SRV record.
 type SrvRecordResponse struct {
-	// The port value for this SRV record.
-	Port *int `pulumi:"port"`
-	// The priority value for this SRV record.
-	Priority *int `pulumi:"priority"`
-	// The target domain name for this SRV record.
-	Target *string `pulumi:"target"`
-	// The weight value for this SRV record.
-	Weight *int `pulumi:"weight"`
+	Port     *int    `pulumi:"port"`
+	Priority *int    `pulumi:"priority"`
+	Target   *string `pulumi:"target"`
+	Weight   *int    `pulumi:"weight"`
 }
 
 // SrvRecordResponseInput is an input type that accepts SrvRecordResponseArgs and SrvRecordResponseOutput values.
@@ -1942,16 +1804,11 @@ type SrvRecordResponseInput interface {
 	ToSrvRecordResponseOutputWithContext(context.Context) SrvRecordResponseOutput
 }
 
-// An SRV record.
 type SrvRecordResponseArgs struct {
-	// The port value for this SRV record.
-	Port pulumi.IntPtrInput `pulumi:"port"`
-	// The priority value for this SRV record.
-	Priority pulumi.IntPtrInput `pulumi:"priority"`
-	// The target domain name for this SRV record.
-	Target pulumi.StringPtrInput `pulumi:"target"`
-	// The weight value for this SRV record.
-	Weight pulumi.IntPtrInput `pulumi:"weight"`
+	Port     pulumi.IntPtrInput    `pulumi:"port"`
+	Priority pulumi.IntPtrInput    `pulumi:"priority"`
+	Target   pulumi.StringPtrInput `pulumi:"target"`
+	Weight   pulumi.IntPtrInput    `pulumi:"weight"`
 }
 
 func (SrvRecordResponseArgs) ElementType() reflect.Type {
@@ -1991,7 +1848,6 @@ func (i SrvRecordResponseArray) ToSrvRecordResponseArrayOutputWithContext(ctx co
 	return pulumi.ToOutputWithContext(ctx, i).(SrvRecordResponseArrayOutput)
 }
 
-// An SRV record.
 type SrvRecordResponseOutput struct{ *pulumi.OutputState }
 
 func (SrvRecordResponseOutput) ElementType() reflect.Type {
@@ -2006,22 +1862,18 @@ func (o SrvRecordResponseOutput) ToSrvRecordResponseOutputWithContext(ctx contex
 	return o
 }
 
-// The port value for this SRV record.
 func (o SrvRecordResponseOutput) Port() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v SrvRecordResponse) *int { return v.Port }).(pulumi.IntPtrOutput)
 }
 
-// The priority value for this SRV record.
 func (o SrvRecordResponseOutput) Priority() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v SrvRecordResponse) *int { return v.Priority }).(pulumi.IntPtrOutput)
 }
 
-// The target domain name for this SRV record.
 func (o SrvRecordResponseOutput) Target() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SrvRecordResponse) *string { return v.Target }).(pulumi.StringPtrOutput)
 }
 
-// The weight value for this SRV record.
 func (o SrvRecordResponseOutput) Weight() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v SrvRecordResponse) *int { return v.Weight }).(pulumi.IntPtrOutput)
 }
@@ -2046,9 +1898,7 @@ func (o SrvRecordResponseArrayOutput) Index(i pulumi.IntInput) SrvRecordResponse
 	}).(SrvRecordResponseOutput)
 }
 
-// A TXT record.
 type TxtRecord struct {
-	// The text value of this TXT record.
 	Value []string `pulumi:"value"`
 }
 
@@ -2063,9 +1913,7 @@ type TxtRecordInput interface {
 	ToTxtRecordOutputWithContext(context.Context) TxtRecordOutput
 }
 
-// A TXT record.
 type TxtRecordArgs struct {
-	// The text value of this TXT record.
 	Value pulumi.StringArrayInput `pulumi:"value"`
 }
 
@@ -2106,7 +1954,6 @@ func (i TxtRecordArray) ToTxtRecordArrayOutputWithContext(ctx context.Context) T
 	return pulumi.ToOutputWithContext(ctx, i).(TxtRecordArrayOutput)
 }
 
-// A TXT record.
 type TxtRecordOutput struct{ *pulumi.OutputState }
 
 func (TxtRecordOutput) ElementType() reflect.Type {
@@ -2121,7 +1968,6 @@ func (o TxtRecordOutput) ToTxtRecordOutputWithContext(ctx context.Context) TxtRe
 	return o
 }
 
-// The text value of this TXT record.
 func (o TxtRecordOutput) Value() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v TxtRecord) []string { return v.Value }).(pulumi.StringArrayOutput)
 }
@@ -2146,9 +1992,7 @@ func (o TxtRecordArrayOutput) Index(i pulumi.IntInput) TxtRecordOutput {
 	}).(TxtRecordOutput)
 }
 
-// A TXT record.
 type TxtRecordResponse struct {
-	// The text value of this TXT record.
 	Value []string `pulumi:"value"`
 }
 
@@ -2163,9 +2007,7 @@ type TxtRecordResponseInput interface {
 	ToTxtRecordResponseOutputWithContext(context.Context) TxtRecordResponseOutput
 }
 
-// A TXT record.
 type TxtRecordResponseArgs struct {
-	// The text value of this TXT record.
 	Value pulumi.StringArrayInput `pulumi:"value"`
 }
 
@@ -2206,7 +2048,6 @@ func (i TxtRecordResponseArray) ToTxtRecordResponseArrayOutputWithContext(ctx co
 	return pulumi.ToOutputWithContext(ctx, i).(TxtRecordResponseArrayOutput)
 }
 
-// A TXT record.
 type TxtRecordResponseOutput struct{ *pulumi.OutputState }
 
 func (TxtRecordResponseOutput) ElementType() reflect.Type {
@@ -2221,7 +2062,6 @@ func (o TxtRecordResponseOutput) ToTxtRecordResponseOutputWithContext(ctx contex
 	return o
 }
 
-// The text value of this TXT record.
 func (o TxtRecordResponseOutput) Value() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v TxtRecordResponse) []string { return v.Value }).(pulumi.StringArrayOutput)
 }

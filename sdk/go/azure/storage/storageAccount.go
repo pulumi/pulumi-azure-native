@@ -249,7 +249,7 @@ func (StorageAccountState) ElementType() reflect.Type {
 
 type storageAccountArgs struct {
 	// Required for storage accounts where kind = BlobStorage. The access tier used for billing.
-	AccessTier *string `pulumi:"accessTier"`
+	AccessTier *AccessTier `pulumi:"accessTier"`
 	// The name of the storage account within the specified resource group. Storage account names must be between 3 and 24 characters in length and use numbers and lower-case letters only.
 	AccountName *string `pulumi:"accountName"`
 	// Allow or disallow public access to all blobs or containers in the storage account. The default interpretation is true for this property.
@@ -299,7 +299,7 @@ type storageAccountArgs struct {
 // The set of arguments for constructing a StorageAccount resource.
 type StorageAccountArgs struct {
 	// Required for storage accounts where kind = BlobStorage. The access tier used for billing.
-	AccessTier *AccessTier
+	AccessTier AccessTierPtrInput
 	// The name of the storage account within the specified resource group. Storage account names must be between 3 and 24 characters in length and use numbers and lower-case letters only.
 	AccountName pulumi.StringPtrInput
 	// Allow or disallow public access to all blobs or containers in the storage account. The default interpretation is true for this property.
@@ -369,9 +369,7 @@ func (i *StorageAccount) ToStorageAccountOutputWithContext(ctx context.Context) 
 	return pulumi.ToOutputWithContext(ctx, i).(StorageAccountOutput)
 }
 
-type StorageAccountOutput struct {
-	*pulumi.OutputState
-}
+type StorageAccountOutput struct{ *pulumi.OutputState }
 
 func (StorageAccountOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*StorageAccount)(nil))

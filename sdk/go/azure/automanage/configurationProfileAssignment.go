@@ -126,9 +126,7 @@ func (i *ConfigurationProfileAssignment) ToConfigurationProfileAssignmentOutputW
 	return pulumi.ToOutputWithContext(ctx, i).(ConfigurationProfileAssignmentOutput)
 }
 
-type ConfigurationProfileAssignmentOutput struct {
-	*pulumi.OutputState
-}
+type ConfigurationProfileAssignmentOutput struct{ *pulumi.OutputState }
 
 func (ConfigurationProfileAssignmentOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*ConfigurationProfileAssignment)(nil))

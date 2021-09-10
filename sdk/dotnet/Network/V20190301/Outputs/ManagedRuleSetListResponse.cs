@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.Network.V20190301.Outputs
 {
 
+    /// <summary>
+    /// Defines the list of managed rule sets for the policy.
+    /// </summary>
     [OutputType]
     public sealed class ManagedRuleSetListResponse
     {

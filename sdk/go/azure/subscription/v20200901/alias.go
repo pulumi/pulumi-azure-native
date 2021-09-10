@@ -11,16 +11,12 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Subscription Information with the alias.
 type Alias struct {
 	pulumi.CustomResourceState
 
-	// Alias ID.
-	Name pulumi.StringOutput `pulumi:"name"`
-	// Put Alias response properties.
+	Name       pulumi.StringOutput                      `pulumi:"name"`
 	Properties PutAliasResponsePropertiesResponseOutput `pulumi:"properties"`
-	// Resource type, Microsoft.Subscription/aliases.
-	Type pulumi.StringOutput `pulumi:"type"`
+	Type       pulumi.StringOutput                      `pulumi:"type"`
 }
 
 // NewAlias registers a new resource with the given unique name, arguments, and options.
@@ -83,17 +79,13 @@ func (AliasState) ElementType() reflect.Type {
 }
 
 type aliasArgs struct {
-	// Name for this subscription creation request also known as alias. Note that this is not the same as subscription name and this doesn’t have any other lifecycle need beyond the request for subscription creation.
-	AliasName *string `pulumi:"aliasName"`
-	// Put alias request properties.
+	AliasName  *string                   `pulumi:"aliasName"`
 	Properties PutAliasRequestProperties `pulumi:"properties"`
 }
 
 // The set of arguments for constructing a Alias resource.
 type AliasArgs struct {
-	// Name for this subscription creation request also known as alias. Note that this is not the same as subscription name and this doesn’t have any other lifecycle need beyond the request for subscription creation.
-	AliasName pulumi.StringPtrInput
-	// Put alias request properties.
+	AliasName  pulumi.StringPtrInput
 	Properties PutAliasRequestPropertiesInput
 }
 
@@ -120,9 +112,7 @@ func (i *Alias) ToAliasOutputWithContext(ctx context.Context) AliasOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(AliasOutput)
 }
 
-type AliasOutput struct {
-	*pulumi.OutputState
-}
+type AliasOutput struct{ *pulumi.OutputState }
 
 func (AliasOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*Alias)(nil))

@@ -11,27 +11,17 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// A kusto database data set.
 type KustoDatabaseDataSet struct {
 	pulumi.CustomResourceState
 
-	// Unique id for identifying a data set resource
-	DataSetId pulumi.StringOutput `pulumi:"dataSetId"`
-	// Kind of data set.
-	// Expected value is 'KustoDatabase'.
-	Kind pulumi.StringOutput `pulumi:"kind"`
-	// Resource id of the kusto database.
-	KustoDatabaseResourceId pulumi.StringOutput `pulumi:"kustoDatabaseResourceId"`
-	// Location of the kusto cluster.
-	Location pulumi.StringOutput `pulumi:"location"`
-	// Name of the azure resource
-	Name pulumi.StringOutput `pulumi:"name"`
-	// Provisioning state of the kusto database data set.
-	ProvisioningState pulumi.StringOutput `pulumi:"provisioningState"`
-	// System Data of the Azure resource.
-	SystemData SystemDataResponseOutput `pulumi:"systemData"`
-	// Type of the azure resource
-	Type pulumi.StringOutput `pulumi:"type"`
+	DataSetId               pulumi.StringOutput      `pulumi:"dataSetId"`
+	Kind                    pulumi.StringOutput      `pulumi:"kind"`
+	KustoDatabaseResourceId pulumi.StringOutput      `pulumi:"kustoDatabaseResourceId"`
+	Location                pulumi.StringOutput      `pulumi:"location"`
+	Name                    pulumi.StringOutput      `pulumi:"name"`
+	ProvisioningState       pulumi.StringOutput      `pulumi:"provisioningState"`
+	SystemData              SystemDataResponseOutput `pulumi:"systemData"`
+	Type                    pulumi.StringOutput      `pulumi:"type"`
 }
 
 // NewKustoDatabaseDataSet registers a new resource with the given unique name, arguments, and options.
@@ -119,36 +109,22 @@ func (KustoDatabaseDataSetState) ElementType() reflect.Type {
 }
 
 type kustoDatabaseDataSetArgs struct {
-	// The name of the share account.
-	AccountName string `pulumi:"accountName"`
-	// The name of the dataSet.
-	DataSetName *string `pulumi:"dataSetName"`
-	// Kind of data set.
-	// Expected value is 'KustoDatabase'.
-	Kind string `pulumi:"kind"`
-	// Resource id of the kusto database.
-	KustoDatabaseResourceId string `pulumi:"kustoDatabaseResourceId"`
-	// The resource group name.
-	ResourceGroupName string `pulumi:"resourceGroupName"`
-	// The name of the share to add the data set to.
-	ShareName string `pulumi:"shareName"`
+	AccountName             string  `pulumi:"accountName"`
+	DataSetName             *string `pulumi:"dataSetName"`
+	Kind                    string  `pulumi:"kind"`
+	KustoDatabaseResourceId string  `pulumi:"kustoDatabaseResourceId"`
+	ResourceGroupName       string  `pulumi:"resourceGroupName"`
+	ShareName               string  `pulumi:"shareName"`
 }
 
 // The set of arguments for constructing a KustoDatabaseDataSet resource.
 type KustoDatabaseDataSetArgs struct {
-	// The name of the share account.
-	AccountName pulumi.StringInput
-	// The name of the dataSet.
-	DataSetName pulumi.StringPtrInput
-	// Kind of data set.
-	// Expected value is 'KustoDatabase'.
-	Kind pulumi.StringInput
-	// Resource id of the kusto database.
+	AccountName             pulumi.StringInput
+	DataSetName             pulumi.StringPtrInput
+	Kind                    pulumi.StringInput
 	KustoDatabaseResourceId pulumi.StringInput
-	// The resource group name.
-	ResourceGroupName pulumi.StringInput
-	// The name of the share to add the data set to.
-	ShareName pulumi.StringInput
+	ResourceGroupName       pulumi.StringInput
+	ShareName               pulumi.StringInput
 }
 
 func (KustoDatabaseDataSetArgs) ElementType() reflect.Type {
@@ -174,9 +150,7 @@ func (i *KustoDatabaseDataSet) ToKustoDatabaseDataSetOutputWithContext(ctx conte
 	return pulumi.ToOutputWithContext(ctx, i).(KustoDatabaseDataSetOutput)
 }
 
-type KustoDatabaseDataSetOutput struct {
-	*pulumi.OutputState
-}
+type KustoDatabaseDataSetOutput struct{ *pulumi.OutputState }
 
 func (KustoDatabaseDataSetOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*KustoDatabaseDataSet)(nil))

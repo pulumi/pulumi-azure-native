@@ -7,7 +7,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Registered Server resource.
 func LookupRegisteredServer(ctx *pulumi.Context, args *LookupRegisteredServerArgs, opts ...pulumi.InvokeOption) (*LookupRegisteredServerResult, error) {
 	var rv LookupRegisteredServerResult
 	err := ctx.Invoke("azure-native:storagesync/v20170605preview:getRegisteredServer", args, &rv, opts...)
@@ -18,44 +17,26 @@ func LookupRegisteredServer(ctx *pulumi.Context, args *LookupRegisteredServerArg
 }
 
 type LookupRegisteredServerArgs struct {
-	// The name of the resource group within the user's subscription. The name is case insensitive.
-	ResourceGroupName string `pulumi:"resourceGroupName"`
-	// GUID identifying the on-premises server.
-	ServerId string `pulumi:"serverId"`
-	// Name of Storage Sync Service resource.
+	ResourceGroupName      string `pulumi:"resourceGroupName"`
+	ServerId               string `pulumi:"serverId"`
 	StorageSyncServiceName string `pulumi:"storageSyncServiceName"`
 }
 
 // Registered Server resource.
 type LookupRegisteredServerResult struct {
-	// Registered Server Agent Version
-	AgentVersion *string `pulumi:"agentVersion"`
-	// Registered Server clusterId
-	ClusterId *string `pulumi:"clusterId"`
-	// Registered Server clusterName
-	ClusterName *string `pulumi:"clusterName"`
-	// Resource Id
-	Id string `pulumi:"id"`
-	// Registered Server last heart beat
-	LastHeartBeat *string `pulumi:"lastHeartBeat"`
-	// Registered Server lastWorkflowId
-	LastWorkflowId *string `pulumi:"lastWorkflowId"`
-	// Resource name
-	Name string `pulumi:"name"`
-	// Registered Server Provisioning State
-	ProvisioningState *string `pulumi:"provisioningState"`
-	// Registered Server Certificate
-	ServerCertificate *string `pulumi:"serverCertificate"`
-	// Registered Server serverId
-	ServerId *string `pulumi:"serverId"`
-	// Registered Server Management Error Code
-	ServerManagementtErrorCode *int `pulumi:"serverManagementtErrorCode"`
-	// Registered Server OS Version
-	ServerOSVersion *string `pulumi:"serverOSVersion"`
-	// Registered Server serverRole
-	ServerRole *string `pulumi:"serverRole"`
-	// Registered Server storageSyncServiceUid
-	StorageSyncServiceUid *string `pulumi:"storageSyncServiceUid"`
-	// Resource type
-	Type string `pulumi:"type"`
+	AgentVersion               *string `pulumi:"agentVersion"`
+	ClusterId                  *string `pulumi:"clusterId"`
+	ClusterName                *string `pulumi:"clusterName"`
+	Id                         string  `pulumi:"id"`
+	LastHeartBeat              *string `pulumi:"lastHeartBeat"`
+	LastWorkflowId             *string `pulumi:"lastWorkflowId"`
+	Name                       string  `pulumi:"name"`
+	ProvisioningState          *string `pulumi:"provisioningState"`
+	ServerCertificate          *string `pulumi:"serverCertificate"`
+	ServerId                   *string `pulumi:"serverId"`
+	ServerManagementtErrorCode *int    `pulumi:"serverManagementtErrorCode"`
+	ServerOSVersion            *string `pulumi:"serverOSVersion"`
+	ServerRole                 *string `pulumi:"serverRole"`
+	StorageSyncServiceUid      *string `pulumi:"storageSyncServiceUid"`
+	Type                       string  `pulumi:"type"`
 }

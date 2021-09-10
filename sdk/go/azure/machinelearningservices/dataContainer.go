@@ -131,9 +131,7 @@ func (i *DataContainer) ToDataContainerOutputWithContext(ctx context.Context) Da
 	return pulumi.ToOutputWithContext(ctx, i).(DataContainerOutput)
 }
 
-type DataContainerOutput struct {
-	*pulumi.OutputState
-}
+type DataContainerOutput struct{ *pulumi.OutputState }
 
 func (DataContainerOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*DataContainer)(nil))

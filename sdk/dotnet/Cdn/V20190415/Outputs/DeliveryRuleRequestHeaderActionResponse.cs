@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.Cdn.V20190415.Outputs
 {
 
+    /// <summary>
+    /// Defines the request header action for the delivery rule.
+    /// </summary>
     [OutputType]
     public sealed class DeliveryRuleRequestHeaderActionResponse
     {

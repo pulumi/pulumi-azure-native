@@ -7,7 +7,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Client or app secret used in IdentityProviders, Aad, OpenID or OAuth.
 func ListNamedValue(ctx *pulumi.Context, args *ListNamedValueArgs, opts ...pulumi.InvokeOption) (*ListNamedValueResult, error) {
 	var rv ListNamedValueResult
 	err := ctx.Invoke("azure-native:apimanagement/v20191201:listNamedValue", args, &rv, opts...)
@@ -18,16 +17,12 @@ func ListNamedValue(ctx *pulumi.Context, args *ListNamedValueArgs, opts ...pulum
 }
 
 type ListNamedValueArgs struct {
-	// Identifier of the NamedValue.
-	NamedValueId string `pulumi:"namedValueId"`
-	// The name of the resource group.
+	NamedValueId      string `pulumi:"namedValueId"`
 	ResourceGroupName string `pulumi:"resourceGroupName"`
-	// The name of the API Management service.
-	ServiceName string `pulumi:"serviceName"`
+	ServiceName       string `pulumi:"serviceName"`
 }
 
 // Client or app secret used in IdentityProviders, Aad, OpenID or OAuth.
 type ListNamedValueResult struct {
-	// This is secret value of the NamedValue entity.
 	Value *string `pulumi:"value"`
 }

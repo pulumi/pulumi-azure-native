@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.DataFactory.Outputs
 {
 
+    /// <summary>
+    /// The Azure Blob storage.
+    /// </summary>
     [OutputType]
     public sealed class AzureBlobDatasetResponse
     {

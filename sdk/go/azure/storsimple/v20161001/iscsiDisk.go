@@ -11,30 +11,19 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// The iSCSI disk.
 type IscsiDisk struct {
 	pulumi.CustomResourceState
 
-	// The access control records.
-	AccessControlRecords pulumi.StringArrayOutput `pulumi:"accessControlRecords"`
-	// The data policy.
-	DataPolicy pulumi.StringOutput `pulumi:"dataPolicy"`
-	// The description.
-	Description pulumi.StringPtrOutput `pulumi:"description"`
-	// The disk status.
-	DiskStatus pulumi.StringOutput `pulumi:"diskStatus"`
-	// The local used capacity in bytes.
-	LocalUsedCapacityInBytes pulumi.Float64Output `pulumi:"localUsedCapacityInBytes"`
-	// The monitoring.
-	MonitoringStatus pulumi.StringOutput `pulumi:"monitoringStatus"`
-	// The name.
-	Name pulumi.StringOutput `pulumi:"name"`
-	// The provisioned capacity in bytes.
-	ProvisionedCapacityInBytes pulumi.Float64Output `pulumi:"provisionedCapacityInBytes"`
-	// The type.
-	Type pulumi.StringOutput `pulumi:"type"`
-	// The used capacity in bytes.
-	UsedCapacityInBytes pulumi.Float64Output `pulumi:"usedCapacityInBytes"`
+	AccessControlRecords       pulumi.StringArrayOutput `pulumi:"accessControlRecords"`
+	DataPolicy                 pulumi.StringOutput      `pulumi:"dataPolicy"`
+	Description                pulumi.StringPtrOutput   `pulumi:"description"`
+	DiskStatus                 pulumi.StringOutput      `pulumi:"diskStatus"`
+	LocalUsedCapacityInBytes   pulumi.Float64Output     `pulumi:"localUsedCapacityInBytes"`
+	MonitoringStatus           pulumi.StringOutput      `pulumi:"monitoringStatus"`
+	Name                       pulumi.StringOutput      `pulumi:"name"`
+	ProvisionedCapacityInBytes pulumi.Float64Output     `pulumi:"provisionedCapacityInBytes"`
+	Type                       pulumi.StringOutput      `pulumi:"type"`
+	UsedCapacityInBytes        pulumi.Float64Output     `pulumi:"usedCapacityInBytes"`
 }
 
 // NewIscsiDisk registers a new resource with the given unique name, arguments, and options.
@@ -47,14 +36,23 @@ func NewIscsiDisk(ctx *pulumi.Context,
 	if args.AccessControlRecords == nil {
 		return nil, errors.New("invalid value for required argument 'AccessControlRecords'")
 	}
+	if args.DataPolicy == nil {
+		return nil, errors.New("invalid value for required argument 'DataPolicy'")
+	}
 	if args.DeviceName == nil {
 		return nil, errors.New("invalid value for required argument 'DeviceName'")
+	}
+	if args.DiskStatus == nil {
+		return nil, errors.New("invalid value for required argument 'DiskStatus'")
 	}
 	if args.IscsiServerName == nil {
 		return nil, errors.New("invalid value for required argument 'IscsiServerName'")
 	}
 	if args.ManagerName == nil {
 		return nil, errors.New("invalid value for required argument 'ManagerName'")
+	}
+	if args.MonitoringStatus == nil {
+		return nil, errors.New("invalid value for required argument 'MonitoringStatus'")
 	}
 	if args.ProvisionedCapacityInBytes == nil {
 		return nil, errors.New("invalid value for required argument 'ProvisionedCapacityInBytes'")
@@ -100,54 +98,32 @@ func (IscsiDiskState) ElementType() reflect.Type {
 }
 
 type iscsiDiskArgs struct {
-	// The access control records.
-	AccessControlRecords []string `pulumi:"accessControlRecords"`
-	// The data policy.
-	DataPolicy string `pulumi:"dataPolicy"`
-	// The description.
-	Description *string `pulumi:"description"`
-	// The device name.
-	DeviceName string `pulumi:"deviceName"`
-	// The disk name.
-	DiskName *string `pulumi:"diskName"`
-	// The disk status.
-	DiskStatus string `pulumi:"diskStatus"`
-	// The iSCSI server name.
-	IscsiServerName string `pulumi:"iscsiServerName"`
-	// The manager name
-	ManagerName string `pulumi:"managerName"`
-	// The monitoring.
-	MonitoringStatus string `pulumi:"monitoringStatus"`
-	// The provisioned capacity in bytes.
-	ProvisionedCapacityInBytes float64 `pulumi:"provisionedCapacityInBytes"`
-	// The resource group name
-	ResourceGroupName string `pulumi:"resourceGroupName"`
+	AccessControlRecords       []string         `pulumi:"accessControlRecords"`
+	DataPolicy                 DataPolicy       `pulumi:"dataPolicy"`
+	Description                *string          `pulumi:"description"`
+	DeviceName                 string           `pulumi:"deviceName"`
+	DiskName                   *string          `pulumi:"diskName"`
+	DiskStatus                 DiskStatus       `pulumi:"diskStatus"`
+	IscsiServerName            string           `pulumi:"iscsiServerName"`
+	ManagerName                string           `pulumi:"managerName"`
+	MonitoringStatus           MonitoringStatus `pulumi:"monitoringStatus"`
+	ProvisionedCapacityInBytes float64          `pulumi:"provisionedCapacityInBytes"`
+	ResourceGroupName          string           `pulumi:"resourceGroupName"`
 }
 
 // The set of arguments for constructing a IscsiDisk resource.
 type IscsiDiskArgs struct {
-	// The access control records.
-	AccessControlRecords pulumi.StringArrayInput
-	// The data policy.
-	DataPolicy DataPolicy
-	// The description.
-	Description pulumi.StringPtrInput
-	// The device name.
-	DeviceName pulumi.StringInput
-	// The disk name.
-	DiskName pulumi.StringPtrInput
-	// The disk status.
-	DiskStatus DiskStatus
-	// The iSCSI server name.
-	IscsiServerName pulumi.StringInput
-	// The manager name
-	ManagerName pulumi.StringInput
-	// The monitoring.
-	MonitoringStatus MonitoringStatus
-	// The provisioned capacity in bytes.
+	AccessControlRecords       pulumi.StringArrayInput
+	DataPolicy                 DataPolicyInput
+	Description                pulumi.StringPtrInput
+	DeviceName                 pulumi.StringInput
+	DiskName                   pulumi.StringPtrInput
+	DiskStatus                 DiskStatusInput
+	IscsiServerName            pulumi.StringInput
+	ManagerName                pulumi.StringInput
+	MonitoringStatus           MonitoringStatusInput
 	ProvisionedCapacityInBytes pulumi.Float64Input
-	// The resource group name
-	ResourceGroupName pulumi.StringInput
+	ResourceGroupName          pulumi.StringInput
 }
 
 func (IscsiDiskArgs) ElementType() reflect.Type {
@@ -173,9 +149,7 @@ func (i *IscsiDisk) ToIscsiDiskOutputWithContext(ctx context.Context) IscsiDiskO
 	return pulumi.ToOutputWithContext(ctx, i).(IscsiDiskOutput)
 }
 
-type IscsiDiskOutput struct {
-	*pulumi.OutputState
-}
+type IscsiDiskOutput struct{ *pulumi.OutputState }
 
 func (IscsiDiskOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*IscsiDisk)(nil))

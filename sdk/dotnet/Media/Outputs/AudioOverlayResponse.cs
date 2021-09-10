@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.Media.Outputs
 {
 
+    /// <summary>
+    /// Describes the properties of an audio overlay.
+    /// </summary>
     [OutputType]
     public sealed class AudioOverlayResponse
     {

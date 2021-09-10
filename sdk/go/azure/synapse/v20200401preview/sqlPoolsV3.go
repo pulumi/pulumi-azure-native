@@ -11,38 +11,23 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// A sql pool resource.
 type SqlPoolsV3 struct {
 	pulumi.CustomResourceState
 
-	// The period of inactivity in minutes before automatically pausing the sql pool.
-	AutoPauseTimer pulumi.IntPtrOutput `pulumi:"autoPauseTimer"`
-	// Indicates whether the sql pool can automatically resume when connection attempts are made.
-	AutoResume pulumi.BoolPtrOutput `pulumi:"autoResume"`
-	// The current service level objective name of the sql pool.
-	CurrentServiceObjectiveName pulumi.StringOutput `pulumi:"currentServiceObjectiveName"`
-	// Kind of SqlPool.
-	Kind pulumi.StringOutput `pulumi:"kind"`
-	// The geo-location where the resource lives
-	Location pulumi.StringOutput `pulumi:"location"`
-	// The max service level objective name of the sql pool.
-	MaxServiceObjectiveName pulumi.StringPtrOutput `pulumi:"maxServiceObjectiveName"`
-	// The name of the resource
-	Name pulumi.StringOutput `pulumi:"name"`
-	// The requested service level objective name of the sql pool.
-	RequestedServiceObjectiveName pulumi.StringOutput `pulumi:"requestedServiceObjectiveName"`
-	// The sql pool SKU. The list of SKUs may vary by region and support offer.
-	Sku SkuV3ResponsePtrOutput `pulumi:"sku"`
-	// The Guid of the sql pool.
-	SqlPoolGuid pulumi.StringOutput `pulumi:"sqlPoolGuid"`
-	// The status of the sql pool.
-	Status pulumi.StringOutput `pulumi:"status"`
-	// SystemData of SqlPool.
-	SystemData SystemDataResponseOutput `pulumi:"systemData"`
-	// Resource tags.
-	Tags pulumi.StringMapOutput `pulumi:"tags"`
-	// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
-	Type pulumi.StringOutput `pulumi:"type"`
+	AutoPauseTimer                pulumi.IntPtrOutput      `pulumi:"autoPauseTimer"`
+	AutoResume                    pulumi.BoolPtrOutput     `pulumi:"autoResume"`
+	CurrentServiceObjectiveName   pulumi.StringOutput      `pulumi:"currentServiceObjectiveName"`
+	Kind                          pulumi.StringOutput      `pulumi:"kind"`
+	Location                      pulumi.StringOutput      `pulumi:"location"`
+	MaxServiceObjectiveName       pulumi.StringPtrOutput   `pulumi:"maxServiceObjectiveName"`
+	Name                          pulumi.StringOutput      `pulumi:"name"`
+	RequestedServiceObjectiveName pulumi.StringOutput      `pulumi:"requestedServiceObjectiveName"`
+	Sku                           SkuV3ResponsePtrOutput   `pulumi:"sku"`
+	SqlPoolGuid                   pulumi.StringOutput      `pulumi:"sqlPoolGuid"`
+	Status                        pulumi.StringOutput      `pulumi:"status"`
+	SystemData                    SystemDataResponseOutput `pulumi:"systemData"`
+	Tags                          pulumi.StringMapOutput   `pulumi:"tags"`
+	Type                          pulumi.StringOutput      `pulumi:"type"`
 }
 
 // NewSqlPoolsV3 registers a new resource with the given unique name, arguments, and options.
@@ -144,46 +129,28 @@ func (SqlPoolsV3State) ElementType() reflect.Type {
 }
 
 type sqlPoolsV3Args struct {
-	// The period of inactivity in minutes before automatically pausing the sql pool.
-	AutoPauseTimer *int `pulumi:"autoPauseTimer"`
-	// Indicates whether the sql pool can automatically resume when connection attempts are made.
-	AutoResume *bool `pulumi:"autoResume"`
-	// The geo-location where the resource lives
-	Location *string `pulumi:"location"`
-	// The max service level objective name of the sql pool.
-	MaxServiceObjectiveName *string `pulumi:"maxServiceObjectiveName"`
-	// The name of the resource group. The name is case insensitive.
-	ResourceGroupName string `pulumi:"resourceGroupName"`
-	// The sql pool SKU. The list of SKUs may vary by region and support offer.
-	Sku *SkuV3 `pulumi:"sku"`
-	// The name of the sql pool.
-	SqlPoolName *string `pulumi:"sqlPoolName"`
-	// Resource tags.
-	Tags map[string]string `pulumi:"tags"`
-	// The name of the workspace.
-	WorkspaceName string `pulumi:"workspaceName"`
+	AutoPauseTimer          *int              `pulumi:"autoPauseTimer"`
+	AutoResume              *bool             `pulumi:"autoResume"`
+	Location                *string           `pulumi:"location"`
+	MaxServiceObjectiveName *string           `pulumi:"maxServiceObjectiveName"`
+	ResourceGroupName       string            `pulumi:"resourceGroupName"`
+	Sku                     *SkuV3            `pulumi:"sku"`
+	SqlPoolName             *string           `pulumi:"sqlPoolName"`
+	Tags                    map[string]string `pulumi:"tags"`
+	WorkspaceName           string            `pulumi:"workspaceName"`
 }
 
 // The set of arguments for constructing a SqlPoolsV3 resource.
 type SqlPoolsV3Args struct {
-	// The period of inactivity in minutes before automatically pausing the sql pool.
-	AutoPauseTimer pulumi.IntPtrInput
-	// Indicates whether the sql pool can automatically resume when connection attempts are made.
-	AutoResume pulumi.BoolPtrInput
-	// The geo-location where the resource lives
-	Location pulumi.StringPtrInput
-	// The max service level objective name of the sql pool.
+	AutoPauseTimer          pulumi.IntPtrInput
+	AutoResume              pulumi.BoolPtrInput
+	Location                pulumi.StringPtrInput
 	MaxServiceObjectiveName pulumi.StringPtrInput
-	// The name of the resource group. The name is case insensitive.
-	ResourceGroupName pulumi.StringInput
-	// The sql pool SKU. The list of SKUs may vary by region and support offer.
-	Sku SkuV3PtrInput
-	// The name of the sql pool.
-	SqlPoolName pulumi.StringPtrInput
-	// Resource tags.
-	Tags pulumi.StringMapInput
-	// The name of the workspace.
-	WorkspaceName pulumi.StringInput
+	ResourceGroupName       pulumi.StringInput
+	Sku                     SkuV3PtrInput
+	SqlPoolName             pulumi.StringPtrInput
+	Tags                    pulumi.StringMapInput
+	WorkspaceName           pulumi.StringInput
 }
 
 func (SqlPoolsV3Args) ElementType() reflect.Type {
@@ -209,9 +176,7 @@ func (i *SqlPoolsV3) ToSqlPoolsV3OutputWithContext(ctx context.Context) SqlPools
 	return pulumi.ToOutputWithContext(ctx, i).(SqlPoolsV3Output)
 }
 
-type SqlPoolsV3Output struct {
-	*pulumi.OutputState
-}
+type SqlPoolsV3Output struct{ *pulumi.OutputState }
 
 func (SqlPoolsV3Output) ElementType() reflect.Type {
 	return reflect.TypeOf((*SqlPoolsV3)(nil))

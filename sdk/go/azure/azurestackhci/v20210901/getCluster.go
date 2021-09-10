@@ -7,7 +7,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Cluster details.
 func LookupCluster(ctx *pulumi.Context, args *LookupClusterArgs, opts ...pulumi.InvokeOption) (*LookupClusterResult, error) {
 	var rv LookupClusterResult
 	err := ctx.Invoke("azure-native:azurestackhci/v20210901:getCluster", args, &rv, opts...)
@@ -18,60 +17,34 @@ func LookupCluster(ctx *pulumi.Context, args *LookupClusterArgs, opts ...pulumi.
 }
 
 type LookupClusterArgs struct {
-	// The name of the cluster.
-	ClusterName string `pulumi:"clusterName"`
-	// The name of the resource group. The name is case insensitive.
+	ClusterName       string `pulumi:"clusterName"`
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 }
 
 // Cluster details.
 type LookupClusterResult struct {
-	// App id of cluster AAD identity.
-	AadClientId string `pulumi:"aadClientId"`
-	// Tenant id of cluster AAD identity.
-	AadTenantId string `pulumi:"aadTenantId"`
-	// Type of billing applied to the resource.
-	BillingModel string `pulumi:"billingModel"`
-	// Unique, immutable resource id.
-	CloudId string `pulumi:"cloudId"`
-	// Endpoint configured for management from the Azure portal.
-	CloudManagementEndpoint *string `pulumi:"cloudManagementEndpoint"`
-	// The timestamp of resource creation (UTC).
-	CreatedAt *string `pulumi:"createdAt"`
-	// The identity that created the resource.
-	CreatedBy *string `pulumi:"createdBy"`
-	// The type of identity that created the resource.
-	CreatedByType *string `pulumi:"createdByType"`
-	// Desired properties of the cluster.
-	DesiredProperties *ClusterDesiredPropertiesResponse `pulumi:"desiredProperties"`
-	// Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
-	Id string `pulumi:"id"`
-	// Most recent billing meter timestamp.
-	LastBillingTimestamp string `pulumi:"lastBillingTimestamp"`
-	// The timestamp of resource last modification (UTC)
-	LastModifiedAt *string `pulumi:"lastModifiedAt"`
-	// The identity that last modified the resource.
-	LastModifiedBy *string `pulumi:"lastModifiedBy"`
-	// The type of identity that last modified the resource.
-	LastModifiedByType *string `pulumi:"lastModifiedByType"`
-	// Most recent cluster sync timestamp.
-	LastSyncTimestamp string `pulumi:"lastSyncTimestamp"`
-	// The geo-location where the resource lives
-	Location string `pulumi:"location"`
-	// The name of the resource
-	Name string `pulumi:"name"`
-	// Provisioning state.
-	ProvisioningState string `pulumi:"provisioningState"`
-	// First cluster sync timestamp.
-	RegistrationTimestamp string `pulumi:"registrationTimestamp"`
-	// Properties reported by cluster agent.
-	ReportedProperties ClusterReportedPropertiesResponse `pulumi:"reportedProperties"`
-	// Status of the cluster agent.
-	Status string `pulumi:"status"`
-	// Resource tags.
-	Tags map[string]string `pulumi:"tags"`
-	// Number of days remaining in the trial period.
-	TrialDaysRemaining float64 `pulumi:"trialDaysRemaining"`
-	// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
-	Type string `pulumi:"type"`
+	AadClientId             string                            `pulumi:"aadClientId"`
+	AadTenantId             string                            `pulumi:"aadTenantId"`
+	BillingModel            string                            `pulumi:"billingModel"`
+	CloudId                 string                            `pulumi:"cloudId"`
+	CloudManagementEndpoint *string                           `pulumi:"cloudManagementEndpoint"`
+	CreatedAt               *string                           `pulumi:"createdAt"`
+	CreatedBy               *string                           `pulumi:"createdBy"`
+	CreatedByType           *string                           `pulumi:"createdByType"`
+	DesiredProperties       *ClusterDesiredPropertiesResponse `pulumi:"desiredProperties"`
+	Id                      string                            `pulumi:"id"`
+	LastBillingTimestamp    string                            `pulumi:"lastBillingTimestamp"`
+	LastModifiedAt          *string                           `pulumi:"lastModifiedAt"`
+	LastModifiedBy          *string                           `pulumi:"lastModifiedBy"`
+	LastModifiedByType      *string                           `pulumi:"lastModifiedByType"`
+	LastSyncTimestamp       string                            `pulumi:"lastSyncTimestamp"`
+	Location                string                            `pulumi:"location"`
+	Name                    string                            `pulumi:"name"`
+	ProvisioningState       string                            `pulumi:"provisioningState"`
+	RegistrationTimestamp   string                            `pulumi:"registrationTimestamp"`
+	ReportedProperties      ClusterReportedPropertiesResponse `pulumi:"reportedProperties"`
+	Status                  string                            `pulumi:"status"`
+	Tags                    map[string]string                 `pulumi:"tags"`
+	TrialDaysRemaining      float64                           `pulumi:"trialDaysRemaining"`
+	Type                    string                            `pulumi:"type"`
 }

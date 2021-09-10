@@ -11,29 +11,18 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// A type of synchronization setting based on schedule
 type ScheduledSynchronizationSetting struct {
 	pulumi.CustomResourceState
 
-	// Time at which the synchronization setting was created.
-	CreatedAt pulumi.StringOutput `pulumi:"createdAt"`
-	// Kind of synchronization setting.
-	// Expected value is 'ScheduleBased'.
-	Kind pulumi.StringOutput `pulumi:"kind"`
-	// Name of the azure resource
-	Name pulumi.StringOutput `pulumi:"name"`
-	// Gets or sets the provisioning state
-	ProvisioningState pulumi.StringOutput `pulumi:"provisioningState"`
-	// Recurrence Interval
-	RecurrenceInterval pulumi.StringOutput `pulumi:"recurrenceInterval"`
-	// Synchronization time
-	SynchronizationTime pulumi.StringOutput `pulumi:"synchronizationTime"`
-	// System Data of the Azure resource.
-	SystemData SystemDataResponseOutput `pulumi:"systemData"`
-	// Type of the azure resource
-	Type pulumi.StringOutput `pulumi:"type"`
-	// Name of the user who created the synchronization setting.
-	UserName pulumi.StringOutput `pulumi:"userName"`
+	CreatedAt           pulumi.StringOutput      `pulumi:"createdAt"`
+	Kind                pulumi.StringOutput      `pulumi:"kind"`
+	Name                pulumi.StringOutput      `pulumi:"name"`
+	ProvisioningState   pulumi.StringOutput      `pulumi:"provisioningState"`
+	RecurrenceInterval  pulumi.StringOutput      `pulumi:"recurrenceInterval"`
+	SynchronizationTime pulumi.StringOutput      `pulumi:"synchronizationTime"`
+	SystemData          SystemDataResponseOutput `pulumi:"systemData"`
+	Type                pulumi.StringOutput      `pulumi:"type"`
+	UserName            pulumi.StringOutput      `pulumi:"userName"`
 }
 
 // NewScheduledSynchronizationSetting registers a new resource with the given unique name, arguments, and options.
@@ -124,40 +113,24 @@ func (ScheduledSynchronizationSettingState) ElementType() reflect.Type {
 }
 
 type scheduledSynchronizationSettingArgs struct {
-	// The name of the share account.
-	AccountName string `pulumi:"accountName"`
-	// Kind of synchronization setting.
-	// Expected value is 'ScheduleBased'.
-	Kind string `pulumi:"kind"`
-	// Recurrence Interval
-	RecurrenceInterval string `pulumi:"recurrenceInterval"`
-	// The resource group name.
-	ResourceGroupName string `pulumi:"resourceGroupName"`
-	// The name of the share to add the synchronization setting to.
-	ShareName string `pulumi:"shareName"`
-	// The name of the synchronizationSetting.
+	AccountName                string  `pulumi:"accountName"`
+	Kind                       string  `pulumi:"kind"`
+	RecurrenceInterval         string  `pulumi:"recurrenceInterval"`
+	ResourceGroupName          string  `pulumi:"resourceGroupName"`
+	ShareName                  string  `pulumi:"shareName"`
 	SynchronizationSettingName *string `pulumi:"synchronizationSettingName"`
-	// Synchronization time
-	SynchronizationTime string `pulumi:"synchronizationTime"`
+	SynchronizationTime        string  `pulumi:"synchronizationTime"`
 }
 
 // The set of arguments for constructing a ScheduledSynchronizationSetting resource.
 type ScheduledSynchronizationSettingArgs struct {
-	// The name of the share account.
-	AccountName pulumi.StringInput
-	// Kind of synchronization setting.
-	// Expected value is 'ScheduleBased'.
-	Kind pulumi.StringInput
-	// Recurrence Interval
-	RecurrenceInterval pulumi.StringInput
-	// The resource group name.
-	ResourceGroupName pulumi.StringInput
-	// The name of the share to add the synchronization setting to.
-	ShareName pulumi.StringInput
-	// The name of the synchronizationSetting.
+	AccountName                pulumi.StringInput
+	Kind                       pulumi.StringInput
+	RecurrenceInterval         pulumi.StringInput
+	ResourceGroupName          pulumi.StringInput
+	ShareName                  pulumi.StringInput
 	SynchronizationSettingName pulumi.StringPtrInput
-	// Synchronization time
-	SynchronizationTime pulumi.StringInput
+	SynchronizationTime        pulumi.StringInput
 }
 
 func (ScheduledSynchronizationSettingArgs) ElementType() reflect.Type {
@@ -183,9 +156,7 @@ func (i *ScheduledSynchronizationSetting) ToScheduledSynchronizationSettingOutpu
 	return pulumi.ToOutputWithContext(ctx, i).(ScheduledSynchronizationSettingOutput)
 }
 
-type ScheduledSynchronizationSettingOutput struct {
-	*pulumi.OutputState
-}
+type ScheduledSynchronizationSettingOutput struct{ *pulumi.OutputState }
 
 func (ScheduledSynchronizationSettingOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*ScheduledSynchronizationSetting)(nil))

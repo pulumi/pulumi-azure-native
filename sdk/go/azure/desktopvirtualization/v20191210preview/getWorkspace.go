@@ -7,7 +7,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Represents a Workspace definition.
 func LookupWorkspace(ctx *pulumi.Context, args *LookupWorkspaceArgs, opts ...pulumi.InvokeOption) (*LookupWorkspaceResult, error) {
 	var rv LookupWorkspaceResult
 	err := ctx.Invoke("azure-native:desktopvirtualization/v20191210preview:getWorkspace", args, &rv, opts...)
@@ -18,28 +17,18 @@ func LookupWorkspace(ctx *pulumi.Context, args *LookupWorkspaceArgs, opts ...pul
 }
 
 type LookupWorkspaceArgs struct {
-	// The name of the resource group. The name is case insensitive.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
-	// The name of the workspace
-	WorkspaceName string `pulumi:"workspaceName"`
+	WorkspaceName     string `pulumi:"workspaceName"`
 }
 
 // Represents a Workspace definition.
 type LookupWorkspaceResult struct {
-	// List of applicationGroup resource Ids.
-	ApplicationGroupReferences []string `pulumi:"applicationGroupReferences"`
-	// Description of Workspace.
-	Description *string `pulumi:"description"`
-	// Friendly name of Workspace.
-	FriendlyName *string `pulumi:"friendlyName"`
-	// Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
-	Id string `pulumi:"id"`
-	// The geo-location where the resource lives
-	Location string `pulumi:"location"`
-	// The name of the resource
-	Name string `pulumi:"name"`
-	// Resource tags.
-	Tags map[string]string `pulumi:"tags"`
-	// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
-	Type string `pulumi:"type"`
+	ApplicationGroupReferences []string          `pulumi:"applicationGroupReferences"`
+	Description                *string           `pulumi:"description"`
+	FriendlyName               *string           `pulumi:"friendlyName"`
+	Id                         string            `pulumi:"id"`
+	Location                   string            `pulumi:"location"`
+	Name                       string            `pulumi:"name"`
+	Tags                       map[string]string `pulumi:"tags"`
+	Type                       string            `pulumi:"type"`
 }

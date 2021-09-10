@@ -11,28 +11,18 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// NSX Port Mirroring
 type WorkloadNetworkPortMirroring struct {
 	pulumi.CustomResourceState
 
-	// Destination VM Group.
-	Destination pulumi.StringPtrOutput `pulumi:"destination"`
-	// Direction of port mirroring profile.
-	Direction pulumi.StringPtrOutput `pulumi:"direction"`
-	// Display name of the port mirroring profile.
-	DisplayName pulumi.StringPtrOutput `pulumi:"displayName"`
-	// Resource name.
-	Name pulumi.StringOutput `pulumi:"name"`
-	// The provisioning state
-	ProvisioningState pulumi.StringOutput `pulumi:"provisioningState"`
-	// NSX revision number.
-	Revision pulumi.Float64PtrOutput `pulumi:"revision"`
-	// Source VM Group.
-	Source pulumi.StringPtrOutput `pulumi:"source"`
-	// Port Mirroring Status.
-	Status pulumi.StringOutput `pulumi:"status"`
-	// Resource type.
-	Type pulumi.StringOutput `pulumi:"type"`
+	Destination       pulumi.StringPtrOutput  `pulumi:"destination"`
+	Direction         pulumi.StringPtrOutput  `pulumi:"direction"`
+	DisplayName       pulumi.StringPtrOutput  `pulumi:"displayName"`
+	Name              pulumi.StringOutput     `pulumi:"name"`
+	ProvisioningState pulumi.StringOutput     `pulumi:"provisioningState"`
+	Revision          pulumi.Float64PtrOutput `pulumi:"revision"`
+	Source            pulumi.StringPtrOutput  `pulumi:"source"`
+	Status            pulumi.StringOutput     `pulumi:"status"`
+	Type              pulumi.StringOutput     `pulumi:"type"`
 }
 
 // NewWorkloadNetworkPortMirroring registers a new resource with the given unique name, arguments, and options.
@@ -104,42 +94,26 @@ func (WorkloadNetworkPortMirroringState) ElementType() reflect.Type {
 }
 
 type workloadNetworkPortMirroringArgs struct {
-	// Destination VM Group.
-	Destination *string `pulumi:"destination"`
-	// Direction of port mirroring profile.
-	Direction *string `pulumi:"direction"`
-	// Display name of the port mirroring profile.
-	DisplayName *string `pulumi:"displayName"`
-	// NSX Port Mirroring identifier. Generally the same as the Port Mirroring display name
-	PortMirroringId *string `pulumi:"portMirroringId"`
-	// Name of the private cloud
-	PrivateCloudName string `pulumi:"privateCloudName"`
-	// The name of the resource group. The name is case insensitive.
-	ResourceGroupName string `pulumi:"resourceGroupName"`
-	// NSX revision number.
-	Revision *float64 `pulumi:"revision"`
-	// Source VM Group.
-	Source *string `pulumi:"source"`
+	Destination       *string  `pulumi:"destination"`
+	Direction         *string  `pulumi:"direction"`
+	DisplayName       *string  `pulumi:"displayName"`
+	PortMirroringId   *string  `pulumi:"portMirroringId"`
+	PrivateCloudName  string   `pulumi:"privateCloudName"`
+	ResourceGroupName string   `pulumi:"resourceGroupName"`
+	Revision          *float64 `pulumi:"revision"`
+	Source            *string  `pulumi:"source"`
 }
 
 // The set of arguments for constructing a WorkloadNetworkPortMirroring resource.
 type WorkloadNetworkPortMirroringArgs struct {
-	// Destination VM Group.
-	Destination pulumi.StringPtrInput
-	// Direction of port mirroring profile.
-	Direction pulumi.StringPtrInput
-	// Display name of the port mirroring profile.
-	DisplayName pulumi.StringPtrInput
-	// NSX Port Mirroring identifier. Generally the same as the Port Mirroring display name
-	PortMirroringId pulumi.StringPtrInput
-	// Name of the private cloud
-	PrivateCloudName pulumi.StringInput
-	// The name of the resource group. The name is case insensitive.
+	Destination       pulumi.StringPtrInput
+	Direction         pulumi.StringPtrInput
+	DisplayName       pulumi.StringPtrInput
+	PortMirroringId   pulumi.StringPtrInput
+	PrivateCloudName  pulumi.StringInput
 	ResourceGroupName pulumi.StringInput
-	// NSX revision number.
-	Revision pulumi.Float64PtrInput
-	// Source VM Group.
-	Source pulumi.StringPtrInput
+	Revision          pulumi.Float64PtrInput
+	Source            pulumi.StringPtrInput
 }
 
 func (WorkloadNetworkPortMirroringArgs) ElementType() reflect.Type {
@@ -165,9 +139,7 @@ func (i *WorkloadNetworkPortMirroring) ToWorkloadNetworkPortMirroringOutputWithC
 	return pulumi.ToOutputWithContext(ctx, i).(WorkloadNetworkPortMirroringOutput)
 }
 
-type WorkloadNetworkPortMirroringOutput struct {
-	*pulumi.OutputState
-}
+type WorkloadNetworkPortMirroringOutput struct{ *pulumi.OutputState }
 
 func (WorkloadNetworkPortMirroringOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*WorkloadNetworkPortMirroring)(nil))

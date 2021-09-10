@@ -13,8 +13,10 @@ from . import outputs
 
 # Make subpackages available:
 if typing.TYPE_CHECKING:
-    import pulumi_azure_native.iotcentral.v20170701privatepreview as v20170701privatepreview
-    import pulumi_azure_native.iotcentral.v20180901 as v20180901
+    import pulumi_azure_native.iotcentral.v20170701privatepreview as __v20170701privatepreview
+    v20170701privatepreview = __v20170701privatepreview
+    import pulumi_azure_native.iotcentral.v20180901 as __v20180901
+    v20180901 = __v20180901
 else:
     v20170701privatepreview = _utilities.lazy_import('pulumi_azure_native.iotcentral.v20170701privatepreview')
     v20180901 = _utilities.lazy_import('pulumi_azure_native.iotcentral.v20180901')

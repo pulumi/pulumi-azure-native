@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.DataFactory.Outputs
 {
 
+    /// <summary>
+    /// The location of azure blobFS dataset.
+    /// </summary>
     [OutputType]
     public sealed class AzureBlobFSLocationResponse
     {

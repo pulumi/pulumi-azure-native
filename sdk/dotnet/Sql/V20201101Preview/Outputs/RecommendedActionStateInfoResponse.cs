@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.Sql.V20201101Preview.Outputs
 {
 
+    /// <summary>
+    /// Contains information of current state for an Azure SQL Database, Server or Elastic Pool Recommended Action.
+    /// </summary>
     [OutputType]
     public sealed class RecommendedActionStateInfoResponse
     {

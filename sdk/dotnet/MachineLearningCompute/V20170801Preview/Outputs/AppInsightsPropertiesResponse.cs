@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.MachineLearningCompute.V20170801Preview.Outputs
 {
 
+    /// <summary>
+    /// Properties of App Insights.
+    /// </summary>
     [OutputType]
     public sealed class AppInsightsPropertiesResponse
     {

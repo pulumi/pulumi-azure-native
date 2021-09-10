@@ -11,21 +11,15 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// API connection
 type Connection struct {
 	pulumi.CustomResourceState
 
-	// Resource ETag
-	Etag pulumi.StringPtrOutput `pulumi:"etag"`
-	// Resource location
-	Location pulumi.StringPtrOutput `pulumi:"location"`
-	// Resource name
+	Etag       pulumi.StringPtrOutput                          `pulumi:"etag"`
+	Location   pulumi.StringPtrOutput                          `pulumi:"location"`
 	Name       pulumi.StringOutput                             `pulumi:"name"`
 	Properties ApiConnectionDefinitionResponsePropertiesOutput `pulumi:"properties"`
-	// Resource tags
-	Tags pulumi.StringMapOutput `pulumi:"tags"`
-	// Resource type
-	Type pulumi.StringOutput `pulumi:"type"`
+	Tags       pulumi.StringMapOutput                          `pulumi:"tags"`
+	Type       pulumi.StringOutput                             `pulumi:"type"`
 }
 
 // NewConnection registers a new resource with the given unique name, arguments, and options.
@@ -88,36 +82,24 @@ func (ConnectionState) ElementType() reflect.Type {
 }
 
 type connectionArgs struct {
-	// Connection name
-	ConnectionName *string `pulumi:"connectionName"`
-	// Resource ETag
-	Etag *string `pulumi:"etag"`
-	// Resource location
-	Location   *string                            `pulumi:"location"`
-	Properties *ApiConnectionDefinitionProperties `pulumi:"properties"`
-	// The resource group
-	ResourceGroupName string `pulumi:"resourceGroupName"`
-	// Subscription Id
-	SubscriptionId *string `pulumi:"subscriptionId"`
-	// Resource tags
-	Tags map[string]string `pulumi:"tags"`
+	ConnectionName    *string                            `pulumi:"connectionName"`
+	Etag              *string                            `pulumi:"etag"`
+	Location          *string                            `pulumi:"location"`
+	Properties        *ApiConnectionDefinitionProperties `pulumi:"properties"`
+	ResourceGroupName string                             `pulumi:"resourceGroupName"`
+	SubscriptionId    *string                            `pulumi:"subscriptionId"`
+	Tags              map[string]string                  `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a Connection resource.
 type ConnectionArgs struct {
-	// Connection name
-	ConnectionName pulumi.StringPtrInput
-	// Resource ETag
-	Etag pulumi.StringPtrInput
-	// Resource location
-	Location   pulumi.StringPtrInput
-	Properties ApiConnectionDefinitionPropertiesPtrInput
-	// The resource group
+	ConnectionName    pulumi.StringPtrInput
+	Etag              pulumi.StringPtrInput
+	Location          pulumi.StringPtrInput
+	Properties        ApiConnectionDefinitionPropertiesPtrInput
 	ResourceGroupName pulumi.StringInput
-	// Subscription Id
-	SubscriptionId pulumi.StringPtrInput
-	// Resource tags
-	Tags pulumi.StringMapInput
+	SubscriptionId    pulumi.StringPtrInput
+	Tags              pulumi.StringMapInput
 }
 
 func (ConnectionArgs) ElementType() reflect.Type {
@@ -143,9 +125,7 @@ func (i *Connection) ToConnectionOutputWithContext(ctx context.Context) Connecti
 	return pulumi.ToOutputWithContext(ctx, i).(ConnectionOutput)
 }
 
-type ConnectionOutput struct {
-	*pulumi.OutputState
-}
+type ConnectionOutput struct{ *pulumi.OutputState }
 
 func (ConnectionOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*Connection)(nil))

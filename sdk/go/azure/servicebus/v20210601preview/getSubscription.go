@@ -7,7 +7,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Description of subscription resource.
 func LookupSubscription(ctx *pulumi.Context, args *LookupSubscriptionArgs, opts ...pulumi.InvokeOption) (*LookupSubscriptionResult, error) {
 	var rv LookupSubscriptionResult
 	err := ctx.Invoke("azure-native:servicebus/v20210601preview:getSubscription", args, &rv, opts...)
@@ -18,62 +17,35 @@ func LookupSubscription(ctx *pulumi.Context, args *LookupSubscriptionArgs, opts 
 }
 
 type LookupSubscriptionArgs struct {
-	// The namespace name
-	NamespaceName string `pulumi:"namespaceName"`
-	// Name of the Resource group within the Azure subscription.
+	NamespaceName     string `pulumi:"namespaceName"`
 	ResourceGroupName string `pulumi:"resourceGroupName"`
-	// The subscription name.
-	SubscriptionName string `pulumi:"subscriptionName"`
-	// The topic name.
-	TopicName string `pulumi:"topicName"`
+	SubscriptionName  string `pulumi:"subscriptionName"`
+	TopicName         string `pulumi:"topicName"`
 }
 
 // Description of subscription resource.
 type LookupSubscriptionResult struct {
-	// Last time there was a receive request to this subscription.
-	AccessedAt string `pulumi:"accessedAt"`
-	// ISO 8061 timeSpan idle interval after which the topic is automatically deleted. The minimum duration is 5 minutes.
-	AutoDeleteOnIdle *string `pulumi:"autoDeleteOnIdle"`
-	// Properties specific to client affine subscriptions.
-	ClientAffineProperties *SBClientAffinePropertiesResponse `pulumi:"clientAffineProperties"`
-	// Message count details
-	CountDetails MessageCountDetailsResponse `pulumi:"countDetails"`
-	// Exact time the message was created.
-	CreatedAt string `pulumi:"createdAt"`
-	// Value that indicates whether a subscription has dead letter support on filter evaluation exceptions.
-	DeadLetteringOnFilterEvaluationExceptions *bool `pulumi:"deadLetteringOnFilterEvaluationExceptions"`
-	// Value that indicates whether a subscription has dead letter support when a message expires.
-	DeadLetteringOnMessageExpiration *bool `pulumi:"deadLetteringOnMessageExpiration"`
-	// ISO 8061 Default message timespan to live value. This is the duration after which the message expires, starting from when the message is sent to Service Bus. This is the default value used when TimeToLive is not set on a message itself.
-	DefaultMessageTimeToLive *string `pulumi:"defaultMessageTimeToLive"`
-	// ISO 8601 timeSpan structure that defines the duration of the duplicate detection history. The default value is 10 minutes.
-	DuplicateDetectionHistoryTimeWindow *string `pulumi:"duplicateDetectionHistoryTimeWindow"`
-	// Value that indicates whether server-side batched operations are enabled.
-	EnableBatchedOperations *bool `pulumi:"enableBatchedOperations"`
-	// Queue/Topic name to forward the Dead Letter message
-	ForwardDeadLetteredMessagesTo *string `pulumi:"forwardDeadLetteredMessagesTo"`
-	// Queue/Topic name to forward the messages
-	ForwardTo *string `pulumi:"forwardTo"`
-	// Resource Id
-	Id string `pulumi:"id"`
-	// Value that indicates whether the subscription has an affinity to the client id.
-	IsClientAffine *bool `pulumi:"isClientAffine"`
-	// ISO 8061 lock duration timespan for the subscription. The default value is 1 minute.
-	LockDuration *string `pulumi:"lockDuration"`
-	// Number of maximum deliveries.
-	MaxDeliveryCount *int `pulumi:"maxDeliveryCount"`
-	// Number of messages.
-	MessageCount float64 `pulumi:"messageCount"`
-	// Resource name
-	Name string `pulumi:"name"`
-	// Value indicating if a subscription supports the concept of sessions.
-	RequiresSession *bool `pulumi:"requiresSession"`
-	// Enumerates the possible values for the status of a messaging entity.
-	Status *string `pulumi:"status"`
-	// The system meta data relating to this resource.
-	SystemData SystemDataResponse `pulumi:"systemData"`
-	// Resource type
-	Type string `pulumi:"type"`
-	// The exact time the message was updated.
-	UpdatedAt string `pulumi:"updatedAt"`
+	AccessedAt                                string                            `pulumi:"accessedAt"`
+	AutoDeleteOnIdle                          *string                           `pulumi:"autoDeleteOnIdle"`
+	ClientAffineProperties                    *SBClientAffinePropertiesResponse `pulumi:"clientAffineProperties"`
+	CountDetails                              MessageCountDetailsResponse       `pulumi:"countDetails"`
+	CreatedAt                                 string                            `pulumi:"createdAt"`
+	DeadLetteringOnFilterEvaluationExceptions *bool                             `pulumi:"deadLetteringOnFilterEvaluationExceptions"`
+	DeadLetteringOnMessageExpiration          *bool                             `pulumi:"deadLetteringOnMessageExpiration"`
+	DefaultMessageTimeToLive                  *string                           `pulumi:"defaultMessageTimeToLive"`
+	DuplicateDetectionHistoryTimeWindow       *string                           `pulumi:"duplicateDetectionHistoryTimeWindow"`
+	EnableBatchedOperations                   *bool                             `pulumi:"enableBatchedOperations"`
+	ForwardDeadLetteredMessagesTo             *string                           `pulumi:"forwardDeadLetteredMessagesTo"`
+	ForwardTo                                 *string                           `pulumi:"forwardTo"`
+	Id                                        string                            `pulumi:"id"`
+	IsClientAffine                            *bool                             `pulumi:"isClientAffine"`
+	LockDuration                              *string                           `pulumi:"lockDuration"`
+	MaxDeliveryCount                          *int                              `pulumi:"maxDeliveryCount"`
+	MessageCount                              float64                           `pulumi:"messageCount"`
+	Name                                      string                            `pulumi:"name"`
+	RequiresSession                           *bool                             `pulumi:"requiresSession"`
+	Status                                    *string                           `pulumi:"status"`
+	SystemData                                SystemDataResponse                `pulumi:"systemData"`
+	Type                                      string                            `pulumi:"type"`
+	UpdatedAt                                 string                            `pulumi:"updatedAt"`
 }

@@ -11,18 +11,13 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// String dictionary resource.
 type WebAppApplicationSettingsSlot struct {
 	pulumi.CustomResourceState
 
-	// Kind of resource.
-	Kind pulumi.StringPtrOutput `pulumi:"kind"`
-	// Resource Name.
-	Name pulumi.StringOutput `pulumi:"name"`
-	// Settings.
+	Kind       pulumi.StringPtrOutput `pulumi:"kind"`
+	Name       pulumi.StringOutput    `pulumi:"name"`
 	Properties pulumi.StringMapOutput `pulumi:"properties"`
-	// Resource type.
-	Type pulumi.StringOutput `pulumi:"type"`
+	Type       pulumi.StringOutput    `pulumi:"type"`
 }
 
 // NewWebAppApplicationSettingsSlot registers a new resource with the given unique name, arguments, and options.
@@ -151,30 +146,20 @@ func (WebAppApplicationSettingsSlotState) ElementType() reflect.Type {
 }
 
 type webAppApplicationSettingsSlotArgs struct {
-	// Kind of resource.
-	Kind *string `pulumi:"kind"`
-	// Name of the app.
-	Name string `pulumi:"name"`
-	// Settings.
-	Properties map[string]string `pulumi:"properties"`
-	// Name of the resource group to which the resource belongs.
-	ResourceGroupName string `pulumi:"resourceGroupName"`
-	// Name of the deployment slot. If a slot is not specified, the API will update the application settings for the production slot.
-	Slot string `pulumi:"slot"`
+	Kind              *string           `pulumi:"kind"`
+	Name              string            `pulumi:"name"`
+	Properties        map[string]string `pulumi:"properties"`
+	ResourceGroupName string            `pulumi:"resourceGroupName"`
+	Slot              string            `pulumi:"slot"`
 }
 
 // The set of arguments for constructing a WebAppApplicationSettingsSlot resource.
 type WebAppApplicationSettingsSlotArgs struct {
-	// Kind of resource.
-	Kind pulumi.StringPtrInput
-	// Name of the app.
-	Name pulumi.StringInput
-	// Settings.
-	Properties pulumi.StringMapInput
-	// Name of the resource group to which the resource belongs.
+	Kind              pulumi.StringPtrInput
+	Name              pulumi.StringInput
+	Properties        pulumi.StringMapInput
 	ResourceGroupName pulumi.StringInput
-	// Name of the deployment slot. If a slot is not specified, the API will update the application settings for the production slot.
-	Slot pulumi.StringInput
+	Slot              pulumi.StringInput
 }
 
 func (WebAppApplicationSettingsSlotArgs) ElementType() reflect.Type {
@@ -200,9 +185,7 @@ func (i *WebAppApplicationSettingsSlot) ToWebAppApplicationSettingsSlotOutputWit
 	return pulumi.ToOutputWithContext(ctx, i).(WebAppApplicationSettingsSlotOutput)
 }
 
-type WebAppApplicationSettingsSlotOutput struct {
-	*pulumi.OutputState
-}
+type WebAppApplicationSettingsSlotOutput struct{ *pulumi.OutputState }
 
 func (WebAppApplicationSettingsSlotOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*WebAppApplicationSettingsSlot)(nil))

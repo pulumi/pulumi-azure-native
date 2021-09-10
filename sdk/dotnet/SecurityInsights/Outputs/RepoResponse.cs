@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.SecurityInsights.Outputs
 {
 
+    /// <summary>
+    /// Represents a repository.
+    /// </summary>
     [OutputType]
     public sealed class RepoResponse
     {

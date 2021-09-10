@@ -11,14 +11,10 @@ import (
 )
 
 type ErrorDetailResponse struct {
-	// The error's code.
-	Code string `pulumi:"code"`
-	// Additional error details.
+	Code    string                `pulumi:"code"`
 	Details []ErrorDetailResponse `pulumi:"details"`
-	// A human readable error message.
-	Message string `pulumi:"message"`
-	// Indicates which property in the request is responsible for the error.
-	Target *string `pulumi:"target"`
+	Message string                `pulumi:"message"`
+	Target  *string               `pulumi:"target"`
 }
 
 // ErrorDetailResponseInput is an input type that accepts ErrorDetailResponseArgs and ErrorDetailResponseOutput values.
@@ -33,14 +29,10 @@ type ErrorDetailResponseInput interface {
 }
 
 type ErrorDetailResponseArgs struct {
-	// The error's code.
-	Code pulumi.StringInput `pulumi:"code"`
-	// Additional error details.
+	Code    pulumi.StringInput            `pulumi:"code"`
 	Details ErrorDetailResponseArrayInput `pulumi:"details"`
-	// A human readable error message.
-	Message pulumi.StringInput `pulumi:"message"`
-	// Indicates which property in the request is responsible for the error.
-	Target pulumi.StringPtrInput `pulumi:"target"`
+	Message pulumi.StringInput            `pulumi:"message"`
+	Target  pulumi.StringPtrInput         `pulumi:"target"`
 }
 
 func (ErrorDetailResponseArgs) ElementType() reflect.Type {
@@ -94,22 +86,18 @@ func (o ErrorDetailResponseOutput) ToErrorDetailResponseOutputWithContext(ctx co
 	return o
 }
 
-// The error's code.
 func (o ErrorDetailResponseOutput) Code() pulumi.StringOutput {
 	return o.ApplyT(func(v ErrorDetailResponse) string { return v.Code }).(pulumi.StringOutput)
 }
 
-// Additional error details.
 func (o ErrorDetailResponseOutput) Details() ErrorDetailResponseArrayOutput {
 	return o.ApplyT(func(v ErrorDetailResponse) []ErrorDetailResponse { return v.Details }).(ErrorDetailResponseArrayOutput)
 }
 
-// A human readable error message.
 func (o ErrorDetailResponseOutput) Message() pulumi.StringOutput {
 	return o.ApplyT(func(v ErrorDetailResponse) string { return v.Message }).(pulumi.StringOutput)
 }
 
-// Indicates which property in the request is responsible for the error.
 func (o ErrorDetailResponseOutput) Target() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ErrorDetailResponse) *string { return v.Target }).(pulumi.StringPtrOutput)
 }
@@ -134,16 +122,11 @@ func (o ErrorDetailResponseArrayOutput) Index(i pulumi.IntInput) ErrorDetailResp
 	}).(ErrorDetailResponseOutput)
 }
 
-// Metadata pertaining to the geographic location of the resource.
 type LocationData struct {
-	// The city or locality where the resource is located.
-	City *string `pulumi:"city"`
-	// The country or region where the resource is located
+	City            *string `pulumi:"city"`
 	CountryOrRegion *string `pulumi:"countryOrRegion"`
-	// The district, state, or province where the resource is located.
-	District *string `pulumi:"district"`
-	// A canonical name for the geographic or physical location.
-	Name string `pulumi:"name"`
+	District        *string `pulumi:"district"`
+	Name            string  `pulumi:"name"`
 }
 
 // LocationDataInput is an input type that accepts LocationDataArgs and LocationDataOutput values.
@@ -157,16 +140,11 @@ type LocationDataInput interface {
 	ToLocationDataOutputWithContext(context.Context) LocationDataOutput
 }
 
-// Metadata pertaining to the geographic location of the resource.
 type LocationDataArgs struct {
-	// The city or locality where the resource is located.
-	City pulumi.StringPtrInput `pulumi:"city"`
-	// The country or region where the resource is located
+	City            pulumi.StringPtrInput `pulumi:"city"`
 	CountryOrRegion pulumi.StringPtrInput `pulumi:"countryOrRegion"`
-	// The district, state, or province where the resource is located.
-	District pulumi.StringPtrInput `pulumi:"district"`
-	// A canonical name for the geographic or physical location.
-	Name pulumi.StringInput `pulumi:"name"`
+	District        pulumi.StringPtrInput `pulumi:"district"`
+	Name            pulumi.StringInput    `pulumi:"name"`
 }
 
 func (LocationDataArgs) ElementType() reflect.Type {
@@ -222,7 +200,6 @@ func (i *locationDataPtrType) ToLocationDataPtrOutputWithContext(ctx context.Con
 	return pulumi.ToOutputWithContext(ctx, i).(LocationDataPtrOutput)
 }
 
-// Metadata pertaining to the geographic location of the resource.
 type LocationDataOutput struct{ *pulumi.OutputState }
 
 func (LocationDataOutput) ElementType() reflect.Type {
@@ -242,27 +219,23 @@ func (o LocationDataOutput) ToLocationDataPtrOutput() LocationDataPtrOutput {
 }
 
 func (o LocationDataOutput) ToLocationDataPtrOutputWithContext(ctx context.Context) LocationDataPtrOutput {
-	return o.ApplyT(func(v LocationData) *LocationData {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v LocationData) *LocationData {
 		return &v
 	}).(LocationDataPtrOutput)
 }
 
-// The city or locality where the resource is located.
 func (o LocationDataOutput) City() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LocationData) *string { return v.City }).(pulumi.StringPtrOutput)
 }
 
-// The country or region where the resource is located
 func (o LocationDataOutput) CountryOrRegion() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LocationData) *string { return v.CountryOrRegion }).(pulumi.StringPtrOutput)
 }
 
-// The district, state, or province where the resource is located.
 func (o LocationDataOutput) District() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LocationData) *string { return v.District }).(pulumi.StringPtrOutput)
 }
 
-// A canonical name for the geographic or physical location.
 func (o LocationDataOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v LocationData) string { return v.Name }).(pulumi.StringOutput)
 }
@@ -282,10 +255,15 @@ func (o LocationDataPtrOutput) ToLocationDataPtrOutputWithContext(ctx context.Co
 }
 
 func (o LocationDataPtrOutput) Elem() LocationDataOutput {
-	return o.ApplyT(func(v *LocationData) LocationData { return *v }).(LocationDataOutput)
+	return o.ApplyT(func(v *LocationData) LocationData {
+		if v != nil {
+			return *v
+		}
+		var ret LocationData
+		return ret
+	}).(LocationDataOutput)
 }
 
-// The city or locality where the resource is located.
 func (o LocationDataPtrOutput) City() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *LocationData) *string {
 		if v == nil {
@@ -295,7 +273,6 @@ func (o LocationDataPtrOutput) City() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The country or region where the resource is located
 func (o LocationDataPtrOutput) CountryOrRegion() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *LocationData) *string {
 		if v == nil {
@@ -305,7 +282,6 @@ func (o LocationDataPtrOutput) CountryOrRegion() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The district, state, or province where the resource is located.
 func (o LocationDataPtrOutput) District() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *LocationData) *string {
 		if v == nil {
@@ -315,7 +291,6 @@ func (o LocationDataPtrOutput) District() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// A canonical name for the geographic or physical location.
 func (o LocationDataPtrOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *LocationData) *string {
 		if v == nil {
@@ -325,16 +300,11 @@ func (o LocationDataPtrOutput) Name() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Metadata pertaining to the geographic location of the resource.
 type LocationDataResponse struct {
-	// The city or locality where the resource is located.
-	City *string `pulumi:"city"`
-	// The country or region where the resource is located
+	City            *string `pulumi:"city"`
 	CountryOrRegion *string `pulumi:"countryOrRegion"`
-	// The district, state, or province where the resource is located.
-	District *string `pulumi:"district"`
-	// A canonical name for the geographic or physical location.
-	Name string `pulumi:"name"`
+	District        *string `pulumi:"district"`
+	Name            string  `pulumi:"name"`
 }
 
 // LocationDataResponseInput is an input type that accepts LocationDataResponseArgs and LocationDataResponseOutput values.
@@ -348,16 +318,11 @@ type LocationDataResponseInput interface {
 	ToLocationDataResponseOutputWithContext(context.Context) LocationDataResponseOutput
 }
 
-// Metadata pertaining to the geographic location of the resource.
 type LocationDataResponseArgs struct {
-	// The city or locality where the resource is located.
-	City pulumi.StringPtrInput `pulumi:"city"`
-	// The country or region where the resource is located
+	City            pulumi.StringPtrInput `pulumi:"city"`
 	CountryOrRegion pulumi.StringPtrInput `pulumi:"countryOrRegion"`
-	// The district, state, or province where the resource is located.
-	District pulumi.StringPtrInput `pulumi:"district"`
-	// A canonical name for the geographic or physical location.
-	Name pulumi.StringInput `pulumi:"name"`
+	District        pulumi.StringPtrInput `pulumi:"district"`
+	Name            pulumi.StringInput    `pulumi:"name"`
 }
 
 func (LocationDataResponseArgs) ElementType() reflect.Type {
@@ -413,7 +378,6 @@ func (i *locationDataResponsePtrType) ToLocationDataResponsePtrOutputWithContext
 	return pulumi.ToOutputWithContext(ctx, i).(LocationDataResponsePtrOutput)
 }
 
-// Metadata pertaining to the geographic location of the resource.
 type LocationDataResponseOutput struct{ *pulumi.OutputState }
 
 func (LocationDataResponseOutput) ElementType() reflect.Type {
@@ -433,27 +397,23 @@ func (o LocationDataResponseOutput) ToLocationDataResponsePtrOutput() LocationDa
 }
 
 func (o LocationDataResponseOutput) ToLocationDataResponsePtrOutputWithContext(ctx context.Context) LocationDataResponsePtrOutput {
-	return o.ApplyT(func(v LocationDataResponse) *LocationDataResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v LocationDataResponse) *LocationDataResponse {
 		return &v
 	}).(LocationDataResponsePtrOutput)
 }
 
-// The city or locality where the resource is located.
 func (o LocationDataResponseOutput) City() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LocationDataResponse) *string { return v.City }).(pulumi.StringPtrOutput)
 }
 
-// The country or region where the resource is located
 func (o LocationDataResponseOutput) CountryOrRegion() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LocationDataResponse) *string { return v.CountryOrRegion }).(pulumi.StringPtrOutput)
 }
 
-// The district, state, or province where the resource is located.
 func (o LocationDataResponseOutput) District() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LocationDataResponse) *string { return v.District }).(pulumi.StringPtrOutput)
 }
 
-// A canonical name for the geographic or physical location.
 func (o LocationDataResponseOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v LocationDataResponse) string { return v.Name }).(pulumi.StringOutput)
 }
@@ -473,10 +433,15 @@ func (o LocationDataResponsePtrOutput) ToLocationDataResponsePtrOutputWithContex
 }
 
 func (o LocationDataResponsePtrOutput) Elem() LocationDataResponseOutput {
-	return o.ApplyT(func(v *LocationDataResponse) LocationDataResponse { return *v }).(LocationDataResponseOutput)
+	return o.ApplyT(func(v *LocationDataResponse) LocationDataResponse {
+		if v != nil {
+			return *v
+		}
+		var ret LocationDataResponse
+		return ret
+	}).(LocationDataResponseOutput)
 }
 
-// The city or locality where the resource is located.
 func (o LocationDataResponsePtrOutput) City() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *LocationDataResponse) *string {
 		if v == nil {
@@ -486,7 +451,6 @@ func (o LocationDataResponsePtrOutput) City() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The country or region where the resource is located
 func (o LocationDataResponsePtrOutput) CountryOrRegion() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *LocationDataResponse) *string {
 		if v == nil {
@@ -496,7 +460,6 @@ func (o LocationDataResponsePtrOutput) CountryOrRegion() pulumi.StringPtrOutput 
 	}).(pulumi.StringPtrOutput)
 }
 
-// The district, state, or province where the resource is located.
 func (o LocationDataResponsePtrOutput) District() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *LocationDataResponse) *string {
 		if v == nil {
@@ -506,7 +469,6 @@ func (o LocationDataResponsePtrOutput) District() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// A canonical name for the geographic or physical location.
 func (o LocationDataResponsePtrOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *LocationDataResponse) *string {
 		if v == nil {
@@ -516,16 +478,11 @@ func (o LocationDataResponsePtrOutput) Name() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Describes the Machine Extension Instance View.
 type MachineExtensionInstanceView struct {
-	// The machine extension name.
-	Name *string `pulumi:"name"`
-	// Instance view status.
-	Status *MachineExtensionInstanceViewStatus `pulumi:"status"`
-	// Specifies the type of the extension; an example is "CustomScriptExtension".
-	Type *string `pulumi:"type"`
-	// Specifies the version of the script handler.
-	TypeHandlerVersion *string `pulumi:"typeHandlerVersion"`
+	Name               *string                             `pulumi:"name"`
+	Status             *MachineExtensionInstanceViewStatus `pulumi:"status"`
+	Type               *string                             `pulumi:"type"`
+	TypeHandlerVersion *string                             `pulumi:"typeHandlerVersion"`
 }
 
 // MachineExtensionInstanceViewInput is an input type that accepts MachineExtensionInstanceViewArgs and MachineExtensionInstanceViewOutput values.
@@ -539,16 +496,11 @@ type MachineExtensionInstanceViewInput interface {
 	ToMachineExtensionInstanceViewOutputWithContext(context.Context) MachineExtensionInstanceViewOutput
 }
 
-// Describes the Machine Extension Instance View.
 type MachineExtensionInstanceViewArgs struct {
-	// The machine extension name.
-	Name pulumi.StringPtrInput `pulumi:"name"`
-	// Instance view status.
-	Status MachineExtensionInstanceViewStatusPtrInput `pulumi:"status"`
-	// Specifies the type of the extension; an example is "CustomScriptExtension".
-	Type pulumi.StringPtrInput `pulumi:"type"`
-	// Specifies the version of the script handler.
-	TypeHandlerVersion pulumi.StringPtrInput `pulumi:"typeHandlerVersion"`
+	Name               pulumi.StringPtrInput                      `pulumi:"name"`
+	Status             MachineExtensionInstanceViewStatusPtrInput `pulumi:"status"`
+	Type               pulumi.StringPtrInput                      `pulumi:"type"`
+	TypeHandlerVersion pulumi.StringPtrInput                      `pulumi:"typeHandlerVersion"`
 }
 
 func (MachineExtensionInstanceViewArgs) ElementType() reflect.Type {
@@ -588,7 +540,6 @@ func (i MachineExtensionInstanceViewArray) ToMachineExtensionInstanceViewArrayOu
 	return pulumi.ToOutputWithContext(ctx, i).(MachineExtensionInstanceViewArrayOutput)
 }
 
-// Describes the Machine Extension Instance View.
 type MachineExtensionInstanceViewOutput struct{ *pulumi.OutputState }
 
 func (MachineExtensionInstanceViewOutput) ElementType() reflect.Type {
@@ -603,22 +554,18 @@ func (o MachineExtensionInstanceViewOutput) ToMachineExtensionInstanceViewOutput
 	return o
 }
 
-// The machine extension name.
 func (o MachineExtensionInstanceViewOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v MachineExtensionInstanceView) *string { return v.Name }).(pulumi.StringPtrOutput)
 }
 
-// Instance view status.
 func (o MachineExtensionInstanceViewOutput) Status() MachineExtensionInstanceViewStatusPtrOutput {
 	return o.ApplyT(func(v MachineExtensionInstanceView) *MachineExtensionInstanceViewStatus { return v.Status }).(MachineExtensionInstanceViewStatusPtrOutput)
 }
 
-// Specifies the type of the extension; an example is "CustomScriptExtension".
 func (o MachineExtensionInstanceViewOutput) Type() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v MachineExtensionInstanceView) *string { return v.Type }).(pulumi.StringPtrOutput)
 }
 
-// Specifies the version of the script handler.
 func (o MachineExtensionInstanceViewOutput) TypeHandlerVersion() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v MachineExtensionInstanceView) *string { return v.TypeHandlerVersion }).(pulumi.StringPtrOutput)
 }
@@ -643,16 +590,11 @@ func (o MachineExtensionInstanceViewArrayOutput) Index(i pulumi.IntInput) Machin
 	}).(MachineExtensionInstanceViewOutput)
 }
 
-// Describes the Machine Extension Instance View.
 type MachineExtensionInstanceViewResponse struct {
-	// The machine extension name.
-	Name *string `pulumi:"name"`
-	// Instance view status.
-	Status *MachineExtensionInstanceViewResponseStatus `pulumi:"status"`
-	// Specifies the type of the extension; an example is "CustomScriptExtension".
-	Type *string `pulumi:"type"`
-	// Specifies the version of the script handler.
-	TypeHandlerVersion *string `pulumi:"typeHandlerVersion"`
+	Name               *string                                     `pulumi:"name"`
+	Status             *MachineExtensionInstanceViewResponseStatus `pulumi:"status"`
+	Type               *string                                     `pulumi:"type"`
+	TypeHandlerVersion *string                                     `pulumi:"typeHandlerVersion"`
 }
 
 // MachineExtensionInstanceViewResponseInput is an input type that accepts MachineExtensionInstanceViewResponseArgs and MachineExtensionInstanceViewResponseOutput values.
@@ -666,16 +608,11 @@ type MachineExtensionInstanceViewResponseInput interface {
 	ToMachineExtensionInstanceViewResponseOutputWithContext(context.Context) MachineExtensionInstanceViewResponseOutput
 }
 
-// Describes the Machine Extension Instance View.
 type MachineExtensionInstanceViewResponseArgs struct {
-	// The machine extension name.
-	Name pulumi.StringPtrInput `pulumi:"name"`
-	// Instance view status.
-	Status MachineExtensionInstanceViewResponseStatusPtrInput `pulumi:"status"`
-	// Specifies the type of the extension; an example is "CustomScriptExtension".
-	Type pulumi.StringPtrInput `pulumi:"type"`
-	// Specifies the version of the script handler.
-	TypeHandlerVersion pulumi.StringPtrInput `pulumi:"typeHandlerVersion"`
+	Name               pulumi.StringPtrInput                              `pulumi:"name"`
+	Status             MachineExtensionInstanceViewResponseStatusPtrInput `pulumi:"status"`
+	Type               pulumi.StringPtrInput                              `pulumi:"type"`
+	TypeHandlerVersion pulumi.StringPtrInput                              `pulumi:"typeHandlerVersion"`
 }
 
 func (MachineExtensionInstanceViewResponseArgs) ElementType() reflect.Type {
@@ -715,7 +652,6 @@ func (i MachineExtensionInstanceViewResponseArray) ToMachineExtensionInstanceVie
 	return pulumi.ToOutputWithContext(ctx, i).(MachineExtensionInstanceViewResponseArrayOutput)
 }
 
-// Describes the Machine Extension Instance View.
 type MachineExtensionInstanceViewResponseOutput struct{ *pulumi.OutputState }
 
 func (MachineExtensionInstanceViewResponseOutput) ElementType() reflect.Type {
@@ -730,24 +666,20 @@ func (o MachineExtensionInstanceViewResponseOutput) ToMachineExtensionInstanceVi
 	return o
 }
 
-// The machine extension name.
 func (o MachineExtensionInstanceViewResponseOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v MachineExtensionInstanceViewResponse) *string { return v.Name }).(pulumi.StringPtrOutput)
 }
 
-// Instance view status.
 func (o MachineExtensionInstanceViewResponseOutput) Status() MachineExtensionInstanceViewResponseStatusPtrOutput {
 	return o.ApplyT(func(v MachineExtensionInstanceViewResponse) *MachineExtensionInstanceViewResponseStatus {
 		return v.Status
 	}).(MachineExtensionInstanceViewResponseStatusPtrOutput)
 }
 
-// Specifies the type of the extension; an example is "CustomScriptExtension".
 func (o MachineExtensionInstanceViewResponseOutput) Type() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v MachineExtensionInstanceViewResponse) *string { return v.Type }).(pulumi.StringPtrOutput)
 }
 
-// Specifies the version of the script handler.
 func (o MachineExtensionInstanceViewResponseOutput) TypeHandlerVersion() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v MachineExtensionInstanceViewResponse) *string { return v.TypeHandlerVersion }).(pulumi.StringPtrOutput)
 }
@@ -772,18 +704,12 @@ func (o MachineExtensionInstanceViewResponseArrayOutput) Index(i pulumi.IntInput
 	}).(MachineExtensionInstanceViewResponseOutput)
 }
 
-// Instance view status.
 type MachineExtensionInstanceViewResponseStatus struct {
-	// The status code.
-	Code *string `pulumi:"code"`
-	// The short localizable label for the status.
+	Code          *string `pulumi:"code"`
 	DisplayStatus *string `pulumi:"displayStatus"`
-	// The level code.
-	Level *string `pulumi:"level"`
-	// The detailed status message, including for alerts and error messages.
-	Message *string `pulumi:"message"`
-	// The time of the status.
-	Time *string `pulumi:"time"`
+	Level         *string `pulumi:"level"`
+	Message       *string `pulumi:"message"`
+	Time          *string `pulumi:"time"`
 }
 
 // MachineExtensionInstanceViewResponseStatusInput is an input type that accepts MachineExtensionInstanceViewResponseStatusArgs and MachineExtensionInstanceViewResponseStatusOutput values.
@@ -797,18 +723,12 @@ type MachineExtensionInstanceViewResponseStatusInput interface {
 	ToMachineExtensionInstanceViewResponseStatusOutputWithContext(context.Context) MachineExtensionInstanceViewResponseStatusOutput
 }
 
-// Instance view status.
 type MachineExtensionInstanceViewResponseStatusArgs struct {
-	// The status code.
-	Code pulumi.StringPtrInput `pulumi:"code"`
-	// The short localizable label for the status.
+	Code          pulumi.StringPtrInput `pulumi:"code"`
 	DisplayStatus pulumi.StringPtrInput `pulumi:"displayStatus"`
-	// The level code.
-	Level pulumi.StringPtrInput `pulumi:"level"`
-	// The detailed status message, including for alerts and error messages.
-	Message pulumi.StringPtrInput `pulumi:"message"`
-	// The time of the status.
-	Time pulumi.StringPtrInput `pulumi:"time"`
+	Level         pulumi.StringPtrInput `pulumi:"level"`
+	Message       pulumi.StringPtrInput `pulumi:"message"`
+	Time          pulumi.StringPtrInput `pulumi:"time"`
 }
 
 func (MachineExtensionInstanceViewResponseStatusArgs) ElementType() reflect.Type {
@@ -864,7 +784,6 @@ func (i *machineExtensionInstanceViewResponseStatusPtrType) ToMachineExtensionIn
 	return pulumi.ToOutputWithContext(ctx, i).(MachineExtensionInstanceViewResponseStatusPtrOutput)
 }
 
-// Instance view status.
 type MachineExtensionInstanceViewResponseStatusOutput struct{ *pulumi.OutputState }
 
 func (MachineExtensionInstanceViewResponseStatusOutput) ElementType() reflect.Type {
@@ -884,32 +803,27 @@ func (o MachineExtensionInstanceViewResponseStatusOutput) ToMachineExtensionInst
 }
 
 func (o MachineExtensionInstanceViewResponseStatusOutput) ToMachineExtensionInstanceViewResponseStatusPtrOutputWithContext(ctx context.Context) MachineExtensionInstanceViewResponseStatusPtrOutput {
-	return o.ApplyT(func(v MachineExtensionInstanceViewResponseStatus) *MachineExtensionInstanceViewResponseStatus {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v MachineExtensionInstanceViewResponseStatus) *MachineExtensionInstanceViewResponseStatus {
 		return &v
 	}).(MachineExtensionInstanceViewResponseStatusPtrOutput)
 }
 
-// The status code.
 func (o MachineExtensionInstanceViewResponseStatusOutput) Code() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v MachineExtensionInstanceViewResponseStatus) *string { return v.Code }).(pulumi.StringPtrOutput)
 }
 
-// The short localizable label for the status.
 func (o MachineExtensionInstanceViewResponseStatusOutput) DisplayStatus() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v MachineExtensionInstanceViewResponseStatus) *string { return v.DisplayStatus }).(pulumi.StringPtrOutput)
 }
 
-// The level code.
 func (o MachineExtensionInstanceViewResponseStatusOutput) Level() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v MachineExtensionInstanceViewResponseStatus) *string { return v.Level }).(pulumi.StringPtrOutput)
 }
 
-// The detailed status message, including for alerts and error messages.
 func (o MachineExtensionInstanceViewResponseStatusOutput) Message() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v MachineExtensionInstanceViewResponseStatus) *string { return v.Message }).(pulumi.StringPtrOutput)
 }
 
-// The time of the status.
 func (o MachineExtensionInstanceViewResponseStatusOutput) Time() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v MachineExtensionInstanceViewResponseStatus) *string { return v.Time }).(pulumi.StringPtrOutput)
 }
@@ -930,11 +844,14 @@ func (o MachineExtensionInstanceViewResponseStatusPtrOutput) ToMachineExtensionI
 
 func (o MachineExtensionInstanceViewResponseStatusPtrOutput) Elem() MachineExtensionInstanceViewResponseStatusOutput {
 	return o.ApplyT(func(v *MachineExtensionInstanceViewResponseStatus) MachineExtensionInstanceViewResponseStatus {
-		return *v
+		if v != nil {
+			return *v
+		}
+		var ret MachineExtensionInstanceViewResponseStatus
+		return ret
 	}).(MachineExtensionInstanceViewResponseStatusOutput)
 }
 
-// The status code.
 func (o MachineExtensionInstanceViewResponseStatusPtrOutput) Code() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *MachineExtensionInstanceViewResponseStatus) *string {
 		if v == nil {
@@ -944,7 +861,6 @@ func (o MachineExtensionInstanceViewResponseStatusPtrOutput) Code() pulumi.Strin
 	}).(pulumi.StringPtrOutput)
 }
 
-// The short localizable label for the status.
 func (o MachineExtensionInstanceViewResponseStatusPtrOutput) DisplayStatus() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *MachineExtensionInstanceViewResponseStatus) *string {
 		if v == nil {
@@ -954,7 +870,6 @@ func (o MachineExtensionInstanceViewResponseStatusPtrOutput) DisplayStatus() pul
 	}).(pulumi.StringPtrOutput)
 }
 
-// The level code.
 func (o MachineExtensionInstanceViewResponseStatusPtrOutput) Level() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *MachineExtensionInstanceViewResponseStatus) *string {
 		if v == nil {
@@ -964,7 +879,6 @@ func (o MachineExtensionInstanceViewResponseStatusPtrOutput) Level() pulumi.Stri
 	}).(pulumi.StringPtrOutput)
 }
 
-// The detailed status message, including for alerts and error messages.
 func (o MachineExtensionInstanceViewResponseStatusPtrOutput) Message() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *MachineExtensionInstanceViewResponseStatus) *string {
 		if v == nil {
@@ -974,7 +888,6 @@ func (o MachineExtensionInstanceViewResponseStatusPtrOutput) Message() pulumi.St
 	}).(pulumi.StringPtrOutput)
 }
 
-// The time of the status.
 func (o MachineExtensionInstanceViewResponseStatusPtrOutput) Time() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *MachineExtensionInstanceViewResponseStatus) *string {
 		if v == nil {
@@ -984,18 +897,12 @@ func (o MachineExtensionInstanceViewResponseStatusPtrOutput) Time() pulumi.Strin
 	}).(pulumi.StringPtrOutput)
 }
 
-// Instance view status.
 type MachineExtensionInstanceViewStatus struct {
-	// The status code.
-	Code *string `pulumi:"code"`
-	// The short localizable label for the status.
+	Code          *string `pulumi:"code"`
 	DisplayStatus *string `pulumi:"displayStatus"`
-	// The level code.
-	Level *string `pulumi:"level"`
-	// The detailed status message, including for alerts and error messages.
-	Message *string `pulumi:"message"`
-	// The time of the status.
-	Time *string `pulumi:"time"`
+	Level         *string `pulumi:"level"`
+	Message       *string `pulumi:"message"`
+	Time          *string `pulumi:"time"`
 }
 
 // MachineExtensionInstanceViewStatusInput is an input type that accepts MachineExtensionInstanceViewStatusArgs and MachineExtensionInstanceViewStatusOutput values.
@@ -1009,18 +916,12 @@ type MachineExtensionInstanceViewStatusInput interface {
 	ToMachineExtensionInstanceViewStatusOutputWithContext(context.Context) MachineExtensionInstanceViewStatusOutput
 }
 
-// Instance view status.
 type MachineExtensionInstanceViewStatusArgs struct {
-	// The status code.
-	Code pulumi.StringPtrInput `pulumi:"code"`
-	// The short localizable label for the status.
+	Code          pulumi.StringPtrInput `pulumi:"code"`
 	DisplayStatus pulumi.StringPtrInput `pulumi:"displayStatus"`
-	// The level code.
-	Level pulumi.StringPtrInput `pulumi:"level"`
-	// The detailed status message, including for alerts and error messages.
-	Message pulumi.StringPtrInput `pulumi:"message"`
-	// The time of the status.
-	Time pulumi.StringPtrInput `pulumi:"time"`
+	Level         pulumi.StringPtrInput `pulumi:"level"`
+	Message       pulumi.StringPtrInput `pulumi:"message"`
+	Time          pulumi.StringPtrInput `pulumi:"time"`
 }
 
 func (MachineExtensionInstanceViewStatusArgs) ElementType() reflect.Type {
@@ -1076,7 +977,6 @@ func (i *machineExtensionInstanceViewStatusPtrType) ToMachineExtensionInstanceVi
 	return pulumi.ToOutputWithContext(ctx, i).(MachineExtensionInstanceViewStatusPtrOutput)
 }
 
-// Instance view status.
 type MachineExtensionInstanceViewStatusOutput struct{ *pulumi.OutputState }
 
 func (MachineExtensionInstanceViewStatusOutput) ElementType() reflect.Type {
@@ -1096,32 +996,27 @@ func (o MachineExtensionInstanceViewStatusOutput) ToMachineExtensionInstanceView
 }
 
 func (o MachineExtensionInstanceViewStatusOutput) ToMachineExtensionInstanceViewStatusPtrOutputWithContext(ctx context.Context) MachineExtensionInstanceViewStatusPtrOutput {
-	return o.ApplyT(func(v MachineExtensionInstanceViewStatus) *MachineExtensionInstanceViewStatus {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v MachineExtensionInstanceViewStatus) *MachineExtensionInstanceViewStatus {
 		return &v
 	}).(MachineExtensionInstanceViewStatusPtrOutput)
 }
 
-// The status code.
 func (o MachineExtensionInstanceViewStatusOutput) Code() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v MachineExtensionInstanceViewStatus) *string { return v.Code }).(pulumi.StringPtrOutput)
 }
 
-// The short localizable label for the status.
 func (o MachineExtensionInstanceViewStatusOutput) DisplayStatus() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v MachineExtensionInstanceViewStatus) *string { return v.DisplayStatus }).(pulumi.StringPtrOutput)
 }
 
-// The level code.
 func (o MachineExtensionInstanceViewStatusOutput) Level() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v MachineExtensionInstanceViewStatus) *string { return v.Level }).(pulumi.StringPtrOutput)
 }
 
-// The detailed status message, including for alerts and error messages.
 func (o MachineExtensionInstanceViewStatusOutput) Message() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v MachineExtensionInstanceViewStatus) *string { return v.Message }).(pulumi.StringPtrOutput)
 }
 
-// The time of the status.
 func (o MachineExtensionInstanceViewStatusOutput) Time() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v MachineExtensionInstanceViewStatus) *string { return v.Time }).(pulumi.StringPtrOutput)
 }
@@ -1141,10 +1036,15 @@ func (o MachineExtensionInstanceViewStatusPtrOutput) ToMachineExtensionInstanceV
 }
 
 func (o MachineExtensionInstanceViewStatusPtrOutput) Elem() MachineExtensionInstanceViewStatusOutput {
-	return o.ApplyT(func(v *MachineExtensionInstanceViewStatus) MachineExtensionInstanceViewStatus { return *v }).(MachineExtensionInstanceViewStatusOutput)
+	return o.ApplyT(func(v *MachineExtensionInstanceViewStatus) MachineExtensionInstanceViewStatus {
+		if v != nil {
+			return *v
+		}
+		var ret MachineExtensionInstanceViewStatus
+		return ret
+	}).(MachineExtensionInstanceViewStatusOutput)
 }
 
-// The status code.
 func (o MachineExtensionInstanceViewStatusPtrOutput) Code() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *MachineExtensionInstanceViewStatus) *string {
 		if v == nil {
@@ -1154,7 +1054,6 @@ func (o MachineExtensionInstanceViewStatusPtrOutput) Code() pulumi.StringPtrOutp
 	}).(pulumi.StringPtrOutput)
 }
 
-// The short localizable label for the status.
 func (o MachineExtensionInstanceViewStatusPtrOutput) DisplayStatus() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *MachineExtensionInstanceViewStatus) *string {
 		if v == nil {
@@ -1164,7 +1063,6 @@ func (o MachineExtensionInstanceViewStatusPtrOutput) DisplayStatus() pulumi.Stri
 	}).(pulumi.StringPtrOutput)
 }
 
-// The level code.
 func (o MachineExtensionInstanceViewStatusPtrOutput) Level() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *MachineExtensionInstanceViewStatus) *string {
 		if v == nil {
@@ -1174,7 +1072,6 @@ func (o MachineExtensionInstanceViewStatusPtrOutput) Level() pulumi.StringPtrOut
 	}).(pulumi.StringPtrOutput)
 }
 
-// The detailed status message, including for alerts and error messages.
 func (o MachineExtensionInstanceViewStatusPtrOutput) Message() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *MachineExtensionInstanceViewStatus) *string {
 		if v == nil {
@@ -1184,7 +1081,6 @@ func (o MachineExtensionInstanceViewStatusPtrOutput) Message() pulumi.StringPtrO
 	}).(pulumi.StringPtrOutput)
 }
 
-// The time of the status.
 func (o MachineExtensionInstanceViewStatusPtrOutput) Time() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *MachineExtensionInstanceViewStatus) *string {
 		if v == nil {
@@ -1194,16 +1090,11 @@ func (o MachineExtensionInstanceViewStatusPtrOutput) Time() pulumi.StringPtrOutp
 	}).(pulumi.StringPtrOutput)
 }
 
-// The machine extension instance view.
 type MachineExtensionPropertiesInstanceView struct {
-	// The machine extension name.
-	Name *string `pulumi:"name"`
-	// Instance view status.
-	Status *MachineExtensionInstanceViewStatus `pulumi:"status"`
-	// Specifies the type of the extension; an example is "CustomScriptExtension".
-	Type *string `pulumi:"type"`
-	// Specifies the version of the script handler.
-	TypeHandlerVersion *string `pulumi:"typeHandlerVersion"`
+	Name               *string                             `pulumi:"name"`
+	Status             *MachineExtensionInstanceViewStatus `pulumi:"status"`
+	Type               *string                             `pulumi:"type"`
+	TypeHandlerVersion *string                             `pulumi:"typeHandlerVersion"`
 }
 
 // MachineExtensionPropertiesInstanceViewInput is an input type that accepts MachineExtensionPropertiesInstanceViewArgs and MachineExtensionPropertiesInstanceViewOutput values.
@@ -1217,16 +1108,11 @@ type MachineExtensionPropertiesInstanceViewInput interface {
 	ToMachineExtensionPropertiesInstanceViewOutputWithContext(context.Context) MachineExtensionPropertiesInstanceViewOutput
 }
 
-// The machine extension instance view.
 type MachineExtensionPropertiesInstanceViewArgs struct {
-	// The machine extension name.
-	Name pulumi.StringPtrInput `pulumi:"name"`
-	// Instance view status.
-	Status MachineExtensionInstanceViewStatusPtrInput `pulumi:"status"`
-	// Specifies the type of the extension; an example is "CustomScriptExtension".
-	Type pulumi.StringPtrInput `pulumi:"type"`
-	// Specifies the version of the script handler.
-	TypeHandlerVersion pulumi.StringPtrInput `pulumi:"typeHandlerVersion"`
+	Name               pulumi.StringPtrInput                      `pulumi:"name"`
+	Status             MachineExtensionInstanceViewStatusPtrInput `pulumi:"status"`
+	Type               pulumi.StringPtrInput                      `pulumi:"type"`
+	TypeHandlerVersion pulumi.StringPtrInput                      `pulumi:"typeHandlerVersion"`
 }
 
 func (MachineExtensionPropertiesInstanceViewArgs) ElementType() reflect.Type {
@@ -1282,7 +1168,6 @@ func (i *machineExtensionPropertiesInstanceViewPtrType) ToMachineExtensionProper
 	return pulumi.ToOutputWithContext(ctx, i).(MachineExtensionPropertiesInstanceViewPtrOutput)
 }
 
-// The machine extension instance view.
 type MachineExtensionPropertiesInstanceViewOutput struct{ *pulumi.OutputState }
 
 func (MachineExtensionPropertiesInstanceViewOutput) ElementType() reflect.Type {
@@ -1302,27 +1187,23 @@ func (o MachineExtensionPropertiesInstanceViewOutput) ToMachineExtensionProperti
 }
 
 func (o MachineExtensionPropertiesInstanceViewOutput) ToMachineExtensionPropertiesInstanceViewPtrOutputWithContext(ctx context.Context) MachineExtensionPropertiesInstanceViewPtrOutput {
-	return o.ApplyT(func(v MachineExtensionPropertiesInstanceView) *MachineExtensionPropertiesInstanceView {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v MachineExtensionPropertiesInstanceView) *MachineExtensionPropertiesInstanceView {
 		return &v
 	}).(MachineExtensionPropertiesInstanceViewPtrOutput)
 }
 
-// The machine extension name.
 func (o MachineExtensionPropertiesInstanceViewOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v MachineExtensionPropertiesInstanceView) *string { return v.Name }).(pulumi.StringPtrOutput)
 }
 
-// Instance view status.
 func (o MachineExtensionPropertiesInstanceViewOutput) Status() MachineExtensionInstanceViewStatusPtrOutput {
 	return o.ApplyT(func(v MachineExtensionPropertiesInstanceView) *MachineExtensionInstanceViewStatus { return v.Status }).(MachineExtensionInstanceViewStatusPtrOutput)
 }
 
-// Specifies the type of the extension; an example is "CustomScriptExtension".
 func (o MachineExtensionPropertiesInstanceViewOutput) Type() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v MachineExtensionPropertiesInstanceView) *string { return v.Type }).(pulumi.StringPtrOutput)
 }
 
-// Specifies the version of the script handler.
 func (o MachineExtensionPropertiesInstanceViewOutput) TypeHandlerVersion() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v MachineExtensionPropertiesInstanceView) *string { return v.TypeHandlerVersion }).(pulumi.StringPtrOutput)
 }
@@ -1342,10 +1223,15 @@ func (o MachineExtensionPropertiesInstanceViewPtrOutput) ToMachineExtensionPrope
 }
 
 func (o MachineExtensionPropertiesInstanceViewPtrOutput) Elem() MachineExtensionPropertiesInstanceViewOutput {
-	return o.ApplyT(func(v *MachineExtensionPropertiesInstanceView) MachineExtensionPropertiesInstanceView { return *v }).(MachineExtensionPropertiesInstanceViewOutput)
+	return o.ApplyT(func(v *MachineExtensionPropertiesInstanceView) MachineExtensionPropertiesInstanceView {
+		if v != nil {
+			return *v
+		}
+		var ret MachineExtensionPropertiesInstanceView
+		return ret
+	}).(MachineExtensionPropertiesInstanceViewOutput)
 }
 
-// The machine extension name.
 func (o MachineExtensionPropertiesInstanceViewPtrOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *MachineExtensionPropertiesInstanceView) *string {
 		if v == nil {
@@ -1355,7 +1241,6 @@ func (o MachineExtensionPropertiesInstanceViewPtrOutput) Name() pulumi.StringPtr
 	}).(pulumi.StringPtrOutput)
 }
 
-// Instance view status.
 func (o MachineExtensionPropertiesInstanceViewPtrOutput) Status() MachineExtensionInstanceViewStatusPtrOutput {
 	return o.ApplyT(func(v *MachineExtensionPropertiesInstanceView) *MachineExtensionInstanceViewStatus {
 		if v == nil {
@@ -1365,7 +1250,6 @@ func (o MachineExtensionPropertiesInstanceViewPtrOutput) Status() MachineExtensi
 	}).(MachineExtensionInstanceViewStatusPtrOutput)
 }
 
-// Specifies the type of the extension; an example is "CustomScriptExtension".
 func (o MachineExtensionPropertiesInstanceViewPtrOutput) Type() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *MachineExtensionPropertiesInstanceView) *string {
 		if v == nil {
@@ -1375,7 +1259,6 @@ func (o MachineExtensionPropertiesInstanceViewPtrOutput) Type() pulumi.StringPtr
 	}).(pulumi.StringPtrOutput)
 }
 
-// Specifies the version of the script handler.
 func (o MachineExtensionPropertiesInstanceViewPtrOutput) TypeHandlerVersion() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *MachineExtensionPropertiesInstanceView) *string {
 		if v == nil {
@@ -1385,16 +1268,11 @@ func (o MachineExtensionPropertiesInstanceViewPtrOutput) TypeHandlerVersion() pu
 	}).(pulumi.StringPtrOutput)
 }
 
-// The machine extension instance view.
 type MachineExtensionPropertiesResponseInstanceView struct {
-	// The machine extension name.
-	Name *string `pulumi:"name"`
-	// Instance view status.
-	Status *MachineExtensionInstanceViewResponseStatus `pulumi:"status"`
-	// Specifies the type of the extension; an example is "CustomScriptExtension".
-	Type *string `pulumi:"type"`
-	// Specifies the version of the script handler.
-	TypeHandlerVersion *string `pulumi:"typeHandlerVersion"`
+	Name               *string                                     `pulumi:"name"`
+	Status             *MachineExtensionInstanceViewResponseStatus `pulumi:"status"`
+	Type               *string                                     `pulumi:"type"`
+	TypeHandlerVersion *string                                     `pulumi:"typeHandlerVersion"`
 }
 
 // MachineExtensionPropertiesResponseInstanceViewInput is an input type that accepts MachineExtensionPropertiesResponseInstanceViewArgs and MachineExtensionPropertiesResponseInstanceViewOutput values.
@@ -1408,16 +1286,11 @@ type MachineExtensionPropertiesResponseInstanceViewInput interface {
 	ToMachineExtensionPropertiesResponseInstanceViewOutputWithContext(context.Context) MachineExtensionPropertiesResponseInstanceViewOutput
 }
 
-// The machine extension instance view.
 type MachineExtensionPropertiesResponseInstanceViewArgs struct {
-	// The machine extension name.
-	Name pulumi.StringPtrInput `pulumi:"name"`
-	// Instance view status.
-	Status MachineExtensionInstanceViewResponseStatusPtrInput `pulumi:"status"`
-	// Specifies the type of the extension; an example is "CustomScriptExtension".
-	Type pulumi.StringPtrInput `pulumi:"type"`
-	// Specifies the version of the script handler.
-	TypeHandlerVersion pulumi.StringPtrInput `pulumi:"typeHandlerVersion"`
+	Name               pulumi.StringPtrInput                              `pulumi:"name"`
+	Status             MachineExtensionInstanceViewResponseStatusPtrInput `pulumi:"status"`
+	Type               pulumi.StringPtrInput                              `pulumi:"type"`
+	TypeHandlerVersion pulumi.StringPtrInput                              `pulumi:"typeHandlerVersion"`
 }
 
 func (MachineExtensionPropertiesResponseInstanceViewArgs) ElementType() reflect.Type {
@@ -1473,7 +1346,6 @@ func (i *machineExtensionPropertiesResponseInstanceViewPtrType) ToMachineExtensi
 	return pulumi.ToOutputWithContext(ctx, i).(MachineExtensionPropertiesResponseInstanceViewPtrOutput)
 }
 
-// The machine extension instance view.
 type MachineExtensionPropertiesResponseInstanceViewOutput struct{ *pulumi.OutputState }
 
 func (MachineExtensionPropertiesResponseInstanceViewOutput) ElementType() reflect.Type {
@@ -1493,29 +1365,25 @@ func (o MachineExtensionPropertiesResponseInstanceViewOutput) ToMachineExtension
 }
 
 func (o MachineExtensionPropertiesResponseInstanceViewOutput) ToMachineExtensionPropertiesResponseInstanceViewPtrOutputWithContext(ctx context.Context) MachineExtensionPropertiesResponseInstanceViewPtrOutput {
-	return o.ApplyT(func(v MachineExtensionPropertiesResponseInstanceView) *MachineExtensionPropertiesResponseInstanceView {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v MachineExtensionPropertiesResponseInstanceView) *MachineExtensionPropertiesResponseInstanceView {
 		return &v
 	}).(MachineExtensionPropertiesResponseInstanceViewPtrOutput)
 }
 
-// The machine extension name.
 func (o MachineExtensionPropertiesResponseInstanceViewOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v MachineExtensionPropertiesResponseInstanceView) *string { return v.Name }).(pulumi.StringPtrOutput)
 }
 
-// Instance view status.
 func (o MachineExtensionPropertiesResponseInstanceViewOutput) Status() MachineExtensionInstanceViewResponseStatusPtrOutput {
 	return o.ApplyT(func(v MachineExtensionPropertiesResponseInstanceView) *MachineExtensionInstanceViewResponseStatus {
 		return v.Status
 	}).(MachineExtensionInstanceViewResponseStatusPtrOutput)
 }
 
-// Specifies the type of the extension; an example is "CustomScriptExtension".
 func (o MachineExtensionPropertiesResponseInstanceViewOutput) Type() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v MachineExtensionPropertiesResponseInstanceView) *string { return v.Type }).(pulumi.StringPtrOutput)
 }
 
-// Specifies the version of the script handler.
 func (o MachineExtensionPropertiesResponseInstanceViewOutput) TypeHandlerVersion() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v MachineExtensionPropertiesResponseInstanceView) *string { return v.TypeHandlerVersion }).(pulumi.StringPtrOutput)
 }
@@ -1536,11 +1404,14 @@ func (o MachineExtensionPropertiesResponseInstanceViewPtrOutput) ToMachineExtens
 
 func (o MachineExtensionPropertiesResponseInstanceViewPtrOutput) Elem() MachineExtensionPropertiesResponseInstanceViewOutput {
 	return o.ApplyT(func(v *MachineExtensionPropertiesResponseInstanceView) MachineExtensionPropertiesResponseInstanceView {
-		return *v
+		if v != nil {
+			return *v
+		}
+		var ret MachineExtensionPropertiesResponseInstanceView
+		return ret
 	}).(MachineExtensionPropertiesResponseInstanceViewOutput)
 }
 
-// The machine extension name.
 func (o MachineExtensionPropertiesResponseInstanceViewPtrOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *MachineExtensionPropertiesResponseInstanceView) *string {
 		if v == nil {
@@ -1550,7 +1421,6 @@ func (o MachineExtensionPropertiesResponseInstanceViewPtrOutput) Name() pulumi.S
 	}).(pulumi.StringPtrOutput)
 }
 
-// Instance view status.
 func (o MachineExtensionPropertiesResponseInstanceViewPtrOutput) Status() MachineExtensionInstanceViewResponseStatusPtrOutput {
 	return o.ApplyT(func(v *MachineExtensionPropertiesResponseInstanceView) *MachineExtensionInstanceViewResponseStatus {
 		if v == nil {
@@ -1560,7 +1430,6 @@ func (o MachineExtensionPropertiesResponseInstanceViewPtrOutput) Status() Machin
 	}).(MachineExtensionInstanceViewResponseStatusPtrOutput)
 }
 
-// Specifies the type of the extension; an example is "CustomScriptExtension".
 func (o MachineExtensionPropertiesResponseInstanceViewPtrOutput) Type() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *MachineExtensionPropertiesResponseInstanceView) *string {
 		if v == nil {
@@ -1570,7 +1439,6 @@ func (o MachineExtensionPropertiesResponseInstanceViewPtrOutput) Type() pulumi.S
 	}).(pulumi.StringPtrOutput)
 }
 
-// Specifies the version of the script handler.
 func (o MachineExtensionPropertiesResponseInstanceViewPtrOutput) TypeHandlerVersion() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *MachineExtensionPropertiesResponseInstanceView) *string {
 		if v == nil {
@@ -1581,7 +1449,6 @@ func (o MachineExtensionPropertiesResponseInstanceViewPtrOutput) TypeHandlerVers
 }
 
 type MachineIdentity struct {
-	// The identity type.
 	Type *string `pulumi:"type"`
 }
 
@@ -1597,7 +1464,6 @@ type MachineIdentityInput interface {
 }
 
 type MachineIdentityArgs struct {
-	// The identity type.
 	Type pulumi.StringPtrInput `pulumi:"type"`
 }
 
@@ -1673,12 +1539,11 @@ func (o MachineIdentityOutput) ToMachineIdentityPtrOutput() MachineIdentityPtrOu
 }
 
 func (o MachineIdentityOutput) ToMachineIdentityPtrOutputWithContext(ctx context.Context) MachineIdentityPtrOutput {
-	return o.ApplyT(func(v MachineIdentity) *MachineIdentity {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v MachineIdentity) *MachineIdentity {
 		return &v
 	}).(MachineIdentityPtrOutput)
 }
 
-// The identity type.
 func (o MachineIdentityOutput) Type() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v MachineIdentity) *string { return v.Type }).(pulumi.StringPtrOutput)
 }
@@ -1698,10 +1563,15 @@ func (o MachineIdentityPtrOutput) ToMachineIdentityPtrOutputWithContext(ctx cont
 }
 
 func (o MachineIdentityPtrOutput) Elem() MachineIdentityOutput {
-	return o.ApplyT(func(v *MachineIdentity) MachineIdentity { return *v }).(MachineIdentityOutput)
+	return o.ApplyT(func(v *MachineIdentity) MachineIdentity {
+		if v != nil {
+			return *v
+		}
+		var ret MachineIdentity
+		return ret
+	}).(MachineIdentityOutput)
 }
 
-// The identity type.
 func (o MachineIdentityPtrOutput) Type() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *MachineIdentity) *string {
 		if v == nil {
@@ -1711,9 +1581,7 @@ func (o MachineIdentityPtrOutput) Type() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Specifies the operating system settings for the hybrid machine.
 type MachinePropertiesResponseOsProfile struct {
-	// Specifies the host OS name of the hybrid machine.
 	ComputerName string `pulumi:"computerName"`
 }
 
@@ -1728,9 +1596,7 @@ type MachinePropertiesResponseOsProfileInput interface {
 	ToMachinePropertiesResponseOsProfileOutputWithContext(context.Context) MachinePropertiesResponseOsProfileOutput
 }
 
-// Specifies the operating system settings for the hybrid machine.
 type MachinePropertiesResponseOsProfileArgs struct {
-	// Specifies the host OS name of the hybrid machine.
 	ComputerName pulumi.StringInput `pulumi:"computerName"`
 }
 
@@ -1787,7 +1653,6 @@ func (i *machinePropertiesResponseOsProfilePtrType) ToMachinePropertiesResponseO
 	return pulumi.ToOutputWithContext(ctx, i).(MachinePropertiesResponseOsProfilePtrOutput)
 }
 
-// Specifies the operating system settings for the hybrid machine.
 type MachinePropertiesResponseOsProfileOutput struct{ *pulumi.OutputState }
 
 func (MachinePropertiesResponseOsProfileOutput) ElementType() reflect.Type {
@@ -1807,12 +1672,11 @@ func (o MachinePropertiesResponseOsProfileOutput) ToMachinePropertiesResponseOsP
 }
 
 func (o MachinePropertiesResponseOsProfileOutput) ToMachinePropertiesResponseOsProfilePtrOutputWithContext(ctx context.Context) MachinePropertiesResponseOsProfilePtrOutput {
-	return o.ApplyT(func(v MachinePropertiesResponseOsProfile) *MachinePropertiesResponseOsProfile {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v MachinePropertiesResponseOsProfile) *MachinePropertiesResponseOsProfile {
 		return &v
 	}).(MachinePropertiesResponseOsProfilePtrOutput)
 }
 
-// Specifies the host OS name of the hybrid machine.
 func (o MachinePropertiesResponseOsProfileOutput) ComputerName() pulumi.StringOutput {
 	return o.ApplyT(func(v MachinePropertiesResponseOsProfile) string { return v.ComputerName }).(pulumi.StringOutput)
 }
@@ -1832,10 +1696,15 @@ func (o MachinePropertiesResponseOsProfilePtrOutput) ToMachinePropertiesResponse
 }
 
 func (o MachinePropertiesResponseOsProfilePtrOutput) Elem() MachinePropertiesResponseOsProfileOutput {
-	return o.ApplyT(func(v *MachinePropertiesResponseOsProfile) MachinePropertiesResponseOsProfile { return *v }).(MachinePropertiesResponseOsProfileOutput)
+	return o.ApplyT(func(v *MachinePropertiesResponseOsProfile) MachinePropertiesResponseOsProfile {
+		if v != nil {
+			return *v
+		}
+		var ret MachinePropertiesResponseOsProfile
+		return ret
+	}).(MachinePropertiesResponseOsProfileOutput)
 }
 
-// Specifies the host OS name of the hybrid machine.
 func (o MachinePropertiesResponseOsProfilePtrOutput) ComputerName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *MachinePropertiesResponseOsProfile) *string {
 		if v == nil {
@@ -1846,12 +1715,9 @@ func (o MachinePropertiesResponseOsProfilePtrOutput) ComputerName() pulumi.Strin
 }
 
 type MachineResponseIdentity struct {
-	// The identity's principal id.
-	PrincipalId string `pulumi:"principalId"`
-	// The identity's tenant id.
-	TenantId string `pulumi:"tenantId"`
-	// The identity type.
-	Type *string `pulumi:"type"`
+	PrincipalId string  `pulumi:"principalId"`
+	TenantId    string  `pulumi:"tenantId"`
+	Type        *string `pulumi:"type"`
 }
 
 // MachineResponseIdentityInput is an input type that accepts MachineResponseIdentityArgs and MachineResponseIdentityOutput values.
@@ -1866,12 +1732,9 @@ type MachineResponseIdentityInput interface {
 }
 
 type MachineResponseIdentityArgs struct {
-	// The identity's principal id.
-	PrincipalId pulumi.StringInput `pulumi:"principalId"`
-	// The identity's tenant id.
-	TenantId pulumi.StringInput `pulumi:"tenantId"`
-	// The identity type.
-	Type pulumi.StringPtrInput `pulumi:"type"`
+	PrincipalId pulumi.StringInput    `pulumi:"principalId"`
+	TenantId    pulumi.StringInput    `pulumi:"tenantId"`
+	Type        pulumi.StringPtrInput `pulumi:"type"`
 }
 
 func (MachineResponseIdentityArgs) ElementType() reflect.Type {
@@ -1946,22 +1809,19 @@ func (o MachineResponseIdentityOutput) ToMachineResponseIdentityPtrOutput() Mach
 }
 
 func (o MachineResponseIdentityOutput) ToMachineResponseIdentityPtrOutputWithContext(ctx context.Context) MachineResponseIdentityPtrOutput {
-	return o.ApplyT(func(v MachineResponseIdentity) *MachineResponseIdentity {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v MachineResponseIdentity) *MachineResponseIdentity {
 		return &v
 	}).(MachineResponseIdentityPtrOutput)
 }
 
-// The identity's principal id.
 func (o MachineResponseIdentityOutput) PrincipalId() pulumi.StringOutput {
 	return o.ApplyT(func(v MachineResponseIdentity) string { return v.PrincipalId }).(pulumi.StringOutput)
 }
 
-// The identity's tenant id.
 func (o MachineResponseIdentityOutput) TenantId() pulumi.StringOutput {
 	return o.ApplyT(func(v MachineResponseIdentity) string { return v.TenantId }).(pulumi.StringOutput)
 }
 
-// The identity type.
 func (o MachineResponseIdentityOutput) Type() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v MachineResponseIdentity) *string { return v.Type }).(pulumi.StringPtrOutput)
 }
@@ -1981,10 +1841,15 @@ func (o MachineResponseIdentityPtrOutput) ToMachineResponseIdentityPtrOutputWith
 }
 
 func (o MachineResponseIdentityPtrOutput) Elem() MachineResponseIdentityOutput {
-	return o.ApplyT(func(v *MachineResponseIdentity) MachineResponseIdentity { return *v }).(MachineResponseIdentityOutput)
+	return o.ApplyT(func(v *MachineResponseIdentity) MachineResponseIdentity {
+		if v != nil {
+			return *v
+		}
+		var ret MachineResponseIdentity
+		return ret
+	}).(MachineResponseIdentityOutput)
 }
 
-// The identity's principal id.
 func (o MachineResponseIdentityPtrOutput) PrincipalId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *MachineResponseIdentity) *string {
 		if v == nil {
@@ -1994,7 +1859,6 @@ func (o MachineResponseIdentityPtrOutput) PrincipalId() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The identity's tenant id.
 func (o MachineResponseIdentityPtrOutput) TenantId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *MachineResponseIdentity) *string {
 		if v == nil {
@@ -2004,7 +1868,6 @@ func (o MachineResponseIdentityPtrOutput) TenantId() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The identity type.
 func (o MachineResponseIdentityPtrOutput) Type() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *MachineResponseIdentity) *string {
 		if v == nil {

@@ -7,7 +7,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Database Advisor.
 func LookupDatabaseAdvisor(ctx *pulumi.Context, args *LookupDatabaseAdvisorArgs, opts ...pulumi.InvokeOption) (*LookupDatabaseAdvisorResult, error) {
 	var rv LookupDatabaseAdvisorResult
 	err := ctx.Invoke("azure-native:sql/v20140401:getDatabaseAdvisor", args, &rv, opts...)
@@ -18,34 +17,21 @@ func LookupDatabaseAdvisor(ctx *pulumi.Context, args *LookupDatabaseAdvisorArgs,
 }
 
 type LookupDatabaseAdvisorArgs struct {
-	// The name of the Database Advisor.
-	AdvisorName string `pulumi:"advisorName"`
-	// The name of the database.
-	DatabaseName string `pulumi:"databaseName"`
-	// The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
+	AdvisorName       string `pulumi:"advisorName"`
+	DatabaseName      string `pulumi:"databaseName"`
 	ResourceGroupName string `pulumi:"resourceGroupName"`
-	// The name of the server.
-	ServerName string `pulumi:"serverName"`
+	ServerName        string `pulumi:"serverName"`
 }
 
 // Database Advisor.
 type LookupDatabaseAdvisorResult struct {
-	// Gets the status of availability of this advisor to customers. Possible values are 'GA', 'PublicPreview', 'LimitedPublicPreview' and 'PrivatePreview'.
-	AdvisorStatus string `pulumi:"advisorStatus"`
-	// Gets the auto-execute status (whether to let the system execute the recommendations) of this advisor. Possible values are 'Enabled' and 'Disabled'
-	AutoExecuteValue string `pulumi:"autoExecuteValue"`
-	// Resource ID.
-	Id string `pulumi:"id"`
-	// Resource kind.
-	Kind string `pulumi:"kind"`
-	// Gets the time when the current resource was analyzed for recommendations by this advisor.
-	LastChecked string `pulumi:"lastChecked"`
-	// Resource location.
-	Location string `pulumi:"location"`
-	// Resource name.
-	Name string `pulumi:"name"`
-	// Gets that status of recommendations for this advisor and reason for not having any recommendations. Possible values include, but are not limited to, 'Ok' (Recommendations available), LowActivity (not enough workload to analyze), 'DbSeemsTuned' (Database is doing well), etc.
+	AdvisorStatus         string `pulumi:"advisorStatus"`
+	AutoExecuteValue      string `pulumi:"autoExecuteValue"`
+	Id                    string `pulumi:"id"`
+	Kind                  string `pulumi:"kind"`
+	LastChecked           string `pulumi:"lastChecked"`
+	Location              string `pulumi:"location"`
+	Name                  string `pulumi:"name"`
 	RecommendationsStatus string `pulumi:"recommendationsStatus"`
-	// Resource type.
-	Type string `pulumi:"type"`
+	Type                  string `pulumi:"type"`
 }

@@ -10,9 +10,7 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// The details of a management group used during creation.
 type CreateManagementGroupDetails struct {
-	// (Optional) The ID of the parent management group used during creation.
 	Parent *CreateParentGroupInfo `pulumi:"parent"`
 }
 
@@ -27,9 +25,7 @@ type CreateManagementGroupDetailsInput interface {
 	ToCreateManagementGroupDetailsOutputWithContext(context.Context) CreateManagementGroupDetailsOutput
 }
 
-// The details of a management group used during creation.
 type CreateManagementGroupDetailsArgs struct {
-	// (Optional) The ID of the parent management group used during creation.
 	Parent CreateParentGroupInfoPtrInput `pulumi:"parent"`
 }
 
@@ -86,7 +82,6 @@ func (i *createManagementGroupDetailsPtrType) ToCreateManagementGroupDetailsPtrO
 	return pulumi.ToOutputWithContext(ctx, i).(CreateManagementGroupDetailsPtrOutput)
 }
 
-// The details of a management group used during creation.
 type CreateManagementGroupDetailsOutput struct{ *pulumi.OutputState }
 
 func (CreateManagementGroupDetailsOutput) ElementType() reflect.Type {
@@ -106,12 +101,11 @@ func (o CreateManagementGroupDetailsOutput) ToCreateManagementGroupDetailsPtrOut
 }
 
 func (o CreateManagementGroupDetailsOutput) ToCreateManagementGroupDetailsPtrOutputWithContext(ctx context.Context) CreateManagementGroupDetailsPtrOutput {
-	return o.ApplyT(func(v CreateManagementGroupDetails) *CreateManagementGroupDetails {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v CreateManagementGroupDetails) *CreateManagementGroupDetails {
 		return &v
 	}).(CreateManagementGroupDetailsPtrOutput)
 }
 
-// (Optional) The ID of the parent management group used during creation.
 func (o CreateManagementGroupDetailsOutput) Parent() CreateParentGroupInfoPtrOutput {
 	return o.ApplyT(func(v CreateManagementGroupDetails) *CreateParentGroupInfo { return v.Parent }).(CreateParentGroupInfoPtrOutput)
 }
@@ -131,10 +125,15 @@ func (o CreateManagementGroupDetailsPtrOutput) ToCreateManagementGroupDetailsPtr
 }
 
 func (o CreateManagementGroupDetailsPtrOutput) Elem() CreateManagementGroupDetailsOutput {
-	return o.ApplyT(func(v *CreateManagementGroupDetails) CreateManagementGroupDetails { return *v }).(CreateManagementGroupDetailsOutput)
+	return o.ApplyT(func(v *CreateManagementGroupDetails) CreateManagementGroupDetails {
+		if v != nil {
+			return *v
+		}
+		var ret CreateManagementGroupDetails
+		return ret
+	}).(CreateManagementGroupDetailsOutput)
 }
 
-// (Optional) The ID of the parent management group used during creation.
 func (o CreateManagementGroupDetailsPtrOutput) Parent() CreateParentGroupInfoPtrOutput {
 	return o.ApplyT(func(v *CreateManagementGroupDetails) *CreateParentGroupInfo {
 		if v == nil {
@@ -144,9 +143,7 @@ func (o CreateManagementGroupDetailsPtrOutput) Parent() CreateParentGroupInfoPtr
 	}).(CreateParentGroupInfoPtrOutput)
 }
 
-// (Optional) The ID of the parent management group used during creation.
 type CreateParentGroupInfo struct {
-	// The fully qualified ID for the parent management group.  For example, /providers/Microsoft.Management/managementGroups/0000000-0000-0000-0000-000000000000
 	Id *string `pulumi:"id"`
 }
 
@@ -161,9 +158,7 @@ type CreateParentGroupInfoInput interface {
 	ToCreateParentGroupInfoOutputWithContext(context.Context) CreateParentGroupInfoOutput
 }
 
-// (Optional) The ID of the parent management group used during creation.
 type CreateParentGroupInfoArgs struct {
-	// The fully qualified ID for the parent management group.  For example, /providers/Microsoft.Management/managementGroups/0000000-0000-0000-0000-000000000000
 	Id pulumi.StringPtrInput `pulumi:"id"`
 }
 
@@ -220,7 +215,6 @@ func (i *createParentGroupInfoPtrType) ToCreateParentGroupInfoPtrOutputWithConte
 	return pulumi.ToOutputWithContext(ctx, i).(CreateParentGroupInfoPtrOutput)
 }
 
-// (Optional) The ID of the parent management group used during creation.
 type CreateParentGroupInfoOutput struct{ *pulumi.OutputState }
 
 func (CreateParentGroupInfoOutput) ElementType() reflect.Type {
@@ -240,12 +234,11 @@ func (o CreateParentGroupInfoOutput) ToCreateParentGroupInfoPtrOutput() CreatePa
 }
 
 func (o CreateParentGroupInfoOutput) ToCreateParentGroupInfoPtrOutputWithContext(ctx context.Context) CreateParentGroupInfoPtrOutput {
-	return o.ApplyT(func(v CreateParentGroupInfo) *CreateParentGroupInfo {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v CreateParentGroupInfo) *CreateParentGroupInfo {
 		return &v
 	}).(CreateParentGroupInfoPtrOutput)
 }
 
-// The fully qualified ID for the parent management group.  For example, /providers/Microsoft.Management/managementGroups/0000000-0000-0000-0000-000000000000
 func (o CreateParentGroupInfoOutput) Id() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v CreateParentGroupInfo) *string { return v.Id }).(pulumi.StringPtrOutput)
 }
@@ -265,10 +258,15 @@ func (o CreateParentGroupInfoPtrOutput) ToCreateParentGroupInfoPtrOutputWithCont
 }
 
 func (o CreateParentGroupInfoPtrOutput) Elem() CreateParentGroupInfoOutput {
-	return o.ApplyT(func(v *CreateParentGroupInfo) CreateParentGroupInfo { return *v }).(CreateParentGroupInfoOutput)
+	return o.ApplyT(func(v *CreateParentGroupInfo) CreateParentGroupInfo {
+		if v != nil {
+			return *v
+		}
+		var ret CreateParentGroupInfo
+		return ret
+	}).(CreateParentGroupInfoOutput)
 }
 
-// The fully qualified ID for the parent management group.  For example, /providers/Microsoft.Management/managementGroups/0000000-0000-0000-0000-000000000000
 func (o CreateParentGroupInfoPtrOutput) Id() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *CreateParentGroupInfo) *string {
 		if v == nil {
@@ -278,33 +276,20 @@ func (o CreateParentGroupInfoPtrOutput) Id() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The entity.
 type EntityInfoResponse struct {
-	// The friendly name of the management group.
-	DisplayName *string `pulumi:"displayName"`
-	// The fully qualified ID for the entity.  For example, /providers/Microsoft.Management/managementGroups/0000000-0000-0000-0000-000000000000
-	Id string `pulumi:"id"`
-	// The users specific permissions to this item.
-	InheritedPermissions *string `pulumi:"inheritedPermissions"`
-	// The name of the entity. For example, 00000000-0000-0000-0000-000000000000
-	Name string `pulumi:"name"`
-	// Number of child groups is the number of Groups that are exactly one level underneath the current Group.
-	NumberOfChildGroups *int `pulumi:"numberOfChildGroups"`
-	// Number of children is the number of Groups and Subscriptions that are exactly one level underneath the current Group.
-	NumberOfChildren    *int `pulumi:"numberOfChildren"`
-	NumberOfDescendants *int `pulumi:"numberOfDescendants"`
-	// (Optional) The ID of the parent management group.
-	Parent *EntityParentGroupInfoResponse `pulumi:"parent"`
-	// The parent display name chain from the root group to the immediate parent
-	ParentDisplayNameChain []string `pulumi:"parentDisplayNameChain"`
-	// The parent name chain from the root group to the immediate parent
-	ParentNameChain []string `pulumi:"parentNameChain"`
-	// The users specific permissions to this item.
-	Permissions *string `pulumi:"permissions"`
-	// The AAD Tenant ID associated with the entity. For example, 00000000-0000-0000-0000-000000000000
-	TenantId *string `pulumi:"tenantId"`
-	// The type of the resource. For example, /providers/Microsoft.Management/managementGroups
-	Type string `pulumi:"type"`
+	DisplayName            *string                        `pulumi:"displayName"`
+	Id                     string                         `pulumi:"id"`
+	InheritedPermissions   *string                        `pulumi:"inheritedPermissions"`
+	Name                   string                         `pulumi:"name"`
+	NumberOfChildGroups    *int                           `pulumi:"numberOfChildGroups"`
+	NumberOfChildren       *int                           `pulumi:"numberOfChildren"`
+	NumberOfDescendants    *int                           `pulumi:"numberOfDescendants"`
+	Parent                 *EntityParentGroupInfoResponse `pulumi:"parent"`
+	ParentDisplayNameChain []string                       `pulumi:"parentDisplayNameChain"`
+	ParentNameChain        []string                       `pulumi:"parentNameChain"`
+	Permissions            *string                        `pulumi:"permissions"`
+	TenantId               *string                        `pulumi:"tenantId"`
+	Type                   string                         `pulumi:"type"`
 }
 
 // EntityInfoResponseInput is an input type that accepts EntityInfoResponseArgs and EntityInfoResponseOutput values.
@@ -318,33 +303,20 @@ type EntityInfoResponseInput interface {
 	ToEntityInfoResponseOutputWithContext(context.Context) EntityInfoResponseOutput
 }
 
-// The entity.
 type EntityInfoResponseArgs struct {
-	// The friendly name of the management group.
-	DisplayName pulumi.StringPtrInput `pulumi:"displayName"`
-	// The fully qualified ID for the entity.  For example, /providers/Microsoft.Management/managementGroups/0000000-0000-0000-0000-000000000000
-	Id pulumi.StringInput `pulumi:"id"`
-	// The users specific permissions to this item.
-	InheritedPermissions pulumi.StringPtrInput `pulumi:"inheritedPermissions"`
-	// The name of the entity. For example, 00000000-0000-0000-0000-000000000000
-	Name pulumi.StringInput `pulumi:"name"`
-	// Number of child groups is the number of Groups that are exactly one level underneath the current Group.
-	NumberOfChildGroups pulumi.IntPtrInput `pulumi:"numberOfChildGroups"`
-	// Number of children is the number of Groups and Subscriptions that are exactly one level underneath the current Group.
-	NumberOfChildren    pulumi.IntPtrInput `pulumi:"numberOfChildren"`
-	NumberOfDescendants pulumi.IntPtrInput `pulumi:"numberOfDescendants"`
-	// (Optional) The ID of the parent management group.
-	Parent EntityParentGroupInfoResponsePtrInput `pulumi:"parent"`
-	// The parent display name chain from the root group to the immediate parent
-	ParentDisplayNameChain pulumi.StringArrayInput `pulumi:"parentDisplayNameChain"`
-	// The parent name chain from the root group to the immediate parent
-	ParentNameChain pulumi.StringArrayInput `pulumi:"parentNameChain"`
-	// The users specific permissions to this item.
-	Permissions pulumi.StringPtrInput `pulumi:"permissions"`
-	// The AAD Tenant ID associated with the entity. For example, 00000000-0000-0000-0000-000000000000
-	TenantId pulumi.StringPtrInput `pulumi:"tenantId"`
-	// The type of the resource. For example, /providers/Microsoft.Management/managementGroups
-	Type pulumi.StringInput `pulumi:"type"`
+	DisplayName            pulumi.StringPtrInput                 `pulumi:"displayName"`
+	Id                     pulumi.StringInput                    `pulumi:"id"`
+	InheritedPermissions   pulumi.StringPtrInput                 `pulumi:"inheritedPermissions"`
+	Name                   pulumi.StringInput                    `pulumi:"name"`
+	NumberOfChildGroups    pulumi.IntPtrInput                    `pulumi:"numberOfChildGroups"`
+	NumberOfChildren       pulumi.IntPtrInput                    `pulumi:"numberOfChildren"`
+	NumberOfDescendants    pulumi.IntPtrInput                    `pulumi:"numberOfDescendants"`
+	Parent                 EntityParentGroupInfoResponsePtrInput `pulumi:"parent"`
+	ParentDisplayNameChain pulumi.StringArrayInput               `pulumi:"parentDisplayNameChain"`
+	ParentNameChain        pulumi.StringArrayInput               `pulumi:"parentNameChain"`
+	Permissions            pulumi.StringPtrInput                 `pulumi:"permissions"`
+	TenantId               pulumi.StringPtrInput                 `pulumi:"tenantId"`
+	Type                   pulumi.StringInput                    `pulumi:"type"`
 }
 
 func (EntityInfoResponseArgs) ElementType() reflect.Type {
@@ -384,7 +356,6 @@ func (i EntityInfoResponseArray) ToEntityInfoResponseArrayOutputWithContext(ctx 
 	return pulumi.ToOutputWithContext(ctx, i).(EntityInfoResponseArrayOutput)
 }
 
-// The entity.
 type EntityInfoResponseOutput struct{ *pulumi.OutputState }
 
 func (EntityInfoResponseOutput) ElementType() reflect.Type {
@@ -399,32 +370,26 @@ func (o EntityInfoResponseOutput) ToEntityInfoResponseOutputWithContext(ctx cont
 	return o
 }
 
-// The friendly name of the management group.
 func (o EntityInfoResponseOutput) DisplayName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v EntityInfoResponse) *string { return v.DisplayName }).(pulumi.StringPtrOutput)
 }
 
-// The fully qualified ID for the entity.  For example, /providers/Microsoft.Management/managementGroups/0000000-0000-0000-0000-000000000000
 func (o EntityInfoResponseOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v EntityInfoResponse) string { return v.Id }).(pulumi.StringOutput)
 }
 
-// The users specific permissions to this item.
 func (o EntityInfoResponseOutput) InheritedPermissions() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v EntityInfoResponse) *string { return v.InheritedPermissions }).(pulumi.StringPtrOutput)
 }
 
-// The name of the entity. For example, 00000000-0000-0000-0000-000000000000
 func (o EntityInfoResponseOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v EntityInfoResponse) string { return v.Name }).(pulumi.StringOutput)
 }
 
-// Number of child groups is the number of Groups that are exactly one level underneath the current Group.
 func (o EntityInfoResponseOutput) NumberOfChildGroups() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v EntityInfoResponse) *int { return v.NumberOfChildGroups }).(pulumi.IntPtrOutput)
 }
 
-// Number of children is the number of Groups and Subscriptions that are exactly one level underneath the current Group.
 func (o EntityInfoResponseOutput) NumberOfChildren() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v EntityInfoResponse) *int { return v.NumberOfChildren }).(pulumi.IntPtrOutput)
 }
@@ -433,32 +398,26 @@ func (o EntityInfoResponseOutput) NumberOfDescendants() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v EntityInfoResponse) *int { return v.NumberOfDescendants }).(pulumi.IntPtrOutput)
 }
 
-// (Optional) The ID of the parent management group.
 func (o EntityInfoResponseOutput) Parent() EntityParentGroupInfoResponsePtrOutput {
 	return o.ApplyT(func(v EntityInfoResponse) *EntityParentGroupInfoResponse { return v.Parent }).(EntityParentGroupInfoResponsePtrOutput)
 }
 
-// The parent display name chain from the root group to the immediate parent
 func (o EntityInfoResponseOutput) ParentDisplayNameChain() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v EntityInfoResponse) []string { return v.ParentDisplayNameChain }).(pulumi.StringArrayOutput)
 }
 
-// The parent name chain from the root group to the immediate parent
 func (o EntityInfoResponseOutput) ParentNameChain() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v EntityInfoResponse) []string { return v.ParentNameChain }).(pulumi.StringArrayOutput)
 }
 
-// The users specific permissions to this item.
 func (o EntityInfoResponseOutput) Permissions() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v EntityInfoResponse) *string { return v.Permissions }).(pulumi.StringPtrOutput)
 }
 
-// The AAD Tenant ID associated with the entity. For example, 00000000-0000-0000-0000-000000000000
 func (o EntityInfoResponseOutput) TenantId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v EntityInfoResponse) *string { return v.TenantId }).(pulumi.StringPtrOutput)
 }
 
-// The type of the resource. For example, /providers/Microsoft.Management/managementGroups
 func (o EntityInfoResponseOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v EntityInfoResponse) string { return v.Type }).(pulumi.StringOutput)
 }
@@ -483,9 +442,7 @@ func (o EntityInfoResponseArrayOutput) Index(i pulumi.IntInput) EntityInfoRespon
 	}).(EntityInfoResponseOutput)
 }
 
-// (Optional) The ID of the parent management group.
 type EntityParentGroupInfoResponse struct {
-	// The fully qualified ID for the parent management group.  For example, /providers/Microsoft.Management/managementGroups/0000000-0000-0000-0000-000000000000
 	Id *string `pulumi:"id"`
 }
 
@@ -500,9 +457,7 @@ type EntityParentGroupInfoResponseInput interface {
 	ToEntityParentGroupInfoResponseOutputWithContext(context.Context) EntityParentGroupInfoResponseOutput
 }
 
-// (Optional) The ID of the parent management group.
 type EntityParentGroupInfoResponseArgs struct {
-	// The fully qualified ID for the parent management group.  For example, /providers/Microsoft.Management/managementGroups/0000000-0000-0000-0000-000000000000
 	Id pulumi.StringPtrInput `pulumi:"id"`
 }
 
@@ -559,7 +514,6 @@ func (i *entityParentGroupInfoResponsePtrType) ToEntityParentGroupInfoResponsePt
 	return pulumi.ToOutputWithContext(ctx, i).(EntityParentGroupInfoResponsePtrOutput)
 }
 
-// (Optional) The ID of the parent management group.
 type EntityParentGroupInfoResponseOutput struct{ *pulumi.OutputState }
 
 func (EntityParentGroupInfoResponseOutput) ElementType() reflect.Type {
@@ -579,12 +533,11 @@ func (o EntityParentGroupInfoResponseOutput) ToEntityParentGroupInfoResponsePtrO
 }
 
 func (o EntityParentGroupInfoResponseOutput) ToEntityParentGroupInfoResponsePtrOutputWithContext(ctx context.Context) EntityParentGroupInfoResponsePtrOutput {
-	return o.ApplyT(func(v EntityParentGroupInfoResponse) *EntityParentGroupInfoResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v EntityParentGroupInfoResponse) *EntityParentGroupInfoResponse {
 		return &v
 	}).(EntityParentGroupInfoResponsePtrOutput)
 }
 
-// The fully qualified ID for the parent management group.  For example, /providers/Microsoft.Management/managementGroups/0000000-0000-0000-0000-000000000000
 func (o EntityParentGroupInfoResponseOutput) Id() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v EntityParentGroupInfoResponse) *string { return v.Id }).(pulumi.StringPtrOutput)
 }
@@ -604,10 +557,15 @@ func (o EntityParentGroupInfoResponsePtrOutput) ToEntityParentGroupInfoResponseP
 }
 
 func (o EntityParentGroupInfoResponsePtrOutput) Elem() EntityParentGroupInfoResponseOutput {
-	return o.ApplyT(func(v *EntityParentGroupInfoResponse) EntityParentGroupInfoResponse { return *v }).(EntityParentGroupInfoResponseOutput)
+	return o.ApplyT(func(v *EntityParentGroupInfoResponse) EntityParentGroupInfoResponse {
+		if v != nil {
+			return *v
+		}
+		var ret EntityParentGroupInfoResponse
+		return ret
+	}).(EntityParentGroupInfoResponseOutput)
 }
 
-// The fully qualified ID for the parent management group.  For example, /providers/Microsoft.Management/managementGroups/0000000-0000-0000-0000-000000000000
 func (o EntityParentGroupInfoResponsePtrOutput) Id() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *EntityParentGroupInfoResponse) *string {
 		if v == nil {
@@ -617,20 +575,13 @@ func (o EntityParentGroupInfoResponsePtrOutput) Id() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The child information of a management group.
 type ManagementGroupChildInfoResponse struct {
-	// The list of children.
-	Children []ManagementGroupChildInfoResponse `pulumi:"children"`
-	// The friendly name of the child resource.
-	DisplayName *string `pulumi:"displayName"`
-	// The fully qualified ID for the child resource (management group or subscription).  For example, /providers/Microsoft.Management/managementGroups/0000000-0000-0000-0000-000000000000
-	Id *string `pulumi:"id"`
-	// The name of the child entity.
-	Name *string `pulumi:"name"`
-	// The roles definitions associated with the management group.
-	Roles []string `pulumi:"roles"`
-	// The fully qualified resource type which includes provider namespace (e.g. /providers/Microsoft.Management/managementGroups)
-	Type *string `pulumi:"type"`
+	Children    []ManagementGroupChildInfoResponse `pulumi:"children"`
+	DisplayName *string                            `pulumi:"displayName"`
+	Id          *string                            `pulumi:"id"`
+	Name        *string                            `pulumi:"name"`
+	Roles       []string                           `pulumi:"roles"`
+	Type        *string                            `pulumi:"type"`
 }
 
 // ManagementGroupChildInfoResponseInput is an input type that accepts ManagementGroupChildInfoResponseArgs and ManagementGroupChildInfoResponseOutput values.
@@ -644,20 +595,13 @@ type ManagementGroupChildInfoResponseInput interface {
 	ToManagementGroupChildInfoResponseOutputWithContext(context.Context) ManagementGroupChildInfoResponseOutput
 }
 
-// The child information of a management group.
 type ManagementGroupChildInfoResponseArgs struct {
-	// The list of children.
-	Children ManagementGroupChildInfoResponseArrayInput `pulumi:"children"`
-	// The friendly name of the child resource.
-	DisplayName pulumi.StringPtrInput `pulumi:"displayName"`
-	// The fully qualified ID for the child resource (management group or subscription).  For example, /providers/Microsoft.Management/managementGroups/0000000-0000-0000-0000-000000000000
-	Id pulumi.StringPtrInput `pulumi:"id"`
-	// The name of the child entity.
-	Name pulumi.StringPtrInput `pulumi:"name"`
-	// The roles definitions associated with the management group.
-	Roles pulumi.StringArrayInput `pulumi:"roles"`
-	// The fully qualified resource type which includes provider namespace (e.g. /providers/Microsoft.Management/managementGroups)
-	Type pulumi.StringPtrInput `pulumi:"type"`
+	Children    ManagementGroupChildInfoResponseArrayInput `pulumi:"children"`
+	DisplayName pulumi.StringPtrInput                      `pulumi:"displayName"`
+	Id          pulumi.StringPtrInput                      `pulumi:"id"`
+	Name        pulumi.StringPtrInput                      `pulumi:"name"`
+	Roles       pulumi.StringArrayInput                    `pulumi:"roles"`
+	Type        pulumi.StringPtrInput                      `pulumi:"type"`
 }
 
 func (ManagementGroupChildInfoResponseArgs) ElementType() reflect.Type {
@@ -697,7 +641,6 @@ func (i ManagementGroupChildInfoResponseArray) ToManagementGroupChildInfoRespons
 	return pulumi.ToOutputWithContext(ctx, i).(ManagementGroupChildInfoResponseArrayOutput)
 }
 
-// The child information of a management group.
 type ManagementGroupChildInfoResponseOutput struct{ *pulumi.OutputState }
 
 func (ManagementGroupChildInfoResponseOutput) ElementType() reflect.Type {
@@ -712,32 +655,26 @@ func (o ManagementGroupChildInfoResponseOutput) ToManagementGroupChildInfoRespon
 	return o
 }
 
-// The list of children.
 func (o ManagementGroupChildInfoResponseOutput) Children() ManagementGroupChildInfoResponseArrayOutput {
 	return o.ApplyT(func(v ManagementGroupChildInfoResponse) []ManagementGroupChildInfoResponse { return v.Children }).(ManagementGroupChildInfoResponseArrayOutput)
 }
 
-// The friendly name of the child resource.
 func (o ManagementGroupChildInfoResponseOutput) DisplayName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ManagementGroupChildInfoResponse) *string { return v.DisplayName }).(pulumi.StringPtrOutput)
 }
 
-// The fully qualified ID for the child resource (management group or subscription).  For example, /providers/Microsoft.Management/managementGroups/0000000-0000-0000-0000-000000000000
 func (o ManagementGroupChildInfoResponseOutput) Id() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ManagementGroupChildInfoResponse) *string { return v.Id }).(pulumi.StringPtrOutput)
 }
 
-// The name of the child entity.
 func (o ManagementGroupChildInfoResponseOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ManagementGroupChildInfoResponse) *string { return v.Name }).(pulumi.StringPtrOutput)
 }
 
-// The roles definitions associated with the management group.
 func (o ManagementGroupChildInfoResponseOutput) Roles() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v ManagementGroupChildInfoResponse) []string { return v.Roles }).(pulumi.StringArrayOutput)
 }
 
-// The fully qualified resource type which includes provider namespace (e.g. /providers/Microsoft.Management/managementGroups)
 func (o ManagementGroupChildInfoResponseOutput) Type() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ManagementGroupChildInfoResponse) *string { return v.Type }).(pulumi.StringPtrOutput)
 }
@@ -762,16 +699,11 @@ func (o ManagementGroupChildInfoResponseArrayOutput) Index(i pulumi.IntInput) Ma
 	}).(ManagementGroupChildInfoResponseOutput)
 }
 
-// The details of a management group.
 type ManagementGroupDetailsResponse struct {
-	// (Optional) The ID of the parent management group.
-	Parent *ParentGroupInfoResponse `pulumi:"parent"`
-	// The identity of the principal or process that updated the object.
-	UpdatedBy *string `pulumi:"updatedBy"`
-	// The date and time when this object was last updated.
-	UpdatedTime *string `pulumi:"updatedTime"`
-	// The version number of the object.
-	Version *float64 `pulumi:"version"`
+	Parent      *ParentGroupInfoResponse `pulumi:"parent"`
+	UpdatedBy   *string                  `pulumi:"updatedBy"`
+	UpdatedTime *string                  `pulumi:"updatedTime"`
+	Version     *float64                 `pulumi:"version"`
 }
 
 // ManagementGroupDetailsResponseInput is an input type that accepts ManagementGroupDetailsResponseArgs and ManagementGroupDetailsResponseOutput values.
@@ -785,16 +717,11 @@ type ManagementGroupDetailsResponseInput interface {
 	ToManagementGroupDetailsResponseOutputWithContext(context.Context) ManagementGroupDetailsResponseOutput
 }
 
-// The details of a management group.
 type ManagementGroupDetailsResponseArgs struct {
-	// (Optional) The ID of the parent management group.
-	Parent ParentGroupInfoResponsePtrInput `pulumi:"parent"`
-	// The identity of the principal or process that updated the object.
-	UpdatedBy pulumi.StringPtrInput `pulumi:"updatedBy"`
-	// The date and time when this object was last updated.
-	UpdatedTime pulumi.StringPtrInput `pulumi:"updatedTime"`
-	// The version number of the object.
-	Version pulumi.Float64PtrInput `pulumi:"version"`
+	Parent      ParentGroupInfoResponsePtrInput `pulumi:"parent"`
+	UpdatedBy   pulumi.StringPtrInput           `pulumi:"updatedBy"`
+	UpdatedTime pulumi.StringPtrInput           `pulumi:"updatedTime"`
+	Version     pulumi.Float64PtrInput          `pulumi:"version"`
 }
 
 func (ManagementGroupDetailsResponseArgs) ElementType() reflect.Type {
@@ -850,7 +777,6 @@ func (i *managementGroupDetailsResponsePtrType) ToManagementGroupDetailsResponse
 	return pulumi.ToOutputWithContext(ctx, i).(ManagementGroupDetailsResponsePtrOutput)
 }
 
-// The details of a management group.
 type ManagementGroupDetailsResponseOutput struct{ *pulumi.OutputState }
 
 func (ManagementGroupDetailsResponseOutput) ElementType() reflect.Type {
@@ -870,27 +796,23 @@ func (o ManagementGroupDetailsResponseOutput) ToManagementGroupDetailsResponsePt
 }
 
 func (o ManagementGroupDetailsResponseOutput) ToManagementGroupDetailsResponsePtrOutputWithContext(ctx context.Context) ManagementGroupDetailsResponsePtrOutput {
-	return o.ApplyT(func(v ManagementGroupDetailsResponse) *ManagementGroupDetailsResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ManagementGroupDetailsResponse) *ManagementGroupDetailsResponse {
 		return &v
 	}).(ManagementGroupDetailsResponsePtrOutput)
 }
 
-// (Optional) The ID of the parent management group.
 func (o ManagementGroupDetailsResponseOutput) Parent() ParentGroupInfoResponsePtrOutput {
 	return o.ApplyT(func(v ManagementGroupDetailsResponse) *ParentGroupInfoResponse { return v.Parent }).(ParentGroupInfoResponsePtrOutput)
 }
 
-// The identity of the principal or process that updated the object.
 func (o ManagementGroupDetailsResponseOutput) UpdatedBy() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ManagementGroupDetailsResponse) *string { return v.UpdatedBy }).(pulumi.StringPtrOutput)
 }
 
-// The date and time when this object was last updated.
 func (o ManagementGroupDetailsResponseOutput) UpdatedTime() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ManagementGroupDetailsResponse) *string { return v.UpdatedTime }).(pulumi.StringPtrOutput)
 }
 
-// The version number of the object.
 func (o ManagementGroupDetailsResponseOutput) Version() pulumi.Float64PtrOutput {
 	return o.ApplyT(func(v ManagementGroupDetailsResponse) *float64 { return v.Version }).(pulumi.Float64PtrOutput)
 }
@@ -910,10 +832,15 @@ func (o ManagementGroupDetailsResponsePtrOutput) ToManagementGroupDetailsRespons
 }
 
 func (o ManagementGroupDetailsResponsePtrOutput) Elem() ManagementGroupDetailsResponseOutput {
-	return o.ApplyT(func(v *ManagementGroupDetailsResponse) ManagementGroupDetailsResponse { return *v }).(ManagementGroupDetailsResponseOutput)
+	return o.ApplyT(func(v *ManagementGroupDetailsResponse) ManagementGroupDetailsResponse {
+		if v != nil {
+			return *v
+		}
+		var ret ManagementGroupDetailsResponse
+		return ret
+	}).(ManagementGroupDetailsResponseOutput)
 }
 
-// (Optional) The ID of the parent management group.
 func (o ManagementGroupDetailsResponsePtrOutput) Parent() ParentGroupInfoResponsePtrOutput {
 	return o.ApplyT(func(v *ManagementGroupDetailsResponse) *ParentGroupInfoResponse {
 		if v == nil {
@@ -923,7 +850,6 @@ func (o ManagementGroupDetailsResponsePtrOutput) Parent() ParentGroupInfoRespons
 	}).(ParentGroupInfoResponsePtrOutput)
 }
 
-// The identity of the principal or process that updated the object.
 func (o ManagementGroupDetailsResponsePtrOutput) UpdatedBy() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ManagementGroupDetailsResponse) *string {
 		if v == nil {
@@ -933,7 +859,6 @@ func (o ManagementGroupDetailsResponsePtrOutput) UpdatedBy() pulumi.StringPtrOut
 	}).(pulumi.StringPtrOutput)
 }
 
-// The date and time when this object was last updated.
 func (o ManagementGroupDetailsResponsePtrOutput) UpdatedTime() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ManagementGroupDetailsResponse) *string {
 		if v == nil {
@@ -943,7 +868,6 @@ func (o ManagementGroupDetailsResponsePtrOutput) UpdatedTime() pulumi.StringPtrO
 	}).(pulumi.StringPtrOutput)
 }
 
-// The version number of the object.
 func (o ManagementGroupDetailsResponsePtrOutput) Version() pulumi.Float64PtrOutput {
 	return o.ApplyT(func(v *ManagementGroupDetailsResponse) *float64 {
 		if v == nil {
@@ -953,14 +877,10 @@ func (o ManagementGroupDetailsResponsePtrOutput) Version() pulumi.Float64PtrOutp
 	}).(pulumi.Float64PtrOutput)
 }
 
-// (Optional) The ID of the parent management group.
 type ParentGroupInfoResponse struct {
-	// The friendly name of the parent management group.
 	DisplayName *string `pulumi:"displayName"`
-	// The fully qualified ID for the parent management group.  For example, /providers/Microsoft.Management/managementGroups/0000000-0000-0000-0000-000000000000
-	Id *string `pulumi:"id"`
-	// The name of the parent management group
-	Name *string `pulumi:"name"`
+	Id          *string `pulumi:"id"`
+	Name        *string `pulumi:"name"`
 }
 
 // ParentGroupInfoResponseInput is an input type that accepts ParentGroupInfoResponseArgs and ParentGroupInfoResponseOutput values.
@@ -974,14 +894,10 @@ type ParentGroupInfoResponseInput interface {
 	ToParentGroupInfoResponseOutputWithContext(context.Context) ParentGroupInfoResponseOutput
 }
 
-// (Optional) The ID of the parent management group.
 type ParentGroupInfoResponseArgs struct {
-	// The friendly name of the parent management group.
 	DisplayName pulumi.StringPtrInput `pulumi:"displayName"`
-	// The fully qualified ID for the parent management group.  For example, /providers/Microsoft.Management/managementGroups/0000000-0000-0000-0000-000000000000
-	Id pulumi.StringPtrInput `pulumi:"id"`
-	// The name of the parent management group
-	Name pulumi.StringPtrInput `pulumi:"name"`
+	Id          pulumi.StringPtrInput `pulumi:"id"`
+	Name        pulumi.StringPtrInput `pulumi:"name"`
 }
 
 func (ParentGroupInfoResponseArgs) ElementType() reflect.Type {
@@ -1037,7 +953,6 @@ func (i *parentGroupInfoResponsePtrType) ToParentGroupInfoResponsePtrOutputWithC
 	return pulumi.ToOutputWithContext(ctx, i).(ParentGroupInfoResponsePtrOutput)
 }
 
-// (Optional) The ID of the parent management group.
 type ParentGroupInfoResponseOutput struct{ *pulumi.OutputState }
 
 func (ParentGroupInfoResponseOutput) ElementType() reflect.Type {
@@ -1057,22 +972,19 @@ func (o ParentGroupInfoResponseOutput) ToParentGroupInfoResponsePtrOutput() Pare
 }
 
 func (o ParentGroupInfoResponseOutput) ToParentGroupInfoResponsePtrOutputWithContext(ctx context.Context) ParentGroupInfoResponsePtrOutput {
-	return o.ApplyT(func(v ParentGroupInfoResponse) *ParentGroupInfoResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ParentGroupInfoResponse) *ParentGroupInfoResponse {
 		return &v
 	}).(ParentGroupInfoResponsePtrOutput)
 }
 
-// The friendly name of the parent management group.
 func (o ParentGroupInfoResponseOutput) DisplayName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ParentGroupInfoResponse) *string { return v.DisplayName }).(pulumi.StringPtrOutput)
 }
 
-// The fully qualified ID for the parent management group.  For example, /providers/Microsoft.Management/managementGroups/0000000-0000-0000-0000-000000000000
 func (o ParentGroupInfoResponseOutput) Id() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ParentGroupInfoResponse) *string { return v.Id }).(pulumi.StringPtrOutput)
 }
 
-// The name of the parent management group
 func (o ParentGroupInfoResponseOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ParentGroupInfoResponse) *string { return v.Name }).(pulumi.StringPtrOutput)
 }
@@ -1092,10 +1004,15 @@ func (o ParentGroupInfoResponsePtrOutput) ToParentGroupInfoResponsePtrOutputWith
 }
 
 func (o ParentGroupInfoResponsePtrOutput) Elem() ParentGroupInfoResponseOutput {
-	return o.ApplyT(func(v *ParentGroupInfoResponse) ParentGroupInfoResponse { return *v }).(ParentGroupInfoResponseOutput)
+	return o.ApplyT(func(v *ParentGroupInfoResponse) ParentGroupInfoResponse {
+		if v != nil {
+			return *v
+		}
+		var ret ParentGroupInfoResponse
+		return ret
+	}).(ParentGroupInfoResponseOutput)
 }
 
-// The friendly name of the parent management group.
 func (o ParentGroupInfoResponsePtrOutput) DisplayName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ParentGroupInfoResponse) *string {
 		if v == nil {
@@ -1105,7 +1022,6 @@ func (o ParentGroupInfoResponsePtrOutput) DisplayName() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The fully qualified ID for the parent management group.  For example, /providers/Microsoft.Management/managementGroups/0000000-0000-0000-0000-000000000000
 func (o ParentGroupInfoResponsePtrOutput) Id() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ParentGroupInfoResponse) *string {
 		if v == nil {
@@ -1115,7 +1031,6 @@ func (o ParentGroupInfoResponsePtrOutput) Id() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The name of the parent management group
 func (o ParentGroupInfoResponsePtrOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ParentGroupInfoResponse) *string {
 		if v == nil {

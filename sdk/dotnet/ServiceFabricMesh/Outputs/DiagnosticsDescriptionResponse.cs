@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.ServiceFabricMesh.Outputs
 {
 
+    /// <summary>
+    /// Describes the diagnostics options available
+    /// </summary>
     [OutputType]
     public sealed class DiagnosticsDescriptionResponse
     {

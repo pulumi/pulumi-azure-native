@@ -7,7 +7,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// The X509 Certificate.
 func LookupDpsCertificate(ctx *pulumi.Context, args *LookupDpsCertificateArgs, opts ...pulumi.InvokeOption) (*LookupDpsCertificateResult, error) {
 	var rv LookupDpsCertificateResult
 	err := ctx.Invoke("azure-native:devices/v20200101:getDpsCertificate", args, &rv, opts...)
@@ -18,24 +17,16 @@ func LookupDpsCertificate(ctx *pulumi.Context, args *LookupDpsCertificateArgs, o
 }
 
 type LookupDpsCertificateArgs struct {
-	// Name of the certificate to retrieve.
-	CertificateName string `pulumi:"certificateName"`
-	// Name of the provisioning service the certificate is associated with.
+	CertificateName         string `pulumi:"certificateName"`
 	ProvisioningServiceName string `pulumi:"provisioningServiceName"`
-	// Resource group identifier.
-	ResourceGroupName string `pulumi:"resourceGroupName"`
+	ResourceGroupName       string `pulumi:"resourceGroupName"`
 }
 
 // The X509 Certificate.
 type LookupDpsCertificateResult struct {
-	// The entity tag.
-	Etag string `pulumi:"etag"`
-	// The resource identifier.
-	Id string `pulumi:"id"`
-	// The name of the certificate.
-	Name string `pulumi:"name"`
-	// properties of a certificate
+	Etag       string                        `pulumi:"etag"`
+	Id         string                        `pulumi:"id"`
+	Name       string                        `pulumi:"name"`
 	Properties CertificatePropertiesResponse `pulumi:"properties"`
-	// The resource type.
-	Type string `pulumi:"type"`
+	Type       string                        `pulumi:"type"`
 }

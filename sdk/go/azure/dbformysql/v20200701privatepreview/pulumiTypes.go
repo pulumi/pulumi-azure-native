@@ -10,9 +10,7 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Delegated subnet arguments of a server
 type DelegatedSubnetArguments struct {
-	// delegated subnet arm resource id.
 	SubnetArmResourceId *string `pulumi:"subnetArmResourceId"`
 }
 
@@ -27,9 +25,7 @@ type DelegatedSubnetArgumentsInput interface {
 	ToDelegatedSubnetArgumentsOutputWithContext(context.Context) DelegatedSubnetArgumentsOutput
 }
 
-// Delegated subnet arguments of a server
 type DelegatedSubnetArgumentsArgs struct {
-	// delegated subnet arm resource id.
 	SubnetArmResourceId pulumi.StringPtrInput `pulumi:"subnetArmResourceId"`
 }
 
@@ -86,7 +82,6 @@ func (i *delegatedSubnetArgumentsPtrType) ToDelegatedSubnetArgumentsPtrOutputWit
 	return pulumi.ToOutputWithContext(ctx, i).(DelegatedSubnetArgumentsPtrOutput)
 }
 
-// Delegated subnet arguments of a server
 type DelegatedSubnetArgumentsOutput struct{ *pulumi.OutputState }
 
 func (DelegatedSubnetArgumentsOutput) ElementType() reflect.Type {
@@ -106,12 +101,11 @@ func (o DelegatedSubnetArgumentsOutput) ToDelegatedSubnetArgumentsPtrOutput() De
 }
 
 func (o DelegatedSubnetArgumentsOutput) ToDelegatedSubnetArgumentsPtrOutputWithContext(ctx context.Context) DelegatedSubnetArgumentsPtrOutput {
-	return o.ApplyT(func(v DelegatedSubnetArguments) *DelegatedSubnetArguments {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v DelegatedSubnetArguments) *DelegatedSubnetArguments {
 		return &v
 	}).(DelegatedSubnetArgumentsPtrOutput)
 }
 
-// delegated subnet arm resource id.
 func (o DelegatedSubnetArgumentsOutput) SubnetArmResourceId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v DelegatedSubnetArguments) *string { return v.SubnetArmResourceId }).(pulumi.StringPtrOutput)
 }
@@ -131,10 +125,15 @@ func (o DelegatedSubnetArgumentsPtrOutput) ToDelegatedSubnetArgumentsPtrOutputWi
 }
 
 func (o DelegatedSubnetArgumentsPtrOutput) Elem() DelegatedSubnetArgumentsOutput {
-	return o.ApplyT(func(v *DelegatedSubnetArguments) DelegatedSubnetArguments { return *v }).(DelegatedSubnetArgumentsOutput)
+	return o.ApplyT(func(v *DelegatedSubnetArguments) DelegatedSubnetArguments {
+		if v != nil {
+			return *v
+		}
+		var ret DelegatedSubnetArguments
+		return ret
+	}).(DelegatedSubnetArgumentsOutput)
 }
 
-// delegated subnet arm resource id.
 func (o DelegatedSubnetArgumentsPtrOutput) SubnetArmResourceId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *DelegatedSubnetArguments) *string {
 		if v == nil {
@@ -144,9 +143,7 @@ func (o DelegatedSubnetArgumentsPtrOutput) SubnetArmResourceId() pulumi.StringPt
 	}).(pulumi.StringPtrOutput)
 }
 
-// Delegated subnet arguments of a server
 type DelegatedSubnetArgumentsResponse struct {
-	// delegated subnet arm resource id.
 	SubnetArmResourceId *string `pulumi:"subnetArmResourceId"`
 }
 
@@ -161,9 +158,7 @@ type DelegatedSubnetArgumentsResponseInput interface {
 	ToDelegatedSubnetArgumentsResponseOutputWithContext(context.Context) DelegatedSubnetArgumentsResponseOutput
 }
 
-// Delegated subnet arguments of a server
 type DelegatedSubnetArgumentsResponseArgs struct {
-	// delegated subnet arm resource id.
 	SubnetArmResourceId pulumi.StringPtrInput `pulumi:"subnetArmResourceId"`
 }
 
@@ -220,7 +215,6 @@ func (i *delegatedSubnetArgumentsResponsePtrType) ToDelegatedSubnetArgumentsResp
 	return pulumi.ToOutputWithContext(ctx, i).(DelegatedSubnetArgumentsResponsePtrOutput)
 }
 
-// Delegated subnet arguments of a server
 type DelegatedSubnetArgumentsResponseOutput struct{ *pulumi.OutputState }
 
 func (DelegatedSubnetArgumentsResponseOutput) ElementType() reflect.Type {
@@ -240,12 +234,11 @@ func (o DelegatedSubnetArgumentsResponseOutput) ToDelegatedSubnetArgumentsRespon
 }
 
 func (o DelegatedSubnetArgumentsResponseOutput) ToDelegatedSubnetArgumentsResponsePtrOutputWithContext(ctx context.Context) DelegatedSubnetArgumentsResponsePtrOutput {
-	return o.ApplyT(func(v DelegatedSubnetArgumentsResponse) *DelegatedSubnetArgumentsResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v DelegatedSubnetArgumentsResponse) *DelegatedSubnetArgumentsResponse {
 		return &v
 	}).(DelegatedSubnetArgumentsResponsePtrOutput)
 }
 
-// delegated subnet arm resource id.
 func (o DelegatedSubnetArgumentsResponseOutput) SubnetArmResourceId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v DelegatedSubnetArgumentsResponse) *string { return v.SubnetArmResourceId }).(pulumi.StringPtrOutput)
 }
@@ -265,10 +258,15 @@ func (o DelegatedSubnetArgumentsResponsePtrOutput) ToDelegatedSubnetArgumentsRes
 }
 
 func (o DelegatedSubnetArgumentsResponsePtrOutput) Elem() DelegatedSubnetArgumentsResponseOutput {
-	return o.ApplyT(func(v *DelegatedSubnetArgumentsResponse) DelegatedSubnetArgumentsResponse { return *v }).(DelegatedSubnetArgumentsResponseOutput)
+	return o.ApplyT(func(v *DelegatedSubnetArgumentsResponse) DelegatedSubnetArgumentsResponse {
+		if v != nil {
+			return *v
+		}
+		var ret DelegatedSubnetArgumentsResponse
+		return ret
+	}).(DelegatedSubnetArgumentsResponseOutput)
 }
 
-// delegated subnet arm resource id.
 func (o DelegatedSubnetArgumentsResponsePtrOutput) SubnetArmResourceId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *DelegatedSubnetArgumentsResponse) *string {
 		if v == nil {
@@ -278,10 +276,8 @@ func (o DelegatedSubnetArgumentsResponsePtrOutput) SubnetArmResourceId() pulumi.
 	}).(pulumi.StringPtrOutput)
 }
 
-// Identity for the resource.
 type Identity struct {
-	// The identity type.
-	Type *string `pulumi:"type"`
+	Type *ResourceIdentityType `pulumi:"type"`
 }
 
 // IdentityInput is an input type that accepts IdentityArgs and IdentityOutput values.
@@ -295,10 +291,8 @@ type IdentityInput interface {
 	ToIdentityOutputWithContext(context.Context) IdentityOutput
 }
 
-// Identity for the resource.
 type IdentityArgs struct {
-	// The identity type.
-	Type *ResourceIdentityType `pulumi:"type"`
+	Type ResourceIdentityTypePtrInput `pulumi:"type"`
 }
 
 func (IdentityArgs) ElementType() reflect.Type {
@@ -354,7 +348,6 @@ func (i *identityPtrType) ToIdentityPtrOutputWithContext(ctx context.Context) Id
 	return pulumi.ToOutputWithContext(ctx, i).(IdentityPtrOutput)
 }
 
-// Identity for the resource.
 type IdentityOutput struct{ *pulumi.OutputState }
 
 func (IdentityOutput) ElementType() reflect.Type {
@@ -374,14 +367,13 @@ func (o IdentityOutput) ToIdentityPtrOutput() IdentityPtrOutput {
 }
 
 func (o IdentityOutput) ToIdentityPtrOutputWithContext(ctx context.Context) IdentityPtrOutput {
-	return o.ApplyT(func(v Identity) *Identity {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v Identity) *Identity {
 		return &v
 	}).(IdentityPtrOutput)
 }
 
-// The identity type.
-func (o IdentityOutput) Type() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v Identity) *string { return v.Type }).(pulumi.StringPtrOutput)
+func (o IdentityOutput) Type() ResourceIdentityTypePtrOutput {
+	return o.ApplyT(func(v Identity) *ResourceIdentityType { return v.Type }).(ResourceIdentityTypePtrOutput)
 }
 
 type IdentityPtrOutput struct{ *pulumi.OutputState }
@@ -399,27 +391,28 @@ func (o IdentityPtrOutput) ToIdentityPtrOutputWithContext(ctx context.Context) I
 }
 
 func (o IdentityPtrOutput) Elem() IdentityOutput {
-	return o.ApplyT(func(v *Identity) Identity { return *v }).(IdentityOutput)
+	return o.ApplyT(func(v *Identity) Identity {
+		if v != nil {
+			return *v
+		}
+		var ret Identity
+		return ret
+	}).(IdentityOutput)
 }
 
-// The identity type.
-func (o IdentityPtrOutput) Type() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *Identity) *string {
+func (o IdentityPtrOutput) Type() ResourceIdentityTypePtrOutput {
+	return o.ApplyT(func(v *Identity) *ResourceIdentityType {
 		if v == nil {
 			return nil
 		}
 		return v.Type
-	}).(pulumi.StringPtrOutput)
+	}).(ResourceIdentityTypePtrOutput)
 }
 
-// Identity for the resource.
 type IdentityResponse struct {
-	// The principal ID of resource identity.
-	PrincipalId string `pulumi:"principalId"`
-	// The tenant ID of resource.
-	TenantId string `pulumi:"tenantId"`
-	// The identity type.
-	Type *string `pulumi:"type"`
+	PrincipalId string  `pulumi:"principalId"`
+	TenantId    string  `pulumi:"tenantId"`
+	Type        *string `pulumi:"type"`
 }
 
 // IdentityResponseInput is an input type that accepts IdentityResponseArgs and IdentityResponseOutput values.
@@ -433,14 +426,10 @@ type IdentityResponseInput interface {
 	ToIdentityResponseOutputWithContext(context.Context) IdentityResponseOutput
 }
 
-// Identity for the resource.
 type IdentityResponseArgs struct {
-	// The principal ID of resource identity.
-	PrincipalId pulumi.StringInput `pulumi:"principalId"`
-	// The tenant ID of resource.
-	TenantId pulumi.StringInput `pulumi:"tenantId"`
-	// The identity type.
-	Type pulumi.StringPtrInput `pulumi:"type"`
+	PrincipalId pulumi.StringInput    `pulumi:"principalId"`
+	TenantId    pulumi.StringInput    `pulumi:"tenantId"`
+	Type        pulumi.StringPtrInput `pulumi:"type"`
 }
 
 func (IdentityResponseArgs) ElementType() reflect.Type {
@@ -496,7 +485,6 @@ func (i *identityResponsePtrType) ToIdentityResponsePtrOutputWithContext(ctx con
 	return pulumi.ToOutputWithContext(ctx, i).(IdentityResponsePtrOutput)
 }
 
-// Identity for the resource.
 type IdentityResponseOutput struct{ *pulumi.OutputState }
 
 func (IdentityResponseOutput) ElementType() reflect.Type {
@@ -516,22 +504,19 @@ func (o IdentityResponseOutput) ToIdentityResponsePtrOutput() IdentityResponsePt
 }
 
 func (o IdentityResponseOutput) ToIdentityResponsePtrOutputWithContext(ctx context.Context) IdentityResponsePtrOutput {
-	return o.ApplyT(func(v IdentityResponse) *IdentityResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v IdentityResponse) *IdentityResponse {
 		return &v
 	}).(IdentityResponsePtrOutput)
 }
 
-// The principal ID of resource identity.
 func (o IdentityResponseOutput) PrincipalId() pulumi.StringOutput {
 	return o.ApplyT(func(v IdentityResponse) string { return v.PrincipalId }).(pulumi.StringOutput)
 }
 
-// The tenant ID of resource.
 func (o IdentityResponseOutput) TenantId() pulumi.StringOutput {
 	return o.ApplyT(func(v IdentityResponse) string { return v.TenantId }).(pulumi.StringOutput)
 }
 
-// The identity type.
 func (o IdentityResponseOutput) Type() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v IdentityResponse) *string { return v.Type }).(pulumi.StringPtrOutput)
 }
@@ -551,10 +536,15 @@ func (o IdentityResponsePtrOutput) ToIdentityResponsePtrOutputWithContext(ctx co
 }
 
 func (o IdentityResponsePtrOutput) Elem() IdentityResponseOutput {
-	return o.ApplyT(func(v *IdentityResponse) IdentityResponse { return *v }).(IdentityResponseOutput)
+	return o.ApplyT(func(v *IdentityResponse) IdentityResponse {
+		if v != nil {
+			return *v
+		}
+		var ret IdentityResponse
+		return ret
+	}).(IdentityResponseOutput)
 }
 
-// The principal ID of resource identity.
 func (o IdentityResponsePtrOutput) PrincipalId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *IdentityResponse) *string {
 		if v == nil {
@@ -564,7 +554,6 @@ func (o IdentityResponsePtrOutput) PrincipalId() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The tenant ID of resource.
 func (o IdentityResponsePtrOutput) TenantId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *IdentityResponse) *string {
 		if v == nil {
@@ -574,7 +563,6 @@ func (o IdentityResponsePtrOutput) TenantId() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The identity type.
 func (o IdentityResponsePtrOutput) Type() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *IdentityResponse) *string {
 		if v == nil {
@@ -584,16 +572,11 @@ func (o IdentityResponsePtrOutput) Type() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Maintenance window of a server.
 type MaintenanceWindow struct {
-	// indicates whether custom window is enabled or disabled
 	CustomWindow *string `pulumi:"customWindow"`
-	// day of week for maintenance window
-	DayOfWeek *int `pulumi:"dayOfWeek"`
-	// start hour for maintenance window
-	StartHour *int `pulumi:"startHour"`
-	// start minute for maintenance window
-	StartMinute *int `pulumi:"startMinute"`
+	DayOfWeek    *int    `pulumi:"dayOfWeek"`
+	StartHour    *int    `pulumi:"startHour"`
+	StartMinute  *int    `pulumi:"startMinute"`
 }
 
 // MaintenanceWindowInput is an input type that accepts MaintenanceWindowArgs and MaintenanceWindowOutput values.
@@ -607,16 +590,11 @@ type MaintenanceWindowInput interface {
 	ToMaintenanceWindowOutputWithContext(context.Context) MaintenanceWindowOutput
 }
 
-// Maintenance window of a server.
 type MaintenanceWindowArgs struct {
-	// indicates whether custom window is enabled or disabled
 	CustomWindow pulumi.StringPtrInput `pulumi:"customWindow"`
-	// day of week for maintenance window
-	DayOfWeek pulumi.IntPtrInput `pulumi:"dayOfWeek"`
-	// start hour for maintenance window
-	StartHour pulumi.IntPtrInput `pulumi:"startHour"`
-	// start minute for maintenance window
-	StartMinute pulumi.IntPtrInput `pulumi:"startMinute"`
+	DayOfWeek    pulumi.IntPtrInput    `pulumi:"dayOfWeek"`
+	StartHour    pulumi.IntPtrInput    `pulumi:"startHour"`
+	StartMinute  pulumi.IntPtrInput    `pulumi:"startMinute"`
 }
 
 func (MaintenanceWindowArgs) ElementType() reflect.Type {
@@ -672,7 +650,6 @@ func (i *maintenanceWindowPtrType) ToMaintenanceWindowPtrOutputWithContext(ctx c
 	return pulumi.ToOutputWithContext(ctx, i).(MaintenanceWindowPtrOutput)
 }
 
-// Maintenance window of a server.
 type MaintenanceWindowOutput struct{ *pulumi.OutputState }
 
 func (MaintenanceWindowOutput) ElementType() reflect.Type {
@@ -692,27 +669,23 @@ func (o MaintenanceWindowOutput) ToMaintenanceWindowPtrOutput() MaintenanceWindo
 }
 
 func (o MaintenanceWindowOutput) ToMaintenanceWindowPtrOutputWithContext(ctx context.Context) MaintenanceWindowPtrOutput {
-	return o.ApplyT(func(v MaintenanceWindow) *MaintenanceWindow {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v MaintenanceWindow) *MaintenanceWindow {
 		return &v
 	}).(MaintenanceWindowPtrOutput)
 }
 
-// indicates whether custom window is enabled or disabled
 func (o MaintenanceWindowOutput) CustomWindow() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v MaintenanceWindow) *string { return v.CustomWindow }).(pulumi.StringPtrOutput)
 }
 
-// day of week for maintenance window
 func (o MaintenanceWindowOutput) DayOfWeek() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v MaintenanceWindow) *int { return v.DayOfWeek }).(pulumi.IntPtrOutput)
 }
 
-// start hour for maintenance window
 func (o MaintenanceWindowOutput) StartHour() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v MaintenanceWindow) *int { return v.StartHour }).(pulumi.IntPtrOutput)
 }
 
-// start minute for maintenance window
 func (o MaintenanceWindowOutput) StartMinute() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v MaintenanceWindow) *int { return v.StartMinute }).(pulumi.IntPtrOutput)
 }
@@ -732,10 +705,15 @@ func (o MaintenanceWindowPtrOutput) ToMaintenanceWindowPtrOutputWithContext(ctx 
 }
 
 func (o MaintenanceWindowPtrOutput) Elem() MaintenanceWindowOutput {
-	return o.ApplyT(func(v *MaintenanceWindow) MaintenanceWindow { return *v }).(MaintenanceWindowOutput)
+	return o.ApplyT(func(v *MaintenanceWindow) MaintenanceWindow {
+		if v != nil {
+			return *v
+		}
+		var ret MaintenanceWindow
+		return ret
+	}).(MaintenanceWindowOutput)
 }
 
-// indicates whether custom window is enabled or disabled
 func (o MaintenanceWindowPtrOutput) CustomWindow() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *MaintenanceWindow) *string {
 		if v == nil {
@@ -745,7 +723,6 @@ func (o MaintenanceWindowPtrOutput) CustomWindow() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// day of week for maintenance window
 func (o MaintenanceWindowPtrOutput) DayOfWeek() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *MaintenanceWindow) *int {
 		if v == nil {
@@ -755,7 +732,6 @@ func (o MaintenanceWindowPtrOutput) DayOfWeek() pulumi.IntPtrOutput {
 	}).(pulumi.IntPtrOutput)
 }
 
-// start hour for maintenance window
 func (o MaintenanceWindowPtrOutput) StartHour() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *MaintenanceWindow) *int {
 		if v == nil {
@@ -765,7 +741,6 @@ func (o MaintenanceWindowPtrOutput) StartHour() pulumi.IntPtrOutput {
 	}).(pulumi.IntPtrOutput)
 }
 
-// start minute for maintenance window
 func (o MaintenanceWindowPtrOutput) StartMinute() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *MaintenanceWindow) *int {
 		if v == nil {
@@ -775,16 +750,11 @@ func (o MaintenanceWindowPtrOutput) StartMinute() pulumi.IntPtrOutput {
 	}).(pulumi.IntPtrOutput)
 }
 
-// Maintenance window of a server.
 type MaintenanceWindowResponse struct {
-	// indicates whether custom window is enabled or disabled
 	CustomWindow *string `pulumi:"customWindow"`
-	// day of week for maintenance window
-	DayOfWeek *int `pulumi:"dayOfWeek"`
-	// start hour for maintenance window
-	StartHour *int `pulumi:"startHour"`
-	// start minute for maintenance window
-	StartMinute *int `pulumi:"startMinute"`
+	DayOfWeek    *int    `pulumi:"dayOfWeek"`
+	StartHour    *int    `pulumi:"startHour"`
+	StartMinute  *int    `pulumi:"startMinute"`
 }
 
 // MaintenanceWindowResponseInput is an input type that accepts MaintenanceWindowResponseArgs and MaintenanceWindowResponseOutput values.
@@ -798,16 +768,11 @@ type MaintenanceWindowResponseInput interface {
 	ToMaintenanceWindowResponseOutputWithContext(context.Context) MaintenanceWindowResponseOutput
 }
 
-// Maintenance window of a server.
 type MaintenanceWindowResponseArgs struct {
-	// indicates whether custom window is enabled or disabled
 	CustomWindow pulumi.StringPtrInput `pulumi:"customWindow"`
-	// day of week for maintenance window
-	DayOfWeek pulumi.IntPtrInput `pulumi:"dayOfWeek"`
-	// start hour for maintenance window
-	StartHour pulumi.IntPtrInput `pulumi:"startHour"`
-	// start minute for maintenance window
-	StartMinute pulumi.IntPtrInput `pulumi:"startMinute"`
+	DayOfWeek    pulumi.IntPtrInput    `pulumi:"dayOfWeek"`
+	StartHour    pulumi.IntPtrInput    `pulumi:"startHour"`
+	StartMinute  pulumi.IntPtrInput    `pulumi:"startMinute"`
 }
 
 func (MaintenanceWindowResponseArgs) ElementType() reflect.Type {
@@ -863,7 +828,6 @@ func (i *maintenanceWindowResponsePtrType) ToMaintenanceWindowResponsePtrOutputW
 	return pulumi.ToOutputWithContext(ctx, i).(MaintenanceWindowResponsePtrOutput)
 }
 
-// Maintenance window of a server.
 type MaintenanceWindowResponseOutput struct{ *pulumi.OutputState }
 
 func (MaintenanceWindowResponseOutput) ElementType() reflect.Type {
@@ -883,27 +847,23 @@ func (o MaintenanceWindowResponseOutput) ToMaintenanceWindowResponsePtrOutput() 
 }
 
 func (o MaintenanceWindowResponseOutput) ToMaintenanceWindowResponsePtrOutputWithContext(ctx context.Context) MaintenanceWindowResponsePtrOutput {
-	return o.ApplyT(func(v MaintenanceWindowResponse) *MaintenanceWindowResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v MaintenanceWindowResponse) *MaintenanceWindowResponse {
 		return &v
 	}).(MaintenanceWindowResponsePtrOutput)
 }
 
-// indicates whether custom window is enabled or disabled
 func (o MaintenanceWindowResponseOutput) CustomWindow() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v MaintenanceWindowResponse) *string { return v.CustomWindow }).(pulumi.StringPtrOutput)
 }
 
-// day of week for maintenance window
 func (o MaintenanceWindowResponseOutput) DayOfWeek() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v MaintenanceWindowResponse) *int { return v.DayOfWeek }).(pulumi.IntPtrOutput)
 }
 
-// start hour for maintenance window
 func (o MaintenanceWindowResponseOutput) StartHour() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v MaintenanceWindowResponse) *int { return v.StartHour }).(pulumi.IntPtrOutput)
 }
 
-// start minute for maintenance window
 func (o MaintenanceWindowResponseOutput) StartMinute() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v MaintenanceWindowResponse) *int { return v.StartMinute }).(pulumi.IntPtrOutput)
 }
@@ -923,10 +883,15 @@ func (o MaintenanceWindowResponsePtrOutput) ToMaintenanceWindowResponsePtrOutput
 }
 
 func (o MaintenanceWindowResponsePtrOutput) Elem() MaintenanceWindowResponseOutput {
-	return o.ApplyT(func(v *MaintenanceWindowResponse) MaintenanceWindowResponse { return *v }).(MaintenanceWindowResponseOutput)
+	return o.ApplyT(func(v *MaintenanceWindowResponse) MaintenanceWindowResponse {
+		if v != nil {
+			return *v
+		}
+		var ret MaintenanceWindowResponse
+		return ret
+	}).(MaintenanceWindowResponseOutput)
 }
 
-// indicates whether custom window is enabled or disabled
 func (o MaintenanceWindowResponsePtrOutput) CustomWindow() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *MaintenanceWindowResponse) *string {
 		if v == nil {
@@ -936,7 +901,6 @@ func (o MaintenanceWindowResponsePtrOutput) CustomWindow() pulumi.StringPtrOutpu
 	}).(pulumi.StringPtrOutput)
 }
 
-// day of week for maintenance window
 func (o MaintenanceWindowResponsePtrOutput) DayOfWeek() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *MaintenanceWindowResponse) *int {
 		if v == nil {
@@ -946,7 +910,6 @@ func (o MaintenanceWindowResponsePtrOutput) DayOfWeek() pulumi.IntPtrOutput {
 	}).(pulumi.IntPtrOutput)
 }
 
-// start hour for maintenance window
 func (o MaintenanceWindowResponsePtrOutput) StartHour() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *MaintenanceWindowResponse) *int {
 		if v == nil {
@@ -956,7 +919,6 @@ func (o MaintenanceWindowResponsePtrOutput) StartHour() pulumi.IntPtrOutput {
 	}).(pulumi.IntPtrOutput)
 }
 
-// start minute for maintenance window
 func (o MaintenanceWindowResponsePtrOutput) StartMinute() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *MaintenanceWindowResponse) *int {
 		if v == nil {
@@ -966,11 +928,8 @@ func (o MaintenanceWindowResponsePtrOutput) StartMinute() pulumi.IntPtrOutput {
 	}).(pulumi.IntPtrOutput)
 }
 
-// Billing information related properties of a server.
 type Sku struct {
-	// The name of the sku, e.g. Standard_D32s_v3.
 	Name string `pulumi:"name"`
-	// The tier of the particular SKU, e.g. GeneralPurpose.
 	Tier string `pulumi:"tier"`
 }
 
@@ -985,11 +944,8 @@ type SkuInput interface {
 	ToSkuOutputWithContext(context.Context) SkuOutput
 }
 
-// Billing information related properties of a server.
 type SkuArgs struct {
-	// The name of the sku, e.g. Standard_D32s_v3.
 	Name pulumi.StringInput `pulumi:"name"`
-	// The tier of the particular SKU, e.g. GeneralPurpose.
 	Tier pulumi.StringInput `pulumi:"tier"`
 }
 
@@ -1046,7 +1002,6 @@ func (i *skuPtrType) ToSkuPtrOutputWithContext(ctx context.Context) SkuPtrOutput
 	return pulumi.ToOutputWithContext(ctx, i).(SkuPtrOutput)
 }
 
-// Billing information related properties of a server.
 type SkuOutput struct{ *pulumi.OutputState }
 
 func (SkuOutput) ElementType() reflect.Type {
@@ -1066,17 +1021,15 @@ func (o SkuOutput) ToSkuPtrOutput() SkuPtrOutput {
 }
 
 func (o SkuOutput) ToSkuPtrOutputWithContext(ctx context.Context) SkuPtrOutput {
-	return o.ApplyT(func(v Sku) *Sku {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v Sku) *Sku {
 		return &v
 	}).(SkuPtrOutput)
 }
 
-// The name of the sku, e.g. Standard_D32s_v3.
 func (o SkuOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v Sku) string { return v.Name }).(pulumi.StringOutput)
 }
 
-// The tier of the particular SKU, e.g. GeneralPurpose.
 func (o SkuOutput) Tier() pulumi.StringOutput {
 	return o.ApplyT(func(v Sku) string { return v.Tier }).(pulumi.StringOutput)
 }
@@ -1096,10 +1049,15 @@ func (o SkuPtrOutput) ToSkuPtrOutputWithContext(ctx context.Context) SkuPtrOutpu
 }
 
 func (o SkuPtrOutput) Elem() SkuOutput {
-	return o.ApplyT(func(v *Sku) Sku { return *v }).(SkuOutput)
+	return o.ApplyT(func(v *Sku) Sku {
+		if v != nil {
+			return *v
+		}
+		var ret Sku
+		return ret
+	}).(SkuOutput)
 }
 
-// The name of the sku, e.g. Standard_D32s_v3.
 func (o SkuPtrOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Sku) *string {
 		if v == nil {
@@ -1109,7 +1067,6 @@ func (o SkuPtrOutput) Name() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The tier of the particular SKU, e.g. GeneralPurpose.
 func (o SkuPtrOutput) Tier() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Sku) *string {
 		if v == nil {
@@ -1119,11 +1076,8 @@ func (o SkuPtrOutput) Tier() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Billing information related properties of a server.
 type SkuResponse struct {
-	// The name of the sku, e.g. Standard_D32s_v3.
 	Name string `pulumi:"name"`
-	// The tier of the particular SKU, e.g. GeneralPurpose.
 	Tier string `pulumi:"tier"`
 }
 
@@ -1138,11 +1092,8 @@ type SkuResponseInput interface {
 	ToSkuResponseOutputWithContext(context.Context) SkuResponseOutput
 }
 
-// Billing information related properties of a server.
 type SkuResponseArgs struct {
-	// The name of the sku, e.g. Standard_D32s_v3.
 	Name pulumi.StringInput `pulumi:"name"`
-	// The tier of the particular SKU, e.g. GeneralPurpose.
 	Tier pulumi.StringInput `pulumi:"tier"`
 }
 
@@ -1199,7 +1150,6 @@ func (i *skuResponsePtrType) ToSkuResponsePtrOutputWithContext(ctx context.Conte
 	return pulumi.ToOutputWithContext(ctx, i).(SkuResponsePtrOutput)
 }
 
-// Billing information related properties of a server.
 type SkuResponseOutput struct{ *pulumi.OutputState }
 
 func (SkuResponseOutput) ElementType() reflect.Type {
@@ -1219,17 +1169,15 @@ func (o SkuResponseOutput) ToSkuResponsePtrOutput() SkuResponsePtrOutput {
 }
 
 func (o SkuResponseOutput) ToSkuResponsePtrOutputWithContext(ctx context.Context) SkuResponsePtrOutput {
-	return o.ApplyT(func(v SkuResponse) *SkuResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v SkuResponse) *SkuResponse {
 		return &v
 	}).(SkuResponsePtrOutput)
 }
 
-// The name of the sku, e.g. Standard_D32s_v3.
 func (o SkuResponseOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v SkuResponse) string { return v.Name }).(pulumi.StringOutput)
 }
 
-// The tier of the particular SKU, e.g. GeneralPurpose.
 func (o SkuResponseOutput) Tier() pulumi.StringOutput {
 	return o.ApplyT(func(v SkuResponse) string { return v.Tier }).(pulumi.StringOutput)
 }
@@ -1249,10 +1197,15 @@ func (o SkuResponsePtrOutput) ToSkuResponsePtrOutputWithContext(ctx context.Cont
 }
 
 func (o SkuResponsePtrOutput) Elem() SkuResponseOutput {
-	return o.ApplyT(func(v *SkuResponse) SkuResponse { return *v }).(SkuResponseOutput)
+	return o.ApplyT(func(v *SkuResponse) SkuResponse {
+		if v != nil {
+			return *v
+		}
+		var ret SkuResponse
+		return ret
+	}).(SkuResponseOutput)
 }
 
-// The name of the sku, e.g. Standard_D32s_v3.
 func (o SkuResponsePtrOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SkuResponse) *string {
 		if v == nil {
@@ -1262,7 +1215,6 @@ func (o SkuResponsePtrOutput) Name() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The tier of the particular SKU, e.g. GeneralPurpose.
 func (o SkuResponsePtrOutput) Tier() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SkuResponse) *string {
 		if v == nil {
@@ -1272,16 +1224,11 @@ func (o SkuResponsePtrOutput) Tier() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Storage Profile properties of a server
 type StorageProfile struct {
-	// Backup retention days for the server.
-	BackupRetentionDays *int `pulumi:"backupRetentionDays"`
-	// Enable Storage Auto Grow.
-	StorageAutogrow *string `pulumi:"storageAutogrow"`
-	// Storage IOPS for a server.
-	StorageIops *int `pulumi:"storageIops"`
-	// Max storage allowed for a server.
-	StorageMB *int `pulumi:"storageMB"`
+	BackupRetentionDays *int    `pulumi:"backupRetentionDays"`
+	StorageAutogrow     *string `pulumi:"storageAutogrow"`
+	StorageIops         *int    `pulumi:"storageIops"`
+	StorageMB           *int    `pulumi:"storageMB"`
 }
 
 // StorageProfileInput is an input type that accepts StorageProfileArgs and StorageProfileOutput values.
@@ -1295,16 +1242,11 @@ type StorageProfileInput interface {
 	ToStorageProfileOutputWithContext(context.Context) StorageProfileOutput
 }
 
-// Storage Profile properties of a server
 type StorageProfileArgs struct {
-	// Backup retention days for the server.
-	BackupRetentionDays pulumi.IntPtrInput `pulumi:"backupRetentionDays"`
-	// Enable Storage Auto Grow.
-	StorageAutogrow pulumi.StringPtrInput `pulumi:"storageAutogrow"`
-	// Storage IOPS for a server.
-	StorageIops pulumi.IntPtrInput `pulumi:"storageIops"`
-	// Max storage allowed for a server.
-	StorageMB pulumi.IntPtrInput `pulumi:"storageMB"`
+	BackupRetentionDays pulumi.IntPtrInput    `pulumi:"backupRetentionDays"`
+	StorageAutogrow     pulumi.StringPtrInput `pulumi:"storageAutogrow"`
+	StorageIops         pulumi.IntPtrInput    `pulumi:"storageIops"`
+	StorageMB           pulumi.IntPtrInput    `pulumi:"storageMB"`
 }
 
 func (StorageProfileArgs) ElementType() reflect.Type {
@@ -1360,7 +1302,6 @@ func (i *storageProfilePtrType) ToStorageProfilePtrOutputWithContext(ctx context
 	return pulumi.ToOutputWithContext(ctx, i).(StorageProfilePtrOutput)
 }
 
-// Storage Profile properties of a server
 type StorageProfileOutput struct{ *pulumi.OutputState }
 
 func (StorageProfileOutput) ElementType() reflect.Type {
@@ -1380,27 +1321,23 @@ func (o StorageProfileOutput) ToStorageProfilePtrOutput() StorageProfilePtrOutpu
 }
 
 func (o StorageProfileOutput) ToStorageProfilePtrOutputWithContext(ctx context.Context) StorageProfilePtrOutput {
-	return o.ApplyT(func(v StorageProfile) *StorageProfile {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v StorageProfile) *StorageProfile {
 		return &v
 	}).(StorageProfilePtrOutput)
 }
 
-// Backup retention days for the server.
 func (o StorageProfileOutput) BackupRetentionDays() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v StorageProfile) *int { return v.BackupRetentionDays }).(pulumi.IntPtrOutput)
 }
 
-// Enable Storage Auto Grow.
 func (o StorageProfileOutput) StorageAutogrow() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v StorageProfile) *string { return v.StorageAutogrow }).(pulumi.StringPtrOutput)
 }
 
-// Storage IOPS for a server.
 func (o StorageProfileOutput) StorageIops() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v StorageProfile) *int { return v.StorageIops }).(pulumi.IntPtrOutput)
 }
 
-// Max storage allowed for a server.
 func (o StorageProfileOutput) StorageMB() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v StorageProfile) *int { return v.StorageMB }).(pulumi.IntPtrOutput)
 }
@@ -1420,10 +1357,15 @@ func (o StorageProfilePtrOutput) ToStorageProfilePtrOutputWithContext(ctx contex
 }
 
 func (o StorageProfilePtrOutput) Elem() StorageProfileOutput {
-	return o.ApplyT(func(v *StorageProfile) StorageProfile { return *v }).(StorageProfileOutput)
+	return o.ApplyT(func(v *StorageProfile) StorageProfile {
+		if v != nil {
+			return *v
+		}
+		var ret StorageProfile
+		return ret
+	}).(StorageProfileOutput)
 }
 
-// Backup retention days for the server.
 func (o StorageProfilePtrOutput) BackupRetentionDays() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *StorageProfile) *int {
 		if v == nil {
@@ -1433,7 +1375,6 @@ func (o StorageProfilePtrOutput) BackupRetentionDays() pulumi.IntPtrOutput {
 	}).(pulumi.IntPtrOutput)
 }
 
-// Enable Storage Auto Grow.
 func (o StorageProfilePtrOutput) StorageAutogrow() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *StorageProfile) *string {
 		if v == nil {
@@ -1443,7 +1384,6 @@ func (o StorageProfilePtrOutput) StorageAutogrow() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Storage IOPS for a server.
 func (o StorageProfilePtrOutput) StorageIops() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *StorageProfile) *int {
 		if v == nil {
@@ -1453,7 +1393,6 @@ func (o StorageProfilePtrOutput) StorageIops() pulumi.IntPtrOutput {
 	}).(pulumi.IntPtrOutput)
 }
 
-// Max storage allowed for a server.
 func (o StorageProfilePtrOutput) StorageMB() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *StorageProfile) *int {
 		if v == nil {
@@ -1463,18 +1402,12 @@ func (o StorageProfilePtrOutput) StorageMB() pulumi.IntPtrOutput {
 	}).(pulumi.IntPtrOutput)
 }
 
-// Storage Profile properties of a server
 type StorageProfileResponse struct {
-	// Backup retention days for the server.
-	BackupRetentionDays *int `pulumi:"backupRetentionDays"`
-	// The sku name of the file storage.
-	FileStorageSkuName string `pulumi:"fileStorageSkuName"`
-	// Enable Storage Auto Grow.
-	StorageAutogrow *string `pulumi:"storageAutogrow"`
-	// Storage IOPS for a server.
-	StorageIops *int `pulumi:"storageIops"`
-	// Max storage allowed for a server.
-	StorageMB *int `pulumi:"storageMB"`
+	BackupRetentionDays *int    `pulumi:"backupRetentionDays"`
+	FileStorageSkuName  string  `pulumi:"fileStorageSkuName"`
+	StorageAutogrow     *string `pulumi:"storageAutogrow"`
+	StorageIops         *int    `pulumi:"storageIops"`
+	StorageMB           *int    `pulumi:"storageMB"`
 }
 
 // StorageProfileResponseInput is an input type that accepts StorageProfileResponseArgs and StorageProfileResponseOutput values.
@@ -1488,18 +1421,12 @@ type StorageProfileResponseInput interface {
 	ToStorageProfileResponseOutputWithContext(context.Context) StorageProfileResponseOutput
 }
 
-// Storage Profile properties of a server
 type StorageProfileResponseArgs struct {
-	// Backup retention days for the server.
-	BackupRetentionDays pulumi.IntPtrInput `pulumi:"backupRetentionDays"`
-	// The sku name of the file storage.
-	FileStorageSkuName pulumi.StringInput `pulumi:"fileStorageSkuName"`
-	// Enable Storage Auto Grow.
-	StorageAutogrow pulumi.StringPtrInput `pulumi:"storageAutogrow"`
-	// Storage IOPS for a server.
-	StorageIops pulumi.IntPtrInput `pulumi:"storageIops"`
-	// Max storage allowed for a server.
-	StorageMB pulumi.IntPtrInput `pulumi:"storageMB"`
+	BackupRetentionDays pulumi.IntPtrInput    `pulumi:"backupRetentionDays"`
+	FileStorageSkuName  pulumi.StringInput    `pulumi:"fileStorageSkuName"`
+	StorageAutogrow     pulumi.StringPtrInput `pulumi:"storageAutogrow"`
+	StorageIops         pulumi.IntPtrInput    `pulumi:"storageIops"`
+	StorageMB           pulumi.IntPtrInput    `pulumi:"storageMB"`
 }
 
 func (StorageProfileResponseArgs) ElementType() reflect.Type {
@@ -1555,7 +1482,6 @@ func (i *storageProfileResponsePtrType) ToStorageProfileResponsePtrOutputWithCon
 	return pulumi.ToOutputWithContext(ctx, i).(StorageProfileResponsePtrOutput)
 }
 
-// Storage Profile properties of a server
 type StorageProfileResponseOutput struct{ *pulumi.OutputState }
 
 func (StorageProfileResponseOutput) ElementType() reflect.Type {
@@ -1575,32 +1501,27 @@ func (o StorageProfileResponseOutput) ToStorageProfileResponsePtrOutput() Storag
 }
 
 func (o StorageProfileResponseOutput) ToStorageProfileResponsePtrOutputWithContext(ctx context.Context) StorageProfileResponsePtrOutput {
-	return o.ApplyT(func(v StorageProfileResponse) *StorageProfileResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v StorageProfileResponse) *StorageProfileResponse {
 		return &v
 	}).(StorageProfileResponsePtrOutput)
 }
 
-// Backup retention days for the server.
 func (o StorageProfileResponseOutput) BackupRetentionDays() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v StorageProfileResponse) *int { return v.BackupRetentionDays }).(pulumi.IntPtrOutput)
 }
 
-// The sku name of the file storage.
 func (o StorageProfileResponseOutput) FileStorageSkuName() pulumi.StringOutput {
 	return o.ApplyT(func(v StorageProfileResponse) string { return v.FileStorageSkuName }).(pulumi.StringOutput)
 }
 
-// Enable Storage Auto Grow.
 func (o StorageProfileResponseOutput) StorageAutogrow() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v StorageProfileResponse) *string { return v.StorageAutogrow }).(pulumi.StringPtrOutput)
 }
 
-// Storage IOPS for a server.
 func (o StorageProfileResponseOutput) StorageIops() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v StorageProfileResponse) *int { return v.StorageIops }).(pulumi.IntPtrOutput)
 }
 
-// Max storage allowed for a server.
 func (o StorageProfileResponseOutput) StorageMB() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v StorageProfileResponse) *int { return v.StorageMB }).(pulumi.IntPtrOutput)
 }
@@ -1620,10 +1541,15 @@ func (o StorageProfileResponsePtrOutput) ToStorageProfileResponsePtrOutputWithCo
 }
 
 func (o StorageProfileResponsePtrOutput) Elem() StorageProfileResponseOutput {
-	return o.ApplyT(func(v *StorageProfileResponse) StorageProfileResponse { return *v }).(StorageProfileResponseOutput)
+	return o.ApplyT(func(v *StorageProfileResponse) StorageProfileResponse {
+		if v != nil {
+			return *v
+		}
+		var ret StorageProfileResponse
+		return ret
+	}).(StorageProfileResponseOutput)
 }
 
-// Backup retention days for the server.
 func (o StorageProfileResponsePtrOutput) BackupRetentionDays() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *StorageProfileResponse) *int {
 		if v == nil {
@@ -1633,7 +1559,6 @@ func (o StorageProfileResponsePtrOutput) BackupRetentionDays() pulumi.IntPtrOutp
 	}).(pulumi.IntPtrOutput)
 }
 
-// The sku name of the file storage.
 func (o StorageProfileResponsePtrOutput) FileStorageSkuName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *StorageProfileResponse) *string {
 		if v == nil {
@@ -1643,7 +1568,6 @@ func (o StorageProfileResponsePtrOutput) FileStorageSkuName() pulumi.StringPtrOu
 	}).(pulumi.StringPtrOutput)
 }
 
-// Enable Storage Auto Grow.
 func (o StorageProfileResponsePtrOutput) StorageAutogrow() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *StorageProfileResponse) *string {
 		if v == nil {
@@ -1653,7 +1577,6 @@ func (o StorageProfileResponsePtrOutput) StorageAutogrow() pulumi.StringPtrOutpu
 	}).(pulumi.StringPtrOutput)
 }
 
-// Storage IOPS for a server.
 func (o StorageProfileResponsePtrOutput) StorageIops() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *StorageProfileResponse) *int {
 		if v == nil {
@@ -1663,7 +1586,6 @@ func (o StorageProfileResponsePtrOutput) StorageIops() pulumi.IntPtrOutput {
 	}).(pulumi.IntPtrOutput)
 }
 
-// Max storage allowed for a server.
 func (o StorageProfileResponsePtrOutput) StorageMB() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *StorageProfileResponse) *int {
 		if v == nil {

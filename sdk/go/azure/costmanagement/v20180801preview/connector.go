@@ -11,36 +11,22 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// The Connector model definition
 type Connector struct {
 	pulumi.CustomResourceState
 
-	// Collection information
-	Collection ConnectorCollectionInfoResponseOutput `pulumi:"collection"`
-	// Connector definition creation datetime
-	CreatedOn pulumi.StringOutput `pulumi:"createdOn"`
-	// Credentials authentication key (eg AWS ARN)
-	CredentialsKey pulumi.StringPtrOutput `pulumi:"credentialsKey"`
-	// Connector DisplayName (defaults to Name)
-	DisplayName pulumi.StringPtrOutput `pulumi:"displayName"`
-	// Connector kind (eg aws)
-	Kind pulumi.StringPtrOutput `pulumi:"kind"`
-	// Connector location
-	Location pulumi.StringPtrOutput `pulumi:"location"`
-	// Connector last modified datetime
-	ModifiedOn pulumi.StringOutput `pulumi:"modifiedOn"`
-	// Connector name
-	Name pulumi.StringOutput `pulumi:"name"`
-	// Connector providerAccountId (determined from credentials)
-	ProviderAccountId pulumi.StringOutput `pulumi:"providerAccountId"`
-	// Identifying source report. (For AWS this is a CUR report name, defined with Daily and with Resources)
-	ReportId pulumi.StringPtrOutput `pulumi:"reportId"`
-	// Connector status
-	Status pulumi.StringPtrOutput `pulumi:"status"`
-	// Resource tags.
-	Tags pulumi.StringMapOutput `pulumi:"tags"`
-	// Connector type
-	Type pulumi.StringOutput `pulumi:"type"`
+	Collection        ConnectorCollectionInfoResponseOutput `pulumi:"collection"`
+	CreatedOn         pulumi.StringOutput                   `pulumi:"createdOn"`
+	CredentialsKey    pulumi.StringPtrOutput                `pulumi:"credentialsKey"`
+	DisplayName       pulumi.StringPtrOutput                `pulumi:"displayName"`
+	Kind              pulumi.StringPtrOutput                `pulumi:"kind"`
+	Location          pulumi.StringPtrOutput                `pulumi:"location"`
+	ModifiedOn        pulumi.StringOutput                   `pulumi:"modifiedOn"`
+	Name              pulumi.StringOutput                   `pulumi:"name"`
+	ProviderAccountId pulumi.StringOutput                   `pulumi:"providerAccountId"`
+	ReportId          pulumi.StringPtrOutput                `pulumi:"reportId"`
+	Status            pulumi.StringPtrOutput                `pulumi:"status"`
+	Tags              pulumi.StringMapOutput                `pulumi:"tags"`
+	Type              pulumi.StringOutput                   `pulumi:"type"`
 }
 
 // NewConnector registers a new resource with the given unique name, arguments, and options.
@@ -103,50 +89,30 @@ func (ConnectorState) ElementType() reflect.Type {
 }
 
 type connectorArgs struct {
-	// Connector Name.
-	ConnectorName *string `pulumi:"connectorName"`
-	// Credentials authentication key (eg AWS ARN)
-	CredentialsKey *string `pulumi:"credentialsKey"`
-	// Credentials secret (eg AWS ExternalId)
-	CredentialsSecret *string `pulumi:"credentialsSecret"`
-	// Connector DisplayName (defaults to Name)
-	DisplayName *string `pulumi:"displayName"`
-	// Connector kind (eg aws)
-	Kind *string `pulumi:"kind"`
-	// Connector location
-	Location *string `pulumi:"location"`
-	// Identifying source report. (For AWS this is a CUR report name, defined with Daily and with Resources)
-	ReportId *string `pulumi:"reportId"`
-	// Azure Resource Group Name.
-	ResourceGroupName string `pulumi:"resourceGroupName"`
-	// Connector status
-	Status *string `pulumi:"status"`
-	// Resource tags.
-	Tags map[string]string `pulumi:"tags"`
+	ConnectorName     *string           `pulumi:"connectorName"`
+	CredentialsKey    *string           `pulumi:"credentialsKey"`
+	CredentialsSecret *string           `pulumi:"credentialsSecret"`
+	DisplayName       *string           `pulumi:"displayName"`
+	Kind              *string           `pulumi:"kind"`
+	Location          *string           `pulumi:"location"`
+	ReportId          *string           `pulumi:"reportId"`
+	ResourceGroupName string            `pulumi:"resourceGroupName"`
+	Status            *string           `pulumi:"status"`
+	Tags              map[string]string `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a Connector resource.
 type ConnectorArgs struct {
-	// Connector Name.
-	ConnectorName pulumi.StringPtrInput
-	// Credentials authentication key (eg AWS ARN)
-	CredentialsKey pulumi.StringPtrInput
-	// Credentials secret (eg AWS ExternalId)
+	ConnectorName     pulumi.StringPtrInput
+	CredentialsKey    pulumi.StringPtrInput
 	CredentialsSecret pulumi.StringPtrInput
-	// Connector DisplayName (defaults to Name)
-	DisplayName pulumi.StringPtrInput
-	// Connector kind (eg aws)
-	Kind pulumi.StringPtrInput
-	// Connector location
-	Location pulumi.StringPtrInput
-	// Identifying source report. (For AWS this is a CUR report name, defined with Daily and with Resources)
-	ReportId pulumi.StringPtrInput
-	// Azure Resource Group Name.
+	DisplayName       pulumi.StringPtrInput
+	Kind              pulumi.StringPtrInput
+	Location          pulumi.StringPtrInput
+	ReportId          pulumi.StringPtrInput
 	ResourceGroupName pulumi.StringInput
-	// Connector status
-	Status pulumi.StringPtrInput
-	// Resource tags.
-	Tags pulumi.StringMapInput
+	Status            pulumi.StringPtrInput
+	Tags              pulumi.StringMapInput
 }
 
 func (ConnectorArgs) ElementType() reflect.Type {
@@ -172,9 +138,7 @@ func (i *Connector) ToConnectorOutputWithContext(ctx context.Context) ConnectorO
 	return pulumi.ToOutputWithContext(ctx, i).(ConnectorOutput)
 }
 
-type ConnectorOutput struct {
-	*pulumi.OutputState
-}
+type ConnectorOutput struct{ *pulumi.OutputState }
 
 func (ConnectorOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*Connector)(nil))

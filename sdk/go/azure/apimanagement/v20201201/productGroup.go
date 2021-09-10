@@ -11,22 +11,15 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Contract details.
 type ProductGroup struct {
 	pulumi.CustomResourceState
 
-	// true if the group is one of the three system groups (Administrators, Developers, or Guests); otherwise false.
-	BuiltIn pulumi.BoolOutput `pulumi:"builtIn"`
-	// Group description. Can contain HTML formatting tags.
+	BuiltIn     pulumi.BoolOutput      `pulumi:"builtIn"`
 	Description pulumi.StringPtrOutput `pulumi:"description"`
-	// Group name.
-	DisplayName pulumi.StringOutput `pulumi:"displayName"`
-	// For external groups, this property contains the id of the group from the external identity provider, e.g. for Azure Active Directory `aad://<tenant>.onmicrosoft.com/groups/<group object id>`; otherwise the value is null.
-	ExternalId pulumi.StringPtrOutput `pulumi:"externalId"`
-	// Resource name.
-	Name pulumi.StringOutput `pulumi:"name"`
-	// Resource type for API Management resource.
-	Type pulumi.StringOutput `pulumi:"type"`
+	DisplayName pulumi.StringOutput    `pulumi:"displayName"`
+	ExternalId  pulumi.StringPtrOutput `pulumi:"externalId"`
+	Name        pulumi.StringOutput    `pulumi:"name"`
+	Type        pulumi.StringOutput    `pulumi:"type"`
 }
 
 // NewProductGroup registers a new resource with the given unique name, arguments, and options.
@@ -137,26 +130,18 @@ func (ProductGroupState) ElementType() reflect.Type {
 }
 
 type productGroupArgs struct {
-	// Group identifier. Must be unique in the current API Management service instance.
-	GroupId *string `pulumi:"groupId"`
-	// Product identifier. Must be unique in the current API Management service instance.
-	ProductId string `pulumi:"productId"`
-	// The name of the resource group.
-	ResourceGroupName string `pulumi:"resourceGroupName"`
-	// The name of the API Management service.
-	ServiceName string `pulumi:"serviceName"`
+	GroupId           *string `pulumi:"groupId"`
+	ProductId         string  `pulumi:"productId"`
+	ResourceGroupName string  `pulumi:"resourceGroupName"`
+	ServiceName       string  `pulumi:"serviceName"`
 }
 
 // The set of arguments for constructing a ProductGroup resource.
 type ProductGroupArgs struct {
-	// Group identifier. Must be unique in the current API Management service instance.
-	GroupId pulumi.StringPtrInput
-	// Product identifier. Must be unique in the current API Management service instance.
-	ProductId pulumi.StringInput
-	// The name of the resource group.
+	GroupId           pulumi.StringPtrInput
+	ProductId         pulumi.StringInput
 	ResourceGroupName pulumi.StringInput
-	// The name of the API Management service.
-	ServiceName pulumi.StringInput
+	ServiceName       pulumi.StringInput
 }
 
 func (ProductGroupArgs) ElementType() reflect.Type {
@@ -182,9 +167,7 @@ func (i *ProductGroup) ToProductGroupOutputWithContext(ctx context.Context) Prod
 	return pulumi.ToOutputWithContext(ctx, i).(ProductGroupOutput)
 }
 
-type ProductGroupOutput struct {
-	*pulumi.OutputState
-}
+type ProductGroupOutput struct{ *pulumi.OutputState }
 
 func (ProductGroupOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*ProductGroup)(nil))

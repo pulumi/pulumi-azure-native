@@ -7,7 +7,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// The list of all devices in a resource and their eligibility status as a failover target device.
 func ListDeviceFailoverTars(ctx *pulumi.Context, args *ListDeviceFailoverTarsArgs, opts ...pulumi.InvokeOption) (*ListDeviceFailoverTarsResult, error) {
 	var rv ListDeviceFailoverTarsResult
 	err := ctx.Invoke("azure-native:storsimple/v20170601:listDeviceFailoverTars", args, &rv, opts...)
@@ -18,18 +17,13 @@ func ListDeviceFailoverTars(ctx *pulumi.Context, args *ListDeviceFailoverTarsArg
 }
 
 type ListDeviceFailoverTarsArgs struct {
-	// The manager name
-	ManagerName string `pulumi:"managerName"`
-	// The resource group name
-	ResourceGroupName string `pulumi:"resourceGroupName"`
-	// The source device name on which failover is performed.
-	SourceDeviceName string `pulumi:"sourceDeviceName"`
-	// The list of path IDs of the volume containers that needs to be failed-over, for which we want to fetch the eligible targets.
-	VolumeContainers []string `pulumi:"volumeContainers"`
+	ManagerName       string   `pulumi:"managerName"`
+	ResourceGroupName string   `pulumi:"resourceGroupName"`
+	SourceDeviceName  string   `pulumi:"sourceDeviceName"`
+	VolumeContainers  []string `pulumi:"volumeContainers"`
 }
 
 // The list of all devices in a resource and their eligibility status as a failover target device.
 type ListDeviceFailoverTarsResult struct {
-	// The list of all the failover targets.
 	Value []FailoverTargetResponse `pulumi:"value"`
 }

@@ -7,8 +7,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// An environment receives data from one or more event sources. Each event source has associated connection info that allows the Time Series Insights ingress pipeline to connect to and pull data from the event source
-//
 // Deprecated: Please use one of the variants: EventHubEventSource, IoTHubEventSource.
 func LookupEventSource(ctx *pulumi.Context, args *LookupEventSourceArgs, opts ...pulumi.InvokeOption) (*LookupEventSourceResult, error) {
 	var rv LookupEventSourceResult
@@ -20,26 +18,17 @@ func LookupEventSource(ctx *pulumi.Context, args *LookupEventSourceArgs, opts ..
 }
 
 type LookupEventSourceArgs struct {
-	// The name of the Time Series Insights environment associated with the specified resource group.
-	EnvironmentName string `pulumi:"environmentName"`
-	// The name of the Time Series Insights event source associated with the specified environment.
-	EventSourceName string `pulumi:"eventSourceName"`
-	// Name of an Azure Resource group.
+	EnvironmentName   string `pulumi:"environmentName"`
+	EventSourceName   string `pulumi:"eventSourceName"`
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 }
 
 // An environment receives data from one or more event sources. Each event source has associated connection info that allows the Time Series Insights ingress pipeline to connect to and pull data from the event source
 type LookupEventSourceResult struct {
-	// Resource Id
-	Id string `pulumi:"id"`
-	// The kind of the event source.
-	Kind string `pulumi:"kind"`
-	// Resource location
-	Location string `pulumi:"location"`
-	// Resource name
-	Name string `pulumi:"name"`
-	// Resource tags
-	Tags map[string]string `pulumi:"tags"`
-	// Resource type
-	Type string `pulumi:"type"`
+	Id       string            `pulumi:"id"`
+	Kind     string            `pulumi:"kind"`
+	Location string            `pulumi:"location"`
+	Name     string            `pulumi:"name"`
+	Tags     map[string]string `pulumi:"tags"`
+	Type     string            `pulumi:"type"`
 }

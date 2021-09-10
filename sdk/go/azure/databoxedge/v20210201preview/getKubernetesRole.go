@@ -7,7 +7,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Kubernetes role.
 func LookupKubernetesRole(ctx *pulumi.Context, args *LookupKubernetesRoleArgs, opts ...pulumi.InvokeOption) (*LookupKubernetesRoleResult, error) {
 	var rv LookupKubernetesRoleResult
 	err := ctx.Invoke("azure-native:databoxedge/v20210201preview:getKubernetesRole", args, &rv, opts...)
@@ -18,37 +17,22 @@ func LookupKubernetesRole(ctx *pulumi.Context, args *LookupKubernetesRoleArgs, o
 }
 
 type LookupKubernetesRoleArgs struct {
-	// The device name.
-	DeviceName string `pulumi:"deviceName"`
-	// The role name.
-	Name string `pulumi:"name"`
-	// The resource group name.
+	DeviceName        string `pulumi:"deviceName"`
+	Name              string `pulumi:"name"`
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 }
 
 // Kubernetes role.
 type LookupKubernetesRoleResult struct {
-	// Host OS supported by the Kubernetes role.
-	HostPlatform string `pulumi:"hostPlatform"`
-	// Platform where the runtime is hosted.
-	HostPlatformType string `pulumi:"hostPlatformType"`
-	// The path ID that uniquely identifies the object.
-	Id string `pulumi:"id"`
-	// Role type.
-	// Expected value is 'Kubernetes'.
-	Kind string `pulumi:"kind"`
-	// Kubernetes cluster configuration
-	KubernetesClusterInfo KubernetesClusterInfoResponse `pulumi:"kubernetesClusterInfo"`
-	// Kubernetes role resources
+	HostPlatform            string                          `pulumi:"hostPlatform"`
+	HostPlatformType        string                          `pulumi:"hostPlatformType"`
+	Id                      string                          `pulumi:"id"`
+	Kind                    string                          `pulumi:"kind"`
+	KubernetesClusterInfo   KubernetesClusterInfoResponse   `pulumi:"kubernetesClusterInfo"`
 	KubernetesRoleResources KubernetesRoleResourcesResponse `pulumi:"kubernetesRoleResources"`
-	// The object name.
-	Name string `pulumi:"name"`
-	// State of Kubernetes deployment
-	ProvisioningState string `pulumi:"provisioningState"`
-	// Role status.
-	RoleStatus string `pulumi:"roleStatus"`
-	// Role configured on ASE resource
-	SystemData SystemDataResponse `pulumi:"systemData"`
-	// The hierarchical type of the object.
-	Type string `pulumi:"type"`
+	Name                    string                          `pulumi:"name"`
+	ProvisioningState       string                          `pulumi:"provisioningState"`
+	RoleStatus              string                          `pulumi:"roleStatus"`
+	SystemData              SystemDataResponse              `pulumi:"systemData"`
+	Type                    string                          `pulumi:"type"`
 }

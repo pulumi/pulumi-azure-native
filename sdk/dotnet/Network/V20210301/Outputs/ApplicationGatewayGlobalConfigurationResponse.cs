@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.Network.V20210301.Outputs
 {
 
+    /// <summary>
+    /// Application Gateway global configuration.
+    /// </summary>
     [OutputType]
     public sealed class ApplicationGatewayGlobalConfigurationResponse
     {

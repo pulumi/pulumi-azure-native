@@ -11,42 +11,25 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Definition of the module type.
 type Python2Package struct {
 	pulumi.CustomResourceState
 
-	// Gets or sets the activity count of the module.
-	ActivityCount pulumi.IntPtrOutput `pulumi:"activityCount"`
-	// Gets or sets the contentLink of the module.
-	ContentLink ContentLinkResponsePtrOutput `pulumi:"contentLink"`
-	// Gets or sets the creation time.
-	CreationTime pulumi.StringPtrOutput `pulumi:"creationTime"`
-	// Gets or sets the description.
-	Description pulumi.StringPtrOutput `pulumi:"description"`
-	// Gets or sets the error info of the module.
-	Error ModuleErrorInfoResponsePtrOutput `pulumi:"error"`
-	// Gets or sets the etag of the resource.
-	Etag pulumi.StringPtrOutput `pulumi:"etag"`
-	// Gets or sets type of module, if its composite or not.
-	IsComposite pulumi.BoolPtrOutput `pulumi:"isComposite"`
-	// Gets or sets the isGlobal flag of the module.
-	IsGlobal pulumi.BoolPtrOutput `pulumi:"isGlobal"`
-	// Gets or sets the last modified time.
-	LastModifiedTime pulumi.StringPtrOutput `pulumi:"lastModifiedTime"`
-	// The Azure Region where the resource lives
-	Location pulumi.StringPtrOutput `pulumi:"location"`
-	// The name of the resource
-	Name pulumi.StringOutput `pulumi:"name"`
-	// Gets or sets the provisioning state of the module.
-	ProvisioningState pulumi.StringPtrOutput `pulumi:"provisioningState"`
-	// Gets or sets the size in bytes of the module.
-	SizeInBytes pulumi.Float64PtrOutput `pulumi:"sizeInBytes"`
-	// Resource tags.
-	Tags pulumi.StringMapOutput `pulumi:"tags"`
-	// The type of the resource.
-	Type pulumi.StringOutput `pulumi:"type"`
-	// Gets or sets the version of the module.
-	Version pulumi.StringPtrOutput `pulumi:"version"`
+	ActivityCount     pulumi.IntPtrOutput              `pulumi:"activityCount"`
+	ContentLink       ContentLinkResponsePtrOutput     `pulumi:"contentLink"`
+	CreationTime      pulumi.StringPtrOutput           `pulumi:"creationTime"`
+	Description       pulumi.StringPtrOutput           `pulumi:"description"`
+	Error             ModuleErrorInfoResponsePtrOutput `pulumi:"error"`
+	Etag              pulumi.StringPtrOutput           `pulumi:"etag"`
+	IsComposite       pulumi.BoolPtrOutput             `pulumi:"isComposite"`
+	IsGlobal          pulumi.BoolPtrOutput             `pulumi:"isGlobal"`
+	LastModifiedTime  pulumi.StringPtrOutput           `pulumi:"lastModifiedTime"`
+	Location          pulumi.StringPtrOutput           `pulumi:"location"`
+	Name              pulumi.StringOutput              `pulumi:"name"`
+	ProvisioningState pulumi.StringPtrOutput           `pulumi:"provisioningState"`
+	SizeInBytes       pulumi.Float64PtrOutput          `pulumi:"sizeInBytes"`
+	Tags              pulumi.StringMapOutput           `pulumi:"tags"`
+	Type              pulumi.StringOutput              `pulumi:"type"`
+	Version           pulumi.StringPtrOutput           `pulumi:"version"`
 }
 
 // NewPython2Package registers a new resource with the given unique name, arguments, and options.
@@ -121,30 +104,20 @@ func (Python2PackageState) ElementType() reflect.Type {
 }
 
 type python2PackageArgs struct {
-	// The name of the automation account.
-	AutomationAccountName string `pulumi:"automationAccountName"`
-	// Gets or sets the module content link.
-	ContentLink ContentLink `pulumi:"contentLink"`
-	// The name of python package.
-	PackageName *string `pulumi:"packageName"`
-	// Name of an Azure Resource group.
-	ResourceGroupName string `pulumi:"resourceGroupName"`
-	// Gets or sets the tags attached to the resource.
-	Tags map[string]string `pulumi:"tags"`
+	AutomationAccountName string            `pulumi:"automationAccountName"`
+	ContentLink           ContentLink       `pulumi:"contentLink"`
+	PackageName           *string           `pulumi:"packageName"`
+	ResourceGroupName     string            `pulumi:"resourceGroupName"`
+	Tags                  map[string]string `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a Python2Package resource.
 type Python2PackageArgs struct {
-	// The name of the automation account.
 	AutomationAccountName pulumi.StringInput
-	// Gets or sets the module content link.
-	ContentLink ContentLinkInput
-	// The name of python package.
-	PackageName pulumi.StringPtrInput
-	// Name of an Azure Resource group.
-	ResourceGroupName pulumi.StringInput
-	// Gets or sets the tags attached to the resource.
-	Tags pulumi.StringMapInput
+	ContentLink           ContentLinkInput
+	PackageName           pulumi.StringPtrInput
+	ResourceGroupName     pulumi.StringInput
+	Tags                  pulumi.StringMapInput
 }
 
 func (Python2PackageArgs) ElementType() reflect.Type {
@@ -170,9 +143,7 @@ func (i *Python2Package) ToPython2PackageOutputWithContext(ctx context.Context) 
 	return pulumi.ToOutputWithContext(ctx, i).(Python2PackageOutput)
 }
 
-type Python2PackageOutput struct {
-	*pulumi.OutputState
-}
+type Python2PackageOutput struct{ *pulumi.OutputState }
 
 func (Python2PackageOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*Python2Package)(nil))

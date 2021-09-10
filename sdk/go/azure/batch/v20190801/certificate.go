@@ -11,31 +11,21 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Contains information about a certificate.
 type Certificate struct {
 	pulumi.CustomResourceState
 
-	// This is only returned when the certificate provisioningState is 'Failed'.
-	DeleteCertificateError DeleteCertificateErrorResponseOutput `pulumi:"deleteCertificateError"`
-	// The ETag of the resource, used for concurrency statements.
-	Etag pulumi.StringOutput `pulumi:"etag"`
-	// The format of the certificate - either Pfx or Cer. If omitted, the default is Pfx.
-	Format pulumi.StringPtrOutput `pulumi:"format"`
-	// The name of the resource.
-	Name pulumi.StringOutput `pulumi:"name"`
-	// The previous provisioned state of the resource
-	PreviousProvisioningState               pulumi.StringOutput `pulumi:"previousProvisioningState"`
-	PreviousProvisioningStateTransitionTime pulumi.StringOutput `pulumi:"previousProvisioningStateTransitionTime"`
-	ProvisioningState                       pulumi.StringOutput `pulumi:"provisioningState"`
-	ProvisioningStateTransitionTime         pulumi.StringOutput `pulumi:"provisioningStateTransitionTime"`
-	// The public key of the certificate.
-	PublicData pulumi.StringOutput `pulumi:"publicData"`
-	// This must match the thumbprint from the name.
-	Thumbprint pulumi.StringPtrOutput `pulumi:"thumbprint"`
-	// This must match the first portion of the certificate name. Currently required to be 'SHA1'.
-	ThumbprintAlgorithm pulumi.StringPtrOutput `pulumi:"thumbprintAlgorithm"`
-	// The type of the resource.
-	Type pulumi.StringOutput `pulumi:"type"`
+	DeleteCertificateError                  DeleteCertificateErrorResponseOutput `pulumi:"deleteCertificateError"`
+	Etag                                    pulumi.StringOutput                  `pulumi:"etag"`
+	Format                                  pulumi.StringPtrOutput               `pulumi:"format"`
+	Name                                    pulumi.StringOutput                  `pulumi:"name"`
+	PreviousProvisioningState               pulumi.StringOutput                  `pulumi:"previousProvisioningState"`
+	PreviousProvisioningStateTransitionTime pulumi.StringOutput                  `pulumi:"previousProvisioningStateTransitionTime"`
+	ProvisioningState                       pulumi.StringOutput                  `pulumi:"provisioningState"`
+	ProvisioningStateTransitionTime         pulumi.StringOutput                  `pulumi:"provisioningStateTransitionTime"`
+	PublicData                              pulumi.StringOutput                  `pulumi:"publicData"`
+	Thumbprint                              pulumi.StringPtrOutput               `pulumi:"thumbprint"`
+	ThumbprintAlgorithm                     pulumi.StringPtrOutput               `pulumi:"thumbprintAlgorithm"`
+	Type                                    pulumi.StringOutput                  `pulumi:"type"`
 }
 
 // NewCertificate registers a new resource with the given unique name, arguments, and options.
@@ -146,41 +136,25 @@ func (CertificateState) ElementType() reflect.Type {
 }
 
 type certificateArgs struct {
-	// The name of the Batch account.
-	AccountName string `pulumi:"accountName"`
-	// The identifier for the certificate. This must be made up of algorithm and thumbprint separated by a dash, and must match the certificate data in the request. For example SHA1-a3d1c5.
-	CertificateName *string `pulumi:"certificateName"`
-	// The maximum size is 10KB.
-	Data string `pulumi:"data"`
-	// The format of the certificate - either Pfx or Cer. If omitted, the default is Pfx.
-	Format *string `pulumi:"format"`
-	// This is required if the certificate format is pfx and must be omitted if the certificate format is cer.
-	Password *string `pulumi:"password"`
-	// The name of the resource group that contains the Batch account.
-	ResourceGroupName string `pulumi:"resourceGroupName"`
-	// This must match the thumbprint from the name.
-	Thumbprint *string `pulumi:"thumbprint"`
-	// This must match the first portion of the certificate name. Currently required to be 'SHA1'.
-	ThumbprintAlgorithm *string `pulumi:"thumbprintAlgorithm"`
+	AccountName         string             `pulumi:"accountName"`
+	CertificateName     *string            `pulumi:"certificateName"`
+	Data                string             `pulumi:"data"`
+	Format              *CertificateFormat `pulumi:"format"`
+	Password            *string            `pulumi:"password"`
+	ResourceGroupName   string             `pulumi:"resourceGroupName"`
+	Thumbprint          *string            `pulumi:"thumbprint"`
+	ThumbprintAlgorithm *string            `pulumi:"thumbprintAlgorithm"`
 }
 
 // The set of arguments for constructing a Certificate resource.
 type CertificateArgs struct {
-	// The name of the Batch account.
-	AccountName pulumi.StringInput
-	// The identifier for the certificate. This must be made up of algorithm and thumbprint separated by a dash, and must match the certificate data in the request. For example SHA1-a3d1c5.
-	CertificateName pulumi.StringPtrInput
-	// The maximum size is 10KB.
-	Data pulumi.StringInput
-	// The format of the certificate - either Pfx or Cer. If omitted, the default is Pfx.
-	Format *CertificateFormat
-	// This is required if the certificate format is pfx and must be omitted if the certificate format is cer.
-	Password pulumi.StringPtrInput
-	// The name of the resource group that contains the Batch account.
-	ResourceGroupName pulumi.StringInput
-	// This must match the thumbprint from the name.
-	Thumbprint pulumi.StringPtrInput
-	// This must match the first portion of the certificate name. Currently required to be 'SHA1'.
+	AccountName         pulumi.StringInput
+	CertificateName     pulumi.StringPtrInput
+	Data                pulumi.StringInput
+	Format              CertificateFormatPtrInput
+	Password            pulumi.StringPtrInput
+	ResourceGroupName   pulumi.StringInput
+	Thumbprint          pulumi.StringPtrInput
 	ThumbprintAlgorithm pulumi.StringPtrInput
 }
 
@@ -207,9 +181,7 @@ func (i *Certificate) ToCertificateOutputWithContext(ctx context.Context) Certif
 	return pulumi.ToOutputWithContext(ctx, i).(CertificateOutput)
 }
 
-type CertificateOutput struct {
-	*pulumi.OutputState
-}
+type CertificateOutput struct{ *pulumi.OutputState }
 
 func (CertificateOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*Certificate)(nil))

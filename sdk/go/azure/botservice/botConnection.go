@@ -180,9 +180,7 @@ func (i *BotConnection) ToBotConnectionOutputWithContext(ctx context.Context) Bo
 	return pulumi.ToOutputWithContext(ctx, i).(BotConnectionOutput)
 }
 
-type BotConnectionOutput struct {
-	*pulumi.OutputState
-}
+type BotConnectionOutput struct{ *pulumi.OutputState }
 
 func (BotConnectionOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*BotConnection)(nil))

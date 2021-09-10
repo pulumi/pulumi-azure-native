@@ -7,7 +7,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Represents a published Blueprint.
 func LookupPublishedBlueprint(ctx *pulumi.Context, args *LookupPublishedBlueprintArgs, opts ...pulumi.InvokeOption) (*LookupPublishedBlueprintResult, error) {
 	var rv LookupPublishedBlueprintResult
 	err := ctx.Invoke("azure-native:blueprint/v20171111preview:getPublishedBlueprint", args, &rv, opts...)
@@ -18,36 +17,22 @@ func LookupPublishedBlueprint(ctx *pulumi.Context, args *LookupPublishedBlueprin
 }
 
 type LookupPublishedBlueprintArgs struct {
-	// name of the blueprint.
-	BlueprintName string `pulumi:"blueprintName"`
-	// ManagementGroup where blueprint stores.
+	BlueprintName       string `pulumi:"blueprintName"`
 	ManagementGroupName string `pulumi:"managementGroupName"`
-	// version of the published blueprint.
-	VersionId string `pulumi:"versionId"`
+	VersionId           string `pulumi:"versionId"`
 }
 
 // Represents a published Blueprint.
 type LookupPublishedBlueprintResult struct {
-	// Name of the Blueprint definition.
-	BlueprintName *string `pulumi:"blueprintName"`
-	// Version-specific change notes
-	ChangeNotes *string `pulumi:"changeNotes"`
-	// Multi-line explain this resource.
-	Description *string `pulumi:"description"`
-	// One-liner string explain this resource.
-	DisplayName *string `pulumi:"displayName"`
-	// String Id used to locate any resource on Azure.
-	Id string `pulumi:"id"`
-	// Name of this resource.
-	Name string `pulumi:"name"`
-	// Parameters required by this Blueprint definition.
-	Parameters map[string]ParameterDefinitionResponse `pulumi:"parameters"`
-	// Resource group placeholders defined by this Blueprint definition.
+	BlueprintName  *string                                    `pulumi:"blueprintName"`
+	ChangeNotes    *string                                    `pulumi:"changeNotes"`
+	Description    *string                                    `pulumi:"description"`
+	DisplayName    *string                                    `pulumi:"displayName"`
+	Id             string                                     `pulumi:"id"`
+	Name           string                                     `pulumi:"name"`
+	Parameters     map[string]ParameterDefinitionResponse     `pulumi:"parameters"`
 	ResourceGroups map[string]ResourceGroupDefinitionResponse `pulumi:"resourceGroups"`
-	// Status of the Blueprint. This field is readonly.
-	Status BlueprintStatusResponse `pulumi:"status"`
-	// The scope where this Blueprint can be applied.
-	TargetScope *string `pulumi:"targetScope"`
-	// Type of this resource.
-	Type string `pulumi:"type"`
+	Status         BlueprintStatusResponse                    `pulumi:"status"`
+	TargetScope    *string                                    `pulumi:"targetScope"`
+	Type           string                                     `pulumi:"type"`
 }

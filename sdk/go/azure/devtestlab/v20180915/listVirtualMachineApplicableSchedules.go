@@ -7,7 +7,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Schedules applicable to a virtual machine. The schedules may have been defined on a VM or on lab level.
 func ListVirtualMachineApplicableSchedules(ctx *pulumi.Context, args *ListVirtualMachineApplicableSchedulesArgs, opts ...pulumi.InvokeOption) (*ListVirtualMachineApplicableSchedulesResult, error) {
 	var rv ListVirtualMachineApplicableSchedulesResult
 	err := ctx.Invoke("azure-native:devtestlab/v20180915:listVirtualMachineApplicableSchedules", args, &rv, opts...)
@@ -18,28 +17,18 @@ func ListVirtualMachineApplicableSchedules(ctx *pulumi.Context, args *ListVirtua
 }
 
 type ListVirtualMachineApplicableSchedulesArgs struct {
-	// The name of the lab.
-	LabName string `pulumi:"labName"`
-	// The name of the virtual machine.
-	Name string `pulumi:"name"`
-	// The name of the resource group.
+	LabName           string `pulumi:"labName"`
+	Name              string `pulumi:"name"`
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 }
 
 // Schedules applicable to a virtual machine. The schedules may have been defined on a VM or on lab level.
 type ListVirtualMachineApplicableSchedulesResult struct {
-	// The identifier of the resource.
-	Id string `pulumi:"id"`
-	// The auto-shutdown schedule, if one has been set at the lab or lab resource level.
+	Id             string            `pulumi:"id"`
 	LabVmsShutdown *ScheduleResponse `pulumi:"labVmsShutdown"`
-	// The auto-startup schedule, if one has been set at the lab or lab resource level.
-	LabVmsStartup *ScheduleResponse `pulumi:"labVmsStartup"`
-	// The location of the resource.
-	Location *string `pulumi:"location"`
-	// The name of the resource.
-	Name string `pulumi:"name"`
-	// The tags of the resource.
-	Tags map[string]string `pulumi:"tags"`
-	// The type of the resource.
-	Type string `pulumi:"type"`
+	LabVmsStartup  *ScheduleResponse `pulumi:"labVmsStartup"`
+	Location       *string           `pulumi:"location"`
+	Name           string            `pulumi:"name"`
+	Tags           map[string]string `pulumi:"tags"`
+	Type           string            `pulumi:"type"`
 }

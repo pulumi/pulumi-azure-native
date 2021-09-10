@@ -10,14 +10,10 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// The settings to enable AAD authentication on the cluster.
 type AzureActiveDirectory struct {
-	// Azure active directory client application id.
-	ClientApplication *string `pulumi:"clientApplication"`
-	// Azure active directory cluster application id.
+	ClientApplication  *string `pulumi:"clientApplication"`
 	ClusterApplication *string `pulumi:"clusterApplication"`
-	// Azure active directory tenant id.
-	TenantId *string `pulumi:"tenantId"`
+	TenantId           *string `pulumi:"tenantId"`
 }
 
 // AzureActiveDirectoryInput is an input type that accepts AzureActiveDirectoryArgs and AzureActiveDirectoryOutput values.
@@ -31,14 +27,10 @@ type AzureActiveDirectoryInput interface {
 	ToAzureActiveDirectoryOutputWithContext(context.Context) AzureActiveDirectoryOutput
 }
 
-// The settings to enable AAD authentication on the cluster.
 type AzureActiveDirectoryArgs struct {
-	// Azure active directory client application id.
-	ClientApplication pulumi.StringPtrInput `pulumi:"clientApplication"`
-	// Azure active directory cluster application id.
+	ClientApplication  pulumi.StringPtrInput `pulumi:"clientApplication"`
 	ClusterApplication pulumi.StringPtrInput `pulumi:"clusterApplication"`
-	// Azure active directory tenant id.
-	TenantId pulumi.StringPtrInput `pulumi:"tenantId"`
+	TenantId           pulumi.StringPtrInput `pulumi:"tenantId"`
 }
 
 func (AzureActiveDirectoryArgs) ElementType() reflect.Type {
@@ -94,7 +86,6 @@ func (i *azureActiveDirectoryPtrType) ToAzureActiveDirectoryPtrOutputWithContext
 	return pulumi.ToOutputWithContext(ctx, i).(AzureActiveDirectoryPtrOutput)
 }
 
-// The settings to enable AAD authentication on the cluster.
 type AzureActiveDirectoryOutput struct{ *pulumi.OutputState }
 
 func (AzureActiveDirectoryOutput) ElementType() reflect.Type {
@@ -114,22 +105,19 @@ func (o AzureActiveDirectoryOutput) ToAzureActiveDirectoryPtrOutput() AzureActiv
 }
 
 func (o AzureActiveDirectoryOutput) ToAzureActiveDirectoryPtrOutputWithContext(ctx context.Context) AzureActiveDirectoryPtrOutput {
-	return o.ApplyT(func(v AzureActiveDirectory) *AzureActiveDirectory {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v AzureActiveDirectory) *AzureActiveDirectory {
 		return &v
 	}).(AzureActiveDirectoryPtrOutput)
 }
 
-// Azure active directory client application id.
 func (o AzureActiveDirectoryOutput) ClientApplication() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AzureActiveDirectory) *string { return v.ClientApplication }).(pulumi.StringPtrOutput)
 }
 
-// Azure active directory cluster application id.
 func (o AzureActiveDirectoryOutput) ClusterApplication() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AzureActiveDirectory) *string { return v.ClusterApplication }).(pulumi.StringPtrOutput)
 }
 
-// Azure active directory tenant id.
 func (o AzureActiveDirectoryOutput) TenantId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AzureActiveDirectory) *string { return v.TenantId }).(pulumi.StringPtrOutput)
 }
@@ -149,10 +137,15 @@ func (o AzureActiveDirectoryPtrOutput) ToAzureActiveDirectoryPtrOutputWithContex
 }
 
 func (o AzureActiveDirectoryPtrOutput) Elem() AzureActiveDirectoryOutput {
-	return o.ApplyT(func(v *AzureActiveDirectory) AzureActiveDirectory { return *v }).(AzureActiveDirectoryOutput)
+	return o.ApplyT(func(v *AzureActiveDirectory) AzureActiveDirectory {
+		if v != nil {
+			return *v
+		}
+		var ret AzureActiveDirectory
+		return ret
+	}).(AzureActiveDirectoryOutput)
 }
 
-// Azure active directory client application id.
 func (o AzureActiveDirectoryPtrOutput) ClientApplication() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *AzureActiveDirectory) *string {
 		if v == nil {
@@ -162,7 +155,6 @@ func (o AzureActiveDirectoryPtrOutput) ClientApplication() pulumi.StringPtrOutpu
 	}).(pulumi.StringPtrOutput)
 }
 
-// Azure active directory cluster application id.
 func (o AzureActiveDirectoryPtrOutput) ClusterApplication() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *AzureActiveDirectory) *string {
 		if v == nil {
@@ -172,7 +164,6 @@ func (o AzureActiveDirectoryPtrOutput) ClusterApplication() pulumi.StringPtrOutp
 	}).(pulumi.StringPtrOutput)
 }
 
-// Azure active directory tenant id.
 func (o AzureActiveDirectoryPtrOutput) TenantId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *AzureActiveDirectory) *string {
 		if v == nil {
@@ -182,14 +173,10 @@ func (o AzureActiveDirectoryPtrOutput) TenantId() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The settings to enable AAD authentication on the cluster.
 type AzureActiveDirectoryResponse struct {
-	// Azure active directory client application id.
-	ClientApplication *string `pulumi:"clientApplication"`
-	// Azure active directory cluster application id.
+	ClientApplication  *string `pulumi:"clientApplication"`
 	ClusterApplication *string `pulumi:"clusterApplication"`
-	// Azure active directory tenant id.
-	TenantId *string `pulumi:"tenantId"`
+	TenantId           *string `pulumi:"tenantId"`
 }
 
 // AzureActiveDirectoryResponseInput is an input type that accepts AzureActiveDirectoryResponseArgs and AzureActiveDirectoryResponseOutput values.
@@ -203,14 +190,10 @@ type AzureActiveDirectoryResponseInput interface {
 	ToAzureActiveDirectoryResponseOutputWithContext(context.Context) AzureActiveDirectoryResponseOutput
 }
 
-// The settings to enable AAD authentication on the cluster.
 type AzureActiveDirectoryResponseArgs struct {
-	// Azure active directory client application id.
-	ClientApplication pulumi.StringPtrInput `pulumi:"clientApplication"`
-	// Azure active directory cluster application id.
+	ClientApplication  pulumi.StringPtrInput `pulumi:"clientApplication"`
 	ClusterApplication pulumi.StringPtrInput `pulumi:"clusterApplication"`
-	// Azure active directory tenant id.
-	TenantId pulumi.StringPtrInput `pulumi:"tenantId"`
+	TenantId           pulumi.StringPtrInput `pulumi:"tenantId"`
 }
 
 func (AzureActiveDirectoryResponseArgs) ElementType() reflect.Type {
@@ -266,7 +249,6 @@ func (i *azureActiveDirectoryResponsePtrType) ToAzureActiveDirectoryResponsePtrO
 	return pulumi.ToOutputWithContext(ctx, i).(AzureActiveDirectoryResponsePtrOutput)
 }
 
-// The settings to enable AAD authentication on the cluster.
 type AzureActiveDirectoryResponseOutput struct{ *pulumi.OutputState }
 
 func (AzureActiveDirectoryResponseOutput) ElementType() reflect.Type {
@@ -286,22 +268,19 @@ func (o AzureActiveDirectoryResponseOutput) ToAzureActiveDirectoryResponsePtrOut
 }
 
 func (o AzureActiveDirectoryResponseOutput) ToAzureActiveDirectoryResponsePtrOutputWithContext(ctx context.Context) AzureActiveDirectoryResponsePtrOutput {
-	return o.ApplyT(func(v AzureActiveDirectoryResponse) *AzureActiveDirectoryResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v AzureActiveDirectoryResponse) *AzureActiveDirectoryResponse {
 		return &v
 	}).(AzureActiveDirectoryResponsePtrOutput)
 }
 
-// Azure active directory client application id.
 func (o AzureActiveDirectoryResponseOutput) ClientApplication() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AzureActiveDirectoryResponse) *string { return v.ClientApplication }).(pulumi.StringPtrOutput)
 }
 
-// Azure active directory cluster application id.
 func (o AzureActiveDirectoryResponseOutput) ClusterApplication() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AzureActiveDirectoryResponse) *string { return v.ClusterApplication }).(pulumi.StringPtrOutput)
 }
 
-// Azure active directory tenant id.
 func (o AzureActiveDirectoryResponseOutput) TenantId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AzureActiveDirectoryResponse) *string { return v.TenantId }).(pulumi.StringPtrOutput)
 }
@@ -321,10 +300,15 @@ func (o AzureActiveDirectoryResponsePtrOutput) ToAzureActiveDirectoryResponsePtr
 }
 
 func (o AzureActiveDirectoryResponsePtrOutput) Elem() AzureActiveDirectoryResponseOutput {
-	return o.ApplyT(func(v *AzureActiveDirectoryResponse) AzureActiveDirectoryResponse { return *v }).(AzureActiveDirectoryResponseOutput)
+	return o.ApplyT(func(v *AzureActiveDirectoryResponse) AzureActiveDirectoryResponse {
+		if v != nil {
+			return *v
+		}
+		var ret AzureActiveDirectoryResponse
+		return ret
+	}).(AzureActiveDirectoryResponseOutput)
 }
 
-// Azure active directory client application id.
 func (o AzureActiveDirectoryResponsePtrOutput) ClientApplication() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *AzureActiveDirectoryResponse) *string {
 		if v == nil {
@@ -334,7 +318,6 @@ func (o AzureActiveDirectoryResponsePtrOutput) ClientApplication() pulumi.String
 	}).(pulumi.StringPtrOutput)
 }
 
-// Azure active directory cluster application id.
 func (o AzureActiveDirectoryResponsePtrOutput) ClusterApplication() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *AzureActiveDirectoryResponse) *string {
 		if v == nil {
@@ -344,7 +327,6 @@ func (o AzureActiveDirectoryResponsePtrOutput) ClusterApplication() pulumi.Strin
 	}).(pulumi.StringPtrOutput)
 }
 
-// Azure active directory tenant id.
 func (o AzureActiveDirectoryResponsePtrOutput) TenantId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *AzureActiveDirectoryResponse) *string {
 		if v == nil {
@@ -354,16 +336,11 @@ func (o AzureActiveDirectoryResponsePtrOutput) TenantId() pulumi.StringPtrOutput
 	}).(pulumi.StringPtrOutput)
 }
 
-// Client Certificate definition.
 type ClientCertificate struct {
-	// Certificate Common name.
-	CommonName *string `pulumi:"commonName"`
-	// Whether the certificate is admin or not.
-	IsAdmin bool `pulumi:"isAdmin"`
-	// Issuer thumbprint for the certificate. Only used together with CommonName.
+	CommonName       *string `pulumi:"commonName"`
+	IsAdmin          bool    `pulumi:"isAdmin"`
 	IssuerThumbprint *string `pulumi:"issuerThumbprint"`
-	// Certificate Thumbprint.
-	Thumbprint *string `pulumi:"thumbprint"`
+	Thumbprint       *string `pulumi:"thumbprint"`
 }
 
 // ClientCertificateInput is an input type that accepts ClientCertificateArgs and ClientCertificateOutput values.
@@ -377,16 +354,11 @@ type ClientCertificateInput interface {
 	ToClientCertificateOutputWithContext(context.Context) ClientCertificateOutput
 }
 
-// Client Certificate definition.
 type ClientCertificateArgs struct {
-	// Certificate Common name.
-	CommonName pulumi.StringPtrInput `pulumi:"commonName"`
-	// Whether the certificate is admin or not.
-	IsAdmin pulumi.BoolInput `pulumi:"isAdmin"`
-	// Issuer thumbprint for the certificate. Only used together with CommonName.
+	CommonName       pulumi.StringPtrInput `pulumi:"commonName"`
+	IsAdmin          pulumi.BoolInput      `pulumi:"isAdmin"`
 	IssuerThumbprint pulumi.StringPtrInput `pulumi:"issuerThumbprint"`
-	// Certificate Thumbprint.
-	Thumbprint pulumi.StringPtrInput `pulumi:"thumbprint"`
+	Thumbprint       pulumi.StringPtrInput `pulumi:"thumbprint"`
 }
 
 func (ClientCertificateArgs) ElementType() reflect.Type {
@@ -426,7 +398,6 @@ func (i ClientCertificateArray) ToClientCertificateArrayOutputWithContext(ctx co
 	return pulumi.ToOutputWithContext(ctx, i).(ClientCertificateArrayOutput)
 }
 
-// Client Certificate definition.
 type ClientCertificateOutput struct{ *pulumi.OutputState }
 
 func (ClientCertificateOutput) ElementType() reflect.Type {
@@ -441,22 +412,18 @@ func (o ClientCertificateOutput) ToClientCertificateOutputWithContext(ctx contex
 	return o
 }
 
-// Certificate Common name.
 func (o ClientCertificateOutput) CommonName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ClientCertificate) *string { return v.CommonName }).(pulumi.StringPtrOutput)
 }
 
-// Whether the certificate is admin or not.
 func (o ClientCertificateOutput) IsAdmin() pulumi.BoolOutput {
 	return o.ApplyT(func(v ClientCertificate) bool { return v.IsAdmin }).(pulumi.BoolOutput)
 }
 
-// Issuer thumbprint for the certificate. Only used together with CommonName.
 func (o ClientCertificateOutput) IssuerThumbprint() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ClientCertificate) *string { return v.IssuerThumbprint }).(pulumi.StringPtrOutput)
 }
 
-// Certificate Thumbprint.
 func (o ClientCertificateOutput) Thumbprint() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ClientCertificate) *string { return v.Thumbprint }).(pulumi.StringPtrOutput)
 }
@@ -481,16 +448,11 @@ func (o ClientCertificateArrayOutput) Index(i pulumi.IntInput) ClientCertificate
 	}).(ClientCertificateOutput)
 }
 
-// Client Certificate definition.
 type ClientCertificateResponse struct {
-	// Certificate Common name.
-	CommonName *string `pulumi:"commonName"`
-	// Whether the certificate is admin or not.
-	IsAdmin bool `pulumi:"isAdmin"`
-	// Issuer thumbprint for the certificate. Only used together with CommonName.
+	CommonName       *string `pulumi:"commonName"`
+	IsAdmin          bool    `pulumi:"isAdmin"`
 	IssuerThumbprint *string `pulumi:"issuerThumbprint"`
-	// Certificate Thumbprint.
-	Thumbprint *string `pulumi:"thumbprint"`
+	Thumbprint       *string `pulumi:"thumbprint"`
 }
 
 // ClientCertificateResponseInput is an input type that accepts ClientCertificateResponseArgs and ClientCertificateResponseOutput values.
@@ -504,16 +466,11 @@ type ClientCertificateResponseInput interface {
 	ToClientCertificateResponseOutputWithContext(context.Context) ClientCertificateResponseOutput
 }
 
-// Client Certificate definition.
 type ClientCertificateResponseArgs struct {
-	// Certificate Common name.
-	CommonName pulumi.StringPtrInput `pulumi:"commonName"`
-	// Whether the certificate is admin or not.
-	IsAdmin pulumi.BoolInput `pulumi:"isAdmin"`
-	// Issuer thumbprint for the certificate. Only used together with CommonName.
+	CommonName       pulumi.StringPtrInput `pulumi:"commonName"`
+	IsAdmin          pulumi.BoolInput      `pulumi:"isAdmin"`
 	IssuerThumbprint pulumi.StringPtrInput `pulumi:"issuerThumbprint"`
-	// Certificate Thumbprint.
-	Thumbprint pulumi.StringPtrInput `pulumi:"thumbprint"`
+	Thumbprint       pulumi.StringPtrInput `pulumi:"thumbprint"`
 }
 
 func (ClientCertificateResponseArgs) ElementType() reflect.Type {
@@ -553,7 +510,6 @@ func (i ClientCertificateResponseArray) ToClientCertificateResponseArrayOutputWi
 	return pulumi.ToOutputWithContext(ctx, i).(ClientCertificateResponseArrayOutput)
 }
 
-// Client Certificate definition.
 type ClientCertificateResponseOutput struct{ *pulumi.OutputState }
 
 func (ClientCertificateResponseOutput) ElementType() reflect.Type {
@@ -568,22 +524,18 @@ func (o ClientCertificateResponseOutput) ToClientCertificateResponseOutputWithCo
 	return o
 }
 
-// Certificate Common name.
 func (o ClientCertificateResponseOutput) CommonName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ClientCertificateResponse) *string { return v.CommonName }).(pulumi.StringPtrOutput)
 }
 
-// Whether the certificate is admin or not.
 func (o ClientCertificateResponseOutput) IsAdmin() pulumi.BoolOutput {
 	return o.ApplyT(func(v ClientCertificateResponse) bool { return v.IsAdmin }).(pulumi.BoolOutput)
 }
 
-// Issuer thumbprint for the certificate. Only used together with CommonName.
 func (o ClientCertificateResponseOutput) IssuerThumbprint() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ClientCertificateResponse) *string { return v.IssuerThumbprint }).(pulumi.StringPtrOutput)
 }
 
-// Certificate Thumbprint.
 func (o ClientCertificateResponseOutput) Thumbprint() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ClientCertificateResponse) *string { return v.Thumbprint }).(pulumi.StringPtrOutput)
 }
@@ -608,11 +560,8 @@ func (o ClientCertificateResponseArrayOutput) Index(i pulumi.IntInput) ClientCer
 	}).(ClientCertificateResponseOutput)
 }
 
-// Port range details
 type EndpointRangeDescription struct {
-	// End port of a range of ports
-	EndPort int `pulumi:"endPort"`
-	// Starting port of a range of ports
+	EndPort   int `pulumi:"endPort"`
 	StartPort int `pulumi:"startPort"`
 }
 
@@ -627,11 +576,8 @@ type EndpointRangeDescriptionInput interface {
 	ToEndpointRangeDescriptionOutputWithContext(context.Context) EndpointRangeDescriptionOutput
 }
 
-// Port range details
 type EndpointRangeDescriptionArgs struct {
-	// End port of a range of ports
-	EndPort pulumi.IntInput `pulumi:"endPort"`
-	// Starting port of a range of ports
+	EndPort   pulumi.IntInput `pulumi:"endPort"`
 	StartPort pulumi.IntInput `pulumi:"startPort"`
 }
 
@@ -688,7 +634,6 @@ func (i *endpointRangeDescriptionPtrType) ToEndpointRangeDescriptionPtrOutputWit
 	return pulumi.ToOutputWithContext(ctx, i).(EndpointRangeDescriptionPtrOutput)
 }
 
-// Port range details
 type EndpointRangeDescriptionOutput struct{ *pulumi.OutputState }
 
 func (EndpointRangeDescriptionOutput) ElementType() reflect.Type {
@@ -708,17 +653,15 @@ func (o EndpointRangeDescriptionOutput) ToEndpointRangeDescriptionPtrOutput() En
 }
 
 func (o EndpointRangeDescriptionOutput) ToEndpointRangeDescriptionPtrOutputWithContext(ctx context.Context) EndpointRangeDescriptionPtrOutput {
-	return o.ApplyT(func(v EndpointRangeDescription) *EndpointRangeDescription {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v EndpointRangeDescription) *EndpointRangeDescription {
 		return &v
 	}).(EndpointRangeDescriptionPtrOutput)
 }
 
-// End port of a range of ports
 func (o EndpointRangeDescriptionOutput) EndPort() pulumi.IntOutput {
 	return o.ApplyT(func(v EndpointRangeDescription) int { return v.EndPort }).(pulumi.IntOutput)
 }
 
-// Starting port of a range of ports
 func (o EndpointRangeDescriptionOutput) StartPort() pulumi.IntOutput {
 	return o.ApplyT(func(v EndpointRangeDescription) int { return v.StartPort }).(pulumi.IntOutput)
 }
@@ -738,10 +681,15 @@ func (o EndpointRangeDescriptionPtrOutput) ToEndpointRangeDescriptionPtrOutputWi
 }
 
 func (o EndpointRangeDescriptionPtrOutput) Elem() EndpointRangeDescriptionOutput {
-	return o.ApplyT(func(v *EndpointRangeDescription) EndpointRangeDescription { return *v }).(EndpointRangeDescriptionOutput)
+	return o.ApplyT(func(v *EndpointRangeDescription) EndpointRangeDescription {
+		if v != nil {
+			return *v
+		}
+		var ret EndpointRangeDescription
+		return ret
+	}).(EndpointRangeDescriptionOutput)
 }
 
-// End port of a range of ports
 func (o EndpointRangeDescriptionPtrOutput) EndPort() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *EndpointRangeDescription) *int {
 		if v == nil {
@@ -751,7 +699,6 @@ func (o EndpointRangeDescriptionPtrOutput) EndPort() pulumi.IntPtrOutput {
 	}).(pulumi.IntPtrOutput)
 }
 
-// Starting port of a range of ports
 func (o EndpointRangeDescriptionPtrOutput) StartPort() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *EndpointRangeDescription) *int {
 		if v == nil {
@@ -761,11 +708,8 @@ func (o EndpointRangeDescriptionPtrOutput) StartPort() pulumi.IntPtrOutput {
 	}).(pulumi.IntPtrOutput)
 }
 
-// Port range details
 type EndpointRangeDescriptionResponse struct {
-	// End port of a range of ports
-	EndPort int `pulumi:"endPort"`
-	// Starting port of a range of ports
+	EndPort   int `pulumi:"endPort"`
 	StartPort int `pulumi:"startPort"`
 }
 
@@ -780,11 +724,8 @@ type EndpointRangeDescriptionResponseInput interface {
 	ToEndpointRangeDescriptionResponseOutputWithContext(context.Context) EndpointRangeDescriptionResponseOutput
 }
 
-// Port range details
 type EndpointRangeDescriptionResponseArgs struct {
-	// End port of a range of ports
-	EndPort pulumi.IntInput `pulumi:"endPort"`
-	// Starting port of a range of ports
+	EndPort   pulumi.IntInput `pulumi:"endPort"`
 	StartPort pulumi.IntInput `pulumi:"startPort"`
 }
 
@@ -841,7 +782,6 @@ func (i *endpointRangeDescriptionResponsePtrType) ToEndpointRangeDescriptionResp
 	return pulumi.ToOutputWithContext(ctx, i).(EndpointRangeDescriptionResponsePtrOutput)
 }
 
-// Port range details
 type EndpointRangeDescriptionResponseOutput struct{ *pulumi.OutputState }
 
 func (EndpointRangeDescriptionResponseOutput) ElementType() reflect.Type {
@@ -861,17 +801,15 @@ func (o EndpointRangeDescriptionResponseOutput) ToEndpointRangeDescriptionRespon
 }
 
 func (o EndpointRangeDescriptionResponseOutput) ToEndpointRangeDescriptionResponsePtrOutputWithContext(ctx context.Context) EndpointRangeDescriptionResponsePtrOutput {
-	return o.ApplyT(func(v EndpointRangeDescriptionResponse) *EndpointRangeDescriptionResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v EndpointRangeDescriptionResponse) *EndpointRangeDescriptionResponse {
 		return &v
 	}).(EndpointRangeDescriptionResponsePtrOutput)
 }
 
-// End port of a range of ports
 func (o EndpointRangeDescriptionResponseOutput) EndPort() pulumi.IntOutput {
 	return o.ApplyT(func(v EndpointRangeDescriptionResponse) int { return v.EndPort }).(pulumi.IntOutput)
 }
 
-// Starting port of a range of ports
 func (o EndpointRangeDescriptionResponseOutput) StartPort() pulumi.IntOutput {
 	return o.ApplyT(func(v EndpointRangeDescriptionResponse) int { return v.StartPort }).(pulumi.IntOutput)
 }
@@ -891,10 +829,15 @@ func (o EndpointRangeDescriptionResponsePtrOutput) ToEndpointRangeDescriptionRes
 }
 
 func (o EndpointRangeDescriptionResponsePtrOutput) Elem() EndpointRangeDescriptionResponseOutput {
-	return o.ApplyT(func(v *EndpointRangeDescriptionResponse) EndpointRangeDescriptionResponse { return *v }).(EndpointRangeDescriptionResponseOutput)
+	return o.ApplyT(func(v *EndpointRangeDescriptionResponse) EndpointRangeDescriptionResponse {
+		if v != nil {
+			return *v
+		}
+		var ret EndpointRangeDescriptionResponse
+		return ret
+	}).(EndpointRangeDescriptionResponseOutput)
 }
 
-// End port of a range of ports
 func (o EndpointRangeDescriptionResponsePtrOutput) EndPort() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *EndpointRangeDescriptionResponse) *int {
 		if v == nil {
@@ -904,7 +847,6 @@ func (o EndpointRangeDescriptionResponsePtrOutput) EndPort() pulumi.IntPtrOutput
 	}).(pulumi.IntPtrOutput)
 }
 
-// Starting port of a range of ports
 func (o EndpointRangeDescriptionResponsePtrOutput) StartPort() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *EndpointRangeDescriptionResponse) *int {
 		if v == nil {
@@ -914,18 +856,12 @@ func (o EndpointRangeDescriptionResponsePtrOutput) StartPort() pulumi.IntPtrOutp
 	}).(pulumi.IntPtrOutput)
 }
 
-// Describes a load balancing rule.
 type LoadBalancingRule struct {
-	// The port used for internal connections on the endpoint. Acceptable values are between 1 and 65535.
-	BackendPort int `pulumi:"backendPort"`
-	// The port for the external endpoint. Port numbers for each rule must be unique within the Load Balancer. Acceptable values are between 1 and 65534.
-	FrontendPort int `pulumi:"frontendPort"`
-	// the reference to the load balancer probe used by the load balancing rule.
-	ProbeProtocol string `pulumi:"probeProtocol"`
-	// The probe request path. Only supported for HTTP/HTTPS probes.
+	BackendPort      int     `pulumi:"backendPort"`
+	FrontendPort     int     `pulumi:"frontendPort"`
+	ProbeProtocol    string  `pulumi:"probeProtocol"`
 	ProbeRequestPath *string `pulumi:"probeRequestPath"`
-	// The reference to the transport protocol used by the load balancing rule.
-	Protocol string `pulumi:"protocol"`
+	Protocol         string  `pulumi:"protocol"`
 }
 
 // LoadBalancingRuleInput is an input type that accepts LoadBalancingRuleArgs and LoadBalancingRuleOutput values.
@@ -939,18 +875,12 @@ type LoadBalancingRuleInput interface {
 	ToLoadBalancingRuleOutputWithContext(context.Context) LoadBalancingRuleOutput
 }
 
-// Describes a load balancing rule.
 type LoadBalancingRuleArgs struct {
-	// The port used for internal connections on the endpoint. Acceptable values are between 1 and 65535.
-	BackendPort pulumi.IntInput `pulumi:"backendPort"`
-	// The port for the external endpoint. Port numbers for each rule must be unique within the Load Balancer. Acceptable values are between 1 and 65534.
-	FrontendPort pulumi.IntInput `pulumi:"frontendPort"`
-	// the reference to the load balancer probe used by the load balancing rule.
-	ProbeProtocol pulumi.StringInput `pulumi:"probeProtocol"`
-	// The probe request path. Only supported for HTTP/HTTPS probes.
+	BackendPort      pulumi.IntInput       `pulumi:"backendPort"`
+	FrontendPort     pulumi.IntInput       `pulumi:"frontendPort"`
+	ProbeProtocol    pulumi.StringInput    `pulumi:"probeProtocol"`
 	ProbeRequestPath pulumi.StringPtrInput `pulumi:"probeRequestPath"`
-	// The reference to the transport protocol used by the load balancing rule.
-	Protocol pulumi.StringInput `pulumi:"protocol"`
+	Protocol         pulumi.StringInput    `pulumi:"protocol"`
 }
 
 func (LoadBalancingRuleArgs) ElementType() reflect.Type {
@@ -990,7 +920,6 @@ func (i LoadBalancingRuleArray) ToLoadBalancingRuleArrayOutputWithContext(ctx co
 	return pulumi.ToOutputWithContext(ctx, i).(LoadBalancingRuleArrayOutput)
 }
 
-// Describes a load balancing rule.
 type LoadBalancingRuleOutput struct{ *pulumi.OutputState }
 
 func (LoadBalancingRuleOutput) ElementType() reflect.Type {
@@ -1005,27 +934,22 @@ func (o LoadBalancingRuleOutput) ToLoadBalancingRuleOutputWithContext(ctx contex
 	return o
 }
 
-// The port used for internal connections on the endpoint. Acceptable values are between 1 and 65535.
 func (o LoadBalancingRuleOutput) BackendPort() pulumi.IntOutput {
 	return o.ApplyT(func(v LoadBalancingRule) int { return v.BackendPort }).(pulumi.IntOutput)
 }
 
-// The port for the external endpoint. Port numbers for each rule must be unique within the Load Balancer. Acceptable values are between 1 and 65534.
 func (o LoadBalancingRuleOutput) FrontendPort() pulumi.IntOutput {
 	return o.ApplyT(func(v LoadBalancingRule) int { return v.FrontendPort }).(pulumi.IntOutput)
 }
 
-// the reference to the load balancer probe used by the load balancing rule.
 func (o LoadBalancingRuleOutput) ProbeProtocol() pulumi.StringOutput {
 	return o.ApplyT(func(v LoadBalancingRule) string { return v.ProbeProtocol }).(pulumi.StringOutput)
 }
 
-// The probe request path. Only supported for HTTP/HTTPS probes.
 func (o LoadBalancingRuleOutput) ProbeRequestPath() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LoadBalancingRule) *string { return v.ProbeRequestPath }).(pulumi.StringPtrOutput)
 }
 
-// The reference to the transport protocol used by the load balancing rule.
 func (o LoadBalancingRuleOutput) Protocol() pulumi.StringOutput {
 	return o.ApplyT(func(v LoadBalancingRule) string { return v.Protocol }).(pulumi.StringOutput)
 }
@@ -1050,18 +974,12 @@ func (o LoadBalancingRuleArrayOutput) Index(i pulumi.IntInput) LoadBalancingRule
 	}).(LoadBalancingRuleOutput)
 }
 
-// Describes a load balancing rule.
 type LoadBalancingRuleResponse struct {
-	// The port used for internal connections on the endpoint. Acceptable values are between 1 and 65535.
-	BackendPort int `pulumi:"backendPort"`
-	// The port for the external endpoint. Port numbers for each rule must be unique within the Load Balancer. Acceptable values are between 1 and 65534.
-	FrontendPort int `pulumi:"frontendPort"`
-	// the reference to the load balancer probe used by the load balancing rule.
-	ProbeProtocol string `pulumi:"probeProtocol"`
-	// The probe request path. Only supported for HTTP/HTTPS probes.
+	BackendPort      int     `pulumi:"backendPort"`
+	FrontendPort     int     `pulumi:"frontendPort"`
+	ProbeProtocol    string  `pulumi:"probeProtocol"`
 	ProbeRequestPath *string `pulumi:"probeRequestPath"`
-	// The reference to the transport protocol used by the load balancing rule.
-	Protocol string `pulumi:"protocol"`
+	Protocol         string  `pulumi:"protocol"`
 }
 
 // LoadBalancingRuleResponseInput is an input type that accepts LoadBalancingRuleResponseArgs and LoadBalancingRuleResponseOutput values.
@@ -1075,18 +993,12 @@ type LoadBalancingRuleResponseInput interface {
 	ToLoadBalancingRuleResponseOutputWithContext(context.Context) LoadBalancingRuleResponseOutput
 }
 
-// Describes a load balancing rule.
 type LoadBalancingRuleResponseArgs struct {
-	// The port used for internal connections on the endpoint. Acceptable values are between 1 and 65535.
-	BackendPort pulumi.IntInput `pulumi:"backendPort"`
-	// The port for the external endpoint. Port numbers for each rule must be unique within the Load Balancer. Acceptable values are between 1 and 65534.
-	FrontendPort pulumi.IntInput `pulumi:"frontendPort"`
-	// the reference to the load balancer probe used by the load balancing rule.
-	ProbeProtocol pulumi.StringInput `pulumi:"probeProtocol"`
-	// The probe request path. Only supported for HTTP/HTTPS probes.
+	BackendPort      pulumi.IntInput       `pulumi:"backendPort"`
+	FrontendPort     pulumi.IntInput       `pulumi:"frontendPort"`
+	ProbeProtocol    pulumi.StringInput    `pulumi:"probeProtocol"`
 	ProbeRequestPath pulumi.StringPtrInput `pulumi:"probeRequestPath"`
-	// The reference to the transport protocol used by the load balancing rule.
-	Protocol pulumi.StringInput `pulumi:"protocol"`
+	Protocol         pulumi.StringInput    `pulumi:"protocol"`
 }
 
 func (LoadBalancingRuleResponseArgs) ElementType() reflect.Type {
@@ -1126,7 +1038,6 @@ func (i LoadBalancingRuleResponseArray) ToLoadBalancingRuleResponseArrayOutputWi
 	return pulumi.ToOutputWithContext(ctx, i).(LoadBalancingRuleResponseArrayOutput)
 }
 
-// Describes a load balancing rule.
 type LoadBalancingRuleResponseOutput struct{ *pulumi.OutputState }
 
 func (LoadBalancingRuleResponseOutput) ElementType() reflect.Type {
@@ -1141,27 +1052,22 @@ func (o LoadBalancingRuleResponseOutput) ToLoadBalancingRuleResponseOutputWithCo
 	return o
 }
 
-// The port used for internal connections on the endpoint. Acceptable values are between 1 and 65535.
 func (o LoadBalancingRuleResponseOutput) BackendPort() pulumi.IntOutput {
 	return o.ApplyT(func(v LoadBalancingRuleResponse) int { return v.BackendPort }).(pulumi.IntOutput)
 }
 
-// The port for the external endpoint. Port numbers for each rule must be unique within the Load Balancer. Acceptable values are between 1 and 65534.
 func (o LoadBalancingRuleResponseOutput) FrontendPort() pulumi.IntOutput {
 	return o.ApplyT(func(v LoadBalancingRuleResponse) int { return v.FrontendPort }).(pulumi.IntOutput)
 }
 
-// the reference to the load balancer probe used by the load balancing rule.
 func (o LoadBalancingRuleResponseOutput) ProbeProtocol() pulumi.StringOutput {
 	return o.ApplyT(func(v LoadBalancingRuleResponse) string { return v.ProbeProtocol }).(pulumi.StringOutput)
 }
 
-// The probe request path. Only supported for HTTP/HTTPS probes.
 func (o LoadBalancingRuleResponseOutput) ProbeRequestPath() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LoadBalancingRuleResponse) *string { return v.ProbeRequestPath }).(pulumi.StringPtrOutput)
 }
 
-// The reference to the transport protocol used by the load balancing rule.
 func (o LoadBalancingRuleResponseOutput) Protocol() pulumi.StringOutput {
 	return o.ApplyT(func(v LoadBalancingRuleResponse) string { return v.Protocol }).(pulumi.StringOutput)
 }
@@ -1186,11 +1092,8 @@ func (o LoadBalancingRuleResponseArrayOutput) Index(i pulumi.IntInput) LoadBalan
 	}).(LoadBalancingRuleResponseOutput)
 }
 
-// Describes a parameter in fabric settings of the cluster.
 type SettingsParameterDescription struct {
-	// The parameter name of fabric setting.
-	Name string `pulumi:"name"`
-	// The parameter value of fabric setting.
+	Name  string `pulumi:"name"`
 	Value string `pulumi:"value"`
 }
 
@@ -1205,11 +1108,8 @@ type SettingsParameterDescriptionInput interface {
 	ToSettingsParameterDescriptionOutputWithContext(context.Context) SettingsParameterDescriptionOutput
 }
 
-// Describes a parameter in fabric settings of the cluster.
 type SettingsParameterDescriptionArgs struct {
-	// The parameter name of fabric setting.
-	Name pulumi.StringInput `pulumi:"name"`
-	// The parameter value of fabric setting.
+	Name  pulumi.StringInput `pulumi:"name"`
 	Value pulumi.StringInput `pulumi:"value"`
 }
 
@@ -1250,7 +1150,6 @@ func (i SettingsParameterDescriptionArray) ToSettingsParameterDescriptionArrayOu
 	return pulumi.ToOutputWithContext(ctx, i).(SettingsParameterDescriptionArrayOutput)
 }
 
-// Describes a parameter in fabric settings of the cluster.
 type SettingsParameterDescriptionOutput struct{ *pulumi.OutputState }
 
 func (SettingsParameterDescriptionOutput) ElementType() reflect.Type {
@@ -1265,12 +1164,10 @@ func (o SettingsParameterDescriptionOutput) ToSettingsParameterDescriptionOutput
 	return o
 }
 
-// The parameter name of fabric setting.
 func (o SettingsParameterDescriptionOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v SettingsParameterDescription) string { return v.Name }).(pulumi.StringOutput)
 }
 
-// The parameter value of fabric setting.
 func (o SettingsParameterDescriptionOutput) Value() pulumi.StringOutput {
 	return o.ApplyT(func(v SettingsParameterDescription) string { return v.Value }).(pulumi.StringOutput)
 }
@@ -1295,11 +1192,8 @@ func (o SettingsParameterDescriptionArrayOutput) Index(i pulumi.IntInput) Settin
 	}).(SettingsParameterDescriptionOutput)
 }
 
-// Describes a parameter in fabric settings of the cluster.
 type SettingsParameterDescriptionResponse struct {
-	// The parameter name of fabric setting.
-	Name string `pulumi:"name"`
-	// The parameter value of fabric setting.
+	Name  string `pulumi:"name"`
 	Value string `pulumi:"value"`
 }
 
@@ -1314,11 +1208,8 @@ type SettingsParameterDescriptionResponseInput interface {
 	ToSettingsParameterDescriptionResponseOutputWithContext(context.Context) SettingsParameterDescriptionResponseOutput
 }
 
-// Describes a parameter in fabric settings of the cluster.
 type SettingsParameterDescriptionResponseArgs struct {
-	// The parameter name of fabric setting.
-	Name pulumi.StringInput `pulumi:"name"`
-	// The parameter value of fabric setting.
+	Name  pulumi.StringInput `pulumi:"name"`
 	Value pulumi.StringInput `pulumi:"value"`
 }
 
@@ -1359,7 +1250,6 @@ func (i SettingsParameterDescriptionResponseArray) ToSettingsParameterDescriptio
 	return pulumi.ToOutputWithContext(ctx, i).(SettingsParameterDescriptionResponseArrayOutput)
 }
 
-// Describes a parameter in fabric settings of the cluster.
 type SettingsParameterDescriptionResponseOutput struct{ *pulumi.OutputState }
 
 func (SettingsParameterDescriptionResponseOutput) ElementType() reflect.Type {
@@ -1374,12 +1264,10 @@ func (o SettingsParameterDescriptionResponseOutput) ToSettingsParameterDescripti
 	return o
 }
 
-// The parameter name of fabric setting.
 func (o SettingsParameterDescriptionResponseOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v SettingsParameterDescriptionResponse) string { return v.Name }).(pulumi.StringOutput)
 }
 
-// The parameter value of fabric setting.
 func (o SettingsParameterDescriptionResponseOutput) Value() pulumi.StringOutput {
 	return o.ApplyT(func(v SettingsParameterDescriptionResponse) string { return v.Value }).(pulumi.StringOutput)
 }
@@ -1404,11 +1292,8 @@ func (o SettingsParameterDescriptionResponseArrayOutput) Index(i pulumi.IntInput
 	}).(SettingsParameterDescriptionResponseOutput)
 }
 
-// Describes a section in the fabric settings of the cluster.
 type SettingsSectionDescription struct {
-	// The section name of the fabric settings.
-	Name string `pulumi:"name"`
-	// The collection of parameters in the section.
+	Name       string                         `pulumi:"name"`
 	Parameters []SettingsParameterDescription `pulumi:"parameters"`
 }
 
@@ -1423,11 +1308,8 @@ type SettingsSectionDescriptionInput interface {
 	ToSettingsSectionDescriptionOutputWithContext(context.Context) SettingsSectionDescriptionOutput
 }
 
-// Describes a section in the fabric settings of the cluster.
 type SettingsSectionDescriptionArgs struct {
-	// The section name of the fabric settings.
-	Name pulumi.StringInput `pulumi:"name"`
-	// The collection of parameters in the section.
+	Name       pulumi.StringInput                     `pulumi:"name"`
 	Parameters SettingsParameterDescriptionArrayInput `pulumi:"parameters"`
 }
 
@@ -1468,7 +1350,6 @@ func (i SettingsSectionDescriptionArray) ToSettingsSectionDescriptionArrayOutput
 	return pulumi.ToOutputWithContext(ctx, i).(SettingsSectionDescriptionArrayOutput)
 }
 
-// Describes a section in the fabric settings of the cluster.
 type SettingsSectionDescriptionOutput struct{ *pulumi.OutputState }
 
 func (SettingsSectionDescriptionOutput) ElementType() reflect.Type {
@@ -1483,12 +1364,10 @@ func (o SettingsSectionDescriptionOutput) ToSettingsSectionDescriptionOutputWith
 	return o
 }
 
-// The section name of the fabric settings.
 func (o SettingsSectionDescriptionOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v SettingsSectionDescription) string { return v.Name }).(pulumi.StringOutput)
 }
 
-// The collection of parameters in the section.
 func (o SettingsSectionDescriptionOutput) Parameters() SettingsParameterDescriptionArrayOutput {
 	return o.ApplyT(func(v SettingsSectionDescription) []SettingsParameterDescription { return v.Parameters }).(SettingsParameterDescriptionArrayOutput)
 }
@@ -1513,11 +1392,8 @@ func (o SettingsSectionDescriptionArrayOutput) Index(i pulumi.IntInput) Settings
 	}).(SettingsSectionDescriptionOutput)
 }
 
-// Describes a section in the fabric settings of the cluster.
 type SettingsSectionDescriptionResponse struct {
-	// The section name of the fabric settings.
-	Name string `pulumi:"name"`
-	// The collection of parameters in the section.
+	Name       string                                 `pulumi:"name"`
 	Parameters []SettingsParameterDescriptionResponse `pulumi:"parameters"`
 }
 
@@ -1532,11 +1408,8 @@ type SettingsSectionDescriptionResponseInput interface {
 	ToSettingsSectionDescriptionResponseOutputWithContext(context.Context) SettingsSectionDescriptionResponseOutput
 }
 
-// Describes a section in the fabric settings of the cluster.
 type SettingsSectionDescriptionResponseArgs struct {
-	// The section name of the fabric settings.
-	Name pulumi.StringInput `pulumi:"name"`
-	// The collection of parameters in the section.
+	Name       pulumi.StringInput                             `pulumi:"name"`
 	Parameters SettingsParameterDescriptionResponseArrayInput `pulumi:"parameters"`
 }
 
@@ -1577,7 +1450,6 @@ func (i SettingsSectionDescriptionResponseArray) ToSettingsSectionDescriptionRes
 	return pulumi.ToOutputWithContext(ctx, i).(SettingsSectionDescriptionResponseArrayOutput)
 }
 
-// Describes a section in the fabric settings of the cluster.
 type SettingsSectionDescriptionResponseOutput struct{ *pulumi.OutputState }
 
 func (SettingsSectionDescriptionResponseOutput) ElementType() reflect.Type {
@@ -1592,12 +1464,10 @@ func (o SettingsSectionDescriptionResponseOutput) ToSettingsSectionDescriptionRe
 	return o
 }
 
-// The section name of the fabric settings.
 func (o SettingsSectionDescriptionResponseOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v SettingsSectionDescriptionResponse) string { return v.Name }).(pulumi.StringOutput)
 }
 
-// The collection of parameters in the section.
 func (o SettingsSectionDescriptionResponseOutput) Parameters() SettingsParameterDescriptionResponseArrayOutput {
 	return o.ApplyT(func(v SettingsSectionDescriptionResponse) []SettingsParameterDescriptionResponse { return v.Parameters }).(SettingsParameterDescriptionResponseArrayOutput)
 }
@@ -1622,9 +1492,7 @@ func (o SettingsSectionDescriptionResponseArrayOutput) Index(i pulumi.IntInput) 
 	}).(SettingsSectionDescriptionResponseOutput)
 }
 
-// Sku definition
 type Sku struct {
-	// Sku Name.
 	Name string `pulumi:"name"`
 }
 
@@ -1639,9 +1507,7 @@ type SkuInput interface {
 	ToSkuOutputWithContext(context.Context) SkuOutput
 }
 
-// Sku definition
 type SkuArgs struct {
-	// Sku Name.
 	Name pulumi.StringInput `pulumi:"name"`
 }
 
@@ -1698,7 +1564,6 @@ func (i *skuPtrType) ToSkuPtrOutputWithContext(ctx context.Context) SkuPtrOutput
 	return pulumi.ToOutputWithContext(ctx, i).(SkuPtrOutput)
 }
 
-// Sku definition
 type SkuOutput struct{ *pulumi.OutputState }
 
 func (SkuOutput) ElementType() reflect.Type {
@@ -1718,12 +1583,11 @@ func (o SkuOutput) ToSkuPtrOutput() SkuPtrOutput {
 }
 
 func (o SkuOutput) ToSkuPtrOutputWithContext(ctx context.Context) SkuPtrOutput {
-	return o.ApplyT(func(v Sku) *Sku {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v Sku) *Sku {
 		return &v
 	}).(SkuPtrOutput)
 }
 
-// Sku Name.
 func (o SkuOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v Sku) string { return v.Name }).(pulumi.StringOutput)
 }
@@ -1743,10 +1607,15 @@ func (o SkuPtrOutput) ToSkuPtrOutputWithContext(ctx context.Context) SkuPtrOutpu
 }
 
 func (o SkuPtrOutput) Elem() SkuOutput {
-	return o.ApplyT(func(v *Sku) Sku { return *v }).(SkuOutput)
+	return o.ApplyT(func(v *Sku) Sku {
+		if v != nil {
+			return *v
+		}
+		var ret Sku
+		return ret
+	}).(SkuOutput)
 }
 
-// Sku Name.
 func (o SkuPtrOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Sku) *string {
 		if v == nil {
@@ -1756,9 +1625,7 @@ func (o SkuPtrOutput) Name() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Sku definition
 type SkuResponse struct {
-	// Sku Name.
 	Name string `pulumi:"name"`
 }
 
@@ -1773,9 +1640,7 @@ type SkuResponseInput interface {
 	ToSkuResponseOutputWithContext(context.Context) SkuResponseOutput
 }
 
-// Sku definition
 type SkuResponseArgs struct {
-	// Sku Name.
 	Name pulumi.StringInput `pulumi:"name"`
 }
 
@@ -1832,7 +1697,6 @@ func (i *skuResponsePtrType) ToSkuResponsePtrOutputWithContext(ctx context.Conte
 	return pulumi.ToOutputWithContext(ctx, i).(SkuResponsePtrOutput)
 }
 
-// Sku definition
 type SkuResponseOutput struct{ *pulumi.OutputState }
 
 func (SkuResponseOutput) ElementType() reflect.Type {
@@ -1852,12 +1716,11 @@ func (o SkuResponseOutput) ToSkuResponsePtrOutput() SkuResponsePtrOutput {
 }
 
 func (o SkuResponseOutput) ToSkuResponsePtrOutputWithContext(ctx context.Context) SkuResponsePtrOutput {
-	return o.ApplyT(func(v SkuResponse) *SkuResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v SkuResponse) *SkuResponse {
 		return &v
 	}).(SkuResponsePtrOutput)
 }
 
-// Sku Name.
 func (o SkuResponseOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v SkuResponse) string { return v.Name }).(pulumi.StringOutput)
 }
@@ -1877,10 +1740,15 @@ func (o SkuResponsePtrOutput) ToSkuResponsePtrOutputWithContext(ctx context.Cont
 }
 
 func (o SkuResponsePtrOutput) Elem() SkuResponseOutput {
-	return o.ApplyT(func(v *SkuResponse) SkuResponse { return *v }).(SkuResponseOutput)
+	return o.ApplyT(func(v *SkuResponse) SkuResponse {
+		if v != nil {
+			return *v
+		}
+		var ret SkuResponse
+		return ret
+	}).(SkuResponseOutput)
 }
 
-// Sku Name.
 func (o SkuResponsePtrOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SkuResponse) *string {
 		if v == nil {
@@ -1890,9 +1758,7 @@ func (o SkuResponsePtrOutput) Name() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Azure resource identifier.
 type SubResource struct {
-	// Azure resource identifier.
 	Id *string `pulumi:"id"`
 }
 
@@ -1907,9 +1773,7 @@ type SubResourceInput interface {
 	ToSubResourceOutputWithContext(context.Context) SubResourceOutput
 }
 
-// Azure resource identifier.
 type SubResourceArgs struct {
-	// Azure resource identifier.
 	Id pulumi.StringPtrInput `pulumi:"id"`
 }
 
@@ -1925,7 +1789,6 @@ func (i SubResourceArgs) ToSubResourceOutputWithContext(ctx context.Context) Sub
 	return pulumi.ToOutputWithContext(ctx, i).(SubResourceOutput)
 }
 
-// Azure resource identifier.
 type SubResourceOutput struct{ *pulumi.OutputState }
 
 func (SubResourceOutput) ElementType() reflect.Type {
@@ -1940,14 +1803,11 @@ func (o SubResourceOutput) ToSubResourceOutputWithContext(ctx context.Context) S
 	return o
 }
 
-// Azure resource identifier.
 func (o SubResourceOutput) Id() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SubResource) *string { return v.Id }).(pulumi.StringPtrOutput)
 }
 
-// Azure resource identifier.
 type SubResourceResponse struct {
-	// Azure resource identifier.
 	Id *string `pulumi:"id"`
 }
 
@@ -1962,9 +1822,7 @@ type SubResourceResponseInput interface {
 	ToSubResourceResponseOutputWithContext(context.Context) SubResourceResponseOutput
 }
 
-// Azure resource identifier.
 type SubResourceResponseArgs struct {
-	// Azure resource identifier.
 	Id pulumi.StringPtrInput `pulumi:"id"`
 }
 
@@ -1980,7 +1838,6 @@ func (i SubResourceResponseArgs) ToSubResourceResponseOutputWithContext(ctx cont
 	return pulumi.ToOutputWithContext(ctx, i).(SubResourceResponseOutput)
 }
 
-// Azure resource identifier.
 type SubResourceResponseOutput struct{ *pulumi.OutputState }
 
 func (SubResourceResponseOutput) ElementType() reflect.Type {
@@ -1995,31 +1852,20 @@ func (o SubResourceResponseOutput) ToSubResourceResponseOutputWithContext(ctx co
 	return o
 }
 
-// Azure resource identifier.
 func (o SubResourceResponseOutput) Id() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SubResourceResponse) *string { return v.Id }).(pulumi.StringPtrOutput)
 }
 
-// Specifies set of extensions that should be installed onto the virtual machines.
 type VMSSExtension struct {
-	// Indicates whether the extension should use a newer minor version if one is available at deployment time. Once deployed, however, the extension will not upgrade minor versions unless redeployed, even with this property set to true.
-	AutoUpgradeMinorVersion *bool `pulumi:"autoUpgradeMinorVersion"`
-	// If a value is provided and is different from the previous value, the extension handler will be forced to update even if the extension configuration has not changed.
-	ForceUpdateTag *string `pulumi:"forceUpdateTag"`
-	// The name of the extension.
-	Name string `pulumi:"name"`
-	// The extension can contain either protectedSettings or protectedSettingsFromKeyVault or no protected settings at all.
-	ProtectedSettings interface{} `pulumi:"protectedSettings"`
-	// Collection of extension names after which this extension needs to be provisioned.
-	ProvisionAfterExtensions []string `pulumi:"provisionAfterExtensions"`
-	// The name of the extension handler publisher.
-	Publisher string `pulumi:"publisher"`
-	// Json formatted public settings for the extension.
-	Settings interface{} `pulumi:"settings"`
-	// Specifies the type of the extension; an example is "CustomScriptExtension".
-	Type string `pulumi:"type"`
-	// Specifies the version of the script handler.
-	TypeHandlerVersion string `pulumi:"typeHandlerVersion"`
+	AutoUpgradeMinorVersion  *bool       `pulumi:"autoUpgradeMinorVersion"`
+	ForceUpdateTag           *string     `pulumi:"forceUpdateTag"`
+	Name                     string      `pulumi:"name"`
+	ProtectedSettings        interface{} `pulumi:"protectedSettings"`
+	ProvisionAfterExtensions []string    `pulumi:"provisionAfterExtensions"`
+	Publisher                string      `pulumi:"publisher"`
+	Settings                 interface{} `pulumi:"settings"`
+	Type                     string      `pulumi:"type"`
+	TypeHandlerVersion       string      `pulumi:"typeHandlerVersion"`
 }
 
 // VMSSExtensionInput is an input type that accepts VMSSExtensionArgs and VMSSExtensionOutput values.
@@ -2033,26 +1879,16 @@ type VMSSExtensionInput interface {
 	ToVMSSExtensionOutputWithContext(context.Context) VMSSExtensionOutput
 }
 
-// Specifies set of extensions that should be installed onto the virtual machines.
 type VMSSExtensionArgs struct {
-	// Indicates whether the extension should use a newer minor version if one is available at deployment time. Once deployed, however, the extension will not upgrade minor versions unless redeployed, even with this property set to true.
-	AutoUpgradeMinorVersion pulumi.BoolPtrInput `pulumi:"autoUpgradeMinorVersion"`
-	// If a value is provided and is different from the previous value, the extension handler will be forced to update even if the extension configuration has not changed.
-	ForceUpdateTag pulumi.StringPtrInput `pulumi:"forceUpdateTag"`
-	// The name of the extension.
-	Name pulumi.StringInput `pulumi:"name"`
-	// The extension can contain either protectedSettings or protectedSettingsFromKeyVault or no protected settings at all.
-	ProtectedSettings pulumi.Input `pulumi:"protectedSettings"`
-	// Collection of extension names after which this extension needs to be provisioned.
+	AutoUpgradeMinorVersion  pulumi.BoolPtrInput     `pulumi:"autoUpgradeMinorVersion"`
+	ForceUpdateTag           pulumi.StringPtrInput   `pulumi:"forceUpdateTag"`
+	Name                     pulumi.StringInput      `pulumi:"name"`
+	ProtectedSettings        pulumi.Input            `pulumi:"protectedSettings"`
 	ProvisionAfterExtensions pulumi.StringArrayInput `pulumi:"provisionAfterExtensions"`
-	// The name of the extension handler publisher.
-	Publisher pulumi.StringInput `pulumi:"publisher"`
-	// Json formatted public settings for the extension.
-	Settings pulumi.Input `pulumi:"settings"`
-	// Specifies the type of the extension; an example is "CustomScriptExtension".
-	Type pulumi.StringInput `pulumi:"type"`
-	// Specifies the version of the script handler.
-	TypeHandlerVersion pulumi.StringInput `pulumi:"typeHandlerVersion"`
+	Publisher                pulumi.StringInput      `pulumi:"publisher"`
+	Settings                 pulumi.Input            `pulumi:"settings"`
+	Type                     pulumi.StringInput      `pulumi:"type"`
+	TypeHandlerVersion       pulumi.StringInput      `pulumi:"typeHandlerVersion"`
 }
 
 func (VMSSExtensionArgs) ElementType() reflect.Type {
@@ -2092,7 +1928,6 @@ func (i VMSSExtensionArray) ToVMSSExtensionArrayOutputWithContext(ctx context.Co
 	return pulumi.ToOutputWithContext(ctx, i).(VMSSExtensionArrayOutput)
 }
 
-// Specifies set of extensions that should be installed onto the virtual machines.
 type VMSSExtensionOutput struct{ *pulumi.OutputState }
 
 func (VMSSExtensionOutput) ElementType() reflect.Type {
@@ -2107,47 +1942,38 @@ func (o VMSSExtensionOutput) ToVMSSExtensionOutputWithContext(ctx context.Contex
 	return o
 }
 
-// Indicates whether the extension should use a newer minor version if one is available at deployment time. Once deployed, however, the extension will not upgrade minor versions unless redeployed, even with this property set to true.
 func (o VMSSExtensionOutput) AutoUpgradeMinorVersion() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v VMSSExtension) *bool { return v.AutoUpgradeMinorVersion }).(pulumi.BoolPtrOutput)
 }
 
-// If a value is provided and is different from the previous value, the extension handler will be forced to update even if the extension configuration has not changed.
 func (o VMSSExtensionOutput) ForceUpdateTag() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v VMSSExtension) *string { return v.ForceUpdateTag }).(pulumi.StringPtrOutput)
 }
 
-// The name of the extension.
 func (o VMSSExtensionOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v VMSSExtension) string { return v.Name }).(pulumi.StringOutput)
 }
 
-// The extension can contain either protectedSettings or protectedSettingsFromKeyVault or no protected settings at all.
 func (o VMSSExtensionOutput) ProtectedSettings() pulumi.AnyOutput {
 	return o.ApplyT(func(v VMSSExtension) interface{} { return v.ProtectedSettings }).(pulumi.AnyOutput)
 }
 
-// Collection of extension names after which this extension needs to be provisioned.
 func (o VMSSExtensionOutput) ProvisionAfterExtensions() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v VMSSExtension) []string { return v.ProvisionAfterExtensions }).(pulumi.StringArrayOutput)
 }
 
-// The name of the extension handler publisher.
 func (o VMSSExtensionOutput) Publisher() pulumi.StringOutput {
 	return o.ApplyT(func(v VMSSExtension) string { return v.Publisher }).(pulumi.StringOutput)
 }
 
-// Json formatted public settings for the extension.
 func (o VMSSExtensionOutput) Settings() pulumi.AnyOutput {
 	return o.ApplyT(func(v VMSSExtension) interface{} { return v.Settings }).(pulumi.AnyOutput)
 }
 
-// Specifies the type of the extension; an example is "CustomScriptExtension".
 func (o VMSSExtensionOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v VMSSExtension) string { return v.Type }).(pulumi.StringOutput)
 }
 
-// Specifies the version of the script handler.
 func (o VMSSExtensionOutput) TypeHandlerVersion() pulumi.StringOutput {
 	return o.ApplyT(func(v VMSSExtension) string { return v.TypeHandlerVersion }).(pulumi.StringOutput)
 }
@@ -2172,28 +1998,17 @@ func (o VMSSExtensionArrayOutput) Index(i pulumi.IntInput) VMSSExtensionOutput {
 	}).(VMSSExtensionOutput)
 }
 
-// Specifies set of extensions that should be installed onto the virtual machines.
 type VMSSExtensionResponse struct {
-	// Indicates whether the extension should use a newer minor version if one is available at deployment time. Once deployed, however, the extension will not upgrade minor versions unless redeployed, even with this property set to true.
-	AutoUpgradeMinorVersion *bool `pulumi:"autoUpgradeMinorVersion"`
-	// If a value is provided and is different from the previous value, the extension handler will be forced to update even if the extension configuration has not changed.
-	ForceUpdateTag *string `pulumi:"forceUpdateTag"`
-	// The name of the extension.
-	Name string `pulumi:"name"`
-	// The extension can contain either protectedSettings or protectedSettingsFromKeyVault or no protected settings at all.
-	ProtectedSettings interface{} `pulumi:"protectedSettings"`
-	// Collection of extension names after which this extension needs to be provisioned.
-	ProvisionAfterExtensions []string `pulumi:"provisionAfterExtensions"`
-	// The provisioning state, which only appears in the response.
-	ProvisioningState string `pulumi:"provisioningState"`
-	// The name of the extension handler publisher.
-	Publisher string `pulumi:"publisher"`
-	// Json formatted public settings for the extension.
-	Settings interface{} `pulumi:"settings"`
-	// Specifies the type of the extension; an example is "CustomScriptExtension".
-	Type string `pulumi:"type"`
-	// Specifies the version of the script handler.
-	TypeHandlerVersion string `pulumi:"typeHandlerVersion"`
+	AutoUpgradeMinorVersion  *bool       `pulumi:"autoUpgradeMinorVersion"`
+	ForceUpdateTag           *string     `pulumi:"forceUpdateTag"`
+	Name                     string      `pulumi:"name"`
+	ProtectedSettings        interface{} `pulumi:"protectedSettings"`
+	ProvisionAfterExtensions []string    `pulumi:"provisionAfterExtensions"`
+	ProvisioningState        string      `pulumi:"provisioningState"`
+	Publisher                string      `pulumi:"publisher"`
+	Settings                 interface{} `pulumi:"settings"`
+	Type                     string      `pulumi:"type"`
+	TypeHandlerVersion       string      `pulumi:"typeHandlerVersion"`
 }
 
 // VMSSExtensionResponseInput is an input type that accepts VMSSExtensionResponseArgs and VMSSExtensionResponseOutput values.
@@ -2207,28 +2022,17 @@ type VMSSExtensionResponseInput interface {
 	ToVMSSExtensionResponseOutputWithContext(context.Context) VMSSExtensionResponseOutput
 }
 
-// Specifies set of extensions that should be installed onto the virtual machines.
 type VMSSExtensionResponseArgs struct {
-	// Indicates whether the extension should use a newer minor version if one is available at deployment time. Once deployed, however, the extension will not upgrade minor versions unless redeployed, even with this property set to true.
-	AutoUpgradeMinorVersion pulumi.BoolPtrInput `pulumi:"autoUpgradeMinorVersion"`
-	// If a value is provided and is different from the previous value, the extension handler will be forced to update even if the extension configuration has not changed.
-	ForceUpdateTag pulumi.StringPtrInput `pulumi:"forceUpdateTag"`
-	// The name of the extension.
-	Name pulumi.StringInput `pulumi:"name"`
-	// The extension can contain either protectedSettings or protectedSettingsFromKeyVault or no protected settings at all.
-	ProtectedSettings pulumi.Input `pulumi:"protectedSettings"`
-	// Collection of extension names after which this extension needs to be provisioned.
+	AutoUpgradeMinorVersion  pulumi.BoolPtrInput     `pulumi:"autoUpgradeMinorVersion"`
+	ForceUpdateTag           pulumi.StringPtrInput   `pulumi:"forceUpdateTag"`
+	Name                     pulumi.StringInput      `pulumi:"name"`
+	ProtectedSettings        pulumi.Input            `pulumi:"protectedSettings"`
 	ProvisionAfterExtensions pulumi.StringArrayInput `pulumi:"provisionAfterExtensions"`
-	// The provisioning state, which only appears in the response.
-	ProvisioningState pulumi.StringInput `pulumi:"provisioningState"`
-	// The name of the extension handler publisher.
-	Publisher pulumi.StringInput `pulumi:"publisher"`
-	// Json formatted public settings for the extension.
-	Settings pulumi.Input `pulumi:"settings"`
-	// Specifies the type of the extension; an example is "CustomScriptExtension".
-	Type pulumi.StringInput `pulumi:"type"`
-	// Specifies the version of the script handler.
-	TypeHandlerVersion pulumi.StringInput `pulumi:"typeHandlerVersion"`
+	ProvisioningState        pulumi.StringInput      `pulumi:"provisioningState"`
+	Publisher                pulumi.StringInput      `pulumi:"publisher"`
+	Settings                 pulumi.Input            `pulumi:"settings"`
+	Type                     pulumi.StringInput      `pulumi:"type"`
+	TypeHandlerVersion       pulumi.StringInput      `pulumi:"typeHandlerVersion"`
 }
 
 func (VMSSExtensionResponseArgs) ElementType() reflect.Type {
@@ -2268,7 +2072,6 @@ func (i VMSSExtensionResponseArray) ToVMSSExtensionResponseArrayOutputWithContex
 	return pulumi.ToOutputWithContext(ctx, i).(VMSSExtensionResponseArrayOutput)
 }
 
-// Specifies set of extensions that should be installed onto the virtual machines.
 type VMSSExtensionResponseOutput struct{ *pulumi.OutputState }
 
 func (VMSSExtensionResponseOutput) ElementType() reflect.Type {
@@ -2283,52 +2086,42 @@ func (o VMSSExtensionResponseOutput) ToVMSSExtensionResponseOutputWithContext(ct
 	return o
 }
 
-// Indicates whether the extension should use a newer minor version if one is available at deployment time. Once deployed, however, the extension will not upgrade minor versions unless redeployed, even with this property set to true.
 func (o VMSSExtensionResponseOutput) AutoUpgradeMinorVersion() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v VMSSExtensionResponse) *bool { return v.AutoUpgradeMinorVersion }).(pulumi.BoolPtrOutput)
 }
 
-// If a value is provided and is different from the previous value, the extension handler will be forced to update even if the extension configuration has not changed.
 func (o VMSSExtensionResponseOutput) ForceUpdateTag() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v VMSSExtensionResponse) *string { return v.ForceUpdateTag }).(pulumi.StringPtrOutput)
 }
 
-// The name of the extension.
 func (o VMSSExtensionResponseOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v VMSSExtensionResponse) string { return v.Name }).(pulumi.StringOutput)
 }
 
-// The extension can contain either protectedSettings or protectedSettingsFromKeyVault or no protected settings at all.
 func (o VMSSExtensionResponseOutput) ProtectedSettings() pulumi.AnyOutput {
 	return o.ApplyT(func(v VMSSExtensionResponse) interface{} { return v.ProtectedSettings }).(pulumi.AnyOutput)
 }
 
-// Collection of extension names after which this extension needs to be provisioned.
 func (o VMSSExtensionResponseOutput) ProvisionAfterExtensions() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v VMSSExtensionResponse) []string { return v.ProvisionAfterExtensions }).(pulumi.StringArrayOutput)
 }
 
-// The provisioning state, which only appears in the response.
 func (o VMSSExtensionResponseOutput) ProvisioningState() pulumi.StringOutput {
 	return o.ApplyT(func(v VMSSExtensionResponse) string { return v.ProvisioningState }).(pulumi.StringOutput)
 }
 
-// The name of the extension handler publisher.
 func (o VMSSExtensionResponseOutput) Publisher() pulumi.StringOutput {
 	return o.ApplyT(func(v VMSSExtensionResponse) string { return v.Publisher }).(pulumi.StringOutput)
 }
 
-// Json formatted public settings for the extension.
 func (o VMSSExtensionResponseOutput) Settings() pulumi.AnyOutput {
 	return o.ApplyT(func(v VMSSExtensionResponse) interface{} { return v.Settings }).(pulumi.AnyOutput)
 }
 
-// Specifies the type of the extension; an example is "CustomScriptExtension".
 func (o VMSSExtensionResponseOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v VMSSExtensionResponse) string { return v.Type }).(pulumi.StringOutput)
 }
 
-// Specifies the version of the script handler.
 func (o VMSSExtensionResponseOutput) TypeHandlerVersion() pulumi.StringOutput {
 	return o.ApplyT(func(v VMSSExtensionResponse) string { return v.TypeHandlerVersion }).(pulumi.StringOutput)
 }
@@ -2353,12 +2146,9 @@ func (o VMSSExtensionResponseArrayOutput) Index(i pulumi.IntInput) VMSSExtension
 	}).(VMSSExtensionResponseOutput)
 }
 
-// Describes a single certificate reference in a Key Vault, and where the certificate should reside on the VM.
 type VaultCertificate struct {
-	// For Windows VMs, specifies the certificate store on the Virtual Machine to which the certificate should be added. The specified certificate store is implicitly in the LocalMachine account. <br><br>For Linux VMs, the certificate file is placed under the /var/lib/waagent directory, with the file name <UppercaseThumbprint>.crt for the X509 certificate file and <UppercaseThumbprint>.prv for private key. Both of these files are .pem formatted.
 	CertificateStore string `pulumi:"certificateStore"`
-	// This is the URL of a certificate that has been uploaded to Key Vault as a secret. For adding a secret to the Key Vault, see [Add a key or secret to the key vault](https://docs.microsoft.com/azure/key-vault/key-vault-get-started/#add). In this case, your certificate needs to be It is the Base64 encoding of the following JSON Object which is encoded in UTF-8: <br><br> {<br>  "data":"<Base64-encoded-certificate>",<br>  "dataType":"pfx",<br>  "password":"<pfx-file-password>"<br>}
-	CertificateUrl string `pulumi:"certificateUrl"`
+	CertificateUrl   string `pulumi:"certificateUrl"`
 }
 
 // VaultCertificateInput is an input type that accepts VaultCertificateArgs and VaultCertificateOutput values.
@@ -2372,12 +2162,9 @@ type VaultCertificateInput interface {
 	ToVaultCertificateOutputWithContext(context.Context) VaultCertificateOutput
 }
 
-// Describes a single certificate reference in a Key Vault, and where the certificate should reside on the VM.
 type VaultCertificateArgs struct {
-	// For Windows VMs, specifies the certificate store on the Virtual Machine to which the certificate should be added. The specified certificate store is implicitly in the LocalMachine account. <br><br>For Linux VMs, the certificate file is placed under the /var/lib/waagent directory, with the file name <UppercaseThumbprint>.crt for the X509 certificate file and <UppercaseThumbprint>.prv for private key. Both of these files are .pem formatted.
 	CertificateStore pulumi.StringInput `pulumi:"certificateStore"`
-	// This is the URL of a certificate that has been uploaded to Key Vault as a secret. For adding a secret to the Key Vault, see [Add a key or secret to the key vault](https://docs.microsoft.com/azure/key-vault/key-vault-get-started/#add). In this case, your certificate needs to be It is the Base64 encoding of the following JSON Object which is encoded in UTF-8: <br><br> {<br>  "data":"<Base64-encoded-certificate>",<br>  "dataType":"pfx",<br>  "password":"<pfx-file-password>"<br>}
-	CertificateUrl pulumi.StringInput `pulumi:"certificateUrl"`
+	CertificateUrl   pulumi.StringInput `pulumi:"certificateUrl"`
 }
 
 func (VaultCertificateArgs) ElementType() reflect.Type {
@@ -2417,7 +2204,6 @@ func (i VaultCertificateArray) ToVaultCertificateArrayOutputWithContext(ctx cont
 	return pulumi.ToOutputWithContext(ctx, i).(VaultCertificateArrayOutput)
 }
 
-// Describes a single certificate reference in a Key Vault, and where the certificate should reside on the VM.
 type VaultCertificateOutput struct{ *pulumi.OutputState }
 
 func (VaultCertificateOutput) ElementType() reflect.Type {
@@ -2432,12 +2218,10 @@ func (o VaultCertificateOutput) ToVaultCertificateOutputWithContext(ctx context.
 	return o
 }
 
-// For Windows VMs, specifies the certificate store on the Virtual Machine to which the certificate should be added. The specified certificate store is implicitly in the LocalMachine account. <br><br>For Linux VMs, the certificate file is placed under the /var/lib/waagent directory, with the file name <UppercaseThumbprint>.crt for the X509 certificate file and <UppercaseThumbprint>.prv for private key. Both of these files are .pem formatted.
 func (o VaultCertificateOutput) CertificateStore() pulumi.StringOutput {
 	return o.ApplyT(func(v VaultCertificate) string { return v.CertificateStore }).(pulumi.StringOutput)
 }
 
-// This is the URL of a certificate that has been uploaded to Key Vault as a secret. For adding a secret to the Key Vault, see [Add a key or secret to the key vault](https://docs.microsoft.com/azure/key-vault/key-vault-get-started/#add). In this case, your certificate needs to be It is the Base64 encoding of the following JSON Object which is encoded in UTF-8: <br><br> {<br>  "data":"<Base64-encoded-certificate>",<br>  "dataType":"pfx",<br>  "password":"<pfx-file-password>"<br>}
 func (o VaultCertificateOutput) CertificateUrl() pulumi.StringOutput {
 	return o.ApplyT(func(v VaultCertificate) string { return v.CertificateUrl }).(pulumi.StringOutput)
 }
@@ -2462,12 +2246,9 @@ func (o VaultCertificateArrayOutput) Index(i pulumi.IntInput) VaultCertificateOu
 	}).(VaultCertificateOutput)
 }
 
-// Describes a single certificate reference in a Key Vault, and where the certificate should reside on the VM.
 type VaultCertificateResponse struct {
-	// For Windows VMs, specifies the certificate store on the Virtual Machine to which the certificate should be added. The specified certificate store is implicitly in the LocalMachine account. <br><br>For Linux VMs, the certificate file is placed under the /var/lib/waagent directory, with the file name <UppercaseThumbprint>.crt for the X509 certificate file and <UppercaseThumbprint>.prv for private key. Both of these files are .pem formatted.
 	CertificateStore string `pulumi:"certificateStore"`
-	// This is the URL of a certificate that has been uploaded to Key Vault as a secret. For adding a secret to the Key Vault, see [Add a key or secret to the key vault](https://docs.microsoft.com/azure/key-vault/key-vault-get-started/#add). In this case, your certificate needs to be It is the Base64 encoding of the following JSON Object which is encoded in UTF-8: <br><br> {<br>  "data":"<Base64-encoded-certificate>",<br>  "dataType":"pfx",<br>  "password":"<pfx-file-password>"<br>}
-	CertificateUrl string `pulumi:"certificateUrl"`
+	CertificateUrl   string `pulumi:"certificateUrl"`
 }
 
 // VaultCertificateResponseInput is an input type that accepts VaultCertificateResponseArgs and VaultCertificateResponseOutput values.
@@ -2481,12 +2262,9 @@ type VaultCertificateResponseInput interface {
 	ToVaultCertificateResponseOutputWithContext(context.Context) VaultCertificateResponseOutput
 }
 
-// Describes a single certificate reference in a Key Vault, and where the certificate should reside on the VM.
 type VaultCertificateResponseArgs struct {
-	// For Windows VMs, specifies the certificate store on the Virtual Machine to which the certificate should be added. The specified certificate store is implicitly in the LocalMachine account. <br><br>For Linux VMs, the certificate file is placed under the /var/lib/waagent directory, with the file name <UppercaseThumbprint>.crt for the X509 certificate file and <UppercaseThumbprint>.prv for private key. Both of these files are .pem formatted.
 	CertificateStore pulumi.StringInput `pulumi:"certificateStore"`
-	// This is the URL of a certificate that has been uploaded to Key Vault as a secret. For adding a secret to the Key Vault, see [Add a key or secret to the key vault](https://docs.microsoft.com/azure/key-vault/key-vault-get-started/#add). In this case, your certificate needs to be It is the Base64 encoding of the following JSON Object which is encoded in UTF-8: <br><br> {<br>  "data":"<Base64-encoded-certificate>",<br>  "dataType":"pfx",<br>  "password":"<pfx-file-password>"<br>}
-	CertificateUrl pulumi.StringInput `pulumi:"certificateUrl"`
+	CertificateUrl   pulumi.StringInput `pulumi:"certificateUrl"`
 }
 
 func (VaultCertificateResponseArgs) ElementType() reflect.Type {
@@ -2526,7 +2304,6 @@ func (i VaultCertificateResponseArray) ToVaultCertificateResponseArrayOutputWith
 	return pulumi.ToOutputWithContext(ctx, i).(VaultCertificateResponseArrayOutput)
 }
 
-// Describes a single certificate reference in a Key Vault, and where the certificate should reside on the VM.
 type VaultCertificateResponseOutput struct{ *pulumi.OutputState }
 
 func (VaultCertificateResponseOutput) ElementType() reflect.Type {
@@ -2541,12 +2318,10 @@ func (o VaultCertificateResponseOutput) ToVaultCertificateResponseOutputWithCont
 	return o
 }
 
-// For Windows VMs, specifies the certificate store on the Virtual Machine to which the certificate should be added. The specified certificate store is implicitly in the LocalMachine account. <br><br>For Linux VMs, the certificate file is placed under the /var/lib/waagent directory, with the file name <UppercaseThumbprint>.crt for the X509 certificate file and <UppercaseThumbprint>.prv for private key. Both of these files are .pem formatted.
 func (o VaultCertificateResponseOutput) CertificateStore() pulumi.StringOutput {
 	return o.ApplyT(func(v VaultCertificateResponse) string { return v.CertificateStore }).(pulumi.StringOutput)
 }
 
-// This is the URL of a certificate that has been uploaded to Key Vault as a secret. For adding a secret to the Key Vault, see [Add a key or secret to the key vault](https://docs.microsoft.com/azure/key-vault/key-vault-get-started/#add). In this case, your certificate needs to be It is the Base64 encoding of the following JSON Object which is encoded in UTF-8: <br><br> {<br>  "data":"<Base64-encoded-certificate>",<br>  "dataType":"pfx",<br>  "password":"<pfx-file-password>"<br>}
 func (o VaultCertificateResponseOutput) CertificateUrl() pulumi.StringOutput {
 	return o.ApplyT(func(v VaultCertificateResponse) string { return v.CertificateUrl }).(pulumi.StringOutput)
 }
@@ -2571,11 +2346,8 @@ func (o VaultCertificateResponseArrayOutput) Index(i pulumi.IntInput) VaultCerti
 	}).(VaultCertificateResponseOutput)
 }
 
-// Specifies set of certificates that should be installed onto the virtual machines.
 type VaultSecretGroup struct {
-	// The relative URL of the Key Vault containing all of the certificates in VaultCertificates.
-	SourceVault SubResource `pulumi:"sourceVault"`
-	// The list of key vault references in SourceVault which contain certificates.
+	SourceVault       SubResource        `pulumi:"sourceVault"`
 	VaultCertificates []VaultCertificate `pulumi:"vaultCertificates"`
 }
 
@@ -2590,11 +2362,8 @@ type VaultSecretGroupInput interface {
 	ToVaultSecretGroupOutputWithContext(context.Context) VaultSecretGroupOutput
 }
 
-// Specifies set of certificates that should be installed onto the virtual machines.
 type VaultSecretGroupArgs struct {
-	// The relative URL of the Key Vault containing all of the certificates in VaultCertificates.
-	SourceVault SubResourceInput `pulumi:"sourceVault"`
-	// The list of key vault references in SourceVault which contain certificates.
+	SourceVault       SubResourceInput           `pulumi:"sourceVault"`
 	VaultCertificates VaultCertificateArrayInput `pulumi:"vaultCertificates"`
 }
 
@@ -2635,7 +2404,6 @@ func (i VaultSecretGroupArray) ToVaultSecretGroupArrayOutputWithContext(ctx cont
 	return pulumi.ToOutputWithContext(ctx, i).(VaultSecretGroupArrayOutput)
 }
 
-// Specifies set of certificates that should be installed onto the virtual machines.
 type VaultSecretGroupOutput struct{ *pulumi.OutputState }
 
 func (VaultSecretGroupOutput) ElementType() reflect.Type {
@@ -2650,12 +2418,10 @@ func (o VaultSecretGroupOutput) ToVaultSecretGroupOutputWithContext(ctx context.
 	return o
 }
 
-// The relative URL of the Key Vault containing all of the certificates in VaultCertificates.
 func (o VaultSecretGroupOutput) SourceVault() SubResourceOutput {
 	return o.ApplyT(func(v VaultSecretGroup) SubResource { return v.SourceVault }).(SubResourceOutput)
 }
 
-// The list of key vault references in SourceVault which contain certificates.
 func (o VaultSecretGroupOutput) VaultCertificates() VaultCertificateArrayOutput {
 	return o.ApplyT(func(v VaultSecretGroup) []VaultCertificate { return v.VaultCertificates }).(VaultCertificateArrayOutput)
 }
@@ -2680,11 +2446,8 @@ func (o VaultSecretGroupArrayOutput) Index(i pulumi.IntInput) VaultSecretGroupOu
 	}).(VaultSecretGroupOutput)
 }
 
-// Specifies set of certificates that should be installed onto the virtual machines.
 type VaultSecretGroupResponse struct {
-	// The relative URL of the Key Vault containing all of the certificates in VaultCertificates.
-	SourceVault SubResourceResponse `pulumi:"sourceVault"`
-	// The list of key vault references in SourceVault which contain certificates.
+	SourceVault       SubResourceResponse        `pulumi:"sourceVault"`
 	VaultCertificates []VaultCertificateResponse `pulumi:"vaultCertificates"`
 }
 
@@ -2699,11 +2462,8 @@ type VaultSecretGroupResponseInput interface {
 	ToVaultSecretGroupResponseOutputWithContext(context.Context) VaultSecretGroupResponseOutput
 }
 
-// Specifies set of certificates that should be installed onto the virtual machines.
 type VaultSecretGroupResponseArgs struct {
-	// The relative URL of the Key Vault containing all of the certificates in VaultCertificates.
-	SourceVault SubResourceResponseInput `pulumi:"sourceVault"`
-	// The list of key vault references in SourceVault which contain certificates.
+	SourceVault       SubResourceResponseInput           `pulumi:"sourceVault"`
 	VaultCertificates VaultCertificateResponseArrayInput `pulumi:"vaultCertificates"`
 }
 
@@ -2744,7 +2504,6 @@ func (i VaultSecretGroupResponseArray) ToVaultSecretGroupResponseArrayOutputWith
 	return pulumi.ToOutputWithContext(ctx, i).(VaultSecretGroupResponseArrayOutput)
 }
 
-// Specifies set of certificates that should be installed onto the virtual machines.
 type VaultSecretGroupResponseOutput struct{ *pulumi.OutputState }
 
 func (VaultSecretGroupResponseOutput) ElementType() reflect.Type {
@@ -2759,12 +2518,10 @@ func (o VaultSecretGroupResponseOutput) ToVaultSecretGroupResponseOutputWithCont
 	return o
 }
 
-// The relative URL of the Key Vault containing all of the certificates in VaultCertificates.
 func (o VaultSecretGroupResponseOutput) SourceVault() SubResourceResponseOutput {
 	return o.ApplyT(func(v VaultSecretGroupResponse) SubResourceResponse { return v.SourceVault }).(SubResourceResponseOutput)
 }
 
-// The list of key vault references in SourceVault which contain certificates.
 func (o VaultSecretGroupResponseOutput) VaultCertificates() VaultCertificateResponseArrayOutput {
 	return o.ApplyT(func(v VaultSecretGroupResponse) []VaultCertificateResponse { return v.VaultCertificates }).(VaultCertificateResponseArrayOutput)
 }

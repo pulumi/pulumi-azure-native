@@ -7,7 +7,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// A schedule.
 func LookupScheduleResource(ctx *pulumi.Context, args *LookupScheduleResourceArgs, opts ...pulumi.InvokeOption) (*LookupScheduleResourceResult, error) {
 	var rv LookupScheduleResourceResult
 	err := ctx.Invoke("azure-native:devtestlab/v20150521preview:getScheduleResource", args, &rv, opts...)
@@ -18,38 +17,23 @@ func LookupScheduleResource(ctx *pulumi.Context, args *LookupScheduleResourceArg
 }
 
 type LookupScheduleResourceArgs struct {
-	// The name of the lab.
-	LabName string `pulumi:"labName"`
-	// The name of the schedule.
-	Name string `pulumi:"name"`
-	// The name of the resource group.
+	LabName           string `pulumi:"labName"`
+	Name              string `pulumi:"name"`
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 }
 
 // A schedule.
 type LookupScheduleResourceResult struct {
-	// The daily recurrence of the schedule.
-	DailyRecurrence *DayDetailsResponse `pulumi:"dailyRecurrence"`
-	// The hourly recurrence of the schedule.
-	HourlyRecurrence *HourDetailsResponse `pulumi:"hourlyRecurrence"`
-	// The identifier of the resource.
-	Id *string `pulumi:"id"`
-	// The location of the resource.
-	Location *string `pulumi:"location"`
-	// The name of the resource.
-	Name *string `pulumi:"name"`
-	// The provisioning status of the resource.
-	ProvisioningState *string `pulumi:"provisioningState"`
-	// The status of the schedule.
-	Status *string `pulumi:"status"`
-	// The tags of the resource.
-	Tags map[string]string `pulumi:"tags"`
-	// The task type of the schedule.
-	TaskType *string `pulumi:"taskType"`
-	// The time zone id.
-	TimeZoneId *string `pulumi:"timeZoneId"`
-	// The type of the resource.
-	Type *string `pulumi:"type"`
-	// The weekly recurrence of the schedule.
-	WeeklyRecurrence *WeekDetailsResponse `pulumi:"weeklyRecurrence"`
+	DailyRecurrence   *DayDetailsResponse  `pulumi:"dailyRecurrence"`
+	HourlyRecurrence  *HourDetailsResponse `pulumi:"hourlyRecurrence"`
+	Id                *string              `pulumi:"id"`
+	Location          *string              `pulumi:"location"`
+	Name              *string              `pulumi:"name"`
+	ProvisioningState *string              `pulumi:"provisioningState"`
+	Status            *string              `pulumi:"status"`
+	Tags              map[string]string    `pulumi:"tags"`
+	TaskType          *string              `pulumi:"taskType"`
+	TimeZoneId        *string              `pulumi:"timeZoneId"`
+	Type              *string              `pulumi:"type"`
+	WeeklyRecurrence  *WeekDetailsResponse `pulumi:"weeklyRecurrence"`
 }

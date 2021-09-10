@@ -10,24 +10,15 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Data used when creating a disk.
 type CreationData struct {
-	// This enumerates the possible sources of a disk's creation.
-	CreateOption string `pulumi:"createOption"`
-	// Required if creating from a Gallery Image. The id of the ImageDiskReference will be the ARM id of the shared galley image version from which to create a disk.
+	CreateOption          string              `pulumi:"createOption"`
 	GalleryImageReference *ImageDiskReference `pulumi:"galleryImageReference"`
-	// Disk source information.
-	ImageReference *ImageDiskReference `pulumi:"imageReference"`
-	// Logical sector size in bytes for Ultra disks. Supported values are 512 ad 4096. 4096 is the default.
-	LogicalSectorSize *int `pulumi:"logicalSectorSize"`
-	// If createOption is Copy, this is the ARM id of the source snapshot or disk.
-	SourceResourceId *string `pulumi:"sourceResourceId"`
-	// If createOption is Import, this is the URI of a blob to be imported into a managed disk.
-	SourceUri *string `pulumi:"sourceUri"`
-	// Required if createOption is Import. The Azure Resource Manager identifier of the storage account containing the blob to import as a disk.
-	StorageAccountId *string `pulumi:"storageAccountId"`
-	// If createOption is Upload, this is the size of the contents of the upload including the VHD footer. This value should be between 20972032 (20 MiB + 512 bytes for the VHD footer) and 35183298347520 bytes (32 TiB + 512 bytes for the VHD footer).
-	UploadSizeBytes *float64 `pulumi:"uploadSizeBytes"`
+	ImageReference        *ImageDiskReference `pulumi:"imageReference"`
+	LogicalSectorSize     *int                `pulumi:"logicalSectorSize"`
+	SourceResourceId      *string             `pulumi:"sourceResourceId"`
+	SourceUri             *string             `pulumi:"sourceUri"`
+	StorageAccountId      *string             `pulumi:"storageAccountId"`
+	UploadSizeBytes       *float64            `pulumi:"uploadSizeBytes"`
 }
 
 // CreationDataInput is an input type that accepts CreationDataArgs and CreationDataOutput values.
@@ -41,24 +32,15 @@ type CreationDataInput interface {
 	ToCreationDataOutputWithContext(context.Context) CreationDataOutput
 }
 
-// Data used when creating a disk.
 type CreationDataArgs struct {
-	// This enumerates the possible sources of a disk's creation.
-	CreateOption pulumi.StringInput `pulumi:"createOption"`
-	// Required if creating from a Gallery Image. The id of the ImageDiskReference will be the ARM id of the shared galley image version from which to create a disk.
+	CreateOption          pulumi.StringInput         `pulumi:"createOption"`
 	GalleryImageReference ImageDiskReferencePtrInput `pulumi:"galleryImageReference"`
-	// Disk source information.
-	ImageReference ImageDiskReferencePtrInput `pulumi:"imageReference"`
-	// Logical sector size in bytes for Ultra disks. Supported values are 512 ad 4096. 4096 is the default.
-	LogicalSectorSize pulumi.IntPtrInput `pulumi:"logicalSectorSize"`
-	// If createOption is Copy, this is the ARM id of the source snapshot or disk.
-	SourceResourceId pulumi.StringPtrInput `pulumi:"sourceResourceId"`
-	// If createOption is Import, this is the URI of a blob to be imported into a managed disk.
-	SourceUri pulumi.StringPtrInput `pulumi:"sourceUri"`
-	// Required if createOption is Import. The Azure Resource Manager identifier of the storage account containing the blob to import as a disk.
-	StorageAccountId pulumi.StringPtrInput `pulumi:"storageAccountId"`
-	// If createOption is Upload, this is the size of the contents of the upload including the VHD footer. This value should be between 20972032 (20 MiB + 512 bytes for the VHD footer) and 35183298347520 bytes (32 TiB + 512 bytes for the VHD footer).
-	UploadSizeBytes pulumi.Float64PtrInput `pulumi:"uploadSizeBytes"`
+	ImageReference        ImageDiskReferencePtrInput `pulumi:"imageReference"`
+	LogicalSectorSize     pulumi.IntPtrInput         `pulumi:"logicalSectorSize"`
+	SourceResourceId      pulumi.StringPtrInput      `pulumi:"sourceResourceId"`
+	SourceUri             pulumi.StringPtrInput      `pulumi:"sourceUri"`
+	StorageAccountId      pulumi.StringPtrInput      `pulumi:"storageAccountId"`
+	UploadSizeBytes       pulumi.Float64PtrInput     `pulumi:"uploadSizeBytes"`
 }
 
 func (CreationDataArgs) ElementType() reflect.Type {
@@ -114,7 +96,6 @@ func (i *creationDataPtrType) ToCreationDataPtrOutputWithContext(ctx context.Con
 	return pulumi.ToOutputWithContext(ctx, i).(CreationDataPtrOutput)
 }
 
-// Data used when creating a disk.
 type CreationDataOutput struct{ *pulumi.OutputState }
 
 func (CreationDataOutput) ElementType() reflect.Type {
@@ -134,47 +115,39 @@ func (o CreationDataOutput) ToCreationDataPtrOutput() CreationDataPtrOutput {
 }
 
 func (o CreationDataOutput) ToCreationDataPtrOutputWithContext(ctx context.Context) CreationDataPtrOutput {
-	return o.ApplyT(func(v CreationData) *CreationData {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v CreationData) *CreationData {
 		return &v
 	}).(CreationDataPtrOutput)
 }
 
-// This enumerates the possible sources of a disk's creation.
 func (o CreationDataOutput) CreateOption() pulumi.StringOutput {
 	return o.ApplyT(func(v CreationData) string { return v.CreateOption }).(pulumi.StringOutput)
 }
 
-// Required if creating from a Gallery Image. The id of the ImageDiskReference will be the ARM id of the shared galley image version from which to create a disk.
 func (o CreationDataOutput) GalleryImageReference() ImageDiskReferencePtrOutput {
 	return o.ApplyT(func(v CreationData) *ImageDiskReference { return v.GalleryImageReference }).(ImageDiskReferencePtrOutput)
 }
 
-// Disk source information.
 func (o CreationDataOutput) ImageReference() ImageDiskReferencePtrOutput {
 	return o.ApplyT(func(v CreationData) *ImageDiskReference { return v.ImageReference }).(ImageDiskReferencePtrOutput)
 }
 
-// Logical sector size in bytes for Ultra disks. Supported values are 512 ad 4096. 4096 is the default.
 func (o CreationDataOutput) LogicalSectorSize() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v CreationData) *int { return v.LogicalSectorSize }).(pulumi.IntPtrOutput)
 }
 
-// If createOption is Copy, this is the ARM id of the source snapshot or disk.
 func (o CreationDataOutput) SourceResourceId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v CreationData) *string { return v.SourceResourceId }).(pulumi.StringPtrOutput)
 }
 
-// If createOption is Import, this is the URI of a blob to be imported into a managed disk.
 func (o CreationDataOutput) SourceUri() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v CreationData) *string { return v.SourceUri }).(pulumi.StringPtrOutput)
 }
 
-// Required if createOption is Import. The Azure Resource Manager identifier of the storage account containing the blob to import as a disk.
 func (o CreationDataOutput) StorageAccountId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v CreationData) *string { return v.StorageAccountId }).(pulumi.StringPtrOutput)
 }
 
-// If createOption is Upload, this is the size of the contents of the upload including the VHD footer. This value should be between 20972032 (20 MiB + 512 bytes for the VHD footer) and 35183298347520 bytes (32 TiB + 512 bytes for the VHD footer).
 func (o CreationDataOutput) UploadSizeBytes() pulumi.Float64PtrOutput {
 	return o.ApplyT(func(v CreationData) *float64 { return v.UploadSizeBytes }).(pulumi.Float64PtrOutput)
 }
@@ -194,10 +167,15 @@ func (o CreationDataPtrOutput) ToCreationDataPtrOutputWithContext(ctx context.Co
 }
 
 func (o CreationDataPtrOutput) Elem() CreationDataOutput {
-	return o.ApplyT(func(v *CreationData) CreationData { return *v }).(CreationDataOutput)
+	return o.ApplyT(func(v *CreationData) CreationData {
+		if v != nil {
+			return *v
+		}
+		var ret CreationData
+		return ret
+	}).(CreationDataOutput)
 }
 
-// This enumerates the possible sources of a disk's creation.
 func (o CreationDataPtrOutput) CreateOption() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *CreationData) *string {
 		if v == nil {
@@ -207,7 +185,6 @@ func (o CreationDataPtrOutput) CreateOption() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Required if creating from a Gallery Image. The id of the ImageDiskReference will be the ARM id of the shared galley image version from which to create a disk.
 func (o CreationDataPtrOutput) GalleryImageReference() ImageDiskReferencePtrOutput {
 	return o.ApplyT(func(v *CreationData) *ImageDiskReference {
 		if v == nil {
@@ -217,7 +194,6 @@ func (o CreationDataPtrOutput) GalleryImageReference() ImageDiskReferencePtrOutp
 	}).(ImageDiskReferencePtrOutput)
 }
 
-// Disk source information.
 func (o CreationDataPtrOutput) ImageReference() ImageDiskReferencePtrOutput {
 	return o.ApplyT(func(v *CreationData) *ImageDiskReference {
 		if v == nil {
@@ -227,7 +203,6 @@ func (o CreationDataPtrOutput) ImageReference() ImageDiskReferencePtrOutput {
 	}).(ImageDiskReferencePtrOutput)
 }
 
-// Logical sector size in bytes for Ultra disks. Supported values are 512 ad 4096. 4096 is the default.
 func (o CreationDataPtrOutput) LogicalSectorSize() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *CreationData) *int {
 		if v == nil {
@@ -237,7 +212,6 @@ func (o CreationDataPtrOutput) LogicalSectorSize() pulumi.IntPtrOutput {
 	}).(pulumi.IntPtrOutput)
 }
 
-// If createOption is Copy, this is the ARM id of the source snapshot or disk.
 func (o CreationDataPtrOutput) SourceResourceId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *CreationData) *string {
 		if v == nil {
@@ -247,7 +221,6 @@ func (o CreationDataPtrOutput) SourceResourceId() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// If createOption is Import, this is the URI of a blob to be imported into a managed disk.
 func (o CreationDataPtrOutput) SourceUri() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *CreationData) *string {
 		if v == nil {
@@ -257,7 +230,6 @@ func (o CreationDataPtrOutput) SourceUri() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Required if createOption is Import. The Azure Resource Manager identifier of the storage account containing the blob to import as a disk.
 func (o CreationDataPtrOutput) StorageAccountId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *CreationData) *string {
 		if v == nil {
@@ -267,7 +239,6 @@ func (o CreationDataPtrOutput) StorageAccountId() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// If createOption is Upload, this is the size of the contents of the upload including the VHD footer. This value should be between 20972032 (20 MiB + 512 bytes for the VHD footer) and 35183298347520 bytes (32 TiB + 512 bytes for the VHD footer).
 func (o CreationDataPtrOutput) UploadSizeBytes() pulumi.Float64PtrOutput {
 	return o.ApplyT(func(v *CreationData) *float64 {
 		if v == nil {
@@ -277,26 +248,16 @@ func (o CreationDataPtrOutput) UploadSizeBytes() pulumi.Float64PtrOutput {
 	}).(pulumi.Float64PtrOutput)
 }
 
-// Data used when creating a disk.
 type CreationDataResponse struct {
-	// This enumerates the possible sources of a disk's creation.
-	CreateOption string `pulumi:"createOption"`
-	// Required if creating from a Gallery Image. The id of the ImageDiskReference will be the ARM id of the shared galley image version from which to create a disk.
+	CreateOption          string                      `pulumi:"createOption"`
 	GalleryImageReference *ImageDiskReferenceResponse `pulumi:"galleryImageReference"`
-	// Disk source information.
-	ImageReference *ImageDiskReferenceResponse `pulumi:"imageReference"`
-	// Logical sector size in bytes for Ultra disks. Supported values are 512 ad 4096. 4096 is the default.
-	LogicalSectorSize *int `pulumi:"logicalSectorSize"`
-	// If createOption is Copy, this is the ARM id of the source snapshot or disk.
-	SourceResourceId *string `pulumi:"sourceResourceId"`
-	// If this field is set, this is the unique id identifying the source of this resource.
-	SourceUniqueId string `pulumi:"sourceUniqueId"`
-	// If createOption is Import, this is the URI of a blob to be imported into a managed disk.
-	SourceUri *string `pulumi:"sourceUri"`
-	// Required if createOption is Import. The Azure Resource Manager identifier of the storage account containing the blob to import as a disk.
-	StorageAccountId *string `pulumi:"storageAccountId"`
-	// If createOption is Upload, this is the size of the contents of the upload including the VHD footer. This value should be between 20972032 (20 MiB + 512 bytes for the VHD footer) and 35183298347520 bytes (32 TiB + 512 bytes for the VHD footer).
-	UploadSizeBytes *float64 `pulumi:"uploadSizeBytes"`
+	ImageReference        *ImageDiskReferenceResponse `pulumi:"imageReference"`
+	LogicalSectorSize     *int                        `pulumi:"logicalSectorSize"`
+	SourceResourceId      *string                     `pulumi:"sourceResourceId"`
+	SourceUniqueId        string                      `pulumi:"sourceUniqueId"`
+	SourceUri             *string                     `pulumi:"sourceUri"`
+	StorageAccountId      *string                     `pulumi:"storageAccountId"`
+	UploadSizeBytes       *float64                    `pulumi:"uploadSizeBytes"`
 }
 
 // CreationDataResponseInput is an input type that accepts CreationDataResponseArgs and CreationDataResponseOutput values.
@@ -310,26 +271,16 @@ type CreationDataResponseInput interface {
 	ToCreationDataResponseOutputWithContext(context.Context) CreationDataResponseOutput
 }
 
-// Data used when creating a disk.
 type CreationDataResponseArgs struct {
-	// This enumerates the possible sources of a disk's creation.
-	CreateOption pulumi.StringInput `pulumi:"createOption"`
-	// Required if creating from a Gallery Image. The id of the ImageDiskReference will be the ARM id of the shared galley image version from which to create a disk.
+	CreateOption          pulumi.StringInput                 `pulumi:"createOption"`
 	GalleryImageReference ImageDiskReferenceResponsePtrInput `pulumi:"galleryImageReference"`
-	// Disk source information.
-	ImageReference ImageDiskReferenceResponsePtrInput `pulumi:"imageReference"`
-	// Logical sector size in bytes for Ultra disks. Supported values are 512 ad 4096. 4096 is the default.
-	LogicalSectorSize pulumi.IntPtrInput `pulumi:"logicalSectorSize"`
-	// If createOption is Copy, this is the ARM id of the source snapshot or disk.
-	SourceResourceId pulumi.StringPtrInput `pulumi:"sourceResourceId"`
-	// If this field is set, this is the unique id identifying the source of this resource.
-	SourceUniqueId pulumi.StringInput `pulumi:"sourceUniqueId"`
-	// If createOption is Import, this is the URI of a blob to be imported into a managed disk.
-	SourceUri pulumi.StringPtrInput `pulumi:"sourceUri"`
-	// Required if createOption is Import. The Azure Resource Manager identifier of the storage account containing the blob to import as a disk.
-	StorageAccountId pulumi.StringPtrInput `pulumi:"storageAccountId"`
-	// If createOption is Upload, this is the size of the contents of the upload including the VHD footer. This value should be between 20972032 (20 MiB + 512 bytes for the VHD footer) and 35183298347520 bytes (32 TiB + 512 bytes for the VHD footer).
-	UploadSizeBytes pulumi.Float64PtrInput `pulumi:"uploadSizeBytes"`
+	ImageReference        ImageDiskReferenceResponsePtrInput `pulumi:"imageReference"`
+	LogicalSectorSize     pulumi.IntPtrInput                 `pulumi:"logicalSectorSize"`
+	SourceResourceId      pulumi.StringPtrInput              `pulumi:"sourceResourceId"`
+	SourceUniqueId        pulumi.StringInput                 `pulumi:"sourceUniqueId"`
+	SourceUri             pulumi.StringPtrInput              `pulumi:"sourceUri"`
+	StorageAccountId      pulumi.StringPtrInput              `pulumi:"storageAccountId"`
+	UploadSizeBytes       pulumi.Float64PtrInput             `pulumi:"uploadSizeBytes"`
 }
 
 func (CreationDataResponseArgs) ElementType() reflect.Type {
@@ -385,7 +336,6 @@ func (i *creationDataResponsePtrType) ToCreationDataResponsePtrOutputWithContext
 	return pulumi.ToOutputWithContext(ctx, i).(CreationDataResponsePtrOutput)
 }
 
-// Data used when creating a disk.
 type CreationDataResponseOutput struct{ *pulumi.OutputState }
 
 func (CreationDataResponseOutput) ElementType() reflect.Type {
@@ -405,52 +355,43 @@ func (o CreationDataResponseOutput) ToCreationDataResponsePtrOutput() CreationDa
 }
 
 func (o CreationDataResponseOutput) ToCreationDataResponsePtrOutputWithContext(ctx context.Context) CreationDataResponsePtrOutput {
-	return o.ApplyT(func(v CreationDataResponse) *CreationDataResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v CreationDataResponse) *CreationDataResponse {
 		return &v
 	}).(CreationDataResponsePtrOutput)
 }
 
-// This enumerates the possible sources of a disk's creation.
 func (o CreationDataResponseOutput) CreateOption() pulumi.StringOutput {
 	return o.ApplyT(func(v CreationDataResponse) string { return v.CreateOption }).(pulumi.StringOutput)
 }
 
-// Required if creating from a Gallery Image. The id of the ImageDiskReference will be the ARM id of the shared galley image version from which to create a disk.
 func (o CreationDataResponseOutput) GalleryImageReference() ImageDiskReferenceResponsePtrOutput {
 	return o.ApplyT(func(v CreationDataResponse) *ImageDiskReferenceResponse { return v.GalleryImageReference }).(ImageDiskReferenceResponsePtrOutput)
 }
 
-// Disk source information.
 func (o CreationDataResponseOutput) ImageReference() ImageDiskReferenceResponsePtrOutput {
 	return o.ApplyT(func(v CreationDataResponse) *ImageDiskReferenceResponse { return v.ImageReference }).(ImageDiskReferenceResponsePtrOutput)
 }
 
-// Logical sector size in bytes for Ultra disks. Supported values are 512 ad 4096. 4096 is the default.
 func (o CreationDataResponseOutput) LogicalSectorSize() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v CreationDataResponse) *int { return v.LogicalSectorSize }).(pulumi.IntPtrOutput)
 }
 
-// If createOption is Copy, this is the ARM id of the source snapshot or disk.
 func (o CreationDataResponseOutput) SourceResourceId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v CreationDataResponse) *string { return v.SourceResourceId }).(pulumi.StringPtrOutput)
 }
 
-// If this field is set, this is the unique id identifying the source of this resource.
 func (o CreationDataResponseOutput) SourceUniqueId() pulumi.StringOutput {
 	return o.ApplyT(func(v CreationDataResponse) string { return v.SourceUniqueId }).(pulumi.StringOutput)
 }
 
-// If createOption is Import, this is the URI of a blob to be imported into a managed disk.
 func (o CreationDataResponseOutput) SourceUri() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v CreationDataResponse) *string { return v.SourceUri }).(pulumi.StringPtrOutput)
 }
 
-// Required if createOption is Import. The Azure Resource Manager identifier of the storage account containing the blob to import as a disk.
 func (o CreationDataResponseOutput) StorageAccountId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v CreationDataResponse) *string { return v.StorageAccountId }).(pulumi.StringPtrOutput)
 }
 
-// If createOption is Upload, this is the size of the contents of the upload including the VHD footer. This value should be between 20972032 (20 MiB + 512 bytes for the VHD footer) and 35183298347520 bytes (32 TiB + 512 bytes for the VHD footer).
 func (o CreationDataResponseOutput) UploadSizeBytes() pulumi.Float64PtrOutput {
 	return o.ApplyT(func(v CreationDataResponse) *float64 { return v.UploadSizeBytes }).(pulumi.Float64PtrOutput)
 }
@@ -470,10 +411,15 @@ func (o CreationDataResponsePtrOutput) ToCreationDataResponsePtrOutputWithContex
 }
 
 func (o CreationDataResponsePtrOutput) Elem() CreationDataResponseOutput {
-	return o.ApplyT(func(v *CreationDataResponse) CreationDataResponse { return *v }).(CreationDataResponseOutput)
+	return o.ApplyT(func(v *CreationDataResponse) CreationDataResponse {
+		if v != nil {
+			return *v
+		}
+		var ret CreationDataResponse
+		return ret
+	}).(CreationDataResponseOutput)
 }
 
-// This enumerates the possible sources of a disk's creation.
 func (o CreationDataResponsePtrOutput) CreateOption() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *CreationDataResponse) *string {
 		if v == nil {
@@ -483,7 +429,6 @@ func (o CreationDataResponsePtrOutput) CreateOption() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Required if creating from a Gallery Image. The id of the ImageDiskReference will be the ARM id of the shared galley image version from which to create a disk.
 func (o CreationDataResponsePtrOutput) GalleryImageReference() ImageDiskReferenceResponsePtrOutput {
 	return o.ApplyT(func(v *CreationDataResponse) *ImageDiskReferenceResponse {
 		if v == nil {
@@ -493,7 +438,6 @@ func (o CreationDataResponsePtrOutput) GalleryImageReference() ImageDiskReferenc
 	}).(ImageDiskReferenceResponsePtrOutput)
 }
 
-// Disk source information.
 func (o CreationDataResponsePtrOutput) ImageReference() ImageDiskReferenceResponsePtrOutput {
 	return o.ApplyT(func(v *CreationDataResponse) *ImageDiskReferenceResponse {
 		if v == nil {
@@ -503,7 +447,6 @@ func (o CreationDataResponsePtrOutput) ImageReference() ImageDiskReferenceRespon
 	}).(ImageDiskReferenceResponsePtrOutput)
 }
 
-// Logical sector size in bytes for Ultra disks. Supported values are 512 ad 4096. 4096 is the default.
 func (o CreationDataResponsePtrOutput) LogicalSectorSize() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *CreationDataResponse) *int {
 		if v == nil {
@@ -513,7 +456,6 @@ func (o CreationDataResponsePtrOutput) LogicalSectorSize() pulumi.IntPtrOutput {
 	}).(pulumi.IntPtrOutput)
 }
 
-// If createOption is Copy, this is the ARM id of the source snapshot or disk.
 func (o CreationDataResponsePtrOutput) SourceResourceId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *CreationDataResponse) *string {
 		if v == nil {
@@ -523,7 +465,6 @@ func (o CreationDataResponsePtrOutput) SourceResourceId() pulumi.StringPtrOutput
 	}).(pulumi.StringPtrOutput)
 }
 
-// If this field is set, this is the unique id identifying the source of this resource.
 func (o CreationDataResponsePtrOutput) SourceUniqueId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *CreationDataResponse) *string {
 		if v == nil {
@@ -533,7 +474,6 @@ func (o CreationDataResponsePtrOutput) SourceUniqueId() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// If createOption is Import, this is the URI of a blob to be imported into a managed disk.
 func (o CreationDataResponsePtrOutput) SourceUri() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *CreationDataResponse) *string {
 		if v == nil {
@@ -543,7 +483,6 @@ func (o CreationDataResponsePtrOutput) SourceUri() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Required if createOption is Import. The Azure Resource Manager identifier of the storage account containing the blob to import as a disk.
 func (o CreationDataResponsePtrOutput) StorageAccountId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *CreationDataResponse) *string {
 		if v == nil {
@@ -553,7 +492,6 @@ func (o CreationDataResponsePtrOutput) StorageAccountId() pulumi.StringPtrOutput
 	}).(pulumi.StringPtrOutput)
 }
 
-// If createOption is Upload, this is the size of the contents of the upload including the VHD footer. This value should be between 20972032 (20 MiB + 512 bytes for the VHD footer) and 35183298347520 bytes (32 TiB + 512 bytes for the VHD footer).
 func (o CreationDataResponsePtrOutput) UploadSizeBytes() pulumi.Float64PtrOutput {
 	return o.ApplyT(func(v *CreationDataResponse) *float64 {
 		if v == nil {
@@ -563,12 +501,9 @@ func (o CreationDataResponsePtrOutput) UploadSizeBytes() pulumi.Float64PtrOutput
 	}).(pulumi.Float64PtrOutput)
 }
 
-// Contains encryption settings for a data disk image.
 type DataDiskImageEncryption struct {
-	// A relative URI containing the resource ID of the disk encryption set.
 	DiskEncryptionSetId *string `pulumi:"diskEncryptionSetId"`
-	// This property specifies the logical unit number of the data disk. This value is used to identify data disks within the Virtual Machine and therefore must be unique for each data disk attached to the Virtual Machine.
-	Lun int `pulumi:"lun"`
+	Lun                 int     `pulumi:"lun"`
 }
 
 // DataDiskImageEncryptionInput is an input type that accepts DataDiskImageEncryptionArgs and DataDiskImageEncryptionOutput values.
@@ -582,12 +517,9 @@ type DataDiskImageEncryptionInput interface {
 	ToDataDiskImageEncryptionOutputWithContext(context.Context) DataDiskImageEncryptionOutput
 }
 
-// Contains encryption settings for a data disk image.
 type DataDiskImageEncryptionArgs struct {
-	// A relative URI containing the resource ID of the disk encryption set.
 	DiskEncryptionSetId pulumi.StringPtrInput `pulumi:"diskEncryptionSetId"`
-	// This property specifies the logical unit number of the data disk. This value is used to identify data disks within the Virtual Machine and therefore must be unique for each data disk attached to the Virtual Machine.
-	Lun pulumi.IntInput `pulumi:"lun"`
+	Lun                 pulumi.IntInput       `pulumi:"lun"`
 }
 
 func (DataDiskImageEncryptionArgs) ElementType() reflect.Type {
@@ -627,7 +559,6 @@ func (i DataDiskImageEncryptionArray) ToDataDiskImageEncryptionArrayOutputWithCo
 	return pulumi.ToOutputWithContext(ctx, i).(DataDiskImageEncryptionArrayOutput)
 }
 
-// Contains encryption settings for a data disk image.
 type DataDiskImageEncryptionOutput struct{ *pulumi.OutputState }
 
 func (DataDiskImageEncryptionOutput) ElementType() reflect.Type {
@@ -642,12 +573,10 @@ func (o DataDiskImageEncryptionOutput) ToDataDiskImageEncryptionOutputWithContex
 	return o
 }
 
-// A relative URI containing the resource ID of the disk encryption set.
 func (o DataDiskImageEncryptionOutput) DiskEncryptionSetId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v DataDiskImageEncryption) *string { return v.DiskEncryptionSetId }).(pulumi.StringPtrOutput)
 }
 
-// This property specifies the logical unit number of the data disk. This value is used to identify data disks within the Virtual Machine and therefore must be unique for each data disk attached to the Virtual Machine.
 func (o DataDiskImageEncryptionOutput) Lun() pulumi.IntOutput {
 	return o.ApplyT(func(v DataDiskImageEncryption) int { return v.Lun }).(pulumi.IntOutput)
 }
@@ -672,12 +601,9 @@ func (o DataDiskImageEncryptionArrayOutput) Index(i pulumi.IntInput) DataDiskIma
 	}).(DataDiskImageEncryptionOutput)
 }
 
-// Contains encryption settings for a data disk image.
 type DataDiskImageEncryptionResponse struct {
-	// A relative URI containing the resource ID of the disk encryption set.
 	DiskEncryptionSetId *string `pulumi:"diskEncryptionSetId"`
-	// This property specifies the logical unit number of the data disk. This value is used to identify data disks within the Virtual Machine and therefore must be unique for each data disk attached to the Virtual Machine.
-	Lun int `pulumi:"lun"`
+	Lun                 int     `pulumi:"lun"`
 }
 
 // DataDiskImageEncryptionResponseInput is an input type that accepts DataDiskImageEncryptionResponseArgs and DataDiskImageEncryptionResponseOutput values.
@@ -691,12 +617,9 @@ type DataDiskImageEncryptionResponseInput interface {
 	ToDataDiskImageEncryptionResponseOutputWithContext(context.Context) DataDiskImageEncryptionResponseOutput
 }
 
-// Contains encryption settings for a data disk image.
 type DataDiskImageEncryptionResponseArgs struct {
-	// A relative URI containing the resource ID of the disk encryption set.
 	DiskEncryptionSetId pulumi.StringPtrInput `pulumi:"diskEncryptionSetId"`
-	// This property specifies the logical unit number of the data disk. This value is used to identify data disks within the Virtual Machine and therefore must be unique for each data disk attached to the Virtual Machine.
-	Lun pulumi.IntInput `pulumi:"lun"`
+	Lun                 pulumi.IntInput       `pulumi:"lun"`
 }
 
 func (DataDiskImageEncryptionResponseArgs) ElementType() reflect.Type {
@@ -736,7 +659,6 @@ func (i DataDiskImageEncryptionResponseArray) ToDataDiskImageEncryptionResponseA
 	return pulumi.ToOutputWithContext(ctx, i).(DataDiskImageEncryptionResponseArrayOutput)
 }
 
-// Contains encryption settings for a data disk image.
 type DataDiskImageEncryptionResponseOutput struct{ *pulumi.OutputState }
 
 func (DataDiskImageEncryptionResponseOutput) ElementType() reflect.Type {
@@ -751,12 +673,10 @@ func (o DataDiskImageEncryptionResponseOutput) ToDataDiskImageEncryptionResponse
 	return o
 }
 
-// A relative URI containing the resource ID of the disk encryption set.
 func (o DataDiskImageEncryptionResponseOutput) DiskEncryptionSetId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v DataDiskImageEncryptionResponse) *string { return v.DiskEncryptionSetId }).(pulumi.StringPtrOutput)
 }
 
-// This property specifies the logical unit number of the data disk. This value is used to identify data disks within the Virtual Machine and therefore must be unique for each data disk attached to the Virtual Machine.
 func (o DataDiskImageEncryptionResponseOutput) Lun() pulumi.IntOutput {
 	return o.ApplyT(func(v DataDiskImageEncryptionResponse) int { return v.Lun }).(pulumi.IntOutput)
 }
@@ -781,9 +701,7 @@ func (o DataDiskImageEncryptionResponseArrayOutput) Index(i pulumi.IntInput) Dat
 	}).(DataDiskImageEncryptionResponseOutput)
 }
 
-// Describes the disallowed disk types.
 type Disallowed struct {
-	// A list of disk types.
 	DiskTypes []string `pulumi:"diskTypes"`
 }
 
@@ -798,9 +716,7 @@ type DisallowedInput interface {
 	ToDisallowedOutputWithContext(context.Context) DisallowedOutput
 }
 
-// Describes the disallowed disk types.
 type DisallowedArgs struct {
-	// A list of disk types.
 	DiskTypes pulumi.StringArrayInput `pulumi:"diskTypes"`
 }
 
@@ -857,7 +773,6 @@ func (i *disallowedPtrType) ToDisallowedPtrOutputWithContext(ctx context.Context
 	return pulumi.ToOutputWithContext(ctx, i).(DisallowedPtrOutput)
 }
 
-// Describes the disallowed disk types.
 type DisallowedOutput struct{ *pulumi.OutputState }
 
 func (DisallowedOutput) ElementType() reflect.Type {
@@ -877,12 +792,11 @@ func (o DisallowedOutput) ToDisallowedPtrOutput() DisallowedPtrOutput {
 }
 
 func (o DisallowedOutput) ToDisallowedPtrOutputWithContext(ctx context.Context) DisallowedPtrOutput {
-	return o.ApplyT(func(v Disallowed) *Disallowed {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v Disallowed) *Disallowed {
 		return &v
 	}).(DisallowedPtrOutput)
 }
 
-// A list of disk types.
 func (o DisallowedOutput) DiskTypes() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v Disallowed) []string { return v.DiskTypes }).(pulumi.StringArrayOutput)
 }
@@ -902,10 +816,15 @@ func (o DisallowedPtrOutput) ToDisallowedPtrOutputWithContext(ctx context.Contex
 }
 
 func (o DisallowedPtrOutput) Elem() DisallowedOutput {
-	return o.ApplyT(func(v *Disallowed) Disallowed { return *v }).(DisallowedOutput)
+	return o.ApplyT(func(v *Disallowed) Disallowed {
+		if v != nil {
+			return *v
+		}
+		var ret Disallowed
+		return ret
+	}).(DisallowedOutput)
 }
 
-// A list of disk types.
 func (o DisallowedPtrOutput) DiskTypes() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *Disallowed) []string {
 		if v == nil {
@@ -915,9 +834,7 @@ func (o DisallowedPtrOutput) DiskTypes() pulumi.StringArrayOutput {
 	}).(pulumi.StringArrayOutput)
 }
 
-// Describes the disallowed disk types.
 type DisallowedResponse struct {
-	// A list of disk types.
 	DiskTypes []string `pulumi:"diskTypes"`
 }
 
@@ -932,9 +849,7 @@ type DisallowedResponseInput interface {
 	ToDisallowedResponseOutputWithContext(context.Context) DisallowedResponseOutput
 }
 
-// Describes the disallowed disk types.
 type DisallowedResponseArgs struct {
-	// A list of disk types.
 	DiskTypes pulumi.StringArrayInput `pulumi:"diskTypes"`
 }
 
@@ -991,7 +906,6 @@ func (i *disallowedResponsePtrType) ToDisallowedResponsePtrOutputWithContext(ctx
 	return pulumi.ToOutputWithContext(ctx, i).(DisallowedResponsePtrOutput)
 }
 
-// Describes the disallowed disk types.
 type DisallowedResponseOutput struct{ *pulumi.OutputState }
 
 func (DisallowedResponseOutput) ElementType() reflect.Type {
@@ -1011,12 +925,11 @@ func (o DisallowedResponseOutput) ToDisallowedResponsePtrOutput() DisallowedResp
 }
 
 func (o DisallowedResponseOutput) ToDisallowedResponsePtrOutputWithContext(ctx context.Context) DisallowedResponsePtrOutput {
-	return o.ApplyT(func(v DisallowedResponse) *DisallowedResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v DisallowedResponse) *DisallowedResponse {
 		return &v
 	}).(DisallowedResponsePtrOutput)
 }
 
-// A list of disk types.
 func (o DisallowedResponseOutput) DiskTypes() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v DisallowedResponse) []string { return v.DiskTypes }).(pulumi.StringArrayOutput)
 }
@@ -1036,10 +949,15 @@ func (o DisallowedResponsePtrOutput) ToDisallowedResponsePtrOutputWithContext(ct
 }
 
 func (o DisallowedResponsePtrOutput) Elem() DisallowedResponseOutput {
-	return o.ApplyT(func(v *DisallowedResponse) DisallowedResponse { return *v }).(DisallowedResponseOutput)
+	return o.ApplyT(func(v *DisallowedResponse) DisallowedResponse {
+		if v != nil {
+			return *v
+		}
+		var ret DisallowedResponse
+		return ret
+	}).(DisallowedResponseOutput)
 }
 
-// A list of disk types.
 func (o DisallowedResponsePtrOutput) DiskTypes() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *DisallowedResponse) []string {
 		if v == nil {
@@ -1049,9 +967,7 @@ func (o DisallowedResponsePtrOutput) DiskTypes() pulumi.StringArrayOutput {
 	}).(pulumi.StringArrayOutput)
 }
 
-// The disks sku name. Can be Standard_LRS, Premium_LRS, StandardSSD_LRS, or UltraSSD_LRS.
 type DiskSku struct {
-	// The sku name.
 	Name *string `pulumi:"name"`
 }
 
@@ -1066,9 +982,7 @@ type DiskSkuInput interface {
 	ToDiskSkuOutputWithContext(context.Context) DiskSkuOutput
 }
 
-// The disks sku name. Can be Standard_LRS, Premium_LRS, StandardSSD_LRS, or UltraSSD_LRS.
 type DiskSkuArgs struct {
-	// The sku name.
 	Name pulumi.StringPtrInput `pulumi:"name"`
 }
 
@@ -1125,7 +1039,6 @@ func (i *diskSkuPtrType) ToDiskSkuPtrOutputWithContext(ctx context.Context) Disk
 	return pulumi.ToOutputWithContext(ctx, i).(DiskSkuPtrOutput)
 }
 
-// The disks sku name. Can be Standard_LRS, Premium_LRS, StandardSSD_LRS, or UltraSSD_LRS.
 type DiskSkuOutput struct{ *pulumi.OutputState }
 
 func (DiskSkuOutput) ElementType() reflect.Type {
@@ -1145,12 +1058,11 @@ func (o DiskSkuOutput) ToDiskSkuPtrOutput() DiskSkuPtrOutput {
 }
 
 func (o DiskSkuOutput) ToDiskSkuPtrOutputWithContext(ctx context.Context) DiskSkuPtrOutput {
-	return o.ApplyT(func(v DiskSku) *DiskSku {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v DiskSku) *DiskSku {
 		return &v
 	}).(DiskSkuPtrOutput)
 }
 
-// The sku name.
 func (o DiskSkuOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v DiskSku) *string { return v.Name }).(pulumi.StringPtrOutput)
 }
@@ -1170,10 +1082,15 @@ func (o DiskSkuPtrOutput) ToDiskSkuPtrOutputWithContext(ctx context.Context) Dis
 }
 
 func (o DiskSkuPtrOutput) Elem() DiskSkuOutput {
-	return o.ApplyT(func(v *DiskSku) DiskSku { return *v }).(DiskSkuOutput)
+	return o.ApplyT(func(v *DiskSku) DiskSku {
+		if v != nil {
+			return *v
+		}
+		var ret DiskSku
+		return ret
+	}).(DiskSkuOutput)
 }
 
-// The sku name.
 func (o DiskSkuPtrOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *DiskSku) *string {
 		if v == nil {
@@ -1183,12 +1100,9 @@ func (o DiskSkuPtrOutput) Name() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The disks sku name. Can be Standard_LRS, Premium_LRS, StandardSSD_LRS, or UltraSSD_LRS.
 type DiskSkuResponse struct {
-	// The sku name.
 	Name *string `pulumi:"name"`
-	// The sku tier.
-	Tier string `pulumi:"tier"`
+	Tier string  `pulumi:"tier"`
 }
 
 // DiskSkuResponseInput is an input type that accepts DiskSkuResponseArgs and DiskSkuResponseOutput values.
@@ -1202,12 +1116,9 @@ type DiskSkuResponseInput interface {
 	ToDiskSkuResponseOutputWithContext(context.Context) DiskSkuResponseOutput
 }
 
-// The disks sku name. Can be Standard_LRS, Premium_LRS, StandardSSD_LRS, or UltraSSD_LRS.
 type DiskSkuResponseArgs struct {
-	// The sku name.
 	Name pulumi.StringPtrInput `pulumi:"name"`
-	// The sku tier.
-	Tier pulumi.StringInput `pulumi:"tier"`
+	Tier pulumi.StringInput    `pulumi:"tier"`
 }
 
 func (DiskSkuResponseArgs) ElementType() reflect.Type {
@@ -1263,7 +1174,6 @@ func (i *diskSkuResponsePtrType) ToDiskSkuResponsePtrOutputWithContext(ctx conte
 	return pulumi.ToOutputWithContext(ctx, i).(DiskSkuResponsePtrOutput)
 }
 
-// The disks sku name. Can be Standard_LRS, Premium_LRS, StandardSSD_LRS, or UltraSSD_LRS.
 type DiskSkuResponseOutput struct{ *pulumi.OutputState }
 
 func (DiskSkuResponseOutput) ElementType() reflect.Type {
@@ -1283,17 +1193,15 @@ func (o DiskSkuResponseOutput) ToDiskSkuResponsePtrOutput() DiskSkuResponsePtrOu
 }
 
 func (o DiskSkuResponseOutput) ToDiskSkuResponsePtrOutputWithContext(ctx context.Context) DiskSkuResponsePtrOutput {
-	return o.ApplyT(func(v DiskSkuResponse) *DiskSkuResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v DiskSkuResponse) *DiskSkuResponse {
 		return &v
 	}).(DiskSkuResponsePtrOutput)
 }
 
-// The sku name.
 func (o DiskSkuResponseOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v DiskSkuResponse) *string { return v.Name }).(pulumi.StringPtrOutput)
 }
 
-// The sku tier.
 func (o DiskSkuResponseOutput) Tier() pulumi.StringOutput {
 	return o.ApplyT(func(v DiskSkuResponse) string { return v.Tier }).(pulumi.StringOutput)
 }
@@ -1313,10 +1221,15 @@ func (o DiskSkuResponsePtrOutput) ToDiskSkuResponsePtrOutputWithContext(ctx cont
 }
 
 func (o DiskSkuResponsePtrOutput) Elem() DiskSkuResponseOutput {
-	return o.ApplyT(func(v *DiskSkuResponse) DiskSkuResponse { return *v }).(DiskSkuResponseOutput)
+	return o.ApplyT(func(v *DiskSkuResponse) DiskSkuResponse {
+		if v != nil {
+			return *v
+		}
+		var ret DiskSkuResponse
+		return ret
+	}).(DiskSkuResponseOutput)
 }
 
-// The sku name.
 func (o DiskSkuResponsePtrOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *DiskSkuResponse) *string {
 		if v == nil {
@@ -1326,7 +1239,6 @@ func (o DiskSkuResponsePtrOutput) Name() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The sku tier.
 func (o DiskSkuResponsePtrOutput) Tier() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *DiskSkuResponse) *string {
 		if v == nil {
@@ -1336,12 +1248,9 @@ func (o DiskSkuResponsePtrOutput) Tier() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Encryption at rest settings for disk or snapshot
 type Encryption struct {
-	// ResourceId of the disk encryption set to use for enabling encryption at rest.
 	DiskEncryptionSetId *string `pulumi:"diskEncryptionSetId"`
-	// The type of key used to encrypt the data of the disk.
-	Type *string `pulumi:"type"`
+	Type                *string `pulumi:"type"`
 }
 
 // EncryptionInput is an input type that accepts EncryptionArgs and EncryptionOutput values.
@@ -1355,12 +1264,9 @@ type EncryptionInput interface {
 	ToEncryptionOutputWithContext(context.Context) EncryptionOutput
 }
 
-// Encryption at rest settings for disk or snapshot
 type EncryptionArgs struct {
-	// ResourceId of the disk encryption set to use for enabling encryption at rest.
 	DiskEncryptionSetId pulumi.StringPtrInput `pulumi:"diskEncryptionSetId"`
-	// The type of key used to encrypt the data of the disk.
-	Type pulumi.StringPtrInput `pulumi:"type"`
+	Type                pulumi.StringPtrInput `pulumi:"type"`
 }
 
 func (EncryptionArgs) ElementType() reflect.Type {
@@ -1416,7 +1322,6 @@ func (i *encryptionPtrType) ToEncryptionPtrOutputWithContext(ctx context.Context
 	return pulumi.ToOutputWithContext(ctx, i).(EncryptionPtrOutput)
 }
 
-// Encryption at rest settings for disk or snapshot
 type EncryptionOutput struct{ *pulumi.OutputState }
 
 func (EncryptionOutput) ElementType() reflect.Type {
@@ -1436,17 +1341,15 @@ func (o EncryptionOutput) ToEncryptionPtrOutput() EncryptionPtrOutput {
 }
 
 func (o EncryptionOutput) ToEncryptionPtrOutputWithContext(ctx context.Context) EncryptionPtrOutput {
-	return o.ApplyT(func(v Encryption) *Encryption {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v Encryption) *Encryption {
 		return &v
 	}).(EncryptionPtrOutput)
 }
 
-// ResourceId of the disk encryption set to use for enabling encryption at rest.
 func (o EncryptionOutput) DiskEncryptionSetId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v Encryption) *string { return v.DiskEncryptionSetId }).(pulumi.StringPtrOutput)
 }
 
-// The type of key used to encrypt the data of the disk.
 func (o EncryptionOutput) Type() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v Encryption) *string { return v.Type }).(pulumi.StringPtrOutput)
 }
@@ -1466,10 +1369,15 @@ func (o EncryptionPtrOutput) ToEncryptionPtrOutputWithContext(ctx context.Contex
 }
 
 func (o EncryptionPtrOutput) Elem() EncryptionOutput {
-	return o.ApplyT(func(v *Encryption) Encryption { return *v }).(EncryptionOutput)
+	return o.ApplyT(func(v *Encryption) Encryption {
+		if v != nil {
+			return *v
+		}
+		var ret Encryption
+		return ret
+	}).(EncryptionOutput)
 }
 
-// ResourceId of the disk encryption set to use for enabling encryption at rest.
 func (o EncryptionPtrOutput) DiskEncryptionSetId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Encryption) *string {
 		if v == nil {
@@ -1479,7 +1387,6 @@ func (o EncryptionPtrOutput) DiskEncryptionSetId() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The type of key used to encrypt the data of the disk.
 func (o EncryptionPtrOutput) Type() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Encryption) *string {
 		if v == nil {
@@ -1489,12 +1396,9 @@ func (o EncryptionPtrOutput) Type() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Optional. Allows users to provide customer managed keys for encrypting the OS and data disks in the gallery artifact.
 type EncryptionImages struct {
-	// A list of encryption specifications for data disk images.
 	DataDiskImages []DataDiskImageEncryption `pulumi:"dataDiskImages"`
-	// Contains encryption settings for an OS disk image.
-	OsDiskImage *OSDiskImageEncryption `pulumi:"osDiskImage"`
+	OsDiskImage    *OSDiskImageEncryption    `pulumi:"osDiskImage"`
 }
 
 // EncryptionImagesInput is an input type that accepts EncryptionImagesArgs and EncryptionImagesOutput values.
@@ -1508,12 +1412,9 @@ type EncryptionImagesInput interface {
 	ToEncryptionImagesOutputWithContext(context.Context) EncryptionImagesOutput
 }
 
-// Optional. Allows users to provide customer managed keys for encrypting the OS and data disks in the gallery artifact.
 type EncryptionImagesArgs struct {
-	// A list of encryption specifications for data disk images.
 	DataDiskImages DataDiskImageEncryptionArrayInput `pulumi:"dataDiskImages"`
-	// Contains encryption settings for an OS disk image.
-	OsDiskImage OSDiskImageEncryptionPtrInput `pulumi:"osDiskImage"`
+	OsDiskImage    OSDiskImageEncryptionPtrInput     `pulumi:"osDiskImage"`
 }
 
 func (EncryptionImagesArgs) ElementType() reflect.Type {
@@ -1569,7 +1470,6 @@ func (i *encryptionImagesPtrType) ToEncryptionImagesPtrOutputWithContext(ctx con
 	return pulumi.ToOutputWithContext(ctx, i).(EncryptionImagesPtrOutput)
 }
 
-// Optional. Allows users to provide customer managed keys for encrypting the OS and data disks in the gallery artifact.
 type EncryptionImagesOutput struct{ *pulumi.OutputState }
 
 func (EncryptionImagesOutput) ElementType() reflect.Type {
@@ -1589,17 +1489,15 @@ func (o EncryptionImagesOutput) ToEncryptionImagesPtrOutput() EncryptionImagesPt
 }
 
 func (o EncryptionImagesOutput) ToEncryptionImagesPtrOutputWithContext(ctx context.Context) EncryptionImagesPtrOutput {
-	return o.ApplyT(func(v EncryptionImages) *EncryptionImages {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v EncryptionImages) *EncryptionImages {
 		return &v
 	}).(EncryptionImagesPtrOutput)
 }
 
-// A list of encryption specifications for data disk images.
 func (o EncryptionImagesOutput) DataDiskImages() DataDiskImageEncryptionArrayOutput {
 	return o.ApplyT(func(v EncryptionImages) []DataDiskImageEncryption { return v.DataDiskImages }).(DataDiskImageEncryptionArrayOutput)
 }
 
-// Contains encryption settings for an OS disk image.
 func (o EncryptionImagesOutput) OsDiskImage() OSDiskImageEncryptionPtrOutput {
 	return o.ApplyT(func(v EncryptionImages) *OSDiskImageEncryption { return v.OsDiskImage }).(OSDiskImageEncryptionPtrOutput)
 }
@@ -1619,10 +1517,15 @@ func (o EncryptionImagesPtrOutput) ToEncryptionImagesPtrOutputWithContext(ctx co
 }
 
 func (o EncryptionImagesPtrOutput) Elem() EncryptionImagesOutput {
-	return o.ApplyT(func(v *EncryptionImages) EncryptionImages { return *v }).(EncryptionImagesOutput)
+	return o.ApplyT(func(v *EncryptionImages) EncryptionImages {
+		if v != nil {
+			return *v
+		}
+		var ret EncryptionImages
+		return ret
+	}).(EncryptionImagesOutput)
 }
 
-// A list of encryption specifications for data disk images.
 func (o EncryptionImagesPtrOutput) DataDiskImages() DataDiskImageEncryptionArrayOutput {
 	return o.ApplyT(func(v *EncryptionImages) []DataDiskImageEncryption {
 		if v == nil {
@@ -1632,7 +1535,6 @@ func (o EncryptionImagesPtrOutput) DataDiskImages() DataDiskImageEncryptionArray
 	}).(DataDiskImageEncryptionArrayOutput)
 }
 
-// Contains encryption settings for an OS disk image.
 func (o EncryptionImagesPtrOutput) OsDiskImage() OSDiskImageEncryptionPtrOutput {
 	return o.ApplyT(func(v *EncryptionImages) *OSDiskImageEncryption {
 		if v == nil {
@@ -1642,12 +1544,9 @@ func (o EncryptionImagesPtrOutput) OsDiskImage() OSDiskImageEncryptionPtrOutput 
 	}).(OSDiskImageEncryptionPtrOutput)
 }
 
-// Optional. Allows users to provide customer managed keys for encrypting the OS and data disks in the gallery artifact.
 type EncryptionImagesResponse struct {
-	// A list of encryption specifications for data disk images.
 	DataDiskImages []DataDiskImageEncryptionResponse `pulumi:"dataDiskImages"`
-	// Contains encryption settings for an OS disk image.
-	OsDiskImage *OSDiskImageEncryptionResponse `pulumi:"osDiskImage"`
+	OsDiskImage    *OSDiskImageEncryptionResponse    `pulumi:"osDiskImage"`
 }
 
 // EncryptionImagesResponseInput is an input type that accepts EncryptionImagesResponseArgs and EncryptionImagesResponseOutput values.
@@ -1661,12 +1560,9 @@ type EncryptionImagesResponseInput interface {
 	ToEncryptionImagesResponseOutputWithContext(context.Context) EncryptionImagesResponseOutput
 }
 
-// Optional. Allows users to provide customer managed keys for encrypting the OS and data disks in the gallery artifact.
 type EncryptionImagesResponseArgs struct {
-	// A list of encryption specifications for data disk images.
 	DataDiskImages DataDiskImageEncryptionResponseArrayInput `pulumi:"dataDiskImages"`
-	// Contains encryption settings for an OS disk image.
-	OsDiskImage OSDiskImageEncryptionResponsePtrInput `pulumi:"osDiskImage"`
+	OsDiskImage    OSDiskImageEncryptionResponsePtrInput     `pulumi:"osDiskImage"`
 }
 
 func (EncryptionImagesResponseArgs) ElementType() reflect.Type {
@@ -1722,7 +1618,6 @@ func (i *encryptionImagesResponsePtrType) ToEncryptionImagesResponsePtrOutputWit
 	return pulumi.ToOutputWithContext(ctx, i).(EncryptionImagesResponsePtrOutput)
 }
 
-// Optional. Allows users to provide customer managed keys for encrypting the OS and data disks in the gallery artifact.
 type EncryptionImagesResponseOutput struct{ *pulumi.OutputState }
 
 func (EncryptionImagesResponseOutput) ElementType() reflect.Type {
@@ -1742,17 +1637,15 @@ func (o EncryptionImagesResponseOutput) ToEncryptionImagesResponsePtrOutput() En
 }
 
 func (o EncryptionImagesResponseOutput) ToEncryptionImagesResponsePtrOutputWithContext(ctx context.Context) EncryptionImagesResponsePtrOutput {
-	return o.ApplyT(func(v EncryptionImagesResponse) *EncryptionImagesResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v EncryptionImagesResponse) *EncryptionImagesResponse {
 		return &v
 	}).(EncryptionImagesResponsePtrOutput)
 }
 
-// A list of encryption specifications for data disk images.
 func (o EncryptionImagesResponseOutput) DataDiskImages() DataDiskImageEncryptionResponseArrayOutput {
 	return o.ApplyT(func(v EncryptionImagesResponse) []DataDiskImageEncryptionResponse { return v.DataDiskImages }).(DataDiskImageEncryptionResponseArrayOutput)
 }
 
-// Contains encryption settings for an OS disk image.
 func (o EncryptionImagesResponseOutput) OsDiskImage() OSDiskImageEncryptionResponsePtrOutput {
 	return o.ApplyT(func(v EncryptionImagesResponse) *OSDiskImageEncryptionResponse { return v.OsDiskImage }).(OSDiskImageEncryptionResponsePtrOutput)
 }
@@ -1772,10 +1665,15 @@ func (o EncryptionImagesResponsePtrOutput) ToEncryptionImagesResponsePtrOutputWi
 }
 
 func (o EncryptionImagesResponsePtrOutput) Elem() EncryptionImagesResponseOutput {
-	return o.ApplyT(func(v *EncryptionImagesResponse) EncryptionImagesResponse { return *v }).(EncryptionImagesResponseOutput)
+	return o.ApplyT(func(v *EncryptionImagesResponse) EncryptionImagesResponse {
+		if v != nil {
+			return *v
+		}
+		var ret EncryptionImagesResponse
+		return ret
+	}).(EncryptionImagesResponseOutput)
 }
 
-// A list of encryption specifications for data disk images.
 func (o EncryptionImagesResponsePtrOutput) DataDiskImages() DataDiskImageEncryptionResponseArrayOutput {
 	return o.ApplyT(func(v *EncryptionImagesResponse) []DataDiskImageEncryptionResponse {
 		if v == nil {
@@ -1785,7 +1683,6 @@ func (o EncryptionImagesResponsePtrOutput) DataDiskImages() DataDiskImageEncrypt
 	}).(DataDiskImageEncryptionResponseArrayOutput)
 }
 
-// Contains encryption settings for an OS disk image.
 func (o EncryptionImagesResponsePtrOutput) OsDiskImage() OSDiskImageEncryptionResponsePtrOutput {
 	return o.ApplyT(func(v *EncryptionImagesResponse) *OSDiskImageEncryptionResponse {
 		if v == nil {
@@ -1795,12 +1692,9 @@ func (o EncryptionImagesResponsePtrOutput) OsDiskImage() OSDiskImageEncryptionRe
 	}).(OSDiskImageEncryptionResponsePtrOutput)
 }
 
-// Encryption at rest settings for disk or snapshot
 type EncryptionResponse struct {
-	// ResourceId of the disk encryption set to use for enabling encryption at rest.
 	DiskEncryptionSetId *string `pulumi:"diskEncryptionSetId"`
-	// The type of key used to encrypt the data of the disk.
-	Type *string `pulumi:"type"`
+	Type                *string `pulumi:"type"`
 }
 
 // EncryptionResponseInput is an input type that accepts EncryptionResponseArgs and EncryptionResponseOutput values.
@@ -1814,12 +1708,9 @@ type EncryptionResponseInput interface {
 	ToEncryptionResponseOutputWithContext(context.Context) EncryptionResponseOutput
 }
 
-// Encryption at rest settings for disk or snapshot
 type EncryptionResponseArgs struct {
-	// ResourceId of the disk encryption set to use for enabling encryption at rest.
 	DiskEncryptionSetId pulumi.StringPtrInput `pulumi:"diskEncryptionSetId"`
-	// The type of key used to encrypt the data of the disk.
-	Type pulumi.StringPtrInput `pulumi:"type"`
+	Type                pulumi.StringPtrInput `pulumi:"type"`
 }
 
 func (EncryptionResponseArgs) ElementType() reflect.Type {
@@ -1875,7 +1766,6 @@ func (i *encryptionResponsePtrType) ToEncryptionResponsePtrOutputWithContext(ctx
 	return pulumi.ToOutputWithContext(ctx, i).(EncryptionResponsePtrOutput)
 }
 
-// Encryption at rest settings for disk or snapshot
 type EncryptionResponseOutput struct{ *pulumi.OutputState }
 
 func (EncryptionResponseOutput) ElementType() reflect.Type {
@@ -1895,17 +1785,15 @@ func (o EncryptionResponseOutput) ToEncryptionResponsePtrOutput() EncryptionResp
 }
 
 func (o EncryptionResponseOutput) ToEncryptionResponsePtrOutputWithContext(ctx context.Context) EncryptionResponsePtrOutput {
-	return o.ApplyT(func(v EncryptionResponse) *EncryptionResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v EncryptionResponse) *EncryptionResponse {
 		return &v
 	}).(EncryptionResponsePtrOutput)
 }
 
-// ResourceId of the disk encryption set to use for enabling encryption at rest.
 func (o EncryptionResponseOutput) DiskEncryptionSetId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v EncryptionResponse) *string { return v.DiskEncryptionSetId }).(pulumi.StringPtrOutput)
 }
 
-// The type of key used to encrypt the data of the disk.
 func (o EncryptionResponseOutput) Type() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v EncryptionResponse) *string { return v.Type }).(pulumi.StringPtrOutput)
 }
@@ -1925,10 +1813,15 @@ func (o EncryptionResponsePtrOutput) ToEncryptionResponsePtrOutputWithContext(ct
 }
 
 func (o EncryptionResponsePtrOutput) Elem() EncryptionResponseOutput {
-	return o.ApplyT(func(v *EncryptionResponse) EncryptionResponse { return *v }).(EncryptionResponseOutput)
+	return o.ApplyT(func(v *EncryptionResponse) EncryptionResponse {
+		if v != nil {
+			return *v
+		}
+		var ret EncryptionResponse
+		return ret
+	}).(EncryptionResponseOutput)
 }
 
-// ResourceId of the disk encryption set to use for enabling encryption at rest.
 func (o EncryptionResponsePtrOutput) DiskEncryptionSetId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *EncryptionResponse) *string {
 		if v == nil {
@@ -1938,7 +1831,6 @@ func (o EncryptionResponsePtrOutput) DiskEncryptionSetId() pulumi.StringPtrOutpu
 	}).(pulumi.StringPtrOutput)
 }
 
-// The type of key used to encrypt the data of the disk.
 func (o EncryptionResponsePtrOutput) Type() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *EncryptionResponse) *string {
 		if v == nil {
@@ -1948,9 +1840,7 @@ func (o EncryptionResponsePtrOutput) Type() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The managed identity for the disk encryption set. It should be given permission on the key vault before it can be used to encrypt disks.
 type EncryptionSetIdentity struct {
-	// The type of Managed Identity used by the DiskEncryptionSet. Only SystemAssigned is supported for new creations. Disk Encryption Sets can be updated with Identity type None during migration of subscription to a new Azure Active Directory tenant; it will cause the encrypted resources to lose access to the keys.
 	Type *string `pulumi:"type"`
 }
 
@@ -1965,9 +1855,7 @@ type EncryptionSetIdentityInput interface {
 	ToEncryptionSetIdentityOutputWithContext(context.Context) EncryptionSetIdentityOutput
 }
 
-// The managed identity for the disk encryption set. It should be given permission on the key vault before it can be used to encrypt disks.
 type EncryptionSetIdentityArgs struct {
-	// The type of Managed Identity used by the DiskEncryptionSet. Only SystemAssigned is supported for new creations. Disk Encryption Sets can be updated with Identity type None during migration of subscription to a new Azure Active Directory tenant; it will cause the encrypted resources to lose access to the keys.
 	Type pulumi.StringPtrInput `pulumi:"type"`
 }
 
@@ -2024,7 +1912,6 @@ func (i *encryptionSetIdentityPtrType) ToEncryptionSetIdentityPtrOutputWithConte
 	return pulumi.ToOutputWithContext(ctx, i).(EncryptionSetIdentityPtrOutput)
 }
 
-// The managed identity for the disk encryption set. It should be given permission on the key vault before it can be used to encrypt disks.
 type EncryptionSetIdentityOutput struct{ *pulumi.OutputState }
 
 func (EncryptionSetIdentityOutput) ElementType() reflect.Type {
@@ -2044,12 +1931,11 @@ func (o EncryptionSetIdentityOutput) ToEncryptionSetIdentityPtrOutput() Encrypti
 }
 
 func (o EncryptionSetIdentityOutput) ToEncryptionSetIdentityPtrOutputWithContext(ctx context.Context) EncryptionSetIdentityPtrOutput {
-	return o.ApplyT(func(v EncryptionSetIdentity) *EncryptionSetIdentity {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v EncryptionSetIdentity) *EncryptionSetIdentity {
 		return &v
 	}).(EncryptionSetIdentityPtrOutput)
 }
 
-// The type of Managed Identity used by the DiskEncryptionSet. Only SystemAssigned is supported for new creations. Disk Encryption Sets can be updated with Identity type None during migration of subscription to a new Azure Active Directory tenant; it will cause the encrypted resources to lose access to the keys.
 func (o EncryptionSetIdentityOutput) Type() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v EncryptionSetIdentity) *string { return v.Type }).(pulumi.StringPtrOutput)
 }
@@ -2069,10 +1955,15 @@ func (o EncryptionSetIdentityPtrOutput) ToEncryptionSetIdentityPtrOutputWithCont
 }
 
 func (o EncryptionSetIdentityPtrOutput) Elem() EncryptionSetIdentityOutput {
-	return o.ApplyT(func(v *EncryptionSetIdentity) EncryptionSetIdentity { return *v }).(EncryptionSetIdentityOutput)
+	return o.ApplyT(func(v *EncryptionSetIdentity) EncryptionSetIdentity {
+		if v != nil {
+			return *v
+		}
+		var ret EncryptionSetIdentity
+		return ret
+	}).(EncryptionSetIdentityOutput)
 }
 
-// The type of Managed Identity used by the DiskEncryptionSet. Only SystemAssigned is supported for new creations. Disk Encryption Sets can be updated with Identity type None during migration of subscription to a new Azure Active Directory tenant; it will cause the encrypted resources to lose access to the keys.
 func (o EncryptionSetIdentityPtrOutput) Type() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *EncryptionSetIdentity) *string {
 		if v == nil {
@@ -2082,14 +1973,10 @@ func (o EncryptionSetIdentityPtrOutput) Type() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The managed identity for the disk encryption set. It should be given permission on the key vault before it can be used to encrypt disks.
 type EncryptionSetIdentityResponse struct {
-	// The object id of the Managed Identity Resource. This will be sent to the RP from ARM via the x-ms-identity-principal-id header in the PUT request if the resource has a systemAssigned(implicit) identity
-	PrincipalId string `pulumi:"principalId"`
-	// The tenant id of the Managed Identity Resource. This will be sent to the RP from ARM via the x-ms-client-tenant-id header in the PUT request if the resource has a systemAssigned(implicit) identity
-	TenantId string `pulumi:"tenantId"`
-	// The type of Managed Identity used by the DiskEncryptionSet. Only SystemAssigned is supported for new creations. Disk Encryption Sets can be updated with Identity type None during migration of subscription to a new Azure Active Directory tenant; it will cause the encrypted resources to lose access to the keys.
-	Type *string `pulumi:"type"`
+	PrincipalId string  `pulumi:"principalId"`
+	TenantId    string  `pulumi:"tenantId"`
+	Type        *string `pulumi:"type"`
 }
 
 // EncryptionSetIdentityResponseInput is an input type that accepts EncryptionSetIdentityResponseArgs and EncryptionSetIdentityResponseOutput values.
@@ -2103,14 +1990,10 @@ type EncryptionSetIdentityResponseInput interface {
 	ToEncryptionSetIdentityResponseOutputWithContext(context.Context) EncryptionSetIdentityResponseOutput
 }
 
-// The managed identity for the disk encryption set. It should be given permission on the key vault before it can be used to encrypt disks.
 type EncryptionSetIdentityResponseArgs struct {
-	// The object id of the Managed Identity Resource. This will be sent to the RP from ARM via the x-ms-identity-principal-id header in the PUT request if the resource has a systemAssigned(implicit) identity
-	PrincipalId pulumi.StringInput `pulumi:"principalId"`
-	// The tenant id of the Managed Identity Resource. This will be sent to the RP from ARM via the x-ms-client-tenant-id header in the PUT request if the resource has a systemAssigned(implicit) identity
-	TenantId pulumi.StringInput `pulumi:"tenantId"`
-	// The type of Managed Identity used by the DiskEncryptionSet. Only SystemAssigned is supported for new creations. Disk Encryption Sets can be updated with Identity type None during migration of subscription to a new Azure Active Directory tenant; it will cause the encrypted resources to lose access to the keys.
-	Type pulumi.StringPtrInput `pulumi:"type"`
+	PrincipalId pulumi.StringInput    `pulumi:"principalId"`
+	TenantId    pulumi.StringInput    `pulumi:"tenantId"`
+	Type        pulumi.StringPtrInput `pulumi:"type"`
 }
 
 func (EncryptionSetIdentityResponseArgs) ElementType() reflect.Type {
@@ -2166,7 +2049,6 @@ func (i *encryptionSetIdentityResponsePtrType) ToEncryptionSetIdentityResponsePt
 	return pulumi.ToOutputWithContext(ctx, i).(EncryptionSetIdentityResponsePtrOutput)
 }
 
-// The managed identity for the disk encryption set. It should be given permission on the key vault before it can be used to encrypt disks.
 type EncryptionSetIdentityResponseOutput struct{ *pulumi.OutputState }
 
 func (EncryptionSetIdentityResponseOutput) ElementType() reflect.Type {
@@ -2186,22 +2068,19 @@ func (o EncryptionSetIdentityResponseOutput) ToEncryptionSetIdentityResponsePtrO
 }
 
 func (o EncryptionSetIdentityResponseOutput) ToEncryptionSetIdentityResponsePtrOutputWithContext(ctx context.Context) EncryptionSetIdentityResponsePtrOutput {
-	return o.ApplyT(func(v EncryptionSetIdentityResponse) *EncryptionSetIdentityResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v EncryptionSetIdentityResponse) *EncryptionSetIdentityResponse {
 		return &v
 	}).(EncryptionSetIdentityResponsePtrOutput)
 }
 
-// The object id of the Managed Identity Resource. This will be sent to the RP from ARM via the x-ms-identity-principal-id header in the PUT request if the resource has a systemAssigned(implicit) identity
 func (o EncryptionSetIdentityResponseOutput) PrincipalId() pulumi.StringOutput {
 	return o.ApplyT(func(v EncryptionSetIdentityResponse) string { return v.PrincipalId }).(pulumi.StringOutput)
 }
 
-// The tenant id of the Managed Identity Resource. This will be sent to the RP from ARM via the x-ms-client-tenant-id header in the PUT request if the resource has a systemAssigned(implicit) identity
 func (o EncryptionSetIdentityResponseOutput) TenantId() pulumi.StringOutput {
 	return o.ApplyT(func(v EncryptionSetIdentityResponse) string { return v.TenantId }).(pulumi.StringOutput)
 }
 
-// The type of Managed Identity used by the DiskEncryptionSet. Only SystemAssigned is supported for new creations. Disk Encryption Sets can be updated with Identity type None during migration of subscription to a new Azure Active Directory tenant; it will cause the encrypted resources to lose access to the keys.
 func (o EncryptionSetIdentityResponseOutput) Type() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v EncryptionSetIdentityResponse) *string { return v.Type }).(pulumi.StringPtrOutput)
 }
@@ -2221,10 +2100,15 @@ func (o EncryptionSetIdentityResponsePtrOutput) ToEncryptionSetIdentityResponseP
 }
 
 func (o EncryptionSetIdentityResponsePtrOutput) Elem() EncryptionSetIdentityResponseOutput {
-	return o.ApplyT(func(v *EncryptionSetIdentityResponse) EncryptionSetIdentityResponse { return *v }).(EncryptionSetIdentityResponseOutput)
+	return o.ApplyT(func(v *EncryptionSetIdentityResponse) EncryptionSetIdentityResponse {
+		if v != nil {
+			return *v
+		}
+		var ret EncryptionSetIdentityResponse
+		return ret
+	}).(EncryptionSetIdentityResponseOutput)
 }
 
-// The object id of the Managed Identity Resource. This will be sent to the RP from ARM via the x-ms-identity-principal-id header in the PUT request if the resource has a systemAssigned(implicit) identity
 func (o EncryptionSetIdentityResponsePtrOutput) PrincipalId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *EncryptionSetIdentityResponse) *string {
 		if v == nil {
@@ -2234,7 +2118,6 @@ func (o EncryptionSetIdentityResponsePtrOutput) PrincipalId() pulumi.StringPtrOu
 	}).(pulumi.StringPtrOutput)
 }
 
-// The tenant id of the Managed Identity Resource. This will be sent to the RP from ARM via the x-ms-client-tenant-id header in the PUT request if the resource has a systemAssigned(implicit) identity
 func (o EncryptionSetIdentityResponsePtrOutput) TenantId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *EncryptionSetIdentityResponse) *string {
 		if v == nil {
@@ -2244,7 +2127,6 @@ func (o EncryptionSetIdentityResponsePtrOutput) TenantId() pulumi.StringPtrOutpu
 	}).(pulumi.StringPtrOutput)
 }
 
-// The type of Managed Identity used by the DiskEncryptionSet. Only SystemAssigned is supported for new creations. Disk Encryption Sets can be updated with Identity type None during migration of subscription to a new Azure Active Directory tenant; it will cause the encrypted resources to lose access to the keys.
 func (o EncryptionSetIdentityResponsePtrOutput) Type() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *EncryptionSetIdentityResponse) *string {
 		if v == nil {
@@ -2254,14 +2136,10 @@ func (o EncryptionSetIdentityResponsePtrOutput) Type() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Encryption settings for disk or snapshot
 type EncryptionSettingsCollection struct {
-	// Set this flag to true and provide DiskEncryptionKey and optional KeyEncryptionKey to enable encryption. Set this flag to false and remove DiskEncryptionKey and KeyEncryptionKey to disable encryption. If EncryptionSettings is null in the request object, the existing settings remain unchanged.
-	Enabled bool `pulumi:"enabled"`
-	// A collection of encryption settings, one for each disk volume.
-	EncryptionSettings []EncryptionSettingsElement `pulumi:"encryptionSettings"`
-	// Describes what type of encryption is used for the disks. Once this field is set, it cannot be overwritten. '1.0' corresponds to Azure Disk Encryption with AAD app.'1.1' corresponds to Azure Disk Encryption.
-	EncryptionSettingsVersion *string `pulumi:"encryptionSettingsVersion"`
+	Enabled                   bool                        `pulumi:"enabled"`
+	EncryptionSettings        []EncryptionSettingsElement `pulumi:"encryptionSettings"`
+	EncryptionSettingsVersion *string                     `pulumi:"encryptionSettingsVersion"`
 }
 
 // EncryptionSettingsCollectionInput is an input type that accepts EncryptionSettingsCollectionArgs and EncryptionSettingsCollectionOutput values.
@@ -2275,14 +2153,10 @@ type EncryptionSettingsCollectionInput interface {
 	ToEncryptionSettingsCollectionOutputWithContext(context.Context) EncryptionSettingsCollectionOutput
 }
 
-// Encryption settings for disk or snapshot
 type EncryptionSettingsCollectionArgs struct {
-	// Set this flag to true and provide DiskEncryptionKey and optional KeyEncryptionKey to enable encryption. Set this flag to false and remove DiskEncryptionKey and KeyEncryptionKey to disable encryption. If EncryptionSettings is null in the request object, the existing settings remain unchanged.
-	Enabled pulumi.BoolInput `pulumi:"enabled"`
-	// A collection of encryption settings, one for each disk volume.
-	EncryptionSettings EncryptionSettingsElementArrayInput `pulumi:"encryptionSettings"`
-	// Describes what type of encryption is used for the disks. Once this field is set, it cannot be overwritten. '1.0' corresponds to Azure Disk Encryption with AAD app.'1.1' corresponds to Azure Disk Encryption.
-	EncryptionSettingsVersion pulumi.StringPtrInput `pulumi:"encryptionSettingsVersion"`
+	Enabled                   pulumi.BoolInput                    `pulumi:"enabled"`
+	EncryptionSettings        EncryptionSettingsElementArrayInput `pulumi:"encryptionSettings"`
+	EncryptionSettingsVersion pulumi.StringPtrInput               `pulumi:"encryptionSettingsVersion"`
 }
 
 func (EncryptionSettingsCollectionArgs) ElementType() reflect.Type {
@@ -2338,7 +2212,6 @@ func (i *encryptionSettingsCollectionPtrType) ToEncryptionSettingsCollectionPtrO
 	return pulumi.ToOutputWithContext(ctx, i).(EncryptionSettingsCollectionPtrOutput)
 }
 
-// Encryption settings for disk or snapshot
 type EncryptionSettingsCollectionOutput struct{ *pulumi.OutputState }
 
 func (EncryptionSettingsCollectionOutput) ElementType() reflect.Type {
@@ -2358,22 +2231,19 @@ func (o EncryptionSettingsCollectionOutput) ToEncryptionSettingsCollectionPtrOut
 }
 
 func (o EncryptionSettingsCollectionOutput) ToEncryptionSettingsCollectionPtrOutputWithContext(ctx context.Context) EncryptionSettingsCollectionPtrOutput {
-	return o.ApplyT(func(v EncryptionSettingsCollection) *EncryptionSettingsCollection {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v EncryptionSettingsCollection) *EncryptionSettingsCollection {
 		return &v
 	}).(EncryptionSettingsCollectionPtrOutput)
 }
 
-// Set this flag to true and provide DiskEncryptionKey and optional KeyEncryptionKey to enable encryption. Set this flag to false and remove DiskEncryptionKey and KeyEncryptionKey to disable encryption. If EncryptionSettings is null in the request object, the existing settings remain unchanged.
 func (o EncryptionSettingsCollectionOutput) Enabled() pulumi.BoolOutput {
 	return o.ApplyT(func(v EncryptionSettingsCollection) bool { return v.Enabled }).(pulumi.BoolOutput)
 }
 
-// A collection of encryption settings, one for each disk volume.
 func (o EncryptionSettingsCollectionOutput) EncryptionSettings() EncryptionSettingsElementArrayOutput {
 	return o.ApplyT(func(v EncryptionSettingsCollection) []EncryptionSettingsElement { return v.EncryptionSettings }).(EncryptionSettingsElementArrayOutput)
 }
 
-// Describes what type of encryption is used for the disks. Once this field is set, it cannot be overwritten. '1.0' corresponds to Azure Disk Encryption with AAD app.'1.1' corresponds to Azure Disk Encryption.
 func (o EncryptionSettingsCollectionOutput) EncryptionSettingsVersion() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v EncryptionSettingsCollection) *string { return v.EncryptionSettingsVersion }).(pulumi.StringPtrOutput)
 }
@@ -2393,10 +2263,15 @@ func (o EncryptionSettingsCollectionPtrOutput) ToEncryptionSettingsCollectionPtr
 }
 
 func (o EncryptionSettingsCollectionPtrOutput) Elem() EncryptionSettingsCollectionOutput {
-	return o.ApplyT(func(v *EncryptionSettingsCollection) EncryptionSettingsCollection { return *v }).(EncryptionSettingsCollectionOutput)
+	return o.ApplyT(func(v *EncryptionSettingsCollection) EncryptionSettingsCollection {
+		if v != nil {
+			return *v
+		}
+		var ret EncryptionSettingsCollection
+		return ret
+	}).(EncryptionSettingsCollectionOutput)
 }
 
-// Set this flag to true and provide DiskEncryptionKey and optional KeyEncryptionKey to enable encryption. Set this flag to false and remove DiskEncryptionKey and KeyEncryptionKey to disable encryption. If EncryptionSettings is null in the request object, the existing settings remain unchanged.
 func (o EncryptionSettingsCollectionPtrOutput) Enabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *EncryptionSettingsCollection) *bool {
 		if v == nil {
@@ -2406,7 +2281,6 @@ func (o EncryptionSettingsCollectionPtrOutput) Enabled() pulumi.BoolPtrOutput {
 	}).(pulumi.BoolPtrOutput)
 }
 
-// A collection of encryption settings, one for each disk volume.
 func (o EncryptionSettingsCollectionPtrOutput) EncryptionSettings() EncryptionSettingsElementArrayOutput {
 	return o.ApplyT(func(v *EncryptionSettingsCollection) []EncryptionSettingsElement {
 		if v == nil {
@@ -2416,7 +2290,6 @@ func (o EncryptionSettingsCollectionPtrOutput) EncryptionSettings() EncryptionSe
 	}).(EncryptionSettingsElementArrayOutput)
 }
 
-// Describes what type of encryption is used for the disks. Once this field is set, it cannot be overwritten. '1.0' corresponds to Azure Disk Encryption with AAD app.'1.1' corresponds to Azure Disk Encryption.
 func (o EncryptionSettingsCollectionPtrOutput) EncryptionSettingsVersion() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *EncryptionSettingsCollection) *string {
 		if v == nil {
@@ -2426,14 +2299,10 @@ func (o EncryptionSettingsCollectionPtrOutput) EncryptionSettingsVersion() pulum
 	}).(pulumi.StringPtrOutput)
 }
 
-// Encryption settings for disk or snapshot
 type EncryptionSettingsCollectionResponse struct {
-	// Set this flag to true and provide DiskEncryptionKey and optional KeyEncryptionKey to enable encryption. Set this flag to false and remove DiskEncryptionKey and KeyEncryptionKey to disable encryption. If EncryptionSettings is null in the request object, the existing settings remain unchanged.
-	Enabled bool `pulumi:"enabled"`
-	// A collection of encryption settings, one for each disk volume.
-	EncryptionSettings []EncryptionSettingsElementResponse `pulumi:"encryptionSettings"`
-	// Describes what type of encryption is used for the disks. Once this field is set, it cannot be overwritten. '1.0' corresponds to Azure Disk Encryption with AAD app.'1.1' corresponds to Azure Disk Encryption.
-	EncryptionSettingsVersion *string `pulumi:"encryptionSettingsVersion"`
+	Enabled                   bool                                `pulumi:"enabled"`
+	EncryptionSettings        []EncryptionSettingsElementResponse `pulumi:"encryptionSettings"`
+	EncryptionSettingsVersion *string                             `pulumi:"encryptionSettingsVersion"`
 }
 
 // EncryptionSettingsCollectionResponseInput is an input type that accepts EncryptionSettingsCollectionResponseArgs and EncryptionSettingsCollectionResponseOutput values.
@@ -2447,14 +2316,10 @@ type EncryptionSettingsCollectionResponseInput interface {
 	ToEncryptionSettingsCollectionResponseOutputWithContext(context.Context) EncryptionSettingsCollectionResponseOutput
 }
 
-// Encryption settings for disk or snapshot
 type EncryptionSettingsCollectionResponseArgs struct {
-	// Set this flag to true and provide DiskEncryptionKey and optional KeyEncryptionKey to enable encryption. Set this flag to false and remove DiskEncryptionKey and KeyEncryptionKey to disable encryption. If EncryptionSettings is null in the request object, the existing settings remain unchanged.
-	Enabled pulumi.BoolInput `pulumi:"enabled"`
-	// A collection of encryption settings, one for each disk volume.
-	EncryptionSettings EncryptionSettingsElementResponseArrayInput `pulumi:"encryptionSettings"`
-	// Describes what type of encryption is used for the disks. Once this field is set, it cannot be overwritten. '1.0' corresponds to Azure Disk Encryption with AAD app.'1.1' corresponds to Azure Disk Encryption.
-	EncryptionSettingsVersion pulumi.StringPtrInput `pulumi:"encryptionSettingsVersion"`
+	Enabled                   pulumi.BoolInput                            `pulumi:"enabled"`
+	EncryptionSettings        EncryptionSettingsElementResponseArrayInput `pulumi:"encryptionSettings"`
+	EncryptionSettingsVersion pulumi.StringPtrInput                       `pulumi:"encryptionSettingsVersion"`
 }
 
 func (EncryptionSettingsCollectionResponseArgs) ElementType() reflect.Type {
@@ -2510,7 +2375,6 @@ func (i *encryptionSettingsCollectionResponsePtrType) ToEncryptionSettingsCollec
 	return pulumi.ToOutputWithContext(ctx, i).(EncryptionSettingsCollectionResponsePtrOutput)
 }
 
-// Encryption settings for disk or snapshot
 type EncryptionSettingsCollectionResponseOutput struct{ *pulumi.OutputState }
 
 func (EncryptionSettingsCollectionResponseOutput) ElementType() reflect.Type {
@@ -2530,24 +2394,21 @@ func (o EncryptionSettingsCollectionResponseOutput) ToEncryptionSettingsCollecti
 }
 
 func (o EncryptionSettingsCollectionResponseOutput) ToEncryptionSettingsCollectionResponsePtrOutputWithContext(ctx context.Context) EncryptionSettingsCollectionResponsePtrOutput {
-	return o.ApplyT(func(v EncryptionSettingsCollectionResponse) *EncryptionSettingsCollectionResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v EncryptionSettingsCollectionResponse) *EncryptionSettingsCollectionResponse {
 		return &v
 	}).(EncryptionSettingsCollectionResponsePtrOutput)
 }
 
-// Set this flag to true and provide DiskEncryptionKey and optional KeyEncryptionKey to enable encryption. Set this flag to false and remove DiskEncryptionKey and KeyEncryptionKey to disable encryption. If EncryptionSettings is null in the request object, the existing settings remain unchanged.
 func (o EncryptionSettingsCollectionResponseOutput) Enabled() pulumi.BoolOutput {
 	return o.ApplyT(func(v EncryptionSettingsCollectionResponse) bool { return v.Enabled }).(pulumi.BoolOutput)
 }
 
-// A collection of encryption settings, one for each disk volume.
 func (o EncryptionSettingsCollectionResponseOutput) EncryptionSettings() EncryptionSettingsElementResponseArrayOutput {
 	return o.ApplyT(func(v EncryptionSettingsCollectionResponse) []EncryptionSettingsElementResponse {
 		return v.EncryptionSettings
 	}).(EncryptionSettingsElementResponseArrayOutput)
 }
 
-// Describes what type of encryption is used for the disks. Once this field is set, it cannot be overwritten. '1.0' corresponds to Azure Disk Encryption with AAD app.'1.1' corresponds to Azure Disk Encryption.
 func (o EncryptionSettingsCollectionResponseOutput) EncryptionSettingsVersion() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v EncryptionSettingsCollectionResponse) *string { return v.EncryptionSettingsVersion }).(pulumi.StringPtrOutput)
 }
@@ -2567,10 +2428,15 @@ func (o EncryptionSettingsCollectionResponsePtrOutput) ToEncryptionSettingsColle
 }
 
 func (o EncryptionSettingsCollectionResponsePtrOutput) Elem() EncryptionSettingsCollectionResponseOutput {
-	return o.ApplyT(func(v *EncryptionSettingsCollectionResponse) EncryptionSettingsCollectionResponse { return *v }).(EncryptionSettingsCollectionResponseOutput)
+	return o.ApplyT(func(v *EncryptionSettingsCollectionResponse) EncryptionSettingsCollectionResponse {
+		if v != nil {
+			return *v
+		}
+		var ret EncryptionSettingsCollectionResponse
+		return ret
+	}).(EncryptionSettingsCollectionResponseOutput)
 }
 
-// Set this flag to true and provide DiskEncryptionKey and optional KeyEncryptionKey to enable encryption. Set this flag to false and remove DiskEncryptionKey and KeyEncryptionKey to disable encryption. If EncryptionSettings is null in the request object, the existing settings remain unchanged.
 func (o EncryptionSettingsCollectionResponsePtrOutput) Enabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *EncryptionSettingsCollectionResponse) *bool {
 		if v == nil {
@@ -2580,7 +2446,6 @@ func (o EncryptionSettingsCollectionResponsePtrOutput) Enabled() pulumi.BoolPtrO
 	}).(pulumi.BoolPtrOutput)
 }
 
-// A collection of encryption settings, one for each disk volume.
 func (o EncryptionSettingsCollectionResponsePtrOutput) EncryptionSettings() EncryptionSettingsElementResponseArrayOutput {
 	return o.ApplyT(func(v *EncryptionSettingsCollectionResponse) []EncryptionSettingsElementResponse {
 		if v == nil {
@@ -2590,7 +2455,6 @@ func (o EncryptionSettingsCollectionResponsePtrOutput) EncryptionSettings() Encr
 	}).(EncryptionSettingsElementResponseArrayOutput)
 }
 
-// Describes what type of encryption is used for the disks. Once this field is set, it cannot be overwritten. '1.0' corresponds to Azure Disk Encryption with AAD app.'1.1' corresponds to Azure Disk Encryption.
 func (o EncryptionSettingsCollectionResponsePtrOutput) EncryptionSettingsVersion() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *EncryptionSettingsCollectionResponse) *string {
 		if v == nil {
@@ -2600,12 +2464,9 @@ func (o EncryptionSettingsCollectionResponsePtrOutput) EncryptionSettingsVersion
 	}).(pulumi.StringPtrOutput)
 }
 
-// Encryption settings for one disk volume.
 type EncryptionSettingsElement struct {
-	// Key Vault Secret Url and vault id of the disk encryption key
 	DiskEncryptionKey *KeyVaultAndSecretReference `pulumi:"diskEncryptionKey"`
-	// Key Vault Key Url and vault id of the key encryption key. KeyEncryptionKey is optional and when provided is used to unwrap the disk encryption key.
-	KeyEncryptionKey *KeyVaultAndKeyReference `pulumi:"keyEncryptionKey"`
+	KeyEncryptionKey  *KeyVaultAndKeyReference    `pulumi:"keyEncryptionKey"`
 }
 
 // EncryptionSettingsElementInput is an input type that accepts EncryptionSettingsElementArgs and EncryptionSettingsElementOutput values.
@@ -2619,12 +2480,9 @@ type EncryptionSettingsElementInput interface {
 	ToEncryptionSettingsElementOutputWithContext(context.Context) EncryptionSettingsElementOutput
 }
 
-// Encryption settings for one disk volume.
 type EncryptionSettingsElementArgs struct {
-	// Key Vault Secret Url and vault id of the disk encryption key
 	DiskEncryptionKey KeyVaultAndSecretReferencePtrInput `pulumi:"diskEncryptionKey"`
-	// Key Vault Key Url and vault id of the key encryption key. KeyEncryptionKey is optional and when provided is used to unwrap the disk encryption key.
-	KeyEncryptionKey KeyVaultAndKeyReferencePtrInput `pulumi:"keyEncryptionKey"`
+	KeyEncryptionKey  KeyVaultAndKeyReferencePtrInput    `pulumi:"keyEncryptionKey"`
 }
 
 func (EncryptionSettingsElementArgs) ElementType() reflect.Type {
@@ -2664,7 +2522,6 @@ func (i EncryptionSettingsElementArray) ToEncryptionSettingsElementArrayOutputWi
 	return pulumi.ToOutputWithContext(ctx, i).(EncryptionSettingsElementArrayOutput)
 }
 
-// Encryption settings for one disk volume.
 type EncryptionSettingsElementOutput struct{ *pulumi.OutputState }
 
 func (EncryptionSettingsElementOutput) ElementType() reflect.Type {
@@ -2679,12 +2536,10 @@ func (o EncryptionSettingsElementOutput) ToEncryptionSettingsElementOutputWithCo
 	return o
 }
 
-// Key Vault Secret Url and vault id of the disk encryption key
 func (o EncryptionSettingsElementOutput) DiskEncryptionKey() KeyVaultAndSecretReferencePtrOutput {
 	return o.ApplyT(func(v EncryptionSettingsElement) *KeyVaultAndSecretReference { return v.DiskEncryptionKey }).(KeyVaultAndSecretReferencePtrOutput)
 }
 
-// Key Vault Key Url and vault id of the key encryption key. KeyEncryptionKey is optional and when provided is used to unwrap the disk encryption key.
 func (o EncryptionSettingsElementOutput) KeyEncryptionKey() KeyVaultAndKeyReferencePtrOutput {
 	return o.ApplyT(func(v EncryptionSettingsElement) *KeyVaultAndKeyReference { return v.KeyEncryptionKey }).(KeyVaultAndKeyReferencePtrOutput)
 }
@@ -2709,12 +2564,9 @@ func (o EncryptionSettingsElementArrayOutput) Index(i pulumi.IntInput) Encryptio
 	}).(EncryptionSettingsElementOutput)
 }
 
-// Encryption settings for one disk volume.
 type EncryptionSettingsElementResponse struct {
-	// Key Vault Secret Url and vault id of the disk encryption key
 	DiskEncryptionKey *KeyVaultAndSecretReferenceResponse `pulumi:"diskEncryptionKey"`
-	// Key Vault Key Url and vault id of the key encryption key. KeyEncryptionKey is optional and when provided is used to unwrap the disk encryption key.
-	KeyEncryptionKey *KeyVaultAndKeyReferenceResponse `pulumi:"keyEncryptionKey"`
+	KeyEncryptionKey  *KeyVaultAndKeyReferenceResponse    `pulumi:"keyEncryptionKey"`
 }
 
 // EncryptionSettingsElementResponseInput is an input type that accepts EncryptionSettingsElementResponseArgs and EncryptionSettingsElementResponseOutput values.
@@ -2728,12 +2580,9 @@ type EncryptionSettingsElementResponseInput interface {
 	ToEncryptionSettingsElementResponseOutputWithContext(context.Context) EncryptionSettingsElementResponseOutput
 }
 
-// Encryption settings for one disk volume.
 type EncryptionSettingsElementResponseArgs struct {
-	// Key Vault Secret Url and vault id of the disk encryption key
 	DiskEncryptionKey KeyVaultAndSecretReferenceResponsePtrInput `pulumi:"diskEncryptionKey"`
-	// Key Vault Key Url and vault id of the key encryption key. KeyEncryptionKey is optional and when provided is used to unwrap the disk encryption key.
-	KeyEncryptionKey KeyVaultAndKeyReferenceResponsePtrInput `pulumi:"keyEncryptionKey"`
+	KeyEncryptionKey  KeyVaultAndKeyReferenceResponsePtrInput    `pulumi:"keyEncryptionKey"`
 }
 
 func (EncryptionSettingsElementResponseArgs) ElementType() reflect.Type {
@@ -2773,7 +2622,6 @@ func (i EncryptionSettingsElementResponseArray) ToEncryptionSettingsElementRespo
 	return pulumi.ToOutputWithContext(ctx, i).(EncryptionSettingsElementResponseArrayOutput)
 }
 
-// Encryption settings for one disk volume.
 type EncryptionSettingsElementResponseOutput struct{ *pulumi.OutputState }
 
 func (EncryptionSettingsElementResponseOutput) ElementType() reflect.Type {
@@ -2788,14 +2636,12 @@ func (o EncryptionSettingsElementResponseOutput) ToEncryptionSettingsElementResp
 	return o
 }
 
-// Key Vault Secret Url and vault id of the disk encryption key
 func (o EncryptionSettingsElementResponseOutput) DiskEncryptionKey() KeyVaultAndSecretReferenceResponsePtrOutput {
 	return o.ApplyT(func(v EncryptionSettingsElementResponse) *KeyVaultAndSecretReferenceResponse {
 		return v.DiskEncryptionKey
 	}).(KeyVaultAndSecretReferenceResponsePtrOutput)
 }
 
-// Key Vault Key Url and vault id of the key encryption key. KeyEncryptionKey is optional and when provided is used to unwrap the disk encryption key.
 func (o EncryptionSettingsElementResponseOutput) KeyEncryptionKey() KeyVaultAndKeyReferenceResponsePtrOutput {
 	return o.ApplyT(func(v EncryptionSettingsElementResponse) *KeyVaultAndKeyReferenceResponse { return v.KeyEncryptionKey }).(KeyVaultAndKeyReferenceResponsePtrOutput)
 }
@@ -2820,11 +2666,8 @@ func (o EncryptionSettingsElementResponseArrayOutput) Index(i pulumi.IntInput) E
 	}).(EncryptionSettingsElementResponseOutput)
 }
 
-// The complex type of the extended location.
 type ExtendedLocation struct {
-	// The name of the extended location.
 	Name *string `pulumi:"name"`
-	// The type of the extended location.
 	Type *string `pulumi:"type"`
 }
 
@@ -2839,11 +2682,8 @@ type ExtendedLocationInput interface {
 	ToExtendedLocationOutputWithContext(context.Context) ExtendedLocationOutput
 }
 
-// The complex type of the extended location.
 type ExtendedLocationArgs struct {
-	// The name of the extended location.
 	Name pulumi.StringPtrInput `pulumi:"name"`
-	// The type of the extended location.
 	Type pulumi.StringPtrInput `pulumi:"type"`
 }
 
@@ -2900,7 +2740,6 @@ func (i *extendedLocationPtrType) ToExtendedLocationPtrOutputWithContext(ctx con
 	return pulumi.ToOutputWithContext(ctx, i).(ExtendedLocationPtrOutput)
 }
 
-// The complex type of the extended location.
 type ExtendedLocationOutput struct{ *pulumi.OutputState }
 
 func (ExtendedLocationOutput) ElementType() reflect.Type {
@@ -2920,17 +2759,15 @@ func (o ExtendedLocationOutput) ToExtendedLocationPtrOutput() ExtendedLocationPt
 }
 
 func (o ExtendedLocationOutput) ToExtendedLocationPtrOutputWithContext(ctx context.Context) ExtendedLocationPtrOutput {
-	return o.ApplyT(func(v ExtendedLocation) *ExtendedLocation {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ExtendedLocation) *ExtendedLocation {
 		return &v
 	}).(ExtendedLocationPtrOutput)
 }
 
-// The name of the extended location.
 func (o ExtendedLocationOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ExtendedLocation) *string { return v.Name }).(pulumi.StringPtrOutput)
 }
 
-// The type of the extended location.
 func (o ExtendedLocationOutput) Type() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ExtendedLocation) *string { return v.Type }).(pulumi.StringPtrOutput)
 }
@@ -2950,10 +2787,15 @@ func (o ExtendedLocationPtrOutput) ToExtendedLocationPtrOutputWithContext(ctx co
 }
 
 func (o ExtendedLocationPtrOutput) Elem() ExtendedLocationOutput {
-	return o.ApplyT(func(v *ExtendedLocation) ExtendedLocation { return *v }).(ExtendedLocationOutput)
+	return o.ApplyT(func(v *ExtendedLocation) ExtendedLocation {
+		if v != nil {
+			return *v
+		}
+		var ret ExtendedLocation
+		return ret
+	}).(ExtendedLocationOutput)
 }
 
-// The name of the extended location.
 func (o ExtendedLocationPtrOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ExtendedLocation) *string {
 		if v == nil {
@@ -2963,7 +2805,6 @@ func (o ExtendedLocationPtrOutput) Name() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The type of the extended location.
 func (o ExtendedLocationPtrOutput) Type() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ExtendedLocation) *string {
 		if v == nil {
@@ -2973,11 +2814,8 @@ func (o ExtendedLocationPtrOutput) Type() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The complex type of the extended location.
 type ExtendedLocationResponse struct {
-	// The name of the extended location.
 	Name *string `pulumi:"name"`
-	// The type of the extended location.
 	Type *string `pulumi:"type"`
 }
 
@@ -2992,11 +2830,8 @@ type ExtendedLocationResponseInput interface {
 	ToExtendedLocationResponseOutputWithContext(context.Context) ExtendedLocationResponseOutput
 }
 
-// The complex type of the extended location.
 type ExtendedLocationResponseArgs struct {
-	// The name of the extended location.
 	Name pulumi.StringPtrInput `pulumi:"name"`
-	// The type of the extended location.
 	Type pulumi.StringPtrInput `pulumi:"type"`
 }
 
@@ -3053,7 +2888,6 @@ func (i *extendedLocationResponsePtrType) ToExtendedLocationResponsePtrOutputWit
 	return pulumi.ToOutputWithContext(ctx, i).(ExtendedLocationResponsePtrOutput)
 }
 
-// The complex type of the extended location.
 type ExtendedLocationResponseOutput struct{ *pulumi.OutputState }
 
 func (ExtendedLocationResponseOutput) ElementType() reflect.Type {
@@ -3073,17 +2907,15 @@ func (o ExtendedLocationResponseOutput) ToExtendedLocationResponsePtrOutput() Ex
 }
 
 func (o ExtendedLocationResponseOutput) ToExtendedLocationResponsePtrOutputWithContext(ctx context.Context) ExtendedLocationResponsePtrOutput {
-	return o.ApplyT(func(v ExtendedLocationResponse) *ExtendedLocationResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ExtendedLocationResponse) *ExtendedLocationResponse {
 		return &v
 	}).(ExtendedLocationResponsePtrOutput)
 }
 
-// The name of the extended location.
 func (o ExtendedLocationResponseOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ExtendedLocationResponse) *string { return v.Name }).(pulumi.StringPtrOutput)
 }
 
-// The type of the extended location.
 func (o ExtendedLocationResponseOutput) Type() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ExtendedLocationResponse) *string { return v.Type }).(pulumi.StringPtrOutput)
 }
@@ -3103,10 +2935,15 @@ func (o ExtendedLocationResponsePtrOutput) ToExtendedLocationResponsePtrOutputWi
 }
 
 func (o ExtendedLocationResponsePtrOutput) Elem() ExtendedLocationResponseOutput {
-	return o.ApplyT(func(v *ExtendedLocationResponse) ExtendedLocationResponse { return *v }).(ExtendedLocationResponseOutput)
+	return o.ApplyT(func(v *ExtendedLocationResponse) ExtendedLocationResponse {
+		if v != nil {
+			return *v
+		}
+		var ret ExtendedLocationResponse
+		return ret
+	}).(ExtendedLocationResponseOutput)
 }
 
-// The name of the extended location.
 func (o ExtendedLocationResponsePtrOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ExtendedLocationResponse) *string {
 		if v == nil {
@@ -3116,7 +2953,6 @@ func (o ExtendedLocationResponsePtrOutput) Name() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The type of the extended location.
 func (o ExtendedLocationResponsePtrOutput) Type() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ExtendedLocationResponse) *string {
 		if v == nil {
@@ -3126,23 +2962,15 @@ func (o ExtendedLocationResponsePtrOutput) Type() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The publishing profile of a gallery image version.
 type GalleryApplicationVersionPublishingProfile struct {
-	// Optional. Whether or not this application reports health.
-	EnableHealthCheck *bool `pulumi:"enableHealthCheck"`
-	// The end of life date of the gallery image version. This property can be used for decommissioning purposes. This property is updatable.
-	EndOfLifeDate *string `pulumi:"endOfLifeDate"`
-	// If set to true, Virtual Machines deployed from the latest version of the Image Definition won't use this Image Version.
-	ExcludeFromLatest *bool               `pulumi:"excludeFromLatest"`
-	ManageActions     *UserArtifactManage `pulumi:"manageActions"`
-	// The number of replicas of the Image Version to be created per region. This property would take effect for a region when regionalReplicaCount is not specified. This property is updatable.
-	ReplicaCount *int `pulumi:"replicaCount"`
-	// The source image from which the Image Version is going to be created.
-	Source UserArtifactSource `pulumi:"source"`
-	// Specifies the storage account type to be used to store the image. This property is not updatable.
-	StorageAccountType *string `pulumi:"storageAccountType"`
-	// The target regions where the Image Version is going to be replicated to. This property is updatable.
-	TargetRegions []TargetRegion `pulumi:"targetRegions"`
+	EnableHealthCheck  *bool               `pulumi:"enableHealthCheck"`
+	EndOfLifeDate      *string             `pulumi:"endOfLifeDate"`
+	ExcludeFromLatest  *bool               `pulumi:"excludeFromLatest"`
+	ManageActions      *UserArtifactManage `pulumi:"manageActions"`
+	ReplicaCount       *int                `pulumi:"replicaCount"`
+	Source             UserArtifactSource  `pulumi:"source"`
+	StorageAccountType *string             `pulumi:"storageAccountType"`
+	TargetRegions      []TargetRegion      `pulumi:"targetRegions"`
 }
 
 // GalleryApplicationVersionPublishingProfileInput is an input type that accepts GalleryApplicationVersionPublishingProfileArgs and GalleryApplicationVersionPublishingProfileOutput values.
@@ -3156,23 +2984,15 @@ type GalleryApplicationVersionPublishingProfileInput interface {
 	ToGalleryApplicationVersionPublishingProfileOutputWithContext(context.Context) GalleryApplicationVersionPublishingProfileOutput
 }
 
-// The publishing profile of a gallery image version.
 type GalleryApplicationVersionPublishingProfileArgs struct {
-	// Optional. Whether or not this application reports health.
-	EnableHealthCheck pulumi.BoolPtrInput `pulumi:"enableHealthCheck"`
-	// The end of life date of the gallery image version. This property can be used for decommissioning purposes. This property is updatable.
-	EndOfLifeDate pulumi.StringPtrInput `pulumi:"endOfLifeDate"`
-	// If set to true, Virtual Machines deployed from the latest version of the Image Definition won't use this Image Version.
-	ExcludeFromLatest pulumi.BoolPtrInput        `pulumi:"excludeFromLatest"`
-	ManageActions     UserArtifactManagePtrInput `pulumi:"manageActions"`
-	// The number of replicas of the Image Version to be created per region. This property would take effect for a region when regionalReplicaCount is not specified. This property is updatable.
-	ReplicaCount pulumi.IntPtrInput `pulumi:"replicaCount"`
-	// The source image from which the Image Version is going to be created.
-	Source UserArtifactSourceInput `pulumi:"source"`
-	// Specifies the storage account type to be used to store the image. This property is not updatable.
-	StorageAccountType pulumi.StringPtrInput `pulumi:"storageAccountType"`
-	// The target regions where the Image Version is going to be replicated to. This property is updatable.
-	TargetRegions TargetRegionArrayInput `pulumi:"targetRegions"`
+	EnableHealthCheck  pulumi.BoolPtrInput        `pulumi:"enableHealthCheck"`
+	EndOfLifeDate      pulumi.StringPtrInput      `pulumi:"endOfLifeDate"`
+	ExcludeFromLatest  pulumi.BoolPtrInput        `pulumi:"excludeFromLatest"`
+	ManageActions      UserArtifactManagePtrInput `pulumi:"manageActions"`
+	ReplicaCount       pulumi.IntPtrInput         `pulumi:"replicaCount"`
+	Source             UserArtifactSourceInput    `pulumi:"source"`
+	StorageAccountType pulumi.StringPtrInput      `pulumi:"storageAccountType"`
+	TargetRegions      TargetRegionArrayInput     `pulumi:"targetRegions"`
 }
 
 func (GalleryApplicationVersionPublishingProfileArgs) ElementType() reflect.Type {
@@ -3228,7 +3048,6 @@ func (i *galleryApplicationVersionPublishingProfilePtrType) ToGalleryApplication
 	return pulumi.ToOutputWithContext(ctx, i).(GalleryApplicationVersionPublishingProfilePtrOutput)
 }
 
-// The publishing profile of a gallery image version.
 type GalleryApplicationVersionPublishingProfileOutput struct{ *pulumi.OutputState }
 
 func (GalleryApplicationVersionPublishingProfileOutput) ElementType() reflect.Type {
@@ -3248,22 +3067,19 @@ func (o GalleryApplicationVersionPublishingProfileOutput) ToGalleryApplicationVe
 }
 
 func (o GalleryApplicationVersionPublishingProfileOutput) ToGalleryApplicationVersionPublishingProfilePtrOutputWithContext(ctx context.Context) GalleryApplicationVersionPublishingProfilePtrOutput {
-	return o.ApplyT(func(v GalleryApplicationVersionPublishingProfile) *GalleryApplicationVersionPublishingProfile {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v GalleryApplicationVersionPublishingProfile) *GalleryApplicationVersionPublishingProfile {
 		return &v
 	}).(GalleryApplicationVersionPublishingProfilePtrOutput)
 }
 
-// Optional. Whether or not this application reports health.
 func (o GalleryApplicationVersionPublishingProfileOutput) EnableHealthCheck() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v GalleryApplicationVersionPublishingProfile) *bool { return v.EnableHealthCheck }).(pulumi.BoolPtrOutput)
 }
 
-// The end of life date of the gallery image version. This property can be used for decommissioning purposes. This property is updatable.
 func (o GalleryApplicationVersionPublishingProfileOutput) EndOfLifeDate() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v GalleryApplicationVersionPublishingProfile) *string { return v.EndOfLifeDate }).(pulumi.StringPtrOutput)
 }
 
-// If set to true, Virtual Machines deployed from the latest version of the Image Definition won't use this Image Version.
 func (o GalleryApplicationVersionPublishingProfileOutput) ExcludeFromLatest() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v GalleryApplicationVersionPublishingProfile) *bool { return v.ExcludeFromLatest }).(pulumi.BoolPtrOutput)
 }
@@ -3272,22 +3088,18 @@ func (o GalleryApplicationVersionPublishingProfileOutput) ManageActions() UserAr
 	return o.ApplyT(func(v GalleryApplicationVersionPublishingProfile) *UserArtifactManage { return v.ManageActions }).(UserArtifactManagePtrOutput)
 }
 
-// The number of replicas of the Image Version to be created per region. This property would take effect for a region when regionalReplicaCount is not specified. This property is updatable.
 func (o GalleryApplicationVersionPublishingProfileOutput) ReplicaCount() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v GalleryApplicationVersionPublishingProfile) *int { return v.ReplicaCount }).(pulumi.IntPtrOutput)
 }
 
-// The source image from which the Image Version is going to be created.
 func (o GalleryApplicationVersionPublishingProfileOutput) Source() UserArtifactSourceOutput {
 	return o.ApplyT(func(v GalleryApplicationVersionPublishingProfile) UserArtifactSource { return v.Source }).(UserArtifactSourceOutput)
 }
 
-// Specifies the storage account type to be used to store the image. This property is not updatable.
 func (o GalleryApplicationVersionPublishingProfileOutput) StorageAccountType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v GalleryApplicationVersionPublishingProfile) *string { return v.StorageAccountType }).(pulumi.StringPtrOutput)
 }
 
-// The target regions where the Image Version is going to be replicated to. This property is updatable.
 func (o GalleryApplicationVersionPublishingProfileOutput) TargetRegions() TargetRegionArrayOutput {
 	return o.ApplyT(func(v GalleryApplicationVersionPublishingProfile) []TargetRegion { return v.TargetRegions }).(TargetRegionArrayOutput)
 }
@@ -3308,11 +3120,14 @@ func (o GalleryApplicationVersionPublishingProfilePtrOutput) ToGalleryApplicatio
 
 func (o GalleryApplicationVersionPublishingProfilePtrOutput) Elem() GalleryApplicationVersionPublishingProfileOutput {
 	return o.ApplyT(func(v *GalleryApplicationVersionPublishingProfile) GalleryApplicationVersionPublishingProfile {
-		return *v
+		if v != nil {
+			return *v
+		}
+		var ret GalleryApplicationVersionPublishingProfile
+		return ret
 	}).(GalleryApplicationVersionPublishingProfileOutput)
 }
 
-// Optional. Whether or not this application reports health.
 func (o GalleryApplicationVersionPublishingProfilePtrOutput) EnableHealthCheck() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *GalleryApplicationVersionPublishingProfile) *bool {
 		if v == nil {
@@ -3322,7 +3137,6 @@ func (o GalleryApplicationVersionPublishingProfilePtrOutput) EnableHealthCheck()
 	}).(pulumi.BoolPtrOutput)
 }
 
-// The end of life date of the gallery image version. This property can be used for decommissioning purposes. This property is updatable.
 func (o GalleryApplicationVersionPublishingProfilePtrOutput) EndOfLifeDate() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *GalleryApplicationVersionPublishingProfile) *string {
 		if v == nil {
@@ -3332,7 +3146,6 @@ func (o GalleryApplicationVersionPublishingProfilePtrOutput) EndOfLifeDate() pul
 	}).(pulumi.StringPtrOutput)
 }
 
-// If set to true, Virtual Machines deployed from the latest version of the Image Definition won't use this Image Version.
 func (o GalleryApplicationVersionPublishingProfilePtrOutput) ExcludeFromLatest() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *GalleryApplicationVersionPublishingProfile) *bool {
 		if v == nil {
@@ -3351,7 +3164,6 @@ func (o GalleryApplicationVersionPublishingProfilePtrOutput) ManageActions() Use
 	}).(UserArtifactManagePtrOutput)
 }
 
-// The number of replicas of the Image Version to be created per region. This property would take effect for a region when regionalReplicaCount is not specified. This property is updatable.
 func (o GalleryApplicationVersionPublishingProfilePtrOutput) ReplicaCount() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *GalleryApplicationVersionPublishingProfile) *int {
 		if v == nil {
@@ -3361,7 +3173,6 @@ func (o GalleryApplicationVersionPublishingProfilePtrOutput) ReplicaCount() pulu
 	}).(pulumi.IntPtrOutput)
 }
 
-// The source image from which the Image Version is going to be created.
 func (o GalleryApplicationVersionPublishingProfilePtrOutput) Source() UserArtifactSourcePtrOutput {
 	return o.ApplyT(func(v *GalleryApplicationVersionPublishingProfile) *UserArtifactSource {
 		if v == nil {
@@ -3371,7 +3182,6 @@ func (o GalleryApplicationVersionPublishingProfilePtrOutput) Source() UserArtifa
 	}).(UserArtifactSourcePtrOutput)
 }
 
-// Specifies the storage account type to be used to store the image. This property is not updatable.
 func (o GalleryApplicationVersionPublishingProfilePtrOutput) StorageAccountType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *GalleryApplicationVersionPublishingProfile) *string {
 		if v == nil {
@@ -3381,7 +3191,6 @@ func (o GalleryApplicationVersionPublishingProfilePtrOutput) StorageAccountType(
 	}).(pulumi.StringPtrOutput)
 }
 
-// The target regions where the Image Version is going to be replicated to. This property is updatable.
 func (o GalleryApplicationVersionPublishingProfilePtrOutput) TargetRegions() TargetRegionArrayOutput {
 	return o.ApplyT(func(v *GalleryApplicationVersionPublishingProfile) []TargetRegion {
 		if v == nil {
@@ -3391,25 +3200,16 @@ func (o GalleryApplicationVersionPublishingProfilePtrOutput) TargetRegions() Tar
 	}).(TargetRegionArrayOutput)
 }
 
-// The publishing profile of a gallery image version.
 type GalleryApplicationVersionPublishingProfileResponse struct {
-	// Optional. Whether or not this application reports health.
-	EnableHealthCheck *bool `pulumi:"enableHealthCheck"`
-	// The end of life date of the gallery image version. This property can be used for decommissioning purposes. This property is updatable.
-	EndOfLifeDate *string `pulumi:"endOfLifeDate"`
-	// If set to true, Virtual Machines deployed from the latest version of the Image Definition won't use this Image Version.
-	ExcludeFromLatest *bool                       `pulumi:"excludeFromLatest"`
-	ManageActions     *UserArtifactManageResponse `pulumi:"manageActions"`
-	// The timestamp for when the gallery image version is published.
-	PublishedDate string `pulumi:"publishedDate"`
-	// The number of replicas of the Image Version to be created per region. This property would take effect for a region when regionalReplicaCount is not specified. This property is updatable.
-	ReplicaCount *int `pulumi:"replicaCount"`
-	// The source image from which the Image Version is going to be created.
-	Source UserArtifactSourceResponse `pulumi:"source"`
-	// Specifies the storage account type to be used to store the image. This property is not updatable.
-	StorageAccountType *string `pulumi:"storageAccountType"`
-	// The target regions where the Image Version is going to be replicated to. This property is updatable.
-	TargetRegions []TargetRegionResponse `pulumi:"targetRegions"`
+	EnableHealthCheck  *bool                       `pulumi:"enableHealthCheck"`
+	EndOfLifeDate      *string                     `pulumi:"endOfLifeDate"`
+	ExcludeFromLatest  *bool                       `pulumi:"excludeFromLatest"`
+	ManageActions      *UserArtifactManageResponse `pulumi:"manageActions"`
+	PublishedDate      string                      `pulumi:"publishedDate"`
+	ReplicaCount       *int                        `pulumi:"replicaCount"`
+	Source             UserArtifactSourceResponse  `pulumi:"source"`
+	StorageAccountType *string                     `pulumi:"storageAccountType"`
+	TargetRegions      []TargetRegionResponse      `pulumi:"targetRegions"`
 }
 
 // GalleryApplicationVersionPublishingProfileResponseInput is an input type that accepts GalleryApplicationVersionPublishingProfileResponseArgs and GalleryApplicationVersionPublishingProfileResponseOutput values.
@@ -3423,25 +3223,16 @@ type GalleryApplicationVersionPublishingProfileResponseInput interface {
 	ToGalleryApplicationVersionPublishingProfileResponseOutputWithContext(context.Context) GalleryApplicationVersionPublishingProfileResponseOutput
 }
 
-// The publishing profile of a gallery image version.
 type GalleryApplicationVersionPublishingProfileResponseArgs struct {
-	// Optional. Whether or not this application reports health.
-	EnableHealthCheck pulumi.BoolPtrInput `pulumi:"enableHealthCheck"`
-	// The end of life date of the gallery image version. This property can be used for decommissioning purposes. This property is updatable.
-	EndOfLifeDate pulumi.StringPtrInput `pulumi:"endOfLifeDate"`
-	// If set to true, Virtual Machines deployed from the latest version of the Image Definition won't use this Image Version.
-	ExcludeFromLatest pulumi.BoolPtrInput                `pulumi:"excludeFromLatest"`
-	ManageActions     UserArtifactManageResponsePtrInput `pulumi:"manageActions"`
-	// The timestamp for when the gallery image version is published.
-	PublishedDate pulumi.StringInput `pulumi:"publishedDate"`
-	// The number of replicas of the Image Version to be created per region. This property would take effect for a region when regionalReplicaCount is not specified. This property is updatable.
-	ReplicaCount pulumi.IntPtrInput `pulumi:"replicaCount"`
-	// The source image from which the Image Version is going to be created.
-	Source UserArtifactSourceResponseInput `pulumi:"source"`
-	// Specifies the storage account type to be used to store the image. This property is not updatable.
-	StorageAccountType pulumi.StringPtrInput `pulumi:"storageAccountType"`
-	// The target regions where the Image Version is going to be replicated to. This property is updatable.
-	TargetRegions TargetRegionResponseArrayInput `pulumi:"targetRegions"`
+	EnableHealthCheck  pulumi.BoolPtrInput                `pulumi:"enableHealthCheck"`
+	EndOfLifeDate      pulumi.StringPtrInput              `pulumi:"endOfLifeDate"`
+	ExcludeFromLatest  pulumi.BoolPtrInput                `pulumi:"excludeFromLatest"`
+	ManageActions      UserArtifactManageResponsePtrInput `pulumi:"manageActions"`
+	PublishedDate      pulumi.StringInput                 `pulumi:"publishedDate"`
+	ReplicaCount       pulumi.IntPtrInput                 `pulumi:"replicaCount"`
+	Source             UserArtifactSourceResponseInput    `pulumi:"source"`
+	StorageAccountType pulumi.StringPtrInput              `pulumi:"storageAccountType"`
+	TargetRegions      TargetRegionResponseArrayInput     `pulumi:"targetRegions"`
 }
 
 func (GalleryApplicationVersionPublishingProfileResponseArgs) ElementType() reflect.Type {
@@ -3497,7 +3288,6 @@ func (i *galleryApplicationVersionPublishingProfileResponsePtrType) ToGalleryApp
 	return pulumi.ToOutputWithContext(ctx, i).(GalleryApplicationVersionPublishingProfileResponsePtrOutput)
 }
 
-// The publishing profile of a gallery image version.
 type GalleryApplicationVersionPublishingProfileResponseOutput struct{ *pulumi.OutputState }
 
 func (GalleryApplicationVersionPublishingProfileResponseOutput) ElementType() reflect.Type {
@@ -3517,22 +3307,19 @@ func (o GalleryApplicationVersionPublishingProfileResponseOutput) ToGalleryAppli
 }
 
 func (o GalleryApplicationVersionPublishingProfileResponseOutput) ToGalleryApplicationVersionPublishingProfileResponsePtrOutputWithContext(ctx context.Context) GalleryApplicationVersionPublishingProfileResponsePtrOutput {
-	return o.ApplyT(func(v GalleryApplicationVersionPublishingProfileResponse) *GalleryApplicationVersionPublishingProfileResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v GalleryApplicationVersionPublishingProfileResponse) *GalleryApplicationVersionPublishingProfileResponse {
 		return &v
 	}).(GalleryApplicationVersionPublishingProfileResponsePtrOutput)
 }
 
-// Optional. Whether or not this application reports health.
 func (o GalleryApplicationVersionPublishingProfileResponseOutput) EnableHealthCheck() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v GalleryApplicationVersionPublishingProfileResponse) *bool { return v.EnableHealthCheck }).(pulumi.BoolPtrOutput)
 }
 
-// The end of life date of the gallery image version. This property can be used for decommissioning purposes. This property is updatable.
 func (o GalleryApplicationVersionPublishingProfileResponseOutput) EndOfLifeDate() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v GalleryApplicationVersionPublishingProfileResponse) *string { return v.EndOfLifeDate }).(pulumi.StringPtrOutput)
 }
 
-// If set to true, Virtual Machines deployed from the latest version of the Image Definition won't use this Image Version.
 func (o GalleryApplicationVersionPublishingProfileResponseOutput) ExcludeFromLatest() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v GalleryApplicationVersionPublishingProfileResponse) *bool { return v.ExcludeFromLatest }).(pulumi.BoolPtrOutput)
 }
@@ -3543,27 +3330,22 @@ func (o GalleryApplicationVersionPublishingProfileResponseOutput) ManageActions(
 	}).(UserArtifactManageResponsePtrOutput)
 }
 
-// The timestamp for when the gallery image version is published.
 func (o GalleryApplicationVersionPublishingProfileResponseOutput) PublishedDate() pulumi.StringOutput {
 	return o.ApplyT(func(v GalleryApplicationVersionPublishingProfileResponse) string { return v.PublishedDate }).(pulumi.StringOutput)
 }
 
-// The number of replicas of the Image Version to be created per region. This property would take effect for a region when regionalReplicaCount is not specified. This property is updatable.
 func (o GalleryApplicationVersionPublishingProfileResponseOutput) ReplicaCount() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v GalleryApplicationVersionPublishingProfileResponse) *int { return v.ReplicaCount }).(pulumi.IntPtrOutput)
 }
 
-// The source image from which the Image Version is going to be created.
 func (o GalleryApplicationVersionPublishingProfileResponseOutput) Source() UserArtifactSourceResponseOutput {
 	return o.ApplyT(func(v GalleryApplicationVersionPublishingProfileResponse) UserArtifactSourceResponse { return v.Source }).(UserArtifactSourceResponseOutput)
 }
 
-// Specifies the storage account type to be used to store the image. This property is not updatable.
 func (o GalleryApplicationVersionPublishingProfileResponseOutput) StorageAccountType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v GalleryApplicationVersionPublishingProfileResponse) *string { return v.StorageAccountType }).(pulumi.StringPtrOutput)
 }
 
-// The target regions where the Image Version is going to be replicated to. This property is updatable.
 func (o GalleryApplicationVersionPublishingProfileResponseOutput) TargetRegions() TargetRegionResponseArrayOutput {
 	return o.ApplyT(func(v GalleryApplicationVersionPublishingProfileResponse) []TargetRegionResponse {
 		return v.TargetRegions
@@ -3586,11 +3368,14 @@ func (o GalleryApplicationVersionPublishingProfileResponsePtrOutput) ToGalleryAp
 
 func (o GalleryApplicationVersionPublishingProfileResponsePtrOutput) Elem() GalleryApplicationVersionPublishingProfileResponseOutput {
 	return o.ApplyT(func(v *GalleryApplicationVersionPublishingProfileResponse) GalleryApplicationVersionPublishingProfileResponse {
-		return *v
+		if v != nil {
+			return *v
+		}
+		var ret GalleryApplicationVersionPublishingProfileResponse
+		return ret
 	}).(GalleryApplicationVersionPublishingProfileResponseOutput)
 }
 
-// Optional. Whether or not this application reports health.
 func (o GalleryApplicationVersionPublishingProfileResponsePtrOutput) EnableHealthCheck() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *GalleryApplicationVersionPublishingProfileResponse) *bool {
 		if v == nil {
@@ -3600,7 +3385,6 @@ func (o GalleryApplicationVersionPublishingProfileResponsePtrOutput) EnableHealt
 	}).(pulumi.BoolPtrOutput)
 }
 
-// The end of life date of the gallery image version. This property can be used for decommissioning purposes. This property is updatable.
 func (o GalleryApplicationVersionPublishingProfileResponsePtrOutput) EndOfLifeDate() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *GalleryApplicationVersionPublishingProfileResponse) *string {
 		if v == nil {
@@ -3610,7 +3394,6 @@ func (o GalleryApplicationVersionPublishingProfileResponsePtrOutput) EndOfLifeDa
 	}).(pulumi.StringPtrOutput)
 }
 
-// If set to true, Virtual Machines deployed from the latest version of the Image Definition won't use this Image Version.
 func (o GalleryApplicationVersionPublishingProfileResponsePtrOutput) ExcludeFromLatest() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *GalleryApplicationVersionPublishingProfileResponse) *bool {
 		if v == nil {
@@ -3629,7 +3412,6 @@ func (o GalleryApplicationVersionPublishingProfileResponsePtrOutput) ManageActio
 	}).(UserArtifactManageResponsePtrOutput)
 }
 
-// The timestamp for when the gallery image version is published.
 func (o GalleryApplicationVersionPublishingProfileResponsePtrOutput) PublishedDate() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *GalleryApplicationVersionPublishingProfileResponse) *string {
 		if v == nil {
@@ -3639,7 +3421,6 @@ func (o GalleryApplicationVersionPublishingProfileResponsePtrOutput) PublishedDa
 	}).(pulumi.StringPtrOutput)
 }
 
-// The number of replicas of the Image Version to be created per region. This property would take effect for a region when regionalReplicaCount is not specified. This property is updatable.
 func (o GalleryApplicationVersionPublishingProfileResponsePtrOutput) ReplicaCount() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *GalleryApplicationVersionPublishingProfileResponse) *int {
 		if v == nil {
@@ -3649,7 +3430,6 @@ func (o GalleryApplicationVersionPublishingProfileResponsePtrOutput) ReplicaCoun
 	}).(pulumi.IntPtrOutput)
 }
 
-// The source image from which the Image Version is going to be created.
 func (o GalleryApplicationVersionPublishingProfileResponsePtrOutput) Source() UserArtifactSourceResponsePtrOutput {
 	return o.ApplyT(func(v *GalleryApplicationVersionPublishingProfileResponse) *UserArtifactSourceResponse {
 		if v == nil {
@@ -3659,7 +3439,6 @@ func (o GalleryApplicationVersionPublishingProfileResponsePtrOutput) Source() Us
 	}).(UserArtifactSourceResponsePtrOutput)
 }
 
-// Specifies the storage account type to be used to store the image. This property is not updatable.
 func (o GalleryApplicationVersionPublishingProfileResponsePtrOutput) StorageAccountType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *GalleryApplicationVersionPublishingProfileResponse) *string {
 		if v == nil {
@@ -3669,7 +3448,6 @@ func (o GalleryApplicationVersionPublishingProfileResponsePtrOutput) StorageAcco
 	}).(pulumi.StringPtrOutput)
 }
 
-// The target regions where the Image Version is going to be replicated to. This property is updatable.
 func (o GalleryApplicationVersionPublishingProfileResponsePtrOutput) TargetRegions() TargetRegionResponseArrayOutput {
 	return o.ApplyT(func(v *GalleryApplicationVersionPublishingProfileResponse) []TargetRegionResponse {
 		if v == nil {
@@ -3679,11 +3457,8 @@ func (o GalleryApplicationVersionPublishingProfileResponsePtrOutput) TargetRegio
 	}).(TargetRegionResponseArrayOutput)
 }
 
-// The gallery artifact version source.
 type GalleryArtifactVersionSource struct {
-	// The id of the gallery artifact version source. Can specify a disk uri, snapshot uri, user image or storage account resource.
-	Id *string `pulumi:"id"`
-	// The uri of the gallery artifact version source. Currently used to specify vhd/blob source.
+	Id  *string `pulumi:"id"`
 	Uri *string `pulumi:"uri"`
 }
 
@@ -3698,11 +3473,8 @@ type GalleryArtifactVersionSourceInput interface {
 	ToGalleryArtifactVersionSourceOutputWithContext(context.Context) GalleryArtifactVersionSourceOutput
 }
 
-// The gallery artifact version source.
 type GalleryArtifactVersionSourceArgs struct {
-	// The id of the gallery artifact version source. Can specify a disk uri, snapshot uri, user image or storage account resource.
-	Id pulumi.StringPtrInput `pulumi:"id"`
-	// The uri of the gallery artifact version source. Currently used to specify vhd/blob source.
+	Id  pulumi.StringPtrInput `pulumi:"id"`
 	Uri pulumi.StringPtrInput `pulumi:"uri"`
 }
 
@@ -3759,7 +3531,6 @@ func (i *galleryArtifactVersionSourcePtrType) ToGalleryArtifactVersionSourcePtrO
 	return pulumi.ToOutputWithContext(ctx, i).(GalleryArtifactVersionSourcePtrOutput)
 }
 
-// The gallery artifact version source.
 type GalleryArtifactVersionSourceOutput struct{ *pulumi.OutputState }
 
 func (GalleryArtifactVersionSourceOutput) ElementType() reflect.Type {
@@ -3779,17 +3550,15 @@ func (o GalleryArtifactVersionSourceOutput) ToGalleryArtifactVersionSourcePtrOut
 }
 
 func (o GalleryArtifactVersionSourceOutput) ToGalleryArtifactVersionSourcePtrOutputWithContext(ctx context.Context) GalleryArtifactVersionSourcePtrOutput {
-	return o.ApplyT(func(v GalleryArtifactVersionSource) *GalleryArtifactVersionSource {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v GalleryArtifactVersionSource) *GalleryArtifactVersionSource {
 		return &v
 	}).(GalleryArtifactVersionSourcePtrOutput)
 }
 
-// The id of the gallery artifact version source. Can specify a disk uri, snapshot uri, user image or storage account resource.
 func (o GalleryArtifactVersionSourceOutput) Id() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v GalleryArtifactVersionSource) *string { return v.Id }).(pulumi.StringPtrOutput)
 }
 
-// The uri of the gallery artifact version source. Currently used to specify vhd/blob source.
 func (o GalleryArtifactVersionSourceOutput) Uri() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v GalleryArtifactVersionSource) *string { return v.Uri }).(pulumi.StringPtrOutput)
 }
@@ -3809,10 +3578,15 @@ func (o GalleryArtifactVersionSourcePtrOutput) ToGalleryArtifactVersionSourcePtr
 }
 
 func (o GalleryArtifactVersionSourcePtrOutput) Elem() GalleryArtifactVersionSourceOutput {
-	return o.ApplyT(func(v *GalleryArtifactVersionSource) GalleryArtifactVersionSource { return *v }).(GalleryArtifactVersionSourceOutput)
+	return o.ApplyT(func(v *GalleryArtifactVersionSource) GalleryArtifactVersionSource {
+		if v != nil {
+			return *v
+		}
+		var ret GalleryArtifactVersionSource
+		return ret
+	}).(GalleryArtifactVersionSourceOutput)
 }
 
-// The id of the gallery artifact version source. Can specify a disk uri, snapshot uri, user image or storage account resource.
 func (o GalleryArtifactVersionSourcePtrOutput) Id() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *GalleryArtifactVersionSource) *string {
 		if v == nil {
@@ -3822,7 +3596,6 @@ func (o GalleryArtifactVersionSourcePtrOutput) Id() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The uri of the gallery artifact version source. Currently used to specify vhd/blob source.
 func (o GalleryArtifactVersionSourcePtrOutput) Uri() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *GalleryArtifactVersionSource) *string {
 		if v == nil {
@@ -3832,11 +3605,8 @@ func (o GalleryArtifactVersionSourcePtrOutput) Uri() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The gallery artifact version source.
 type GalleryArtifactVersionSourceResponse struct {
-	// The id of the gallery artifact version source. Can specify a disk uri, snapshot uri, user image or storage account resource.
-	Id *string `pulumi:"id"`
-	// The uri of the gallery artifact version source. Currently used to specify vhd/blob source.
+	Id  *string `pulumi:"id"`
 	Uri *string `pulumi:"uri"`
 }
 
@@ -3851,11 +3621,8 @@ type GalleryArtifactVersionSourceResponseInput interface {
 	ToGalleryArtifactVersionSourceResponseOutputWithContext(context.Context) GalleryArtifactVersionSourceResponseOutput
 }
 
-// The gallery artifact version source.
 type GalleryArtifactVersionSourceResponseArgs struct {
-	// The id of the gallery artifact version source. Can specify a disk uri, snapshot uri, user image or storage account resource.
-	Id pulumi.StringPtrInput `pulumi:"id"`
-	// The uri of the gallery artifact version source. Currently used to specify vhd/blob source.
+	Id  pulumi.StringPtrInput `pulumi:"id"`
 	Uri pulumi.StringPtrInput `pulumi:"uri"`
 }
 
@@ -3912,7 +3679,6 @@ func (i *galleryArtifactVersionSourceResponsePtrType) ToGalleryArtifactVersionSo
 	return pulumi.ToOutputWithContext(ctx, i).(GalleryArtifactVersionSourceResponsePtrOutput)
 }
 
-// The gallery artifact version source.
 type GalleryArtifactVersionSourceResponseOutput struct{ *pulumi.OutputState }
 
 func (GalleryArtifactVersionSourceResponseOutput) ElementType() reflect.Type {
@@ -3932,17 +3698,15 @@ func (o GalleryArtifactVersionSourceResponseOutput) ToGalleryArtifactVersionSour
 }
 
 func (o GalleryArtifactVersionSourceResponseOutput) ToGalleryArtifactVersionSourceResponsePtrOutputWithContext(ctx context.Context) GalleryArtifactVersionSourceResponsePtrOutput {
-	return o.ApplyT(func(v GalleryArtifactVersionSourceResponse) *GalleryArtifactVersionSourceResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v GalleryArtifactVersionSourceResponse) *GalleryArtifactVersionSourceResponse {
 		return &v
 	}).(GalleryArtifactVersionSourceResponsePtrOutput)
 }
 
-// The id of the gallery artifact version source. Can specify a disk uri, snapshot uri, user image or storage account resource.
 func (o GalleryArtifactVersionSourceResponseOutput) Id() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v GalleryArtifactVersionSourceResponse) *string { return v.Id }).(pulumi.StringPtrOutput)
 }
 
-// The uri of the gallery artifact version source. Currently used to specify vhd/blob source.
 func (o GalleryArtifactVersionSourceResponseOutput) Uri() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v GalleryArtifactVersionSourceResponse) *string { return v.Uri }).(pulumi.StringPtrOutput)
 }
@@ -3962,10 +3726,15 @@ func (o GalleryArtifactVersionSourceResponsePtrOutput) ToGalleryArtifactVersionS
 }
 
 func (o GalleryArtifactVersionSourceResponsePtrOutput) Elem() GalleryArtifactVersionSourceResponseOutput {
-	return o.ApplyT(func(v *GalleryArtifactVersionSourceResponse) GalleryArtifactVersionSourceResponse { return *v }).(GalleryArtifactVersionSourceResponseOutput)
+	return o.ApplyT(func(v *GalleryArtifactVersionSourceResponse) GalleryArtifactVersionSourceResponse {
+		if v != nil {
+			return *v
+		}
+		var ret GalleryArtifactVersionSourceResponse
+		return ret
+	}).(GalleryArtifactVersionSourceResponseOutput)
 }
 
-// The id of the gallery artifact version source. Can specify a disk uri, snapshot uri, user image or storage account resource.
 func (o GalleryArtifactVersionSourceResponsePtrOutput) Id() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *GalleryArtifactVersionSourceResponse) *string {
 		if v == nil {
@@ -3975,7 +3744,6 @@ func (o GalleryArtifactVersionSourceResponsePtrOutput) Id() pulumi.StringPtrOutp
 	}).(pulumi.StringPtrOutput)
 }
 
-// The uri of the gallery artifact version source. Currently used to specify vhd/blob source.
 func (o GalleryArtifactVersionSourceResponsePtrOutput) Uri() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *GalleryArtifactVersionSourceResponse) *string {
 		if v == nil {
@@ -3985,14 +3753,10 @@ func (o GalleryArtifactVersionSourceResponsePtrOutput) Uri() pulumi.StringPtrOut
 	}).(pulumi.StringPtrOutput)
 }
 
-// This is the data disk image.
 type GalleryDataDiskImage struct {
-	// The host caching of the disk. Valid values are 'None', 'ReadOnly', and 'ReadWrite'
-	HostCaching *string `pulumi:"hostCaching"`
-	// This property specifies the logical unit number of the data disk. This value is used to identify data disks within the Virtual Machine and therefore must be unique for each data disk attached to the Virtual Machine.
-	Lun int `pulumi:"lun"`
-	// The gallery artifact version source.
-	Source *GalleryArtifactVersionSource `pulumi:"source"`
+	HostCaching *HostCaching                  `pulumi:"hostCaching"`
+	Lun         int                           `pulumi:"lun"`
+	Source      *GalleryArtifactVersionSource `pulumi:"source"`
 }
 
 // GalleryDataDiskImageInput is an input type that accepts GalleryDataDiskImageArgs and GalleryDataDiskImageOutput values.
@@ -4006,14 +3770,10 @@ type GalleryDataDiskImageInput interface {
 	ToGalleryDataDiskImageOutputWithContext(context.Context) GalleryDataDiskImageOutput
 }
 
-// This is the data disk image.
 type GalleryDataDiskImageArgs struct {
-	// The host caching of the disk. Valid values are 'None', 'ReadOnly', and 'ReadWrite'
-	HostCaching *HostCaching `pulumi:"hostCaching"`
-	// This property specifies the logical unit number of the data disk. This value is used to identify data disks within the Virtual Machine and therefore must be unique for each data disk attached to the Virtual Machine.
-	Lun pulumi.IntInput `pulumi:"lun"`
-	// The gallery artifact version source.
-	Source GalleryArtifactVersionSourcePtrInput `pulumi:"source"`
+	HostCaching HostCachingPtrInput                  `pulumi:"hostCaching"`
+	Lun         pulumi.IntInput                      `pulumi:"lun"`
+	Source      GalleryArtifactVersionSourcePtrInput `pulumi:"source"`
 }
 
 func (GalleryDataDiskImageArgs) ElementType() reflect.Type {
@@ -4053,7 +3813,6 @@ func (i GalleryDataDiskImageArray) ToGalleryDataDiskImageArrayOutputWithContext(
 	return pulumi.ToOutputWithContext(ctx, i).(GalleryDataDiskImageArrayOutput)
 }
 
-// This is the data disk image.
 type GalleryDataDiskImageOutput struct{ *pulumi.OutputState }
 
 func (GalleryDataDiskImageOutput) ElementType() reflect.Type {
@@ -4068,17 +3827,14 @@ func (o GalleryDataDiskImageOutput) ToGalleryDataDiskImageOutputWithContext(ctx 
 	return o
 }
 
-// The host caching of the disk. Valid values are 'None', 'ReadOnly', and 'ReadWrite'
-func (o GalleryDataDiskImageOutput) HostCaching() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v GalleryDataDiskImage) *string { return v.HostCaching }).(pulumi.StringPtrOutput)
+func (o GalleryDataDiskImageOutput) HostCaching() HostCachingPtrOutput {
+	return o.ApplyT(func(v GalleryDataDiskImage) *HostCaching { return v.HostCaching }).(HostCachingPtrOutput)
 }
 
-// This property specifies the logical unit number of the data disk. This value is used to identify data disks within the Virtual Machine and therefore must be unique for each data disk attached to the Virtual Machine.
 func (o GalleryDataDiskImageOutput) Lun() pulumi.IntOutput {
 	return o.ApplyT(func(v GalleryDataDiskImage) int { return v.Lun }).(pulumi.IntOutput)
 }
 
-// The gallery artifact version source.
 func (o GalleryDataDiskImageOutput) Source() GalleryArtifactVersionSourcePtrOutput {
 	return o.ApplyT(func(v GalleryDataDiskImage) *GalleryArtifactVersionSource { return v.Source }).(GalleryArtifactVersionSourcePtrOutput)
 }
@@ -4103,16 +3859,11 @@ func (o GalleryDataDiskImageArrayOutput) Index(i pulumi.IntInput) GalleryDataDis
 	}).(GalleryDataDiskImageOutput)
 }
 
-// This is the data disk image.
 type GalleryDataDiskImageResponse struct {
-	// The host caching of the disk. Valid values are 'None', 'ReadOnly', and 'ReadWrite'
-	HostCaching *string `pulumi:"hostCaching"`
-	// This property specifies the logical unit number of the data disk. This value is used to identify data disks within the Virtual Machine and therefore must be unique for each data disk attached to the Virtual Machine.
-	Lun int `pulumi:"lun"`
-	// This property indicates the size of the VHD to be created.
-	SizeInGB int `pulumi:"sizeInGB"`
-	// The gallery artifact version source.
-	Source *GalleryArtifactVersionSourceResponse `pulumi:"source"`
+	HostCaching *string                               `pulumi:"hostCaching"`
+	Lun         int                                   `pulumi:"lun"`
+	SizeInGB    int                                   `pulumi:"sizeInGB"`
+	Source      *GalleryArtifactVersionSourceResponse `pulumi:"source"`
 }
 
 // GalleryDataDiskImageResponseInput is an input type that accepts GalleryDataDiskImageResponseArgs and GalleryDataDiskImageResponseOutput values.
@@ -4126,16 +3877,11 @@ type GalleryDataDiskImageResponseInput interface {
 	ToGalleryDataDiskImageResponseOutputWithContext(context.Context) GalleryDataDiskImageResponseOutput
 }
 
-// This is the data disk image.
 type GalleryDataDiskImageResponseArgs struct {
-	// The host caching of the disk. Valid values are 'None', 'ReadOnly', and 'ReadWrite'
-	HostCaching pulumi.StringPtrInput `pulumi:"hostCaching"`
-	// This property specifies the logical unit number of the data disk. This value is used to identify data disks within the Virtual Machine and therefore must be unique for each data disk attached to the Virtual Machine.
-	Lun pulumi.IntInput `pulumi:"lun"`
-	// This property indicates the size of the VHD to be created.
-	SizeInGB pulumi.IntInput `pulumi:"sizeInGB"`
-	// The gallery artifact version source.
-	Source GalleryArtifactVersionSourceResponsePtrInput `pulumi:"source"`
+	HostCaching pulumi.StringPtrInput                        `pulumi:"hostCaching"`
+	Lun         pulumi.IntInput                              `pulumi:"lun"`
+	SizeInGB    pulumi.IntInput                              `pulumi:"sizeInGB"`
+	Source      GalleryArtifactVersionSourceResponsePtrInput `pulumi:"source"`
 }
 
 func (GalleryDataDiskImageResponseArgs) ElementType() reflect.Type {
@@ -4175,7 +3921,6 @@ func (i GalleryDataDiskImageResponseArray) ToGalleryDataDiskImageResponseArrayOu
 	return pulumi.ToOutputWithContext(ctx, i).(GalleryDataDiskImageResponseArrayOutput)
 }
 
-// This is the data disk image.
 type GalleryDataDiskImageResponseOutput struct{ *pulumi.OutputState }
 
 func (GalleryDataDiskImageResponseOutput) ElementType() reflect.Type {
@@ -4190,22 +3935,18 @@ func (o GalleryDataDiskImageResponseOutput) ToGalleryDataDiskImageResponseOutput
 	return o
 }
 
-// The host caching of the disk. Valid values are 'None', 'ReadOnly', and 'ReadWrite'
 func (o GalleryDataDiskImageResponseOutput) HostCaching() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v GalleryDataDiskImageResponse) *string { return v.HostCaching }).(pulumi.StringPtrOutput)
 }
 
-// This property specifies the logical unit number of the data disk. This value is used to identify data disks within the Virtual Machine and therefore must be unique for each data disk attached to the Virtual Machine.
 func (o GalleryDataDiskImageResponseOutput) Lun() pulumi.IntOutput {
 	return o.ApplyT(func(v GalleryDataDiskImageResponse) int { return v.Lun }).(pulumi.IntOutput)
 }
 
-// This property indicates the size of the VHD to be created.
 func (o GalleryDataDiskImageResponseOutput) SizeInGB() pulumi.IntOutput {
 	return o.ApplyT(func(v GalleryDataDiskImageResponse) int { return v.SizeInGB }).(pulumi.IntOutput)
 }
 
-// The gallery artifact version source.
 func (o GalleryDataDiskImageResponseOutput) Source() GalleryArtifactVersionSourceResponsePtrOutput {
 	return o.ApplyT(func(v GalleryDataDiskImageResponse) *GalleryArtifactVersionSourceResponse { return v.Source }).(GalleryArtifactVersionSourceResponsePtrOutput)
 }
@@ -4230,9 +3971,7 @@ func (o GalleryDataDiskImageResponseArrayOutput) Index(i pulumi.IntInput) Galler
 	}).(GalleryDataDiskImageResponseOutput)
 }
 
-// Describes the gallery unique name.
 type GalleryIdentifierResponse struct {
-	// The unique name of the Shared Image Gallery. This name is generated automatically by Azure.
 	UniqueName string `pulumi:"uniqueName"`
 }
 
@@ -4247,9 +3986,7 @@ type GalleryIdentifierResponseInput interface {
 	ToGalleryIdentifierResponseOutputWithContext(context.Context) GalleryIdentifierResponseOutput
 }
 
-// Describes the gallery unique name.
 type GalleryIdentifierResponseArgs struct {
-	// The unique name of the Shared Image Gallery. This name is generated automatically by Azure.
 	UniqueName pulumi.StringInput `pulumi:"uniqueName"`
 }
 
@@ -4306,7 +4043,6 @@ func (i *galleryIdentifierResponsePtrType) ToGalleryIdentifierResponsePtrOutputW
 	return pulumi.ToOutputWithContext(ctx, i).(GalleryIdentifierResponsePtrOutput)
 }
 
-// Describes the gallery unique name.
 type GalleryIdentifierResponseOutput struct{ *pulumi.OutputState }
 
 func (GalleryIdentifierResponseOutput) ElementType() reflect.Type {
@@ -4326,12 +4062,11 @@ func (o GalleryIdentifierResponseOutput) ToGalleryIdentifierResponsePtrOutput() 
 }
 
 func (o GalleryIdentifierResponseOutput) ToGalleryIdentifierResponsePtrOutputWithContext(ctx context.Context) GalleryIdentifierResponsePtrOutput {
-	return o.ApplyT(func(v GalleryIdentifierResponse) *GalleryIdentifierResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v GalleryIdentifierResponse) *GalleryIdentifierResponse {
 		return &v
 	}).(GalleryIdentifierResponsePtrOutput)
 }
 
-// The unique name of the Shared Image Gallery. This name is generated automatically by Azure.
 func (o GalleryIdentifierResponseOutput) UniqueName() pulumi.StringOutput {
 	return o.ApplyT(func(v GalleryIdentifierResponse) string { return v.UniqueName }).(pulumi.StringOutput)
 }
@@ -4351,10 +4086,15 @@ func (o GalleryIdentifierResponsePtrOutput) ToGalleryIdentifierResponsePtrOutput
 }
 
 func (o GalleryIdentifierResponsePtrOutput) Elem() GalleryIdentifierResponseOutput {
-	return o.ApplyT(func(v *GalleryIdentifierResponse) GalleryIdentifierResponse { return *v }).(GalleryIdentifierResponseOutput)
+	return o.ApplyT(func(v *GalleryIdentifierResponse) GalleryIdentifierResponse {
+		if v != nil {
+			return *v
+		}
+		var ret GalleryIdentifierResponse
+		return ret
+	}).(GalleryIdentifierResponseOutput)
 }
 
-// The unique name of the Shared Image Gallery. This name is generated automatically by Azure.
 func (o GalleryIdentifierResponsePtrOutput) UniqueName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *GalleryIdentifierResponse) *string {
 		if v == nil {
@@ -4364,11 +4104,8 @@ func (o GalleryIdentifierResponsePtrOutput) UniqueName() pulumi.StringPtrOutput 
 	}).(pulumi.StringPtrOutput)
 }
 
-// A feature for gallery image.
 type GalleryImageFeature struct {
-	// The name of the gallery image feature.
-	Name *string `pulumi:"name"`
-	// The value of the gallery image feature.
+	Name  *string `pulumi:"name"`
 	Value *string `pulumi:"value"`
 }
 
@@ -4383,11 +4120,8 @@ type GalleryImageFeatureInput interface {
 	ToGalleryImageFeatureOutputWithContext(context.Context) GalleryImageFeatureOutput
 }
 
-// A feature for gallery image.
 type GalleryImageFeatureArgs struct {
-	// The name of the gallery image feature.
-	Name pulumi.StringPtrInput `pulumi:"name"`
-	// The value of the gallery image feature.
+	Name  pulumi.StringPtrInput `pulumi:"name"`
 	Value pulumi.StringPtrInput `pulumi:"value"`
 }
 
@@ -4428,7 +4162,6 @@ func (i GalleryImageFeatureArray) ToGalleryImageFeatureArrayOutputWithContext(ct
 	return pulumi.ToOutputWithContext(ctx, i).(GalleryImageFeatureArrayOutput)
 }
 
-// A feature for gallery image.
 type GalleryImageFeatureOutput struct{ *pulumi.OutputState }
 
 func (GalleryImageFeatureOutput) ElementType() reflect.Type {
@@ -4443,12 +4176,10 @@ func (o GalleryImageFeatureOutput) ToGalleryImageFeatureOutputWithContext(ctx co
 	return o
 }
 
-// The name of the gallery image feature.
 func (o GalleryImageFeatureOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v GalleryImageFeature) *string { return v.Name }).(pulumi.StringPtrOutput)
 }
 
-// The value of the gallery image feature.
 func (o GalleryImageFeatureOutput) Value() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v GalleryImageFeature) *string { return v.Value }).(pulumi.StringPtrOutput)
 }
@@ -4473,11 +4204,8 @@ func (o GalleryImageFeatureArrayOutput) Index(i pulumi.IntInput) GalleryImageFea
 	}).(GalleryImageFeatureOutput)
 }
 
-// A feature for gallery image.
 type GalleryImageFeatureResponse struct {
-	// The name of the gallery image feature.
-	Name *string `pulumi:"name"`
-	// The value of the gallery image feature.
+	Name  *string `pulumi:"name"`
 	Value *string `pulumi:"value"`
 }
 
@@ -4492,11 +4220,8 @@ type GalleryImageFeatureResponseInput interface {
 	ToGalleryImageFeatureResponseOutputWithContext(context.Context) GalleryImageFeatureResponseOutput
 }
 
-// A feature for gallery image.
 type GalleryImageFeatureResponseArgs struct {
-	// The name of the gallery image feature.
-	Name pulumi.StringPtrInput `pulumi:"name"`
-	// The value of the gallery image feature.
+	Name  pulumi.StringPtrInput `pulumi:"name"`
 	Value pulumi.StringPtrInput `pulumi:"value"`
 }
 
@@ -4537,7 +4262,6 @@ func (i GalleryImageFeatureResponseArray) ToGalleryImageFeatureResponseArrayOutp
 	return pulumi.ToOutputWithContext(ctx, i).(GalleryImageFeatureResponseArrayOutput)
 }
 
-// A feature for gallery image.
 type GalleryImageFeatureResponseOutput struct{ *pulumi.OutputState }
 
 func (GalleryImageFeatureResponseOutput) ElementType() reflect.Type {
@@ -4552,12 +4276,10 @@ func (o GalleryImageFeatureResponseOutput) ToGalleryImageFeatureResponseOutputWi
 	return o
 }
 
-// The name of the gallery image feature.
 func (o GalleryImageFeatureResponseOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v GalleryImageFeatureResponse) *string { return v.Name }).(pulumi.StringPtrOutput)
 }
 
-// The value of the gallery image feature.
 func (o GalleryImageFeatureResponseOutput) Value() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v GalleryImageFeatureResponse) *string { return v.Value }).(pulumi.StringPtrOutput)
 }
@@ -4582,14 +4304,10 @@ func (o GalleryImageFeatureResponseArrayOutput) Index(i pulumi.IntInput) Gallery
 	}).(GalleryImageFeatureResponseOutput)
 }
 
-// This is the gallery image definition identifier.
 type GalleryImageIdentifier struct {
-	// The name of the gallery image definition offer.
-	Offer string `pulumi:"offer"`
-	// The name of the gallery image definition publisher.
+	Offer     string `pulumi:"offer"`
 	Publisher string `pulumi:"publisher"`
-	// The name of the gallery image definition SKU.
-	Sku string `pulumi:"sku"`
+	Sku       string `pulumi:"sku"`
 }
 
 // GalleryImageIdentifierInput is an input type that accepts GalleryImageIdentifierArgs and GalleryImageIdentifierOutput values.
@@ -4603,14 +4321,10 @@ type GalleryImageIdentifierInput interface {
 	ToGalleryImageIdentifierOutputWithContext(context.Context) GalleryImageIdentifierOutput
 }
 
-// This is the gallery image definition identifier.
 type GalleryImageIdentifierArgs struct {
-	// The name of the gallery image definition offer.
-	Offer pulumi.StringInput `pulumi:"offer"`
-	// The name of the gallery image definition publisher.
+	Offer     pulumi.StringInput `pulumi:"offer"`
 	Publisher pulumi.StringInput `pulumi:"publisher"`
-	// The name of the gallery image definition SKU.
-	Sku pulumi.StringInput `pulumi:"sku"`
+	Sku       pulumi.StringInput `pulumi:"sku"`
 }
 
 func (GalleryImageIdentifierArgs) ElementType() reflect.Type {
@@ -4666,7 +4380,6 @@ func (i *galleryImageIdentifierPtrType) ToGalleryImageIdentifierPtrOutputWithCon
 	return pulumi.ToOutputWithContext(ctx, i).(GalleryImageIdentifierPtrOutput)
 }
 
-// This is the gallery image definition identifier.
 type GalleryImageIdentifierOutput struct{ *pulumi.OutputState }
 
 func (GalleryImageIdentifierOutput) ElementType() reflect.Type {
@@ -4686,22 +4399,19 @@ func (o GalleryImageIdentifierOutput) ToGalleryImageIdentifierPtrOutput() Galler
 }
 
 func (o GalleryImageIdentifierOutput) ToGalleryImageIdentifierPtrOutputWithContext(ctx context.Context) GalleryImageIdentifierPtrOutput {
-	return o.ApplyT(func(v GalleryImageIdentifier) *GalleryImageIdentifier {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v GalleryImageIdentifier) *GalleryImageIdentifier {
 		return &v
 	}).(GalleryImageIdentifierPtrOutput)
 }
 
-// The name of the gallery image definition offer.
 func (o GalleryImageIdentifierOutput) Offer() pulumi.StringOutput {
 	return o.ApplyT(func(v GalleryImageIdentifier) string { return v.Offer }).(pulumi.StringOutput)
 }
 
-// The name of the gallery image definition publisher.
 func (o GalleryImageIdentifierOutput) Publisher() pulumi.StringOutput {
 	return o.ApplyT(func(v GalleryImageIdentifier) string { return v.Publisher }).(pulumi.StringOutput)
 }
 
-// The name of the gallery image definition SKU.
 func (o GalleryImageIdentifierOutput) Sku() pulumi.StringOutput {
 	return o.ApplyT(func(v GalleryImageIdentifier) string { return v.Sku }).(pulumi.StringOutput)
 }
@@ -4721,10 +4431,15 @@ func (o GalleryImageIdentifierPtrOutput) ToGalleryImageIdentifierPtrOutputWithCo
 }
 
 func (o GalleryImageIdentifierPtrOutput) Elem() GalleryImageIdentifierOutput {
-	return o.ApplyT(func(v *GalleryImageIdentifier) GalleryImageIdentifier { return *v }).(GalleryImageIdentifierOutput)
+	return o.ApplyT(func(v *GalleryImageIdentifier) GalleryImageIdentifier {
+		if v != nil {
+			return *v
+		}
+		var ret GalleryImageIdentifier
+		return ret
+	}).(GalleryImageIdentifierOutput)
 }
 
-// The name of the gallery image definition offer.
 func (o GalleryImageIdentifierPtrOutput) Offer() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *GalleryImageIdentifier) *string {
 		if v == nil {
@@ -4734,7 +4449,6 @@ func (o GalleryImageIdentifierPtrOutput) Offer() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The name of the gallery image definition publisher.
 func (o GalleryImageIdentifierPtrOutput) Publisher() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *GalleryImageIdentifier) *string {
 		if v == nil {
@@ -4744,7 +4458,6 @@ func (o GalleryImageIdentifierPtrOutput) Publisher() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The name of the gallery image definition SKU.
 func (o GalleryImageIdentifierPtrOutput) Sku() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *GalleryImageIdentifier) *string {
 		if v == nil {
@@ -4754,14 +4467,10 @@ func (o GalleryImageIdentifierPtrOutput) Sku() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// This is the gallery image definition identifier.
 type GalleryImageIdentifierResponse struct {
-	// The name of the gallery image definition offer.
-	Offer string `pulumi:"offer"`
-	// The name of the gallery image definition publisher.
+	Offer     string `pulumi:"offer"`
 	Publisher string `pulumi:"publisher"`
-	// The name of the gallery image definition SKU.
-	Sku string `pulumi:"sku"`
+	Sku       string `pulumi:"sku"`
 }
 
 // GalleryImageIdentifierResponseInput is an input type that accepts GalleryImageIdentifierResponseArgs and GalleryImageIdentifierResponseOutput values.
@@ -4775,14 +4484,10 @@ type GalleryImageIdentifierResponseInput interface {
 	ToGalleryImageIdentifierResponseOutputWithContext(context.Context) GalleryImageIdentifierResponseOutput
 }
 
-// This is the gallery image definition identifier.
 type GalleryImageIdentifierResponseArgs struct {
-	// The name of the gallery image definition offer.
-	Offer pulumi.StringInput `pulumi:"offer"`
-	// The name of the gallery image definition publisher.
+	Offer     pulumi.StringInput `pulumi:"offer"`
 	Publisher pulumi.StringInput `pulumi:"publisher"`
-	// The name of the gallery image definition SKU.
-	Sku pulumi.StringInput `pulumi:"sku"`
+	Sku       pulumi.StringInput `pulumi:"sku"`
 }
 
 func (GalleryImageIdentifierResponseArgs) ElementType() reflect.Type {
@@ -4838,7 +4543,6 @@ func (i *galleryImageIdentifierResponsePtrType) ToGalleryImageIdentifierResponse
 	return pulumi.ToOutputWithContext(ctx, i).(GalleryImageIdentifierResponsePtrOutput)
 }
 
-// This is the gallery image definition identifier.
 type GalleryImageIdentifierResponseOutput struct{ *pulumi.OutputState }
 
 func (GalleryImageIdentifierResponseOutput) ElementType() reflect.Type {
@@ -4858,22 +4562,19 @@ func (o GalleryImageIdentifierResponseOutput) ToGalleryImageIdentifierResponsePt
 }
 
 func (o GalleryImageIdentifierResponseOutput) ToGalleryImageIdentifierResponsePtrOutputWithContext(ctx context.Context) GalleryImageIdentifierResponsePtrOutput {
-	return o.ApplyT(func(v GalleryImageIdentifierResponse) *GalleryImageIdentifierResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v GalleryImageIdentifierResponse) *GalleryImageIdentifierResponse {
 		return &v
 	}).(GalleryImageIdentifierResponsePtrOutput)
 }
 
-// The name of the gallery image definition offer.
 func (o GalleryImageIdentifierResponseOutput) Offer() pulumi.StringOutput {
 	return o.ApplyT(func(v GalleryImageIdentifierResponse) string { return v.Offer }).(pulumi.StringOutput)
 }
 
-// The name of the gallery image definition publisher.
 func (o GalleryImageIdentifierResponseOutput) Publisher() pulumi.StringOutput {
 	return o.ApplyT(func(v GalleryImageIdentifierResponse) string { return v.Publisher }).(pulumi.StringOutput)
 }
 
-// The name of the gallery image definition SKU.
 func (o GalleryImageIdentifierResponseOutput) Sku() pulumi.StringOutput {
 	return o.ApplyT(func(v GalleryImageIdentifierResponse) string { return v.Sku }).(pulumi.StringOutput)
 }
@@ -4893,10 +4594,15 @@ func (o GalleryImageIdentifierResponsePtrOutput) ToGalleryImageIdentifierRespons
 }
 
 func (o GalleryImageIdentifierResponsePtrOutput) Elem() GalleryImageIdentifierResponseOutput {
-	return o.ApplyT(func(v *GalleryImageIdentifierResponse) GalleryImageIdentifierResponse { return *v }).(GalleryImageIdentifierResponseOutput)
+	return o.ApplyT(func(v *GalleryImageIdentifierResponse) GalleryImageIdentifierResponse {
+		if v != nil {
+			return *v
+		}
+		var ret GalleryImageIdentifierResponse
+		return ret
+	}).(GalleryImageIdentifierResponseOutput)
 }
 
-// The name of the gallery image definition offer.
 func (o GalleryImageIdentifierResponsePtrOutput) Offer() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *GalleryImageIdentifierResponse) *string {
 		if v == nil {
@@ -4906,7 +4612,6 @@ func (o GalleryImageIdentifierResponsePtrOutput) Offer() pulumi.StringPtrOutput 
 	}).(pulumi.StringPtrOutput)
 }
 
-// The name of the gallery image definition publisher.
 func (o GalleryImageIdentifierResponsePtrOutput) Publisher() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *GalleryImageIdentifierResponse) *string {
 		if v == nil {
@@ -4916,7 +4621,6 @@ func (o GalleryImageIdentifierResponsePtrOutput) Publisher() pulumi.StringPtrOut
 	}).(pulumi.StringPtrOutput)
 }
 
-// The name of the gallery image definition SKU.
 func (o GalleryImageIdentifierResponsePtrOutput) Sku() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *GalleryImageIdentifierResponse) *string {
 		if v == nil {
@@ -4926,18 +4630,12 @@ func (o GalleryImageIdentifierResponsePtrOutput) Sku() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The publishing profile of a gallery image Version.
 type GalleryImageVersionPublishingProfile struct {
-	// The end of life date of the gallery image version. This property can be used for decommissioning purposes. This property is updatable.
-	EndOfLifeDate *string `pulumi:"endOfLifeDate"`
-	// If set to true, Virtual Machines deployed from the latest version of the Image Definition won't use this Image Version.
-	ExcludeFromLatest *bool `pulumi:"excludeFromLatest"`
-	// The number of replicas of the Image Version to be created per region. This property would take effect for a region when regionalReplicaCount is not specified. This property is updatable.
-	ReplicaCount *int `pulumi:"replicaCount"`
-	// Specifies the storage account type to be used to store the image. This property is not updatable.
-	StorageAccountType *string `pulumi:"storageAccountType"`
-	// The target regions where the Image Version is going to be replicated to. This property is updatable.
-	TargetRegions []TargetRegion `pulumi:"targetRegions"`
+	EndOfLifeDate      *string        `pulumi:"endOfLifeDate"`
+	ExcludeFromLatest  *bool          `pulumi:"excludeFromLatest"`
+	ReplicaCount       *int           `pulumi:"replicaCount"`
+	StorageAccountType *string        `pulumi:"storageAccountType"`
+	TargetRegions      []TargetRegion `pulumi:"targetRegions"`
 }
 
 // GalleryImageVersionPublishingProfileInput is an input type that accepts GalleryImageVersionPublishingProfileArgs and GalleryImageVersionPublishingProfileOutput values.
@@ -4951,18 +4649,12 @@ type GalleryImageVersionPublishingProfileInput interface {
 	ToGalleryImageVersionPublishingProfileOutputWithContext(context.Context) GalleryImageVersionPublishingProfileOutput
 }
 
-// The publishing profile of a gallery image Version.
 type GalleryImageVersionPublishingProfileArgs struct {
-	// The end of life date of the gallery image version. This property can be used for decommissioning purposes. This property is updatable.
-	EndOfLifeDate pulumi.StringPtrInput `pulumi:"endOfLifeDate"`
-	// If set to true, Virtual Machines deployed from the latest version of the Image Definition won't use this Image Version.
-	ExcludeFromLatest pulumi.BoolPtrInput `pulumi:"excludeFromLatest"`
-	// The number of replicas of the Image Version to be created per region. This property would take effect for a region when regionalReplicaCount is not specified. This property is updatable.
-	ReplicaCount pulumi.IntPtrInput `pulumi:"replicaCount"`
-	// Specifies the storage account type to be used to store the image. This property is not updatable.
-	StorageAccountType pulumi.StringPtrInput `pulumi:"storageAccountType"`
-	// The target regions where the Image Version is going to be replicated to. This property is updatable.
-	TargetRegions TargetRegionArrayInput `pulumi:"targetRegions"`
+	EndOfLifeDate      pulumi.StringPtrInput  `pulumi:"endOfLifeDate"`
+	ExcludeFromLatest  pulumi.BoolPtrInput    `pulumi:"excludeFromLatest"`
+	ReplicaCount       pulumi.IntPtrInput     `pulumi:"replicaCount"`
+	StorageAccountType pulumi.StringPtrInput  `pulumi:"storageAccountType"`
+	TargetRegions      TargetRegionArrayInput `pulumi:"targetRegions"`
 }
 
 func (GalleryImageVersionPublishingProfileArgs) ElementType() reflect.Type {
@@ -5018,7 +4710,6 @@ func (i *galleryImageVersionPublishingProfilePtrType) ToGalleryImageVersionPubli
 	return pulumi.ToOutputWithContext(ctx, i).(GalleryImageVersionPublishingProfilePtrOutput)
 }
 
-// The publishing profile of a gallery image Version.
 type GalleryImageVersionPublishingProfileOutput struct{ *pulumi.OutputState }
 
 func (GalleryImageVersionPublishingProfileOutput) ElementType() reflect.Type {
@@ -5038,32 +4729,27 @@ func (o GalleryImageVersionPublishingProfileOutput) ToGalleryImageVersionPublish
 }
 
 func (o GalleryImageVersionPublishingProfileOutput) ToGalleryImageVersionPublishingProfilePtrOutputWithContext(ctx context.Context) GalleryImageVersionPublishingProfilePtrOutput {
-	return o.ApplyT(func(v GalleryImageVersionPublishingProfile) *GalleryImageVersionPublishingProfile {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v GalleryImageVersionPublishingProfile) *GalleryImageVersionPublishingProfile {
 		return &v
 	}).(GalleryImageVersionPublishingProfilePtrOutput)
 }
 
-// The end of life date of the gallery image version. This property can be used for decommissioning purposes. This property is updatable.
 func (o GalleryImageVersionPublishingProfileOutput) EndOfLifeDate() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v GalleryImageVersionPublishingProfile) *string { return v.EndOfLifeDate }).(pulumi.StringPtrOutput)
 }
 
-// If set to true, Virtual Machines deployed from the latest version of the Image Definition won't use this Image Version.
 func (o GalleryImageVersionPublishingProfileOutput) ExcludeFromLatest() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v GalleryImageVersionPublishingProfile) *bool { return v.ExcludeFromLatest }).(pulumi.BoolPtrOutput)
 }
 
-// The number of replicas of the Image Version to be created per region. This property would take effect for a region when regionalReplicaCount is not specified. This property is updatable.
 func (o GalleryImageVersionPublishingProfileOutput) ReplicaCount() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v GalleryImageVersionPublishingProfile) *int { return v.ReplicaCount }).(pulumi.IntPtrOutput)
 }
 
-// Specifies the storage account type to be used to store the image. This property is not updatable.
 func (o GalleryImageVersionPublishingProfileOutput) StorageAccountType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v GalleryImageVersionPublishingProfile) *string { return v.StorageAccountType }).(pulumi.StringPtrOutput)
 }
 
-// The target regions where the Image Version is going to be replicated to. This property is updatable.
 func (o GalleryImageVersionPublishingProfileOutput) TargetRegions() TargetRegionArrayOutput {
 	return o.ApplyT(func(v GalleryImageVersionPublishingProfile) []TargetRegion { return v.TargetRegions }).(TargetRegionArrayOutput)
 }
@@ -5083,10 +4769,15 @@ func (o GalleryImageVersionPublishingProfilePtrOutput) ToGalleryImageVersionPubl
 }
 
 func (o GalleryImageVersionPublishingProfilePtrOutput) Elem() GalleryImageVersionPublishingProfileOutput {
-	return o.ApplyT(func(v *GalleryImageVersionPublishingProfile) GalleryImageVersionPublishingProfile { return *v }).(GalleryImageVersionPublishingProfileOutput)
+	return o.ApplyT(func(v *GalleryImageVersionPublishingProfile) GalleryImageVersionPublishingProfile {
+		if v != nil {
+			return *v
+		}
+		var ret GalleryImageVersionPublishingProfile
+		return ret
+	}).(GalleryImageVersionPublishingProfileOutput)
 }
 
-// The end of life date of the gallery image version. This property can be used for decommissioning purposes. This property is updatable.
 func (o GalleryImageVersionPublishingProfilePtrOutput) EndOfLifeDate() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *GalleryImageVersionPublishingProfile) *string {
 		if v == nil {
@@ -5096,7 +4787,6 @@ func (o GalleryImageVersionPublishingProfilePtrOutput) EndOfLifeDate() pulumi.St
 	}).(pulumi.StringPtrOutput)
 }
 
-// If set to true, Virtual Machines deployed from the latest version of the Image Definition won't use this Image Version.
 func (o GalleryImageVersionPublishingProfilePtrOutput) ExcludeFromLatest() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *GalleryImageVersionPublishingProfile) *bool {
 		if v == nil {
@@ -5106,7 +4796,6 @@ func (o GalleryImageVersionPublishingProfilePtrOutput) ExcludeFromLatest() pulum
 	}).(pulumi.BoolPtrOutput)
 }
 
-// The number of replicas of the Image Version to be created per region. This property would take effect for a region when regionalReplicaCount is not specified. This property is updatable.
 func (o GalleryImageVersionPublishingProfilePtrOutput) ReplicaCount() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *GalleryImageVersionPublishingProfile) *int {
 		if v == nil {
@@ -5116,7 +4805,6 @@ func (o GalleryImageVersionPublishingProfilePtrOutput) ReplicaCount() pulumi.Int
 	}).(pulumi.IntPtrOutput)
 }
 
-// Specifies the storage account type to be used to store the image. This property is not updatable.
 func (o GalleryImageVersionPublishingProfilePtrOutput) StorageAccountType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *GalleryImageVersionPublishingProfile) *string {
 		if v == nil {
@@ -5126,7 +4814,6 @@ func (o GalleryImageVersionPublishingProfilePtrOutput) StorageAccountType() pulu
 	}).(pulumi.StringPtrOutput)
 }
 
-// The target regions where the Image Version is going to be replicated to. This property is updatable.
 func (o GalleryImageVersionPublishingProfilePtrOutput) TargetRegions() TargetRegionArrayOutput {
 	return o.ApplyT(func(v *GalleryImageVersionPublishingProfile) []TargetRegion {
 		if v == nil {
@@ -5136,20 +4823,13 @@ func (o GalleryImageVersionPublishingProfilePtrOutput) TargetRegions() TargetReg
 	}).(TargetRegionArrayOutput)
 }
 
-// The publishing profile of a gallery image Version.
 type GalleryImageVersionPublishingProfileResponse struct {
-	// The end of life date of the gallery image version. This property can be used for decommissioning purposes. This property is updatable.
-	EndOfLifeDate *string `pulumi:"endOfLifeDate"`
-	// If set to true, Virtual Machines deployed from the latest version of the Image Definition won't use this Image Version.
-	ExcludeFromLatest *bool `pulumi:"excludeFromLatest"`
-	// The timestamp for when the gallery image version is published.
-	PublishedDate string `pulumi:"publishedDate"`
-	// The number of replicas of the Image Version to be created per region. This property would take effect for a region when regionalReplicaCount is not specified. This property is updatable.
-	ReplicaCount *int `pulumi:"replicaCount"`
-	// Specifies the storage account type to be used to store the image. This property is not updatable.
-	StorageAccountType *string `pulumi:"storageAccountType"`
-	// The target regions where the Image Version is going to be replicated to. This property is updatable.
-	TargetRegions []TargetRegionResponse `pulumi:"targetRegions"`
+	EndOfLifeDate      *string                `pulumi:"endOfLifeDate"`
+	ExcludeFromLatest  *bool                  `pulumi:"excludeFromLatest"`
+	PublishedDate      string                 `pulumi:"publishedDate"`
+	ReplicaCount       *int                   `pulumi:"replicaCount"`
+	StorageAccountType *string                `pulumi:"storageAccountType"`
+	TargetRegions      []TargetRegionResponse `pulumi:"targetRegions"`
 }
 
 // GalleryImageVersionPublishingProfileResponseInput is an input type that accepts GalleryImageVersionPublishingProfileResponseArgs and GalleryImageVersionPublishingProfileResponseOutput values.
@@ -5163,20 +4843,13 @@ type GalleryImageVersionPublishingProfileResponseInput interface {
 	ToGalleryImageVersionPublishingProfileResponseOutputWithContext(context.Context) GalleryImageVersionPublishingProfileResponseOutput
 }
 
-// The publishing profile of a gallery image Version.
 type GalleryImageVersionPublishingProfileResponseArgs struct {
-	// The end of life date of the gallery image version. This property can be used for decommissioning purposes. This property is updatable.
-	EndOfLifeDate pulumi.StringPtrInput `pulumi:"endOfLifeDate"`
-	// If set to true, Virtual Machines deployed from the latest version of the Image Definition won't use this Image Version.
-	ExcludeFromLatest pulumi.BoolPtrInput `pulumi:"excludeFromLatest"`
-	// The timestamp for when the gallery image version is published.
-	PublishedDate pulumi.StringInput `pulumi:"publishedDate"`
-	// The number of replicas of the Image Version to be created per region. This property would take effect for a region when regionalReplicaCount is not specified. This property is updatable.
-	ReplicaCount pulumi.IntPtrInput `pulumi:"replicaCount"`
-	// Specifies the storage account type to be used to store the image. This property is not updatable.
-	StorageAccountType pulumi.StringPtrInput `pulumi:"storageAccountType"`
-	// The target regions where the Image Version is going to be replicated to. This property is updatable.
-	TargetRegions TargetRegionResponseArrayInput `pulumi:"targetRegions"`
+	EndOfLifeDate      pulumi.StringPtrInput          `pulumi:"endOfLifeDate"`
+	ExcludeFromLatest  pulumi.BoolPtrInput            `pulumi:"excludeFromLatest"`
+	PublishedDate      pulumi.StringInput             `pulumi:"publishedDate"`
+	ReplicaCount       pulumi.IntPtrInput             `pulumi:"replicaCount"`
+	StorageAccountType pulumi.StringPtrInput          `pulumi:"storageAccountType"`
+	TargetRegions      TargetRegionResponseArrayInput `pulumi:"targetRegions"`
 }
 
 func (GalleryImageVersionPublishingProfileResponseArgs) ElementType() reflect.Type {
@@ -5232,7 +4905,6 @@ func (i *galleryImageVersionPublishingProfileResponsePtrType) ToGalleryImageVers
 	return pulumi.ToOutputWithContext(ctx, i).(GalleryImageVersionPublishingProfileResponsePtrOutput)
 }
 
-// The publishing profile of a gallery image Version.
 type GalleryImageVersionPublishingProfileResponseOutput struct{ *pulumi.OutputState }
 
 func (GalleryImageVersionPublishingProfileResponseOutput) ElementType() reflect.Type {
@@ -5252,37 +4924,31 @@ func (o GalleryImageVersionPublishingProfileResponseOutput) ToGalleryImageVersio
 }
 
 func (o GalleryImageVersionPublishingProfileResponseOutput) ToGalleryImageVersionPublishingProfileResponsePtrOutputWithContext(ctx context.Context) GalleryImageVersionPublishingProfileResponsePtrOutput {
-	return o.ApplyT(func(v GalleryImageVersionPublishingProfileResponse) *GalleryImageVersionPublishingProfileResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v GalleryImageVersionPublishingProfileResponse) *GalleryImageVersionPublishingProfileResponse {
 		return &v
 	}).(GalleryImageVersionPublishingProfileResponsePtrOutput)
 }
 
-// The end of life date of the gallery image version. This property can be used for decommissioning purposes. This property is updatable.
 func (o GalleryImageVersionPublishingProfileResponseOutput) EndOfLifeDate() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v GalleryImageVersionPublishingProfileResponse) *string { return v.EndOfLifeDate }).(pulumi.StringPtrOutput)
 }
 
-// If set to true, Virtual Machines deployed from the latest version of the Image Definition won't use this Image Version.
 func (o GalleryImageVersionPublishingProfileResponseOutput) ExcludeFromLatest() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v GalleryImageVersionPublishingProfileResponse) *bool { return v.ExcludeFromLatest }).(pulumi.BoolPtrOutput)
 }
 
-// The timestamp for when the gallery image version is published.
 func (o GalleryImageVersionPublishingProfileResponseOutput) PublishedDate() pulumi.StringOutput {
 	return o.ApplyT(func(v GalleryImageVersionPublishingProfileResponse) string { return v.PublishedDate }).(pulumi.StringOutput)
 }
 
-// The number of replicas of the Image Version to be created per region. This property would take effect for a region when regionalReplicaCount is not specified. This property is updatable.
 func (o GalleryImageVersionPublishingProfileResponseOutput) ReplicaCount() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v GalleryImageVersionPublishingProfileResponse) *int { return v.ReplicaCount }).(pulumi.IntPtrOutput)
 }
 
-// Specifies the storage account type to be used to store the image. This property is not updatable.
 func (o GalleryImageVersionPublishingProfileResponseOutput) StorageAccountType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v GalleryImageVersionPublishingProfileResponse) *string { return v.StorageAccountType }).(pulumi.StringPtrOutput)
 }
 
-// The target regions where the Image Version is going to be replicated to. This property is updatable.
 func (o GalleryImageVersionPublishingProfileResponseOutput) TargetRegions() TargetRegionResponseArrayOutput {
 	return o.ApplyT(func(v GalleryImageVersionPublishingProfileResponse) []TargetRegionResponse { return v.TargetRegions }).(TargetRegionResponseArrayOutput)
 }
@@ -5303,11 +4969,14 @@ func (o GalleryImageVersionPublishingProfileResponsePtrOutput) ToGalleryImageVer
 
 func (o GalleryImageVersionPublishingProfileResponsePtrOutput) Elem() GalleryImageVersionPublishingProfileResponseOutput {
 	return o.ApplyT(func(v *GalleryImageVersionPublishingProfileResponse) GalleryImageVersionPublishingProfileResponse {
-		return *v
+		if v != nil {
+			return *v
+		}
+		var ret GalleryImageVersionPublishingProfileResponse
+		return ret
 	}).(GalleryImageVersionPublishingProfileResponseOutput)
 }
 
-// The end of life date of the gallery image version. This property can be used for decommissioning purposes. This property is updatable.
 func (o GalleryImageVersionPublishingProfileResponsePtrOutput) EndOfLifeDate() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *GalleryImageVersionPublishingProfileResponse) *string {
 		if v == nil {
@@ -5317,7 +4986,6 @@ func (o GalleryImageVersionPublishingProfileResponsePtrOutput) EndOfLifeDate() p
 	}).(pulumi.StringPtrOutput)
 }
 
-// If set to true, Virtual Machines deployed from the latest version of the Image Definition won't use this Image Version.
 func (o GalleryImageVersionPublishingProfileResponsePtrOutput) ExcludeFromLatest() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *GalleryImageVersionPublishingProfileResponse) *bool {
 		if v == nil {
@@ -5327,7 +4995,6 @@ func (o GalleryImageVersionPublishingProfileResponsePtrOutput) ExcludeFromLatest
 	}).(pulumi.BoolPtrOutput)
 }
 
-// The timestamp for when the gallery image version is published.
 func (o GalleryImageVersionPublishingProfileResponsePtrOutput) PublishedDate() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *GalleryImageVersionPublishingProfileResponse) *string {
 		if v == nil {
@@ -5337,7 +5004,6 @@ func (o GalleryImageVersionPublishingProfileResponsePtrOutput) PublishedDate() p
 	}).(pulumi.StringPtrOutput)
 }
 
-// The number of replicas of the Image Version to be created per region. This property would take effect for a region when regionalReplicaCount is not specified. This property is updatable.
 func (o GalleryImageVersionPublishingProfileResponsePtrOutput) ReplicaCount() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *GalleryImageVersionPublishingProfileResponse) *int {
 		if v == nil {
@@ -5347,7 +5013,6 @@ func (o GalleryImageVersionPublishingProfileResponsePtrOutput) ReplicaCount() pu
 	}).(pulumi.IntPtrOutput)
 }
 
-// Specifies the storage account type to be used to store the image. This property is not updatable.
 func (o GalleryImageVersionPublishingProfileResponsePtrOutput) StorageAccountType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *GalleryImageVersionPublishingProfileResponse) *string {
 		if v == nil {
@@ -5357,7 +5022,6 @@ func (o GalleryImageVersionPublishingProfileResponsePtrOutput) StorageAccountTyp
 	}).(pulumi.StringPtrOutput)
 }
 
-// The target regions where the Image Version is going to be replicated to. This property is updatable.
 func (o GalleryImageVersionPublishingProfileResponsePtrOutput) TargetRegions() TargetRegionResponseArrayOutput {
 	return o.ApplyT(func(v *GalleryImageVersionPublishingProfileResponse) []TargetRegionResponse {
 		if v == nil {
@@ -5367,14 +5031,10 @@ func (o GalleryImageVersionPublishingProfileResponsePtrOutput) TargetRegions() T
 	}).(TargetRegionResponseArrayOutput)
 }
 
-// This is the storage profile of a Gallery Image Version.
 type GalleryImageVersionStorageProfile struct {
-	// A list of data disk images.
-	DataDiskImages []GalleryDataDiskImage `pulumi:"dataDiskImages"`
-	// This is the OS disk image.
-	OsDiskImage *GalleryOSDiskImage `pulumi:"osDiskImage"`
-	// The gallery artifact version source.
-	Source *GalleryArtifactVersionSource `pulumi:"source"`
+	DataDiskImages []GalleryDataDiskImage        `pulumi:"dataDiskImages"`
+	OsDiskImage    *GalleryOSDiskImage           `pulumi:"osDiskImage"`
+	Source         *GalleryArtifactVersionSource `pulumi:"source"`
 }
 
 // GalleryImageVersionStorageProfileInput is an input type that accepts GalleryImageVersionStorageProfileArgs and GalleryImageVersionStorageProfileOutput values.
@@ -5388,14 +5048,10 @@ type GalleryImageVersionStorageProfileInput interface {
 	ToGalleryImageVersionStorageProfileOutputWithContext(context.Context) GalleryImageVersionStorageProfileOutput
 }
 
-// This is the storage profile of a Gallery Image Version.
 type GalleryImageVersionStorageProfileArgs struct {
-	// A list of data disk images.
-	DataDiskImages GalleryDataDiskImageArrayInput `pulumi:"dataDiskImages"`
-	// This is the OS disk image.
-	OsDiskImage GalleryOSDiskImagePtrInput `pulumi:"osDiskImage"`
-	// The gallery artifact version source.
-	Source GalleryArtifactVersionSourcePtrInput `pulumi:"source"`
+	DataDiskImages GalleryDataDiskImageArrayInput       `pulumi:"dataDiskImages"`
+	OsDiskImage    GalleryOSDiskImagePtrInput           `pulumi:"osDiskImage"`
+	Source         GalleryArtifactVersionSourcePtrInput `pulumi:"source"`
 }
 
 func (GalleryImageVersionStorageProfileArgs) ElementType() reflect.Type {
@@ -5451,7 +5107,6 @@ func (i *galleryImageVersionStorageProfilePtrType) ToGalleryImageVersionStorageP
 	return pulumi.ToOutputWithContext(ctx, i).(GalleryImageVersionStorageProfilePtrOutput)
 }
 
-// This is the storage profile of a Gallery Image Version.
 type GalleryImageVersionStorageProfileOutput struct{ *pulumi.OutputState }
 
 func (GalleryImageVersionStorageProfileOutput) ElementType() reflect.Type {
@@ -5471,22 +5126,19 @@ func (o GalleryImageVersionStorageProfileOutput) ToGalleryImageVersionStoragePro
 }
 
 func (o GalleryImageVersionStorageProfileOutput) ToGalleryImageVersionStorageProfilePtrOutputWithContext(ctx context.Context) GalleryImageVersionStorageProfilePtrOutput {
-	return o.ApplyT(func(v GalleryImageVersionStorageProfile) *GalleryImageVersionStorageProfile {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v GalleryImageVersionStorageProfile) *GalleryImageVersionStorageProfile {
 		return &v
 	}).(GalleryImageVersionStorageProfilePtrOutput)
 }
 
-// A list of data disk images.
 func (o GalleryImageVersionStorageProfileOutput) DataDiskImages() GalleryDataDiskImageArrayOutput {
 	return o.ApplyT(func(v GalleryImageVersionStorageProfile) []GalleryDataDiskImage { return v.DataDiskImages }).(GalleryDataDiskImageArrayOutput)
 }
 
-// This is the OS disk image.
 func (o GalleryImageVersionStorageProfileOutput) OsDiskImage() GalleryOSDiskImagePtrOutput {
 	return o.ApplyT(func(v GalleryImageVersionStorageProfile) *GalleryOSDiskImage { return v.OsDiskImage }).(GalleryOSDiskImagePtrOutput)
 }
 
-// The gallery artifact version source.
 func (o GalleryImageVersionStorageProfileOutput) Source() GalleryArtifactVersionSourcePtrOutput {
 	return o.ApplyT(func(v GalleryImageVersionStorageProfile) *GalleryArtifactVersionSource { return v.Source }).(GalleryArtifactVersionSourcePtrOutput)
 }
@@ -5506,10 +5158,15 @@ func (o GalleryImageVersionStorageProfilePtrOutput) ToGalleryImageVersionStorage
 }
 
 func (o GalleryImageVersionStorageProfilePtrOutput) Elem() GalleryImageVersionStorageProfileOutput {
-	return o.ApplyT(func(v *GalleryImageVersionStorageProfile) GalleryImageVersionStorageProfile { return *v }).(GalleryImageVersionStorageProfileOutput)
+	return o.ApplyT(func(v *GalleryImageVersionStorageProfile) GalleryImageVersionStorageProfile {
+		if v != nil {
+			return *v
+		}
+		var ret GalleryImageVersionStorageProfile
+		return ret
+	}).(GalleryImageVersionStorageProfileOutput)
 }
 
-// A list of data disk images.
 func (o GalleryImageVersionStorageProfilePtrOutput) DataDiskImages() GalleryDataDiskImageArrayOutput {
 	return o.ApplyT(func(v *GalleryImageVersionStorageProfile) []GalleryDataDiskImage {
 		if v == nil {
@@ -5519,7 +5176,6 @@ func (o GalleryImageVersionStorageProfilePtrOutput) DataDiskImages() GalleryData
 	}).(GalleryDataDiskImageArrayOutput)
 }
 
-// This is the OS disk image.
 func (o GalleryImageVersionStorageProfilePtrOutput) OsDiskImage() GalleryOSDiskImagePtrOutput {
 	return o.ApplyT(func(v *GalleryImageVersionStorageProfile) *GalleryOSDiskImage {
 		if v == nil {
@@ -5529,7 +5185,6 @@ func (o GalleryImageVersionStorageProfilePtrOutput) OsDiskImage() GalleryOSDiskI
 	}).(GalleryOSDiskImagePtrOutput)
 }
 
-// The gallery artifact version source.
 func (o GalleryImageVersionStorageProfilePtrOutput) Source() GalleryArtifactVersionSourcePtrOutput {
 	return o.ApplyT(func(v *GalleryImageVersionStorageProfile) *GalleryArtifactVersionSource {
 		if v == nil {
@@ -5539,14 +5194,10 @@ func (o GalleryImageVersionStorageProfilePtrOutput) Source() GalleryArtifactVers
 	}).(GalleryArtifactVersionSourcePtrOutput)
 }
 
-// This is the storage profile of a Gallery Image Version.
 type GalleryImageVersionStorageProfileResponse struct {
-	// A list of data disk images.
-	DataDiskImages []GalleryDataDiskImageResponse `pulumi:"dataDiskImages"`
-	// This is the OS disk image.
-	OsDiskImage *GalleryOSDiskImageResponse `pulumi:"osDiskImage"`
-	// The gallery artifact version source.
-	Source *GalleryArtifactVersionSourceResponse `pulumi:"source"`
+	DataDiskImages []GalleryDataDiskImageResponse        `pulumi:"dataDiskImages"`
+	OsDiskImage    *GalleryOSDiskImageResponse           `pulumi:"osDiskImage"`
+	Source         *GalleryArtifactVersionSourceResponse `pulumi:"source"`
 }
 
 // GalleryImageVersionStorageProfileResponseInput is an input type that accepts GalleryImageVersionStorageProfileResponseArgs and GalleryImageVersionStorageProfileResponseOutput values.
@@ -5560,14 +5211,10 @@ type GalleryImageVersionStorageProfileResponseInput interface {
 	ToGalleryImageVersionStorageProfileResponseOutputWithContext(context.Context) GalleryImageVersionStorageProfileResponseOutput
 }
 
-// This is the storage profile of a Gallery Image Version.
 type GalleryImageVersionStorageProfileResponseArgs struct {
-	// A list of data disk images.
-	DataDiskImages GalleryDataDiskImageResponseArrayInput `pulumi:"dataDiskImages"`
-	// This is the OS disk image.
-	OsDiskImage GalleryOSDiskImageResponsePtrInput `pulumi:"osDiskImage"`
-	// The gallery artifact version source.
-	Source GalleryArtifactVersionSourceResponsePtrInput `pulumi:"source"`
+	DataDiskImages GalleryDataDiskImageResponseArrayInput       `pulumi:"dataDiskImages"`
+	OsDiskImage    GalleryOSDiskImageResponsePtrInput           `pulumi:"osDiskImage"`
+	Source         GalleryArtifactVersionSourceResponsePtrInput `pulumi:"source"`
 }
 
 func (GalleryImageVersionStorageProfileResponseArgs) ElementType() reflect.Type {
@@ -5623,7 +5270,6 @@ func (i *galleryImageVersionStorageProfileResponsePtrType) ToGalleryImageVersion
 	return pulumi.ToOutputWithContext(ctx, i).(GalleryImageVersionStorageProfileResponsePtrOutput)
 }
 
-// This is the storage profile of a Gallery Image Version.
 type GalleryImageVersionStorageProfileResponseOutput struct{ *pulumi.OutputState }
 
 func (GalleryImageVersionStorageProfileResponseOutput) ElementType() reflect.Type {
@@ -5643,24 +5289,21 @@ func (o GalleryImageVersionStorageProfileResponseOutput) ToGalleryImageVersionSt
 }
 
 func (o GalleryImageVersionStorageProfileResponseOutput) ToGalleryImageVersionStorageProfileResponsePtrOutputWithContext(ctx context.Context) GalleryImageVersionStorageProfileResponsePtrOutput {
-	return o.ApplyT(func(v GalleryImageVersionStorageProfileResponse) *GalleryImageVersionStorageProfileResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v GalleryImageVersionStorageProfileResponse) *GalleryImageVersionStorageProfileResponse {
 		return &v
 	}).(GalleryImageVersionStorageProfileResponsePtrOutput)
 }
 
-// A list of data disk images.
 func (o GalleryImageVersionStorageProfileResponseOutput) DataDiskImages() GalleryDataDiskImageResponseArrayOutput {
 	return o.ApplyT(func(v GalleryImageVersionStorageProfileResponse) []GalleryDataDiskImageResponse {
 		return v.DataDiskImages
 	}).(GalleryDataDiskImageResponseArrayOutput)
 }
 
-// This is the OS disk image.
 func (o GalleryImageVersionStorageProfileResponseOutput) OsDiskImage() GalleryOSDiskImageResponsePtrOutput {
 	return o.ApplyT(func(v GalleryImageVersionStorageProfileResponse) *GalleryOSDiskImageResponse { return v.OsDiskImage }).(GalleryOSDiskImageResponsePtrOutput)
 }
 
-// The gallery artifact version source.
 func (o GalleryImageVersionStorageProfileResponseOutput) Source() GalleryArtifactVersionSourceResponsePtrOutput {
 	return o.ApplyT(func(v GalleryImageVersionStorageProfileResponse) *GalleryArtifactVersionSourceResponse {
 		return v.Source
@@ -5683,11 +5326,14 @@ func (o GalleryImageVersionStorageProfileResponsePtrOutput) ToGalleryImageVersio
 
 func (o GalleryImageVersionStorageProfileResponsePtrOutput) Elem() GalleryImageVersionStorageProfileResponseOutput {
 	return o.ApplyT(func(v *GalleryImageVersionStorageProfileResponse) GalleryImageVersionStorageProfileResponse {
-		return *v
+		if v != nil {
+			return *v
+		}
+		var ret GalleryImageVersionStorageProfileResponse
+		return ret
 	}).(GalleryImageVersionStorageProfileResponseOutput)
 }
 
-// A list of data disk images.
 func (o GalleryImageVersionStorageProfileResponsePtrOutput) DataDiskImages() GalleryDataDiskImageResponseArrayOutput {
 	return o.ApplyT(func(v *GalleryImageVersionStorageProfileResponse) []GalleryDataDiskImageResponse {
 		if v == nil {
@@ -5697,7 +5343,6 @@ func (o GalleryImageVersionStorageProfileResponsePtrOutput) DataDiskImages() Gal
 	}).(GalleryDataDiskImageResponseArrayOutput)
 }
 
-// This is the OS disk image.
 func (o GalleryImageVersionStorageProfileResponsePtrOutput) OsDiskImage() GalleryOSDiskImageResponsePtrOutput {
 	return o.ApplyT(func(v *GalleryImageVersionStorageProfileResponse) *GalleryOSDiskImageResponse {
 		if v == nil {
@@ -5707,7 +5352,6 @@ func (o GalleryImageVersionStorageProfileResponsePtrOutput) OsDiskImage() Galler
 	}).(GalleryOSDiskImageResponsePtrOutput)
 }
 
-// The gallery artifact version source.
 func (o GalleryImageVersionStorageProfileResponsePtrOutput) Source() GalleryArtifactVersionSourceResponsePtrOutput {
 	return o.ApplyT(func(v *GalleryImageVersionStorageProfileResponse) *GalleryArtifactVersionSourceResponse {
 		if v == nil {
@@ -5717,12 +5361,9 @@ func (o GalleryImageVersionStorageProfileResponsePtrOutput) Source() GalleryArti
 	}).(GalleryArtifactVersionSourceResponsePtrOutput)
 }
 
-// This is the OS disk image.
 type GalleryOSDiskImage struct {
-	// The host caching of the disk. Valid values are 'None', 'ReadOnly', and 'ReadWrite'
-	HostCaching *string `pulumi:"hostCaching"`
-	// The gallery artifact version source.
-	Source *GalleryArtifactVersionSource `pulumi:"source"`
+	HostCaching *HostCaching                  `pulumi:"hostCaching"`
+	Source      *GalleryArtifactVersionSource `pulumi:"source"`
 }
 
 // GalleryOSDiskImageInput is an input type that accepts GalleryOSDiskImageArgs and GalleryOSDiskImageOutput values.
@@ -5736,12 +5377,9 @@ type GalleryOSDiskImageInput interface {
 	ToGalleryOSDiskImageOutputWithContext(context.Context) GalleryOSDiskImageOutput
 }
 
-// This is the OS disk image.
 type GalleryOSDiskImageArgs struct {
-	// The host caching of the disk. Valid values are 'None', 'ReadOnly', and 'ReadWrite'
-	HostCaching *HostCaching `pulumi:"hostCaching"`
-	// The gallery artifact version source.
-	Source GalleryArtifactVersionSourcePtrInput `pulumi:"source"`
+	HostCaching HostCachingPtrInput                  `pulumi:"hostCaching"`
+	Source      GalleryArtifactVersionSourcePtrInput `pulumi:"source"`
 }
 
 func (GalleryOSDiskImageArgs) ElementType() reflect.Type {
@@ -5797,7 +5435,6 @@ func (i *galleryOSDiskImagePtrType) ToGalleryOSDiskImagePtrOutputWithContext(ctx
 	return pulumi.ToOutputWithContext(ctx, i).(GalleryOSDiskImagePtrOutput)
 }
 
-// This is the OS disk image.
 type GalleryOSDiskImageOutput struct{ *pulumi.OutputState }
 
 func (GalleryOSDiskImageOutput) ElementType() reflect.Type {
@@ -5817,17 +5454,15 @@ func (o GalleryOSDiskImageOutput) ToGalleryOSDiskImagePtrOutput() GalleryOSDiskI
 }
 
 func (o GalleryOSDiskImageOutput) ToGalleryOSDiskImagePtrOutputWithContext(ctx context.Context) GalleryOSDiskImagePtrOutput {
-	return o.ApplyT(func(v GalleryOSDiskImage) *GalleryOSDiskImage {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v GalleryOSDiskImage) *GalleryOSDiskImage {
 		return &v
 	}).(GalleryOSDiskImagePtrOutput)
 }
 
-// The host caching of the disk. Valid values are 'None', 'ReadOnly', and 'ReadWrite'
-func (o GalleryOSDiskImageOutput) HostCaching() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v GalleryOSDiskImage) *string { return v.HostCaching }).(pulumi.StringPtrOutput)
+func (o GalleryOSDiskImageOutput) HostCaching() HostCachingPtrOutput {
+	return o.ApplyT(func(v GalleryOSDiskImage) *HostCaching { return v.HostCaching }).(HostCachingPtrOutput)
 }
 
-// The gallery artifact version source.
 func (o GalleryOSDiskImageOutput) Source() GalleryArtifactVersionSourcePtrOutput {
 	return o.ApplyT(func(v GalleryOSDiskImage) *GalleryArtifactVersionSource { return v.Source }).(GalleryArtifactVersionSourcePtrOutput)
 }
@@ -5847,20 +5482,24 @@ func (o GalleryOSDiskImagePtrOutput) ToGalleryOSDiskImagePtrOutputWithContext(ct
 }
 
 func (o GalleryOSDiskImagePtrOutput) Elem() GalleryOSDiskImageOutput {
-	return o.ApplyT(func(v *GalleryOSDiskImage) GalleryOSDiskImage { return *v }).(GalleryOSDiskImageOutput)
+	return o.ApplyT(func(v *GalleryOSDiskImage) GalleryOSDiskImage {
+		if v != nil {
+			return *v
+		}
+		var ret GalleryOSDiskImage
+		return ret
+	}).(GalleryOSDiskImageOutput)
 }
 
-// The host caching of the disk. Valid values are 'None', 'ReadOnly', and 'ReadWrite'
-func (o GalleryOSDiskImagePtrOutput) HostCaching() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *GalleryOSDiskImage) *string {
+func (o GalleryOSDiskImagePtrOutput) HostCaching() HostCachingPtrOutput {
+	return o.ApplyT(func(v *GalleryOSDiskImage) *HostCaching {
 		if v == nil {
 			return nil
 		}
 		return v.HostCaching
-	}).(pulumi.StringPtrOutput)
+	}).(HostCachingPtrOutput)
 }
 
-// The gallery artifact version source.
 func (o GalleryOSDiskImagePtrOutput) Source() GalleryArtifactVersionSourcePtrOutput {
 	return o.ApplyT(func(v *GalleryOSDiskImage) *GalleryArtifactVersionSource {
 		if v == nil {
@@ -5870,14 +5509,10 @@ func (o GalleryOSDiskImagePtrOutput) Source() GalleryArtifactVersionSourcePtrOut
 	}).(GalleryArtifactVersionSourcePtrOutput)
 }
 
-// This is the OS disk image.
 type GalleryOSDiskImageResponse struct {
-	// The host caching of the disk. Valid values are 'None', 'ReadOnly', and 'ReadWrite'
-	HostCaching *string `pulumi:"hostCaching"`
-	// This property indicates the size of the VHD to be created.
-	SizeInGB int `pulumi:"sizeInGB"`
-	// The gallery artifact version source.
-	Source *GalleryArtifactVersionSourceResponse `pulumi:"source"`
+	HostCaching *string                               `pulumi:"hostCaching"`
+	SizeInGB    int                                   `pulumi:"sizeInGB"`
+	Source      *GalleryArtifactVersionSourceResponse `pulumi:"source"`
 }
 
 // GalleryOSDiskImageResponseInput is an input type that accepts GalleryOSDiskImageResponseArgs and GalleryOSDiskImageResponseOutput values.
@@ -5891,14 +5526,10 @@ type GalleryOSDiskImageResponseInput interface {
 	ToGalleryOSDiskImageResponseOutputWithContext(context.Context) GalleryOSDiskImageResponseOutput
 }
 
-// This is the OS disk image.
 type GalleryOSDiskImageResponseArgs struct {
-	// The host caching of the disk. Valid values are 'None', 'ReadOnly', and 'ReadWrite'
-	HostCaching pulumi.StringPtrInput `pulumi:"hostCaching"`
-	// This property indicates the size of the VHD to be created.
-	SizeInGB pulumi.IntInput `pulumi:"sizeInGB"`
-	// The gallery artifact version source.
-	Source GalleryArtifactVersionSourceResponsePtrInput `pulumi:"source"`
+	HostCaching pulumi.StringPtrInput                        `pulumi:"hostCaching"`
+	SizeInGB    pulumi.IntInput                              `pulumi:"sizeInGB"`
+	Source      GalleryArtifactVersionSourceResponsePtrInput `pulumi:"source"`
 }
 
 func (GalleryOSDiskImageResponseArgs) ElementType() reflect.Type {
@@ -5954,7 +5585,6 @@ func (i *galleryOSDiskImageResponsePtrType) ToGalleryOSDiskImageResponsePtrOutpu
 	return pulumi.ToOutputWithContext(ctx, i).(GalleryOSDiskImageResponsePtrOutput)
 }
 
-// This is the OS disk image.
 type GalleryOSDiskImageResponseOutput struct{ *pulumi.OutputState }
 
 func (GalleryOSDiskImageResponseOutput) ElementType() reflect.Type {
@@ -5974,22 +5604,19 @@ func (o GalleryOSDiskImageResponseOutput) ToGalleryOSDiskImageResponsePtrOutput(
 }
 
 func (o GalleryOSDiskImageResponseOutput) ToGalleryOSDiskImageResponsePtrOutputWithContext(ctx context.Context) GalleryOSDiskImageResponsePtrOutput {
-	return o.ApplyT(func(v GalleryOSDiskImageResponse) *GalleryOSDiskImageResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v GalleryOSDiskImageResponse) *GalleryOSDiskImageResponse {
 		return &v
 	}).(GalleryOSDiskImageResponsePtrOutput)
 }
 
-// The host caching of the disk. Valid values are 'None', 'ReadOnly', and 'ReadWrite'
 func (o GalleryOSDiskImageResponseOutput) HostCaching() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v GalleryOSDiskImageResponse) *string { return v.HostCaching }).(pulumi.StringPtrOutput)
 }
 
-// This property indicates the size of the VHD to be created.
 func (o GalleryOSDiskImageResponseOutput) SizeInGB() pulumi.IntOutput {
 	return o.ApplyT(func(v GalleryOSDiskImageResponse) int { return v.SizeInGB }).(pulumi.IntOutput)
 }
 
-// The gallery artifact version source.
 func (o GalleryOSDiskImageResponseOutput) Source() GalleryArtifactVersionSourceResponsePtrOutput {
 	return o.ApplyT(func(v GalleryOSDiskImageResponse) *GalleryArtifactVersionSourceResponse { return v.Source }).(GalleryArtifactVersionSourceResponsePtrOutput)
 }
@@ -6009,10 +5636,15 @@ func (o GalleryOSDiskImageResponsePtrOutput) ToGalleryOSDiskImageResponsePtrOutp
 }
 
 func (o GalleryOSDiskImageResponsePtrOutput) Elem() GalleryOSDiskImageResponseOutput {
-	return o.ApplyT(func(v *GalleryOSDiskImageResponse) GalleryOSDiskImageResponse { return *v }).(GalleryOSDiskImageResponseOutput)
+	return o.ApplyT(func(v *GalleryOSDiskImageResponse) GalleryOSDiskImageResponse {
+		if v != nil {
+			return *v
+		}
+		var ret GalleryOSDiskImageResponse
+		return ret
+	}).(GalleryOSDiskImageResponseOutput)
 }
 
-// The host caching of the disk. Valid values are 'None', 'ReadOnly', and 'ReadWrite'
 func (o GalleryOSDiskImageResponsePtrOutput) HostCaching() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *GalleryOSDiskImageResponse) *string {
 		if v == nil {
@@ -6022,7 +5654,6 @@ func (o GalleryOSDiskImageResponsePtrOutput) HostCaching() pulumi.StringPtrOutpu
 	}).(pulumi.StringPtrOutput)
 }
 
-// This property indicates the size of the VHD to be created.
 func (o GalleryOSDiskImageResponsePtrOutput) SizeInGB() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *GalleryOSDiskImageResponse) *int {
 		if v == nil {
@@ -6032,7 +5663,6 @@ func (o GalleryOSDiskImageResponsePtrOutput) SizeInGB() pulumi.IntPtrOutput {
 	}).(pulumi.IntPtrOutput)
 }
 
-// The gallery artifact version source.
 func (o GalleryOSDiskImageResponsePtrOutput) Source() GalleryArtifactVersionSourceResponsePtrOutput {
 	return o.ApplyT(func(v *GalleryOSDiskImageResponse) *GalleryArtifactVersionSourceResponse {
 		if v == nil {
@@ -6042,12 +5672,9 @@ func (o GalleryOSDiskImageResponsePtrOutput) Source() GalleryArtifactVersionSour
 	}).(GalleryArtifactVersionSourceResponsePtrOutput)
 }
 
-// The source image used for creating the disk.
 type ImageDiskReference struct {
-	// A relative uri containing either a Platform Image Repository or user image reference.
-	Id string `pulumi:"id"`
-	// If the disk is created from an image's data disk, this is an index that indicates which of the data disks in the image to use. For OS disks, this field is null.
-	Lun *int `pulumi:"lun"`
+	Id  string `pulumi:"id"`
+	Lun *int   `pulumi:"lun"`
 }
 
 // ImageDiskReferenceInput is an input type that accepts ImageDiskReferenceArgs and ImageDiskReferenceOutput values.
@@ -6061,11 +5688,8 @@ type ImageDiskReferenceInput interface {
 	ToImageDiskReferenceOutputWithContext(context.Context) ImageDiskReferenceOutput
 }
 
-// The source image used for creating the disk.
 type ImageDiskReferenceArgs struct {
-	// A relative uri containing either a Platform Image Repository or user image reference.
-	Id pulumi.StringInput `pulumi:"id"`
-	// If the disk is created from an image's data disk, this is an index that indicates which of the data disks in the image to use. For OS disks, this field is null.
+	Id  pulumi.StringInput `pulumi:"id"`
 	Lun pulumi.IntPtrInput `pulumi:"lun"`
 }
 
@@ -6122,7 +5746,6 @@ func (i *imageDiskReferencePtrType) ToImageDiskReferencePtrOutputWithContext(ctx
 	return pulumi.ToOutputWithContext(ctx, i).(ImageDiskReferencePtrOutput)
 }
 
-// The source image used for creating the disk.
 type ImageDiskReferenceOutput struct{ *pulumi.OutputState }
 
 func (ImageDiskReferenceOutput) ElementType() reflect.Type {
@@ -6142,17 +5765,15 @@ func (o ImageDiskReferenceOutput) ToImageDiskReferencePtrOutput() ImageDiskRefer
 }
 
 func (o ImageDiskReferenceOutput) ToImageDiskReferencePtrOutputWithContext(ctx context.Context) ImageDiskReferencePtrOutput {
-	return o.ApplyT(func(v ImageDiskReference) *ImageDiskReference {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ImageDiskReference) *ImageDiskReference {
 		return &v
 	}).(ImageDiskReferencePtrOutput)
 }
 
-// A relative uri containing either a Platform Image Repository or user image reference.
 func (o ImageDiskReferenceOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v ImageDiskReference) string { return v.Id }).(pulumi.StringOutput)
 }
 
-// If the disk is created from an image's data disk, this is an index that indicates which of the data disks in the image to use. For OS disks, this field is null.
 func (o ImageDiskReferenceOutput) Lun() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v ImageDiskReference) *int { return v.Lun }).(pulumi.IntPtrOutput)
 }
@@ -6172,10 +5793,15 @@ func (o ImageDiskReferencePtrOutput) ToImageDiskReferencePtrOutputWithContext(ct
 }
 
 func (o ImageDiskReferencePtrOutput) Elem() ImageDiskReferenceOutput {
-	return o.ApplyT(func(v *ImageDiskReference) ImageDiskReference { return *v }).(ImageDiskReferenceOutput)
+	return o.ApplyT(func(v *ImageDiskReference) ImageDiskReference {
+		if v != nil {
+			return *v
+		}
+		var ret ImageDiskReference
+		return ret
+	}).(ImageDiskReferenceOutput)
 }
 
-// A relative uri containing either a Platform Image Repository or user image reference.
 func (o ImageDiskReferencePtrOutput) Id() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ImageDiskReference) *string {
 		if v == nil {
@@ -6185,7 +5811,6 @@ func (o ImageDiskReferencePtrOutput) Id() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// If the disk is created from an image's data disk, this is an index that indicates which of the data disks in the image to use. For OS disks, this field is null.
 func (o ImageDiskReferencePtrOutput) Lun() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *ImageDiskReference) *int {
 		if v == nil {
@@ -6195,12 +5820,9 @@ func (o ImageDiskReferencePtrOutput) Lun() pulumi.IntPtrOutput {
 	}).(pulumi.IntPtrOutput)
 }
 
-// The source image used for creating the disk.
 type ImageDiskReferenceResponse struct {
-	// A relative uri containing either a Platform Image Repository or user image reference.
-	Id string `pulumi:"id"`
-	// If the disk is created from an image's data disk, this is an index that indicates which of the data disks in the image to use. For OS disks, this field is null.
-	Lun *int `pulumi:"lun"`
+	Id  string `pulumi:"id"`
+	Lun *int   `pulumi:"lun"`
 }
 
 // ImageDiskReferenceResponseInput is an input type that accepts ImageDiskReferenceResponseArgs and ImageDiskReferenceResponseOutput values.
@@ -6214,11 +5836,8 @@ type ImageDiskReferenceResponseInput interface {
 	ToImageDiskReferenceResponseOutputWithContext(context.Context) ImageDiskReferenceResponseOutput
 }
 
-// The source image used for creating the disk.
 type ImageDiskReferenceResponseArgs struct {
-	// A relative uri containing either a Platform Image Repository or user image reference.
-	Id pulumi.StringInput `pulumi:"id"`
-	// If the disk is created from an image's data disk, this is an index that indicates which of the data disks in the image to use. For OS disks, this field is null.
+	Id  pulumi.StringInput `pulumi:"id"`
 	Lun pulumi.IntPtrInput `pulumi:"lun"`
 }
 
@@ -6275,7 +5894,6 @@ func (i *imageDiskReferenceResponsePtrType) ToImageDiskReferenceResponsePtrOutpu
 	return pulumi.ToOutputWithContext(ctx, i).(ImageDiskReferenceResponsePtrOutput)
 }
 
-// The source image used for creating the disk.
 type ImageDiskReferenceResponseOutput struct{ *pulumi.OutputState }
 
 func (ImageDiskReferenceResponseOutput) ElementType() reflect.Type {
@@ -6295,17 +5913,15 @@ func (o ImageDiskReferenceResponseOutput) ToImageDiskReferenceResponsePtrOutput(
 }
 
 func (o ImageDiskReferenceResponseOutput) ToImageDiskReferenceResponsePtrOutputWithContext(ctx context.Context) ImageDiskReferenceResponsePtrOutput {
-	return o.ApplyT(func(v ImageDiskReferenceResponse) *ImageDiskReferenceResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ImageDiskReferenceResponse) *ImageDiskReferenceResponse {
 		return &v
 	}).(ImageDiskReferenceResponsePtrOutput)
 }
 
-// A relative uri containing either a Platform Image Repository or user image reference.
 func (o ImageDiskReferenceResponseOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v ImageDiskReferenceResponse) string { return v.Id }).(pulumi.StringOutput)
 }
 
-// If the disk is created from an image's data disk, this is an index that indicates which of the data disks in the image to use. For OS disks, this field is null.
 func (o ImageDiskReferenceResponseOutput) Lun() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v ImageDiskReferenceResponse) *int { return v.Lun }).(pulumi.IntPtrOutput)
 }
@@ -6325,10 +5941,15 @@ func (o ImageDiskReferenceResponsePtrOutput) ToImageDiskReferenceResponsePtrOutp
 }
 
 func (o ImageDiskReferenceResponsePtrOutput) Elem() ImageDiskReferenceResponseOutput {
-	return o.ApplyT(func(v *ImageDiskReferenceResponse) ImageDiskReferenceResponse { return *v }).(ImageDiskReferenceResponseOutput)
+	return o.ApplyT(func(v *ImageDiskReferenceResponse) ImageDiskReferenceResponse {
+		if v != nil {
+			return *v
+		}
+		var ret ImageDiskReferenceResponse
+		return ret
+	}).(ImageDiskReferenceResponseOutput)
 }
 
-// A relative uri containing either a Platform Image Repository or user image reference.
 func (o ImageDiskReferenceResponsePtrOutput) Id() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ImageDiskReferenceResponse) *string {
 		if v == nil {
@@ -6338,7 +5959,6 @@ func (o ImageDiskReferenceResponsePtrOutput) Id() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// If the disk is created from an image's data disk, this is an index that indicates which of the data disks in the image to use. For OS disks, this field is null.
 func (o ImageDiskReferenceResponsePtrOutput) Lun() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *ImageDiskReferenceResponse) *int {
 		if v == nil {
@@ -6348,13 +5968,9 @@ func (o ImageDiskReferenceResponsePtrOutput) Lun() pulumi.IntPtrOutput {
 	}).(pulumi.IntPtrOutput)
 }
 
-// Describes the gallery image definition purchase plan. This is used by marketplace images.
 type ImagePurchasePlan struct {
-	// The plan ID.
-	Name *string `pulumi:"name"`
-	// The product ID.
-	Product *string `pulumi:"product"`
-	// The publisher ID.
+	Name      *string `pulumi:"name"`
+	Product   *string `pulumi:"product"`
 	Publisher *string `pulumi:"publisher"`
 }
 
@@ -6369,13 +5985,9 @@ type ImagePurchasePlanInput interface {
 	ToImagePurchasePlanOutputWithContext(context.Context) ImagePurchasePlanOutput
 }
 
-// Describes the gallery image definition purchase plan. This is used by marketplace images.
 type ImagePurchasePlanArgs struct {
-	// The plan ID.
-	Name pulumi.StringPtrInput `pulumi:"name"`
-	// The product ID.
-	Product pulumi.StringPtrInput `pulumi:"product"`
-	// The publisher ID.
+	Name      pulumi.StringPtrInput `pulumi:"name"`
+	Product   pulumi.StringPtrInput `pulumi:"product"`
 	Publisher pulumi.StringPtrInput `pulumi:"publisher"`
 }
 
@@ -6432,7 +6044,6 @@ func (i *imagePurchasePlanPtrType) ToImagePurchasePlanPtrOutputWithContext(ctx c
 	return pulumi.ToOutputWithContext(ctx, i).(ImagePurchasePlanPtrOutput)
 }
 
-// Describes the gallery image definition purchase plan. This is used by marketplace images.
 type ImagePurchasePlanOutput struct{ *pulumi.OutputState }
 
 func (ImagePurchasePlanOutput) ElementType() reflect.Type {
@@ -6452,22 +6063,19 @@ func (o ImagePurchasePlanOutput) ToImagePurchasePlanPtrOutput() ImagePurchasePla
 }
 
 func (o ImagePurchasePlanOutput) ToImagePurchasePlanPtrOutputWithContext(ctx context.Context) ImagePurchasePlanPtrOutput {
-	return o.ApplyT(func(v ImagePurchasePlan) *ImagePurchasePlan {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ImagePurchasePlan) *ImagePurchasePlan {
 		return &v
 	}).(ImagePurchasePlanPtrOutput)
 }
 
-// The plan ID.
 func (o ImagePurchasePlanOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ImagePurchasePlan) *string { return v.Name }).(pulumi.StringPtrOutput)
 }
 
-// The product ID.
 func (o ImagePurchasePlanOutput) Product() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ImagePurchasePlan) *string { return v.Product }).(pulumi.StringPtrOutput)
 }
 
-// The publisher ID.
 func (o ImagePurchasePlanOutput) Publisher() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ImagePurchasePlan) *string { return v.Publisher }).(pulumi.StringPtrOutput)
 }
@@ -6487,10 +6095,15 @@ func (o ImagePurchasePlanPtrOutput) ToImagePurchasePlanPtrOutputWithContext(ctx 
 }
 
 func (o ImagePurchasePlanPtrOutput) Elem() ImagePurchasePlanOutput {
-	return o.ApplyT(func(v *ImagePurchasePlan) ImagePurchasePlan { return *v }).(ImagePurchasePlanOutput)
+	return o.ApplyT(func(v *ImagePurchasePlan) ImagePurchasePlan {
+		if v != nil {
+			return *v
+		}
+		var ret ImagePurchasePlan
+		return ret
+	}).(ImagePurchasePlanOutput)
 }
 
-// The plan ID.
 func (o ImagePurchasePlanPtrOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ImagePurchasePlan) *string {
 		if v == nil {
@@ -6500,7 +6113,6 @@ func (o ImagePurchasePlanPtrOutput) Name() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The product ID.
 func (o ImagePurchasePlanPtrOutput) Product() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ImagePurchasePlan) *string {
 		if v == nil {
@@ -6510,7 +6122,6 @@ func (o ImagePurchasePlanPtrOutput) Product() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The publisher ID.
 func (o ImagePurchasePlanPtrOutput) Publisher() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ImagePurchasePlan) *string {
 		if v == nil {
@@ -6520,13 +6131,9 @@ func (o ImagePurchasePlanPtrOutput) Publisher() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Describes the gallery image definition purchase plan. This is used by marketplace images.
 type ImagePurchasePlanResponse struct {
-	// The plan ID.
-	Name *string `pulumi:"name"`
-	// The product ID.
-	Product *string `pulumi:"product"`
-	// The publisher ID.
+	Name      *string `pulumi:"name"`
+	Product   *string `pulumi:"product"`
 	Publisher *string `pulumi:"publisher"`
 }
 
@@ -6541,13 +6148,9 @@ type ImagePurchasePlanResponseInput interface {
 	ToImagePurchasePlanResponseOutputWithContext(context.Context) ImagePurchasePlanResponseOutput
 }
 
-// Describes the gallery image definition purchase plan. This is used by marketplace images.
 type ImagePurchasePlanResponseArgs struct {
-	// The plan ID.
-	Name pulumi.StringPtrInput `pulumi:"name"`
-	// The product ID.
-	Product pulumi.StringPtrInput `pulumi:"product"`
-	// The publisher ID.
+	Name      pulumi.StringPtrInput `pulumi:"name"`
+	Product   pulumi.StringPtrInput `pulumi:"product"`
 	Publisher pulumi.StringPtrInput `pulumi:"publisher"`
 }
 
@@ -6604,7 +6207,6 @@ func (i *imagePurchasePlanResponsePtrType) ToImagePurchasePlanResponsePtrOutputW
 	return pulumi.ToOutputWithContext(ctx, i).(ImagePurchasePlanResponsePtrOutput)
 }
 
-// Describes the gallery image definition purchase plan. This is used by marketplace images.
 type ImagePurchasePlanResponseOutput struct{ *pulumi.OutputState }
 
 func (ImagePurchasePlanResponseOutput) ElementType() reflect.Type {
@@ -6624,22 +6226,19 @@ func (o ImagePurchasePlanResponseOutput) ToImagePurchasePlanResponsePtrOutput() 
 }
 
 func (o ImagePurchasePlanResponseOutput) ToImagePurchasePlanResponsePtrOutputWithContext(ctx context.Context) ImagePurchasePlanResponsePtrOutput {
-	return o.ApplyT(func(v ImagePurchasePlanResponse) *ImagePurchasePlanResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ImagePurchasePlanResponse) *ImagePurchasePlanResponse {
 		return &v
 	}).(ImagePurchasePlanResponsePtrOutput)
 }
 
-// The plan ID.
 func (o ImagePurchasePlanResponseOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ImagePurchasePlanResponse) *string { return v.Name }).(pulumi.StringPtrOutput)
 }
 
-// The product ID.
 func (o ImagePurchasePlanResponseOutput) Product() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ImagePurchasePlanResponse) *string { return v.Product }).(pulumi.StringPtrOutput)
 }
 
-// The publisher ID.
 func (o ImagePurchasePlanResponseOutput) Publisher() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ImagePurchasePlanResponse) *string { return v.Publisher }).(pulumi.StringPtrOutput)
 }
@@ -6659,10 +6258,15 @@ func (o ImagePurchasePlanResponsePtrOutput) ToImagePurchasePlanResponsePtrOutput
 }
 
 func (o ImagePurchasePlanResponsePtrOutput) Elem() ImagePurchasePlanResponseOutput {
-	return o.ApplyT(func(v *ImagePurchasePlanResponse) ImagePurchasePlanResponse { return *v }).(ImagePurchasePlanResponseOutput)
+	return o.ApplyT(func(v *ImagePurchasePlanResponse) ImagePurchasePlanResponse {
+		if v != nil {
+			return *v
+		}
+		var ret ImagePurchasePlanResponse
+		return ret
+	}).(ImagePurchasePlanResponseOutput)
 }
 
-// The plan ID.
 func (o ImagePurchasePlanResponsePtrOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ImagePurchasePlanResponse) *string {
 		if v == nil {
@@ -6672,7 +6276,6 @@ func (o ImagePurchasePlanResponsePtrOutput) Name() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The product ID.
 func (o ImagePurchasePlanResponsePtrOutput) Product() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ImagePurchasePlanResponse) *string {
 		if v == nil {
@@ -6682,7 +6285,6 @@ func (o ImagePurchasePlanResponsePtrOutput) Product() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The publisher ID.
 func (o ImagePurchasePlanResponsePtrOutput) Publisher() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ImagePurchasePlanResponse) *string {
 		if v == nil {
@@ -6692,11 +6294,8 @@ func (o ImagePurchasePlanResponsePtrOutput) Publisher() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Key Vault Key Url to be used for server side encryption of Managed Disks and Snapshots
 type KeyForDiskEncryptionSet struct {
-	// Fully versioned Key Url pointing to a key in KeyVault
-	KeyUrl string `pulumi:"keyUrl"`
-	// Resource id of the KeyVault containing the key or secret. This property is optional and cannot be used if the KeyVault subscription is not the same as the Disk Encryption Set subscription.
+	KeyUrl      string       `pulumi:"keyUrl"`
 	SourceVault *SourceVault `pulumi:"sourceVault"`
 }
 
@@ -6711,11 +6310,8 @@ type KeyForDiskEncryptionSetInput interface {
 	ToKeyForDiskEncryptionSetOutputWithContext(context.Context) KeyForDiskEncryptionSetOutput
 }
 
-// Key Vault Key Url to be used for server side encryption of Managed Disks and Snapshots
 type KeyForDiskEncryptionSetArgs struct {
-	// Fully versioned Key Url pointing to a key in KeyVault
-	KeyUrl pulumi.StringInput `pulumi:"keyUrl"`
-	// Resource id of the KeyVault containing the key or secret. This property is optional and cannot be used if the KeyVault subscription is not the same as the Disk Encryption Set subscription.
+	KeyUrl      pulumi.StringInput  `pulumi:"keyUrl"`
 	SourceVault SourceVaultPtrInput `pulumi:"sourceVault"`
 }
 
@@ -6772,7 +6368,6 @@ func (i *keyForDiskEncryptionSetPtrType) ToKeyForDiskEncryptionSetPtrOutputWithC
 	return pulumi.ToOutputWithContext(ctx, i).(KeyForDiskEncryptionSetPtrOutput)
 }
 
-// Key Vault Key Url to be used for server side encryption of Managed Disks and Snapshots
 type KeyForDiskEncryptionSetOutput struct{ *pulumi.OutputState }
 
 func (KeyForDiskEncryptionSetOutput) ElementType() reflect.Type {
@@ -6792,17 +6387,15 @@ func (o KeyForDiskEncryptionSetOutput) ToKeyForDiskEncryptionSetPtrOutput() KeyF
 }
 
 func (o KeyForDiskEncryptionSetOutput) ToKeyForDiskEncryptionSetPtrOutputWithContext(ctx context.Context) KeyForDiskEncryptionSetPtrOutput {
-	return o.ApplyT(func(v KeyForDiskEncryptionSet) *KeyForDiskEncryptionSet {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v KeyForDiskEncryptionSet) *KeyForDiskEncryptionSet {
 		return &v
 	}).(KeyForDiskEncryptionSetPtrOutput)
 }
 
-// Fully versioned Key Url pointing to a key in KeyVault
 func (o KeyForDiskEncryptionSetOutput) KeyUrl() pulumi.StringOutput {
 	return o.ApplyT(func(v KeyForDiskEncryptionSet) string { return v.KeyUrl }).(pulumi.StringOutput)
 }
 
-// Resource id of the KeyVault containing the key or secret. This property is optional and cannot be used if the KeyVault subscription is not the same as the Disk Encryption Set subscription.
 func (o KeyForDiskEncryptionSetOutput) SourceVault() SourceVaultPtrOutput {
 	return o.ApplyT(func(v KeyForDiskEncryptionSet) *SourceVault { return v.SourceVault }).(SourceVaultPtrOutput)
 }
@@ -6822,10 +6415,15 @@ func (o KeyForDiskEncryptionSetPtrOutput) ToKeyForDiskEncryptionSetPtrOutputWith
 }
 
 func (o KeyForDiskEncryptionSetPtrOutput) Elem() KeyForDiskEncryptionSetOutput {
-	return o.ApplyT(func(v *KeyForDiskEncryptionSet) KeyForDiskEncryptionSet { return *v }).(KeyForDiskEncryptionSetOutput)
+	return o.ApplyT(func(v *KeyForDiskEncryptionSet) KeyForDiskEncryptionSet {
+		if v != nil {
+			return *v
+		}
+		var ret KeyForDiskEncryptionSet
+		return ret
+	}).(KeyForDiskEncryptionSetOutput)
 }
 
-// Fully versioned Key Url pointing to a key in KeyVault
 func (o KeyForDiskEncryptionSetPtrOutput) KeyUrl() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *KeyForDiskEncryptionSet) *string {
 		if v == nil {
@@ -6835,7 +6433,6 @@ func (o KeyForDiskEncryptionSetPtrOutput) KeyUrl() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Resource id of the KeyVault containing the key or secret. This property is optional and cannot be used if the KeyVault subscription is not the same as the Disk Encryption Set subscription.
 func (o KeyForDiskEncryptionSetPtrOutput) SourceVault() SourceVaultPtrOutput {
 	return o.ApplyT(func(v *KeyForDiskEncryptionSet) *SourceVault {
 		if v == nil {
@@ -6845,11 +6442,8 @@ func (o KeyForDiskEncryptionSetPtrOutput) SourceVault() SourceVaultPtrOutput {
 	}).(SourceVaultPtrOutput)
 }
 
-// Key Vault Key Url to be used for server side encryption of Managed Disks and Snapshots
 type KeyForDiskEncryptionSetResponse struct {
-	// Fully versioned Key Url pointing to a key in KeyVault
-	KeyUrl string `pulumi:"keyUrl"`
-	// Resource id of the KeyVault containing the key or secret. This property is optional and cannot be used if the KeyVault subscription is not the same as the Disk Encryption Set subscription.
+	KeyUrl      string               `pulumi:"keyUrl"`
 	SourceVault *SourceVaultResponse `pulumi:"sourceVault"`
 }
 
@@ -6864,11 +6458,8 @@ type KeyForDiskEncryptionSetResponseInput interface {
 	ToKeyForDiskEncryptionSetResponseOutputWithContext(context.Context) KeyForDiskEncryptionSetResponseOutput
 }
 
-// Key Vault Key Url to be used for server side encryption of Managed Disks and Snapshots
 type KeyForDiskEncryptionSetResponseArgs struct {
-	// Fully versioned Key Url pointing to a key in KeyVault
-	KeyUrl pulumi.StringInput `pulumi:"keyUrl"`
-	// Resource id of the KeyVault containing the key or secret. This property is optional and cannot be used if the KeyVault subscription is not the same as the Disk Encryption Set subscription.
+	KeyUrl      pulumi.StringInput          `pulumi:"keyUrl"`
 	SourceVault SourceVaultResponsePtrInput `pulumi:"sourceVault"`
 }
 
@@ -6950,7 +6541,6 @@ func (i KeyForDiskEncryptionSetResponseArray) ToKeyForDiskEncryptionSetResponseA
 	return pulumi.ToOutputWithContext(ctx, i).(KeyForDiskEncryptionSetResponseArrayOutput)
 }
 
-// Key Vault Key Url to be used for server side encryption of Managed Disks and Snapshots
 type KeyForDiskEncryptionSetResponseOutput struct{ *pulumi.OutputState }
 
 func (KeyForDiskEncryptionSetResponseOutput) ElementType() reflect.Type {
@@ -6970,17 +6560,15 @@ func (o KeyForDiskEncryptionSetResponseOutput) ToKeyForDiskEncryptionSetResponse
 }
 
 func (o KeyForDiskEncryptionSetResponseOutput) ToKeyForDiskEncryptionSetResponsePtrOutputWithContext(ctx context.Context) KeyForDiskEncryptionSetResponsePtrOutput {
-	return o.ApplyT(func(v KeyForDiskEncryptionSetResponse) *KeyForDiskEncryptionSetResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v KeyForDiskEncryptionSetResponse) *KeyForDiskEncryptionSetResponse {
 		return &v
 	}).(KeyForDiskEncryptionSetResponsePtrOutput)
 }
 
-// Fully versioned Key Url pointing to a key in KeyVault
 func (o KeyForDiskEncryptionSetResponseOutput) KeyUrl() pulumi.StringOutput {
 	return o.ApplyT(func(v KeyForDiskEncryptionSetResponse) string { return v.KeyUrl }).(pulumi.StringOutput)
 }
 
-// Resource id of the KeyVault containing the key or secret. This property is optional and cannot be used if the KeyVault subscription is not the same as the Disk Encryption Set subscription.
 func (o KeyForDiskEncryptionSetResponseOutput) SourceVault() SourceVaultResponsePtrOutput {
 	return o.ApplyT(func(v KeyForDiskEncryptionSetResponse) *SourceVaultResponse { return v.SourceVault }).(SourceVaultResponsePtrOutput)
 }
@@ -7000,10 +6588,15 @@ func (o KeyForDiskEncryptionSetResponsePtrOutput) ToKeyForDiskEncryptionSetRespo
 }
 
 func (o KeyForDiskEncryptionSetResponsePtrOutput) Elem() KeyForDiskEncryptionSetResponseOutput {
-	return o.ApplyT(func(v *KeyForDiskEncryptionSetResponse) KeyForDiskEncryptionSetResponse { return *v }).(KeyForDiskEncryptionSetResponseOutput)
+	return o.ApplyT(func(v *KeyForDiskEncryptionSetResponse) KeyForDiskEncryptionSetResponse {
+		if v != nil {
+			return *v
+		}
+		var ret KeyForDiskEncryptionSetResponse
+		return ret
+	}).(KeyForDiskEncryptionSetResponseOutput)
 }
 
-// Fully versioned Key Url pointing to a key in KeyVault
 func (o KeyForDiskEncryptionSetResponsePtrOutput) KeyUrl() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *KeyForDiskEncryptionSetResponse) *string {
 		if v == nil {
@@ -7013,7 +6606,6 @@ func (o KeyForDiskEncryptionSetResponsePtrOutput) KeyUrl() pulumi.StringPtrOutpu
 	}).(pulumi.StringPtrOutput)
 }
 
-// Resource id of the KeyVault containing the key or secret. This property is optional and cannot be used if the KeyVault subscription is not the same as the Disk Encryption Set subscription.
 func (o KeyForDiskEncryptionSetResponsePtrOutput) SourceVault() SourceVaultResponsePtrOutput {
 	return o.ApplyT(func(v *KeyForDiskEncryptionSetResponse) *SourceVaultResponse {
 		if v == nil {
@@ -7043,11 +6635,8 @@ func (o KeyForDiskEncryptionSetResponseArrayOutput) Index(i pulumi.IntInput) Key
 	}).(KeyForDiskEncryptionSetResponseOutput)
 }
 
-// Key Vault Key Url and vault id of KeK, KeK is optional and when provided is used to unwrap the encryptionKey
 type KeyVaultAndKeyReference struct {
-	// Url pointing to a key or secret in KeyVault
-	KeyUrl string `pulumi:"keyUrl"`
-	// Resource id of the KeyVault containing the key or secret
+	KeyUrl      string      `pulumi:"keyUrl"`
 	SourceVault SourceVault `pulumi:"sourceVault"`
 }
 
@@ -7062,12 +6651,9 @@ type KeyVaultAndKeyReferenceInput interface {
 	ToKeyVaultAndKeyReferenceOutputWithContext(context.Context) KeyVaultAndKeyReferenceOutput
 }
 
-// Key Vault Key Url and vault id of KeK, KeK is optional and when provided is used to unwrap the encryptionKey
 type KeyVaultAndKeyReferenceArgs struct {
-	// Url pointing to a key or secret in KeyVault
-	KeyUrl pulumi.StringInput `pulumi:"keyUrl"`
-	// Resource id of the KeyVault containing the key or secret
-	SourceVault SourceVaultInput `pulumi:"sourceVault"`
+	KeyUrl      pulumi.StringInput `pulumi:"keyUrl"`
+	SourceVault SourceVaultInput   `pulumi:"sourceVault"`
 }
 
 func (KeyVaultAndKeyReferenceArgs) ElementType() reflect.Type {
@@ -7123,7 +6709,6 @@ func (i *keyVaultAndKeyReferencePtrType) ToKeyVaultAndKeyReferencePtrOutputWithC
 	return pulumi.ToOutputWithContext(ctx, i).(KeyVaultAndKeyReferencePtrOutput)
 }
 
-// Key Vault Key Url and vault id of KeK, KeK is optional and when provided is used to unwrap the encryptionKey
 type KeyVaultAndKeyReferenceOutput struct{ *pulumi.OutputState }
 
 func (KeyVaultAndKeyReferenceOutput) ElementType() reflect.Type {
@@ -7143,17 +6728,15 @@ func (o KeyVaultAndKeyReferenceOutput) ToKeyVaultAndKeyReferencePtrOutput() KeyV
 }
 
 func (o KeyVaultAndKeyReferenceOutput) ToKeyVaultAndKeyReferencePtrOutputWithContext(ctx context.Context) KeyVaultAndKeyReferencePtrOutput {
-	return o.ApplyT(func(v KeyVaultAndKeyReference) *KeyVaultAndKeyReference {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v KeyVaultAndKeyReference) *KeyVaultAndKeyReference {
 		return &v
 	}).(KeyVaultAndKeyReferencePtrOutput)
 }
 
-// Url pointing to a key or secret in KeyVault
 func (o KeyVaultAndKeyReferenceOutput) KeyUrl() pulumi.StringOutput {
 	return o.ApplyT(func(v KeyVaultAndKeyReference) string { return v.KeyUrl }).(pulumi.StringOutput)
 }
 
-// Resource id of the KeyVault containing the key or secret
 func (o KeyVaultAndKeyReferenceOutput) SourceVault() SourceVaultOutput {
 	return o.ApplyT(func(v KeyVaultAndKeyReference) SourceVault { return v.SourceVault }).(SourceVaultOutput)
 }
@@ -7173,10 +6756,15 @@ func (o KeyVaultAndKeyReferencePtrOutput) ToKeyVaultAndKeyReferencePtrOutputWith
 }
 
 func (o KeyVaultAndKeyReferencePtrOutput) Elem() KeyVaultAndKeyReferenceOutput {
-	return o.ApplyT(func(v *KeyVaultAndKeyReference) KeyVaultAndKeyReference { return *v }).(KeyVaultAndKeyReferenceOutput)
+	return o.ApplyT(func(v *KeyVaultAndKeyReference) KeyVaultAndKeyReference {
+		if v != nil {
+			return *v
+		}
+		var ret KeyVaultAndKeyReference
+		return ret
+	}).(KeyVaultAndKeyReferenceOutput)
 }
 
-// Url pointing to a key or secret in KeyVault
 func (o KeyVaultAndKeyReferencePtrOutput) KeyUrl() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *KeyVaultAndKeyReference) *string {
 		if v == nil {
@@ -7186,7 +6774,6 @@ func (o KeyVaultAndKeyReferencePtrOutput) KeyUrl() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Resource id of the KeyVault containing the key or secret
 func (o KeyVaultAndKeyReferencePtrOutput) SourceVault() SourceVaultPtrOutput {
 	return o.ApplyT(func(v *KeyVaultAndKeyReference) *SourceVault {
 		if v == nil {
@@ -7196,11 +6783,8 @@ func (o KeyVaultAndKeyReferencePtrOutput) SourceVault() SourceVaultPtrOutput {
 	}).(SourceVaultPtrOutput)
 }
 
-// Key Vault Key Url and vault id of KeK, KeK is optional and when provided is used to unwrap the encryptionKey
 type KeyVaultAndKeyReferenceResponse struct {
-	// Url pointing to a key or secret in KeyVault
-	KeyUrl string `pulumi:"keyUrl"`
-	// Resource id of the KeyVault containing the key or secret
+	KeyUrl      string              `pulumi:"keyUrl"`
 	SourceVault SourceVaultResponse `pulumi:"sourceVault"`
 }
 
@@ -7215,11 +6799,8 @@ type KeyVaultAndKeyReferenceResponseInput interface {
 	ToKeyVaultAndKeyReferenceResponseOutputWithContext(context.Context) KeyVaultAndKeyReferenceResponseOutput
 }
 
-// Key Vault Key Url and vault id of KeK, KeK is optional and when provided is used to unwrap the encryptionKey
 type KeyVaultAndKeyReferenceResponseArgs struct {
-	// Url pointing to a key or secret in KeyVault
-	KeyUrl pulumi.StringInput `pulumi:"keyUrl"`
-	// Resource id of the KeyVault containing the key or secret
+	KeyUrl      pulumi.StringInput       `pulumi:"keyUrl"`
 	SourceVault SourceVaultResponseInput `pulumi:"sourceVault"`
 }
 
@@ -7276,7 +6857,6 @@ func (i *keyVaultAndKeyReferenceResponsePtrType) ToKeyVaultAndKeyReferenceRespon
 	return pulumi.ToOutputWithContext(ctx, i).(KeyVaultAndKeyReferenceResponsePtrOutput)
 }
 
-// Key Vault Key Url and vault id of KeK, KeK is optional and when provided is used to unwrap the encryptionKey
 type KeyVaultAndKeyReferenceResponseOutput struct{ *pulumi.OutputState }
 
 func (KeyVaultAndKeyReferenceResponseOutput) ElementType() reflect.Type {
@@ -7296,17 +6876,15 @@ func (o KeyVaultAndKeyReferenceResponseOutput) ToKeyVaultAndKeyReferenceResponse
 }
 
 func (o KeyVaultAndKeyReferenceResponseOutput) ToKeyVaultAndKeyReferenceResponsePtrOutputWithContext(ctx context.Context) KeyVaultAndKeyReferenceResponsePtrOutput {
-	return o.ApplyT(func(v KeyVaultAndKeyReferenceResponse) *KeyVaultAndKeyReferenceResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v KeyVaultAndKeyReferenceResponse) *KeyVaultAndKeyReferenceResponse {
 		return &v
 	}).(KeyVaultAndKeyReferenceResponsePtrOutput)
 }
 
-// Url pointing to a key or secret in KeyVault
 func (o KeyVaultAndKeyReferenceResponseOutput) KeyUrl() pulumi.StringOutput {
 	return o.ApplyT(func(v KeyVaultAndKeyReferenceResponse) string { return v.KeyUrl }).(pulumi.StringOutput)
 }
 
-// Resource id of the KeyVault containing the key or secret
 func (o KeyVaultAndKeyReferenceResponseOutput) SourceVault() SourceVaultResponseOutput {
 	return o.ApplyT(func(v KeyVaultAndKeyReferenceResponse) SourceVaultResponse { return v.SourceVault }).(SourceVaultResponseOutput)
 }
@@ -7326,10 +6904,15 @@ func (o KeyVaultAndKeyReferenceResponsePtrOutput) ToKeyVaultAndKeyReferenceRespo
 }
 
 func (o KeyVaultAndKeyReferenceResponsePtrOutput) Elem() KeyVaultAndKeyReferenceResponseOutput {
-	return o.ApplyT(func(v *KeyVaultAndKeyReferenceResponse) KeyVaultAndKeyReferenceResponse { return *v }).(KeyVaultAndKeyReferenceResponseOutput)
+	return o.ApplyT(func(v *KeyVaultAndKeyReferenceResponse) KeyVaultAndKeyReferenceResponse {
+		if v != nil {
+			return *v
+		}
+		var ret KeyVaultAndKeyReferenceResponse
+		return ret
+	}).(KeyVaultAndKeyReferenceResponseOutput)
 }
 
-// Url pointing to a key or secret in KeyVault
 func (o KeyVaultAndKeyReferenceResponsePtrOutput) KeyUrl() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *KeyVaultAndKeyReferenceResponse) *string {
 		if v == nil {
@@ -7339,7 +6922,6 @@ func (o KeyVaultAndKeyReferenceResponsePtrOutput) KeyUrl() pulumi.StringPtrOutpu
 	}).(pulumi.StringPtrOutput)
 }
 
-// Resource id of the KeyVault containing the key or secret
 func (o KeyVaultAndKeyReferenceResponsePtrOutput) SourceVault() SourceVaultResponsePtrOutput {
 	return o.ApplyT(func(v *KeyVaultAndKeyReferenceResponse) *SourceVaultResponse {
 		if v == nil {
@@ -7349,11 +6931,8 @@ func (o KeyVaultAndKeyReferenceResponsePtrOutput) SourceVault() SourceVaultRespo
 	}).(SourceVaultResponsePtrOutput)
 }
 
-// Key Vault Secret Url and vault id of the encryption key
 type KeyVaultAndSecretReference struct {
-	// Url pointing to a key or secret in KeyVault
-	SecretUrl string `pulumi:"secretUrl"`
-	// Resource id of the KeyVault containing the key or secret
+	SecretUrl   string      `pulumi:"secretUrl"`
 	SourceVault SourceVault `pulumi:"sourceVault"`
 }
 
@@ -7368,12 +6947,9 @@ type KeyVaultAndSecretReferenceInput interface {
 	ToKeyVaultAndSecretReferenceOutputWithContext(context.Context) KeyVaultAndSecretReferenceOutput
 }
 
-// Key Vault Secret Url and vault id of the encryption key
 type KeyVaultAndSecretReferenceArgs struct {
-	// Url pointing to a key or secret in KeyVault
-	SecretUrl pulumi.StringInput `pulumi:"secretUrl"`
-	// Resource id of the KeyVault containing the key or secret
-	SourceVault SourceVaultInput `pulumi:"sourceVault"`
+	SecretUrl   pulumi.StringInput `pulumi:"secretUrl"`
+	SourceVault SourceVaultInput   `pulumi:"sourceVault"`
 }
 
 func (KeyVaultAndSecretReferenceArgs) ElementType() reflect.Type {
@@ -7429,7 +7005,6 @@ func (i *keyVaultAndSecretReferencePtrType) ToKeyVaultAndSecretReferencePtrOutpu
 	return pulumi.ToOutputWithContext(ctx, i).(KeyVaultAndSecretReferencePtrOutput)
 }
 
-// Key Vault Secret Url and vault id of the encryption key
 type KeyVaultAndSecretReferenceOutput struct{ *pulumi.OutputState }
 
 func (KeyVaultAndSecretReferenceOutput) ElementType() reflect.Type {
@@ -7449,17 +7024,15 @@ func (o KeyVaultAndSecretReferenceOutput) ToKeyVaultAndSecretReferencePtrOutput(
 }
 
 func (o KeyVaultAndSecretReferenceOutput) ToKeyVaultAndSecretReferencePtrOutputWithContext(ctx context.Context) KeyVaultAndSecretReferencePtrOutput {
-	return o.ApplyT(func(v KeyVaultAndSecretReference) *KeyVaultAndSecretReference {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v KeyVaultAndSecretReference) *KeyVaultAndSecretReference {
 		return &v
 	}).(KeyVaultAndSecretReferencePtrOutput)
 }
 
-// Url pointing to a key or secret in KeyVault
 func (o KeyVaultAndSecretReferenceOutput) SecretUrl() pulumi.StringOutput {
 	return o.ApplyT(func(v KeyVaultAndSecretReference) string { return v.SecretUrl }).(pulumi.StringOutput)
 }
 
-// Resource id of the KeyVault containing the key or secret
 func (o KeyVaultAndSecretReferenceOutput) SourceVault() SourceVaultOutput {
 	return o.ApplyT(func(v KeyVaultAndSecretReference) SourceVault { return v.SourceVault }).(SourceVaultOutput)
 }
@@ -7479,10 +7052,15 @@ func (o KeyVaultAndSecretReferencePtrOutput) ToKeyVaultAndSecretReferencePtrOutp
 }
 
 func (o KeyVaultAndSecretReferencePtrOutput) Elem() KeyVaultAndSecretReferenceOutput {
-	return o.ApplyT(func(v *KeyVaultAndSecretReference) KeyVaultAndSecretReference { return *v }).(KeyVaultAndSecretReferenceOutput)
+	return o.ApplyT(func(v *KeyVaultAndSecretReference) KeyVaultAndSecretReference {
+		if v != nil {
+			return *v
+		}
+		var ret KeyVaultAndSecretReference
+		return ret
+	}).(KeyVaultAndSecretReferenceOutput)
 }
 
-// Url pointing to a key or secret in KeyVault
 func (o KeyVaultAndSecretReferencePtrOutput) SecretUrl() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *KeyVaultAndSecretReference) *string {
 		if v == nil {
@@ -7492,7 +7070,6 @@ func (o KeyVaultAndSecretReferencePtrOutput) SecretUrl() pulumi.StringPtrOutput 
 	}).(pulumi.StringPtrOutput)
 }
 
-// Resource id of the KeyVault containing the key or secret
 func (o KeyVaultAndSecretReferencePtrOutput) SourceVault() SourceVaultPtrOutput {
 	return o.ApplyT(func(v *KeyVaultAndSecretReference) *SourceVault {
 		if v == nil {
@@ -7502,11 +7079,8 @@ func (o KeyVaultAndSecretReferencePtrOutput) SourceVault() SourceVaultPtrOutput 
 	}).(SourceVaultPtrOutput)
 }
 
-// Key Vault Secret Url and vault id of the encryption key
 type KeyVaultAndSecretReferenceResponse struct {
-	// Url pointing to a key or secret in KeyVault
-	SecretUrl string `pulumi:"secretUrl"`
-	// Resource id of the KeyVault containing the key or secret
+	SecretUrl   string              `pulumi:"secretUrl"`
 	SourceVault SourceVaultResponse `pulumi:"sourceVault"`
 }
 
@@ -7521,11 +7095,8 @@ type KeyVaultAndSecretReferenceResponseInput interface {
 	ToKeyVaultAndSecretReferenceResponseOutputWithContext(context.Context) KeyVaultAndSecretReferenceResponseOutput
 }
 
-// Key Vault Secret Url and vault id of the encryption key
 type KeyVaultAndSecretReferenceResponseArgs struct {
-	// Url pointing to a key or secret in KeyVault
-	SecretUrl pulumi.StringInput `pulumi:"secretUrl"`
-	// Resource id of the KeyVault containing the key or secret
+	SecretUrl   pulumi.StringInput       `pulumi:"secretUrl"`
 	SourceVault SourceVaultResponseInput `pulumi:"sourceVault"`
 }
 
@@ -7582,7 +7153,6 @@ func (i *keyVaultAndSecretReferenceResponsePtrType) ToKeyVaultAndSecretReference
 	return pulumi.ToOutputWithContext(ctx, i).(KeyVaultAndSecretReferenceResponsePtrOutput)
 }
 
-// Key Vault Secret Url and vault id of the encryption key
 type KeyVaultAndSecretReferenceResponseOutput struct{ *pulumi.OutputState }
 
 func (KeyVaultAndSecretReferenceResponseOutput) ElementType() reflect.Type {
@@ -7602,17 +7172,15 @@ func (o KeyVaultAndSecretReferenceResponseOutput) ToKeyVaultAndSecretReferenceRe
 }
 
 func (o KeyVaultAndSecretReferenceResponseOutput) ToKeyVaultAndSecretReferenceResponsePtrOutputWithContext(ctx context.Context) KeyVaultAndSecretReferenceResponsePtrOutput {
-	return o.ApplyT(func(v KeyVaultAndSecretReferenceResponse) *KeyVaultAndSecretReferenceResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v KeyVaultAndSecretReferenceResponse) *KeyVaultAndSecretReferenceResponse {
 		return &v
 	}).(KeyVaultAndSecretReferenceResponsePtrOutput)
 }
 
-// Url pointing to a key or secret in KeyVault
 func (o KeyVaultAndSecretReferenceResponseOutput) SecretUrl() pulumi.StringOutput {
 	return o.ApplyT(func(v KeyVaultAndSecretReferenceResponse) string { return v.SecretUrl }).(pulumi.StringOutput)
 }
 
-// Resource id of the KeyVault containing the key or secret
 func (o KeyVaultAndSecretReferenceResponseOutput) SourceVault() SourceVaultResponseOutput {
 	return o.ApplyT(func(v KeyVaultAndSecretReferenceResponse) SourceVaultResponse { return v.SourceVault }).(SourceVaultResponseOutput)
 }
@@ -7632,10 +7200,15 @@ func (o KeyVaultAndSecretReferenceResponsePtrOutput) ToKeyVaultAndSecretReferenc
 }
 
 func (o KeyVaultAndSecretReferenceResponsePtrOutput) Elem() KeyVaultAndSecretReferenceResponseOutput {
-	return o.ApplyT(func(v *KeyVaultAndSecretReferenceResponse) KeyVaultAndSecretReferenceResponse { return *v }).(KeyVaultAndSecretReferenceResponseOutput)
+	return o.ApplyT(func(v *KeyVaultAndSecretReferenceResponse) KeyVaultAndSecretReferenceResponse {
+		if v != nil {
+			return *v
+		}
+		var ret KeyVaultAndSecretReferenceResponse
+		return ret
+	}).(KeyVaultAndSecretReferenceResponseOutput)
 }
 
-// Url pointing to a key or secret in KeyVault
 func (o KeyVaultAndSecretReferenceResponsePtrOutput) SecretUrl() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *KeyVaultAndSecretReferenceResponse) *string {
 		if v == nil {
@@ -7645,7 +7218,6 @@ func (o KeyVaultAndSecretReferenceResponsePtrOutput) SecretUrl() pulumi.StringPt
 	}).(pulumi.StringPtrOutput)
 }
 
-// Resource id of the KeyVault containing the key or secret
 func (o KeyVaultAndSecretReferenceResponsePtrOutput) SourceVault() SourceVaultResponsePtrOutput {
 	return o.ApplyT(func(v *KeyVaultAndSecretReferenceResponse) *SourceVaultResponse {
 		if v == nil {
@@ -7655,9 +7227,7 @@ func (o KeyVaultAndSecretReferenceResponsePtrOutput) SourceVault() SourceVaultRe
 	}).(SourceVaultResponsePtrOutput)
 }
 
-// Contains encryption settings for an OS disk image.
 type OSDiskImageEncryption struct {
-	// A relative URI containing the resource ID of the disk encryption set.
 	DiskEncryptionSetId *string `pulumi:"diskEncryptionSetId"`
 }
 
@@ -7672,9 +7242,7 @@ type OSDiskImageEncryptionInput interface {
 	ToOSDiskImageEncryptionOutputWithContext(context.Context) OSDiskImageEncryptionOutput
 }
 
-// Contains encryption settings for an OS disk image.
 type OSDiskImageEncryptionArgs struct {
-	// A relative URI containing the resource ID of the disk encryption set.
 	DiskEncryptionSetId pulumi.StringPtrInput `pulumi:"diskEncryptionSetId"`
 }
 
@@ -7731,7 +7299,6 @@ func (i *osdiskImageEncryptionPtrType) ToOSDiskImageEncryptionPtrOutputWithConte
 	return pulumi.ToOutputWithContext(ctx, i).(OSDiskImageEncryptionPtrOutput)
 }
 
-// Contains encryption settings for an OS disk image.
 type OSDiskImageEncryptionOutput struct{ *pulumi.OutputState }
 
 func (OSDiskImageEncryptionOutput) ElementType() reflect.Type {
@@ -7751,12 +7318,11 @@ func (o OSDiskImageEncryptionOutput) ToOSDiskImageEncryptionPtrOutput() OSDiskIm
 }
 
 func (o OSDiskImageEncryptionOutput) ToOSDiskImageEncryptionPtrOutputWithContext(ctx context.Context) OSDiskImageEncryptionPtrOutput {
-	return o.ApplyT(func(v OSDiskImageEncryption) *OSDiskImageEncryption {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v OSDiskImageEncryption) *OSDiskImageEncryption {
 		return &v
 	}).(OSDiskImageEncryptionPtrOutput)
 }
 
-// A relative URI containing the resource ID of the disk encryption set.
 func (o OSDiskImageEncryptionOutput) DiskEncryptionSetId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v OSDiskImageEncryption) *string { return v.DiskEncryptionSetId }).(pulumi.StringPtrOutput)
 }
@@ -7776,10 +7342,15 @@ func (o OSDiskImageEncryptionPtrOutput) ToOSDiskImageEncryptionPtrOutputWithCont
 }
 
 func (o OSDiskImageEncryptionPtrOutput) Elem() OSDiskImageEncryptionOutput {
-	return o.ApplyT(func(v *OSDiskImageEncryption) OSDiskImageEncryption { return *v }).(OSDiskImageEncryptionOutput)
+	return o.ApplyT(func(v *OSDiskImageEncryption) OSDiskImageEncryption {
+		if v != nil {
+			return *v
+		}
+		var ret OSDiskImageEncryption
+		return ret
+	}).(OSDiskImageEncryptionOutput)
 }
 
-// A relative URI containing the resource ID of the disk encryption set.
 func (o OSDiskImageEncryptionPtrOutput) DiskEncryptionSetId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *OSDiskImageEncryption) *string {
 		if v == nil {
@@ -7789,9 +7360,7 @@ func (o OSDiskImageEncryptionPtrOutput) DiskEncryptionSetId() pulumi.StringPtrOu
 	}).(pulumi.StringPtrOutput)
 }
 
-// Contains encryption settings for an OS disk image.
 type OSDiskImageEncryptionResponse struct {
-	// A relative URI containing the resource ID of the disk encryption set.
 	DiskEncryptionSetId *string `pulumi:"diskEncryptionSetId"`
 }
 
@@ -7806,9 +7375,7 @@ type OSDiskImageEncryptionResponseInput interface {
 	ToOSDiskImageEncryptionResponseOutputWithContext(context.Context) OSDiskImageEncryptionResponseOutput
 }
 
-// Contains encryption settings for an OS disk image.
 type OSDiskImageEncryptionResponseArgs struct {
-	// A relative URI containing the resource ID of the disk encryption set.
 	DiskEncryptionSetId pulumi.StringPtrInput `pulumi:"diskEncryptionSetId"`
 }
 
@@ -7865,7 +7432,6 @@ func (i *osdiskImageEncryptionResponsePtrType) ToOSDiskImageEncryptionResponsePt
 	return pulumi.ToOutputWithContext(ctx, i).(OSDiskImageEncryptionResponsePtrOutput)
 }
 
-// Contains encryption settings for an OS disk image.
 type OSDiskImageEncryptionResponseOutput struct{ *pulumi.OutputState }
 
 func (OSDiskImageEncryptionResponseOutput) ElementType() reflect.Type {
@@ -7885,12 +7451,11 @@ func (o OSDiskImageEncryptionResponseOutput) ToOSDiskImageEncryptionResponsePtrO
 }
 
 func (o OSDiskImageEncryptionResponseOutput) ToOSDiskImageEncryptionResponsePtrOutputWithContext(ctx context.Context) OSDiskImageEncryptionResponsePtrOutput {
-	return o.ApplyT(func(v OSDiskImageEncryptionResponse) *OSDiskImageEncryptionResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v OSDiskImageEncryptionResponse) *OSDiskImageEncryptionResponse {
 		return &v
 	}).(OSDiskImageEncryptionResponsePtrOutput)
 }
 
-// A relative URI containing the resource ID of the disk encryption set.
 func (o OSDiskImageEncryptionResponseOutput) DiskEncryptionSetId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v OSDiskImageEncryptionResponse) *string { return v.DiskEncryptionSetId }).(pulumi.StringPtrOutput)
 }
@@ -7910,10 +7475,15 @@ func (o OSDiskImageEncryptionResponsePtrOutput) ToOSDiskImageEncryptionResponseP
 }
 
 func (o OSDiskImageEncryptionResponsePtrOutput) Elem() OSDiskImageEncryptionResponseOutput {
-	return o.ApplyT(func(v *OSDiskImageEncryptionResponse) OSDiskImageEncryptionResponse { return *v }).(OSDiskImageEncryptionResponseOutput)
+	return o.ApplyT(func(v *OSDiskImageEncryptionResponse) OSDiskImageEncryptionResponse {
+		if v != nil {
+			return *v
+		}
+		var ret OSDiskImageEncryptionResponse
+		return ret
+	}).(OSDiskImageEncryptionResponseOutput)
 }
 
-// A relative URI containing the resource ID of the disk encryption set.
 func (o OSDiskImageEncryptionResponsePtrOutput) DiskEncryptionSetId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *OSDiskImageEncryptionResponse) *string {
 		if v == nil {
@@ -7923,20 +7493,13 @@ func (o OSDiskImageEncryptionResponsePtrOutput) DiskEncryptionSetId() pulumi.Str
 	}).(pulumi.StringPtrOutput)
 }
 
-// The Private Endpoint Connection resource.
 type PrivateEndpointConnectionResponse struct {
-	// private endpoint connection Id
-	Id string `pulumi:"id"`
-	// private endpoint connection name
-	Name string `pulumi:"name"`
-	// The resource of private end point.
-	PrivateEndpoint *PrivateEndpointResponse `pulumi:"privateEndpoint"`
-	// A collection of information about the state of the connection between DiskAccess and Virtual Network.
+	Id                                string                                    `pulumi:"id"`
+	Name                              string                                    `pulumi:"name"`
+	PrivateEndpoint                   *PrivateEndpointResponse                  `pulumi:"privateEndpoint"`
 	PrivateLinkServiceConnectionState PrivateLinkServiceConnectionStateResponse `pulumi:"privateLinkServiceConnectionState"`
-	// The provisioning state of the private endpoint connection resource.
-	ProvisioningState string `pulumi:"provisioningState"`
-	// private endpoint connection type
-	Type string `pulumi:"type"`
+	ProvisioningState                 string                                    `pulumi:"provisioningState"`
+	Type                              string                                    `pulumi:"type"`
 }
 
 // PrivateEndpointConnectionResponseInput is an input type that accepts PrivateEndpointConnectionResponseArgs and PrivateEndpointConnectionResponseOutput values.
@@ -7950,20 +7513,13 @@ type PrivateEndpointConnectionResponseInput interface {
 	ToPrivateEndpointConnectionResponseOutputWithContext(context.Context) PrivateEndpointConnectionResponseOutput
 }
 
-// The Private Endpoint Connection resource.
 type PrivateEndpointConnectionResponseArgs struct {
-	// private endpoint connection Id
-	Id pulumi.StringInput `pulumi:"id"`
-	// private endpoint connection name
-	Name pulumi.StringInput `pulumi:"name"`
-	// The resource of private end point.
-	PrivateEndpoint PrivateEndpointResponsePtrInput `pulumi:"privateEndpoint"`
-	// A collection of information about the state of the connection between DiskAccess and Virtual Network.
+	Id                                pulumi.StringInput                             `pulumi:"id"`
+	Name                              pulumi.StringInput                             `pulumi:"name"`
+	PrivateEndpoint                   PrivateEndpointResponsePtrInput                `pulumi:"privateEndpoint"`
 	PrivateLinkServiceConnectionState PrivateLinkServiceConnectionStateResponseInput `pulumi:"privateLinkServiceConnectionState"`
-	// The provisioning state of the private endpoint connection resource.
-	ProvisioningState pulumi.StringInput `pulumi:"provisioningState"`
-	// private endpoint connection type
-	Type pulumi.StringInput `pulumi:"type"`
+	ProvisioningState                 pulumi.StringInput                             `pulumi:"provisioningState"`
+	Type                              pulumi.StringInput                             `pulumi:"type"`
 }
 
 func (PrivateEndpointConnectionResponseArgs) ElementType() reflect.Type {
@@ -8003,7 +7559,6 @@ func (i PrivateEndpointConnectionResponseArray) ToPrivateEndpointConnectionRespo
 	return pulumi.ToOutputWithContext(ctx, i).(PrivateEndpointConnectionResponseArrayOutput)
 }
 
-// The Private Endpoint Connection resource.
 type PrivateEndpointConnectionResponseOutput struct{ *pulumi.OutputState }
 
 func (PrivateEndpointConnectionResponseOutput) ElementType() reflect.Type {
@@ -8018,34 +7573,28 @@ func (o PrivateEndpointConnectionResponseOutput) ToPrivateEndpointConnectionResp
 	return o
 }
 
-// private endpoint connection Id
 func (o PrivateEndpointConnectionResponseOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v PrivateEndpointConnectionResponse) string { return v.Id }).(pulumi.StringOutput)
 }
 
-// private endpoint connection name
 func (o PrivateEndpointConnectionResponseOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v PrivateEndpointConnectionResponse) string { return v.Name }).(pulumi.StringOutput)
 }
 
-// The resource of private end point.
 func (o PrivateEndpointConnectionResponseOutput) PrivateEndpoint() PrivateEndpointResponsePtrOutput {
 	return o.ApplyT(func(v PrivateEndpointConnectionResponse) *PrivateEndpointResponse { return v.PrivateEndpoint }).(PrivateEndpointResponsePtrOutput)
 }
 
-// A collection of information about the state of the connection between DiskAccess and Virtual Network.
 func (o PrivateEndpointConnectionResponseOutput) PrivateLinkServiceConnectionState() PrivateLinkServiceConnectionStateResponseOutput {
 	return o.ApplyT(func(v PrivateEndpointConnectionResponse) PrivateLinkServiceConnectionStateResponse {
 		return v.PrivateLinkServiceConnectionState
 	}).(PrivateLinkServiceConnectionStateResponseOutput)
 }
 
-// The provisioning state of the private endpoint connection resource.
 func (o PrivateEndpointConnectionResponseOutput) ProvisioningState() pulumi.StringOutput {
 	return o.ApplyT(func(v PrivateEndpointConnectionResponse) string { return v.ProvisioningState }).(pulumi.StringOutput)
 }
 
-// private endpoint connection type
 func (o PrivateEndpointConnectionResponseOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v PrivateEndpointConnectionResponse) string { return v.Type }).(pulumi.StringOutput)
 }
@@ -8070,9 +7619,7 @@ func (o PrivateEndpointConnectionResponseArrayOutput) Index(i pulumi.IntInput) P
 	}).(PrivateEndpointConnectionResponseOutput)
 }
 
-// The Private Endpoint resource.
 type PrivateEndpointResponse struct {
-	// The ARM identifier for Private Endpoint
 	Id string `pulumi:"id"`
 }
 
@@ -8087,9 +7634,7 @@ type PrivateEndpointResponseInput interface {
 	ToPrivateEndpointResponseOutputWithContext(context.Context) PrivateEndpointResponseOutput
 }
 
-// The Private Endpoint resource.
 type PrivateEndpointResponseArgs struct {
-	// The ARM identifier for Private Endpoint
 	Id pulumi.StringInput `pulumi:"id"`
 }
 
@@ -8146,7 +7691,6 @@ func (i *privateEndpointResponsePtrType) ToPrivateEndpointResponsePtrOutputWithC
 	return pulumi.ToOutputWithContext(ctx, i).(PrivateEndpointResponsePtrOutput)
 }
 
-// The Private Endpoint resource.
 type PrivateEndpointResponseOutput struct{ *pulumi.OutputState }
 
 func (PrivateEndpointResponseOutput) ElementType() reflect.Type {
@@ -8166,12 +7710,11 @@ func (o PrivateEndpointResponseOutput) ToPrivateEndpointResponsePtrOutput() Priv
 }
 
 func (o PrivateEndpointResponseOutput) ToPrivateEndpointResponsePtrOutputWithContext(ctx context.Context) PrivateEndpointResponsePtrOutput {
-	return o.ApplyT(func(v PrivateEndpointResponse) *PrivateEndpointResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v PrivateEndpointResponse) *PrivateEndpointResponse {
 		return &v
 	}).(PrivateEndpointResponsePtrOutput)
 }
 
-// The ARM identifier for Private Endpoint
 func (o PrivateEndpointResponseOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v PrivateEndpointResponse) string { return v.Id }).(pulumi.StringOutput)
 }
@@ -8191,10 +7734,15 @@ func (o PrivateEndpointResponsePtrOutput) ToPrivateEndpointResponsePtrOutputWith
 }
 
 func (o PrivateEndpointResponsePtrOutput) Elem() PrivateEndpointResponseOutput {
-	return o.ApplyT(func(v *PrivateEndpointResponse) PrivateEndpointResponse { return *v }).(PrivateEndpointResponseOutput)
+	return o.ApplyT(func(v *PrivateEndpointResponse) PrivateEndpointResponse {
+		if v != nil {
+			return *v
+		}
+		var ret PrivateEndpointResponse
+		return ret
+	}).(PrivateEndpointResponseOutput)
 }
 
-// The ARM identifier for Private Endpoint
 func (o PrivateEndpointResponsePtrOutput) Id() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *PrivateEndpointResponse) *string {
 		if v == nil {
@@ -8204,14 +7752,10 @@ func (o PrivateEndpointResponsePtrOutput) Id() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// A collection of information about the state of the connection between service consumer and provider.
 type PrivateLinkServiceConnectionState struct {
-	// A message indicating if changes on the service provider require any updates on the consumer.
 	ActionsRequired *string `pulumi:"actionsRequired"`
-	// The reason for approval/rejection of the connection.
-	Description *string `pulumi:"description"`
-	// Indicates whether the connection has been Approved/Rejected/Removed by the owner of the service.
-	Status *string `pulumi:"status"`
+	Description     *string `pulumi:"description"`
+	Status          *string `pulumi:"status"`
 }
 
 // PrivateLinkServiceConnectionStateInput is an input type that accepts PrivateLinkServiceConnectionStateArgs and PrivateLinkServiceConnectionStateOutput values.
@@ -8225,14 +7769,10 @@ type PrivateLinkServiceConnectionStateInput interface {
 	ToPrivateLinkServiceConnectionStateOutputWithContext(context.Context) PrivateLinkServiceConnectionStateOutput
 }
 
-// A collection of information about the state of the connection between service consumer and provider.
 type PrivateLinkServiceConnectionStateArgs struct {
-	// A message indicating if changes on the service provider require any updates on the consumer.
 	ActionsRequired pulumi.StringPtrInput `pulumi:"actionsRequired"`
-	// The reason for approval/rejection of the connection.
-	Description pulumi.StringPtrInput `pulumi:"description"`
-	// Indicates whether the connection has been Approved/Rejected/Removed by the owner of the service.
-	Status pulumi.StringPtrInput `pulumi:"status"`
+	Description     pulumi.StringPtrInput `pulumi:"description"`
+	Status          pulumi.StringPtrInput `pulumi:"status"`
 }
 
 func (PrivateLinkServiceConnectionStateArgs) ElementType() reflect.Type {
@@ -8288,7 +7828,6 @@ func (i *privateLinkServiceConnectionStatePtrType) ToPrivateLinkServiceConnectio
 	return pulumi.ToOutputWithContext(ctx, i).(PrivateLinkServiceConnectionStatePtrOutput)
 }
 
-// A collection of information about the state of the connection between service consumer and provider.
 type PrivateLinkServiceConnectionStateOutput struct{ *pulumi.OutputState }
 
 func (PrivateLinkServiceConnectionStateOutput) ElementType() reflect.Type {
@@ -8308,22 +7847,19 @@ func (o PrivateLinkServiceConnectionStateOutput) ToPrivateLinkServiceConnectionS
 }
 
 func (o PrivateLinkServiceConnectionStateOutput) ToPrivateLinkServiceConnectionStatePtrOutputWithContext(ctx context.Context) PrivateLinkServiceConnectionStatePtrOutput {
-	return o.ApplyT(func(v PrivateLinkServiceConnectionState) *PrivateLinkServiceConnectionState {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v PrivateLinkServiceConnectionState) *PrivateLinkServiceConnectionState {
 		return &v
 	}).(PrivateLinkServiceConnectionStatePtrOutput)
 }
 
-// A message indicating if changes on the service provider require any updates on the consumer.
 func (o PrivateLinkServiceConnectionStateOutput) ActionsRequired() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v PrivateLinkServiceConnectionState) *string { return v.ActionsRequired }).(pulumi.StringPtrOutput)
 }
 
-// The reason for approval/rejection of the connection.
 func (o PrivateLinkServiceConnectionStateOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v PrivateLinkServiceConnectionState) *string { return v.Description }).(pulumi.StringPtrOutput)
 }
 
-// Indicates whether the connection has been Approved/Rejected/Removed by the owner of the service.
 func (o PrivateLinkServiceConnectionStateOutput) Status() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v PrivateLinkServiceConnectionState) *string { return v.Status }).(pulumi.StringPtrOutput)
 }
@@ -8343,10 +7879,15 @@ func (o PrivateLinkServiceConnectionStatePtrOutput) ToPrivateLinkServiceConnecti
 }
 
 func (o PrivateLinkServiceConnectionStatePtrOutput) Elem() PrivateLinkServiceConnectionStateOutput {
-	return o.ApplyT(func(v *PrivateLinkServiceConnectionState) PrivateLinkServiceConnectionState { return *v }).(PrivateLinkServiceConnectionStateOutput)
+	return o.ApplyT(func(v *PrivateLinkServiceConnectionState) PrivateLinkServiceConnectionState {
+		if v != nil {
+			return *v
+		}
+		var ret PrivateLinkServiceConnectionState
+		return ret
+	}).(PrivateLinkServiceConnectionStateOutput)
 }
 
-// A message indicating if changes on the service provider require any updates on the consumer.
 func (o PrivateLinkServiceConnectionStatePtrOutput) ActionsRequired() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *PrivateLinkServiceConnectionState) *string {
 		if v == nil {
@@ -8356,7 +7897,6 @@ func (o PrivateLinkServiceConnectionStatePtrOutput) ActionsRequired() pulumi.Str
 	}).(pulumi.StringPtrOutput)
 }
 
-// The reason for approval/rejection of the connection.
 func (o PrivateLinkServiceConnectionStatePtrOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *PrivateLinkServiceConnectionState) *string {
 		if v == nil {
@@ -8366,7 +7906,6 @@ func (o PrivateLinkServiceConnectionStatePtrOutput) Description() pulumi.StringP
 	}).(pulumi.StringPtrOutput)
 }
 
-// Indicates whether the connection has been Approved/Rejected/Removed by the owner of the service.
 func (o PrivateLinkServiceConnectionStatePtrOutput) Status() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *PrivateLinkServiceConnectionState) *string {
 		if v == nil {
@@ -8376,14 +7915,10 @@ func (o PrivateLinkServiceConnectionStatePtrOutput) Status() pulumi.StringPtrOut
 	}).(pulumi.StringPtrOutput)
 }
 
-// A collection of information about the state of the connection between service consumer and provider.
 type PrivateLinkServiceConnectionStateResponse struct {
-	// A message indicating if changes on the service provider require any updates on the consumer.
 	ActionsRequired *string `pulumi:"actionsRequired"`
-	// The reason for approval/rejection of the connection.
-	Description *string `pulumi:"description"`
-	// Indicates whether the connection has been Approved/Rejected/Removed by the owner of the service.
-	Status *string `pulumi:"status"`
+	Description     *string `pulumi:"description"`
+	Status          *string `pulumi:"status"`
 }
 
 // PrivateLinkServiceConnectionStateResponseInput is an input type that accepts PrivateLinkServiceConnectionStateResponseArgs and PrivateLinkServiceConnectionStateResponseOutput values.
@@ -8397,14 +7932,10 @@ type PrivateLinkServiceConnectionStateResponseInput interface {
 	ToPrivateLinkServiceConnectionStateResponseOutputWithContext(context.Context) PrivateLinkServiceConnectionStateResponseOutput
 }
 
-// A collection of information about the state of the connection between service consumer and provider.
 type PrivateLinkServiceConnectionStateResponseArgs struct {
-	// A message indicating if changes on the service provider require any updates on the consumer.
 	ActionsRequired pulumi.StringPtrInput `pulumi:"actionsRequired"`
-	// The reason for approval/rejection of the connection.
-	Description pulumi.StringPtrInput `pulumi:"description"`
-	// Indicates whether the connection has been Approved/Rejected/Removed by the owner of the service.
-	Status pulumi.StringPtrInput `pulumi:"status"`
+	Description     pulumi.StringPtrInput `pulumi:"description"`
+	Status          pulumi.StringPtrInput `pulumi:"status"`
 }
 
 func (PrivateLinkServiceConnectionStateResponseArgs) ElementType() reflect.Type {
@@ -8460,7 +7991,6 @@ func (i *privateLinkServiceConnectionStateResponsePtrType) ToPrivateLinkServiceC
 	return pulumi.ToOutputWithContext(ctx, i).(PrivateLinkServiceConnectionStateResponsePtrOutput)
 }
 
-// A collection of information about the state of the connection between service consumer and provider.
 type PrivateLinkServiceConnectionStateResponseOutput struct{ *pulumi.OutputState }
 
 func (PrivateLinkServiceConnectionStateResponseOutput) ElementType() reflect.Type {
@@ -8480,22 +8010,19 @@ func (o PrivateLinkServiceConnectionStateResponseOutput) ToPrivateLinkServiceCon
 }
 
 func (o PrivateLinkServiceConnectionStateResponseOutput) ToPrivateLinkServiceConnectionStateResponsePtrOutputWithContext(ctx context.Context) PrivateLinkServiceConnectionStateResponsePtrOutput {
-	return o.ApplyT(func(v PrivateLinkServiceConnectionStateResponse) *PrivateLinkServiceConnectionStateResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v PrivateLinkServiceConnectionStateResponse) *PrivateLinkServiceConnectionStateResponse {
 		return &v
 	}).(PrivateLinkServiceConnectionStateResponsePtrOutput)
 }
 
-// A message indicating if changes on the service provider require any updates on the consumer.
 func (o PrivateLinkServiceConnectionStateResponseOutput) ActionsRequired() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v PrivateLinkServiceConnectionStateResponse) *string { return v.ActionsRequired }).(pulumi.StringPtrOutput)
 }
 
-// The reason for approval/rejection of the connection.
 func (o PrivateLinkServiceConnectionStateResponseOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v PrivateLinkServiceConnectionStateResponse) *string { return v.Description }).(pulumi.StringPtrOutput)
 }
 
-// Indicates whether the connection has been Approved/Rejected/Removed by the owner of the service.
 func (o PrivateLinkServiceConnectionStateResponseOutput) Status() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v PrivateLinkServiceConnectionStateResponse) *string { return v.Status }).(pulumi.StringPtrOutput)
 }
@@ -8516,11 +8043,14 @@ func (o PrivateLinkServiceConnectionStateResponsePtrOutput) ToPrivateLinkService
 
 func (o PrivateLinkServiceConnectionStateResponsePtrOutput) Elem() PrivateLinkServiceConnectionStateResponseOutput {
 	return o.ApplyT(func(v *PrivateLinkServiceConnectionStateResponse) PrivateLinkServiceConnectionStateResponse {
-		return *v
+		if v != nil {
+			return *v
+		}
+		var ret PrivateLinkServiceConnectionStateResponse
+		return ret
 	}).(PrivateLinkServiceConnectionStateResponseOutput)
 }
 
-// A message indicating if changes on the service provider require any updates on the consumer.
 func (o PrivateLinkServiceConnectionStateResponsePtrOutput) ActionsRequired() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *PrivateLinkServiceConnectionStateResponse) *string {
 		if v == nil {
@@ -8530,7 +8060,6 @@ func (o PrivateLinkServiceConnectionStateResponsePtrOutput) ActionsRequired() pu
 	}).(pulumi.StringPtrOutput)
 }
 
-// The reason for approval/rejection of the connection.
 func (o PrivateLinkServiceConnectionStateResponsePtrOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *PrivateLinkServiceConnectionStateResponse) *string {
 		if v == nil {
@@ -8540,7 +8069,6 @@ func (o PrivateLinkServiceConnectionStateResponsePtrOutput) Description() pulumi
 	}).(pulumi.StringPtrOutput)
 }
 
-// Indicates whether the connection has been Approved/Rejected/Removed by the owner of the service.
 func (o PrivateLinkServiceConnectionStateResponsePtrOutput) Status() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *PrivateLinkServiceConnectionStateResponse) *string {
 		if v == nil {
@@ -8550,16 +8078,11 @@ func (o PrivateLinkServiceConnectionStateResponsePtrOutput) Status() pulumi.Stri
 	}).(pulumi.StringPtrOutput)
 }
 
-// Used for establishing the purchase context of any 3rd Party artifact through MarketPlace.
 type PurchasePlan struct {
-	// The plan ID.
-	Name string `pulumi:"name"`
-	// Specifies the product of the image from the marketplace. This is the same value as Offer under the imageReference element.
-	Product string `pulumi:"product"`
-	// The Offer Promotion Code.
+	Name          string  `pulumi:"name"`
+	Product       string  `pulumi:"product"`
 	PromotionCode *string `pulumi:"promotionCode"`
-	// The publisher ID.
-	Publisher string `pulumi:"publisher"`
+	Publisher     string  `pulumi:"publisher"`
 }
 
 // PurchasePlanInput is an input type that accepts PurchasePlanArgs and PurchasePlanOutput values.
@@ -8573,16 +8096,11 @@ type PurchasePlanInput interface {
 	ToPurchasePlanOutputWithContext(context.Context) PurchasePlanOutput
 }
 
-// Used for establishing the purchase context of any 3rd Party artifact through MarketPlace.
 type PurchasePlanArgs struct {
-	// The plan ID.
-	Name pulumi.StringInput `pulumi:"name"`
-	// Specifies the product of the image from the marketplace. This is the same value as Offer under the imageReference element.
-	Product pulumi.StringInput `pulumi:"product"`
-	// The Offer Promotion Code.
+	Name          pulumi.StringInput    `pulumi:"name"`
+	Product       pulumi.StringInput    `pulumi:"product"`
 	PromotionCode pulumi.StringPtrInput `pulumi:"promotionCode"`
-	// The publisher ID.
-	Publisher pulumi.StringInput `pulumi:"publisher"`
+	Publisher     pulumi.StringInput    `pulumi:"publisher"`
 }
 
 func (PurchasePlanArgs) ElementType() reflect.Type {
@@ -8638,7 +8156,6 @@ func (i *purchasePlanPtrType) ToPurchasePlanPtrOutputWithContext(ctx context.Con
 	return pulumi.ToOutputWithContext(ctx, i).(PurchasePlanPtrOutput)
 }
 
-// Used for establishing the purchase context of any 3rd Party artifact through MarketPlace.
 type PurchasePlanOutput struct{ *pulumi.OutputState }
 
 func (PurchasePlanOutput) ElementType() reflect.Type {
@@ -8658,27 +8175,23 @@ func (o PurchasePlanOutput) ToPurchasePlanPtrOutput() PurchasePlanPtrOutput {
 }
 
 func (o PurchasePlanOutput) ToPurchasePlanPtrOutputWithContext(ctx context.Context) PurchasePlanPtrOutput {
-	return o.ApplyT(func(v PurchasePlan) *PurchasePlan {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v PurchasePlan) *PurchasePlan {
 		return &v
 	}).(PurchasePlanPtrOutput)
 }
 
-// The plan ID.
 func (o PurchasePlanOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v PurchasePlan) string { return v.Name }).(pulumi.StringOutput)
 }
 
-// Specifies the product of the image from the marketplace. This is the same value as Offer under the imageReference element.
 func (o PurchasePlanOutput) Product() pulumi.StringOutput {
 	return o.ApplyT(func(v PurchasePlan) string { return v.Product }).(pulumi.StringOutput)
 }
 
-// The Offer Promotion Code.
 func (o PurchasePlanOutput) PromotionCode() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v PurchasePlan) *string { return v.PromotionCode }).(pulumi.StringPtrOutput)
 }
 
-// The publisher ID.
 func (o PurchasePlanOutput) Publisher() pulumi.StringOutput {
 	return o.ApplyT(func(v PurchasePlan) string { return v.Publisher }).(pulumi.StringOutput)
 }
@@ -8698,10 +8211,15 @@ func (o PurchasePlanPtrOutput) ToPurchasePlanPtrOutputWithContext(ctx context.Co
 }
 
 func (o PurchasePlanPtrOutput) Elem() PurchasePlanOutput {
-	return o.ApplyT(func(v *PurchasePlan) PurchasePlan { return *v }).(PurchasePlanOutput)
+	return o.ApplyT(func(v *PurchasePlan) PurchasePlan {
+		if v != nil {
+			return *v
+		}
+		var ret PurchasePlan
+		return ret
+	}).(PurchasePlanOutput)
 }
 
-// The plan ID.
 func (o PurchasePlanPtrOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *PurchasePlan) *string {
 		if v == nil {
@@ -8711,7 +8229,6 @@ func (o PurchasePlanPtrOutput) Name() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Specifies the product of the image from the marketplace. This is the same value as Offer under the imageReference element.
 func (o PurchasePlanPtrOutput) Product() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *PurchasePlan) *string {
 		if v == nil {
@@ -8721,7 +8238,6 @@ func (o PurchasePlanPtrOutput) Product() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The Offer Promotion Code.
 func (o PurchasePlanPtrOutput) PromotionCode() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *PurchasePlan) *string {
 		if v == nil {
@@ -8731,7 +8247,6 @@ func (o PurchasePlanPtrOutput) PromotionCode() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The publisher ID.
 func (o PurchasePlanPtrOutput) Publisher() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *PurchasePlan) *string {
 		if v == nil {
@@ -8741,16 +8256,11 @@ func (o PurchasePlanPtrOutput) Publisher() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Used for establishing the purchase context of any 3rd Party artifact through MarketPlace.
 type PurchasePlanResponse struct {
-	// The plan ID.
-	Name string `pulumi:"name"`
-	// Specifies the product of the image from the marketplace. This is the same value as Offer under the imageReference element.
-	Product string `pulumi:"product"`
-	// The Offer Promotion Code.
+	Name          string  `pulumi:"name"`
+	Product       string  `pulumi:"product"`
 	PromotionCode *string `pulumi:"promotionCode"`
-	// The publisher ID.
-	Publisher string `pulumi:"publisher"`
+	Publisher     string  `pulumi:"publisher"`
 }
 
 // PurchasePlanResponseInput is an input type that accepts PurchasePlanResponseArgs and PurchasePlanResponseOutput values.
@@ -8764,16 +8274,11 @@ type PurchasePlanResponseInput interface {
 	ToPurchasePlanResponseOutputWithContext(context.Context) PurchasePlanResponseOutput
 }
 
-// Used for establishing the purchase context of any 3rd Party artifact through MarketPlace.
 type PurchasePlanResponseArgs struct {
-	// The plan ID.
-	Name pulumi.StringInput `pulumi:"name"`
-	// Specifies the product of the image from the marketplace. This is the same value as Offer under the imageReference element.
-	Product pulumi.StringInput `pulumi:"product"`
-	// The Offer Promotion Code.
+	Name          pulumi.StringInput    `pulumi:"name"`
+	Product       pulumi.StringInput    `pulumi:"product"`
 	PromotionCode pulumi.StringPtrInput `pulumi:"promotionCode"`
-	// The publisher ID.
-	Publisher pulumi.StringInput `pulumi:"publisher"`
+	Publisher     pulumi.StringInput    `pulumi:"publisher"`
 }
 
 func (PurchasePlanResponseArgs) ElementType() reflect.Type {
@@ -8829,7 +8334,6 @@ func (i *purchasePlanResponsePtrType) ToPurchasePlanResponsePtrOutputWithContext
 	return pulumi.ToOutputWithContext(ctx, i).(PurchasePlanResponsePtrOutput)
 }
 
-// Used for establishing the purchase context of any 3rd Party artifact through MarketPlace.
 type PurchasePlanResponseOutput struct{ *pulumi.OutputState }
 
 func (PurchasePlanResponseOutput) ElementType() reflect.Type {
@@ -8849,27 +8353,23 @@ func (o PurchasePlanResponseOutput) ToPurchasePlanResponsePtrOutput() PurchasePl
 }
 
 func (o PurchasePlanResponseOutput) ToPurchasePlanResponsePtrOutputWithContext(ctx context.Context) PurchasePlanResponsePtrOutput {
-	return o.ApplyT(func(v PurchasePlanResponse) *PurchasePlanResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v PurchasePlanResponse) *PurchasePlanResponse {
 		return &v
 	}).(PurchasePlanResponsePtrOutput)
 }
 
-// The plan ID.
 func (o PurchasePlanResponseOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v PurchasePlanResponse) string { return v.Name }).(pulumi.StringOutput)
 }
 
-// Specifies the product of the image from the marketplace. This is the same value as Offer under the imageReference element.
 func (o PurchasePlanResponseOutput) Product() pulumi.StringOutput {
 	return o.ApplyT(func(v PurchasePlanResponse) string { return v.Product }).(pulumi.StringOutput)
 }
 
-// The Offer Promotion Code.
 func (o PurchasePlanResponseOutput) PromotionCode() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v PurchasePlanResponse) *string { return v.PromotionCode }).(pulumi.StringPtrOutput)
 }
 
-// The publisher ID.
 func (o PurchasePlanResponseOutput) Publisher() pulumi.StringOutput {
 	return o.ApplyT(func(v PurchasePlanResponse) string { return v.Publisher }).(pulumi.StringOutput)
 }
@@ -8889,10 +8389,15 @@ func (o PurchasePlanResponsePtrOutput) ToPurchasePlanResponsePtrOutputWithContex
 }
 
 func (o PurchasePlanResponsePtrOutput) Elem() PurchasePlanResponseOutput {
-	return o.ApplyT(func(v *PurchasePlanResponse) PurchasePlanResponse { return *v }).(PurchasePlanResponseOutput)
+	return o.ApplyT(func(v *PurchasePlanResponse) PurchasePlanResponse {
+		if v != nil {
+			return *v
+		}
+		var ret PurchasePlanResponse
+		return ret
+	}).(PurchasePlanResponseOutput)
 }
 
-// The plan ID.
 func (o PurchasePlanResponsePtrOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *PurchasePlanResponse) *string {
 		if v == nil {
@@ -8902,7 +8407,6 @@ func (o PurchasePlanResponsePtrOutput) Name() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Specifies the product of the image from the marketplace. This is the same value as Offer under the imageReference element.
 func (o PurchasePlanResponsePtrOutput) Product() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *PurchasePlanResponse) *string {
 		if v == nil {
@@ -8912,7 +8416,6 @@ func (o PurchasePlanResponsePtrOutput) Product() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The Offer Promotion Code.
 func (o PurchasePlanResponsePtrOutput) PromotionCode() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *PurchasePlanResponse) *string {
 		if v == nil {
@@ -8922,7 +8425,6 @@ func (o PurchasePlanResponsePtrOutput) PromotionCode() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The publisher ID.
 func (o PurchasePlanResponsePtrOutput) Publisher() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *PurchasePlanResponse) *string {
 		if v == nil {
@@ -8932,12 +8434,9 @@ func (o PurchasePlanResponsePtrOutput) Publisher() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The properties describe the recommended machine configuration for this Image Definition. These properties are updatable.
 type RecommendedMachineConfiguration struct {
-	// Describes the resource range.
 	Memory *ResourceRange `pulumi:"memory"`
-	// Describes the resource range.
-	VCPUs *ResourceRange `pulumi:"vCPUs"`
+	VCPUs  *ResourceRange `pulumi:"vCPUs"`
 }
 
 // RecommendedMachineConfigurationInput is an input type that accepts RecommendedMachineConfigurationArgs and RecommendedMachineConfigurationOutput values.
@@ -8951,12 +8450,9 @@ type RecommendedMachineConfigurationInput interface {
 	ToRecommendedMachineConfigurationOutputWithContext(context.Context) RecommendedMachineConfigurationOutput
 }
 
-// The properties describe the recommended machine configuration for this Image Definition. These properties are updatable.
 type RecommendedMachineConfigurationArgs struct {
-	// Describes the resource range.
 	Memory ResourceRangePtrInput `pulumi:"memory"`
-	// Describes the resource range.
-	VCPUs ResourceRangePtrInput `pulumi:"vCPUs"`
+	VCPUs  ResourceRangePtrInput `pulumi:"vCPUs"`
 }
 
 func (RecommendedMachineConfigurationArgs) ElementType() reflect.Type {
@@ -9012,7 +8508,6 @@ func (i *recommendedMachineConfigurationPtrType) ToRecommendedMachineConfigurati
 	return pulumi.ToOutputWithContext(ctx, i).(RecommendedMachineConfigurationPtrOutput)
 }
 
-// The properties describe the recommended machine configuration for this Image Definition. These properties are updatable.
 type RecommendedMachineConfigurationOutput struct{ *pulumi.OutputState }
 
 func (RecommendedMachineConfigurationOutput) ElementType() reflect.Type {
@@ -9032,17 +8527,15 @@ func (o RecommendedMachineConfigurationOutput) ToRecommendedMachineConfiguration
 }
 
 func (o RecommendedMachineConfigurationOutput) ToRecommendedMachineConfigurationPtrOutputWithContext(ctx context.Context) RecommendedMachineConfigurationPtrOutput {
-	return o.ApplyT(func(v RecommendedMachineConfiguration) *RecommendedMachineConfiguration {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v RecommendedMachineConfiguration) *RecommendedMachineConfiguration {
 		return &v
 	}).(RecommendedMachineConfigurationPtrOutput)
 }
 
-// Describes the resource range.
 func (o RecommendedMachineConfigurationOutput) Memory() ResourceRangePtrOutput {
 	return o.ApplyT(func(v RecommendedMachineConfiguration) *ResourceRange { return v.Memory }).(ResourceRangePtrOutput)
 }
 
-// Describes the resource range.
 func (o RecommendedMachineConfigurationOutput) VCPUs() ResourceRangePtrOutput {
 	return o.ApplyT(func(v RecommendedMachineConfiguration) *ResourceRange { return v.VCPUs }).(ResourceRangePtrOutput)
 }
@@ -9062,10 +8555,15 @@ func (o RecommendedMachineConfigurationPtrOutput) ToRecommendedMachineConfigurat
 }
 
 func (o RecommendedMachineConfigurationPtrOutput) Elem() RecommendedMachineConfigurationOutput {
-	return o.ApplyT(func(v *RecommendedMachineConfiguration) RecommendedMachineConfiguration { return *v }).(RecommendedMachineConfigurationOutput)
+	return o.ApplyT(func(v *RecommendedMachineConfiguration) RecommendedMachineConfiguration {
+		if v != nil {
+			return *v
+		}
+		var ret RecommendedMachineConfiguration
+		return ret
+	}).(RecommendedMachineConfigurationOutput)
 }
 
-// Describes the resource range.
 func (o RecommendedMachineConfigurationPtrOutput) Memory() ResourceRangePtrOutput {
 	return o.ApplyT(func(v *RecommendedMachineConfiguration) *ResourceRange {
 		if v == nil {
@@ -9075,7 +8573,6 @@ func (o RecommendedMachineConfigurationPtrOutput) Memory() ResourceRangePtrOutpu
 	}).(ResourceRangePtrOutput)
 }
 
-// Describes the resource range.
 func (o RecommendedMachineConfigurationPtrOutput) VCPUs() ResourceRangePtrOutput {
 	return o.ApplyT(func(v *RecommendedMachineConfiguration) *ResourceRange {
 		if v == nil {
@@ -9085,12 +8582,9 @@ func (o RecommendedMachineConfigurationPtrOutput) VCPUs() ResourceRangePtrOutput
 	}).(ResourceRangePtrOutput)
 }
 
-// The properties describe the recommended machine configuration for this Image Definition. These properties are updatable.
 type RecommendedMachineConfigurationResponse struct {
-	// Describes the resource range.
 	Memory *ResourceRangeResponse `pulumi:"memory"`
-	// Describes the resource range.
-	VCPUs *ResourceRangeResponse `pulumi:"vCPUs"`
+	VCPUs  *ResourceRangeResponse `pulumi:"vCPUs"`
 }
 
 // RecommendedMachineConfigurationResponseInput is an input type that accepts RecommendedMachineConfigurationResponseArgs and RecommendedMachineConfigurationResponseOutput values.
@@ -9104,12 +8598,9 @@ type RecommendedMachineConfigurationResponseInput interface {
 	ToRecommendedMachineConfigurationResponseOutputWithContext(context.Context) RecommendedMachineConfigurationResponseOutput
 }
 
-// The properties describe the recommended machine configuration for this Image Definition. These properties are updatable.
 type RecommendedMachineConfigurationResponseArgs struct {
-	// Describes the resource range.
 	Memory ResourceRangeResponsePtrInput `pulumi:"memory"`
-	// Describes the resource range.
-	VCPUs ResourceRangeResponsePtrInput `pulumi:"vCPUs"`
+	VCPUs  ResourceRangeResponsePtrInput `pulumi:"vCPUs"`
 }
 
 func (RecommendedMachineConfigurationResponseArgs) ElementType() reflect.Type {
@@ -9165,7 +8656,6 @@ func (i *recommendedMachineConfigurationResponsePtrType) ToRecommendedMachineCon
 	return pulumi.ToOutputWithContext(ctx, i).(RecommendedMachineConfigurationResponsePtrOutput)
 }
 
-// The properties describe the recommended machine configuration for this Image Definition. These properties are updatable.
 type RecommendedMachineConfigurationResponseOutput struct{ *pulumi.OutputState }
 
 func (RecommendedMachineConfigurationResponseOutput) ElementType() reflect.Type {
@@ -9185,17 +8675,15 @@ func (o RecommendedMachineConfigurationResponseOutput) ToRecommendedMachineConfi
 }
 
 func (o RecommendedMachineConfigurationResponseOutput) ToRecommendedMachineConfigurationResponsePtrOutputWithContext(ctx context.Context) RecommendedMachineConfigurationResponsePtrOutput {
-	return o.ApplyT(func(v RecommendedMachineConfigurationResponse) *RecommendedMachineConfigurationResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v RecommendedMachineConfigurationResponse) *RecommendedMachineConfigurationResponse {
 		return &v
 	}).(RecommendedMachineConfigurationResponsePtrOutput)
 }
 
-// Describes the resource range.
 func (o RecommendedMachineConfigurationResponseOutput) Memory() ResourceRangeResponsePtrOutput {
 	return o.ApplyT(func(v RecommendedMachineConfigurationResponse) *ResourceRangeResponse { return v.Memory }).(ResourceRangeResponsePtrOutput)
 }
 
-// Describes the resource range.
 func (o RecommendedMachineConfigurationResponseOutput) VCPUs() ResourceRangeResponsePtrOutput {
 	return o.ApplyT(func(v RecommendedMachineConfigurationResponse) *ResourceRangeResponse { return v.VCPUs }).(ResourceRangeResponsePtrOutput)
 }
@@ -9215,10 +8703,15 @@ func (o RecommendedMachineConfigurationResponsePtrOutput) ToRecommendedMachineCo
 }
 
 func (o RecommendedMachineConfigurationResponsePtrOutput) Elem() RecommendedMachineConfigurationResponseOutput {
-	return o.ApplyT(func(v *RecommendedMachineConfigurationResponse) RecommendedMachineConfigurationResponse { return *v }).(RecommendedMachineConfigurationResponseOutput)
+	return o.ApplyT(func(v *RecommendedMachineConfigurationResponse) RecommendedMachineConfigurationResponse {
+		if v != nil {
+			return *v
+		}
+		var ret RecommendedMachineConfigurationResponse
+		return ret
+	}).(RecommendedMachineConfigurationResponseOutput)
 }
 
-// Describes the resource range.
 func (o RecommendedMachineConfigurationResponsePtrOutput) Memory() ResourceRangeResponsePtrOutput {
 	return o.ApplyT(func(v *RecommendedMachineConfigurationResponse) *ResourceRangeResponse {
 		if v == nil {
@@ -9228,7 +8721,6 @@ func (o RecommendedMachineConfigurationResponsePtrOutput) Memory() ResourceRange
 	}).(ResourceRangeResponsePtrOutput)
 }
 
-// Describes the resource range.
 func (o RecommendedMachineConfigurationResponsePtrOutput) VCPUs() ResourceRangeResponsePtrOutput {
 	return o.ApplyT(func(v *RecommendedMachineConfigurationResponse) *ResourceRangeResponse {
 		if v == nil {
@@ -9238,16 +8730,11 @@ func (o RecommendedMachineConfigurationResponsePtrOutput) VCPUs() ResourceRangeR
 	}).(ResourceRangeResponsePtrOutput)
 }
 
-// This is the regional replication status.
 type RegionalReplicationStatusResponse struct {
-	// The details of the replication status.
-	Details string `pulumi:"details"`
-	// It indicates progress of the replication job.
-	Progress int `pulumi:"progress"`
-	// The region to which the gallery image version is being replicated to.
-	Region string `pulumi:"region"`
-	// This is the regional replication state.
-	State string `pulumi:"state"`
+	Details  string `pulumi:"details"`
+	Progress int    `pulumi:"progress"`
+	Region   string `pulumi:"region"`
+	State    string `pulumi:"state"`
 }
 
 // RegionalReplicationStatusResponseInput is an input type that accepts RegionalReplicationStatusResponseArgs and RegionalReplicationStatusResponseOutput values.
@@ -9261,16 +8748,11 @@ type RegionalReplicationStatusResponseInput interface {
 	ToRegionalReplicationStatusResponseOutputWithContext(context.Context) RegionalReplicationStatusResponseOutput
 }
 
-// This is the regional replication status.
 type RegionalReplicationStatusResponseArgs struct {
-	// The details of the replication status.
-	Details pulumi.StringInput `pulumi:"details"`
-	// It indicates progress of the replication job.
-	Progress pulumi.IntInput `pulumi:"progress"`
-	// The region to which the gallery image version is being replicated to.
-	Region pulumi.StringInput `pulumi:"region"`
-	// This is the regional replication state.
-	State pulumi.StringInput `pulumi:"state"`
+	Details  pulumi.StringInput `pulumi:"details"`
+	Progress pulumi.IntInput    `pulumi:"progress"`
+	Region   pulumi.StringInput `pulumi:"region"`
+	State    pulumi.StringInput `pulumi:"state"`
 }
 
 func (RegionalReplicationStatusResponseArgs) ElementType() reflect.Type {
@@ -9310,7 +8792,6 @@ func (i RegionalReplicationStatusResponseArray) ToRegionalReplicationStatusRespo
 	return pulumi.ToOutputWithContext(ctx, i).(RegionalReplicationStatusResponseArrayOutput)
 }
 
-// This is the regional replication status.
 type RegionalReplicationStatusResponseOutput struct{ *pulumi.OutputState }
 
 func (RegionalReplicationStatusResponseOutput) ElementType() reflect.Type {
@@ -9325,22 +8806,18 @@ func (o RegionalReplicationStatusResponseOutput) ToRegionalReplicationStatusResp
 	return o
 }
 
-// The details of the replication status.
 func (o RegionalReplicationStatusResponseOutput) Details() pulumi.StringOutput {
 	return o.ApplyT(func(v RegionalReplicationStatusResponse) string { return v.Details }).(pulumi.StringOutput)
 }
 
-// It indicates progress of the replication job.
 func (o RegionalReplicationStatusResponseOutput) Progress() pulumi.IntOutput {
 	return o.ApplyT(func(v RegionalReplicationStatusResponse) int { return v.Progress }).(pulumi.IntOutput)
 }
 
-// The region to which the gallery image version is being replicated to.
 func (o RegionalReplicationStatusResponseOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v RegionalReplicationStatusResponse) string { return v.Region }).(pulumi.StringOutput)
 }
 
-// This is the regional replication state.
 func (o RegionalReplicationStatusResponseOutput) State() pulumi.StringOutput {
 	return o.ApplyT(func(v RegionalReplicationStatusResponse) string { return v.State }).(pulumi.StringOutput)
 }
@@ -9365,12 +8842,9 @@ func (o RegionalReplicationStatusResponseArrayOutput) Index(i pulumi.IntInput) R
 	}).(RegionalReplicationStatusResponseOutput)
 }
 
-// This is the replication status of the gallery image version.
 type ReplicationStatusResponse struct {
-	// This is the aggregated replication status based on all the regional replication status flags.
-	AggregatedState string `pulumi:"aggregatedState"`
-	// This is a summary of replication status for each region.
-	Summary []RegionalReplicationStatusResponse `pulumi:"summary"`
+	AggregatedState string                              `pulumi:"aggregatedState"`
+	Summary         []RegionalReplicationStatusResponse `pulumi:"summary"`
 }
 
 // ReplicationStatusResponseInput is an input type that accepts ReplicationStatusResponseArgs and ReplicationStatusResponseOutput values.
@@ -9384,12 +8858,9 @@ type ReplicationStatusResponseInput interface {
 	ToReplicationStatusResponseOutputWithContext(context.Context) ReplicationStatusResponseOutput
 }
 
-// This is the replication status of the gallery image version.
 type ReplicationStatusResponseArgs struct {
-	// This is the aggregated replication status based on all the regional replication status flags.
-	AggregatedState pulumi.StringInput `pulumi:"aggregatedState"`
-	// This is a summary of replication status for each region.
-	Summary RegionalReplicationStatusResponseArrayInput `pulumi:"summary"`
+	AggregatedState pulumi.StringInput                          `pulumi:"aggregatedState"`
+	Summary         RegionalReplicationStatusResponseArrayInput `pulumi:"summary"`
 }
 
 func (ReplicationStatusResponseArgs) ElementType() reflect.Type {
@@ -9445,7 +8916,6 @@ func (i *replicationStatusResponsePtrType) ToReplicationStatusResponsePtrOutputW
 	return pulumi.ToOutputWithContext(ctx, i).(ReplicationStatusResponsePtrOutput)
 }
 
-// This is the replication status of the gallery image version.
 type ReplicationStatusResponseOutput struct{ *pulumi.OutputState }
 
 func (ReplicationStatusResponseOutput) ElementType() reflect.Type {
@@ -9465,17 +8935,15 @@ func (o ReplicationStatusResponseOutput) ToReplicationStatusResponsePtrOutput() 
 }
 
 func (o ReplicationStatusResponseOutput) ToReplicationStatusResponsePtrOutputWithContext(ctx context.Context) ReplicationStatusResponsePtrOutput {
-	return o.ApplyT(func(v ReplicationStatusResponse) *ReplicationStatusResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ReplicationStatusResponse) *ReplicationStatusResponse {
 		return &v
 	}).(ReplicationStatusResponsePtrOutput)
 }
 
-// This is the aggregated replication status based on all the regional replication status flags.
 func (o ReplicationStatusResponseOutput) AggregatedState() pulumi.StringOutput {
 	return o.ApplyT(func(v ReplicationStatusResponse) string { return v.AggregatedState }).(pulumi.StringOutput)
 }
 
-// This is a summary of replication status for each region.
 func (o ReplicationStatusResponseOutput) Summary() RegionalReplicationStatusResponseArrayOutput {
 	return o.ApplyT(func(v ReplicationStatusResponse) []RegionalReplicationStatusResponse { return v.Summary }).(RegionalReplicationStatusResponseArrayOutput)
 }
@@ -9495,10 +8963,15 @@ func (o ReplicationStatusResponsePtrOutput) ToReplicationStatusResponsePtrOutput
 }
 
 func (o ReplicationStatusResponsePtrOutput) Elem() ReplicationStatusResponseOutput {
-	return o.ApplyT(func(v *ReplicationStatusResponse) ReplicationStatusResponse { return *v }).(ReplicationStatusResponseOutput)
+	return o.ApplyT(func(v *ReplicationStatusResponse) ReplicationStatusResponse {
+		if v != nil {
+			return *v
+		}
+		var ret ReplicationStatusResponse
+		return ret
+	}).(ReplicationStatusResponseOutput)
 }
 
-// This is the aggregated replication status based on all the regional replication status flags.
 func (o ReplicationStatusResponsePtrOutput) AggregatedState() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ReplicationStatusResponse) *string {
 		if v == nil {
@@ -9508,7 +8981,6 @@ func (o ReplicationStatusResponsePtrOutput) AggregatedState() pulumi.StringPtrOu
 	}).(pulumi.StringPtrOutput)
 }
 
-// This is a summary of replication status for each region.
 func (o ReplicationStatusResponsePtrOutput) Summary() RegionalReplicationStatusResponseArrayOutput {
 	return o.ApplyT(func(v *ReplicationStatusResponse) []RegionalReplicationStatusResponse {
 		if v == nil {
@@ -9518,11 +8990,8 @@ func (o ReplicationStatusResponsePtrOutput) Summary() RegionalReplicationStatusR
 	}).(RegionalReplicationStatusResponseArrayOutput)
 }
 
-// Describes the resource range.
 type ResourceRange struct {
-	// The maximum number of the resource.
 	Max *int `pulumi:"max"`
-	// The minimum number of the resource.
 	Min *int `pulumi:"min"`
 }
 
@@ -9537,11 +9006,8 @@ type ResourceRangeInput interface {
 	ToResourceRangeOutputWithContext(context.Context) ResourceRangeOutput
 }
 
-// Describes the resource range.
 type ResourceRangeArgs struct {
-	// The maximum number of the resource.
 	Max pulumi.IntPtrInput `pulumi:"max"`
-	// The minimum number of the resource.
 	Min pulumi.IntPtrInput `pulumi:"min"`
 }
 
@@ -9598,7 +9064,6 @@ func (i *resourceRangePtrType) ToResourceRangePtrOutputWithContext(ctx context.C
 	return pulumi.ToOutputWithContext(ctx, i).(ResourceRangePtrOutput)
 }
 
-// Describes the resource range.
 type ResourceRangeOutput struct{ *pulumi.OutputState }
 
 func (ResourceRangeOutput) ElementType() reflect.Type {
@@ -9618,17 +9083,15 @@ func (o ResourceRangeOutput) ToResourceRangePtrOutput() ResourceRangePtrOutput {
 }
 
 func (o ResourceRangeOutput) ToResourceRangePtrOutputWithContext(ctx context.Context) ResourceRangePtrOutput {
-	return o.ApplyT(func(v ResourceRange) *ResourceRange {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ResourceRange) *ResourceRange {
 		return &v
 	}).(ResourceRangePtrOutput)
 }
 
-// The maximum number of the resource.
 func (o ResourceRangeOutput) Max() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v ResourceRange) *int { return v.Max }).(pulumi.IntPtrOutput)
 }
 
-// The minimum number of the resource.
 func (o ResourceRangeOutput) Min() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v ResourceRange) *int { return v.Min }).(pulumi.IntPtrOutput)
 }
@@ -9648,10 +9111,15 @@ func (o ResourceRangePtrOutput) ToResourceRangePtrOutputWithContext(ctx context.
 }
 
 func (o ResourceRangePtrOutput) Elem() ResourceRangeOutput {
-	return o.ApplyT(func(v *ResourceRange) ResourceRange { return *v }).(ResourceRangeOutput)
+	return o.ApplyT(func(v *ResourceRange) ResourceRange {
+		if v != nil {
+			return *v
+		}
+		var ret ResourceRange
+		return ret
+	}).(ResourceRangeOutput)
 }
 
-// The maximum number of the resource.
 func (o ResourceRangePtrOutput) Max() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *ResourceRange) *int {
 		if v == nil {
@@ -9661,7 +9129,6 @@ func (o ResourceRangePtrOutput) Max() pulumi.IntPtrOutput {
 	}).(pulumi.IntPtrOutput)
 }
 
-// The minimum number of the resource.
 func (o ResourceRangePtrOutput) Min() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *ResourceRange) *int {
 		if v == nil {
@@ -9671,11 +9138,8 @@ func (o ResourceRangePtrOutput) Min() pulumi.IntPtrOutput {
 	}).(pulumi.IntPtrOutput)
 }
 
-// Describes the resource range.
 type ResourceRangeResponse struct {
-	// The maximum number of the resource.
 	Max *int `pulumi:"max"`
-	// The minimum number of the resource.
 	Min *int `pulumi:"min"`
 }
 
@@ -9690,11 +9154,8 @@ type ResourceRangeResponseInput interface {
 	ToResourceRangeResponseOutputWithContext(context.Context) ResourceRangeResponseOutput
 }
 
-// Describes the resource range.
 type ResourceRangeResponseArgs struct {
-	// The maximum number of the resource.
 	Max pulumi.IntPtrInput `pulumi:"max"`
-	// The minimum number of the resource.
 	Min pulumi.IntPtrInput `pulumi:"min"`
 }
 
@@ -9751,7 +9212,6 @@ func (i *resourceRangeResponsePtrType) ToResourceRangeResponsePtrOutputWithConte
 	return pulumi.ToOutputWithContext(ctx, i).(ResourceRangeResponsePtrOutput)
 }
 
-// Describes the resource range.
 type ResourceRangeResponseOutput struct{ *pulumi.OutputState }
 
 func (ResourceRangeResponseOutput) ElementType() reflect.Type {
@@ -9771,17 +9231,15 @@ func (o ResourceRangeResponseOutput) ToResourceRangeResponsePtrOutput() Resource
 }
 
 func (o ResourceRangeResponseOutput) ToResourceRangeResponsePtrOutputWithContext(ctx context.Context) ResourceRangeResponsePtrOutput {
-	return o.ApplyT(func(v ResourceRangeResponse) *ResourceRangeResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ResourceRangeResponse) *ResourceRangeResponse {
 		return &v
 	}).(ResourceRangeResponsePtrOutput)
 }
 
-// The maximum number of the resource.
 func (o ResourceRangeResponseOutput) Max() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v ResourceRangeResponse) *int { return v.Max }).(pulumi.IntPtrOutput)
 }
 
-// The minimum number of the resource.
 func (o ResourceRangeResponseOutput) Min() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v ResourceRangeResponse) *int { return v.Min }).(pulumi.IntPtrOutput)
 }
@@ -9801,10 +9259,15 @@ func (o ResourceRangeResponsePtrOutput) ToResourceRangeResponsePtrOutputWithCont
 }
 
 func (o ResourceRangeResponsePtrOutput) Elem() ResourceRangeResponseOutput {
-	return o.ApplyT(func(v *ResourceRangeResponse) ResourceRangeResponse { return *v }).(ResourceRangeResponseOutput)
+	return o.ApplyT(func(v *ResourceRangeResponse) ResourceRangeResponse {
+		if v != nil {
+			return *v
+		}
+		var ret ResourceRangeResponse
+		return ret
+	}).(ResourceRangeResponseOutput)
 }
 
-// The maximum number of the resource.
 func (o ResourceRangeResponsePtrOutput) Max() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *ResourceRangeResponse) *int {
 		if v == nil {
@@ -9814,7 +9277,6 @@ func (o ResourceRangeResponsePtrOutput) Max() pulumi.IntPtrOutput {
 	}).(pulumi.IntPtrOutput)
 }
 
-// The minimum number of the resource.
 func (o ResourceRangeResponsePtrOutput) Min() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *ResourceRangeResponse) *int {
 		if v == nil {
@@ -9825,7 +9287,6 @@ func (o ResourceRangeResponsePtrOutput) Min() pulumi.IntPtrOutput {
 }
 
 type ShareInfoElementResponse struct {
-	// A relative URI containing the ID of the VM that has the disk attached.
 	VmUri string `pulumi:"vmUri"`
 }
 
@@ -9841,7 +9302,6 @@ type ShareInfoElementResponseInput interface {
 }
 
 type ShareInfoElementResponseArgs struct {
-	// A relative URI containing the ID of the VM that has the disk attached.
 	VmUri pulumi.StringInput `pulumi:"vmUri"`
 }
 
@@ -9896,7 +9356,6 @@ func (o ShareInfoElementResponseOutput) ToShareInfoElementResponseOutputWithCont
 	return o
 }
 
-// A relative URI containing the ID of the VM that has the disk attached.
 func (o ShareInfoElementResponseOutput) VmUri() pulumi.StringOutput {
 	return o.ApplyT(func(v ShareInfoElementResponse) string { return v.VmUri }).(pulumi.StringOutput)
 }
@@ -9921,9 +9380,7 @@ func (o ShareInfoElementResponseArrayOutput) Index(i pulumi.IntInput) ShareInfoE
 	}).(ShareInfoElementResponseOutput)
 }
 
-// Profile for gallery sharing to subscription or tenant
 type SharingProfile struct {
-	// This property allows you to specify the permission of sharing gallery. <br><br> Possible values are: <br><br> **Private** <br><br> **Groups**
 	Permissions *string `pulumi:"permissions"`
 }
 
@@ -9938,9 +9395,7 @@ type SharingProfileInput interface {
 	ToSharingProfileOutputWithContext(context.Context) SharingProfileOutput
 }
 
-// Profile for gallery sharing to subscription or tenant
 type SharingProfileArgs struct {
-	// This property allows you to specify the permission of sharing gallery. <br><br> Possible values are: <br><br> **Private** <br><br> **Groups**
 	Permissions pulumi.StringPtrInput `pulumi:"permissions"`
 }
 
@@ -9997,7 +9452,6 @@ func (i *sharingProfilePtrType) ToSharingProfilePtrOutputWithContext(ctx context
 	return pulumi.ToOutputWithContext(ctx, i).(SharingProfilePtrOutput)
 }
 
-// Profile for gallery sharing to subscription or tenant
 type SharingProfileOutput struct{ *pulumi.OutputState }
 
 func (SharingProfileOutput) ElementType() reflect.Type {
@@ -10017,12 +9471,11 @@ func (o SharingProfileOutput) ToSharingProfilePtrOutput() SharingProfilePtrOutpu
 }
 
 func (o SharingProfileOutput) ToSharingProfilePtrOutputWithContext(ctx context.Context) SharingProfilePtrOutput {
-	return o.ApplyT(func(v SharingProfile) *SharingProfile {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v SharingProfile) *SharingProfile {
 		return &v
 	}).(SharingProfilePtrOutput)
 }
 
-// This property allows you to specify the permission of sharing gallery. <br><br> Possible values are: <br><br> **Private** <br><br> **Groups**
 func (o SharingProfileOutput) Permissions() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SharingProfile) *string { return v.Permissions }).(pulumi.StringPtrOutput)
 }
@@ -10042,10 +9495,15 @@ func (o SharingProfilePtrOutput) ToSharingProfilePtrOutputWithContext(ctx contex
 }
 
 func (o SharingProfilePtrOutput) Elem() SharingProfileOutput {
-	return o.ApplyT(func(v *SharingProfile) SharingProfile { return *v }).(SharingProfileOutput)
+	return o.ApplyT(func(v *SharingProfile) SharingProfile {
+		if v != nil {
+			return *v
+		}
+		var ret SharingProfile
+		return ret
+	}).(SharingProfileOutput)
 }
 
-// This property allows you to specify the permission of sharing gallery. <br><br> Possible values are: <br><br> **Private** <br><br> **Groups**
 func (o SharingProfilePtrOutput) Permissions() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SharingProfile) *string {
 		if v == nil {
@@ -10055,12 +9513,9 @@ func (o SharingProfilePtrOutput) Permissions() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Group of the gallery sharing profile
 type SharingProfileGroupResponse struct {
-	// A list of subscription/tenant ids the gallery is aimed to be shared to.
-	Ids []string `pulumi:"ids"`
-	// This property allows you to specify the type of sharing group. <br><br> Possible values are: <br><br> **Subscriptions** <br><br> **AADTenants**
-	Type *string `pulumi:"type"`
+	Ids  []string `pulumi:"ids"`
+	Type *string  `pulumi:"type"`
 }
 
 // SharingProfileGroupResponseInput is an input type that accepts SharingProfileGroupResponseArgs and SharingProfileGroupResponseOutput values.
@@ -10074,12 +9529,9 @@ type SharingProfileGroupResponseInput interface {
 	ToSharingProfileGroupResponseOutputWithContext(context.Context) SharingProfileGroupResponseOutput
 }
 
-// Group of the gallery sharing profile
 type SharingProfileGroupResponseArgs struct {
-	// A list of subscription/tenant ids the gallery is aimed to be shared to.
-	Ids pulumi.StringArrayInput `pulumi:"ids"`
-	// This property allows you to specify the type of sharing group. <br><br> Possible values are: <br><br> **Subscriptions** <br><br> **AADTenants**
-	Type pulumi.StringPtrInput `pulumi:"type"`
+	Ids  pulumi.StringArrayInput `pulumi:"ids"`
+	Type pulumi.StringPtrInput   `pulumi:"type"`
 }
 
 func (SharingProfileGroupResponseArgs) ElementType() reflect.Type {
@@ -10119,7 +9571,6 @@ func (i SharingProfileGroupResponseArray) ToSharingProfileGroupResponseArrayOutp
 	return pulumi.ToOutputWithContext(ctx, i).(SharingProfileGroupResponseArrayOutput)
 }
 
-// Group of the gallery sharing profile
 type SharingProfileGroupResponseOutput struct{ *pulumi.OutputState }
 
 func (SharingProfileGroupResponseOutput) ElementType() reflect.Type {
@@ -10134,12 +9585,10 @@ func (o SharingProfileGroupResponseOutput) ToSharingProfileGroupResponseOutputWi
 	return o
 }
 
-// A list of subscription/tenant ids the gallery is aimed to be shared to.
 func (o SharingProfileGroupResponseOutput) Ids() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v SharingProfileGroupResponse) []string { return v.Ids }).(pulumi.StringArrayOutput)
 }
 
-// This property allows you to specify the type of sharing group. <br><br> Possible values are: <br><br> **Subscriptions** <br><br> **AADTenants**
 func (o SharingProfileGroupResponseOutput) Type() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SharingProfileGroupResponse) *string { return v.Type }).(pulumi.StringPtrOutput)
 }
@@ -10164,12 +9613,9 @@ func (o SharingProfileGroupResponseArrayOutput) Index(i pulumi.IntInput) Sharing
 	}).(SharingProfileGroupResponseOutput)
 }
 
-// Profile for gallery sharing to subscription or tenant
 type SharingProfileResponse struct {
-	// A list of sharing profile groups.
-	Groups []SharingProfileGroupResponse `pulumi:"groups"`
-	// This property allows you to specify the permission of sharing gallery. <br><br> Possible values are: <br><br> **Private** <br><br> **Groups**
-	Permissions *string `pulumi:"permissions"`
+	Groups      []SharingProfileGroupResponse `pulumi:"groups"`
+	Permissions *string                       `pulumi:"permissions"`
 }
 
 // SharingProfileResponseInput is an input type that accepts SharingProfileResponseArgs and SharingProfileResponseOutput values.
@@ -10183,12 +9629,9 @@ type SharingProfileResponseInput interface {
 	ToSharingProfileResponseOutputWithContext(context.Context) SharingProfileResponseOutput
 }
 
-// Profile for gallery sharing to subscription or tenant
 type SharingProfileResponseArgs struct {
-	// A list of sharing profile groups.
-	Groups SharingProfileGroupResponseArrayInput `pulumi:"groups"`
-	// This property allows you to specify the permission of sharing gallery. <br><br> Possible values are: <br><br> **Private** <br><br> **Groups**
-	Permissions pulumi.StringPtrInput `pulumi:"permissions"`
+	Groups      SharingProfileGroupResponseArrayInput `pulumi:"groups"`
+	Permissions pulumi.StringPtrInput                 `pulumi:"permissions"`
 }
 
 func (SharingProfileResponseArgs) ElementType() reflect.Type {
@@ -10244,7 +9687,6 @@ func (i *sharingProfileResponsePtrType) ToSharingProfileResponsePtrOutputWithCon
 	return pulumi.ToOutputWithContext(ctx, i).(SharingProfileResponsePtrOutput)
 }
 
-// Profile for gallery sharing to subscription or tenant
 type SharingProfileResponseOutput struct{ *pulumi.OutputState }
 
 func (SharingProfileResponseOutput) ElementType() reflect.Type {
@@ -10264,17 +9706,15 @@ func (o SharingProfileResponseOutput) ToSharingProfileResponsePtrOutput() Sharin
 }
 
 func (o SharingProfileResponseOutput) ToSharingProfileResponsePtrOutputWithContext(ctx context.Context) SharingProfileResponsePtrOutput {
-	return o.ApplyT(func(v SharingProfileResponse) *SharingProfileResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v SharingProfileResponse) *SharingProfileResponse {
 		return &v
 	}).(SharingProfileResponsePtrOutput)
 }
 
-// A list of sharing profile groups.
 func (o SharingProfileResponseOutput) Groups() SharingProfileGroupResponseArrayOutput {
 	return o.ApplyT(func(v SharingProfileResponse) []SharingProfileGroupResponse { return v.Groups }).(SharingProfileGroupResponseArrayOutput)
 }
 
-// This property allows you to specify the permission of sharing gallery. <br><br> Possible values are: <br><br> **Private** <br><br> **Groups**
 func (o SharingProfileResponseOutput) Permissions() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SharingProfileResponse) *string { return v.Permissions }).(pulumi.StringPtrOutput)
 }
@@ -10294,10 +9734,15 @@ func (o SharingProfileResponsePtrOutput) ToSharingProfileResponsePtrOutputWithCo
 }
 
 func (o SharingProfileResponsePtrOutput) Elem() SharingProfileResponseOutput {
-	return o.ApplyT(func(v *SharingProfileResponse) SharingProfileResponse { return *v }).(SharingProfileResponseOutput)
+	return o.ApplyT(func(v *SharingProfileResponse) SharingProfileResponse {
+		if v != nil {
+			return *v
+		}
+		var ret SharingProfileResponse
+		return ret
+	}).(SharingProfileResponseOutput)
 }
 
-// A list of sharing profile groups.
 func (o SharingProfileResponsePtrOutput) Groups() SharingProfileGroupResponseArrayOutput {
 	return o.ApplyT(func(v *SharingProfileResponse) []SharingProfileGroupResponse {
 		if v == nil {
@@ -10307,7 +9752,6 @@ func (o SharingProfileResponsePtrOutput) Groups() SharingProfileGroupResponseArr
 	}).(SharingProfileGroupResponseArrayOutput)
 }
 
-// This property allows you to specify the permission of sharing gallery. <br><br> Possible values are: <br><br> **Private** <br><br> **Groups**
 func (o SharingProfileResponsePtrOutput) Permissions() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SharingProfileResponse) *string {
 		if v == nil {
@@ -10317,9 +9761,7 @@ func (o SharingProfileResponsePtrOutput) Permissions() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The snapshots sku name. Can be Standard_LRS, Premium_LRS, or Standard_ZRS. This is an optional parameter for incremental snapshot and the default behavior is the SKU will be set to the same sku as the previous snapshot
 type SnapshotSku struct {
-	// The sku name.
 	Name *string `pulumi:"name"`
 }
 
@@ -10334,9 +9776,7 @@ type SnapshotSkuInput interface {
 	ToSnapshotSkuOutputWithContext(context.Context) SnapshotSkuOutput
 }
 
-// The snapshots sku name. Can be Standard_LRS, Premium_LRS, or Standard_ZRS. This is an optional parameter for incremental snapshot and the default behavior is the SKU will be set to the same sku as the previous snapshot
 type SnapshotSkuArgs struct {
-	// The sku name.
 	Name pulumi.StringPtrInput `pulumi:"name"`
 }
 
@@ -10393,7 +9833,6 @@ func (i *snapshotSkuPtrType) ToSnapshotSkuPtrOutputWithContext(ctx context.Conte
 	return pulumi.ToOutputWithContext(ctx, i).(SnapshotSkuPtrOutput)
 }
 
-// The snapshots sku name. Can be Standard_LRS, Premium_LRS, or Standard_ZRS. This is an optional parameter for incremental snapshot and the default behavior is the SKU will be set to the same sku as the previous snapshot
 type SnapshotSkuOutput struct{ *pulumi.OutputState }
 
 func (SnapshotSkuOutput) ElementType() reflect.Type {
@@ -10413,12 +9852,11 @@ func (o SnapshotSkuOutput) ToSnapshotSkuPtrOutput() SnapshotSkuPtrOutput {
 }
 
 func (o SnapshotSkuOutput) ToSnapshotSkuPtrOutputWithContext(ctx context.Context) SnapshotSkuPtrOutput {
-	return o.ApplyT(func(v SnapshotSku) *SnapshotSku {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v SnapshotSku) *SnapshotSku {
 		return &v
 	}).(SnapshotSkuPtrOutput)
 }
 
-// The sku name.
 func (o SnapshotSkuOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SnapshotSku) *string { return v.Name }).(pulumi.StringPtrOutput)
 }
@@ -10438,10 +9876,15 @@ func (o SnapshotSkuPtrOutput) ToSnapshotSkuPtrOutputWithContext(ctx context.Cont
 }
 
 func (o SnapshotSkuPtrOutput) Elem() SnapshotSkuOutput {
-	return o.ApplyT(func(v *SnapshotSku) SnapshotSku { return *v }).(SnapshotSkuOutput)
+	return o.ApplyT(func(v *SnapshotSku) SnapshotSku {
+		if v != nil {
+			return *v
+		}
+		var ret SnapshotSku
+		return ret
+	}).(SnapshotSkuOutput)
 }
 
-// The sku name.
 func (o SnapshotSkuPtrOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SnapshotSku) *string {
 		if v == nil {
@@ -10451,12 +9894,9 @@ func (o SnapshotSkuPtrOutput) Name() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The snapshots sku name. Can be Standard_LRS, Premium_LRS, or Standard_ZRS. This is an optional parameter for incremental snapshot and the default behavior is the SKU will be set to the same sku as the previous snapshot
 type SnapshotSkuResponse struct {
-	// The sku name.
 	Name *string `pulumi:"name"`
-	// The sku tier.
-	Tier string `pulumi:"tier"`
+	Tier string  `pulumi:"tier"`
 }
 
 // SnapshotSkuResponseInput is an input type that accepts SnapshotSkuResponseArgs and SnapshotSkuResponseOutput values.
@@ -10470,12 +9910,9 @@ type SnapshotSkuResponseInput interface {
 	ToSnapshotSkuResponseOutputWithContext(context.Context) SnapshotSkuResponseOutput
 }
 
-// The snapshots sku name. Can be Standard_LRS, Premium_LRS, or Standard_ZRS. This is an optional parameter for incremental snapshot and the default behavior is the SKU will be set to the same sku as the previous snapshot
 type SnapshotSkuResponseArgs struct {
-	// The sku name.
 	Name pulumi.StringPtrInput `pulumi:"name"`
-	// The sku tier.
-	Tier pulumi.StringInput `pulumi:"tier"`
+	Tier pulumi.StringInput    `pulumi:"tier"`
 }
 
 func (SnapshotSkuResponseArgs) ElementType() reflect.Type {
@@ -10531,7 +9968,6 @@ func (i *snapshotSkuResponsePtrType) ToSnapshotSkuResponsePtrOutputWithContext(c
 	return pulumi.ToOutputWithContext(ctx, i).(SnapshotSkuResponsePtrOutput)
 }
 
-// The snapshots sku name. Can be Standard_LRS, Premium_LRS, or Standard_ZRS. This is an optional parameter for incremental snapshot and the default behavior is the SKU will be set to the same sku as the previous snapshot
 type SnapshotSkuResponseOutput struct{ *pulumi.OutputState }
 
 func (SnapshotSkuResponseOutput) ElementType() reflect.Type {
@@ -10551,17 +9987,15 @@ func (o SnapshotSkuResponseOutput) ToSnapshotSkuResponsePtrOutput() SnapshotSkuR
 }
 
 func (o SnapshotSkuResponseOutput) ToSnapshotSkuResponsePtrOutputWithContext(ctx context.Context) SnapshotSkuResponsePtrOutput {
-	return o.ApplyT(func(v SnapshotSkuResponse) *SnapshotSkuResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v SnapshotSkuResponse) *SnapshotSkuResponse {
 		return &v
 	}).(SnapshotSkuResponsePtrOutput)
 }
 
-// The sku name.
 func (o SnapshotSkuResponseOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SnapshotSkuResponse) *string { return v.Name }).(pulumi.StringPtrOutput)
 }
 
-// The sku tier.
 func (o SnapshotSkuResponseOutput) Tier() pulumi.StringOutput {
 	return o.ApplyT(func(v SnapshotSkuResponse) string { return v.Tier }).(pulumi.StringOutput)
 }
@@ -10581,10 +10015,15 @@ func (o SnapshotSkuResponsePtrOutput) ToSnapshotSkuResponsePtrOutputWithContext(
 }
 
 func (o SnapshotSkuResponsePtrOutput) Elem() SnapshotSkuResponseOutput {
-	return o.ApplyT(func(v *SnapshotSkuResponse) SnapshotSkuResponse { return *v }).(SnapshotSkuResponseOutput)
+	return o.ApplyT(func(v *SnapshotSkuResponse) SnapshotSkuResponse {
+		if v != nil {
+			return *v
+		}
+		var ret SnapshotSkuResponse
+		return ret
+	}).(SnapshotSkuResponseOutput)
 }
 
-// The sku name.
 func (o SnapshotSkuResponsePtrOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SnapshotSkuResponse) *string {
 		if v == nil {
@@ -10594,7 +10033,6 @@ func (o SnapshotSkuResponsePtrOutput) Name() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The sku tier.
 func (o SnapshotSkuResponsePtrOutput) Tier() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SnapshotSkuResponse) *string {
 		if v == nil {
@@ -10604,9 +10042,7 @@ func (o SnapshotSkuResponsePtrOutput) Tier() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The vault id is an Azure Resource Manager Resource id in the form /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.KeyVault/vaults/{vaultName}
 type SourceVault struct {
-	// Resource Id
 	Id *string `pulumi:"id"`
 }
 
@@ -10621,9 +10057,7 @@ type SourceVaultInput interface {
 	ToSourceVaultOutputWithContext(context.Context) SourceVaultOutput
 }
 
-// The vault id is an Azure Resource Manager Resource id in the form /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.KeyVault/vaults/{vaultName}
 type SourceVaultArgs struct {
-	// Resource Id
 	Id pulumi.StringPtrInput `pulumi:"id"`
 }
 
@@ -10680,7 +10114,6 @@ func (i *sourceVaultPtrType) ToSourceVaultPtrOutputWithContext(ctx context.Conte
 	return pulumi.ToOutputWithContext(ctx, i).(SourceVaultPtrOutput)
 }
 
-// The vault id is an Azure Resource Manager Resource id in the form /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.KeyVault/vaults/{vaultName}
 type SourceVaultOutput struct{ *pulumi.OutputState }
 
 func (SourceVaultOutput) ElementType() reflect.Type {
@@ -10700,12 +10133,11 @@ func (o SourceVaultOutput) ToSourceVaultPtrOutput() SourceVaultPtrOutput {
 }
 
 func (o SourceVaultOutput) ToSourceVaultPtrOutputWithContext(ctx context.Context) SourceVaultPtrOutput {
-	return o.ApplyT(func(v SourceVault) *SourceVault {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v SourceVault) *SourceVault {
 		return &v
 	}).(SourceVaultPtrOutput)
 }
 
-// Resource Id
 func (o SourceVaultOutput) Id() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SourceVault) *string { return v.Id }).(pulumi.StringPtrOutput)
 }
@@ -10725,10 +10157,15 @@ func (o SourceVaultPtrOutput) ToSourceVaultPtrOutputWithContext(ctx context.Cont
 }
 
 func (o SourceVaultPtrOutput) Elem() SourceVaultOutput {
-	return o.ApplyT(func(v *SourceVault) SourceVault { return *v }).(SourceVaultOutput)
+	return o.ApplyT(func(v *SourceVault) SourceVault {
+		if v != nil {
+			return *v
+		}
+		var ret SourceVault
+		return ret
+	}).(SourceVaultOutput)
 }
 
-// Resource Id
 func (o SourceVaultPtrOutput) Id() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SourceVault) *string {
 		if v == nil {
@@ -10738,9 +10175,7 @@ func (o SourceVaultPtrOutput) Id() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The vault id is an Azure Resource Manager Resource id in the form /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.KeyVault/vaults/{vaultName}
 type SourceVaultResponse struct {
-	// Resource Id
 	Id *string `pulumi:"id"`
 }
 
@@ -10755,9 +10190,7 @@ type SourceVaultResponseInput interface {
 	ToSourceVaultResponseOutputWithContext(context.Context) SourceVaultResponseOutput
 }
 
-// The vault id is an Azure Resource Manager Resource id in the form /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.KeyVault/vaults/{vaultName}
 type SourceVaultResponseArgs struct {
-	// Resource Id
 	Id pulumi.StringPtrInput `pulumi:"id"`
 }
 
@@ -10814,7 +10247,6 @@ func (i *sourceVaultResponsePtrType) ToSourceVaultResponsePtrOutputWithContext(c
 	return pulumi.ToOutputWithContext(ctx, i).(SourceVaultResponsePtrOutput)
 }
 
-// The vault id is an Azure Resource Manager Resource id in the form /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.KeyVault/vaults/{vaultName}
 type SourceVaultResponseOutput struct{ *pulumi.OutputState }
 
 func (SourceVaultResponseOutput) ElementType() reflect.Type {
@@ -10834,12 +10266,11 @@ func (o SourceVaultResponseOutput) ToSourceVaultResponsePtrOutput() SourceVaultR
 }
 
 func (o SourceVaultResponseOutput) ToSourceVaultResponsePtrOutputWithContext(ctx context.Context) SourceVaultResponsePtrOutput {
-	return o.ApplyT(func(v SourceVaultResponse) *SourceVaultResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v SourceVaultResponse) *SourceVaultResponse {
 		return &v
 	}).(SourceVaultResponsePtrOutput)
 }
 
-// Resource Id
 func (o SourceVaultResponseOutput) Id() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SourceVaultResponse) *string { return v.Id }).(pulumi.StringPtrOutput)
 }
@@ -10859,10 +10290,15 @@ func (o SourceVaultResponsePtrOutput) ToSourceVaultResponsePtrOutputWithContext(
 }
 
 func (o SourceVaultResponsePtrOutput) Elem() SourceVaultResponseOutput {
-	return o.ApplyT(func(v *SourceVaultResponse) SourceVaultResponse { return *v }).(SourceVaultResponseOutput)
+	return o.ApplyT(func(v *SourceVaultResponse) SourceVaultResponse {
+		if v != nil {
+			return *v
+		}
+		var ret SourceVaultResponse
+		return ret
+	}).(SourceVaultResponseOutput)
 }
 
-// Resource Id
 func (o SourceVaultResponsePtrOutput) Id() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SourceVaultResponse) *string {
 		if v == nil {
@@ -10872,16 +10308,11 @@ func (o SourceVaultResponsePtrOutput) Id() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Describes the target region information.
 type TargetRegion struct {
-	// Optional. Allows users to provide customer managed keys for encrypting the OS and data disks in the gallery artifact.
-	Encryption *EncryptionImages `pulumi:"encryption"`
-	// The name of the region.
-	Name string `pulumi:"name"`
-	// The number of replicas of the Image Version to be created per region. This property is updatable.
-	RegionalReplicaCount *int `pulumi:"regionalReplicaCount"`
-	// Specifies the storage account type to be used to store the image. This property is not updatable.
-	StorageAccountType *string `pulumi:"storageAccountType"`
+	Encryption           *EncryptionImages `pulumi:"encryption"`
+	Name                 string            `pulumi:"name"`
+	RegionalReplicaCount *int              `pulumi:"regionalReplicaCount"`
+	StorageAccountType   *string           `pulumi:"storageAccountType"`
 }
 
 // TargetRegionInput is an input type that accepts TargetRegionArgs and TargetRegionOutput values.
@@ -10895,16 +10326,11 @@ type TargetRegionInput interface {
 	ToTargetRegionOutputWithContext(context.Context) TargetRegionOutput
 }
 
-// Describes the target region information.
 type TargetRegionArgs struct {
-	// Optional. Allows users to provide customer managed keys for encrypting the OS and data disks in the gallery artifact.
-	Encryption EncryptionImagesPtrInput `pulumi:"encryption"`
-	// The name of the region.
-	Name pulumi.StringInput `pulumi:"name"`
-	// The number of replicas of the Image Version to be created per region. This property is updatable.
-	RegionalReplicaCount pulumi.IntPtrInput `pulumi:"regionalReplicaCount"`
-	// Specifies the storage account type to be used to store the image. This property is not updatable.
-	StorageAccountType pulumi.StringPtrInput `pulumi:"storageAccountType"`
+	Encryption           EncryptionImagesPtrInput `pulumi:"encryption"`
+	Name                 pulumi.StringInput       `pulumi:"name"`
+	RegionalReplicaCount pulumi.IntPtrInput       `pulumi:"regionalReplicaCount"`
+	StorageAccountType   pulumi.StringPtrInput    `pulumi:"storageAccountType"`
 }
 
 func (TargetRegionArgs) ElementType() reflect.Type {
@@ -10944,7 +10370,6 @@ func (i TargetRegionArray) ToTargetRegionArrayOutputWithContext(ctx context.Cont
 	return pulumi.ToOutputWithContext(ctx, i).(TargetRegionArrayOutput)
 }
 
-// Describes the target region information.
 type TargetRegionOutput struct{ *pulumi.OutputState }
 
 func (TargetRegionOutput) ElementType() reflect.Type {
@@ -10959,22 +10384,18 @@ func (o TargetRegionOutput) ToTargetRegionOutputWithContext(ctx context.Context)
 	return o
 }
 
-// Optional. Allows users to provide customer managed keys for encrypting the OS and data disks in the gallery artifact.
 func (o TargetRegionOutput) Encryption() EncryptionImagesPtrOutput {
 	return o.ApplyT(func(v TargetRegion) *EncryptionImages { return v.Encryption }).(EncryptionImagesPtrOutput)
 }
 
-// The name of the region.
 func (o TargetRegionOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v TargetRegion) string { return v.Name }).(pulumi.StringOutput)
 }
 
-// The number of replicas of the Image Version to be created per region. This property is updatable.
 func (o TargetRegionOutput) RegionalReplicaCount() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v TargetRegion) *int { return v.RegionalReplicaCount }).(pulumi.IntPtrOutput)
 }
 
-// Specifies the storage account type to be used to store the image. This property is not updatable.
 func (o TargetRegionOutput) StorageAccountType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v TargetRegion) *string { return v.StorageAccountType }).(pulumi.StringPtrOutput)
 }
@@ -10999,16 +10420,11 @@ func (o TargetRegionArrayOutput) Index(i pulumi.IntInput) TargetRegionOutput {
 	}).(TargetRegionOutput)
 }
 
-// Describes the target region information.
 type TargetRegionResponse struct {
-	// Optional. Allows users to provide customer managed keys for encrypting the OS and data disks in the gallery artifact.
-	Encryption *EncryptionImagesResponse `pulumi:"encryption"`
-	// The name of the region.
-	Name string `pulumi:"name"`
-	// The number of replicas of the Image Version to be created per region. This property is updatable.
-	RegionalReplicaCount *int `pulumi:"regionalReplicaCount"`
-	// Specifies the storage account type to be used to store the image. This property is not updatable.
-	StorageAccountType *string `pulumi:"storageAccountType"`
+	Encryption           *EncryptionImagesResponse `pulumi:"encryption"`
+	Name                 string                    `pulumi:"name"`
+	RegionalReplicaCount *int                      `pulumi:"regionalReplicaCount"`
+	StorageAccountType   *string                   `pulumi:"storageAccountType"`
 }
 
 // TargetRegionResponseInput is an input type that accepts TargetRegionResponseArgs and TargetRegionResponseOutput values.
@@ -11022,16 +10438,11 @@ type TargetRegionResponseInput interface {
 	ToTargetRegionResponseOutputWithContext(context.Context) TargetRegionResponseOutput
 }
 
-// Describes the target region information.
 type TargetRegionResponseArgs struct {
-	// Optional. Allows users to provide customer managed keys for encrypting the OS and data disks in the gallery artifact.
-	Encryption EncryptionImagesResponsePtrInput `pulumi:"encryption"`
-	// The name of the region.
-	Name pulumi.StringInput `pulumi:"name"`
-	// The number of replicas of the Image Version to be created per region. This property is updatable.
-	RegionalReplicaCount pulumi.IntPtrInput `pulumi:"regionalReplicaCount"`
-	// Specifies the storage account type to be used to store the image. This property is not updatable.
-	StorageAccountType pulumi.StringPtrInput `pulumi:"storageAccountType"`
+	Encryption           EncryptionImagesResponsePtrInput `pulumi:"encryption"`
+	Name                 pulumi.StringInput               `pulumi:"name"`
+	RegionalReplicaCount pulumi.IntPtrInput               `pulumi:"regionalReplicaCount"`
+	StorageAccountType   pulumi.StringPtrInput            `pulumi:"storageAccountType"`
 }
 
 func (TargetRegionResponseArgs) ElementType() reflect.Type {
@@ -11071,7 +10482,6 @@ func (i TargetRegionResponseArray) ToTargetRegionResponseArrayOutputWithContext(
 	return pulumi.ToOutputWithContext(ctx, i).(TargetRegionResponseArrayOutput)
 }
 
-// Describes the target region information.
 type TargetRegionResponseOutput struct{ *pulumi.OutputState }
 
 func (TargetRegionResponseOutput) ElementType() reflect.Type {
@@ -11086,22 +10496,18 @@ func (o TargetRegionResponseOutput) ToTargetRegionResponseOutputWithContext(ctx 
 	return o
 }
 
-// Optional. Allows users to provide customer managed keys for encrypting the OS and data disks in the gallery artifact.
 func (o TargetRegionResponseOutput) Encryption() EncryptionImagesResponsePtrOutput {
 	return o.ApplyT(func(v TargetRegionResponse) *EncryptionImagesResponse { return v.Encryption }).(EncryptionImagesResponsePtrOutput)
 }
 
-// The name of the region.
 func (o TargetRegionResponseOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v TargetRegionResponse) string { return v.Name }).(pulumi.StringOutput)
 }
 
-// The number of replicas of the Image Version to be created per region. This property is updatable.
 func (o TargetRegionResponseOutput) RegionalReplicaCount() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v TargetRegionResponse) *int { return v.RegionalReplicaCount }).(pulumi.IntPtrOutput)
 }
 
-// Specifies the storage account type to be used to store the image. This property is not updatable.
 func (o TargetRegionResponseOutput) StorageAccountType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v TargetRegionResponse) *string { return v.StorageAccountType }).(pulumi.StringPtrOutput)
 }
@@ -11127,12 +10533,9 @@ func (o TargetRegionResponseArrayOutput) Index(i pulumi.IntInput) TargetRegionRe
 }
 
 type UserArtifactManage struct {
-	// Required. The path and arguments to install the gallery application. This is limited to 4096 characters.
-	Install string `pulumi:"install"`
-	// Required. The path and arguments to remove the gallery application. This is limited to 4096 characters.
-	Remove string `pulumi:"remove"`
-	// Optional. The path and arguments to update the gallery application. If not present, then update operation will invoke remove command on the previous version and install command on the current version of the gallery application. This is limited to 4096 characters.
-	Update *string `pulumi:"update"`
+	Install string  `pulumi:"install"`
+	Remove  string  `pulumi:"remove"`
+	Update  *string `pulumi:"update"`
 }
 
 // UserArtifactManageInput is an input type that accepts UserArtifactManageArgs and UserArtifactManageOutput values.
@@ -11147,12 +10550,9 @@ type UserArtifactManageInput interface {
 }
 
 type UserArtifactManageArgs struct {
-	// Required. The path and arguments to install the gallery application. This is limited to 4096 characters.
-	Install pulumi.StringInput `pulumi:"install"`
-	// Required. The path and arguments to remove the gallery application. This is limited to 4096 characters.
-	Remove pulumi.StringInput `pulumi:"remove"`
-	// Optional. The path and arguments to update the gallery application. If not present, then update operation will invoke remove command on the previous version and install command on the current version of the gallery application. This is limited to 4096 characters.
-	Update pulumi.StringPtrInput `pulumi:"update"`
+	Install pulumi.StringInput    `pulumi:"install"`
+	Remove  pulumi.StringInput    `pulumi:"remove"`
+	Update  pulumi.StringPtrInput `pulumi:"update"`
 }
 
 func (UserArtifactManageArgs) ElementType() reflect.Type {
@@ -11227,22 +10627,19 @@ func (o UserArtifactManageOutput) ToUserArtifactManagePtrOutput() UserArtifactMa
 }
 
 func (o UserArtifactManageOutput) ToUserArtifactManagePtrOutputWithContext(ctx context.Context) UserArtifactManagePtrOutput {
-	return o.ApplyT(func(v UserArtifactManage) *UserArtifactManage {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v UserArtifactManage) *UserArtifactManage {
 		return &v
 	}).(UserArtifactManagePtrOutput)
 }
 
-// Required. The path and arguments to install the gallery application. This is limited to 4096 characters.
 func (o UserArtifactManageOutput) Install() pulumi.StringOutput {
 	return o.ApplyT(func(v UserArtifactManage) string { return v.Install }).(pulumi.StringOutput)
 }
 
-// Required. The path and arguments to remove the gallery application. This is limited to 4096 characters.
 func (o UserArtifactManageOutput) Remove() pulumi.StringOutput {
 	return o.ApplyT(func(v UserArtifactManage) string { return v.Remove }).(pulumi.StringOutput)
 }
 
-// Optional. The path and arguments to update the gallery application. If not present, then update operation will invoke remove command on the previous version and install command on the current version of the gallery application. This is limited to 4096 characters.
 func (o UserArtifactManageOutput) Update() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v UserArtifactManage) *string { return v.Update }).(pulumi.StringPtrOutput)
 }
@@ -11262,10 +10659,15 @@ func (o UserArtifactManagePtrOutput) ToUserArtifactManagePtrOutputWithContext(ct
 }
 
 func (o UserArtifactManagePtrOutput) Elem() UserArtifactManageOutput {
-	return o.ApplyT(func(v *UserArtifactManage) UserArtifactManage { return *v }).(UserArtifactManageOutput)
+	return o.ApplyT(func(v *UserArtifactManage) UserArtifactManage {
+		if v != nil {
+			return *v
+		}
+		var ret UserArtifactManage
+		return ret
+	}).(UserArtifactManageOutput)
 }
 
-// Required. The path and arguments to install the gallery application. This is limited to 4096 characters.
 func (o UserArtifactManagePtrOutput) Install() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *UserArtifactManage) *string {
 		if v == nil {
@@ -11275,7 +10677,6 @@ func (o UserArtifactManagePtrOutput) Install() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Required. The path and arguments to remove the gallery application. This is limited to 4096 characters.
 func (o UserArtifactManagePtrOutput) Remove() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *UserArtifactManage) *string {
 		if v == nil {
@@ -11285,7 +10686,6 @@ func (o UserArtifactManagePtrOutput) Remove() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Optional. The path and arguments to update the gallery application. If not present, then update operation will invoke remove command on the previous version and install command on the current version of the gallery application. This is limited to 4096 characters.
 func (o UserArtifactManagePtrOutput) Update() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *UserArtifactManage) *string {
 		if v == nil {
@@ -11296,12 +10696,9 @@ func (o UserArtifactManagePtrOutput) Update() pulumi.StringPtrOutput {
 }
 
 type UserArtifactManageResponse struct {
-	// Required. The path and arguments to install the gallery application. This is limited to 4096 characters.
-	Install string `pulumi:"install"`
-	// Required. The path and arguments to remove the gallery application. This is limited to 4096 characters.
-	Remove string `pulumi:"remove"`
-	// Optional. The path and arguments to update the gallery application. If not present, then update operation will invoke remove command on the previous version and install command on the current version of the gallery application. This is limited to 4096 characters.
-	Update *string `pulumi:"update"`
+	Install string  `pulumi:"install"`
+	Remove  string  `pulumi:"remove"`
+	Update  *string `pulumi:"update"`
 }
 
 // UserArtifactManageResponseInput is an input type that accepts UserArtifactManageResponseArgs and UserArtifactManageResponseOutput values.
@@ -11316,12 +10713,9 @@ type UserArtifactManageResponseInput interface {
 }
 
 type UserArtifactManageResponseArgs struct {
-	// Required. The path and arguments to install the gallery application. This is limited to 4096 characters.
-	Install pulumi.StringInput `pulumi:"install"`
-	// Required. The path and arguments to remove the gallery application. This is limited to 4096 characters.
-	Remove pulumi.StringInput `pulumi:"remove"`
-	// Optional. The path and arguments to update the gallery application. If not present, then update operation will invoke remove command on the previous version and install command on the current version of the gallery application. This is limited to 4096 characters.
-	Update pulumi.StringPtrInput `pulumi:"update"`
+	Install pulumi.StringInput    `pulumi:"install"`
+	Remove  pulumi.StringInput    `pulumi:"remove"`
+	Update  pulumi.StringPtrInput `pulumi:"update"`
 }
 
 func (UserArtifactManageResponseArgs) ElementType() reflect.Type {
@@ -11396,22 +10790,19 @@ func (o UserArtifactManageResponseOutput) ToUserArtifactManageResponsePtrOutput(
 }
 
 func (o UserArtifactManageResponseOutput) ToUserArtifactManageResponsePtrOutputWithContext(ctx context.Context) UserArtifactManageResponsePtrOutput {
-	return o.ApplyT(func(v UserArtifactManageResponse) *UserArtifactManageResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v UserArtifactManageResponse) *UserArtifactManageResponse {
 		return &v
 	}).(UserArtifactManageResponsePtrOutput)
 }
 
-// Required. The path and arguments to install the gallery application. This is limited to 4096 characters.
 func (o UserArtifactManageResponseOutput) Install() pulumi.StringOutput {
 	return o.ApplyT(func(v UserArtifactManageResponse) string { return v.Install }).(pulumi.StringOutput)
 }
 
-// Required. The path and arguments to remove the gallery application. This is limited to 4096 characters.
 func (o UserArtifactManageResponseOutput) Remove() pulumi.StringOutput {
 	return o.ApplyT(func(v UserArtifactManageResponse) string { return v.Remove }).(pulumi.StringOutput)
 }
 
-// Optional. The path and arguments to update the gallery application. If not present, then update operation will invoke remove command on the previous version and install command on the current version of the gallery application. This is limited to 4096 characters.
 func (o UserArtifactManageResponseOutput) Update() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v UserArtifactManageResponse) *string { return v.Update }).(pulumi.StringPtrOutput)
 }
@@ -11431,10 +10822,15 @@ func (o UserArtifactManageResponsePtrOutput) ToUserArtifactManageResponsePtrOutp
 }
 
 func (o UserArtifactManageResponsePtrOutput) Elem() UserArtifactManageResponseOutput {
-	return o.ApplyT(func(v *UserArtifactManageResponse) UserArtifactManageResponse { return *v }).(UserArtifactManageResponseOutput)
+	return o.ApplyT(func(v *UserArtifactManageResponse) UserArtifactManageResponse {
+		if v != nil {
+			return *v
+		}
+		var ret UserArtifactManageResponse
+		return ret
+	}).(UserArtifactManageResponseOutput)
 }
 
-// Required. The path and arguments to install the gallery application. This is limited to 4096 characters.
 func (o UserArtifactManageResponsePtrOutput) Install() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *UserArtifactManageResponse) *string {
 		if v == nil {
@@ -11444,7 +10840,6 @@ func (o UserArtifactManageResponsePtrOutput) Install() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Required. The path and arguments to remove the gallery application. This is limited to 4096 characters.
 func (o UserArtifactManageResponsePtrOutput) Remove() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *UserArtifactManageResponse) *string {
 		if v == nil {
@@ -11454,7 +10849,6 @@ func (o UserArtifactManageResponsePtrOutput) Remove() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Optional. The path and arguments to update the gallery application. If not present, then update operation will invoke remove command on the previous version and install command on the current version of the gallery application. This is limited to 4096 characters.
 func (o UserArtifactManageResponsePtrOutput) Update() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *UserArtifactManageResponse) *string {
 		if v == nil {
@@ -11464,12 +10858,9 @@ func (o UserArtifactManageResponsePtrOutput) Update() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The source image from which the Image Version is going to be created.
 type UserArtifactSource struct {
-	// Optional. The defaultConfigurationLink of the artifact, must be a readable storage page blob.
 	DefaultConfigurationLink *string `pulumi:"defaultConfigurationLink"`
-	// Required. The mediaLink of the artifact, must be a readable storage page blob.
-	MediaLink string `pulumi:"mediaLink"`
+	MediaLink                string  `pulumi:"mediaLink"`
 }
 
 // UserArtifactSourceInput is an input type that accepts UserArtifactSourceArgs and UserArtifactSourceOutput values.
@@ -11483,12 +10874,9 @@ type UserArtifactSourceInput interface {
 	ToUserArtifactSourceOutputWithContext(context.Context) UserArtifactSourceOutput
 }
 
-// The source image from which the Image Version is going to be created.
 type UserArtifactSourceArgs struct {
-	// Optional. The defaultConfigurationLink of the artifact, must be a readable storage page blob.
 	DefaultConfigurationLink pulumi.StringPtrInput `pulumi:"defaultConfigurationLink"`
-	// Required. The mediaLink of the artifact, must be a readable storage page blob.
-	MediaLink pulumi.StringInput `pulumi:"mediaLink"`
+	MediaLink                pulumi.StringInput    `pulumi:"mediaLink"`
 }
 
 func (UserArtifactSourceArgs) ElementType() reflect.Type {
@@ -11544,7 +10932,6 @@ func (i *userArtifactSourcePtrType) ToUserArtifactSourcePtrOutputWithContext(ctx
 	return pulumi.ToOutputWithContext(ctx, i).(UserArtifactSourcePtrOutput)
 }
 
-// The source image from which the Image Version is going to be created.
 type UserArtifactSourceOutput struct{ *pulumi.OutputState }
 
 func (UserArtifactSourceOutput) ElementType() reflect.Type {
@@ -11564,17 +10951,15 @@ func (o UserArtifactSourceOutput) ToUserArtifactSourcePtrOutput() UserArtifactSo
 }
 
 func (o UserArtifactSourceOutput) ToUserArtifactSourcePtrOutputWithContext(ctx context.Context) UserArtifactSourcePtrOutput {
-	return o.ApplyT(func(v UserArtifactSource) *UserArtifactSource {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v UserArtifactSource) *UserArtifactSource {
 		return &v
 	}).(UserArtifactSourcePtrOutput)
 }
 
-// Optional. The defaultConfigurationLink of the artifact, must be a readable storage page blob.
 func (o UserArtifactSourceOutput) DefaultConfigurationLink() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v UserArtifactSource) *string { return v.DefaultConfigurationLink }).(pulumi.StringPtrOutput)
 }
 
-// Required. The mediaLink of the artifact, must be a readable storage page blob.
 func (o UserArtifactSourceOutput) MediaLink() pulumi.StringOutput {
 	return o.ApplyT(func(v UserArtifactSource) string { return v.MediaLink }).(pulumi.StringOutput)
 }
@@ -11594,10 +10979,15 @@ func (o UserArtifactSourcePtrOutput) ToUserArtifactSourcePtrOutputWithContext(ct
 }
 
 func (o UserArtifactSourcePtrOutput) Elem() UserArtifactSourceOutput {
-	return o.ApplyT(func(v *UserArtifactSource) UserArtifactSource { return *v }).(UserArtifactSourceOutput)
+	return o.ApplyT(func(v *UserArtifactSource) UserArtifactSource {
+		if v != nil {
+			return *v
+		}
+		var ret UserArtifactSource
+		return ret
+	}).(UserArtifactSourceOutput)
 }
 
-// Optional. The defaultConfigurationLink of the artifact, must be a readable storage page blob.
 func (o UserArtifactSourcePtrOutput) DefaultConfigurationLink() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *UserArtifactSource) *string {
 		if v == nil {
@@ -11607,7 +10997,6 @@ func (o UserArtifactSourcePtrOutput) DefaultConfigurationLink() pulumi.StringPtr
 	}).(pulumi.StringPtrOutput)
 }
 
-// Required. The mediaLink of the artifact, must be a readable storage page blob.
 func (o UserArtifactSourcePtrOutput) MediaLink() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *UserArtifactSource) *string {
 		if v == nil {
@@ -11617,12 +11006,9 @@ func (o UserArtifactSourcePtrOutput) MediaLink() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The source image from which the Image Version is going to be created.
 type UserArtifactSourceResponse struct {
-	// Optional. The defaultConfigurationLink of the artifact, must be a readable storage page blob.
 	DefaultConfigurationLink *string `pulumi:"defaultConfigurationLink"`
-	// Required. The mediaLink of the artifact, must be a readable storage page blob.
-	MediaLink string `pulumi:"mediaLink"`
+	MediaLink                string  `pulumi:"mediaLink"`
 }
 
 // UserArtifactSourceResponseInput is an input type that accepts UserArtifactSourceResponseArgs and UserArtifactSourceResponseOutput values.
@@ -11636,12 +11022,9 @@ type UserArtifactSourceResponseInput interface {
 	ToUserArtifactSourceResponseOutputWithContext(context.Context) UserArtifactSourceResponseOutput
 }
 
-// The source image from which the Image Version is going to be created.
 type UserArtifactSourceResponseArgs struct {
-	// Optional. The defaultConfigurationLink of the artifact, must be a readable storage page blob.
 	DefaultConfigurationLink pulumi.StringPtrInput `pulumi:"defaultConfigurationLink"`
-	// Required. The mediaLink of the artifact, must be a readable storage page blob.
-	MediaLink pulumi.StringInput `pulumi:"mediaLink"`
+	MediaLink                pulumi.StringInput    `pulumi:"mediaLink"`
 }
 
 func (UserArtifactSourceResponseArgs) ElementType() reflect.Type {
@@ -11697,7 +11080,6 @@ func (i *userArtifactSourceResponsePtrType) ToUserArtifactSourceResponsePtrOutpu
 	return pulumi.ToOutputWithContext(ctx, i).(UserArtifactSourceResponsePtrOutput)
 }
 
-// The source image from which the Image Version is going to be created.
 type UserArtifactSourceResponseOutput struct{ *pulumi.OutputState }
 
 func (UserArtifactSourceResponseOutput) ElementType() reflect.Type {
@@ -11717,17 +11099,15 @@ func (o UserArtifactSourceResponseOutput) ToUserArtifactSourceResponsePtrOutput(
 }
 
 func (o UserArtifactSourceResponseOutput) ToUserArtifactSourceResponsePtrOutputWithContext(ctx context.Context) UserArtifactSourceResponsePtrOutput {
-	return o.ApplyT(func(v UserArtifactSourceResponse) *UserArtifactSourceResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v UserArtifactSourceResponse) *UserArtifactSourceResponse {
 		return &v
 	}).(UserArtifactSourceResponsePtrOutput)
 }
 
-// Optional. The defaultConfigurationLink of the artifact, must be a readable storage page blob.
 func (o UserArtifactSourceResponseOutput) DefaultConfigurationLink() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v UserArtifactSourceResponse) *string { return v.DefaultConfigurationLink }).(pulumi.StringPtrOutput)
 }
 
-// Required. The mediaLink of the artifact, must be a readable storage page blob.
 func (o UserArtifactSourceResponseOutput) MediaLink() pulumi.StringOutput {
 	return o.ApplyT(func(v UserArtifactSourceResponse) string { return v.MediaLink }).(pulumi.StringOutput)
 }
@@ -11747,10 +11127,15 @@ func (o UserArtifactSourceResponsePtrOutput) ToUserArtifactSourceResponsePtrOutp
 }
 
 func (o UserArtifactSourceResponsePtrOutput) Elem() UserArtifactSourceResponseOutput {
-	return o.ApplyT(func(v *UserArtifactSourceResponse) UserArtifactSourceResponse { return *v }).(UserArtifactSourceResponseOutput)
+	return o.ApplyT(func(v *UserArtifactSourceResponse) UserArtifactSourceResponse {
+		if v != nil {
+			return *v
+		}
+		var ret UserArtifactSourceResponse
+		return ret
+	}).(UserArtifactSourceResponseOutput)
 }
 
-// Optional. The defaultConfigurationLink of the artifact, must be a readable storage page blob.
 func (o UserArtifactSourceResponsePtrOutput) DefaultConfigurationLink() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *UserArtifactSourceResponse) *string {
 		if v == nil {
@@ -11760,7 +11145,6 @@ func (o UserArtifactSourceResponsePtrOutput) DefaultConfigurationLink() pulumi.S
 	}).(pulumi.StringPtrOutput)
 }
 
-// Required. The mediaLink of the artifact, must be a readable storage page blob.
 func (o UserArtifactSourceResponsePtrOutput) MediaLink() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *UserArtifactSourceResponse) *string {
 		if v == nil {

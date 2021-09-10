@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.RecoveryServices.Outputs
 {
 
+    /// <summary>
+    /// VMwareCbt protected disk details.
+    /// </summary>
     [OutputType]
     public sealed class VMwareCbtProtectedDiskDetailsResponse
     {

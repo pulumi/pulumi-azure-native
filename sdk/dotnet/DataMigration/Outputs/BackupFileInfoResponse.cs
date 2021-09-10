@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.DataMigration.Outputs
 {
 
+    /// <summary>
+    /// Information of the backup file
+    /// </summary>
     [OutputType]
     public sealed class BackupFileInfoResponse
     {

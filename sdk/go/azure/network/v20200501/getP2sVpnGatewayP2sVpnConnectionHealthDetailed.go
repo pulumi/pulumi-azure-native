@@ -7,7 +7,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// P2S Vpn connection detailed health written to sas url.
 func GetP2sVpnGatewayP2sVpnConnectionHealthDetailed(ctx *pulumi.Context, args *GetP2sVpnGatewayP2sVpnConnectionHealthDetailedArgs, opts ...pulumi.InvokeOption) (*GetP2sVpnGatewayP2sVpnConnectionHealthDetailedResult, error) {
 	var rv GetP2sVpnGatewayP2sVpnConnectionHealthDetailedResult
 	err := ctx.Invoke("azure-native:network/v20200501:getP2sVpnGatewayP2sVpnConnectionHealthDetailed", args, &rv, opts...)
@@ -18,18 +17,13 @@ func GetP2sVpnGatewayP2sVpnConnectionHealthDetailed(ctx *pulumi.Context, args *G
 }
 
 type GetP2sVpnGatewayP2sVpnConnectionHealthDetailedArgs struct {
-	// The name of the P2SVpnGateway.
-	GatewayName string `pulumi:"gatewayName"`
-	// The sas-url to download the P2S Vpn connection health detail.
-	OutputBlobSasUrl *string `pulumi:"outputBlobSasUrl"`
-	// The name of the resource group.
-	ResourceGroupName string `pulumi:"resourceGroupName"`
-	// The list of p2s vpn user names whose p2s vpn connection detailed health to retrieve for.
+	GatewayName        string   `pulumi:"gatewayName"`
+	OutputBlobSasUrl   *string  `pulumi:"outputBlobSasUrl"`
+	ResourceGroupName  string   `pulumi:"resourceGroupName"`
 	VpnUserNamesFilter []string `pulumi:"vpnUserNamesFilter"`
 }
 
 // P2S Vpn connection detailed health written to sas url.
 type GetP2sVpnGatewayP2sVpnConnectionHealthDetailedResult struct {
-	// Returned sas url of the blob to which the p2s vpn connection detailed health will be written.
 	SasUrl *string `pulumi:"sasUrl"`
 }

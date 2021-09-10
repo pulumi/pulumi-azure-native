@@ -7,7 +7,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Represents a HostPool definition.
 func LookupHostPool(ctx *pulumi.Context, args *LookupHostPoolArgs, opts ...pulumi.InvokeOption) (*LookupHostPoolResult, error) {
 	var rv LookupHostPoolResult
 	err := ctx.Invoke("azure-native:desktopvirtualization/v20201110preview:getHostPool", args, &rv, opts...)
@@ -18,58 +17,33 @@ func LookupHostPool(ctx *pulumi.Context, args *LookupHostPoolArgs, opts ...pulum
 }
 
 type LookupHostPoolArgs struct {
-	// The name of the host pool within the specified resource group
-	HostPoolName string `pulumi:"hostPoolName"`
-	// The name of the resource group. The name is case insensitive.
+	HostPoolName      string `pulumi:"hostPoolName"`
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 }
 
 // Represents a HostPool definition.
 type LookupHostPoolResult struct {
-	// List of applicationGroup links.
-	ApplicationGroupReferences []string `pulumi:"applicationGroupReferences"`
-	// Custom rdp property of HostPool.
-	CustomRdpProperty *string `pulumi:"customRdpProperty"`
-	// Description of HostPool.
-	Description *string `pulumi:"description"`
-	// Friendly name of HostPool.
-	FriendlyName *string `pulumi:"friendlyName"`
-	// HostPool type for desktop.
-	HostPoolType string `pulumi:"hostPoolType"`
-	// Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
-	Id string `pulumi:"id"`
-	// The type of the load balancer.
-	LoadBalancerType string `pulumi:"loadBalancerType"`
-	// The geo-location where the resource lives
-	Location string `pulumi:"location"`
-	// The max session limit of HostPool.
-	MaxSessionLimit *int `pulumi:"maxSessionLimit"`
-	// The name of the resource
-	Name string `pulumi:"name"`
-	// PersonalDesktopAssignment type for HostPool.
-	PersonalDesktopAssignmentType *string `pulumi:"personalDesktopAssignmentType"`
-	// The type of preferred application group type, default to Desktop Application Group
-	PreferredAppGroupType string `pulumi:"preferredAppGroupType"`
-	// The registration info of HostPool.
-	RegistrationInfo *RegistrationInfoResponse `pulumi:"registrationInfo"`
-	// The ring number of HostPool.
-	Ring *int `pulumi:"ring"`
-	// ClientId for the registered Relying Party used to issue WVD SSO certificates.
-	SsoClientId *string `pulumi:"ssoClientId"`
-	// Path to Azure KeyVault storing the secret used for communication to ADFS.
-	SsoClientSecretKeyVaultPath *string `pulumi:"ssoClientSecretKeyVaultPath"`
-	// The type of single sign on Secret Type.
-	SsoSecretType *string `pulumi:"ssoSecretType"`
-	// URL to customer ADFS server for signing WVD SSO certificates.
-	SsoadfsAuthority *string `pulumi:"ssoadfsAuthority"`
-	// The flag to turn on/off StartVMOnConnect feature.
-	StartVMOnConnect *bool `pulumi:"startVMOnConnect"`
-	// Resource tags.
-	Tags map[string]string `pulumi:"tags"`
-	// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
-	Type string `pulumi:"type"`
-	// Is validation environment.
-	ValidationEnvironment *bool `pulumi:"validationEnvironment"`
-	// VM template for sessionhosts configuration within hostpool.
-	VmTemplate *string `pulumi:"vmTemplate"`
+	ApplicationGroupReferences    []string                  `pulumi:"applicationGroupReferences"`
+	CustomRdpProperty             *string                   `pulumi:"customRdpProperty"`
+	Description                   *string                   `pulumi:"description"`
+	FriendlyName                  *string                   `pulumi:"friendlyName"`
+	HostPoolType                  string                    `pulumi:"hostPoolType"`
+	Id                            string                    `pulumi:"id"`
+	LoadBalancerType              string                    `pulumi:"loadBalancerType"`
+	Location                      string                    `pulumi:"location"`
+	MaxSessionLimit               *int                      `pulumi:"maxSessionLimit"`
+	Name                          string                    `pulumi:"name"`
+	PersonalDesktopAssignmentType *string                   `pulumi:"personalDesktopAssignmentType"`
+	PreferredAppGroupType         string                    `pulumi:"preferredAppGroupType"`
+	RegistrationInfo              *RegistrationInfoResponse `pulumi:"registrationInfo"`
+	Ring                          *int                      `pulumi:"ring"`
+	SsoClientId                   *string                   `pulumi:"ssoClientId"`
+	SsoClientSecretKeyVaultPath   *string                   `pulumi:"ssoClientSecretKeyVaultPath"`
+	SsoSecretType                 *string                   `pulumi:"ssoSecretType"`
+	SsoadfsAuthority              *string                   `pulumi:"ssoadfsAuthority"`
+	StartVMOnConnect              *bool                     `pulumi:"startVMOnConnect"`
+	Tags                          map[string]string         `pulumi:"tags"`
+	Type                          string                    `pulumi:"type"`
+	ValidationEnvironment         *bool                     `pulumi:"validationEnvironment"`
+	VmTemplate                    *string                   `pulumi:"vmTemplate"`
 }

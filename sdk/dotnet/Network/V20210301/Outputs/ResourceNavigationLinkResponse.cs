@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.Network.V20210301.Outputs
 {
 
+    /// <summary>
+    /// ResourceNavigationLink resource.
+    /// </summary>
     [OutputType]
     public sealed class ResourceNavigationLinkResponse
     {

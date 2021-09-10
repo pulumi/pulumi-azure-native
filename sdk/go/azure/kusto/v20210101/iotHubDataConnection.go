@@ -11,35 +11,21 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Class representing an iot hub data connection.
 type IotHubDataConnection struct {
 	pulumi.CustomResourceState
 
-	// The iot hub consumer group.
-	ConsumerGroup pulumi.StringOutput `pulumi:"consumerGroup"`
-	// The data format of the message. Optionally the data format can be added to each message.
-	DataFormat pulumi.StringPtrOutput `pulumi:"dataFormat"`
-	// System properties of the iot hub
-	EventSystemProperties pulumi.StringArrayOutput `pulumi:"eventSystemProperties"`
-	// The resource ID of the Iot hub to be used to create a data connection.
-	IotHubResourceId pulumi.StringOutput `pulumi:"iotHubResourceId"`
-	// Kind of the endpoint for the data connection
-	// Expected value is 'IotHub'.
-	Kind pulumi.StringOutput `pulumi:"kind"`
-	// Resource location.
-	Location pulumi.StringPtrOutput `pulumi:"location"`
-	// The mapping rule to be used to ingest the data. Optionally the mapping information can be added to each message.
-	MappingRuleName pulumi.StringPtrOutput `pulumi:"mappingRuleName"`
-	// The name of the resource
-	Name pulumi.StringOutput `pulumi:"name"`
-	// The provisioned state of the resource.
-	ProvisioningState pulumi.StringOutput `pulumi:"provisioningState"`
-	// The name of the share access policy
-	SharedAccessPolicyName pulumi.StringOutput `pulumi:"sharedAccessPolicyName"`
-	// The table where the data should be ingested. Optionally the table information can be added to each message.
-	TableName pulumi.StringPtrOutput `pulumi:"tableName"`
-	// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
-	Type pulumi.StringOutput `pulumi:"type"`
+	ConsumerGroup          pulumi.StringOutput      `pulumi:"consumerGroup"`
+	DataFormat             pulumi.StringPtrOutput   `pulumi:"dataFormat"`
+	EventSystemProperties  pulumi.StringArrayOutput `pulumi:"eventSystemProperties"`
+	IotHubResourceId       pulumi.StringOutput      `pulumi:"iotHubResourceId"`
+	Kind                   pulumi.StringOutput      `pulumi:"kind"`
+	Location               pulumi.StringPtrOutput   `pulumi:"location"`
+	MappingRuleName        pulumi.StringPtrOutput   `pulumi:"mappingRuleName"`
+	Name                   pulumi.StringOutput      `pulumi:"name"`
+	ProvisioningState      pulumi.StringOutput      `pulumi:"provisioningState"`
+	SharedAccessPolicyName pulumi.StringOutput      `pulumi:"sharedAccessPolicyName"`
+	TableName              pulumi.StringPtrOutput   `pulumi:"tableName"`
+	Type                   pulumi.StringOutput      `pulumi:"type"`
 }
 
 // NewIotHubDataConnection registers a new resource with the given unique name, arguments, and options.
@@ -163,64 +149,36 @@ func (IotHubDataConnectionState) ElementType() reflect.Type {
 }
 
 type iotHubDataConnectionArgs struct {
-	// The name of the Kusto cluster.
-	ClusterName string `pulumi:"clusterName"`
-	// The iot hub consumer group.
-	ConsumerGroup string `pulumi:"consumerGroup"`
-	// The name of the data connection.
-	DataConnectionName *string `pulumi:"dataConnectionName"`
-	// The data format of the message. Optionally the data format can be added to each message.
-	DataFormat *string `pulumi:"dataFormat"`
-	// The name of the database in the Kusto cluster.
-	DatabaseName string `pulumi:"databaseName"`
-	// System properties of the iot hub
-	EventSystemProperties []string `pulumi:"eventSystemProperties"`
-	// The resource ID of the Iot hub to be used to create a data connection.
-	IotHubResourceId string `pulumi:"iotHubResourceId"`
-	// Kind of the endpoint for the data connection
-	// Expected value is 'IotHub'.
-	Kind string `pulumi:"kind"`
-	// Resource location.
-	Location *string `pulumi:"location"`
-	// The mapping rule to be used to ingest the data. Optionally the mapping information can be added to each message.
-	MappingRuleName *string `pulumi:"mappingRuleName"`
-	// The name of the resource group containing the Kusto cluster.
-	ResourceGroupName string `pulumi:"resourceGroupName"`
-	// The name of the share access policy
-	SharedAccessPolicyName string `pulumi:"sharedAccessPolicyName"`
-	// The table where the data should be ingested. Optionally the table information can be added to each message.
-	TableName *string `pulumi:"tableName"`
+	ClusterName            string   `pulumi:"clusterName"`
+	ConsumerGroup          string   `pulumi:"consumerGroup"`
+	DataConnectionName     *string  `pulumi:"dataConnectionName"`
+	DataFormat             *string  `pulumi:"dataFormat"`
+	DatabaseName           string   `pulumi:"databaseName"`
+	EventSystemProperties  []string `pulumi:"eventSystemProperties"`
+	IotHubResourceId       string   `pulumi:"iotHubResourceId"`
+	Kind                   string   `pulumi:"kind"`
+	Location               *string  `pulumi:"location"`
+	MappingRuleName        *string  `pulumi:"mappingRuleName"`
+	ResourceGroupName      string   `pulumi:"resourceGroupName"`
+	SharedAccessPolicyName string   `pulumi:"sharedAccessPolicyName"`
+	TableName              *string  `pulumi:"tableName"`
 }
 
 // The set of arguments for constructing a IotHubDataConnection resource.
 type IotHubDataConnectionArgs struct {
-	// The name of the Kusto cluster.
-	ClusterName pulumi.StringInput
-	// The iot hub consumer group.
-	ConsumerGroup pulumi.StringInput
-	// The name of the data connection.
-	DataConnectionName pulumi.StringPtrInput
-	// The data format of the message. Optionally the data format can be added to each message.
-	DataFormat pulumi.StringPtrInput
-	// The name of the database in the Kusto cluster.
-	DatabaseName pulumi.StringInput
-	// System properties of the iot hub
-	EventSystemProperties pulumi.StringArrayInput
-	// The resource ID of the Iot hub to be used to create a data connection.
-	IotHubResourceId pulumi.StringInput
-	// Kind of the endpoint for the data connection
-	// Expected value is 'IotHub'.
-	Kind pulumi.StringInput
-	// Resource location.
-	Location pulumi.StringPtrInput
-	// The mapping rule to be used to ingest the data. Optionally the mapping information can be added to each message.
-	MappingRuleName pulumi.StringPtrInput
-	// The name of the resource group containing the Kusto cluster.
-	ResourceGroupName pulumi.StringInput
-	// The name of the share access policy
+	ClusterName            pulumi.StringInput
+	ConsumerGroup          pulumi.StringInput
+	DataConnectionName     pulumi.StringPtrInput
+	DataFormat             pulumi.StringPtrInput
+	DatabaseName           pulumi.StringInput
+	EventSystemProperties  pulumi.StringArrayInput
+	IotHubResourceId       pulumi.StringInput
+	Kind                   pulumi.StringInput
+	Location               pulumi.StringPtrInput
+	MappingRuleName        pulumi.StringPtrInput
+	ResourceGroupName      pulumi.StringInput
 	SharedAccessPolicyName pulumi.StringInput
-	// The table where the data should be ingested. Optionally the table information can be added to each message.
-	TableName pulumi.StringPtrInput
+	TableName              pulumi.StringPtrInput
 }
 
 func (IotHubDataConnectionArgs) ElementType() reflect.Type {
@@ -246,9 +204,7 @@ func (i *IotHubDataConnection) ToIotHubDataConnectionOutputWithContext(ctx conte
 	return pulumi.ToOutputWithContext(ctx, i).(IotHubDataConnectionOutput)
 }
 
-type IotHubDataConnectionOutput struct {
-	*pulumi.OutputState
-}
+type IotHubDataConnectionOutput struct{ *pulumi.OutputState }
 
 func (IotHubDataConnectionOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*IotHubDataConnection)(nil))

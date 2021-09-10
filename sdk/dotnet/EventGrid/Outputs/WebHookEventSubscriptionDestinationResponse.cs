@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.EventGrid.Outputs
 {
 
+    /// <summary>
+    /// Information about the webhook destination for an event subscription.
+    /// </summary>
     [OutputType]
     public sealed class WebHookEventSubscriptionDestinationResponse
     {

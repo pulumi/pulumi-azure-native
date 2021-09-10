@@ -7,7 +7,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// An Account Filter.
 func LookupAccountFilter(ctx *pulumi.Context, args *LookupAccountFilterArgs, opts ...pulumi.InvokeOption) (*LookupAccountFilterResult, error) {
 	var rv LookupAccountFilterResult
 	err := ctx.Invoke("azure-native:media/v20180701:getAccountFilter", args, &rv, opts...)
@@ -18,26 +17,17 @@ func LookupAccountFilter(ctx *pulumi.Context, args *LookupAccountFilterArgs, opt
 }
 
 type LookupAccountFilterArgs struct {
-	// The Media Services account name.
-	AccountName string `pulumi:"accountName"`
-	// The Account Filter name
-	FilterName string `pulumi:"filterName"`
-	// The name of the resource group within the Azure subscription.
+	AccountName       string `pulumi:"accountName"`
+	FilterName        string `pulumi:"filterName"`
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 }
 
 // An Account Filter.
 type LookupAccountFilterResult struct {
-	// The first quality.
-	FirstQuality *FirstQualityResponse `pulumi:"firstQuality"`
-	// Fully qualified resource ID for the resource.
-	Id string `pulumi:"id"`
-	// The name of the resource.
-	Name string `pulumi:"name"`
-	// The presentation time range.
+	FirstQuality          *FirstQualityResponse          `pulumi:"firstQuality"`
+	Id                    string                         `pulumi:"id"`
+	Name                  string                         `pulumi:"name"`
 	PresentationTimeRange *PresentationTimeRangeResponse `pulumi:"presentationTimeRange"`
-	// The tracks selection conditions.
-	Tracks []FilterTrackSelectionResponse `pulumi:"tracks"`
-	// The type of the resource.
-	Type string `pulumi:"type"`
+	Tracks                []FilterTrackSelectionResponse `pulumi:"tracks"`
+	Type                  string                         `pulumi:"type"`
 }

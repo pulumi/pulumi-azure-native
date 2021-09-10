@@ -7,7 +7,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// The customer's prefix that is registered by the peering service provider.
 func LookupRegisteredPrefix(ctx *pulumi.Context, args *LookupRegisteredPrefixArgs, opts ...pulumi.InvokeOption) (*LookupRegisteredPrefixResult, error) {
 	var rv LookupRegisteredPrefixResult
 	err := ctx.Invoke("azure-native:peering/v20201001:getRegisteredPrefix", args, &rv, opts...)
@@ -18,30 +17,19 @@ func LookupRegisteredPrefix(ctx *pulumi.Context, args *LookupRegisteredPrefixArg
 }
 
 type LookupRegisteredPrefixArgs struct {
-	// The name of the peering.
-	PeeringName string `pulumi:"peeringName"`
-	// The name of the registered prefix.
+	PeeringName          string `pulumi:"peeringName"`
 	RegisteredPrefixName string `pulumi:"registeredPrefixName"`
-	// The name of the resource group.
-	ResourceGroupName string `pulumi:"resourceGroupName"`
+	ResourceGroupName    string `pulumi:"resourceGroupName"`
 }
 
 // The customer's prefix that is registered by the peering service provider.
 type LookupRegisteredPrefixResult struct {
-	// The error message associated with the validation state, if any.
-	ErrorMessage string `pulumi:"errorMessage"`
-	// The ID of the resource.
-	Id string `pulumi:"id"`
-	// The name of the resource.
-	Name string `pulumi:"name"`
-	// The peering service prefix key that is to be shared with the customer.
-	PeeringServicePrefixKey string `pulumi:"peeringServicePrefixKey"`
-	// The customer's prefix from which traffic originates.
-	Prefix *string `pulumi:"prefix"`
-	// The prefix validation state.
-	PrefixValidationState string `pulumi:"prefixValidationState"`
-	// The provisioning state of the resource.
-	ProvisioningState string `pulumi:"provisioningState"`
-	// The type of the resource.
-	Type string `pulumi:"type"`
+	ErrorMessage            string  `pulumi:"errorMessage"`
+	Id                      string  `pulumi:"id"`
+	Name                    string  `pulumi:"name"`
+	PeeringServicePrefixKey string  `pulumi:"peeringServicePrefixKey"`
+	Prefix                  *string `pulumi:"prefix"`
+	PrefixValidationState   string  `pulumi:"prefixValidationState"`
+	ProvisioningState       string  `pulumi:"provisioningState"`
+	Type                    string  `pulumi:"type"`
 }

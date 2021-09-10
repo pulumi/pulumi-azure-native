@@ -11,26 +11,17 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// A FluidRelay Server.
 type FluidRelayServer struct {
 	pulumi.CustomResourceState
 
-	// The Fluid Relay Service endpoints for this server.
 	FluidRelayEndpoints FluidRelayEndpointsResponseOutput `pulumi:"fluidRelayEndpoints"`
-	// The Fluid tenantId for this server
-	FrsTenantId pulumi.StringOutput `pulumi:"frsTenantId"`
-	// The geo-location where the resource lives
-	Location pulumi.StringOutput `pulumi:"location"`
-	// The name of the resource
-	Name pulumi.StringOutput `pulumi:"name"`
-	// Provision states for FluidRelay RP
-	ProvisioningState pulumi.StringPtrOutput `pulumi:"provisioningState"`
-	// System meta data for this resource, including creation and modification information.
-	SystemData SystemDataResponseOutput `pulumi:"systemData"`
-	// Resource tags.
-	Tags pulumi.StringMapOutput `pulumi:"tags"`
-	// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
-	Type pulumi.StringOutput `pulumi:"type"`
+	FrsTenantId         pulumi.StringOutput               `pulumi:"frsTenantId"`
+	Location            pulumi.StringOutput               `pulumi:"location"`
+	Name                pulumi.StringOutput               `pulumi:"name"`
+	ProvisioningState   pulumi.StringPtrOutput            `pulumi:"provisioningState"`
+	SystemData          SystemDataResponseOutput          `pulumi:"systemData"`
+	Tags                pulumi.StringMapOutput            `pulumi:"tags"`
+	Type                pulumi.StringOutput               `pulumi:"type"`
 }
 
 // NewFluidRelayServer registers a new resource with the given unique name, arguments, and options.
@@ -93,30 +84,20 @@ func (FluidRelayServerState) ElementType() reflect.Type {
 }
 
 type fluidRelayServerArgs struct {
-	// The geo-location where the resource lives
-	Location *string `pulumi:"location"`
-	// The resource name.
-	Name *string `pulumi:"name"`
-	// Provision states for FluidRelay RP
-	ProvisioningState *string `pulumi:"provisioningState"`
-	// The resource group containing the resource.
-	ResourceGroup string `pulumi:"resourceGroup"`
-	// Resource tags.
-	Tags map[string]string `pulumi:"tags"`
+	Location          *string           `pulumi:"location"`
+	Name              *string           `pulumi:"name"`
+	ProvisioningState *string           `pulumi:"provisioningState"`
+	ResourceGroup     string            `pulumi:"resourceGroup"`
+	Tags              map[string]string `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a FluidRelayServer resource.
 type FluidRelayServerArgs struct {
-	// The geo-location where the resource lives
-	Location pulumi.StringPtrInput
-	// The resource name.
-	Name pulumi.StringPtrInput
-	// Provision states for FluidRelay RP
+	Location          pulumi.StringPtrInput
+	Name              pulumi.StringPtrInput
 	ProvisioningState pulumi.StringPtrInput
-	// The resource group containing the resource.
-	ResourceGroup pulumi.StringInput
-	// Resource tags.
-	Tags pulumi.StringMapInput
+	ResourceGroup     pulumi.StringInput
+	Tags              pulumi.StringMapInput
 }
 
 func (FluidRelayServerArgs) ElementType() reflect.Type {
@@ -142,9 +123,7 @@ func (i *FluidRelayServer) ToFluidRelayServerOutputWithContext(ctx context.Conte
 	return pulumi.ToOutputWithContext(ctx, i).(FluidRelayServerOutput)
 }
 
-type FluidRelayServerOutput struct {
-	*pulumi.OutputState
-}
+type FluidRelayServerOutput struct{ *pulumi.OutputState }
 
 func (FluidRelayServerOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*FluidRelayServer)(nil))

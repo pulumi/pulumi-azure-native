@@ -7,7 +7,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// IoT Addon.
 func LookupIoTAddon(ctx *pulumi.Context, args *LookupIoTAddonArgs, opts ...pulumi.InvokeOption) (*LookupIoTAddonResult, error) {
 	var rv LookupIoTAddonResult
 	err := ctx.Invoke("azure-native:databoxedge/v20210201:getIoTAddon", args, &rv, opts...)
@@ -18,39 +17,23 @@ func LookupIoTAddon(ctx *pulumi.Context, args *LookupIoTAddonArgs, opts ...pulum
 }
 
 type LookupIoTAddonArgs struct {
-	// The addon name.
-	AddonName string `pulumi:"addonName"`
-	// The device name.
-	DeviceName string `pulumi:"deviceName"`
-	// The resource group name.
+	AddonName         string `pulumi:"addonName"`
+	DeviceName        string `pulumi:"deviceName"`
 	ResourceGroupName string `pulumi:"resourceGroupName"`
-	// The role name.
-	RoleName string `pulumi:"roleName"`
+	RoleName          string `pulumi:"roleName"`
 }
 
 // IoT Addon.
 type LookupIoTAddonResult struct {
-	// Host OS supported by the IoT addon.
-	HostPlatform string `pulumi:"hostPlatform"`
-	// Platform where the runtime is hosted.
-	HostPlatformType string `pulumi:"hostPlatformType"`
-	// The path ID that uniquely identifies the object.
-	Id string `pulumi:"id"`
-	// IoT device metadata to which appliance needs to be connected.
-	IoTDeviceDetails IoTDeviceInfoResponse `pulumi:"ioTDeviceDetails"`
-	// IoT edge device to which the IoT Addon needs to be configured.
+	HostPlatform         string                `pulumi:"hostPlatform"`
+	HostPlatformType     string                `pulumi:"hostPlatformType"`
+	Id                   string                `pulumi:"id"`
+	IoTDeviceDetails     IoTDeviceInfoResponse `pulumi:"ioTDeviceDetails"`
 	IoTEdgeDeviceDetails IoTDeviceInfoResponse `pulumi:"ioTEdgeDeviceDetails"`
-	// Addon type.
-	// Expected value is 'IotEdge'.
-	Kind string `pulumi:"kind"`
-	// The object name.
-	Name string `pulumi:"name"`
-	// Addon Provisioning State
-	ProvisioningState string `pulumi:"provisioningState"`
-	// Addon type
-	SystemData SystemDataResponse `pulumi:"systemData"`
-	// The hierarchical type of the object.
-	Type string `pulumi:"type"`
-	// Version of IoT running on the appliance.
-	Version string `pulumi:"version"`
+	Kind                 string                `pulumi:"kind"`
+	Name                 string                `pulumi:"name"`
+	ProvisioningState    string                `pulumi:"provisioningState"`
+	SystemData           SystemDataResponse    `pulumi:"systemData"`
+	Type                 string                `pulumi:"type"`
+	Version              string                `pulumi:"version"`
 }

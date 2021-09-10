@@ -10,11 +10,8 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Key Vault container for a certificate that is purchased through Azure.
 type AppServiceCertificate struct {
-	// Key Vault resource Id.
-	KeyVaultId *string `pulumi:"keyVaultId"`
-	// Key Vault secret name.
+	KeyVaultId         *string `pulumi:"keyVaultId"`
 	KeyVaultSecretName *string `pulumi:"keyVaultSecretName"`
 }
 
@@ -29,11 +26,8 @@ type AppServiceCertificateInput interface {
 	ToAppServiceCertificateOutputWithContext(context.Context) AppServiceCertificateOutput
 }
 
-// Key Vault container for a certificate that is purchased through Azure.
 type AppServiceCertificateArgs struct {
-	// Key Vault resource Id.
-	KeyVaultId pulumi.StringPtrInput `pulumi:"keyVaultId"`
-	// Key Vault secret name.
+	KeyVaultId         pulumi.StringPtrInput `pulumi:"keyVaultId"`
 	KeyVaultSecretName pulumi.StringPtrInput `pulumi:"keyVaultSecretName"`
 }
 
@@ -74,7 +68,6 @@ func (i AppServiceCertificateMap) ToAppServiceCertificateMapOutputWithContext(ct
 	return pulumi.ToOutputWithContext(ctx, i).(AppServiceCertificateMapOutput)
 }
 
-// Key Vault container for a certificate that is purchased through Azure.
 type AppServiceCertificateOutput struct{ *pulumi.OutputState }
 
 func (AppServiceCertificateOutput) ElementType() reflect.Type {
@@ -89,12 +82,10 @@ func (o AppServiceCertificateOutput) ToAppServiceCertificateOutputWithContext(ct
 	return o
 }
 
-// Key Vault resource Id.
 func (o AppServiceCertificateOutput) KeyVaultId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AppServiceCertificate) *string { return v.KeyVaultId }).(pulumi.StringPtrOutput)
 }
 
-// Key Vault secret name.
 func (o AppServiceCertificateOutput) KeyVaultSecretName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AppServiceCertificate) *string { return v.KeyVaultSecretName }).(pulumi.StringPtrOutput)
 }
@@ -119,14 +110,10 @@ func (o AppServiceCertificateMapOutput) MapIndex(k pulumi.StringInput) AppServic
 	}).(AppServiceCertificateOutput)
 }
 
-// Key Vault container for a certificate that is purchased through Azure.
 type AppServiceCertificateResponse struct {
-	// Key Vault resource Id.
-	KeyVaultId *string `pulumi:"keyVaultId"`
-	// Key Vault secret name.
+	KeyVaultId         *string `pulumi:"keyVaultId"`
 	KeyVaultSecretName *string `pulumi:"keyVaultSecretName"`
-	// Status of the Key Vault secret.
-	ProvisioningState string `pulumi:"provisioningState"`
+	ProvisioningState  string  `pulumi:"provisioningState"`
 }
 
 // AppServiceCertificateResponseInput is an input type that accepts AppServiceCertificateResponseArgs and AppServiceCertificateResponseOutput values.
@@ -140,14 +127,10 @@ type AppServiceCertificateResponseInput interface {
 	ToAppServiceCertificateResponseOutputWithContext(context.Context) AppServiceCertificateResponseOutput
 }
 
-// Key Vault container for a certificate that is purchased through Azure.
 type AppServiceCertificateResponseArgs struct {
-	// Key Vault resource Id.
-	KeyVaultId pulumi.StringPtrInput `pulumi:"keyVaultId"`
-	// Key Vault secret name.
+	KeyVaultId         pulumi.StringPtrInput `pulumi:"keyVaultId"`
 	KeyVaultSecretName pulumi.StringPtrInput `pulumi:"keyVaultSecretName"`
-	// Status of the Key Vault secret.
-	ProvisioningState pulumi.StringInput `pulumi:"provisioningState"`
+	ProvisioningState  pulumi.StringInput    `pulumi:"provisioningState"`
 }
 
 func (AppServiceCertificateResponseArgs) ElementType() reflect.Type {
@@ -187,7 +170,6 @@ func (i AppServiceCertificateResponseMap) ToAppServiceCertificateResponseMapOutp
 	return pulumi.ToOutputWithContext(ctx, i).(AppServiceCertificateResponseMapOutput)
 }
 
-// Key Vault container for a certificate that is purchased through Azure.
 type AppServiceCertificateResponseOutput struct{ *pulumi.OutputState }
 
 func (AppServiceCertificateResponseOutput) ElementType() reflect.Type {
@@ -202,17 +184,14 @@ func (o AppServiceCertificateResponseOutput) ToAppServiceCertificateResponseOutp
 	return o
 }
 
-// Key Vault resource Id.
 func (o AppServiceCertificateResponseOutput) KeyVaultId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AppServiceCertificateResponse) *string { return v.KeyVaultId }).(pulumi.StringPtrOutput)
 }
 
-// Key Vault secret name.
 func (o AppServiceCertificateResponseOutput) KeyVaultSecretName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AppServiceCertificateResponse) *string { return v.KeyVaultSecretName }).(pulumi.StringPtrOutput)
 }
 
-// Status of the Key Vault secret.
 func (o AppServiceCertificateResponseOutput) ProvisioningState() pulumi.StringOutput {
 	return o.ApplyT(func(v AppServiceCertificateResponse) string { return v.ProvisioningState }).(pulumi.StringOutput)
 }
@@ -237,26 +216,16 @@ func (o AppServiceCertificateResponseMapOutput) MapIndex(k pulumi.StringInput) A
 	}).(AppServiceCertificateResponseOutput)
 }
 
-// SSL certificate details.
 type CertificateDetailsResponse struct {
-	// Certificate Issuer.
-	Issuer string `pulumi:"issuer"`
-	// Date Certificate is valid to.
-	NotAfter string `pulumi:"notAfter"`
-	// Date Certificate is valid from.
-	NotBefore string `pulumi:"notBefore"`
-	// Raw certificate data.
-	RawData string `pulumi:"rawData"`
-	// Certificate Serial Number.
-	SerialNumber string `pulumi:"serialNumber"`
-	// Certificate Signature algorithm.
+	Issuer             string `pulumi:"issuer"`
+	NotAfter           string `pulumi:"notAfter"`
+	NotBefore          string `pulumi:"notBefore"`
+	RawData            string `pulumi:"rawData"`
+	SerialNumber       string `pulumi:"serialNumber"`
 	SignatureAlgorithm string `pulumi:"signatureAlgorithm"`
-	// Certificate Subject.
-	Subject string `pulumi:"subject"`
-	// Certificate Thumbprint.
-	Thumbprint string `pulumi:"thumbprint"`
-	// Certificate Version.
-	Version int `pulumi:"version"`
+	Subject            string `pulumi:"subject"`
+	Thumbprint         string `pulumi:"thumbprint"`
+	Version            int    `pulumi:"version"`
 }
 
 // CertificateDetailsResponseInput is an input type that accepts CertificateDetailsResponseArgs and CertificateDetailsResponseOutput values.
@@ -270,26 +239,16 @@ type CertificateDetailsResponseInput interface {
 	ToCertificateDetailsResponseOutputWithContext(context.Context) CertificateDetailsResponseOutput
 }
 
-// SSL certificate details.
 type CertificateDetailsResponseArgs struct {
-	// Certificate Issuer.
-	Issuer pulumi.StringInput `pulumi:"issuer"`
-	// Date Certificate is valid to.
-	NotAfter pulumi.StringInput `pulumi:"notAfter"`
-	// Date Certificate is valid from.
-	NotBefore pulumi.StringInput `pulumi:"notBefore"`
-	// Raw certificate data.
-	RawData pulumi.StringInput `pulumi:"rawData"`
-	// Certificate Serial Number.
-	SerialNumber pulumi.StringInput `pulumi:"serialNumber"`
-	// Certificate Signature algorithm.
+	Issuer             pulumi.StringInput `pulumi:"issuer"`
+	NotAfter           pulumi.StringInput `pulumi:"notAfter"`
+	NotBefore          pulumi.StringInput `pulumi:"notBefore"`
+	RawData            pulumi.StringInput `pulumi:"rawData"`
+	SerialNumber       pulumi.StringInput `pulumi:"serialNumber"`
 	SignatureAlgorithm pulumi.StringInput `pulumi:"signatureAlgorithm"`
-	// Certificate Subject.
-	Subject pulumi.StringInput `pulumi:"subject"`
-	// Certificate Thumbprint.
-	Thumbprint pulumi.StringInput `pulumi:"thumbprint"`
-	// Certificate Version.
-	Version pulumi.IntInput `pulumi:"version"`
+	Subject            pulumi.StringInput `pulumi:"subject"`
+	Thumbprint         pulumi.StringInput `pulumi:"thumbprint"`
+	Version            pulumi.IntInput    `pulumi:"version"`
 }
 
 func (CertificateDetailsResponseArgs) ElementType() reflect.Type {
@@ -345,7 +304,6 @@ func (i *certificateDetailsResponsePtrType) ToCertificateDetailsResponsePtrOutpu
 	return pulumi.ToOutputWithContext(ctx, i).(CertificateDetailsResponsePtrOutput)
 }
 
-// SSL certificate details.
 type CertificateDetailsResponseOutput struct{ *pulumi.OutputState }
 
 func (CertificateDetailsResponseOutput) ElementType() reflect.Type {
@@ -365,52 +323,43 @@ func (o CertificateDetailsResponseOutput) ToCertificateDetailsResponsePtrOutput(
 }
 
 func (o CertificateDetailsResponseOutput) ToCertificateDetailsResponsePtrOutputWithContext(ctx context.Context) CertificateDetailsResponsePtrOutput {
-	return o.ApplyT(func(v CertificateDetailsResponse) *CertificateDetailsResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v CertificateDetailsResponse) *CertificateDetailsResponse {
 		return &v
 	}).(CertificateDetailsResponsePtrOutput)
 }
 
-// Certificate Issuer.
 func (o CertificateDetailsResponseOutput) Issuer() pulumi.StringOutput {
 	return o.ApplyT(func(v CertificateDetailsResponse) string { return v.Issuer }).(pulumi.StringOutput)
 }
 
-// Date Certificate is valid to.
 func (o CertificateDetailsResponseOutput) NotAfter() pulumi.StringOutput {
 	return o.ApplyT(func(v CertificateDetailsResponse) string { return v.NotAfter }).(pulumi.StringOutput)
 }
 
-// Date Certificate is valid from.
 func (o CertificateDetailsResponseOutput) NotBefore() pulumi.StringOutput {
 	return o.ApplyT(func(v CertificateDetailsResponse) string { return v.NotBefore }).(pulumi.StringOutput)
 }
 
-// Raw certificate data.
 func (o CertificateDetailsResponseOutput) RawData() pulumi.StringOutput {
 	return o.ApplyT(func(v CertificateDetailsResponse) string { return v.RawData }).(pulumi.StringOutput)
 }
 
-// Certificate Serial Number.
 func (o CertificateDetailsResponseOutput) SerialNumber() pulumi.StringOutput {
 	return o.ApplyT(func(v CertificateDetailsResponse) string { return v.SerialNumber }).(pulumi.StringOutput)
 }
 
-// Certificate Signature algorithm.
 func (o CertificateDetailsResponseOutput) SignatureAlgorithm() pulumi.StringOutput {
 	return o.ApplyT(func(v CertificateDetailsResponse) string { return v.SignatureAlgorithm }).(pulumi.StringOutput)
 }
 
-// Certificate Subject.
 func (o CertificateDetailsResponseOutput) Subject() pulumi.StringOutput {
 	return o.ApplyT(func(v CertificateDetailsResponse) string { return v.Subject }).(pulumi.StringOutput)
 }
 
-// Certificate Thumbprint.
 func (o CertificateDetailsResponseOutput) Thumbprint() pulumi.StringOutput {
 	return o.ApplyT(func(v CertificateDetailsResponse) string { return v.Thumbprint }).(pulumi.StringOutput)
 }
 
-// Certificate Version.
 func (o CertificateDetailsResponseOutput) Version() pulumi.IntOutput {
 	return o.ApplyT(func(v CertificateDetailsResponse) int { return v.Version }).(pulumi.IntOutput)
 }
@@ -430,10 +379,15 @@ func (o CertificateDetailsResponsePtrOutput) ToCertificateDetailsResponsePtrOutp
 }
 
 func (o CertificateDetailsResponsePtrOutput) Elem() CertificateDetailsResponseOutput {
-	return o.ApplyT(func(v *CertificateDetailsResponse) CertificateDetailsResponse { return *v }).(CertificateDetailsResponseOutput)
+	return o.ApplyT(func(v *CertificateDetailsResponse) CertificateDetailsResponse {
+		if v != nil {
+			return *v
+		}
+		var ret CertificateDetailsResponse
+		return ret
+	}).(CertificateDetailsResponseOutput)
 }
 
-// Certificate Issuer.
 func (o CertificateDetailsResponsePtrOutput) Issuer() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *CertificateDetailsResponse) *string {
 		if v == nil {
@@ -443,7 +397,6 @@ func (o CertificateDetailsResponsePtrOutput) Issuer() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Date Certificate is valid to.
 func (o CertificateDetailsResponsePtrOutput) NotAfter() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *CertificateDetailsResponse) *string {
 		if v == nil {
@@ -453,7 +406,6 @@ func (o CertificateDetailsResponsePtrOutput) NotAfter() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Date Certificate is valid from.
 func (o CertificateDetailsResponsePtrOutput) NotBefore() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *CertificateDetailsResponse) *string {
 		if v == nil {
@@ -463,7 +415,6 @@ func (o CertificateDetailsResponsePtrOutput) NotBefore() pulumi.StringPtrOutput 
 	}).(pulumi.StringPtrOutput)
 }
 
-// Raw certificate data.
 func (o CertificateDetailsResponsePtrOutput) RawData() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *CertificateDetailsResponse) *string {
 		if v == nil {
@@ -473,7 +424,6 @@ func (o CertificateDetailsResponsePtrOutput) RawData() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Certificate Serial Number.
 func (o CertificateDetailsResponsePtrOutput) SerialNumber() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *CertificateDetailsResponse) *string {
 		if v == nil {
@@ -483,7 +433,6 @@ func (o CertificateDetailsResponsePtrOutput) SerialNumber() pulumi.StringPtrOutp
 	}).(pulumi.StringPtrOutput)
 }
 
-// Certificate Signature algorithm.
 func (o CertificateDetailsResponsePtrOutput) SignatureAlgorithm() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *CertificateDetailsResponse) *string {
 		if v == nil {
@@ -493,7 +442,6 @@ func (o CertificateDetailsResponsePtrOutput) SignatureAlgorithm() pulumi.StringP
 	}).(pulumi.StringPtrOutput)
 }
 
-// Certificate Subject.
 func (o CertificateDetailsResponsePtrOutput) Subject() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *CertificateDetailsResponse) *string {
 		if v == nil {
@@ -503,7 +451,6 @@ func (o CertificateDetailsResponsePtrOutput) Subject() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Certificate Thumbprint.
 func (o CertificateDetailsResponsePtrOutput) Thumbprint() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *CertificateDetailsResponse) *string {
 		if v == nil {
@@ -513,7 +460,6 @@ func (o CertificateDetailsResponsePtrOutput) Thumbprint() pulumi.StringPtrOutput
 	}).(pulumi.StringPtrOutput)
 }
 
-// Certificate Version.
 func (o CertificateDetailsResponsePtrOutput) Version() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *CertificateDetailsResponse) *int {
 		if v == nil {

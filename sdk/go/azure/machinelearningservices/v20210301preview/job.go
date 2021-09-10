@@ -11,18 +11,13 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Azure Resource Manager resource envelope.
 type Job struct {
 	pulumi.CustomResourceState
 
-	// The name of the resource
-	Name pulumi.StringOutput `pulumi:"name"`
-	// Additional attributes of the entity.
-	Properties pulumi.AnyOutput `pulumi:"properties"`
-	// System data associated with resource provider
+	Name       pulumi.StringOutput      `pulumi:"name"`
+	Properties pulumi.AnyOutput         `pulumi:"properties"`
 	SystemData SystemDataResponseOutput `pulumi:"systemData"`
-	// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
-	Type pulumi.StringOutput `pulumi:"type"`
+	Type       pulumi.StringOutput      `pulumi:"type"`
 }
 
 // NewJob registers a new resource with the given unique name, arguments, and options.
@@ -85,26 +80,18 @@ func (JobState) ElementType() reflect.Type {
 }
 
 type jobArgs struct {
-	// The name and identifier for the Job.
-	Id *string `pulumi:"id"`
-	// Additional attributes of the entity.
-	Properties interface{} `pulumi:"properties"`
-	// The name of the resource group. The name is case insensitive.
-	ResourceGroupName string `pulumi:"resourceGroupName"`
-	// Name of Azure Machine Learning workspace.
-	WorkspaceName string `pulumi:"workspaceName"`
+	Id                *string     `pulumi:"id"`
+	Properties        interface{} `pulumi:"properties"`
+	ResourceGroupName string      `pulumi:"resourceGroupName"`
+	WorkspaceName     string      `pulumi:"workspaceName"`
 }
 
 // The set of arguments for constructing a Job resource.
 type JobArgs struct {
-	// The name and identifier for the Job.
-	Id pulumi.StringPtrInput
-	// Additional attributes of the entity.
-	Properties pulumi.Input
-	// The name of the resource group. The name is case insensitive.
+	Id                pulumi.StringPtrInput
+	Properties        pulumi.Input
 	ResourceGroupName pulumi.StringInput
-	// Name of Azure Machine Learning workspace.
-	WorkspaceName pulumi.StringInput
+	WorkspaceName     pulumi.StringInput
 }
 
 func (JobArgs) ElementType() reflect.Type {
@@ -130,9 +117,7 @@ func (i *Job) ToJobOutputWithContext(ctx context.Context) JobOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(JobOutput)
 }
 
-type JobOutput struct {
-	*pulumi.OutputState
-}
+type JobOutput struct{ *pulumi.OutputState }
 
 func (JobOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*Job)(nil))

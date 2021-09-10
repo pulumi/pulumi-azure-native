@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.AnalysisServices.Outputs
 {
 
+    /// <summary>
+    /// The gateway details.
+    /// </summary>
     [OutputType]
     public sealed class GatewayDetailsResponse
     {

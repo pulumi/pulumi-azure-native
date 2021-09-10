@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.Migrate.V20210101.Outputs
 {
 
+    /// <summary>
+    /// Defines the load balancer resource settings.
+    /// </summary>
     [OutputType]
     public sealed class LoadBalancerResourceSettingsResponse
     {

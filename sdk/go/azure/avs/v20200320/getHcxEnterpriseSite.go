@@ -7,7 +7,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// An HCX Enterprise Site resource
 func LookupHcxEnterpriseSite(ctx *pulumi.Context, args *LookupHcxEnterpriseSiteArgs, opts ...pulumi.InvokeOption) (*LookupHcxEnterpriseSiteResult, error) {
 	var rv LookupHcxEnterpriseSiteResult
 	err := ctx.Invoke("azure-native:avs/v20200320:getHcxEnterpriseSite", args, &rv, opts...)
@@ -18,24 +17,16 @@ func LookupHcxEnterpriseSite(ctx *pulumi.Context, args *LookupHcxEnterpriseSiteA
 }
 
 type LookupHcxEnterpriseSiteArgs struct {
-	// Name of the HCX Enterprise Site in the private cloud
 	HcxEnterpriseSiteName string `pulumi:"hcxEnterpriseSiteName"`
-	// Name of the private cloud
-	PrivateCloudName string `pulumi:"privateCloudName"`
-	// The name of the resource group. The name is case insensitive.
-	ResourceGroupName string `pulumi:"resourceGroupName"`
+	PrivateCloudName      string `pulumi:"privateCloudName"`
+	ResourceGroupName     string `pulumi:"resourceGroupName"`
 }
 
 // An HCX Enterprise Site resource
 type LookupHcxEnterpriseSiteResult struct {
-	// The activation key
 	ActivationKey string `pulumi:"activationKey"`
-	// Resource ID.
-	Id string `pulumi:"id"`
-	// Resource name.
-	Name string `pulumi:"name"`
-	// The status of the HCX Enterprise Site
-	Status string `pulumi:"status"`
-	// Resource type.
-	Type string `pulumi:"type"`
+	Id            string `pulumi:"id"`
+	Name          string `pulumi:"name"`
+	Status        string `pulumi:"status"`
+	Type          string `pulumi:"type"`
 }

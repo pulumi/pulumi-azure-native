@@ -10,9 +10,7 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Authentication token value.
 type AuthenticationDetailsValue struct {
-	// Authentication token.
 	Token *string `pulumi:"token"`
 }
 
@@ -27,9 +25,7 @@ type AuthenticationDetailsValueInput interface {
 	ToAuthenticationDetailsValueOutputWithContext(context.Context) AuthenticationDetailsValueOutput
 }
 
-// Authentication token value.
 type AuthenticationDetailsValueArgs struct {
-	// Authentication token.
 	Token pulumi.StringPtrInput `pulumi:"token"`
 }
 
@@ -45,7 +41,6 @@ func (i AuthenticationDetailsValueArgs) ToAuthenticationDetailsValueOutputWithCo
 	return pulumi.ToOutputWithContext(ctx, i).(AuthenticationDetailsValueOutput)
 }
 
-// Authentication token value.
 type AuthenticationDetailsValueOutput struct{ *pulumi.OutputState }
 
 func (AuthenticationDetailsValueOutput) ElementType() reflect.Type {
@@ -60,19 +55,14 @@ func (o AuthenticationDetailsValueOutput) ToAuthenticationDetailsValueOutputWith
 	return o
 }
 
-// Authentication token.
 func (o AuthenticationDetailsValueOutput) Token() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AuthenticationDetailsValue) *string { return v.Token }).(pulumi.StringPtrOutput)
 }
 
-// AAD profile of the connected cluster
 type ConnectedClusterAADProfile struct {
-	// The client app id configured on target K8 cluster
 	ClientAppId string `pulumi:"clientAppId"`
-	// The server app id to access AD server
 	ServerAppId string `pulumi:"serverAppId"`
-	// The aad tenant id which is configured on target K8s cluster
-	TenantId string `pulumi:"tenantId"`
+	TenantId    string `pulumi:"tenantId"`
 }
 
 // ConnectedClusterAADProfileInput is an input type that accepts ConnectedClusterAADProfileArgs and ConnectedClusterAADProfileOutput values.
@@ -86,14 +76,10 @@ type ConnectedClusterAADProfileInput interface {
 	ToConnectedClusterAADProfileOutputWithContext(context.Context) ConnectedClusterAADProfileOutput
 }
 
-// AAD profile of the connected cluster
 type ConnectedClusterAADProfileArgs struct {
-	// The client app id configured on target K8 cluster
 	ClientAppId pulumi.StringInput `pulumi:"clientAppId"`
-	// The server app id to access AD server
 	ServerAppId pulumi.StringInput `pulumi:"serverAppId"`
-	// The aad tenant id which is configured on target K8s cluster
-	TenantId pulumi.StringInput `pulumi:"tenantId"`
+	TenantId    pulumi.StringInput `pulumi:"tenantId"`
 }
 
 func (ConnectedClusterAADProfileArgs) ElementType() reflect.Type {
@@ -149,7 +135,6 @@ func (i *connectedClusterAADProfilePtrType) ToConnectedClusterAADProfilePtrOutpu
 	return pulumi.ToOutputWithContext(ctx, i).(ConnectedClusterAADProfilePtrOutput)
 }
 
-// AAD profile of the connected cluster
 type ConnectedClusterAADProfileOutput struct{ *pulumi.OutputState }
 
 func (ConnectedClusterAADProfileOutput) ElementType() reflect.Type {
@@ -169,22 +154,19 @@ func (o ConnectedClusterAADProfileOutput) ToConnectedClusterAADProfilePtrOutput(
 }
 
 func (o ConnectedClusterAADProfileOutput) ToConnectedClusterAADProfilePtrOutputWithContext(ctx context.Context) ConnectedClusterAADProfilePtrOutput {
-	return o.ApplyT(func(v ConnectedClusterAADProfile) *ConnectedClusterAADProfile {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ConnectedClusterAADProfile) *ConnectedClusterAADProfile {
 		return &v
 	}).(ConnectedClusterAADProfilePtrOutput)
 }
 
-// The client app id configured on target K8 cluster
 func (o ConnectedClusterAADProfileOutput) ClientAppId() pulumi.StringOutput {
 	return o.ApplyT(func(v ConnectedClusterAADProfile) string { return v.ClientAppId }).(pulumi.StringOutput)
 }
 
-// The server app id to access AD server
 func (o ConnectedClusterAADProfileOutput) ServerAppId() pulumi.StringOutput {
 	return o.ApplyT(func(v ConnectedClusterAADProfile) string { return v.ServerAppId }).(pulumi.StringOutput)
 }
 
-// The aad tenant id which is configured on target K8s cluster
 func (o ConnectedClusterAADProfileOutput) TenantId() pulumi.StringOutput {
 	return o.ApplyT(func(v ConnectedClusterAADProfile) string { return v.TenantId }).(pulumi.StringOutput)
 }
@@ -204,10 +186,15 @@ func (o ConnectedClusterAADProfilePtrOutput) ToConnectedClusterAADProfilePtrOutp
 }
 
 func (o ConnectedClusterAADProfilePtrOutput) Elem() ConnectedClusterAADProfileOutput {
-	return o.ApplyT(func(v *ConnectedClusterAADProfile) ConnectedClusterAADProfile { return *v }).(ConnectedClusterAADProfileOutput)
+	return o.ApplyT(func(v *ConnectedClusterAADProfile) ConnectedClusterAADProfile {
+		if v != nil {
+			return *v
+		}
+		var ret ConnectedClusterAADProfile
+		return ret
+	}).(ConnectedClusterAADProfileOutput)
 }
 
-// The client app id configured on target K8 cluster
 func (o ConnectedClusterAADProfilePtrOutput) ClientAppId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ConnectedClusterAADProfile) *string {
 		if v == nil {
@@ -217,7 +204,6 @@ func (o ConnectedClusterAADProfilePtrOutput) ClientAppId() pulumi.StringPtrOutpu
 	}).(pulumi.StringPtrOutput)
 }
 
-// The server app id to access AD server
 func (o ConnectedClusterAADProfilePtrOutput) ServerAppId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ConnectedClusterAADProfile) *string {
 		if v == nil {
@@ -227,7 +213,6 @@ func (o ConnectedClusterAADProfilePtrOutput) ServerAppId() pulumi.StringPtrOutpu
 	}).(pulumi.StringPtrOutput)
 }
 
-// The aad tenant id which is configured on target K8s cluster
 func (o ConnectedClusterAADProfilePtrOutput) TenantId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ConnectedClusterAADProfile) *string {
 		if v == nil {
@@ -237,14 +222,10 @@ func (o ConnectedClusterAADProfilePtrOutput) TenantId() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// AAD profile of the connected cluster
 type ConnectedClusterAADProfileResponse struct {
-	// The client app id configured on target K8 cluster
 	ClientAppId string `pulumi:"clientAppId"`
-	// The server app id to access AD server
 	ServerAppId string `pulumi:"serverAppId"`
-	// The aad tenant id which is configured on target K8s cluster
-	TenantId string `pulumi:"tenantId"`
+	TenantId    string `pulumi:"tenantId"`
 }
 
 // ConnectedClusterAADProfileResponseInput is an input type that accepts ConnectedClusterAADProfileResponseArgs and ConnectedClusterAADProfileResponseOutput values.
@@ -258,14 +239,10 @@ type ConnectedClusterAADProfileResponseInput interface {
 	ToConnectedClusterAADProfileResponseOutputWithContext(context.Context) ConnectedClusterAADProfileResponseOutput
 }
 
-// AAD profile of the connected cluster
 type ConnectedClusterAADProfileResponseArgs struct {
-	// The client app id configured on target K8 cluster
 	ClientAppId pulumi.StringInput `pulumi:"clientAppId"`
-	// The server app id to access AD server
 	ServerAppId pulumi.StringInput `pulumi:"serverAppId"`
-	// The aad tenant id which is configured on target K8s cluster
-	TenantId pulumi.StringInput `pulumi:"tenantId"`
+	TenantId    pulumi.StringInput `pulumi:"tenantId"`
 }
 
 func (ConnectedClusterAADProfileResponseArgs) ElementType() reflect.Type {
@@ -321,7 +298,6 @@ func (i *connectedClusterAADProfileResponsePtrType) ToConnectedClusterAADProfile
 	return pulumi.ToOutputWithContext(ctx, i).(ConnectedClusterAADProfileResponsePtrOutput)
 }
 
-// AAD profile of the connected cluster
 type ConnectedClusterAADProfileResponseOutput struct{ *pulumi.OutputState }
 
 func (ConnectedClusterAADProfileResponseOutput) ElementType() reflect.Type {
@@ -341,22 +317,19 @@ func (o ConnectedClusterAADProfileResponseOutput) ToConnectedClusterAADProfileRe
 }
 
 func (o ConnectedClusterAADProfileResponseOutput) ToConnectedClusterAADProfileResponsePtrOutputWithContext(ctx context.Context) ConnectedClusterAADProfileResponsePtrOutput {
-	return o.ApplyT(func(v ConnectedClusterAADProfileResponse) *ConnectedClusterAADProfileResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ConnectedClusterAADProfileResponse) *ConnectedClusterAADProfileResponse {
 		return &v
 	}).(ConnectedClusterAADProfileResponsePtrOutput)
 }
 
-// The client app id configured on target K8 cluster
 func (o ConnectedClusterAADProfileResponseOutput) ClientAppId() pulumi.StringOutput {
 	return o.ApplyT(func(v ConnectedClusterAADProfileResponse) string { return v.ClientAppId }).(pulumi.StringOutput)
 }
 
-// The server app id to access AD server
 func (o ConnectedClusterAADProfileResponseOutput) ServerAppId() pulumi.StringOutput {
 	return o.ApplyT(func(v ConnectedClusterAADProfileResponse) string { return v.ServerAppId }).(pulumi.StringOutput)
 }
 
-// The aad tenant id which is configured on target K8s cluster
 func (o ConnectedClusterAADProfileResponseOutput) TenantId() pulumi.StringOutput {
 	return o.ApplyT(func(v ConnectedClusterAADProfileResponse) string { return v.TenantId }).(pulumi.StringOutput)
 }
@@ -376,10 +349,15 @@ func (o ConnectedClusterAADProfileResponsePtrOutput) ToConnectedClusterAADProfil
 }
 
 func (o ConnectedClusterAADProfileResponsePtrOutput) Elem() ConnectedClusterAADProfileResponseOutput {
-	return o.ApplyT(func(v *ConnectedClusterAADProfileResponse) ConnectedClusterAADProfileResponse { return *v }).(ConnectedClusterAADProfileResponseOutput)
+	return o.ApplyT(func(v *ConnectedClusterAADProfileResponse) ConnectedClusterAADProfileResponse {
+		if v != nil {
+			return *v
+		}
+		var ret ConnectedClusterAADProfileResponse
+		return ret
+	}).(ConnectedClusterAADProfileResponseOutput)
 }
 
-// The client app id configured on target K8 cluster
 func (o ConnectedClusterAADProfileResponsePtrOutput) ClientAppId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ConnectedClusterAADProfileResponse) *string {
 		if v == nil {
@@ -389,7 +367,6 @@ func (o ConnectedClusterAADProfileResponsePtrOutput) ClientAppId() pulumi.String
 	}).(pulumi.StringPtrOutput)
 }
 
-// The server app id to access AD server
 func (o ConnectedClusterAADProfileResponsePtrOutput) ServerAppId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ConnectedClusterAADProfileResponse) *string {
 		if v == nil {
@@ -399,7 +376,6 @@ func (o ConnectedClusterAADProfileResponsePtrOutput) ServerAppId() pulumi.String
 	}).(pulumi.StringPtrOutput)
 }
 
-// The aad tenant id which is configured on target K8s cluster
 func (o ConnectedClusterAADProfileResponsePtrOutput) TenantId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ConnectedClusterAADProfileResponse) *string {
 		if v == nil {
@@ -409,10 +385,8 @@ func (o ConnectedClusterAADProfileResponsePtrOutput) TenantId() pulumi.StringPtr
 	}).(pulumi.StringPtrOutput)
 }
 
-// Identity for the connected cluster.
 type ConnectedClusterIdentity struct {
-	// The type of identity used for the connected cluster. The type 'SystemAssigned, includes a system created identity. The type 'None' means no identity is assigned to the connected cluster.
-	Type string `pulumi:"type"`
+	Type ResourceIdentityType `pulumi:"type"`
 }
 
 // ConnectedClusterIdentityInput is an input type that accepts ConnectedClusterIdentityArgs and ConnectedClusterIdentityOutput values.
@@ -426,10 +400,8 @@ type ConnectedClusterIdentityInput interface {
 	ToConnectedClusterIdentityOutputWithContext(context.Context) ConnectedClusterIdentityOutput
 }
 
-// Identity for the connected cluster.
 type ConnectedClusterIdentityArgs struct {
-	// The type of identity used for the connected cluster. The type 'SystemAssigned, includes a system created identity. The type 'None' means no identity is assigned to the connected cluster.
-	Type ResourceIdentityType `pulumi:"type"`
+	Type ResourceIdentityTypeInput `pulumi:"type"`
 }
 
 func (ConnectedClusterIdentityArgs) ElementType() reflect.Type {
@@ -485,7 +457,6 @@ func (i *connectedClusterIdentityPtrType) ToConnectedClusterIdentityPtrOutputWit
 	return pulumi.ToOutputWithContext(ctx, i).(ConnectedClusterIdentityPtrOutput)
 }
 
-// Identity for the connected cluster.
 type ConnectedClusterIdentityOutput struct{ *pulumi.OutputState }
 
 func (ConnectedClusterIdentityOutput) ElementType() reflect.Type {
@@ -505,14 +476,13 @@ func (o ConnectedClusterIdentityOutput) ToConnectedClusterIdentityPtrOutput() Co
 }
 
 func (o ConnectedClusterIdentityOutput) ToConnectedClusterIdentityPtrOutputWithContext(ctx context.Context) ConnectedClusterIdentityPtrOutput {
-	return o.ApplyT(func(v ConnectedClusterIdentity) *ConnectedClusterIdentity {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ConnectedClusterIdentity) *ConnectedClusterIdentity {
 		return &v
 	}).(ConnectedClusterIdentityPtrOutput)
 }
 
-// The type of identity used for the connected cluster. The type 'SystemAssigned, includes a system created identity. The type 'None' means no identity is assigned to the connected cluster.
-func (o ConnectedClusterIdentityOutput) Type() pulumi.StringOutput {
-	return o.ApplyT(func(v ConnectedClusterIdentity) string { return v.Type }).(pulumi.StringOutput)
+func (o ConnectedClusterIdentityOutput) Type() ResourceIdentityTypeOutput {
+	return o.ApplyT(func(v ConnectedClusterIdentity) ResourceIdentityType { return v.Type }).(ResourceIdentityTypeOutput)
 }
 
 type ConnectedClusterIdentityPtrOutput struct{ *pulumi.OutputState }
@@ -530,27 +500,28 @@ func (o ConnectedClusterIdentityPtrOutput) ToConnectedClusterIdentityPtrOutputWi
 }
 
 func (o ConnectedClusterIdentityPtrOutput) Elem() ConnectedClusterIdentityOutput {
-	return o.ApplyT(func(v *ConnectedClusterIdentity) ConnectedClusterIdentity { return *v }).(ConnectedClusterIdentityOutput)
+	return o.ApplyT(func(v *ConnectedClusterIdentity) ConnectedClusterIdentity {
+		if v != nil {
+			return *v
+		}
+		var ret ConnectedClusterIdentity
+		return ret
+	}).(ConnectedClusterIdentityOutput)
 }
 
-// The type of identity used for the connected cluster. The type 'SystemAssigned, includes a system created identity. The type 'None' means no identity is assigned to the connected cluster.
-func (o ConnectedClusterIdentityPtrOutput) Type() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *ConnectedClusterIdentity) *string {
+func (o ConnectedClusterIdentityPtrOutput) Type() ResourceIdentityTypePtrOutput {
+	return o.ApplyT(func(v *ConnectedClusterIdentity) *ResourceIdentityType {
 		if v == nil {
 			return nil
 		}
 		return &v.Type
-	}).(pulumi.StringPtrOutput)
+	}).(ResourceIdentityTypePtrOutput)
 }
 
-// Identity for the connected cluster.
 type ConnectedClusterIdentityResponse struct {
-	// The principal id of connected cluster identity. This property will only be provided for a system assigned identity.
 	PrincipalId string `pulumi:"principalId"`
-	// The tenant id associated with the connected cluster. This property will only be provided for a system assigned identity.
-	TenantId string `pulumi:"tenantId"`
-	// The type of identity used for the connected cluster. The type 'SystemAssigned, includes a system created identity. The type 'None' means no identity is assigned to the connected cluster.
-	Type string `pulumi:"type"`
+	TenantId    string `pulumi:"tenantId"`
+	Type        string `pulumi:"type"`
 }
 
 // ConnectedClusterIdentityResponseInput is an input type that accepts ConnectedClusterIdentityResponseArgs and ConnectedClusterIdentityResponseOutput values.
@@ -564,14 +535,10 @@ type ConnectedClusterIdentityResponseInput interface {
 	ToConnectedClusterIdentityResponseOutputWithContext(context.Context) ConnectedClusterIdentityResponseOutput
 }
 
-// Identity for the connected cluster.
 type ConnectedClusterIdentityResponseArgs struct {
-	// The principal id of connected cluster identity. This property will only be provided for a system assigned identity.
 	PrincipalId pulumi.StringInput `pulumi:"principalId"`
-	// The tenant id associated with the connected cluster. This property will only be provided for a system assigned identity.
-	TenantId pulumi.StringInput `pulumi:"tenantId"`
-	// The type of identity used for the connected cluster. The type 'SystemAssigned, includes a system created identity. The type 'None' means no identity is assigned to the connected cluster.
-	Type pulumi.StringInput `pulumi:"type"`
+	TenantId    pulumi.StringInput `pulumi:"tenantId"`
+	Type        pulumi.StringInput `pulumi:"type"`
 }
 
 func (ConnectedClusterIdentityResponseArgs) ElementType() reflect.Type {
@@ -627,7 +594,6 @@ func (i *connectedClusterIdentityResponsePtrType) ToConnectedClusterIdentityResp
 	return pulumi.ToOutputWithContext(ctx, i).(ConnectedClusterIdentityResponsePtrOutput)
 }
 
-// Identity for the connected cluster.
 type ConnectedClusterIdentityResponseOutput struct{ *pulumi.OutputState }
 
 func (ConnectedClusterIdentityResponseOutput) ElementType() reflect.Type {
@@ -647,22 +613,19 @@ func (o ConnectedClusterIdentityResponseOutput) ToConnectedClusterIdentityRespon
 }
 
 func (o ConnectedClusterIdentityResponseOutput) ToConnectedClusterIdentityResponsePtrOutputWithContext(ctx context.Context) ConnectedClusterIdentityResponsePtrOutput {
-	return o.ApplyT(func(v ConnectedClusterIdentityResponse) *ConnectedClusterIdentityResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ConnectedClusterIdentityResponse) *ConnectedClusterIdentityResponse {
 		return &v
 	}).(ConnectedClusterIdentityResponsePtrOutput)
 }
 
-// The principal id of connected cluster identity. This property will only be provided for a system assigned identity.
 func (o ConnectedClusterIdentityResponseOutput) PrincipalId() pulumi.StringOutput {
 	return o.ApplyT(func(v ConnectedClusterIdentityResponse) string { return v.PrincipalId }).(pulumi.StringOutput)
 }
 
-// The tenant id associated with the connected cluster. This property will only be provided for a system assigned identity.
 func (o ConnectedClusterIdentityResponseOutput) TenantId() pulumi.StringOutput {
 	return o.ApplyT(func(v ConnectedClusterIdentityResponse) string { return v.TenantId }).(pulumi.StringOutput)
 }
 
-// The type of identity used for the connected cluster. The type 'SystemAssigned, includes a system created identity. The type 'None' means no identity is assigned to the connected cluster.
 func (o ConnectedClusterIdentityResponseOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v ConnectedClusterIdentityResponse) string { return v.Type }).(pulumi.StringOutput)
 }
@@ -682,10 +645,15 @@ func (o ConnectedClusterIdentityResponsePtrOutput) ToConnectedClusterIdentityRes
 }
 
 func (o ConnectedClusterIdentityResponsePtrOutput) Elem() ConnectedClusterIdentityResponseOutput {
-	return o.ApplyT(func(v *ConnectedClusterIdentityResponse) ConnectedClusterIdentityResponse { return *v }).(ConnectedClusterIdentityResponseOutput)
+	return o.ApplyT(func(v *ConnectedClusterIdentityResponse) ConnectedClusterIdentityResponse {
+		if v != nil {
+			return *v
+		}
+		var ret ConnectedClusterIdentityResponse
+		return ret
+	}).(ConnectedClusterIdentityResponseOutput)
 }
 
-// The principal id of connected cluster identity. This property will only be provided for a system assigned identity.
 func (o ConnectedClusterIdentityResponsePtrOutput) PrincipalId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ConnectedClusterIdentityResponse) *string {
 		if v == nil {
@@ -695,7 +663,6 @@ func (o ConnectedClusterIdentityResponsePtrOutput) PrincipalId() pulumi.StringPt
 	}).(pulumi.StringPtrOutput)
 }
 
-// The tenant id associated with the connected cluster. This property will only be provided for a system assigned identity.
 func (o ConnectedClusterIdentityResponsePtrOutput) TenantId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ConnectedClusterIdentityResponse) *string {
 		if v == nil {
@@ -705,7 +672,6 @@ func (o ConnectedClusterIdentityResponsePtrOutput) TenantId() pulumi.StringPtrOu
 	}).(pulumi.StringPtrOutput)
 }
 
-// The type of identity used for the connected cluster. The type 'SystemAssigned, includes a system created identity. The type 'None' means no identity is assigned to the connected cluster.
 func (o ConnectedClusterIdentityResponsePtrOutput) Type() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ConnectedClusterIdentityResponse) *string {
 		if v == nil {
@@ -715,11 +681,8 @@ func (o ConnectedClusterIdentityResponsePtrOutput) Type() pulumi.StringPtrOutput
 	}).(pulumi.StringPtrOutput)
 }
 
-// The credential result response.
 type CredentialResultResponse struct {
-	// The name of the credential.
-	Name string `pulumi:"name"`
-	// Base64-encoded Kubernetes configuration file.
+	Name  string `pulumi:"name"`
 	Value string `pulumi:"value"`
 }
 
@@ -734,11 +697,8 @@ type CredentialResultResponseInput interface {
 	ToCredentialResultResponseOutputWithContext(context.Context) CredentialResultResponseOutput
 }
 
-// The credential result response.
 type CredentialResultResponseArgs struct {
-	// The name of the credential.
-	Name pulumi.StringInput `pulumi:"name"`
-	// Base64-encoded Kubernetes configuration file.
+	Name  pulumi.StringInput `pulumi:"name"`
 	Value pulumi.StringInput `pulumi:"value"`
 }
 
@@ -779,7 +739,6 @@ func (i CredentialResultResponseArray) ToCredentialResultResponseArrayOutputWith
 	return pulumi.ToOutputWithContext(ctx, i).(CredentialResultResponseArrayOutput)
 }
 
-// The credential result response.
 type CredentialResultResponseOutput struct{ *pulumi.OutputState }
 
 func (CredentialResultResponseOutput) ElementType() reflect.Type {
@@ -794,12 +753,10 @@ func (o CredentialResultResponseOutput) ToCredentialResultResponseOutputWithCont
 	return o
 }
 
-// The name of the credential.
 func (o CredentialResultResponseOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v CredentialResultResponse) string { return v.Name }).(pulumi.StringOutput)
 }
 
-// Base64-encoded Kubernetes configuration file.
 func (o CredentialResultResponseOutput) Value() pulumi.StringOutput {
 	return o.ApplyT(func(v CredentialResultResponse) string { return v.Value }).(pulumi.StringOutput)
 }
@@ -824,16 +781,11 @@ func (o CredentialResultResponseArrayOutput) Index(i pulumi.IntInput) Credential
 	}).(CredentialResultResponseOutput)
 }
 
-// Contains the REP (rendezvous endpoint) and “Sender” access token.
 type HybridConnectionConfigResponse struct {
-	// Timestamp when this token will be expired.
-	ExpirationTime float64 `pulumi:"expirationTime"`
-	// Name of the connection
-	HybridConnectionName string `pulumi:"hybridConnectionName"`
-	// Name of the relay.
-	Relay string `pulumi:"relay"`
-	// Sender access token
-	Token string `pulumi:"token"`
+	ExpirationTime       float64 `pulumi:"expirationTime"`
+	HybridConnectionName string  `pulumi:"hybridConnectionName"`
+	Relay                string  `pulumi:"relay"`
+	Token                string  `pulumi:"token"`
 }
 
 // HybridConnectionConfigResponseInput is an input type that accepts HybridConnectionConfigResponseArgs and HybridConnectionConfigResponseOutput values.
@@ -847,16 +799,11 @@ type HybridConnectionConfigResponseInput interface {
 	ToHybridConnectionConfigResponseOutputWithContext(context.Context) HybridConnectionConfigResponseOutput
 }
 
-// Contains the REP (rendezvous endpoint) and “Sender” access token.
 type HybridConnectionConfigResponseArgs struct {
-	// Timestamp when this token will be expired.
-	ExpirationTime pulumi.Float64Input `pulumi:"expirationTime"`
-	// Name of the connection
-	HybridConnectionName pulumi.StringInput `pulumi:"hybridConnectionName"`
-	// Name of the relay.
-	Relay pulumi.StringInput `pulumi:"relay"`
-	// Sender access token
-	Token pulumi.StringInput `pulumi:"token"`
+	ExpirationTime       pulumi.Float64Input `pulumi:"expirationTime"`
+	HybridConnectionName pulumi.StringInput  `pulumi:"hybridConnectionName"`
+	Relay                pulumi.StringInput  `pulumi:"relay"`
+	Token                pulumi.StringInput  `pulumi:"token"`
 }
 
 func (HybridConnectionConfigResponseArgs) ElementType() reflect.Type {
@@ -871,7 +818,6 @@ func (i HybridConnectionConfigResponseArgs) ToHybridConnectionConfigResponseOutp
 	return pulumi.ToOutputWithContext(ctx, i).(HybridConnectionConfigResponseOutput)
 }
 
-// Contains the REP (rendezvous endpoint) and “Sender” access token.
 type HybridConnectionConfigResponseOutput struct{ *pulumi.OutputState }
 
 func (HybridConnectionConfigResponseOutput) ElementType() reflect.Type {
@@ -886,22 +832,18 @@ func (o HybridConnectionConfigResponseOutput) ToHybridConnectionConfigResponseOu
 	return o
 }
 
-// Timestamp when this token will be expired.
 func (o HybridConnectionConfigResponseOutput) ExpirationTime() pulumi.Float64Output {
 	return o.ApplyT(func(v HybridConnectionConfigResponse) float64 { return v.ExpirationTime }).(pulumi.Float64Output)
 }
 
-// Name of the connection
 func (o HybridConnectionConfigResponseOutput) HybridConnectionName() pulumi.StringOutput {
 	return o.ApplyT(func(v HybridConnectionConfigResponse) string { return v.HybridConnectionName }).(pulumi.StringOutput)
 }
 
-// Name of the relay.
 func (o HybridConnectionConfigResponseOutput) Relay() pulumi.StringOutput {
 	return o.ApplyT(func(v HybridConnectionConfigResponse) string { return v.Relay }).(pulumi.StringOutput)
 }
 
-// Sender access token
 func (o HybridConnectionConfigResponseOutput) Token() pulumi.StringOutput {
 	return o.ApplyT(func(v HybridConnectionConfigResponse) string { return v.Token }).(pulumi.StringOutput)
 }

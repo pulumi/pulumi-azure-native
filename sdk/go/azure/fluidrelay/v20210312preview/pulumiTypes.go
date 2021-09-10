@@ -10,11 +10,8 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// The Fluid Relay endpoints for this server
 type FluidRelayEndpointsResponse struct {
-	// The Fluid Relay Orderer endpoints.
 	OrdererEndpoints []string `pulumi:"ordererEndpoints"`
-	// The Fluid Relay storage endpoints.
 	StorageEndpoints []string `pulumi:"storageEndpoints"`
 }
 
@@ -29,11 +26,8 @@ type FluidRelayEndpointsResponseInput interface {
 	ToFluidRelayEndpointsResponseOutputWithContext(context.Context) FluidRelayEndpointsResponseOutput
 }
 
-// The Fluid Relay endpoints for this server
 type FluidRelayEndpointsResponseArgs struct {
-	// The Fluid Relay Orderer endpoints.
 	OrdererEndpoints pulumi.StringArrayInput `pulumi:"ordererEndpoints"`
-	// The Fluid Relay storage endpoints.
 	StorageEndpoints pulumi.StringArrayInput `pulumi:"storageEndpoints"`
 }
 
@@ -90,7 +84,6 @@ func (i *fluidRelayEndpointsResponsePtrType) ToFluidRelayEndpointsResponsePtrOut
 	return pulumi.ToOutputWithContext(ctx, i).(FluidRelayEndpointsResponsePtrOutput)
 }
 
-// The Fluid Relay endpoints for this server
 type FluidRelayEndpointsResponseOutput struct{ *pulumi.OutputState }
 
 func (FluidRelayEndpointsResponseOutput) ElementType() reflect.Type {
@@ -110,17 +103,15 @@ func (o FluidRelayEndpointsResponseOutput) ToFluidRelayEndpointsResponsePtrOutpu
 }
 
 func (o FluidRelayEndpointsResponseOutput) ToFluidRelayEndpointsResponsePtrOutputWithContext(ctx context.Context) FluidRelayEndpointsResponsePtrOutput {
-	return o.ApplyT(func(v FluidRelayEndpointsResponse) *FluidRelayEndpointsResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v FluidRelayEndpointsResponse) *FluidRelayEndpointsResponse {
 		return &v
 	}).(FluidRelayEndpointsResponsePtrOutput)
 }
 
-// The Fluid Relay Orderer endpoints.
 func (o FluidRelayEndpointsResponseOutput) OrdererEndpoints() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v FluidRelayEndpointsResponse) []string { return v.OrdererEndpoints }).(pulumi.StringArrayOutput)
 }
 
-// The Fluid Relay storage endpoints.
 func (o FluidRelayEndpointsResponseOutput) StorageEndpoints() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v FluidRelayEndpointsResponse) []string { return v.StorageEndpoints }).(pulumi.StringArrayOutput)
 }
@@ -140,10 +131,15 @@ func (o FluidRelayEndpointsResponsePtrOutput) ToFluidRelayEndpointsResponsePtrOu
 }
 
 func (o FluidRelayEndpointsResponsePtrOutput) Elem() FluidRelayEndpointsResponseOutput {
-	return o.ApplyT(func(v *FluidRelayEndpointsResponse) FluidRelayEndpointsResponse { return *v }).(FluidRelayEndpointsResponseOutput)
+	return o.ApplyT(func(v *FluidRelayEndpointsResponse) FluidRelayEndpointsResponse {
+		if v != nil {
+			return *v
+		}
+		var ret FluidRelayEndpointsResponse
+		return ret
+	}).(FluidRelayEndpointsResponseOutput)
 }
 
-// The Fluid Relay Orderer endpoints.
 func (o FluidRelayEndpointsResponsePtrOutput) OrdererEndpoints() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *FluidRelayEndpointsResponse) []string {
 		if v == nil {
@@ -153,7 +149,6 @@ func (o FluidRelayEndpointsResponsePtrOutput) OrdererEndpoints() pulumi.StringAr
 	}).(pulumi.StringArrayOutput)
 }
 
-// The Fluid Relay storage endpoints.
 func (o FluidRelayEndpointsResponsePtrOutput) StorageEndpoints() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *FluidRelayEndpointsResponse) []string {
 		if v == nil {
@@ -163,19 +158,12 @@ func (o FluidRelayEndpointsResponsePtrOutput) StorageEndpoints() pulumi.StringAr
 	}).(pulumi.StringArrayOutput)
 }
 
-// Metadata pertaining to creation and last modification of the resource.
 type SystemDataResponse struct {
-	// The timestamp of resource creation (UTC).
-	CreatedAt *string `pulumi:"createdAt"`
-	// The identity that created the resource.
-	CreatedBy *string `pulumi:"createdBy"`
-	// The type of identity that created the resource.
-	CreatedByType *string `pulumi:"createdByType"`
-	// The timestamp of resource last modification (UTC)
-	LastModifiedAt *string `pulumi:"lastModifiedAt"`
-	// The identity that last modified the resource.
-	LastModifiedBy *string `pulumi:"lastModifiedBy"`
-	// The type of identity that last modified the resource.
+	CreatedAt          *string `pulumi:"createdAt"`
+	CreatedBy          *string `pulumi:"createdBy"`
+	CreatedByType      *string `pulumi:"createdByType"`
+	LastModifiedAt     *string `pulumi:"lastModifiedAt"`
+	LastModifiedBy     *string `pulumi:"lastModifiedBy"`
 	LastModifiedByType *string `pulumi:"lastModifiedByType"`
 }
 
@@ -190,19 +178,12 @@ type SystemDataResponseInput interface {
 	ToSystemDataResponseOutputWithContext(context.Context) SystemDataResponseOutput
 }
 
-// Metadata pertaining to creation and last modification of the resource.
 type SystemDataResponseArgs struct {
-	// The timestamp of resource creation (UTC).
-	CreatedAt pulumi.StringPtrInput `pulumi:"createdAt"`
-	// The identity that created the resource.
-	CreatedBy pulumi.StringPtrInput `pulumi:"createdBy"`
-	// The type of identity that created the resource.
-	CreatedByType pulumi.StringPtrInput `pulumi:"createdByType"`
-	// The timestamp of resource last modification (UTC)
-	LastModifiedAt pulumi.StringPtrInput `pulumi:"lastModifiedAt"`
-	// The identity that last modified the resource.
-	LastModifiedBy pulumi.StringPtrInput `pulumi:"lastModifiedBy"`
-	// The type of identity that last modified the resource.
+	CreatedAt          pulumi.StringPtrInput `pulumi:"createdAt"`
+	CreatedBy          pulumi.StringPtrInput `pulumi:"createdBy"`
+	CreatedByType      pulumi.StringPtrInput `pulumi:"createdByType"`
+	LastModifiedAt     pulumi.StringPtrInput `pulumi:"lastModifiedAt"`
+	LastModifiedBy     pulumi.StringPtrInput `pulumi:"lastModifiedBy"`
 	LastModifiedByType pulumi.StringPtrInput `pulumi:"lastModifiedByType"`
 }
 
@@ -259,7 +240,6 @@ func (i *systemDataResponsePtrType) ToSystemDataResponsePtrOutputWithContext(ctx
 	return pulumi.ToOutputWithContext(ctx, i).(SystemDataResponsePtrOutput)
 }
 
-// Metadata pertaining to creation and last modification of the resource.
 type SystemDataResponseOutput struct{ *pulumi.OutputState }
 
 func (SystemDataResponseOutput) ElementType() reflect.Type {
@@ -279,37 +259,31 @@ func (o SystemDataResponseOutput) ToSystemDataResponsePtrOutput() SystemDataResp
 }
 
 func (o SystemDataResponseOutput) ToSystemDataResponsePtrOutputWithContext(ctx context.Context) SystemDataResponsePtrOutput {
-	return o.ApplyT(func(v SystemDataResponse) *SystemDataResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v SystemDataResponse) *SystemDataResponse {
 		return &v
 	}).(SystemDataResponsePtrOutput)
 }
 
-// The timestamp of resource creation (UTC).
 func (o SystemDataResponseOutput) CreatedAt() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SystemDataResponse) *string { return v.CreatedAt }).(pulumi.StringPtrOutput)
 }
 
-// The identity that created the resource.
 func (o SystemDataResponseOutput) CreatedBy() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SystemDataResponse) *string { return v.CreatedBy }).(pulumi.StringPtrOutput)
 }
 
-// The type of identity that created the resource.
 func (o SystemDataResponseOutput) CreatedByType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SystemDataResponse) *string { return v.CreatedByType }).(pulumi.StringPtrOutput)
 }
 
-// The timestamp of resource last modification (UTC)
 func (o SystemDataResponseOutput) LastModifiedAt() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SystemDataResponse) *string { return v.LastModifiedAt }).(pulumi.StringPtrOutput)
 }
 
-// The identity that last modified the resource.
 func (o SystemDataResponseOutput) LastModifiedBy() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SystemDataResponse) *string { return v.LastModifiedBy }).(pulumi.StringPtrOutput)
 }
 
-// The type of identity that last modified the resource.
 func (o SystemDataResponseOutput) LastModifiedByType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SystemDataResponse) *string { return v.LastModifiedByType }).(pulumi.StringPtrOutput)
 }
@@ -329,10 +303,15 @@ func (o SystemDataResponsePtrOutput) ToSystemDataResponsePtrOutputWithContext(ct
 }
 
 func (o SystemDataResponsePtrOutput) Elem() SystemDataResponseOutput {
-	return o.ApplyT(func(v *SystemDataResponse) SystemDataResponse { return *v }).(SystemDataResponseOutput)
+	return o.ApplyT(func(v *SystemDataResponse) SystemDataResponse {
+		if v != nil {
+			return *v
+		}
+		var ret SystemDataResponse
+		return ret
+	}).(SystemDataResponseOutput)
 }
 
-// The timestamp of resource creation (UTC).
 func (o SystemDataResponsePtrOutput) CreatedAt() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SystemDataResponse) *string {
 		if v == nil {
@@ -342,7 +321,6 @@ func (o SystemDataResponsePtrOutput) CreatedAt() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The identity that created the resource.
 func (o SystemDataResponsePtrOutput) CreatedBy() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SystemDataResponse) *string {
 		if v == nil {
@@ -352,7 +330,6 @@ func (o SystemDataResponsePtrOutput) CreatedBy() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The type of identity that created the resource.
 func (o SystemDataResponsePtrOutput) CreatedByType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SystemDataResponse) *string {
 		if v == nil {
@@ -362,7 +339,6 @@ func (o SystemDataResponsePtrOutput) CreatedByType() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The timestamp of resource last modification (UTC)
 func (o SystemDataResponsePtrOutput) LastModifiedAt() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SystemDataResponse) *string {
 		if v == nil {
@@ -372,7 +348,6 @@ func (o SystemDataResponsePtrOutput) LastModifiedAt() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The identity that last modified the resource.
 func (o SystemDataResponsePtrOutput) LastModifiedBy() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SystemDataResponse) *string {
 		if v == nil {
@@ -382,7 +357,6 @@ func (o SystemDataResponsePtrOutput) LastModifiedBy() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The type of identity that last modified the resource.
 func (o SystemDataResponsePtrOutput) LastModifiedByType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SystemDataResponse) *string {
 		if v == nil {

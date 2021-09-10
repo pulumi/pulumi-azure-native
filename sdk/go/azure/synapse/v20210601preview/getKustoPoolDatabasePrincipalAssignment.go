@@ -7,7 +7,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Class representing a database principal assignment.
 func LookupKustoPoolDatabasePrincipalAssignment(ctx *pulumi.Context, args *LookupKustoPoolDatabasePrincipalAssignmentArgs, opts ...pulumi.InvokeOption) (*LookupKustoPoolDatabasePrincipalAssignmentResult, error) {
 	var rv LookupKustoPoolDatabasePrincipalAssignmentResult
 	err := ctx.Invoke("azure-native:synapse/v20210601preview:getKustoPoolDatabasePrincipalAssignment", args, &rv, opts...)
@@ -18,40 +17,24 @@ func LookupKustoPoolDatabasePrincipalAssignment(ctx *pulumi.Context, args *Looku
 }
 
 type LookupKustoPoolDatabasePrincipalAssignmentArgs struct {
-	// The name of the database in the Kusto pool.
-	DatabaseName string `pulumi:"databaseName"`
-	// The name of the Kusto pool.
-	KustoPoolName string `pulumi:"kustoPoolName"`
-	// The name of the Kusto principalAssignment.
+	DatabaseName            string `pulumi:"databaseName"`
+	KustoPoolName           string `pulumi:"kustoPoolName"`
 	PrincipalAssignmentName string `pulumi:"principalAssignmentName"`
-	// The name of the resource group. The name is case insensitive.
-	ResourceGroupName string `pulumi:"resourceGroupName"`
-	// The name of the workspace
-	WorkspaceName string `pulumi:"workspaceName"`
+	ResourceGroupName       string `pulumi:"resourceGroupName"`
+	WorkspaceName           string `pulumi:"workspaceName"`
 }
 
 // Class representing a database principal assignment.
 type LookupKustoPoolDatabasePrincipalAssignmentResult struct {
-	// Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
-	Id string `pulumi:"id"`
-	// The name of the resource
-	Name string `pulumi:"name"`
-	// The principal ID assigned to the database principal. It can be a user email, application ID, or security group name.
-	PrincipalId string `pulumi:"principalId"`
-	// The principal name
-	PrincipalName string `pulumi:"principalName"`
-	// Principal type.
-	PrincipalType string `pulumi:"principalType"`
-	// The provisioned state of the resource.
-	ProvisioningState string `pulumi:"provisioningState"`
-	// Database principal role.
-	Role string `pulumi:"role"`
-	// Azure Resource Manager metadata containing createdBy and modifiedBy information.
-	SystemData SystemDataResponse `pulumi:"systemData"`
-	// The tenant id of the principal
-	TenantId *string `pulumi:"tenantId"`
-	// The tenant name of the principal
-	TenantName string `pulumi:"tenantName"`
-	// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
-	Type string `pulumi:"type"`
+	Id                string             `pulumi:"id"`
+	Name              string             `pulumi:"name"`
+	PrincipalId       string             `pulumi:"principalId"`
+	PrincipalName     string             `pulumi:"principalName"`
+	PrincipalType     string             `pulumi:"principalType"`
+	ProvisioningState string             `pulumi:"provisioningState"`
+	Role              string             `pulumi:"role"`
+	SystemData        SystemDataResponse `pulumi:"systemData"`
+	TenantId          *string            `pulumi:"tenantId"`
+	TenantName        string             `pulumi:"tenantName"`
+	Type              string             `pulumi:"type"`
 }

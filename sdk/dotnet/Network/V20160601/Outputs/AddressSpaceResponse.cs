@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.Network.V20160601.Outputs
 {
 
+    /// <summary>
+    /// AddressSpace contains an array of IP address ranges that can be used by subnets
+    /// </summary>
     [OutputType]
     public sealed class AddressSpaceResponse
     {

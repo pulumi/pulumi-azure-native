@@ -146,9 +146,7 @@ func (i *Table) ToTableOutputWithContext(ctx context.Context) TableOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(TableOutput)
 }
 
-type TableOutput struct {
-	*pulumi.OutputState
-}
+type TableOutput struct{ *pulumi.OutputState }
 
 func (TableOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*Table)(nil))

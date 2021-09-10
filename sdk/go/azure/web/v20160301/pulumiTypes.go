@@ -10,14 +10,10 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Specification for an App Service Environment to use for this resource.
 type HostingEnvironmentProfileResponse struct {
-	// Resource ID of the App Service Environment.
-	Id *string `pulumi:"id"`
-	// Name of the App Service Environment.
-	Name string `pulumi:"name"`
-	// Resource type of the App Service Environment.
-	Type string `pulumi:"type"`
+	Id   *string `pulumi:"id"`
+	Name string  `pulumi:"name"`
+	Type string  `pulumi:"type"`
 }
 
 // HostingEnvironmentProfileResponseInput is an input type that accepts HostingEnvironmentProfileResponseArgs and HostingEnvironmentProfileResponseOutput values.
@@ -31,14 +27,10 @@ type HostingEnvironmentProfileResponseInput interface {
 	ToHostingEnvironmentProfileResponseOutputWithContext(context.Context) HostingEnvironmentProfileResponseOutput
 }
 
-// Specification for an App Service Environment to use for this resource.
 type HostingEnvironmentProfileResponseArgs struct {
-	// Resource ID of the App Service Environment.
-	Id pulumi.StringPtrInput `pulumi:"id"`
-	// Name of the App Service Environment.
-	Name pulumi.StringInput `pulumi:"name"`
-	// Resource type of the App Service Environment.
-	Type pulumi.StringInput `pulumi:"type"`
+	Id   pulumi.StringPtrInput `pulumi:"id"`
+	Name pulumi.StringInput    `pulumi:"name"`
+	Type pulumi.StringInput    `pulumi:"type"`
 }
 
 func (HostingEnvironmentProfileResponseArgs) ElementType() reflect.Type {
@@ -94,7 +86,6 @@ func (i *hostingEnvironmentProfileResponsePtrType) ToHostingEnvironmentProfileRe
 	return pulumi.ToOutputWithContext(ctx, i).(HostingEnvironmentProfileResponsePtrOutput)
 }
 
-// Specification for an App Service Environment to use for this resource.
 type HostingEnvironmentProfileResponseOutput struct{ *pulumi.OutputState }
 
 func (HostingEnvironmentProfileResponseOutput) ElementType() reflect.Type {
@@ -114,22 +105,19 @@ func (o HostingEnvironmentProfileResponseOutput) ToHostingEnvironmentProfileResp
 }
 
 func (o HostingEnvironmentProfileResponseOutput) ToHostingEnvironmentProfileResponsePtrOutputWithContext(ctx context.Context) HostingEnvironmentProfileResponsePtrOutput {
-	return o.ApplyT(func(v HostingEnvironmentProfileResponse) *HostingEnvironmentProfileResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v HostingEnvironmentProfileResponse) *HostingEnvironmentProfileResponse {
 		return &v
 	}).(HostingEnvironmentProfileResponsePtrOutput)
 }
 
-// Resource ID of the App Service Environment.
 func (o HostingEnvironmentProfileResponseOutput) Id() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v HostingEnvironmentProfileResponse) *string { return v.Id }).(pulumi.StringPtrOutput)
 }
 
-// Name of the App Service Environment.
 func (o HostingEnvironmentProfileResponseOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v HostingEnvironmentProfileResponse) string { return v.Name }).(pulumi.StringOutput)
 }
 
-// Resource type of the App Service Environment.
 func (o HostingEnvironmentProfileResponseOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v HostingEnvironmentProfileResponse) string { return v.Type }).(pulumi.StringOutput)
 }
@@ -149,10 +137,15 @@ func (o HostingEnvironmentProfileResponsePtrOutput) ToHostingEnvironmentProfileR
 }
 
 func (o HostingEnvironmentProfileResponsePtrOutput) Elem() HostingEnvironmentProfileResponseOutput {
-	return o.ApplyT(func(v *HostingEnvironmentProfileResponse) HostingEnvironmentProfileResponse { return *v }).(HostingEnvironmentProfileResponseOutput)
+	return o.ApplyT(func(v *HostingEnvironmentProfileResponse) HostingEnvironmentProfileResponse {
+		if v != nil {
+			return *v
+		}
+		var ret HostingEnvironmentProfileResponse
+		return ret
+	}).(HostingEnvironmentProfileResponseOutput)
 }
 
-// Resource ID of the App Service Environment.
 func (o HostingEnvironmentProfileResponsePtrOutput) Id() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *HostingEnvironmentProfileResponse) *string {
 		if v == nil {
@@ -162,7 +155,6 @@ func (o HostingEnvironmentProfileResponsePtrOutput) Id() pulumi.StringPtrOutput 
 	}).(pulumi.StringPtrOutput)
 }
 
-// Name of the App Service Environment.
 func (o HostingEnvironmentProfileResponsePtrOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *HostingEnvironmentProfileResponse) *string {
 		if v == nil {
@@ -172,7 +164,6 @@ func (o HostingEnvironmentProfileResponsePtrOutput) Name() pulumi.StringPtrOutpu
 	}).(pulumi.StringPtrOutput)
 }
 
-// Resource type of the App Service Environment.
 func (o HostingEnvironmentProfileResponsePtrOutput) Type() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *HostingEnvironmentProfileResponse) *string {
 		if v == nil {
@@ -182,16 +173,11 @@ func (o HostingEnvironmentProfileResponsePtrOutput) Type() pulumi.StringPtrOutpu
 	}).(pulumi.StringPtrOutput)
 }
 
-// A domain specific resource identifier.
 type IdentifierResponse struct {
-	// Resource Id.
-	Id string `pulumi:"id"`
-	// Kind of resource.
+	Id   string  `pulumi:"id"`
 	Kind *string `pulumi:"kind"`
-	// Resource Name.
-	Name string `pulumi:"name"`
-	// Resource type.
-	Type string `pulumi:"type"`
+	Name string  `pulumi:"name"`
+	Type string  `pulumi:"type"`
 }
 
 // IdentifierResponseInput is an input type that accepts IdentifierResponseArgs and IdentifierResponseOutput values.
@@ -205,16 +191,11 @@ type IdentifierResponseInput interface {
 	ToIdentifierResponseOutputWithContext(context.Context) IdentifierResponseOutput
 }
 
-// A domain specific resource identifier.
 type IdentifierResponseArgs struct {
-	// Resource Id.
-	Id pulumi.StringInput `pulumi:"id"`
-	// Kind of resource.
+	Id   pulumi.StringInput    `pulumi:"id"`
 	Kind pulumi.StringPtrInput `pulumi:"kind"`
-	// Resource Name.
-	Name pulumi.StringInput `pulumi:"name"`
-	// Resource type.
-	Type pulumi.StringInput `pulumi:"type"`
+	Name pulumi.StringInput    `pulumi:"name"`
+	Type pulumi.StringInput    `pulumi:"type"`
 }
 
 func (IdentifierResponseArgs) ElementType() reflect.Type {
@@ -254,7 +235,6 @@ func (i IdentifierResponseArray) ToIdentifierResponseArrayOutputWithContext(ctx 
 	return pulumi.ToOutputWithContext(ctx, i).(IdentifierResponseArrayOutput)
 }
 
-// A domain specific resource identifier.
 type IdentifierResponseOutput struct{ *pulumi.OutputState }
 
 func (IdentifierResponseOutput) ElementType() reflect.Type {
@@ -269,22 +249,18 @@ func (o IdentifierResponseOutput) ToIdentifierResponseOutputWithContext(ctx cont
 	return o
 }
 
-// Resource Id.
 func (o IdentifierResponseOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v IdentifierResponse) string { return v.Id }).(pulumi.StringOutput)
 }
 
-// Kind of resource.
 func (o IdentifierResponseOutput) Kind() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v IdentifierResponse) *string { return v.Kind }).(pulumi.StringPtrOutput)
 }
 
-// Resource Name.
 func (o IdentifierResponseOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v IdentifierResponse) string { return v.Name }).(pulumi.StringOutput)
 }
 
-// Resource type.
 func (o IdentifierResponseOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v IdentifierResponse) string { return v.Type }).(pulumi.StringOutput)
 }

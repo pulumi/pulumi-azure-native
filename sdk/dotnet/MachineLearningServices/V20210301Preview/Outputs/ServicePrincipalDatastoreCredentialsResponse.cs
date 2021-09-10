@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.MachineLearningServices.V20210301Preview.Outputs
 {
 
+    /// <summary>
+    /// Service Principal datastore credentials configuration.
+    /// </summary>
     [OutputType]
     public sealed class ServicePrincipalDatastoreCredentialsResponse
     {

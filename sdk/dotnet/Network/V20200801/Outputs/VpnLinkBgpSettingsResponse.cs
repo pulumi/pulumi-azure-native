@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.Network.V20200801.Outputs
 {
 
+    /// <summary>
+    /// BGP settings details for a link.
+    /// </summary>
     [OutputType]
     public sealed class VpnLinkBgpSettingsResponse
     {

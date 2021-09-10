@@ -7,7 +7,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// The list of configurations.
 func ListConfigurations(ctx *pulumi.Context, args *ListConfigurationsArgs, opts ...pulumi.InvokeOption) (*ListConfigurationsResult, error) {
 	var rv ListConfigurationsResult
 	err := ctx.Invoke("azure-native:edgeorder/v20201201preview:listConfigurations", args, &rv, opts...)
@@ -18,18 +17,13 @@ func ListConfigurations(ctx *pulumi.Context, args *ListConfigurationsArgs, opts 
 }
 
 type ListConfigurationsArgs struct {
-	// Holds details about product hierarchy information and filterable property.
-	ConfigurationFilters []ConfigurationFilters `pulumi:"configurationFilters"`
-	// Customer subscription properties. Clients can display available products to unregistered customers by explicitly passing subscription details
+	ConfigurationFilters        []ConfigurationFilters       `pulumi:"configurationFilters"`
 	CustomerSubscriptionDetails *CustomerSubscriptionDetails `pulumi:"customerSubscriptionDetails"`
-	// $skipToken is supported on list of configurations, which provides the next page in the list of configurations.
-	SkipToken *string `pulumi:"skipToken"`
+	SkipToken                   *string                      `pulumi:"skipToken"`
 }
 
 // The list of configurations.
 type ListConfigurationsResult struct {
-	// Link for the next set of configurations.
-	NextLink *string `pulumi:"nextLink"`
-	// List of configurations.
-	Value []ConfigurationResponse `pulumi:"value"`
+	NextLink *string                 `pulumi:"nextLink"`
+	Value    []ConfigurationResponse `pulumi:"value"`
 }

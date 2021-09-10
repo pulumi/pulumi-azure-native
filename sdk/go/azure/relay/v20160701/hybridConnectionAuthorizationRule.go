@@ -11,16 +11,12 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Description of a Namespace AuthorizationRules.
 type HybridConnectionAuthorizationRule struct {
 	pulumi.CustomResourceState
 
-	// Resource name
-	Name pulumi.StringOutput `pulumi:"name"`
-	// The rights associated with the rule.
+	Name   pulumi.StringOutput      `pulumi:"name"`
 	Rights pulumi.StringArrayOutput `pulumi:"rights"`
-	// Resource type
-	Type pulumi.StringOutput `pulumi:"type"`
+	Type   pulumi.StringOutput      `pulumi:"type"`
 }
 
 // NewHybridConnectionAuthorizationRule registers a new resource with the given unique name, arguments, and options.
@@ -92,30 +88,20 @@ func (HybridConnectionAuthorizationRuleState) ElementType() reflect.Type {
 }
 
 type hybridConnectionAuthorizationRuleArgs struct {
-	// The authorizationRule name.
-	AuthorizationRuleName *string `pulumi:"authorizationRuleName"`
-	// The hybrid connection name.
-	HybridConnectionName string `pulumi:"hybridConnectionName"`
-	// The Namespace Name
-	NamespaceName string `pulumi:"namespaceName"`
-	// Name of the Resource group within the Azure subscription.
-	ResourceGroupName string `pulumi:"resourceGroupName"`
-	// The rights associated with the rule.
-	Rights []string `pulumi:"rights"`
+	AuthorizationRuleName *string  `pulumi:"authorizationRuleName"`
+	HybridConnectionName  string   `pulumi:"hybridConnectionName"`
+	NamespaceName         string   `pulumi:"namespaceName"`
+	ResourceGroupName     string   `pulumi:"resourceGroupName"`
+	Rights                []string `pulumi:"rights"`
 }
 
 // The set of arguments for constructing a HybridConnectionAuthorizationRule resource.
 type HybridConnectionAuthorizationRuleArgs struct {
-	// The authorizationRule name.
 	AuthorizationRuleName pulumi.StringPtrInput
-	// The hybrid connection name.
-	HybridConnectionName pulumi.StringInput
-	// The Namespace Name
-	NamespaceName pulumi.StringInput
-	// Name of the Resource group within the Azure subscription.
-	ResourceGroupName pulumi.StringInput
-	// The rights associated with the rule.
-	Rights pulumi.StringArrayInput
+	HybridConnectionName  pulumi.StringInput
+	NamespaceName         pulumi.StringInput
+	ResourceGroupName     pulumi.StringInput
+	Rights                pulumi.StringArrayInput
 }
 
 func (HybridConnectionAuthorizationRuleArgs) ElementType() reflect.Type {
@@ -141,9 +127,7 @@ func (i *HybridConnectionAuthorizationRule) ToHybridConnectionAuthorizationRuleO
 	return pulumi.ToOutputWithContext(ctx, i).(HybridConnectionAuthorizationRuleOutput)
 }
 
-type HybridConnectionAuthorizationRuleOutput struct {
-	*pulumi.OutputState
-}
+type HybridConnectionAuthorizationRuleOutput struct{ *pulumi.OutputState }
 
 func (HybridConnectionAuthorizationRuleOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*HybridConnectionAuthorizationRule)(nil))

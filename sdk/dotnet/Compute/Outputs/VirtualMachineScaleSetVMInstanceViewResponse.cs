@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.Compute.Outputs
 {
 
+    /// <summary>
+    /// The instance view of a virtual machine scale set VM.
+    /// </summary>
     [OutputType]
     public sealed class VirtualMachineScaleSetVMInstanceViewResponse
     {

@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.Insights.Outputs
 {
 
+    /// <summary>
+    /// Log Analytics destination.
+    /// </summary>
     [OutputType]
     public sealed class LogAnalyticsDestinationResponse
     {

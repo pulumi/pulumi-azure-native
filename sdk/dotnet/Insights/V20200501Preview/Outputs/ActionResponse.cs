@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.Insights.V20200501Preview.Outputs
 {
 
+    /// <summary>
+    /// Actions to invoke when the alert fires.
+    /// </summary>
     [OutputType]
     public sealed class ActionResponse
     {

@@ -7,7 +7,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Represents MTP (Microsoft Threat Protection) data connector.
 func LookupMTPDataConnector(ctx *pulumi.Context, args *LookupMTPDataConnectorArgs, opts ...pulumi.InvokeOption) (*LookupMTPDataConnectorResult, error) {
 	var rv LookupMTPDataConnectorResult
 	err := ctx.Invoke("azure-native:securityinsights/v20190101preview:getMTPDataConnector", args, &rv, opts...)
@@ -18,30 +17,19 @@ func LookupMTPDataConnector(ctx *pulumi.Context, args *LookupMTPDataConnectorArg
 }
 
 type LookupMTPDataConnectorArgs struct {
-	// Connector ID
-	DataConnectorId string `pulumi:"dataConnectorId"`
-	// The namespace of workspaces resource provider- Microsoft.OperationalInsights.
+	DataConnectorId                     string `pulumi:"dataConnectorId"`
 	OperationalInsightsResourceProvider string `pulumi:"operationalInsightsResourceProvider"`
-	// The name of the resource group within the user's subscription. The name is case insensitive.
-	ResourceGroupName string `pulumi:"resourceGroupName"`
-	// The name of the workspace.
-	WorkspaceName string `pulumi:"workspaceName"`
+	ResourceGroupName                   string `pulumi:"resourceGroupName"`
+	WorkspaceName                       string `pulumi:"workspaceName"`
 }
 
 // Represents MTP (Microsoft Threat Protection) data connector.
 type LookupMTPDataConnectorResult struct {
-	// The available data types for the connector.
 	DataTypes MTPDataConnectorDataTypesResponse `pulumi:"dataTypes"`
-	// Etag of the azure resource
-	Etag *string `pulumi:"etag"`
-	// Azure resource Id
-	Id string `pulumi:"id"`
-	// Expected value is 'MicrosoftThreatProtection'.
-	Kind string `pulumi:"kind"`
-	// Azure resource name
-	Name string `pulumi:"name"`
-	// The tenant id to connect to, and get the data from.
-	TenantId string `pulumi:"tenantId"`
-	// Azure resource type
-	Type string `pulumi:"type"`
+	Etag      *string                           `pulumi:"etag"`
+	Id        string                            `pulumi:"id"`
+	Kind      string                            `pulumi:"kind"`
+	Name      string                            `pulumi:"name"`
+	TenantId  string                            `pulumi:"tenantId"`
+	Type      string                            `pulumi:"type"`
 }

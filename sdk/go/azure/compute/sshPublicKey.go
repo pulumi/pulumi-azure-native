@@ -161,9 +161,7 @@ func (i *SshPublicKey) ToSshPublicKeyOutputWithContext(ctx context.Context) SshP
 	return pulumi.ToOutputWithContext(ctx, i).(SshPublicKeyOutput)
 }
 
-type SshPublicKeyOutput struct {
-	*pulumi.OutputState
-}
+type SshPublicKeyOutput struct{ *pulumi.OutputState }
 
 func (SshPublicKeyOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*SshPublicKey)(nil))

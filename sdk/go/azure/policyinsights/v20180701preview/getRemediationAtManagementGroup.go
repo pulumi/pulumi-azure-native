@@ -7,7 +7,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// The remediation definition.
 func LookupRemediationAtManagementGroup(ctx *pulumi.Context, args *LookupRemediationAtManagementGroupArgs, opts ...pulumi.InvokeOption) (*LookupRemediationAtManagementGroupResult, error) {
 	var rv LookupRemediationAtManagementGroupResult
 	err := ctx.Invoke("azure-native:policyinsights/v20180701preview:getRemediationAtManagementGroup", args, &rv, opts...)
@@ -18,34 +17,21 @@ func LookupRemediationAtManagementGroup(ctx *pulumi.Context, args *LookupRemedia
 }
 
 type LookupRemediationAtManagementGroupArgs struct {
-	// Management group ID.
-	ManagementGroupId string `pulumi:"managementGroupId"`
-	// The namespace for Microsoft Management RP; only "Microsoft.Management" is allowed.
+	ManagementGroupId         string `pulumi:"managementGroupId"`
 	ManagementGroupsNamespace string `pulumi:"managementGroupsNamespace"`
-	// The name of the remediation.
-	RemediationName string `pulumi:"remediationName"`
+	RemediationName           string `pulumi:"remediationName"`
 }
 
 // The remediation definition.
 type LookupRemediationAtManagementGroupResult struct {
-	// The time at which the remediation was created.
-	CreatedOn string `pulumi:"createdOn"`
-	// The deployment status summary for all deployments created by the remediation.
-	DeploymentStatus *RemediationDeploymentSummaryResponse `pulumi:"deploymentStatus"`
-	// The filters that will be applied to determine which resources to remediate.
-	Filters *RemediationFiltersResponse `pulumi:"filters"`
-	// The ID of the remediation.
-	Id string `pulumi:"id"`
-	// The time at which the remediation was last updated.
-	LastUpdatedOn string `pulumi:"lastUpdatedOn"`
-	// The name of the remediation.
-	Name string `pulumi:"name"`
-	// The resource ID of the policy assignment that should be remediated.
-	PolicyAssignmentId *string `pulumi:"policyAssignmentId"`
-	// The policy definition reference ID of the individual definition that should be remediated. Required when the policy assignment being remediated assigns a policy set definition.
-	PolicyDefinitionReferenceId *string `pulumi:"policyDefinitionReferenceId"`
-	// The status of the remediation.
-	ProvisioningState string `pulumi:"provisioningState"`
-	// The type of the remediation.
-	Type string `pulumi:"type"`
+	CreatedOn                   string                                `pulumi:"createdOn"`
+	DeploymentStatus            *RemediationDeploymentSummaryResponse `pulumi:"deploymentStatus"`
+	Filters                     *RemediationFiltersResponse           `pulumi:"filters"`
+	Id                          string                                `pulumi:"id"`
+	LastUpdatedOn               string                                `pulumi:"lastUpdatedOn"`
+	Name                        string                                `pulumi:"name"`
+	PolicyAssignmentId          *string                               `pulumi:"policyAssignmentId"`
+	PolicyDefinitionReferenceId *string                               `pulumi:"policyDefinitionReferenceId"`
+	ProvisioningState           string                                `pulumi:"provisioningState"`
+	Type                        string                                `pulumi:"type"`
 }

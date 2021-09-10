@@ -7,7 +7,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Represents a Storage Account on the  Data Box Edge/Gateway device.
 func LookupStorageAccount(ctx *pulumi.Context, args *LookupStorageAccountArgs, opts ...pulumi.InvokeOption) (*LookupStorageAccountResult, error) {
 	var rv LookupStorageAccountResult
 	err := ctx.Invoke("azure-native:databoxedge/v20190801:getStorageAccount", args, &rv, opts...)
@@ -18,32 +17,20 @@ func LookupStorageAccount(ctx *pulumi.Context, args *LookupStorageAccountArgs, o
 }
 
 type LookupStorageAccountArgs struct {
-	// The device name.
-	DeviceName string `pulumi:"deviceName"`
-	// The resource group name.
-	ResourceGroupName string `pulumi:"resourceGroupName"`
-	// The storage account name.
+	DeviceName         string `pulumi:"deviceName"`
+	ResourceGroupName  string `pulumi:"resourceGroupName"`
 	StorageAccountName string `pulumi:"storageAccountName"`
 }
 
 // Represents a Storage Account on the  Data Box Edge/Gateway device.
 type LookupStorageAccountResult struct {
-	// BlobEndpoint of Storage Account
-	BlobEndpoint string `pulumi:"blobEndpoint"`
-	// The Container Count. Present only for Storage Accounts with DataPolicy set to Cloud.
-	ContainerCount int `pulumi:"containerCount"`
-	// Data policy of the storage Account.
-	DataPolicy *string `pulumi:"dataPolicy"`
-	// Description for the storage Account.
-	Description *string `pulumi:"description"`
-	// The path ID that uniquely identifies the object.
-	Id string `pulumi:"id"`
-	// The object name.
-	Name string `pulumi:"name"`
-	// Storage Account Credential Id
+	BlobEndpoint               string  `pulumi:"blobEndpoint"`
+	ContainerCount             int     `pulumi:"containerCount"`
+	DataPolicy                 *string `pulumi:"dataPolicy"`
+	Description                *string `pulumi:"description"`
+	Id                         string  `pulumi:"id"`
+	Name                       string  `pulumi:"name"`
 	StorageAccountCredentialId *string `pulumi:"storageAccountCredentialId"`
-	// Current status of the storage account
-	StorageAccountStatus *string `pulumi:"storageAccountStatus"`
-	// The hierarchical type of the object.
-	Type string `pulumi:"type"`
+	StorageAccountStatus       *string `pulumi:"storageAccountStatus"`
+	Type                       string  `pulumi:"type"`
 }

@@ -10,10 +10,8 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// The identity of the EnterprisePolicy.
 type EnterprisePolicyIdentity struct {
-	// The type of identity used for the EnterprisePolicy. Currently, the only supported type is 'SystemAssigned', which implicitly creates an identity.
-	Type *string `pulumi:"type"`
+	Type *ResourceIdentityType `pulumi:"type"`
 }
 
 // EnterprisePolicyIdentityInput is an input type that accepts EnterprisePolicyIdentityArgs and EnterprisePolicyIdentityOutput values.
@@ -27,10 +25,8 @@ type EnterprisePolicyIdentityInput interface {
 	ToEnterprisePolicyIdentityOutputWithContext(context.Context) EnterprisePolicyIdentityOutput
 }
 
-// The identity of the EnterprisePolicy.
 type EnterprisePolicyIdentityArgs struct {
-	// The type of identity used for the EnterprisePolicy. Currently, the only supported type is 'SystemAssigned', which implicitly creates an identity.
-	Type *ResourceIdentityType `pulumi:"type"`
+	Type ResourceIdentityTypePtrInput `pulumi:"type"`
 }
 
 func (EnterprisePolicyIdentityArgs) ElementType() reflect.Type {
@@ -86,7 +82,6 @@ func (i *enterprisePolicyIdentityPtrType) ToEnterprisePolicyIdentityPtrOutputWit
 	return pulumi.ToOutputWithContext(ctx, i).(EnterprisePolicyIdentityPtrOutput)
 }
 
-// The identity of the EnterprisePolicy.
 type EnterprisePolicyIdentityOutput struct{ *pulumi.OutputState }
 
 func (EnterprisePolicyIdentityOutput) ElementType() reflect.Type {
@@ -106,14 +101,13 @@ func (o EnterprisePolicyIdentityOutput) ToEnterprisePolicyIdentityPtrOutput() En
 }
 
 func (o EnterprisePolicyIdentityOutput) ToEnterprisePolicyIdentityPtrOutputWithContext(ctx context.Context) EnterprisePolicyIdentityPtrOutput {
-	return o.ApplyT(func(v EnterprisePolicyIdentity) *EnterprisePolicyIdentity {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v EnterprisePolicyIdentity) *EnterprisePolicyIdentity {
 		return &v
 	}).(EnterprisePolicyIdentityPtrOutput)
 }
 
-// The type of identity used for the EnterprisePolicy. Currently, the only supported type is 'SystemAssigned', which implicitly creates an identity.
-func (o EnterprisePolicyIdentityOutput) Type() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v EnterprisePolicyIdentity) *string { return v.Type }).(pulumi.StringPtrOutput)
+func (o EnterprisePolicyIdentityOutput) Type() ResourceIdentityTypePtrOutput {
+	return o.ApplyT(func(v EnterprisePolicyIdentity) *ResourceIdentityType { return v.Type }).(ResourceIdentityTypePtrOutput)
 }
 
 type EnterprisePolicyIdentityPtrOutput struct{ *pulumi.OutputState }
@@ -131,27 +125,28 @@ func (o EnterprisePolicyIdentityPtrOutput) ToEnterprisePolicyIdentityPtrOutputWi
 }
 
 func (o EnterprisePolicyIdentityPtrOutput) Elem() EnterprisePolicyIdentityOutput {
-	return o.ApplyT(func(v *EnterprisePolicyIdentity) EnterprisePolicyIdentity { return *v }).(EnterprisePolicyIdentityOutput)
+	return o.ApplyT(func(v *EnterprisePolicyIdentity) EnterprisePolicyIdentity {
+		if v != nil {
+			return *v
+		}
+		var ret EnterprisePolicyIdentity
+		return ret
+	}).(EnterprisePolicyIdentityOutput)
 }
 
-// The type of identity used for the EnterprisePolicy. Currently, the only supported type is 'SystemAssigned', which implicitly creates an identity.
-func (o EnterprisePolicyIdentityPtrOutput) Type() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *EnterprisePolicyIdentity) *string {
+func (o EnterprisePolicyIdentityPtrOutput) Type() ResourceIdentityTypePtrOutput {
+	return o.ApplyT(func(v *EnterprisePolicyIdentity) *ResourceIdentityType {
 		if v == nil {
 			return nil
 		}
 		return v.Type
-	}).(pulumi.StringPtrOutput)
+	}).(ResourceIdentityTypePtrOutput)
 }
 
-// The identity of the EnterprisePolicy.
 type EnterprisePolicyIdentityResponse struct {
-	// The principal id of EnterprisePolicy identity.
-	SystemAssignedIdentityPrincipalId string `pulumi:"systemAssignedIdentityPrincipalId"`
-	// The tenant id associated with the EnterprisePolicy.
-	TenantId string `pulumi:"tenantId"`
-	// The type of identity used for the EnterprisePolicy. Currently, the only supported type is 'SystemAssigned', which implicitly creates an identity.
-	Type *string `pulumi:"type"`
+	SystemAssignedIdentityPrincipalId string  `pulumi:"systemAssignedIdentityPrincipalId"`
+	TenantId                          string  `pulumi:"tenantId"`
+	Type                              *string `pulumi:"type"`
 }
 
 // EnterprisePolicyIdentityResponseInput is an input type that accepts EnterprisePolicyIdentityResponseArgs and EnterprisePolicyIdentityResponseOutput values.
@@ -165,14 +160,10 @@ type EnterprisePolicyIdentityResponseInput interface {
 	ToEnterprisePolicyIdentityResponseOutputWithContext(context.Context) EnterprisePolicyIdentityResponseOutput
 }
 
-// The identity of the EnterprisePolicy.
 type EnterprisePolicyIdentityResponseArgs struct {
-	// The principal id of EnterprisePolicy identity.
-	SystemAssignedIdentityPrincipalId pulumi.StringInput `pulumi:"systemAssignedIdentityPrincipalId"`
-	// The tenant id associated with the EnterprisePolicy.
-	TenantId pulumi.StringInput `pulumi:"tenantId"`
-	// The type of identity used for the EnterprisePolicy. Currently, the only supported type is 'SystemAssigned', which implicitly creates an identity.
-	Type pulumi.StringPtrInput `pulumi:"type"`
+	SystemAssignedIdentityPrincipalId pulumi.StringInput    `pulumi:"systemAssignedIdentityPrincipalId"`
+	TenantId                          pulumi.StringInput    `pulumi:"tenantId"`
+	Type                              pulumi.StringPtrInput `pulumi:"type"`
 }
 
 func (EnterprisePolicyIdentityResponseArgs) ElementType() reflect.Type {
@@ -228,7 +219,6 @@ func (i *enterprisePolicyIdentityResponsePtrType) ToEnterprisePolicyIdentityResp
 	return pulumi.ToOutputWithContext(ctx, i).(EnterprisePolicyIdentityResponsePtrOutput)
 }
 
-// The identity of the EnterprisePolicy.
 type EnterprisePolicyIdentityResponseOutput struct{ *pulumi.OutputState }
 
 func (EnterprisePolicyIdentityResponseOutput) ElementType() reflect.Type {
@@ -248,22 +238,19 @@ func (o EnterprisePolicyIdentityResponseOutput) ToEnterprisePolicyIdentityRespon
 }
 
 func (o EnterprisePolicyIdentityResponseOutput) ToEnterprisePolicyIdentityResponsePtrOutputWithContext(ctx context.Context) EnterprisePolicyIdentityResponsePtrOutput {
-	return o.ApplyT(func(v EnterprisePolicyIdentityResponse) *EnterprisePolicyIdentityResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v EnterprisePolicyIdentityResponse) *EnterprisePolicyIdentityResponse {
 		return &v
 	}).(EnterprisePolicyIdentityResponsePtrOutput)
 }
 
-// The principal id of EnterprisePolicy identity.
 func (o EnterprisePolicyIdentityResponseOutput) SystemAssignedIdentityPrincipalId() pulumi.StringOutput {
 	return o.ApplyT(func(v EnterprisePolicyIdentityResponse) string { return v.SystemAssignedIdentityPrincipalId }).(pulumi.StringOutput)
 }
 
-// The tenant id associated with the EnterprisePolicy.
 func (o EnterprisePolicyIdentityResponseOutput) TenantId() pulumi.StringOutput {
 	return o.ApplyT(func(v EnterprisePolicyIdentityResponse) string { return v.TenantId }).(pulumi.StringOutput)
 }
 
-// The type of identity used for the EnterprisePolicy. Currently, the only supported type is 'SystemAssigned', which implicitly creates an identity.
 func (o EnterprisePolicyIdentityResponseOutput) Type() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v EnterprisePolicyIdentityResponse) *string { return v.Type }).(pulumi.StringPtrOutput)
 }
@@ -283,10 +270,15 @@ func (o EnterprisePolicyIdentityResponsePtrOutput) ToEnterprisePolicyIdentityRes
 }
 
 func (o EnterprisePolicyIdentityResponsePtrOutput) Elem() EnterprisePolicyIdentityResponseOutput {
-	return o.ApplyT(func(v *EnterprisePolicyIdentityResponse) EnterprisePolicyIdentityResponse { return *v }).(EnterprisePolicyIdentityResponseOutput)
+	return o.ApplyT(func(v *EnterprisePolicyIdentityResponse) EnterprisePolicyIdentityResponse {
+		if v != nil {
+			return *v
+		}
+		var ret EnterprisePolicyIdentityResponse
+		return ret
+	}).(EnterprisePolicyIdentityResponseOutput)
 }
 
-// The principal id of EnterprisePolicy identity.
 func (o EnterprisePolicyIdentityResponsePtrOutput) SystemAssignedIdentityPrincipalId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *EnterprisePolicyIdentityResponse) *string {
 		if v == nil {
@@ -296,7 +288,6 @@ func (o EnterprisePolicyIdentityResponsePtrOutput) SystemAssignedIdentityPrincip
 	}).(pulumi.StringPtrOutput)
 }
 
-// The tenant id associated with the EnterprisePolicy.
 func (o EnterprisePolicyIdentityResponsePtrOutput) TenantId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *EnterprisePolicyIdentityResponse) *string {
 		if v == nil {
@@ -306,7 +297,6 @@ func (o EnterprisePolicyIdentityResponsePtrOutput) TenantId() pulumi.StringPtrOu
 	}).(pulumi.StringPtrOutput)
 }
 
-// The type of identity used for the EnterprisePolicy. Currently, the only supported type is 'SystemAssigned', which implicitly creates an identity.
 func (o EnterprisePolicyIdentityResponsePtrOutput) Type() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *EnterprisePolicyIdentityResponse) *string {
 		if v == nil {
@@ -316,11 +306,8 @@ func (o EnterprisePolicyIdentityResponsePtrOutput) Type() pulumi.StringPtrOutput
 	}).(pulumi.StringPtrOutput)
 }
 
-// Url and version of the KeyVault Secret
 type KeyProperties struct {
-	// The identifier of the key vault key used to encrypt data.
-	Name *string `pulumi:"name"`
-	// The version of the identity which will be used to access key vault.
+	Name    *string `pulumi:"name"`
 	Version *string `pulumi:"version"`
 }
 
@@ -335,11 +322,8 @@ type KeyPropertiesInput interface {
 	ToKeyPropertiesOutputWithContext(context.Context) KeyPropertiesOutput
 }
 
-// Url and version of the KeyVault Secret
 type KeyPropertiesArgs struct {
-	// The identifier of the key vault key used to encrypt data.
-	Name pulumi.StringPtrInput `pulumi:"name"`
-	// The version of the identity which will be used to access key vault.
+	Name    pulumi.StringPtrInput `pulumi:"name"`
 	Version pulumi.StringPtrInput `pulumi:"version"`
 }
 
@@ -396,7 +380,6 @@ func (i *keyPropertiesPtrType) ToKeyPropertiesPtrOutputWithContext(ctx context.C
 	return pulumi.ToOutputWithContext(ctx, i).(KeyPropertiesPtrOutput)
 }
 
-// Url and version of the KeyVault Secret
 type KeyPropertiesOutput struct{ *pulumi.OutputState }
 
 func (KeyPropertiesOutput) ElementType() reflect.Type {
@@ -416,17 +399,15 @@ func (o KeyPropertiesOutput) ToKeyPropertiesPtrOutput() KeyPropertiesPtrOutput {
 }
 
 func (o KeyPropertiesOutput) ToKeyPropertiesPtrOutputWithContext(ctx context.Context) KeyPropertiesPtrOutput {
-	return o.ApplyT(func(v KeyProperties) *KeyProperties {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v KeyProperties) *KeyProperties {
 		return &v
 	}).(KeyPropertiesPtrOutput)
 }
 
-// The identifier of the key vault key used to encrypt data.
 func (o KeyPropertiesOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v KeyProperties) *string { return v.Name }).(pulumi.StringPtrOutput)
 }
 
-// The version of the identity which will be used to access key vault.
 func (o KeyPropertiesOutput) Version() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v KeyProperties) *string { return v.Version }).(pulumi.StringPtrOutput)
 }
@@ -446,10 +427,15 @@ func (o KeyPropertiesPtrOutput) ToKeyPropertiesPtrOutputWithContext(ctx context.
 }
 
 func (o KeyPropertiesPtrOutput) Elem() KeyPropertiesOutput {
-	return o.ApplyT(func(v *KeyProperties) KeyProperties { return *v }).(KeyPropertiesOutput)
+	return o.ApplyT(func(v *KeyProperties) KeyProperties {
+		if v != nil {
+			return *v
+		}
+		var ret KeyProperties
+		return ret
+	}).(KeyPropertiesOutput)
 }
 
-// The identifier of the key vault key used to encrypt data.
 func (o KeyPropertiesPtrOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *KeyProperties) *string {
 		if v == nil {
@@ -459,7 +445,6 @@ func (o KeyPropertiesPtrOutput) Name() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The version of the identity which will be used to access key vault.
 func (o KeyPropertiesPtrOutput) Version() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *KeyProperties) *string {
 		if v == nil {
@@ -469,11 +454,8 @@ func (o KeyPropertiesPtrOutput) Version() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Url and version of the KeyVault Secret
 type KeyPropertiesResponse struct {
-	// The identifier of the key vault key used to encrypt data.
-	Name *string `pulumi:"name"`
-	// The version of the identity which will be used to access key vault.
+	Name    *string `pulumi:"name"`
 	Version *string `pulumi:"version"`
 }
 
@@ -488,11 +470,8 @@ type KeyPropertiesResponseInput interface {
 	ToKeyPropertiesResponseOutputWithContext(context.Context) KeyPropertiesResponseOutput
 }
 
-// Url and version of the KeyVault Secret
 type KeyPropertiesResponseArgs struct {
-	// The identifier of the key vault key used to encrypt data.
-	Name pulumi.StringPtrInput `pulumi:"name"`
-	// The version of the identity which will be used to access key vault.
+	Name    pulumi.StringPtrInput `pulumi:"name"`
 	Version pulumi.StringPtrInput `pulumi:"version"`
 }
 
@@ -549,7 +528,6 @@ func (i *keyPropertiesResponsePtrType) ToKeyPropertiesResponsePtrOutputWithConte
 	return pulumi.ToOutputWithContext(ctx, i).(KeyPropertiesResponsePtrOutput)
 }
 
-// Url and version of the KeyVault Secret
 type KeyPropertiesResponseOutput struct{ *pulumi.OutputState }
 
 func (KeyPropertiesResponseOutput) ElementType() reflect.Type {
@@ -569,17 +547,15 @@ func (o KeyPropertiesResponseOutput) ToKeyPropertiesResponsePtrOutput() KeyPrope
 }
 
 func (o KeyPropertiesResponseOutput) ToKeyPropertiesResponsePtrOutputWithContext(ctx context.Context) KeyPropertiesResponsePtrOutput {
-	return o.ApplyT(func(v KeyPropertiesResponse) *KeyPropertiesResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v KeyPropertiesResponse) *KeyPropertiesResponse {
 		return &v
 	}).(KeyPropertiesResponsePtrOutput)
 }
 
-// The identifier of the key vault key used to encrypt data.
 func (o KeyPropertiesResponseOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v KeyPropertiesResponse) *string { return v.Name }).(pulumi.StringPtrOutput)
 }
 
-// The version of the identity which will be used to access key vault.
 func (o KeyPropertiesResponseOutput) Version() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v KeyPropertiesResponse) *string { return v.Version }).(pulumi.StringPtrOutput)
 }
@@ -599,10 +575,15 @@ func (o KeyPropertiesResponsePtrOutput) ToKeyPropertiesResponsePtrOutputWithCont
 }
 
 func (o KeyPropertiesResponsePtrOutput) Elem() KeyPropertiesResponseOutput {
-	return o.ApplyT(func(v *KeyPropertiesResponse) KeyPropertiesResponse { return *v }).(KeyPropertiesResponseOutput)
+	return o.ApplyT(func(v *KeyPropertiesResponse) KeyPropertiesResponse {
+		if v != nil {
+			return *v
+		}
+		var ret KeyPropertiesResponse
+		return ret
+	}).(KeyPropertiesResponseOutput)
 }
 
-// The identifier of the key vault key used to encrypt data.
 func (o KeyPropertiesResponsePtrOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *KeyPropertiesResponse) *string {
 		if v == nil {
@@ -612,7 +593,6 @@ func (o KeyPropertiesResponsePtrOutput) Name() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The version of the identity which will be used to access key vault.
 func (o KeyPropertiesResponsePtrOutput) Version() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *KeyPropertiesResponse) *string {
 		if v == nil {
@@ -622,11 +602,8 @@ func (o KeyPropertiesResponsePtrOutput) Version() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Settings concerning key vault encryption for a configuration store.
 type KeyVaultProperties struct {
-	// Uri of KeyVault
-	Id *string `pulumi:"id"`
-	// Identity of the secret that includes name and version.
+	Id  *string        `pulumi:"id"`
 	Key *KeyProperties `pulumi:"key"`
 }
 
@@ -641,11 +618,8 @@ type KeyVaultPropertiesInput interface {
 	ToKeyVaultPropertiesOutputWithContext(context.Context) KeyVaultPropertiesOutput
 }
 
-// Settings concerning key vault encryption for a configuration store.
 type KeyVaultPropertiesArgs struct {
-	// Uri of KeyVault
-	Id pulumi.StringPtrInput `pulumi:"id"`
-	// Identity of the secret that includes name and version.
+	Id  pulumi.StringPtrInput `pulumi:"id"`
 	Key KeyPropertiesPtrInput `pulumi:"key"`
 }
 
@@ -702,7 +676,6 @@ func (i *keyVaultPropertiesPtrType) ToKeyVaultPropertiesPtrOutputWithContext(ctx
 	return pulumi.ToOutputWithContext(ctx, i).(KeyVaultPropertiesPtrOutput)
 }
 
-// Settings concerning key vault encryption for a configuration store.
 type KeyVaultPropertiesOutput struct{ *pulumi.OutputState }
 
 func (KeyVaultPropertiesOutput) ElementType() reflect.Type {
@@ -722,17 +695,15 @@ func (o KeyVaultPropertiesOutput) ToKeyVaultPropertiesPtrOutput() KeyVaultProper
 }
 
 func (o KeyVaultPropertiesOutput) ToKeyVaultPropertiesPtrOutputWithContext(ctx context.Context) KeyVaultPropertiesPtrOutput {
-	return o.ApplyT(func(v KeyVaultProperties) *KeyVaultProperties {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v KeyVaultProperties) *KeyVaultProperties {
 		return &v
 	}).(KeyVaultPropertiesPtrOutput)
 }
 
-// Uri of KeyVault
 func (o KeyVaultPropertiesOutput) Id() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v KeyVaultProperties) *string { return v.Id }).(pulumi.StringPtrOutput)
 }
 
-// Identity of the secret that includes name and version.
 func (o KeyVaultPropertiesOutput) Key() KeyPropertiesPtrOutput {
 	return o.ApplyT(func(v KeyVaultProperties) *KeyProperties { return v.Key }).(KeyPropertiesPtrOutput)
 }
@@ -752,10 +723,15 @@ func (o KeyVaultPropertiesPtrOutput) ToKeyVaultPropertiesPtrOutputWithContext(ct
 }
 
 func (o KeyVaultPropertiesPtrOutput) Elem() KeyVaultPropertiesOutput {
-	return o.ApplyT(func(v *KeyVaultProperties) KeyVaultProperties { return *v }).(KeyVaultPropertiesOutput)
+	return o.ApplyT(func(v *KeyVaultProperties) KeyVaultProperties {
+		if v != nil {
+			return *v
+		}
+		var ret KeyVaultProperties
+		return ret
+	}).(KeyVaultPropertiesOutput)
 }
 
-// Uri of KeyVault
 func (o KeyVaultPropertiesPtrOutput) Id() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *KeyVaultProperties) *string {
 		if v == nil {
@@ -765,7 +741,6 @@ func (o KeyVaultPropertiesPtrOutput) Id() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Identity of the secret that includes name and version.
 func (o KeyVaultPropertiesPtrOutput) Key() KeyPropertiesPtrOutput {
 	return o.ApplyT(func(v *KeyVaultProperties) *KeyProperties {
 		if v == nil {
@@ -775,11 +750,8 @@ func (o KeyVaultPropertiesPtrOutput) Key() KeyPropertiesPtrOutput {
 	}).(KeyPropertiesPtrOutput)
 }
 
-// Settings concerning key vault encryption for a configuration store.
 type KeyVaultPropertiesResponse struct {
-	// Uri of KeyVault
-	Id *string `pulumi:"id"`
-	// Identity of the secret that includes name and version.
+	Id  *string                `pulumi:"id"`
 	Key *KeyPropertiesResponse `pulumi:"key"`
 }
 
@@ -794,11 +766,8 @@ type KeyVaultPropertiesResponseInput interface {
 	ToKeyVaultPropertiesResponseOutputWithContext(context.Context) KeyVaultPropertiesResponseOutput
 }
 
-// Settings concerning key vault encryption for a configuration store.
 type KeyVaultPropertiesResponseArgs struct {
-	// Uri of KeyVault
-	Id pulumi.StringPtrInput `pulumi:"id"`
-	// Identity of the secret that includes name and version.
+	Id  pulumi.StringPtrInput         `pulumi:"id"`
 	Key KeyPropertiesResponsePtrInput `pulumi:"key"`
 }
 
@@ -855,7 +824,6 @@ func (i *keyVaultPropertiesResponsePtrType) ToKeyVaultPropertiesResponsePtrOutpu
 	return pulumi.ToOutputWithContext(ctx, i).(KeyVaultPropertiesResponsePtrOutput)
 }
 
-// Settings concerning key vault encryption for a configuration store.
 type KeyVaultPropertiesResponseOutput struct{ *pulumi.OutputState }
 
 func (KeyVaultPropertiesResponseOutput) ElementType() reflect.Type {
@@ -875,17 +843,15 @@ func (o KeyVaultPropertiesResponseOutput) ToKeyVaultPropertiesResponsePtrOutput(
 }
 
 func (o KeyVaultPropertiesResponseOutput) ToKeyVaultPropertiesResponsePtrOutputWithContext(ctx context.Context) KeyVaultPropertiesResponsePtrOutput {
-	return o.ApplyT(func(v KeyVaultPropertiesResponse) *KeyVaultPropertiesResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v KeyVaultPropertiesResponse) *KeyVaultPropertiesResponse {
 		return &v
 	}).(KeyVaultPropertiesResponsePtrOutput)
 }
 
-// Uri of KeyVault
 func (o KeyVaultPropertiesResponseOutput) Id() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v KeyVaultPropertiesResponse) *string { return v.Id }).(pulumi.StringPtrOutput)
 }
 
-// Identity of the secret that includes name and version.
 func (o KeyVaultPropertiesResponseOutput) Key() KeyPropertiesResponsePtrOutput {
 	return o.ApplyT(func(v KeyVaultPropertiesResponse) *KeyPropertiesResponse { return v.Key }).(KeyPropertiesResponsePtrOutput)
 }
@@ -905,10 +871,15 @@ func (o KeyVaultPropertiesResponsePtrOutput) ToKeyVaultPropertiesResponsePtrOutp
 }
 
 func (o KeyVaultPropertiesResponsePtrOutput) Elem() KeyVaultPropertiesResponseOutput {
-	return o.ApplyT(func(v *KeyVaultPropertiesResponse) KeyVaultPropertiesResponse { return *v }).(KeyVaultPropertiesResponseOutput)
+	return o.ApplyT(func(v *KeyVaultPropertiesResponse) KeyVaultPropertiesResponse {
+		if v != nil {
+			return *v
+		}
+		var ret KeyVaultPropertiesResponse
+		return ret
+	}).(KeyVaultPropertiesResponseOutput)
 }
 
-// Uri of KeyVault
 func (o KeyVaultPropertiesResponsePtrOutput) Id() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *KeyVaultPropertiesResponse) *string {
 		if v == nil {
@@ -918,7 +889,6 @@ func (o KeyVaultPropertiesResponsePtrOutput) Id() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Identity of the secret that includes name and version.
 func (o KeyVaultPropertiesResponsePtrOutput) Key() KeyPropertiesResponsePtrOutput {
 	return o.ApplyT(func(v *KeyVaultPropertiesResponse) *KeyPropertiesResponse {
 		if v == nil {
@@ -928,9 +898,7 @@ func (o KeyVaultPropertiesResponsePtrOutput) Key() KeyPropertiesResponsePtrOutpu
 	}).(KeyPropertiesResponsePtrOutput)
 }
 
-// The Private Endpoint resource.
 type PrivateEndpointResponse struct {
-	// The ARM identifier for Private Endpoint
 	Id string `pulumi:"id"`
 }
 
@@ -945,9 +913,7 @@ type PrivateEndpointResponseInput interface {
 	ToPrivateEndpointResponseOutputWithContext(context.Context) PrivateEndpointResponseOutput
 }
 
-// The Private Endpoint resource.
 type PrivateEndpointResponseArgs struct {
-	// The ARM identifier for Private Endpoint
 	Id pulumi.StringInput `pulumi:"id"`
 }
 
@@ -1004,7 +970,6 @@ func (i *privateEndpointResponsePtrType) ToPrivateEndpointResponsePtrOutputWithC
 	return pulumi.ToOutputWithContext(ctx, i).(PrivateEndpointResponsePtrOutput)
 }
 
-// The Private Endpoint resource.
 type PrivateEndpointResponseOutput struct{ *pulumi.OutputState }
 
 func (PrivateEndpointResponseOutput) ElementType() reflect.Type {
@@ -1024,12 +989,11 @@ func (o PrivateEndpointResponseOutput) ToPrivateEndpointResponsePtrOutput() Priv
 }
 
 func (o PrivateEndpointResponseOutput) ToPrivateEndpointResponsePtrOutputWithContext(ctx context.Context) PrivateEndpointResponsePtrOutput {
-	return o.ApplyT(func(v PrivateEndpointResponse) *PrivateEndpointResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v PrivateEndpointResponse) *PrivateEndpointResponse {
 		return &v
 	}).(PrivateEndpointResponsePtrOutput)
 }
 
-// The ARM identifier for Private Endpoint
 func (o PrivateEndpointResponseOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v PrivateEndpointResponse) string { return v.Id }).(pulumi.StringOutput)
 }
@@ -1049,10 +1013,15 @@ func (o PrivateEndpointResponsePtrOutput) ToPrivateEndpointResponsePtrOutputWith
 }
 
 func (o PrivateEndpointResponsePtrOutput) Elem() PrivateEndpointResponseOutput {
-	return o.ApplyT(func(v *PrivateEndpointResponse) PrivateEndpointResponse { return *v }).(PrivateEndpointResponseOutput)
+	return o.ApplyT(func(v *PrivateEndpointResponse) PrivateEndpointResponse {
+		if v != nil {
+			return *v
+		}
+		var ret PrivateEndpointResponse
+		return ret
+	}).(PrivateEndpointResponseOutput)
 }
 
-// The ARM identifier for Private Endpoint
 func (o PrivateEndpointResponsePtrOutput) Id() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *PrivateEndpointResponse) *string {
 		if v == nil {
@@ -1062,14 +1031,10 @@ func (o PrivateEndpointResponsePtrOutput) Id() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// A collection of information about the state of the connection between service consumer and provider.
 type PrivateLinkServiceConnectionState struct {
-	// A message indicating if changes on the service provider require any updates on the consumer.
 	ActionsRequired *string `pulumi:"actionsRequired"`
-	// The reason for approval/rejection of the connection.
-	Description *string `pulumi:"description"`
-	// Indicates whether the connection has been Approved/Rejected/Removed by the owner of the service.
-	Status *string `pulumi:"status"`
+	Description     *string `pulumi:"description"`
+	Status          *string `pulumi:"status"`
 }
 
 // PrivateLinkServiceConnectionStateInput is an input type that accepts PrivateLinkServiceConnectionStateArgs and PrivateLinkServiceConnectionStateOutput values.
@@ -1083,14 +1048,10 @@ type PrivateLinkServiceConnectionStateInput interface {
 	ToPrivateLinkServiceConnectionStateOutputWithContext(context.Context) PrivateLinkServiceConnectionStateOutput
 }
 
-// A collection of information about the state of the connection between service consumer and provider.
 type PrivateLinkServiceConnectionStateArgs struct {
-	// A message indicating if changes on the service provider require any updates on the consumer.
 	ActionsRequired pulumi.StringPtrInput `pulumi:"actionsRequired"`
-	// The reason for approval/rejection of the connection.
-	Description pulumi.StringPtrInput `pulumi:"description"`
-	// Indicates whether the connection has been Approved/Rejected/Removed by the owner of the service.
-	Status pulumi.StringPtrInput `pulumi:"status"`
+	Description     pulumi.StringPtrInput `pulumi:"description"`
+	Status          pulumi.StringPtrInput `pulumi:"status"`
 }
 
 func (PrivateLinkServiceConnectionStateArgs) ElementType() reflect.Type {
@@ -1146,7 +1107,6 @@ func (i *privateLinkServiceConnectionStatePtrType) ToPrivateLinkServiceConnectio
 	return pulumi.ToOutputWithContext(ctx, i).(PrivateLinkServiceConnectionStatePtrOutput)
 }
 
-// A collection of information about the state of the connection between service consumer and provider.
 type PrivateLinkServiceConnectionStateOutput struct{ *pulumi.OutputState }
 
 func (PrivateLinkServiceConnectionStateOutput) ElementType() reflect.Type {
@@ -1166,22 +1126,19 @@ func (o PrivateLinkServiceConnectionStateOutput) ToPrivateLinkServiceConnectionS
 }
 
 func (o PrivateLinkServiceConnectionStateOutput) ToPrivateLinkServiceConnectionStatePtrOutputWithContext(ctx context.Context) PrivateLinkServiceConnectionStatePtrOutput {
-	return o.ApplyT(func(v PrivateLinkServiceConnectionState) *PrivateLinkServiceConnectionState {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v PrivateLinkServiceConnectionState) *PrivateLinkServiceConnectionState {
 		return &v
 	}).(PrivateLinkServiceConnectionStatePtrOutput)
 }
 
-// A message indicating if changes on the service provider require any updates on the consumer.
 func (o PrivateLinkServiceConnectionStateOutput) ActionsRequired() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v PrivateLinkServiceConnectionState) *string { return v.ActionsRequired }).(pulumi.StringPtrOutput)
 }
 
-// The reason for approval/rejection of the connection.
 func (o PrivateLinkServiceConnectionStateOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v PrivateLinkServiceConnectionState) *string { return v.Description }).(pulumi.StringPtrOutput)
 }
 
-// Indicates whether the connection has been Approved/Rejected/Removed by the owner of the service.
 func (o PrivateLinkServiceConnectionStateOutput) Status() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v PrivateLinkServiceConnectionState) *string { return v.Status }).(pulumi.StringPtrOutput)
 }
@@ -1201,10 +1158,15 @@ func (o PrivateLinkServiceConnectionStatePtrOutput) ToPrivateLinkServiceConnecti
 }
 
 func (o PrivateLinkServiceConnectionStatePtrOutput) Elem() PrivateLinkServiceConnectionStateOutput {
-	return o.ApplyT(func(v *PrivateLinkServiceConnectionState) PrivateLinkServiceConnectionState { return *v }).(PrivateLinkServiceConnectionStateOutput)
+	return o.ApplyT(func(v *PrivateLinkServiceConnectionState) PrivateLinkServiceConnectionState {
+		if v != nil {
+			return *v
+		}
+		var ret PrivateLinkServiceConnectionState
+		return ret
+	}).(PrivateLinkServiceConnectionStateOutput)
 }
 
-// A message indicating if changes on the service provider require any updates on the consumer.
 func (o PrivateLinkServiceConnectionStatePtrOutput) ActionsRequired() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *PrivateLinkServiceConnectionState) *string {
 		if v == nil {
@@ -1214,7 +1176,6 @@ func (o PrivateLinkServiceConnectionStatePtrOutput) ActionsRequired() pulumi.Str
 	}).(pulumi.StringPtrOutput)
 }
 
-// The reason for approval/rejection of the connection.
 func (o PrivateLinkServiceConnectionStatePtrOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *PrivateLinkServiceConnectionState) *string {
 		if v == nil {
@@ -1224,7 +1185,6 @@ func (o PrivateLinkServiceConnectionStatePtrOutput) Description() pulumi.StringP
 	}).(pulumi.StringPtrOutput)
 }
 
-// Indicates whether the connection has been Approved/Rejected/Removed by the owner of the service.
 func (o PrivateLinkServiceConnectionStatePtrOutput) Status() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *PrivateLinkServiceConnectionState) *string {
 		if v == nil {
@@ -1234,14 +1194,10 @@ func (o PrivateLinkServiceConnectionStatePtrOutput) Status() pulumi.StringPtrOut
 	}).(pulumi.StringPtrOutput)
 }
 
-// A collection of information about the state of the connection between service consumer and provider.
 type PrivateLinkServiceConnectionStateResponse struct {
-	// A message indicating if changes on the service provider require any updates on the consumer.
 	ActionsRequired *string `pulumi:"actionsRequired"`
-	// The reason for approval/rejection of the connection.
-	Description *string `pulumi:"description"`
-	// Indicates whether the connection has been Approved/Rejected/Removed by the owner of the service.
-	Status *string `pulumi:"status"`
+	Description     *string `pulumi:"description"`
+	Status          *string `pulumi:"status"`
 }
 
 // PrivateLinkServiceConnectionStateResponseInput is an input type that accepts PrivateLinkServiceConnectionStateResponseArgs and PrivateLinkServiceConnectionStateResponseOutput values.
@@ -1255,14 +1211,10 @@ type PrivateLinkServiceConnectionStateResponseInput interface {
 	ToPrivateLinkServiceConnectionStateResponseOutputWithContext(context.Context) PrivateLinkServiceConnectionStateResponseOutput
 }
 
-// A collection of information about the state of the connection between service consumer and provider.
 type PrivateLinkServiceConnectionStateResponseArgs struct {
-	// A message indicating if changes on the service provider require any updates on the consumer.
 	ActionsRequired pulumi.StringPtrInput `pulumi:"actionsRequired"`
-	// The reason for approval/rejection of the connection.
-	Description pulumi.StringPtrInput `pulumi:"description"`
-	// Indicates whether the connection has been Approved/Rejected/Removed by the owner of the service.
-	Status pulumi.StringPtrInput `pulumi:"status"`
+	Description     pulumi.StringPtrInput `pulumi:"description"`
+	Status          pulumi.StringPtrInput `pulumi:"status"`
 }
 
 func (PrivateLinkServiceConnectionStateResponseArgs) ElementType() reflect.Type {
@@ -1318,7 +1270,6 @@ func (i *privateLinkServiceConnectionStateResponsePtrType) ToPrivateLinkServiceC
 	return pulumi.ToOutputWithContext(ctx, i).(PrivateLinkServiceConnectionStateResponsePtrOutput)
 }
 
-// A collection of information about the state of the connection between service consumer and provider.
 type PrivateLinkServiceConnectionStateResponseOutput struct{ *pulumi.OutputState }
 
 func (PrivateLinkServiceConnectionStateResponseOutput) ElementType() reflect.Type {
@@ -1338,22 +1289,19 @@ func (o PrivateLinkServiceConnectionStateResponseOutput) ToPrivateLinkServiceCon
 }
 
 func (o PrivateLinkServiceConnectionStateResponseOutput) ToPrivateLinkServiceConnectionStateResponsePtrOutputWithContext(ctx context.Context) PrivateLinkServiceConnectionStateResponsePtrOutput {
-	return o.ApplyT(func(v PrivateLinkServiceConnectionStateResponse) *PrivateLinkServiceConnectionStateResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v PrivateLinkServiceConnectionStateResponse) *PrivateLinkServiceConnectionStateResponse {
 		return &v
 	}).(PrivateLinkServiceConnectionStateResponsePtrOutput)
 }
 
-// A message indicating if changes on the service provider require any updates on the consumer.
 func (o PrivateLinkServiceConnectionStateResponseOutput) ActionsRequired() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v PrivateLinkServiceConnectionStateResponse) *string { return v.ActionsRequired }).(pulumi.StringPtrOutput)
 }
 
-// The reason for approval/rejection of the connection.
 func (o PrivateLinkServiceConnectionStateResponseOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v PrivateLinkServiceConnectionStateResponse) *string { return v.Description }).(pulumi.StringPtrOutput)
 }
 
-// Indicates whether the connection has been Approved/Rejected/Removed by the owner of the service.
 func (o PrivateLinkServiceConnectionStateResponseOutput) Status() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v PrivateLinkServiceConnectionStateResponse) *string { return v.Status }).(pulumi.StringPtrOutput)
 }
@@ -1374,11 +1322,14 @@ func (o PrivateLinkServiceConnectionStateResponsePtrOutput) ToPrivateLinkService
 
 func (o PrivateLinkServiceConnectionStateResponsePtrOutput) Elem() PrivateLinkServiceConnectionStateResponseOutput {
 	return o.ApplyT(func(v *PrivateLinkServiceConnectionStateResponse) PrivateLinkServiceConnectionStateResponse {
-		return *v
+		if v != nil {
+			return *v
+		}
+		var ret PrivateLinkServiceConnectionStateResponse
+		return ret
 	}).(PrivateLinkServiceConnectionStateResponseOutput)
 }
 
-// A message indicating if changes on the service provider require any updates on the consumer.
 func (o PrivateLinkServiceConnectionStateResponsePtrOutput) ActionsRequired() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *PrivateLinkServiceConnectionStateResponse) *string {
 		if v == nil {
@@ -1388,7 +1339,6 @@ func (o PrivateLinkServiceConnectionStateResponsePtrOutput) ActionsRequired() pu
 	}).(pulumi.StringPtrOutput)
 }
 
-// The reason for approval/rejection of the connection.
 func (o PrivateLinkServiceConnectionStateResponsePtrOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *PrivateLinkServiceConnectionStateResponse) *string {
 		if v == nil {
@@ -1398,7 +1348,6 @@ func (o PrivateLinkServiceConnectionStateResponsePtrOutput) Description() pulumi
 	}).(pulumi.StringPtrOutput)
 }
 
-// Indicates whether the connection has been Approved/Rejected/Removed by the owner of the service.
 func (o PrivateLinkServiceConnectionStateResponsePtrOutput) Status() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *PrivateLinkServiceConnectionStateResponse) *string {
 		if v == nil {
@@ -1408,12 +1357,9 @@ func (o PrivateLinkServiceConnectionStateResponsePtrOutput) Status() pulumi.Stri
 	}).(pulumi.StringPtrOutput)
 }
 
-// The encryption settings for a configuration store.
 type PropertiesEncryption struct {
-	// Key vault properties.
 	KeyVault *KeyVaultProperties `pulumi:"keyVault"`
-	// The state of onboarding, which only appears in the response.
-	State *string `pulumi:"state"`
+	State    *string             `pulumi:"state"`
 }
 
 // PropertiesEncryptionInput is an input type that accepts PropertiesEncryptionArgs and PropertiesEncryptionOutput values.
@@ -1427,12 +1373,9 @@ type PropertiesEncryptionInput interface {
 	ToPropertiesEncryptionOutputWithContext(context.Context) PropertiesEncryptionOutput
 }
 
-// The encryption settings for a configuration store.
 type PropertiesEncryptionArgs struct {
-	// Key vault properties.
 	KeyVault KeyVaultPropertiesPtrInput `pulumi:"keyVault"`
-	// The state of onboarding, which only appears in the response.
-	State pulumi.StringPtrInput `pulumi:"state"`
+	State    pulumi.StringPtrInput      `pulumi:"state"`
 }
 
 func (PropertiesEncryptionArgs) ElementType() reflect.Type {
@@ -1488,7 +1431,6 @@ func (i *propertiesEncryptionPtrType) ToPropertiesEncryptionPtrOutputWithContext
 	return pulumi.ToOutputWithContext(ctx, i).(PropertiesEncryptionPtrOutput)
 }
 
-// The encryption settings for a configuration store.
 type PropertiesEncryptionOutput struct{ *pulumi.OutputState }
 
 func (PropertiesEncryptionOutput) ElementType() reflect.Type {
@@ -1508,17 +1450,15 @@ func (o PropertiesEncryptionOutput) ToPropertiesEncryptionPtrOutput() Properties
 }
 
 func (o PropertiesEncryptionOutput) ToPropertiesEncryptionPtrOutputWithContext(ctx context.Context) PropertiesEncryptionPtrOutput {
-	return o.ApplyT(func(v PropertiesEncryption) *PropertiesEncryption {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v PropertiesEncryption) *PropertiesEncryption {
 		return &v
 	}).(PropertiesEncryptionPtrOutput)
 }
 
-// Key vault properties.
 func (o PropertiesEncryptionOutput) KeyVault() KeyVaultPropertiesPtrOutput {
 	return o.ApplyT(func(v PropertiesEncryption) *KeyVaultProperties { return v.KeyVault }).(KeyVaultPropertiesPtrOutput)
 }
 
-// The state of onboarding, which only appears in the response.
 func (o PropertiesEncryptionOutput) State() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v PropertiesEncryption) *string { return v.State }).(pulumi.StringPtrOutput)
 }
@@ -1538,10 +1478,15 @@ func (o PropertiesEncryptionPtrOutput) ToPropertiesEncryptionPtrOutputWithContex
 }
 
 func (o PropertiesEncryptionPtrOutput) Elem() PropertiesEncryptionOutput {
-	return o.ApplyT(func(v *PropertiesEncryption) PropertiesEncryption { return *v }).(PropertiesEncryptionOutput)
+	return o.ApplyT(func(v *PropertiesEncryption) PropertiesEncryption {
+		if v != nil {
+			return *v
+		}
+		var ret PropertiesEncryption
+		return ret
+	}).(PropertiesEncryptionOutput)
 }
 
-// Key vault properties.
 func (o PropertiesEncryptionPtrOutput) KeyVault() KeyVaultPropertiesPtrOutput {
 	return o.ApplyT(func(v *PropertiesEncryption) *KeyVaultProperties {
 		if v == nil {
@@ -1551,7 +1496,6 @@ func (o PropertiesEncryptionPtrOutput) KeyVault() KeyVaultPropertiesPtrOutput {
 	}).(KeyVaultPropertiesPtrOutput)
 }
 
-// The state of onboarding, which only appears in the response.
 func (o PropertiesEncryptionPtrOutput) State() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *PropertiesEncryption) *string {
 		if v == nil {
@@ -1561,9 +1505,7 @@ func (o PropertiesEncryptionPtrOutput) State() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Settings concerning lockbox.
 type PropertiesLockbox struct {
-	// lockbox configuration
 	State *string `pulumi:"state"`
 }
 
@@ -1578,9 +1520,7 @@ type PropertiesLockboxInput interface {
 	ToPropertiesLockboxOutputWithContext(context.Context) PropertiesLockboxOutput
 }
 
-// Settings concerning lockbox.
 type PropertiesLockboxArgs struct {
-	// lockbox configuration
 	State pulumi.StringPtrInput `pulumi:"state"`
 }
 
@@ -1637,7 +1577,6 @@ func (i *propertiesLockboxPtrType) ToPropertiesLockboxPtrOutputWithContext(ctx c
 	return pulumi.ToOutputWithContext(ctx, i).(PropertiesLockboxPtrOutput)
 }
 
-// Settings concerning lockbox.
 type PropertiesLockboxOutput struct{ *pulumi.OutputState }
 
 func (PropertiesLockboxOutput) ElementType() reflect.Type {
@@ -1657,12 +1596,11 @@ func (o PropertiesLockboxOutput) ToPropertiesLockboxPtrOutput() PropertiesLockbo
 }
 
 func (o PropertiesLockboxOutput) ToPropertiesLockboxPtrOutputWithContext(ctx context.Context) PropertiesLockboxPtrOutput {
-	return o.ApplyT(func(v PropertiesLockbox) *PropertiesLockbox {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v PropertiesLockbox) *PropertiesLockbox {
 		return &v
 	}).(PropertiesLockboxPtrOutput)
 }
 
-// lockbox configuration
 func (o PropertiesLockboxOutput) State() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v PropertiesLockbox) *string { return v.State }).(pulumi.StringPtrOutput)
 }
@@ -1682,10 +1620,15 @@ func (o PropertiesLockboxPtrOutput) ToPropertiesLockboxPtrOutputWithContext(ctx 
 }
 
 func (o PropertiesLockboxPtrOutput) Elem() PropertiesLockboxOutput {
-	return o.ApplyT(func(v *PropertiesLockbox) PropertiesLockbox { return *v }).(PropertiesLockboxOutput)
+	return o.ApplyT(func(v *PropertiesLockbox) PropertiesLockbox {
+		if v != nil {
+			return *v
+		}
+		var ret PropertiesLockbox
+		return ret
+	}).(PropertiesLockboxOutput)
 }
 
-// lockbox configuration
 func (o PropertiesLockboxPtrOutput) State() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *PropertiesLockbox) *string {
 		if v == nil {
@@ -1695,9 +1638,7 @@ func (o PropertiesLockboxPtrOutput) State() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Settings concerning network injection.
 type PropertiesNetworkInjection struct {
-	// Network injection configuration
 	VirtualNetworks *VirtualNetworkPropertiesList `pulumi:"virtualNetworks"`
 }
 
@@ -1712,9 +1653,7 @@ type PropertiesNetworkInjectionInput interface {
 	ToPropertiesNetworkInjectionOutputWithContext(context.Context) PropertiesNetworkInjectionOutput
 }
 
-// Settings concerning network injection.
 type PropertiesNetworkInjectionArgs struct {
-	// Network injection configuration
 	VirtualNetworks VirtualNetworkPropertiesListPtrInput `pulumi:"virtualNetworks"`
 }
 
@@ -1771,7 +1710,6 @@ func (i *propertiesNetworkInjectionPtrType) ToPropertiesNetworkInjectionPtrOutpu
 	return pulumi.ToOutputWithContext(ctx, i).(PropertiesNetworkInjectionPtrOutput)
 }
 
-// Settings concerning network injection.
 type PropertiesNetworkInjectionOutput struct{ *pulumi.OutputState }
 
 func (PropertiesNetworkInjectionOutput) ElementType() reflect.Type {
@@ -1791,12 +1729,11 @@ func (o PropertiesNetworkInjectionOutput) ToPropertiesNetworkInjectionPtrOutput(
 }
 
 func (o PropertiesNetworkInjectionOutput) ToPropertiesNetworkInjectionPtrOutputWithContext(ctx context.Context) PropertiesNetworkInjectionPtrOutput {
-	return o.ApplyT(func(v PropertiesNetworkInjection) *PropertiesNetworkInjection {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v PropertiesNetworkInjection) *PropertiesNetworkInjection {
 		return &v
 	}).(PropertiesNetworkInjectionPtrOutput)
 }
 
-// Network injection configuration
 func (o PropertiesNetworkInjectionOutput) VirtualNetworks() VirtualNetworkPropertiesListPtrOutput {
 	return o.ApplyT(func(v PropertiesNetworkInjection) *VirtualNetworkPropertiesList { return v.VirtualNetworks }).(VirtualNetworkPropertiesListPtrOutput)
 }
@@ -1816,10 +1753,15 @@ func (o PropertiesNetworkInjectionPtrOutput) ToPropertiesNetworkInjectionPtrOutp
 }
 
 func (o PropertiesNetworkInjectionPtrOutput) Elem() PropertiesNetworkInjectionOutput {
-	return o.ApplyT(func(v *PropertiesNetworkInjection) PropertiesNetworkInjection { return *v }).(PropertiesNetworkInjectionOutput)
+	return o.ApplyT(func(v *PropertiesNetworkInjection) PropertiesNetworkInjection {
+		if v != nil {
+			return *v
+		}
+		var ret PropertiesNetworkInjection
+		return ret
+	}).(PropertiesNetworkInjectionOutput)
 }
 
-// Network injection configuration
 func (o PropertiesNetworkInjectionPtrOutput) VirtualNetworks() VirtualNetworkPropertiesListPtrOutput {
 	return o.ApplyT(func(v *PropertiesNetworkInjection) *VirtualNetworkPropertiesList {
 		if v == nil {
@@ -1829,12 +1771,9 @@ func (o PropertiesNetworkInjectionPtrOutput) VirtualNetworks() VirtualNetworkPro
 	}).(VirtualNetworkPropertiesListPtrOutput)
 }
 
-// The encryption settings for a configuration store.
 type PropertiesResponseEncryption struct {
-	// Key vault properties.
 	KeyVault *KeyVaultPropertiesResponse `pulumi:"keyVault"`
-	// The state of onboarding, which only appears in the response.
-	State *string `pulumi:"state"`
+	State    *string                     `pulumi:"state"`
 }
 
 // PropertiesResponseEncryptionInput is an input type that accepts PropertiesResponseEncryptionArgs and PropertiesResponseEncryptionOutput values.
@@ -1848,12 +1787,9 @@ type PropertiesResponseEncryptionInput interface {
 	ToPropertiesResponseEncryptionOutputWithContext(context.Context) PropertiesResponseEncryptionOutput
 }
 
-// The encryption settings for a configuration store.
 type PropertiesResponseEncryptionArgs struct {
-	// Key vault properties.
 	KeyVault KeyVaultPropertiesResponsePtrInput `pulumi:"keyVault"`
-	// The state of onboarding, which only appears in the response.
-	State pulumi.StringPtrInput `pulumi:"state"`
+	State    pulumi.StringPtrInput              `pulumi:"state"`
 }
 
 func (PropertiesResponseEncryptionArgs) ElementType() reflect.Type {
@@ -1909,7 +1845,6 @@ func (i *propertiesResponseEncryptionPtrType) ToPropertiesResponseEncryptionPtrO
 	return pulumi.ToOutputWithContext(ctx, i).(PropertiesResponseEncryptionPtrOutput)
 }
 
-// The encryption settings for a configuration store.
 type PropertiesResponseEncryptionOutput struct{ *pulumi.OutputState }
 
 func (PropertiesResponseEncryptionOutput) ElementType() reflect.Type {
@@ -1929,17 +1864,15 @@ func (o PropertiesResponseEncryptionOutput) ToPropertiesResponseEncryptionPtrOut
 }
 
 func (o PropertiesResponseEncryptionOutput) ToPropertiesResponseEncryptionPtrOutputWithContext(ctx context.Context) PropertiesResponseEncryptionPtrOutput {
-	return o.ApplyT(func(v PropertiesResponseEncryption) *PropertiesResponseEncryption {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v PropertiesResponseEncryption) *PropertiesResponseEncryption {
 		return &v
 	}).(PropertiesResponseEncryptionPtrOutput)
 }
 
-// Key vault properties.
 func (o PropertiesResponseEncryptionOutput) KeyVault() KeyVaultPropertiesResponsePtrOutput {
 	return o.ApplyT(func(v PropertiesResponseEncryption) *KeyVaultPropertiesResponse { return v.KeyVault }).(KeyVaultPropertiesResponsePtrOutput)
 }
 
-// The state of onboarding, which only appears in the response.
 func (o PropertiesResponseEncryptionOutput) State() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v PropertiesResponseEncryption) *string { return v.State }).(pulumi.StringPtrOutput)
 }
@@ -1959,10 +1892,15 @@ func (o PropertiesResponseEncryptionPtrOutput) ToPropertiesResponseEncryptionPtr
 }
 
 func (o PropertiesResponseEncryptionPtrOutput) Elem() PropertiesResponseEncryptionOutput {
-	return o.ApplyT(func(v *PropertiesResponseEncryption) PropertiesResponseEncryption { return *v }).(PropertiesResponseEncryptionOutput)
+	return o.ApplyT(func(v *PropertiesResponseEncryption) PropertiesResponseEncryption {
+		if v != nil {
+			return *v
+		}
+		var ret PropertiesResponseEncryption
+		return ret
+	}).(PropertiesResponseEncryptionOutput)
 }
 
-// Key vault properties.
 func (o PropertiesResponseEncryptionPtrOutput) KeyVault() KeyVaultPropertiesResponsePtrOutput {
 	return o.ApplyT(func(v *PropertiesResponseEncryption) *KeyVaultPropertiesResponse {
 		if v == nil {
@@ -1972,7 +1910,6 @@ func (o PropertiesResponseEncryptionPtrOutput) KeyVault() KeyVaultPropertiesResp
 	}).(KeyVaultPropertiesResponsePtrOutput)
 }
 
-// The state of onboarding, which only appears in the response.
 func (o PropertiesResponseEncryptionPtrOutput) State() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *PropertiesResponseEncryption) *string {
 		if v == nil {
@@ -1982,9 +1919,7 @@ func (o PropertiesResponseEncryptionPtrOutput) State() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Settings concerning lockbox.
 type PropertiesResponseLockbox struct {
-	// lockbox configuration
 	State *string `pulumi:"state"`
 }
 
@@ -1999,9 +1934,7 @@ type PropertiesResponseLockboxInput interface {
 	ToPropertiesResponseLockboxOutputWithContext(context.Context) PropertiesResponseLockboxOutput
 }
 
-// Settings concerning lockbox.
 type PropertiesResponseLockboxArgs struct {
-	// lockbox configuration
 	State pulumi.StringPtrInput `pulumi:"state"`
 }
 
@@ -2058,7 +1991,6 @@ func (i *propertiesResponseLockboxPtrType) ToPropertiesResponseLockboxPtrOutputW
 	return pulumi.ToOutputWithContext(ctx, i).(PropertiesResponseLockboxPtrOutput)
 }
 
-// Settings concerning lockbox.
 type PropertiesResponseLockboxOutput struct{ *pulumi.OutputState }
 
 func (PropertiesResponseLockboxOutput) ElementType() reflect.Type {
@@ -2078,12 +2010,11 @@ func (o PropertiesResponseLockboxOutput) ToPropertiesResponseLockboxPtrOutput() 
 }
 
 func (o PropertiesResponseLockboxOutput) ToPropertiesResponseLockboxPtrOutputWithContext(ctx context.Context) PropertiesResponseLockboxPtrOutput {
-	return o.ApplyT(func(v PropertiesResponseLockbox) *PropertiesResponseLockbox {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v PropertiesResponseLockbox) *PropertiesResponseLockbox {
 		return &v
 	}).(PropertiesResponseLockboxPtrOutput)
 }
 
-// lockbox configuration
 func (o PropertiesResponseLockboxOutput) State() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v PropertiesResponseLockbox) *string { return v.State }).(pulumi.StringPtrOutput)
 }
@@ -2103,10 +2034,15 @@ func (o PropertiesResponseLockboxPtrOutput) ToPropertiesResponseLockboxPtrOutput
 }
 
 func (o PropertiesResponseLockboxPtrOutput) Elem() PropertiesResponseLockboxOutput {
-	return o.ApplyT(func(v *PropertiesResponseLockbox) PropertiesResponseLockbox { return *v }).(PropertiesResponseLockboxOutput)
+	return o.ApplyT(func(v *PropertiesResponseLockbox) PropertiesResponseLockbox {
+		if v != nil {
+			return *v
+		}
+		var ret PropertiesResponseLockbox
+		return ret
+	}).(PropertiesResponseLockboxOutput)
 }
 
-// lockbox configuration
 func (o PropertiesResponseLockboxPtrOutput) State() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *PropertiesResponseLockbox) *string {
 		if v == nil {
@@ -2116,9 +2052,7 @@ func (o PropertiesResponseLockboxPtrOutput) State() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Settings concerning network injection.
 type PropertiesResponseNetworkInjection struct {
-	// Network injection configuration
 	VirtualNetworks *VirtualNetworkPropertiesListResponse `pulumi:"virtualNetworks"`
 }
 
@@ -2133,9 +2067,7 @@ type PropertiesResponseNetworkInjectionInput interface {
 	ToPropertiesResponseNetworkInjectionOutputWithContext(context.Context) PropertiesResponseNetworkInjectionOutput
 }
 
-// Settings concerning network injection.
 type PropertiesResponseNetworkInjectionArgs struct {
-	// Network injection configuration
 	VirtualNetworks VirtualNetworkPropertiesListResponsePtrInput `pulumi:"virtualNetworks"`
 }
 
@@ -2192,7 +2124,6 @@ func (i *propertiesResponseNetworkInjectionPtrType) ToPropertiesResponseNetworkI
 	return pulumi.ToOutputWithContext(ctx, i).(PropertiesResponseNetworkInjectionPtrOutput)
 }
 
-// Settings concerning network injection.
 type PropertiesResponseNetworkInjectionOutput struct{ *pulumi.OutputState }
 
 func (PropertiesResponseNetworkInjectionOutput) ElementType() reflect.Type {
@@ -2212,12 +2143,11 @@ func (o PropertiesResponseNetworkInjectionOutput) ToPropertiesResponseNetworkInj
 }
 
 func (o PropertiesResponseNetworkInjectionOutput) ToPropertiesResponseNetworkInjectionPtrOutputWithContext(ctx context.Context) PropertiesResponseNetworkInjectionPtrOutput {
-	return o.ApplyT(func(v PropertiesResponseNetworkInjection) *PropertiesResponseNetworkInjection {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v PropertiesResponseNetworkInjection) *PropertiesResponseNetworkInjection {
 		return &v
 	}).(PropertiesResponseNetworkInjectionPtrOutput)
 }
 
-// Network injection configuration
 func (o PropertiesResponseNetworkInjectionOutput) VirtualNetworks() VirtualNetworkPropertiesListResponsePtrOutput {
 	return o.ApplyT(func(v PropertiesResponseNetworkInjection) *VirtualNetworkPropertiesListResponse {
 		return v.VirtualNetworks
@@ -2239,10 +2169,15 @@ func (o PropertiesResponseNetworkInjectionPtrOutput) ToPropertiesResponseNetwork
 }
 
 func (o PropertiesResponseNetworkInjectionPtrOutput) Elem() PropertiesResponseNetworkInjectionOutput {
-	return o.ApplyT(func(v *PropertiesResponseNetworkInjection) PropertiesResponseNetworkInjection { return *v }).(PropertiesResponseNetworkInjectionOutput)
+	return o.ApplyT(func(v *PropertiesResponseNetworkInjection) PropertiesResponseNetworkInjection {
+		if v != nil {
+			return *v
+		}
+		var ret PropertiesResponseNetworkInjection
+		return ret
+	}).(PropertiesResponseNetworkInjectionOutput)
 }
 
-// Network injection configuration
 func (o PropertiesResponseNetworkInjectionPtrOutput) VirtualNetworks() VirtualNetworkPropertiesListResponsePtrOutput {
 	return o.ApplyT(func(v *PropertiesResponseNetworkInjection) *VirtualNetworkPropertiesListResponse {
 		if v == nil {
@@ -2252,9 +2187,7 @@ func (o PropertiesResponseNetworkInjectionPtrOutput) VirtualNetworks() VirtualNe
 	}).(VirtualNetworkPropertiesListResponsePtrOutput)
 }
 
-// Properties of a subnet.
 type SubnetProperties struct {
-	// Subnet name.
 	Name *string `pulumi:"name"`
 }
 
@@ -2269,9 +2202,7 @@ type SubnetPropertiesInput interface {
 	ToSubnetPropertiesOutputWithContext(context.Context) SubnetPropertiesOutput
 }
 
-// Properties of a subnet.
 type SubnetPropertiesArgs struct {
-	// Subnet name.
 	Name pulumi.StringPtrInput `pulumi:"name"`
 }
 
@@ -2328,7 +2259,6 @@ func (i *subnetPropertiesPtrType) ToSubnetPropertiesPtrOutputWithContext(ctx con
 	return pulumi.ToOutputWithContext(ctx, i).(SubnetPropertiesPtrOutput)
 }
 
-// Properties of a subnet.
 type SubnetPropertiesOutput struct{ *pulumi.OutputState }
 
 func (SubnetPropertiesOutput) ElementType() reflect.Type {
@@ -2348,12 +2278,11 @@ func (o SubnetPropertiesOutput) ToSubnetPropertiesPtrOutput() SubnetPropertiesPt
 }
 
 func (o SubnetPropertiesOutput) ToSubnetPropertiesPtrOutputWithContext(ctx context.Context) SubnetPropertiesPtrOutput {
-	return o.ApplyT(func(v SubnetProperties) *SubnetProperties {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v SubnetProperties) *SubnetProperties {
 		return &v
 	}).(SubnetPropertiesPtrOutput)
 }
 
-// Subnet name.
 func (o SubnetPropertiesOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SubnetProperties) *string { return v.Name }).(pulumi.StringPtrOutput)
 }
@@ -2373,10 +2302,15 @@ func (o SubnetPropertiesPtrOutput) ToSubnetPropertiesPtrOutputWithContext(ctx co
 }
 
 func (o SubnetPropertiesPtrOutput) Elem() SubnetPropertiesOutput {
-	return o.ApplyT(func(v *SubnetProperties) SubnetProperties { return *v }).(SubnetPropertiesOutput)
+	return o.ApplyT(func(v *SubnetProperties) SubnetProperties {
+		if v != nil {
+			return *v
+		}
+		var ret SubnetProperties
+		return ret
+	}).(SubnetPropertiesOutput)
 }
 
-// Subnet name.
 func (o SubnetPropertiesPtrOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SubnetProperties) *string {
 		if v == nil {
@@ -2386,9 +2320,7 @@ func (o SubnetPropertiesPtrOutput) Name() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Properties of a subnet.
 type SubnetPropertiesResponse struct {
-	// Subnet name.
 	Name *string `pulumi:"name"`
 }
 
@@ -2403,9 +2335,7 @@ type SubnetPropertiesResponseInput interface {
 	ToSubnetPropertiesResponseOutputWithContext(context.Context) SubnetPropertiesResponseOutput
 }
 
-// Properties of a subnet.
 type SubnetPropertiesResponseArgs struct {
-	// Subnet name.
 	Name pulumi.StringPtrInput `pulumi:"name"`
 }
 
@@ -2462,7 +2392,6 @@ func (i *subnetPropertiesResponsePtrType) ToSubnetPropertiesResponsePtrOutputWit
 	return pulumi.ToOutputWithContext(ctx, i).(SubnetPropertiesResponsePtrOutput)
 }
 
-// Properties of a subnet.
 type SubnetPropertiesResponseOutput struct{ *pulumi.OutputState }
 
 func (SubnetPropertiesResponseOutput) ElementType() reflect.Type {
@@ -2482,12 +2411,11 @@ func (o SubnetPropertiesResponseOutput) ToSubnetPropertiesResponsePtrOutput() Su
 }
 
 func (o SubnetPropertiesResponseOutput) ToSubnetPropertiesResponsePtrOutputWithContext(ctx context.Context) SubnetPropertiesResponsePtrOutput {
-	return o.ApplyT(func(v SubnetPropertiesResponse) *SubnetPropertiesResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v SubnetPropertiesResponse) *SubnetPropertiesResponse {
 		return &v
 	}).(SubnetPropertiesResponsePtrOutput)
 }
 
-// Subnet name.
 func (o SubnetPropertiesResponseOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SubnetPropertiesResponse) *string { return v.Name }).(pulumi.StringPtrOutput)
 }
@@ -2507,10 +2435,15 @@ func (o SubnetPropertiesResponsePtrOutput) ToSubnetPropertiesResponsePtrOutputWi
 }
 
 func (o SubnetPropertiesResponsePtrOutput) Elem() SubnetPropertiesResponseOutput {
-	return o.ApplyT(func(v *SubnetPropertiesResponse) SubnetPropertiesResponse { return *v }).(SubnetPropertiesResponseOutput)
+	return o.ApplyT(func(v *SubnetPropertiesResponse) SubnetPropertiesResponse {
+		if v != nil {
+			return *v
+		}
+		var ret SubnetPropertiesResponse
+		return ret
+	}).(SubnetPropertiesResponseOutput)
 }
 
-// Subnet name.
 func (o SubnetPropertiesResponsePtrOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SubnetPropertiesResponse) *string {
 		if v == nil {
@@ -2520,19 +2453,12 @@ func (o SubnetPropertiesResponsePtrOutput) Name() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Metadata pertaining to creation and last modification of the resource.
 type SystemDataResponse struct {
-	// The timestamp of resource creation (UTC).
-	CreatedAt *string `pulumi:"createdAt"`
-	// The identity that created the resource.
-	CreatedBy *string `pulumi:"createdBy"`
-	// The type of identity that created the resource.
-	CreatedByType *string `pulumi:"createdByType"`
-	// The timestamp of resource last modification (UTC)
-	LastModifiedAt *string `pulumi:"lastModifiedAt"`
-	// The identity that last modified the resource.
-	LastModifiedBy *string `pulumi:"lastModifiedBy"`
-	// The type of identity that last modified the resource.
+	CreatedAt          *string `pulumi:"createdAt"`
+	CreatedBy          *string `pulumi:"createdBy"`
+	CreatedByType      *string `pulumi:"createdByType"`
+	LastModifiedAt     *string `pulumi:"lastModifiedAt"`
+	LastModifiedBy     *string `pulumi:"lastModifiedBy"`
 	LastModifiedByType *string `pulumi:"lastModifiedByType"`
 }
 
@@ -2547,19 +2473,12 @@ type SystemDataResponseInput interface {
 	ToSystemDataResponseOutputWithContext(context.Context) SystemDataResponseOutput
 }
 
-// Metadata pertaining to creation and last modification of the resource.
 type SystemDataResponseArgs struct {
-	// The timestamp of resource creation (UTC).
-	CreatedAt pulumi.StringPtrInput `pulumi:"createdAt"`
-	// The identity that created the resource.
-	CreatedBy pulumi.StringPtrInput `pulumi:"createdBy"`
-	// The type of identity that created the resource.
-	CreatedByType pulumi.StringPtrInput `pulumi:"createdByType"`
-	// The timestamp of resource last modification (UTC)
-	LastModifiedAt pulumi.StringPtrInput `pulumi:"lastModifiedAt"`
-	// The identity that last modified the resource.
-	LastModifiedBy pulumi.StringPtrInput `pulumi:"lastModifiedBy"`
-	// The type of identity that last modified the resource.
+	CreatedAt          pulumi.StringPtrInput `pulumi:"createdAt"`
+	CreatedBy          pulumi.StringPtrInput `pulumi:"createdBy"`
+	CreatedByType      pulumi.StringPtrInput `pulumi:"createdByType"`
+	LastModifiedAt     pulumi.StringPtrInput `pulumi:"lastModifiedAt"`
+	LastModifiedBy     pulumi.StringPtrInput `pulumi:"lastModifiedBy"`
 	LastModifiedByType pulumi.StringPtrInput `pulumi:"lastModifiedByType"`
 }
 
@@ -2616,7 +2535,6 @@ func (i *systemDataResponsePtrType) ToSystemDataResponsePtrOutputWithContext(ctx
 	return pulumi.ToOutputWithContext(ctx, i).(SystemDataResponsePtrOutput)
 }
 
-// Metadata pertaining to creation and last modification of the resource.
 type SystemDataResponseOutput struct{ *pulumi.OutputState }
 
 func (SystemDataResponseOutput) ElementType() reflect.Type {
@@ -2636,37 +2554,31 @@ func (o SystemDataResponseOutput) ToSystemDataResponsePtrOutput() SystemDataResp
 }
 
 func (o SystemDataResponseOutput) ToSystemDataResponsePtrOutputWithContext(ctx context.Context) SystemDataResponsePtrOutput {
-	return o.ApplyT(func(v SystemDataResponse) *SystemDataResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v SystemDataResponse) *SystemDataResponse {
 		return &v
 	}).(SystemDataResponsePtrOutput)
 }
 
-// The timestamp of resource creation (UTC).
 func (o SystemDataResponseOutput) CreatedAt() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SystemDataResponse) *string { return v.CreatedAt }).(pulumi.StringPtrOutput)
 }
 
-// The identity that created the resource.
 func (o SystemDataResponseOutput) CreatedBy() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SystemDataResponse) *string { return v.CreatedBy }).(pulumi.StringPtrOutput)
 }
 
-// The type of identity that created the resource.
 func (o SystemDataResponseOutput) CreatedByType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SystemDataResponse) *string { return v.CreatedByType }).(pulumi.StringPtrOutput)
 }
 
-// The timestamp of resource last modification (UTC)
 func (o SystemDataResponseOutput) LastModifiedAt() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SystemDataResponse) *string { return v.LastModifiedAt }).(pulumi.StringPtrOutput)
 }
 
-// The identity that last modified the resource.
 func (o SystemDataResponseOutput) LastModifiedBy() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SystemDataResponse) *string { return v.LastModifiedBy }).(pulumi.StringPtrOutput)
 }
 
-// The type of identity that last modified the resource.
 func (o SystemDataResponseOutput) LastModifiedByType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SystemDataResponse) *string { return v.LastModifiedByType }).(pulumi.StringPtrOutput)
 }
@@ -2686,10 +2598,15 @@ func (o SystemDataResponsePtrOutput) ToSystemDataResponsePtrOutputWithContext(ct
 }
 
 func (o SystemDataResponsePtrOutput) Elem() SystemDataResponseOutput {
-	return o.ApplyT(func(v *SystemDataResponse) SystemDataResponse { return *v }).(SystemDataResponseOutput)
+	return o.ApplyT(func(v *SystemDataResponse) SystemDataResponse {
+		if v != nil {
+			return *v
+		}
+		var ret SystemDataResponse
+		return ret
+	}).(SystemDataResponseOutput)
 }
 
-// The timestamp of resource creation (UTC).
 func (o SystemDataResponsePtrOutput) CreatedAt() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SystemDataResponse) *string {
 		if v == nil {
@@ -2699,7 +2616,6 @@ func (o SystemDataResponsePtrOutput) CreatedAt() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The identity that created the resource.
 func (o SystemDataResponsePtrOutput) CreatedBy() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SystemDataResponse) *string {
 		if v == nil {
@@ -2709,7 +2625,6 @@ func (o SystemDataResponsePtrOutput) CreatedBy() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The type of identity that created the resource.
 func (o SystemDataResponsePtrOutput) CreatedByType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SystemDataResponse) *string {
 		if v == nil {
@@ -2719,7 +2634,6 @@ func (o SystemDataResponsePtrOutput) CreatedByType() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The timestamp of resource last modification (UTC)
 func (o SystemDataResponsePtrOutput) LastModifiedAt() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SystemDataResponse) *string {
 		if v == nil {
@@ -2729,7 +2643,6 @@ func (o SystemDataResponsePtrOutput) LastModifiedAt() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The identity that last modified the resource.
 func (o SystemDataResponsePtrOutput) LastModifiedBy() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SystemDataResponse) *string {
 		if v == nil {
@@ -2739,7 +2652,6 @@ func (o SystemDataResponsePtrOutput) LastModifiedBy() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The type of identity that last modified the resource.
 func (o SystemDataResponsePtrOutput) LastModifiedByType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SystemDataResponse) *string {
 		if v == nil {
@@ -2749,11 +2661,8 @@ func (o SystemDataResponsePtrOutput) LastModifiedByType() pulumi.StringPtrOutput
 	}).(pulumi.StringPtrOutput)
 }
 
-// Settings concerning the virtual network.
 type VirtualNetworkProperties struct {
-	// Uri of the virtual network.
-	Id *string `pulumi:"id"`
-	// Properties of a subnet.
+	Id     *string           `pulumi:"id"`
 	Subnet *SubnetProperties `pulumi:"subnet"`
 }
 
@@ -2768,11 +2677,8 @@ type VirtualNetworkPropertiesInput interface {
 	ToVirtualNetworkPropertiesOutputWithContext(context.Context) VirtualNetworkPropertiesOutput
 }
 
-// Settings concerning the virtual network.
 type VirtualNetworkPropertiesArgs struct {
-	// Uri of the virtual network.
-	Id pulumi.StringPtrInput `pulumi:"id"`
-	// Properties of a subnet.
+	Id     pulumi.StringPtrInput    `pulumi:"id"`
 	Subnet SubnetPropertiesPtrInput `pulumi:"subnet"`
 }
 
@@ -2813,7 +2719,6 @@ func (i VirtualNetworkPropertiesArray) ToVirtualNetworkPropertiesArrayOutputWith
 	return pulumi.ToOutputWithContext(ctx, i).(VirtualNetworkPropertiesArrayOutput)
 }
 
-// Settings concerning the virtual network.
 type VirtualNetworkPropertiesOutput struct{ *pulumi.OutputState }
 
 func (VirtualNetworkPropertiesOutput) ElementType() reflect.Type {
@@ -2828,12 +2733,10 @@ func (o VirtualNetworkPropertiesOutput) ToVirtualNetworkPropertiesOutputWithCont
 	return o
 }
 
-// Uri of the virtual network.
 func (o VirtualNetworkPropertiesOutput) Id() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v VirtualNetworkProperties) *string { return v.Id }).(pulumi.StringPtrOutput)
 }
 
-// Properties of a subnet.
 func (o VirtualNetworkPropertiesOutput) Subnet() SubnetPropertiesPtrOutput {
 	return o.ApplyT(func(v VirtualNetworkProperties) *SubnetProperties { return v.Subnet }).(SubnetPropertiesPtrOutput)
 }
@@ -2858,12 +2761,9 @@ func (o VirtualNetworkPropertiesArrayOutput) Index(i pulumi.IntInput) VirtualNet
 	}).(VirtualNetworkPropertiesOutput)
 }
 
-// A list of private link resources
 type VirtualNetworkPropertiesList struct {
-	// Next page link if any.
-	NextLink *string `pulumi:"nextLink"`
-	// Array of virtual networks.
-	Value []VirtualNetworkProperties `pulumi:"value"`
+	NextLink *string                    `pulumi:"nextLink"`
+	Value    []VirtualNetworkProperties `pulumi:"value"`
 }
 
 // VirtualNetworkPropertiesListInput is an input type that accepts VirtualNetworkPropertiesListArgs and VirtualNetworkPropertiesListOutput values.
@@ -2877,12 +2777,9 @@ type VirtualNetworkPropertiesListInput interface {
 	ToVirtualNetworkPropertiesListOutputWithContext(context.Context) VirtualNetworkPropertiesListOutput
 }
 
-// A list of private link resources
 type VirtualNetworkPropertiesListArgs struct {
-	// Next page link if any.
-	NextLink pulumi.StringPtrInput `pulumi:"nextLink"`
-	// Array of virtual networks.
-	Value VirtualNetworkPropertiesArrayInput `pulumi:"value"`
+	NextLink pulumi.StringPtrInput              `pulumi:"nextLink"`
+	Value    VirtualNetworkPropertiesArrayInput `pulumi:"value"`
 }
 
 func (VirtualNetworkPropertiesListArgs) ElementType() reflect.Type {
@@ -2938,7 +2835,6 @@ func (i *virtualNetworkPropertiesListPtrType) ToVirtualNetworkPropertiesListPtrO
 	return pulumi.ToOutputWithContext(ctx, i).(VirtualNetworkPropertiesListPtrOutput)
 }
 
-// A list of private link resources
 type VirtualNetworkPropertiesListOutput struct{ *pulumi.OutputState }
 
 func (VirtualNetworkPropertiesListOutput) ElementType() reflect.Type {
@@ -2958,17 +2854,15 @@ func (o VirtualNetworkPropertiesListOutput) ToVirtualNetworkPropertiesListPtrOut
 }
 
 func (o VirtualNetworkPropertiesListOutput) ToVirtualNetworkPropertiesListPtrOutputWithContext(ctx context.Context) VirtualNetworkPropertiesListPtrOutput {
-	return o.ApplyT(func(v VirtualNetworkPropertiesList) *VirtualNetworkPropertiesList {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v VirtualNetworkPropertiesList) *VirtualNetworkPropertiesList {
 		return &v
 	}).(VirtualNetworkPropertiesListPtrOutput)
 }
 
-// Next page link if any.
 func (o VirtualNetworkPropertiesListOutput) NextLink() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v VirtualNetworkPropertiesList) *string { return v.NextLink }).(pulumi.StringPtrOutput)
 }
 
-// Array of virtual networks.
 func (o VirtualNetworkPropertiesListOutput) Value() VirtualNetworkPropertiesArrayOutput {
 	return o.ApplyT(func(v VirtualNetworkPropertiesList) []VirtualNetworkProperties { return v.Value }).(VirtualNetworkPropertiesArrayOutput)
 }
@@ -2988,10 +2882,15 @@ func (o VirtualNetworkPropertiesListPtrOutput) ToVirtualNetworkPropertiesListPtr
 }
 
 func (o VirtualNetworkPropertiesListPtrOutput) Elem() VirtualNetworkPropertiesListOutput {
-	return o.ApplyT(func(v *VirtualNetworkPropertiesList) VirtualNetworkPropertiesList { return *v }).(VirtualNetworkPropertiesListOutput)
+	return o.ApplyT(func(v *VirtualNetworkPropertiesList) VirtualNetworkPropertiesList {
+		if v != nil {
+			return *v
+		}
+		var ret VirtualNetworkPropertiesList
+		return ret
+	}).(VirtualNetworkPropertiesListOutput)
 }
 
-// Next page link if any.
 func (o VirtualNetworkPropertiesListPtrOutput) NextLink() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *VirtualNetworkPropertiesList) *string {
 		if v == nil {
@@ -3001,7 +2900,6 @@ func (o VirtualNetworkPropertiesListPtrOutput) NextLink() pulumi.StringPtrOutput
 	}).(pulumi.StringPtrOutput)
 }
 
-// Array of virtual networks.
 func (o VirtualNetworkPropertiesListPtrOutput) Value() VirtualNetworkPropertiesArrayOutput {
 	return o.ApplyT(func(v *VirtualNetworkPropertiesList) []VirtualNetworkProperties {
 		if v == nil {
@@ -3011,12 +2909,9 @@ func (o VirtualNetworkPropertiesListPtrOutput) Value() VirtualNetworkPropertiesA
 	}).(VirtualNetworkPropertiesArrayOutput)
 }
 
-// A list of private link resources
 type VirtualNetworkPropertiesListResponse struct {
-	// Next page link if any.
-	NextLink *string `pulumi:"nextLink"`
-	// Array of virtual networks.
-	Value []VirtualNetworkPropertiesResponse `pulumi:"value"`
+	NextLink *string                            `pulumi:"nextLink"`
+	Value    []VirtualNetworkPropertiesResponse `pulumi:"value"`
 }
 
 // VirtualNetworkPropertiesListResponseInput is an input type that accepts VirtualNetworkPropertiesListResponseArgs and VirtualNetworkPropertiesListResponseOutput values.
@@ -3030,12 +2925,9 @@ type VirtualNetworkPropertiesListResponseInput interface {
 	ToVirtualNetworkPropertiesListResponseOutputWithContext(context.Context) VirtualNetworkPropertiesListResponseOutput
 }
 
-// A list of private link resources
 type VirtualNetworkPropertiesListResponseArgs struct {
-	// Next page link if any.
-	NextLink pulumi.StringPtrInput `pulumi:"nextLink"`
-	// Array of virtual networks.
-	Value VirtualNetworkPropertiesResponseArrayInput `pulumi:"value"`
+	NextLink pulumi.StringPtrInput                      `pulumi:"nextLink"`
+	Value    VirtualNetworkPropertiesResponseArrayInput `pulumi:"value"`
 }
 
 func (VirtualNetworkPropertiesListResponseArgs) ElementType() reflect.Type {
@@ -3091,7 +2983,6 @@ func (i *virtualNetworkPropertiesListResponsePtrType) ToVirtualNetworkProperties
 	return pulumi.ToOutputWithContext(ctx, i).(VirtualNetworkPropertiesListResponsePtrOutput)
 }
 
-// A list of private link resources
 type VirtualNetworkPropertiesListResponseOutput struct{ *pulumi.OutputState }
 
 func (VirtualNetworkPropertiesListResponseOutput) ElementType() reflect.Type {
@@ -3111,17 +3002,15 @@ func (o VirtualNetworkPropertiesListResponseOutput) ToVirtualNetworkPropertiesLi
 }
 
 func (o VirtualNetworkPropertiesListResponseOutput) ToVirtualNetworkPropertiesListResponsePtrOutputWithContext(ctx context.Context) VirtualNetworkPropertiesListResponsePtrOutput {
-	return o.ApplyT(func(v VirtualNetworkPropertiesListResponse) *VirtualNetworkPropertiesListResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v VirtualNetworkPropertiesListResponse) *VirtualNetworkPropertiesListResponse {
 		return &v
 	}).(VirtualNetworkPropertiesListResponsePtrOutput)
 }
 
-// Next page link if any.
 func (o VirtualNetworkPropertiesListResponseOutput) NextLink() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v VirtualNetworkPropertiesListResponse) *string { return v.NextLink }).(pulumi.StringPtrOutput)
 }
 
-// Array of virtual networks.
 func (o VirtualNetworkPropertiesListResponseOutput) Value() VirtualNetworkPropertiesResponseArrayOutput {
 	return o.ApplyT(func(v VirtualNetworkPropertiesListResponse) []VirtualNetworkPropertiesResponse { return v.Value }).(VirtualNetworkPropertiesResponseArrayOutput)
 }
@@ -3141,10 +3030,15 @@ func (o VirtualNetworkPropertiesListResponsePtrOutput) ToVirtualNetworkPropertie
 }
 
 func (o VirtualNetworkPropertiesListResponsePtrOutput) Elem() VirtualNetworkPropertiesListResponseOutput {
-	return o.ApplyT(func(v *VirtualNetworkPropertiesListResponse) VirtualNetworkPropertiesListResponse { return *v }).(VirtualNetworkPropertiesListResponseOutput)
+	return o.ApplyT(func(v *VirtualNetworkPropertiesListResponse) VirtualNetworkPropertiesListResponse {
+		if v != nil {
+			return *v
+		}
+		var ret VirtualNetworkPropertiesListResponse
+		return ret
+	}).(VirtualNetworkPropertiesListResponseOutput)
 }
 
-// Next page link if any.
 func (o VirtualNetworkPropertiesListResponsePtrOutput) NextLink() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *VirtualNetworkPropertiesListResponse) *string {
 		if v == nil {
@@ -3154,7 +3048,6 @@ func (o VirtualNetworkPropertiesListResponsePtrOutput) NextLink() pulumi.StringP
 	}).(pulumi.StringPtrOutput)
 }
 
-// Array of virtual networks.
 func (o VirtualNetworkPropertiesListResponsePtrOutput) Value() VirtualNetworkPropertiesResponseArrayOutput {
 	return o.ApplyT(func(v *VirtualNetworkPropertiesListResponse) []VirtualNetworkPropertiesResponse {
 		if v == nil {
@@ -3164,11 +3057,8 @@ func (o VirtualNetworkPropertiesListResponsePtrOutput) Value() VirtualNetworkPro
 	}).(VirtualNetworkPropertiesResponseArrayOutput)
 }
 
-// Settings concerning the virtual network.
 type VirtualNetworkPropertiesResponse struct {
-	// Uri of the virtual network.
-	Id *string `pulumi:"id"`
-	// Properties of a subnet.
+	Id     *string                   `pulumi:"id"`
 	Subnet *SubnetPropertiesResponse `pulumi:"subnet"`
 }
 
@@ -3183,11 +3073,8 @@ type VirtualNetworkPropertiesResponseInput interface {
 	ToVirtualNetworkPropertiesResponseOutputWithContext(context.Context) VirtualNetworkPropertiesResponseOutput
 }
 
-// Settings concerning the virtual network.
 type VirtualNetworkPropertiesResponseArgs struct {
-	// Uri of the virtual network.
-	Id pulumi.StringPtrInput `pulumi:"id"`
-	// Properties of a subnet.
+	Id     pulumi.StringPtrInput            `pulumi:"id"`
 	Subnet SubnetPropertiesResponsePtrInput `pulumi:"subnet"`
 }
 
@@ -3228,7 +3115,6 @@ func (i VirtualNetworkPropertiesResponseArray) ToVirtualNetworkPropertiesRespons
 	return pulumi.ToOutputWithContext(ctx, i).(VirtualNetworkPropertiesResponseArrayOutput)
 }
 
-// Settings concerning the virtual network.
 type VirtualNetworkPropertiesResponseOutput struct{ *pulumi.OutputState }
 
 func (VirtualNetworkPropertiesResponseOutput) ElementType() reflect.Type {
@@ -3243,12 +3129,10 @@ func (o VirtualNetworkPropertiesResponseOutput) ToVirtualNetworkPropertiesRespon
 	return o
 }
 
-// Uri of the virtual network.
 func (o VirtualNetworkPropertiesResponseOutput) Id() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v VirtualNetworkPropertiesResponse) *string { return v.Id }).(pulumi.StringPtrOutput)
 }
 
-// Properties of a subnet.
 func (o VirtualNetworkPropertiesResponseOutput) Subnet() SubnetPropertiesResponsePtrOutput {
 	return o.ApplyT(func(v VirtualNetworkPropertiesResponse) *SubnetPropertiesResponse { return v.Subnet }).(SubnetPropertiesResponsePtrOutput)
 }

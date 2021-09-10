@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.KeyVault.V20180214.Outputs
 {
 
+    /// <summary>
+    /// A rule governing the accessibility of a vault from a specific ip address or ip range.
+    /// </summary>
     [OutputType]
     public sealed class IPRuleResponse
     {

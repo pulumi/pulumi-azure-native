@@ -11,16 +11,12 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Properties for the database account.
 type Service struct {
 	pulumi.CustomResourceState
 
-	// The name of the database account.
-	Name pulumi.StringOutput `pulumi:"name"`
-	// Services response resource.
-	Properties pulumi.AnyOutput `pulumi:"properties"`
-	// The type of Azure resource.
-	Type pulumi.StringOutput `pulumi:"type"`
+	Name       pulumi.StringOutput `pulumi:"name"`
+	Properties pulumi.AnyOutput    `pulumi:"properties"`
+	Type       pulumi.StringOutput `pulumi:"type"`
 }
 
 // NewService registers a new resource with the given unique name, arguments, and options.
@@ -86,26 +82,18 @@ func (ServiceState) ElementType() reflect.Type {
 }
 
 type serviceArgs struct {
-	// Cosmos DB database account name.
-	AccountName string `pulumi:"accountName"`
-	// Services response resource.
-	Properties interface{} `pulumi:"properties"`
-	// The name of the resource group. The name is case insensitive.
-	ResourceGroupName string `pulumi:"resourceGroupName"`
-	// Cosmos DB service name.
-	ServiceName *string `pulumi:"serviceName"`
+	AccountName       string      `pulumi:"accountName"`
+	Properties        interface{} `pulumi:"properties"`
+	ResourceGroupName string      `pulumi:"resourceGroupName"`
+	ServiceName       *string     `pulumi:"serviceName"`
 }
 
 // The set of arguments for constructing a Service resource.
 type ServiceArgs struct {
-	// Cosmos DB database account name.
-	AccountName pulumi.StringInput
-	// Services response resource.
-	Properties pulumi.Input
-	// The name of the resource group. The name is case insensitive.
+	AccountName       pulumi.StringInput
+	Properties        pulumi.Input
 	ResourceGroupName pulumi.StringInput
-	// Cosmos DB service name.
-	ServiceName pulumi.StringPtrInput
+	ServiceName       pulumi.StringPtrInput
 }
 
 func (ServiceArgs) ElementType() reflect.Type {
@@ -131,9 +119,7 @@ func (i *Service) ToServiceOutputWithContext(ctx context.Context) ServiceOutput 
 	return pulumi.ToOutputWithContext(ctx, i).(ServiceOutput)
 }
 
-type ServiceOutput struct {
-	*pulumi.OutputState
-}
+type ServiceOutput struct{ *pulumi.OutputState }
 
 func (ServiceOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*Service)(nil))

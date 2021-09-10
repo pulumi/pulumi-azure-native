@@ -7,8 +7,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Network base rule.
-//
 // Deprecated: Please use one of the variants: DefaultUserRule, UserRule.
 func LookupUserRule(ctx *pulumi.Context, args *LookupUserRuleArgs, opts ...pulumi.InvokeOption) (*LookupUserRuleResult, error) {
 	var rv LookupUserRuleResult
@@ -20,30 +18,19 @@ func LookupUserRule(ctx *pulumi.Context, args *LookupUserRuleArgs, opts ...pulum
 }
 
 type LookupUserRuleArgs struct {
-	// The name of the network manager security Configuration.
-	ConfigurationName string `pulumi:"configurationName"`
-	// The name of the network manager.
+	ConfigurationName  string `pulumi:"configurationName"`
 	NetworkManagerName string `pulumi:"networkManagerName"`
-	// The name of the resource group.
-	ResourceGroupName string `pulumi:"resourceGroupName"`
-	// The name of the network manager security Configuration rule collection.
+	ResourceGroupName  string `pulumi:"resourceGroupName"`
 	RuleCollectionName string `pulumi:"ruleCollectionName"`
-	// The name of the rule.
-	RuleName string `pulumi:"ruleName"`
+	RuleName           string `pulumi:"ruleName"`
 }
 
 // Network base rule.
 type LookupUserRuleResult struct {
-	// A unique read-only string that changes whenever the resource is updated.
-	Etag string `pulumi:"etag"`
-	// Resource ID.
-	Id string `pulumi:"id"`
-	// Whether the rule is custom or default.
-	Kind string `pulumi:"kind"`
-	// Resource name.
-	Name string `pulumi:"name"`
-	// The system metadata related to this resource.
+	Etag       string             `pulumi:"etag"`
+	Id         string             `pulumi:"id"`
+	Kind       string             `pulumi:"kind"`
+	Name       string             `pulumi:"name"`
 	SystemData SystemDataResponse `pulumi:"systemData"`
-	// Resource type.
-	Type string `pulumi:"type"`
+	Type       string             `pulumi:"type"`
 }

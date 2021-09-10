@@ -11,71 +11,40 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Volume resource
 type Volume struct {
 	pulumi.CustomResourceState
 
-	// UUID v4 or resource identifier used to identify the Backup.
-	BackupId pulumi.StringPtrOutput `pulumi:"backupId"`
-	// Unique Baremetal Tenant Identifier.
-	BaremetalTenantId pulumi.StringOutput `pulumi:"baremetalTenantId"`
-	// Specifies whether Cool Access(tiering) is enabled for the volume.
-	CoolAccess pulumi.BoolPtrOutput `pulumi:"coolAccess"`
-	// Specifies the number of days after which data that is not accessed by clients will be tiered.
-	CoolnessPeriod pulumi.IntPtrOutput `pulumi:"coolnessPeriod"`
-	// A unique file path for the volume. Used when creating mount targets
-	CreationToken pulumi.StringOutput `pulumi:"creationToken"`
-	// DataProtection type volumes include an object containing details of the replication
-	DataProtection VolumePropertiesResponseDataProtectionPtrOutput `pulumi:"dataProtection"`
-	// Encryption Key Source. Possible values are: 'Microsoft.NetApp'
-	EncryptionKeySource pulumi.StringPtrOutput `pulumi:"encryptionKeySource"`
-	// A unique read-only string that changes whenever the resource is updated.
-	Etag pulumi.StringOutput `pulumi:"etag"`
-	// Set of export policy rules
-	ExportPolicy VolumePropertiesResponseExportPolicyPtrOutput `pulumi:"exportPolicy"`
-	// Unique FileSystem Identifier.
-	FileSystemId pulumi.StringOutput `pulumi:"fileSystemId"`
-	// Restoring
-	IsRestoring pulumi.BoolPtrOutput `pulumi:"isRestoring"`
-	// Describe if a volume is KerberosEnabled. To be use with swagger version 2020-05-01 or later
-	KerberosEnabled pulumi.BoolPtrOutput `pulumi:"kerberosEnabled"`
-	// Specifies whether LDAP is enabled or not for a given NFS volume.
-	LdapEnabled pulumi.BoolPtrOutput `pulumi:"ldapEnabled"`
-	// Resource location
-	Location pulumi.StringOutput `pulumi:"location"`
-	// List of mount targets
-	MountTargets MountTargetPropertiesResponseArrayOutput `pulumi:"mountTargets"`
-	// Resource name
-	Name pulumi.StringOutput `pulumi:"name"`
-	// Set of protocol types, default NFSv3, CIFS for SMB protocol
-	ProtocolTypes pulumi.StringArrayOutput `pulumi:"protocolTypes"`
-	// Azure lifecycle management
-	ProvisioningState pulumi.StringOutput `pulumi:"provisioningState"`
-	// The security style of volume, default unix, defaults to ntfs for dual protocol or CIFS protocol
-	SecurityStyle pulumi.StringPtrOutput `pulumi:"securityStyle"`
-	// The service level of the file system
-	ServiceLevel pulumi.StringPtrOutput `pulumi:"serviceLevel"`
-	// Enables continuously available share property for smb volume. Only applicable for SMB volume
-	SmbContinuouslyAvailable pulumi.BoolPtrOutput `pulumi:"smbContinuouslyAvailable"`
-	// Enables encryption for in-flight smb3 data. Only applicable for SMB/DualProtocol volume. To be used with swagger version 2020-08-01 or later
-	SmbEncryption pulumi.BoolPtrOutput `pulumi:"smbEncryption"`
-	// If enabled (true) the volume will contain a read-only snapshot directory which provides access to each of the volume's snapshots (default to true).
-	SnapshotDirectoryVisible pulumi.BoolPtrOutput `pulumi:"snapshotDirectoryVisible"`
-	// UUID v4 or resource identifier used to identify the Snapshot.
-	SnapshotId pulumi.StringPtrOutput `pulumi:"snapshotId"`
-	// The Azure Resource URI for a delegated subnet. Must have the delegation Microsoft.NetApp/volumes
-	SubnetId pulumi.StringOutput `pulumi:"subnetId"`
-	// Resource tags
-	Tags            pulumi.StringMapOutput  `pulumi:"tags"`
-	ThroughputMibps pulumi.Float64PtrOutput `pulumi:"throughputMibps"`
-	// Resource type
-	Type pulumi.StringOutput `pulumi:"type"`
-	// UNIX permissions for NFS volume accepted in octal 4 digit format. First digit selects the set user ID(4), set group ID (2) and sticky (1) attributes. Second digit selects permission for the owner of the file: read (4), write (2) and execute (1). Third selects permissions for other users in the same group. the fourth for other users not in the group. 0755 - gives read/write/execute permissions to owner and read/execute to group and other users.
-	UnixPermissions pulumi.StringPtrOutput `pulumi:"unixPermissions"`
-	// Maximum storage quota allowed for a file system in bytes. This is a soft quota used for alerting only. Minimum size is 100 GiB. Upper limit is 100TiB. Specified in bytes.
-	UsageThreshold pulumi.Float64Output `pulumi:"usageThreshold"`
-	// What type of volume is this
-	VolumeType pulumi.StringPtrOutput `pulumi:"volumeType"`
+	BackupId                 pulumi.StringPtrOutput                          `pulumi:"backupId"`
+	BaremetalTenantId        pulumi.StringOutput                             `pulumi:"baremetalTenantId"`
+	CoolAccess               pulumi.BoolPtrOutput                            `pulumi:"coolAccess"`
+	CoolnessPeriod           pulumi.IntPtrOutput                             `pulumi:"coolnessPeriod"`
+	CreationToken            pulumi.StringOutput                             `pulumi:"creationToken"`
+	DataProtection           VolumePropertiesResponseDataProtectionPtrOutput `pulumi:"dataProtection"`
+	EncryptionKeySource      pulumi.StringPtrOutput                          `pulumi:"encryptionKeySource"`
+	Etag                     pulumi.StringOutput                             `pulumi:"etag"`
+	ExportPolicy             VolumePropertiesResponseExportPolicyPtrOutput   `pulumi:"exportPolicy"`
+	FileSystemId             pulumi.StringOutput                             `pulumi:"fileSystemId"`
+	IsRestoring              pulumi.BoolPtrOutput                            `pulumi:"isRestoring"`
+	KerberosEnabled          pulumi.BoolPtrOutput                            `pulumi:"kerberosEnabled"`
+	LdapEnabled              pulumi.BoolPtrOutput                            `pulumi:"ldapEnabled"`
+	Location                 pulumi.StringOutput                             `pulumi:"location"`
+	MountTargets             MountTargetPropertiesResponseArrayOutput        `pulumi:"mountTargets"`
+	Name                     pulumi.StringOutput                             `pulumi:"name"`
+	ProtocolTypes            pulumi.StringArrayOutput                        `pulumi:"protocolTypes"`
+	ProvisioningState        pulumi.StringOutput                             `pulumi:"provisioningState"`
+	SecurityStyle            pulumi.StringPtrOutput                          `pulumi:"securityStyle"`
+	ServiceLevel             pulumi.StringPtrOutput                          `pulumi:"serviceLevel"`
+	SmbContinuouslyAvailable pulumi.BoolPtrOutput                            `pulumi:"smbContinuouslyAvailable"`
+	SmbEncryption            pulumi.BoolPtrOutput                            `pulumi:"smbEncryption"`
+	SnapshotDirectoryVisible pulumi.BoolPtrOutput                            `pulumi:"snapshotDirectoryVisible"`
+	SnapshotId               pulumi.StringPtrOutput                          `pulumi:"snapshotId"`
+	SubnetId                 pulumi.StringOutput                             `pulumi:"subnetId"`
+	Tags                     pulumi.StringMapOutput                          `pulumi:"tags"`
+	ThroughputMibps          pulumi.Float64PtrOutput                         `pulumi:"throughputMibps"`
+	Type                     pulumi.StringOutput                             `pulumi:"type"`
+	UnixPermissions          pulumi.StringPtrOutput                          `pulumi:"unixPermissions"`
+	UsageThreshold           pulumi.Float64Output                            `pulumi:"usageThreshold"`
+	VolumeType               pulumi.StringPtrOutput                          `pulumi:"volumeType"`
 }
 
 // NewVolume registers a new resource with the given unique name, arguments, and options.
@@ -99,9 +68,6 @@ func NewVolume(ctx *pulumi.Context,
 	}
 	if args.SubnetId == nil {
 		return nil, errors.New("invalid value for required argument 'SubnetId'")
-	}
-	if args.UsageThreshold == nil {
-		return nil, errors.New("invalid value for required argument 'UsageThreshold'")
 	}
 	if args.CoolAccess == nil {
 		args.CoolAccess = pulumi.BoolPtr(false)
@@ -294,120 +260,66 @@ func (VolumeState) ElementType() reflect.Type {
 }
 
 type volumeArgs struct {
-	// The name of the NetApp account
-	AccountName string `pulumi:"accountName"`
-	// UUID v4 or resource identifier used to identify the Backup.
-	BackupId *string `pulumi:"backupId"`
-	// Specifies whether Cool Access(tiering) is enabled for the volume.
-	CoolAccess *bool `pulumi:"coolAccess"`
-	// Specifies the number of days after which data that is not accessed by clients will be tiered.
-	CoolnessPeriod *int `pulumi:"coolnessPeriod"`
-	// A unique file path for the volume. Used when creating mount targets
-	CreationToken string `pulumi:"creationToken"`
-	// DataProtection type volumes include an object containing details of the replication
-	DataProtection *VolumePropertiesDataProtection `pulumi:"dataProtection"`
-	// Encryption Key Source. Possible values are: 'Microsoft.NetApp'
-	EncryptionKeySource *string `pulumi:"encryptionKeySource"`
-	// Set of export policy rules
-	ExportPolicy *VolumePropertiesExportPolicy `pulumi:"exportPolicy"`
-	// Restoring
-	IsRestoring *bool `pulumi:"isRestoring"`
-	// Describe if a volume is KerberosEnabled. To be use with swagger version 2020-05-01 or later
-	KerberosEnabled *bool `pulumi:"kerberosEnabled"`
-	// Specifies whether LDAP is enabled or not for a given NFS volume.
-	LdapEnabled *bool `pulumi:"ldapEnabled"`
-	// Resource location
-	Location *string `pulumi:"location"`
-	// The name of the capacity pool
-	PoolName string `pulumi:"poolName"`
-	// Set of protocol types, default NFSv3, CIFS for SMB protocol
-	ProtocolTypes []string `pulumi:"protocolTypes"`
-	// The name of the resource group.
-	ResourceGroupName string `pulumi:"resourceGroupName"`
-	// The security style of volume, default unix, defaults to ntfs for dual protocol or CIFS protocol
-	SecurityStyle *string `pulumi:"securityStyle"`
-	// The service level of the file system
-	ServiceLevel *string `pulumi:"serviceLevel"`
-	// Enables continuously available share property for smb volume. Only applicable for SMB volume
-	SmbContinuouslyAvailable *bool `pulumi:"smbContinuouslyAvailable"`
-	// Enables encryption for in-flight smb3 data. Only applicable for SMB/DualProtocol volume. To be used with swagger version 2020-08-01 or later
-	SmbEncryption *bool `pulumi:"smbEncryption"`
-	// If enabled (true) the volume will contain a read-only snapshot directory which provides access to each of the volume's snapshots (default to true).
-	SnapshotDirectoryVisible *bool `pulumi:"snapshotDirectoryVisible"`
-	// UUID v4 or resource identifier used to identify the Snapshot.
-	SnapshotId *string `pulumi:"snapshotId"`
-	// The Azure Resource URI for a delegated subnet. Must have the delegation Microsoft.NetApp/volumes
-	SubnetId string `pulumi:"subnetId"`
-	// Resource tags
-	Tags            map[string]string `pulumi:"tags"`
-	ThroughputMibps *float64          `pulumi:"throughputMibps"`
-	// UNIX permissions for NFS volume accepted in octal 4 digit format. First digit selects the set user ID(4), set group ID (2) and sticky (1) attributes. Second digit selects permission for the owner of the file: read (4), write (2) and execute (1). Third selects permissions for other users in the same group. the fourth for other users not in the group. 0755 - gives read/write/execute permissions to owner and read/execute to group and other users.
-	UnixPermissions *string `pulumi:"unixPermissions"`
-	// Maximum storage quota allowed for a file system in bytes. This is a soft quota used for alerting only. Minimum size is 100 GiB. Upper limit is 100TiB. Specified in bytes.
-	UsageThreshold float64 `pulumi:"usageThreshold"`
-	// The name of the volume
-	VolumeName *string `pulumi:"volumeName"`
-	// What type of volume is this
-	VolumeType *string `pulumi:"volumeType"`
+	AccountName              string                          `pulumi:"accountName"`
+	BackupId                 *string                         `pulumi:"backupId"`
+	CoolAccess               *bool                           `pulumi:"coolAccess"`
+	CoolnessPeriod           *int                            `pulumi:"coolnessPeriod"`
+	CreationToken            string                          `pulumi:"creationToken"`
+	DataProtection           *VolumePropertiesDataProtection `pulumi:"dataProtection"`
+	EncryptionKeySource      *string                         `pulumi:"encryptionKeySource"`
+	ExportPolicy             *VolumePropertiesExportPolicy   `pulumi:"exportPolicy"`
+	IsRestoring              *bool                           `pulumi:"isRestoring"`
+	KerberosEnabled          *bool                           `pulumi:"kerberosEnabled"`
+	LdapEnabled              *bool                           `pulumi:"ldapEnabled"`
+	Location                 *string                         `pulumi:"location"`
+	PoolName                 string                          `pulumi:"poolName"`
+	ProtocolTypes            []string                        `pulumi:"protocolTypes"`
+	ResourceGroupName        string                          `pulumi:"resourceGroupName"`
+	SecurityStyle            *string                         `pulumi:"securityStyle"`
+	ServiceLevel             *string                         `pulumi:"serviceLevel"`
+	SmbContinuouslyAvailable *bool                           `pulumi:"smbContinuouslyAvailable"`
+	SmbEncryption            *bool                           `pulumi:"smbEncryption"`
+	SnapshotDirectoryVisible *bool                           `pulumi:"snapshotDirectoryVisible"`
+	SnapshotId               *string                         `pulumi:"snapshotId"`
+	SubnetId                 string                          `pulumi:"subnetId"`
+	Tags                     map[string]string               `pulumi:"tags"`
+	ThroughputMibps          *float64                        `pulumi:"throughputMibps"`
+	UnixPermissions          *string                         `pulumi:"unixPermissions"`
+	UsageThreshold           float64                         `pulumi:"usageThreshold"`
+	VolumeName               *string                         `pulumi:"volumeName"`
+	VolumeType               *string                         `pulumi:"volumeType"`
 }
 
 // The set of arguments for constructing a Volume resource.
 type VolumeArgs struct {
-	// The name of the NetApp account
-	AccountName pulumi.StringInput
-	// UUID v4 or resource identifier used to identify the Backup.
-	BackupId pulumi.StringPtrInput
-	// Specifies whether Cool Access(tiering) is enabled for the volume.
-	CoolAccess pulumi.BoolPtrInput
-	// Specifies the number of days after which data that is not accessed by clients will be tiered.
-	CoolnessPeriod pulumi.IntPtrInput
-	// A unique file path for the volume. Used when creating mount targets
-	CreationToken pulumi.StringInput
-	// DataProtection type volumes include an object containing details of the replication
-	DataProtection VolumePropertiesDataProtectionPtrInput
-	// Encryption Key Source. Possible values are: 'Microsoft.NetApp'
-	EncryptionKeySource pulumi.StringPtrInput
-	// Set of export policy rules
-	ExportPolicy VolumePropertiesExportPolicyPtrInput
-	// Restoring
-	IsRestoring pulumi.BoolPtrInput
-	// Describe if a volume is KerberosEnabled. To be use with swagger version 2020-05-01 or later
-	KerberosEnabled pulumi.BoolPtrInput
-	// Specifies whether LDAP is enabled or not for a given NFS volume.
-	LdapEnabled pulumi.BoolPtrInput
-	// Resource location
-	Location pulumi.StringPtrInput
-	// The name of the capacity pool
-	PoolName pulumi.StringInput
-	// Set of protocol types, default NFSv3, CIFS for SMB protocol
-	ProtocolTypes pulumi.StringArrayInput
-	// The name of the resource group.
-	ResourceGroupName pulumi.StringInput
-	// The security style of volume, default unix, defaults to ntfs for dual protocol or CIFS protocol
-	SecurityStyle pulumi.StringPtrInput
-	// The service level of the file system
-	ServiceLevel pulumi.StringPtrInput
-	// Enables continuously available share property for smb volume. Only applicable for SMB volume
+	AccountName              pulumi.StringInput
+	BackupId                 pulumi.StringPtrInput
+	CoolAccess               pulumi.BoolPtrInput
+	CoolnessPeriod           pulumi.IntPtrInput
+	CreationToken            pulumi.StringInput
+	DataProtection           VolumePropertiesDataProtectionPtrInput
+	EncryptionKeySource      pulumi.StringPtrInput
+	ExportPolicy             VolumePropertiesExportPolicyPtrInput
+	IsRestoring              pulumi.BoolPtrInput
+	KerberosEnabled          pulumi.BoolPtrInput
+	LdapEnabled              pulumi.BoolPtrInput
+	Location                 pulumi.StringPtrInput
+	PoolName                 pulumi.StringInput
+	ProtocolTypes            pulumi.StringArrayInput
+	ResourceGroupName        pulumi.StringInput
+	SecurityStyle            pulumi.StringPtrInput
+	ServiceLevel             pulumi.StringPtrInput
 	SmbContinuouslyAvailable pulumi.BoolPtrInput
-	// Enables encryption for in-flight smb3 data. Only applicable for SMB/DualProtocol volume. To be used with swagger version 2020-08-01 or later
-	SmbEncryption pulumi.BoolPtrInput
-	// If enabled (true) the volume will contain a read-only snapshot directory which provides access to each of the volume's snapshots (default to true).
+	SmbEncryption            pulumi.BoolPtrInput
 	SnapshotDirectoryVisible pulumi.BoolPtrInput
-	// UUID v4 or resource identifier used to identify the Snapshot.
-	SnapshotId pulumi.StringPtrInput
-	// The Azure Resource URI for a delegated subnet. Must have the delegation Microsoft.NetApp/volumes
-	SubnetId pulumi.StringInput
-	// Resource tags
-	Tags            pulumi.StringMapInput
-	ThroughputMibps pulumi.Float64PtrInput
-	// UNIX permissions for NFS volume accepted in octal 4 digit format. First digit selects the set user ID(4), set group ID (2) and sticky (1) attributes. Second digit selects permission for the owner of the file: read (4), write (2) and execute (1). Third selects permissions for other users in the same group. the fourth for other users not in the group. 0755 - gives read/write/execute permissions to owner and read/execute to group and other users.
-	UnixPermissions pulumi.StringPtrInput
-	// Maximum storage quota allowed for a file system in bytes. This is a soft quota used for alerting only. Minimum size is 100 GiB. Upper limit is 100TiB. Specified in bytes.
-	UsageThreshold pulumi.Float64Input
-	// The name of the volume
-	VolumeName pulumi.StringPtrInput
-	// What type of volume is this
-	VolumeType pulumi.StringPtrInput
+	SnapshotId               pulumi.StringPtrInput
+	SubnetId                 pulumi.StringInput
+	Tags                     pulumi.StringMapInput
+	ThroughputMibps          pulumi.Float64PtrInput
+	UnixPermissions          pulumi.StringPtrInput
+	UsageThreshold           pulumi.Float64Input
+	VolumeName               pulumi.StringPtrInput
+	VolumeType               pulumi.StringPtrInput
 }
 
 func (VolumeArgs) ElementType() reflect.Type {
@@ -433,9 +345,7 @@ func (i *Volume) ToVolumeOutputWithContext(ctx context.Context) VolumeOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(VolumeOutput)
 }
 
-type VolumeOutput struct {
-	*pulumi.OutputState
-}
+type VolumeOutput struct{ *pulumi.OutputState }
 
 func (VolumeOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*Volume)(nil))

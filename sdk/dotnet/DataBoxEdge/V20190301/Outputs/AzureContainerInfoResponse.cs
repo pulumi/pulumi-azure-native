@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.DataBoxEdge.V20190301.Outputs
 {
 
+    /// <summary>
+    /// Azure container mapping of the endpoint.
+    /// </summary>
     [OutputType]
     public sealed class AzureContainerInfoResponse
     {

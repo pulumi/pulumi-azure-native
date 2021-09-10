@@ -11,48 +11,28 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Properties that define a Continuous Export configuration.
 type ExportConfiguration struct {
 	pulumi.CustomResourceState
 
-	// The name of the Application Insights component.
-	ApplicationName pulumi.StringOutput `pulumi:"applicationName"`
-	// The name of the destination storage container.
-	ContainerName pulumi.StringOutput `pulumi:"containerName"`
-	// The name of destination account.
-	DestinationAccountId pulumi.StringOutput `pulumi:"destinationAccountId"`
-	// The destination account location ID.
-	DestinationStorageLocationId pulumi.StringOutput `pulumi:"destinationStorageLocationId"`
-	// The destination storage account subscription ID.
-	DestinationStorageSubscriptionId pulumi.StringOutput `pulumi:"destinationStorageSubscriptionId"`
-	// The destination type.
-	DestinationType pulumi.StringOutput `pulumi:"destinationType"`
-	// The unique ID of the export configuration inside an Application Insights component. It is auto generated when the Continuous Export configuration is created.
-	ExportId pulumi.StringOutput `pulumi:"exportId"`
-	// This indicates current Continuous Export configuration status. The possible values are 'Preparing', 'Success', 'Failure'.
-	ExportStatus pulumi.StringOutput `pulumi:"exportStatus"`
-	// The instrumentation key of the Application Insights component.
-	InstrumentationKey pulumi.StringOutput `pulumi:"instrumentationKey"`
-	// This will be 'true' if the Continuous Export configuration is enabled, otherwise it will be 'false'.
-	IsUserEnabled pulumi.StringOutput `pulumi:"isUserEnabled"`
-	// The last time the Continuous Export configuration started failing.
-	LastGapTime pulumi.StringOutput `pulumi:"lastGapTime"`
-	// The last time data was successfully delivered to the destination storage container for this Continuous Export configuration.
-	LastSuccessTime pulumi.StringOutput `pulumi:"lastSuccessTime"`
-	// Last time the Continuous Export configuration was updated.
-	LastUserUpdate pulumi.StringOutput `pulumi:"lastUserUpdate"`
-	// Deprecated
-	NotificationQueueEnabled pulumi.StringPtrOutput `pulumi:"notificationQueueEnabled"`
-	// This is the reason the Continuous Export configuration started failing. It can be 'AzureStorageNotFound' or 'AzureStorageAccessDenied'.
-	PermanentErrorReason pulumi.StringOutput `pulumi:"permanentErrorReason"`
-	// This comma separated list of document types that will be exported. The possible values include 'Requests', 'Event', 'Exceptions', 'Metrics', 'PageViews', 'PageViewPerformance', 'Rdd', 'PerformanceCounters', 'Availability', 'Messages'.
-	RecordTypes pulumi.StringPtrOutput `pulumi:"recordTypes"`
-	// The resource group of the Application Insights component.
-	ResourceGroup pulumi.StringOutput `pulumi:"resourceGroup"`
-	// The name of the destination storage account.
-	StorageName pulumi.StringOutput `pulumi:"storageName"`
-	// The subscription of the Application Insights component.
-	SubscriptionId pulumi.StringOutput `pulumi:"subscriptionId"`
+	ApplicationName                  pulumi.StringOutput    `pulumi:"applicationName"`
+	ContainerName                    pulumi.StringOutput    `pulumi:"containerName"`
+	DestinationAccountId             pulumi.StringOutput    `pulumi:"destinationAccountId"`
+	DestinationStorageLocationId     pulumi.StringOutput    `pulumi:"destinationStorageLocationId"`
+	DestinationStorageSubscriptionId pulumi.StringOutput    `pulumi:"destinationStorageSubscriptionId"`
+	DestinationType                  pulumi.StringOutput    `pulumi:"destinationType"`
+	ExportId                         pulumi.StringOutput    `pulumi:"exportId"`
+	ExportStatus                     pulumi.StringOutput    `pulumi:"exportStatus"`
+	InstrumentationKey               pulumi.StringOutput    `pulumi:"instrumentationKey"`
+	IsUserEnabled                    pulumi.StringOutput    `pulumi:"isUserEnabled"`
+	LastGapTime                      pulumi.StringOutput    `pulumi:"lastGapTime"`
+	LastSuccessTime                  pulumi.StringOutput    `pulumi:"lastSuccessTime"`
+	LastUserUpdate                   pulumi.StringOutput    `pulumi:"lastUserUpdate"`
+	NotificationQueueEnabled         pulumi.StringPtrOutput `pulumi:"notificationQueueEnabled"`
+	PermanentErrorReason             pulumi.StringOutput    `pulumi:"permanentErrorReason"`
+	RecordTypes                      pulumi.StringPtrOutput `pulumi:"recordTypes"`
+	ResourceGroup                    pulumi.StringOutput    `pulumi:"resourceGroup"`
+	StorageName                      pulumi.StringOutput    `pulumi:"storageName"`
+	SubscriptionId                   pulumi.StringOutput    `pulumi:"subscriptionId"`
 }
 
 // NewExportConfiguration registers a new resource with the given unique name, arguments, and options.
@@ -112,58 +92,34 @@ func (ExportConfigurationState) ElementType() reflect.Type {
 }
 
 type exportConfigurationArgs struct {
-	// The name of destination storage account.
-	DestinationAccountId *string `pulumi:"destinationAccountId"`
-	// The SAS URL for the destination storage container. It must grant write permission.
-	DestinationAddress *string `pulumi:"destinationAddress"`
-	// The location ID of the destination storage container.
-	DestinationStorageLocationId *string `pulumi:"destinationStorageLocationId"`
-	// The subscription ID of the destination storage container.
+	DestinationAccountId             *string `pulumi:"destinationAccountId"`
+	DestinationAddress               *string `pulumi:"destinationAddress"`
+	DestinationStorageLocationId     *string `pulumi:"destinationStorageLocationId"`
 	DestinationStorageSubscriptionId *string `pulumi:"destinationStorageSubscriptionId"`
-	// The Continuous Export destination type. This has to be 'Blob'.
-	DestinationType *string `pulumi:"destinationType"`
-	// The Continuous Export configuration ID. This is unique within a Application Insights component.
-	ExportId *string `pulumi:"exportId"`
-	// Set to 'true' to create a Continuous Export configuration as enabled, otherwise set it to 'false'.
-	IsEnabled *string `pulumi:"isEnabled"`
-	// Deprecated
-	NotificationQueueEnabled *string `pulumi:"notificationQueueEnabled"`
-	// Deprecated
-	NotificationQueueUri *string `pulumi:"notificationQueueUri"`
-	// The document types to be exported, as comma separated values. Allowed values include 'Requests', 'Event', 'Exceptions', 'Metrics', 'PageViews', 'PageViewPerformance', 'Rdd', 'PerformanceCounters', 'Availability', 'Messages'.
-	RecordTypes *string `pulumi:"recordTypes"`
-	// The name of the resource group. The name is case insensitive.
-	ResourceGroupName string `pulumi:"resourceGroupName"`
-	// The name of the Application Insights component resource.
-	ResourceName string `pulumi:"resourceName"`
+	DestinationType                  *string `pulumi:"destinationType"`
+	ExportId                         *string `pulumi:"exportId"`
+	IsEnabled                        *string `pulumi:"isEnabled"`
+	NotificationQueueEnabled         *string `pulumi:"notificationQueueEnabled"`
+	NotificationQueueUri             *string `pulumi:"notificationQueueUri"`
+	RecordTypes                      *string `pulumi:"recordTypes"`
+	ResourceGroupName                string  `pulumi:"resourceGroupName"`
+	ResourceName                     string  `pulumi:"resourceName"`
 }
 
 // The set of arguments for constructing a ExportConfiguration resource.
 type ExportConfigurationArgs struct {
-	// The name of destination storage account.
-	DestinationAccountId pulumi.StringPtrInput
-	// The SAS URL for the destination storage container. It must grant write permission.
-	DestinationAddress pulumi.StringPtrInput
-	// The location ID of the destination storage container.
-	DestinationStorageLocationId pulumi.StringPtrInput
-	// The subscription ID of the destination storage container.
+	DestinationAccountId             pulumi.StringPtrInput
+	DestinationAddress               pulumi.StringPtrInput
+	DestinationStorageLocationId     pulumi.StringPtrInput
 	DestinationStorageSubscriptionId pulumi.StringPtrInput
-	// The Continuous Export destination type. This has to be 'Blob'.
-	DestinationType pulumi.StringPtrInput
-	// The Continuous Export configuration ID. This is unique within a Application Insights component.
-	ExportId pulumi.StringPtrInput
-	// Set to 'true' to create a Continuous Export configuration as enabled, otherwise set it to 'false'.
-	IsEnabled pulumi.StringPtrInput
-	// Deprecated
-	NotificationQueueEnabled pulumi.StringPtrInput
-	// Deprecated
-	NotificationQueueUri pulumi.StringPtrInput
-	// The document types to be exported, as comma separated values. Allowed values include 'Requests', 'Event', 'Exceptions', 'Metrics', 'PageViews', 'PageViewPerformance', 'Rdd', 'PerformanceCounters', 'Availability', 'Messages'.
-	RecordTypes pulumi.StringPtrInput
-	// The name of the resource group. The name is case insensitive.
-	ResourceGroupName pulumi.StringInput
-	// The name of the Application Insights component resource.
-	ResourceName pulumi.StringInput
+	DestinationType                  pulumi.StringPtrInput
+	ExportId                         pulumi.StringPtrInput
+	IsEnabled                        pulumi.StringPtrInput
+	NotificationQueueEnabled         pulumi.StringPtrInput
+	NotificationQueueUri             pulumi.StringPtrInput
+	RecordTypes                      pulumi.StringPtrInput
+	ResourceGroupName                pulumi.StringInput
+	ResourceName                     pulumi.StringInput
 }
 
 func (ExportConfigurationArgs) ElementType() reflect.Type {
@@ -189,9 +145,7 @@ func (i *ExportConfiguration) ToExportConfigurationOutputWithContext(ctx context
 	return pulumi.ToOutputWithContext(ctx, i).(ExportConfigurationOutput)
 }
 
-type ExportConfigurationOutput struct {
-	*pulumi.OutputState
-}
+type ExportConfigurationOutput struct{ *pulumi.OutputState }
 
 func (ExportConfigurationOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*ExportConfiguration)(nil))

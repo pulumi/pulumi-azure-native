@@ -11,28 +11,18 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Specifies information about the availability set that the virtual machine should be assigned to. Virtual machines specified in the same availability set are allocated to different nodes to maximize availability. For more information about availability sets, see [Manage the availability of virtual machines](https://docs.microsoft.com/azure/virtual-machines/virtual-machines-windows-manage-availability?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json). <br><br> For more information on Azure planned maintenance, see [Planned maintenance for virtual machines in Azure](https://docs.microsoft.com/azure/virtual-machines/virtual-machines-windows-planned-maintenance?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) <br><br> Currently, a VM can only be added to availability set at creation time. An existing VM cannot be added to an availability set.
 type AvailabilitySet struct {
 	pulumi.CustomResourceState
 
-	// Resource location
-	Location pulumi.StringOutput `pulumi:"location"`
-	// Resource name
-	Name pulumi.StringOutput `pulumi:"name"`
-	// Fault Domain count.
-	PlatformFaultDomainCount pulumi.IntPtrOutput `pulumi:"platformFaultDomainCount"`
-	// Update Domain count.
-	PlatformUpdateDomainCount pulumi.IntPtrOutput `pulumi:"platformUpdateDomainCount"`
-	// Sku of the availability set
-	Sku SkuResponsePtrOutput `pulumi:"sku"`
-	// The resource status information.
-	Statuses InstanceViewStatusResponseArrayOutput `pulumi:"statuses"`
-	// Resource tags
-	Tags pulumi.StringMapOutput `pulumi:"tags"`
-	// Resource type
-	Type pulumi.StringOutput `pulumi:"type"`
-	// A list of references to all virtual machines in the availability set.
-	VirtualMachines SubResourceResponseArrayOutput `pulumi:"virtualMachines"`
+	Location                  pulumi.StringOutput                   `pulumi:"location"`
+	Name                      pulumi.StringOutput                   `pulumi:"name"`
+	PlatformFaultDomainCount  pulumi.IntPtrOutput                   `pulumi:"platformFaultDomainCount"`
+	PlatformUpdateDomainCount pulumi.IntPtrOutput                   `pulumi:"platformUpdateDomainCount"`
+	Sku                       SkuResponsePtrOutput                  `pulumi:"sku"`
+	Statuses                  InstanceViewStatusResponseArrayOutput `pulumi:"statuses"`
+	Tags                      pulumi.StringMapOutput                `pulumi:"tags"`
+	Type                      pulumi.StringOutput                   `pulumi:"type"`
+	VirtualMachines           SubResourceResponseArrayOutput        `pulumi:"virtualMachines"`
 }
 
 // NewAvailabilitySet registers a new resource with the given unique name, arguments, and options.
@@ -179,42 +169,26 @@ func (AvailabilitySetState) ElementType() reflect.Type {
 }
 
 type availabilitySetArgs struct {
-	// The name of the availability set.
-	AvailabilitySetName *string `pulumi:"availabilitySetName"`
-	// Resource location
-	Location *string `pulumi:"location"`
-	// Fault Domain count.
-	PlatformFaultDomainCount *int `pulumi:"platformFaultDomainCount"`
-	// Update Domain count.
-	PlatformUpdateDomainCount *int `pulumi:"platformUpdateDomainCount"`
-	// The name of the resource group.
-	ResourceGroupName string `pulumi:"resourceGroupName"`
-	// Sku of the availability set
-	Sku *Sku `pulumi:"sku"`
-	// Resource tags
-	Tags map[string]string `pulumi:"tags"`
-	// A list of references to all virtual machines in the availability set.
-	VirtualMachines []SubResource `pulumi:"virtualMachines"`
+	AvailabilitySetName       *string           `pulumi:"availabilitySetName"`
+	Location                  *string           `pulumi:"location"`
+	PlatformFaultDomainCount  *int              `pulumi:"platformFaultDomainCount"`
+	PlatformUpdateDomainCount *int              `pulumi:"platformUpdateDomainCount"`
+	ResourceGroupName         string            `pulumi:"resourceGroupName"`
+	Sku                       *Sku              `pulumi:"sku"`
+	Tags                      map[string]string `pulumi:"tags"`
+	VirtualMachines           []SubResource     `pulumi:"virtualMachines"`
 }
 
 // The set of arguments for constructing a AvailabilitySet resource.
 type AvailabilitySetArgs struct {
-	// The name of the availability set.
-	AvailabilitySetName pulumi.StringPtrInput
-	// Resource location
-	Location pulumi.StringPtrInput
-	// Fault Domain count.
-	PlatformFaultDomainCount pulumi.IntPtrInput
-	// Update Domain count.
+	AvailabilitySetName       pulumi.StringPtrInput
+	Location                  pulumi.StringPtrInput
+	PlatformFaultDomainCount  pulumi.IntPtrInput
 	PlatformUpdateDomainCount pulumi.IntPtrInput
-	// The name of the resource group.
-	ResourceGroupName pulumi.StringInput
-	// Sku of the availability set
-	Sku SkuPtrInput
-	// Resource tags
-	Tags pulumi.StringMapInput
-	// A list of references to all virtual machines in the availability set.
-	VirtualMachines SubResourceArrayInput
+	ResourceGroupName         pulumi.StringInput
+	Sku                       SkuPtrInput
+	Tags                      pulumi.StringMapInput
+	VirtualMachines           SubResourceArrayInput
 }
 
 func (AvailabilitySetArgs) ElementType() reflect.Type {
@@ -240,9 +214,7 @@ func (i *AvailabilitySet) ToAvailabilitySetOutputWithContext(ctx context.Context
 	return pulumi.ToOutputWithContext(ctx, i).(AvailabilitySetOutput)
 }
 
-type AvailabilitySetOutput struct {
-	*pulumi.OutputState
-}
+type AvailabilitySetOutput struct{ *pulumi.OutputState }
 
 func (AvailabilitySetOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*AvailabilitySet)(nil))

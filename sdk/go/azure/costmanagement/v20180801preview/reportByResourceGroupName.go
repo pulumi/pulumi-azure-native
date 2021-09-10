@@ -11,24 +11,16 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// A report resource.
 type ReportByResourceGroupName struct {
 	pulumi.CustomResourceState
 
-	// Has definition for the report.
-	Definition ReportDefinitionResponseOutput `pulumi:"definition"`
-	// Has delivery information for the report.
+	Definition   ReportDefinitionResponseOutput   `pulumi:"definition"`
 	DeliveryInfo ReportDeliveryInfoResponseOutput `pulumi:"deliveryInfo"`
-	// The format of the report being delivered.
-	Format pulumi.StringPtrOutput `pulumi:"format"`
-	// Resource name.
-	Name pulumi.StringOutput `pulumi:"name"`
-	// Has schedule information for the report.
-	Schedule ReportScheduleResponsePtrOutput `pulumi:"schedule"`
-	// Resource tags.
-	Tags pulumi.StringMapOutput `pulumi:"tags"`
-	// Resource type.
-	Type pulumi.StringOutput `pulumi:"type"`
+	Format       pulumi.StringPtrOutput           `pulumi:"format"`
+	Name         pulumi.StringOutput              `pulumi:"name"`
+	Schedule     ReportScheduleResponsePtrOutput  `pulumi:"schedule"`
+	Tags         pulumi.StringMapOutput           `pulumi:"tags"`
+	Type         pulumi.StringOutput              `pulumi:"type"`
 }
 
 // NewReportByResourceGroupName registers a new resource with the given unique name, arguments, and options.
@@ -91,34 +83,22 @@ func (ReportByResourceGroupNameState) ElementType() reflect.Type {
 }
 
 type reportByResourceGroupNameArgs struct {
-	// Has definition for the report.
-	Definition ReportDefinition `pulumi:"definition"`
-	// Has delivery information for the report.
-	DeliveryInfo ReportDeliveryInfo `pulumi:"deliveryInfo"`
-	// The format of the report being delivered.
-	Format *string `pulumi:"format"`
-	// Report Name.
-	ReportName *string `pulumi:"reportName"`
-	// Azure Resource Group Name.
-	ResourceGroupName string `pulumi:"resourceGroupName"`
-	// Has schedule information for the report.
-	Schedule *ReportSchedule `pulumi:"schedule"`
+	Definition        ReportDefinition   `pulumi:"definition"`
+	DeliveryInfo      ReportDeliveryInfo `pulumi:"deliveryInfo"`
+	Format            *string            `pulumi:"format"`
+	ReportName        *string            `pulumi:"reportName"`
+	ResourceGroupName string             `pulumi:"resourceGroupName"`
+	Schedule          *ReportSchedule    `pulumi:"schedule"`
 }
 
 // The set of arguments for constructing a ReportByResourceGroupName resource.
 type ReportByResourceGroupNameArgs struct {
-	// Has definition for the report.
-	Definition ReportDefinitionInput
-	// Has delivery information for the report.
-	DeliveryInfo ReportDeliveryInfoInput
-	// The format of the report being delivered.
-	Format pulumi.StringPtrInput
-	// Report Name.
-	ReportName pulumi.StringPtrInput
-	// Azure Resource Group Name.
+	Definition        ReportDefinitionInput
+	DeliveryInfo      ReportDeliveryInfoInput
+	Format            pulumi.StringPtrInput
+	ReportName        pulumi.StringPtrInput
 	ResourceGroupName pulumi.StringInput
-	// Has schedule information for the report.
-	Schedule ReportSchedulePtrInput
+	Schedule          ReportSchedulePtrInput
 }
 
 func (ReportByResourceGroupNameArgs) ElementType() reflect.Type {
@@ -144,9 +124,7 @@ func (i *ReportByResourceGroupName) ToReportByResourceGroupNameOutputWithContext
 	return pulumi.ToOutputWithContext(ctx, i).(ReportByResourceGroupNameOutput)
 }
 
-type ReportByResourceGroupNameOutput struct {
-	*pulumi.OutputState
-}
+type ReportByResourceGroupNameOutput struct{ *pulumi.OutputState }
 
 func (ReportByResourceGroupNameOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*ReportByResourceGroupName)(nil))

@@ -7,7 +7,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Subnet in a virtual network resource.
 func LookupSubnet(ctx *pulumi.Context, args *LookupSubnetArgs, opts ...pulumi.InvokeOption) (*LookupSubnetResult, error) {
 	var rv LookupSubnetResult
 	err := ctx.Invoke("azure-native:network/v20150615:getSubnet", args, &rv, opts...)
@@ -18,32 +17,20 @@ func LookupSubnet(ctx *pulumi.Context, args *LookupSubnetArgs, opts ...pulumi.In
 }
 
 type LookupSubnetArgs struct {
-	// Expands referenced resources.
-	Expand *string `pulumi:"expand"`
-	// The name of the resource group.
-	ResourceGroupName string `pulumi:"resourceGroupName"`
-	// The name of the subnet.
-	SubnetName string `pulumi:"subnetName"`
-	// The name of the virtual network.
-	VirtualNetworkName string `pulumi:"virtualNetworkName"`
+	Expand             *string `pulumi:"expand"`
+	ResourceGroupName  string  `pulumi:"resourceGroupName"`
+	SubnetName         string  `pulumi:"subnetName"`
+	VirtualNetworkName string  `pulumi:"virtualNetworkName"`
 }
 
 // Subnet in a virtual network resource.
 type LookupSubnetResult struct {
-	// The address prefix for the subnet.
-	AddressPrefix *string `pulumi:"addressPrefix"`
-	// A unique read-only string that changes whenever the resource is updated.
-	Etag *string `pulumi:"etag"`
-	// Resource Identifier.
-	Id *string `pulumi:"id"`
-	// Gets an array of references to the network interface IP configurations using subnet.
-	IpConfigurations []IPConfigurationResponse `pulumi:"ipConfigurations"`
-	// The name of the resource that is unique within a resource group. This name can be used to access the resource.
-	Name *string `pulumi:"name"`
-	// The reference of the NetworkSecurityGroup resource.
+	AddressPrefix        *string                       `pulumi:"addressPrefix"`
+	Etag                 *string                       `pulumi:"etag"`
+	Id                   *string                       `pulumi:"id"`
+	IpConfigurations     []IPConfigurationResponse     `pulumi:"ipConfigurations"`
+	Name                 *string                       `pulumi:"name"`
 	NetworkSecurityGroup *NetworkSecurityGroupResponse `pulumi:"networkSecurityGroup"`
-	// The provisioning state of the resource.
-	ProvisioningState *string `pulumi:"provisioningState"`
-	// The reference of the RouteTable resource.
-	RouteTable *RouteTableResponse `pulumi:"routeTable"`
+	ProvisioningState    *string                       `pulumi:"provisioningState"`
+	RouteTable           *RouteTableResponse           `pulumi:"routeTable"`
 }

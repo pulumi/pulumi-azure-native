@@ -7,7 +7,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Information about the connection monitor.
 func LookupConnectionMonitor(ctx *pulumi.Context, args *LookupConnectionMonitorArgs, opts ...pulumi.InvokeOption) (*LookupConnectionMonitorResult, error) {
 	var rv LookupConnectionMonitorResult
 	err := ctx.Invoke("azure-native:network/v20181101:getConnectionMonitor", args, &rv, opts...)
@@ -18,39 +17,24 @@ func LookupConnectionMonitor(ctx *pulumi.Context, args *LookupConnectionMonitorA
 }
 
 type LookupConnectionMonitorArgs struct {
-	// The name of the connection monitor.
 	ConnectionMonitorName string `pulumi:"connectionMonitorName"`
-	// The name of the Network Watcher resource.
-	NetworkWatcherName string `pulumi:"networkWatcherName"`
-	// The name of the resource group containing Network Watcher.
-	ResourceGroupName string `pulumi:"resourceGroupName"`
+	NetworkWatcherName    string `pulumi:"networkWatcherName"`
+	ResourceGroupName     string `pulumi:"resourceGroupName"`
 }
 
 // Information about the connection monitor.
 type LookupConnectionMonitorResult struct {
-	// Determines if the connection monitor will start automatically once created.
-	AutoStart *bool `pulumi:"autoStart"`
-	// Describes the destination of connection monitor.
-	Destination ConnectionMonitorDestinationResponse `pulumi:"destination"`
-	Etag        *string                              `pulumi:"etag"`
-	// ID of the connection monitor.
-	Id string `pulumi:"id"`
-	// Connection monitor location.
-	Location *string `pulumi:"location"`
-	// Monitoring interval in seconds.
-	MonitoringIntervalInSeconds *int `pulumi:"monitoringIntervalInSeconds"`
-	// The monitoring status of the connection monitor.
-	MonitoringStatus *string `pulumi:"monitoringStatus"`
-	// Name of the connection monitor.
-	Name string `pulumi:"name"`
-	// The provisioning state of the connection monitor.
-	ProvisioningState *string `pulumi:"provisioningState"`
-	// Describes the source of connection monitor.
-	Source ConnectionMonitorSourceResponse `pulumi:"source"`
-	// The date and time when the connection monitor was started.
-	StartTime *string `pulumi:"startTime"`
-	// Connection monitor tags.
-	Tags map[string]string `pulumi:"tags"`
-	// Connection monitor type.
-	Type string `pulumi:"type"`
+	AutoStart                   *bool                                `pulumi:"autoStart"`
+	Destination                 ConnectionMonitorDestinationResponse `pulumi:"destination"`
+	Etag                        *string                              `pulumi:"etag"`
+	Id                          string                               `pulumi:"id"`
+	Location                    *string                              `pulumi:"location"`
+	MonitoringIntervalInSeconds *int                                 `pulumi:"monitoringIntervalInSeconds"`
+	MonitoringStatus            *string                              `pulumi:"monitoringStatus"`
+	Name                        string                               `pulumi:"name"`
+	ProvisioningState           *string                              `pulumi:"provisioningState"`
+	Source                      ConnectionMonitorSourceResponse      `pulumi:"source"`
+	StartTime                   *string                              `pulumi:"startTime"`
+	Tags                        map[string]string                    `pulumi:"tags"`
+	Type                        string                               `pulumi:"type"`
 }

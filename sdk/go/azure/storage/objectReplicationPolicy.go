@@ -172,9 +172,7 @@ func (i *ObjectReplicationPolicy) ToObjectReplicationPolicyOutputWithContext(ctx
 	return pulumi.ToOutputWithContext(ctx, i).(ObjectReplicationPolicyOutput)
 }
 
-type ObjectReplicationPolicyOutput struct {
-	*pulumi.OutputState
-}
+type ObjectReplicationPolicyOutput struct{ *pulumi.OutputState }
 
 func (ObjectReplicationPolicyOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*ObjectReplicationPolicy)(nil))

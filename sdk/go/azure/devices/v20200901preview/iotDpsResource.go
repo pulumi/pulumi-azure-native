@@ -11,26 +11,17 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// The description of the provisioning service.
 type IotDpsResource struct {
 	pulumi.CustomResourceState
 
-	// The Etag field is *not* required. If it is provided in the response body, it must also be provided as a header per the normal ETag convention.
-	Etag pulumi.StringPtrOutput `pulumi:"etag"`
-	// The managed identities for the IotDps instance.
-	Identity ArmIdentityResponsePtrOutput `pulumi:"identity"`
-	// The resource location.
-	Location pulumi.StringOutput `pulumi:"location"`
-	// The resource name.
-	Name pulumi.StringOutput `pulumi:"name"`
-	// Service specific properties for a provisioning service
+	Etag       pulumi.StringPtrOutput                    `pulumi:"etag"`
+	Identity   ArmIdentityResponsePtrOutput              `pulumi:"identity"`
+	Location   pulumi.StringOutput                       `pulumi:"location"`
+	Name       pulumi.StringOutput                       `pulumi:"name"`
 	Properties IotDpsPropertiesDescriptionResponseOutput `pulumi:"properties"`
-	// Sku info for a provisioning Service.
-	Sku IotDpsSkuInfoResponseOutput `pulumi:"sku"`
-	// The resource tags.
-	Tags pulumi.StringMapOutput `pulumi:"tags"`
-	// The resource type.
-	Type pulumi.StringOutput `pulumi:"type"`
+	Sku        IotDpsSkuInfoResponseOutput               `pulumi:"sku"`
+	Tags       pulumi.StringMapOutput                    `pulumi:"tags"`
+	Type       pulumi.StringOutput                       `pulumi:"type"`
 }
 
 // NewIotDpsResource registers a new resource with the given unique name, arguments, and options.
@@ -123,42 +114,26 @@ func (IotDpsResourceState) ElementType() reflect.Type {
 }
 
 type iotDpsResourceArgs struct {
-	// The Etag field is *not* required. If it is provided in the response body, it must also be provided as a header per the normal ETag convention.
-	Etag *string `pulumi:"etag"`
-	// The managed identities for the IotDps instance.
-	Identity *ArmIdentity `pulumi:"identity"`
-	// The resource location.
-	Location *string `pulumi:"location"`
-	// Service specific properties for a provisioning service
-	Properties IotDpsPropertiesDescription `pulumi:"properties"`
-	// Name of provisioning service to create or update.
-	ProvisioningServiceName *string `pulumi:"provisioningServiceName"`
-	// Resource group identifier.
-	ResourceGroupName string `pulumi:"resourceGroupName"`
-	// Sku info for a provisioning Service.
-	Sku IotDpsSkuInfo `pulumi:"sku"`
-	// The resource tags.
-	Tags map[string]string `pulumi:"tags"`
+	Etag                    *string                     `pulumi:"etag"`
+	Identity                *ArmIdentity                `pulumi:"identity"`
+	Location                *string                     `pulumi:"location"`
+	Properties              IotDpsPropertiesDescription `pulumi:"properties"`
+	ProvisioningServiceName *string                     `pulumi:"provisioningServiceName"`
+	ResourceGroupName       string                      `pulumi:"resourceGroupName"`
+	Sku                     IotDpsSkuInfo               `pulumi:"sku"`
+	Tags                    map[string]string           `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a IotDpsResource resource.
 type IotDpsResourceArgs struct {
-	// The Etag field is *not* required. If it is provided in the response body, it must also be provided as a header per the normal ETag convention.
-	Etag pulumi.StringPtrInput
-	// The managed identities for the IotDps instance.
-	Identity ArmIdentityPtrInput
-	// The resource location.
-	Location pulumi.StringPtrInput
-	// Service specific properties for a provisioning service
-	Properties IotDpsPropertiesDescriptionInput
-	// Name of provisioning service to create or update.
+	Etag                    pulumi.StringPtrInput
+	Identity                ArmIdentityPtrInput
+	Location                pulumi.StringPtrInput
+	Properties              IotDpsPropertiesDescriptionInput
 	ProvisioningServiceName pulumi.StringPtrInput
-	// Resource group identifier.
-	ResourceGroupName pulumi.StringInput
-	// Sku info for a provisioning Service.
-	Sku IotDpsSkuInfoInput
-	// The resource tags.
-	Tags pulumi.StringMapInput
+	ResourceGroupName       pulumi.StringInput
+	Sku                     IotDpsSkuInfoInput
+	Tags                    pulumi.StringMapInput
 }
 
 func (IotDpsResourceArgs) ElementType() reflect.Type {
@@ -184,9 +159,7 @@ func (i *IotDpsResource) ToIotDpsResourceOutputWithContext(ctx context.Context) 
 	return pulumi.ToOutputWithContext(ctx, i).(IotDpsResourceOutput)
 }
 
-type IotDpsResourceOutput struct {
-	*pulumi.OutputState
-}
+type IotDpsResourceOutput struct{ *pulumi.OutputState }
 
 func (IotDpsResourceOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*IotDpsResource)(nil))

@@ -14,20 +14,13 @@ import (
 type B2CTenant struct {
 	pulumi.CustomResourceState
 
-	// The billing configuration for the tenant.
 	BillingConfig B2CTenantResourcePropertiesResponseBillingConfigPtrOutput `pulumi:"billingConfig"`
-	// The location in which the resource is hosted and data resides. Can be one of 'United States', 'Europe', 'Asia Pacific', or 'Australia' (preview). Refer to [this documentation](https://aka.ms/B2CDataResidency) for more information.
-	Location pulumi.StringOutput `pulumi:"location"`
-	// The name of the B2C tenant resource.
-	Name pulumi.StringOutput `pulumi:"name"`
-	// SKU properties of the Azure AD B2C tenant. Learn more about Azure AD B2C billing at [aka.ms/b2cBilling](https://aka.ms/b2cBilling).
-	Sku B2CResourceSKUResponseOutput `pulumi:"sku"`
-	// Resource Tags
-	Tags pulumi.StringMapOutput `pulumi:"tags"`
-	// An identifier of the B2C tenant.
-	TenantId pulumi.StringPtrOutput `pulumi:"tenantId"`
-	// The type of the B2C tenant resource.
-	Type pulumi.StringOutput `pulumi:"type"`
+	Location      pulumi.StringOutput                                       `pulumi:"location"`
+	Name          pulumi.StringOutput                                       `pulumi:"name"`
+	Sku           B2CResourceSKUResponseOutput                              `pulumi:"sku"`
+	Tags          pulumi.StringMapOutput                                    `pulumi:"tags"`
+	TenantId      pulumi.StringPtrOutput                                    `pulumi:"tenantId"`
+	Type          pulumi.StringOutput                                       `pulumi:"type"`
 }
 
 // NewB2CTenant registers a new resource with the given unique name, arguments, and options.
@@ -90,32 +83,22 @@ func (B2CTenantState) ElementType() reflect.Type {
 }
 
 type b2ctenantArgs struct {
-	// The location in which the resource is hosted and data resides. Can be one of 'United States', 'Europe', 'Asia Pacific', or 'Australia' (preview). Refer to [this documentation](https://aka.ms/B2CDataResidency) for more information.
-	Location   *string                           `pulumi:"location"`
-	Properties CreateTenantRequestBodyProperties `pulumi:"properties"`
-	// The name of the resource group.
-	ResourceGroupName string `pulumi:"resourceGroupName"`
-	// The initial domain name of the B2C tenant.
-	ResourceName *string `pulumi:"resourceName"`
-	// SKU properties of the Azure AD B2C tenant. Learn more about Azure AD B2C billing at [aka.ms/b2cBilling](https://aka.ms/b2cBilling).
-	Sku B2CResourceSKU `pulumi:"sku"`
-	// Resource Tags
-	Tags map[string]string `pulumi:"tags"`
+	Location          *string                           `pulumi:"location"`
+	Properties        CreateTenantRequestBodyProperties `pulumi:"properties"`
+	ResourceGroupName string                            `pulumi:"resourceGroupName"`
+	ResourceName      *string                           `pulumi:"resourceName"`
+	Sku               B2CResourceSKU                    `pulumi:"sku"`
+	Tags              map[string]string                 `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a B2CTenant resource.
 type B2CTenantArgs struct {
-	// The location in which the resource is hosted and data resides. Can be one of 'United States', 'Europe', 'Asia Pacific', or 'Australia' (preview). Refer to [this documentation](https://aka.ms/B2CDataResidency) for more information.
-	Location   pulumi.StringPtrInput
-	Properties CreateTenantRequestBodyPropertiesInput
-	// The name of the resource group.
+	Location          pulumi.StringPtrInput
+	Properties        CreateTenantRequestBodyPropertiesInput
 	ResourceGroupName pulumi.StringInput
-	// The initial domain name of the B2C tenant.
-	ResourceName pulumi.StringPtrInput
-	// SKU properties of the Azure AD B2C tenant. Learn more about Azure AD B2C billing at [aka.ms/b2cBilling](https://aka.ms/b2cBilling).
-	Sku B2CResourceSKUInput
-	// Resource Tags
-	Tags pulumi.StringMapInput
+	ResourceName      pulumi.StringPtrInput
+	Sku               B2CResourceSKUInput
+	Tags              pulumi.StringMapInput
 }
 
 func (B2CTenantArgs) ElementType() reflect.Type {
@@ -141,9 +124,7 @@ func (i *B2CTenant) ToB2CTenantOutputWithContext(ctx context.Context) B2CTenantO
 	return pulumi.ToOutputWithContext(ctx, i).(B2CTenantOutput)
 }
 
-type B2CTenantOutput struct {
-	*pulumi.OutputState
-}
+type B2CTenantOutput struct{ *pulumi.OutputState }
 
 func (B2CTenantOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*B2CTenant)(nil))

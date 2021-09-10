@@ -11,19 +11,13 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Tap configuration in a Network Interface.
 type NetworkInterfaceTapConfiguration struct {
 	pulumi.CustomResourceState
 
-	// A unique read-only string that changes whenever the resource is updated.
-	Etag pulumi.StringPtrOutput `pulumi:"etag"`
-	// The name of the resource that is unique within a resource group. This name can be used to access the resource.
-	Name pulumi.StringPtrOutput `pulumi:"name"`
-	// The provisioning state of the network interface tap configuration. Possible values are: 'Updating', 'Deleting', and 'Failed'.
-	ProvisioningState pulumi.StringOutput `pulumi:"provisioningState"`
-	// Sub Resource type.
-	Type pulumi.StringOutput `pulumi:"type"`
-	// The reference of the Virtual Network Tap resource.
+	Etag              pulumi.StringPtrOutput             `pulumi:"etag"`
+	Name              pulumi.StringPtrOutput             `pulumi:"name"`
+	ProvisioningState pulumi.StringOutput                `pulumi:"provisioningState"`
+	Type              pulumi.StringOutput                `pulumi:"type"`
 	VirtualNetworkTap VirtualNetworkTapResponsePtrOutput `pulumi:"virtualNetworkTap"`
 }
 
@@ -204,38 +198,24 @@ func (NetworkInterfaceTapConfigurationState) ElementType() reflect.Type {
 }
 
 type networkInterfaceTapConfigurationArgs struct {
-	// A unique read-only string that changes whenever the resource is updated.
-	Etag *string `pulumi:"etag"`
-	// Resource ID.
-	Id *string `pulumi:"id"`
-	// The name of the resource that is unique within a resource group. This name can be used to access the resource.
-	Name *string `pulumi:"name"`
-	// The name of the network interface.
-	NetworkInterfaceName string `pulumi:"networkInterfaceName"`
-	// The name of the resource group.
-	ResourceGroupName string `pulumi:"resourceGroupName"`
-	// The name of the tap configuration.
-	TapConfigurationName *string `pulumi:"tapConfigurationName"`
-	// The reference of the Virtual Network Tap resource.
-	VirtualNetworkTap *VirtualNetworkTapType `pulumi:"virtualNetworkTap"`
+	Etag                 *string                `pulumi:"etag"`
+	Id                   *string                `pulumi:"id"`
+	Name                 *string                `pulumi:"name"`
+	NetworkInterfaceName string                 `pulumi:"networkInterfaceName"`
+	ResourceGroupName    string                 `pulumi:"resourceGroupName"`
+	TapConfigurationName *string                `pulumi:"tapConfigurationName"`
+	VirtualNetworkTap    *VirtualNetworkTapType `pulumi:"virtualNetworkTap"`
 }
 
 // The set of arguments for constructing a NetworkInterfaceTapConfiguration resource.
 type NetworkInterfaceTapConfigurationArgs struct {
-	// A unique read-only string that changes whenever the resource is updated.
-	Etag pulumi.StringPtrInput
-	// Resource ID.
-	Id pulumi.StringPtrInput
-	// The name of the resource that is unique within a resource group. This name can be used to access the resource.
-	Name pulumi.StringPtrInput
-	// The name of the network interface.
+	Etag                 pulumi.StringPtrInput
+	Id                   pulumi.StringPtrInput
+	Name                 pulumi.StringPtrInput
 	NetworkInterfaceName pulumi.StringInput
-	// The name of the resource group.
-	ResourceGroupName pulumi.StringInput
-	// The name of the tap configuration.
+	ResourceGroupName    pulumi.StringInput
 	TapConfigurationName pulumi.StringPtrInput
-	// The reference of the Virtual Network Tap resource.
-	VirtualNetworkTap VirtualNetworkTapTypePtrInput
+	VirtualNetworkTap    VirtualNetworkTapTypePtrInput
 }
 
 func (NetworkInterfaceTapConfigurationArgs) ElementType() reflect.Type {
@@ -261,9 +241,7 @@ func (i *NetworkInterfaceTapConfiguration) ToNetworkInterfaceTapConfigurationOut
 	return pulumi.ToOutputWithContext(ctx, i).(NetworkInterfaceTapConfigurationOutput)
 }
 
-type NetworkInterfaceTapConfigurationOutput struct {
-	*pulumi.OutputState
-}
+type NetworkInterfaceTapConfigurationOutput struct{ *pulumi.OutputState }
 
 func (NetworkInterfaceTapConfigurationOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*NetworkInterfaceTapConfiguration)(nil))

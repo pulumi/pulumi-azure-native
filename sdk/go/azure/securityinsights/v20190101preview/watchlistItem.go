@@ -11,36 +11,22 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Represents a Watchlist item in Azure Security Insights.
 type WatchlistItem struct {
 	pulumi.CustomResourceState
 
-	// The time the watchlist item was created
-	Created pulumi.StringPtrOutput `pulumi:"created"`
-	// Describes a user that created the watchlist item
-	CreatedBy WatchlistUserInfoResponsePtrOutput `pulumi:"createdBy"`
-	// key-value pairs for a watchlist item entity mapping
-	EntityMapping pulumi.AnyOutput `pulumi:"entityMapping"`
-	// Etag of the azure resource
-	Etag pulumi.StringPtrOutput `pulumi:"etag"`
-	// A flag that indicates if the watchlist item is deleted or not
-	IsDeleted pulumi.BoolPtrOutput `pulumi:"isDeleted"`
-	// key-value pairs for a watchlist item
-	ItemsKeyValue pulumi.AnyOutput `pulumi:"itemsKeyValue"`
-	// Azure resource name
-	Name pulumi.StringOutput `pulumi:"name"`
-	// The tenantId to which the watchlist item belongs to
-	TenantId pulumi.StringPtrOutput `pulumi:"tenantId"`
-	// Azure resource type
-	Type pulumi.StringOutput `pulumi:"type"`
-	// The last time the watchlist item was updated
-	Updated pulumi.StringPtrOutput `pulumi:"updated"`
-	// Describes a user that updated the watchlist item
-	UpdatedBy WatchlistUserInfoResponsePtrOutput `pulumi:"updatedBy"`
-	// The id (a Guid) of the watchlist item
-	WatchlistItemId pulumi.StringPtrOutput `pulumi:"watchlistItemId"`
-	// The type of the watchlist item
-	WatchlistItemType pulumi.StringPtrOutput `pulumi:"watchlistItemType"`
+	Created           pulumi.StringPtrOutput             `pulumi:"created"`
+	CreatedBy         WatchlistUserInfoResponsePtrOutput `pulumi:"createdBy"`
+	EntityMapping     pulumi.AnyOutput                   `pulumi:"entityMapping"`
+	Etag              pulumi.StringPtrOutput             `pulumi:"etag"`
+	IsDeleted         pulumi.BoolPtrOutput               `pulumi:"isDeleted"`
+	ItemsKeyValue     pulumi.AnyOutput                   `pulumi:"itemsKeyValue"`
+	Name              pulumi.StringOutput                `pulumi:"name"`
+	TenantId          pulumi.StringPtrOutput             `pulumi:"tenantId"`
+	Type              pulumi.StringOutput                `pulumi:"type"`
+	Updated           pulumi.StringPtrOutput             `pulumi:"updated"`
+	UpdatedBy         WatchlistUserInfoResponsePtrOutput `pulumi:"updatedBy"`
+	WatchlistItemId   pulumi.StringPtrOutput             `pulumi:"watchlistItemId"`
+	WatchlistItemType pulumi.StringPtrOutput             `pulumi:"watchlistItemType"`
 }
 
 // NewWatchlistItem registers a new resource with the given unique name, arguments, and options.
@@ -121,70 +107,40 @@ func (WatchlistItemState) ElementType() reflect.Type {
 }
 
 type watchlistItemArgs struct {
-	// The time the watchlist item was created
-	Created *string `pulumi:"created"`
-	// Describes a user that created the watchlist item
-	CreatedBy *WatchlistUserInfo `pulumi:"createdBy"`
-	// key-value pairs for a watchlist item entity mapping
-	EntityMapping interface{} `pulumi:"entityMapping"`
-	// Etag of the azure resource
-	Etag *string `pulumi:"etag"`
-	// A flag that indicates if the watchlist item is deleted or not
-	IsDeleted *bool `pulumi:"isDeleted"`
-	// key-value pairs for a watchlist item
-	ItemsKeyValue interface{} `pulumi:"itemsKeyValue"`
-	// The namespace of workspaces resource provider- Microsoft.OperationalInsights.
-	OperationalInsightsResourceProvider string `pulumi:"operationalInsightsResourceProvider"`
-	// The name of the resource group within the user's subscription. The name is case insensitive.
-	ResourceGroupName string `pulumi:"resourceGroupName"`
-	// The tenantId to which the watchlist item belongs to
-	TenantId *string `pulumi:"tenantId"`
-	// The last time the watchlist item was updated
-	Updated *string `pulumi:"updated"`
-	// Describes a user that updated the watchlist item
-	UpdatedBy *WatchlistUserInfo `pulumi:"updatedBy"`
-	// Watchlist Alias
-	WatchlistAlias string `pulumi:"watchlistAlias"`
-	// The id (a Guid) of the watchlist item
-	WatchlistItemId *string `pulumi:"watchlistItemId"`
-	// The type of the watchlist item
-	WatchlistItemType *string `pulumi:"watchlistItemType"`
-	// The name of the workspace.
-	WorkspaceName string `pulumi:"workspaceName"`
+	Created                             *string            `pulumi:"created"`
+	CreatedBy                           *WatchlistUserInfo `pulumi:"createdBy"`
+	EntityMapping                       interface{}        `pulumi:"entityMapping"`
+	Etag                                *string            `pulumi:"etag"`
+	IsDeleted                           *bool              `pulumi:"isDeleted"`
+	ItemsKeyValue                       interface{}        `pulumi:"itemsKeyValue"`
+	OperationalInsightsResourceProvider string             `pulumi:"operationalInsightsResourceProvider"`
+	ResourceGroupName                   string             `pulumi:"resourceGroupName"`
+	TenantId                            *string            `pulumi:"tenantId"`
+	Updated                             *string            `pulumi:"updated"`
+	UpdatedBy                           *WatchlistUserInfo `pulumi:"updatedBy"`
+	WatchlistAlias                      string             `pulumi:"watchlistAlias"`
+	WatchlistItemId                     *string            `pulumi:"watchlistItemId"`
+	WatchlistItemType                   *string            `pulumi:"watchlistItemType"`
+	WorkspaceName                       string             `pulumi:"workspaceName"`
 }
 
 // The set of arguments for constructing a WatchlistItem resource.
 type WatchlistItemArgs struct {
-	// The time the watchlist item was created
-	Created pulumi.StringPtrInput
-	// Describes a user that created the watchlist item
-	CreatedBy WatchlistUserInfoPtrInput
-	// key-value pairs for a watchlist item entity mapping
-	EntityMapping pulumi.Input
-	// Etag of the azure resource
-	Etag pulumi.StringPtrInput
-	// A flag that indicates if the watchlist item is deleted or not
-	IsDeleted pulumi.BoolPtrInput
-	// key-value pairs for a watchlist item
-	ItemsKeyValue pulumi.Input
-	// The namespace of workspaces resource provider- Microsoft.OperationalInsights.
+	Created                             pulumi.StringPtrInput
+	CreatedBy                           WatchlistUserInfoPtrInput
+	EntityMapping                       pulumi.Input
+	Etag                                pulumi.StringPtrInput
+	IsDeleted                           pulumi.BoolPtrInput
+	ItemsKeyValue                       pulumi.Input
 	OperationalInsightsResourceProvider pulumi.StringInput
-	// The name of the resource group within the user's subscription. The name is case insensitive.
-	ResourceGroupName pulumi.StringInput
-	// The tenantId to which the watchlist item belongs to
-	TenantId pulumi.StringPtrInput
-	// The last time the watchlist item was updated
-	Updated pulumi.StringPtrInput
-	// Describes a user that updated the watchlist item
-	UpdatedBy WatchlistUserInfoPtrInput
-	// Watchlist Alias
-	WatchlistAlias pulumi.StringInput
-	// The id (a Guid) of the watchlist item
-	WatchlistItemId pulumi.StringPtrInput
-	// The type of the watchlist item
-	WatchlistItemType pulumi.StringPtrInput
-	// The name of the workspace.
-	WorkspaceName pulumi.StringInput
+	ResourceGroupName                   pulumi.StringInput
+	TenantId                            pulumi.StringPtrInput
+	Updated                             pulumi.StringPtrInput
+	UpdatedBy                           WatchlistUserInfoPtrInput
+	WatchlistAlias                      pulumi.StringInput
+	WatchlistItemId                     pulumi.StringPtrInput
+	WatchlistItemType                   pulumi.StringPtrInput
+	WorkspaceName                       pulumi.StringInput
 }
 
 func (WatchlistItemArgs) ElementType() reflect.Type {
@@ -210,9 +166,7 @@ func (i *WatchlistItem) ToWatchlistItemOutputWithContext(ctx context.Context) Wa
 	return pulumi.ToOutputWithContext(ctx, i).(WatchlistItemOutput)
 }
 
-type WatchlistItemOutput struct {
-	*pulumi.OutputState
-}
+type WatchlistItemOutput struct{ *pulumi.OutputState }
 
 func (WatchlistItemOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*WatchlistItem)(nil))

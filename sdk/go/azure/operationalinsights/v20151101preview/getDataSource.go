@@ -7,7 +7,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Datasources under OMS Workspace.
 func LookupDataSource(ctx *pulumi.Context, args *LookupDataSourceArgs, opts ...pulumi.InvokeOption) (*LookupDataSourceResult, error) {
 	var rv LookupDataSourceResult
 	err := ctx.Invoke("azure-native:operationalinsights/v20151101preview:getDataSource", args, &rv, opts...)
@@ -18,28 +17,18 @@ func LookupDataSource(ctx *pulumi.Context, args *LookupDataSourceArgs, opts ...p
 }
 
 type LookupDataSourceArgs struct {
-	// Name of the datasource
-	DataSourceName string `pulumi:"dataSourceName"`
-	// The name of the resource group to get. The name is case insensitive.
+	DataSourceName    string `pulumi:"dataSourceName"`
 	ResourceGroupName string `pulumi:"resourceGroupName"`
-	// Name of the Log Analytics Workspace that contains the datasource.
-	WorkspaceName string `pulumi:"workspaceName"`
+	WorkspaceName     string `pulumi:"workspaceName"`
 }
 
 // Datasources under OMS Workspace.
 type LookupDataSourceResult struct {
-	// The ETag of the data source.
-	ETag *string `pulumi:"eTag"`
-	// Resource ID.
-	Id string `pulumi:"id"`
-	// The kind of the DataSource.
-	Kind string `pulumi:"kind"`
-	// Resource name.
-	Name string `pulumi:"name"`
-	// The data source properties in raw json format, each kind of data source have it's own schema.
-	Properties interface{} `pulumi:"properties"`
-	// Resource tags
-	Tags map[string]string `pulumi:"tags"`
-	// Resource type.
-	Type string `pulumi:"type"`
+	ETag       *string           `pulumi:"eTag"`
+	Id         string            `pulumi:"id"`
+	Kind       string            `pulumi:"kind"`
+	Name       string            `pulumi:"name"`
+	Properties interface{}       `pulumi:"properties"`
+	Tags       map[string]string `pulumi:"tags"`
+	Type       string            `pulumi:"type"`
 }

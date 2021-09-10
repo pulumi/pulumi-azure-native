@@ -7,7 +7,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// The HDInsight cluster.
 func LookupCluster(ctx *pulumi.Context, args *LookupClusterArgs, opts ...pulumi.InvokeOption) (*LookupClusterResult, error) {
 	var rv LookupClusterResult
 	err := ctx.Invoke("azure-native:hdinsight/v20150301preview:getCluster", args, &rv, opts...)
@@ -18,28 +17,18 @@ func LookupCluster(ctx *pulumi.Context, args *LookupClusterArgs, opts ...pulumi.
 }
 
 type LookupClusterArgs struct {
-	// The name of the cluster.
-	ClusterName string `pulumi:"clusterName"`
-	// The name of the resource group.
+	ClusterName       string `pulumi:"clusterName"`
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 }
 
 // The HDInsight cluster.
 type LookupClusterResult struct {
-	// The ETag for the resource
-	Etag *string `pulumi:"etag"`
-	// Fully qualified resource Id for the resource.
-	Id string `pulumi:"id"`
-	// The identity of the cluster, if configured.
-	Identity *ClusterIdentityResponse `pulumi:"identity"`
-	// The Azure Region where the resource lives
-	Location *string `pulumi:"location"`
-	// The name of the resource
-	Name string `pulumi:"name"`
-	// The properties of the cluster.
+	Etag       *string                      `pulumi:"etag"`
+	Id         string                       `pulumi:"id"`
+	Identity   *ClusterIdentityResponse     `pulumi:"identity"`
+	Location   *string                      `pulumi:"location"`
+	Name       string                       `pulumi:"name"`
 	Properties ClusterGetPropertiesResponse `pulumi:"properties"`
-	// Resource tags.
-	Tags map[string]string `pulumi:"tags"`
-	// The type of the resource.
-	Type string `pulumi:"type"`
+	Tags       map[string]string            `pulumi:"tags"`
+	Type       string                       `pulumi:"type"`
 }

@@ -207,9 +207,7 @@ func (i *IotSecuritySolution) ToIotSecuritySolutionOutputWithContext(ctx context
 	return pulumi.ToOutputWithContext(ctx, i).(IotSecuritySolutionOutput)
 }
 
-type IotSecuritySolutionOutput struct {
-	*pulumi.OutputState
-}
+type IotSecuritySolutionOutput struct{ *pulumi.OutputState }
 
 func (IotSecuritySolutionOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*IotSecuritySolution)(nil))

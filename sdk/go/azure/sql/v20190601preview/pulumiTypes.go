@@ -10,14 +10,10 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Properties of a private endpoint connection.
 type PrivateEndpointConnectionPropertiesResponse struct {
-	// Private endpoint which the connection belongs to.
-	PrivateEndpoint *PrivateEndpointPropertyResponse `pulumi:"privateEndpoint"`
-	// Connection state of the private endpoint connection.
+	PrivateEndpoint                   *PrivateEndpointPropertyResponse                   `pulumi:"privateEndpoint"`
 	PrivateLinkServiceConnectionState *PrivateLinkServiceConnectionStatePropertyResponse `pulumi:"privateLinkServiceConnectionState"`
-	// State of the private endpoint connection.
-	ProvisioningState string `pulumi:"provisioningState"`
+	ProvisioningState                 string                                             `pulumi:"provisioningState"`
 }
 
 // PrivateEndpointConnectionPropertiesResponseInput is an input type that accepts PrivateEndpointConnectionPropertiesResponseArgs and PrivateEndpointConnectionPropertiesResponseOutput values.
@@ -31,14 +27,10 @@ type PrivateEndpointConnectionPropertiesResponseInput interface {
 	ToPrivateEndpointConnectionPropertiesResponseOutputWithContext(context.Context) PrivateEndpointConnectionPropertiesResponseOutput
 }
 
-// Properties of a private endpoint connection.
 type PrivateEndpointConnectionPropertiesResponseArgs struct {
-	// Private endpoint which the connection belongs to.
-	PrivateEndpoint PrivateEndpointPropertyResponsePtrInput `pulumi:"privateEndpoint"`
-	// Connection state of the private endpoint connection.
+	PrivateEndpoint                   PrivateEndpointPropertyResponsePtrInput                   `pulumi:"privateEndpoint"`
 	PrivateLinkServiceConnectionState PrivateLinkServiceConnectionStatePropertyResponsePtrInput `pulumi:"privateLinkServiceConnectionState"`
-	// State of the private endpoint connection.
-	ProvisioningState pulumi.StringInput `pulumi:"provisioningState"`
+	ProvisioningState                 pulumi.StringInput                                        `pulumi:"provisioningState"`
 }
 
 func (PrivateEndpointConnectionPropertiesResponseArgs) ElementType() reflect.Type {
@@ -53,7 +45,6 @@ func (i PrivateEndpointConnectionPropertiesResponseArgs) ToPrivateEndpointConnec
 	return pulumi.ToOutputWithContext(ctx, i).(PrivateEndpointConnectionPropertiesResponseOutput)
 }
 
-// Properties of a private endpoint connection.
 type PrivateEndpointConnectionPropertiesResponseOutput struct{ *pulumi.OutputState }
 
 func (PrivateEndpointConnectionPropertiesResponseOutput) ElementType() reflect.Type {
@@ -68,27 +59,23 @@ func (o PrivateEndpointConnectionPropertiesResponseOutput) ToPrivateEndpointConn
 	return o
 }
 
-// Private endpoint which the connection belongs to.
 func (o PrivateEndpointConnectionPropertiesResponseOutput) PrivateEndpoint() PrivateEndpointPropertyResponsePtrOutput {
 	return o.ApplyT(func(v PrivateEndpointConnectionPropertiesResponse) *PrivateEndpointPropertyResponse {
 		return v.PrivateEndpoint
 	}).(PrivateEndpointPropertyResponsePtrOutput)
 }
 
-// Connection state of the private endpoint connection.
 func (o PrivateEndpointConnectionPropertiesResponseOutput) PrivateLinkServiceConnectionState() PrivateLinkServiceConnectionStatePropertyResponsePtrOutput {
 	return o.ApplyT(func(v PrivateEndpointConnectionPropertiesResponse) *PrivateLinkServiceConnectionStatePropertyResponse {
 		return v.PrivateLinkServiceConnectionState
 	}).(PrivateLinkServiceConnectionStatePropertyResponsePtrOutput)
 }
 
-// State of the private endpoint connection.
 func (o PrivateEndpointConnectionPropertiesResponseOutput) ProvisioningState() pulumi.StringOutput {
 	return o.ApplyT(func(v PrivateEndpointConnectionPropertiesResponse) string { return v.ProvisioningState }).(pulumi.StringOutput)
 }
 
 type PrivateEndpointPropertyResponse struct {
-	// Resource id of the private endpoint.
 	Id *string `pulumi:"id"`
 }
 
@@ -104,7 +91,6 @@ type PrivateEndpointPropertyResponseInput interface {
 }
 
 type PrivateEndpointPropertyResponseArgs struct {
-	// Resource id of the private endpoint.
 	Id pulumi.StringPtrInput `pulumi:"id"`
 }
 
@@ -180,12 +166,11 @@ func (o PrivateEndpointPropertyResponseOutput) ToPrivateEndpointPropertyResponse
 }
 
 func (o PrivateEndpointPropertyResponseOutput) ToPrivateEndpointPropertyResponsePtrOutputWithContext(ctx context.Context) PrivateEndpointPropertyResponsePtrOutput {
-	return o.ApplyT(func(v PrivateEndpointPropertyResponse) *PrivateEndpointPropertyResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v PrivateEndpointPropertyResponse) *PrivateEndpointPropertyResponse {
 		return &v
 	}).(PrivateEndpointPropertyResponsePtrOutput)
 }
 
-// Resource id of the private endpoint.
 func (o PrivateEndpointPropertyResponseOutput) Id() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v PrivateEndpointPropertyResponse) *string { return v.Id }).(pulumi.StringPtrOutput)
 }
@@ -205,10 +190,15 @@ func (o PrivateEndpointPropertyResponsePtrOutput) ToPrivateEndpointPropertyRespo
 }
 
 func (o PrivateEndpointPropertyResponsePtrOutput) Elem() PrivateEndpointPropertyResponseOutput {
-	return o.ApplyT(func(v *PrivateEndpointPropertyResponse) PrivateEndpointPropertyResponse { return *v }).(PrivateEndpointPropertyResponseOutput)
+	return o.ApplyT(func(v *PrivateEndpointPropertyResponse) PrivateEndpointPropertyResponse {
+		if v != nil {
+			return *v
+		}
+		var ret PrivateEndpointPropertyResponse
+		return ret
+	}).(PrivateEndpointPropertyResponseOutput)
 }
 
-// Resource id of the private endpoint.
 func (o PrivateEndpointPropertyResponsePtrOutput) Id() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *PrivateEndpointPropertyResponse) *string {
 		if v == nil {
@@ -219,12 +209,9 @@ func (o PrivateEndpointPropertyResponsePtrOutput) Id() pulumi.StringPtrOutput {
 }
 
 type PrivateLinkServiceConnectionStatePropertyResponse struct {
-	// The actions required for private link service connection.
 	ActionsRequired string `pulumi:"actionsRequired"`
-	// The private link service connection description.
-	Description string `pulumi:"description"`
-	// The private link service connection status.
-	Status string `pulumi:"status"`
+	Description     string `pulumi:"description"`
+	Status          string `pulumi:"status"`
 }
 
 // PrivateLinkServiceConnectionStatePropertyResponseInput is an input type that accepts PrivateLinkServiceConnectionStatePropertyResponseArgs and PrivateLinkServiceConnectionStatePropertyResponseOutput values.
@@ -239,12 +226,9 @@ type PrivateLinkServiceConnectionStatePropertyResponseInput interface {
 }
 
 type PrivateLinkServiceConnectionStatePropertyResponseArgs struct {
-	// The actions required for private link service connection.
 	ActionsRequired pulumi.StringInput `pulumi:"actionsRequired"`
-	// The private link service connection description.
-	Description pulumi.StringInput `pulumi:"description"`
-	// The private link service connection status.
-	Status pulumi.StringInput `pulumi:"status"`
+	Description     pulumi.StringInput `pulumi:"description"`
+	Status          pulumi.StringInput `pulumi:"status"`
 }
 
 func (PrivateLinkServiceConnectionStatePropertyResponseArgs) ElementType() reflect.Type {
@@ -319,22 +303,19 @@ func (o PrivateLinkServiceConnectionStatePropertyResponseOutput) ToPrivateLinkSe
 }
 
 func (o PrivateLinkServiceConnectionStatePropertyResponseOutput) ToPrivateLinkServiceConnectionStatePropertyResponsePtrOutputWithContext(ctx context.Context) PrivateLinkServiceConnectionStatePropertyResponsePtrOutput {
-	return o.ApplyT(func(v PrivateLinkServiceConnectionStatePropertyResponse) *PrivateLinkServiceConnectionStatePropertyResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v PrivateLinkServiceConnectionStatePropertyResponse) *PrivateLinkServiceConnectionStatePropertyResponse {
 		return &v
 	}).(PrivateLinkServiceConnectionStatePropertyResponsePtrOutput)
 }
 
-// The actions required for private link service connection.
 func (o PrivateLinkServiceConnectionStatePropertyResponseOutput) ActionsRequired() pulumi.StringOutput {
 	return o.ApplyT(func(v PrivateLinkServiceConnectionStatePropertyResponse) string { return v.ActionsRequired }).(pulumi.StringOutput)
 }
 
-// The private link service connection description.
 func (o PrivateLinkServiceConnectionStatePropertyResponseOutput) Description() pulumi.StringOutput {
 	return o.ApplyT(func(v PrivateLinkServiceConnectionStatePropertyResponse) string { return v.Description }).(pulumi.StringOutput)
 }
 
-// The private link service connection status.
 func (o PrivateLinkServiceConnectionStatePropertyResponseOutput) Status() pulumi.StringOutput {
 	return o.ApplyT(func(v PrivateLinkServiceConnectionStatePropertyResponse) string { return v.Status }).(pulumi.StringOutput)
 }
@@ -355,11 +336,14 @@ func (o PrivateLinkServiceConnectionStatePropertyResponsePtrOutput) ToPrivateLin
 
 func (o PrivateLinkServiceConnectionStatePropertyResponsePtrOutput) Elem() PrivateLinkServiceConnectionStatePropertyResponseOutput {
 	return o.ApplyT(func(v *PrivateLinkServiceConnectionStatePropertyResponse) PrivateLinkServiceConnectionStatePropertyResponse {
-		return *v
+		if v != nil {
+			return *v
+		}
+		var ret PrivateLinkServiceConnectionStatePropertyResponse
+		return ret
 	}).(PrivateLinkServiceConnectionStatePropertyResponseOutput)
 }
 
-// The actions required for private link service connection.
 func (o PrivateLinkServiceConnectionStatePropertyResponsePtrOutput) ActionsRequired() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *PrivateLinkServiceConnectionStatePropertyResponse) *string {
 		if v == nil {
@@ -369,7 +353,6 @@ func (o PrivateLinkServiceConnectionStatePropertyResponsePtrOutput) ActionsRequi
 	}).(pulumi.StringPtrOutput)
 }
 
-// The private link service connection description.
 func (o PrivateLinkServiceConnectionStatePropertyResponsePtrOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *PrivateLinkServiceConnectionStatePropertyResponse) *string {
 		if v == nil {
@@ -379,7 +362,6 @@ func (o PrivateLinkServiceConnectionStatePropertyResponsePtrOutput) Description(
 	}).(pulumi.StringPtrOutput)
 }
 
-// The private link service connection status.
 func (o PrivateLinkServiceConnectionStatePropertyResponsePtrOutput) Status() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *PrivateLinkServiceConnectionStatePropertyResponse) *string {
 		if v == nil {
@@ -389,9 +371,7 @@ func (o PrivateLinkServiceConnectionStatePropertyResponsePtrOutput) Status() pul
 	}).(pulumi.StringPtrOutput)
 }
 
-// Azure Active Directory identity configuration for a resource.
 type ResourceIdentity struct {
-	// The identity type. Set this to 'SystemAssigned' in order to automatically create and assign an Azure Active Directory principal for the resource.
 	Type *string `pulumi:"type"`
 }
 
@@ -406,9 +386,7 @@ type ResourceIdentityInput interface {
 	ToResourceIdentityOutputWithContext(context.Context) ResourceIdentityOutput
 }
 
-// Azure Active Directory identity configuration for a resource.
 type ResourceIdentityArgs struct {
-	// The identity type. Set this to 'SystemAssigned' in order to automatically create and assign an Azure Active Directory principal for the resource.
 	Type pulumi.StringPtrInput `pulumi:"type"`
 }
 
@@ -465,7 +443,6 @@ func (i *resourceIdentityPtrType) ToResourceIdentityPtrOutputWithContext(ctx con
 	return pulumi.ToOutputWithContext(ctx, i).(ResourceIdentityPtrOutput)
 }
 
-// Azure Active Directory identity configuration for a resource.
 type ResourceIdentityOutput struct{ *pulumi.OutputState }
 
 func (ResourceIdentityOutput) ElementType() reflect.Type {
@@ -485,12 +462,11 @@ func (o ResourceIdentityOutput) ToResourceIdentityPtrOutput() ResourceIdentityPt
 }
 
 func (o ResourceIdentityOutput) ToResourceIdentityPtrOutputWithContext(ctx context.Context) ResourceIdentityPtrOutput {
-	return o.ApplyT(func(v ResourceIdentity) *ResourceIdentity {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ResourceIdentity) *ResourceIdentity {
 		return &v
 	}).(ResourceIdentityPtrOutput)
 }
 
-// The identity type. Set this to 'SystemAssigned' in order to automatically create and assign an Azure Active Directory principal for the resource.
 func (o ResourceIdentityOutput) Type() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ResourceIdentity) *string { return v.Type }).(pulumi.StringPtrOutput)
 }
@@ -510,10 +486,15 @@ func (o ResourceIdentityPtrOutput) ToResourceIdentityPtrOutputWithContext(ctx co
 }
 
 func (o ResourceIdentityPtrOutput) Elem() ResourceIdentityOutput {
-	return o.ApplyT(func(v *ResourceIdentity) ResourceIdentity { return *v }).(ResourceIdentityOutput)
+	return o.ApplyT(func(v *ResourceIdentity) ResourceIdentity {
+		if v != nil {
+			return *v
+		}
+		var ret ResourceIdentity
+		return ret
+	}).(ResourceIdentityOutput)
 }
 
-// The identity type. Set this to 'SystemAssigned' in order to automatically create and assign an Azure Active Directory principal for the resource.
 func (o ResourceIdentityPtrOutput) Type() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ResourceIdentity) *string {
 		if v == nil {
@@ -523,14 +504,10 @@ func (o ResourceIdentityPtrOutput) Type() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Azure Active Directory identity configuration for a resource.
 type ResourceIdentityResponse struct {
-	// The Azure Active Directory principal id.
-	PrincipalId string `pulumi:"principalId"`
-	// The Azure Active Directory tenant id.
-	TenantId string `pulumi:"tenantId"`
-	// The identity type. Set this to 'SystemAssigned' in order to automatically create and assign an Azure Active Directory principal for the resource.
-	Type *string `pulumi:"type"`
+	PrincipalId string  `pulumi:"principalId"`
+	TenantId    string  `pulumi:"tenantId"`
+	Type        *string `pulumi:"type"`
 }
 
 // ResourceIdentityResponseInput is an input type that accepts ResourceIdentityResponseArgs and ResourceIdentityResponseOutput values.
@@ -544,14 +521,10 @@ type ResourceIdentityResponseInput interface {
 	ToResourceIdentityResponseOutputWithContext(context.Context) ResourceIdentityResponseOutput
 }
 
-// Azure Active Directory identity configuration for a resource.
 type ResourceIdentityResponseArgs struct {
-	// The Azure Active Directory principal id.
-	PrincipalId pulumi.StringInput `pulumi:"principalId"`
-	// The Azure Active Directory tenant id.
-	TenantId pulumi.StringInput `pulumi:"tenantId"`
-	// The identity type. Set this to 'SystemAssigned' in order to automatically create and assign an Azure Active Directory principal for the resource.
-	Type pulumi.StringPtrInput `pulumi:"type"`
+	PrincipalId pulumi.StringInput    `pulumi:"principalId"`
+	TenantId    pulumi.StringInput    `pulumi:"tenantId"`
+	Type        pulumi.StringPtrInput `pulumi:"type"`
 }
 
 func (ResourceIdentityResponseArgs) ElementType() reflect.Type {
@@ -607,7 +580,6 @@ func (i *resourceIdentityResponsePtrType) ToResourceIdentityResponsePtrOutputWit
 	return pulumi.ToOutputWithContext(ctx, i).(ResourceIdentityResponsePtrOutput)
 }
 
-// Azure Active Directory identity configuration for a resource.
 type ResourceIdentityResponseOutput struct{ *pulumi.OutputState }
 
 func (ResourceIdentityResponseOutput) ElementType() reflect.Type {
@@ -627,22 +599,19 @@ func (o ResourceIdentityResponseOutput) ToResourceIdentityResponsePtrOutput() Re
 }
 
 func (o ResourceIdentityResponseOutput) ToResourceIdentityResponsePtrOutputWithContext(ctx context.Context) ResourceIdentityResponsePtrOutput {
-	return o.ApplyT(func(v ResourceIdentityResponse) *ResourceIdentityResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ResourceIdentityResponse) *ResourceIdentityResponse {
 		return &v
 	}).(ResourceIdentityResponsePtrOutput)
 }
 
-// The Azure Active Directory principal id.
 func (o ResourceIdentityResponseOutput) PrincipalId() pulumi.StringOutput {
 	return o.ApplyT(func(v ResourceIdentityResponse) string { return v.PrincipalId }).(pulumi.StringOutput)
 }
 
-// The Azure Active Directory tenant id.
 func (o ResourceIdentityResponseOutput) TenantId() pulumi.StringOutput {
 	return o.ApplyT(func(v ResourceIdentityResponse) string { return v.TenantId }).(pulumi.StringOutput)
 }
 
-// The identity type. Set this to 'SystemAssigned' in order to automatically create and assign an Azure Active Directory principal for the resource.
 func (o ResourceIdentityResponseOutput) Type() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ResourceIdentityResponse) *string { return v.Type }).(pulumi.StringPtrOutput)
 }
@@ -662,10 +631,15 @@ func (o ResourceIdentityResponsePtrOutput) ToResourceIdentityResponsePtrOutputWi
 }
 
 func (o ResourceIdentityResponsePtrOutput) Elem() ResourceIdentityResponseOutput {
-	return o.ApplyT(func(v *ResourceIdentityResponse) ResourceIdentityResponse { return *v }).(ResourceIdentityResponseOutput)
+	return o.ApplyT(func(v *ResourceIdentityResponse) ResourceIdentityResponse {
+		if v != nil {
+			return *v
+		}
+		var ret ResourceIdentityResponse
+		return ret
+	}).(ResourceIdentityResponseOutput)
 }
 
-// The Azure Active Directory principal id.
 func (o ResourceIdentityResponsePtrOutput) PrincipalId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ResourceIdentityResponse) *string {
 		if v == nil {
@@ -675,7 +649,6 @@ func (o ResourceIdentityResponsePtrOutput) PrincipalId() pulumi.StringPtrOutput 
 	}).(pulumi.StringPtrOutput)
 }
 
-// The Azure Active Directory tenant id.
 func (o ResourceIdentityResponsePtrOutput) TenantId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ResourceIdentityResponse) *string {
 		if v == nil {
@@ -685,7 +658,6 @@ func (o ResourceIdentityResponsePtrOutput) TenantId() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The identity type. Set this to 'SystemAssigned' in order to automatically create and assign an Azure Active Directory principal for the resource.
 func (o ResourceIdentityResponsePtrOutput) Type() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ResourceIdentityResponse) *string {
 		if v == nil {
@@ -695,11 +667,8 @@ func (o ResourceIdentityResponsePtrOutput) Type() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// A private endpoint connection under a server
 type ServerPrivateEndpointConnectionResponse struct {
-	// Resource ID.
-	Id string `pulumi:"id"`
-	// Private endpoint connection properties
+	Id         string                                      `pulumi:"id"`
 	Properties PrivateEndpointConnectionPropertiesResponse `pulumi:"properties"`
 }
 
@@ -714,11 +683,8 @@ type ServerPrivateEndpointConnectionResponseInput interface {
 	ToServerPrivateEndpointConnectionResponseOutputWithContext(context.Context) ServerPrivateEndpointConnectionResponseOutput
 }
 
-// A private endpoint connection under a server
 type ServerPrivateEndpointConnectionResponseArgs struct {
-	// Resource ID.
-	Id pulumi.StringInput `pulumi:"id"`
-	// Private endpoint connection properties
+	Id         pulumi.StringInput                               `pulumi:"id"`
 	Properties PrivateEndpointConnectionPropertiesResponseInput `pulumi:"properties"`
 }
 
@@ -759,7 +725,6 @@ func (i ServerPrivateEndpointConnectionResponseArray) ToServerPrivateEndpointCon
 	return pulumi.ToOutputWithContext(ctx, i).(ServerPrivateEndpointConnectionResponseArrayOutput)
 }
 
-// A private endpoint connection under a server
 type ServerPrivateEndpointConnectionResponseOutput struct{ *pulumi.OutputState }
 
 func (ServerPrivateEndpointConnectionResponseOutput) ElementType() reflect.Type {
@@ -774,12 +739,10 @@ func (o ServerPrivateEndpointConnectionResponseOutput) ToServerPrivateEndpointCo
 	return o
 }
 
-// Resource ID.
 func (o ServerPrivateEndpointConnectionResponseOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v ServerPrivateEndpointConnectionResponse) string { return v.Id }).(pulumi.StringOutput)
 }
 
-// Private endpoint connection properties
 func (o ServerPrivateEndpointConnectionResponseOutput) Properties() PrivateEndpointConnectionPropertiesResponseOutput {
 	return o.ApplyT(func(v ServerPrivateEndpointConnectionResponse) PrivateEndpointConnectionPropertiesResponse {
 		return v.Properties
@@ -806,18 +769,12 @@ func (o ServerPrivateEndpointConnectionResponseArrayOutput) Index(i pulumi.IntIn
 	}).(ServerPrivateEndpointConnectionResponseOutput)
 }
 
-// An ARM Resource SKU.
 type Sku struct {
-	// Capacity of the particular SKU.
-	Capacity *int `pulumi:"capacity"`
-	// If the service has different generations of hardware, for the same SKU, then that can be captured here.
-	Family *string `pulumi:"family"`
-	// The name of the SKU, typically, a letter + Number code, e.g. P3.
-	Name string `pulumi:"name"`
-	// Size of the particular SKU
-	Size *string `pulumi:"size"`
-	// The tier or edition of the particular SKU, e.g. Basic, Premium.
-	Tier *string `pulumi:"tier"`
+	Capacity *int    `pulumi:"capacity"`
+	Family   *string `pulumi:"family"`
+	Name     string  `pulumi:"name"`
+	Size     *string `pulumi:"size"`
+	Tier     *string `pulumi:"tier"`
 }
 
 // SkuInput is an input type that accepts SkuArgs and SkuOutput values.
@@ -831,18 +788,12 @@ type SkuInput interface {
 	ToSkuOutputWithContext(context.Context) SkuOutput
 }
 
-// An ARM Resource SKU.
 type SkuArgs struct {
-	// Capacity of the particular SKU.
-	Capacity pulumi.IntPtrInput `pulumi:"capacity"`
-	// If the service has different generations of hardware, for the same SKU, then that can be captured here.
-	Family pulumi.StringPtrInput `pulumi:"family"`
-	// The name of the SKU, typically, a letter + Number code, e.g. P3.
-	Name pulumi.StringInput `pulumi:"name"`
-	// Size of the particular SKU
-	Size pulumi.StringPtrInput `pulumi:"size"`
-	// The tier or edition of the particular SKU, e.g. Basic, Premium.
-	Tier pulumi.StringPtrInput `pulumi:"tier"`
+	Capacity pulumi.IntPtrInput    `pulumi:"capacity"`
+	Family   pulumi.StringPtrInput `pulumi:"family"`
+	Name     pulumi.StringInput    `pulumi:"name"`
+	Size     pulumi.StringPtrInput `pulumi:"size"`
+	Tier     pulumi.StringPtrInput `pulumi:"tier"`
 }
 
 func (SkuArgs) ElementType() reflect.Type {
@@ -898,7 +849,6 @@ func (i *skuPtrType) ToSkuPtrOutputWithContext(ctx context.Context) SkuPtrOutput
 	return pulumi.ToOutputWithContext(ctx, i).(SkuPtrOutput)
 }
 
-// An ARM Resource SKU.
 type SkuOutput struct{ *pulumi.OutputState }
 
 func (SkuOutput) ElementType() reflect.Type {
@@ -918,32 +868,27 @@ func (o SkuOutput) ToSkuPtrOutput() SkuPtrOutput {
 }
 
 func (o SkuOutput) ToSkuPtrOutputWithContext(ctx context.Context) SkuPtrOutput {
-	return o.ApplyT(func(v Sku) *Sku {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v Sku) *Sku {
 		return &v
 	}).(SkuPtrOutput)
 }
 
-// Capacity of the particular SKU.
 func (o SkuOutput) Capacity() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v Sku) *int { return v.Capacity }).(pulumi.IntPtrOutput)
 }
 
-// If the service has different generations of hardware, for the same SKU, then that can be captured here.
 func (o SkuOutput) Family() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v Sku) *string { return v.Family }).(pulumi.StringPtrOutput)
 }
 
-// The name of the SKU, typically, a letter + Number code, e.g. P3.
 func (o SkuOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v Sku) string { return v.Name }).(pulumi.StringOutput)
 }
 
-// Size of the particular SKU
 func (o SkuOutput) Size() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v Sku) *string { return v.Size }).(pulumi.StringPtrOutput)
 }
 
-// The tier or edition of the particular SKU, e.g. Basic, Premium.
 func (o SkuOutput) Tier() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v Sku) *string { return v.Tier }).(pulumi.StringPtrOutput)
 }
@@ -963,10 +908,15 @@ func (o SkuPtrOutput) ToSkuPtrOutputWithContext(ctx context.Context) SkuPtrOutpu
 }
 
 func (o SkuPtrOutput) Elem() SkuOutput {
-	return o.ApplyT(func(v *Sku) Sku { return *v }).(SkuOutput)
+	return o.ApplyT(func(v *Sku) Sku {
+		if v != nil {
+			return *v
+		}
+		var ret Sku
+		return ret
+	}).(SkuOutput)
 }
 
-// Capacity of the particular SKU.
 func (o SkuPtrOutput) Capacity() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *Sku) *int {
 		if v == nil {
@@ -976,7 +926,6 @@ func (o SkuPtrOutput) Capacity() pulumi.IntPtrOutput {
 	}).(pulumi.IntPtrOutput)
 }
 
-// If the service has different generations of hardware, for the same SKU, then that can be captured here.
 func (o SkuPtrOutput) Family() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Sku) *string {
 		if v == nil {
@@ -986,7 +935,6 @@ func (o SkuPtrOutput) Family() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The name of the SKU, typically, a letter + Number code, e.g. P3.
 func (o SkuPtrOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Sku) *string {
 		if v == nil {
@@ -996,7 +944,6 @@ func (o SkuPtrOutput) Name() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Size of the particular SKU
 func (o SkuPtrOutput) Size() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Sku) *string {
 		if v == nil {
@@ -1006,7 +953,6 @@ func (o SkuPtrOutput) Size() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The tier or edition of the particular SKU, e.g. Basic, Premium.
 func (o SkuPtrOutput) Tier() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Sku) *string {
 		if v == nil {
@@ -1016,18 +962,12 @@ func (o SkuPtrOutput) Tier() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// An ARM Resource SKU.
 type SkuResponse struct {
-	// Capacity of the particular SKU.
-	Capacity *int `pulumi:"capacity"`
-	// If the service has different generations of hardware, for the same SKU, then that can be captured here.
-	Family *string `pulumi:"family"`
-	// The name of the SKU, typically, a letter + Number code, e.g. P3.
-	Name string `pulumi:"name"`
-	// Size of the particular SKU
-	Size *string `pulumi:"size"`
-	// The tier or edition of the particular SKU, e.g. Basic, Premium.
-	Tier *string `pulumi:"tier"`
+	Capacity *int    `pulumi:"capacity"`
+	Family   *string `pulumi:"family"`
+	Name     string  `pulumi:"name"`
+	Size     *string `pulumi:"size"`
+	Tier     *string `pulumi:"tier"`
 }
 
 // SkuResponseInput is an input type that accepts SkuResponseArgs and SkuResponseOutput values.
@@ -1041,18 +981,12 @@ type SkuResponseInput interface {
 	ToSkuResponseOutputWithContext(context.Context) SkuResponseOutput
 }
 
-// An ARM Resource SKU.
 type SkuResponseArgs struct {
-	// Capacity of the particular SKU.
-	Capacity pulumi.IntPtrInput `pulumi:"capacity"`
-	// If the service has different generations of hardware, for the same SKU, then that can be captured here.
-	Family pulumi.StringPtrInput `pulumi:"family"`
-	// The name of the SKU, typically, a letter + Number code, e.g. P3.
-	Name pulumi.StringInput `pulumi:"name"`
-	// Size of the particular SKU
-	Size pulumi.StringPtrInput `pulumi:"size"`
-	// The tier or edition of the particular SKU, e.g. Basic, Premium.
-	Tier pulumi.StringPtrInput `pulumi:"tier"`
+	Capacity pulumi.IntPtrInput    `pulumi:"capacity"`
+	Family   pulumi.StringPtrInput `pulumi:"family"`
+	Name     pulumi.StringInput    `pulumi:"name"`
+	Size     pulumi.StringPtrInput `pulumi:"size"`
+	Tier     pulumi.StringPtrInput `pulumi:"tier"`
 }
 
 func (SkuResponseArgs) ElementType() reflect.Type {
@@ -1108,7 +1042,6 @@ func (i *skuResponsePtrType) ToSkuResponsePtrOutputWithContext(ctx context.Conte
 	return pulumi.ToOutputWithContext(ctx, i).(SkuResponsePtrOutput)
 }
 
-// An ARM Resource SKU.
 type SkuResponseOutput struct{ *pulumi.OutputState }
 
 func (SkuResponseOutput) ElementType() reflect.Type {
@@ -1128,32 +1061,27 @@ func (o SkuResponseOutput) ToSkuResponsePtrOutput() SkuResponsePtrOutput {
 }
 
 func (o SkuResponseOutput) ToSkuResponsePtrOutputWithContext(ctx context.Context) SkuResponsePtrOutput {
-	return o.ApplyT(func(v SkuResponse) *SkuResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v SkuResponse) *SkuResponse {
 		return &v
 	}).(SkuResponsePtrOutput)
 }
 
-// Capacity of the particular SKU.
 func (o SkuResponseOutput) Capacity() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v SkuResponse) *int { return v.Capacity }).(pulumi.IntPtrOutput)
 }
 
-// If the service has different generations of hardware, for the same SKU, then that can be captured here.
 func (o SkuResponseOutput) Family() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SkuResponse) *string { return v.Family }).(pulumi.StringPtrOutput)
 }
 
-// The name of the SKU, typically, a letter + Number code, e.g. P3.
 func (o SkuResponseOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v SkuResponse) string { return v.Name }).(pulumi.StringOutput)
 }
 
-// Size of the particular SKU
 func (o SkuResponseOutput) Size() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SkuResponse) *string { return v.Size }).(pulumi.StringPtrOutput)
 }
 
-// The tier or edition of the particular SKU, e.g. Basic, Premium.
 func (o SkuResponseOutput) Tier() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SkuResponse) *string { return v.Tier }).(pulumi.StringPtrOutput)
 }
@@ -1173,10 +1101,15 @@ func (o SkuResponsePtrOutput) ToSkuResponsePtrOutputWithContext(ctx context.Cont
 }
 
 func (o SkuResponsePtrOutput) Elem() SkuResponseOutput {
-	return o.ApplyT(func(v *SkuResponse) SkuResponse { return *v }).(SkuResponseOutput)
+	return o.ApplyT(func(v *SkuResponse) SkuResponse {
+		if v != nil {
+			return *v
+		}
+		var ret SkuResponse
+		return ret
+	}).(SkuResponseOutput)
 }
 
-// Capacity of the particular SKU.
 func (o SkuResponsePtrOutput) Capacity() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *SkuResponse) *int {
 		if v == nil {
@@ -1186,7 +1119,6 @@ func (o SkuResponsePtrOutput) Capacity() pulumi.IntPtrOutput {
 	}).(pulumi.IntPtrOutput)
 }
 
-// If the service has different generations of hardware, for the same SKU, then that can be captured here.
 func (o SkuResponsePtrOutput) Family() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SkuResponse) *string {
 		if v == nil {
@@ -1196,7 +1128,6 @@ func (o SkuResponsePtrOutput) Family() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The name of the SKU, typically, a letter + Number code, e.g. P3.
 func (o SkuResponsePtrOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SkuResponse) *string {
 		if v == nil {
@@ -1206,7 +1137,6 @@ func (o SkuResponsePtrOutput) Name() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Size of the particular SKU
 func (o SkuResponsePtrOutput) Size() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SkuResponse) *string {
 		if v == nil {
@@ -1216,7 +1146,6 @@ func (o SkuResponsePtrOutput) Size() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The tier or edition of the particular SKU, e.g. Basic, Premium.
 func (o SkuResponsePtrOutput) Tier() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SkuResponse) *string {
 		if v == nil {
@@ -1226,12 +1155,9 @@ func (o SkuResponsePtrOutput) Tier() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Properties of sync group schema.
 type SyncGroupSchema struct {
-	// Name of master sync member where the schema is from.
-	MasterSyncMemberName *string `pulumi:"masterSyncMemberName"`
-	// List of tables in sync group schema.
-	Tables []SyncGroupSchemaTable `pulumi:"tables"`
+	MasterSyncMemberName *string                `pulumi:"masterSyncMemberName"`
+	Tables               []SyncGroupSchemaTable `pulumi:"tables"`
 }
 
 // SyncGroupSchemaInput is an input type that accepts SyncGroupSchemaArgs and SyncGroupSchemaOutput values.
@@ -1245,12 +1171,9 @@ type SyncGroupSchemaInput interface {
 	ToSyncGroupSchemaOutputWithContext(context.Context) SyncGroupSchemaOutput
 }
 
-// Properties of sync group schema.
 type SyncGroupSchemaArgs struct {
-	// Name of master sync member where the schema is from.
-	MasterSyncMemberName pulumi.StringPtrInput `pulumi:"masterSyncMemberName"`
-	// List of tables in sync group schema.
-	Tables SyncGroupSchemaTableArrayInput `pulumi:"tables"`
+	MasterSyncMemberName pulumi.StringPtrInput          `pulumi:"masterSyncMemberName"`
+	Tables               SyncGroupSchemaTableArrayInput `pulumi:"tables"`
 }
 
 func (SyncGroupSchemaArgs) ElementType() reflect.Type {
@@ -1306,7 +1229,6 @@ func (i *syncGroupSchemaPtrType) ToSyncGroupSchemaPtrOutputWithContext(ctx conte
 	return pulumi.ToOutputWithContext(ctx, i).(SyncGroupSchemaPtrOutput)
 }
 
-// Properties of sync group schema.
 type SyncGroupSchemaOutput struct{ *pulumi.OutputState }
 
 func (SyncGroupSchemaOutput) ElementType() reflect.Type {
@@ -1326,17 +1248,15 @@ func (o SyncGroupSchemaOutput) ToSyncGroupSchemaPtrOutput() SyncGroupSchemaPtrOu
 }
 
 func (o SyncGroupSchemaOutput) ToSyncGroupSchemaPtrOutputWithContext(ctx context.Context) SyncGroupSchemaPtrOutput {
-	return o.ApplyT(func(v SyncGroupSchema) *SyncGroupSchema {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v SyncGroupSchema) *SyncGroupSchema {
 		return &v
 	}).(SyncGroupSchemaPtrOutput)
 }
 
-// Name of master sync member where the schema is from.
 func (o SyncGroupSchemaOutput) MasterSyncMemberName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SyncGroupSchema) *string { return v.MasterSyncMemberName }).(pulumi.StringPtrOutput)
 }
 
-// List of tables in sync group schema.
 func (o SyncGroupSchemaOutput) Tables() SyncGroupSchemaTableArrayOutput {
 	return o.ApplyT(func(v SyncGroupSchema) []SyncGroupSchemaTable { return v.Tables }).(SyncGroupSchemaTableArrayOutput)
 }
@@ -1356,10 +1276,15 @@ func (o SyncGroupSchemaPtrOutput) ToSyncGroupSchemaPtrOutputWithContext(ctx cont
 }
 
 func (o SyncGroupSchemaPtrOutput) Elem() SyncGroupSchemaOutput {
-	return o.ApplyT(func(v *SyncGroupSchema) SyncGroupSchema { return *v }).(SyncGroupSchemaOutput)
+	return o.ApplyT(func(v *SyncGroupSchema) SyncGroupSchema {
+		if v != nil {
+			return *v
+		}
+		var ret SyncGroupSchema
+		return ret
+	}).(SyncGroupSchemaOutput)
 }
 
-// Name of master sync member where the schema is from.
 func (o SyncGroupSchemaPtrOutput) MasterSyncMemberName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SyncGroupSchema) *string {
 		if v == nil {
@@ -1369,7 +1294,6 @@ func (o SyncGroupSchemaPtrOutput) MasterSyncMemberName() pulumi.StringPtrOutput 
 	}).(pulumi.StringPtrOutput)
 }
 
-// List of tables in sync group schema.
 func (o SyncGroupSchemaPtrOutput) Tables() SyncGroupSchemaTableArrayOutput {
 	return o.ApplyT(func(v *SyncGroupSchema) []SyncGroupSchemaTable {
 		if v == nil {
@@ -1379,12 +1303,9 @@ func (o SyncGroupSchemaPtrOutput) Tables() SyncGroupSchemaTableArrayOutput {
 	}).(SyncGroupSchemaTableArrayOutput)
 }
 
-// Properties of sync group schema.
 type SyncGroupSchemaResponse struct {
-	// Name of master sync member where the schema is from.
-	MasterSyncMemberName *string `pulumi:"masterSyncMemberName"`
-	// List of tables in sync group schema.
-	Tables []SyncGroupSchemaTableResponse `pulumi:"tables"`
+	MasterSyncMemberName *string                        `pulumi:"masterSyncMemberName"`
+	Tables               []SyncGroupSchemaTableResponse `pulumi:"tables"`
 }
 
 // SyncGroupSchemaResponseInput is an input type that accepts SyncGroupSchemaResponseArgs and SyncGroupSchemaResponseOutput values.
@@ -1398,12 +1319,9 @@ type SyncGroupSchemaResponseInput interface {
 	ToSyncGroupSchemaResponseOutputWithContext(context.Context) SyncGroupSchemaResponseOutput
 }
 
-// Properties of sync group schema.
 type SyncGroupSchemaResponseArgs struct {
-	// Name of master sync member where the schema is from.
-	MasterSyncMemberName pulumi.StringPtrInput `pulumi:"masterSyncMemberName"`
-	// List of tables in sync group schema.
-	Tables SyncGroupSchemaTableResponseArrayInput `pulumi:"tables"`
+	MasterSyncMemberName pulumi.StringPtrInput                  `pulumi:"masterSyncMemberName"`
+	Tables               SyncGroupSchemaTableResponseArrayInput `pulumi:"tables"`
 }
 
 func (SyncGroupSchemaResponseArgs) ElementType() reflect.Type {
@@ -1459,7 +1377,6 @@ func (i *syncGroupSchemaResponsePtrType) ToSyncGroupSchemaResponsePtrOutputWithC
 	return pulumi.ToOutputWithContext(ctx, i).(SyncGroupSchemaResponsePtrOutput)
 }
 
-// Properties of sync group schema.
 type SyncGroupSchemaResponseOutput struct{ *pulumi.OutputState }
 
 func (SyncGroupSchemaResponseOutput) ElementType() reflect.Type {
@@ -1479,17 +1396,15 @@ func (o SyncGroupSchemaResponseOutput) ToSyncGroupSchemaResponsePtrOutput() Sync
 }
 
 func (o SyncGroupSchemaResponseOutput) ToSyncGroupSchemaResponsePtrOutputWithContext(ctx context.Context) SyncGroupSchemaResponsePtrOutput {
-	return o.ApplyT(func(v SyncGroupSchemaResponse) *SyncGroupSchemaResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v SyncGroupSchemaResponse) *SyncGroupSchemaResponse {
 		return &v
 	}).(SyncGroupSchemaResponsePtrOutput)
 }
 
-// Name of master sync member where the schema is from.
 func (o SyncGroupSchemaResponseOutput) MasterSyncMemberName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SyncGroupSchemaResponse) *string { return v.MasterSyncMemberName }).(pulumi.StringPtrOutput)
 }
 
-// List of tables in sync group schema.
 func (o SyncGroupSchemaResponseOutput) Tables() SyncGroupSchemaTableResponseArrayOutput {
 	return o.ApplyT(func(v SyncGroupSchemaResponse) []SyncGroupSchemaTableResponse { return v.Tables }).(SyncGroupSchemaTableResponseArrayOutput)
 }
@@ -1509,10 +1424,15 @@ func (o SyncGroupSchemaResponsePtrOutput) ToSyncGroupSchemaResponsePtrOutputWith
 }
 
 func (o SyncGroupSchemaResponsePtrOutput) Elem() SyncGroupSchemaResponseOutput {
-	return o.ApplyT(func(v *SyncGroupSchemaResponse) SyncGroupSchemaResponse { return *v }).(SyncGroupSchemaResponseOutput)
+	return o.ApplyT(func(v *SyncGroupSchemaResponse) SyncGroupSchemaResponse {
+		if v != nil {
+			return *v
+		}
+		var ret SyncGroupSchemaResponse
+		return ret
+	}).(SyncGroupSchemaResponseOutput)
 }
 
-// Name of master sync member where the schema is from.
 func (o SyncGroupSchemaResponsePtrOutput) MasterSyncMemberName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SyncGroupSchemaResponse) *string {
 		if v == nil {
@@ -1522,7 +1442,6 @@ func (o SyncGroupSchemaResponsePtrOutput) MasterSyncMemberName() pulumi.StringPt
 	}).(pulumi.StringPtrOutput)
 }
 
-// List of tables in sync group schema.
 func (o SyncGroupSchemaResponsePtrOutput) Tables() SyncGroupSchemaTableResponseArrayOutput {
 	return o.ApplyT(func(v *SyncGroupSchemaResponse) []SyncGroupSchemaTableResponse {
 		if v == nil {
@@ -1532,12 +1451,9 @@ func (o SyncGroupSchemaResponsePtrOutput) Tables() SyncGroupSchemaTableResponseA
 	}).(SyncGroupSchemaTableResponseArrayOutput)
 }
 
-// Properties of table in sync group schema.
 type SyncGroupSchemaTable struct {
-	// List of columns in sync group schema.
-	Columns []SyncGroupSchemaTableColumn `pulumi:"columns"`
-	// Quoted name of sync group schema table.
-	QuotedName *string `pulumi:"quotedName"`
+	Columns    []SyncGroupSchemaTableColumn `pulumi:"columns"`
+	QuotedName *string                      `pulumi:"quotedName"`
 }
 
 // SyncGroupSchemaTableInput is an input type that accepts SyncGroupSchemaTableArgs and SyncGroupSchemaTableOutput values.
@@ -1551,12 +1467,9 @@ type SyncGroupSchemaTableInput interface {
 	ToSyncGroupSchemaTableOutputWithContext(context.Context) SyncGroupSchemaTableOutput
 }
 
-// Properties of table in sync group schema.
 type SyncGroupSchemaTableArgs struct {
-	// List of columns in sync group schema.
-	Columns SyncGroupSchemaTableColumnArrayInput `pulumi:"columns"`
-	// Quoted name of sync group schema table.
-	QuotedName pulumi.StringPtrInput `pulumi:"quotedName"`
+	Columns    SyncGroupSchemaTableColumnArrayInput `pulumi:"columns"`
+	QuotedName pulumi.StringPtrInput                `pulumi:"quotedName"`
 }
 
 func (SyncGroupSchemaTableArgs) ElementType() reflect.Type {
@@ -1596,7 +1509,6 @@ func (i SyncGroupSchemaTableArray) ToSyncGroupSchemaTableArrayOutputWithContext(
 	return pulumi.ToOutputWithContext(ctx, i).(SyncGroupSchemaTableArrayOutput)
 }
 
-// Properties of table in sync group schema.
 type SyncGroupSchemaTableOutput struct{ *pulumi.OutputState }
 
 func (SyncGroupSchemaTableOutput) ElementType() reflect.Type {
@@ -1611,12 +1523,10 @@ func (o SyncGroupSchemaTableOutput) ToSyncGroupSchemaTableOutputWithContext(ctx 
 	return o
 }
 
-// List of columns in sync group schema.
 func (o SyncGroupSchemaTableOutput) Columns() SyncGroupSchemaTableColumnArrayOutput {
 	return o.ApplyT(func(v SyncGroupSchemaTable) []SyncGroupSchemaTableColumn { return v.Columns }).(SyncGroupSchemaTableColumnArrayOutput)
 }
 
-// Quoted name of sync group schema table.
 func (o SyncGroupSchemaTableOutput) QuotedName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SyncGroupSchemaTable) *string { return v.QuotedName }).(pulumi.StringPtrOutput)
 }
@@ -1641,13 +1551,9 @@ func (o SyncGroupSchemaTableArrayOutput) Index(i pulumi.IntInput) SyncGroupSchem
 	}).(SyncGroupSchemaTableOutput)
 }
 
-// Properties of column in sync group table.
 type SyncGroupSchemaTableColumn struct {
-	// Data size of the column.
-	DataSize *string `pulumi:"dataSize"`
-	// Data type of the column.
-	DataType *string `pulumi:"dataType"`
-	// Quoted name of sync group table column.
+	DataSize   *string `pulumi:"dataSize"`
+	DataType   *string `pulumi:"dataType"`
 	QuotedName *string `pulumi:"quotedName"`
 }
 
@@ -1662,13 +1568,9 @@ type SyncGroupSchemaTableColumnInput interface {
 	ToSyncGroupSchemaTableColumnOutputWithContext(context.Context) SyncGroupSchemaTableColumnOutput
 }
 
-// Properties of column in sync group table.
 type SyncGroupSchemaTableColumnArgs struct {
-	// Data size of the column.
-	DataSize pulumi.StringPtrInput `pulumi:"dataSize"`
-	// Data type of the column.
-	DataType pulumi.StringPtrInput `pulumi:"dataType"`
-	// Quoted name of sync group table column.
+	DataSize   pulumi.StringPtrInput `pulumi:"dataSize"`
+	DataType   pulumi.StringPtrInput `pulumi:"dataType"`
 	QuotedName pulumi.StringPtrInput `pulumi:"quotedName"`
 }
 
@@ -1709,7 +1611,6 @@ func (i SyncGroupSchemaTableColumnArray) ToSyncGroupSchemaTableColumnArrayOutput
 	return pulumi.ToOutputWithContext(ctx, i).(SyncGroupSchemaTableColumnArrayOutput)
 }
 
-// Properties of column in sync group table.
 type SyncGroupSchemaTableColumnOutput struct{ *pulumi.OutputState }
 
 func (SyncGroupSchemaTableColumnOutput) ElementType() reflect.Type {
@@ -1724,17 +1625,14 @@ func (o SyncGroupSchemaTableColumnOutput) ToSyncGroupSchemaTableColumnOutputWith
 	return o
 }
 
-// Data size of the column.
 func (o SyncGroupSchemaTableColumnOutput) DataSize() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SyncGroupSchemaTableColumn) *string { return v.DataSize }).(pulumi.StringPtrOutput)
 }
 
-// Data type of the column.
 func (o SyncGroupSchemaTableColumnOutput) DataType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SyncGroupSchemaTableColumn) *string { return v.DataType }).(pulumi.StringPtrOutput)
 }
 
-// Quoted name of sync group table column.
 func (o SyncGroupSchemaTableColumnOutput) QuotedName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SyncGroupSchemaTableColumn) *string { return v.QuotedName }).(pulumi.StringPtrOutput)
 }
@@ -1759,13 +1657,9 @@ func (o SyncGroupSchemaTableColumnArrayOutput) Index(i pulumi.IntInput) SyncGrou
 	}).(SyncGroupSchemaTableColumnOutput)
 }
 
-// Properties of column in sync group table.
 type SyncGroupSchemaTableColumnResponse struct {
-	// Data size of the column.
-	DataSize *string `pulumi:"dataSize"`
-	// Data type of the column.
-	DataType *string `pulumi:"dataType"`
-	// Quoted name of sync group table column.
+	DataSize   *string `pulumi:"dataSize"`
+	DataType   *string `pulumi:"dataType"`
 	QuotedName *string `pulumi:"quotedName"`
 }
 
@@ -1780,13 +1674,9 @@ type SyncGroupSchemaTableColumnResponseInput interface {
 	ToSyncGroupSchemaTableColumnResponseOutputWithContext(context.Context) SyncGroupSchemaTableColumnResponseOutput
 }
 
-// Properties of column in sync group table.
 type SyncGroupSchemaTableColumnResponseArgs struct {
-	// Data size of the column.
-	DataSize pulumi.StringPtrInput `pulumi:"dataSize"`
-	// Data type of the column.
-	DataType pulumi.StringPtrInput `pulumi:"dataType"`
-	// Quoted name of sync group table column.
+	DataSize   pulumi.StringPtrInput `pulumi:"dataSize"`
+	DataType   pulumi.StringPtrInput `pulumi:"dataType"`
 	QuotedName pulumi.StringPtrInput `pulumi:"quotedName"`
 }
 
@@ -1827,7 +1717,6 @@ func (i SyncGroupSchemaTableColumnResponseArray) ToSyncGroupSchemaTableColumnRes
 	return pulumi.ToOutputWithContext(ctx, i).(SyncGroupSchemaTableColumnResponseArrayOutput)
 }
 
-// Properties of column in sync group table.
 type SyncGroupSchemaTableColumnResponseOutput struct{ *pulumi.OutputState }
 
 func (SyncGroupSchemaTableColumnResponseOutput) ElementType() reflect.Type {
@@ -1842,17 +1731,14 @@ func (o SyncGroupSchemaTableColumnResponseOutput) ToSyncGroupSchemaTableColumnRe
 	return o
 }
 
-// Data size of the column.
 func (o SyncGroupSchemaTableColumnResponseOutput) DataSize() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SyncGroupSchemaTableColumnResponse) *string { return v.DataSize }).(pulumi.StringPtrOutput)
 }
 
-// Data type of the column.
 func (o SyncGroupSchemaTableColumnResponseOutput) DataType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SyncGroupSchemaTableColumnResponse) *string { return v.DataType }).(pulumi.StringPtrOutput)
 }
 
-// Quoted name of sync group table column.
 func (o SyncGroupSchemaTableColumnResponseOutput) QuotedName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SyncGroupSchemaTableColumnResponse) *string { return v.QuotedName }).(pulumi.StringPtrOutput)
 }
@@ -1877,12 +1763,9 @@ func (o SyncGroupSchemaTableColumnResponseArrayOutput) Index(i pulumi.IntInput) 
 	}).(SyncGroupSchemaTableColumnResponseOutput)
 }
 
-// Properties of table in sync group schema.
 type SyncGroupSchemaTableResponse struct {
-	// List of columns in sync group schema.
-	Columns []SyncGroupSchemaTableColumnResponse `pulumi:"columns"`
-	// Quoted name of sync group schema table.
-	QuotedName *string `pulumi:"quotedName"`
+	Columns    []SyncGroupSchemaTableColumnResponse `pulumi:"columns"`
+	QuotedName *string                              `pulumi:"quotedName"`
 }
 
 // SyncGroupSchemaTableResponseInput is an input type that accepts SyncGroupSchemaTableResponseArgs and SyncGroupSchemaTableResponseOutput values.
@@ -1896,12 +1779,9 @@ type SyncGroupSchemaTableResponseInput interface {
 	ToSyncGroupSchemaTableResponseOutputWithContext(context.Context) SyncGroupSchemaTableResponseOutput
 }
 
-// Properties of table in sync group schema.
 type SyncGroupSchemaTableResponseArgs struct {
-	// List of columns in sync group schema.
-	Columns SyncGroupSchemaTableColumnResponseArrayInput `pulumi:"columns"`
-	// Quoted name of sync group schema table.
-	QuotedName pulumi.StringPtrInput `pulumi:"quotedName"`
+	Columns    SyncGroupSchemaTableColumnResponseArrayInput `pulumi:"columns"`
+	QuotedName pulumi.StringPtrInput                        `pulumi:"quotedName"`
 }
 
 func (SyncGroupSchemaTableResponseArgs) ElementType() reflect.Type {
@@ -1941,7 +1821,6 @@ func (i SyncGroupSchemaTableResponseArray) ToSyncGroupSchemaTableResponseArrayOu
 	return pulumi.ToOutputWithContext(ctx, i).(SyncGroupSchemaTableResponseArrayOutput)
 }
 
-// Properties of table in sync group schema.
 type SyncGroupSchemaTableResponseOutput struct{ *pulumi.OutputState }
 
 func (SyncGroupSchemaTableResponseOutput) ElementType() reflect.Type {
@@ -1956,12 +1835,10 @@ func (o SyncGroupSchemaTableResponseOutput) ToSyncGroupSchemaTableResponseOutput
 	return o
 }
 
-// List of columns in sync group schema.
 func (o SyncGroupSchemaTableResponseOutput) Columns() SyncGroupSchemaTableColumnResponseArrayOutput {
 	return o.ApplyT(func(v SyncGroupSchemaTableResponse) []SyncGroupSchemaTableColumnResponse { return v.Columns }).(SyncGroupSchemaTableColumnResponseArrayOutput)
 }
 
-// Quoted name of sync group schema table.
 func (o SyncGroupSchemaTableResponseOutput) QuotedName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SyncGroupSchemaTableResponse) *string { return v.QuotedName }).(pulumi.StringPtrOutput)
 }

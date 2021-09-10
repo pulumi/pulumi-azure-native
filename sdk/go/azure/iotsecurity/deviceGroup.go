@@ -115,9 +115,7 @@ func (i *DeviceGroup) ToDeviceGroupOutputWithContext(ctx context.Context) Device
 	return pulumi.ToOutputWithContext(ctx, i).(DeviceGroupOutput)
 }
 
-type DeviceGroupOutput struct {
-	*pulumi.OutputState
-}
+type DeviceGroupOutput struct{ *pulumi.OutputState }
 
 func (DeviceGroupOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*DeviceGroup)(nil))

@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.DocumentDB.V20210615.Outputs
 {
 
+    /// <summary>
+    /// Analytical storage specific properties.
+    /// </summary>
     [OutputType]
     public sealed class AnalyticalStorageConfigurationResponse
     {

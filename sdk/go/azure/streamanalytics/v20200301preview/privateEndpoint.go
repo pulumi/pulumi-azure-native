@@ -11,18 +11,13 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Complete information about the private endpoint.
 type PrivateEndpoint struct {
 	pulumi.CustomResourceState
 
-	// Unique opaque string (generally a GUID) that represents the metadata state of the resource (private endpoint) and changes whenever the resource is updated. Required on PUT (CreateOrUpdate) requests.
-	Etag pulumi.StringOutput `pulumi:"etag"`
-	// The name of the resource
-	Name pulumi.StringOutput `pulumi:"name"`
-	// The properties associated with a private endpoint.
+	Etag       pulumi.StringOutput                     `pulumi:"etag"`
+	Name       pulumi.StringOutput                     `pulumi:"name"`
 	Properties PrivateEndpointPropertiesResponseOutput `pulumi:"properties"`
-	// The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
-	Type pulumi.StringOutput `pulumi:"type"`
+	Type       pulumi.StringOutput                     `pulumi:"type"`
 }
 
 // NewPrivateEndpoint registers a new resource with the given unique name, arguments, and options.
@@ -82,26 +77,18 @@ func (PrivateEndpointState) ElementType() reflect.Type {
 }
 
 type privateEndpointArgs struct {
-	// The name of the cluster.
-	ClusterName string `pulumi:"clusterName"`
-	// The name of the private endpoint.
-	PrivateEndpointName *string `pulumi:"privateEndpointName"`
-	// The properties associated with a private endpoint.
-	Properties *PrivateEndpointProperties `pulumi:"properties"`
-	// The name of the resource group. The name is case insensitive.
-	ResourceGroupName string `pulumi:"resourceGroupName"`
+	ClusterName         string                     `pulumi:"clusterName"`
+	PrivateEndpointName *string                    `pulumi:"privateEndpointName"`
+	Properties          *PrivateEndpointProperties `pulumi:"properties"`
+	ResourceGroupName   string                     `pulumi:"resourceGroupName"`
 }
 
 // The set of arguments for constructing a PrivateEndpoint resource.
 type PrivateEndpointArgs struct {
-	// The name of the cluster.
-	ClusterName pulumi.StringInput
-	// The name of the private endpoint.
+	ClusterName         pulumi.StringInput
 	PrivateEndpointName pulumi.StringPtrInput
-	// The properties associated with a private endpoint.
-	Properties PrivateEndpointPropertiesPtrInput
-	// The name of the resource group. The name is case insensitive.
-	ResourceGroupName pulumi.StringInput
+	Properties          PrivateEndpointPropertiesPtrInput
+	ResourceGroupName   pulumi.StringInput
 }
 
 func (PrivateEndpointArgs) ElementType() reflect.Type {
@@ -127,9 +114,7 @@ func (i *PrivateEndpoint) ToPrivateEndpointOutputWithContext(ctx context.Context
 	return pulumi.ToOutputWithContext(ctx, i).(PrivateEndpointOutput)
 }
 
-type PrivateEndpointOutput struct {
-	*pulumi.OutputState
-}
+type PrivateEndpointOutput struct{ *pulumi.OutputState }
 
 func (PrivateEndpointOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*PrivateEndpoint)(nil))

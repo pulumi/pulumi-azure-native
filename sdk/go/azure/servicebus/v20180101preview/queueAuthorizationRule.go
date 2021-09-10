@@ -11,16 +11,12 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Description of a namespace authorization rule.
 type QueueAuthorizationRule struct {
 	pulumi.CustomResourceState
 
-	// Resource name
-	Name pulumi.StringOutput `pulumi:"name"`
-	// The rights associated with the rule.
+	Name   pulumi.StringOutput      `pulumi:"name"`
 	Rights pulumi.StringArrayOutput `pulumi:"rights"`
-	// Resource type
-	Type pulumi.StringOutput `pulumi:"type"`
+	Type   pulumi.StringOutput      `pulumi:"type"`
 }
 
 // NewQueueAuthorizationRule registers a new resource with the given unique name, arguments, and options.
@@ -116,30 +112,20 @@ func (QueueAuthorizationRuleState) ElementType() reflect.Type {
 }
 
 type queueAuthorizationRuleArgs struct {
-	// The authorization rule name.
-	AuthorizationRuleName *string `pulumi:"authorizationRuleName"`
-	// The namespace name
-	NamespaceName string `pulumi:"namespaceName"`
-	// The queue name.
-	QueueName string `pulumi:"queueName"`
-	// Name of the Resource group within the Azure subscription.
-	ResourceGroupName string `pulumi:"resourceGroupName"`
-	// The rights associated with the rule.
-	Rights []string `pulumi:"rights"`
+	AuthorizationRuleName *string        `pulumi:"authorizationRuleName"`
+	NamespaceName         string         `pulumi:"namespaceName"`
+	QueueName             string         `pulumi:"queueName"`
+	ResourceGroupName     string         `pulumi:"resourceGroupName"`
+	Rights                []AccessRights `pulumi:"rights"`
 }
 
 // The set of arguments for constructing a QueueAuthorizationRule resource.
 type QueueAuthorizationRuleArgs struct {
-	// The authorization rule name.
 	AuthorizationRuleName pulumi.StringPtrInput
-	// The namespace name
-	NamespaceName pulumi.StringInput
-	// The queue name.
-	QueueName pulumi.StringInput
-	// Name of the Resource group within the Azure subscription.
-	ResourceGroupName pulumi.StringInput
-	// The rights associated with the rule.
-	Rights AccessRightsArrayInput
+	NamespaceName         pulumi.StringInput
+	QueueName             pulumi.StringInput
+	ResourceGroupName     pulumi.StringInput
+	Rights                AccessRightsArrayInput
 }
 
 func (QueueAuthorizationRuleArgs) ElementType() reflect.Type {
@@ -165,9 +151,7 @@ func (i *QueueAuthorizationRule) ToQueueAuthorizationRuleOutputWithContext(ctx c
 	return pulumi.ToOutputWithContext(ctx, i).(QueueAuthorizationRuleOutput)
 }
 
-type QueueAuthorizationRuleOutput struct {
-	*pulumi.OutputState
-}
+type QueueAuthorizationRuleOutput struct{ *pulumi.OutputState }
 
 func (QueueAuthorizationRuleOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*QueueAuthorizationRule)(nil))

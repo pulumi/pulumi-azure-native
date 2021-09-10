@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.TimeSeriesInsights.V20200515.Outputs
 {
 
+    /// <summary>
+    /// The warm store configuration provides the details to create a warm store cache that will retain a copy of the environment's data available for faster query.
+    /// </summary>
     [OutputType]
     public sealed class WarmStoreConfigurationPropertiesResponse
     {

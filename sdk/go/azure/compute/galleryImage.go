@@ -67,6 +67,12 @@ func NewGalleryImage(ctx *pulumi.Context,
 	if args.Identifier == nil {
 		return nil, errors.New("invalid value for required argument 'Identifier'")
 	}
+	if args.OsState == nil {
+		return nil, errors.New("invalid value for required argument 'OsState'")
+	}
+	if args.OsType == nil {
+		return nil, errors.New("invalid value for required argument 'OsType'")
+	}
 	if args.ResourceGroupName == nil {
 		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
 	}
@@ -165,9 +171,9 @@ type galleryImageArgs struct {
 	// Resource location
 	Location *string `pulumi:"location"`
 	// This property allows the user to specify whether the virtual machines created under this image are 'Generalized' or 'Specialized'.
-	OsState string `pulumi:"osState"`
+	OsState OperatingSystemStateTypes `pulumi:"osState"`
 	// This property allows you to specify the type of the OS that is included in the disk when creating a VM from a managed image. <br><br> Possible values are: <br><br> **Windows** <br><br> **Linux**
-	OsType string `pulumi:"osType"`
+	OsType OperatingSystemTypes `pulumi:"osType"`
 	// The privacy statement uri.
 	PrivacyStatementUri *string `pulumi:"privacyStatementUri"`
 	// Describes the gallery image definition purchase plan. This is used by marketplace images.
@@ -205,9 +211,9 @@ type GalleryImageArgs struct {
 	// Resource location
 	Location pulumi.StringPtrInput
 	// This property allows the user to specify whether the virtual machines created under this image are 'Generalized' or 'Specialized'.
-	OsState OperatingSystemStateTypes
+	OsState OperatingSystemStateTypesInput
 	// This property allows you to specify the type of the OS that is included in the disk when creating a VM from a managed image. <br><br> Possible values are: <br><br> **Windows** <br><br> **Linux**
-	OsType OperatingSystemTypes
+	OsType OperatingSystemTypesInput
 	// The privacy statement uri.
 	PrivacyStatementUri pulumi.StringPtrInput
 	// Describes the gallery image definition purchase plan. This is used by marketplace images.
@@ -245,9 +251,7 @@ func (i *GalleryImage) ToGalleryImageOutputWithContext(ctx context.Context) Gall
 	return pulumi.ToOutputWithContext(ctx, i).(GalleryImageOutput)
 }
 
-type GalleryImageOutput struct {
-	*pulumi.OutputState
-}
+type GalleryImageOutput struct{ *pulumi.OutputState }
 
 func (GalleryImageOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*GalleryImage)(nil))

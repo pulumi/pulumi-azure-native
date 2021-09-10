@@ -7,7 +7,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// List of shared access keys.
 func ListIotDpsResourceKeys(ctx *pulumi.Context, args *ListIotDpsResourceKeysArgs, opts ...pulumi.InvokeOption) (*ListIotDpsResourceKeysResult, error) {
 	var rv ListIotDpsResourceKeysResult
 	err := ctx.Invoke("azure-native:devices/v20200901preview:listIotDpsResourceKeys", args, &rv, opts...)
@@ -18,16 +17,12 @@ func ListIotDpsResourceKeys(ctx *pulumi.Context, args *ListIotDpsResourceKeysArg
 }
 
 type ListIotDpsResourceKeysArgs struct {
-	// The provisioning service name to get the shared access keys for.
 	ProvisioningServiceName string `pulumi:"provisioningServiceName"`
-	// resource group name
-	ResourceGroupName string `pulumi:"resourceGroupName"`
+	ResourceGroupName       string `pulumi:"resourceGroupName"`
 }
 
 // List of shared access keys.
 type ListIotDpsResourceKeysResult struct {
-	// The next link.
-	NextLink string `pulumi:"nextLink"`
-	// The list of shared access policies.
-	Value []SharedAccessSignatureAuthorizationRuleAccessRightsDescriptionResponse `pulumi:"value"`
+	NextLink string                                                                  `pulumi:"nextLink"`
+	Value    []SharedAccessSignatureAuthorizationRuleAccessRightsDescriptionResponse `pulumi:"value"`
 }

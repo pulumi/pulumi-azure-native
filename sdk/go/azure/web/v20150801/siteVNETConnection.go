@@ -11,33 +11,20 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// VNETInfo contract. This contract is public and is a stripped down version of VNETInfoInternal
 type SiteVNETConnection struct {
 	pulumi.CustomResourceState
 
-	// A certificate file (.cer) blob containing the public key of the private key used to authenticate a
-	//             Point-To-Site VPN connection.
-	CertBlob pulumi.StringPtrOutput `pulumi:"certBlob"`
-	// The client certificate thumbprint
-	CertThumbprint pulumi.StringPtrOutput `pulumi:"certThumbprint"`
-	// Dns servers to be used by this VNET. This should be a comma-separated list of IP addresses.
-	DnsServers pulumi.StringPtrOutput `pulumi:"dnsServers"`
-	// Kind of resource
-	Kind pulumi.StringPtrOutput `pulumi:"kind"`
-	// Resource Location
-	Location pulumi.StringOutput `pulumi:"location"`
-	// Resource Name
-	Name pulumi.StringPtrOutput `pulumi:"name"`
-	// Flag to determine if a resync is required
-	ResyncRequired pulumi.BoolPtrOutput `pulumi:"resyncRequired"`
-	// The routes that this virtual network connection uses.
-	Routes VnetRouteResponseArrayOutput `pulumi:"routes"`
-	// Resource tags
-	Tags pulumi.StringMapOutput `pulumi:"tags"`
-	// Resource type
-	Type pulumi.StringPtrOutput `pulumi:"type"`
-	// The vnet resource id
-	VnetResourceId pulumi.StringPtrOutput `pulumi:"vnetResourceId"`
+	CertBlob       pulumi.StringPtrOutput       `pulumi:"certBlob"`
+	CertThumbprint pulumi.StringPtrOutput       `pulumi:"certThumbprint"`
+	DnsServers     pulumi.StringPtrOutput       `pulumi:"dnsServers"`
+	Kind           pulumi.StringPtrOutput       `pulumi:"kind"`
+	Location       pulumi.StringOutput          `pulumi:"location"`
+	Name           pulumi.StringPtrOutput       `pulumi:"name"`
+	ResyncRequired pulumi.BoolPtrOutput         `pulumi:"resyncRequired"`
+	Routes         VnetRouteResponseArrayOutput `pulumi:"routes"`
+	Tags           pulumi.StringMapOutput       `pulumi:"tags"`
+	Type           pulumi.StringPtrOutput       `pulumi:"type"`
+	VnetResourceId pulumi.StringPtrOutput       `pulumi:"vnetResourceId"`
 }
 
 // NewSiteVNETConnection registers a new resource with the given unique name, arguments, and options.
@@ -163,68 +150,38 @@ func (SiteVNETConnectionState) ElementType() reflect.Type {
 }
 
 type siteVNETConnectionArgs struct {
-	// A certificate file (.cer) blob containing the public key of the private key used to authenticate a
-	//             Point-To-Site VPN connection.
-	CertBlob *string `pulumi:"certBlob"`
-	// The client certificate thumbprint
-	CertThumbprint *string `pulumi:"certThumbprint"`
-	// Dns servers to be used by this VNET. This should be a comma-separated list of IP addresses.
-	DnsServers *string `pulumi:"dnsServers"`
-	// Resource Id
-	Id *string `pulumi:"id"`
-	// Kind of resource
-	Kind *string `pulumi:"kind"`
-	// Resource Location
-	Location *string `pulumi:"location"`
-	// Resource Name
-	Name string `pulumi:"name"`
-	// The resource group name
-	ResourceGroupName string `pulumi:"resourceGroupName"`
-	// Flag to determine if a resync is required
-	ResyncRequired *bool `pulumi:"resyncRequired"`
-	// The routes that this virtual network connection uses.
-	Routes []VnetRoute `pulumi:"routes"`
-	// Resource tags
-	Tags map[string]string `pulumi:"tags"`
-	// Resource type
-	Type *string `pulumi:"type"`
-	// The name of the Virtual Network
-	VnetName *string `pulumi:"vnetName"`
-	// The vnet resource id
-	VnetResourceId *string `pulumi:"vnetResourceId"`
+	CertBlob          *string           `pulumi:"certBlob"`
+	CertThumbprint    *string           `pulumi:"certThumbprint"`
+	DnsServers        *string           `pulumi:"dnsServers"`
+	Id                *string           `pulumi:"id"`
+	Kind              *string           `pulumi:"kind"`
+	Location          *string           `pulumi:"location"`
+	Name              string            `pulumi:"name"`
+	ResourceGroupName string            `pulumi:"resourceGroupName"`
+	ResyncRequired    *bool             `pulumi:"resyncRequired"`
+	Routes            []VnetRoute       `pulumi:"routes"`
+	Tags              map[string]string `pulumi:"tags"`
+	Type              *string           `pulumi:"type"`
+	VnetName          *string           `pulumi:"vnetName"`
+	VnetResourceId    *string           `pulumi:"vnetResourceId"`
 }
 
 // The set of arguments for constructing a SiteVNETConnection resource.
 type SiteVNETConnectionArgs struct {
-	// A certificate file (.cer) blob containing the public key of the private key used to authenticate a
-	//             Point-To-Site VPN connection.
-	CertBlob pulumi.StringPtrInput
-	// The client certificate thumbprint
-	CertThumbprint pulumi.StringPtrInput
-	// Dns servers to be used by this VNET. This should be a comma-separated list of IP addresses.
-	DnsServers pulumi.StringPtrInput
-	// Resource Id
-	Id pulumi.StringPtrInput
-	// Kind of resource
-	Kind pulumi.StringPtrInput
-	// Resource Location
-	Location pulumi.StringPtrInput
-	// Resource Name
-	Name pulumi.StringInput
-	// The resource group name
+	CertBlob          pulumi.StringPtrInput
+	CertThumbprint    pulumi.StringPtrInput
+	DnsServers        pulumi.StringPtrInput
+	Id                pulumi.StringPtrInput
+	Kind              pulumi.StringPtrInput
+	Location          pulumi.StringPtrInput
+	Name              pulumi.StringInput
 	ResourceGroupName pulumi.StringInput
-	// Flag to determine if a resync is required
-	ResyncRequired pulumi.BoolPtrInput
-	// The routes that this virtual network connection uses.
-	Routes VnetRouteArrayInput
-	// Resource tags
-	Tags pulumi.StringMapInput
-	// Resource type
-	Type pulumi.StringPtrInput
-	// The name of the Virtual Network
-	VnetName pulumi.StringPtrInput
-	// The vnet resource id
-	VnetResourceId pulumi.StringPtrInput
+	ResyncRequired    pulumi.BoolPtrInput
+	Routes            VnetRouteArrayInput
+	Tags              pulumi.StringMapInput
+	Type              pulumi.StringPtrInput
+	VnetName          pulumi.StringPtrInput
+	VnetResourceId    pulumi.StringPtrInput
 }
 
 func (SiteVNETConnectionArgs) ElementType() reflect.Type {
@@ -250,9 +207,7 @@ func (i *SiteVNETConnection) ToSiteVNETConnectionOutputWithContext(ctx context.C
 	return pulumi.ToOutputWithContext(ctx, i).(SiteVNETConnectionOutput)
 }
 
-type SiteVNETConnectionOutput struct {
-	*pulumi.OutputState
-}
+type SiteVNETConnectionOutput struct{ *pulumi.OutputState }
 
 func (SiteVNETConnectionOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*SiteVNETConnection)(nil))

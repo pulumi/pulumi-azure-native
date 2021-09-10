@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.DevOps.V20190701Preview.Outputs
 {
 
+    /// <summary>
+    /// Repository containing the source code for a pipeline.
+    /// </summary>
     [OutputType]
     public sealed class CodeRepositoryResponse
     {

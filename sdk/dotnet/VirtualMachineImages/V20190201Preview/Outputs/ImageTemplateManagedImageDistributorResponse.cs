@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.VirtualMachineImages.V20190201Preview.Outputs
 {
 
+    /// <summary>
+    /// Distribute as a Managed Disk Image.
+    /// </summary>
     [OutputType]
     public sealed class ImageTemplateManagedImageDistributorResponse
     {

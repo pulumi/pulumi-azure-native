@@ -7,7 +7,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// A flow log resource.
 func LookupFlowLog(ctx *pulumi.Context, args *LookupFlowLogArgs, opts ...pulumi.InvokeOption) (*LookupFlowLogResult, error) {
 	var rv LookupFlowLogResult
 	err := ctx.Invoke("azure-native:network/v20191201:getFlowLog", args, &rv, opts...)
@@ -18,42 +17,25 @@ func LookupFlowLog(ctx *pulumi.Context, args *LookupFlowLogArgs, opts ...pulumi.
 }
 
 type LookupFlowLogArgs struct {
-	// The name of the flow log resource.
-	FlowLogName string `pulumi:"flowLogName"`
-	// The name of the network watcher.
+	FlowLogName        string `pulumi:"flowLogName"`
 	NetworkWatcherName string `pulumi:"networkWatcherName"`
-	// The name of the resource group.
-	ResourceGroupName string `pulumi:"resourceGroupName"`
+	ResourceGroupName  string `pulumi:"resourceGroupName"`
 }
 
 // A flow log resource.
 type LookupFlowLogResult struct {
-	// Flag to enable/disable flow logging.
-	Enabled *bool `pulumi:"enabled"`
-	// A unique read-only string that changes whenever the resource is updated.
-	Etag string `pulumi:"etag"`
-	// Parameters that define the configuration of traffic analytics.
+	Enabled                    *bool                               `pulumi:"enabled"`
+	Etag                       string                              `pulumi:"etag"`
 	FlowAnalyticsConfiguration *TrafficAnalyticsPropertiesResponse `pulumi:"flowAnalyticsConfiguration"`
-	// Parameters that define the flow log format.
-	Format *FlowLogFormatParametersResponse `pulumi:"format"`
-	// Resource ID.
-	Id *string `pulumi:"id"`
-	// Resource location.
-	Location *string `pulumi:"location"`
-	// Resource name.
-	Name string `pulumi:"name"`
-	// The provisioning state of the flow log.
-	ProvisioningState string `pulumi:"provisioningState"`
-	// Parameters that define the retention policy for flow log.
-	RetentionPolicy *RetentionPolicyParametersResponse `pulumi:"retentionPolicy"`
-	// ID of the storage account which is used to store the flow log.
-	StorageId string `pulumi:"storageId"`
-	// Resource tags.
-	Tags map[string]string `pulumi:"tags"`
-	// Guid of network security group to which flow log will be applied.
-	TargetResourceGuid string `pulumi:"targetResourceGuid"`
-	// ID of network security group to which flow log will be applied.
-	TargetResourceId string `pulumi:"targetResourceId"`
-	// Resource type.
-	Type string `pulumi:"type"`
+	Format                     *FlowLogFormatParametersResponse    `pulumi:"format"`
+	Id                         *string                             `pulumi:"id"`
+	Location                   *string                             `pulumi:"location"`
+	Name                       string                              `pulumi:"name"`
+	ProvisioningState          string                              `pulumi:"provisioningState"`
+	RetentionPolicy            *RetentionPolicyParametersResponse  `pulumi:"retentionPolicy"`
+	StorageId                  string                              `pulumi:"storageId"`
+	Tags                       map[string]string                   `pulumi:"tags"`
+	TargetResourceGuid         string                              `pulumi:"targetResourceGuid"`
+	TargetResourceId           string                              `pulumi:"targetResourceId"`
+	Type                       string                              `pulumi:"type"`
 }

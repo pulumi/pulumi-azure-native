@@ -7,7 +7,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Customer subscription which can use a sku.
 func LookupVendorSkuPreview(ctx *pulumi.Context, args *LookupVendorSkuPreviewArgs, opts ...pulumi.InvokeOption) (*LookupVendorSkuPreviewResult, error) {
 	var rv LookupVendorSkuPreviewResult
 	err := ctx.Invoke("azure-native:hybridnetwork/v20210501:getVendorSkuPreview", args, &rv, opts...)
@@ -18,24 +17,16 @@ func LookupVendorSkuPreview(ctx *pulumi.Context, args *LookupVendorSkuPreviewArg
 }
 
 type LookupVendorSkuPreviewArgs struct {
-	// Preview subscription ID.
 	PreviewSubscription string `pulumi:"previewSubscription"`
-	// The name of the vendor sku.
-	SkuName string `pulumi:"skuName"`
-	// The name of the vendor.
-	VendorName string `pulumi:"vendorName"`
+	SkuName             string `pulumi:"skuName"`
+	VendorName          string `pulumi:"vendorName"`
 }
 
 // Customer subscription which can use a sku.
 type LookupVendorSkuPreviewResult struct {
-	// The ARM ID of the resource.
-	Id string `pulumi:"id"`
-	// The preview subscription ID.
-	Name string `pulumi:"name"`
-	// The provisioning state of the PreviewSubscription resource.
-	ProvisioningState string `pulumi:"provisioningState"`
-	// The system meta data relating to this resource.
-	SystemData SystemDataResponse `pulumi:"systemData"`
-	// The type of the resource.
-	Type string `pulumi:"type"`
+	Id                string             `pulumi:"id"`
+	Name              string             `pulumi:"name"`
+	ProvisioningState string             `pulumi:"provisioningState"`
+	SystemData        SystemDataResponse `pulumi:"systemData"`
+	Type              string             `pulumi:"type"`
 }

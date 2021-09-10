@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.Media.V20151001.Outputs
 {
 
+    /// <summary>
+    /// The properties of a storage account associated with this resource.
+    /// </summary>
     [OutputType]
     public sealed class StorageAccountResponse
     {

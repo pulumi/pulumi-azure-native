@@ -11,18 +11,13 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Linked storage accounts top level resource container.
 type LinkedStorageAccount struct {
 	pulumi.CustomResourceState
 
-	// Linked storage accounts type.
-	DataSourceType pulumi.StringOutput `pulumi:"dataSourceType"`
-	// The name of the resource
-	Name pulumi.StringOutput `pulumi:"name"`
-	// Linked storage accounts resources ids.
+	DataSourceType    pulumi.StringOutput      `pulumi:"dataSourceType"`
+	Name              pulumi.StringOutput      `pulumi:"name"`
 	StorageAccountIds pulumi.StringArrayOutput `pulumi:"storageAccountIds"`
-	// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
-	Type pulumi.StringOutput `pulumi:"type"`
+	Type              pulumi.StringOutput      `pulumi:"type"`
 }
 
 // NewLinkedStorageAccount registers a new resource with the given unique name, arguments, and options.
@@ -94,26 +89,18 @@ func (LinkedStorageAccountState) ElementType() reflect.Type {
 }
 
 type linkedStorageAccountArgs struct {
-	// Linked storage accounts type.
-	DataSourceType *string `pulumi:"dataSourceType"`
-	// The name of the resource group. The name is case insensitive.
-	ResourceGroupName string `pulumi:"resourceGroupName"`
-	// Linked storage accounts resources ids.
+	DataSourceType    *string  `pulumi:"dataSourceType"`
+	ResourceGroupName string   `pulumi:"resourceGroupName"`
 	StorageAccountIds []string `pulumi:"storageAccountIds"`
-	// The name of the workspace.
-	WorkspaceName string `pulumi:"workspaceName"`
+	WorkspaceName     string   `pulumi:"workspaceName"`
 }
 
 // The set of arguments for constructing a LinkedStorageAccount resource.
 type LinkedStorageAccountArgs struct {
-	// Linked storage accounts type.
-	DataSourceType pulumi.StringPtrInput
-	// The name of the resource group. The name is case insensitive.
+	DataSourceType    pulumi.StringPtrInput
 	ResourceGroupName pulumi.StringInput
-	// Linked storage accounts resources ids.
 	StorageAccountIds pulumi.StringArrayInput
-	// The name of the workspace.
-	WorkspaceName pulumi.StringInput
+	WorkspaceName     pulumi.StringInput
 }
 
 func (LinkedStorageAccountArgs) ElementType() reflect.Type {
@@ -139,9 +126,7 @@ func (i *LinkedStorageAccount) ToLinkedStorageAccountOutputWithContext(ctx conte
 	return pulumi.ToOutputWithContext(ctx, i).(LinkedStorageAccountOutput)
 }
 
-type LinkedStorageAccountOutput struct {
-	*pulumi.OutputState
-}
+type LinkedStorageAccountOutput struct{ *pulumi.OutputState }
 
 func (LinkedStorageAccountOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*LinkedStorageAccount)(nil))

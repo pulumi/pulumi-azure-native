@@ -11,13 +11,10 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Deployment information.
 type Deployment struct {
 	pulumi.CustomResourceState
 
-	// Gets or sets the name of the deployment.
-	Name pulumi.StringOutput `pulumi:"name"`
-	// Gets or sets deployment properties.
+	Name       pulumi.StringOutput                        `pulumi:"name"`
 	Properties DeploymentPropertiesExtendedResponseOutput `pulumi:"properties"`
 }
 
@@ -177,21 +174,15 @@ func (DeploymentState) ElementType() reflect.Type {
 }
 
 type deploymentArgs struct {
-	// The name of the deployment.
-	DeploymentName *string `pulumi:"deploymentName"`
-	// Gets or sets the deployment properties.
-	Properties *DeploymentProperties `pulumi:"properties"`
-	// The name of the resource group. The name is case insensitive.
-	ResourceGroupName string `pulumi:"resourceGroupName"`
+	DeploymentName    *string               `pulumi:"deploymentName"`
+	Properties        *DeploymentProperties `pulumi:"properties"`
+	ResourceGroupName string                `pulumi:"resourceGroupName"`
 }
 
 // The set of arguments for constructing a Deployment resource.
 type DeploymentArgs struct {
-	// The name of the deployment.
-	DeploymentName pulumi.StringPtrInput
-	// Gets or sets the deployment properties.
-	Properties DeploymentPropertiesPtrInput
-	// The name of the resource group. The name is case insensitive.
+	DeploymentName    pulumi.StringPtrInput
+	Properties        DeploymentPropertiesPtrInput
 	ResourceGroupName pulumi.StringInput
 }
 
@@ -218,9 +209,7 @@ func (i *Deployment) ToDeploymentOutputWithContext(ctx context.Context) Deployme
 	return pulumi.ToOutputWithContext(ctx, i).(DeploymentOutput)
 }
 
-type DeploymentOutput struct {
-	*pulumi.OutputState
-}
+type DeploymentOutput struct{ *pulumi.OutputState }
 
 func (DeploymentOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*Deployment)(nil))

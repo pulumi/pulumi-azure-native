@@ -189,9 +189,7 @@ func (i *SavedSearch) ToSavedSearchOutputWithContext(ctx context.Context) SavedS
 	return pulumi.ToOutputWithContext(ctx, i).(SavedSearchOutput)
 }
 
-type SavedSearchOutput struct {
-	*pulumi.OutputState
-}
+type SavedSearchOutput struct{ *pulumi.OutputState }
 
 func (SavedSearchOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*SavedSearch)(nil))

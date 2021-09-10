@@ -171,9 +171,7 @@ func (i *Gallery) ToGalleryOutputWithContext(ctx context.Context) GalleryOutput 
 	return pulumi.ToOutputWithContext(ctx, i).(GalleryOutput)
 }
 
-type GalleryOutput struct {
-	*pulumi.OutputState
-}
+type GalleryOutput struct{ *pulumi.OutputState }
 
 func (GalleryOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*Gallery)(nil))

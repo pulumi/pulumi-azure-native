@@ -7,7 +7,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Integration runtime status response.
 func GetIntegrationRuntimeStatus(ctx *pulumi.Context, args *GetIntegrationRuntimeStatusArgs, opts ...pulumi.InvokeOption) (*GetIntegrationRuntimeStatusResult, error) {
 	var rv GetIntegrationRuntimeStatusResult
 	err := ctx.Invoke("azure-native:datafactory/v20180601:getIntegrationRuntimeStatus", args, &rv, opts...)
@@ -18,18 +17,13 @@ func GetIntegrationRuntimeStatus(ctx *pulumi.Context, args *GetIntegrationRuntim
 }
 
 type GetIntegrationRuntimeStatusArgs struct {
-	// The factory name.
-	FactoryName string `pulumi:"factoryName"`
-	// The integration runtime name.
+	FactoryName            string `pulumi:"factoryName"`
 	IntegrationRuntimeName string `pulumi:"integrationRuntimeName"`
-	// The resource group name.
-	ResourceGroupName string `pulumi:"resourceGroupName"`
+	ResourceGroupName      string `pulumi:"resourceGroupName"`
 }
 
 // Integration runtime status response.
 type GetIntegrationRuntimeStatusResult struct {
-	// The integration runtime name.
-	Name string `pulumi:"name"`
-	// Integration runtime properties.
+	Name       string      `pulumi:"name"`
 	Properties interface{} `pulumi:"properties"`
 }

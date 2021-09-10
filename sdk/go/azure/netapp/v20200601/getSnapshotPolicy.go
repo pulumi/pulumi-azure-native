@@ -7,7 +7,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Snapshot policy information
 func LookupSnapshotPolicy(ctx *pulumi.Context, args *LookupSnapshotPolicyArgs, opts ...pulumi.InvokeOption) (*LookupSnapshotPolicyResult, error) {
 	var rv LookupSnapshotPolicyResult
 	err := ctx.Invoke("azure-native:netapp/v20200601:getSnapshotPolicy", args, &rv, opts...)
@@ -18,36 +17,22 @@ func LookupSnapshotPolicy(ctx *pulumi.Context, args *LookupSnapshotPolicyArgs, o
 }
 
 type LookupSnapshotPolicyArgs struct {
-	// The name of the NetApp account
-	AccountName string `pulumi:"accountName"`
-	// The name of the resource group.
-	ResourceGroupName string `pulumi:"resourceGroupName"`
-	// The name of the snapshot policy
+	AccountName        string `pulumi:"accountName"`
+	ResourceGroupName  string `pulumi:"resourceGroupName"`
 	SnapshotPolicyName string `pulumi:"snapshotPolicyName"`
 }
 
 // Snapshot policy information
 type LookupSnapshotPolicyResult struct {
-	// Schedule for daily snapshots
-	DailySchedule *DailyScheduleResponse `pulumi:"dailySchedule"`
-	// The property to decide policy is enabled or not
-	Enabled *bool `pulumi:"enabled"`
-	// Schedule for hourly snapshots
-	HourlySchedule *HourlyScheduleResponse `pulumi:"hourlySchedule"`
-	// Resource Id
-	Id string `pulumi:"id"`
-	// Resource location
-	Location string `pulumi:"location"`
-	// Schedule for monthly snapshots
-	MonthlySchedule *MonthlyScheduleResponse `pulumi:"monthlySchedule"`
-	// Snapshot policy name
-	Name string `pulumi:"name"`
-	// Azure lifecycle management
-	ProvisioningState string `pulumi:"provisioningState"`
-	// Resource tags
-	Tags map[string]string `pulumi:"tags"`
-	// Resource type
-	Type string `pulumi:"type"`
-	// Schedule for weekly snapshots
-	WeeklySchedule *WeeklyScheduleResponse `pulumi:"weeklySchedule"`
+	DailySchedule     *DailyScheduleResponse   `pulumi:"dailySchedule"`
+	Enabled           *bool                    `pulumi:"enabled"`
+	HourlySchedule    *HourlyScheduleResponse  `pulumi:"hourlySchedule"`
+	Id                string                   `pulumi:"id"`
+	Location          string                   `pulumi:"location"`
+	MonthlySchedule   *MonthlyScheduleResponse `pulumi:"monthlySchedule"`
+	Name              string                   `pulumi:"name"`
+	ProvisioningState string                   `pulumi:"provisioningState"`
+	Tags              map[string]string        `pulumi:"tags"`
+	Type              string                   `pulumi:"type"`
+	WeeklySchedule    *WeeklyScheduleResponse  `pulumi:"weeklySchedule"`
 }

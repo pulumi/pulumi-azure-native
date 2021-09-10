@@ -211,9 +211,7 @@ func (i *Runbook) ToRunbookOutputWithContext(ctx context.Context) RunbookOutput 
 	return pulumi.ToOutputWithContext(ctx, i).(RunbookOutput)
 }
 
-type RunbookOutput struct {
-	*pulumi.OutputState
-}
+type RunbookOutput struct{ *pulumi.OutputState }
 
 func (RunbookOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*Runbook)(nil))

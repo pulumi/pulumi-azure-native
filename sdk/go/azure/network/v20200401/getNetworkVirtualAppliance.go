@@ -7,7 +7,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// NetworkVirtualAppliance Resource.
 func LookupNetworkVirtualAppliance(ctx *pulumi.Context, args *LookupNetworkVirtualApplianceArgs, opts ...pulumi.InvokeOption) (*LookupNetworkVirtualApplianceResult, error) {
 	var rv LookupNetworkVirtualApplianceResult
 	err := ctx.Invoke("azure-native:network/v20200401:getNetworkVirtualAppliance", args, &rv, opts...)
@@ -18,42 +17,25 @@ func LookupNetworkVirtualAppliance(ctx *pulumi.Context, args *LookupNetworkVirtu
 }
 
 type LookupNetworkVirtualApplianceArgs struct {
-	// Expands referenced resources.
-	Expand *string `pulumi:"expand"`
-	// The name of Network Virtual Appliance.
-	NetworkVirtualApplianceName string `pulumi:"networkVirtualApplianceName"`
-	// The name of the resource group.
-	ResourceGroupName string `pulumi:"resourceGroupName"`
+	Expand                      *string `pulumi:"expand"`
+	NetworkVirtualApplianceName string  `pulumi:"networkVirtualApplianceName"`
+	ResourceGroupName           string  `pulumi:"resourceGroupName"`
 }
 
 // NetworkVirtualAppliance Resource.
 type LookupNetworkVirtualApplianceResult struct {
-	// BootStrapConfigurationBlob storage URLs.
-	BootStrapConfigurationBlob []string `pulumi:"bootStrapConfigurationBlob"`
-	// CloudInitConfigurationBlob storage URLs.
-	CloudInitConfigurationBlob []string `pulumi:"cloudInitConfigurationBlob"`
-	// A unique read-only string that changes whenever the resource is updated.
-	Etag string `pulumi:"etag"`
-	// Resource ID.
-	Id *string `pulumi:"id"`
-	// The service principal that has read access to cloud-init and config blob.
-	Identity *ManagedServiceIdentityResponse `pulumi:"identity"`
-	// Resource location.
-	Location *string `pulumi:"location"`
-	// Resource name.
-	Name string `pulumi:"name"`
-	// The provisioning state of the resource.
-	ProvisioningState string `pulumi:"provisioningState"`
-	// Network Virtual Appliance SKU.
-	Sku *VirtualApplianceSkuPropertiesResponse `pulumi:"sku"`
-	// Resource tags.
-	Tags map[string]string `pulumi:"tags"`
-	// Resource type.
-	Type string `pulumi:"type"`
-	// VirtualAppliance ASN.
-	VirtualApplianceAsn *float64 `pulumi:"virtualApplianceAsn"`
-	// List of Virtual Appliance Network Interfaces.
-	VirtualApplianceNics []VirtualApplianceNicPropertiesResponse `pulumi:"virtualApplianceNics"`
-	// The Virtual Hub where Network Virtual Appliance is being deployed.
-	VirtualHub *SubResourceResponse `pulumi:"virtualHub"`
+	BootStrapConfigurationBlob []string                                `pulumi:"bootStrapConfigurationBlob"`
+	CloudInitConfigurationBlob []string                                `pulumi:"cloudInitConfigurationBlob"`
+	Etag                       string                                  `pulumi:"etag"`
+	Id                         *string                                 `pulumi:"id"`
+	Identity                   *ManagedServiceIdentityResponse         `pulumi:"identity"`
+	Location                   *string                                 `pulumi:"location"`
+	Name                       string                                  `pulumi:"name"`
+	ProvisioningState          string                                  `pulumi:"provisioningState"`
+	Sku                        *VirtualApplianceSkuPropertiesResponse  `pulumi:"sku"`
+	Tags                       map[string]string                       `pulumi:"tags"`
+	Type                       string                                  `pulumi:"type"`
+	VirtualApplianceAsn        *float64                                `pulumi:"virtualApplianceAsn"`
+	VirtualApplianceNics       []VirtualApplianceNicPropertiesResponse `pulumi:"virtualApplianceNics"`
+	VirtualHub                 *SubResourceResponse                    `pulumi:"virtualHub"`
 }

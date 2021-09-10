@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.OperationalInsights.V20200301Preview.Outputs
 {
 
+    /// <summary>
+    /// The cluster sku definition.
+    /// </summary>
     [OutputType]
     public sealed class ClusterSkuResponse
     {

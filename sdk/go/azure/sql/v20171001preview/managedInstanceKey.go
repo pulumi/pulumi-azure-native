@@ -11,20 +11,14 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// A managed instance key.
 type ManagedInstanceKey struct {
 	pulumi.CustomResourceState
 
-	// The key creation date.
 	CreationDate pulumi.StringOutput `pulumi:"creationDate"`
-	// Kind of encryption protector. This is metadata used for the Azure portal experience.
-	Kind pulumi.StringOutput `pulumi:"kind"`
-	// Resource name.
-	Name pulumi.StringOutput `pulumi:"name"`
-	// Thumbprint of the key.
-	Thumbprint pulumi.StringOutput `pulumi:"thumbprint"`
-	// Resource type.
-	Type pulumi.StringOutput `pulumi:"type"`
+	Kind         pulumi.StringOutput `pulumi:"kind"`
+	Name         pulumi.StringOutput `pulumi:"name"`
+	Thumbprint   pulumi.StringOutput `pulumi:"thumbprint"`
+	Type         pulumi.StringOutput `pulumi:"type"`
 }
 
 // NewManagedInstanceKey registers a new resource with the given unique name, arguments, and options.
@@ -111,30 +105,20 @@ func (ManagedInstanceKeyState) ElementType() reflect.Type {
 }
 
 type managedInstanceKeyArgs struct {
-	// The name of the managed instance key to be operated on (updated or created).
-	KeyName *string `pulumi:"keyName"`
-	// The name of the managed instance.
-	ManagedInstanceName string `pulumi:"managedInstanceName"`
-	// The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
-	ResourceGroupName string `pulumi:"resourceGroupName"`
-	// The key type like 'ServiceManaged', 'AzureKeyVault'.
-	ServerKeyType string `pulumi:"serverKeyType"`
-	// The URI of the key. If the ServerKeyType is AzureKeyVault, then the URI is required.
-	Uri *string `pulumi:"uri"`
+	KeyName             *string `pulumi:"keyName"`
+	ManagedInstanceName string  `pulumi:"managedInstanceName"`
+	ResourceGroupName   string  `pulumi:"resourceGroupName"`
+	ServerKeyType       string  `pulumi:"serverKeyType"`
+	Uri                 *string `pulumi:"uri"`
 }
 
 // The set of arguments for constructing a ManagedInstanceKey resource.
 type ManagedInstanceKeyArgs struct {
-	// The name of the managed instance key to be operated on (updated or created).
-	KeyName pulumi.StringPtrInput
-	// The name of the managed instance.
+	KeyName             pulumi.StringPtrInput
 	ManagedInstanceName pulumi.StringInput
-	// The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
-	ResourceGroupName pulumi.StringInput
-	// The key type like 'ServiceManaged', 'AzureKeyVault'.
-	ServerKeyType pulumi.StringInput
-	// The URI of the key. If the ServerKeyType is AzureKeyVault, then the URI is required.
-	Uri pulumi.StringPtrInput
+	ResourceGroupName   pulumi.StringInput
+	ServerKeyType       pulumi.StringInput
+	Uri                 pulumi.StringPtrInput
 }
 
 func (ManagedInstanceKeyArgs) ElementType() reflect.Type {
@@ -160,9 +144,7 @@ func (i *ManagedInstanceKey) ToManagedInstanceKeyOutputWithContext(ctx context.C
 	return pulumi.ToOutputWithContext(ctx, i).(ManagedInstanceKeyOutput)
 }
 
-type ManagedInstanceKeyOutput struct {
-	*pulumi.OutputState
-}
+type ManagedInstanceKeyOutput struct{ *pulumi.OutputState }
 
 func (ManagedInstanceKeyOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*ManagedInstanceKey)(nil))

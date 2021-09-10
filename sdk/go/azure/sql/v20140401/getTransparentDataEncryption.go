@@ -7,7 +7,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Represents a database transparent data encryption configuration.
 func LookupTransparentDataEncryption(ctx *pulumi.Context, args *LookupTransparentDataEncryptionArgs, opts ...pulumi.InvokeOption) (*LookupTransparentDataEncryptionResult, error) {
 	var rv LookupTransparentDataEncryptionResult
 	err := ctx.Invoke("azure-native:sql/v20140401:getTransparentDataEncryption", args, &rv, opts...)
@@ -18,26 +17,17 @@ func LookupTransparentDataEncryption(ctx *pulumi.Context, args *LookupTransparen
 }
 
 type LookupTransparentDataEncryptionArgs struct {
-	// The name of the database for which the transparent data encryption applies.
-	DatabaseName string `pulumi:"databaseName"`
-	// The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
-	ResourceGroupName string `pulumi:"resourceGroupName"`
-	// The name of the server.
-	ServerName string `pulumi:"serverName"`
-	// The name of the transparent data encryption configuration.
+	DatabaseName                  string `pulumi:"databaseName"`
+	ResourceGroupName             string `pulumi:"resourceGroupName"`
+	ServerName                    string `pulumi:"serverName"`
 	TransparentDataEncryptionName string `pulumi:"transparentDataEncryptionName"`
 }
 
 // Represents a database transparent data encryption configuration.
 type LookupTransparentDataEncryptionResult struct {
-	// Resource ID.
-	Id string `pulumi:"id"`
-	// Resource location.
-	Location string `pulumi:"location"`
-	// Resource name.
-	Name string `pulumi:"name"`
-	// The status of the database transparent data encryption.
-	Status *string `pulumi:"status"`
-	// Resource type.
-	Type string `pulumi:"type"`
+	Id       string  `pulumi:"id"`
+	Location string  `pulumi:"location"`
+	Name     string  `pulumi:"name"`
+	Status   *string `pulumi:"status"`
+	Type     string  `pulumi:"type"`
 }

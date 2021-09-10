@@ -7,7 +7,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// A privateLinkHub
 func LookupPrivateLinkHub(ctx *pulumi.Context, args *LookupPrivateLinkHubArgs, opts ...pulumi.InvokeOption) (*LookupPrivateLinkHubResult, error) {
 	var rv LookupPrivateLinkHubResult
 	err := ctx.Invoke("azure-native:synapse/v20201201:getPrivateLinkHub", args, &rv, opts...)
@@ -18,26 +17,17 @@ func LookupPrivateLinkHub(ctx *pulumi.Context, args *LookupPrivateLinkHubArgs, o
 }
 
 type LookupPrivateLinkHubArgs struct {
-	// Name of the privateLinkHub
 	PrivateLinkHubName string `pulumi:"privateLinkHubName"`
-	// The name of the resource group. The name is case insensitive.
-	ResourceGroupName string `pulumi:"resourceGroupName"`
+	ResourceGroupName  string `pulumi:"resourceGroupName"`
 }
 
 // A privateLinkHub
 type LookupPrivateLinkHubResult struct {
-	// Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
-	Id string `pulumi:"id"`
-	// The geo-location where the resource lives
-	Location string `pulumi:"location"`
-	// The name of the resource
-	Name string `pulumi:"name"`
-	// List of private endpoint connections
+	Id                         string                                                    `pulumi:"id"`
+	Location                   string                                                    `pulumi:"location"`
+	Name                       string                                                    `pulumi:"name"`
 	PrivateEndpointConnections []PrivateEndpointConnectionForPrivateLinkHubBasicResponse `pulumi:"privateEndpointConnections"`
-	// PrivateLinkHub provisioning state
-	ProvisioningState *string `pulumi:"provisioningState"`
-	// Resource tags.
-	Tags map[string]string `pulumi:"tags"`
-	// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
-	Type string `pulumi:"type"`
+	ProvisioningState          *string                                                   `pulumi:"provisioningState"`
+	Tags                       map[string]string                                         `pulumi:"tags"`
+	Type                       string                                                    `pulumi:"type"`
 }

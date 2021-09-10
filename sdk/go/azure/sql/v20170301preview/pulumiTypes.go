@@ -10,9 +10,7 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Properties for an Azure SQL Database Vulnerability Assessment rule baseline's result.
 type DatabaseVulnerabilityAssessmentRuleBaselineItem struct {
-	// The rule baseline result
 	Result []string `pulumi:"result"`
 }
 
@@ -27,9 +25,7 @@ type DatabaseVulnerabilityAssessmentRuleBaselineItemInput interface {
 	ToDatabaseVulnerabilityAssessmentRuleBaselineItemOutputWithContext(context.Context) DatabaseVulnerabilityAssessmentRuleBaselineItemOutput
 }
 
-// Properties for an Azure SQL Database Vulnerability Assessment rule baseline's result.
 type DatabaseVulnerabilityAssessmentRuleBaselineItemArgs struct {
-	// The rule baseline result
 	Result pulumi.StringArrayInput `pulumi:"result"`
 }
 
@@ -70,7 +66,6 @@ func (i DatabaseVulnerabilityAssessmentRuleBaselineItemArray) ToDatabaseVulnerab
 	return pulumi.ToOutputWithContext(ctx, i).(DatabaseVulnerabilityAssessmentRuleBaselineItemArrayOutput)
 }
 
-// Properties for an Azure SQL Database Vulnerability Assessment rule baseline's result.
 type DatabaseVulnerabilityAssessmentRuleBaselineItemOutput struct{ *pulumi.OutputState }
 
 func (DatabaseVulnerabilityAssessmentRuleBaselineItemOutput) ElementType() reflect.Type {
@@ -85,7 +80,6 @@ func (o DatabaseVulnerabilityAssessmentRuleBaselineItemOutput) ToDatabaseVulnera
 	return o
 }
 
-// The rule baseline result
 func (o DatabaseVulnerabilityAssessmentRuleBaselineItemOutput) Result() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v DatabaseVulnerabilityAssessmentRuleBaselineItem) []string { return v.Result }).(pulumi.StringArrayOutput)
 }
@@ -110,9 +104,7 @@ func (o DatabaseVulnerabilityAssessmentRuleBaselineItemArrayOutput) Index(i pulu
 	}).(DatabaseVulnerabilityAssessmentRuleBaselineItemOutput)
 }
 
-// Properties for an Azure SQL Database Vulnerability Assessment rule baseline's result.
 type DatabaseVulnerabilityAssessmentRuleBaselineItemResponse struct {
-	// The rule baseline result
 	Result []string `pulumi:"result"`
 }
 
@@ -127,9 +119,7 @@ type DatabaseVulnerabilityAssessmentRuleBaselineItemResponseInput interface {
 	ToDatabaseVulnerabilityAssessmentRuleBaselineItemResponseOutputWithContext(context.Context) DatabaseVulnerabilityAssessmentRuleBaselineItemResponseOutput
 }
 
-// Properties for an Azure SQL Database Vulnerability Assessment rule baseline's result.
 type DatabaseVulnerabilityAssessmentRuleBaselineItemResponseArgs struct {
-	// The rule baseline result
 	Result pulumi.StringArrayInput `pulumi:"result"`
 }
 
@@ -170,7 +160,6 @@ func (i DatabaseVulnerabilityAssessmentRuleBaselineItemResponseArray) ToDatabase
 	return pulumi.ToOutputWithContext(ctx, i).(DatabaseVulnerabilityAssessmentRuleBaselineItemResponseArrayOutput)
 }
 
-// Properties for an Azure SQL Database Vulnerability Assessment rule baseline's result.
 type DatabaseVulnerabilityAssessmentRuleBaselineItemResponseOutput struct{ *pulumi.OutputState }
 
 func (DatabaseVulnerabilityAssessmentRuleBaselineItemResponseOutput) ElementType() reflect.Type {
@@ -185,7 +174,6 @@ func (o DatabaseVulnerabilityAssessmentRuleBaselineItemResponseOutput) ToDatabas
 	return o
 }
 
-// The rule baseline result
 func (o DatabaseVulnerabilityAssessmentRuleBaselineItemResponseOutput) Result() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v DatabaseVulnerabilityAssessmentRuleBaselineItemResponse) []string { return v.Result }).(pulumi.StringArrayOutput)
 }
@@ -210,18 +198,12 @@ func (o DatabaseVulnerabilityAssessmentRuleBaselineItemResponseArrayOutput) Inde
 	}).(DatabaseVulnerabilityAssessmentRuleBaselineItemResponseOutput)
 }
 
-// Scheduling properties of a job.
 type JobSchedule struct {
-	// Whether or not the schedule is enabled.
-	Enabled *bool `pulumi:"enabled"`
-	// Schedule end time.
-	EndTime *string `pulumi:"endTime"`
-	// Value of the schedule's recurring interval, if the schedule type is recurring. ISO8601 duration format.
-	Interval *string `pulumi:"interval"`
-	// Schedule start time.
-	StartTime *string `pulumi:"startTime"`
-	// Schedule interval type
-	Type *string `pulumi:"type"`
+	Enabled   *bool            `pulumi:"enabled"`
+	EndTime   *string          `pulumi:"endTime"`
+	Interval  *string          `pulumi:"interval"`
+	StartTime *string          `pulumi:"startTime"`
+	Type      *JobScheduleType `pulumi:"type"`
 }
 
 // JobScheduleInput is an input type that accepts JobScheduleArgs and JobScheduleOutput values.
@@ -235,18 +217,12 @@ type JobScheduleInput interface {
 	ToJobScheduleOutputWithContext(context.Context) JobScheduleOutput
 }
 
-// Scheduling properties of a job.
 type JobScheduleArgs struct {
-	// Whether or not the schedule is enabled.
-	Enabled pulumi.BoolPtrInput `pulumi:"enabled"`
-	// Schedule end time.
-	EndTime pulumi.StringPtrInput `pulumi:"endTime"`
-	// Value of the schedule's recurring interval, if the schedule type is recurring. ISO8601 duration format.
-	Interval pulumi.StringPtrInput `pulumi:"interval"`
-	// Schedule start time.
-	StartTime pulumi.StringPtrInput `pulumi:"startTime"`
-	// Schedule interval type
-	Type *JobScheduleType `pulumi:"type"`
+	Enabled   pulumi.BoolPtrInput     `pulumi:"enabled"`
+	EndTime   pulumi.StringPtrInput   `pulumi:"endTime"`
+	Interval  pulumi.StringPtrInput   `pulumi:"interval"`
+	StartTime pulumi.StringPtrInput   `pulumi:"startTime"`
+	Type      JobScheduleTypePtrInput `pulumi:"type"`
 }
 
 func (JobScheduleArgs) ElementType() reflect.Type {
@@ -302,7 +278,6 @@ func (i *jobSchedulePtrType) ToJobSchedulePtrOutputWithContext(ctx context.Conte
 	return pulumi.ToOutputWithContext(ctx, i).(JobSchedulePtrOutput)
 }
 
-// Scheduling properties of a job.
 type JobScheduleOutput struct{ *pulumi.OutputState }
 
 func (JobScheduleOutput) ElementType() reflect.Type {
@@ -322,34 +297,29 @@ func (o JobScheduleOutput) ToJobSchedulePtrOutput() JobSchedulePtrOutput {
 }
 
 func (o JobScheduleOutput) ToJobSchedulePtrOutputWithContext(ctx context.Context) JobSchedulePtrOutput {
-	return o.ApplyT(func(v JobSchedule) *JobSchedule {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v JobSchedule) *JobSchedule {
 		return &v
 	}).(JobSchedulePtrOutput)
 }
 
-// Whether or not the schedule is enabled.
 func (o JobScheduleOutput) Enabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v JobSchedule) *bool { return v.Enabled }).(pulumi.BoolPtrOutput)
 }
 
-// Schedule end time.
 func (o JobScheduleOutput) EndTime() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v JobSchedule) *string { return v.EndTime }).(pulumi.StringPtrOutput)
 }
 
-// Value of the schedule's recurring interval, if the schedule type is recurring. ISO8601 duration format.
 func (o JobScheduleOutput) Interval() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v JobSchedule) *string { return v.Interval }).(pulumi.StringPtrOutput)
 }
 
-// Schedule start time.
 func (o JobScheduleOutput) StartTime() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v JobSchedule) *string { return v.StartTime }).(pulumi.StringPtrOutput)
 }
 
-// Schedule interval type
-func (o JobScheduleOutput) Type() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v JobSchedule) *string { return v.Type }).(pulumi.StringPtrOutput)
+func (o JobScheduleOutput) Type() JobScheduleTypePtrOutput {
+	return o.ApplyT(func(v JobSchedule) *JobScheduleType { return v.Type }).(JobScheduleTypePtrOutput)
 }
 
 type JobSchedulePtrOutput struct{ *pulumi.OutputState }
@@ -367,10 +337,15 @@ func (o JobSchedulePtrOutput) ToJobSchedulePtrOutputWithContext(ctx context.Cont
 }
 
 func (o JobSchedulePtrOutput) Elem() JobScheduleOutput {
-	return o.ApplyT(func(v *JobSchedule) JobSchedule { return *v }).(JobScheduleOutput)
+	return o.ApplyT(func(v *JobSchedule) JobSchedule {
+		if v != nil {
+			return *v
+		}
+		var ret JobSchedule
+		return ret
+	}).(JobScheduleOutput)
 }
 
-// Whether or not the schedule is enabled.
 func (o JobSchedulePtrOutput) Enabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *JobSchedule) *bool {
 		if v == nil {
@@ -380,7 +355,6 @@ func (o JobSchedulePtrOutput) Enabled() pulumi.BoolPtrOutput {
 	}).(pulumi.BoolPtrOutput)
 }
 
-// Schedule end time.
 func (o JobSchedulePtrOutput) EndTime() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *JobSchedule) *string {
 		if v == nil {
@@ -390,7 +364,6 @@ func (o JobSchedulePtrOutput) EndTime() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Value of the schedule's recurring interval, if the schedule type is recurring. ISO8601 duration format.
 func (o JobSchedulePtrOutput) Interval() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *JobSchedule) *string {
 		if v == nil {
@@ -400,7 +373,6 @@ func (o JobSchedulePtrOutput) Interval() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Schedule start time.
 func (o JobSchedulePtrOutput) StartTime() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *JobSchedule) *string {
 		if v == nil {
@@ -410,28 +382,21 @@ func (o JobSchedulePtrOutput) StartTime() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Schedule interval type
-func (o JobSchedulePtrOutput) Type() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *JobSchedule) *string {
+func (o JobSchedulePtrOutput) Type() JobScheduleTypePtrOutput {
+	return o.ApplyT(func(v *JobSchedule) *JobScheduleType {
 		if v == nil {
 			return nil
 		}
 		return v.Type
-	}).(pulumi.StringPtrOutput)
+	}).(JobScheduleTypePtrOutput)
 }
 
-// Scheduling properties of a job.
 type JobScheduleResponse struct {
-	// Whether or not the schedule is enabled.
-	Enabled *bool `pulumi:"enabled"`
-	// Schedule end time.
-	EndTime *string `pulumi:"endTime"`
-	// Value of the schedule's recurring interval, if the schedule type is recurring. ISO8601 duration format.
-	Interval *string `pulumi:"interval"`
-	// Schedule start time.
+	Enabled   *bool   `pulumi:"enabled"`
+	EndTime   *string `pulumi:"endTime"`
+	Interval  *string `pulumi:"interval"`
 	StartTime *string `pulumi:"startTime"`
-	// Schedule interval type
-	Type *string `pulumi:"type"`
+	Type      *string `pulumi:"type"`
 }
 
 // JobScheduleResponseInput is an input type that accepts JobScheduleResponseArgs and JobScheduleResponseOutput values.
@@ -445,18 +410,12 @@ type JobScheduleResponseInput interface {
 	ToJobScheduleResponseOutputWithContext(context.Context) JobScheduleResponseOutput
 }
 
-// Scheduling properties of a job.
 type JobScheduleResponseArgs struct {
-	// Whether or not the schedule is enabled.
-	Enabled pulumi.BoolPtrInput `pulumi:"enabled"`
-	// Schedule end time.
-	EndTime pulumi.StringPtrInput `pulumi:"endTime"`
-	// Value of the schedule's recurring interval, if the schedule type is recurring. ISO8601 duration format.
-	Interval pulumi.StringPtrInput `pulumi:"interval"`
-	// Schedule start time.
+	Enabled   pulumi.BoolPtrInput   `pulumi:"enabled"`
+	EndTime   pulumi.StringPtrInput `pulumi:"endTime"`
+	Interval  pulumi.StringPtrInput `pulumi:"interval"`
 	StartTime pulumi.StringPtrInput `pulumi:"startTime"`
-	// Schedule interval type
-	Type pulumi.StringPtrInput `pulumi:"type"`
+	Type      pulumi.StringPtrInput `pulumi:"type"`
 }
 
 func (JobScheduleResponseArgs) ElementType() reflect.Type {
@@ -512,7 +471,6 @@ func (i *jobScheduleResponsePtrType) ToJobScheduleResponsePtrOutputWithContext(c
 	return pulumi.ToOutputWithContext(ctx, i).(JobScheduleResponsePtrOutput)
 }
 
-// Scheduling properties of a job.
 type JobScheduleResponseOutput struct{ *pulumi.OutputState }
 
 func (JobScheduleResponseOutput) ElementType() reflect.Type {
@@ -532,32 +490,27 @@ func (o JobScheduleResponseOutput) ToJobScheduleResponsePtrOutput() JobScheduleR
 }
 
 func (o JobScheduleResponseOutput) ToJobScheduleResponsePtrOutputWithContext(ctx context.Context) JobScheduleResponsePtrOutput {
-	return o.ApplyT(func(v JobScheduleResponse) *JobScheduleResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v JobScheduleResponse) *JobScheduleResponse {
 		return &v
 	}).(JobScheduleResponsePtrOutput)
 }
 
-// Whether or not the schedule is enabled.
 func (o JobScheduleResponseOutput) Enabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v JobScheduleResponse) *bool { return v.Enabled }).(pulumi.BoolPtrOutput)
 }
 
-// Schedule end time.
 func (o JobScheduleResponseOutput) EndTime() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v JobScheduleResponse) *string { return v.EndTime }).(pulumi.StringPtrOutput)
 }
 
-// Value of the schedule's recurring interval, if the schedule type is recurring. ISO8601 duration format.
 func (o JobScheduleResponseOutput) Interval() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v JobScheduleResponse) *string { return v.Interval }).(pulumi.StringPtrOutput)
 }
 
-// Schedule start time.
 func (o JobScheduleResponseOutput) StartTime() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v JobScheduleResponse) *string { return v.StartTime }).(pulumi.StringPtrOutput)
 }
 
-// Schedule interval type
 func (o JobScheduleResponseOutput) Type() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v JobScheduleResponse) *string { return v.Type }).(pulumi.StringPtrOutput)
 }
@@ -577,10 +530,15 @@ func (o JobScheduleResponsePtrOutput) ToJobScheduleResponsePtrOutputWithContext(
 }
 
 func (o JobScheduleResponsePtrOutput) Elem() JobScheduleResponseOutput {
-	return o.ApplyT(func(v *JobScheduleResponse) JobScheduleResponse { return *v }).(JobScheduleResponseOutput)
+	return o.ApplyT(func(v *JobScheduleResponse) JobScheduleResponse {
+		if v != nil {
+			return *v
+		}
+		var ret JobScheduleResponse
+		return ret
+	}).(JobScheduleResponseOutput)
 }
 
-// Whether or not the schedule is enabled.
 func (o JobScheduleResponsePtrOutput) Enabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *JobScheduleResponse) *bool {
 		if v == nil {
@@ -590,7 +548,6 @@ func (o JobScheduleResponsePtrOutput) Enabled() pulumi.BoolPtrOutput {
 	}).(pulumi.BoolPtrOutput)
 }
 
-// Schedule end time.
 func (o JobScheduleResponsePtrOutput) EndTime() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *JobScheduleResponse) *string {
 		if v == nil {
@@ -600,7 +557,6 @@ func (o JobScheduleResponsePtrOutput) EndTime() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Value of the schedule's recurring interval, if the schedule type is recurring. ISO8601 duration format.
 func (o JobScheduleResponsePtrOutput) Interval() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *JobScheduleResponse) *string {
 		if v == nil {
@@ -610,7 +566,6 @@ func (o JobScheduleResponsePtrOutput) Interval() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Schedule start time.
 func (o JobScheduleResponsePtrOutput) StartTime() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *JobScheduleResponse) *string {
 		if v == nil {
@@ -620,7 +575,6 @@ func (o JobScheduleResponsePtrOutput) StartTime() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Schedule interval type
 func (o JobScheduleResponsePtrOutput) Type() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *JobScheduleResponse) *string {
 		if v == nil {
@@ -630,14 +584,10 @@ func (o JobScheduleResponsePtrOutput) Type() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The action to be executed by a job step.
 type JobStepAction struct {
-	// The source of the action to execute.
 	Source *string `pulumi:"source"`
-	// Type of action being executed by the job step.
-	Type *string `pulumi:"type"`
-	// The action value, for example the text of the T-SQL script to execute.
-	Value string `pulumi:"value"`
+	Type   *string `pulumi:"type"`
+	Value  string  `pulumi:"value"`
 }
 
 // JobStepActionInput is an input type that accepts JobStepActionArgs and JobStepActionOutput values.
@@ -651,14 +601,10 @@ type JobStepActionInput interface {
 	ToJobStepActionOutputWithContext(context.Context) JobStepActionOutput
 }
 
-// The action to be executed by a job step.
 type JobStepActionArgs struct {
-	// The source of the action to execute.
 	Source pulumi.StringPtrInput `pulumi:"source"`
-	// Type of action being executed by the job step.
-	Type pulumi.StringPtrInput `pulumi:"type"`
-	// The action value, for example the text of the T-SQL script to execute.
-	Value pulumi.StringInput `pulumi:"value"`
+	Type   pulumi.StringPtrInput `pulumi:"type"`
+	Value  pulumi.StringInput    `pulumi:"value"`
 }
 
 func (JobStepActionArgs) ElementType() reflect.Type {
@@ -714,7 +660,6 @@ func (i *jobStepActionPtrType) ToJobStepActionPtrOutputWithContext(ctx context.C
 	return pulumi.ToOutputWithContext(ctx, i).(JobStepActionPtrOutput)
 }
 
-// The action to be executed by a job step.
 type JobStepActionOutput struct{ *pulumi.OutputState }
 
 func (JobStepActionOutput) ElementType() reflect.Type {
@@ -734,22 +679,19 @@ func (o JobStepActionOutput) ToJobStepActionPtrOutput() JobStepActionPtrOutput {
 }
 
 func (o JobStepActionOutput) ToJobStepActionPtrOutputWithContext(ctx context.Context) JobStepActionPtrOutput {
-	return o.ApplyT(func(v JobStepAction) *JobStepAction {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v JobStepAction) *JobStepAction {
 		return &v
 	}).(JobStepActionPtrOutput)
 }
 
-// The source of the action to execute.
 func (o JobStepActionOutput) Source() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v JobStepAction) *string { return v.Source }).(pulumi.StringPtrOutput)
 }
 
-// Type of action being executed by the job step.
 func (o JobStepActionOutput) Type() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v JobStepAction) *string { return v.Type }).(pulumi.StringPtrOutput)
 }
 
-// The action value, for example the text of the T-SQL script to execute.
 func (o JobStepActionOutput) Value() pulumi.StringOutput {
 	return o.ApplyT(func(v JobStepAction) string { return v.Value }).(pulumi.StringOutput)
 }
@@ -769,10 +711,15 @@ func (o JobStepActionPtrOutput) ToJobStepActionPtrOutputWithContext(ctx context.
 }
 
 func (o JobStepActionPtrOutput) Elem() JobStepActionOutput {
-	return o.ApplyT(func(v *JobStepAction) JobStepAction { return *v }).(JobStepActionOutput)
+	return o.ApplyT(func(v *JobStepAction) JobStepAction {
+		if v != nil {
+			return *v
+		}
+		var ret JobStepAction
+		return ret
+	}).(JobStepActionOutput)
 }
 
-// The source of the action to execute.
 func (o JobStepActionPtrOutput) Source() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *JobStepAction) *string {
 		if v == nil {
@@ -782,7 +729,6 @@ func (o JobStepActionPtrOutput) Source() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Type of action being executed by the job step.
 func (o JobStepActionPtrOutput) Type() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *JobStepAction) *string {
 		if v == nil {
@@ -792,7 +738,6 @@ func (o JobStepActionPtrOutput) Type() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The action value, for example the text of the T-SQL script to execute.
 func (o JobStepActionPtrOutput) Value() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *JobStepAction) *string {
 		if v == nil {
@@ -802,14 +747,10 @@ func (o JobStepActionPtrOutput) Value() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The action to be executed by a job step.
 type JobStepActionResponse struct {
-	// The source of the action to execute.
 	Source *string `pulumi:"source"`
-	// Type of action being executed by the job step.
-	Type *string `pulumi:"type"`
-	// The action value, for example the text of the T-SQL script to execute.
-	Value string `pulumi:"value"`
+	Type   *string `pulumi:"type"`
+	Value  string  `pulumi:"value"`
 }
 
 // JobStepActionResponseInput is an input type that accepts JobStepActionResponseArgs and JobStepActionResponseOutput values.
@@ -823,14 +764,10 @@ type JobStepActionResponseInput interface {
 	ToJobStepActionResponseOutputWithContext(context.Context) JobStepActionResponseOutput
 }
 
-// The action to be executed by a job step.
 type JobStepActionResponseArgs struct {
-	// The source of the action to execute.
 	Source pulumi.StringPtrInput `pulumi:"source"`
-	// Type of action being executed by the job step.
-	Type pulumi.StringPtrInput `pulumi:"type"`
-	// The action value, for example the text of the T-SQL script to execute.
-	Value pulumi.StringInput `pulumi:"value"`
+	Type   pulumi.StringPtrInput `pulumi:"type"`
+	Value  pulumi.StringInput    `pulumi:"value"`
 }
 
 func (JobStepActionResponseArgs) ElementType() reflect.Type {
@@ -886,7 +823,6 @@ func (i *jobStepActionResponsePtrType) ToJobStepActionResponsePtrOutputWithConte
 	return pulumi.ToOutputWithContext(ctx, i).(JobStepActionResponsePtrOutput)
 }
 
-// The action to be executed by a job step.
 type JobStepActionResponseOutput struct{ *pulumi.OutputState }
 
 func (JobStepActionResponseOutput) ElementType() reflect.Type {
@@ -906,22 +842,19 @@ func (o JobStepActionResponseOutput) ToJobStepActionResponsePtrOutput() JobStepA
 }
 
 func (o JobStepActionResponseOutput) ToJobStepActionResponsePtrOutputWithContext(ctx context.Context) JobStepActionResponsePtrOutput {
-	return o.ApplyT(func(v JobStepActionResponse) *JobStepActionResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v JobStepActionResponse) *JobStepActionResponse {
 		return &v
 	}).(JobStepActionResponsePtrOutput)
 }
 
-// The source of the action to execute.
 func (o JobStepActionResponseOutput) Source() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v JobStepActionResponse) *string { return v.Source }).(pulumi.StringPtrOutput)
 }
 
-// Type of action being executed by the job step.
 func (o JobStepActionResponseOutput) Type() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v JobStepActionResponse) *string { return v.Type }).(pulumi.StringPtrOutput)
 }
 
-// The action value, for example the text of the T-SQL script to execute.
 func (o JobStepActionResponseOutput) Value() pulumi.StringOutput {
 	return o.ApplyT(func(v JobStepActionResponse) string { return v.Value }).(pulumi.StringOutput)
 }
@@ -941,10 +874,15 @@ func (o JobStepActionResponsePtrOutput) ToJobStepActionResponsePtrOutputWithCont
 }
 
 func (o JobStepActionResponsePtrOutput) Elem() JobStepActionResponseOutput {
-	return o.ApplyT(func(v *JobStepActionResponse) JobStepActionResponse { return *v }).(JobStepActionResponseOutput)
+	return o.ApplyT(func(v *JobStepActionResponse) JobStepActionResponse {
+		if v != nil {
+			return *v
+		}
+		var ret JobStepActionResponse
+		return ret
+	}).(JobStepActionResponseOutput)
 }
 
-// The source of the action to execute.
 func (o JobStepActionResponsePtrOutput) Source() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *JobStepActionResponse) *string {
 		if v == nil {
@@ -954,7 +892,6 @@ func (o JobStepActionResponsePtrOutput) Source() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Type of action being executed by the job step.
 func (o JobStepActionResponsePtrOutput) Type() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *JobStepActionResponse) *string {
 		if v == nil {
@@ -964,7 +901,6 @@ func (o JobStepActionResponsePtrOutput) Type() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The action value, for example the text of the T-SQL script to execute.
 func (o JobStepActionResponsePtrOutput) Value() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *JobStepActionResponse) *string {
 		if v == nil {
@@ -974,18 +910,12 @@ func (o JobStepActionResponsePtrOutput) Value() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The execution options of a job step.
 type JobStepExecutionOptions struct {
-	// Initial delay between retries for job step execution.
-	InitialRetryIntervalSeconds *int `pulumi:"initialRetryIntervalSeconds"`
-	// The maximum amount of time to wait between retries for job step execution.
-	MaximumRetryIntervalSeconds *int `pulumi:"maximumRetryIntervalSeconds"`
-	// Maximum number of times the job step will be reattempted if the first attempt fails.
-	RetryAttempts *int `pulumi:"retryAttempts"`
-	// The backoff multiplier for the time between retries.
+	InitialRetryIntervalSeconds    *int     `pulumi:"initialRetryIntervalSeconds"`
+	MaximumRetryIntervalSeconds    *int     `pulumi:"maximumRetryIntervalSeconds"`
+	RetryAttempts                  *int     `pulumi:"retryAttempts"`
 	RetryIntervalBackoffMultiplier *float64 `pulumi:"retryIntervalBackoffMultiplier"`
-	// Execution timeout for the job step.
-	TimeoutSeconds *int `pulumi:"timeoutSeconds"`
+	TimeoutSeconds                 *int     `pulumi:"timeoutSeconds"`
 }
 
 // JobStepExecutionOptionsInput is an input type that accepts JobStepExecutionOptionsArgs and JobStepExecutionOptionsOutput values.
@@ -999,18 +929,12 @@ type JobStepExecutionOptionsInput interface {
 	ToJobStepExecutionOptionsOutputWithContext(context.Context) JobStepExecutionOptionsOutput
 }
 
-// The execution options of a job step.
 type JobStepExecutionOptionsArgs struct {
-	// Initial delay between retries for job step execution.
-	InitialRetryIntervalSeconds pulumi.IntPtrInput `pulumi:"initialRetryIntervalSeconds"`
-	// The maximum amount of time to wait between retries for job step execution.
-	MaximumRetryIntervalSeconds pulumi.IntPtrInput `pulumi:"maximumRetryIntervalSeconds"`
-	// Maximum number of times the job step will be reattempted if the first attempt fails.
-	RetryAttempts pulumi.IntPtrInput `pulumi:"retryAttempts"`
-	// The backoff multiplier for the time between retries.
+	InitialRetryIntervalSeconds    pulumi.IntPtrInput     `pulumi:"initialRetryIntervalSeconds"`
+	MaximumRetryIntervalSeconds    pulumi.IntPtrInput     `pulumi:"maximumRetryIntervalSeconds"`
+	RetryAttempts                  pulumi.IntPtrInput     `pulumi:"retryAttempts"`
 	RetryIntervalBackoffMultiplier pulumi.Float64PtrInput `pulumi:"retryIntervalBackoffMultiplier"`
-	// Execution timeout for the job step.
-	TimeoutSeconds pulumi.IntPtrInput `pulumi:"timeoutSeconds"`
+	TimeoutSeconds                 pulumi.IntPtrInput     `pulumi:"timeoutSeconds"`
 }
 
 func (JobStepExecutionOptionsArgs) ElementType() reflect.Type {
@@ -1066,7 +990,6 @@ func (i *jobStepExecutionOptionsPtrType) ToJobStepExecutionOptionsPtrOutputWithC
 	return pulumi.ToOutputWithContext(ctx, i).(JobStepExecutionOptionsPtrOutput)
 }
 
-// The execution options of a job step.
 type JobStepExecutionOptionsOutput struct{ *pulumi.OutputState }
 
 func (JobStepExecutionOptionsOutput) ElementType() reflect.Type {
@@ -1086,32 +1009,27 @@ func (o JobStepExecutionOptionsOutput) ToJobStepExecutionOptionsPtrOutput() JobS
 }
 
 func (o JobStepExecutionOptionsOutput) ToJobStepExecutionOptionsPtrOutputWithContext(ctx context.Context) JobStepExecutionOptionsPtrOutput {
-	return o.ApplyT(func(v JobStepExecutionOptions) *JobStepExecutionOptions {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v JobStepExecutionOptions) *JobStepExecutionOptions {
 		return &v
 	}).(JobStepExecutionOptionsPtrOutput)
 }
 
-// Initial delay between retries for job step execution.
 func (o JobStepExecutionOptionsOutput) InitialRetryIntervalSeconds() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v JobStepExecutionOptions) *int { return v.InitialRetryIntervalSeconds }).(pulumi.IntPtrOutput)
 }
 
-// The maximum amount of time to wait between retries for job step execution.
 func (o JobStepExecutionOptionsOutput) MaximumRetryIntervalSeconds() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v JobStepExecutionOptions) *int { return v.MaximumRetryIntervalSeconds }).(pulumi.IntPtrOutput)
 }
 
-// Maximum number of times the job step will be reattempted if the first attempt fails.
 func (o JobStepExecutionOptionsOutput) RetryAttempts() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v JobStepExecutionOptions) *int { return v.RetryAttempts }).(pulumi.IntPtrOutput)
 }
 
-// The backoff multiplier for the time between retries.
 func (o JobStepExecutionOptionsOutput) RetryIntervalBackoffMultiplier() pulumi.Float64PtrOutput {
 	return o.ApplyT(func(v JobStepExecutionOptions) *float64 { return v.RetryIntervalBackoffMultiplier }).(pulumi.Float64PtrOutput)
 }
 
-// Execution timeout for the job step.
 func (o JobStepExecutionOptionsOutput) TimeoutSeconds() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v JobStepExecutionOptions) *int { return v.TimeoutSeconds }).(pulumi.IntPtrOutput)
 }
@@ -1131,10 +1049,15 @@ func (o JobStepExecutionOptionsPtrOutput) ToJobStepExecutionOptionsPtrOutputWith
 }
 
 func (o JobStepExecutionOptionsPtrOutput) Elem() JobStepExecutionOptionsOutput {
-	return o.ApplyT(func(v *JobStepExecutionOptions) JobStepExecutionOptions { return *v }).(JobStepExecutionOptionsOutput)
+	return o.ApplyT(func(v *JobStepExecutionOptions) JobStepExecutionOptions {
+		if v != nil {
+			return *v
+		}
+		var ret JobStepExecutionOptions
+		return ret
+	}).(JobStepExecutionOptionsOutput)
 }
 
-// Initial delay between retries for job step execution.
 func (o JobStepExecutionOptionsPtrOutput) InitialRetryIntervalSeconds() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *JobStepExecutionOptions) *int {
 		if v == nil {
@@ -1144,7 +1067,6 @@ func (o JobStepExecutionOptionsPtrOutput) InitialRetryIntervalSeconds() pulumi.I
 	}).(pulumi.IntPtrOutput)
 }
 
-// The maximum amount of time to wait between retries for job step execution.
 func (o JobStepExecutionOptionsPtrOutput) MaximumRetryIntervalSeconds() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *JobStepExecutionOptions) *int {
 		if v == nil {
@@ -1154,7 +1076,6 @@ func (o JobStepExecutionOptionsPtrOutput) MaximumRetryIntervalSeconds() pulumi.I
 	}).(pulumi.IntPtrOutput)
 }
 
-// Maximum number of times the job step will be reattempted if the first attempt fails.
 func (o JobStepExecutionOptionsPtrOutput) RetryAttempts() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *JobStepExecutionOptions) *int {
 		if v == nil {
@@ -1164,7 +1085,6 @@ func (o JobStepExecutionOptionsPtrOutput) RetryAttempts() pulumi.IntPtrOutput {
 	}).(pulumi.IntPtrOutput)
 }
 
-// The backoff multiplier for the time between retries.
 func (o JobStepExecutionOptionsPtrOutput) RetryIntervalBackoffMultiplier() pulumi.Float64PtrOutput {
 	return o.ApplyT(func(v *JobStepExecutionOptions) *float64 {
 		if v == nil {
@@ -1174,7 +1094,6 @@ func (o JobStepExecutionOptionsPtrOutput) RetryIntervalBackoffMultiplier() pulum
 	}).(pulumi.Float64PtrOutput)
 }
 
-// Execution timeout for the job step.
 func (o JobStepExecutionOptionsPtrOutput) TimeoutSeconds() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *JobStepExecutionOptions) *int {
 		if v == nil {
@@ -1184,18 +1103,12 @@ func (o JobStepExecutionOptionsPtrOutput) TimeoutSeconds() pulumi.IntPtrOutput {
 	}).(pulumi.IntPtrOutput)
 }
 
-// The execution options of a job step.
 type JobStepExecutionOptionsResponse struct {
-	// Initial delay between retries for job step execution.
-	InitialRetryIntervalSeconds *int `pulumi:"initialRetryIntervalSeconds"`
-	// The maximum amount of time to wait between retries for job step execution.
-	MaximumRetryIntervalSeconds *int `pulumi:"maximumRetryIntervalSeconds"`
-	// Maximum number of times the job step will be reattempted if the first attempt fails.
-	RetryAttempts *int `pulumi:"retryAttempts"`
-	// The backoff multiplier for the time between retries.
+	InitialRetryIntervalSeconds    *int     `pulumi:"initialRetryIntervalSeconds"`
+	MaximumRetryIntervalSeconds    *int     `pulumi:"maximumRetryIntervalSeconds"`
+	RetryAttempts                  *int     `pulumi:"retryAttempts"`
 	RetryIntervalBackoffMultiplier *float64 `pulumi:"retryIntervalBackoffMultiplier"`
-	// Execution timeout for the job step.
-	TimeoutSeconds *int `pulumi:"timeoutSeconds"`
+	TimeoutSeconds                 *int     `pulumi:"timeoutSeconds"`
 }
 
 // JobStepExecutionOptionsResponseInput is an input type that accepts JobStepExecutionOptionsResponseArgs and JobStepExecutionOptionsResponseOutput values.
@@ -1209,18 +1122,12 @@ type JobStepExecutionOptionsResponseInput interface {
 	ToJobStepExecutionOptionsResponseOutputWithContext(context.Context) JobStepExecutionOptionsResponseOutput
 }
 
-// The execution options of a job step.
 type JobStepExecutionOptionsResponseArgs struct {
-	// Initial delay between retries for job step execution.
-	InitialRetryIntervalSeconds pulumi.IntPtrInput `pulumi:"initialRetryIntervalSeconds"`
-	// The maximum amount of time to wait between retries for job step execution.
-	MaximumRetryIntervalSeconds pulumi.IntPtrInput `pulumi:"maximumRetryIntervalSeconds"`
-	// Maximum number of times the job step will be reattempted if the first attempt fails.
-	RetryAttempts pulumi.IntPtrInput `pulumi:"retryAttempts"`
-	// The backoff multiplier for the time between retries.
+	InitialRetryIntervalSeconds    pulumi.IntPtrInput     `pulumi:"initialRetryIntervalSeconds"`
+	MaximumRetryIntervalSeconds    pulumi.IntPtrInput     `pulumi:"maximumRetryIntervalSeconds"`
+	RetryAttempts                  pulumi.IntPtrInput     `pulumi:"retryAttempts"`
 	RetryIntervalBackoffMultiplier pulumi.Float64PtrInput `pulumi:"retryIntervalBackoffMultiplier"`
-	// Execution timeout for the job step.
-	TimeoutSeconds pulumi.IntPtrInput `pulumi:"timeoutSeconds"`
+	TimeoutSeconds                 pulumi.IntPtrInput     `pulumi:"timeoutSeconds"`
 }
 
 func (JobStepExecutionOptionsResponseArgs) ElementType() reflect.Type {
@@ -1276,7 +1183,6 @@ func (i *jobStepExecutionOptionsResponsePtrType) ToJobStepExecutionOptionsRespon
 	return pulumi.ToOutputWithContext(ctx, i).(JobStepExecutionOptionsResponsePtrOutput)
 }
 
-// The execution options of a job step.
 type JobStepExecutionOptionsResponseOutput struct{ *pulumi.OutputState }
 
 func (JobStepExecutionOptionsResponseOutput) ElementType() reflect.Type {
@@ -1296,32 +1202,27 @@ func (o JobStepExecutionOptionsResponseOutput) ToJobStepExecutionOptionsResponse
 }
 
 func (o JobStepExecutionOptionsResponseOutput) ToJobStepExecutionOptionsResponsePtrOutputWithContext(ctx context.Context) JobStepExecutionOptionsResponsePtrOutput {
-	return o.ApplyT(func(v JobStepExecutionOptionsResponse) *JobStepExecutionOptionsResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v JobStepExecutionOptionsResponse) *JobStepExecutionOptionsResponse {
 		return &v
 	}).(JobStepExecutionOptionsResponsePtrOutput)
 }
 
-// Initial delay between retries for job step execution.
 func (o JobStepExecutionOptionsResponseOutput) InitialRetryIntervalSeconds() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v JobStepExecutionOptionsResponse) *int { return v.InitialRetryIntervalSeconds }).(pulumi.IntPtrOutput)
 }
 
-// The maximum amount of time to wait between retries for job step execution.
 func (o JobStepExecutionOptionsResponseOutput) MaximumRetryIntervalSeconds() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v JobStepExecutionOptionsResponse) *int { return v.MaximumRetryIntervalSeconds }).(pulumi.IntPtrOutput)
 }
 
-// Maximum number of times the job step will be reattempted if the first attempt fails.
 func (o JobStepExecutionOptionsResponseOutput) RetryAttempts() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v JobStepExecutionOptionsResponse) *int { return v.RetryAttempts }).(pulumi.IntPtrOutput)
 }
 
-// The backoff multiplier for the time between retries.
 func (o JobStepExecutionOptionsResponseOutput) RetryIntervalBackoffMultiplier() pulumi.Float64PtrOutput {
 	return o.ApplyT(func(v JobStepExecutionOptionsResponse) *float64 { return v.RetryIntervalBackoffMultiplier }).(pulumi.Float64PtrOutput)
 }
 
-// Execution timeout for the job step.
 func (o JobStepExecutionOptionsResponseOutput) TimeoutSeconds() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v JobStepExecutionOptionsResponse) *int { return v.TimeoutSeconds }).(pulumi.IntPtrOutput)
 }
@@ -1341,10 +1242,15 @@ func (o JobStepExecutionOptionsResponsePtrOutput) ToJobStepExecutionOptionsRespo
 }
 
 func (o JobStepExecutionOptionsResponsePtrOutput) Elem() JobStepExecutionOptionsResponseOutput {
-	return o.ApplyT(func(v *JobStepExecutionOptionsResponse) JobStepExecutionOptionsResponse { return *v }).(JobStepExecutionOptionsResponseOutput)
+	return o.ApplyT(func(v *JobStepExecutionOptionsResponse) JobStepExecutionOptionsResponse {
+		if v != nil {
+			return *v
+		}
+		var ret JobStepExecutionOptionsResponse
+		return ret
+	}).(JobStepExecutionOptionsResponseOutput)
 }
 
-// Initial delay between retries for job step execution.
 func (o JobStepExecutionOptionsResponsePtrOutput) InitialRetryIntervalSeconds() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *JobStepExecutionOptionsResponse) *int {
 		if v == nil {
@@ -1354,7 +1260,6 @@ func (o JobStepExecutionOptionsResponsePtrOutput) InitialRetryIntervalSeconds() 
 	}).(pulumi.IntPtrOutput)
 }
 
-// The maximum amount of time to wait between retries for job step execution.
 func (o JobStepExecutionOptionsResponsePtrOutput) MaximumRetryIntervalSeconds() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *JobStepExecutionOptionsResponse) *int {
 		if v == nil {
@@ -1364,7 +1269,6 @@ func (o JobStepExecutionOptionsResponsePtrOutput) MaximumRetryIntervalSeconds() 
 	}).(pulumi.IntPtrOutput)
 }
 
-// Maximum number of times the job step will be reattempted if the first attempt fails.
 func (o JobStepExecutionOptionsResponsePtrOutput) RetryAttempts() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *JobStepExecutionOptionsResponse) *int {
 		if v == nil {
@@ -1374,7 +1278,6 @@ func (o JobStepExecutionOptionsResponsePtrOutput) RetryAttempts() pulumi.IntPtrO
 	}).(pulumi.IntPtrOutput)
 }
 
-// The backoff multiplier for the time between retries.
 func (o JobStepExecutionOptionsResponsePtrOutput) RetryIntervalBackoffMultiplier() pulumi.Float64PtrOutput {
 	return o.ApplyT(func(v *JobStepExecutionOptionsResponse) *float64 {
 		if v == nil {
@@ -1384,7 +1287,6 @@ func (o JobStepExecutionOptionsResponsePtrOutput) RetryIntervalBackoffMultiplier
 	}).(pulumi.Float64PtrOutput)
 }
 
-// Execution timeout for the job step.
 func (o JobStepExecutionOptionsResponsePtrOutput) TimeoutSeconds() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *JobStepExecutionOptionsResponse) *int {
 		if v == nil {
@@ -1394,24 +1296,15 @@ func (o JobStepExecutionOptionsResponsePtrOutput) TimeoutSeconds() pulumi.IntPtr
 	}).(pulumi.IntPtrOutput)
 }
 
-// The output configuration of a job step.
 type JobStepOutputType struct {
-	// The resource ID of the credential to use to connect to the output destination.
-	Credential string `pulumi:"credential"`
-	// The output destination database.
-	DatabaseName string `pulumi:"databaseName"`
-	// The output destination resource group.
+	Credential        string  `pulumi:"credential"`
+	DatabaseName      string  `pulumi:"databaseName"`
 	ResourceGroupName *string `pulumi:"resourceGroupName"`
-	// The output destination schema.
-	SchemaName *string `pulumi:"schemaName"`
-	// The output destination server name.
-	ServerName string `pulumi:"serverName"`
-	// The output destination subscription id.
-	SubscriptionId *string `pulumi:"subscriptionId"`
-	// The output destination table.
-	TableName string `pulumi:"tableName"`
-	// The output destination type.
-	Type *string `pulumi:"type"`
+	SchemaName        *string `pulumi:"schemaName"`
+	ServerName        string  `pulumi:"serverName"`
+	SubscriptionId    *string `pulumi:"subscriptionId"`
+	TableName         string  `pulumi:"tableName"`
+	Type              *string `pulumi:"type"`
 }
 
 // JobStepOutputTypeInput is an input type that accepts JobStepOutputTypeArgs and JobStepOutputTypeOutput values.
@@ -1425,24 +1318,15 @@ type JobStepOutputTypeInput interface {
 	ToJobStepOutputTypeOutputWithContext(context.Context) JobStepOutputTypeOutput
 }
 
-// The output configuration of a job step.
 type JobStepOutputTypeArgs struct {
-	// The resource ID of the credential to use to connect to the output destination.
-	Credential pulumi.StringInput `pulumi:"credential"`
-	// The output destination database.
-	DatabaseName pulumi.StringInput `pulumi:"databaseName"`
-	// The output destination resource group.
+	Credential        pulumi.StringInput    `pulumi:"credential"`
+	DatabaseName      pulumi.StringInput    `pulumi:"databaseName"`
 	ResourceGroupName pulumi.StringPtrInput `pulumi:"resourceGroupName"`
-	// The output destination schema.
-	SchemaName pulumi.StringPtrInput `pulumi:"schemaName"`
-	// The output destination server name.
-	ServerName pulumi.StringInput `pulumi:"serverName"`
-	// The output destination subscription id.
-	SubscriptionId pulumi.StringPtrInput `pulumi:"subscriptionId"`
-	// The output destination table.
-	TableName pulumi.StringInput `pulumi:"tableName"`
-	// The output destination type.
-	Type pulumi.StringPtrInput `pulumi:"type"`
+	SchemaName        pulumi.StringPtrInput `pulumi:"schemaName"`
+	ServerName        pulumi.StringInput    `pulumi:"serverName"`
+	SubscriptionId    pulumi.StringPtrInput `pulumi:"subscriptionId"`
+	TableName         pulumi.StringInput    `pulumi:"tableName"`
+	Type              pulumi.StringPtrInput `pulumi:"type"`
 }
 
 func (JobStepOutputTypeArgs) ElementType() reflect.Type {
@@ -1498,7 +1382,6 @@ func (i *jobStepOutputTypePtrType) ToJobStepOutputTypePtrOutputWithContext(ctx c
 	return pulumi.ToOutputWithContext(ctx, i).(JobStepOutputTypePtrOutput)
 }
 
-// The output configuration of a job step.
 type JobStepOutputTypeOutput struct{ *pulumi.OutputState }
 
 func (JobStepOutputTypeOutput) ElementType() reflect.Type {
@@ -1518,47 +1401,39 @@ func (o JobStepOutputTypeOutput) ToJobStepOutputTypePtrOutput() JobStepOutputTyp
 }
 
 func (o JobStepOutputTypeOutput) ToJobStepOutputTypePtrOutputWithContext(ctx context.Context) JobStepOutputTypePtrOutput {
-	return o.ApplyT(func(v JobStepOutputType) *JobStepOutputType {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v JobStepOutputType) *JobStepOutputType {
 		return &v
 	}).(JobStepOutputTypePtrOutput)
 }
 
-// The resource ID of the credential to use to connect to the output destination.
 func (o JobStepOutputTypeOutput) Credential() pulumi.StringOutput {
 	return o.ApplyT(func(v JobStepOutputType) string { return v.Credential }).(pulumi.StringOutput)
 }
 
-// The output destination database.
 func (o JobStepOutputTypeOutput) DatabaseName() pulumi.StringOutput {
 	return o.ApplyT(func(v JobStepOutputType) string { return v.DatabaseName }).(pulumi.StringOutput)
 }
 
-// The output destination resource group.
 func (o JobStepOutputTypeOutput) ResourceGroupName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v JobStepOutputType) *string { return v.ResourceGroupName }).(pulumi.StringPtrOutput)
 }
 
-// The output destination schema.
 func (o JobStepOutputTypeOutput) SchemaName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v JobStepOutputType) *string { return v.SchemaName }).(pulumi.StringPtrOutput)
 }
 
-// The output destination server name.
 func (o JobStepOutputTypeOutput) ServerName() pulumi.StringOutput {
 	return o.ApplyT(func(v JobStepOutputType) string { return v.ServerName }).(pulumi.StringOutput)
 }
 
-// The output destination subscription id.
 func (o JobStepOutputTypeOutput) SubscriptionId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v JobStepOutputType) *string { return v.SubscriptionId }).(pulumi.StringPtrOutput)
 }
 
-// The output destination table.
 func (o JobStepOutputTypeOutput) TableName() pulumi.StringOutput {
 	return o.ApplyT(func(v JobStepOutputType) string { return v.TableName }).(pulumi.StringOutput)
 }
 
-// The output destination type.
 func (o JobStepOutputTypeOutput) Type() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v JobStepOutputType) *string { return v.Type }).(pulumi.StringPtrOutput)
 }
@@ -1578,10 +1453,15 @@ func (o JobStepOutputTypePtrOutput) ToJobStepOutputTypePtrOutputWithContext(ctx 
 }
 
 func (o JobStepOutputTypePtrOutput) Elem() JobStepOutputTypeOutput {
-	return o.ApplyT(func(v *JobStepOutputType) JobStepOutputType { return *v }).(JobStepOutputTypeOutput)
+	return o.ApplyT(func(v *JobStepOutputType) JobStepOutputType {
+		if v != nil {
+			return *v
+		}
+		var ret JobStepOutputType
+		return ret
+	}).(JobStepOutputTypeOutput)
 }
 
-// The resource ID of the credential to use to connect to the output destination.
 func (o JobStepOutputTypePtrOutput) Credential() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *JobStepOutputType) *string {
 		if v == nil {
@@ -1591,7 +1471,6 @@ func (o JobStepOutputTypePtrOutput) Credential() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The output destination database.
 func (o JobStepOutputTypePtrOutput) DatabaseName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *JobStepOutputType) *string {
 		if v == nil {
@@ -1601,7 +1480,6 @@ func (o JobStepOutputTypePtrOutput) DatabaseName() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The output destination resource group.
 func (o JobStepOutputTypePtrOutput) ResourceGroupName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *JobStepOutputType) *string {
 		if v == nil {
@@ -1611,7 +1489,6 @@ func (o JobStepOutputTypePtrOutput) ResourceGroupName() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The output destination schema.
 func (o JobStepOutputTypePtrOutput) SchemaName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *JobStepOutputType) *string {
 		if v == nil {
@@ -1621,7 +1498,6 @@ func (o JobStepOutputTypePtrOutput) SchemaName() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The output destination server name.
 func (o JobStepOutputTypePtrOutput) ServerName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *JobStepOutputType) *string {
 		if v == nil {
@@ -1631,7 +1507,6 @@ func (o JobStepOutputTypePtrOutput) ServerName() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The output destination subscription id.
 func (o JobStepOutputTypePtrOutput) SubscriptionId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *JobStepOutputType) *string {
 		if v == nil {
@@ -1641,7 +1516,6 @@ func (o JobStepOutputTypePtrOutput) SubscriptionId() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The output destination table.
 func (o JobStepOutputTypePtrOutput) TableName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *JobStepOutputType) *string {
 		if v == nil {
@@ -1651,7 +1525,6 @@ func (o JobStepOutputTypePtrOutput) TableName() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The output destination type.
 func (o JobStepOutputTypePtrOutput) Type() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *JobStepOutputType) *string {
 		if v == nil {
@@ -1661,24 +1534,15 @@ func (o JobStepOutputTypePtrOutput) Type() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The output configuration of a job step.
 type JobStepOutputResponse struct {
-	// The resource ID of the credential to use to connect to the output destination.
-	Credential string `pulumi:"credential"`
-	// The output destination database.
-	DatabaseName string `pulumi:"databaseName"`
-	// The output destination resource group.
+	Credential        string  `pulumi:"credential"`
+	DatabaseName      string  `pulumi:"databaseName"`
 	ResourceGroupName *string `pulumi:"resourceGroupName"`
-	// The output destination schema.
-	SchemaName *string `pulumi:"schemaName"`
-	// The output destination server name.
-	ServerName string `pulumi:"serverName"`
-	// The output destination subscription id.
-	SubscriptionId *string `pulumi:"subscriptionId"`
-	// The output destination table.
-	TableName string `pulumi:"tableName"`
-	// The output destination type.
-	Type *string `pulumi:"type"`
+	SchemaName        *string `pulumi:"schemaName"`
+	ServerName        string  `pulumi:"serverName"`
+	SubscriptionId    *string `pulumi:"subscriptionId"`
+	TableName         string  `pulumi:"tableName"`
+	Type              *string `pulumi:"type"`
 }
 
 // JobStepOutputResponseInput is an input type that accepts JobStepOutputResponseArgs and JobStepOutputResponseOutput values.
@@ -1692,24 +1556,15 @@ type JobStepOutputResponseInput interface {
 	ToJobStepOutputResponseOutputWithContext(context.Context) JobStepOutputResponseOutput
 }
 
-// The output configuration of a job step.
 type JobStepOutputResponseArgs struct {
-	// The resource ID of the credential to use to connect to the output destination.
-	Credential pulumi.StringInput `pulumi:"credential"`
-	// The output destination database.
-	DatabaseName pulumi.StringInput `pulumi:"databaseName"`
-	// The output destination resource group.
+	Credential        pulumi.StringInput    `pulumi:"credential"`
+	DatabaseName      pulumi.StringInput    `pulumi:"databaseName"`
 	ResourceGroupName pulumi.StringPtrInput `pulumi:"resourceGroupName"`
-	// The output destination schema.
-	SchemaName pulumi.StringPtrInput `pulumi:"schemaName"`
-	// The output destination server name.
-	ServerName pulumi.StringInput `pulumi:"serverName"`
-	// The output destination subscription id.
-	SubscriptionId pulumi.StringPtrInput `pulumi:"subscriptionId"`
-	// The output destination table.
-	TableName pulumi.StringInput `pulumi:"tableName"`
-	// The output destination type.
-	Type pulumi.StringPtrInput `pulumi:"type"`
+	SchemaName        pulumi.StringPtrInput `pulumi:"schemaName"`
+	ServerName        pulumi.StringInput    `pulumi:"serverName"`
+	SubscriptionId    pulumi.StringPtrInput `pulumi:"subscriptionId"`
+	TableName         pulumi.StringInput    `pulumi:"tableName"`
+	Type              pulumi.StringPtrInput `pulumi:"type"`
 }
 
 func (JobStepOutputResponseArgs) ElementType() reflect.Type {
@@ -1765,7 +1620,6 @@ func (i *jobStepOutputResponsePtrType) ToJobStepOutputResponsePtrOutputWithConte
 	return pulumi.ToOutputWithContext(ctx, i).(JobStepOutputResponsePtrOutput)
 }
 
-// The output configuration of a job step.
 type JobStepOutputResponseOutput struct{ *pulumi.OutputState }
 
 func (JobStepOutputResponseOutput) ElementType() reflect.Type {
@@ -1785,47 +1639,39 @@ func (o JobStepOutputResponseOutput) ToJobStepOutputResponsePtrOutput() JobStepO
 }
 
 func (o JobStepOutputResponseOutput) ToJobStepOutputResponsePtrOutputWithContext(ctx context.Context) JobStepOutputResponsePtrOutput {
-	return o.ApplyT(func(v JobStepOutputResponse) *JobStepOutputResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v JobStepOutputResponse) *JobStepOutputResponse {
 		return &v
 	}).(JobStepOutputResponsePtrOutput)
 }
 
-// The resource ID of the credential to use to connect to the output destination.
 func (o JobStepOutputResponseOutput) Credential() pulumi.StringOutput {
 	return o.ApplyT(func(v JobStepOutputResponse) string { return v.Credential }).(pulumi.StringOutput)
 }
 
-// The output destination database.
 func (o JobStepOutputResponseOutput) DatabaseName() pulumi.StringOutput {
 	return o.ApplyT(func(v JobStepOutputResponse) string { return v.DatabaseName }).(pulumi.StringOutput)
 }
 
-// The output destination resource group.
 func (o JobStepOutputResponseOutput) ResourceGroupName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v JobStepOutputResponse) *string { return v.ResourceGroupName }).(pulumi.StringPtrOutput)
 }
 
-// The output destination schema.
 func (o JobStepOutputResponseOutput) SchemaName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v JobStepOutputResponse) *string { return v.SchemaName }).(pulumi.StringPtrOutput)
 }
 
-// The output destination server name.
 func (o JobStepOutputResponseOutput) ServerName() pulumi.StringOutput {
 	return o.ApplyT(func(v JobStepOutputResponse) string { return v.ServerName }).(pulumi.StringOutput)
 }
 
-// The output destination subscription id.
 func (o JobStepOutputResponseOutput) SubscriptionId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v JobStepOutputResponse) *string { return v.SubscriptionId }).(pulumi.StringPtrOutput)
 }
 
-// The output destination table.
 func (o JobStepOutputResponseOutput) TableName() pulumi.StringOutput {
 	return o.ApplyT(func(v JobStepOutputResponse) string { return v.TableName }).(pulumi.StringOutput)
 }
 
-// The output destination type.
 func (o JobStepOutputResponseOutput) Type() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v JobStepOutputResponse) *string { return v.Type }).(pulumi.StringPtrOutput)
 }
@@ -1845,10 +1691,15 @@ func (o JobStepOutputResponsePtrOutput) ToJobStepOutputResponsePtrOutputWithCont
 }
 
 func (o JobStepOutputResponsePtrOutput) Elem() JobStepOutputResponseOutput {
-	return o.ApplyT(func(v *JobStepOutputResponse) JobStepOutputResponse { return *v }).(JobStepOutputResponseOutput)
+	return o.ApplyT(func(v *JobStepOutputResponse) JobStepOutputResponse {
+		if v != nil {
+			return *v
+		}
+		var ret JobStepOutputResponse
+		return ret
+	}).(JobStepOutputResponseOutput)
 }
 
-// The resource ID of the credential to use to connect to the output destination.
 func (o JobStepOutputResponsePtrOutput) Credential() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *JobStepOutputResponse) *string {
 		if v == nil {
@@ -1858,7 +1709,6 @@ func (o JobStepOutputResponsePtrOutput) Credential() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The output destination database.
 func (o JobStepOutputResponsePtrOutput) DatabaseName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *JobStepOutputResponse) *string {
 		if v == nil {
@@ -1868,7 +1718,6 @@ func (o JobStepOutputResponsePtrOutput) DatabaseName() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The output destination resource group.
 func (o JobStepOutputResponsePtrOutput) ResourceGroupName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *JobStepOutputResponse) *string {
 		if v == nil {
@@ -1878,7 +1727,6 @@ func (o JobStepOutputResponsePtrOutput) ResourceGroupName() pulumi.StringPtrOutp
 	}).(pulumi.StringPtrOutput)
 }
 
-// The output destination schema.
 func (o JobStepOutputResponsePtrOutput) SchemaName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *JobStepOutputResponse) *string {
 		if v == nil {
@@ -1888,7 +1736,6 @@ func (o JobStepOutputResponsePtrOutput) SchemaName() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The output destination server name.
 func (o JobStepOutputResponsePtrOutput) ServerName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *JobStepOutputResponse) *string {
 		if v == nil {
@@ -1898,7 +1745,6 @@ func (o JobStepOutputResponsePtrOutput) ServerName() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The output destination subscription id.
 func (o JobStepOutputResponsePtrOutput) SubscriptionId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *JobStepOutputResponse) *string {
 		if v == nil {
@@ -1908,7 +1754,6 @@ func (o JobStepOutputResponsePtrOutput) SubscriptionId() pulumi.StringPtrOutput 
 	}).(pulumi.StringPtrOutput)
 }
 
-// The output destination table.
 func (o JobStepOutputResponsePtrOutput) TableName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *JobStepOutputResponse) *string {
 		if v == nil {
@@ -1918,7 +1763,6 @@ func (o JobStepOutputResponsePtrOutput) TableName() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The output destination type.
 func (o JobStepOutputResponsePtrOutput) Type() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *JobStepOutputResponse) *string {
 		if v == nil {
@@ -1928,22 +1772,14 @@ func (o JobStepOutputResponsePtrOutput) Type() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// A job target, for example a specific database or a container of databases that is evaluated during job execution.
 type JobTarget struct {
-	// The target database name.
-	DatabaseName *string `pulumi:"databaseName"`
-	// The target elastic pool name.
-	ElasticPoolName *string `pulumi:"elasticPoolName"`
-	// Whether the target is included or excluded from the group.
-	MembershipType *string `pulumi:"membershipType"`
-	// The resource ID of the credential that is used during job execution to connect to the target and determine the list of databases inside the target.
-	RefreshCredential *string `pulumi:"refreshCredential"`
-	// The target server name.
-	ServerName *string `pulumi:"serverName"`
-	// The target shard map.
-	ShardMapName *string `pulumi:"shardMapName"`
-	// The target type.
-	Type string `pulumi:"type"`
+	DatabaseName      *string                       `pulumi:"databaseName"`
+	ElasticPoolName   *string                       `pulumi:"elasticPoolName"`
+	MembershipType    *JobTargetGroupMembershipType `pulumi:"membershipType"`
+	RefreshCredential *string                       `pulumi:"refreshCredential"`
+	ServerName        *string                       `pulumi:"serverName"`
+	ShardMapName      *string                       `pulumi:"shardMapName"`
+	Type              string                        `pulumi:"type"`
 }
 
 // JobTargetInput is an input type that accepts JobTargetArgs and JobTargetOutput values.
@@ -1957,22 +1793,14 @@ type JobTargetInput interface {
 	ToJobTargetOutputWithContext(context.Context) JobTargetOutput
 }
 
-// A job target, for example a specific database or a container of databases that is evaluated during job execution.
 type JobTargetArgs struct {
-	// The target database name.
-	DatabaseName pulumi.StringPtrInput `pulumi:"databaseName"`
-	// The target elastic pool name.
-	ElasticPoolName pulumi.StringPtrInput `pulumi:"elasticPoolName"`
-	// Whether the target is included or excluded from the group.
-	MembershipType *JobTargetGroupMembershipType `pulumi:"membershipType"`
-	// The resource ID of the credential that is used during job execution to connect to the target and determine the list of databases inside the target.
-	RefreshCredential pulumi.StringPtrInput `pulumi:"refreshCredential"`
-	// The target server name.
-	ServerName pulumi.StringPtrInput `pulumi:"serverName"`
-	// The target shard map.
-	ShardMapName pulumi.StringPtrInput `pulumi:"shardMapName"`
-	// The target type.
-	Type pulumi.StringInput `pulumi:"type"`
+	DatabaseName      pulumi.StringPtrInput                `pulumi:"databaseName"`
+	ElasticPoolName   pulumi.StringPtrInput                `pulumi:"elasticPoolName"`
+	MembershipType    JobTargetGroupMembershipTypePtrInput `pulumi:"membershipType"`
+	RefreshCredential pulumi.StringPtrInput                `pulumi:"refreshCredential"`
+	ServerName        pulumi.StringPtrInput                `pulumi:"serverName"`
+	ShardMapName      pulumi.StringPtrInput                `pulumi:"shardMapName"`
+	Type              pulumi.StringInput                   `pulumi:"type"`
 }
 
 func (JobTargetArgs) ElementType() reflect.Type {
@@ -2012,7 +1840,6 @@ func (i JobTargetArray) ToJobTargetArrayOutputWithContext(ctx context.Context) J
 	return pulumi.ToOutputWithContext(ctx, i).(JobTargetArrayOutput)
 }
 
-// A job target, for example a specific database or a container of databases that is evaluated during job execution.
 type JobTargetOutput struct{ *pulumi.OutputState }
 
 func (JobTargetOutput) ElementType() reflect.Type {
@@ -2027,37 +1854,30 @@ func (o JobTargetOutput) ToJobTargetOutputWithContext(ctx context.Context) JobTa
 	return o
 }
 
-// The target database name.
 func (o JobTargetOutput) DatabaseName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v JobTarget) *string { return v.DatabaseName }).(pulumi.StringPtrOutput)
 }
 
-// The target elastic pool name.
 func (o JobTargetOutput) ElasticPoolName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v JobTarget) *string { return v.ElasticPoolName }).(pulumi.StringPtrOutput)
 }
 
-// Whether the target is included or excluded from the group.
-func (o JobTargetOutput) MembershipType() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v JobTarget) *string { return v.MembershipType }).(pulumi.StringPtrOutput)
+func (o JobTargetOutput) MembershipType() JobTargetGroupMembershipTypePtrOutput {
+	return o.ApplyT(func(v JobTarget) *JobTargetGroupMembershipType { return v.MembershipType }).(JobTargetGroupMembershipTypePtrOutput)
 }
 
-// The resource ID of the credential that is used during job execution to connect to the target and determine the list of databases inside the target.
 func (o JobTargetOutput) RefreshCredential() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v JobTarget) *string { return v.RefreshCredential }).(pulumi.StringPtrOutput)
 }
 
-// The target server name.
 func (o JobTargetOutput) ServerName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v JobTarget) *string { return v.ServerName }).(pulumi.StringPtrOutput)
 }
 
-// The target shard map.
 func (o JobTargetOutput) ShardMapName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v JobTarget) *string { return v.ShardMapName }).(pulumi.StringPtrOutput)
 }
 
-// The target type.
 func (o JobTargetOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v JobTarget) string { return v.Type }).(pulumi.StringOutput)
 }
@@ -2082,22 +1902,14 @@ func (o JobTargetArrayOutput) Index(i pulumi.IntInput) JobTargetOutput {
 	}).(JobTargetOutput)
 }
 
-// A job target, for example a specific database or a container of databases that is evaluated during job execution.
 type JobTargetResponse struct {
-	// The target database name.
-	DatabaseName *string `pulumi:"databaseName"`
-	// The target elastic pool name.
-	ElasticPoolName *string `pulumi:"elasticPoolName"`
-	// Whether the target is included or excluded from the group.
-	MembershipType *string `pulumi:"membershipType"`
-	// The resource ID of the credential that is used during job execution to connect to the target and determine the list of databases inside the target.
+	DatabaseName      *string `pulumi:"databaseName"`
+	ElasticPoolName   *string `pulumi:"elasticPoolName"`
+	MembershipType    *string `pulumi:"membershipType"`
 	RefreshCredential *string `pulumi:"refreshCredential"`
-	// The target server name.
-	ServerName *string `pulumi:"serverName"`
-	// The target shard map.
-	ShardMapName *string `pulumi:"shardMapName"`
-	// The target type.
-	Type string `pulumi:"type"`
+	ServerName        *string `pulumi:"serverName"`
+	ShardMapName      *string `pulumi:"shardMapName"`
+	Type              string  `pulumi:"type"`
 }
 
 // JobTargetResponseInput is an input type that accepts JobTargetResponseArgs and JobTargetResponseOutput values.
@@ -2111,22 +1923,14 @@ type JobTargetResponseInput interface {
 	ToJobTargetResponseOutputWithContext(context.Context) JobTargetResponseOutput
 }
 
-// A job target, for example a specific database or a container of databases that is evaluated during job execution.
 type JobTargetResponseArgs struct {
-	// The target database name.
-	DatabaseName pulumi.StringPtrInput `pulumi:"databaseName"`
-	// The target elastic pool name.
-	ElasticPoolName pulumi.StringPtrInput `pulumi:"elasticPoolName"`
-	// Whether the target is included or excluded from the group.
-	MembershipType pulumi.StringPtrInput `pulumi:"membershipType"`
-	// The resource ID of the credential that is used during job execution to connect to the target and determine the list of databases inside the target.
+	DatabaseName      pulumi.StringPtrInput `pulumi:"databaseName"`
+	ElasticPoolName   pulumi.StringPtrInput `pulumi:"elasticPoolName"`
+	MembershipType    pulumi.StringPtrInput `pulumi:"membershipType"`
 	RefreshCredential pulumi.StringPtrInput `pulumi:"refreshCredential"`
-	// The target server name.
-	ServerName pulumi.StringPtrInput `pulumi:"serverName"`
-	// The target shard map.
-	ShardMapName pulumi.StringPtrInput `pulumi:"shardMapName"`
-	// The target type.
-	Type pulumi.StringInput `pulumi:"type"`
+	ServerName        pulumi.StringPtrInput `pulumi:"serverName"`
+	ShardMapName      pulumi.StringPtrInput `pulumi:"shardMapName"`
+	Type              pulumi.StringInput    `pulumi:"type"`
 }
 
 func (JobTargetResponseArgs) ElementType() reflect.Type {
@@ -2166,7 +1970,6 @@ func (i JobTargetResponseArray) ToJobTargetResponseArrayOutputWithContext(ctx co
 	return pulumi.ToOutputWithContext(ctx, i).(JobTargetResponseArrayOutput)
 }
 
-// A job target, for example a specific database or a container of databases that is evaluated during job execution.
 type JobTargetResponseOutput struct{ *pulumi.OutputState }
 
 func (JobTargetResponseOutput) ElementType() reflect.Type {
@@ -2181,37 +1984,30 @@ func (o JobTargetResponseOutput) ToJobTargetResponseOutputWithContext(ctx contex
 	return o
 }
 
-// The target database name.
 func (o JobTargetResponseOutput) DatabaseName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v JobTargetResponse) *string { return v.DatabaseName }).(pulumi.StringPtrOutput)
 }
 
-// The target elastic pool name.
 func (o JobTargetResponseOutput) ElasticPoolName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v JobTargetResponse) *string { return v.ElasticPoolName }).(pulumi.StringPtrOutput)
 }
 
-// Whether the target is included or excluded from the group.
 func (o JobTargetResponseOutput) MembershipType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v JobTargetResponse) *string { return v.MembershipType }).(pulumi.StringPtrOutput)
 }
 
-// The resource ID of the credential that is used during job execution to connect to the target and determine the list of databases inside the target.
 func (o JobTargetResponseOutput) RefreshCredential() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v JobTargetResponse) *string { return v.RefreshCredential }).(pulumi.StringPtrOutput)
 }
 
-// The target server name.
 func (o JobTargetResponseOutput) ServerName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v JobTargetResponse) *string { return v.ServerName }).(pulumi.StringPtrOutput)
 }
 
-// The target shard map.
 func (o JobTargetResponseOutput) ShardMapName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v JobTargetResponse) *string { return v.ShardMapName }).(pulumi.StringPtrOutput)
 }
 
-// The target type.
 func (o JobTargetResponseOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v JobTargetResponse) string { return v.Type }).(pulumi.StringOutput)
 }
@@ -2236,18 +2032,12 @@ func (o JobTargetResponseArrayOutput) Index(i pulumi.IntInput) JobTargetResponse
 	}).(JobTargetResponseOutput)
 }
 
-// An ARM Resource SKU.
 type Sku struct {
-	// Capacity of the particular SKU.
-	Capacity *int `pulumi:"capacity"`
-	// If the service has different generations of hardware, for the same SKU, then that can be captured here.
-	Family *string `pulumi:"family"`
-	// The name of the SKU, typically, a letter + Number code, e.g. P3.
-	Name string `pulumi:"name"`
-	// Size of the particular SKU
-	Size *string `pulumi:"size"`
-	// The tier or edition of the particular SKU, e.g. Basic, Premium.
-	Tier *string `pulumi:"tier"`
+	Capacity *int    `pulumi:"capacity"`
+	Family   *string `pulumi:"family"`
+	Name     string  `pulumi:"name"`
+	Size     *string `pulumi:"size"`
+	Tier     *string `pulumi:"tier"`
 }
 
 // SkuInput is an input type that accepts SkuArgs and SkuOutput values.
@@ -2261,18 +2051,12 @@ type SkuInput interface {
 	ToSkuOutputWithContext(context.Context) SkuOutput
 }
 
-// An ARM Resource SKU.
 type SkuArgs struct {
-	// Capacity of the particular SKU.
-	Capacity pulumi.IntPtrInput `pulumi:"capacity"`
-	// If the service has different generations of hardware, for the same SKU, then that can be captured here.
-	Family pulumi.StringPtrInput `pulumi:"family"`
-	// The name of the SKU, typically, a letter + Number code, e.g. P3.
-	Name pulumi.StringInput `pulumi:"name"`
-	// Size of the particular SKU
-	Size pulumi.StringPtrInput `pulumi:"size"`
-	// The tier or edition of the particular SKU, e.g. Basic, Premium.
-	Tier pulumi.StringPtrInput `pulumi:"tier"`
+	Capacity pulumi.IntPtrInput    `pulumi:"capacity"`
+	Family   pulumi.StringPtrInput `pulumi:"family"`
+	Name     pulumi.StringInput    `pulumi:"name"`
+	Size     pulumi.StringPtrInput `pulumi:"size"`
+	Tier     pulumi.StringPtrInput `pulumi:"tier"`
 }
 
 func (SkuArgs) ElementType() reflect.Type {
@@ -2328,7 +2112,6 @@ func (i *skuPtrType) ToSkuPtrOutputWithContext(ctx context.Context) SkuPtrOutput
 	return pulumi.ToOutputWithContext(ctx, i).(SkuPtrOutput)
 }
 
-// An ARM Resource SKU.
 type SkuOutput struct{ *pulumi.OutputState }
 
 func (SkuOutput) ElementType() reflect.Type {
@@ -2348,32 +2131,27 @@ func (o SkuOutput) ToSkuPtrOutput() SkuPtrOutput {
 }
 
 func (o SkuOutput) ToSkuPtrOutputWithContext(ctx context.Context) SkuPtrOutput {
-	return o.ApplyT(func(v Sku) *Sku {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v Sku) *Sku {
 		return &v
 	}).(SkuPtrOutput)
 }
 
-// Capacity of the particular SKU.
 func (o SkuOutput) Capacity() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v Sku) *int { return v.Capacity }).(pulumi.IntPtrOutput)
 }
 
-// If the service has different generations of hardware, for the same SKU, then that can be captured here.
 func (o SkuOutput) Family() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v Sku) *string { return v.Family }).(pulumi.StringPtrOutput)
 }
 
-// The name of the SKU, typically, a letter + Number code, e.g. P3.
 func (o SkuOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v Sku) string { return v.Name }).(pulumi.StringOutput)
 }
 
-// Size of the particular SKU
 func (o SkuOutput) Size() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v Sku) *string { return v.Size }).(pulumi.StringPtrOutput)
 }
 
-// The tier or edition of the particular SKU, e.g. Basic, Premium.
 func (o SkuOutput) Tier() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v Sku) *string { return v.Tier }).(pulumi.StringPtrOutput)
 }
@@ -2393,10 +2171,15 @@ func (o SkuPtrOutput) ToSkuPtrOutputWithContext(ctx context.Context) SkuPtrOutpu
 }
 
 func (o SkuPtrOutput) Elem() SkuOutput {
-	return o.ApplyT(func(v *Sku) Sku { return *v }).(SkuOutput)
+	return o.ApplyT(func(v *Sku) Sku {
+		if v != nil {
+			return *v
+		}
+		var ret Sku
+		return ret
+	}).(SkuOutput)
 }
 
-// Capacity of the particular SKU.
 func (o SkuPtrOutput) Capacity() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *Sku) *int {
 		if v == nil {
@@ -2406,7 +2189,6 @@ func (o SkuPtrOutput) Capacity() pulumi.IntPtrOutput {
 	}).(pulumi.IntPtrOutput)
 }
 
-// If the service has different generations of hardware, for the same SKU, then that can be captured here.
 func (o SkuPtrOutput) Family() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Sku) *string {
 		if v == nil {
@@ -2416,7 +2198,6 @@ func (o SkuPtrOutput) Family() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The name of the SKU, typically, a letter + Number code, e.g. P3.
 func (o SkuPtrOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Sku) *string {
 		if v == nil {
@@ -2426,7 +2207,6 @@ func (o SkuPtrOutput) Name() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Size of the particular SKU
 func (o SkuPtrOutput) Size() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Sku) *string {
 		if v == nil {
@@ -2436,7 +2216,6 @@ func (o SkuPtrOutput) Size() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The tier or edition of the particular SKU, e.g. Basic, Premium.
 func (o SkuPtrOutput) Tier() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Sku) *string {
 		if v == nil {
@@ -2446,18 +2225,12 @@ func (o SkuPtrOutput) Tier() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// An ARM Resource SKU.
 type SkuResponse struct {
-	// Capacity of the particular SKU.
-	Capacity *int `pulumi:"capacity"`
-	// If the service has different generations of hardware, for the same SKU, then that can be captured here.
-	Family *string `pulumi:"family"`
-	// The name of the SKU, typically, a letter + Number code, e.g. P3.
-	Name string `pulumi:"name"`
-	// Size of the particular SKU
-	Size *string `pulumi:"size"`
-	// The tier or edition of the particular SKU, e.g. Basic, Premium.
-	Tier *string `pulumi:"tier"`
+	Capacity *int    `pulumi:"capacity"`
+	Family   *string `pulumi:"family"`
+	Name     string  `pulumi:"name"`
+	Size     *string `pulumi:"size"`
+	Tier     *string `pulumi:"tier"`
 }
 
 // SkuResponseInput is an input type that accepts SkuResponseArgs and SkuResponseOutput values.
@@ -2471,18 +2244,12 @@ type SkuResponseInput interface {
 	ToSkuResponseOutputWithContext(context.Context) SkuResponseOutput
 }
 
-// An ARM Resource SKU.
 type SkuResponseArgs struct {
-	// Capacity of the particular SKU.
-	Capacity pulumi.IntPtrInput `pulumi:"capacity"`
-	// If the service has different generations of hardware, for the same SKU, then that can be captured here.
-	Family pulumi.StringPtrInput `pulumi:"family"`
-	// The name of the SKU, typically, a letter + Number code, e.g. P3.
-	Name pulumi.StringInput `pulumi:"name"`
-	// Size of the particular SKU
-	Size pulumi.StringPtrInput `pulumi:"size"`
-	// The tier or edition of the particular SKU, e.g. Basic, Premium.
-	Tier pulumi.StringPtrInput `pulumi:"tier"`
+	Capacity pulumi.IntPtrInput    `pulumi:"capacity"`
+	Family   pulumi.StringPtrInput `pulumi:"family"`
+	Name     pulumi.StringInput    `pulumi:"name"`
+	Size     pulumi.StringPtrInput `pulumi:"size"`
+	Tier     pulumi.StringPtrInput `pulumi:"tier"`
 }
 
 func (SkuResponseArgs) ElementType() reflect.Type {
@@ -2538,7 +2305,6 @@ func (i *skuResponsePtrType) ToSkuResponsePtrOutputWithContext(ctx context.Conte
 	return pulumi.ToOutputWithContext(ctx, i).(SkuResponsePtrOutput)
 }
 
-// An ARM Resource SKU.
 type SkuResponseOutput struct{ *pulumi.OutputState }
 
 func (SkuResponseOutput) ElementType() reflect.Type {
@@ -2558,32 +2324,27 @@ func (o SkuResponseOutput) ToSkuResponsePtrOutput() SkuResponsePtrOutput {
 }
 
 func (o SkuResponseOutput) ToSkuResponsePtrOutputWithContext(ctx context.Context) SkuResponsePtrOutput {
-	return o.ApplyT(func(v SkuResponse) *SkuResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v SkuResponse) *SkuResponse {
 		return &v
 	}).(SkuResponsePtrOutput)
 }
 
-// Capacity of the particular SKU.
 func (o SkuResponseOutput) Capacity() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v SkuResponse) *int { return v.Capacity }).(pulumi.IntPtrOutput)
 }
 
-// If the service has different generations of hardware, for the same SKU, then that can be captured here.
 func (o SkuResponseOutput) Family() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SkuResponse) *string { return v.Family }).(pulumi.StringPtrOutput)
 }
 
-// The name of the SKU, typically, a letter + Number code, e.g. P3.
 func (o SkuResponseOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v SkuResponse) string { return v.Name }).(pulumi.StringOutput)
 }
 
-// Size of the particular SKU
 func (o SkuResponseOutput) Size() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SkuResponse) *string { return v.Size }).(pulumi.StringPtrOutput)
 }
 
-// The tier or edition of the particular SKU, e.g. Basic, Premium.
 func (o SkuResponseOutput) Tier() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SkuResponse) *string { return v.Tier }).(pulumi.StringPtrOutput)
 }
@@ -2603,10 +2364,15 @@ func (o SkuResponsePtrOutput) ToSkuResponsePtrOutputWithContext(ctx context.Cont
 }
 
 func (o SkuResponsePtrOutput) Elem() SkuResponseOutput {
-	return o.ApplyT(func(v *SkuResponse) SkuResponse { return *v }).(SkuResponseOutput)
+	return o.ApplyT(func(v *SkuResponse) SkuResponse {
+		if v != nil {
+			return *v
+		}
+		var ret SkuResponse
+		return ret
+	}).(SkuResponseOutput)
 }
 
-// Capacity of the particular SKU.
 func (o SkuResponsePtrOutput) Capacity() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *SkuResponse) *int {
 		if v == nil {
@@ -2616,7 +2382,6 @@ func (o SkuResponsePtrOutput) Capacity() pulumi.IntPtrOutput {
 	}).(pulumi.IntPtrOutput)
 }
 
-// If the service has different generations of hardware, for the same SKU, then that can be captured here.
 func (o SkuResponsePtrOutput) Family() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SkuResponse) *string {
 		if v == nil {
@@ -2626,7 +2391,6 @@ func (o SkuResponsePtrOutput) Family() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The name of the SKU, typically, a letter + Number code, e.g. P3.
 func (o SkuResponsePtrOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SkuResponse) *string {
 		if v == nil {
@@ -2636,7 +2400,6 @@ func (o SkuResponsePtrOutput) Name() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Size of the particular SKU
 func (o SkuResponsePtrOutput) Size() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SkuResponse) *string {
 		if v == nil {
@@ -2646,7 +2409,6 @@ func (o SkuResponsePtrOutput) Size() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The tier or edition of the particular SKU, e.g. Basic, Premium.
 func (o SkuResponsePtrOutput) Tier() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SkuResponse) *string {
 		if v == nil {
@@ -2656,14 +2418,10 @@ func (o SkuResponsePtrOutput) Tier() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Properties of a Vulnerability Assessment recurring scans.
 type VulnerabilityAssessmentRecurringScansProperties struct {
-	// Specifies that the schedule scan notification will be is sent to the subscription administrators.
-	EmailSubscriptionAdmins *bool `pulumi:"emailSubscriptionAdmins"`
-	// Specifies an array of e-mail addresses to which the scan notification is sent.
-	Emails []string `pulumi:"emails"`
-	// Recurring scans state.
-	IsEnabled *bool `pulumi:"isEnabled"`
+	EmailSubscriptionAdmins *bool    `pulumi:"emailSubscriptionAdmins"`
+	Emails                  []string `pulumi:"emails"`
+	IsEnabled               *bool    `pulumi:"isEnabled"`
 }
 
 // VulnerabilityAssessmentRecurringScansPropertiesInput is an input type that accepts VulnerabilityAssessmentRecurringScansPropertiesArgs and VulnerabilityAssessmentRecurringScansPropertiesOutput values.
@@ -2677,14 +2435,10 @@ type VulnerabilityAssessmentRecurringScansPropertiesInput interface {
 	ToVulnerabilityAssessmentRecurringScansPropertiesOutputWithContext(context.Context) VulnerabilityAssessmentRecurringScansPropertiesOutput
 }
 
-// Properties of a Vulnerability Assessment recurring scans.
 type VulnerabilityAssessmentRecurringScansPropertiesArgs struct {
-	// Specifies that the schedule scan notification will be is sent to the subscription administrators.
-	EmailSubscriptionAdmins pulumi.BoolPtrInput `pulumi:"emailSubscriptionAdmins"`
-	// Specifies an array of e-mail addresses to which the scan notification is sent.
-	Emails pulumi.StringArrayInput `pulumi:"emails"`
-	// Recurring scans state.
-	IsEnabled pulumi.BoolPtrInput `pulumi:"isEnabled"`
+	EmailSubscriptionAdmins pulumi.BoolPtrInput     `pulumi:"emailSubscriptionAdmins"`
+	Emails                  pulumi.StringArrayInput `pulumi:"emails"`
+	IsEnabled               pulumi.BoolPtrInput     `pulumi:"isEnabled"`
 }
 
 func (VulnerabilityAssessmentRecurringScansPropertiesArgs) ElementType() reflect.Type {
@@ -2740,7 +2494,6 @@ func (i *vulnerabilityAssessmentRecurringScansPropertiesPtrType) ToVulnerability
 	return pulumi.ToOutputWithContext(ctx, i).(VulnerabilityAssessmentRecurringScansPropertiesPtrOutput)
 }
 
-// Properties of a Vulnerability Assessment recurring scans.
 type VulnerabilityAssessmentRecurringScansPropertiesOutput struct{ *pulumi.OutputState }
 
 func (VulnerabilityAssessmentRecurringScansPropertiesOutput) ElementType() reflect.Type {
@@ -2760,22 +2513,19 @@ func (o VulnerabilityAssessmentRecurringScansPropertiesOutput) ToVulnerabilityAs
 }
 
 func (o VulnerabilityAssessmentRecurringScansPropertiesOutput) ToVulnerabilityAssessmentRecurringScansPropertiesPtrOutputWithContext(ctx context.Context) VulnerabilityAssessmentRecurringScansPropertiesPtrOutput {
-	return o.ApplyT(func(v VulnerabilityAssessmentRecurringScansProperties) *VulnerabilityAssessmentRecurringScansProperties {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v VulnerabilityAssessmentRecurringScansProperties) *VulnerabilityAssessmentRecurringScansProperties {
 		return &v
 	}).(VulnerabilityAssessmentRecurringScansPropertiesPtrOutput)
 }
 
-// Specifies that the schedule scan notification will be is sent to the subscription administrators.
 func (o VulnerabilityAssessmentRecurringScansPropertiesOutput) EmailSubscriptionAdmins() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v VulnerabilityAssessmentRecurringScansProperties) *bool { return v.EmailSubscriptionAdmins }).(pulumi.BoolPtrOutput)
 }
 
-// Specifies an array of e-mail addresses to which the scan notification is sent.
 func (o VulnerabilityAssessmentRecurringScansPropertiesOutput) Emails() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v VulnerabilityAssessmentRecurringScansProperties) []string { return v.Emails }).(pulumi.StringArrayOutput)
 }
 
-// Recurring scans state.
 func (o VulnerabilityAssessmentRecurringScansPropertiesOutput) IsEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v VulnerabilityAssessmentRecurringScansProperties) *bool { return v.IsEnabled }).(pulumi.BoolPtrOutput)
 }
@@ -2796,11 +2546,14 @@ func (o VulnerabilityAssessmentRecurringScansPropertiesPtrOutput) ToVulnerabilit
 
 func (o VulnerabilityAssessmentRecurringScansPropertiesPtrOutput) Elem() VulnerabilityAssessmentRecurringScansPropertiesOutput {
 	return o.ApplyT(func(v *VulnerabilityAssessmentRecurringScansProperties) VulnerabilityAssessmentRecurringScansProperties {
-		return *v
+		if v != nil {
+			return *v
+		}
+		var ret VulnerabilityAssessmentRecurringScansProperties
+		return ret
 	}).(VulnerabilityAssessmentRecurringScansPropertiesOutput)
 }
 
-// Specifies that the schedule scan notification will be is sent to the subscription administrators.
 func (o VulnerabilityAssessmentRecurringScansPropertiesPtrOutput) EmailSubscriptionAdmins() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *VulnerabilityAssessmentRecurringScansProperties) *bool {
 		if v == nil {
@@ -2810,7 +2563,6 @@ func (o VulnerabilityAssessmentRecurringScansPropertiesPtrOutput) EmailSubscript
 	}).(pulumi.BoolPtrOutput)
 }
 
-// Specifies an array of e-mail addresses to which the scan notification is sent.
 func (o VulnerabilityAssessmentRecurringScansPropertiesPtrOutput) Emails() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *VulnerabilityAssessmentRecurringScansProperties) []string {
 		if v == nil {
@@ -2820,7 +2572,6 @@ func (o VulnerabilityAssessmentRecurringScansPropertiesPtrOutput) Emails() pulum
 	}).(pulumi.StringArrayOutput)
 }
 
-// Recurring scans state.
 func (o VulnerabilityAssessmentRecurringScansPropertiesPtrOutput) IsEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *VulnerabilityAssessmentRecurringScansProperties) *bool {
 		if v == nil {
@@ -2830,14 +2581,10 @@ func (o VulnerabilityAssessmentRecurringScansPropertiesPtrOutput) IsEnabled() pu
 	}).(pulumi.BoolPtrOutput)
 }
 
-// Properties of a Vulnerability Assessment recurring scans.
 type VulnerabilityAssessmentRecurringScansPropertiesResponse struct {
-	// Specifies that the schedule scan notification will be is sent to the subscription administrators.
-	EmailSubscriptionAdmins *bool `pulumi:"emailSubscriptionAdmins"`
-	// Specifies an array of e-mail addresses to which the scan notification is sent.
-	Emails []string `pulumi:"emails"`
-	// Recurring scans state.
-	IsEnabled *bool `pulumi:"isEnabled"`
+	EmailSubscriptionAdmins *bool    `pulumi:"emailSubscriptionAdmins"`
+	Emails                  []string `pulumi:"emails"`
+	IsEnabled               *bool    `pulumi:"isEnabled"`
 }
 
 // VulnerabilityAssessmentRecurringScansPropertiesResponseInput is an input type that accepts VulnerabilityAssessmentRecurringScansPropertiesResponseArgs and VulnerabilityAssessmentRecurringScansPropertiesResponseOutput values.
@@ -2851,14 +2598,10 @@ type VulnerabilityAssessmentRecurringScansPropertiesResponseInput interface {
 	ToVulnerabilityAssessmentRecurringScansPropertiesResponseOutputWithContext(context.Context) VulnerabilityAssessmentRecurringScansPropertiesResponseOutput
 }
 
-// Properties of a Vulnerability Assessment recurring scans.
 type VulnerabilityAssessmentRecurringScansPropertiesResponseArgs struct {
-	// Specifies that the schedule scan notification will be is sent to the subscription administrators.
-	EmailSubscriptionAdmins pulumi.BoolPtrInput `pulumi:"emailSubscriptionAdmins"`
-	// Specifies an array of e-mail addresses to which the scan notification is sent.
-	Emails pulumi.StringArrayInput `pulumi:"emails"`
-	// Recurring scans state.
-	IsEnabled pulumi.BoolPtrInput `pulumi:"isEnabled"`
+	EmailSubscriptionAdmins pulumi.BoolPtrInput     `pulumi:"emailSubscriptionAdmins"`
+	Emails                  pulumi.StringArrayInput `pulumi:"emails"`
+	IsEnabled               pulumi.BoolPtrInput     `pulumi:"isEnabled"`
 }
 
 func (VulnerabilityAssessmentRecurringScansPropertiesResponseArgs) ElementType() reflect.Type {
@@ -2914,7 +2657,6 @@ func (i *vulnerabilityAssessmentRecurringScansPropertiesResponsePtrType) ToVulne
 	return pulumi.ToOutputWithContext(ctx, i).(VulnerabilityAssessmentRecurringScansPropertiesResponsePtrOutput)
 }
 
-// Properties of a Vulnerability Assessment recurring scans.
 type VulnerabilityAssessmentRecurringScansPropertiesResponseOutput struct{ *pulumi.OutputState }
 
 func (VulnerabilityAssessmentRecurringScansPropertiesResponseOutput) ElementType() reflect.Type {
@@ -2934,24 +2676,21 @@ func (o VulnerabilityAssessmentRecurringScansPropertiesResponseOutput) ToVulnera
 }
 
 func (o VulnerabilityAssessmentRecurringScansPropertiesResponseOutput) ToVulnerabilityAssessmentRecurringScansPropertiesResponsePtrOutputWithContext(ctx context.Context) VulnerabilityAssessmentRecurringScansPropertiesResponsePtrOutput {
-	return o.ApplyT(func(v VulnerabilityAssessmentRecurringScansPropertiesResponse) *VulnerabilityAssessmentRecurringScansPropertiesResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v VulnerabilityAssessmentRecurringScansPropertiesResponse) *VulnerabilityAssessmentRecurringScansPropertiesResponse {
 		return &v
 	}).(VulnerabilityAssessmentRecurringScansPropertiesResponsePtrOutput)
 }
 
-// Specifies that the schedule scan notification will be is sent to the subscription administrators.
 func (o VulnerabilityAssessmentRecurringScansPropertiesResponseOutput) EmailSubscriptionAdmins() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v VulnerabilityAssessmentRecurringScansPropertiesResponse) *bool {
 		return v.EmailSubscriptionAdmins
 	}).(pulumi.BoolPtrOutput)
 }
 
-// Specifies an array of e-mail addresses to which the scan notification is sent.
 func (o VulnerabilityAssessmentRecurringScansPropertiesResponseOutput) Emails() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v VulnerabilityAssessmentRecurringScansPropertiesResponse) []string { return v.Emails }).(pulumi.StringArrayOutput)
 }
 
-// Recurring scans state.
 func (o VulnerabilityAssessmentRecurringScansPropertiesResponseOutput) IsEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v VulnerabilityAssessmentRecurringScansPropertiesResponse) *bool { return v.IsEnabled }).(pulumi.BoolPtrOutput)
 }
@@ -2972,11 +2711,14 @@ func (o VulnerabilityAssessmentRecurringScansPropertiesResponsePtrOutput) ToVuln
 
 func (o VulnerabilityAssessmentRecurringScansPropertiesResponsePtrOutput) Elem() VulnerabilityAssessmentRecurringScansPropertiesResponseOutput {
 	return o.ApplyT(func(v *VulnerabilityAssessmentRecurringScansPropertiesResponse) VulnerabilityAssessmentRecurringScansPropertiesResponse {
-		return *v
+		if v != nil {
+			return *v
+		}
+		var ret VulnerabilityAssessmentRecurringScansPropertiesResponse
+		return ret
 	}).(VulnerabilityAssessmentRecurringScansPropertiesResponseOutput)
 }
 
-// Specifies that the schedule scan notification will be is sent to the subscription administrators.
 func (o VulnerabilityAssessmentRecurringScansPropertiesResponsePtrOutput) EmailSubscriptionAdmins() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *VulnerabilityAssessmentRecurringScansPropertiesResponse) *bool {
 		if v == nil {
@@ -2986,7 +2728,6 @@ func (o VulnerabilityAssessmentRecurringScansPropertiesResponsePtrOutput) EmailS
 	}).(pulumi.BoolPtrOutput)
 }
 
-// Specifies an array of e-mail addresses to which the scan notification is sent.
 func (o VulnerabilityAssessmentRecurringScansPropertiesResponsePtrOutput) Emails() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *VulnerabilityAssessmentRecurringScansPropertiesResponse) []string {
 		if v == nil {
@@ -2996,7 +2737,6 @@ func (o VulnerabilityAssessmentRecurringScansPropertiesResponsePtrOutput) Emails
 	}).(pulumi.StringArrayOutput)
 }
 
-// Recurring scans state.
 func (o VulnerabilityAssessmentRecurringScansPropertiesResponsePtrOutput) IsEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *VulnerabilityAssessmentRecurringScansPropertiesResponse) *bool {
 		if v == nil {

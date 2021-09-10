@@ -11,28 +11,18 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Represents an instance of a DNC controller.
 type ControllerDetails struct {
 	pulumi.CustomResourceState
 
-	// dnc application id should be used by customer to authenticate with dnc gateway.
-	DncAppId pulumi.StringOutput `pulumi:"dncAppId"`
-	// dnc endpoint url that customers can use to connect to
-	DncEndpoint pulumi.StringOutput `pulumi:"dncEndpoint"`
-	// tenant id of dnc application id
-	DncTenantId pulumi.StringOutput `pulumi:"dncTenantId"`
-	// Location of the resource.
-	Location pulumi.StringPtrOutput `pulumi:"location"`
-	// The name of the resource.
-	Name pulumi.StringOutput `pulumi:"name"`
-	// The current state of dnc controller resource.
-	ProvisioningState pulumi.StringOutput `pulumi:"provisioningState"`
-	// Resource guid.
-	ResourceGuid pulumi.StringOutput `pulumi:"resourceGuid"`
-	// The resource tags.
-	Tags pulumi.StringMapOutput `pulumi:"tags"`
-	// The type of resource.
-	Type pulumi.StringOutput `pulumi:"type"`
+	DncAppId          pulumi.StringOutput    `pulumi:"dncAppId"`
+	DncEndpoint       pulumi.StringOutput    `pulumi:"dncEndpoint"`
+	DncTenantId       pulumi.StringOutput    `pulumi:"dncTenantId"`
+	Location          pulumi.StringPtrOutput `pulumi:"location"`
+	Name              pulumi.StringOutput    `pulumi:"name"`
+	ProvisioningState pulumi.StringOutput    `pulumi:"provisioningState"`
+	ResourceGuid      pulumi.StringOutput    `pulumi:"resourceGuid"`
+	Tags              pulumi.StringMapOutput `pulumi:"tags"`
+	Type              pulumi.StringOutput    `pulumi:"type"`
 }
 
 // NewControllerDetails registers a new resource with the given unique name, arguments, and options.
@@ -95,26 +85,18 @@ func (ControllerDetailsState) ElementType() reflect.Type {
 }
 
 type controllerDetailsArgs struct {
-	// Location of the resource.
-	Location *string `pulumi:"location"`
-	// The name of the resource group. The name is case insensitive.
-	ResourceGroupName string `pulumi:"resourceGroupName"`
-	// The name of the resource. It must be a minimum of 3 characters, and a maximum of 63.
-	ResourceName *string `pulumi:"resourceName"`
-	// The resource tags.
-	Tags map[string]string `pulumi:"tags"`
+	Location          *string           `pulumi:"location"`
+	ResourceGroupName string            `pulumi:"resourceGroupName"`
+	ResourceName      *string           `pulumi:"resourceName"`
+	Tags              map[string]string `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a ControllerDetails resource.
 type ControllerDetailsArgs struct {
-	// Location of the resource.
-	Location pulumi.StringPtrInput
-	// The name of the resource group. The name is case insensitive.
+	Location          pulumi.StringPtrInput
 	ResourceGroupName pulumi.StringInput
-	// The name of the resource. It must be a minimum of 3 characters, and a maximum of 63.
-	ResourceName pulumi.StringPtrInput
-	// The resource tags.
-	Tags pulumi.StringMapInput
+	ResourceName      pulumi.StringPtrInput
+	Tags              pulumi.StringMapInput
 }
 
 func (ControllerDetailsArgs) ElementType() reflect.Type {
@@ -140,9 +122,7 @@ func (i *ControllerDetails) ToControllerDetailsOutputWithContext(ctx context.Con
 	return pulumi.ToOutputWithContext(ctx, i).(ControllerDetailsOutput)
 }
 
-type ControllerDetailsOutput struct {
-	*pulumi.OutputState
-}
+type ControllerDetailsOutput struct{ *pulumi.OutputState }
 
 func (ControllerDetailsOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*ControllerDetails)(nil))

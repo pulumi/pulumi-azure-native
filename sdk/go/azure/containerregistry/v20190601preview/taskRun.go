@@ -11,29 +11,18 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// The task run that has the ARM resource and properties.
-// The task run will have the information of request and result of a run.
 type TaskRun struct {
 	pulumi.CustomResourceState
 
-	// How the run should be forced to rerun even if the run request configuration has not changed
-	ForceUpdateTag pulumi.StringPtrOutput `pulumi:"forceUpdateTag"`
-	// Identity for the resource.
-	Identity IdentityPropertiesResponsePtrOutput `pulumi:"identity"`
-	// The location of the resource
-	Location pulumi.StringPtrOutput `pulumi:"location"`
-	// The name of the resource.
-	Name pulumi.StringOutput `pulumi:"name"`
-	// The provisioning state of this task run
-	ProvisioningState pulumi.StringOutput `pulumi:"provisioningState"`
-	// The request (parameters) for the run
-	RunRequest pulumi.AnyOutput `pulumi:"runRequest"`
-	// The result of this task run
-	RunResult RunResponseOutput `pulumi:"runResult"`
-	// Metadata pertaining to creation and last modification of the resource.
-	SystemData SystemDataResponseOutput `pulumi:"systemData"`
-	// The type of the resource.
-	Type pulumi.StringOutput `pulumi:"type"`
+	ForceUpdateTag    pulumi.StringPtrOutput              `pulumi:"forceUpdateTag"`
+	Identity          IdentityPropertiesResponsePtrOutput `pulumi:"identity"`
+	Location          pulumi.StringPtrOutput              `pulumi:"location"`
+	Name              pulumi.StringOutput                 `pulumi:"name"`
+	ProvisioningState pulumi.StringOutput                 `pulumi:"provisioningState"`
+	RunRequest        pulumi.AnyOutput                    `pulumi:"runRequest"`
+	RunResult         RunResponseOutput                   `pulumi:"runResult"`
+	SystemData        SystemDataResponseOutput            `pulumi:"systemData"`
+	Type              pulumi.StringOutput                 `pulumi:"type"`
 }
 
 // NewTaskRun registers a new resource with the given unique name, arguments, and options.
@@ -93,38 +82,24 @@ func (TaskRunState) ElementType() reflect.Type {
 }
 
 type taskRunArgs struct {
-	// How the run should be forced to rerun even if the run request configuration has not changed
-	ForceUpdateTag *string `pulumi:"forceUpdateTag"`
-	// Identity for the resource.
-	Identity *IdentityProperties `pulumi:"identity"`
-	// The location of the resource
-	Location *string `pulumi:"location"`
-	// The name of the container registry.
-	RegistryName string `pulumi:"registryName"`
-	// The name of the resource group to which the container registry belongs.
-	ResourceGroupName string `pulumi:"resourceGroupName"`
-	// The request (parameters) for the run
-	RunRequest interface{} `pulumi:"runRequest"`
-	// The name of the task run.
-	TaskRunName *string `pulumi:"taskRunName"`
+	ForceUpdateTag    *string             `pulumi:"forceUpdateTag"`
+	Identity          *IdentityProperties `pulumi:"identity"`
+	Location          *string             `pulumi:"location"`
+	RegistryName      string              `pulumi:"registryName"`
+	ResourceGroupName string              `pulumi:"resourceGroupName"`
+	RunRequest        interface{}         `pulumi:"runRequest"`
+	TaskRunName       *string             `pulumi:"taskRunName"`
 }
 
 // The set of arguments for constructing a TaskRun resource.
 type TaskRunArgs struct {
-	// How the run should be forced to rerun even if the run request configuration has not changed
-	ForceUpdateTag pulumi.StringPtrInput
-	// Identity for the resource.
-	Identity IdentityPropertiesPtrInput
-	// The location of the resource
-	Location pulumi.StringPtrInput
-	// The name of the container registry.
-	RegistryName pulumi.StringInput
-	// The name of the resource group to which the container registry belongs.
+	ForceUpdateTag    pulumi.StringPtrInput
+	Identity          IdentityPropertiesPtrInput
+	Location          pulumi.StringPtrInput
+	RegistryName      pulumi.StringInput
 	ResourceGroupName pulumi.StringInput
-	// The request (parameters) for the run
-	RunRequest pulumi.Input
-	// The name of the task run.
-	TaskRunName pulumi.StringPtrInput
+	RunRequest        pulumi.Input
+	TaskRunName       pulumi.StringPtrInput
 }
 
 func (TaskRunArgs) ElementType() reflect.Type {
@@ -150,9 +125,7 @@ func (i *TaskRun) ToTaskRunOutputWithContext(ctx context.Context) TaskRunOutput 
 	return pulumi.ToOutputWithContext(ctx, i).(TaskRunOutput)
 }
 
-type TaskRunOutput struct {
-	*pulumi.OutputState
-}
+type TaskRunOutput struct{ *pulumi.OutputState }
 
 func (TaskRunOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*TaskRun)(nil))

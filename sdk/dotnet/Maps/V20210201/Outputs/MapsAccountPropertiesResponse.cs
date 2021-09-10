@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.Maps.V20210201.Outputs
 {
 
+    /// <summary>
+    /// Additional Map account properties
+    /// </summary>
     [OutputType]
     public sealed class MapsAccountPropertiesResponse
     {

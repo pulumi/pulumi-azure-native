@@ -7,7 +7,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Public IP address resource.
 func LookupPublicIPAddress(ctx *pulumi.Context, args *LookupPublicIPAddressArgs, opts ...pulumi.InvokeOption) (*LookupPublicIPAddressResult, error) {
 	var rv LookupPublicIPAddressResult
 	err := ctx.Invoke("azure-native:network/v20150615:getPublicIPAddress", args, &rv, opts...)
@@ -18,39 +17,24 @@ func LookupPublicIPAddress(ctx *pulumi.Context, args *LookupPublicIPAddressArgs,
 }
 
 type LookupPublicIPAddressArgs struct {
-	// Expands referenced resources.
-	Expand *string `pulumi:"expand"`
-	// The name of the subnet.
-	PublicIpAddressName string `pulumi:"publicIpAddressName"`
-	// The name of the resource group.
-	ResourceGroupName string `pulumi:"resourceGroupName"`
+	Expand              *string `pulumi:"expand"`
+	PublicIpAddressName string  `pulumi:"publicIpAddressName"`
+	ResourceGroupName   string  `pulumi:"resourceGroupName"`
 }
 
 // Public IP address resource.
 type LookupPublicIPAddressResult struct {
-	// The FQDN of the DNS record associated with the public IP address.
-	DnsSettings *PublicIPAddressDnsSettingsResponse `pulumi:"dnsSettings"`
-	// A unique read-only string that changes whenever the resource is updated.
-	Etag *string `pulumi:"etag"`
-	// Resource Identifier.
-	Id *string `pulumi:"id"`
-	// The idle timeout of the public IP address.
-	IdleTimeoutInMinutes *int    `pulumi:"idleTimeoutInMinutes"`
-	IpAddress            *string `pulumi:"ipAddress"`
-	// IPConfiguration
-	IpConfiguration *IPConfigurationResponse `pulumi:"ipConfiguration"`
-	// Resource location.
-	Location *string `pulumi:"location"`
-	// Resource name.
-	Name string `pulumi:"name"`
-	// The provisioning state of the PublicIP resource. Possible values are: 'Updating', 'Deleting', and 'Failed'.
-	ProvisioningState *string `pulumi:"provisioningState"`
-	// The public IP allocation method. Possible values are: 'Static' and 'Dynamic'.
-	PublicIPAllocationMethod *string `pulumi:"publicIPAllocationMethod"`
-	// The resource GUID property of the public IP resource.
-	ResourceGuid *string `pulumi:"resourceGuid"`
-	// Resource tags.
-	Tags map[string]string `pulumi:"tags"`
-	// Resource type.
-	Type string `pulumi:"type"`
+	DnsSettings              *PublicIPAddressDnsSettingsResponse `pulumi:"dnsSettings"`
+	Etag                     *string                             `pulumi:"etag"`
+	Id                       *string                             `pulumi:"id"`
+	IdleTimeoutInMinutes     *int                                `pulumi:"idleTimeoutInMinutes"`
+	IpAddress                *string                             `pulumi:"ipAddress"`
+	IpConfiguration          *IPConfigurationResponse            `pulumi:"ipConfiguration"`
+	Location                 *string                             `pulumi:"location"`
+	Name                     string                              `pulumi:"name"`
+	ProvisioningState        *string                             `pulumi:"provisioningState"`
+	PublicIPAllocationMethod *string                             `pulumi:"publicIPAllocationMethod"`
+	ResourceGuid             *string                             `pulumi:"resourceGuid"`
+	Tags                     map[string]string                   `pulumi:"tags"`
+	Type                     string                              `pulumi:"type"`
 }

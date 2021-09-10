@@ -11,20 +11,14 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Guest configuration assignment is an association between a machine and guest configuration.
 type GuestConfigurationHCRPAssignment struct {
 	pulumi.CustomResourceState
 
-	// Region where the VM is located.
-	Location pulumi.StringPtrOutput `pulumi:"location"`
-	// Name of the guest configuration assignment.
-	Name pulumi.StringPtrOutput `pulumi:"name"`
-	// Properties of the Guest configuration assignment.
+	Location   pulumi.StringPtrOutput                               `pulumi:"location"`
+	Name       pulumi.StringPtrOutput                               `pulumi:"name"`
 	Properties GuestConfigurationAssignmentPropertiesResponseOutput `pulumi:"properties"`
-	// Azure Resource Manager metadata containing createdBy and modifiedBy information.
-	SystemData SystemDataResponseOutput `pulumi:"systemData"`
-	// The type of the resource.
-	Type pulumi.StringOutput `pulumi:"type"`
+	SystemData SystemDataResponseOutput                             `pulumi:"systemData"`
+	Type       pulumi.StringOutput                                  `pulumi:"type"`
 }
 
 // NewGuestConfigurationHCRPAssignment registers a new resource with the given unique name, arguments, and options.
@@ -96,34 +90,22 @@ func (GuestConfigurationHCRPAssignmentState) ElementType() reflect.Type {
 }
 
 type guestConfigurationHCRPAssignmentArgs struct {
-	// Name of the guest configuration assignment.
-	GuestConfigurationAssignmentName *string `pulumi:"guestConfigurationAssignmentName"`
-	// Region where the VM is located.
-	Location *string `pulumi:"location"`
-	// The name of the ARC machine.
-	MachineName string `pulumi:"machineName"`
-	// Name of the guest configuration assignment.
-	Name *string `pulumi:"name"`
-	// Properties of the Guest configuration assignment.
-	Properties *GuestConfigurationAssignmentProperties `pulumi:"properties"`
-	// The resource group name.
-	ResourceGroupName string `pulumi:"resourceGroupName"`
+	GuestConfigurationAssignmentName *string                                 `pulumi:"guestConfigurationAssignmentName"`
+	Location                         *string                                 `pulumi:"location"`
+	MachineName                      string                                  `pulumi:"machineName"`
+	Name                             *string                                 `pulumi:"name"`
+	Properties                       *GuestConfigurationAssignmentProperties `pulumi:"properties"`
+	ResourceGroupName                string                                  `pulumi:"resourceGroupName"`
 }
 
 // The set of arguments for constructing a GuestConfigurationHCRPAssignment resource.
 type GuestConfigurationHCRPAssignmentArgs struct {
-	// Name of the guest configuration assignment.
 	GuestConfigurationAssignmentName pulumi.StringPtrInput
-	// Region where the VM is located.
-	Location pulumi.StringPtrInput
-	// The name of the ARC machine.
-	MachineName pulumi.StringInput
-	// Name of the guest configuration assignment.
-	Name pulumi.StringPtrInput
-	// Properties of the Guest configuration assignment.
-	Properties GuestConfigurationAssignmentPropertiesPtrInput
-	// The resource group name.
-	ResourceGroupName pulumi.StringInput
+	Location                         pulumi.StringPtrInput
+	MachineName                      pulumi.StringInput
+	Name                             pulumi.StringPtrInput
+	Properties                       GuestConfigurationAssignmentPropertiesPtrInput
+	ResourceGroupName                pulumi.StringInput
 }
 
 func (GuestConfigurationHCRPAssignmentArgs) ElementType() reflect.Type {
@@ -149,9 +131,7 @@ func (i *GuestConfigurationHCRPAssignment) ToGuestConfigurationHCRPAssignmentOut
 	return pulumi.ToOutputWithContext(ctx, i).(GuestConfigurationHCRPAssignmentOutput)
 }
 
-type GuestConfigurationHCRPAssignmentOutput struct {
-	*pulumi.OutputState
-}
+type GuestConfigurationHCRPAssignmentOutput struct{ *pulumi.OutputState }
 
 func (GuestConfigurationHCRPAssignmentOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*GuestConfigurationHCRPAssignment)(nil))

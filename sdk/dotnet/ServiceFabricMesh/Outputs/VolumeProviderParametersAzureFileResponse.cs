@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.ServiceFabricMesh.Outputs
 {
 
+    /// <summary>
+    /// This type describes a volume provided by an Azure Files file share.
+    /// </summary>
     [OutputType]
     public sealed class VolumeProviderParametersAzureFileResponse
     {

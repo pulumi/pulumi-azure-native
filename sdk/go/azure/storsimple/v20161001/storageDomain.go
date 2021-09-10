@@ -11,20 +11,14 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// The storage domain.
 type StorageDomain struct {
 	pulumi.CustomResourceState
 
-	// The encryption key used to encrypt the data. This is a user secret.
-	EncryptionKey AsymmetricEncryptedSecretResponsePtrOutput `pulumi:"encryptionKey"`
-	// The encryption status "Enabled | Disabled".
-	EncryptionStatus pulumi.StringOutput `pulumi:"encryptionStatus"`
-	// The name.
-	Name pulumi.StringOutput `pulumi:"name"`
-	// The storage account credentials.
-	StorageAccountCredentialIds pulumi.StringArrayOutput `pulumi:"storageAccountCredentialIds"`
-	// The type.
-	Type pulumi.StringOutput `pulumi:"type"`
+	EncryptionKey               AsymmetricEncryptedSecretResponsePtrOutput `pulumi:"encryptionKey"`
+	EncryptionStatus            pulumi.StringOutput                        `pulumi:"encryptionStatus"`
+	Name                        pulumi.StringOutput                        `pulumi:"name"`
+	StorageAccountCredentialIds pulumi.StringArrayOutput                   `pulumi:"storageAccountCredentialIds"`
+	Type                        pulumi.StringOutput                        `pulumi:"type"`
 }
 
 // NewStorageDomain registers a new resource with the given unique name, arguments, and options.
@@ -34,6 +28,9 @@ func NewStorageDomain(ctx *pulumi.Context,
 		return nil, errors.New("missing one or more required arguments")
 	}
 
+	if args.EncryptionStatus == nil {
+		return nil, errors.New("invalid value for required argument 'EncryptionStatus'")
+	}
 	if args.ManagerName == nil {
 		return nil, errors.New("invalid value for required argument 'ManagerName'")
 	}
@@ -81,34 +78,22 @@ func (StorageDomainState) ElementType() reflect.Type {
 }
 
 type storageDomainArgs struct {
-	// The encryption key used to encrypt the data. This is a user secret.
-	EncryptionKey *AsymmetricEncryptedSecret `pulumi:"encryptionKey"`
-	// The encryption status "Enabled | Disabled".
-	EncryptionStatus string `pulumi:"encryptionStatus"`
-	// The manager name
-	ManagerName string `pulumi:"managerName"`
-	// The resource group name
-	ResourceGroupName string `pulumi:"resourceGroupName"`
-	// The storage account credentials.
-	StorageAccountCredentialIds []string `pulumi:"storageAccountCredentialIds"`
-	// The storage domain name.
-	StorageDomainName *string `pulumi:"storageDomainName"`
+	EncryptionKey               *AsymmetricEncryptedSecret `pulumi:"encryptionKey"`
+	EncryptionStatus            EncryptionStatus           `pulumi:"encryptionStatus"`
+	ManagerName                 string                     `pulumi:"managerName"`
+	ResourceGroupName           string                     `pulumi:"resourceGroupName"`
+	StorageAccountCredentialIds []string                   `pulumi:"storageAccountCredentialIds"`
+	StorageDomainName           *string                    `pulumi:"storageDomainName"`
 }
 
 // The set of arguments for constructing a StorageDomain resource.
 type StorageDomainArgs struct {
-	// The encryption key used to encrypt the data. This is a user secret.
-	EncryptionKey AsymmetricEncryptedSecretPtrInput
-	// The encryption status "Enabled | Disabled".
-	EncryptionStatus EncryptionStatus
-	// The manager name
-	ManagerName pulumi.StringInput
-	// The resource group name
-	ResourceGroupName pulumi.StringInput
-	// The storage account credentials.
+	EncryptionKey               AsymmetricEncryptedSecretPtrInput
+	EncryptionStatus            EncryptionStatusInput
+	ManagerName                 pulumi.StringInput
+	ResourceGroupName           pulumi.StringInput
 	StorageAccountCredentialIds pulumi.StringArrayInput
-	// The storage domain name.
-	StorageDomainName pulumi.StringPtrInput
+	StorageDomainName           pulumi.StringPtrInput
 }
 
 func (StorageDomainArgs) ElementType() reflect.Type {
@@ -134,9 +119,7 @@ func (i *StorageDomain) ToStorageDomainOutputWithContext(ctx context.Context) St
 	return pulumi.ToOutputWithContext(ctx, i).(StorageDomainOutput)
 }
 
-type StorageDomainOutput struct {
-	*pulumi.OutputState
-}
+type StorageDomainOutput struct{ *pulumi.OutputState }
 
 func (StorageDomainOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*StorageDomain)(nil))

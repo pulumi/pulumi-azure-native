@@ -7,7 +7,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Diagnostic details.
 func LookupApiDiagnostic(ctx *pulumi.Context, args *LookupApiDiagnosticArgs, opts ...pulumi.InvokeOption) (*LookupApiDiagnosticResult, error) {
 	var rv LookupApiDiagnosticResult
 	err := ctx.Invoke("azure-native:apimanagement/v20170301:getApiDiagnostic", args, &rv, opts...)
@@ -18,24 +17,16 @@ func LookupApiDiagnostic(ctx *pulumi.Context, args *LookupApiDiagnosticArgs, opt
 }
 
 type LookupApiDiagnosticArgs struct {
-	// API identifier. Must be unique in the current API Management service instance.
-	ApiId string `pulumi:"apiId"`
-	// Diagnostic identifier. Must be unique in the current API Management service instance.
-	DiagnosticId string `pulumi:"diagnosticId"`
-	// The name of the resource group.
+	ApiId             string `pulumi:"apiId"`
+	DiagnosticId      string `pulumi:"diagnosticId"`
 	ResourceGroupName string `pulumi:"resourceGroupName"`
-	// The name of the API Management service.
-	ServiceName string `pulumi:"serviceName"`
+	ServiceName       string `pulumi:"serviceName"`
 }
 
 // Diagnostic details.
 type LookupApiDiagnosticResult struct {
-	// Indicates whether a diagnostic should receive data or not.
-	Enabled bool `pulumi:"enabled"`
-	// Resource ID.
-	Id string `pulumi:"id"`
-	// Resource name.
-	Name string `pulumi:"name"`
-	// Resource type for API Management resource.
-	Type string `pulumi:"type"`
+	Enabled bool   `pulumi:"enabled"`
+	Id      string `pulumi:"id"`
+	Name    string `pulumi:"name"`
+	Type    string `pulumi:"type"`
 }

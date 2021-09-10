@@ -7,7 +7,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// The list of intermediate cluster code versions for an upgrade or downgrade. Or minimum and maximum upgradable version if no target was given
 func ListListUpgradableVersionPost(ctx *pulumi.Context, args *ListListUpgradableVersionPostArgs, opts ...pulumi.InvokeOption) (*ListListUpgradableVersionPostResult, error) {
 	var rv ListListUpgradableVersionPostResult
 	err := ctx.Invoke("azure-native:servicefabric/v20201201preview:listListUpgradableVersionPost", args, &rv, opts...)
@@ -18,12 +17,9 @@ func ListListUpgradableVersionPost(ctx *pulumi.Context, args *ListListUpgradable
 }
 
 type ListListUpgradableVersionPostArgs struct {
-	// The name of the cluster resource.
-	ClusterName string `pulumi:"clusterName"`
-	// The name of the resource group.
+	ClusterName       string `pulumi:"clusterName"`
 	ResourceGroupName string `pulumi:"resourceGroupName"`
-	// The target code version.
-	TargetVersion string `pulumi:"targetVersion"`
+	TargetVersion     string `pulumi:"targetVersion"`
 }
 
 // The list of intermediate cluster code versions for an upgrade or downgrade. Or minimum and maximum upgradable version if no target was given

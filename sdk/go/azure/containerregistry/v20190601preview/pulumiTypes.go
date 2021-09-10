@@ -10,9 +10,7 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// The properties that determine the run agent configuration.
 type AgentProperties struct {
-	// The CPU configuration in terms of number of cores required for the run.
 	Cpu *int `pulumi:"cpu"`
 }
 
@@ -27,9 +25,7 @@ type AgentPropertiesInput interface {
 	ToAgentPropertiesOutputWithContext(context.Context) AgentPropertiesOutput
 }
 
-// The properties that determine the run agent configuration.
 type AgentPropertiesArgs struct {
-	// The CPU configuration in terms of number of cores required for the run.
 	Cpu pulumi.IntPtrInput `pulumi:"cpu"`
 }
 
@@ -86,7 +82,6 @@ func (i *agentPropertiesPtrType) ToAgentPropertiesPtrOutputWithContext(ctx conte
 	return pulumi.ToOutputWithContext(ctx, i).(AgentPropertiesPtrOutput)
 }
 
-// The properties that determine the run agent configuration.
 type AgentPropertiesOutput struct{ *pulumi.OutputState }
 
 func (AgentPropertiesOutput) ElementType() reflect.Type {
@@ -106,12 +101,11 @@ func (o AgentPropertiesOutput) ToAgentPropertiesPtrOutput() AgentPropertiesPtrOu
 }
 
 func (o AgentPropertiesOutput) ToAgentPropertiesPtrOutputWithContext(ctx context.Context) AgentPropertiesPtrOutput {
-	return o.ApplyT(func(v AgentProperties) *AgentProperties {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v AgentProperties) *AgentProperties {
 		return &v
 	}).(AgentPropertiesPtrOutput)
 }
 
-// The CPU configuration in terms of number of cores required for the run.
 func (o AgentPropertiesOutput) Cpu() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v AgentProperties) *int { return v.Cpu }).(pulumi.IntPtrOutput)
 }
@@ -131,10 +125,15 @@ func (o AgentPropertiesPtrOutput) ToAgentPropertiesPtrOutputWithContext(ctx cont
 }
 
 func (o AgentPropertiesPtrOutput) Elem() AgentPropertiesOutput {
-	return o.ApplyT(func(v *AgentProperties) AgentProperties { return *v }).(AgentPropertiesOutput)
+	return o.ApplyT(func(v *AgentProperties) AgentProperties {
+		if v != nil {
+			return *v
+		}
+		var ret AgentProperties
+		return ret
+	}).(AgentPropertiesOutput)
 }
 
-// The CPU configuration in terms of number of cores required for the run.
 func (o AgentPropertiesPtrOutput) Cpu() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *AgentProperties) *int {
 		if v == nil {
@@ -144,9 +143,7 @@ func (o AgentPropertiesPtrOutput) Cpu() pulumi.IntPtrOutput {
 	}).(pulumi.IntPtrOutput)
 }
 
-// The properties that determine the run agent configuration.
 type AgentPropertiesResponse struct {
-	// The CPU configuration in terms of number of cores required for the run.
 	Cpu *int `pulumi:"cpu"`
 }
 
@@ -161,9 +158,7 @@ type AgentPropertiesResponseInput interface {
 	ToAgentPropertiesResponseOutputWithContext(context.Context) AgentPropertiesResponseOutput
 }
 
-// The properties that determine the run agent configuration.
 type AgentPropertiesResponseArgs struct {
-	// The CPU configuration in terms of number of cores required for the run.
 	Cpu pulumi.IntPtrInput `pulumi:"cpu"`
 }
 
@@ -220,7 +215,6 @@ func (i *agentPropertiesResponsePtrType) ToAgentPropertiesResponsePtrOutputWithC
 	return pulumi.ToOutputWithContext(ctx, i).(AgentPropertiesResponsePtrOutput)
 }
 
-// The properties that determine the run agent configuration.
 type AgentPropertiesResponseOutput struct{ *pulumi.OutputState }
 
 func (AgentPropertiesResponseOutput) ElementType() reflect.Type {
@@ -240,12 +234,11 @@ func (o AgentPropertiesResponseOutput) ToAgentPropertiesResponsePtrOutput() Agen
 }
 
 func (o AgentPropertiesResponseOutput) ToAgentPropertiesResponsePtrOutputWithContext(ctx context.Context) AgentPropertiesResponsePtrOutput {
-	return o.ApplyT(func(v AgentPropertiesResponse) *AgentPropertiesResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v AgentPropertiesResponse) *AgentPropertiesResponse {
 		return &v
 	}).(AgentPropertiesResponsePtrOutput)
 }
 
-// The CPU configuration in terms of number of cores required for the run.
 func (o AgentPropertiesResponseOutput) Cpu() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v AgentPropertiesResponse) *int { return v.Cpu }).(pulumi.IntPtrOutput)
 }
@@ -265,10 +258,15 @@ func (o AgentPropertiesResponsePtrOutput) ToAgentPropertiesResponsePtrOutputWith
 }
 
 func (o AgentPropertiesResponsePtrOutput) Elem() AgentPropertiesResponseOutput {
-	return o.ApplyT(func(v *AgentPropertiesResponse) AgentPropertiesResponse { return *v }).(AgentPropertiesResponseOutput)
+	return o.ApplyT(func(v *AgentPropertiesResponse) AgentPropertiesResponse {
+		if v != nil {
+			return *v
+		}
+		var ret AgentPropertiesResponse
+		return ret
+	}).(AgentPropertiesResponseOutput)
 }
 
-// The CPU configuration in terms of number of cores required for the run.
 func (o AgentPropertiesResponsePtrOutput) Cpu() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *AgentPropertiesResponse) *int {
 		if v == nil {
@@ -278,14 +276,10 @@ func (o AgentPropertiesResponsePtrOutput) Cpu() pulumi.IntPtrOutput {
 	}).(pulumi.IntPtrOutput)
 }
 
-// The properties of a run argument.
 type Argument struct {
-	// Flag to indicate whether the argument represents a secret and want to be removed from build logs.
-	IsSecret *bool `pulumi:"isSecret"`
-	// The name of the argument.
-	Name string `pulumi:"name"`
-	// The value of the argument.
-	Value string `pulumi:"value"`
+	IsSecret *bool  `pulumi:"isSecret"`
+	Name     string `pulumi:"name"`
+	Value    string `pulumi:"value"`
 }
 
 // ArgumentInput is an input type that accepts ArgumentArgs and ArgumentOutput values.
@@ -299,14 +293,10 @@ type ArgumentInput interface {
 	ToArgumentOutputWithContext(context.Context) ArgumentOutput
 }
 
-// The properties of a run argument.
 type ArgumentArgs struct {
-	// Flag to indicate whether the argument represents a secret and want to be removed from build logs.
 	IsSecret pulumi.BoolPtrInput `pulumi:"isSecret"`
-	// The name of the argument.
-	Name pulumi.StringInput `pulumi:"name"`
-	// The value of the argument.
-	Value pulumi.StringInput `pulumi:"value"`
+	Name     pulumi.StringInput  `pulumi:"name"`
+	Value    pulumi.StringInput  `pulumi:"value"`
 }
 
 func (ArgumentArgs) ElementType() reflect.Type {
@@ -346,7 +336,6 @@ func (i ArgumentArray) ToArgumentArrayOutputWithContext(ctx context.Context) Arg
 	return pulumi.ToOutputWithContext(ctx, i).(ArgumentArrayOutput)
 }
 
-// The properties of a run argument.
 type ArgumentOutput struct{ *pulumi.OutputState }
 
 func (ArgumentOutput) ElementType() reflect.Type {
@@ -361,17 +350,14 @@ func (o ArgumentOutput) ToArgumentOutputWithContext(ctx context.Context) Argumen
 	return o
 }
 
-// Flag to indicate whether the argument represents a secret and want to be removed from build logs.
 func (o ArgumentOutput) GetIsSecret() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v Argument) *bool { return v.IsSecret }).(pulumi.BoolPtrOutput)
 }
 
-// The name of the argument.
 func (o ArgumentOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v Argument) string { return v.Name }).(pulumi.StringOutput)
 }
 
-// The value of the argument.
 func (o ArgumentOutput) Value() pulumi.StringOutput {
 	return o.ApplyT(func(v Argument) string { return v.Value }).(pulumi.StringOutput)
 }
@@ -396,14 +382,10 @@ func (o ArgumentArrayOutput) Index(i pulumi.IntInput) ArgumentOutput {
 	}).(ArgumentOutput)
 }
 
-// The properties of a run argument.
 type ArgumentResponse struct {
-	// Flag to indicate whether the argument represents a secret and want to be removed from build logs.
-	IsSecret *bool `pulumi:"isSecret"`
-	// The name of the argument.
-	Name string `pulumi:"name"`
-	// The value of the argument.
-	Value string `pulumi:"value"`
+	IsSecret *bool  `pulumi:"isSecret"`
+	Name     string `pulumi:"name"`
+	Value    string `pulumi:"value"`
 }
 
 // ArgumentResponseInput is an input type that accepts ArgumentResponseArgs and ArgumentResponseOutput values.
@@ -417,14 +399,10 @@ type ArgumentResponseInput interface {
 	ToArgumentResponseOutputWithContext(context.Context) ArgumentResponseOutput
 }
 
-// The properties of a run argument.
 type ArgumentResponseArgs struct {
-	// Flag to indicate whether the argument represents a secret and want to be removed from build logs.
 	IsSecret pulumi.BoolPtrInput `pulumi:"isSecret"`
-	// The name of the argument.
-	Name pulumi.StringInput `pulumi:"name"`
-	// The value of the argument.
-	Value pulumi.StringInput `pulumi:"value"`
+	Name     pulumi.StringInput  `pulumi:"name"`
+	Value    pulumi.StringInput  `pulumi:"value"`
 }
 
 func (ArgumentResponseArgs) ElementType() reflect.Type {
@@ -464,7 +442,6 @@ func (i ArgumentResponseArray) ToArgumentResponseArrayOutputWithContext(ctx cont
 	return pulumi.ToOutputWithContext(ctx, i).(ArgumentResponseArrayOutput)
 }
 
-// The properties of a run argument.
 type ArgumentResponseOutput struct{ *pulumi.OutputState }
 
 func (ArgumentResponseOutput) ElementType() reflect.Type {
@@ -479,17 +456,14 @@ func (o ArgumentResponseOutput) ToArgumentResponseOutputWithContext(ctx context.
 	return o
 }
 
-// Flag to indicate whether the argument represents a secret and want to be removed from build logs.
 func (o ArgumentResponseOutput) GetIsSecret() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v ArgumentResponse) *bool { return v.IsSecret }).(pulumi.BoolPtrOutput)
 }
 
-// The name of the argument.
 func (o ArgumentResponseOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v ArgumentResponse) string { return v.Name }).(pulumi.StringOutput)
 }
 
-// The value of the argument.
 func (o ArgumentResponseOutput) Value() pulumi.StringOutput {
 	return o.ApplyT(func(v ArgumentResponse) string { return v.Value }).(pulumi.StringOutput)
 }
@@ -514,18 +488,12 @@ func (o ArgumentResponseArrayOutput) Index(i pulumi.IntInput) ArgumentResponseOu
 	}).(ArgumentResponseOutput)
 }
 
-// The authorization properties for accessing the source code repository.
 type AuthInfo struct {
-	// Time in seconds that the token remains valid
-	ExpiresIn *int `pulumi:"expiresIn"`
-	// The refresh token used to refresh the access token.
+	ExpiresIn    *int    `pulumi:"expiresIn"`
 	RefreshToken *string `pulumi:"refreshToken"`
-	// The scope of the access token.
-	Scope *string `pulumi:"scope"`
-	// The access token used to access the source control provider.
-	Token string `pulumi:"token"`
-	// The type of Auth token.
-	TokenType string `pulumi:"tokenType"`
+	Scope        *string `pulumi:"scope"`
+	Token        string  `pulumi:"token"`
+	TokenType    string  `pulumi:"tokenType"`
 }
 
 // AuthInfoInput is an input type that accepts AuthInfoArgs and AuthInfoOutput values.
@@ -539,18 +507,12 @@ type AuthInfoInput interface {
 	ToAuthInfoOutputWithContext(context.Context) AuthInfoOutput
 }
 
-// The authorization properties for accessing the source code repository.
 type AuthInfoArgs struct {
-	// Time in seconds that the token remains valid
-	ExpiresIn pulumi.IntPtrInput `pulumi:"expiresIn"`
-	// The refresh token used to refresh the access token.
+	ExpiresIn    pulumi.IntPtrInput    `pulumi:"expiresIn"`
 	RefreshToken pulumi.StringPtrInput `pulumi:"refreshToken"`
-	// The scope of the access token.
-	Scope pulumi.StringPtrInput `pulumi:"scope"`
-	// The access token used to access the source control provider.
-	Token pulumi.StringInput `pulumi:"token"`
-	// The type of Auth token.
-	TokenType pulumi.StringInput `pulumi:"tokenType"`
+	Scope        pulumi.StringPtrInput `pulumi:"scope"`
+	Token        pulumi.StringInput    `pulumi:"token"`
+	TokenType    pulumi.StringInput    `pulumi:"tokenType"`
 }
 
 func (AuthInfoArgs) ElementType() reflect.Type {
@@ -606,7 +568,6 @@ func (i *authInfoPtrType) ToAuthInfoPtrOutputWithContext(ctx context.Context) Au
 	return pulumi.ToOutputWithContext(ctx, i).(AuthInfoPtrOutput)
 }
 
-// The authorization properties for accessing the source code repository.
 type AuthInfoOutput struct{ *pulumi.OutputState }
 
 func (AuthInfoOutput) ElementType() reflect.Type {
@@ -626,32 +587,27 @@ func (o AuthInfoOutput) ToAuthInfoPtrOutput() AuthInfoPtrOutput {
 }
 
 func (o AuthInfoOutput) ToAuthInfoPtrOutputWithContext(ctx context.Context) AuthInfoPtrOutput {
-	return o.ApplyT(func(v AuthInfo) *AuthInfo {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v AuthInfo) *AuthInfo {
 		return &v
 	}).(AuthInfoPtrOutput)
 }
 
-// Time in seconds that the token remains valid
 func (o AuthInfoOutput) ExpiresIn() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v AuthInfo) *int { return v.ExpiresIn }).(pulumi.IntPtrOutput)
 }
 
-// The refresh token used to refresh the access token.
 func (o AuthInfoOutput) RefreshToken() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AuthInfo) *string { return v.RefreshToken }).(pulumi.StringPtrOutput)
 }
 
-// The scope of the access token.
 func (o AuthInfoOutput) Scope() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AuthInfo) *string { return v.Scope }).(pulumi.StringPtrOutput)
 }
 
-// The access token used to access the source control provider.
 func (o AuthInfoOutput) Token() pulumi.StringOutput {
 	return o.ApplyT(func(v AuthInfo) string { return v.Token }).(pulumi.StringOutput)
 }
 
-// The type of Auth token.
 func (o AuthInfoOutput) TokenType() pulumi.StringOutput {
 	return o.ApplyT(func(v AuthInfo) string { return v.TokenType }).(pulumi.StringOutput)
 }
@@ -671,10 +627,15 @@ func (o AuthInfoPtrOutput) ToAuthInfoPtrOutputWithContext(ctx context.Context) A
 }
 
 func (o AuthInfoPtrOutput) Elem() AuthInfoOutput {
-	return o.ApplyT(func(v *AuthInfo) AuthInfo { return *v }).(AuthInfoOutput)
+	return o.ApplyT(func(v *AuthInfo) AuthInfo {
+		if v != nil {
+			return *v
+		}
+		var ret AuthInfo
+		return ret
+	}).(AuthInfoOutput)
 }
 
-// Time in seconds that the token remains valid
 func (o AuthInfoPtrOutput) ExpiresIn() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *AuthInfo) *int {
 		if v == nil {
@@ -684,7 +645,6 @@ func (o AuthInfoPtrOutput) ExpiresIn() pulumi.IntPtrOutput {
 	}).(pulumi.IntPtrOutput)
 }
 
-// The refresh token used to refresh the access token.
 func (o AuthInfoPtrOutput) RefreshToken() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *AuthInfo) *string {
 		if v == nil {
@@ -694,7 +654,6 @@ func (o AuthInfoPtrOutput) RefreshToken() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The scope of the access token.
 func (o AuthInfoPtrOutput) Scope() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *AuthInfo) *string {
 		if v == nil {
@@ -704,7 +663,6 @@ func (o AuthInfoPtrOutput) Scope() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The access token used to access the source control provider.
 func (o AuthInfoPtrOutput) Token() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *AuthInfo) *string {
 		if v == nil {
@@ -714,7 +672,6 @@ func (o AuthInfoPtrOutput) Token() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The type of Auth token.
 func (o AuthInfoPtrOutput) TokenType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *AuthInfo) *string {
 		if v == nil {
@@ -724,18 +681,12 @@ func (o AuthInfoPtrOutput) TokenType() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The authorization properties for accessing the source code repository.
 type AuthInfoResponse struct {
-	// Time in seconds that the token remains valid
-	ExpiresIn *int `pulumi:"expiresIn"`
-	// The refresh token used to refresh the access token.
+	ExpiresIn    *int    `pulumi:"expiresIn"`
 	RefreshToken *string `pulumi:"refreshToken"`
-	// The scope of the access token.
-	Scope *string `pulumi:"scope"`
-	// The access token used to access the source control provider.
-	Token string `pulumi:"token"`
-	// The type of Auth token.
-	TokenType string `pulumi:"tokenType"`
+	Scope        *string `pulumi:"scope"`
+	Token        string  `pulumi:"token"`
+	TokenType    string  `pulumi:"tokenType"`
 }
 
 // AuthInfoResponseInput is an input type that accepts AuthInfoResponseArgs and AuthInfoResponseOutput values.
@@ -749,18 +700,12 @@ type AuthInfoResponseInput interface {
 	ToAuthInfoResponseOutputWithContext(context.Context) AuthInfoResponseOutput
 }
 
-// The authorization properties for accessing the source code repository.
 type AuthInfoResponseArgs struct {
-	// Time in seconds that the token remains valid
-	ExpiresIn pulumi.IntPtrInput `pulumi:"expiresIn"`
-	// The refresh token used to refresh the access token.
+	ExpiresIn    pulumi.IntPtrInput    `pulumi:"expiresIn"`
 	RefreshToken pulumi.StringPtrInput `pulumi:"refreshToken"`
-	// The scope of the access token.
-	Scope pulumi.StringPtrInput `pulumi:"scope"`
-	// The access token used to access the source control provider.
-	Token pulumi.StringInput `pulumi:"token"`
-	// The type of Auth token.
-	TokenType pulumi.StringInput `pulumi:"tokenType"`
+	Scope        pulumi.StringPtrInput `pulumi:"scope"`
+	Token        pulumi.StringInput    `pulumi:"token"`
+	TokenType    pulumi.StringInput    `pulumi:"tokenType"`
 }
 
 func (AuthInfoResponseArgs) ElementType() reflect.Type {
@@ -816,7 +761,6 @@ func (i *authInfoResponsePtrType) ToAuthInfoResponsePtrOutputWithContext(ctx con
 	return pulumi.ToOutputWithContext(ctx, i).(AuthInfoResponsePtrOutput)
 }
 
-// The authorization properties for accessing the source code repository.
 type AuthInfoResponseOutput struct{ *pulumi.OutputState }
 
 func (AuthInfoResponseOutput) ElementType() reflect.Type {
@@ -836,32 +780,27 @@ func (o AuthInfoResponseOutput) ToAuthInfoResponsePtrOutput() AuthInfoResponsePt
 }
 
 func (o AuthInfoResponseOutput) ToAuthInfoResponsePtrOutputWithContext(ctx context.Context) AuthInfoResponsePtrOutput {
-	return o.ApplyT(func(v AuthInfoResponse) *AuthInfoResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v AuthInfoResponse) *AuthInfoResponse {
 		return &v
 	}).(AuthInfoResponsePtrOutput)
 }
 
-// Time in seconds that the token remains valid
 func (o AuthInfoResponseOutput) ExpiresIn() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v AuthInfoResponse) *int { return v.ExpiresIn }).(pulumi.IntPtrOutput)
 }
 
-// The refresh token used to refresh the access token.
 func (o AuthInfoResponseOutput) RefreshToken() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AuthInfoResponse) *string { return v.RefreshToken }).(pulumi.StringPtrOutput)
 }
 
-// The scope of the access token.
 func (o AuthInfoResponseOutput) Scope() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AuthInfoResponse) *string { return v.Scope }).(pulumi.StringPtrOutput)
 }
 
-// The access token used to access the source control provider.
 func (o AuthInfoResponseOutput) Token() pulumi.StringOutput {
 	return o.ApplyT(func(v AuthInfoResponse) string { return v.Token }).(pulumi.StringOutput)
 }
 
-// The type of Auth token.
 func (o AuthInfoResponseOutput) TokenType() pulumi.StringOutput {
 	return o.ApplyT(func(v AuthInfoResponse) string { return v.TokenType }).(pulumi.StringOutput)
 }
@@ -881,10 +820,15 @@ func (o AuthInfoResponsePtrOutput) ToAuthInfoResponsePtrOutputWithContext(ctx co
 }
 
 func (o AuthInfoResponsePtrOutput) Elem() AuthInfoResponseOutput {
-	return o.ApplyT(func(v *AuthInfoResponse) AuthInfoResponse { return *v }).(AuthInfoResponseOutput)
+	return o.ApplyT(func(v *AuthInfoResponse) AuthInfoResponse {
+		if v != nil {
+			return *v
+		}
+		var ret AuthInfoResponse
+		return ret
+	}).(AuthInfoResponseOutput)
 }
 
-// Time in seconds that the token remains valid
 func (o AuthInfoResponsePtrOutput) ExpiresIn() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *AuthInfoResponse) *int {
 		if v == nil {
@@ -894,7 +838,6 @@ func (o AuthInfoResponsePtrOutput) ExpiresIn() pulumi.IntPtrOutput {
 	}).(pulumi.IntPtrOutput)
 }
 
-// The refresh token used to refresh the access token.
 func (o AuthInfoResponsePtrOutput) RefreshToken() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *AuthInfoResponse) *string {
 		if v == nil {
@@ -904,7 +847,6 @@ func (o AuthInfoResponsePtrOutput) RefreshToken() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The scope of the access token.
 func (o AuthInfoResponsePtrOutput) Scope() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *AuthInfoResponse) *string {
 		if v == nil {
@@ -914,7 +856,6 @@ func (o AuthInfoResponsePtrOutput) Scope() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The access token used to access the source control provider.
 func (o AuthInfoResponsePtrOutput) Token() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *AuthInfoResponse) *string {
 		if v == nil {
@@ -924,7 +865,6 @@ func (o AuthInfoResponsePtrOutput) Token() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The type of Auth token.
 func (o AuthInfoResponsePtrOutput) TokenType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *AuthInfoResponse) *string {
 		if v == nil {
@@ -934,18 +874,12 @@ func (o AuthInfoResponsePtrOutput) TokenType() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Properties that describe a base image dependency.
 type BaseImageDependencyResponse struct {
-	// The sha256-based digest of the image manifest.
-	Digest *string `pulumi:"digest"`
-	// The registry login server.
-	Registry *string `pulumi:"registry"`
-	// The repository name.
+	Digest     *string `pulumi:"digest"`
+	Registry   *string `pulumi:"registry"`
 	Repository *string `pulumi:"repository"`
-	// The tag name.
-	Tag *string `pulumi:"tag"`
-	// The type of the base image dependency.
-	Type *string `pulumi:"type"`
+	Tag        *string `pulumi:"tag"`
+	Type       *string `pulumi:"type"`
 }
 
 // BaseImageDependencyResponseInput is an input type that accepts BaseImageDependencyResponseArgs and BaseImageDependencyResponseOutput values.
@@ -959,18 +893,12 @@ type BaseImageDependencyResponseInput interface {
 	ToBaseImageDependencyResponseOutputWithContext(context.Context) BaseImageDependencyResponseOutput
 }
 
-// Properties that describe a base image dependency.
 type BaseImageDependencyResponseArgs struct {
-	// The sha256-based digest of the image manifest.
-	Digest pulumi.StringPtrInput `pulumi:"digest"`
-	// The registry login server.
-	Registry pulumi.StringPtrInput `pulumi:"registry"`
-	// The repository name.
+	Digest     pulumi.StringPtrInput `pulumi:"digest"`
+	Registry   pulumi.StringPtrInput `pulumi:"registry"`
 	Repository pulumi.StringPtrInput `pulumi:"repository"`
-	// The tag name.
-	Tag pulumi.StringPtrInput `pulumi:"tag"`
-	// The type of the base image dependency.
-	Type pulumi.StringPtrInput `pulumi:"type"`
+	Tag        pulumi.StringPtrInput `pulumi:"tag"`
+	Type       pulumi.StringPtrInput `pulumi:"type"`
 }
 
 func (BaseImageDependencyResponseArgs) ElementType() reflect.Type {
@@ -1010,7 +938,6 @@ func (i BaseImageDependencyResponseArray) ToBaseImageDependencyResponseArrayOutp
 	return pulumi.ToOutputWithContext(ctx, i).(BaseImageDependencyResponseArrayOutput)
 }
 
-// Properties that describe a base image dependency.
 type BaseImageDependencyResponseOutput struct{ *pulumi.OutputState }
 
 func (BaseImageDependencyResponseOutput) ElementType() reflect.Type {
@@ -1025,27 +952,22 @@ func (o BaseImageDependencyResponseOutput) ToBaseImageDependencyResponseOutputWi
 	return o
 }
 
-// The sha256-based digest of the image manifest.
 func (o BaseImageDependencyResponseOutput) Digest() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v BaseImageDependencyResponse) *string { return v.Digest }).(pulumi.StringPtrOutput)
 }
 
-// The registry login server.
 func (o BaseImageDependencyResponseOutput) Registry() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v BaseImageDependencyResponse) *string { return v.Registry }).(pulumi.StringPtrOutput)
 }
 
-// The repository name.
 func (o BaseImageDependencyResponseOutput) Repository() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v BaseImageDependencyResponse) *string { return v.Repository }).(pulumi.StringPtrOutput)
 }
 
-// The tag name.
 func (o BaseImageDependencyResponseOutput) Tag() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v BaseImageDependencyResponse) *string { return v.Tag }).(pulumi.StringPtrOutput)
 }
 
-// The type of the base image dependency.
 func (o BaseImageDependencyResponseOutput) Type() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v BaseImageDependencyResponse) *string { return v.Type }).(pulumi.StringPtrOutput)
 }
@@ -1070,17 +992,11 @@ func (o BaseImageDependencyResponseArrayOutput) Index(i pulumi.IntInput) BaseIma
 	}).(BaseImageDependencyResponseOutput)
 }
 
-// The trigger based on base image dependency.
 type BaseImageTrigger struct {
-	// The type of the auto trigger for base image dependency updates.
-	BaseImageTriggerType string `pulumi:"baseImageTriggerType"`
-	// The name of the trigger.
-	Name string `pulumi:"name"`
-	// The current status of trigger.
-	Status *string `pulumi:"status"`
-	// The endpoint URL for receiving update triggers.
-	UpdateTriggerEndpoint *string `pulumi:"updateTriggerEndpoint"`
-	// Type of Payload body for Base image update triggers.
+	BaseImageTriggerType     string  `pulumi:"baseImageTriggerType"`
+	Name                     string  `pulumi:"name"`
+	Status                   *string `pulumi:"status"`
+	UpdateTriggerEndpoint    *string `pulumi:"updateTriggerEndpoint"`
 	UpdateTriggerPayloadType *string `pulumi:"updateTriggerPayloadType"`
 }
 
@@ -1095,17 +1011,11 @@ type BaseImageTriggerInput interface {
 	ToBaseImageTriggerOutputWithContext(context.Context) BaseImageTriggerOutput
 }
 
-// The trigger based on base image dependency.
 type BaseImageTriggerArgs struct {
-	// The type of the auto trigger for base image dependency updates.
-	BaseImageTriggerType pulumi.StringInput `pulumi:"baseImageTriggerType"`
-	// The name of the trigger.
-	Name pulumi.StringInput `pulumi:"name"`
-	// The current status of trigger.
-	Status pulumi.StringPtrInput `pulumi:"status"`
-	// The endpoint URL for receiving update triggers.
-	UpdateTriggerEndpoint pulumi.StringPtrInput `pulumi:"updateTriggerEndpoint"`
-	// Type of Payload body for Base image update triggers.
+	BaseImageTriggerType     pulumi.StringInput    `pulumi:"baseImageTriggerType"`
+	Name                     pulumi.StringInput    `pulumi:"name"`
+	Status                   pulumi.StringPtrInput `pulumi:"status"`
+	UpdateTriggerEndpoint    pulumi.StringPtrInput `pulumi:"updateTriggerEndpoint"`
 	UpdateTriggerPayloadType pulumi.StringPtrInput `pulumi:"updateTriggerPayloadType"`
 }
 
@@ -1162,7 +1072,6 @@ func (i *baseImageTriggerPtrType) ToBaseImageTriggerPtrOutputWithContext(ctx con
 	return pulumi.ToOutputWithContext(ctx, i).(BaseImageTriggerPtrOutput)
 }
 
-// The trigger based on base image dependency.
 type BaseImageTriggerOutput struct{ *pulumi.OutputState }
 
 func (BaseImageTriggerOutput) ElementType() reflect.Type {
@@ -1182,32 +1091,27 @@ func (o BaseImageTriggerOutput) ToBaseImageTriggerPtrOutput() BaseImageTriggerPt
 }
 
 func (o BaseImageTriggerOutput) ToBaseImageTriggerPtrOutputWithContext(ctx context.Context) BaseImageTriggerPtrOutput {
-	return o.ApplyT(func(v BaseImageTrigger) *BaseImageTrigger {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v BaseImageTrigger) *BaseImageTrigger {
 		return &v
 	}).(BaseImageTriggerPtrOutput)
 }
 
-// The type of the auto trigger for base image dependency updates.
 func (o BaseImageTriggerOutput) BaseImageTriggerType() pulumi.StringOutput {
 	return o.ApplyT(func(v BaseImageTrigger) string { return v.BaseImageTriggerType }).(pulumi.StringOutput)
 }
 
-// The name of the trigger.
 func (o BaseImageTriggerOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v BaseImageTrigger) string { return v.Name }).(pulumi.StringOutput)
 }
 
-// The current status of trigger.
 func (o BaseImageTriggerOutput) Status() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v BaseImageTrigger) *string { return v.Status }).(pulumi.StringPtrOutput)
 }
 
-// The endpoint URL for receiving update triggers.
 func (o BaseImageTriggerOutput) UpdateTriggerEndpoint() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v BaseImageTrigger) *string { return v.UpdateTriggerEndpoint }).(pulumi.StringPtrOutput)
 }
 
-// Type of Payload body for Base image update triggers.
 func (o BaseImageTriggerOutput) UpdateTriggerPayloadType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v BaseImageTrigger) *string { return v.UpdateTriggerPayloadType }).(pulumi.StringPtrOutput)
 }
@@ -1227,10 +1131,15 @@ func (o BaseImageTriggerPtrOutput) ToBaseImageTriggerPtrOutputWithContext(ctx co
 }
 
 func (o BaseImageTriggerPtrOutput) Elem() BaseImageTriggerOutput {
-	return o.ApplyT(func(v *BaseImageTrigger) BaseImageTrigger { return *v }).(BaseImageTriggerOutput)
+	return o.ApplyT(func(v *BaseImageTrigger) BaseImageTrigger {
+		if v != nil {
+			return *v
+		}
+		var ret BaseImageTrigger
+		return ret
+	}).(BaseImageTriggerOutput)
 }
 
-// The type of the auto trigger for base image dependency updates.
 func (o BaseImageTriggerPtrOutput) BaseImageTriggerType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *BaseImageTrigger) *string {
 		if v == nil {
@@ -1240,7 +1149,6 @@ func (o BaseImageTriggerPtrOutput) BaseImageTriggerType() pulumi.StringPtrOutput
 	}).(pulumi.StringPtrOutput)
 }
 
-// The name of the trigger.
 func (o BaseImageTriggerPtrOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *BaseImageTrigger) *string {
 		if v == nil {
@@ -1250,7 +1158,6 @@ func (o BaseImageTriggerPtrOutput) Name() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The current status of trigger.
 func (o BaseImageTriggerPtrOutput) Status() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *BaseImageTrigger) *string {
 		if v == nil {
@@ -1260,7 +1167,6 @@ func (o BaseImageTriggerPtrOutput) Status() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The endpoint URL for receiving update triggers.
 func (o BaseImageTriggerPtrOutput) UpdateTriggerEndpoint() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *BaseImageTrigger) *string {
 		if v == nil {
@@ -1270,7 +1176,6 @@ func (o BaseImageTriggerPtrOutput) UpdateTriggerEndpoint() pulumi.StringPtrOutpu
 	}).(pulumi.StringPtrOutput)
 }
 
-// Type of Payload body for Base image update triggers.
 func (o BaseImageTriggerPtrOutput) UpdateTriggerPayloadType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *BaseImageTrigger) *string {
 		if v == nil {
@@ -1280,17 +1185,11 @@ func (o BaseImageTriggerPtrOutput) UpdateTriggerPayloadType() pulumi.StringPtrOu
 	}).(pulumi.StringPtrOutput)
 }
 
-// The trigger based on base image dependency.
 type BaseImageTriggerResponse struct {
-	// The type of the auto trigger for base image dependency updates.
-	BaseImageTriggerType string `pulumi:"baseImageTriggerType"`
-	// The name of the trigger.
-	Name string `pulumi:"name"`
-	// The current status of trigger.
-	Status *string `pulumi:"status"`
-	// The endpoint URL for receiving update triggers.
-	UpdateTriggerEndpoint *string `pulumi:"updateTriggerEndpoint"`
-	// Type of Payload body for Base image update triggers.
+	BaseImageTriggerType     string  `pulumi:"baseImageTriggerType"`
+	Name                     string  `pulumi:"name"`
+	Status                   *string `pulumi:"status"`
+	UpdateTriggerEndpoint    *string `pulumi:"updateTriggerEndpoint"`
 	UpdateTriggerPayloadType *string `pulumi:"updateTriggerPayloadType"`
 }
 
@@ -1305,17 +1204,11 @@ type BaseImageTriggerResponseInput interface {
 	ToBaseImageTriggerResponseOutputWithContext(context.Context) BaseImageTriggerResponseOutput
 }
 
-// The trigger based on base image dependency.
 type BaseImageTriggerResponseArgs struct {
-	// The type of the auto trigger for base image dependency updates.
-	BaseImageTriggerType pulumi.StringInput `pulumi:"baseImageTriggerType"`
-	// The name of the trigger.
-	Name pulumi.StringInput `pulumi:"name"`
-	// The current status of trigger.
-	Status pulumi.StringPtrInput `pulumi:"status"`
-	// The endpoint URL for receiving update triggers.
-	UpdateTriggerEndpoint pulumi.StringPtrInput `pulumi:"updateTriggerEndpoint"`
-	// Type of Payload body for Base image update triggers.
+	BaseImageTriggerType     pulumi.StringInput    `pulumi:"baseImageTriggerType"`
+	Name                     pulumi.StringInput    `pulumi:"name"`
+	Status                   pulumi.StringPtrInput `pulumi:"status"`
+	UpdateTriggerEndpoint    pulumi.StringPtrInput `pulumi:"updateTriggerEndpoint"`
 	UpdateTriggerPayloadType pulumi.StringPtrInput `pulumi:"updateTriggerPayloadType"`
 }
 
@@ -1372,7 +1265,6 @@ func (i *baseImageTriggerResponsePtrType) ToBaseImageTriggerResponsePtrOutputWit
 	return pulumi.ToOutputWithContext(ctx, i).(BaseImageTriggerResponsePtrOutput)
 }
 
-// The trigger based on base image dependency.
 type BaseImageTriggerResponseOutput struct{ *pulumi.OutputState }
 
 func (BaseImageTriggerResponseOutput) ElementType() reflect.Type {
@@ -1392,32 +1284,27 @@ func (o BaseImageTriggerResponseOutput) ToBaseImageTriggerResponsePtrOutput() Ba
 }
 
 func (o BaseImageTriggerResponseOutput) ToBaseImageTriggerResponsePtrOutputWithContext(ctx context.Context) BaseImageTriggerResponsePtrOutput {
-	return o.ApplyT(func(v BaseImageTriggerResponse) *BaseImageTriggerResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v BaseImageTriggerResponse) *BaseImageTriggerResponse {
 		return &v
 	}).(BaseImageTriggerResponsePtrOutput)
 }
 
-// The type of the auto trigger for base image dependency updates.
 func (o BaseImageTriggerResponseOutput) BaseImageTriggerType() pulumi.StringOutput {
 	return o.ApplyT(func(v BaseImageTriggerResponse) string { return v.BaseImageTriggerType }).(pulumi.StringOutput)
 }
 
-// The name of the trigger.
 func (o BaseImageTriggerResponseOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v BaseImageTriggerResponse) string { return v.Name }).(pulumi.StringOutput)
 }
 
-// The current status of trigger.
 func (o BaseImageTriggerResponseOutput) Status() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v BaseImageTriggerResponse) *string { return v.Status }).(pulumi.StringPtrOutput)
 }
 
-// The endpoint URL for receiving update triggers.
 func (o BaseImageTriggerResponseOutput) UpdateTriggerEndpoint() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v BaseImageTriggerResponse) *string { return v.UpdateTriggerEndpoint }).(pulumi.StringPtrOutput)
 }
 
-// Type of Payload body for Base image update triggers.
 func (o BaseImageTriggerResponseOutput) UpdateTriggerPayloadType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v BaseImageTriggerResponse) *string { return v.UpdateTriggerPayloadType }).(pulumi.StringPtrOutput)
 }
@@ -1437,10 +1324,15 @@ func (o BaseImageTriggerResponsePtrOutput) ToBaseImageTriggerResponsePtrOutputWi
 }
 
 func (o BaseImageTriggerResponsePtrOutput) Elem() BaseImageTriggerResponseOutput {
-	return o.ApplyT(func(v *BaseImageTriggerResponse) BaseImageTriggerResponse { return *v }).(BaseImageTriggerResponseOutput)
+	return o.ApplyT(func(v *BaseImageTriggerResponse) BaseImageTriggerResponse {
+		if v != nil {
+			return *v
+		}
+		var ret BaseImageTriggerResponse
+		return ret
+	}).(BaseImageTriggerResponseOutput)
 }
 
-// The type of the auto trigger for base image dependency updates.
 func (o BaseImageTriggerResponsePtrOutput) BaseImageTriggerType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *BaseImageTriggerResponse) *string {
 		if v == nil {
@@ -1450,7 +1342,6 @@ func (o BaseImageTriggerResponsePtrOutput) BaseImageTriggerType() pulumi.StringP
 	}).(pulumi.StringPtrOutput)
 }
 
-// The name of the trigger.
 func (o BaseImageTriggerResponsePtrOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *BaseImageTriggerResponse) *string {
 		if v == nil {
@@ -1460,7 +1351,6 @@ func (o BaseImageTriggerResponsePtrOutput) Name() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The current status of trigger.
 func (o BaseImageTriggerResponsePtrOutput) Status() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *BaseImageTriggerResponse) *string {
 		if v == nil {
@@ -1470,7 +1360,6 @@ func (o BaseImageTriggerResponsePtrOutput) Status() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The endpoint URL for receiving update triggers.
 func (o BaseImageTriggerResponsePtrOutput) UpdateTriggerEndpoint() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *BaseImageTriggerResponse) *string {
 		if v == nil {
@@ -1480,7 +1369,6 @@ func (o BaseImageTriggerResponsePtrOutput) UpdateTriggerEndpoint() pulumi.String
 	}).(pulumi.StringPtrOutput)
 }
 
-// Type of Payload body for Base image update triggers.
 func (o BaseImageTriggerResponsePtrOutput) UpdateTriggerPayloadType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *BaseImageTriggerResponse) *string {
 		if v == nil {
@@ -1490,14 +1378,9 @@ func (o BaseImageTriggerResponsePtrOutput) UpdateTriggerPayloadType() pulumi.Str
 	}).(pulumi.StringPtrOutput)
 }
 
-// The parameters that describes a set of credentials that will be used when a run is invoked.
 type Credentials struct {
-	// Describes the credential parameters for accessing other custom registries. The key
-	// for the dictionary item will be the registry login server (myregistry.azurecr.io) and
-	// the value of the item will be the registry credentials for accessing the registry.
 	CustomRegistries map[string]CustomRegistryCredentials `pulumi:"customRegistries"`
-	// Describes the credential parameters for accessing the source registry.
-	SourceRegistry *SourceRegistryCredentials `pulumi:"sourceRegistry"`
+	SourceRegistry   *SourceRegistryCredentials           `pulumi:"sourceRegistry"`
 }
 
 // CredentialsInput is an input type that accepts CredentialsArgs and CredentialsOutput values.
@@ -1511,14 +1394,9 @@ type CredentialsInput interface {
 	ToCredentialsOutputWithContext(context.Context) CredentialsOutput
 }
 
-// The parameters that describes a set of credentials that will be used when a run is invoked.
 type CredentialsArgs struct {
-	// Describes the credential parameters for accessing other custom registries. The key
-	// for the dictionary item will be the registry login server (myregistry.azurecr.io) and
-	// the value of the item will be the registry credentials for accessing the registry.
 	CustomRegistries CustomRegistryCredentialsMapInput `pulumi:"customRegistries"`
-	// Describes the credential parameters for accessing the source registry.
-	SourceRegistry SourceRegistryCredentialsPtrInput `pulumi:"sourceRegistry"`
+	SourceRegistry   SourceRegistryCredentialsPtrInput `pulumi:"sourceRegistry"`
 }
 
 func (CredentialsArgs) ElementType() reflect.Type {
@@ -1574,7 +1452,6 @@ func (i *credentialsPtrType) ToCredentialsPtrOutputWithContext(ctx context.Conte
 	return pulumi.ToOutputWithContext(ctx, i).(CredentialsPtrOutput)
 }
 
-// The parameters that describes a set of credentials that will be used when a run is invoked.
 type CredentialsOutput struct{ *pulumi.OutputState }
 
 func (CredentialsOutput) ElementType() reflect.Type {
@@ -1594,19 +1471,15 @@ func (o CredentialsOutput) ToCredentialsPtrOutput() CredentialsPtrOutput {
 }
 
 func (o CredentialsOutput) ToCredentialsPtrOutputWithContext(ctx context.Context) CredentialsPtrOutput {
-	return o.ApplyT(func(v Credentials) *Credentials {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v Credentials) *Credentials {
 		return &v
 	}).(CredentialsPtrOutput)
 }
 
-// Describes the credential parameters for accessing other custom registries. The key
-// for the dictionary item will be the registry login server (myregistry.azurecr.io) and
-// the value of the item will be the registry credentials for accessing the registry.
 func (o CredentialsOutput) CustomRegistries() CustomRegistryCredentialsMapOutput {
 	return o.ApplyT(func(v Credentials) map[string]CustomRegistryCredentials { return v.CustomRegistries }).(CustomRegistryCredentialsMapOutput)
 }
 
-// Describes the credential parameters for accessing the source registry.
 func (o CredentialsOutput) SourceRegistry() SourceRegistryCredentialsPtrOutput {
 	return o.ApplyT(func(v Credentials) *SourceRegistryCredentials { return v.SourceRegistry }).(SourceRegistryCredentialsPtrOutput)
 }
@@ -1626,12 +1499,15 @@ func (o CredentialsPtrOutput) ToCredentialsPtrOutputWithContext(ctx context.Cont
 }
 
 func (o CredentialsPtrOutput) Elem() CredentialsOutput {
-	return o.ApplyT(func(v *Credentials) Credentials { return *v }).(CredentialsOutput)
+	return o.ApplyT(func(v *Credentials) Credentials {
+		if v != nil {
+			return *v
+		}
+		var ret Credentials
+		return ret
+	}).(CredentialsOutput)
 }
 
-// Describes the credential parameters for accessing other custom registries. The key
-// for the dictionary item will be the registry login server (myregistry.azurecr.io) and
-// the value of the item will be the registry credentials for accessing the registry.
 func (o CredentialsPtrOutput) CustomRegistries() CustomRegistryCredentialsMapOutput {
 	return o.ApplyT(func(v *Credentials) map[string]CustomRegistryCredentials {
 		if v == nil {
@@ -1641,7 +1517,6 @@ func (o CredentialsPtrOutput) CustomRegistries() CustomRegistryCredentialsMapOut
 	}).(CustomRegistryCredentialsMapOutput)
 }
 
-// Describes the credential parameters for accessing the source registry.
 func (o CredentialsPtrOutput) SourceRegistry() SourceRegistryCredentialsPtrOutput {
 	return o.ApplyT(func(v *Credentials) *SourceRegistryCredentials {
 		if v == nil {
@@ -1651,14 +1526,9 @@ func (o CredentialsPtrOutput) SourceRegistry() SourceRegistryCredentialsPtrOutpu
 	}).(SourceRegistryCredentialsPtrOutput)
 }
 
-// The parameters that describes a set of credentials that will be used when a run is invoked.
 type CredentialsResponse struct {
-	// Describes the credential parameters for accessing other custom registries. The key
-	// for the dictionary item will be the registry login server (myregistry.azurecr.io) and
-	// the value of the item will be the registry credentials for accessing the registry.
 	CustomRegistries map[string]CustomRegistryCredentialsResponse `pulumi:"customRegistries"`
-	// Describes the credential parameters for accessing the source registry.
-	SourceRegistry *SourceRegistryCredentialsResponse `pulumi:"sourceRegistry"`
+	SourceRegistry   *SourceRegistryCredentialsResponse           `pulumi:"sourceRegistry"`
 }
 
 // CredentialsResponseInput is an input type that accepts CredentialsResponseArgs and CredentialsResponseOutput values.
@@ -1672,14 +1542,9 @@ type CredentialsResponseInput interface {
 	ToCredentialsResponseOutputWithContext(context.Context) CredentialsResponseOutput
 }
 
-// The parameters that describes a set of credentials that will be used when a run is invoked.
 type CredentialsResponseArgs struct {
-	// Describes the credential parameters for accessing other custom registries. The key
-	// for the dictionary item will be the registry login server (myregistry.azurecr.io) and
-	// the value of the item will be the registry credentials for accessing the registry.
 	CustomRegistries CustomRegistryCredentialsResponseMapInput `pulumi:"customRegistries"`
-	// Describes the credential parameters for accessing the source registry.
-	SourceRegistry SourceRegistryCredentialsResponsePtrInput `pulumi:"sourceRegistry"`
+	SourceRegistry   SourceRegistryCredentialsResponsePtrInput `pulumi:"sourceRegistry"`
 }
 
 func (CredentialsResponseArgs) ElementType() reflect.Type {
@@ -1735,7 +1600,6 @@ func (i *credentialsResponsePtrType) ToCredentialsResponsePtrOutputWithContext(c
 	return pulumi.ToOutputWithContext(ctx, i).(CredentialsResponsePtrOutput)
 }
 
-// The parameters that describes a set of credentials that will be used when a run is invoked.
 type CredentialsResponseOutput struct{ *pulumi.OutputState }
 
 func (CredentialsResponseOutput) ElementType() reflect.Type {
@@ -1755,19 +1619,15 @@ func (o CredentialsResponseOutput) ToCredentialsResponsePtrOutput() CredentialsR
 }
 
 func (o CredentialsResponseOutput) ToCredentialsResponsePtrOutputWithContext(ctx context.Context) CredentialsResponsePtrOutput {
-	return o.ApplyT(func(v CredentialsResponse) *CredentialsResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v CredentialsResponse) *CredentialsResponse {
 		return &v
 	}).(CredentialsResponsePtrOutput)
 }
 
-// Describes the credential parameters for accessing other custom registries. The key
-// for the dictionary item will be the registry login server (myregistry.azurecr.io) and
-// the value of the item will be the registry credentials for accessing the registry.
 func (o CredentialsResponseOutput) CustomRegistries() CustomRegistryCredentialsResponseMapOutput {
 	return o.ApplyT(func(v CredentialsResponse) map[string]CustomRegistryCredentialsResponse { return v.CustomRegistries }).(CustomRegistryCredentialsResponseMapOutput)
 }
 
-// Describes the credential parameters for accessing the source registry.
 func (o CredentialsResponseOutput) SourceRegistry() SourceRegistryCredentialsResponsePtrOutput {
 	return o.ApplyT(func(v CredentialsResponse) *SourceRegistryCredentialsResponse { return v.SourceRegistry }).(SourceRegistryCredentialsResponsePtrOutput)
 }
@@ -1787,12 +1647,15 @@ func (o CredentialsResponsePtrOutput) ToCredentialsResponsePtrOutputWithContext(
 }
 
 func (o CredentialsResponsePtrOutput) Elem() CredentialsResponseOutput {
-	return o.ApplyT(func(v *CredentialsResponse) CredentialsResponse { return *v }).(CredentialsResponseOutput)
+	return o.ApplyT(func(v *CredentialsResponse) CredentialsResponse {
+		if v != nil {
+			return *v
+		}
+		var ret CredentialsResponse
+		return ret
+	}).(CredentialsResponseOutput)
 }
 
-// Describes the credential parameters for accessing other custom registries. The key
-// for the dictionary item will be the registry login server (myregistry.azurecr.io) and
-// the value of the item will be the registry credentials for accessing the registry.
 func (o CredentialsResponsePtrOutput) CustomRegistries() CustomRegistryCredentialsResponseMapOutput {
 	return o.ApplyT(func(v *CredentialsResponse) map[string]CustomRegistryCredentialsResponse {
 		if v == nil {
@@ -1802,7 +1665,6 @@ func (o CredentialsResponsePtrOutput) CustomRegistries() CustomRegistryCredentia
 	}).(CustomRegistryCredentialsResponseMapOutput)
 }
 
-// Describes the credential parameters for accessing the source registry.
 func (o CredentialsResponsePtrOutput) SourceRegistry() SourceRegistryCredentialsResponsePtrOutput {
 	return o.ApplyT(func(v *CredentialsResponse) *SourceRegistryCredentialsResponse {
 		if v == nil {
@@ -1812,18 +1674,9 @@ func (o CredentialsResponsePtrOutput) SourceRegistry() SourceRegistryCredentials
 	}).(SourceRegistryCredentialsResponsePtrOutput)
 }
 
-// Describes the credentials that will be used to access a custom registry during a run.
 type CustomRegistryCredentials struct {
-	// Indicates the managed identity assigned to the custom credential. If a user-assigned identity
-	// this value is the Client ID. If a system-assigned identity, the value will be `system`. In
-	// the case of a system-assigned identity, the Client ID will be determined by the runner. This
-	// identity may be used to authenticate to key vault to retrieve credentials or it may be the only
-	// source of authentication used for accessing the registry.
-	Identity *string `pulumi:"identity"`
-	// The password for logging into the custom registry. The password is a secret
-	// object that allows multiple ways of providing the value for it.
+	Identity *string       `pulumi:"identity"`
 	Password *SecretObject `pulumi:"password"`
-	// The username for logging into the custom registry.
 	UserName *SecretObject `pulumi:"userName"`
 }
 
@@ -1838,19 +1691,10 @@ type CustomRegistryCredentialsInput interface {
 	ToCustomRegistryCredentialsOutputWithContext(context.Context) CustomRegistryCredentialsOutput
 }
 
-// Describes the credentials that will be used to access a custom registry during a run.
 type CustomRegistryCredentialsArgs struct {
-	// Indicates the managed identity assigned to the custom credential. If a user-assigned identity
-	// this value is the Client ID. If a system-assigned identity, the value will be `system`. In
-	// the case of a system-assigned identity, the Client ID will be determined by the runner. This
-	// identity may be used to authenticate to key vault to retrieve credentials or it may be the only
-	// source of authentication used for accessing the registry.
 	Identity pulumi.StringPtrInput `pulumi:"identity"`
-	// The password for logging into the custom registry. The password is a secret
-	// object that allows multiple ways of providing the value for it.
-	Password SecretObjectPtrInput `pulumi:"password"`
-	// The username for logging into the custom registry.
-	UserName SecretObjectPtrInput `pulumi:"userName"`
+	Password SecretObjectPtrInput  `pulumi:"password"`
+	UserName SecretObjectPtrInput  `pulumi:"userName"`
 }
 
 func (CustomRegistryCredentialsArgs) ElementType() reflect.Type {
@@ -1890,7 +1734,6 @@ func (i CustomRegistryCredentialsMap) ToCustomRegistryCredentialsMapOutputWithCo
 	return pulumi.ToOutputWithContext(ctx, i).(CustomRegistryCredentialsMapOutput)
 }
 
-// Describes the credentials that will be used to access a custom registry during a run.
 type CustomRegistryCredentialsOutput struct{ *pulumi.OutputState }
 
 func (CustomRegistryCredentialsOutput) ElementType() reflect.Type {
@@ -1905,22 +1748,14 @@ func (o CustomRegistryCredentialsOutput) ToCustomRegistryCredentialsOutputWithCo
 	return o
 }
 
-// Indicates the managed identity assigned to the custom credential. If a user-assigned identity
-// this value is the Client ID. If a system-assigned identity, the value will be `system`. In
-// the case of a system-assigned identity, the Client ID will be determined by the runner. This
-// identity may be used to authenticate to key vault to retrieve credentials or it may be the only
-// source of authentication used for accessing the registry.
 func (o CustomRegistryCredentialsOutput) Identity() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v CustomRegistryCredentials) *string { return v.Identity }).(pulumi.StringPtrOutput)
 }
 
-// The password for logging into the custom registry. The password is a secret
-// object that allows multiple ways of providing the value for it.
 func (o CustomRegistryCredentialsOutput) Password() SecretObjectPtrOutput {
 	return o.ApplyT(func(v CustomRegistryCredentials) *SecretObject { return v.Password }).(SecretObjectPtrOutput)
 }
 
-// The username for logging into the custom registry.
 func (o CustomRegistryCredentialsOutput) UserName() SecretObjectPtrOutput {
 	return o.ApplyT(func(v CustomRegistryCredentials) *SecretObject { return v.UserName }).(SecretObjectPtrOutput)
 }
@@ -1945,18 +1780,9 @@ func (o CustomRegistryCredentialsMapOutput) MapIndex(k pulumi.StringInput) Custo
 	}).(CustomRegistryCredentialsOutput)
 }
 
-// Describes the credentials that will be used to access a custom registry during a run.
 type CustomRegistryCredentialsResponse struct {
-	// Indicates the managed identity assigned to the custom credential. If a user-assigned identity
-	// this value is the Client ID. If a system-assigned identity, the value will be `system`. In
-	// the case of a system-assigned identity, the Client ID will be determined by the runner. This
-	// identity may be used to authenticate to key vault to retrieve credentials or it may be the only
-	// source of authentication used for accessing the registry.
-	Identity *string `pulumi:"identity"`
-	// The password for logging into the custom registry. The password is a secret
-	// object that allows multiple ways of providing the value for it.
+	Identity *string               `pulumi:"identity"`
 	Password *SecretObjectResponse `pulumi:"password"`
-	// The username for logging into the custom registry.
 	UserName *SecretObjectResponse `pulumi:"userName"`
 }
 
@@ -1971,18 +1797,9 @@ type CustomRegistryCredentialsResponseInput interface {
 	ToCustomRegistryCredentialsResponseOutputWithContext(context.Context) CustomRegistryCredentialsResponseOutput
 }
 
-// Describes the credentials that will be used to access a custom registry during a run.
 type CustomRegistryCredentialsResponseArgs struct {
-	// Indicates the managed identity assigned to the custom credential. If a user-assigned identity
-	// this value is the Client ID. If a system-assigned identity, the value will be `system`. In
-	// the case of a system-assigned identity, the Client ID will be determined by the runner. This
-	// identity may be used to authenticate to key vault to retrieve credentials or it may be the only
-	// source of authentication used for accessing the registry.
-	Identity pulumi.StringPtrInput `pulumi:"identity"`
-	// The password for logging into the custom registry. The password is a secret
-	// object that allows multiple ways of providing the value for it.
+	Identity pulumi.StringPtrInput        `pulumi:"identity"`
 	Password SecretObjectResponsePtrInput `pulumi:"password"`
-	// The username for logging into the custom registry.
 	UserName SecretObjectResponsePtrInput `pulumi:"userName"`
 }
 
@@ -2023,7 +1840,6 @@ func (i CustomRegistryCredentialsResponseMap) ToCustomRegistryCredentialsRespons
 	return pulumi.ToOutputWithContext(ctx, i).(CustomRegistryCredentialsResponseMapOutput)
 }
 
-// Describes the credentials that will be used to access a custom registry during a run.
 type CustomRegistryCredentialsResponseOutput struct{ *pulumi.OutputState }
 
 func (CustomRegistryCredentialsResponseOutput) ElementType() reflect.Type {
@@ -2038,22 +1854,14 @@ func (o CustomRegistryCredentialsResponseOutput) ToCustomRegistryCredentialsResp
 	return o
 }
 
-// Indicates the managed identity assigned to the custom credential. If a user-assigned identity
-// this value is the Client ID. If a system-assigned identity, the value will be `system`. In
-// the case of a system-assigned identity, the Client ID will be determined by the runner. This
-// identity may be used to authenticate to key vault to retrieve credentials or it may be the only
-// source of authentication used for accessing the registry.
 func (o CustomRegistryCredentialsResponseOutput) Identity() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v CustomRegistryCredentialsResponse) *string { return v.Identity }).(pulumi.StringPtrOutput)
 }
 
-// The password for logging into the custom registry. The password is a secret
-// object that allows multiple ways of providing the value for it.
 func (o CustomRegistryCredentialsResponseOutput) Password() SecretObjectResponsePtrOutput {
 	return o.ApplyT(func(v CustomRegistryCredentialsResponse) *SecretObjectResponse { return v.Password }).(SecretObjectResponsePtrOutput)
 }
 
-// The username for logging into the custom registry.
 func (o CustomRegistryCredentialsResponseOutput) UserName() SecretObjectResponsePtrOutput {
 	return o.ApplyT(func(v CustomRegistryCredentialsResponse) *SecretObjectResponse { return v.UserName }).(SecretObjectResponsePtrOutput)
 }
@@ -2078,40 +1886,22 @@ func (o CustomRegistryCredentialsResponseMapOutput) MapIndex(k pulumi.StringInpu
 	}).(CustomRegistryCredentialsResponseOutput)
 }
 
-// The parameters for a docker quick build.
 type DockerBuildRequest struct {
-	// The machine configuration of the run agent.
-	AgentConfiguration *AgentProperties `pulumi:"agentConfiguration"`
-	// The dedicated agent pool for the run.
-	AgentPoolName *string `pulumi:"agentPoolName"`
-	// The collection of override arguments to be used when executing the run.
-	Arguments []Argument `pulumi:"arguments"`
-	// The properties that describes a set of credentials that will be used when this run is invoked.
-	Credentials *Credentials `pulumi:"credentials"`
-	// The Docker file path relative to the source location.
-	DockerFilePath string `pulumi:"dockerFilePath"`
-	// The fully qualified image names including the repository and tag.
-	ImageNames []string `pulumi:"imageNames"`
-	// The value that indicates whether archiving is enabled for the run or not.
-	IsArchiveEnabled *bool `pulumi:"isArchiveEnabled"`
-	// The value of this property indicates whether the image built should be pushed to the registry or not.
-	IsPushEnabled *bool `pulumi:"isPushEnabled"`
-	// The template that describes the repository and tag information for run log artifact.
-	LogTemplate *string `pulumi:"logTemplate"`
-	// The value of this property indicates whether the image cache is enabled or not.
-	NoCache *bool `pulumi:"noCache"`
-	// The platform properties against which the run has to happen.
-	Platform PlatformProperties `pulumi:"platform"`
-	// The URL(absolute or relative) of the source context. It can be an URL to a tar or git repository.
-	// If it is relative URL, the relative path should be obtained from calling listBuildSourceUploadUrl API.
-	SourceLocation *string `pulumi:"sourceLocation"`
-	// The name of the target build stage for the docker build.
-	Target *string `pulumi:"target"`
-	// Run timeout in seconds.
-	Timeout *int `pulumi:"timeout"`
-	// The type of the run request.
-	// Expected value is 'DockerBuildRequest'.
-	Type string `pulumi:"type"`
+	AgentConfiguration *AgentProperties   `pulumi:"agentConfiguration"`
+	AgentPoolName      *string            `pulumi:"agentPoolName"`
+	Arguments          []Argument         `pulumi:"arguments"`
+	Credentials        *Credentials       `pulumi:"credentials"`
+	DockerFilePath     string             `pulumi:"dockerFilePath"`
+	ImageNames         []string           `pulumi:"imageNames"`
+	IsArchiveEnabled   *bool              `pulumi:"isArchiveEnabled"`
+	IsPushEnabled      *bool              `pulumi:"isPushEnabled"`
+	LogTemplate        *string            `pulumi:"logTemplate"`
+	NoCache            *bool              `pulumi:"noCache"`
+	Platform           PlatformProperties `pulumi:"platform"`
+	SourceLocation     *string            `pulumi:"sourceLocation"`
+	Target             *string            `pulumi:"target"`
+	Timeout            *int               `pulumi:"timeout"`
+	Type               string             `pulumi:"type"`
 }
 
 // DockerBuildRequestInput is an input type that accepts DockerBuildRequestArgs and DockerBuildRequestOutput values.
@@ -2125,40 +1915,22 @@ type DockerBuildRequestInput interface {
 	ToDockerBuildRequestOutputWithContext(context.Context) DockerBuildRequestOutput
 }
 
-// The parameters for a docker quick build.
 type DockerBuildRequestArgs struct {
-	// The machine configuration of the run agent.
 	AgentConfiguration AgentPropertiesPtrInput `pulumi:"agentConfiguration"`
-	// The dedicated agent pool for the run.
-	AgentPoolName pulumi.StringPtrInput `pulumi:"agentPoolName"`
-	// The collection of override arguments to be used when executing the run.
-	Arguments ArgumentArrayInput `pulumi:"arguments"`
-	// The properties that describes a set of credentials that will be used when this run is invoked.
-	Credentials CredentialsPtrInput `pulumi:"credentials"`
-	// The Docker file path relative to the source location.
-	DockerFilePath pulumi.StringInput `pulumi:"dockerFilePath"`
-	// The fully qualified image names including the repository and tag.
-	ImageNames pulumi.StringArrayInput `pulumi:"imageNames"`
-	// The value that indicates whether archiving is enabled for the run or not.
-	IsArchiveEnabled pulumi.BoolPtrInput `pulumi:"isArchiveEnabled"`
-	// The value of this property indicates whether the image built should be pushed to the registry or not.
-	IsPushEnabled pulumi.BoolPtrInput `pulumi:"isPushEnabled"`
-	// The template that describes the repository and tag information for run log artifact.
-	LogTemplate pulumi.StringPtrInput `pulumi:"logTemplate"`
-	// The value of this property indicates whether the image cache is enabled or not.
-	NoCache pulumi.BoolPtrInput `pulumi:"noCache"`
-	// The platform properties against which the run has to happen.
-	Platform PlatformPropertiesInput `pulumi:"platform"`
-	// The URL(absolute or relative) of the source context. It can be an URL to a tar or git repository.
-	// If it is relative URL, the relative path should be obtained from calling listBuildSourceUploadUrl API.
-	SourceLocation pulumi.StringPtrInput `pulumi:"sourceLocation"`
-	// The name of the target build stage for the docker build.
-	Target pulumi.StringPtrInput `pulumi:"target"`
-	// Run timeout in seconds.
-	Timeout pulumi.IntPtrInput `pulumi:"timeout"`
-	// The type of the run request.
-	// Expected value is 'DockerBuildRequest'.
-	Type pulumi.StringInput `pulumi:"type"`
+	AgentPoolName      pulumi.StringPtrInput   `pulumi:"agentPoolName"`
+	Arguments          ArgumentArrayInput      `pulumi:"arguments"`
+	Credentials        CredentialsPtrInput     `pulumi:"credentials"`
+	DockerFilePath     pulumi.StringInput      `pulumi:"dockerFilePath"`
+	ImageNames         pulumi.StringArrayInput `pulumi:"imageNames"`
+	IsArchiveEnabled   pulumi.BoolPtrInput     `pulumi:"isArchiveEnabled"`
+	IsPushEnabled      pulumi.BoolPtrInput     `pulumi:"isPushEnabled"`
+	LogTemplate        pulumi.StringPtrInput   `pulumi:"logTemplate"`
+	NoCache            pulumi.BoolPtrInput     `pulumi:"noCache"`
+	Platform           PlatformPropertiesInput `pulumi:"platform"`
+	SourceLocation     pulumi.StringPtrInput   `pulumi:"sourceLocation"`
+	Target             pulumi.StringPtrInput   `pulumi:"target"`
+	Timeout            pulumi.IntPtrInput      `pulumi:"timeout"`
+	Type               pulumi.StringInput      `pulumi:"type"`
 }
 
 func (DockerBuildRequestArgs) ElementType() reflect.Type {
@@ -2173,7 +1945,6 @@ func (i DockerBuildRequestArgs) ToDockerBuildRequestOutputWithContext(ctx contex
 	return pulumi.ToOutputWithContext(ctx, i).(DockerBuildRequestOutput)
 }
 
-// The parameters for a docker quick build.
 type DockerBuildRequestOutput struct{ *pulumi.OutputState }
 
 func (DockerBuildRequestOutput) ElementType() reflect.Type {
@@ -2188,117 +1959,82 @@ func (o DockerBuildRequestOutput) ToDockerBuildRequestOutputWithContext(ctx cont
 	return o
 }
 
-// The machine configuration of the run agent.
 func (o DockerBuildRequestOutput) AgentConfiguration() AgentPropertiesPtrOutput {
 	return o.ApplyT(func(v DockerBuildRequest) *AgentProperties { return v.AgentConfiguration }).(AgentPropertiesPtrOutput)
 }
 
-// The dedicated agent pool for the run.
 func (o DockerBuildRequestOutput) AgentPoolName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v DockerBuildRequest) *string { return v.AgentPoolName }).(pulumi.StringPtrOutput)
 }
 
-// The collection of override arguments to be used when executing the run.
 func (o DockerBuildRequestOutput) Arguments() ArgumentArrayOutput {
 	return o.ApplyT(func(v DockerBuildRequest) []Argument { return v.Arguments }).(ArgumentArrayOutput)
 }
 
-// The properties that describes a set of credentials that will be used when this run is invoked.
 func (o DockerBuildRequestOutput) Credentials() CredentialsPtrOutput {
 	return o.ApplyT(func(v DockerBuildRequest) *Credentials { return v.Credentials }).(CredentialsPtrOutput)
 }
 
-// The Docker file path relative to the source location.
 func (o DockerBuildRequestOutput) DockerFilePath() pulumi.StringOutput {
 	return o.ApplyT(func(v DockerBuildRequest) string { return v.DockerFilePath }).(pulumi.StringOutput)
 }
 
-// The fully qualified image names including the repository and tag.
 func (o DockerBuildRequestOutput) ImageNames() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v DockerBuildRequest) []string { return v.ImageNames }).(pulumi.StringArrayOutput)
 }
 
-// The value that indicates whether archiving is enabled for the run or not.
 func (o DockerBuildRequestOutput) IsArchiveEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v DockerBuildRequest) *bool { return v.IsArchiveEnabled }).(pulumi.BoolPtrOutput)
 }
 
-// The value of this property indicates whether the image built should be pushed to the registry or not.
 func (o DockerBuildRequestOutput) IsPushEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v DockerBuildRequest) *bool { return v.IsPushEnabled }).(pulumi.BoolPtrOutput)
 }
 
-// The template that describes the repository and tag information for run log artifact.
 func (o DockerBuildRequestOutput) LogTemplate() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v DockerBuildRequest) *string { return v.LogTemplate }).(pulumi.StringPtrOutput)
 }
 
-// The value of this property indicates whether the image cache is enabled or not.
 func (o DockerBuildRequestOutput) NoCache() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v DockerBuildRequest) *bool { return v.NoCache }).(pulumi.BoolPtrOutput)
 }
 
-// The platform properties against which the run has to happen.
 func (o DockerBuildRequestOutput) Platform() PlatformPropertiesOutput {
 	return o.ApplyT(func(v DockerBuildRequest) PlatformProperties { return v.Platform }).(PlatformPropertiesOutput)
 }
 
-// The URL(absolute or relative) of the source context. It can be an URL to a tar or git repository.
-// If it is relative URL, the relative path should be obtained from calling listBuildSourceUploadUrl API.
 func (o DockerBuildRequestOutput) SourceLocation() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v DockerBuildRequest) *string { return v.SourceLocation }).(pulumi.StringPtrOutput)
 }
 
-// The name of the target build stage for the docker build.
 func (o DockerBuildRequestOutput) Target() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v DockerBuildRequest) *string { return v.Target }).(pulumi.StringPtrOutput)
 }
 
-// Run timeout in seconds.
 func (o DockerBuildRequestOutput) Timeout() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v DockerBuildRequest) *int { return v.Timeout }).(pulumi.IntPtrOutput)
 }
 
-// The type of the run request.
-// Expected value is 'DockerBuildRequest'.
 func (o DockerBuildRequestOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v DockerBuildRequest) string { return v.Type }).(pulumi.StringOutput)
 }
 
-// The parameters for a docker quick build.
 type DockerBuildRequestResponse struct {
-	// The machine configuration of the run agent.
-	AgentConfiguration *AgentPropertiesResponse `pulumi:"agentConfiguration"`
-	// The dedicated agent pool for the run.
-	AgentPoolName *string `pulumi:"agentPoolName"`
-	// The collection of override arguments to be used when executing the run.
-	Arguments []ArgumentResponse `pulumi:"arguments"`
-	// The properties that describes a set of credentials that will be used when this run is invoked.
-	Credentials *CredentialsResponse `pulumi:"credentials"`
-	// The Docker file path relative to the source location.
-	DockerFilePath string `pulumi:"dockerFilePath"`
-	// The fully qualified image names including the repository and tag.
-	ImageNames []string `pulumi:"imageNames"`
-	// The value that indicates whether archiving is enabled for the run or not.
-	IsArchiveEnabled *bool `pulumi:"isArchiveEnabled"`
-	// The value of this property indicates whether the image built should be pushed to the registry or not.
-	IsPushEnabled *bool `pulumi:"isPushEnabled"`
-	// The template that describes the repository and tag information for run log artifact.
-	LogTemplate *string `pulumi:"logTemplate"`
-	// The value of this property indicates whether the image cache is enabled or not.
-	NoCache *bool `pulumi:"noCache"`
-	// The platform properties against which the run has to happen.
-	Platform PlatformPropertiesResponse `pulumi:"platform"`
-	// The URL(absolute or relative) of the source context. It can be an URL to a tar or git repository.
-	// If it is relative URL, the relative path should be obtained from calling listBuildSourceUploadUrl API.
-	SourceLocation *string `pulumi:"sourceLocation"`
-	// The name of the target build stage for the docker build.
-	Target *string `pulumi:"target"`
-	// Run timeout in seconds.
-	Timeout *int `pulumi:"timeout"`
-	// The type of the run request.
-	// Expected value is 'DockerBuildRequest'.
-	Type string `pulumi:"type"`
+	AgentConfiguration *AgentPropertiesResponse   `pulumi:"agentConfiguration"`
+	AgentPoolName      *string                    `pulumi:"agentPoolName"`
+	Arguments          []ArgumentResponse         `pulumi:"arguments"`
+	Credentials        *CredentialsResponse       `pulumi:"credentials"`
+	DockerFilePath     string                     `pulumi:"dockerFilePath"`
+	ImageNames         []string                   `pulumi:"imageNames"`
+	IsArchiveEnabled   *bool                      `pulumi:"isArchiveEnabled"`
+	IsPushEnabled      *bool                      `pulumi:"isPushEnabled"`
+	LogTemplate        *string                    `pulumi:"logTemplate"`
+	NoCache            *bool                      `pulumi:"noCache"`
+	Platform           PlatformPropertiesResponse `pulumi:"platform"`
+	SourceLocation     *string                    `pulumi:"sourceLocation"`
+	Target             *string                    `pulumi:"target"`
+	Timeout            *int                       `pulumi:"timeout"`
+	Type               string                     `pulumi:"type"`
 }
 
 // DockerBuildRequestResponseInput is an input type that accepts DockerBuildRequestResponseArgs and DockerBuildRequestResponseOutput values.
@@ -2312,40 +2048,22 @@ type DockerBuildRequestResponseInput interface {
 	ToDockerBuildRequestResponseOutputWithContext(context.Context) DockerBuildRequestResponseOutput
 }
 
-// The parameters for a docker quick build.
 type DockerBuildRequestResponseArgs struct {
-	// The machine configuration of the run agent.
 	AgentConfiguration AgentPropertiesResponsePtrInput `pulumi:"agentConfiguration"`
-	// The dedicated agent pool for the run.
-	AgentPoolName pulumi.StringPtrInput `pulumi:"agentPoolName"`
-	// The collection of override arguments to be used when executing the run.
-	Arguments ArgumentResponseArrayInput `pulumi:"arguments"`
-	// The properties that describes a set of credentials that will be used when this run is invoked.
-	Credentials CredentialsResponsePtrInput `pulumi:"credentials"`
-	// The Docker file path relative to the source location.
-	DockerFilePath pulumi.StringInput `pulumi:"dockerFilePath"`
-	// The fully qualified image names including the repository and tag.
-	ImageNames pulumi.StringArrayInput `pulumi:"imageNames"`
-	// The value that indicates whether archiving is enabled for the run or not.
-	IsArchiveEnabled pulumi.BoolPtrInput `pulumi:"isArchiveEnabled"`
-	// The value of this property indicates whether the image built should be pushed to the registry or not.
-	IsPushEnabled pulumi.BoolPtrInput `pulumi:"isPushEnabled"`
-	// The template that describes the repository and tag information for run log artifact.
-	LogTemplate pulumi.StringPtrInput `pulumi:"logTemplate"`
-	// The value of this property indicates whether the image cache is enabled or not.
-	NoCache pulumi.BoolPtrInput `pulumi:"noCache"`
-	// The platform properties against which the run has to happen.
-	Platform PlatformPropertiesResponseInput `pulumi:"platform"`
-	// The URL(absolute or relative) of the source context. It can be an URL to a tar or git repository.
-	// If it is relative URL, the relative path should be obtained from calling listBuildSourceUploadUrl API.
-	SourceLocation pulumi.StringPtrInput `pulumi:"sourceLocation"`
-	// The name of the target build stage for the docker build.
-	Target pulumi.StringPtrInput `pulumi:"target"`
-	// Run timeout in seconds.
-	Timeout pulumi.IntPtrInput `pulumi:"timeout"`
-	// The type of the run request.
-	// Expected value is 'DockerBuildRequest'.
-	Type pulumi.StringInput `pulumi:"type"`
+	AgentPoolName      pulumi.StringPtrInput           `pulumi:"agentPoolName"`
+	Arguments          ArgumentResponseArrayInput      `pulumi:"arguments"`
+	Credentials        CredentialsResponsePtrInput     `pulumi:"credentials"`
+	DockerFilePath     pulumi.StringInput              `pulumi:"dockerFilePath"`
+	ImageNames         pulumi.StringArrayInput         `pulumi:"imageNames"`
+	IsArchiveEnabled   pulumi.BoolPtrInput             `pulumi:"isArchiveEnabled"`
+	IsPushEnabled      pulumi.BoolPtrInput             `pulumi:"isPushEnabled"`
+	LogTemplate        pulumi.StringPtrInput           `pulumi:"logTemplate"`
+	NoCache            pulumi.BoolPtrInput             `pulumi:"noCache"`
+	Platform           PlatformPropertiesResponseInput `pulumi:"platform"`
+	SourceLocation     pulumi.StringPtrInput           `pulumi:"sourceLocation"`
+	Target             pulumi.StringPtrInput           `pulumi:"target"`
+	Timeout            pulumi.IntPtrInput              `pulumi:"timeout"`
+	Type               pulumi.StringInput              `pulumi:"type"`
 }
 
 func (DockerBuildRequestResponseArgs) ElementType() reflect.Type {
@@ -2360,7 +2078,6 @@ func (i DockerBuildRequestResponseArgs) ToDockerBuildRequestResponseOutputWithCo
 	return pulumi.ToOutputWithContext(ctx, i).(DockerBuildRequestResponseOutput)
 }
 
-// The parameters for a docker quick build.
 type DockerBuildRequestResponseOutput struct{ *pulumi.OutputState }
 
 func (DockerBuildRequestResponseOutput) ElementType() reflect.Type {
@@ -2375,104 +2092,76 @@ func (o DockerBuildRequestResponseOutput) ToDockerBuildRequestResponseOutputWith
 	return o
 }
 
-// The machine configuration of the run agent.
 func (o DockerBuildRequestResponseOutput) AgentConfiguration() AgentPropertiesResponsePtrOutput {
 	return o.ApplyT(func(v DockerBuildRequestResponse) *AgentPropertiesResponse { return v.AgentConfiguration }).(AgentPropertiesResponsePtrOutput)
 }
 
-// The dedicated agent pool for the run.
 func (o DockerBuildRequestResponseOutput) AgentPoolName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v DockerBuildRequestResponse) *string { return v.AgentPoolName }).(pulumi.StringPtrOutput)
 }
 
-// The collection of override arguments to be used when executing the run.
 func (o DockerBuildRequestResponseOutput) Arguments() ArgumentResponseArrayOutput {
 	return o.ApplyT(func(v DockerBuildRequestResponse) []ArgumentResponse { return v.Arguments }).(ArgumentResponseArrayOutput)
 }
 
-// The properties that describes a set of credentials that will be used when this run is invoked.
 func (o DockerBuildRequestResponseOutput) Credentials() CredentialsResponsePtrOutput {
 	return o.ApplyT(func(v DockerBuildRequestResponse) *CredentialsResponse { return v.Credentials }).(CredentialsResponsePtrOutput)
 }
 
-// The Docker file path relative to the source location.
 func (o DockerBuildRequestResponseOutput) DockerFilePath() pulumi.StringOutput {
 	return o.ApplyT(func(v DockerBuildRequestResponse) string { return v.DockerFilePath }).(pulumi.StringOutput)
 }
 
-// The fully qualified image names including the repository and tag.
 func (o DockerBuildRequestResponseOutput) ImageNames() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v DockerBuildRequestResponse) []string { return v.ImageNames }).(pulumi.StringArrayOutput)
 }
 
-// The value that indicates whether archiving is enabled for the run or not.
 func (o DockerBuildRequestResponseOutput) IsArchiveEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v DockerBuildRequestResponse) *bool { return v.IsArchiveEnabled }).(pulumi.BoolPtrOutput)
 }
 
-// The value of this property indicates whether the image built should be pushed to the registry or not.
 func (o DockerBuildRequestResponseOutput) IsPushEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v DockerBuildRequestResponse) *bool { return v.IsPushEnabled }).(pulumi.BoolPtrOutput)
 }
 
-// The template that describes the repository and tag information for run log artifact.
 func (o DockerBuildRequestResponseOutput) LogTemplate() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v DockerBuildRequestResponse) *string { return v.LogTemplate }).(pulumi.StringPtrOutput)
 }
 
-// The value of this property indicates whether the image cache is enabled or not.
 func (o DockerBuildRequestResponseOutput) NoCache() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v DockerBuildRequestResponse) *bool { return v.NoCache }).(pulumi.BoolPtrOutput)
 }
 
-// The platform properties against which the run has to happen.
 func (o DockerBuildRequestResponseOutput) Platform() PlatformPropertiesResponseOutput {
 	return o.ApplyT(func(v DockerBuildRequestResponse) PlatformPropertiesResponse { return v.Platform }).(PlatformPropertiesResponseOutput)
 }
 
-// The URL(absolute or relative) of the source context. It can be an URL to a tar or git repository.
-// If it is relative URL, the relative path should be obtained from calling listBuildSourceUploadUrl API.
 func (o DockerBuildRequestResponseOutput) SourceLocation() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v DockerBuildRequestResponse) *string { return v.SourceLocation }).(pulumi.StringPtrOutput)
 }
 
-// The name of the target build stage for the docker build.
 func (o DockerBuildRequestResponseOutput) Target() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v DockerBuildRequestResponse) *string { return v.Target }).(pulumi.StringPtrOutput)
 }
 
-// Run timeout in seconds.
 func (o DockerBuildRequestResponseOutput) Timeout() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v DockerBuildRequestResponse) *int { return v.Timeout }).(pulumi.IntPtrOutput)
 }
 
-// The type of the run request.
-// Expected value is 'DockerBuildRequest'.
 func (o DockerBuildRequestResponseOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v DockerBuildRequestResponse) string { return v.Type }).(pulumi.StringOutput)
 }
 
-// The Docker build step.
 type DockerBuildStep struct {
-	// The collection of override arguments to be used when executing this build step.
-	Arguments []Argument `pulumi:"arguments"`
-	// The token (git PAT or SAS token of storage account blob) associated with the context for a step.
-	ContextAccessToken *string `pulumi:"contextAccessToken"`
-	// The URL(absolute or relative) of the source context for the task step.
-	ContextPath *string `pulumi:"contextPath"`
-	// The Docker file path relative to the source context.
-	DockerFilePath string `pulumi:"dockerFilePath"`
-	// The fully qualified image names including the repository and tag.
-	ImageNames []string `pulumi:"imageNames"`
-	// The value of this property indicates whether the image built should be pushed to the registry or not.
-	IsPushEnabled *bool `pulumi:"isPushEnabled"`
-	// The value of this property indicates whether the image cache is enabled or not.
-	NoCache *bool `pulumi:"noCache"`
-	// The name of the target build stage for the docker build.
-	Target *string `pulumi:"target"`
-	// The type of the step.
-	// Expected value is 'Docker'.
-	Type string `pulumi:"type"`
+	Arguments          []Argument `pulumi:"arguments"`
+	ContextAccessToken *string    `pulumi:"contextAccessToken"`
+	ContextPath        *string    `pulumi:"contextPath"`
+	DockerFilePath     string     `pulumi:"dockerFilePath"`
+	ImageNames         []string   `pulumi:"imageNames"`
+	IsPushEnabled      *bool      `pulumi:"isPushEnabled"`
+	NoCache            *bool      `pulumi:"noCache"`
+	Target             *string    `pulumi:"target"`
+	Type               string     `pulumi:"type"`
 }
 
 // DockerBuildStepInput is an input type that accepts DockerBuildStepArgs and DockerBuildStepOutput values.
@@ -2486,27 +2175,16 @@ type DockerBuildStepInput interface {
 	ToDockerBuildStepOutputWithContext(context.Context) DockerBuildStepOutput
 }
 
-// The Docker build step.
 type DockerBuildStepArgs struct {
-	// The collection of override arguments to be used when executing this build step.
-	Arguments ArgumentArrayInput `pulumi:"arguments"`
-	// The token (git PAT or SAS token of storage account blob) associated with the context for a step.
-	ContextAccessToken pulumi.StringPtrInput `pulumi:"contextAccessToken"`
-	// The URL(absolute or relative) of the source context for the task step.
-	ContextPath pulumi.StringPtrInput `pulumi:"contextPath"`
-	// The Docker file path relative to the source context.
-	DockerFilePath pulumi.StringInput `pulumi:"dockerFilePath"`
-	// The fully qualified image names including the repository and tag.
-	ImageNames pulumi.StringArrayInput `pulumi:"imageNames"`
-	// The value of this property indicates whether the image built should be pushed to the registry or not.
-	IsPushEnabled pulumi.BoolPtrInput `pulumi:"isPushEnabled"`
-	// The value of this property indicates whether the image cache is enabled or not.
-	NoCache pulumi.BoolPtrInput `pulumi:"noCache"`
-	// The name of the target build stage for the docker build.
-	Target pulumi.StringPtrInput `pulumi:"target"`
-	// The type of the step.
-	// Expected value is 'Docker'.
-	Type pulumi.StringInput `pulumi:"type"`
+	Arguments          ArgumentArrayInput      `pulumi:"arguments"`
+	ContextAccessToken pulumi.StringPtrInput   `pulumi:"contextAccessToken"`
+	ContextPath        pulumi.StringPtrInput   `pulumi:"contextPath"`
+	DockerFilePath     pulumi.StringInput      `pulumi:"dockerFilePath"`
+	ImageNames         pulumi.StringArrayInput `pulumi:"imageNames"`
+	IsPushEnabled      pulumi.BoolPtrInput     `pulumi:"isPushEnabled"`
+	NoCache            pulumi.BoolPtrInput     `pulumi:"noCache"`
+	Target             pulumi.StringPtrInput   `pulumi:"target"`
+	Type               pulumi.StringInput      `pulumi:"type"`
 }
 
 func (DockerBuildStepArgs) ElementType() reflect.Type {
@@ -2521,7 +2199,6 @@ func (i DockerBuildStepArgs) ToDockerBuildStepOutputWithContext(ctx context.Cont
 	return pulumi.ToOutputWithContext(ctx, i).(DockerBuildStepOutput)
 }
 
-// The Docker build step.
 type DockerBuildStepOutput struct{ *pulumi.OutputState }
 
 func (DockerBuildStepOutput) ElementType() reflect.Type {
@@ -2536,75 +2213,53 @@ func (o DockerBuildStepOutput) ToDockerBuildStepOutputWithContext(ctx context.Co
 	return o
 }
 
-// The collection of override arguments to be used when executing this build step.
 func (o DockerBuildStepOutput) Arguments() ArgumentArrayOutput {
 	return o.ApplyT(func(v DockerBuildStep) []Argument { return v.Arguments }).(ArgumentArrayOutput)
 }
 
-// The token (git PAT or SAS token of storage account blob) associated with the context for a step.
 func (o DockerBuildStepOutput) ContextAccessToken() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v DockerBuildStep) *string { return v.ContextAccessToken }).(pulumi.StringPtrOutput)
 }
 
-// The URL(absolute or relative) of the source context for the task step.
 func (o DockerBuildStepOutput) ContextPath() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v DockerBuildStep) *string { return v.ContextPath }).(pulumi.StringPtrOutput)
 }
 
-// The Docker file path relative to the source context.
 func (o DockerBuildStepOutput) DockerFilePath() pulumi.StringOutput {
 	return o.ApplyT(func(v DockerBuildStep) string { return v.DockerFilePath }).(pulumi.StringOutput)
 }
 
-// The fully qualified image names including the repository and tag.
 func (o DockerBuildStepOutput) ImageNames() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v DockerBuildStep) []string { return v.ImageNames }).(pulumi.StringArrayOutput)
 }
 
-// The value of this property indicates whether the image built should be pushed to the registry or not.
 func (o DockerBuildStepOutput) IsPushEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v DockerBuildStep) *bool { return v.IsPushEnabled }).(pulumi.BoolPtrOutput)
 }
 
-// The value of this property indicates whether the image cache is enabled or not.
 func (o DockerBuildStepOutput) NoCache() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v DockerBuildStep) *bool { return v.NoCache }).(pulumi.BoolPtrOutput)
 }
 
-// The name of the target build stage for the docker build.
 func (o DockerBuildStepOutput) Target() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v DockerBuildStep) *string { return v.Target }).(pulumi.StringPtrOutput)
 }
 
-// The type of the step.
-// Expected value is 'Docker'.
 func (o DockerBuildStepOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v DockerBuildStep) string { return v.Type }).(pulumi.StringOutput)
 }
 
-// The Docker build step.
 type DockerBuildStepResponse struct {
-	// The collection of override arguments to be used when executing this build step.
-	Arguments []ArgumentResponse `pulumi:"arguments"`
-	// List of base image dependencies for a step.
+	Arguments             []ArgumentResponse            `pulumi:"arguments"`
 	BaseImageDependencies []BaseImageDependencyResponse `pulumi:"baseImageDependencies"`
-	// The token (git PAT or SAS token of storage account blob) associated with the context for a step.
-	ContextAccessToken *string `pulumi:"contextAccessToken"`
-	// The URL(absolute or relative) of the source context for the task step.
-	ContextPath *string `pulumi:"contextPath"`
-	// The Docker file path relative to the source context.
-	DockerFilePath string `pulumi:"dockerFilePath"`
-	// The fully qualified image names including the repository and tag.
-	ImageNames []string `pulumi:"imageNames"`
-	// The value of this property indicates whether the image built should be pushed to the registry or not.
-	IsPushEnabled *bool `pulumi:"isPushEnabled"`
-	// The value of this property indicates whether the image cache is enabled or not.
-	NoCache *bool `pulumi:"noCache"`
-	// The name of the target build stage for the docker build.
-	Target *string `pulumi:"target"`
-	// The type of the step.
-	// Expected value is 'Docker'.
-	Type string `pulumi:"type"`
+	ContextAccessToken    *string                       `pulumi:"contextAccessToken"`
+	ContextPath           *string                       `pulumi:"contextPath"`
+	DockerFilePath        string                        `pulumi:"dockerFilePath"`
+	ImageNames            []string                      `pulumi:"imageNames"`
+	IsPushEnabled         *bool                         `pulumi:"isPushEnabled"`
+	NoCache               *bool                         `pulumi:"noCache"`
+	Target                *string                       `pulumi:"target"`
+	Type                  string                        `pulumi:"type"`
 }
 
 // DockerBuildStepResponseInput is an input type that accepts DockerBuildStepResponseArgs and DockerBuildStepResponseOutput values.
@@ -2618,29 +2273,17 @@ type DockerBuildStepResponseInput interface {
 	ToDockerBuildStepResponseOutputWithContext(context.Context) DockerBuildStepResponseOutput
 }
 
-// The Docker build step.
 type DockerBuildStepResponseArgs struct {
-	// The collection of override arguments to be used when executing this build step.
-	Arguments ArgumentResponseArrayInput `pulumi:"arguments"`
-	// List of base image dependencies for a step.
+	Arguments             ArgumentResponseArrayInput            `pulumi:"arguments"`
 	BaseImageDependencies BaseImageDependencyResponseArrayInput `pulumi:"baseImageDependencies"`
-	// The token (git PAT or SAS token of storage account blob) associated with the context for a step.
-	ContextAccessToken pulumi.StringPtrInput `pulumi:"contextAccessToken"`
-	// The URL(absolute or relative) of the source context for the task step.
-	ContextPath pulumi.StringPtrInput `pulumi:"contextPath"`
-	// The Docker file path relative to the source context.
-	DockerFilePath pulumi.StringInput `pulumi:"dockerFilePath"`
-	// The fully qualified image names including the repository and tag.
-	ImageNames pulumi.StringArrayInput `pulumi:"imageNames"`
-	// The value of this property indicates whether the image built should be pushed to the registry or not.
-	IsPushEnabled pulumi.BoolPtrInput `pulumi:"isPushEnabled"`
-	// The value of this property indicates whether the image cache is enabled or not.
-	NoCache pulumi.BoolPtrInput `pulumi:"noCache"`
-	// The name of the target build stage for the docker build.
-	Target pulumi.StringPtrInput `pulumi:"target"`
-	// The type of the step.
-	// Expected value is 'Docker'.
-	Type pulumi.StringInput `pulumi:"type"`
+	ContextAccessToken    pulumi.StringPtrInput                 `pulumi:"contextAccessToken"`
+	ContextPath           pulumi.StringPtrInput                 `pulumi:"contextPath"`
+	DockerFilePath        pulumi.StringInput                    `pulumi:"dockerFilePath"`
+	ImageNames            pulumi.StringArrayInput               `pulumi:"imageNames"`
+	IsPushEnabled         pulumi.BoolPtrInput                   `pulumi:"isPushEnabled"`
+	NoCache               pulumi.BoolPtrInput                   `pulumi:"noCache"`
+	Target                pulumi.StringPtrInput                 `pulumi:"target"`
+	Type                  pulumi.StringInput                    `pulumi:"type"`
 }
 
 func (DockerBuildStepResponseArgs) ElementType() reflect.Type {
@@ -2655,7 +2298,6 @@ func (i DockerBuildStepResponseArgs) ToDockerBuildStepResponseOutputWithContext(
 	return pulumi.ToOutputWithContext(ctx, i).(DockerBuildStepResponseOutput)
 }
 
-// The Docker build step.
 type DockerBuildStepResponseOutput struct{ *pulumi.OutputState }
 
 func (DockerBuildStepResponseOutput) ElementType() reflect.Type {
@@ -2670,85 +2312,59 @@ func (o DockerBuildStepResponseOutput) ToDockerBuildStepResponseOutputWithContex
 	return o
 }
 
-// The collection of override arguments to be used when executing this build step.
 func (o DockerBuildStepResponseOutput) Arguments() ArgumentResponseArrayOutput {
 	return o.ApplyT(func(v DockerBuildStepResponse) []ArgumentResponse { return v.Arguments }).(ArgumentResponseArrayOutput)
 }
 
-// List of base image dependencies for a step.
 func (o DockerBuildStepResponseOutput) BaseImageDependencies() BaseImageDependencyResponseArrayOutput {
 	return o.ApplyT(func(v DockerBuildStepResponse) []BaseImageDependencyResponse { return v.BaseImageDependencies }).(BaseImageDependencyResponseArrayOutput)
 }
 
-// The token (git PAT or SAS token of storage account blob) associated with the context for a step.
 func (o DockerBuildStepResponseOutput) ContextAccessToken() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v DockerBuildStepResponse) *string { return v.ContextAccessToken }).(pulumi.StringPtrOutput)
 }
 
-// The URL(absolute or relative) of the source context for the task step.
 func (o DockerBuildStepResponseOutput) ContextPath() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v DockerBuildStepResponse) *string { return v.ContextPath }).(pulumi.StringPtrOutput)
 }
 
-// The Docker file path relative to the source context.
 func (o DockerBuildStepResponseOutput) DockerFilePath() pulumi.StringOutput {
 	return o.ApplyT(func(v DockerBuildStepResponse) string { return v.DockerFilePath }).(pulumi.StringOutput)
 }
 
-// The fully qualified image names including the repository and tag.
 func (o DockerBuildStepResponseOutput) ImageNames() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v DockerBuildStepResponse) []string { return v.ImageNames }).(pulumi.StringArrayOutput)
 }
 
-// The value of this property indicates whether the image built should be pushed to the registry or not.
 func (o DockerBuildStepResponseOutput) IsPushEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v DockerBuildStepResponse) *bool { return v.IsPushEnabled }).(pulumi.BoolPtrOutput)
 }
 
-// The value of this property indicates whether the image cache is enabled or not.
 func (o DockerBuildStepResponseOutput) NoCache() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v DockerBuildStepResponse) *bool { return v.NoCache }).(pulumi.BoolPtrOutput)
 }
 
-// The name of the target build stage for the docker build.
 func (o DockerBuildStepResponseOutput) Target() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v DockerBuildStepResponse) *string { return v.Target }).(pulumi.StringPtrOutput)
 }
 
-// The type of the step.
-// Expected value is 'Docker'.
 func (o DockerBuildStepResponseOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v DockerBuildStepResponse) string { return v.Type }).(pulumi.StringOutput)
 }
 
-// The parameters for a quick task run request.
 type EncodedTaskRunRequest struct {
-	// The machine configuration of the run agent.
-	AgentConfiguration *AgentProperties `pulumi:"agentConfiguration"`
-	// The dedicated agent pool for the run.
-	AgentPoolName *string `pulumi:"agentPoolName"`
-	// The properties that describes a set of credentials that will be used when this run is invoked.
-	Credentials *Credentials `pulumi:"credentials"`
-	// Base64 encoded value of the template/definition file content.
-	EncodedTaskContent string `pulumi:"encodedTaskContent"`
-	// Base64 encoded value of the parameters/values file content.
-	EncodedValuesContent *string `pulumi:"encodedValuesContent"`
-	// The value that indicates whether archiving is enabled for the run or not.
-	IsArchiveEnabled *bool `pulumi:"isArchiveEnabled"`
-	// The template that describes the repository and tag information for run log artifact.
-	LogTemplate *string `pulumi:"logTemplate"`
-	// The platform properties against which the run has to happen.
-	Platform PlatformProperties `pulumi:"platform"`
-	// The URL(absolute or relative) of the source context. It can be an URL to a tar or git repository.
-	// If it is relative URL, the relative path should be obtained from calling listBuildSourceUploadUrl API.
-	SourceLocation *string `pulumi:"sourceLocation"`
-	// Run timeout in seconds.
-	Timeout *int `pulumi:"timeout"`
-	// The type of the run request.
-	// Expected value is 'EncodedTaskRunRequest'.
-	Type string `pulumi:"type"`
-	// The collection of overridable values that can be passed when running a task.
-	Values []SetValue `pulumi:"values"`
+	AgentConfiguration   *AgentProperties   `pulumi:"agentConfiguration"`
+	AgentPoolName        *string            `pulumi:"agentPoolName"`
+	Credentials          *Credentials       `pulumi:"credentials"`
+	EncodedTaskContent   string             `pulumi:"encodedTaskContent"`
+	EncodedValuesContent *string            `pulumi:"encodedValuesContent"`
+	IsArchiveEnabled     *bool              `pulumi:"isArchiveEnabled"`
+	LogTemplate          *string            `pulumi:"logTemplate"`
+	Platform             PlatformProperties `pulumi:"platform"`
+	SourceLocation       *string            `pulumi:"sourceLocation"`
+	Timeout              *int               `pulumi:"timeout"`
+	Type                 string             `pulumi:"type"`
+	Values               []SetValue         `pulumi:"values"`
 }
 
 // EncodedTaskRunRequestInput is an input type that accepts EncodedTaskRunRequestArgs and EncodedTaskRunRequestOutput values.
@@ -2762,34 +2378,19 @@ type EncodedTaskRunRequestInput interface {
 	ToEncodedTaskRunRequestOutputWithContext(context.Context) EncodedTaskRunRequestOutput
 }
 
-// The parameters for a quick task run request.
 type EncodedTaskRunRequestArgs struct {
-	// The machine configuration of the run agent.
-	AgentConfiguration AgentPropertiesPtrInput `pulumi:"agentConfiguration"`
-	// The dedicated agent pool for the run.
-	AgentPoolName pulumi.StringPtrInput `pulumi:"agentPoolName"`
-	// The properties that describes a set of credentials that will be used when this run is invoked.
-	Credentials CredentialsPtrInput `pulumi:"credentials"`
-	// Base64 encoded value of the template/definition file content.
-	EncodedTaskContent pulumi.StringInput `pulumi:"encodedTaskContent"`
-	// Base64 encoded value of the parameters/values file content.
-	EncodedValuesContent pulumi.StringPtrInput `pulumi:"encodedValuesContent"`
-	// The value that indicates whether archiving is enabled for the run or not.
-	IsArchiveEnabled pulumi.BoolPtrInput `pulumi:"isArchiveEnabled"`
-	// The template that describes the repository and tag information for run log artifact.
-	LogTemplate pulumi.StringPtrInput `pulumi:"logTemplate"`
-	// The platform properties against which the run has to happen.
-	Platform PlatformPropertiesInput `pulumi:"platform"`
-	// The URL(absolute or relative) of the source context. It can be an URL to a tar or git repository.
-	// If it is relative URL, the relative path should be obtained from calling listBuildSourceUploadUrl API.
-	SourceLocation pulumi.StringPtrInput `pulumi:"sourceLocation"`
-	// Run timeout in seconds.
-	Timeout pulumi.IntPtrInput `pulumi:"timeout"`
-	// The type of the run request.
-	// Expected value is 'EncodedTaskRunRequest'.
-	Type pulumi.StringInput `pulumi:"type"`
-	// The collection of overridable values that can be passed when running a task.
-	Values SetValueArrayInput `pulumi:"values"`
+	AgentConfiguration   AgentPropertiesPtrInput `pulumi:"agentConfiguration"`
+	AgentPoolName        pulumi.StringPtrInput   `pulumi:"agentPoolName"`
+	Credentials          CredentialsPtrInput     `pulumi:"credentials"`
+	EncodedTaskContent   pulumi.StringInput      `pulumi:"encodedTaskContent"`
+	EncodedValuesContent pulumi.StringPtrInput   `pulumi:"encodedValuesContent"`
+	IsArchiveEnabled     pulumi.BoolPtrInput     `pulumi:"isArchiveEnabled"`
+	LogTemplate          pulumi.StringPtrInput   `pulumi:"logTemplate"`
+	Platform             PlatformPropertiesInput `pulumi:"platform"`
+	SourceLocation       pulumi.StringPtrInput   `pulumi:"sourceLocation"`
+	Timeout              pulumi.IntPtrInput      `pulumi:"timeout"`
+	Type                 pulumi.StringInput      `pulumi:"type"`
+	Values               SetValueArrayInput      `pulumi:"values"`
 }
 
 func (EncodedTaskRunRequestArgs) ElementType() reflect.Type {
@@ -2804,7 +2405,6 @@ func (i EncodedTaskRunRequestArgs) ToEncodedTaskRunRequestOutputWithContext(ctx 
 	return pulumi.ToOutputWithContext(ctx, i).(EncodedTaskRunRequestOutput)
 }
 
-// The parameters for a quick task run request.
 type EncodedTaskRunRequestOutput struct{ *pulumi.OutputState }
 
 func (EncodedTaskRunRequestOutput) ElementType() reflect.Type {
@@ -2819,96 +2419,67 @@ func (o EncodedTaskRunRequestOutput) ToEncodedTaskRunRequestOutputWithContext(ct
 	return o
 }
 
-// The machine configuration of the run agent.
 func (o EncodedTaskRunRequestOutput) AgentConfiguration() AgentPropertiesPtrOutput {
 	return o.ApplyT(func(v EncodedTaskRunRequest) *AgentProperties { return v.AgentConfiguration }).(AgentPropertiesPtrOutput)
 }
 
-// The dedicated agent pool for the run.
 func (o EncodedTaskRunRequestOutput) AgentPoolName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v EncodedTaskRunRequest) *string { return v.AgentPoolName }).(pulumi.StringPtrOutput)
 }
 
-// The properties that describes a set of credentials that will be used when this run is invoked.
 func (o EncodedTaskRunRequestOutput) Credentials() CredentialsPtrOutput {
 	return o.ApplyT(func(v EncodedTaskRunRequest) *Credentials { return v.Credentials }).(CredentialsPtrOutput)
 }
 
-// Base64 encoded value of the template/definition file content.
 func (o EncodedTaskRunRequestOutput) EncodedTaskContent() pulumi.StringOutput {
 	return o.ApplyT(func(v EncodedTaskRunRequest) string { return v.EncodedTaskContent }).(pulumi.StringOutput)
 }
 
-// Base64 encoded value of the parameters/values file content.
 func (o EncodedTaskRunRequestOutput) EncodedValuesContent() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v EncodedTaskRunRequest) *string { return v.EncodedValuesContent }).(pulumi.StringPtrOutput)
 }
 
-// The value that indicates whether archiving is enabled for the run or not.
 func (o EncodedTaskRunRequestOutput) IsArchiveEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v EncodedTaskRunRequest) *bool { return v.IsArchiveEnabled }).(pulumi.BoolPtrOutput)
 }
 
-// The template that describes the repository and tag information for run log artifact.
 func (o EncodedTaskRunRequestOutput) LogTemplate() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v EncodedTaskRunRequest) *string { return v.LogTemplate }).(pulumi.StringPtrOutput)
 }
 
-// The platform properties against which the run has to happen.
 func (o EncodedTaskRunRequestOutput) Platform() PlatformPropertiesOutput {
 	return o.ApplyT(func(v EncodedTaskRunRequest) PlatformProperties { return v.Platform }).(PlatformPropertiesOutput)
 }
 
-// The URL(absolute or relative) of the source context. It can be an URL to a tar or git repository.
-// If it is relative URL, the relative path should be obtained from calling listBuildSourceUploadUrl API.
 func (o EncodedTaskRunRequestOutput) SourceLocation() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v EncodedTaskRunRequest) *string { return v.SourceLocation }).(pulumi.StringPtrOutput)
 }
 
-// Run timeout in seconds.
 func (o EncodedTaskRunRequestOutput) Timeout() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v EncodedTaskRunRequest) *int { return v.Timeout }).(pulumi.IntPtrOutput)
 }
 
-// The type of the run request.
-// Expected value is 'EncodedTaskRunRequest'.
 func (o EncodedTaskRunRequestOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v EncodedTaskRunRequest) string { return v.Type }).(pulumi.StringOutput)
 }
 
-// The collection of overridable values that can be passed when running a task.
 func (o EncodedTaskRunRequestOutput) Values() SetValueArrayOutput {
 	return o.ApplyT(func(v EncodedTaskRunRequest) []SetValue { return v.Values }).(SetValueArrayOutput)
 }
 
-// The parameters for a quick task run request.
 type EncodedTaskRunRequestResponse struct {
-	// The machine configuration of the run agent.
-	AgentConfiguration *AgentPropertiesResponse `pulumi:"agentConfiguration"`
-	// The dedicated agent pool for the run.
-	AgentPoolName *string `pulumi:"agentPoolName"`
-	// The properties that describes a set of credentials that will be used when this run is invoked.
-	Credentials *CredentialsResponse `pulumi:"credentials"`
-	// Base64 encoded value of the template/definition file content.
-	EncodedTaskContent string `pulumi:"encodedTaskContent"`
-	// Base64 encoded value of the parameters/values file content.
-	EncodedValuesContent *string `pulumi:"encodedValuesContent"`
-	// The value that indicates whether archiving is enabled for the run or not.
-	IsArchiveEnabled *bool `pulumi:"isArchiveEnabled"`
-	// The template that describes the repository and tag information for run log artifact.
-	LogTemplate *string `pulumi:"logTemplate"`
-	// The platform properties against which the run has to happen.
-	Platform PlatformPropertiesResponse `pulumi:"platform"`
-	// The URL(absolute or relative) of the source context. It can be an URL to a tar or git repository.
-	// If it is relative URL, the relative path should be obtained from calling listBuildSourceUploadUrl API.
-	SourceLocation *string `pulumi:"sourceLocation"`
-	// Run timeout in seconds.
-	Timeout *int `pulumi:"timeout"`
-	// The type of the run request.
-	// Expected value is 'EncodedTaskRunRequest'.
-	Type string `pulumi:"type"`
-	// The collection of overridable values that can be passed when running a task.
-	Values []SetValueResponse `pulumi:"values"`
+	AgentConfiguration   *AgentPropertiesResponse   `pulumi:"agentConfiguration"`
+	AgentPoolName        *string                    `pulumi:"agentPoolName"`
+	Credentials          *CredentialsResponse       `pulumi:"credentials"`
+	EncodedTaskContent   string                     `pulumi:"encodedTaskContent"`
+	EncodedValuesContent *string                    `pulumi:"encodedValuesContent"`
+	IsArchiveEnabled     *bool                      `pulumi:"isArchiveEnabled"`
+	LogTemplate          *string                    `pulumi:"logTemplate"`
+	Platform             PlatformPropertiesResponse `pulumi:"platform"`
+	SourceLocation       *string                    `pulumi:"sourceLocation"`
+	Timeout              *int                       `pulumi:"timeout"`
+	Type                 string                     `pulumi:"type"`
+	Values               []SetValueResponse         `pulumi:"values"`
 }
 
 // EncodedTaskRunRequestResponseInput is an input type that accepts EncodedTaskRunRequestResponseArgs and EncodedTaskRunRequestResponseOutput values.
@@ -2922,34 +2493,19 @@ type EncodedTaskRunRequestResponseInput interface {
 	ToEncodedTaskRunRequestResponseOutputWithContext(context.Context) EncodedTaskRunRequestResponseOutput
 }
 
-// The parameters for a quick task run request.
 type EncodedTaskRunRequestResponseArgs struct {
-	// The machine configuration of the run agent.
-	AgentConfiguration AgentPropertiesResponsePtrInput `pulumi:"agentConfiguration"`
-	// The dedicated agent pool for the run.
-	AgentPoolName pulumi.StringPtrInput `pulumi:"agentPoolName"`
-	// The properties that describes a set of credentials that will be used when this run is invoked.
-	Credentials CredentialsResponsePtrInput `pulumi:"credentials"`
-	// Base64 encoded value of the template/definition file content.
-	EncodedTaskContent pulumi.StringInput `pulumi:"encodedTaskContent"`
-	// Base64 encoded value of the parameters/values file content.
-	EncodedValuesContent pulumi.StringPtrInput `pulumi:"encodedValuesContent"`
-	// The value that indicates whether archiving is enabled for the run or not.
-	IsArchiveEnabled pulumi.BoolPtrInput `pulumi:"isArchiveEnabled"`
-	// The template that describes the repository and tag information for run log artifact.
-	LogTemplate pulumi.StringPtrInput `pulumi:"logTemplate"`
-	// The platform properties against which the run has to happen.
-	Platform PlatformPropertiesResponseInput `pulumi:"platform"`
-	// The URL(absolute or relative) of the source context. It can be an URL to a tar or git repository.
-	// If it is relative URL, the relative path should be obtained from calling listBuildSourceUploadUrl API.
-	SourceLocation pulumi.StringPtrInput `pulumi:"sourceLocation"`
-	// Run timeout in seconds.
-	Timeout pulumi.IntPtrInput `pulumi:"timeout"`
-	// The type of the run request.
-	// Expected value is 'EncodedTaskRunRequest'.
-	Type pulumi.StringInput `pulumi:"type"`
-	// The collection of overridable values that can be passed when running a task.
-	Values SetValueResponseArrayInput `pulumi:"values"`
+	AgentConfiguration   AgentPropertiesResponsePtrInput `pulumi:"agentConfiguration"`
+	AgentPoolName        pulumi.StringPtrInput           `pulumi:"agentPoolName"`
+	Credentials          CredentialsResponsePtrInput     `pulumi:"credentials"`
+	EncodedTaskContent   pulumi.StringInput              `pulumi:"encodedTaskContent"`
+	EncodedValuesContent pulumi.StringPtrInput           `pulumi:"encodedValuesContent"`
+	IsArchiveEnabled     pulumi.BoolPtrInput             `pulumi:"isArchiveEnabled"`
+	LogTemplate          pulumi.StringPtrInput           `pulumi:"logTemplate"`
+	Platform             PlatformPropertiesResponseInput `pulumi:"platform"`
+	SourceLocation       pulumi.StringPtrInput           `pulumi:"sourceLocation"`
+	Timeout              pulumi.IntPtrInput              `pulumi:"timeout"`
+	Type                 pulumi.StringInput              `pulumi:"type"`
+	Values               SetValueResponseArrayInput      `pulumi:"values"`
 }
 
 func (EncodedTaskRunRequestResponseArgs) ElementType() reflect.Type {
@@ -2964,7 +2520,6 @@ func (i EncodedTaskRunRequestResponseArgs) ToEncodedTaskRunRequestResponseOutput
 	return pulumi.ToOutputWithContext(ctx, i).(EncodedTaskRunRequestResponseOutput)
 }
 
-// The parameters for a quick task run request.
 type EncodedTaskRunRequestResponseOutput struct{ *pulumi.OutputState }
 
 func (EncodedTaskRunRequestResponseOutput) ElementType() reflect.Type {
@@ -2979,83 +2534,61 @@ func (o EncodedTaskRunRequestResponseOutput) ToEncodedTaskRunRequestResponseOutp
 	return o
 }
 
-// The machine configuration of the run agent.
 func (o EncodedTaskRunRequestResponseOutput) AgentConfiguration() AgentPropertiesResponsePtrOutput {
 	return o.ApplyT(func(v EncodedTaskRunRequestResponse) *AgentPropertiesResponse { return v.AgentConfiguration }).(AgentPropertiesResponsePtrOutput)
 }
 
-// The dedicated agent pool for the run.
 func (o EncodedTaskRunRequestResponseOutput) AgentPoolName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v EncodedTaskRunRequestResponse) *string { return v.AgentPoolName }).(pulumi.StringPtrOutput)
 }
 
-// The properties that describes a set of credentials that will be used when this run is invoked.
 func (o EncodedTaskRunRequestResponseOutput) Credentials() CredentialsResponsePtrOutput {
 	return o.ApplyT(func(v EncodedTaskRunRequestResponse) *CredentialsResponse { return v.Credentials }).(CredentialsResponsePtrOutput)
 }
 
-// Base64 encoded value of the template/definition file content.
 func (o EncodedTaskRunRequestResponseOutput) EncodedTaskContent() pulumi.StringOutput {
 	return o.ApplyT(func(v EncodedTaskRunRequestResponse) string { return v.EncodedTaskContent }).(pulumi.StringOutput)
 }
 
-// Base64 encoded value of the parameters/values file content.
 func (o EncodedTaskRunRequestResponseOutput) EncodedValuesContent() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v EncodedTaskRunRequestResponse) *string { return v.EncodedValuesContent }).(pulumi.StringPtrOutput)
 }
 
-// The value that indicates whether archiving is enabled for the run or not.
 func (o EncodedTaskRunRequestResponseOutput) IsArchiveEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v EncodedTaskRunRequestResponse) *bool { return v.IsArchiveEnabled }).(pulumi.BoolPtrOutput)
 }
 
-// The template that describes the repository and tag information for run log artifact.
 func (o EncodedTaskRunRequestResponseOutput) LogTemplate() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v EncodedTaskRunRequestResponse) *string { return v.LogTemplate }).(pulumi.StringPtrOutput)
 }
 
-// The platform properties against which the run has to happen.
 func (o EncodedTaskRunRequestResponseOutput) Platform() PlatformPropertiesResponseOutput {
 	return o.ApplyT(func(v EncodedTaskRunRequestResponse) PlatformPropertiesResponse { return v.Platform }).(PlatformPropertiesResponseOutput)
 }
 
-// The URL(absolute or relative) of the source context. It can be an URL to a tar or git repository.
-// If it is relative URL, the relative path should be obtained from calling listBuildSourceUploadUrl API.
 func (o EncodedTaskRunRequestResponseOutput) SourceLocation() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v EncodedTaskRunRequestResponse) *string { return v.SourceLocation }).(pulumi.StringPtrOutput)
 }
 
-// Run timeout in seconds.
 func (o EncodedTaskRunRequestResponseOutput) Timeout() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v EncodedTaskRunRequestResponse) *int { return v.Timeout }).(pulumi.IntPtrOutput)
 }
 
-// The type of the run request.
-// Expected value is 'EncodedTaskRunRequest'.
 func (o EncodedTaskRunRequestResponseOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v EncodedTaskRunRequestResponse) string { return v.Type }).(pulumi.StringOutput)
 }
 
-// The collection of overridable values that can be passed when running a task.
 func (o EncodedTaskRunRequestResponseOutput) Values() SetValueResponseArrayOutput {
 	return o.ApplyT(func(v EncodedTaskRunRequestResponse) []SetValueResponse { return v.Values }).(SetValueResponseArrayOutput)
 }
 
-// The properties of a encoded task step.
 type EncodedTaskStep struct {
-	// The token (git PAT or SAS token of storage account blob) associated with the context for a step.
-	ContextAccessToken *string `pulumi:"contextAccessToken"`
-	// The URL(absolute or relative) of the source context for the task step.
-	ContextPath *string `pulumi:"contextPath"`
-	// Base64 encoded value of the template/definition file content.
-	EncodedTaskContent string `pulumi:"encodedTaskContent"`
-	// Base64 encoded value of the parameters/values file content.
-	EncodedValuesContent *string `pulumi:"encodedValuesContent"`
-	// The type of the step.
-	// Expected value is 'EncodedTask'.
-	Type string `pulumi:"type"`
-	// The collection of overridable values that can be passed when running a task.
-	Values []SetValue `pulumi:"values"`
+	ContextAccessToken   *string    `pulumi:"contextAccessToken"`
+	ContextPath          *string    `pulumi:"contextPath"`
+	EncodedTaskContent   string     `pulumi:"encodedTaskContent"`
+	EncodedValuesContent *string    `pulumi:"encodedValuesContent"`
+	Type                 string     `pulumi:"type"`
+	Values               []SetValue `pulumi:"values"`
 }
 
 // EncodedTaskStepInput is an input type that accepts EncodedTaskStepArgs and EncodedTaskStepOutput values.
@@ -3069,21 +2602,13 @@ type EncodedTaskStepInput interface {
 	ToEncodedTaskStepOutputWithContext(context.Context) EncodedTaskStepOutput
 }
 
-// The properties of a encoded task step.
 type EncodedTaskStepArgs struct {
-	// The token (git PAT or SAS token of storage account blob) associated with the context for a step.
-	ContextAccessToken pulumi.StringPtrInput `pulumi:"contextAccessToken"`
-	// The URL(absolute or relative) of the source context for the task step.
-	ContextPath pulumi.StringPtrInput `pulumi:"contextPath"`
-	// Base64 encoded value of the template/definition file content.
-	EncodedTaskContent pulumi.StringInput `pulumi:"encodedTaskContent"`
-	// Base64 encoded value of the parameters/values file content.
+	ContextAccessToken   pulumi.StringPtrInput `pulumi:"contextAccessToken"`
+	ContextPath          pulumi.StringPtrInput `pulumi:"contextPath"`
+	EncodedTaskContent   pulumi.StringInput    `pulumi:"encodedTaskContent"`
 	EncodedValuesContent pulumi.StringPtrInput `pulumi:"encodedValuesContent"`
-	// The type of the step.
-	// Expected value is 'EncodedTask'.
-	Type pulumi.StringInput `pulumi:"type"`
-	// The collection of overridable values that can be passed when running a task.
-	Values SetValueArrayInput `pulumi:"values"`
+	Type                 pulumi.StringInput    `pulumi:"type"`
+	Values               SetValueArrayInput    `pulumi:"values"`
 }
 
 func (EncodedTaskStepArgs) ElementType() reflect.Type {
@@ -3098,7 +2623,6 @@ func (i EncodedTaskStepArgs) ToEncodedTaskStepOutputWithContext(ctx context.Cont
 	return pulumi.ToOutputWithContext(ctx, i).(EncodedTaskStepOutput)
 }
 
-// The properties of a encoded task step.
 type EncodedTaskStepOutput struct{ *pulumi.OutputState }
 
 func (EncodedTaskStepOutput) ElementType() reflect.Type {
@@ -3113,54 +2637,38 @@ func (o EncodedTaskStepOutput) ToEncodedTaskStepOutputWithContext(ctx context.Co
 	return o
 }
 
-// The token (git PAT or SAS token of storage account blob) associated with the context for a step.
 func (o EncodedTaskStepOutput) ContextAccessToken() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v EncodedTaskStep) *string { return v.ContextAccessToken }).(pulumi.StringPtrOutput)
 }
 
-// The URL(absolute or relative) of the source context for the task step.
 func (o EncodedTaskStepOutput) ContextPath() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v EncodedTaskStep) *string { return v.ContextPath }).(pulumi.StringPtrOutput)
 }
 
-// Base64 encoded value of the template/definition file content.
 func (o EncodedTaskStepOutput) EncodedTaskContent() pulumi.StringOutput {
 	return o.ApplyT(func(v EncodedTaskStep) string { return v.EncodedTaskContent }).(pulumi.StringOutput)
 }
 
-// Base64 encoded value of the parameters/values file content.
 func (o EncodedTaskStepOutput) EncodedValuesContent() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v EncodedTaskStep) *string { return v.EncodedValuesContent }).(pulumi.StringPtrOutput)
 }
 
-// The type of the step.
-// Expected value is 'EncodedTask'.
 func (o EncodedTaskStepOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v EncodedTaskStep) string { return v.Type }).(pulumi.StringOutput)
 }
 
-// The collection of overridable values that can be passed when running a task.
 func (o EncodedTaskStepOutput) Values() SetValueArrayOutput {
 	return o.ApplyT(func(v EncodedTaskStep) []SetValue { return v.Values }).(SetValueArrayOutput)
 }
 
-// The properties of a encoded task step.
 type EncodedTaskStepResponse struct {
-	// List of base image dependencies for a step.
 	BaseImageDependencies []BaseImageDependencyResponse `pulumi:"baseImageDependencies"`
-	// The token (git PAT or SAS token of storage account blob) associated with the context for a step.
-	ContextAccessToken *string `pulumi:"contextAccessToken"`
-	// The URL(absolute or relative) of the source context for the task step.
-	ContextPath *string `pulumi:"contextPath"`
-	// Base64 encoded value of the template/definition file content.
-	EncodedTaskContent string `pulumi:"encodedTaskContent"`
-	// Base64 encoded value of the parameters/values file content.
-	EncodedValuesContent *string `pulumi:"encodedValuesContent"`
-	// The type of the step.
-	// Expected value is 'EncodedTask'.
-	Type string `pulumi:"type"`
-	// The collection of overridable values that can be passed when running a task.
-	Values []SetValueResponse `pulumi:"values"`
+	ContextAccessToken    *string                       `pulumi:"contextAccessToken"`
+	ContextPath           *string                       `pulumi:"contextPath"`
+	EncodedTaskContent    string                        `pulumi:"encodedTaskContent"`
+	EncodedValuesContent  *string                       `pulumi:"encodedValuesContent"`
+	Type                  string                        `pulumi:"type"`
+	Values                []SetValueResponse            `pulumi:"values"`
 }
 
 // EncodedTaskStepResponseInput is an input type that accepts EncodedTaskStepResponseArgs and EncodedTaskStepResponseOutput values.
@@ -3174,23 +2682,14 @@ type EncodedTaskStepResponseInput interface {
 	ToEncodedTaskStepResponseOutputWithContext(context.Context) EncodedTaskStepResponseOutput
 }
 
-// The properties of a encoded task step.
 type EncodedTaskStepResponseArgs struct {
-	// List of base image dependencies for a step.
 	BaseImageDependencies BaseImageDependencyResponseArrayInput `pulumi:"baseImageDependencies"`
-	// The token (git PAT or SAS token of storage account blob) associated with the context for a step.
-	ContextAccessToken pulumi.StringPtrInput `pulumi:"contextAccessToken"`
-	// The URL(absolute or relative) of the source context for the task step.
-	ContextPath pulumi.StringPtrInput `pulumi:"contextPath"`
-	// Base64 encoded value of the template/definition file content.
-	EncodedTaskContent pulumi.StringInput `pulumi:"encodedTaskContent"`
-	// Base64 encoded value of the parameters/values file content.
-	EncodedValuesContent pulumi.StringPtrInput `pulumi:"encodedValuesContent"`
-	// The type of the step.
-	// Expected value is 'EncodedTask'.
-	Type pulumi.StringInput `pulumi:"type"`
-	// The collection of overridable values that can be passed when running a task.
-	Values SetValueResponseArrayInput `pulumi:"values"`
+	ContextAccessToken    pulumi.StringPtrInput                 `pulumi:"contextAccessToken"`
+	ContextPath           pulumi.StringPtrInput                 `pulumi:"contextPath"`
+	EncodedTaskContent    pulumi.StringInput                    `pulumi:"encodedTaskContent"`
+	EncodedValuesContent  pulumi.StringPtrInput                 `pulumi:"encodedValuesContent"`
+	Type                  pulumi.StringInput                    `pulumi:"type"`
+	Values                SetValueResponseArrayInput            `pulumi:"values"`
 }
 
 func (EncodedTaskStepResponseArgs) ElementType() reflect.Type {
@@ -3205,7 +2704,6 @@ func (i EncodedTaskStepResponseArgs) ToEncodedTaskStepResponseOutputWithContext(
 	return pulumi.ToOutputWithContext(ctx, i).(EncodedTaskStepResponseOutput)
 }
 
-// The properties of a encoded task step.
 type EncodedTaskStepResponseOutput struct{ *pulumi.OutputState }
 
 func (EncodedTaskStepResponseOutput) ElementType() reflect.Type {
@@ -3220,70 +2718,47 @@ func (o EncodedTaskStepResponseOutput) ToEncodedTaskStepResponseOutputWithContex
 	return o
 }
 
-// List of base image dependencies for a step.
 func (o EncodedTaskStepResponseOutput) BaseImageDependencies() BaseImageDependencyResponseArrayOutput {
 	return o.ApplyT(func(v EncodedTaskStepResponse) []BaseImageDependencyResponse { return v.BaseImageDependencies }).(BaseImageDependencyResponseArrayOutput)
 }
 
-// The token (git PAT or SAS token of storage account blob) associated with the context for a step.
 func (o EncodedTaskStepResponseOutput) ContextAccessToken() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v EncodedTaskStepResponse) *string { return v.ContextAccessToken }).(pulumi.StringPtrOutput)
 }
 
-// The URL(absolute or relative) of the source context for the task step.
 func (o EncodedTaskStepResponseOutput) ContextPath() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v EncodedTaskStepResponse) *string { return v.ContextPath }).(pulumi.StringPtrOutput)
 }
 
-// Base64 encoded value of the template/definition file content.
 func (o EncodedTaskStepResponseOutput) EncodedTaskContent() pulumi.StringOutput {
 	return o.ApplyT(func(v EncodedTaskStepResponse) string { return v.EncodedTaskContent }).(pulumi.StringOutput)
 }
 
-// Base64 encoded value of the parameters/values file content.
 func (o EncodedTaskStepResponseOutput) EncodedValuesContent() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v EncodedTaskStepResponse) *string { return v.EncodedValuesContent }).(pulumi.StringPtrOutput)
 }
 
-// The type of the step.
-// Expected value is 'EncodedTask'.
 func (o EncodedTaskStepResponseOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v EncodedTaskStepResponse) string { return v.Type }).(pulumi.StringOutput)
 }
 
-// The collection of overridable values that can be passed when running a task.
 func (o EncodedTaskStepResponseOutput) Values() SetValueResponseArrayOutput {
 	return o.ApplyT(func(v EncodedTaskStepResponse) []SetValueResponse { return v.Values }).(SetValueResponseArrayOutput)
 }
 
-// The request parameters for a scheduling run against a task file.
 type FileTaskRunRequest struct {
-	// The machine configuration of the run agent.
-	AgentConfiguration *AgentProperties `pulumi:"agentConfiguration"`
-	// The dedicated agent pool for the run.
-	AgentPoolName *string `pulumi:"agentPoolName"`
-	// The properties that describes a set of credentials that will be used when this run is invoked.
-	Credentials *Credentials `pulumi:"credentials"`
-	// The value that indicates whether archiving is enabled for the run or not.
-	IsArchiveEnabled *bool `pulumi:"isArchiveEnabled"`
-	// The template that describes the repository and tag information for run log artifact.
-	LogTemplate *string `pulumi:"logTemplate"`
-	// The platform properties against which the run has to happen.
-	Platform PlatformProperties `pulumi:"platform"`
-	// The URL(absolute or relative) of the source context. It can be an URL to a tar or git repository.
-	// If it is relative URL, the relative path should be obtained from calling listBuildSourceUploadUrl API.
-	SourceLocation *string `pulumi:"sourceLocation"`
-	// The template/definition file path relative to the source.
-	TaskFilePath string `pulumi:"taskFilePath"`
-	// Run timeout in seconds.
-	Timeout *int `pulumi:"timeout"`
-	// The type of the run request.
-	// Expected value is 'FileTaskRunRequest'.
-	Type string `pulumi:"type"`
-	// The collection of overridable values that can be passed when running a task.
-	Values []SetValue `pulumi:"values"`
-	// The values/parameters file path relative to the source.
-	ValuesFilePath *string `pulumi:"valuesFilePath"`
+	AgentConfiguration *AgentProperties   `pulumi:"agentConfiguration"`
+	AgentPoolName      *string            `pulumi:"agentPoolName"`
+	Credentials        *Credentials       `pulumi:"credentials"`
+	IsArchiveEnabled   *bool              `pulumi:"isArchiveEnabled"`
+	LogTemplate        *string            `pulumi:"logTemplate"`
+	Platform           PlatformProperties `pulumi:"platform"`
+	SourceLocation     *string            `pulumi:"sourceLocation"`
+	TaskFilePath       string             `pulumi:"taskFilePath"`
+	Timeout            *int               `pulumi:"timeout"`
+	Type               string             `pulumi:"type"`
+	Values             []SetValue         `pulumi:"values"`
+	ValuesFilePath     *string            `pulumi:"valuesFilePath"`
 }
 
 // FileTaskRunRequestInput is an input type that accepts FileTaskRunRequestArgs and FileTaskRunRequestOutput values.
@@ -3297,34 +2772,19 @@ type FileTaskRunRequestInput interface {
 	ToFileTaskRunRequestOutputWithContext(context.Context) FileTaskRunRequestOutput
 }
 
-// The request parameters for a scheduling run against a task file.
 type FileTaskRunRequestArgs struct {
-	// The machine configuration of the run agent.
 	AgentConfiguration AgentPropertiesPtrInput `pulumi:"agentConfiguration"`
-	// The dedicated agent pool for the run.
-	AgentPoolName pulumi.StringPtrInput `pulumi:"agentPoolName"`
-	// The properties that describes a set of credentials that will be used when this run is invoked.
-	Credentials CredentialsPtrInput `pulumi:"credentials"`
-	// The value that indicates whether archiving is enabled for the run or not.
-	IsArchiveEnabled pulumi.BoolPtrInput `pulumi:"isArchiveEnabled"`
-	// The template that describes the repository and tag information for run log artifact.
-	LogTemplate pulumi.StringPtrInput `pulumi:"logTemplate"`
-	// The platform properties against which the run has to happen.
-	Platform PlatformPropertiesInput `pulumi:"platform"`
-	// The URL(absolute or relative) of the source context. It can be an URL to a tar or git repository.
-	// If it is relative URL, the relative path should be obtained from calling listBuildSourceUploadUrl API.
-	SourceLocation pulumi.StringPtrInput `pulumi:"sourceLocation"`
-	// The template/definition file path relative to the source.
-	TaskFilePath pulumi.StringInput `pulumi:"taskFilePath"`
-	// Run timeout in seconds.
-	Timeout pulumi.IntPtrInput `pulumi:"timeout"`
-	// The type of the run request.
-	// Expected value is 'FileTaskRunRequest'.
-	Type pulumi.StringInput `pulumi:"type"`
-	// The collection of overridable values that can be passed when running a task.
-	Values SetValueArrayInput `pulumi:"values"`
-	// The values/parameters file path relative to the source.
-	ValuesFilePath pulumi.StringPtrInput `pulumi:"valuesFilePath"`
+	AgentPoolName      pulumi.StringPtrInput   `pulumi:"agentPoolName"`
+	Credentials        CredentialsPtrInput     `pulumi:"credentials"`
+	IsArchiveEnabled   pulumi.BoolPtrInput     `pulumi:"isArchiveEnabled"`
+	LogTemplate        pulumi.StringPtrInput   `pulumi:"logTemplate"`
+	Platform           PlatformPropertiesInput `pulumi:"platform"`
+	SourceLocation     pulumi.StringPtrInput   `pulumi:"sourceLocation"`
+	TaskFilePath       pulumi.StringInput      `pulumi:"taskFilePath"`
+	Timeout            pulumi.IntPtrInput      `pulumi:"timeout"`
+	Type               pulumi.StringInput      `pulumi:"type"`
+	Values             SetValueArrayInput      `pulumi:"values"`
+	ValuesFilePath     pulumi.StringPtrInput   `pulumi:"valuesFilePath"`
 }
 
 func (FileTaskRunRequestArgs) ElementType() reflect.Type {
@@ -3339,7 +2799,6 @@ func (i FileTaskRunRequestArgs) ToFileTaskRunRequestOutputWithContext(ctx contex
 	return pulumi.ToOutputWithContext(ctx, i).(FileTaskRunRequestOutput)
 }
 
-// The request parameters for a scheduling run against a task file.
 type FileTaskRunRequestOutput struct{ *pulumi.OutputState }
 
 func (FileTaskRunRequestOutput) ElementType() reflect.Type {
@@ -3354,96 +2813,67 @@ func (o FileTaskRunRequestOutput) ToFileTaskRunRequestOutputWithContext(ctx cont
 	return o
 }
 
-// The machine configuration of the run agent.
 func (o FileTaskRunRequestOutput) AgentConfiguration() AgentPropertiesPtrOutput {
 	return o.ApplyT(func(v FileTaskRunRequest) *AgentProperties { return v.AgentConfiguration }).(AgentPropertiesPtrOutput)
 }
 
-// The dedicated agent pool for the run.
 func (o FileTaskRunRequestOutput) AgentPoolName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v FileTaskRunRequest) *string { return v.AgentPoolName }).(pulumi.StringPtrOutput)
 }
 
-// The properties that describes a set of credentials that will be used when this run is invoked.
 func (o FileTaskRunRequestOutput) Credentials() CredentialsPtrOutput {
 	return o.ApplyT(func(v FileTaskRunRequest) *Credentials { return v.Credentials }).(CredentialsPtrOutput)
 }
 
-// The value that indicates whether archiving is enabled for the run or not.
 func (o FileTaskRunRequestOutput) IsArchiveEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v FileTaskRunRequest) *bool { return v.IsArchiveEnabled }).(pulumi.BoolPtrOutput)
 }
 
-// The template that describes the repository and tag information for run log artifact.
 func (o FileTaskRunRequestOutput) LogTemplate() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v FileTaskRunRequest) *string { return v.LogTemplate }).(pulumi.StringPtrOutput)
 }
 
-// The platform properties against which the run has to happen.
 func (o FileTaskRunRequestOutput) Platform() PlatformPropertiesOutput {
 	return o.ApplyT(func(v FileTaskRunRequest) PlatformProperties { return v.Platform }).(PlatformPropertiesOutput)
 }
 
-// The URL(absolute or relative) of the source context. It can be an URL to a tar or git repository.
-// If it is relative URL, the relative path should be obtained from calling listBuildSourceUploadUrl API.
 func (o FileTaskRunRequestOutput) SourceLocation() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v FileTaskRunRequest) *string { return v.SourceLocation }).(pulumi.StringPtrOutput)
 }
 
-// The template/definition file path relative to the source.
 func (o FileTaskRunRequestOutput) TaskFilePath() pulumi.StringOutput {
 	return o.ApplyT(func(v FileTaskRunRequest) string { return v.TaskFilePath }).(pulumi.StringOutput)
 }
 
-// Run timeout in seconds.
 func (o FileTaskRunRequestOutput) Timeout() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v FileTaskRunRequest) *int { return v.Timeout }).(pulumi.IntPtrOutput)
 }
 
-// The type of the run request.
-// Expected value is 'FileTaskRunRequest'.
 func (o FileTaskRunRequestOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v FileTaskRunRequest) string { return v.Type }).(pulumi.StringOutput)
 }
 
-// The collection of overridable values that can be passed when running a task.
 func (o FileTaskRunRequestOutput) Values() SetValueArrayOutput {
 	return o.ApplyT(func(v FileTaskRunRequest) []SetValue { return v.Values }).(SetValueArrayOutput)
 }
 
-// The values/parameters file path relative to the source.
 func (o FileTaskRunRequestOutput) ValuesFilePath() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v FileTaskRunRequest) *string { return v.ValuesFilePath }).(pulumi.StringPtrOutput)
 }
 
-// The request parameters for a scheduling run against a task file.
 type FileTaskRunRequestResponse struct {
-	// The machine configuration of the run agent.
-	AgentConfiguration *AgentPropertiesResponse `pulumi:"agentConfiguration"`
-	// The dedicated agent pool for the run.
-	AgentPoolName *string `pulumi:"agentPoolName"`
-	// The properties that describes a set of credentials that will be used when this run is invoked.
-	Credentials *CredentialsResponse `pulumi:"credentials"`
-	// The value that indicates whether archiving is enabled for the run or not.
-	IsArchiveEnabled *bool `pulumi:"isArchiveEnabled"`
-	// The template that describes the repository and tag information for run log artifact.
-	LogTemplate *string `pulumi:"logTemplate"`
-	// The platform properties against which the run has to happen.
-	Platform PlatformPropertiesResponse `pulumi:"platform"`
-	// The URL(absolute or relative) of the source context. It can be an URL to a tar or git repository.
-	// If it is relative URL, the relative path should be obtained from calling listBuildSourceUploadUrl API.
-	SourceLocation *string `pulumi:"sourceLocation"`
-	// The template/definition file path relative to the source.
-	TaskFilePath string `pulumi:"taskFilePath"`
-	// Run timeout in seconds.
-	Timeout *int `pulumi:"timeout"`
-	// The type of the run request.
-	// Expected value is 'FileTaskRunRequest'.
-	Type string `pulumi:"type"`
-	// The collection of overridable values that can be passed when running a task.
-	Values []SetValueResponse `pulumi:"values"`
-	// The values/parameters file path relative to the source.
-	ValuesFilePath *string `pulumi:"valuesFilePath"`
+	AgentConfiguration *AgentPropertiesResponse   `pulumi:"agentConfiguration"`
+	AgentPoolName      *string                    `pulumi:"agentPoolName"`
+	Credentials        *CredentialsResponse       `pulumi:"credentials"`
+	IsArchiveEnabled   *bool                      `pulumi:"isArchiveEnabled"`
+	LogTemplate        *string                    `pulumi:"logTemplate"`
+	Platform           PlatformPropertiesResponse `pulumi:"platform"`
+	SourceLocation     *string                    `pulumi:"sourceLocation"`
+	TaskFilePath       string                     `pulumi:"taskFilePath"`
+	Timeout            *int                       `pulumi:"timeout"`
+	Type               string                     `pulumi:"type"`
+	Values             []SetValueResponse         `pulumi:"values"`
+	ValuesFilePath     *string                    `pulumi:"valuesFilePath"`
 }
 
 // FileTaskRunRequestResponseInput is an input type that accepts FileTaskRunRequestResponseArgs and FileTaskRunRequestResponseOutput values.
@@ -3457,34 +2887,19 @@ type FileTaskRunRequestResponseInput interface {
 	ToFileTaskRunRequestResponseOutputWithContext(context.Context) FileTaskRunRequestResponseOutput
 }
 
-// The request parameters for a scheduling run against a task file.
 type FileTaskRunRequestResponseArgs struct {
-	// The machine configuration of the run agent.
 	AgentConfiguration AgentPropertiesResponsePtrInput `pulumi:"agentConfiguration"`
-	// The dedicated agent pool for the run.
-	AgentPoolName pulumi.StringPtrInput `pulumi:"agentPoolName"`
-	// The properties that describes a set of credentials that will be used when this run is invoked.
-	Credentials CredentialsResponsePtrInput `pulumi:"credentials"`
-	// The value that indicates whether archiving is enabled for the run or not.
-	IsArchiveEnabled pulumi.BoolPtrInput `pulumi:"isArchiveEnabled"`
-	// The template that describes the repository and tag information for run log artifact.
-	LogTemplate pulumi.StringPtrInput `pulumi:"logTemplate"`
-	// The platform properties against which the run has to happen.
-	Platform PlatformPropertiesResponseInput `pulumi:"platform"`
-	// The URL(absolute or relative) of the source context. It can be an URL to a tar or git repository.
-	// If it is relative URL, the relative path should be obtained from calling listBuildSourceUploadUrl API.
-	SourceLocation pulumi.StringPtrInput `pulumi:"sourceLocation"`
-	// The template/definition file path relative to the source.
-	TaskFilePath pulumi.StringInput `pulumi:"taskFilePath"`
-	// Run timeout in seconds.
-	Timeout pulumi.IntPtrInput `pulumi:"timeout"`
-	// The type of the run request.
-	// Expected value is 'FileTaskRunRequest'.
-	Type pulumi.StringInput `pulumi:"type"`
-	// The collection of overridable values that can be passed when running a task.
-	Values SetValueResponseArrayInput `pulumi:"values"`
-	// The values/parameters file path relative to the source.
-	ValuesFilePath pulumi.StringPtrInput `pulumi:"valuesFilePath"`
+	AgentPoolName      pulumi.StringPtrInput           `pulumi:"agentPoolName"`
+	Credentials        CredentialsResponsePtrInput     `pulumi:"credentials"`
+	IsArchiveEnabled   pulumi.BoolPtrInput             `pulumi:"isArchiveEnabled"`
+	LogTemplate        pulumi.StringPtrInput           `pulumi:"logTemplate"`
+	Platform           PlatformPropertiesResponseInput `pulumi:"platform"`
+	SourceLocation     pulumi.StringPtrInput           `pulumi:"sourceLocation"`
+	TaskFilePath       pulumi.StringInput              `pulumi:"taskFilePath"`
+	Timeout            pulumi.IntPtrInput              `pulumi:"timeout"`
+	Type               pulumi.StringInput              `pulumi:"type"`
+	Values             SetValueResponseArrayInput      `pulumi:"values"`
+	ValuesFilePath     pulumi.StringPtrInput           `pulumi:"valuesFilePath"`
 }
 
 func (FileTaskRunRequestResponseArgs) ElementType() reflect.Type {
@@ -3499,7 +2914,6 @@ func (i FileTaskRunRequestResponseArgs) ToFileTaskRunRequestResponseOutputWithCo
 	return pulumi.ToOutputWithContext(ctx, i).(FileTaskRunRequestResponseOutput)
 }
 
-// The request parameters for a scheduling run against a task file.
 type FileTaskRunRequestResponseOutput struct{ *pulumi.OutputState }
 
 func (FileTaskRunRequestResponseOutput) ElementType() reflect.Type {
@@ -3514,83 +2928,61 @@ func (o FileTaskRunRequestResponseOutput) ToFileTaskRunRequestResponseOutputWith
 	return o
 }
 
-// The machine configuration of the run agent.
 func (o FileTaskRunRequestResponseOutput) AgentConfiguration() AgentPropertiesResponsePtrOutput {
 	return o.ApplyT(func(v FileTaskRunRequestResponse) *AgentPropertiesResponse { return v.AgentConfiguration }).(AgentPropertiesResponsePtrOutput)
 }
 
-// The dedicated agent pool for the run.
 func (o FileTaskRunRequestResponseOutput) AgentPoolName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v FileTaskRunRequestResponse) *string { return v.AgentPoolName }).(pulumi.StringPtrOutput)
 }
 
-// The properties that describes a set of credentials that will be used when this run is invoked.
 func (o FileTaskRunRequestResponseOutput) Credentials() CredentialsResponsePtrOutput {
 	return o.ApplyT(func(v FileTaskRunRequestResponse) *CredentialsResponse { return v.Credentials }).(CredentialsResponsePtrOutput)
 }
 
-// The value that indicates whether archiving is enabled for the run or not.
 func (o FileTaskRunRequestResponseOutput) IsArchiveEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v FileTaskRunRequestResponse) *bool { return v.IsArchiveEnabled }).(pulumi.BoolPtrOutput)
 }
 
-// The template that describes the repository and tag information for run log artifact.
 func (o FileTaskRunRequestResponseOutput) LogTemplate() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v FileTaskRunRequestResponse) *string { return v.LogTemplate }).(pulumi.StringPtrOutput)
 }
 
-// The platform properties against which the run has to happen.
 func (o FileTaskRunRequestResponseOutput) Platform() PlatformPropertiesResponseOutput {
 	return o.ApplyT(func(v FileTaskRunRequestResponse) PlatformPropertiesResponse { return v.Platform }).(PlatformPropertiesResponseOutput)
 }
 
-// The URL(absolute or relative) of the source context. It can be an URL to a tar or git repository.
-// If it is relative URL, the relative path should be obtained from calling listBuildSourceUploadUrl API.
 func (o FileTaskRunRequestResponseOutput) SourceLocation() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v FileTaskRunRequestResponse) *string { return v.SourceLocation }).(pulumi.StringPtrOutput)
 }
 
-// The template/definition file path relative to the source.
 func (o FileTaskRunRequestResponseOutput) TaskFilePath() pulumi.StringOutput {
 	return o.ApplyT(func(v FileTaskRunRequestResponse) string { return v.TaskFilePath }).(pulumi.StringOutput)
 }
 
-// Run timeout in seconds.
 func (o FileTaskRunRequestResponseOutput) Timeout() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v FileTaskRunRequestResponse) *int { return v.Timeout }).(pulumi.IntPtrOutput)
 }
 
-// The type of the run request.
-// Expected value is 'FileTaskRunRequest'.
 func (o FileTaskRunRequestResponseOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v FileTaskRunRequestResponse) string { return v.Type }).(pulumi.StringOutput)
 }
 
-// The collection of overridable values that can be passed when running a task.
 func (o FileTaskRunRequestResponseOutput) Values() SetValueResponseArrayOutput {
 	return o.ApplyT(func(v FileTaskRunRequestResponse) []SetValueResponse { return v.Values }).(SetValueResponseArrayOutput)
 }
 
-// The values/parameters file path relative to the source.
 func (o FileTaskRunRequestResponseOutput) ValuesFilePath() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v FileTaskRunRequestResponse) *string { return v.ValuesFilePath }).(pulumi.StringPtrOutput)
 }
 
-// The properties of a task step.
 type FileTaskStep struct {
-	// The token (git PAT or SAS token of storage account blob) associated with the context for a step.
-	ContextAccessToken *string `pulumi:"contextAccessToken"`
-	// The URL(absolute or relative) of the source context for the task step.
-	ContextPath *string `pulumi:"contextPath"`
-	// The task template/definition file path relative to the source context.
-	TaskFilePath string `pulumi:"taskFilePath"`
-	// The type of the step.
-	// Expected value is 'FileTask'.
-	Type string `pulumi:"type"`
-	// The collection of overridable values that can be passed when running a task.
-	Values []SetValue `pulumi:"values"`
-	// The task values/parameters file path relative to the source context.
-	ValuesFilePath *string `pulumi:"valuesFilePath"`
+	ContextAccessToken *string    `pulumi:"contextAccessToken"`
+	ContextPath        *string    `pulumi:"contextPath"`
+	TaskFilePath       string     `pulumi:"taskFilePath"`
+	Type               string     `pulumi:"type"`
+	Values             []SetValue `pulumi:"values"`
+	ValuesFilePath     *string    `pulumi:"valuesFilePath"`
 }
 
 // FileTaskStepInput is an input type that accepts FileTaskStepArgs and FileTaskStepOutput values.
@@ -3604,21 +2996,13 @@ type FileTaskStepInput interface {
 	ToFileTaskStepOutputWithContext(context.Context) FileTaskStepOutput
 }
 
-// The properties of a task step.
 type FileTaskStepArgs struct {
-	// The token (git PAT or SAS token of storage account blob) associated with the context for a step.
 	ContextAccessToken pulumi.StringPtrInput `pulumi:"contextAccessToken"`
-	// The URL(absolute or relative) of the source context for the task step.
-	ContextPath pulumi.StringPtrInput `pulumi:"contextPath"`
-	// The task template/definition file path relative to the source context.
-	TaskFilePath pulumi.StringInput `pulumi:"taskFilePath"`
-	// The type of the step.
-	// Expected value is 'FileTask'.
-	Type pulumi.StringInput `pulumi:"type"`
-	// The collection of overridable values that can be passed when running a task.
-	Values SetValueArrayInput `pulumi:"values"`
-	// The task values/parameters file path relative to the source context.
-	ValuesFilePath pulumi.StringPtrInput `pulumi:"valuesFilePath"`
+	ContextPath        pulumi.StringPtrInput `pulumi:"contextPath"`
+	TaskFilePath       pulumi.StringInput    `pulumi:"taskFilePath"`
+	Type               pulumi.StringInput    `pulumi:"type"`
+	Values             SetValueArrayInput    `pulumi:"values"`
+	ValuesFilePath     pulumi.StringPtrInput `pulumi:"valuesFilePath"`
 }
 
 func (FileTaskStepArgs) ElementType() reflect.Type {
@@ -3633,7 +3017,6 @@ func (i FileTaskStepArgs) ToFileTaskStepOutputWithContext(ctx context.Context) F
 	return pulumi.ToOutputWithContext(ctx, i).(FileTaskStepOutput)
 }
 
-// The properties of a task step.
 type FileTaskStepOutput struct{ *pulumi.OutputState }
 
 func (FileTaskStepOutput) ElementType() reflect.Type {
@@ -3648,54 +3031,38 @@ func (o FileTaskStepOutput) ToFileTaskStepOutputWithContext(ctx context.Context)
 	return o
 }
 
-// The token (git PAT or SAS token of storage account blob) associated with the context for a step.
 func (o FileTaskStepOutput) ContextAccessToken() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v FileTaskStep) *string { return v.ContextAccessToken }).(pulumi.StringPtrOutput)
 }
 
-// The URL(absolute or relative) of the source context for the task step.
 func (o FileTaskStepOutput) ContextPath() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v FileTaskStep) *string { return v.ContextPath }).(pulumi.StringPtrOutput)
 }
 
-// The task template/definition file path relative to the source context.
 func (o FileTaskStepOutput) TaskFilePath() pulumi.StringOutput {
 	return o.ApplyT(func(v FileTaskStep) string { return v.TaskFilePath }).(pulumi.StringOutput)
 }
 
-// The type of the step.
-// Expected value is 'FileTask'.
 func (o FileTaskStepOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v FileTaskStep) string { return v.Type }).(pulumi.StringOutput)
 }
 
-// The collection of overridable values that can be passed when running a task.
 func (o FileTaskStepOutput) Values() SetValueArrayOutput {
 	return o.ApplyT(func(v FileTaskStep) []SetValue { return v.Values }).(SetValueArrayOutput)
 }
 
-// The task values/parameters file path relative to the source context.
 func (o FileTaskStepOutput) ValuesFilePath() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v FileTaskStep) *string { return v.ValuesFilePath }).(pulumi.StringPtrOutput)
 }
 
-// The properties of a task step.
 type FileTaskStepResponse struct {
-	// List of base image dependencies for a step.
 	BaseImageDependencies []BaseImageDependencyResponse `pulumi:"baseImageDependencies"`
-	// The token (git PAT or SAS token of storage account blob) associated with the context for a step.
-	ContextAccessToken *string `pulumi:"contextAccessToken"`
-	// The URL(absolute or relative) of the source context for the task step.
-	ContextPath *string `pulumi:"contextPath"`
-	// The task template/definition file path relative to the source context.
-	TaskFilePath string `pulumi:"taskFilePath"`
-	// The type of the step.
-	// Expected value is 'FileTask'.
-	Type string `pulumi:"type"`
-	// The collection of overridable values that can be passed when running a task.
-	Values []SetValueResponse `pulumi:"values"`
-	// The task values/parameters file path relative to the source context.
-	ValuesFilePath *string `pulumi:"valuesFilePath"`
+	ContextAccessToken    *string                       `pulumi:"contextAccessToken"`
+	ContextPath           *string                       `pulumi:"contextPath"`
+	TaskFilePath          string                        `pulumi:"taskFilePath"`
+	Type                  string                        `pulumi:"type"`
+	Values                []SetValueResponse            `pulumi:"values"`
+	ValuesFilePath        *string                       `pulumi:"valuesFilePath"`
 }
 
 // FileTaskStepResponseInput is an input type that accepts FileTaskStepResponseArgs and FileTaskStepResponseOutput values.
@@ -3709,23 +3076,14 @@ type FileTaskStepResponseInput interface {
 	ToFileTaskStepResponseOutputWithContext(context.Context) FileTaskStepResponseOutput
 }
 
-// The properties of a task step.
 type FileTaskStepResponseArgs struct {
-	// List of base image dependencies for a step.
 	BaseImageDependencies BaseImageDependencyResponseArrayInput `pulumi:"baseImageDependencies"`
-	// The token (git PAT or SAS token of storage account blob) associated with the context for a step.
-	ContextAccessToken pulumi.StringPtrInput `pulumi:"contextAccessToken"`
-	// The URL(absolute or relative) of the source context for the task step.
-	ContextPath pulumi.StringPtrInput `pulumi:"contextPath"`
-	// The task template/definition file path relative to the source context.
-	TaskFilePath pulumi.StringInput `pulumi:"taskFilePath"`
-	// The type of the step.
-	// Expected value is 'FileTask'.
-	Type pulumi.StringInput `pulumi:"type"`
-	// The collection of overridable values that can be passed when running a task.
-	Values SetValueResponseArrayInput `pulumi:"values"`
-	// The task values/parameters file path relative to the source context.
-	ValuesFilePath pulumi.StringPtrInput `pulumi:"valuesFilePath"`
+	ContextAccessToken    pulumi.StringPtrInput                 `pulumi:"contextAccessToken"`
+	ContextPath           pulumi.StringPtrInput                 `pulumi:"contextPath"`
+	TaskFilePath          pulumi.StringInput                    `pulumi:"taskFilePath"`
+	Type                  pulumi.StringInput                    `pulumi:"type"`
+	Values                SetValueResponseArrayInput            `pulumi:"values"`
+	ValuesFilePath        pulumi.StringPtrInput                 `pulumi:"valuesFilePath"`
 }
 
 func (FileTaskStepResponseArgs) ElementType() reflect.Type {
@@ -3740,7 +3098,6 @@ func (i FileTaskStepResponseArgs) ToFileTaskStepResponseOutputWithContext(ctx co
 	return pulumi.ToOutputWithContext(ctx, i).(FileTaskStepResponseOutput)
 }
 
-// The properties of a task step.
 type FileTaskStepResponseOutput struct{ *pulumi.OutputState }
 
 func (FileTaskStepResponseOutput) ElementType() reflect.Type {
@@ -3755,54 +3112,38 @@ func (o FileTaskStepResponseOutput) ToFileTaskStepResponseOutputWithContext(ctx 
 	return o
 }
 
-// List of base image dependencies for a step.
 func (o FileTaskStepResponseOutput) BaseImageDependencies() BaseImageDependencyResponseArrayOutput {
 	return o.ApplyT(func(v FileTaskStepResponse) []BaseImageDependencyResponse { return v.BaseImageDependencies }).(BaseImageDependencyResponseArrayOutput)
 }
 
-// The token (git PAT or SAS token of storage account blob) associated with the context for a step.
 func (o FileTaskStepResponseOutput) ContextAccessToken() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v FileTaskStepResponse) *string { return v.ContextAccessToken }).(pulumi.StringPtrOutput)
 }
 
-// The URL(absolute or relative) of the source context for the task step.
 func (o FileTaskStepResponseOutput) ContextPath() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v FileTaskStepResponse) *string { return v.ContextPath }).(pulumi.StringPtrOutput)
 }
 
-// The task template/definition file path relative to the source context.
 func (o FileTaskStepResponseOutput) TaskFilePath() pulumi.StringOutput {
 	return o.ApplyT(func(v FileTaskStepResponse) string { return v.TaskFilePath }).(pulumi.StringOutput)
 }
 
-// The type of the step.
-// Expected value is 'FileTask'.
 func (o FileTaskStepResponseOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v FileTaskStepResponse) string { return v.Type }).(pulumi.StringOutput)
 }
 
-// The collection of overridable values that can be passed when running a task.
 func (o FileTaskStepResponseOutput) Values() SetValueResponseArrayOutput {
 	return o.ApplyT(func(v FileTaskStepResponse) []SetValueResponse { return v.Values }).(SetValueResponseArrayOutput)
 }
 
-// The task values/parameters file path relative to the source context.
 func (o FileTaskStepResponseOutput) ValuesFilePath() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v FileTaskStepResponse) *string { return v.ValuesFilePath }).(pulumi.StringPtrOutput)
 }
 
-// Managed identity for the resource.
 type IdentityProperties struct {
-	// The principal ID of resource identity.
-	PrincipalId *string `pulumi:"principalId"`
-	// The tenant ID of resource.
-	TenantId *string `pulumi:"tenantId"`
-	// The identity type.
-	Type *string `pulumi:"type"`
-	// The list of user identities associated with the resource. The user identity
-	// dictionary key references will be ARM resource ids in the form:
-	// '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/
-	//     providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}'.
+	PrincipalId            *string                           `pulumi:"principalId"`
+	TenantId               *string                           `pulumi:"tenantId"`
+	Type                   *ResourceIdentityType             `pulumi:"type"`
 	UserAssignedIdentities map[string]UserIdentityProperties `pulumi:"userAssignedIdentities"`
 }
 
@@ -3817,18 +3158,10 @@ type IdentityPropertiesInput interface {
 	ToIdentityPropertiesOutputWithContext(context.Context) IdentityPropertiesOutput
 }
 
-// Managed identity for the resource.
 type IdentityPropertiesArgs struct {
-	// The principal ID of resource identity.
-	PrincipalId pulumi.StringPtrInput `pulumi:"principalId"`
-	// The tenant ID of resource.
-	TenantId pulumi.StringPtrInput `pulumi:"tenantId"`
-	// The identity type.
-	Type *ResourceIdentityType `pulumi:"type"`
-	// The list of user identities associated with the resource. The user identity
-	// dictionary key references will be ARM resource ids in the form:
-	// '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/
-	//     providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}'.
+	PrincipalId            pulumi.StringPtrInput          `pulumi:"principalId"`
+	TenantId               pulumi.StringPtrInput          `pulumi:"tenantId"`
+	Type                   ResourceIdentityTypePtrInput   `pulumi:"type"`
 	UserAssignedIdentities UserIdentityPropertiesMapInput `pulumi:"userAssignedIdentities"`
 }
 
@@ -3885,7 +3218,6 @@ func (i *identityPropertiesPtrType) ToIdentityPropertiesPtrOutputWithContext(ctx
 	return pulumi.ToOutputWithContext(ctx, i).(IdentityPropertiesPtrOutput)
 }
 
-// Managed identity for the resource.
 type IdentityPropertiesOutput struct{ *pulumi.OutputState }
 
 func (IdentityPropertiesOutput) ElementType() reflect.Type {
@@ -3905,30 +3237,23 @@ func (o IdentityPropertiesOutput) ToIdentityPropertiesPtrOutput() IdentityProper
 }
 
 func (o IdentityPropertiesOutput) ToIdentityPropertiesPtrOutputWithContext(ctx context.Context) IdentityPropertiesPtrOutput {
-	return o.ApplyT(func(v IdentityProperties) *IdentityProperties {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v IdentityProperties) *IdentityProperties {
 		return &v
 	}).(IdentityPropertiesPtrOutput)
 }
 
-// The principal ID of resource identity.
 func (o IdentityPropertiesOutput) PrincipalId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v IdentityProperties) *string { return v.PrincipalId }).(pulumi.StringPtrOutput)
 }
 
-// The tenant ID of resource.
 func (o IdentityPropertiesOutput) TenantId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v IdentityProperties) *string { return v.TenantId }).(pulumi.StringPtrOutput)
 }
 
-// The identity type.
-func (o IdentityPropertiesOutput) Type() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v IdentityProperties) *string { return v.Type }).(pulumi.StringPtrOutput)
+func (o IdentityPropertiesOutput) Type() ResourceIdentityTypePtrOutput {
+	return o.ApplyT(func(v IdentityProperties) *ResourceIdentityType { return v.Type }).(ResourceIdentityTypePtrOutput)
 }
 
-// The list of user identities associated with the resource. The user identity
-// dictionary key references will be ARM resource ids in the form:
-// '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/
-//     providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}'.
 func (o IdentityPropertiesOutput) UserAssignedIdentities() UserIdentityPropertiesMapOutput {
 	return o.ApplyT(func(v IdentityProperties) map[string]UserIdentityProperties { return v.UserAssignedIdentities }).(UserIdentityPropertiesMapOutput)
 }
@@ -3948,10 +3273,15 @@ func (o IdentityPropertiesPtrOutput) ToIdentityPropertiesPtrOutputWithContext(ct
 }
 
 func (o IdentityPropertiesPtrOutput) Elem() IdentityPropertiesOutput {
-	return o.ApplyT(func(v *IdentityProperties) IdentityProperties { return *v }).(IdentityPropertiesOutput)
+	return o.ApplyT(func(v *IdentityProperties) IdentityProperties {
+		if v != nil {
+			return *v
+		}
+		var ret IdentityProperties
+		return ret
+	}).(IdentityPropertiesOutput)
 }
 
-// The principal ID of resource identity.
 func (o IdentityPropertiesPtrOutput) PrincipalId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *IdentityProperties) *string {
 		if v == nil {
@@ -3961,7 +3291,6 @@ func (o IdentityPropertiesPtrOutput) PrincipalId() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The tenant ID of resource.
 func (o IdentityPropertiesPtrOutput) TenantId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *IdentityProperties) *string {
 		if v == nil {
@@ -3971,20 +3300,15 @@ func (o IdentityPropertiesPtrOutput) TenantId() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The identity type.
-func (o IdentityPropertiesPtrOutput) Type() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *IdentityProperties) *string {
+func (o IdentityPropertiesPtrOutput) Type() ResourceIdentityTypePtrOutput {
+	return o.ApplyT(func(v *IdentityProperties) *ResourceIdentityType {
 		if v == nil {
 			return nil
 		}
 		return v.Type
-	}).(pulumi.StringPtrOutput)
+	}).(ResourceIdentityTypePtrOutput)
 }
 
-// The list of user identities associated with the resource. The user identity
-// dictionary key references will be ARM resource ids in the form:
-// '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/
-//     providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}'.
 func (o IdentityPropertiesPtrOutput) UserAssignedIdentities() UserIdentityPropertiesMapOutput {
 	return o.ApplyT(func(v *IdentityProperties) map[string]UserIdentityProperties {
 		if v == nil {
@@ -3994,18 +3318,10 @@ func (o IdentityPropertiesPtrOutput) UserAssignedIdentities() UserIdentityProper
 	}).(UserIdentityPropertiesMapOutput)
 }
 
-// Managed identity for the resource.
 type IdentityPropertiesResponse struct {
-	// The principal ID of resource identity.
-	PrincipalId *string `pulumi:"principalId"`
-	// The tenant ID of resource.
-	TenantId *string `pulumi:"tenantId"`
-	// The identity type.
-	Type *string `pulumi:"type"`
-	// The list of user identities associated with the resource. The user identity
-	// dictionary key references will be ARM resource ids in the form:
-	// '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/
-	//     providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}'.
+	PrincipalId            *string                                   `pulumi:"principalId"`
+	TenantId               *string                                   `pulumi:"tenantId"`
+	Type                   *string                                   `pulumi:"type"`
 	UserAssignedIdentities map[string]UserIdentityPropertiesResponse `pulumi:"userAssignedIdentities"`
 }
 
@@ -4020,18 +3336,10 @@ type IdentityPropertiesResponseInput interface {
 	ToIdentityPropertiesResponseOutputWithContext(context.Context) IdentityPropertiesResponseOutput
 }
 
-// Managed identity for the resource.
 type IdentityPropertiesResponseArgs struct {
-	// The principal ID of resource identity.
-	PrincipalId pulumi.StringPtrInput `pulumi:"principalId"`
-	// The tenant ID of resource.
-	TenantId pulumi.StringPtrInput `pulumi:"tenantId"`
-	// The identity type.
-	Type pulumi.StringPtrInput `pulumi:"type"`
-	// The list of user identities associated with the resource. The user identity
-	// dictionary key references will be ARM resource ids in the form:
-	// '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/
-	//     providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}'.
+	PrincipalId            pulumi.StringPtrInput                  `pulumi:"principalId"`
+	TenantId               pulumi.StringPtrInput                  `pulumi:"tenantId"`
+	Type                   pulumi.StringPtrInput                  `pulumi:"type"`
 	UserAssignedIdentities UserIdentityPropertiesResponseMapInput `pulumi:"userAssignedIdentities"`
 }
 
@@ -4088,7 +3396,6 @@ func (i *identityPropertiesResponsePtrType) ToIdentityPropertiesResponsePtrOutpu
 	return pulumi.ToOutputWithContext(ctx, i).(IdentityPropertiesResponsePtrOutput)
 }
 
-// Managed identity for the resource.
 type IdentityPropertiesResponseOutput struct{ *pulumi.OutputState }
 
 func (IdentityPropertiesResponseOutput) ElementType() reflect.Type {
@@ -4108,30 +3415,23 @@ func (o IdentityPropertiesResponseOutput) ToIdentityPropertiesResponsePtrOutput(
 }
 
 func (o IdentityPropertiesResponseOutput) ToIdentityPropertiesResponsePtrOutputWithContext(ctx context.Context) IdentityPropertiesResponsePtrOutput {
-	return o.ApplyT(func(v IdentityPropertiesResponse) *IdentityPropertiesResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v IdentityPropertiesResponse) *IdentityPropertiesResponse {
 		return &v
 	}).(IdentityPropertiesResponsePtrOutput)
 }
 
-// The principal ID of resource identity.
 func (o IdentityPropertiesResponseOutput) PrincipalId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v IdentityPropertiesResponse) *string { return v.PrincipalId }).(pulumi.StringPtrOutput)
 }
 
-// The tenant ID of resource.
 func (o IdentityPropertiesResponseOutput) TenantId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v IdentityPropertiesResponse) *string { return v.TenantId }).(pulumi.StringPtrOutput)
 }
 
-// The identity type.
 func (o IdentityPropertiesResponseOutput) Type() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v IdentityPropertiesResponse) *string { return v.Type }).(pulumi.StringPtrOutput)
 }
 
-// The list of user identities associated with the resource. The user identity
-// dictionary key references will be ARM resource ids in the form:
-// '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/
-//     providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}'.
 func (o IdentityPropertiesResponseOutput) UserAssignedIdentities() UserIdentityPropertiesResponseMapOutput {
 	return o.ApplyT(func(v IdentityPropertiesResponse) map[string]UserIdentityPropertiesResponse {
 		return v.UserAssignedIdentities
@@ -4153,10 +3453,15 @@ func (o IdentityPropertiesResponsePtrOutput) ToIdentityPropertiesResponsePtrOutp
 }
 
 func (o IdentityPropertiesResponsePtrOutput) Elem() IdentityPropertiesResponseOutput {
-	return o.ApplyT(func(v *IdentityPropertiesResponse) IdentityPropertiesResponse { return *v }).(IdentityPropertiesResponseOutput)
+	return o.ApplyT(func(v *IdentityPropertiesResponse) IdentityPropertiesResponse {
+		if v != nil {
+			return *v
+		}
+		var ret IdentityPropertiesResponse
+		return ret
+	}).(IdentityPropertiesResponseOutput)
 }
 
-// The principal ID of resource identity.
 func (o IdentityPropertiesResponsePtrOutput) PrincipalId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *IdentityPropertiesResponse) *string {
 		if v == nil {
@@ -4166,7 +3471,6 @@ func (o IdentityPropertiesResponsePtrOutput) PrincipalId() pulumi.StringPtrOutpu
 	}).(pulumi.StringPtrOutput)
 }
 
-// The tenant ID of resource.
 func (o IdentityPropertiesResponsePtrOutput) TenantId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *IdentityPropertiesResponse) *string {
 		if v == nil {
@@ -4176,7 +3480,6 @@ func (o IdentityPropertiesResponsePtrOutput) TenantId() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The identity type.
 func (o IdentityPropertiesResponsePtrOutput) Type() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *IdentityPropertiesResponse) *string {
 		if v == nil {
@@ -4186,10 +3489,6 @@ func (o IdentityPropertiesResponsePtrOutput) Type() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The list of user identities associated with the resource. The user identity
-// dictionary key references will be ARM resource ids in the form:
-// '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/
-//     providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}'.
 func (o IdentityPropertiesResponsePtrOutput) UserAssignedIdentities() UserIdentityPropertiesResponseMapOutput {
 	return o.ApplyT(func(v *IdentityPropertiesResponse) map[string]UserIdentityPropertiesResponse {
 		if v == nil {
@@ -4199,16 +3498,11 @@ func (o IdentityPropertiesResponsePtrOutput) UserAssignedIdentities() UserIdenti
 	}).(UserIdentityPropertiesResponseMapOutput)
 }
 
-// Properties for a registry image.
 type ImageDescriptorResponse struct {
-	// The sha256-based digest of the image manifest.
-	Digest *string `pulumi:"digest"`
-	// The registry login server.
-	Registry *string `pulumi:"registry"`
-	// The repository name.
+	Digest     *string `pulumi:"digest"`
+	Registry   *string `pulumi:"registry"`
 	Repository *string `pulumi:"repository"`
-	// The tag name.
-	Tag *string `pulumi:"tag"`
+	Tag        *string `pulumi:"tag"`
 }
 
 // ImageDescriptorResponseInput is an input type that accepts ImageDescriptorResponseArgs and ImageDescriptorResponseOutput values.
@@ -4222,16 +3516,11 @@ type ImageDescriptorResponseInput interface {
 	ToImageDescriptorResponseOutputWithContext(context.Context) ImageDescriptorResponseOutput
 }
 
-// Properties for a registry image.
 type ImageDescriptorResponseArgs struct {
-	// The sha256-based digest of the image manifest.
-	Digest pulumi.StringPtrInput `pulumi:"digest"`
-	// The registry login server.
-	Registry pulumi.StringPtrInput `pulumi:"registry"`
-	// The repository name.
+	Digest     pulumi.StringPtrInput `pulumi:"digest"`
+	Registry   pulumi.StringPtrInput `pulumi:"registry"`
 	Repository pulumi.StringPtrInput `pulumi:"repository"`
-	// The tag name.
-	Tag pulumi.StringPtrInput `pulumi:"tag"`
+	Tag        pulumi.StringPtrInput `pulumi:"tag"`
 }
 
 func (ImageDescriptorResponseArgs) ElementType() reflect.Type {
@@ -4312,7 +3601,6 @@ func (i ImageDescriptorResponseArray) ToImageDescriptorResponseArrayOutputWithCo
 	return pulumi.ToOutputWithContext(ctx, i).(ImageDescriptorResponseArrayOutput)
 }
 
-// Properties for a registry image.
 type ImageDescriptorResponseOutput struct{ *pulumi.OutputState }
 
 func (ImageDescriptorResponseOutput) ElementType() reflect.Type {
@@ -4332,27 +3620,23 @@ func (o ImageDescriptorResponseOutput) ToImageDescriptorResponsePtrOutput() Imag
 }
 
 func (o ImageDescriptorResponseOutput) ToImageDescriptorResponsePtrOutputWithContext(ctx context.Context) ImageDescriptorResponsePtrOutput {
-	return o.ApplyT(func(v ImageDescriptorResponse) *ImageDescriptorResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ImageDescriptorResponse) *ImageDescriptorResponse {
 		return &v
 	}).(ImageDescriptorResponsePtrOutput)
 }
 
-// The sha256-based digest of the image manifest.
 func (o ImageDescriptorResponseOutput) Digest() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ImageDescriptorResponse) *string { return v.Digest }).(pulumi.StringPtrOutput)
 }
 
-// The registry login server.
 func (o ImageDescriptorResponseOutput) Registry() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ImageDescriptorResponse) *string { return v.Registry }).(pulumi.StringPtrOutput)
 }
 
-// The repository name.
 func (o ImageDescriptorResponseOutput) Repository() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ImageDescriptorResponse) *string { return v.Repository }).(pulumi.StringPtrOutput)
 }
 
-// The tag name.
 func (o ImageDescriptorResponseOutput) Tag() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ImageDescriptorResponse) *string { return v.Tag }).(pulumi.StringPtrOutput)
 }
@@ -4372,10 +3656,15 @@ func (o ImageDescriptorResponsePtrOutput) ToImageDescriptorResponsePtrOutputWith
 }
 
 func (o ImageDescriptorResponsePtrOutput) Elem() ImageDescriptorResponseOutput {
-	return o.ApplyT(func(v *ImageDescriptorResponse) ImageDescriptorResponse { return *v }).(ImageDescriptorResponseOutput)
+	return o.ApplyT(func(v *ImageDescriptorResponse) ImageDescriptorResponse {
+		if v != nil {
+			return *v
+		}
+		var ret ImageDescriptorResponse
+		return ret
+	}).(ImageDescriptorResponseOutput)
 }
 
-// The sha256-based digest of the image manifest.
 func (o ImageDescriptorResponsePtrOutput) Digest() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ImageDescriptorResponse) *string {
 		if v == nil {
@@ -4385,7 +3674,6 @@ func (o ImageDescriptorResponsePtrOutput) Digest() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The registry login server.
 func (o ImageDescriptorResponsePtrOutput) Registry() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ImageDescriptorResponse) *string {
 		if v == nil {
@@ -4395,7 +3683,6 @@ func (o ImageDescriptorResponsePtrOutput) Registry() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The repository name.
 func (o ImageDescriptorResponsePtrOutput) Repository() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ImageDescriptorResponse) *string {
 		if v == nil {
@@ -4405,7 +3692,6 @@ func (o ImageDescriptorResponsePtrOutput) Repository() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The tag name.
 func (o ImageDescriptorResponsePtrOutput) Tag() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ImageDescriptorResponse) *string {
 		if v == nil {
@@ -4435,14 +3721,10 @@ func (o ImageDescriptorResponseArrayOutput) Index(i pulumi.IntInput) ImageDescri
 	}).(ImageDescriptorResponseOutput)
 }
 
-// The image update trigger that caused a build.
 type ImageUpdateTriggerResponse struct {
-	// The unique ID of the trigger.
-	Id *string `pulumi:"id"`
-	// The list of image updates that caused the build.
-	Images []ImageDescriptorResponse `pulumi:"images"`
-	// The timestamp when the image update happened.
-	Timestamp *string `pulumi:"timestamp"`
+	Id        *string                   `pulumi:"id"`
+	Images    []ImageDescriptorResponse `pulumi:"images"`
+	Timestamp *string                   `pulumi:"timestamp"`
 }
 
 // ImageUpdateTriggerResponseInput is an input type that accepts ImageUpdateTriggerResponseArgs and ImageUpdateTriggerResponseOutput values.
@@ -4456,14 +3738,10 @@ type ImageUpdateTriggerResponseInput interface {
 	ToImageUpdateTriggerResponseOutputWithContext(context.Context) ImageUpdateTriggerResponseOutput
 }
 
-// The image update trigger that caused a build.
 type ImageUpdateTriggerResponseArgs struct {
-	// The unique ID of the trigger.
-	Id pulumi.StringPtrInput `pulumi:"id"`
-	// The list of image updates that caused the build.
-	Images ImageDescriptorResponseArrayInput `pulumi:"images"`
-	// The timestamp when the image update happened.
-	Timestamp pulumi.StringPtrInput `pulumi:"timestamp"`
+	Id        pulumi.StringPtrInput             `pulumi:"id"`
+	Images    ImageDescriptorResponseArrayInput `pulumi:"images"`
+	Timestamp pulumi.StringPtrInput             `pulumi:"timestamp"`
 }
 
 func (ImageUpdateTriggerResponseArgs) ElementType() reflect.Type {
@@ -4519,7 +3797,6 @@ func (i *imageUpdateTriggerResponsePtrType) ToImageUpdateTriggerResponsePtrOutpu
 	return pulumi.ToOutputWithContext(ctx, i).(ImageUpdateTriggerResponsePtrOutput)
 }
 
-// The image update trigger that caused a build.
 type ImageUpdateTriggerResponseOutput struct{ *pulumi.OutputState }
 
 func (ImageUpdateTriggerResponseOutput) ElementType() reflect.Type {
@@ -4539,22 +3816,19 @@ func (o ImageUpdateTriggerResponseOutput) ToImageUpdateTriggerResponsePtrOutput(
 }
 
 func (o ImageUpdateTriggerResponseOutput) ToImageUpdateTriggerResponsePtrOutputWithContext(ctx context.Context) ImageUpdateTriggerResponsePtrOutput {
-	return o.ApplyT(func(v ImageUpdateTriggerResponse) *ImageUpdateTriggerResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ImageUpdateTriggerResponse) *ImageUpdateTriggerResponse {
 		return &v
 	}).(ImageUpdateTriggerResponsePtrOutput)
 }
 
-// The unique ID of the trigger.
 func (o ImageUpdateTriggerResponseOutput) Id() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ImageUpdateTriggerResponse) *string { return v.Id }).(pulumi.StringPtrOutput)
 }
 
-// The list of image updates that caused the build.
 func (o ImageUpdateTriggerResponseOutput) Images() ImageDescriptorResponseArrayOutput {
 	return o.ApplyT(func(v ImageUpdateTriggerResponse) []ImageDescriptorResponse { return v.Images }).(ImageDescriptorResponseArrayOutput)
 }
 
-// The timestamp when the image update happened.
 func (o ImageUpdateTriggerResponseOutput) Timestamp() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ImageUpdateTriggerResponse) *string { return v.Timestamp }).(pulumi.StringPtrOutput)
 }
@@ -4574,10 +3848,15 @@ func (o ImageUpdateTriggerResponsePtrOutput) ToImageUpdateTriggerResponsePtrOutp
 }
 
 func (o ImageUpdateTriggerResponsePtrOutput) Elem() ImageUpdateTriggerResponseOutput {
-	return o.ApplyT(func(v *ImageUpdateTriggerResponse) ImageUpdateTriggerResponse { return *v }).(ImageUpdateTriggerResponseOutput)
+	return o.ApplyT(func(v *ImageUpdateTriggerResponse) ImageUpdateTriggerResponse {
+		if v != nil {
+			return *v
+		}
+		var ret ImageUpdateTriggerResponse
+		return ret
+	}).(ImageUpdateTriggerResponseOutput)
 }
 
-// The unique ID of the trigger.
 func (o ImageUpdateTriggerResponsePtrOutput) Id() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ImageUpdateTriggerResponse) *string {
 		if v == nil {
@@ -4587,7 +3866,6 @@ func (o ImageUpdateTriggerResponsePtrOutput) Id() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The list of image updates that caused the build.
 func (o ImageUpdateTriggerResponsePtrOutput) Images() ImageDescriptorResponseArrayOutput {
 	return o.ApplyT(func(v *ImageUpdateTriggerResponse) []ImageDescriptorResponse {
 		if v == nil {
@@ -4597,7 +3875,6 @@ func (o ImageUpdateTriggerResponsePtrOutput) Images() ImageDescriptorResponseArr
 	}).(ImageDescriptorResponseArrayOutput)
 }
 
-// The timestamp when the image update happened.
 func (o ImageUpdateTriggerResponsePtrOutput) Timestamp() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ImageUpdateTriggerResponse) *string {
 		if v == nil {
@@ -4608,19 +3885,12 @@ func (o ImageUpdateTriggerResponsePtrOutput) Timestamp() pulumi.StringPtrOutput 
 }
 
 type OverrideTaskStepProperties struct {
-	// Gets or sets the collection of override arguments to be used when
-	// executing a build step.
-	Arguments []Argument `pulumi:"arguments"`
-	// The source context against which run has to be queued.
-	ContextPath *string `pulumi:"contextPath"`
-	// The file against which run has to be queued.
-	File *string `pulumi:"file"`
-	// The name of the target build stage for the docker build.
-	Target *string `pulumi:"target"`
-	// Base64 encoded update trigger token that will be attached with the base image trigger webhook.
-	UpdateTriggerToken *string `pulumi:"updateTriggerToken"`
-	// The collection of overridable values that can be passed when running a Task.
-	Values []SetValue `pulumi:"values"`
+	Arguments          []Argument `pulumi:"arguments"`
+	ContextPath        *string    `pulumi:"contextPath"`
+	File               *string    `pulumi:"file"`
+	Target             *string    `pulumi:"target"`
+	UpdateTriggerToken *string    `pulumi:"updateTriggerToken"`
+	Values             []SetValue `pulumi:"values"`
 }
 
 // OverrideTaskStepPropertiesInput is an input type that accepts OverrideTaskStepPropertiesArgs and OverrideTaskStepPropertiesOutput values.
@@ -4635,19 +3905,12 @@ type OverrideTaskStepPropertiesInput interface {
 }
 
 type OverrideTaskStepPropertiesArgs struct {
-	// Gets or sets the collection of override arguments to be used when
-	// executing a build step.
-	Arguments ArgumentArrayInput `pulumi:"arguments"`
-	// The source context against which run has to be queued.
-	ContextPath pulumi.StringPtrInput `pulumi:"contextPath"`
-	// The file against which run has to be queued.
-	File pulumi.StringPtrInput `pulumi:"file"`
-	// The name of the target build stage for the docker build.
-	Target pulumi.StringPtrInput `pulumi:"target"`
-	// Base64 encoded update trigger token that will be attached with the base image trigger webhook.
+	Arguments          ArgumentArrayInput    `pulumi:"arguments"`
+	ContextPath        pulumi.StringPtrInput `pulumi:"contextPath"`
+	File               pulumi.StringPtrInput `pulumi:"file"`
+	Target             pulumi.StringPtrInput `pulumi:"target"`
 	UpdateTriggerToken pulumi.StringPtrInput `pulumi:"updateTriggerToken"`
-	// The collection of overridable values that can be passed when running a Task.
-	Values SetValueArrayInput `pulumi:"values"`
+	Values             SetValueArrayInput    `pulumi:"values"`
 }
 
 func (OverrideTaskStepPropertiesArgs) ElementType() reflect.Type {
@@ -4722,38 +3985,31 @@ func (o OverrideTaskStepPropertiesOutput) ToOverrideTaskStepPropertiesPtrOutput(
 }
 
 func (o OverrideTaskStepPropertiesOutput) ToOverrideTaskStepPropertiesPtrOutputWithContext(ctx context.Context) OverrideTaskStepPropertiesPtrOutput {
-	return o.ApplyT(func(v OverrideTaskStepProperties) *OverrideTaskStepProperties {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v OverrideTaskStepProperties) *OverrideTaskStepProperties {
 		return &v
 	}).(OverrideTaskStepPropertiesPtrOutput)
 }
 
-// Gets or sets the collection of override arguments to be used when
-// executing a build step.
 func (o OverrideTaskStepPropertiesOutput) Arguments() ArgumentArrayOutput {
 	return o.ApplyT(func(v OverrideTaskStepProperties) []Argument { return v.Arguments }).(ArgumentArrayOutput)
 }
 
-// The source context against which run has to be queued.
 func (o OverrideTaskStepPropertiesOutput) ContextPath() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v OverrideTaskStepProperties) *string { return v.ContextPath }).(pulumi.StringPtrOutput)
 }
 
-// The file against which run has to be queued.
 func (o OverrideTaskStepPropertiesOutput) File() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v OverrideTaskStepProperties) *string { return v.File }).(pulumi.StringPtrOutput)
 }
 
-// The name of the target build stage for the docker build.
 func (o OverrideTaskStepPropertiesOutput) Target() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v OverrideTaskStepProperties) *string { return v.Target }).(pulumi.StringPtrOutput)
 }
 
-// Base64 encoded update trigger token that will be attached with the base image trigger webhook.
 func (o OverrideTaskStepPropertiesOutput) UpdateTriggerToken() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v OverrideTaskStepProperties) *string { return v.UpdateTriggerToken }).(pulumi.StringPtrOutput)
 }
 
-// The collection of overridable values that can be passed when running a Task.
 func (o OverrideTaskStepPropertiesOutput) Values() SetValueArrayOutput {
 	return o.ApplyT(func(v OverrideTaskStepProperties) []SetValue { return v.Values }).(SetValueArrayOutput)
 }
@@ -4773,11 +4029,15 @@ func (o OverrideTaskStepPropertiesPtrOutput) ToOverrideTaskStepPropertiesPtrOutp
 }
 
 func (o OverrideTaskStepPropertiesPtrOutput) Elem() OverrideTaskStepPropertiesOutput {
-	return o.ApplyT(func(v *OverrideTaskStepProperties) OverrideTaskStepProperties { return *v }).(OverrideTaskStepPropertiesOutput)
+	return o.ApplyT(func(v *OverrideTaskStepProperties) OverrideTaskStepProperties {
+		if v != nil {
+			return *v
+		}
+		var ret OverrideTaskStepProperties
+		return ret
+	}).(OverrideTaskStepPropertiesOutput)
 }
 
-// Gets or sets the collection of override arguments to be used when
-// executing a build step.
 func (o OverrideTaskStepPropertiesPtrOutput) Arguments() ArgumentArrayOutput {
 	return o.ApplyT(func(v *OverrideTaskStepProperties) []Argument {
 		if v == nil {
@@ -4787,7 +4047,6 @@ func (o OverrideTaskStepPropertiesPtrOutput) Arguments() ArgumentArrayOutput {
 	}).(ArgumentArrayOutput)
 }
 
-// The source context against which run has to be queued.
 func (o OverrideTaskStepPropertiesPtrOutput) ContextPath() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *OverrideTaskStepProperties) *string {
 		if v == nil {
@@ -4797,7 +4056,6 @@ func (o OverrideTaskStepPropertiesPtrOutput) ContextPath() pulumi.StringPtrOutpu
 	}).(pulumi.StringPtrOutput)
 }
 
-// The file against which run has to be queued.
 func (o OverrideTaskStepPropertiesPtrOutput) File() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *OverrideTaskStepProperties) *string {
 		if v == nil {
@@ -4807,7 +4065,6 @@ func (o OverrideTaskStepPropertiesPtrOutput) File() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The name of the target build stage for the docker build.
 func (o OverrideTaskStepPropertiesPtrOutput) Target() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *OverrideTaskStepProperties) *string {
 		if v == nil {
@@ -4817,7 +4074,6 @@ func (o OverrideTaskStepPropertiesPtrOutput) Target() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Base64 encoded update trigger token that will be attached with the base image trigger webhook.
 func (o OverrideTaskStepPropertiesPtrOutput) UpdateTriggerToken() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *OverrideTaskStepProperties) *string {
 		if v == nil {
@@ -4827,7 +4083,6 @@ func (o OverrideTaskStepPropertiesPtrOutput) UpdateTriggerToken() pulumi.StringP
 	}).(pulumi.StringPtrOutput)
 }
 
-// The collection of overridable values that can be passed when running a Task.
 func (o OverrideTaskStepPropertiesPtrOutput) Values() SetValueArrayOutput {
 	return o.ApplyT(func(v *OverrideTaskStepProperties) []SetValue {
 		if v == nil {
@@ -4838,19 +4093,12 @@ func (o OverrideTaskStepPropertiesPtrOutput) Values() SetValueArrayOutput {
 }
 
 type OverrideTaskStepPropertiesResponse struct {
-	// Gets or sets the collection of override arguments to be used when
-	// executing a build step.
-	Arguments []ArgumentResponse `pulumi:"arguments"`
-	// The source context against which run has to be queued.
-	ContextPath *string `pulumi:"contextPath"`
-	// The file against which run has to be queued.
-	File *string `pulumi:"file"`
-	// The name of the target build stage for the docker build.
-	Target *string `pulumi:"target"`
-	// Base64 encoded update trigger token that will be attached with the base image trigger webhook.
-	UpdateTriggerToken *string `pulumi:"updateTriggerToken"`
-	// The collection of overridable values that can be passed when running a Task.
-	Values []SetValueResponse `pulumi:"values"`
+	Arguments          []ArgumentResponse `pulumi:"arguments"`
+	ContextPath        *string            `pulumi:"contextPath"`
+	File               *string            `pulumi:"file"`
+	Target             *string            `pulumi:"target"`
+	UpdateTriggerToken *string            `pulumi:"updateTriggerToken"`
+	Values             []SetValueResponse `pulumi:"values"`
 }
 
 // OverrideTaskStepPropertiesResponseInput is an input type that accepts OverrideTaskStepPropertiesResponseArgs and OverrideTaskStepPropertiesResponseOutput values.
@@ -4865,19 +4113,12 @@ type OverrideTaskStepPropertiesResponseInput interface {
 }
 
 type OverrideTaskStepPropertiesResponseArgs struct {
-	// Gets or sets the collection of override arguments to be used when
-	// executing a build step.
-	Arguments ArgumentResponseArrayInput `pulumi:"arguments"`
-	// The source context against which run has to be queued.
-	ContextPath pulumi.StringPtrInput `pulumi:"contextPath"`
-	// The file against which run has to be queued.
-	File pulumi.StringPtrInput `pulumi:"file"`
-	// The name of the target build stage for the docker build.
-	Target pulumi.StringPtrInput `pulumi:"target"`
-	// Base64 encoded update trigger token that will be attached with the base image trigger webhook.
-	UpdateTriggerToken pulumi.StringPtrInput `pulumi:"updateTriggerToken"`
-	// The collection of overridable values that can be passed when running a Task.
-	Values SetValueResponseArrayInput `pulumi:"values"`
+	Arguments          ArgumentResponseArrayInput `pulumi:"arguments"`
+	ContextPath        pulumi.StringPtrInput      `pulumi:"contextPath"`
+	File               pulumi.StringPtrInput      `pulumi:"file"`
+	Target             pulumi.StringPtrInput      `pulumi:"target"`
+	UpdateTriggerToken pulumi.StringPtrInput      `pulumi:"updateTriggerToken"`
+	Values             SetValueResponseArrayInput `pulumi:"values"`
 }
 
 func (OverrideTaskStepPropertiesResponseArgs) ElementType() reflect.Type {
@@ -4952,38 +4193,31 @@ func (o OverrideTaskStepPropertiesResponseOutput) ToOverrideTaskStepPropertiesRe
 }
 
 func (o OverrideTaskStepPropertiesResponseOutput) ToOverrideTaskStepPropertiesResponsePtrOutputWithContext(ctx context.Context) OverrideTaskStepPropertiesResponsePtrOutput {
-	return o.ApplyT(func(v OverrideTaskStepPropertiesResponse) *OverrideTaskStepPropertiesResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v OverrideTaskStepPropertiesResponse) *OverrideTaskStepPropertiesResponse {
 		return &v
 	}).(OverrideTaskStepPropertiesResponsePtrOutput)
 }
 
-// Gets or sets the collection of override arguments to be used when
-// executing a build step.
 func (o OverrideTaskStepPropertiesResponseOutput) Arguments() ArgumentResponseArrayOutput {
 	return o.ApplyT(func(v OverrideTaskStepPropertiesResponse) []ArgumentResponse { return v.Arguments }).(ArgumentResponseArrayOutput)
 }
 
-// The source context against which run has to be queued.
 func (o OverrideTaskStepPropertiesResponseOutput) ContextPath() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v OverrideTaskStepPropertiesResponse) *string { return v.ContextPath }).(pulumi.StringPtrOutput)
 }
 
-// The file against which run has to be queued.
 func (o OverrideTaskStepPropertiesResponseOutput) File() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v OverrideTaskStepPropertiesResponse) *string { return v.File }).(pulumi.StringPtrOutput)
 }
 
-// The name of the target build stage for the docker build.
 func (o OverrideTaskStepPropertiesResponseOutput) Target() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v OverrideTaskStepPropertiesResponse) *string { return v.Target }).(pulumi.StringPtrOutput)
 }
 
-// Base64 encoded update trigger token that will be attached with the base image trigger webhook.
 func (o OverrideTaskStepPropertiesResponseOutput) UpdateTriggerToken() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v OverrideTaskStepPropertiesResponse) *string { return v.UpdateTriggerToken }).(pulumi.StringPtrOutput)
 }
 
-// The collection of overridable values that can be passed when running a Task.
 func (o OverrideTaskStepPropertiesResponseOutput) Values() SetValueResponseArrayOutput {
 	return o.ApplyT(func(v OverrideTaskStepPropertiesResponse) []SetValueResponse { return v.Values }).(SetValueResponseArrayOutput)
 }
@@ -5003,11 +4237,15 @@ func (o OverrideTaskStepPropertiesResponsePtrOutput) ToOverrideTaskStepPropertie
 }
 
 func (o OverrideTaskStepPropertiesResponsePtrOutput) Elem() OverrideTaskStepPropertiesResponseOutput {
-	return o.ApplyT(func(v *OverrideTaskStepPropertiesResponse) OverrideTaskStepPropertiesResponse { return *v }).(OverrideTaskStepPropertiesResponseOutput)
+	return o.ApplyT(func(v *OverrideTaskStepPropertiesResponse) OverrideTaskStepPropertiesResponse {
+		if v != nil {
+			return *v
+		}
+		var ret OverrideTaskStepPropertiesResponse
+		return ret
+	}).(OverrideTaskStepPropertiesResponseOutput)
 }
 
-// Gets or sets the collection of override arguments to be used when
-// executing a build step.
 func (o OverrideTaskStepPropertiesResponsePtrOutput) Arguments() ArgumentResponseArrayOutput {
 	return o.ApplyT(func(v *OverrideTaskStepPropertiesResponse) []ArgumentResponse {
 		if v == nil {
@@ -5017,7 +4255,6 @@ func (o OverrideTaskStepPropertiesResponsePtrOutput) Arguments() ArgumentRespons
 	}).(ArgumentResponseArrayOutput)
 }
 
-// The source context against which run has to be queued.
 func (o OverrideTaskStepPropertiesResponsePtrOutput) ContextPath() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *OverrideTaskStepPropertiesResponse) *string {
 		if v == nil {
@@ -5027,7 +4264,6 @@ func (o OverrideTaskStepPropertiesResponsePtrOutput) ContextPath() pulumi.String
 	}).(pulumi.StringPtrOutput)
 }
 
-// The file against which run has to be queued.
 func (o OverrideTaskStepPropertiesResponsePtrOutput) File() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *OverrideTaskStepPropertiesResponse) *string {
 		if v == nil {
@@ -5037,7 +4273,6 @@ func (o OverrideTaskStepPropertiesResponsePtrOutput) File() pulumi.StringPtrOutp
 	}).(pulumi.StringPtrOutput)
 }
 
-// The name of the target build stage for the docker build.
 func (o OverrideTaskStepPropertiesResponsePtrOutput) Target() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *OverrideTaskStepPropertiesResponse) *string {
 		if v == nil {
@@ -5047,7 +4282,6 @@ func (o OverrideTaskStepPropertiesResponsePtrOutput) Target() pulumi.StringPtrOu
 	}).(pulumi.StringPtrOutput)
 }
 
-// Base64 encoded update trigger token that will be attached with the base image trigger webhook.
 func (o OverrideTaskStepPropertiesResponsePtrOutput) UpdateTriggerToken() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *OverrideTaskStepPropertiesResponse) *string {
 		if v == nil {
@@ -5057,7 +4291,6 @@ func (o OverrideTaskStepPropertiesResponsePtrOutput) UpdateTriggerToken() pulumi
 	}).(pulumi.StringPtrOutput)
 }
 
-// The collection of overridable values that can be passed when running a Task.
 func (o OverrideTaskStepPropertiesResponsePtrOutput) Values() SetValueResponseArrayOutput {
 	return o.ApplyT(func(v *OverrideTaskStepPropertiesResponse) []SetValueResponse {
 		if v == nil {
@@ -5067,14 +4300,10 @@ func (o OverrideTaskStepPropertiesResponsePtrOutput) Values() SetValueResponseAr
 	}).(SetValueResponseArrayOutput)
 }
 
-// The platform properties against which the run has to happen.
 type PlatformProperties struct {
-	// The OS architecture.
 	Architecture *string `pulumi:"architecture"`
-	// The operating system type required for the run.
-	Os string `pulumi:"os"`
-	// Variant of the CPU.
-	Variant *string `pulumi:"variant"`
+	Os           string  `pulumi:"os"`
+	Variant      *string `pulumi:"variant"`
 }
 
 // PlatformPropertiesInput is an input type that accepts PlatformPropertiesArgs and PlatformPropertiesOutput values.
@@ -5088,14 +4317,10 @@ type PlatformPropertiesInput interface {
 	ToPlatformPropertiesOutputWithContext(context.Context) PlatformPropertiesOutput
 }
 
-// The platform properties against which the run has to happen.
 type PlatformPropertiesArgs struct {
-	// The OS architecture.
 	Architecture pulumi.StringPtrInput `pulumi:"architecture"`
-	// The operating system type required for the run.
-	Os pulumi.StringInput `pulumi:"os"`
-	// Variant of the CPU.
-	Variant pulumi.StringPtrInput `pulumi:"variant"`
+	Os           pulumi.StringInput    `pulumi:"os"`
+	Variant      pulumi.StringPtrInput `pulumi:"variant"`
 }
 
 func (PlatformPropertiesArgs) ElementType() reflect.Type {
@@ -5151,7 +4376,6 @@ func (i *platformPropertiesPtrType) ToPlatformPropertiesPtrOutputWithContext(ctx
 	return pulumi.ToOutputWithContext(ctx, i).(PlatformPropertiesPtrOutput)
 }
 
-// The platform properties against which the run has to happen.
 type PlatformPropertiesOutput struct{ *pulumi.OutputState }
 
 func (PlatformPropertiesOutput) ElementType() reflect.Type {
@@ -5171,22 +4395,19 @@ func (o PlatformPropertiesOutput) ToPlatformPropertiesPtrOutput() PlatformProper
 }
 
 func (o PlatformPropertiesOutput) ToPlatformPropertiesPtrOutputWithContext(ctx context.Context) PlatformPropertiesPtrOutput {
-	return o.ApplyT(func(v PlatformProperties) *PlatformProperties {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v PlatformProperties) *PlatformProperties {
 		return &v
 	}).(PlatformPropertiesPtrOutput)
 }
 
-// The OS architecture.
 func (o PlatformPropertiesOutput) Architecture() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v PlatformProperties) *string { return v.Architecture }).(pulumi.StringPtrOutput)
 }
 
-// The operating system type required for the run.
 func (o PlatformPropertiesOutput) Os() pulumi.StringOutput {
 	return o.ApplyT(func(v PlatformProperties) string { return v.Os }).(pulumi.StringOutput)
 }
 
-// Variant of the CPU.
 func (o PlatformPropertiesOutput) Variant() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v PlatformProperties) *string { return v.Variant }).(pulumi.StringPtrOutput)
 }
@@ -5206,10 +4427,15 @@ func (o PlatformPropertiesPtrOutput) ToPlatformPropertiesPtrOutputWithContext(ct
 }
 
 func (o PlatformPropertiesPtrOutput) Elem() PlatformPropertiesOutput {
-	return o.ApplyT(func(v *PlatformProperties) PlatformProperties { return *v }).(PlatformPropertiesOutput)
+	return o.ApplyT(func(v *PlatformProperties) PlatformProperties {
+		if v != nil {
+			return *v
+		}
+		var ret PlatformProperties
+		return ret
+	}).(PlatformPropertiesOutput)
 }
 
-// The OS architecture.
 func (o PlatformPropertiesPtrOutput) Architecture() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *PlatformProperties) *string {
 		if v == nil {
@@ -5219,7 +4445,6 @@ func (o PlatformPropertiesPtrOutput) Architecture() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The operating system type required for the run.
 func (o PlatformPropertiesPtrOutput) Os() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *PlatformProperties) *string {
 		if v == nil {
@@ -5229,7 +4454,6 @@ func (o PlatformPropertiesPtrOutput) Os() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Variant of the CPU.
 func (o PlatformPropertiesPtrOutput) Variant() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *PlatformProperties) *string {
 		if v == nil {
@@ -5239,14 +4463,10 @@ func (o PlatformPropertiesPtrOutput) Variant() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The platform properties against which the run has to happen.
 type PlatformPropertiesResponse struct {
-	// The OS architecture.
 	Architecture *string `pulumi:"architecture"`
-	// The operating system type required for the run.
-	Os string `pulumi:"os"`
-	// Variant of the CPU.
-	Variant *string `pulumi:"variant"`
+	Os           string  `pulumi:"os"`
+	Variant      *string `pulumi:"variant"`
 }
 
 // PlatformPropertiesResponseInput is an input type that accepts PlatformPropertiesResponseArgs and PlatformPropertiesResponseOutput values.
@@ -5260,14 +4480,10 @@ type PlatformPropertiesResponseInput interface {
 	ToPlatformPropertiesResponseOutputWithContext(context.Context) PlatformPropertiesResponseOutput
 }
 
-// The platform properties against which the run has to happen.
 type PlatformPropertiesResponseArgs struct {
-	// The OS architecture.
 	Architecture pulumi.StringPtrInput `pulumi:"architecture"`
-	// The operating system type required for the run.
-	Os pulumi.StringInput `pulumi:"os"`
-	// Variant of the CPU.
-	Variant pulumi.StringPtrInput `pulumi:"variant"`
+	Os           pulumi.StringInput    `pulumi:"os"`
+	Variant      pulumi.StringPtrInput `pulumi:"variant"`
 }
 
 func (PlatformPropertiesResponseArgs) ElementType() reflect.Type {
@@ -5323,7 +4539,6 @@ func (i *platformPropertiesResponsePtrType) ToPlatformPropertiesResponsePtrOutpu
 	return pulumi.ToOutputWithContext(ctx, i).(PlatformPropertiesResponsePtrOutput)
 }
 
-// The platform properties against which the run has to happen.
 type PlatformPropertiesResponseOutput struct{ *pulumi.OutputState }
 
 func (PlatformPropertiesResponseOutput) ElementType() reflect.Type {
@@ -5343,22 +4558,19 @@ func (o PlatformPropertiesResponseOutput) ToPlatformPropertiesResponsePtrOutput(
 }
 
 func (o PlatformPropertiesResponseOutput) ToPlatformPropertiesResponsePtrOutputWithContext(ctx context.Context) PlatformPropertiesResponsePtrOutput {
-	return o.ApplyT(func(v PlatformPropertiesResponse) *PlatformPropertiesResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v PlatformPropertiesResponse) *PlatformPropertiesResponse {
 		return &v
 	}).(PlatformPropertiesResponsePtrOutput)
 }
 
-// The OS architecture.
 func (o PlatformPropertiesResponseOutput) Architecture() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v PlatformPropertiesResponse) *string { return v.Architecture }).(pulumi.StringPtrOutput)
 }
 
-// The operating system type required for the run.
 func (o PlatformPropertiesResponseOutput) Os() pulumi.StringOutput {
 	return o.ApplyT(func(v PlatformPropertiesResponse) string { return v.Os }).(pulumi.StringOutput)
 }
 
-// Variant of the CPU.
 func (o PlatformPropertiesResponseOutput) Variant() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v PlatformPropertiesResponse) *string { return v.Variant }).(pulumi.StringPtrOutput)
 }
@@ -5378,10 +4590,15 @@ func (o PlatformPropertiesResponsePtrOutput) ToPlatformPropertiesResponsePtrOutp
 }
 
 func (o PlatformPropertiesResponsePtrOutput) Elem() PlatformPropertiesResponseOutput {
-	return o.ApplyT(func(v *PlatformPropertiesResponse) PlatformPropertiesResponse { return *v }).(PlatformPropertiesResponseOutput)
+	return o.ApplyT(func(v *PlatformPropertiesResponse) PlatformPropertiesResponse {
+		if v != nil {
+			return *v
+		}
+		var ret PlatformPropertiesResponse
+		return ret
+	}).(PlatformPropertiesResponseOutput)
 }
 
-// The OS architecture.
 func (o PlatformPropertiesResponsePtrOutput) Architecture() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *PlatformPropertiesResponse) *string {
 		if v == nil {
@@ -5391,7 +4608,6 @@ func (o PlatformPropertiesResponsePtrOutput) Architecture() pulumi.StringPtrOutp
 	}).(pulumi.StringPtrOutput)
 }
 
-// The operating system type required for the run.
 func (o PlatformPropertiesResponsePtrOutput) Os() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *PlatformPropertiesResponse) *string {
 		if v == nil {
@@ -5401,7 +4617,6 @@ func (o PlatformPropertiesResponsePtrOutput) Os() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Variant of the CPU.
 func (o PlatformPropertiesResponsePtrOutput) Variant() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *PlatformPropertiesResponse) *string {
 		if v == nil {
@@ -5411,60 +4626,33 @@ func (o PlatformPropertiesResponsePtrOutput) Variant() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Run resource properties
 type RunResponse struct {
-	// The machine configuration of the run agent.
-	AgentConfiguration *AgentPropertiesResponse `pulumi:"agentConfiguration"`
-	// The dedicated agent pool for the run.
-	AgentPoolName *string `pulumi:"agentPoolName"`
-	// The time the run was scheduled.
-	CreateTime *string `pulumi:"createTime"`
-	// The list of custom registries that were logged in during this run.
-	CustomRegistries []string `pulumi:"customRegistries"`
-	// The time the run finished.
-	FinishTime *string `pulumi:"finishTime"`
-	// The resource ID.
-	Id string `pulumi:"id"`
-	// The image update trigger that caused the run. This is applicable if the task has base image trigger configured.
-	ImageUpdateTrigger *ImageUpdateTriggerResponse `pulumi:"imageUpdateTrigger"`
-	// The value that indicates whether archiving is enabled or not.
-	IsArchiveEnabled *bool `pulumi:"isArchiveEnabled"`
-	// The last updated time for the run.
-	LastUpdatedTime *string `pulumi:"lastUpdatedTime"`
-	// The image description for the log artifact.
-	LogArtifact ImageDescriptorResponse `pulumi:"logArtifact"`
-	// The name of the resource.
-	Name string `pulumi:"name"`
-	// The list of all images that were generated from the run. This is applicable if the run generates base image dependencies.
-	OutputImages []ImageDescriptorResponse `pulumi:"outputImages"`
-	// The platform properties against which the run will happen.
-	Platform *PlatformPropertiesResponse `pulumi:"platform"`
-	// The provisioning state of a run.
-	ProvisioningState *string `pulumi:"provisioningState"`
-	// The error message received from backend systems after the run is scheduled.
-	RunErrorMessage string `pulumi:"runErrorMessage"`
-	// The unique identifier for the run.
-	RunId *string `pulumi:"runId"`
-	// The type of run.
-	RunType *string `pulumi:"runType"`
-	// The scope of the credentials that were used to login to the source registry during this run.
-	SourceRegistryAuth *string `pulumi:"sourceRegistryAuth"`
-	// The source trigger that caused the run.
-	SourceTrigger *SourceTriggerDescriptorResponse `pulumi:"sourceTrigger"`
-	// The time the run started.
-	StartTime *string `pulumi:"startTime"`
-	// The current status of the run.
-	Status *string `pulumi:"status"`
-	// Metadata pertaining to creation and last modification of the resource.
-	SystemData SystemDataResponse `pulumi:"systemData"`
-	// The task against which run was scheduled.
-	Task *string `pulumi:"task"`
-	// The timer trigger that caused the run.
-	TimerTrigger *TimerTriggerDescriptorResponse `pulumi:"timerTrigger"`
-	// The type of the resource.
-	Type string `pulumi:"type"`
-	// The update trigger token passed for the Run.
-	UpdateTriggerToken *string `pulumi:"updateTriggerToken"`
+	AgentConfiguration *AgentPropertiesResponse         `pulumi:"agentConfiguration"`
+	AgentPoolName      *string                          `pulumi:"agentPoolName"`
+	CreateTime         *string                          `pulumi:"createTime"`
+	CustomRegistries   []string                         `pulumi:"customRegistries"`
+	FinishTime         *string                          `pulumi:"finishTime"`
+	Id                 string                           `pulumi:"id"`
+	ImageUpdateTrigger *ImageUpdateTriggerResponse      `pulumi:"imageUpdateTrigger"`
+	IsArchiveEnabled   *bool                            `pulumi:"isArchiveEnabled"`
+	LastUpdatedTime    *string                          `pulumi:"lastUpdatedTime"`
+	LogArtifact        ImageDescriptorResponse          `pulumi:"logArtifact"`
+	Name               string                           `pulumi:"name"`
+	OutputImages       []ImageDescriptorResponse        `pulumi:"outputImages"`
+	Platform           *PlatformPropertiesResponse      `pulumi:"platform"`
+	ProvisioningState  *string                          `pulumi:"provisioningState"`
+	RunErrorMessage    string                           `pulumi:"runErrorMessage"`
+	RunId              *string                          `pulumi:"runId"`
+	RunType            *string                          `pulumi:"runType"`
+	SourceRegistryAuth *string                          `pulumi:"sourceRegistryAuth"`
+	SourceTrigger      *SourceTriggerDescriptorResponse `pulumi:"sourceTrigger"`
+	StartTime          *string                          `pulumi:"startTime"`
+	Status             *string                          `pulumi:"status"`
+	SystemData         SystemDataResponse               `pulumi:"systemData"`
+	Task               *string                          `pulumi:"task"`
+	TimerTrigger       *TimerTriggerDescriptorResponse  `pulumi:"timerTrigger"`
+	Type               string                           `pulumi:"type"`
+	UpdateTriggerToken *string                          `pulumi:"updateTriggerToken"`
 }
 
 // RunResponseInput is an input type that accepts RunResponseArgs and RunResponseOutput values.
@@ -5478,60 +4666,33 @@ type RunResponseInput interface {
 	ToRunResponseOutputWithContext(context.Context) RunResponseOutput
 }
 
-// Run resource properties
 type RunResponseArgs struct {
-	// The machine configuration of the run agent.
-	AgentConfiguration AgentPropertiesResponsePtrInput `pulumi:"agentConfiguration"`
-	// The dedicated agent pool for the run.
-	AgentPoolName pulumi.StringPtrInput `pulumi:"agentPoolName"`
-	// The time the run was scheduled.
-	CreateTime pulumi.StringPtrInput `pulumi:"createTime"`
-	// The list of custom registries that were logged in during this run.
-	CustomRegistries pulumi.StringArrayInput `pulumi:"customRegistries"`
-	// The time the run finished.
-	FinishTime pulumi.StringPtrInput `pulumi:"finishTime"`
-	// The resource ID.
-	Id pulumi.StringInput `pulumi:"id"`
-	// The image update trigger that caused the run. This is applicable if the task has base image trigger configured.
-	ImageUpdateTrigger ImageUpdateTriggerResponsePtrInput `pulumi:"imageUpdateTrigger"`
-	// The value that indicates whether archiving is enabled or not.
-	IsArchiveEnabled pulumi.BoolPtrInput `pulumi:"isArchiveEnabled"`
-	// The last updated time for the run.
-	LastUpdatedTime pulumi.StringPtrInput `pulumi:"lastUpdatedTime"`
-	// The image description for the log artifact.
-	LogArtifact ImageDescriptorResponseInput `pulumi:"logArtifact"`
-	// The name of the resource.
-	Name pulumi.StringInput `pulumi:"name"`
-	// The list of all images that were generated from the run. This is applicable if the run generates base image dependencies.
-	OutputImages ImageDescriptorResponseArrayInput `pulumi:"outputImages"`
-	// The platform properties against which the run will happen.
-	Platform PlatformPropertiesResponsePtrInput `pulumi:"platform"`
-	// The provisioning state of a run.
-	ProvisioningState pulumi.StringPtrInput `pulumi:"provisioningState"`
-	// The error message received from backend systems after the run is scheduled.
-	RunErrorMessage pulumi.StringInput `pulumi:"runErrorMessage"`
-	// The unique identifier for the run.
-	RunId pulumi.StringPtrInput `pulumi:"runId"`
-	// The type of run.
-	RunType pulumi.StringPtrInput `pulumi:"runType"`
-	// The scope of the credentials that were used to login to the source registry during this run.
-	SourceRegistryAuth pulumi.StringPtrInput `pulumi:"sourceRegistryAuth"`
-	// The source trigger that caused the run.
-	SourceTrigger SourceTriggerDescriptorResponsePtrInput `pulumi:"sourceTrigger"`
-	// The time the run started.
-	StartTime pulumi.StringPtrInput `pulumi:"startTime"`
-	// The current status of the run.
-	Status pulumi.StringPtrInput `pulumi:"status"`
-	// Metadata pertaining to creation and last modification of the resource.
-	SystemData SystemDataResponseInput `pulumi:"systemData"`
-	// The task against which run was scheduled.
-	Task pulumi.StringPtrInput `pulumi:"task"`
-	// The timer trigger that caused the run.
-	TimerTrigger TimerTriggerDescriptorResponsePtrInput `pulumi:"timerTrigger"`
-	// The type of the resource.
-	Type pulumi.StringInput `pulumi:"type"`
-	// The update trigger token passed for the Run.
-	UpdateTriggerToken pulumi.StringPtrInput `pulumi:"updateTriggerToken"`
+	AgentConfiguration AgentPropertiesResponsePtrInput         `pulumi:"agentConfiguration"`
+	AgentPoolName      pulumi.StringPtrInput                   `pulumi:"agentPoolName"`
+	CreateTime         pulumi.StringPtrInput                   `pulumi:"createTime"`
+	CustomRegistries   pulumi.StringArrayInput                 `pulumi:"customRegistries"`
+	FinishTime         pulumi.StringPtrInput                   `pulumi:"finishTime"`
+	Id                 pulumi.StringInput                      `pulumi:"id"`
+	ImageUpdateTrigger ImageUpdateTriggerResponsePtrInput      `pulumi:"imageUpdateTrigger"`
+	IsArchiveEnabled   pulumi.BoolPtrInput                     `pulumi:"isArchiveEnabled"`
+	LastUpdatedTime    pulumi.StringPtrInput                   `pulumi:"lastUpdatedTime"`
+	LogArtifact        ImageDescriptorResponseInput            `pulumi:"logArtifact"`
+	Name               pulumi.StringInput                      `pulumi:"name"`
+	OutputImages       ImageDescriptorResponseArrayInput       `pulumi:"outputImages"`
+	Platform           PlatformPropertiesResponsePtrInput      `pulumi:"platform"`
+	ProvisioningState  pulumi.StringPtrInput                   `pulumi:"provisioningState"`
+	RunErrorMessage    pulumi.StringInput                      `pulumi:"runErrorMessage"`
+	RunId              pulumi.StringPtrInput                   `pulumi:"runId"`
+	RunType            pulumi.StringPtrInput                   `pulumi:"runType"`
+	SourceRegistryAuth pulumi.StringPtrInput                   `pulumi:"sourceRegistryAuth"`
+	SourceTrigger      SourceTriggerDescriptorResponsePtrInput `pulumi:"sourceTrigger"`
+	StartTime          pulumi.StringPtrInput                   `pulumi:"startTime"`
+	Status             pulumi.StringPtrInput                   `pulumi:"status"`
+	SystemData         SystemDataResponseInput                 `pulumi:"systemData"`
+	Task               pulumi.StringPtrInput                   `pulumi:"task"`
+	TimerTrigger       TimerTriggerDescriptorResponsePtrInput  `pulumi:"timerTrigger"`
+	Type               pulumi.StringInput                      `pulumi:"type"`
+	UpdateTriggerToken pulumi.StringPtrInput                   `pulumi:"updateTriggerToken"`
 }
 
 func (RunResponseArgs) ElementType() reflect.Type {
@@ -5587,7 +4748,6 @@ func (i *runResponsePtrType) ToRunResponsePtrOutputWithContext(ctx context.Conte
 	return pulumi.ToOutputWithContext(ctx, i).(RunResponsePtrOutput)
 }
 
-// Run resource properties
 type RunResponseOutput struct{ *pulumi.OutputState }
 
 func (RunResponseOutput) ElementType() reflect.Type {
@@ -5607,137 +4767,111 @@ func (o RunResponseOutput) ToRunResponsePtrOutput() RunResponsePtrOutput {
 }
 
 func (o RunResponseOutput) ToRunResponsePtrOutputWithContext(ctx context.Context) RunResponsePtrOutput {
-	return o.ApplyT(func(v RunResponse) *RunResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v RunResponse) *RunResponse {
 		return &v
 	}).(RunResponsePtrOutput)
 }
 
-// The machine configuration of the run agent.
 func (o RunResponseOutput) AgentConfiguration() AgentPropertiesResponsePtrOutput {
 	return o.ApplyT(func(v RunResponse) *AgentPropertiesResponse { return v.AgentConfiguration }).(AgentPropertiesResponsePtrOutput)
 }
 
-// The dedicated agent pool for the run.
 func (o RunResponseOutput) AgentPoolName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v RunResponse) *string { return v.AgentPoolName }).(pulumi.StringPtrOutput)
 }
 
-// The time the run was scheduled.
 func (o RunResponseOutput) CreateTime() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v RunResponse) *string { return v.CreateTime }).(pulumi.StringPtrOutput)
 }
 
-// The list of custom registries that were logged in during this run.
 func (o RunResponseOutput) CustomRegistries() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v RunResponse) []string { return v.CustomRegistries }).(pulumi.StringArrayOutput)
 }
 
-// The time the run finished.
 func (o RunResponseOutput) FinishTime() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v RunResponse) *string { return v.FinishTime }).(pulumi.StringPtrOutput)
 }
 
-// The resource ID.
 func (o RunResponseOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v RunResponse) string { return v.Id }).(pulumi.StringOutput)
 }
 
-// The image update trigger that caused the run. This is applicable if the task has base image trigger configured.
 func (o RunResponseOutput) ImageUpdateTrigger() ImageUpdateTriggerResponsePtrOutput {
 	return o.ApplyT(func(v RunResponse) *ImageUpdateTriggerResponse { return v.ImageUpdateTrigger }).(ImageUpdateTriggerResponsePtrOutput)
 }
 
-// The value that indicates whether archiving is enabled or not.
 func (o RunResponseOutput) IsArchiveEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v RunResponse) *bool { return v.IsArchiveEnabled }).(pulumi.BoolPtrOutput)
 }
 
-// The last updated time for the run.
 func (o RunResponseOutput) LastUpdatedTime() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v RunResponse) *string { return v.LastUpdatedTime }).(pulumi.StringPtrOutput)
 }
 
-// The image description for the log artifact.
 func (o RunResponseOutput) LogArtifact() ImageDescriptorResponseOutput {
 	return o.ApplyT(func(v RunResponse) ImageDescriptorResponse { return v.LogArtifact }).(ImageDescriptorResponseOutput)
 }
 
-// The name of the resource.
 func (o RunResponseOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v RunResponse) string { return v.Name }).(pulumi.StringOutput)
 }
 
-// The list of all images that were generated from the run. This is applicable if the run generates base image dependencies.
 func (o RunResponseOutput) OutputImages() ImageDescriptorResponseArrayOutput {
 	return o.ApplyT(func(v RunResponse) []ImageDescriptorResponse { return v.OutputImages }).(ImageDescriptorResponseArrayOutput)
 }
 
-// The platform properties against which the run will happen.
 func (o RunResponseOutput) Platform() PlatformPropertiesResponsePtrOutput {
 	return o.ApplyT(func(v RunResponse) *PlatformPropertiesResponse { return v.Platform }).(PlatformPropertiesResponsePtrOutput)
 }
 
-// The provisioning state of a run.
 func (o RunResponseOutput) ProvisioningState() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v RunResponse) *string { return v.ProvisioningState }).(pulumi.StringPtrOutput)
 }
 
-// The error message received from backend systems after the run is scheduled.
 func (o RunResponseOutput) RunErrorMessage() pulumi.StringOutput {
 	return o.ApplyT(func(v RunResponse) string { return v.RunErrorMessage }).(pulumi.StringOutput)
 }
 
-// The unique identifier for the run.
 func (o RunResponseOutput) RunId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v RunResponse) *string { return v.RunId }).(pulumi.StringPtrOutput)
 }
 
-// The type of run.
 func (o RunResponseOutput) RunType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v RunResponse) *string { return v.RunType }).(pulumi.StringPtrOutput)
 }
 
-// The scope of the credentials that were used to login to the source registry during this run.
 func (o RunResponseOutput) SourceRegistryAuth() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v RunResponse) *string { return v.SourceRegistryAuth }).(pulumi.StringPtrOutput)
 }
 
-// The source trigger that caused the run.
 func (o RunResponseOutput) SourceTrigger() SourceTriggerDescriptorResponsePtrOutput {
 	return o.ApplyT(func(v RunResponse) *SourceTriggerDescriptorResponse { return v.SourceTrigger }).(SourceTriggerDescriptorResponsePtrOutput)
 }
 
-// The time the run started.
 func (o RunResponseOutput) StartTime() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v RunResponse) *string { return v.StartTime }).(pulumi.StringPtrOutput)
 }
 
-// The current status of the run.
 func (o RunResponseOutput) Status() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v RunResponse) *string { return v.Status }).(pulumi.StringPtrOutput)
 }
 
-// Metadata pertaining to creation and last modification of the resource.
 func (o RunResponseOutput) SystemData() SystemDataResponseOutput {
 	return o.ApplyT(func(v RunResponse) SystemDataResponse { return v.SystemData }).(SystemDataResponseOutput)
 }
 
-// The task against which run was scheduled.
 func (o RunResponseOutput) Task() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v RunResponse) *string { return v.Task }).(pulumi.StringPtrOutput)
 }
 
-// The timer trigger that caused the run.
 func (o RunResponseOutput) TimerTrigger() TimerTriggerDescriptorResponsePtrOutput {
 	return o.ApplyT(func(v RunResponse) *TimerTriggerDescriptorResponse { return v.TimerTrigger }).(TimerTriggerDescriptorResponsePtrOutput)
 }
 
-// The type of the resource.
 func (o RunResponseOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v RunResponse) string { return v.Type }).(pulumi.StringOutput)
 }
 
-// The update trigger token passed for the Run.
 func (o RunResponseOutput) UpdateTriggerToken() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v RunResponse) *string { return v.UpdateTriggerToken }).(pulumi.StringPtrOutput)
 }
@@ -5757,10 +4891,15 @@ func (o RunResponsePtrOutput) ToRunResponsePtrOutputWithContext(ctx context.Cont
 }
 
 func (o RunResponsePtrOutput) Elem() RunResponseOutput {
-	return o.ApplyT(func(v *RunResponse) RunResponse { return *v }).(RunResponseOutput)
+	return o.ApplyT(func(v *RunResponse) RunResponse {
+		if v != nil {
+			return *v
+		}
+		var ret RunResponse
+		return ret
+	}).(RunResponseOutput)
 }
 
-// The machine configuration of the run agent.
 func (o RunResponsePtrOutput) AgentConfiguration() AgentPropertiesResponsePtrOutput {
 	return o.ApplyT(func(v *RunResponse) *AgentPropertiesResponse {
 		if v == nil {
@@ -5770,7 +4909,6 @@ func (o RunResponsePtrOutput) AgentConfiguration() AgentPropertiesResponsePtrOut
 	}).(AgentPropertiesResponsePtrOutput)
 }
 
-// The dedicated agent pool for the run.
 func (o RunResponsePtrOutput) AgentPoolName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *RunResponse) *string {
 		if v == nil {
@@ -5780,7 +4918,6 @@ func (o RunResponsePtrOutput) AgentPoolName() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The time the run was scheduled.
 func (o RunResponsePtrOutput) CreateTime() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *RunResponse) *string {
 		if v == nil {
@@ -5790,7 +4927,6 @@ func (o RunResponsePtrOutput) CreateTime() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The list of custom registries that were logged in during this run.
 func (o RunResponsePtrOutput) CustomRegistries() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *RunResponse) []string {
 		if v == nil {
@@ -5800,7 +4936,6 @@ func (o RunResponsePtrOutput) CustomRegistries() pulumi.StringArrayOutput {
 	}).(pulumi.StringArrayOutput)
 }
 
-// The time the run finished.
 func (o RunResponsePtrOutput) FinishTime() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *RunResponse) *string {
 		if v == nil {
@@ -5810,7 +4945,6 @@ func (o RunResponsePtrOutput) FinishTime() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The resource ID.
 func (o RunResponsePtrOutput) Id() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *RunResponse) *string {
 		if v == nil {
@@ -5820,7 +4954,6 @@ func (o RunResponsePtrOutput) Id() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The image update trigger that caused the run. This is applicable if the task has base image trigger configured.
 func (o RunResponsePtrOutput) ImageUpdateTrigger() ImageUpdateTriggerResponsePtrOutput {
 	return o.ApplyT(func(v *RunResponse) *ImageUpdateTriggerResponse {
 		if v == nil {
@@ -5830,7 +4963,6 @@ func (o RunResponsePtrOutput) ImageUpdateTrigger() ImageUpdateTriggerResponsePtr
 	}).(ImageUpdateTriggerResponsePtrOutput)
 }
 
-// The value that indicates whether archiving is enabled or not.
 func (o RunResponsePtrOutput) IsArchiveEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *RunResponse) *bool {
 		if v == nil {
@@ -5840,7 +4972,6 @@ func (o RunResponsePtrOutput) IsArchiveEnabled() pulumi.BoolPtrOutput {
 	}).(pulumi.BoolPtrOutput)
 }
 
-// The last updated time for the run.
 func (o RunResponsePtrOutput) LastUpdatedTime() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *RunResponse) *string {
 		if v == nil {
@@ -5850,7 +4981,6 @@ func (o RunResponsePtrOutput) LastUpdatedTime() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The image description for the log artifact.
 func (o RunResponsePtrOutput) LogArtifact() ImageDescriptorResponsePtrOutput {
 	return o.ApplyT(func(v *RunResponse) *ImageDescriptorResponse {
 		if v == nil {
@@ -5860,7 +4990,6 @@ func (o RunResponsePtrOutput) LogArtifact() ImageDescriptorResponsePtrOutput {
 	}).(ImageDescriptorResponsePtrOutput)
 }
 
-// The name of the resource.
 func (o RunResponsePtrOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *RunResponse) *string {
 		if v == nil {
@@ -5870,7 +4999,6 @@ func (o RunResponsePtrOutput) Name() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The list of all images that were generated from the run. This is applicable if the run generates base image dependencies.
 func (o RunResponsePtrOutput) OutputImages() ImageDescriptorResponseArrayOutput {
 	return o.ApplyT(func(v *RunResponse) []ImageDescriptorResponse {
 		if v == nil {
@@ -5880,7 +5008,6 @@ func (o RunResponsePtrOutput) OutputImages() ImageDescriptorResponseArrayOutput 
 	}).(ImageDescriptorResponseArrayOutput)
 }
 
-// The platform properties against which the run will happen.
 func (o RunResponsePtrOutput) Platform() PlatformPropertiesResponsePtrOutput {
 	return o.ApplyT(func(v *RunResponse) *PlatformPropertiesResponse {
 		if v == nil {
@@ -5890,7 +5017,6 @@ func (o RunResponsePtrOutput) Platform() PlatformPropertiesResponsePtrOutput {
 	}).(PlatformPropertiesResponsePtrOutput)
 }
 
-// The provisioning state of a run.
 func (o RunResponsePtrOutput) ProvisioningState() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *RunResponse) *string {
 		if v == nil {
@@ -5900,7 +5026,6 @@ func (o RunResponsePtrOutput) ProvisioningState() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The error message received from backend systems after the run is scheduled.
 func (o RunResponsePtrOutput) RunErrorMessage() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *RunResponse) *string {
 		if v == nil {
@@ -5910,7 +5035,6 @@ func (o RunResponsePtrOutput) RunErrorMessage() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The unique identifier for the run.
 func (o RunResponsePtrOutput) RunId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *RunResponse) *string {
 		if v == nil {
@@ -5920,7 +5044,6 @@ func (o RunResponsePtrOutput) RunId() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The type of run.
 func (o RunResponsePtrOutput) RunType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *RunResponse) *string {
 		if v == nil {
@@ -5930,7 +5053,6 @@ func (o RunResponsePtrOutput) RunType() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The scope of the credentials that were used to login to the source registry during this run.
 func (o RunResponsePtrOutput) SourceRegistryAuth() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *RunResponse) *string {
 		if v == nil {
@@ -5940,7 +5062,6 @@ func (o RunResponsePtrOutput) SourceRegistryAuth() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The source trigger that caused the run.
 func (o RunResponsePtrOutput) SourceTrigger() SourceTriggerDescriptorResponsePtrOutput {
 	return o.ApplyT(func(v *RunResponse) *SourceTriggerDescriptorResponse {
 		if v == nil {
@@ -5950,7 +5071,6 @@ func (o RunResponsePtrOutput) SourceTrigger() SourceTriggerDescriptorResponsePtr
 	}).(SourceTriggerDescriptorResponsePtrOutput)
 }
 
-// The time the run started.
 func (o RunResponsePtrOutput) StartTime() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *RunResponse) *string {
 		if v == nil {
@@ -5960,7 +5080,6 @@ func (o RunResponsePtrOutput) StartTime() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The current status of the run.
 func (o RunResponsePtrOutput) Status() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *RunResponse) *string {
 		if v == nil {
@@ -5970,7 +5089,6 @@ func (o RunResponsePtrOutput) Status() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Metadata pertaining to creation and last modification of the resource.
 func (o RunResponsePtrOutput) SystemData() SystemDataResponsePtrOutput {
 	return o.ApplyT(func(v *RunResponse) *SystemDataResponse {
 		if v == nil {
@@ -5980,7 +5098,6 @@ func (o RunResponsePtrOutput) SystemData() SystemDataResponsePtrOutput {
 	}).(SystemDataResponsePtrOutput)
 }
 
-// The task against which run was scheduled.
 func (o RunResponsePtrOutput) Task() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *RunResponse) *string {
 		if v == nil {
@@ -5990,7 +5107,6 @@ func (o RunResponsePtrOutput) Task() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The timer trigger that caused the run.
 func (o RunResponsePtrOutput) TimerTrigger() TimerTriggerDescriptorResponsePtrOutput {
 	return o.ApplyT(func(v *RunResponse) *TimerTriggerDescriptorResponse {
 		if v == nil {
@@ -6000,7 +5116,6 @@ func (o RunResponsePtrOutput) TimerTrigger() TimerTriggerDescriptorResponsePtrOu
 	}).(TimerTriggerDescriptorResponsePtrOutput)
 }
 
-// The type of the resource.
 func (o RunResponsePtrOutput) Type() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *RunResponse) *string {
 		if v == nil {
@@ -6010,7 +5125,6 @@ func (o RunResponsePtrOutput) Type() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The update trigger token passed for the Run.
 func (o RunResponsePtrOutput) UpdateTriggerToken() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *RunResponse) *string {
 		if v == nil {
@@ -6020,14 +5134,8 @@ func (o RunResponsePtrOutput) UpdateTriggerToken() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Describes the properties of a secret object value.
 type SecretObject struct {
-	// The type of the secret object which determines how the value of the secret object has to be
-	// interpreted.
-	Type *string `pulumi:"type"`
-	// The value of the secret. The format of this value will be determined
-	// based on the type of the secret object. If the type is Opaque, the value will be
-	// used as is without any modification.
+	Type  *string `pulumi:"type"`
 	Value *string `pulumi:"value"`
 }
 
@@ -6042,14 +5150,8 @@ type SecretObjectInput interface {
 	ToSecretObjectOutputWithContext(context.Context) SecretObjectOutput
 }
 
-// Describes the properties of a secret object value.
 type SecretObjectArgs struct {
-	// The type of the secret object which determines how the value of the secret object has to be
-	// interpreted.
-	Type pulumi.StringPtrInput `pulumi:"type"`
-	// The value of the secret. The format of this value will be determined
-	// based on the type of the secret object. If the type is Opaque, the value will be
-	// used as is without any modification.
+	Type  pulumi.StringPtrInput `pulumi:"type"`
 	Value pulumi.StringPtrInput `pulumi:"value"`
 }
 
@@ -6106,7 +5208,6 @@ func (i *secretObjectPtrType) ToSecretObjectPtrOutputWithContext(ctx context.Con
 	return pulumi.ToOutputWithContext(ctx, i).(SecretObjectPtrOutput)
 }
 
-// Describes the properties of a secret object value.
 type SecretObjectOutput struct{ *pulumi.OutputState }
 
 func (SecretObjectOutput) ElementType() reflect.Type {
@@ -6126,20 +5227,15 @@ func (o SecretObjectOutput) ToSecretObjectPtrOutput() SecretObjectPtrOutput {
 }
 
 func (o SecretObjectOutput) ToSecretObjectPtrOutputWithContext(ctx context.Context) SecretObjectPtrOutput {
-	return o.ApplyT(func(v SecretObject) *SecretObject {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v SecretObject) *SecretObject {
 		return &v
 	}).(SecretObjectPtrOutput)
 }
 
-// The type of the secret object which determines how the value of the secret object has to be
-// interpreted.
 func (o SecretObjectOutput) Type() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SecretObject) *string { return v.Type }).(pulumi.StringPtrOutput)
 }
 
-// The value of the secret. The format of this value will be determined
-// based on the type of the secret object. If the type is Opaque, the value will be
-// used as is without any modification.
 func (o SecretObjectOutput) Value() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SecretObject) *string { return v.Value }).(pulumi.StringPtrOutput)
 }
@@ -6159,11 +5255,15 @@ func (o SecretObjectPtrOutput) ToSecretObjectPtrOutputWithContext(ctx context.Co
 }
 
 func (o SecretObjectPtrOutput) Elem() SecretObjectOutput {
-	return o.ApplyT(func(v *SecretObject) SecretObject { return *v }).(SecretObjectOutput)
+	return o.ApplyT(func(v *SecretObject) SecretObject {
+		if v != nil {
+			return *v
+		}
+		var ret SecretObject
+		return ret
+	}).(SecretObjectOutput)
 }
 
-// The type of the secret object which determines how the value of the secret object has to be
-// interpreted.
 func (o SecretObjectPtrOutput) Type() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SecretObject) *string {
 		if v == nil {
@@ -6173,9 +5273,6 @@ func (o SecretObjectPtrOutput) Type() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The value of the secret. The format of this value will be determined
-// based on the type of the secret object. If the type is Opaque, the value will be
-// used as is without any modification.
 func (o SecretObjectPtrOutput) Value() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SecretObject) *string {
 		if v == nil {
@@ -6185,14 +5282,8 @@ func (o SecretObjectPtrOutput) Value() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Describes the properties of a secret object value.
 type SecretObjectResponse struct {
-	// The type of the secret object which determines how the value of the secret object has to be
-	// interpreted.
-	Type *string `pulumi:"type"`
-	// The value of the secret. The format of this value will be determined
-	// based on the type of the secret object. If the type is Opaque, the value will be
-	// used as is without any modification.
+	Type  *string `pulumi:"type"`
 	Value *string `pulumi:"value"`
 }
 
@@ -6207,14 +5298,8 @@ type SecretObjectResponseInput interface {
 	ToSecretObjectResponseOutputWithContext(context.Context) SecretObjectResponseOutput
 }
 
-// Describes the properties of a secret object value.
 type SecretObjectResponseArgs struct {
-	// The type of the secret object which determines how the value of the secret object has to be
-	// interpreted.
-	Type pulumi.StringPtrInput `pulumi:"type"`
-	// The value of the secret. The format of this value will be determined
-	// based on the type of the secret object. If the type is Opaque, the value will be
-	// used as is without any modification.
+	Type  pulumi.StringPtrInput `pulumi:"type"`
 	Value pulumi.StringPtrInput `pulumi:"value"`
 }
 
@@ -6271,7 +5356,6 @@ func (i *secretObjectResponsePtrType) ToSecretObjectResponsePtrOutputWithContext
 	return pulumi.ToOutputWithContext(ctx, i).(SecretObjectResponsePtrOutput)
 }
 
-// Describes the properties of a secret object value.
 type SecretObjectResponseOutput struct{ *pulumi.OutputState }
 
 func (SecretObjectResponseOutput) ElementType() reflect.Type {
@@ -6291,20 +5375,15 @@ func (o SecretObjectResponseOutput) ToSecretObjectResponsePtrOutput() SecretObje
 }
 
 func (o SecretObjectResponseOutput) ToSecretObjectResponsePtrOutputWithContext(ctx context.Context) SecretObjectResponsePtrOutput {
-	return o.ApplyT(func(v SecretObjectResponse) *SecretObjectResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v SecretObjectResponse) *SecretObjectResponse {
 		return &v
 	}).(SecretObjectResponsePtrOutput)
 }
 
-// The type of the secret object which determines how the value of the secret object has to be
-// interpreted.
 func (o SecretObjectResponseOutput) Type() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SecretObjectResponse) *string { return v.Type }).(pulumi.StringPtrOutput)
 }
 
-// The value of the secret. The format of this value will be determined
-// based on the type of the secret object. If the type is Opaque, the value will be
-// used as is without any modification.
 func (o SecretObjectResponseOutput) Value() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SecretObjectResponse) *string { return v.Value }).(pulumi.StringPtrOutput)
 }
@@ -6324,11 +5403,15 @@ func (o SecretObjectResponsePtrOutput) ToSecretObjectResponsePtrOutputWithContex
 }
 
 func (o SecretObjectResponsePtrOutput) Elem() SecretObjectResponseOutput {
-	return o.ApplyT(func(v *SecretObjectResponse) SecretObjectResponse { return *v }).(SecretObjectResponseOutput)
+	return o.ApplyT(func(v *SecretObjectResponse) SecretObjectResponse {
+		if v != nil {
+			return *v
+		}
+		var ret SecretObjectResponse
+		return ret
+	}).(SecretObjectResponseOutput)
 }
 
-// The type of the secret object which determines how the value of the secret object has to be
-// interpreted.
 func (o SecretObjectResponsePtrOutput) Type() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SecretObjectResponse) *string {
 		if v == nil {
@@ -6338,9 +5421,6 @@ func (o SecretObjectResponsePtrOutput) Type() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The value of the secret. The format of this value will be determined
-// based on the type of the secret object. If the type is Opaque, the value will be
-// used as is without any modification.
 func (o SecretObjectResponsePtrOutput) Value() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SecretObjectResponse) *string {
 		if v == nil {
@@ -6350,14 +5430,10 @@ func (o SecretObjectResponsePtrOutput) Value() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The properties of a overridable value that can be passed to a task template.
 type SetValue struct {
-	// Flag to indicate whether the value represents a secret or not.
-	IsSecret *bool `pulumi:"isSecret"`
-	// The name of the overridable value.
-	Name string `pulumi:"name"`
-	// The overridable value.
-	Value string `pulumi:"value"`
+	IsSecret *bool  `pulumi:"isSecret"`
+	Name     string `pulumi:"name"`
+	Value    string `pulumi:"value"`
 }
 
 // SetValueInput is an input type that accepts SetValueArgs and SetValueOutput values.
@@ -6371,14 +5447,10 @@ type SetValueInput interface {
 	ToSetValueOutputWithContext(context.Context) SetValueOutput
 }
 
-// The properties of a overridable value that can be passed to a task template.
 type SetValueArgs struct {
-	// Flag to indicate whether the value represents a secret or not.
 	IsSecret pulumi.BoolPtrInput `pulumi:"isSecret"`
-	// The name of the overridable value.
-	Name pulumi.StringInput `pulumi:"name"`
-	// The overridable value.
-	Value pulumi.StringInput `pulumi:"value"`
+	Name     pulumi.StringInput  `pulumi:"name"`
+	Value    pulumi.StringInput  `pulumi:"value"`
 }
 
 func (SetValueArgs) ElementType() reflect.Type {
@@ -6418,7 +5490,6 @@ func (i SetValueArray) ToSetValueArrayOutputWithContext(ctx context.Context) Set
 	return pulumi.ToOutputWithContext(ctx, i).(SetValueArrayOutput)
 }
 
-// The properties of a overridable value that can be passed to a task template.
 type SetValueOutput struct{ *pulumi.OutputState }
 
 func (SetValueOutput) ElementType() reflect.Type {
@@ -6433,17 +5504,14 @@ func (o SetValueOutput) ToSetValueOutputWithContext(ctx context.Context) SetValu
 	return o
 }
 
-// Flag to indicate whether the value represents a secret or not.
 func (o SetValueOutput) GetIsSecret() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v SetValue) *bool { return v.IsSecret }).(pulumi.BoolPtrOutput)
 }
 
-// The name of the overridable value.
 func (o SetValueOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v SetValue) string { return v.Name }).(pulumi.StringOutput)
 }
 
-// The overridable value.
 func (o SetValueOutput) Value() pulumi.StringOutput {
 	return o.ApplyT(func(v SetValue) string { return v.Value }).(pulumi.StringOutput)
 }
@@ -6468,14 +5536,10 @@ func (o SetValueArrayOutput) Index(i pulumi.IntInput) SetValueOutput {
 	}).(SetValueOutput)
 }
 
-// The properties of a overridable value that can be passed to a task template.
 type SetValueResponse struct {
-	// Flag to indicate whether the value represents a secret or not.
-	IsSecret *bool `pulumi:"isSecret"`
-	// The name of the overridable value.
-	Name string `pulumi:"name"`
-	// The overridable value.
-	Value string `pulumi:"value"`
+	IsSecret *bool  `pulumi:"isSecret"`
+	Name     string `pulumi:"name"`
+	Value    string `pulumi:"value"`
 }
 
 // SetValueResponseInput is an input type that accepts SetValueResponseArgs and SetValueResponseOutput values.
@@ -6489,14 +5553,10 @@ type SetValueResponseInput interface {
 	ToSetValueResponseOutputWithContext(context.Context) SetValueResponseOutput
 }
 
-// The properties of a overridable value that can be passed to a task template.
 type SetValueResponseArgs struct {
-	// Flag to indicate whether the value represents a secret or not.
 	IsSecret pulumi.BoolPtrInput `pulumi:"isSecret"`
-	// The name of the overridable value.
-	Name pulumi.StringInput `pulumi:"name"`
-	// The overridable value.
-	Value pulumi.StringInput `pulumi:"value"`
+	Name     pulumi.StringInput  `pulumi:"name"`
+	Value    pulumi.StringInput  `pulumi:"value"`
 }
 
 func (SetValueResponseArgs) ElementType() reflect.Type {
@@ -6536,7 +5596,6 @@ func (i SetValueResponseArray) ToSetValueResponseArrayOutputWithContext(ctx cont
 	return pulumi.ToOutputWithContext(ctx, i).(SetValueResponseArrayOutput)
 }
 
-// The properties of a overridable value that can be passed to a task template.
 type SetValueResponseOutput struct{ *pulumi.OutputState }
 
 func (SetValueResponseOutput) ElementType() reflect.Type {
@@ -6551,17 +5610,14 @@ func (o SetValueResponseOutput) ToSetValueResponseOutputWithContext(ctx context.
 	return o
 }
 
-// Flag to indicate whether the value represents a secret or not.
 func (o SetValueResponseOutput) GetIsSecret() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v SetValueResponse) *bool { return v.IsSecret }).(pulumi.BoolPtrOutput)
 }
 
-// The name of the overridable value.
 func (o SetValueResponseOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v SetValueResponse) string { return v.Name }).(pulumi.StringOutput)
 }
 
-// The overridable value.
 func (o SetValueResponseOutput) Value() pulumi.StringOutput {
 	return o.ApplyT(func(v SetValueResponse) string { return v.Value }).(pulumi.StringOutput)
 }
@@ -6586,17 +5642,11 @@ func (o SetValueResponseArrayOutput) Index(i pulumi.IntInput) SetValueResponseOu
 	}).(SetValueResponseOutput)
 }
 
-// The properties of the source code repository.
 type SourceProperties struct {
-	// The branch name of the source code.
-	Branch *string `pulumi:"branch"`
-	// The full URL to the source code repository
-	RepositoryUrl string `pulumi:"repositoryUrl"`
-	// The authorization properties for accessing the source code repository and to set up
-	// webhooks for notifications.
+	Branch                      *string   `pulumi:"branch"`
+	RepositoryUrl               string    `pulumi:"repositoryUrl"`
 	SourceControlAuthProperties *AuthInfo `pulumi:"sourceControlAuthProperties"`
-	// The type of source control service.
-	SourceControlType string `pulumi:"sourceControlType"`
+	SourceControlType           string    `pulumi:"sourceControlType"`
 }
 
 // SourcePropertiesInput is an input type that accepts SourcePropertiesArgs and SourcePropertiesOutput values.
@@ -6610,17 +5660,11 @@ type SourcePropertiesInput interface {
 	ToSourcePropertiesOutputWithContext(context.Context) SourcePropertiesOutput
 }
 
-// The properties of the source code repository.
 type SourcePropertiesArgs struct {
-	// The branch name of the source code.
-	Branch pulumi.StringPtrInput `pulumi:"branch"`
-	// The full URL to the source code repository
-	RepositoryUrl pulumi.StringInput `pulumi:"repositoryUrl"`
-	// The authorization properties for accessing the source code repository and to set up
-	// webhooks for notifications.
-	SourceControlAuthProperties AuthInfoPtrInput `pulumi:"sourceControlAuthProperties"`
-	// The type of source control service.
-	SourceControlType pulumi.StringInput `pulumi:"sourceControlType"`
+	Branch                      pulumi.StringPtrInput `pulumi:"branch"`
+	RepositoryUrl               pulumi.StringInput    `pulumi:"repositoryUrl"`
+	SourceControlAuthProperties AuthInfoPtrInput      `pulumi:"sourceControlAuthProperties"`
+	SourceControlType           pulumi.StringInput    `pulumi:"sourceControlType"`
 }
 
 func (SourcePropertiesArgs) ElementType() reflect.Type {
@@ -6635,7 +5679,6 @@ func (i SourcePropertiesArgs) ToSourcePropertiesOutputWithContext(ctx context.Co
 	return pulumi.ToOutputWithContext(ctx, i).(SourcePropertiesOutput)
 }
 
-// The properties of the source code repository.
 type SourcePropertiesOutput struct{ *pulumi.OutputState }
 
 func (SourcePropertiesOutput) ElementType() reflect.Type {
@@ -6650,38 +5693,27 @@ func (o SourcePropertiesOutput) ToSourcePropertiesOutputWithContext(ctx context.
 	return o
 }
 
-// The branch name of the source code.
 func (o SourcePropertiesOutput) Branch() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SourceProperties) *string { return v.Branch }).(pulumi.StringPtrOutput)
 }
 
-// The full URL to the source code repository
 func (o SourcePropertiesOutput) RepositoryUrl() pulumi.StringOutput {
 	return o.ApplyT(func(v SourceProperties) string { return v.RepositoryUrl }).(pulumi.StringOutput)
 }
 
-// The authorization properties for accessing the source code repository and to set up
-// webhooks for notifications.
 func (o SourcePropertiesOutput) SourceControlAuthProperties() AuthInfoPtrOutput {
 	return o.ApplyT(func(v SourceProperties) *AuthInfo { return v.SourceControlAuthProperties }).(AuthInfoPtrOutput)
 }
 
-// The type of source control service.
 func (o SourcePropertiesOutput) SourceControlType() pulumi.StringOutput {
 	return o.ApplyT(func(v SourceProperties) string { return v.SourceControlType }).(pulumi.StringOutput)
 }
 
-// The properties of the source code repository.
 type SourcePropertiesResponse struct {
-	// The branch name of the source code.
-	Branch *string `pulumi:"branch"`
-	// The full URL to the source code repository
-	RepositoryUrl string `pulumi:"repositoryUrl"`
-	// The authorization properties for accessing the source code repository and to set up
-	// webhooks for notifications.
+	Branch                      *string           `pulumi:"branch"`
+	RepositoryUrl               string            `pulumi:"repositoryUrl"`
 	SourceControlAuthProperties *AuthInfoResponse `pulumi:"sourceControlAuthProperties"`
-	// The type of source control service.
-	SourceControlType string `pulumi:"sourceControlType"`
+	SourceControlType           string            `pulumi:"sourceControlType"`
 }
 
 // SourcePropertiesResponseInput is an input type that accepts SourcePropertiesResponseArgs and SourcePropertiesResponseOutput values.
@@ -6695,17 +5727,11 @@ type SourcePropertiesResponseInput interface {
 	ToSourcePropertiesResponseOutputWithContext(context.Context) SourcePropertiesResponseOutput
 }
 
-// The properties of the source code repository.
 type SourcePropertiesResponseArgs struct {
-	// The branch name of the source code.
-	Branch pulumi.StringPtrInput `pulumi:"branch"`
-	// The full URL to the source code repository
-	RepositoryUrl pulumi.StringInput `pulumi:"repositoryUrl"`
-	// The authorization properties for accessing the source code repository and to set up
-	// webhooks for notifications.
+	Branch                      pulumi.StringPtrInput    `pulumi:"branch"`
+	RepositoryUrl               pulumi.StringInput       `pulumi:"repositoryUrl"`
 	SourceControlAuthProperties AuthInfoResponsePtrInput `pulumi:"sourceControlAuthProperties"`
-	// The type of source control service.
-	SourceControlType pulumi.StringInput `pulumi:"sourceControlType"`
+	SourceControlType           pulumi.StringInput       `pulumi:"sourceControlType"`
 }
 
 func (SourcePropertiesResponseArgs) ElementType() reflect.Type {
@@ -6720,7 +5746,6 @@ func (i SourcePropertiesResponseArgs) ToSourcePropertiesResponseOutputWithContex
 	return pulumi.ToOutputWithContext(ctx, i).(SourcePropertiesResponseOutput)
 }
 
-// The properties of the source code repository.
 type SourcePropertiesResponseOutput struct{ *pulumi.OutputState }
 
 func (SourcePropertiesResponseOutput) ElementType() reflect.Type {
@@ -6735,32 +5760,23 @@ func (o SourcePropertiesResponseOutput) ToSourcePropertiesResponseOutputWithCont
 	return o
 }
 
-// The branch name of the source code.
 func (o SourcePropertiesResponseOutput) Branch() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SourcePropertiesResponse) *string { return v.Branch }).(pulumi.StringPtrOutput)
 }
 
-// The full URL to the source code repository
 func (o SourcePropertiesResponseOutput) RepositoryUrl() pulumi.StringOutput {
 	return o.ApplyT(func(v SourcePropertiesResponse) string { return v.RepositoryUrl }).(pulumi.StringOutput)
 }
 
-// The authorization properties for accessing the source code repository and to set up
-// webhooks for notifications.
 func (o SourcePropertiesResponseOutput) SourceControlAuthProperties() AuthInfoResponsePtrOutput {
 	return o.ApplyT(func(v SourcePropertiesResponse) *AuthInfoResponse { return v.SourceControlAuthProperties }).(AuthInfoResponsePtrOutput)
 }
 
-// The type of source control service.
 func (o SourcePropertiesResponseOutput) SourceControlType() pulumi.StringOutput {
 	return o.ApplyT(func(v SourcePropertiesResponse) string { return v.SourceControlType }).(pulumi.StringOutput)
 }
 
-// Describes the credential parameters for accessing the source registry.
 type SourceRegistryCredentials struct {
-	// The authentication mode which determines the source registry login scope. The credentials for the source registry
-	// will be generated using the given scope. These credentials will be used to login to
-	// the source registry during the run.
 	LoginMode *string `pulumi:"loginMode"`
 }
 
@@ -6775,11 +5791,7 @@ type SourceRegistryCredentialsInput interface {
 	ToSourceRegistryCredentialsOutputWithContext(context.Context) SourceRegistryCredentialsOutput
 }
 
-// Describes the credential parameters for accessing the source registry.
 type SourceRegistryCredentialsArgs struct {
-	// The authentication mode which determines the source registry login scope. The credentials for the source registry
-	// will be generated using the given scope. These credentials will be used to login to
-	// the source registry during the run.
 	LoginMode pulumi.StringPtrInput `pulumi:"loginMode"`
 }
 
@@ -6836,7 +5848,6 @@ func (i *sourceRegistryCredentialsPtrType) ToSourceRegistryCredentialsPtrOutputW
 	return pulumi.ToOutputWithContext(ctx, i).(SourceRegistryCredentialsPtrOutput)
 }
 
-// Describes the credential parameters for accessing the source registry.
 type SourceRegistryCredentialsOutput struct{ *pulumi.OutputState }
 
 func (SourceRegistryCredentialsOutput) ElementType() reflect.Type {
@@ -6856,14 +5867,11 @@ func (o SourceRegistryCredentialsOutput) ToSourceRegistryCredentialsPtrOutput() 
 }
 
 func (o SourceRegistryCredentialsOutput) ToSourceRegistryCredentialsPtrOutputWithContext(ctx context.Context) SourceRegistryCredentialsPtrOutput {
-	return o.ApplyT(func(v SourceRegistryCredentials) *SourceRegistryCredentials {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v SourceRegistryCredentials) *SourceRegistryCredentials {
 		return &v
 	}).(SourceRegistryCredentialsPtrOutput)
 }
 
-// The authentication mode which determines the source registry login scope. The credentials for the source registry
-// will be generated using the given scope. These credentials will be used to login to
-// the source registry during the run.
 func (o SourceRegistryCredentialsOutput) LoginMode() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SourceRegistryCredentials) *string { return v.LoginMode }).(pulumi.StringPtrOutput)
 }
@@ -6883,12 +5891,15 @@ func (o SourceRegistryCredentialsPtrOutput) ToSourceRegistryCredentialsPtrOutput
 }
 
 func (o SourceRegistryCredentialsPtrOutput) Elem() SourceRegistryCredentialsOutput {
-	return o.ApplyT(func(v *SourceRegistryCredentials) SourceRegistryCredentials { return *v }).(SourceRegistryCredentialsOutput)
+	return o.ApplyT(func(v *SourceRegistryCredentials) SourceRegistryCredentials {
+		if v != nil {
+			return *v
+		}
+		var ret SourceRegistryCredentials
+		return ret
+	}).(SourceRegistryCredentialsOutput)
 }
 
-// The authentication mode which determines the source registry login scope. The credentials for the source registry
-// will be generated using the given scope. These credentials will be used to login to
-// the source registry during the run.
 func (o SourceRegistryCredentialsPtrOutput) LoginMode() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SourceRegistryCredentials) *string {
 		if v == nil {
@@ -6898,11 +5909,7 @@ func (o SourceRegistryCredentialsPtrOutput) LoginMode() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Describes the credential parameters for accessing the source registry.
 type SourceRegistryCredentialsResponse struct {
-	// The authentication mode which determines the source registry login scope. The credentials for the source registry
-	// will be generated using the given scope. These credentials will be used to login to
-	// the source registry during the run.
 	LoginMode *string `pulumi:"loginMode"`
 }
 
@@ -6917,11 +5924,7 @@ type SourceRegistryCredentialsResponseInput interface {
 	ToSourceRegistryCredentialsResponseOutputWithContext(context.Context) SourceRegistryCredentialsResponseOutput
 }
 
-// Describes the credential parameters for accessing the source registry.
 type SourceRegistryCredentialsResponseArgs struct {
-	// The authentication mode which determines the source registry login scope. The credentials for the source registry
-	// will be generated using the given scope. These credentials will be used to login to
-	// the source registry during the run.
 	LoginMode pulumi.StringPtrInput `pulumi:"loginMode"`
 }
 
@@ -6978,7 +5981,6 @@ func (i *sourceRegistryCredentialsResponsePtrType) ToSourceRegistryCredentialsRe
 	return pulumi.ToOutputWithContext(ctx, i).(SourceRegistryCredentialsResponsePtrOutput)
 }
 
-// Describes the credential parameters for accessing the source registry.
 type SourceRegistryCredentialsResponseOutput struct{ *pulumi.OutputState }
 
 func (SourceRegistryCredentialsResponseOutput) ElementType() reflect.Type {
@@ -6998,14 +6000,11 @@ func (o SourceRegistryCredentialsResponseOutput) ToSourceRegistryCredentialsResp
 }
 
 func (o SourceRegistryCredentialsResponseOutput) ToSourceRegistryCredentialsResponsePtrOutputWithContext(ctx context.Context) SourceRegistryCredentialsResponsePtrOutput {
-	return o.ApplyT(func(v SourceRegistryCredentialsResponse) *SourceRegistryCredentialsResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v SourceRegistryCredentialsResponse) *SourceRegistryCredentialsResponse {
 		return &v
 	}).(SourceRegistryCredentialsResponsePtrOutput)
 }
 
-// The authentication mode which determines the source registry login scope. The credentials for the source registry
-// will be generated using the given scope. These credentials will be used to login to
-// the source registry during the run.
 func (o SourceRegistryCredentialsResponseOutput) LoginMode() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SourceRegistryCredentialsResponse) *string { return v.LoginMode }).(pulumi.StringPtrOutput)
 }
@@ -7025,12 +6024,15 @@ func (o SourceRegistryCredentialsResponsePtrOutput) ToSourceRegistryCredentialsR
 }
 
 func (o SourceRegistryCredentialsResponsePtrOutput) Elem() SourceRegistryCredentialsResponseOutput {
-	return o.ApplyT(func(v *SourceRegistryCredentialsResponse) SourceRegistryCredentialsResponse { return *v }).(SourceRegistryCredentialsResponseOutput)
+	return o.ApplyT(func(v *SourceRegistryCredentialsResponse) SourceRegistryCredentialsResponse {
+		if v != nil {
+			return *v
+		}
+		var ret SourceRegistryCredentialsResponse
+		return ret
+	}).(SourceRegistryCredentialsResponseOutput)
 }
 
-// The authentication mode which determines the source registry login scope. The credentials for the source registry
-// will be generated using the given scope. These credentials will be used to login to
-// the source registry during the run.
 func (o SourceRegistryCredentialsResponsePtrOutput) LoginMode() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SourceRegistryCredentialsResponse) *string {
 		if v == nil {
@@ -7040,16 +6042,11 @@ func (o SourceRegistryCredentialsResponsePtrOutput) LoginMode() pulumi.StringPtr
 	}).(pulumi.StringPtrOutput)
 }
 
-// The properties of a source based trigger.
 type SourceTrigger struct {
-	// The name of the trigger.
-	Name string `pulumi:"name"`
-	// The properties that describes the source(code) for the task.
-	SourceRepository SourceProperties `pulumi:"sourceRepository"`
-	// The source event corresponding to the trigger.
-	SourceTriggerEvents []string `pulumi:"sourceTriggerEvents"`
-	// The current status of trigger.
-	Status *string `pulumi:"status"`
+	Name                string           `pulumi:"name"`
+	SourceRepository    SourceProperties `pulumi:"sourceRepository"`
+	SourceTriggerEvents []string         `pulumi:"sourceTriggerEvents"`
+	Status              *string          `pulumi:"status"`
 }
 
 // SourceTriggerInput is an input type that accepts SourceTriggerArgs and SourceTriggerOutput values.
@@ -7063,16 +6060,11 @@ type SourceTriggerInput interface {
 	ToSourceTriggerOutputWithContext(context.Context) SourceTriggerOutput
 }
 
-// The properties of a source based trigger.
 type SourceTriggerArgs struct {
-	// The name of the trigger.
-	Name pulumi.StringInput `pulumi:"name"`
-	// The properties that describes the source(code) for the task.
-	SourceRepository SourcePropertiesInput `pulumi:"sourceRepository"`
-	// The source event corresponding to the trigger.
+	Name                pulumi.StringInput      `pulumi:"name"`
+	SourceRepository    SourcePropertiesInput   `pulumi:"sourceRepository"`
 	SourceTriggerEvents pulumi.StringArrayInput `pulumi:"sourceTriggerEvents"`
-	// The current status of trigger.
-	Status pulumi.StringPtrInput `pulumi:"status"`
+	Status              pulumi.StringPtrInput   `pulumi:"status"`
 }
 
 func (SourceTriggerArgs) ElementType() reflect.Type {
@@ -7112,7 +6104,6 @@ func (i SourceTriggerArray) ToSourceTriggerArrayOutputWithContext(ctx context.Co
 	return pulumi.ToOutputWithContext(ctx, i).(SourceTriggerArrayOutput)
 }
 
-// The properties of a source based trigger.
 type SourceTriggerOutput struct{ *pulumi.OutputState }
 
 func (SourceTriggerOutput) ElementType() reflect.Type {
@@ -7127,22 +6118,18 @@ func (o SourceTriggerOutput) ToSourceTriggerOutputWithContext(ctx context.Contex
 	return o
 }
 
-// The name of the trigger.
 func (o SourceTriggerOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v SourceTrigger) string { return v.Name }).(pulumi.StringOutput)
 }
 
-// The properties that describes the source(code) for the task.
 func (o SourceTriggerOutput) SourceRepository() SourcePropertiesOutput {
 	return o.ApplyT(func(v SourceTrigger) SourceProperties { return v.SourceRepository }).(SourcePropertiesOutput)
 }
 
-// The source event corresponding to the trigger.
 func (o SourceTriggerOutput) SourceTriggerEvents() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v SourceTrigger) []string { return v.SourceTriggerEvents }).(pulumi.StringArrayOutput)
 }
 
-// The current status of trigger.
 func (o SourceTriggerOutput) Status() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SourceTrigger) *string { return v.Status }).(pulumi.StringPtrOutput)
 }
@@ -7167,21 +6154,13 @@ func (o SourceTriggerArrayOutput) Index(i pulumi.IntInput) SourceTriggerOutput {
 	}).(SourceTriggerOutput)
 }
 
-// The source trigger that caused a run.
 type SourceTriggerDescriptorResponse struct {
-	// The branch name in the repository.
-	BranchName *string `pulumi:"branchName"`
-	// The unique ID that identifies a commit.
-	CommitId *string `pulumi:"commitId"`
-	// The event type of the trigger.
-	EventType *string `pulumi:"eventType"`
-	// The unique ID of the trigger.
-	Id *string `pulumi:"id"`
-	// The source control provider type.
-	ProviderType *string `pulumi:"providerType"`
-	// The unique ID that identifies pull request.
+	BranchName    *string `pulumi:"branchName"`
+	CommitId      *string `pulumi:"commitId"`
+	EventType     *string `pulumi:"eventType"`
+	Id            *string `pulumi:"id"`
+	ProviderType  *string `pulumi:"providerType"`
 	PullRequestId *string `pulumi:"pullRequestId"`
-	// The repository URL.
 	RepositoryUrl *string `pulumi:"repositoryUrl"`
 }
 
@@ -7196,21 +6175,13 @@ type SourceTriggerDescriptorResponseInput interface {
 	ToSourceTriggerDescriptorResponseOutputWithContext(context.Context) SourceTriggerDescriptorResponseOutput
 }
 
-// The source trigger that caused a run.
 type SourceTriggerDescriptorResponseArgs struct {
-	// The branch name in the repository.
-	BranchName pulumi.StringPtrInput `pulumi:"branchName"`
-	// The unique ID that identifies a commit.
-	CommitId pulumi.StringPtrInput `pulumi:"commitId"`
-	// The event type of the trigger.
-	EventType pulumi.StringPtrInput `pulumi:"eventType"`
-	// The unique ID of the trigger.
-	Id pulumi.StringPtrInput `pulumi:"id"`
-	// The source control provider type.
-	ProviderType pulumi.StringPtrInput `pulumi:"providerType"`
-	// The unique ID that identifies pull request.
+	BranchName    pulumi.StringPtrInput `pulumi:"branchName"`
+	CommitId      pulumi.StringPtrInput `pulumi:"commitId"`
+	EventType     pulumi.StringPtrInput `pulumi:"eventType"`
+	Id            pulumi.StringPtrInput `pulumi:"id"`
+	ProviderType  pulumi.StringPtrInput `pulumi:"providerType"`
 	PullRequestId pulumi.StringPtrInput `pulumi:"pullRequestId"`
-	// The repository URL.
 	RepositoryUrl pulumi.StringPtrInput `pulumi:"repositoryUrl"`
 }
 
@@ -7267,7 +6238,6 @@ func (i *sourceTriggerDescriptorResponsePtrType) ToSourceTriggerDescriptorRespon
 	return pulumi.ToOutputWithContext(ctx, i).(SourceTriggerDescriptorResponsePtrOutput)
 }
 
-// The source trigger that caused a run.
 type SourceTriggerDescriptorResponseOutput struct{ *pulumi.OutputState }
 
 func (SourceTriggerDescriptorResponseOutput) ElementType() reflect.Type {
@@ -7287,42 +6257,35 @@ func (o SourceTriggerDescriptorResponseOutput) ToSourceTriggerDescriptorResponse
 }
 
 func (o SourceTriggerDescriptorResponseOutput) ToSourceTriggerDescriptorResponsePtrOutputWithContext(ctx context.Context) SourceTriggerDescriptorResponsePtrOutput {
-	return o.ApplyT(func(v SourceTriggerDescriptorResponse) *SourceTriggerDescriptorResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v SourceTriggerDescriptorResponse) *SourceTriggerDescriptorResponse {
 		return &v
 	}).(SourceTriggerDescriptorResponsePtrOutput)
 }
 
-// The branch name in the repository.
 func (o SourceTriggerDescriptorResponseOutput) BranchName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SourceTriggerDescriptorResponse) *string { return v.BranchName }).(pulumi.StringPtrOutput)
 }
 
-// The unique ID that identifies a commit.
 func (o SourceTriggerDescriptorResponseOutput) CommitId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SourceTriggerDescriptorResponse) *string { return v.CommitId }).(pulumi.StringPtrOutput)
 }
 
-// The event type of the trigger.
 func (o SourceTriggerDescriptorResponseOutput) EventType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SourceTriggerDescriptorResponse) *string { return v.EventType }).(pulumi.StringPtrOutput)
 }
 
-// The unique ID of the trigger.
 func (o SourceTriggerDescriptorResponseOutput) Id() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SourceTriggerDescriptorResponse) *string { return v.Id }).(pulumi.StringPtrOutput)
 }
 
-// The source control provider type.
 func (o SourceTriggerDescriptorResponseOutput) ProviderType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SourceTriggerDescriptorResponse) *string { return v.ProviderType }).(pulumi.StringPtrOutput)
 }
 
-// The unique ID that identifies pull request.
 func (o SourceTriggerDescriptorResponseOutput) PullRequestId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SourceTriggerDescriptorResponse) *string { return v.PullRequestId }).(pulumi.StringPtrOutput)
 }
 
-// The repository URL.
 func (o SourceTriggerDescriptorResponseOutput) RepositoryUrl() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SourceTriggerDescriptorResponse) *string { return v.RepositoryUrl }).(pulumi.StringPtrOutput)
 }
@@ -7342,10 +6305,15 @@ func (o SourceTriggerDescriptorResponsePtrOutput) ToSourceTriggerDescriptorRespo
 }
 
 func (o SourceTriggerDescriptorResponsePtrOutput) Elem() SourceTriggerDescriptorResponseOutput {
-	return o.ApplyT(func(v *SourceTriggerDescriptorResponse) SourceTriggerDescriptorResponse { return *v }).(SourceTriggerDescriptorResponseOutput)
+	return o.ApplyT(func(v *SourceTriggerDescriptorResponse) SourceTriggerDescriptorResponse {
+		if v != nil {
+			return *v
+		}
+		var ret SourceTriggerDescriptorResponse
+		return ret
+	}).(SourceTriggerDescriptorResponseOutput)
 }
 
-// The branch name in the repository.
 func (o SourceTriggerDescriptorResponsePtrOutput) BranchName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SourceTriggerDescriptorResponse) *string {
 		if v == nil {
@@ -7355,7 +6323,6 @@ func (o SourceTriggerDescriptorResponsePtrOutput) BranchName() pulumi.StringPtrO
 	}).(pulumi.StringPtrOutput)
 }
 
-// The unique ID that identifies a commit.
 func (o SourceTriggerDescriptorResponsePtrOutput) CommitId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SourceTriggerDescriptorResponse) *string {
 		if v == nil {
@@ -7365,7 +6332,6 @@ func (o SourceTriggerDescriptorResponsePtrOutput) CommitId() pulumi.StringPtrOut
 	}).(pulumi.StringPtrOutput)
 }
 
-// The event type of the trigger.
 func (o SourceTriggerDescriptorResponsePtrOutput) EventType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SourceTriggerDescriptorResponse) *string {
 		if v == nil {
@@ -7375,7 +6341,6 @@ func (o SourceTriggerDescriptorResponsePtrOutput) EventType() pulumi.StringPtrOu
 	}).(pulumi.StringPtrOutput)
 }
 
-// The unique ID of the trigger.
 func (o SourceTriggerDescriptorResponsePtrOutput) Id() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SourceTriggerDescriptorResponse) *string {
 		if v == nil {
@@ -7385,7 +6350,6 @@ func (o SourceTriggerDescriptorResponsePtrOutput) Id() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The source control provider type.
 func (o SourceTriggerDescriptorResponsePtrOutput) ProviderType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SourceTriggerDescriptorResponse) *string {
 		if v == nil {
@@ -7395,7 +6359,6 @@ func (o SourceTriggerDescriptorResponsePtrOutput) ProviderType() pulumi.StringPt
 	}).(pulumi.StringPtrOutput)
 }
 
-// The unique ID that identifies pull request.
 func (o SourceTriggerDescriptorResponsePtrOutput) PullRequestId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SourceTriggerDescriptorResponse) *string {
 		if v == nil {
@@ -7405,7 +6368,6 @@ func (o SourceTriggerDescriptorResponsePtrOutput) PullRequestId() pulumi.StringP
 	}).(pulumi.StringPtrOutput)
 }
 
-// The repository URL.
 func (o SourceTriggerDescriptorResponsePtrOutput) RepositoryUrl() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SourceTriggerDescriptorResponse) *string {
 		if v == nil {
@@ -7415,16 +6377,11 @@ func (o SourceTriggerDescriptorResponsePtrOutput) RepositoryUrl() pulumi.StringP
 	}).(pulumi.StringPtrOutput)
 }
 
-// The properties of a source based trigger.
 type SourceTriggerResponse struct {
-	// The name of the trigger.
-	Name string `pulumi:"name"`
-	// The properties that describes the source(code) for the task.
-	SourceRepository SourcePropertiesResponse `pulumi:"sourceRepository"`
-	// The source event corresponding to the trigger.
-	SourceTriggerEvents []string `pulumi:"sourceTriggerEvents"`
-	// The current status of trigger.
-	Status *string `pulumi:"status"`
+	Name                string                   `pulumi:"name"`
+	SourceRepository    SourcePropertiesResponse `pulumi:"sourceRepository"`
+	SourceTriggerEvents []string                 `pulumi:"sourceTriggerEvents"`
+	Status              *string                  `pulumi:"status"`
 }
 
 // SourceTriggerResponseInput is an input type that accepts SourceTriggerResponseArgs and SourceTriggerResponseOutput values.
@@ -7438,16 +6395,11 @@ type SourceTriggerResponseInput interface {
 	ToSourceTriggerResponseOutputWithContext(context.Context) SourceTriggerResponseOutput
 }
 
-// The properties of a source based trigger.
 type SourceTriggerResponseArgs struct {
-	// The name of the trigger.
-	Name pulumi.StringInput `pulumi:"name"`
-	// The properties that describes the source(code) for the task.
-	SourceRepository SourcePropertiesResponseInput `pulumi:"sourceRepository"`
-	// The source event corresponding to the trigger.
-	SourceTriggerEvents pulumi.StringArrayInput `pulumi:"sourceTriggerEvents"`
-	// The current status of trigger.
-	Status pulumi.StringPtrInput `pulumi:"status"`
+	Name                pulumi.StringInput            `pulumi:"name"`
+	SourceRepository    SourcePropertiesResponseInput `pulumi:"sourceRepository"`
+	SourceTriggerEvents pulumi.StringArrayInput       `pulumi:"sourceTriggerEvents"`
+	Status              pulumi.StringPtrInput         `pulumi:"status"`
 }
 
 func (SourceTriggerResponseArgs) ElementType() reflect.Type {
@@ -7487,7 +6439,6 @@ func (i SourceTriggerResponseArray) ToSourceTriggerResponseArrayOutputWithContex
 	return pulumi.ToOutputWithContext(ctx, i).(SourceTriggerResponseArrayOutput)
 }
 
-// The properties of a source based trigger.
 type SourceTriggerResponseOutput struct{ *pulumi.OutputState }
 
 func (SourceTriggerResponseOutput) ElementType() reflect.Type {
@@ -7502,22 +6453,18 @@ func (o SourceTriggerResponseOutput) ToSourceTriggerResponseOutputWithContext(ct
 	return o
 }
 
-// The name of the trigger.
 func (o SourceTriggerResponseOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v SourceTriggerResponse) string { return v.Name }).(pulumi.StringOutput)
 }
 
-// The properties that describes the source(code) for the task.
 func (o SourceTriggerResponseOutput) SourceRepository() SourcePropertiesResponseOutput {
 	return o.ApplyT(func(v SourceTriggerResponse) SourcePropertiesResponse { return v.SourceRepository }).(SourcePropertiesResponseOutput)
 }
 
-// The source event corresponding to the trigger.
 func (o SourceTriggerResponseOutput) SourceTriggerEvents() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v SourceTriggerResponse) []string { return v.SourceTriggerEvents }).(pulumi.StringArrayOutput)
 }
 
-// The current status of trigger.
 func (o SourceTriggerResponseOutput) Status() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SourceTriggerResponse) *string { return v.Status }).(pulumi.StringPtrOutput)
 }
@@ -7542,19 +6489,12 @@ func (o SourceTriggerResponseArrayOutput) Index(i pulumi.IntInput) SourceTrigger
 	}).(SourceTriggerResponseOutput)
 }
 
-// Metadata pertaining to creation and last modification of the resource.
 type SystemDataResponse struct {
-	// The timestamp of resource creation (UTC).
-	CreatedAt *string `pulumi:"createdAt"`
-	// The identity that created the resource.
-	CreatedBy *string `pulumi:"createdBy"`
-	// The type of identity that created the resource.
-	CreatedByType *string `pulumi:"createdByType"`
-	// The timestamp of resource modification (UTC).
-	LastModifiedAt *string `pulumi:"lastModifiedAt"`
-	// The identity that last modified the resource.
-	LastModifiedBy *string `pulumi:"lastModifiedBy"`
-	// The type of identity that last modified the resource.
+	CreatedAt          *string `pulumi:"createdAt"`
+	CreatedBy          *string `pulumi:"createdBy"`
+	CreatedByType      *string `pulumi:"createdByType"`
+	LastModifiedAt     *string `pulumi:"lastModifiedAt"`
+	LastModifiedBy     *string `pulumi:"lastModifiedBy"`
 	LastModifiedByType *string `pulumi:"lastModifiedByType"`
 }
 
@@ -7569,19 +6509,12 @@ type SystemDataResponseInput interface {
 	ToSystemDataResponseOutputWithContext(context.Context) SystemDataResponseOutput
 }
 
-// Metadata pertaining to creation and last modification of the resource.
 type SystemDataResponseArgs struct {
-	// The timestamp of resource creation (UTC).
-	CreatedAt pulumi.StringPtrInput `pulumi:"createdAt"`
-	// The identity that created the resource.
-	CreatedBy pulumi.StringPtrInput `pulumi:"createdBy"`
-	// The type of identity that created the resource.
-	CreatedByType pulumi.StringPtrInput `pulumi:"createdByType"`
-	// The timestamp of resource modification (UTC).
-	LastModifiedAt pulumi.StringPtrInput `pulumi:"lastModifiedAt"`
-	// The identity that last modified the resource.
-	LastModifiedBy pulumi.StringPtrInput `pulumi:"lastModifiedBy"`
-	// The type of identity that last modified the resource.
+	CreatedAt          pulumi.StringPtrInput `pulumi:"createdAt"`
+	CreatedBy          pulumi.StringPtrInput `pulumi:"createdBy"`
+	CreatedByType      pulumi.StringPtrInput `pulumi:"createdByType"`
+	LastModifiedAt     pulumi.StringPtrInput `pulumi:"lastModifiedAt"`
+	LastModifiedBy     pulumi.StringPtrInput `pulumi:"lastModifiedBy"`
 	LastModifiedByType pulumi.StringPtrInput `pulumi:"lastModifiedByType"`
 }
 
@@ -7638,7 +6571,6 @@ func (i *systemDataResponsePtrType) ToSystemDataResponsePtrOutputWithContext(ctx
 	return pulumi.ToOutputWithContext(ctx, i).(SystemDataResponsePtrOutput)
 }
 
-// Metadata pertaining to creation and last modification of the resource.
 type SystemDataResponseOutput struct{ *pulumi.OutputState }
 
 func (SystemDataResponseOutput) ElementType() reflect.Type {
@@ -7658,37 +6590,31 @@ func (o SystemDataResponseOutput) ToSystemDataResponsePtrOutput() SystemDataResp
 }
 
 func (o SystemDataResponseOutput) ToSystemDataResponsePtrOutputWithContext(ctx context.Context) SystemDataResponsePtrOutput {
-	return o.ApplyT(func(v SystemDataResponse) *SystemDataResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v SystemDataResponse) *SystemDataResponse {
 		return &v
 	}).(SystemDataResponsePtrOutput)
 }
 
-// The timestamp of resource creation (UTC).
 func (o SystemDataResponseOutput) CreatedAt() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SystemDataResponse) *string { return v.CreatedAt }).(pulumi.StringPtrOutput)
 }
 
-// The identity that created the resource.
 func (o SystemDataResponseOutput) CreatedBy() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SystemDataResponse) *string { return v.CreatedBy }).(pulumi.StringPtrOutput)
 }
 
-// The type of identity that created the resource.
 func (o SystemDataResponseOutput) CreatedByType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SystemDataResponse) *string { return v.CreatedByType }).(pulumi.StringPtrOutput)
 }
 
-// The timestamp of resource modification (UTC).
 func (o SystemDataResponseOutput) LastModifiedAt() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SystemDataResponse) *string { return v.LastModifiedAt }).(pulumi.StringPtrOutput)
 }
 
-// The identity that last modified the resource.
 func (o SystemDataResponseOutput) LastModifiedBy() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SystemDataResponse) *string { return v.LastModifiedBy }).(pulumi.StringPtrOutput)
 }
 
-// The type of identity that last modified the resource.
 func (o SystemDataResponseOutput) LastModifiedByType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SystemDataResponse) *string { return v.LastModifiedByType }).(pulumi.StringPtrOutput)
 }
@@ -7708,10 +6634,15 @@ func (o SystemDataResponsePtrOutput) ToSystemDataResponsePtrOutputWithContext(ct
 }
 
 func (o SystemDataResponsePtrOutput) Elem() SystemDataResponseOutput {
-	return o.ApplyT(func(v *SystemDataResponse) SystemDataResponse { return *v }).(SystemDataResponseOutput)
+	return o.ApplyT(func(v *SystemDataResponse) SystemDataResponse {
+		if v != nil {
+			return *v
+		}
+		var ret SystemDataResponse
+		return ret
+	}).(SystemDataResponseOutput)
 }
 
-// The timestamp of resource creation (UTC).
 func (o SystemDataResponsePtrOutput) CreatedAt() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SystemDataResponse) *string {
 		if v == nil {
@@ -7721,7 +6652,6 @@ func (o SystemDataResponsePtrOutput) CreatedAt() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The identity that created the resource.
 func (o SystemDataResponsePtrOutput) CreatedBy() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SystemDataResponse) *string {
 		if v == nil {
@@ -7731,7 +6661,6 @@ func (o SystemDataResponsePtrOutput) CreatedBy() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The type of identity that created the resource.
 func (o SystemDataResponsePtrOutput) CreatedByType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SystemDataResponse) *string {
 		if v == nil {
@@ -7741,7 +6670,6 @@ func (o SystemDataResponsePtrOutput) CreatedByType() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The timestamp of resource modification (UTC).
 func (o SystemDataResponsePtrOutput) LastModifiedAt() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SystemDataResponse) *string {
 		if v == nil {
@@ -7751,7 +6679,6 @@ func (o SystemDataResponsePtrOutput) LastModifiedAt() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The identity that last modified the resource.
 func (o SystemDataResponsePtrOutput) LastModifiedBy() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SystemDataResponse) *string {
 		if v == nil {
@@ -7761,7 +6688,6 @@ func (o SystemDataResponsePtrOutput) LastModifiedBy() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The type of identity that last modified the resource.
 func (o SystemDataResponsePtrOutput) LastModifiedByType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SystemDataResponse) *string {
 		if v == nil {
@@ -7771,21 +6697,13 @@ func (o SystemDataResponsePtrOutput) LastModifiedByType() pulumi.StringPtrOutput
 	}).(pulumi.StringPtrOutput)
 }
 
-// The parameters for a task run request.
 type TaskRunRequest struct {
-	// The dedicated agent pool for the run.
-	AgentPoolName *string `pulumi:"agentPoolName"`
-	// The value that indicates whether archiving is enabled for the run or not.
-	IsArchiveEnabled *bool `pulumi:"isArchiveEnabled"`
-	// The template that describes the repository and tag information for run log artifact.
-	LogTemplate *string `pulumi:"logTemplate"`
-	// Set of overridable parameters that can be passed when running a Task.
+	AgentPoolName              *string                     `pulumi:"agentPoolName"`
+	IsArchiveEnabled           *bool                       `pulumi:"isArchiveEnabled"`
+	LogTemplate                *string                     `pulumi:"logTemplate"`
 	OverrideTaskStepProperties *OverrideTaskStepProperties `pulumi:"overrideTaskStepProperties"`
-	// The resource ID of task against which run has to be queued.
-	TaskId string `pulumi:"taskId"`
-	// The type of the run request.
-	// Expected value is 'TaskRunRequest'.
-	Type string `pulumi:"type"`
+	TaskId                     string                      `pulumi:"taskId"`
+	Type                       string                      `pulumi:"type"`
 }
 
 // TaskRunRequestInput is an input type that accepts TaskRunRequestArgs and TaskRunRequestOutput values.
@@ -7799,21 +6717,13 @@ type TaskRunRequestInput interface {
 	ToTaskRunRequestOutputWithContext(context.Context) TaskRunRequestOutput
 }
 
-// The parameters for a task run request.
 type TaskRunRequestArgs struct {
-	// The dedicated agent pool for the run.
-	AgentPoolName pulumi.StringPtrInput `pulumi:"agentPoolName"`
-	// The value that indicates whether archiving is enabled for the run or not.
-	IsArchiveEnabled pulumi.BoolPtrInput `pulumi:"isArchiveEnabled"`
-	// The template that describes the repository and tag information for run log artifact.
-	LogTemplate pulumi.StringPtrInput `pulumi:"logTemplate"`
-	// Set of overridable parameters that can be passed when running a Task.
+	AgentPoolName              pulumi.StringPtrInput              `pulumi:"agentPoolName"`
+	IsArchiveEnabled           pulumi.BoolPtrInput                `pulumi:"isArchiveEnabled"`
+	LogTemplate                pulumi.StringPtrInput              `pulumi:"logTemplate"`
 	OverrideTaskStepProperties OverrideTaskStepPropertiesPtrInput `pulumi:"overrideTaskStepProperties"`
-	// The resource ID of task against which run has to be queued.
-	TaskId pulumi.StringInput `pulumi:"taskId"`
-	// The type of the run request.
-	// Expected value is 'TaskRunRequest'.
-	Type pulumi.StringInput `pulumi:"type"`
+	TaskId                     pulumi.StringInput                 `pulumi:"taskId"`
+	Type                       pulumi.StringInput                 `pulumi:"type"`
 }
 
 func (TaskRunRequestArgs) ElementType() reflect.Type {
@@ -7828,7 +6738,6 @@ func (i TaskRunRequestArgs) ToTaskRunRequestOutputWithContext(ctx context.Contex
 	return pulumi.ToOutputWithContext(ctx, i).(TaskRunRequestOutput)
 }
 
-// The parameters for a task run request.
 type TaskRunRequestOutput struct{ *pulumi.OutputState }
 
 func (TaskRunRequestOutput) ElementType() reflect.Type {
@@ -7843,52 +6752,37 @@ func (o TaskRunRequestOutput) ToTaskRunRequestOutputWithContext(ctx context.Cont
 	return o
 }
 
-// The dedicated agent pool for the run.
 func (o TaskRunRequestOutput) AgentPoolName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v TaskRunRequest) *string { return v.AgentPoolName }).(pulumi.StringPtrOutput)
 }
 
-// The value that indicates whether archiving is enabled for the run or not.
 func (o TaskRunRequestOutput) IsArchiveEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v TaskRunRequest) *bool { return v.IsArchiveEnabled }).(pulumi.BoolPtrOutput)
 }
 
-// The template that describes the repository and tag information for run log artifact.
 func (o TaskRunRequestOutput) LogTemplate() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v TaskRunRequest) *string { return v.LogTemplate }).(pulumi.StringPtrOutput)
 }
 
-// Set of overridable parameters that can be passed when running a Task.
 func (o TaskRunRequestOutput) OverrideTaskStepProperties() OverrideTaskStepPropertiesPtrOutput {
 	return o.ApplyT(func(v TaskRunRequest) *OverrideTaskStepProperties { return v.OverrideTaskStepProperties }).(OverrideTaskStepPropertiesPtrOutput)
 }
 
-// The resource ID of task against which run has to be queued.
 func (o TaskRunRequestOutput) TaskId() pulumi.StringOutput {
 	return o.ApplyT(func(v TaskRunRequest) string { return v.TaskId }).(pulumi.StringOutput)
 }
 
-// The type of the run request.
-// Expected value is 'TaskRunRequest'.
 func (o TaskRunRequestOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v TaskRunRequest) string { return v.Type }).(pulumi.StringOutput)
 }
 
-// The parameters for a task run request.
 type TaskRunRequestResponse struct {
-	// The dedicated agent pool for the run.
-	AgentPoolName *string `pulumi:"agentPoolName"`
-	// The value that indicates whether archiving is enabled for the run or not.
-	IsArchiveEnabled *bool `pulumi:"isArchiveEnabled"`
-	// The template that describes the repository and tag information for run log artifact.
-	LogTemplate *string `pulumi:"logTemplate"`
-	// Set of overridable parameters that can be passed when running a Task.
+	AgentPoolName              *string                             `pulumi:"agentPoolName"`
+	IsArchiveEnabled           *bool                               `pulumi:"isArchiveEnabled"`
+	LogTemplate                *string                             `pulumi:"logTemplate"`
 	OverrideTaskStepProperties *OverrideTaskStepPropertiesResponse `pulumi:"overrideTaskStepProperties"`
-	// The resource ID of task against which run has to be queued.
-	TaskId string `pulumi:"taskId"`
-	// The type of the run request.
-	// Expected value is 'TaskRunRequest'.
-	Type string `pulumi:"type"`
+	TaskId                     string                              `pulumi:"taskId"`
+	Type                       string                              `pulumi:"type"`
 }
 
 // TaskRunRequestResponseInput is an input type that accepts TaskRunRequestResponseArgs and TaskRunRequestResponseOutput values.
@@ -7902,21 +6796,13 @@ type TaskRunRequestResponseInput interface {
 	ToTaskRunRequestResponseOutputWithContext(context.Context) TaskRunRequestResponseOutput
 }
 
-// The parameters for a task run request.
 type TaskRunRequestResponseArgs struct {
-	// The dedicated agent pool for the run.
-	AgentPoolName pulumi.StringPtrInput `pulumi:"agentPoolName"`
-	// The value that indicates whether archiving is enabled for the run or not.
-	IsArchiveEnabled pulumi.BoolPtrInput `pulumi:"isArchiveEnabled"`
-	// The template that describes the repository and tag information for run log artifact.
-	LogTemplate pulumi.StringPtrInput `pulumi:"logTemplate"`
-	// Set of overridable parameters that can be passed when running a Task.
+	AgentPoolName              pulumi.StringPtrInput                      `pulumi:"agentPoolName"`
+	IsArchiveEnabled           pulumi.BoolPtrInput                        `pulumi:"isArchiveEnabled"`
+	LogTemplate                pulumi.StringPtrInput                      `pulumi:"logTemplate"`
 	OverrideTaskStepProperties OverrideTaskStepPropertiesResponsePtrInput `pulumi:"overrideTaskStepProperties"`
-	// The resource ID of task against which run has to be queued.
-	TaskId pulumi.StringInput `pulumi:"taskId"`
-	// The type of the run request.
-	// Expected value is 'TaskRunRequest'.
-	Type pulumi.StringInput `pulumi:"type"`
+	TaskId                     pulumi.StringInput                         `pulumi:"taskId"`
+	Type                       pulumi.StringInput                         `pulumi:"type"`
 }
 
 func (TaskRunRequestResponseArgs) ElementType() reflect.Type {
@@ -7931,7 +6817,6 @@ func (i TaskRunRequestResponseArgs) ToTaskRunRequestResponseOutputWithContext(ct
 	return pulumi.ToOutputWithContext(ctx, i).(TaskRunRequestResponseOutput)
 }
 
-// The parameters for a task run request.
 type TaskRunRequestResponseOutput struct{ *pulumi.OutputState }
 
 func (TaskRunRequestResponseOutput) ElementType() reflect.Type {
@@ -7946,47 +6831,36 @@ func (o TaskRunRequestResponseOutput) ToTaskRunRequestResponseOutputWithContext(
 	return o
 }
 
-// The dedicated agent pool for the run.
 func (o TaskRunRequestResponseOutput) AgentPoolName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v TaskRunRequestResponse) *string { return v.AgentPoolName }).(pulumi.StringPtrOutput)
 }
 
-// The value that indicates whether archiving is enabled for the run or not.
 func (o TaskRunRequestResponseOutput) IsArchiveEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v TaskRunRequestResponse) *bool { return v.IsArchiveEnabled }).(pulumi.BoolPtrOutput)
 }
 
-// The template that describes the repository and tag information for run log artifact.
 func (o TaskRunRequestResponseOutput) LogTemplate() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v TaskRunRequestResponse) *string { return v.LogTemplate }).(pulumi.StringPtrOutput)
 }
 
-// Set of overridable parameters that can be passed when running a Task.
 func (o TaskRunRequestResponseOutput) OverrideTaskStepProperties() OverrideTaskStepPropertiesResponsePtrOutput {
 	return o.ApplyT(func(v TaskRunRequestResponse) *OverrideTaskStepPropertiesResponse {
 		return v.OverrideTaskStepProperties
 	}).(OverrideTaskStepPropertiesResponsePtrOutput)
 }
 
-// The resource ID of task against which run has to be queued.
 func (o TaskRunRequestResponseOutput) TaskId() pulumi.StringOutput {
 	return o.ApplyT(func(v TaskRunRequestResponse) string { return v.TaskId }).(pulumi.StringOutput)
 }
 
-// The type of the run request.
-// Expected value is 'TaskRunRequest'.
 func (o TaskRunRequestResponseOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v TaskRunRequestResponse) string { return v.Type }).(pulumi.StringOutput)
 }
 
-// The properties of a timer trigger.
 type TimerTrigger struct {
-	// The name of the trigger.
-	Name string `pulumi:"name"`
-	// The CRON expression for the task schedule
-	Schedule string `pulumi:"schedule"`
-	// The current status of trigger.
-	Status *string `pulumi:"status"`
+	Name     string  `pulumi:"name"`
+	Schedule string  `pulumi:"schedule"`
+	Status   *string `pulumi:"status"`
 }
 
 // TimerTriggerInput is an input type that accepts TimerTriggerArgs and TimerTriggerOutput values.
@@ -8000,14 +6874,10 @@ type TimerTriggerInput interface {
 	ToTimerTriggerOutputWithContext(context.Context) TimerTriggerOutput
 }
 
-// The properties of a timer trigger.
 type TimerTriggerArgs struct {
-	// The name of the trigger.
-	Name pulumi.StringInput `pulumi:"name"`
-	// The CRON expression for the task schedule
-	Schedule pulumi.StringInput `pulumi:"schedule"`
-	// The current status of trigger.
-	Status pulumi.StringPtrInput `pulumi:"status"`
+	Name     pulumi.StringInput    `pulumi:"name"`
+	Schedule pulumi.StringInput    `pulumi:"schedule"`
+	Status   pulumi.StringPtrInput `pulumi:"status"`
 }
 
 func (TimerTriggerArgs) ElementType() reflect.Type {
@@ -8047,7 +6917,6 @@ func (i TimerTriggerArray) ToTimerTriggerArrayOutputWithContext(ctx context.Cont
 	return pulumi.ToOutputWithContext(ctx, i).(TimerTriggerArrayOutput)
 }
 
-// The properties of a timer trigger.
 type TimerTriggerOutput struct{ *pulumi.OutputState }
 
 func (TimerTriggerOutput) ElementType() reflect.Type {
@@ -8062,17 +6931,14 @@ func (o TimerTriggerOutput) ToTimerTriggerOutputWithContext(ctx context.Context)
 	return o
 }
 
-// The name of the trigger.
 func (o TimerTriggerOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v TimerTrigger) string { return v.Name }).(pulumi.StringOutput)
 }
 
-// The CRON expression for the task schedule
 func (o TimerTriggerOutput) Schedule() pulumi.StringOutput {
 	return o.ApplyT(func(v TimerTrigger) string { return v.Schedule }).(pulumi.StringOutput)
 }
 
-// The current status of trigger.
 func (o TimerTriggerOutput) Status() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v TimerTrigger) *string { return v.Status }).(pulumi.StringPtrOutput)
 }
@@ -8098,10 +6964,8 @@ func (o TimerTriggerArrayOutput) Index(i pulumi.IntInput) TimerTriggerOutput {
 }
 
 type TimerTriggerDescriptorResponse struct {
-	// The occurrence that triggered the run.
 	ScheduleOccurrence *string `pulumi:"scheduleOccurrence"`
-	// The timer trigger name that caused the run.
-	TimerTriggerName *string `pulumi:"timerTriggerName"`
+	TimerTriggerName   *string `pulumi:"timerTriggerName"`
 }
 
 // TimerTriggerDescriptorResponseInput is an input type that accepts TimerTriggerDescriptorResponseArgs and TimerTriggerDescriptorResponseOutput values.
@@ -8116,10 +6980,8 @@ type TimerTriggerDescriptorResponseInput interface {
 }
 
 type TimerTriggerDescriptorResponseArgs struct {
-	// The occurrence that triggered the run.
 	ScheduleOccurrence pulumi.StringPtrInput `pulumi:"scheduleOccurrence"`
-	// The timer trigger name that caused the run.
-	TimerTriggerName pulumi.StringPtrInput `pulumi:"timerTriggerName"`
+	TimerTriggerName   pulumi.StringPtrInput `pulumi:"timerTriggerName"`
 }
 
 func (TimerTriggerDescriptorResponseArgs) ElementType() reflect.Type {
@@ -8194,17 +7056,15 @@ func (o TimerTriggerDescriptorResponseOutput) ToTimerTriggerDescriptorResponsePt
 }
 
 func (o TimerTriggerDescriptorResponseOutput) ToTimerTriggerDescriptorResponsePtrOutputWithContext(ctx context.Context) TimerTriggerDescriptorResponsePtrOutput {
-	return o.ApplyT(func(v TimerTriggerDescriptorResponse) *TimerTriggerDescriptorResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v TimerTriggerDescriptorResponse) *TimerTriggerDescriptorResponse {
 		return &v
 	}).(TimerTriggerDescriptorResponsePtrOutput)
 }
 
-// The occurrence that triggered the run.
 func (o TimerTriggerDescriptorResponseOutput) ScheduleOccurrence() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v TimerTriggerDescriptorResponse) *string { return v.ScheduleOccurrence }).(pulumi.StringPtrOutput)
 }
 
-// The timer trigger name that caused the run.
 func (o TimerTriggerDescriptorResponseOutput) TimerTriggerName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v TimerTriggerDescriptorResponse) *string { return v.TimerTriggerName }).(pulumi.StringPtrOutput)
 }
@@ -8224,10 +7084,15 @@ func (o TimerTriggerDescriptorResponsePtrOutput) ToTimerTriggerDescriptorRespons
 }
 
 func (o TimerTriggerDescriptorResponsePtrOutput) Elem() TimerTriggerDescriptorResponseOutput {
-	return o.ApplyT(func(v *TimerTriggerDescriptorResponse) TimerTriggerDescriptorResponse { return *v }).(TimerTriggerDescriptorResponseOutput)
+	return o.ApplyT(func(v *TimerTriggerDescriptorResponse) TimerTriggerDescriptorResponse {
+		if v != nil {
+			return *v
+		}
+		var ret TimerTriggerDescriptorResponse
+		return ret
+	}).(TimerTriggerDescriptorResponseOutput)
 }
 
-// The occurrence that triggered the run.
 func (o TimerTriggerDescriptorResponsePtrOutput) ScheduleOccurrence() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *TimerTriggerDescriptorResponse) *string {
 		if v == nil {
@@ -8237,7 +7102,6 @@ func (o TimerTriggerDescriptorResponsePtrOutput) ScheduleOccurrence() pulumi.Str
 	}).(pulumi.StringPtrOutput)
 }
 
-// The timer trigger name that caused the run.
 func (o TimerTriggerDescriptorResponsePtrOutput) TimerTriggerName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *TimerTriggerDescriptorResponse) *string {
 		if v == nil {
@@ -8247,14 +7111,10 @@ func (o TimerTriggerDescriptorResponsePtrOutput) TimerTriggerName() pulumi.Strin
 	}).(pulumi.StringPtrOutput)
 }
 
-// The properties of a timer trigger.
 type TimerTriggerResponse struct {
-	// The name of the trigger.
-	Name string `pulumi:"name"`
-	// The CRON expression for the task schedule
-	Schedule string `pulumi:"schedule"`
-	// The current status of trigger.
-	Status *string `pulumi:"status"`
+	Name     string  `pulumi:"name"`
+	Schedule string  `pulumi:"schedule"`
+	Status   *string `pulumi:"status"`
 }
 
 // TimerTriggerResponseInput is an input type that accepts TimerTriggerResponseArgs and TimerTriggerResponseOutput values.
@@ -8268,14 +7128,10 @@ type TimerTriggerResponseInput interface {
 	ToTimerTriggerResponseOutputWithContext(context.Context) TimerTriggerResponseOutput
 }
 
-// The properties of a timer trigger.
 type TimerTriggerResponseArgs struct {
-	// The name of the trigger.
-	Name pulumi.StringInput `pulumi:"name"`
-	// The CRON expression for the task schedule
-	Schedule pulumi.StringInput `pulumi:"schedule"`
-	// The current status of trigger.
-	Status pulumi.StringPtrInput `pulumi:"status"`
+	Name     pulumi.StringInput    `pulumi:"name"`
+	Schedule pulumi.StringInput    `pulumi:"schedule"`
+	Status   pulumi.StringPtrInput `pulumi:"status"`
 }
 
 func (TimerTriggerResponseArgs) ElementType() reflect.Type {
@@ -8315,7 +7171,6 @@ func (i TimerTriggerResponseArray) ToTimerTriggerResponseArrayOutputWithContext(
 	return pulumi.ToOutputWithContext(ctx, i).(TimerTriggerResponseArrayOutput)
 }
 
-// The properties of a timer trigger.
 type TimerTriggerResponseOutput struct{ *pulumi.OutputState }
 
 func (TimerTriggerResponseOutput) ElementType() reflect.Type {
@@ -8330,17 +7185,14 @@ func (o TimerTriggerResponseOutput) ToTimerTriggerResponseOutputWithContext(ctx 
 	return o
 }
 
-// The name of the trigger.
 func (o TimerTriggerResponseOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v TimerTriggerResponse) string { return v.Name }).(pulumi.StringOutput)
 }
 
-// The CRON expression for the task schedule
 func (o TimerTriggerResponseOutput) Schedule() pulumi.StringOutput {
 	return o.ApplyT(func(v TimerTriggerResponse) string { return v.Schedule }).(pulumi.StringOutput)
 }
 
-// The current status of trigger.
 func (o TimerTriggerResponseOutput) Status() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v TimerTriggerResponse) *string { return v.Status }).(pulumi.StringPtrOutput)
 }
@@ -8365,14 +7217,10 @@ func (o TimerTriggerResponseArrayOutput) Index(i pulumi.IntInput) TimerTriggerRe
 	}).(TimerTriggerResponseOutput)
 }
 
-// The properties of a trigger.
 type TriggerProperties struct {
-	// The trigger based on base image dependencies.
 	BaseImageTrigger *BaseImageTrigger `pulumi:"baseImageTrigger"`
-	// The collection of triggers based on source code repository.
-	SourceTriggers []SourceTrigger `pulumi:"sourceTriggers"`
-	// The collection of timer triggers.
-	TimerTriggers []TimerTrigger `pulumi:"timerTriggers"`
+	SourceTriggers   []SourceTrigger   `pulumi:"sourceTriggers"`
+	TimerTriggers    []TimerTrigger    `pulumi:"timerTriggers"`
 }
 
 // TriggerPropertiesInput is an input type that accepts TriggerPropertiesArgs and TriggerPropertiesOutput values.
@@ -8386,14 +7234,10 @@ type TriggerPropertiesInput interface {
 	ToTriggerPropertiesOutputWithContext(context.Context) TriggerPropertiesOutput
 }
 
-// The properties of a trigger.
 type TriggerPropertiesArgs struct {
-	// The trigger based on base image dependencies.
 	BaseImageTrigger BaseImageTriggerPtrInput `pulumi:"baseImageTrigger"`
-	// The collection of triggers based on source code repository.
-	SourceTriggers SourceTriggerArrayInput `pulumi:"sourceTriggers"`
-	// The collection of timer triggers.
-	TimerTriggers TimerTriggerArrayInput `pulumi:"timerTriggers"`
+	SourceTriggers   SourceTriggerArrayInput  `pulumi:"sourceTriggers"`
+	TimerTriggers    TimerTriggerArrayInput   `pulumi:"timerTriggers"`
 }
 
 func (TriggerPropertiesArgs) ElementType() reflect.Type {
@@ -8449,7 +7293,6 @@ func (i *triggerPropertiesPtrType) ToTriggerPropertiesPtrOutputWithContext(ctx c
 	return pulumi.ToOutputWithContext(ctx, i).(TriggerPropertiesPtrOutput)
 }
 
-// The properties of a trigger.
 type TriggerPropertiesOutput struct{ *pulumi.OutputState }
 
 func (TriggerPropertiesOutput) ElementType() reflect.Type {
@@ -8469,22 +7312,19 @@ func (o TriggerPropertiesOutput) ToTriggerPropertiesPtrOutput() TriggerPropertie
 }
 
 func (o TriggerPropertiesOutput) ToTriggerPropertiesPtrOutputWithContext(ctx context.Context) TriggerPropertiesPtrOutput {
-	return o.ApplyT(func(v TriggerProperties) *TriggerProperties {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v TriggerProperties) *TriggerProperties {
 		return &v
 	}).(TriggerPropertiesPtrOutput)
 }
 
-// The trigger based on base image dependencies.
 func (o TriggerPropertiesOutput) BaseImageTrigger() BaseImageTriggerPtrOutput {
 	return o.ApplyT(func(v TriggerProperties) *BaseImageTrigger { return v.BaseImageTrigger }).(BaseImageTriggerPtrOutput)
 }
 
-// The collection of triggers based on source code repository.
 func (o TriggerPropertiesOutput) SourceTriggers() SourceTriggerArrayOutput {
 	return o.ApplyT(func(v TriggerProperties) []SourceTrigger { return v.SourceTriggers }).(SourceTriggerArrayOutput)
 }
 
-// The collection of timer triggers.
 func (o TriggerPropertiesOutput) TimerTriggers() TimerTriggerArrayOutput {
 	return o.ApplyT(func(v TriggerProperties) []TimerTrigger { return v.TimerTriggers }).(TimerTriggerArrayOutput)
 }
@@ -8504,10 +7344,15 @@ func (o TriggerPropertiesPtrOutput) ToTriggerPropertiesPtrOutputWithContext(ctx 
 }
 
 func (o TriggerPropertiesPtrOutput) Elem() TriggerPropertiesOutput {
-	return o.ApplyT(func(v *TriggerProperties) TriggerProperties { return *v }).(TriggerPropertiesOutput)
+	return o.ApplyT(func(v *TriggerProperties) TriggerProperties {
+		if v != nil {
+			return *v
+		}
+		var ret TriggerProperties
+		return ret
+	}).(TriggerPropertiesOutput)
 }
 
-// The trigger based on base image dependencies.
 func (o TriggerPropertiesPtrOutput) BaseImageTrigger() BaseImageTriggerPtrOutput {
 	return o.ApplyT(func(v *TriggerProperties) *BaseImageTrigger {
 		if v == nil {
@@ -8517,7 +7362,6 @@ func (o TriggerPropertiesPtrOutput) BaseImageTrigger() BaseImageTriggerPtrOutput
 	}).(BaseImageTriggerPtrOutput)
 }
 
-// The collection of triggers based on source code repository.
 func (o TriggerPropertiesPtrOutput) SourceTriggers() SourceTriggerArrayOutput {
 	return o.ApplyT(func(v *TriggerProperties) []SourceTrigger {
 		if v == nil {
@@ -8527,7 +7371,6 @@ func (o TriggerPropertiesPtrOutput) SourceTriggers() SourceTriggerArrayOutput {
 	}).(SourceTriggerArrayOutput)
 }
 
-// The collection of timer triggers.
 func (o TriggerPropertiesPtrOutput) TimerTriggers() TimerTriggerArrayOutput {
 	return o.ApplyT(func(v *TriggerProperties) []TimerTrigger {
 		if v == nil {
@@ -8537,14 +7380,10 @@ func (o TriggerPropertiesPtrOutput) TimerTriggers() TimerTriggerArrayOutput {
 	}).(TimerTriggerArrayOutput)
 }
 
-// The properties of a trigger.
 type TriggerPropertiesResponse struct {
-	// The trigger based on base image dependencies.
 	BaseImageTrigger *BaseImageTriggerResponse `pulumi:"baseImageTrigger"`
-	// The collection of triggers based on source code repository.
-	SourceTriggers []SourceTriggerResponse `pulumi:"sourceTriggers"`
-	// The collection of timer triggers.
-	TimerTriggers []TimerTriggerResponse `pulumi:"timerTriggers"`
+	SourceTriggers   []SourceTriggerResponse   `pulumi:"sourceTriggers"`
+	TimerTriggers    []TimerTriggerResponse    `pulumi:"timerTriggers"`
 }
 
 // TriggerPropertiesResponseInput is an input type that accepts TriggerPropertiesResponseArgs and TriggerPropertiesResponseOutput values.
@@ -8558,14 +7397,10 @@ type TriggerPropertiesResponseInput interface {
 	ToTriggerPropertiesResponseOutputWithContext(context.Context) TriggerPropertiesResponseOutput
 }
 
-// The properties of a trigger.
 type TriggerPropertiesResponseArgs struct {
-	// The trigger based on base image dependencies.
 	BaseImageTrigger BaseImageTriggerResponsePtrInput `pulumi:"baseImageTrigger"`
-	// The collection of triggers based on source code repository.
-	SourceTriggers SourceTriggerResponseArrayInput `pulumi:"sourceTriggers"`
-	// The collection of timer triggers.
-	TimerTriggers TimerTriggerResponseArrayInput `pulumi:"timerTriggers"`
+	SourceTriggers   SourceTriggerResponseArrayInput  `pulumi:"sourceTriggers"`
+	TimerTriggers    TimerTriggerResponseArrayInput   `pulumi:"timerTriggers"`
 }
 
 func (TriggerPropertiesResponseArgs) ElementType() reflect.Type {
@@ -8621,7 +7456,6 @@ func (i *triggerPropertiesResponsePtrType) ToTriggerPropertiesResponsePtrOutputW
 	return pulumi.ToOutputWithContext(ctx, i).(TriggerPropertiesResponsePtrOutput)
 }
 
-// The properties of a trigger.
 type TriggerPropertiesResponseOutput struct{ *pulumi.OutputState }
 
 func (TriggerPropertiesResponseOutput) ElementType() reflect.Type {
@@ -8641,22 +7475,19 @@ func (o TriggerPropertiesResponseOutput) ToTriggerPropertiesResponsePtrOutput() 
 }
 
 func (o TriggerPropertiesResponseOutput) ToTriggerPropertiesResponsePtrOutputWithContext(ctx context.Context) TriggerPropertiesResponsePtrOutput {
-	return o.ApplyT(func(v TriggerPropertiesResponse) *TriggerPropertiesResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v TriggerPropertiesResponse) *TriggerPropertiesResponse {
 		return &v
 	}).(TriggerPropertiesResponsePtrOutput)
 }
 
-// The trigger based on base image dependencies.
 func (o TriggerPropertiesResponseOutput) BaseImageTrigger() BaseImageTriggerResponsePtrOutput {
 	return o.ApplyT(func(v TriggerPropertiesResponse) *BaseImageTriggerResponse { return v.BaseImageTrigger }).(BaseImageTriggerResponsePtrOutput)
 }
 
-// The collection of triggers based on source code repository.
 func (o TriggerPropertiesResponseOutput) SourceTriggers() SourceTriggerResponseArrayOutput {
 	return o.ApplyT(func(v TriggerPropertiesResponse) []SourceTriggerResponse { return v.SourceTriggers }).(SourceTriggerResponseArrayOutput)
 }
 
-// The collection of timer triggers.
 func (o TriggerPropertiesResponseOutput) TimerTriggers() TimerTriggerResponseArrayOutput {
 	return o.ApplyT(func(v TriggerPropertiesResponse) []TimerTriggerResponse { return v.TimerTriggers }).(TimerTriggerResponseArrayOutput)
 }
@@ -8676,10 +7507,15 @@ func (o TriggerPropertiesResponsePtrOutput) ToTriggerPropertiesResponsePtrOutput
 }
 
 func (o TriggerPropertiesResponsePtrOutput) Elem() TriggerPropertiesResponseOutput {
-	return o.ApplyT(func(v *TriggerPropertiesResponse) TriggerPropertiesResponse { return *v }).(TriggerPropertiesResponseOutput)
+	return o.ApplyT(func(v *TriggerPropertiesResponse) TriggerPropertiesResponse {
+		if v != nil {
+			return *v
+		}
+		var ret TriggerPropertiesResponse
+		return ret
+	}).(TriggerPropertiesResponseOutput)
 }
 
-// The trigger based on base image dependencies.
 func (o TriggerPropertiesResponsePtrOutput) BaseImageTrigger() BaseImageTriggerResponsePtrOutput {
 	return o.ApplyT(func(v *TriggerPropertiesResponse) *BaseImageTriggerResponse {
 		if v == nil {
@@ -8689,7 +7525,6 @@ func (o TriggerPropertiesResponsePtrOutput) BaseImageTrigger() BaseImageTriggerR
 	}).(BaseImageTriggerResponsePtrOutput)
 }
 
-// The collection of triggers based on source code repository.
 func (o TriggerPropertiesResponsePtrOutput) SourceTriggers() SourceTriggerResponseArrayOutput {
 	return o.ApplyT(func(v *TriggerPropertiesResponse) []SourceTriggerResponse {
 		if v == nil {
@@ -8699,7 +7534,6 @@ func (o TriggerPropertiesResponsePtrOutput) SourceTriggers() SourceTriggerRespon
 	}).(SourceTriggerResponseArrayOutput)
 }
 
-// The collection of timer triggers.
 func (o TriggerPropertiesResponsePtrOutput) TimerTriggers() TimerTriggerResponseArrayOutput {
 	return o.ApplyT(func(v *TriggerPropertiesResponse) []TimerTriggerResponse {
 		if v == nil {
@@ -8710,9 +7544,7 @@ func (o TriggerPropertiesResponsePtrOutput) TimerTriggers() TimerTriggerResponse
 }
 
 type UserIdentityProperties struct {
-	// The client id of user assigned identity.
-	ClientId *string `pulumi:"clientId"`
-	// The principal id of user assigned identity.
+	ClientId    *string `pulumi:"clientId"`
 	PrincipalId *string `pulumi:"principalId"`
 }
 
@@ -8728,9 +7560,7 @@ type UserIdentityPropertiesInput interface {
 }
 
 type UserIdentityPropertiesArgs struct {
-	// The client id of user assigned identity.
-	ClientId pulumi.StringPtrInput `pulumi:"clientId"`
-	// The principal id of user assigned identity.
+	ClientId    pulumi.StringPtrInput `pulumi:"clientId"`
 	PrincipalId pulumi.StringPtrInput `pulumi:"principalId"`
 }
 
@@ -8785,12 +7615,10 @@ func (o UserIdentityPropertiesOutput) ToUserIdentityPropertiesOutputWithContext(
 	return o
 }
 
-// The client id of user assigned identity.
 func (o UserIdentityPropertiesOutput) ClientId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v UserIdentityProperties) *string { return v.ClientId }).(pulumi.StringPtrOutput)
 }
 
-// The principal id of user assigned identity.
 func (o UserIdentityPropertiesOutput) PrincipalId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v UserIdentityProperties) *string { return v.PrincipalId }).(pulumi.StringPtrOutput)
 }
@@ -8816,9 +7644,7 @@ func (o UserIdentityPropertiesMapOutput) MapIndex(k pulumi.StringInput) UserIden
 }
 
 type UserIdentityPropertiesResponse struct {
-	// The client id of user assigned identity.
-	ClientId *string `pulumi:"clientId"`
-	// The principal id of user assigned identity.
+	ClientId    *string `pulumi:"clientId"`
 	PrincipalId *string `pulumi:"principalId"`
 }
 
@@ -8834,9 +7660,7 @@ type UserIdentityPropertiesResponseInput interface {
 }
 
 type UserIdentityPropertiesResponseArgs struct {
-	// The client id of user assigned identity.
-	ClientId pulumi.StringPtrInput `pulumi:"clientId"`
-	// The principal id of user assigned identity.
+	ClientId    pulumi.StringPtrInput `pulumi:"clientId"`
 	PrincipalId pulumi.StringPtrInput `pulumi:"principalId"`
 }
 
@@ -8891,12 +7715,10 @@ func (o UserIdentityPropertiesResponseOutput) ToUserIdentityPropertiesResponseOu
 	return o
 }
 
-// The client id of user assigned identity.
 func (o UserIdentityPropertiesResponseOutput) ClientId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v UserIdentityPropertiesResponse) *string { return v.ClientId }).(pulumi.StringPtrOutput)
 }
 
-// The principal id of user assigned identity.
 func (o UserIdentityPropertiesResponseOutput) PrincipalId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v UserIdentityPropertiesResponse) *string { return v.PrincipalId }).(pulumi.StringPtrOutput)
 }

@@ -7,7 +7,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// PublicIPAddress resource
 func LookupPublicIPAddress(ctx *pulumi.Context, args *LookupPublicIPAddressArgs, opts ...pulumi.InvokeOption) (*LookupPublicIPAddressResult, error) {
 	var rv LookupPublicIPAddressResult
 	err := ctx.Invoke("azure-native:network/v20160330:getPublicIPAddress", args, &rv, opts...)
@@ -18,41 +17,25 @@ func LookupPublicIPAddress(ctx *pulumi.Context, args *LookupPublicIPAddressArgs,
 }
 
 type LookupPublicIPAddressArgs struct {
-	// expand references resources.
-	Expand *string `pulumi:"expand"`
-	// The name of the subnet.
-	PublicIpAddressName string `pulumi:"publicIpAddressName"`
-	// The name of the resource group.
-	ResourceGroupName string `pulumi:"resourceGroupName"`
+	Expand              *string `pulumi:"expand"`
+	PublicIpAddressName string  `pulumi:"publicIpAddressName"`
+	ResourceGroupName   string  `pulumi:"resourceGroupName"`
 }
 
 // PublicIPAddress resource
 type LookupPublicIPAddressResult struct {
-	// Gets or sets FQDN of the DNS record associated with the public IP address
-	DnsSettings *PublicIPAddressDnsSettingsResponse `pulumi:"dnsSettings"`
-	// Gets a unique read-only string that changes whenever the resource is updated
-	Etag *string `pulumi:"etag"`
-	// Resource Id
-	Id *string `pulumi:"id"`
-	// Gets or sets the idle timeout of the public IP address
-	IdleTimeoutInMinutes *int    `pulumi:"idleTimeoutInMinutes"`
-	IpAddress            *string `pulumi:"ipAddress"`
-	// IPConfiguration
-	IpConfiguration *IPConfigurationResponse `pulumi:"ipConfiguration"`
-	// Resource location
-	Location *string `pulumi:"location"`
-	// Resource name
-	Name string `pulumi:"name"`
-	// Gets or sets Provisioning state of the PublicIP resource Updating/Deleting/Failed
-	ProvisioningState *string `pulumi:"provisioningState"`
-	// Gets or sets PublicIP address version (IPv4/IPv6)
-	PublicIPAddressVersion *string `pulumi:"publicIPAddressVersion"`
-	// Gets or sets PublicIP allocation method (Static/Dynamic)
-	PublicIPAllocationMethod *string `pulumi:"publicIPAllocationMethod"`
-	// Gets or sets resource GUID property of the PublicIP resource
-	ResourceGuid *string `pulumi:"resourceGuid"`
-	// Resource tags
-	Tags map[string]string `pulumi:"tags"`
-	// Resource type
-	Type string `pulumi:"type"`
+	DnsSettings              *PublicIPAddressDnsSettingsResponse `pulumi:"dnsSettings"`
+	Etag                     *string                             `pulumi:"etag"`
+	Id                       *string                             `pulumi:"id"`
+	IdleTimeoutInMinutes     *int                                `pulumi:"idleTimeoutInMinutes"`
+	IpAddress                *string                             `pulumi:"ipAddress"`
+	IpConfiguration          *IPConfigurationResponse            `pulumi:"ipConfiguration"`
+	Location                 *string                             `pulumi:"location"`
+	Name                     string                              `pulumi:"name"`
+	ProvisioningState        *string                             `pulumi:"provisioningState"`
+	PublicIPAddressVersion   *string                             `pulumi:"publicIPAddressVersion"`
+	PublicIPAllocationMethod *string                             `pulumi:"publicIPAllocationMethod"`
+	ResourceGuid             *string                             `pulumi:"resourceGuid"`
+	Tags                     map[string]string                   `pulumi:"tags"`
+	Type                     string                              `pulumi:"type"`
 }

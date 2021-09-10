@@ -11,35 +11,21 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Class representing an event hub data connection.
 type EventHubDataConnection struct {
 	pulumi.CustomResourceState
 
-	// The event hub messages compression type
-	Compression pulumi.StringPtrOutput `pulumi:"compression"`
-	// The event hub consumer group.
-	ConsumerGroup pulumi.StringOutput `pulumi:"consumerGroup"`
-	// The data format of the message. Optionally the data format can be added to each message.
-	DataFormat pulumi.StringPtrOutput `pulumi:"dataFormat"`
-	// The resource ID of the event hub to be used to create a data connection.
-	EventHubResourceId pulumi.StringOutput `pulumi:"eventHubResourceId"`
-	// System properties of the event hub
+	Compression           pulumi.StringPtrOutput   `pulumi:"compression"`
+	ConsumerGroup         pulumi.StringOutput      `pulumi:"consumerGroup"`
+	DataFormat            pulumi.StringPtrOutput   `pulumi:"dataFormat"`
+	EventHubResourceId    pulumi.StringOutput      `pulumi:"eventHubResourceId"`
 	EventSystemProperties pulumi.StringArrayOutput `pulumi:"eventSystemProperties"`
-	// Kind of the endpoint for the data connection
-	// Expected value is 'EventHub'.
-	Kind pulumi.StringOutput `pulumi:"kind"`
-	// Resource location.
-	Location pulumi.StringPtrOutput `pulumi:"location"`
-	// The mapping rule to be used to ingest the data. Optionally the mapping information can be added to each message.
-	MappingRuleName pulumi.StringPtrOutput `pulumi:"mappingRuleName"`
-	// The name of the resource
-	Name pulumi.StringOutput `pulumi:"name"`
-	// The provisioned state of the resource.
-	ProvisioningState pulumi.StringOutput `pulumi:"provisioningState"`
-	// The table where the data should be ingested. Optionally the table information can be added to each message.
-	TableName pulumi.StringPtrOutput `pulumi:"tableName"`
-	// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
-	Type pulumi.StringOutput `pulumi:"type"`
+	Kind                  pulumi.StringOutput      `pulumi:"kind"`
+	Location              pulumi.StringPtrOutput   `pulumi:"location"`
+	MappingRuleName       pulumi.StringPtrOutput   `pulumi:"mappingRuleName"`
+	Name                  pulumi.StringOutput      `pulumi:"name"`
+	ProvisioningState     pulumi.StringOutput      `pulumi:"provisioningState"`
+	TableName             pulumi.StringPtrOutput   `pulumi:"tableName"`
+	Type                  pulumi.StringOutput      `pulumi:"type"`
 }
 
 // NewEventHubDataConnection registers a new resource with the given unique name, arguments, and options.
@@ -160,64 +146,36 @@ func (EventHubDataConnectionState) ElementType() reflect.Type {
 }
 
 type eventHubDataConnectionArgs struct {
-	// The name of the Kusto cluster.
-	ClusterName string `pulumi:"clusterName"`
-	// The event hub messages compression type
-	Compression *string `pulumi:"compression"`
-	// The event hub consumer group.
-	ConsumerGroup string `pulumi:"consumerGroup"`
-	// The name of the data connection.
-	DataConnectionName *string `pulumi:"dataConnectionName"`
-	// The data format of the message. Optionally the data format can be added to each message.
-	DataFormat *string `pulumi:"dataFormat"`
-	// The name of the database in the Kusto cluster.
-	DatabaseName string `pulumi:"databaseName"`
-	// The resource ID of the event hub to be used to create a data connection.
-	EventHubResourceId string `pulumi:"eventHubResourceId"`
-	// System properties of the event hub
+	ClusterName           string   `pulumi:"clusterName"`
+	Compression           *string  `pulumi:"compression"`
+	ConsumerGroup         string   `pulumi:"consumerGroup"`
+	DataConnectionName    *string  `pulumi:"dataConnectionName"`
+	DataFormat            *string  `pulumi:"dataFormat"`
+	DatabaseName          string   `pulumi:"databaseName"`
+	EventHubResourceId    string   `pulumi:"eventHubResourceId"`
 	EventSystemProperties []string `pulumi:"eventSystemProperties"`
-	// Kind of the endpoint for the data connection
-	// Expected value is 'EventHub'.
-	Kind string `pulumi:"kind"`
-	// Resource location.
-	Location *string `pulumi:"location"`
-	// The mapping rule to be used to ingest the data. Optionally the mapping information can be added to each message.
-	MappingRuleName *string `pulumi:"mappingRuleName"`
-	// The name of the resource group containing the Kusto cluster.
-	ResourceGroupName string `pulumi:"resourceGroupName"`
-	// The table where the data should be ingested. Optionally the table information can be added to each message.
-	TableName *string `pulumi:"tableName"`
+	Kind                  string   `pulumi:"kind"`
+	Location              *string  `pulumi:"location"`
+	MappingRuleName       *string  `pulumi:"mappingRuleName"`
+	ResourceGroupName     string   `pulumi:"resourceGroupName"`
+	TableName             *string  `pulumi:"tableName"`
 }
 
 // The set of arguments for constructing a EventHubDataConnection resource.
 type EventHubDataConnectionArgs struct {
-	// The name of the Kusto cluster.
-	ClusterName pulumi.StringInput
-	// The event hub messages compression type
-	Compression pulumi.StringPtrInput
-	// The event hub consumer group.
-	ConsumerGroup pulumi.StringInput
-	// The name of the data connection.
-	DataConnectionName pulumi.StringPtrInput
-	// The data format of the message. Optionally the data format can be added to each message.
-	DataFormat pulumi.StringPtrInput
-	// The name of the database in the Kusto cluster.
-	DatabaseName pulumi.StringInput
-	// The resource ID of the event hub to be used to create a data connection.
-	EventHubResourceId pulumi.StringInput
-	// System properties of the event hub
+	ClusterName           pulumi.StringInput
+	Compression           pulumi.StringPtrInput
+	ConsumerGroup         pulumi.StringInput
+	DataConnectionName    pulumi.StringPtrInput
+	DataFormat            pulumi.StringPtrInput
+	DatabaseName          pulumi.StringInput
+	EventHubResourceId    pulumi.StringInput
 	EventSystemProperties pulumi.StringArrayInput
-	// Kind of the endpoint for the data connection
-	// Expected value is 'EventHub'.
-	Kind pulumi.StringInput
-	// Resource location.
-	Location pulumi.StringPtrInput
-	// The mapping rule to be used to ingest the data. Optionally the mapping information can be added to each message.
-	MappingRuleName pulumi.StringPtrInput
-	// The name of the resource group containing the Kusto cluster.
-	ResourceGroupName pulumi.StringInput
-	// The table where the data should be ingested. Optionally the table information can be added to each message.
-	TableName pulumi.StringPtrInput
+	Kind                  pulumi.StringInput
+	Location              pulumi.StringPtrInput
+	MappingRuleName       pulumi.StringPtrInput
+	ResourceGroupName     pulumi.StringInput
+	TableName             pulumi.StringPtrInput
 }
 
 func (EventHubDataConnectionArgs) ElementType() reflect.Type {
@@ -243,9 +201,7 @@ func (i *EventHubDataConnection) ToEventHubDataConnectionOutputWithContext(ctx c
 	return pulumi.ToOutputWithContext(ctx, i).(EventHubDataConnectionOutput)
 }
 
-type EventHubDataConnectionOutput struct {
-	*pulumi.OutputState
-}
+type EventHubDataConnectionOutput struct{ *pulumi.OutputState }
 
 func (EventHubDataConnectionOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*EventHubDataConnection)(nil))

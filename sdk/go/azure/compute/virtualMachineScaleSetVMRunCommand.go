@@ -224,9 +224,7 @@ func (i *VirtualMachineScaleSetVMRunCommand) ToVirtualMachineScaleSetVMRunComman
 	return pulumi.ToOutputWithContext(ctx, i).(VirtualMachineScaleSetVMRunCommandOutput)
 }
 
-type VirtualMachineScaleSetVMRunCommandOutput struct {
-	*pulumi.OutputState
-}
+type VirtualMachineScaleSetVMRunCommandOutput struct{ *pulumi.OutputState }
 
 func (VirtualMachineScaleSetVMRunCommandOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*VirtualMachineScaleSetVMRunCommand)(nil))

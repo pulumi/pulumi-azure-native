@@ -11,18 +11,13 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// The Managed Network Peering Policy resource
 type ManagedNetworkPeeringPolicy struct {
 	pulumi.CustomResourceState
 
-	// The geo-location where the resource lives
-	Location pulumi.StringPtrOutput `pulumi:"location"`
-	// The name of the resource
-	Name pulumi.StringOutput `pulumi:"name"`
-	// Gets or sets the properties of a Managed Network Policy
+	Location   pulumi.StringPtrOutput                              `pulumi:"location"`
+	Name       pulumi.StringOutput                                 `pulumi:"name"`
 	Properties ManagedNetworkPeeringPolicyPropertiesResponseOutput `pulumi:"properties"`
-	// The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
-	Type pulumi.StringOutput `pulumi:"type"`
+	Type       pulumi.StringOutput                                 `pulumi:"type"`
 }
 
 // NewManagedNetworkPeeringPolicy registers a new resource with the given unique name, arguments, and options.
@@ -82,30 +77,20 @@ func (ManagedNetworkPeeringPolicyState) ElementType() reflect.Type {
 }
 
 type managedNetworkPeeringPolicyArgs struct {
-	// The geo-location where the resource lives
-	Location *string `pulumi:"location"`
-	// The name of the Managed Network.
-	ManagedNetworkName string `pulumi:"managedNetworkName"`
-	// The name of the Managed Network Peering Policy.
-	ManagedNetworkPeeringPolicyName *string `pulumi:"managedNetworkPeeringPolicyName"`
-	// Gets or sets the properties of a Managed Network Policy
-	Properties *ManagedNetworkPeeringPolicyProperties `pulumi:"properties"`
-	// The name of the resource group.
-	ResourceGroupName string `pulumi:"resourceGroupName"`
+	Location                        *string                                `pulumi:"location"`
+	ManagedNetworkName              string                                 `pulumi:"managedNetworkName"`
+	ManagedNetworkPeeringPolicyName *string                                `pulumi:"managedNetworkPeeringPolicyName"`
+	Properties                      *ManagedNetworkPeeringPolicyProperties `pulumi:"properties"`
+	ResourceGroupName               string                                 `pulumi:"resourceGroupName"`
 }
 
 // The set of arguments for constructing a ManagedNetworkPeeringPolicy resource.
 type ManagedNetworkPeeringPolicyArgs struct {
-	// The geo-location where the resource lives
-	Location pulumi.StringPtrInput
-	// The name of the Managed Network.
-	ManagedNetworkName pulumi.StringInput
-	// The name of the Managed Network Peering Policy.
+	Location                        pulumi.StringPtrInput
+	ManagedNetworkName              pulumi.StringInput
 	ManagedNetworkPeeringPolicyName pulumi.StringPtrInput
-	// Gets or sets the properties of a Managed Network Policy
-	Properties ManagedNetworkPeeringPolicyPropertiesPtrInput
-	// The name of the resource group.
-	ResourceGroupName pulumi.StringInput
+	Properties                      ManagedNetworkPeeringPolicyPropertiesPtrInput
+	ResourceGroupName               pulumi.StringInput
 }
 
 func (ManagedNetworkPeeringPolicyArgs) ElementType() reflect.Type {
@@ -131,9 +116,7 @@ func (i *ManagedNetworkPeeringPolicy) ToManagedNetworkPeeringPolicyOutputWithCon
 	return pulumi.ToOutputWithContext(ctx, i).(ManagedNetworkPeeringPolicyOutput)
 }
 
-type ManagedNetworkPeeringPolicyOutput struct {
-	*pulumi.OutputState
-}
+type ManagedNetworkPeeringPolicyOutput struct{ *pulumi.OutputState }
 
 func (ManagedNetworkPeeringPolicyOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*ManagedNetworkPeeringPolicy)(nil))

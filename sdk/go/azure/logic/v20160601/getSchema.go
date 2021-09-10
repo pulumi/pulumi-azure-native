@@ -7,7 +7,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// The integration account schema.
 func LookupSchema(ctx *pulumi.Context, args *LookupSchemaArgs, opts ...pulumi.InvokeOption) (*LookupSchemaResult, error) {
 	var rv LookupSchemaResult
 	err := ctx.Invoke("azure-native:logic/v20160601:getSchema", args, &rv, opts...)
@@ -18,44 +17,26 @@ func LookupSchema(ctx *pulumi.Context, args *LookupSchemaArgs, opts ...pulumi.In
 }
 
 type LookupSchemaArgs struct {
-	// The integration account name.
 	IntegrationAccountName string `pulumi:"integrationAccountName"`
-	// The resource group name.
-	ResourceGroupName string `pulumi:"resourceGroupName"`
-	// The integration account schema name.
-	SchemaName string `pulumi:"schemaName"`
+	ResourceGroupName      string `pulumi:"resourceGroupName"`
+	SchemaName             string `pulumi:"schemaName"`
 }
 
 // The integration account schema.
 type LookupSchemaResult struct {
-	// The changed time.
-	ChangedTime string `pulumi:"changedTime"`
-	// The content.
-	Content *string `pulumi:"content"`
-	// The content link.
-	ContentLink ContentLinkResponse `pulumi:"contentLink"`
-	// The content type.
-	ContentType *string `pulumi:"contentType"`
-	// The created time.
-	CreatedTime string `pulumi:"createdTime"`
-	// The document name.
-	DocumentName *string `pulumi:"documentName"`
-	// The file name.
-	FileName *string `pulumi:"fileName"`
-	// The resource id.
-	Id string `pulumi:"id"`
-	// The resource location.
-	Location *string `pulumi:"location"`
-	// The metadata.
-	Metadata interface{} `pulumi:"metadata"`
-	// Gets the resource name.
-	Name string `pulumi:"name"`
-	// The schema type.
-	SchemaType string `pulumi:"schemaType"`
-	// The resource tags.
-	Tags map[string]string `pulumi:"tags"`
-	// The target namespace of the schema.
-	TargetNamespace *string `pulumi:"targetNamespace"`
-	// Gets the resource type.
-	Type string `pulumi:"type"`
+	ChangedTime     string              `pulumi:"changedTime"`
+	Content         *string             `pulumi:"content"`
+	ContentLink     ContentLinkResponse `pulumi:"contentLink"`
+	ContentType     *string             `pulumi:"contentType"`
+	CreatedTime     string              `pulumi:"createdTime"`
+	DocumentName    *string             `pulumi:"documentName"`
+	FileName        *string             `pulumi:"fileName"`
+	Id              string              `pulumi:"id"`
+	Location        *string             `pulumi:"location"`
+	Metadata        interface{}         `pulumi:"metadata"`
+	Name            string              `pulumi:"name"`
+	SchemaType      string              `pulumi:"schemaType"`
+	Tags            map[string]string   `pulumi:"tags"`
+	TargetNamespace *string             `pulumi:"targetNamespace"`
+	Type            string              `pulumi:"type"`
 }

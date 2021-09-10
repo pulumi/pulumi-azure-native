@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.DocumentDB.V20200401.Outputs
 {
 
+    /// <summary>
+    /// Cosmos DB Cassandra table cluster key
+    /// </summary>
     [OutputType]
     public sealed class ClusterKeyResponse
     {

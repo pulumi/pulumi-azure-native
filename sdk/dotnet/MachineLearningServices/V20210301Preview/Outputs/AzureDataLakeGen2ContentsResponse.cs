@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.MachineLearningServices.V20210301Preview.Outputs
 {
 
+    /// <summary>
+    /// Azure Data Lake Gen2 datastore configuration.
+    /// </summary>
     [OutputType]
     public sealed class AzureDataLakeGen2ContentsResponse
     {

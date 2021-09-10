@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.CostManagement.Outputs
 {
 
+    /// <summary>
+    /// The common properties of the export.
+    /// </summary>
     [OutputType]
     public sealed class CommonExportPropertiesResponse
     {

@@ -11,40 +11,24 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// The storage account.
 type StorageAccount struct {
 	pulumi.CustomResourceState
 
-	// Gets the type of the storage account.
-	AccountType pulumi.StringPtrOutput `pulumi:"accountType"`
-	// Gets the creation date and time of the storage account in UTC.
-	CreationTime pulumi.StringPtrOutput `pulumi:"creationTime"`
-	// Gets the user assigned custom domain assigned to this storage account.
-	CustomDomain CustomDomainResponsePtrOutput `pulumi:"customDomain"`
-	// Gets the timestamp of the most recent instance of a failover to the secondary location. Only the most recent timestamp is retained. This element is not returned if there has never been a failover instance. Only available if the accountType is StandardGRS or StandardRAGRS.
-	LastGeoFailoverTime pulumi.StringPtrOutput `pulumi:"lastGeoFailoverTime"`
-	// Resource location
-	Location pulumi.StringOutput `pulumi:"location"`
-	// Resource name
-	Name pulumi.StringOutput `pulumi:"name"`
-	// Gets the URLs that are used to perform a retrieval of a public blob, queue or table object.Note that StandardZRS and PremiumLRS accounts only return the blob endpoint.
-	PrimaryEndpoints EndpointsResponsePtrOutput `pulumi:"primaryEndpoints"`
-	// Gets the location of the primary for the storage account.
-	PrimaryLocation pulumi.StringPtrOutput `pulumi:"primaryLocation"`
-	// Gets the status of the storage account at the time the operation was called.
-	ProvisioningState pulumi.StringPtrOutput `pulumi:"provisioningState"`
-	// Gets the URLs that are used to perform a retrieval of a public blob, queue or table object from the secondary location of the storage account. Only available if the accountType is StandardRAGRS.
-	SecondaryEndpoints EndpointsResponsePtrOutput `pulumi:"secondaryEndpoints"`
-	// Gets the location of the geo replicated secondary for the storage account. Only available if the accountType is StandardGRS or StandardRAGRS.
-	SecondaryLocation pulumi.StringPtrOutput `pulumi:"secondaryLocation"`
-	// Gets the status indicating whether the primary location of the storage account is available or unavailable.
-	StatusOfPrimary pulumi.StringPtrOutput `pulumi:"statusOfPrimary"`
-	// Gets the status indicating whether the secondary location of the storage account is available or unavailable. Only available if the accountType is StandardGRS or StandardRAGRS.
-	StatusOfSecondary pulumi.StringPtrOutput `pulumi:"statusOfSecondary"`
-	// Resource tags
-	Tags pulumi.StringMapOutput `pulumi:"tags"`
-	// Resource type
-	Type pulumi.StringOutput `pulumi:"type"`
+	AccountType         pulumi.StringPtrOutput        `pulumi:"accountType"`
+	CreationTime        pulumi.StringPtrOutput        `pulumi:"creationTime"`
+	CustomDomain        CustomDomainResponsePtrOutput `pulumi:"customDomain"`
+	LastGeoFailoverTime pulumi.StringPtrOutput        `pulumi:"lastGeoFailoverTime"`
+	Location            pulumi.StringOutput           `pulumi:"location"`
+	Name                pulumi.StringOutput           `pulumi:"name"`
+	PrimaryEndpoints    EndpointsResponsePtrOutput    `pulumi:"primaryEndpoints"`
+	PrimaryLocation     pulumi.StringPtrOutput        `pulumi:"primaryLocation"`
+	ProvisioningState   pulumi.StringPtrOutput        `pulumi:"provisioningState"`
+	SecondaryEndpoints  EndpointsResponsePtrOutput    `pulumi:"secondaryEndpoints"`
+	SecondaryLocation   pulumi.StringPtrOutput        `pulumi:"secondaryLocation"`
+	StatusOfPrimary     pulumi.StringPtrOutput        `pulumi:"statusOfPrimary"`
+	StatusOfSecondary   pulumi.StringPtrOutput        `pulumi:"statusOfSecondary"`
+	Tags                pulumi.StringMapOutput        `pulumi:"tags"`
+	Type                pulumi.StringOutput           `pulumi:"type"`
 }
 
 // NewStorageAccount registers a new resource with the given unique name, arguments, and options.
@@ -197,30 +181,20 @@ func (StorageAccountState) ElementType() reflect.Type {
 }
 
 type storageAccountArgs struct {
-	// The name of the storage account within the specified resource group. Storage account names must be between 3 and 24 characters in length and use numbers and lower-case letters only.
-	AccountName *string `pulumi:"accountName"`
-	// Gets or sets the account type.
-	AccountType *string `pulumi:"accountType"`
-	// Resource location
-	Location *string `pulumi:"location"`
-	// The name of the resource group within the user's subscription.
-	ResourceGroupName string `pulumi:"resourceGroupName"`
-	// Resource tags
-	Tags map[string]string `pulumi:"tags"`
+	AccountName       *string           `pulumi:"accountName"`
+	AccountType       *AccountType      `pulumi:"accountType"`
+	Location          *string           `pulumi:"location"`
+	ResourceGroupName string            `pulumi:"resourceGroupName"`
+	Tags              map[string]string `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a StorageAccount resource.
 type StorageAccountArgs struct {
-	// The name of the storage account within the specified resource group. Storage account names must be between 3 and 24 characters in length and use numbers and lower-case letters only.
-	AccountName pulumi.StringPtrInput
-	// Gets or sets the account type.
-	AccountType *AccountType
-	// Resource location
-	Location pulumi.StringPtrInput
-	// The name of the resource group within the user's subscription.
+	AccountName       pulumi.StringPtrInput
+	AccountType       AccountTypePtrInput
+	Location          pulumi.StringPtrInput
 	ResourceGroupName pulumi.StringInput
-	// Resource tags
-	Tags pulumi.StringMapInput
+	Tags              pulumi.StringMapInput
 }
 
 func (StorageAccountArgs) ElementType() reflect.Type {
@@ -246,9 +220,7 @@ func (i *StorageAccount) ToStorageAccountOutputWithContext(ctx context.Context) 
 	return pulumi.ToOutputWithContext(ctx, i).(StorageAccountOutput)
 }
 
-type StorageAccountOutput struct {
-	*pulumi.OutputState
-}
+type StorageAccountOutput struct{ *pulumi.OutputState }
 
 func (StorageAccountOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*StorageAccount)(nil))

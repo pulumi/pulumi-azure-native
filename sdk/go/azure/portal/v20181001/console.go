@@ -11,11 +11,9 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Cloud shell console
 type Console struct {
 	pulumi.CustomResourceState
 
-	// Cloud shell console properties.
 	Properties ConsolePropertiesResponseOutput `pulumi:"properties"`
 }
 
@@ -73,18 +71,14 @@ func (ConsoleState) ElementType() reflect.Type {
 }
 
 type consoleArgs struct {
-	// The name of the console
-	ConsoleName *string `pulumi:"consoleName"`
-	// Cloud shell properties for creating a console.
-	Properties ConsoleCreateProperties `pulumi:"properties"`
+	ConsoleName *string                 `pulumi:"consoleName"`
+	Properties  ConsoleCreateProperties `pulumi:"properties"`
 }
 
 // The set of arguments for constructing a Console resource.
 type ConsoleArgs struct {
-	// The name of the console
 	ConsoleName pulumi.StringPtrInput
-	// Cloud shell properties for creating a console.
-	Properties ConsoleCreatePropertiesInput
+	Properties  ConsoleCreatePropertiesInput
 }
 
 func (ConsoleArgs) ElementType() reflect.Type {
@@ -110,9 +104,7 @@ func (i *Console) ToConsoleOutputWithContext(ctx context.Context) ConsoleOutput 
 	return pulumi.ToOutputWithContext(ctx, i).(ConsoleOutput)
 }
 
-type ConsoleOutput struct {
-	*pulumi.OutputState
-}
+type ConsoleOutput struct{ *pulumi.OutputState }
 
 func (ConsoleOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*Console)(nil))

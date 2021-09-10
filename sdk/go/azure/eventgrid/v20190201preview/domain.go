@@ -11,26 +11,17 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// EventGrid Domain
 type Domain struct {
 	pulumi.CustomResourceState
 
-	// Endpoint for the domain.
-	Endpoint pulumi.StringOutput `pulumi:"endpoint"`
-	// This determines the format that Event Grid should expect for incoming events published to the domain.
-	InputSchema pulumi.StringPtrOutput `pulumi:"inputSchema"`
-	// Information about the InputSchemaMapping which specified the info about mapping event payload.
+	Endpoint           pulumi.StringOutput                     `pulumi:"endpoint"`
+	InputSchema        pulumi.StringPtrOutput                  `pulumi:"inputSchema"`
 	InputSchemaMapping JsonInputSchemaMappingResponsePtrOutput `pulumi:"inputSchemaMapping"`
-	// Location of the resource
-	Location pulumi.StringOutput `pulumi:"location"`
-	// Name of the resource
-	Name pulumi.StringOutput `pulumi:"name"`
-	// Provisioning state of the domain.
-	ProvisioningState pulumi.StringOutput `pulumi:"provisioningState"`
-	// Tags of the resource
-	Tags pulumi.StringMapOutput `pulumi:"tags"`
-	// Type of the resource
-	Type pulumi.StringOutput `pulumi:"type"`
+	Location           pulumi.StringOutput                     `pulumi:"location"`
+	Name               pulumi.StringOutput                     `pulumi:"name"`
+	ProvisioningState  pulumi.StringOutput                     `pulumi:"provisioningState"`
+	Tags               pulumi.StringMapOutput                  `pulumi:"tags"`
+	Type               pulumi.StringOutput                     `pulumi:"type"`
 }
 
 // NewDomain registers a new resource with the given unique name, arguments, and options.
@@ -132,34 +123,22 @@ func (DomainState) ElementType() reflect.Type {
 }
 
 type domainArgs struct {
-	// Name of the domain
-	DomainName *string `pulumi:"domainName"`
-	// This determines the format that Event Grid should expect for incoming events published to the domain.
-	InputSchema *string `pulumi:"inputSchema"`
-	// Information about the InputSchemaMapping which specified the info about mapping event payload.
+	DomainName         *string                 `pulumi:"domainName"`
+	InputSchema        *string                 `pulumi:"inputSchema"`
 	InputSchemaMapping *JsonInputSchemaMapping `pulumi:"inputSchemaMapping"`
-	// Location of the resource
-	Location *string `pulumi:"location"`
-	// The name of the resource group within the user's subscription.
-	ResourceGroupName string `pulumi:"resourceGroupName"`
-	// Tags of the resource
-	Tags map[string]string `pulumi:"tags"`
+	Location           *string                 `pulumi:"location"`
+	ResourceGroupName  string                  `pulumi:"resourceGroupName"`
+	Tags               map[string]string       `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a Domain resource.
 type DomainArgs struct {
-	// Name of the domain
-	DomainName pulumi.StringPtrInput
-	// This determines the format that Event Grid should expect for incoming events published to the domain.
-	InputSchema pulumi.StringPtrInput
-	// Information about the InputSchemaMapping which specified the info about mapping event payload.
+	DomainName         pulumi.StringPtrInput
+	InputSchema        pulumi.StringPtrInput
 	InputSchemaMapping JsonInputSchemaMappingPtrInput
-	// Location of the resource
-	Location pulumi.StringPtrInput
-	// The name of the resource group within the user's subscription.
-	ResourceGroupName pulumi.StringInput
-	// Tags of the resource
-	Tags pulumi.StringMapInput
+	Location           pulumi.StringPtrInput
+	ResourceGroupName  pulumi.StringInput
+	Tags               pulumi.StringMapInput
 }
 
 func (DomainArgs) ElementType() reflect.Type {
@@ -185,9 +164,7 @@ func (i *Domain) ToDomainOutputWithContext(ctx context.Context) DomainOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(DomainOutput)
 }
 
-type DomainOutput struct {
-	*pulumi.OutputState
-}
+type DomainOutput struct{ *pulumi.OutputState }
 
 func (DomainOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*Domain)(nil))

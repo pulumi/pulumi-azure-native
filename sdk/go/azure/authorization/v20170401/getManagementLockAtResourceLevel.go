@@ -7,7 +7,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// The lock information.
 func LookupManagementLockAtResourceLevel(ctx *pulumi.Context, args *LookupManagementLockAtResourceLevelArgs, opts ...pulumi.InvokeOption) (*LookupManagementLockAtResourceLevelResult, error) {
 	var rv LookupManagementLockAtResourceLevelResult
 	err := ctx.Invoke("azure-native:authorization/v20170401:getManagementLockAtResourceLevel", args, &rv, opts...)
@@ -18,32 +17,20 @@ func LookupManagementLockAtResourceLevel(ctx *pulumi.Context, args *LookupManage
 }
 
 type LookupManagementLockAtResourceLevelArgs struct {
-	// The name of lock.
-	LockName string `pulumi:"lockName"`
-	// An extra path parameter needed in some services, like SQL Databases.
-	ParentResourcePath string `pulumi:"parentResourcePath"`
-	// The name of the resource group.
-	ResourceGroupName string `pulumi:"resourceGroupName"`
-	// The name of the resource.
-	ResourceName string `pulumi:"resourceName"`
-	// The namespace of the resource provider.
+	LockName                  string `pulumi:"lockName"`
+	ParentResourcePath        string `pulumi:"parentResourcePath"`
+	ResourceGroupName         string `pulumi:"resourceGroupName"`
+	ResourceName              string `pulumi:"resourceName"`
 	ResourceProviderNamespace string `pulumi:"resourceProviderNamespace"`
-	// The type of the resource.
-	ResourceType string `pulumi:"resourceType"`
+	ResourceType              string `pulumi:"resourceType"`
 }
 
 // The lock information.
 type LookupManagementLockAtResourceLevelResult struct {
-	// The resource ID of the lock.
-	Id string `pulumi:"id"`
-	// The level of the lock. Possible values are: NotSpecified, CanNotDelete, ReadOnly. CanNotDelete means authorized users are able to read and modify the resources, but not delete. ReadOnly means authorized users can only read from a resource, but they can't modify or delete it.
-	Level string `pulumi:"level"`
-	// The name of the lock.
-	Name string `pulumi:"name"`
-	// Notes about the lock. Maximum of 512 characters.
-	Notes *string `pulumi:"notes"`
-	// The owners of the lock.
+	Id     string                        `pulumi:"id"`
+	Level  string                        `pulumi:"level"`
+	Name   string                        `pulumi:"name"`
+	Notes  *string                       `pulumi:"notes"`
 	Owners []ManagementLockOwnerResponse `pulumi:"owners"`
-	// The resource type of the lock - Microsoft.Authorization/locks.
-	Type string `pulumi:"type"`
+	Type   string                        `pulumi:"type"`
 }

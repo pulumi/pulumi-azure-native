@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.SignalRService.V20200701Preview.Outputs
 {
 
+    /// <summary>
+    /// TLS settings for the resource
+    /// </summary>
     [OutputType]
     public sealed class SignalRTlsSettingsResponse
     {

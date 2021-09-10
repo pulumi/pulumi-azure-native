@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.ServiceFabricMesh.V20180901Preview.Outputs
 {
 
+    /// <summary>
+    /// Describes the auto scaling policy
+    /// </summary>
     [OutputType]
     public sealed class AutoScalingPolicyResponse
     {

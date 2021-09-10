@@ -17,19 +17,13 @@ func GetMonitorDefaultKey(ctx *pulumi.Context, args *GetMonitorDefaultKeyArgs, o
 }
 
 type GetMonitorDefaultKeyArgs struct {
-	// Monitor resource name
-	MonitorName string `pulumi:"monitorName"`
-	// The name of the resource group. The name is case insensitive.
+	MonitorName       string `pulumi:"monitorName"`
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 }
 
 type GetMonitorDefaultKeyResult struct {
-	// The time of creation of the API key.
-	Created *string `pulumi:"created"`
-	// The user that created the API key.
+	Created   *string `pulumi:"created"`
 	CreatedBy *string `pulumi:"createdBy"`
-	// The value of the API key.
-	Key string `pulumi:"key"`
-	// The name of the API key.
-	Name *string `pulumi:"name"`
+	Key       string  `pulumi:"key"`
+	Name      *string `pulumi:"name"`
 }

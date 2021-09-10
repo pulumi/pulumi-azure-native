@@ -11,11 +11,9 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Cloud shell console
 type ConsoleWithLocation struct {
 	pulumi.CustomResourceState
 
-	// Cloud shell console properties.
 	Properties ConsolePropertiesResponseOutput `pulumi:"properties"`
 }
 
@@ -73,18 +71,14 @@ func (ConsoleWithLocationState) ElementType() reflect.Type {
 }
 
 type consoleWithLocationArgs struct {
-	// The name of the console
 	ConsoleName *string `pulumi:"consoleName"`
-	// The provider location
-	Location string `pulumi:"location"`
+	Location    string  `pulumi:"location"`
 }
 
 // The set of arguments for constructing a ConsoleWithLocation resource.
 type ConsoleWithLocationArgs struct {
-	// The name of the console
 	ConsoleName pulumi.StringPtrInput
-	// The provider location
-	Location pulumi.StringInput
+	Location    pulumi.StringInput
 }
 
 func (ConsoleWithLocationArgs) ElementType() reflect.Type {
@@ -110,9 +104,7 @@ func (i *ConsoleWithLocation) ToConsoleWithLocationOutputWithContext(ctx context
 	return pulumi.ToOutputWithContext(ctx, i).(ConsoleWithLocationOutput)
 }
 
-type ConsoleWithLocationOutput struct {
-	*pulumi.OutputState
-}
+type ConsoleWithLocationOutput struct{ *pulumi.OutputState }
 
 func (ConsoleWithLocationOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*ConsoleWithLocation)(nil))

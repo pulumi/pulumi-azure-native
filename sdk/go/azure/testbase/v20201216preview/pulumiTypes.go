@@ -10,28 +10,17 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// The command used in the test
 type Command struct {
-	// The action of the command.
-	Action string `pulumi:"action"`
-	// Specifies whether to run the command even if a previous command is failed.
-	AlwaysRun *bool `pulumi:"alwaysRun"`
-	// Specifies whether to apply update before the command.
-	ApplyUpdateBefore *bool `pulumi:"applyUpdateBefore"`
-	// The content of the command. The content depends on source type.
-	Content string `pulumi:"content"`
-	// The type of command content.
-	ContentType string `pulumi:"contentType"`
-	// Specifies the max run time of the command.
-	MaxRunTime *int `pulumi:"maxRunTime"`
-	// The name of the command.
-	Name string `pulumi:"name"`
-	// Specifies whether to restart the VM after the command executed.
-	RestartAfter *bool `pulumi:"restartAfter"`
-	// Specifies whether to run the command in interactive mode.
-	RunAsInteractive *bool `pulumi:"runAsInteractive"`
-	// Specifies whether to run the command as administrator.
-	RunElevated *bool `pulumi:"runElevated"`
+	Action            string `pulumi:"action"`
+	AlwaysRun         *bool  `pulumi:"alwaysRun"`
+	ApplyUpdateBefore *bool  `pulumi:"applyUpdateBefore"`
+	Content           string `pulumi:"content"`
+	ContentType       string `pulumi:"contentType"`
+	MaxRunTime        *int   `pulumi:"maxRunTime"`
+	Name              string `pulumi:"name"`
+	RestartAfter      *bool  `pulumi:"restartAfter"`
+	RunAsInteractive  *bool  `pulumi:"runAsInteractive"`
+	RunElevated       *bool  `pulumi:"runElevated"`
 }
 
 // CommandInput is an input type that accepts CommandArgs and CommandOutput values.
@@ -45,28 +34,17 @@ type CommandInput interface {
 	ToCommandOutputWithContext(context.Context) CommandOutput
 }
 
-// The command used in the test
 type CommandArgs struct {
-	// The action of the command.
-	Action pulumi.StringInput `pulumi:"action"`
-	// Specifies whether to run the command even if a previous command is failed.
-	AlwaysRun pulumi.BoolPtrInput `pulumi:"alwaysRun"`
-	// Specifies whether to apply update before the command.
+	Action            pulumi.StringInput  `pulumi:"action"`
+	AlwaysRun         pulumi.BoolPtrInput `pulumi:"alwaysRun"`
 	ApplyUpdateBefore pulumi.BoolPtrInput `pulumi:"applyUpdateBefore"`
-	// The content of the command. The content depends on source type.
-	Content pulumi.StringInput `pulumi:"content"`
-	// The type of command content.
-	ContentType pulumi.StringInput `pulumi:"contentType"`
-	// Specifies the max run time of the command.
-	MaxRunTime pulumi.IntPtrInput `pulumi:"maxRunTime"`
-	// The name of the command.
-	Name pulumi.StringInput `pulumi:"name"`
-	// Specifies whether to restart the VM after the command executed.
-	RestartAfter pulumi.BoolPtrInput `pulumi:"restartAfter"`
-	// Specifies whether to run the command in interactive mode.
-	RunAsInteractive pulumi.BoolPtrInput `pulumi:"runAsInteractive"`
-	// Specifies whether to run the command as administrator.
-	RunElevated pulumi.BoolPtrInput `pulumi:"runElevated"`
+	Content           pulumi.StringInput  `pulumi:"content"`
+	ContentType       pulumi.StringInput  `pulumi:"contentType"`
+	MaxRunTime        pulumi.IntPtrInput  `pulumi:"maxRunTime"`
+	Name              pulumi.StringInput  `pulumi:"name"`
+	RestartAfter      pulumi.BoolPtrInput `pulumi:"restartAfter"`
+	RunAsInteractive  pulumi.BoolPtrInput `pulumi:"runAsInteractive"`
+	RunElevated       pulumi.BoolPtrInput `pulumi:"runElevated"`
 }
 
 func (CommandArgs) ElementType() reflect.Type {
@@ -106,7 +84,6 @@ func (i CommandArray) ToCommandArrayOutputWithContext(ctx context.Context) Comma
 	return pulumi.ToOutputWithContext(ctx, i).(CommandArrayOutput)
 }
 
-// The command used in the test
 type CommandOutput struct{ *pulumi.OutputState }
 
 func (CommandOutput) ElementType() reflect.Type {
@@ -121,52 +98,42 @@ func (o CommandOutput) ToCommandOutputWithContext(ctx context.Context) CommandOu
 	return o
 }
 
-// The action of the command.
 func (o CommandOutput) Action() pulumi.StringOutput {
 	return o.ApplyT(func(v Command) string { return v.Action }).(pulumi.StringOutput)
 }
 
-// Specifies whether to run the command even if a previous command is failed.
 func (o CommandOutput) AlwaysRun() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v Command) *bool { return v.AlwaysRun }).(pulumi.BoolPtrOutput)
 }
 
-// Specifies whether to apply update before the command.
 func (o CommandOutput) ApplyUpdateBefore() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v Command) *bool { return v.ApplyUpdateBefore }).(pulumi.BoolPtrOutput)
 }
 
-// The content of the command. The content depends on source type.
 func (o CommandOutput) Content() pulumi.StringOutput {
 	return o.ApplyT(func(v Command) string { return v.Content }).(pulumi.StringOutput)
 }
 
-// The type of command content.
 func (o CommandOutput) ContentType() pulumi.StringOutput {
 	return o.ApplyT(func(v Command) string { return v.ContentType }).(pulumi.StringOutput)
 }
 
-// Specifies the max run time of the command.
 func (o CommandOutput) MaxRunTime() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v Command) *int { return v.MaxRunTime }).(pulumi.IntPtrOutput)
 }
 
-// The name of the command.
 func (o CommandOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v Command) string { return v.Name }).(pulumi.StringOutput)
 }
 
-// Specifies whether to restart the VM after the command executed.
 func (o CommandOutput) RestartAfter() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v Command) *bool { return v.RestartAfter }).(pulumi.BoolPtrOutput)
 }
 
-// Specifies whether to run the command in interactive mode.
 func (o CommandOutput) RunAsInteractive() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v Command) *bool { return v.RunAsInteractive }).(pulumi.BoolPtrOutput)
 }
 
-// Specifies whether to run the command as administrator.
 func (o CommandOutput) RunElevated() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v Command) *bool { return v.RunElevated }).(pulumi.BoolPtrOutput)
 }
@@ -191,28 +158,17 @@ func (o CommandArrayOutput) Index(i pulumi.IntInput) CommandOutput {
 	}).(CommandOutput)
 }
 
-// The command used in the test
 type CommandResponse struct {
-	// The action of the command.
-	Action string `pulumi:"action"`
-	// Specifies whether to run the command even if a previous command is failed.
-	AlwaysRun *bool `pulumi:"alwaysRun"`
-	// Specifies whether to apply update before the command.
-	ApplyUpdateBefore *bool `pulumi:"applyUpdateBefore"`
-	// The content of the command. The content depends on source type.
-	Content string `pulumi:"content"`
-	// The type of command content.
-	ContentType string `pulumi:"contentType"`
-	// Specifies the max run time of the command.
-	MaxRunTime *int `pulumi:"maxRunTime"`
-	// The name of the command.
-	Name string `pulumi:"name"`
-	// Specifies whether to restart the VM after the command executed.
-	RestartAfter *bool `pulumi:"restartAfter"`
-	// Specifies whether to run the command in interactive mode.
-	RunAsInteractive *bool `pulumi:"runAsInteractive"`
-	// Specifies whether to run the command as administrator.
-	RunElevated *bool `pulumi:"runElevated"`
+	Action            string `pulumi:"action"`
+	AlwaysRun         *bool  `pulumi:"alwaysRun"`
+	ApplyUpdateBefore *bool  `pulumi:"applyUpdateBefore"`
+	Content           string `pulumi:"content"`
+	ContentType       string `pulumi:"contentType"`
+	MaxRunTime        *int   `pulumi:"maxRunTime"`
+	Name              string `pulumi:"name"`
+	RestartAfter      *bool  `pulumi:"restartAfter"`
+	RunAsInteractive  *bool  `pulumi:"runAsInteractive"`
+	RunElevated       *bool  `pulumi:"runElevated"`
 }
 
 // CommandResponseInput is an input type that accepts CommandResponseArgs and CommandResponseOutput values.
@@ -226,28 +182,17 @@ type CommandResponseInput interface {
 	ToCommandResponseOutputWithContext(context.Context) CommandResponseOutput
 }
 
-// The command used in the test
 type CommandResponseArgs struct {
-	// The action of the command.
-	Action pulumi.StringInput `pulumi:"action"`
-	// Specifies whether to run the command even if a previous command is failed.
-	AlwaysRun pulumi.BoolPtrInput `pulumi:"alwaysRun"`
-	// Specifies whether to apply update before the command.
+	Action            pulumi.StringInput  `pulumi:"action"`
+	AlwaysRun         pulumi.BoolPtrInput `pulumi:"alwaysRun"`
 	ApplyUpdateBefore pulumi.BoolPtrInput `pulumi:"applyUpdateBefore"`
-	// The content of the command. The content depends on source type.
-	Content pulumi.StringInput `pulumi:"content"`
-	// The type of command content.
-	ContentType pulumi.StringInput `pulumi:"contentType"`
-	// Specifies the max run time of the command.
-	MaxRunTime pulumi.IntPtrInput `pulumi:"maxRunTime"`
-	// The name of the command.
-	Name pulumi.StringInput `pulumi:"name"`
-	// Specifies whether to restart the VM after the command executed.
-	RestartAfter pulumi.BoolPtrInput `pulumi:"restartAfter"`
-	// Specifies whether to run the command in interactive mode.
-	RunAsInteractive pulumi.BoolPtrInput `pulumi:"runAsInteractive"`
-	// Specifies whether to run the command as administrator.
-	RunElevated pulumi.BoolPtrInput `pulumi:"runElevated"`
+	Content           pulumi.StringInput  `pulumi:"content"`
+	ContentType       pulumi.StringInput  `pulumi:"contentType"`
+	MaxRunTime        pulumi.IntPtrInput  `pulumi:"maxRunTime"`
+	Name              pulumi.StringInput  `pulumi:"name"`
+	RestartAfter      pulumi.BoolPtrInput `pulumi:"restartAfter"`
+	RunAsInteractive  pulumi.BoolPtrInput `pulumi:"runAsInteractive"`
+	RunElevated       pulumi.BoolPtrInput `pulumi:"runElevated"`
 }
 
 func (CommandResponseArgs) ElementType() reflect.Type {
@@ -287,7 +232,6 @@ func (i CommandResponseArray) ToCommandResponseArrayOutputWithContext(ctx contex
 	return pulumi.ToOutputWithContext(ctx, i).(CommandResponseArrayOutput)
 }
 
-// The command used in the test
 type CommandResponseOutput struct{ *pulumi.OutputState }
 
 func (CommandResponseOutput) ElementType() reflect.Type {
@@ -302,52 +246,42 @@ func (o CommandResponseOutput) ToCommandResponseOutputWithContext(ctx context.Co
 	return o
 }
 
-// The action of the command.
 func (o CommandResponseOutput) Action() pulumi.StringOutput {
 	return o.ApplyT(func(v CommandResponse) string { return v.Action }).(pulumi.StringOutput)
 }
 
-// Specifies whether to run the command even if a previous command is failed.
 func (o CommandResponseOutput) AlwaysRun() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v CommandResponse) *bool { return v.AlwaysRun }).(pulumi.BoolPtrOutput)
 }
 
-// Specifies whether to apply update before the command.
 func (o CommandResponseOutput) ApplyUpdateBefore() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v CommandResponse) *bool { return v.ApplyUpdateBefore }).(pulumi.BoolPtrOutput)
 }
 
-// The content of the command. The content depends on source type.
 func (o CommandResponseOutput) Content() pulumi.StringOutput {
 	return o.ApplyT(func(v CommandResponse) string { return v.Content }).(pulumi.StringOutput)
 }
 
-// The type of command content.
 func (o CommandResponseOutput) ContentType() pulumi.StringOutput {
 	return o.ApplyT(func(v CommandResponse) string { return v.ContentType }).(pulumi.StringOutput)
 }
 
-// Specifies the max run time of the command.
 func (o CommandResponseOutput) MaxRunTime() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v CommandResponse) *int { return v.MaxRunTime }).(pulumi.IntPtrOutput)
 }
 
-// The name of the command.
 func (o CommandResponseOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v CommandResponse) string { return v.Name }).(pulumi.StringOutput)
 }
 
-// Specifies whether to restart the VM after the command executed.
 func (o CommandResponseOutput) RestartAfter() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v CommandResponse) *bool { return v.RestartAfter }).(pulumi.BoolPtrOutput)
 }
 
-// Specifies whether to run the command in interactive mode.
 func (o CommandResponseOutput) RunAsInteractive() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v CommandResponse) *bool { return v.RunAsInteractive }).(pulumi.BoolPtrOutput)
 }
 
-// Specifies whether to run the command as administrator.
 func (o CommandResponseOutput) RunElevated() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v CommandResponse) *bool { return v.RunElevated }).(pulumi.BoolPtrOutput)
 }
@@ -372,9 +306,7 @@ func (o CommandResponseArrayOutput) Index(i pulumi.IntInput) CommandResponseOutp
 	}).(CommandResponseOutput)
 }
 
-// The user object receiver value.
 type DistributionGroupListReceiverValue struct {
-	// The list of distribution groups.
 	DistributionGroups []string `pulumi:"distributionGroups"`
 }
 
@@ -389,9 +321,7 @@ type DistributionGroupListReceiverValueInput interface {
 	ToDistributionGroupListReceiverValueOutputWithContext(context.Context) DistributionGroupListReceiverValueOutput
 }
 
-// The user object receiver value.
 type DistributionGroupListReceiverValueArgs struct {
-	// The list of distribution groups.
 	DistributionGroups pulumi.StringArrayInput `pulumi:"distributionGroups"`
 }
 
@@ -448,7 +378,6 @@ func (i *distributionGroupListReceiverValuePtrType) ToDistributionGroupListRecei
 	return pulumi.ToOutputWithContext(ctx, i).(DistributionGroupListReceiverValuePtrOutput)
 }
 
-// The user object receiver value.
 type DistributionGroupListReceiverValueOutput struct{ *pulumi.OutputState }
 
 func (DistributionGroupListReceiverValueOutput) ElementType() reflect.Type {
@@ -468,12 +397,11 @@ func (o DistributionGroupListReceiverValueOutput) ToDistributionGroupListReceive
 }
 
 func (o DistributionGroupListReceiverValueOutput) ToDistributionGroupListReceiverValuePtrOutputWithContext(ctx context.Context) DistributionGroupListReceiverValuePtrOutput {
-	return o.ApplyT(func(v DistributionGroupListReceiverValue) *DistributionGroupListReceiverValue {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v DistributionGroupListReceiverValue) *DistributionGroupListReceiverValue {
 		return &v
 	}).(DistributionGroupListReceiverValuePtrOutput)
 }
 
-// The list of distribution groups.
 func (o DistributionGroupListReceiverValueOutput) DistributionGroups() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v DistributionGroupListReceiverValue) []string { return v.DistributionGroups }).(pulumi.StringArrayOutput)
 }
@@ -493,10 +421,15 @@ func (o DistributionGroupListReceiverValuePtrOutput) ToDistributionGroupListRece
 }
 
 func (o DistributionGroupListReceiverValuePtrOutput) Elem() DistributionGroupListReceiverValueOutput {
-	return o.ApplyT(func(v *DistributionGroupListReceiverValue) DistributionGroupListReceiverValue { return *v }).(DistributionGroupListReceiverValueOutput)
+	return o.ApplyT(func(v *DistributionGroupListReceiverValue) DistributionGroupListReceiverValue {
+		if v != nil {
+			return *v
+		}
+		var ret DistributionGroupListReceiverValue
+		return ret
+	}).(DistributionGroupListReceiverValueOutput)
 }
 
-// The list of distribution groups.
 func (o DistributionGroupListReceiverValuePtrOutput) DistributionGroups() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *DistributionGroupListReceiverValue) []string {
 		if v == nil {
@@ -506,9 +439,7 @@ func (o DistributionGroupListReceiverValuePtrOutput) DistributionGroups() pulumi
 	}).(pulumi.StringArrayOutput)
 }
 
-// The user object receiver value.
 type DistributionGroupListReceiverValueResponse struct {
-	// The list of distribution groups.
 	DistributionGroups []string `pulumi:"distributionGroups"`
 }
 
@@ -523,9 +454,7 @@ type DistributionGroupListReceiverValueResponseInput interface {
 	ToDistributionGroupListReceiverValueResponseOutputWithContext(context.Context) DistributionGroupListReceiverValueResponseOutput
 }
 
-// The user object receiver value.
 type DistributionGroupListReceiverValueResponseArgs struct {
-	// The list of distribution groups.
 	DistributionGroups pulumi.StringArrayInput `pulumi:"distributionGroups"`
 }
 
@@ -582,7 +511,6 @@ func (i *distributionGroupListReceiverValueResponsePtrType) ToDistributionGroupL
 	return pulumi.ToOutputWithContext(ctx, i).(DistributionGroupListReceiverValueResponsePtrOutput)
 }
 
-// The user object receiver value.
 type DistributionGroupListReceiverValueResponseOutput struct{ *pulumi.OutputState }
 
 func (DistributionGroupListReceiverValueResponseOutput) ElementType() reflect.Type {
@@ -602,12 +530,11 @@ func (o DistributionGroupListReceiverValueResponseOutput) ToDistributionGroupLis
 }
 
 func (o DistributionGroupListReceiverValueResponseOutput) ToDistributionGroupListReceiverValueResponsePtrOutputWithContext(ctx context.Context) DistributionGroupListReceiverValueResponsePtrOutput {
-	return o.ApplyT(func(v DistributionGroupListReceiverValueResponse) *DistributionGroupListReceiverValueResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v DistributionGroupListReceiverValueResponse) *DistributionGroupListReceiverValueResponse {
 		return &v
 	}).(DistributionGroupListReceiverValueResponsePtrOutput)
 }
 
-// The list of distribution groups.
 func (o DistributionGroupListReceiverValueResponseOutput) DistributionGroups() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v DistributionGroupListReceiverValueResponse) []string { return v.DistributionGroups }).(pulumi.StringArrayOutput)
 }
@@ -628,11 +555,14 @@ func (o DistributionGroupListReceiverValueResponsePtrOutput) ToDistributionGroup
 
 func (o DistributionGroupListReceiverValueResponsePtrOutput) Elem() DistributionGroupListReceiverValueResponseOutput {
 	return o.ApplyT(func(v *DistributionGroupListReceiverValueResponse) DistributionGroupListReceiverValueResponse {
-		return *v
+		if v != nil {
+			return *v
+		}
+		var ret DistributionGroupListReceiverValueResponse
+		return ret
 	}).(DistributionGroupListReceiverValueResponseOutput)
 }
 
-// The list of distribution groups.
 func (o DistributionGroupListReceiverValueResponsePtrOutput) DistributionGroups() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *DistributionGroupListReceiverValueResponse) []string {
 		if v == nil {
@@ -642,11 +572,8 @@ func (o DistributionGroupListReceiverValueResponsePtrOutput) DistributionGroups(
 	}).(pulumi.StringArrayOutput)
 }
 
-// A notification event receivers.
 type NotificationEventReceiver struct {
-	// The type of the notification event receiver.
-	ReceiverType *string `pulumi:"receiverType"`
-	// The notification event receiver value.
+	ReceiverType  *string                    `pulumi:"receiverType"`
 	ReceiverValue *NotificationReceiverValue `pulumi:"receiverValue"`
 }
 
@@ -661,11 +588,8 @@ type NotificationEventReceiverInput interface {
 	ToNotificationEventReceiverOutputWithContext(context.Context) NotificationEventReceiverOutput
 }
 
-// A notification event receivers.
 type NotificationEventReceiverArgs struct {
-	// The type of the notification event receiver.
-	ReceiverType pulumi.StringPtrInput `pulumi:"receiverType"`
-	// The notification event receiver value.
+	ReceiverType  pulumi.StringPtrInput             `pulumi:"receiverType"`
 	ReceiverValue NotificationReceiverValuePtrInput `pulumi:"receiverValue"`
 }
 
@@ -706,7 +630,6 @@ func (i NotificationEventReceiverArray) ToNotificationEventReceiverArrayOutputWi
 	return pulumi.ToOutputWithContext(ctx, i).(NotificationEventReceiverArrayOutput)
 }
 
-// A notification event receivers.
 type NotificationEventReceiverOutput struct{ *pulumi.OutputState }
 
 func (NotificationEventReceiverOutput) ElementType() reflect.Type {
@@ -721,12 +644,10 @@ func (o NotificationEventReceiverOutput) ToNotificationEventReceiverOutputWithCo
 	return o
 }
 
-// The type of the notification event receiver.
 func (o NotificationEventReceiverOutput) ReceiverType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v NotificationEventReceiver) *string { return v.ReceiverType }).(pulumi.StringPtrOutput)
 }
 
-// The notification event receiver value.
 func (o NotificationEventReceiverOutput) ReceiverValue() NotificationReceiverValuePtrOutput {
 	return o.ApplyT(func(v NotificationEventReceiver) *NotificationReceiverValue { return v.ReceiverValue }).(NotificationReceiverValuePtrOutput)
 }
@@ -751,11 +672,8 @@ func (o NotificationEventReceiverArrayOutput) Index(i pulumi.IntInput) Notificat
 	}).(NotificationEventReceiverOutput)
 }
 
-// A notification event receivers.
 type NotificationEventReceiverResponse struct {
-	// The type of the notification event receiver.
-	ReceiverType *string `pulumi:"receiverType"`
-	// The notification event receiver value.
+	ReceiverType  *string                            `pulumi:"receiverType"`
 	ReceiverValue *NotificationReceiverValueResponse `pulumi:"receiverValue"`
 }
 
@@ -770,11 +688,8 @@ type NotificationEventReceiverResponseInput interface {
 	ToNotificationEventReceiverResponseOutputWithContext(context.Context) NotificationEventReceiverResponseOutput
 }
 
-// A notification event receivers.
 type NotificationEventReceiverResponseArgs struct {
-	// The type of the notification event receiver.
-	ReceiverType pulumi.StringPtrInput `pulumi:"receiverType"`
-	// The notification event receiver value.
+	ReceiverType  pulumi.StringPtrInput                     `pulumi:"receiverType"`
 	ReceiverValue NotificationReceiverValueResponsePtrInput `pulumi:"receiverValue"`
 }
 
@@ -815,7 +730,6 @@ func (i NotificationEventReceiverResponseArray) ToNotificationEventReceiverRespo
 	return pulumi.ToOutputWithContext(ctx, i).(NotificationEventReceiverResponseArrayOutput)
 }
 
-// A notification event receivers.
 type NotificationEventReceiverResponseOutput struct{ *pulumi.OutputState }
 
 func (NotificationEventReceiverResponseOutput) ElementType() reflect.Type {
@@ -830,12 +744,10 @@ func (o NotificationEventReceiverResponseOutput) ToNotificationEventReceiverResp
 	return o
 }
 
-// The type of the notification event receiver.
 func (o NotificationEventReceiverResponseOutput) ReceiverType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v NotificationEventReceiverResponse) *string { return v.ReceiverType }).(pulumi.StringPtrOutput)
 }
 
-// The notification event receiver value.
 func (o NotificationEventReceiverResponseOutput) ReceiverValue() NotificationReceiverValueResponsePtrOutput {
 	return o.ApplyT(func(v NotificationEventReceiverResponse) *NotificationReceiverValueResponse { return v.ReceiverValue }).(NotificationReceiverValueResponsePtrOutput)
 }
@@ -860,14 +772,10 @@ func (o NotificationEventReceiverResponseArrayOutput) Index(i pulumi.IntInput) N
 	}).(NotificationEventReceiverResponseOutput)
 }
 
-// A notification event receiver value.
 type NotificationReceiverValue struct {
-	// The user object receiver value.
 	DistributionGroupListReceiverValue *DistributionGroupListReceiverValue `pulumi:"distributionGroupListReceiverValue"`
-	// The user object receiver value.
-	SubscriptionReceiverValue *SubscriptionReceiverValue `pulumi:"subscriptionReceiverValue"`
-	// The user object receiver value.
-	UserObjectReceiverValue *UserObjectReceiverValue `pulumi:"userObjectReceiverValue"`
+	SubscriptionReceiverValue          *SubscriptionReceiverValue          `pulumi:"subscriptionReceiverValue"`
+	UserObjectReceiverValue            *UserObjectReceiverValue            `pulumi:"userObjectReceiverValue"`
 }
 
 // NotificationReceiverValueInput is an input type that accepts NotificationReceiverValueArgs and NotificationReceiverValueOutput values.
@@ -881,14 +789,10 @@ type NotificationReceiverValueInput interface {
 	ToNotificationReceiverValueOutputWithContext(context.Context) NotificationReceiverValueOutput
 }
 
-// A notification event receiver value.
 type NotificationReceiverValueArgs struct {
-	// The user object receiver value.
 	DistributionGroupListReceiverValue DistributionGroupListReceiverValuePtrInput `pulumi:"distributionGroupListReceiverValue"`
-	// The user object receiver value.
-	SubscriptionReceiverValue SubscriptionReceiverValuePtrInput `pulumi:"subscriptionReceiverValue"`
-	// The user object receiver value.
-	UserObjectReceiverValue UserObjectReceiverValuePtrInput `pulumi:"userObjectReceiverValue"`
+	SubscriptionReceiverValue          SubscriptionReceiverValuePtrInput          `pulumi:"subscriptionReceiverValue"`
+	UserObjectReceiverValue            UserObjectReceiverValuePtrInput            `pulumi:"userObjectReceiverValue"`
 }
 
 func (NotificationReceiverValueArgs) ElementType() reflect.Type {
@@ -944,7 +848,6 @@ func (i *notificationReceiverValuePtrType) ToNotificationReceiverValuePtrOutputW
 	return pulumi.ToOutputWithContext(ctx, i).(NotificationReceiverValuePtrOutput)
 }
 
-// A notification event receiver value.
 type NotificationReceiverValueOutput struct{ *pulumi.OutputState }
 
 func (NotificationReceiverValueOutput) ElementType() reflect.Type {
@@ -964,24 +867,21 @@ func (o NotificationReceiverValueOutput) ToNotificationReceiverValuePtrOutput() 
 }
 
 func (o NotificationReceiverValueOutput) ToNotificationReceiverValuePtrOutputWithContext(ctx context.Context) NotificationReceiverValuePtrOutput {
-	return o.ApplyT(func(v NotificationReceiverValue) *NotificationReceiverValue {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v NotificationReceiverValue) *NotificationReceiverValue {
 		return &v
 	}).(NotificationReceiverValuePtrOutput)
 }
 
-// The user object receiver value.
 func (o NotificationReceiverValueOutput) DistributionGroupListReceiverValue() DistributionGroupListReceiverValuePtrOutput {
 	return o.ApplyT(func(v NotificationReceiverValue) *DistributionGroupListReceiverValue {
 		return v.DistributionGroupListReceiverValue
 	}).(DistributionGroupListReceiverValuePtrOutput)
 }
 
-// The user object receiver value.
 func (o NotificationReceiverValueOutput) SubscriptionReceiverValue() SubscriptionReceiverValuePtrOutput {
 	return o.ApplyT(func(v NotificationReceiverValue) *SubscriptionReceiverValue { return v.SubscriptionReceiverValue }).(SubscriptionReceiverValuePtrOutput)
 }
 
-// The user object receiver value.
 func (o NotificationReceiverValueOutput) UserObjectReceiverValue() UserObjectReceiverValuePtrOutput {
 	return o.ApplyT(func(v NotificationReceiverValue) *UserObjectReceiverValue { return v.UserObjectReceiverValue }).(UserObjectReceiverValuePtrOutput)
 }
@@ -1001,10 +901,15 @@ func (o NotificationReceiverValuePtrOutput) ToNotificationReceiverValuePtrOutput
 }
 
 func (o NotificationReceiverValuePtrOutput) Elem() NotificationReceiverValueOutput {
-	return o.ApplyT(func(v *NotificationReceiverValue) NotificationReceiverValue { return *v }).(NotificationReceiverValueOutput)
+	return o.ApplyT(func(v *NotificationReceiverValue) NotificationReceiverValue {
+		if v != nil {
+			return *v
+		}
+		var ret NotificationReceiverValue
+		return ret
+	}).(NotificationReceiverValueOutput)
 }
 
-// The user object receiver value.
 func (o NotificationReceiverValuePtrOutput) DistributionGroupListReceiverValue() DistributionGroupListReceiverValuePtrOutput {
 	return o.ApplyT(func(v *NotificationReceiverValue) *DistributionGroupListReceiverValue {
 		if v == nil {
@@ -1014,7 +919,6 @@ func (o NotificationReceiverValuePtrOutput) DistributionGroupListReceiverValue()
 	}).(DistributionGroupListReceiverValuePtrOutput)
 }
 
-// The user object receiver value.
 func (o NotificationReceiverValuePtrOutput) SubscriptionReceiverValue() SubscriptionReceiverValuePtrOutput {
 	return o.ApplyT(func(v *NotificationReceiverValue) *SubscriptionReceiverValue {
 		if v == nil {
@@ -1024,7 +928,6 @@ func (o NotificationReceiverValuePtrOutput) SubscriptionReceiverValue() Subscrip
 	}).(SubscriptionReceiverValuePtrOutput)
 }
 
-// The user object receiver value.
 func (o NotificationReceiverValuePtrOutput) UserObjectReceiverValue() UserObjectReceiverValuePtrOutput {
 	return o.ApplyT(func(v *NotificationReceiverValue) *UserObjectReceiverValue {
 		if v == nil {
@@ -1034,14 +937,10 @@ func (o NotificationReceiverValuePtrOutput) UserObjectReceiverValue() UserObject
 	}).(UserObjectReceiverValuePtrOutput)
 }
 
-// A notification event receiver value.
 type NotificationReceiverValueResponse struct {
-	// The user object receiver value.
 	DistributionGroupListReceiverValue *DistributionGroupListReceiverValueResponse `pulumi:"distributionGroupListReceiverValue"`
-	// The user object receiver value.
-	SubscriptionReceiverValue *SubscriptionReceiverValueResponse `pulumi:"subscriptionReceiverValue"`
-	// The user object receiver value.
-	UserObjectReceiverValue *UserObjectReceiverValueResponse `pulumi:"userObjectReceiverValue"`
+	SubscriptionReceiverValue          *SubscriptionReceiverValueResponse          `pulumi:"subscriptionReceiverValue"`
+	UserObjectReceiverValue            *UserObjectReceiverValueResponse            `pulumi:"userObjectReceiverValue"`
 }
 
 // NotificationReceiverValueResponseInput is an input type that accepts NotificationReceiverValueResponseArgs and NotificationReceiverValueResponseOutput values.
@@ -1055,14 +954,10 @@ type NotificationReceiverValueResponseInput interface {
 	ToNotificationReceiverValueResponseOutputWithContext(context.Context) NotificationReceiverValueResponseOutput
 }
 
-// A notification event receiver value.
 type NotificationReceiverValueResponseArgs struct {
-	// The user object receiver value.
 	DistributionGroupListReceiverValue DistributionGroupListReceiverValueResponsePtrInput `pulumi:"distributionGroupListReceiverValue"`
-	// The user object receiver value.
-	SubscriptionReceiverValue SubscriptionReceiverValueResponsePtrInput `pulumi:"subscriptionReceiverValue"`
-	// The user object receiver value.
-	UserObjectReceiverValue UserObjectReceiverValueResponsePtrInput `pulumi:"userObjectReceiverValue"`
+	SubscriptionReceiverValue          SubscriptionReceiverValueResponsePtrInput          `pulumi:"subscriptionReceiverValue"`
+	UserObjectReceiverValue            UserObjectReceiverValueResponsePtrInput            `pulumi:"userObjectReceiverValue"`
 }
 
 func (NotificationReceiverValueResponseArgs) ElementType() reflect.Type {
@@ -1118,7 +1013,6 @@ func (i *notificationReceiverValueResponsePtrType) ToNotificationReceiverValueRe
 	return pulumi.ToOutputWithContext(ctx, i).(NotificationReceiverValueResponsePtrOutput)
 }
 
-// A notification event receiver value.
 type NotificationReceiverValueResponseOutput struct{ *pulumi.OutputState }
 
 func (NotificationReceiverValueResponseOutput) ElementType() reflect.Type {
@@ -1138,26 +1032,23 @@ func (o NotificationReceiverValueResponseOutput) ToNotificationReceiverValueResp
 }
 
 func (o NotificationReceiverValueResponseOutput) ToNotificationReceiverValueResponsePtrOutputWithContext(ctx context.Context) NotificationReceiverValueResponsePtrOutput {
-	return o.ApplyT(func(v NotificationReceiverValueResponse) *NotificationReceiverValueResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v NotificationReceiverValueResponse) *NotificationReceiverValueResponse {
 		return &v
 	}).(NotificationReceiverValueResponsePtrOutput)
 }
 
-// The user object receiver value.
 func (o NotificationReceiverValueResponseOutput) DistributionGroupListReceiverValue() DistributionGroupListReceiverValueResponsePtrOutput {
 	return o.ApplyT(func(v NotificationReceiverValueResponse) *DistributionGroupListReceiverValueResponse {
 		return v.DistributionGroupListReceiverValue
 	}).(DistributionGroupListReceiverValueResponsePtrOutput)
 }
 
-// The user object receiver value.
 func (o NotificationReceiverValueResponseOutput) SubscriptionReceiverValue() SubscriptionReceiverValueResponsePtrOutput {
 	return o.ApplyT(func(v NotificationReceiverValueResponse) *SubscriptionReceiverValueResponse {
 		return v.SubscriptionReceiverValue
 	}).(SubscriptionReceiverValueResponsePtrOutput)
 }
 
-// The user object receiver value.
 func (o NotificationReceiverValueResponseOutput) UserObjectReceiverValue() UserObjectReceiverValueResponsePtrOutput {
 	return o.ApplyT(func(v NotificationReceiverValueResponse) *UserObjectReceiverValueResponse {
 		return v.UserObjectReceiverValue
@@ -1179,10 +1070,15 @@ func (o NotificationReceiverValueResponsePtrOutput) ToNotificationReceiverValueR
 }
 
 func (o NotificationReceiverValueResponsePtrOutput) Elem() NotificationReceiverValueResponseOutput {
-	return o.ApplyT(func(v *NotificationReceiverValueResponse) NotificationReceiverValueResponse { return *v }).(NotificationReceiverValueResponseOutput)
+	return o.ApplyT(func(v *NotificationReceiverValueResponse) NotificationReceiverValueResponse {
+		if v != nil {
+			return *v
+		}
+		var ret NotificationReceiverValueResponse
+		return ret
+	}).(NotificationReceiverValueResponseOutput)
 }
 
-// The user object receiver value.
 func (o NotificationReceiverValueResponsePtrOutput) DistributionGroupListReceiverValue() DistributionGroupListReceiverValueResponsePtrOutput {
 	return o.ApplyT(func(v *NotificationReceiverValueResponse) *DistributionGroupListReceiverValueResponse {
 		if v == nil {
@@ -1192,7 +1088,6 @@ func (o NotificationReceiverValueResponsePtrOutput) DistributionGroupListReceive
 	}).(DistributionGroupListReceiverValueResponsePtrOutput)
 }
 
-// The user object receiver value.
 func (o NotificationReceiverValueResponsePtrOutput) SubscriptionReceiverValue() SubscriptionReceiverValueResponsePtrOutput {
 	return o.ApplyT(func(v *NotificationReceiverValueResponse) *SubscriptionReceiverValueResponse {
 		if v == nil {
@@ -1202,7 +1097,6 @@ func (o NotificationReceiverValueResponsePtrOutput) SubscriptionReceiverValue() 
 	}).(SubscriptionReceiverValueResponsePtrOutput)
 }
 
-// The user object receiver value.
 func (o NotificationReceiverValueResponsePtrOutput) UserObjectReceiverValue() UserObjectReceiverValueResponsePtrOutput {
 	return o.ApplyT(func(v *NotificationReceiverValueResponse) *UserObjectReceiverValueResponse {
 		if v == nil {
@@ -1212,14 +1106,10 @@ func (o NotificationReceiverValueResponsePtrOutput) UserObjectReceiverValue() Us
 	}).(UserObjectReceiverValueResponsePtrOutput)
 }
 
-// The validation results. There's validation on package when it's created or updated.
 type PackageValidationResultResponse struct {
-	// Error information.
-	Errors []string `pulumi:"errors"`
-	// Indicates whether the package passed the validation.
-	IsValid bool `pulumi:"isValid"`
-	// Validation name.
-	ValidationName string `pulumi:"validationName"`
+	Errors         []string `pulumi:"errors"`
+	IsValid        bool     `pulumi:"isValid"`
+	ValidationName string   `pulumi:"validationName"`
 }
 
 // PackageValidationResultResponseInput is an input type that accepts PackageValidationResultResponseArgs and PackageValidationResultResponseOutput values.
@@ -1233,14 +1123,10 @@ type PackageValidationResultResponseInput interface {
 	ToPackageValidationResultResponseOutputWithContext(context.Context) PackageValidationResultResponseOutput
 }
 
-// The validation results. There's validation on package when it's created or updated.
 type PackageValidationResultResponseArgs struct {
-	// Error information.
-	Errors pulumi.StringArrayInput `pulumi:"errors"`
-	// Indicates whether the package passed the validation.
-	IsValid pulumi.BoolInput `pulumi:"isValid"`
-	// Validation name.
-	ValidationName pulumi.StringInput `pulumi:"validationName"`
+	Errors         pulumi.StringArrayInput `pulumi:"errors"`
+	IsValid        pulumi.BoolInput        `pulumi:"isValid"`
+	ValidationName pulumi.StringInput      `pulumi:"validationName"`
 }
 
 func (PackageValidationResultResponseArgs) ElementType() reflect.Type {
@@ -1280,7 +1166,6 @@ func (i PackageValidationResultResponseArray) ToPackageValidationResultResponseA
 	return pulumi.ToOutputWithContext(ctx, i).(PackageValidationResultResponseArrayOutput)
 }
 
-// The validation results. There's validation on package when it's created or updated.
 type PackageValidationResultResponseOutput struct{ *pulumi.OutputState }
 
 func (PackageValidationResultResponseOutput) ElementType() reflect.Type {
@@ -1295,17 +1180,14 @@ func (o PackageValidationResultResponseOutput) ToPackageValidationResultResponse
 	return o
 }
 
-// Error information.
 func (o PackageValidationResultResponseOutput) Errors() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v PackageValidationResultResponse) []string { return v.Errors }).(pulumi.StringArrayOutput)
 }
 
-// Indicates whether the package passed the validation.
 func (o PackageValidationResultResponseOutput) IsValid() pulumi.BoolOutput {
 	return o.ApplyT(func(v PackageValidationResultResponse) bool { return v.IsValid }).(pulumi.BoolOutput)
 }
 
-// Validation name.
 func (o PackageValidationResultResponseOutput) ValidationName() pulumi.StringOutput {
 	return o.ApplyT(func(v PackageValidationResultResponse) string { return v.ValidationName }).(pulumi.StringOutput)
 }
@@ -1330,13 +1212,9 @@ func (o PackageValidationResultResponseArrayOutput) Index(i pulumi.IntInput) Pac
 	}).(PackageValidationResultResponseOutput)
 }
 
-// The subscription role receiver value.
 type SubscriptionReceiverValue struct {
-	// The role of the notification receiver.
-	Role *string `pulumi:"role"`
-	// The subscription id of the notification receiver.
-	SubscriptionId *string `pulumi:"subscriptionId"`
-	// The subscription name of the notification receiver.
+	Role             *string `pulumi:"role"`
+	SubscriptionId   *string `pulumi:"subscriptionId"`
 	SubscriptionName *string `pulumi:"subscriptionName"`
 }
 
@@ -1351,13 +1229,9 @@ type SubscriptionReceiverValueInput interface {
 	ToSubscriptionReceiverValueOutputWithContext(context.Context) SubscriptionReceiverValueOutput
 }
 
-// The subscription role receiver value.
 type SubscriptionReceiverValueArgs struct {
-	// The role of the notification receiver.
-	Role pulumi.StringPtrInput `pulumi:"role"`
-	// The subscription id of the notification receiver.
-	SubscriptionId pulumi.StringPtrInput `pulumi:"subscriptionId"`
-	// The subscription name of the notification receiver.
+	Role             pulumi.StringPtrInput `pulumi:"role"`
+	SubscriptionId   pulumi.StringPtrInput `pulumi:"subscriptionId"`
 	SubscriptionName pulumi.StringPtrInput `pulumi:"subscriptionName"`
 }
 
@@ -1414,7 +1288,6 @@ func (i *subscriptionReceiverValuePtrType) ToSubscriptionReceiverValuePtrOutputW
 	return pulumi.ToOutputWithContext(ctx, i).(SubscriptionReceiverValuePtrOutput)
 }
 
-// The subscription role receiver value.
 type SubscriptionReceiverValueOutput struct{ *pulumi.OutputState }
 
 func (SubscriptionReceiverValueOutput) ElementType() reflect.Type {
@@ -1434,22 +1307,19 @@ func (o SubscriptionReceiverValueOutput) ToSubscriptionReceiverValuePtrOutput() 
 }
 
 func (o SubscriptionReceiverValueOutput) ToSubscriptionReceiverValuePtrOutputWithContext(ctx context.Context) SubscriptionReceiverValuePtrOutput {
-	return o.ApplyT(func(v SubscriptionReceiverValue) *SubscriptionReceiverValue {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v SubscriptionReceiverValue) *SubscriptionReceiverValue {
 		return &v
 	}).(SubscriptionReceiverValuePtrOutput)
 }
 
-// The role of the notification receiver.
 func (o SubscriptionReceiverValueOutput) Role() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SubscriptionReceiverValue) *string { return v.Role }).(pulumi.StringPtrOutput)
 }
 
-// The subscription id of the notification receiver.
 func (o SubscriptionReceiverValueOutput) SubscriptionId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SubscriptionReceiverValue) *string { return v.SubscriptionId }).(pulumi.StringPtrOutput)
 }
 
-// The subscription name of the notification receiver.
 func (o SubscriptionReceiverValueOutput) SubscriptionName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SubscriptionReceiverValue) *string { return v.SubscriptionName }).(pulumi.StringPtrOutput)
 }
@@ -1469,10 +1339,15 @@ func (o SubscriptionReceiverValuePtrOutput) ToSubscriptionReceiverValuePtrOutput
 }
 
 func (o SubscriptionReceiverValuePtrOutput) Elem() SubscriptionReceiverValueOutput {
-	return o.ApplyT(func(v *SubscriptionReceiverValue) SubscriptionReceiverValue { return *v }).(SubscriptionReceiverValueOutput)
+	return o.ApplyT(func(v *SubscriptionReceiverValue) SubscriptionReceiverValue {
+		if v != nil {
+			return *v
+		}
+		var ret SubscriptionReceiverValue
+		return ret
+	}).(SubscriptionReceiverValueOutput)
 }
 
-// The role of the notification receiver.
 func (o SubscriptionReceiverValuePtrOutput) Role() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SubscriptionReceiverValue) *string {
 		if v == nil {
@@ -1482,7 +1357,6 @@ func (o SubscriptionReceiverValuePtrOutput) Role() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The subscription id of the notification receiver.
 func (o SubscriptionReceiverValuePtrOutput) SubscriptionId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SubscriptionReceiverValue) *string {
 		if v == nil {
@@ -1492,7 +1366,6 @@ func (o SubscriptionReceiverValuePtrOutput) SubscriptionId() pulumi.StringPtrOut
 	}).(pulumi.StringPtrOutput)
 }
 
-// The subscription name of the notification receiver.
 func (o SubscriptionReceiverValuePtrOutput) SubscriptionName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SubscriptionReceiverValue) *string {
 		if v == nil {
@@ -1502,13 +1375,9 @@ func (o SubscriptionReceiverValuePtrOutput) SubscriptionName() pulumi.StringPtrO
 	}).(pulumi.StringPtrOutput)
 }
 
-// The subscription role receiver value.
 type SubscriptionReceiverValueResponse struct {
-	// The role of the notification receiver.
-	Role *string `pulumi:"role"`
-	// The subscription id of the notification receiver.
-	SubscriptionId *string `pulumi:"subscriptionId"`
-	// The subscription name of the notification receiver.
+	Role             *string `pulumi:"role"`
+	SubscriptionId   *string `pulumi:"subscriptionId"`
 	SubscriptionName *string `pulumi:"subscriptionName"`
 }
 
@@ -1523,13 +1392,9 @@ type SubscriptionReceiverValueResponseInput interface {
 	ToSubscriptionReceiverValueResponseOutputWithContext(context.Context) SubscriptionReceiverValueResponseOutput
 }
 
-// The subscription role receiver value.
 type SubscriptionReceiverValueResponseArgs struct {
-	// The role of the notification receiver.
-	Role pulumi.StringPtrInput `pulumi:"role"`
-	// The subscription id of the notification receiver.
-	SubscriptionId pulumi.StringPtrInput `pulumi:"subscriptionId"`
-	// The subscription name of the notification receiver.
+	Role             pulumi.StringPtrInput `pulumi:"role"`
+	SubscriptionId   pulumi.StringPtrInput `pulumi:"subscriptionId"`
 	SubscriptionName pulumi.StringPtrInput `pulumi:"subscriptionName"`
 }
 
@@ -1586,7 +1451,6 @@ func (i *subscriptionReceiverValueResponsePtrType) ToSubscriptionReceiverValueRe
 	return pulumi.ToOutputWithContext(ctx, i).(SubscriptionReceiverValueResponsePtrOutput)
 }
 
-// The subscription role receiver value.
 type SubscriptionReceiverValueResponseOutput struct{ *pulumi.OutputState }
 
 func (SubscriptionReceiverValueResponseOutput) ElementType() reflect.Type {
@@ -1606,22 +1470,19 @@ func (o SubscriptionReceiverValueResponseOutput) ToSubscriptionReceiverValueResp
 }
 
 func (o SubscriptionReceiverValueResponseOutput) ToSubscriptionReceiverValueResponsePtrOutputWithContext(ctx context.Context) SubscriptionReceiverValueResponsePtrOutput {
-	return o.ApplyT(func(v SubscriptionReceiverValueResponse) *SubscriptionReceiverValueResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v SubscriptionReceiverValueResponse) *SubscriptionReceiverValueResponse {
 		return &v
 	}).(SubscriptionReceiverValueResponsePtrOutput)
 }
 
-// The role of the notification receiver.
 func (o SubscriptionReceiverValueResponseOutput) Role() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SubscriptionReceiverValueResponse) *string { return v.Role }).(pulumi.StringPtrOutput)
 }
 
-// The subscription id of the notification receiver.
 func (o SubscriptionReceiverValueResponseOutput) SubscriptionId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SubscriptionReceiverValueResponse) *string { return v.SubscriptionId }).(pulumi.StringPtrOutput)
 }
 
-// The subscription name of the notification receiver.
 func (o SubscriptionReceiverValueResponseOutput) SubscriptionName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SubscriptionReceiverValueResponse) *string { return v.SubscriptionName }).(pulumi.StringPtrOutput)
 }
@@ -1641,10 +1502,15 @@ func (o SubscriptionReceiverValueResponsePtrOutput) ToSubscriptionReceiverValueR
 }
 
 func (o SubscriptionReceiverValueResponsePtrOutput) Elem() SubscriptionReceiverValueResponseOutput {
-	return o.ApplyT(func(v *SubscriptionReceiverValueResponse) SubscriptionReceiverValueResponse { return *v }).(SubscriptionReceiverValueResponseOutput)
+	return o.ApplyT(func(v *SubscriptionReceiverValueResponse) SubscriptionReceiverValueResponse {
+		if v != nil {
+			return *v
+		}
+		var ret SubscriptionReceiverValueResponse
+		return ret
+	}).(SubscriptionReceiverValueResponseOutput)
 }
 
-// The role of the notification receiver.
 func (o SubscriptionReceiverValueResponsePtrOutput) Role() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SubscriptionReceiverValueResponse) *string {
 		if v == nil {
@@ -1654,7 +1520,6 @@ func (o SubscriptionReceiverValueResponsePtrOutput) Role() pulumi.StringPtrOutpu
 	}).(pulumi.StringPtrOutput)
 }
 
-// The subscription id of the notification receiver.
 func (o SubscriptionReceiverValueResponsePtrOutput) SubscriptionId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SubscriptionReceiverValueResponse) *string {
 		if v == nil {
@@ -1664,7 +1529,6 @@ func (o SubscriptionReceiverValueResponsePtrOutput) SubscriptionId() pulumi.Stri
 	}).(pulumi.StringPtrOutput)
 }
 
-// The subscription name of the notification receiver.
 func (o SubscriptionReceiverValueResponsePtrOutput) SubscriptionName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SubscriptionReceiverValueResponse) *string {
 		if v == nil {
@@ -1674,19 +1538,12 @@ func (o SubscriptionReceiverValueResponsePtrOutput) SubscriptionName() pulumi.St
 	}).(pulumi.StringPtrOutput)
 }
 
-// Metadata pertaining to creation and last modification of the resource.
 type SystemDataResponse struct {
-	// The timestamp of resource creation (UTC).
-	CreatedAt *string `pulumi:"createdAt"`
-	// The identity that created the resource.
-	CreatedBy *string `pulumi:"createdBy"`
-	// The type of identity that created the resource.
-	CreatedByType *string `pulumi:"createdByType"`
-	// The type of identity that last modified the resource.
-	LastModifiedAt *string `pulumi:"lastModifiedAt"`
-	// The identity that last modified the resource.
-	LastModifiedBy *string `pulumi:"lastModifiedBy"`
-	// The type of identity that last modified the resource.
+	CreatedAt          *string `pulumi:"createdAt"`
+	CreatedBy          *string `pulumi:"createdBy"`
+	CreatedByType      *string `pulumi:"createdByType"`
+	LastModifiedAt     *string `pulumi:"lastModifiedAt"`
+	LastModifiedBy     *string `pulumi:"lastModifiedBy"`
 	LastModifiedByType *string `pulumi:"lastModifiedByType"`
 }
 
@@ -1701,19 +1558,12 @@ type SystemDataResponseInput interface {
 	ToSystemDataResponseOutputWithContext(context.Context) SystemDataResponseOutput
 }
 
-// Metadata pertaining to creation and last modification of the resource.
 type SystemDataResponseArgs struct {
-	// The timestamp of resource creation (UTC).
-	CreatedAt pulumi.StringPtrInput `pulumi:"createdAt"`
-	// The identity that created the resource.
-	CreatedBy pulumi.StringPtrInput `pulumi:"createdBy"`
-	// The type of identity that created the resource.
-	CreatedByType pulumi.StringPtrInput `pulumi:"createdByType"`
-	// The type of identity that last modified the resource.
-	LastModifiedAt pulumi.StringPtrInput `pulumi:"lastModifiedAt"`
-	// The identity that last modified the resource.
-	LastModifiedBy pulumi.StringPtrInput `pulumi:"lastModifiedBy"`
-	// The type of identity that last modified the resource.
+	CreatedAt          pulumi.StringPtrInput `pulumi:"createdAt"`
+	CreatedBy          pulumi.StringPtrInput `pulumi:"createdBy"`
+	CreatedByType      pulumi.StringPtrInput `pulumi:"createdByType"`
+	LastModifiedAt     pulumi.StringPtrInput `pulumi:"lastModifiedAt"`
+	LastModifiedBy     pulumi.StringPtrInput `pulumi:"lastModifiedBy"`
 	LastModifiedByType pulumi.StringPtrInput `pulumi:"lastModifiedByType"`
 }
 
@@ -1770,7 +1620,6 @@ func (i *systemDataResponsePtrType) ToSystemDataResponsePtrOutputWithContext(ctx
 	return pulumi.ToOutputWithContext(ctx, i).(SystemDataResponsePtrOutput)
 }
 
-// Metadata pertaining to creation and last modification of the resource.
 type SystemDataResponseOutput struct{ *pulumi.OutputState }
 
 func (SystemDataResponseOutput) ElementType() reflect.Type {
@@ -1790,37 +1639,31 @@ func (o SystemDataResponseOutput) ToSystemDataResponsePtrOutput() SystemDataResp
 }
 
 func (o SystemDataResponseOutput) ToSystemDataResponsePtrOutputWithContext(ctx context.Context) SystemDataResponsePtrOutput {
-	return o.ApplyT(func(v SystemDataResponse) *SystemDataResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v SystemDataResponse) *SystemDataResponse {
 		return &v
 	}).(SystemDataResponsePtrOutput)
 }
 
-// The timestamp of resource creation (UTC).
 func (o SystemDataResponseOutput) CreatedAt() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SystemDataResponse) *string { return v.CreatedAt }).(pulumi.StringPtrOutput)
 }
 
-// The identity that created the resource.
 func (o SystemDataResponseOutput) CreatedBy() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SystemDataResponse) *string { return v.CreatedBy }).(pulumi.StringPtrOutput)
 }
 
-// The type of identity that created the resource.
 func (o SystemDataResponseOutput) CreatedByType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SystemDataResponse) *string { return v.CreatedByType }).(pulumi.StringPtrOutput)
 }
 
-// The type of identity that last modified the resource.
 func (o SystemDataResponseOutput) LastModifiedAt() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SystemDataResponse) *string { return v.LastModifiedAt }).(pulumi.StringPtrOutput)
 }
 
-// The identity that last modified the resource.
 func (o SystemDataResponseOutput) LastModifiedBy() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SystemDataResponse) *string { return v.LastModifiedBy }).(pulumi.StringPtrOutput)
 }
 
-// The type of identity that last modified the resource.
 func (o SystemDataResponseOutput) LastModifiedByType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SystemDataResponse) *string { return v.LastModifiedByType }).(pulumi.StringPtrOutput)
 }
@@ -1840,10 +1683,15 @@ func (o SystemDataResponsePtrOutput) ToSystemDataResponsePtrOutputWithContext(ct
 }
 
 func (o SystemDataResponsePtrOutput) Elem() SystemDataResponseOutput {
-	return o.ApplyT(func(v *SystemDataResponse) SystemDataResponse { return *v }).(SystemDataResponseOutput)
+	return o.ApplyT(func(v *SystemDataResponse) SystemDataResponse {
+		if v != nil {
+			return *v
+		}
+		var ret SystemDataResponse
+		return ret
+	}).(SystemDataResponseOutput)
 }
 
-// The timestamp of resource creation (UTC).
 func (o SystemDataResponsePtrOutput) CreatedAt() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SystemDataResponse) *string {
 		if v == nil {
@@ -1853,7 +1701,6 @@ func (o SystemDataResponsePtrOutput) CreatedAt() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The identity that created the resource.
 func (o SystemDataResponsePtrOutput) CreatedBy() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SystemDataResponse) *string {
 		if v == nil {
@@ -1863,7 +1710,6 @@ func (o SystemDataResponsePtrOutput) CreatedBy() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The type of identity that created the resource.
 func (o SystemDataResponsePtrOutput) CreatedByType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SystemDataResponse) *string {
 		if v == nil {
@@ -1873,7 +1719,6 @@ func (o SystemDataResponsePtrOutput) CreatedByType() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The type of identity that last modified the resource.
 func (o SystemDataResponsePtrOutput) LastModifiedAt() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SystemDataResponse) *string {
 		if v == nil {
@@ -1883,7 +1728,6 @@ func (o SystemDataResponsePtrOutput) LastModifiedAt() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The identity that last modified the resource.
 func (o SystemDataResponsePtrOutput) LastModifiedBy() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SystemDataResponse) *string {
 		if v == nil {
@@ -1893,7 +1737,6 @@ func (o SystemDataResponsePtrOutput) LastModifiedBy() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The type of identity that last modified the resource.
 func (o SystemDataResponsePtrOutput) LastModifiedByType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SystemDataResponse) *string {
 		if v == nil {
@@ -1903,12 +1746,9 @@ func (o SystemDataResponsePtrOutput) LastModifiedByType() pulumi.StringPtrOutput
 	}).(pulumi.StringPtrOutput)
 }
 
-// The information of the target OS to be tested.
 type TargetOSInfo struct {
-	// Specifies the OS update type to test against, e.g., 'Security updates' or 'Feature updates'.
-	OsUpdateType string `pulumi:"osUpdateType"`
-	// Specifies the target OSs to be tested.
-	TargetOSs []string `pulumi:"targetOSs"`
+	OsUpdateType string   `pulumi:"osUpdateType"`
+	TargetOSs    []string `pulumi:"targetOSs"`
 }
 
 // TargetOSInfoInput is an input type that accepts TargetOSInfoArgs and TargetOSInfoOutput values.
@@ -1922,12 +1762,9 @@ type TargetOSInfoInput interface {
 	ToTargetOSInfoOutputWithContext(context.Context) TargetOSInfoOutput
 }
 
-// The information of the target OS to be tested.
 type TargetOSInfoArgs struct {
-	// Specifies the OS update type to test against, e.g., 'Security updates' or 'Feature updates'.
-	OsUpdateType pulumi.StringInput `pulumi:"osUpdateType"`
-	// Specifies the target OSs to be tested.
-	TargetOSs pulumi.StringArrayInput `pulumi:"targetOSs"`
+	OsUpdateType pulumi.StringInput      `pulumi:"osUpdateType"`
+	TargetOSs    pulumi.StringArrayInput `pulumi:"targetOSs"`
 }
 
 func (TargetOSInfoArgs) ElementType() reflect.Type {
@@ -1967,7 +1804,6 @@ func (i TargetOSInfoArray) ToTargetOSInfoArrayOutputWithContext(ctx context.Cont
 	return pulumi.ToOutputWithContext(ctx, i).(TargetOSInfoArrayOutput)
 }
 
-// The information of the target OS to be tested.
 type TargetOSInfoOutput struct{ *pulumi.OutputState }
 
 func (TargetOSInfoOutput) ElementType() reflect.Type {
@@ -1982,12 +1818,10 @@ func (o TargetOSInfoOutput) ToTargetOSInfoOutputWithContext(ctx context.Context)
 	return o
 }
 
-// Specifies the OS update type to test against, e.g., 'Security updates' or 'Feature updates'.
 func (o TargetOSInfoOutput) OsUpdateType() pulumi.StringOutput {
 	return o.ApplyT(func(v TargetOSInfo) string { return v.OsUpdateType }).(pulumi.StringOutput)
 }
 
-// Specifies the target OSs to be tested.
 func (o TargetOSInfoOutput) TargetOSs() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v TargetOSInfo) []string { return v.TargetOSs }).(pulumi.StringArrayOutput)
 }
@@ -2012,12 +1846,9 @@ func (o TargetOSInfoArrayOutput) Index(i pulumi.IntInput) TargetOSInfoOutput {
 	}).(TargetOSInfoOutput)
 }
 
-// The information of the target OS to be tested.
 type TargetOSInfoResponse struct {
-	// Specifies the OS update type to test against, e.g., 'Security updates' or 'Feature updates'.
-	OsUpdateType string `pulumi:"osUpdateType"`
-	// Specifies the target OSs to be tested.
-	TargetOSs []string `pulumi:"targetOSs"`
+	OsUpdateType string   `pulumi:"osUpdateType"`
+	TargetOSs    []string `pulumi:"targetOSs"`
 }
 
 // TargetOSInfoResponseInput is an input type that accepts TargetOSInfoResponseArgs and TargetOSInfoResponseOutput values.
@@ -2031,12 +1862,9 @@ type TargetOSInfoResponseInput interface {
 	ToTargetOSInfoResponseOutputWithContext(context.Context) TargetOSInfoResponseOutput
 }
 
-// The information of the target OS to be tested.
 type TargetOSInfoResponseArgs struct {
-	// Specifies the OS update type to test against, e.g., 'Security updates' or 'Feature updates'.
-	OsUpdateType pulumi.StringInput `pulumi:"osUpdateType"`
-	// Specifies the target OSs to be tested.
-	TargetOSs pulumi.StringArrayInput `pulumi:"targetOSs"`
+	OsUpdateType pulumi.StringInput      `pulumi:"osUpdateType"`
+	TargetOSs    pulumi.StringArrayInput `pulumi:"targetOSs"`
 }
 
 func (TargetOSInfoResponseArgs) ElementType() reflect.Type {
@@ -2076,7 +1904,6 @@ func (i TargetOSInfoResponseArray) ToTargetOSInfoResponseArrayOutputWithContext(
 	return pulumi.ToOutputWithContext(ctx, i).(TargetOSInfoResponseArrayOutput)
 }
 
-// The information of the target OS to be tested.
 type TargetOSInfoResponseOutput struct{ *pulumi.OutputState }
 
 func (TargetOSInfoResponseOutput) ElementType() reflect.Type {
@@ -2091,12 +1918,10 @@ func (o TargetOSInfoResponseOutput) ToTargetOSInfoResponseOutputWithContext(ctx 
 	return o
 }
 
-// Specifies the OS update type to test against, e.g., 'Security updates' or 'Feature updates'.
 func (o TargetOSInfoResponseOutput) OsUpdateType() pulumi.StringOutput {
 	return o.ApplyT(func(v TargetOSInfoResponse) string { return v.OsUpdateType }).(pulumi.StringOutput)
 }
 
-// Specifies the target OSs to be tested.
 func (o TargetOSInfoResponseOutput) TargetOSs() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v TargetOSInfoResponse) []string { return v.TargetOSs }).(pulumi.StringArrayOutput)
 }
@@ -2121,14 +1946,10 @@ func (o TargetOSInfoResponseArrayOutput) Index(i pulumi.IntInput) TargetOSInfoRe
 	}).(TargetOSInfoResponseOutput)
 }
 
-// The definition of a Test.
 type Test struct {
-	// The commands used in the test.
 	Commands []Command `pulumi:"commands"`
-	// Indicates if this test is active.It doesn't schedule test for not active Test.
-	IsActive *bool `pulumi:"isActive"`
-	// The type of the test.
-	TestType string `pulumi:"testType"`
+	IsActive *bool     `pulumi:"isActive"`
+	TestType string    `pulumi:"testType"`
 }
 
 // TestInput is an input type that accepts TestArgs and TestOutput values.
@@ -2142,14 +1963,10 @@ type TestInput interface {
 	ToTestOutputWithContext(context.Context) TestOutput
 }
 
-// The definition of a Test.
 type TestArgs struct {
-	// The commands used in the test.
-	Commands CommandArrayInput `pulumi:"commands"`
-	// Indicates if this test is active.It doesn't schedule test for not active Test.
+	Commands CommandArrayInput   `pulumi:"commands"`
 	IsActive pulumi.BoolPtrInput `pulumi:"isActive"`
-	// The type of the test.
-	TestType pulumi.StringInput `pulumi:"testType"`
+	TestType pulumi.StringInput  `pulumi:"testType"`
 }
 
 func (TestArgs) ElementType() reflect.Type {
@@ -2189,7 +2006,6 @@ func (i TestArray) ToTestArrayOutputWithContext(ctx context.Context) TestArrayOu
 	return pulumi.ToOutputWithContext(ctx, i).(TestArrayOutput)
 }
 
-// The definition of a Test.
 type TestOutput struct{ *pulumi.OutputState }
 
 func (TestOutput) ElementType() reflect.Type {
@@ -2204,17 +2020,14 @@ func (o TestOutput) ToTestOutputWithContext(ctx context.Context) TestOutput {
 	return o
 }
 
-// The commands used in the test.
 func (o TestOutput) Commands() CommandArrayOutput {
 	return o.ApplyT(func(v Test) []Command { return v.Commands }).(CommandArrayOutput)
 }
 
-// Indicates if this test is active.It doesn't schedule test for not active Test.
 func (o TestOutput) IsActive() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v Test) *bool { return v.IsActive }).(pulumi.BoolPtrOutput)
 }
 
-// The type of the test.
 func (o TestOutput) TestType() pulumi.StringOutput {
 	return o.ApplyT(func(v Test) string { return v.TestType }).(pulumi.StringOutput)
 }
@@ -2239,16 +2052,11 @@ func (o TestArrayOutput) Index(i pulumi.IntInput) TestOutput {
 	}).(TestOutput)
 }
 
-// Describes a Test Base Account SKU.
 type TestBaseAccountSKU struct {
-	// The locations that the SKU is available.
-	Locations []string `pulumi:"locations"`
-	// The name of the SKU. This is typically a letter + number code, such as B0 or S0.
-	Name string `pulumi:"name"`
-	// The type of resource the SKU applies to.
-	ResourceType *string `pulumi:"resourceType"`
-	// The tier of this particular SKU.
-	Tier string `pulumi:"tier"`
+	Locations    []string `pulumi:"locations"`
+	Name         string   `pulumi:"name"`
+	ResourceType *string  `pulumi:"resourceType"`
+	Tier         string   `pulumi:"tier"`
 }
 
 // TestBaseAccountSKUInput is an input type that accepts TestBaseAccountSKUArgs and TestBaseAccountSKUOutput values.
@@ -2262,16 +2070,11 @@ type TestBaseAccountSKUInput interface {
 	ToTestBaseAccountSKUOutputWithContext(context.Context) TestBaseAccountSKUOutput
 }
 
-// Describes a Test Base Account SKU.
 type TestBaseAccountSKUArgs struct {
-	// The locations that the SKU is available.
-	Locations pulumi.StringArrayInput `pulumi:"locations"`
-	// The name of the SKU. This is typically a letter + number code, such as B0 or S0.
-	Name pulumi.StringInput `pulumi:"name"`
-	// The type of resource the SKU applies to.
-	ResourceType pulumi.StringPtrInput `pulumi:"resourceType"`
-	// The tier of this particular SKU.
-	Tier pulumi.StringInput `pulumi:"tier"`
+	Locations    pulumi.StringArrayInput `pulumi:"locations"`
+	Name         pulumi.StringInput      `pulumi:"name"`
+	ResourceType pulumi.StringPtrInput   `pulumi:"resourceType"`
+	Tier         pulumi.StringInput      `pulumi:"tier"`
 }
 
 func (TestBaseAccountSKUArgs) ElementType() reflect.Type {
@@ -2327,7 +2130,6 @@ func (i *testBaseAccountSKUPtrType) ToTestBaseAccountSKUPtrOutputWithContext(ctx
 	return pulumi.ToOutputWithContext(ctx, i).(TestBaseAccountSKUPtrOutput)
 }
 
-// Describes a Test Base Account SKU.
 type TestBaseAccountSKUOutput struct{ *pulumi.OutputState }
 
 func (TestBaseAccountSKUOutput) ElementType() reflect.Type {
@@ -2347,27 +2149,23 @@ func (o TestBaseAccountSKUOutput) ToTestBaseAccountSKUPtrOutput() TestBaseAccoun
 }
 
 func (o TestBaseAccountSKUOutput) ToTestBaseAccountSKUPtrOutputWithContext(ctx context.Context) TestBaseAccountSKUPtrOutput {
-	return o.ApplyT(func(v TestBaseAccountSKU) *TestBaseAccountSKU {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v TestBaseAccountSKU) *TestBaseAccountSKU {
 		return &v
 	}).(TestBaseAccountSKUPtrOutput)
 }
 
-// The locations that the SKU is available.
 func (o TestBaseAccountSKUOutput) Locations() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v TestBaseAccountSKU) []string { return v.Locations }).(pulumi.StringArrayOutput)
 }
 
-// The name of the SKU. This is typically a letter + number code, such as B0 or S0.
 func (o TestBaseAccountSKUOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v TestBaseAccountSKU) string { return v.Name }).(pulumi.StringOutput)
 }
 
-// The type of resource the SKU applies to.
 func (o TestBaseAccountSKUOutput) ResourceType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v TestBaseAccountSKU) *string { return v.ResourceType }).(pulumi.StringPtrOutput)
 }
 
-// The tier of this particular SKU.
 func (o TestBaseAccountSKUOutput) Tier() pulumi.StringOutput {
 	return o.ApplyT(func(v TestBaseAccountSKU) string { return v.Tier }).(pulumi.StringOutput)
 }
@@ -2387,10 +2185,15 @@ func (o TestBaseAccountSKUPtrOutput) ToTestBaseAccountSKUPtrOutputWithContext(ct
 }
 
 func (o TestBaseAccountSKUPtrOutput) Elem() TestBaseAccountSKUOutput {
-	return o.ApplyT(func(v *TestBaseAccountSKU) TestBaseAccountSKU { return *v }).(TestBaseAccountSKUOutput)
+	return o.ApplyT(func(v *TestBaseAccountSKU) TestBaseAccountSKU {
+		if v != nil {
+			return *v
+		}
+		var ret TestBaseAccountSKU
+		return ret
+	}).(TestBaseAccountSKUOutput)
 }
 
-// The locations that the SKU is available.
 func (o TestBaseAccountSKUPtrOutput) Locations() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *TestBaseAccountSKU) []string {
 		if v == nil {
@@ -2400,7 +2203,6 @@ func (o TestBaseAccountSKUPtrOutput) Locations() pulumi.StringArrayOutput {
 	}).(pulumi.StringArrayOutput)
 }
 
-// The name of the SKU. This is typically a letter + number code, such as B0 or S0.
 func (o TestBaseAccountSKUPtrOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *TestBaseAccountSKU) *string {
 		if v == nil {
@@ -2410,7 +2212,6 @@ func (o TestBaseAccountSKUPtrOutput) Name() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The type of resource the SKU applies to.
 func (o TestBaseAccountSKUPtrOutput) ResourceType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *TestBaseAccountSKU) *string {
 		if v == nil {
@@ -2420,7 +2221,6 @@ func (o TestBaseAccountSKUPtrOutput) ResourceType() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The tier of this particular SKU.
 func (o TestBaseAccountSKUPtrOutput) Tier() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *TestBaseAccountSKU) *string {
 		if v == nil {
@@ -2430,11 +2230,8 @@ func (o TestBaseAccountSKUPtrOutput) Tier() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Properties of the Test Base Account SKU Capability.
 type TestBaseAccountSKUCapabilityResponse struct {
-	// An invariant to describe the feature, such as 'SLA'.
-	Name string `pulumi:"name"`
-	// An invariant if the feature is measured by quantity, such as 99.9%.
+	Name  string `pulumi:"name"`
 	Value string `pulumi:"value"`
 }
 
@@ -2449,11 +2246,8 @@ type TestBaseAccountSKUCapabilityResponseInput interface {
 	ToTestBaseAccountSKUCapabilityResponseOutputWithContext(context.Context) TestBaseAccountSKUCapabilityResponseOutput
 }
 
-// Properties of the Test Base Account SKU Capability.
 type TestBaseAccountSKUCapabilityResponseArgs struct {
-	// An invariant to describe the feature, such as 'SLA'.
-	Name pulumi.StringInput `pulumi:"name"`
-	// An invariant if the feature is measured by quantity, such as 99.9%.
+	Name  pulumi.StringInput `pulumi:"name"`
 	Value pulumi.StringInput `pulumi:"value"`
 }
 
@@ -2494,7 +2288,6 @@ func (i TestBaseAccountSKUCapabilityResponseArray) ToTestBaseAccountSKUCapabilit
 	return pulumi.ToOutputWithContext(ctx, i).(TestBaseAccountSKUCapabilityResponseArrayOutput)
 }
 
-// Properties of the Test Base Account SKU Capability.
 type TestBaseAccountSKUCapabilityResponseOutput struct{ *pulumi.OutputState }
 
 func (TestBaseAccountSKUCapabilityResponseOutput) ElementType() reflect.Type {
@@ -2509,12 +2302,10 @@ func (o TestBaseAccountSKUCapabilityResponseOutput) ToTestBaseAccountSKUCapabili
 	return o
 }
 
-// An invariant to describe the feature, such as 'SLA'.
 func (o TestBaseAccountSKUCapabilityResponseOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v TestBaseAccountSKUCapabilityResponse) string { return v.Name }).(pulumi.StringOutput)
 }
 
-// An invariant if the feature is measured by quantity, such as 99.9%.
 func (o TestBaseAccountSKUCapabilityResponseOutput) Value() pulumi.StringOutput {
 	return o.ApplyT(func(v TestBaseAccountSKUCapabilityResponse) string { return v.Value }).(pulumi.StringOutput)
 }
@@ -2539,18 +2330,12 @@ func (o TestBaseAccountSKUCapabilityResponseArrayOutput) Index(i pulumi.IntInput
 	}).(TestBaseAccountSKUCapabilityResponseOutput)
 }
 
-// Describes a Test Base Account SKU.
 type TestBaseAccountSKUResponse struct {
-	// The capabilities of a SKU.
 	Capabilities []TestBaseAccountSKUCapabilityResponse `pulumi:"capabilities"`
-	// The locations that the SKU is available.
-	Locations []string `pulumi:"locations"`
-	// The name of the SKU. This is typically a letter + number code, such as B0 or S0.
-	Name string `pulumi:"name"`
-	// The type of resource the SKU applies to.
-	ResourceType *string `pulumi:"resourceType"`
-	// The tier of this particular SKU.
-	Tier string `pulumi:"tier"`
+	Locations    []string                               `pulumi:"locations"`
+	Name         string                                 `pulumi:"name"`
+	ResourceType *string                                `pulumi:"resourceType"`
+	Tier         string                                 `pulumi:"tier"`
 }
 
 // TestBaseAccountSKUResponseInput is an input type that accepts TestBaseAccountSKUResponseArgs and TestBaseAccountSKUResponseOutput values.
@@ -2564,18 +2349,12 @@ type TestBaseAccountSKUResponseInput interface {
 	ToTestBaseAccountSKUResponseOutputWithContext(context.Context) TestBaseAccountSKUResponseOutput
 }
 
-// Describes a Test Base Account SKU.
 type TestBaseAccountSKUResponseArgs struct {
-	// The capabilities of a SKU.
 	Capabilities TestBaseAccountSKUCapabilityResponseArrayInput `pulumi:"capabilities"`
-	// The locations that the SKU is available.
-	Locations pulumi.StringArrayInput `pulumi:"locations"`
-	// The name of the SKU. This is typically a letter + number code, such as B0 or S0.
-	Name pulumi.StringInput `pulumi:"name"`
-	// The type of resource the SKU applies to.
-	ResourceType pulumi.StringPtrInput `pulumi:"resourceType"`
-	// The tier of this particular SKU.
-	Tier pulumi.StringInput `pulumi:"tier"`
+	Locations    pulumi.StringArrayInput                        `pulumi:"locations"`
+	Name         pulumi.StringInput                             `pulumi:"name"`
+	ResourceType pulumi.StringPtrInput                          `pulumi:"resourceType"`
+	Tier         pulumi.StringInput                             `pulumi:"tier"`
 }
 
 func (TestBaseAccountSKUResponseArgs) ElementType() reflect.Type {
@@ -2631,7 +2410,6 @@ func (i *testBaseAccountSKUResponsePtrType) ToTestBaseAccountSKUResponsePtrOutpu
 	return pulumi.ToOutputWithContext(ctx, i).(TestBaseAccountSKUResponsePtrOutput)
 }
 
-// Describes a Test Base Account SKU.
 type TestBaseAccountSKUResponseOutput struct{ *pulumi.OutputState }
 
 func (TestBaseAccountSKUResponseOutput) ElementType() reflect.Type {
@@ -2651,32 +2429,27 @@ func (o TestBaseAccountSKUResponseOutput) ToTestBaseAccountSKUResponsePtrOutput(
 }
 
 func (o TestBaseAccountSKUResponseOutput) ToTestBaseAccountSKUResponsePtrOutputWithContext(ctx context.Context) TestBaseAccountSKUResponsePtrOutput {
-	return o.ApplyT(func(v TestBaseAccountSKUResponse) *TestBaseAccountSKUResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v TestBaseAccountSKUResponse) *TestBaseAccountSKUResponse {
 		return &v
 	}).(TestBaseAccountSKUResponsePtrOutput)
 }
 
-// The capabilities of a SKU.
 func (o TestBaseAccountSKUResponseOutput) Capabilities() TestBaseAccountSKUCapabilityResponseArrayOutput {
 	return o.ApplyT(func(v TestBaseAccountSKUResponse) []TestBaseAccountSKUCapabilityResponse { return v.Capabilities }).(TestBaseAccountSKUCapabilityResponseArrayOutput)
 }
 
-// The locations that the SKU is available.
 func (o TestBaseAccountSKUResponseOutput) Locations() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v TestBaseAccountSKUResponse) []string { return v.Locations }).(pulumi.StringArrayOutput)
 }
 
-// The name of the SKU. This is typically a letter + number code, such as B0 or S0.
 func (o TestBaseAccountSKUResponseOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v TestBaseAccountSKUResponse) string { return v.Name }).(pulumi.StringOutput)
 }
 
-// The type of resource the SKU applies to.
 func (o TestBaseAccountSKUResponseOutput) ResourceType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v TestBaseAccountSKUResponse) *string { return v.ResourceType }).(pulumi.StringPtrOutput)
 }
 
-// The tier of this particular SKU.
 func (o TestBaseAccountSKUResponseOutput) Tier() pulumi.StringOutput {
 	return o.ApplyT(func(v TestBaseAccountSKUResponse) string { return v.Tier }).(pulumi.StringOutput)
 }
@@ -2696,10 +2469,15 @@ func (o TestBaseAccountSKUResponsePtrOutput) ToTestBaseAccountSKUResponsePtrOutp
 }
 
 func (o TestBaseAccountSKUResponsePtrOutput) Elem() TestBaseAccountSKUResponseOutput {
-	return o.ApplyT(func(v *TestBaseAccountSKUResponse) TestBaseAccountSKUResponse { return *v }).(TestBaseAccountSKUResponseOutput)
+	return o.ApplyT(func(v *TestBaseAccountSKUResponse) TestBaseAccountSKUResponse {
+		if v != nil {
+			return *v
+		}
+		var ret TestBaseAccountSKUResponse
+		return ret
+	}).(TestBaseAccountSKUResponseOutput)
 }
 
-// The capabilities of a SKU.
 func (o TestBaseAccountSKUResponsePtrOutput) Capabilities() TestBaseAccountSKUCapabilityResponseArrayOutput {
 	return o.ApplyT(func(v *TestBaseAccountSKUResponse) []TestBaseAccountSKUCapabilityResponse {
 		if v == nil {
@@ -2709,7 +2487,6 @@ func (o TestBaseAccountSKUResponsePtrOutput) Capabilities() TestBaseAccountSKUCa
 	}).(TestBaseAccountSKUCapabilityResponseArrayOutput)
 }
 
-// The locations that the SKU is available.
 func (o TestBaseAccountSKUResponsePtrOutput) Locations() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *TestBaseAccountSKUResponse) []string {
 		if v == nil {
@@ -2719,7 +2496,6 @@ func (o TestBaseAccountSKUResponsePtrOutput) Locations() pulumi.StringArrayOutpu
 	}).(pulumi.StringArrayOutput)
 }
 
-// The name of the SKU. This is typically a letter + number code, such as B0 or S0.
 func (o TestBaseAccountSKUResponsePtrOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *TestBaseAccountSKUResponse) *string {
 		if v == nil {
@@ -2729,7 +2505,6 @@ func (o TestBaseAccountSKUResponsePtrOutput) Name() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The type of resource the SKU applies to.
 func (o TestBaseAccountSKUResponsePtrOutput) ResourceType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *TestBaseAccountSKUResponse) *string {
 		if v == nil {
@@ -2739,7 +2514,6 @@ func (o TestBaseAccountSKUResponsePtrOutput) ResourceType() pulumi.StringPtrOutp
 	}).(pulumi.StringPtrOutput)
 }
 
-// The tier of this particular SKU.
 func (o TestBaseAccountSKUResponsePtrOutput) Tier() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *TestBaseAccountSKUResponse) *string {
 		if v == nil {
@@ -2749,16 +2523,11 @@ func (o TestBaseAccountSKUResponsePtrOutput) Tier() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The definition of a Test.
 type TestResponse struct {
-	// The commands used in the test.
-	Commands []CommandResponse `pulumi:"commands"`
-	// Indicates if this test is active.It doesn't schedule test for not active Test.
-	IsActive *bool `pulumi:"isActive"`
-	// The type of the test.
-	TestType string `pulumi:"testType"`
-	// The status of the validation run of the package.
-	ValidationRunStatus string `pulumi:"validationRunStatus"`
+	Commands            []CommandResponse `pulumi:"commands"`
+	IsActive            *bool             `pulumi:"isActive"`
+	TestType            string            `pulumi:"testType"`
+	ValidationRunStatus string            `pulumi:"validationRunStatus"`
 }
 
 // TestResponseInput is an input type that accepts TestResponseArgs and TestResponseOutput values.
@@ -2772,16 +2541,11 @@ type TestResponseInput interface {
 	ToTestResponseOutputWithContext(context.Context) TestResponseOutput
 }
 
-// The definition of a Test.
 type TestResponseArgs struct {
-	// The commands used in the test.
-	Commands CommandResponseArrayInput `pulumi:"commands"`
-	// Indicates if this test is active.It doesn't schedule test for not active Test.
-	IsActive pulumi.BoolPtrInput `pulumi:"isActive"`
-	// The type of the test.
-	TestType pulumi.StringInput `pulumi:"testType"`
-	// The status of the validation run of the package.
-	ValidationRunStatus pulumi.StringInput `pulumi:"validationRunStatus"`
+	Commands            CommandResponseArrayInput `pulumi:"commands"`
+	IsActive            pulumi.BoolPtrInput       `pulumi:"isActive"`
+	TestType            pulumi.StringInput        `pulumi:"testType"`
+	ValidationRunStatus pulumi.StringInput        `pulumi:"validationRunStatus"`
 }
 
 func (TestResponseArgs) ElementType() reflect.Type {
@@ -2821,7 +2585,6 @@ func (i TestResponseArray) ToTestResponseArrayOutputWithContext(ctx context.Cont
 	return pulumi.ToOutputWithContext(ctx, i).(TestResponseArrayOutput)
 }
 
-// The definition of a Test.
 type TestResponseOutput struct{ *pulumi.OutputState }
 
 func (TestResponseOutput) ElementType() reflect.Type {
@@ -2836,22 +2599,18 @@ func (o TestResponseOutput) ToTestResponseOutputWithContext(ctx context.Context)
 	return o
 }
 
-// The commands used in the test.
 func (o TestResponseOutput) Commands() CommandResponseArrayOutput {
 	return o.ApplyT(func(v TestResponse) []CommandResponse { return v.Commands }).(CommandResponseArrayOutput)
 }
 
-// Indicates if this test is active.It doesn't schedule test for not active Test.
 func (o TestResponseOutput) IsActive() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v TestResponse) *bool { return v.IsActive }).(pulumi.BoolPtrOutput)
 }
 
-// The type of the test.
 func (o TestResponseOutput) TestType() pulumi.StringOutput {
 	return o.ApplyT(func(v TestResponse) string { return v.TestType }).(pulumi.StringOutput)
 }
 
-// The status of the validation run of the package.
 func (o TestResponseOutput) ValidationRunStatus() pulumi.StringOutput {
 	return o.ApplyT(func(v TestResponse) string { return v.ValidationRunStatus }).(pulumi.StringOutput)
 }
@@ -2876,9 +2635,7 @@ func (o TestResponseArrayOutput) Index(i pulumi.IntInput) TestResponseOutput {
 	}).(TestResponseOutput)
 }
 
-// The user object receiver value.
 type UserObjectReceiverValue struct {
-	// user object ids.
 	UserObjectIds []string `pulumi:"userObjectIds"`
 }
 
@@ -2893,9 +2650,7 @@ type UserObjectReceiverValueInput interface {
 	ToUserObjectReceiverValueOutputWithContext(context.Context) UserObjectReceiverValueOutput
 }
 
-// The user object receiver value.
 type UserObjectReceiverValueArgs struct {
-	// user object ids.
 	UserObjectIds pulumi.StringArrayInput `pulumi:"userObjectIds"`
 }
 
@@ -2952,7 +2707,6 @@ func (i *userObjectReceiverValuePtrType) ToUserObjectReceiverValuePtrOutputWithC
 	return pulumi.ToOutputWithContext(ctx, i).(UserObjectReceiverValuePtrOutput)
 }
 
-// The user object receiver value.
 type UserObjectReceiverValueOutput struct{ *pulumi.OutputState }
 
 func (UserObjectReceiverValueOutput) ElementType() reflect.Type {
@@ -2972,12 +2726,11 @@ func (o UserObjectReceiverValueOutput) ToUserObjectReceiverValuePtrOutput() User
 }
 
 func (o UserObjectReceiverValueOutput) ToUserObjectReceiverValuePtrOutputWithContext(ctx context.Context) UserObjectReceiverValuePtrOutput {
-	return o.ApplyT(func(v UserObjectReceiverValue) *UserObjectReceiverValue {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v UserObjectReceiverValue) *UserObjectReceiverValue {
 		return &v
 	}).(UserObjectReceiverValuePtrOutput)
 }
 
-// user object ids.
 func (o UserObjectReceiverValueOutput) UserObjectIds() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v UserObjectReceiverValue) []string { return v.UserObjectIds }).(pulumi.StringArrayOutput)
 }
@@ -2997,10 +2750,15 @@ func (o UserObjectReceiverValuePtrOutput) ToUserObjectReceiverValuePtrOutputWith
 }
 
 func (o UserObjectReceiverValuePtrOutput) Elem() UserObjectReceiverValueOutput {
-	return o.ApplyT(func(v *UserObjectReceiverValue) UserObjectReceiverValue { return *v }).(UserObjectReceiverValueOutput)
+	return o.ApplyT(func(v *UserObjectReceiverValue) UserObjectReceiverValue {
+		if v != nil {
+			return *v
+		}
+		var ret UserObjectReceiverValue
+		return ret
+	}).(UserObjectReceiverValueOutput)
 }
 
-// user object ids.
 func (o UserObjectReceiverValuePtrOutput) UserObjectIds() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *UserObjectReceiverValue) []string {
 		if v == nil {
@@ -3010,9 +2768,7 @@ func (o UserObjectReceiverValuePtrOutput) UserObjectIds() pulumi.StringArrayOutp
 	}).(pulumi.StringArrayOutput)
 }
 
-// The user object receiver value.
 type UserObjectReceiverValueResponse struct {
-	// user object ids.
 	UserObjectIds []string `pulumi:"userObjectIds"`
 }
 
@@ -3027,9 +2783,7 @@ type UserObjectReceiverValueResponseInput interface {
 	ToUserObjectReceiverValueResponseOutputWithContext(context.Context) UserObjectReceiverValueResponseOutput
 }
 
-// The user object receiver value.
 type UserObjectReceiverValueResponseArgs struct {
-	// user object ids.
 	UserObjectIds pulumi.StringArrayInput `pulumi:"userObjectIds"`
 }
 
@@ -3086,7 +2840,6 @@ func (i *userObjectReceiverValueResponsePtrType) ToUserObjectReceiverValueRespon
 	return pulumi.ToOutputWithContext(ctx, i).(UserObjectReceiverValueResponsePtrOutput)
 }
 
-// The user object receiver value.
 type UserObjectReceiverValueResponseOutput struct{ *pulumi.OutputState }
 
 func (UserObjectReceiverValueResponseOutput) ElementType() reflect.Type {
@@ -3106,12 +2859,11 @@ func (o UserObjectReceiverValueResponseOutput) ToUserObjectReceiverValueResponse
 }
 
 func (o UserObjectReceiverValueResponseOutput) ToUserObjectReceiverValueResponsePtrOutputWithContext(ctx context.Context) UserObjectReceiverValueResponsePtrOutput {
-	return o.ApplyT(func(v UserObjectReceiverValueResponse) *UserObjectReceiverValueResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v UserObjectReceiverValueResponse) *UserObjectReceiverValueResponse {
 		return &v
 	}).(UserObjectReceiverValueResponsePtrOutput)
 }
 
-// user object ids.
 func (o UserObjectReceiverValueResponseOutput) UserObjectIds() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v UserObjectReceiverValueResponse) []string { return v.UserObjectIds }).(pulumi.StringArrayOutput)
 }
@@ -3131,10 +2883,15 @@ func (o UserObjectReceiverValueResponsePtrOutput) ToUserObjectReceiverValueRespo
 }
 
 func (o UserObjectReceiverValueResponsePtrOutput) Elem() UserObjectReceiverValueResponseOutput {
-	return o.ApplyT(func(v *UserObjectReceiverValueResponse) UserObjectReceiverValueResponse { return *v }).(UserObjectReceiverValueResponseOutput)
+	return o.ApplyT(func(v *UserObjectReceiverValueResponse) UserObjectReceiverValueResponse {
+		if v != nil {
+			return *v
+		}
+		var ret UserObjectReceiverValueResponse
+		return ret
+	}).(UserObjectReceiverValueResponseOutput)
 }
 
-// user object ids.
 func (o UserObjectReceiverValueResponsePtrOutput) UserObjectIds() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *UserObjectReceiverValueResponse) []string {
 		if v == nil {

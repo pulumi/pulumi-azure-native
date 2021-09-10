@@ -11,23 +11,15 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Single item in List or Get Consumer group operation
 type ConsumerGroup struct {
 	pulumi.CustomResourceState
 
-	// Exact time the message was created.
-	CreatedAt pulumi.StringOutput `pulumi:"createdAt"`
-	// The path of the Event Hub.
-	EventHubPath pulumi.StringOutput `pulumi:"eventHubPath"`
-	// Resource location
-	Location pulumi.StringPtrOutput `pulumi:"location"`
-	// Resource name
-	Name pulumi.StringOutput `pulumi:"name"`
-	// Resource type
-	Type pulumi.StringOutput `pulumi:"type"`
-	// The exact time the message was updated.
-	UpdatedAt pulumi.StringOutput `pulumi:"updatedAt"`
-	// The user metadata.
+	CreatedAt    pulumi.StringOutput    `pulumi:"createdAt"`
+	EventHubPath pulumi.StringOutput    `pulumi:"eventHubPath"`
+	Location     pulumi.StringPtrOutput `pulumi:"location"`
+	Name         pulumi.StringOutput    `pulumi:"name"`
+	Type         pulumi.StringOutput    `pulumi:"type"`
+	UpdatedAt    pulumi.StringOutput    `pulumi:"updatedAt"`
 	UserMetadata pulumi.StringPtrOutput `pulumi:"userMetadata"`
 }
 
@@ -121,42 +113,26 @@ func (ConsumerGroupState) ElementType() reflect.Type {
 }
 
 type consumerGroupArgs struct {
-	// The consumer group name
 	ConsumerGroupName *string `pulumi:"consumerGroupName"`
-	// The Event Hub name
-	EventHubName string `pulumi:"eventHubName"`
-	// Location of the resource.
-	Location *string `pulumi:"location"`
-	// Name of the consumer group.
-	Name *string `pulumi:"name"`
-	// The Namespace name
-	NamespaceName string `pulumi:"namespaceName"`
-	// Name of the resource group within the azure subscription.
-	ResourceGroupName string `pulumi:"resourceGroupName"`
-	// ARM type of the Namespace.
-	Type *string `pulumi:"type"`
-	// The user metadata.
-	UserMetadata *string `pulumi:"userMetadata"`
+	EventHubName      string  `pulumi:"eventHubName"`
+	Location          *string `pulumi:"location"`
+	Name              *string `pulumi:"name"`
+	NamespaceName     string  `pulumi:"namespaceName"`
+	ResourceGroupName string  `pulumi:"resourceGroupName"`
+	Type              *string `pulumi:"type"`
+	UserMetadata      *string `pulumi:"userMetadata"`
 }
 
 // The set of arguments for constructing a ConsumerGroup resource.
 type ConsumerGroupArgs struct {
-	// The consumer group name
 	ConsumerGroupName pulumi.StringPtrInput
-	// The Event Hub name
-	EventHubName pulumi.StringInput
-	// Location of the resource.
-	Location pulumi.StringPtrInput
-	// Name of the consumer group.
-	Name pulumi.StringPtrInput
-	// The Namespace name
-	NamespaceName pulumi.StringInput
-	// Name of the resource group within the azure subscription.
+	EventHubName      pulumi.StringInput
+	Location          pulumi.StringPtrInput
+	Name              pulumi.StringPtrInput
+	NamespaceName     pulumi.StringInput
 	ResourceGroupName pulumi.StringInput
-	// ARM type of the Namespace.
-	Type pulumi.StringPtrInput
-	// The user metadata.
-	UserMetadata pulumi.StringPtrInput
+	Type              pulumi.StringPtrInput
+	UserMetadata      pulumi.StringPtrInput
 }
 
 func (ConsumerGroupArgs) ElementType() reflect.Type {
@@ -182,9 +158,7 @@ func (i *ConsumerGroup) ToConsumerGroupOutputWithContext(ctx context.Context) Co
 	return pulumi.ToOutputWithContext(ctx, i).(ConsumerGroupOutput)
 }
 
-type ConsumerGroupOutput struct {
-	*pulumi.OutputState
-}
+type ConsumerGroupOutput struct{ *pulumi.OutputState }
 
 func (ConsumerGroupOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*ConsumerGroup)(nil))

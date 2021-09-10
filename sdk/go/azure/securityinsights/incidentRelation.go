@@ -169,9 +169,7 @@ func (i *IncidentRelation) ToIncidentRelationOutputWithContext(ctx context.Conte
 	return pulumi.ToOutputWithContext(ctx, i).(IncidentRelationOutput)
 }
 
-type IncidentRelationOutput struct {
-	*pulumi.OutputState
-}
+type IncidentRelationOutput struct{ *pulumi.OutputState }
 
 func (IncidentRelationOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*IncidentRelation)(nil))

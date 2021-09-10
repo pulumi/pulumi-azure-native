@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.WebPubSub.V20210401Preview.Outputs
 {
 
+    /// <summary>
+    /// Describes a Shared Private Link Resource
+    /// </summary>
     [OutputType]
     public sealed class SharedPrivateLinkResourceResponse
     {

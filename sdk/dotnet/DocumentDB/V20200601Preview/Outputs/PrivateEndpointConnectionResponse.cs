@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.DocumentDB.V20200601Preview.Outputs
 {
 
+    /// <summary>
+    /// A private endpoint connection
+    /// </summary>
     [OutputType]
     public sealed class PrivateEndpointConnectionResponse
     {

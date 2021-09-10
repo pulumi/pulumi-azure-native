@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.SecurityInsights.V20210301Preview.Outputs
 {
 
+    /// <summary>
+    /// A single field mapping of the mapped entity
+    /// </summary>
     [OutputType]
     public sealed class FieldMappingResponse
     {

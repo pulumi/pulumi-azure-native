@@ -7,7 +7,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// The properties of File services in storage account.
 func LookupFileServiceProperties(ctx *pulumi.Context, args *LookupFileServicePropertiesArgs, opts ...pulumi.InvokeOption) (*LookupFileServicePropertiesResult, error) {
 	var rv LookupFileServicePropertiesResult
 	err := ctx.Invoke("azure-native:storage/v20210101:getFileServiceProperties", args, &rv, opts...)
@@ -18,28 +17,18 @@ func LookupFileServiceProperties(ctx *pulumi.Context, args *LookupFileServicePro
 }
 
 type LookupFileServicePropertiesArgs struct {
-	// The name of the storage account within the specified resource group. Storage account names must be between 3 and 24 characters in length and use numbers and lower-case letters only.
-	AccountName string `pulumi:"accountName"`
-	// The name of the file Service within the specified storage account. File Service Name must be "default"
-	FileServicesName string `pulumi:"fileServicesName"`
-	// The name of the resource group within the user's subscription. The name is case insensitive.
+	AccountName       string `pulumi:"accountName"`
+	FileServicesName  string `pulumi:"fileServicesName"`
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 }
 
 // The properties of File services in storage account.
 type LookupFileServicePropertiesResult struct {
-	// Specifies CORS rules for the File service. You can include up to five CorsRule elements in the request. If no CorsRule elements are included in the request body, all CORS rules will be deleted, and CORS will be disabled for the File service.
-	Cors *CorsRulesResponse `pulumi:"cors"`
-	// Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
-	Id string `pulumi:"id"`
-	// The name of the resource
-	Name string `pulumi:"name"`
-	// Protocol settings for file service
-	ProtocolSettings *ProtocolSettingsResponse `pulumi:"protocolSettings"`
-	// The file service properties for share soft delete.
+	Cors                       *CorsRulesResponse             `pulumi:"cors"`
+	Id                         string                         `pulumi:"id"`
+	Name                       string                         `pulumi:"name"`
+	ProtocolSettings           *ProtocolSettingsResponse      `pulumi:"protocolSettings"`
 	ShareDeleteRetentionPolicy *DeleteRetentionPolicyResponse `pulumi:"shareDeleteRetentionPolicy"`
-	// Sku name and tier.
-	Sku SkuResponse `pulumi:"sku"`
-	// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
-	Type string `pulumi:"type"`
+	Sku                        SkuResponse                    `pulumi:"sku"`
+	Type                       string                         `pulumi:"type"`
 }

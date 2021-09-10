@@ -7,7 +7,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Remote Private Endpoint Connection ARM resource.
 func LookupWebAppPrivateEndpointConnectionSlot(ctx *pulumi.Context, args *LookupWebAppPrivateEndpointConnectionSlotArgs, opts ...pulumi.InvokeOption) (*LookupWebAppPrivateEndpointConnectionSlotResult, error) {
 	var rv LookupWebAppPrivateEndpointConnectionSlotResult
 	err := ctx.Invoke("azure-native:web/v20210101:getWebAppPrivateEndpointConnectionSlot", args, &rv, opts...)
@@ -18,31 +17,20 @@ func LookupWebAppPrivateEndpointConnectionSlot(ctx *pulumi.Context, args *Lookup
 }
 
 type LookupWebAppPrivateEndpointConnectionSlotArgs struct {
-	// Name of the site.
-	Name string `pulumi:"name"`
-	// Name of the private endpoint connection.
+	Name                          string `pulumi:"name"`
 	PrivateEndpointConnectionName string `pulumi:"privateEndpointConnectionName"`
-	// Name of the resource group to which the resource belongs.
-	ResourceGroupName string `pulumi:"resourceGroupName"`
-	// Name of the site deployment slot.
-	Slot string `pulumi:"slot"`
+	ResourceGroupName             string `pulumi:"resourceGroupName"`
+	Slot                          string `pulumi:"slot"`
 }
 
 // Remote Private Endpoint Connection ARM resource.
 type LookupWebAppPrivateEndpointConnectionSlotResult struct {
-	// Resource Id.
-	Id string `pulumi:"id"`
-	// Private IPAddresses mapped to the remote private endpoint
-	IpAddresses []string `pulumi:"ipAddresses"`
-	// Kind of resource.
-	Kind *string `pulumi:"kind"`
-	// Resource Name.
-	Name string `pulumi:"name"`
-	// PrivateEndpoint of a remote private endpoint connection
-	PrivateEndpoint *ArmIdWrapperResponse `pulumi:"privateEndpoint"`
-	// The state of a private link connection
+	Id                                string                              `pulumi:"id"`
+	IpAddresses                       []string                            `pulumi:"ipAddresses"`
+	Kind                              *string                             `pulumi:"kind"`
+	Name                              string                              `pulumi:"name"`
+	PrivateEndpoint                   *ArmIdWrapperResponse               `pulumi:"privateEndpoint"`
 	PrivateLinkServiceConnectionState *PrivateLinkConnectionStateResponse `pulumi:"privateLinkServiceConnectionState"`
 	ProvisioningState                 string                              `pulumi:"provisioningState"`
-	// Resource type.
-	Type string `pulumi:"type"`
+	Type                              string                              `pulumi:"type"`
 }

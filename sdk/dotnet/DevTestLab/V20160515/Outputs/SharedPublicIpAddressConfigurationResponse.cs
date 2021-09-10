@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.DevTestLab.V20160515.Outputs
 {
 
+    /// <summary>
+    /// Properties of a virtual machine that determine how it is connected to a load balancer.
+    /// </summary>
     [OutputType]
     public sealed class SharedPublicIpAddressConfigurationResponse
     {

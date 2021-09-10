@@ -11,28 +11,18 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// NSX DNS Zone
 type WorkloadNetworkDnsZone struct {
 	pulumi.CustomResourceState
 
-	// Display name of the DNS Zone.
-	DisplayName pulumi.StringPtrOutput `pulumi:"displayName"`
-	// DNS Server IP array of the DNS Zone.
-	DnsServerIps pulumi.StringArrayOutput `pulumi:"dnsServerIps"`
-	// Number of DNS Services using the DNS zone.
-	DnsServices pulumi.Float64PtrOutput `pulumi:"dnsServices"`
-	// Domain names of the DNS Zone.
-	Domain pulumi.StringArrayOutput `pulumi:"domain"`
-	// Resource name.
-	Name pulumi.StringOutput `pulumi:"name"`
-	// The provisioning state
-	ProvisioningState pulumi.StringOutput `pulumi:"provisioningState"`
-	// NSX revision number.
-	Revision pulumi.Float64PtrOutput `pulumi:"revision"`
-	// Source IP of the DNS Zone.
-	SourceIp pulumi.StringPtrOutput `pulumi:"sourceIp"`
-	// Resource type.
-	Type pulumi.StringOutput `pulumi:"type"`
+	DisplayName       pulumi.StringPtrOutput   `pulumi:"displayName"`
+	DnsServerIps      pulumi.StringArrayOutput `pulumi:"dnsServerIps"`
+	DnsServices       pulumi.Float64PtrOutput  `pulumi:"dnsServices"`
+	Domain            pulumi.StringArrayOutput `pulumi:"domain"`
+	Name              pulumi.StringOutput      `pulumi:"name"`
+	ProvisioningState pulumi.StringOutput      `pulumi:"provisioningState"`
+	Revision          pulumi.Float64PtrOutput  `pulumi:"revision"`
+	SourceIp          pulumi.StringPtrOutput   `pulumi:"sourceIp"`
+	Type              pulumi.StringOutput      `pulumi:"type"`
 }
 
 // NewWorkloadNetworkDnsZone registers a new resource with the given unique name, arguments, and options.
@@ -104,46 +94,28 @@ func (WorkloadNetworkDnsZoneState) ElementType() reflect.Type {
 }
 
 type workloadNetworkDnsZoneArgs struct {
-	// Display name of the DNS Zone.
-	DisplayName *string `pulumi:"displayName"`
-	// DNS Server IP array of the DNS Zone.
-	DnsServerIps []string `pulumi:"dnsServerIps"`
-	// Number of DNS Services using the DNS zone.
-	DnsServices *float64 `pulumi:"dnsServices"`
-	// NSX DNS Zone identifier. Generally the same as the DNS Zone's display name
-	DnsZoneId *string `pulumi:"dnsZoneId"`
-	// Domain names of the DNS Zone.
-	Domain []string `pulumi:"domain"`
-	// Name of the private cloud
-	PrivateCloudName string `pulumi:"privateCloudName"`
-	// The name of the resource group. The name is case insensitive.
-	ResourceGroupName string `pulumi:"resourceGroupName"`
-	// NSX revision number.
-	Revision *float64 `pulumi:"revision"`
-	// Source IP of the DNS Zone.
-	SourceIp *string `pulumi:"sourceIp"`
+	DisplayName       *string  `pulumi:"displayName"`
+	DnsServerIps      []string `pulumi:"dnsServerIps"`
+	DnsServices       *float64 `pulumi:"dnsServices"`
+	DnsZoneId         *string  `pulumi:"dnsZoneId"`
+	Domain            []string `pulumi:"domain"`
+	PrivateCloudName  string   `pulumi:"privateCloudName"`
+	ResourceGroupName string   `pulumi:"resourceGroupName"`
+	Revision          *float64 `pulumi:"revision"`
+	SourceIp          *string  `pulumi:"sourceIp"`
 }
 
 // The set of arguments for constructing a WorkloadNetworkDnsZone resource.
 type WorkloadNetworkDnsZoneArgs struct {
-	// Display name of the DNS Zone.
-	DisplayName pulumi.StringPtrInput
-	// DNS Server IP array of the DNS Zone.
-	DnsServerIps pulumi.StringArrayInput
-	// Number of DNS Services using the DNS zone.
-	DnsServices pulumi.Float64PtrInput
-	// NSX DNS Zone identifier. Generally the same as the DNS Zone's display name
-	DnsZoneId pulumi.StringPtrInput
-	// Domain names of the DNS Zone.
-	Domain pulumi.StringArrayInput
-	// Name of the private cloud
-	PrivateCloudName pulumi.StringInput
-	// The name of the resource group. The name is case insensitive.
+	DisplayName       pulumi.StringPtrInput
+	DnsServerIps      pulumi.StringArrayInput
+	DnsServices       pulumi.Float64PtrInput
+	DnsZoneId         pulumi.StringPtrInput
+	Domain            pulumi.StringArrayInput
+	PrivateCloudName  pulumi.StringInput
 	ResourceGroupName pulumi.StringInput
-	// NSX revision number.
-	Revision pulumi.Float64PtrInput
-	// Source IP of the DNS Zone.
-	SourceIp pulumi.StringPtrInput
+	Revision          pulumi.Float64PtrInput
+	SourceIp          pulumi.StringPtrInput
 }
 
 func (WorkloadNetworkDnsZoneArgs) ElementType() reflect.Type {
@@ -169,9 +141,7 @@ func (i *WorkloadNetworkDnsZone) ToWorkloadNetworkDnsZoneOutputWithContext(ctx c
 	return pulumi.ToOutputWithContext(ctx, i).(WorkloadNetworkDnsZoneOutput)
 }
 
-type WorkloadNetworkDnsZoneOutput struct {
-	*pulumi.OutputState
-}
+type WorkloadNetworkDnsZoneOutput struct{ *pulumi.OutputState }
 
 func (WorkloadNetworkDnsZoneOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*WorkloadNetworkDnsZone)(nil))

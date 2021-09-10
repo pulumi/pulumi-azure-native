@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.ServiceFabric.V20210101Preview.Outputs
 {
 
+    /// <summary>
+    /// Azure resource identifier.
+    /// </summary>
     [OutputType]
     public sealed class SubResourceResponse
     {

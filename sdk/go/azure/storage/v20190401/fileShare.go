@@ -11,22 +11,15 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Properties of the file share, including Id, resource name, resource type, Etag.
 type FileShare struct {
 	pulumi.CustomResourceState
 
-	// Resource Etag.
-	Etag pulumi.StringOutput `pulumi:"etag"`
-	// Returns the date and time the share was last modified.
-	LastModifiedTime pulumi.StringOutput `pulumi:"lastModifiedTime"`
-	// A name-value pair to associate with the share as metadata.
-	Metadata pulumi.StringMapOutput `pulumi:"metadata"`
-	// The name of the resource
-	Name pulumi.StringOutput `pulumi:"name"`
-	// The maximum size of the share, in gigabytes. Must be greater than 0, and less than or equal to 5TB (5120).
-	ShareQuota pulumi.IntPtrOutput `pulumi:"shareQuota"`
-	// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
-	Type pulumi.StringOutput `pulumi:"type"`
+	Etag             pulumi.StringOutput    `pulumi:"etag"`
+	LastModifiedTime pulumi.StringOutput    `pulumi:"lastModifiedTime"`
+	Metadata         pulumi.StringMapOutput `pulumi:"metadata"`
+	Name             pulumi.StringOutput    `pulumi:"name"`
+	ShareQuota       pulumi.IntPtrOutput    `pulumi:"shareQuota"`
+	Type             pulumi.StringOutput    `pulumi:"type"`
 }
 
 // NewFileShare registers a new resource with the given unique name, arguments, and options.
@@ -116,30 +109,20 @@ func (FileShareState) ElementType() reflect.Type {
 }
 
 type fileShareArgs struct {
-	// The name of the storage account within the specified resource group. Storage account names must be between 3 and 24 characters in length and use numbers and lower-case letters only.
-	AccountName string `pulumi:"accountName"`
-	// A name-value pair to associate with the share as metadata.
-	Metadata map[string]string `pulumi:"metadata"`
-	// The name of the resource group within the user's subscription. The name is case insensitive.
-	ResourceGroupName string `pulumi:"resourceGroupName"`
-	// The name of the file share within the specified storage account. File share names must be between 3 and 63 characters in length and use numbers, lower-case letters and dash (-) only. Every dash (-) character must be immediately preceded and followed by a letter or number.
-	ShareName *string `pulumi:"shareName"`
-	// The maximum size of the share, in gigabytes. Must be greater than 0, and less than or equal to 5TB (5120).
-	ShareQuota *int `pulumi:"shareQuota"`
+	AccountName       string            `pulumi:"accountName"`
+	Metadata          map[string]string `pulumi:"metadata"`
+	ResourceGroupName string            `pulumi:"resourceGroupName"`
+	ShareName         *string           `pulumi:"shareName"`
+	ShareQuota        *int              `pulumi:"shareQuota"`
 }
 
 // The set of arguments for constructing a FileShare resource.
 type FileShareArgs struct {
-	// The name of the storage account within the specified resource group. Storage account names must be between 3 and 24 characters in length and use numbers and lower-case letters only.
-	AccountName pulumi.StringInput
-	// A name-value pair to associate with the share as metadata.
-	Metadata pulumi.StringMapInput
-	// The name of the resource group within the user's subscription. The name is case insensitive.
+	AccountName       pulumi.StringInput
+	Metadata          pulumi.StringMapInput
 	ResourceGroupName pulumi.StringInput
-	// The name of the file share within the specified storage account. File share names must be between 3 and 63 characters in length and use numbers, lower-case letters and dash (-) only. Every dash (-) character must be immediately preceded and followed by a letter or number.
-	ShareName pulumi.StringPtrInput
-	// The maximum size of the share, in gigabytes. Must be greater than 0, and less than or equal to 5TB (5120).
-	ShareQuota pulumi.IntPtrInput
+	ShareName         pulumi.StringPtrInput
+	ShareQuota        pulumi.IntPtrInput
 }
 
 func (FileShareArgs) ElementType() reflect.Type {
@@ -165,9 +148,7 @@ func (i *FileShare) ToFileShareOutputWithContext(ctx context.Context) FileShareO
 	return pulumi.ToOutputWithContext(ctx, i).(FileShareOutput)
 }
 
-type FileShareOutput struct {
-	*pulumi.OutputState
-}
+type FileShareOutput struct{ *pulumi.OutputState }
 
 func (FileShareOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*FileShare)(nil))

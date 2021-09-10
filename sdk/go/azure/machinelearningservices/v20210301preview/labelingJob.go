@@ -11,18 +11,13 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Azure Resource Manager resource envelope.
 type LabelingJob struct {
 	pulumi.CustomResourceState
 
-	// The name of the resource
-	Name pulumi.StringOutput `pulumi:"name"`
-	// Additional attributes of the entity.
+	Name       pulumi.StringOutput       `pulumi:"name"`
 	Properties LabelingJobResponseOutput `pulumi:"properties"`
-	// System data associated with resource provider
-	SystemData SystemDataResponseOutput `pulumi:"systemData"`
-	// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
-	Type pulumi.StringOutput `pulumi:"type"`
+	SystemData SystemDataResponseOutput  `pulumi:"systemData"`
+	Type       pulumi.StringOutput       `pulumi:"type"`
 }
 
 // NewLabelingJob registers a new resource with the given unique name, arguments, and options.
@@ -91,26 +86,18 @@ func (LabelingJobState) ElementType() reflect.Type {
 }
 
 type labelingJobArgs struct {
-	// The name and identifier for the LabelingJob.
-	Id *string `pulumi:"id"`
-	// Additional attributes of the entity.
-	Properties LabelingJobType `pulumi:"properties"`
-	// The name of the resource group. The name is case insensitive.
-	ResourceGroupName string `pulumi:"resourceGroupName"`
-	// Name of Azure Machine Learning workspace.
-	WorkspaceName string `pulumi:"workspaceName"`
+	Id                *string         `pulumi:"id"`
+	Properties        LabelingJobType `pulumi:"properties"`
+	ResourceGroupName string          `pulumi:"resourceGroupName"`
+	WorkspaceName     string          `pulumi:"workspaceName"`
 }
 
 // The set of arguments for constructing a LabelingJob resource.
 type LabelingJobArgs struct {
-	// The name and identifier for the LabelingJob.
-	Id pulumi.StringPtrInput
-	// Additional attributes of the entity.
-	Properties LabelingJobTypeInput
-	// The name of the resource group. The name is case insensitive.
+	Id                pulumi.StringPtrInput
+	Properties        LabelingJobTypeInput
 	ResourceGroupName pulumi.StringInput
-	// Name of Azure Machine Learning workspace.
-	WorkspaceName pulumi.StringInput
+	WorkspaceName     pulumi.StringInput
 }
 
 func (LabelingJobArgs) ElementType() reflect.Type {
@@ -136,9 +123,7 @@ func (i *LabelingJob) ToLabelingJobOutputWithContext(ctx context.Context) Labeli
 	return pulumi.ToOutputWithContext(ctx, i).(LabelingJobOutput)
 }
 
-type LabelingJobOutput struct {
-	*pulumi.OutputState
-}
+type LabelingJobOutput struct{ *pulumi.OutputState }
 
 func (LabelingJobOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*LabelingJob)(nil))

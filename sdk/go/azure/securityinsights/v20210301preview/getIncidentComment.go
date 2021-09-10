@@ -7,7 +7,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Represents an incident comment
 func LookupIncidentComment(ctx *pulumi.Context, args *LookupIncidentCommentArgs, opts ...pulumi.InvokeOption) (*LookupIncidentCommentResult, error) {
 	var rv LookupIncidentCommentResult
 	err := ctx.Invoke("azure-native:securityinsights/v20210301preview:getIncidentComment", args, &rv, opts...)
@@ -18,36 +17,22 @@ func LookupIncidentComment(ctx *pulumi.Context, args *LookupIncidentCommentArgs,
 }
 
 type LookupIncidentCommentArgs struct {
-	// Incident comment ID
-	IncidentCommentId string `pulumi:"incidentCommentId"`
-	// Incident ID
-	IncidentId string `pulumi:"incidentId"`
-	// The namespace of workspaces resource provider- Microsoft.OperationalInsights.
+	IncidentCommentId                   string `pulumi:"incidentCommentId"`
+	IncidentId                          string `pulumi:"incidentId"`
 	OperationalInsightsResourceProvider string `pulumi:"operationalInsightsResourceProvider"`
-	// The name of the resource group. The name is case insensitive.
-	ResourceGroupName string `pulumi:"resourceGroupName"`
-	// The name of the workspace.
-	WorkspaceName string `pulumi:"workspaceName"`
+	ResourceGroupName                   string `pulumi:"resourceGroupName"`
+	WorkspaceName                       string `pulumi:"workspaceName"`
 }
 
 // Represents an incident comment
 type LookupIncidentCommentResult struct {
-	// Describes the client that created the comment
-	Author ClientInfoResponse `pulumi:"author"`
-	// The time the comment was created
-	CreatedTimeUtc string `pulumi:"createdTimeUtc"`
-	// Etag of the azure resource
-	Etag *string `pulumi:"etag"`
-	// Azure resource Id
-	Id string `pulumi:"id"`
-	// The time the comment was updated
-	LastModifiedTimeUtc string `pulumi:"lastModifiedTimeUtc"`
-	// The comment message
-	Message string `pulumi:"message"`
-	// Azure resource name
-	Name string `pulumi:"name"`
-	// Azure Resource Manager metadata containing createdBy and modifiedBy information.
-	SystemData SystemDataResponse `pulumi:"systemData"`
-	// Azure resource type
-	Type string `pulumi:"type"`
+	Author              ClientInfoResponse `pulumi:"author"`
+	CreatedTimeUtc      string             `pulumi:"createdTimeUtc"`
+	Etag                *string            `pulumi:"etag"`
+	Id                  string             `pulumi:"id"`
+	LastModifiedTimeUtc string             `pulumi:"lastModifiedTimeUtc"`
+	Message             string             `pulumi:"message"`
+	Name                string             `pulumi:"name"`
+	SystemData          SystemDataResponse `pulumi:"systemData"`
+	Type                string             `pulumi:"type"`
 }

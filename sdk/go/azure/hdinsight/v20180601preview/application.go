@@ -11,20 +11,14 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// The HDInsight cluster application
 type Application struct {
 	pulumi.CustomResourceState
 
-	// The ETag for the application
-	Etag pulumi.StringPtrOutput `pulumi:"etag"`
-	// The name of the resource
-	Name pulumi.StringOutput `pulumi:"name"`
-	// The properties of the application.
+	Etag       pulumi.StringPtrOutput              `pulumi:"etag"`
+	Name       pulumi.StringOutput                 `pulumi:"name"`
 	Properties ApplicationPropertiesResponseOutput `pulumi:"properties"`
-	// The tags for the application.
-	Tags pulumi.StringMapOutput `pulumi:"tags"`
-	// The type of the resource.
-	Type pulumi.StringOutput `pulumi:"type"`
+	Tags       pulumi.StringMapOutput              `pulumi:"tags"`
+	Type       pulumi.StringOutput                 `pulumi:"type"`
 }
 
 // NewApplication registers a new resource with the given unique name, arguments, and options.
@@ -90,34 +84,22 @@ func (ApplicationState) ElementType() reflect.Type {
 }
 
 type applicationArgs struct {
-	// The constant value for the application name.
-	ApplicationName *string `pulumi:"applicationName"`
-	// The name of the cluster.
-	ClusterName string `pulumi:"clusterName"`
-	// The ETag for the application
-	Etag *string `pulumi:"etag"`
-	// The properties of the application.
-	Properties *ApplicationProperties `pulumi:"properties"`
-	// The name of the resource group.
-	ResourceGroupName string `pulumi:"resourceGroupName"`
-	// The tags for the application.
-	Tags map[string]string `pulumi:"tags"`
+	ApplicationName   *string                `pulumi:"applicationName"`
+	ClusterName       string                 `pulumi:"clusterName"`
+	Etag              *string                `pulumi:"etag"`
+	Properties        *ApplicationProperties `pulumi:"properties"`
+	ResourceGroupName string                 `pulumi:"resourceGroupName"`
+	Tags              map[string]string      `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a Application resource.
 type ApplicationArgs struct {
-	// The constant value for the application name.
-	ApplicationName pulumi.StringPtrInput
-	// The name of the cluster.
-	ClusterName pulumi.StringInput
-	// The ETag for the application
-	Etag pulumi.StringPtrInput
-	// The properties of the application.
-	Properties ApplicationPropertiesPtrInput
-	// The name of the resource group.
+	ApplicationName   pulumi.StringPtrInput
+	ClusterName       pulumi.StringInput
+	Etag              pulumi.StringPtrInput
+	Properties        ApplicationPropertiesPtrInput
 	ResourceGroupName pulumi.StringInput
-	// The tags for the application.
-	Tags pulumi.StringMapInput
+	Tags              pulumi.StringMapInput
 }
 
 func (ApplicationArgs) ElementType() reflect.Type {
@@ -143,9 +125,7 @@ func (i *Application) ToApplicationOutputWithContext(ctx context.Context) Applic
 	return pulumi.ToOutputWithContext(ctx, i).(ApplicationOutput)
 }
 
-type ApplicationOutput struct {
-	*pulumi.OutputState
-}
+type ApplicationOutput struct{ *pulumi.OutputState }
 
 func (ApplicationOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*Application)(nil))

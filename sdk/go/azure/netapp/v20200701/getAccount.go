@@ -7,7 +7,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// NetApp account resource
 func LookupAccount(ctx *pulumi.Context, args *LookupAccountArgs, opts ...pulumi.InvokeOption) (*LookupAccountResult, error) {
 	var rv LookupAccountResult
 	err := ctx.Invoke("azure-native:netapp/v20200701:getAccount", args, &rv, opts...)
@@ -18,26 +17,17 @@ func LookupAccount(ctx *pulumi.Context, args *LookupAccountArgs, opts ...pulumi.
 }
 
 type LookupAccountArgs struct {
-	// The name of the NetApp account
-	AccountName string `pulumi:"accountName"`
-	// The name of the resource group.
+	AccountName       string `pulumi:"accountName"`
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 }
 
 // NetApp account resource
 type LookupAccountResult struct {
-	// Active Directories
 	ActiveDirectories []ActiveDirectoryResponse `pulumi:"activeDirectories"`
-	// Resource Id
-	Id string `pulumi:"id"`
-	// Resource location
-	Location string `pulumi:"location"`
-	// Resource name
-	Name string `pulumi:"name"`
-	// Azure lifecycle management
-	ProvisioningState string `pulumi:"provisioningState"`
-	// Resource tags
-	Tags map[string]string `pulumi:"tags"`
-	// Resource type
-	Type string `pulumi:"type"`
+	Id                string                    `pulumi:"id"`
+	Location          string                    `pulumi:"location"`
+	Name              string                    `pulumi:"name"`
+	ProvisioningState string                    `pulumi:"provisioningState"`
+	Tags              map[string]string         `pulumi:"tags"`
+	Type              string                    `pulumi:"type"`
 }

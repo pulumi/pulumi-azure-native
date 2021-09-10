@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.Synapse.V20210601.Outputs
 {
 
+    /// <summary>
+    /// The definition and properties of virtual network to which Azure-SSIS integration runtime will join.
+    /// </summary>
     [OutputType]
     public sealed class IntegrationRuntimeCustomerVirtualNetworkResponse
     {

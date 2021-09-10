@@ -132,9 +132,7 @@ func (i *HybridRunbookWorkerGroup) ToHybridRunbookWorkerGroupOutputWithContext(c
 	return pulumi.ToOutputWithContext(ctx, i).(HybridRunbookWorkerGroupOutput)
 }
 
-type HybridRunbookWorkerGroupOutput struct {
-	*pulumi.OutputState
-}
+type HybridRunbookWorkerGroupOutput struct{ *pulumi.OutputState }
 
 func (HybridRunbookWorkerGroupOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*HybridRunbookWorkerGroup)(nil))

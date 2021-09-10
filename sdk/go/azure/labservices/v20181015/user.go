@@ -11,34 +11,21 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// The User registered to a lab
 type User struct {
 	pulumi.CustomResourceState
 
-	// The user email address, as it was specified during registration.
-	Email pulumi.StringOutput `pulumi:"email"`
-	// The user family name, as it was specified during registration.
-	FamilyName pulumi.StringOutput `pulumi:"familyName"`
-	// The user given name, as it was specified during registration.
-	GivenName pulumi.StringOutput `pulumi:"givenName"`
-	// The details of the latest operation. ex: status, error
+	Email                 pulumi.StringOutput                 `pulumi:"email"`
+	FamilyName            pulumi.StringOutput                 `pulumi:"familyName"`
+	GivenName             pulumi.StringOutput                 `pulumi:"givenName"`
 	LatestOperationResult LatestOperationResultResponseOutput `pulumi:"latestOperationResult"`
-	// The location of the resource.
-	Location pulumi.StringPtrOutput `pulumi:"location"`
-	// The name of the resource.
-	Name pulumi.StringOutput `pulumi:"name"`
-	// The provisioning status of the resource.
-	ProvisioningState pulumi.StringPtrOutput `pulumi:"provisioningState"`
-	// The tags of the resource.
-	Tags pulumi.StringMapOutput `pulumi:"tags"`
-	// The user tenant ID, as it was specified during registration.
-	TenantId pulumi.StringOutput `pulumi:"tenantId"`
-	// How long the user has used his VMs in this lab
-	TotalUsage pulumi.StringOutput `pulumi:"totalUsage"`
-	// The type of the resource.
-	Type pulumi.StringOutput `pulumi:"type"`
-	// The unique immutable identifier of a resource (Guid).
-	UniqueIdentifier pulumi.StringPtrOutput `pulumi:"uniqueIdentifier"`
+	Location              pulumi.StringPtrOutput              `pulumi:"location"`
+	Name                  pulumi.StringOutput                 `pulumi:"name"`
+	ProvisioningState     pulumi.StringPtrOutput              `pulumi:"provisioningState"`
+	Tags                  pulumi.StringMapOutput              `pulumi:"tags"`
+	TenantId              pulumi.StringOutput                 `pulumi:"tenantId"`
+	TotalUsage            pulumi.StringOutput                 `pulumi:"totalUsage"`
+	Type                  pulumi.StringOutput                 `pulumi:"type"`
+	UniqueIdentifier      pulumi.StringPtrOutput              `pulumi:"uniqueIdentifier"`
 }
 
 // NewUser registers a new resource with the given unique name, arguments, and options.
@@ -101,42 +88,26 @@ func (UserState) ElementType() reflect.Type {
 }
 
 type userArgs struct {
-	// The name of the lab Account.
-	LabAccountName string `pulumi:"labAccountName"`
-	// The name of the lab.
-	LabName string `pulumi:"labName"`
-	// The location of the resource.
-	Location *string `pulumi:"location"`
-	// The provisioning status of the resource.
-	ProvisioningState *string `pulumi:"provisioningState"`
-	// The name of the resource group.
-	ResourceGroupName string `pulumi:"resourceGroupName"`
-	// The tags of the resource.
-	Tags map[string]string `pulumi:"tags"`
-	// The unique immutable identifier of a resource (Guid).
-	UniqueIdentifier *string `pulumi:"uniqueIdentifier"`
-	// The name of the user.
-	UserName *string `pulumi:"userName"`
+	LabAccountName    string            `pulumi:"labAccountName"`
+	LabName           string            `pulumi:"labName"`
+	Location          *string           `pulumi:"location"`
+	ProvisioningState *string           `pulumi:"provisioningState"`
+	ResourceGroupName string            `pulumi:"resourceGroupName"`
+	Tags              map[string]string `pulumi:"tags"`
+	UniqueIdentifier  *string           `pulumi:"uniqueIdentifier"`
+	UserName          *string           `pulumi:"userName"`
 }
 
 // The set of arguments for constructing a User resource.
 type UserArgs struct {
-	// The name of the lab Account.
-	LabAccountName pulumi.StringInput
-	// The name of the lab.
-	LabName pulumi.StringInput
-	// The location of the resource.
-	Location pulumi.StringPtrInput
-	// The provisioning status of the resource.
+	LabAccountName    pulumi.StringInput
+	LabName           pulumi.StringInput
+	Location          pulumi.StringPtrInput
 	ProvisioningState pulumi.StringPtrInput
-	// The name of the resource group.
 	ResourceGroupName pulumi.StringInput
-	// The tags of the resource.
-	Tags pulumi.StringMapInput
-	// The unique immutable identifier of a resource (Guid).
-	UniqueIdentifier pulumi.StringPtrInput
-	// The name of the user.
-	UserName pulumi.StringPtrInput
+	Tags              pulumi.StringMapInput
+	UniqueIdentifier  pulumi.StringPtrInput
+	UserName          pulumi.StringPtrInput
 }
 
 func (UserArgs) ElementType() reflect.Type {
@@ -162,9 +133,7 @@ func (i *User) ToUserOutputWithContext(ctx context.Context) UserOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(UserOutput)
 }
 
-type UserOutput struct {
-	*pulumi.OutputState
-}
+type UserOutput struct{ *pulumi.OutputState }
 
 func (UserOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*User)(nil))

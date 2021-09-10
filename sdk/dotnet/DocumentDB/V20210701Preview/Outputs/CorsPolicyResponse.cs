@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.DocumentDB.V20210701Preview.Outputs
 {
 
+    /// <summary>
+    /// The CORS policy for the Cosmos DB database account.
+    /// </summary>
     [OutputType]
     public sealed class CorsPolicyResponse
     {

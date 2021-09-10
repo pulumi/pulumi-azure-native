@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.Network.Outputs
 {
 
+    /// <summary>
+    /// Represents a single Azure resource and its referencing DNS records.
+    /// </summary>
     [OutputType]
     public sealed class DnsResourceReferenceResponse
     {

@@ -7,7 +7,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// The exposure control response.
 func GetExposureControlFeatureValue(ctx *pulumi.Context, args *GetExposureControlFeatureValueArgs, opts ...pulumi.InvokeOption) (*GetExposureControlFeatureValueResult, error) {
 	var rv GetExposureControlFeatureValueResult
 	err := ctx.Invoke("azure-native:datafactory/v20180601:getExposureControlFeatureValue", args, &rv, opts...)
@@ -18,18 +17,13 @@ func GetExposureControlFeatureValue(ctx *pulumi.Context, args *GetExposureContro
 }
 
 type GetExposureControlFeatureValueArgs struct {
-	// The feature name.
 	FeatureName *string `pulumi:"featureName"`
-	// The feature type.
 	FeatureType *string `pulumi:"featureType"`
-	// The location identifier.
-	LocationId string `pulumi:"locationId"`
+	LocationId  string  `pulumi:"locationId"`
 }
 
 // The exposure control response.
 type GetExposureControlFeatureValueResult struct {
-	// The feature name.
 	FeatureName string `pulumi:"featureName"`
-	// The feature value.
-	Value string `pulumi:"value"`
+	Value       string `pulumi:"value"`
 }

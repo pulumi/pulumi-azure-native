@@ -173,9 +173,7 @@ func (i *ReplicationRecoveryPlan) ToReplicationRecoveryPlanOutputWithContext(ctx
 	return pulumi.ToOutputWithContext(ctx, i).(ReplicationRecoveryPlanOutput)
 }
 
-type ReplicationRecoveryPlanOutput struct {
-	*pulumi.OutputState
-}
+type ReplicationRecoveryPlanOutput struct{ *pulumi.OutputState }
 
 func (ReplicationRecoveryPlanOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*ReplicationRecoveryPlan)(nil))

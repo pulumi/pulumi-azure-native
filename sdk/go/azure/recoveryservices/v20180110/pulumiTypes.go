@@ -10,15 +10,10 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// A2A container mapping input.
 type A2AContainerMappingInput struct {
-	// A value indicating whether the auto update is enabled.
-	AgentAutoUpdateStatus *string `pulumi:"agentAutoUpdateStatus"`
-	// The automation account arm id.
+	AgentAutoUpdateStatus  *string `pulumi:"agentAutoUpdateStatus"`
 	AutomationAccountArmId *string `pulumi:"automationAccountArmId"`
-	// The class type.
-	// Expected value is 'A2A'.
-	InstanceType *string `pulumi:"instanceType"`
+	InstanceType           *string `pulumi:"instanceType"`
 }
 
 // A2AContainerMappingInputInput is an input type that accepts A2AContainerMappingInputArgs and A2AContainerMappingInputOutput values.
@@ -32,15 +27,10 @@ type A2AContainerMappingInputInput interface {
 	ToA2AContainerMappingInputOutputWithContext(context.Context) A2AContainerMappingInputOutput
 }
 
-// A2A container mapping input.
 type A2AContainerMappingInputArgs struct {
-	// A value indicating whether the auto update is enabled.
-	AgentAutoUpdateStatus pulumi.StringPtrInput `pulumi:"agentAutoUpdateStatus"`
-	// The automation account arm id.
+	AgentAutoUpdateStatus  pulumi.StringPtrInput `pulumi:"agentAutoUpdateStatus"`
 	AutomationAccountArmId pulumi.StringPtrInput `pulumi:"automationAccountArmId"`
-	// The class type.
-	// Expected value is 'A2A'.
-	InstanceType pulumi.StringPtrInput `pulumi:"instanceType"`
+	InstanceType           pulumi.StringPtrInput `pulumi:"instanceType"`
 }
 
 func (A2AContainerMappingInputArgs) ElementType() reflect.Type {
@@ -55,7 +45,6 @@ func (i A2AContainerMappingInputArgs) ToA2AContainerMappingInputOutputWithContex
 	return pulumi.ToOutputWithContext(ctx, i).(A2AContainerMappingInputOutput)
 }
 
-// A2A container mapping input.
 type A2AContainerMappingInputOutput struct{ *pulumi.OutputState }
 
 func (A2AContainerMappingInputOutput) ElementType() reflect.Type {
@@ -70,47 +59,30 @@ func (o A2AContainerMappingInputOutput) ToA2AContainerMappingInputOutputWithCont
 	return o
 }
 
-// A value indicating whether the auto update is enabled.
 func (o A2AContainerMappingInputOutput) AgentAutoUpdateStatus() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v A2AContainerMappingInput) *string { return v.AgentAutoUpdateStatus }).(pulumi.StringPtrOutput)
 }
 
-// The automation account arm id.
 func (o A2AContainerMappingInputOutput) AutomationAccountArmId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v A2AContainerMappingInput) *string { return v.AutomationAccountArmId }).(pulumi.StringPtrOutput)
 }
 
-// The class type.
-// Expected value is 'A2A'.
 func (o A2AContainerMappingInputOutput) InstanceType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v A2AContainerMappingInput) *string { return v.InstanceType }).(pulumi.StringPtrOutput)
 }
 
-// A2A enable protection input.
 type A2AEnableProtectionInput struct {
-	// The recovery disk encryption information.
-	DiskEncryptionInfo *DiskEncryptionInfo `pulumi:"diskEncryptionInfo"`
-	// The fabric specific object Id of the virtual machine.
-	FabricObjectId *string `pulumi:"fabricObjectId"`
-	// The class type.
-	// Expected value is 'A2A'.
-	InstanceType *string `pulumi:"instanceType"`
-	// The multi vm group name.
-	MultiVmGroupName *string `pulumi:"multiVmGroupName"`
-	// The recovery availability set Id.
-	RecoveryAvailabilitySetId *string `pulumi:"recoveryAvailabilitySetId"`
-	// The boot diagnostic storage account.
-	RecoveryBootDiagStorageAccountId *string `pulumi:"recoveryBootDiagStorageAccountId"`
-	// The recovery cloud service Id. Valid for V1 scenarios.
-	RecoveryCloudServiceId *string `pulumi:"recoveryCloudServiceId"`
-	// The recovery container Id.
-	RecoveryContainerId *string `pulumi:"recoveryContainerId"`
-	// The recovery resource group Id. Valid for V2 scenarios.
-	RecoveryResourceGroupId *string `pulumi:"recoveryResourceGroupId"`
-	// The list of vm disk details.
-	VmDisks []A2AVmDiskInputDetails `pulumi:"vmDisks"`
-	// The list of vm managed disk details.
-	VmManagedDisks []A2AVmManagedDiskInputDetails `pulumi:"vmManagedDisks"`
+	DiskEncryptionInfo               *DiskEncryptionInfo            `pulumi:"diskEncryptionInfo"`
+	FabricObjectId                   *string                        `pulumi:"fabricObjectId"`
+	InstanceType                     *string                        `pulumi:"instanceType"`
+	MultiVmGroupName                 *string                        `pulumi:"multiVmGroupName"`
+	RecoveryAvailabilitySetId        *string                        `pulumi:"recoveryAvailabilitySetId"`
+	RecoveryBootDiagStorageAccountId *string                        `pulumi:"recoveryBootDiagStorageAccountId"`
+	RecoveryCloudServiceId           *string                        `pulumi:"recoveryCloudServiceId"`
+	RecoveryContainerId              *string                        `pulumi:"recoveryContainerId"`
+	RecoveryResourceGroupId          *string                        `pulumi:"recoveryResourceGroupId"`
+	VmDisks                          []A2AVmDiskInputDetails        `pulumi:"vmDisks"`
+	VmManagedDisks                   []A2AVmManagedDiskInputDetails `pulumi:"vmManagedDisks"`
 }
 
 // A2AEnableProtectionInputInput is an input type that accepts A2AEnableProtectionInputArgs and A2AEnableProtectionInputOutput values.
@@ -124,31 +96,18 @@ type A2AEnableProtectionInputInput interface {
 	ToA2AEnableProtectionInputOutputWithContext(context.Context) A2AEnableProtectionInputOutput
 }
 
-// A2A enable protection input.
 type A2AEnableProtectionInputArgs struct {
-	// The recovery disk encryption information.
-	DiskEncryptionInfo DiskEncryptionInfoPtrInput `pulumi:"diskEncryptionInfo"`
-	// The fabric specific object Id of the virtual machine.
-	FabricObjectId pulumi.StringPtrInput `pulumi:"fabricObjectId"`
-	// The class type.
-	// Expected value is 'A2A'.
-	InstanceType pulumi.StringPtrInput `pulumi:"instanceType"`
-	// The multi vm group name.
-	MultiVmGroupName pulumi.StringPtrInput `pulumi:"multiVmGroupName"`
-	// The recovery availability set Id.
-	RecoveryAvailabilitySetId pulumi.StringPtrInput `pulumi:"recoveryAvailabilitySetId"`
-	// The boot diagnostic storage account.
-	RecoveryBootDiagStorageAccountId pulumi.StringPtrInput `pulumi:"recoveryBootDiagStorageAccountId"`
-	// The recovery cloud service Id. Valid for V1 scenarios.
-	RecoveryCloudServiceId pulumi.StringPtrInput `pulumi:"recoveryCloudServiceId"`
-	// The recovery container Id.
-	RecoveryContainerId pulumi.StringPtrInput `pulumi:"recoveryContainerId"`
-	// The recovery resource group Id. Valid for V2 scenarios.
-	RecoveryResourceGroupId pulumi.StringPtrInput `pulumi:"recoveryResourceGroupId"`
-	// The list of vm disk details.
-	VmDisks A2AVmDiskInputDetailsArrayInput `pulumi:"vmDisks"`
-	// The list of vm managed disk details.
-	VmManagedDisks A2AVmManagedDiskInputDetailsArrayInput `pulumi:"vmManagedDisks"`
+	DiskEncryptionInfo               DiskEncryptionInfoPtrInput             `pulumi:"diskEncryptionInfo"`
+	FabricObjectId                   pulumi.StringPtrInput                  `pulumi:"fabricObjectId"`
+	InstanceType                     pulumi.StringPtrInput                  `pulumi:"instanceType"`
+	MultiVmGroupName                 pulumi.StringPtrInput                  `pulumi:"multiVmGroupName"`
+	RecoveryAvailabilitySetId        pulumi.StringPtrInput                  `pulumi:"recoveryAvailabilitySetId"`
+	RecoveryBootDiagStorageAccountId pulumi.StringPtrInput                  `pulumi:"recoveryBootDiagStorageAccountId"`
+	RecoveryCloudServiceId           pulumi.StringPtrInput                  `pulumi:"recoveryCloudServiceId"`
+	RecoveryContainerId              pulumi.StringPtrInput                  `pulumi:"recoveryContainerId"`
+	RecoveryResourceGroupId          pulumi.StringPtrInput                  `pulumi:"recoveryResourceGroupId"`
+	VmDisks                          A2AVmDiskInputDetailsArrayInput        `pulumi:"vmDisks"`
+	VmManagedDisks                   A2AVmManagedDiskInputDetailsArrayInput `pulumi:"vmManagedDisks"`
 }
 
 func (A2AEnableProtectionInputArgs) ElementType() reflect.Type {
@@ -163,7 +122,6 @@ func (i A2AEnableProtectionInputArgs) ToA2AEnableProtectionInputOutputWithContex
 	return pulumi.ToOutputWithContext(ctx, i).(A2AEnableProtectionInputOutput)
 }
 
-// A2A enable protection input.
 type A2AEnableProtectionInputOutput struct{ *pulumi.OutputState }
 
 func (A2AEnableProtectionInputOutput) ElementType() reflect.Type {
@@ -178,75 +136,56 @@ func (o A2AEnableProtectionInputOutput) ToA2AEnableProtectionInputOutputWithCont
 	return o
 }
 
-// The recovery disk encryption information.
 func (o A2AEnableProtectionInputOutput) DiskEncryptionInfo() DiskEncryptionInfoPtrOutput {
 	return o.ApplyT(func(v A2AEnableProtectionInput) *DiskEncryptionInfo { return v.DiskEncryptionInfo }).(DiskEncryptionInfoPtrOutput)
 }
 
-// The fabric specific object Id of the virtual machine.
 func (o A2AEnableProtectionInputOutput) FabricObjectId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v A2AEnableProtectionInput) *string { return v.FabricObjectId }).(pulumi.StringPtrOutput)
 }
 
-// The class type.
-// Expected value is 'A2A'.
 func (o A2AEnableProtectionInputOutput) InstanceType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v A2AEnableProtectionInput) *string { return v.InstanceType }).(pulumi.StringPtrOutput)
 }
 
-// The multi vm group name.
 func (o A2AEnableProtectionInputOutput) MultiVmGroupName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v A2AEnableProtectionInput) *string { return v.MultiVmGroupName }).(pulumi.StringPtrOutput)
 }
 
-// The recovery availability set Id.
 func (o A2AEnableProtectionInputOutput) RecoveryAvailabilitySetId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v A2AEnableProtectionInput) *string { return v.RecoveryAvailabilitySetId }).(pulumi.StringPtrOutput)
 }
 
-// The boot diagnostic storage account.
 func (o A2AEnableProtectionInputOutput) RecoveryBootDiagStorageAccountId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v A2AEnableProtectionInput) *string { return v.RecoveryBootDiagStorageAccountId }).(pulumi.StringPtrOutput)
 }
 
-// The recovery cloud service Id. Valid for V1 scenarios.
 func (o A2AEnableProtectionInputOutput) RecoveryCloudServiceId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v A2AEnableProtectionInput) *string { return v.RecoveryCloudServiceId }).(pulumi.StringPtrOutput)
 }
 
-// The recovery container Id.
 func (o A2AEnableProtectionInputOutput) RecoveryContainerId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v A2AEnableProtectionInput) *string { return v.RecoveryContainerId }).(pulumi.StringPtrOutput)
 }
 
-// The recovery resource group Id. Valid for V2 scenarios.
 func (o A2AEnableProtectionInputOutput) RecoveryResourceGroupId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v A2AEnableProtectionInput) *string { return v.RecoveryResourceGroupId }).(pulumi.StringPtrOutput)
 }
 
-// The list of vm disk details.
 func (o A2AEnableProtectionInputOutput) VmDisks() A2AVmDiskInputDetailsArrayOutput {
 	return o.ApplyT(func(v A2AEnableProtectionInput) []A2AVmDiskInputDetails { return v.VmDisks }).(A2AVmDiskInputDetailsArrayOutput)
 }
 
-// The list of vm managed disk details.
 func (o A2AEnableProtectionInputOutput) VmManagedDisks() A2AVmManagedDiskInputDetailsArrayOutput {
 	return o.ApplyT(func(v A2AEnableProtectionInput) []A2AVmManagedDiskInputDetails { return v.VmManagedDisks }).(A2AVmManagedDiskInputDetailsArrayOutput)
 }
 
-// A2A Policy creation input.
 type A2APolicyCreationInput struct {
-	// The app consistent snapshot frequency (in minutes).
-	AppConsistentFrequencyInMinutes *int `pulumi:"appConsistentFrequencyInMinutes"`
-	// The crash consistent snapshot frequency (in minutes).
-	CrashConsistentFrequencyInMinutes *int `pulumi:"crashConsistentFrequencyInMinutes"`
-	// The class type.
-	// Expected value is 'A2A'.
-	InstanceType *string `pulumi:"instanceType"`
-	// A value indicating whether multi-VM sync has to be enabled. Value should be 'Enabled' or 'Disabled'.
-	MultiVmSyncStatus string `pulumi:"multiVmSyncStatus"`
-	// The duration in minutes until which the recovery points need to be stored.
-	RecoveryPointHistory *int `pulumi:"recoveryPointHistory"`
+	AppConsistentFrequencyInMinutes   *int    `pulumi:"appConsistentFrequencyInMinutes"`
+	CrashConsistentFrequencyInMinutes *int    `pulumi:"crashConsistentFrequencyInMinutes"`
+	InstanceType                      *string `pulumi:"instanceType"`
+	MultiVmSyncStatus                 string  `pulumi:"multiVmSyncStatus"`
+	RecoveryPointHistory              *int    `pulumi:"recoveryPointHistory"`
 }
 
 // A2APolicyCreationInputInput is an input type that accepts A2APolicyCreationInputArgs and A2APolicyCreationInputOutput values.
@@ -260,19 +199,12 @@ type A2APolicyCreationInputInput interface {
 	ToA2APolicyCreationInputOutputWithContext(context.Context) A2APolicyCreationInputOutput
 }
 
-// A2A Policy creation input.
 type A2APolicyCreationInputArgs struct {
-	// The app consistent snapshot frequency (in minutes).
-	AppConsistentFrequencyInMinutes pulumi.IntPtrInput `pulumi:"appConsistentFrequencyInMinutes"`
-	// The crash consistent snapshot frequency (in minutes).
-	CrashConsistentFrequencyInMinutes pulumi.IntPtrInput `pulumi:"crashConsistentFrequencyInMinutes"`
-	// The class type.
-	// Expected value is 'A2A'.
-	InstanceType pulumi.StringPtrInput `pulumi:"instanceType"`
-	// A value indicating whether multi-VM sync has to be enabled. Value should be 'Enabled' or 'Disabled'.
-	MultiVmSyncStatus pulumi.StringInput `pulumi:"multiVmSyncStatus"`
-	// The duration in minutes until which the recovery points need to be stored.
-	RecoveryPointHistory pulumi.IntPtrInput `pulumi:"recoveryPointHistory"`
+	AppConsistentFrequencyInMinutes   pulumi.IntPtrInput    `pulumi:"appConsistentFrequencyInMinutes"`
+	CrashConsistentFrequencyInMinutes pulumi.IntPtrInput    `pulumi:"crashConsistentFrequencyInMinutes"`
+	InstanceType                      pulumi.StringPtrInput `pulumi:"instanceType"`
+	MultiVmSyncStatus                 pulumi.StringInput    `pulumi:"multiVmSyncStatus"`
+	RecoveryPointHistory              pulumi.IntPtrInput    `pulumi:"recoveryPointHistory"`
 }
 
 func (A2APolicyCreationInputArgs) ElementType() reflect.Type {
@@ -287,7 +219,6 @@ func (i A2APolicyCreationInputArgs) ToA2APolicyCreationInputOutputWithContext(ct
 	return pulumi.ToOutputWithContext(ctx, i).(A2APolicyCreationInputOutput)
 }
 
-// A2A Policy creation input.
 type A2APolicyCreationInputOutput struct{ *pulumi.OutputState }
 
 func (A2APolicyCreationInputOutput) ElementType() reflect.Type {
@@ -302,47 +233,33 @@ func (o A2APolicyCreationInputOutput) ToA2APolicyCreationInputOutputWithContext(
 	return o
 }
 
-// The app consistent snapshot frequency (in minutes).
 func (o A2APolicyCreationInputOutput) AppConsistentFrequencyInMinutes() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v A2APolicyCreationInput) *int { return v.AppConsistentFrequencyInMinutes }).(pulumi.IntPtrOutput)
 }
 
-// The crash consistent snapshot frequency (in minutes).
 func (o A2APolicyCreationInputOutput) CrashConsistentFrequencyInMinutes() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v A2APolicyCreationInput) *int { return v.CrashConsistentFrequencyInMinutes }).(pulumi.IntPtrOutput)
 }
 
-// The class type.
-// Expected value is 'A2A'.
 func (o A2APolicyCreationInputOutput) InstanceType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v A2APolicyCreationInput) *string { return v.InstanceType }).(pulumi.StringPtrOutput)
 }
 
-// A value indicating whether multi-VM sync has to be enabled. Value should be 'Enabled' or 'Disabled'.
 func (o A2APolicyCreationInputOutput) MultiVmSyncStatus() pulumi.StringOutput {
 	return o.ApplyT(func(v A2APolicyCreationInput) string { return v.MultiVmSyncStatus }).(pulumi.StringOutput)
 }
 
-// The duration in minutes until which the recovery points need to be stored.
 func (o A2APolicyCreationInputOutput) RecoveryPointHistory() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v A2APolicyCreationInput) *int { return v.RecoveryPointHistory }).(pulumi.IntPtrOutput)
 }
 
-// A2A specific policy details.
 type A2APolicyDetailsResponse struct {
-	// The app consistent snapshot frequency in minutes.
-	AppConsistentFrequencyInMinutes *int `pulumi:"appConsistentFrequencyInMinutes"`
-	// The crash consistent snapshot frequency in minutes.
-	CrashConsistentFrequencyInMinutes *int `pulumi:"crashConsistentFrequencyInMinutes"`
-	// Gets the class type. Overridden in derived classes.
-	// Expected value is 'A2A'.
-	InstanceType string `pulumi:"instanceType"`
-	// A value indicating whether multi-VM sync has to be enabled.
-	MultiVmSyncStatus *string `pulumi:"multiVmSyncStatus"`
-	// The duration in minutes until which the recovery points need to be stored.
-	RecoveryPointHistory *int `pulumi:"recoveryPointHistory"`
-	// The recovery point threshold in minutes.
-	RecoveryPointThresholdInMinutes *int `pulumi:"recoveryPointThresholdInMinutes"`
+	AppConsistentFrequencyInMinutes   *int    `pulumi:"appConsistentFrequencyInMinutes"`
+	CrashConsistentFrequencyInMinutes *int    `pulumi:"crashConsistentFrequencyInMinutes"`
+	InstanceType                      string  `pulumi:"instanceType"`
+	MultiVmSyncStatus                 *string `pulumi:"multiVmSyncStatus"`
+	RecoveryPointHistory              *int    `pulumi:"recoveryPointHistory"`
+	RecoveryPointThresholdInMinutes   *int    `pulumi:"recoveryPointThresholdInMinutes"`
 }
 
 // A2APolicyDetailsResponseInput is an input type that accepts A2APolicyDetailsResponseArgs and A2APolicyDetailsResponseOutput values.
@@ -356,21 +273,13 @@ type A2APolicyDetailsResponseInput interface {
 	ToA2APolicyDetailsResponseOutputWithContext(context.Context) A2APolicyDetailsResponseOutput
 }
 
-// A2A specific policy details.
 type A2APolicyDetailsResponseArgs struct {
-	// The app consistent snapshot frequency in minutes.
-	AppConsistentFrequencyInMinutes pulumi.IntPtrInput `pulumi:"appConsistentFrequencyInMinutes"`
-	// The crash consistent snapshot frequency in minutes.
-	CrashConsistentFrequencyInMinutes pulumi.IntPtrInput `pulumi:"crashConsistentFrequencyInMinutes"`
-	// Gets the class type. Overridden in derived classes.
-	// Expected value is 'A2A'.
-	InstanceType pulumi.StringInput `pulumi:"instanceType"`
-	// A value indicating whether multi-VM sync has to be enabled.
-	MultiVmSyncStatus pulumi.StringPtrInput `pulumi:"multiVmSyncStatus"`
-	// The duration in minutes until which the recovery points need to be stored.
-	RecoveryPointHistory pulumi.IntPtrInput `pulumi:"recoveryPointHistory"`
-	// The recovery point threshold in minutes.
-	RecoveryPointThresholdInMinutes pulumi.IntPtrInput `pulumi:"recoveryPointThresholdInMinutes"`
+	AppConsistentFrequencyInMinutes   pulumi.IntPtrInput    `pulumi:"appConsistentFrequencyInMinutes"`
+	CrashConsistentFrequencyInMinutes pulumi.IntPtrInput    `pulumi:"crashConsistentFrequencyInMinutes"`
+	InstanceType                      pulumi.StringInput    `pulumi:"instanceType"`
+	MultiVmSyncStatus                 pulumi.StringPtrInput `pulumi:"multiVmSyncStatus"`
+	RecoveryPointHistory              pulumi.IntPtrInput    `pulumi:"recoveryPointHistory"`
+	RecoveryPointThresholdInMinutes   pulumi.IntPtrInput    `pulumi:"recoveryPointThresholdInMinutes"`
 }
 
 func (A2APolicyDetailsResponseArgs) ElementType() reflect.Type {
@@ -385,7 +294,6 @@ func (i A2APolicyDetailsResponseArgs) ToA2APolicyDetailsResponseOutputWithContex
 	return pulumi.ToOutputWithContext(ctx, i).(A2APolicyDetailsResponseOutput)
 }
 
-// A2A specific policy details.
 type A2APolicyDetailsResponseOutput struct{ *pulumi.OutputState }
 
 func (A2APolicyDetailsResponseOutput) ElementType() reflect.Type {
@@ -400,77 +308,50 @@ func (o A2APolicyDetailsResponseOutput) ToA2APolicyDetailsResponseOutputWithCont
 	return o
 }
 
-// The app consistent snapshot frequency in minutes.
 func (o A2APolicyDetailsResponseOutput) AppConsistentFrequencyInMinutes() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v A2APolicyDetailsResponse) *int { return v.AppConsistentFrequencyInMinutes }).(pulumi.IntPtrOutput)
 }
 
-// The crash consistent snapshot frequency in minutes.
 func (o A2APolicyDetailsResponseOutput) CrashConsistentFrequencyInMinutes() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v A2APolicyDetailsResponse) *int { return v.CrashConsistentFrequencyInMinutes }).(pulumi.IntPtrOutput)
 }
 
-// Gets the class type. Overridden in derived classes.
-// Expected value is 'A2A'.
 func (o A2APolicyDetailsResponseOutput) InstanceType() pulumi.StringOutput {
 	return o.ApplyT(func(v A2APolicyDetailsResponse) string { return v.InstanceType }).(pulumi.StringOutput)
 }
 
-// A value indicating whether multi-VM sync has to be enabled.
 func (o A2APolicyDetailsResponseOutput) MultiVmSyncStatus() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v A2APolicyDetailsResponse) *string { return v.MultiVmSyncStatus }).(pulumi.StringPtrOutput)
 }
 
-// The duration in minutes until which the recovery points need to be stored.
 func (o A2APolicyDetailsResponseOutput) RecoveryPointHistory() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v A2APolicyDetailsResponse) *int { return v.RecoveryPointHistory }).(pulumi.IntPtrOutput)
 }
 
-// The recovery point threshold in minutes.
 func (o A2APolicyDetailsResponseOutput) RecoveryPointThresholdInMinutes() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v A2APolicyDetailsResponse) *int { return v.RecoveryPointThresholdInMinutes }).(pulumi.IntPtrOutput)
 }
 
-// A2A protected disk details.
 type A2AProtectedDiskDetailsResponse struct {
-	// The data pending at source virtual machine in MB.
-	DataPendingAtSourceAgentInMB *float64 `pulumi:"dataPendingAtSourceAgentInMB"`
-	// The data pending for replication in MB at staging account.
+	DataPendingAtSourceAgentInMB           *float64 `pulumi:"dataPendingAtSourceAgentInMB"`
 	DataPendingInStagingStorageAccountInMB *float64 `pulumi:"dataPendingInStagingStorageAccountInMB"`
-	// The KeyVault resource id for secret (BEK).
-	DekKeyVaultArmId *string `pulumi:"dekKeyVaultArmId"`
-	// The disk capacity in bytes.
-	DiskCapacityInBytes *float64 `pulumi:"diskCapacityInBytes"`
-	// The disk name.
-	DiskName *string `pulumi:"diskName"`
-	// The type of disk.
-	DiskType *string `pulumi:"diskType"`
-	// The disk uri.
-	DiskUri *string `pulumi:"diskUri"`
-	// A value indicating whether vm has encrypted os disk or not.
-	IsDiskEncrypted *bool `pulumi:"isDiskEncrypted"`
-	// A value indicating whether disk key got encrypted or not.
-	IsDiskKeyEncrypted *bool `pulumi:"isDiskKeyEncrypted"`
-	// The KeyVault resource id for key (KEK).
-	KekKeyVaultArmId *string `pulumi:"kekKeyVaultArmId"`
-	// The key URL / identifier (KEK).
-	KeyIdentifier *string `pulumi:"keyIdentifier"`
-	// The type of the monitoring job. The progress is contained in MonitoringPercentageCompletion property.
-	MonitoringJobType *string `pulumi:"monitoringJobType"`
-	// The percentage of the monitoring job. The type of the monitoring job is defined by MonitoringJobType property.
-	MonitoringPercentageCompletion *int `pulumi:"monitoringPercentageCompletion"`
-	// The primary disk storage account.
-	PrimaryDiskAzureStorageAccountId *string `pulumi:"primaryDiskAzureStorageAccountId"`
-	// The primary staging storage account.
-	PrimaryStagingAzureStorageAccountId *string `pulumi:"primaryStagingAzureStorageAccountId"`
-	// The recovery disk storage account.
-	RecoveryAzureStorageAccountId *string `pulumi:"recoveryAzureStorageAccountId"`
-	// Recovery disk uri.
-	RecoveryDiskUri *string `pulumi:"recoveryDiskUri"`
-	// A value indicating whether resync is required for this disk.
-	ResyncRequired *bool `pulumi:"resyncRequired"`
-	// The secret URL / identifier (BEK).
-	SecretIdentifier *string `pulumi:"secretIdentifier"`
+	DekKeyVaultArmId                       *string  `pulumi:"dekKeyVaultArmId"`
+	DiskCapacityInBytes                    *float64 `pulumi:"diskCapacityInBytes"`
+	DiskName                               *string  `pulumi:"diskName"`
+	DiskType                               *string  `pulumi:"diskType"`
+	DiskUri                                *string  `pulumi:"diskUri"`
+	IsDiskEncrypted                        *bool    `pulumi:"isDiskEncrypted"`
+	IsDiskKeyEncrypted                     *bool    `pulumi:"isDiskKeyEncrypted"`
+	KekKeyVaultArmId                       *string  `pulumi:"kekKeyVaultArmId"`
+	KeyIdentifier                          *string  `pulumi:"keyIdentifier"`
+	MonitoringJobType                      *string  `pulumi:"monitoringJobType"`
+	MonitoringPercentageCompletion         *int     `pulumi:"monitoringPercentageCompletion"`
+	PrimaryDiskAzureStorageAccountId       *string  `pulumi:"primaryDiskAzureStorageAccountId"`
+	PrimaryStagingAzureStorageAccountId    *string  `pulumi:"primaryStagingAzureStorageAccountId"`
+	RecoveryAzureStorageAccountId          *string  `pulumi:"recoveryAzureStorageAccountId"`
+	RecoveryDiskUri                        *string  `pulumi:"recoveryDiskUri"`
+	ResyncRequired                         *bool    `pulumi:"resyncRequired"`
+	SecretIdentifier                       *string  `pulumi:"secretIdentifier"`
 }
 
 // A2AProtectedDiskDetailsResponseInput is an input type that accepts A2AProtectedDiskDetailsResponseArgs and A2AProtectedDiskDetailsResponseOutput values.
@@ -484,46 +365,26 @@ type A2AProtectedDiskDetailsResponseInput interface {
 	ToA2AProtectedDiskDetailsResponseOutputWithContext(context.Context) A2AProtectedDiskDetailsResponseOutput
 }
 
-// A2A protected disk details.
 type A2AProtectedDiskDetailsResponseArgs struct {
-	// The data pending at source virtual machine in MB.
-	DataPendingAtSourceAgentInMB pulumi.Float64PtrInput `pulumi:"dataPendingAtSourceAgentInMB"`
-	// The data pending for replication in MB at staging account.
+	DataPendingAtSourceAgentInMB           pulumi.Float64PtrInput `pulumi:"dataPendingAtSourceAgentInMB"`
 	DataPendingInStagingStorageAccountInMB pulumi.Float64PtrInput `pulumi:"dataPendingInStagingStorageAccountInMB"`
-	// The KeyVault resource id for secret (BEK).
-	DekKeyVaultArmId pulumi.StringPtrInput `pulumi:"dekKeyVaultArmId"`
-	// The disk capacity in bytes.
-	DiskCapacityInBytes pulumi.Float64PtrInput `pulumi:"diskCapacityInBytes"`
-	// The disk name.
-	DiskName pulumi.StringPtrInput `pulumi:"diskName"`
-	// The type of disk.
-	DiskType pulumi.StringPtrInput `pulumi:"diskType"`
-	// The disk uri.
-	DiskUri pulumi.StringPtrInput `pulumi:"diskUri"`
-	// A value indicating whether vm has encrypted os disk or not.
-	IsDiskEncrypted pulumi.BoolPtrInput `pulumi:"isDiskEncrypted"`
-	// A value indicating whether disk key got encrypted or not.
-	IsDiskKeyEncrypted pulumi.BoolPtrInput `pulumi:"isDiskKeyEncrypted"`
-	// The KeyVault resource id for key (KEK).
-	KekKeyVaultArmId pulumi.StringPtrInput `pulumi:"kekKeyVaultArmId"`
-	// The key URL / identifier (KEK).
-	KeyIdentifier pulumi.StringPtrInput `pulumi:"keyIdentifier"`
-	// The type of the monitoring job. The progress is contained in MonitoringPercentageCompletion property.
-	MonitoringJobType pulumi.StringPtrInput `pulumi:"monitoringJobType"`
-	// The percentage of the monitoring job. The type of the monitoring job is defined by MonitoringJobType property.
-	MonitoringPercentageCompletion pulumi.IntPtrInput `pulumi:"monitoringPercentageCompletion"`
-	// The primary disk storage account.
-	PrimaryDiskAzureStorageAccountId pulumi.StringPtrInput `pulumi:"primaryDiskAzureStorageAccountId"`
-	// The primary staging storage account.
-	PrimaryStagingAzureStorageAccountId pulumi.StringPtrInput `pulumi:"primaryStagingAzureStorageAccountId"`
-	// The recovery disk storage account.
-	RecoveryAzureStorageAccountId pulumi.StringPtrInput `pulumi:"recoveryAzureStorageAccountId"`
-	// Recovery disk uri.
-	RecoveryDiskUri pulumi.StringPtrInput `pulumi:"recoveryDiskUri"`
-	// A value indicating whether resync is required for this disk.
-	ResyncRequired pulumi.BoolPtrInput `pulumi:"resyncRequired"`
-	// The secret URL / identifier (BEK).
-	SecretIdentifier pulumi.StringPtrInput `pulumi:"secretIdentifier"`
+	DekKeyVaultArmId                       pulumi.StringPtrInput  `pulumi:"dekKeyVaultArmId"`
+	DiskCapacityInBytes                    pulumi.Float64PtrInput `pulumi:"diskCapacityInBytes"`
+	DiskName                               pulumi.StringPtrInput  `pulumi:"diskName"`
+	DiskType                               pulumi.StringPtrInput  `pulumi:"diskType"`
+	DiskUri                                pulumi.StringPtrInput  `pulumi:"diskUri"`
+	IsDiskEncrypted                        pulumi.BoolPtrInput    `pulumi:"isDiskEncrypted"`
+	IsDiskKeyEncrypted                     pulumi.BoolPtrInput    `pulumi:"isDiskKeyEncrypted"`
+	KekKeyVaultArmId                       pulumi.StringPtrInput  `pulumi:"kekKeyVaultArmId"`
+	KeyIdentifier                          pulumi.StringPtrInput  `pulumi:"keyIdentifier"`
+	MonitoringJobType                      pulumi.StringPtrInput  `pulumi:"monitoringJobType"`
+	MonitoringPercentageCompletion         pulumi.IntPtrInput     `pulumi:"monitoringPercentageCompletion"`
+	PrimaryDiskAzureStorageAccountId       pulumi.StringPtrInput  `pulumi:"primaryDiskAzureStorageAccountId"`
+	PrimaryStagingAzureStorageAccountId    pulumi.StringPtrInput  `pulumi:"primaryStagingAzureStorageAccountId"`
+	RecoveryAzureStorageAccountId          pulumi.StringPtrInput  `pulumi:"recoveryAzureStorageAccountId"`
+	RecoveryDiskUri                        pulumi.StringPtrInput  `pulumi:"recoveryDiskUri"`
+	ResyncRequired                         pulumi.BoolPtrInput    `pulumi:"resyncRequired"`
+	SecretIdentifier                       pulumi.StringPtrInput  `pulumi:"secretIdentifier"`
 }
 
 func (A2AProtectedDiskDetailsResponseArgs) ElementType() reflect.Type {
@@ -563,7 +424,6 @@ func (i A2AProtectedDiskDetailsResponseArray) ToA2AProtectedDiskDetailsResponseA
 	return pulumi.ToOutputWithContext(ctx, i).(A2AProtectedDiskDetailsResponseArrayOutput)
 }
 
-// A2A protected disk details.
 type A2AProtectedDiskDetailsResponseOutput struct{ *pulumi.OutputState }
 
 func (A2AProtectedDiskDetailsResponseOutput) ElementType() reflect.Type {
@@ -578,97 +438,78 @@ func (o A2AProtectedDiskDetailsResponseOutput) ToA2AProtectedDiskDetailsResponse
 	return o
 }
 
-// The data pending at source virtual machine in MB.
 func (o A2AProtectedDiskDetailsResponseOutput) DataPendingAtSourceAgentInMB() pulumi.Float64PtrOutput {
 	return o.ApplyT(func(v A2AProtectedDiskDetailsResponse) *float64 { return v.DataPendingAtSourceAgentInMB }).(pulumi.Float64PtrOutput)
 }
 
-// The data pending for replication in MB at staging account.
 func (o A2AProtectedDiskDetailsResponseOutput) DataPendingInStagingStorageAccountInMB() pulumi.Float64PtrOutput {
 	return o.ApplyT(func(v A2AProtectedDiskDetailsResponse) *float64 { return v.DataPendingInStagingStorageAccountInMB }).(pulumi.Float64PtrOutput)
 }
 
-// The KeyVault resource id for secret (BEK).
 func (o A2AProtectedDiskDetailsResponseOutput) DekKeyVaultArmId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v A2AProtectedDiskDetailsResponse) *string { return v.DekKeyVaultArmId }).(pulumi.StringPtrOutput)
 }
 
-// The disk capacity in bytes.
 func (o A2AProtectedDiskDetailsResponseOutput) DiskCapacityInBytes() pulumi.Float64PtrOutput {
 	return o.ApplyT(func(v A2AProtectedDiskDetailsResponse) *float64 { return v.DiskCapacityInBytes }).(pulumi.Float64PtrOutput)
 }
 
-// The disk name.
 func (o A2AProtectedDiskDetailsResponseOutput) DiskName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v A2AProtectedDiskDetailsResponse) *string { return v.DiskName }).(pulumi.StringPtrOutput)
 }
 
-// The type of disk.
 func (o A2AProtectedDiskDetailsResponseOutput) DiskType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v A2AProtectedDiskDetailsResponse) *string { return v.DiskType }).(pulumi.StringPtrOutput)
 }
 
-// The disk uri.
 func (o A2AProtectedDiskDetailsResponseOutput) DiskUri() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v A2AProtectedDiskDetailsResponse) *string { return v.DiskUri }).(pulumi.StringPtrOutput)
 }
 
-// A value indicating whether vm has encrypted os disk or not.
 func (o A2AProtectedDiskDetailsResponseOutput) IsDiskEncrypted() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v A2AProtectedDiskDetailsResponse) *bool { return v.IsDiskEncrypted }).(pulumi.BoolPtrOutput)
 }
 
-// A value indicating whether disk key got encrypted or not.
 func (o A2AProtectedDiskDetailsResponseOutput) IsDiskKeyEncrypted() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v A2AProtectedDiskDetailsResponse) *bool { return v.IsDiskKeyEncrypted }).(pulumi.BoolPtrOutput)
 }
 
-// The KeyVault resource id for key (KEK).
 func (o A2AProtectedDiskDetailsResponseOutput) KekKeyVaultArmId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v A2AProtectedDiskDetailsResponse) *string { return v.KekKeyVaultArmId }).(pulumi.StringPtrOutput)
 }
 
-// The key URL / identifier (KEK).
 func (o A2AProtectedDiskDetailsResponseOutput) KeyIdentifier() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v A2AProtectedDiskDetailsResponse) *string { return v.KeyIdentifier }).(pulumi.StringPtrOutput)
 }
 
-// The type of the monitoring job. The progress is contained in MonitoringPercentageCompletion property.
 func (o A2AProtectedDiskDetailsResponseOutput) MonitoringJobType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v A2AProtectedDiskDetailsResponse) *string { return v.MonitoringJobType }).(pulumi.StringPtrOutput)
 }
 
-// The percentage of the monitoring job. The type of the monitoring job is defined by MonitoringJobType property.
 func (o A2AProtectedDiskDetailsResponseOutput) MonitoringPercentageCompletion() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v A2AProtectedDiskDetailsResponse) *int { return v.MonitoringPercentageCompletion }).(pulumi.IntPtrOutput)
 }
 
-// The primary disk storage account.
 func (o A2AProtectedDiskDetailsResponseOutput) PrimaryDiskAzureStorageAccountId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v A2AProtectedDiskDetailsResponse) *string { return v.PrimaryDiskAzureStorageAccountId }).(pulumi.StringPtrOutput)
 }
 
-// The primary staging storage account.
 func (o A2AProtectedDiskDetailsResponseOutput) PrimaryStagingAzureStorageAccountId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v A2AProtectedDiskDetailsResponse) *string { return v.PrimaryStagingAzureStorageAccountId }).(pulumi.StringPtrOutput)
 }
 
-// The recovery disk storage account.
 func (o A2AProtectedDiskDetailsResponseOutput) RecoveryAzureStorageAccountId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v A2AProtectedDiskDetailsResponse) *string { return v.RecoveryAzureStorageAccountId }).(pulumi.StringPtrOutput)
 }
 
-// Recovery disk uri.
 func (o A2AProtectedDiskDetailsResponseOutput) RecoveryDiskUri() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v A2AProtectedDiskDetailsResponse) *string { return v.RecoveryDiskUri }).(pulumi.StringPtrOutput)
 }
 
-// A value indicating whether resync is required for this disk.
 func (o A2AProtectedDiskDetailsResponseOutput) ResyncRequired() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v A2AProtectedDiskDetailsResponse) *bool { return v.ResyncRequired }).(pulumi.BoolPtrOutput)
 }
 
-// The secret URL / identifier (BEK).
 func (o A2AProtectedDiskDetailsResponseOutput) SecretIdentifier() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v A2AProtectedDiskDetailsResponse) *string { return v.SecretIdentifier }).(pulumi.StringPtrOutput)
 }
@@ -693,50 +534,28 @@ func (o A2AProtectedDiskDetailsResponseArrayOutput) Index(i pulumi.IntInput) A2A
 	}).(A2AProtectedDiskDetailsResponseOutput)
 }
 
-// A2A protected managed disk details.
 type A2AProtectedManagedDiskDetailsResponse struct {
-	// The data pending at source virtual machine in MB.
-	DataPendingAtSourceAgentInMB *float64 `pulumi:"dataPendingAtSourceAgentInMB"`
-	// The data pending for replication in MB at staging account.
+	DataPendingAtSourceAgentInMB           *float64 `pulumi:"dataPendingAtSourceAgentInMB"`
 	DataPendingInStagingStorageAccountInMB *float64 `pulumi:"dataPendingInStagingStorageAccountInMB"`
-	// The KeyVault resource id for secret (BEK).
-	DekKeyVaultArmId *string `pulumi:"dekKeyVaultArmId"`
-	// The disk capacity in bytes.
-	DiskCapacityInBytes *float64 `pulumi:"diskCapacityInBytes"`
-	// The managed disk Arm id.
-	DiskId *string `pulumi:"diskId"`
-	// The disk name.
-	DiskName *string `pulumi:"diskName"`
-	// The type of disk.
-	DiskType *string `pulumi:"diskType"`
-	// A value indicating whether vm has encrypted os disk or not.
-	IsDiskEncrypted *bool `pulumi:"isDiskEncrypted"`
-	// A value indicating whether disk key got encrypted or not.
-	IsDiskKeyEncrypted *bool `pulumi:"isDiskKeyEncrypted"`
-	// The KeyVault resource id for key (KEK).
-	KekKeyVaultArmId *string `pulumi:"kekKeyVaultArmId"`
-	// The key URL / identifier (KEK).
-	KeyIdentifier *string `pulumi:"keyIdentifier"`
-	// The type of the monitoring job. The progress is contained in MonitoringPercentageCompletion property.
-	MonitoringJobType *string `pulumi:"monitoringJobType"`
-	// The percentage of the monitoring job. The type of the monitoring job is defined by MonitoringJobType property.
-	MonitoringPercentageCompletion *int `pulumi:"monitoringPercentageCompletion"`
-	// The primary staging storage account.
-	PrimaryStagingAzureStorageAccountId *string `pulumi:"primaryStagingAzureStorageAccountId"`
-	// The replica disk type. Its an optional value and will be same as source disk type if not user provided.
-	RecoveryReplicaDiskAccountType *string `pulumi:"recoveryReplicaDiskAccountType"`
-	// Recovery replica disk Arm Id.
-	RecoveryReplicaDiskId *string `pulumi:"recoveryReplicaDiskId"`
-	// The recovery disk resource group Arm Id.
-	RecoveryResourceGroupId *string `pulumi:"recoveryResourceGroupId"`
-	// The target disk type after failover. Its an optional value and will be same as source disk type if not user provided.
-	RecoveryTargetDiskAccountType *string `pulumi:"recoveryTargetDiskAccountType"`
-	// Recovery target disk Arm Id.
-	RecoveryTargetDiskId *string `pulumi:"recoveryTargetDiskId"`
-	// A value indicating whether resync is required for this disk.
-	ResyncRequired *bool `pulumi:"resyncRequired"`
-	// The secret URL / identifier (BEK).
-	SecretIdentifier *string `pulumi:"secretIdentifier"`
+	DekKeyVaultArmId                       *string  `pulumi:"dekKeyVaultArmId"`
+	DiskCapacityInBytes                    *float64 `pulumi:"diskCapacityInBytes"`
+	DiskId                                 *string  `pulumi:"diskId"`
+	DiskName                               *string  `pulumi:"diskName"`
+	DiskType                               *string  `pulumi:"diskType"`
+	IsDiskEncrypted                        *bool    `pulumi:"isDiskEncrypted"`
+	IsDiskKeyEncrypted                     *bool    `pulumi:"isDiskKeyEncrypted"`
+	KekKeyVaultArmId                       *string  `pulumi:"kekKeyVaultArmId"`
+	KeyIdentifier                          *string  `pulumi:"keyIdentifier"`
+	MonitoringJobType                      *string  `pulumi:"monitoringJobType"`
+	MonitoringPercentageCompletion         *int     `pulumi:"monitoringPercentageCompletion"`
+	PrimaryStagingAzureStorageAccountId    *string  `pulumi:"primaryStagingAzureStorageAccountId"`
+	RecoveryReplicaDiskAccountType         *string  `pulumi:"recoveryReplicaDiskAccountType"`
+	RecoveryReplicaDiskId                  *string  `pulumi:"recoveryReplicaDiskId"`
+	RecoveryResourceGroupId                *string  `pulumi:"recoveryResourceGroupId"`
+	RecoveryTargetDiskAccountType          *string  `pulumi:"recoveryTargetDiskAccountType"`
+	RecoveryTargetDiskId                   *string  `pulumi:"recoveryTargetDiskId"`
+	ResyncRequired                         *bool    `pulumi:"resyncRequired"`
+	SecretIdentifier                       *string  `pulumi:"secretIdentifier"`
 }
 
 // A2AProtectedManagedDiskDetailsResponseInput is an input type that accepts A2AProtectedManagedDiskDetailsResponseArgs and A2AProtectedManagedDiskDetailsResponseOutput values.
@@ -750,50 +569,28 @@ type A2AProtectedManagedDiskDetailsResponseInput interface {
 	ToA2AProtectedManagedDiskDetailsResponseOutputWithContext(context.Context) A2AProtectedManagedDiskDetailsResponseOutput
 }
 
-// A2A protected managed disk details.
 type A2AProtectedManagedDiskDetailsResponseArgs struct {
-	// The data pending at source virtual machine in MB.
-	DataPendingAtSourceAgentInMB pulumi.Float64PtrInput `pulumi:"dataPendingAtSourceAgentInMB"`
-	// The data pending for replication in MB at staging account.
+	DataPendingAtSourceAgentInMB           pulumi.Float64PtrInput `pulumi:"dataPendingAtSourceAgentInMB"`
 	DataPendingInStagingStorageAccountInMB pulumi.Float64PtrInput `pulumi:"dataPendingInStagingStorageAccountInMB"`
-	// The KeyVault resource id for secret (BEK).
-	DekKeyVaultArmId pulumi.StringPtrInput `pulumi:"dekKeyVaultArmId"`
-	// The disk capacity in bytes.
-	DiskCapacityInBytes pulumi.Float64PtrInput `pulumi:"diskCapacityInBytes"`
-	// The managed disk Arm id.
-	DiskId pulumi.StringPtrInput `pulumi:"diskId"`
-	// The disk name.
-	DiskName pulumi.StringPtrInput `pulumi:"diskName"`
-	// The type of disk.
-	DiskType pulumi.StringPtrInput `pulumi:"diskType"`
-	// A value indicating whether vm has encrypted os disk or not.
-	IsDiskEncrypted pulumi.BoolPtrInput `pulumi:"isDiskEncrypted"`
-	// A value indicating whether disk key got encrypted or not.
-	IsDiskKeyEncrypted pulumi.BoolPtrInput `pulumi:"isDiskKeyEncrypted"`
-	// The KeyVault resource id for key (KEK).
-	KekKeyVaultArmId pulumi.StringPtrInput `pulumi:"kekKeyVaultArmId"`
-	// The key URL / identifier (KEK).
-	KeyIdentifier pulumi.StringPtrInput `pulumi:"keyIdentifier"`
-	// The type of the monitoring job. The progress is contained in MonitoringPercentageCompletion property.
-	MonitoringJobType pulumi.StringPtrInput `pulumi:"monitoringJobType"`
-	// The percentage of the monitoring job. The type of the monitoring job is defined by MonitoringJobType property.
-	MonitoringPercentageCompletion pulumi.IntPtrInput `pulumi:"monitoringPercentageCompletion"`
-	// The primary staging storage account.
-	PrimaryStagingAzureStorageAccountId pulumi.StringPtrInput `pulumi:"primaryStagingAzureStorageAccountId"`
-	// The replica disk type. Its an optional value and will be same as source disk type if not user provided.
-	RecoveryReplicaDiskAccountType pulumi.StringPtrInput `pulumi:"recoveryReplicaDiskAccountType"`
-	// Recovery replica disk Arm Id.
-	RecoveryReplicaDiskId pulumi.StringPtrInput `pulumi:"recoveryReplicaDiskId"`
-	// The recovery disk resource group Arm Id.
-	RecoveryResourceGroupId pulumi.StringPtrInput `pulumi:"recoveryResourceGroupId"`
-	// The target disk type after failover. Its an optional value and will be same as source disk type if not user provided.
-	RecoveryTargetDiskAccountType pulumi.StringPtrInput `pulumi:"recoveryTargetDiskAccountType"`
-	// Recovery target disk Arm Id.
-	RecoveryTargetDiskId pulumi.StringPtrInput `pulumi:"recoveryTargetDiskId"`
-	// A value indicating whether resync is required for this disk.
-	ResyncRequired pulumi.BoolPtrInput `pulumi:"resyncRequired"`
-	// The secret URL / identifier (BEK).
-	SecretIdentifier pulumi.StringPtrInput `pulumi:"secretIdentifier"`
+	DekKeyVaultArmId                       pulumi.StringPtrInput  `pulumi:"dekKeyVaultArmId"`
+	DiskCapacityInBytes                    pulumi.Float64PtrInput `pulumi:"diskCapacityInBytes"`
+	DiskId                                 pulumi.StringPtrInput  `pulumi:"diskId"`
+	DiskName                               pulumi.StringPtrInput  `pulumi:"diskName"`
+	DiskType                               pulumi.StringPtrInput  `pulumi:"diskType"`
+	IsDiskEncrypted                        pulumi.BoolPtrInput    `pulumi:"isDiskEncrypted"`
+	IsDiskKeyEncrypted                     pulumi.BoolPtrInput    `pulumi:"isDiskKeyEncrypted"`
+	KekKeyVaultArmId                       pulumi.StringPtrInput  `pulumi:"kekKeyVaultArmId"`
+	KeyIdentifier                          pulumi.StringPtrInput  `pulumi:"keyIdentifier"`
+	MonitoringJobType                      pulumi.StringPtrInput  `pulumi:"monitoringJobType"`
+	MonitoringPercentageCompletion         pulumi.IntPtrInput     `pulumi:"monitoringPercentageCompletion"`
+	PrimaryStagingAzureStorageAccountId    pulumi.StringPtrInput  `pulumi:"primaryStagingAzureStorageAccountId"`
+	RecoveryReplicaDiskAccountType         pulumi.StringPtrInput  `pulumi:"recoveryReplicaDiskAccountType"`
+	RecoveryReplicaDiskId                  pulumi.StringPtrInput  `pulumi:"recoveryReplicaDiskId"`
+	RecoveryResourceGroupId                pulumi.StringPtrInput  `pulumi:"recoveryResourceGroupId"`
+	RecoveryTargetDiskAccountType          pulumi.StringPtrInput  `pulumi:"recoveryTargetDiskAccountType"`
+	RecoveryTargetDiskId                   pulumi.StringPtrInput  `pulumi:"recoveryTargetDiskId"`
+	ResyncRequired                         pulumi.BoolPtrInput    `pulumi:"resyncRequired"`
+	SecretIdentifier                       pulumi.StringPtrInput  `pulumi:"secretIdentifier"`
 }
 
 func (A2AProtectedManagedDiskDetailsResponseArgs) ElementType() reflect.Type {
@@ -833,7 +630,6 @@ func (i A2AProtectedManagedDiskDetailsResponseArray) ToA2AProtectedManagedDiskDe
 	return pulumi.ToOutputWithContext(ctx, i).(A2AProtectedManagedDiskDetailsResponseArrayOutput)
 }
 
-// A2A protected managed disk details.
 type A2AProtectedManagedDiskDetailsResponseOutput struct{ *pulumi.OutputState }
 
 func (A2AProtectedManagedDiskDetailsResponseOutput) ElementType() reflect.Type {
@@ -848,109 +644,88 @@ func (o A2AProtectedManagedDiskDetailsResponseOutput) ToA2AProtectedManagedDiskD
 	return o
 }
 
-// The data pending at source virtual machine in MB.
 func (o A2AProtectedManagedDiskDetailsResponseOutput) DataPendingAtSourceAgentInMB() pulumi.Float64PtrOutput {
 	return o.ApplyT(func(v A2AProtectedManagedDiskDetailsResponse) *float64 { return v.DataPendingAtSourceAgentInMB }).(pulumi.Float64PtrOutput)
 }
 
-// The data pending for replication in MB at staging account.
 func (o A2AProtectedManagedDiskDetailsResponseOutput) DataPendingInStagingStorageAccountInMB() pulumi.Float64PtrOutput {
 	return o.ApplyT(func(v A2AProtectedManagedDiskDetailsResponse) *float64 {
 		return v.DataPendingInStagingStorageAccountInMB
 	}).(pulumi.Float64PtrOutput)
 }
 
-// The KeyVault resource id for secret (BEK).
 func (o A2AProtectedManagedDiskDetailsResponseOutput) DekKeyVaultArmId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v A2AProtectedManagedDiskDetailsResponse) *string { return v.DekKeyVaultArmId }).(pulumi.StringPtrOutput)
 }
 
-// The disk capacity in bytes.
 func (o A2AProtectedManagedDiskDetailsResponseOutput) DiskCapacityInBytes() pulumi.Float64PtrOutput {
 	return o.ApplyT(func(v A2AProtectedManagedDiskDetailsResponse) *float64 { return v.DiskCapacityInBytes }).(pulumi.Float64PtrOutput)
 }
 
-// The managed disk Arm id.
 func (o A2AProtectedManagedDiskDetailsResponseOutput) DiskId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v A2AProtectedManagedDiskDetailsResponse) *string { return v.DiskId }).(pulumi.StringPtrOutput)
 }
 
-// The disk name.
 func (o A2AProtectedManagedDiskDetailsResponseOutput) DiskName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v A2AProtectedManagedDiskDetailsResponse) *string { return v.DiskName }).(pulumi.StringPtrOutput)
 }
 
-// The type of disk.
 func (o A2AProtectedManagedDiskDetailsResponseOutput) DiskType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v A2AProtectedManagedDiskDetailsResponse) *string { return v.DiskType }).(pulumi.StringPtrOutput)
 }
 
-// A value indicating whether vm has encrypted os disk or not.
 func (o A2AProtectedManagedDiskDetailsResponseOutput) IsDiskEncrypted() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v A2AProtectedManagedDiskDetailsResponse) *bool { return v.IsDiskEncrypted }).(pulumi.BoolPtrOutput)
 }
 
-// A value indicating whether disk key got encrypted or not.
 func (o A2AProtectedManagedDiskDetailsResponseOutput) IsDiskKeyEncrypted() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v A2AProtectedManagedDiskDetailsResponse) *bool { return v.IsDiskKeyEncrypted }).(pulumi.BoolPtrOutput)
 }
 
-// The KeyVault resource id for key (KEK).
 func (o A2AProtectedManagedDiskDetailsResponseOutput) KekKeyVaultArmId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v A2AProtectedManagedDiskDetailsResponse) *string { return v.KekKeyVaultArmId }).(pulumi.StringPtrOutput)
 }
 
-// The key URL / identifier (KEK).
 func (o A2AProtectedManagedDiskDetailsResponseOutput) KeyIdentifier() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v A2AProtectedManagedDiskDetailsResponse) *string { return v.KeyIdentifier }).(pulumi.StringPtrOutput)
 }
 
-// The type of the monitoring job. The progress is contained in MonitoringPercentageCompletion property.
 func (o A2AProtectedManagedDiskDetailsResponseOutput) MonitoringJobType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v A2AProtectedManagedDiskDetailsResponse) *string { return v.MonitoringJobType }).(pulumi.StringPtrOutput)
 }
 
-// The percentage of the monitoring job. The type of the monitoring job is defined by MonitoringJobType property.
 func (o A2AProtectedManagedDiskDetailsResponseOutput) MonitoringPercentageCompletion() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v A2AProtectedManagedDiskDetailsResponse) *int { return v.MonitoringPercentageCompletion }).(pulumi.IntPtrOutput)
 }
 
-// The primary staging storage account.
 func (o A2AProtectedManagedDiskDetailsResponseOutput) PrimaryStagingAzureStorageAccountId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v A2AProtectedManagedDiskDetailsResponse) *string { return v.PrimaryStagingAzureStorageAccountId }).(pulumi.StringPtrOutput)
 }
 
-// The replica disk type. Its an optional value and will be same as source disk type if not user provided.
 func (o A2AProtectedManagedDiskDetailsResponseOutput) RecoveryReplicaDiskAccountType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v A2AProtectedManagedDiskDetailsResponse) *string { return v.RecoveryReplicaDiskAccountType }).(pulumi.StringPtrOutput)
 }
 
-// Recovery replica disk Arm Id.
 func (o A2AProtectedManagedDiskDetailsResponseOutput) RecoveryReplicaDiskId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v A2AProtectedManagedDiskDetailsResponse) *string { return v.RecoveryReplicaDiskId }).(pulumi.StringPtrOutput)
 }
 
-// The recovery disk resource group Arm Id.
 func (o A2AProtectedManagedDiskDetailsResponseOutput) RecoveryResourceGroupId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v A2AProtectedManagedDiskDetailsResponse) *string { return v.RecoveryResourceGroupId }).(pulumi.StringPtrOutput)
 }
 
-// The target disk type after failover. Its an optional value and will be same as source disk type if not user provided.
 func (o A2AProtectedManagedDiskDetailsResponseOutput) RecoveryTargetDiskAccountType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v A2AProtectedManagedDiskDetailsResponse) *string { return v.RecoveryTargetDiskAccountType }).(pulumi.StringPtrOutput)
 }
 
-// Recovery target disk Arm Id.
 func (o A2AProtectedManagedDiskDetailsResponseOutput) RecoveryTargetDiskId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v A2AProtectedManagedDiskDetailsResponse) *string { return v.RecoveryTargetDiskId }).(pulumi.StringPtrOutput)
 }
 
-// A value indicating whether resync is required for this disk.
 func (o A2AProtectedManagedDiskDetailsResponseOutput) ResyncRequired() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v A2AProtectedManagedDiskDetailsResponse) *bool { return v.ResyncRequired }).(pulumi.BoolPtrOutput)
 }
 
-// The secret URL / identifier (BEK).
 func (o A2AProtectedManagedDiskDetailsResponseOutput) SecretIdentifier() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v A2AProtectedManagedDiskDetailsResponse) *string { return v.SecretIdentifier }).(pulumi.StringPtrOutput)
 }
@@ -975,19 +750,12 @@ func (o A2AProtectedManagedDiskDetailsResponseArrayOutput) Index(i pulumi.IntInp
 	}).(A2AProtectedManagedDiskDetailsResponseOutput)
 }
 
-// A2A provider specific settings.
 type A2AProtectionContainerMappingDetailsResponse struct {
-	// A value indicating whether the auto update is enabled.
-	AgentAutoUpdateStatus *string `pulumi:"agentAutoUpdateStatus"`
-	// The automation account arm id.
+	AgentAutoUpdateStatus  *string `pulumi:"agentAutoUpdateStatus"`
 	AutomationAccountArmId *string `pulumi:"automationAccountArmId"`
-	// Gets the class type. Overridden in derived classes.
-	// Expected value is 'A2A'.
-	InstanceType string `pulumi:"instanceType"`
-	// The job schedule arm name.
-	JobScheduleName *string `pulumi:"jobScheduleName"`
-	// The schedule arm name.
-	ScheduleName *string `pulumi:"scheduleName"`
+	InstanceType           string  `pulumi:"instanceType"`
+	JobScheduleName        *string `pulumi:"jobScheduleName"`
+	ScheduleName           *string `pulumi:"scheduleName"`
 }
 
 // A2AProtectionContainerMappingDetailsResponseInput is an input type that accepts A2AProtectionContainerMappingDetailsResponseArgs and A2AProtectionContainerMappingDetailsResponseOutput values.
@@ -1001,19 +769,12 @@ type A2AProtectionContainerMappingDetailsResponseInput interface {
 	ToA2AProtectionContainerMappingDetailsResponseOutputWithContext(context.Context) A2AProtectionContainerMappingDetailsResponseOutput
 }
 
-// A2A provider specific settings.
 type A2AProtectionContainerMappingDetailsResponseArgs struct {
-	// A value indicating whether the auto update is enabled.
-	AgentAutoUpdateStatus pulumi.StringPtrInput `pulumi:"agentAutoUpdateStatus"`
-	// The automation account arm id.
+	AgentAutoUpdateStatus  pulumi.StringPtrInput `pulumi:"agentAutoUpdateStatus"`
 	AutomationAccountArmId pulumi.StringPtrInput `pulumi:"automationAccountArmId"`
-	// Gets the class type. Overridden in derived classes.
-	// Expected value is 'A2A'.
-	InstanceType pulumi.StringInput `pulumi:"instanceType"`
-	// The job schedule arm name.
-	JobScheduleName pulumi.StringPtrInput `pulumi:"jobScheduleName"`
-	// The schedule arm name.
-	ScheduleName pulumi.StringPtrInput `pulumi:"scheduleName"`
+	InstanceType           pulumi.StringInput    `pulumi:"instanceType"`
+	JobScheduleName        pulumi.StringPtrInput `pulumi:"jobScheduleName"`
+	ScheduleName           pulumi.StringPtrInput `pulumi:"scheduleName"`
 }
 
 func (A2AProtectionContainerMappingDetailsResponseArgs) ElementType() reflect.Type {
@@ -1028,7 +789,6 @@ func (i A2AProtectionContainerMappingDetailsResponseArgs) ToA2AProtectionContain
 	return pulumi.ToOutputWithContext(ctx, i).(A2AProtectionContainerMappingDetailsResponseOutput)
 }
 
-// A2A provider specific settings.
 type A2AProtectionContainerMappingDetailsResponseOutput struct{ *pulumi.OutputState }
 
 func (A2AProtectionContainerMappingDetailsResponseOutput) ElementType() reflect.Type {
@@ -1043,99 +803,59 @@ func (o A2AProtectionContainerMappingDetailsResponseOutput) ToA2AProtectionConta
 	return o
 }
 
-// A value indicating whether the auto update is enabled.
 func (o A2AProtectionContainerMappingDetailsResponseOutput) AgentAutoUpdateStatus() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v A2AProtectionContainerMappingDetailsResponse) *string { return v.AgentAutoUpdateStatus }).(pulumi.StringPtrOutput)
 }
 
-// The automation account arm id.
 func (o A2AProtectionContainerMappingDetailsResponseOutput) AutomationAccountArmId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v A2AProtectionContainerMappingDetailsResponse) *string { return v.AutomationAccountArmId }).(pulumi.StringPtrOutput)
 }
 
-// Gets the class type. Overridden in derived classes.
-// Expected value is 'A2A'.
 func (o A2AProtectionContainerMappingDetailsResponseOutput) InstanceType() pulumi.StringOutput {
 	return o.ApplyT(func(v A2AProtectionContainerMappingDetailsResponse) string { return v.InstanceType }).(pulumi.StringOutput)
 }
 
-// The job schedule arm name.
 func (o A2AProtectionContainerMappingDetailsResponseOutput) JobScheduleName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v A2AProtectionContainerMappingDetailsResponse) *string { return v.JobScheduleName }).(pulumi.StringPtrOutput)
 }
 
-// The schedule arm name.
 func (o A2AProtectionContainerMappingDetailsResponseOutput) ScheduleName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v A2AProtectionContainerMappingDetailsResponse) *string { return v.ScheduleName }).(pulumi.StringPtrOutput)
 }
 
-// A2A provider specific settings.
 type A2AReplicationDetailsResponse struct {
-	// The agent version.
-	AgentVersion *string `pulumi:"agentVersion"`
-	// The fabric specific object Id of the virtual machine.
-	FabricObjectId *string `pulumi:"fabricObjectId"`
-	// Gets the Instance type.
-	// Expected value is 'A2A'.
-	InstanceType string `pulumi:"instanceType"`
-	// A value indicating whether replication agent update is required.
-	IsReplicationAgentUpdateRequired *bool `pulumi:"isReplicationAgentUpdateRequired"`
-	// The last heartbeat received from the source server.
-	LastHeartbeat *string `pulumi:"lastHeartbeat"`
-	// The time (in UTC) when the last RPO value was calculated by Protection Service.
-	LastRpoCalculatedTime *string `pulumi:"lastRpoCalculatedTime"`
-	// An id associated with the PE that survives actions like switch protection which change the backing PE/CPE objects internally.The lifecycle id gets carried forward to have a link/continuity in being able to have an Id that denotes the "same" protected item even though other internal Ids/ARM Id might be changing.
-	LifecycleId *string `pulumi:"lifecycleId"`
-	// The management Id.
-	ManagementId *string `pulumi:"managementId"`
-	// The type of the monitoring job. The progress is contained in MonitoringPercentageCompletion property.
-	MonitoringJobType *string `pulumi:"monitoringJobType"`
-	// The percentage of the monitoring job. The type of the monitoring job is defined by MonitoringJobType property.
-	MonitoringPercentageCompletion *int `pulumi:"monitoringPercentageCompletion"`
-	// Whether Multi VM group is auto created or specified by user.
-	MultiVmGroupCreateOption *string `pulumi:"multiVmGroupCreateOption"`
-	// The multi vm group Id.
-	MultiVmGroupId *string `pulumi:"multiVmGroupId"`
-	// The multi vm group name.
-	MultiVmGroupName *string `pulumi:"multiVmGroupName"`
-	// The type of operating system.
-	OsType *string `pulumi:"osType"`
-	// Primary fabric location.
-	PrimaryFabricLocation *string `pulumi:"primaryFabricLocation"`
-	// The list of protected disks.
-	ProtectedDisks []A2AProtectedDiskDetailsResponse `pulumi:"protectedDisks"`
-	// The list of protected managed disks.
-	ProtectedManagedDisks []A2AProtectedManagedDiskDetailsResponse `pulumi:"protectedManagedDisks"`
-	// The recovery availability set.
-	RecoveryAvailabilitySet *string `pulumi:"recoveryAvailabilitySet"`
-	// The recovery resource group.
-	RecoveryAzureResourceGroupId *string `pulumi:"recoveryAzureResourceGroupId"`
-	// The name of recovery virtual machine.
-	RecoveryAzureVMName *string `pulumi:"recoveryAzureVMName"`
-	// The size of recovery virtual machine.
-	RecoveryAzureVMSize *string `pulumi:"recoveryAzureVMSize"`
-	// The recovery boot diagnostic storage account Arm Id.
-	RecoveryBootDiagStorageAccountId *string `pulumi:"recoveryBootDiagStorageAccountId"`
-	// The recovery cloud service.
-	RecoveryCloudService *string `pulumi:"recoveryCloudService"`
-	// The recovery fabric location.
-	RecoveryFabricLocation *string `pulumi:"recoveryFabricLocation"`
-	// The recovery fabric object Id.
-	RecoveryFabricObjectId *string `pulumi:"recoveryFabricObjectId"`
-	// The last RPO value in seconds.
-	RpoInSeconds *float64 `pulumi:"rpoInSeconds"`
-	// The recovery virtual network.
-	SelectedRecoveryAzureNetworkId *string `pulumi:"selectedRecoveryAzureNetworkId"`
-	// The test failover fabric object Id.
-	TestFailoverRecoveryFabricObjectId *string `pulumi:"testFailoverRecoveryFabricObjectId"`
-	// The virtual machine nic details.
-	VmNics []VMNicDetailsResponse `pulumi:"vmNics"`
-	// The protection state for the vm.
-	VmProtectionState *string `pulumi:"vmProtectionState"`
-	// The protection state description for the vm.
-	VmProtectionStateDescription *string `pulumi:"vmProtectionStateDescription"`
-	// The synced configuration details.
-	VmSyncedConfigDetails *AzureToAzureVmSyncedConfigDetailsResponse `pulumi:"vmSyncedConfigDetails"`
+	AgentVersion                       *string                                    `pulumi:"agentVersion"`
+	FabricObjectId                     *string                                    `pulumi:"fabricObjectId"`
+	InstanceType                       string                                     `pulumi:"instanceType"`
+	IsReplicationAgentUpdateRequired   *bool                                      `pulumi:"isReplicationAgentUpdateRequired"`
+	LastHeartbeat                      *string                                    `pulumi:"lastHeartbeat"`
+	LastRpoCalculatedTime              *string                                    `pulumi:"lastRpoCalculatedTime"`
+	LifecycleId                        *string                                    `pulumi:"lifecycleId"`
+	ManagementId                       *string                                    `pulumi:"managementId"`
+	MonitoringJobType                  *string                                    `pulumi:"monitoringJobType"`
+	MonitoringPercentageCompletion     *int                                       `pulumi:"monitoringPercentageCompletion"`
+	MultiVmGroupCreateOption           *string                                    `pulumi:"multiVmGroupCreateOption"`
+	MultiVmGroupId                     *string                                    `pulumi:"multiVmGroupId"`
+	MultiVmGroupName                   *string                                    `pulumi:"multiVmGroupName"`
+	OsType                             *string                                    `pulumi:"osType"`
+	PrimaryFabricLocation              *string                                    `pulumi:"primaryFabricLocation"`
+	ProtectedDisks                     []A2AProtectedDiskDetailsResponse          `pulumi:"protectedDisks"`
+	ProtectedManagedDisks              []A2AProtectedManagedDiskDetailsResponse   `pulumi:"protectedManagedDisks"`
+	RecoveryAvailabilitySet            *string                                    `pulumi:"recoveryAvailabilitySet"`
+	RecoveryAzureResourceGroupId       *string                                    `pulumi:"recoveryAzureResourceGroupId"`
+	RecoveryAzureVMName                *string                                    `pulumi:"recoveryAzureVMName"`
+	RecoveryAzureVMSize                *string                                    `pulumi:"recoveryAzureVMSize"`
+	RecoveryBootDiagStorageAccountId   *string                                    `pulumi:"recoveryBootDiagStorageAccountId"`
+	RecoveryCloudService               *string                                    `pulumi:"recoveryCloudService"`
+	RecoveryFabricLocation             *string                                    `pulumi:"recoveryFabricLocation"`
+	RecoveryFabricObjectId             *string                                    `pulumi:"recoveryFabricObjectId"`
+	RpoInSeconds                       *float64                                   `pulumi:"rpoInSeconds"`
+	SelectedRecoveryAzureNetworkId     *string                                    `pulumi:"selectedRecoveryAzureNetworkId"`
+	TestFailoverRecoveryFabricObjectId *string                                    `pulumi:"testFailoverRecoveryFabricObjectId"`
+	VmNics                             []VMNicDetailsResponse                     `pulumi:"vmNics"`
+	VmProtectionState                  *string                                    `pulumi:"vmProtectionState"`
+	VmProtectionStateDescription       *string                                    `pulumi:"vmProtectionStateDescription"`
+	VmSyncedConfigDetails              *AzureToAzureVmSyncedConfigDetailsResponse `pulumi:"vmSyncedConfigDetails"`
 }
 
 // A2AReplicationDetailsResponseInput is an input type that accepts A2AReplicationDetailsResponseArgs and A2AReplicationDetailsResponseOutput values.
@@ -1149,73 +869,39 @@ type A2AReplicationDetailsResponseInput interface {
 	ToA2AReplicationDetailsResponseOutputWithContext(context.Context) A2AReplicationDetailsResponseOutput
 }
 
-// A2A provider specific settings.
 type A2AReplicationDetailsResponseArgs struct {
-	// The agent version.
-	AgentVersion pulumi.StringPtrInput `pulumi:"agentVersion"`
-	// The fabric specific object Id of the virtual machine.
-	FabricObjectId pulumi.StringPtrInput `pulumi:"fabricObjectId"`
-	// Gets the Instance type.
-	// Expected value is 'A2A'.
-	InstanceType pulumi.StringInput `pulumi:"instanceType"`
-	// A value indicating whether replication agent update is required.
-	IsReplicationAgentUpdateRequired pulumi.BoolPtrInput `pulumi:"isReplicationAgentUpdateRequired"`
-	// The last heartbeat received from the source server.
-	LastHeartbeat pulumi.StringPtrInput `pulumi:"lastHeartbeat"`
-	// The time (in UTC) when the last RPO value was calculated by Protection Service.
-	LastRpoCalculatedTime pulumi.StringPtrInput `pulumi:"lastRpoCalculatedTime"`
-	// An id associated with the PE that survives actions like switch protection which change the backing PE/CPE objects internally.The lifecycle id gets carried forward to have a link/continuity in being able to have an Id that denotes the "same" protected item even though other internal Ids/ARM Id might be changing.
-	LifecycleId pulumi.StringPtrInput `pulumi:"lifecycleId"`
-	// The management Id.
-	ManagementId pulumi.StringPtrInput `pulumi:"managementId"`
-	// The type of the monitoring job. The progress is contained in MonitoringPercentageCompletion property.
-	MonitoringJobType pulumi.StringPtrInput `pulumi:"monitoringJobType"`
-	// The percentage of the monitoring job. The type of the monitoring job is defined by MonitoringJobType property.
-	MonitoringPercentageCompletion pulumi.IntPtrInput `pulumi:"monitoringPercentageCompletion"`
-	// Whether Multi VM group is auto created or specified by user.
-	MultiVmGroupCreateOption pulumi.StringPtrInput `pulumi:"multiVmGroupCreateOption"`
-	// The multi vm group Id.
-	MultiVmGroupId pulumi.StringPtrInput `pulumi:"multiVmGroupId"`
-	// The multi vm group name.
-	MultiVmGroupName pulumi.StringPtrInput `pulumi:"multiVmGroupName"`
-	// The type of operating system.
-	OsType pulumi.StringPtrInput `pulumi:"osType"`
-	// Primary fabric location.
-	PrimaryFabricLocation pulumi.StringPtrInput `pulumi:"primaryFabricLocation"`
-	// The list of protected disks.
-	ProtectedDisks A2AProtectedDiskDetailsResponseArrayInput `pulumi:"protectedDisks"`
-	// The list of protected managed disks.
-	ProtectedManagedDisks A2AProtectedManagedDiskDetailsResponseArrayInput `pulumi:"protectedManagedDisks"`
-	// The recovery availability set.
-	RecoveryAvailabilitySet pulumi.StringPtrInput `pulumi:"recoveryAvailabilitySet"`
-	// The recovery resource group.
-	RecoveryAzureResourceGroupId pulumi.StringPtrInput `pulumi:"recoveryAzureResourceGroupId"`
-	// The name of recovery virtual machine.
-	RecoveryAzureVMName pulumi.StringPtrInput `pulumi:"recoveryAzureVMName"`
-	// The size of recovery virtual machine.
-	RecoveryAzureVMSize pulumi.StringPtrInput `pulumi:"recoveryAzureVMSize"`
-	// The recovery boot diagnostic storage account Arm Id.
-	RecoveryBootDiagStorageAccountId pulumi.StringPtrInput `pulumi:"recoveryBootDiagStorageAccountId"`
-	// The recovery cloud service.
-	RecoveryCloudService pulumi.StringPtrInput `pulumi:"recoveryCloudService"`
-	// The recovery fabric location.
-	RecoveryFabricLocation pulumi.StringPtrInput `pulumi:"recoveryFabricLocation"`
-	// The recovery fabric object Id.
-	RecoveryFabricObjectId pulumi.StringPtrInput `pulumi:"recoveryFabricObjectId"`
-	// The last RPO value in seconds.
-	RpoInSeconds pulumi.Float64PtrInput `pulumi:"rpoInSeconds"`
-	// The recovery virtual network.
-	SelectedRecoveryAzureNetworkId pulumi.StringPtrInput `pulumi:"selectedRecoveryAzureNetworkId"`
-	// The test failover fabric object Id.
-	TestFailoverRecoveryFabricObjectId pulumi.StringPtrInput `pulumi:"testFailoverRecoveryFabricObjectId"`
-	// The virtual machine nic details.
-	VmNics VMNicDetailsResponseArrayInput `pulumi:"vmNics"`
-	// The protection state for the vm.
-	VmProtectionState pulumi.StringPtrInput `pulumi:"vmProtectionState"`
-	// The protection state description for the vm.
-	VmProtectionStateDescription pulumi.StringPtrInput `pulumi:"vmProtectionStateDescription"`
-	// The synced configuration details.
-	VmSyncedConfigDetails AzureToAzureVmSyncedConfigDetailsResponsePtrInput `pulumi:"vmSyncedConfigDetails"`
+	AgentVersion                       pulumi.StringPtrInput                             `pulumi:"agentVersion"`
+	FabricObjectId                     pulumi.StringPtrInput                             `pulumi:"fabricObjectId"`
+	InstanceType                       pulumi.StringInput                                `pulumi:"instanceType"`
+	IsReplicationAgentUpdateRequired   pulumi.BoolPtrInput                               `pulumi:"isReplicationAgentUpdateRequired"`
+	LastHeartbeat                      pulumi.StringPtrInput                             `pulumi:"lastHeartbeat"`
+	LastRpoCalculatedTime              pulumi.StringPtrInput                             `pulumi:"lastRpoCalculatedTime"`
+	LifecycleId                        pulumi.StringPtrInput                             `pulumi:"lifecycleId"`
+	ManagementId                       pulumi.StringPtrInput                             `pulumi:"managementId"`
+	MonitoringJobType                  pulumi.StringPtrInput                             `pulumi:"monitoringJobType"`
+	MonitoringPercentageCompletion     pulumi.IntPtrInput                                `pulumi:"monitoringPercentageCompletion"`
+	MultiVmGroupCreateOption           pulumi.StringPtrInput                             `pulumi:"multiVmGroupCreateOption"`
+	MultiVmGroupId                     pulumi.StringPtrInput                             `pulumi:"multiVmGroupId"`
+	MultiVmGroupName                   pulumi.StringPtrInput                             `pulumi:"multiVmGroupName"`
+	OsType                             pulumi.StringPtrInput                             `pulumi:"osType"`
+	PrimaryFabricLocation              pulumi.StringPtrInput                             `pulumi:"primaryFabricLocation"`
+	ProtectedDisks                     A2AProtectedDiskDetailsResponseArrayInput         `pulumi:"protectedDisks"`
+	ProtectedManagedDisks              A2AProtectedManagedDiskDetailsResponseArrayInput  `pulumi:"protectedManagedDisks"`
+	RecoveryAvailabilitySet            pulumi.StringPtrInput                             `pulumi:"recoveryAvailabilitySet"`
+	RecoveryAzureResourceGroupId       pulumi.StringPtrInput                             `pulumi:"recoveryAzureResourceGroupId"`
+	RecoveryAzureVMName                pulumi.StringPtrInput                             `pulumi:"recoveryAzureVMName"`
+	RecoveryAzureVMSize                pulumi.StringPtrInput                             `pulumi:"recoveryAzureVMSize"`
+	RecoveryBootDiagStorageAccountId   pulumi.StringPtrInput                             `pulumi:"recoveryBootDiagStorageAccountId"`
+	RecoveryCloudService               pulumi.StringPtrInput                             `pulumi:"recoveryCloudService"`
+	RecoveryFabricLocation             pulumi.StringPtrInput                             `pulumi:"recoveryFabricLocation"`
+	RecoveryFabricObjectId             pulumi.StringPtrInput                             `pulumi:"recoveryFabricObjectId"`
+	RpoInSeconds                       pulumi.Float64PtrInput                            `pulumi:"rpoInSeconds"`
+	SelectedRecoveryAzureNetworkId     pulumi.StringPtrInput                             `pulumi:"selectedRecoveryAzureNetworkId"`
+	TestFailoverRecoveryFabricObjectId pulumi.StringPtrInput                             `pulumi:"testFailoverRecoveryFabricObjectId"`
+	VmNics                             VMNicDetailsResponseArrayInput                    `pulumi:"vmNics"`
+	VmProtectionState                  pulumi.StringPtrInput                             `pulumi:"vmProtectionState"`
+	VmProtectionStateDescription       pulumi.StringPtrInput                             `pulumi:"vmProtectionStateDescription"`
+	VmSyncedConfigDetails              AzureToAzureVmSyncedConfigDetailsResponsePtrInput `pulumi:"vmSyncedConfigDetails"`
 }
 
 func (A2AReplicationDetailsResponseArgs) ElementType() reflect.Type {
@@ -1230,7 +916,6 @@ func (i A2AReplicationDetailsResponseArgs) ToA2AReplicationDetailsResponseOutput
 	return pulumi.ToOutputWithContext(ctx, i).(A2AReplicationDetailsResponseOutput)
 }
 
-// A2A provider specific settings.
 type A2AReplicationDetailsResponseOutput struct{ *pulumi.OutputState }
 
 func (A2AReplicationDetailsResponseOutput) ElementType() reflect.Type {
@@ -1245,179 +930,142 @@ func (o A2AReplicationDetailsResponseOutput) ToA2AReplicationDetailsResponseOutp
 	return o
 }
 
-// The agent version.
 func (o A2AReplicationDetailsResponseOutput) AgentVersion() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v A2AReplicationDetailsResponse) *string { return v.AgentVersion }).(pulumi.StringPtrOutput)
 }
 
-// The fabric specific object Id of the virtual machine.
 func (o A2AReplicationDetailsResponseOutput) FabricObjectId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v A2AReplicationDetailsResponse) *string { return v.FabricObjectId }).(pulumi.StringPtrOutput)
 }
 
-// Gets the Instance type.
-// Expected value is 'A2A'.
 func (o A2AReplicationDetailsResponseOutput) InstanceType() pulumi.StringOutput {
 	return o.ApplyT(func(v A2AReplicationDetailsResponse) string { return v.InstanceType }).(pulumi.StringOutput)
 }
 
-// A value indicating whether replication agent update is required.
 func (o A2AReplicationDetailsResponseOutput) IsReplicationAgentUpdateRequired() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v A2AReplicationDetailsResponse) *bool { return v.IsReplicationAgentUpdateRequired }).(pulumi.BoolPtrOutput)
 }
 
-// The last heartbeat received from the source server.
 func (o A2AReplicationDetailsResponseOutput) LastHeartbeat() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v A2AReplicationDetailsResponse) *string { return v.LastHeartbeat }).(pulumi.StringPtrOutput)
 }
 
-// The time (in UTC) when the last RPO value was calculated by Protection Service.
 func (o A2AReplicationDetailsResponseOutput) LastRpoCalculatedTime() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v A2AReplicationDetailsResponse) *string { return v.LastRpoCalculatedTime }).(pulumi.StringPtrOutput)
 }
 
-// An id associated with the PE that survives actions like switch protection which change the backing PE/CPE objects internally.The lifecycle id gets carried forward to have a link/continuity in being able to have an Id that denotes the "same" protected item even though other internal Ids/ARM Id might be changing.
 func (o A2AReplicationDetailsResponseOutput) LifecycleId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v A2AReplicationDetailsResponse) *string { return v.LifecycleId }).(pulumi.StringPtrOutput)
 }
 
-// The management Id.
 func (o A2AReplicationDetailsResponseOutput) ManagementId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v A2AReplicationDetailsResponse) *string { return v.ManagementId }).(pulumi.StringPtrOutput)
 }
 
-// The type of the monitoring job. The progress is contained in MonitoringPercentageCompletion property.
 func (o A2AReplicationDetailsResponseOutput) MonitoringJobType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v A2AReplicationDetailsResponse) *string { return v.MonitoringJobType }).(pulumi.StringPtrOutput)
 }
 
-// The percentage of the monitoring job. The type of the monitoring job is defined by MonitoringJobType property.
 func (o A2AReplicationDetailsResponseOutput) MonitoringPercentageCompletion() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v A2AReplicationDetailsResponse) *int { return v.MonitoringPercentageCompletion }).(pulumi.IntPtrOutput)
 }
 
-// Whether Multi VM group is auto created or specified by user.
 func (o A2AReplicationDetailsResponseOutput) MultiVmGroupCreateOption() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v A2AReplicationDetailsResponse) *string { return v.MultiVmGroupCreateOption }).(pulumi.StringPtrOutput)
 }
 
-// The multi vm group Id.
 func (o A2AReplicationDetailsResponseOutput) MultiVmGroupId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v A2AReplicationDetailsResponse) *string { return v.MultiVmGroupId }).(pulumi.StringPtrOutput)
 }
 
-// The multi vm group name.
 func (o A2AReplicationDetailsResponseOutput) MultiVmGroupName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v A2AReplicationDetailsResponse) *string { return v.MultiVmGroupName }).(pulumi.StringPtrOutput)
 }
 
-// The type of operating system.
 func (o A2AReplicationDetailsResponseOutput) OsType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v A2AReplicationDetailsResponse) *string { return v.OsType }).(pulumi.StringPtrOutput)
 }
 
-// Primary fabric location.
 func (o A2AReplicationDetailsResponseOutput) PrimaryFabricLocation() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v A2AReplicationDetailsResponse) *string { return v.PrimaryFabricLocation }).(pulumi.StringPtrOutput)
 }
 
-// The list of protected disks.
 func (o A2AReplicationDetailsResponseOutput) ProtectedDisks() A2AProtectedDiskDetailsResponseArrayOutput {
 	return o.ApplyT(func(v A2AReplicationDetailsResponse) []A2AProtectedDiskDetailsResponse { return v.ProtectedDisks }).(A2AProtectedDiskDetailsResponseArrayOutput)
 }
 
-// The list of protected managed disks.
 func (o A2AReplicationDetailsResponseOutput) ProtectedManagedDisks() A2AProtectedManagedDiskDetailsResponseArrayOutput {
 	return o.ApplyT(func(v A2AReplicationDetailsResponse) []A2AProtectedManagedDiskDetailsResponse {
 		return v.ProtectedManagedDisks
 	}).(A2AProtectedManagedDiskDetailsResponseArrayOutput)
 }
 
-// The recovery availability set.
 func (o A2AReplicationDetailsResponseOutput) RecoveryAvailabilitySet() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v A2AReplicationDetailsResponse) *string { return v.RecoveryAvailabilitySet }).(pulumi.StringPtrOutput)
 }
 
-// The recovery resource group.
 func (o A2AReplicationDetailsResponseOutput) RecoveryAzureResourceGroupId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v A2AReplicationDetailsResponse) *string { return v.RecoveryAzureResourceGroupId }).(pulumi.StringPtrOutput)
 }
 
-// The name of recovery virtual machine.
 func (o A2AReplicationDetailsResponseOutput) RecoveryAzureVMName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v A2AReplicationDetailsResponse) *string { return v.RecoveryAzureVMName }).(pulumi.StringPtrOutput)
 }
 
-// The size of recovery virtual machine.
 func (o A2AReplicationDetailsResponseOutput) RecoveryAzureVMSize() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v A2AReplicationDetailsResponse) *string { return v.RecoveryAzureVMSize }).(pulumi.StringPtrOutput)
 }
 
-// The recovery boot diagnostic storage account Arm Id.
 func (o A2AReplicationDetailsResponseOutput) RecoveryBootDiagStorageAccountId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v A2AReplicationDetailsResponse) *string { return v.RecoveryBootDiagStorageAccountId }).(pulumi.StringPtrOutput)
 }
 
-// The recovery cloud service.
 func (o A2AReplicationDetailsResponseOutput) RecoveryCloudService() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v A2AReplicationDetailsResponse) *string { return v.RecoveryCloudService }).(pulumi.StringPtrOutput)
 }
 
-// The recovery fabric location.
 func (o A2AReplicationDetailsResponseOutput) RecoveryFabricLocation() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v A2AReplicationDetailsResponse) *string { return v.RecoveryFabricLocation }).(pulumi.StringPtrOutput)
 }
 
-// The recovery fabric object Id.
 func (o A2AReplicationDetailsResponseOutput) RecoveryFabricObjectId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v A2AReplicationDetailsResponse) *string { return v.RecoveryFabricObjectId }).(pulumi.StringPtrOutput)
 }
 
-// The last RPO value in seconds.
 func (o A2AReplicationDetailsResponseOutput) RpoInSeconds() pulumi.Float64PtrOutput {
 	return o.ApplyT(func(v A2AReplicationDetailsResponse) *float64 { return v.RpoInSeconds }).(pulumi.Float64PtrOutput)
 }
 
-// The recovery virtual network.
 func (o A2AReplicationDetailsResponseOutput) SelectedRecoveryAzureNetworkId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v A2AReplicationDetailsResponse) *string { return v.SelectedRecoveryAzureNetworkId }).(pulumi.StringPtrOutput)
 }
 
-// The test failover fabric object Id.
 func (o A2AReplicationDetailsResponseOutput) TestFailoverRecoveryFabricObjectId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v A2AReplicationDetailsResponse) *string { return v.TestFailoverRecoveryFabricObjectId }).(pulumi.StringPtrOutput)
 }
 
-// The virtual machine nic details.
 func (o A2AReplicationDetailsResponseOutput) VmNics() VMNicDetailsResponseArrayOutput {
 	return o.ApplyT(func(v A2AReplicationDetailsResponse) []VMNicDetailsResponse { return v.VmNics }).(VMNicDetailsResponseArrayOutput)
 }
 
-// The protection state for the vm.
 func (o A2AReplicationDetailsResponseOutput) VmProtectionState() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v A2AReplicationDetailsResponse) *string { return v.VmProtectionState }).(pulumi.StringPtrOutput)
 }
 
-// The protection state description for the vm.
 func (o A2AReplicationDetailsResponseOutput) VmProtectionStateDescription() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v A2AReplicationDetailsResponse) *string { return v.VmProtectionStateDescription }).(pulumi.StringPtrOutput)
 }
 
-// The synced configuration details.
 func (o A2AReplicationDetailsResponseOutput) VmSyncedConfigDetails() AzureToAzureVmSyncedConfigDetailsResponsePtrOutput {
 	return o.ApplyT(func(v A2AReplicationDetailsResponse) *AzureToAzureVmSyncedConfigDetailsResponse {
 		return v.VmSyncedConfigDetails
 	}).(AzureToAzureVmSyncedConfigDetailsResponsePtrOutput)
 }
 
-// Azure VM disk input details.
 type A2AVmDiskInputDetails struct {
-	// The disk Uri.
-	DiskUri *string `pulumi:"diskUri"`
-	// The primary staging storage account Id.
+	DiskUri                             *string `pulumi:"diskUri"`
 	PrimaryStagingAzureStorageAccountId *string `pulumi:"primaryStagingAzureStorageAccountId"`
-	// The recovery VHD storage account Id.
-	RecoveryAzureStorageAccountId *string `pulumi:"recoveryAzureStorageAccountId"`
+	RecoveryAzureStorageAccountId       *string `pulumi:"recoveryAzureStorageAccountId"`
 }
 
 // A2AVmDiskInputDetailsInput is an input type that accepts A2AVmDiskInputDetailsArgs and A2AVmDiskInputDetailsOutput values.
@@ -1431,14 +1079,10 @@ type A2AVmDiskInputDetailsInput interface {
 	ToA2AVmDiskInputDetailsOutputWithContext(context.Context) A2AVmDiskInputDetailsOutput
 }
 
-// Azure VM disk input details.
 type A2AVmDiskInputDetailsArgs struct {
-	// The disk Uri.
-	DiskUri pulumi.StringPtrInput `pulumi:"diskUri"`
-	// The primary staging storage account Id.
+	DiskUri                             pulumi.StringPtrInput `pulumi:"diskUri"`
 	PrimaryStagingAzureStorageAccountId pulumi.StringPtrInput `pulumi:"primaryStagingAzureStorageAccountId"`
-	// The recovery VHD storage account Id.
-	RecoveryAzureStorageAccountId pulumi.StringPtrInput `pulumi:"recoveryAzureStorageAccountId"`
+	RecoveryAzureStorageAccountId       pulumi.StringPtrInput `pulumi:"recoveryAzureStorageAccountId"`
 }
 
 func (A2AVmDiskInputDetailsArgs) ElementType() reflect.Type {
@@ -1478,7 +1122,6 @@ func (i A2AVmDiskInputDetailsArray) ToA2AVmDiskInputDetailsArrayOutputWithContex
 	return pulumi.ToOutputWithContext(ctx, i).(A2AVmDiskInputDetailsArrayOutput)
 }
 
-// Azure VM disk input details.
 type A2AVmDiskInputDetailsOutput struct{ *pulumi.OutputState }
 
 func (A2AVmDiskInputDetailsOutput) ElementType() reflect.Type {
@@ -1493,17 +1136,14 @@ func (o A2AVmDiskInputDetailsOutput) ToA2AVmDiskInputDetailsOutputWithContext(ct
 	return o
 }
 
-// The disk Uri.
 func (o A2AVmDiskInputDetailsOutput) DiskUri() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v A2AVmDiskInputDetails) *string { return v.DiskUri }).(pulumi.StringPtrOutput)
 }
 
-// The primary staging storage account Id.
 func (o A2AVmDiskInputDetailsOutput) PrimaryStagingAzureStorageAccountId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v A2AVmDiskInputDetails) *string { return v.PrimaryStagingAzureStorageAccountId }).(pulumi.StringPtrOutput)
 }
 
-// The recovery VHD storage account Id.
 func (o A2AVmDiskInputDetailsOutput) RecoveryAzureStorageAccountId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v A2AVmDiskInputDetails) *string { return v.RecoveryAzureStorageAccountId }).(pulumi.StringPtrOutput)
 }
@@ -1528,18 +1168,12 @@ func (o A2AVmDiskInputDetailsArrayOutput) Index(i pulumi.IntInput) A2AVmDiskInpu
 	}).(A2AVmDiskInputDetailsOutput)
 }
 
-// Azure VM managed disk input details.
 type A2AVmManagedDiskInputDetails struct {
-	// The disk Id.
-	DiskId *string `pulumi:"diskId"`
-	// The primary staging storage account Arm Id.
+	DiskId                              *string `pulumi:"diskId"`
 	PrimaryStagingAzureStorageAccountId *string `pulumi:"primaryStagingAzureStorageAccountId"`
-	// The replica disk type. Its an optional value and will be same as source disk type if not user provided.
-	RecoveryReplicaDiskAccountType *string `pulumi:"recoveryReplicaDiskAccountType"`
-	// The target resource group Arm Id.
-	RecoveryResourceGroupId *string `pulumi:"recoveryResourceGroupId"`
-	// The target disk type after failover. Its an optional value and will be same as source disk type if not user provided.
-	RecoveryTargetDiskAccountType *string `pulumi:"recoveryTargetDiskAccountType"`
+	RecoveryReplicaDiskAccountType      *string `pulumi:"recoveryReplicaDiskAccountType"`
+	RecoveryResourceGroupId             *string `pulumi:"recoveryResourceGroupId"`
+	RecoveryTargetDiskAccountType       *string `pulumi:"recoveryTargetDiskAccountType"`
 }
 
 // A2AVmManagedDiskInputDetailsInput is an input type that accepts A2AVmManagedDiskInputDetailsArgs and A2AVmManagedDiskInputDetailsOutput values.
@@ -1553,18 +1187,12 @@ type A2AVmManagedDiskInputDetailsInput interface {
 	ToA2AVmManagedDiskInputDetailsOutputWithContext(context.Context) A2AVmManagedDiskInputDetailsOutput
 }
 
-// Azure VM managed disk input details.
 type A2AVmManagedDiskInputDetailsArgs struct {
-	// The disk Id.
-	DiskId pulumi.StringPtrInput `pulumi:"diskId"`
-	// The primary staging storage account Arm Id.
+	DiskId                              pulumi.StringPtrInput `pulumi:"diskId"`
 	PrimaryStagingAzureStorageAccountId pulumi.StringPtrInput `pulumi:"primaryStagingAzureStorageAccountId"`
-	// The replica disk type. Its an optional value and will be same as source disk type if not user provided.
-	RecoveryReplicaDiskAccountType pulumi.StringPtrInput `pulumi:"recoveryReplicaDiskAccountType"`
-	// The target resource group Arm Id.
-	RecoveryResourceGroupId pulumi.StringPtrInput `pulumi:"recoveryResourceGroupId"`
-	// The target disk type after failover. Its an optional value and will be same as source disk type if not user provided.
-	RecoveryTargetDiskAccountType pulumi.StringPtrInput `pulumi:"recoveryTargetDiskAccountType"`
+	RecoveryReplicaDiskAccountType      pulumi.StringPtrInput `pulumi:"recoveryReplicaDiskAccountType"`
+	RecoveryResourceGroupId             pulumi.StringPtrInput `pulumi:"recoveryResourceGroupId"`
+	RecoveryTargetDiskAccountType       pulumi.StringPtrInput `pulumi:"recoveryTargetDiskAccountType"`
 }
 
 func (A2AVmManagedDiskInputDetailsArgs) ElementType() reflect.Type {
@@ -1604,7 +1232,6 @@ func (i A2AVmManagedDiskInputDetailsArray) ToA2AVmManagedDiskInputDetailsArrayOu
 	return pulumi.ToOutputWithContext(ctx, i).(A2AVmManagedDiskInputDetailsArrayOutput)
 }
 
-// Azure VM managed disk input details.
 type A2AVmManagedDiskInputDetailsOutput struct{ *pulumi.OutputState }
 
 func (A2AVmManagedDiskInputDetailsOutput) ElementType() reflect.Type {
@@ -1619,27 +1246,22 @@ func (o A2AVmManagedDiskInputDetailsOutput) ToA2AVmManagedDiskInputDetailsOutput
 	return o
 }
 
-// The disk Id.
 func (o A2AVmManagedDiskInputDetailsOutput) DiskId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v A2AVmManagedDiskInputDetails) *string { return v.DiskId }).(pulumi.StringPtrOutput)
 }
 
-// The primary staging storage account Arm Id.
 func (o A2AVmManagedDiskInputDetailsOutput) PrimaryStagingAzureStorageAccountId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v A2AVmManagedDiskInputDetails) *string { return v.PrimaryStagingAzureStorageAccountId }).(pulumi.StringPtrOutput)
 }
 
-// The replica disk type. Its an optional value and will be same as source disk type if not user provided.
 func (o A2AVmManagedDiskInputDetailsOutput) RecoveryReplicaDiskAccountType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v A2AVmManagedDiskInputDetails) *string { return v.RecoveryReplicaDiskAccountType }).(pulumi.StringPtrOutput)
 }
 
-// The target resource group Arm Id.
 func (o A2AVmManagedDiskInputDetailsOutput) RecoveryResourceGroupId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v A2AVmManagedDiskInputDetails) *string { return v.RecoveryResourceGroupId }).(pulumi.StringPtrOutput)
 }
 
-// The target disk type after failover. Its an optional value and will be same as source disk type if not user provided.
 func (o A2AVmManagedDiskInputDetailsOutput) RecoveryTargetDiskAccountType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v A2AVmManagedDiskInputDetails) *string { return v.RecoveryTargetDiskAccountType }).(pulumi.StringPtrOutput)
 }
@@ -1664,13 +1286,9 @@ func (o A2AVmManagedDiskInputDetailsArrayOutput) Index(i pulumi.IntInput) A2AVmM
 	}).(A2AVmManagedDiskInputDetailsOutput)
 }
 
-// The properties of an add provider request.
 type AddRecoveryServicesProviderInputProperties struct {
-	// The identity provider input for DRA authentication.
 	AuthenticationIdentityInput IdentityProviderInput `pulumi:"authenticationIdentityInput"`
-	// The name of the machine where the provider is getting added.
-	MachineName string `pulumi:"machineName"`
-	// The identity provider input for resource access.
+	MachineName                 string                `pulumi:"machineName"`
 	ResourceAccessIdentityInput IdentityProviderInput `pulumi:"resourceAccessIdentityInput"`
 }
 
@@ -1685,13 +1303,9 @@ type AddRecoveryServicesProviderInputPropertiesInput interface {
 	ToAddRecoveryServicesProviderInputPropertiesOutputWithContext(context.Context) AddRecoveryServicesProviderInputPropertiesOutput
 }
 
-// The properties of an add provider request.
 type AddRecoveryServicesProviderInputPropertiesArgs struct {
-	// The identity provider input for DRA authentication.
 	AuthenticationIdentityInput IdentityProviderInputInput `pulumi:"authenticationIdentityInput"`
-	// The name of the machine where the provider is getting added.
-	MachineName pulumi.StringInput `pulumi:"machineName"`
-	// The identity provider input for resource access.
+	MachineName                 pulumi.StringInput         `pulumi:"machineName"`
 	ResourceAccessIdentityInput IdentityProviderInputInput `pulumi:"resourceAccessIdentityInput"`
 }
 
@@ -1748,7 +1362,6 @@ func (i *addRecoveryServicesProviderInputPropertiesPtrType) ToAddRecoveryService
 	return pulumi.ToOutputWithContext(ctx, i).(AddRecoveryServicesProviderInputPropertiesPtrOutput)
 }
 
-// The properties of an add provider request.
 type AddRecoveryServicesProviderInputPropertiesOutput struct{ *pulumi.OutputState }
 
 func (AddRecoveryServicesProviderInputPropertiesOutput) ElementType() reflect.Type {
@@ -1768,24 +1381,21 @@ func (o AddRecoveryServicesProviderInputPropertiesOutput) ToAddRecoveryServicesP
 }
 
 func (o AddRecoveryServicesProviderInputPropertiesOutput) ToAddRecoveryServicesProviderInputPropertiesPtrOutputWithContext(ctx context.Context) AddRecoveryServicesProviderInputPropertiesPtrOutput {
-	return o.ApplyT(func(v AddRecoveryServicesProviderInputProperties) *AddRecoveryServicesProviderInputProperties {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v AddRecoveryServicesProviderInputProperties) *AddRecoveryServicesProviderInputProperties {
 		return &v
 	}).(AddRecoveryServicesProviderInputPropertiesPtrOutput)
 }
 
-// The identity provider input for DRA authentication.
 func (o AddRecoveryServicesProviderInputPropertiesOutput) AuthenticationIdentityInput() IdentityProviderInputOutput {
 	return o.ApplyT(func(v AddRecoveryServicesProviderInputProperties) IdentityProviderInput {
 		return v.AuthenticationIdentityInput
 	}).(IdentityProviderInputOutput)
 }
 
-// The name of the machine where the provider is getting added.
 func (o AddRecoveryServicesProviderInputPropertiesOutput) MachineName() pulumi.StringOutput {
 	return o.ApplyT(func(v AddRecoveryServicesProviderInputProperties) string { return v.MachineName }).(pulumi.StringOutput)
 }
 
-// The identity provider input for resource access.
 func (o AddRecoveryServicesProviderInputPropertiesOutput) ResourceAccessIdentityInput() IdentityProviderInputOutput {
 	return o.ApplyT(func(v AddRecoveryServicesProviderInputProperties) IdentityProviderInput {
 		return v.ResourceAccessIdentityInput
@@ -1808,11 +1418,14 @@ func (o AddRecoveryServicesProviderInputPropertiesPtrOutput) ToAddRecoveryServic
 
 func (o AddRecoveryServicesProviderInputPropertiesPtrOutput) Elem() AddRecoveryServicesProviderInputPropertiesOutput {
 	return o.ApplyT(func(v *AddRecoveryServicesProviderInputProperties) AddRecoveryServicesProviderInputProperties {
-		return *v
+		if v != nil {
+			return *v
+		}
+		var ret AddRecoveryServicesProviderInputProperties
+		return ret
 	}).(AddRecoveryServicesProviderInputPropertiesOutput)
 }
 
-// The identity provider input for DRA authentication.
 func (o AddRecoveryServicesProviderInputPropertiesPtrOutput) AuthenticationIdentityInput() IdentityProviderInputPtrOutput {
 	return o.ApplyT(func(v *AddRecoveryServicesProviderInputProperties) *IdentityProviderInput {
 		if v == nil {
@@ -1822,7 +1435,6 @@ func (o AddRecoveryServicesProviderInputPropertiesPtrOutput) AuthenticationIdent
 	}).(IdentityProviderInputPtrOutput)
 }
 
-// The name of the machine where the provider is getting added.
 func (o AddRecoveryServicesProviderInputPropertiesPtrOutput) MachineName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *AddRecoveryServicesProviderInputProperties) *string {
 		if v == nil {
@@ -1832,7 +1444,6 @@ func (o AddRecoveryServicesProviderInputPropertiesPtrOutput) MachineName() pulum
 	}).(pulumi.StringPtrOutput)
 }
 
-// The identity provider input for resource access.
 func (o AddRecoveryServicesProviderInputPropertiesPtrOutput) ResourceAccessIdentityInput() IdentityProviderInputPtrOutput {
 	return o.ApplyT(func(v *AddRecoveryServicesProviderInputProperties) *IdentityProviderInput {
 		if v == nil {
@@ -1842,18 +1453,12 @@ func (o AddRecoveryServicesProviderInputPropertiesPtrOutput) ResourceAccessIdent
 	}).(IdentityProviderInputPtrOutput)
 }
 
-// The properties of an add vCenter request.
 type AddVCenterRequestProperties struct {
-	// The friendly name of the vCenter.
-	FriendlyName *string `pulumi:"friendlyName"`
-	// The IP address of the vCenter to be discovered.
-	IpAddress *string `pulumi:"ipAddress"`
-	// The port number for discovery.
-	Port *string `pulumi:"port"`
-	// The process server Id from where the discovery is orchestrated.
+	FriendlyName    *string `pulumi:"friendlyName"`
+	IpAddress       *string `pulumi:"ipAddress"`
+	Port            *string `pulumi:"port"`
 	ProcessServerId *string `pulumi:"processServerId"`
-	// The account Id which has privileges to discover the vCenter.
-	RunAsAccountId *string `pulumi:"runAsAccountId"`
+	RunAsAccountId  *string `pulumi:"runAsAccountId"`
 }
 
 // AddVCenterRequestPropertiesInput is an input type that accepts AddVCenterRequestPropertiesArgs and AddVCenterRequestPropertiesOutput values.
@@ -1867,18 +1472,12 @@ type AddVCenterRequestPropertiesInput interface {
 	ToAddVCenterRequestPropertiesOutputWithContext(context.Context) AddVCenterRequestPropertiesOutput
 }
 
-// The properties of an add vCenter request.
 type AddVCenterRequestPropertiesArgs struct {
-	// The friendly name of the vCenter.
-	FriendlyName pulumi.StringPtrInput `pulumi:"friendlyName"`
-	// The IP address of the vCenter to be discovered.
-	IpAddress pulumi.StringPtrInput `pulumi:"ipAddress"`
-	// The port number for discovery.
-	Port pulumi.StringPtrInput `pulumi:"port"`
-	// The process server Id from where the discovery is orchestrated.
+	FriendlyName    pulumi.StringPtrInput `pulumi:"friendlyName"`
+	IpAddress       pulumi.StringPtrInput `pulumi:"ipAddress"`
+	Port            pulumi.StringPtrInput `pulumi:"port"`
 	ProcessServerId pulumi.StringPtrInput `pulumi:"processServerId"`
-	// The account Id which has privileges to discover the vCenter.
-	RunAsAccountId pulumi.StringPtrInput `pulumi:"runAsAccountId"`
+	RunAsAccountId  pulumi.StringPtrInput `pulumi:"runAsAccountId"`
 }
 
 func (AddVCenterRequestPropertiesArgs) ElementType() reflect.Type {
@@ -1934,7 +1533,6 @@ func (i *addVCenterRequestPropertiesPtrType) ToAddVCenterRequestPropertiesPtrOut
 	return pulumi.ToOutputWithContext(ctx, i).(AddVCenterRequestPropertiesPtrOutput)
 }
 
-// The properties of an add vCenter request.
 type AddVCenterRequestPropertiesOutput struct{ *pulumi.OutputState }
 
 func (AddVCenterRequestPropertiesOutput) ElementType() reflect.Type {
@@ -1954,32 +1552,27 @@ func (o AddVCenterRequestPropertiesOutput) ToAddVCenterRequestPropertiesPtrOutpu
 }
 
 func (o AddVCenterRequestPropertiesOutput) ToAddVCenterRequestPropertiesPtrOutputWithContext(ctx context.Context) AddVCenterRequestPropertiesPtrOutput {
-	return o.ApplyT(func(v AddVCenterRequestProperties) *AddVCenterRequestProperties {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v AddVCenterRequestProperties) *AddVCenterRequestProperties {
 		return &v
 	}).(AddVCenterRequestPropertiesPtrOutput)
 }
 
-// The friendly name of the vCenter.
 func (o AddVCenterRequestPropertiesOutput) FriendlyName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AddVCenterRequestProperties) *string { return v.FriendlyName }).(pulumi.StringPtrOutput)
 }
 
-// The IP address of the vCenter to be discovered.
 func (o AddVCenterRequestPropertiesOutput) IpAddress() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AddVCenterRequestProperties) *string { return v.IpAddress }).(pulumi.StringPtrOutput)
 }
 
-// The port number for discovery.
 func (o AddVCenterRequestPropertiesOutput) Port() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AddVCenterRequestProperties) *string { return v.Port }).(pulumi.StringPtrOutput)
 }
 
-// The process server Id from where the discovery is orchestrated.
 func (o AddVCenterRequestPropertiesOutput) ProcessServerId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AddVCenterRequestProperties) *string { return v.ProcessServerId }).(pulumi.StringPtrOutput)
 }
 
-// The account Id which has privileges to discover the vCenter.
 func (o AddVCenterRequestPropertiesOutput) RunAsAccountId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AddVCenterRequestProperties) *string { return v.RunAsAccountId }).(pulumi.StringPtrOutput)
 }
@@ -1999,10 +1592,15 @@ func (o AddVCenterRequestPropertiesPtrOutput) ToAddVCenterRequestPropertiesPtrOu
 }
 
 func (o AddVCenterRequestPropertiesPtrOutput) Elem() AddVCenterRequestPropertiesOutput {
-	return o.ApplyT(func(v *AddVCenterRequestProperties) AddVCenterRequestProperties { return *v }).(AddVCenterRequestPropertiesOutput)
+	return o.ApplyT(func(v *AddVCenterRequestProperties) AddVCenterRequestProperties {
+		if v != nil {
+			return *v
+		}
+		var ret AddVCenterRequestProperties
+		return ret
+	}).(AddVCenterRequestPropertiesOutput)
 }
 
-// The friendly name of the vCenter.
 func (o AddVCenterRequestPropertiesPtrOutput) FriendlyName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *AddVCenterRequestProperties) *string {
 		if v == nil {
@@ -2012,7 +1610,6 @@ func (o AddVCenterRequestPropertiesPtrOutput) FriendlyName() pulumi.StringPtrOut
 	}).(pulumi.StringPtrOutput)
 }
 
-// The IP address of the vCenter to be discovered.
 func (o AddVCenterRequestPropertiesPtrOutput) IpAddress() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *AddVCenterRequestProperties) *string {
 		if v == nil {
@@ -2022,7 +1619,6 @@ func (o AddVCenterRequestPropertiesPtrOutput) IpAddress() pulumi.StringPtrOutput
 	}).(pulumi.StringPtrOutput)
 }
 
-// The port number for discovery.
 func (o AddVCenterRequestPropertiesPtrOutput) Port() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *AddVCenterRequestProperties) *string {
 		if v == nil {
@@ -2032,7 +1628,6 @@ func (o AddVCenterRequestPropertiesPtrOutput) Port() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The process server Id from where the discovery is orchestrated.
 func (o AddVCenterRequestPropertiesPtrOutput) ProcessServerId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *AddVCenterRequestProperties) *string {
 		if v == nil {
@@ -2042,7 +1637,6 @@ func (o AddVCenterRequestPropertiesPtrOutput) ProcessServerId() pulumi.StringPtr
 	}).(pulumi.StringPtrOutput)
 }
 
-// The account Id which has privileges to discover the vCenter.
 func (o AddVCenterRequestPropertiesPtrOutput) RunAsAccountId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *AddVCenterRequestProperties) *string {
 		if v == nil {
@@ -2052,13 +1646,9 @@ func (o AddVCenterRequestPropertiesPtrOutput) RunAsAccountId() pulumi.StringPtrO
 	}).(pulumi.StringPtrOutput)
 }
 
-// Fabric provider specific settings.
 type AzureFabricCreationInput struct {
-	// Gets the class type.
-	// Expected value is 'Azure'.
 	InstanceType *string `pulumi:"instanceType"`
-	// The Location.
-	Location *string `pulumi:"location"`
+	Location     *string `pulumi:"location"`
 }
 
 // AzureFabricCreationInputInput is an input type that accepts AzureFabricCreationInputArgs and AzureFabricCreationInputOutput values.
@@ -2072,13 +1662,9 @@ type AzureFabricCreationInputInput interface {
 	ToAzureFabricCreationInputOutputWithContext(context.Context) AzureFabricCreationInputOutput
 }
 
-// Fabric provider specific settings.
 type AzureFabricCreationInputArgs struct {
-	// Gets the class type.
-	// Expected value is 'Azure'.
 	InstanceType pulumi.StringPtrInput `pulumi:"instanceType"`
-	// The Location.
-	Location pulumi.StringPtrInput `pulumi:"location"`
+	Location     pulumi.StringPtrInput `pulumi:"location"`
 }
 
 func (AzureFabricCreationInputArgs) ElementType() reflect.Type {
@@ -2093,7 +1679,6 @@ func (i AzureFabricCreationInputArgs) ToAzureFabricCreationInputOutputWithContex
 	return pulumi.ToOutputWithContext(ctx, i).(AzureFabricCreationInputOutput)
 }
 
-// Fabric provider specific settings.
 type AzureFabricCreationInputOutput struct{ *pulumi.OutputState }
 
 func (AzureFabricCreationInputOutput) ElementType() reflect.Type {
@@ -2108,26 +1693,18 @@ func (o AzureFabricCreationInputOutput) ToAzureFabricCreationInputOutputWithCont
 	return o
 }
 
-// Gets the class type.
-// Expected value is 'Azure'.
 func (o AzureFabricCreationInputOutput) InstanceType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AzureFabricCreationInput) *string { return v.InstanceType }).(pulumi.StringPtrOutput)
 }
 
-// The Location.
 func (o AzureFabricCreationInputOutput) Location() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AzureFabricCreationInput) *string { return v.Location }).(pulumi.StringPtrOutput)
 }
 
-// Azure Fabric Specific Details.
 type AzureFabricSpecificDetailsResponse struct {
-	// The container Ids for the Azure fabric.
 	ContainerIds []string `pulumi:"containerIds"`
-	// Gets the class type. Overridden in derived classes.
-	// Expected value is 'Azure'.
-	InstanceType string `pulumi:"instanceType"`
-	// The Location for the Azure fabric.
-	Location *string `pulumi:"location"`
+	InstanceType string   `pulumi:"instanceType"`
+	Location     *string  `pulumi:"location"`
 }
 
 // AzureFabricSpecificDetailsResponseInput is an input type that accepts AzureFabricSpecificDetailsResponseArgs and AzureFabricSpecificDetailsResponseOutput values.
@@ -2141,15 +1718,10 @@ type AzureFabricSpecificDetailsResponseInput interface {
 	ToAzureFabricSpecificDetailsResponseOutputWithContext(context.Context) AzureFabricSpecificDetailsResponseOutput
 }
 
-// Azure Fabric Specific Details.
 type AzureFabricSpecificDetailsResponseArgs struct {
-	// The container Ids for the Azure fabric.
 	ContainerIds pulumi.StringArrayInput `pulumi:"containerIds"`
-	// Gets the class type. Overridden in derived classes.
-	// Expected value is 'Azure'.
-	InstanceType pulumi.StringInput `pulumi:"instanceType"`
-	// The Location for the Azure fabric.
-	Location pulumi.StringPtrInput `pulumi:"location"`
+	InstanceType pulumi.StringInput      `pulumi:"instanceType"`
+	Location     pulumi.StringPtrInput   `pulumi:"location"`
 }
 
 func (AzureFabricSpecificDetailsResponseArgs) ElementType() reflect.Type {
@@ -2164,7 +1736,6 @@ func (i AzureFabricSpecificDetailsResponseArgs) ToAzureFabricSpecificDetailsResp
 	return pulumi.ToOutputWithContext(ctx, i).(AzureFabricSpecificDetailsResponseOutput)
 }
 
-// Azure Fabric Specific Details.
 type AzureFabricSpecificDetailsResponseOutput struct{ *pulumi.OutputState }
 
 func (AzureFabricSpecificDetailsResponseOutput) ElementType() reflect.Type {
@@ -2179,28 +1750,20 @@ func (o AzureFabricSpecificDetailsResponseOutput) ToAzureFabricSpecificDetailsRe
 	return o
 }
 
-// The container Ids for the Azure fabric.
 func (o AzureFabricSpecificDetailsResponseOutput) ContainerIds() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v AzureFabricSpecificDetailsResponse) []string { return v.ContainerIds }).(pulumi.StringArrayOutput)
 }
 
-// Gets the class type. Overridden in derived classes.
-// Expected value is 'Azure'.
 func (o AzureFabricSpecificDetailsResponseOutput) InstanceType() pulumi.StringOutput {
 	return o.ApplyT(func(v AzureFabricSpecificDetailsResponse) string { return v.InstanceType }).(pulumi.StringOutput)
 }
 
-// The Location for the Azure fabric.
 func (o AzureFabricSpecificDetailsResponseOutput) Location() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AzureFabricSpecificDetailsResponse) *string { return v.Location }).(pulumi.StringPtrOutput)
 }
 
-// Create network mappings input properties/behavior specific to Azure to Azure Network mapping.
 type AzureToAzureCreateNetworkMappingInput struct {
-	// The instance type.
-	// Expected value is 'AzureToAzure'.
-	InstanceType *string `pulumi:"instanceType"`
-	// The primary azure vnet Id.
+	InstanceType     *string `pulumi:"instanceType"`
 	PrimaryNetworkId *string `pulumi:"primaryNetworkId"`
 }
 
@@ -2215,12 +1778,8 @@ type AzureToAzureCreateNetworkMappingInputInput interface {
 	ToAzureToAzureCreateNetworkMappingInputOutputWithContext(context.Context) AzureToAzureCreateNetworkMappingInputOutput
 }
 
-// Create network mappings input properties/behavior specific to Azure to Azure Network mapping.
 type AzureToAzureCreateNetworkMappingInputArgs struct {
-	// The instance type.
-	// Expected value is 'AzureToAzure'.
-	InstanceType pulumi.StringPtrInput `pulumi:"instanceType"`
-	// The primary azure vnet Id.
+	InstanceType     pulumi.StringPtrInput `pulumi:"instanceType"`
 	PrimaryNetworkId pulumi.StringPtrInput `pulumi:"primaryNetworkId"`
 }
 
@@ -2236,7 +1795,6 @@ func (i AzureToAzureCreateNetworkMappingInputArgs) ToAzureToAzureCreateNetworkMa
 	return pulumi.ToOutputWithContext(ctx, i).(AzureToAzureCreateNetworkMappingInputOutput)
 }
 
-// Create network mappings input properties/behavior specific to Azure to Azure Network mapping.
 type AzureToAzureCreateNetworkMappingInputOutput struct{ *pulumi.OutputState }
 
 func (AzureToAzureCreateNetworkMappingInputOutput) ElementType() reflect.Type {
@@ -2251,25 +1809,17 @@ func (o AzureToAzureCreateNetworkMappingInputOutput) ToAzureToAzureCreateNetwork
 	return o
 }
 
-// The instance type.
-// Expected value is 'AzureToAzure'.
 func (o AzureToAzureCreateNetworkMappingInputOutput) InstanceType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AzureToAzureCreateNetworkMappingInput) *string { return v.InstanceType }).(pulumi.StringPtrOutput)
 }
 
-// The primary azure vnet Id.
 func (o AzureToAzureCreateNetworkMappingInputOutput) PrimaryNetworkId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AzureToAzureCreateNetworkMappingInput) *string { return v.PrimaryNetworkId }).(pulumi.StringPtrOutput)
 }
 
-// A2A Network Mapping fabric specific settings.
 type AzureToAzureNetworkMappingSettingsResponse struct {
-	// Gets the Instance type.
-	// Expected value is 'AzureToAzure'.
-	InstanceType string `pulumi:"instanceType"`
-	// The primary fabric location.
-	PrimaryFabricLocation *string `pulumi:"primaryFabricLocation"`
-	// The recovery fabric location.
+	InstanceType           string  `pulumi:"instanceType"`
+	PrimaryFabricLocation  *string `pulumi:"primaryFabricLocation"`
 	RecoveryFabricLocation *string `pulumi:"recoveryFabricLocation"`
 }
 
@@ -2284,14 +1834,9 @@ type AzureToAzureNetworkMappingSettingsResponseInput interface {
 	ToAzureToAzureNetworkMappingSettingsResponseOutputWithContext(context.Context) AzureToAzureNetworkMappingSettingsResponseOutput
 }
 
-// A2A Network Mapping fabric specific settings.
 type AzureToAzureNetworkMappingSettingsResponseArgs struct {
-	// Gets the Instance type.
-	// Expected value is 'AzureToAzure'.
-	InstanceType pulumi.StringInput `pulumi:"instanceType"`
-	// The primary fabric location.
-	PrimaryFabricLocation pulumi.StringPtrInput `pulumi:"primaryFabricLocation"`
-	// The recovery fabric location.
+	InstanceType           pulumi.StringInput    `pulumi:"instanceType"`
+	PrimaryFabricLocation  pulumi.StringPtrInput `pulumi:"primaryFabricLocation"`
 	RecoveryFabricLocation pulumi.StringPtrInput `pulumi:"recoveryFabricLocation"`
 }
 
@@ -2307,7 +1852,6 @@ func (i AzureToAzureNetworkMappingSettingsResponseArgs) ToAzureToAzureNetworkMap
 	return pulumi.ToOutputWithContext(ctx, i).(AzureToAzureNetworkMappingSettingsResponseOutput)
 }
 
-// A2A Network Mapping fabric specific settings.
 type AzureToAzureNetworkMappingSettingsResponseOutput struct{ *pulumi.OutputState }
 
 func (AzureToAzureNetworkMappingSettingsResponseOutput) ElementType() reflect.Type {
@@ -2322,30 +1866,22 @@ func (o AzureToAzureNetworkMappingSettingsResponseOutput) ToAzureToAzureNetworkM
 	return o
 }
 
-// Gets the Instance type.
-// Expected value is 'AzureToAzure'.
 func (o AzureToAzureNetworkMappingSettingsResponseOutput) InstanceType() pulumi.StringOutput {
 	return o.ApplyT(func(v AzureToAzureNetworkMappingSettingsResponse) string { return v.InstanceType }).(pulumi.StringOutput)
 }
 
-// The primary fabric location.
 func (o AzureToAzureNetworkMappingSettingsResponseOutput) PrimaryFabricLocation() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AzureToAzureNetworkMappingSettingsResponse) *string { return v.PrimaryFabricLocation }).(pulumi.StringPtrOutput)
 }
 
-// The recovery fabric location.
 func (o AzureToAzureNetworkMappingSettingsResponseOutput) RecoveryFabricLocation() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AzureToAzureNetworkMappingSettingsResponse) *string { return v.RecoveryFabricLocation }).(pulumi.StringPtrOutput)
 }
 
-// Azure to Azure VM synced configuration details.
 type AzureToAzureVmSyncedConfigDetailsResponse struct {
-	// The Azure VM input endpoints.
-	InputEndpoints []InputEndpointResponse `pulumi:"inputEndpoints"`
-	// The Azure role assignments.
+	InputEndpoints  []InputEndpointResponse  `pulumi:"inputEndpoints"`
 	RoleAssignments []RoleAssignmentResponse `pulumi:"roleAssignments"`
-	// The Azure VM tags.
-	Tags map[string]string `pulumi:"tags"`
+	Tags            map[string]string        `pulumi:"tags"`
 }
 
 // AzureToAzureVmSyncedConfigDetailsResponseInput is an input type that accepts AzureToAzureVmSyncedConfigDetailsResponseArgs and AzureToAzureVmSyncedConfigDetailsResponseOutput values.
@@ -2359,14 +1895,10 @@ type AzureToAzureVmSyncedConfigDetailsResponseInput interface {
 	ToAzureToAzureVmSyncedConfigDetailsResponseOutputWithContext(context.Context) AzureToAzureVmSyncedConfigDetailsResponseOutput
 }
 
-// Azure to Azure VM synced configuration details.
 type AzureToAzureVmSyncedConfigDetailsResponseArgs struct {
-	// The Azure VM input endpoints.
-	InputEndpoints InputEndpointResponseArrayInput `pulumi:"inputEndpoints"`
-	// The Azure role assignments.
+	InputEndpoints  InputEndpointResponseArrayInput  `pulumi:"inputEndpoints"`
 	RoleAssignments RoleAssignmentResponseArrayInput `pulumi:"roleAssignments"`
-	// The Azure VM tags.
-	Tags pulumi.StringMapInput `pulumi:"tags"`
+	Tags            pulumi.StringMapInput            `pulumi:"tags"`
 }
 
 func (AzureToAzureVmSyncedConfigDetailsResponseArgs) ElementType() reflect.Type {
@@ -2422,7 +1954,6 @@ func (i *azureToAzureVmSyncedConfigDetailsResponsePtrType) ToAzureToAzureVmSynce
 	return pulumi.ToOutputWithContext(ctx, i).(AzureToAzureVmSyncedConfigDetailsResponsePtrOutput)
 }
 
-// Azure to Azure VM synced configuration details.
 type AzureToAzureVmSyncedConfigDetailsResponseOutput struct{ *pulumi.OutputState }
 
 func (AzureToAzureVmSyncedConfigDetailsResponseOutput) ElementType() reflect.Type {
@@ -2442,22 +1973,19 @@ func (o AzureToAzureVmSyncedConfigDetailsResponseOutput) ToAzureToAzureVmSyncedC
 }
 
 func (o AzureToAzureVmSyncedConfigDetailsResponseOutput) ToAzureToAzureVmSyncedConfigDetailsResponsePtrOutputWithContext(ctx context.Context) AzureToAzureVmSyncedConfigDetailsResponsePtrOutput {
-	return o.ApplyT(func(v AzureToAzureVmSyncedConfigDetailsResponse) *AzureToAzureVmSyncedConfigDetailsResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v AzureToAzureVmSyncedConfigDetailsResponse) *AzureToAzureVmSyncedConfigDetailsResponse {
 		return &v
 	}).(AzureToAzureVmSyncedConfigDetailsResponsePtrOutput)
 }
 
-// The Azure VM input endpoints.
 func (o AzureToAzureVmSyncedConfigDetailsResponseOutput) InputEndpoints() InputEndpointResponseArrayOutput {
 	return o.ApplyT(func(v AzureToAzureVmSyncedConfigDetailsResponse) []InputEndpointResponse { return v.InputEndpoints }).(InputEndpointResponseArrayOutput)
 }
 
-// The Azure role assignments.
 func (o AzureToAzureVmSyncedConfigDetailsResponseOutput) RoleAssignments() RoleAssignmentResponseArrayOutput {
 	return o.ApplyT(func(v AzureToAzureVmSyncedConfigDetailsResponse) []RoleAssignmentResponse { return v.RoleAssignments }).(RoleAssignmentResponseArrayOutput)
 }
 
-// The Azure VM tags.
 func (o AzureToAzureVmSyncedConfigDetailsResponseOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v AzureToAzureVmSyncedConfigDetailsResponse) map[string]string { return v.Tags }).(pulumi.StringMapOutput)
 }
@@ -2478,11 +2006,14 @@ func (o AzureToAzureVmSyncedConfigDetailsResponsePtrOutput) ToAzureToAzureVmSync
 
 func (o AzureToAzureVmSyncedConfigDetailsResponsePtrOutput) Elem() AzureToAzureVmSyncedConfigDetailsResponseOutput {
 	return o.ApplyT(func(v *AzureToAzureVmSyncedConfigDetailsResponse) AzureToAzureVmSyncedConfigDetailsResponse {
-		return *v
+		if v != nil {
+			return *v
+		}
+		var ret AzureToAzureVmSyncedConfigDetailsResponse
+		return ret
 	}).(AzureToAzureVmSyncedConfigDetailsResponseOutput)
 }
 
-// The Azure VM input endpoints.
 func (o AzureToAzureVmSyncedConfigDetailsResponsePtrOutput) InputEndpoints() InputEndpointResponseArrayOutput {
 	return o.ApplyT(func(v *AzureToAzureVmSyncedConfigDetailsResponse) []InputEndpointResponse {
 		if v == nil {
@@ -2492,7 +2023,6 @@ func (o AzureToAzureVmSyncedConfigDetailsResponsePtrOutput) InputEndpoints() Inp
 	}).(InputEndpointResponseArrayOutput)
 }
 
-// The Azure role assignments.
 func (o AzureToAzureVmSyncedConfigDetailsResponsePtrOutput) RoleAssignments() RoleAssignmentResponseArrayOutput {
 	return o.ApplyT(func(v *AzureToAzureVmSyncedConfigDetailsResponse) []RoleAssignmentResponse {
 		if v == nil {
@@ -2502,7 +2032,6 @@ func (o AzureToAzureVmSyncedConfigDetailsResponsePtrOutput) RoleAssignments() Ro
 	}).(RoleAssignmentResponseArrayOutput)
 }
 
-// The Azure VM tags.
 func (o AzureToAzureVmSyncedConfigDetailsResponsePtrOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *AzureToAzureVmSyncedConfigDetailsResponse) map[string]string {
 		if v == nil {
@@ -2512,22 +2041,14 @@ func (o AzureToAzureVmSyncedConfigDetailsResponsePtrOutput) Tags() pulumi.String
 	}).(pulumi.StringMapOutput)
 }
 
-// Disk details for E2A provider.
 type AzureVmDiskDetailsResponse struct {
-	// Ordinal\LunId of the disk for the Azure VM.
-	LunId *string `pulumi:"lunId"`
-	// Max side in MB.
-	MaxSizeMB *string `pulumi:"maxSizeMB"`
-	// Blob uri of the Azure disk.
+	LunId              *string `pulumi:"lunId"`
+	MaxSizeMB          *string `pulumi:"maxSizeMB"`
 	TargetDiskLocation *string `pulumi:"targetDiskLocation"`
-	// The target Azure disk name.
-	TargetDiskName *string `pulumi:"targetDiskName"`
-	// The VHD id.
-	VhdId *string `pulumi:"vhdId"`
-	// VHD name.
-	VhdName *string `pulumi:"vhdName"`
-	// VHD type.
-	VhdType *string `pulumi:"vhdType"`
+	TargetDiskName     *string `pulumi:"targetDiskName"`
+	VhdId              *string `pulumi:"vhdId"`
+	VhdName            *string `pulumi:"vhdName"`
+	VhdType            *string `pulumi:"vhdType"`
 }
 
 // AzureVmDiskDetailsResponseInput is an input type that accepts AzureVmDiskDetailsResponseArgs and AzureVmDiskDetailsResponseOutput values.
@@ -2541,22 +2062,14 @@ type AzureVmDiskDetailsResponseInput interface {
 	ToAzureVmDiskDetailsResponseOutputWithContext(context.Context) AzureVmDiskDetailsResponseOutput
 }
 
-// Disk details for E2A provider.
 type AzureVmDiskDetailsResponseArgs struct {
-	// Ordinal\LunId of the disk for the Azure VM.
-	LunId pulumi.StringPtrInput `pulumi:"lunId"`
-	// Max side in MB.
-	MaxSizeMB pulumi.StringPtrInput `pulumi:"maxSizeMB"`
-	// Blob uri of the Azure disk.
+	LunId              pulumi.StringPtrInput `pulumi:"lunId"`
+	MaxSizeMB          pulumi.StringPtrInput `pulumi:"maxSizeMB"`
 	TargetDiskLocation pulumi.StringPtrInput `pulumi:"targetDiskLocation"`
-	// The target Azure disk name.
-	TargetDiskName pulumi.StringPtrInput `pulumi:"targetDiskName"`
-	// The VHD id.
-	VhdId pulumi.StringPtrInput `pulumi:"vhdId"`
-	// VHD name.
-	VhdName pulumi.StringPtrInput `pulumi:"vhdName"`
-	// VHD type.
-	VhdType pulumi.StringPtrInput `pulumi:"vhdType"`
+	TargetDiskName     pulumi.StringPtrInput `pulumi:"targetDiskName"`
+	VhdId              pulumi.StringPtrInput `pulumi:"vhdId"`
+	VhdName            pulumi.StringPtrInput `pulumi:"vhdName"`
+	VhdType            pulumi.StringPtrInput `pulumi:"vhdType"`
 }
 
 func (AzureVmDiskDetailsResponseArgs) ElementType() reflect.Type {
@@ -2596,7 +2109,6 @@ func (i AzureVmDiskDetailsResponseArray) ToAzureVmDiskDetailsResponseArrayOutput
 	return pulumi.ToOutputWithContext(ctx, i).(AzureVmDiskDetailsResponseArrayOutput)
 }
 
-// Disk details for E2A provider.
 type AzureVmDiskDetailsResponseOutput struct{ *pulumi.OutputState }
 
 func (AzureVmDiskDetailsResponseOutput) ElementType() reflect.Type {
@@ -2611,37 +2123,30 @@ func (o AzureVmDiskDetailsResponseOutput) ToAzureVmDiskDetailsResponseOutputWith
 	return o
 }
 
-// Ordinal\LunId of the disk for the Azure VM.
 func (o AzureVmDiskDetailsResponseOutput) LunId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AzureVmDiskDetailsResponse) *string { return v.LunId }).(pulumi.StringPtrOutput)
 }
 
-// Max side in MB.
 func (o AzureVmDiskDetailsResponseOutput) MaxSizeMB() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AzureVmDiskDetailsResponse) *string { return v.MaxSizeMB }).(pulumi.StringPtrOutput)
 }
 
-// Blob uri of the Azure disk.
 func (o AzureVmDiskDetailsResponseOutput) TargetDiskLocation() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AzureVmDiskDetailsResponse) *string { return v.TargetDiskLocation }).(pulumi.StringPtrOutput)
 }
 
-// The target Azure disk name.
 func (o AzureVmDiskDetailsResponseOutput) TargetDiskName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AzureVmDiskDetailsResponse) *string { return v.TargetDiskName }).(pulumi.StringPtrOutput)
 }
 
-// The VHD id.
 func (o AzureVmDiskDetailsResponseOutput) VhdId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AzureVmDiskDetailsResponse) *string { return v.VhdId }).(pulumi.StringPtrOutput)
 }
 
-// VHD name.
 func (o AzureVmDiskDetailsResponseOutput) VhdName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AzureVmDiskDetailsResponse) *string { return v.VhdName }).(pulumi.StringPtrOutput)
 }
 
-// VHD type.
 func (o AzureVmDiskDetailsResponseOutput) VhdType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AzureVmDiskDetailsResponse) *string { return v.VhdType }).(pulumi.StringPtrOutput)
 }
@@ -2666,14 +2171,10 @@ func (o AzureVmDiskDetailsResponseArrayOutput) Index(i pulumi.IntInput) AzureVmD
 	}).(AzureVmDiskDetailsResponseOutput)
 }
 
-// Common input details for network mapping operation.
 type CreateNetworkMappingInputProperties struct {
-	// Fabric specific input properties.
 	FabricSpecificDetails interface{} `pulumi:"fabricSpecificDetails"`
-	// Recovery fabric Name.
-	RecoveryFabricName *string `pulumi:"recoveryFabricName"`
-	// Recovery network Id.
-	RecoveryNetworkId *string `pulumi:"recoveryNetworkId"`
+	RecoveryFabricName    *string     `pulumi:"recoveryFabricName"`
+	RecoveryNetworkId     *string     `pulumi:"recoveryNetworkId"`
 }
 
 // CreateNetworkMappingInputPropertiesInput is an input type that accepts CreateNetworkMappingInputPropertiesArgs and CreateNetworkMappingInputPropertiesOutput values.
@@ -2687,14 +2188,10 @@ type CreateNetworkMappingInputPropertiesInput interface {
 	ToCreateNetworkMappingInputPropertiesOutputWithContext(context.Context) CreateNetworkMappingInputPropertiesOutput
 }
 
-// Common input details for network mapping operation.
 type CreateNetworkMappingInputPropertiesArgs struct {
-	// Fabric specific input properties.
-	FabricSpecificDetails pulumi.Input `pulumi:"fabricSpecificDetails"`
-	// Recovery fabric Name.
-	RecoveryFabricName pulumi.StringPtrInput `pulumi:"recoveryFabricName"`
-	// Recovery network Id.
-	RecoveryNetworkId pulumi.StringPtrInput `pulumi:"recoveryNetworkId"`
+	FabricSpecificDetails pulumi.Input          `pulumi:"fabricSpecificDetails"`
+	RecoveryFabricName    pulumi.StringPtrInput `pulumi:"recoveryFabricName"`
+	RecoveryNetworkId     pulumi.StringPtrInput `pulumi:"recoveryNetworkId"`
 }
 
 func (CreateNetworkMappingInputPropertiesArgs) ElementType() reflect.Type {
@@ -2750,7 +2247,6 @@ func (i *createNetworkMappingInputPropertiesPtrType) ToCreateNetworkMappingInput
 	return pulumi.ToOutputWithContext(ctx, i).(CreateNetworkMappingInputPropertiesPtrOutput)
 }
 
-// Common input details for network mapping operation.
 type CreateNetworkMappingInputPropertiesOutput struct{ *pulumi.OutputState }
 
 func (CreateNetworkMappingInputPropertiesOutput) ElementType() reflect.Type {
@@ -2770,22 +2266,19 @@ func (o CreateNetworkMappingInputPropertiesOutput) ToCreateNetworkMappingInputPr
 }
 
 func (o CreateNetworkMappingInputPropertiesOutput) ToCreateNetworkMappingInputPropertiesPtrOutputWithContext(ctx context.Context) CreateNetworkMappingInputPropertiesPtrOutput {
-	return o.ApplyT(func(v CreateNetworkMappingInputProperties) *CreateNetworkMappingInputProperties {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v CreateNetworkMappingInputProperties) *CreateNetworkMappingInputProperties {
 		return &v
 	}).(CreateNetworkMappingInputPropertiesPtrOutput)
 }
 
-// Fabric specific input properties.
 func (o CreateNetworkMappingInputPropertiesOutput) FabricSpecificDetails() pulumi.AnyOutput {
 	return o.ApplyT(func(v CreateNetworkMappingInputProperties) interface{} { return v.FabricSpecificDetails }).(pulumi.AnyOutput)
 }
 
-// Recovery fabric Name.
 func (o CreateNetworkMappingInputPropertiesOutput) RecoveryFabricName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v CreateNetworkMappingInputProperties) *string { return v.RecoveryFabricName }).(pulumi.StringPtrOutput)
 }
 
-// Recovery network Id.
 func (o CreateNetworkMappingInputPropertiesOutput) RecoveryNetworkId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v CreateNetworkMappingInputProperties) *string { return v.RecoveryNetworkId }).(pulumi.StringPtrOutput)
 }
@@ -2805,10 +2298,15 @@ func (o CreateNetworkMappingInputPropertiesPtrOutput) ToCreateNetworkMappingInpu
 }
 
 func (o CreateNetworkMappingInputPropertiesPtrOutput) Elem() CreateNetworkMappingInputPropertiesOutput {
-	return o.ApplyT(func(v *CreateNetworkMappingInputProperties) CreateNetworkMappingInputProperties { return *v }).(CreateNetworkMappingInputPropertiesOutput)
+	return o.ApplyT(func(v *CreateNetworkMappingInputProperties) CreateNetworkMappingInputProperties {
+		if v != nil {
+			return *v
+		}
+		var ret CreateNetworkMappingInputProperties
+		return ret
+	}).(CreateNetworkMappingInputPropertiesOutput)
 }
 
-// Fabric specific input properties.
 func (o CreateNetworkMappingInputPropertiesPtrOutput) FabricSpecificDetails() pulumi.AnyOutput {
 	return o.ApplyT(func(v *CreateNetworkMappingInputProperties) interface{} {
 		if v == nil {
@@ -2818,7 +2316,6 @@ func (o CreateNetworkMappingInputPropertiesPtrOutput) FabricSpecificDetails() pu
 	}).(pulumi.AnyOutput)
 }
 
-// Recovery fabric Name.
 func (o CreateNetworkMappingInputPropertiesPtrOutput) RecoveryFabricName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *CreateNetworkMappingInputProperties) *string {
 		if v == nil {
@@ -2828,7 +2325,6 @@ func (o CreateNetworkMappingInputPropertiesPtrOutput) RecoveryFabricName() pulum
 	}).(pulumi.StringPtrOutput)
 }
 
-// Recovery network Id.
 func (o CreateNetworkMappingInputPropertiesPtrOutput) RecoveryNetworkId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *CreateNetworkMappingInputProperties) *string {
 		if v == nil {
@@ -2838,9 +2334,7 @@ func (o CreateNetworkMappingInputPropertiesPtrOutput) RecoveryNetworkId() pulumi
 	}).(pulumi.StringPtrOutput)
 }
 
-// Policy creation properties.
 type CreatePolicyInputProperties struct {
-	// The ReplicationProviderSettings.
 	ProviderSpecificInput interface{} `pulumi:"providerSpecificInput"`
 }
 
@@ -2855,9 +2349,7 @@ type CreatePolicyInputPropertiesInput interface {
 	ToCreatePolicyInputPropertiesOutputWithContext(context.Context) CreatePolicyInputPropertiesOutput
 }
 
-// Policy creation properties.
 type CreatePolicyInputPropertiesArgs struct {
-	// The ReplicationProviderSettings.
 	ProviderSpecificInput pulumi.Input `pulumi:"providerSpecificInput"`
 }
 
@@ -2914,7 +2406,6 @@ func (i *createPolicyInputPropertiesPtrType) ToCreatePolicyInputPropertiesPtrOut
 	return pulumi.ToOutputWithContext(ctx, i).(CreatePolicyInputPropertiesPtrOutput)
 }
 
-// Policy creation properties.
 type CreatePolicyInputPropertiesOutput struct{ *pulumi.OutputState }
 
 func (CreatePolicyInputPropertiesOutput) ElementType() reflect.Type {
@@ -2934,12 +2425,11 @@ func (o CreatePolicyInputPropertiesOutput) ToCreatePolicyInputPropertiesPtrOutpu
 }
 
 func (o CreatePolicyInputPropertiesOutput) ToCreatePolicyInputPropertiesPtrOutputWithContext(ctx context.Context) CreatePolicyInputPropertiesPtrOutput {
-	return o.ApplyT(func(v CreatePolicyInputProperties) *CreatePolicyInputProperties {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v CreatePolicyInputProperties) *CreatePolicyInputProperties {
 		return &v
 	}).(CreatePolicyInputPropertiesPtrOutput)
 }
 
-// The ReplicationProviderSettings.
 func (o CreatePolicyInputPropertiesOutput) ProviderSpecificInput() pulumi.AnyOutput {
 	return o.ApplyT(func(v CreatePolicyInputProperties) interface{} { return v.ProviderSpecificInput }).(pulumi.AnyOutput)
 }
@@ -2959,10 +2449,15 @@ func (o CreatePolicyInputPropertiesPtrOutput) ToCreatePolicyInputPropertiesPtrOu
 }
 
 func (o CreatePolicyInputPropertiesPtrOutput) Elem() CreatePolicyInputPropertiesOutput {
-	return o.ApplyT(func(v *CreatePolicyInputProperties) CreatePolicyInputProperties { return *v }).(CreatePolicyInputPropertiesOutput)
+	return o.ApplyT(func(v *CreatePolicyInputProperties) CreatePolicyInputProperties {
+		if v != nil {
+			return *v
+		}
+		var ret CreatePolicyInputProperties
+		return ret
+	}).(CreatePolicyInputPropertiesOutput)
 }
 
-// The ReplicationProviderSettings.
 func (o CreatePolicyInputPropertiesPtrOutput) ProviderSpecificInput() pulumi.AnyOutput {
 	return o.ApplyT(func(v *CreatePolicyInputProperties) interface{} {
 		if v == nil {
@@ -2972,14 +2467,10 @@ func (o CreatePolicyInputPropertiesPtrOutput) ProviderSpecificInput() pulumi.Any
 	}).(pulumi.AnyOutput)
 }
 
-// Configure pairing input properties.
 type CreateProtectionContainerMappingInputProperties struct {
-	// Applicable policy.
-	PolicyId *string `pulumi:"policyId"`
-	// Provider specific input for pairing.
-	ProviderSpecificInput interface{} `pulumi:"providerSpecificInput"`
-	// The target unique protection container name.
-	TargetProtectionContainerId *string `pulumi:"targetProtectionContainerId"`
+	PolicyId                    *string     `pulumi:"policyId"`
+	ProviderSpecificInput       interface{} `pulumi:"providerSpecificInput"`
+	TargetProtectionContainerId *string     `pulumi:"targetProtectionContainerId"`
 }
 
 // CreateProtectionContainerMappingInputPropertiesInput is an input type that accepts CreateProtectionContainerMappingInputPropertiesArgs and CreateProtectionContainerMappingInputPropertiesOutput values.
@@ -2993,13 +2484,9 @@ type CreateProtectionContainerMappingInputPropertiesInput interface {
 	ToCreateProtectionContainerMappingInputPropertiesOutputWithContext(context.Context) CreateProtectionContainerMappingInputPropertiesOutput
 }
 
-// Configure pairing input properties.
 type CreateProtectionContainerMappingInputPropertiesArgs struct {
-	// Applicable policy.
-	PolicyId pulumi.StringPtrInput `pulumi:"policyId"`
-	// Provider specific input for pairing.
-	ProviderSpecificInput pulumi.Input `pulumi:"providerSpecificInput"`
-	// The target unique protection container name.
+	PolicyId                    pulumi.StringPtrInput `pulumi:"policyId"`
+	ProviderSpecificInput       pulumi.Input          `pulumi:"providerSpecificInput"`
 	TargetProtectionContainerId pulumi.StringPtrInput `pulumi:"targetProtectionContainerId"`
 }
 
@@ -3056,7 +2543,6 @@ func (i *createProtectionContainerMappingInputPropertiesPtrType) ToCreateProtect
 	return pulumi.ToOutputWithContext(ctx, i).(CreateProtectionContainerMappingInputPropertiesPtrOutput)
 }
 
-// Configure pairing input properties.
 type CreateProtectionContainerMappingInputPropertiesOutput struct{ *pulumi.OutputState }
 
 func (CreateProtectionContainerMappingInputPropertiesOutput) ElementType() reflect.Type {
@@ -3076,22 +2562,19 @@ func (o CreateProtectionContainerMappingInputPropertiesOutput) ToCreateProtectio
 }
 
 func (o CreateProtectionContainerMappingInputPropertiesOutput) ToCreateProtectionContainerMappingInputPropertiesPtrOutputWithContext(ctx context.Context) CreateProtectionContainerMappingInputPropertiesPtrOutput {
-	return o.ApplyT(func(v CreateProtectionContainerMappingInputProperties) *CreateProtectionContainerMappingInputProperties {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v CreateProtectionContainerMappingInputProperties) *CreateProtectionContainerMappingInputProperties {
 		return &v
 	}).(CreateProtectionContainerMappingInputPropertiesPtrOutput)
 }
 
-// Applicable policy.
 func (o CreateProtectionContainerMappingInputPropertiesOutput) PolicyId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v CreateProtectionContainerMappingInputProperties) *string { return v.PolicyId }).(pulumi.StringPtrOutput)
 }
 
-// Provider specific input for pairing.
 func (o CreateProtectionContainerMappingInputPropertiesOutput) ProviderSpecificInput() pulumi.AnyOutput {
 	return o.ApplyT(func(v CreateProtectionContainerMappingInputProperties) interface{} { return v.ProviderSpecificInput }).(pulumi.AnyOutput)
 }
 
-// The target unique protection container name.
 func (o CreateProtectionContainerMappingInputPropertiesOutput) TargetProtectionContainerId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v CreateProtectionContainerMappingInputProperties) *string { return v.TargetProtectionContainerId }).(pulumi.StringPtrOutput)
 }
@@ -3112,11 +2595,14 @@ func (o CreateProtectionContainerMappingInputPropertiesPtrOutput) ToCreateProtec
 
 func (o CreateProtectionContainerMappingInputPropertiesPtrOutput) Elem() CreateProtectionContainerMappingInputPropertiesOutput {
 	return o.ApplyT(func(v *CreateProtectionContainerMappingInputProperties) CreateProtectionContainerMappingInputProperties {
-		return *v
+		if v != nil {
+			return *v
+		}
+		var ret CreateProtectionContainerMappingInputProperties
+		return ret
 	}).(CreateProtectionContainerMappingInputPropertiesOutput)
 }
 
-// Applicable policy.
 func (o CreateProtectionContainerMappingInputPropertiesPtrOutput) PolicyId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *CreateProtectionContainerMappingInputProperties) *string {
 		if v == nil {
@@ -3126,7 +2612,6 @@ func (o CreateProtectionContainerMappingInputPropertiesPtrOutput) PolicyId() pul
 	}).(pulumi.StringPtrOutput)
 }
 
-// Provider specific input for pairing.
 func (o CreateProtectionContainerMappingInputPropertiesPtrOutput) ProviderSpecificInput() pulumi.AnyOutput {
 	return o.ApplyT(func(v *CreateProtectionContainerMappingInputProperties) interface{} {
 		if v == nil {
@@ -3136,7 +2621,6 @@ func (o CreateProtectionContainerMappingInputPropertiesPtrOutput) ProviderSpecif
 	}).(pulumi.AnyOutput)
 }
 
-// The target unique protection container name.
 func (o CreateProtectionContainerMappingInputPropertiesPtrOutput) TargetProtectionContainerId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *CreateProtectionContainerMappingInputProperties) *string {
 		if v == nil {
@@ -3146,16 +2630,11 @@ func (o CreateProtectionContainerMappingInputPropertiesPtrOutput) TargetProtecti
 	}).(pulumi.StringPtrOutput)
 }
 
-// Recovery plan creation properties.
 type CreateRecoveryPlanInputProperties struct {
-	// The failover deployment model.
-	FailoverDeploymentModel *string `pulumi:"failoverDeploymentModel"`
-	// The recovery plan groups.
-	Groups []RecoveryPlanGroup `pulumi:"groups"`
-	// The primary fabric Id.
-	PrimaryFabricId string `pulumi:"primaryFabricId"`
-	// The recovery fabric Id.
-	RecoveryFabricId string `pulumi:"recoveryFabricId"`
+	FailoverDeploymentModel *string             `pulumi:"failoverDeploymentModel"`
+	Groups                  []RecoveryPlanGroup `pulumi:"groups"`
+	PrimaryFabricId         string              `pulumi:"primaryFabricId"`
+	RecoveryFabricId        string              `pulumi:"recoveryFabricId"`
 }
 
 // CreateRecoveryPlanInputPropertiesInput is an input type that accepts CreateRecoveryPlanInputPropertiesArgs and CreateRecoveryPlanInputPropertiesOutput values.
@@ -3169,16 +2648,11 @@ type CreateRecoveryPlanInputPropertiesInput interface {
 	ToCreateRecoveryPlanInputPropertiesOutputWithContext(context.Context) CreateRecoveryPlanInputPropertiesOutput
 }
 
-// Recovery plan creation properties.
 type CreateRecoveryPlanInputPropertiesArgs struct {
-	// The failover deployment model.
-	FailoverDeploymentModel pulumi.StringPtrInput `pulumi:"failoverDeploymentModel"`
-	// The recovery plan groups.
-	Groups RecoveryPlanGroupArrayInput `pulumi:"groups"`
-	// The primary fabric Id.
-	PrimaryFabricId pulumi.StringInput `pulumi:"primaryFabricId"`
-	// The recovery fabric Id.
-	RecoveryFabricId pulumi.StringInput `pulumi:"recoveryFabricId"`
+	FailoverDeploymentModel pulumi.StringPtrInput       `pulumi:"failoverDeploymentModel"`
+	Groups                  RecoveryPlanGroupArrayInput `pulumi:"groups"`
+	PrimaryFabricId         pulumi.StringInput          `pulumi:"primaryFabricId"`
+	RecoveryFabricId        pulumi.StringInput          `pulumi:"recoveryFabricId"`
 }
 
 func (CreateRecoveryPlanInputPropertiesArgs) ElementType() reflect.Type {
@@ -3234,7 +2708,6 @@ func (i *createRecoveryPlanInputPropertiesPtrType) ToCreateRecoveryPlanInputProp
 	return pulumi.ToOutputWithContext(ctx, i).(CreateRecoveryPlanInputPropertiesPtrOutput)
 }
 
-// Recovery plan creation properties.
 type CreateRecoveryPlanInputPropertiesOutput struct{ *pulumi.OutputState }
 
 func (CreateRecoveryPlanInputPropertiesOutput) ElementType() reflect.Type {
@@ -3254,27 +2727,23 @@ func (o CreateRecoveryPlanInputPropertiesOutput) ToCreateRecoveryPlanInputProper
 }
 
 func (o CreateRecoveryPlanInputPropertiesOutput) ToCreateRecoveryPlanInputPropertiesPtrOutputWithContext(ctx context.Context) CreateRecoveryPlanInputPropertiesPtrOutput {
-	return o.ApplyT(func(v CreateRecoveryPlanInputProperties) *CreateRecoveryPlanInputProperties {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v CreateRecoveryPlanInputProperties) *CreateRecoveryPlanInputProperties {
 		return &v
 	}).(CreateRecoveryPlanInputPropertiesPtrOutput)
 }
 
-// The failover deployment model.
 func (o CreateRecoveryPlanInputPropertiesOutput) FailoverDeploymentModel() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v CreateRecoveryPlanInputProperties) *string { return v.FailoverDeploymentModel }).(pulumi.StringPtrOutput)
 }
 
-// The recovery plan groups.
 func (o CreateRecoveryPlanInputPropertiesOutput) Groups() RecoveryPlanGroupArrayOutput {
 	return o.ApplyT(func(v CreateRecoveryPlanInputProperties) []RecoveryPlanGroup { return v.Groups }).(RecoveryPlanGroupArrayOutput)
 }
 
-// The primary fabric Id.
 func (o CreateRecoveryPlanInputPropertiesOutput) PrimaryFabricId() pulumi.StringOutput {
 	return o.ApplyT(func(v CreateRecoveryPlanInputProperties) string { return v.PrimaryFabricId }).(pulumi.StringOutput)
 }
 
-// The recovery fabric Id.
 func (o CreateRecoveryPlanInputPropertiesOutput) RecoveryFabricId() pulumi.StringOutput {
 	return o.ApplyT(func(v CreateRecoveryPlanInputProperties) string { return v.RecoveryFabricId }).(pulumi.StringOutput)
 }
@@ -3294,10 +2763,15 @@ func (o CreateRecoveryPlanInputPropertiesPtrOutput) ToCreateRecoveryPlanInputPro
 }
 
 func (o CreateRecoveryPlanInputPropertiesPtrOutput) Elem() CreateRecoveryPlanInputPropertiesOutput {
-	return o.ApplyT(func(v *CreateRecoveryPlanInputProperties) CreateRecoveryPlanInputProperties { return *v }).(CreateRecoveryPlanInputPropertiesOutput)
+	return o.ApplyT(func(v *CreateRecoveryPlanInputProperties) CreateRecoveryPlanInputProperties {
+		if v != nil {
+			return *v
+		}
+		var ret CreateRecoveryPlanInputProperties
+		return ret
+	}).(CreateRecoveryPlanInputPropertiesOutput)
 }
 
-// The failover deployment model.
 func (o CreateRecoveryPlanInputPropertiesPtrOutput) FailoverDeploymentModel() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *CreateRecoveryPlanInputProperties) *string {
 		if v == nil {
@@ -3307,7 +2781,6 @@ func (o CreateRecoveryPlanInputPropertiesPtrOutput) FailoverDeploymentModel() pu
 	}).(pulumi.StringPtrOutput)
 }
 
-// The recovery plan groups.
 func (o CreateRecoveryPlanInputPropertiesPtrOutput) Groups() RecoveryPlanGroupArrayOutput {
 	return o.ApplyT(func(v *CreateRecoveryPlanInputProperties) []RecoveryPlanGroup {
 		if v == nil {
@@ -3317,7 +2790,6 @@ func (o CreateRecoveryPlanInputPropertiesPtrOutput) Groups() RecoveryPlanGroupAr
 	}).(RecoveryPlanGroupArrayOutput)
 }
 
-// The primary fabric Id.
 func (o CreateRecoveryPlanInputPropertiesPtrOutput) PrimaryFabricId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *CreateRecoveryPlanInputProperties) *string {
 		if v == nil {
@@ -3327,7 +2799,6 @@ func (o CreateRecoveryPlanInputPropertiesPtrOutput) PrimaryFabricId() pulumi.Str
 	}).(pulumi.StringPtrOutput)
 }
 
-// The recovery fabric Id.
 func (o CreateRecoveryPlanInputPropertiesPtrOutput) RecoveryFabricId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *CreateRecoveryPlanInputProperties) *string {
 		if v == nil {
@@ -3337,13 +2808,9 @@ func (o CreateRecoveryPlanInputPropertiesPtrOutput) RecoveryFabricId() pulumi.St
 	}).(pulumi.StringPtrOutput)
 }
 
-// Current job details of the migration item.
 type CurrentJobDetailsResponse struct {
-	// The ARM Id of the job being executed.
-	JobId *string `pulumi:"jobId"`
-	// The job name.
-	JobName *string `pulumi:"jobName"`
-	// The start time of the job.
+	JobId     *string `pulumi:"jobId"`
+	JobName   *string `pulumi:"jobName"`
 	StartTime *string `pulumi:"startTime"`
 }
 
@@ -3358,13 +2825,9 @@ type CurrentJobDetailsResponseInput interface {
 	ToCurrentJobDetailsResponseOutputWithContext(context.Context) CurrentJobDetailsResponseOutput
 }
 
-// Current job details of the migration item.
 type CurrentJobDetailsResponseArgs struct {
-	// The ARM Id of the job being executed.
-	JobId pulumi.StringPtrInput `pulumi:"jobId"`
-	// The job name.
-	JobName pulumi.StringPtrInput `pulumi:"jobName"`
-	// The start time of the job.
+	JobId     pulumi.StringPtrInput `pulumi:"jobId"`
+	JobName   pulumi.StringPtrInput `pulumi:"jobName"`
 	StartTime pulumi.StringPtrInput `pulumi:"startTime"`
 }
 
@@ -3421,7 +2884,6 @@ func (i *currentJobDetailsResponsePtrType) ToCurrentJobDetailsResponsePtrOutputW
 	return pulumi.ToOutputWithContext(ctx, i).(CurrentJobDetailsResponsePtrOutput)
 }
 
-// Current job details of the migration item.
 type CurrentJobDetailsResponseOutput struct{ *pulumi.OutputState }
 
 func (CurrentJobDetailsResponseOutput) ElementType() reflect.Type {
@@ -3441,22 +2903,19 @@ func (o CurrentJobDetailsResponseOutput) ToCurrentJobDetailsResponsePtrOutput() 
 }
 
 func (o CurrentJobDetailsResponseOutput) ToCurrentJobDetailsResponsePtrOutputWithContext(ctx context.Context) CurrentJobDetailsResponsePtrOutput {
-	return o.ApplyT(func(v CurrentJobDetailsResponse) *CurrentJobDetailsResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v CurrentJobDetailsResponse) *CurrentJobDetailsResponse {
 		return &v
 	}).(CurrentJobDetailsResponsePtrOutput)
 }
 
-// The ARM Id of the job being executed.
 func (o CurrentJobDetailsResponseOutput) JobId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v CurrentJobDetailsResponse) *string { return v.JobId }).(pulumi.StringPtrOutput)
 }
 
-// The job name.
 func (o CurrentJobDetailsResponseOutput) JobName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v CurrentJobDetailsResponse) *string { return v.JobName }).(pulumi.StringPtrOutput)
 }
 
-// The start time of the job.
 func (o CurrentJobDetailsResponseOutput) StartTime() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v CurrentJobDetailsResponse) *string { return v.StartTime }).(pulumi.StringPtrOutput)
 }
@@ -3476,10 +2935,15 @@ func (o CurrentJobDetailsResponsePtrOutput) ToCurrentJobDetailsResponsePtrOutput
 }
 
 func (o CurrentJobDetailsResponsePtrOutput) Elem() CurrentJobDetailsResponseOutput {
-	return o.ApplyT(func(v *CurrentJobDetailsResponse) CurrentJobDetailsResponse { return *v }).(CurrentJobDetailsResponseOutput)
+	return o.ApplyT(func(v *CurrentJobDetailsResponse) CurrentJobDetailsResponse {
+		if v != nil {
+			return *v
+		}
+		var ret CurrentJobDetailsResponse
+		return ret
+	}).(CurrentJobDetailsResponseOutput)
 }
 
-// The ARM Id of the job being executed.
 func (o CurrentJobDetailsResponsePtrOutput) JobId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *CurrentJobDetailsResponse) *string {
 		if v == nil {
@@ -3489,7 +2953,6 @@ func (o CurrentJobDetailsResponsePtrOutput) JobId() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The job name.
 func (o CurrentJobDetailsResponsePtrOutput) JobName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *CurrentJobDetailsResponse) *string {
 		if v == nil {
@@ -3499,7 +2962,6 @@ func (o CurrentJobDetailsResponsePtrOutput) JobName() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The start time of the job.
 func (o CurrentJobDetailsResponsePtrOutput) StartTime() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *CurrentJobDetailsResponse) *string {
 		if v == nil {
@@ -3509,14 +2971,10 @@ func (o CurrentJobDetailsResponsePtrOutput) StartTime() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Current scenario details of the protected entity.
 type CurrentScenarioDetailsResponse struct {
-	// ARM Id of the job being executed.
-	JobId *string `pulumi:"jobId"`
-	// Scenario name.
+	JobId        *string `pulumi:"jobId"`
 	ScenarioName *string `pulumi:"scenarioName"`
-	// Start time of the workflow.
-	StartTime *string `pulumi:"startTime"`
+	StartTime    *string `pulumi:"startTime"`
 }
 
 // CurrentScenarioDetailsResponseInput is an input type that accepts CurrentScenarioDetailsResponseArgs and CurrentScenarioDetailsResponseOutput values.
@@ -3530,14 +2988,10 @@ type CurrentScenarioDetailsResponseInput interface {
 	ToCurrentScenarioDetailsResponseOutputWithContext(context.Context) CurrentScenarioDetailsResponseOutput
 }
 
-// Current scenario details of the protected entity.
 type CurrentScenarioDetailsResponseArgs struct {
-	// ARM Id of the job being executed.
-	JobId pulumi.StringPtrInput `pulumi:"jobId"`
-	// Scenario name.
+	JobId        pulumi.StringPtrInput `pulumi:"jobId"`
 	ScenarioName pulumi.StringPtrInput `pulumi:"scenarioName"`
-	// Start time of the workflow.
-	StartTime pulumi.StringPtrInput `pulumi:"startTime"`
+	StartTime    pulumi.StringPtrInput `pulumi:"startTime"`
 }
 
 func (CurrentScenarioDetailsResponseArgs) ElementType() reflect.Type {
@@ -3593,7 +3047,6 @@ func (i *currentScenarioDetailsResponsePtrType) ToCurrentScenarioDetailsResponse
 	return pulumi.ToOutputWithContext(ctx, i).(CurrentScenarioDetailsResponsePtrOutput)
 }
 
-// Current scenario details of the protected entity.
 type CurrentScenarioDetailsResponseOutput struct{ *pulumi.OutputState }
 
 func (CurrentScenarioDetailsResponseOutput) ElementType() reflect.Type {
@@ -3613,22 +3066,19 @@ func (o CurrentScenarioDetailsResponseOutput) ToCurrentScenarioDetailsResponsePt
 }
 
 func (o CurrentScenarioDetailsResponseOutput) ToCurrentScenarioDetailsResponsePtrOutputWithContext(ctx context.Context) CurrentScenarioDetailsResponsePtrOutput {
-	return o.ApplyT(func(v CurrentScenarioDetailsResponse) *CurrentScenarioDetailsResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v CurrentScenarioDetailsResponse) *CurrentScenarioDetailsResponse {
 		return &v
 	}).(CurrentScenarioDetailsResponsePtrOutput)
 }
 
-// ARM Id of the job being executed.
 func (o CurrentScenarioDetailsResponseOutput) JobId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v CurrentScenarioDetailsResponse) *string { return v.JobId }).(pulumi.StringPtrOutput)
 }
 
-// Scenario name.
 func (o CurrentScenarioDetailsResponseOutput) ScenarioName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v CurrentScenarioDetailsResponse) *string { return v.ScenarioName }).(pulumi.StringPtrOutput)
 }
 
-// Start time of the workflow.
 func (o CurrentScenarioDetailsResponseOutput) StartTime() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v CurrentScenarioDetailsResponse) *string { return v.StartTime }).(pulumi.StringPtrOutput)
 }
@@ -3648,10 +3098,15 @@ func (o CurrentScenarioDetailsResponsePtrOutput) ToCurrentScenarioDetailsRespons
 }
 
 func (o CurrentScenarioDetailsResponsePtrOutput) Elem() CurrentScenarioDetailsResponseOutput {
-	return o.ApplyT(func(v *CurrentScenarioDetailsResponse) CurrentScenarioDetailsResponse { return *v }).(CurrentScenarioDetailsResponseOutput)
+	return o.ApplyT(func(v *CurrentScenarioDetailsResponse) CurrentScenarioDetailsResponse {
+		if v != nil {
+			return *v
+		}
+		var ret CurrentScenarioDetailsResponse
+		return ret
+	}).(CurrentScenarioDetailsResponseOutput)
 }
 
-// ARM Id of the job being executed.
 func (o CurrentScenarioDetailsResponsePtrOutput) JobId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *CurrentScenarioDetailsResponse) *string {
 		if v == nil {
@@ -3661,7 +3116,6 @@ func (o CurrentScenarioDetailsResponsePtrOutput) JobId() pulumi.StringPtrOutput 
 	}).(pulumi.StringPtrOutput)
 }
 
-// Scenario name.
 func (o CurrentScenarioDetailsResponsePtrOutput) ScenarioName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *CurrentScenarioDetailsResponse) *string {
 		if v == nil {
@@ -3671,7 +3125,6 @@ func (o CurrentScenarioDetailsResponsePtrOutput) ScenarioName() pulumi.StringPtr
 	}).(pulumi.StringPtrOutput)
 }
 
-// Start time of the workflow.
 func (o CurrentScenarioDetailsResponsePtrOutput) StartTime() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *CurrentScenarioDetailsResponse) *string {
 		if v == nil {
@@ -3681,18 +3134,12 @@ func (o CurrentScenarioDetailsResponsePtrOutput) StartTime() pulumi.StringPtrOut
 	}).(pulumi.StringPtrOutput)
 }
 
-// The data store details of the MT.
 type DataStoreResponse struct {
-	// The capacity of data store in GBs.
-	Capacity *string `pulumi:"capacity"`
-	// The free space of data store in GBs.
-	FreeSpace *string `pulumi:"freeSpace"`
-	// The symbolic name of data store.
+	Capacity     *string `pulumi:"capacity"`
+	FreeSpace    *string `pulumi:"freeSpace"`
 	SymbolicName *string `pulumi:"symbolicName"`
-	// The type of data store.
-	Type *string `pulumi:"type"`
-	// The uuid of data store.
-	Uuid *string `pulumi:"uuid"`
+	Type         *string `pulumi:"type"`
+	Uuid         *string `pulumi:"uuid"`
 }
 
 // DataStoreResponseInput is an input type that accepts DataStoreResponseArgs and DataStoreResponseOutput values.
@@ -3706,18 +3153,12 @@ type DataStoreResponseInput interface {
 	ToDataStoreResponseOutputWithContext(context.Context) DataStoreResponseOutput
 }
 
-// The data store details of the MT.
 type DataStoreResponseArgs struct {
-	// The capacity of data store in GBs.
-	Capacity pulumi.StringPtrInput `pulumi:"capacity"`
-	// The free space of data store in GBs.
-	FreeSpace pulumi.StringPtrInput `pulumi:"freeSpace"`
-	// The symbolic name of data store.
+	Capacity     pulumi.StringPtrInput `pulumi:"capacity"`
+	FreeSpace    pulumi.StringPtrInput `pulumi:"freeSpace"`
 	SymbolicName pulumi.StringPtrInput `pulumi:"symbolicName"`
-	// The type of data store.
-	Type pulumi.StringPtrInput `pulumi:"type"`
-	// The uuid of data store.
-	Uuid pulumi.StringPtrInput `pulumi:"uuid"`
+	Type         pulumi.StringPtrInput `pulumi:"type"`
+	Uuid         pulumi.StringPtrInput `pulumi:"uuid"`
 }
 
 func (DataStoreResponseArgs) ElementType() reflect.Type {
@@ -3757,7 +3198,6 @@ func (i DataStoreResponseArray) ToDataStoreResponseArrayOutputWithContext(ctx co
 	return pulumi.ToOutputWithContext(ctx, i).(DataStoreResponseArrayOutput)
 }
 
-// The data store details of the MT.
 type DataStoreResponseOutput struct{ *pulumi.OutputState }
 
 func (DataStoreResponseOutput) ElementType() reflect.Type {
@@ -3772,27 +3212,22 @@ func (o DataStoreResponseOutput) ToDataStoreResponseOutputWithContext(ctx contex
 	return o
 }
 
-// The capacity of data store in GBs.
 func (o DataStoreResponseOutput) Capacity() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v DataStoreResponse) *string { return v.Capacity }).(pulumi.StringPtrOutput)
 }
 
-// The free space of data store in GBs.
 func (o DataStoreResponseOutput) FreeSpace() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v DataStoreResponse) *string { return v.FreeSpace }).(pulumi.StringPtrOutput)
 }
 
-// The symbolic name of data store.
 func (o DataStoreResponseOutput) SymbolicName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v DataStoreResponse) *string { return v.SymbolicName }).(pulumi.StringPtrOutput)
 }
 
-// The type of data store.
 func (o DataStoreResponseOutput) Type() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v DataStoreResponse) *string { return v.Type }).(pulumi.StringPtrOutput)
 }
 
-// The uuid of data store.
 func (o DataStoreResponseOutput) Uuid() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v DataStoreResponse) *string { return v.Uuid }).(pulumi.StringPtrOutput)
 }
@@ -3817,16 +3252,11 @@ func (o DataStoreResponseArrayOutput) Index(i pulumi.IntInput) DataStoreResponse
 	}).(DataStoreResponseOutput)
 }
 
-// On-prem disk details data.
 type DiskDetailsResponse struct {
-	// The hard disk max size in MB.
 	MaxSizeMB *float64 `pulumi:"maxSizeMB"`
-	// The VHD Id.
-	VhdId *string `pulumi:"vhdId"`
-	// The VHD name.
-	VhdName *string `pulumi:"vhdName"`
-	// The type of the volume.
-	VhdType *string `pulumi:"vhdType"`
+	VhdId     *string  `pulumi:"vhdId"`
+	VhdName   *string  `pulumi:"vhdName"`
+	VhdType   *string  `pulumi:"vhdType"`
 }
 
 // DiskDetailsResponseInput is an input type that accepts DiskDetailsResponseArgs and DiskDetailsResponseOutput values.
@@ -3840,16 +3270,11 @@ type DiskDetailsResponseInput interface {
 	ToDiskDetailsResponseOutputWithContext(context.Context) DiskDetailsResponseOutput
 }
 
-// On-prem disk details data.
 type DiskDetailsResponseArgs struct {
-	// The hard disk max size in MB.
 	MaxSizeMB pulumi.Float64PtrInput `pulumi:"maxSizeMB"`
-	// The VHD Id.
-	VhdId pulumi.StringPtrInput `pulumi:"vhdId"`
-	// The VHD name.
-	VhdName pulumi.StringPtrInput `pulumi:"vhdName"`
-	// The type of the volume.
-	VhdType pulumi.StringPtrInput `pulumi:"vhdType"`
+	VhdId     pulumi.StringPtrInput  `pulumi:"vhdId"`
+	VhdName   pulumi.StringPtrInput  `pulumi:"vhdName"`
+	VhdType   pulumi.StringPtrInput  `pulumi:"vhdType"`
 }
 
 func (DiskDetailsResponseArgs) ElementType() reflect.Type {
@@ -3889,7 +3314,6 @@ func (i DiskDetailsResponseArray) ToDiskDetailsResponseArrayOutputWithContext(ct
 	return pulumi.ToOutputWithContext(ctx, i).(DiskDetailsResponseArrayOutput)
 }
 
-// On-prem disk details data.
 type DiskDetailsResponseOutput struct{ *pulumi.OutputState }
 
 func (DiskDetailsResponseOutput) ElementType() reflect.Type {
@@ -3904,22 +3328,18 @@ func (o DiskDetailsResponseOutput) ToDiskDetailsResponseOutputWithContext(ctx co
 	return o
 }
 
-// The hard disk max size in MB.
 func (o DiskDetailsResponseOutput) MaxSizeMB() pulumi.Float64PtrOutput {
 	return o.ApplyT(func(v DiskDetailsResponse) *float64 { return v.MaxSizeMB }).(pulumi.Float64PtrOutput)
 }
 
-// The VHD Id.
 func (o DiskDetailsResponseOutput) VhdId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v DiskDetailsResponse) *string { return v.VhdId }).(pulumi.StringPtrOutput)
 }
 
-// The VHD name.
 func (o DiskDetailsResponseOutput) VhdName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v DiskDetailsResponse) *string { return v.VhdName }).(pulumi.StringPtrOutput)
 }
 
-// The type of the volume.
 func (o DiskDetailsResponseOutput) VhdType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v DiskDetailsResponse) *string { return v.VhdType }).(pulumi.StringPtrOutput)
 }
@@ -3944,12 +3364,9 @@ func (o DiskDetailsResponseArrayOutput) Index(i pulumi.IntInput) DiskDetailsResp
 	}).(DiskDetailsResponseOutput)
 }
 
-// Recovery disk encryption info (BEK and KEK).
 type DiskEncryptionInfo struct {
-	// The recovery KeyVault reference for secret.
 	DiskEncryptionKeyInfo *DiskEncryptionKeyInfo `pulumi:"diskEncryptionKeyInfo"`
-	// The recovery KeyVault reference for key.
-	KeyEncryptionKeyInfo *KeyEncryptionKeyInfo `pulumi:"keyEncryptionKeyInfo"`
+	KeyEncryptionKeyInfo  *KeyEncryptionKeyInfo  `pulumi:"keyEncryptionKeyInfo"`
 }
 
 // DiskEncryptionInfoInput is an input type that accepts DiskEncryptionInfoArgs and DiskEncryptionInfoOutput values.
@@ -3963,12 +3380,9 @@ type DiskEncryptionInfoInput interface {
 	ToDiskEncryptionInfoOutputWithContext(context.Context) DiskEncryptionInfoOutput
 }
 
-// Recovery disk encryption info (BEK and KEK).
 type DiskEncryptionInfoArgs struct {
-	// The recovery KeyVault reference for secret.
 	DiskEncryptionKeyInfo DiskEncryptionKeyInfoPtrInput `pulumi:"diskEncryptionKeyInfo"`
-	// The recovery KeyVault reference for key.
-	KeyEncryptionKeyInfo KeyEncryptionKeyInfoPtrInput `pulumi:"keyEncryptionKeyInfo"`
+	KeyEncryptionKeyInfo  KeyEncryptionKeyInfoPtrInput  `pulumi:"keyEncryptionKeyInfo"`
 }
 
 func (DiskEncryptionInfoArgs) ElementType() reflect.Type {
@@ -4024,7 +3438,6 @@ func (i *diskEncryptionInfoPtrType) ToDiskEncryptionInfoPtrOutputWithContext(ctx
 	return pulumi.ToOutputWithContext(ctx, i).(DiskEncryptionInfoPtrOutput)
 }
 
-// Recovery disk encryption info (BEK and KEK).
 type DiskEncryptionInfoOutput struct{ *pulumi.OutputState }
 
 func (DiskEncryptionInfoOutput) ElementType() reflect.Type {
@@ -4044,17 +3457,15 @@ func (o DiskEncryptionInfoOutput) ToDiskEncryptionInfoPtrOutput() DiskEncryption
 }
 
 func (o DiskEncryptionInfoOutput) ToDiskEncryptionInfoPtrOutputWithContext(ctx context.Context) DiskEncryptionInfoPtrOutput {
-	return o.ApplyT(func(v DiskEncryptionInfo) *DiskEncryptionInfo {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v DiskEncryptionInfo) *DiskEncryptionInfo {
 		return &v
 	}).(DiskEncryptionInfoPtrOutput)
 }
 
-// The recovery KeyVault reference for secret.
 func (o DiskEncryptionInfoOutput) DiskEncryptionKeyInfo() DiskEncryptionKeyInfoPtrOutput {
 	return o.ApplyT(func(v DiskEncryptionInfo) *DiskEncryptionKeyInfo { return v.DiskEncryptionKeyInfo }).(DiskEncryptionKeyInfoPtrOutput)
 }
 
-// The recovery KeyVault reference for key.
 func (o DiskEncryptionInfoOutput) KeyEncryptionKeyInfo() KeyEncryptionKeyInfoPtrOutput {
 	return o.ApplyT(func(v DiskEncryptionInfo) *KeyEncryptionKeyInfo { return v.KeyEncryptionKeyInfo }).(KeyEncryptionKeyInfoPtrOutput)
 }
@@ -4074,10 +3485,15 @@ func (o DiskEncryptionInfoPtrOutput) ToDiskEncryptionInfoPtrOutputWithContext(ct
 }
 
 func (o DiskEncryptionInfoPtrOutput) Elem() DiskEncryptionInfoOutput {
-	return o.ApplyT(func(v *DiskEncryptionInfo) DiskEncryptionInfo { return *v }).(DiskEncryptionInfoOutput)
+	return o.ApplyT(func(v *DiskEncryptionInfo) DiskEncryptionInfo {
+		if v != nil {
+			return *v
+		}
+		var ret DiskEncryptionInfo
+		return ret
+	}).(DiskEncryptionInfoOutput)
 }
 
-// The recovery KeyVault reference for secret.
 func (o DiskEncryptionInfoPtrOutput) DiskEncryptionKeyInfo() DiskEncryptionKeyInfoPtrOutput {
 	return o.ApplyT(func(v *DiskEncryptionInfo) *DiskEncryptionKeyInfo {
 		if v == nil {
@@ -4087,7 +3503,6 @@ func (o DiskEncryptionInfoPtrOutput) DiskEncryptionKeyInfo() DiskEncryptionKeyIn
 	}).(DiskEncryptionKeyInfoPtrOutput)
 }
 
-// The recovery KeyVault reference for key.
 func (o DiskEncryptionInfoPtrOutput) KeyEncryptionKeyInfo() KeyEncryptionKeyInfoPtrOutput {
 	return o.ApplyT(func(v *DiskEncryptionInfo) *KeyEncryptionKeyInfo {
 		if v == nil {
@@ -4097,12 +3512,9 @@ func (o DiskEncryptionInfoPtrOutput) KeyEncryptionKeyInfo() KeyEncryptionKeyInfo
 	}).(KeyEncryptionKeyInfoPtrOutput)
 }
 
-// Disk Encryption Key Information (BitLocker Encryption Key (BEK) on Windows).
 type DiskEncryptionKeyInfo struct {
-	// The KeyVault resource ARM id for secret.
 	KeyVaultResourceArmId *string `pulumi:"keyVaultResourceArmId"`
-	// The secret url / identifier.
-	SecretIdentifier *string `pulumi:"secretIdentifier"`
+	SecretIdentifier      *string `pulumi:"secretIdentifier"`
 }
 
 // DiskEncryptionKeyInfoInput is an input type that accepts DiskEncryptionKeyInfoArgs and DiskEncryptionKeyInfoOutput values.
@@ -4116,12 +3528,9 @@ type DiskEncryptionKeyInfoInput interface {
 	ToDiskEncryptionKeyInfoOutputWithContext(context.Context) DiskEncryptionKeyInfoOutput
 }
 
-// Disk Encryption Key Information (BitLocker Encryption Key (BEK) on Windows).
 type DiskEncryptionKeyInfoArgs struct {
-	// The KeyVault resource ARM id for secret.
 	KeyVaultResourceArmId pulumi.StringPtrInput `pulumi:"keyVaultResourceArmId"`
-	// The secret url / identifier.
-	SecretIdentifier pulumi.StringPtrInput `pulumi:"secretIdentifier"`
+	SecretIdentifier      pulumi.StringPtrInput `pulumi:"secretIdentifier"`
 }
 
 func (DiskEncryptionKeyInfoArgs) ElementType() reflect.Type {
@@ -4177,7 +3586,6 @@ func (i *diskEncryptionKeyInfoPtrType) ToDiskEncryptionKeyInfoPtrOutputWithConte
 	return pulumi.ToOutputWithContext(ctx, i).(DiskEncryptionKeyInfoPtrOutput)
 }
 
-// Disk Encryption Key Information (BitLocker Encryption Key (BEK) on Windows).
 type DiskEncryptionKeyInfoOutput struct{ *pulumi.OutputState }
 
 func (DiskEncryptionKeyInfoOutput) ElementType() reflect.Type {
@@ -4197,17 +3605,15 @@ func (o DiskEncryptionKeyInfoOutput) ToDiskEncryptionKeyInfoPtrOutput() DiskEncr
 }
 
 func (o DiskEncryptionKeyInfoOutput) ToDiskEncryptionKeyInfoPtrOutputWithContext(ctx context.Context) DiskEncryptionKeyInfoPtrOutput {
-	return o.ApplyT(func(v DiskEncryptionKeyInfo) *DiskEncryptionKeyInfo {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v DiskEncryptionKeyInfo) *DiskEncryptionKeyInfo {
 		return &v
 	}).(DiskEncryptionKeyInfoPtrOutput)
 }
 
-// The KeyVault resource ARM id for secret.
 func (o DiskEncryptionKeyInfoOutput) KeyVaultResourceArmId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v DiskEncryptionKeyInfo) *string { return v.KeyVaultResourceArmId }).(pulumi.StringPtrOutput)
 }
 
-// The secret url / identifier.
 func (o DiskEncryptionKeyInfoOutput) SecretIdentifier() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v DiskEncryptionKeyInfo) *string { return v.SecretIdentifier }).(pulumi.StringPtrOutput)
 }
@@ -4227,10 +3633,15 @@ func (o DiskEncryptionKeyInfoPtrOutput) ToDiskEncryptionKeyInfoPtrOutputWithCont
 }
 
 func (o DiskEncryptionKeyInfoPtrOutput) Elem() DiskEncryptionKeyInfoOutput {
-	return o.ApplyT(func(v *DiskEncryptionKeyInfo) DiskEncryptionKeyInfo { return *v }).(DiskEncryptionKeyInfoOutput)
+	return o.ApplyT(func(v *DiskEncryptionKeyInfo) DiskEncryptionKeyInfo {
+		if v != nil {
+			return *v
+		}
+		var ret DiskEncryptionKeyInfo
+		return ret
+	}).(DiskEncryptionKeyInfoOutput)
 }
 
-// The KeyVault resource ARM id for secret.
 func (o DiskEncryptionKeyInfoPtrOutput) KeyVaultResourceArmId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *DiskEncryptionKeyInfo) *string {
 		if v == nil {
@@ -4240,7 +3651,6 @@ func (o DiskEncryptionKeyInfoPtrOutput) KeyVaultResourceArmId() pulumi.StringPtr
 	}).(pulumi.StringPtrOutput)
 }
 
-// The secret url / identifier.
 func (o DiskEncryptionKeyInfoPtrOutput) SecretIdentifier() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *DiskEncryptionKeyInfo) *string {
 		if v == nil {
@@ -4250,11 +3660,8 @@ func (o DiskEncryptionKeyInfoPtrOutput) SecretIdentifier() pulumi.StringPtrOutpu
 	}).(pulumi.StringPtrOutput)
 }
 
-// Enable migration input properties.
 type EnableMigrationInputProperties struct {
-	// The policy Id.
-	PolicyId string `pulumi:"policyId"`
-	// The provider specific details.
+	PolicyId                string                        `pulumi:"policyId"`
 	ProviderSpecificDetails VMwareCbtEnableMigrationInput `pulumi:"providerSpecificDetails"`
 }
 
@@ -4269,11 +3676,8 @@ type EnableMigrationInputPropertiesInput interface {
 	ToEnableMigrationInputPropertiesOutputWithContext(context.Context) EnableMigrationInputPropertiesOutput
 }
 
-// Enable migration input properties.
 type EnableMigrationInputPropertiesArgs struct {
-	// The policy Id.
-	PolicyId pulumi.StringInput `pulumi:"policyId"`
-	// The provider specific details.
+	PolicyId                pulumi.StringInput                 `pulumi:"policyId"`
 	ProviderSpecificDetails VMwareCbtEnableMigrationInputInput `pulumi:"providerSpecificDetails"`
 }
 
@@ -4330,7 +3734,6 @@ func (i *enableMigrationInputPropertiesPtrType) ToEnableMigrationInputProperties
 	return pulumi.ToOutputWithContext(ctx, i).(EnableMigrationInputPropertiesPtrOutput)
 }
 
-// Enable migration input properties.
 type EnableMigrationInputPropertiesOutput struct{ *pulumi.OutputState }
 
 func (EnableMigrationInputPropertiesOutput) ElementType() reflect.Type {
@@ -4350,17 +3753,15 @@ func (o EnableMigrationInputPropertiesOutput) ToEnableMigrationInputPropertiesPt
 }
 
 func (o EnableMigrationInputPropertiesOutput) ToEnableMigrationInputPropertiesPtrOutputWithContext(ctx context.Context) EnableMigrationInputPropertiesPtrOutput {
-	return o.ApplyT(func(v EnableMigrationInputProperties) *EnableMigrationInputProperties {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v EnableMigrationInputProperties) *EnableMigrationInputProperties {
 		return &v
 	}).(EnableMigrationInputPropertiesPtrOutput)
 }
 
-// The policy Id.
 func (o EnableMigrationInputPropertiesOutput) PolicyId() pulumi.StringOutput {
 	return o.ApplyT(func(v EnableMigrationInputProperties) string { return v.PolicyId }).(pulumi.StringOutput)
 }
 
-// The provider specific details.
 func (o EnableMigrationInputPropertiesOutput) ProviderSpecificDetails() VMwareCbtEnableMigrationInputOutput {
 	return o.ApplyT(func(v EnableMigrationInputProperties) VMwareCbtEnableMigrationInput { return v.ProviderSpecificDetails }).(VMwareCbtEnableMigrationInputOutput)
 }
@@ -4380,10 +3781,15 @@ func (o EnableMigrationInputPropertiesPtrOutput) ToEnableMigrationInputPropertie
 }
 
 func (o EnableMigrationInputPropertiesPtrOutput) Elem() EnableMigrationInputPropertiesOutput {
-	return o.ApplyT(func(v *EnableMigrationInputProperties) EnableMigrationInputProperties { return *v }).(EnableMigrationInputPropertiesOutput)
+	return o.ApplyT(func(v *EnableMigrationInputProperties) EnableMigrationInputProperties {
+		if v != nil {
+			return *v
+		}
+		var ret EnableMigrationInputProperties
+		return ret
+	}).(EnableMigrationInputPropertiesOutput)
 }
 
-// The policy Id.
 func (o EnableMigrationInputPropertiesPtrOutput) PolicyId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *EnableMigrationInputProperties) *string {
 		if v == nil {
@@ -4393,7 +3799,6 @@ func (o EnableMigrationInputPropertiesPtrOutput) PolicyId() pulumi.StringPtrOutp
 	}).(pulumi.StringPtrOutput)
 }
 
-// The provider specific details.
 func (o EnableMigrationInputPropertiesPtrOutput) ProviderSpecificDetails() VMwareCbtEnableMigrationInputPtrOutput {
 	return o.ApplyT(func(v *EnableMigrationInputProperties) *VMwareCbtEnableMigrationInput {
 		if v == nil {
@@ -4403,13 +3808,9 @@ func (o EnableMigrationInputPropertiesPtrOutput) ProviderSpecificDetails() VMwar
 	}).(VMwareCbtEnableMigrationInputPtrOutput)
 }
 
-// Enable protection input properties.
 type EnableProtectionInputProperties struct {
-	// The Policy Id.
-	PolicyId *string `pulumi:"policyId"`
-	// The protectable item Id.
-	ProtectableItemId *string `pulumi:"protectableItemId"`
-	// The ReplicationProviderInput. For HyperVReplicaAzure provider, it will be AzureEnableProtectionInput object. For San provider, it will be SanEnableProtectionInput object. For HyperVReplicaAzure provider, it can be null.
+	PolicyId                *string     `pulumi:"policyId"`
+	ProtectableItemId       *string     `pulumi:"protectableItemId"`
 	ProviderSpecificDetails interface{} `pulumi:"providerSpecificDetails"`
 }
 
@@ -4424,14 +3825,10 @@ type EnableProtectionInputPropertiesInput interface {
 	ToEnableProtectionInputPropertiesOutputWithContext(context.Context) EnableProtectionInputPropertiesOutput
 }
 
-// Enable protection input properties.
 type EnableProtectionInputPropertiesArgs struct {
-	// The Policy Id.
-	PolicyId pulumi.StringPtrInput `pulumi:"policyId"`
-	// The protectable item Id.
-	ProtectableItemId pulumi.StringPtrInput `pulumi:"protectableItemId"`
-	// The ReplicationProviderInput. For HyperVReplicaAzure provider, it will be AzureEnableProtectionInput object. For San provider, it will be SanEnableProtectionInput object. For HyperVReplicaAzure provider, it can be null.
-	ProviderSpecificDetails pulumi.Input `pulumi:"providerSpecificDetails"`
+	PolicyId                pulumi.StringPtrInput `pulumi:"policyId"`
+	ProtectableItemId       pulumi.StringPtrInput `pulumi:"protectableItemId"`
+	ProviderSpecificDetails pulumi.Input          `pulumi:"providerSpecificDetails"`
 }
 
 func (EnableProtectionInputPropertiesArgs) ElementType() reflect.Type {
@@ -4487,7 +3884,6 @@ func (i *enableProtectionInputPropertiesPtrType) ToEnableProtectionInputProperti
 	return pulumi.ToOutputWithContext(ctx, i).(EnableProtectionInputPropertiesPtrOutput)
 }
 
-// Enable protection input properties.
 type EnableProtectionInputPropertiesOutput struct{ *pulumi.OutputState }
 
 func (EnableProtectionInputPropertiesOutput) ElementType() reflect.Type {
@@ -4507,22 +3903,19 @@ func (o EnableProtectionInputPropertiesOutput) ToEnableProtectionInputProperties
 }
 
 func (o EnableProtectionInputPropertiesOutput) ToEnableProtectionInputPropertiesPtrOutputWithContext(ctx context.Context) EnableProtectionInputPropertiesPtrOutput {
-	return o.ApplyT(func(v EnableProtectionInputProperties) *EnableProtectionInputProperties {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v EnableProtectionInputProperties) *EnableProtectionInputProperties {
 		return &v
 	}).(EnableProtectionInputPropertiesPtrOutput)
 }
 
-// The Policy Id.
 func (o EnableProtectionInputPropertiesOutput) PolicyId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v EnableProtectionInputProperties) *string { return v.PolicyId }).(pulumi.StringPtrOutput)
 }
 
-// The protectable item Id.
 func (o EnableProtectionInputPropertiesOutput) ProtectableItemId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v EnableProtectionInputProperties) *string { return v.ProtectableItemId }).(pulumi.StringPtrOutput)
 }
 
-// The ReplicationProviderInput. For HyperVReplicaAzure provider, it will be AzureEnableProtectionInput object. For San provider, it will be SanEnableProtectionInput object. For HyperVReplicaAzure provider, it can be null.
 func (o EnableProtectionInputPropertiesOutput) ProviderSpecificDetails() pulumi.AnyOutput {
 	return o.ApplyT(func(v EnableProtectionInputProperties) interface{} { return v.ProviderSpecificDetails }).(pulumi.AnyOutput)
 }
@@ -4542,10 +3935,15 @@ func (o EnableProtectionInputPropertiesPtrOutput) ToEnableProtectionInputPropert
 }
 
 func (o EnableProtectionInputPropertiesPtrOutput) Elem() EnableProtectionInputPropertiesOutput {
-	return o.ApplyT(func(v *EnableProtectionInputProperties) EnableProtectionInputProperties { return *v }).(EnableProtectionInputPropertiesOutput)
+	return o.ApplyT(func(v *EnableProtectionInputProperties) EnableProtectionInputProperties {
+		if v != nil {
+			return *v
+		}
+		var ret EnableProtectionInputProperties
+		return ret
+	}).(EnableProtectionInputPropertiesOutput)
 }
 
-// The Policy Id.
 func (o EnableProtectionInputPropertiesPtrOutput) PolicyId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *EnableProtectionInputProperties) *string {
 		if v == nil {
@@ -4555,7 +3953,6 @@ func (o EnableProtectionInputPropertiesPtrOutput) PolicyId() pulumi.StringPtrOut
 	}).(pulumi.StringPtrOutput)
 }
 
-// The protectable item Id.
 func (o EnableProtectionInputPropertiesPtrOutput) ProtectableItemId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *EnableProtectionInputProperties) *string {
 		if v == nil {
@@ -4565,7 +3962,6 @@ func (o EnableProtectionInputPropertiesPtrOutput) ProtectableItemId() pulumi.Str
 	}).(pulumi.StringPtrOutput)
 }
 
-// The ReplicationProviderInput. For HyperVReplicaAzure provider, it will be AzureEnableProtectionInput object. For San provider, it will be SanEnableProtectionInput object. For HyperVReplicaAzure provider, it can be null.
 func (o EnableProtectionInputPropertiesPtrOutput) ProviderSpecificDetails() pulumi.AnyOutput {
 	return o.ApplyT(func(v *EnableProtectionInputProperties) interface{} {
 		if v == nil {
@@ -4575,14 +3971,10 @@ func (o EnableProtectionInputPropertiesPtrOutput) ProviderSpecificDetails() pulu
 	}).(pulumi.AnyOutput)
 }
 
-// Encryption details for the fabric.
 type EncryptionDetailsResponse struct {
-	// The key encryption key certificate expiry date.
 	KekCertExpiryDate *string `pulumi:"kekCertExpiryDate"`
-	// The key encryption key certificate thumbprint.
 	KekCertThumbprint *string `pulumi:"kekCertThumbprint"`
-	// The key encryption key state for the Vmm.
-	KekState *string `pulumi:"kekState"`
+	KekState          *string `pulumi:"kekState"`
 }
 
 // EncryptionDetailsResponseInput is an input type that accepts EncryptionDetailsResponseArgs and EncryptionDetailsResponseOutput values.
@@ -4596,14 +3988,10 @@ type EncryptionDetailsResponseInput interface {
 	ToEncryptionDetailsResponseOutputWithContext(context.Context) EncryptionDetailsResponseOutput
 }
 
-// Encryption details for the fabric.
 type EncryptionDetailsResponseArgs struct {
-	// The key encryption key certificate expiry date.
 	KekCertExpiryDate pulumi.StringPtrInput `pulumi:"kekCertExpiryDate"`
-	// The key encryption key certificate thumbprint.
 	KekCertThumbprint pulumi.StringPtrInput `pulumi:"kekCertThumbprint"`
-	// The key encryption key state for the Vmm.
-	KekState pulumi.StringPtrInput `pulumi:"kekState"`
+	KekState          pulumi.StringPtrInput `pulumi:"kekState"`
 }
 
 func (EncryptionDetailsResponseArgs) ElementType() reflect.Type {
@@ -4659,7 +4047,6 @@ func (i *encryptionDetailsResponsePtrType) ToEncryptionDetailsResponsePtrOutputW
 	return pulumi.ToOutputWithContext(ctx, i).(EncryptionDetailsResponsePtrOutput)
 }
 
-// Encryption details for the fabric.
 type EncryptionDetailsResponseOutput struct{ *pulumi.OutputState }
 
 func (EncryptionDetailsResponseOutput) ElementType() reflect.Type {
@@ -4679,22 +4066,19 @@ func (o EncryptionDetailsResponseOutput) ToEncryptionDetailsResponsePtrOutput() 
 }
 
 func (o EncryptionDetailsResponseOutput) ToEncryptionDetailsResponsePtrOutputWithContext(ctx context.Context) EncryptionDetailsResponsePtrOutput {
-	return o.ApplyT(func(v EncryptionDetailsResponse) *EncryptionDetailsResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v EncryptionDetailsResponse) *EncryptionDetailsResponse {
 		return &v
 	}).(EncryptionDetailsResponsePtrOutput)
 }
 
-// The key encryption key certificate expiry date.
 func (o EncryptionDetailsResponseOutput) KekCertExpiryDate() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v EncryptionDetailsResponse) *string { return v.KekCertExpiryDate }).(pulumi.StringPtrOutput)
 }
 
-// The key encryption key certificate thumbprint.
 func (o EncryptionDetailsResponseOutput) KekCertThumbprint() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v EncryptionDetailsResponse) *string { return v.KekCertThumbprint }).(pulumi.StringPtrOutput)
 }
 
-// The key encryption key state for the Vmm.
 func (o EncryptionDetailsResponseOutput) KekState() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v EncryptionDetailsResponse) *string { return v.KekState }).(pulumi.StringPtrOutput)
 }
@@ -4714,10 +4098,15 @@ func (o EncryptionDetailsResponsePtrOutput) ToEncryptionDetailsResponsePtrOutput
 }
 
 func (o EncryptionDetailsResponsePtrOutput) Elem() EncryptionDetailsResponseOutput {
-	return o.ApplyT(func(v *EncryptionDetailsResponse) EncryptionDetailsResponse { return *v }).(EncryptionDetailsResponseOutput)
+	return o.ApplyT(func(v *EncryptionDetailsResponse) EncryptionDetailsResponse {
+		if v != nil {
+			return *v
+		}
+		var ret EncryptionDetailsResponse
+		return ret
+	}).(EncryptionDetailsResponseOutput)
 }
 
-// The key encryption key certificate expiry date.
 func (o EncryptionDetailsResponsePtrOutput) KekCertExpiryDate() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *EncryptionDetailsResponse) *string {
 		if v == nil {
@@ -4727,7 +4116,6 @@ func (o EncryptionDetailsResponsePtrOutput) KekCertExpiryDate() pulumi.StringPtr
 	}).(pulumi.StringPtrOutput)
 }
 
-// The key encryption key certificate thumbprint.
 func (o EncryptionDetailsResponsePtrOutput) KekCertThumbprint() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *EncryptionDetailsResponse) *string {
 		if v == nil {
@@ -4737,7 +4125,6 @@ func (o EncryptionDetailsResponsePtrOutput) KekCertThumbprint() pulumi.StringPtr
 	}).(pulumi.StringPtrOutput)
 }
 
-// The key encryption key state for the Vmm.
 func (o EncryptionDetailsResponsePtrOutput) KekState() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *EncryptionDetailsResponse) *string {
 		if v == nil {
@@ -4747,9 +4134,7 @@ func (o EncryptionDetailsResponsePtrOutput) KekState() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Properties of site details provided during the time of site creation
 type FabricCreationInputProperties struct {
-	// Fabric provider specific creation input.
 	CustomDetails interface{} `pulumi:"customDetails"`
 }
 
@@ -4764,9 +4149,7 @@ type FabricCreationInputPropertiesInput interface {
 	ToFabricCreationInputPropertiesOutputWithContext(context.Context) FabricCreationInputPropertiesOutput
 }
 
-// Properties of site details provided during the time of site creation
 type FabricCreationInputPropertiesArgs struct {
-	// Fabric provider specific creation input.
 	CustomDetails pulumi.Input `pulumi:"customDetails"`
 }
 
@@ -4823,7 +4206,6 @@ func (i *fabricCreationInputPropertiesPtrType) ToFabricCreationInputPropertiesPt
 	return pulumi.ToOutputWithContext(ctx, i).(FabricCreationInputPropertiesPtrOutput)
 }
 
-// Properties of site details provided during the time of site creation
 type FabricCreationInputPropertiesOutput struct{ *pulumi.OutputState }
 
 func (FabricCreationInputPropertiesOutput) ElementType() reflect.Type {
@@ -4843,12 +4225,11 @@ func (o FabricCreationInputPropertiesOutput) ToFabricCreationInputPropertiesPtrO
 }
 
 func (o FabricCreationInputPropertiesOutput) ToFabricCreationInputPropertiesPtrOutputWithContext(ctx context.Context) FabricCreationInputPropertiesPtrOutput {
-	return o.ApplyT(func(v FabricCreationInputProperties) *FabricCreationInputProperties {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v FabricCreationInputProperties) *FabricCreationInputProperties {
 		return &v
 	}).(FabricCreationInputPropertiesPtrOutput)
 }
 
-// Fabric provider specific creation input.
 func (o FabricCreationInputPropertiesOutput) CustomDetails() pulumi.AnyOutput {
 	return o.ApplyT(func(v FabricCreationInputProperties) interface{} { return v.CustomDetails }).(pulumi.AnyOutput)
 }
@@ -4868,10 +4249,15 @@ func (o FabricCreationInputPropertiesPtrOutput) ToFabricCreationInputPropertiesP
 }
 
 func (o FabricCreationInputPropertiesPtrOutput) Elem() FabricCreationInputPropertiesOutput {
-	return o.ApplyT(func(v *FabricCreationInputProperties) FabricCreationInputProperties { return *v }).(FabricCreationInputPropertiesOutput)
+	return o.ApplyT(func(v *FabricCreationInputProperties) FabricCreationInputProperties {
+		if v != nil {
+			return *v
+		}
+		var ret FabricCreationInputProperties
+		return ret
+	}).(FabricCreationInputPropertiesOutput)
 }
 
-// Fabric provider specific creation input.
 func (o FabricCreationInputPropertiesPtrOutput) CustomDetails() pulumi.AnyOutput {
 	return o.ApplyT(func(v *FabricCreationInputProperties) interface{} {
 		if v == nil {
@@ -4881,23 +4267,14 @@ func (o FabricCreationInputPropertiesPtrOutput) CustomDetails() pulumi.AnyOutput
 	}).(pulumi.AnyOutput)
 }
 
-// Fabric properties.
 type FabricPropertiesResponse struct {
-	// BCDR state of the fabric.
-	BcdrState *string `pulumi:"bcdrState"`
-	// Fabric specific settings.
-	CustomDetails interface{} `pulumi:"customDetails"`
-	// Encryption details for the fabric.
-	EncryptionDetails *EncryptionDetailsResponse `pulumi:"encryptionDetails"`
-	// Friendly name of the fabric.
-	FriendlyName *string `pulumi:"friendlyName"`
-	// Health of fabric.
-	Health *string `pulumi:"health"`
-	// Fabric health error details.
-	HealthErrorDetails []HealthErrorResponse `pulumi:"healthErrorDetails"`
-	// Dra Registration Id.
-	InternalIdentifier *string `pulumi:"internalIdentifier"`
-	// Rollover encryption details for the fabric.
+	BcdrState                 *string                    `pulumi:"bcdrState"`
+	CustomDetails             interface{}                `pulumi:"customDetails"`
+	EncryptionDetails         *EncryptionDetailsResponse `pulumi:"encryptionDetails"`
+	FriendlyName              *string                    `pulumi:"friendlyName"`
+	Health                    *string                    `pulumi:"health"`
+	HealthErrorDetails        []HealthErrorResponse      `pulumi:"healthErrorDetails"`
+	InternalIdentifier        *string                    `pulumi:"internalIdentifier"`
 	RolloverEncryptionDetails *EncryptionDetailsResponse `pulumi:"rolloverEncryptionDetails"`
 }
 
@@ -4912,23 +4289,14 @@ type FabricPropertiesResponseInput interface {
 	ToFabricPropertiesResponseOutputWithContext(context.Context) FabricPropertiesResponseOutput
 }
 
-// Fabric properties.
 type FabricPropertiesResponseArgs struct {
-	// BCDR state of the fabric.
-	BcdrState pulumi.StringPtrInput `pulumi:"bcdrState"`
-	// Fabric specific settings.
-	CustomDetails pulumi.Input `pulumi:"customDetails"`
-	// Encryption details for the fabric.
-	EncryptionDetails EncryptionDetailsResponsePtrInput `pulumi:"encryptionDetails"`
-	// Friendly name of the fabric.
-	FriendlyName pulumi.StringPtrInput `pulumi:"friendlyName"`
-	// Health of fabric.
-	Health pulumi.StringPtrInput `pulumi:"health"`
-	// Fabric health error details.
-	HealthErrorDetails HealthErrorResponseArrayInput `pulumi:"healthErrorDetails"`
-	// Dra Registration Id.
-	InternalIdentifier pulumi.StringPtrInput `pulumi:"internalIdentifier"`
-	// Rollover encryption details for the fabric.
+	BcdrState                 pulumi.StringPtrInput             `pulumi:"bcdrState"`
+	CustomDetails             pulumi.Input                      `pulumi:"customDetails"`
+	EncryptionDetails         EncryptionDetailsResponsePtrInput `pulumi:"encryptionDetails"`
+	FriendlyName              pulumi.StringPtrInput             `pulumi:"friendlyName"`
+	Health                    pulumi.StringPtrInput             `pulumi:"health"`
+	HealthErrorDetails        HealthErrorResponseArrayInput     `pulumi:"healthErrorDetails"`
+	InternalIdentifier        pulumi.StringPtrInput             `pulumi:"internalIdentifier"`
 	RolloverEncryptionDetails EncryptionDetailsResponsePtrInput `pulumi:"rolloverEncryptionDetails"`
 }
 
@@ -4985,7 +4353,6 @@ func (i *fabricPropertiesResponsePtrType) ToFabricPropertiesResponsePtrOutputWit
 	return pulumi.ToOutputWithContext(ctx, i).(FabricPropertiesResponsePtrOutput)
 }
 
-// Fabric properties.
 type FabricPropertiesResponseOutput struct{ *pulumi.OutputState }
 
 func (FabricPropertiesResponseOutput) ElementType() reflect.Type {
@@ -5005,47 +4372,39 @@ func (o FabricPropertiesResponseOutput) ToFabricPropertiesResponsePtrOutput() Fa
 }
 
 func (o FabricPropertiesResponseOutput) ToFabricPropertiesResponsePtrOutputWithContext(ctx context.Context) FabricPropertiesResponsePtrOutput {
-	return o.ApplyT(func(v FabricPropertiesResponse) *FabricPropertiesResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v FabricPropertiesResponse) *FabricPropertiesResponse {
 		return &v
 	}).(FabricPropertiesResponsePtrOutput)
 }
 
-// BCDR state of the fabric.
 func (o FabricPropertiesResponseOutput) BcdrState() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v FabricPropertiesResponse) *string { return v.BcdrState }).(pulumi.StringPtrOutput)
 }
 
-// Fabric specific settings.
 func (o FabricPropertiesResponseOutput) CustomDetails() pulumi.AnyOutput {
 	return o.ApplyT(func(v FabricPropertiesResponse) interface{} { return v.CustomDetails }).(pulumi.AnyOutput)
 }
 
-// Encryption details for the fabric.
 func (o FabricPropertiesResponseOutput) EncryptionDetails() EncryptionDetailsResponsePtrOutput {
 	return o.ApplyT(func(v FabricPropertiesResponse) *EncryptionDetailsResponse { return v.EncryptionDetails }).(EncryptionDetailsResponsePtrOutput)
 }
 
-// Friendly name of the fabric.
 func (o FabricPropertiesResponseOutput) FriendlyName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v FabricPropertiesResponse) *string { return v.FriendlyName }).(pulumi.StringPtrOutput)
 }
 
-// Health of fabric.
 func (o FabricPropertiesResponseOutput) Health() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v FabricPropertiesResponse) *string { return v.Health }).(pulumi.StringPtrOutput)
 }
 
-// Fabric health error details.
 func (o FabricPropertiesResponseOutput) HealthErrorDetails() HealthErrorResponseArrayOutput {
 	return o.ApplyT(func(v FabricPropertiesResponse) []HealthErrorResponse { return v.HealthErrorDetails }).(HealthErrorResponseArrayOutput)
 }
 
-// Dra Registration Id.
 func (o FabricPropertiesResponseOutput) InternalIdentifier() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v FabricPropertiesResponse) *string { return v.InternalIdentifier }).(pulumi.StringPtrOutput)
 }
 
-// Rollover encryption details for the fabric.
 func (o FabricPropertiesResponseOutput) RolloverEncryptionDetails() EncryptionDetailsResponsePtrOutput {
 	return o.ApplyT(func(v FabricPropertiesResponse) *EncryptionDetailsResponse { return v.RolloverEncryptionDetails }).(EncryptionDetailsResponsePtrOutput)
 }
@@ -5065,10 +4424,15 @@ func (o FabricPropertiesResponsePtrOutput) ToFabricPropertiesResponsePtrOutputWi
 }
 
 func (o FabricPropertiesResponsePtrOutput) Elem() FabricPropertiesResponseOutput {
-	return o.ApplyT(func(v *FabricPropertiesResponse) FabricPropertiesResponse { return *v }).(FabricPropertiesResponseOutput)
+	return o.ApplyT(func(v *FabricPropertiesResponse) FabricPropertiesResponse {
+		if v != nil {
+			return *v
+		}
+		var ret FabricPropertiesResponse
+		return ret
+	}).(FabricPropertiesResponseOutput)
 }
 
-// BCDR state of the fabric.
 func (o FabricPropertiesResponsePtrOutput) BcdrState() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *FabricPropertiesResponse) *string {
 		if v == nil {
@@ -5078,7 +4442,6 @@ func (o FabricPropertiesResponsePtrOutput) BcdrState() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Fabric specific settings.
 func (o FabricPropertiesResponsePtrOutput) CustomDetails() pulumi.AnyOutput {
 	return o.ApplyT(func(v *FabricPropertiesResponse) interface{} {
 		if v == nil {
@@ -5088,7 +4451,6 @@ func (o FabricPropertiesResponsePtrOutput) CustomDetails() pulumi.AnyOutput {
 	}).(pulumi.AnyOutput)
 }
 
-// Encryption details for the fabric.
 func (o FabricPropertiesResponsePtrOutput) EncryptionDetails() EncryptionDetailsResponsePtrOutput {
 	return o.ApplyT(func(v *FabricPropertiesResponse) *EncryptionDetailsResponse {
 		if v == nil {
@@ -5098,7 +4460,6 @@ func (o FabricPropertiesResponsePtrOutput) EncryptionDetails() EncryptionDetails
 	}).(EncryptionDetailsResponsePtrOutput)
 }
 
-// Friendly name of the fabric.
 func (o FabricPropertiesResponsePtrOutput) FriendlyName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *FabricPropertiesResponse) *string {
 		if v == nil {
@@ -5108,7 +4469,6 @@ func (o FabricPropertiesResponsePtrOutput) FriendlyName() pulumi.StringPtrOutput
 	}).(pulumi.StringPtrOutput)
 }
 
-// Health of fabric.
 func (o FabricPropertiesResponsePtrOutput) Health() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *FabricPropertiesResponse) *string {
 		if v == nil {
@@ -5118,7 +4478,6 @@ func (o FabricPropertiesResponsePtrOutput) Health() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Fabric health error details.
 func (o FabricPropertiesResponsePtrOutput) HealthErrorDetails() HealthErrorResponseArrayOutput {
 	return o.ApplyT(func(v *FabricPropertiesResponse) []HealthErrorResponse {
 		if v == nil {
@@ -5128,7 +4487,6 @@ func (o FabricPropertiesResponsePtrOutput) HealthErrorDetails() HealthErrorRespo
 	}).(HealthErrorResponseArrayOutput)
 }
 
-// Dra Registration Id.
 func (o FabricPropertiesResponsePtrOutput) InternalIdentifier() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *FabricPropertiesResponse) *string {
 		if v == nil {
@@ -5138,7 +4496,6 @@ func (o FabricPropertiesResponsePtrOutput) InternalIdentifier() pulumi.StringPtr
 	}).(pulumi.StringPtrOutput)
 }
 
-// Rollover encryption details for the fabric.
 func (o FabricPropertiesResponsePtrOutput) RolloverEncryptionDetails() EncryptionDetailsResponsePtrOutput {
 	return o.ApplyT(func(v *FabricPropertiesResponse) *EncryptionDetailsResponse {
 		if v == nil {
@@ -5148,34 +4505,20 @@ func (o FabricPropertiesResponsePtrOutput) RolloverEncryptionDetails() Encryptio
 	}).(EncryptionDetailsResponsePtrOutput)
 }
 
-// Health Error
 type HealthErrorResponse struct {
-	// Error creation time (UTC)
-	CreationTimeUtc *string `pulumi:"creationTimeUtc"`
-	// ID of the entity.
-	EntityId *string `pulumi:"entityId"`
-	// Category of error.
-	ErrorCategory *string `pulumi:"errorCategory"`
-	// Error code.
-	ErrorCode *string `pulumi:"errorCode"`
-	// Level of error.
-	ErrorLevel *string `pulumi:"errorLevel"`
-	// Error message.
-	ErrorMessage *string `pulumi:"errorMessage"`
-	// Source of error.
-	ErrorSource *string `pulumi:"errorSource"`
-	// Type of error.
-	ErrorType *string `pulumi:"errorType"`
-	// The inner health errors. HealthError having a list of HealthError as child errors is problematic. InnerHealthError is used because this will prevent an infinite loop of structures when Hydra tries to auto-generate the contract. We are exposing the related health errors as inner health errors and all API consumers can utilize this in the same fashion as Exception -&gt; InnerException.
-	InnerHealthErrors []InnerHealthErrorResponse `pulumi:"innerHealthErrors"`
-	// Possible causes of error.
-	PossibleCauses *string `pulumi:"possibleCauses"`
-	// Recommended action to resolve error.
-	RecommendedAction *string `pulumi:"recommendedAction"`
-	// DRA error message.
-	RecoveryProviderErrorMessage *string `pulumi:"recoveryProviderErrorMessage"`
-	// Summary message of the entity.
-	SummaryMessage *string `pulumi:"summaryMessage"`
+	CreationTimeUtc              *string                    `pulumi:"creationTimeUtc"`
+	EntityId                     *string                    `pulumi:"entityId"`
+	ErrorCategory                *string                    `pulumi:"errorCategory"`
+	ErrorCode                    *string                    `pulumi:"errorCode"`
+	ErrorLevel                   *string                    `pulumi:"errorLevel"`
+	ErrorMessage                 *string                    `pulumi:"errorMessage"`
+	ErrorSource                  *string                    `pulumi:"errorSource"`
+	ErrorType                    *string                    `pulumi:"errorType"`
+	InnerHealthErrors            []InnerHealthErrorResponse `pulumi:"innerHealthErrors"`
+	PossibleCauses               *string                    `pulumi:"possibleCauses"`
+	RecommendedAction            *string                    `pulumi:"recommendedAction"`
+	RecoveryProviderErrorMessage *string                    `pulumi:"recoveryProviderErrorMessage"`
+	SummaryMessage               *string                    `pulumi:"summaryMessage"`
 }
 
 // HealthErrorResponseInput is an input type that accepts HealthErrorResponseArgs and HealthErrorResponseOutput values.
@@ -5189,34 +4532,20 @@ type HealthErrorResponseInput interface {
 	ToHealthErrorResponseOutputWithContext(context.Context) HealthErrorResponseOutput
 }
 
-// Health Error
 type HealthErrorResponseArgs struct {
-	// Error creation time (UTC)
-	CreationTimeUtc pulumi.StringPtrInput `pulumi:"creationTimeUtc"`
-	// ID of the entity.
-	EntityId pulumi.StringPtrInput `pulumi:"entityId"`
-	// Category of error.
-	ErrorCategory pulumi.StringPtrInput `pulumi:"errorCategory"`
-	// Error code.
-	ErrorCode pulumi.StringPtrInput `pulumi:"errorCode"`
-	// Level of error.
-	ErrorLevel pulumi.StringPtrInput `pulumi:"errorLevel"`
-	// Error message.
-	ErrorMessage pulumi.StringPtrInput `pulumi:"errorMessage"`
-	// Source of error.
-	ErrorSource pulumi.StringPtrInput `pulumi:"errorSource"`
-	// Type of error.
-	ErrorType pulumi.StringPtrInput `pulumi:"errorType"`
-	// The inner health errors. HealthError having a list of HealthError as child errors is problematic. InnerHealthError is used because this will prevent an infinite loop of structures when Hydra tries to auto-generate the contract. We are exposing the related health errors as inner health errors and all API consumers can utilize this in the same fashion as Exception -&gt; InnerException.
-	InnerHealthErrors InnerHealthErrorResponseArrayInput `pulumi:"innerHealthErrors"`
-	// Possible causes of error.
-	PossibleCauses pulumi.StringPtrInput `pulumi:"possibleCauses"`
-	// Recommended action to resolve error.
-	RecommendedAction pulumi.StringPtrInput `pulumi:"recommendedAction"`
-	// DRA error message.
-	RecoveryProviderErrorMessage pulumi.StringPtrInput `pulumi:"recoveryProviderErrorMessage"`
-	// Summary message of the entity.
-	SummaryMessage pulumi.StringPtrInput `pulumi:"summaryMessage"`
+	CreationTimeUtc              pulumi.StringPtrInput              `pulumi:"creationTimeUtc"`
+	EntityId                     pulumi.StringPtrInput              `pulumi:"entityId"`
+	ErrorCategory                pulumi.StringPtrInput              `pulumi:"errorCategory"`
+	ErrorCode                    pulumi.StringPtrInput              `pulumi:"errorCode"`
+	ErrorLevel                   pulumi.StringPtrInput              `pulumi:"errorLevel"`
+	ErrorMessage                 pulumi.StringPtrInput              `pulumi:"errorMessage"`
+	ErrorSource                  pulumi.StringPtrInput              `pulumi:"errorSource"`
+	ErrorType                    pulumi.StringPtrInput              `pulumi:"errorType"`
+	InnerHealthErrors            InnerHealthErrorResponseArrayInput `pulumi:"innerHealthErrors"`
+	PossibleCauses               pulumi.StringPtrInput              `pulumi:"possibleCauses"`
+	RecommendedAction            pulumi.StringPtrInput              `pulumi:"recommendedAction"`
+	RecoveryProviderErrorMessage pulumi.StringPtrInput              `pulumi:"recoveryProviderErrorMessage"`
+	SummaryMessage               pulumi.StringPtrInput              `pulumi:"summaryMessage"`
 }
 
 func (HealthErrorResponseArgs) ElementType() reflect.Type {
@@ -5256,7 +4585,6 @@ func (i HealthErrorResponseArray) ToHealthErrorResponseArrayOutputWithContext(ct
 	return pulumi.ToOutputWithContext(ctx, i).(HealthErrorResponseArrayOutput)
 }
 
-// Health Error
 type HealthErrorResponseOutput struct{ *pulumi.OutputState }
 
 func (HealthErrorResponseOutput) ElementType() reflect.Type {
@@ -5271,67 +4599,54 @@ func (o HealthErrorResponseOutput) ToHealthErrorResponseOutputWithContext(ctx co
 	return o
 }
 
-// Error creation time (UTC)
 func (o HealthErrorResponseOutput) CreationTimeUtc() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v HealthErrorResponse) *string { return v.CreationTimeUtc }).(pulumi.StringPtrOutput)
 }
 
-// ID of the entity.
 func (o HealthErrorResponseOutput) EntityId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v HealthErrorResponse) *string { return v.EntityId }).(pulumi.StringPtrOutput)
 }
 
-// Category of error.
 func (o HealthErrorResponseOutput) ErrorCategory() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v HealthErrorResponse) *string { return v.ErrorCategory }).(pulumi.StringPtrOutput)
 }
 
-// Error code.
 func (o HealthErrorResponseOutput) ErrorCode() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v HealthErrorResponse) *string { return v.ErrorCode }).(pulumi.StringPtrOutput)
 }
 
-// Level of error.
 func (o HealthErrorResponseOutput) ErrorLevel() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v HealthErrorResponse) *string { return v.ErrorLevel }).(pulumi.StringPtrOutput)
 }
 
-// Error message.
 func (o HealthErrorResponseOutput) ErrorMessage() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v HealthErrorResponse) *string { return v.ErrorMessage }).(pulumi.StringPtrOutput)
 }
 
-// Source of error.
 func (o HealthErrorResponseOutput) ErrorSource() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v HealthErrorResponse) *string { return v.ErrorSource }).(pulumi.StringPtrOutput)
 }
 
-// Type of error.
 func (o HealthErrorResponseOutput) ErrorType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v HealthErrorResponse) *string { return v.ErrorType }).(pulumi.StringPtrOutput)
 }
 
-// The inner health errors. HealthError having a list of HealthError as child errors is problematic. InnerHealthError is used because this will prevent an infinite loop of structures when Hydra tries to auto-generate the contract. We are exposing the related health errors as inner health errors and all API consumers can utilize this in the same fashion as Exception -&gt; InnerException.
 func (o HealthErrorResponseOutput) InnerHealthErrors() InnerHealthErrorResponseArrayOutput {
 	return o.ApplyT(func(v HealthErrorResponse) []InnerHealthErrorResponse { return v.InnerHealthErrors }).(InnerHealthErrorResponseArrayOutput)
 }
 
-// Possible causes of error.
 func (o HealthErrorResponseOutput) PossibleCauses() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v HealthErrorResponse) *string { return v.PossibleCauses }).(pulumi.StringPtrOutput)
 }
 
-// Recommended action to resolve error.
 func (o HealthErrorResponseOutput) RecommendedAction() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v HealthErrorResponse) *string { return v.RecommendedAction }).(pulumi.StringPtrOutput)
 }
 
-// DRA error message.
 func (o HealthErrorResponseOutput) RecoveryProviderErrorMessage() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v HealthErrorResponse) *string { return v.RecoveryProviderErrorMessage }).(pulumi.StringPtrOutput)
 }
 
-// Summary message of the entity.
 func (o HealthErrorResponseOutput) SummaryMessage() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v HealthErrorResponse) *string { return v.SummaryMessage }).(pulumi.StringPtrOutput)
 }
@@ -5356,39 +4671,22 @@ func (o HealthErrorResponseArrayOutput) Index(i pulumi.IntInput) HealthErrorResp
 	}).(HealthErrorResponseOutput)
 }
 
-// Azure specific enable protection input.
 type HyperVReplicaAzureEnableProtectionInput struct {
-	// The list of VHD IDs of disks to be protected.
-	DisksToInclude []string `pulumi:"disksToInclude"`
-	// The selected option to enable RDP\SSH on target vm after failover. String value of {SrsDataContract.EnableRDPOnTargetOption} enum.
-	EnableRdpOnTargetOption *string `pulumi:"enableRdpOnTargetOption"`
-	// The Hyper-V host Vm Id.
-	HvHostVmId *string `pulumi:"hvHostVmId"`
-	// The class type.
-	// Expected value is 'HyperVReplicaAzure'.
-	InstanceType *string `pulumi:"instanceType"`
-	// The storage account to be used for logging during replication.
-	LogStorageAccountId *string `pulumi:"logStorageAccountId"`
-	// The OS type associated with vm.
-	OsType *string `pulumi:"osType"`
-	// The selected target Azure network Id.
-	TargetAzureNetworkId *string `pulumi:"targetAzureNetworkId"`
-	// The selected target Azure subnet Id.
-	TargetAzureSubnetId *string `pulumi:"targetAzureSubnetId"`
-	// The Id of the target resource group (for classic deployment) in which the failover VM is to be created.
-	TargetAzureV1ResourceGroupId *string `pulumi:"targetAzureV1ResourceGroupId"`
-	// The Id of the target resource group (for resource manager deployment) in which the failover VM is to be created.
-	TargetAzureV2ResourceGroupId *string `pulumi:"targetAzureV2ResourceGroupId"`
-	// The target azure Vm Name.
-	TargetAzureVmName *string `pulumi:"targetAzureVmName"`
-	// The storage account name.
-	TargetStorageAccountId *string `pulumi:"targetStorageAccountId"`
-	// A value indicating whether managed disks should be used during failover.
-	UseManagedDisks *string `pulumi:"useManagedDisks"`
-	// The OS disk VHD id associated with vm.
-	VhdId *string `pulumi:"vhdId"`
-	// The Vm Name.
-	VmName *string `pulumi:"vmName"`
+	DisksToInclude               []string `pulumi:"disksToInclude"`
+	EnableRdpOnTargetOption      *string  `pulumi:"enableRdpOnTargetOption"`
+	HvHostVmId                   *string  `pulumi:"hvHostVmId"`
+	InstanceType                 *string  `pulumi:"instanceType"`
+	LogStorageAccountId          *string  `pulumi:"logStorageAccountId"`
+	OsType                       *string  `pulumi:"osType"`
+	TargetAzureNetworkId         *string  `pulumi:"targetAzureNetworkId"`
+	TargetAzureSubnetId          *string  `pulumi:"targetAzureSubnetId"`
+	TargetAzureV1ResourceGroupId *string  `pulumi:"targetAzureV1ResourceGroupId"`
+	TargetAzureV2ResourceGroupId *string  `pulumi:"targetAzureV2ResourceGroupId"`
+	TargetAzureVmName            *string  `pulumi:"targetAzureVmName"`
+	TargetStorageAccountId       *string  `pulumi:"targetStorageAccountId"`
+	UseManagedDisks              *string  `pulumi:"useManagedDisks"`
+	VhdId                        *string  `pulumi:"vhdId"`
+	VmName                       *string  `pulumi:"vmName"`
 }
 
 // HyperVReplicaAzureEnableProtectionInputInput is an input type that accepts HyperVReplicaAzureEnableProtectionInputArgs and HyperVReplicaAzureEnableProtectionInputOutput values.
@@ -5402,39 +4700,22 @@ type HyperVReplicaAzureEnableProtectionInputInput interface {
 	ToHyperVReplicaAzureEnableProtectionInputOutputWithContext(context.Context) HyperVReplicaAzureEnableProtectionInputOutput
 }
 
-// Azure specific enable protection input.
 type HyperVReplicaAzureEnableProtectionInputArgs struct {
-	// The list of VHD IDs of disks to be protected.
-	DisksToInclude pulumi.StringArrayInput `pulumi:"disksToInclude"`
-	// The selected option to enable RDP\SSH on target vm after failover. String value of {SrsDataContract.EnableRDPOnTargetOption} enum.
-	EnableRdpOnTargetOption pulumi.StringPtrInput `pulumi:"enableRdpOnTargetOption"`
-	// The Hyper-V host Vm Id.
-	HvHostVmId pulumi.StringPtrInput `pulumi:"hvHostVmId"`
-	// The class type.
-	// Expected value is 'HyperVReplicaAzure'.
-	InstanceType pulumi.StringPtrInput `pulumi:"instanceType"`
-	// The storage account to be used for logging during replication.
-	LogStorageAccountId pulumi.StringPtrInput `pulumi:"logStorageAccountId"`
-	// The OS type associated with vm.
-	OsType pulumi.StringPtrInput `pulumi:"osType"`
-	// The selected target Azure network Id.
-	TargetAzureNetworkId pulumi.StringPtrInput `pulumi:"targetAzureNetworkId"`
-	// The selected target Azure subnet Id.
-	TargetAzureSubnetId pulumi.StringPtrInput `pulumi:"targetAzureSubnetId"`
-	// The Id of the target resource group (for classic deployment) in which the failover VM is to be created.
-	TargetAzureV1ResourceGroupId pulumi.StringPtrInput `pulumi:"targetAzureV1ResourceGroupId"`
-	// The Id of the target resource group (for resource manager deployment) in which the failover VM is to be created.
-	TargetAzureV2ResourceGroupId pulumi.StringPtrInput `pulumi:"targetAzureV2ResourceGroupId"`
-	// The target azure Vm Name.
-	TargetAzureVmName pulumi.StringPtrInput `pulumi:"targetAzureVmName"`
-	// The storage account name.
-	TargetStorageAccountId pulumi.StringPtrInput `pulumi:"targetStorageAccountId"`
-	// A value indicating whether managed disks should be used during failover.
-	UseManagedDisks pulumi.StringPtrInput `pulumi:"useManagedDisks"`
-	// The OS disk VHD id associated with vm.
-	VhdId pulumi.StringPtrInput `pulumi:"vhdId"`
-	// The Vm Name.
-	VmName pulumi.StringPtrInput `pulumi:"vmName"`
+	DisksToInclude               pulumi.StringArrayInput `pulumi:"disksToInclude"`
+	EnableRdpOnTargetOption      pulumi.StringPtrInput   `pulumi:"enableRdpOnTargetOption"`
+	HvHostVmId                   pulumi.StringPtrInput   `pulumi:"hvHostVmId"`
+	InstanceType                 pulumi.StringPtrInput   `pulumi:"instanceType"`
+	LogStorageAccountId          pulumi.StringPtrInput   `pulumi:"logStorageAccountId"`
+	OsType                       pulumi.StringPtrInput   `pulumi:"osType"`
+	TargetAzureNetworkId         pulumi.StringPtrInput   `pulumi:"targetAzureNetworkId"`
+	TargetAzureSubnetId          pulumi.StringPtrInput   `pulumi:"targetAzureSubnetId"`
+	TargetAzureV1ResourceGroupId pulumi.StringPtrInput   `pulumi:"targetAzureV1ResourceGroupId"`
+	TargetAzureV2ResourceGroupId pulumi.StringPtrInput   `pulumi:"targetAzureV2ResourceGroupId"`
+	TargetAzureVmName            pulumi.StringPtrInput   `pulumi:"targetAzureVmName"`
+	TargetStorageAccountId       pulumi.StringPtrInput   `pulumi:"targetStorageAccountId"`
+	UseManagedDisks              pulumi.StringPtrInput   `pulumi:"useManagedDisks"`
+	VhdId                        pulumi.StringPtrInput   `pulumi:"vhdId"`
+	VmName                       pulumi.StringPtrInput   `pulumi:"vmName"`
 }
 
 func (HyperVReplicaAzureEnableProtectionInputArgs) ElementType() reflect.Type {
@@ -5449,7 +4730,6 @@ func (i HyperVReplicaAzureEnableProtectionInputArgs) ToHyperVReplicaAzureEnableP
 	return pulumi.ToOutputWithContext(ctx, i).(HyperVReplicaAzureEnableProtectionInputOutput)
 }
 
-// Azure specific enable protection input.
 type HyperVReplicaAzureEnableProtectionInputOutput struct{ *pulumi.OutputState }
 
 func (HyperVReplicaAzureEnableProtectionInputOutput) ElementType() reflect.Type {
@@ -5464,99 +4744,74 @@ func (o HyperVReplicaAzureEnableProtectionInputOutput) ToHyperVReplicaAzureEnabl
 	return o
 }
 
-// The list of VHD IDs of disks to be protected.
 func (o HyperVReplicaAzureEnableProtectionInputOutput) DisksToInclude() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v HyperVReplicaAzureEnableProtectionInput) []string { return v.DisksToInclude }).(pulumi.StringArrayOutput)
 }
 
-// The selected option to enable RDP\SSH on target vm after failover. String value of {SrsDataContract.EnableRDPOnTargetOption} enum.
 func (o HyperVReplicaAzureEnableProtectionInputOutput) EnableRdpOnTargetOption() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v HyperVReplicaAzureEnableProtectionInput) *string { return v.EnableRdpOnTargetOption }).(pulumi.StringPtrOutput)
 }
 
-// The Hyper-V host Vm Id.
 func (o HyperVReplicaAzureEnableProtectionInputOutput) HvHostVmId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v HyperVReplicaAzureEnableProtectionInput) *string { return v.HvHostVmId }).(pulumi.StringPtrOutput)
 }
 
-// The class type.
-// Expected value is 'HyperVReplicaAzure'.
 func (o HyperVReplicaAzureEnableProtectionInputOutput) InstanceType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v HyperVReplicaAzureEnableProtectionInput) *string { return v.InstanceType }).(pulumi.StringPtrOutput)
 }
 
-// The storage account to be used for logging during replication.
 func (o HyperVReplicaAzureEnableProtectionInputOutput) LogStorageAccountId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v HyperVReplicaAzureEnableProtectionInput) *string { return v.LogStorageAccountId }).(pulumi.StringPtrOutput)
 }
 
-// The OS type associated with vm.
 func (o HyperVReplicaAzureEnableProtectionInputOutput) OsType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v HyperVReplicaAzureEnableProtectionInput) *string { return v.OsType }).(pulumi.StringPtrOutput)
 }
 
-// The selected target Azure network Id.
 func (o HyperVReplicaAzureEnableProtectionInputOutput) TargetAzureNetworkId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v HyperVReplicaAzureEnableProtectionInput) *string { return v.TargetAzureNetworkId }).(pulumi.StringPtrOutput)
 }
 
-// The selected target Azure subnet Id.
 func (o HyperVReplicaAzureEnableProtectionInputOutput) TargetAzureSubnetId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v HyperVReplicaAzureEnableProtectionInput) *string { return v.TargetAzureSubnetId }).(pulumi.StringPtrOutput)
 }
 
-// The Id of the target resource group (for classic deployment) in which the failover VM is to be created.
 func (o HyperVReplicaAzureEnableProtectionInputOutput) TargetAzureV1ResourceGroupId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v HyperVReplicaAzureEnableProtectionInput) *string { return v.TargetAzureV1ResourceGroupId }).(pulumi.StringPtrOutput)
 }
 
-// The Id of the target resource group (for resource manager deployment) in which the failover VM is to be created.
 func (o HyperVReplicaAzureEnableProtectionInputOutput) TargetAzureV2ResourceGroupId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v HyperVReplicaAzureEnableProtectionInput) *string { return v.TargetAzureV2ResourceGroupId }).(pulumi.StringPtrOutput)
 }
 
-// The target azure Vm Name.
 func (o HyperVReplicaAzureEnableProtectionInputOutput) TargetAzureVmName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v HyperVReplicaAzureEnableProtectionInput) *string { return v.TargetAzureVmName }).(pulumi.StringPtrOutput)
 }
 
-// The storage account name.
 func (o HyperVReplicaAzureEnableProtectionInputOutput) TargetStorageAccountId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v HyperVReplicaAzureEnableProtectionInput) *string { return v.TargetStorageAccountId }).(pulumi.StringPtrOutput)
 }
 
-// A value indicating whether managed disks should be used during failover.
 func (o HyperVReplicaAzureEnableProtectionInputOutput) UseManagedDisks() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v HyperVReplicaAzureEnableProtectionInput) *string { return v.UseManagedDisks }).(pulumi.StringPtrOutput)
 }
 
-// The OS disk VHD id associated with vm.
 func (o HyperVReplicaAzureEnableProtectionInputOutput) VhdId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v HyperVReplicaAzureEnableProtectionInput) *string { return v.VhdId }).(pulumi.StringPtrOutput)
 }
 
-// The Vm Name.
 func (o HyperVReplicaAzureEnableProtectionInputOutput) VmName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v HyperVReplicaAzureEnableProtectionInput) *string { return v.VmName }).(pulumi.StringPtrOutput)
 }
 
-// Hyper-V Replica Azure specific protection profile details.
 type HyperVReplicaAzurePolicyDetailsResponse struct {
-	// The active storage account Id.
-	ActiveStorageAccountId *string `pulumi:"activeStorageAccountId"`
-	// The interval (in hours) at which Hyper-V Replica should create an application consistent snapshot within the VM.
-	ApplicationConsistentSnapshotFrequencyInHours *int `pulumi:"applicationConsistentSnapshotFrequencyInHours"`
-	// A value indicating whether encryption is enabled for virtual machines in this cloud.
-	Encryption *string `pulumi:"encryption"`
-	// Gets the class type. Overridden in derived classes.
-	// Expected value is 'HyperVReplicaAzure'.
-	InstanceType string `pulumi:"instanceType"`
-	// The scheduled start time for the initial replication. If this parameter is Null, the initial replication starts immediately.
-	OnlineReplicationStartTime *string `pulumi:"onlineReplicationStartTime"`
-	// The duration (in hours) to which point the recovery history needs to be maintained.
-	RecoveryPointHistoryDurationInHours *int `pulumi:"recoveryPointHistoryDurationInHours"`
-	// The replication interval.
-	ReplicationInterval *int `pulumi:"replicationInterval"`
+	ActiveStorageAccountId                        *string `pulumi:"activeStorageAccountId"`
+	ApplicationConsistentSnapshotFrequencyInHours *int    `pulumi:"applicationConsistentSnapshotFrequencyInHours"`
+	Encryption                                    *string `pulumi:"encryption"`
+	InstanceType                                  string  `pulumi:"instanceType"`
+	OnlineReplicationStartTime                    *string `pulumi:"onlineReplicationStartTime"`
+	RecoveryPointHistoryDurationInHours           *int    `pulumi:"recoveryPointHistoryDurationInHours"`
+	ReplicationInterval                           *int    `pulumi:"replicationInterval"`
 }
 
 // HyperVReplicaAzurePolicyDetailsResponseInput is an input type that accepts HyperVReplicaAzurePolicyDetailsResponseArgs and HyperVReplicaAzurePolicyDetailsResponseOutput values.
@@ -5570,23 +4825,14 @@ type HyperVReplicaAzurePolicyDetailsResponseInput interface {
 	ToHyperVReplicaAzurePolicyDetailsResponseOutputWithContext(context.Context) HyperVReplicaAzurePolicyDetailsResponseOutput
 }
 
-// Hyper-V Replica Azure specific protection profile details.
 type HyperVReplicaAzurePolicyDetailsResponseArgs struct {
-	// The active storage account Id.
-	ActiveStorageAccountId pulumi.StringPtrInput `pulumi:"activeStorageAccountId"`
-	// The interval (in hours) at which Hyper-V Replica should create an application consistent snapshot within the VM.
-	ApplicationConsistentSnapshotFrequencyInHours pulumi.IntPtrInput `pulumi:"applicationConsistentSnapshotFrequencyInHours"`
-	// A value indicating whether encryption is enabled for virtual machines in this cloud.
-	Encryption pulumi.StringPtrInput `pulumi:"encryption"`
-	// Gets the class type. Overridden in derived classes.
-	// Expected value is 'HyperVReplicaAzure'.
-	InstanceType pulumi.StringInput `pulumi:"instanceType"`
-	// The scheduled start time for the initial replication. If this parameter is Null, the initial replication starts immediately.
-	OnlineReplicationStartTime pulumi.StringPtrInput `pulumi:"onlineReplicationStartTime"`
-	// The duration (in hours) to which point the recovery history needs to be maintained.
-	RecoveryPointHistoryDurationInHours pulumi.IntPtrInput `pulumi:"recoveryPointHistoryDurationInHours"`
-	// The replication interval.
-	ReplicationInterval pulumi.IntPtrInput `pulumi:"replicationInterval"`
+	ActiveStorageAccountId                        pulumi.StringPtrInput `pulumi:"activeStorageAccountId"`
+	ApplicationConsistentSnapshotFrequencyInHours pulumi.IntPtrInput    `pulumi:"applicationConsistentSnapshotFrequencyInHours"`
+	Encryption                                    pulumi.StringPtrInput `pulumi:"encryption"`
+	InstanceType                                  pulumi.StringInput    `pulumi:"instanceType"`
+	OnlineReplicationStartTime                    pulumi.StringPtrInput `pulumi:"onlineReplicationStartTime"`
+	RecoveryPointHistoryDurationInHours           pulumi.IntPtrInput    `pulumi:"recoveryPointHistoryDurationInHours"`
+	ReplicationInterval                           pulumi.IntPtrInput    `pulumi:"replicationInterval"`
 }
 
 func (HyperVReplicaAzurePolicyDetailsResponseArgs) ElementType() reflect.Type {
@@ -5601,7 +4847,6 @@ func (i HyperVReplicaAzurePolicyDetailsResponseArgs) ToHyperVReplicaAzurePolicyD
 	return pulumi.ToOutputWithContext(ctx, i).(HyperVReplicaAzurePolicyDetailsResponseOutput)
 }
 
-// Hyper-V Replica Azure specific protection profile details.
 type HyperVReplicaAzurePolicyDetailsResponseOutput struct{ *pulumi.OutputState }
 
 func (HyperVReplicaAzurePolicyDetailsResponseOutput) ElementType() reflect.Type {
@@ -5616,59 +4861,43 @@ func (o HyperVReplicaAzurePolicyDetailsResponseOutput) ToHyperVReplicaAzurePolic
 	return o
 }
 
-// The active storage account Id.
 func (o HyperVReplicaAzurePolicyDetailsResponseOutput) ActiveStorageAccountId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v HyperVReplicaAzurePolicyDetailsResponse) *string { return v.ActiveStorageAccountId }).(pulumi.StringPtrOutput)
 }
 
-// The interval (in hours) at which Hyper-V Replica should create an application consistent snapshot within the VM.
 func (o HyperVReplicaAzurePolicyDetailsResponseOutput) ApplicationConsistentSnapshotFrequencyInHours() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v HyperVReplicaAzurePolicyDetailsResponse) *int {
 		return v.ApplicationConsistentSnapshotFrequencyInHours
 	}).(pulumi.IntPtrOutput)
 }
 
-// A value indicating whether encryption is enabled for virtual machines in this cloud.
 func (o HyperVReplicaAzurePolicyDetailsResponseOutput) Encryption() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v HyperVReplicaAzurePolicyDetailsResponse) *string { return v.Encryption }).(pulumi.StringPtrOutput)
 }
 
-// Gets the class type. Overridden in derived classes.
-// Expected value is 'HyperVReplicaAzure'.
 func (o HyperVReplicaAzurePolicyDetailsResponseOutput) InstanceType() pulumi.StringOutput {
 	return o.ApplyT(func(v HyperVReplicaAzurePolicyDetailsResponse) string { return v.InstanceType }).(pulumi.StringOutput)
 }
 
-// The scheduled start time for the initial replication. If this parameter is Null, the initial replication starts immediately.
 func (o HyperVReplicaAzurePolicyDetailsResponseOutput) OnlineReplicationStartTime() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v HyperVReplicaAzurePolicyDetailsResponse) *string { return v.OnlineReplicationStartTime }).(pulumi.StringPtrOutput)
 }
 
-// The duration (in hours) to which point the recovery history needs to be maintained.
 func (o HyperVReplicaAzurePolicyDetailsResponseOutput) RecoveryPointHistoryDurationInHours() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v HyperVReplicaAzurePolicyDetailsResponse) *int { return v.RecoveryPointHistoryDurationInHours }).(pulumi.IntPtrOutput)
 }
 
-// The replication interval.
 func (o HyperVReplicaAzurePolicyDetailsResponseOutput) ReplicationInterval() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v HyperVReplicaAzurePolicyDetailsResponse) *int { return v.ReplicationInterval }).(pulumi.IntPtrOutput)
 }
 
-// Hyper-V Replica Azure specific input for creating a protection profile.
 type HyperVReplicaAzurePolicyInput struct {
-	// The interval (in hours) at which Hyper-V Replica should create an application consistent snapshot within the VM.
-	ApplicationConsistentSnapshotFrequencyInHours *int `pulumi:"applicationConsistentSnapshotFrequencyInHours"`
-	// The class type.
-	// Expected value is 'HyperVReplicaAzure'.
-	InstanceType *string `pulumi:"instanceType"`
-	// The scheduled start time for the initial replication. If this parameter is Null, the initial replication starts immediately.
-	OnlineReplicationStartTime *string `pulumi:"onlineReplicationStartTime"`
-	// The duration (in hours) to which point the recovery history needs to be maintained.
-	RecoveryPointHistoryDuration *int `pulumi:"recoveryPointHistoryDuration"`
-	// The replication interval.
-	ReplicationInterval *int `pulumi:"replicationInterval"`
-	// The list of storage accounts to which the VMs in the primary cloud can replicate to.
-	StorageAccounts []string `pulumi:"storageAccounts"`
+	ApplicationConsistentSnapshotFrequencyInHours *int     `pulumi:"applicationConsistentSnapshotFrequencyInHours"`
+	InstanceType                                  *string  `pulumi:"instanceType"`
+	OnlineReplicationStartTime                    *string  `pulumi:"onlineReplicationStartTime"`
+	RecoveryPointHistoryDuration                  *int     `pulumi:"recoveryPointHistoryDuration"`
+	ReplicationInterval                           *int     `pulumi:"replicationInterval"`
+	StorageAccounts                               []string `pulumi:"storageAccounts"`
 }
 
 // HyperVReplicaAzurePolicyInputInput is an input type that accepts HyperVReplicaAzurePolicyInputArgs and HyperVReplicaAzurePolicyInputOutput values.
@@ -5682,21 +4911,13 @@ type HyperVReplicaAzurePolicyInputInput interface {
 	ToHyperVReplicaAzurePolicyInputOutputWithContext(context.Context) HyperVReplicaAzurePolicyInputOutput
 }
 
-// Hyper-V Replica Azure specific input for creating a protection profile.
 type HyperVReplicaAzurePolicyInputArgs struct {
-	// The interval (in hours) at which Hyper-V Replica should create an application consistent snapshot within the VM.
-	ApplicationConsistentSnapshotFrequencyInHours pulumi.IntPtrInput `pulumi:"applicationConsistentSnapshotFrequencyInHours"`
-	// The class type.
-	// Expected value is 'HyperVReplicaAzure'.
-	InstanceType pulumi.StringPtrInput `pulumi:"instanceType"`
-	// The scheduled start time for the initial replication. If this parameter is Null, the initial replication starts immediately.
-	OnlineReplicationStartTime pulumi.StringPtrInput `pulumi:"onlineReplicationStartTime"`
-	// The duration (in hours) to which point the recovery history needs to be maintained.
-	RecoveryPointHistoryDuration pulumi.IntPtrInput `pulumi:"recoveryPointHistoryDuration"`
-	// The replication interval.
-	ReplicationInterval pulumi.IntPtrInput `pulumi:"replicationInterval"`
-	// The list of storage accounts to which the VMs in the primary cloud can replicate to.
-	StorageAccounts pulumi.StringArrayInput `pulumi:"storageAccounts"`
+	ApplicationConsistentSnapshotFrequencyInHours pulumi.IntPtrInput      `pulumi:"applicationConsistentSnapshotFrequencyInHours"`
+	InstanceType                                  pulumi.StringPtrInput   `pulumi:"instanceType"`
+	OnlineReplicationStartTime                    pulumi.StringPtrInput   `pulumi:"onlineReplicationStartTime"`
+	RecoveryPointHistoryDuration                  pulumi.IntPtrInput      `pulumi:"recoveryPointHistoryDuration"`
+	ReplicationInterval                           pulumi.IntPtrInput      `pulumi:"replicationInterval"`
+	StorageAccounts                               pulumi.StringArrayInput `pulumi:"storageAccounts"`
 }
 
 func (HyperVReplicaAzurePolicyInputArgs) ElementType() reflect.Type {
@@ -5711,7 +4932,6 @@ func (i HyperVReplicaAzurePolicyInputArgs) ToHyperVReplicaAzurePolicyInputOutput
 	return pulumi.ToOutputWithContext(ctx, i).(HyperVReplicaAzurePolicyInputOutput)
 }
 
-// Hyper-V Replica Azure specific input for creating a protection profile.
 type HyperVReplicaAzurePolicyInputOutput struct{ *pulumi.OutputState }
 
 func (HyperVReplicaAzurePolicyInputOutput) ElementType() reflect.Type {
@@ -5726,90 +4946,56 @@ func (o HyperVReplicaAzurePolicyInputOutput) ToHyperVReplicaAzurePolicyInputOutp
 	return o
 }
 
-// The interval (in hours) at which Hyper-V Replica should create an application consistent snapshot within the VM.
 func (o HyperVReplicaAzurePolicyInputOutput) ApplicationConsistentSnapshotFrequencyInHours() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v HyperVReplicaAzurePolicyInput) *int { return v.ApplicationConsistentSnapshotFrequencyInHours }).(pulumi.IntPtrOutput)
 }
 
-// The class type.
-// Expected value is 'HyperVReplicaAzure'.
 func (o HyperVReplicaAzurePolicyInputOutput) InstanceType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v HyperVReplicaAzurePolicyInput) *string { return v.InstanceType }).(pulumi.StringPtrOutput)
 }
 
-// The scheduled start time for the initial replication. If this parameter is Null, the initial replication starts immediately.
 func (o HyperVReplicaAzurePolicyInputOutput) OnlineReplicationStartTime() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v HyperVReplicaAzurePolicyInput) *string { return v.OnlineReplicationStartTime }).(pulumi.StringPtrOutput)
 }
 
-// The duration (in hours) to which point the recovery history needs to be maintained.
 func (o HyperVReplicaAzurePolicyInputOutput) RecoveryPointHistoryDuration() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v HyperVReplicaAzurePolicyInput) *int { return v.RecoveryPointHistoryDuration }).(pulumi.IntPtrOutput)
 }
 
-// The replication interval.
 func (o HyperVReplicaAzurePolicyInputOutput) ReplicationInterval() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v HyperVReplicaAzurePolicyInput) *int { return v.ReplicationInterval }).(pulumi.IntPtrOutput)
 }
 
-// The list of storage accounts to which the VMs in the primary cloud can replicate to.
 func (o HyperVReplicaAzurePolicyInputOutput) StorageAccounts() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v HyperVReplicaAzurePolicyInput) []string { return v.StorageAccounts }).(pulumi.StringArrayOutput)
 }
 
-// Hyper V Replica Azure provider specific settings.
 type HyperVReplicaAzureReplicationDetailsResponse struct {
-	// Azure VM Disk details.
-	AzureVmDiskDetails []AzureVmDiskDetailsResponse `pulumi:"azureVmDiskDetails"`
-	// The selected option to enable RDP\SSH on target vm after failover. String value of {SrsDataContract.EnableRDPOnTargetOption} enum.
-	EnableRdpOnTargetOption *string `pulumi:"enableRdpOnTargetOption"`
-	// The encryption info.
-	Encryption *string `pulumi:"encryption"`
-	// Initial replication details.
-	InitialReplicationDetails *InitialReplicationDetailsResponse `pulumi:"initialReplicationDetails"`
-	// Gets the Instance type.
-	// Expected value is 'HyperVReplicaAzure'.
-	InstanceType string `pulumi:"instanceType"`
-	// The Last replication time.
-	LastReplicatedTime *string `pulumi:"lastReplicatedTime"`
-	// The last RPO calculated time.
-	LastRpoCalculatedTime *string `pulumi:"lastRpoCalculatedTime"`
-	// License Type of the VM to be used.
-	LicenseType *string `pulumi:"licenseType"`
-	// The operating system info.
-	OSDetails *OSDetailsResponse `pulumi:"oSDetails"`
-	// The recovery availability set Id.
-	RecoveryAvailabilitySetId *string `pulumi:"recoveryAvailabilitySetId"`
-	// The ARM id of the log storage account used for replication. This will be set to null if no log storage account was provided during enable protection.
-	RecoveryAzureLogStorageAccountId *string `pulumi:"recoveryAzureLogStorageAccountId"`
-	// The target resource group Id.
-	RecoveryAzureResourceGroupId *string `pulumi:"recoveryAzureResourceGroupId"`
-	// The recovery Azure storage account.
-	RecoveryAzureStorageAccount *string `pulumi:"recoveryAzureStorageAccount"`
-	// The Recovery Azure VM size.
-	RecoveryAzureVMSize *string `pulumi:"recoveryAzureVMSize"`
-	// Recovery Azure given name.
-	RecoveryAzureVmName *string `pulumi:"recoveryAzureVmName"`
-	// Last RPO value.
-	RpoInSeconds *float64 `pulumi:"rpoInSeconds"`
-	// The selected recovery azure network Id.
-	SelectedRecoveryAzureNetworkId *string `pulumi:"selectedRecoveryAzureNetworkId"`
-	// The selected source nic Id which will be used as the primary nic during failover.
-	SelectedSourceNicId *string `pulumi:"selectedSourceNicId"`
-	// The CPU count of the VM on the primary side.
-	SourceVmCpuCount *int `pulumi:"sourceVmCpuCount"`
-	// The RAM size of the VM on the primary side.
-	SourceVmRamSizeInMB *int `pulumi:"sourceVmRamSizeInMB"`
-	// A value indicating whether managed disks should be used during failover.
-	UseManagedDisks *string `pulumi:"useManagedDisks"`
-	// The virtual machine Id.
-	VmId *string `pulumi:"vmId"`
-	// The PE Network details.
-	VmNics []VMNicDetailsResponse `pulumi:"vmNics"`
-	// The protection state for the vm.
-	VmProtectionState *string `pulumi:"vmProtectionState"`
-	// The protection state description for the vm.
-	VmProtectionStateDescription *string `pulumi:"vmProtectionStateDescription"`
+	AzureVmDiskDetails               []AzureVmDiskDetailsResponse       `pulumi:"azureVmDiskDetails"`
+	EnableRdpOnTargetOption          *string                            `pulumi:"enableRdpOnTargetOption"`
+	Encryption                       *string                            `pulumi:"encryption"`
+	InitialReplicationDetails        *InitialReplicationDetailsResponse `pulumi:"initialReplicationDetails"`
+	InstanceType                     string                             `pulumi:"instanceType"`
+	LastReplicatedTime               *string                            `pulumi:"lastReplicatedTime"`
+	LastRpoCalculatedTime            *string                            `pulumi:"lastRpoCalculatedTime"`
+	LicenseType                      *string                            `pulumi:"licenseType"`
+	OSDetails                        *OSDetailsResponse                 `pulumi:"oSDetails"`
+	RecoveryAvailabilitySetId        *string                            `pulumi:"recoveryAvailabilitySetId"`
+	RecoveryAzureLogStorageAccountId *string                            `pulumi:"recoveryAzureLogStorageAccountId"`
+	RecoveryAzureResourceGroupId     *string                            `pulumi:"recoveryAzureResourceGroupId"`
+	RecoveryAzureStorageAccount      *string                            `pulumi:"recoveryAzureStorageAccount"`
+	RecoveryAzureVMSize              *string                            `pulumi:"recoveryAzureVMSize"`
+	RecoveryAzureVmName              *string                            `pulumi:"recoveryAzureVmName"`
+	RpoInSeconds                     *float64                           `pulumi:"rpoInSeconds"`
+	SelectedRecoveryAzureNetworkId   *string                            `pulumi:"selectedRecoveryAzureNetworkId"`
+	SelectedSourceNicId              *string                            `pulumi:"selectedSourceNicId"`
+	SourceVmCpuCount                 *int                               `pulumi:"sourceVmCpuCount"`
+	SourceVmRamSizeInMB              *int                               `pulumi:"sourceVmRamSizeInMB"`
+	UseManagedDisks                  *string                            `pulumi:"useManagedDisks"`
+	VmId                             *string                            `pulumi:"vmId"`
+	VmNics                           []VMNicDetailsResponse             `pulumi:"vmNics"`
+	VmProtectionState                *string                            `pulumi:"vmProtectionState"`
+	VmProtectionStateDescription     *string                            `pulumi:"vmProtectionStateDescription"`
 }
 
 // HyperVReplicaAzureReplicationDetailsResponseInput is an input type that accepts HyperVReplicaAzureReplicationDetailsResponseArgs and HyperVReplicaAzureReplicationDetailsResponseOutput values.
@@ -5823,59 +5009,32 @@ type HyperVReplicaAzureReplicationDetailsResponseInput interface {
 	ToHyperVReplicaAzureReplicationDetailsResponseOutputWithContext(context.Context) HyperVReplicaAzureReplicationDetailsResponseOutput
 }
 
-// Hyper V Replica Azure provider specific settings.
 type HyperVReplicaAzureReplicationDetailsResponseArgs struct {
-	// Azure VM Disk details.
-	AzureVmDiskDetails AzureVmDiskDetailsResponseArrayInput `pulumi:"azureVmDiskDetails"`
-	// The selected option to enable RDP\SSH on target vm after failover. String value of {SrsDataContract.EnableRDPOnTargetOption} enum.
-	EnableRdpOnTargetOption pulumi.StringPtrInput `pulumi:"enableRdpOnTargetOption"`
-	// The encryption info.
-	Encryption pulumi.StringPtrInput `pulumi:"encryption"`
-	// Initial replication details.
-	InitialReplicationDetails InitialReplicationDetailsResponsePtrInput `pulumi:"initialReplicationDetails"`
-	// Gets the Instance type.
-	// Expected value is 'HyperVReplicaAzure'.
-	InstanceType pulumi.StringInput `pulumi:"instanceType"`
-	// The Last replication time.
-	LastReplicatedTime pulumi.StringPtrInput `pulumi:"lastReplicatedTime"`
-	// The last RPO calculated time.
-	LastRpoCalculatedTime pulumi.StringPtrInput `pulumi:"lastRpoCalculatedTime"`
-	// License Type of the VM to be used.
-	LicenseType pulumi.StringPtrInput `pulumi:"licenseType"`
-	// The operating system info.
-	OSDetails OSDetailsResponsePtrInput `pulumi:"oSDetails"`
-	// The recovery availability set Id.
-	RecoveryAvailabilitySetId pulumi.StringPtrInput `pulumi:"recoveryAvailabilitySetId"`
-	// The ARM id of the log storage account used for replication. This will be set to null if no log storage account was provided during enable protection.
-	RecoveryAzureLogStorageAccountId pulumi.StringPtrInput `pulumi:"recoveryAzureLogStorageAccountId"`
-	// The target resource group Id.
-	RecoveryAzureResourceGroupId pulumi.StringPtrInput `pulumi:"recoveryAzureResourceGroupId"`
-	// The recovery Azure storage account.
-	RecoveryAzureStorageAccount pulumi.StringPtrInput `pulumi:"recoveryAzureStorageAccount"`
-	// The Recovery Azure VM size.
-	RecoveryAzureVMSize pulumi.StringPtrInput `pulumi:"recoveryAzureVMSize"`
-	// Recovery Azure given name.
-	RecoveryAzureVmName pulumi.StringPtrInput `pulumi:"recoveryAzureVmName"`
-	// Last RPO value.
-	RpoInSeconds pulumi.Float64PtrInput `pulumi:"rpoInSeconds"`
-	// The selected recovery azure network Id.
-	SelectedRecoveryAzureNetworkId pulumi.StringPtrInput `pulumi:"selectedRecoveryAzureNetworkId"`
-	// The selected source nic Id which will be used as the primary nic during failover.
-	SelectedSourceNicId pulumi.StringPtrInput `pulumi:"selectedSourceNicId"`
-	// The CPU count of the VM on the primary side.
-	SourceVmCpuCount pulumi.IntPtrInput `pulumi:"sourceVmCpuCount"`
-	// The RAM size of the VM on the primary side.
-	SourceVmRamSizeInMB pulumi.IntPtrInput `pulumi:"sourceVmRamSizeInMB"`
-	// A value indicating whether managed disks should be used during failover.
-	UseManagedDisks pulumi.StringPtrInput `pulumi:"useManagedDisks"`
-	// The virtual machine Id.
-	VmId pulumi.StringPtrInput `pulumi:"vmId"`
-	// The PE Network details.
-	VmNics VMNicDetailsResponseArrayInput `pulumi:"vmNics"`
-	// The protection state for the vm.
-	VmProtectionState pulumi.StringPtrInput `pulumi:"vmProtectionState"`
-	// The protection state description for the vm.
-	VmProtectionStateDescription pulumi.StringPtrInput `pulumi:"vmProtectionStateDescription"`
+	AzureVmDiskDetails               AzureVmDiskDetailsResponseArrayInput      `pulumi:"azureVmDiskDetails"`
+	EnableRdpOnTargetOption          pulumi.StringPtrInput                     `pulumi:"enableRdpOnTargetOption"`
+	Encryption                       pulumi.StringPtrInput                     `pulumi:"encryption"`
+	InitialReplicationDetails        InitialReplicationDetailsResponsePtrInput `pulumi:"initialReplicationDetails"`
+	InstanceType                     pulumi.StringInput                        `pulumi:"instanceType"`
+	LastReplicatedTime               pulumi.StringPtrInput                     `pulumi:"lastReplicatedTime"`
+	LastRpoCalculatedTime            pulumi.StringPtrInput                     `pulumi:"lastRpoCalculatedTime"`
+	LicenseType                      pulumi.StringPtrInput                     `pulumi:"licenseType"`
+	OSDetails                        OSDetailsResponsePtrInput                 `pulumi:"oSDetails"`
+	RecoveryAvailabilitySetId        pulumi.StringPtrInput                     `pulumi:"recoveryAvailabilitySetId"`
+	RecoveryAzureLogStorageAccountId pulumi.StringPtrInput                     `pulumi:"recoveryAzureLogStorageAccountId"`
+	RecoveryAzureResourceGroupId     pulumi.StringPtrInput                     `pulumi:"recoveryAzureResourceGroupId"`
+	RecoveryAzureStorageAccount      pulumi.StringPtrInput                     `pulumi:"recoveryAzureStorageAccount"`
+	RecoveryAzureVMSize              pulumi.StringPtrInput                     `pulumi:"recoveryAzureVMSize"`
+	RecoveryAzureVmName              pulumi.StringPtrInput                     `pulumi:"recoveryAzureVmName"`
+	RpoInSeconds                     pulumi.Float64PtrInput                    `pulumi:"rpoInSeconds"`
+	SelectedRecoveryAzureNetworkId   pulumi.StringPtrInput                     `pulumi:"selectedRecoveryAzureNetworkId"`
+	SelectedSourceNicId              pulumi.StringPtrInput                     `pulumi:"selectedSourceNicId"`
+	SourceVmCpuCount                 pulumi.IntPtrInput                        `pulumi:"sourceVmCpuCount"`
+	SourceVmRamSizeInMB              pulumi.IntPtrInput                        `pulumi:"sourceVmRamSizeInMB"`
+	UseManagedDisks                  pulumi.StringPtrInput                     `pulumi:"useManagedDisks"`
+	VmId                             pulumi.StringPtrInput                     `pulumi:"vmId"`
+	VmNics                           VMNicDetailsResponseArrayInput            `pulumi:"vmNics"`
+	VmProtectionState                pulumi.StringPtrInput                     `pulumi:"vmProtectionState"`
+	VmProtectionStateDescription     pulumi.StringPtrInput                     `pulumi:"vmProtectionStateDescription"`
 }
 
 func (HyperVReplicaAzureReplicationDetailsResponseArgs) ElementType() reflect.Type {
@@ -5890,7 +5049,6 @@ func (i HyperVReplicaAzureReplicationDetailsResponseArgs) ToHyperVReplicaAzureRe
 	return pulumi.ToOutputWithContext(ctx, i).(HyperVReplicaAzureReplicationDetailsResponseOutput)
 }
 
-// Hyper V Replica Azure provider specific settings.
 type HyperVReplicaAzureReplicationDetailsResponseOutput struct{ *pulumi.OutputState }
 
 func (HyperVReplicaAzureReplicationDetailsResponseOutput) ElementType() reflect.Type {
@@ -5905,163 +5063,124 @@ func (o HyperVReplicaAzureReplicationDetailsResponseOutput) ToHyperVReplicaAzure
 	return o
 }
 
-// Azure VM Disk details.
 func (o HyperVReplicaAzureReplicationDetailsResponseOutput) AzureVmDiskDetails() AzureVmDiskDetailsResponseArrayOutput {
 	return o.ApplyT(func(v HyperVReplicaAzureReplicationDetailsResponse) []AzureVmDiskDetailsResponse {
 		return v.AzureVmDiskDetails
 	}).(AzureVmDiskDetailsResponseArrayOutput)
 }
 
-// The selected option to enable RDP\SSH on target vm after failover. String value of {SrsDataContract.EnableRDPOnTargetOption} enum.
 func (o HyperVReplicaAzureReplicationDetailsResponseOutput) EnableRdpOnTargetOption() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v HyperVReplicaAzureReplicationDetailsResponse) *string { return v.EnableRdpOnTargetOption }).(pulumi.StringPtrOutput)
 }
 
-// The encryption info.
 func (o HyperVReplicaAzureReplicationDetailsResponseOutput) Encryption() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v HyperVReplicaAzureReplicationDetailsResponse) *string { return v.Encryption }).(pulumi.StringPtrOutput)
 }
 
-// Initial replication details.
 func (o HyperVReplicaAzureReplicationDetailsResponseOutput) InitialReplicationDetails() InitialReplicationDetailsResponsePtrOutput {
 	return o.ApplyT(func(v HyperVReplicaAzureReplicationDetailsResponse) *InitialReplicationDetailsResponse {
 		return v.InitialReplicationDetails
 	}).(InitialReplicationDetailsResponsePtrOutput)
 }
 
-// Gets the Instance type.
-// Expected value is 'HyperVReplicaAzure'.
 func (o HyperVReplicaAzureReplicationDetailsResponseOutput) InstanceType() pulumi.StringOutput {
 	return o.ApplyT(func(v HyperVReplicaAzureReplicationDetailsResponse) string { return v.InstanceType }).(pulumi.StringOutput)
 }
 
-// The Last replication time.
 func (o HyperVReplicaAzureReplicationDetailsResponseOutput) LastReplicatedTime() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v HyperVReplicaAzureReplicationDetailsResponse) *string { return v.LastReplicatedTime }).(pulumi.StringPtrOutput)
 }
 
-// The last RPO calculated time.
 func (o HyperVReplicaAzureReplicationDetailsResponseOutput) LastRpoCalculatedTime() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v HyperVReplicaAzureReplicationDetailsResponse) *string { return v.LastRpoCalculatedTime }).(pulumi.StringPtrOutput)
 }
 
-// License Type of the VM to be used.
 func (o HyperVReplicaAzureReplicationDetailsResponseOutput) LicenseType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v HyperVReplicaAzureReplicationDetailsResponse) *string { return v.LicenseType }).(pulumi.StringPtrOutput)
 }
 
-// The operating system info.
 func (o HyperVReplicaAzureReplicationDetailsResponseOutput) OSDetails() OSDetailsResponsePtrOutput {
 	return o.ApplyT(func(v HyperVReplicaAzureReplicationDetailsResponse) *OSDetailsResponse { return v.OSDetails }).(OSDetailsResponsePtrOutput)
 }
 
-// The recovery availability set Id.
 func (o HyperVReplicaAzureReplicationDetailsResponseOutput) RecoveryAvailabilitySetId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v HyperVReplicaAzureReplicationDetailsResponse) *string { return v.RecoveryAvailabilitySetId }).(pulumi.StringPtrOutput)
 }
 
-// The ARM id of the log storage account used for replication. This will be set to null if no log storage account was provided during enable protection.
 func (o HyperVReplicaAzureReplicationDetailsResponseOutput) RecoveryAzureLogStorageAccountId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v HyperVReplicaAzureReplicationDetailsResponse) *string {
 		return v.RecoveryAzureLogStorageAccountId
 	}).(pulumi.StringPtrOutput)
 }
 
-// The target resource group Id.
 func (o HyperVReplicaAzureReplicationDetailsResponseOutput) RecoveryAzureResourceGroupId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v HyperVReplicaAzureReplicationDetailsResponse) *string { return v.RecoveryAzureResourceGroupId }).(pulumi.StringPtrOutput)
 }
 
-// The recovery Azure storage account.
 func (o HyperVReplicaAzureReplicationDetailsResponseOutput) RecoveryAzureStorageAccount() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v HyperVReplicaAzureReplicationDetailsResponse) *string { return v.RecoveryAzureStorageAccount }).(pulumi.StringPtrOutput)
 }
 
-// The Recovery Azure VM size.
 func (o HyperVReplicaAzureReplicationDetailsResponseOutput) RecoveryAzureVMSize() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v HyperVReplicaAzureReplicationDetailsResponse) *string { return v.RecoveryAzureVMSize }).(pulumi.StringPtrOutput)
 }
 
-// Recovery Azure given name.
 func (o HyperVReplicaAzureReplicationDetailsResponseOutput) RecoveryAzureVmName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v HyperVReplicaAzureReplicationDetailsResponse) *string { return v.RecoveryAzureVmName }).(pulumi.StringPtrOutput)
 }
 
-// Last RPO value.
 func (o HyperVReplicaAzureReplicationDetailsResponseOutput) RpoInSeconds() pulumi.Float64PtrOutput {
 	return o.ApplyT(func(v HyperVReplicaAzureReplicationDetailsResponse) *float64 { return v.RpoInSeconds }).(pulumi.Float64PtrOutput)
 }
 
-// The selected recovery azure network Id.
 func (o HyperVReplicaAzureReplicationDetailsResponseOutput) SelectedRecoveryAzureNetworkId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v HyperVReplicaAzureReplicationDetailsResponse) *string { return v.SelectedRecoveryAzureNetworkId }).(pulumi.StringPtrOutput)
 }
 
-// The selected source nic Id which will be used as the primary nic during failover.
 func (o HyperVReplicaAzureReplicationDetailsResponseOutput) SelectedSourceNicId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v HyperVReplicaAzureReplicationDetailsResponse) *string { return v.SelectedSourceNicId }).(pulumi.StringPtrOutput)
 }
 
-// The CPU count of the VM on the primary side.
 func (o HyperVReplicaAzureReplicationDetailsResponseOutput) SourceVmCpuCount() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v HyperVReplicaAzureReplicationDetailsResponse) *int { return v.SourceVmCpuCount }).(pulumi.IntPtrOutput)
 }
 
-// The RAM size of the VM on the primary side.
 func (o HyperVReplicaAzureReplicationDetailsResponseOutput) SourceVmRamSizeInMB() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v HyperVReplicaAzureReplicationDetailsResponse) *int { return v.SourceVmRamSizeInMB }).(pulumi.IntPtrOutput)
 }
 
-// A value indicating whether managed disks should be used during failover.
 func (o HyperVReplicaAzureReplicationDetailsResponseOutput) UseManagedDisks() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v HyperVReplicaAzureReplicationDetailsResponse) *string { return v.UseManagedDisks }).(pulumi.StringPtrOutput)
 }
 
-// The virtual machine Id.
 func (o HyperVReplicaAzureReplicationDetailsResponseOutput) VmId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v HyperVReplicaAzureReplicationDetailsResponse) *string { return v.VmId }).(pulumi.StringPtrOutput)
 }
 
-// The PE Network details.
 func (o HyperVReplicaAzureReplicationDetailsResponseOutput) VmNics() VMNicDetailsResponseArrayOutput {
 	return o.ApplyT(func(v HyperVReplicaAzureReplicationDetailsResponse) []VMNicDetailsResponse { return v.VmNics }).(VMNicDetailsResponseArrayOutput)
 }
 
-// The protection state for the vm.
 func (o HyperVReplicaAzureReplicationDetailsResponseOutput) VmProtectionState() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v HyperVReplicaAzureReplicationDetailsResponse) *string { return v.VmProtectionState }).(pulumi.StringPtrOutput)
 }
 
-// The protection state description for the vm.
 func (o HyperVReplicaAzureReplicationDetailsResponseOutput) VmProtectionStateDescription() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v HyperVReplicaAzureReplicationDetailsResponse) *string { return v.VmProtectionStateDescription }).(pulumi.StringPtrOutput)
 }
 
-// Base class for HyperVReplica policy details.
 type HyperVReplicaBasePolicyDetailsResponse struct {
-	// A value indicating the authentication type.
-	AllowedAuthenticationType *int `pulumi:"allowedAuthenticationType"`
-	// A value indicating the application consistent frequency.
-	ApplicationConsistentSnapshotFrequencyInHours *int `pulumi:"applicationConsistentSnapshotFrequencyInHours"`
-	// A value indicating whether compression has to be enabled.
-	Compression *string `pulumi:"compression"`
-	// A value indicating whether IR is online.
-	InitialReplicationMethod *string `pulumi:"initialReplicationMethod"`
-	// Gets the class type. Overridden in derived classes.
-	// Expected value is 'HyperVReplicaBasePolicyDetails'.
-	InstanceType string `pulumi:"instanceType"`
-	// A value indicating the offline IR export path.
-	OfflineReplicationExportPath *string `pulumi:"offlineReplicationExportPath"`
-	// A value indicating the offline IR import path.
-	OfflineReplicationImportPath *string `pulumi:"offlineReplicationImportPath"`
-	// A value indicating the online IR start time.
-	OnlineReplicationStartTime *string `pulumi:"onlineReplicationStartTime"`
-	// A value indicating the number of recovery points.
-	RecoveryPoints *int `pulumi:"recoveryPoints"`
-	// A value indicating whether the VM has to be auto deleted. Supported Values: String.Empty, None, OnRecoveryCloud
-	ReplicaDeletionOption *string `pulumi:"replicaDeletionOption"`
-	// A value indicating the recovery HTTPS port.
-	ReplicationPort *int `pulumi:"replicationPort"`
+	AllowedAuthenticationType                     *int    `pulumi:"allowedAuthenticationType"`
+	ApplicationConsistentSnapshotFrequencyInHours *int    `pulumi:"applicationConsistentSnapshotFrequencyInHours"`
+	Compression                                   *string `pulumi:"compression"`
+	InitialReplicationMethod                      *string `pulumi:"initialReplicationMethod"`
+	InstanceType                                  string  `pulumi:"instanceType"`
+	OfflineReplicationExportPath                  *string `pulumi:"offlineReplicationExportPath"`
+	OfflineReplicationImportPath                  *string `pulumi:"offlineReplicationImportPath"`
+	OnlineReplicationStartTime                    *string `pulumi:"onlineReplicationStartTime"`
+	RecoveryPoints                                *int    `pulumi:"recoveryPoints"`
+	ReplicaDeletionOption                         *string `pulumi:"replicaDeletionOption"`
+	ReplicationPort                               *int    `pulumi:"replicationPort"`
 }
 
 // HyperVReplicaBasePolicyDetailsResponseInput is an input type that accepts HyperVReplicaBasePolicyDetailsResponseArgs and HyperVReplicaBasePolicyDetailsResponseOutput values.
@@ -6075,31 +5194,18 @@ type HyperVReplicaBasePolicyDetailsResponseInput interface {
 	ToHyperVReplicaBasePolicyDetailsResponseOutputWithContext(context.Context) HyperVReplicaBasePolicyDetailsResponseOutput
 }
 
-// Base class for HyperVReplica policy details.
 type HyperVReplicaBasePolicyDetailsResponseArgs struct {
-	// A value indicating the authentication type.
-	AllowedAuthenticationType pulumi.IntPtrInput `pulumi:"allowedAuthenticationType"`
-	// A value indicating the application consistent frequency.
-	ApplicationConsistentSnapshotFrequencyInHours pulumi.IntPtrInput `pulumi:"applicationConsistentSnapshotFrequencyInHours"`
-	// A value indicating whether compression has to be enabled.
-	Compression pulumi.StringPtrInput `pulumi:"compression"`
-	// A value indicating whether IR is online.
-	InitialReplicationMethod pulumi.StringPtrInput `pulumi:"initialReplicationMethod"`
-	// Gets the class type. Overridden in derived classes.
-	// Expected value is 'HyperVReplicaBasePolicyDetails'.
-	InstanceType pulumi.StringInput `pulumi:"instanceType"`
-	// A value indicating the offline IR export path.
-	OfflineReplicationExportPath pulumi.StringPtrInput `pulumi:"offlineReplicationExportPath"`
-	// A value indicating the offline IR import path.
-	OfflineReplicationImportPath pulumi.StringPtrInput `pulumi:"offlineReplicationImportPath"`
-	// A value indicating the online IR start time.
-	OnlineReplicationStartTime pulumi.StringPtrInput `pulumi:"onlineReplicationStartTime"`
-	// A value indicating the number of recovery points.
-	RecoveryPoints pulumi.IntPtrInput `pulumi:"recoveryPoints"`
-	// A value indicating whether the VM has to be auto deleted. Supported Values: String.Empty, None, OnRecoveryCloud
-	ReplicaDeletionOption pulumi.StringPtrInput `pulumi:"replicaDeletionOption"`
-	// A value indicating the recovery HTTPS port.
-	ReplicationPort pulumi.IntPtrInput `pulumi:"replicationPort"`
+	AllowedAuthenticationType                     pulumi.IntPtrInput    `pulumi:"allowedAuthenticationType"`
+	ApplicationConsistentSnapshotFrequencyInHours pulumi.IntPtrInput    `pulumi:"applicationConsistentSnapshotFrequencyInHours"`
+	Compression                                   pulumi.StringPtrInput `pulumi:"compression"`
+	InitialReplicationMethod                      pulumi.StringPtrInput `pulumi:"initialReplicationMethod"`
+	InstanceType                                  pulumi.StringInput    `pulumi:"instanceType"`
+	OfflineReplicationExportPath                  pulumi.StringPtrInput `pulumi:"offlineReplicationExportPath"`
+	OfflineReplicationImportPath                  pulumi.StringPtrInput `pulumi:"offlineReplicationImportPath"`
+	OnlineReplicationStartTime                    pulumi.StringPtrInput `pulumi:"onlineReplicationStartTime"`
+	RecoveryPoints                                pulumi.IntPtrInput    `pulumi:"recoveryPoints"`
+	ReplicaDeletionOption                         pulumi.StringPtrInput `pulumi:"replicaDeletionOption"`
+	ReplicationPort                               pulumi.IntPtrInput    `pulumi:"replicationPort"`
 }
 
 func (HyperVReplicaBasePolicyDetailsResponseArgs) ElementType() reflect.Type {
@@ -6114,7 +5220,6 @@ func (i HyperVReplicaBasePolicyDetailsResponseArgs) ToHyperVReplicaBasePolicyDet
 	return pulumi.ToOutputWithContext(ctx, i).(HyperVReplicaBasePolicyDetailsResponseOutput)
 }
 
-// Base class for HyperVReplica policy details.
 type HyperVReplicaBasePolicyDetailsResponseOutput struct{ *pulumi.OutputState }
 
 func (HyperVReplicaBasePolicyDetailsResponseOutput) ElementType() reflect.Type {
@@ -6129,83 +5234,61 @@ func (o HyperVReplicaBasePolicyDetailsResponseOutput) ToHyperVReplicaBasePolicyD
 	return o
 }
 
-// A value indicating the authentication type.
 func (o HyperVReplicaBasePolicyDetailsResponseOutput) AllowedAuthenticationType() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v HyperVReplicaBasePolicyDetailsResponse) *int { return v.AllowedAuthenticationType }).(pulumi.IntPtrOutput)
 }
 
-// A value indicating the application consistent frequency.
 func (o HyperVReplicaBasePolicyDetailsResponseOutput) ApplicationConsistentSnapshotFrequencyInHours() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v HyperVReplicaBasePolicyDetailsResponse) *int {
 		return v.ApplicationConsistentSnapshotFrequencyInHours
 	}).(pulumi.IntPtrOutput)
 }
 
-// A value indicating whether compression has to be enabled.
 func (o HyperVReplicaBasePolicyDetailsResponseOutput) Compression() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v HyperVReplicaBasePolicyDetailsResponse) *string { return v.Compression }).(pulumi.StringPtrOutput)
 }
 
-// A value indicating whether IR is online.
 func (o HyperVReplicaBasePolicyDetailsResponseOutput) InitialReplicationMethod() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v HyperVReplicaBasePolicyDetailsResponse) *string { return v.InitialReplicationMethod }).(pulumi.StringPtrOutput)
 }
 
-// Gets the class type. Overridden in derived classes.
-// Expected value is 'HyperVReplicaBasePolicyDetails'.
 func (o HyperVReplicaBasePolicyDetailsResponseOutput) InstanceType() pulumi.StringOutput {
 	return o.ApplyT(func(v HyperVReplicaBasePolicyDetailsResponse) string { return v.InstanceType }).(pulumi.StringOutput)
 }
 
-// A value indicating the offline IR export path.
 func (o HyperVReplicaBasePolicyDetailsResponseOutput) OfflineReplicationExportPath() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v HyperVReplicaBasePolicyDetailsResponse) *string { return v.OfflineReplicationExportPath }).(pulumi.StringPtrOutput)
 }
 
-// A value indicating the offline IR import path.
 func (o HyperVReplicaBasePolicyDetailsResponseOutput) OfflineReplicationImportPath() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v HyperVReplicaBasePolicyDetailsResponse) *string { return v.OfflineReplicationImportPath }).(pulumi.StringPtrOutput)
 }
 
-// A value indicating the online IR start time.
 func (o HyperVReplicaBasePolicyDetailsResponseOutput) OnlineReplicationStartTime() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v HyperVReplicaBasePolicyDetailsResponse) *string { return v.OnlineReplicationStartTime }).(pulumi.StringPtrOutput)
 }
 
-// A value indicating the number of recovery points.
 func (o HyperVReplicaBasePolicyDetailsResponseOutput) RecoveryPoints() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v HyperVReplicaBasePolicyDetailsResponse) *int { return v.RecoveryPoints }).(pulumi.IntPtrOutput)
 }
 
-// A value indicating whether the VM has to be auto deleted. Supported Values: String.Empty, None, OnRecoveryCloud
 func (o HyperVReplicaBasePolicyDetailsResponseOutput) ReplicaDeletionOption() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v HyperVReplicaBasePolicyDetailsResponse) *string { return v.ReplicaDeletionOption }).(pulumi.StringPtrOutput)
 }
 
-// A value indicating the recovery HTTPS port.
 func (o HyperVReplicaBasePolicyDetailsResponseOutput) ReplicationPort() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v HyperVReplicaBasePolicyDetailsResponse) *int { return v.ReplicationPort }).(pulumi.IntPtrOutput)
 }
 
-// Hyper V replica provider specific settings base class.
 type HyperVReplicaBaseReplicationDetailsResponse struct {
-	// Initial replication details.
-	InitialReplicationDetails *InitialReplicationDetailsResponse `pulumi:"initialReplicationDetails"`
-	// Gets the Instance type.
-	// Expected value is 'HyperVReplicaBaseReplicationDetails'.
-	InstanceType string `pulumi:"instanceType"`
-	// The Last replication time.
-	LastReplicatedTime *string `pulumi:"lastReplicatedTime"`
-	// VM disk details.
-	VMDiskDetails []DiskDetailsResponse `pulumi:"vMDiskDetails"`
-	// The virtual machine Id.
-	VmId *string `pulumi:"vmId"`
-	// The PE Network details.
-	VmNics []VMNicDetailsResponse `pulumi:"vmNics"`
-	// The protection state for the vm.
-	VmProtectionState *string `pulumi:"vmProtectionState"`
-	// The protection state description for the vm.
-	VmProtectionStateDescription *string `pulumi:"vmProtectionStateDescription"`
+	InitialReplicationDetails    *InitialReplicationDetailsResponse `pulumi:"initialReplicationDetails"`
+	InstanceType                 string                             `pulumi:"instanceType"`
+	LastReplicatedTime           *string                            `pulumi:"lastReplicatedTime"`
+	VMDiskDetails                []DiskDetailsResponse              `pulumi:"vMDiskDetails"`
+	VmId                         *string                            `pulumi:"vmId"`
+	VmNics                       []VMNicDetailsResponse             `pulumi:"vmNics"`
+	VmProtectionState            *string                            `pulumi:"vmProtectionState"`
+	VmProtectionStateDescription *string                            `pulumi:"vmProtectionStateDescription"`
 }
 
 // HyperVReplicaBaseReplicationDetailsResponseInput is an input type that accepts HyperVReplicaBaseReplicationDetailsResponseArgs and HyperVReplicaBaseReplicationDetailsResponseOutput values.
@@ -6219,25 +5302,15 @@ type HyperVReplicaBaseReplicationDetailsResponseInput interface {
 	ToHyperVReplicaBaseReplicationDetailsResponseOutputWithContext(context.Context) HyperVReplicaBaseReplicationDetailsResponseOutput
 }
 
-// Hyper V replica provider specific settings base class.
 type HyperVReplicaBaseReplicationDetailsResponseArgs struct {
-	// Initial replication details.
-	InitialReplicationDetails InitialReplicationDetailsResponsePtrInput `pulumi:"initialReplicationDetails"`
-	// Gets the Instance type.
-	// Expected value is 'HyperVReplicaBaseReplicationDetails'.
-	InstanceType pulumi.StringInput `pulumi:"instanceType"`
-	// The Last replication time.
-	LastReplicatedTime pulumi.StringPtrInput `pulumi:"lastReplicatedTime"`
-	// VM disk details.
-	VMDiskDetails DiskDetailsResponseArrayInput `pulumi:"vMDiskDetails"`
-	// The virtual machine Id.
-	VmId pulumi.StringPtrInput `pulumi:"vmId"`
-	// The PE Network details.
-	VmNics VMNicDetailsResponseArrayInput `pulumi:"vmNics"`
-	// The protection state for the vm.
-	VmProtectionState pulumi.StringPtrInput `pulumi:"vmProtectionState"`
-	// The protection state description for the vm.
-	VmProtectionStateDescription pulumi.StringPtrInput `pulumi:"vmProtectionStateDescription"`
+	InitialReplicationDetails    InitialReplicationDetailsResponsePtrInput `pulumi:"initialReplicationDetails"`
+	InstanceType                 pulumi.StringInput                        `pulumi:"instanceType"`
+	LastReplicatedTime           pulumi.StringPtrInput                     `pulumi:"lastReplicatedTime"`
+	VMDiskDetails                DiskDetailsResponseArrayInput             `pulumi:"vMDiskDetails"`
+	VmId                         pulumi.StringPtrInput                     `pulumi:"vmId"`
+	VmNics                       VMNicDetailsResponseArrayInput            `pulumi:"vmNics"`
+	VmProtectionState            pulumi.StringPtrInput                     `pulumi:"vmProtectionState"`
+	VmProtectionStateDescription pulumi.StringPtrInput                     `pulumi:"vmProtectionStateDescription"`
 }
 
 func (HyperVReplicaBaseReplicationDetailsResponseArgs) ElementType() reflect.Type {
@@ -6252,7 +5325,6 @@ func (i HyperVReplicaBaseReplicationDetailsResponseArgs) ToHyperVReplicaBaseRepl
 	return pulumi.ToOutputWithContext(ctx, i).(HyperVReplicaBaseReplicationDetailsResponseOutput)
 }
 
-// Hyper V replica provider specific settings base class.
 type HyperVReplicaBaseReplicationDetailsResponseOutput struct{ *pulumi.OutputState }
 
 func (HyperVReplicaBaseReplicationDetailsResponseOutput) ElementType() reflect.Type {
@@ -6267,76 +5339,53 @@ func (o HyperVReplicaBaseReplicationDetailsResponseOutput) ToHyperVReplicaBaseRe
 	return o
 }
 
-// Initial replication details.
 func (o HyperVReplicaBaseReplicationDetailsResponseOutput) InitialReplicationDetails() InitialReplicationDetailsResponsePtrOutput {
 	return o.ApplyT(func(v HyperVReplicaBaseReplicationDetailsResponse) *InitialReplicationDetailsResponse {
 		return v.InitialReplicationDetails
 	}).(InitialReplicationDetailsResponsePtrOutput)
 }
 
-// Gets the Instance type.
-// Expected value is 'HyperVReplicaBaseReplicationDetails'.
 func (o HyperVReplicaBaseReplicationDetailsResponseOutput) InstanceType() pulumi.StringOutput {
 	return o.ApplyT(func(v HyperVReplicaBaseReplicationDetailsResponse) string { return v.InstanceType }).(pulumi.StringOutput)
 }
 
-// The Last replication time.
 func (o HyperVReplicaBaseReplicationDetailsResponseOutput) LastReplicatedTime() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v HyperVReplicaBaseReplicationDetailsResponse) *string { return v.LastReplicatedTime }).(pulumi.StringPtrOutput)
 }
 
-// VM disk details.
 func (o HyperVReplicaBaseReplicationDetailsResponseOutput) VMDiskDetails() DiskDetailsResponseArrayOutput {
 	return o.ApplyT(func(v HyperVReplicaBaseReplicationDetailsResponse) []DiskDetailsResponse { return v.VMDiskDetails }).(DiskDetailsResponseArrayOutput)
 }
 
-// The virtual machine Id.
 func (o HyperVReplicaBaseReplicationDetailsResponseOutput) VmId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v HyperVReplicaBaseReplicationDetailsResponse) *string { return v.VmId }).(pulumi.StringPtrOutput)
 }
 
-// The PE Network details.
 func (o HyperVReplicaBaseReplicationDetailsResponseOutput) VmNics() VMNicDetailsResponseArrayOutput {
 	return o.ApplyT(func(v HyperVReplicaBaseReplicationDetailsResponse) []VMNicDetailsResponse { return v.VmNics }).(VMNicDetailsResponseArrayOutput)
 }
 
-// The protection state for the vm.
 func (o HyperVReplicaBaseReplicationDetailsResponseOutput) VmProtectionState() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v HyperVReplicaBaseReplicationDetailsResponse) *string { return v.VmProtectionState }).(pulumi.StringPtrOutput)
 }
 
-// The protection state description for the vm.
 func (o HyperVReplicaBaseReplicationDetailsResponseOutput) VmProtectionStateDescription() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v HyperVReplicaBaseReplicationDetailsResponse) *string { return v.VmProtectionStateDescription }).(pulumi.StringPtrOutput)
 }
 
-// Hyper-V Replica Blue specific protection profile details.
 type HyperVReplicaBluePolicyDetailsResponse struct {
-	// A value indicating the authentication type.
-	AllowedAuthenticationType *int `pulumi:"allowedAuthenticationType"`
-	// A value indicating the application consistent frequency.
-	ApplicationConsistentSnapshotFrequencyInHours *int `pulumi:"applicationConsistentSnapshotFrequencyInHours"`
-	// A value indicating whether compression has to be enabled.
-	Compression *string `pulumi:"compression"`
-	// A value indicating whether IR is online.
-	InitialReplicationMethod *string `pulumi:"initialReplicationMethod"`
-	// Gets the class type. Overridden in derived classes.
-	// Expected value is 'HyperVReplica2012R2'.
-	InstanceType string `pulumi:"instanceType"`
-	// A value indicating the offline IR export path.
-	OfflineReplicationExportPath *string `pulumi:"offlineReplicationExportPath"`
-	// A value indicating the offline IR import path.
-	OfflineReplicationImportPath *string `pulumi:"offlineReplicationImportPath"`
-	// A value indicating the online IR start time.
-	OnlineReplicationStartTime *string `pulumi:"onlineReplicationStartTime"`
-	// A value indicating the number of recovery points.
-	RecoveryPoints *int `pulumi:"recoveryPoints"`
-	// A value indicating whether the VM has to be auto deleted. Supported Values: String.Empty, None, OnRecoveryCloud
-	ReplicaDeletionOption *string `pulumi:"replicaDeletionOption"`
-	// A value indicating the replication interval.
-	ReplicationFrequencyInSeconds *int `pulumi:"replicationFrequencyInSeconds"`
-	// A value indicating the recovery HTTPS port.
-	ReplicationPort *int `pulumi:"replicationPort"`
+	AllowedAuthenticationType                     *int    `pulumi:"allowedAuthenticationType"`
+	ApplicationConsistentSnapshotFrequencyInHours *int    `pulumi:"applicationConsistentSnapshotFrequencyInHours"`
+	Compression                                   *string `pulumi:"compression"`
+	InitialReplicationMethod                      *string `pulumi:"initialReplicationMethod"`
+	InstanceType                                  string  `pulumi:"instanceType"`
+	OfflineReplicationExportPath                  *string `pulumi:"offlineReplicationExportPath"`
+	OfflineReplicationImportPath                  *string `pulumi:"offlineReplicationImportPath"`
+	OnlineReplicationStartTime                    *string `pulumi:"onlineReplicationStartTime"`
+	RecoveryPoints                                *int    `pulumi:"recoveryPoints"`
+	ReplicaDeletionOption                         *string `pulumi:"replicaDeletionOption"`
+	ReplicationFrequencyInSeconds                 *int    `pulumi:"replicationFrequencyInSeconds"`
+	ReplicationPort                               *int    `pulumi:"replicationPort"`
 }
 
 // HyperVReplicaBluePolicyDetailsResponseInput is an input type that accepts HyperVReplicaBluePolicyDetailsResponseArgs and HyperVReplicaBluePolicyDetailsResponseOutput values.
@@ -6350,33 +5399,19 @@ type HyperVReplicaBluePolicyDetailsResponseInput interface {
 	ToHyperVReplicaBluePolicyDetailsResponseOutputWithContext(context.Context) HyperVReplicaBluePolicyDetailsResponseOutput
 }
 
-// Hyper-V Replica Blue specific protection profile details.
 type HyperVReplicaBluePolicyDetailsResponseArgs struct {
-	// A value indicating the authentication type.
-	AllowedAuthenticationType pulumi.IntPtrInput `pulumi:"allowedAuthenticationType"`
-	// A value indicating the application consistent frequency.
-	ApplicationConsistentSnapshotFrequencyInHours pulumi.IntPtrInput `pulumi:"applicationConsistentSnapshotFrequencyInHours"`
-	// A value indicating whether compression has to be enabled.
-	Compression pulumi.StringPtrInput `pulumi:"compression"`
-	// A value indicating whether IR is online.
-	InitialReplicationMethod pulumi.StringPtrInput `pulumi:"initialReplicationMethod"`
-	// Gets the class type. Overridden in derived classes.
-	// Expected value is 'HyperVReplica2012R2'.
-	InstanceType pulumi.StringInput `pulumi:"instanceType"`
-	// A value indicating the offline IR export path.
-	OfflineReplicationExportPath pulumi.StringPtrInput `pulumi:"offlineReplicationExportPath"`
-	// A value indicating the offline IR import path.
-	OfflineReplicationImportPath pulumi.StringPtrInput `pulumi:"offlineReplicationImportPath"`
-	// A value indicating the online IR start time.
-	OnlineReplicationStartTime pulumi.StringPtrInput `pulumi:"onlineReplicationStartTime"`
-	// A value indicating the number of recovery points.
-	RecoveryPoints pulumi.IntPtrInput `pulumi:"recoveryPoints"`
-	// A value indicating whether the VM has to be auto deleted. Supported Values: String.Empty, None, OnRecoveryCloud
-	ReplicaDeletionOption pulumi.StringPtrInput `pulumi:"replicaDeletionOption"`
-	// A value indicating the replication interval.
-	ReplicationFrequencyInSeconds pulumi.IntPtrInput `pulumi:"replicationFrequencyInSeconds"`
-	// A value indicating the recovery HTTPS port.
-	ReplicationPort pulumi.IntPtrInput `pulumi:"replicationPort"`
+	AllowedAuthenticationType                     pulumi.IntPtrInput    `pulumi:"allowedAuthenticationType"`
+	ApplicationConsistentSnapshotFrequencyInHours pulumi.IntPtrInput    `pulumi:"applicationConsistentSnapshotFrequencyInHours"`
+	Compression                                   pulumi.StringPtrInput `pulumi:"compression"`
+	InitialReplicationMethod                      pulumi.StringPtrInput `pulumi:"initialReplicationMethod"`
+	InstanceType                                  pulumi.StringInput    `pulumi:"instanceType"`
+	OfflineReplicationExportPath                  pulumi.StringPtrInput `pulumi:"offlineReplicationExportPath"`
+	OfflineReplicationImportPath                  pulumi.StringPtrInput `pulumi:"offlineReplicationImportPath"`
+	OnlineReplicationStartTime                    pulumi.StringPtrInput `pulumi:"onlineReplicationStartTime"`
+	RecoveryPoints                                pulumi.IntPtrInput    `pulumi:"recoveryPoints"`
+	ReplicaDeletionOption                         pulumi.StringPtrInput `pulumi:"replicaDeletionOption"`
+	ReplicationFrequencyInSeconds                 pulumi.IntPtrInput    `pulumi:"replicationFrequencyInSeconds"`
+	ReplicationPort                               pulumi.IntPtrInput    `pulumi:"replicationPort"`
 }
 
 func (HyperVReplicaBluePolicyDetailsResponseArgs) ElementType() reflect.Type {
@@ -6391,7 +5426,6 @@ func (i HyperVReplicaBluePolicyDetailsResponseArgs) ToHyperVReplicaBluePolicyDet
 	return pulumi.ToOutputWithContext(ctx, i).(HyperVReplicaBluePolicyDetailsResponseOutput)
 }
 
-// Hyper-V Replica Blue specific protection profile details.
 type HyperVReplicaBluePolicyDetailsResponseOutput struct{ *pulumi.OutputState }
 
 func (HyperVReplicaBluePolicyDetailsResponseOutput) ElementType() reflect.Type {
@@ -6406,96 +5440,69 @@ func (o HyperVReplicaBluePolicyDetailsResponseOutput) ToHyperVReplicaBluePolicyD
 	return o
 }
 
-// A value indicating the authentication type.
 func (o HyperVReplicaBluePolicyDetailsResponseOutput) AllowedAuthenticationType() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v HyperVReplicaBluePolicyDetailsResponse) *int { return v.AllowedAuthenticationType }).(pulumi.IntPtrOutput)
 }
 
-// A value indicating the application consistent frequency.
 func (o HyperVReplicaBluePolicyDetailsResponseOutput) ApplicationConsistentSnapshotFrequencyInHours() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v HyperVReplicaBluePolicyDetailsResponse) *int {
 		return v.ApplicationConsistentSnapshotFrequencyInHours
 	}).(pulumi.IntPtrOutput)
 }
 
-// A value indicating whether compression has to be enabled.
 func (o HyperVReplicaBluePolicyDetailsResponseOutput) Compression() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v HyperVReplicaBluePolicyDetailsResponse) *string { return v.Compression }).(pulumi.StringPtrOutput)
 }
 
-// A value indicating whether IR is online.
 func (o HyperVReplicaBluePolicyDetailsResponseOutput) InitialReplicationMethod() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v HyperVReplicaBluePolicyDetailsResponse) *string { return v.InitialReplicationMethod }).(pulumi.StringPtrOutput)
 }
 
-// Gets the class type. Overridden in derived classes.
-// Expected value is 'HyperVReplica2012R2'.
 func (o HyperVReplicaBluePolicyDetailsResponseOutput) InstanceType() pulumi.StringOutput {
 	return o.ApplyT(func(v HyperVReplicaBluePolicyDetailsResponse) string { return v.InstanceType }).(pulumi.StringOutput)
 }
 
-// A value indicating the offline IR export path.
 func (o HyperVReplicaBluePolicyDetailsResponseOutput) OfflineReplicationExportPath() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v HyperVReplicaBluePolicyDetailsResponse) *string { return v.OfflineReplicationExportPath }).(pulumi.StringPtrOutput)
 }
 
-// A value indicating the offline IR import path.
 func (o HyperVReplicaBluePolicyDetailsResponseOutput) OfflineReplicationImportPath() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v HyperVReplicaBluePolicyDetailsResponse) *string { return v.OfflineReplicationImportPath }).(pulumi.StringPtrOutput)
 }
 
-// A value indicating the online IR start time.
 func (o HyperVReplicaBluePolicyDetailsResponseOutput) OnlineReplicationStartTime() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v HyperVReplicaBluePolicyDetailsResponse) *string { return v.OnlineReplicationStartTime }).(pulumi.StringPtrOutput)
 }
 
-// A value indicating the number of recovery points.
 func (o HyperVReplicaBluePolicyDetailsResponseOutput) RecoveryPoints() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v HyperVReplicaBluePolicyDetailsResponse) *int { return v.RecoveryPoints }).(pulumi.IntPtrOutput)
 }
 
-// A value indicating whether the VM has to be auto deleted. Supported Values: String.Empty, None, OnRecoveryCloud
 func (o HyperVReplicaBluePolicyDetailsResponseOutput) ReplicaDeletionOption() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v HyperVReplicaBluePolicyDetailsResponse) *string { return v.ReplicaDeletionOption }).(pulumi.StringPtrOutput)
 }
 
-// A value indicating the replication interval.
 func (o HyperVReplicaBluePolicyDetailsResponseOutput) ReplicationFrequencyInSeconds() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v HyperVReplicaBluePolicyDetailsResponse) *int { return v.ReplicationFrequencyInSeconds }).(pulumi.IntPtrOutput)
 }
 
-// A value indicating the recovery HTTPS port.
 func (o HyperVReplicaBluePolicyDetailsResponseOutput) ReplicationPort() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v HyperVReplicaBluePolicyDetailsResponse) *int { return v.ReplicationPort }).(pulumi.IntPtrOutput)
 }
 
-// HyperV Replica Blue policy input.
 type HyperVReplicaBluePolicyInput struct {
-	// A value indicating the authentication type.
-	AllowedAuthenticationType *int `pulumi:"allowedAuthenticationType"`
-	// A value indicating the application consistent frequency.
-	ApplicationConsistentSnapshotFrequencyInHours *int `pulumi:"applicationConsistentSnapshotFrequencyInHours"`
-	// A value indicating whether compression has to be enabled.
-	Compression *string `pulumi:"compression"`
-	// A value indicating whether IR is online.
-	InitialReplicationMethod *string `pulumi:"initialReplicationMethod"`
-	// The class type.
-	// Expected value is 'HyperVReplica2012R2'.
-	InstanceType *string `pulumi:"instanceType"`
-	// A value indicating the offline IR export path.
-	OfflineReplicationExportPath *string `pulumi:"offlineReplicationExportPath"`
-	// A value indicating the offline IR import path.
-	OfflineReplicationImportPath *string `pulumi:"offlineReplicationImportPath"`
-	// A value indicating the online IR start time.
-	OnlineReplicationStartTime *string `pulumi:"onlineReplicationStartTime"`
-	// A value indicating the number of recovery points.
-	RecoveryPoints *int `pulumi:"recoveryPoints"`
-	// A value indicating whether the VM has to be auto deleted.
-	ReplicaDeletion *string `pulumi:"replicaDeletion"`
-	// A value indicating the replication interval.
-	ReplicationFrequencyInSeconds *int `pulumi:"replicationFrequencyInSeconds"`
-	// A value indicating the recovery HTTPS port.
-	ReplicationPort *int `pulumi:"replicationPort"`
+	AllowedAuthenticationType                     *int    `pulumi:"allowedAuthenticationType"`
+	ApplicationConsistentSnapshotFrequencyInHours *int    `pulumi:"applicationConsistentSnapshotFrequencyInHours"`
+	Compression                                   *string `pulumi:"compression"`
+	InitialReplicationMethod                      *string `pulumi:"initialReplicationMethod"`
+	InstanceType                                  *string `pulumi:"instanceType"`
+	OfflineReplicationExportPath                  *string `pulumi:"offlineReplicationExportPath"`
+	OfflineReplicationImportPath                  *string `pulumi:"offlineReplicationImportPath"`
+	OnlineReplicationStartTime                    *string `pulumi:"onlineReplicationStartTime"`
+	RecoveryPoints                                *int    `pulumi:"recoveryPoints"`
+	ReplicaDeletion                               *string `pulumi:"replicaDeletion"`
+	ReplicationFrequencyInSeconds                 *int    `pulumi:"replicationFrequencyInSeconds"`
+	ReplicationPort                               *int    `pulumi:"replicationPort"`
 }
 
 // HyperVReplicaBluePolicyInputInput is an input type that accepts HyperVReplicaBluePolicyInputArgs and HyperVReplicaBluePolicyInputOutput values.
@@ -6509,33 +5516,19 @@ type HyperVReplicaBluePolicyInputInput interface {
 	ToHyperVReplicaBluePolicyInputOutputWithContext(context.Context) HyperVReplicaBluePolicyInputOutput
 }
 
-// HyperV Replica Blue policy input.
 type HyperVReplicaBluePolicyInputArgs struct {
-	// A value indicating the authentication type.
-	AllowedAuthenticationType pulumi.IntPtrInput `pulumi:"allowedAuthenticationType"`
-	// A value indicating the application consistent frequency.
-	ApplicationConsistentSnapshotFrequencyInHours pulumi.IntPtrInput `pulumi:"applicationConsistentSnapshotFrequencyInHours"`
-	// A value indicating whether compression has to be enabled.
-	Compression pulumi.StringPtrInput `pulumi:"compression"`
-	// A value indicating whether IR is online.
-	InitialReplicationMethod pulumi.StringPtrInput `pulumi:"initialReplicationMethod"`
-	// The class type.
-	// Expected value is 'HyperVReplica2012R2'.
-	InstanceType pulumi.StringPtrInput `pulumi:"instanceType"`
-	// A value indicating the offline IR export path.
-	OfflineReplicationExportPath pulumi.StringPtrInput `pulumi:"offlineReplicationExportPath"`
-	// A value indicating the offline IR import path.
-	OfflineReplicationImportPath pulumi.StringPtrInput `pulumi:"offlineReplicationImportPath"`
-	// A value indicating the online IR start time.
-	OnlineReplicationStartTime pulumi.StringPtrInput `pulumi:"onlineReplicationStartTime"`
-	// A value indicating the number of recovery points.
-	RecoveryPoints pulumi.IntPtrInput `pulumi:"recoveryPoints"`
-	// A value indicating whether the VM has to be auto deleted.
-	ReplicaDeletion pulumi.StringPtrInput `pulumi:"replicaDeletion"`
-	// A value indicating the replication interval.
-	ReplicationFrequencyInSeconds pulumi.IntPtrInput `pulumi:"replicationFrequencyInSeconds"`
-	// A value indicating the recovery HTTPS port.
-	ReplicationPort pulumi.IntPtrInput `pulumi:"replicationPort"`
+	AllowedAuthenticationType                     pulumi.IntPtrInput    `pulumi:"allowedAuthenticationType"`
+	ApplicationConsistentSnapshotFrequencyInHours pulumi.IntPtrInput    `pulumi:"applicationConsistentSnapshotFrequencyInHours"`
+	Compression                                   pulumi.StringPtrInput `pulumi:"compression"`
+	InitialReplicationMethod                      pulumi.StringPtrInput `pulumi:"initialReplicationMethod"`
+	InstanceType                                  pulumi.StringPtrInput `pulumi:"instanceType"`
+	OfflineReplicationExportPath                  pulumi.StringPtrInput `pulumi:"offlineReplicationExportPath"`
+	OfflineReplicationImportPath                  pulumi.StringPtrInput `pulumi:"offlineReplicationImportPath"`
+	OnlineReplicationStartTime                    pulumi.StringPtrInput `pulumi:"onlineReplicationStartTime"`
+	RecoveryPoints                                pulumi.IntPtrInput    `pulumi:"recoveryPoints"`
+	ReplicaDeletion                               pulumi.StringPtrInput `pulumi:"replicaDeletion"`
+	ReplicationFrequencyInSeconds                 pulumi.IntPtrInput    `pulumi:"replicationFrequencyInSeconds"`
+	ReplicationPort                               pulumi.IntPtrInput    `pulumi:"replicationPort"`
 }
 
 func (HyperVReplicaBluePolicyInputArgs) ElementType() reflect.Type {
@@ -6550,7 +5543,6 @@ func (i HyperVReplicaBluePolicyInputArgs) ToHyperVReplicaBluePolicyInputOutputWi
 	return pulumi.ToOutputWithContext(ctx, i).(HyperVReplicaBluePolicyInputOutput)
 }
 
-// HyperV Replica Blue policy input.
 type HyperVReplicaBluePolicyInputOutput struct{ *pulumi.OutputState }
 
 func (HyperVReplicaBluePolicyInputOutput) ElementType() reflect.Type {
@@ -6565,86 +5557,63 @@ func (o HyperVReplicaBluePolicyInputOutput) ToHyperVReplicaBluePolicyInputOutput
 	return o
 }
 
-// A value indicating the authentication type.
 func (o HyperVReplicaBluePolicyInputOutput) AllowedAuthenticationType() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v HyperVReplicaBluePolicyInput) *int { return v.AllowedAuthenticationType }).(pulumi.IntPtrOutput)
 }
 
-// A value indicating the application consistent frequency.
 func (o HyperVReplicaBluePolicyInputOutput) ApplicationConsistentSnapshotFrequencyInHours() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v HyperVReplicaBluePolicyInput) *int { return v.ApplicationConsistentSnapshotFrequencyInHours }).(pulumi.IntPtrOutput)
 }
 
-// A value indicating whether compression has to be enabled.
 func (o HyperVReplicaBluePolicyInputOutput) Compression() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v HyperVReplicaBluePolicyInput) *string { return v.Compression }).(pulumi.StringPtrOutput)
 }
 
-// A value indicating whether IR is online.
 func (o HyperVReplicaBluePolicyInputOutput) InitialReplicationMethod() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v HyperVReplicaBluePolicyInput) *string { return v.InitialReplicationMethod }).(pulumi.StringPtrOutput)
 }
 
-// The class type.
-// Expected value is 'HyperVReplica2012R2'.
 func (o HyperVReplicaBluePolicyInputOutput) InstanceType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v HyperVReplicaBluePolicyInput) *string { return v.InstanceType }).(pulumi.StringPtrOutput)
 }
 
-// A value indicating the offline IR export path.
 func (o HyperVReplicaBluePolicyInputOutput) OfflineReplicationExportPath() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v HyperVReplicaBluePolicyInput) *string { return v.OfflineReplicationExportPath }).(pulumi.StringPtrOutput)
 }
 
-// A value indicating the offline IR import path.
 func (o HyperVReplicaBluePolicyInputOutput) OfflineReplicationImportPath() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v HyperVReplicaBluePolicyInput) *string { return v.OfflineReplicationImportPath }).(pulumi.StringPtrOutput)
 }
 
-// A value indicating the online IR start time.
 func (o HyperVReplicaBluePolicyInputOutput) OnlineReplicationStartTime() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v HyperVReplicaBluePolicyInput) *string { return v.OnlineReplicationStartTime }).(pulumi.StringPtrOutput)
 }
 
-// A value indicating the number of recovery points.
 func (o HyperVReplicaBluePolicyInputOutput) RecoveryPoints() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v HyperVReplicaBluePolicyInput) *int { return v.RecoveryPoints }).(pulumi.IntPtrOutput)
 }
 
-// A value indicating whether the VM has to be auto deleted.
 func (o HyperVReplicaBluePolicyInputOutput) ReplicaDeletion() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v HyperVReplicaBluePolicyInput) *string { return v.ReplicaDeletion }).(pulumi.StringPtrOutput)
 }
 
-// A value indicating the replication interval.
 func (o HyperVReplicaBluePolicyInputOutput) ReplicationFrequencyInSeconds() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v HyperVReplicaBluePolicyInput) *int { return v.ReplicationFrequencyInSeconds }).(pulumi.IntPtrOutput)
 }
 
-// A value indicating the recovery HTTPS port.
 func (o HyperVReplicaBluePolicyInputOutput) ReplicationPort() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v HyperVReplicaBluePolicyInput) *int { return v.ReplicationPort }).(pulumi.IntPtrOutput)
 }
 
-// HyperV replica 2012 R2 (Blue) replication details.
 type HyperVReplicaBlueReplicationDetailsResponse struct {
-	// Initial replication details.
-	InitialReplicationDetails *InitialReplicationDetailsResponse `pulumi:"initialReplicationDetails"`
-	// Gets the Instance type.
-	// Expected value is 'HyperVReplica2012R2'.
-	InstanceType string `pulumi:"instanceType"`
-	// The Last replication time.
-	LastReplicatedTime *string `pulumi:"lastReplicatedTime"`
-	// VM disk details.
-	VMDiskDetails []DiskDetailsResponse `pulumi:"vMDiskDetails"`
-	// The virtual machine Id.
-	VmId *string `pulumi:"vmId"`
-	// The PE Network details.
-	VmNics []VMNicDetailsResponse `pulumi:"vmNics"`
-	// The protection state for the vm.
-	VmProtectionState *string `pulumi:"vmProtectionState"`
-	// The protection state description for the vm.
-	VmProtectionStateDescription *string `pulumi:"vmProtectionStateDescription"`
+	InitialReplicationDetails    *InitialReplicationDetailsResponse `pulumi:"initialReplicationDetails"`
+	InstanceType                 string                             `pulumi:"instanceType"`
+	LastReplicatedTime           *string                            `pulumi:"lastReplicatedTime"`
+	VMDiskDetails                []DiskDetailsResponse              `pulumi:"vMDiskDetails"`
+	VmId                         *string                            `pulumi:"vmId"`
+	VmNics                       []VMNicDetailsResponse             `pulumi:"vmNics"`
+	VmProtectionState            *string                            `pulumi:"vmProtectionState"`
+	VmProtectionStateDescription *string                            `pulumi:"vmProtectionStateDescription"`
 }
 
 // HyperVReplicaBlueReplicationDetailsResponseInput is an input type that accepts HyperVReplicaBlueReplicationDetailsResponseArgs and HyperVReplicaBlueReplicationDetailsResponseOutput values.
@@ -6658,25 +5627,15 @@ type HyperVReplicaBlueReplicationDetailsResponseInput interface {
 	ToHyperVReplicaBlueReplicationDetailsResponseOutputWithContext(context.Context) HyperVReplicaBlueReplicationDetailsResponseOutput
 }
 
-// HyperV replica 2012 R2 (Blue) replication details.
 type HyperVReplicaBlueReplicationDetailsResponseArgs struct {
-	// Initial replication details.
-	InitialReplicationDetails InitialReplicationDetailsResponsePtrInput `pulumi:"initialReplicationDetails"`
-	// Gets the Instance type.
-	// Expected value is 'HyperVReplica2012R2'.
-	InstanceType pulumi.StringInput `pulumi:"instanceType"`
-	// The Last replication time.
-	LastReplicatedTime pulumi.StringPtrInput `pulumi:"lastReplicatedTime"`
-	// VM disk details.
-	VMDiskDetails DiskDetailsResponseArrayInput `pulumi:"vMDiskDetails"`
-	// The virtual machine Id.
-	VmId pulumi.StringPtrInput `pulumi:"vmId"`
-	// The PE Network details.
-	VmNics VMNicDetailsResponseArrayInput `pulumi:"vmNics"`
-	// The protection state for the vm.
-	VmProtectionState pulumi.StringPtrInput `pulumi:"vmProtectionState"`
-	// The protection state description for the vm.
-	VmProtectionStateDescription pulumi.StringPtrInput `pulumi:"vmProtectionStateDescription"`
+	InitialReplicationDetails    InitialReplicationDetailsResponsePtrInput `pulumi:"initialReplicationDetails"`
+	InstanceType                 pulumi.StringInput                        `pulumi:"instanceType"`
+	LastReplicatedTime           pulumi.StringPtrInput                     `pulumi:"lastReplicatedTime"`
+	VMDiskDetails                DiskDetailsResponseArrayInput             `pulumi:"vMDiskDetails"`
+	VmId                         pulumi.StringPtrInput                     `pulumi:"vmId"`
+	VmNics                       VMNicDetailsResponseArrayInput            `pulumi:"vmNics"`
+	VmProtectionState            pulumi.StringPtrInput                     `pulumi:"vmProtectionState"`
+	VmProtectionStateDescription pulumi.StringPtrInput                     `pulumi:"vmProtectionStateDescription"`
 }
 
 func (HyperVReplicaBlueReplicationDetailsResponseArgs) ElementType() reflect.Type {
@@ -6691,7 +5650,6 @@ func (i HyperVReplicaBlueReplicationDetailsResponseArgs) ToHyperVReplicaBlueRepl
 	return pulumi.ToOutputWithContext(ctx, i).(HyperVReplicaBlueReplicationDetailsResponseOutput)
 }
 
-// HyperV replica 2012 R2 (Blue) replication details.
 type HyperVReplicaBlueReplicationDetailsResponseOutput struct{ *pulumi.OutputState }
 
 func (HyperVReplicaBlueReplicationDetailsResponseOutput) ElementType() reflect.Type {
@@ -6706,74 +5664,52 @@ func (o HyperVReplicaBlueReplicationDetailsResponseOutput) ToHyperVReplicaBlueRe
 	return o
 }
 
-// Initial replication details.
 func (o HyperVReplicaBlueReplicationDetailsResponseOutput) InitialReplicationDetails() InitialReplicationDetailsResponsePtrOutput {
 	return o.ApplyT(func(v HyperVReplicaBlueReplicationDetailsResponse) *InitialReplicationDetailsResponse {
 		return v.InitialReplicationDetails
 	}).(InitialReplicationDetailsResponsePtrOutput)
 }
 
-// Gets the Instance type.
-// Expected value is 'HyperVReplica2012R2'.
 func (o HyperVReplicaBlueReplicationDetailsResponseOutput) InstanceType() pulumi.StringOutput {
 	return o.ApplyT(func(v HyperVReplicaBlueReplicationDetailsResponse) string { return v.InstanceType }).(pulumi.StringOutput)
 }
 
-// The Last replication time.
 func (o HyperVReplicaBlueReplicationDetailsResponseOutput) LastReplicatedTime() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v HyperVReplicaBlueReplicationDetailsResponse) *string { return v.LastReplicatedTime }).(pulumi.StringPtrOutput)
 }
 
-// VM disk details.
 func (o HyperVReplicaBlueReplicationDetailsResponseOutput) VMDiskDetails() DiskDetailsResponseArrayOutput {
 	return o.ApplyT(func(v HyperVReplicaBlueReplicationDetailsResponse) []DiskDetailsResponse { return v.VMDiskDetails }).(DiskDetailsResponseArrayOutput)
 }
 
-// The virtual machine Id.
 func (o HyperVReplicaBlueReplicationDetailsResponseOutput) VmId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v HyperVReplicaBlueReplicationDetailsResponse) *string { return v.VmId }).(pulumi.StringPtrOutput)
 }
 
-// The PE Network details.
 func (o HyperVReplicaBlueReplicationDetailsResponseOutput) VmNics() VMNicDetailsResponseArrayOutput {
 	return o.ApplyT(func(v HyperVReplicaBlueReplicationDetailsResponse) []VMNicDetailsResponse { return v.VmNics }).(VMNicDetailsResponseArrayOutput)
 }
 
-// The protection state for the vm.
 func (o HyperVReplicaBlueReplicationDetailsResponseOutput) VmProtectionState() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v HyperVReplicaBlueReplicationDetailsResponse) *string { return v.VmProtectionState }).(pulumi.StringPtrOutput)
 }
 
-// The protection state description for the vm.
 func (o HyperVReplicaBlueReplicationDetailsResponseOutput) VmProtectionStateDescription() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v HyperVReplicaBlueReplicationDetailsResponse) *string { return v.VmProtectionStateDescription }).(pulumi.StringPtrOutput)
 }
 
-// Hyper-V Replica Blue specific protection profile details.
 type HyperVReplicaPolicyDetailsResponse struct {
-	// A value indicating the authentication type.
-	AllowedAuthenticationType *int `pulumi:"allowedAuthenticationType"`
-	// A value indicating the application consistent frequency.
-	ApplicationConsistentSnapshotFrequencyInHours *int `pulumi:"applicationConsistentSnapshotFrequencyInHours"`
-	// A value indicating whether compression has to be enabled.
-	Compression *string `pulumi:"compression"`
-	// A value indicating whether IR is online.
-	InitialReplicationMethod *string `pulumi:"initialReplicationMethod"`
-	// Gets the class type. Overridden in derived classes.
-	// Expected value is 'HyperVReplica2012'.
-	InstanceType string `pulumi:"instanceType"`
-	// A value indicating the offline IR export path.
-	OfflineReplicationExportPath *string `pulumi:"offlineReplicationExportPath"`
-	// A value indicating the offline IR import path.
-	OfflineReplicationImportPath *string `pulumi:"offlineReplicationImportPath"`
-	// A value indicating the online IR start time.
-	OnlineReplicationStartTime *string `pulumi:"onlineReplicationStartTime"`
-	// A value indicating the number of recovery points.
-	RecoveryPoints *int `pulumi:"recoveryPoints"`
-	// A value indicating whether the VM has to be auto deleted. Supported Values: String.Empty, None, OnRecoveryCloud
-	ReplicaDeletionOption *string `pulumi:"replicaDeletionOption"`
-	// A value indicating the recovery HTTPS port.
-	ReplicationPort *int `pulumi:"replicationPort"`
+	AllowedAuthenticationType                     *int    `pulumi:"allowedAuthenticationType"`
+	ApplicationConsistentSnapshotFrequencyInHours *int    `pulumi:"applicationConsistentSnapshotFrequencyInHours"`
+	Compression                                   *string `pulumi:"compression"`
+	InitialReplicationMethod                      *string `pulumi:"initialReplicationMethod"`
+	InstanceType                                  string  `pulumi:"instanceType"`
+	OfflineReplicationExportPath                  *string `pulumi:"offlineReplicationExportPath"`
+	OfflineReplicationImportPath                  *string `pulumi:"offlineReplicationImportPath"`
+	OnlineReplicationStartTime                    *string `pulumi:"onlineReplicationStartTime"`
+	RecoveryPoints                                *int    `pulumi:"recoveryPoints"`
+	ReplicaDeletionOption                         *string `pulumi:"replicaDeletionOption"`
+	ReplicationPort                               *int    `pulumi:"replicationPort"`
 }
 
 // HyperVReplicaPolicyDetailsResponseInput is an input type that accepts HyperVReplicaPolicyDetailsResponseArgs and HyperVReplicaPolicyDetailsResponseOutput values.
@@ -6787,31 +5723,18 @@ type HyperVReplicaPolicyDetailsResponseInput interface {
 	ToHyperVReplicaPolicyDetailsResponseOutputWithContext(context.Context) HyperVReplicaPolicyDetailsResponseOutput
 }
 
-// Hyper-V Replica Blue specific protection profile details.
 type HyperVReplicaPolicyDetailsResponseArgs struct {
-	// A value indicating the authentication type.
-	AllowedAuthenticationType pulumi.IntPtrInput `pulumi:"allowedAuthenticationType"`
-	// A value indicating the application consistent frequency.
-	ApplicationConsistentSnapshotFrequencyInHours pulumi.IntPtrInput `pulumi:"applicationConsistentSnapshotFrequencyInHours"`
-	// A value indicating whether compression has to be enabled.
-	Compression pulumi.StringPtrInput `pulumi:"compression"`
-	// A value indicating whether IR is online.
-	InitialReplicationMethod pulumi.StringPtrInput `pulumi:"initialReplicationMethod"`
-	// Gets the class type. Overridden in derived classes.
-	// Expected value is 'HyperVReplica2012'.
-	InstanceType pulumi.StringInput `pulumi:"instanceType"`
-	// A value indicating the offline IR export path.
-	OfflineReplicationExportPath pulumi.StringPtrInput `pulumi:"offlineReplicationExportPath"`
-	// A value indicating the offline IR import path.
-	OfflineReplicationImportPath pulumi.StringPtrInput `pulumi:"offlineReplicationImportPath"`
-	// A value indicating the online IR start time.
-	OnlineReplicationStartTime pulumi.StringPtrInput `pulumi:"onlineReplicationStartTime"`
-	// A value indicating the number of recovery points.
-	RecoveryPoints pulumi.IntPtrInput `pulumi:"recoveryPoints"`
-	// A value indicating whether the VM has to be auto deleted. Supported Values: String.Empty, None, OnRecoveryCloud
-	ReplicaDeletionOption pulumi.StringPtrInput `pulumi:"replicaDeletionOption"`
-	// A value indicating the recovery HTTPS port.
-	ReplicationPort pulumi.IntPtrInput `pulumi:"replicationPort"`
+	AllowedAuthenticationType                     pulumi.IntPtrInput    `pulumi:"allowedAuthenticationType"`
+	ApplicationConsistentSnapshotFrequencyInHours pulumi.IntPtrInput    `pulumi:"applicationConsistentSnapshotFrequencyInHours"`
+	Compression                                   pulumi.StringPtrInput `pulumi:"compression"`
+	InitialReplicationMethod                      pulumi.StringPtrInput `pulumi:"initialReplicationMethod"`
+	InstanceType                                  pulumi.StringInput    `pulumi:"instanceType"`
+	OfflineReplicationExportPath                  pulumi.StringPtrInput `pulumi:"offlineReplicationExportPath"`
+	OfflineReplicationImportPath                  pulumi.StringPtrInput `pulumi:"offlineReplicationImportPath"`
+	OnlineReplicationStartTime                    pulumi.StringPtrInput `pulumi:"onlineReplicationStartTime"`
+	RecoveryPoints                                pulumi.IntPtrInput    `pulumi:"recoveryPoints"`
+	ReplicaDeletionOption                         pulumi.StringPtrInput `pulumi:"replicaDeletionOption"`
+	ReplicationPort                               pulumi.IntPtrInput    `pulumi:"replicationPort"`
 }
 
 func (HyperVReplicaPolicyDetailsResponseArgs) ElementType() reflect.Type {
@@ -6826,7 +5749,6 @@ func (i HyperVReplicaPolicyDetailsResponseArgs) ToHyperVReplicaPolicyDetailsResp
 	return pulumi.ToOutputWithContext(ctx, i).(HyperVReplicaPolicyDetailsResponseOutput)
 }
 
-// Hyper-V Replica Blue specific protection profile details.
 type HyperVReplicaPolicyDetailsResponseOutput struct{ *pulumi.OutputState }
 
 func (HyperVReplicaPolicyDetailsResponseOutput) ElementType() reflect.Type {
@@ -6841,89 +5763,64 @@ func (o HyperVReplicaPolicyDetailsResponseOutput) ToHyperVReplicaPolicyDetailsRe
 	return o
 }
 
-// A value indicating the authentication type.
 func (o HyperVReplicaPolicyDetailsResponseOutput) AllowedAuthenticationType() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v HyperVReplicaPolicyDetailsResponse) *int { return v.AllowedAuthenticationType }).(pulumi.IntPtrOutput)
 }
 
-// A value indicating the application consistent frequency.
 func (o HyperVReplicaPolicyDetailsResponseOutput) ApplicationConsistentSnapshotFrequencyInHours() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v HyperVReplicaPolicyDetailsResponse) *int {
 		return v.ApplicationConsistentSnapshotFrequencyInHours
 	}).(pulumi.IntPtrOutput)
 }
 
-// A value indicating whether compression has to be enabled.
 func (o HyperVReplicaPolicyDetailsResponseOutput) Compression() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v HyperVReplicaPolicyDetailsResponse) *string { return v.Compression }).(pulumi.StringPtrOutput)
 }
 
-// A value indicating whether IR is online.
 func (o HyperVReplicaPolicyDetailsResponseOutput) InitialReplicationMethod() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v HyperVReplicaPolicyDetailsResponse) *string { return v.InitialReplicationMethod }).(pulumi.StringPtrOutput)
 }
 
-// Gets the class type. Overridden in derived classes.
-// Expected value is 'HyperVReplica2012'.
 func (o HyperVReplicaPolicyDetailsResponseOutput) InstanceType() pulumi.StringOutput {
 	return o.ApplyT(func(v HyperVReplicaPolicyDetailsResponse) string { return v.InstanceType }).(pulumi.StringOutput)
 }
 
-// A value indicating the offline IR export path.
 func (o HyperVReplicaPolicyDetailsResponseOutput) OfflineReplicationExportPath() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v HyperVReplicaPolicyDetailsResponse) *string { return v.OfflineReplicationExportPath }).(pulumi.StringPtrOutput)
 }
 
-// A value indicating the offline IR import path.
 func (o HyperVReplicaPolicyDetailsResponseOutput) OfflineReplicationImportPath() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v HyperVReplicaPolicyDetailsResponse) *string { return v.OfflineReplicationImportPath }).(pulumi.StringPtrOutput)
 }
 
-// A value indicating the online IR start time.
 func (o HyperVReplicaPolicyDetailsResponseOutput) OnlineReplicationStartTime() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v HyperVReplicaPolicyDetailsResponse) *string { return v.OnlineReplicationStartTime }).(pulumi.StringPtrOutput)
 }
 
-// A value indicating the number of recovery points.
 func (o HyperVReplicaPolicyDetailsResponseOutput) RecoveryPoints() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v HyperVReplicaPolicyDetailsResponse) *int { return v.RecoveryPoints }).(pulumi.IntPtrOutput)
 }
 
-// A value indicating whether the VM has to be auto deleted. Supported Values: String.Empty, None, OnRecoveryCloud
 func (o HyperVReplicaPolicyDetailsResponseOutput) ReplicaDeletionOption() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v HyperVReplicaPolicyDetailsResponse) *string { return v.ReplicaDeletionOption }).(pulumi.StringPtrOutput)
 }
 
-// A value indicating the recovery HTTPS port.
 func (o HyperVReplicaPolicyDetailsResponseOutput) ReplicationPort() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v HyperVReplicaPolicyDetailsResponse) *int { return v.ReplicationPort }).(pulumi.IntPtrOutput)
 }
 
-// Hyper-V Replica specific policy Input.
 type HyperVReplicaPolicyInput struct {
-	// A value indicating the authentication type.
-	AllowedAuthenticationType *int `pulumi:"allowedAuthenticationType"`
-	// A value indicating the application consistent frequency.
-	ApplicationConsistentSnapshotFrequencyInHours *int `pulumi:"applicationConsistentSnapshotFrequencyInHours"`
-	// A value indicating whether compression has to be enabled.
-	Compression *string `pulumi:"compression"`
-	// A value indicating whether IR is online.
-	InitialReplicationMethod *string `pulumi:"initialReplicationMethod"`
-	// The class type.
-	// Expected value is 'HyperVReplica2012'.
-	InstanceType *string `pulumi:"instanceType"`
-	// A value indicating the offline IR export path.
-	OfflineReplicationExportPath *string `pulumi:"offlineReplicationExportPath"`
-	// A value indicating the offline IR import path.
-	OfflineReplicationImportPath *string `pulumi:"offlineReplicationImportPath"`
-	// A value indicating the online IR start time.
-	OnlineReplicationStartTime *string `pulumi:"onlineReplicationStartTime"`
-	// A value indicating the number of recovery points.
-	RecoveryPoints *int `pulumi:"recoveryPoints"`
-	// A value indicating whether the VM has to be auto deleted.
-	ReplicaDeletion *string `pulumi:"replicaDeletion"`
-	// A value indicating the recovery HTTPS port.
-	ReplicationPort *int `pulumi:"replicationPort"`
+	AllowedAuthenticationType                     *int    `pulumi:"allowedAuthenticationType"`
+	ApplicationConsistentSnapshotFrequencyInHours *int    `pulumi:"applicationConsistentSnapshotFrequencyInHours"`
+	Compression                                   *string `pulumi:"compression"`
+	InitialReplicationMethod                      *string `pulumi:"initialReplicationMethod"`
+	InstanceType                                  *string `pulumi:"instanceType"`
+	OfflineReplicationExportPath                  *string `pulumi:"offlineReplicationExportPath"`
+	OfflineReplicationImportPath                  *string `pulumi:"offlineReplicationImportPath"`
+	OnlineReplicationStartTime                    *string `pulumi:"onlineReplicationStartTime"`
+	RecoveryPoints                                *int    `pulumi:"recoveryPoints"`
+	ReplicaDeletion                               *string `pulumi:"replicaDeletion"`
+	ReplicationPort                               *int    `pulumi:"replicationPort"`
 }
 
 // HyperVReplicaPolicyInputInput is an input type that accepts HyperVReplicaPolicyInputArgs and HyperVReplicaPolicyInputOutput values.
@@ -6937,31 +5834,18 @@ type HyperVReplicaPolicyInputInput interface {
 	ToHyperVReplicaPolicyInputOutputWithContext(context.Context) HyperVReplicaPolicyInputOutput
 }
 
-// Hyper-V Replica specific policy Input.
 type HyperVReplicaPolicyInputArgs struct {
-	// A value indicating the authentication type.
-	AllowedAuthenticationType pulumi.IntPtrInput `pulumi:"allowedAuthenticationType"`
-	// A value indicating the application consistent frequency.
-	ApplicationConsistentSnapshotFrequencyInHours pulumi.IntPtrInput `pulumi:"applicationConsistentSnapshotFrequencyInHours"`
-	// A value indicating whether compression has to be enabled.
-	Compression pulumi.StringPtrInput `pulumi:"compression"`
-	// A value indicating whether IR is online.
-	InitialReplicationMethod pulumi.StringPtrInput `pulumi:"initialReplicationMethod"`
-	// The class type.
-	// Expected value is 'HyperVReplica2012'.
-	InstanceType pulumi.StringPtrInput `pulumi:"instanceType"`
-	// A value indicating the offline IR export path.
-	OfflineReplicationExportPath pulumi.StringPtrInput `pulumi:"offlineReplicationExportPath"`
-	// A value indicating the offline IR import path.
-	OfflineReplicationImportPath pulumi.StringPtrInput `pulumi:"offlineReplicationImportPath"`
-	// A value indicating the online IR start time.
-	OnlineReplicationStartTime pulumi.StringPtrInput `pulumi:"onlineReplicationStartTime"`
-	// A value indicating the number of recovery points.
-	RecoveryPoints pulumi.IntPtrInput `pulumi:"recoveryPoints"`
-	// A value indicating whether the VM has to be auto deleted.
-	ReplicaDeletion pulumi.StringPtrInput `pulumi:"replicaDeletion"`
-	// A value indicating the recovery HTTPS port.
-	ReplicationPort pulumi.IntPtrInput `pulumi:"replicationPort"`
+	AllowedAuthenticationType                     pulumi.IntPtrInput    `pulumi:"allowedAuthenticationType"`
+	ApplicationConsistentSnapshotFrequencyInHours pulumi.IntPtrInput    `pulumi:"applicationConsistentSnapshotFrequencyInHours"`
+	Compression                                   pulumi.StringPtrInput `pulumi:"compression"`
+	InitialReplicationMethod                      pulumi.StringPtrInput `pulumi:"initialReplicationMethod"`
+	InstanceType                                  pulumi.StringPtrInput `pulumi:"instanceType"`
+	OfflineReplicationExportPath                  pulumi.StringPtrInput `pulumi:"offlineReplicationExportPath"`
+	OfflineReplicationImportPath                  pulumi.StringPtrInput `pulumi:"offlineReplicationImportPath"`
+	OnlineReplicationStartTime                    pulumi.StringPtrInput `pulumi:"onlineReplicationStartTime"`
+	RecoveryPoints                                pulumi.IntPtrInput    `pulumi:"recoveryPoints"`
+	ReplicaDeletion                               pulumi.StringPtrInput `pulumi:"replicaDeletion"`
+	ReplicationPort                               pulumi.IntPtrInput    `pulumi:"replicationPort"`
 }
 
 func (HyperVReplicaPolicyInputArgs) ElementType() reflect.Type {
@@ -6976,7 +5860,6 @@ func (i HyperVReplicaPolicyInputArgs) ToHyperVReplicaPolicyInputOutputWithContex
 	return pulumi.ToOutputWithContext(ctx, i).(HyperVReplicaPolicyInputOutput)
 }
 
-// Hyper-V Replica specific policy Input.
 type HyperVReplicaPolicyInputOutput struct{ *pulumi.OutputState }
 
 func (HyperVReplicaPolicyInputOutput) ElementType() reflect.Type {
@@ -6991,81 +5874,59 @@ func (o HyperVReplicaPolicyInputOutput) ToHyperVReplicaPolicyInputOutputWithCont
 	return o
 }
 
-// A value indicating the authentication type.
 func (o HyperVReplicaPolicyInputOutput) AllowedAuthenticationType() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v HyperVReplicaPolicyInput) *int { return v.AllowedAuthenticationType }).(pulumi.IntPtrOutput)
 }
 
-// A value indicating the application consistent frequency.
 func (o HyperVReplicaPolicyInputOutput) ApplicationConsistentSnapshotFrequencyInHours() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v HyperVReplicaPolicyInput) *int { return v.ApplicationConsistentSnapshotFrequencyInHours }).(pulumi.IntPtrOutput)
 }
 
-// A value indicating whether compression has to be enabled.
 func (o HyperVReplicaPolicyInputOutput) Compression() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v HyperVReplicaPolicyInput) *string { return v.Compression }).(pulumi.StringPtrOutput)
 }
 
-// A value indicating whether IR is online.
 func (o HyperVReplicaPolicyInputOutput) InitialReplicationMethod() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v HyperVReplicaPolicyInput) *string { return v.InitialReplicationMethod }).(pulumi.StringPtrOutput)
 }
 
-// The class type.
-// Expected value is 'HyperVReplica2012'.
 func (o HyperVReplicaPolicyInputOutput) InstanceType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v HyperVReplicaPolicyInput) *string { return v.InstanceType }).(pulumi.StringPtrOutput)
 }
 
-// A value indicating the offline IR export path.
 func (o HyperVReplicaPolicyInputOutput) OfflineReplicationExportPath() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v HyperVReplicaPolicyInput) *string { return v.OfflineReplicationExportPath }).(pulumi.StringPtrOutput)
 }
 
-// A value indicating the offline IR import path.
 func (o HyperVReplicaPolicyInputOutput) OfflineReplicationImportPath() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v HyperVReplicaPolicyInput) *string { return v.OfflineReplicationImportPath }).(pulumi.StringPtrOutput)
 }
 
-// A value indicating the online IR start time.
 func (o HyperVReplicaPolicyInputOutput) OnlineReplicationStartTime() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v HyperVReplicaPolicyInput) *string { return v.OnlineReplicationStartTime }).(pulumi.StringPtrOutput)
 }
 
-// A value indicating the number of recovery points.
 func (o HyperVReplicaPolicyInputOutput) RecoveryPoints() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v HyperVReplicaPolicyInput) *int { return v.RecoveryPoints }).(pulumi.IntPtrOutput)
 }
 
-// A value indicating whether the VM has to be auto deleted.
 func (o HyperVReplicaPolicyInputOutput) ReplicaDeletion() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v HyperVReplicaPolicyInput) *string { return v.ReplicaDeletion }).(pulumi.StringPtrOutput)
 }
 
-// A value indicating the recovery HTTPS port.
 func (o HyperVReplicaPolicyInputOutput) ReplicationPort() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v HyperVReplicaPolicyInput) *int { return v.ReplicationPort }).(pulumi.IntPtrOutput)
 }
 
-// HyperV replica 2012 replication details.
 type HyperVReplicaReplicationDetailsResponse struct {
-	// Initial replication details.
-	InitialReplicationDetails *InitialReplicationDetailsResponse `pulumi:"initialReplicationDetails"`
-	// Gets the Instance type.
-	// Expected value is 'HyperVReplica2012'.
-	InstanceType string `pulumi:"instanceType"`
-	// The Last replication time.
-	LastReplicatedTime *string `pulumi:"lastReplicatedTime"`
-	// VM disk details.
-	VMDiskDetails []DiskDetailsResponse `pulumi:"vMDiskDetails"`
-	// The virtual machine Id.
-	VmId *string `pulumi:"vmId"`
-	// The PE Network details.
-	VmNics []VMNicDetailsResponse `pulumi:"vmNics"`
-	// The protection state for the vm.
-	VmProtectionState *string `pulumi:"vmProtectionState"`
-	// The protection state description for the vm.
-	VmProtectionStateDescription *string `pulumi:"vmProtectionStateDescription"`
+	InitialReplicationDetails    *InitialReplicationDetailsResponse `pulumi:"initialReplicationDetails"`
+	InstanceType                 string                             `pulumi:"instanceType"`
+	LastReplicatedTime           *string                            `pulumi:"lastReplicatedTime"`
+	VMDiskDetails                []DiskDetailsResponse              `pulumi:"vMDiskDetails"`
+	VmId                         *string                            `pulumi:"vmId"`
+	VmNics                       []VMNicDetailsResponse             `pulumi:"vmNics"`
+	VmProtectionState            *string                            `pulumi:"vmProtectionState"`
+	VmProtectionStateDescription *string                            `pulumi:"vmProtectionStateDescription"`
 }
 
 // HyperVReplicaReplicationDetailsResponseInput is an input type that accepts HyperVReplicaReplicationDetailsResponseArgs and HyperVReplicaReplicationDetailsResponseOutput values.
@@ -7079,25 +5940,15 @@ type HyperVReplicaReplicationDetailsResponseInput interface {
 	ToHyperVReplicaReplicationDetailsResponseOutputWithContext(context.Context) HyperVReplicaReplicationDetailsResponseOutput
 }
 
-// HyperV replica 2012 replication details.
 type HyperVReplicaReplicationDetailsResponseArgs struct {
-	// Initial replication details.
-	InitialReplicationDetails InitialReplicationDetailsResponsePtrInput `pulumi:"initialReplicationDetails"`
-	// Gets the Instance type.
-	// Expected value is 'HyperVReplica2012'.
-	InstanceType pulumi.StringInput `pulumi:"instanceType"`
-	// The Last replication time.
-	LastReplicatedTime pulumi.StringPtrInput `pulumi:"lastReplicatedTime"`
-	// VM disk details.
-	VMDiskDetails DiskDetailsResponseArrayInput `pulumi:"vMDiskDetails"`
-	// The virtual machine Id.
-	VmId pulumi.StringPtrInput `pulumi:"vmId"`
-	// The PE Network details.
-	VmNics VMNicDetailsResponseArrayInput `pulumi:"vmNics"`
-	// The protection state for the vm.
-	VmProtectionState pulumi.StringPtrInput `pulumi:"vmProtectionState"`
-	// The protection state description for the vm.
-	VmProtectionStateDescription pulumi.StringPtrInput `pulumi:"vmProtectionStateDescription"`
+	InitialReplicationDetails    InitialReplicationDetailsResponsePtrInput `pulumi:"initialReplicationDetails"`
+	InstanceType                 pulumi.StringInput                        `pulumi:"instanceType"`
+	LastReplicatedTime           pulumi.StringPtrInput                     `pulumi:"lastReplicatedTime"`
+	VMDiskDetails                DiskDetailsResponseArrayInput             `pulumi:"vMDiskDetails"`
+	VmId                         pulumi.StringPtrInput                     `pulumi:"vmId"`
+	VmNics                       VMNicDetailsResponseArrayInput            `pulumi:"vmNics"`
+	VmProtectionState            pulumi.StringPtrInput                     `pulumi:"vmProtectionState"`
+	VmProtectionStateDescription pulumi.StringPtrInput                     `pulumi:"vmProtectionStateDescription"`
 }
 
 func (HyperVReplicaReplicationDetailsResponseArgs) ElementType() reflect.Type {
@@ -7112,7 +5963,6 @@ func (i HyperVReplicaReplicationDetailsResponseArgs) ToHyperVReplicaReplicationD
 	return pulumi.ToOutputWithContext(ctx, i).(HyperVReplicaReplicationDetailsResponseOutput)
 }
 
-// HyperV replica 2012 replication details.
 type HyperVReplicaReplicationDetailsResponseOutput struct{ *pulumi.OutputState }
 
 func (HyperVReplicaReplicationDetailsResponseOutput) ElementType() reflect.Type {
@@ -7127,53 +5977,41 @@ func (o HyperVReplicaReplicationDetailsResponseOutput) ToHyperVReplicaReplicatio
 	return o
 }
 
-// Initial replication details.
 func (o HyperVReplicaReplicationDetailsResponseOutput) InitialReplicationDetails() InitialReplicationDetailsResponsePtrOutput {
 	return o.ApplyT(func(v HyperVReplicaReplicationDetailsResponse) *InitialReplicationDetailsResponse {
 		return v.InitialReplicationDetails
 	}).(InitialReplicationDetailsResponsePtrOutput)
 }
 
-// Gets the Instance type.
-// Expected value is 'HyperVReplica2012'.
 func (o HyperVReplicaReplicationDetailsResponseOutput) InstanceType() pulumi.StringOutput {
 	return o.ApplyT(func(v HyperVReplicaReplicationDetailsResponse) string { return v.InstanceType }).(pulumi.StringOutput)
 }
 
-// The Last replication time.
 func (o HyperVReplicaReplicationDetailsResponseOutput) LastReplicatedTime() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v HyperVReplicaReplicationDetailsResponse) *string { return v.LastReplicatedTime }).(pulumi.StringPtrOutput)
 }
 
-// VM disk details.
 func (o HyperVReplicaReplicationDetailsResponseOutput) VMDiskDetails() DiskDetailsResponseArrayOutput {
 	return o.ApplyT(func(v HyperVReplicaReplicationDetailsResponse) []DiskDetailsResponse { return v.VMDiskDetails }).(DiskDetailsResponseArrayOutput)
 }
 
-// The virtual machine Id.
 func (o HyperVReplicaReplicationDetailsResponseOutput) VmId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v HyperVReplicaReplicationDetailsResponse) *string { return v.VmId }).(pulumi.StringPtrOutput)
 }
 
-// The PE Network details.
 func (o HyperVReplicaReplicationDetailsResponseOutput) VmNics() VMNicDetailsResponseArrayOutput {
 	return o.ApplyT(func(v HyperVReplicaReplicationDetailsResponse) []VMNicDetailsResponse { return v.VmNics }).(VMNicDetailsResponseArrayOutput)
 }
 
-// The protection state for the vm.
 func (o HyperVReplicaReplicationDetailsResponseOutput) VmProtectionState() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v HyperVReplicaReplicationDetailsResponse) *string { return v.VmProtectionState }).(pulumi.StringPtrOutput)
 }
 
-// The protection state description for the vm.
 func (o HyperVReplicaReplicationDetailsResponseOutput) VmProtectionStateDescription() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v HyperVReplicaReplicationDetailsResponse) *string { return v.VmProtectionStateDescription }).(pulumi.StringPtrOutput)
 }
 
-// HyperVSite fabric specific details.
 type HyperVSiteDetailsResponse struct {
-	// Gets the class type. Overridden in derived classes.
-	// Expected value is 'HyperVSite'.
 	InstanceType string `pulumi:"instanceType"`
 }
 
@@ -7188,10 +6026,7 @@ type HyperVSiteDetailsResponseInput interface {
 	ToHyperVSiteDetailsResponseOutputWithContext(context.Context) HyperVSiteDetailsResponseOutput
 }
 
-// HyperVSite fabric specific details.
 type HyperVSiteDetailsResponseArgs struct {
-	// Gets the class type. Overridden in derived classes.
-	// Expected value is 'HyperVSite'.
 	InstanceType pulumi.StringInput `pulumi:"instanceType"`
 }
 
@@ -7207,7 +6042,6 @@ func (i HyperVSiteDetailsResponseArgs) ToHyperVSiteDetailsResponseOutputWithCont
 	return pulumi.ToOutputWithContext(ctx, i).(HyperVSiteDetailsResponseOutput)
 }
 
-// HyperVSite fabric specific details.
 type HyperVSiteDetailsResponseOutput struct{ *pulumi.OutputState }
 
 func (HyperVSiteDetailsResponseOutput) ElementType() reflect.Type {
@@ -7222,24 +6056,16 @@ func (o HyperVSiteDetailsResponseOutput) ToHyperVSiteDetailsResponseOutputWithCo
 	return o
 }
 
-// Gets the class type. Overridden in derived classes.
-// Expected value is 'HyperVSite'.
 func (o HyperVSiteDetailsResponseOutput) InstanceType() pulumi.StringOutput {
 	return o.ApplyT(func(v HyperVSiteDetailsResponse) string { return v.InstanceType }).(pulumi.StringOutput)
 }
 
-// Identity provider details.
 type IdentityProviderDetailsResponse struct {
-	// The base authority for Azure Active Directory authentication.
-	AadAuthority *string `pulumi:"aadAuthority"`
-	// The application/client Id for the service principal with which the on-premise management/data plane components would communicate with our Azure services.
+	AadAuthority  *string `pulumi:"aadAuthority"`
 	ApplicationId *string `pulumi:"applicationId"`
-	// The intended Audience of the service principal with which the on-premise management/data plane components would communicate with our Azure services.
-	Audience *string `pulumi:"audience"`
-	// The object Id of the service principal with which the on-premise management/data plane components would communicate with our Azure services.
-	ObjectId *string `pulumi:"objectId"`
-	// The tenant Id for the service principal with which the on-premise management/data plane components would communicate with our Azure services.
-	TenantId *string `pulumi:"tenantId"`
+	Audience      *string `pulumi:"audience"`
+	ObjectId      *string `pulumi:"objectId"`
+	TenantId      *string `pulumi:"tenantId"`
 }
 
 // IdentityProviderDetailsResponseInput is an input type that accepts IdentityProviderDetailsResponseArgs and IdentityProviderDetailsResponseOutput values.
@@ -7253,18 +6079,12 @@ type IdentityProviderDetailsResponseInput interface {
 	ToIdentityProviderDetailsResponseOutputWithContext(context.Context) IdentityProviderDetailsResponseOutput
 }
 
-// Identity provider details.
 type IdentityProviderDetailsResponseArgs struct {
-	// The base authority for Azure Active Directory authentication.
-	AadAuthority pulumi.StringPtrInput `pulumi:"aadAuthority"`
-	// The application/client Id for the service principal with which the on-premise management/data plane components would communicate with our Azure services.
+	AadAuthority  pulumi.StringPtrInput `pulumi:"aadAuthority"`
 	ApplicationId pulumi.StringPtrInput `pulumi:"applicationId"`
-	// The intended Audience of the service principal with which the on-premise management/data plane components would communicate with our Azure services.
-	Audience pulumi.StringPtrInput `pulumi:"audience"`
-	// The object Id of the service principal with which the on-premise management/data plane components would communicate with our Azure services.
-	ObjectId pulumi.StringPtrInput `pulumi:"objectId"`
-	// The tenant Id for the service principal with which the on-premise management/data plane components would communicate with our Azure services.
-	TenantId pulumi.StringPtrInput `pulumi:"tenantId"`
+	Audience      pulumi.StringPtrInput `pulumi:"audience"`
+	ObjectId      pulumi.StringPtrInput `pulumi:"objectId"`
+	TenantId      pulumi.StringPtrInput `pulumi:"tenantId"`
 }
 
 func (IdentityProviderDetailsResponseArgs) ElementType() reflect.Type {
@@ -7320,7 +6140,6 @@ func (i *identityProviderDetailsResponsePtrType) ToIdentityProviderDetailsRespon
 	return pulumi.ToOutputWithContext(ctx, i).(IdentityProviderDetailsResponsePtrOutput)
 }
 
-// Identity provider details.
 type IdentityProviderDetailsResponseOutput struct{ *pulumi.OutputState }
 
 func (IdentityProviderDetailsResponseOutput) ElementType() reflect.Type {
@@ -7340,32 +6159,27 @@ func (o IdentityProviderDetailsResponseOutput) ToIdentityProviderDetailsResponse
 }
 
 func (o IdentityProviderDetailsResponseOutput) ToIdentityProviderDetailsResponsePtrOutputWithContext(ctx context.Context) IdentityProviderDetailsResponsePtrOutput {
-	return o.ApplyT(func(v IdentityProviderDetailsResponse) *IdentityProviderDetailsResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v IdentityProviderDetailsResponse) *IdentityProviderDetailsResponse {
 		return &v
 	}).(IdentityProviderDetailsResponsePtrOutput)
 }
 
-// The base authority for Azure Active Directory authentication.
 func (o IdentityProviderDetailsResponseOutput) AadAuthority() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v IdentityProviderDetailsResponse) *string { return v.AadAuthority }).(pulumi.StringPtrOutput)
 }
 
-// The application/client Id for the service principal with which the on-premise management/data plane components would communicate with our Azure services.
 func (o IdentityProviderDetailsResponseOutput) ApplicationId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v IdentityProviderDetailsResponse) *string { return v.ApplicationId }).(pulumi.StringPtrOutput)
 }
 
-// The intended Audience of the service principal with which the on-premise management/data plane components would communicate with our Azure services.
 func (o IdentityProviderDetailsResponseOutput) Audience() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v IdentityProviderDetailsResponse) *string { return v.Audience }).(pulumi.StringPtrOutput)
 }
 
-// The object Id of the service principal with which the on-premise management/data plane components would communicate with our Azure services.
 func (o IdentityProviderDetailsResponseOutput) ObjectId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v IdentityProviderDetailsResponse) *string { return v.ObjectId }).(pulumi.StringPtrOutput)
 }
 
-// The tenant Id for the service principal with which the on-premise management/data plane components would communicate with our Azure services.
 func (o IdentityProviderDetailsResponseOutput) TenantId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v IdentityProviderDetailsResponse) *string { return v.TenantId }).(pulumi.StringPtrOutput)
 }
@@ -7385,10 +6199,15 @@ func (o IdentityProviderDetailsResponsePtrOutput) ToIdentityProviderDetailsRespo
 }
 
 func (o IdentityProviderDetailsResponsePtrOutput) Elem() IdentityProviderDetailsResponseOutput {
-	return o.ApplyT(func(v *IdentityProviderDetailsResponse) IdentityProviderDetailsResponse { return *v }).(IdentityProviderDetailsResponseOutput)
+	return o.ApplyT(func(v *IdentityProviderDetailsResponse) IdentityProviderDetailsResponse {
+		if v != nil {
+			return *v
+		}
+		var ret IdentityProviderDetailsResponse
+		return ret
+	}).(IdentityProviderDetailsResponseOutput)
 }
 
-// The base authority for Azure Active Directory authentication.
 func (o IdentityProviderDetailsResponsePtrOutput) AadAuthority() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *IdentityProviderDetailsResponse) *string {
 		if v == nil {
@@ -7398,7 +6217,6 @@ func (o IdentityProviderDetailsResponsePtrOutput) AadAuthority() pulumi.StringPt
 	}).(pulumi.StringPtrOutput)
 }
 
-// The application/client Id for the service principal with which the on-premise management/data plane components would communicate with our Azure services.
 func (o IdentityProviderDetailsResponsePtrOutput) ApplicationId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *IdentityProviderDetailsResponse) *string {
 		if v == nil {
@@ -7408,7 +6226,6 @@ func (o IdentityProviderDetailsResponsePtrOutput) ApplicationId() pulumi.StringP
 	}).(pulumi.StringPtrOutput)
 }
 
-// The intended Audience of the service principal with which the on-premise management/data plane components would communicate with our Azure services.
 func (o IdentityProviderDetailsResponsePtrOutput) Audience() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *IdentityProviderDetailsResponse) *string {
 		if v == nil {
@@ -7418,7 +6235,6 @@ func (o IdentityProviderDetailsResponsePtrOutput) Audience() pulumi.StringPtrOut
 	}).(pulumi.StringPtrOutput)
 }
 
-// The object Id of the service principal with which the on-premise management/data plane components would communicate with our Azure services.
 func (o IdentityProviderDetailsResponsePtrOutput) ObjectId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *IdentityProviderDetailsResponse) *string {
 		if v == nil {
@@ -7428,7 +6244,6 @@ func (o IdentityProviderDetailsResponsePtrOutput) ObjectId() pulumi.StringPtrOut
 	}).(pulumi.StringPtrOutput)
 }
 
-// The tenant Id for the service principal with which the on-premise management/data plane components would communicate with our Azure services.
 func (o IdentityProviderDetailsResponsePtrOutput) TenantId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *IdentityProviderDetailsResponse) *string {
 		if v == nil {
@@ -7438,18 +6253,12 @@ func (o IdentityProviderDetailsResponsePtrOutput) TenantId() pulumi.StringPtrOut
 	}).(pulumi.StringPtrOutput)
 }
 
-// Identity provider input.
 type IdentityProviderInput struct {
-	// The base authority for Azure Active Directory authentication.
-	AadAuthority string `pulumi:"aadAuthority"`
-	// The application/client Id for the service principal with which the on-premise management/data plane components would communicate with our Azure services.
+	AadAuthority  string `pulumi:"aadAuthority"`
 	ApplicationId string `pulumi:"applicationId"`
-	// The intended Audience of the service principal with which the on-premise management/data plane components would communicate with our Azure services.
-	Audience string `pulumi:"audience"`
-	// The object Id of the service principal with which the on-premise management/data plane components would communicate with our Azure services.
-	ObjectId string `pulumi:"objectId"`
-	// The tenant Id for the service principal with which the on-premise management/data plane components would communicate with our Azure services.
-	TenantId string `pulumi:"tenantId"`
+	Audience      string `pulumi:"audience"`
+	ObjectId      string `pulumi:"objectId"`
+	TenantId      string `pulumi:"tenantId"`
 }
 
 // IdentityProviderInputInput is an input type that accepts IdentityProviderInputArgs and IdentityProviderInputOutput values.
@@ -7463,18 +6272,12 @@ type IdentityProviderInputInput interface {
 	ToIdentityProviderInputOutputWithContext(context.Context) IdentityProviderInputOutput
 }
 
-// Identity provider input.
 type IdentityProviderInputArgs struct {
-	// The base authority for Azure Active Directory authentication.
-	AadAuthority pulumi.StringInput `pulumi:"aadAuthority"`
-	// The application/client Id for the service principal with which the on-premise management/data plane components would communicate with our Azure services.
+	AadAuthority  pulumi.StringInput `pulumi:"aadAuthority"`
 	ApplicationId pulumi.StringInput `pulumi:"applicationId"`
-	// The intended Audience of the service principal with which the on-premise management/data plane components would communicate with our Azure services.
-	Audience pulumi.StringInput `pulumi:"audience"`
-	// The object Id of the service principal with which the on-premise management/data plane components would communicate with our Azure services.
-	ObjectId pulumi.StringInput `pulumi:"objectId"`
-	// The tenant Id for the service principal with which the on-premise management/data plane components would communicate with our Azure services.
-	TenantId pulumi.StringInput `pulumi:"tenantId"`
+	Audience      pulumi.StringInput `pulumi:"audience"`
+	ObjectId      pulumi.StringInput `pulumi:"objectId"`
+	TenantId      pulumi.StringInput `pulumi:"tenantId"`
 }
 
 func (IdentityProviderInputArgs) ElementType() reflect.Type {
@@ -7530,7 +6333,6 @@ func (i *identityProviderInputPtrType) ToIdentityProviderInputPtrOutputWithConte
 	return pulumi.ToOutputWithContext(ctx, i).(IdentityProviderInputPtrOutput)
 }
 
-// Identity provider input.
 type IdentityProviderInputOutput struct{ *pulumi.OutputState }
 
 func (IdentityProviderInputOutput) ElementType() reflect.Type {
@@ -7550,32 +6352,27 @@ func (o IdentityProviderInputOutput) ToIdentityProviderInputPtrOutput() Identity
 }
 
 func (o IdentityProviderInputOutput) ToIdentityProviderInputPtrOutputWithContext(ctx context.Context) IdentityProviderInputPtrOutput {
-	return o.ApplyT(func(v IdentityProviderInput) *IdentityProviderInput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v IdentityProviderInput) *IdentityProviderInput {
 		return &v
 	}).(IdentityProviderInputPtrOutput)
 }
 
-// The base authority for Azure Active Directory authentication.
 func (o IdentityProviderInputOutput) AadAuthority() pulumi.StringOutput {
 	return o.ApplyT(func(v IdentityProviderInput) string { return v.AadAuthority }).(pulumi.StringOutput)
 }
 
-// The application/client Id for the service principal with which the on-premise management/data plane components would communicate with our Azure services.
 func (o IdentityProviderInputOutput) ApplicationId() pulumi.StringOutput {
 	return o.ApplyT(func(v IdentityProviderInput) string { return v.ApplicationId }).(pulumi.StringOutput)
 }
 
-// The intended Audience of the service principal with which the on-premise management/data plane components would communicate with our Azure services.
 func (o IdentityProviderInputOutput) Audience() pulumi.StringOutput {
 	return o.ApplyT(func(v IdentityProviderInput) string { return v.Audience }).(pulumi.StringOutput)
 }
 
-// The object Id of the service principal with which the on-premise management/data plane components would communicate with our Azure services.
 func (o IdentityProviderInputOutput) ObjectId() pulumi.StringOutput {
 	return o.ApplyT(func(v IdentityProviderInput) string { return v.ObjectId }).(pulumi.StringOutput)
 }
 
-// The tenant Id for the service principal with which the on-premise management/data plane components would communicate with our Azure services.
 func (o IdentityProviderInputOutput) TenantId() pulumi.StringOutput {
 	return o.ApplyT(func(v IdentityProviderInput) string { return v.TenantId }).(pulumi.StringOutput)
 }
@@ -7595,10 +6392,15 @@ func (o IdentityProviderInputPtrOutput) ToIdentityProviderInputPtrOutputWithCont
 }
 
 func (o IdentityProviderInputPtrOutput) Elem() IdentityProviderInputOutput {
-	return o.ApplyT(func(v *IdentityProviderInput) IdentityProviderInput { return *v }).(IdentityProviderInputOutput)
+	return o.ApplyT(func(v *IdentityProviderInput) IdentityProviderInput {
+		if v != nil {
+			return *v
+		}
+		var ret IdentityProviderInput
+		return ret
+	}).(IdentityProviderInputOutput)
 }
 
-// The base authority for Azure Active Directory authentication.
 func (o IdentityProviderInputPtrOutput) AadAuthority() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *IdentityProviderInput) *string {
 		if v == nil {
@@ -7608,7 +6410,6 @@ func (o IdentityProviderInputPtrOutput) AadAuthority() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The application/client Id for the service principal with which the on-premise management/data plane components would communicate with our Azure services.
 func (o IdentityProviderInputPtrOutput) ApplicationId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *IdentityProviderInput) *string {
 		if v == nil {
@@ -7618,7 +6419,6 @@ func (o IdentityProviderInputPtrOutput) ApplicationId() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The intended Audience of the service principal with which the on-premise management/data plane components would communicate with our Azure services.
 func (o IdentityProviderInputPtrOutput) Audience() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *IdentityProviderInput) *string {
 		if v == nil {
@@ -7628,7 +6428,6 @@ func (o IdentityProviderInputPtrOutput) Audience() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The object Id of the service principal with which the on-premise management/data plane components would communicate with our Azure services.
 func (o IdentityProviderInputPtrOutput) ObjectId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *IdentityProviderInput) *string {
 		if v == nil {
@@ -7638,7 +6437,6 @@ func (o IdentityProviderInputPtrOutput) ObjectId() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The tenant Id for the service principal with which the on-premise management/data plane components would communicate with our Azure services.
 func (o IdentityProviderInputPtrOutput) TenantId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *IdentityProviderInput) *string {
 		if v == nil {
@@ -7648,15 +6446,10 @@ func (o IdentityProviderInputPtrOutput) TenantId() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The details of the InMage agent.
 type InMageAgentDetailsResponse struct {
-	// Agent expiry date.
-	AgentExpiryDate *string `pulumi:"agentExpiryDate"`
-	// A value indicating whether installed agent needs to be updated.
-	AgentUpdateStatus *string `pulumi:"agentUpdateStatus"`
-	// The agent version.
-	AgentVersion *string `pulumi:"agentVersion"`
-	// A value indicating whether reboot is required after update is applied.
+	AgentExpiryDate        *string `pulumi:"agentExpiryDate"`
+	AgentUpdateStatus      *string `pulumi:"agentUpdateStatus"`
+	AgentVersion           *string `pulumi:"agentVersion"`
 	PostUpdateRebootStatus *string `pulumi:"postUpdateRebootStatus"`
 }
 
@@ -7671,15 +6464,10 @@ type InMageAgentDetailsResponseInput interface {
 	ToInMageAgentDetailsResponseOutputWithContext(context.Context) InMageAgentDetailsResponseOutput
 }
 
-// The details of the InMage agent.
 type InMageAgentDetailsResponseArgs struct {
-	// Agent expiry date.
-	AgentExpiryDate pulumi.StringPtrInput `pulumi:"agentExpiryDate"`
-	// A value indicating whether installed agent needs to be updated.
-	AgentUpdateStatus pulumi.StringPtrInput `pulumi:"agentUpdateStatus"`
-	// The agent version.
-	AgentVersion pulumi.StringPtrInput `pulumi:"agentVersion"`
-	// A value indicating whether reboot is required after update is applied.
+	AgentExpiryDate        pulumi.StringPtrInput `pulumi:"agentExpiryDate"`
+	AgentUpdateStatus      pulumi.StringPtrInput `pulumi:"agentUpdateStatus"`
+	AgentVersion           pulumi.StringPtrInput `pulumi:"agentVersion"`
 	PostUpdateRebootStatus pulumi.StringPtrInput `pulumi:"postUpdateRebootStatus"`
 }
 
@@ -7736,7 +6524,6 @@ func (i *inMageAgentDetailsResponsePtrType) ToInMageAgentDetailsResponsePtrOutpu
 	return pulumi.ToOutputWithContext(ctx, i).(InMageAgentDetailsResponsePtrOutput)
 }
 
-// The details of the InMage agent.
 type InMageAgentDetailsResponseOutput struct{ *pulumi.OutputState }
 
 func (InMageAgentDetailsResponseOutput) ElementType() reflect.Type {
@@ -7756,27 +6543,23 @@ func (o InMageAgentDetailsResponseOutput) ToInMageAgentDetailsResponsePtrOutput(
 }
 
 func (o InMageAgentDetailsResponseOutput) ToInMageAgentDetailsResponsePtrOutputWithContext(ctx context.Context) InMageAgentDetailsResponsePtrOutput {
-	return o.ApplyT(func(v InMageAgentDetailsResponse) *InMageAgentDetailsResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v InMageAgentDetailsResponse) *InMageAgentDetailsResponse {
 		return &v
 	}).(InMageAgentDetailsResponsePtrOutput)
 }
 
-// Agent expiry date.
 func (o InMageAgentDetailsResponseOutput) AgentExpiryDate() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v InMageAgentDetailsResponse) *string { return v.AgentExpiryDate }).(pulumi.StringPtrOutput)
 }
 
-// A value indicating whether installed agent needs to be updated.
 func (o InMageAgentDetailsResponseOutput) AgentUpdateStatus() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v InMageAgentDetailsResponse) *string { return v.AgentUpdateStatus }).(pulumi.StringPtrOutput)
 }
 
-// The agent version.
 func (o InMageAgentDetailsResponseOutput) AgentVersion() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v InMageAgentDetailsResponse) *string { return v.AgentVersion }).(pulumi.StringPtrOutput)
 }
 
-// A value indicating whether reboot is required after update is applied.
 func (o InMageAgentDetailsResponseOutput) PostUpdateRebootStatus() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v InMageAgentDetailsResponse) *string { return v.PostUpdateRebootStatus }).(pulumi.StringPtrOutput)
 }
@@ -7796,10 +6579,15 @@ func (o InMageAgentDetailsResponsePtrOutput) ToInMageAgentDetailsResponsePtrOutp
 }
 
 func (o InMageAgentDetailsResponsePtrOutput) Elem() InMageAgentDetailsResponseOutput {
-	return o.ApplyT(func(v *InMageAgentDetailsResponse) InMageAgentDetailsResponse { return *v }).(InMageAgentDetailsResponseOutput)
+	return o.ApplyT(func(v *InMageAgentDetailsResponse) InMageAgentDetailsResponse {
+		if v != nil {
+			return *v
+		}
+		var ret InMageAgentDetailsResponse
+		return ret
+	}).(InMageAgentDetailsResponseOutput)
 }
 
-// Agent expiry date.
 func (o InMageAgentDetailsResponsePtrOutput) AgentExpiryDate() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *InMageAgentDetailsResponse) *string {
 		if v == nil {
@@ -7809,7 +6597,6 @@ func (o InMageAgentDetailsResponsePtrOutput) AgentExpiryDate() pulumi.StringPtrO
 	}).(pulumi.StringPtrOutput)
 }
 
-// A value indicating whether installed agent needs to be updated.
 func (o InMageAgentDetailsResponsePtrOutput) AgentUpdateStatus() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *InMageAgentDetailsResponse) *string {
 		if v == nil {
@@ -7819,7 +6606,6 @@ func (o InMageAgentDetailsResponsePtrOutput) AgentUpdateStatus() pulumi.StringPt
 	}).(pulumi.StringPtrOutput)
 }
 
-// The agent version.
 func (o InMageAgentDetailsResponsePtrOutput) AgentVersion() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *InMageAgentDetailsResponse) *string {
 		if v == nil {
@@ -7829,7 +6615,6 @@ func (o InMageAgentDetailsResponsePtrOutput) AgentVersion() pulumi.StringPtrOutp
 	}).(pulumi.StringPtrOutput)
 }
 
-// A value indicating whether reboot is required after update is applied.
 func (o InMageAgentDetailsResponsePtrOutput) PostUpdateRebootStatus() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *InMageAgentDetailsResponse) *string {
 		if v == nil {
@@ -7839,41 +6624,23 @@ func (o InMageAgentDetailsResponsePtrOutput) PostUpdateRebootStatus() pulumi.Str
 	}).(pulumi.StringPtrOutput)
 }
 
-// VMware Azure specific enable protection input.
 type InMageAzureV2EnableProtectionInput struct {
-	// The disks to include list.
-	DisksToInclude []string `pulumi:"disksToInclude"`
-	// The selected option to enable RDP\SSH on target vm after failover. String value of {SrsDataContract.EnableRDPOnTargetOption} enum.
-	EnableRdpOnTargetOption *string `pulumi:"enableRdpOnTargetOption"`
-	// The class type.
-	// Expected value is 'InMageAzureV2'.
-	InstanceType *string `pulumi:"instanceType"`
-	// The storage account to be used for logging during replication.
-	LogStorageAccountId *string `pulumi:"logStorageAccountId"`
-	// The Master target Id.
-	MasterTargetId *string `pulumi:"masterTargetId"`
-	// The multi vm group Id.
-	MultiVmGroupId *string `pulumi:"multiVmGroupId"`
-	// The multi vm group name.
-	MultiVmGroupName *string `pulumi:"multiVmGroupName"`
-	// The Process Server Id.
-	ProcessServerId *string `pulumi:"processServerId"`
-	// The CS account Id.
-	RunAsAccountId *string `pulumi:"runAsAccountId"`
-	// The storage account name.
-	StorageAccountId string `pulumi:"storageAccountId"`
-	// The selected target Azure network Id.
-	TargetAzureNetworkId *string `pulumi:"targetAzureNetworkId"`
-	// The selected target Azure subnet Id.
-	TargetAzureSubnetId *string `pulumi:"targetAzureSubnetId"`
-	// The Id of the target resource group (for classic deployment) in which the failover VM is to be created.
-	TargetAzureV1ResourceGroupId *string `pulumi:"targetAzureV1ResourceGroupId"`
-	// The Id of the target resource group (for resource manager deployment) in which the failover VM is to be created.
-	TargetAzureV2ResourceGroupId *string `pulumi:"targetAzureV2ResourceGroupId"`
-	// The target azure Vm Name.
-	TargetAzureVmName *string `pulumi:"targetAzureVmName"`
-	// A value indicating whether managed disks should be used during failover.
-	UseManagedDisks *string `pulumi:"useManagedDisks"`
+	DisksToInclude               []string `pulumi:"disksToInclude"`
+	EnableRdpOnTargetOption      *string  `pulumi:"enableRdpOnTargetOption"`
+	InstanceType                 *string  `pulumi:"instanceType"`
+	LogStorageAccountId          *string  `pulumi:"logStorageAccountId"`
+	MasterTargetId               *string  `pulumi:"masterTargetId"`
+	MultiVmGroupId               *string  `pulumi:"multiVmGroupId"`
+	MultiVmGroupName             *string  `pulumi:"multiVmGroupName"`
+	ProcessServerId              *string  `pulumi:"processServerId"`
+	RunAsAccountId               *string  `pulumi:"runAsAccountId"`
+	StorageAccountId             string   `pulumi:"storageAccountId"`
+	TargetAzureNetworkId         *string  `pulumi:"targetAzureNetworkId"`
+	TargetAzureSubnetId          *string  `pulumi:"targetAzureSubnetId"`
+	TargetAzureV1ResourceGroupId *string  `pulumi:"targetAzureV1ResourceGroupId"`
+	TargetAzureV2ResourceGroupId *string  `pulumi:"targetAzureV2ResourceGroupId"`
+	TargetAzureVmName            *string  `pulumi:"targetAzureVmName"`
+	UseManagedDisks              *string  `pulumi:"useManagedDisks"`
 }
 
 // InMageAzureV2EnableProtectionInputInput is an input type that accepts InMageAzureV2EnableProtectionInputArgs and InMageAzureV2EnableProtectionInputOutput values.
@@ -7887,41 +6654,23 @@ type InMageAzureV2EnableProtectionInputInput interface {
 	ToInMageAzureV2EnableProtectionInputOutputWithContext(context.Context) InMageAzureV2EnableProtectionInputOutput
 }
 
-// VMware Azure specific enable protection input.
 type InMageAzureV2EnableProtectionInputArgs struct {
-	// The disks to include list.
-	DisksToInclude pulumi.StringArrayInput `pulumi:"disksToInclude"`
-	// The selected option to enable RDP\SSH on target vm after failover. String value of {SrsDataContract.EnableRDPOnTargetOption} enum.
-	EnableRdpOnTargetOption pulumi.StringPtrInput `pulumi:"enableRdpOnTargetOption"`
-	// The class type.
-	// Expected value is 'InMageAzureV2'.
-	InstanceType pulumi.StringPtrInput `pulumi:"instanceType"`
-	// The storage account to be used for logging during replication.
-	LogStorageAccountId pulumi.StringPtrInput `pulumi:"logStorageAccountId"`
-	// The Master target Id.
-	MasterTargetId pulumi.StringPtrInput `pulumi:"masterTargetId"`
-	// The multi vm group Id.
-	MultiVmGroupId pulumi.StringPtrInput `pulumi:"multiVmGroupId"`
-	// The multi vm group name.
-	MultiVmGroupName pulumi.StringPtrInput `pulumi:"multiVmGroupName"`
-	// The Process Server Id.
-	ProcessServerId pulumi.StringPtrInput `pulumi:"processServerId"`
-	// The CS account Id.
-	RunAsAccountId pulumi.StringPtrInput `pulumi:"runAsAccountId"`
-	// The storage account name.
-	StorageAccountId pulumi.StringInput `pulumi:"storageAccountId"`
-	// The selected target Azure network Id.
-	TargetAzureNetworkId pulumi.StringPtrInput `pulumi:"targetAzureNetworkId"`
-	// The selected target Azure subnet Id.
-	TargetAzureSubnetId pulumi.StringPtrInput `pulumi:"targetAzureSubnetId"`
-	// The Id of the target resource group (for classic deployment) in which the failover VM is to be created.
-	TargetAzureV1ResourceGroupId pulumi.StringPtrInput `pulumi:"targetAzureV1ResourceGroupId"`
-	// The Id of the target resource group (for resource manager deployment) in which the failover VM is to be created.
-	TargetAzureV2ResourceGroupId pulumi.StringPtrInput `pulumi:"targetAzureV2ResourceGroupId"`
-	// The target azure Vm Name.
-	TargetAzureVmName pulumi.StringPtrInput `pulumi:"targetAzureVmName"`
-	// A value indicating whether managed disks should be used during failover.
-	UseManagedDisks pulumi.StringPtrInput `pulumi:"useManagedDisks"`
+	DisksToInclude               pulumi.StringArrayInput `pulumi:"disksToInclude"`
+	EnableRdpOnTargetOption      pulumi.StringPtrInput   `pulumi:"enableRdpOnTargetOption"`
+	InstanceType                 pulumi.StringPtrInput   `pulumi:"instanceType"`
+	LogStorageAccountId          pulumi.StringPtrInput   `pulumi:"logStorageAccountId"`
+	MasterTargetId               pulumi.StringPtrInput   `pulumi:"masterTargetId"`
+	MultiVmGroupId               pulumi.StringPtrInput   `pulumi:"multiVmGroupId"`
+	MultiVmGroupName             pulumi.StringPtrInput   `pulumi:"multiVmGroupName"`
+	ProcessServerId              pulumi.StringPtrInput   `pulumi:"processServerId"`
+	RunAsAccountId               pulumi.StringPtrInput   `pulumi:"runAsAccountId"`
+	StorageAccountId             pulumi.StringInput      `pulumi:"storageAccountId"`
+	TargetAzureNetworkId         pulumi.StringPtrInput   `pulumi:"targetAzureNetworkId"`
+	TargetAzureSubnetId          pulumi.StringPtrInput   `pulumi:"targetAzureSubnetId"`
+	TargetAzureV1ResourceGroupId pulumi.StringPtrInput   `pulumi:"targetAzureV1ResourceGroupId"`
+	TargetAzureV2ResourceGroupId pulumi.StringPtrInput   `pulumi:"targetAzureV2ResourceGroupId"`
+	TargetAzureVmName            pulumi.StringPtrInput   `pulumi:"targetAzureVmName"`
+	UseManagedDisks              pulumi.StringPtrInput   `pulumi:"useManagedDisks"`
 }
 
 func (InMageAzureV2EnableProtectionInputArgs) ElementType() reflect.Type {
@@ -7936,7 +6685,6 @@ func (i InMageAzureV2EnableProtectionInputArgs) ToInMageAzureV2EnableProtectionI
 	return pulumi.ToOutputWithContext(ctx, i).(InMageAzureV2EnableProtectionInputOutput)
 }
 
-// VMware Azure specific enable protection input.
 type InMageAzureV2EnableProtectionInputOutput struct{ *pulumi.OutputState }
 
 func (InMageAzureV2EnableProtectionInputOutput) ElementType() reflect.Type {
@@ -7951,102 +6699,77 @@ func (o InMageAzureV2EnableProtectionInputOutput) ToInMageAzureV2EnableProtectio
 	return o
 }
 
-// The disks to include list.
 func (o InMageAzureV2EnableProtectionInputOutput) DisksToInclude() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v InMageAzureV2EnableProtectionInput) []string { return v.DisksToInclude }).(pulumi.StringArrayOutput)
 }
 
-// The selected option to enable RDP\SSH on target vm after failover. String value of {SrsDataContract.EnableRDPOnTargetOption} enum.
 func (o InMageAzureV2EnableProtectionInputOutput) EnableRdpOnTargetOption() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v InMageAzureV2EnableProtectionInput) *string { return v.EnableRdpOnTargetOption }).(pulumi.StringPtrOutput)
 }
 
-// The class type.
-// Expected value is 'InMageAzureV2'.
 func (o InMageAzureV2EnableProtectionInputOutput) InstanceType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v InMageAzureV2EnableProtectionInput) *string { return v.InstanceType }).(pulumi.StringPtrOutput)
 }
 
-// The storage account to be used for logging during replication.
 func (o InMageAzureV2EnableProtectionInputOutput) LogStorageAccountId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v InMageAzureV2EnableProtectionInput) *string { return v.LogStorageAccountId }).(pulumi.StringPtrOutput)
 }
 
-// The Master target Id.
 func (o InMageAzureV2EnableProtectionInputOutput) MasterTargetId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v InMageAzureV2EnableProtectionInput) *string { return v.MasterTargetId }).(pulumi.StringPtrOutput)
 }
 
-// The multi vm group Id.
 func (o InMageAzureV2EnableProtectionInputOutput) MultiVmGroupId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v InMageAzureV2EnableProtectionInput) *string { return v.MultiVmGroupId }).(pulumi.StringPtrOutput)
 }
 
-// The multi vm group name.
 func (o InMageAzureV2EnableProtectionInputOutput) MultiVmGroupName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v InMageAzureV2EnableProtectionInput) *string { return v.MultiVmGroupName }).(pulumi.StringPtrOutput)
 }
 
-// The Process Server Id.
 func (o InMageAzureV2EnableProtectionInputOutput) ProcessServerId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v InMageAzureV2EnableProtectionInput) *string { return v.ProcessServerId }).(pulumi.StringPtrOutput)
 }
 
-// The CS account Id.
 func (o InMageAzureV2EnableProtectionInputOutput) RunAsAccountId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v InMageAzureV2EnableProtectionInput) *string { return v.RunAsAccountId }).(pulumi.StringPtrOutput)
 }
 
-// The storage account name.
 func (o InMageAzureV2EnableProtectionInputOutput) StorageAccountId() pulumi.StringOutput {
 	return o.ApplyT(func(v InMageAzureV2EnableProtectionInput) string { return v.StorageAccountId }).(pulumi.StringOutput)
 }
 
-// The selected target Azure network Id.
 func (o InMageAzureV2EnableProtectionInputOutput) TargetAzureNetworkId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v InMageAzureV2EnableProtectionInput) *string { return v.TargetAzureNetworkId }).(pulumi.StringPtrOutput)
 }
 
-// The selected target Azure subnet Id.
 func (o InMageAzureV2EnableProtectionInputOutput) TargetAzureSubnetId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v InMageAzureV2EnableProtectionInput) *string { return v.TargetAzureSubnetId }).(pulumi.StringPtrOutput)
 }
 
-// The Id of the target resource group (for classic deployment) in which the failover VM is to be created.
 func (o InMageAzureV2EnableProtectionInputOutput) TargetAzureV1ResourceGroupId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v InMageAzureV2EnableProtectionInput) *string { return v.TargetAzureV1ResourceGroupId }).(pulumi.StringPtrOutput)
 }
 
-// The Id of the target resource group (for resource manager deployment) in which the failover VM is to be created.
 func (o InMageAzureV2EnableProtectionInputOutput) TargetAzureV2ResourceGroupId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v InMageAzureV2EnableProtectionInput) *string { return v.TargetAzureV2ResourceGroupId }).(pulumi.StringPtrOutput)
 }
 
-// The target azure Vm Name.
 func (o InMageAzureV2EnableProtectionInputOutput) TargetAzureVmName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v InMageAzureV2EnableProtectionInput) *string { return v.TargetAzureVmName }).(pulumi.StringPtrOutput)
 }
 
-// A value indicating whether managed disks should be used during failover.
 func (o InMageAzureV2EnableProtectionInputOutput) UseManagedDisks() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v InMageAzureV2EnableProtectionInput) *string { return v.UseManagedDisks }).(pulumi.StringPtrOutput)
 }
 
-// InMage Azure v2 specific protection profile details.
 type InMageAzureV2PolicyDetailsResponse struct {
-	// The app consistent snapshot frequency in minutes.
-	AppConsistentFrequencyInMinutes *int `pulumi:"appConsistentFrequencyInMinutes"`
-	// The crash consistent snapshot frequency in minutes.
-	CrashConsistentFrequencyInMinutes *int `pulumi:"crashConsistentFrequencyInMinutes"`
-	// Gets the class type. Overridden in derived classes.
-	// Expected value is 'InMageAzureV2'.
-	InstanceType string `pulumi:"instanceType"`
-	// A value indicating whether multi-VM sync has to be enabled.
-	MultiVmSyncStatus *string `pulumi:"multiVmSyncStatus"`
-	// The duration in minutes until which the recovery points need to be stored.
-	RecoveryPointHistory *int `pulumi:"recoveryPointHistory"`
-	// The recovery point threshold in minutes.
-	RecoveryPointThresholdInMinutes *int `pulumi:"recoveryPointThresholdInMinutes"`
+	AppConsistentFrequencyInMinutes   *int    `pulumi:"appConsistentFrequencyInMinutes"`
+	CrashConsistentFrequencyInMinutes *int    `pulumi:"crashConsistentFrequencyInMinutes"`
+	InstanceType                      string  `pulumi:"instanceType"`
+	MultiVmSyncStatus                 *string `pulumi:"multiVmSyncStatus"`
+	RecoveryPointHistory              *int    `pulumi:"recoveryPointHistory"`
+	RecoveryPointThresholdInMinutes   *int    `pulumi:"recoveryPointThresholdInMinutes"`
 }
 
 // InMageAzureV2PolicyDetailsResponseInput is an input type that accepts InMageAzureV2PolicyDetailsResponseArgs and InMageAzureV2PolicyDetailsResponseOutput values.
@@ -8060,21 +6783,13 @@ type InMageAzureV2PolicyDetailsResponseInput interface {
 	ToInMageAzureV2PolicyDetailsResponseOutputWithContext(context.Context) InMageAzureV2PolicyDetailsResponseOutput
 }
 
-// InMage Azure v2 specific protection profile details.
 type InMageAzureV2PolicyDetailsResponseArgs struct {
-	// The app consistent snapshot frequency in minutes.
-	AppConsistentFrequencyInMinutes pulumi.IntPtrInput `pulumi:"appConsistentFrequencyInMinutes"`
-	// The crash consistent snapshot frequency in minutes.
-	CrashConsistentFrequencyInMinutes pulumi.IntPtrInput `pulumi:"crashConsistentFrequencyInMinutes"`
-	// Gets the class type. Overridden in derived classes.
-	// Expected value is 'InMageAzureV2'.
-	InstanceType pulumi.StringInput `pulumi:"instanceType"`
-	// A value indicating whether multi-VM sync has to be enabled.
-	MultiVmSyncStatus pulumi.StringPtrInput `pulumi:"multiVmSyncStatus"`
-	// The duration in minutes until which the recovery points need to be stored.
-	RecoveryPointHistory pulumi.IntPtrInput `pulumi:"recoveryPointHistory"`
-	// The recovery point threshold in minutes.
-	RecoveryPointThresholdInMinutes pulumi.IntPtrInput `pulumi:"recoveryPointThresholdInMinutes"`
+	AppConsistentFrequencyInMinutes   pulumi.IntPtrInput    `pulumi:"appConsistentFrequencyInMinutes"`
+	CrashConsistentFrequencyInMinutes pulumi.IntPtrInput    `pulumi:"crashConsistentFrequencyInMinutes"`
+	InstanceType                      pulumi.StringInput    `pulumi:"instanceType"`
+	MultiVmSyncStatus                 pulumi.StringPtrInput `pulumi:"multiVmSyncStatus"`
+	RecoveryPointHistory              pulumi.IntPtrInput    `pulumi:"recoveryPointHistory"`
+	RecoveryPointThresholdInMinutes   pulumi.IntPtrInput    `pulumi:"recoveryPointThresholdInMinutes"`
 }
 
 func (InMageAzureV2PolicyDetailsResponseArgs) ElementType() reflect.Type {
@@ -8089,7 +6804,6 @@ func (i InMageAzureV2PolicyDetailsResponseArgs) ToInMageAzureV2PolicyDetailsResp
 	return pulumi.ToOutputWithContext(ctx, i).(InMageAzureV2PolicyDetailsResponseOutput)
 }
 
-// InMage Azure v2 specific protection profile details.
 type InMageAzureV2PolicyDetailsResponseOutput struct{ *pulumi.OutputState }
 
 func (InMageAzureV2PolicyDetailsResponseOutput) ElementType() reflect.Type {
@@ -8104,52 +6818,37 @@ func (o InMageAzureV2PolicyDetailsResponseOutput) ToInMageAzureV2PolicyDetailsRe
 	return o
 }
 
-// The app consistent snapshot frequency in minutes.
 func (o InMageAzureV2PolicyDetailsResponseOutput) AppConsistentFrequencyInMinutes() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v InMageAzureV2PolicyDetailsResponse) *int { return v.AppConsistentFrequencyInMinutes }).(pulumi.IntPtrOutput)
 }
 
-// The crash consistent snapshot frequency in minutes.
 func (o InMageAzureV2PolicyDetailsResponseOutput) CrashConsistentFrequencyInMinutes() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v InMageAzureV2PolicyDetailsResponse) *int { return v.CrashConsistentFrequencyInMinutes }).(pulumi.IntPtrOutput)
 }
 
-// Gets the class type. Overridden in derived classes.
-// Expected value is 'InMageAzureV2'.
 func (o InMageAzureV2PolicyDetailsResponseOutput) InstanceType() pulumi.StringOutput {
 	return o.ApplyT(func(v InMageAzureV2PolicyDetailsResponse) string { return v.InstanceType }).(pulumi.StringOutput)
 }
 
-// A value indicating whether multi-VM sync has to be enabled.
 func (o InMageAzureV2PolicyDetailsResponseOutput) MultiVmSyncStatus() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v InMageAzureV2PolicyDetailsResponse) *string { return v.MultiVmSyncStatus }).(pulumi.StringPtrOutput)
 }
 
-// The duration in minutes until which the recovery points need to be stored.
 func (o InMageAzureV2PolicyDetailsResponseOutput) RecoveryPointHistory() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v InMageAzureV2PolicyDetailsResponse) *int { return v.RecoveryPointHistory }).(pulumi.IntPtrOutput)
 }
 
-// The recovery point threshold in minutes.
 func (o InMageAzureV2PolicyDetailsResponseOutput) RecoveryPointThresholdInMinutes() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v InMageAzureV2PolicyDetailsResponse) *int { return v.RecoveryPointThresholdInMinutes }).(pulumi.IntPtrOutput)
 }
 
-// VMWare Azure specific policy Input.
 type InMageAzureV2PolicyInput struct {
-	// The app consistent snapshot frequency (in minutes).
-	AppConsistentFrequencyInMinutes *int `pulumi:"appConsistentFrequencyInMinutes"`
-	// The crash consistent snapshot frequency (in minutes).
-	CrashConsistentFrequencyInMinutes *int `pulumi:"crashConsistentFrequencyInMinutes"`
-	// The class type.
-	// Expected value is 'InMageAzureV2'.
-	InstanceType *string `pulumi:"instanceType"`
-	// A value indicating whether multi-VM sync has to be enabled. Value should be 'Enabled' or 'Disabled'.
-	MultiVmSyncStatus string `pulumi:"multiVmSyncStatus"`
-	// The duration in minutes until which the recovery points need to be stored.
-	RecoveryPointHistory *int `pulumi:"recoveryPointHistory"`
-	// The recovery point threshold in minutes.
-	RecoveryPointThresholdInMinutes *int `pulumi:"recoveryPointThresholdInMinutes"`
+	AppConsistentFrequencyInMinutes   *int    `pulumi:"appConsistentFrequencyInMinutes"`
+	CrashConsistentFrequencyInMinutes *int    `pulumi:"crashConsistentFrequencyInMinutes"`
+	InstanceType                      *string `pulumi:"instanceType"`
+	MultiVmSyncStatus                 string  `pulumi:"multiVmSyncStatus"`
+	RecoveryPointHistory              *int    `pulumi:"recoveryPointHistory"`
+	RecoveryPointThresholdInMinutes   *int    `pulumi:"recoveryPointThresholdInMinutes"`
 }
 
 // InMageAzureV2PolicyInputInput is an input type that accepts InMageAzureV2PolicyInputArgs and InMageAzureV2PolicyInputOutput values.
@@ -8163,21 +6862,13 @@ type InMageAzureV2PolicyInputInput interface {
 	ToInMageAzureV2PolicyInputOutputWithContext(context.Context) InMageAzureV2PolicyInputOutput
 }
 
-// VMWare Azure specific policy Input.
 type InMageAzureV2PolicyInputArgs struct {
-	// The app consistent snapshot frequency (in minutes).
-	AppConsistentFrequencyInMinutes pulumi.IntPtrInput `pulumi:"appConsistentFrequencyInMinutes"`
-	// The crash consistent snapshot frequency (in minutes).
-	CrashConsistentFrequencyInMinutes pulumi.IntPtrInput `pulumi:"crashConsistentFrequencyInMinutes"`
-	// The class type.
-	// Expected value is 'InMageAzureV2'.
-	InstanceType pulumi.StringPtrInput `pulumi:"instanceType"`
-	// A value indicating whether multi-VM sync has to be enabled. Value should be 'Enabled' or 'Disabled'.
-	MultiVmSyncStatus pulumi.StringInput `pulumi:"multiVmSyncStatus"`
-	// The duration in minutes until which the recovery points need to be stored.
-	RecoveryPointHistory pulumi.IntPtrInput `pulumi:"recoveryPointHistory"`
-	// The recovery point threshold in minutes.
-	RecoveryPointThresholdInMinutes pulumi.IntPtrInput `pulumi:"recoveryPointThresholdInMinutes"`
+	AppConsistentFrequencyInMinutes   pulumi.IntPtrInput    `pulumi:"appConsistentFrequencyInMinutes"`
+	CrashConsistentFrequencyInMinutes pulumi.IntPtrInput    `pulumi:"crashConsistentFrequencyInMinutes"`
+	InstanceType                      pulumi.StringPtrInput `pulumi:"instanceType"`
+	MultiVmSyncStatus                 pulumi.StringInput    `pulumi:"multiVmSyncStatus"`
+	RecoveryPointHistory              pulumi.IntPtrInput    `pulumi:"recoveryPointHistory"`
+	RecoveryPointThresholdInMinutes   pulumi.IntPtrInput    `pulumi:"recoveryPointThresholdInMinutes"`
 }
 
 func (InMageAzureV2PolicyInputArgs) ElementType() reflect.Type {
@@ -8192,7 +6883,6 @@ func (i InMageAzureV2PolicyInputArgs) ToInMageAzureV2PolicyInputOutputWithContex
 	return pulumi.ToOutputWithContext(ctx, i).(InMageAzureV2PolicyInputOutput)
 }
 
-// VMWare Azure specific policy Input.
 type InMageAzureV2PolicyInputOutput struct{ *pulumi.OutputState }
 
 func (InMageAzureV2PolicyInputOutput) ElementType() reflect.Type {
@@ -8207,69 +6897,46 @@ func (o InMageAzureV2PolicyInputOutput) ToInMageAzureV2PolicyInputOutputWithCont
 	return o
 }
 
-// The app consistent snapshot frequency (in minutes).
 func (o InMageAzureV2PolicyInputOutput) AppConsistentFrequencyInMinutes() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v InMageAzureV2PolicyInput) *int { return v.AppConsistentFrequencyInMinutes }).(pulumi.IntPtrOutput)
 }
 
-// The crash consistent snapshot frequency (in minutes).
 func (o InMageAzureV2PolicyInputOutput) CrashConsistentFrequencyInMinutes() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v InMageAzureV2PolicyInput) *int { return v.CrashConsistentFrequencyInMinutes }).(pulumi.IntPtrOutput)
 }
 
-// The class type.
-// Expected value is 'InMageAzureV2'.
 func (o InMageAzureV2PolicyInputOutput) InstanceType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v InMageAzureV2PolicyInput) *string { return v.InstanceType }).(pulumi.StringPtrOutput)
 }
 
-// A value indicating whether multi-VM sync has to be enabled. Value should be 'Enabled' or 'Disabled'.
 func (o InMageAzureV2PolicyInputOutput) MultiVmSyncStatus() pulumi.StringOutput {
 	return o.ApplyT(func(v InMageAzureV2PolicyInput) string { return v.MultiVmSyncStatus }).(pulumi.StringOutput)
 }
 
-// The duration in minutes until which the recovery points need to be stored.
 func (o InMageAzureV2PolicyInputOutput) RecoveryPointHistory() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v InMageAzureV2PolicyInput) *int { return v.RecoveryPointHistory }).(pulumi.IntPtrOutput)
 }
 
-// The recovery point threshold in minutes.
 func (o InMageAzureV2PolicyInputOutput) RecoveryPointThresholdInMinutes() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v InMageAzureV2PolicyInput) *int { return v.RecoveryPointThresholdInMinutes }).(pulumi.IntPtrOutput)
 }
 
-// InMageAzureV2 protected disk details.
 type InMageAzureV2ProtectedDiskDetailsResponse struct {
-	// The disk capacity in bytes.
-	DiskCapacityInBytes *float64 `pulumi:"diskCapacityInBytes"`
-	// The disk id.
-	DiskId *string `pulumi:"diskId"`
-	// The disk name.
-	DiskName *string `pulumi:"diskName"`
-	// A value indicating whether disk is resized.
-	DiskResized *string `pulumi:"diskResized"`
-	// The disk file system capacity in bytes.
+	DiskCapacityInBytes       *float64 `pulumi:"diskCapacityInBytes"`
+	DiskId                    *string  `pulumi:"diskId"`
+	DiskName                  *string  `pulumi:"diskName"`
+	DiskResized               *string  `pulumi:"diskResized"`
 	FileSystemCapacityInBytes *float64 `pulumi:"fileSystemCapacityInBytes"`
-	// The health error code for the disk.
-	HealthErrorCode *string `pulumi:"healthErrorCode"`
-	// The last RPO calculated time.
-	LastRpoCalculatedTime *string `pulumi:"lastRpoCalculatedTime"`
-	// The protection stage.
-	ProtectionStage *string `pulumi:"protectionStage"`
-	// The PS data transit in MB.
-	PsDataInMegaBytes *float64 `pulumi:"psDataInMegaBytes"`
-	// The resync duration in seconds.
-	ResyncDurationInSeconds *float64 `pulumi:"resyncDurationInSeconds"`
-	// The resync progress percentage.
-	ResyncProgressPercentage *int `pulumi:"resyncProgressPercentage"`
-	// A value indicating whether resync is required for this disk.
-	ResyncRequired *string `pulumi:"resyncRequired"`
-	// The RPO in seconds.
-	RpoInSeconds *float64 `pulumi:"rpoInSeconds"`
-	// The source data transit in MB.
-	SourceDataInMegaBytes *float64 `pulumi:"sourceDataInMegaBytes"`
-	// The target data transit in MB.
-	TargetDataInMegaBytes *float64 `pulumi:"targetDataInMegaBytes"`
+	HealthErrorCode           *string  `pulumi:"healthErrorCode"`
+	LastRpoCalculatedTime     *string  `pulumi:"lastRpoCalculatedTime"`
+	ProtectionStage           *string  `pulumi:"protectionStage"`
+	PsDataInMegaBytes         *float64 `pulumi:"psDataInMegaBytes"`
+	ResyncDurationInSeconds   *float64 `pulumi:"resyncDurationInSeconds"`
+	ResyncProgressPercentage  *int     `pulumi:"resyncProgressPercentage"`
+	ResyncRequired            *string  `pulumi:"resyncRequired"`
+	RpoInSeconds              *float64 `pulumi:"rpoInSeconds"`
+	SourceDataInMegaBytes     *float64 `pulumi:"sourceDataInMegaBytes"`
+	TargetDataInMegaBytes     *float64 `pulumi:"targetDataInMegaBytes"`
 }
 
 // InMageAzureV2ProtectedDiskDetailsResponseInput is an input type that accepts InMageAzureV2ProtectedDiskDetailsResponseArgs and InMageAzureV2ProtectedDiskDetailsResponseOutput values.
@@ -8283,38 +6950,22 @@ type InMageAzureV2ProtectedDiskDetailsResponseInput interface {
 	ToInMageAzureV2ProtectedDiskDetailsResponseOutputWithContext(context.Context) InMageAzureV2ProtectedDiskDetailsResponseOutput
 }
 
-// InMageAzureV2 protected disk details.
 type InMageAzureV2ProtectedDiskDetailsResponseArgs struct {
-	// The disk capacity in bytes.
-	DiskCapacityInBytes pulumi.Float64PtrInput `pulumi:"diskCapacityInBytes"`
-	// The disk id.
-	DiskId pulumi.StringPtrInput `pulumi:"diskId"`
-	// The disk name.
-	DiskName pulumi.StringPtrInput `pulumi:"diskName"`
-	// A value indicating whether disk is resized.
-	DiskResized pulumi.StringPtrInput `pulumi:"diskResized"`
-	// The disk file system capacity in bytes.
+	DiskCapacityInBytes       pulumi.Float64PtrInput `pulumi:"diskCapacityInBytes"`
+	DiskId                    pulumi.StringPtrInput  `pulumi:"diskId"`
+	DiskName                  pulumi.StringPtrInput  `pulumi:"diskName"`
+	DiskResized               pulumi.StringPtrInput  `pulumi:"diskResized"`
 	FileSystemCapacityInBytes pulumi.Float64PtrInput `pulumi:"fileSystemCapacityInBytes"`
-	// The health error code for the disk.
-	HealthErrorCode pulumi.StringPtrInput `pulumi:"healthErrorCode"`
-	// The last RPO calculated time.
-	LastRpoCalculatedTime pulumi.StringPtrInput `pulumi:"lastRpoCalculatedTime"`
-	// The protection stage.
-	ProtectionStage pulumi.StringPtrInput `pulumi:"protectionStage"`
-	// The PS data transit in MB.
-	PsDataInMegaBytes pulumi.Float64PtrInput `pulumi:"psDataInMegaBytes"`
-	// The resync duration in seconds.
-	ResyncDurationInSeconds pulumi.Float64PtrInput `pulumi:"resyncDurationInSeconds"`
-	// The resync progress percentage.
-	ResyncProgressPercentage pulumi.IntPtrInput `pulumi:"resyncProgressPercentage"`
-	// A value indicating whether resync is required for this disk.
-	ResyncRequired pulumi.StringPtrInput `pulumi:"resyncRequired"`
-	// The RPO in seconds.
-	RpoInSeconds pulumi.Float64PtrInput `pulumi:"rpoInSeconds"`
-	// The source data transit in MB.
-	SourceDataInMegaBytes pulumi.Float64PtrInput `pulumi:"sourceDataInMegaBytes"`
-	// The target data transit in MB.
-	TargetDataInMegaBytes pulumi.Float64PtrInput `pulumi:"targetDataInMegaBytes"`
+	HealthErrorCode           pulumi.StringPtrInput  `pulumi:"healthErrorCode"`
+	LastRpoCalculatedTime     pulumi.StringPtrInput  `pulumi:"lastRpoCalculatedTime"`
+	ProtectionStage           pulumi.StringPtrInput  `pulumi:"protectionStage"`
+	PsDataInMegaBytes         pulumi.Float64PtrInput `pulumi:"psDataInMegaBytes"`
+	ResyncDurationInSeconds   pulumi.Float64PtrInput `pulumi:"resyncDurationInSeconds"`
+	ResyncProgressPercentage  pulumi.IntPtrInput     `pulumi:"resyncProgressPercentage"`
+	ResyncRequired            pulumi.StringPtrInput  `pulumi:"resyncRequired"`
+	RpoInSeconds              pulumi.Float64PtrInput `pulumi:"rpoInSeconds"`
+	SourceDataInMegaBytes     pulumi.Float64PtrInput `pulumi:"sourceDataInMegaBytes"`
+	TargetDataInMegaBytes     pulumi.Float64PtrInput `pulumi:"targetDataInMegaBytes"`
 }
 
 func (InMageAzureV2ProtectedDiskDetailsResponseArgs) ElementType() reflect.Type {
@@ -8354,7 +7005,6 @@ func (i InMageAzureV2ProtectedDiskDetailsResponseArray) ToInMageAzureV2Protected
 	return pulumi.ToOutputWithContext(ctx, i).(InMageAzureV2ProtectedDiskDetailsResponseArrayOutput)
 }
 
-// InMageAzureV2 protected disk details.
 type InMageAzureV2ProtectedDiskDetailsResponseOutput struct{ *pulumi.OutputState }
 
 func (InMageAzureV2ProtectedDiskDetailsResponseOutput) ElementType() reflect.Type {
@@ -8369,77 +7019,62 @@ func (o InMageAzureV2ProtectedDiskDetailsResponseOutput) ToInMageAzureV2Protecte
 	return o
 }
 
-// The disk capacity in bytes.
 func (o InMageAzureV2ProtectedDiskDetailsResponseOutput) DiskCapacityInBytes() pulumi.Float64PtrOutput {
 	return o.ApplyT(func(v InMageAzureV2ProtectedDiskDetailsResponse) *float64 { return v.DiskCapacityInBytes }).(pulumi.Float64PtrOutput)
 }
 
-// The disk id.
 func (o InMageAzureV2ProtectedDiskDetailsResponseOutput) DiskId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v InMageAzureV2ProtectedDiskDetailsResponse) *string { return v.DiskId }).(pulumi.StringPtrOutput)
 }
 
-// The disk name.
 func (o InMageAzureV2ProtectedDiskDetailsResponseOutput) DiskName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v InMageAzureV2ProtectedDiskDetailsResponse) *string { return v.DiskName }).(pulumi.StringPtrOutput)
 }
 
-// A value indicating whether disk is resized.
 func (o InMageAzureV2ProtectedDiskDetailsResponseOutput) DiskResized() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v InMageAzureV2ProtectedDiskDetailsResponse) *string { return v.DiskResized }).(pulumi.StringPtrOutput)
 }
 
-// The disk file system capacity in bytes.
 func (o InMageAzureV2ProtectedDiskDetailsResponseOutput) FileSystemCapacityInBytes() pulumi.Float64PtrOutput {
 	return o.ApplyT(func(v InMageAzureV2ProtectedDiskDetailsResponse) *float64 { return v.FileSystemCapacityInBytes }).(pulumi.Float64PtrOutput)
 }
 
-// The health error code for the disk.
 func (o InMageAzureV2ProtectedDiskDetailsResponseOutput) HealthErrorCode() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v InMageAzureV2ProtectedDiskDetailsResponse) *string { return v.HealthErrorCode }).(pulumi.StringPtrOutput)
 }
 
-// The last RPO calculated time.
 func (o InMageAzureV2ProtectedDiskDetailsResponseOutput) LastRpoCalculatedTime() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v InMageAzureV2ProtectedDiskDetailsResponse) *string { return v.LastRpoCalculatedTime }).(pulumi.StringPtrOutput)
 }
 
-// The protection stage.
 func (o InMageAzureV2ProtectedDiskDetailsResponseOutput) ProtectionStage() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v InMageAzureV2ProtectedDiskDetailsResponse) *string { return v.ProtectionStage }).(pulumi.StringPtrOutput)
 }
 
-// The PS data transit in MB.
 func (o InMageAzureV2ProtectedDiskDetailsResponseOutput) PsDataInMegaBytes() pulumi.Float64PtrOutput {
 	return o.ApplyT(func(v InMageAzureV2ProtectedDiskDetailsResponse) *float64 { return v.PsDataInMegaBytes }).(pulumi.Float64PtrOutput)
 }
 
-// The resync duration in seconds.
 func (o InMageAzureV2ProtectedDiskDetailsResponseOutput) ResyncDurationInSeconds() pulumi.Float64PtrOutput {
 	return o.ApplyT(func(v InMageAzureV2ProtectedDiskDetailsResponse) *float64 { return v.ResyncDurationInSeconds }).(pulumi.Float64PtrOutput)
 }
 
-// The resync progress percentage.
 func (o InMageAzureV2ProtectedDiskDetailsResponseOutput) ResyncProgressPercentage() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v InMageAzureV2ProtectedDiskDetailsResponse) *int { return v.ResyncProgressPercentage }).(pulumi.IntPtrOutput)
 }
 
-// A value indicating whether resync is required for this disk.
 func (o InMageAzureV2ProtectedDiskDetailsResponseOutput) ResyncRequired() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v InMageAzureV2ProtectedDiskDetailsResponse) *string { return v.ResyncRequired }).(pulumi.StringPtrOutput)
 }
 
-// The RPO in seconds.
 func (o InMageAzureV2ProtectedDiskDetailsResponseOutput) RpoInSeconds() pulumi.Float64PtrOutput {
 	return o.ApplyT(func(v InMageAzureV2ProtectedDiskDetailsResponse) *float64 { return v.RpoInSeconds }).(pulumi.Float64PtrOutput)
 }
 
-// The source data transit in MB.
 func (o InMageAzureV2ProtectedDiskDetailsResponseOutput) SourceDataInMegaBytes() pulumi.Float64PtrOutput {
 	return o.ApplyT(func(v InMageAzureV2ProtectedDiskDetailsResponse) *float64 { return v.SourceDataInMegaBytes }).(pulumi.Float64PtrOutput)
 }
 
-// The target data transit in MB.
 func (o InMageAzureV2ProtectedDiskDetailsResponseOutput) TargetDataInMegaBytes() pulumi.Float64PtrOutput {
 	return o.ApplyT(func(v InMageAzureV2ProtectedDiskDetailsResponse) *float64 { return v.TargetDataInMegaBytes }).(pulumi.Float64PtrOutput)
 }
@@ -8464,109 +7099,57 @@ func (o InMageAzureV2ProtectedDiskDetailsResponseArrayOutput) Index(i pulumi.Int
 	}).(InMageAzureV2ProtectedDiskDetailsResponseOutput)
 }
 
-// InMageAzureV2 provider specific settings
 type InMageAzureV2ReplicationDetailsResponse struct {
-	// Agent expiry date.
-	AgentExpiryDate *string `pulumi:"agentExpiryDate"`
-	// The agent version.
-	AgentVersion *string `pulumi:"agentVersion"`
-	// Azure VM Disk details.
-	AzureVMDiskDetails []AzureVmDiskDetailsResponse `pulumi:"azureVMDiskDetails"`
-	// The compressed data change rate in MB.
-	CompressedDataRateInMB *float64 `pulumi:"compressedDataRateInMB"`
-	// The data stores of the on-premise machine. Value can be list of strings that contain data store names.
-	Datastores []string `pulumi:"datastores"`
-	// A value indicating the discovery type of the machine. Value can be vCenter or physical.
-	DiscoveryType *string `pulumi:"discoveryType"`
-	// A value indicating whether any disk is resized for this VM.
-	DiskResized *string `pulumi:"diskResized"`
-	// The selected option to enable RDP\SSH on target vm after failover. String value of {SrsDataContract.EnableRDPOnTargetOption} enum.
-	EnableRdpOnTargetOption *string `pulumi:"enableRdpOnTargetOption"`
-	// The infrastructure VM Id.
-	InfrastructureVmId *string `pulumi:"infrastructureVmId"`
-	// Gets the Instance type.
-	// Expected value is 'InMageAzureV2'.
-	InstanceType string `pulumi:"instanceType"`
-	// The source IP address.
-	IpAddress *string `pulumi:"ipAddress"`
-	// A value indicating whether installed agent needs to be updated.
-	IsAgentUpdateRequired *string `pulumi:"isAgentUpdateRequired"`
-	// A value indicating whether the source server requires a restart after update.
-	IsRebootAfterUpdateRequired *string `pulumi:"isRebootAfterUpdateRequired"`
-	// The last heartbeat received from the source server.
-	LastHeartbeat *string `pulumi:"lastHeartbeat"`
-	// The last RPO calculated time.
-	LastRpoCalculatedTime *string `pulumi:"lastRpoCalculatedTime"`
-	// The last update time received from on-prem components.
-	LastUpdateReceivedTime *string `pulumi:"lastUpdateReceivedTime"`
-	// License Type of the VM to be used.
-	LicenseType *string `pulumi:"licenseType"`
-	// The master target Id.
-	MasterTargetId *string `pulumi:"masterTargetId"`
-	// The multi vm group Id.
-	MultiVmGroupId *string `pulumi:"multiVmGroupId"`
-	// The multi vm group name.
-	MultiVmGroupName *string `pulumi:"multiVmGroupName"`
-	// A value indicating whether multi vm sync is enabled or disabled.
-	MultiVmSyncStatus *string `pulumi:"multiVmSyncStatus"`
-	// The id of the disk containing the OS.
-	OsDiskId *string `pulumi:"osDiskId"`
-	// The type of the OS on the VM.
-	OsType *string `pulumi:"osType"`
-	// The OS Version of the protected item.
-	OsVersion *string `pulumi:"osVersion"`
-	// The process server Id.
-	ProcessServerId *string `pulumi:"processServerId"`
-	// The list of protected disks.
-	ProtectedDisks []InMageAzureV2ProtectedDiskDetailsResponse `pulumi:"protectedDisks"`
-	// The protection stage.
-	ProtectionStage *string `pulumi:"protectionStage"`
-	// The recovery availability set Id.
-	RecoveryAvailabilitySetId *string `pulumi:"recoveryAvailabilitySetId"`
-	// The ARM id of the log storage account used for replication. This will be set to null if no log storage account was provided during enable protection.
-	RecoveryAzureLogStorageAccountId *string `pulumi:"recoveryAzureLogStorageAccountId"`
-	// The target resource group Id.
-	RecoveryAzureResourceGroupId *string `pulumi:"recoveryAzureResourceGroupId"`
-	// The recovery Azure storage account.
-	RecoveryAzureStorageAccount *string `pulumi:"recoveryAzureStorageAccount"`
-	// Recovery Azure given name.
-	RecoveryAzureVMName *string `pulumi:"recoveryAzureVMName"`
-	// The Recovery Azure VM size.
-	RecoveryAzureVMSize *string `pulumi:"recoveryAzureVMSize"`
-	// The replica id of the protected item.
-	ReplicaId *string `pulumi:"replicaId"`
-	// The resync progress percentage.
-	ResyncProgressPercentage *int `pulumi:"resyncProgressPercentage"`
-	// The RPO in seconds.
-	RpoInSeconds *float64 `pulumi:"rpoInSeconds"`
-	// The selected recovery azure network Id.
-	SelectedRecoveryAzureNetworkId *string `pulumi:"selectedRecoveryAzureNetworkId"`
-	// The selected source nic Id which will be used as the primary nic during failover.
-	SelectedSourceNicId *string `pulumi:"selectedSourceNicId"`
-	// The CPU count of the VM on the primary side.
-	SourceVmCpuCount *int `pulumi:"sourceVmCpuCount"`
-	// The RAM size of the VM on the primary side.
-	SourceVmRamSizeInMB *int `pulumi:"sourceVmRamSizeInMB"`
-	// The ARM Id of the target Azure VM. This value will be null until the VM is failed over. Only after failure it will be populated with the ARM Id of the Azure VM.
-	TargetVmId *string `pulumi:"targetVmId"`
-	// The uncompressed data change rate in MB.
-	UncompressedDataRateInMB *float64 `pulumi:"uncompressedDataRateInMB"`
-	// A value indicating whether managed disks should be used during failover.
-	UseManagedDisks *string `pulumi:"useManagedDisks"`
-	// The vCenter infrastructure Id.
-	VCenterInfrastructureId *string `pulumi:"vCenterInfrastructureId"`
-	// The validation errors of the on-premise machine Value can be list of validation errors.
-	ValidationErrors []HealthErrorResponse `pulumi:"validationErrors"`
-	// The OS disk VHD name.
-	VhdName *string `pulumi:"vhdName"`
-	// The virtual machine Id.
-	VmId *string `pulumi:"vmId"`
-	// The PE Network details.
-	VmNics []VMNicDetailsResponse `pulumi:"vmNics"`
-	// The protection state for the vm.
-	VmProtectionState *string `pulumi:"vmProtectionState"`
-	// The protection state description for the vm.
-	VmProtectionStateDescription *string `pulumi:"vmProtectionStateDescription"`
+	AgentExpiryDate                  *string                                     `pulumi:"agentExpiryDate"`
+	AgentVersion                     *string                                     `pulumi:"agentVersion"`
+	AzureVMDiskDetails               []AzureVmDiskDetailsResponse                `pulumi:"azureVMDiskDetails"`
+	CompressedDataRateInMB           *float64                                    `pulumi:"compressedDataRateInMB"`
+	Datastores                       []string                                    `pulumi:"datastores"`
+	DiscoveryType                    *string                                     `pulumi:"discoveryType"`
+	DiskResized                      *string                                     `pulumi:"diskResized"`
+	EnableRdpOnTargetOption          *string                                     `pulumi:"enableRdpOnTargetOption"`
+	InfrastructureVmId               *string                                     `pulumi:"infrastructureVmId"`
+	InstanceType                     string                                      `pulumi:"instanceType"`
+	IpAddress                        *string                                     `pulumi:"ipAddress"`
+	IsAgentUpdateRequired            *string                                     `pulumi:"isAgentUpdateRequired"`
+	IsRebootAfterUpdateRequired      *string                                     `pulumi:"isRebootAfterUpdateRequired"`
+	LastHeartbeat                    *string                                     `pulumi:"lastHeartbeat"`
+	LastRpoCalculatedTime            *string                                     `pulumi:"lastRpoCalculatedTime"`
+	LastUpdateReceivedTime           *string                                     `pulumi:"lastUpdateReceivedTime"`
+	LicenseType                      *string                                     `pulumi:"licenseType"`
+	MasterTargetId                   *string                                     `pulumi:"masterTargetId"`
+	MultiVmGroupId                   *string                                     `pulumi:"multiVmGroupId"`
+	MultiVmGroupName                 *string                                     `pulumi:"multiVmGroupName"`
+	MultiVmSyncStatus                *string                                     `pulumi:"multiVmSyncStatus"`
+	OsDiskId                         *string                                     `pulumi:"osDiskId"`
+	OsType                           *string                                     `pulumi:"osType"`
+	OsVersion                        *string                                     `pulumi:"osVersion"`
+	ProcessServerId                  *string                                     `pulumi:"processServerId"`
+	ProtectedDisks                   []InMageAzureV2ProtectedDiskDetailsResponse `pulumi:"protectedDisks"`
+	ProtectionStage                  *string                                     `pulumi:"protectionStage"`
+	RecoveryAvailabilitySetId        *string                                     `pulumi:"recoveryAvailabilitySetId"`
+	RecoveryAzureLogStorageAccountId *string                                     `pulumi:"recoveryAzureLogStorageAccountId"`
+	RecoveryAzureResourceGroupId     *string                                     `pulumi:"recoveryAzureResourceGroupId"`
+	RecoveryAzureStorageAccount      *string                                     `pulumi:"recoveryAzureStorageAccount"`
+	RecoveryAzureVMName              *string                                     `pulumi:"recoveryAzureVMName"`
+	RecoveryAzureVMSize              *string                                     `pulumi:"recoveryAzureVMSize"`
+	ReplicaId                        *string                                     `pulumi:"replicaId"`
+	ResyncProgressPercentage         *int                                        `pulumi:"resyncProgressPercentage"`
+	RpoInSeconds                     *float64                                    `pulumi:"rpoInSeconds"`
+	SelectedRecoveryAzureNetworkId   *string                                     `pulumi:"selectedRecoveryAzureNetworkId"`
+	SelectedSourceNicId              *string                                     `pulumi:"selectedSourceNicId"`
+	SourceVmCpuCount                 *int                                        `pulumi:"sourceVmCpuCount"`
+	SourceVmRamSizeInMB              *int                                        `pulumi:"sourceVmRamSizeInMB"`
+	TargetVmId                       *string                                     `pulumi:"targetVmId"`
+	UncompressedDataRateInMB         *float64                                    `pulumi:"uncompressedDataRateInMB"`
+	UseManagedDisks                  *string                                     `pulumi:"useManagedDisks"`
+	VCenterInfrastructureId          *string                                     `pulumi:"vCenterInfrastructureId"`
+	ValidationErrors                 []HealthErrorResponse                       `pulumi:"validationErrors"`
+	VhdName                          *string                                     `pulumi:"vhdName"`
+	VmId                             *string                                     `pulumi:"vmId"`
+	VmNics                           []VMNicDetailsResponse                      `pulumi:"vmNics"`
+	VmProtectionState                *string                                     `pulumi:"vmProtectionState"`
+	VmProtectionStateDescription     *string                                     `pulumi:"vmProtectionStateDescription"`
 }
 
 // InMageAzureV2ReplicationDetailsResponseInput is an input type that accepts InMageAzureV2ReplicationDetailsResponseArgs and InMageAzureV2ReplicationDetailsResponseOutput values.
@@ -8580,109 +7163,57 @@ type InMageAzureV2ReplicationDetailsResponseInput interface {
 	ToInMageAzureV2ReplicationDetailsResponseOutputWithContext(context.Context) InMageAzureV2ReplicationDetailsResponseOutput
 }
 
-// InMageAzureV2 provider specific settings
 type InMageAzureV2ReplicationDetailsResponseArgs struct {
-	// Agent expiry date.
-	AgentExpiryDate pulumi.StringPtrInput `pulumi:"agentExpiryDate"`
-	// The agent version.
-	AgentVersion pulumi.StringPtrInput `pulumi:"agentVersion"`
-	// Azure VM Disk details.
-	AzureVMDiskDetails AzureVmDiskDetailsResponseArrayInput `pulumi:"azureVMDiskDetails"`
-	// The compressed data change rate in MB.
-	CompressedDataRateInMB pulumi.Float64PtrInput `pulumi:"compressedDataRateInMB"`
-	// The data stores of the on-premise machine. Value can be list of strings that contain data store names.
-	Datastores pulumi.StringArrayInput `pulumi:"datastores"`
-	// A value indicating the discovery type of the machine. Value can be vCenter or physical.
-	DiscoveryType pulumi.StringPtrInput `pulumi:"discoveryType"`
-	// A value indicating whether any disk is resized for this VM.
-	DiskResized pulumi.StringPtrInput `pulumi:"diskResized"`
-	// The selected option to enable RDP\SSH on target vm after failover. String value of {SrsDataContract.EnableRDPOnTargetOption} enum.
-	EnableRdpOnTargetOption pulumi.StringPtrInput `pulumi:"enableRdpOnTargetOption"`
-	// The infrastructure VM Id.
-	InfrastructureVmId pulumi.StringPtrInput `pulumi:"infrastructureVmId"`
-	// Gets the Instance type.
-	// Expected value is 'InMageAzureV2'.
-	InstanceType pulumi.StringInput `pulumi:"instanceType"`
-	// The source IP address.
-	IpAddress pulumi.StringPtrInput `pulumi:"ipAddress"`
-	// A value indicating whether installed agent needs to be updated.
-	IsAgentUpdateRequired pulumi.StringPtrInput `pulumi:"isAgentUpdateRequired"`
-	// A value indicating whether the source server requires a restart after update.
-	IsRebootAfterUpdateRequired pulumi.StringPtrInput `pulumi:"isRebootAfterUpdateRequired"`
-	// The last heartbeat received from the source server.
-	LastHeartbeat pulumi.StringPtrInput `pulumi:"lastHeartbeat"`
-	// The last RPO calculated time.
-	LastRpoCalculatedTime pulumi.StringPtrInput `pulumi:"lastRpoCalculatedTime"`
-	// The last update time received from on-prem components.
-	LastUpdateReceivedTime pulumi.StringPtrInput `pulumi:"lastUpdateReceivedTime"`
-	// License Type of the VM to be used.
-	LicenseType pulumi.StringPtrInput `pulumi:"licenseType"`
-	// The master target Id.
-	MasterTargetId pulumi.StringPtrInput `pulumi:"masterTargetId"`
-	// The multi vm group Id.
-	MultiVmGroupId pulumi.StringPtrInput `pulumi:"multiVmGroupId"`
-	// The multi vm group name.
-	MultiVmGroupName pulumi.StringPtrInput `pulumi:"multiVmGroupName"`
-	// A value indicating whether multi vm sync is enabled or disabled.
-	MultiVmSyncStatus pulumi.StringPtrInput `pulumi:"multiVmSyncStatus"`
-	// The id of the disk containing the OS.
-	OsDiskId pulumi.StringPtrInput `pulumi:"osDiskId"`
-	// The type of the OS on the VM.
-	OsType pulumi.StringPtrInput `pulumi:"osType"`
-	// The OS Version of the protected item.
-	OsVersion pulumi.StringPtrInput `pulumi:"osVersion"`
-	// The process server Id.
-	ProcessServerId pulumi.StringPtrInput `pulumi:"processServerId"`
-	// The list of protected disks.
-	ProtectedDisks InMageAzureV2ProtectedDiskDetailsResponseArrayInput `pulumi:"protectedDisks"`
-	// The protection stage.
-	ProtectionStage pulumi.StringPtrInput `pulumi:"protectionStage"`
-	// The recovery availability set Id.
-	RecoveryAvailabilitySetId pulumi.StringPtrInput `pulumi:"recoveryAvailabilitySetId"`
-	// The ARM id of the log storage account used for replication. This will be set to null if no log storage account was provided during enable protection.
-	RecoveryAzureLogStorageAccountId pulumi.StringPtrInput `pulumi:"recoveryAzureLogStorageAccountId"`
-	// The target resource group Id.
-	RecoveryAzureResourceGroupId pulumi.StringPtrInput `pulumi:"recoveryAzureResourceGroupId"`
-	// The recovery Azure storage account.
-	RecoveryAzureStorageAccount pulumi.StringPtrInput `pulumi:"recoveryAzureStorageAccount"`
-	// Recovery Azure given name.
-	RecoveryAzureVMName pulumi.StringPtrInput `pulumi:"recoveryAzureVMName"`
-	// The Recovery Azure VM size.
-	RecoveryAzureVMSize pulumi.StringPtrInput `pulumi:"recoveryAzureVMSize"`
-	// The replica id of the protected item.
-	ReplicaId pulumi.StringPtrInput `pulumi:"replicaId"`
-	// The resync progress percentage.
-	ResyncProgressPercentage pulumi.IntPtrInput `pulumi:"resyncProgressPercentage"`
-	// The RPO in seconds.
-	RpoInSeconds pulumi.Float64PtrInput `pulumi:"rpoInSeconds"`
-	// The selected recovery azure network Id.
-	SelectedRecoveryAzureNetworkId pulumi.StringPtrInput `pulumi:"selectedRecoveryAzureNetworkId"`
-	// The selected source nic Id which will be used as the primary nic during failover.
-	SelectedSourceNicId pulumi.StringPtrInput `pulumi:"selectedSourceNicId"`
-	// The CPU count of the VM on the primary side.
-	SourceVmCpuCount pulumi.IntPtrInput `pulumi:"sourceVmCpuCount"`
-	// The RAM size of the VM on the primary side.
-	SourceVmRamSizeInMB pulumi.IntPtrInput `pulumi:"sourceVmRamSizeInMB"`
-	// The ARM Id of the target Azure VM. This value will be null until the VM is failed over. Only after failure it will be populated with the ARM Id of the Azure VM.
-	TargetVmId pulumi.StringPtrInput `pulumi:"targetVmId"`
-	// The uncompressed data change rate in MB.
-	UncompressedDataRateInMB pulumi.Float64PtrInput `pulumi:"uncompressedDataRateInMB"`
-	// A value indicating whether managed disks should be used during failover.
-	UseManagedDisks pulumi.StringPtrInput `pulumi:"useManagedDisks"`
-	// The vCenter infrastructure Id.
-	VCenterInfrastructureId pulumi.StringPtrInput `pulumi:"vCenterInfrastructureId"`
-	// The validation errors of the on-premise machine Value can be list of validation errors.
-	ValidationErrors HealthErrorResponseArrayInput `pulumi:"validationErrors"`
-	// The OS disk VHD name.
-	VhdName pulumi.StringPtrInput `pulumi:"vhdName"`
-	// The virtual machine Id.
-	VmId pulumi.StringPtrInput `pulumi:"vmId"`
-	// The PE Network details.
-	VmNics VMNicDetailsResponseArrayInput `pulumi:"vmNics"`
-	// The protection state for the vm.
-	VmProtectionState pulumi.StringPtrInput `pulumi:"vmProtectionState"`
-	// The protection state description for the vm.
-	VmProtectionStateDescription pulumi.StringPtrInput `pulumi:"vmProtectionStateDescription"`
+	AgentExpiryDate                  pulumi.StringPtrInput                               `pulumi:"agentExpiryDate"`
+	AgentVersion                     pulumi.StringPtrInput                               `pulumi:"agentVersion"`
+	AzureVMDiskDetails               AzureVmDiskDetailsResponseArrayInput                `pulumi:"azureVMDiskDetails"`
+	CompressedDataRateInMB           pulumi.Float64PtrInput                              `pulumi:"compressedDataRateInMB"`
+	Datastores                       pulumi.StringArrayInput                             `pulumi:"datastores"`
+	DiscoveryType                    pulumi.StringPtrInput                               `pulumi:"discoveryType"`
+	DiskResized                      pulumi.StringPtrInput                               `pulumi:"diskResized"`
+	EnableRdpOnTargetOption          pulumi.StringPtrInput                               `pulumi:"enableRdpOnTargetOption"`
+	InfrastructureVmId               pulumi.StringPtrInput                               `pulumi:"infrastructureVmId"`
+	InstanceType                     pulumi.StringInput                                  `pulumi:"instanceType"`
+	IpAddress                        pulumi.StringPtrInput                               `pulumi:"ipAddress"`
+	IsAgentUpdateRequired            pulumi.StringPtrInput                               `pulumi:"isAgentUpdateRequired"`
+	IsRebootAfterUpdateRequired      pulumi.StringPtrInput                               `pulumi:"isRebootAfterUpdateRequired"`
+	LastHeartbeat                    pulumi.StringPtrInput                               `pulumi:"lastHeartbeat"`
+	LastRpoCalculatedTime            pulumi.StringPtrInput                               `pulumi:"lastRpoCalculatedTime"`
+	LastUpdateReceivedTime           pulumi.StringPtrInput                               `pulumi:"lastUpdateReceivedTime"`
+	LicenseType                      pulumi.StringPtrInput                               `pulumi:"licenseType"`
+	MasterTargetId                   pulumi.StringPtrInput                               `pulumi:"masterTargetId"`
+	MultiVmGroupId                   pulumi.StringPtrInput                               `pulumi:"multiVmGroupId"`
+	MultiVmGroupName                 pulumi.StringPtrInput                               `pulumi:"multiVmGroupName"`
+	MultiVmSyncStatus                pulumi.StringPtrInput                               `pulumi:"multiVmSyncStatus"`
+	OsDiskId                         pulumi.StringPtrInput                               `pulumi:"osDiskId"`
+	OsType                           pulumi.StringPtrInput                               `pulumi:"osType"`
+	OsVersion                        pulumi.StringPtrInput                               `pulumi:"osVersion"`
+	ProcessServerId                  pulumi.StringPtrInput                               `pulumi:"processServerId"`
+	ProtectedDisks                   InMageAzureV2ProtectedDiskDetailsResponseArrayInput `pulumi:"protectedDisks"`
+	ProtectionStage                  pulumi.StringPtrInput                               `pulumi:"protectionStage"`
+	RecoveryAvailabilitySetId        pulumi.StringPtrInput                               `pulumi:"recoveryAvailabilitySetId"`
+	RecoveryAzureLogStorageAccountId pulumi.StringPtrInput                               `pulumi:"recoveryAzureLogStorageAccountId"`
+	RecoveryAzureResourceGroupId     pulumi.StringPtrInput                               `pulumi:"recoveryAzureResourceGroupId"`
+	RecoveryAzureStorageAccount      pulumi.StringPtrInput                               `pulumi:"recoveryAzureStorageAccount"`
+	RecoveryAzureVMName              pulumi.StringPtrInput                               `pulumi:"recoveryAzureVMName"`
+	RecoveryAzureVMSize              pulumi.StringPtrInput                               `pulumi:"recoveryAzureVMSize"`
+	ReplicaId                        pulumi.StringPtrInput                               `pulumi:"replicaId"`
+	ResyncProgressPercentage         pulumi.IntPtrInput                                  `pulumi:"resyncProgressPercentage"`
+	RpoInSeconds                     pulumi.Float64PtrInput                              `pulumi:"rpoInSeconds"`
+	SelectedRecoveryAzureNetworkId   pulumi.StringPtrInput                               `pulumi:"selectedRecoveryAzureNetworkId"`
+	SelectedSourceNicId              pulumi.StringPtrInput                               `pulumi:"selectedSourceNicId"`
+	SourceVmCpuCount                 pulumi.IntPtrInput                                  `pulumi:"sourceVmCpuCount"`
+	SourceVmRamSizeInMB              pulumi.IntPtrInput                                  `pulumi:"sourceVmRamSizeInMB"`
+	TargetVmId                       pulumi.StringPtrInput                               `pulumi:"targetVmId"`
+	UncompressedDataRateInMB         pulumi.Float64PtrInput                              `pulumi:"uncompressedDataRateInMB"`
+	UseManagedDisks                  pulumi.StringPtrInput                               `pulumi:"useManagedDisks"`
+	VCenterInfrastructureId          pulumi.StringPtrInput                               `pulumi:"vCenterInfrastructureId"`
+	ValidationErrors                 HealthErrorResponseArrayInput                       `pulumi:"validationErrors"`
+	VhdName                          pulumi.StringPtrInput                               `pulumi:"vhdName"`
+	VmId                             pulumi.StringPtrInput                               `pulumi:"vmId"`
+	VmNics                           VMNicDetailsResponseArrayInput                      `pulumi:"vmNics"`
+	VmProtectionState                pulumi.StringPtrInput                               `pulumi:"vmProtectionState"`
+	VmProtectionStateDescription     pulumi.StringPtrInput                               `pulumi:"vmProtectionStateDescription"`
 }
 
 func (InMageAzureV2ReplicationDetailsResponseArgs) ElementType() reflect.Type {
@@ -8697,7 +7228,6 @@ func (i InMageAzureV2ReplicationDetailsResponseArgs) ToInMageAzureV2ReplicationD
 	return pulumi.ToOutputWithContext(ctx, i).(InMageAzureV2ReplicationDetailsResponseOutput)
 }
 
-// InMageAzureV2 provider specific settings
 type InMageAzureV2ReplicationDetailsResponseOutput struct{ *pulumi.OutputState }
 
 func (InMageAzureV2ReplicationDetailsResponseOutput) ElementType() reflect.Type {
@@ -8712,274 +7242,216 @@ func (o InMageAzureV2ReplicationDetailsResponseOutput) ToInMageAzureV2Replicatio
 	return o
 }
 
-// Agent expiry date.
 func (o InMageAzureV2ReplicationDetailsResponseOutput) AgentExpiryDate() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v InMageAzureV2ReplicationDetailsResponse) *string { return v.AgentExpiryDate }).(pulumi.StringPtrOutput)
 }
 
-// The agent version.
 func (o InMageAzureV2ReplicationDetailsResponseOutput) AgentVersion() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v InMageAzureV2ReplicationDetailsResponse) *string { return v.AgentVersion }).(pulumi.StringPtrOutput)
 }
 
-// Azure VM Disk details.
 func (o InMageAzureV2ReplicationDetailsResponseOutput) AzureVMDiskDetails() AzureVmDiskDetailsResponseArrayOutput {
 	return o.ApplyT(func(v InMageAzureV2ReplicationDetailsResponse) []AzureVmDiskDetailsResponse {
 		return v.AzureVMDiskDetails
 	}).(AzureVmDiskDetailsResponseArrayOutput)
 }
 
-// The compressed data change rate in MB.
 func (o InMageAzureV2ReplicationDetailsResponseOutput) CompressedDataRateInMB() pulumi.Float64PtrOutput {
 	return o.ApplyT(func(v InMageAzureV2ReplicationDetailsResponse) *float64 { return v.CompressedDataRateInMB }).(pulumi.Float64PtrOutput)
 }
 
-// The data stores of the on-premise machine. Value can be list of strings that contain data store names.
 func (o InMageAzureV2ReplicationDetailsResponseOutput) Datastores() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v InMageAzureV2ReplicationDetailsResponse) []string { return v.Datastores }).(pulumi.StringArrayOutput)
 }
 
-// A value indicating the discovery type of the machine. Value can be vCenter or physical.
 func (o InMageAzureV2ReplicationDetailsResponseOutput) DiscoveryType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v InMageAzureV2ReplicationDetailsResponse) *string { return v.DiscoveryType }).(pulumi.StringPtrOutput)
 }
 
-// A value indicating whether any disk is resized for this VM.
 func (o InMageAzureV2ReplicationDetailsResponseOutput) DiskResized() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v InMageAzureV2ReplicationDetailsResponse) *string { return v.DiskResized }).(pulumi.StringPtrOutput)
 }
 
-// The selected option to enable RDP\SSH on target vm after failover. String value of {SrsDataContract.EnableRDPOnTargetOption} enum.
 func (o InMageAzureV2ReplicationDetailsResponseOutput) EnableRdpOnTargetOption() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v InMageAzureV2ReplicationDetailsResponse) *string { return v.EnableRdpOnTargetOption }).(pulumi.StringPtrOutput)
 }
 
-// The infrastructure VM Id.
 func (o InMageAzureV2ReplicationDetailsResponseOutput) InfrastructureVmId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v InMageAzureV2ReplicationDetailsResponse) *string { return v.InfrastructureVmId }).(pulumi.StringPtrOutput)
 }
 
-// Gets the Instance type.
-// Expected value is 'InMageAzureV2'.
 func (o InMageAzureV2ReplicationDetailsResponseOutput) InstanceType() pulumi.StringOutput {
 	return o.ApplyT(func(v InMageAzureV2ReplicationDetailsResponse) string { return v.InstanceType }).(pulumi.StringOutput)
 }
 
-// The source IP address.
 func (o InMageAzureV2ReplicationDetailsResponseOutput) IpAddress() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v InMageAzureV2ReplicationDetailsResponse) *string { return v.IpAddress }).(pulumi.StringPtrOutput)
 }
 
-// A value indicating whether installed agent needs to be updated.
 func (o InMageAzureV2ReplicationDetailsResponseOutput) IsAgentUpdateRequired() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v InMageAzureV2ReplicationDetailsResponse) *string { return v.IsAgentUpdateRequired }).(pulumi.StringPtrOutput)
 }
 
-// A value indicating whether the source server requires a restart after update.
 func (o InMageAzureV2ReplicationDetailsResponseOutput) IsRebootAfterUpdateRequired() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v InMageAzureV2ReplicationDetailsResponse) *string { return v.IsRebootAfterUpdateRequired }).(pulumi.StringPtrOutput)
 }
 
-// The last heartbeat received from the source server.
 func (o InMageAzureV2ReplicationDetailsResponseOutput) LastHeartbeat() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v InMageAzureV2ReplicationDetailsResponse) *string { return v.LastHeartbeat }).(pulumi.StringPtrOutput)
 }
 
-// The last RPO calculated time.
 func (o InMageAzureV2ReplicationDetailsResponseOutput) LastRpoCalculatedTime() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v InMageAzureV2ReplicationDetailsResponse) *string { return v.LastRpoCalculatedTime }).(pulumi.StringPtrOutput)
 }
 
-// The last update time received from on-prem components.
 func (o InMageAzureV2ReplicationDetailsResponseOutput) LastUpdateReceivedTime() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v InMageAzureV2ReplicationDetailsResponse) *string { return v.LastUpdateReceivedTime }).(pulumi.StringPtrOutput)
 }
 
-// License Type of the VM to be used.
 func (o InMageAzureV2ReplicationDetailsResponseOutput) LicenseType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v InMageAzureV2ReplicationDetailsResponse) *string { return v.LicenseType }).(pulumi.StringPtrOutput)
 }
 
-// The master target Id.
 func (o InMageAzureV2ReplicationDetailsResponseOutput) MasterTargetId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v InMageAzureV2ReplicationDetailsResponse) *string { return v.MasterTargetId }).(pulumi.StringPtrOutput)
 }
 
-// The multi vm group Id.
 func (o InMageAzureV2ReplicationDetailsResponseOutput) MultiVmGroupId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v InMageAzureV2ReplicationDetailsResponse) *string { return v.MultiVmGroupId }).(pulumi.StringPtrOutput)
 }
 
-// The multi vm group name.
 func (o InMageAzureV2ReplicationDetailsResponseOutput) MultiVmGroupName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v InMageAzureV2ReplicationDetailsResponse) *string { return v.MultiVmGroupName }).(pulumi.StringPtrOutput)
 }
 
-// A value indicating whether multi vm sync is enabled or disabled.
 func (o InMageAzureV2ReplicationDetailsResponseOutput) MultiVmSyncStatus() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v InMageAzureV2ReplicationDetailsResponse) *string { return v.MultiVmSyncStatus }).(pulumi.StringPtrOutput)
 }
 
-// The id of the disk containing the OS.
 func (o InMageAzureV2ReplicationDetailsResponseOutput) OsDiskId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v InMageAzureV2ReplicationDetailsResponse) *string { return v.OsDiskId }).(pulumi.StringPtrOutput)
 }
 
-// The type of the OS on the VM.
 func (o InMageAzureV2ReplicationDetailsResponseOutput) OsType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v InMageAzureV2ReplicationDetailsResponse) *string { return v.OsType }).(pulumi.StringPtrOutput)
 }
 
-// The OS Version of the protected item.
 func (o InMageAzureV2ReplicationDetailsResponseOutput) OsVersion() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v InMageAzureV2ReplicationDetailsResponse) *string { return v.OsVersion }).(pulumi.StringPtrOutput)
 }
 
-// The process server Id.
 func (o InMageAzureV2ReplicationDetailsResponseOutput) ProcessServerId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v InMageAzureV2ReplicationDetailsResponse) *string { return v.ProcessServerId }).(pulumi.StringPtrOutput)
 }
 
-// The list of protected disks.
 func (o InMageAzureV2ReplicationDetailsResponseOutput) ProtectedDisks() InMageAzureV2ProtectedDiskDetailsResponseArrayOutput {
 	return o.ApplyT(func(v InMageAzureV2ReplicationDetailsResponse) []InMageAzureV2ProtectedDiskDetailsResponse {
 		return v.ProtectedDisks
 	}).(InMageAzureV2ProtectedDiskDetailsResponseArrayOutput)
 }
 
-// The protection stage.
 func (o InMageAzureV2ReplicationDetailsResponseOutput) ProtectionStage() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v InMageAzureV2ReplicationDetailsResponse) *string { return v.ProtectionStage }).(pulumi.StringPtrOutput)
 }
 
-// The recovery availability set Id.
 func (o InMageAzureV2ReplicationDetailsResponseOutput) RecoveryAvailabilitySetId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v InMageAzureV2ReplicationDetailsResponse) *string { return v.RecoveryAvailabilitySetId }).(pulumi.StringPtrOutput)
 }
 
-// The ARM id of the log storage account used for replication. This will be set to null if no log storage account was provided during enable protection.
 func (o InMageAzureV2ReplicationDetailsResponseOutput) RecoveryAzureLogStorageAccountId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v InMageAzureV2ReplicationDetailsResponse) *string { return v.RecoveryAzureLogStorageAccountId }).(pulumi.StringPtrOutput)
 }
 
-// The target resource group Id.
 func (o InMageAzureV2ReplicationDetailsResponseOutput) RecoveryAzureResourceGroupId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v InMageAzureV2ReplicationDetailsResponse) *string { return v.RecoveryAzureResourceGroupId }).(pulumi.StringPtrOutput)
 }
 
-// The recovery Azure storage account.
 func (o InMageAzureV2ReplicationDetailsResponseOutput) RecoveryAzureStorageAccount() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v InMageAzureV2ReplicationDetailsResponse) *string { return v.RecoveryAzureStorageAccount }).(pulumi.StringPtrOutput)
 }
 
-// Recovery Azure given name.
 func (o InMageAzureV2ReplicationDetailsResponseOutput) RecoveryAzureVMName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v InMageAzureV2ReplicationDetailsResponse) *string { return v.RecoveryAzureVMName }).(pulumi.StringPtrOutput)
 }
 
-// The Recovery Azure VM size.
 func (o InMageAzureV2ReplicationDetailsResponseOutput) RecoveryAzureVMSize() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v InMageAzureV2ReplicationDetailsResponse) *string { return v.RecoveryAzureVMSize }).(pulumi.StringPtrOutput)
 }
 
-// The replica id of the protected item.
 func (o InMageAzureV2ReplicationDetailsResponseOutput) ReplicaId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v InMageAzureV2ReplicationDetailsResponse) *string { return v.ReplicaId }).(pulumi.StringPtrOutput)
 }
 
-// The resync progress percentage.
 func (o InMageAzureV2ReplicationDetailsResponseOutput) ResyncProgressPercentage() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v InMageAzureV2ReplicationDetailsResponse) *int { return v.ResyncProgressPercentage }).(pulumi.IntPtrOutput)
 }
 
-// The RPO in seconds.
 func (o InMageAzureV2ReplicationDetailsResponseOutput) RpoInSeconds() pulumi.Float64PtrOutput {
 	return o.ApplyT(func(v InMageAzureV2ReplicationDetailsResponse) *float64 { return v.RpoInSeconds }).(pulumi.Float64PtrOutput)
 }
 
-// The selected recovery azure network Id.
 func (o InMageAzureV2ReplicationDetailsResponseOutput) SelectedRecoveryAzureNetworkId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v InMageAzureV2ReplicationDetailsResponse) *string { return v.SelectedRecoveryAzureNetworkId }).(pulumi.StringPtrOutput)
 }
 
-// The selected source nic Id which will be used as the primary nic during failover.
 func (o InMageAzureV2ReplicationDetailsResponseOutput) SelectedSourceNicId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v InMageAzureV2ReplicationDetailsResponse) *string { return v.SelectedSourceNicId }).(pulumi.StringPtrOutput)
 }
 
-// The CPU count of the VM on the primary side.
 func (o InMageAzureV2ReplicationDetailsResponseOutput) SourceVmCpuCount() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v InMageAzureV2ReplicationDetailsResponse) *int { return v.SourceVmCpuCount }).(pulumi.IntPtrOutput)
 }
 
-// The RAM size of the VM on the primary side.
 func (o InMageAzureV2ReplicationDetailsResponseOutput) SourceVmRamSizeInMB() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v InMageAzureV2ReplicationDetailsResponse) *int { return v.SourceVmRamSizeInMB }).(pulumi.IntPtrOutput)
 }
 
-// The ARM Id of the target Azure VM. This value will be null until the VM is failed over. Only after failure it will be populated with the ARM Id of the Azure VM.
 func (o InMageAzureV2ReplicationDetailsResponseOutput) TargetVmId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v InMageAzureV2ReplicationDetailsResponse) *string { return v.TargetVmId }).(pulumi.StringPtrOutput)
 }
 
-// The uncompressed data change rate in MB.
 func (o InMageAzureV2ReplicationDetailsResponseOutput) UncompressedDataRateInMB() pulumi.Float64PtrOutput {
 	return o.ApplyT(func(v InMageAzureV2ReplicationDetailsResponse) *float64 { return v.UncompressedDataRateInMB }).(pulumi.Float64PtrOutput)
 }
 
-// A value indicating whether managed disks should be used during failover.
 func (o InMageAzureV2ReplicationDetailsResponseOutput) UseManagedDisks() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v InMageAzureV2ReplicationDetailsResponse) *string { return v.UseManagedDisks }).(pulumi.StringPtrOutput)
 }
 
-// The vCenter infrastructure Id.
 func (o InMageAzureV2ReplicationDetailsResponseOutput) VCenterInfrastructureId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v InMageAzureV2ReplicationDetailsResponse) *string { return v.VCenterInfrastructureId }).(pulumi.StringPtrOutput)
 }
 
-// The validation errors of the on-premise machine Value can be list of validation errors.
 func (o InMageAzureV2ReplicationDetailsResponseOutput) ValidationErrors() HealthErrorResponseArrayOutput {
 	return o.ApplyT(func(v InMageAzureV2ReplicationDetailsResponse) []HealthErrorResponse { return v.ValidationErrors }).(HealthErrorResponseArrayOutput)
 }
 
-// The OS disk VHD name.
 func (o InMageAzureV2ReplicationDetailsResponseOutput) VhdName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v InMageAzureV2ReplicationDetailsResponse) *string { return v.VhdName }).(pulumi.StringPtrOutput)
 }
 
-// The virtual machine Id.
 func (o InMageAzureV2ReplicationDetailsResponseOutput) VmId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v InMageAzureV2ReplicationDetailsResponse) *string { return v.VmId }).(pulumi.StringPtrOutput)
 }
 
-// The PE Network details.
 func (o InMageAzureV2ReplicationDetailsResponseOutput) VmNics() VMNicDetailsResponseArrayOutput {
 	return o.ApplyT(func(v InMageAzureV2ReplicationDetailsResponse) []VMNicDetailsResponse { return v.VmNics }).(VMNicDetailsResponseArrayOutput)
 }
 
-// The protection state for the vm.
 func (o InMageAzureV2ReplicationDetailsResponseOutput) VmProtectionState() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v InMageAzureV2ReplicationDetailsResponse) *string { return v.VmProtectionState }).(pulumi.StringPtrOutput)
 }
 
-// The protection state description for the vm.
 func (o InMageAzureV2ReplicationDetailsResponseOutput) VmProtectionStateDescription() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v InMageAzureV2ReplicationDetailsResponse) *string { return v.VmProtectionStateDescription }).(pulumi.StringPtrOutput)
 }
 
-// Base class for the policies of providers using InMage replication.
 type InMageBasePolicyDetailsResponse struct {
-	// The app consistent snapshot frequency in minutes.
-	AppConsistentFrequencyInMinutes *int `pulumi:"appConsistentFrequencyInMinutes"`
-	// Gets the class type. Overridden in derived classes.
-	// Expected value is 'InMageBasePolicyDetails'.
-	InstanceType string `pulumi:"instanceType"`
-	// A value indicating whether multi-VM sync has to be enabled.
-	MultiVmSyncStatus *string `pulumi:"multiVmSyncStatus"`
-	// The duration in minutes until which the recovery points need to be stored.
-	RecoveryPointHistory *int `pulumi:"recoveryPointHistory"`
-	// The recovery point threshold in minutes.
-	RecoveryPointThresholdInMinutes *int `pulumi:"recoveryPointThresholdInMinutes"`
+	AppConsistentFrequencyInMinutes *int    `pulumi:"appConsistentFrequencyInMinutes"`
+	InstanceType                    string  `pulumi:"instanceType"`
+	MultiVmSyncStatus               *string `pulumi:"multiVmSyncStatus"`
+	RecoveryPointHistory            *int    `pulumi:"recoveryPointHistory"`
+	RecoveryPointThresholdInMinutes *int    `pulumi:"recoveryPointThresholdInMinutes"`
 }
 
 // InMageBasePolicyDetailsResponseInput is an input type that accepts InMageBasePolicyDetailsResponseArgs and InMageBasePolicyDetailsResponseOutput values.
@@ -8993,19 +7465,12 @@ type InMageBasePolicyDetailsResponseInput interface {
 	ToInMageBasePolicyDetailsResponseOutputWithContext(context.Context) InMageBasePolicyDetailsResponseOutput
 }
 
-// Base class for the policies of providers using InMage replication.
 type InMageBasePolicyDetailsResponseArgs struct {
-	// The app consistent snapshot frequency in minutes.
-	AppConsistentFrequencyInMinutes pulumi.IntPtrInput `pulumi:"appConsistentFrequencyInMinutes"`
-	// Gets the class type. Overridden in derived classes.
-	// Expected value is 'InMageBasePolicyDetails'.
-	InstanceType pulumi.StringInput `pulumi:"instanceType"`
-	// A value indicating whether multi-VM sync has to be enabled.
-	MultiVmSyncStatus pulumi.StringPtrInput `pulumi:"multiVmSyncStatus"`
-	// The duration in minutes until which the recovery points need to be stored.
-	RecoveryPointHistory pulumi.IntPtrInput `pulumi:"recoveryPointHistory"`
-	// The recovery point threshold in minutes.
-	RecoveryPointThresholdInMinutes pulumi.IntPtrInput `pulumi:"recoveryPointThresholdInMinutes"`
+	AppConsistentFrequencyInMinutes pulumi.IntPtrInput    `pulumi:"appConsistentFrequencyInMinutes"`
+	InstanceType                    pulumi.StringInput    `pulumi:"instanceType"`
+	MultiVmSyncStatus               pulumi.StringPtrInput `pulumi:"multiVmSyncStatus"`
+	RecoveryPointHistory            pulumi.IntPtrInput    `pulumi:"recoveryPointHistory"`
+	RecoveryPointThresholdInMinutes pulumi.IntPtrInput    `pulumi:"recoveryPointThresholdInMinutes"`
 }
 
 func (InMageBasePolicyDetailsResponseArgs) ElementType() reflect.Type {
@@ -9020,7 +7485,6 @@ func (i InMageBasePolicyDetailsResponseArgs) ToInMageBasePolicyDetailsResponseOu
 	return pulumi.ToOutputWithContext(ctx, i).(InMageBasePolicyDetailsResponseOutput)
 }
 
-// Base class for the policies of providers using InMage replication.
 type InMageBasePolicyDetailsResponseOutput struct{ *pulumi.OutputState }
 
 func (InMageBasePolicyDetailsResponseOutput) ElementType() reflect.Type {
@@ -9035,38 +7499,29 @@ func (o InMageBasePolicyDetailsResponseOutput) ToInMageBasePolicyDetailsResponse
 	return o
 }
 
-// The app consistent snapshot frequency in minutes.
 func (o InMageBasePolicyDetailsResponseOutput) AppConsistentFrequencyInMinutes() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v InMageBasePolicyDetailsResponse) *int { return v.AppConsistentFrequencyInMinutes }).(pulumi.IntPtrOutput)
 }
 
-// Gets the class type. Overridden in derived classes.
-// Expected value is 'InMageBasePolicyDetails'.
 func (o InMageBasePolicyDetailsResponseOutput) InstanceType() pulumi.StringOutput {
 	return o.ApplyT(func(v InMageBasePolicyDetailsResponse) string { return v.InstanceType }).(pulumi.StringOutput)
 }
 
-// A value indicating whether multi-VM sync has to be enabled.
 func (o InMageBasePolicyDetailsResponseOutput) MultiVmSyncStatus() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v InMageBasePolicyDetailsResponse) *string { return v.MultiVmSyncStatus }).(pulumi.StringPtrOutput)
 }
 
-// The duration in minutes until which the recovery points need to be stored.
 func (o InMageBasePolicyDetailsResponseOutput) RecoveryPointHistory() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v InMageBasePolicyDetailsResponse) *int { return v.RecoveryPointHistory }).(pulumi.IntPtrOutput)
 }
 
-// The recovery point threshold in minutes.
 func (o InMageBasePolicyDetailsResponseOutput) RecoveryPointThresholdInMinutes() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v InMageBasePolicyDetailsResponse) *int { return v.RecoveryPointThresholdInMinutes }).(pulumi.IntPtrOutput)
 }
 
-// DiskExclusionInput when doing enable protection of virtual machine in InMage provider.
 type InMageDiskExclusionInput struct {
-	// The guest disk signature based option for disk exclusion.
 	DiskSignatureOptions []InMageDiskSignatureExclusionOptions `pulumi:"diskSignatureOptions"`
-	// The volume label based option for disk exclusion.
-	VolumeOptions []InMageVolumeExclusionOptions `pulumi:"volumeOptions"`
+	VolumeOptions        []InMageVolumeExclusionOptions        `pulumi:"volumeOptions"`
 }
 
 // InMageDiskExclusionInputInput is an input type that accepts InMageDiskExclusionInputArgs and InMageDiskExclusionInputOutput values.
@@ -9080,12 +7535,9 @@ type InMageDiskExclusionInputInput interface {
 	ToInMageDiskExclusionInputOutputWithContext(context.Context) InMageDiskExclusionInputOutput
 }
 
-// DiskExclusionInput when doing enable protection of virtual machine in InMage provider.
 type InMageDiskExclusionInputArgs struct {
-	// The guest disk signature based option for disk exclusion.
 	DiskSignatureOptions InMageDiskSignatureExclusionOptionsArrayInput `pulumi:"diskSignatureOptions"`
-	// The volume label based option for disk exclusion.
-	VolumeOptions InMageVolumeExclusionOptionsArrayInput `pulumi:"volumeOptions"`
+	VolumeOptions        InMageVolumeExclusionOptionsArrayInput        `pulumi:"volumeOptions"`
 }
 
 func (InMageDiskExclusionInputArgs) ElementType() reflect.Type {
@@ -9141,7 +7593,6 @@ func (i *inMageDiskExclusionInputPtrType) ToInMageDiskExclusionInputPtrOutputWit
 	return pulumi.ToOutputWithContext(ctx, i).(InMageDiskExclusionInputPtrOutput)
 }
 
-// DiskExclusionInput when doing enable protection of virtual machine in InMage provider.
 type InMageDiskExclusionInputOutput struct{ *pulumi.OutputState }
 
 func (InMageDiskExclusionInputOutput) ElementType() reflect.Type {
@@ -9161,17 +7612,15 @@ func (o InMageDiskExclusionInputOutput) ToInMageDiskExclusionInputPtrOutput() In
 }
 
 func (o InMageDiskExclusionInputOutput) ToInMageDiskExclusionInputPtrOutputWithContext(ctx context.Context) InMageDiskExclusionInputPtrOutput {
-	return o.ApplyT(func(v InMageDiskExclusionInput) *InMageDiskExclusionInput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v InMageDiskExclusionInput) *InMageDiskExclusionInput {
 		return &v
 	}).(InMageDiskExclusionInputPtrOutput)
 }
 
-// The guest disk signature based option for disk exclusion.
 func (o InMageDiskExclusionInputOutput) DiskSignatureOptions() InMageDiskSignatureExclusionOptionsArrayOutput {
 	return o.ApplyT(func(v InMageDiskExclusionInput) []InMageDiskSignatureExclusionOptions { return v.DiskSignatureOptions }).(InMageDiskSignatureExclusionOptionsArrayOutput)
 }
 
-// The volume label based option for disk exclusion.
 func (o InMageDiskExclusionInputOutput) VolumeOptions() InMageVolumeExclusionOptionsArrayOutput {
 	return o.ApplyT(func(v InMageDiskExclusionInput) []InMageVolumeExclusionOptions { return v.VolumeOptions }).(InMageVolumeExclusionOptionsArrayOutput)
 }
@@ -9191,10 +7640,15 @@ func (o InMageDiskExclusionInputPtrOutput) ToInMageDiskExclusionInputPtrOutputWi
 }
 
 func (o InMageDiskExclusionInputPtrOutput) Elem() InMageDiskExclusionInputOutput {
-	return o.ApplyT(func(v *InMageDiskExclusionInput) InMageDiskExclusionInput { return *v }).(InMageDiskExclusionInputOutput)
+	return o.ApplyT(func(v *InMageDiskExclusionInput) InMageDiskExclusionInput {
+		if v != nil {
+			return *v
+		}
+		var ret InMageDiskExclusionInput
+		return ret
+	}).(InMageDiskExclusionInputOutput)
 }
 
-// The guest disk signature based option for disk exclusion.
 func (o InMageDiskExclusionInputPtrOutput) DiskSignatureOptions() InMageDiskSignatureExclusionOptionsArrayOutput {
 	return o.ApplyT(func(v *InMageDiskExclusionInput) []InMageDiskSignatureExclusionOptions {
 		if v == nil {
@@ -9204,7 +7658,6 @@ func (o InMageDiskExclusionInputPtrOutput) DiskSignatureOptions() InMageDiskSign
 	}).(InMageDiskSignatureExclusionOptionsArrayOutput)
 }
 
-// The volume label based option for disk exclusion.
 func (o InMageDiskExclusionInputPtrOutput) VolumeOptions() InMageVolumeExclusionOptionsArrayOutput {
 	return o.ApplyT(func(v *InMageDiskExclusionInput) []InMageVolumeExclusionOptions {
 		if v == nil {
@@ -9214,9 +7667,7 @@ func (o InMageDiskExclusionInputPtrOutput) VolumeOptions() InMageVolumeExclusion
 	}).(InMageVolumeExclusionOptionsArrayOutput)
 }
 
-// Guest disk signature based disk exclusion option when doing enable protection of virtual machine in InMage provider.
 type InMageDiskSignatureExclusionOptions struct {
-	// The guest signature of disk to be excluded from replication.
 	DiskSignature *string `pulumi:"diskSignature"`
 }
 
@@ -9231,9 +7682,7 @@ type InMageDiskSignatureExclusionOptionsInput interface {
 	ToInMageDiskSignatureExclusionOptionsOutputWithContext(context.Context) InMageDiskSignatureExclusionOptionsOutput
 }
 
-// Guest disk signature based disk exclusion option when doing enable protection of virtual machine in InMage provider.
 type InMageDiskSignatureExclusionOptionsArgs struct {
-	// The guest signature of disk to be excluded from replication.
 	DiskSignature pulumi.StringPtrInput `pulumi:"diskSignature"`
 }
 
@@ -9274,7 +7723,6 @@ func (i InMageDiskSignatureExclusionOptionsArray) ToInMageDiskSignatureExclusion
 	return pulumi.ToOutputWithContext(ctx, i).(InMageDiskSignatureExclusionOptionsArrayOutput)
 }
 
-// Guest disk signature based disk exclusion option when doing enable protection of virtual machine in InMage provider.
 type InMageDiskSignatureExclusionOptionsOutput struct{ *pulumi.OutputState }
 
 func (InMageDiskSignatureExclusionOptionsOutput) ElementType() reflect.Type {
@@ -9289,7 +7737,6 @@ func (o InMageDiskSignatureExclusionOptionsOutput) ToInMageDiskSignatureExclusio
 	return o
 }
 
-// The guest signature of disk to be excluded from replication.
 func (o InMageDiskSignatureExclusionOptionsOutput) DiskSignature() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v InMageDiskSignatureExclusionOptions) *string { return v.DiskSignature }).(pulumi.StringPtrOutput)
 }
@@ -9314,31 +7761,18 @@ func (o InMageDiskSignatureExclusionOptionsArrayOutput) Index(i pulumi.IntInput)
 	}).(InMageDiskSignatureExclusionOptionsOutput)
 }
 
-// VMware Azure specific enable protection input.
 type InMageEnableProtectionInput struct {
-	// The target data store name.
-	DatastoreName *string `pulumi:"datastoreName"`
-	// The enable disk exclusion input.
+	DatastoreName      *string                   `pulumi:"datastoreName"`
 	DiskExclusionInput *InMageDiskExclusionInput `pulumi:"diskExclusionInput"`
-	// The disks to include list.
-	DisksToInclude []string `pulumi:"disksToInclude"`
-	// The class type.
-	// Expected value is 'InMage'.
-	InstanceType *string `pulumi:"instanceType"`
-	// The Master Target Id.
-	MasterTargetId string `pulumi:"masterTargetId"`
-	// The multi vm group Id.
-	MultiVmGroupId string `pulumi:"multiVmGroupId"`
-	// The multi vm group name.
-	MultiVmGroupName string `pulumi:"multiVmGroupName"`
-	// The Process Server Id.
-	ProcessServerId string `pulumi:"processServerId"`
-	// The retention drive to use on the MT.
-	RetentionDrive string `pulumi:"retentionDrive"`
-	// The CS account Id.
-	RunAsAccountId *string `pulumi:"runAsAccountId"`
-	// The Vm Name.
-	VmFriendlyName *string `pulumi:"vmFriendlyName"`
+	DisksToInclude     []string                  `pulumi:"disksToInclude"`
+	InstanceType       *string                   `pulumi:"instanceType"`
+	MasterTargetId     string                    `pulumi:"masterTargetId"`
+	MultiVmGroupId     string                    `pulumi:"multiVmGroupId"`
+	MultiVmGroupName   string                    `pulumi:"multiVmGroupName"`
+	ProcessServerId    string                    `pulumi:"processServerId"`
+	RetentionDrive     string                    `pulumi:"retentionDrive"`
+	RunAsAccountId     *string                   `pulumi:"runAsAccountId"`
+	VmFriendlyName     *string                   `pulumi:"vmFriendlyName"`
 }
 
 // InMageEnableProtectionInputInput is an input type that accepts InMageEnableProtectionInputArgs and InMageEnableProtectionInputOutput values.
@@ -9352,31 +7786,18 @@ type InMageEnableProtectionInputInput interface {
 	ToInMageEnableProtectionInputOutputWithContext(context.Context) InMageEnableProtectionInputOutput
 }
 
-// VMware Azure specific enable protection input.
 type InMageEnableProtectionInputArgs struct {
-	// The target data store name.
-	DatastoreName pulumi.StringPtrInput `pulumi:"datastoreName"`
-	// The enable disk exclusion input.
+	DatastoreName      pulumi.StringPtrInput            `pulumi:"datastoreName"`
 	DiskExclusionInput InMageDiskExclusionInputPtrInput `pulumi:"diskExclusionInput"`
-	// The disks to include list.
-	DisksToInclude pulumi.StringArrayInput `pulumi:"disksToInclude"`
-	// The class type.
-	// Expected value is 'InMage'.
-	InstanceType pulumi.StringPtrInput `pulumi:"instanceType"`
-	// The Master Target Id.
-	MasterTargetId pulumi.StringInput `pulumi:"masterTargetId"`
-	// The multi vm group Id.
-	MultiVmGroupId pulumi.StringInput `pulumi:"multiVmGroupId"`
-	// The multi vm group name.
-	MultiVmGroupName pulumi.StringInput `pulumi:"multiVmGroupName"`
-	// The Process Server Id.
-	ProcessServerId pulumi.StringInput `pulumi:"processServerId"`
-	// The retention drive to use on the MT.
-	RetentionDrive pulumi.StringInput `pulumi:"retentionDrive"`
-	// The CS account Id.
-	RunAsAccountId pulumi.StringPtrInput `pulumi:"runAsAccountId"`
-	// The Vm Name.
-	VmFriendlyName pulumi.StringPtrInput `pulumi:"vmFriendlyName"`
+	DisksToInclude     pulumi.StringArrayInput          `pulumi:"disksToInclude"`
+	InstanceType       pulumi.StringPtrInput            `pulumi:"instanceType"`
+	MasterTargetId     pulumi.StringInput               `pulumi:"masterTargetId"`
+	MultiVmGroupId     pulumi.StringInput               `pulumi:"multiVmGroupId"`
+	MultiVmGroupName   pulumi.StringInput               `pulumi:"multiVmGroupName"`
+	ProcessServerId    pulumi.StringInput               `pulumi:"processServerId"`
+	RetentionDrive     pulumi.StringInput               `pulumi:"retentionDrive"`
+	RunAsAccountId     pulumi.StringPtrInput            `pulumi:"runAsAccountId"`
+	VmFriendlyName     pulumi.StringPtrInput            `pulumi:"vmFriendlyName"`
 }
 
 func (InMageEnableProtectionInputArgs) ElementType() reflect.Type {
@@ -9391,7 +7812,6 @@ func (i InMageEnableProtectionInputArgs) ToInMageEnableProtectionInputOutputWith
 	return pulumi.ToOutputWithContext(ctx, i).(InMageEnableProtectionInputOutput)
 }
 
-// VMware Azure specific enable protection input.
 type InMageEnableProtectionInputOutput struct{ *pulumi.OutputState }
 
 func (InMageEnableProtectionInputOutput) ElementType() reflect.Type {
@@ -9406,75 +7826,56 @@ func (o InMageEnableProtectionInputOutput) ToInMageEnableProtectionInputOutputWi
 	return o
 }
 
-// The target data store name.
 func (o InMageEnableProtectionInputOutput) DatastoreName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v InMageEnableProtectionInput) *string { return v.DatastoreName }).(pulumi.StringPtrOutput)
 }
 
-// The enable disk exclusion input.
 func (o InMageEnableProtectionInputOutput) DiskExclusionInput() InMageDiskExclusionInputPtrOutput {
 	return o.ApplyT(func(v InMageEnableProtectionInput) *InMageDiskExclusionInput { return v.DiskExclusionInput }).(InMageDiskExclusionInputPtrOutput)
 }
 
-// The disks to include list.
 func (o InMageEnableProtectionInputOutput) DisksToInclude() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v InMageEnableProtectionInput) []string { return v.DisksToInclude }).(pulumi.StringArrayOutput)
 }
 
-// The class type.
-// Expected value is 'InMage'.
 func (o InMageEnableProtectionInputOutput) InstanceType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v InMageEnableProtectionInput) *string { return v.InstanceType }).(pulumi.StringPtrOutput)
 }
 
-// The Master Target Id.
 func (o InMageEnableProtectionInputOutput) MasterTargetId() pulumi.StringOutput {
 	return o.ApplyT(func(v InMageEnableProtectionInput) string { return v.MasterTargetId }).(pulumi.StringOutput)
 }
 
-// The multi vm group Id.
 func (o InMageEnableProtectionInputOutput) MultiVmGroupId() pulumi.StringOutput {
 	return o.ApplyT(func(v InMageEnableProtectionInput) string { return v.MultiVmGroupId }).(pulumi.StringOutput)
 }
 
-// The multi vm group name.
 func (o InMageEnableProtectionInputOutput) MultiVmGroupName() pulumi.StringOutput {
 	return o.ApplyT(func(v InMageEnableProtectionInput) string { return v.MultiVmGroupName }).(pulumi.StringOutput)
 }
 
-// The Process Server Id.
 func (o InMageEnableProtectionInputOutput) ProcessServerId() pulumi.StringOutput {
 	return o.ApplyT(func(v InMageEnableProtectionInput) string { return v.ProcessServerId }).(pulumi.StringOutput)
 }
 
-// The retention drive to use on the MT.
 func (o InMageEnableProtectionInputOutput) RetentionDrive() pulumi.StringOutput {
 	return o.ApplyT(func(v InMageEnableProtectionInput) string { return v.RetentionDrive }).(pulumi.StringOutput)
 }
 
-// The CS account Id.
 func (o InMageEnableProtectionInputOutput) RunAsAccountId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v InMageEnableProtectionInput) *string { return v.RunAsAccountId }).(pulumi.StringPtrOutput)
 }
 
-// The Vm Name.
 func (o InMageEnableProtectionInputOutput) VmFriendlyName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v InMageEnableProtectionInput) *string { return v.VmFriendlyName }).(pulumi.StringPtrOutput)
 }
 
-// InMage specific protection profile details.
 type InMagePolicyDetailsResponse struct {
-	// The app consistent snapshot frequency in minutes.
-	AppConsistentFrequencyInMinutes *int `pulumi:"appConsistentFrequencyInMinutes"`
-	// Gets the class type. Overridden in derived classes.
-	// Expected value is 'InMage'.
-	InstanceType string `pulumi:"instanceType"`
-	// A value indicating whether multi-VM sync has to be enabled.
-	MultiVmSyncStatus *string `pulumi:"multiVmSyncStatus"`
-	// The duration in minutes until which the recovery points need to be stored.
-	RecoveryPointHistory *int `pulumi:"recoveryPointHistory"`
-	// The recovery point threshold in minutes.
-	RecoveryPointThresholdInMinutes *int `pulumi:"recoveryPointThresholdInMinutes"`
+	AppConsistentFrequencyInMinutes *int    `pulumi:"appConsistentFrequencyInMinutes"`
+	InstanceType                    string  `pulumi:"instanceType"`
+	MultiVmSyncStatus               *string `pulumi:"multiVmSyncStatus"`
+	RecoveryPointHistory            *int    `pulumi:"recoveryPointHistory"`
+	RecoveryPointThresholdInMinutes *int    `pulumi:"recoveryPointThresholdInMinutes"`
 }
 
 // InMagePolicyDetailsResponseInput is an input type that accepts InMagePolicyDetailsResponseArgs and InMagePolicyDetailsResponseOutput values.
@@ -9488,19 +7889,12 @@ type InMagePolicyDetailsResponseInput interface {
 	ToInMagePolicyDetailsResponseOutputWithContext(context.Context) InMagePolicyDetailsResponseOutput
 }
 
-// InMage specific protection profile details.
 type InMagePolicyDetailsResponseArgs struct {
-	// The app consistent snapshot frequency in minutes.
-	AppConsistentFrequencyInMinutes pulumi.IntPtrInput `pulumi:"appConsistentFrequencyInMinutes"`
-	// Gets the class type. Overridden in derived classes.
-	// Expected value is 'InMage'.
-	InstanceType pulumi.StringInput `pulumi:"instanceType"`
-	// A value indicating whether multi-VM sync has to be enabled.
-	MultiVmSyncStatus pulumi.StringPtrInput `pulumi:"multiVmSyncStatus"`
-	// The duration in minutes until which the recovery points need to be stored.
-	RecoveryPointHistory pulumi.IntPtrInput `pulumi:"recoveryPointHistory"`
-	// The recovery point threshold in minutes.
-	RecoveryPointThresholdInMinutes pulumi.IntPtrInput `pulumi:"recoveryPointThresholdInMinutes"`
+	AppConsistentFrequencyInMinutes pulumi.IntPtrInput    `pulumi:"appConsistentFrequencyInMinutes"`
+	InstanceType                    pulumi.StringInput    `pulumi:"instanceType"`
+	MultiVmSyncStatus               pulumi.StringPtrInput `pulumi:"multiVmSyncStatus"`
+	RecoveryPointHistory            pulumi.IntPtrInput    `pulumi:"recoveryPointHistory"`
+	RecoveryPointThresholdInMinutes pulumi.IntPtrInput    `pulumi:"recoveryPointThresholdInMinutes"`
 }
 
 func (InMagePolicyDetailsResponseArgs) ElementType() reflect.Type {
@@ -9515,7 +7909,6 @@ func (i InMagePolicyDetailsResponseArgs) ToInMagePolicyDetailsResponseOutputWith
 	return pulumi.ToOutputWithContext(ctx, i).(InMagePolicyDetailsResponseOutput)
 }
 
-// InMage specific protection profile details.
 type InMagePolicyDetailsResponseOutput struct{ *pulumi.OutputState }
 
 func (InMagePolicyDetailsResponseOutput) ElementType() reflect.Type {
@@ -9530,45 +7923,32 @@ func (o InMagePolicyDetailsResponseOutput) ToInMagePolicyDetailsResponseOutputWi
 	return o
 }
 
-// The app consistent snapshot frequency in minutes.
 func (o InMagePolicyDetailsResponseOutput) AppConsistentFrequencyInMinutes() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v InMagePolicyDetailsResponse) *int { return v.AppConsistentFrequencyInMinutes }).(pulumi.IntPtrOutput)
 }
 
-// Gets the class type. Overridden in derived classes.
-// Expected value is 'InMage'.
 func (o InMagePolicyDetailsResponseOutput) InstanceType() pulumi.StringOutput {
 	return o.ApplyT(func(v InMagePolicyDetailsResponse) string { return v.InstanceType }).(pulumi.StringOutput)
 }
 
-// A value indicating whether multi-VM sync has to be enabled.
 func (o InMagePolicyDetailsResponseOutput) MultiVmSyncStatus() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v InMagePolicyDetailsResponse) *string { return v.MultiVmSyncStatus }).(pulumi.StringPtrOutput)
 }
 
-// The duration in minutes until which the recovery points need to be stored.
 func (o InMagePolicyDetailsResponseOutput) RecoveryPointHistory() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v InMagePolicyDetailsResponse) *int { return v.RecoveryPointHistory }).(pulumi.IntPtrOutput)
 }
 
-// The recovery point threshold in minutes.
 func (o InMagePolicyDetailsResponseOutput) RecoveryPointThresholdInMinutes() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v InMagePolicyDetailsResponse) *int { return v.RecoveryPointThresholdInMinutes }).(pulumi.IntPtrOutput)
 }
 
-// VMWare Azure specific protection profile Input.
 type InMagePolicyInput struct {
-	// The app consistent snapshot frequency (in minutes).
-	AppConsistentFrequencyInMinutes *int `pulumi:"appConsistentFrequencyInMinutes"`
-	// The class type.
-	// Expected value is 'InMage'.
-	InstanceType *string `pulumi:"instanceType"`
-	// A value indicating whether multi-VM sync has to be enabled. Value should be 'Enabled' or 'Disabled'.
-	MultiVmSyncStatus string `pulumi:"multiVmSyncStatus"`
-	// The duration in minutes until which the recovery points need to be stored.
-	RecoveryPointHistory *int `pulumi:"recoveryPointHistory"`
-	// The recovery point threshold in minutes.
-	RecoveryPointThresholdInMinutes *int `pulumi:"recoveryPointThresholdInMinutes"`
+	AppConsistentFrequencyInMinutes *int    `pulumi:"appConsistentFrequencyInMinutes"`
+	InstanceType                    *string `pulumi:"instanceType"`
+	MultiVmSyncStatus               string  `pulumi:"multiVmSyncStatus"`
+	RecoveryPointHistory            *int    `pulumi:"recoveryPointHistory"`
+	RecoveryPointThresholdInMinutes *int    `pulumi:"recoveryPointThresholdInMinutes"`
 }
 
 // InMagePolicyInputInput is an input type that accepts InMagePolicyInputArgs and InMagePolicyInputOutput values.
@@ -9582,19 +7962,12 @@ type InMagePolicyInputInput interface {
 	ToInMagePolicyInputOutputWithContext(context.Context) InMagePolicyInputOutput
 }
 
-// VMWare Azure specific protection profile Input.
 type InMagePolicyInputArgs struct {
-	// The app consistent snapshot frequency (in minutes).
-	AppConsistentFrequencyInMinutes pulumi.IntPtrInput `pulumi:"appConsistentFrequencyInMinutes"`
-	// The class type.
-	// Expected value is 'InMage'.
-	InstanceType pulumi.StringPtrInput `pulumi:"instanceType"`
-	// A value indicating whether multi-VM sync has to be enabled. Value should be 'Enabled' or 'Disabled'.
-	MultiVmSyncStatus pulumi.StringInput `pulumi:"multiVmSyncStatus"`
-	// The duration in minutes until which the recovery points need to be stored.
-	RecoveryPointHistory pulumi.IntPtrInput `pulumi:"recoveryPointHistory"`
-	// The recovery point threshold in minutes.
-	RecoveryPointThresholdInMinutes pulumi.IntPtrInput `pulumi:"recoveryPointThresholdInMinutes"`
+	AppConsistentFrequencyInMinutes pulumi.IntPtrInput    `pulumi:"appConsistentFrequencyInMinutes"`
+	InstanceType                    pulumi.StringPtrInput `pulumi:"instanceType"`
+	MultiVmSyncStatus               pulumi.StringInput    `pulumi:"multiVmSyncStatus"`
+	RecoveryPointHistory            pulumi.IntPtrInput    `pulumi:"recoveryPointHistory"`
+	RecoveryPointThresholdInMinutes pulumi.IntPtrInput    `pulumi:"recoveryPointThresholdInMinutes"`
 }
 
 func (InMagePolicyInputArgs) ElementType() reflect.Type {
@@ -9609,7 +7982,6 @@ func (i InMagePolicyInputArgs) ToInMagePolicyInputOutputWithContext(ctx context.
 	return pulumi.ToOutputWithContext(ctx, i).(InMagePolicyInputOutput)
 }
 
-// VMWare Azure specific protection profile Input.
 type InMagePolicyInputOutput struct{ *pulumi.OutputState }
 
 func (InMagePolicyInputOutput) ElementType() reflect.Type {
@@ -9624,64 +7996,42 @@ func (o InMagePolicyInputOutput) ToInMagePolicyInputOutputWithContext(ctx contex
 	return o
 }
 
-// The app consistent snapshot frequency (in minutes).
 func (o InMagePolicyInputOutput) AppConsistentFrequencyInMinutes() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v InMagePolicyInput) *int { return v.AppConsistentFrequencyInMinutes }).(pulumi.IntPtrOutput)
 }
 
-// The class type.
-// Expected value is 'InMage'.
 func (o InMagePolicyInputOutput) InstanceType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v InMagePolicyInput) *string { return v.InstanceType }).(pulumi.StringPtrOutput)
 }
 
-// A value indicating whether multi-VM sync has to be enabled. Value should be 'Enabled' or 'Disabled'.
 func (o InMagePolicyInputOutput) MultiVmSyncStatus() pulumi.StringOutput {
 	return o.ApplyT(func(v InMagePolicyInput) string { return v.MultiVmSyncStatus }).(pulumi.StringOutput)
 }
 
-// The duration in minutes until which the recovery points need to be stored.
 func (o InMagePolicyInputOutput) RecoveryPointHistory() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v InMagePolicyInput) *int { return v.RecoveryPointHistory }).(pulumi.IntPtrOutput)
 }
 
-// The recovery point threshold in minutes.
 func (o InMagePolicyInputOutput) RecoveryPointThresholdInMinutes() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v InMagePolicyInput) *int { return v.RecoveryPointThresholdInMinutes }).(pulumi.IntPtrOutput)
 }
 
-// InMage protected disk details.
 type InMageProtectedDiskDetailsResponse struct {
-	// The disk capacity in bytes.
-	DiskCapacityInBytes *float64 `pulumi:"diskCapacityInBytes"`
-	// The disk id.
-	DiskId *string `pulumi:"diskId"`
-	// The disk name.
-	DiskName *string `pulumi:"diskName"`
-	// A value indicating whether disk is resized.
-	DiskResized *string `pulumi:"diskResized"`
-	// The file system capacity in bytes.
+	DiskCapacityInBytes       *float64 `pulumi:"diskCapacityInBytes"`
+	DiskId                    *string  `pulumi:"diskId"`
+	DiskName                  *string  `pulumi:"diskName"`
+	DiskResized               *string  `pulumi:"diskResized"`
 	FileSystemCapacityInBytes *float64 `pulumi:"fileSystemCapacityInBytes"`
-	// The health error code for the disk.
-	HealthErrorCode *string `pulumi:"healthErrorCode"`
-	// The last RPO calculated time.
-	LastRpoCalculatedTime *string `pulumi:"lastRpoCalculatedTime"`
-	// The protection stage.
-	ProtectionStage *string `pulumi:"protectionStage"`
-	// The PS data transit in MB.
-	PsDataInMB *float64 `pulumi:"psDataInMB"`
-	// The resync duration in seconds.
-	ResyncDurationInSeconds *float64 `pulumi:"resyncDurationInSeconds"`
-	// The resync progress percentage.
-	ResyncProgressPercentage *int `pulumi:"resyncProgressPercentage"`
-	// A value indicating whether resync is required for this disk.
-	ResyncRequired *string `pulumi:"resyncRequired"`
-	// The RPO in seconds.
-	RpoInSeconds *float64 `pulumi:"rpoInSeconds"`
-	// The source data transit in MB.
-	SourceDataInMB *float64 `pulumi:"sourceDataInMB"`
-	// The target data transit in MB.
-	TargetDataInMB *float64 `pulumi:"targetDataInMB"`
+	HealthErrorCode           *string  `pulumi:"healthErrorCode"`
+	LastRpoCalculatedTime     *string  `pulumi:"lastRpoCalculatedTime"`
+	ProtectionStage           *string  `pulumi:"protectionStage"`
+	PsDataInMB                *float64 `pulumi:"psDataInMB"`
+	ResyncDurationInSeconds   *float64 `pulumi:"resyncDurationInSeconds"`
+	ResyncProgressPercentage  *int     `pulumi:"resyncProgressPercentage"`
+	ResyncRequired            *string  `pulumi:"resyncRequired"`
+	RpoInSeconds              *float64 `pulumi:"rpoInSeconds"`
+	SourceDataInMB            *float64 `pulumi:"sourceDataInMB"`
+	TargetDataInMB            *float64 `pulumi:"targetDataInMB"`
 }
 
 // InMageProtectedDiskDetailsResponseInput is an input type that accepts InMageProtectedDiskDetailsResponseArgs and InMageProtectedDiskDetailsResponseOutput values.
@@ -9695,38 +8045,22 @@ type InMageProtectedDiskDetailsResponseInput interface {
 	ToInMageProtectedDiskDetailsResponseOutputWithContext(context.Context) InMageProtectedDiskDetailsResponseOutput
 }
 
-// InMage protected disk details.
 type InMageProtectedDiskDetailsResponseArgs struct {
-	// The disk capacity in bytes.
-	DiskCapacityInBytes pulumi.Float64PtrInput `pulumi:"diskCapacityInBytes"`
-	// The disk id.
-	DiskId pulumi.StringPtrInput `pulumi:"diskId"`
-	// The disk name.
-	DiskName pulumi.StringPtrInput `pulumi:"diskName"`
-	// A value indicating whether disk is resized.
-	DiskResized pulumi.StringPtrInput `pulumi:"diskResized"`
-	// The file system capacity in bytes.
+	DiskCapacityInBytes       pulumi.Float64PtrInput `pulumi:"diskCapacityInBytes"`
+	DiskId                    pulumi.StringPtrInput  `pulumi:"diskId"`
+	DiskName                  pulumi.StringPtrInput  `pulumi:"diskName"`
+	DiskResized               pulumi.StringPtrInput  `pulumi:"diskResized"`
 	FileSystemCapacityInBytes pulumi.Float64PtrInput `pulumi:"fileSystemCapacityInBytes"`
-	// The health error code for the disk.
-	HealthErrorCode pulumi.StringPtrInput `pulumi:"healthErrorCode"`
-	// The last RPO calculated time.
-	LastRpoCalculatedTime pulumi.StringPtrInput `pulumi:"lastRpoCalculatedTime"`
-	// The protection stage.
-	ProtectionStage pulumi.StringPtrInput `pulumi:"protectionStage"`
-	// The PS data transit in MB.
-	PsDataInMB pulumi.Float64PtrInput `pulumi:"psDataInMB"`
-	// The resync duration in seconds.
-	ResyncDurationInSeconds pulumi.Float64PtrInput `pulumi:"resyncDurationInSeconds"`
-	// The resync progress percentage.
-	ResyncProgressPercentage pulumi.IntPtrInput `pulumi:"resyncProgressPercentage"`
-	// A value indicating whether resync is required for this disk.
-	ResyncRequired pulumi.StringPtrInput `pulumi:"resyncRequired"`
-	// The RPO in seconds.
-	RpoInSeconds pulumi.Float64PtrInput `pulumi:"rpoInSeconds"`
-	// The source data transit in MB.
-	SourceDataInMB pulumi.Float64PtrInput `pulumi:"sourceDataInMB"`
-	// The target data transit in MB.
-	TargetDataInMB pulumi.Float64PtrInput `pulumi:"targetDataInMB"`
+	HealthErrorCode           pulumi.StringPtrInput  `pulumi:"healthErrorCode"`
+	LastRpoCalculatedTime     pulumi.StringPtrInput  `pulumi:"lastRpoCalculatedTime"`
+	ProtectionStage           pulumi.StringPtrInput  `pulumi:"protectionStage"`
+	PsDataInMB                pulumi.Float64PtrInput `pulumi:"psDataInMB"`
+	ResyncDurationInSeconds   pulumi.Float64PtrInput `pulumi:"resyncDurationInSeconds"`
+	ResyncProgressPercentage  pulumi.IntPtrInput     `pulumi:"resyncProgressPercentage"`
+	ResyncRequired            pulumi.StringPtrInput  `pulumi:"resyncRequired"`
+	RpoInSeconds              pulumi.Float64PtrInput `pulumi:"rpoInSeconds"`
+	SourceDataInMB            pulumi.Float64PtrInput `pulumi:"sourceDataInMB"`
+	TargetDataInMB            pulumi.Float64PtrInput `pulumi:"targetDataInMB"`
 }
 
 func (InMageProtectedDiskDetailsResponseArgs) ElementType() reflect.Type {
@@ -9766,7 +8100,6 @@ func (i InMageProtectedDiskDetailsResponseArray) ToInMageProtectedDiskDetailsRes
 	return pulumi.ToOutputWithContext(ctx, i).(InMageProtectedDiskDetailsResponseArrayOutput)
 }
 
-// InMage protected disk details.
 type InMageProtectedDiskDetailsResponseOutput struct{ *pulumi.OutputState }
 
 func (InMageProtectedDiskDetailsResponseOutput) ElementType() reflect.Type {
@@ -9781,77 +8114,62 @@ func (o InMageProtectedDiskDetailsResponseOutput) ToInMageProtectedDiskDetailsRe
 	return o
 }
 
-// The disk capacity in bytes.
 func (o InMageProtectedDiskDetailsResponseOutput) DiskCapacityInBytes() pulumi.Float64PtrOutput {
 	return o.ApplyT(func(v InMageProtectedDiskDetailsResponse) *float64 { return v.DiskCapacityInBytes }).(pulumi.Float64PtrOutput)
 }
 
-// The disk id.
 func (o InMageProtectedDiskDetailsResponseOutput) DiskId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v InMageProtectedDiskDetailsResponse) *string { return v.DiskId }).(pulumi.StringPtrOutput)
 }
 
-// The disk name.
 func (o InMageProtectedDiskDetailsResponseOutput) DiskName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v InMageProtectedDiskDetailsResponse) *string { return v.DiskName }).(pulumi.StringPtrOutput)
 }
 
-// A value indicating whether disk is resized.
 func (o InMageProtectedDiskDetailsResponseOutput) DiskResized() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v InMageProtectedDiskDetailsResponse) *string { return v.DiskResized }).(pulumi.StringPtrOutput)
 }
 
-// The file system capacity in bytes.
 func (o InMageProtectedDiskDetailsResponseOutput) FileSystemCapacityInBytes() pulumi.Float64PtrOutput {
 	return o.ApplyT(func(v InMageProtectedDiskDetailsResponse) *float64 { return v.FileSystemCapacityInBytes }).(pulumi.Float64PtrOutput)
 }
 
-// The health error code for the disk.
 func (o InMageProtectedDiskDetailsResponseOutput) HealthErrorCode() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v InMageProtectedDiskDetailsResponse) *string { return v.HealthErrorCode }).(pulumi.StringPtrOutput)
 }
 
-// The last RPO calculated time.
 func (o InMageProtectedDiskDetailsResponseOutput) LastRpoCalculatedTime() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v InMageProtectedDiskDetailsResponse) *string { return v.LastRpoCalculatedTime }).(pulumi.StringPtrOutput)
 }
 
-// The protection stage.
 func (o InMageProtectedDiskDetailsResponseOutput) ProtectionStage() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v InMageProtectedDiskDetailsResponse) *string { return v.ProtectionStage }).(pulumi.StringPtrOutput)
 }
 
-// The PS data transit in MB.
 func (o InMageProtectedDiskDetailsResponseOutput) PsDataInMB() pulumi.Float64PtrOutput {
 	return o.ApplyT(func(v InMageProtectedDiskDetailsResponse) *float64 { return v.PsDataInMB }).(pulumi.Float64PtrOutput)
 }
 
-// The resync duration in seconds.
 func (o InMageProtectedDiskDetailsResponseOutput) ResyncDurationInSeconds() pulumi.Float64PtrOutput {
 	return o.ApplyT(func(v InMageProtectedDiskDetailsResponse) *float64 { return v.ResyncDurationInSeconds }).(pulumi.Float64PtrOutput)
 }
 
-// The resync progress percentage.
 func (o InMageProtectedDiskDetailsResponseOutput) ResyncProgressPercentage() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v InMageProtectedDiskDetailsResponse) *int { return v.ResyncProgressPercentage }).(pulumi.IntPtrOutput)
 }
 
-// A value indicating whether resync is required for this disk.
 func (o InMageProtectedDiskDetailsResponseOutput) ResyncRequired() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v InMageProtectedDiskDetailsResponse) *string { return v.ResyncRequired }).(pulumi.StringPtrOutput)
 }
 
-// The RPO in seconds.
 func (o InMageProtectedDiskDetailsResponseOutput) RpoInSeconds() pulumi.Float64PtrOutput {
 	return o.ApplyT(func(v InMageProtectedDiskDetailsResponse) *float64 { return v.RpoInSeconds }).(pulumi.Float64PtrOutput)
 }
 
-// The source data transit in MB.
 func (o InMageProtectedDiskDetailsResponseOutput) SourceDataInMB() pulumi.Float64PtrOutput {
 	return o.ApplyT(func(v InMageProtectedDiskDetailsResponse) *float64 { return v.SourceDataInMB }).(pulumi.Float64PtrOutput)
 }
 
-// The target data transit in MB.
 func (o InMageProtectedDiskDetailsResponseOutput) TargetDataInMB() pulumi.Float64PtrOutput {
 	return o.ApplyT(func(v InMageProtectedDiskDetailsResponse) *float64 { return v.TargetDataInMB }).(pulumi.Float64PtrOutput)
 }
@@ -9876,85 +8194,45 @@ func (o InMageProtectedDiskDetailsResponseArrayOutput) Index(i pulumi.IntInput) 
 	}).(InMageProtectedDiskDetailsResponseOutput)
 }
 
-// InMage provider specific settings
 type InMageReplicationDetailsResponse struct {
-	// The active location of the VM. If the VM is being protected from Azure, this field will take values from { Azure, OnPrem }. If the VM is being protected between two data-centers, this field will be OnPrem always.
-	ActiveSiteType *string `pulumi:"activeSiteType"`
-	// The agent details.
-	AgentDetails *InMageAgentDetailsResponse `pulumi:"agentDetails"`
-	// A value indicating the underlying Azure storage account. If the VM is not running in Azure, this value shall be set to null.
-	AzureStorageAccountId *string `pulumi:"azureStorageAccountId"`
-	// The compressed data change rate in MB.
-	CompressedDataRateInMB *float64 `pulumi:"compressedDataRateInMB"`
-	// The collection of Consistency points.
-	ConsistencyPoints map[string]string `pulumi:"consistencyPoints"`
-	// The data stores of the on-premise machine Value can be list of strings that contain data store names
-	Datastores []string `pulumi:"datastores"`
-	// A value indicating the discovery type of the machine.
-	DiscoveryType *string `pulumi:"discoveryType"`
-	// A value indicating whether any disk is resized for this VM.
-	DiskResized *string `pulumi:"diskResized"`
-	// The infrastructure VM Id.
-	InfrastructureVmId *string `pulumi:"infrastructureVmId"`
-	// Gets the Instance type.
-	// Expected value is 'InMage'.
-	InstanceType string `pulumi:"instanceType"`
-	// The source IP address.
-	IpAddress *string `pulumi:"ipAddress"`
-	// The last heartbeat received from the source server.
-	LastHeartbeat *string `pulumi:"lastHeartbeat"`
-	// The last RPO calculated time.
-	LastRpoCalculatedTime *string `pulumi:"lastRpoCalculatedTime"`
-	// The last update time received from on-prem components.
-	LastUpdateReceivedTime *string `pulumi:"lastUpdateReceivedTime"`
-	// The master target Id.
-	MasterTargetId *string `pulumi:"masterTargetId"`
-	// The multi vm group Id, if any.
-	MultiVmGroupId *string `pulumi:"multiVmGroupId"`
-	// The multi vm group name, if any.
-	MultiVmGroupName *string `pulumi:"multiVmGroupName"`
-	// A value indicating whether the multi vm sync is enabled or disabled.
-	MultiVmSyncStatus *string `pulumi:"multiVmSyncStatus"`
-	// The OS details.
-	OsDetails *OSDiskDetailsResponse `pulumi:"osDetails"`
-	// The OS Version of the protected item.
-	OsVersion *string `pulumi:"osVersion"`
-	// The process server Id.
-	ProcessServerId *string `pulumi:"processServerId"`
-	// The list of protected disks.
-	ProtectedDisks []InMageProtectedDiskDetailsResponse `pulumi:"protectedDisks"`
-	// The protection stage.
-	ProtectionStage *string `pulumi:"protectionStage"`
-	// A value indicating whether the source server requires a restart after update.
-	RebootAfterUpdateStatus *string `pulumi:"rebootAfterUpdateStatus"`
-	// The replica id of the protected item.
-	ReplicaId *string `pulumi:"replicaId"`
-	// The resync details of the machine
-	ResyncDetails *InitialReplicationDetailsResponse `pulumi:"resyncDetails"`
-	// The retention window end time.
-	RetentionWindowEnd *string `pulumi:"retentionWindowEnd"`
-	// The retention window start time.
-	RetentionWindowStart *string `pulumi:"retentionWindowStart"`
-	// The RPO in seconds.
-	RpoInSeconds *float64 `pulumi:"rpoInSeconds"`
-	// The CPU count of the VM on the primary side.
-	SourceVmCpuCount *int `pulumi:"sourceVmCpuCount"`
-	// The RAM size of the VM on the primary side.
-	SourceVmRamSizeInMB *int `pulumi:"sourceVmRamSizeInMB"`
-	// The uncompressed data change rate in MB.
-	UncompressedDataRateInMB *float64 `pulumi:"uncompressedDataRateInMB"`
-	// The vCenter infrastructure Id.
-	VCenterInfrastructureId *string `pulumi:"vCenterInfrastructureId"`
-	// The validation errors of the on-premise machine Value can be list of validation errors
-	ValidationErrors []HealthErrorResponse `pulumi:"validationErrors"`
-	// The virtual machine Id.
-	VmId *string `pulumi:"vmId"`
-	// The PE Network details.
-	VmNics []VMNicDetailsResponse `pulumi:"vmNics"`
-	// The protection state for the vm.
-	VmProtectionState *string `pulumi:"vmProtectionState"`
-	// The protection state description for the vm.
-	VmProtectionStateDescription *string `pulumi:"vmProtectionStateDescription"`
+	ActiveSiteType               *string                              `pulumi:"activeSiteType"`
+	AgentDetails                 *InMageAgentDetailsResponse          `pulumi:"agentDetails"`
+	AzureStorageAccountId        *string                              `pulumi:"azureStorageAccountId"`
+	CompressedDataRateInMB       *float64                             `pulumi:"compressedDataRateInMB"`
+	ConsistencyPoints            map[string]string                    `pulumi:"consistencyPoints"`
+	Datastores                   []string                             `pulumi:"datastores"`
+	DiscoveryType                *string                              `pulumi:"discoveryType"`
+	DiskResized                  *string                              `pulumi:"diskResized"`
+	InfrastructureVmId           *string                              `pulumi:"infrastructureVmId"`
+	InstanceType                 string                               `pulumi:"instanceType"`
+	IpAddress                    *string                              `pulumi:"ipAddress"`
+	LastHeartbeat                *string                              `pulumi:"lastHeartbeat"`
+	LastRpoCalculatedTime        *string                              `pulumi:"lastRpoCalculatedTime"`
+	LastUpdateReceivedTime       *string                              `pulumi:"lastUpdateReceivedTime"`
+	MasterTargetId               *string                              `pulumi:"masterTargetId"`
+	MultiVmGroupId               *string                              `pulumi:"multiVmGroupId"`
+	MultiVmGroupName             *string                              `pulumi:"multiVmGroupName"`
+	MultiVmSyncStatus            *string                              `pulumi:"multiVmSyncStatus"`
+	OsDetails                    *OSDiskDetailsResponse               `pulumi:"osDetails"`
+	OsVersion                    *string                              `pulumi:"osVersion"`
+	ProcessServerId              *string                              `pulumi:"processServerId"`
+	ProtectedDisks               []InMageProtectedDiskDetailsResponse `pulumi:"protectedDisks"`
+	ProtectionStage              *string                              `pulumi:"protectionStage"`
+	RebootAfterUpdateStatus      *string                              `pulumi:"rebootAfterUpdateStatus"`
+	ReplicaId                    *string                              `pulumi:"replicaId"`
+	ResyncDetails                *InitialReplicationDetailsResponse   `pulumi:"resyncDetails"`
+	RetentionWindowEnd           *string                              `pulumi:"retentionWindowEnd"`
+	RetentionWindowStart         *string                              `pulumi:"retentionWindowStart"`
+	RpoInSeconds                 *float64                             `pulumi:"rpoInSeconds"`
+	SourceVmCpuCount             *int                                 `pulumi:"sourceVmCpuCount"`
+	SourceVmRamSizeInMB          *int                                 `pulumi:"sourceVmRamSizeInMB"`
+	UncompressedDataRateInMB     *float64                             `pulumi:"uncompressedDataRateInMB"`
+	VCenterInfrastructureId      *string                              `pulumi:"vCenterInfrastructureId"`
+	ValidationErrors             []HealthErrorResponse                `pulumi:"validationErrors"`
+	VmId                         *string                              `pulumi:"vmId"`
+	VmNics                       []VMNicDetailsResponse               `pulumi:"vmNics"`
+	VmProtectionState            *string                              `pulumi:"vmProtectionState"`
+	VmProtectionStateDescription *string                              `pulumi:"vmProtectionStateDescription"`
 }
 
 // InMageReplicationDetailsResponseInput is an input type that accepts InMageReplicationDetailsResponseArgs and InMageReplicationDetailsResponseOutput values.
@@ -9968,85 +8246,45 @@ type InMageReplicationDetailsResponseInput interface {
 	ToInMageReplicationDetailsResponseOutputWithContext(context.Context) InMageReplicationDetailsResponseOutput
 }
 
-// InMage provider specific settings
 type InMageReplicationDetailsResponseArgs struct {
-	// The active location of the VM. If the VM is being protected from Azure, this field will take values from { Azure, OnPrem }. If the VM is being protected between two data-centers, this field will be OnPrem always.
-	ActiveSiteType pulumi.StringPtrInput `pulumi:"activeSiteType"`
-	// The agent details.
-	AgentDetails InMageAgentDetailsResponsePtrInput `pulumi:"agentDetails"`
-	// A value indicating the underlying Azure storage account. If the VM is not running in Azure, this value shall be set to null.
-	AzureStorageAccountId pulumi.StringPtrInput `pulumi:"azureStorageAccountId"`
-	// The compressed data change rate in MB.
-	CompressedDataRateInMB pulumi.Float64PtrInput `pulumi:"compressedDataRateInMB"`
-	// The collection of Consistency points.
-	ConsistencyPoints pulumi.StringMapInput `pulumi:"consistencyPoints"`
-	// The data stores of the on-premise machine Value can be list of strings that contain data store names
-	Datastores pulumi.StringArrayInput `pulumi:"datastores"`
-	// A value indicating the discovery type of the machine.
-	DiscoveryType pulumi.StringPtrInput `pulumi:"discoveryType"`
-	// A value indicating whether any disk is resized for this VM.
-	DiskResized pulumi.StringPtrInput `pulumi:"diskResized"`
-	// The infrastructure VM Id.
-	InfrastructureVmId pulumi.StringPtrInput `pulumi:"infrastructureVmId"`
-	// Gets the Instance type.
-	// Expected value is 'InMage'.
-	InstanceType pulumi.StringInput `pulumi:"instanceType"`
-	// The source IP address.
-	IpAddress pulumi.StringPtrInput `pulumi:"ipAddress"`
-	// The last heartbeat received from the source server.
-	LastHeartbeat pulumi.StringPtrInput `pulumi:"lastHeartbeat"`
-	// The last RPO calculated time.
-	LastRpoCalculatedTime pulumi.StringPtrInput `pulumi:"lastRpoCalculatedTime"`
-	// The last update time received from on-prem components.
-	LastUpdateReceivedTime pulumi.StringPtrInput `pulumi:"lastUpdateReceivedTime"`
-	// The master target Id.
-	MasterTargetId pulumi.StringPtrInput `pulumi:"masterTargetId"`
-	// The multi vm group Id, if any.
-	MultiVmGroupId pulumi.StringPtrInput `pulumi:"multiVmGroupId"`
-	// The multi vm group name, if any.
-	MultiVmGroupName pulumi.StringPtrInput `pulumi:"multiVmGroupName"`
-	// A value indicating whether the multi vm sync is enabled or disabled.
-	MultiVmSyncStatus pulumi.StringPtrInput `pulumi:"multiVmSyncStatus"`
-	// The OS details.
-	OsDetails OSDiskDetailsResponsePtrInput `pulumi:"osDetails"`
-	// The OS Version of the protected item.
-	OsVersion pulumi.StringPtrInput `pulumi:"osVersion"`
-	// The process server Id.
-	ProcessServerId pulumi.StringPtrInput `pulumi:"processServerId"`
-	// The list of protected disks.
-	ProtectedDisks InMageProtectedDiskDetailsResponseArrayInput `pulumi:"protectedDisks"`
-	// The protection stage.
-	ProtectionStage pulumi.StringPtrInput `pulumi:"protectionStage"`
-	// A value indicating whether the source server requires a restart after update.
-	RebootAfterUpdateStatus pulumi.StringPtrInput `pulumi:"rebootAfterUpdateStatus"`
-	// The replica id of the protected item.
-	ReplicaId pulumi.StringPtrInput `pulumi:"replicaId"`
-	// The resync details of the machine
-	ResyncDetails InitialReplicationDetailsResponsePtrInput `pulumi:"resyncDetails"`
-	// The retention window end time.
-	RetentionWindowEnd pulumi.StringPtrInput `pulumi:"retentionWindowEnd"`
-	// The retention window start time.
-	RetentionWindowStart pulumi.StringPtrInput `pulumi:"retentionWindowStart"`
-	// The RPO in seconds.
-	RpoInSeconds pulumi.Float64PtrInput `pulumi:"rpoInSeconds"`
-	// The CPU count of the VM on the primary side.
-	SourceVmCpuCount pulumi.IntPtrInput `pulumi:"sourceVmCpuCount"`
-	// The RAM size of the VM on the primary side.
-	SourceVmRamSizeInMB pulumi.IntPtrInput `pulumi:"sourceVmRamSizeInMB"`
-	// The uncompressed data change rate in MB.
-	UncompressedDataRateInMB pulumi.Float64PtrInput `pulumi:"uncompressedDataRateInMB"`
-	// The vCenter infrastructure Id.
-	VCenterInfrastructureId pulumi.StringPtrInput `pulumi:"vCenterInfrastructureId"`
-	// The validation errors of the on-premise machine Value can be list of validation errors
-	ValidationErrors HealthErrorResponseArrayInput `pulumi:"validationErrors"`
-	// The virtual machine Id.
-	VmId pulumi.StringPtrInput `pulumi:"vmId"`
-	// The PE Network details.
-	VmNics VMNicDetailsResponseArrayInput `pulumi:"vmNics"`
-	// The protection state for the vm.
-	VmProtectionState pulumi.StringPtrInput `pulumi:"vmProtectionState"`
-	// The protection state description for the vm.
-	VmProtectionStateDescription pulumi.StringPtrInput `pulumi:"vmProtectionStateDescription"`
+	ActiveSiteType               pulumi.StringPtrInput                        `pulumi:"activeSiteType"`
+	AgentDetails                 InMageAgentDetailsResponsePtrInput           `pulumi:"agentDetails"`
+	AzureStorageAccountId        pulumi.StringPtrInput                        `pulumi:"azureStorageAccountId"`
+	CompressedDataRateInMB       pulumi.Float64PtrInput                       `pulumi:"compressedDataRateInMB"`
+	ConsistencyPoints            pulumi.StringMapInput                        `pulumi:"consistencyPoints"`
+	Datastores                   pulumi.StringArrayInput                      `pulumi:"datastores"`
+	DiscoveryType                pulumi.StringPtrInput                        `pulumi:"discoveryType"`
+	DiskResized                  pulumi.StringPtrInput                        `pulumi:"diskResized"`
+	InfrastructureVmId           pulumi.StringPtrInput                        `pulumi:"infrastructureVmId"`
+	InstanceType                 pulumi.StringInput                           `pulumi:"instanceType"`
+	IpAddress                    pulumi.StringPtrInput                        `pulumi:"ipAddress"`
+	LastHeartbeat                pulumi.StringPtrInput                        `pulumi:"lastHeartbeat"`
+	LastRpoCalculatedTime        pulumi.StringPtrInput                        `pulumi:"lastRpoCalculatedTime"`
+	LastUpdateReceivedTime       pulumi.StringPtrInput                        `pulumi:"lastUpdateReceivedTime"`
+	MasterTargetId               pulumi.StringPtrInput                        `pulumi:"masterTargetId"`
+	MultiVmGroupId               pulumi.StringPtrInput                        `pulumi:"multiVmGroupId"`
+	MultiVmGroupName             pulumi.StringPtrInput                        `pulumi:"multiVmGroupName"`
+	MultiVmSyncStatus            pulumi.StringPtrInput                        `pulumi:"multiVmSyncStatus"`
+	OsDetails                    OSDiskDetailsResponsePtrInput                `pulumi:"osDetails"`
+	OsVersion                    pulumi.StringPtrInput                        `pulumi:"osVersion"`
+	ProcessServerId              pulumi.StringPtrInput                        `pulumi:"processServerId"`
+	ProtectedDisks               InMageProtectedDiskDetailsResponseArrayInput `pulumi:"protectedDisks"`
+	ProtectionStage              pulumi.StringPtrInput                        `pulumi:"protectionStage"`
+	RebootAfterUpdateStatus      pulumi.StringPtrInput                        `pulumi:"rebootAfterUpdateStatus"`
+	ReplicaId                    pulumi.StringPtrInput                        `pulumi:"replicaId"`
+	ResyncDetails                InitialReplicationDetailsResponsePtrInput    `pulumi:"resyncDetails"`
+	RetentionWindowEnd           pulumi.StringPtrInput                        `pulumi:"retentionWindowEnd"`
+	RetentionWindowStart         pulumi.StringPtrInput                        `pulumi:"retentionWindowStart"`
+	RpoInSeconds                 pulumi.Float64PtrInput                       `pulumi:"rpoInSeconds"`
+	SourceVmCpuCount             pulumi.IntPtrInput                           `pulumi:"sourceVmCpuCount"`
+	SourceVmRamSizeInMB          pulumi.IntPtrInput                           `pulumi:"sourceVmRamSizeInMB"`
+	UncompressedDataRateInMB     pulumi.Float64PtrInput                       `pulumi:"uncompressedDataRateInMB"`
+	VCenterInfrastructureId      pulumi.StringPtrInput                        `pulumi:"vCenterInfrastructureId"`
+	ValidationErrors             HealthErrorResponseArrayInput                `pulumi:"validationErrors"`
+	VmId                         pulumi.StringPtrInput                        `pulumi:"vmId"`
+	VmNics                       VMNicDetailsResponseArrayInput               `pulumi:"vmNics"`
+	VmProtectionState            pulumi.StringPtrInput                        `pulumi:"vmProtectionState"`
+	VmProtectionStateDescription pulumi.StringPtrInput                        `pulumi:"vmProtectionStateDescription"`
 }
 
 func (InMageReplicationDetailsResponseArgs) ElementType() reflect.Type {
@@ -10061,7 +8299,6 @@ func (i InMageReplicationDetailsResponseArgs) ToInMageReplicationDetailsResponse
 	return pulumi.ToOutputWithContext(ctx, i).(InMageReplicationDetailsResponseOutput)
 }
 
-// InMage provider specific settings
 type InMageReplicationDetailsResponseOutput struct{ *pulumi.OutputState }
 
 func (InMageReplicationDetailsResponseOutput) ElementType() reflect.Type {
@@ -10076,203 +8313,161 @@ func (o InMageReplicationDetailsResponseOutput) ToInMageReplicationDetailsRespon
 	return o
 }
 
-// The active location of the VM. If the VM is being protected from Azure, this field will take values from { Azure, OnPrem }. If the VM is being protected between two data-centers, this field will be OnPrem always.
 func (o InMageReplicationDetailsResponseOutput) ActiveSiteType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v InMageReplicationDetailsResponse) *string { return v.ActiveSiteType }).(pulumi.StringPtrOutput)
 }
 
-// The agent details.
 func (o InMageReplicationDetailsResponseOutput) AgentDetails() InMageAgentDetailsResponsePtrOutput {
 	return o.ApplyT(func(v InMageReplicationDetailsResponse) *InMageAgentDetailsResponse { return v.AgentDetails }).(InMageAgentDetailsResponsePtrOutput)
 }
 
-// A value indicating the underlying Azure storage account. If the VM is not running in Azure, this value shall be set to null.
 func (o InMageReplicationDetailsResponseOutput) AzureStorageAccountId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v InMageReplicationDetailsResponse) *string { return v.AzureStorageAccountId }).(pulumi.StringPtrOutput)
 }
 
-// The compressed data change rate in MB.
 func (o InMageReplicationDetailsResponseOutput) CompressedDataRateInMB() pulumi.Float64PtrOutput {
 	return o.ApplyT(func(v InMageReplicationDetailsResponse) *float64 { return v.CompressedDataRateInMB }).(pulumi.Float64PtrOutput)
 }
 
-// The collection of Consistency points.
 func (o InMageReplicationDetailsResponseOutput) ConsistencyPoints() pulumi.StringMapOutput {
 	return o.ApplyT(func(v InMageReplicationDetailsResponse) map[string]string { return v.ConsistencyPoints }).(pulumi.StringMapOutput)
 }
 
-// The data stores of the on-premise machine Value can be list of strings that contain data store names
 func (o InMageReplicationDetailsResponseOutput) Datastores() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v InMageReplicationDetailsResponse) []string { return v.Datastores }).(pulumi.StringArrayOutput)
 }
 
-// A value indicating the discovery type of the machine.
 func (o InMageReplicationDetailsResponseOutput) DiscoveryType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v InMageReplicationDetailsResponse) *string { return v.DiscoveryType }).(pulumi.StringPtrOutput)
 }
 
-// A value indicating whether any disk is resized for this VM.
 func (o InMageReplicationDetailsResponseOutput) DiskResized() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v InMageReplicationDetailsResponse) *string { return v.DiskResized }).(pulumi.StringPtrOutput)
 }
 
-// The infrastructure VM Id.
 func (o InMageReplicationDetailsResponseOutput) InfrastructureVmId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v InMageReplicationDetailsResponse) *string { return v.InfrastructureVmId }).(pulumi.StringPtrOutput)
 }
 
-// Gets the Instance type.
-// Expected value is 'InMage'.
 func (o InMageReplicationDetailsResponseOutput) InstanceType() pulumi.StringOutput {
 	return o.ApplyT(func(v InMageReplicationDetailsResponse) string { return v.InstanceType }).(pulumi.StringOutput)
 }
 
-// The source IP address.
 func (o InMageReplicationDetailsResponseOutput) IpAddress() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v InMageReplicationDetailsResponse) *string { return v.IpAddress }).(pulumi.StringPtrOutput)
 }
 
-// The last heartbeat received from the source server.
 func (o InMageReplicationDetailsResponseOutput) LastHeartbeat() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v InMageReplicationDetailsResponse) *string { return v.LastHeartbeat }).(pulumi.StringPtrOutput)
 }
 
-// The last RPO calculated time.
 func (o InMageReplicationDetailsResponseOutput) LastRpoCalculatedTime() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v InMageReplicationDetailsResponse) *string { return v.LastRpoCalculatedTime }).(pulumi.StringPtrOutput)
 }
 
-// The last update time received from on-prem components.
 func (o InMageReplicationDetailsResponseOutput) LastUpdateReceivedTime() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v InMageReplicationDetailsResponse) *string { return v.LastUpdateReceivedTime }).(pulumi.StringPtrOutput)
 }
 
-// The master target Id.
 func (o InMageReplicationDetailsResponseOutput) MasterTargetId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v InMageReplicationDetailsResponse) *string { return v.MasterTargetId }).(pulumi.StringPtrOutput)
 }
 
-// The multi vm group Id, if any.
 func (o InMageReplicationDetailsResponseOutput) MultiVmGroupId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v InMageReplicationDetailsResponse) *string { return v.MultiVmGroupId }).(pulumi.StringPtrOutput)
 }
 
-// The multi vm group name, if any.
 func (o InMageReplicationDetailsResponseOutput) MultiVmGroupName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v InMageReplicationDetailsResponse) *string { return v.MultiVmGroupName }).(pulumi.StringPtrOutput)
 }
 
-// A value indicating whether the multi vm sync is enabled or disabled.
 func (o InMageReplicationDetailsResponseOutput) MultiVmSyncStatus() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v InMageReplicationDetailsResponse) *string { return v.MultiVmSyncStatus }).(pulumi.StringPtrOutput)
 }
 
-// The OS details.
 func (o InMageReplicationDetailsResponseOutput) OsDetails() OSDiskDetailsResponsePtrOutput {
 	return o.ApplyT(func(v InMageReplicationDetailsResponse) *OSDiskDetailsResponse { return v.OsDetails }).(OSDiskDetailsResponsePtrOutput)
 }
 
-// The OS Version of the protected item.
 func (o InMageReplicationDetailsResponseOutput) OsVersion() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v InMageReplicationDetailsResponse) *string { return v.OsVersion }).(pulumi.StringPtrOutput)
 }
 
-// The process server Id.
 func (o InMageReplicationDetailsResponseOutput) ProcessServerId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v InMageReplicationDetailsResponse) *string { return v.ProcessServerId }).(pulumi.StringPtrOutput)
 }
 
-// The list of protected disks.
 func (o InMageReplicationDetailsResponseOutput) ProtectedDisks() InMageProtectedDiskDetailsResponseArrayOutput {
 	return o.ApplyT(func(v InMageReplicationDetailsResponse) []InMageProtectedDiskDetailsResponse { return v.ProtectedDisks }).(InMageProtectedDiskDetailsResponseArrayOutput)
 }
 
-// The protection stage.
 func (o InMageReplicationDetailsResponseOutput) ProtectionStage() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v InMageReplicationDetailsResponse) *string { return v.ProtectionStage }).(pulumi.StringPtrOutput)
 }
 
-// A value indicating whether the source server requires a restart after update.
 func (o InMageReplicationDetailsResponseOutput) RebootAfterUpdateStatus() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v InMageReplicationDetailsResponse) *string { return v.RebootAfterUpdateStatus }).(pulumi.StringPtrOutput)
 }
 
-// The replica id of the protected item.
 func (o InMageReplicationDetailsResponseOutput) ReplicaId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v InMageReplicationDetailsResponse) *string { return v.ReplicaId }).(pulumi.StringPtrOutput)
 }
 
-// The resync details of the machine
 func (o InMageReplicationDetailsResponseOutput) ResyncDetails() InitialReplicationDetailsResponsePtrOutput {
 	return o.ApplyT(func(v InMageReplicationDetailsResponse) *InitialReplicationDetailsResponse { return v.ResyncDetails }).(InitialReplicationDetailsResponsePtrOutput)
 }
 
-// The retention window end time.
 func (o InMageReplicationDetailsResponseOutput) RetentionWindowEnd() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v InMageReplicationDetailsResponse) *string { return v.RetentionWindowEnd }).(pulumi.StringPtrOutput)
 }
 
-// The retention window start time.
 func (o InMageReplicationDetailsResponseOutput) RetentionWindowStart() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v InMageReplicationDetailsResponse) *string { return v.RetentionWindowStart }).(pulumi.StringPtrOutput)
 }
 
-// The RPO in seconds.
 func (o InMageReplicationDetailsResponseOutput) RpoInSeconds() pulumi.Float64PtrOutput {
 	return o.ApplyT(func(v InMageReplicationDetailsResponse) *float64 { return v.RpoInSeconds }).(pulumi.Float64PtrOutput)
 }
 
-// The CPU count of the VM on the primary side.
 func (o InMageReplicationDetailsResponseOutput) SourceVmCpuCount() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v InMageReplicationDetailsResponse) *int { return v.SourceVmCpuCount }).(pulumi.IntPtrOutput)
 }
 
-// The RAM size of the VM on the primary side.
 func (o InMageReplicationDetailsResponseOutput) SourceVmRamSizeInMB() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v InMageReplicationDetailsResponse) *int { return v.SourceVmRamSizeInMB }).(pulumi.IntPtrOutput)
 }
 
-// The uncompressed data change rate in MB.
 func (o InMageReplicationDetailsResponseOutput) UncompressedDataRateInMB() pulumi.Float64PtrOutput {
 	return o.ApplyT(func(v InMageReplicationDetailsResponse) *float64 { return v.UncompressedDataRateInMB }).(pulumi.Float64PtrOutput)
 }
 
-// The vCenter infrastructure Id.
 func (o InMageReplicationDetailsResponseOutput) VCenterInfrastructureId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v InMageReplicationDetailsResponse) *string { return v.VCenterInfrastructureId }).(pulumi.StringPtrOutput)
 }
 
-// The validation errors of the on-premise machine Value can be list of validation errors
 func (o InMageReplicationDetailsResponseOutput) ValidationErrors() HealthErrorResponseArrayOutput {
 	return o.ApplyT(func(v InMageReplicationDetailsResponse) []HealthErrorResponse { return v.ValidationErrors }).(HealthErrorResponseArrayOutput)
 }
 
-// The virtual machine Id.
 func (o InMageReplicationDetailsResponseOutput) VmId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v InMageReplicationDetailsResponse) *string { return v.VmId }).(pulumi.StringPtrOutput)
 }
 
-// The PE Network details.
 func (o InMageReplicationDetailsResponseOutput) VmNics() VMNicDetailsResponseArrayOutput {
 	return o.ApplyT(func(v InMageReplicationDetailsResponse) []VMNicDetailsResponse { return v.VmNics }).(VMNicDetailsResponseArrayOutput)
 }
 
-// The protection state for the vm.
 func (o InMageReplicationDetailsResponseOutput) VmProtectionState() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v InMageReplicationDetailsResponse) *string { return v.VmProtectionState }).(pulumi.StringPtrOutput)
 }
 
-// The protection state description for the vm.
 func (o InMageReplicationDetailsResponseOutput) VmProtectionStateDescription() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v InMageReplicationDetailsResponse) *string { return v.VmProtectionStateDescription }).(pulumi.StringPtrOutput)
 }
 
-// Guest disk signature based disk exclusion option when doing enable protection of virtual machine in InMage provider.
 type InMageVolumeExclusionOptions struct {
-	// The value indicating whether to exclude multi volume disk or not. If a disk has multiple volumes and one of the volume has label matching with VolumeLabel this disk will be excluded from replication if OnlyExcludeIfSingleVolume is false.
 	OnlyExcludeIfSingleVolume *string `pulumi:"onlyExcludeIfSingleVolume"`
-	// The volume label. The disk having any volume with this label will be excluded from replication.
-	VolumeLabel *string `pulumi:"volumeLabel"`
+	VolumeLabel               *string `pulumi:"volumeLabel"`
 }
 
 // InMageVolumeExclusionOptionsInput is an input type that accepts InMageVolumeExclusionOptionsArgs and InMageVolumeExclusionOptionsOutput values.
@@ -10286,12 +8481,9 @@ type InMageVolumeExclusionOptionsInput interface {
 	ToInMageVolumeExclusionOptionsOutputWithContext(context.Context) InMageVolumeExclusionOptionsOutput
 }
 
-// Guest disk signature based disk exclusion option when doing enable protection of virtual machine in InMage provider.
 type InMageVolumeExclusionOptionsArgs struct {
-	// The value indicating whether to exclude multi volume disk or not. If a disk has multiple volumes and one of the volume has label matching with VolumeLabel this disk will be excluded from replication if OnlyExcludeIfSingleVolume is false.
 	OnlyExcludeIfSingleVolume pulumi.StringPtrInput `pulumi:"onlyExcludeIfSingleVolume"`
-	// The volume label. The disk having any volume with this label will be excluded from replication.
-	VolumeLabel pulumi.StringPtrInput `pulumi:"volumeLabel"`
+	VolumeLabel               pulumi.StringPtrInput `pulumi:"volumeLabel"`
 }
 
 func (InMageVolumeExclusionOptionsArgs) ElementType() reflect.Type {
@@ -10331,7 +8523,6 @@ func (i InMageVolumeExclusionOptionsArray) ToInMageVolumeExclusionOptionsArrayOu
 	return pulumi.ToOutputWithContext(ctx, i).(InMageVolumeExclusionOptionsArrayOutput)
 }
 
-// Guest disk signature based disk exclusion option when doing enable protection of virtual machine in InMage provider.
 type InMageVolumeExclusionOptionsOutput struct{ *pulumi.OutputState }
 
 func (InMageVolumeExclusionOptionsOutput) ElementType() reflect.Type {
@@ -10346,12 +8537,10 @@ func (o InMageVolumeExclusionOptionsOutput) ToInMageVolumeExclusionOptionsOutput
 	return o
 }
 
-// The value indicating whether to exclude multi volume disk or not. If a disk has multiple volumes and one of the volume has label matching with VolumeLabel this disk will be excluded from replication if OnlyExcludeIfSingleVolume is false.
 func (o InMageVolumeExclusionOptionsOutput) OnlyExcludeIfSingleVolume() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v InMageVolumeExclusionOptions) *string { return v.OnlyExcludeIfSingleVolume }).(pulumi.StringPtrOutput)
 }
 
-// The volume label. The disk having any volume with this label will be excluded from replication.
 func (o InMageVolumeExclusionOptionsOutput) VolumeLabel() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v InMageVolumeExclusionOptions) *string { return v.VolumeLabel }).(pulumi.StringPtrOutput)
 }
@@ -10376,12 +8565,9 @@ func (o InMageVolumeExclusionOptionsArrayOutput) Index(i pulumi.IntInput) InMage
 	}).(InMageVolumeExclusionOptionsOutput)
 }
 
-// Initial replication details.
 type InitialReplicationDetailsResponse struct {
-	// The initial replication progress percentage.
 	InitialReplicationProgressPercentage *string `pulumi:"initialReplicationProgressPercentage"`
-	// Initial replication type.
-	InitialReplicationType *string `pulumi:"initialReplicationType"`
+	InitialReplicationType               *string `pulumi:"initialReplicationType"`
 }
 
 // InitialReplicationDetailsResponseInput is an input type that accepts InitialReplicationDetailsResponseArgs and InitialReplicationDetailsResponseOutput values.
@@ -10395,12 +8581,9 @@ type InitialReplicationDetailsResponseInput interface {
 	ToInitialReplicationDetailsResponseOutputWithContext(context.Context) InitialReplicationDetailsResponseOutput
 }
 
-// Initial replication details.
 type InitialReplicationDetailsResponseArgs struct {
-	// The initial replication progress percentage.
 	InitialReplicationProgressPercentage pulumi.StringPtrInput `pulumi:"initialReplicationProgressPercentage"`
-	// Initial replication type.
-	InitialReplicationType pulumi.StringPtrInput `pulumi:"initialReplicationType"`
+	InitialReplicationType               pulumi.StringPtrInput `pulumi:"initialReplicationType"`
 }
 
 func (InitialReplicationDetailsResponseArgs) ElementType() reflect.Type {
@@ -10456,7 +8639,6 @@ func (i *initialReplicationDetailsResponsePtrType) ToInitialReplicationDetailsRe
 	return pulumi.ToOutputWithContext(ctx, i).(InitialReplicationDetailsResponsePtrOutput)
 }
 
-// Initial replication details.
 type InitialReplicationDetailsResponseOutput struct{ *pulumi.OutputState }
 
 func (InitialReplicationDetailsResponseOutput) ElementType() reflect.Type {
@@ -10476,17 +8658,15 @@ func (o InitialReplicationDetailsResponseOutput) ToInitialReplicationDetailsResp
 }
 
 func (o InitialReplicationDetailsResponseOutput) ToInitialReplicationDetailsResponsePtrOutputWithContext(ctx context.Context) InitialReplicationDetailsResponsePtrOutput {
-	return o.ApplyT(func(v InitialReplicationDetailsResponse) *InitialReplicationDetailsResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v InitialReplicationDetailsResponse) *InitialReplicationDetailsResponse {
 		return &v
 	}).(InitialReplicationDetailsResponsePtrOutput)
 }
 
-// The initial replication progress percentage.
 func (o InitialReplicationDetailsResponseOutput) InitialReplicationProgressPercentage() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v InitialReplicationDetailsResponse) *string { return v.InitialReplicationProgressPercentage }).(pulumi.StringPtrOutput)
 }
 
-// Initial replication type.
 func (o InitialReplicationDetailsResponseOutput) InitialReplicationType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v InitialReplicationDetailsResponse) *string { return v.InitialReplicationType }).(pulumi.StringPtrOutput)
 }
@@ -10506,10 +8686,15 @@ func (o InitialReplicationDetailsResponsePtrOutput) ToInitialReplicationDetailsR
 }
 
 func (o InitialReplicationDetailsResponsePtrOutput) Elem() InitialReplicationDetailsResponseOutput {
-	return o.ApplyT(func(v *InitialReplicationDetailsResponse) InitialReplicationDetailsResponse { return *v }).(InitialReplicationDetailsResponseOutput)
+	return o.ApplyT(func(v *InitialReplicationDetailsResponse) InitialReplicationDetailsResponse {
+		if v != nil {
+			return *v
+		}
+		var ret InitialReplicationDetailsResponse
+		return ret
+	}).(InitialReplicationDetailsResponseOutput)
 }
 
-// The initial replication progress percentage.
 func (o InitialReplicationDetailsResponsePtrOutput) InitialReplicationProgressPercentage() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *InitialReplicationDetailsResponse) *string {
 		if v == nil {
@@ -10519,7 +8704,6 @@ func (o InitialReplicationDetailsResponsePtrOutput) InitialReplicationProgressPe
 	}).(pulumi.StringPtrOutput)
 }
 
-// Initial replication type.
 func (o InitialReplicationDetailsResponsePtrOutput) InitialReplicationType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *InitialReplicationDetailsResponse) *string {
 		if v == nil {
@@ -10529,32 +8713,19 @@ func (o InitialReplicationDetailsResponsePtrOutput) InitialReplicationType() pul
 	}).(pulumi.StringPtrOutput)
 }
 
-// Implements InnerHealthError class. HealthError object has a list of InnerHealthErrors as child errors. InnerHealthError is used because this will prevent an infinite loop of structures when Hydra tries to auto-generate the contract. We are exposing the related health errors as inner health errors and all API consumers can utilize this in the same fashion as Exception -&gt; InnerException.
 type InnerHealthErrorResponse struct {
-	// Error creation time (UTC)
-	CreationTimeUtc *string `pulumi:"creationTimeUtc"`
-	// ID of the entity.
-	EntityId *string `pulumi:"entityId"`
-	// Category of error.
-	ErrorCategory *string `pulumi:"errorCategory"`
-	// Error code.
-	ErrorCode *string `pulumi:"errorCode"`
-	// Level of error.
-	ErrorLevel *string `pulumi:"errorLevel"`
-	// Error message.
-	ErrorMessage *string `pulumi:"errorMessage"`
-	// Source of error.
-	ErrorSource *string `pulumi:"errorSource"`
-	// Type of error.
-	ErrorType *string `pulumi:"errorType"`
-	// Possible causes of error.
-	PossibleCauses *string `pulumi:"possibleCauses"`
-	// Recommended action to resolve error.
-	RecommendedAction *string `pulumi:"recommendedAction"`
-	// DRA error message.
+	CreationTimeUtc              *string `pulumi:"creationTimeUtc"`
+	EntityId                     *string `pulumi:"entityId"`
+	ErrorCategory                *string `pulumi:"errorCategory"`
+	ErrorCode                    *string `pulumi:"errorCode"`
+	ErrorLevel                   *string `pulumi:"errorLevel"`
+	ErrorMessage                 *string `pulumi:"errorMessage"`
+	ErrorSource                  *string `pulumi:"errorSource"`
+	ErrorType                    *string `pulumi:"errorType"`
+	PossibleCauses               *string `pulumi:"possibleCauses"`
+	RecommendedAction            *string `pulumi:"recommendedAction"`
 	RecoveryProviderErrorMessage *string `pulumi:"recoveryProviderErrorMessage"`
-	// Summary message of the entity.
-	SummaryMessage *string `pulumi:"summaryMessage"`
+	SummaryMessage               *string `pulumi:"summaryMessage"`
 }
 
 // InnerHealthErrorResponseInput is an input type that accepts InnerHealthErrorResponseArgs and InnerHealthErrorResponseOutput values.
@@ -10568,32 +8739,19 @@ type InnerHealthErrorResponseInput interface {
 	ToInnerHealthErrorResponseOutputWithContext(context.Context) InnerHealthErrorResponseOutput
 }
 
-// Implements InnerHealthError class. HealthError object has a list of InnerHealthErrors as child errors. InnerHealthError is used because this will prevent an infinite loop of structures when Hydra tries to auto-generate the contract. We are exposing the related health errors as inner health errors and all API consumers can utilize this in the same fashion as Exception -&gt; InnerException.
 type InnerHealthErrorResponseArgs struct {
-	// Error creation time (UTC)
-	CreationTimeUtc pulumi.StringPtrInput `pulumi:"creationTimeUtc"`
-	// ID of the entity.
-	EntityId pulumi.StringPtrInput `pulumi:"entityId"`
-	// Category of error.
-	ErrorCategory pulumi.StringPtrInput `pulumi:"errorCategory"`
-	// Error code.
-	ErrorCode pulumi.StringPtrInput `pulumi:"errorCode"`
-	// Level of error.
-	ErrorLevel pulumi.StringPtrInput `pulumi:"errorLevel"`
-	// Error message.
-	ErrorMessage pulumi.StringPtrInput `pulumi:"errorMessage"`
-	// Source of error.
-	ErrorSource pulumi.StringPtrInput `pulumi:"errorSource"`
-	// Type of error.
-	ErrorType pulumi.StringPtrInput `pulumi:"errorType"`
-	// Possible causes of error.
-	PossibleCauses pulumi.StringPtrInput `pulumi:"possibleCauses"`
-	// Recommended action to resolve error.
-	RecommendedAction pulumi.StringPtrInput `pulumi:"recommendedAction"`
-	// DRA error message.
+	CreationTimeUtc              pulumi.StringPtrInput `pulumi:"creationTimeUtc"`
+	EntityId                     pulumi.StringPtrInput `pulumi:"entityId"`
+	ErrorCategory                pulumi.StringPtrInput `pulumi:"errorCategory"`
+	ErrorCode                    pulumi.StringPtrInput `pulumi:"errorCode"`
+	ErrorLevel                   pulumi.StringPtrInput `pulumi:"errorLevel"`
+	ErrorMessage                 pulumi.StringPtrInput `pulumi:"errorMessage"`
+	ErrorSource                  pulumi.StringPtrInput `pulumi:"errorSource"`
+	ErrorType                    pulumi.StringPtrInput `pulumi:"errorType"`
+	PossibleCauses               pulumi.StringPtrInput `pulumi:"possibleCauses"`
+	RecommendedAction            pulumi.StringPtrInput `pulumi:"recommendedAction"`
 	RecoveryProviderErrorMessage pulumi.StringPtrInput `pulumi:"recoveryProviderErrorMessage"`
-	// Summary message of the entity.
-	SummaryMessage pulumi.StringPtrInput `pulumi:"summaryMessage"`
+	SummaryMessage               pulumi.StringPtrInput `pulumi:"summaryMessage"`
 }
 
 func (InnerHealthErrorResponseArgs) ElementType() reflect.Type {
@@ -10633,7 +8791,6 @@ func (i InnerHealthErrorResponseArray) ToInnerHealthErrorResponseArrayOutputWith
 	return pulumi.ToOutputWithContext(ctx, i).(InnerHealthErrorResponseArrayOutput)
 }
 
-// Implements InnerHealthError class. HealthError object has a list of InnerHealthErrors as child errors. InnerHealthError is used because this will prevent an infinite loop of structures when Hydra tries to auto-generate the contract. We are exposing the related health errors as inner health errors and all API consumers can utilize this in the same fashion as Exception -&gt; InnerException.
 type InnerHealthErrorResponseOutput struct{ *pulumi.OutputState }
 
 func (InnerHealthErrorResponseOutput) ElementType() reflect.Type {
@@ -10648,62 +8805,50 @@ func (o InnerHealthErrorResponseOutput) ToInnerHealthErrorResponseOutputWithCont
 	return o
 }
 
-// Error creation time (UTC)
 func (o InnerHealthErrorResponseOutput) CreationTimeUtc() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v InnerHealthErrorResponse) *string { return v.CreationTimeUtc }).(pulumi.StringPtrOutput)
 }
 
-// ID of the entity.
 func (o InnerHealthErrorResponseOutput) EntityId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v InnerHealthErrorResponse) *string { return v.EntityId }).(pulumi.StringPtrOutput)
 }
 
-// Category of error.
 func (o InnerHealthErrorResponseOutput) ErrorCategory() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v InnerHealthErrorResponse) *string { return v.ErrorCategory }).(pulumi.StringPtrOutput)
 }
 
-// Error code.
 func (o InnerHealthErrorResponseOutput) ErrorCode() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v InnerHealthErrorResponse) *string { return v.ErrorCode }).(pulumi.StringPtrOutput)
 }
 
-// Level of error.
 func (o InnerHealthErrorResponseOutput) ErrorLevel() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v InnerHealthErrorResponse) *string { return v.ErrorLevel }).(pulumi.StringPtrOutput)
 }
 
-// Error message.
 func (o InnerHealthErrorResponseOutput) ErrorMessage() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v InnerHealthErrorResponse) *string { return v.ErrorMessage }).(pulumi.StringPtrOutput)
 }
 
-// Source of error.
 func (o InnerHealthErrorResponseOutput) ErrorSource() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v InnerHealthErrorResponse) *string { return v.ErrorSource }).(pulumi.StringPtrOutput)
 }
 
-// Type of error.
 func (o InnerHealthErrorResponseOutput) ErrorType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v InnerHealthErrorResponse) *string { return v.ErrorType }).(pulumi.StringPtrOutput)
 }
 
-// Possible causes of error.
 func (o InnerHealthErrorResponseOutput) PossibleCauses() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v InnerHealthErrorResponse) *string { return v.PossibleCauses }).(pulumi.StringPtrOutput)
 }
 
-// Recommended action to resolve error.
 func (o InnerHealthErrorResponseOutput) RecommendedAction() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v InnerHealthErrorResponse) *string { return v.RecommendedAction }).(pulumi.StringPtrOutput)
 }
 
-// DRA error message.
 func (o InnerHealthErrorResponseOutput) RecoveryProviderErrorMessage() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v InnerHealthErrorResponse) *string { return v.RecoveryProviderErrorMessage }).(pulumi.StringPtrOutput)
 }
 
-// Summary message of the entity.
 func (o InnerHealthErrorResponseOutput) SummaryMessage() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v InnerHealthErrorResponse) *string { return v.SummaryMessage }).(pulumi.StringPtrOutput)
 }
@@ -10728,16 +8873,11 @@ func (o InnerHealthErrorResponseArrayOutput) Index(i pulumi.IntInput) InnerHealt
 	}).(InnerHealthErrorResponseOutput)
 }
 
-// Azure VM input endpoint details.
 type InputEndpointResponse struct {
-	// The input endpoint name.
 	EndpointName *string `pulumi:"endpointName"`
-	// The input endpoint private port.
-	PrivatePort *int `pulumi:"privatePort"`
-	// The input endpoint protocol.
-	Protocol *string `pulumi:"protocol"`
-	// The input endpoint public port.
-	PublicPort *int `pulumi:"publicPort"`
+	PrivatePort  *int    `pulumi:"privatePort"`
+	Protocol     *string `pulumi:"protocol"`
+	PublicPort   *int    `pulumi:"publicPort"`
 }
 
 // InputEndpointResponseInput is an input type that accepts InputEndpointResponseArgs and InputEndpointResponseOutput values.
@@ -10751,16 +8891,11 @@ type InputEndpointResponseInput interface {
 	ToInputEndpointResponseOutputWithContext(context.Context) InputEndpointResponseOutput
 }
 
-// Azure VM input endpoint details.
 type InputEndpointResponseArgs struct {
-	// The input endpoint name.
 	EndpointName pulumi.StringPtrInput `pulumi:"endpointName"`
-	// The input endpoint private port.
-	PrivatePort pulumi.IntPtrInput `pulumi:"privatePort"`
-	// The input endpoint protocol.
-	Protocol pulumi.StringPtrInput `pulumi:"protocol"`
-	// The input endpoint public port.
-	PublicPort pulumi.IntPtrInput `pulumi:"publicPort"`
+	PrivatePort  pulumi.IntPtrInput    `pulumi:"privatePort"`
+	Protocol     pulumi.StringPtrInput `pulumi:"protocol"`
+	PublicPort   pulumi.IntPtrInput    `pulumi:"publicPort"`
 }
 
 func (InputEndpointResponseArgs) ElementType() reflect.Type {
@@ -10800,7 +8935,6 @@ func (i InputEndpointResponseArray) ToInputEndpointResponseArrayOutputWithContex
 	return pulumi.ToOutputWithContext(ctx, i).(InputEndpointResponseArrayOutput)
 }
 
-// Azure VM input endpoint details.
 type InputEndpointResponseOutput struct{ *pulumi.OutputState }
 
 func (InputEndpointResponseOutput) ElementType() reflect.Type {
@@ -10815,22 +8949,18 @@ func (o InputEndpointResponseOutput) ToInputEndpointResponseOutputWithContext(ct
 	return o
 }
 
-// The input endpoint name.
 func (o InputEndpointResponseOutput) EndpointName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v InputEndpointResponse) *string { return v.EndpointName }).(pulumi.StringPtrOutput)
 }
 
-// The input endpoint private port.
 func (o InputEndpointResponseOutput) PrivatePort() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v InputEndpointResponse) *int { return v.PrivatePort }).(pulumi.IntPtrOutput)
 }
 
-// The input endpoint protocol.
 func (o InputEndpointResponseOutput) Protocol() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v InputEndpointResponse) *string { return v.Protocol }).(pulumi.StringPtrOutput)
 }
 
-// The input endpoint public port.
 func (o InputEndpointResponseOutput) PublicPort() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v InputEndpointResponse) *int { return v.PublicPort }).(pulumi.IntPtrOutput)
 }
@@ -10855,11 +8985,8 @@ func (o InputEndpointResponseArrayOutput) Index(i pulumi.IntInput) InputEndpoint
 	}).(InputEndpointResponseOutput)
 }
 
-// Key Encryption Key (KEK) information.
 type KeyEncryptionKeyInfo struct {
-	// The key url / identifier.
-	KeyIdentifier *string `pulumi:"keyIdentifier"`
-	// The KeyVault resource ARM id for key.
+	KeyIdentifier         *string `pulumi:"keyIdentifier"`
 	KeyVaultResourceArmId *string `pulumi:"keyVaultResourceArmId"`
 }
 
@@ -10874,11 +9001,8 @@ type KeyEncryptionKeyInfoInput interface {
 	ToKeyEncryptionKeyInfoOutputWithContext(context.Context) KeyEncryptionKeyInfoOutput
 }
 
-// Key Encryption Key (KEK) information.
 type KeyEncryptionKeyInfoArgs struct {
-	// The key url / identifier.
-	KeyIdentifier pulumi.StringPtrInput `pulumi:"keyIdentifier"`
-	// The KeyVault resource ARM id for key.
+	KeyIdentifier         pulumi.StringPtrInput `pulumi:"keyIdentifier"`
 	KeyVaultResourceArmId pulumi.StringPtrInput `pulumi:"keyVaultResourceArmId"`
 }
 
@@ -10935,7 +9059,6 @@ func (i *keyEncryptionKeyInfoPtrType) ToKeyEncryptionKeyInfoPtrOutputWithContext
 	return pulumi.ToOutputWithContext(ctx, i).(KeyEncryptionKeyInfoPtrOutput)
 }
 
-// Key Encryption Key (KEK) information.
 type KeyEncryptionKeyInfoOutput struct{ *pulumi.OutputState }
 
 func (KeyEncryptionKeyInfoOutput) ElementType() reflect.Type {
@@ -10955,17 +9078,15 @@ func (o KeyEncryptionKeyInfoOutput) ToKeyEncryptionKeyInfoPtrOutput() KeyEncrypt
 }
 
 func (o KeyEncryptionKeyInfoOutput) ToKeyEncryptionKeyInfoPtrOutputWithContext(ctx context.Context) KeyEncryptionKeyInfoPtrOutput {
-	return o.ApplyT(func(v KeyEncryptionKeyInfo) *KeyEncryptionKeyInfo {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v KeyEncryptionKeyInfo) *KeyEncryptionKeyInfo {
 		return &v
 	}).(KeyEncryptionKeyInfoPtrOutput)
 }
 
-// The key url / identifier.
 func (o KeyEncryptionKeyInfoOutput) KeyIdentifier() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v KeyEncryptionKeyInfo) *string { return v.KeyIdentifier }).(pulumi.StringPtrOutput)
 }
 
-// The KeyVault resource ARM id for key.
 func (o KeyEncryptionKeyInfoOutput) KeyVaultResourceArmId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v KeyEncryptionKeyInfo) *string { return v.KeyVaultResourceArmId }).(pulumi.StringPtrOutput)
 }
@@ -10985,10 +9106,15 @@ func (o KeyEncryptionKeyInfoPtrOutput) ToKeyEncryptionKeyInfoPtrOutputWithContex
 }
 
 func (o KeyEncryptionKeyInfoPtrOutput) Elem() KeyEncryptionKeyInfoOutput {
-	return o.ApplyT(func(v *KeyEncryptionKeyInfo) KeyEncryptionKeyInfo { return *v }).(KeyEncryptionKeyInfoOutput)
+	return o.ApplyT(func(v *KeyEncryptionKeyInfo) KeyEncryptionKeyInfo {
+		if v != nil {
+			return *v
+		}
+		var ret KeyEncryptionKeyInfo
+		return ret
+	}).(KeyEncryptionKeyInfoOutput)
 }
 
-// The key url / identifier.
 func (o KeyEncryptionKeyInfoPtrOutput) KeyIdentifier() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *KeyEncryptionKeyInfo) *string {
 		if v == nil {
@@ -10998,7 +9124,6 @@ func (o KeyEncryptionKeyInfoPtrOutput) KeyIdentifier() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The KeyVault resource ARM id for key.
 func (o KeyEncryptionKeyInfoPtrOutput) KeyVaultResourceArmId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *KeyEncryptionKeyInfo) *string {
 		if v == nil {
@@ -11008,44 +9133,25 @@ func (o KeyEncryptionKeyInfoPtrOutput) KeyVaultResourceArmId() pulumi.StringPtrO
 	}).(pulumi.StringPtrOutput)
 }
 
-// Details of a Master Target Server.
 type MasterTargetServerResponse struct {
-	// Agent expiry date.
-	AgentExpiryDate *string `pulumi:"agentExpiryDate"`
-	// The version of the scout component on the server.
-	AgentVersion *string `pulumi:"agentVersion"`
-	// Agent version details.
-	AgentVersionDetails *VersionDetailsResponse `pulumi:"agentVersionDetails"`
-	// The list of data stores in the fabric.
-	DataStores []DataStoreResponse `pulumi:"dataStores"`
-	// Disk count of the master target.
-	DiskCount *int `pulumi:"diskCount"`
-	// Health errors.
-	HealthErrors []HealthErrorResponse `pulumi:"healthErrors"`
-	// The server Id.
-	Id *string `pulumi:"id"`
-	// The IP address of the server.
-	IpAddress *string `pulumi:"ipAddress"`
-	// The last heartbeat received from the server.
-	LastHeartbeat *string `pulumi:"lastHeartbeat"`
-	// MARS agent expiry date.
-	MarsAgentExpiryDate *string `pulumi:"marsAgentExpiryDate"`
-	// MARS agent version.
-	MarsAgentVersion *string `pulumi:"marsAgentVersion"`
-	// Mars agent version details.
-	MarsAgentVersionDetails *VersionDetailsResponse `pulumi:"marsAgentVersionDetails"`
-	// The server name.
-	Name *string `pulumi:"name"`
-	// The OS type of the server.
-	OsType *string `pulumi:"osType"`
-	// OS Version of the master target.
-	OsVersion *string `pulumi:"osVersion"`
-	// The retention volumes of Master target Server.
-	RetentionVolumes []RetentionVolumeResponse `pulumi:"retentionVolumes"`
-	// Validation errors.
-	ValidationErrors []HealthErrorResponse `pulumi:"validationErrors"`
-	// Version status
-	VersionStatus *string `pulumi:"versionStatus"`
+	AgentExpiryDate         *string                   `pulumi:"agentExpiryDate"`
+	AgentVersion            *string                   `pulumi:"agentVersion"`
+	AgentVersionDetails     *VersionDetailsResponse   `pulumi:"agentVersionDetails"`
+	DataStores              []DataStoreResponse       `pulumi:"dataStores"`
+	DiskCount               *int                      `pulumi:"diskCount"`
+	HealthErrors            []HealthErrorResponse     `pulumi:"healthErrors"`
+	Id                      *string                   `pulumi:"id"`
+	IpAddress               *string                   `pulumi:"ipAddress"`
+	LastHeartbeat           *string                   `pulumi:"lastHeartbeat"`
+	MarsAgentExpiryDate     *string                   `pulumi:"marsAgentExpiryDate"`
+	MarsAgentVersion        *string                   `pulumi:"marsAgentVersion"`
+	MarsAgentVersionDetails *VersionDetailsResponse   `pulumi:"marsAgentVersionDetails"`
+	Name                    *string                   `pulumi:"name"`
+	OsType                  *string                   `pulumi:"osType"`
+	OsVersion               *string                   `pulumi:"osVersion"`
+	RetentionVolumes        []RetentionVolumeResponse `pulumi:"retentionVolumes"`
+	ValidationErrors        []HealthErrorResponse     `pulumi:"validationErrors"`
+	VersionStatus           *string                   `pulumi:"versionStatus"`
 }
 
 // MasterTargetServerResponseInput is an input type that accepts MasterTargetServerResponseArgs and MasterTargetServerResponseOutput values.
@@ -11059,44 +9165,25 @@ type MasterTargetServerResponseInput interface {
 	ToMasterTargetServerResponseOutputWithContext(context.Context) MasterTargetServerResponseOutput
 }
 
-// Details of a Master Target Server.
 type MasterTargetServerResponseArgs struct {
-	// Agent expiry date.
-	AgentExpiryDate pulumi.StringPtrInput `pulumi:"agentExpiryDate"`
-	// The version of the scout component on the server.
-	AgentVersion pulumi.StringPtrInput `pulumi:"agentVersion"`
-	// Agent version details.
-	AgentVersionDetails VersionDetailsResponsePtrInput `pulumi:"agentVersionDetails"`
-	// The list of data stores in the fabric.
-	DataStores DataStoreResponseArrayInput `pulumi:"dataStores"`
-	// Disk count of the master target.
-	DiskCount pulumi.IntPtrInput `pulumi:"diskCount"`
-	// Health errors.
-	HealthErrors HealthErrorResponseArrayInput `pulumi:"healthErrors"`
-	// The server Id.
-	Id pulumi.StringPtrInput `pulumi:"id"`
-	// The IP address of the server.
-	IpAddress pulumi.StringPtrInput `pulumi:"ipAddress"`
-	// The last heartbeat received from the server.
-	LastHeartbeat pulumi.StringPtrInput `pulumi:"lastHeartbeat"`
-	// MARS agent expiry date.
-	MarsAgentExpiryDate pulumi.StringPtrInput `pulumi:"marsAgentExpiryDate"`
-	// MARS agent version.
-	MarsAgentVersion pulumi.StringPtrInput `pulumi:"marsAgentVersion"`
-	// Mars agent version details.
-	MarsAgentVersionDetails VersionDetailsResponsePtrInput `pulumi:"marsAgentVersionDetails"`
-	// The server name.
-	Name pulumi.StringPtrInput `pulumi:"name"`
-	// The OS type of the server.
-	OsType pulumi.StringPtrInput `pulumi:"osType"`
-	// OS Version of the master target.
-	OsVersion pulumi.StringPtrInput `pulumi:"osVersion"`
-	// The retention volumes of Master target Server.
-	RetentionVolumes RetentionVolumeResponseArrayInput `pulumi:"retentionVolumes"`
-	// Validation errors.
-	ValidationErrors HealthErrorResponseArrayInput `pulumi:"validationErrors"`
-	// Version status
-	VersionStatus pulumi.StringPtrInput `pulumi:"versionStatus"`
+	AgentExpiryDate         pulumi.StringPtrInput             `pulumi:"agentExpiryDate"`
+	AgentVersion            pulumi.StringPtrInput             `pulumi:"agentVersion"`
+	AgentVersionDetails     VersionDetailsResponsePtrInput    `pulumi:"agentVersionDetails"`
+	DataStores              DataStoreResponseArrayInput       `pulumi:"dataStores"`
+	DiskCount               pulumi.IntPtrInput                `pulumi:"diskCount"`
+	HealthErrors            HealthErrorResponseArrayInput     `pulumi:"healthErrors"`
+	Id                      pulumi.StringPtrInput             `pulumi:"id"`
+	IpAddress               pulumi.StringPtrInput             `pulumi:"ipAddress"`
+	LastHeartbeat           pulumi.StringPtrInput             `pulumi:"lastHeartbeat"`
+	MarsAgentExpiryDate     pulumi.StringPtrInput             `pulumi:"marsAgentExpiryDate"`
+	MarsAgentVersion        pulumi.StringPtrInput             `pulumi:"marsAgentVersion"`
+	MarsAgentVersionDetails VersionDetailsResponsePtrInput    `pulumi:"marsAgentVersionDetails"`
+	Name                    pulumi.StringPtrInput             `pulumi:"name"`
+	OsType                  pulumi.StringPtrInput             `pulumi:"osType"`
+	OsVersion               pulumi.StringPtrInput             `pulumi:"osVersion"`
+	RetentionVolumes        RetentionVolumeResponseArrayInput `pulumi:"retentionVolumes"`
+	ValidationErrors        HealthErrorResponseArrayInput     `pulumi:"validationErrors"`
+	VersionStatus           pulumi.StringPtrInput             `pulumi:"versionStatus"`
 }
 
 func (MasterTargetServerResponseArgs) ElementType() reflect.Type {
@@ -11136,7 +9223,6 @@ func (i MasterTargetServerResponseArray) ToMasterTargetServerResponseArrayOutput
 	return pulumi.ToOutputWithContext(ctx, i).(MasterTargetServerResponseArrayOutput)
 }
 
-// Details of a Master Target Server.
 type MasterTargetServerResponseOutput struct{ *pulumi.OutputState }
 
 func (MasterTargetServerResponseOutput) ElementType() reflect.Type {
@@ -11151,92 +9237,74 @@ func (o MasterTargetServerResponseOutput) ToMasterTargetServerResponseOutputWith
 	return o
 }
 
-// Agent expiry date.
 func (o MasterTargetServerResponseOutput) AgentExpiryDate() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v MasterTargetServerResponse) *string { return v.AgentExpiryDate }).(pulumi.StringPtrOutput)
 }
 
-// The version of the scout component on the server.
 func (o MasterTargetServerResponseOutput) AgentVersion() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v MasterTargetServerResponse) *string { return v.AgentVersion }).(pulumi.StringPtrOutput)
 }
 
-// Agent version details.
 func (o MasterTargetServerResponseOutput) AgentVersionDetails() VersionDetailsResponsePtrOutput {
 	return o.ApplyT(func(v MasterTargetServerResponse) *VersionDetailsResponse { return v.AgentVersionDetails }).(VersionDetailsResponsePtrOutput)
 }
 
-// The list of data stores in the fabric.
 func (o MasterTargetServerResponseOutput) DataStores() DataStoreResponseArrayOutput {
 	return o.ApplyT(func(v MasterTargetServerResponse) []DataStoreResponse { return v.DataStores }).(DataStoreResponseArrayOutput)
 }
 
-// Disk count of the master target.
 func (o MasterTargetServerResponseOutput) DiskCount() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v MasterTargetServerResponse) *int { return v.DiskCount }).(pulumi.IntPtrOutput)
 }
 
-// Health errors.
 func (o MasterTargetServerResponseOutput) HealthErrors() HealthErrorResponseArrayOutput {
 	return o.ApplyT(func(v MasterTargetServerResponse) []HealthErrorResponse { return v.HealthErrors }).(HealthErrorResponseArrayOutput)
 }
 
-// The server Id.
 func (o MasterTargetServerResponseOutput) Id() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v MasterTargetServerResponse) *string { return v.Id }).(pulumi.StringPtrOutput)
 }
 
-// The IP address of the server.
 func (o MasterTargetServerResponseOutput) IpAddress() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v MasterTargetServerResponse) *string { return v.IpAddress }).(pulumi.StringPtrOutput)
 }
 
-// The last heartbeat received from the server.
 func (o MasterTargetServerResponseOutput) LastHeartbeat() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v MasterTargetServerResponse) *string { return v.LastHeartbeat }).(pulumi.StringPtrOutput)
 }
 
-// MARS agent expiry date.
 func (o MasterTargetServerResponseOutput) MarsAgentExpiryDate() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v MasterTargetServerResponse) *string { return v.MarsAgentExpiryDate }).(pulumi.StringPtrOutput)
 }
 
-// MARS agent version.
 func (o MasterTargetServerResponseOutput) MarsAgentVersion() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v MasterTargetServerResponse) *string { return v.MarsAgentVersion }).(pulumi.StringPtrOutput)
 }
 
-// Mars agent version details.
 func (o MasterTargetServerResponseOutput) MarsAgentVersionDetails() VersionDetailsResponsePtrOutput {
 	return o.ApplyT(func(v MasterTargetServerResponse) *VersionDetailsResponse { return v.MarsAgentVersionDetails }).(VersionDetailsResponsePtrOutput)
 }
 
-// The server name.
 func (o MasterTargetServerResponseOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v MasterTargetServerResponse) *string { return v.Name }).(pulumi.StringPtrOutput)
 }
 
-// The OS type of the server.
 func (o MasterTargetServerResponseOutput) OsType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v MasterTargetServerResponse) *string { return v.OsType }).(pulumi.StringPtrOutput)
 }
 
-// OS Version of the master target.
 func (o MasterTargetServerResponseOutput) OsVersion() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v MasterTargetServerResponse) *string { return v.OsVersion }).(pulumi.StringPtrOutput)
 }
 
-// The retention volumes of Master target Server.
 func (o MasterTargetServerResponseOutput) RetentionVolumes() RetentionVolumeResponseArrayOutput {
 	return o.ApplyT(func(v MasterTargetServerResponse) []RetentionVolumeResponse { return v.RetentionVolumes }).(RetentionVolumeResponseArrayOutput)
 }
 
-// Validation errors.
 func (o MasterTargetServerResponseOutput) ValidationErrors() HealthErrorResponseArrayOutput {
 	return o.ApplyT(func(v MasterTargetServerResponse) []HealthErrorResponse { return v.ValidationErrors }).(HealthErrorResponseArrayOutput)
 }
 
-// Version status
 func (o MasterTargetServerResponseOutput) VersionStatus() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v MasterTargetServerResponse) *string { return v.VersionStatus }).(pulumi.StringPtrOutput)
 }
@@ -11261,38 +9329,22 @@ func (o MasterTargetServerResponseArrayOutput) Index(i pulumi.IntInput) MasterTa
 	}).(MasterTargetServerResponseOutput)
 }
 
-// Migration item properties.
 type MigrationItemPropertiesResponse struct {
-	// The allowed operations on the migration item, based on the current migration state of the item.
-	AllowedOperations []string `pulumi:"allowedOperations"`
-	// The current job details.
-	CurrentJob CurrentJobDetailsResponse `pulumi:"currentJob"`
-	// The correlation Id for events associated with this migration item.
-	EventCorrelationId string `pulumi:"eventCorrelationId"`
-	// The consolidated health.
-	Health string `pulumi:"health"`
-	// The list of health errors.
-	HealthErrors []HealthErrorResponse `pulumi:"healthErrors"`
-	// The status of the last test migration.
-	LastTestMigrationStatus string `pulumi:"lastTestMigrationStatus"`
-	// The last test migration time.
-	LastTestMigrationTime string `pulumi:"lastTestMigrationTime"`
-	// The on-premise virtual machine name.
-	MachineName string `pulumi:"machineName"`
-	// The migration status.
-	MigrationState string `pulumi:"migrationState"`
-	// The migration state description.
-	MigrationStateDescription string `pulumi:"migrationStateDescription"`
-	// The name of policy governing this item.
-	PolicyFriendlyName string `pulumi:"policyFriendlyName"`
-	// The ARM Id of policy governing this item.
-	PolicyId string `pulumi:"policyId"`
-	// The migration provider custom settings.
-	ProviderSpecificDetails *VMwareCbtMigrationDetailsResponse `pulumi:"providerSpecificDetails"`
-	// The test migrate state.
-	TestMigrateState string `pulumi:"testMigrateState"`
-	// The test migrate state description.
-	TestMigrateStateDescription string `pulumi:"testMigrateStateDescription"`
+	AllowedOperations           []string                           `pulumi:"allowedOperations"`
+	CurrentJob                  CurrentJobDetailsResponse          `pulumi:"currentJob"`
+	EventCorrelationId          string                             `pulumi:"eventCorrelationId"`
+	Health                      string                             `pulumi:"health"`
+	HealthErrors                []HealthErrorResponse              `pulumi:"healthErrors"`
+	LastTestMigrationStatus     string                             `pulumi:"lastTestMigrationStatus"`
+	LastTestMigrationTime       string                             `pulumi:"lastTestMigrationTime"`
+	MachineName                 string                             `pulumi:"machineName"`
+	MigrationState              string                             `pulumi:"migrationState"`
+	MigrationStateDescription   string                             `pulumi:"migrationStateDescription"`
+	PolicyFriendlyName          string                             `pulumi:"policyFriendlyName"`
+	PolicyId                    string                             `pulumi:"policyId"`
+	ProviderSpecificDetails     *VMwareCbtMigrationDetailsResponse `pulumi:"providerSpecificDetails"`
+	TestMigrateState            string                             `pulumi:"testMigrateState"`
+	TestMigrateStateDescription string                             `pulumi:"testMigrateStateDescription"`
 }
 
 // MigrationItemPropertiesResponseInput is an input type that accepts MigrationItemPropertiesResponseArgs and MigrationItemPropertiesResponseOutput values.
@@ -11306,38 +9358,22 @@ type MigrationItemPropertiesResponseInput interface {
 	ToMigrationItemPropertiesResponseOutputWithContext(context.Context) MigrationItemPropertiesResponseOutput
 }
 
-// Migration item properties.
 type MigrationItemPropertiesResponseArgs struct {
-	// The allowed operations on the migration item, based on the current migration state of the item.
-	AllowedOperations pulumi.StringArrayInput `pulumi:"allowedOperations"`
-	// The current job details.
-	CurrentJob CurrentJobDetailsResponseInput `pulumi:"currentJob"`
-	// The correlation Id for events associated with this migration item.
-	EventCorrelationId pulumi.StringInput `pulumi:"eventCorrelationId"`
-	// The consolidated health.
-	Health pulumi.StringInput `pulumi:"health"`
-	// The list of health errors.
-	HealthErrors HealthErrorResponseArrayInput `pulumi:"healthErrors"`
-	// The status of the last test migration.
-	LastTestMigrationStatus pulumi.StringInput `pulumi:"lastTestMigrationStatus"`
-	// The last test migration time.
-	LastTestMigrationTime pulumi.StringInput `pulumi:"lastTestMigrationTime"`
-	// The on-premise virtual machine name.
-	MachineName pulumi.StringInput `pulumi:"machineName"`
-	// The migration status.
-	MigrationState pulumi.StringInput `pulumi:"migrationState"`
-	// The migration state description.
-	MigrationStateDescription pulumi.StringInput `pulumi:"migrationStateDescription"`
-	// The name of policy governing this item.
-	PolicyFriendlyName pulumi.StringInput `pulumi:"policyFriendlyName"`
-	// The ARM Id of policy governing this item.
-	PolicyId pulumi.StringInput `pulumi:"policyId"`
-	// The migration provider custom settings.
-	ProviderSpecificDetails VMwareCbtMigrationDetailsResponsePtrInput `pulumi:"providerSpecificDetails"`
-	// The test migrate state.
-	TestMigrateState pulumi.StringInput `pulumi:"testMigrateState"`
-	// The test migrate state description.
-	TestMigrateStateDescription pulumi.StringInput `pulumi:"testMigrateStateDescription"`
+	AllowedOperations           pulumi.StringArrayInput                   `pulumi:"allowedOperations"`
+	CurrentJob                  CurrentJobDetailsResponseInput            `pulumi:"currentJob"`
+	EventCorrelationId          pulumi.StringInput                        `pulumi:"eventCorrelationId"`
+	Health                      pulumi.StringInput                        `pulumi:"health"`
+	HealthErrors                HealthErrorResponseArrayInput             `pulumi:"healthErrors"`
+	LastTestMigrationStatus     pulumi.StringInput                        `pulumi:"lastTestMigrationStatus"`
+	LastTestMigrationTime       pulumi.StringInput                        `pulumi:"lastTestMigrationTime"`
+	MachineName                 pulumi.StringInput                        `pulumi:"machineName"`
+	MigrationState              pulumi.StringInput                        `pulumi:"migrationState"`
+	MigrationStateDescription   pulumi.StringInput                        `pulumi:"migrationStateDescription"`
+	PolicyFriendlyName          pulumi.StringInput                        `pulumi:"policyFriendlyName"`
+	PolicyId                    pulumi.StringInput                        `pulumi:"policyId"`
+	ProviderSpecificDetails     VMwareCbtMigrationDetailsResponsePtrInput `pulumi:"providerSpecificDetails"`
+	TestMigrateState            pulumi.StringInput                        `pulumi:"testMigrateState"`
+	TestMigrateStateDescription pulumi.StringInput                        `pulumi:"testMigrateStateDescription"`
 }
 
 func (MigrationItemPropertiesResponseArgs) ElementType() reflect.Type {
@@ -11393,7 +9429,6 @@ func (i *migrationItemPropertiesResponsePtrType) ToMigrationItemPropertiesRespon
 	return pulumi.ToOutputWithContext(ctx, i).(MigrationItemPropertiesResponsePtrOutput)
 }
 
-// Migration item properties.
 type MigrationItemPropertiesResponseOutput struct{ *pulumi.OutputState }
 
 func (MigrationItemPropertiesResponseOutput) ElementType() reflect.Type {
@@ -11413,84 +9448,69 @@ func (o MigrationItemPropertiesResponseOutput) ToMigrationItemPropertiesResponse
 }
 
 func (o MigrationItemPropertiesResponseOutput) ToMigrationItemPropertiesResponsePtrOutputWithContext(ctx context.Context) MigrationItemPropertiesResponsePtrOutput {
-	return o.ApplyT(func(v MigrationItemPropertiesResponse) *MigrationItemPropertiesResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v MigrationItemPropertiesResponse) *MigrationItemPropertiesResponse {
 		return &v
 	}).(MigrationItemPropertiesResponsePtrOutput)
 }
 
-// The allowed operations on the migration item, based on the current migration state of the item.
 func (o MigrationItemPropertiesResponseOutput) AllowedOperations() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v MigrationItemPropertiesResponse) []string { return v.AllowedOperations }).(pulumi.StringArrayOutput)
 }
 
-// The current job details.
 func (o MigrationItemPropertiesResponseOutput) CurrentJob() CurrentJobDetailsResponseOutput {
 	return o.ApplyT(func(v MigrationItemPropertiesResponse) CurrentJobDetailsResponse { return v.CurrentJob }).(CurrentJobDetailsResponseOutput)
 }
 
-// The correlation Id for events associated with this migration item.
 func (o MigrationItemPropertiesResponseOutput) EventCorrelationId() pulumi.StringOutput {
 	return o.ApplyT(func(v MigrationItemPropertiesResponse) string { return v.EventCorrelationId }).(pulumi.StringOutput)
 }
 
-// The consolidated health.
 func (o MigrationItemPropertiesResponseOutput) Health() pulumi.StringOutput {
 	return o.ApplyT(func(v MigrationItemPropertiesResponse) string { return v.Health }).(pulumi.StringOutput)
 }
 
-// The list of health errors.
 func (o MigrationItemPropertiesResponseOutput) HealthErrors() HealthErrorResponseArrayOutput {
 	return o.ApplyT(func(v MigrationItemPropertiesResponse) []HealthErrorResponse { return v.HealthErrors }).(HealthErrorResponseArrayOutput)
 }
 
-// The status of the last test migration.
 func (o MigrationItemPropertiesResponseOutput) LastTestMigrationStatus() pulumi.StringOutput {
 	return o.ApplyT(func(v MigrationItemPropertiesResponse) string { return v.LastTestMigrationStatus }).(pulumi.StringOutput)
 }
 
-// The last test migration time.
 func (o MigrationItemPropertiesResponseOutput) LastTestMigrationTime() pulumi.StringOutput {
 	return o.ApplyT(func(v MigrationItemPropertiesResponse) string { return v.LastTestMigrationTime }).(pulumi.StringOutput)
 }
 
-// The on-premise virtual machine name.
 func (o MigrationItemPropertiesResponseOutput) MachineName() pulumi.StringOutput {
 	return o.ApplyT(func(v MigrationItemPropertiesResponse) string { return v.MachineName }).(pulumi.StringOutput)
 }
 
-// The migration status.
 func (o MigrationItemPropertiesResponseOutput) MigrationState() pulumi.StringOutput {
 	return o.ApplyT(func(v MigrationItemPropertiesResponse) string { return v.MigrationState }).(pulumi.StringOutput)
 }
 
-// The migration state description.
 func (o MigrationItemPropertiesResponseOutput) MigrationStateDescription() pulumi.StringOutput {
 	return o.ApplyT(func(v MigrationItemPropertiesResponse) string { return v.MigrationStateDescription }).(pulumi.StringOutput)
 }
 
-// The name of policy governing this item.
 func (o MigrationItemPropertiesResponseOutput) PolicyFriendlyName() pulumi.StringOutput {
 	return o.ApplyT(func(v MigrationItemPropertiesResponse) string { return v.PolicyFriendlyName }).(pulumi.StringOutput)
 }
 
-// The ARM Id of policy governing this item.
 func (o MigrationItemPropertiesResponseOutput) PolicyId() pulumi.StringOutput {
 	return o.ApplyT(func(v MigrationItemPropertiesResponse) string { return v.PolicyId }).(pulumi.StringOutput)
 }
 
-// The migration provider custom settings.
 func (o MigrationItemPropertiesResponseOutput) ProviderSpecificDetails() VMwareCbtMigrationDetailsResponsePtrOutput {
 	return o.ApplyT(func(v MigrationItemPropertiesResponse) *VMwareCbtMigrationDetailsResponse {
 		return v.ProviderSpecificDetails
 	}).(VMwareCbtMigrationDetailsResponsePtrOutput)
 }
 
-// The test migrate state.
 func (o MigrationItemPropertiesResponseOutput) TestMigrateState() pulumi.StringOutput {
 	return o.ApplyT(func(v MigrationItemPropertiesResponse) string { return v.TestMigrateState }).(pulumi.StringOutput)
 }
 
-// The test migrate state description.
 func (o MigrationItemPropertiesResponseOutput) TestMigrateStateDescription() pulumi.StringOutput {
 	return o.ApplyT(func(v MigrationItemPropertiesResponse) string { return v.TestMigrateStateDescription }).(pulumi.StringOutput)
 }
@@ -11510,10 +9530,15 @@ func (o MigrationItemPropertiesResponsePtrOutput) ToMigrationItemPropertiesRespo
 }
 
 func (o MigrationItemPropertiesResponsePtrOutput) Elem() MigrationItemPropertiesResponseOutput {
-	return o.ApplyT(func(v *MigrationItemPropertiesResponse) MigrationItemPropertiesResponse { return *v }).(MigrationItemPropertiesResponseOutput)
+	return o.ApplyT(func(v *MigrationItemPropertiesResponse) MigrationItemPropertiesResponse {
+		if v != nil {
+			return *v
+		}
+		var ret MigrationItemPropertiesResponse
+		return ret
+	}).(MigrationItemPropertiesResponseOutput)
 }
 
-// The allowed operations on the migration item, based on the current migration state of the item.
 func (o MigrationItemPropertiesResponsePtrOutput) AllowedOperations() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *MigrationItemPropertiesResponse) []string {
 		if v == nil {
@@ -11523,7 +9548,6 @@ func (o MigrationItemPropertiesResponsePtrOutput) AllowedOperations() pulumi.Str
 	}).(pulumi.StringArrayOutput)
 }
 
-// The current job details.
 func (o MigrationItemPropertiesResponsePtrOutput) CurrentJob() CurrentJobDetailsResponsePtrOutput {
 	return o.ApplyT(func(v *MigrationItemPropertiesResponse) *CurrentJobDetailsResponse {
 		if v == nil {
@@ -11533,7 +9557,6 @@ func (o MigrationItemPropertiesResponsePtrOutput) CurrentJob() CurrentJobDetails
 	}).(CurrentJobDetailsResponsePtrOutput)
 }
 
-// The correlation Id for events associated with this migration item.
 func (o MigrationItemPropertiesResponsePtrOutput) EventCorrelationId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *MigrationItemPropertiesResponse) *string {
 		if v == nil {
@@ -11543,7 +9566,6 @@ func (o MigrationItemPropertiesResponsePtrOutput) EventCorrelationId() pulumi.St
 	}).(pulumi.StringPtrOutput)
 }
 
-// The consolidated health.
 func (o MigrationItemPropertiesResponsePtrOutput) Health() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *MigrationItemPropertiesResponse) *string {
 		if v == nil {
@@ -11553,7 +9575,6 @@ func (o MigrationItemPropertiesResponsePtrOutput) Health() pulumi.StringPtrOutpu
 	}).(pulumi.StringPtrOutput)
 }
 
-// The list of health errors.
 func (o MigrationItemPropertiesResponsePtrOutput) HealthErrors() HealthErrorResponseArrayOutput {
 	return o.ApplyT(func(v *MigrationItemPropertiesResponse) []HealthErrorResponse {
 		if v == nil {
@@ -11563,7 +9584,6 @@ func (o MigrationItemPropertiesResponsePtrOutput) HealthErrors() HealthErrorResp
 	}).(HealthErrorResponseArrayOutput)
 }
 
-// The status of the last test migration.
 func (o MigrationItemPropertiesResponsePtrOutput) LastTestMigrationStatus() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *MigrationItemPropertiesResponse) *string {
 		if v == nil {
@@ -11573,7 +9593,6 @@ func (o MigrationItemPropertiesResponsePtrOutput) LastTestMigrationStatus() pulu
 	}).(pulumi.StringPtrOutput)
 }
 
-// The last test migration time.
 func (o MigrationItemPropertiesResponsePtrOutput) LastTestMigrationTime() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *MigrationItemPropertiesResponse) *string {
 		if v == nil {
@@ -11583,7 +9602,6 @@ func (o MigrationItemPropertiesResponsePtrOutput) LastTestMigrationTime() pulumi
 	}).(pulumi.StringPtrOutput)
 }
 
-// The on-premise virtual machine name.
 func (o MigrationItemPropertiesResponsePtrOutput) MachineName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *MigrationItemPropertiesResponse) *string {
 		if v == nil {
@@ -11593,7 +9611,6 @@ func (o MigrationItemPropertiesResponsePtrOutput) MachineName() pulumi.StringPtr
 	}).(pulumi.StringPtrOutput)
 }
 
-// The migration status.
 func (o MigrationItemPropertiesResponsePtrOutput) MigrationState() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *MigrationItemPropertiesResponse) *string {
 		if v == nil {
@@ -11603,7 +9620,6 @@ func (o MigrationItemPropertiesResponsePtrOutput) MigrationState() pulumi.String
 	}).(pulumi.StringPtrOutput)
 }
 
-// The migration state description.
 func (o MigrationItemPropertiesResponsePtrOutput) MigrationStateDescription() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *MigrationItemPropertiesResponse) *string {
 		if v == nil {
@@ -11613,7 +9629,6 @@ func (o MigrationItemPropertiesResponsePtrOutput) MigrationStateDescription() pu
 	}).(pulumi.StringPtrOutput)
 }
 
-// The name of policy governing this item.
 func (o MigrationItemPropertiesResponsePtrOutput) PolicyFriendlyName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *MigrationItemPropertiesResponse) *string {
 		if v == nil {
@@ -11623,7 +9638,6 @@ func (o MigrationItemPropertiesResponsePtrOutput) PolicyFriendlyName() pulumi.St
 	}).(pulumi.StringPtrOutput)
 }
 
-// The ARM Id of policy governing this item.
 func (o MigrationItemPropertiesResponsePtrOutput) PolicyId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *MigrationItemPropertiesResponse) *string {
 		if v == nil {
@@ -11633,7 +9647,6 @@ func (o MigrationItemPropertiesResponsePtrOutput) PolicyId() pulumi.StringPtrOut
 	}).(pulumi.StringPtrOutput)
 }
 
-// The migration provider custom settings.
 func (o MigrationItemPropertiesResponsePtrOutput) ProviderSpecificDetails() VMwareCbtMigrationDetailsResponsePtrOutput {
 	return o.ApplyT(func(v *MigrationItemPropertiesResponse) *VMwareCbtMigrationDetailsResponse {
 		if v == nil {
@@ -11643,7 +9656,6 @@ func (o MigrationItemPropertiesResponsePtrOutput) ProviderSpecificDetails() VMwa
 	}).(VMwareCbtMigrationDetailsResponsePtrOutput)
 }
 
-// The test migrate state.
 func (o MigrationItemPropertiesResponsePtrOutput) TestMigrateState() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *MigrationItemPropertiesResponse) *string {
 		if v == nil {
@@ -11653,7 +9665,6 @@ func (o MigrationItemPropertiesResponsePtrOutput) TestMigrateState() pulumi.Stri
 	}).(pulumi.StringPtrOutput)
 }
 
-// The test migrate state description.
 func (o MigrationItemPropertiesResponsePtrOutput) TestMigrateStateDescription() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *MigrationItemPropertiesResponse) *string {
 		if v == nil {
@@ -11663,14 +9674,10 @@ func (o MigrationItemPropertiesResponsePtrOutput) TestMigrateStateDescription() 
 	}).(pulumi.StringPtrOutput)
 }
 
-// The Mobility Service update details.
 type MobilityServiceUpdateResponse struct {
-	// The OS type.
-	OsType *string `pulumi:"osType"`
-	// The reboot status of the update - whether it is required or not.
+	OsType       *string `pulumi:"osType"`
 	RebootStatus *string `pulumi:"rebootStatus"`
-	// The version of the latest update.
-	Version *string `pulumi:"version"`
+	Version      *string `pulumi:"version"`
 }
 
 // MobilityServiceUpdateResponseInput is an input type that accepts MobilityServiceUpdateResponseArgs and MobilityServiceUpdateResponseOutput values.
@@ -11684,14 +9691,10 @@ type MobilityServiceUpdateResponseInput interface {
 	ToMobilityServiceUpdateResponseOutputWithContext(context.Context) MobilityServiceUpdateResponseOutput
 }
 
-// The Mobility Service update details.
 type MobilityServiceUpdateResponseArgs struct {
-	// The OS type.
-	OsType pulumi.StringPtrInput `pulumi:"osType"`
-	// The reboot status of the update - whether it is required or not.
+	OsType       pulumi.StringPtrInput `pulumi:"osType"`
 	RebootStatus pulumi.StringPtrInput `pulumi:"rebootStatus"`
-	// The version of the latest update.
-	Version pulumi.StringPtrInput `pulumi:"version"`
+	Version      pulumi.StringPtrInput `pulumi:"version"`
 }
 
 func (MobilityServiceUpdateResponseArgs) ElementType() reflect.Type {
@@ -11731,7 +9734,6 @@ func (i MobilityServiceUpdateResponseArray) ToMobilityServiceUpdateResponseArray
 	return pulumi.ToOutputWithContext(ctx, i).(MobilityServiceUpdateResponseArrayOutput)
 }
 
-// The Mobility Service update details.
 type MobilityServiceUpdateResponseOutput struct{ *pulumi.OutputState }
 
 func (MobilityServiceUpdateResponseOutput) ElementType() reflect.Type {
@@ -11746,17 +9748,14 @@ func (o MobilityServiceUpdateResponseOutput) ToMobilityServiceUpdateResponseOutp
 	return o
 }
 
-// The OS type.
 func (o MobilityServiceUpdateResponseOutput) OsType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v MobilityServiceUpdateResponse) *string { return v.OsType }).(pulumi.StringPtrOutput)
 }
 
-// The reboot status of the update - whether it is required or not.
 func (o MobilityServiceUpdateResponseOutput) RebootStatus() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v MobilityServiceUpdateResponse) *string { return v.RebootStatus }).(pulumi.StringPtrOutput)
 }
 
-// The version of the latest update.
 func (o MobilityServiceUpdateResponseOutput) Version() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v MobilityServiceUpdateResponse) *string { return v.Version }).(pulumi.StringPtrOutput)
 }
@@ -11781,26 +9780,16 @@ func (o MobilityServiceUpdateResponseArrayOutput) Index(i pulumi.IntInput) Mobil
 	}).(MobilityServiceUpdateResponseOutput)
 }
 
-// Network Mapping Properties.
 type NetworkMappingPropertiesResponse struct {
-	// The fabric specific settings.
-	FabricSpecificSettings interface{} `pulumi:"fabricSpecificSettings"`
-	// The primary fabric friendly name.
-	PrimaryFabricFriendlyName *string `pulumi:"primaryFabricFriendlyName"`
-	// The primary network friendly name.
-	PrimaryNetworkFriendlyName *string `pulumi:"primaryNetworkFriendlyName"`
-	// The primary network id for network mapping.
-	PrimaryNetworkId *string `pulumi:"primaryNetworkId"`
-	// The recovery fabric ARM id.
-	RecoveryFabricArmId *string `pulumi:"recoveryFabricArmId"`
-	// The recovery fabric friendly name.
-	RecoveryFabricFriendlyName *string `pulumi:"recoveryFabricFriendlyName"`
-	// The recovery network friendly name.
-	RecoveryNetworkFriendlyName *string `pulumi:"recoveryNetworkFriendlyName"`
-	// The recovery network id for network mapping.
-	RecoveryNetworkId *string `pulumi:"recoveryNetworkId"`
-	// The pairing state for network mapping.
-	State *string `pulumi:"state"`
+	FabricSpecificSettings      interface{} `pulumi:"fabricSpecificSettings"`
+	PrimaryFabricFriendlyName   *string     `pulumi:"primaryFabricFriendlyName"`
+	PrimaryNetworkFriendlyName  *string     `pulumi:"primaryNetworkFriendlyName"`
+	PrimaryNetworkId            *string     `pulumi:"primaryNetworkId"`
+	RecoveryFabricArmId         *string     `pulumi:"recoveryFabricArmId"`
+	RecoveryFabricFriendlyName  *string     `pulumi:"recoveryFabricFriendlyName"`
+	RecoveryNetworkFriendlyName *string     `pulumi:"recoveryNetworkFriendlyName"`
+	RecoveryNetworkId           *string     `pulumi:"recoveryNetworkId"`
+	State                       *string     `pulumi:"state"`
 }
 
 // NetworkMappingPropertiesResponseInput is an input type that accepts NetworkMappingPropertiesResponseArgs and NetworkMappingPropertiesResponseOutput values.
@@ -11814,26 +9803,16 @@ type NetworkMappingPropertiesResponseInput interface {
 	ToNetworkMappingPropertiesResponseOutputWithContext(context.Context) NetworkMappingPropertiesResponseOutput
 }
 
-// Network Mapping Properties.
 type NetworkMappingPropertiesResponseArgs struct {
-	// The fabric specific settings.
-	FabricSpecificSettings pulumi.Input `pulumi:"fabricSpecificSettings"`
-	// The primary fabric friendly name.
-	PrimaryFabricFriendlyName pulumi.StringPtrInput `pulumi:"primaryFabricFriendlyName"`
-	// The primary network friendly name.
-	PrimaryNetworkFriendlyName pulumi.StringPtrInput `pulumi:"primaryNetworkFriendlyName"`
-	// The primary network id for network mapping.
-	PrimaryNetworkId pulumi.StringPtrInput `pulumi:"primaryNetworkId"`
-	// The recovery fabric ARM id.
-	RecoveryFabricArmId pulumi.StringPtrInput `pulumi:"recoveryFabricArmId"`
-	// The recovery fabric friendly name.
-	RecoveryFabricFriendlyName pulumi.StringPtrInput `pulumi:"recoveryFabricFriendlyName"`
-	// The recovery network friendly name.
+	FabricSpecificSettings      pulumi.Input          `pulumi:"fabricSpecificSettings"`
+	PrimaryFabricFriendlyName   pulumi.StringPtrInput `pulumi:"primaryFabricFriendlyName"`
+	PrimaryNetworkFriendlyName  pulumi.StringPtrInput `pulumi:"primaryNetworkFriendlyName"`
+	PrimaryNetworkId            pulumi.StringPtrInput `pulumi:"primaryNetworkId"`
+	RecoveryFabricArmId         pulumi.StringPtrInput `pulumi:"recoveryFabricArmId"`
+	RecoveryFabricFriendlyName  pulumi.StringPtrInput `pulumi:"recoveryFabricFriendlyName"`
 	RecoveryNetworkFriendlyName pulumi.StringPtrInput `pulumi:"recoveryNetworkFriendlyName"`
-	// The recovery network id for network mapping.
-	RecoveryNetworkId pulumi.StringPtrInput `pulumi:"recoveryNetworkId"`
-	// The pairing state for network mapping.
-	State pulumi.StringPtrInput `pulumi:"state"`
+	RecoveryNetworkId           pulumi.StringPtrInput `pulumi:"recoveryNetworkId"`
+	State                       pulumi.StringPtrInput `pulumi:"state"`
 }
 
 func (NetworkMappingPropertiesResponseArgs) ElementType() reflect.Type {
@@ -11889,7 +9868,6 @@ func (i *networkMappingPropertiesResponsePtrType) ToNetworkMappingPropertiesResp
 	return pulumi.ToOutputWithContext(ctx, i).(NetworkMappingPropertiesResponsePtrOutput)
 }
 
-// Network Mapping Properties.
 type NetworkMappingPropertiesResponseOutput struct{ *pulumi.OutputState }
 
 func (NetworkMappingPropertiesResponseOutput) ElementType() reflect.Type {
@@ -11909,52 +9887,43 @@ func (o NetworkMappingPropertiesResponseOutput) ToNetworkMappingPropertiesRespon
 }
 
 func (o NetworkMappingPropertiesResponseOutput) ToNetworkMappingPropertiesResponsePtrOutputWithContext(ctx context.Context) NetworkMappingPropertiesResponsePtrOutput {
-	return o.ApplyT(func(v NetworkMappingPropertiesResponse) *NetworkMappingPropertiesResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v NetworkMappingPropertiesResponse) *NetworkMappingPropertiesResponse {
 		return &v
 	}).(NetworkMappingPropertiesResponsePtrOutput)
 }
 
-// The fabric specific settings.
 func (o NetworkMappingPropertiesResponseOutput) FabricSpecificSettings() pulumi.AnyOutput {
 	return o.ApplyT(func(v NetworkMappingPropertiesResponse) interface{} { return v.FabricSpecificSettings }).(pulumi.AnyOutput)
 }
 
-// The primary fabric friendly name.
 func (o NetworkMappingPropertiesResponseOutput) PrimaryFabricFriendlyName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v NetworkMappingPropertiesResponse) *string { return v.PrimaryFabricFriendlyName }).(pulumi.StringPtrOutput)
 }
 
-// The primary network friendly name.
 func (o NetworkMappingPropertiesResponseOutput) PrimaryNetworkFriendlyName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v NetworkMappingPropertiesResponse) *string { return v.PrimaryNetworkFriendlyName }).(pulumi.StringPtrOutput)
 }
 
-// The primary network id for network mapping.
 func (o NetworkMappingPropertiesResponseOutput) PrimaryNetworkId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v NetworkMappingPropertiesResponse) *string { return v.PrimaryNetworkId }).(pulumi.StringPtrOutput)
 }
 
-// The recovery fabric ARM id.
 func (o NetworkMappingPropertiesResponseOutput) RecoveryFabricArmId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v NetworkMappingPropertiesResponse) *string { return v.RecoveryFabricArmId }).(pulumi.StringPtrOutput)
 }
 
-// The recovery fabric friendly name.
 func (o NetworkMappingPropertiesResponseOutput) RecoveryFabricFriendlyName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v NetworkMappingPropertiesResponse) *string { return v.RecoveryFabricFriendlyName }).(pulumi.StringPtrOutput)
 }
 
-// The recovery network friendly name.
 func (o NetworkMappingPropertiesResponseOutput) RecoveryNetworkFriendlyName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v NetworkMappingPropertiesResponse) *string { return v.RecoveryNetworkFriendlyName }).(pulumi.StringPtrOutput)
 }
 
-// The recovery network id for network mapping.
 func (o NetworkMappingPropertiesResponseOutput) RecoveryNetworkId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v NetworkMappingPropertiesResponse) *string { return v.RecoveryNetworkId }).(pulumi.StringPtrOutput)
 }
 
-// The pairing state for network mapping.
 func (o NetworkMappingPropertiesResponseOutput) State() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v NetworkMappingPropertiesResponse) *string { return v.State }).(pulumi.StringPtrOutput)
 }
@@ -11974,10 +9943,15 @@ func (o NetworkMappingPropertiesResponsePtrOutput) ToNetworkMappingPropertiesRes
 }
 
 func (o NetworkMappingPropertiesResponsePtrOutput) Elem() NetworkMappingPropertiesResponseOutput {
-	return o.ApplyT(func(v *NetworkMappingPropertiesResponse) NetworkMappingPropertiesResponse { return *v }).(NetworkMappingPropertiesResponseOutput)
+	return o.ApplyT(func(v *NetworkMappingPropertiesResponse) NetworkMappingPropertiesResponse {
+		if v != nil {
+			return *v
+		}
+		var ret NetworkMappingPropertiesResponse
+		return ret
+	}).(NetworkMappingPropertiesResponseOutput)
 }
 
-// The fabric specific settings.
 func (o NetworkMappingPropertiesResponsePtrOutput) FabricSpecificSettings() pulumi.AnyOutput {
 	return o.ApplyT(func(v *NetworkMappingPropertiesResponse) interface{} {
 		if v == nil {
@@ -11987,7 +9961,6 @@ func (o NetworkMappingPropertiesResponsePtrOutput) FabricSpecificSettings() pulu
 	}).(pulumi.AnyOutput)
 }
 
-// The primary fabric friendly name.
 func (o NetworkMappingPropertiesResponsePtrOutput) PrimaryFabricFriendlyName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *NetworkMappingPropertiesResponse) *string {
 		if v == nil {
@@ -11997,7 +9970,6 @@ func (o NetworkMappingPropertiesResponsePtrOutput) PrimaryFabricFriendlyName() p
 	}).(pulumi.StringPtrOutput)
 }
 
-// The primary network friendly name.
 func (o NetworkMappingPropertiesResponsePtrOutput) PrimaryNetworkFriendlyName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *NetworkMappingPropertiesResponse) *string {
 		if v == nil {
@@ -12007,7 +9979,6 @@ func (o NetworkMappingPropertiesResponsePtrOutput) PrimaryNetworkFriendlyName() 
 	}).(pulumi.StringPtrOutput)
 }
 
-// The primary network id for network mapping.
 func (o NetworkMappingPropertiesResponsePtrOutput) PrimaryNetworkId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *NetworkMappingPropertiesResponse) *string {
 		if v == nil {
@@ -12017,7 +9988,6 @@ func (o NetworkMappingPropertiesResponsePtrOutput) PrimaryNetworkId() pulumi.Str
 	}).(pulumi.StringPtrOutput)
 }
 
-// The recovery fabric ARM id.
 func (o NetworkMappingPropertiesResponsePtrOutput) RecoveryFabricArmId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *NetworkMappingPropertiesResponse) *string {
 		if v == nil {
@@ -12027,7 +9997,6 @@ func (o NetworkMappingPropertiesResponsePtrOutput) RecoveryFabricArmId() pulumi.
 	}).(pulumi.StringPtrOutput)
 }
 
-// The recovery fabric friendly name.
 func (o NetworkMappingPropertiesResponsePtrOutput) RecoveryFabricFriendlyName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *NetworkMappingPropertiesResponse) *string {
 		if v == nil {
@@ -12037,7 +10006,6 @@ func (o NetworkMappingPropertiesResponsePtrOutput) RecoveryFabricFriendlyName() 
 	}).(pulumi.StringPtrOutput)
 }
 
-// The recovery network friendly name.
 func (o NetworkMappingPropertiesResponsePtrOutput) RecoveryNetworkFriendlyName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *NetworkMappingPropertiesResponse) *string {
 		if v == nil {
@@ -12047,7 +10015,6 @@ func (o NetworkMappingPropertiesResponsePtrOutput) RecoveryNetworkFriendlyName()
 	}).(pulumi.StringPtrOutput)
 }
 
-// The recovery network id for network mapping.
 func (o NetworkMappingPropertiesResponsePtrOutput) RecoveryNetworkId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *NetworkMappingPropertiesResponse) *string {
 		if v == nil {
@@ -12057,7 +10024,6 @@ func (o NetworkMappingPropertiesResponsePtrOutput) RecoveryNetworkId() pulumi.St
 	}).(pulumi.StringPtrOutput)
 }
 
-// The pairing state for network mapping.
 func (o NetworkMappingPropertiesResponsePtrOutput) State() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *NetworkMappingPropertiesResponse) *string {
 		if v == nil {
@@ -12067,20 +10033,13 @@ func (o NetworkMappingPropertiesResponsePtrOutput) State() pulumi.StringPtrOutpu
 	}).(pulumi.StringPtrOutput)
 }
 
-// Disk Details.
 type OSDetailsResponse struct {
-	// The OS Major Version.
 	OSMajorVersion *string `pulumi:"oSMajorVersion"`
-	// The OS Minor Version.
 	OSMinorVersion *string `pulumi:"oSMinorVersion"`
-	// The OS Version.
-	OSVersion *string `pulumi:"oSVersion"`
-	// The OSEdition.
-	OsEdition *string `pulumi:"osEdition"`
-	// VM Disk details.
-	OsType *string `pulumi:"osType"`
-	// Product type.
-	ProductType *string `pulumi:"productType"`
+	OSVersion      *string `pulumi:"oSVersion"`
+	OsEdition      *string `pulumi:"osEdition"`
+	OsType         *string `pulumi:"osType"`
+	ProductType    *string `pulumi:"productType"`
 }
 
 // OSDetailsResponseInput is an input type that accepts OSDetailsResponseArgs and OSDetailsResponseOutput values.
@@ -12094,20 +10053,13 @@ type OSDetailsResponseInput interface {
 	ToOSDetailsResponseOutputWithContext(context.Context) OSDetailsResponseOutput
 }
 
-// Disk Details.
 type OSDetailsResponseArgs struct {
-	// The OS Major Version.
 	OSMajorVersion pulumi.StringPtrInput `pulumi:"oSMajorVersion"`
-	// The OS Minor Version.
 	OSMinorVersion pulumi.StringPtrInput `pulumi:"oSMinorVersion"`
-	// The OS Version.
-	OSVersion pulumi.StringPtrInput `pulumi:"oSVersion"`
-	// The OSEdition.
-	OsEdition pulumi.StringPtrInput `pulumi:"osEdition"`
-	// VM Disk details.
-	OsType pulumi.StringPtrInput `pulumi:"osType"`
-	// Product type.
-	ProductType pulumi.StringPtrInput `pulumi:"productType"`
+	OSVersion      pulumi.StringPtrInput `pulumi:"oSVersion"`
+	OsEdition      pulumi.StringPtrInput `pulumi:"osEdition"`
+	OsType         pulumi.StringPtrInput `pulumi:"osType"`
+	ProductType    pulumi.StringPtrInput `pulumi:"productType"`
 }
 
 func (OSDetailsResponseArgs) ElementType() reflect.Type {
@@ -12163,7 +10115,6 @@ func (i *osdetailsResponsePtrType) ToOSDetailsResponsePtrOutputWithContext(ctx c
 	return pulumi.ToOutputWithContext(ctx, i).(OSDetailsResponsePtrOutput)
 }
 
-// Disk Details.
 type OSDetailsResponseOutput struct{ *pulumi.OutputState }
 
 func (OSDetailsResponseOutput) ElementType() reflect.Type {
@@ -12183,37 +10134,31 @@ func (o OSDetailsResponseOutput) ToOSDetailsResponsePtrOutput() OSDetailsRespons
 }
 
 func (o OSDetailsResponseOutput) ToOSDetailsResponsePtrOutputWithContext(ctx context.Context) OSDetailsResponsePtrOutput {
-	return o.ApplyT(func(v OSDetailsResponse) *OSDetailsResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v OSDetailsResponse) *OSDetailsResponse {
 		return &v
 	}).(OSDetailsResponsePtrOutput)
 }
 
-// The OS Major Version.
 func (o OSDetailsResponseOutput) OSMajorVersion() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v OSDetailsResponse) *string { return v.OSMajorVersion }).(pulumi.StringPtrOutput)
 }
 
-// The OS Minor Version.
 func (o OSDetailsResponseOutput) OSMinorVersion() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v OSDetailsResponse) *string { return v.OSMinorVersion }).(pulumi.StringPtrOutput)
 }
 
-// The OS Version.
 func (o OSDetailsResponseOutput) OSVersion() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v OSDetailsResponse) *string { return v.OSVersion }).(pulumi.StringPtrOutput)
 }
 
-// The OSEdition.
 func (o OSDetailsResponseOutput) OsEdition() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v OSDetailsResponse) *string { return v.OsEdition }).(pulumi.StringPtrOutput)
 }
 
-// VM Disk details.
 func (o OSDetailsResponseOutput) OsType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v OSDetailsResponse) *string { return v.OsType }).(pulumi.StringPtrOutput)
 }
 
-// Product type.
 func (o OSDetailsResponseOutput) ProductType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v OSDetailsResponse) *string { return v.ProductType }).(pulumi.StringPtrOutput)
 }
@@ -12233,10 +10178,15 @@ func (o OSDetailsResponsePtrOutput) ToOSDetailsResponsePtrOutputWithContext(ctx 
 }
 
 func (o OSDetailsResponsePtrOutput) Elem() OSDetailsResponseOutput {
-	return o.ApplyT(func(v *OSDetailsResponse) OSDetailsResponse { return *v }).(OSDetailsResponseOutput)
+	return o.ApplyT(func(v *OSDetailsResponse) OSDetailsResponse {
+		if v != nil {
+			return *v
+		}
+		var ret OSDetailsResponse
+		return ret
+	}).(OSDetailsResponseOutput)
 }
 
-// The OS Major Version.
 func (o OSDetailsResponsePtrOutput) OSMajorVersion() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *OSDetailsResponse) *string {
 		if v == nil {
@@ -12246,7 +10196,6 @@ func (o OSDetailsResponsePtrOutput) OSMajorVersion() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The OS Minor Version.
 func (o OSDetailsResponsePtrOutput) OSMinorVersion() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *OSDetailsResponse) *string {
 		if v == nil {
@@ -12256,7 +10205,6 @@ func (o OSDetailsResponsePtrOutput) OSMinorVersion() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The OS Version.
 func (o OSDetailsResponsePtrOutput) OSVersion() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *OSDetailsResponse) *string {
 		if v == nil {
@@ -12266,7 +10214,6 @@ func (o OSDetailsResponsePtrOutput) OSVersion() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The OSEdition.
 func (o OSDetailsResponsePtrOutput) OsEdition() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *OSDetailsResponse) *string {
 		if v == nil {
@@ -12276,7 +10223,6 @@ func (o OSDetailsResponsePtrOutput) OsEdition() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// VM Disk details.
 func (o OSDetailsResponsePtrOutput) OsType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *OSDetailsResponse) *string {
 		if v == nil {
@@ -12286,7 +10232,6 @@ func (o OSDetailsResponsePtrOutput) OsType() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Product type.
 func (o OSDetailsResponsePtrOutput) ProductType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *OSDetailsResponse) *string {
 		if v == nil {
@@ -12296,13 +10241,9 @@ func (o OSDetailsResponsePtrOutput) ProductType() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Details of the OS Disk.
 type OSDiskDetailsResponse struct {
-	// The type of the OS on the VM.
-	OsType *string `pulumi:"osType"`
-	// The id of the disk containing the OS.
+	OsType  *string `pulumi:"osType"`
 	OsVhdId *string `pulumi:"osVhdId"`
-	// The OS disk VHD name.
 	VhdName *string `pulumi:"vhdName"`
 }
 
@@ -12317,13 +10258,9 @@ type OSDiskDetailsResponseInput interface {
 	ToOSDiskDetailsResponseOutputWithContext(context.Context) OSDiskDetailsResponseOutput
 }
 
-// Details of the OS Disk.
 type OSDiskDetailsResponseArgs struct {
-	// The type of the OS on the VM.
-	OsType pulumi.StringPtrInput `pulumi:"osType"`
-	// The id of the disk containing the OS.
+	OsType  pulumi.StringPtrInput `pulumi:"osType"`
 	OsVhdId pulumi.StringPtrInput `pulumi:"osVhdId"`
-	// The OS disk VHD name.
 	VhdName pulumi.StringPtrInput `pulumi:"vhdName"`
 }
 
@@ -12380,7 +10317,6 @@ func (i *osdiskDetailsResponsePtrType) ToOSDiskDetailsResponsePtrOutputWithConte
 	return pulumi.ToOutputWithContext(ctx, i).(OSDiskDetailsResponsePtrOutput)
 }
 
-// Details of the OS Disk.
 type OSDiskDetailsResponseOutput struct{ *pulumi.OutputState }
 
 func (OSDiskDetailsResponseOutput) ElementType() reflect.Type {
@@ -12400,22 +10336,19 @@ func (o OSDiskDetailsResponseOutput) ToOSDiskDetailsResponsePtrOutput() OSDiskDe
 }
 
 func (o OSDiskDetailsResponseOutput) ToOSDiskDetailsResponsePtrOutputWithContext(ctx context.Context) OSDiskDetailsResponsePtrOutput {
-	return o.ApplyT(func(v OSDiskDetailsResponse) *OSDiskDetailsResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v OSDiskDetailsResponse) *OSDiskDetailsResponse {
 		return &v
 	}).(OSDiskDetailsResponsePtrOutput)
 }
 
-// The type of the OS on the VM.
 func (o OSDiskDetailsResponseOutput) OsType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v OSDiskDetailsResponse) *string { return v.OsType }).(pulumi.StringPtrOutput)
 }
 
-// The id of the disk containing the OS.
 func (o OSDiskDetailsResponseOutput) OsVhdId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v OSDiskDetailsResponse) *string { return v.OsVhdId }).(pulumi.StringPtrOutput)
 }
 
-// The OS disk VHD name.
 func (o OSDiskDetailsResponseOutput) VhdName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v OSDiskDetailsResponse) *string { return v.VhdName }).(pulumi.StringPtrOutput)
 }
@@ -12435,10 +10368,15 @@ func (o OSDiskDetailsResponsePtrOutput) ToOSDiskDetailsResponsePtrOutputWithCont
 }
 
 func (o OSDiskDetailsResponsePtrOutput) Elem() OSDiskDetailsResponseOutput {
-	return o.ApplyT(func(v *OSDiskDetailsResponse) OSDiskDetailsResponse { return *v }).(OSDiskDetailsResponseOutput)
+	return o.ApplyT(func(v *OSDiskDetailsResponse) OSDiskDetailsResponse {
+		if v != nil {
+			return *v
+		}
+		var ret OSDiskDetailsResponse
+		return ret
+	}).(OSDiskDetailsResponseOutput)
 }
 
-// The type of the OS on the VM.
 func (o OSDiskDetailsResponsePtrOutput) OsType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *OSDiskDetailsResponse) *string {
 		if v == nil {
@@ -12448,7 +10386,6 @@ func (o OSDiskDetailsResponsePtrOutput) OsType() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The id of the disk containing the OS.
 func (o OSDiskDetailsResponsePtrOutput) OsVhdId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *OSDiskDetailsResponse) *string {
 		if v == nil {
@@ -12458,7 +10395,6 @@ func (o OSDiskDetailsResponsePtrOutput) OsVhdId() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The OS disk VHD name.
 func (o OSDiskDetailsResponsePtrOutput) VhdName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *OSDiskDetailsResponse) *string {
 		if v == nil {
@@ -12468,11 +10404,8 @@ func (o OSDiskDetailsResponsePtrOutput) VhdName() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Protection profile custom data details.
 type PolicyPropertiesResponse struct {
-	// The FriendlyName.
-	FriendlyName *string `pulumi:"friendlyName"`
-	// The ReplicationChannelSetting.
+	FriendlyName            *string     `pulumi:"friendlyName"`
 	ProviderSpecificDetails interface{} `pulumi:"providerSpecificDetails"`
 }
 
@@ -12487,12 +10420,9 @@ type PolicyPropertiesResponseInput interface {
 	ToPolicyPropertiesResponseOutputWithContext(context.Context) PolicyPropertiesResponseOutput
 }
 
-// Protection profile custom data details.
 type PolicyPropertiesResponseArgs struct {
-	// The FriendlyName.
-	FriendlyName pulumi.StringPtrInput `pulumi:"friendlyName"`
-	// The ReplicationChannelSetting.
-	ProviderSpecificDetails pulumi.Input `pulumi:"providerSpecificDetails"`
+	FriendlyName            pulumi.StringPtrInput `pulumi:"friendlyName"`
+	ProviderSpecificDetails pulumi.Input          `pulumi:"providerSpecificDetails"`
 }
 
 func (PolicyPropertiesResponseArgs) ElementType() reflect.Type {
@@ -12548,7 +10478,6 @@ func (i *policyPropertiesResponsePtrType) ToPolicyPropertiesResponsePtrOutputWit
 	return pulumi.ToOutputWithContext(ctx, i).(PolicyPropertiesResponsePtrOutput)
 }
 
-// Protection profile custom data details.
 type PolicyPropertiesResponseOutput struct{ *pulumi.OutputState }
 
 func (PolicyPropertiesResponseOutput) ElementType() reflect.Type {
@@ -12568,17 +10497,15 @@ func (o PolicyPropertiesResponseOutput) ToPolicyPropertiesResponsePtrOutput() Po
 }
 
 func (o PolicyPropertiesResponseOutput) ToPolicyPropertiesResponsePtrOutputWithContext(ctx context.Context) PolicyPropertiesResponsePtrOutput {
-	return o.ApplyT(func(v PolicyPropertiesResponse) *PolicyPropertiesResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v PolicyPropertiesResponse) *PolicyPropertiesResponse {
 		return &v
 	}).(PolicyPropertiesResponsePtrOutput)
 }
 
-// The FriendlyName.
 func (o PolicyPropertiesResponseOutput) FriendlyName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v PolicyPropertiesResponse) *string { return v.FriendlyName }).(pulumi.StringPtrOutput)
 }
 
-// The ReplicationChannelSetting.
 func (o PolicyPropertiesResponseOutput) ProviderSpecificDetails() pulumi.AnyOutput {
 	return o.ApplyT(func(v PolicyPropertiesResponse) interface{} { return v.ProviderSpecificDetails }).(pulumi.AnyOutput)
 }
@@ -12598,10 +10525,15 @@ func (o PolicyPropertiesResponsePtrOutput) ToPolicyPropertiesResponsePtrOutputWi
 }
 
 func (o PolicyPropertiesResponsePtrOutput) Elem() PolicyPropertiesResponseOutput {
-	return o.ApplyT(func(v *PolicyPropertiesResponse) PolicyPropertiesResponse { return *v }).(PolicyPropertiesResponseOutput)
+	return o.ApplyT(func(v *PolicyPropertiesResponse) PolicyPropertiesResponse {
+		if v != nil {
+			return *v
+		}
+		var ret PolicyPropertiesResponse
+		return ret
+	}).(PolicyPropertiesResponseOutput)
 }
 
-// The FriendlyName.
 func (o PolicyPropertiesResponsePtrOutput) FriendlyName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *PolicyPropertiesResponse) *string {
 		if v == nil {
@@ -12611,7 +10543,6 @@ func (o PolicyPropertiesResponsePtrOutput) FriendlyName() pulumi.StringPtrOutput
 	}).(pulumi.StringPtrOutput)
 }
 
-// The ReplicationChannelSetting.
 func (o PolicyPropertiesResponsePtrOutput) ProviderSpecificDetails() pulumi.AnyOutput {
 	return o.ApplyT(func(v *PolicyPropertiesResponse) interface{} {
 		if v == nil {
@@ -12621,64 +10552,35 @@ func (o PolicyPropertiesResponsePtrOutput) ProviderSpecificDetails() pulumi.AnyO
 	}).(pulumi.AnyOutput)
 }
 
-// Details of the Process Server.
 type ProcessServerResponse struct {
-	// Agent expiry date.
-	AgentExpiryDate *string `pulumi:"agentExpiryDate"`
-	// The version of the scout component on the server.
-	AgentVersion *string `pulumi:"agentVersion"`
-	// The agent version details.
-	AgentVersionDetails *VersionDetailsResponse `pulumi:"agentVersionDetails"`
-	// The available memory.
-	AvailableMemoryInBytes *float64 `pulumi:"availableMemoryInBytes"`
-	// The available space.
-	AvailableSpaceInBytes *float64 `pulumi:"availableSpaceInBytes"`
-	// The percentage of the CPU load.
-	CpuLoad *string `pulumi:"cpuLoad"`
-	// The CPU load status.
-	CpuLoadStatus *string `pulumi:"cpuLoadStatus"`
-	// The Process Server's friendly name.
-	FriendlyName *string `pulumi:"friendlyName"`
-	// Health errors.
-	HealthErrors []HealthErrorResponse `pulumi:"healthErrors"`
-	// The agent generated Id.
-	HostId *string `pulumi:"hostId"`
-	// The Process Server Id.
-	Id *string `pulumi:"id"`
-	// The IP address of the server.
-	IpAddress *string `pulumi:"ipAddress"`
-	// The last heartbeat received from the server.
-	LastHeartbeat *string `pulumi:"lastHeartbeat"`
-	// The servers configured with this PS.
-	MachineCount *string `pulumi:"machineCount"`
-	// The memory usage status.
-	MemoryUsageStatus *string `pulumi:"memoryUsageStatus"`
-	// The list of the mobility service updates available on the Process Server.
-	MobilityServiceUpdates []MobilityServiceUpdateResponse `pulumi:"mobilityServiceUpdates"`
-	// The OS type of the server.
-	OsType *string `pulumi:"osType"`
-	// OS Version of the process server. Note: This will get populated if user has CS version greater than 9.12.0.0.
-	OsVersion *string `pulumi:"osVersion"`
-	// The PS service status.
-	PsServiceStatus *string `pulumi:"psServiceStatus"`
-	// The number of replication pairs configured in this PS.
-	ReplicationPairCount *string `pulumi:"replicationPairCount"`
-	// The space usage status.
-	SpaceUsageStatus *string `pulumi:"spaceUsageStatus"`
-	// The PS SSL cert expiry date.
-	SslCertExpiryDate *string `pulumi:"sslCertExpiryDate"`
-	// CS SSL cert expiry date.
-	SslCertExpiryRemainingDays *int `pulumi:"sslCertExpiryRemainingDays"`
-	// The percentage of the system load.
-	SystemLoad *string `pulumi:"systemLoad"`
-	// The system load status.
-	SystemLoadStatus *string `pulumi:"systemLoadStatus"`
-	// The total memory.
-	TotalMemoryInBytes *float64 `pulumi:"totalMemoryInBytes"`
-	// The total space.
-	TotalSpaceInBytes *float64 `pulumi:"totalSpaceInBytes"`
-	// Version status
-	VersionStatus *string `pulumi:"versionStatus"`
+	AgentExpiryDate            *string                         `pulumi:"agentExpiryDate"`
+	AgentVersion               *string                         `pulumi:"agentVersion"`
+	AgentVersionDetails        *VersionDetailsResponse         `pulumi:"agentVersionDetails"`
+	AvailableMemoryInBytes     *float64                        `pulumi:"availableMemoryInBytes"`
+	AvailableSpaceInBytes      *float64                        `pulumi:"availableSpaceInBytes"`
+	CpuLoad                    *string                         `pulumi:"cpuLoad"`
+	CpuLoadStatus              *string                         `pulumi:"cpuLoadStatus"`
+	FriendlyName               *string                         `pulumi:"friendlyName"`
+	HealthErrors               []HealthErrorResponse           `pulumi:"healthErrors"`
+	HostId                     *string                         `pulumi:"hostId"`
+	Id                         *string                         `pulumi:"id"`
+	IpAddress                  *string                         `pulumi:"ipAddress"`
+	LastHeartbeat              *string                         `pulumi:"lastHeartbeat"`
+	MachineCount               *string                         `pulumi:"machineCount"`
+	MemoryUsageStatus          *string                         `pulumi:"memoryUsageStatus"`
+	MobilityServiceUpdates     []MobilityServiceUpdateResponse `pulumi:"mobilityServiceUpdates"`
+	OsType                     *string                         `pulumi:"osType"`
+	OsVersion                  *string                         `pulumi:"osVersion"`
+	PsServiceStatus            *string                         `pulumi:"psServiceStatus"`
+	ReplicationPairCount       *string                         `pulumi:"replicationPairCount"`
+	SpaceUsageStatus           *string                         `pulumi:"spaceUsageStatus"`
+	SslCertExpiryDate          *string                         `pulumi:"sslCertExpiryDate"`
+	SslCertExpiryRemainingDays *int                            `pulumi:"sslCertExpiryRemainingDays"`
+	SystemLoad                 *string                         `pulumi:"systemLoad"`
+	SystemLoadStatus           *string                         `pulumi:"systemLoadStatus"`
+	TotalMemoryInBytes         *float64                        `pulumi:"totalMemoryInBytes"`
+	TotalSpaceInBytes          *float64                        `pulumi:"totalSpaceInBytes"`
+	VersionStatus              *string                         `pulumi:"versionStatus"`
 }
 
 // ProcessServerResponseInput is an input type that accepts ProcessServerResponseArgs and ProcessServerResponseOutput values.
@@ -12692,64 +10594,35 @@ type ProcessServerResponseInput interface {
 	ToProcessServerResponseOutputWithContext(context.Context) ProcessServerResponseOutput
 }
 
-// Details of the Process Server.
 type ProcessServerResponseArgs struct {
-	// Agent expiry date.
-	AgentExpiryDate pulumi.StringPtrInput `pulumi:"agentExpiryDate"`
-	// The version of the scout component on the server.
-	AgentVersion pulumi.StringPtrInput `pulumi:"agentVersion"`
-	// The agent version details.
-	AgentVersionDetails VersionDetailsResponsePtrInput `pulumi:"agentVersionDetails"`
-	// The available memory.
-	AvailableMemoryInBytes pulumi.Float64PtrInput `pulumi:"availableMemoryInBytes"`
-	// The available space.
-	AvailableSpaceInBytes pulumi.Float64PtrInput `pulumi:"availableSpaceInBytes"`
-	// The percentage of the CPU load.
-	CpuLoad pulumi.StringPtrInput `pulumi:"cpuLoad"`
-	// The CPU load status.
-	CpuLoadStatus pulumi.StringPtrInput `pulumi:"cpuLoadStatus"`
-	// The Process Server's friendly name.
-	FriendlyName pulumi.StringPtrInput `pulumi:"friendlyName"`
-	// Health errors.
-	HealthErrors HealthErrorResponseArrayInput `pulumi:"healthErrors"`
-	// The agent generated Id.
-	HostId pulumi.StringPtrInput `pulumi:"hostId"`
-	// The Process Server Id.
-	Id pulumi.StringPtrInput `pulumi:"id"`
-	// The IP address of the server.
-	IpAddress pulumi.StringPtrInput `pulumi:"ipAddress"`
-	// The last heartbeat received from the server.
-	LastHeartbeat pulumi.StringPtrInput `pulumi:"lastHeartbeat"`
-	// The servers configured with this PS.
-	MachineCount pulumi.StringPtrInput `pulumi:"machineCount"`
-	// The memory usage status.
-	MemoryUsageStatus pulumi.StringPtrInput `pulumi:"memoryUsageStatus"`
-	// The list of the mobility service updates available on the Process Server.
-	MobilityServiceUpdates MobilityServiceUpdateResponseArrayInput `pulumi:"mobilityServiceUpdates"`
-	// The OS type of the server.
-	OsType pulumi.StringPtrInput `pulumi:"osType"`
-	// OS Version of the process server. Note: This will get populated if user has CS version greater than 9.12.0.0.
-	OsVersion pulumi.StringPtrInput `pulumi:"osVersion"`
-	// The PS service status.
-	PsServiceStatus pulumi.StringPtrInput `pulumi:"psServiceStatus"`
-	// The number of replication pairs configured in this PS.
-	ReplicationPairCount pulumi.StringPtrInput `pulumi:"replicationPairCount"`
-	// The space usage status.
-	SpaceUsageStatus pulumi.StringPtrInput `pulumi:"spaceUsageStatus"`
-	// The PS SSL cert expiry date.
-	SslCertExpiryDate pulumi.StringPtrInput `pulumi:"sslCertExpiryDate"`
-	// CS SSL cert expiry date.
-	SslCertExpiryRemainingDays pulumi.IntPtrInput `pulumi:"sslCertExpiryRemainingDays"`
-	// The percentage of the system load.
-	SystemLoad pulumi.StringPtrInput `pulumi:"systemLoad"`
-	// The system load status.
-	SystemLoadStatus pulumi.StringPtrInput `pulumi:"systemLoadStatus"`
-	// The total memory.
-	TotalMemoryInBytes pulumi.Float64PtrInput `pulumi:"totalMemoryInBytes"`
-	// The total space.
-	TotalSpaceInBytes pulumi.Float64PtrInput `pulumi:"totalSpaceInBytes"`
-	// Version status
-	VersionStatus pulumi.StringPtrInput `pulumi:"versionStatus"`
+	AgentExpiryDate            pulumi.StringPtrInput                   `pulumi:"agentExpiryDate"`
+	AgentVersion               pulumi.StringPtrInput                   `pulumi:"agentVersion"`
+	AgentVersionDetails        VersionDetailsResponsePtrInput          `pulumi:"agentVersionDetails"`
+	AvailableMemoryInBytes     pulumi.Float64PtrInput                  `pulumi:"availableMemoryInBytes"`
+	AvailableSpaceInBytes      pulumi.Float64PtrInput                  `pulumi:"availableSpaceInBytes"`
+	CpuLoad                    pulumi.StringPtrInput                   `pulumi:"cpuLoad"`
+	CpuLoadStatus              pulumi.StringPtrInput                   `pulumi:"cpuLoadStatus"`
+	FriendlyName               pulumi.StringPtrInput                   `pulumi:"friendlyName"`
+	HealthErrors               HealthErrorResponseArrayInput           `pulumi:"healthErrors"`
+	HostId                     pulumi.StringPtrInput                   `pulumi:"hostId"`
+	Id                         pulumi.StringPtrInput                   `pulumi:"id"`
+	IpAddress                  pulumi.StringPtrInput                   `pulumi:"ipAddress"`
+	LastHeartbeat              pulumi.StringPtrInput                   `pulumi:"lastHeartbeat"`
+	MachineCount               pulumi.StringPtrInput                   `pulumi:"machineCount"`
+	MemoryUsageStatus          pulumi.StringPtrInput                   `pulumi:"memoryUsageStatus"`
+	MobilityServiceUpdates     MobilityServiceUpdateResponseArrayInput `pulumi:"mobilityServiceUpdates"`
+	OsType                     pulumi.StringPtrInput                   `pulumi:"osType"`
+	OsVersion                  pulumi.StringPtrInput                   `pulumi:"osVersion"`
+	PsServiceStatus            pulumi.StringPtrInput                   `pulumi:"psServiceStatus"`
+	ReplicationPairCount       pulumi.StringPtrInput                   `pulumi:"replicationPairCount"`
+	SpaceUsageStatus           pulumi.StringPtrInput                   `pulumi:"spaceUsageStatus"`
+	SslCertExpiryDate          pulumi.StringPtrInput                   `pulumi:"sslCertExpiryDate"`
+	SslCertExpiryRemainingDays pulumi.IntPtrInput                      `pulumi:"sslCertExpiryRemainingDays"`
+	SystemLoad                 pulumi.StringPtrInput                   `pulumi:"systemLoad"`
+	SystemLoadStatus           pulumi.StringPtrInput                   `pulumi:"systemLoadStatus"`
+	TotalMemoryInBytes         pulumi.Float64PtrInput                  `pulumi:"totalMemoryInBytes"`
+	TotalSpaceInBytes          pulumi.Float64PtrInput                  `pulumi:"totalSpaceInBytes"`
+	VersionStatus              pulumi.StringPtrInput                   `pulumi:"versionStatus"`
 }
 
 func (ProcessServerResponseArgs) ElementType() reflect.Type {
@@ -12789,7 +10662,6 @@ func (i ProcessServerResponseArray) ToProcessServerResponseArrayOutputWithContex
 	return pulumi.ToOutputWithContext(ctx, i).(ProcessServerResponseArrayOutput)
 }
 
-// Details of the Process Server.
 type ProcessServerResponseOutput struct{ *pulumi.OutputState }
 
 func (ProcessServerResponseOutput) ElementType() reflect.Type {
@@ -12804,142 +10676,114 @@ func (o ProcessServerResponseOutput) ToProcessServerResponseOutputWithContext(ct
 	return o
 }
 
-// Agent expiry date.
 func (o ProcessServerResponseOutput) AgentExpiryDate() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ProcessServerResponse) *string { return v.AgentExpiryDate }).(pulumi.StringPtrOutput)
 }
 
-// The version of the scout component on the server.
 func (o ProcessServerResponseOutput) AgentVersion() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ProcessServerResponse) *string { return v.AgentVersion }).(pulumi.StringPtrOutput)
 }
 
-// The agent version details.
 func (o ProcessServerResponseOutput) AgentVersionDetails() VersionDetailsResponsePtrOutput {
 	return o.ApplyT(func(v ProcessServerResponse) *VersionDetailsResponse { return v.AgentVersionDetails }).(VersionDetailsResponsePtrOutput)
 }
 
-// The available memory.
 func (o ProcessServerResponseOutput) AvailableMemoryInBytes() pulumi.Float64PtrOutput {
 	return o.ApplyT(func(v ProcessServerResponse) *float64 { return v.AvailableMemoryInBytes }).(pulumi.Float64PtrOutput)
 }
 
-// The available space.
 func (o ProcessServerResponseOutput) AvailableSpaceInBytes() pulumi.Float64PtrOutput {
 	return o.ApplyT(func(v ProcessServerResponse) *float64 { return v.AvailableSpaceInBytes }).(pulumi.Float64PtrOutput)
 }
 
-// The percentage of the CPU load.
 func (o ProcessServerResponseOutput) CpuLoad() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ProcessServerResponse) *string { return v.CpuLoad }).(pulumi.StringPtrOutput)
 }
 
-// The CPU load status.
 func (o ProcessServerResponseOutput) CpuLoadStatus() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ProcessServerResponse) *string { return v.CpuLoadStatus }).(pulumi.StringPtrOutput)
 }
 
-// The Process Server's friendly name.
 func (o ProcessServerResponseOutput) FriendlyName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ProcessServerResponse) *string { return v.FriendlyName }).(pulumi.StringPtrOutput)
 }
 
-// Health errors.
 func (o ProcessServerResponseOutput) HealthErrors() HealthErrorResponseArrayOutput {
 	return o.ApplyT(func(v ProcessServerResponse) []HealthErrorResponse { return v.HealthErrors }).(HealthErrorResponseArrayOutput)
 }
 
-// The agent generated Id.
 func (o ProcessServerResponseOutput) HostId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ProcessServerResponse) *string { return v.HostId }).(pulumi.StringPtrOutput)
 }
 
-// The Process Server Id.
 func (o ProcessServerResponseOutput) Id() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ProcessServerResponse) *string { return v.Id }).(pulumi.StringPtrOutput)
 }
 
-// The IP address of the server.
 func (o ProcessServerResponseOutput) IpAddress() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ProcessServerResponse) *string { return v.IpAddress }).(pulumi.StringPtrOutput)
 }
 
-// The last heartbeat received from the server.
 func (o ProcessServerResponseOutput) LastHeartbeat() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ProcessServerResponse) *string { return v.LastHeartbeat }).(pulumi.StringPtrOutput)
 }
 
-// The servers configured with this PS.
 func (o ProcessServerResponseOutput) MachineCount() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ProcessServerResponse) *string { return v.MachineCount }).(pulumi.StringPtrOutput)
 }
 
-// The memory usage status.
 func (o ProcessServerResponseOutput) MemoryUsageStatus() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ProcessServerResponse) *string { return v.MemoryUsageStatus }).(pulumi.StringPtrOutput)
 }
 
-// The list of the mobility service updates available on the Process Server.
 func (o ProcessServerResponseOutput) MobilityServiceUpdates() MobilityServiceUpdateResponseArrayOutput {
 	return o.ApplyT(func(v ProcessServerResponse) []MobilityServiceUpdateResponse { return v.MobilityServiceUpdates }).(MobilityServiceUpdateResponseArrayOutput)
 }
 
-// The OS type of the server.
 func (o ProcessServerResponseOutput) OsType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ProcessServerResponse) *string { return v.OsType }).(pulumi.StringPtrOutput)
 }
 
-// OS Version of the process server. Note: This will get populated if user has CS version greater than 9.12.0.0.
 func (o ProcessServerResponseOutput) OsVersion() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ProcessServerResponse) *string { return v.OsVersion }).(pulumi.StringPtrOutput)
 }
 
-// The PS service status.
 func (o ProcessServerResponseOutput) PsServiceStatus() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ProcessServerResponse) *string { return v.PsServiceStatus }).(pulumi.StringPtrOutput)
 }
 
-// The number of replication pairs configured in this PS.
 func (o ProcessServerResponseOutput) ReplicationPairCount() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ProcessServerResponse) *string { return v.ReplicationPairCount }).(pulumi.StringPtrOutput)
 }
 
-// The space usage status.
 func (o ProcessServerResponseOutput) SpaceUsageStatus() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ProcessServerResponse) *string { return v.SpaceUsageStatus }).(pulumi.StringPtrOutput)
 }
 
-// The PS SSL cert expiry date.
 func (o ProcessServerResponseOutput) SslCertExpiryDate() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ProcessServerResponse) *string { return v.SslCertExpiryDate }).(pulumi.StringPtrOutput)
 }
 
-// CS SSL cert expiry date.
 func (o ProcessServerResponseOutput) SslCertExpiryRemainingDays() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v ProcessServerResponse) *int { return v.SslCertExpiryRemainingDays }).(pulumi.IntPtrOutput)
 }
 
-// The percentage of the system load.
 func (o ProcessServerResponseOutput) SystemLoad() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ProcessServerResponse) *string { return v.SystemLoad }).(pulumi.StringPtrOutput)
 }
 
-// The system load status.
 func (o ProcessServerResponseOutput) SystemLoadStatus() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ProcessServerResponse) *string { return v.SystemLoadStatus }).(pulumi.StringPtrOutput)
 }
 
-// The total memory.
 func (o ProcessServerResponseOutput) TotalMemoryInBytes() pulumi.Float64PtrOutput {
 	return o.ApplyT(func(v ProcessServerResponse) *float64 { return v.TotalMemoryInBytes }).(pulumi.Float64PtrOutput)
 }
 
-// The total space.
 func (o ProcessServerResponseOutput) TotalSpaceInBytes() pulumi.Float64PtrOutput {
 	return o.ApplyT(func(v ProcessServerResponse) *float64 { return v.TotalSpaceInBytes }).(pulumi.Float64PtrOutput)
 }
 
-// Version status
 func (o ProcessServerResponseOutput) VersionStatus() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ProcessServerResponse) *string { return v.VersionStatus }).(pulumi.StringPtrOutput)
 }
@@ -12964,30 +10808,18 @@ func (o ProcessServerResponseArrayOutput) Index(i pulumi.IntInput) ProcessServer
 	}).(ProcessServerResponseOutput)
 }
 
-// Protection container mapping properties.
 type ProtectionContainerMappingPropertiesResponse struct {
-	// Health of pairing.
-	Health *string `pulumi:"health"`
-	// Health error.
-	HealthErrorDetails []HealthErrorResponse `pulumi:"healthErrorDetails"`
-	// Friendly name of replication policy.
-	PolicyFriendlyName *string `pulumi:"policyFriendlyName"`
-	// Policy ARM Id.
-	PolicyId *string `pulumi:"policyId"`
-	// Provider specific provider details.
-	ProviderSpecificDetails interface{} `pulumi:"providerSpecificDetails"`
-	// Friendly name of source fabric.
-	SourceFabricFriendlyName *string `pulumi:"sourceFabricFriendlyName"`
-	// Friendly name of source protection container.
-	SourceProtectionContainerFriendlyName *string `pulumi:"sourceProtectionContainerFriendlyName"`
-	// Association Status
-	State *string `pulumi:"state"`
-	// Friendly name of target fabric.
-	TargetFabricFriendlyName *string `pulumi:"targetFabricFriendlyName"`
-	// Friendly name of paired container.
-	TargetProtectionContainerFriendlyName *string `pulumi:"targetProtectionContainerFriendlyName"`
-	// Paired protection container ARM ID.
-	TargetProtectionContainerId *string `pulumi:"targetProtectionContainerId"`
+	Health                                *string               `pulumi:"health"`
+	HealthErrorDetails                    []HealthErrorResponse `pulumi:"healthErrorDetails"`
+	PolicyFriendlyName                    *string               `pulumi:"policyFriendlyName"`
+	PolicyId                              *string               `pulumi:"policyId"`
+	ProviderSpecificDetails               interface{}           `pulumi:"providerSpecificDetails"`
+	SourceFabricFriendlyName              *string               `pulumi:"sourceFabricFriendlyName"`
+	SourceProtectionContainerFriendlyName *string               `pulumi:"sourceProtectionContainerFriendlyName"`
+	State                                 *string               `pulumi:"state"`
+	TargetFabricFriendlyName              *string               `pulumi:"targetFabricFriendlyName"`
+	TargetProtectionContainerFriendlyName *string               `pulumi:"targetProtectionContainerFriendlyName"`
+	TargetProtectionContainerId           *string               `pulumi:"targetProtectionContainerId"`
 }
 
 // ProtectionContainerMappingPropertiesResponseInput is an input type that accepts ProtectionContainerMappingPropertiesResponseArgs and ProtectionContainerMappingPropertiesResponseOutput values.
@@ -13001,30 +10833,18 @@ type ProtectionContainerMappingPropertiesResponseInput interface {
 	ToProtectionContainerMappingPropertiesResponseOutputWithContext(context.Context) ProtectionContainerMappingPropertiesResponseOutput
 }
 
-// Protection container mapping properties.
 type ProtectionContainerMappingPropertiesResponseArgs struct {
-	// Health of pairing.
-	Health pulumi.StringPtrInput `pulumi:"health"`
-	// Health error.
-	HealthErrorDetails HealthErrorResponseArrayInput `pulumi:"healthErrorDetails"`
-	// Friendly name of replication policy.
-	PolicyFriendlyName pulumi.StringPtrInput `pulumi:"policyFriendlyName"`
-	// Policy ARM Id.
-	PolicyId pulumi.StringPtrInput `pulumi:"policyId"`
-	// Provider specific provider details.
-	ProviderSpecificDetails pulumi.Input `pulumi:"providerSpecificDetails"`
-	// Friendly name of source fabric.
-	SourceFabricFriendlyName pulumi.StringPtrInput `pulumi:"sourceFabricFriendlyName"`
-	// Friendly name of source protection container.
-	SourceProtectionContainerFriendlyName pulumi.StringPtrInput `pulumi:"sourceProtectionContainerFriendlyName"`
-	// Association Status
-	State pulumi.StringPtrInput `pulumi:"state"`
-	// Friendly name of target fabric.
-	TargetFabricFriendlyName pulumi.StringPtrInput `pulumi:"targetFabricFriendlyName"`
-	// Friendly name of paired container.
-	TargetProtectionContainerFriendlyName pulumi.StringPtrInput `pulumi:"targetProtectionContainerFriendlyName"`
-	// Paired protection container ARM ID.
-	TargetProtectionContainerId pulumi.StringPtrInput `pulumi:"targetProtectionContainerId"`
+	Health                                pulumi.StringPtrInput         `pulumi:"health"`
+	HealthErrorDetails                    HealthErrorResponseArrayInput `pulumi:"healthErrorDetails"`
+	PolicyFriendlyName                    pulumi.StringPtrInput         `pulumi:"policyFriendlyName"`
+	PolicyId                              pulumi.StringPtrInput         `pulumi:"policyId"`
+	ProviderSpecificDetails               pulumi.Input                  `pulumi:"providerSpecificDetails"`
+	SourceFabricFriendlyName              pulumi.StringPtrInput         `pulumi:"sourceFabricFriendlyName"`
+	SourceProtectionContainerFriendlyName pulumi.StringPtrInput         `pulumi:"sourceProtectionContainerFriendlyName"`
+	State                                 pulumi.StringPtrInput         `pulumi:"state"`
+	TargetFabricFriendlyName              pulumi.StringPtrInput         `pulumi:"targetFabricFriendlyName"`
+	TargetProtectionContainerFriendlyName pulumi.StringPtrInput         `pulumi:"targetProtectionContainerFriendlyName"`
+	TargetProtectionContainerId           pulumi.StringPtrInput         `pulumi:"targetProtectionContainerId"`
 }
 
 func (ProtectionContainerMappingPropertiesResponseArgs) ElementType() reflect.Type {
@@ -13080,7 +10900,6 @@ func (i *protectionContainerMappingPropertiesResponsePtrType) ToProtectionContai
 	return pulumi.ToOutputWithContext(ctx, i).(ProtectionContainerMappingPropertiesResponsePtrOutput)
 }
 
-// Protection container mapping properties.
 type ProtectionContainerMappingPropertiesResponseOutput struct{ *pulumi.OutputState }
 
 func (ProtectionContainerMappingPropertiesResponseOutput) ElementType() reflect.Type {
@@ -13100,68 +10919,57 @@ func (o ProtectionContainerMappingPropertiesResponseOutput) ToProtectionContaine
 }
 
 func (o ProtectionContainerMappingPropertiesResponseOutput) ToProtectionContainerMappingPropertiesResponsePtrOutputWithContext(ctx context.Context) ProtectionContainerMappingPropertiesResponsePtrOutput {
-	return o.ApplyT(func(v ProtectionContainerMappingPropertiesResponse) *ProtectionContainerMappingPropertiesResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ProtectionContainerMappingPropertiesResponse) *ProtectionContainerMappingPropertiesResponse {
 		return &v
 	}).(ProtectionContainerMappingPropertiesResponsePtrOutput)
 }
 
-// Health of pairing.
 func (o ProtectionContainerMappingPropertiesResponseOutput) Health() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ProtectionContainerMappingPropertiesResponse) *string { return v.Health }).(pulumi.StringPtrOutput)
 }
 
-// Health error.
 func (o ProtectionContainerMappingPropertiesResponseOutput) HealthErrorDetails() HealthErrorResponseArrayOutput {
 	return o.ApplyT(func(v ProtectionContainerMappingPropertiesResponse) []HealthErrorResponse {
 		return v.HealthErrorDetails
 	}).(HealthErrorResponseArrayOutput)
 }
 
-// Friendly name of replication policy.
 func (o ProtectionContainerMappingPropertiesResponseOutput) PolicyFriendlyName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ProtectionContainerMappingPropertiesResponse) *string { return v.PolicyFriendlyName }).(pulumi.StringPtrOutput)
 }
 
-// Policy ARM Id.
 func (o ProtectionContainerMappingPropertiesResponseOutput) PolicyId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ProtectionContainerMappingPropertiesResponse) *string { return v.PolicyId }).(pulumi.StringPtrOutput)
 }
 
-// Provider specific provider details.
 func (o ProtectionContainerMappingPropertiesResponseOutput) ProviderSpecificDetails() pulumi.AnyOutput {
 	return o.ApplyT(func(v ProtectionContainerMappingPropertiesResponse) interface{} { return v.ProviderSpecificDetails }).(pulumi.AnyOutput)
 }
 
-// Friendly name of source fabric.
 func (o ProtectionContainerMappingPropertiesResponseOutput) SourceFabricFriendlyName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ProtectionContainerMappingPropertiesResponse) *string { return v.SourceFabricFriendlyName }).(pulumi.StringPtrOutput)
 }
 
-// Friendly name of source protection container.
 func (o ProtectionContainerMappingPropertiesResponseOutput) SourceProtectionContainerFriendlyName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ProtectionContainerMappingPropertiesResponse) *string {
 		return v.SourceProtectionContainerFriendlyName
 	}).(pulumi.StringPtrOutput)
 }
 
-// Association Status
 func (o ProtectionContainerMappingPropertiesResponseOutput) State() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ProtectionContainerMappingPropertiesResponse) *string { return v.State }).(pulumi.StringPtrOutput)
 }
 
-// Friendly name of target fabric.
 func (o ProtectionContainerMappingPropertiesResponseOutput) TargetFabricFriendlyName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ProtectionContainerMappingPropertiesResponse) *string { return v.TargetFabricFriendlyName }).(pulumi.StringPtrOutput)
 }
 
-// Friendly name of paired container.
 func (o ProtectionContainerMappingPropertiesResponseOutput) TargetProtectionContainerFriendlyName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ProtectionContainerMappingPropertiesResponse) *string {
 		return v.TargetProtectionContainerFriendlyName
 	}).(pulumi.StringPtrOutput)
 }
 
-// Paired protection container ARM ID.
 func (o ProtectionContainerMappingPropertiesResponseOutput) TargetProtectionContainerId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ProtectionContainerMappingPropertiesResponse) *string { return v.TargetProtectionContainerId }).(pulumi.StringPtrOutput)
 }
@@ -13182,11 +10990,14 @@ func (o ProtectionContainerMappingPropertiesResponsePtrOutput) ToProtectionConta
 
 func (o ProtectionContainerMappingPropertiesResponsePtrOutput) Elem() ProtectionContainerMappingPropertiesResponseOutput {
 	return o.ApplyT(func(v *ProtectionContainerMappingPropertiesResponse) ProtectionContainerMappingPropertiesResponse {
-		return *v
+		if v != nil {
+			return *v
+		}
+		var ret ProtectionContainerMappingPropertiesResponse
+		return ret
 	}).(ProtectionContainerMappingPropertiesResponseOutput)
 }
 
-// Health of pairing.
 func (o ProtectionContainerMappingPropertiesResponsePtrOutput) Health() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ProtectionContainerMappingPropertiesResponse) *string {
 		if v == nil {
@@ -13196,7 +11007,6 @@ func (o ProtectionContainerMappingPropertiesResponsePtrOutput) Health() pulumi.S
 	}).(pulumi.StringPtrOutput)
 }
 
-// Health error.
 func (o ProtectionContainerMappingPropertiesResponsePtrOutput) HealthErrorDetails() HealthErrorResponseArrayOutput {
 	return o.ApplyT(func(v *ProtectionContainerMappingPropertiesResponse) []HealthErrorResponse {
 		if v == nil {
@@ -13206,7 +11016,6 @@ func (o ProtectionContainerMappingPropertiesResponsePtrOutput) HealthErrorDetail
 	}).(HealthErrorResponseArrayOutput)
 }
 
-// Friendly name of replication policy.
 func (o ProtectionContainerMappingPropertiesResponsePtrOutput) PolicyFriendlyName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ProtectionContainerMappingPropertiesResponse) *string {
 		if v == nil {
@@ -13216,7 +11025,6 @@ func (o ProtectionContainerMappingPropertiesResponsePtrOutput) PolicyFriendlyNam
 	}).(pulumi.StringPtrOutput)
 }
 
-// Policy ARM Id.
 func (o ProtectionContainerMappingPropertiesResponsePtrOutput) PolicyId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ProtectionContainerMappingPropertiesResponse) *string {
 		if v == nil {
@@ -13226,7 +11034,6 @@ func (o ProtectionContainerMappingPropertiesResponsePtrOutput) PolicyId() pulumi
 	}).(pulumi.StringPtrOutput)
 }
 
-// Provider specific provider details.
 func (o ProtectionContainerMappingPropertiesResponsePtrOutput) ProviderSpecificDetails() pulumi.AnyOutput {
 	return o.ApplyT(func(v *ProtectionContainerMappingPropertiesResponse) interface{} {
 		if v == nil {
@@ -13236,7 +11043,6 @@ func (o ProtectionContainerMappingPropertiesResponsePtrOutput) ProviderSpecificD
 	}).(pulumi.AnyOutput)
 }
 
-// Friendly name of source fabric.
 func (o ProtectionContainerMappingPropertiesResponsePtrOutput) SourceFabricFriendlyName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ProtectionContainerMappingPropertiesResponse) *string {
 		if v == nil {
@@ -13246,7 +11052,6 @@ func (o ProtectionContainerMappingPropertiesResponsePtrOutput) SourceFabricFrien
 	}).(pulumi.StringPtrOutput)
 }
 
-// Friendly name of source protection container.
 func (o ProtectionContainerMappingPropertiesResponsePtrOutput) SourceProtectionContainerFriendlyName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ProtectionContainerMappingPropertiesResponse) *string {
 		if v == nil {
@@ -13256,7 +11061,6 @@ func (o ProtectionContainerMappingPropertiesResponsePtrOutput) SourceProtectionC
 	}).(pulumi.StringPtrOutput)
 }
 
-// Association Status
 func (o ProtectionContainerMappingPropertiesResponsePtrOutput) State() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ProtectionContainerMappingPropertiesResponse) *string {
 		if v == nil {
@@ -13266,7 +11070,6 @@ func (o ProtectionContainerMappingPropertiesResponsePtrOutput) State() pulumi.St
 	}).(pulumi.StringPtrOutput)
 }
 
-// Friendly name of target fabric.
 func (o ProtectionContainerMappingPropertiesResponsePtrOutput) TargetFabricFriendlyName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ProtectionContainerMappingPropertiesResponse) *string {
 		if v == nil {
@@ -13276,7 +11079,6 @@ func (o ProtectionContainerMappingPropertiesResponsePtrOutput) TargetFabricFrien
 	}).(pulumi.StringPtrOutput)
 }
 
-// Friendly name of paired container.
 func (o ProtectionContainerMappingPropertiesResponsePtrOutput) TargetProtectionContainerFriendlyName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ProtectionContainerMappingPropertiesResponse) *string {
 		if v == nil {
@@ -13286,7 +11088,6 @@ func (o ProtectionContainerMappingPropertiesResponsePtrOutput) TargetProtectionC
 	}).(pulumi.StringPtrOutput)
 }
 
-// Paired protection container ARM ID.
 func (o ProtectionContainerMappingPropertiesResponsePtrOutput) TargetProtectionContainerId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ProtectionContainerMappingPropertiesResponse) *string {
 		if v == nil {
@@ -13296,21 +11097,13 @@ func (o ProtectionContainerMappingPropertiesResponsePtrOutput) TargetProtectionC
 	}).(pulumi.StringPtrOutput)
 }
 
-// RCM based Azure migration specific policy details.
 type RcmAzureMigrationPolicyDetailsResponse struct {
-	// The app consistent snapshot frequency in minutes.
-	AppConsistentFrequencyInMinutes *int `pulumi:"appConsistentFrequencyInMinutes"`
-	// The crash consistent snapshot frequency in minutes.
-	CrashConsistentFrequencyInMinutes *int `pulumi:"crashConsistentFrequencyInMinutes"`
-	// Gets the class type. Overridden in derived classes.
-	// Expected value is 'RcmAzureMigration'.
-	InstanceType string `pulumi:"instanceType"`
-	// A value indicating whether multi-VM sync has to be enabled.
-	MultiVmSyncStatus *string `pulumi:"multiVmSyncStatus"`
-	// The duration in minutes until which the recovery points need to be stored.
-	RecoveryPointHistory *int `pulumi:"recoveryPointHistory"`
-	// The recovery point threshold in minutes.
-	RecoveryPointThresholdInMinutes *int `pulumi:"recoveryPointThresholdInMinutes"`
+	AppConsistentFrequencyInMinutes   *int    `pulumi:"appConsistentFrequencyInMinutes"`
+	CrashConsistentFrequencyInMinutes *int    `pulumi:"crashConsistentFrequencyInMinutes"`
+	InstanceType                      string  `pulumi:"instanceType"`
+	MultiVmSyncStatus                 *string `pulumi:"multiVmSyncStatus"`
+	RecoveryPointHistory              *int    `pulumi:"recoveryPointHistory"`
+	RecoveryPointThresholdInMinutes   *int    `pulumi:"recoveryPointThresholdInMinutes"`
 }
 
 // RcmAzureMigrationPolicyDetailsResponseInput is an input type that accepts RcmAzureMigrationPolicyDetailsResponseArgs and RcmAzureMigrationPolicyDetailsResponseOutput values.
@@ -13324,21 +11117,13 @@ type RcmAzureMigrationPolicyDetailsResponseInput interface {
 	ToRcmAzureMigrationPolicyDetailsResponseOutputWithContext(context.Context) RcmAzureMigrationPolicyDetailsResponseOutput
 }
 
-// RCM based Azure migration specific policy details.
 type RcmAzureMigrationPolicyDetailsResponseArgs struct {
-	// The app consistent snapshot frequency in minutes.
-	AppConsistentFrequencyInMinutes pulumi.IntPtrInput `pulumi:"appConsistentFrequencyInMinutes"`
-	// The crash consistent snapshot frequency in minutes.
-	CrashConsistentFrequencyInMinutes pulumi.IntPtrInput `pulumi:"crashConsistentFrequencyInMinutes"`
-	// Gets the class type. Overridden in derived classes.
-	// Expected value is 'RcmAzureMigration'.
-	InstanceType pulumi.StringInput `pulumi:"instanceType"`
-	// A value indicating whether multi-VM sync has to be enabled.
-	MultiVmSyncStatus pulumi.StringPtrInput `pulumi:"multiVmSyncStatus"`
-	// The duration in minutes until which the recovery points need to be stored.
-	RecoveryPointHistory pulumi.IntPtrInput `pulumi:"recoveryPointHistory"`
-	// The recovery point threshold in minutes.
-	RecoveryPointThresholdInMinutes pulumi.IntPtrInput `pulumi:"recoveryPointThresholdInMinutes"`
+	AppConsistentFrequencyInMinutes   pulumi.IntPtrInput    `pulumi:"appConsistentFrequencyInMinutes"`
+	CrashConsistentFrequencyInMinutes pulumi.IntPtrInput    `pulumi:"crashConsistentFrequencyInMinutes"`
+	InstanceType                      pulumi.StringInput    `pulumi:"instanceType"`
+	MultiVmSyncStatus                 pulumi.StringPtrInput `pulumi:"multiVmSyncStatus"`
+	RecoveryPointHistory              pulumi.IntPtrInput    `pulumi:"recoveryPointHistory"`
+	RecoveryPointThresholdInMinutes   pulumi.IntPtrInput    `pulumi:"recoveryPointThresholdInMinutes"`
 }
 
 func (RcmAzureMigrationPolicyDetailsResponseArgs) ElementType() reflect.Type {
@@ -13353,7 +11138,6 @@ func (i RcmAzureMigrationPolicyDetailsResponseArgs) ToRcmAzureMigrationPolicyDet
 	return pulumi.ToOutputWithContext(ctx, i).(RcmAzureMigrationPolicyDetailsResponseOutput)
 }
 
-// RCM based Azure migration specific policy details.
 type RcmAzureMigrationPolicyDetailsResponseOutput struct{ *pulumi.OutputState }
 
 func (RcmAzureMigrationPolicyDetailsResponseOutput) ElementType() reflect.Type {
@@ -13368,45 +11152,34 @@ func (o RcmAzureMigrationPolicyDetailsResponseOutput) ToRcmAzureMigrationPolicyD
 	return o
 }
 
-// The app consistent snapshot frequency in minutes.
 func (o RcmAzureMigrationPolicyDetailsResponseOutput) AppConsistentFrequencyInMinutes() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v RcmAzureMigrationPolicyDetailsResponse) *int { return v.AppConsistentFrequencyInMinutes }).(pulumi.IntPtrOutput)
 }
 
-// The crash consistent snapshot frequency in minutes.
 func (o RcmAzureMigrationPolicyDetailsResponseOutput) CrashConsistentFrequencyInMinutes() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v RcmAzureMigrationPolicyDetailsResponse) *int { return v.CrashConsistentFrequencyInMinutes }).(pulumi.IntPtrOutput)
 }
 
-// Gets the class type. Overridden in derived classes.
-// Expected value is 'RcmAzureMigration'.
 func (o RcmAzureMigrationPolicyDetailsResponseOutput) InstanceType() pulumi.StringOutput {
 	return o.ApplyT(func(v RcmAzureMigrationPolicyDetailsResponse) string { return v.InstanceType }).(pulumi.StringOutput)
 }
 
-// A value indicating whether multi-VM sync has to be enabled.
 func (o RcmAzureMigrationPolicyDetailsResponseOutput) MultiVmSyncStatus() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v RcmAzureMigrationPolicyDetailsResponse) *string { return v.MultiVmSyncStatus }).(pulumi.StringPtrOutput)
 }
 
-// The duration in minutes until which the recovery points need to be stored.
 func (o RcmAzureMigrationPolicyDetailsResponseOutput) RecoveryPointHistory() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v RcmAzureMigrationPolicyDetailsResponse) *int { return v.RecoveryPointHistory }).(pulumi.IntPtrOutput)
 }
 
-// The recovery point threshold in minutes.
 func (o RcmAzureMigrationPolicyDetailsResponseOutput) RecoveryPointThresholdInMinutes() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v RcmAzureMigrationPolicyDetailsResponse) *int { return v.RecoveryPointThresholdInMinutes }).(pulumi.IntPtrOutput)
 }
 
-// Recovery plan action details.
 type RecoveryPlanAction struct {
-	// The action name.
-	ActionName string `pulumi:"actionName"`
-	// The list of failover directions.
+	ActionName         string   `pulumi:"actionName"`
 	FailoverDirections []string `pulumi:"failoverDirections"`
-	// The list of failover types.
-	FailoverTypes []string `pulumi:"failoverTypes"`
+	FailoverTypes      []string `pulumi:"failoverTypes"`
 }
 
 // RecoveryPlanActionInput is an input type that accepts RecoveryPlanActionArgs and RecoveryPlanActionOutput values.
@@ -13420,14 +11193,10 @@ type RecoveryPlanActionInput interface {
 	ToRecoveryPlanActionOutputWithContext(context.Context) RecoveryPlanActionOutput
 }
 
-// Recovery plan action details.
 type RecoveryPlanActionArgs struct {
-	// The action name.
-	ActionName pulumi.StringInput `pulumi:"actionName"`
-	// The list of failover directions.
+	ActionName         pulumi.StringInput      `pulumi:"actionName"`
 	FailoverDirections pulumi.StringArrayInput `pulumi:"failoverDirections"`
-	// The list of failover types.
-	FailoverTypes pulumi.StringArrayInput `pulumi:"failoverTypes"`
+	FailoverTypes      pulumi.StringArrayInput `pulumi:"failoverTypes"`
 }
 
 func (RecoveryPlanActionArgs) ElementType() reflect.Type {
@@ -13467,7 +11236,6 @@ func (i RecoveryPlanActionArray) ToRecoveryPlanActionArrayOutputWithContext(ctx 
 	return pulumi.ToOutputWithContext(ctx, i).(RecoveryPlanActionArrayOutput)
 }
 
-// Recovery plan action details.
 type RecoveryPlanActionOutput struct{ *pulumi.OutputState }
 
 func (RecoveryPlanActionOutput) ElementType() reflect.Type {
@@ -13482,17 +11250,14 @@ func (o RecoveryPlanActionOutput) ToRecoveryPlanActionOutputWithContext(ctx cont
 	return o
 }
 
-// The action name.
 func (o RecoveryPlanActionOutput) ActionName() pulumi.StringOutput {
 	return o.ApplyT(func(v RecoveryPlanAction) string { return v.ActionName }).(pulumi.StringOutput)
 }
 
-// The list of failover directions.
 func (o RecoveryPlanActionOutput) FailoverDirections() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v RecoveryPlanAction) []string { return v.FailoverDirections }).(pulumi.StringArrayOutput)
 }
 
-// The list of failover types.
 func (o RecoveryPlanActionOutput) FailoverTypes() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v RecoveryPlanAction) []string { return v.FailoverTypes }).(pulumi.StringArrayOutput)
 }
@@ -13517,16 +11282,11 @@ func (o RecoveryPlanActionArrayOutput) Index(i pulumi.IntInput) RecoveryPlanActi
 	}).(RecoveryPlanActionOutput)
 }
 
-// Recovery plan action details.
 type RecoveryPlanActionResponse struct {
-	// The action name.
-	ActionName string `pulumi:"actionName"`
-	// The custom details.
-	CustomDetails interface{} `pulumi:"customDetails"`
-	// The list of failover directions.
-	FailoverDirections []string `pulumi:"failoverDirections"`
-	// The list of failover types.
-	FailoverTypes []string `pulumi:"failoverTypes"`
+	ActionName         string      `pulumi:"actionName"`
+	CustomDetails      interface{} `pulumi:"customDetails"`
+	FailoverDirections []string    `pulumi:"failoverDirections"`
+	FailoverTypes      []string    `pulumi:"failoverTypes"`
 }
 
 // RecoveryPlanActionResponseInput is an input type that accepts RecoveryPlanActionResponseArgs and RecoveryPlanActionResponseOutput values.
@@ -13540,16 +11300,11 @@ type RecoveryPlanActionResponseInput interface {
 	ToRecoveryPlanActionResponseOutputWithContext(context.Context) RecoveryPlanActionResponseOutput
 }
 
-// Recovery plan action details.
 type RecoveryPlanActionResponseArgs struct {
-	// The action name.
-	ActionName pulumi.StringInput `pulumi:"actionName"`
-	// The custom details.
-	CustomDetails pulumi.Input `pulumi:"customDetails"`
-	// The list of failover directions.
+	ActionName         pulumi.StringInput      `pulumi:"actionName"`
+	CustomDetails      pulumi.Input            `pulumi:"customDetails"`
 	FailoverDirections pulumi.StringArrayInput `pulumi:"failoverDirections"`
-	// The list of failover types.
-	FailoverTypes pulumi.StringArrayInput `pulumi:"failoverTypes"`
+	FailoverTypes      pulumi.StringArrayInput `pulumi:"failoverTypes"`
 }
 
 func (RecoveryPlanActionResponseArgs) ElementType() reflect.Type {
@@ -13589,7 +11344,6 @@ func (i RecoveryPlanActionResponseArray) ToRecoveryPlanActionResponseArrayOutput
 	return pulumi.ToOutputWithContext(ctx, i).(RecoveryPlanActionResponseArrayOutput)
 }
 
-// Recovery plan action details.
 type RecoveryPlanActionResponseOutput struct{ *pulumi.OutputState }
 
 func (RecoveryPlanActionResponseOutput) ElementType() reflect.Type {
@@ -13604,22 +11358,18 @@ func (o RecoveryPlanActionResponseOutput) ToRecoveryPlanActionResponseOutputWith
 	return o
 }
 
-// The action name.
 func (o RecoveryPlanActionResponseOutput) ActionName() pulumi.StringOutput {
 	return o.ApplyT(func(v RecoveryPlanActionResponse) string { return v.ActionName }).(pulumi.StringOutput)
 }
 
-// The custom details.
 func (o RecoveryPlanActionResponseOutput) CustomDetails() pulumi.AnyOutput {
 	return o.ApplyT(func(v RecoveryPlanActionResponse) interface{} { return v.CustomDetails }).(pulumi.AnyOutput)
 }
 
-// The list of failover directions.
 func (o RecoveryPlanActionResponseOutput) FailoverDirections() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v RecoveryPlanActionResponse) []string { return v.FailoverDirections }).(pulumi.StringArrayOutput)
 }
 
-// The list of failover types.
 func (o RecoveryPlanActionResponseOutput) FailoverTypes() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v RecoveryPlanActionResponse) []string { return v.FailoverTypes }).(pulumi.StringArrayOutput)
 }
@@ -13644,17 +11394,11 @@ func (o RecoveryPlanActionResponseArrayOutput) Index(i pulumi.IntInput) Recovery
 	}).(RecoveryPlanActionResponseOutput)
 }
 
-// Recovery plan Automation runbook action details.
 type RecoveryPlanAutomationRunbookActionDetailsResponse struct {
-	// The fabric location.
-	FabricLocation string `pulumi:"fabricLocation"`
-	// Gets the type of action details (see RecoveryPlanActionDetailsTypes enum for possible values).
-	// Expected value is 'AutomationRunbookActionDetails'.
-	InstanceType string `pulumi:"instanceType"`
-	// The runbook ARM Id.
-	RunbookId *string `pulumi:"runbookId"`
-	// The runbook timeout.
-	Timeout *string `pulumi:"timeout"`
+	FabricLocation string  `pulumi:"fabricLocation"`
+	InstanceType   string  `pulumi:"instanceType"`
+	RunbookId      *string `pulumi:"runbookId"`
+	Timeout        *string `pulumi:"timeout"`
 }
 
 // RecoveryPlanAutomationRunbookActionDetailsResponseInput is an input type that accepts RecoveryPlanAutomationRunbookActionDetailsResponseArgs and RecoveryPlanAutomationRunbookActionDetailsResponseOutput values.
@@ -13668,17 +11412,11 @@ type RecoveryPlanAutomationRunbookActionDetailsResponseInput interface {
 	ToRecoveryPlanAutomationRunbookActionDetailsResponseOutputWithContext(context.Context) RecoveryPlanAutomationRunbookActionDetailsResponseOutput
 }
 
-// Recovery plan Automation runbook action details.
 type RecoveryPlanAutomationRunbookActionDetailsResponseArgs struct {
-	// The fabric location.
-	FabricLocation pulumi.StringInput `pulumi:"fabricLocation"`
-	// Gets the type of action details (see RecoveryPlanActionDetailsTypes enum for possible values).
-	// Expected value is 'AutomationRunbookActionDetails'.
-	InstanceType pulumi.StringInput `pulumi:"instanceType"`
-	// The runbook ARM Id.
-	RunbookId pulumi.StringPtrInput `pulumi:"runbookId"`
-	// The runbook timeout.
-	Timeout pulumi.StringPtrInput `pulumi:"timeout"`
+	FabricLocation pulumi.StringInput    `pulumi:"fabricLocation"`
+	InstanceType   pulumi.StringInput    `pulumi:"instanceType"`
+	RunbookId      pulumi.StringPtrInput `pulumi:"runbookId"`
+	Timeout        pulumi.StringPtrInput `pulumi:"timeout"`
 }
 
 func (RecoveryPlanAutomationRunbookActionDetailsResponseArgs) ElementType() reflect.Type {
@@ -13693,7 +11431,6 @@ func (i RecoveryPlanAutomationRunbookActionDetailsResponseArgs) ToRecoveryPlanAu
 	return pulumi.ToOutputWithContext(ctx, i).(RecoveryPlanAutomationRunbookActionDetailsResponseOutput)
 }
 
-// Recovery plan Automation runbook action details.
 type RecoveryPlanAutomationRunbookActionDetailsResponseOutput struct{ *pulumi.OutputState }
 
 func (RecoveryPlanAutomationRunbookActionDetailsResponseOutput) ElementType() reflect.Type {
@@ -13708,37 +11445,27 @@ func (o RecoveryPlanAutomationRunbookActionDetailsResponseOutput) ToRecoveryPlan
 	return o
 }
 
-// The fabric location.
 func (o RecoveryPlanAutomationRunbookActionDetailsResponseOutput) FabricLocation() pulumi.StringOutput {
 	return o.ApplyT(func(v RecoveryPlanAutomationRunbookActionDetailsResponse) string { return v.FabricLocation }).(pulumi.StringOutput)
 }
 
-// Gets the type of action details (see RecoveryPlanActionDetailsTypes enum for possible values).
-// Expected value is 'AutomationRunbookActionDetails'.
 func (o RecoveryPlanAutomationRunbookActionDetailsResponseOutput) InstanceType() pulumi.StringOutput {
 	return o.ApplyT(func(v RecoveryPlanAutomationRunbookActionDetailsResponse) string { return v.InstanceType }).(pulumi.StringOutput)
 }
 
-// The runbook ARM Id.
 func (o RecoveryPlanAutomationRunbookActionDetailsResponseOutput) RunbookId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v RecoveryPlanAutomationRunbookActionDetailsResponse) *string { return v.RunbookId }).(pulumi.StringPtrOutput)
 }
 
-// The runbook timeout.
 func (o RecoveryPlanAutomationRunbookActionDetailsResponseOutput) Timeout() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v RecoveryPlanAutomationRunbookActionDetailsResponse) *string { return v.Timeout }).(pulumi.StringPtrOutput)
 }
 
-// Recovery plan group details.
 type RecoveryPlanGroup struct {
-	// The end group actions.
-	EndGroupActions []RecoveryPlanAction `pulumi:"endGroupActions"`
-	// The group type.
-	GroupType string `pulumi:"groupType"`
-	// The list of protected items.
+	EndGroupActions           []RecoveryPlanAction        `pulumi:"endGroupActions"`
+	GroupType                 string                      `pulumi:"groupType"`
 	ReplicationProtectedItems []RecoveryPlanProtectedItem `pulumi:"replicationProtectedItems"`
-	// The start group actions.
-	StartGroupActions []RecoveryPlanAction `pulumi:"startGroupActions"`
+	StartGroupActions         []RecoveryPlanAction        `pulumi:"startGroupActions"`
 }
 
 // RecoveryPlanGroupInput is an input type that accepts RecoveryPlanGroupArgs and RecoveryPlanGroupOutput values.
@@ -13752,16 +11479,11 @@ type RecoveryPlanGroupInput interface {
 	ToRecoveryPlanGroupOutputWithContext(context.Context) RecoveryPlanGroupOutput
 }
 
-// Recovery plan group details.
 type RecoveryPlanGroupArgs struct {
-	// The end group actions.
-	EndGroupActions RecoveryPlanActionArrayInput `pulumi:"endGroupActions"`
-	// The group type.
-	GroupType pulumi.StringInput `pulumi:"groupType"`
-	// The list of protected items.
+	EndGroupActions           RecoveryPlanActionArrayInput        `pulumi:"endGroupActions"`
+	GroupType                 pulumi.StringInput                  `pulumi:"groupType"`
 	ReplicationProtectedItems RecoveryPlanProtectedItemArrayInput `pulumi:"replicationProtectedItems"`
-	// The start group actions.
-	StartGroupActions RecoveryPlanActionArrayInput `pulumi:"startGroupActions"`
+	StartGroupActions         RecoveryPlanActionArrayInput        `pulumi:"startGroupActions"`
 }
 
 func (RecoveryPlanGroupArgs) ElementType() reflect.Type {
@@ -13801,7 +11523,6 @@ func (i RecoveryPlanGroupArray) ToRecoveryPlanGroupArrayOutputWithContext(ctx co
 	return pulumi.ToOutputWithContext(ctx, i).(RecoveryPlanGroupArrayOutput)
 }
 
-// Recovery plan group details.
 type RecoveryPlanGroupOutput struct{ *pulumi.OutputState }
 
 func (RecoveryPlanGroupOutput) ElementType() reflect.Type {
@@ -13816,22 +11537,18 @@ func (o RecoveryPlanGroupOutput) ToRecoveryPlanGroupOutputWithContext(ctx contex
 	return o
 }
 
-// The end group actions.
 func (o RecoveryPlanGroupOutput) EndGroupActions() RecoveryPlanActionArrayOutput {
 	return o.ApplyT(func(v RecoveryPlanGroup) []RecoveryPlanAction { return v.EndGroupActions }).(RecoveryPlanActionArrayOutput)
 }
 
-// The group type.
 func (o RecoveryPlanGroupOutput) GroupType() pulumi.StringOutput {
 	return o.ApplyT(func(v RecoveryPlanGroup) string { return v.GroupType }).(pulumi.StringOutput)
 }
 
-// The list of protected items.
 func (o RecoveryPlanGroupOutput) ReplicationProtectedItems() RecoveryPlanProtectedItemArrayOutput {
 	return o.ApplyT(func(v RecoveryPlanGroup) []RecoveryPlanProtectedItem { return v.ReplicationProtectedItems }).(RecoveryPlanProtectedItemArrayOutput)
 }
 
-// The start group actions.
 func (o RecoveryPlanGroupOutput) StartGroupActions() RecoveryPlanActionArrayOutput {
 	return o.ApplyT(func(v RecoveryPlanGroup) []RecoveryPlanAction { return v.StartGroupActions }).(RecoveryPlanActionArrayOutput)
 }
@@ -13856,16 +11573,11 @@ func (o RecoveryPlanGroupArrayOutput) Index(i pulumi.IntInput) RecoveryPlanGroup
 	}).(RecoveryPlanGroupOutput)
 }
 
-// Recovery plan group details.
 type RecoveryPlanGroupResponse struct {
-	// The end group actions.
-	EndGroupActions []RecoveryPlanActionResponse `pulumi:"endGroupActions"`
-	// The group type.
-	GroupType string `pulumi:"groupType"`
-	// The list of protected items.
+	EndGroupActions           []RecoveryPlanActionResponse        `pulumi:"endGroupActions"`
+	GroupType                 string                              `pulumi:"groupType"`
 	ReplicationProtectedItems []RecoveryPlanProtectedItemResponse `pulumi:"replicationProtectedItems"`
-	// The start group actions.
-	StartGroupActions []RecoveryPlanActionResponse `pulumi:"startGroupActions"`
+	StartGroupActions         []RecoveryPlanActionResponse        `pulumi:"startGroupActions"`
 }
 
 // RecoveryPlanGroupResponseInput is an input type that accepts RecoveryPlanGroupResponseArgs and RecoveryPlanGroupResponseOutput values.
@@ -13879,16 +11591,11 @@ type RecoveryPlanGroupResponseInput interface {
 	ToRecoveryPlanGroupResponseOutputWithContext(context.Context) RecoveryPlanGroupResponseOutput
 }
 
-// Recovery plan group details.
 type RecoveryPlanGroupResponseArgs struct {
-	// The end group actions.
-	EndGroupActions RecoveryPlanActionResponseArrayInput `pulumi:"endGroupActions"`
-	// The group type.
-	GroupType pulumi.StringInput `pulumi:"groupType"`
-	// The list of protected items.
+	EndGroupActions           RecoveryPlanActionResponseArrayInput        `pulumi:"endGroupActions"`
+	GroupType                 pulumi.StringInput                          `pulumi:"groupType"`
 	ReplicationProtectedItems RecoveryPlanProtectedItemResponseArrayInput `pulumi:"replicationProtectedItems"`
-	// The start group actions.
-	StartGroupActions RecoveryPlanActionResponseArrayInput `pulumi:"startGroupActions"`
+	StartGroupActions         RecoveryPlanActionResponseArrayInput        `pulumi:"startGroupActions"`
 }
 
 func (RecoveryPlanGroupResponseArgs) ElementType() reflect.Type {
@@ -13928,7 +11635,6 @@ func (i RecoveryPlanGroupResponseArray) ToRecoveryPlanGroupResponseArrayOutputWi
 	return pulumi.ToOutputWithContext(ctx, i).(RecoveryPlanGroupResponseArrayOutput)
 }
 
-// Recovery plan group details.
 type RecoveryPlanGroupResponseOutput struct{ *pulumi.OutputState }
 
 func (RecoveryPlanGroupResponseOutput) ElementType() reflect.Type {
@@ -13943,24 +11649,20 @@ func (o RecoveryPlanGroupResponseOutput) ToRecoveryPlanGroupResponseOutputWithCo
 	return o
 }
 
-// The end group actions.
 func (o RecoveryPlanGroupResponseOutput) EndGroupActions() RecoveryPlanActionResponseArrayOutput {
 	return o.ApplyT(func(v RecoveryPlanGroupResponse) []RecoveryPlanActionResponse { return v.EndGroupActions }).(RecoveryPlanActionResponseArrayOutput)
 }
 
-// The group type.
 func (o RecoveryPlanGroupResponseOutput) GroupType() pulumi.StringOutput {
 	return o.ApplyT(func(v RecoveryPlanGroupResponse) string { return v.GroupType }).(pulumi.StringOutput)
 }
 
-// The list of protected items.
 func (o RecoveryPlanGroupResponseOutput) ReplicationProtectedItems() RecoveryPlanProtectedItemResponseArrayOutput {
 	return o.ApplyT(func(v RecoveryPlanGroupResponse) []RecoveryPlanProtectedItemResponse {
 		return v.ReplicationProtectedItems
 	}).(RecoveryPlanProtectedItemResponseArrayOutput)
 }
 
-// The start group actions.
 func (o RecoveryPlanGroupResponseOutput) StartGroupActions() RecoveryPlanActionResponseArrayOutput {
 	return o.ApplyT(func(v RecoveryPlanGroupResponse) []RecoveryPlanActionResponse { return v.StartGroupActions }).(RecoveryPlanActionResponseArrayOutput)
 }
@@ -13985,13 +11687,9 @@ func (o RecoveryPlanGroupResponseArrayOutput) Index(i pulumi.IntInput) RecoveryP
 	}).(RecoveryPlanGroupResponseOutput)
 }
 
-// Recovery plan manual action details.
 type RecoveryPlanManualActionDetailsResponse struct {
-	// The manual action description.
-	Description *string `pulumi:"description"`
-	// Gets the type of action details (see RecoveryPlanActionDetailsTypes enum for possible values).
-	// Expected value is 'ManualActionDetails'.
-	InstanceType string `pulumi:"instanceType"`
+	Description  *string `pulumi:"description"`
+	InstanceType string  `pulumi:"instanceType"`
 }
 
 // RecoveryPlanManualActionDetailsResponseInput is an input type that accepts RecoveryPlanManualActionDetailsResponseArgs and RecoveryPlanManualActionDetailsResponseOutput values.
@@ -14005,13 +11703,9 @@ type RecoveryPlanManualActionDetailsResponseInput interface {
 	ToRecoveryPlanManualActionDetailsResponseOutputWithContext(context.Context) RecoveryPlanManualActionDetailsResponseOutput
 }
 
-// Recovery plan manual action details.
 type RecoveryPlanManualActionDetailsResponseArgs struct {
-	// The manual action description.
-	Description pulumi.StringPtrInput `pulumi:"description"`
-	// Gets the type of action details (see RecoveryPlanActionDetailsTypes enum for possible values).
-	// Expected value is 'ManualActionDetails'.
-	InstanceType pulumi.StringInput `pulumi:"instanceType"`
+	Description  pulumi.StringPtrInput `pulumi:"description"`
+	InstanceType pulumi.StringInput    `pulumi:"instanceType"`
 }
 
 func (RecoveryPlanManualActionDetailsResponseArgs) ElementType() reflect.Type {
@@ -14026,7 +11720,6 @@ func (i RecoveryPlanManualActionDetailsResponseArgs) ToRecoveryPlanManualActionD
 	return pulumi.ToOutputWithContext(ctx, i).(RecoveryPlanManualActionDetailsResponseOutput)
 }
 
-// Recovery plan manual action details.
 type RecoveryPlanManualActionDetailsResponseOutput struct{ *pulumi.OutputState }
 
 func (RecoveryPlanManualActionDetailsResponseOutput) ElementType() reflect.Type {
@@ -14041,49 +11734,30 @@ func (o RecoveryPlanManualActionDetailsResponseOutput) ToRecoveryPlanManualActio
 	return o
 }
 
-// The manual action description.
 func (o RecoveryPlanManualActionDetailsResponseOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v RecoveryPlanManualActionDetailsResponse) *string { return v.Description }).(pulumi.StringPtrOutput)
 }
 
-// Gets the type of action details (see RecoveryPlanActionDetailsTypes enum for possible values).
-// Expected value is 'ManualActionDetails'.
 func (o RecoveryPlanManualActionDetailsResponseOutput) InstanceType() pulumi.StringOutput {
 	return o.ApplyT(func(v RecoveryPlanManualActionDetailsResponse) string { return v.InstanceType }).(pulumi.StringOutput)
 }
 
-// Recovery plan custom details.
 type RecoveryPlanPropertiesResponse struct {
-	// The list of allowed operations.
-	AllowedOperations []string `pulumi:"allowedOperations"`
-	// The current scenario details.
-	CurrentScenario *CurrentScenarioDetailsResponse `pulumi:"currentScenario"`
-	// The recovery plan status.
-	CurrentScenarioStatus *string `pulumi:"currentScenarioStatus"`
-	// The recovery plan status description.
-	CurrentScenarioStatusDescription *string `pulumi:"currentScenarioStatusDescription"`
-	// The failover deployment model.
-	FailoverDeploymentModel *string `pulumi:"failoverDeploymentModel"`
-	// The friendly name.
-	FriendlyName *string `pulumi:"friendlyName"`
-	// The recovery plan groups.
-	Groups []RecoveryPlanGroupResponse `pulumi:"groups"`
-	// The start time of the last planned failover.
-	LastPlannedFailoverTime *string `pulumi:"lastPlannedFailoverTime"`
-	// The start time of the last test failover.
-	LastTestFailoverTime *string `pulumi:"lastTestFailoverTime"`
-	// The start time of the last unplanned failover.
-	LastUnplannedFailoverTime *string `pulumi:"lastUnplannedFailoverTime"`
-	// The primary fabric friendly name.
-	PrimaryFabricFriendlyName *string `pulumi:"primaryFabricFriendlyName"`
-	// The primary fabric Id.
-	PrimaryFabricId *string `pulumi:"primaryFabricId"`
-	// The recovery fabric friendly name.
-	RecoveryFabricFriendlyName *string `pulumi:"recoveryFabricFriendlyName"`
-	// The recovery fabric Id.
-	RecoveryFabricId *string `pulumi:"recoveryFabricId"`
-	// The list of replication providers.
-	ReplicationProviders []string `pulumi:"replicationProviders"`
+	AllowedOperations                []string                        `pulumi:"allowedOperations"`
+	CurrentScenario                  *CurrentScenarioDetailsResponse `pulumi:"currentScenario"`
+	CurrentScenarioStatus            *string                         `pulumi:"currentScenarioStatus"`
+	CurrentScenarioStatusDescription *string                         `pulumi:"currentScenarioStatusDescription"`
+	FailoverDeploymentModel          *string                         `pulumi:"failoverDeploymentModel"`
+	FriendlyName                     *string                         `pulumi:"friendlyName"`
+	Groups                           []RecoveryPlanGroupResponse     `pulumi:"groups"`
+	LastPlannedFailoverTime          *string                         `pulumi:"lastPlannedFailoverTime"`
+	LastTestFailoverTime             *string                         `pulumi:"lastTestFailoverTime"`
+	LastUnplannedFailoverTime        *string                         `pulumi:"lastUnplannedFailoverTime"`
+	PrimaryFabricFriendlyName        *string                         `pulumi:"primaryFabricFriendlyName"`
+	PrimaryFabricId                  *string                         `pulumi:"primaryFabricId"`
+	RecoveryFabricFriendlyName       *string                         `pulumi:"recoveryFabricFriendlyName"`
+	RecoveryFabricId                 *string                         `pulumi:"recoveryFabricId"`
+	ReplicationProviders             []string                        `pulumi:"replicationProviders"`
 }
 
 // RecoveryPlanPropertiesResponseInput is an input type that accepts RecoveryPlanPropertiesResponseArgs and RecoveryPlanPropertiesResponseOutput values.
@@ -14097,38 +11771,22 @@ type RecoveryPlanPropertiesResponseInput interface {
 	ToRecoveryPlanPropertiesResponseOutputWithContext(context.Context) RecoveryPlanPropertiesResponseOutput
 }
 
-// Recovery plan custom details.
 type RecoveryPlanPropertiesResponseArgs struct {
-	// The list of allowed operations.
-	AllowedOperations pulumi.StringArrayInput `pulumi:"allowedOperations"`
-	// The current scenario details.
-	CurrentScenario CurrentScenarioDetailsResponsePtrInput `pulumi:"currentScenario"`
-	// The recovery plan status.
-	CurrentScenarioStatus pulumi.StringPtrInput `pulumi:"currentScenarioStatus"`
-	// The recovery plan status description.
-	CurrentScenarioStatusDescription pulumi.StringPtrInput `pulumi:"currentScenarioStatusDescription"`
-	// The failover deployment model.
-	FailoverDeploymentModel pulumi.StringPtrInput `pulumi:"failoverDeploymentModel"`
-	// The friendly name.
-	FriendlyName pulumi.StringPtrInput `pulumi:"friendlyName"`
-	// The recovery plan groups.
-	Groups RecoveryPlanGroupResponseArrayInput `pulumi:"groups"`
-	// The start time of the last planned failover.
-	LastPlannedFailoverTime pulumi.StringPtrInput `pulumi:"lastPlannedFailoverTime"`
-	// The start time of the last test failover.
-	LastTestFailoverTime pulumi.StringPtrInput `pulumi:"lastTestFailoverTime"`
-	// The start time of the last unplanned failover.
-	LastUnplannedFailoverTime pulumi.StringPtrInput `pulumi:"lastUnplannedFailoverTime"`
-	// The primary fabric friendly name.
-	PrimaryFabricFriendlyName pulumi.StringPtrInput `pulumi:"primaryFabricFriendlyName"`
-	// The primary fabric Id.
-	PrimaryFabricId pulumi.StringPtrInput `pulumi:"primaryFabricId"`
-	// The recovery fabric friendly name.
-	RecoveryFabricFriendlyName pulumi.StringPtrInput `pulumi:"recoveryFabricFriendlyName"`
-	// The recovery fabric Id.
-	RecoveryFabricId pulumi.StringPtrInput `pulumi:"recoveryFabricId"`
-	// The list of replication providers.
-	ReplicationProviders pulumi.StringArrayInput `pulumi:"replicationProviders"`
+	AllowedOperations                pulumi.StringArrayInput                `pulumi:"allowedOperations"`
+	CurrentScenario                  CurrentScenarioDetailsResponsePtrInput `pulumi:"currentScenario"`
+	CurrentScenarioStatus            pulumi.StringPtrInput                  `pulumi:"currentScenarioStatus"`
+	CurrentScenarioStatusDescription pulumi.StringPtrInput                  `pulumi:"currentScenarioStatusDescription"`
+	FailoverDeploymentModel          pulumi.StringPtrInput                  `pulumi:"failoverDeploymentModel"`
+	FriendlyName                     pulumi.StringPtrInput                  `pulumi:"friendlyName"`
+	Groups                           RecoveryPlanGroupResponseArrayInput    `pulumi:"groups"`
+	LastPlannedFailoverTime          pulumi.StringPtrInput                  `pulumi:"lastPlannedFailoverTime"`
+	LastTestFailoverTime             pulumi.StringPtrInput                  `pulumi:"lastTestFailoverTime"`
+	LastUnplannedFailoverTime        pulumi.StringPtrInput                  `pulumi:"lastUnplannedFailoverTime"`
+	PrimaryFabricFriendlyName        pulumi.StringPtrInput                  `pulumi:"primaryFabricFriendlyName"`
+	PrimaryFabricId                  pulumi.StringPtrInput                  `pulumi:"primaryFabricId"`
+	RecoveryFabricFriendlyName       pulumi.StringPtrInput                  `pulumi:"recoveryFabricFriendlyName"`
+	RecoveryFabricId                 pulumi.StringPtrInput                  `pulumi:"recoveryFabricId"`
+	ReplicationProviders             pulumi.StringArrayInput                `pulumi:"replicationProviders"`
 }
 
 func (RecoveryPlanPropertiesResponseArgs) ElementType() reflect.Type {
@@ -14184,7 +11842,6 @@ func (i *recoveryPlanPropertiesResponsePtrType) ToRecoveryPlanPropertiesResponse
 	return pulumi.ToOutputWithContext(ctx, i).(RecoveryPlanPropertiesResponsePtrOutput)
 }
 
-// Recovery plan custom details.
 type RecoveryPlanPropertiesResponseOutput struct{ *pulumi.OutputState }
 
 func (RecoveryPlanPropertiesResponseOutput) ElementType() reflect.Type {
@@ -14204,82 +11861,67 @@ func (o RecoveryPlanPropertiesResponseOutput) ToRecoveryPlanPropertiesResponsePt
 }
 
 func (o RecoveryPlanPropertiesResponseOutput) ToRecoveryPlanPropertiesResponsePtrOutputWithContext(ctx context.Context) RecoveryPlanPropertiesResponsePtrOutput {
-	return o.ApplyT(func(v RecoveryPlanPropertiesResponse) *RecoveryPlanPropertiesResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v RecoveryPlanPropertiesResponse) *RecoveryPlanPropertiesResponse {
 		return &v
 	}).(RecoveryPlanPropertiesResponsePtrOutput)
 }
 
-// The list of allowed operations.
 func (o RecoveryPlanPropertiesResponseOutput) AllowedOperations() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v RecoveryPlanPropertiesResponse) []string { return v.AllowedOperations }).(pulumi.StringArrayOutput)
 }
 
-// The current scenario details.
 func (o RecoveryPlanPropertiesResponseOutput) CurrentScenario() CurrentScenarioDetailsResponsePtrOutput {
 	return o.ApplyT(func(v RecoveryPlanPropertiesResponse) *CurrentScenarioDetailsResponse { return v.CurrentScenario }).(CurrentScenarioDetailsResponsePtrOutput)
 }
 
-// The recovery plan status.
 func (o RecoveryPlanPropertiesResponseOutput) CurrentScenarioStatus() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v RecoveryPlanPropertiesResponse) *string { return v.CurrentScenarioStatus }).(pulumi.StringPtrOutput)
 }
 
-// The recovery plan status description.
 func (o RecoveryPlanPropertiesResponseOutput) CurrentScenarioStatusDescription() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v RecoveryPlanPropertiesResponse) *string { return v.CurrentScenarioStatusDescription }).(pulumi.StringPtrOutput)
 }
 
-// The failover deployment model.
 func (o RecoveryPlanPropertiesResponseOutput) FailoverDeploymentModel() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v RecoveryPlanPropertiesResponse) *string { return v.FailoverDeploymentModel }).(pulumi.StringPtrOutput)
 }
 
-// The friendly name.
 func (o RecoveryPlanPropertiesResponseOutput) FriendlyName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v RecoveryPlanPropertiesResponse) *string { return v.FriendlyName }).(pulumi.StringPtrOutput)
 }
 
-// The recovery plan groups.
 func (o RecoveryPlanPropertiesResponseOutput) Groups() RecoveryPlanGroupResponseArrayOutput {
 	return o.ApplyT(func(v RecoveryPlanPropertiesResponse) []RecoveryPlanGroupResponse { return v.Groups }).(RecoveryPlanGroupResponseArrayOutput)
 }
 
-// The start time of the last planned failover.
 func (o RecoveryPlanPropertiesResponseOutput) LastPlannedFailoverTime() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v RecoveryPlanPropertiesResponse) *string { return v.LastPlannedFailoverTime }).(pulumi.StringPtrOutput)
 }
 
-// The start time of the last test failover.
 func (o RecoveryPlanPropertiesResponseOutput) LastTestFailoverTime() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v RecoveryPlanPropertiesResponse) *string { return v.LastTestFailoverTime }).(pulumi.StringPtrOutput)
 }
 
-// The start time of the last unplanned failover.
 func (o RecoveryPlanPropertiesResponseOutput) LastUnplannedFailoverTime() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v RecoveryPlanPropertiesResponse) *string { return v.LastUnplannedFailoverTime }).(pulumi.StringPtrOutput)
 }
 
-// The primary fabric friendly name.
 func (o RecoveryPlanPropertiesResponseOutput) PrimaryFabricFriendlyName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v RecoveryPlanPropertiesResponse) *string { return v.PrimaryFabricFriendlyName }).(pulumi.StringPtrOutput)
 }
 
-// The primary fabric Id.
 func (o RecoveryPlanPropertiesResponseOutput) PrimaryFabricId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v RecoveryPlanPropertiesResponse) *string { return v.PrimaryFabricId }).(pulumi.StringPtrOutput)
 }
 
-// The recovery fabric friendly name.
 func (o RecoveryPlanPropertiesResponseOutput) RecoveryFabricFriendlyName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v RecoveryPlanPropertiesResponse) *string { return v.RecoveryFabricFriendlyName }).(pulumi.StringPtrOutput)
 }
 
-// The recovery fabric Id.
 func (o RecoveryPlanPropertiesResponseOutput) RecoveryFabricId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v RecoveryPlanPropertiesResponse) *string { return v.RecoveryFabricId }).(pulumi.StringPtrOutput)
 }
 
-// The list of replication providers.
 func (o RecoveryPlanPropertiesResponseOutput) ReplicationProviders() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v RecoveryPlanPropertiesResponse) []string { return v.ReplicationProviders }).(pulumi.StringArrayOutput)
 }
@@ -14299,10 +11941,15 @@ func (o RecoveryPlanPropertiesResponsePtrOutput) ToRecoveryPlanPropertiesRespons
 }
 
 func (o RecoveryPlanPropertiesResponsePtrOutput) Elem() RecoveryPlanPropertiesResponseOutput {
-	return o.ApplyT(func(v *RecoveryPlanPropertiesResponse) RecoveryPlanPropertiesResponse { return *v }).(RecoveryPlanPropertiesResponseOutput)
+	return o.ApplyT(func(v *RecoveryPlanPropertiesResponse) RecoveryPlanPropertiesResponse {
+		if v != nil {
+			return *v
+		}
+		var ret RecoveryPlanPropertiesResponse
+		return ret
+	}).(RecoveryPlanPropertiesResponseOutput)
 }
 
-// The list of allowed operations.
 func (o RecoveryPlanPropertiesResponsePtrOutput) AllowedOperations() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *RecoveryPlanPropertiesResponse) []string {
 		if v == nil {
@@ -14312,7 +11959,6 @@ func (o RecoveryPlanPropertiesResponsePtrOutput) AllowedOperations() pulumi.Stri
 	}).(pulumi.StringArrayOutput)
 }
 
-// The current scenario details.
 func (o RecoveryPlanPropertiesResponsePtrOutput) CurrentScenario() CurrentScenarioDetailsResponsePtrOutput {
 	return o.ApplyT(func(v *RecoveryPlanPropertiesResponse) *CurrentScenarioDetailsResponse {
 		if v == nil {
@@ -14322,7 +11968,6 @@ func (o RecoveryPlanPropertiesResponsePtrOutput) CurrentScenario() CurrentScenar
 	}).(CurrentScenarioDetailsResponsePtrOutput)
 }
 
-// The recovery plan status.
 func (o RecoveryPlanPropertiesResponsePtrOutput) CurrentScenarioStatus() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *RecoveryPlanPropertiesResponse) *string {
 		if v == nil {
@@ -14332,7 +11977,6 @@ func (o RecoveryPlanPropertiesResponsePtrOutput) CurrentScenarioStatus() pulumi.
 	}).(pulumi.StringPtrOutput)
 }
 
-// The recovery plan status description.
 func (o RecoveryPlanPropertiesResponsePtrOutput) CurrentScenarioStatusDescription() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *RecoveryPlanPropertiesResponse) *string {
 		if v == nil {
@@ -14342,7 +11986,6 @@ func (o RecoveryPlanPropertiesResponsePtrOutput) CurrentScenarioStatusDescriptio
 	}).(pulumi.StringPtrOutput)
 }
 
-// The failover deployment model.
 func (o RecoveryPlanPropertiesResponsePtrOutput) FailoverDeploymentModel() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *RecoveryPlanPropertiesResponse) *string {
 		if v == nil {
@@ -14352,7 +11995,6 @@ func (o RecoveryPlanPropertiesResponsePtrOutput) FailoverDeploymentModel() pulum
 	}).(pulumi.StringPtrOutput)
 }
 
-// The friendly name.
 func (o RecoveryPlanPropertiesResponsePtrOutput) FriendlyName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *RecoveryPlanPropertiesResponse) *string {
 		if v == nil {
@@ -14362,7 +12004,6 @@ func (o RecoveryPlanPropertiesResponsePtrOutput) FriendlyName() pulumi.StringPtr
 	}).(pulumi.StringPtrOutput)
 }
 
-// The recovery plan groups.
 func (o RecoveryPlanPropertiesResponsePtrOutput) Groups() RecoveryPlanGroupResponseArrayOutput {
 	return o.ApplyT(func(v *RecoveryPlanPropertiesResponse) []RecoveryPlanGroupResponse {
 		if v == nil {
@@ -14372,7 +12013,6 @@ func (o RecoveryPlanPropertiesResponsePtrOutput) Groups() RecoveryPlanGroupRespo
 	}).(RecoveryPlanGroupResponseArrayOutput)
 }
 
-// The start time of the last planned failover.
 func (o RecoveryPlanPropertiesResponsePtrOutput) LastPlannedFailoverTime() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *RecoveryPlanPropertiesResponse) *string {
 		if v == nil {
@@ -14382,7 +12022,6 @@ func (o RecoveryPlanPropertiesResponsePtrOutput) LastPlannedFailoverTime() pulum
 	}).(pulumi.StringPtrOutput)
 }
 
-// The start time of the last test failover.
 func (o RecoveryPlanPropertiesResponsePtrOutput) LastTestFailoverTime() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *RecoveryPlanPropertiesResponse) *string {
 		if v == nil {
@@ -14392,7 +12031,6 @@ func (o RecoveryPlanPropertiesResponsePtrOutput) LastTestFailoverTime() pulumi.S
 	}).(pulumi.StringPtrOutput)
 }
 
-// The start time of the last unplanned failover.
 func (o RecoveryPlanPropertiesResponsePtrOutput) LastUnplannedFailoverTime() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *RecoveryPlanPropertiesResponse) *string {
 		if v == nil {
@@ -14402,7 +12040,6 @@ func (o RecoveryPlanPropertiesResponsePtrOutput) LastUnplannedFailoverTime() pul
 	}).(pulumi.StringPtrOutput)
 }
 
-// The primary fabric friendly name.
 func (o RecoveryPlanPropertiesResponsePtrOutput) PrimaryFabricFriendlyName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *RecoveryPlanPropertiesResponse) *string {
 		if v == nil {
@@ -14412,7 +12049,6 @@ func (o RecoveryPlanPropertiesResponsePtrOutput) PrimaryFabricFriendlyName() pul
 	}).(pulumi.StringPtrOutput)
 }
 
-// The primary fabric Id.
 func (o RecoveryPlanPropertiesResponsePtrOutput) PrimaryFabricId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *RecoveryPlanPropertiesResponse) *string {
 		if v == nil {
@@ -14422,7 +12058,6 @@ func (o RecoveryPlanPropertiesResponsePtrOutput) PrimaryFabricId() pulumi.String
 	}).(pulumi.StringPtrOutput)
 }
 
-// The recovery fabric friendly name.
 func (o RecoveryPlanPropertiesResponsePtrOutput) RecoveryFabricFriendlyName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *RecoveryPlanPropertiesResponse) *string {
 		if v == nil {
@@ -14432,7 +12067,6 @@ func (o RecoveryPlanPropertiesResponsePtrOutput) RecoveryFabricFriendlyName() pu
 	}).(pulumi.StringPtrOutput)
 }
 
-// The recovery fabric Id.
 func (o RecoveryPlanPropertiesResponsePtrOutput) RecoveryFabricId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *RecoveryPlanPropertiesResponse) *string {
 		if v == nil {
@@ -14442,7 +12076,6 @@ func (o RecoveryPlanPropertiesResponsePtrOutput) RecoveryFabricId() pulumi.Strin
 	}).(pulumi.StringPtrOutput)
 }
 
-// The list of replication providers.
 func (o RecoveryPlanPropertiesResponsePtrOutput) ReplicationProviders() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *RecoveryPlanPropertiesResponse) []string {
 		if v == nil {
@@ -14452,11 +12085,8 @@ func (o RecoveryPlanPropertiesResponsePtrOutput) ReplicationProviders() pulumi.S
 	}).(pulumi.StringArrayOutput)
 }
 
-// Recovery plan protected item.
 type RecoveryPlanProtectedItem struct {
-	// The ARM Id of the recovery plan protected item.
-	Id *string `pulumi:"id"`
-	// The virtual machine Id.
+	Id               *string `pulumi:"id"`
 	VirtualMachineId *string `pulumi:"virtualMachineId"`
 }
 
@@ -14471,11 +12101,8 @@ type RecoveryPlanProtectedItemInput interface {
 	ToRecoveryPlanProtectedItemOutputWithContext(context.Context) RecoveryPlanProtectedItemOutput
 }
 
-// Recovery plan protected item.
 type RecoveryPlanProtectedItemArgs struct {
-	// The ARM Id of the recovery plan protected item.
-	Id pulumi.StringPtrInput `pulumi:"id"`
-	// The virtual machine Id.
+	Id               pulumi.StringPtrInput `pulumi:"id"`
 	VirtualMachineId pulumi.StringPtrInput `pulumi:"virtualMachineId"`
 }
 
@@ -14516,7 +12143,6 @@ func (i RecoveryPlanProtectedItemArray) ToRecoveryPlanProtectedItemArrayOutputWi
 	return pulumi.ToOutputWithContext(ctx, i).(RecoveryPlanProtectedItemArrayOutput)
 }
 
-// Recovery plan protected item.
 type RecoveryPlanProtectedItemOutput struct{ *pulumi.OutputState }
 
 func (RecoveryPlanProtectedItemOutput) ElementType() reflect.Type {
@@ -14531,12 +12157,10 @@ func (o RecoveryPlanProtectedItemOutput) ToRecoveryPlanProtectedItemOutputWithCo
 	return o
 }
 
-// The ARM Id of the recovery plan protected item.
 func (o RecoveryPlanProtectedItemOutput) Id() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v RecoveryPlanProtectedItem) *string { return v.Id }).(pulumi.StringPtrOutput)
 }
 
-// The virtual machine Id.
 func (o RecoveryPlanProtectedItemOutput) VirtualMachineId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v RecoveryPlanProtectedItem) *string { return v.VirtualMachineId }).(pulumi.StringPtrOutput)
 }
@@ -14561,11 +12185,8 @@ func (o RecoveryPlanProtectedItemArrayOutput) Index(i pulumi.IntInput) RecoveryP
 	}).(RecoveryPlanProtectedItemOutput)
 }
 
-// Recovery plan protected item.
 type RecoveryPlanProtectedItemResponse struct {
-	// The ARM Id of the recovery plan protected item.
-	Id *string `pulumi:"id"`
-	// The virtual machine Id.
+	Id               *string `pulumi:"id"`
 	VirtualMachineId *string `pulumi:"virtualMachineId"`
 }
 
@@ -14580,11 +12201,8 @@ type RecoveryPlanProtectedItemResponseInput interface {
 	ToRecoveryPlanProtectedItemResponseOutputWithContext(context.Context) RecoveryPlanProtectedItemResponseOutput
 }
 
-// Recovery plan protected item.
 type RecoveryPlanProtectedItemResponseArgs struct {
-	// The ARM Id of the recovery plan protected item.
-	Id pulumi.StringPtrInput `pulumi:"id"`
-	// The virtual machine Id.
+	Id               pulumi.StringPtrInput `pulumi:"id"`
 	VirtualMachineId pulumi.StringPtrInput `pulumi:"virtualMachineId"`
 }
 
@@ -14625,7 +12243,6 @@ func (i RecoveryPlanProtectedItemResponseArray) ToRecoveryPlanProtectedItemRespo
 	return pulumi.ToOutputWithContext(ctx, i).(RecoveryPlanProtectedItemResponseArrayOutput)
 }
 
-// Recovery plan protected item.
 type RecoveryPlanProtectedItemResponseOutput struct{ *pulumi.OutputState }
 
 func (RecoveryPlanProtectedItemResponseOutput) ElementType() reflect.Type {
@@ -14640,12 +12257,10 @@ func (o RecoveryPlanProtectedItemResponseOutput) ToRecoveryPlanProtectedItemResp
 	return o
 }
 
-// The ARM Id of the recovery plan protected item.
 func (o RecoveryPlanProtectedItemResponseOutput) Id() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v RecoveryPlanProtectedItemResponse) *string { return v.Id }).(pulumi.StringPtrOutput)
 }
 
-// The virtual machine Id.
 func (o RecoveryPlanProtectedItemResponseOutput) VirtualMachineId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v RecoveryPlanProtectedItemResponse) *string { return v.VirtualMachineId }).(pulumi.StringPtrOutput)
 }
@@ -14670,17 +12285,11 @@ func (o RecoveryPlanProtectedItemResponseArrayOutput) Index(i pulumi.IntInput) R
 	}).(RecoveryPlanProtectedItemResponseOutput)
 }
 
-// Recovery plan script action details.
 type RecoveryPlanScriptActionDetailsResponse struct {
-	// The fabric location.
-	FabricLocation string `pulumi:"fabricLocation"`
-	// Gets the type of action details (see RecoveryPlanActionDetailsTypes enum for possible values).
-	// Expected value is 'ScriptActionDetails'.
-	InstanceType string `pulumi:"instanceType"`
-	// The script path.
-	Path string `pulumi:"path"`
-	// The script timeout.
-	Timeout *string `pulumi:"timeout"`
+	FabricLocation string  `pulumi:"fabricLocation"`
+	InstanceType   string  `pulumi:"instanceType"`
+	Path           string  `pulumi:"path"`
+	Timeout        *string `pulumi:"timeout"`
 }
 
 // RecoveryPlanScriptActionDetailsResponseInput is an input type that accepts RecoveryPlanScriptActionDetailsResponseArgs and RecoveryPlanScriptActionDetailsResponseOutput values.
@@ -14694,17 +12303,11 @@ type RecoveryPlanScriptActionDetailsResponseInput interface {
 	ToRecoveryPlanScriptActionDetailsResponseOutputWithContext(context.Context) RecoveryPlanScriptActionDetailsResponseOutput
 }
 
-// Recovery plan script action details.
 type RecoveryPlanScriptActionDetailsResponseArgs struct {
-	// The fabric location.
-	FabricLocation pulumi.StringInput `pulumi:"fabricLocation"`
-	// Gets the type of action details (see RecoveryPlanActionDetailsTypes enum for possible values).
-	// Expected value is 'ScriptActionDetails'.
-	InstanceType pulumi.StringInput `pulumi:"instanceType"`
-	// The script path.
-	Path pulumi.StringInput `pulumi:"path"`
-	// The script timeout.
-	Timeout pulumi.StringPtrInput `pulumi:"timeout"`
+	FabricLocation pulumi.StringInput    `pulumi:"fabricLocation"`
+	InstanceType   pulumi.StringInput    `pulumi:"instanceType"`
+	Path           pulumi.StringInput    `pulumi:"path"`
+	Timeout        pulumi.StringPtrInput `pulumi:"timeout"`
 }
 
 func (RecoveryPlanScriptActionDetailsResponseArgs) ElementType() reflect.Type {
@@ -14719,7 +12322,6 @@ func (i RecoveryPlanScriptActionDetailsResponseArgs) ToRecoveryPlanScriptActionD
 	return pulumi.ToOutputWithContext(ctx, i).(RecoveryPlanScriptActionDetailsResponseOutput)
 }
 
-// Recovery plan script action details.
 type RecoveryPlanScriptActionDetailsResponseOutput struct{ *pulumi.OutputState }
 
 func (RecoveryPlanScriptActionDetailsResponseOutput) ElementType() reflect.Type {
@@ -14734,61 +12336,39 @@ func (o RecoveryPlanScriptActionDetailsResponseOutput) ToRecoveryPlanScriptActio
 	return o
 }
 
-// The fabric location.
 func (o RecoveryPlanScriptActionDetailsResponseOutput) FabricLocation() pulumi.StringOutput {
 	return o.ApplyT(func(v RecoveryPlanScriptActionDetailsResponse) string { return v.FabricLocation }).(pulumi.StringOutput)
 }
 
-// Gets the type of action details (see RecoveryPlanActionDetailsTypes enum for possible values).
-// Expected value is 'ScriptActionDetails'.
 func (o RecoveryPlanScriptActionDetailsResponseOutput) InstanceType() pulumi.StringOutput {
 	return o.ApplyT(func(v RecoveryPlanScriptActionDetailsResponse) string { return v.InstanceType }).(pulumi.StringOutput)
 }
 
-// The script path.
 func (o RecoveryPlanScriptActionDetailsResponseOutput) Path() pulumi.StringOutput {
 	return o.ApplyT(func(v RecoveryPlanScriptActionDetailsResponse) string { return v.Path }).(pulumi.StringOutput)
 }
 
-// The script timeout.
 func (o RecoveryPlanScriptActionDetailsResponseOutput) Timeout() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v RecoveryPlanScriptActionDetailsResponse) *string { return v.Timeout }).(pulumi.StringPtrOutput)
 }
 
-// Recovery services provider properties.
 type RecoveryServicesProviderPropertiesResponse struct {
-	// The scenarios allowed on this provider.
-	AllowedScenarios []string `pulumi:"allowedScenarios"`
-	// The authentication identity details.
+	AllowedScenarios              []string                         `pulumi:"allowedScenarios"`
 	AuthenticationIdentityDetails *IdentityProviderDetailsResponse `pulumi:"authenticationIdentityDetails"`
-	// A value indicating whether DRA is responsive.
-	ConnectionStatus *string `pulumi:"connectionStatus"`
-	// The DRA Id.
-	DraIdentifier *string `pulumi:"draIdentifier"`
-	// The fabric friendly name.
-	FabricFriendlyName *string `pulumi:"fabricFriendlyName"`
-	// Type of the site.
-	FabricType *string `pulumi:"fabricType"`
-	// Friendly name of the DRA.
-	FriendlyName *string `pulumi:"friendlyName"`
-	// The recovery services provider health error details.
-	HealthErrorDetails []HealthErrorResponse `pulumi:"healthErrorDetails"`
-	// Time when last heartbeat was sent by the DRA.
-	LastHeartBeat *string `pulumi:"lastHeartBeat"`
-	// Number of protected VMs currently managed by the DRA.
-	ProtectedItemCount *int `pulumi:"protectedItemCount"`
-	// The provider version.
-	ProviderVersion *string `pulumi:"providerVersion"`
-	// The provider version details.
-	ProviderVersionDetails *VersionDetailsResponse `pulumi:"providerVersionDetails"`
-	// Expiry date of the version.
-	ProviderVersionExpiryDate *string `pulumi:"providerVersionExpiryDate"`
-	// DRA version status.
-	ProviderVersionState *string `pulumi:"providerVersionState"`
-	// The resource access identity details.
+	ConnectionStatus              *string                          `pulumi:"connectionStatus"`
+	DraIdentifier                 *string                          `pulumi:"draIdentifier"`
+	FabricFriendlyName            *string                          `pulumi:"fabricFriendlyName"`
+	FabricType                    *string                          `pulumi:"fabricType"`
+	FriendlyName                  *string                          `pulumi:"friendlyName"`
+	HealthErrorDetails            []HealthErrorResponse            `pulumi:"healthErrorDetails"`
+	LastHeartBeat                 *string                          `pulumi:"lastHeartBeat"`
+	ProtectedItemCount            *int                             `pulumi:"protectedItemCount"`
+	ProviderVersion               *string                          `pulumi:"providerVersion"`
+	ProviderVersionDetails        *VersionDetailsResponse          `pulumi:"providerVersionDetails"`
+	ProviderVersionExpiryDate     *string                          `pulumi:"providerVersionExpiryDate"`
+	ProviderVersionState          *string                          `pulumi:"providerVersionState"`
 	ResourceAccessIdentityDetails *IdentityProviderDetailsResponse `pulumi:"resourceAccessIdentityDetails"`
-	// The fabric provider.
-	ServerVersion *string `pulumi:"serverVersion"`
+	ServerVersion                 *string                          `pulumi:"serverVersion"`
 }
 
 // RecoveryServicesProviderPropertiesResponseInput is an input type that accepts RecoveryServicesProviderPropertiesResponseArgs and RecoveryServicesProviderPropertiesResponseOutput values.
@@ -14802,40 +12382,23 @@ type RecoveryServicesProviderPropertiesResponseInput interface {
 	ToRecoveryServicesProviderPropertiesResponseOutputWithContext(context.Context) RecoveryServicesProviderPropertiesResponseOutput
 }
 
-// Recovery services provider properties.
 type RecoveryServicesProviderPropertiesResponseArgs struct {
-	// The scenarios allowed on this provider.
-	AllowedScenarios pulumi.StringArrayInput `pulumi:"allowedScenarios"`
-	// The authentication identity details.
+	AllowedScenarios              pulumi.StringArrayInput                 `pulumi:"allowedScenarios"`
 	AuthenticationIdentityDetails IdentityProviderDetailsResponsePtrInput `pulumi:"authenticationIdentityDetails"`
-	// A value indicating whether DRA is responsive.
-	ConnectionStatus pulumi.StringPtrInput `pulumi:"connectionStatus"`
-	// The DRA Id.
-	DraIdentifier pulumi.StringPtrInput `pulumi:"draIdentifier"`
-	// The fabric friendly name.
-	FabricFriendlyName pulumi.StringPtrInput `pulumi:"fabricFriendlyName"`
-	// Type of the site.
-	FabricType pulumi.StringPtrInput `pulumi:"fabricType"`
-	// Friendly name of the DRA.
-	FriendlyName pulumi.StringPtrInput `pulumi:"friendlyName"`
-	// The recovery services provider health error details.
-	HealthErrorDetails HealthErrorResponseArrayInput `pulumi:"healthErrorDetails"`
-	// Time when last heartbeat was sent by the DRA.
-	LastHeartBeat pulumi.StringPtrInput `pulumi:"lastHeartBeat"`
-	// Number of protected VMs currently managed by the DRA.
-	ProtectedItemCount pulumi.IntPtrInput `pulumi:"protectedItemCount"`
-	// The provider version.
-	ProviderVersion pulumi.StringPtrInput `pulumi:"providerVersion"`
-	// The provider version details.
-	ProviderVersionDetails VersionDetailsResponsePtrInput `pulumi:"providerVersionDetails"`
-	// Expiry date of the version.
-	ProviderVersionExpiryDate pulumi.StringPtrInput `pulumi:"providerVersionExpiryDate"`
-	// DRA version status.
-	ProviderVersionState pulumi.StringPtrInput `pulumi:"providerVersionState"`
-	// The resource access identity details.
+	ConnectionStatus              pulumi.StringPtrInput                   `pulumi:"connectionStatus"`
+	DraIdentifier                 pulumi.StringPtrInput                   `pulumi:"draIdentifier"`
+	FabricFriendlyName            pulumi.StringPtrInput                   `pulumi:"fabricFriendlyName"`
+	FabricType                    pulumi.StringPtrInput                   `pulumi:"fabricType"`
+	FriendlyName                  pulumi.StringPtrInput                   `pulumi:"friendlyName"`
+	HealthErrorDetails            HealthErrorResponseArrayInput           `pulumi:"healthErrorDetails"`
+	LastHeartBeat                 pulumi.StringPtrInput                   `pulumi:"lastHeartBeat"`
+	ProtectedItemCount            pulumi.IntPtrInput                      `pulumi:"protectedItemCount"`
+	ProviderVersion               pulumi.StringPtrInput                   `pulumi:"providerVersion"`
+	ProviderVersionDetails        VersionDetailsResponsePtrInput          `pulumi:"providerVersionDetails"`
+	ProviderVersionExpiryDate     pulumi.StringPtrInput                   `pulumi:"providerVersionExpiryDate"`
+	ProviderVersionState          pulumi.StringPtrInput                   `pulumi:"providerVersionState"`
 	ResourceAccessIdentityDetails IdentityProviderDetailsResponsePtrInput `pulumi:"resourceAccessIdentityDetails"`
-	// The fabric provider.
-	ServerVersion pulumi.StringPtrInput `pulumi:"serverVersion"`
+	ServerVersion                 pulumi.StringPtrInput                   `pulumi:"serverVersion"`
 }
 
 func (RecoveryServicesProviderPropertiesResponseArgs) ElementType() reflect.Type {
@@ -14891,7 +12454,6 @@ func (i *recoveryServicesProviderPropertiesResponsePtrType) ToRecoveryServicesPr
 	return pulumi.ToOutputWithContext(ctx, i).(RecoveryServicesProviderPropertiesResponsePtrOutput)
 }
 
-// Recovery services provider properties.
 type RecoveryServicesProviderPropertiesResponseOutput struct{ *pulumi.OutputState }
 
 func (RecoveryServicesProviderPropertiesResponseOutput) ElementType() reflect.Type {
@@ -14911,93 +12473,77 @@ func (o RecoveryServicesProviderPropertiesResponseOutput) ToRecoveryServicesProv
 }
 
 func (o RecoveryServicesProviderPropertiesResponseOutput) ToRecoveryServicesProviderPropertiesResponsePtrOutputWithContext(ctx context.Context) RecoveryServicesProviderPropertiesResponsePtrOutput {
-	return o.ApplyT(func(v RecoveryServicesProviderPropertiesResponse) *RecoveryServicesProviderPropertiesResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v RecoveryServicesProviderPropertiesResponse) *RecoveryServicesProviderPropertiesResponse {
 		return &v
 	}).(RecoveryServicesProviderPropertiesResponsePtrOutput)
 }
 
-// The scenarios allowed on this provider.
 func (o RecoveryServicesProviderPropertiesResponseOutput) AllowedScenarios() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v RecoveryServicesProviderPropertiesResponse) []string { return v.AllowedScenarios }).(pulumi.StringArrayOutput)
 }
 
-// The authentication identity details.
 func (o RecoveryServicesProviderPropertiesResponseOutput) AuthenticationIdentityDetails() IdentityProviderDetailsResponsePtrOutput {
 	return o.ApplyT(func(v RecoveryServicesProviderPropertiesResponse) *IdentityProviderDetailsResponse {
 		return v.AuthenticationIdentityDetails
 	}).(IdentityProviderDetailsResponsePtrOutput)
 }
 
-// A value indicating whether DRA is responsive.
 func (o RecoveryServicesProviderPropertiesResponseOutput) ConnectionStatus() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v RecoveryServicesProviderPropertiesResponse) *string { return v.ConnectionStatus }).(pulumi.StringPtrOutput)
 }
 
-// The DRA Id.
 func (o RecoveryServicesProviderPropertiesResponseOutput) DraIdentifier() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v RecoveryServicesProviderPropertiesResponse) *string { return v.DraIdentifier }).(pulumi.StringPtrOutput)
 }
 
-// The fabric friendly name.
 func (o RecoveryServicesProviderPropertiesResponseOutput) FabricFriendlyName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v RecoveryServicesProviderPropertiesResponse) *string { return v.FabricFriendlyName }).(pulumi.StringPtrOutput)
 }
 
-// Type of the site.
 func (o RecoveryServicesProviderPropertiesResponseOutput) FabricType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v RecoveryServicesProviderPropertiesResponse) *string { return v.FabricType }).(pulumi.StringPtrOutput)
 }
 
-// Friendly name of the DRA.
 func (o RecoveryServicesProviderPropertiesResponseOutput) FriendlyName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v RecoveryServicesProviderPropertiesResponse) *string { return v.FriendlyName }).(pulumi.StringPtrOutput)
 }
 
-// The recovery services provider health error details.
 func (o RecoveryServicesProviderPropertiesResponseOutput) HealthErrorDetails() HealthErrorResponseArrayOutput {
 	return o.ApplyT(func(v RecoveryServicesProviderPropertiesResponse) []HealthErrorResponse { return v.HealthErrorDetails }).(HealthErrorResponseArrayOutput)
 }
 
-// Time when last heartbeat was sent by the DRA.
 func (o RecoveryServicesProviderPropertiesResponseOutput) LastHeartBeat() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v RecoveryServicesProviderPropertiesResponse) *string { return v.LastHeartBeat }).(pulumi.StringPtrOutput)
 }
 
-// Number of protected VMs currently managed by the DRA.
 func (o RecoveryServicesProviderPropertiesResponseOutput) ProtectedItemCount() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v RecoveryServicesProviderPropertiesResponse) *int { return v.ProtectedItemCount }).(pulumi.IntPtrOutput)
 }
 
-// The provider version.
 func (o RecoveryServicesProviderPropertiesResponseOutput) ProviderVersion() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v RecoveryServicesProviderPropertiesResponse) *string { return v.ProviderVersion }).(pulumi.StringPtrOutput)
 }
 
-// The provider version details.
 func (o RecoveryServicesProviderPropertiesResponseOutput) ProviderVersionDetails() VersionDetailsResponsePtrOutput {
 	return o.ApplyT(func(v RecoveryServicesProviderPropertiesResponse) *VersionDetailsResponse {
 		return v.ProviderVersionDetails
 	}).(VersionDetailsResponsePtrOutput)
 }
 
-// Expiry date of the version.
 func (o RecoveryServicesProviderPropertiesResponseOutput) ProviderVersionExpiryDate() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v RecoveryServicesProviderPropertiesResponse) *string { return v.ProviderVersionExpiryDate }).(pulumi.StringPtrOutput)
 }
 
-// DRA version status.
 func (o RecoveryServicesProviderPropertiesResponseOutput) ProviderVersionState() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v RecoveryServicesProviderPropertiesResponse) *string { return v.ProviderVersionState }).(pulumi.StringPtrOutput)
 }
 
-// The resource access identity details.
 func (o RecoveryServicesProviderPropertiesResponseOutput) ResourceAccessIdentityDetails() IdentityProviderDetailsResponsePtrOutput {
 	return o.ApplyT(func(v RecoveryServicesProviderPropertiesResponse) *IdentityProviderDetailsResponse {
 		return v.ResourceAccessIdentityDetails
 	}).(IdentityProviderDetailsResponsePtrOutput)
 }
 
-// The fabric provider.
 func (o RecoveryServicesProviderPropertiesResponseOutput) ServerVersion() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v RecoveryServicesProviderPropertiesResponse) *string { return v.ServerVersion }).(pulumi.StringPtrOutput)
 }
@@ -15018,11 +12564,14 @@ func (o RecoveryServicesProviderPropertiesResponsePtrOutput) ToRecoveryServicesP
 
 func (o RecoveryServicesProviderPropertiesResponsePtrOutput) Elem() RecoveryServicesProviderPropertiesResponseOutput {
 	return o.ApplyT(func(v *RecoveryServicesProviderPropertiesResponse) RecoveryServicesProviderPropertiesResponse {
-		return *v
+		if v != nil {
+			return *v
+		}
+		var ret RecoveryServicesProviderPropertiesResponse
+		return ret
 	}).(RecoveryServicesProviderPropertiesResponseOutput)
 }
 
-// The scenarios allowed on this provider.
 func (o RecoveryServicesProviderPropertiesResponsePtrOutput) AllowedScenarios() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *RecoveryServicesProviderPropertiesResponse) []string {
 		if v == nil {
@@ -15032,7 +12581,6 @@ func (o RecoveryServicesProviderPropertiesResponsePtrOutput) AllowedScenarios() 
 	}).(pulumi.StringArrayOutput)
 }
 
-// The authentication identity details.
 func (o RecoveryServicesProviderPropertiesResponsePtrOutput) AuthenticationIdentityDetails() IdentityProviderDetailsResponsePtrOutput {
 	return o.ApplyT(func(v *RecoveryServicesProviderPropertiesResponse) *IdentityProviderDetailsResponse {
 		if v == nil {
@@ -15042,7 +12590,6 @@ func (o RecoveryServicesProviderPropertiesResponsePtrOutput) AuthenticationIdent
 	}).(IdentityProviderDetailsResponsePtrOutput)
 }
 
-// A value indicating whether DRA is responsive.
 func (o RecoveryServicesProviderPropertiesResponsePtrOutput) ConnectionStatus() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *RecoveryServicesProviderPropertiesResponse) *string {
 		if v == nil {
@@ -15052,7 +12599,6 @@ func (o RecoveryServicesProviderPropertiesResponsePtrOutput) ConnectionStatus() 
 	}).(pulumi.StringPtrOutput)
 }
 
-// The DRA Id.
 func (o RecoveryServicesProviderPropertiesResponsePtrOutput) DraIdentifier() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *RecoveryServicesProviderPropertiesResponse) *string {
 		if v == nil {
@@ -15062,7 +12608,6 @@ func (o RecoveryServicesProviderPropertiesResponsePtrOutput) DraIdentifier() pul
 	}).(pulumi.StringPtrOutput)
 }
 
-// The fabric friendly name.
 func (o RecoveryServicesProviderPropertiesResponsePtrOutput) FabricFriendlyName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *RecoveryServicesProviderPropertiesResponse) *string {
 		if v == nil {
@@ -15072,7 +12617,6 @@ func (o RecoveryServicesProviderPropertiesResponsePtrOutput) FabricFriendlyName(
 	}).(pulumi.StringPtrOutput)
 }
 
-// Type of the site.
 func (o RecoveryServicesProviderPropertiesResponsePtrOutput) FabricType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *RecoveryServicesProviderPropertiesResponse) *string {
 		if v == nil {
@@ -15082,7 +12626,6 @@ func (o RecoveryServicesProviderPropertiesResponsePtrOutput) FabricType() pulumi
 	}).(pulumi.StringPtrOutput)
 }
 
-// Friendly name of the DRA.
 func (o RecoveryServicesProviderPropertiesResponsePtrOutput) FriendlyName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *RecoveryServicesProviderPropertiesResponse) *string {
 		if v == nil {
@@ -15092,7 +12635,6 @@ func (o RecoveryServicesProviderPropertiesResponsePtrOutput) FriendlyName() pulu
 	}).(pulumi.StringPtrOutput)
 }
 
-// The recovery services provider health error details.
 func (o RecoveryServicesProviderPropertiesResponsePtrOutput) HealthErrorDetails() HealthErrorResponseArrayOutput {
 	return o.ApplyT(func(v *RecoveryServicesProviderPropertiesResponse) []HealthErrorResponse {
 		if v == nil {
@@ -15102,7 +12644,6 @@ func (o RecoveryServicesProviderPropertiesResponsePtrOutput) HealthErrorDetails(
 	}).(HealthErrorResponseArrayOutput)
 }
 
-// Time when last heartbeat was sent by the DRA.
 func (o RecoveryServicesProviderPropertiesResponsePtrOutput) LastHeartBeat() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *RecoveryServicesProviderPropertiesResponse) *string {
 		if v == nil {
@@ -15112,7 +12653,6 @@ func (o RecoveryServicesProviderPropertiesResponsePtrOutput) LastHeartBeat() pul
 	}).(pulumi.StringPtrOutput)
 }
 
-// Number of protected VMs currently managed by the DRA.
 func (o RecoveryServicesProviderPropertiesResponsePtrOutput) ProtectedItemCount() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *RecoveryServicesProviderPropertiesResponse) *int {
 		if v == nil {
@@ -15122,7 +12662,6 @@ func (o RecoveryServicesProviderPropertiesResponsePtrOutput) ProtectedItemCount(
 	}).(pulumi.IntPtrOutput)
 }
 
-// The provider version.
 func (o RecoveryServicesProviderPropertiesResponsePtrOutput) ProviderVersion() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *RecoveryServicesProviderPropertiesResponse) *string {
 		if v == nil {
@@ -15132,7 +12671,6 @@ func (o RecoveryServicesProviderPropertiesResponsePtrOutput) ProviderVersion() p
 	}).(pulumi.StringPtrOutput)
 }
 
-// The provider version details.
 func (o RecoveryServicesProviderPropertiesResponsePtrOutput) ProviderVersionDetails() VersionDetailsResponsePtrOutput {
 	return o.ApplyT(func(v *RecoveryServicesProviderPropertiesResponse) *VersionDetailsResponse {
 		if v == nil {
@@ -15142,7 +12680,6 @@ func (o RecoveryServicesProviderPropertiesResponsePtrOutput) ProviderVersionDeta
 	}).(VersionDetailsResponsePtrOutput)
 }
 
-// Expiry date of the version.
 func (o RecoveryServicesProviderPropertiesResponsePtrOutput) ProviderVersionExpiryDate() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *RecoveryServicesProviderPropertiesResponse) *string {
 		if v == nil {
@@ -15152,7 +12689,6 @@ func (o RecoveryServicesProviderPropertiesResponsePtrOutput) ProviderVersionExpi
 	}).(pulumi.StringPtrOutput)
 }
 
-// DRA version status.
 func (o RecoveryServicesProviderPropertiesResponsePtrOutput) ProviderVersionState() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *RecoveryServicesProviderPropertiesResponse) *string {
 		if v == nil {
@@ -15162,7 +12698,6 @@ func (o RecoveryServicesProviderPropertiesResponsePtrOutput) ProviderVersionStat
 	}).(pulumi.StringPtrOutput)
 }
 
-// The resource access identity details.
 func (o RecoveryServicesProviderPropertiesResponsePtrOutput) ResourceAccessIdentityDetails() IdentityProviderDetailsResponsePtrOutput {
 	return o.ApplyT(func(v *RecoveryServicesProviderPropertiesResponse) *IdentityProviderDetailsResponse {
 		if v == nil {
@@ -15172,7 +12707,6 @@ func (o RecoveryServicesProviderPropertiesResponsePtrOutput) ResourceAccessIdent
 	}).(IdentityProviderDetailsResponsePtrOutput)
 }
 
-// The fabric provider.
 func (o RecoveryServicesProviderPropertiesResponsePtrOutput) ServerVersion() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *RecoveryServicesProviderPropertiesResponse) *string {
 		if v == nil {
@@ -15182,62 +12716,34 @@ func (o RecoveryServicesProviderPropertiesResponsePtrOutput) ServerVersion() pul
 	}).(pulumi.StringPtrOutput)
 }
 
-// Replication protected item custom data details.
 type ReplicationProtectedItemPropertiesResponse struct {
-	// The Current active location of the PE.
-	ActiveLocation *string `pulumi:"activeLocation"`
-	// The allowed operations on the Replication protected item.
-	AllowedOperations []string `pulumi:"allowedOperations"`
-	// The current scenario.
-	CurrentScenario *CurrentScenarioDetailsResponse `pulumi:"currentScenario"`
-	// The consolidated failover health for the VM.
-	FailoverHealth *string `pulumi:"failoverHealth"`
-	// The recovery point ARM Id to which the Vm was failed over.
-	FailoverRecoveryPointId *string `pulumi:"failoverRecoveryPointId"`
-	// The name.
-	FriendlyName *string `pulumi:"friendlyName"`
-	// List of health errors.
-	HealthErrors []HealthErrorResponse `pulumi:"healthErrors"`
-	// The Last successful failover time.
-	LastSuccessfulFailoverTime *string `pulumi:"lastSuccessfulFailoverTime"`
-	// The Last successful test failover time.
-	LastSuccessfulTestFailoverTime *string `pulumi:"lastSuccessfulTestFailoverTime"`
-	// The name of Policy governing this PE.
-	PolicyFriendlyName *string `pulumi:"policyFriendlyName"`
-	// The ID of Policy governing this PE.
-	PolicyId *string `pulumi:"policyId"`
-	// The friendly name of the primary fabric.
-	PrimaryFabricFriendlyName *string `pulumi:"primaryFabricFriendlyName"`
-	// The fabric provider of the primary fabric.
-	PrimaryFabricProvider *string `pulumi:"primaryFabricProvider"`
-	// The name of primary protection container friendly name.
-	PrimaryProtectionContainerFriendlyName *string `pulumi:"primaryProtectionContainerFriendlyName"`
-	// The protected item ARM Id.
-	ProtectableItemId *string `pulumi:"protectableItemId"`
-	// The type of protected item type.
-	ProtectedItemType *string `pulumi:"protectedItemType"`
-	// The protection status.
-	ProtectionState *string `pulumi:"protectionState"`
-	// The protection state description.
-	ProtectionStateDescription *string `pulumi:"protectionStateDescription"`
-	// The Replication provider custom settings.
-	ProviderSpecificDetails interface{} `pulumi:"providerSpecificDetails"`
-	// The recovery container Id.
-	RecoveryContainerId *string `pulumi:"recoveryContainerId"`
-	// The friendly name of recovery fabric.
-	RecoveryFabricFriendlyName *string `pulumi:"recoveryFabricFriendlyName"`
-	// The Arm Id of recovery fabric.
-	RecoveryFabricId *string `pulumi:"recoveryFabricId"`
-	// The name of recovery container friendly name.
-	RecoveryProtectionContainerFriendlyName *string `pulumi:"recoveryProtectionContainerFriendlyName"`
-	// The recovery provider ARM Id.
-	RecoveryServicesProviderId *string `pulumi:"recoveryServicesProviderId"`
-	// The consolidated protection health for the VM taking any issues with SRS as well as all the replication units associated with the VM's replication group into account. This is a string representation of the ProtectionHealth enumeration.
-	ReplicationHealth *string `pulumi:"replicationHealth"`
-	// The Test failover state.
-	TestFailoverState *string `pulumi:"testFailoverState"`
-	// The Test failover state description.
-	TestFailoverStateDescription *string `pulumi:"testFailoverStateDescription"`
+	ActiveLocation                          *string                         `pulumi:"activeLocation"`
+	AllowedOperations                       []string                        `pulumi:"allowedOperations"`
+	CurrentScenario                         *CurrentScenarioDetailsResponse `pulumi:"currentScenario"`
+	FailoverHealth                          *string                         `pulumi:"failoverHealth"`
+	FailoverRecoveryPointId                 *string                         `pulumi:"failoverRecoveryPointId"`
+	FriendlyName                            *string                         `pulumi:"friendlyName"`
+	HealthErrors                            []HealthErrorResponse           `pulumi:"healthErrors"`
+	LastSuccessfulFailoverTime              *string                         `pulumi:"lastSuccessfulFailoverTime"`
+	LastSuccessfulTestFailoverTime          *string                         `pulumi:"lastSuccessfulTestFailoverTime"`
+	PolicyFriendlyName                      *string                         `pulumi:"policyFriendlyName"`
+	PolicyId                                *string                         `pulumi:"policyId"`
+	PrimaryFabricFriendlyName               *string                         `pulumi:"primaryFabricFriendlyName"`
+	PrimaryFabricProvider                   *string                         `pulumi:"primaryFabricProvider"`
+	PrimaryProtectionContainerFriendlyName  *string                         `pulumi:"primaryProtectionContainerFriendlyName"`
+	ProtectableItemId                       *string                         `pulumi:"protectableItemId"`
+	ProtectedItemType                       *string                         `pulumi:"protectedItemType"`
+	ProtectionState                         *string                         `pulumi:"protectionState"`
+	ProtectionStateDescription              *string                         `pulumi:"protectionStateDescription"`
+	ProviderSpecificDetails                 interface{}                     `pulumi:"providerSpecificDetails"`
+	RecoveryContainerId                     *string                         `pulumi:"recoveryContainerId"`
+	RecoveryFabricFriendlyName              *string                         `pulumi:"recoveryFabricFriendlyName"`
+	RecoveryFabricId                        *string                         `pulumi:"recoveryFabricId"`
+	RecoveryProtectionContainerFriendlyName *string                         `pulumi:"recoveryProtectionContainerFriendlyName"`
+	RecoveryServicesProviderId              *string                         `pulumi:"recoveryServicesProviderId"`
+	ReplicationHealth                       *string                         `pulumi:"replicationHealth"`
+	TestFailoverState                       *string                         `pulumi:"testFailoverState"`
+	TestFailoverStateDescription            *string                         `pulumi:"testFailoverStateDescription"`
 }
 
 // ReplicationProtectedItemPropertiesResponseInput is an input type that accepts ReplicationProtectedItemPropertiesResponseArgs and ReplicationProtectedItemPropertiesResponseOutput values.
@@ -15251,62 +12757,34 @@ type ReplicationProtectedItemPropertiesResponseInput interface {
 	ToReplicationProtectedItemPropertiesResponseOutputWithContext(context.Context) ReplicationProtectedItemPropertiesResponseOutput
 }
 
-// Replication protected item custom data details.
 type ReplicationProtectedItemPropertiesResponseArgs struct {
-	// The Current active location of the PE.
-	ActiveLocation pulumi.StringPtrInput `pulumi:"activeLocation"`
-	// The allowed operations on the Replication protected item.
-	AllowedOperations pulumi.StringArrayInput `pulumi:"allowedOperations"`
-	// The current scenario.
-	CurrentScenario CurrentScenarioDetailsResponsePtrInput `pulumi:"currentScenario"`
-	// The consolidated failover health for the VM.
-	FailoverHealth pulumi.StringPtrInput `pulumi:"failoverHealth"`
-	// The recovery point ARM Id to which the Vm was failed over.
-	FailoverRecoveryPointId pulumi.StringPtrInput `pulumi:"failoverRecoveryPointId"`
-	// The name.
-	FriendlyName pulumi.StringPtrInput `pulumi:"friendlyName"`
-	// List of health errors.
-	HealthErrors HealthErrorResponseArrayInput `pulumi:"healthErrors"`
-	// The Last successful failover time.
-	LastSuccessfulFailoverTime pulumi.StringPtrInput `pulumi:"lastSuccessfulFailoverTime"`
-	// The Last successful test failover time.
-	LastSuccessfulTestFailoverTime pulumi.StringPtrInput `pulumi:"lastSuccessfulTestFailoverTime"`
-	// The name of Policy governing this PE.
-	PolicyFriendlyName pulumi.StringPtrInput `pulumi:"policyFriendlyName"`
-	// The ID of Policy governing this PE.
-	PolicyId pulumi.StringPtrInput `pulumi:"policyId"`
-	// The friendly name of the primary fabric.
-	PrimaryFabricFriendlyName pulumi.StringPtrInput `pulumi:"primaryFabricFriendlyName"`
-	// The fabric provider of the primary fabric.
-	PrimaryFabricProvider pulumi.StringPtrInput `pulumi:"primaryFabricProvider"`
-	// The name of primary protection container friendly name.
-	PrimaryProtectionContainerFriendlyName pulumi.StringPtrInput `pulumi:"primaryProtectionContainerFriendlyName"`
-	// The protected item ARM Id.
-	ProtectableItemId pulumi.StringPtrInput `pulumi:"protectableItemId"`
-	// The type of protected item type.
-	ProtectedItemType pulumi.StringPtrInput `pulumi:"protectedItemType"`
-	// The protection status.
-	ProtectionState pulumi.StringPtrInput `pulumi:"protectionState"`
-	// The protection state description.
-	ProtectionStateDescription pulumi.StringPtrInput `pulumi:"protectionStateDescription"`
-	// The Replication provider custom settings.
-	ProviderSpecificDetails pulumi.Input `pulumi:"providerSpecificDetails"`
-	// The recovery container Id.
-	RecoveryContainerId pulumi.StringPtrInput `pulumi:"recoveryContainerId"`
-	// The friendly name of recovery fabric.
-	RecoveryFabricFriendlyName pulumi.StringPtrInput `pulumi:"recoveryFabricFriendlyName"`
-	// The Arm Id of recovery fabric.
-	RecoveryFabricId pulumi.StringPtrInput `pulumi:"recoveryFabricId"`
-	// The name of recovery container friendly name.
-	RecoveryProtectionContainerFriendlyName pulumi.StringPtrInput `pulumi:"recoveryProtectionContainerFriendlyName"`
-	// The recovery provider ARM Id.
-	RecoveryServicesProviderId pulumi.StringPtrInput `pulumi:"recoveryServicesProviderId"`
-	// The consolidated protection health for the VM taking any issues with SRS as well as all the replication units associated with the VM's replication group into account. This is a string representation of the ProtectionHealth enumeration.
-	ReplicationHealth pulumi.StringPtrInput `pulumi:"replicationHealth"`
-	// The Test failover state.
-	TestFailoverState pulumi.StringPtrInput `pulumi:"testFailoverState"`
-	// The Test failover state description.
-	TestFailoverStateDescription pulumi.StringPtrInput `pulumi:"testFailoverStateDescription"`
+	ActiveLocation                          pulumi.StringPtrInput                  `pulumi:"activeLocation"`
+	AllowedOperations                       pulumi.StringArrayInput                `pulumi:"allowedOperations"`
+	CurrentScenario                         CurrentScenarioDetailsResponsePtrInput `pulumi:"currentScenario"`
+	FailoverHealth                          pulumi.StringPtrInput                  `pulumi:"failoverHealth"`
+	FailoverRecoveryPointId                 pulumi.StringPtrInput                  `pulumi:"failoverRecoveryPointId"`
+	FriendlyName                            pulumi.StringPtrInput                  `pulumi:"friendlyName"`
+	HealthErrors                            HealthErrorResponseArrayInput          `pulumi:"healthErrors"`
+	LastSuccessfulFailoverTime              pulumi.StringPtrInput                  `pulumi:"lastSuccessfulFailoverTime"`
+	LastSuccessfulTestFailoverTime          pulumi.StringPtrInput                  `pulumi:"lastSuccessfulTestFailoverTime"`
+	PolicyFriendlyName                      pulumi.StringPtrInput                  `pulumi:"policyFriendlyName"`
+	PolicyId                                pulumi.StringPtrInput                  `pulumi:"policyId"`
+	PrimaryFabricFriendlyName               pulumi.StringPtrInput                  `pulumi:"primaryFabricFriendlyName"`
+	PrimaryFabricProvider                   pulumi.StringPtrInput                  `pulumi:"primaryFabricProvider"`
+	PrimaryProtectionContainerFriendlyName  pulumi.StringPtrInput                  `pulumi:"primaryProtectionContainerFriendlyName"`
+	ProtectableItemId                       pulumi.StringPtrInput                  `pulumi:"protectableItemId"`
+	ProtectedItemType                       pulumi.StringPtrInput                  `pulumi:"protectedItemType"`
+	ProtectionState                         pulumi.StringPtrInput                  `pulumi:"protectionState"`
+	ProtectionStateDescription              pulumi.StringPtrInput                  `pulumi:"protectionStateDescription"`
+	ProviderSpecificDetails                 pulumi.Input                           `pulumi:"providerSpecificDetails"`
+	RecoveryContainerId                     pulumi.StringPtrInput                  `pulumi:"recoveryContainerId"`
+	RecoveryFabricFriendlyName              pulumi.StringPtrInput                  `pulumi:"recoveryFabricFriendlyName"`
+	RecoveryFabricId                        pulumi.StringPtrInput                  `pulumi:"recoveryFabricId"`
+	RecoveryProtectionContainerFriendlyName pulumi.StringPtrInput                  `pulumi:"recoveryProtectionContainerFriendlyName"`
+	RecoveryServicesProviderId              pulumi.StringPtrInput                  `pulumi:"recoveryServicesProviderId"`
+	ReplicationHealth                       pulumi.StringPtrInput                  `pulumi:"replicationHealth"`
+	TestFailoverState                       pulumi.StringPtrInput                  `pulumi:"testFailoverState"`
+	TestFailoverStateDescription            pulumi.StringPtrInput                  `pulumi:"testFailoverStateDescription"`
 }
 
 func (ReplicationProtectedItemPropertiesResponseArgs) ElementType() reflect.Type {
@@ -15362,7 +12840,6 @@ func (i *replicationProtectedItemPropertiesResponsePtrType) ToReplicationProtect
 	return pulumi.ToOutputWithContext(ctx, i).(ReplicationProtectedItemPropertiesResponsePtrOutput)
 }
 
-// Replication protected item custom data details.
 type ReplicationProtectedItemPropertiesResponseOutput struct{ *pulumi.OutputState }
 
 func (ReplicationProtectedItemPropertiesResponseOutput) ElementType() reflect.Type {
@@ -15382,148 +12859,121 @@ func (o ReplicationProtectedItemPropertiesResponseOutput) ToReplicationProtected
 }
 
 func (o ReplicationProtectedItemPropertiesResponseOutput) ToReplicationProtectedItemPropertiesResponsePtrOutputWithContext(ctx context.Context) ReplicationProtectedItemPropertiesResponsePtrOutput {
-	return o.ApplyT(func(v ReplicationProtectedItemPropertiesResponse) *ReplicationProtectedItemPropertiesResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ReplicationProtectedItemPropertiesResponse) *ReplicationProtectedItemPropertiesResponse {
 		return &v
 	}).(ReplicationProtectedItemPropertiesResponsePtrOutput)
 }
 
-// The Current active location of the PE.
 func (o ReplicationProtectedItemPropertiesResponseOutput) ActiveLocation() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ReplicationProtectedItemPropertiesResponse) *string { return v.ActiveLocation }).(pulumi.StringPtrOutput)
 }
 
-// The allowed operations on the Replication protected item.
 func (o ReplicationProtectedItemPropertiesResponseOutput) AllowedOperations() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v ReplicationProtectedItemPropertiesResponse) []string { return v.AllowedOperations }).(pulumi.StringArrayOutput)
 }
 
-// The current scenario.
 func (o ReplicationProtectedItemPropertiesResponseOutput) CurrentScenario() CurrentScenarioDetailsResponsePtrOutput {
 	return o.ApplyT(func(v ReplicationProtectedItemPropertiesResponse) *CurrentScenarioDetailsResponse {
 		return v.CurrentScenario
 	}).(CurrentScenarioDetailsResponsePtrOutput)
 }
 
-// The consolidated failover health for the VM.
 func (o ReplicationProtectedItemPropertiesResponseOutput) FailoverHealth() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ReplicationProtectedItemPropertiesResponse) *string { return v.FailoverHealth }).(pulumi.StringPtrOutput)
 }
 
-// The recovery point ARM Id to which the Vm was failed over.
 func (o ReplicationProtectedItemPropertiesResponseOutput) FailoverRecoveryPointId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ReplicationProtectedItemPropertiesResponse) *string { return v.FailoverRecoveryPointId }).(pulumi.StringPtrOutput)
 }
 
-// The name.
 func (o ReplicationProtectedItemPropertiesResponseOutput) FriendlyName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ReplicationProtectedItemPropertiesResponse) *string { return v.FriendlyName }).(pulumi.StringPtrOutput)
 }
 
-// List of health errors.
 func (o ReplicationProtectedItemPropertiesResponseOutput) HealthErrors() HealthErrorResponseArrayOutput {
 	return o.ApplyT(func(v ReplicationProtectedItemPropertiesResponse) []HealthErrorResponse { return v.HealthErrors }).(HealthErrorResponseArrayOutput)
 }
 
-// The Last successful failover time.
 func (o ReplicationProtectedItemPropertiesResponseOutput) LastSuccessfulFailoverTime() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ReplicationProtectedItemPropertiesResponse) *string { return v.LastSuccessfulFailoverTime }).(pulumi.StringPtrOutput)
 }
 
-// The Last successful test failover time.
 func (o ReplicationProtectedItemPropertiesResponseOutput) LastSuccessfulTestFailoverTime() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ReplicationProtectedItemPropertiesResponse) *string { return v.LastSuccessfulTestFailoverTime }).(pulumi.StringPtrOutput)
 }
 
-// The name of Policy governing this PE.
 func (o ReplicationProtectedItemPropertiesResponseOutput) PolicyFriendlyName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ReplicationProtectedItemPropertiesResponse) *string { return v.PolicyFriendlyName }).(pulumi.StringPtrOutput)
 }
 
-// The ID of Policy governing this PE.
 func (o ReplicationProtectedItemPropertiesResponseOutput) PolicyId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ReplicationProtectedItemPropertiesResponse) *string { return v.PolicyId }).(pulumi.StringPtrOutput)
 }
 
-// The friendly name of the primary fabric.
 func (o ReplicationProtectedItemPropertiesResponseOutput) PrimaryFabricFriendlyName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ReplicationProtectedItemPropertiesResponse) *string { return v.PrimaryFabricFriendlyName }).(pulumi.StringPtrOutput)
 }
 
-// The fabric provider of the primary fabric.
 func (o ReplicationProtectedItemPropertiesResponseOutput) PrimaryFabricProvider() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ReplicationProtectedItemPropertiesResponse) *string { return v.PrimaryFabricProvider }).(pulumi.StringPtrOutput)
 }
 
-// The name of primary protection container friendly name.
 func (o ReplicationProtectedItemPropertiesResponseOutput) PrimaryProtectionContainerFriendlyName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ReplicationProtectedItemPropertiesResponse) *string {
 		return v.PrimaryProtectionContainerFriendlyName
 	}).(pulumi.StringPtrOutput)
 }
 
-// The protected item ARM Id.
 func (o ReplicationProtectedItemPropertiesResponseOutput) ProtectableItemId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ReplicationProtectedItemPropertiesResponse) *string { return v.ProtectableItemId }).(pulumi.StringPtrOutput)
 }
 
-// The type of protected item type.
 func (o ReplicationProtectedItemPropertiesResponseOutput) ProtectedItemType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ReplicationProtectedItemPropertiesResponse) *string { return v.ProtectedItemType }).(pulumi.StringPtrOutput)
 }
 
-// The protection status.
 func (o ReplicationProtectedItemPropertiesResponseOutput) ProtectionState() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ReplicationProtectedItemPropertiesResponse) *string { return v.ProtectionState }).(pulumi.StringPtrOutput)
 }
 
-// The protection state description.
 func (o ReplicationProtectedItemPropertiesResponseOutput) ProtectionStateDescription() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ReplicationProtectedItemPropertiesResponse) *string { return v.ProtectionStateDescription }).(pulumi.StringPtrOutput)
 }
 
-// The Replication provider custom settings.
 func (o ReplicationProtectedItemPropertiesResponseOutput) ProviderSpecificDetails() pulumi.AnyOutput {
 	return o.ApplyT(func(v ReplicationProtectedItemPropertiesResponse) interface{} { return v.ProviderSpecificDetails }).(pulumi.AnyOutput)
 }
 
-// The recovery container Id.
 func (o ReplicationProtectedItemPropertiesResponseOutput) RecoveryContainerId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ReplicationProtectedItemPropertiesResponse) *string { return v.RecoveryContainerId }).(pulumi.StringPtrOutput)
 }
 
-// The friendly name of recovery fabric.
 func (o ReplicationProtectedItemPropertiesResponseOutput) RecoveryFabricFriendlyName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ReplicationProtectedItemPropertiesResponse) *string { return v.RecoveryFabricFriendlyName }).(pulumi.StringPtrOutput)
 }
 
-// The Arm Id of recovery fabric.
 func (o ReplicationProtectedItemPropertiesResponseOutput) RecoveryFabricId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ReplicationProtectedItemPropertiesResponse) *string { return v.RecoveryFabricId }).(pulumi.StringPtrOutput)
 }
 
-// The name of recovery container friendly name.
 func (o ReplicationProtectedItemPropertiesResponseOutput) RecoveryProtectionContainerFriendlyName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ReplicationProtectedItemPropertiesResponse) *string {
 		return v.RecoveryProtectionContainerFriendlyName
 	}).(pulumi.StringPtrOutput)
 }
 
-// The recovery provider ARM Id.
 func (o ReplicationProtectedItemPropertiesResponseOutput) RecoveryServicesProviderId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ReplicationProtectedItemPropertiesResponse) *string { return v.RecoveryServicesProviderId }).(pulumi.StringPtrOutput)
 }
 
-// The consolidated protection health for the VM taking any issues with SRS as well as all the replication units associated with the VM's replication group into account. This is a string representation of the ProtectionHealth enumeration.
 func (o ReplicationProtectedItemPropertiesResponseOutput) ReplicationHealth() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ReplicationProtectedItemPropertiesResponse) *string { return v.ReplicationHealth }).(pulumi.StringPtrOutput)
 }
 
-// The Test failover state.
 func (o ReplicationProtectedItemPropertiesResponseOutput) TestFailoverState() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ReplicationProtectedItemPropertiesResponse) *string { return v.TestFailoverState }).(pulumi.StringPtrOutput)
 }
 
-// The Test failover state description.
 func (o ReplicationProtectedItemPropertiesResponseOutput) TestFailoverStateDescription() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ReplicationProtectedItemPropertiesResponse) *string { return v.TestFailoverStateDescription }).(pulumi.StringPtrOutput)
 }
@@ -15544,11 +12994,14 @@ func (o ReplicationProtectedItemPropertiesResponsePtrOutput) ToReplicationProtec
 
 func (o ReplicationProtectedItemPropertiesResponsePtrOutput) Elem() ReplicationProtectedItemPropertiesResponseOutput {
 	return o.ApplyT(func(v *ReplicationProtectedItemPropertiesResponse) ReplicationProtectedItemPropertiesResponse {
-		return *v
+		if v != nil {
+			return *v
+		}
+		var ret ReplicationProtectedItemPropertiesResponse
+		return ret
 	}).(ReplicationProtectedItemPropertiesResponseOutput)
 }
 
-// The Current active location of the PE.
 func (o ReplicationProtectedItemPropertiesResponsePtrOutput) ActiveLocation() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ReplicationProtectedItemPropertiesResponse) *string {
 		if v == nil {
@@ -15558,7 +13011,6 @@ func (o ReplicationProtectedItemPropertiesResponsePtrOutput) ActiveLocation() pu
 	}).(pulumi.StringPtrOutput)
 }
 
-// The allowed operations on the Replication protected item.
 func (o ReplicationProtectedItemPropertiesResponsePtrOutput) AllowedOperations() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *ReplicationProtectedItemPropertiesResponse) []string {
 		if v == nil {
@@ -15568,7 +13020,6 @@ func (o ReplicationProtectedItemPropertiesResponsePtrOutput) AllowedOperations()
 	}).(pulumi.StringArrayOutput)
 }
 
-// The current scenario.
 func (o ReplicationProtectedItemPropertiesResponsePtrOutput) CurrentScenario() CurrentScenarioDetailsResponsePtrOutput {
 	return o.ApplyT(func(v *ReplicationProtectedItemPropertiesResponse) *CurrentScenarioDetailsResponse {
 		if v == nil {
@@ -15578,7 +13029,6 @@ func (o ReplicationProtectedItemPropertiesResponsePtrOutput) CurrentScenario() C
 	}).(CurrentScenarioDetailsResponsePtrOutput)
 }
 
-// The consolidated failover health for the VM.
 func (o ReplicationProtectedItemPropertiesResponsePtrOutput) FailoverHealth() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ReplicationProtectedItemPropertiesResponse) *string {
 		if v == nil {
@@ -15588,7 +13038,6 @@ func (o ReplicationProtectedItemPropertiesResponsePtrOutput) FailoverHealth() pu
 	}).(pulumi.StringPtrOutput)
 }
 
-// The recovery point ARM Id to which the Vm was failed over.
 func (o ReplicationProtectedItemPropertiesResponsePtrOutput) FailoverRecoveryPointId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ReplicationProtectedItemPropertiesResponse) *string {
 		if v == nil {
@@ -15598,7 +13047,6 @@ func (o ReplicationProtectedItemPropertiesResponsePtrOutput) FailoverRecoveryPoi
 	}).(pulumi.StringPtrOutput)
 }
 
-// The name.
 func (o ReplicationProtectedItemPropertiesResponsePtrOutput) FriendlyName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ReplicationProtectedItemPropertiesResponse) *string {
 		if v == nil {
@@ -15608,7 +13056,6 @@ func (o ReplicationProtectedItemPropertiesResponsePtrOutput) FriendlyName() pulu
 	}).(pulumi.StringPtrOutput)
 }
 
-// List of health errors.
 func (o ReplicationProtectedItemPropertiesResponsePtrOutput) HealthErrors() HealthErrorResponseArrayOutput {
 	return o.ApplyT(func(v *ReplicationProtectedItemPropertiesResponse) []HealthErrorResponse {
 		if v == nil {
@@ -15618,7 +13065,6 @@ func (o ReplicationProtectedItemPropertiesResponsePtrOutput) HealthErrors() Heal
 	}).(HealthErrorResponseArrayOutput)
 }
 
-// The Last successful failover time.
 func (o ReplicationProtectedItemPropertiesResponsePtrOutput) LastSuccessfulFailoverTime() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ReplicationProtectedItemPropertiesResponse) *string {
 		if v == nil {
@@ -15628,7 +13074,6 @@ func (o ReplicationProtectedItemPropertiesResponsePtrOutput) LastSuccessfulFailo
 	}).(pulumi.StringPtrOutput)
 }
 
-// The Last successful test failover time.
 func (o ReplicationProtectedItemPropertiesResponsePtrOutput) LastSuccessfulTestFailoverTime() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ReplicationProtectedItemPropertiesResponse) *string {
 		if v == nil {
@@ -15638,7 +13083,6 @@ func (o ReplicationProtectedItemPropertiesResponsePtrOutput) LastSuccessfulTestF
 	}).(pulumi.StringPtrOutput)
 }
 
-// The name of Policy governing this PE.
 func (o ReplicationProtectedItemPropertiesResponsePtrOutput) PolicyFriendlyName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ReplicationProtectedItemPropertiesResponse) *string {
 		if v == nil {
@@ -15648,7 +13092,6 @@ func (o ReplicationProtectedItemPropertiesResponsePtrOutput) PolicyFriendlyName(
 	}).(pulumi.StringPtrOutput)
 }
 
-// The ID of Policy governing this PE.
 func (o ReplicationProtectedItemPropertiesResponsePtrOutput) PolicyId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ReplicationProtectedItemPropertiesResponse) *string {
 		if v == nil {
@@ -15658,7 +13101,6 @@ func (o ReplicationProtectedItemPropertiesResponsePtrOutput) PolicyId() pulumi.S
 	}).(pulumi.StringPtrOutput)
 }
 
-// The friendly name of the primary fabric.
 func (o ReplicationProtectedItemPropertiesResponsePtrOutput) PrimaryFabricFriendlyName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ReplicationProtectedItemPropertiesResponse) *string {
 		if v == nil {
@@ -15668,7 +13110,6 @@ func (o ReplicationProtectedItemPropertiesResponsePtrOutput) PrimaryFabricFriend
 	}).(pulumi.StringPtrOutput)
 }
 
-// The fabric provider of the primary fabric.
 func (o ReplicationProtectedItemPropertiesResponsePtrOutput) PrimaryFabricProvider() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ReplicationProtectedItemPropertiesResponse) *string {
 		if v == nil {
@@ -15678,7 +13119,6 @@ func (o ReplicationProtectedItemPropertiesResponsePtrOutput) PrimaryFabricProvid
 	}).(pulumi.StringPtrOutput)
 }
 
-// The name of primary protection container friendly name.
 func (o ReplicationProtectedItemPropertiesResponsePtrOutput) PrimaryProtectionContainerFriendlyName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ReplicationProtectedItemPropertiesResponse) *string {
 		if v == nil {
@@ -15688,7 +13128,6 @@ func (o ReplicationProtectedItemPropertiesResponsePtrOutput) PrimaryProtectionCo
 	}).(pulumi.StringPtrOutput)
 }
 
-// The protected item ARM Id.
 func (o ReplicationProtectedItemPropertiesResponsePtrOutput) ProtectableItemId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ReplicationProtectedItemPropertiesResponse) *string {
 		if v == nil {
@@ -15698,7 +13137,6 @@ func (o ReplicationProtectedItemPropertiesResponsePtrOutput) ProtectableItemId()
 	}).(pulumi.StringPtrOutput)
 }
 
-// The type of protected item type.
 func (o ReplicationProtectedItemPropertiesResponsePtrOutput) ProtectedItemType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ReplicationProtectedItemPropertiesResponse) *string {
 		if v == nil {
@@ -15708,7 +13146,6 @@ func (o ReplicationProtectedItemPropertiesResponsePtrOutput) ProtectedItemType()
 	}).(pulumi.StringPtrOutput)
 }
 
-// The protection status.
 func (o ReplicationProtectedItemPropertiesResponsePtrOutput) ProtectionState() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ReplicationProtectedItemPropertiesResponse) *string {
 		if v == nil {
@@ -15718,7 +13155,6 @@ func (o ReplicationProtectedItemPropertiesResponsePtrOutput) ProtectionState() p
 	}).(pulumi.StringPtrOutput)
 }
 
-// The protection state description.
 func (o ReplicationProtectedItemPropertiesResponsePtrOutput) ProtectionStateDescription() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ReplicationProtectedItemPropertiesResponse) *string {
 		if v == nil {
@@ -15728,7 +13164,6 @@ func (o ReplicationProtectedItemPropertiesResponsePtrOutput) ProtectionStateDesc
 	}).(pulumi.StringPtrOutput)
 }
 
-// The Replication provider custom settings.
 func (o ReplicationProtectedItemPropertiesResponsePtrOutput) ProviderSpecificDetails() pulumi.AnyOutput {
 	return o.ApplyT(func(v *ReplicationProtectedItemPropertiesResponse) interface{} {
 		if v == nil {
@@ -15738,7 +13173,6 @@ func (o ReplicationProtectedItemPropertiesResponsePtrOutput) ProviderSpecificDet
 	}).(pulumi.AnyOutput)
 }
 
-// The recovery container Id.
 func (o ReplicationProtectedItemPropertiesResponsePtrOutput) RecoveryContainerId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ReplicationProtectedItemPropertiesResponse) *string {
 		if v == nil {
@@ -15748,7 +13182,6 @@ func (o ReplicationProtectedItemPropertiesResponsePtrOutput) RecoveryContainerId
 	}).(pulumi.StringPtrOutput)
 }
 
-// The friendly name of recovery fabric.
 func (o ReplicationProtectedItemPropertiesResponsePtrOutput) RecoveryFabricFriendlyName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ReplicationProtectedItemPropertiesResponse) *string {
 		if v == nil {
@@ -15758,7 +13191,6 @@ func (o ReplicationProtectedItemPropertiesResponsePtrOutput) RecoveryFabricFrien
 	}).(pulumi.StringPtrOutput)
 }
 
-// The Arm Id of recovery fabric.
 func (o ReplicationProtectedItemPropertiesResponsePtrOutput) RecoveryFabricId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ReplicationProtectedItemPropertiesResponse) *string {
 		if v == nil {
@@ -15768,7 +13200,6 @@ func (o ReplicationProtectedItemPropertiesResponsePtrOutput) RecoveryFabricId() 
 	}).(pulumi.StringPtrOutput)
 }
 
-// The name of recovery container friendly name.
 func (o ReplicationProtectedItemPropertiesResponsePtrOutput) RecoveryProtectionContainerFriendlyName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ReplicationProtectedItemPropertiesResponse) *string {
 		if v == nil {
@@ -15778,7 +13209,6 @@ func (o ReplicationProtectedItemPropertiesResponsePtrOutput) RecoveryProtectionC
 	}).(pulumi.StringPtrOutput)
 }
 
-// The recovery provider ARM Id.
 func (o ReplicationProtectedItemPropertiesResponsePtrOutput) RecoveryServicesProviderId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ReplicationProtectedItemPropertiesResponse) *string {
 		if v == nil {
@@ -15788,7 +13218,6 @@ func (o ReplicationProtectedItemPropertiesResponsePtrOutput) RecoveryServicesPro
 	}).(pulumi.StringPtrOutput)
 }
 
-// The consolidated protection health for the VM taking any issues with SRS as well as all the replication units associated with the VM's replication group into account. This is a string representation of the ProtectionHealth enumeration.
 func (o ReplicationProtectedItemPropertiesResponsePtrOutput) ReplicationHealth() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ReplicationProtectedItemPropertiesResponse) *string {
 		if v == nil {
@@ -15798,7 +13227,6 @@ func (o ReplicationProtectedItemPropertiesResponsePtrOutput) ReplicationHealth()
 	}).(pulumi.StringPtrOutput)
 }
 
-// The Test failover state.
 func (o ReplicationProtectedItemPropertiesResponsePtrOutput) TestFailoverState() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ReplicationProtectedItemPropertiesResponse) *string {
 		if v == nil {
@@ -15808,7 +13236,6 @@ func (o ReplicationProtectedItemPropertiesResponsePtrOutput) TestFailoverState()
 	}).(pulumi.StringPtrOutput)
 }
 
-// The Test failover state description.
 func (o ReplicationProtectedItemPropertiesResponsePtrOutput) TestFailoverStateDescription() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ReplicationProtectedItemPropertiesResponse) *string {
 		if v == nil {
@@ -15818,16 +13245,11 @@ func (o ReplicationProtectedItemPropertiesResponsePtrOutput) TestFailoverStateDe
 	}).(pulumi.StringPtrOutput)
 }
 
-// The retention details of the MT.
 type RetentionVolumeResponse struct {
-	// The volume capacity.
-	CapacityInBytes *float64 `pulumi:"capacityInBytes"`
-	// The free space available in this volume.
-	FreeSpaceInBytes *float64 `pulumi:"freeSpaceInBytes"`
-	// The threshold percentage.
-	ThresholdPercentage *int `pulumi:"thresholdPercentage"`
-	// The volume name.
-	VolumeName *string `pulumi:"volumeName"`
+	CapacityInBytes     *float64 `pulumi:"capacityInBytes"`
+	FreeSpaceInBytes    *float64 `pulumi:"freeSpaceInBytes"`
+	ThresholdPercentage *int     `pulumi:"thresholdPercentage"`
+	VolumeName          *string  `pulumi:"volumeName"`
 }
 
 // RetentionVolumeResponseInput is an input type that accepts RetentionVolumeResponseArgs and RetentionVolumeResponseOutput values.
@@ -15841,16 +13263,11 @@ type RetentionVolumeResponseInput interface {
 	ToRetentionVolumeResponseOutputWithContext(context.Context) RetentionVolumeResponseOutput
 }
 
-// The retention details of the MT.
 type RetentionVolumeResponseArgs struct {
-	// The volume capacity.
-	CapacityInBytes pulumi.Float64PtrInput `pulumi:"capacityInBytes"`
-	// The free space available in this volume.
-	FreeSpaceInBytes pulumi.Float64PtrInput `pulumi:"freeSpaceInBytes"`
-	// The threshold percentage.
-	ThresholdPercentage pulumi.IntPtrInput `pulumi:"thresholdPercentage"`
-	// The volume name.
-	VolumeName pulumi.StringPtrInput `pulumi:"volumeName"`
+	CapacityInBytes     pulumi.Float64PtrInput `pulumi:"capacityInBytes"`
+	FreeSpaceInBytes    pulumi.Float64PtrInput `pulumi:"freeSpaceInBytes"`
+	ThresholdPercentage pulumi.IntPtrInput     `pulumi:"thresholdPercentage"`
+	VolumeName          pulumi.StringPtrInput  `pulumi:"volumeName"`
 }
 
 func (RetentionVolumeResponseArgs) ElementType() reflect.Type {
@@ -15890,7 +13307,6 @@ func (i RetentionVolumeResponseArray) ToRetentionVolumeResponseArrayOutputWithCo
 	return pulumi.ToOutputWithContext(ctx, i).(RetentionVolumeResponseArrayOutput)
 }
 
-// The retention details of the MT.
 type RetentionVolumeResponseOutput struct{ *pulumi.OutputState }
 
 func (RetentionVolumeResponseOutput) ElementType() reflect.Type {
@@ -15905,22 +13321,18 @@ func (o RetentionVolumeResponseOutput) ToRetentionVolumeResponseOutputWithContex
 	return o
 }
 
-// The volume capacity.
 func (o RetentionVolumeResponseOutput) CapacityInBytes() pulumi.Float64PtrOutput {
 	return o.ApplyT(func(v RetentionVolumeResponse) *float64 { return v.CapacityInBytes }).(pulumi.Float64PtrOutput)
 }
 
-// The free space available in this volume.
 func (o RetentionVolumeResponseOutput) FreeSpaceInBytes() pulumi.Float64PtrOutput {
 	return o.ApplyT(func(v RetentionVolumeResponse) *float64 { return v.FreeSpaceInBytes }).(pulumi.Float64PtrOutput)
 }
 
-// The threshold percentage.
 func (o RetentionVolumeResponseOutput) ThresholdPercentage() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v RetentionVolumeResponse) *int { return v.ThresholdPercentage }).(pulumi.IntPtrOutput)
 }
 
-// The volume name.
 func (o RetentionVolumeResponseOutput) VolumeName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v RetentionVolumeResponse) *string { return v.VolumeName }).(pulumi.StringPtrOutput)
 }
@@ -15945,18 +13357,12 @@ func (o RetentionVolumeResponseArrayOutput) Index(i pulumi.IntInput) RetentionVo
 	}).(RetentionVolumeResponseOutput)
 }
 
-// Azure role assignment details.
 type RoleAssignmentResponse struct {
-	// The ARM Id of the role assignment.
-	Id *string `pulumi:"id"`
-	// The name of the role assignment.
-	Name *string `pulumi:"name"`
-	// Principal Id.
-	PrincipalId *string `pulumi:"principalId"`
-	// Role definition id.
+	Id               *string `pulumi:"id"`
+	Name             *string `pulumi:"name"`
+	PrincipalId      *string `pulumi:"principalId"`
 	RoleDefinitionId *string `pulumi:"roleDefinitionId"`
-	// Role assignment scope.
-	Scope *string `pulumi:"scope"`
+	Scope            *string `pulumi:"scope"`
 }
 
 // RoleAssignmentResponseInput is an input type that accepts RoleAssignmentResponseArgs and RoleAssignmentResponseOutput values.
@@ -15970,18 +13376,12 @@ type RoleAssignmentResponseInput interface {
 	ToRoleAssignmentResponseOutputWithContext(context.Context) RoleAssignmentResponseOutput
 }
 
-// Azure role assignment details.
 type RoleAssignmentResponseArgs struct {
-	// The ARM Id of the role assignment.
-	Id pulumi.StringPtrInput `pulumi:"id"`
-	// The name of the role assignment.
-	Name pulumi.StringPtrInput `pulumi:"name"`
-	// Principal Id.
-	PrincipalId pulumi.StringPtrInput `pulumi:"principalId"`
-	// Role definition id.
+	Id               pulumi.StringPtrInput `pulumi:"id"`
+	Name             pulumi.StringPtrInput `pulumi:"name"`
+	PrincipalId      pulumi.StringPtrInput `pulumi:"principalId"`
 	RoleDefinitionId pulumi.StringPtrInput `pulumi:"roleDefinitionId"`
-	// Role assignment scope.
-	Scope pulumi.StringPtrInput `pulumi:"scope"`
+	Scope            pulumi.StringPtrInput `pulumi:"scope"`
 }
 
 func (RoleAssignmentResponseArgs) ElementType() reflect.Type {
@@ -16021,7 +13421,6 @@ func (i RoleAssignmentResponseArray) ToRoleAssignmentResponseArrayOutputWithCont
 	return pulumi.ToOutputWithContext(ctx, i).(RoleAssignmentResponseArrayOutput)
 }
 
-// Azure role assignment details.
 type RoleAssignmentResponseOutput struct{ *pulumi.OutputState }
 
 func (RoleAssignmentResponseOutput) ElementType() reflect.Type {
@@ -16036,27 +13435,22 @@ func (o RoleAssignmentResponseOutput) ToRoleAssignmentResponseOutputWithContext(
 	return o
 }
 
-// The ARM Id of the role assignment.
 func (o RoleAssignmentResponseOutput) Id() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v RoleAssignmentResponse) *string { return v.Id }).(pulumi.StringPtrOutput)
 }
 
-// The name of the role assignment.
 func (o RoleAssignmentResponseOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v RoleAssignmentResponse) *string { return v.Name }).(pulumi.StringPtrOutput)
 }
 
-// Principal Id.
 func (o RoleAssignmentResponseOutput) PrincipalId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v RoleAssignmentResponse) *string { return v.PrincipalId }).(pulumi.StringPtrOutput)
 }
 
-// Role definition id.
 func (o RoleAssignmentResponseOutput) RoleDefinitionId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v RoleAssignmentResponse) *string { return v.RoleDefinitionId }).(pulumi.StringPtrOutput)
 }
 
-// Role assignment scope.
 func (o RoleAssignmentResponseOutput) Scope() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v RoleAssignmentResponse) *string { return v.Scope }).(pulumi.StringPtrOutput)
 }
@@ -16081,11 +13475,8 @@ func (o RoleAssignmentResponseArrayOutput) Index(i pulumi.IntInput) RoleAssignme
 	}).(RoleAssignmentResponseOutput)
 }
 
-// CS Accounts Details.
 type RunAsAccountResponse struct {
-	// The CS RunAs account Id.
-	AccountId *string `pulumi:"accountId"`
-	// The CS RunAs account name.
+	AccountId   *string `pulumi:"accountId"`
 	AccountName *string `pulumi:"accountName"`
 }
 
@@ -16100,11 +13491,8 @@ type RunAsAccountResponseInput interface {
 	ToRunAsAccountResponseOutputWithContext(context.Context) RunAsAccountResponseOutput
 }
 
-// CS Accounts Details.
 type RunAsAccountResponseArgs struct {
-	// The CS RunAs account Id.
-	AccountId pulumi.StringPtrInput `pulumi:"accountId"`
-	// The CS RunAs account name.
+	AccountId   pulumi.StringPtrInput `pulumi:"accountId"`
 	AccountName pulumi.StringPtrInput `pulumi:"accountName"`
 }
 
@@ -16145,7 +13533,6 @@ func (i RunAsAccountResponseArray) ToRunAsAccountResponseArrayOutputWithContext(
 	return pulumi.ToOutputWithContext(ctx, i).(RunAsAccountResponseArrayOutput)
 }
 
-// CS Accounts Details.
 type RunAsAccountResponseOutput struct{ *pulumi.OutputState }
 
 func (RunAsAccountResponseOutput) ElementType() reflect.Type {
@@ -16160,12 +13547,10 @@ func (o RunAsAccountResponseOutput) ToRunAsAccountResponseOutputWithContext(ctx 
 	return o
 }
 
-// The CS RunAs account Id.
 func (o RunAsAccountResponseOutput) AccountId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v RunAsAccountResponse) *string { return v.AccountId }).(pulumi.StringPtrOutput)
 }
 
-// The CS RunAs account name.
 func (o RunAsAccountResponseOutput) AccountName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v RunAsAccountResponse) *string { return v.AccountName }).(pulumi.StringPtrOutput)
 }
@@ -16190,10 +13575,7 @@ func (o RunAsAccountResponseArrayOutput) Index(i pulumi.IntInput) RunAsAccountRe
 	}).(RunAsAccountResponseOutput)
 }
 
-// San enable protection provider specific input.
 type SanEnableProtectionInput struct {
-	// The class type.
-	// Expected value is 'San'.
 	InstanceType *string `pulumi:"instanceType"`
 }
 
@@ -16208,10 +13590,7 @@ type SanEnableProtectionInputInput interface {
 	ToSanEnableProtectionInputOutputWithContext(context.Context) SanEnableProtectionInputOutput
 }
 
-// San enable protection provider specific input.
 type SanEnableProtectionInputArgs struct {
-	// The class type.
-	// Expected value is 'San'.
 	InstanceType pulumi.StringPtrInput `pulumi:"instanceType"`
 }
 
@@ -16227,7 +13606,6 @@ func (i SanEnableProtectionInputArgs) ToSanEnableProtectionInputOutputWithContex
 	return pulumi.ToOutputWithContext(ctx, i).(SanEnableProtectionInputOutput)
 }
 
-// San enable protection provider specific input.
 type SanEnableProtectionInputOutput struct{ *pulumi.OutputState }
 
 func (SanEnableProtectionInputOutput) ElementType() reflect.Type {
@@ -16242,15 +13620,11 @@ func (o SanEnableProtectionInputOutput) ToSanEnableProtectionInputOutputWithCont
 	return o
 }
 
-// The class type.
-// Expected value is 'San'.
 func (o SanEnableProtectionInputOutput) InstanceType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SanEnableProtectionInput) *string { return v.InstanceType }).(pulumi.StringPtrOutput)
 }
 
-// Storage mapping properties.
 type StorageClassificationMappingPropertiesResponse struct {
-	// Target storage object Id.
 	TargetStorageClassificationId *string `pulumi:"targetStorageClassificationId"`
 }
 
@@ -16265,9 +13639,7 @@ type StorageClassificationMappingPropertiesResponseInput interface {
 	ToStorageClassificationMappingPropertiesResponseOutputWithContext(context.Context) StorageClassificationMappingPropertiesResponseOutput
 }
 
-// Storage mapping properties.
 type StorageClassificationMappingPropertiesResponseArgs struct {
-	// Target storage object Id.
 	TargetStorageClassificationId pulumi.StringPtrInput `pulumi:"targetStorageClassificationId"`
 }
 
@@ -16324,7 +13696,6 @@ func (i *storageClassificationMappingPropertiesResponsePtrType) ToStorageClassif
 	return pulumi.ToOutputWithContext(ctx, i).(StorageClassificationMappingPropertiesResponsePtrOutput)
 }
 
-// Storage mapping properties.
 type StorageClassificationMappingPropertiesResponseOutput struct{ *pulumi.OutputState }
 
 func (StorageClassificationMappingPropertiesResponseOutput) ElementType() reflect.Type {
@@ -16344,12 +13715,11 @@ func (o StorageClassificationMappingPropertiesResponseOutput) ToStorageClassific
 }
 
 func (o StorageClassificationMappingPropertiesResponseOutput) ToStorageClassificationMappingPropertiesResponsePtrOutputWithContext(ctx context.Context) StorageClassificationMappingPropertiesResponsePtrOutput {
-	return o.ApplyT(func(v StorageClassificationMappingPropertiesResponse) *StorageClassificationMappingPropertiesResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v StorageClassificationMappingPropertiesResponse) *StorageClassificationMappingPropertiesResponse {
 		return &v
 	}).(StorageClassificationMappingPropertiesResponsePtrOutput)
 }
 
-// Target storage object Id.
 func (o StorageClassificationMappingPropertiesResponseOutput) TargetStorageClassificationId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v StorageClassificationMappingPropertiesResponse) *string { return v.TargetStorageClassificationId }).(pulumi.StringPtrOutput)
 }
@@ -16370,11 +13740,14 @@ func (o StorageClassificationMappingPropertiesResponsePtrOutput) ToStorageClassi
 
 func (o StorageClassificationMappingPropertiesResponsePtrOutput) Elem() StorageClassificationMappingPropertiesResponseOutput {
 	return o.ApplyT(func(v *StorageClassificationMappingPropertiesResponse) StorageClassificationMappingPropertiesResponse {
-		return *v
+		if v != nil {
+			return *v
+		}
+		var ret StorageClassificationMappingPropertiesResponse
+		return ret
 	}).(StorageClassificationMappingPropertiesResponseOutput)
 }
 
-// Target storage object Id.
 func (o StorageClassificationMappingPropertiesResponsePtrOutput) TargetStorageClassificationId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *StorageClassificationMappingPropertiesResponse) *string {
 		if v == nil {
@@ -16384,9 +13757,7 @@ func (o StorageClassificationMappingPropertiesResponsePtrOutput) TargetStorageCl
 	}).(pulumi.StringPtrOutput)
 }
 
-// Storage mapping input properties.
 type StorageMappingInputProperties struct {
-	// The ID of the storage object.
 	TargetStorageClassificationId *string `pulumi:"targetStorageClassificationId"`
 }
 
@@ -16401,9 +13772,7 @@ type StorageMappingInputPropertiesInput interface {
 	ToStorageMappingInputPropertiesOutputWithContext(context.Context) StorageMappingInputPropertiesOutput
 }
 
-// Storage mapping input properties.
 type StorageMappingInputPropertiesArgs struct {
-	// The ID of the storage object.
 	TargetStorageClassificationId pulumi.StringPtrInput `pulumi:"targetStorageClassificationId"`
 }
 
@@ -16460,7 +13829,6 @@ func (i *storageMappingInputPropertiesPtrType) ToStorageMappingInputPropertiesPt
 	return pulumi.ToOutputWithContext(ctx, i).(StorageMappingInputPropertiesPtrOutput)
 }
 
-// Storage mapping input properties.
 type StorageMappingInputPropertiesOutput struct{ *pulumi.OutputState }
 
 func (StorageMappingInputPropertiesOutput) ElementType() reflect.Type {
@@ -16480,12 +13848,11 @@ func (o StorageMappingInputPropertiesOutput) ToStorageMappingInputPropertiesPtrO
 }
 
 func (o StorageMappingInputPropertiesOutput) ToStorageMappingInputPropertiesPtrOutputWithContext(ctx context.Context) StorageMappingInputPropertiesPtrOutput {
-	return o.ApplyT(func(v StorageMappingInputProperties) *StorageMappingInputProperties {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v StorageMappingInputProperties) *StorageMappingInputProperties {
 		return &v
 	}).(StorageMappingInputPropertiesPtrOutput)
 }
 
-// The ID of the storage object.
 func (o StorageMappingInputPropertiesOutput) TargetStorageClassificationId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v StorageMappingInputProperties) *string { return v.TargetStorageClassificationId }).(pulumi.StringPtrOutput)
 }
@@ -16505,10 +13872,15 @@ func (o StorageMappingInputPropertiesPtrOutput) ToStorageMappingInputPropertiesP
 }
 
 func (o StorageMappingInputPropertiesPtrOutput) Elem() StorageMappingInputPropertiesOutput {
-	return o.ApplyT(func(v *StorageMappingInputProperties) StorageMappingInputProperties { return *v }).(StorageMappingInputPropertiesOutput)
+	return o.ApplyT(func(v *StorageMappingInputProperties) StorageMappingInputProperties {
+		if v != nil {
+			return *v
+		}
+		var ret StorageMappingInputProperties
+		return ret
+	}).(StorageMappingInputPropertiesOutput)
 }
 
-// The ID of the storage object.
 func (o StorageMappingInputPropertiesPtrOutput) TargetStorageClassificationId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *StorageMappingInputProperties) *string {
 		if v == nil {
@@ -16518,30 +13890,18 @@ func (o StorageMappingInputPropertiesPtrOutput) TargetStorageClassificationId() 
 	}).(pulumi.StringPtrOutput)
 }
 
-// vCenter properties.
 type VCenterPropertiesResponse struct {
-	// The VCenter discovery status.
-	DiscoveryStatus *string `pulumi:"discoveryStatus"`
-	// The ARM resource name of the fabric containing this VCenter.
-	FabricArmResourceName *string `pulumi:"fabricArmResourceName"`
-	// Friendly name of the vCenter.
-	FriendlyName *string `pulumi:"friendlyName"`
-	// The health errors for this VCenter.
-	HealthErrors []HealthErrorResponse `pulumi:"healthErrors"`
-	// The infrastructure Id of vCenter.
-	InfrastructureId *string `pulumi:"infrastructureId"`
-	// VCenter internal ID.
-	InternalId *string `pulumi:"internalId"`
-	// The IP address of the vCenter.
-	IpAddress *string `pulumi:"ipAddress"`
-	// The time when the last heartbeat was received by vCenter.
-	LastHeartbeat *string `pulumi:"lastHeartbeat"`
-	// The port number for discovery.
-	Port *string `pulumi:"port"`
-	// The process server Id.
-	ProcessServerId *string `pulumi:"processServerId"`
-	// The account Id which has privileges to discover the vCenter.
-	RunAsAccountId *string `pulumi:"runAsAccountId"`
+	DiscoveryStatus       *string               `pulumi:"discoveryStatus"`
+	FabricArmResourceName *string               `pulumi:"fabricArmResourceName"`
+	FriendlyName          *string               `pulumi:"friendlyName"`
+	HealthErrors          []HealthErrorResponse `pulumi:"healthErrors"`
+	InfrastructureId      *string               `pulumi:"infrastructureId"`
+	InternalId            *string               `pulumi:"internalId"`
+	IpAddress             *string               `pulumi:"ipAddress"`
+	LastHeartbeat         *string               `pulumi:"lastHeartbeat"`
+	Port                  *string               `pulumi:"port"`
+	ProcessServerId       *string               `pulumi:"processServerId"`
+	RunAsAccountId        *string               `pulumi:"runAsAccountId"`
 }
 
 // VCenterPropertiesResponseInput is an input type that accepts VCenterPropertiesResponseArgs and VCenterPropertiesResponseOutput values.
@@ -16555,30 +13915,18 @@ type VCenterPropertiesResponseInput interface {
 	ToVCenterPropertiesResponseOutputWithContext(context.Context) VCenterPropertiesResponseOutput
 }
 
-// vCenter properties.
 type VCenterPropertiesResponseArgs struct {
-	// The VCenter discovery status.
-	DiscoveryStatus pulumi.StringPtrInput `pulumi:"discoveryStatus"`
-	// The ARM resource name of the fabric containing this VCenter.
-	FabricArmResourceName pulumi.StringPtrInput `pulumi:"fabricArmResourceName"`
-	// Friendly name of the vCenter.
-	FriendlyName pulumi.StringPtrInput `pulumi:"friendlyName"`
-	// The health errors for this VCenter.
-	HealthErrors HealthErrorResponseArrayInput `pulumi:"healthErrors"`
-	// The infrastructure Id of vCenter.
-	InfrastructureId pulumi.StringPtrInput `pulumi:"infrastructureId"`
-	// VCenter internal ID.
-	InternalId pulumi.StringPtrInput `pulumi:"internalId"`
-	// The IP address of the vCenter.
-	IpAddress pulumi.StringPtrInput `pulumi:"ipAddress"`
-	// The time when the last heartbeat was received by vCenter.
-	LastHeartbeat pulumi.StringPtrInput `pulumi:"lastHeartbeat"`
-	// The port number for discovery.
-	Port pulumi.StringPtrInput `pulumi:"port"`
-	// The process server Id.
-	ProcessServerId pulumi.StringPtrInput `pulumi:"processServerId"`
-	// The account Id which has privileges to discover the vCenter.
-	RunAsAccountId pulumi.StringPtrInput `pulumi:"runAsAccountId"`
+	DiscoveryStatus       pulumi.StringPtrInput         `pulumi:"discoveryStatus"`
+	FabricArmResourceName pulumi.StringPtrInput         `pulumi:"fabricArmResourceName"`
+	FriendlyName          pulumi.StringPtrInput         `pulumi:"friendlyName"`
+	HealthErrors          HealthErrorResponseArrayInput `pulumi:"healthErrors"`
+	InfrastructureId      pulumi.StringPtrInput         `pulumi:"infrastructureId"`
+	InternalId            pulumi.StringPtrInput         `pulumi:"internalId"`
+	IpAddress             pulumi.StringPtrInput         `pulumi:"ipAddress"`
+	LastHeartbeat         pulumi.StringPtrInput         `pulumi:"lastHeartbeat"`
+	Port                  pulumi.StringPtrInput         `pulumi:"port"`
+	ProcessServerId       pulumi.StringPtrInput         `pulumi:"processServerId"`
+	RunAsAccountId        pulumi.StringPtrInput         `pulumi:"runAsAccountId"`
 }
 
 func (VCenterPropertiesResponseArgs) ElementType() reflect.Type {
@@ -16634,7 +13982,6 @@ func (i *vcenterPropertiesResponsePtrType) ToVCenterPropertiesResponsePtrOutputW
 	return pulumi.ToOutputWithContext(ctx, i).(VCenterPropertiesResponsePtrOutput)
 }
 
-// vCenter properties.
 type VCenterPropertiesResponseOutput struct{ *pulumi.OutputState }
 
 func (VCenterPropertiesResponseOutput) ElementType() reflect.Type {
@@ -16654,62 +14001,51 @@ func (o VCenterPropertiesResponseOutput) ToVCenterPropertiesResponsePtrOutput() 
 }
 
 func (o VCenterPropertiesResponseOutput) ToVCenterPropertiesResponsePtrOutputWithContext(ctx context.Context) VCenterPropertiesResponsePtrOutput {
-	return o.ApplyT(func(v VCenterPropertiesResponse) *VCenterPropertiesResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v VCenterPropertiesResponse) *VCenterPropertiesResponse {
 		return &v
 	}).(VCenterPropertiesResponsePtrOutput)
 }
 
-// The VCenter discovery status.
 func (o VCenterPropertiesResponseOutput) DiscoveryStatus() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v VCenterPropertiesResponse) *string { return v.DiscoveryStatus }).(pulumi.StringPtrOutput)
 }
 
-// The ARM resource name of the fabric containing this VCenter.
 func (o VCenterPropertiesResponseOutput) FabricArmResourceName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v VCenterPropertiesResponse) *string { return v.FabricArmResourceName }).(pulumi.StringPtrOutput)
 }
 
-// Friendly name of the vCenter.
 func (o VCenterPropertiesResponseOutput) FriendlyName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v VCenterPropertiesResponse) *string { return v.FriendlyName }).(pulumi.StringPtrOutput)
 }
 
-// The health errors for this VCenter.
 func (o VCenterPropertiesResponseOutput) HealthErrors() HealthErrorResponseArrayOutput {
 	return o.ApplyT(func(v VCenterPropertiesResponse) []HealthErrorResponse { return v.HealthErrors }).(HealthErrorResponseArrayOutput)
 }
 
-// The infrastructure Id of vCenter.
 func (o VCenterPropertiesResponseOutput) InfrastructureId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v VCenterPropertiesResponse) *string { return v.InfrastructureId }).(pulumi.StringPtrOutput)
 }
 
-// VCenter internal ID.
 func (o VCenterPropertiesResponseOutput) InternalId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v VCenterPropertiesResponse) *string { return v.InternalId }).(pulumi.StringPtrOutput)
 }
 
-// The IP address of the vCenter.
 func (o VCenterPropertiesResponseOutput) IpAddress() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v VCenterPropertiesResponse) *string { return v.IpAddress }).(pulumi.StringPtrOutput)
 }
 
-// The time when the last heartbeat was received by vCenter.
 func (o VCenterPropertiesResponseOutput) LastHeartbeat() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v VCenterPropertiesResponse) *string { return v.LastHeartbeat }).(pulumi.StringPtrOutput)
 }
 
-// The port number for discovery.
 func (o VCenterPropertiesResponseOutput) Port() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v VCenterPropertiesResponse) *string { return v.Port }).(pulumi.StringPtrOutput)
 }
 
-// The process server Id.
 func (o VCenterPropertiesResponseOutput) ProcessServerId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v VCenterPropertiesResponse) *string { return v.ProcessServerId }).(pulumi.StringPtrOutput)
 }
 
-// The account Id which has privileges to discover the vCenter.
 func (o VCenterPropertiesResponseOutput) RunAsAccountId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v VCenterPropertiesResponse) *string { return v.RunAsAccountId }).(pulumi.StringPtrOutput)
 }
@@ -16729,10 +14065,15 @@ func (o VCenterPropertiesResponsePtrOutput) ToVCenterPropertiesResponsePtrOutput
 }
 
 func (o VCenterPropertiesResponsePtrOutput) Elem() VCenterPropertiesResponseOutput {
-	return o.ApplyT(func(v *VCenterPropertiesResponse) VCenterPropertiesResponse { return *v }).(VCenterPropertiesResponseOutput)
+	return o.ApplyT(func(v *VCenterPropertiesResponse) VCenterPropertiesResponse {
+		if v != nil {
+			return *v
+		}
+		var ret VCenterPropertiesResponse
+		return ret
+	}).(VCenterPropertiesResponseOutput)
 }
 
-// The VCenter discovery status.
 func (o VCenterPropertiesResponsePtrOutput) DiscoveryStatus() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *VCenterPropertiesResponse) *string {
 		if v == nil {
@@ -16742,7 +14083,6 @@ func (o VCenterPropertiesResponsePtrOutput) DiscoveryStatus() pulumi.StringPtrOu
 	}).(pulumi.StringPtrOutput)
 }
 
-// The ARM resource name of the fabric containing this VCenter.
 func (o VCenterPropertiesResponsePtrOutput) FabricArmResourceName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *VCenterPropertiesResponse) *string {
 		if v == nil {
@@ -16752,7 +14092,6 @@ func (o VCenterPropertiesResponsePtrOutput) FabricArmResourceName() pulumi.Strin
 	}).(pulumi.StringPtrOutput)
 }
 
-// Friendly name of the vCenter.
 func (o VCenterPropertiesResponsePtrOutput) FriendlyName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *VCenterPropertiesResponse) *string {
 		if v == nil {
@@ -16762,7 +14101,6 @@ func (o VCenterPropertiesResponsePtrOutput) FriendlyName() pulumi.StringPtrOutpu
 	}).(pulumi.StringPtrOutput)
 }
 
-// The health errors for this VCenter.
 func (o VCenterPropertiesResponsePtrOutput) HealthErrors() HealthErrorResponseArrayOutput {
 	return o.ApplyT(func(v *VCenterPropertiesResponse) []HealthErrorResponse {
 		if v == nil {
@@ -16772,7 +14110,6 @@ func (o VCenterPropertiesResponsePtrOutput) HealthErrors() HealthErrorResponseAr
 	}).(HealthErrorResponseArrayOutput)
 }
 
-// The infrastructure Id of vCenter.
 func (o VCenterPropertiesResponsePtrOutput) InfrastructureId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *VCenterPropertiesResponse) *string {
 		if v == nil {
@@ -16782,7 +14119,6 @@ func (o VCenterPropertiesResponsePtrOutput) InfrastructureId() pulumi.StringPtrO
 	}).(pulumi.StringPtrOutput)
 }
 
-// VCenter internal ID.
 func (o VCenterPropertiesResponsePtrOutput) InternalId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *VCenterPropertiesResponse) *string {
 		if v == nil {
@@ -16792,7 +14128,6 @@ func (o VCenterPropertiesResponsePtrOutput) InternalId() pulumi.StringPtrOutput 
 	}).(pulumi.StringPtrOutput)
 }
 
-// The IP address of the vCenter.
 func (o VCenterPropertiesResponsePtrOutput) IpAddress() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *VCenterPropertiesResponse) *string {
 		if v == nil {
@@ -16802,7 +14137,6 @@ func (o VCenterPropertiesResponsePtrOutput) IpAddress() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The time when the last heartbeat was received by vCenter.
 func (o VCenterPropertiesResponsePtrOutput) LastHeartbeat() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *VCenterPropertiesResponse) *string {
 		if v == nil {
@@ -16812,7 +14146,6 @@ func (o VCenterPropertiesResponsePtrOutput) LastHeartbeat() pulumi.StringPtrOutp
 	}).(pulumi.StringPtrOutput)
 }
 
-// The port number for discovery.
 func (o VCenterPropertiesResponsePtrOutput) Port() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *VCenterPropertiesResponse) *string {
 		if v == nil {
@@ -16822,7 +14155,6 @@ func (o VCenterPropertiesResponsePtrOutput) Port() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The process server Id.
 func (o VCenterPropertiesResponsePtrOutput) ProcessServerId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *VCenterPropertiesResponse) *string {
 		if v == nil {
@@ -16832,7 +14164,6 @@ func (o VCenterPropertiesResponsePtrOutput) ProcessServerId() pulumi.StringPtrOu
 	}).(pulumi.StringPtrOutput)
 }
 
-// The account Id which has privileges to discover the vCenter.
 func (o VCenterPropertiesResponsePtrOutput) RunAsAccountId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *VCenterPropertiesResponse) *string {
 		if v == nil {
@@ -16842,34 +14173,20 @@ func (o VCenterPropertiesResponsePtrOutput) RunAsAccountId() pulumi.StringPtrOut
 	}).(pulumi.StringPtrOutput)
 }
 
-// Hyper V VM network details.
 type VMNicDetailsResponse struct {
-	// A value indicating whether the NIC has accelerated networking enabled.
-	EnableAcceleratedNetworkingOnRecovery *bool `pulumi:"enableAcceleratedNetworkingOnRecovery"`
-	// Ip address type.
-	IpAddressType *string `pulumi:"ipAddressType"`
-	// The nic Id.
-	NicId *string `pulumi:"nicId"`
-	// Primary nic static IP address.
-	PrimaryNicStaticIPAddress *string `pulumi:"primaryNicStaticIPAddress"`
-	// IP allocation type for recovery VM.
-	RecoveryNicIpAddressType *string `pulumi:"recoveryNicIpAddressType"`
-	// Recovery VM network Id.
-	RecoveryVMNetworkId *string `pulumi:"recoveryVMNetworkId"`
-	// Recovery VM subnet name.
-	RecoveryVMSubnetName *string `pulumi:"recoveryVMSubnetName"`
-	// The replica nic Id.
-	ReplicaNicId *string `pulumi:"replicaNicId"`
-	// Replica nic static IP address.
-	ReplicaNicStaticIPAddress *string `pulumi:"replicaNicStaticIPAddress"`
-	// Selection type for failover.
-	SelectionType *string `pulumi:"selectionType"`
-	// The source nic ARM Id.
-	SourceNicArmId *string `pulumi:"sourceNicArmId"`
-	// VM network name.
-	VMNetworkName *string `pulumi:"vMNetworkName"`
-	// VM subnet name.
-	VMSubnetName *string `pulumi:"vMSubnetName"`
+	EnableAcceleratedNetworkingOnRecovery *bool   `pulumi:"enableAcceleratedNetworkingOnRecovery"`
+	IpAddressType                         *string `pulumi:"ipAddressType"`
+	NicId                                 *string `pulumi:"nicId"`
+	PrimaryNicStaticIPAddress             *string `pulumi:"primaryNicStaticIPAddress"`
+	RecoveryNicIpAddressType              *string `pulumi:"recoveryNicIpAddressType"`
+	RecoveryVMNetworkId                   *string `pulumi:"recoveryVMNetworkId"`
+	RecoveryVMSubnetName                  *string `pulumi:"recoveryVMSubnetName"`
+	ReplicaNicId                          *string `pulumi:"replicaNicId"`
+	ReplicaNicStaticIPAddress             *string `pulumi:"replicaNicStaticIPAddress"`
+	SelectionType                         *string `pulumi:"selectionType"`
+	SourceNicArmId                        *string `pulumi:"sourceNicArmId"`
+	VMNetworkName                         *string `pulumi:"vMNetworkName"`
+	VMSubnetName                          *string `pulumi:"vMSubnetName"`
 }
 
 // VMNicDetailsResponseInput is an input type that accepts VMNicDetailsResponseArgs and VMNicDetailsResponseOutput values.
@@ -16883,34 +14200,20 @@ type VMNicDetailsResponseInput interface {
 	ToVMNicDetailsResponseOutputWithContext(context.Context) VMNicDetailsResponseOutput
 }
 
-// Hyper V VM network details.
 type VMNicDetailsResponseArgs struct {
-	// A value indicating whether the NIC has accelerated networking enabled.
-	EnableAcceleratedNetworkingOnRecovery pulumi.BoolPtrInput `pulumi:"enableAcceleratedNetworkingOnRecovery"`
-	// Ip address type.
-	IpAddressType pulumi.StringPtrInput `pulumi:"ipAddressType"`
-	// The nic Id.
-	NicId pulumi.StringPtrInput `pulumi:"nicId"`
-	// Primary nic static IP address.
-	PrimaryNicStaticIPAddress pulumi.StringPtrInput `pulumi:"primaryNicStaticIPAddress"`
-	// IP allocation type for recovery VM.
-	RecoveryNicIpAddressType pulumi.StringPtrInput `pulumi:"recoveryNicIpAddressType"`
-	// Recovery VM network Id.
-	RecoveryVMNetworkId pulumi.StringPtrInput `pulumi:"recoveryVMNetworkId"`
-	// Recovery VM subnet name.
-	RecoveryVMSubnetName pulumi.StringPtrInput `pulumi:"recoveryVMSubnetName"`
-	// The replica nic Id.
-	ReplicaNicId pulumi.StringPtrInput `pulumi:"replicaNicId"`
-	// Replica nic static IP address.
-	ReplicaNicStaticIPAddress pulumi.StringPtrInput `pulumi:"replicaNicStaticIPAddress"`
-	// Selection type for failover.
-	SelectionType pulumi.StringPtrInput `pulumi:"selectionType"`
-	// The source nic ARM Id.
-	SourceNicArmId pulumi.StringPtrInput `pulumi:"sourceNicArmId"`
-	// VM network name.
-	VMNetworkName pulumi.StringPtrInput `pulumi:"vMNetworkName"`
-	// VM subnet name.
-	VMSubnetName pulumi.StringPtrInput `pulumi:"vMSubnetName"`
+	EnableAcceleratedNetworkingOnRecovery pulumi.BoolPtrInput   `pulumi:"enableAcceleratedNetworkingOnRecovery"`
+	IpAddressType                         pulumi.StringPtrInput `pulumi:"ipAddressType"`
+	NicId                                 pulumi.StringPtrInput `pulumi:"nicId"`
+	PrimaryNicStaticIPAddress             pulumi.StringPtrInput `pulumi:"primaryNicStaticIPAddress"`
+	RecoveryNicIpAddressType              pulumi.StringPtrInput `pulumi:"recoveryNicIpAddressType"`
+	RecoveryVMNetworkId                   pulumi.StringPtrInput `pulumi:"recoveryVMNetworkId"`
+	RecoveryVMSubnetName                  pulumi.StringPtrInput `pulumi:"recoveryVMSubnetName"`
+	ReplicaNicId                          pulumi.StringPtrInput `pulumi:"replicaNicId"`
+	ReplicaNicStaticIPAddress             pulumi.StringPtrInput `pulumi:"replicaNicStaticIPAddress"`
+	SelectionType                         pulumi.StringPtrInput `pulumi:"selectionType"`
+	SourceNicArmId                        pulumi.StringPtrInput `pulumi:"sourceNicArmId"`
+	VMNetworkName                         pulumi.StringPtrInput `pulumi:"vMNetworkName"`
+	VMSubnetName                          pulumi.StringPtrInput `pulumi:"vMSubnetName"`
 }
 
 func (VMNicDetailsResponseArgs) ElementType() reflect.Type {
@@ -16950,7 +14253,6 @@ func (i VMNicDetailsResponseArray) ToVMNicDetailsResponseArrayOutputWithContext(
 	return pulumi.ToOutputWithContext(ctx, i).(VMNicDetailsResponseArrayOutput)
 }
 
-// Hyper V VM network details.
 type VMNicDetailsResponseOutput struct{ *pulumi.OutputState }
 
 func (VMNicDetailsResponseOutput) ElementType() reflect.Type {
@@ -16965,67 +14267,54 @@ func (o VMNicDetailsResponseOutput) ToVMNicDetailsResponseOutputWithContext(ctx 
 	return o
 }
 
-// A value indicating whether the NIC has accelerated networking enabled.
 func (o VMNicDetailsResponseOutput) EnableAcceleratedNetworkingOnRecovery() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v VMNicDetailsResponse) *bool { return v.EnableAcceleratedNetworkingOnRecovery }).(pulumi.BoolPtrOutput)
 }
 
-// Ip address type.
 func (o VMNicDetailsResponseOutput) IpAddressType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v VMNicDetailsResponse) *string { return v.IpAddressType }).(pulumi.StringPtrOutput)
 }
 
-// The nic Id.
 func (o VMNicDetailsResponseOutput) NicId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v VMNicDetailsResponse) *string { return v.NicId }).(pulumi.StringPtrOutput)
 }
 
-// Primary nic static IP address.
 func (o VMNicDetailsResponseOutput) PrimaryNicStaticIPAddress() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v VMNicDetailsResponse) *string { return v.PrimaryNicStaticIPAddress }).(pulumi.StringPtrOutput)
 }
 
-// IP allocation type for recovery VM.
 func (o VMNicDetailsResponseOutput) RecoveryNicIpAddressType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v VMNicDetailsResponse) *string { return v.RecoveryNicIpAddressType }).(pulumi.StringPtrOutput)
 }
 
-// Recovery VM network Id.
 func (o VMNicDetailsResponseOutput) RecoveryVMNetworkId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v VMNicDetailsResponse) *string { return v.RecoveryVMNetworkId }).(pulumi.StringPtrOutput)
 }
 
-// Recovery VM subnet name.
 func (o VMNicDetailsResponseOutput) RecoveryVMSubnetName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v VMNicDetailsResponse) *string { return v.RecoveryVMSubnetName }).(pulumi.StringPtrOutput)
 }
 
-// The replica nic Id.
 func (o VMNicDetailsResponseOutput) ReplicaNicId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v VMNicDetailsResponse) *string { return v.ReplicaNicId }).(pulumi.StringPtrOutput)
 }
 
-// Replica nic static IP address.
 func (o VMNicDetailsResponseOutput) ReplicaNicStaticIPAddress() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v VMNicDetailsResponse) *string { return v.ReplicaNicStaticIPAddress }).(pulumi.StringPtrOutput)
 }
 
-// Selection type for failover.
 func (o VMNicDetailsResponseOutput) SelectionType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v VMNicDetailsResponse) *string { return v.SelectionType }).(pulumi.StringPtrOutput)
 }
 
-// The source nic ARM Id.
 func (o VMNicDetailsResponseOutput) SourceNicArmId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v VMNicDetailsResponse) *string { return v.SourceNicArmId }).(pulumi.StringPtrOutput)
 }
 
-// VM network name.
 func (o VMNicDetailsResponseOutput) VMNetworkName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v VMNicDetailsResponse) *string { return v.VMNetworkName }).(pulumi.StringPtrOutput)
 }
 
-// VM subnet name.
 func (o VMNicDetailsResponseOutput) VMSubnetName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v VMNicDetailsResponse) *string { return v.VMSubnetName }).(pulumi.StringPtrOutput)
 }
@@ -17050,23 +14339,14 @@ func (o VMNicDetailsResponseArrayOutput) Index(i pulumi.IntInput) VMNicDetailsRe
 	}).(VMNicDetailsResponseOutput)
 }
 
-// VMwareCbt container mapping input.
 type VMwareCbtContainerMappingInput struct {
-	// The class type.
-	// Expected value is 'VMwareCbt'.
-	InstanceType *string `pulumi:"instanceType"`
-	// The target key vault ARM Id.
-	KeyVaultId string `pulumi:"keyVaultId"`
-	// The target key vault URL.
-	KeyVaultUri string `pulumi:"keyVaultUri"`
-	// The secret name of the service bus connection string.
-	ServiceBusConnectionStringSecretName string `pulumi:"serviceBusConnectionStringSecretName"`
-	// The storage account ARM Id.
-	StorageAccountId string `pulumi:"storageAccountId"`
-	// The secret name of the storage account.
-	StorageAccountSasSecretName string `pulumi:"storageAccountSasSecretName"`
-	// The target location.
-	TargetLocation string `pulumi:"targetLocation"`
+	InstanceType                         *string `pulumi:"instanceType"`
+	KeyVaultId                           string  `pulumi:"keyVaultId"`
+	KeyVaultUri                          string  `pulumi:"keyVaultUri"`
+	ServiceBusConnectionStringSecretName string  `pulumi:"serviceBusConnectionStringSecretName"`
+	StorageAccountId                     string  `pulumi:"storageAccountId"`
+	StorageAccountSasSecretName          string  `pulumi:"storageAccountSasSecretName"`
+	TargetLocation                       string  `pulumi:"targetLocation"`
 }
 
 // VMwareCbtContainerMappingInputInput is an input type that accepts VMwareCbtContainerMappingInputArgs and VMwareCbtContainerMappingInputOutput values.
@@ -17080,23 +14360,14 @@ type VMwareCbtContainerMappingInputInput interface {
 	ToVMwareCbtContainerMappingInputOutputWithContext(context.Context) VMwareCbtContainerMappingInputOutput
 }
 
-// VMwareCbt container mapping input.
 type VMwareCbtContainerMappingInputArgs struct {
-	// The class type.
-	// Expected value is 'VMwareCbt'.
-	InstanceType pulumi.StringPtrInput `pulumi:"instanceType"`
-	// The target key vault ARM Id.
-	KeyVaultId pulumi.StringInput `pulumi:"keyVaultId"`
-	// The target key vault URL.
-	KeyVaultUri pulumi.StringInput `pulumi:"keyVaultUri"`
-	// The secret name of the service bus connection string.
-	ServiceBusConnectionStringSecretName pulumi.StringInput `pulumi:"serviceBusConnectionStringSecretName"`
-	// The storage account ARM Id.
-	StorageAccountId pulumi.StringInput `pulumi:"storageAccountId"`
-	// The secret name of the storage account.
-	StorageAccountSasSecretName pulumi.StringInput `pulumi:"storageAccountSasSecretName"`
-	// The target location.
-	TargetLocation pulumi.StringInput `pulumi:"targetLocation"`
+	InstanceType                         pulumi.StringPtrInput `pulumi:"instanceType"`
+	KeyVaultId                           pulumi.StringInput    `pulumi:"keyVaultId"`
+	KeyVaultUri                          pulumi.StringInput    `pulumi:"keyVaultUri"`
+	ServiceBusConnectionStringSecretName pulumi.StringInput    `pulumi:"serviceBusConnectionStringSecretName"`
+	StorageAccountId                     pulumi.StringInput    `pulumi:"storageAccountId"`
+	StorageAccountSasSecretName          pulumi.StringInput    `pulumi:"storageAccountSasSecretName"`
+	TargetLocation                       pulumi.StringInput    `pulumi:"targetLocation"`
 }
 
 func (VMwareCbtContainerMappingInputArgs) ElementType() reflect.Type {
@@ -17111,7 +14382,6 @@ func (i VMwareCbtContainerMappingInputArgs) ToVMwareCbtContainerMappingInputOutp
 	return pulumi.ToOutputWithContext(ctx, i).(VMwareCbtContainerMappingInputOutput)
 }
 
-// VMwareCbt container mapping input.
 type VMwareCbtContainerMappingInputOutput struct{ *pulumi.OutputState }
 
 func (VMwareCbtContainerMappingInputOutput) ElementType() reflect.Type {
@@ -17126,56 +14396,41 @@ func (o VMwareCbtContainerMappingInputOutput) ToVMwareCbtContainerMappingInputOu
 	return o
 }
 
-// The class type.
-// Expected value is 'VMwareCbt'.
 func (o VMwareCbtContainerMappingInputOutput) InstanceType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v VMwareCbtContainerMappingInput) *string { return v.InstanceType }).(pulumi.StringPtrOutput)
 }
 
-// The target key vault ARM Id.
 func (o VMwareCbtContainerMappingInputOutput) KeyVaultId() pulumi.StringOutput {
 	return o.ApplyT(func(v VMwareCbtContainerMappingInput) string { return v.KeyVaultId }).(pulumi.StringOutput)
 }
 
-// The target key vault URL.
 func (o VMwareCbtContainerMappingInputOutput) KeyVaultUri() pulumi.StringOutput {
 	return o.ApplyT(func(v VMwareCbtContainerMappingInput) string { return v.KeyVaultUri }).(pulumi.StringOutput)
 }
 
-// The secret name of the service bus connection string.
 func (o VMwareCbtContainerMappingInputOutput) ServiceBusConnectionStringSecretName() pulumi.StringOutput {
 	return o.ApplyT(func(v VMwareCbtContainerMappingInput) string { return v.ServiceBusConnectionStringSecretName }).(pulumi.StringOutput)
 }
 
-// The storage account ARM Id.
 func (o VMwareCbtContainerMappingInputOutput) StorageAccountId() pulumi.StringOutput {
 	return o.ApplyT(func(v VMwareCbtContainerMappingInput) string { return v.StorageAccountId }).(pulumi.StringOutput)
 }
 
-// The secret name of the storage account.
 func (o VMwareCbtContainerMappingInputOutput) StorageAccountSasSecretName() pulumi.StringOutput {
 	return o.ApplyT(func(v VMwareCbtContainerMappingInput) string { return v.StorageAccountSasSecretName }).(pulumi.StringOutput)
 }
 
-// The target location.
 func (o VMwareCbtContainerMappingInputOutput) TargetLocation() pulumi.StringOutput {
 	return o.ApplyT(func(v VMwareCbtContainerMappingInput) string { return v.TargetLocation }).(pulumi.StringOutput)
 }
 
-// VMwareCbt disk input.
 type VMwareCbtDiskInput struct {
-	// The DiskEncryptionSet ARM Id.
-	DiskEncryptionSetId *string `pulumi:"diskEncryptionSetId"`
-	// The disk Id.
-	DiskId string `pulumi:"diskId"`
-	// The disk type.
-	DiskType *string `pulumi:"diskType"`
-	// A value indicating whether the disk is the OS disk.
-	IsOSDisk string `pulumi:"isOSDisk"`
-	// The log storage account ARM Id.
-	LogStorageAccountId string `pulumi:"logStorageAccountId"`
-	// The key vault secret name of the log storage account.
-	LogStorageAccountSasSecretName string `pulumi:"logStorageAccountSasSecretName"`
+	DiskEncryptionSetId            *string `pulumi:"diskEncryptionSetId"`
+	DiskId                         string  `pulumi:"diskId"`
+	DiskType                       *string `pulumi:"diskType"`
+	IsOSDisk                       string  `pulumi:"isOSDisk"`
+	LogStorageAccountId            string  `pulumi:"logStorageAccountId"`
+	LogStorageAccountSasSecretName string  `pulumi:"logStorageAccountSasSecretName"`
 }
 
 // VMwareCbtDiskInputInput is an input type that accepts VMwareCbtDiskInputArgs and VMwareCbtDiskInputOutput values.
@@ -17189,20 +14444,13 @@ type VMwareCbtDiskInputInput interface {
 	ToVMwareCbtDiskInputOutputWithContext(context.Context) VMwareCbtDiskInputOutput
 }
 
-// VMwareCbt disk input.
 type VMwareCbtDiskInputArgs struct {
-	// The DiskEncryptionSet ARM Id.
-	DiskEncryptionSetId pulumi.StringPtrInput `pulumi:"diskEncryptionSetId"`
-	// The disk Id.
-	DiskId pulumi.StringInput `pulumi:"diskId"`
-	// The disk type.
-	DiskType pulumi.StringPtrInput `pulumi:"diskType"`
-	// A value indicating whether the disk is the OS disk.
-	IsOSDisk pulumi.StringInput `pulumi:"isOSDisk"`
-	// The log storage account ARM Id.
-	LogStorageAccountId pulumi.StringInput `pulumi:"logStorageAccountId"`
-	// The key vault secret name of the log storage account.
-	LogStorageAccountSasSecretName pulumi.StringInput `pulumi:"logStorageAccountSasSecretName"`
+	DiskEncryptionSetId            pulumi.StringPtrInput `pulumi:"diskEncryptionSetId"`
+	DiskId                         pulumi.StringInput    `pulumi:"diskId"`
+	DiskType                       pulumi.StringPtrInput `pulumi:"diskType"`
+	IsOSDisk                       pulumi.StringInput    `pulumi:"isOSDisk"`
+	LogStorageAccountId            pulumi.StringInput    `pulumi:"logStorageAccountId"`
+	LogStorageAccountSasSecretName pulumi.StringInput    `pulumi:"logStorageAccountSasSecretName"`
 }
 
 func (VMwareCbtDiskInputArgs) ElementType() reflect.Type {
@@ -17242,7 +14490,6 @@ func (i VMwareCbtDiskInputArray) ToVMwareCbtDiskInputArrayOutputWithContext(ctx 
 	return pulumi.ToOutputWithContext(ctx, i).(VMwareCbtDiskInputArrayOutput)
 }
 
-// VMwareCbt disk input.
 type VMwareCbtDiskInputOutput struct{ *pulumi.OutputState }
 
 func (VMwareCbtDiskInputOutput) ElementType() reflect.Type {
@@ -17257,32 +14504,26 @@ func (o VMwareCbtDiskInputOutput) ToVMwareCbtDiskInputOutputWithContext(ctx cont
 	return o
 }
 
-// The DiskEncryptionSet ARM Id.
 func (o VMwareCbtDiskInputOutput) DiskEncryptionSetId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v VMwareCbtDiskInput) *string { return v.DiskEncryptionSetId }).(pulumi.StringPtrOutput)
 }
 
-// The disk Id.
 func (o VMwareCbtDiskInputOutput) DiskId() pulumi.StringOutput {
 	return o.ApplyT(func(v VMwareCbtDiskInput) string { return v.DiskId }).(pulumi.StringOutput)
 }
 
-// The disk type.
 func (o VMwareCbtDiskInputOutput) DiskType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v VMwareCbtDiskInput) *string { return v.DiskType }).(pulumi.StringPtrOutput)
 }
 
-// A value indicating whether the disk is the OS disk.
 func (o VMwareCbtDiskInputOutput) IsOSDisk() pulumi.StringOutput {
 	return o.ApplyT(func(v VMwareCbtDiskInput) string { return v.IsOSDisk }).(pulumi.StringOutput)
 }
 
-// The log storage account ARM Id.
 func (o VMwareCbtDiskInputOutput) LogStorageAccountId() pulumi.StringOutput {
 	return o.ApplyT(func(v VMwareCbtDiskInput) string { return v.LogStorageAccountId }).(pulumi.StringOutput)
 }
 
-// The key vault secret name of the log storage account.
 func (o VMwareCbtDiskInputOutput) LogStorageAccountSasSecretName() pulumi.StringOutput {
 	return o.ApplyT(func(v VMwareCbtDiskInput) string { return v.LogStorageAccountSasSecretName }).(pulumi.StringOutput)
 }
@@ -17307,39 +14548,22 @@ func (o VMwareCbtDiskInputArrayOutput) Index(i pulumi.IntInput) VMwareCbtDiskInp
 	}).(VMwareCbtDiskInputOutput)
 }
 
-// VMwareCbt specific enable migration input.
 type VMwareCbtEnableMigrationInput struct {
-	// The data mover RunAs account Id.
-	DataMoverRunAsAccountId string `pulumi:"dataMoverRunAsAccountId"`
-	// The disks to include list.
-	DisksToInclude []VMwareCbtDiskInput `pulumi:"disksToInclude"`
-	// The class type.
-	// Expected value is 'VMwareCbt'.
-	InstanceType string `pulumi:"instanceType"`
-	// License type.
-	LicenseType *string `pulumi:"licenseType"`
-	// A value indicating whether auto resync is to be done.
-	PerformAutoResync *string `pulumi:"performAutoResync"`
-	// The snapshot RunAs account Id.
-	SnapshotRunAsAccountId string `pulumi:"snapshotRunAsAccountId"`
-	// The target availability set ARM Id.
-	TargetAvailabilitySetId *string `pulumi:"targetAvailabilitySetId"`
-	// The target availability zone.
-	TargetAvailabilityZone *string `pulumi:"targetAvailabilityZone"`
-	// The target boot diagnostics storage account ARM Id.
-	TargetBootDiagnosticsStorageAccountId *string `pulumi:"targetBootDiagnosticsStorageAccountId"`
-	// The target network ARM Id.
-	TargetNetworkId string `pulumi:"targetNetworkId"`
-	// The target resource group ARM Id.
-	TargetResourceGroupId string `pulumi:"targetResourceGroupId"`
-	// The target subnet name.
-	TargetSubnetName *string `pulumi:"targetSubnetName"`
-	// The target VM name.
-	TargetVmName *string `pulumi:"targetVmName"`
-	// The target VM size.
-	TargetVmSize *string `pulumi:"targetVmSize"`
-	// The ARM Id of the VM discovered in VMware.
-	VmwareMachineId string `pulumi:"vmwareMachineId"`
+	DataMoverRunAsAccountId               string               `pulumi:"dataMoverRunAsAccountId"`
+	DisksToInclude                        []VMwareCbtDiskInput `pulumi:"disksToInclude"`
+	InstanceType                          string               `pulumi:"instanceType"`
+	LicenseType                           *string              `pulumi:"licenseType"`
+	PerformAutoResync                     *string              `pulumi:"performAutoResync"`
+	SnapshotRunAsAccountId                string               `pulumi:"snapshotRunAsAccountId"`
+	TargetAvailabilitySetId               *string              `pulumi:"targetAvailabilitySetId"`
+	TargetAvailabilityZone                *string              `pulumi:"targetAvailabilityZone"`
+	TargetBootDiagnosticsStorageAccountId *string              `pulumi:"targetBootDiagnosticsStorageAccountId"`
+	TargetNetworkId                       string               `pulumi:"targetNetworkId"`
+	TargetResourceGroupId                 string               `pulumi:"targetResourceGroupId"`
+	TargetSubnetName                      *string              `pulumi:"targetSubnetName"`
+	TargetVmName                          *string              `pulumi:"targetVmName"`
+	TargetVmSize                          *string              `pulumi:"targetVmSize"`
+	VmwareMachineId                       string               `pulumi:"vmwareMachineId"`
 }
 
 // VMwareCbtEnableMigrationInputInput is an input type that accepts VMwareCbtEnableMigrationInputArgs and VMwareCbtEnableMigrationInputOutput values.
@@ -17353,39 +14577,22 @@ type VMwareCbtEnableMigrationInputInput interface {
 	ToVMwareCbtEnableMigrationInputOutputWithContext(context.Context) VMwareCbtEnableMigrationInputOutput
 }
 
-// VMwareCbt specific enable migration input.
 type VMwareCbtEnableMigrationInputArgs struct {
-	// The data mover RunAs account Id.
-	DataMoverRunAsAccountId pulumi.StringInput `pulumi:"dataMoverRunAsAccountId"`
-	// The disks to include list.
-	DisksToInclude VMwareCbtDiskInputArrayInput `pulumi:"disksToInclude"`
-	// The class type.
-	// Expected value is 'VMwareCbt'.
-	InstanceType pulumi.StringInput `pulumi:"instanceType"`
-	// License type.
-	LicenseType pulumi.StringPtrInput `pulumi:"licenseType"`
-	// A value indicating whether auto resync is to be done.
-	PerformAutoResync pulumi.StringPtrInput `pulumi:"performAutoResync"`
-	// The snapshot RunAs account Id.
-	SnapshotRunAsAccountId pulumi.StringInput `pulumi:"snapshotRunAsAccountId"`
-	// The target availability set ARM Id.
-	TargetAvailabilitySetId pulumi.StringPtrInput `pulumi:"targetAvailabilitySetId"`
-	// The target availability zone.
-	TargetAvailabilityZone pulumi.StringPtrInput `pulumi:"targetAvailabilityZone"`
-	// The target boot diagnostics storage account ARM Id.
-	TargetBootDiagnosticsStorageAccountId pulumi.StringPtrInput `pulumi:"targetBootDiagnosticsStorageAccountId"`
-	// The target network ARM Id.
-	TargetNetworkId pulumi.StringInput `pulumi:"targetNetworkId"`
-	// The target resource group ARM Id.
-	TargetResourceGroupId pulumi.StringInput `pulumi:"targetResourceGroupId"`
-	// The target subnet name.
-	TargetSubnetName pulumi.StringPtrInput `pulumi:"targetSubnetName"`
-	// The target VM name.
-	TargetVmName pulumi.StringPtrInput `pulumi:"targetVmName"`
-	// The target VM size.
-	TargetVmSize pulumi.StringPtrInput `pulumi:"targetVmSize"`
-	// The ARM Id of the VM discovered in VMware.
-	VmwareMachineId pulumi.StringInput `pulumi:"vmwareMachineId"`
+	DataMoverRunAsAccountId               pulumi.StringInput           `pulumi:"dataMoverRunAsAccountId"`
+	DisksToInclude                        VMwareCbtDiskInputArrayInput `pulumi:"disksToInclude"`
+	InstanceType                          pulumi.StringInput           `pulumi:"instanceType"`
+	LicenseType                           pulumi.StringPtrInput        `pulumi:"licenseType"`
+	PerformAutoResync                     pulumi.StringPtrInput        `pulumi:"performAutoResync"`
+	SnapshotRunAsAccountId                pulumi.StringInput           `pulumi:"snapshotRunAsAccountId"`
+	TargetAvailabilitySetId               pulumi.StringPtrInput        `pulumi:"targetAvailabilitySetId"`
+	TargetAvailabilityZone                pulumi.StringPtrInput        `pulumi:"targetAvailabilityZone"`
+	TargetBootDiagnosticsStorageAccountId pulumi.StringPtrInput        `pulumi:"targetBootDiagnosticsStorageAccountId"`
+	TargetNetworkId                       pulumi.StringInput           `pulumi:"targetNetworkId"`
+	TargetResourceGroupId                 pulumi.StringInput           `pulumi:"targetResourceGroupId"`
+	TargetSubnetName                      pulumi.StringPtrInput        `pulumi:"targetSubnetName"`
+	TargetVmName                          pulumi.StringPtrInput        `pulumi:"targetVmName"`
+	TargetVmSize                          pulumi.StringPtrInput        `pulumi:"targetVmSize"`
+	VmwareMachineId                       pulumi.StringInput           `pulumi:"vmwareMachineId"`
 }
 
 func (VMwareCbtEnableMigrationInputArgs) ElementType() reflect.Type {
@@ -17441,7 +14648,6 @@ func (i *vmwareCbtEnableMigrationInputPtrType) ToVMwareCbtEnableMigrationInputPt
 	return pulumi.ToOutputWithContext(ctx, i).(VMwareCbtEnableMigrationInputPtrOutput)
 }
 
-// VMwareCbt specific enable migration input.
 type VMwareCbtEnableMigrationInputOutput struct{ *pulumi.OutputState }
 
 func (VMwareCbtEnableMigrationInputOutput) ElementType() reflect.Type {
@@ -17461,83 +14667,67 @@ func (o VMwareCbtEnableMigrationInputOutput) ToVMwareCbtEnableMigrationInputPtrO
 }
 
 func (o VMwareCbtEnableMigrationInputOutput) ToVMwareCbtEnableMigrationInputPtrOutputWithContext(ctx context.Context) VMwareCbtEnableMigrationInputPtrOutput {
-	return o.ApplyT(func(v VMwareCbtEnableMigrationInput) *VMwareCbtEnableMigrationInput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v VMwareCbtEnableMigrationInput) *VMwareCbtEnableMigrationInput {
 		return &v
 	}).(VMwareCbtEnableMigrationInputPtrOutput)
 }
 
-// The data mover RunAs account Id.
 func (o VMwareCbtEnableMigrationInputOutput) DataMoverRunAsAccountId() pulumi.StringOutput {
 	return o.ApplyT(func(v VMwareCbtEnableMigrationInput) string { return v.DataMoverRunAsAccountId }).(pulumi.StringOutput)
 }
 
-// The disks to include list.
 func (o VMwareCbtEnableMigrationInputOutput) DisksToInclude() VMwareCbtDiskInputArrayOutput {
 	return o.ApplyT(func(v VMwareCbtEnableMigrationInput) []VMwareCbtDiskInput { return v.DisksToInclude }).(VMwareCbtDiskInputArrayOutput)
 }
 
-// The class type.
-// Expected value is 'VMwareCbt'.
 func (o VMwareCbtEnableMigrationInputOutput) InstanceType() pulumi.StringOutput {
 	return o.ApplyT(func(v VMwareCbtEnableMigrationInput) string { return v.InstanceType }).(pulumi.StringOutput)
 }
 
-// License type.
 func (o VMwareCbtEnableMigrationInputOutput) LicenseType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v VMwareCbtEnableMigrationInput) *string { return v.LicenseType }).(pulumi.StringPtrOutput)
 }
 
-// A value indicating whether auto resync is to be done.
 func (o VMwareCbtEnableMigrationInputOutput) PerformAutoResync() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v VMwareCbtEnableMigrationInput) *string { return v.PerformAutoResync }).(pulumi.StringPtrOutput)
 }
 
-// The snapshot RunAs account Id.
 func (o VMwareCbtEnableMigrationInputOutput) SnapshotRunAsAccountId() pulumi.StringOutput {
 	return o.ApplyT(func(v VMwareCbtEnableMigrationInput) string { return v.SnapshotRunAsAccountId }).(pulumi.StringOutput)
 }
 
-// The target availability set ARM Id.
 func (o VMwareCbtEnableMigrationInputOutput) TargetAvailabilitySetId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v VMwareCbtEnableMigrationInput) *string { return v.TargetAvailabilitySetId }).(pulumi.StringPtrOutput)
 }
 
-// The target availability zone.
 func (o VMwareCbtEnableMigrationInputOutput) TargetAvailabilityZone() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v VMwareCbtEnableMigrationInput) *string { return v.TargetAvailabilityZone }).(pulumi.StringPtrOutput)
 }
 
-// The target boot diagnostics storage account ARM Id.
 func (o VMwareCbtEnableMigrationInputOutput) TargetBootDiagnosticsStorageAccountId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v VMwareCbtEnableMigrationInput) *string { return v.TargetBootDiagnosticsStorageAccountId }).(pulumi.StringPtrOutput)
 }
 
-// The target network ARM Id.
 func (o VMwareCbtEnableMigrationInputOutput) TargetNetworkId() pulumi.StringOutput {
 	return o.ApplyT(func(v VMwareCbtEnableMigrationInput) string { return v.TargetNetworkId }).(pulumi.StringOutput)
 }
 
-// The target resource group ARM Id.
 func (o VMwareCbtEnableMigrationInputOutput) TargetResourceGroupId() pulumi.StringOutput {
 	return o.ApplyT(func(v VMwareCbtEnableMigrationInput) string { return v.TargetResourceGroupId }).(pulumi.StringOutput)
 }
 
-// The target subnet name.
 func (o VMwareCbtEnableMigrationInputOutput) TargetSubnetName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v VMwareCbtEnableMigrationInput) *string { return v.TargetSubnetName }).(pulumi.StringPtrOutput)
 }
 
-// The target VM name.
 func (o VMwareCbtEnableMigrationInputOutput) TargetVmName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v VMwareCbtEnableMigrationInput) *string { return v.TargetVmName }).(pulumi.StringPtrOutput)
 }
 
-// The target VM size.
 func (o VMwareCbtEnableMigrationInputOutput) TargetVmSize() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v VMwareCbtEnableMigrationInput) *string { return v.TargetVmSize }).(pulumi.StringPtrOutput)
 }
 
-// The ARM Id of the VM discovered in VMware.
 func (o VMwareCbtEnableMigrationInputOutput) VmwareMachineId() pulumi.StringOutput {
 	return o.ApplyT(func(v VMwareCbtEnableMigrationInput) string { return v.VmwareMachineId }).(pulumi.StringOutput)
 }
@@ -17557,10 +14747,15 @@ func (o VMwareCbtEnableMigrationInputPtrOutput) ToVMwareCbtEnableMigrationInputP
 }
 
 func (o VMwareCbtEnableMigrationInputPtrOutput) Elem() VMwareCbtEnableMigrationInputOutput {
-	return o.ApplyT(func(v *VMwareCbtEnableMigrationInput) VMwareCbtEnableMigrationInput { return *v }).(VMwareCbtEnableMigrationInputOutput)
+	return o.ApplyT(func(v *VMwareCbtEnableMigrationInput) VMwareCbtEnableMigrationInput {
+		if v != nil {
+			return *v
+		}
+		var ret VMwareCbtEnableMigrationInput
+		return ret
+	}).(VMwareCbtEnableMigrationInputOutput)
 }
 
-// The data mover RunAs account Id.
 func (o VMwareCbtEnableMigrationInputPtrOutput) DataMoverRunAsAccountId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *VMwareCbtEnableMigrationInput) *string {
 		if v == nil {
@@ -17570,7 +14765,6 @@ func (o VMwareCbtEnableMigrationInputPtrOutput) DataMoverRunAsAccountId() pulumi
 	}).(pulumi.StringPtrOutput)
 }
 
-// The disks to include list.
 func (o VMwareCbtEnableMigrationInputPtrOutput) DisksToInclude() VMwareCbtDiskInputArrayOutput {
 	return o.ApplyT(func(v *VMwareCbtEnableMigrationInput) []VMwareCbtDiskInput {
 		if v == nil {
@@ -17580,8 +14774,6 @@ func (o VMwareCbtEnableMigrationInputPtrOutput) DisksToInclude() VMwareCbtDiskIn
 	}).(VMwareCbtDiskInputArrayOutput)
 }
 
-// The class type.
-// Expected value is 'VMwareCbt'.
 func (o VMwareCbtEnableMigrationInputPtrOutput) InstanceType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *VMwareCbtEnableMigrationInput) *string {
 		if v == nil {
@@ -17591,7 +14783,6 @@ func (o VMwareCbtEnableMigrationInputPtrOutput) InstanceType() pulumi.StringPtrO
 	}).(pulumi.StringPtrOutput)
 }
 
-// License type.
 func (o VMwareCbtEnableMigrationInputPtrOutput) LicenseType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *VMwareCbtEnableMigrationInput) *string {
 		if v == nil {
@@ -17601,7 +14792,6 @@ func (o VMwareCbtEnableMigrationInputPtrOutput) LicenseType() pulumi.StringPtrOu
 	}).(pulumi.StringPtrOutput)
 }
 
-// A value indicating whether auto resync is to be done.
 func (o VMwareCbtEnableMigrationInputPtrOutput) PerformAutoResync() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *VMwareCbtEnableMigrationInput) *string {
 		if v == nil {
@@ -17611,7 +14801,6 @@ func (o VMwareCbtEnableMigrationInputPtrOutput) PerformAutoResync() pulumi.Strin
 	}).(pulumi.StringPtrOutput)
 }
 
-// The snapshot RunAs account Id.
 func (o VMwareCbtEnableMigrationInputPtrOutput) SnapshotRunAsAccountId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *VMwareCbtEnableMigrationInput) *string {
 		if v == nil {
@@ -17621,7 +14810,6 @@ func (o VMwareCbtEnableMigrationInputPtrOutput) SnapshotRunAsAccountId() pulumi.
 	}).(pulumi.StringPtrOutput)
 }
 
-// The target availability set ARM Id.
 func (o VMwareCbtEnableMigrationInputPtrOutput) TargetAvailabilitySetId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *VMwareCbtEnableMigrationInput) *string {
 		if v == nil {
@@ -17631,7 +14819,6 @@ func (o VMwareCbtEnableMigrationInputPtrOutput) TargetAvailabilitySetId() pulumi
 	}).(pulumi.StringPtrOutput)
 }
 
-// The target availability zone.
 func (o VMwareCbtEnableMigrationInputPtrOutput) TargetAvailabilityZone() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *VMwareCbtEnableMigrationInput) *string {
 		if v == nil {
@@ -17641,7 +14828,6 @@ func (o VMwareCbtEnableMigrationInputPtrOutput) TargetAvailabilityZone() pulumi.
 	}).(pulumi.StringPtrOutput)
 }
 
-// The target boot diagnostics storage account ARM Id.
 func (o VMwareCbtEnableMigrationInputPtrOutput) TargetBootDiagnosticsStorageAccountId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *VMwareCbtEnableMigrationInput) *string {
 		if v == nil {
@@ -17651,7 +14837,6 @@ func (o VMwareCbtEnableMigrationInputPtrOutput) TargetBootDiagnosticsStorageAcco
 	}).(pulumi.StringPtrOutput)
 }
 
-// The target network ARM Id.
 func (o VMwareCbtEnableMigrationInputPtrOutput) TargetNetworkId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *VMwareCbtEnableMigrationInput) *string {
 		if v == nil {
@@ -17661,7 +14846,6 @@ func (o VMwareCbtEnableMigrationInputPtrOutput) TargetNetworkId() pulumi.StringP
 	}).(pulumi.StringPtrOutput)
 }
 
-// The target resource group ARM Id.
 func (o VMwareCbtEnableMigrationInputPtrOutput) TargetResourceGroupId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *VMwareCbtEnableMigrationInput) *string {
 		if v == nil {
@@ -17671,7 +14855,6 @@ func (o VMwareCbtEnableMigrationInputPtrOutput) TargetResourceGroupId() pulumi.S
 	}).(pulumi.StringPtrOutput)
 }
 
-// The target subnet name.
 func (o VMwareCbtEnableMigrationInputPtrOutput) TargetSubnetName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *VMwareCbtEnableMigrationInput) *string {
 		if v == nil {
@@ -17681,7 +14864,6 @@ func (o VMwareCbtEnableMigrationInputPtrOutput) TargetSubnetName() pulumi.String
 	}).(pulumi.StringPtrOutput)
 }
 
-// The target VM name.
 func (o VMwareCbtEnableMigrationInputPtrOutput) TargetVmName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *VMwareCbtEnableMigrationInput) *string {
 		if v == nil {
@@ -17691,7 +14873,6 @@ func (o VMwareCbtEnableMigrationInputPtrOutput) TargetVmName() pulumi.StringPtrO
 	}).(pulumi.StringPtrOutput)
 }
 
-// The target VM size.
 func (o VMwareCbtEnableMigrationInputPtrOutput) TargetVmSize() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *VMwareCbtEnableMigrationInput) *string {
 		if v == nil {
@@ -17701,7 +14882,6 @@ func (o VMwareCbtEnableMigrationInputPtrOutput) TargetVmSize() pulumi.StringPtrO
 	}).(pulumi.StringPtrOutput)
 }
 
-// The ARM Id of the VM discovered in VMware.
 func (o VMwareCbtEnableMigrationInputPtrOutput) VmwareMachineId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *VMwareCbtEnableMigrationInput) *string {
 		if v == nil {
@@ -17711,63 +14891,34 @@ func (o VMwareCbtEnableMigrationInputPtrOutput) VmwareMachineId() pulumi.StringP
 	}).(pulumi.StringPtrOutput)
 }
 
-// VMwareCbt provider specific settings.
 type VMwareCbtMigrationDetailsResponse struct {
-	// The data mover RunAs account Id.
-	DataMoverRunAsAccountId string `pulumi:"dataMoverRunAsAccountId"`
-	// The firmware type.
-	FirmwareType string `pulumi:"firmwareType"`
-	// The initial seeding progress percentage.
-	InitialSeedingProgressPercentage int `pulumi:"initialSeedingProgressPercentage"`
-	// Gets the instance type.
-	// Expected value is 'VMwareCbt'.
-	InstanceType string `pulumi:"instanceType"`
-	// The last recovery point Id.
-	LastRecoveryPointId string `pulumi:"lastRecoveryPointId"`
-	// The last recovery point received time.
-	LastRecoveryPointReceived string `pulumi:"lastRecoveryPointReceived"`
-	// License Type of the VM to be used.
-	LicenseType *string `pulumi:"licenseType"`
-	// The migration progress percentage.
-	MigrationProgressPercentage int `pulumi:"migrationProgressPercentage"`
-	// The recovery point Id to which the VM was migrated.
-	MigrationRecoveryPointId string `pulumi:"migrationRecoveryPointId"`
-	// The type of the OS on the VM.
-	OsType string `pulumi:"osType"`
-	// A value indicating whether auto resync is to be done.
-	PerformAutoResync *string `pulumi:"performAutoResync"`
-	// The list of protected disks.
-	ProtectedDisks []VMwareCbtProtectedDiskDetailsResponse `pulumi:"protectedDisks"`
-	// The resync progress percentage.
-	ResyncProgressPercentage int `pulumi:"resyncProgressPercentage"`
-	// A value indicating whether resync is required.
-	ResyncRequired string `pulumi:"resyncRequired"`
-	// The resync state.
-	ResyncState string `pulumi:"resyncState"`
-	// The snapshot RunAs account Id.
-	SnapshotRunAsAccountId string `pulumi:"snapshotRunAsAccountId"`
-	// The target availability set Id.
-	TargetAvailabilitySetId *string `pulumi:"targetAvailabilitySetId"`
-	// The target availability zone.
-	TargetAvailabilityZone *string `pulumi:"targetAvailabilityZone"`
-	// The target boot diagnostics storage account ARM Id.
-	TargetBootDiagnosticsStorageAccountId *string `pulumi:"targetBootDiagnosticsStorageAccountId"`
-	// The target generation.
-	TargetGeneration string `pulumi:"targetGeneration"`
-	// The target location.
-	TargetLocation string `pulumi:"targetLocation"`
-	// The target network Id.
-	TargetNetworkId *string `pulumi:"targetNetworkId"`
-	// The target resource group Id.
-	TargetResourceGroupId *string `pulumi:"targetResourceGroupId"`
-	// Target VM name.
-	TargetVmName *string `pulumi:"targetVmName"`
-	// The target VM size.
-	TargetVmSize *string `pulumi:"targetVmSize"`
-	// The network details.
-	VmNics []VMwareCbtNicDetailsResponse `pulumi:"vmNics"`
-	// The ARM Id of the VM discovered in VMware.
-	VmwareMachineId string `pulumi:"vmwareMachineId"`
+	DataMoverRunAsAccountId               string                                  `pulumi:"dataMoverRunAsAccountId"`
+	FirmwareType                          string                                  `pulumi:"firmwareType"`
+	InitialSeedingProgressPercentage      int                                     `pulumi:"initialSeedingProgressPercentage"`
+	InstanceType                          string                                  `pulumi:"instanceType"`
+	LastRecoveryPointId                   string                                  `pulumi:"lastRecoveryPointId"`
+	LastRecoveryPointReceived             string                                  `pulumi:"lastRecoveryPointReceived"`
+	LicenseType                           *string                                 `pulumi:"licenseType"`
+	MigrationProgressPercentage           int                                     `pulumi:"migrationProgressPercentage"`
+	MigrationRecoveryPointId              string                                  `pulumi:"migrationRecoveryPointId"`
+	OsType                                string                                  `pulumi:"osType"`
+	PerformAutoResync                     *string                                 `pulumi:"performAutoResync"`
+	ProtectedDisks                        []VMwareCbtProtectedDiskDetailsResponse `pulumi:"protectedDisks"`
+	ResyncProgressPercentage              int                                     `pulumi:"resyncProgressPercentage"`
+	ResyncRequired                        string                                  `pulumi:"resyncRequired"`
+	ResyncState                           string                                  `pulumi:"resyncState"`
+	SnapshotRunAsAccountId                string                                  `pulumi:"snapshotRunAsAccountId"`
+	TargetAvailabilitySetId               *string                                 `pulumi:"targetAvailabilitySetId"`
+	TargetAvailabilityZone                *string                                 `pulumi:"targetAvailabilityZone"`
+	TargetBootDiagnosticsStorageAccountId *string                                 `pulumi:"targetBootDiagnosticsStorageAccountId"`
+	TargetGeneration                      string                                  `pulumi:"targetGeneration"`
+	TargetLocation                        string                                  `pulumi:"targetLocation"`
+	TargetNetworkId                       *string                                 `pulumi:"targetNetworkId"`
+	TargetResourceGroupId                 *string                                 `pulumi:"targetResourceGroupId"`
+	TargetVmName                          *string                                 `pulumi:"targetVmName"`
+	TargetVmSize                          *string                                 `pulumi:"targetVmSize"`
+	VmNics                                []VMwareCbtNicDetailsResponse           `pulumi:"vmNics"`
+	VmwareMachineId                       string                                  `pulumi:"vmwareMachineId"`
 }
 
 // VMwareCbtMigrationDetailsResponseInput is an input type that accepts VMwareCbtMigrationDetailsResponseArgs and VMwareCbtMigrationDetailsResponseOutput values.
@@ -17781,63 +14932,34 @@ type VMwareCbtMigrationDetailsResponseInput interface {
 	ToVMwareCbtMigrationDetailsResponseOutputWithContext(context.Context) VMwareCbtMigrationDetailsResponseOutput
 }
 
-// VMwareCbt provider specific settings.
 type VMwareCbtMigrationDetailsResponseArgs struct {
-	// The data mover RunAs account Id.
-	DataMoverRunAsAccountId pulumi.StringInput `pulumi:"dataMoverRunAsAccountId"`
-	// The firmware type.
-	FirmwareType pulumi.StringInput `pulumi:"firmwareType"`
-	// The initial seeding progress percentage.
-	InitialSeedingProgressPercentage pulumi.IntInput `pulumi:"initialSeedingProgressPercentage"`
-	// Gets the instance type.
-	// Expected value is 'VMwareCbt'.
-	InstanceType pulumi.StringInput `pulumi:"instanceType"`
-	// The last recovery point Id.
-	LastRecoveryPointId pulumi.StringInput `pulumi:"lastRecoveryPointId"`
-	// The last recovery point received time.
-	LastRecoveryPointReceived pulumi.StringInput `pulumi:"lastRecoveryPointReceived"`
-	// License Type of the VM to be used.
-	LicenseType pulumi.StringPtrInput `pulumi:"licenseType"`
-	// The migration progress percentage.
-	MigrationProgressPercentage pulumi.IntInput `pulumi:"migrationProgressPercentage"`
-	// The recovery point Id to which the VM was migrated.
-	MigrationRecoveryPointId pulumi.StringInput `pulumi:"migrationRecoveryPointId"`
-	// The type of the OS on the VM.
-	OsType pulumi.StringInput `pulumi:"osType"`
-	// A value indicating whether auto resync is to be done.
-	PerformAutoResync pulumi.StringPtrInput `pulumi:"performAutoResync"`
-	// The list of protected disks.
-	ProtectedDisks VMwareCbtProtectedDiskDetailsResponseArrayInput `pulumi:"protectedDisks"`
-	// The resync progress percentage.
-	ResyncProgressPercentage pulumi.IntInput `pulumi:"resyncProgressPercentage"`
-	// A value indicating whether resync is required.
-	ResyncRequired pulumi.StringInput `pulumi:"resyncRequired"`
-	// The resync state.
-	ResyncState pulumi.StringInput `pulumi:"resyncState"`
-	// The snapshot RunAs account Id.
-	SnapshotRunAsAccountId pulumi.StringInput `pulumi:"snapshotRunAsAccountId"`
-	// The target availability set Id.
-	TargetAvailabilitySetId pulumi.StringPtrInput `pulumi:"targetAvailabilitySetId"`
-	// The target availability zone.
-	TargetAvailabilityZone pulumi.StringPtrInput `pulumi:"targetAvailabilityZone"`
-	// The target boot diagnostics storage account ARM Id.
-	TargetBootDiagnosticsStorageAccountId pulumi.StringPtrInput `pulumi:"targetBootDiagnosticsStorageAccountId"`
-	// The target generation.
-	TargetGeneration pulumi.StringInput `pulumi:"targetGeneration"`
-	// The target location.
-	TargetLocation pulumi.StringInput `pulumi:"targetLocation"`
-	// The target network Id.
-	TargetNetworkId pulumi.StringPtrInput `pulumi:"targetNetworkId"`
-	// The target resource group Id.
-	TargetResourceGroupId pulumi.StringPtrInput `pulumi:"targetResourceGroupId"`
-	// Target VM name.
-	TargetVmName pulumi.StringPtrInput `pulumi:"targetVmName"`
-	// The target VM size.
-	TargetVmSize pulumi.StringPtrInput `pulumi:"targetVmSize"`
-	// The network details.
-	VmNics VMwareCbtNicDetailsResponseArrayInput `pulumi:"vmNics"`
-	// The ARM Id of the VM discovered in VMware.
-	VmwareMachineId pulumi.StringInput `pulumi:"vmwareMachineId"`
+	DataMoverRunAsAccountId               pulumi.StringInput                              `pulumi:"dataMoverRunAsAccountId"`
+	FirmwareType                          pulumi.StringInput                              `pulumi:"firmwareType"`
+	InitialSeedingProgressPercentage      pulumi.IntInput                                 `pulumi:"initialSeedingProgressPercentage"`
+	InstanceType                          pulumi.StringInput                              `pulumi:"instanceType"`
+	LastRecoveryPointId                   pulumi.StringInput                              `pulumi:"lastRecoveryPointId"`
+	LastRecoveryPointReceived             pulumi.StringInput                              `pulumi:"lastRecoveryPointReceived"`
+	LicenseType                           pulumi.StringPtrInput                           `pulumi:"licenseType"`
+	MigrationProgressPercentage           pulumi.IntInput                                 `pulumi:"migrationProgressPercentage"`
+	MigrationRecoveryPointId              pulumi.StringInput                              `pulumi:"migrationRecoveryPointId"`
+	OsType                                pulumi.StringInput                              `pulumi:"osType"`
+	PerformAutoResync                     pulumi.StringPtrInput                           `pulumi:"performAutoResync"`
+	ProtectedDisks                        VMwareCbtProtectedDiskDetailsResponseArrayInput `pulumi:"protectedDisks"`
+	ResyncProgressPercentage              pulumi.IntInput                                 `pulumi:"resyncProgressPercentage"`
+	ResyncRequired                        pulumi.StringInput                              `pulumi:"resyncRequired"`
+	ResyncState                           pulumi.StringInput                              `pulumi:"resyncState"`
+	SnapshotRunAsAccountId                pulumi.StringInput                              `pulumi:"snapshotRunAsAccountId"`
+	TargetAvailabilitySetId               pulumi.StringPtrInput                           `pulumi:"targetAvailabilitySetId"`
+	TargetAvailabilityZone                pulumi.StringPtrInput                           `pulumi:"targetAvailabilityZone"`
+	TargetBootDiagnosticsStorageAccountId pulumi.StringPtrInput                           `pulumi:"targetBootDiagnosticsStorageAccountId"`
+	TargetGeneration                      pulumi.StringInput                              `pulumi:"targetGeneration"`
+	TargetLocation                        pulumi.StringInput                              `pulumi:"targetLocation"`
+	TargetNetworkId                       pulumi.StringPtrInput                           `pulumi:"targetNetworkId"`
+	TargetResourceGroupId                 pulumi.StringPtrInput                           `pulumi:"targetResourceGroupId"`
+	TargetVmName                          pulumi.StringPtrInput                           `pulumi:"targetVmName"`
+	TargetVmSize                          pulumi.StringPtrInput                           `pulumi:"targetVmSize"`
+	VmNics                                VMwareCbtNicDetailsResponseArrayInput           `pulumi:"vmNics"`
+	VmwareMachineId                       pulumi.StringInput                              `pulumi:"vmwareMachineId"`
 }
 
 func (VMwareCbtMigrationDetailsResponseArgs) ElementType() reflect.Type {
@@ -17893,7 +15015,6 @@ func (i *vmwareCbtMigrationDetailsResponsePtrType) ToVMwareCbtMigrationDetailsRe
 	return pulumi.ToOutputWithContext(ctx, i).(VMwareCbtMigrationDetailsResponsePtrOutput)
 }
 
-// VMwareCbt provider specific settings.
 type VMwareCbtMigrationDetailsResponseOutput struct{ *pulumi.OutputState }
 
 func (VMwareCbtMigrationDetailsResponseOutput) ElementType() reflect.Type {
@@ -17913,145 +15034,117 @@ func (o VMwareCbtMigrationDetailsResponseOutput) ToVMwareCbtMigrationDetailsResp
 }
 
 func (o VMwareCbtMigrationDetailsResponseOutput) ToVMwareCbtMigrationDetailsResponsePtrOutputWithContext(ctx context.Context) VMwareCbtMigrationDetailsResponsePtrOutput {
-	return o.ApplyT(func(v VMwareCbtMigrationDetailsResponse) *VMwareCbtMigrationDetailsResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v VMwareCbtMigrationDetailsResponse) *VMwareCbtMigrationDetailsResponse {
 		return &v
 	}).(VMwareCbtMigrationDetailsResponsePtrOutput)
 }
 
-// The data mover RunAs account Id.
 func (o VMwareCbtMigrationDetailsResponseOutput) DataMoverRunAsAccountId() pulumi.StringOutput {
 	return o.ApplyT(func(v VMwareCbtMigrationDetailsResponse) string { return v.DataMoverRunAsAccountId }).(pulumi.StringOutput)
 }
 
-// The firmware type.
 func (o VMwareCbtMigrationDetailsResponseOutput) FirmwareType() pulumi.StringOutput {
 	return o.ApplyT(func(v VMwareCbtMigrationDetailsResponse) string { return v.FirmwareType }).(pulumi.StringOutput)
 }
 
-// The initial seeding progress percentage.
 func (o VMwareCbtMigrationDetailsResponseOutput) InitialSeedingProgressPercentage() pulumi.IntOutput {
 	return o.ApplyT(func(v VMwareCbtMigrationDetailsResponse) int { return v.InitialSeedingProgressPercentage }).(pulumi.IntOutput)
 }
 
-// Gets the instance type.
-// Expected value is 'VMwareCbt'.
 func (o VMwareCbtMigrationDetailsResponseOutput) InstanceType() pulumi.StringOutput {
 	return o.ApplyT(func(v VMwareCbtMigrationDetailsResponse) string { return v.InstanceType }).(pulumi.StringOutput)
 }
 
-// The last recovery point Id.
 func (o VMwareCbtMigrationDetailsResponseOutput) LastRecoveryPointId() pulumi.StringOutput {
 	return o.ApplyT(func(v VMwareCbtMigrationDetailsResponse) string { return v.LastRecoveryPointId }).(pulumi.StringOutput)
 }
 
-// The last recovery point received time.
 func (o VMwareCbtMigrationDetailsResponseOutput) LastRecoveryPointReceived() pulumi.StringOutput {
 	return o.ApplyT(func(v VMwareCbtMigrationDetailsResponse) string { return v.LastRecoveryPointReceived }).(pulumi.StringOutput)
 }
 
-// License Type of the VM to be used.
 func (o VMwareCbtMigrationDetailsResponseOutput) LicenseType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v VMwareCbtMigrationDetailsResponse) *string { return v.LicenseType }).(pulumi.StringPtrOutput)
 }
 
-// The migration progress percentage.
 func (o VMwareCbtMigrationDetailsResponseOutput) MigrationProgressPercentage() pulumi.IntOutput {
 	return o.ApplyT(func(v VMwareCbtMigrationDetailsResponse) int { return v.MigrationProgressPercentage }).(pulumi.IntOutput)
 }
 
-// The recovery point Id to which the VM was migrated.
 func (o VMwareCbtMigrationDetailsResponseOutput) MigrationRecoveryPointId() pulumi.StringOutput {
 	return o.ApplyT(func(v VMwareCbtMigrationDetailsResponse) string { return v.MigrationRecoveryPointId }).(pulumi.StringOutput)
 }
 
-// The type of the OS on the VM.
 func (o VMwareCbtMigrationDetailsResponseOutput) OsType() pulumi.StringOutput {
 	return o.ApplyT(func(v VMwareCbtMigrationDetailsResponse) string { return v.OsType }).(pulumi.StringOutput)
 }
 
-// A value indicating whether auto resync is to be done.
 func (o VMwareCbtMigrationDetailsResponseOutput) PerformAutoResync() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v VMwareCbtMigrationDetailsResponse) *string { return v.PerformAutoResync }).(pulumi.StringPtrOutput)
 }
 
-// The list of protected disks.
 func (o VMwareCbtMigrationDetailsResponseOutput) ProtectedDisks() VMwareCbtProtectedDiskDetailsResponseArrayOutput {
 	return o.ApplyT(func(v VMwareCbtMigrationDetailsResponse) []VMwareCbtProtectedDiskDetailsResponse {
 		return v.ProtectedDisks
 	}).(VMwareCbtProtectedDiskDetailsResponseArrayOutput)
 }
 
-// The resync progress percentage.
 func (o VMwareCbtMigrationDetailsResponseOutput) ResyncProgressPercentage() pulumi.IntOutput {
 	return o.ApplyT(func(v VMwareCbtMigrationDetailsResponse) int { return v.ResyncProgressPercentage }).(pulumi.IntOutput)
 }
 
-// A value indicating whether resync is required.
 func (o VMwareCbtMigrationDetailsResponseOutput) ResyncRequired() pulumi.StringOutput {
 	return o.ApplyT(func(v VMwareCbtMigrationDetailsResponse) string { return v.ResyncRequired }).(pulumi.StringOutput)
 }
 
-// The resync state.
 func (o VMwareCbtMigrationDetailsResponseOutput) ResyncState() pulumi.StringOutput {
 	return o.ApplyT(func(v VMwareCbtMigrationDetailsResponse) string { return v.ResyncState }).(pulumi.StringOutput)
 }
 
-// The snapshot RunAs account Id.
 func (o VMwareCbtMigrationDetailsResponseOutput) SnapshotRunAsAccountId() pulumi.StringOutput {
 	return o.ApplyT(func(v VMwareCbtMigrationDetailsResponse) string { return v.SnapshotRunAsAccountId }).(pulumi.StringOutput)
 }
 
-// The target availability set Id.
 func (o VMwareCbtMigrationDetailsResponseOutput) TargetAvailabilitySetId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v VMwareCbtMigrationDetailsResponse) *string { return v.TargetAvailabilitySetId }).(pulumi.StringPtrOutput)
 }
 
-// The target availability zone.
 func (o VMwareCbtMigrationDetailsResponseOutput) TargetAvailabilityZone() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v VMwareCbtMigrationDetailsResponse) *string { return v.TargetAvailabilityZone }).(pulumi.StringPtrOutput)
 }
 
-// The target boot diagnostics storage account ARM Id.
 func (o VMwareCbtMigrationDetailsResponseOutput) TargetBootDiagnosticsStorageAccountId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v VMwareCbtMigrationDetailsResponse) *string { return v.TargetBootDiagnosticsStorageAccountId }).(pulumi.StringPtrOutput)
 }
 
-// The target generation.
 func (o VMwareCbtMigrationDetailsResponseOutput) TargetGeneration() pulumi.StringOutput {
 	return o.ApplyT(func(v VMwareCbtMigrationDetailsResponse) string { return v.TargetGeneration }).(pulumi.StringOutput)
 }
 
-// The target location.
 func (o VMwareCbtMigrationDetailsResponseOutput) TargetLocation() pulumi.StringOutput {
 	return o.ApplyT(func(v VMwareCbtMigrationDetailsResponse) string { return v.TargetLocation }).(pulumi.StringOutput)
 }
 
-// The target network Id.
 func (o VMwareCbtMigrationDetailsResponseOutput) TargetNetworkId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v VMwareCbtMigrationDetailsResponse) *string { return v.TargetNetworkId }).(pulumi.StringPtrOutput)
 }
 
-// The target resource group Id.
 func (o VMwareCbtMigrationDetailsResponseOutput) TargetResourceGroupId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v VMwareCbtMigrationDetailsResponse) *string { return v.TargetResourceGroupId }).(pulumi.StringPtrOutput)
 }
 
-// Target VM name.
 func (o VMwareCbtMigrationDetailsResponseOutput) TargetVmName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v VMwareCbtMigrationDetailsResponse) *string { return v.TargetVmName }).(pulumi.StringPtrOutput)
 }
 
-// The target VM size.
 func (o VMwareCbtMigrationDetailsResponseOutput) TargetVmSize() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v VMwareCbtMigrationDetailsResponse) *string { return v.TargetVmSize }).(pulumi.StringPtrOutput)
 }
 
-// The network details.
 func (o VMwareCbtMigrationDetailsResponseOutput) VmNics() VMwareCbtNicDetailsResponseArrayOutput {
 	return o.ApplyT(func(v VMwareCbtMigrationDetailsResponse) []VMwareCbtNicDetailsResponse { return v.VmNics }).(VMwareCbtNicDetailsResponseArrayOutput)
 }
 
-// The ARM Id of the VM discovered in VMware.
 func (o VMwareCbtMigrationDetailsResponseOutput) VmwareMachineId() pulumi.StringOutput {
 	return o.ApplyT(func(v VMwareCbtMigrationDetailsResponse) string { return v.VmwareMachineId }).(pulumi.StringOutput)
 }
@@ -18071,10 +15164,15 @@ func (o VMwareCbtMigrationDetailsResponsePtrOutput) ToVMwareCbtMigrationDetailsR
 }
 
 func (o VMwareCbtMigrationDetailsResponsePtrOutput) Elem() VMwareCbtMigrationDetailsResponseOutput {
-	return o.ApplyT(func(v *VMwareCbtMigrationDetailsResponse) VMwareCbtMigrationDetailsResponse { return *v }).(VMwareCbtMigrationDetailsResponseOutput)
+	return o.ApplyT(func(v *VMwareCbtMigrationDetailsResponse) VMwareCbtMigrationDetailsResponse {
+		if v != nil {
+			return *v
+		}
+		var ret VMwareCbtMigrationDetailsResponse
+		return ret
+	}).(VMwareCbtMigrationDetailsResponseOutput)
 }
 
-// The data mover RunAs account Id.
 func (o VMwareCbtMigrationDetailsResponsePtrOutput) DataMoverRunAsAccountId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *VMwareCbtMigrationDetailsResponse) *string {
 		if v == nil {
@@ -18084,7 +15182,6 @@ func (o VMwareCbtMigrationDetailsResponsePtrOutput) DataMoverRunAsAccountId() pu
 	}).(pulumi.StringPtrOutput)
 }
 
-// The firmware type.
 func (o VMwareCbtMigrationDetailsResponsePtrOutput) FirmwareType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *VMwareCbtMigrationDetailsResponse) *string {
 		if v == nil {
@@ -18094,7 +15191,6 @@ func (o VMwareCbtMigrationDetailsResponsePtrOutput) FirmwareType() pulumi.String
 	}).(pulumi.StringPtrOutput)
 }
 
-// The initial seeding progress percentage.
 func (o VMwareCbtMigrationDetailsResponsePtrOutput) InitialSeedingProgressPercentage() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *VMwareCbtMigrationDetailsResponse) *int {
 		if v == nil {
@@ -18104,8 +15200,6 @@ func (o VMwareCbtMigrationDetailsResponsePtrOutput) InitialSeedingProgressPercen
 	}).(pulumi.IntPtrOutput)
 }
 
-// Gets the instance type.
-// Expected value is 'VMwareCbt'.
 func (o VMwareCbtMigrationDetailsResponsePtrOutput) InstanceType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *VMwareCbtMigrationDetailsResponse) *string {
 		if v == nil {
@@ -18115,7 +15209,6 @@ func (o VMwareCbtMigrationDetailsResponsePtrOutput) InstanceType() pulumi.String
 	}).(pulumi.StringPtrOutput)
 }
 
-// The last recovery point Id.
 func (o VMwareCbtMigrationDetailsResponsePtrOutput) LastRecoveryPointId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *VMwareCbtMigrationDetailsResponse) *string {
 		if v == nil {
@@ -18125,7 +15218,6 @@ func (o VMwareCbtMigrationDetailsResponsePtrOutput) LastRecoveryPointId() pulumi
 	}).(pulumi.StringPtrOutput)
 }
 
-// The last recovery point received time.
 func (o VMwareCbtMigrationDetailsResponsePtrOutput) LastRecoveryPointReceived() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *VMwareCbtMigrationDetailsResponse) *string {
 		if v == nil {
@@ -18135,7 +15227,6 @@ func (o VMwareCbtMigrationDetailsResponsePtrOutput) LastRecoveryPointReceived() 
 	}).(pulumi.StringPtrOutput)
 }
 
-// License Type of the VM to be used.
 func (o VMwareCbtMigrationDetailsResponsePtrOutput) LicenseType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *VMwareCbtMigrationDetailsResponse) *string {
 		if v == nil {
@@ -18145,7 +15236,6 @@ func (o VMwareCbtMigrationDetailsResponsePtrOutput) LicenseType() pulumi.StringP
 	}).(pulumi.StringPtrOutput)
 }
 
-// The migration progress percentage.
 func (o VMwareCbtMigrationDetailsResponsePtrOutput) MigrationProgressPercentage() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *VMwareCbtMigrationDetailsResponse) *int {
 		if v == nil {
@@ -18155,7 +15245,6 @@ func (o VMwareCbtMigrationDetailsResponsePtrOutput) MigrationProgressPercentage(
 	}).(pulumi.IntPtrOutput)
 }
 
-// The recovery point Id to which the VM was migrated.
 func (o VMwareCbtMigrationDetailsResponsePtrOutput) MigrationRecoveryPointId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *VMwareCbtMigrationDetailsResponse) *string {
 		if v == nil {
@@ -18165,7 +15254,6 @@ func (o VMwareCbtMigrationDetailsResponsePtrOutput) MigrationRecoveryPointId() p
 	}).(pulumi.StringPtrOutput)
 }
 
-// The type of the OS on the VM.
 func (o VMwareCbtMigrationDetailsResponsePtrOutput) OsType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *VMwareCbtMigrationDetailsResponse) *string {
 		if v == nil {
@@ -18175,7 +15263,6 @@ func (o VMwareCbtMigrationDetailsResponsePtrOutput) OsType() pulumi.StringPtrOut
 	}).(pulumi.StringPtrOutput)
 }
 
-// A value indicating whether auto resync is to be done.
 func (o VMwareCbtMigrationDetailsResponsePtrOutput) PerformAutoResync() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *VMwareCbtMigrationDetailsResponse) *string {
 		if v == nil {
@@ -18185,7 +15272,6 @@ func (o VMwareCbtMigrationDetailsResponsePtrOutput) PerformAutoResync() pulumi.S
 	}).(pulumi.StringPtrOutput)
 }
 
-// The list of protected disks.
 func (o VMwareCbtMigrationDetailsResponsePtrOutput) ProtectedDisks() VMwareCbtProtectedDiskDetailsResponseArrayOutput {
 	return o.ApplyT(func(v *VMwareCbtMigrationDetailsResponse) []VMwareCbtProtectedDiskDetailsResponse {
 		if v == nil {
@@ -18195,7 +15281,6 @@ func (o VMwareCbtMigrationDetailsResponsePtrOutput) ProtectedDisks() VMwareCbtPr
 	}).(VMwareCbtProtectedDiskDetailsResponseArrayOutput)
 }
 
-// The resync progress percentage.
 func (o VMwareCbtMigrationDetailsResponsePtrOutput) ResyncProgressPercentage() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *VMwareCbtMigrationDetailsResponse) *int {
 		if v == nil {
@@ -18205,7 +15290,6 @@ func (o VMwareCbtMigrationDetailsResponsePtrOutput) ResyncProgressPercentage() p
 	}).(pulumi.IntPtrOutput)
 }
 
-// A value indicating whether resync is required.
 func (o VMwareCbtMigrationDetailsResponsePtrOutput) ResyncRequired() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *VMwareCbtMigrationDetailsResponse) *string {
 		if v == nil {
@@ -18215,7 +15299,6 @@ func (o VMwareCbtMigrationDetailsResponsePtrOutput) ResyncRequired() pulumi.Stri
 	}).(pulumi.StringPtrOutput)
 }
 
-// The resync state.
 func (o VMwareCbtMigrationDetailsResponsePtrOutput) ResyncState() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *VMwareCbtMigrationDetailsResponse) *string {
 		if v == nil {
@@ -18225,7 +15308,6 @@ func (o VMwareCbtMigrationDetailsResponsePtrOutput) ResyncState() pulumi.StringP
 	}).(pulumi.StringPtrOutput)
 }
 
-// The snapshot RunAs account Id.
 func (o VMwareCbtMigrationDetailsResponsePtrOutput) SnapshotRunAsAccountId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *VMwareCbtMigrationDetailsResponse) *string {
 		if v == nil {
@@ -18235,7 +15317,6 @@ func (o VMwareCbtMigrationDetailsResponsePtrOutput) SnapshotRunAsAccountId() pul
 	}).(pulumi.StringPtrOutput)
 }
 
-// The target availability set Id.
 func (o VMwareCbtMigrationDetailsResponsePtrOutput) TargetAvailabilitySetId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *VMwareCbtMigrationDetailsResponse) *string {
 		if v == nil {
@@ -18245,7 +15326,6 @@ func (o VMwareCbtMigrationDetailsResponsePtrOutput) TargetAvailabilitySetId() pu
 	}).(pulumi.StringPtrOutput)
 }
 
-// The target availability zone.
 func (o VMwareCbtMigrationDetailsResponsePtrOutput) TargetAvailabilityZone() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *VMwareCbtMigrationDetailsResponse) *string {
 		if v == nil {
@@ -18255,7 +15335,6 @@ func (o VMwareCbtMigrationDetailsResponsePtrOutput) TargetAvailabilityZone() pul
 	}).(pulumi.StringPtrOutput)
 }
 
-// The target boot diagnostics storage account ARM Id.
 func (o VMwareCbtMigrationDetailsResponsePtrOutput) TargetBootDiagnosticsStorageAccountId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *VMwareCbtMigrationDetailsResponse) *string {
 		if v == nil {
@@ -18265,7 +15344,6 @@ func (o VMwareCbtMigrationDetailsResponsePtrOutput) TargetBootDiagnosticsStorage
 	}).(pulumi.StringPtrOutput)
 }
 
-// The target generation.
 func (o VMwareCbtMigrationDetailsResponsePtrOutput) TargetGeneration() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *VMwareCbtMigrationDetailsResponse) *string {
 		if v == nil {
@@ -18275,7 +15353,6 @@ func (o VMwareCbtMigrationDetailsResponsePtrOutput) TargetGeneration() pulumi.St
 	}).(pulumi.StringPtrOutput)
 }
 
-// The target location.
 func (o VMwareCbtMigrationDetailsResponsePtrOutput) TargetLocation() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *VMwareCbtMigrationDetailsResponse) *string {
 		if v == nil {
@@ -18285,7 +15362,6 @@ func (o VMwareCbtMigrationDetailsResponsePtrOutput) TargetLocation() pulumi.Stri
 	}).(pulumi.StringPtrOutput)
 }
 
-// The target network Id.
 func (o VMwareCbtMigrationDetailsResponsePtrOutput) TargetNetworkId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *VMwareCbtMigrationDetailsResponse) *string {
 		if v == nil {
@@ -18295,7 +15371,6 @@ func (o VMwareCbtMigrationDetailsResponsePtrOutput) TargetNetworkId() pulumi.Str
 	}).(pulumi.StringPtrOutput)
 }
 
-// The target resource group Id.
 func (o VMwareCbtMigrationDetailsResponsePtrOutput) TargetResourceGroupId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *VMwareCbtMigrationDetailsResponse) *string {
 		if v == nil {
@@ -18305,7 +15380,6 @@ func (o VMwareCbtMigrationDetailsResponsePtrOutput) TargetResourceGroupId() pulu
 	}).(pulumi.StringPtrOutput)
 }
 
-// Target VM name.
 func (o VMwareCbtMigrationDetailsResponsePtrOutput) TargetVmName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *VMwareCbtMigrationDetailsResponse) *string {
 		if v == nil {
@@ -18315,7 +15389,6 @@ func (o VMwareCbtMigrationDetailsResponsePtrOutput) TargetVmName() pulumi.String
 	}).(pulumi.StringPtrOutput)
 }
 
-// The target VM size.
 func (o VMwareCbtMigrationDetailsResponsePtrOutput) TargetVmSize() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *VMwareCbtMigrationDetailsResponse) *string {
 		if v == nil {
@@ -18325,7 +15398,6 @@ func (o VMwareCbtMigrationDetailsResponsePtrOutput) TargetVmSize() pulumi.String
 	}).(pulumi.StringPtrOutput)
 }
 
-// The network details.
 func (o VMwareCbtMigrationDetailsResponsePtrOutput) VmNics() VMwareCbtNicDetailsResponseArrayOutput {
 	return o.ApplyT(func(v *VMwareCbtMigrationDetailsResponse) []VMwareCbtNicDetailsResponse {
 		if v == nil {
@@ -18335,7 +15407,6 @@ func (o VMwareCbtMigrationDetailsResponsePtrOutput) VmNics() VMwareCbtNicDetails
 	}).(VMwareCbtNicDetailsResponseArrayOutput)
 }
 
-// The ARM Id of the VM discovered in VMware.
 func (o VMwareCbtMigrationDetailsResponsePtrOutput) VmwareMachineId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *VMwareCbtMigrationDetailsResponse) *string {
 		if v == nil {
@@ -18345,26 +15416,16 @@ func (o VMwareCbtMigrationDetailsResponsePtrOutput) VmwareMachineId() pulumi.Str
 	}).(pulumi.StringPtrOutput)
 }
 
-// VMwareCbt NIC details.
 type VMwareCbtNicDetailsResponse struct {
-	// A value indicating whether this is the primary NIC.
-	IsPrimaryNic *string `pulumi:"isPrimaryNic"`
-	// A value indicating whether this NIC is selected for migration.
+	IsPrimaryNic           *string `pulumi:"isPrimaryNic"`
 	IsSelectedForMigration *string `pulumi:"isSelectedForMigration"`
-	// The NIC Id.
-	NicId string `pulumi:"nicId"`
-	// The source IP address.
-	SourceIPAddress string `pulumi:"sourceIPAddress"`
-	// The source IP address type.
-	SourceIPAddressType string `pulumi:"sourceIPAddressType"`
-	// Source network Id.
-	SourceNetworkId string `pulumi:"sourceNetworkId"`
-	// The target IP address.
-	TargetIPAddress *string `pulumi:"targetIPAddress"`
-	// The target IP address type.
-	TargetIPAddressType *string `pulumi:"targetIPAddressType"`
-	// Target subnet name.
-	TargetSubnetName *string `pulumi:"targetSubnetName"`
+	NicId                  string  `pulumi:"nicId"`
+	SourceIPAddress        string  `pulumi:"sourceIPAddress"`
+	SourceIPAddressType    string  `pulumi:"sourceIPAddressType"`
+	SourceNetworkId        string  `pulumi:"sourceNetworkId"`
+	TargetIPAddress        *string `pulumi:"targetIPAddress"`
+	TargetIPAddressType    *string `pulumi:"targetIPAddressType"`
+	TargetSubnetName       *string `pulumi:"targetSubnetName"`
 }
 
 // VMwareCbtNicDetailsResponseInput is an input type that accepts VMwareCbtNicDetailsResponseArgs and VMwareCbtNicDetailsResponseOutput values.
@@ -18378,26 +15439,16 @@ type VMwareCbtNicDetailsResponseInput interface {
 	ToVMwareCbtNicDetailsResponseOutputWithContext(context.Context) VMwareCbtNicDetailsResponseOutput
 }
 
-// VMwareCbt NIC details.
 type VMwareCbtNicDetailsResponseArgs struct {
-	// A value indicating whether this is the primary NIC.
-	IsPrimaryNic pulumi.StringPtrInput `pulumi:"isPrimaryNic"`
-	// A value indicating whether this NIC is selected for migration.
+	IsPrimaryNic           pulumi.StringPtrInput `pulumi:"isPrimaryNic"`
 	IsSelectedForMigration pulumi.StringPtrInput `pulumi:"isSelectedForMigration"`
-	// The NIC Id.
-	NicId pulumi.StringInput `pulumi:"nicId"`
-	// The source IP address.
-	SourceIPAddress pulumi.StringInput `pulumi:"sourceIPAddress"`
-	// The source IP address type.
-	SourceIPAddressType pulumi.StringInput `pulumi:"sourceIPAddressType"`
-	// Source network Id.
-	SourceNetworkId pulumi.StringInput `pulumi:"sourceNetworkId"`
-	// The target IP address.
-	TargetIPAddress pulumi.StringPtrInput `pulumi:"targetIPAddress"`
-	// The target IP address type.
-	TargetIPAddressType pulumi.StringPtrInput `pulumi:"targetIPAddressType"`
-	// Target subnet name.
-	TargetSubnetName pulumi.StringPtrInput `pulumi:"targetSubnetName"`
+	NicId                  pulumi.StringInput    `pulumi:"nicId"`
+	SourceIPAddress        pulumi.StringInput    `pulumi:"sourceIPAddress"`
+	SourceIPAddressType    pulumi.StringInput    `pulumi:"sourceIPAddressType"`
+	SourceNetworkId        pulumi.StringInput    `pulumi:"sourceNetworkId"`
+	TargetIPAddress        pulumi.StringPtrInput `pulumi:"targetIPAddress"`
+	TargetIPAddressType    pulumi.StringPtrInput `pulumi:"targetIPAddressType"`
+	TargetSubnetName       pulumi.StringPtrInput `pulumi:"targetSubnetName"`
 }
 
 func (VMwareCbtNicDetailsResponseArgs) ElementType() reflect.Type {
@@ -18437,7 +15488,6 @@ func (i VMwareCbtNicDetailsResponseArray) ToVMwareCbtNicDetailsResponseArrayOutp
 	return pulumi.ToOutputWithContext(ctx, i).(VMwareCbtNicDetailsResponseArrayOutput)
 }
 
-// VMwareCbt NIC details.
 type VMwareCbtNicDetailsResponseOutput struct{ *pulumi.OutputState }
 
 func (VMwareCbtNicDetailsResponseOutput) ElementType() reflect.Type {
@@ -18452,47 +15502,38 @@ func (o VMwareCbtNicDetailsResponseOutput) ToVMwareCbtNicDetailsResponseOutputWi
 	return o
 }
 
-// A value indicating whether this is the primary NIC.
 func (o VMwareCbtNicDetailsResponseOutput) IsPrimaryNic() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v VMwareCbtNicDetailsResponse) *string { return v.IsPrimaryNic }).(pulumi.StringPtrOutput)
 }
 
-// A value indicating whether this NIC is selected for migration.
 func (o VMwareCbtNicDetailsResponseOutput) IsSelectedForMigration() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v VMwareCbtNicDetailsResponse) *string { return v.IsSelectedForMigration }).(pulumi.StringPtrOutput)
 }
 
-// The NIC Id.
 func (o VMwareCbtNicDetailsResponseOutput) NicId() pulumi.StringOutput {
 	return o.ApplyT(func(v VMwareCbtNicDetailsResponse) string { return v.NicId }).(pulumi.StringOutput)
 }
 
-// The source IP address.
 func (o VMwareCbtNicDetailsResponseOutput) SourceIPAddress() pulumi.StringOutput {
 	return o.ApplyT(func(v VMwareCbtNicDetailsResponse) string { return v.SourceIPAddress }).(pulumi.StringOutput)
 }
 
-// The source IP address type.
 func (o VMwareCbtNicDetailsResponseOutput) SourceIPAddressType() pulumi.StringOutput {
 	return o.ApplyT(func(v VMwareCbtNicDetailsResponse) string { return v.SourceIPAddressType }).(pulumi.StringOutput)
 }
 
-// Source network Id.
 func (o VMwareCbtNicDetailsResponseOutput) SourceNetworkId() pulumi.StringOutput {
 	return o.ApplyT(func(v VMwareCbtNicDetailsResponse) string { return v.SourceNetworkId }).(pulumi.StringOutput)
 }
 
-// The target IP address.
 func (o VMwareCbtNicDetailsResponseOutput) TargetIPAddress() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v VMwareCbtNicDetailsResponse) *string { return v.TargetIPAddress }).(pulumi.StringPtrOutput)
 }
 
-// The target IP address type.
 func (o VMwareCbtNicDetailsResponseOutput) TargetIPAddressType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v VMwareCbtNicDetailsResponse) *string { return v.TargetIPAddressType }).(pulumi.StringPtrOutput)
 }
 
-// Target subnet name.
 func (o VMwareCbtNicDetailsResponseOutput) TargetSubnetName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v VMwareCbtNicDetailsResponse) *string { return v.TargetSubnetName }).(pulumi.StringPtrOutput)
 }
@@ -18517,17 +15558,11 @@ func (o VMwareCbtNicDetailsResponseArrayOutput) Index(i pulumi.IntInput) VMwareC
 	}).(VMwareCbtNicDetailsResponseOutput)
 }
 
-// VMware Cbt policy creation input.
 type VMwareCbtPolicyCreationInput struct {
-	// The app consistent snapshot frequency (in minutes).
-	AppConsistentFrequencyInMinutes *int `pulumi:"appConsistentFrequencyInMinutes"`
-	// The crash consistent snapshot frequency (in minutes).
-	CrashConsistentFrequencyInMinutes *int `pulumi:"crashConsistentFrequencyInMinutes"`
-	// The class type.
-	// Expected value is 'VMwareCbt'.
-	InstanceType *string `pulumi:"instanceType"`
-	// The duration in minutes until which the recovery points need to be stored.
-	RecoveryPointHistoryInMinutes *int `pulumi:"recoveryPointHistoryInMinutes"`
+	AppConsistentFrequencyInMinutes   *int    `pulumi:"appConsistentFrequencyInMinutes"`
+	CrashConsistentFrequencyInMinutes *int    `pulumi:"crashConsistentFrequencyInMinutes"`
+	InstanceType                      *string `pulumi:"instanceType"`
+	RecoveryPointHistoryInMinutes     *int    `pulumi:"recoveryPointHistoryInMinutes"`
 }
 
 // VMwareCbtPolicyCreationInputInput is an input type that accepts VMwareCbtPolicyCreationInputArgs and VMwareCbtPolicyCreationInputOutput values.
@@ -18541,17 +15576,11 @@ type VMwareCbtPolicyCreationInputInput interface {
 	ToVMwareCbtPolicyCreationInputOutputWithContext(context.Context) VMwareCbtPolicyCreationInputOutput
 }
 
-// VMware Cbt policy creation input.
 type VMwareCbtPolicyCreationInputArgs struct {
-	// The app consistent snapshot frequency (in minutes).
-	AppConsistentFrequencyInMinutes pulumi.IntPtrInput `pulumi:"appConsistentFrequencyInMinutes"`
-	// The crash consistent snapshot frequency (in minutes).
-	CrashConsistentFrequencyInMinutes pulumi.IntPtrInput `pulumi:"crashConsistentFrequencyInMinutes"`
-	// The class type.
-	// Expected value is 'VMwareCbt'.
-	InstanceType pulumi.StringPtrInput `pulumi:"instanceType"`
-	// The duration in minutes until which the recovery points need to be stored.
-	RecoveryPointHistoryInMinutes pulumi.IntPtrInput `pulumi:"recoveryPointHistoryInMinutes"`
+	AppConsistentFrequencyInMinutes   pulumi.IntPtrInput    `pulumi:"appConsistentFrequencyInMinutes"`
+	CrashConsistentFrequencyInMinutes pulumi.IntPtrInput    `pulumi:"crashConsistentFrequencyInMinutes"`
+	InstanceType                      pulumi.StringPtrInput `pulumi:"instanceType"`
+	RecoveryPointHistoryInMinutes     pulumi.IntPtrInput    `pulumi:"recoveryPointHistoryInMinutes"`
 }
 
 func (VMwareCbtPolicyCreationInputArgs) ElementType() reflect.Type {
@@ -18566,7 +15595,6 @@ func (i VMwareCbtPolicyCreationInputArgs) ToVMwareCbtPolicyCreationInputOutputWi
 	return pulumi.ToOutputWithContext(ctx, i).(VMwareCbtPolicyCreationInputOutput)
 }
 
-// VMware Cbt policy creation input.
 type VMwareCbtPolicyCreationInputOutput struct{ *pulumi.OutputState }
 
 func (VMwareCbtPolicyCreationInputOutput) ElementType() reflect.Type {
@@ -18581,51 +15609,34 @@ func (o VMwareCbtPolicyCreationInputOutput) ToVMwareCbtPolicyCreationInputOutput
 	return o
 }
 
-// The app consistent snapshot frequency (in minutes).
 func (o VMwareCbtPolicyCreationInputOutput) AppConsistentFrequencyInMinutes() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v VMwareCbtPolicyCreationInput) *int { return v.AppConsistentFrequencyInMinutes }).(pulumi.IntPtrOutput)
 }
 
-// The crash consistent snapshot frequency (in minutes).
 func (o VMwareCbtPolicyCreationInputOutput) CrashConsistentFrequencyInMinutes() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v VMwareCbtPolicyCreationInput) *int { return v.CrashConsistentFrequencyInMinutes }).(pulumi.IntPtrOutput)
 }
 
-// The class type.
-// Expected value is 'VMwareCbt'.
 func (o VMwareCbtPolicyCreationInputOutput) InstanceType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v VMwareCbtPolicyCreationInput) *string { return v.InstanceType }).(pulumi.StringPtrOutput)
 }
 
-// The duration in minutes until which the recovery points need to be stored.
 func (o VMwareCbtPolicyCreationInputOutput) RecoveryPointHistoryInMinutes() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v VMwareCbtPolicyCreationInput) *int { return v.RecoveryPointHistoryInMinutes }).(pulumi.IntPtrOutput)
 }
 
-// VMwareCbt protected disk details.
 type VMwareCbtProtectedDiskDetailsResponse struct {
-	// The disk capacity in bytes.
-	CapacityInBytes float64 `pulumi:"capacityInBytes"`
-	// The DiskEncryptionSet ARM Id.
-	DiskEncryptionSetId string `pulumi:"diskEncryptionSetId"`
-	// The disk id.
-	DiskId string `pulumi:"diskId"`
-	// The disk name.
-	DiskName string `pulumi:"diskName"`
-	// The disk path.
-	DiskPath string `pulumi:"diskPath"`
-	// The disk type.
-	DiskType *string `pulumi:"diskType"`
-	// A value indicating whether the disk is the OS disk.
-	IsOSDisk string `pulumi:"isOSDisk"`
-	// The log storage account ARM Id.
-	LogStorageAccountId string `pulumi:"logStorageAccountId"`
-	// The key vault secret name of the log storage account.
-	LogStorageAccountSasSecretName string `pulumi:"logStorageAccountSasSecretName"`
-	// The ARM Id of the seed managed disk.
-	SeedManagedDiskId string `pulumi:"seedManagedDiskId"`
-	// The ARM Id of the target managed disk.
-	TargetManagedDiskId string `pulumi:"targetManagedDiskId"`
+	CapacityInBytes                float64 `pulumi:"capacityInBytes"`
+	DiskEncryptionSetId            string  `pulumi:"diskEncryptionSetId"`
+	DiskId                         string  `pulumi:"diskId"`
+	DiskName                       string  `pulumi:"diskName"`
+	DiskPath                       string  `pulumi:"diskPath"`
+	DiskType                       *string `pulumi:"diskType"`
+	IsOSDisk                       string  `pulumi:"isOSDisk"`
+	LogStorageAccountId            string  `pulumi:"logStorageAccountId"`
+	LogStorageAccountSasSecretName string  `pulumi:"logStorageAccountSasSecretName"`
+	SeedManagedDiskId              string  `pulumi:"seedManagedDiskId"`
+	TargetManagedDiskId            string  `pulumi:"targetManagedDiskId"`
 }
 
 // VMwareCbtProtectedDiskDetailsResponseInput is an input type that accepts VMwareCbtProtectedDiskDetailsResponseArgs and VMwareCbtProtectedDiskDetailsResponseOutput values.
@@ -18639,30 +15650,18 @@ type VMwareCbtProtectedDiskDetailsResponseInput interface {
 	ToVMwareCbtProtectedDiskDetailsResponseOutputWithContext(context.Context) VMwareCbtProtectedDiskDetailsResponseOutput
 }
 
-// VMwareCbt protected disk details.
 type VMwareCbtProtectedDiskDetailsResponseArgs struct {
-	// The disk capacity in bytes.
-	CapacityInBytes pulumi.Float64Input `pulumi:"capacityInBytes"`
-	// The DiskEncryptionSet ARM Id.
-	DiskEncryptionSetId pulumi.StringInput `pulumi:"diskEncryptionSetId"`
-	// The disk id.
-	DiskId pulumi.StringInput `pulumi:"diskId"`
-	// The disk name.
-	DiskName pulumi.StringInput `pulumi:"diskName"`
-	// The disk path.
-	DiskPath pulumi.StringInput `pulumi:"diskPath"`
-	// The disk type.
-	DiskType pulumi.StringPtrInput `pulumi:"diskType"`
-	// A value indicating whether the disk is the OS disk.
-	IsOSDisk pulumi.StringInput `pulumi:"isOSDisk"`
-	// The log storage account ARM Id.
-	LogStorageAccountId pulumi.StringInput `pulumi:"logStorageAccountId"`
-	// The key vault secret name of the log storage account.
-	LogStorageAccountSasSecretName pulumi.StringInput `pulumi:"logStorageAccountSasSecretName"`
-	// The ARM Id of the seed managed disk.
-	SeedManagedDiskId pulumi.StringInput `pulumi:"seedManagedDiskId"`
-	// The ARM Id of the target managed disk.
-	TargetManagedDiskId pulumi.StringInput `pulumi:"targetManagedDiskId"`
+	CapacityInBytes                pulumi.Float64Input   `pulumi:"capacityInBytes"`
+	DiskEncryptionSetId            pulumi.StringInput    `pulumi:"diskEncryptionSetId"`
+	DiskId                         pulumi.StringInput    `pulumi:"diskId"`
+	DiskName                       pulumi.StringInput    `pulumi:"diskName"`
+	DiskPath                       pulumi.StringInput    `pulumi:"diskPath"`
+	DiskType                       pulumi.StringPtrInput `pulumi:"diskType"`
+	IsOSDisk                       pulumi.StringInput    `pulumi:"isOSDisk"`
+	LogStorageAccountId            pulumi.StringInput    `pulumi:"logStorageAccountId"`
+	LogStorageAccountSasSecretName pulumi.StringInput    `pulumi:"logStorageAccountSasSecretName"`
+	SeedManagedDiskId              pulumi.StringInput    `pulumi:"seedManagedDiskId"`
+	TargetManagedDiskId            pulumi.StringInput    `pulumi:"targetManagedDiskId"`
 }
 
 func (VMwareCbtProtectedDiskDetailsResponseArgs) ElementType() reflect.Type {
@@ -18702,7 +15701,6 @@ func (i VMwareCbtProtectedDiskDetailsResponseArray) ToVMwareCbtProtectedDiskDeta
 	return pulumi.ToOutputWithContext(ctx, i).(VMwareCbtProtectedDiskDetailsResponseArrayOutput)
 }
 
-// VMwareCbt protected disk details.
 type VMwareCbtProtectedDiskDetailsResponseOutput struct{ *pulumi.OutputState }
 
 func (VMwareCbtProtectedDiskDetailsResponseOutput) ElementType() reflect.Type {
@@ -18717,57 +15715,46 @@ func (o VMwareCbtProtectedDiskDetailsResponseOutput) ToVMwareCbtProtectedDiskDet
 	return o
 }
 
-// The disk capacity in bytes.
 func (o VMwareCbtProtectedDiskDetailsResponseOutput) CapacityInBytes() pulumi.Float64Output {
 	return o.ApplyT(func(v VMwareCbtProtectedDiskDetailsResponse) float64 { return v.CapacityInBytes }).(pulumi.Float64Output)
 }
 
-// The DiskEncryptionSet ARM Id.
 func (o VMwareCbtProtectedDiskDetailsResponseOutput) DiskEncryptionSetId() pulumi.StringOutput {
 	return o.ApplyT(func(v VMwareCbtProtectedDiskDetailsResponse) string { return v.DiskEncryptionSetId }).(pulumi.StringOutput)
 }
 
-// The disk id.
 func (o VMwareCbtProtectedDiskDetailsResponseOutput) DiskId() pulumi.StringOutput {
 	return o.ApplyT(func(v VMwareCbtProtectedDiskDetailsResponse) string { return v.DiskId }).(pulumi.StringOutput)
 }
 
-// The disk name.
 func (o VMwareCbtProtectedDiskDetailsResponseOutput) DiskName() pulumi.StringOutput {
 	return o.ApplyT(func(v VMwareCbtProtectedDiskDetailsResponse) string { return v.DiskName }).(pulumi.StringOutput)
 }
 
-// The disk path.
 func (o VMwareCbtProtectedDiskDetailsResponseOutput) DiskPath() pulumi.StringOutput {
 	return o.ApplyT(func(v VMwareCbtProtectedDiskDetailsResponse) string { return v.DiskPath }).(pulumi.StringOutput)
 }
 
-// The disk type.
 func (o VMwareCbtProtectedDiskDetailsResponseOutput) DiskType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v VMwareCbtProtectedDiskDetailsResponse) *string { return v.DiskType }).(pulumi.StringPtrOutput)
 }
 
-// A value indicating whether the disk is the OS disk.
 func (o VMwareCbtProtectedDiskDetailsResponseOutput) IsOSDisk() pulumi.StringOutput {
 	return o.ApplyT(func(v VMwareCbtProtectedDiskDetailsResponse) string { return v.IsOSDisk }).(pulumi.StringOutput)
 }
 
-// The log storage account ARM Id.
 func (o VMwareCbtProtectedDiskDetailsResponseOutput) LogStorageAccountId() pulumi.StringOutput {
 	return o.ApplyT(func(v VMwareCbtProtectedDiskDetailsResponse) string { return v.LogStorageAccountId }).(pulumi.StringOutput)
 }
 
-// The key vault secret name of the log storage account.
 func (o VMwareCbtProtectedDiskDetailsResponseOutput) LogStorageAccountSasSecretName() pulumi.StringOutput {
 	return o.ApplyT(func(v VMwareCbtProtectedDiskDetailsResponse) string { return v.LogStorageAccountSasSecretName }).(pulumi.StringOutput)
 }
 
-// The ARM Id of the seed managed disk.
 func (o VMwareCbtProtectedDiskDetailsResponseOutput) SeedManagedDiskId() pulumi.StringOutput {
 	return o.ApplyT(func(v VMwareCbtProtectedDiskDetailsResponse) string { return v.SeedManagedDiskId }).(pulumi.StringOutput)
 }
 
-// The ARM Id of the target managed disk.
 func (o VMwareCbtProtectedDiskDetailsResponseOutput) TargetManagedDiskId() pulumi.StringOutput {
 	return o.ApplyT(func(v VMwareCbtProtectedDiskDetailsResponse) string { return v.TargetManagedDiskId }).(pulumi.StringOutput)
 }
@@ -18792,23 +15779,14 @@ func (o VMwareCbtProtectedDiskDetailsResponseArrayOutput) Index(i pulumi.IntInpu
 	}).(VMwareCbtProtectedDiskDetailsResponseOutput)
 }
 
-// VMwareCbt provider specific container mapping details.
 type VMwareCbtProtectionContainerMappingDetailsResponse struct {
-	// Gets the class type. Overridden in derived classes.
-	// Expected value is 'VMwareCbt'.
-	InstanceType string `pulumi:"instanceType"`
-	// The target key vault ARM Id.
-	KeyVaultId string `pulumi:"keyVaultId"`
-	// The target key vault URI.
-	KeyVaultUri string `pulumi:"keyVaultUri"`
-	// The secret name of the service bus connection string.
+	InstanceType                         string `pulumi:"instanceType"`
+	KeyVaultId                           string `pulumi:"keyVaultId"`
+	KeyVaultUri                          string `pulumi:"keyVaultUri"`
 	ServiceBusConnectionStringSecretName string `pulumi:"serviceBusConnectionStringSecretName"`
-	// The storage account ARM Id.
-	StorageAccountId string `pulumi:"storageAccountId"`
-	// The secret name of the storage account.
-	StorageAccountSasSecretName string `pulumi:"storageAccountSasSecretName"`
-	// The target location.
-	TargetLocation string `pulumi:"targetLocation"`
+	StorageAccountId                     string `pulumi:"storageAccountId"`
+	StorageAccountSasSecretName          string `pulumi:"storageAccountSasSecretName"`
+	TargetLocation                       string `pulumi:"targetLocation"`
 }
 
 // VMwareCbtProtectionContainerMappingDetailsResponseInput is an input type that accepts VMwareCbtProtectionContainerMappingDetailsResponseArgs and VMwareCbtProtectionContainerMappingDetailsResponseOutput values.
@@ -18822,23 +15800,14 @@ type VMwareCbtProtectionContainerMappingDetailsResponseInput interface {
 	ToVMwareCbtProtectionContainerMappingDetailsResponseOutputWithContext(context.Context) VMwareCbtProtectionContainerMappingDetailsResponseOutput
 }
 
-// VMwareCbt provider specific container mapping details.
 type VMwareCbtProtectionContainerMappingDetailsResponseArgs struct {
-	// Gets the class type. Overridden in derived classes.
-	// Expected value is 'VMwareCbt'.
-	InstanceType pulumi.StringInput `pulumi:"instanceType"`
-	// The target key vault ARM Id.
-	KeyVaultId pulumi.StringInput `pulumi:"keyVaultId"`
-	// The target key vault URI.
-	KeyVaultUri pulumi.StringInput `pulumi:"keyVaultUri"`
-	// The secret name of the service bus connection string.
+	InstanceType                         pulumi.StringInput `pulumi:"instanceType"`
+	KeyVaultId                           pulumi.StringInput `pulumi:"keyVaultId"`
+	KeyVaultUri                          pulumi.StringInput `pulumi:"keyVaultUri"`
 	ServiceBusConnectionStringSecretName pulumi.StringInput `pulumi:"serviceBusConnectionStringSecretName"`
-	// The storage account ARM Id.
-	StorageAccountId pulumi.StringInput `pulumi:"storageAccountId"`
-	// The secret name of the storage account.
-	StorageAccountSasSecretName pulumi.StringInput `pulumi:"storageAccountSasSecretName"`
-	// The target location.
-	TargetLocation pulumi.StringInput `pulumi:"targetLocation"`
+	StorageAccountId                     pulumi.StringInput `pulumi:"storageAccountId"`
+	StorageAccountSasSecretName          pulumi.StringInput `pulumi:"storageAccountSasSecretName"`
+	TargetLocation                       pulumi.StringInput `pulumi:"targetLocation"`
 }
 
 func (VMwareCbtProtectionContainerMappingDetailsResponseArgs) ElementType() reflect.Type {
@@ -18853,7 +15822,6 @@ func (i VMwareCbtProtectionContainerMappingDetailsResponseArgs) ToVMwareCbtProte
 	return pulumi.ToOutputWithContext(ctx, i).(VMwareCbtProtectionContainerMappingDetailsResponseOutput)
 }
 
-// VMwareCbt provider specific container mapping details.
 type VMwareCbtProtectionContainerMappingDetailsResponseOutput struct{ *pulumi.OutputState }
 
 func (VMwareCbtProtectionContainerMappingDetailsResponseOutput) ElementType() reflect.Type {
@@ -18868,115 +15836,72 @@ func (o VMwareCbtProtectionContainerMappingDetailsResponseOutput) ToVMwareCbtPro
 	return o
 }
 
-// Gets the class type. Overridden in derived classes.
-// Expected value is 'VMwareCbt'.
 func (o VMwareCbtProtectionContainerMappingDetailsResponseOutput) InstanceType() pulumi.StringOutput {
 	return o.ApplyT(func(v VMwareCbtProtectionContainerMappingDetailsResponse) string { return v.InstanceType }).(pulumi.StringOutput)
 }
 
-// The target key vault ARM Id.
 func (o VMwareCbtProtectionContainerMappingDetailsResponseOutput) KeyVaultId() pulumi.StringOutput {
 	return o.ApplyT(func(v VMwareCbtProtectionContainerMappingDetailsResponse) string { return v.KeyVaultId }).(pulumi.StringOutput)
 }
 
-// The target key vault URI.
 func (o VMwareCbtProtectionContainerMappingDetailsResponseOutput) KeyVaultUri() pulumi.StringOutput {
 	return o.ApplyT(func(v VMwareCbtProtectionContainerMappingDetailsResponse) string { return v.KeyVaultUri }).(pulumi.StringOutput)
 }
 
-// The secret name of the service bus connection string.
 func (o VMwareCbtProtectionContainerMappingDetailsResponseOutput) ServiceBusConnectionStringSecretName() pulumi.StringOutput {
 	return o.ApplyT(func(v VMwareCbtProtectionContainerMappingDetailsResponse) string {
 		return v.ServiceBusConnectionStringSecretName
 	}).(pulumi.StringOutput)
 }
 
-// The storage account ARM Id.
 func (o VMwareCbtProtectionContainerMappingDetailsResponseOutput) StorageAccountId() pulumi.StringOutput {
 	return o.ApplyT(func(v VMwareCbtProtectionContainerMappingDetailsResponse) string { return v.StorageAccountId }).(pulumi.StringOutput)
 }
 
-// The secret name of the storage account.
 func (o VMwareCbtProtectionContainerMappingDetailsResponseOutput) StorageAccountSasSecretName() pulumi.StringOutput {
 	return o.ApplyT(func(v VMwareCbtProtectionContainerMappingDetailsResponse) string {
 		return v.StorageAccountSasSecretName
 	}).(pulumi.StringOutput)
 }
 
-// The target location.
 func (o VMwareCbtProtectionContainerMappingDetailsResponseOutput) TargetLocation() pulumi.StringOutput {
 	return o.ApplyT(func(v VMwareCbtProtectionContainerMappingDetailsResponse) string { return v.TargetLocation }).(pulumi.StringOutput)
 }
 
-// Store the fabric details specific to the VMware fabric.
 type VMwareDetailsResponse struct {
-	// The number of source and target servers configured to talk to this CS.
-	AgentCount *string `pulumi:"agentCount"`
-	// Agent expiry date.
-	AgentExpiryDate *string `pulumi:"agentExpiryDate"`
-	// The agent Version.
-	AgentVersion *string `pulumi:"agentVersion"`
-	// The agent version details.
-	AgentVersionDetails *VersionDetailsResponse `pulumi:"agentVersionDetails"`
-	// The available memory.
-	AvailableMemoryInBytes *float64 `pulumi:"availableMemoryInBytes"`
-	// The available space.
-	AvailableSpaceInBytes *float64 `pulumi:"availableSpaceInBytes"`
-	// The percentage of the CPU load.
-	CpuLoad *string `pulumi:"cpuLoad"`
-	// The CPU load status.
-	CpuLoadStatus *string `pulumi:"cpuLoadStatus"`
-	// The CS service status.
-	CsServiceStatus *string `pulumi:"csServiceStatus"`
-	// The database server load.
-	DatabaseServerLoad *string `pulumi:"databaseServerLoad"`
-	// The database server load status.
-	DatabaseServerLoadStatus *string `pulumi:"databaseServerLoadStatus"`
-	// The host name.
-	HostName *string `pulumi:"hostName"`
-	// Gets the class type. Overridden in derived classes.
-	// Expected value is 'VMware'.
-	InstanceType string `pulumi:"instanceType"`
-	// The IP address.
-	IpAddress *string `pulumi:"ipAddress"`
-	// The last heartbeat received from CS server.
-	LastHeartbeat *string `pulumi:"lastHeartbeat"`
-	// The list of Master Target servers associated with the fabric.
-	MasterTargetServers []MasterTargetServerResponse `pulumi:"masterTargetServers"`
-	// The memory usage status.
-	MemoryUsageStatus *string `pulumi:"memoryUsageStatus"`
-	// The number of process servers.
-	ProcessServerCount *string `pulumi:"processServerCount"`
-	// The list of Process Servers associated with the fabric.
-	ProcessServers []ProcessServerResponse `pulumi:"processServers"`
-	// The number of protected servers.
-	ProtectedServers *string `pulumi:"protectedServers"`
-	// PS template version.
-	PsTemplateVersion *string `pulumi:"psTemplateVersion"`
-	// The number of replication pairs configured in this CS.
-	ReplicationPairCount *string `pulumi:"replicationPairCount"`
-	// The list of run as accounts created on the server.
-	RunAsAccounts []RunAsAccountResponse `pulumi:"runAsAccounts"`
-	// The space usage status.
-	SpaceUsageStatus *string `pulumi:"spaceUsageStatus"`
-	// CS SSL cert expiry date.
-	SslCertExpiryDate *string `pulumi:"sslCertExpiryDate"`
-	// CS SSL cert expiry date.
-	SslCertExpiryRemainingDays *int `pulumi:"sslCertExpiryRemainingDays"`
-	// The percentage of the system load.
-	SystemLoad *string `pulumi:"systemLoad"`
-	// The system load status.
-	SystemLoadStatus *string `pulumi:"systemLoadStatus"`
-	// The total memory.
-	TotalMemoryInBytes *float64 `pulumi:"totalMemoryInBytes"`
-	// The total space.
-	TotalSpaceInBytes *float64 `pulumi:"totalSpaceInBytes"`
-	// Version status
-	VersionStatus *string `pulumi:"versionStatus"`
-	// The web load.
-	WebLoad *string `pulumi:"webLoad"`
-	// The web load status.
-	WebLoadStatus *string `pulumi:"webLoadStatus"`
+	AgentCount                 *string                      `pulumi:"agentCount"`
+	AgentExpiryDate            *string                      `pulumi:"agentExpiryDate"`
+	AgentVersion               *string                      `pulumi:"agentVersion"`
+	AgentVersionDetails        *VersionDetailsResponse      `pulumi:"agentVersionDetails"`
+	AvailableMemoryInBytes     *float64                     `pulumi:"availableMemoryInBytes"`
+	AvailableSpaceInBytes      *float64                     `pulumi:"availableSpaceInBytes"`
+	CpuLoad                    *string                      `pulumi:"cpuLoad"`
+	CpuLoadStatus              *string                      `pulumi:"cpuLoadStatus"`
+	CsServiceStatus            *string                      `pulumi:"csServiceStatus"`
+	DatabaseServerLoad         *string                      `pulumi:"databaseServerLoad"`
+	DatabaseServerLoadStatus   *string                      `pulumi:"databaseServerLoadStatus"`
+	HostName                   *string                      `pulumi:"hostName"`
+	InstanceType               string                       `pulumi:"instanceType"`
+	IpAddress                  *string                      `pulumi:"ipAddress"`
+	LastHeartbeat              *string                      `pulumi:"lastHeartbeat"`
+	MasterTargetServers        []MasterTargetServerResponse `pulumi:"masterTargetServers"`
+	MemoryUsageStatus          *string                      `pulumi:"memoryUsageStatus"`
+	ProcessServerCount         *string                      `pulumi:"processServerCount"`
+	ProcessServers             []ProcessServerResponse      `pulumi:"processServers"`
+	ProtectedServers           *string                      `pulumi:"protectedServers"`
+	PsTemplateVersion          *string                      `pulumi:"psTemplateVersion"`
+	ReplicationPairCount       *string                      `pulumi:"replicationPairCount"`
+	RunAsAccounts              []RunAsAccountResponse       `pulumi:"runAsAccounts"`
+	SpaceUsageStatus           *string                      `pulumi:"spaceUsageStatus"`
+	SslCertExpiryDate          *string                      `pulumi:"sslCertExpiryDate"`
+	SslCertExpiryRemainingDays *int                         `pulumi:"sslCertExpiryRemainingDays"`
+	SystemLoad                 *string                      `pulumi:"systemLoad"`
+	SystemLoadStatus           *string                      `pulumi:"systemLoadStatus"`
+	TotalMemoryInBytes         *float64                     `pulumi:"totalMemoryInBytes"`
+	TotalSpaceInBytes          *float64                     `pulumi:"totalSpaceInBytes"`
+	VersionStatus              *string                      `pulumi:"versionStatus"`
+	WebLoad                    *string                      `pulumi:"webLoad"`
+	WebLoadStatus              *string                      `pulumi:"webLoadStatus"`
 }
 
 // VMwareDetailsResponseInput is an input type that accepts VMwareDetailsResponseArgs and VMwareDetailsResponseOutput values.
@@ -18990,75 +15915,40 @@ type VMwareDetailsResponseInput interface {
 	ToVMwareDetailsResponseOutputWithContext(context.Context) VMwareDetailsResponseOutput
 }
 
-// Store the fabric details specific to the VMware fabric.
 type VMwareDetailsResponseArgs struct {
-	// The number of source and target servers configured to talk to this CS.
-	AgentCount pulumi.StringPtrInput `pulumi:"agentCount"`
-	// Agent expiry date.
-	AgentExpiryDate pulumi.StringPtrInput `pulumi:"agentExpiryDate"`
-	// The agent Version.
-	AgentVersion pulumi.StringPtrInput `pulumi:"agentVersion"`
-	// The agent version details.
-	AgentVersionDetails VersionDetailsResponsePtrInput `pulumi:"agentVersionDetails"`
-	// The available memory.
-	AvailableMemoryInBytes pulumi.Float64PtrInput `pulumi:"availableMemoryInBytes"`
-	// The available space.
-	AvailableSpaceInBytes pulumi.Float64PtrInput `pulumi:"availableSpaceInBytes"`
-	// The percentage of the CPU load.
-	CpuLoad pulumi.StringPtrInput `pulumi:"cpuLoad"`
-	// The CPU load status.
-	CpuLoadStatus pulumi.StringPtrInput `pulumi:"cpuLoadStatus"`
-	// The CS service status.
-	CsServiceStatus pulumi.StringPtrInput `pulumi:"csServiceStatus"`
-	// The database server load.
-	DatabaseServerLoad pulumi.StringPtrInput `pulumi:"databaseServerLoad"`
-	// The database server load status.
-	DatabaseServerLoadStatus pulumi.StringPtrInput `pulumi:"databaseServerLoadStatus"`
-	// The host name.
-	HostName pulumi.StringPtrInput `pulumi:"hostName"`
-	// Gets the class type. Overridden in derived classes.
-	// Expected value is 'VMware'.
-	InstanceType pulumi.StringInput `pulumi:"instanceType"`
-	// The IP address.
-	IpAddress pulumi.StringPtrInput `pulumi:"ipAddress"`
-	// The last heartbeat received from CS server.
-	LastHeartbeat pulumi.StringPtrInput `pulumi:"lastHeartbeat"`
-	// The list of Master Target servers associated with the fabric.
-	MasterTargetServers MasterTargetServerResponseArrayInput `pulumi:"masterTargetServers"`
-	// The memory usage status.
-	MemoryUsageStatus pulumi.StringPtrInput `pulumi:"memoryUsageStatus"`
-	// The number of process servers.
-	ProcessServerCount pulumi.StringPtrInput `pulumi:"processServerCount"`
-	// The list of Process Servers associated with the fabric.
-	ProcessServers ProcessServerResponseArrayInput `pulumi:"processServers"`
-	// The number of protected servers.
-	ProtectedServers pulumi.StringPtrInput `pulumi:"protectedServers"`
-	// PS template version.
-	PsTemplateVersion pulumi.StringPtrInput `pulumi:"psTemplateVersion"`
-	// The number of replication pairs configured in this CS.
-	ReplicationPairCount pulumi.StringPtrInput `pulumi:"replicationPairCount"`
-	// The list of run as accounts created on the server.
-	RunAsAccounts RunAsAccountResponseArrayInput `pulumi:"runAsAccounts"`
-	// The space usage status.
-	SpaceUsageStatus pulumi.StringPtrInput `pulumi:"spaceUsageStatus"`
-	// CS SSL cert expiry date.
-	SslCertExpiryDate pulumi.StringPtrInput `pulumi:"sslCertExpiryDate"`
-	// CS SSL cert expiry date.
-	SslCertExpiryRemainingDays pulumi.IntPtrInput `pulumi:"sslCertExpiryRemainingDays"`
-	// The percentage of the system load.
-	SystemLoad pulumi.StringPtrInput `pulumi:"systemLoad"`
-	// The system load status.
-	SystemLoadStatus pulumi.StringPtrInput `pulumi:"systemLoadStatus"`
-	// The total memory.
-	TotalMemoryInBytes pulumi.Float64PtrInput `pulumi:"totalMemoryInBytes"`
-	// The total space.
-	TotalSpaceInBytes pulumi.Float64PtrInput `pulumi:"totalSpaceInBytes"`
-	// Version status
-	VersionStatus pulumi.StringPtrInput `pulumi:"versionStatus"`
-	// The web load.
-	WebLoad pulumi.StringPtrInput `pulumi:"webLoad"`
-	// The web load status.
-	WebLoadStatus pulumi.StringPtrInput `pulumi:"webLoadStatus"`
+	AgentCount                 pulumi.StringPtrInput                `pulumi:"agentCount"`
+	AgentExpiryDate            pulumi.StringPtrInput                `pulumi:"agentExpiryDate"`
+	AgentVersion               pulumi.StringPtrInput                `pulumi:"agentVersion"`
+	AgentVersionDetails        VersionDetailsResponsePtrInput       `pulumi:"agentVersionDetails"`
+	AvailableMemoryInBytes     pulumi.Float64PtrInput               `pulumi:"availableMemoryInBytes"`
+	AvailableSpaceInBytes      pulumi.Float64PtrInput               `pulumi:"availableSpaceInBytes"`
+	CpuLoad                    pulumi.StringPtrInput                `pulumi:"cpuLoad"`
+	CpuLoadStatus              pulumi.StringPtrInput                `pulumi:"cpuLoadStatus"`
+	CsServiceStatus            pulumi.StringPtrInput                `pulumi:"csServiceStatus"`
+	DatabaseServerLoad         pulumi.StringPtrInput                `pulumi:"databaseServerLoad"`
+	DatabaseServerLoadStatus   pulumi.StringPtrInput                `pulumi:"databaseServerLoadStatus"`
+	HostName                   pulumi.StringPtrInput                `pulumi:"hostName"`
+	InstanceType               pulumi.StringInput                   `pulumi:"instanceType"`
+	IpAddress                  pulumi.StringPtrInput                `pulumi:"ipAddress"`
+	LastHeartbeat              pulumi.StringPtrInput                `pulumi:"lastHeartbeat"`
+	MasterTargetServers        MasterTargetServerResponseArrayInput `pulumi:"masterTargetServers"`
+	MemoryUsageStatus          pulumi.StringPtrInput                `pulumi:"memoryUsageStatus"`
+	ProcessServerCount         pulumi.StringPtrInput                `pulumi:"processServerCount"`
+	ProcessServers             ProcessServerResponseArrayInput      `pulumi:"processServers"`
+	ProtectedServers           pulumi.StringPtrInput                `pulumi:"protectedServers"`
+	PsTemplateVersion          pulumi.StringPtrInput                `pulumi:"psTemplateVersion"`
+	ReplicationPairCount       pulumi.StringPtrInput                `pulumi:"replicationPairCount"`
+	RunAsAccounts              RunAsAccountResponseArrayInput       `pulumi:"runAsAccounts"`
+	SpaceUsageStatus           pulumi.StringPtrInput                `pulumi:"spaceUsageStatus"`
+	SslCertExpiryDate          pulumi.StringPtrInput                `pulumi:"sslCertExpiryDate"`
+	SslCertExpiryRemainingDays pulumi.IntPtrInput                   `pulumi:"sslCertExpiryRemainingDays"`
+	SystemLoad                 pulumi.StringPtrInput                `pulumi:"systemLoad"`
+	SystemLoadStatus           pulumi.StringPtrInput                `pulumi:"systemLoadStatus"`
+	TotalMemoryInBytes         pulumi.Float64PtrInput               `pulumi:"totalMemoryInBytes"`
+	TotalSpaceInBytes          pulumi.Float64PtrInput               `pulumi:"totalSpaceInBytes"`
+	VersionStatus              pulumi.StringPtrInput                `pulumi:"versionStatus"`
+	WebLoad                    pulumi.StringPtrInput                `pulumi:"webLoad"`
+	WebLoadStatus              pulumi.StringPtrInput                `pulumi:"webLoadStatus"`
 }
 
 func (VMwareDetailsResponseArgs) ElementType() reflect.Type {
@@ -19073,7 +15963,6 @@ func (i VMwareDetailsResponseArgs) ToVMwareDetailsResponseOutputWithContext(ctx 
 	return pulumi.ToOutputWithContext(ctx, i).(VMwareDetailsResponseOutput)
 }
 
-// Store the fabric details specific to the VMware fabric.
 type VMwareDetailsResponseOutput struct{ *pulumi.OutputState }
 
 func (VMwareDetailsResponseOutput) ElementType() reflect.Type {
@@ -19088,183 +15977,143 @@ func (o VMwareDetailsResponseOutput) ToVMwareDetailsResponseOutputWithContext(ct
 	return o
 }
 
-// The number of source and target servers configured to talk to this CS.
 func (o VMwareDetailsResponseOutput) AgentCount() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v VMwareDetailsResponse) *string { return v.AgentCount }).(pulumi.StringPtrOutput)
 }
 
-// Agent expiry date.
 func (o VMwareDetailsResponseOutput) AgentExpiryDate() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v VMwareDetailsResponse) *string { return v.AgentExpiryDate }).(pulumi.StringPtrOutput)
 }
 
-// The agent Version.
 func (o VMwareDetailsResponseOutput) AgentVersion() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v VMwareDetailsResponse) *string { return v.AgentVersion }).(pulumi.StringPtrOutput)
 }
 
-// The agent version details.
 func (o VMwareDetailsResponseOutput) AgentVersionDetails() VersionDetailsResponsePtrOutput {
 	return o.ApplyT(func(v VMwareDetailsResponse) *VersionDetailsResponse { return v.AgentVersionDetails }).(VersionDetailsResponsePtrOutput)
 }
 
-// The available memory.
 func (o VMwareDetailsResponseOutput) AvailableMemoryInBytes() pulumi.Float64PtrOutput {
 	return o.ApplyT(func(v VMwareDetailsResponse) *float64 { return v.AvailableMemoryInBytes }).(pulumi.Float64PtrOutput)
 }
 
-// The available space.
 func (o VMwareDetailsResponseOutput) AvailableSpaceInBytes() pulumi.Float64PtrOutput {
 	return o.ApplyT(func(v VMwareDetailsResponse) *float64 { return v.AvailableSpaceInBytes }).(pulumi.Float64PtrOutput)
 }
 
-// The percentage of the CPU load.
 func (o VMwareDetailsResponseOutput) CpuLoad() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v VMwareDetailsResponse) *string { return v.CpuLoad }).(pulumi.StringPtrOutput)
 }
 
-// The CPU load status.
 func (o VMwareDetailsResponseOutput) CpuLoadStatus() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v VMwareDetailsResponse) *string { return v.CpuLoadStatus }).(pulumi.StringPtrOutput)
 }
 
-// The CS service status.
 func (o VMwareDetailsResponseOutput) CsServiceStatus() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v VMwareDetailsResponse) *string { return v.CsServiceStatus }).(pulumi.StringPtrOutput)
 }
 
-// The database server load.
 func (o VMwareDetailsResponseOutput) DatabaseServerLoad() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v VMwareDetailsResponse) *string { return v.DatabaseServerLoad }).(pulumi.StringPtrOutput)
 }
 
-// The database server load status.
 func (o VMwareDetailsResponseOutput) DatabaseServerLoadStatus() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v VMwareDetailsResponse) *string { return v.DatabaseServerLoadStatus }).(pulumi.StringPtrOutput)
 }
 
-// The host name.
 func (o VMwareDetailsResponseOutput) HostName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v VMwareDetailsResponse) *string { return v.HostName }).(pulumi.StringPtrOutput)
 }
 
-// Gets the class type. Overridden in derived classes.
-// Expected value is 'VMware'.
 func (o VMwareDetailsResponseOutput) InstanceType() pulumi.StringOutput {
 	return o.ApplyT(func(v VMwareDetailsResponse) string { return v.InstanceType }).(pulumi.StringOutput)
 }
 
-// The IP address.
 func (o VMwareDetailsResponseOutput) IpAddress() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v VMwareDetailsResponse) *string { return v.IpAddress }).(pulumi.StringPtrOutput)
 }
 
-// The last heartbeat received from CS server.
 func (o VMwareDetailsResponseOutput) LastHeartbeat() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v VMwareDetailsResponse) *string { return v.LastHeartbeat }).(pulumi.StringPtrOutput)
 }
 
-// The list of Master Target servers associated with the fabric.
 func (o VMwareDetailsResponseOutput) MasterTargetServers() MasterTargetServerResponseArrayOutput {
 	return o.ApplyT(func(v VMwareDetailsResponse) []MasterTargetServerResponse { return v.MasterTargetServers }).(MasterTargetServerResponseArrayOutput)
 }
 
-// The memory usage status.
 func (o VMwareDetailsResponseOutput) MemoryUsageStatus() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v VMwareDetailsResponse) *string { return v.MemoryUsageStatus }).(pulumi.StringPtrOutput)
 }
 
-// The number of process servers.
 func (o VMwareDetailsResponseOutput) ProcessServerCount() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v VMwareDetailsResponse) *string { return v.ProcessServerCount }).(pulumi.StringPtrOutput)
 }
 
-// The list of Process Servers associated with the fabric.
 func (o VMwareDetailsResponseOutput) ProcessServers() ProcessServerResponseArrayOutput {
 	return o.ApplyT(func(v VMwareDetailsResponse) []ProcessServerResponse { return v.ProcessServers }).(ProcessServerResponseArrayOutput)
 }
 
-// The number of protected servers.
 func (o VMwareDetailsResponseOutput) ProtectedServers() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v VMwareDetailsResponse) *string { return v.ProtectedServers }).(pulumi.StringPtrOutput)
 }
 
-// PS template version.
 func (o VMwareDetailsResponseOutput) PsTemplateVersion() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v VMwareDetailsResponse) *string { return v.PsTemplateVersion }).(pulumi.StringPtrOutput)
 }
 
-// The number of replication pairs configured in this CS.
 func (o VMwareDetailsResponseOutput) ReplicationPairCount() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v VMwareDetailsResponse) *string { return v.ReplicationPairCount }).(pulumi.StringPtrOutput)
 }
 
-// The list of run as accounts created on the server.
 func (o VMwareDetailsResponseOutput) RunAsAccounts() RunAsAccountResponseArrayOutput {
 	return o.ApplyT(func(v VMwareDetailsResponse) []RunAsAccountResponse { return v.RunAsAccounts }).(RunAsAccountResponseArrayOutput)
 }
 
-// The space usage status.
 func (o VMwareDetailsResponseOutput) SpaceUsageStatus() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v VMwareDetailsResponse) *string { return v.SpaceUsageStatus }).(pulumi.StringPtrOutput)
 }
 
-// CS SSL cert expiry date.
 func (o VMwareDetailsResponseOutput) SslCertExpiryDate() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v VMwareDetailsResponse) *string { return v.SslCertExpiryDate }).(pulumi.StringPtrOutput)
 }
 
-// CS SSL cert expiry date.
 func (o VMwareDetailsResponseOutput) SslCertExpiryRemainingDays() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v VMwareDetailsResponse) *int { return v.SslCertExpiryRemainingDays }).(pulumi.IntPtrOutput)
 }
 
-// The percentage of the system load.
 func (o VMwareDetailsResponseOutput) SystemLoad() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v VMwareDetailsResponse) *string { return v.SystemLoad }).(pulumi.StringPtrOutput)
 }
 
-// The system load status.
 func (o VMwareDetailsResponseOutput) SystemLoadStatus() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v VMwareDetailsResponse) *string { return v.SystemLoadStatus }).(pulumi.StringPtrOutput)
 }
 
-// The total memory.
 func (o VMwareDetailsResponseOutput) TotalMemoryInBytes() pulumi.Float64PtrOutput {
 	return o.ApplyT(func(v VMwareDetailsResponse) *float64 { return v.TotalMemoryInBytes }).(pulumi.Float64PtrOutput)
 }
 
-// The total space.
 func (o VMwareDetailsResponseOutput) TotalSpaceInBytes() pulumi.Float64PtrOutput {
 	return o.ApplyT(func(v VMwareDetailsResponse) *float64 { return v.TotalSpaceInBytes }).(pulumi.Float64PtrOutput)
 }
 
-// Version status
 func (o VMwareDetailsResponseOutput) VersionStatus() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v VMwareDetailsResponse) *string { return v.VersionStatus }).(pulumi.StringPtrOutput)
 }
 
-// The web load.
 func (o VMwareDetailsResponseOutput) WebLoad() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v VMwareDetailsResponse) *string { return v.WebLoad }).(pulumi.StringPtrOutput)
 }
 
-// The web load status.
 func (o VMwareDetailsResponseOutput) WebLoadStatus() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v VMwareDetailsResponse) *string { return v.WebLoadStatus }).(pulumi.StringPtrOutput)
 }
 
-// VMwareV2 fabric provider specific settings.
 type VMwareV2FabricCreationInput struct {
-	// Gets the class type.
-	// Expected value is 'VMwareV2'.
-	InstanceType *string `pulumi:"instanceType"`
-	// The ARM Id of the migration solution.
-	MigrationSolutionId string `pulumi:"migrationSolutionId"`
-	// The ARM Id of the physical site.
-	PhysicalSiteId *string `pulumi:"physicalSiteId"`
-	// The ARM Id of the VMware site.
-	VmwareSiteId *string `pulumi:"vmwareSiteId"`
+	InstanceType        *string `pulumi:"instanceType"`
+	MigrationSolutionId string  `pulumi:"migrationSolutionId"`
+	PhysicalSiteId      *string `pulumi:"physicalSiteId"`
+	VmwareSiteId        *string `pulumi:"vmwareSiteId"`
 }
 
 // VMwareV2FabricCreationInputInput is an input type that accepts VMwareV2FabricCreationInputArgs and VMwareV2FabricCreationInputOutput values.
@@ -19278,17 +16127,11 @@ type VMwareV2FabricCreationInputInput interface {
 	ToVMwareV2FabricCreationInputOutputWithContext(context.Context) VMwareV2FabricCreationInputOutput
 }
 
-// VMwareV2 fabric provider specific settings.
 type VMwareV2FabricCreationInputArgs struct {
-	// Gets the class type.
-	// Expected value is 'VMwareV2'.
-	InstanceType pulumi.StringPtrInput `pulumi:"instanceType"`
-	// The ARM Id of the migration solution.
-	MigrationSolutionId pulumi.StringInput `pulumi:"migrationSolutionId"`
-	// The ARM Id of the physical site.
-	PhysicalSiteId pulumi.StringPtrInput `pulumi:"physicalSiteId"`
-	// The ARM Id of the VMware site.
-	VmwareSiteId pulumi.StringPtrInput `pulumi:"vmwareSiteId"`
+	InstanceType        pulumi.StringPtrInput `pulumi:"instanceType"`
+	MigrationSolutionId pulumi.StringInput    `pulumi:"migrationSolutionId"`
+	PhysicalSiteId      pulumi.StringPtrInput `pulumi:"physicalSiteId"`
+	VmwareSiteId        pulumi.StringPtrInput `pulumi:"vmwareSiteId"`
 }
 
 func (VMwareV2FabricCreationInputArgs) ElementType() reflect.Type {
@@ -19303,7 +16146,6 @@ func (i VMwareV2FabricCreationInputArgs) ToVMwareV2FabricCreationInputOutputWith
 	return pulumi.ToOutputWithContext(ctx, i).(VMwareV2FabricCreationInputOutput)
 }
 
-// VMwareV2 fabric provider specific settings.
 type VMwareV2FabricCreationInputOutput struct{ *pulumi.OutputState }
 
 func (VMwareV2FabricCreationInputOutput) ElementType() reflect.Type {
@@ -19318,42 +16160,29 @@ func (o VMwareV2FabricCreationInputOutput) ToVMwareV2FabricCreationInputOutputWi
 	return o
 }
 
-// Gets the class type.
-// Expected value is 'VMwareV2'.
 func (o VMwareV2FabricCreationInputOutput) InstanceType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v VMwareV2FabricCreationInput) *string { return v.InstanceType }).(pulumi.StringPtrOutput)
 }
 
-// The ARM Id of the migration solution.
 func (o VMwareV2FabricCreationInputOutput) MigrationSolutionId() pulumi.StringOutput {
 	return o.ApplyT(func(v VMwareV2FabricCreationInput) string { return v.MigrationSolutionId }).(pulumi.StringOutput)
 }
 
-// The ARM Id of the physical site.
 func (o VMwareV2FabricCreationInputOutput) PhysicalSiteId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v VMwareV2FabricCreationInput) *string { return v.PhysicalSiteId }).(pulumi.StringPtrOutput)
 }
 
-// The ARM Id of the VMware site.
 func (o VMwareV2FabricCreationInputOutput) VmwareSiteId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v VMwareV2FabricCreationInput) *string { return v.VmwareSiteId }).(pulumi.StringPtrOutput)
 }
 
-// VMwareV2 fabric specific details.
 type VMwareV2FabricSpecificDetailsResponse struct {
-	// Gets the class type. Overridden in derived classes.
-	// Expected value is 'VMwareV2'.
-	InstanceType string `pulumi:"instanceType"`
-	// The Migration solution ARM Id.
+	InstanceType        string `pulumi:"instanceType"`
 	MigrationSolutionId string `pulumi:"migrationSolutionId"`
-	// The ARM Id of the physical site.
-	PhysicalSiteId string `pulumi:"physicalSiteId"`
-	// The service endpoint.
-	ServiceEndpoint string `pulumi:"serviceEndpoint"`
-	// The service resource Id.
-	ServiceResourceId string `pulumi:"serviceResourceId"`
-	// The ARM Id of the VMware site.
-	VmwareSiteId string `pulumi:"vmwareSiteId"`
+	PhysicalSiteId      string `pulumi:"physicalSiteId"`
+	ServiceEndpoint     string `pulumi:"serviceEndpoint"`
+	ServiceResourceId   string `pulumi:"serviceResourceId"`
+	VmwareSiteId        string `pulumi:"vmwareSiteId"`
 }
 
 // VMwareV2FabricSpecificDetailsResponseInput is an input type that accepts VMwareV2FabricSpecificDetailsResponseArgs and VMwareV2FabricSpecificDetailsResponseOutput values.
@@ -19367,21 +16196,13 @@ type VMwareV2FabricSpecificDetailsResponseInput interface {
 	ToVMwareV2FabricSpecificDetailsResponseOutputWithContext(context.Context) VMwareV2FabricSpecificDetailsResponseOutput
 }
 
-// VMwareV2 fabric specific details.
 type VMwareV2FabricSpecificDetailsResponseArgs struct {
-	// Gets the class type. Overridden in derived classes.
-	// Expected value is 'VMwareV2'.
-	InstanceType pulumi.StringInput `pulumi:"instanceType"`
-	// The Migration solution ARM Id.
+	InstanceType        pulumi.StringInput `pulumi:"instanceType"`
 	MigrationSolutionId pulumi.StringInput `pulumi:"migrationSolutionId"`
-	// The ARM Id of the physical site.
-	PhysicalSiteId pulumi.StringInput `pulumi:"physicalSiteId"`
-	// The service endpoint.
-	ServiceEndpoint pulumi.StringInput `pulumi:"serviceEndpoint"`
-	// The service resource Id.
-	ServiceResourceId pulumi.StringInput `pulumi:"serviceResourceId"`
-	// The ARM Id of the VMware site.
-	VmwareSiteId pulumi.StringInput `pulumi:"vmwareSiteId"`
+	PhysicalSiteId      pulumi.StringInput `pulumi:"physicalSiteId"`
+	ServiceEndpoint     pulumi.StringInput `pulumi:"serviceEndpoint"`
+	ServiceResourceId   pulumi.StringInput `pulumi:"serviceResourceId"`
+	VmwareSiteId        pulumi.StringInput `pulumi:"vmwareSiteId"`
 }
 
 func (VMwareV2FabricSpecificDetailsResponseArgs) ElementType() reflect.Type {
@@ -19396,7 +16217,6 @@ func (i VMwareV2FabricSpecificDetailsResponseArgs) ToVMwareV2FabricSpecificDetai
 	return pulumi.ToOutputWithContext(ctx, i).(VMwareV2FabricSpecificDetailsResponseOutput)
 }
 
-// VMwareV2 fabric specific details.
 type VMwareV2FabricSpecificDetailsResponseOutput struct{ *pulumi.OutputState }
 
 func (VMwareV2FabricSpecificDetailsResponseOutput) ElementType() reflect.Type {
@@ -19411,45 +16231,34 @@ func (o VMwareV2FabricSpecificDetailsResponseOutput) ToVMwareV2FabricSpecificDet
 	return o
 }
 
-// Gets the class type. Overridden in derived classes.
-// Expected value is 'VMwareV2'.
 func (o VMwareV2FabricSpecificDetailsResponseOutput) InstanceType() pulumi.StringOutput {
 	return o.ApplyT(func(v VMwareV2FabricSpecificDetailsResponse) string { return v.InstanceType }).(pulumi.StringOutput)
 }
 
-// The Migration solution ARM Id.
 func (o VMwareV2FabricSpecificDetailsResponseOutput) MigrationSolutionId() pulumi.StringOutput {
 	return o.ApplyT(func(v VMwareV2FabricSpecificDetailsResponse) string { return v.MigrationSolutionId }).(pulumi.StringOutput)
 }
 
-// The ARM Id of the physical site.
 func (o VMwareV2FabricSpecificDetailsResponseOutput) PhysicalSiteId() pulumi.StringOutput {
 	return o.ApplyT(func(v VMwareV2FabricSpecificDetailsResponse) string { return v.PhysicalSiteId }).(pulumi.StringOutput)
 }
 
-// The service endpoint.
 func (o VMwareV2FabricSpecificDetailsResponseOutput) ServiceEndpoint() pulumi.StringOutput {
 	return o.ApplyT(func(v VMwareV2FabricSpecificDetailsResponse) string { return v.ServiceEndpoint }).(pulumi.StringOutput)
 }
 
-// The service resource Id.
 func (o VMwareV2FabricSpecificDetailsResponseOutput) ServiceResourceId() pulumi.StringOutput {
 	return o.ApplyT(func(v VMwareV2FabricSpecificDetailsResponse) string { return v.ServiceResourceId }).(pulumi.StringOutput)
 }
 
-// The ARM Id of the VMware site.
 func (o VMwareV2FabricSpecificDetailsResponseOutput) VmwareSiteId() pulumi.StringOutput {
 	return o.ApplyT(func(v VMwareV2FabricSpecificDetailsResponse) string { return v.VmwareSiteId }).(pulumi.StringOutput)
 }
 
-// Version related details.
 type VersionDetailsResponse struct {
-	// Version expiry date.
 	ExpiryDate *string `pulumi:"expiryDate"`
-	// A value indicating whether security update required.
-	Status *string `pulumi:"status"`
-	// The agent version.
-	Version *string `pulumi:"version"`
+	Status     *string `pulumi:"status"`
+	Version    *string `pulumi:"version"`
 }
 
 // VersionDetailsResponseInput is an input type that accepts VersionDetailsResponseArgs and VersionDetailsResponseOutput values.
@@ -19463,14 +16272,10 @@ type VersionDetailsResponseInput interface {
 	ToVersionDetailsResponseOutputWithContext(context.Context) VersionDetailsResponseOutput
 }
 
-// Version related details.
 type VersionDetailsResponseArgs struct {
-	// Version expiry date.
 	ExpiryDate pulumi.StringPtrInput `pulumi:"expiryDate"`
-	// A value indicating whether security update required.
-	Status pulumi.StringPtrInput `pulumi:"status"`
-	// The agent version.
-	Version pulumi.StringPtrInput `pulumi:"version"`
+	Status     pulumi.StringPtrInput `pulumi:"status"`
+	Version    pulumi.StringPtrInput `pulumi:"version"`
 }
 
 func (VersionDetailsResponseArgs) ElementType() reflect.Type {
@@ -19526,7 +16331,6 @@ func (i *versionDetailsResponsePtrType) ToVersionDetailsResponsePtrOutputWithCon
 	return pulumi.ToOutputWithContext(ctx, i).(VersionDetailsResponsePtrOutput)
 }
 
-// Version related details.
 type VersionDetailsResponseOutput struct{ *pulumi.OutputState }
 
 func (VersionDetailsResponseOutput) ElementType() reflect.Type {
@@ -19546,22 +16350,19 @@ func (o VersionDetailsResponseOutput) ToVersionDetailsResponsePtrOutput() Versio
 }
 
 func (o VersionDetailsResponseOutput) ToVersionDetailsResponsePtrOutputWithContext(ctx context.Context) VersionDetailsResponsePtrOutput {
-	return o.ApplyT(func(v VersionDetailsResponse) *VersionDetailsResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v VersionDetailsResponse) *VersionDetailsResponse {
 		return &v
 	}).(VersionDetailsResponsePtrOutput)
 }
 
-// Version expiry date.
 func (o VersionDetailsResponseOutput) ExpiryDate() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v VersionDetailsResponse) *string { return v.ExpiryDate }).(pulumi.StringPtrOutput)
 }
 
-// A value indicating whether security update required.
 func (o VersionDetailsResponseOutput) Status() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v VersionDetailsResponse) *string { return v.Status }).(pulumi.StringPtrOutput)
 }
 
-// The agent version.
 func (o VersionDetailsResponseOutput) Version() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v VersionDetailsResponse) *string { return v.Version }).(pulumi.StringPtrOutput)
 }
@@ -19581,10 +16382,15 @@ func (o VersionDetailsResponsePtrOutput) ToVersionDetailsResponsePtrOutputWithCo
 }
 
 func (o VersionDetailsResponsePtrOutput) Elem() VersionDetailsResponseOutput {
-	return o.ApplyT(func(v *VersionDetailsResponse) VersionDetailsResponse { return *v }).(VersionDetailsResponseOutput)
+	return o.ApplyT(func(v *VersionDetailsResponse) VersionDetailsResponse {
+		if v != nil {
+			return *v
+		}
+		var ret VersionDetailsResponse
+		return ret
+	}).(VersionDetailsResponseOutput)
 }
 
-// Version expiry date.
 func (o VersionDetailsResponsePtrOutput) ExpiryDate() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *VersionDetailsResponse) *string {
 		if v == nil {
@@ -19594,7 +16400,6 @@ func (o VersionDetailsResponsePtrOutput) ExpiryDate() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// A value indicating whether security update required.
 func (o VersionDetailsResponsePtrOutput) Status() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *VersionDetailsResponse) *string {
 		if v == nil {
@@ -19604,7 +16409,6 @@ func (o VersionDetailsResponsePtrOutput) Status() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The agent version.
 func (o VersionDetailsResponsePtrOutput) Version() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *VersionDetailsResponse) *string {
 		if v == nil {
@@ -19614,10 +16418,7 @@ func (o VersionDetailsResponsePtrOutput) Version() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// VMM fabric specific details.
 type VmmDetailsResponse struct {
-	// Gets the class type. Overridden in derived classes.
-	// Expected value is 'VMM'.
 	InstanceType string `pulumi:"instanceType"`
 }
 
@@ -19632,10 +16433,7 @@ type VmmDetailsResponseInput interface {
 	ToVmmDetailsResponseOutputWithContext(context.Context) VmmDetailsResponseOutput
 }
 
-// VMM fabric specific details.
 type VmmDetailsResponseArgs struct {
-	// Gets the class type. Overridden in derived classes.
-	// Expected value is 'VMM'.
 	InstanceType pulumi.StringInput `pulumi:"instanceType"`
 }
 
@@ -19651,7 +16449,6 @@ func (i VmmDetailsResponseArgs) ToVmmDetailsResponseOutputWithContext(ctx contex
 	return pulumi.ToOutputWithContext(ctx, i).(VmmDetailsResponseOutput)
 }
 
-// VMM fabric specific details.
 type VmmDetailsResponseOutput struct{ *pulumi.OutputState }
 
 func (VmmDetailsResponseOutput) ElementType() reflect.Type {
@@ -19666,16 +16463,11 @@ func (o VmmDetailsResponseOutput) ToVmmDetailsResponseOutputWithContext(ctx cont
 	return o
 }
 
-// Gets the class type. Overridden in derived classes.
-// Expected value is 'VMM'.
 func (o VmmDetailsResponseOutput) InstanceType() pulumi.StringOutput {
 	return o.ApplyT(func(v VmmDetailsResponse) string { return v.InstanceType }).(pulumi.StringOutput)
 }
 
-// Create network mappings input properties/behavior specific to Vmm to Azure Network mapping.
 type VmmToAzureCreateNetworkMappingInput struct {
-	// The instance type.
-	// Expected value is 'VmmToAzure'.
 	InstanceType *string `pulumi:"instanceType"`
 }
 
@@ -19690,10 +16482,7 @@ type VmmToAzureCreateNetworkMappingInputInput interface {
 	ToVmmToAzureCreateNetworkMappingInputOutputWithContext(context.Context) VmmToAzureCreateNetworkMappingInputOutput
 }
 
-// Create network mappings input properties/behavior specific to Vmm to Azure Network mapping.
 type VmmToAzureCreateNetworkMappingInputArgs struct {
-	// The instance type.
-	// Expected value is 'VmmToAzure'.
 	InstanceType pulumi.StringPtrInput `pulumi:"instanceType"`
 }
 
@@ -19709,7 +16498,6 @@ func (i VmmToAzureCreateNetworkMappingInputArgs) ToVmmToAzureCreateNetworkMappin
 	return pulumi.ToOutputWithContext(ctx, i).(VmmToAzureCreateNetworkMappingInputOutput)
 }
 
-// Create network mappings input properties/behavior specific to Vmm to Azure Network mapping.
 type VmmToAzureCreateNetworkMappingInputOutput struct{ *pulumi.OutputState }
 
 func (VmmToAzureCreateNetworkMappingInputOutput) ElementType() reflect.Type {
@@ -19724,16 +16512,11 @@ func (o VmmToAzureCreateNetworkMappingInputOutput) ToVmmToAzureCreateNetworkMapp
 	return o
 }
 
-// The instance type.
-// Expected value is 'VmmToAzure'.
 func (o VmmToAzureCreateNetworkMappingInputOutput) InstanceType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v VmmToAzureCreateNetworkMappingInput) *string { return v.InstanceType }).(pulumi.StringPtrOutput)
 }
 
-// E2A Network Mapping fabric specific settings.
 type VmmToAzureNetworkMappingSettingsResponse struct {
-	// Gets the Instance type.
-	// Expected value is 'VmmToAzure'.
 	InstanceType string `pulumi:"instanceType"`
 }
 
@@ -19748,10 +16531,7 @@ type VmmToAzureNetworkMappingSettingsResponseInput interface {
 	ToVmmToAzureNetworkMappingSettingsResponseOutputWithContext(context.Context) VmmToAzureNetworkMappingSettingsResponseOutput
 }
 
-// E2A Network Mapping fabric specific settings.
 type VmmToAzureNetworkMappingSettingsResponseArgs struct {
-	// Gets the Instance type.
-	// Expected value is 'VmmToAzure'.
 	InstanceType pulumi.StringInput `pulumi:"instanceType"`
 }
 
@@ -19767,7 +16547,6 @@ func (i VmmToAzureNetworkMappingSettingsResponseArgs) ToVmmToAzureNetworkMapping
 	return pulumi.ToOutputWithContext(ctx, i).(VmmToAzureNetworkMappingSettingsResponseOutput)
 }
 
-// E2A Network Mapping fabric specific settings.
 type VmmToAzureNetworkMappingSettingsResponseOutput struct{ *pulumi.OutputState }
 
 func (VmmToAzureNetworkMappingSettingsResponseOutput) ElementType() reflect.Type {
@@ -19782,16 +16561,11 @@ func (o VmmToAzureNetworkMappingSettingsResponseOutput) ToVmmToAzureNetworkMappi
 	return o
 }
 
-// Gets the Instance type.
-// Expected value is 'VmmToAzure'.
 func (o VmmToAzureNetworkMappingSettingsResponseOutput) InstanceType() pulumi.StringOutput {
 	return o.ApplyT(func(v VmmToAzureNetworkMappingSettingsResponse) string { return v.InstanceType }).(pulumi.StringOutput)
 }
 
-// Create network mappings input properties/behavior specific to vmm to vmm Network mapping.
 type VmmToVmmCreateNetworkMappingInput struct {
-	// The instance type.
-	// Expected value is 'VmmToVmm'.
 	InstanceType *string `pulumi:"instanceType"`
 }
 
@@ -19806,10 +16580,7 @@ type VmmToVmmCreateNetworkMappingInputInput interface {
 	ToVmmToVmmCreateNetworkMappingInputOutputWithContext(context.Context) VmmToVmmCreateNetworkMappingInputOutput
 }
 
-// Create network mappings input properties/behavior specific to vmm to vmm Network mapping.
 type VmmToVmmCreateNetworkMappingInputArgs struct {
-	// The instance type.
-	// Expected value is 'VmmToVmm'.
 	InstanceType pulumi.StringPtrInput `pulumi:"instanceType"`
 }
 
@@ -19825,7 +16596,6 @@ func (i VmmToVmmCreateNetworkMappingInputArgs) ToVmmToVmmCreateNetworkMappingInp
 	return pulumi.ToOutputWithContext(ctx, i).(VmmToVmmCreateNetworkMappingInputOutput)
 }
 
-// Create network mappings input properties/behavior specific to vmm to vmm Network mapping.
 type VmmToVmmCreateNetworkMappingInputOutput struct{ *pulumi.OutputState }
 
 func (VmmToVmmCreateNetworkMappingInputOutput) ElementType() reflect.Type {
@@ -19840,16 +16610,11 @@ func (o VmmToVmmCreateNetworkMappingInputOutput) ToVmmToVmmCreateNetworkMappingI
 	return o
 }
 
-// The instance type.
-// Expected value is 'VmmToVmm'.
 func (o VmmToVmmCreateNetworkMappingInputOutput) InstanceType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v VmmToVmmCreateNetworkMappingInput) *string { return v.InstanceType }).(pulumi.StringPtrOutput)
 }
 
-// E2E Network Mapping fabric specific settings.
 type VmmToVmmNetworkMappingSettingsResponse struct {
-	// Gets the Instance type.
-	// Expected value is 'VmmToVmm'.
 	InstanceType string `pulumi:"instanceType"`
 }
 
@@ -19864,10 +16629,7 @@ type VmmToVmmNetworkMappingSettingsResponseInput interface {
 	ToVmmToVmmNetworkMappingSettingsResponseOutputWithContext(context.Context) VmmToVmmNetworkMappingSettingsResponseOutput
 }
 
-// E2E Network Mapping fabric specific settings.
 type VmmToVmmNetworkMappingSettingsResponseArgs struct {
-	// Gets the Instance type.
-	// Expected value is 'VmmToVmm'.
 	InstanceType pulumi.StringInput `pulumi:"instanceType"`
 }
 
@@ -19883,7 +16645,6 @@ func (i VmmToVmmNetworkMappingSettingsResponseArgs) ToVmmToVmmNetworkMappingSett
 	return pulumi.ToOutputWithContext(ctx, i).(VmmToVmmNetworkMappingSettingsResponseOutput)
 }
 
-// E2E Network Mapping fabric specific settings.
 type VmmToVmmNetworkMappingSettingsResponseOutput struct{ *pulumi.OutputState }
 
 func (VmmToVmmNetworkMappingSettingsResponseOutput) ElementType() reflect.Type {
@@ -19898,23 +16659,15 @@ func (o VmmToVmmNetworkMappingSettingsResponseOutput) ToVmmToVmmNetworkMappingSe
 	return o
 }
 
-// Gets the Instance type.
-// Expected value is 'VmmToVmm'.
 func (o VmmToVmmNetworkMappingSettingsResponseOutput) InstanceType() pulumi.StringOutput {
 	return o.ApplyT(func(v VmmToVmmNetworkMappingSettingsResponse) string { return v.InstanceType }).(pulumi.StringOutput)
 }
 
-// VMware Cbt specific policy details.
 type VmwareCbtPolicyDetailsResponse struct {
-	// The app consistent snapshot frequency in minutes.
-	AppConsistentFrequencyInMinutes *int `pulumi:"appConsistentFrequencyInMinutes"`
-	// The crash consistent snapshot frequency in minutes.
-	CrashConsistentFrequencyInMinutes *int `pulumi:"crashConsistentFrequencyInMinutes"`
-	// Gets the class type. Overridden in derived classes.
-	// Expected value is 'VMwareCbt'.
-	InstanceType string `pulumi:"instanceType"`
-	// The duration in minutes until which the recovery points need to be stored.
-	RecoveryPointHistoryInMinutes *int `pulumi:"recoveryPointHistoryInMinutes"`
+	AppConsistentFrequencyInMinutes   *int   `pulumi:"appConsistentFrequencyInMinutes"`
+	CrashConsistentFrequencyInMinutes *int   `pulumi:"crashConsistentFrequencyInMinutes"`
+	InstanceType                      string `pulumi:"instanceType"`
+	RecoveryPointHistoryInMinutes     *int   `pulumi:"recoveryPointHistoryInMinutes"`
 }
 
 // VmwareCbtPolicyDetailsResponseInput is an input type that accepts VmwareCbtPolicyDetailsResponseArgs and VmwareCbtPolicyDetailsResponseOutput values.
@@ -19928,17 +16681,11 @@ type VmwareCbtPolicyDetailsResponseInput interface {
 	ToVmwareCbtPolicyDetailsResponseOutputWithContext(context.Context) VmwareCbtPolicyDetailsResponseOutput
 }
 
-// VMware Cbt specific policy details.
 type VmwareCbtPolicyDetailsResponseArgs struct {
-	// The app consistent snapshot frequency in minutes.
-	AppConsistentFrequencyInMinutes pulumi.IntPtrInput `pulumi:"appConsistentFrequencyInMinutes"`
-	// The crash consistent snapshot frequency in minutes.
+	AppConsistentFrequencyInMinutes   pulumi.IntPtrInput `pulumi:"appConsistentFrequencyInMinutes"`
 	CrashConsistentFrequencyInMinutes pulumi.IntPtrInput `pulumi:"crashConsistentFrequencyInMinutes"`
-	// Gets the class type. Overridden in derived classes.
-	// Expected value is 'VMwareCbt'.
-	InstanceType pulumi.StringInput `pulumi:"instanceType"`
-	// The duration in minutes until which the recovery points need to be stored.
-	RecoveryPointHistoryInMinutes pulumi.IntPtrInput `pulumi:"recoveryPointHistoryInMinutes"`
+	InstanceType                      pulumi.StringInput `pulumi:"instanceType"`
+	RecoveryPointHistoryInMinutes     pulumi.IntPtrInput `pulumi:"recoveryPointHistoryInMinutes"`
 }
 
 func (VmwareCbtPolicyDetailsResponseArgs) ElementType() reflect.Type {
@@ -19953,7 +16700,6 @@ func (i VmwareCbtPolicyDetailsResponseArgs) ToVmwareCbtPolicyDetailsResponseOutp
 	return pulumi.ToOutputWithContext(ctx, i).(VmwareCbtPolicyDetailsResponseOutput)
 }
 
-// VMware Cbt specific policy details.
 type VmwareCbtPolicyDetailsResponseOutput struct{ *pulumi.OutputState }
 
 func (VmwareCbtPolicyDetailsResponseOutput) ElementType() reflect.Type {
@@ -19968,23 +16714,18 @@ func (o VmwareCbtPolicyDetailsResponseOutput) ToVmwareCbtPolicyDetailsResponseOu
 	return o
 }
 
-// The app consistent snapshot frequency in minutes.
 func (o VmwareCbtPolicyDetailsResponseOutput) AppConsistentFrequencyInMinutes() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v VmwareCbtPolicyDetailsResponse) *int { return v.AppConsistentFrequencyInMinutes }).(pulumi.IntPtrOutput)
 }
 
-// The crash consistent snapshot frequency in minutes.
 func (o VmwareCbtPolicyDetailsResponseOutput) CrashConsistentFrequencyInMinutes() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v VmwareCbtPolicyDetailsResponse) *int { return v.CrashConsistentFrequencyInMinutes }).(pulumi.IntPtrOutput)
 }
 
-// Gets the class type. Overridden in derived classes.
-// Expected value is 'VMwareCbt'.
 func (o VmwareCbtPolicyDetailsResponseOutput) InstanceType() pulumi.StringOutput {
 	return o.ApplyT(func(v VmwareCbtPolicyDetailsResponse) string { return v.InstanceType }).(pulumi.StringOutput)
 }
 
-// The duration in minutes until which the recovery points need to be stored.
 func (o VmwareCbtPolicyDetailsResponseOutput) RecoveryPointHistoryInMinutes() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v VmwareCbtPolicyDetailsResponse) *int { return v.RecoveryPointHistoryInMinutes }).(pulumi.IntPtrOutput)
 }

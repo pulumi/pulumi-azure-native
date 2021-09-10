@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.Synapse.V20210601.Outputs
 {
 
+    /// <summary>
+    /// Initial workspace AAD admin properties for a CSP subscription
+    /// </summary>
     [OutputType]
     public sealed class CspWorkspaceAdminPropertiesResponse
     {

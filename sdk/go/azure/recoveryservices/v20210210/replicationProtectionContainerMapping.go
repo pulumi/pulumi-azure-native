@@ -11,18 +11,13 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Protection container mapping object.
 type ReplicationProtectionContainerMapping struct {
 	pulumi.CustomResourceState
 
-	// Resource Location
-	Location pulumi.StringPtrOutput `pulumi:"location"`
-	// Resource Name
-	Name pulumi.StringOutput `pulumi:"name"`
-	// The custom data.
+	Location   pulumi.StringPtrOutput                             `pulumi:"location"`
+	Name       pulumi.StringOutput                                `pulumi:"name"`
 	Properties ProtectionContainerMappingPropertiesResponseOutput `pulumi:"properties"`
-	// Resource Type
-	Type pulumi.StringOutput `pulumi:"type"`
+	Type       pulumi.StringOutput                                `pulumi:"type"`
 }
 
 // NewReplicationProtectionContainerMapping registers a new resource with the given unique name, arguments, and options.
@@ -130,34 +125,22 @@ func (ReplicationProtectionContainerMappingState) ElementType() reflect.Type {
 }
 
 type replicationProtectionContainerMappingArgs struct {
-	// Fabric name.
-	FabricName string `pulumi:"fabricName"`
-	// Protection container mapping name.
-	MappingName *string `pulumi:"mappingName"`
-	// Configure protection input properties.
-	Properties *CreateProtectionContainerMappingInputProperties `pulumi:"properties"`
-	// Protection container name.
-	ProtectionContainerName string `pulumi:"protectionContainerName"`
-	// The name of the resource group where the recovery services vault is present.
-	ResourceGroupName string `pulumi:"resourceGroupName"`
-	// The name of the recovery services vault.
-	ResourceName string `pulumi:"resourceName"`
+	FabricName              string                                           `pulumi:"fabricName"`
+	MappingName             *string                                          `pulumi:"mappingName"`
+	Properties              *CreateProtectionContainerMappingInputProperties `pulumi:"properties"`
+	ProtectionContainerName string                                           `pulumi:"protectionContainerName"`
+	ResourceGroupName       string                                           `pulumi:"resourceGroupName"`
+	ResourceName            string                                           `pulumi:"resourceName"`
 }
 
 // The set of arguments for constructing a ReplicationProtectionContainerMapping resource.
 type ReplicationProtectionContainerMappingArgs struct {
-	// Fabric name.
-	FabricName pulumi.StringInput
-	// Protection container mapping name.
-	MappingName pulumi.StringPtrInput
-	// Configure protection input properties.
-	Properties CreateProtectionContainerMappingInputPropertiesPtrInput
-	// Protection container name.
+	FabricName              pulumi.StringInput
+	MappingName             pulumi.StringPtrInput
+	Properties              CreateProtectionContainerMappingInputPropertiesPtrInput
 	ProtectionContainerName pulumi.StringInput
-	// The name of the resource group where the recovery services vault is present.
-	ResourceGroupName pulumi.StringInput
-	// The name of the recovery services vault.
-	ResourceName pulumi.StringInput
+	ResourceGroupName       pulumi.StringInput
+	ResourceName            pulumi.StringInput
 }
 
 func (ReplicationProtectionContainerMappingArgs) ElementType() reflect.Type {
@@ -183,9 +166,7 @@ func (i *ReplicationProtectionContainerMapping) ToReplicationProtectionContainer
 	return pulumi.ToOutputWithContext(ctx, i).(ReplicationProtectionContainerMappingOutput)
 }
 
-type ReplicationProtectionContainerMappingOutput struct {
-	*pulumi.OutputState
-}
+type ReplicationProtectionContainerMappingOutput struct{ *pulumi.OutputState }
 
 func (ReplicationProtectionContainerMappingOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*ReplicationProtectionContainerMapping)(nil))

@@ -11,18 +11,13 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// A private link scoped resource
 type PrivateLinkScopedResource struct {
 	pulumi.CustomResourceState
 
-	// The resource id of the scoped Azure monitor resource.
-	LinkedResourceId pulumi.StringPtrOutput `pulumi:"linkedResourceId"`
-	// The name of the resource
-	Name pulumi.StringOutput `pulumi:"name"`
-	// State of the private endpoint connection.
-	ProvisioningState pulumi.StringOutput `pulumi:"provisioningState"`
-	// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
-	Type pulumi.StringOutput `pulumi:"type"`
+	LinkedResourceId  pulumi.StringPtrOutput `pulumi:"linkedResourceId"`
+	Name              pulumi.StringOutput    `pulumi:"name"`
+	ProvisioningState pulumi.StringOutput    `pulumi:"provisioningState"`
+	Type              pulumi.StringOutput    `pulumi:"type"`
 }
 
 // NewPrivateLinkScopedResource registers a new resource with the given unique name, arguments, and options.
@@ -82,26 +77,18 @@ func (PrivateLinkScopedResourceState) ElementType() reflect.Type {
 }
 
 type privateLinkScopedResourceArgs struct {
-	// The resource id of the scoped Azure monitor resource.
-	LinkedResourceId *string `pulumi:"linkedResourceId"`
-	// The name of the scoped resource object.
-	Name *string `pulumi:"name"`
-	// The name of the resource group.
-	ResourceGroupName string `pulumi:"resourceGroupName"`
-	// The name of the Azure Arc PrivateLinkScope resource.
-	ScopeName string `pulumi:"scopeName"`
+	LinkedResourceId  *string `pulumi:"linkedResourceId"`
+	Name              *string `pulumi:"name"`
+	ResourceGroupName string  `pulumi:"resourceGroupName"`
+	ScopeName         string  `pulumi:"scopeName"`
 }
 
 // The set of arguments for constructing a PrivateLinkScopedResource resource.
 type PrivateLinkScopedResourceArgs struct {
-	// The resource id of the scoped Azure monitor resource.
-	LinkedResourceId pulumi.StringPtrInput
-	// The name of the scoped resource object.
-	Name pulumi.StringPtrInput
-	// The name of the resource group.
+	LinkedResourceId  pulumi.StringPtrInput
+	Name              pulumi.StringPtrInput
 	ResourceGroupName pulumi.StringInput
-	// The name of the Azure Arc PrivateLinkScope resource.
-	ScopeName pulumi.StringInput
+	ScopeName         pulumi.StringInput
 }
 
 func (PrivateLinkScopedResourceArgs) ElementType() reflect.Type {
@@ -127,9 +114,7 @@ func (i *PrivateLinkScopedResource) ToPrivateLinkScopedResourceOutputWithContext
 	return pulumi.ToOutputWithContext(ctx, i).(PrivateLinkScopedResourceOutput)
 }
 
-type PrivateLinkScopedResourceOutput struct {
-	*pulumi.OutputState
-}
+type PrivateLinkScopedResourceOutput struct{ *pulumi.OutputState }
 
 func (PrivateLinkScopedResourceOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*PrivateLinkScopedResource)(nil))

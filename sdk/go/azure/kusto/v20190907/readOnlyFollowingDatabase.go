@@ -11,33 +11,20 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Class representing a read only following database.
 type ReadOnlyFollowingDatabase struct {
 	pulumi.CustomResourceState
 
-	// The name of the attached database configuration cluster
-	AttachedDatabaseConfigurationName pulumi.StringOutput `pulumi:"attachedDatabaseConfigurationName"`
-	// The time the data should be kept in cache for fast queries in TimeSpan.
-	HotCachePeriod pulumi.StringPtrOutput `pulumi:"hotCachePeriod"`
-	// Kind of the database
-	// Expected value is 'ReadOnlyFollowing'.
-	Kind pulumi.StringPtrOutput `pulumi:"kind"`
-	// The name of the leader cluster
-	LeaderClusterResourceId pulumi.StringOutput `pulumi:"leaderClusterResourceId"`
-	// Resource location.
-	Location pulumi.StringPtrOutput `pulumi:"location"`
-	// The name of the resource
-	Name pulumi.StringOutput `pulumi:"name"`
-	// The principals modification kind of the database
-	PrincipalsModificationKind pulumi.StringOutput `pulumi:"principalsModificationKind"`
-	// The provisioned state of the resource.
-	ProvisioningState pulumi.StringOutput `pulumi:"provisioningState"`
-	// The time the data should be kept before it stops being accessible to queries in TimeSpan.
-	SoftDeletePeriod pulumi.StringOutput `pulumi:"softDeletePeriod"`
-	// The statistics of the database.
-	Statistics DatabaseStatisticsResponseOutput `pulumi:"statistics"`
-	// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
-	Type pulumi.StringOutput `pulumi:"type"`
+	AttachedDatabaseConfigurationName pulumi.StringOutput              `pulumi:"attachedDatabaseConfigurationName"`
+	HotCachePeriod                    pulumi.StringPtrOutput           `pulumi:"hotCachePeriod"`
+	Kind                              pulumi.StringPtrOutput           `pulumi:"kind"`
+	LeaderClusterResourceId           pulumi.StringOutput              `pulumi:"leaderClusterResourceId"`
+	Location                          pulumi.StringPtrOutput           `pulumi:"location"`
+	Name                              pulumi.StringOutput              `pulumi:"name"`
+	PrincipalsModificationKind        pulumi.StringOutput              `pulumi:"principalsModificationKind"`
+	ProvisioningState                 pulumi.StringOutput              `pulumi:"provisioningState"`
+	SoftDeletePeriod                  pulumi.StringOutput              `pulumi:"softDeletePeriod"`
+	Statistics                        DatabaseStatisticsResponseOutput `pulumi:"statistics"`
+	Type                              pulumi.StringOutput              `pulumi:"type"`
 }
 
 // NewReadOnlyFollowingDatabase registers a new resource with the given unique name, arguments, and options.
@@ -158,35 +145,21 @@ func (ReadOnlyFollowingDatabaseState) ElementType() reflect.Type {
 }
 
 type readOnlyFollowingDatabaseArgs struct {
-	// The name of the Kusto cluster.
-	ClusterName string `pulumi:"clusterName"`
-	// The name of the database in the Kusto cluster.
-	DatabaseName *string `pulumi:"databaseName"`
-	// The time the data should be kept in cache for fast queries in TimeSpan.
-	HotCachePeriod *string `pulumi:"hotCachePeriod"`
-	// Kind of the database
-	// Expected value is 'ReadOnlyFollowing'.
-	Kind *string `pulumi:"kind"`
-	// Resource location.
-	Location *string `pulumi:"location"`
-	// The name of the resource group containing the Kusto cluster.
-	ResourceGroupName string `pulumi:"resourceGroupName"`
+	ClusterName       string  `pulumi:"clusterName"`
+	DatabaseName      *string `pulumi:"databaseName"`
+	HotCachePeriod    *string `pulumi:"hotCachePeriod"`
+	Kind              *string `pulumi:"kind"`
+	Location          *string `pulumi:"location"`
+	ResourceGroupName string  `pulumi:"resourceGroupName"`
 }
 
 // The set of arguments for constructing a ReadOnlyFollowingDatabase resource.
 type ReadOnlyFollowingDatabaseArgs struct {
-	// The name of the Kusto cluster.
-	ClusterName pulumi.StringInput
-	// The name of the database in the Kusto cluster.
-	DatabaseName pulumi.StringPtrInput
-	// The time the data should be kept in cache for fast queries in TimeSpan.
-	HotCachePeriod pulumi.StringPtrInput
-	// Kind of the database
-	// Expected value is 'ReadOnlyFollowing'.
-	Kind pulumi.StringPtrInput
-	// Resource location.
-	Location pulumi.StringPtrInput
-	// The name of the resource group containing the Kusto cluster.
+	ClusterName       pulumi.StringInput
+	DatabaseName      pulumi.StringPtrInput
+	HotCachePeriod    pulumi.StringPtrInput
+	Kind              pulumi.StringPtrInput
+	Location          pulumi.StringPtrInput
 	ResourceGroupName pulumi.StringInput
 }
 
@@ -213,9 +186,7 @@ func (i *ReadOnlyFollowingDatabase) ToReadOnlyFollowingDatabaseOutputWithContext
 	return pulumi.ToOutputWithContext(ctx, i).(ReadOnlyFollowingDatabaseOutput)
 }
 
-type ReadOnlyFollowingDatabaseOutput struct {
-	*pulumi.OutputState
-}
+type ReadOnlyFollowingDatabaseOutput struct{ *pulumi.OutputState }
 
 func (ReadOnlyFollowingDatabaseOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*ReadOnlyFollowingDatabase)(nil))

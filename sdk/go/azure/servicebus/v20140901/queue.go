@@ -11,60 +11,34 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Description of queue Resource.
 type Queue struct {
 	pulumi.CustomResourceState
 
-	// Last time a message was sent, or the last time there was a receive request to this queue.
-	AccessedAt pulumi.StringOutput `pulumi:"accessedAt"`
-	// the TimeSpan idle interval after which the queue is automatically deleted. The minimum duration is 5 minutes.
-	AutoDeleteOnIdle pulumi.StringPtrOutput `pulumi:"autoDeleteOnIdle"`
-	// Message Count Details.
-	CountDetails MessageCountDetailsResponseOutput `pulumi:"countDetails"`
-	// The exact time the message was created.
-	CreatedAt pulumi.StringOutput `pulumi:"createdAt"`
-	// A value that indicates whether this queue has dead letter support when a message expires.
-	DeadLetteringOnMessageExpiration pulumi.BoolPtrOutput `pulumi:"deadLetteringOnMessageExpiration"`
-	// The default message time to live value. This is the duration after which the message expires, starting from when the message is sent to Service Bus. This is the default value used when TimeToLive is not set on a message itself.
-	DefaultMessageTimeToLive pulumi.StringPtrOutput `pulumi:"defaultMessageTimeToLive"`
-	// TimeSpan structure that defines the duration of the duplicate detection history. The default value is 10 minutes.
-	DuplicateDetectionHistoryTimeWindow pulumi.StringPtrOutput `pulumi:"duplicateDetectionHistoryTimeWindow"`
-	// A value that indicates whether server-side batched operations are enabled.
-	EnableBatchedOperations pulumi.BoolPtrOutput `pulumi:"enableBatchedOperations"`
-	// A value that indicates whether Express Entities are enabled. An express queue holds a message in memory temporarily before writing it to persistent storage.
-	EnableExpress pulumi.BoolPtrOutput `pulumi:"enableExpress"`
-	// A value that indicates whether the queue is to be partitioned across multiple message brokers.
-	EnablePartitioning pulumi.BoolPtrOutput `pulumi:"enablePartitioning"`
-	// Entity availability status for the queue.
-	EntityAvailabilityStatus pulumi.StringPtrOutput `pulumi:"entityAvailabilityStatus"`
-	// A value that indicates whether the message is accessible anonymously.
-	IsAnonymousAccessible pulumi.BoolPtrOutput `pulumi:"isAnonymousAccessible"`
-	// Resource location.
-	Location pulumi.StringPtrOutput `pulumi:"location"`
-	// The duration of a peek-lock; that is, the amount of time that the message is locked for other receivers. The maximum value for LockDuration is 5 minutes; the default value is 1 minute.
-	LockDuration pulumi.StringPtrOutput `pulumi:"lockDuration"`
-	// The maximum delivery count. A message is automatically deadlettered after this number of deliveries.
-	MaxDeliveryCount pulumi.IntPtrOutput `pulumi:"maxDeliveryCount"`
-	// The maximum size of the queue in megabytes, which is the size of memory allocated for the queue.
-	MaxSizeInMegabytes pulumi.Float64PtrOutput `pulumi:"maxSizeInMegabytes"`
-	// The number of messages in the queue.
-	MessageCount pulumi.Float64Output `pulumi:"messageCount"`
-	// Resource name
-	Name pulumi.StringOutput `pulumi:"name"`
-	// A value indicating if this queue requires duplicate detection.
-	RequiresDuplicateDetection pulumi.BoolPtrOutput `pulumi:"requiresDuplicateDetection"`
-	// A value that indicates whether the queue supports the concept of sessions.
-	RequiresSession pulumi.BoolPtrOutput `pulumi:"requiresSession"`
-	// The size of the queue, in bytes.
-	SizeInBytes pulumi.Float64Output `pulumi:"sizeInBytes"`
-	// Enumerates the possible values for the status of a messaging entity.
-	Status pulumi.StringPtrOutput `pulumi:"status"`
-	// A value that indicates whether the queue supports ordering.
-	SupportOrdering pulumi.BoolPtrOutput `pulumi:"supportOrdering"`
-	// Resource type
-	Type pulumi.StringOutput `pulumi:"type"`
-	// The exact time the message was updated.
-	UpdatedAt pulumi.StringOutput `pulumi:"updatedAt"`
+	AccessedAt                          pulumi.StringOutput               `pulumi:"accessedAt"`
+	AutoDeleteOnIdle                    pulumi.StringPtrOutput            `pulumi:"autoDeleteOnIdle"`
+	CountDetails                        MessageCountDetailsResponseOutput `pulumi:"countDetails"`
+	CreatedAt                           pulumi.StringOutput               `pulumi:"createdAt"`
+	DeadLetteringOnMessageExpiration    pulumi.BoolPtrOutput              `pulumi:"deadLetteringOnMessageExpiration"`
+	DefaultMessageTimeToLive            pulumi.StringPtrOutput            `pulumi:"defaultMessageTimeToLive"`
+	DuplicateDetectionHistoryTimeWindow pulumi.StringPtrOutput            `pulumi:"duplicateDetectionHistoryTimeWindow"`
+	EnableBatchedOperations             pulumi.BoolPtrOutput              `pulumi:"enableBatchedOperations"`
+	EnableExpress                       pulumi.BoolPtrOutput              `pulumi:"enableExpress"`
+	EnablePartitioning                  pulumi.BoolPtrOutput              `pulumi:"enablePartitioning"`
+	EntityAvailabilityStatus            pulumi.StringPtrOutput            `pulumi:"entityAvailabilityStatus"`
+	IsAnonymousAccessible               pulumi.BoolPtrOutput              `pulumi:"isAnonymousAccessible"`
+	Location                            pulumi.StringPtrOutput            `pulumi:"location"`
+	LockDuration                        pulumi.StringPtrOutput            `pulumi:"lockDuration"`
+	MaxDeliveryCount                    pulumi.IntPtrOutput               `pulumi:"maxDeliveryCount"`
+	MaxSizeInMegabytes                  pulumi.Float64PtrOutput           `pulumi:"maxSizeInMegabytes"`
+	MessageCount                        pulumi.Float64Output              `pulumi:"messageCount"`
+	Name                                pulumi.StringOutput               `pulumi:"name"`
+	RequiresDuplicateDetection          pulumi.BoolPtrOutput              `pulumi:"requiresDuplicateDetection"`
+	RequiresSession                     pulumi.BoolPtrOutput              `pulumi:"requiresSession"`
+	SizeInBytes                         pulumi.Float64Output              `pulumi:"sizeInBytes"`
+	Status                              pulumi.StringPtrOutput            `pulumi:"status"`
+	SupportOrdering                     pulumi.BoolPtrOutput              `pulumi:"supportOrdering"`
+	Type                                pulumi.StringOutput               `pulumi:"type"`
+	UpdatedAt                           pulumi.StringOutput               `pulumi:"updatedAt"`
 }
 
 // NewQueue registers a new resource with the given unique name, arguments, and options.
@@ -154,94 +128,52 @@ func (QueueState) ElementType() reflect.Type {
 }
 
 type queueArgs struct {
-	// the TimeSpan idle interval after which the queue is automatically deleted. The minimum duration is 5 minutes.
-	AutoDeleteOnIdle *string `pulumi:"autoDeleteOnIdle"`
-	// A value that indicates whether this queue has dead letter support when a message expires.
-	DeadLetteringOnMessageExpiration *bool `pulumi:"deadLetteringOnMessageExpiration"`
-	// The default message time to live value. This is the duration after which the message expires, starting from when the message is sent to Service Bus. This is the default value used when TimeToLive is not set on a message itself.
-	DefaultMessageTimeToLive *string `pulumi:"defaultMessageTimeToLive"`
-	// TimeSpan structure that defines the duration of the duplicate detection history. The default value is 10 minutes.
-	DuplicateDetectionHistoryTimeWindow *string `pulumi:"duplicateDetectionHistoryTimeWindow"`
-	// A value that indicates whether server-side batched operations are enabled.
-	EnableBatchedOperations *bool `pulumi:"enableBatchedOperations"`
-	// A value that indicates whether Express Entities are enabled. An express queue holds a message in memory temporarily before writing it to persistent storage.
-	EnableExpress *bool `pulumi:"enableExpress"`
-	// A value that indicates whether the queue is to be partitioned across multiple message brokers.
-	EnablePartitioning *bool `pulumi:"enablePartitioning"`
-	// Entity availability status for the queue.
-	EntityAvailabilityStatus *string `pulumi:"entityAvailabilityStatus"`
-	// A value that indicates whether the message is accessible anonymously.
-	IsAnonymousAccessible *bool `pulumi:"isAnonymousAccessible"`
-	// location of the resource.
-	Location *string `pulumi:"location"`
-	// The duration of a peek-lock; that is, the amount of time that the message is locked for other receivers. The maximum value for LockDuration is 5 minutes; the default value is 1 minute.
-	LockDuration *string `pulumi:"lockDuration"`
-	// The maximum delivery count. A message is automatically deadlettered after this number of deliveries.
-	MaxDeliveryCount *int `pulumi:"maxDeliveryCount"`
-	// The maximum size of the queue in megabytes, which is the size of memory allocated for the queue.
-	MaxSizeInMegabytes *float64 `pulumi:"maxSizeInMegabytes"`
-	// Queue name.
-	Name *string `pulumi:"name"`
-	// The namespace name
-	NamespaceName string `pulumi:"namespaceName"`
-	// The queue name.
-	QueueName *string `pulumi:"queueName"`
-	// A value indicating if this queue requires duplicate detection.
-	RequiresDuplicateDetection *bool `pulumi:"requiresDuplicateDetection"`
-	// A value that indicates whether the queue supports the concept of sessions.
-	RequiresSession *bool `pulumi:"requiresSession"`
-	// Name of the Resource group within the Azure subscription.
-	ResourceGroupName string `pulumi:"resourceGroupName"`
-	// Enumerates the possible values for the status of a messaging entity.
-	Status *string `pulumi:"status"`
-	// A value that indicates whether the queue supports ordering.
-	SupportOrdering *bool `pulumi:"supportOrdering"`
+	AutoDeleteOnIdle                    *string                   `pulumi:"autoDeleteOnIdle"`
+	DeadLetteringOnMessageExpiration    *bool                     `pulumi:"deadLetteringOnMessageExpiration"`
+	DefaultMessageTimeToLive            *string                   `pulumi:"defaultMessageTimeToLive"`
+	DuplicateDetectionHistoryTimeWindow *string                   `pulumi:"duplicateDetectionHistoryTimeWindow"`
+	EnableBatchedOperations             *bool                     `pulumi:"enableBatchedOperations"`
+	EnableExpress                       *bool                     `pulumi:"enableExpress"`
+	EnablePartitioning                  *bool                     `pulumi:"enablePartitioning"`
+	EntityAvailabilityStatus            *EntityAvailabilityStatus `pulumi:"entityAvailabilityStatus"`
+	IsAnonymousAccessible               *bool                     `pulumi:"isAnonymousAccessible"`
+	Location                            *string                   `pulumi:"location"`
+	LockDuration                        *string                   `pulumi:"lockDuration"`
+	MaxDeliveryCount                    *int                      `pulumi:"maxDeliveryCount"`
+	MaxSizeInMegabytes                  *float64                  `pulumi:"maxSizeInMegabytes"`
+	Name                                *string                   `pulumi:"name"`
+	NamespaceName                       string                    `pulumi:"namespaceName"`
+	QueueName                           *string                   `pulumi:"queueName"`
+	RequiresDuplicateDetection          *bool                     `pulumi:"requiresDuplicateDetection"`
+	RequiresSession                     *bool                     `pulumi:"requiresSession"`
+	ResourceGroupName                   string                    `pulumi:"resourceGroupName"`
+	Status                              *EntityStatus             `pulumi:"status"`
+	SupportOrdering                     *bool                     `pulumi:"supportOrdering"`
 }
 
 // The set of arguments for constructing a Queue resource.
 type QueueArgs struct {
-	// the TimeSpan idle interval after which the queue is automatically deleted. The minimum duration is 5 minutes.
-	AutoDeleteOnIdle pulumi.StringPtrInput
-	// A value that indicates whether this queue has dead letter support when a message expires.
-	DeadLetteringOnMessageExpiration pulumi.BoolPtrInput
-	// The default message time to live value. This is the duration after which the message expires, starting from when the message is sent to Service Bus. This is the default value used when TimeToLive is not set on a message itself.
-	DefaultMessageTimeToLive pulumi.StringPtrInput
-	// TimeSpan structure that defines the duration of the duplicate detection history. The default value is 10 minutes.
+	AutoDeleteOnIdle                    pulumi.StringPtrInput
+	DeadLetteringOnMessageExpiration    pulumi.BoolPtrInput
+	DefaultMessageTimeToLive            pulumi.StringPtrInput
 	DuplicateDetectionHistoryTimeWindow pulumi.StringPtrInput
-	// A value that indicates whether server-side batched operations are enabled.
-	EnableBatchedOperations pulumi.BoolPtrInput
-	// A value that indicates whether Express Entities are enabled. An express queue holds a message in memory temporarily before writing it to persistent storage.
-	EnableExpress pulumi.BoolPtrInput
-	// A value that indicates whether the queue is to be partitioned across multiple message brokers.
-	EnablePartitioning pulumi.BoolPtrInput
-	// Entity availability status for the queue.
-	EntityAvailabilityStatus *EntityAvailabilityStatus
-	// A value that indicates whether the message is accessible anonymously.
-	IsAnonymousAccessible pulumi.BoolPtrInput
-	// location of the resource.
-	Location pulumi.StringPtrInput
-	// The duration of a peek-lock; that is, the amount of time that the message is locked for other receivers. The maximum value for LockDuration is 5 minutes; the default value is 1 minute.
-	LockDuration pulumi.StringPtrInput
-	// The maximum delivery count. A message is automatically deadlettered after this number of deliveries.
-	MaxDeliveryCount pulumi.IntPtrInput
-	// The maximum size of the queue in megabytes, which is the size of memory allocated for the queue.
-	MaxSizeInMegabytes pulumi.Float64PtrInput
-	// Queue name.
-	Name pulumi.StringPtrInput
-	// The namespace name
-	NamespaceName pulumi.StringInput
-	// The queue name.
-	QueueName pulumi.StringPtrInput
-	// A value indicating if this queue requires duplicate detection.
-	RequiresDuplicateDetection pulumi.BoolPtrInput
-	// A value that indicates whether the queue supports the concept of sessions.
-	RequiresSession pulumi.BoolPtrInput
-	// Name of the Resource group within the Azure subscription.
-	ResourceGroupName pulumi.StringInput
-	// Enumerates the possible values for the status of a messaging entity.
-	Status *EntityStatus
-	// A value that indicates whether the queue supports ordering.
-	SupportOrdering pulumi.BoolPtrInput
+	EnableBatchedOperations             pulumi.BoolPtrInput
+	EnableExpress                       pulumi.BoolPtrInput
+	EnablePartitioning                  pulumi.BoolPtrInput
+	EntityAvailabilityStatus            EntityAvailabilityStatusPtrInput
+	IsAnonymousAccessible               pulumi.BoolPtrInput
+	Location                            pulumi.StringPtrInput
+	LockDuration                        pulumi.StringPtrInput
+	MaxDeliveryCount                    pulumi.IntPtrInput
+	MaxSizeInMegabytes                  pulumi.Float64PtrInput
+	Name                                pulumi.StringPtrInput
+	NamespaceName                       pulumi.StringInput
+	QueueName                           pulumi.StringPtrInput
+	RequiresDuplicateDetection          pulumi.BoolPtrInput
+	RequiresSession                     pulumi.BoolPtrInput
+	ResourceGroupName                   pulumi.StringInput
+	Status                              EntityStatusPtrInput
+	SupportOrdering                     pulumi.BoolPtrInput
 }
 
 func (QueueArgs) ElementType() reflect.Type {
@@ -267,9 +199,7 @@ func (i *Queue) ToQueueOutputWithContext(ctx context.Context) QueueOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(QueueOutput)
 }
 
-type QueueOutput struct {
-	*pulumi.OutputState
-}
+type QueueOutput struct{ *pulumi.OutputState }
 
 func (QueueOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*Queue)(nil))

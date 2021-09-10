@@ -11,28 +11,18 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Template Spec object.
 type TemplateSpec struct {
 	pulumi.CustomResourceState
 
-	// Template Spec description.
-	Description pulumi.StringPtrOutput `pulumi:"description"`
-	// Template Spec display name.
-	DisplayName pulumi.StringPtrOutput `pulumi:"displayName"`
-	// The location of the Template Spec. It cannot be changed after Template Spec creation. It must be one of the supported Azure locations.
-	Location pulumi.StringOutput `pulumi:"location"`
-	// The Template Spec metadata. Metadata is an open-ended object and is typically a collection of key-value pairs.
-	Metadata pulumi.AnyOutput `pulumi:"metadata"`
-	// Name of this resource.
-	Name pulumi.StringOutput `pulumi:"name"`
-	// Azure Resource Manager metadata containing createdBy and modifiedBy information.
-	SystemData SystemDataResponseOutput `pulumi:"systemData"`
-	// Resource tags.
-	Tags pulumi.StringMapOutput `pulumi:"tags"`
-	// Type of this resource.
-	Type pulumi.StringOutput `pulumi:"type"`
-	// High-level information about the versions within this Template Spec. The keys are the version names. Only populated if the $expand query parameter is set to 'versions'.
-	Versions TemplateSpecVersionInfoResponseMapOutput `pulumi:"versions"`
+	Description pulumi.StringPtrOutput                   `pulumi:"description"`
+	DisplayName pulumi.StringPtrOutput                   `pulumi:"displayName"`
+	Location    pulumi.StringOutput                      `pulumi:"location"`
+	Metadata    pulumi.AnyOutput                         `pulumi:"metadata"`
+	Name        pulumi.StringOutput                      `pulumi:"name"`
+	SystemData  SystemDataResponseOutput                 `pulumi:"systemData"`
+	Tags        pulumi.StringMapOutput                   `pulumi:"tags"`
+	Type        pulumi.StringOutput                      `pulumi:"type"`
+	Versions    TemplateSpecVersionInfoResponseMapOutput `pulumi:"versions"`
 }
 
 // NewTemplateSpec registers a new resource with the given unique name, arguments, and options.
@@ -101,38 +91,24 @@ func (TemplateSpecState) ElementType() reflect.Type {
 }
 
 type templateSpecArgs struct {
-	// Template Spec description.
-	Description *string `pulumi:"description"`
-	// Template Spec display name.
-	DisplayName *string `pulumi:"displayName"`
-	// The location of the Template Spec. It cannot be changed after Template Spec creation. It must be one of the supported Azure locations.
-	Location *string `pulumi:"location"`
-	// The Template Spec metadata. Metadata is an open-ended object and is typically a collection of key-value pairs.
-	Metadata interface{} `pulumi:"metadata"`
-	// The name of the resource group. The name is case insensitive.
-	ResourceGroupName string `pulumi:"resourceGroupName"`
-	// Resource tags.
-	Tags map[string]string `pulumi:"tags"`
-	// Name of the Template Spec.
-	TemplateSpecName *string `pulumi:"templateSpecName"`
+	Description       *string           `pulumi:"description"`
+	DisplayName       *string           `pulumi:"displayName"`
+	Location          *string           `pulumi:"location"`
+	Metadata          interface{}       `pulumi:"metadata"`
+	ResourceGroupName string            `pulumi:"resourceGroupName"`
+	Tags              map[string]string `pulumi:"tags"`
+	TemplateSpecName  *string           `pulumi:"templateSpecName"`
 }
 
 // The set of arguments for constructing a TemplateSpec resource.
 type TemplateSpecArgs struct {
-	// Template Spec description.
-	Description pulumi.StringPtrInput
-	// Template Spec display name.
-	DisplayName pulumi.StringPtrInput
-	// The location of the Template Spec. It cannot be changed after Template Spec creation. It must be one of the supported Azure locations.
-	Location pulumi.StringPtrInput
-	// The Template Spec metadata. Metadata is an open-ended object and is typically a collection of key-value pairs.
-	Metadata pulumi.Input
-	// The name of the resource group. The name is case insensitive.
+	Description       pulumi.StringPtrInput
+	DisplayName       pulumi.StringPtrInput
+	Location          pulumi.StringPtrInput
+	Metadata          pulumi.Input
 	ResourceGroupName pulumi.StringInput
-	// Resource tags.
-	Tags pulumi.StringMapInput
-	// Name of the Template Spec.
-	TemplateSpecName pulumi.StringPtrInput
+	Tags              pulumi.StringMapInput
+	TemplateSpecName  pulumi.StringPtrInput
 }
 
 func (TemplateSpecArgs) ElementType() reflect.Type {
@@ -158,9 +134,7 @@ func (i *TemplateSpec) ToTemplateSpecOutputWithContext(ctx context.Context) Temp
 	return pulumi.ToOutputWithContext(ctx, i).(TemplateSpecOutput)
 }
 
-type TemplateSpecOutput struct {
-	*pulumi.OutputState
-}
+type TemplateSpecOutput struct{ *pulumi.OutputState }
 
 func (TemplateSpecOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*TemplateSpec)(nil))

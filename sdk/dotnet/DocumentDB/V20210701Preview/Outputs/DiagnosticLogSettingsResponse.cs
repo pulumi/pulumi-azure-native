@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.DocumentDB.V20210701Preview.Outputs
 {
 
+    /// <summary>
+    /// Indicates what diagnostic log settings are to be enabled.
+    /// </summary>
     [OutputType]
     public sealed class DiagnosticLogSettingsResponse
     {

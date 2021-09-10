@@ -10,18 +10,13 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Management lock information.
 type ManagementLock struct {
 	pulumi.CustomResourceState
 
-	// The lock level of the management lock.
 	Level pulumi.StringPtrOutput `pulumi:"level"`
-	// The name of the lock.
-	Name pulumi.StringPtrOutput `pulumi:"name"`
-	// The notes of the management lock.
+	Name  pulumi.StringPtrOutput `pulumi:"name"`
 	Notes pulumi.StringPtrOutput `pulumi:"notes"`
-	// The type of the lock.
-	Type pulumi.StringOutput `pulumi:"type"`
+	Type  pulumi.StringOutput    `pulumi:"type"`
 }
 
 // NewManagementLock registers a new resource with the given unique name, arguments, and options.
@@ -93,26 +88,18 @@ func (ManagementLockState) ElementType() reflect.Type {
 }
 
 type managementLockArgs struct {
-	// The lock level of the management lock.
-	Level *string `pulumi:"level"`
-	// The name of lock.
+	Level    *string `pulumi:"level"`
 	LockName *string `pulumi:"lockName"`
-	// The name of the lock.
-	Name *string `pulumi:"name"`
-	// The notes of the management lock.
-	Notes *string `pulumi:"notes"`
+	Name     *string `pulumi:"name"`
+	Notes    *string `pulumi:"notes"`
 }
 
 // The set of arguments for constructing a ManagementLock resource.
 type ManagementLockArgs struct {
-	// The lock level of the management lock.
-	Level pulumi.StringPtrInput
-	// The name of lock.
+	Level    pulumi.StringPtrInput
 	LockName pulumi.StringPtrInput
-	// The name of the lock.
-	Name pulumi.StringPtrInput
-	// The notes of the management lock.
-	Notes pulumi.StringPtrInput
+	Name     pulumi.StringPtrInput
+	Notes    pulumi.StringPtrInput
 }
 
 func (ManagementLockArgs) ElementType() reflect.Type {
@@ -138,9 +125,7 @@ func (i *ManagementLock) ToManagementLockOutputWithContext(ctx context.Context) 
 	return pulumi.ToOutputWithContext(ctx, i).(ManagementLockOutput)
 }
 
-type ManagementLockOutput struct {
-	*pulumi.OutputState
-}
+type ManagementLockOutput struct{ *pulumi.OutputState }
 
 func (ManagementLockOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*ManagementLock)(nil))

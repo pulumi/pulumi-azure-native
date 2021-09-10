@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.Synapse.V20210301.Outputs
 {
 
+    /// <summary>
+    /// Details of the data lake storage account associated with the workspace
+    /// </summary>
     [OutputType]
     public sealed class DataLakeStorageAccountDetailsResponse
     {

@@ -162,9 +162,7 @@ func (i *DataSource) ToDataSourceOutputWithContext(ctx context.Context) DataSour
 	return pulumi.ToOutputWithContext(ctx, i).(DataSourceOutput)
 }
 
-type DataSourceOutput struct {
-	*pulumi.OutputState
-}
+type DataSourceOutput struct{ *pulumi.OutputState }
 
 func (DataSourceOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*DataSource)(nil))

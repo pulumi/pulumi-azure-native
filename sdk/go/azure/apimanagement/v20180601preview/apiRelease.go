@@ -11,22 +11,15 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Api Release details.
 type ApiRelease struct {
 	pulumi.CustomResourceState
 
-	// Identifier of the API the release belongs to.
-	ApiId pulumi.StringPtrOutput `pulumi:"apiId"`
-	// The time the API was released. The date conforms to the following format: yyyy-MM-ddTHH:mm:ssZ as specified by the ISO 8601 standard.
-	CreatedDateTime pulumi.StringOutput `pulumi:"createdDateTime"`
-	// Resource name.
-	Name pulumi.StringOutput `pulumi:"name"`
-	// Release Notes
-	Notes pulumi.StringPtrOutput `pulumi:"notes"`
-	// Resource type for API Management resource.
-	Type pulumi.StringOutput `pulumi:"type"`
-	// The time the API release was updated.
-	UpdatedDateTime pulumi.StringOutput `pulumi:"updatedDateTime"`
+	ApiId           pulumi.StringPtrOutput `pulumi:"apiId"`
+	CreatedDateTime pulumi.StringOutput    `pulumi:"createdDateTime"`
+	Name            pulumi.StringOutput    `pulumi:"name"`
+	Notes           pulumi.StringPtrOutput `pulumi:"notes"`
+	Type            pulumi.StringOutput    `pulumi:"type"`
+	UpdatedDateTime pulumi.StringOutput    `pulumi:"updatedDateTime"`
 }
 
 // NewApiRelease registers a new resource with the given unique name, arguments, and options.
@@ -137,30 +130,20 @@ func (ApiReleaseState) ElementType() reflect.Type {
 }
 
 type apiReleaseArgs struct {
-	// Identifier of the API the release belongs to.
-	ApiId string `pulumi:"apiId"`
-	// Release Notes
-	Notes *string `pulumi:"notes"`
-	// Release identifier within an API. Must be unique in the current API Management service instance.
-	ReleaseId *string `pulumi:"releaseId"`
-	// The name of the resource group.
-	ResourceGroupName string `pulumi:"resourceGroupName"`
-	// The name of the API Management service.
-	ServiceName string `pulumi:"serviceName"`
+	ApiId             string  `pulumi:"apiId"`
+	Notes             *string `pulumi:"notes"`
+	ReleaseId         *string `pulumi:"releaseId"`
+	ResourceGroupName string  `pulumi:"resourceGroupName"`
+	ServiceName       string  `pulumi:"serviceName"`
 }
 
 // The set of arguments for constructing a ApiRelease resource.
 type ApiReleaseArgs struct {
-	// Identifier of the API the release belongs to.
-	ApiId pulumi.StringInput
-	// Release Notes
-	Notes pulumi.StringPtrInput
-	// Release identifier within an API. Must be unique in the current API Management service instance.
-	ReleaseId pulumi.StringPtrInput
-	// The name of the resource group.
+	ApiId             pulumi.StringInput
+	Notes             pulumi.StringPtrInput
+	ReleaseId         pulumi.StringPtrInput
 	ResourceGroupName pulumi.StringInput
-	// The name of the API Management service.
-	ServiceName pulumi.StringInput
+	ServiceName       pulumi.StringInput
 }
 
 func (ApiReleaseArgs) ElementType() reflect.Type {
@@ -186,9 +169,7 @@ func (i *ApiRelease) ToApiReleaseOutputWithContext(ctx context.Context) ApiRelea
 	return pulumi.ToOutputWithContext(ctx, i).(ApiReleaseOutput)
 }
 
-type ApiReleaseOutput struct {
-	*pulumi.OutputState
-}
+type ApiReleaseOutput struct{ *pulumi.OutputState }
 
 func (ApiReleaseOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*ApiRelease)(nil))

@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.Network.V20210301.Outputs
 {
 
+    /// <summary>
+    /// Properties of the FirewallPolicyFilterRuleCollectionAction.
+    /// </summary>
     [OutputType]
     public sealed class FirewallPolicyFilterRuleCollectionActionResponse
     {

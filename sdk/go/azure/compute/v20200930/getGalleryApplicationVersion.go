@@ -7,7 +7,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Specifies information about the gallery Application Version that you want to create or update.
 func LookupGalleryApplicationVersion(ctx *pulumi.Context, args *LookupGalleryApplicationVersionArgs, opts ...pulumi.InvokeOption) (*LookupGalleryApplicationVersionResult, error) {
 	var rv LookupGalleryApplicationVersionResult
 	err := ctx.Invoke("azure-native:compute/v20200930:getGalleryApplicationVersion", args, &rv, opts...)
@@ -18,34 +17,21 @@ func LookupGalleryApplicationVersion(ctx *pulumi.Context, args *LookupGalleryApp
 }
 
 type LookupGalleryApplicationVersionArgs struct {
-	// The expand expression to apply on the operation.
-	Expand *string `pulumi:"expand"`
-	// The name of the gallery Application Definition in which the Application Version resides.
-	GalleryApplicationName string `pulumi:"galleryApplicationName"`
-	// The name of the gallery Application Version to be retrieved.
-	GalleryApplicationVersionName string `pulumi:"galleryApplicationVersionName"`
-	// The name of the Shared Application Gallery in which the Application Definition resides.
-	GalleryName string `pulumi:"galleryName"`
-	// The name of the resource group.
-	ResourceGroupName string `pulumi:"resourceGroupName"`
+	Expand                        *string `pulumi:"expand"`
+	GalleryApplicationName        string  `pulumi:"galleryApplicationName"`
+	GalleryApplicationVersionName string  `pulumi:"galleryApplicationVersionName"`
+	GalleryName                   string  `pulumi:"galleryName"`
+	ResourceGroupName             string  `pulumi:"resourceGroupName"`
 }
 
 // Specifies information about the gallery Application Version that you want to create or update.
 type LookupGalleryApplicationVersionResult struct {
-	// Resource Id
-	Id string `pulumi:"id"`
-	// Resource location
-	Location string `pulumi:"location"`
-	// Resource name
-	Name string `pulumi:"name"`
-	// The provisioning state, which only appears in the response.
-	ProvisioningState string `pulumi:"provisioningState"`
-	// The publishing profile of a gallery image version.
+	Id                string                                             `pulumi:"id"`
+	Location          string                                             `pulumi:"location"`
+	Name              string                                             `pulumi:"name"`
+	ProvisioningState string                                             `pulumi:"provisioningState"`
 	PublishingProfile GalleryApplicationVersionPublishingProfileResponse `pulumi:"publishingProfile"`
-	// This is the replication status of the gallery image version.
-	ReplicationStatus ReplicationStatusResponse `pulumi:"replicationStatus"`
-	// Resource tags
-	Tags map[string]string `pulumi:"tags"`
-	// Resource type
-	Type string `pulumi:"type"`
+	ReplicationStatus ReplicationStatusResponse                          `pulumi:"replicationStatus"`
+	Tags              map[string]string                                  `pulumi:"tags"`
+	Type              string                                             `pulumi:"type"`
 }

@@ -11,42 +11,25 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// The Live Event.
 type LiveEvent struct {
 	pulumi.CustomResourceState
 
-	// The exact time the Live Event was created.
-	Created pulumi.StringOutput `pulumi:"created"`
-	// The Live Event access policies.
-	CrossSiteAccessPolicies CrossSiteAccessPoliciesResponsePtrOutput `pulumi:"crossSiteAccessPolicies"`
-	// The Live Event description.
-	Description pulumi.StringPtrOutput `pulumi:"description"`
-	// The Live Event encoding.
-	Encoding LiveEventEncodingResponsePtrOutput `pulumi:"encoding"`
-	// The Live Event input.
-	Input LiveEventInputResponseOutput `pulumi:"input"`
-	// The exact time the Live Event was last modified.
-	LastModified pulumi.StringOutput `pulumi:"lastModified"`
-	// The Azure Region of the resource.
-	Location pulumi.StringPtrOutput `pulumi:"location"`
-	// The name of the resource.
-	Name pulumi.StringOutput `pulumi:"name"`
-	// The Live Event preview.
-	Preview LiveEventPreviewResponsePtrOutput `pulumi:"preview"`
-	// The provisioning state of the Live Event.
-	ProvisioningState pulumi.StringOutput `pulumi:"provisioningState"`
-	// The resource state of the Live Event.
-	ResourceState pulumi.StringOutput `pulumi:"resourceState"`
-	// The options to use for the LiveEvent.  This value is specified at creation time and cannot be updated.
-	StreamOptions pulumi.StringArrayOutput `pulumi:"streamOptions"`
-	// Resource tags.
-	Tags pulumi.StringMapOutput `pulumi:"tags"`
-	// The Live Event transcription.
-	Transcriptions LiveEventTranscriptionResponseArrayOutput `pulumi:"transcriptions"`
-	// The type of the resource.
-	Type pulumi.StringOutput `pulumi:"type"`
-	// Specifies whether to use a vanity url with the Live Event.  This value is specified at creation time and cannot be updated.
-	VanityUrl pulumi.BoolPtrOutput `pulumi:"vanityUrl"`
+	Created                 pulumi.StringOutput                       `pulumi:"created"`
+	CrossSiteAccessPolicies CrossSiteAccessPoliciesResponsePtrOutput  `pulumi:"crossSiteAccessPolicies"`
+	Description             pulumi.StringPtrOutput                    `pulumi:"description"`
+	Encoding                LiveEventEncodingResponsePtrOutput        `pulumi:"encoding"`
+	Input                   LiveEventInputResponseOutput              `pulumi:"input"`
+	LastModified            pulumi.StringOutput                       `pulumi:"lastModified"`
+	Location                pulumi.StringPtrOutput                    `pulumi:"location"`
+	Name                    pulumi.StringOutput                       `pulumi:"name"`
+	Preview                 LiveEventPreviewResponsePtrOutput         `pulumi:"preview"`
+	ProvisioningState       pulumi.StringOutput                       `pulumi:"provisioningState"`
+	ResourceState           pulumi.StringOutput                       `pulumi:"resourceState"`
+	StreamOptions           pulumi.StringArrayOutput                  `pulumi:"streamOptions"`
+	Tags                    pulumi.StringMapOutput                    `pulumi:"tags"`
+	Transcriptions          LiveEventTranscriptionResponseArrayOutput `pulumi:"transcriptions"`
+	Type                    pulumi.StringOutput                       `pulumi:"type"`
+	VanityUrl               pulumi.BoolPtrOutput                      `pulumi:"vanityUrl"`
 }
 
 // NewLiveEvent registers a new resource with the given unique name, arguments, and options.
@@ -139,66 +122,38 @@ func (LiveEventState) ElementType() reflect.Type {
 }
 
 type liveEventArgs struct {
-	// The Media Services account name.
-	AccountName string `pulumi:"accountName"`
-	// The flag indicates if the resource should be automatically started on creation.
-	AutoStart *bool `pulumi:"autoStart"`
-	// The Live Event access policies.
+	AccountName             string                   `pulumi:"accountName"`
+	AutoStart               *bool                    `pulumi:"autoStart"`
 	CrossSiteAccessPolicies *CrossSiteAccessPolicies `pulumi:"crossSiteAccessPolicies"`
-	// The Live Event description.
-	Description *string `pulumi:"description"`
-	// The Live Event encoding.
-	Encoding *LiveEventEncoding `pulumi:"encoding"`
-	// The Live Event input.
-	Input LiveEventInputType `pulumi:"input"`
-	// The name of the Live Event.
-	LiveEventName *string `pulumi:"liveEventName"`
-	// The Azure Region of the resource.
-	Location *string `pulumi:"location"`
-	// The Live Event preview.
-	Preview *LiveEventPreview `pulumi:"preview"`
-	// The name of the resource group within the Azure subscription.
-	ResourceGroupName string `pulumi:"resourceGroupName"`
-	// The options to use for the LiveEvent.  This value is specified at creation time and cannot be updated.
-	StreamOptions []string `pulumi:"streamOptions"`
-	// Resource tags.
-	Tags map[string]string `pulumi:"tags"`
-	// The Live Event transcription.
-	Transcriptions []LiveEventTranscription `pulumi:"transcriptions"`
-	// Specifies whether to use a vanity url with the Live Event.  This value is specified at creation time and cannot be updated.
-	VanityUrl *bool `pulumi:"vanityUrl"`
+	Description             *string                  `pulumi:"description"`
+	Encoding                *LiveEventEncoding       `pulumi:"encoding"`
+	Input                   LiveEventInputType       `pulumi:"input"`
+	LiveEventName           *string                  `pulumi:"liveEventName"`
+	Location                *string                  `pulumi:"location"`
+	Preview                 *LiveEventPreview        `pulumi:"preview"`
+	ResourceGroupName       string                   `pulumi:"resourceGroupName"`
+	StreamOptions           []string                 `pulumi:"streamOptions"`
+	Tags                    map[string]string        `pulumi:"tags"`
+	Transcriptions          []LiveEventTranscription `pulumi:"transcriptions"`
+	VanityUrl               *bool                    `pulumi:"vanityUrl"`
 }
 
 // The set of arguments for constructing a LiveEvent resource.
 type LiveEventArgs struct {
-	// The Media Services account name.
-	AccountName pulumi.StringInput
-	// The flag indicates if the resource should be automatically started on creation.
-	AutoStart pulumi.BoolPtrInput
-	// The Live Event access policies.
+	AccountName             pulumi.StringInput
+	AutoStart               pulumi.BoolPtrInput
 	CrossSiteAccessPolicies CrossSiteAccessPoliciesPtrInput
-	// The Live Event description.
-	Description pulumi.StringPtrInput
-	// The Live Event encoding.
-	Encoding LiveEventEncodingPtrInput
-	// The Live Event input.
-	Input LiveEventInputTypeInput
-	// The name of the Live Event.
-	LiveEventName pulumi.StringPtrInput
-	// The Azure Region of the resource.
-	Location pulumi.StringPtrInput
-	// The Live Event preview.
-	Preview LiveEventPreviewPtrInput
-	// The name of the resource group within the Azure subscription.
-	ResourceGroupName pulumi.StringInput
-	// The options to use for the LiveEvent.  This value is specified at creation time and cannot be updated.
-	StreamOptions pulumi.StringArrayInput
-	// Resource tags.
-	Tags pulumi.StringMapInput
-	// The Live Event transcription.
-	Transcriptions LiveEventTranscriptionArrayInput
-	// Specifies whether to use a vanity url with the Live Event.  This value is specified at creation time and cannot be updated.
-	VanityUrl pulumi.BoolPtrInput
+	Description             pulumi.StringPtrInput
+	Encoding                LiveEventEncodingPtrInput
+	Input                   LiveEventInputTypeInput
+	LiveEventName           pulumi.StringPtrInput
+	Location                pulumi.StringPtrInput
+	Preview                 LiveEventPreviewPtrInput
+	ResourceGroupName       pulumi.StringInput
+	StreamOptions           pulumi.StringArrayInput
+	Tags                    pulumi.StringMapInput
+	Transcriptions          LiveEventTranscriptionArrayInput
+	VanityUrl               pulumi.BoolPtrInput
 }
 
 func (LiveEventArgs) ElementType() reflect.Type {
@@ -224,9 +179,7 @@ func (i *LiveEvent) ToLiveEventOutputWithContext(ctx context.Context) LiveEventO
 	return pulumi.ToOutputWithContext(ctx, i).(LiveEventOutput)
 }
 
-type LiveEventOutput struct {
-	*pulumi.OutputState
-}
+type LiveEventOutput struct{ *pulumi.OutputState }
 
 func (LiveEventOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*LiveEvent)(nil))

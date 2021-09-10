@@ -10,22 +10,15 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// A profile object that contains change analysis configuration, such as notification settings, for this subscription
 type ConfigurationProfile struct {
 	pulumi.CustomResourceState
 
-	// The identity block returned by ARM resource that supports managed identity.
-	Identity ResourceIdentityResponsePtrOutput `pulumi:"identity"`
-	// The location where the resource is to be deployed.
-	Location pulumi.StringPtrOutput `pulumi:"location"`
-	// The name of the resource
-	Name pulumi.StringOutput `pulumi:"name"`
-	// The properties of a configuration profile.
+	Identity   ResourceIdentityResponsePtrOutput                    `pulumi:"identity"`
+	Location   pulumi.StringPtrOutput                               `pulumi:"location"`
+	Name       pulumi.StringOutput                                  `pulumi:"name"`
 	Properties ConfigurationProfileResourcePropertiesResponseOutput `pulumi:"properties"`
-	// Top level metadata https://github.com/Azure/azure-resource-manager-rpc/blob/master/v1.0/common-api-contracts.md#system-metadata-for-all-azure-resources
-	SystemData SystemDataResponsePtrOutput `pulumi:"systemData"`
-	// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
-	Type pulumi.StringOutput `pulumi:"type"`
+	SystemData SystemDataResponsePtrOutput                          `pulumi:"systemData"`
+	Type       pulumi.StringOutput                                  `pulumi:"type"`
 }
 
 // NewConfigurationProfile registers a new resource with the given unique name, arguments, and options.
@@ -79,26 +72,18 @@ func (ConfigurationProfileState) ElementType() reflect.Type {
 }
 
 type configurationProfileArgs struct {
-	// The identity block returned by ARM resource that supports managed identity.
-	Identity *ResourceIdentity `pulumi:"identity"`
-	// The location where the resource is to be deployed.
-	Location *string `pulumi:"location"`
-	// The name of the configuration profile. The profile name should be set to 'default', all other names will be overwritten.
-	ProfileName *string `pulumi:"profileName"`
-	// The properties of a configuration profile.
-	Properties *ConfigurationProfileResourceProperties `pulumi:"properties"`
+	Identity    *ResourceIdentity                       `pulumi:"identity"`
+	Location    *string                                 `pulumi:"location"`
+	ProfileName *string                                 `pulumi:"profileName"`
+	Properties  *ConfigurationProfileResourceProperties `pulumi:"properties"`
 }
 
 // The set of arguments for constructing a ConfigurationProfile resource.
 type ConfigurationProfileArgs struct {
-	// The identity block returned by ARM resource that supports managed identity.
-	Identity ResourceIdentityPtrInput
-	// The location where the resource is to be deployed.
-	Location pulumi.StringPtrInput
-	// The name of the configuration profile. The profile name should be set to 'default', all other names will be overwritten.
+	Identity    ResourceIdentityPtrInput
+	Location    pulumi.StringPtrInput
 	ProfileName pulumi.StringPtrInput
-	// The properties of a configuration profile.
-	Properties ConfigurationProfileResourcePropertiesPtrInput
+	Properties  ConfigurationProfileResourcePropertiesPtrInput
 }
 
 func (ConfigurationProfileArgs) ElementType() reflect.Type {
@@ -124,9 +109,7 @@ func (i *ConfigurationProfile) ToConfigurationProfileOutputWithContext(ctx conte
 	return pulumi.ToOutputWithContext(ctx, i).(ConfigurationProfileOutput)
 }
 
-type ConfigurationProfileOutput struct {
-	*pulumi.OutputState
-}
+type ConfigurationProfileOutput struct{ *pulumi.OutputState }
 
 func (ConfigurationProfileOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*ConfigurationProfile)(nil))

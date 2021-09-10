@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.MachineLearning.V20160501Preview.Outputs
 {
 
+    /// <summary>
+    /// Represents the quantity a commitment plan provides of a metered resource.
+    /// </summary>
     [OutputType]
     public sealed class PlanQuantityResponse
     {

@@ -7,7 +7,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// The access keys for the cognitive services account.
 func ListCognitiveServicesAccountKeys(ctx *pulumi.Context, args *ListCognitiveServicesAccountKeysArgs, opts ...pulumi.InvokeOption) (*ListCognitiveServicesAccountKeysResult, error) {
 	var rv ListCognitiveServicesAccountKeysResult
 	err := ctx.Invoke("azure-native:cognitiveservices/v20160201preview:listCognitiveServicesAccountKeys", args, &rv, opts...)
@@ -18,16 +17,12 @@ func ListCognitiveServicesAccountKeys(ctx *pulumi.Context, args *ListCognitiveSe
 }
 
 type ListCognitiveServicesAccountKeysArgs struct {
-	// The name of the cognitive services account within the specified resource group. Cognitive Services account names must be between 3 and 24 characters in length and use numbers and lower-case letters only.
-	AccountName string `pulumi:"accountName"`
-	// The name of the resource group within the user's subscription.
+	AccountName       string `pulumi:"accountName"`
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 }
 
 // The access keys for the cognitive services account.
 type ListCognitiveServicesAccountKeysResult struct {
-	// Gets the value of key 1.
 	Key1 *string `pulumi:"key1"`
-	// Gets the value of key 2.
 	Key2 *string `pulumi:"key2"`
 }

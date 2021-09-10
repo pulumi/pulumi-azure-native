@@ -7,7 +7,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// A type of synchronization setting based on schedule
 func LookupScheduledSynchronizationSetting(ctx *pulumi.Context, args *LookupScheduledSynchronizationSettingArgs, opts ...pulumi.InvokeOption) (*LookupScheduledSynchronizationSettingResult, error) {
 	var rv LookupScheduledSynchronizationSettingResult
 	err := ctx.Invoke("azure-native:datashare/v20181101preview:getScheduledSynchronizationSetting", args, &rv, opts...)
@@ -18,35 +17,21 @@ func LookupScheduledSynchronizationSetting(ctx *pulumi.Context, args *LookupSche
 }
 
 type LookupScheduledSynchronizationSettingArgs struct {
-	// The name of the share account.
-	AccountName string `pulumi:"accountName"`
-	// The resource group name.
-	ResourceGroupName string `pulumi:"resourceGroupName"`
-	// The name of the share.
-	ShareName string `pulumi:"shareName"`
-	// The name of the synchronizationSetting.
+	AccountName                string `pulumi:"accountName"`
+	ResourceGroupName          string `pulumi:"resourceGroupName"`
+	ShareName                  string `pulumi:"shareName"`
 	SynchronizationSettingName string `pulumi:"synchronizationSettingName"`
 }
 
 // A type of synchronization setting based on schedule
 type LookupScheduledSynchronizationSettingResult struct {
-	// Time at which the synchronization setting was created.
-	CreatedAt string `pulumi:"createdAt"`
-	// The resource id of the azure resource
-	Id string `pulumi:"id"`
-	// Kind of synchronization setting.
-	// Expected value is 'ScheduleBased'.
-	Kind string `pulumi:"kind"`
-	// Name of the azure resource
-	Name string `pulumi:"name"`
-	// Gets or sets the provisioning state
-	ProvisioningState string `pulumi:"provisioningState"`
-	// Recurrence Interval
-	RecurrenceInterval string `pulumi:"recurrenceInterval"`
-	// Synchronization time
+	CreatedAt           string `pulumi:"createdAt"`
+	Id                  string `pulumi:"id"`
+	Kind                string `pulumi:"kind"`
+	Name                string `pulumi:"name"`
+	ProvisioningState   string `pulumi:"provisioningState"`
+	RecurrenceInterval  string `pulumi:"recurrenceInterval"`
 	SynchronizationTime string `pulumi:"synchronizationTime"`
-	// Type of the azure resource
-	Type string `pulumi:"type"`
-	// Name of the user who created the synchronization setting.
-	UserName string `pulumi:"userName"`
+	Type                string `pulumi:"type"`
+	UserName            string `pulumi:"userName"`
 }

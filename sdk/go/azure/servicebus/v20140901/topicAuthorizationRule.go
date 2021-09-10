@@ -11,32 +11,20 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Description of a namespace authorization rule.
 type TopicAuthorizationRule struct {
 	pulumi.CustomResourceState
 
-	// A string that describes Claim Type for authorization rule.
-	ClaimType pulumi.StringPtrOutput `pulumi:"claimType"`
-	// A string that describes Claim Value of authorization rule.
-	ClaimValue pulumi.StringPtrOutput `pulumi:"claimValue"`
-	// The time the namespace was created.
-	CreatedTime pulumi.StringOutput `pulumi:"createdTime"`
-	// A string that describes the Key Name of authorization rule.
-	KeyName pulumi.StringPtrOutput `pulumi:"keyName"`
-	// Resource location.
-	Location pulumi.StringPtrOutput `pulumi:"location"`
-	// The time the namespace was updated.
-	ModifiedTime pulumi.StringOutput `pulumi:"modifiedTime"`
-	// Resource name
-	Name pulumi.StringOutput `pulumi:"name"`
-	// A base64-encoded 256-bit primary key for signing and validating the SAS token.
-	PrimaryKey pulumi.StringPtrOutput `pulumi:"primaryKey"`
-	// The rights associated with the rule.
-	Rights pulumi.StringArrayOutput `pulumi:"rights"`
-	// A base64-encoded 256-bit primary key for signing and validating the SAS token.
-	SecondaryKey pulumi.StringPtrOutput `pulumi:"secondaryKey"`
-	// Resource type
-	Type pulumi.StringOutput `pulumi:"type"`
+	ClaimType    pulumi.StringPtrOutput   `pulumi:"claimType"`
+	ClaimValue   pulumi.StringPtrOutput   `pulumi:"claimValue"`
+	CreatedTime  pulumi.StringOutput      `pulumi:"createdTime"`
+	KeyName      pulumi.StringPtrOutput   `pulumi:"keyName"`
+	Location     pulumi.StringPtrOutput   `pulumi:"location"`
+	ModifiedTime pulumi.StringOutput      `pulumi:"modifiedTime"`
+	Name         pulumi.StringOutput      `pulumi:"name"`
+	PrimaryKey   pulumi.StringPtrOutput   `pulumi:"primaryKey"`
+	Rights       pulumi.StringArrayOutput `pulumi:"rights"`
+	SecondaryKey pulumi.StringPtrOutput   `pulumi:"secondaryKey"`
+	Type         pulumi.StringOutput      `pulumi:"type"`
 }
 
 // NewTopicAuthorizationRule registers a new resource with the given unique name, arguments, and options.
@@ -132,58 +120,34 @@ func (TopicAuthorizationRuleState) ElementType() reflect.Type {
 }
 
 type topicAuthorizationRuleArgs struct {
-	// The authorization rule name.
-	AuthorizationRuleName *string `pulumi:"authorizationRuleName"`
-	// A string that describes Claim Type for authorization rule.
-	ClaimType *string `pulumi:"claimType"`
-	// A string that describes Claim Value of authorization rule.
-	ClaimValue *string `pulumi:"claimValue"`
-	// A string that describes the Key Name of authorization rule.
-	KeyName *string `pulumi:"keyName"`
-	// data center location.
-	Location *string `pulumi:"location"`
-	// Name of the authorization rule.
-	Name *string `pulumi:"name"`
-	// The namespace name
-	NamespaceName string `pulumi:"namespaceName"`
-	// A base64-encoded 256-bit primary key for signing and validating the SAS token.
-	PrimaryKey *string `pulumi:"primaryKey"`
-	// Name of the Resource group within the Azure subscription.
-	ResourceGroupName string `pulumi:"resourceGroupName"`
-	// The rights associated with the rule.
-	Rights []string `pulumi:"rights"`
-	// A base64-encoded 256-bit primary key for signing and validating the SAS token.
-	SecondaryKey *string `pulumi:"secondaryKey"`
-	// The topic name.
-	TopicName string `pulumi:"topicName"`
+	AuthorizationRuleName *string        `pulumi:"authorizationRuleName"`
+	ClaimType             *string        `pulumi:"claimType"`
+	ClaimValue            *string        `pulumi:"claimValue"`
+	KeyName               *string        `pulumi:"keyName"`
+	Location              *string        `pulumi:"location"`
+	Name                  *string        `pulumi:"name"`
+	NamespaceName         string         `pulumi:"namespaceName"`
+	PrimaryKey            *string        `pulumi:"primaryKey"`
+	ResourceGroupName     string         `pulumi:"resourceGroupName"`
+	Rights                []AccessRights `pulumi:"rights"`
+	SecondaryKey          *string        `pulumi:"secondaryKey"`
+	TopicName             string         `pulumi:"topicName"`
 }
 
 // The set of arguments for constructing a TopicAuthorizationRule resource.
 type TopicAuthorizationRuleArgs struct {
-	// The authorization rule name.
 	AuthorizationRuleName pulumi.StringPtrInput
-	// A string that describes Claim Type for authorization rule.
-	ClaimType pulumi.StringPtrInput
-	// A string that describes Claim Value of authorization rule.
-	ClaimValue pulumi.StringPtrInput
-	// A string that describes the Key Name of authorization rule.
-	KeyName pulumi.StringPtrInput
-	// data center location.
-	Location pulumi.StringPtrInput
-	// Name of the authorization rule.
-	Name pulumi.StringPtrInput
-	// The namespace name
-	NamespaceName pulumi.StringInput
-	// A base64-encoded 256-bit primary key for signing and validating the SAS token.
-	PrimaryKey pulumi.StringPtrInput
-	// Name of the Resource group within the Azure subscription.
-	ResourceGroupName pulumi.StringInput
-	// The rights associated with the rule.
-	Rights AccessRightsArrayInput
-	// A base64-encoded 256-bit primary key for signing and validating the SAS token.
-	SecondaryKey pulumi.StringPtrInput
-	// The topic name.
-	TopicName pulumi.StringInput
+	ClaimType             pulumi.StringPtrInput
+	ClaimValue            pulumi.StringPtrInput
+	KeyName               pulumi.StringPtrInput
+	Location              pulumi.StringPtrInput
+	Name                  pulumi.StringPtrInput
+	NamespaceName         pulumi.StringInput
+	PrimaryKey            pulumi.StringPtrInput
+	ResourceGroupName     pulumi.StringInput
+	Rights                AccessRightsArrayInput
+	SecondaryKey          pulumi.StringPtrInput
+	TopicName             pulumi.StringInput
 }
 
 func (TopicAuthorizationRuleArgs) ElementType() reflect.Type {
@@ -209,9 +173,7 @@ func (i *TopicAuthorizationRule) ToTopicAuthorizationRuleOutputWithContext(ctx c
 	return pulumi.ToOutputWithContext(ctx, i).(TopicAuthorizationRuleOutput)
 }
 
-type TopicAuthorizationRuleOutput struct {
-	*pulumi.OutputState
-}
+type TopicAuthorizationRuleOutput struct{ *pulumi.OutputState }
 
 func (TopicAuthorizationRuleOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*TopicAuthorizationRule)(nil))

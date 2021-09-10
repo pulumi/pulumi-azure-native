@@ -7,7 +7,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// The registration assignment.
 func LookupRegistrationAssignment(ctx *pulumi.Context, args *LookupRegistrationAssignmentArgs, opts ...pulumi.InvokeOption) (*LookupRegistrationAssignmentResult, error) {
 	var rv LookupRegistrationAssignmentResult
 	err := ctx.Invoke("azure-native:managedservices/v20200201preview:getRegistrationAssignment", args, &rv, opts...)
@@ -18,22 +17,15 @@ func LookupRegistrationAssignment(ctx *pulumi.Context, args *LookupRegistrationA
 }
 
 type LookupRegistrationAssignmentArgs struct {
-	// The flag indicating whether to return the registration definition details along with the registration assignment details.
-	ExpandRegistrationDefinition *bool `pulumi:"expandRegistrationDefinition"`
-	// The GUID of the registration assignment.
-	RegistrationAssignmentId string `pulumi:"registrationAssignmentId"`
-	// The scope of the resource.
-	Scope string `pulumi:"scope"`
+	ExpandRegistrationDefinition *bool  `pulumi:"expandRegistrationDefinition"`
+	RegistrationAssignmentId     string `pulumi:"registrationAssignmentId"`
+	Scope                        string `pulumi:"scope"`
 }
 
 // The registration assignment.
 type LookupRegistrationAssignmentResult struct {
-	// The fully qualified path of the registration assignment.
-	Id string `pulumi:"id"`
-	// The name of the registration assignment.
-	Name string `pulumi:"name"`
-	// The properties of a registration assignment.
+	Id         string                                   `pulumi:"id"`
+	Name       string                                   `pulumi:"name"`
 	Properties RegistrationAssignmentPropertiesResponse `pulumi:"properties"`
-	// The type of the Azure resource (Microsoft.ManagedServices/registrationAssignments).
-	Type string `pulumi:"type"`
+	Type       string                                   `pulumi:"type"`
 }

@@ -7,7 +7,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Key Vault container ARM resource for a certificate that is purchased through Azure.
 func LookupAppServiceCertificateOrderCertificate(ctx *pulumi.Context, args *LookupAppServiceCertificateOrderCertificateArgs, opts ...pulumi.InvokeOption) (*LookupAppServiceCertificateOrderCertificateResult, error) {
 	var rv LookupAppServiceCertificateOrderCertificateResult
 	err := ctx.Invoke("azure-native:certificateregistration/v20200901:getAppServiceCertificateOrderCertificate", args, &rv, opts...)
@@ -18,34 +17,21 @@ func LookupAppServiceCertificateOrderCertificate(ctx *pulumi.Context, args *Look
 }
 
 type LookupAppServiceCertificateOrderCertificateArgs struct {
-	// Name of the certificate order.
 	CertificateOrderName string `pulumi:"certificateOrderName"`
-	// Name of the certificate.
-	Name string `pulumi:"name"`
-	// Name of the resource group to which the resource belongs.
-	ResourceGroupName string `pulumi:"resourceGroupName"`
+	Name                 string `pulumi:"name"`
+	ResourceGroupName    string `pulumi:"resourceGroupName"`
 }
 
 // Key Vault container ARM resource for a certificate that is purchased through Azure.
 type LookupAppServiceCertificateOrderCertificateResult struct {
-	// Resource Id.
-	Id string `pulumi:"id"`
-	// Key Vault resource Id.
-	KeyVaultId *string `pulumi:"keyVaultId"`
-	// Key Vault secret name.
-	KeyVaultSecretName *string `pulumi:"keyVaultSecretName"`
-	// Kind of resource.
-	Kind *string `pulumi:"kind"`
-	// Resource Location.
-	Location string `pulumi:"location"`
-	// Resource Name.
-	Name string `pulumi:"name"`
-	// Status of the Key Vault secret.
-	ProvisioningState string `pulumi:"provisioningState"`
-	// The system metadata relating to this resource.
-	SystemData SystemDataResponse `pulumi:"systemData"`
-	// Resource tags.
-	Tags map[string]string `pulumi:"tags"`
-	// Resource type.
-	Type string `pulumi:"type"`
+	Id                 string             `pulumi:"id"`
+	KeyVaultId         *string            `pulumi:"keyVaultId"`
+	KeyVaultSecretName *string            `pulumi:"keyVaultSecretName"`
+	Kind               *string            `pulumi:"kind"`
+	Location           string             `pulumi:"location"`
+	Name               string             `pulumi:"name"`
+	ProvisioningState  string             `pulumi:"provisioningState"`
+	SystemData         SystemDataResponse `pulumi:"systemData"`
+	Tags               map[string]string  `pulumi:"tags"`
+	Type               string             `pulumi:"type"`
 }

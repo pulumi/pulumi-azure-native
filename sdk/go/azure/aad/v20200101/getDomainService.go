@@ -7,7 +7,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Domain service.
 func LookupDomainService(ctx *pulumi.Context, args *LookupDomainServiceArgs, opts ...pulumi.InvokeOption) (*LookupDomainServiceResult, error) {
 	var rv LookupDomainServiceResult
 	err := ctx.Invoke("azure-native:aad/v20200101:getDomainService", args, &rv, opts...)
@@ -18,54 +17,31 @@ func LookupDomainService(ctx *pulumi.Context, args *LookupDomainServiceArgs, opt
 }
 
 type LookupDomainServiceArgs struct {
-	// The name of the domain service.
 	DomainServiceName string `pulumi:"domainServiceName"`
-	// The name of the resource group within the user's subscription. The name is case insensitive.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 }
 
 // Domain service.
 type LookupDomainServiceResult struct {
-	// Deployment Id
-	DeploymentId string `pulumi:"deploymentId"`
-	// Domain Configuration Type
-	DomainConfigurationType *string `pulumi:"domainConfigurationType"`
-	// The name of the Azure domain that the user would like to deploy Domain Services to.
-	DomainName *string `pulumi:"domainName"`
-	// DomainSecurity Settings
-	DomainSecuritySettings *DomainSecuritySettingsResponse `pulumi:"domainSecuritySettings"`
-	// Resource etag
-	Etag *string `pulumi:"etag"`
-	// Enabled or Disabled flag to turn on Group-based filtered sync
-	FilteredSync *string `pulumi:"filteredSync"`
-	// Resource Id
-	Id string `pulumi:"id"`
-	// Secure LDAP Settings
-	LdapsSettings *LdapsSettingsResponse `pulumi:"ldapsSettings"`
-	// Resource location
-	Location *string `pulumi:"location"`
-	// Migration Properties
-	MigrationProperties MigrationPropertiesResponse `pulumi:"migrationProperties"`
-	// Resource name
-	Name string `pulumi:"name"`
-	// Notification Settings
-	NotificationSettings *NotificationSettingsResponse `pulumi:"notificationSettings"`
-	// the current deployment or provisioning state, which only appears in the response.
-	ProvisioningState string `pulumi:"provisioningState"`
-	// List of ReplicaSets
-	ReplicaSets []ReplicaSetResponse `pulumi:"replicaSets"`
-	// Resource Forest Settings
-	ResourceForestSettings *ResourceForestSettingsResponse `pulumi:"resourceForestSettings"`
-	// Sku Type
-	Sku *string `pulumi:"sku"`
-	// SyncOwner ReplicaSet Id
-	SyncOwner string `pulumi:"syncOwner"`
-	// Resource tags
-	Tags map[string]string `pulumi:"tags"`
-	// Azure Active Directory Tenant Id
-	TenantId string `pulumi:"tenantId"`
-	// Resource type
-	Type string `pulumi:"type"`
-	// Data Model Version
-	Version int `pulumi:"version"`
+	DeploymentId            string                          `pulumi:"deploymentId"`
+	DomainConfigurationType *string                         `pulumi:"domainConfigurationType"`
+	DomainName              *string                         `pulumi:"domainName"`
+	DomainSecuritySettings  *DomainSecuritySettingsResponse `pulumi:"domainSecuritySettings"`
+	Etag                    *string                         `pulumi:"etag"`
+	FilteredSync            *string                         `pulumi:"filteredSync"`
+	Id                      string                          `pulumi:"id"`
+	LdapsSettings           *LdapsSettingsResponse          `pulumi:"ldapsSettings"`
+	Location                *string                         `pulumi:"location"`
+	MigrationProperties     MigrationPropertiesResponse     `pulumi:"migrationProperties"`
+	Name                    string                          `pulumi:"name"`
+	NotificationSettings    *NotificationSettingsResponse   `pulumi:"notificationSettings"`
+	ProvisioningState       string                          `pulumi:"provisioningState"`
+	ReplicaSets             []ReplicaSetResponse            `pulumi:"replicaSets"`
+	ResourceForestSettings  *ResourceForestSettingsResponse `pulumi:"resourceForestSettings"`
+	Sku                     *string                         `pulumi:"sku"`
+	SyncOwner               string                          `pulumi:"syncOwner"`
+	Tags                    map[string]string               `pulumi:"tags"`
+	TenantId                string                          `pulumi:"tenantId"`
+	Type                    string                          `pulumi:"type"`
+	Version                 int                             `pulumi:"version"`
 }

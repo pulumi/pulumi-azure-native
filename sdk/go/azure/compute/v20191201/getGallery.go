@@ -7,7 +7,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Specifies information about the Shared Image Gallery that you want to create or update.
 func LookupGallery(ctx *pulumi.Context, args *LookupGalleryArgs, opts ...pulumi.InvokeOption) (*LookupGalleryResult, error) {
 	var rv LookupGalleryResult
 	err := ctx.Invoke("azure-native:compute/v20191201:getGallery", args, &rv, opts...)
@@ -18,28 +17,18 @@ func LookupGallery(ctx *pulumi.Context, args *LookupGalleryArgs, opts ...pulumi.
 }
 
 type LookupGalleryArgs struct {
-	// The name of the Shared Image Gallery.
-	GalleryName string `pulumi:"galleryName"`
-	// The name of the resource group.
+	GalleryName       string `pulumi:"galleryName"`
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 }
 
 // Specifies information about the Shared Image Gallery that you want to create or update.
 type LookupGalleryResult struct {
-	// The description of this Shared Image Gallery resource. This property is updatable.
-	Description *string `pulumi:"description"`
-	// Resource Id
-	Id string `pulumi:"id"`
-	// Describes the gallery unique name.
-	Identifier *GalleryIdentifierResponse `pulumi:"identifier"`
-	// Resource location
-	Location string `pulumi:"location"`
-	// Resource name
-	Name string `pulumi:"name"`
-	// The provisioning state, which only appears in the response.
-	ProvisioningState string `pulumi:"provisioningState"`
-	// Resource tags
-	Tags map[string]string `pulumi:"tags"`
-	// Resource type
-	Type string `pulumi:"type"`
+	Description       *string                    `pulumi:"description"`
+	Id                string                     `pulumi:"id"`
+	Identifier        *GalleryIdentifierResponse `pulumi:"identifier"`
+	Location          string                     `pulumi:"location"`
+	Name              string                     `pulumi:"name"`
+	ProvisioningState string                     `pulumi:"provisioningState"`
+	Tags              map[string]string          `pulumi:"tags"`
+	Type              string                     `pulumi:"type"`
 }

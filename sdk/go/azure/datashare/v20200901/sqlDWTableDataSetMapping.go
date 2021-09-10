@@ -11,33 +11,20 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// A SQL DW Table data set mapping.
 type SqlDWTableDataSetMapping struct {
 	pulumi.CustomResourceState
 
-	// The id of the source data set.
-	DataSetId pulumi.StringOutput `pulumi:"dataSetId"`
-	// Gets the status of the data set mapping.
-	DataSetMappingStatus pulumi.StringOutput `pulumi:"dataSetMappingStatus"`
-	// DataWarehouse name of the source data set
-	DataWarehouseName pulumi.StringOutput `pulumi:"dataWarehouseName"`
-	// Kind of data set mapping.
-	// Expected value is 'SqlDWTable'.
-	Kind pulumi.StringOutput `pulumi:"kind"`
-	// Name of the azure resource
-	Name pulumi.StringOutput `pulumi:"name"`
-	// Provisioning state of the data set mapping.
-	ProvisioningState pulumi.StringOutput `pulumi:"provisioningState"`
-	// Schema of the table. Default value is dbo.
-	SchemaName pulumi.StringOutput `pulumi:"schemaName"`
-	// Resource id of SQL server
-	SqlServerResourceId pulumi.StringOutput `pulumi:"sqlServerResourceId"`
-	// System Data of the Azure resource.
-	SystemData SystemDataResponseOutput `pulumi:"systemData"`
-	// SQL DW table name.
-	TableName pulumi.StringOutput `pulumi:"tableName"`
-	// Type of the azure resource
-	Type pulumi.StringOutput `pulumi:"type"`
+	DataSetId            pulumi.StringOutput      `pulumi:"dataSetId"`
+	DataSetMappingStatus pulumi.StringOutput      `pulumi:"dataSetMappingStatus"`
+	DataWarehouseName    pulumi.StringOutput      `pulumi:"dataWarehouseName"`
+	Kind                 pulumi.StringOutput      `pulumi:"kind"`
+	Name                 pulumi.StringOutput      `pulumi:"name"`
+	ProvisioningState    pulumi.StringOutput      `pulumi:"provisioningState"`
+	SchemaName           pulumi.StringOutput      `pulumi:"schemaName"`
+	SqlServerResourceId  pulumi.StringOutput      `pulumi:"sqlServerResourceId"`
+	SystemData           SystemDataResponseOutput `pulumi:"systemData"`
+	TableName            pulumi.StringOutput      `pulumi:"tableName"`
+	Type                 pulumi.StringOutput      `pulumi:"type"`
 }
 
 // NewSqlDWTableDataSetMapping registers a new resource with the given unique name, arguments, and options.
@@ -137,52 +124,30 @@ func (SqlDWTableDataSetMappingState) ElementType() reflect.Type {
 }
 
 type sqlDWTableDataSetMappingArgs struct {
-	// The name of the share account.
-	AccountName string `pulumi:"accountName"`
-	// The id of the source data set.
-	DataSetId string `pulumi:"dataSetId"`
-	// The name of the data set mapping to be created.
-	DataSetMappingName *string `pulumi:"dataSetMappingName"`
-	// DataWarehouse name of the source data set
-	DataWarehouseName string `pulumi:"dataWarehouseName"`
-	// Kind of data set mapping.
-	// Expected value is 'SqlDWTable'.
-	Kind string `pulumi:"kind"`
-	// The resource group name.
-	ResourceGroupName string `pulumi:"resourceGroupName"`
-	// Schema of the table. Default value is dbo.
-	SchemaName string `pulumi:"schemaName"`
-	// The name of the share subscription which will hold the data set sink.
-	ShareSubscriptionName string `pulumi:"shareSubscriptionName"`
-	// Resource id of SQL server
-	SqlServerResourceId string `pulumi:"sqlServerResourceId"`
-	// SQL DW table name.
-	TableName string `pulumi:"tableName"`
+	AccountName           string  `pulumi:"accountName"`
+	DataSetId             string  `pulumi:"dataSetId"`
+	DataSetMappingName    *string `pulumi:"dataSetMappingName"`
+	DataWarehouseName     string  `pulumi:"dataWarehouseName"`
+	Kind                  string  `pulumi:"kind"`
+	ResourceGroupName     string  `pulumi:"resourceGroupName"`
+	SchemaName            string  `pulumi:"schemaName"`
+	ShareSubscriptionName string  `pulumi:"shareSubscriptionName"`
+	SqlServerResourceId   string  `pulumi:"sqlServerResourceId"`
+	TableName             string  `pulumi:"tableName"`
 }
 
 // The set of arguments for constructing a SqlDWTableDataSetMapping resource.
 type SqlDWTableDataSetMappingArgs struct {
-	// The name of the share account.
-	AccountName pulumi.StringInput
-	// The id of the source data set.
-	DataSetId pulumi.StringInput
-	// The name of the data set mapping to be created.
-	DataSetMappingName pulumi.StringPtrInput
-	// DataWarehouse name of the source data set
-	DataWarehouseName pulumi.StringInput
-	// Kind of data set mapping.
-	// Expected value is 'SqlDWTable'.
-	Kind pulumi.StringInput
-	// The resource group name.
-	ResourceGroupName pulumi.StringInput
-	// Schema of the table. Default value is dbo.
-	SchemaName pulumi.StringInput
-	// The name of the share subscription which will hold the data set sink.
+	AccountName           pulumi.StringInput
+	DataSetId             pulumi.StringInput
+	DataSetMappingName    pulumi.StringPtrInput
+	DataWarehouseName     pulumi.StringInput
+	Kind                  pulumi.StringInput
+	ResourceGroupName     pulumi.StringInput
+	SchemaName            pulumi.StringInput
 	ShareSubscriptionName pulumi.StringInput
-	// Resource id of SQL server
-	SqlServerResourceId pulumi.StringInput
-	// SQL DW table name.
-	TableName pulumi.StringInput
+	SqlServerResourceId   pulumi.StringInput
+	TableName             pulumi.StringInput
 }
 
 func (SqlDWTableDataSetMappingArgs) ElementType() reflect.Type {
@@ -208,9 +173,7 @@ func (i *SqlDWTableDataSetMapping) ToSqlDWTableDataSetMappingOutputWithContext(c
 	return pulumi.ToOutputWithContext(ctx, i).(SqlDWTableDataSetMappingOutput)
 }
 
-type SqlDWTableDataSetMappingOutput struct {
-	*pulumi.OutputState
-}
+type SqlDWTableDataSetMappingOutput struct{ *pulumi.OutputState }
 
 func (SqlDWTableDataSetMappingOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*SqlDWTableDataSetMapping)(nil))

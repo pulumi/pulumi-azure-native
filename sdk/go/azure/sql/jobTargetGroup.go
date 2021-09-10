@@ -160,9 +160,7 @@ func (i *JobTargetGroup) ToJobTargetGroupOutputWithContext(ctx context.Context) 
 	return pulumi.ToOutputWithContext(ctx, i).(JobTargetGroupOutput)
 }
 
-type JobTargetGroupOutput struct {
-	*pulumi.OutputState
-}
+type JobTargetGroupOutput struct{ *pulumi.OutputState }
 
 func (JobTargetGroupOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*JobTargetGroup)(nil))

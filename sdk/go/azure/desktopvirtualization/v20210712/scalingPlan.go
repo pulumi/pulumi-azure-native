@@ -11,43 +11,27 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Represents a scaling plan definition.
 type ScalingPlan struct {
 	pulumi.CustomResourceState
 
-	// Description of scaling plan.
-	Description pulumi.StringPtrOutput `pulumi:"description"`
-	// The etag field is *not* required. If it is provided in the response body, it must also be provided as a header per the normal etag convention.  Entity tags are used for comparing two or more entities from the same requested resource. HTTP/1.1 uses entity tags in the etag (section 14.19), If-Match (section 14.24), If-None-Match (section 14.26), and If-Range (section 14.27) header fields.
-	Etag pulumi.StringOutput `pulumi:"etag"`
-	// Exclusion tag for scaling plan.
-	ExclusionTag pulumi.StringPtrOutput `pulumi:"exclusionTag"`
-	// User friendly name of scaling plan.
-	FriendlyName pulumi.StringPtrOutput `pulumi:"friendlyName"`
-	// List of ScalingHostPoolReference definitions.
-	HostPoolReferences ScalingHostPoolReferenceResponseArrayOutput `pulumi:"hostPoolReferences"`
-	// HostPool type for desktop.
-	HostPoolType pulumi.StringPtrOutput                                       `pulumi:"hostPoolType"`
-	Identity     ResourceModelWithAllowedPropertySetResponseIdentityPtrOutput `pulumi:"identity"`
-	// Metadata used by portal/tooling/etc to render different UX experiences for resources of the same type; e.g. ApiApps are a kind of Microsoft.Web/sites type.  If supported, the resource provider must validate and persist this value.
-	Kind pulumi.StringPtrOutput `pulumi:"kind"`
-	// The geo-location where the resource lives
-	Location pulumi.StringPtrOutput `pulumi:"location"`
-	// The fully qualified resource ID of the resource that manages this resource. Indicates if this resource is managed by another Azure resource. If this is present, complete mode deployment will not delete the resource if it is removed from the template since it is managed by another resource.
-	ManagedBy pulumi.StringPtrOutput `pulumi:"managedBy"`
-	// The name of the resource
-	Name pulumi.StringOutput `pulumi:"name"`
-	// ObjectId of scaling plan. (internal use)
-	ObjectId pulumi.StringOutput                                      `pulumi:"objectId"`
-	Plan     ResourceModelWithAllowedPropertySetResponsePlanPtrOutput `pulumi:"plan"`
-	// List of ScalingSchedule definitions.
-	Schedules ScalingScheduleResponseArrayOutput                      `pulumi:"schedules"`
-	Sku       ResourceModelWithAllowedPropertySetResponseSkuPtrOutput `pulumi:"sku"`
-	// Resource tags.
-	Tags pulumi.StringMapOutput `pulumi:"tags"`
-	// Timezone of the scaling plan.
-	TimeZone pulumi.StringPtrOutput `pulumi:"timeZone"`
-	// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
-	Type pulumi.StringOutput `pulumi:"type"`
+	Description        pulumi.StringPtrOutput                                       `pulumi:"description"`
+	Etag               pulumi.StringOutput                                          `pulumi:"etag"`
+	ExclusionTag       pulumi.StringPtrOutput                                       `pulumi:"exclusionTag"`
+	FriendlyName       pulumi.StringPtrOutput                                       `pulumi:"friendlyName"`
+	HostPoolReferences ScalingHostPoolReferenceResponseArrayOutput                  `pulumi:"hostPoolReferences"`
+	HostPoolType       pulumi.StringPtrOutput                                       `pulumi:"hostPoolType"`
+	Identity           ResourceModelWithAllowedPropertySetResponseIdentityPtrOutput `pulumi:"identity"`
+	Kind               pulumi.StringPtrOutput                                       `pulumi:"kind"`
+	Location           pulumi.StringPtrOutput                                       `pulumi:"location"`
+	ManagedBy          pulumi.StringPtrOutput                                       `pulumi:"managedBy"`
+	Name               pulumi.StringOutput                                          `pulumi:"name"`
+	ObjectId           pulumi.StringOutput                                          `pulumi:"objectId"`
+	Plan               ResourceModelWithAllowedPropertySetResponsePlanPtrOutput     `pulumi:"plan"`
+	Schedules          ScalingScheduleResponseArrayOutput                           `pulumi:"schedules"`
+	Sku                ResourceModelWithAllowedPropertySetResponseSkuPtrOutput      `pulumi:"sku"`
+	Tags               pulumi.StringMapOutput                                       `pulumi:"tags"`
+	TimeZone           pulumi.StringPtrOutput                                       `pulumi:"timeZone"`
+	Type               pulumi.StringOutput                                          `pulumi:"type"`
 }
 
 // NewScalingPlan registers a new resource with the given unique name, arguments, and options.
@@ -134,68 +118,42 @@ func (ScalingPlanState) ElementType() reflect.Type {
 }
 
 type scalingPlanArgs struct {
-	// Description of scaling plan.
-	Description *string `pulumi:"description"`
-	// Exclusion tag for scaling plan.
-	ExclusionTag *string `pulumi:"exclusionTag"`
-	// User friendly name of scaling plan.
-	FriendlyName *string `pulumi:"friendlyName"`
-	// List of ScalingHostPoolReference definitions.
-	HostPoolReferences []ScalingHostPoolReference `pulumi:"hostPoolReferences"`
-	// HostPool type for desktop.
-	HostPoolType *string                                      `pulumi:"hostPoolType"`
-	Identity     *ResourceModelWithAllowedPropertySetIdentity `pulumi:"identity"`
-	// Metadata used by portal/tooling/etc to render different UX experiences for resources of the same type; e.g. ApiApps are a kind of Microsoft.Web/sites type.  If supported, the resource provider must validate and persist this value.
-	Kind *string `pulumi:"kind"`
-	// The geo-location where the resource lives
-	Location *string `pulumi:"location"`
-	// The fully qualified resource ID of the resource that manages this resource. Indicates if this resource is managed by another Azure resource. If this is present, complete mode deployment will not delete the resource if it is removed from the template since it is managed by another resource.
-	ManagedBy *string                                  `pulumi:"managedBy"`
-	Plan      *ResourceModelWithAllowedPropertySetPlan `pulumi:"plan"`
-	// The name of the resource group. The name is case insensitive.
-	ResourceGroupName string `pulumi:"resourceGroupName"`
-	// The name of the scaling plan.
-	ScalingPlanName *string `pulumi:"scalingPlanName"`
-	// List of ScalingSchedule definitions.
-	Schedules []ScalingSchedule                       `pulumi:"schedules"`
-	Sku       *ResourceModelWithAllowedPropertySetSku `pulumi:"sku"`
-	// Resource tags.
-	Tags map[string]string `pulumi:"tags"`
-	// Timezone of the scaling plan.
-	TimeZone *string `pulumi:"timeZone"`
+	Description        *string                                      `pulumi:"description"`
+	ExclusionTag       *string                                      `pulumi:"exclusionTag"`
+	FriendlyName       *string                                      `pulumi:"friendlyName"`
+	HostPoolReferences []ScalingHostPoolReference                   `pulumi:"hostPoolReferences"`
+	HostPoolType       *string                                      `pulumi:"hostPoolType"`
+	Identity           *ResourceModelWithAllowedPropertySetIdentity `pulumi:"identity"`
+	Kind               *string                                      `pulumi:"kind"`
+	Location           *string                                      `pulumi:"location"`
+	ManagedBy          *string                                      `pulumi:"managedBy"`
+	Plan               *ResourceModelWithAllowedPropertySetPlan     `pulumi:"plan"`
+	ResourceGroupName  string                                       `pulumi:"resourceGroupName"`
+	ScalingPlanName    *string                                      `pulumi:"scalingPlanName"`
+	Schedules          []ScalingSchedule                            `pulumi:"schedules"`
+	Sku                *ResourceModelWithAllowedPropertySetSku      `pulumi:"sku"`
+	Tags               map[string]string                            `pulumi:"tags"`
+	TimeZone           *string                                      `pulumi:"timeZone"`
 }
 
 // The set of arguments for constructing a ScalingPlan resource.
 type ScalingPlanArgs struct {
-	// Description of scaling plan.
-	Description pulumi.StringPtrInput
-	// Exclusion tag for scaling plan.
-	ExclusionTag pulumi.StringPtrInput
-	// User friendly name of scaling plan.
-	FriendlyName pulumi.StringPtrInput
-	// List of ScalingHostPoolReference definitions.
+	Description        pulumi.StringPtrInput
+	ExclusionTag       pulumi.StringPtrInput
+	FriendlyName       pulumi.StringPtrInput
 	HostPoolReferences ScalingHostPoolReferenceArrayInput
-	// HostPool type for desktop.
-	HostPoolType pulumi.StringPtrInput
-	Identity     ResourceModelWithAllowedPropertySetIdentityPtrInput
-	// Metadata used by portal/tooling/etc to render different UX experiences for resources of the same type; e.g. ApiApps are a kind of Microsoft.Web/sites type.  If supported, the resource provider must validate and persist this value.
-	Kind pulumi.StringPtrInput
-	// The geo-location where the resource lives
-	Location pulumi.StringPtrInput
-	// The fully qualified resource ID of the resource that manages this resource. Indicates if this resource is managed by another Azure resource. If this is present, complete mode deployment will not delete the resource if it is removed from the template since it is managed by another resource.
-	ManagedBy pulumi.StringPtrInput
-	Plan      ResourceModelWithAllowedPropertySetPlanPtrInput
-	// The name of the resource group. The name is case insensitive.
-	ResourceGroupName pulumi.StringInput
-	// The name of the scaling plan.
-	ScalingPlanName pulumi.StringPtrInput
-	// List of ScalingSchedule definitions.
-	Schedules ScalingScheduleArrayInput
-	Sku       ResourceModelWithAllowedPropertySetSkuPtrInput
-	// Resource tags.
-	Tags pulumi.StringMapInput
-	// Timezone of the scaling plan.
-	TimeZone pulumi.StringPtrInput
+	HostPoolType       pulumi.StringPtrInput
+	Identity           ResourceModelWithAllowedPropertySetIdentityPtrInput
+	Kind               pulumi.StringPtrInput
+	Location           pulumi.StringPtrInput
+	ManagedBy          pulumi.StringPtrInput
+	Plan               ResourceModelWithAllowedPropertySetPlanPtrInput
+	ResourceGroupName  pulumi.StringInput
+	ScalingPlanName    pulumi.StringPtrInput
+	Schedules          ScalingScheduleArrayInput
+	Sku                ResourceModelWithAllowedPropertySetSkuPtrInput
+	Tags               pulumi.StringMapInput
+	TimeZone           pulumi.StringPtrInput
 }
 
 func (ScalingPlanArgs) ElementType() reflect.Type {
@@ -221,9 +179,7 @@ func (i *ScalingPlan) ToScalingPlanOutputWithContext(ctx context.Context) Scalin
 	return pulumi.ToOutputWithContext(ctx, i).(ScalingPlanOutput)
 }
 
-type ScalingPlanOutput struct {
-	*pulumi.OutputState
-}
+type ScalingPlanOutput struct{ *pulumi.OutputState }
 
 func (ScalingPlanOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*ScalingPlan)(nil))

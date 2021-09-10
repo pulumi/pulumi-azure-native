@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.Insights.V20180501Preview.Outputs
 {
 
+    /// <summary>
+    /// A header to add to the WebTest.
+    /// </summary>
     [OutputType]
     public sealed class HeaderFieldResponse
     {

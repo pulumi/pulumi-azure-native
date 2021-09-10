@@ -7,7 +7,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// IoT Connector FHIR destination definition.
 func LookupIotConnectorFhirDestination(ctx *pulumi.Context, args *LookupIotConnectorFhirDestinationArgs, opts ...pulumi.InvokeOption) (*LookupIotConnectorFhirDestinationResult, error) {
 	var rv LookupIotConnectorFhirDestinationResult
 	err := ctx.Invoke("azure-native:healthcareapis/v20210601preview:getIotConnectorFhirDestination", args, &rv, opts...)
@@ -18,34 +17,21 @@ func LookupIotConnectorFhirDestination(ctx *pulumi.Context, args *LookupIotConne
 }
 
 type LookupIotConnectorFhirDestinationArgs struct {
-	// The name of IoT Connector FHIR destination resource.
 	FhirDestinationName string `pulumi:"fhirDestinationName"`
-	// The name of IoT Connector resource.
-	IotConnectorName string `pulumi:"iotConnectorName"`
-	// The name of the resource group that contains the service instance.
-	ResourceGroupName string `pulumi:"resourceGroupName"`
-	// The name of workspace resource.
-	WorkspaceName string `pulumi:"workspaceName"`
+	IotConnectorName    string `pulumi:"iotConnectorName"`
+	ResourceGroupName   string `pulumi:"resourceGroupName"`
+	WorkspaceName       string `pulumi:"workspaceName"`
 }
 
 // IoT Connector FHIR destination definition.
 type LookupIotConnectorFhirDestinationResult struct {
-	// An etag associated with the resource, used for optimistic concurrency when editing it.
-	Etag *string `pulumi:"etag"`
-	// FHIR Mappings
-	FhirMapping IotMappingPropertiesResponse `pulumi:"fhirMapping"`
-	// Fully qualified resource id of the FHIR service to connect to.
-	FhirServiceResourceId string `pulumi:"fhirServiceResourceId"`
-	// The resource identifier.
-	Id string `pulumi:"id"`
-	// The resource location.
-	Location *string `pulumi:"location"`
-	// The resource name.
-	Name string `pulumi:"name"`
-	// Determines how resource identity is resolved on the destination.
-	ResourceIdentityResolutionType string `pulumi:"resourceIdentityResolutionType"`
-	// Metadata pertaining to creation and last modification of the resource.
-	SystemData SystemDataResponse `pulumi:"systemData"`
-	// The resource type.
-	Type string `pulumi:"type"`
+	Etag                           *string                      `pulumi:"etag"`
+	FhirMapping                    IotMappingPropertiesResponse `pulumi:"fhirMapping"`
+	FhirServiceResourceId          string                       `pulumi:"fhirServiceResourceId"`
+	Id                             string                       `pulumi:"id"`
+	Location                       *string                      `pulumi:"location"`
+	Name                           string                       `pulumi:"name"`
+	ResourceIdentityResolutionType string                       `pulumi:"resourceIdentityResolutionType"`
+	SystemData                     SystemDataResponse           `pulumi:"systemData"`
+	Type                           string                       `pulumi:"type"`
 }

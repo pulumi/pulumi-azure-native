@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.ServiceFabric.V20160901.Outputs
 {
 
+    /// <summary>
+    /// ServiceFabric settings under sections
+    /// </summary>
     [OutputType]
     public sealed class SettingsParameterDescriptionResponse
     {

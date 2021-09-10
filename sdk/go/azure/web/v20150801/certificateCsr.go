@@ -11,32 +11,20 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Certificate signing request object
 type CertificateCsr struct {
 	pulumi.CustomResourceState
 
-	// Actual CSR string created
-	CsrString pulumi.StringPtrOutput `pulumi:"csrString"`
-	// Distinguished name of certificate to be created
-	DistinguishedName pulumi.StringPtrOutput `pulumi:"distinguishedName"`
-	// Hosting environment
+	CsrString          pulumi.StringPtrOutput `pulumi:"csrString"`
+	DistinguishedName  pulumi.StringPtrOutput `pulumi:"distinguishedName"`
 	HostingEnvironment pulumi.StringPtrOutput `pulumi:"hostingEnvironment"`
-	// Kind of resource
-	Kind pulumi.StringPtrOutput `pulumi:"kind"`
-	// Resource Location
-	Location pulumi.StringOutput `pulumi:"location"`
-	// Resource Name
-	Name pulumi.StringPtrOutput `pulumi:"name"`
-	// PFX password
-	Password pulumi.StringPtrOutput `pulumi:"password"`
-	// PFX certificate of created certificate
-	PfxBlob pulumi.StringPtrOutput `pulumi:"pfxBlob"`
-	// Hash of the certificates public key
-	PublicKeyHash pulumi.StringPtrOutput `pulumi:"publicKeyHash"`
-	// Resource tags
-	Tags pulumi.StringMapOutput `pulumi:"tags"`
-	// Resource type
-	Type pulumi.StringPtrOutput `pulumi:"type"`
+	Kind               pulumi.StringPtrOutput `pulumi:"kind"`
+	Location           pulumi.StringOutput    `pulumi:"location"`
+	Name               pulumi.StringPtrOutput `pulumi:"name"`
+	Password           pulumi.StringPtrOutput `pulumi:"password"`
+	PfxBlob            pulumi.StringPtrOutput `pulumi:"pfxBlob"`
+	PublicKeyHash      pulumi.StringPtrOutput `pulumi:"publicKeyHash"`
+	Tags               pulumi.StringMapOutput `pulumi:"tags"`
+	Type               pulumi.StringPtrOutput `pulumi:"type"`
 }
 
 // NewCertificateCsr registers a new resource with the given unique name, arguments, and options.
@@ -87,62 +75,36 @@ func (CertificateCsrState) ElementType() reflect.Type {
 }
 
 type certificateCsrArgs struct {
-	// Actual CSR string created
-	CsrString *string `pulumi:"csrString"`
-	// Distinguished name of certificate to be created
-	DistinguishedName *string `pulumi:"distinguishedName"`
-	// Hosting environment
-	HostingEnvironment *string `pulumi:"hostingEnvironment"`
-	// Resource Id
-	Id *string `pulumi:"id"`
-	// Kind of resource
-	Kind *string `pulumi:"kind"`
-	// Resource Location
-	Location *string `pulumi:"location"`
-	// Resource Name
-	Name *string `pulumi:"name"`
-	// PFX password
-	Password *string `pulumi:"password"`
-	// PFX certificate of created certificate
-	PfxBlob *string `pulumi:"pfxBlob"`
-	// Hash of the certificates public key
-	PublicKeyHash *string `pulumi:"publicKeyHash"`
-	// Name of the resource group
-	ResourceGroupName string `pulumi:"resourceGroupName"`
-	// Resource tags
-	Tags map[string]string `pulumi:"tags"`
-	// Resource type
-	Type *string `pulumi:"type"`
+	CsrString          *string           `pulumi:"csrString"`
+	DistinguishedName  *string           `pulumi:"distinguishedName"`
+	HostingEnvironment *string           `pulumi:"hostingEnvironment"`
+	Id                 *string           `pulumi:"id"`
+	Kind               *string           `pulumi:"kind"`
+	Location           *string           `pulumi:"location"`
+	Name               *string           `pulumi:"name"`
+	Password           *string           `pulumi:"password"`
+	PfxBlob            *string           `pulumi:"pfxBlob"`
+	PublicKeyHash      *string           `pulumi:"publicKeyHash"`
+	ResourceGroupName  string            `pulumi:"resourceGroupName"`
+	Tags               map[string]string `pulumi:"tags"`
+	Type               *string           `pulumi:"type"`
 }
 
 // The set of arguments for constructing a CertificateCsr resource.
 type CertificateCsrArgs struct {
-	// Actual CSR string created
-	CsrString pulumi.StringPtrInput
-	// Distinguished name of certificate to be created
-	DistinguishedName pulumi.StringPtrInput
-	// Hosting environment
+	CsrString          pulumi.StringPtrInput
+	DistinguishedName  pulumi.StringPtrInput
 	HostingEnvironment pulumi.StringPtrInput
-	// Resource Id
-	Id pulumi.StringPtrInput
-	// Kind of resource
-	Kind pulumi.StringPtrInput
-	// Resource Location
-	Location pulumi.StringPtrInput
-	// Resource Name
-	Name pulumi.StringPtrInput
-	// PFX password
-	Password pulumi.StringPtrInput
-	// PFX certificate of created certificate
-	PfxBlob pulumi.StringPtrInput
-	// Hash of the certificates public key
-	PublicKeyHash pulumi.StringPtrInput
-	// Name of the resource group
-	ResourceGroupName pulumi.StringInput
-	// Resource tags
-	Tags pulumi.StringMapInput
-	// Resource type
-	Type pulumi.StringPtrInput
+	Id                 pulumi.StringPtrInput
+	Kind               pulumi.StringPtrInput
+	Location           pulumi.StringPtrInput
+	Name               pulumi.StringPtrInput
+	Password           pulumi.StringPtrInput
+	PfxBlob            pulumi.StringPtrInput
+	PublicKeyHash      pulumi.StringPtrInput
+	ResourceGroupName  pulumi.StringInput
+	Tags               pulumi.StringMapInput
+	Type               pulumi.StringPtrInput
 }
 
 func (CertificateCsrArgs) ElementType() reflect.Type {
@@ -168,9 +130,7 @@ func (i *CertificateCsr) ToCertificateCsrOutputWithContext(ctx context.Context) 
 	return pulumi.ToOutputWithContext(ctx, i).(CertificateCsrOutput)
 }
 
-type CertificateCsrOutput struct {
-	*pulumi.OutputState
-}
+type CertificateCsrOutput struct{ *pulumi.OutputState }
 
 func (CertificateCsrOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*CertificateCsr)(nil))

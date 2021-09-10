@@ -7,7 +7,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Namespace/Relay Connection String
 func ListNamespaceKeys(ctx *pulumi.Context, args *ListNamespaceKeysArgs, opts ...pulumi.InvokeOption) (*ListNamespaceKeysResult, error) {
 	var rv ListNamespaceKeysResult
 	err := ctx.Invoke("azure-native:relay/v20160701:listNamespaceKeys", args, &rv, opts...)
@@ -18,24 +17,16 @@ func ListNamespaceKeys(ctx *pulumi.Context, args *ListNamespaceKeysArgs, opts ..
 }
 
 type ListNamespaceKeysArgs struct {
-	// The authorizationRule name.
 	AuthorizationRuleName string `pulumi:"authorizationRuleName"`
-	// The Namespace Name
-	NamespaceName string `pulumi:"namespaceName"`
-	// Name of the Resource group within the Azure subscription.
-	ResourceGroupName string `pulumi:"resourceGroupName"`
+	NamespaceName         string `pulumi:"namespaceName"`
+	ResourceGroupName     string `pulumi:"resourceGroupName"`
 }
 
 // Namespace/Relay Connection String
 type ListNamespaceKeysResult struct {
-	// A string that describes the authorization rule
-	KeyName *string `pulumi:"keyName"`
-	// PrimaryConnectionString of the created Namespace AuthorizationRule.
-	PrimaryConnectionString *string `pulumi:"primaryConnectionString"`
-	// A base64-encoded 256-bit primary key for signing and validating the SAS token
-	PrimaryKey *string `pulumi:"primaryKey"`
-	// SecondaryConnectionString of the created Namespace AuthorizationRule
+	KeyName                   *string `pulumi:"keyName"`
+	PrimaryConnectionString   *string `pulumi:"primaryConnectionString"`
+	PrimaryKey                *string `pulumi:"primaryKey"`
 	SecondaryConnectionString *string `pulumi:"secondaryConnectionString"`
-	// A base64-encoded 256-bit secondary key for signing and validating the SAS token
-	SecondaryKey *string `pulumi:"secondaryKey"`
+	SecondaryKey              *string `pulumi:"secondaryKey"`
 }

@@ -7,7 +7,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Information about JIT request definition.
 func LookupJitRequest(ctx *pulumi.Context, args *LookupJitRequestArgs, opts ...pulumi.InvokeOption) (*LookupJitRequestResult, error) {
 	var rv LookupJitRequestResult
 	err := ctx.Invoke("azure-native:solutions/v20190701:getJitRequest", args, &rv, opts...)
@@ -18,38 +17,23 @@ func LookupJitRequest(ctx *pulumi.Context, args *LookupJitRequestArgs, opts ...p
 }
 
 type LookupJitRequestArgs struct {
-	// The name of the JIT request.
-	JitRequestName string `pulumi:"jitRequestName"`
-	// The name of the resource group. The name is case insensitive.
+	JitRequestName    string `pulumi:"jitRequestName"`
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 }
 
 // Information about JIT request definition.
 type LookupJitRequestResult struct {
-	// The parent application id.
-	ApplicationResourceId string `pulumi:"applicationResourceId"`
-	// The client entity that created the JIT request.
-	CreatedBy ApplicationClientDetailsResponse `pulumi:"createdBy"`
-	// Resource ID
-	Id string `pulumi:"id"`
-	// The JIT authorization policies.
+	ApplicationResourceId    string                             `pulumi:"applicationResourceId"`
+	CreatedBy                ApplicationClientDetailsResponse   `pulumi:"createdBy"`
+	Id                       string                             `pulumi:"id"`
 	JitAuthorizationPolicies []JitAuthorizationPoliciesResponse `pulumi:"jitAuthorizationPolicies"`
-	// The JIT request state.
-	JitRequestState string `pulumi:"jitRequestState"`
-	// The JIT request properties.
-	JitSchedulingPolicy JitSchedulingPolicyResponse `pulumi:"jitSchedulingPolicy"`
-	// Resource location
-	Location *string `pulumi:"location"`
-	// Resource name
-	Name string `pulumi:"name"`
-	// The JIT request provisioning state.
-	ProvisioningState string `pulumi:"provisioningState"`
-	// The publisher tenant id.
-	PublisherTenantId string `pulumi:"publisherTenantId"`
-	// Resource tags
-	Tags map[string]string `pulumi:"tags"`
-	// Resource type
-	Type string `pulumi:"type"`
-	// The client entity that last updated the JIT request.
-	UpdatedBy ApplicationClientDetailsResponse `pulumi:"updatedBy"`
+	JitRequestState          string                             `pulumi:"jitRequestState"`
+	JitSchedulingPolicy      JitSchedulingPolicyResponse        `pulumi:"jitSchedulingPolicy"`
+	Location                 *string                            `pulumi:"location"`
+	Name                     string                             `pulumi:"name"`
+	ProvisioningState        string                             `pulumi:"provisioningState"`
+	PublisherTenantId        string                             `pulumi:"publisherTenantId"`
+	Tags                     map[string]string                  `pulumi:"tags"`
+	Type                     string                             `pulumi:"type"`
+	UpdatedBy                ApplicationClientDetailsResponse   `pulumi:"updatedBy"`
 }

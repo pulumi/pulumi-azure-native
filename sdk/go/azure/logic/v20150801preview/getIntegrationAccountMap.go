@@ -17,37 +17,22 @@ func LookupIntegrationAccountMap(ctx *pulumi.Context, args *LookupIntegrationAcc
 }
 
 type LookupIntegrationAccountMapArgs struct {
-	// The integration account name.
 	IntegrationAccountName string `pulumi:"integrationAccountName"`
-	// The integration account map name.
-	MapName string `pulumi:"mapName"`
-	// The resource group name.
-	ResourceGroupName string `pulumi:"resourceGroupName"`
+	MapName                string `pulumi:"mapName"`
+	ResourceGroupName      string `pulumi:"resourceGroupName"`
 }
 
 type LookupIntegrationAccountMapResult struct {
-	// The changed time.
-	ChangedTime string `pulumi:"changedTime"`
-	// The content.
-	Content interface{} `pulumi:"content"`
-	// The content link.
+	ChangedTime string                                `pulumi:"changedTime"`
+	Content     interface{}                           `pulumi:"content"`
 	ContentLink IntegrationAccountContentLinkResponse `pulumi:"contentLink"`
-	// The content type.
-	ContentType *string `pulumi:"contentType"`
-	// The created time.
-	CreatedTime string `pulumi:"createdTime"`
-	// The resource id.
-	Id *string `pulumi:"id"`
-	// The resource location.
-	Location *string `pulumi:"location"`
-	// The map type.
-	MapType *string `pulumi:"mapType"`
-	// The metadata.
-	Metadata interface{} `pulumi:"metadata"`
-	// The resource name.
-	Name *string `pulumi:"name"`
-	// The resource tags.
-	Tags map[string]string `pulumi:"tags"`
-	// The resource type.
-	Type *string `pulumi:"type"`
+	ContentType *string                               `pulumi:"contentType"`
+	CreatedTime string                                `pulumi:"createdTime"`
+	Id          *string                               `pulumi:"id"`
+	Location    *string                               `pulumi:"location"`
+	MapType     *string                               `pulumi:"mapType"`
+	Metadata    interface{}                           `pulumi:"metadata"`
+	Name        *string                               `pulumi:"name"`
+	Tags        map[string]string                     `pulumi:"tags"`
+	Type        *string                               `pulumi:"type"`
 }

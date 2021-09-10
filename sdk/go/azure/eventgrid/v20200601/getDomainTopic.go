@@ -7,7 +7,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Domain Topic.
 func LookupDomainTopic(ctx *pulumi.Context, args *LookupDomainTopicArgs, opts ...pulumi.InvokeOption) (*LookupDomainTopicResult, error) {
 	var rv LookupDomainTopicResult
 	err := ctx.Invoke("azure-native:eventgrid/v20200601:getDomainTopic", args, &rv, opts...)
@@ -18,24 +17,16 @@ func LookupDomainTopic(ctx *pulumi.Context, args *LookupDomainTopicArgs, opts ..
 }
 
 type LookupDomainTopicArgs struct {
-	// Name of the domain.
-	DomainName string `pulumi:"domainName"`
-	// Name of the topic.
-	DomainTopicName string `pulumi:"domainTopicName"`
-	// The name of the resource group within the user's subscription.
+	DomainName        string `pulumi:"domainName"`
+	DomainTopicName   string `pulumi:"domainTopicName"`
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 }
 
 // Domain Topic.
 type LookupDomainTopicResult struct {
-	// Fully qualified identifier of the resource.
-	Id string `pulumi:"id"`
-	// Name of the resource.
-	Name string `pulumi:"name"`
-	// Provisioning state of the domain topic.
-	ProvisioningState string `pulumi:"provisioningState"`
-	// The system metadata relating to Domain Topic resource.
-	SystemData SystemDataResponse `pulumi:"systemData"`
-	// Type of the resource.
-	Type string `pulumi:"type"`
+	Id                string             `pulumi:"id"`
+	Name              string             `pulumi:"name"`
+	ProvisioningState string             `pulumi:"provisioningState"`
+	SystemData        SystemDataResponse `pulumi:"systemData"`
+	Type              string             `pulumi:"type"`
 }

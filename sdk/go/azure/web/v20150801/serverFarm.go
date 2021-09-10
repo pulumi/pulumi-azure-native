@@ -11,45 +11,26 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// App Service Plan Model
 type ServerFarm struct {
 	pulumi.CustomResourceState
 
-	// App Service Plan administration site
-	AdminSiteName pulumi.StringPtrOutput `pulumi:"adminSiteName"`
-	// Geographical location for the App Service Plan
-	GeoRegion pulumi.StringOutput `pulumi:"geoRegion"`
-	// Specification for the hosting environment (App Service Environment) to use for the App Service Plan
+	AdminSiteName             pulumi.StringPtrOutput                     `pulumi:"adminSiteName"`
+	GeoRegion                 pulumi.StringOutput                        `pulumi:"geoRegion"`
 	HostingEnvironmentProfile HostingEnvironmentProfileResponsePtrOutput `pulumi:"hostingEnvironmentProfile"`
-	// Kind of resource
-	Kind pulumi.StringPtrOutput `pulumi:"kind"`
-	// Resource Location
-	Location pulumi.StringOutput `pulumi:"location"`
-	// Maximum number of instances that can be assigned to this App Service Plan
-	MaximumNumberOfWorkers pulumi.IntPtrOutput `pulumi:"maximumNumberOfWorkers"`
-	// Resource Name
-	Name pulumi.StringPtrOutput `pulumi:"name"`
-	// Number of web apps assigned to this App Service Plan
-	NumberOfSites pulumi.IntOutput `pulumi:"numberOfSites"`
-	// If True apps assigned to this App Service Plan can be scaled independently
-	//             If False apps assigned to this App Service Plan will scale to all instances of the plan
-	PerSiteScaling pulumi.BoolPtrOutput `pulumi:"perSiteScaling"`
-	// Enables creation of a Linux App Service Plan
-	Reserved pulumi.BoolPtrOutput `pulumi:"reserved"`
-	// Resource group of the server farm
-	ResourceGroup pulumi.StringOutput `pulumi:"resourceGroup"`
-	// Describes a sku for a scalable resource
-	Sku SkuDescriptionResponsePtrOutput `pulumi:"sku"`
-	// App Service Plan Status
-	Status pulumi.StringOutput `pulumi:"status"`
-	// App Service Plan Subscription
-	Subscription pulumi.StringOutput `pulumi:"subscription"`
-	// Resource tags
-	Tags pulumi.StringMapOutput `pulumi:"tags"`
-	// Resource type
-	Type pulumi.StringPtrOutput `pulumi:"type"`
-	// Target worker tier assigned to the App Service Plan
-	WorkerTierName pulumi.StringPtrOutput `pulumi:"workerTierName"`
+	Kind                      pulumi.StringPtrOutput                     `pulumi:"kind"`
+	Location                  pulumi.StringOutput                        `pulumi:"location"`
+	MaximumNumberOfWorkers    pulumi.IntPtrOutput                        `pulumi:"maximumNumberOfWorkers"`
+	Name                      pulumi.StringPtrOutput                     `pulumi:"name"`
+	NumberOfSites             pulumi.IntOutput                           `pulumi:"numberOfSites"`
+	PerSiteScaling            pulumi.BoolPtrOutput                       `pulumi:"perSiteScaling"`
+	Reserved                  pulumi.BoolPtrOutput                       `pulumi:"reserved"`
+	ResourceGroup             pulumi.StringOutput                        `pulumi:"resourceGroup"`
+	Sku                       SkuDescriptionResponsePtrOutput            `pulumi:"sku"`
+	Status                    pulumi.StringOutput                        `pulumi:"status"`
+	Subscription              pulumi.StringOutput                        `pulumi:"subscription"`
+	Tags                      pulumi.StringMapOutput                     `pulumi:"tags"`
+	Type                      pulumi.StringPtrOutput                     `pulumi:"type"`
+	WorkerTierName            pulumi.StringPtrOutput                     `pulumi:"workerTierName"`
 }
 
 // NewServerFarm registers a new resource with the given unique name, arguments, and options.
@@ -166,72 +147,40 @@ func (ServerFarmState) ElementType() reflect.Type {
 }
 
 type serverFarmArgs struct {
-	// App Service Plan administration site
-	AdminSiteName *string `pulumi:"adminSiteName"`
-	// OBSOLETE: If true, allow pending state for App Service Plan
-	AllowPendingState *bool `pulumi:"allowPendingState"`
-	// Specification for the hosting environment (App Service Environment) to use for the App Service Plan
+	AdminSiteName             *string                    `pulumi:"adminSiteName"`
+	AllowPendingState         *bool                      `pulumi:"allowPendingState"`
 	HostingEnvironmentProfile *HostingEnvironmentProfile `pulumi:"hostingEnvironmentProfile"`
-	// Resource Id
-	Id *string `pulumi:"id"`
-	// Kind of resource
-	Kind *string `pulumi:"kind"`
-	// Resource Location
-	Location *string `pulumi:"location"`
-	// Maximum number of instances that can be assigned to this App Service Plan
-	MaximumNumberOfWorkers *int `pulumi:"maximumNumberOfWorkers"`
-	// Resource Name
-	Name *string `pulumi:"name"`
-	// If True apps assigned to this App Service Plan can be scaled independently
-	//             If False apps assigned to this App Service Plan will scale to all instances of the plan
-	PerSiteScaling *bool `pulumi:"perSiteScaling"`
-	// Enables creation of a Linux App Service Plan
-	Reserved *bool `pulumi:"reserved"`
-	// Name of resource group
-	ResourceGroupName string `pulumi:"resourceGroupName"`
-	// Describes a sku for a scalable resource
-	Sku *SkuDescription `pulumi:"sku"`
-	// Resource tags
-	Tags map[string]string `pulumi:"tags"`
-	// Resource type
-	Type *string `pulumi:"type"`
-	// Target worker tier assigned to the App Service Plan
-	WorkerTierName *string `pulumi:"workerTierName"`
+	Id                        *string                    `pulumi:"id"`
+	Kind                      *string                    `pulumi:"kind"`
+	Location                  *string                    `pulumi:"location"`
+	MaximumNumberOfWorkers    *int                       `pulumi:"maximumNumberOfWorkers"`
+	Name                      *string                    `pulumi:"name"`
+	PerSiteScaling            *bool                      `pulumi:"perSiteScaling"`
+	Reserved                  *bool                      `pulumi:"reserved"`
+	ResourceGroupName         string                     `pulumi:"resourceGroupName"`
+	Sku                       *SkuDescription            `pulumi:"sku"`
+	Tags                      map[string]string          `pulumi:"tags"`
+	Type                      *string                    `pulumi:"type"`
+	WorkerTierName            *string                    `pulumi:"workerTierName"`
 }
 
 // The set of arguments for constructing a ServerFarm resource.
 type ServerFarmArgs struct {
-	// App Service Plan administration site
-	AdminSiteName pulumi.StringPtrInput
-	// OBSOLETE: If true, allow pending state for App Service Plan
-	AllowPendingState pulumi.BoolPtrInput
-	// Specification for the hosting environment (App Service Environment) to use for the App Service Plan
+	AdminSiteName             pulumi.StringPtrInput
+	AllowPendingState         pulumi.BoolPtrInput
 	HostingEnvironmentProfile HostingEnvironmentProfilePtrInput
-	// Resource Id
-	Id pulumi.StringPtrInput
-	// Kind of resource
-	Kind pulumi.StringPtrInput
-	// Resource Location
-	Location pulumi.StringPtrInput
-	// Maximum number of instances that can be assigned to this App Service Plan
-	MaximumNumberOfWorkers pulumi.IntPtrInput
-	// Resource Name
-	Name pulumi.StringPtrInput
-	// If True apps assigned to this App Service Plan can be scaled independently
-	//             If False apps assigned to this App Service Plan will scale to all instances of the plan
-	PerSiteScaling pulumi.BoolPtrInput
-	// Enables creation of a Linux App Service Plan
-	Reserved pulumi.BoolPtrInput
-	// Name of resource group
-	ResourceGroupName pulumi.StringInput
-	// Describes a sku for a scalable resource
-	Sku SkuDescriptionPtrInput
-	// Resource tags
-	Tags pulumi.StringMapInput
-	// Resource type
-	Type pulumi.StringPtrInput
-	// Target worker tier assigned to the App Service Plan
-	WorkerTierName pulumi.StringPtrInput
+	Id                        pulumi.StringPtrInput
+	Kind                      pulumi.StringPtrInput
+	Location                  pulumi.StringPtrInput
+	MaximumNumberOfWorkers    pulumi.IntPtrInput
+	Name                      pulumi.StringPtrInput
+	PerSiteScaling            pulumi.BoolPtrInput
+	Reserved                  pulumi.BoolPtrInput
+	ResourceGroupName         pulumi.StringInput
+	Sku                       SkuDescriptionPtrInput
+	Tags                      pulumi.StringMapInput
+	Type                      pulumi.StringPtrInput
+	WorkerTierName            pulumi.StringPtrInput
 }
 
 func (ServerFarmArgs) ElementType() reflect.Type {
@@ -257,9 +206,7 @@ func (i *ServerFarm) ToServerFarmOutputWithContext(ctx context.Context) ServerFa
 	return pulumi.ToOutputWithContext(ctx, i).(ServerFarmOutput)
 }
 
-type ServerFarmOutput struct {
-	*pulumi.OutputState
-}
+type ServerFarmOutput struct{ *pulumi.OutputState }
 
 func (ServerFarmOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*ServerFarm)(nil))

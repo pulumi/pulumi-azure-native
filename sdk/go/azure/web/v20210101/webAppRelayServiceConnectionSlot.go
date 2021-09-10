@@ -11,23 +11,19 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Hybrid Connection for an App Service app.
 type WebAppRelayServiceConnectionSlot struct {
 	pulumi.CustomResourceState
 
-	BiztalkUri             pulumi.StringPtrOutput `pulumi:"biztalkUri"`
-	EntityConnectionString pulumi.StringPtrOutput `pulumi:"entityConnectionString"`
-	EntityName             pulumi.StringPtrOutput `pulumi:"entityName"`
-	Hostname               pulumi.StringPtrOutput `pulumi:"hostname"`
-	// Kind of resource.
-	Kind pulumi.StringPtrOutput `pulumi:"kind"`
-	// Resource Name.
+	BiztalkUri               pulumi.StringPtrOutput `pulumi:"biztalkUri"`
+	EntityConnectionString   pulumi.StringPtrOutput `pulumi:"entityConnectionString"`
+	EntityName               pulumi.StringPtrOutput `pulumi:"entityName"`
+	Hostname                 pulumi.StringPtrOutput `pulumi:"hostname"`
+	Kind                     pulumi.StringPtrOutput `pulumi:"kind"`
 	Name                     pulumi.StringOutput    `pulumi:"name"`
 	Port                     pulumi.IntPtrOutput    `pulumi:"port"`
 	ResourceConnectionString pulumi.StringPtrOutput `pulumi:"resourceConnectionString"`
 	ResourceType             pulumi.StringPtrOutput `pulumi:"resourceType"`
-	// Resource type.
-	Type pulumi.StringOutput `pulumi:"type"`
+	Type                     pulumi.StringOutput    `pulumi:"type"`
 }
 
 // NewWebAppRelayServiceConnectionSlot registers a new resource with the given unique name, arguments, and options.
@@ -156,40 +152,32 @@ func (WebAppRelayServiceConnectionSlotState) ElementType() reflect.Type {
 }
 
 type webAppRelayServiceConnectionSlotArgs struct {
-	BiztalkUri             *string `pulumi:"biztalkUri"`
-	EntityConnectionString *string `pulumi:"entityConnectionString"`
-	EntityName             *string `pulumi:"entityName"`
-	Hostname               *string `pulumi:"hostname"`
-	// Kind of resource.
-	Kind *string `pulumi:"kind"`
-	// Name of the app.
+	BiztalkUri               *string `pulumi:"biztalkUri"`
+	EntityConnectionString   *string `pulumi:"entityConnectionString"`
+	EntityName               *string `pulumi:"entityName"`
+	Hostname                 *string `pulumi:"hostname"`
+	Kind                     *string `pulumi:"kind"`
 	Name                     string  `pulumi:"name"`
 	Port                     *int    `pulumi:"port"`
 	ResourceConnectionString *string `pulumi:"resourceConnectionString"`
-	// Name of the resource group to which the resource belongs.
-	ResourceGroupName string  `pulumi:"resourceGroupName"`
-	ResourceType      *string `pulumi:"resourceType"`
-	// Name of the deployment slot. If a slot is not specified, the API will create or update a hybrid connection for the production slot.
-	Slot string `pulumi:"slot"`
+	ResourceGroupName        string  `pulumi:"resourceGroupName"`
+	ResourceType             *string `pulumi:"resourceType"`
+	Slot                     string  `pulumi:"slot"`
 }
 
 // The set of arguments for constructing a WebAppRelayServiceConnectionSlot resource.
 type WebAppRelayServiceConnectionSlotArgs struct {
-	BiztalkUri             pulumi.StringPtrInput
-	EntityConnectionString pulumi.StringPtrInput
-	EntityName             pulumi.StringPtrInput
-	Hostname               pulumi.StringPtrInput
-	// Kind of resource.
-	Kind pulumi.StringPtrInput
-	// Name of the app.
+	BiztalkUri               pulumi.StringPtrInput
+	EntityConnectionString   pulumi.StringPtrInput
+	EntityName               pulumi.StringPtrInput
+	Hostname                 pulumi.StringPtrInput
+	Kind                     pulumi.StringPtrInput
 	Name                     pulumi.StringInput
 	Port                     pulumi.IntPtrInput
 	ResourceConnectionString pulumi.StringPtrInput
-	// Name of the resource group to which the resource belongs.
-	ResourceGroupName pulumi.StringInput
-	ResourceType      pulumi.StringPtrInput
-	// Name of the deployment slot. If a slot is not specified, the API will create or update a hybrid connection for the production slot.
-	Slot pulumi.StringInput
+	ResourceGroupName        pulumi.StringInput
+	ResourceType             pulumi.StringPtrInput
+	Slot                     pulumi.StringInput
 }
 
 func (WebAppRelayServiceConnectionSlotArgs) ElementType() reflect.Type {
@@ -215,9 +203,7 @@ func (i *WebAppRelayServiceConnectionSlot) ToWebAppRelayServiceConnectionSlotOut
 	return pulumi.ToOutputWithContext(ctx, i).(WebAppRelayServiceConnectionSlotOutput)
 }
 
-type WebAppRelayServiceConnectionSlotOutput struct {
-	*pulumi.OutputState
-}
+type WebAppRelayServiceConnectionSlotOutput struct{ *pulumi.OutputState }
 
 func (WebAppRelayServiceConnectionSlotOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*WebAppRelayServiceConnectionSlot)(nil))

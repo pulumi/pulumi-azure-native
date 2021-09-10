@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.Network.V20180501.Outputs
 {
 
+    /// <summary>
+    /// A CAA record.
+    /// </summary>
     [OutputType]
     public sealed class CaaRecordResponse
     {

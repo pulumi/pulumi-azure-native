@@ -7,7 +7,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Class representing an event hub connection.
 func LookupEventHubConnection(ctx *pulumi.Context, args *LookupEventHubConnectionArgs, opts ...pulumi.InvokeOption) (*LookupEventHubConnectionResult, error) {
 	var rv LookupEventHubConnectionResult
 	err := ctx.Invoke("azure-native:kusto/v20170907privatepreview:getEventHubConnection", args, &rv, opts...)
@@ -18,34 +17,21 @@ func LookupEventHubConnection(ctx *pulumi.Context, args *LookupEventHubConnectio
 }
 
 type LookupEventHubConnectionArgs struct {
-	// The name of the Kusto cluster.
-	ClusterName string `pulumi:"clusterName"`
-	// The name of the database in the Kusto cluster.
-	DatabaseName string `pulumi:"databaseName"`
-	// The name of the event hub connection.
+	ClusterName            string `pulumi:"clusterName"`
+	DatabaseName           string `pulumi:"databaseName"`
 	EventHubConnectionName string `pulumi:"eventHubConnectionName"`
-	// The name of the resource group containing the Kusto cluster.
-	ResourceGroupName string `pulumi:"resourceGroupName"`
+	ResourceGroupName      string `pulumi:"resourceGroupName"`
 }
 
 // Class representing an event hub connection.
 type LookupEventHubConnectionResult struct {
-	// The event hub consumer group.
-	ConsumerGroup string `pulumi:"consumerGroup"`
-	// The data format of the message. Optionally the data format can be added to each message.
-	DataFormat *string `pulumi:"dataFormat"`
-	// The resource ID of the event hub to be used to create a data connection.
-	EventHubResourceId string `pulumi:"eventHubResourceId"`
-	// Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
-	Id string `pulumi:"id"`
-	// Resource location.
-	Location *string `pulumi:"location"`
-	// The mapping rule to be used to ingest the data. Optionally the mapping information can be added to each message.
-	MappingRuleName *string `pulumi:"mappingRuleName"`
-	// The name of the resource
-	Name string `pulumi:"name"`
-	// The table where the data should be ingested. Optionally the table information can be added to each message.
-	TableName *string `pulumi:"tableName"`
-	// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
-	Type string `pulumi:"type"`
+	ConsumerGroup      string  `pulumi:"consumerGroup"`
+	DataFormat         *string `pulumi:"dataFormat"`
+	EventHubResourceId string  `pulumi:"eventHubResourceId"`
+	Id                 string  `pulumi:"id"`
+	Location           *string `pulumi:"location"`
+	MappingRuleName    *string `pulumi:"mappingRuleName"`
+	Name               string  `pulumi:"name"`
+	TableName          *string `pulumi:"tableName"`
+	Type               string  `pulumi:"type"`
 }

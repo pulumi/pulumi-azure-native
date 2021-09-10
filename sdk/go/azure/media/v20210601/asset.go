@@ -11,32 +11,20 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// An Asset.
 type Asset struct {
 	pulumi.CustomResourceState
 
-	// The alternate ID of the Asset.
-	AlternateId pulumi.StringPtrOutput `pulumi:"alternateId"`
-	// The Asset ID.
-	AssetId pulumi.StringOutput `pulumi:"assetId"`
-	// The name of the asset blob container.
-	Container pulumi.StringPtrOutput `pulumi:"container"`
-	// The creation date of the Asset.
-	Created pulumi.StringOutput `pulumi:"created"`
-	// The Asset description.
-	Description pulumi.StringPtrOutput `pulumi:"description"`
-	// The last modified date of the Asset.
-	LastModified pulumi.StringOutput `pulumi:"lastModified"`
-	// The name of the resource
-	Name pulumi.StringOutput `pulumi:"name"`
-	// The name of the storage account.
-	StorageAccountName pulumi.StringPtrOutput `pulumi:"storageAccountName"`
-	// The Asset encryption format. One of None or MediaStorageEncryption.
-	StorageEncryptionFormat pulumi.StringOutput `pulumi:"storageEncryptionFormat"`
-	// The system metadata relating to this resource.
-	SystemData SystemDataResponseOutput `pulumi:"systemData"`
-	// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
-	Type pulumi.StringOutput `pulumi:"type"`
+	AlternateId             pulumi.StringPtrOutput   `pulumi:"alternateId"`
+	AssetId                 pulumi.StringOutput      `pulumi:"assetId"`
+	Container               pulumi.StringPtrOutput   `pulumi:"container"`
+	Created                 pulumi.StringOutput      `pulumi:"created"`
+	Description             pulumi.StringPtrOutput   `pulumi:"description"`
+	LastModified            pulumi.StringOutput      `pulumi:"lastModified"`
+	Name                    pulumi.StringOutput      `pulumi:"name"`
+	StorageAccountName      pulumi.StringPtrOutput   `pulumi:"storageAccountName"`
+	StorageEncryptionFormat pulumi.StringOutput      `pulumi:"storageEncryptionFormat"`
+	SystemData              SystemDataResponseOutput `pulumi:"systemData"`
+	Type                    pulumi.StringOutput      `pulumi:"type"`
 }
 
 // NewAsset registers a new resource with the given unique name, arguments, and options.
@@ -120,37 +108,23 @@ func (AssetState) ElementType() reflect.Type {
 }
 
 type assetArgs struct {
-	// The Media Services account name.
-	AccountName string `pulumi:"accountName"`
-	// The alternate ID of the Asset.
-	AlternateId *string `pulumi:"alternateId"`
-	// The Asset name.
-	AssetName *string `pulumi:"assetName"`
-	// The name of the asset blob container.
-	Container *string `pulumi:"container"`
-	// The Asset description.
-	Description *string `pulumi:"description"`
-	// The name of the resource group within the Azure subscription.
-	ResourceGroupName string `pulumi:"resourceGroupName"`
-	// The name of the storage account.
+	AccountName        string  `pulumi:"accountName"`
+	AlternateId        *string `pulumi:"alternateId"`
+	AssetName          *string `pulumi:"assetName"`
+	Container          *string `pulumi:"container"`
+	Description        *string `pulumi:"description"`
+	ResourceGroupName  string  `pulumi:"resourceGroupName"`
 	StorageAccountName *string `pulumi:"storageAccountName"`
 }
 
 // The set of arguments for constructing a Asset resource.
 type AssetArgs struct {
-	// The Media Services account name.
-	AccountName pulumi.StringInput
-	// The alternate ID of the Asset.
-	AlternateId pulumi.StringPtrInput
-	// The Asset name.
-	AssetName pulumi.StringPtrInput
-	// The name of the asset blob container.
-	Container pulumi.StringPtrInput
-	// The Asset description.
-	Description pulumi.StringPtrInput
-	// The name of the resource group within the Azure subscription.
-	ResourceGroupName pulumi.StringInput
-	// The name of the storage account.
+	AccountName        pulumi.StringInput
+	AlternateId        pulumi.StringPtrInput
+	AssetName          pulumi.StringPtrInput
+	Container          pulumi.StringPtrInput
+	Description        pulumi.StringPtrInput
+	ResourceGroupName  pulumi.StringInput
 	StorageAccountName pulumi.StringPtrInput
 }
 
@@ -177,9 +151,7 @@ func (i *Asset) ToAssetOutputWithContext(ctx context.Context) AssetOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(AssetOutput)
 }
 
-type AssetOutput struct {
-	*pulumi.OutputState
-}
+type AssetOutput struct{ *pulumi.OutputState }
 
 func (AssetOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*Asset)(nil))

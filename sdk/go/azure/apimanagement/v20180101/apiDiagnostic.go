@@ -11,16 +11,12 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Diagnostic details.
 type ApiDiagnostic struct {
 	pulumi.CustomResourceState
 
-	// Indicates whether a diagnostic should receive data or not.
-	Enabled pulumi.BoolOutput `pulumi:"enabled"`
-	// Resource name.
-	Name pulumi.StringOutput `pulumi:"name"`
-	// Resource type for API Management resource.
-	Type pulumi.StringOutput `pulumi:"type"`
+	Enabled pulumi.BoolOutput   `pulumi:"enabled"`
+	Name    pulumi.StringOutput `pulumi:"name"`
+	Type    pulumi.StringOutput `pulumi:"type"`
 }
 
 // NewApiDiagnostic registers a new resource with the given unique name, arguments, and options.
@@ -134,30 +130,20 @@ func (ApiDiagnosticState) ElementType() reflect.Type {
 }
 
 type apiDiagnosticArgs struct {
-	// API identifier. Must be unique in the current API Management service instance.
-	ApiId string `pulumi:"apiId"`
-	// Diagnostic identifier. Must be unique in the current API Management service instance.
-	DiagnosticId *string `pulumi:"diagnosticId"`
-	// Indicates whether a diagnostic should receive data or not.
-	Enabled bool `pulumi:"enabled"`
-	// The name of the resource group.
-	ResourceGroupName string `pulumi:"resourceGroupName"`
-	// The name of the API Management service.
-	ServiceName string `pulumi:"serviceName"`
+	ApiId             string  `pulumi:"apiId"`
+	DiagnosticId      *string `pulumi:"diagnosticId"`
+	Enabled           bool    `pulumi:"enabled"`
+	ResourceGroupName string  `pulumi:"resourceGroupName"`
+	ServiceName       string  `pulumi:"serviceName"`
 }
 
 // The set of arguments for constructing a ApiDiagnostic resource.
 type ApiDiagnosticArgs struct {
-	// API identifier. Must be unique in the current API Management service instance.
-	ApiId pulumi.StringInput
-	// Diagnostic identifier. Must be unique in the current API Management service instance.
-	DiagnosticId pulumi.StringPtrInput
-	// Indicates whether a diagnostic should receive data or not.
-	Enabled pulumi.BoolInput
-	// The name of the resource group.
+	ApiId             pulumi.StringInput
+	DiagnosticId      pulumi.StringPtrInput
+	Enabled           pulumi.BoolInput
 	ResourceGroupName pulumi.StringInput
-	// The name of the API Management service.
-	ServiceName pulumi.StringInput
+	ServiceName       pulumi.StringInput
 }
 
 func (ApiDiagnosticArgs) ElementType() reflect.Type {
@@ -183,9 +169,7 @@ func (i *ApiDiagnostic) ToApiDiagnosticOutputWithContext(ctx context.Context) Ap
 	return pulumi.ToOutputWithContext(ctx, i).(ApiDiagnosticOutput)
 }
 
-type ApiDiagnosticOutput struct {
-	*pulumi.OutputState
-}
+type ApiDiagnosticOutput struct{ *pulumi.OutputState }
 
 func (ApiDiagnosticOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*ApiDiagnostic)(nil))

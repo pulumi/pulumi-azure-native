@@ -11,26 +11,17 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Defines the rule collection.
 type AdminRuleCollection struct {
 	pulumi.CustomResourceState
 
-	// Groups for configuration
-	AppliesToGroups NetworkManagerSecurityGroupItemResponseArrayOutput `pulumi:"appliesToGroups"`
-	// A description of the rule collection.
-	Description pulumi.StringPtrOutput `pulumi:"description"`
-	// A display name of the rule collection.
-	DisplayName pulumi.StringPtrOutput `pulumi:"displayName"`
-	// A unique read-only string that changes whenever the resource is updated.
-	Etag pulumi.StringOutput `pulumi:"etag"`
-	// Resource name.
-	Name pulumi.StringOutput `pulumi:"name"`
-	// The provisioning state of the resource.
-	ProvisioningState pulumi.StringOutput `pulumi:"provisioningState"`
-	// The system metadata related to this resource.
-	SystemData SystemDataResponseOutput `pulumi:"systemData"`
-	// Resource type.
-	Type pulumi.StringOutput `pulumi:"type"`
+	AppliesToGroups   NetworkManagerSecurityGroupItemResponseArrayOutput `pulumi:"appliesToGroups"`
+	Description       pulumi.StringPtrOutput                             `pulumi:"description"`
+	DisplayName       pulumi.StringPtrOutput                             `pulumi:"displayName"`
+	Etag              pulumi.StringOutput                                `pulumi:"etag"`
+	Name              pulumi.StringOutput                                `pulumi:"name"`
+	ProvisioningState pulumi.StringOutput                                `pulumi:"provisioningState"`
+	SystemData        SystemDataResponseOutput                           `pulumi:"systemData"`
+	Type              pulumi.StringOutput                                `pulumi:"type"`
 }
 
 // NewAdminRuleCollection registers a new resource with the given unique name, arguments, and options.
@@ -93,37 +84,23 @@ func (AdminRuleCollectionState) ElementType() reflect.Type {
 }
 
 type adminRuleCollectionArgs struct {
-	// Groups for configuration
-	AppliesToGroups []NetworkManagerSecurityGroupItem `pulumi:"appliesToGroups"`
-	// The name of the network manager security Configuration.
-	ConfigurationName string `pulumi:"configurationName"`
-	// A description of the rule collection.
-	Description *string `pulumi:"description"`
-	// A display name of the rule collection.
-	DisplayName *string `pulumi:"displayName"`
-	// The name of the network manager.
-	NetworkManagerName string `pulumi:"networkManagerName"`
-	// The name of the resource group.
-	ResourceGroupName string `pulumi:"resourceGroupName"`
-	// The name of the network manager security Configuration rule collection.
-	RuleCollectionName *string `pulumi:"ruleCollectionName"`
+	AppliesToGroups    []NetworkManagerSecurityGroupItem `pulumi:"appliesToGroups"`
+	ConfigurationName  string                            `pulumi:"configurationName"`
+	Description        *string                           `pulumi:"description"`
+	DisplayName        *string                           `pulumi:"displayName"`
+	NetworkManagerName string                            `pulumi:"networkManagerName"`
+	ResourceGroupName  string                            `pulumi:"resourceGroupName"`
+	RuleCollectionName *string                           `pulumi:"ruleCollectionName"`
 }
 
 // The set of arguments for constructing a AdminRuleCollection resource.
 type AdminRuleCollectionArgs struct {
-	// Groups for configuration
-	AppliesToGroups NetworkManagerSecurityGroupItemArrayInput
-	// The name of the network manager security Configuration.
-	ConfigurationName pulumi.StringInput
-	// A description of the rule collection.
-	Description pulumi.StringPtrInput
-	// A display name of the rule collection.
-	DisplayName pulumi.StringPtrInput
-	// The name of the network manager.
+	AppliesToGroups    NetworkManagerSecurityGroupItemArrayInput
+	ConfigurationName  pulumi.StringInput
+	Description        pulumi.StringPtrInput
+	DisplayName        pulumi.StringPtrInput
 	NetworkManagerName pulumi.StringInput
-	// The name of the resource group.
-	ResourceGroupName pulumi.StringInput
-	// The name of the network manager security Configuration rule collection.
+	ResourceGroupName  pulumi.StringInput
 	RuleCollectionName pulumi.StringPtrInput
 }
 
@@ -150,9 +127,7 @@ func (i *AdminRuleCollection) ToAdminRuleCollectionOutputWithContext(ctx context
 	return pulumi.ToOutputWithContext(ctx, i).(AdminRuleCollectionOutput)
 }
 
-type AdminRuleCollectionOutput struct {
-	*pulumi.OutputState
-}
+type AdminRuleCollectionOutput struct{ *pulumi.OutputState }
 
 func (AdminRuleCollectionOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*AdminRuleCollection)(nil))

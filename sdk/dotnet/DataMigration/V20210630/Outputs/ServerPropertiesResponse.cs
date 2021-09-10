@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.DataMigration.V20210630.Outputs
 {
 
+    /// <summary>
+    /// Server properties for MySQL type source
+    /// </summary>
     [OutputType]
     public sealed class ServerPropertiesResponse
     {

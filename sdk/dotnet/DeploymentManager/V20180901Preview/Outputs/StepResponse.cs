@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.DeploymentManager.V20180901Preview.Outputs
 {
 
+    /// <summary>
+    /// The properties that define an Azure Deployment Manager step.
+    /// </summary>
     [OutputType]
     public sealed class StepResponse
     {

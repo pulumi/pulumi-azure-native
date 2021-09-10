@@ -7,7 +7,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// The container for solution.
 func LookupSolution(ctx *pulumi.Context, args *LookupSolutionArgs, opts ...pulumi.InvokeOption) (*LookupSolutionResult, error) {
 	var rv LookupSolutionResult
 	err := ctx.Invoke("azure-native:operationsmanagement/v20151101preview:getSolution", args, &rv, opts...)
@@ -18,26 +17,17 @@ func LookupSolution(ctx *pulumi.Context, args *LookupSolutionArgs, opts ...pulum
 }
 
 type LookupSolutionArgs struct {
-	// The name of the resource group to get. The name is case insensitive.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
-	// User Solution Name.
-	SolutionName string `pulumi:"solutionName"`
+	SolutionName      string `pulumi:"solutionName"`
 }
 
 // The container for solution.
 type LookupSolutionResult struct {
-	// Resource ID.
-	Id string `pulumi:"id"`
-	// Resource location
-	Location *string `pulumi:"location"`
-	// Resource name.
-	Name string `pulumi:"name"`
-	// Plan for solution object supported by the OperationsManagement resource provider.
-	Plan *SolutionPlanResponse `pulumi:"plan"`
-	// Properties for solution object supported by the OperationsManagement resource provider.
+	Id         string                     `pulumi:"id"`
+	Location   *string                    `pulumi:"location"`
+	Name       string                     `pulumi:"name"`
+	Plan       *SolutionPlanResponse      `pulumi:"plan"`
 	Properties SolutionPropertiesResponse `pulumi:"properties"`
-	// Resource tags
-	Tags map[string]string `pulumi:"tags"`
-	// Resource type.
-	Type string `pulumi:"type"`
+	Tags       map[string]string          `pulumi:"tags"`
+	Type       string                     `pulumi:"type"`
 }

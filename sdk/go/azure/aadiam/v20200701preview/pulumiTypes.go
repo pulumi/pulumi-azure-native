@@ -11,7 +11,6 @@ import (
 )
 
 type AzureADMetricsPropertiesFormatResponse struct {
-	// The provisioning state of the resource.
 	ProvisioningState string `pulumi:"provisioningState"`
 }
 
@@ -27,7 +26,6 @@ type AzureADMetricsPropertiesFormatResponseInput interface {
 }
 
 type AzureADMetricsPropertiesFormatResponseArgs struct {
-	// The provisioning state of the resource.
 	ProvisioningState pulumi.StringInput `pulumi:"provisioningState"`
 }
 
@@ -103,12 +101,11 @@ func (o AzureADMetricsPropertiesFormatResponseOutput) ToAzureADMetricsProperties
 }
 
 func (o AzureADMetricsPropertiesFormatResponseOutput) ToAzureADMetricsPropertiesFormatResponsePtrOutputWithContext(ctx context.Context) AzureADMetricsPropertiesFormatResponsePtrOutput {
-	return o.ApplyT(func(v AzureADMetricsPropertiesFormatResponse) *AzureADMetricsPropertiesFormatResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v AzureADMetricsPropertiesFormatResponse) *AzureADMetricsPropertiesFormatResponse {
 		return &v
 	}).(AzureADMetricsPropertiesFormatResponsePtrOutput)
 }
 
-// The provisioning state of the resource.
 func (o AzureADMetricsPropertiesFormatResponseOutput) ProvisioningState() pulumi.StringOutput {
 	return o.ApplyT(func(v AzureADMetricsPropertiesFormatResponse) string { return v.ProvisioningState }).(pulumi.StringOutput)
 }
@@ -128,10 +125,15 @@ func (o AzureADMetricsPropertiesFormatResponsePtrOutput) ToAzureADMetricsPropert
 }
 
 func (o AzureADMetricsPropertiesFormatResponsePtrOutput) Elem() AzureADMetricsPropertiesFormatResponseOutput {
-	return o.ApplyT(func(v *AzureADMetricsPropertiesFormatResponse) AzureADMetricsPropertiesFormatResponse { return *v }).(AzureADMetricsPropertiesFormatResponseOutput)
+	return o.ApplyT(func(v *AzureADMetricsPropertiesFormatResponse) AzureADMetricsPropertiesFormatResponse {
+		if v != nil {
+			return *v
+		}
+		var ret AzureADMetricsPropertiesFormatResponse
+		return ret
+	}).(AzureADMetricsPropertiesFormatResponseOutput)
 }
 
-// The provisioning state of the resource.
 func (o AzureADMetricsPropertiesFormatResponsePtrOutput) ProvisioningState() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *AzureADMetricsPropertiesFormatResponse) *string {
 		if v == nil {

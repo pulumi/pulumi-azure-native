@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.DataShare.V20201001Preview.Outputs
 {
 
+    /// <summary>
+    /// Defines a single blob storage account path.
+    /// </summary>
     [OutputType]
     public sealed class BlobStorageAccountPathResponse
     {

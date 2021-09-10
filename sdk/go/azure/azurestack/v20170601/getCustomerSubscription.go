@@ -7,7 +7,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Customer subscription.
 func LookupCustomerSubscription(ctx *pulumi.Context, args *LookupCustomerSubscriptionArgs, opts ...pulumi.InvokeOption) (*LookupCustomerSubscriptionResult, error) {
 	var rv LookupCustomerSubscriptionResult
 	err := ctx.Invoke("azure-native:azurestack/v20170601:getCustomerSubscription", args, &rv, opts...)
@@ -18,24 +17,16 @@ func LookupCustomerSubscription(ctx *pulumi.Context, args *LookupCustomerSubscri
 }
 
 type LookupCustomerSubscriptionArgs struct {
-	// Name of the product.
 	CustomerSubscriptionName string `pulumi:"customerSubscriptionName"`
-	// Name of the Azure Stack registration.
-	RegistrationName string `pulumi:"registrationName"`
-	// Name of the resource group.
-	ResourceGroup string `pulumi:"resourceGroup"`
+	RegistrationName         string `pulumi:"registrationName"`
+	ResourceGroup            string `pulumi:"resourceGroup"`
 }
 
 // Customer subscription.
 type LookupCustomerSubscriptionResult struct {
-	// The entity tag used for optimistic concurrency when modifying the resource.
-	Etag *string `pulumi:"etag"`
-	// ID of the resource.
-	Id string `pulumi:"id"`
-	// Name of the resource.
-	Name string `pulumi:"name"`
-	// Tenant Id.
+	Etag     *string `pulumi:"etag"`
+	Id       string  `pulumi:"id"`
+	Name     string  `pulumi:"name"`
 	TenantId *string `pulumi:"tenantId"`
-	// Type of Resource.
-	Type string `pulumi:"type"`
+	Type     string  `pulumi:"type"`
 }

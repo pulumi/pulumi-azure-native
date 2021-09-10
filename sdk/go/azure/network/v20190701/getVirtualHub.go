@@ -7,7 +7,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// VirtualHub Resource.
 func LookupVirtualHub(ctx *pulumi.Context, args *LookupVirtualHubArgs, opts ...pulumi.InvokeOption) (*LookupVirtualHubResult, error) {
 	var rv LookupVirtualHubResult
 	err := ctx.Invoke("azure-native:network/v20190701:getVirtualHub", args, &rv, opts...)
@@ -18,40 +17,24 @@ func LookupVirtualHub(ctx *pulumi.Context, args *LookupVirtualHubArgs, opts ...p
 }
 
 type LookupVirtualHubArgs struct {
-	// The resource group name of the VirtualHub.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
-	// The name of the VirtualHub.
-	VirtualHubName string `pulumi:"virtualHubName"`
+	VirtualHubName    string `pulumi:"virtualHubName"`
 }
 
 // VirtualHub Resource.
 type LookupVirtualHubResult struct {
-	// Address-prefix for this VirtualHub.
-	AddressPrefix *string `pulumi:"addressPrefix"`
-	// A unique read-only string that changes whenever the resource is updated.
-	Etag string `pulumi:"etag"`
-	// The expressRouteGateway associated with this VirtualHub.
-	ExpressRouteGateway *SubResourceResponse `pulumi:"expressRouteGateway"`
-	// Resource ID.
-	Id *string `pulumi:"id"`
-	// Resource location.
-	Location string `pulumi:"location"`
-	// Resource name.
-	Name string `pulumi:"name"`
-	// The P2SVpnGateway associated with this VirtualHub.
-	P2SVpnGateway *SubResourceResponse `pulumi:"p2SVpnGateway"`
-	// The provisioning state of the virtual hub resource.
-	ProvisioningState string `pulumi:"provisioningState"`
-	// The routeTable associated with this virtual hub.
-	RouteTable *VirtualHubRouteTableResponse `pulumi:"routeTable"`
-	// Resource tags.
-	Tags map[string]string `pulumi:"tags"`
-	// Resource type.
-	Type string `pulumi:"type"`
-	// List of all vnet connections with this VirtualHub.
+	AddressPrefix             *string                               `pulumi:"addressPrefix"`
+	Etag                      string                                `pulumi:"etag"`
+	ExpressRouteGateway       *SubResourceResponse                  `pulumi:"expressRouteGateway"`
+	Id                        *string                               `pulumi:"id"`
+	Location                  string                                `pulumi:"location"`
+	Name                      string                                `pulumi:"name"`
+	P2SVpnGateway             *SubResourceResponse                  `pulumi:"p2SVpnGateway"`
+	ProvisioningState         string                                `pulumi:"provisioningState"`
+	RouteTable                *VirtualHubRouteTableResponse         `pulumi:"routeTable"`
+	Tags                      map[string]string                     `pulumi:"tags"`
+	Type                      string                                `pulumi:"type"`
 	VirtualNetworkConnections []HubVirtualNetworkConnectionResponse `pulumi:"virtualNetworkConnections"`
-	// The VirtualWAN to which the VirtualHub belongs.
-	VirtualWan *SubResourceResponse `pulumi:"virtualWan"`
-	// The VpnGateway associated with this VirtualHub.
-	VpnGateway *SubResourceResponse `pulumi:"vpnGateway"`
+	VirtualWan                *SubResourceResponse                  `pulumi:"virtualWan"`
+	VpnGateway                *SubResourceResponse                  `pulumi:"vpnGateway"`
 }

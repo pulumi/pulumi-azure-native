@@ -7,7 +7,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// The status of the Canonical support plan.
 func LookupSupportPlanType(ctx *pulumi.Context, args *LookupSupportPlanTypeArgs, opts ...pulumi.InvokeOption) (*LookupSupportPlanTypeResult, error) {
 	var rv LookupSupportPlanTypeResult
 	err := ctx.Invoke("azure-native:addons/v20170515:getSupportPlanType", args, &rv, opts...)
@@ -18,20 +17,14 @@ func LookupSupportPlanType(ctx *pulumi.Context, args *LookupSupportPlanTypeArgs,
 }
 
 type LookupSupportPlanTypeArgs struct {
-	// The Canonical support plan type.
 	PlanTypeName string `pulumi:"planTypeName"`
-	// The support plan type. For now the only valid type is "canonical".
 	ProviderName string `pulumi:"providerName"`
 }
 
 // The status of the Canonical support plan.
 type LookupSupportPlanTypeResult struct {
-	// The id of the ARM resource, e.g. "/subscriptions/{id}/providers/Microsoft.Addons/supportProvider/{supportProviderName}/supportPlanTypes/{planTypeName}".
-	Id string `pulumi:"id"`
-	// The name of the Canonical support plan, i.e. "essential", "standard" or "advanced".
-	Name string `pulumi:"name"`
-	// The provisioning state of the resource.
+	Id                string  `pulumi:"id"`
+	Name              string  `pulumi:"name"`
 	ProvisioningState *string `pulumi:"provisioningState"`
-	// Microsoft.Addons/supportProvider
-	Type string `pulumi:"type"`
+	Type              string  `pulumi:"type"`
 }

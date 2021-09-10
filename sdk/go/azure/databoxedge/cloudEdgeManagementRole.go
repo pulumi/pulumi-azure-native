@@ -196,9 +196,7 @@ func (i *CloudEdgeManagementRole) ToCloudEdgeManagementRoleOutputWithContext(ctx
 	return pulumi.ToOutputWithContext(ctx, i).(CloudEdgeManagementRoleOutput)
 }
 
-type CloudEdgeManagementRoleOutput struct {
-	*pulumi.OutputState
-}
+type CloudEdgeManagementRoleOutput struct{ *pulumi.OutputState }
 
 func (CloudEdgeManagementRoleOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*CloudEdgeManagementRole)(nil))

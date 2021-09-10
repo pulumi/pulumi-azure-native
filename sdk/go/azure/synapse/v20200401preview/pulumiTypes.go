@@ -10,11 +10,8 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// An ARM Resource SKU.
 type SkuV3 struct {
-	// The name of the SKU, typically, a letter + Number code, e.g. P3.
-	Name string `pulumi:"name"`
-	// The tier or edition of the particular SKU, e.g. Basic, Premium.
+	Name string  `pulumi:"name"`
 	Tier *string `pulumi:"tier"`
 }
 
@@ -29,11 +26,8 @@ type SkuV3Input interface {
 	ToSkuV3OutputWithContext(context.Context) SkuV3Output
 }
 
-// An ARM Resource SKU.
 type SkuV3Args struct {
-	// The name of the SKU, typically, a letter + Number code, e.g. P3.
-	Name pulumi.StringInput `pulumi:"name"`
-	// The tier or edition of the particular SKU, e.g. Basic, Premium.
+	Name pulumi.StringInput    `pulumi:"name"`
 	Tier pulumi.StringPtrInput `pulumi:"tier"`
 }
 
@@ -90,7 +84,6 @@ func (i *skuV3PtrType) ToSkuV3PtrOutputWithContext(ctx context.Context) SkuV3Ptr
 	return pulumi.ToOutputWithContext(ctx, i).(SkuV3PtrOutput)
 }
 
-// An ARM Resource SKU.
 type SkuV3Output struct{ *pulumi.OutputState }
 
 func (SkuV3Output) ElementType() reflect.Type {
@@ -110,17 +103,15 @@ func (o SkuV3Output) ToSkuV3PtrOutput() SkuV3PtrOutput {
 }
 
 func (o SkuV3Output) ToSkuV3PtrOutputWithContext(ctx context.Context) SkuV3PtrOutput {
-	return o.ApplyT(func(v SkuV3) *SkuV3 {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v SkuV3) *SkuV3 {
 		return &v
 	}).(SkuV3PtrOutput)
 }
 
-// The name of the SKU, typically, a letter + Number code, e.g. P3.
 func (o SkuV3Output) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v SkuV3) string { return v.Name }).(pulumi.StringOutput)
 }
 
-// The tier or edition of the particular SKU, e.g. Basic, Premium.
 func (o SkuV3Output) Tier() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SkuV3) *string { return v.Tier }).(pulumi.StringPtrOutput)
 }
@@ -140,10 +131,15 @@ func (o SkuV3PtrOutput) ToSkuV3PtrOutputWithContext(ctx context.Context) SkuV3Pt
 }
 
 func (o SkuV3PtrOutput) Elem() SkuV3Output {
-	return o.ApplyT(func(v *SkuV3) SkuV3 { return *v }).(SkuV3Output)
+	return o.ApplyT(func(v *SkuV3) SkuV3 {
+		if v != nil {
+			return *v
+		}
+		var ret SkuV3
+		return ret
+	}).(SkuV3Output)
 }
 
-// The name of the SKU, typically, a letter + Number code, e.g. P3.
 func (o SkuV3PtrOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SkuV3) *string {
 		if v == nil {
@@ -153,7 +149,6 @@ func (o SkuV3PtrOutput) Name() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The tier or edition of the particular SKU, e.g. Basic, Premium.
 func (o SkuV3PtrOutput) Tier() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SkuV3) *string {
 		if v == nil {
@@ -163,11 +158,8 @@ func (o SkuV3PtrOutput) Tier() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// An ARM Resource SKU.
 type SkuV3Response struct {
-	// The name of the SKU, typically, a letter + Number code, e.g. P3.
-	Name string `pulumi:"name"`
-	// The tier or edition of the particular SKU, e.g. Basic, Premium.
+	Name string  `pulumi:"name"`
 	Tier *string `pulumi:"tier"`
 }
 
@@ -182,11 +174,8 @@ type SkuV3ResponseInput interface {
 	ToSkuV3ResponseOutputWithContext(context.Context) SkuV3ResponseOutput
 }
 
-// An ARM Resource SKU.
 type SkuV3ResponseArgs struct {
-	// The name of the SKU, typically, a letter + Number code, e.g. P3.
-	Name pulumi.StringInput `pulumi:"name"`
-	// The tier or edition of the particular SKU, e.g. Basic, Premium.
+	Name pulumi.StringInput    `pulumi:"name"`
 	Tier pulumi.StringPtrInput `pulumi:"tier"`
 }
 
@@ -243,7 +232,6 @@ func (i *skuV3ResponsePtrType) ToSkuV3ResponsePtrOutputWithContext(ctx context.C
 	return pulumi.ToOutputWithContext(ctx, i).(SkuV3ResponsePtrOutput)
 }
 
-// An ARM Resource SKU.
 type SkuV3ResponseOutput struct{ *pulumi.OutputState }
 
 func (SkuV3ResponseOutput) ElementType() reflect.Type {
@@ -263,17 +251,15 @@ func (o SkuV3ResponseOutput) ToSkuV3ResponsePtrOutput() SkuV3ResponsePtrOutput {
 }
 
 func (o SkuV3ResponseOutput) ToSkuV3ResponsePtrOutputWithContext(ctx context.Context) SkuV3ResponsePtrOutput {
-	return o.ApplyT(func(v SkuV3Response) *SkuV3Response {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v SkuV3Response) *SkuV3Response {
 		return &v
 	}).(SkuV3ResponsePtrOutput)
 }
 
-// The name of the SKU, typically, a letter + Number code, e.g. P3.
 func (o SkuV3ResponseOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v SkuV3Response) string { return v.Name }).(pulumi.StringOutput)
 }
 
-// The tier or edition of the particular SKU, e.g. Basic, Premium.
 func (o SkuV3ResponseOutput) Tier() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SkuV3Response) *string { return v.Tier }).(pulumi.StringPtrOutput)
 }
@@ -293,10 +279,15 @@ func (o SkuV3ResponsePtrOutput) ToSkuV3ResponsePtrOutputWithContext(ctx context.
 }
 
 func (o SkuV3ResponsePtrOutput) Elem() SkuV3ResponseOutput {
-	return o.ApplyT(func(v *SkuV3Response) SkuV3Response { return *v }).(SkuV3ResponseOutput)
+	return o.ApplyT(func(v *SkuV3Response) SkuV3Response {
+		if v != nil {
+			return *v
+		}
+		var ret SkuV3Response
+		return ret
+	}).(SkuV3ResponseOutput)
 }
 
-// The name of the SKU, typically, a letter + Number code, e.g. P3.
 func (o SkuV3ResponsePtrOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SkuV3Response) *string {
 		if v == nil {
@@ -306,7 +297,6 @@ func (o SkuV3ResponsePtrOutput) Name() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The tier or edition of the particular SKU, e.g. Basic, Premium.
 func (o SkuV3ResponsePtrOutput) Tier() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SkuV3Response) *string {
 		if v == nil {
@@ -316,19 +306,12 @@ func (o SkuV3ResponsePtrOutput) Tier() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// ARM System Data.
 type SystemDataResponse struct {
-	// The timestamp of resource creation (UTC).
-	CreatedAt string `pulumi:"createdAt"`
-	// A string identifier for the identity that created the resource.
-	CreatedBy string `pulumi:"createdBy"`
-	// The type of identity that created the resource: <User|Application|ManagedIdentity|Key>
-	CreatedByType string `pulumi:"createdByType"`
-	// The timestamp of last modification (UTC).
-	LastModifiedAt string `pulumi:"lastModifiedAt"`
-	// A string identifier for the identity that last modified the resource.
-	LastModifiedBy string `pulumi:"lastModifiedBy"`
-	// The type of identity that last modified the resource: <User|Application|ManagedIdentity|Key>
+	CreatedAt          string `pulumi:"createdAt"`
+	CreatedBy          string `pulumi:"createdBy"`
+	CreatedByType      string `pulumi:"createdByType"`
+	LastModifiedAt     string `pulumi:"lastModifiedAt"`
+	LastModifiedBy     string `pulumi:"lastModifiedBy"`
 	LastModifiedByType string `pulumi:"lastModifiedByType"`
 }
 
@@ -343,19 +326,12 @@ type SystemDataResponseInput interface {
 	ToSystemDataResponseOutputWithContext(context.Context) SystemDataResponseOutput
 }
 
-// ARM System Data.
 type SystemDataResponseArgs struct {
-	// The timestamp of resource creation (UTC).
-	CreatedAt pulumi.StringInput `pulumi:"createdAt"`
-	// A string identifier for the identity that created the resource.
-	CreatedBy pulumi.StringInput `pulumi:"createdBy"`
-	// The type of identity that created the resource: <User|Application|ManagedIdentity|Key>
-	CreatedByType pulumi.StringInput `pulumi:"createdByType"`
-	// The timestamp of last modification (UTC).
-	LastModifiedAt pulumi.StringInput `pulumi:"lastModifiedAt"`
-	// A string identifier for the identity that last modified the resource.
-	LastModifiedBy pulumi.StringInput `pulumi:"lastModifiedBy"`
-	// The type of identity that last modified the resource: <User|Application|ManagedIdentity|Key>
+	CreatedAt          pulumi.StringInput `pulumi:"createdAt"`
+	CreatedBy          pulumi.StringInput `pulumi:"createdBy"`
+	CreatedByType      pulumi.StringInput `pulumi:"createdByType"`
+	LastModifiedAt     pulumi.StringInput `pulumi:"lastModifiedAt"`
+	LastModifiedBy     pulumi.StringInput `pulumi:"lastModifiedBy"`
 	LastModifiedByType pulumi.StringInput `pulumi:"lastModifiedByType"`
 }
 
@@ -412,7 +388,6 @@ func (i *systemDataResponsePtrType) ToSystemDataResponsePtrOutputWithContext(ctx
 	return pulumi.ToOutputWithContext(ctx, i).(SystemDataResponsePtrOutput)
 }
 
-// ARM System Data.
 type SystemDataResponseOutput struct{ *pulumi.OutputState }
 
 func (SystemDataResponseOutput) ElementType() reflect.Type {
@@ -432,37 +407,31 @@ func (o SystemDataResponseOutput) ToSystemDataResponsePtrOutput() SystemDataResp
 }
 
 func (o SystemDataResponseOutput) ToSystemDataResponsePtrOutputWithContext(ctx context.Context) SystemDataResponsePtrOutput {
-	return o.ApplyT(func(v SystemDataResponse) *SystemDataResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v SystemDataResponse) *SystemDataResponse {
 		return &v
 	}).(SystemDataResponsePtrOutput)
 }
 
-// The timestamp of resource creation (UTC).
 func (o SystemDataResponseOutput) CreatedAt() pulumi.StringOutput {
 	return o.ApplyT(func(v SystemDataResponse) string { return v.CreatedAt }).(pulumi.StringOutput)
 }
 
-// A string identifier for the identity that created the resource.
 func (o SystemDataResponseOutput) CreatedBy() pulumi.StringOutput {
 	return o.ApplyT(func(v SystemDataResponse) string { return v.CreatedBy }).(pulumi.StringOutput)
 }
 
-// The type of identity that created the resource: <User|Application|ManagedIdentity|Key>
 func (o SystemDataResponseOutput) CreatedByType() pulumi.StringOutput {
 	return o.ApplyT(func(v SystemDataResponse) string { return v.CreatedByType }).(pulumi.StringOutput)
 }
 
-// The timestamp of last modification (UTC).
 func (o SystemDataResponseOutput) LastModifiedAt() pulumi.StringOutput {
 	return o.ApplyT(func(v SystemDataResponse) string { return v.LastModifiedAt }).(pulumi.StringOutput)
 }
 
-// A string identifier for the identity that last modified the resource.
 func (o SystemDataResponseOutput) LastModifiedBy() pulumi.StringOutput {
 	return o.ApplyT(func(v SystemDataResponse) string { return v.LastModifiedBy }).(pulumi.StringOutput)
 }
 
-// The type of identity that last modified the resource: <User|Application|ManagedIdentity|Key>
 func (o SystemDataResponseOutput) LastModifiedByType() pulumi.StringOutput {
 	return o.ApplyT(func(v SystemDataResponse) string { return v.LastModifiedByType }).(pulumi.StringOutput)
 }
@@ -482,10 +451,15 @@ func (o SystemDataResponsePtrOutput) ToSystemDataResponsePtrOutputWithContext(ct
 }
 
 func (o SystemDataResponsePtrOutput) Elem() SystemDataResponseOutput {
-	return o.ApplyT(func(v *SystemDataResponse) SystemDataResponse { return *v }).(SystemDataResponseOutput)
+	return o.ApplyT(func(v *SystemDataResponse) SystemDataResponse {
+		if v != nil {
+			return *v
+		}
+		var ret SystemDataResponse
+		return ret
+	}).(SystemDataResponseOutput)
 }
 
-// The timestamp of resource creation (UTC).
 func (o SystemDataResponsePtrOutput) CreatedAt() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SystemDataResponse) *string {
 		if v == nil {
@@ -495,7 +469,6 @@ func (o SystemDataResponsePtrOutput) CreatedAt() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// A string identifier for the identity that created the resource.
 func (o SystemDataResponsePtrOutput) CreatedBy() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SystemDataResponse) *string {
 		if v == nil {
@@ -505,7 +478,6 @@ func (o SystemDataResponsePtrOutput) CreatedBy() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The type of identity that created the resource: <User|Application|ManagedIdentity|Key>
 func (o SystemDataResponsePtrOutput) CreatedByType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SystemDataResponse) *string {
 		if v == nil {
@@ -515,7 +487,6 @@ func (o SystemDataResponsePtrOutput) CreatedByType() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The timestamp of last modification (UTC).
 func (o SystemDataResponsePtrOutput) LastModifiedAt() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SystemDataResponse) *string {
 		if v == nil {
@@ -525,7 +496,6 @@ func (o SystemDataResponsePtrOutput) LastModifiedAt() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// A string identifier for the identity that last modified the resource.
 func (o SystemDataResponsePtrOutput) LastModifiedBy() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SystemDataResponse) *string {
 		if v == nil {
@@ -535,7 +505,6 @@ func (o SystemDataResponsePtrOutput) LastModifiedBy() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The type of identity that last modified the resource: <User|Application|ManagedIdentity|Key>
 func (o SystemDataResponsePtrOutput) LastModifiedByType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SystemDataResponse) *string {
 		if v == nil {

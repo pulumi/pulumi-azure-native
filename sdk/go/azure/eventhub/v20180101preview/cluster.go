@@ -11,28 +11,18 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Single Event Hubs Cluster resource in List or Get operations.
 type Cluster struct {
 	pulumi.CustomResourceState
 
-	// The UTC time when the Event Hubs Cluster was created.
-	CreatedAt pulumi.StringOutput `pulumi:"createdAt"`
-	// Resource location.
-	Location pulumi.StringPtrOutput `pulumi:"location"`
-	// The metric ID of the cluster resource. Provided by the service and not modifiable by the user.
-	MetricId pulumi.StringOutput `pulumi:"metricId"`
-	// Resource name.
-	Name pulumi.StringOutput `pulumi:"name"`
-	// Properties of the cluster SKU.
-	Sku ClusterSkuResponsePtrOutput `pulumi:"sku"`
-	// Status of the Cluster resource
-	Status pulumi.StringOutput `pulumi:"status"`
-	// Resource tags.
-	Tags pulumi.StringMapOutput `pulumi:"tags"`
-	// Resource type.
-	Type pulumi.StringOutput `pulumi:"type"`
-	// The UTC time when the Event Hubs Cluster was last updated.
-	UpdatedAt pulumi.StringOutput `pulumi:"updatedAt"`
+	CreatedAt pulumi.StringOutput         `pulumi:"createdAt"`
+	Location  pulumi.StringPtrOutput      `pulumi:"location"`
+	MetricId  pulumi.StringOutput         `pulumi:"metricId"`
+	Name      pulumi.StringOutput         `pulumi:"name"`
+	Sku       ClusterSkuResponsePtrOutput `pulumi:"sku"`
+	Status    pulumi.StringOutput         `pulumi:"status"`
+	Tags      pulumi.StringMapOutput      `pulumi:"tags"`
+	Type      pulumi.StringOutput         `pulumi:"type"`
+	UpdatedAt pulumi.StringOutput         `pulumi:"updatedAt"`
 }
 
 // NewCluster registers a new resource with the given unique name, arguments, and options.
@@ -89,30 +79,20 @@ func (ClusterState) ElementType() reflect.Type {
 }
 
 type clusterArgs struct {
-	// The name of the Event Hubs Cluster.
-	ClusterName *string `pulumi:"clusterName"`
-	// Resource location.
-	Location *string `pulumi:"location"`
-	// Name of the resource group within the azure subscription.
-	ResourceGroupName string `pulumi:"resourceGroupName"`
-	// Properties of the cluster SKU.
-	Sku *ClusterSku `pulumi:"sku"`
-	// Resource tags.
-	Tags map[string]string `pulumi:"tags"`
+	ClusterName       *string           `pulumi:"clusterName"`
+	Location          *string           `pulumi:"location"`
+	ResourceGroupName string            `pulumi:"resourceGroupName"`
+	Sku               *ClusterSku       `pulumi:"sku"`
+	Tags              map[string]string `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a Cluster resource.
 type ClusterArgs struct {
-	// The name of the Event Hubs Cluster.
-	ClusterName pulumi.StringPtrInput
-	// Resource location.
-	Location pulumi.StringPtrInput
-	// Name of the resource group within the azure subscription.
+	ClusterName       pulumi.StringPtrInput
+	Location          pulumi.StringPtrInput
 	ResourceGroupName pulumi.StringInput
-	// Properties of the cluster SKU.
-	Sku ClusterSkuPtrInput
-	// Resource tags.
-	Tags pulumi.StringMapInput
+	Sku               ClusterSkuPtrInput
+	Tags              pulumi.StringMapInput
 }
 
 func (ClusterArgs) ElementType() reflect.Type {
@@ -138,9 +118,7 @@ func (i *Cluster) ToClusterOutputWithContext(ctx context.Context) ClusterOutput 
 	return pulumi.ToOutputWithContext(ctx, i).(ClusterOutput)
 }
 
-type ClusterOutput struct {
-	*pulumi.OutputState
-}
+type ClusterOutput struct{ *pulumi.OutputState }
 
 func (ClusterOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*Cluster)(nil))

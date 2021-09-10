@@ -144,9 +144,7 @@ func (i *Authorization) ToAuthorizationOutputWithContext(ctx context.Context) Au
 	return pulumi.ToOutputWithContext(ctx, i).(AuthorizationOutput)
 }
 
-type AuthorizationOutput struct {
-	*pulumi.OutputState
-}
+type AuthorizationOutput struct{ *pulumi.OutputState }
 
 func (AuthorizationOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*Authorization)(nil))

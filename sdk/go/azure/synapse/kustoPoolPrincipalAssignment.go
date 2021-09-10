@@ -174,9 +174,7 @@ func (i *KustoPoolPrincipalAssignment) ToKustoPoolPrincipalAssignmentOutputWithC
 	return pulumi.ToOutputWithContext(ctx, i).(KustoPoolPrincipalAssignmentOutput)
 }
 
-type KustoPoolPrincipalAssignmentOutput struct {
-	*pulumi.OutputState
-}
+type KustoPoolPrincipalAssignmentOutput struct{ *pulumi.OutputState }
 
 func (KustoPoolPrincipalAssignmentOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*KustoPoolPrincipalAssignment)(nil))

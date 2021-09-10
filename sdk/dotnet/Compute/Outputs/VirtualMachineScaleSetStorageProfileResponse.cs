@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.Compute.Outputs
 {
 
+    /// <summary>
+    /// Describes a virtual machine scale set storage profile.
+    /// </summary>
     [OutputType]
     public sealed class VirtualMachineScaleSetStorageProfileResponse
     {

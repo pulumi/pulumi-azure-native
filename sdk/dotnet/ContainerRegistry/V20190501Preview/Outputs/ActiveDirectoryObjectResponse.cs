@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.ContainerRegistry.V20190501Preview.Outputs
 {
 
+    /// <summary>
+    /// The Active Directory Object that will be used for authenticating the token of a container registry.
+    /// </summary>
     [OutputType]
     public sealed class ActiveDirectoryObjectResponse
     {

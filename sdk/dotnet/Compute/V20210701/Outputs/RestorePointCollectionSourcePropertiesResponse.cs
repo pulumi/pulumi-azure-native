@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.Compute.V20210701.Outputs
 {
 
+    /// <summary>
+    /// The properties of the source resource that this restore point collection is created from.
+    /// </summary>
     [OutputType]
     public sealed class RestorePointCollectionSourcePropertiesResponse
     {

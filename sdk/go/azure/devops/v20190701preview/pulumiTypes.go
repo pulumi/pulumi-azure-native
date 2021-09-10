@@ -10,12 +10,9 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Authorization info used to access a resource (like code repository).
 type Authorization struct {
-	// Type of authorization.
-	AuthorizationType string `pulumi:"authorizationType"`
-	// Authorization parameters corresponding to the authorization type.
-	Parameters map[string]string `pulumi:"parameters"`
+	AuthorizationType string            `pulumi:"authorizationType"`
+	Parameters        map[string]string `pulumi:"parameters"`
 }
 
 // AuthorizationInput is an input type that accepts AuthorizationArgs and AuthorizationOutput values.
@@ -29,12 +26,9 @@ type AuthorizationInput interface {
 	ToAuthorizationOutputWithContext(context.Context) AuthorizationOutput
 }
 
-// Authorization info used to access a resource (like code repository).
 type AuthorizationArgs struct {
-	// Type of authorization.
-	AuthorizationType pulumi.StringInput `pulumi:"authorizationType"`
-	// Authorization parameters corresponding to the authorization type.
-	Parameters pulumi.StringMapInput `pulumi:"parameters"`
+	AuthorizationType pulumi.StringInput    `pulumi:"authorizationType"`
+	Parameters        pulumi.StringMapInput `pulumi:"parameters"`
 }
 
 func (AuthorizationArgs) ElementType() reflect.Type {
@@ -90,7 +84,6 @@ func (i *authorizationPtrType) ToAuthorizationPtrOutputWithContext(ctx context.C
 	return pulumi.ToOutputWithContext(ctx, i).(AuthorizationPtrOutput)
 }
 
-// Authorization info used to access a resource (like code repository).
 type AuthorizationOutput struct{ *pulumi.OutputState }
 
 func (AuthorizationOutput) ElementType() reflect.Type {
@@ -110,17 +103,15 @@ func (o AuthorizationOutput) ToAuthorizationPtrOutput() AuthorizationPtrOutput {
 }
 
 func (o AuthorizationOutput) ToAuthorizationPtrOutputWithContext(ctx context.Context) AuthorizationPtrOutput {
-	return o.ApplyT(func(v Authorization) *Authorization {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v Authorization) *Authorization {
 		return &v
 	}).(AuthorizationPtrOutput)
 }
 
-// Type of authorization.
 func (o AuthorizationOutput) AuthorizationType() pulumi.StringOutput {
 	return o.ApplyT(func(v Authorization) string { return v.AuthorizationType }).(pulumi.StringOutput)
 }
 
-// Authorization parameters corresponding to the authorization type.
 func (o AuthorizationOutput) Parameters() pulumi.StringMapOutput {
 	return o.ApplyT(func(v Authorization) map[string]string { return v.Parameters }).(pulumi.StringMapOutput)
 }
@@ -140,10 +131,15 @@ func (o AuthorizationPtrOutput) ToAuthorizationPtrOutputWithContext(ctx context.
 }
 
 func (o AuthorizationPtrOutput) Elem() AuthorizationOutput {
-	return o.ApplyT(func(v *Authorization) Authorization { return *v }).(AuthorizationOutput)
+	return o.ApplyT(func(v *Authorization) Authorization {
+		if v != nil {
+			return *v
+		}
+		var ret Authorization
+		return ret
+	}).(AuthorizationOutput)
 }
 
-// Type of authorization.
 func (o AuthorizationPtrOutput) AuthorizationType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Authorization) *string {
 		if v == nil {
@@ -153,7 +149,6 @@ func (o AuthorizationPtrOutput) AuthorizationType() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Authorization parameters corresponding to the authorization type.
 func (o AuthorizationPtrOutput) Parameters() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *Authorization) map[string]string {
 		if v == nil {
@@ -163,12 +158,9 @@ func (o AuthorizationPtrOutput) Parameters() pulumi.StringMapOutput {
 	}).(pulumi.StringMapOutput)
 }
 
-// Authorization info used to access a resource (like code repository).
 type AuthorizationResponse struct {
-	// Type of authorization.
-	AuthorizationType string `pulumi:"authorizationType"`
-	// Authorization parameters corresponding to the authorization type.
-	Parameters map[string]string `pulumi:"parameters"`
+	AuthorizationType string            `pulumi:"authorizationType"`
+	Parameters        map[string]string `pulumi:"parameters"`
 }
 
 // AuthorizationResponseInput is an input type that accepts AuthorizationResponseArgs and AuthorizationResponseOutput values.
@@ -182,12 +174,9 @@ type AuthorizationResponseInput interface {
 	ToAuthorizationResponseOutputWithContext(context.Context) AuthorizationResponseOutput
 }
 
-// Authorization info used to access a resource (like code repository).
 type AuthorizationResponseArgs struct {
-	// Type of authorization.
-	AuthorizationType pulumi.StringInput `pulumi:"authorizationType"`
-	// Authorization parameters corresponding to the authorization type.
-	Parameters pulumi.StringMapInput `pulumi:"parameters"`
+	AuthorizationType pulumi.StringInput    `pulumi:"authorizationType"`
+	Parameters        pulumi.StringMapInput `pulumi:"parameters"`
 }
 
 func (AuthorizationResponseArgs) ElementType() reflect.Type {
@@ -243,7 +232,6 @@ func (i *authorizationResponsePtrType) ToAuthorizationResponsePtrOutputWithConte
 	return pulumi.ToOutputWithContext(ctx, i).(AuthorizationResponsePtrOutput)
 }
 
-// Authorization info used to access a resource (like code repository).
 type AuthorizationResponseOutput struct{ *pulumi.OutputState }
 
 func (AuthorizationResponseOutput) ElementType() reflect.Type {
@@ -263,17 +251,15 @@ func (o AuthorizationResponseOutput) ToAuthorizationResponsePtrOutput() Authoriz
 }
 
 func (o AuthorizationResponseOutput) ToAuthorizationResponsePtrOutputWithContext(ctx context.Context) AuthorizationResponsePtrOutput {
-	return o.ApplyT(func(v AuthorizationResponse) *AuthorizationResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v AuthorizationResponse) *AuthorizationResponse {
 		return &v
 	}).(AuthorizationResponsePtrOutput)
 }
 
-// Type of authorization.
 func (o AuthorizationResponseOutput) AuthorizationType() pulumi.StringOutput {
 	return o.ApplyT(func(v AuthorizationResponse) string { return v.AuthorizationType }).(pulumi.StringOutput)
 }
 
-// Authorization parameters corresponding to the authorization type.
 func (o AuthorizationResponseOutput) Parameters() pulumi.StringMapOutput {
 	return o.ApplyT(func(v AuthorizationResponse) map[string]string { return v.Parameters }).(pulumi.StringMapOutput)
 }
@@ -293,10 +279,15 @@ func (o AuthorizationResponsePtrOutput) ToAuthorizationResponsePtrOutputWithCont
 }
 
 func (o AuthorizationResponsePtrOutput) Elem() AuthorizationResponseOutput {
-	return o.ApplyT(func(v *AuthorizationResponse) AuthorizationResponse { return *v }).(AuthorizationResponseOutput)
+	return o.ApplyT(func(v *AuthorizationResponse) AuthorizationResponse {
+		if v != nil {
+			return *v
+		}
+		var ret AuthorizationResponse
+		return ret
+	}).(AuthorizationResponseOutput)
 }
 
-// Type of authorization.
 func (o AuthorizationResponsePtrOutput) AuthorizationType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *AuthorizationResponse) *string {
 		if v == nil {
@@ -306,7 +297,6 @@ func (o AuthorizationResponsePtrOutput) AuthorizationType() pulumi.StringPtrOutp
 	}).(pulumi.StringPtrOutput)
 }
 
-// Authorization parameters corresponding to the authorization type.
 func (o AuthorizationResponsePtrOutput) Parameters() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *AuthorizationResponse) map[string]string {
 		if v == nil {
@@ -316,12 +306,9 @@ func (o AuthorizationResponsePtrOutput) Parameters() pulumi.StringMapOutput {
 	}).(pulumi.StringMapOutput)
 }
 
-// Configuration used to bootstrap a Pipeline.
 type BootstrapConfiguration struct {
-	// Repository containing the source code for the pipeline.
-	Repository *CodeRepository `pulumi:"repository"`
-	// Template used to bootstrap the pipeline.
-	Template PipelineTemplate `pulumi:"template"`
+	Repository *CodeRepository  `pulumi:"repository"`
+	Template   PipelineTemplate `pulumi:"template"`
 }
 
 // BootstrapConfigurationInput is an input type that accepts BootstrapConfigurationArgs and BootstrapConfigurationOutput values.
@@ -335,12 +322,9 @@ type BootstrapConfigurationInput interface {
 	ToBootstrapConfigurationOutputWithContext(context.Context) BootstrapConfigurationOutput
 }
 
-// Configuration used to bootstrap a Pipeline.
 type BootstrapConfigurationArgs struct {
-	// Repository containing the source code for the pipeline.
 	Repository CodeRepositoryPtrInput `pulumi:"repository"`
-	// Template used to bootstrap the pipeline.
-	Template PipelineTemplateInput `pulumi:"template"`
+	Template   PipelineTemplateInput  `pulumi:"template"`
 }
 
 func (BootstrapConfigurationArgs) ElementType() reflect.Type {
@@ -396,7 +380,6 @@ func (i *bootstrapConfigurationPtrType) ToBootstrapConfigurationPtrOutputWithCon
 	return pulumi.ToOutputWithContext(ctx, i).(BootstrapConfigurationPtrOutput)
 }
 
-// Configuration used to bootstrap a Pipeline.
 type BootstrapConfigurationOutput struct{ *pulumi.OutputState }
 
 func (BootstrapConfigurationOutput) ElementType() reflect.Type {
@@ -416,17 +399,15 @@ func (o BootstrapConfigurationOutput) ToBootstrapConfigurationPtrOutput() Bootst
 }
 
 func (o BootstrapConfigurationOutput) ToBootstrapConfigurationPtrOutputWithContext(ctx context.Context) BootstrapConfigurationPtrOutput {
-	return o.ApplyT(func(v BootstrapConfiguration) *BootstrapConfiguration {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v BootstrapConfiguration) *BootstrapConfiguration {
 		return &v
 	}).(BootstrapConfigurationPtrOutput)
 }
 
-// Repository containing the source code for the pipeline.
 func (o BootstrapConfigurationOutput) Repository() CodeRepositoryPtrOutput {
 	return o.ApplyT(func(v BootstrapConfiguration) *CodeRepository { return v.Repository }).(CodeRepositoryPtrOutput)
 }
 
-// Template used to bootstrap the pipeline.
 func (o BootstrapConfigurationOutput) Template() PipelineTemplateOutput {
 	return o.ApplyT(func(v BootstrapConfiguration) PipelineTemplate { return v.Template }).(PipelineTemplateOutput)
 }
@@ -446,10 +427,15 @@ func (o BootstrapConfigurationPtrOutput) ToBootstrapConfigurationPtrOutputWithCo
 }
 
 func (o BootstrapConfigurationPtrOutput) Elem() BootstrapConfigurationOutput {
-	return o.ApplyT(func(v *BootstrapConfiguration) BootstrapConfiguration { return *v }).(BootstrapConfigurationOutput)
+	return o.ApplyT(func(v *BootstrapConfiguration) BootstrapConfiguration {
+		if v != nil {
+			return *v
+		}
+		var ret BootstrapConfiguration
+		return ret
+	}).(BootstrapConfigurationOutput)
 }
 
-// Repository containing the source code for the pipeline.
 func (o BootstrapConfigurationPtrOutput) Repository() CodeRepositoryPtrOutput {
 	return o.ApplyT(func(v *BootstrapConfiguration) *CodeRepository {
 		if v == nil {
@@ -459,7 +445,6 @@ func (o BootstrapConfigurationPtrOutput) Repository() CodeRepositoryPtrOutput {
 	}).(CodeRepositoryPtrOutput)
 }
 
-// Template used to bootstrap the pipeline.
 func (o BootstrapConfigurationPtrOutput) Template() PipelineTemplatePtrOutput {
 	return o.ApplyT(func(v *BootstrapConfiguration) *PipelineTemplate {
 		if v == nil {
@@ -469,12 +454,9 @@ func (o BootstrapConfigurationPtrOutput) Template() PipelineTemplatePtrOutput {
 	}).(PipelineTemplatePtrOutput)
 }
 
-// Configuration used to bootstrap a Pipeline.
 type BootstrapConfigurationResponse struct {
-	// Repository containing the source code for the pipeline.
-	Repository *CodeRepositoryResponse `pulumi:"repository"`
-	// Template used to bootstrap the pipeline.
-	Template PipelineTemplateResponse `pulumi:"template"`
+	Repository *CodeRepositoryResponse  `pulumi:"repository"`
+	Template   PipelineTemplateResponse `pulumi:"template"`
 }
 
 // BootstrapConfigurationResponseInput is an input type that accepts BootstrapConfigurationResponseArgs and BootstrapConfigurationResponseOutput values.
@@ -488,12 +470,9 @@ type BootstrapConfigurationResponseInput interface {
 	ToBootstrapConfigurationResponseOutputWithContext(context.Context) BootstrapConfigurationResponseOutput
 }
 
-// Configuration used to bootstrap a Pipeline.
 type BootstrapConfigurationResponseArgs struct {
-	// Repository containing the source code for the pipeline.
 	Repository CodeRepositoryResponsePtrInput `pulumi:"repository"`
-	// Template used to bootstrap the pipeline.
-	Template PipelineTemplateResponseInput `pulumi:"template"`
+	Template   PipelineTemplateResponseInput  `pulumi:"template"`
 }
 
 func (BootstrapConfigurationResponseArgs) ElementType() reflect.Type {
@@ -549,7 +528,6 @@ func (i *bootstrapConfigurationResponsePtrType) ToBootstrapConfigurationResponse
 	return pulumi.ToOutputWithContext(ctx, i).(BootstrapConfigurationResponsePtrOutput)
 }
 
-// Configuration used to bootstrap a Pipeline.
 type BootstrapConfigurationResponseOutput struct{ *pulumi.OutputState }
 
 func (BootstrapConfigurationResponseOutput) ElementType() reflect.Type {
@@ -569,17 +547,15 @@ func (o BootstrapConfigurationResponseOutput) ToBootstrapConfigurationResponsePt
 }
 
 func (o BootstrapConfigurationResponseOutput) ToBootstrapConfigurationResponsePtrOutputWithContext(ctx context.Context) BootstrapConfigurationResponsePtrOutput {
-	return o.ApplyT(func(v BootstrapConfigurationResponse) *BootstrapConfigurationResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v BootstrapConfigurationResponse) *BootstrapConfigurationResponse {
 		return &v
 	}).(BootstrapConfigurationResponsePtrOutput)
 }
 
-// Repository containing the source code for the pipeline.
 func (o BootstrapConfigurationResponseOutput) Repository() CodeRepositoryResponsePtrOutput {
 	return o.ApplyT(func(v BootstrapConfigurationResponse) *CodeRepositoryResponse { return v.Repository }).(CodeRepositoryResponsePtrOutput)
 }
 
-// Template used to bootstrap the pipeline.
 func (o BootstrapConfigurationResponseOutput) Template() PipelineTemplateResponseOutput {
 	return o.ApplyT(func(v BootstrapConfigurationResponse) PipelineTemplateResponse { return v.Template }).(PipelineTemplateResponseOutput)
 }
@@ -599,10 +575,15 @@ func (o BootstrapConfigurationResponsePtrOutput) ToBootstrapConfigurationRespons
 }
 
 func (o BootstrapConfigurationResponsePtrOutput) Elem() BootstrapConfigurationResponseOutput {
-	return o.ApplyT(func(v *BootstrapConfigurationResponse) BootstrapConfigurationResponse { return *v }).(BootstrapConfigurationResponseOutput)
+	return o.ApplyT(func(v *BootstrapConfigurationResponse) BootstrapConfigurationResponse {
+		if v != nil {
+			return *v
+		}
+		var ret BootstrapConfigurationResponse
+		return ret
+	}).(BootstrapConfigurationResponseOutput)
 }
 
-// Repository containing the source code for the pipeline.
 func (o BootstrapConfigurationResponsePtrOutput) Repository() CodeRepositoryResponsePtrOutput {
 	return o.ApplyT(func(v *BootstrapConfigurationResponse) *CodeRepositoryResponse {
 		if v == nil {
@@ -612,7 +593,6 @@ func (o BootstrapConfigurationResponsePtrOutput) Repository() CodeRepositoryResp
 	}).(CodeRepositoryResponsePtrOutput)
 }
 
-// Template used to bootstrap the pipeline.
 func (o BootstrapConfigurationResponsePtrOutput) Template() PipelineTemplateResponsePtrOutput {
 	return o.ApplyT(func(v *BootstrapConfigurationResponse) *PipelineTemplateResponse {
 		if v == nil {
@@ -622,18 +602,12 @@ func (o BootstrapConfigurationResponsePtrOutput) Template() PipelineTemplateResp
 	}).(PipelineTemplateResponsePtrOutput)
 }
 
-// Repository containing the source code for a pipeline.
 type CodeRepository struct {
-	// Authorization info to access the code repository.
-	Authorization *Authorization `pulumi:"authorization"`
-	// Default branch used to configure Continuous Integration (CI) in the pipeline.
-	DefaultBranch string `pulumi:"defaultBranch"`
-	// Unique immutable identifier of the code repository.
-	Id string `pulumi:"id"`
-	// Repository-specific properties.
-	Properties map[string]string `pulumi:"properties"`
-	// Type of code repository.
-	RepositoryType string `pulumi:"repositoryType"`
+	Authorization  *Authorization    `pulumi:"authorization"`
+	DefaultBranch  string            `pulumi:"defaultBranch"`
+	Id             string            `pulumi:"id"`
+	Properties     map[string]string `pulumi:"properties"`
+	RepositoryType string            `pulumi:"repositoryType"`
 }
 
 // CodeRepositoryInput is an input type that accepts CodeRepositoryArgs and CodeRepositoryOutput values.
@@ -647,18 +621,12 @@ type CodeRepositoryInput interface {
 	ToCodeRepositoryOutputWithContext(context.Context) CodeRepositoryOutput
 }
 
-// Repository containing the source code for a pipeline.
 type CodeRepositoryArgs struct {
-	// Authorization info to access the code repository.
-	Authorization AuthorizationPtrInput `pulumi:"authorization"`
-	// Default branch used to configure Continuous Integration (CI) in the pipeline.
-	DefaultBranch pulumi.StringInput `pulumi:"defaultBranch"`
-	// Unique immutable identifier of the code repository.
-	Id pulumi.StringInput `pulumi:"id"`
-	// Repository-specific properties.
-	Properties pulumi.StringMapInput `pulumi:"properties"`
-	// Type of code repository.
-	RepositoryType pulumi.StringInput `pulumi:"repositoryType"`
+	Authorization  AuthorizationPtrInput `pulumi:"authorization"`
+	DefaultBranch  pulumi.StringInput    `pulumi:"defaultBranch"`
+	Id             pulumi.StringInput    `pulumi:"id"`
+	Properties     pulumi.StringMapInput `pulumi:"properties"`
+	RepositoryType pulumi.StringInput    `pulumi:"repositoryType"`
 }
 
 func (CodeRepositoryArgs) ElementType() reflect.Type {
@@ -714,7 +682,6 @@ func (i *codeRepositoryPtrType) ToCodeRepositoryPtrOutputWithContext(ctx context
 	return pulumi.ToOutputWithContext(ctx, i).(CodeRepositoryPtrOutput)
 }
 
-// Repository containing the source code for a pipeline.
 type CodeRepositoryOutput struct{ *pulumi.OutputState }
 
 func (CodeRepositoryOutput) ElementType() reflect.Type {
@@ -734,32 +701,27 @@ func (o CodeRepositoryOutput) ToCodeRepositoryPtrOutput() CodeRepositoryPtrOutpu
 }
 
 func (o CodeRepositoryOutput) ToCodeRepositoryPtrOutputWithContext(ctx context.Context) CodeRepositoryPtrOutput {
-	return o.ApplyT(func(v CodeRepository) *CodeRepository {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v CodeRepository) *CodeRepository {
 		return &v
 	}).(CodeRepositoryPtrOutput)
 }
 
-// Authorization info to access the code repository.
 func (o CodeRepositoryOutput) Authorization() AuthorizationPtrOutput {
 	return o.ApplyT(func(v CodeRepository) *Authorization { return v.Authorization }).(AuthorizationPtrOutput)
 }
 
-// Default branch used to configure Continuous Integration (CI) in the pipeline.
 func (o CodeRepositoryOutput) DefaultBranch() pulumi.StringOutput {
 	return o.ApplyT(func(v CodeRepository) string { return v.DefaultBranch }).(pulumi.StringOutput)
 }
 
-// Unique immutable identifier of the code repository.
 func (o CodeRepositoryOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v CodeRepository) string { return v.Id }).(pulumi.StringOutput)
 }
 
-// Repository-specific properties.
 func (o CodeRepositoryOutput) Properties() pulumi.StringMapOutput {
 	return o.ApplyT(func(v CodeRepository) map[string]string { return v.Properties }).(pulumi.StringMapOutput)
 }
 
-// Type of code repository.
 func (o CodeRepositoryOutput) RepositoryType() pulumi.StringOutput {
 	return o.ApplyT(func(v CodeRepository) string { return v.RepositoryType }).(pulumi.StringOutput)
 }
@@ -779,10 +741,15 @@ func (o CodeRepositoryPtrOutput) ToCodeRepositoryPtrOutputWithContext(ctx contex
 }
 
 func (o CodeRepositoryPtrOutput) Elem() CodeRepositoryOutput {
-	return o.ApplyT(func(v *CodeRepository) CodeRepository { return *v }).(CodeRepositoryOutput)
+	return o.ApplyT(func(v *CodeRepository) CodeRepository {
+		if v != nil {
+			return *v
+		}
+		var ret CodeRepository
+		return ret
+	}).(CodeRepositoryOutput)
 }
 
-// Authorization info to access the code repository.
 func (o CodeRepositoryPtrOutput) Authorization() AuthorizationPtrOutput {
 	return o.ApplyT(func(v *CodeRepository) *Authorization {
 		if v == nil {
@@ -792,7 +759,6 @@ func (o CodeRepositoryPtrOutput) Authorization() AuthorizationPtrOutput {
 	}).(AuthorizationPtrOutput)
 }
 
-// Default branch used to configure Continuous Integration (CI) in the pipeline.
 func (o CodeRepositoryPtrOutput) DefaultBranch() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *CodeRepository) *string {
 		if v == nil {
@@ -802,7 +768,6 @@ func (o CodeRepositoryPtrOutput) DefaultBranch() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Unique immutable identifier of the code repository.
 func (o CodeRepositoryPtrOutput) Id() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *CodeRepository) *string {
 		if v == nil {
@@ -812,7 +777,6 @@ func (o CodeRepositoryPtrOutput) Id() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Repository-specific properties.
 func (o CodeRepositoryPtrOutput) Properties() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *CodeRepository) map[string]string {
 		if v == nil {
@@ -822,7 +786,6 @@ func (o CodeRepositoryPtrOutput) Properties() pulumi.StringMapOutput {
 	}).(pulumi.StringMapOutput)
 }
 
-// Type of code repository.
 func (o CodeRepositoryPtrOutput) RepositoryType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *CodeRepository) *string {
 		if v == nil {
@@ -832,18 +795,12 @@ func (o CodeRepositoryPtrOutput) RepositoryType() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Repository containing the source code for a pipeline.
 type CodeRepositoryResponse struct {
-	// Authorization info to access the code repository.
-	Authorization *AuthorizationResponse `pulumi:"authorization"`
-	// Default branch used to configure Continuous Integration (CI) in the pipeline.
-	DefaultBranch string `pulumi:"defaultBranch"`
-	// Unique immutable identifier of the code repository.
-	Id string `pulumi:"id"`
-	// Repository-specific properties.
-	Properties map[string]string `pulumi:"properties"`
-	// Type of code repository.
-	RepositoryType string `pulumi:"repositoryType"`
+	Authorization  *AuthorizationResponse `pulumi:"authorization"`
+	DefaultBranch  string                 `pulumi:"defaultBranch"`
+	Id             string                 `pulumi:"id"`
+	Properties     map[string]string      `pulumi:"properties"`
+	RepositoryType string                 `pulumi:"repositoryType"`
 }
 
 // CodeRepositoryResponseInput is an input type that accepts CodeRepositoryResponseArgs and CodeRepositoryResponseOutput values.
@@ -857,18 +814,12 @@ type CodeRepositoryResponseInput interface {
 	ToCodeRepositoryResponseOutputWithContext(context.Context) CodeRepositoryResponseOutput
 }
 
-// Repository containing the source code for a pipeline.
 type CodeRepositoryResponseArgs struct {
-	// Authorization info to access the code repository.
-	Authorization AuthorizationResponsePtrInput `pulumi:"authorization"`
-	// Default branch used to configure Continuous Integration (CI) in the pipeline.
-	DefaultBranch pulumi.StringInput `pulumi:"defaultBranch"`
-	// Unique immutable identifier of the code repository.
-	Id pulumi.StringInput `pulumi:"id"`
-	// Repository-specific properties.
-	Properties pulumi.StringMapInput `pulumi:"properties"`
-	// Type of code repository.
-	RepositoryType pulumi.StringInput `pulumi:"repositoryType"`
+	Authorization  AuthorizationResponsePtrInput `pulumi:"authorization"`
+	DefaultBranch  pulumi.StringInput            `pulumi:"defaultBranch"`
+	Id             pulumi.StringInput            `pulumi:"id"`
+	Properties     pulumi.StringMapInput         `pulumi:"properties"`
+	RepositoryType pulumi.StringInput            `pulumi:"repositoryType"`
 }
 
 func (CodeRepositoryResponseArgs) ElementType() reflect.Type {
@@ -924,7 +875,6 @@ func (i *codeRepositoryResponsePtrType) ToCodeRepositoryResponsePtrOutputWithCon
 	return pulumi.ToOutputWithContext(ctx, i).(CodeRepositoryResponsePtrOutput)
 }
 
-// Repository containing the source code for a pipeline.
 type CodeRepositoryResponseOutput struct{ *pulumi.OutputState }
 
 func (CodeRepositoryResponseOutput) ElementType() reflect.Type {
@@ -944,32 +894,27 @@ func (o CodeRepositoryResponseOutput) ToCodeRepositoryResponsePtrOutput() CodeRe
 }
 
 func (o CodeRepositoryResponseOutput) ToCodeRepositoryResponsePtrOutputWithContext(ctx context.Context) CodeRepositoryResponsePtrOutput {
-	return o.ApplyT(func(v CodeRepositoryResponse) *CodeRepositoryResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v CodeRepositoryResponse) *CodeRepositoryResponse {
 		return &v
 	}).(CodeRepositoryResponsePtrOutput)
 }
 
-// Authorization info to access the code repository.
 func (o CodeRepositoryResponseOutput) Authorization() AuthorizationResponsePtrOutput {
 	return o.ApplyT(func(v CodeRepositoryResponse) *AuthorizationResponse { return v.Authorization }).(AuthorizationResponsePtrOutput)
 }
 
-// Default branch used to configure Continuous Integration (CI) in the pipeline.
 func (o CodeRepositoryResponseOutput) DefaultBranch() pulumi.StringOutput {
 	return o.ApplyT(func(v CodeRepositoryResponse) string { return v.DefaultBranch }).(pulumi.StringOutput)
 }
 
-// Unique immutable identifier of the code repository.
 func (o CodeRepositoryResponseOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v CodeRepositoryResponse) string { return v.Id }).(pulumi.StringOutput)
 }
 
-// Repository-specific properties.
 func (o CodeRepositoryResponseOutput) Properties() pulumi.StringMapOutput {
 	return o.ApplyT(func(v CodeRepositoryResponse) map[string]string { return v.Properties }).(pulumi.StringMapOutput)
 }
 
-// Type of code repository.
 func (o CodeRepositoryResponseOutput) RepositoryType() pulumi.StringOutput {
 	return o.ApplyT(func(v CodeRepositoryResponse) string { return v.RepositoryType }).(pulumi.StringOutput)
 }
@@ -989,10 +934,15 @@ func (o CodeRepositoryResponsePtrOutput) ToCodeRepositoryResponsePtrOutputWithCo
 }
 
 func (o CodeRepositoryResponsePtrOutput) Elem() CodeRepositoryResponseOutput {
-	return o.ApplyT(func(v *CodeRepositoryResponse) CodeRepositoryResponse { return *v }).(CodeRepositoryResponseOutput)
+	return o.ApplyT(func(v *CodeRepositoryResponse) CodeRepositoryResponse {
+		if v != nil {
+			return *v
+		}
+		var ret CodeRepositoryResponse
+		return ret
+	}).(CodeRepositoryResponseOutput)
 }
 
-// Authorization info to access the code repository.
 func (o CodeRepositoryResponsePtrOutput) Authorization() AuthorizationResponsePtrOutput {
 	return o.ApplyT(func(v *CodeRepositoryResponse) *AuthorizationResponse {
 		if v == nil {
@@ -1002,7 +952,6 @@ func (o CodeRepositoryResponsePtrOutput) Authorization() AuthorizationResponsePt
 	}).(AuthorizationResponsePtrOutput)
 }
 
-// Default branch used to configure Continuous Integration (CI) in the pipeline.
 func (o CodeRepositoryResponsePtrOutput) DefaultBranch() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *CodeRepositoryResponse) *string {
 		if v == nil {
@@ -1012,7 +961,6 @@ func (o CodeRepositoryResponsePtrOutput) DefaultBranch() pulumi.StringPtrOutput 
 	}).(pulumi.StringPtrOutput)
 }
 
-// Unique immutable identifier of the code repository.
 func (o CodeRepositoryResponsePtrOutput) Id() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *CodeRepositoryResponse) *string {
 		if v == nil {
@@ -1022,7 +970,6 @@ func (o CodeRepositoryResponsePtrOutput) Id() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Repository-specific properties.
 func (o CodeRepositoryResponsePtrOutput) Properties() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *CodeRepositoryResponse) map[string]string {
 		if v == nil {
@@ -1032,7 +979,6 @@ func (o CodeRepositoryResponsePtrOutput) Properties() pulumi.StringMapOutput {
 	}).(pulumi.StringMapOutput)
 }
 
-// Type of code repository.
 func (o CodeRepositoryResponsePtrOutput) RepositoryType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *CodeRepositoryResponse) *string {
 		if v == nil {
@@ -1042,9 +988,7 @@ func (o CodeRepositoryResponsePtrOutput) RepositoryType() pulumi.StringPtrOutput
 	}).(pulumi.StringPtrOutput)
 }
 
-// Reference to an Azure DevOps Organization.
 type OrganizationReference struct {
-	// Name of the Azure DevOps Organization.
 	Name string `pulumi:"name"`
 }
 
@@ -1059,9 +1003,7 @@ type OrganizationReferenceInput interface {
 	ToOrganizationReferenceOutputWithContext(context.Context) OrganizationReferenceOutput
 }
 
-// Reference to an Azure DevOps Organization.
 type OrganizationReferenceArgs struct {
-	// Name of the Azure DevOps Organization.
 	Name pulumi.StringInput `pulumi:"name"`
 }
 
@@ -1118,7 +1060,6 @@ func (i *organizationReferencePtrType) ToOrganizationReferencePtrOutputWithConte
 	return pulumi.ToOutputWithContext(ctx, i).(OrganizationReferencePtrOutput)
 }
 
-// Reference to an Azure DevOps Organization.
 type OrganizationReferenceOutput struct{ *pulumi.OutputState }
 
 func (OrganizationReferenceOutput) ElementType() reflect.Type {
@@ -1138,12 +1079,11 @@ func (o OrganizationReferenceOutput) ToOrganizationReferencePtrOutput() Organiza
 }
 
 func (o OrganizationReferenceOutput) ToOrganizationReferencePtrOutputWithContext(ctx context.Context) OrganizationReferencePtrOutput {
-	return o.ApplyT(func(v OrganizationReference) *OrganizationReference {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v OrganizationReference) *OrganizationReference {
 		return &v
 	}).(OrganizationReferencePtrOutput)
 }
 
-// Name of the Azure DevOps Organization.
 func (o OrganizationReferenceOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v OrganizationReference) string { return v.Name }).(pulumi.StringOutput)
 }
@@ -1163,10 +1103,15 @@ func (o OrganizationReferencePtrOutput) ToOrganizationReferencePtrOutputWithCont
 }
 
 func (o OrganizationReferencePtrOutput) Elem() OrganizationReferenceOutput {
-	return o.ApplyT(func(v *OrganizationReference) OrganizationReference { return *v }).(OrganizationReferenceOutput)
+	return o.ApplyT(func(v *OrganizationReference) OrganizationReference {
+		if v != nil {
+			return *v
+		}
+		var ret OrganizationReference
+		return ret
+	}).(OrganizationReferenceOutput)
 }
 
-// Name of the Azure DevOps Organization.
 func (o OrganizationReferencePtrOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *OrganizationReference) *string {
 		if v == nil {
@@ -1176,11 +1121,8 @@ func (o OrganizationReferencePtrOutput) Name() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Reference to an Azure DevOps Organization.
 type OrganizationReferenceResponse struct {
-	// Unique immutable identifier for the Azure DevOps Organization.
-	Id string `pulumi:"id"`
-	// Name of the Azure DevOps Organization.
+	Id   string `pulumi:"id"`
 	Name string `pulumi:"name"`
 }
 
@@ -1195,11 +1137,8 @@ type OrganizationReferenceResponseInput interface {
 	ToOrganizationReferenceResponseOutputWithContext(context.Context) OrganizationReferenceResponseOutput
 }
 
-// Reference to an Azure DevOps Organization.
 type OrganizationReferenceResponseArgs struct {
-	// Unique immutable identifier for the Azure DevOps Organization.
-	Id pulumi.StringInput `pulumi:"id"`
-	// Name of the Azure DevOps Organization.
+	Id   pulumi.StringInput `pulumi:"id"`
 	Name pulumi.StringInput `pulumi:"name"`
 }
 
@@ -1256,7 +1195,6 @@ func (i *organizationReferenceResponsePtrType) ToOrganizationReferenceResponsePt
 	return pulumi.ToOutputWithContext(ctx, i).(OrganizationReferenceResponsePtrOutput)
 }
 
-// Reference to an Azure DevOps Organization.
 type OrganizationReferenceResponseOutput struct{ *pulumi.OutputState }
 
 func (OrganizationReferenceResponseOutput) ElementType() reflect.Type {
@@ -1276,17 +1214,15 @@ func (o OrganizationReferenceResponseOutput) ToOrganizationReferenceResponsePtrO
 }
 
 func (o OrganizationReferenceResponseOutput) ToOrganizationReferenceResponsePtrOutputWithContext(ctx context.Context) OrganizationReferenceResponsePtrOutput {
-	return o.ApplyT(func(v OrganizationReferenceResponse) *OrganizationReferenceResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v OrganizationReferenceResponse) *OrganizationReferenceResponse {
 		return &v
 	}).(OrganizationReferenceResponsePtrOutput)
 }
 
-// Unique immutable identifier for the Azure DevOps Organization.
 func (o OrganizationReferenceResponseOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v OrganizationReferenceResponse) string { return v.Id }).(pulumi.StringOutput)
 }
 
-// Name of the Azure DevOps Organization.
 func (o OrganizationReferenceResponseOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v OrganizationReferenceResponse) string { return v.Name }).(pulumi.StringOutput)
 }
@@ -1306,10 +1242,15 @@ func (o OrganizationReferenceResponsePtrOutput) ToOrganizationReferenceResponseP
 }
 
 func (o OrganizationReferenceResponsePtrOutput) Elem() OrganizationReferenceResponseOutput {
-	return o.ApplyT(func(v *OrganizationReferenceResponse) OrganizationReferenceResponse { return *v }).(OrganizationReferenceResponseOutput)
+	return o.ApplyT(func(v *OrganizationReferenceResponse) OrganizationReferenceResponse {
+		if v != nil {
+			return *v
+		}
+		var ret OrganizationReferenceResponse
+		return ret
+	}).(OrganizationReferenceResponseOutput)
 }
 
-// Unique immutable identifier for the Azure DevOps Organization.
 func (o OrganizationReferenceResponsePtrOutput) Id() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *OrganizationReferenceResponse) *string {
 		if v == nil {
@@ -1319,7 +1260,6 @@ func (o OrganizationReferenceResponsePtrOutput) Id() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Name of the Azure DevOps Organization.
 func (o OrganizationReferenceResponsePtrOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *OrganizationReferenceResponse) *string {
 		if v == nil {
@@ -1329,11 +1269,8 @@ func (o OrganizationReferenceResponsePtrOutput) Name() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Template used to bootstrap the pipeline.
 type PipelineTemplate struct {
-	// Unique identifier of the pipeline template.
-	Id string `pulumi:"id"`
-	// Dictionary of input parameters used in the pipeline template.
+	Id         string            `pulumi:"id"`
 	Parameters map[string]string `pulumi:"parameters"`
 }
 
@@ -1348,11 +1285,8 @@ type PipelineTemplateInput interface {
 	ToPipelineTemplateOutputWithContext(context.Context) PipelineTemplateOutput
 }
 
-// Template used to bootstrap the pipeline.
 type PipelineTemplateArgs struct {
-	// Unique identifier of the pipeline template.
-	Id pulumi.StringInput `pulumi:"id"`
-	// Dictionary of input parameters used in the pipeline template.
+	Id         pulumi.StringInput    `pulumi:"id"`
 	Parameters pulumi.StringMapInput `pulumi:"parameters"`
 }
 
@@ -1409,7 +1343,6 @@ func (i *pipelineTemplatePtrType) ToPipelineTemplatePtrOutputWithContext(ctx con
 	return pulumi.ToOutputWithContext(ctx, i).(PipelineTemplatePtrOutput)
 }
 
-// Template used to bootstrap the pipeline.
 type PipelineTemplateOutput struct{ *pulumi.OutputState }
 
 func (PipelineTemplateOutput) ElementType() reflect.Type {
@@ -1429,17 +1362,15 @@ func (o PipelineTemplateOutput) ToPipelineTemplatePtrOutput() PipelineTemplatePt
 }
 
 func (o PipelineTemplateOutput) ToPipelineTemplatePtrOutputWithContext(ctx context.Context) PipelineTemplatePtrOutput {
-	return o.ApplyT(func(v PipelineTemplate) *PipelineTemplate {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v PipelineTemplate) *PipelineTemplate {
 		return &v
 	}).(PipelineTemplatePtrOutput)
 }
 
-// Unique identifier of the pipeline template.
 func (o PipelineTemplateOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v PipelineTemplate) string { return v.Id }).(pulumi.StringOutput)
 }
 
-// Dictionary of input parameters used in the pipeline template.
 func (o PipelineTemplateOutput) Parameters() pulumi.StringMapOutput {
 	return o.ApplyT(func(v PipelineTemplate) map[string]string { return v.Parameters }).(pulumi.StringMapOutput)
 }
@@ -1459,10 +1390,15 @@ func (o PipelineTemplatePtrOutput) ToPipelineTemplatePtrOutputWithContext(ctx co
 }
 
 func (o PipelineTemplatePtrOutput) Elem() PipelineTemplateOutput {
-	return o.ApplyT(func(v *PipelineTemplate) PipelineTemplate { return *v }).(PipelineTemplateOutput)
+	return o.ApplyT(func(v *PipelineTemplate) PipelineTemplate {
+		if v != nil {
+			return *v
+		}
+		var ret PipelineTemplate
+		return ret
+	}).(PipelineTemplateOutput)
 }
 
-// Unique identifier of the pipeline template.
 func (o PipelineTemplatePtrOutput) Id() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *PipelineTemplate) *string {
 		if v == nil {
@@ -1472,7 +1408,6 @@ func (o PipelineTemplatePtrOutput) Id() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Dictionary of input parameters used in the pipeline template.
 func (o PipelineTemplatePtrOutput) Parameters() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *PipelineTemplate) map[string]string {
 		if v == nil {
@@ -1482,11 +1417,8 @@ func (o PipelineTemplatePtrOutput) Parameters() pulumi.StringMapOutput {
 	}).(pulumi.StringMapOutput)
 }
 
-// Template used to bootstrap the pipeline.
 type PipelineTemplateResponse struct {
-	// Unique identifier of the pipeline template.
-	Id string `pulumi:"id"`
-	// Dictionary of input parameters used in the pipeline template.
+	Id         string            `pulumi:"id"`
 	Parameters map[string]string `pulumi:"parameters"`
 }
 
@@ -1501,11 +1433,8 @@ type PipelineTemplateResponseInput interface {
 	ToPipelineTemplateResponseOutputWithContext(context.Context) PipelineTemplateResponseOutput
 }
 
-// Template used to bootstrap the pipeline.
 type PipelineTemplateResponseArgs struct {
-	// Unique identifier of the pipeline template.
-	Id pulumi.StringInput `pulumi:"id"`
-	// Dictionary of input parameters used in the pipeline template.
+	Id         pulumi.StringInput    `pulumi:"id"`
 	Parameters pulumi.StringMapInput `pulumi:"parameters"`
 }
 
@@ -1562,7 +1491,6 @@ func (i *pipelineTemplateResponsePtrType) ToPipelineTemplateResponsePtrOutputWit
 	return pulumi.ToOutputWithContext(ctx, i).(PipelineTemplateResponsePtrOutput)
 }
 
-// Template used to bootstrap the pipeline.
 type PipelineTemplateResponseOutput struct{ *pulumi.OutputState }
 
 func (PipelineTemplateResponseOutput) ElementType() reflect.Type {
@@ -1582,17 +1510,15 @@ func (o PipelineTemplateResponseOutput) ToPipelineTemplateResponsePtrOutput() Pi
 }
 
 func (o PipelineTemplateResponseOutput) ToPipelineTemplateResponsePtrOutputWithContext(ctx context.Context) PipelineTemplateResponsePtrOutput {
-	return o.ApplyT(func(v PipelineTemplateResponse) *PipelineTemplateResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v PipelineTemplateResponse) *PipelineTemplateResponse {
 		return &v
 	}).(PipelineTemplateResponsePtrOutput)
 }
 
-// Unique identifier of the pipeline template.
 func (o PipelineTemplateResponseOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v PipelineTemplateResponse) string { return v.Id }).(pulumi.StringOutput)
 }
 
-// Dictionary of input parameters used in the pipeline template.
 func (o PipelineTemplateResponseOutput) Parameters() pulumi.StringMapOutput {
 	return o.ApplyT(func(v PipelineTemplateResponse) map[string]string { return v.Parameters }).(pulumi.StringMapOutput)
 }
@@ -1612,10 +1538,15 @@ func (o PipelineTemplateResponsePtrOutput) ToPipelineTemplateResponsePtrOutputWi
 }
 
 func (o PipelineTemplateResponsePtrOutput) Elem() PipelineTemplateResponseOutput {
-	return o.ApplyT(func(v *PipelineTemplateResponse) PipelineTemplateResponse { return *v }).(PipelineTemplateResponseOutput)
+	return o.ApplyT(func(v *PipelineTemplateResponse) PipelineTemplateResponse {
+		if v != nil {
+			return *v
+		}
+		var ret PipelineTemplateResponse
+		return ret
+	}).(PipelineTemplateResponseOutput)
 }
 
-// Unique identifier of the pipeline template.
 func (o PipelineTemplateResponsePtrOutput) Id() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *PipelineTemplateResponse) *string {
 		if v == nil {
@@ -1625,7 +1556,6 @@ func (o PipelineTemplateResponsePtrOutput) Id() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Dictionary of input parameters used in the pipeline template.
 func (o PipelineTemplateResponsePtrOutput) Parameters() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *PipelineTemplateResponse) map[string]string {
 		if v == nil {
@@ -1635,9 +1565,7 @@ func (o PipelineTemplateResponsePtrOutput) Parameters() pulumi.StringMapOutput {
 	}).(pulumi.StringMapOutput)
 }
 
-// Reference to an Azure DevOps Project.
 type ProjectReference struct {
-	// Name of the Azure DevOps Project.
 	Name string `pulumi:"name"`
 }
 
@@ -1652,9 +1580,7 @@ type ProjectReferenceInput interface {
 	ToProjectReferenceOutputWithContext(context.Context) ProjectReferenceOutput
 }
 
-// Reference to an Azure DevOps Project.
 type ProjectReferenceArgs struct {
-	// Name of the Azure DevOps Project.
 	Name pulumi.StringInput `pulumi:"name"`
 }
 
@@ -1711,7 +1637,6 @@ func (i *projectReferencePtrType) ToProjectReferencePtrOutputWithContext(ctx con
 	return pulumi.ToOutputWithContext(ctx, i).(ProjectReferencePtrOutput)
 }
 
-// Reference to an Azure DevOps Project.
 type ProjectReferenceOutput struct{ *pulumi.OutputState }
 
 func (ProjectReferenceOutput) ElementType() reflect.Type {
@@ -1731,12 +1656,11 @@ func (o ProjectReferenceOutput) ToProjectReferencePtrOutput() ProjectReferencePt
 }
 
 func (o ProjectReferenceOutput) ToProjectReferencePtrOutputWithContext(ctx context.Context) ProjectReferencePtrOutput {
-	return o.ApplyT(func(v ProjectReference) *ProjectReference {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ProjectReference) *ProjectReference {
 		return &v
 	}).(ProjectReferencePtrOutput)
 }
 
-// Name of the Azure DevOps Project.
 func (o ProjectReferenceOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v ProjectReference) string { return v.Name }).(pulumi.StringOutput)
 }
@@ -1756,10 +1680,15 @@ func (o ProjectReferencePtrOutput) ToProjectReferencePtrOutputWithContext(ctx co
 }
 
 func (o ProjectReferencePtrOutput) Elem() ProjectReferenceOutput {
-	return o.ApplyT(func(v *ProjectReference) ProjectReference { return *v }).(ProjectReferenceOutput)
+	return o.ApplyT(func(v *ProjectReference) ProjectReference {
+		if v != nil {
+			return *v
+		}
+		var ret ProjectReference
+		return ret
+	}).(ProjectReferenceOutput)
 }
 
-// Name of the Azure DevOps Project.
 func (o ProjectReferencePtrOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ProjectReference) *string {
 		if v == nil {
@@ -1769,11 +1698,8 @@ func (o ProjectReferencePtrOutput) Name() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Reference to an Azure DevOps Project.
 type ProjectReferenceResponse struct {
-	// Unique immutable identifier of the Azure DevOps Project.
-	Id string `pulumi:"id"`
-	// Name of the Azure DevOps Project.
+	Id   string `pulumi:"id"`
 	Name string `pulumi:"name"`
 }
 
@@ -1788,11 +1714,8 @@ type ProjectReferenceResponseInput interface {
 	ToProjectReferenceResponseOutputWithContext(context.Context) ProjectReferenceResponseOutput
 }
 
-// Reference to an Azure DevOps Project.
 type ProjectReferenceResponseArgs struct {
-	// Unique immutable identifier of the Azure DevOps Project.
-	Id pulumi.StringInput `pulumi:"id"`
-	// Name of the Azure DevOps Project.
+	Id   pulumi.StringInput `pulumi:"id"`
 	Name pulumi.StringInput `pulumi:"name"`
 }
 
@@ -1849,7 +1772,6 @@ func (i *projectReferenceResponsePtrType) ToProjectReferenceResponsePtrOutputWit
 	return pulumi.ToOutputWithContext(ctx, i).(ProjectReferenceResponsePtrOutput)
 }
 
-// Reference to an Azure DevOps Project.
 type ProjectReferenceResponseOutput struct{ *pulumi.OutputState }
 
 func (ProjectReferenceResponseOutput) ElementType() reflect.Type {
@@ -1869,17 +1791,15 @@ func (o ProjectReferenceResponseOutput) ToProjectReferenceResponsePtrOutput() Pr
 }
 
 func (o ProjectReferenceResponseOutput) ToProjectReferenceResponsePtrOutputWithContext(ctx context.Context) ProjectReferenceResponsePtrOutput {
-	return o.ApplyT(func(v ProjectReferenceResponse) *ProjectReferenceResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ProjectReferenceResponse) *ProjectReferenceResponse {
 		return &v
 	}).(ProjectReferenceResponsePtrOutput)
 }
 
-// Unique immutable identifier of the Azure DevOps Project.
 func (o ProjectReferenceResponseOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v ProjectReferenceResponse) string { return v.Id }).(pulumi.StringOutput)
 }
 
-// Name of the Azure DevOps Project.
 func (o ProjectReferenceResponseOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v ProjectReferenceResponse) string { return v.Name }).(pulumi.StringOutput)
 }
@@ -1899,10 +1819,15 @@ func (o ProjectReferenceResponsePtrOutput) ToProjectReferenceResponsePtrOutputWi
 }
 
 func (o ProjectReferenceResponsePtrOutput) Elem() ProjectReferenceResponseOutput {
-	return o.ApplyT(func(v *ProjectReferenceResponse) ProjectReferenceResponse { return *v }).(ProjectReferenceResponseOutput)
+	return o.ApplyT(func(v *ProjectReferenceResponse) ProjectReferenceResponse {
+		if v != nil {
+			return *v
+		}
+		var ret ProjectReferenceResponse
+		return ret
+	}).(ProjectReferenceResponseOutput)
 }
 
-// Unique immutable identifier of the Azure DevOps Project.
 func (o ProjectReferenceResponsePtrOutput) Id() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ProjectReferenceResponse) *string {
 		if v == nil {
@@ -1912,7 +1837,6 @@ func (o ProjectReferenceResponsePtrOutput) Id() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Name of the Azure DevOps Project.
 func (o ProjectReferenceResponsePtrOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ProjectReferenceResponse) *string {
 		if v == nil {

@@ -11,22 +11,15 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// A SQL server.
 type SqlServer struct {
 	pulumi.CustomResourceState
 
-	// Sql Server Edition.
-	Edition pulumi.StringPtrOutput `pulumi:"edition"`
-	// Resource name.
-	Name pulumi.StringOutput `pulumi:"name"`
-	// Sql Server Json Property Bag.
-	PropertyBag pulumi.StringPtrOutput `pulumi:"propertyBag"`
-	// ID for Parent Sql Server Registration.
+	Edition        pulumi.StringPtrOutput `pulumi:"edition"`
+	Name           pulumi.StringOutput    `pulumi:"name"`
+	PropertyBag    pulumi.StringPtrOutput `pulumi:"propertyBag"`
 	RegistrationID pulumi.StringPtrOutput `pulumi:"registrationID"`
-	// Resource type.
-	Type pulumi.StringOutput `pulumi:"type"`
-	// Version of the Sql Server.
-	Version pulumi.StringPtrOutput `pulumi:"version"`
+	Type           pulumi.StringOutput    `pulumi:"type"`
+	Version        pulumi.StringPtrOutput `pulumi:"version"`
 }
 
 // NewSqlServer registers a new resource with the given unique name, arguments, and options.
@@ -92,42 +85,26 @@ func (SqlServerState) ElementType() reflect.Type {
 }
 
 type sqlServerArgs struct {
-	// Cores of the Sql Server.
-	Cores *int `pulumi:"cores"`
-	// Sql Server Edition.
-	Edition *string `pulumi:"edition"`
-	// Sql Server Json Property Bag.
-	PropertyBag *string `pulumi:"propertyBag"`
-	// ID for Parent Sql Server Registration.
-	RegistrationID *string `pulumi:"registrationID"`
-	// Name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
-	ResourceGroupName string `pulumi:"resourceGroupName"`
-	// Name of the SQL Server.
-	SqlServerName *string `pulumi:"sqlServerName"`
-	// Name of the SQL Server registration.
-	SqlServerRegistrationName string `pulumi:"sqlServerRegistrationName"`
-	// Version of the Sql Server.
-	Version *string `pulumi:"version"`
+	Cores                     *int    `pulumi:"cores"`
+	Edition                   *string `pulumi:"edition"`
+	PropertyBag               *string `pulumi:"propertyBag"`
+	RegistrationID            *string `pulumi:"registrationID"`
+	ResourceGroupName         string  `pulumi:"resourceGroupName"`
+	SqlServerName             *string `pulumi:"sqlServerName"`
+	SqlServerRegistrationName string  `pulumi:"sqlServerRegistrationName"`
+	Version                   *string `pulumi:"version"`
 }
 
 // The set of arguments for constructing a SqlServer resource.
 type SqlServerArgs struct {
-	// Cores of the Sql Server.
-	Cores pulumi.IntPtrInput
-	// Sql Server Edition.
-	Edition pulumi.StringPtrInput
-	// Sql Server Json Property Bag.
-	PropertyBag pulumi.StringPtrInput
-	// ID for Parent Sql Server Registration.
-	RegistrationID pulumi.StringPtrInput
-	// Name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
-	ResourceGroupName pulumi.StringInput
-	// Name of the SQL Server.
-	SqlServerName pulumi.StringPtrInput
-	// Name of the SQL Server registration.
+	Cores                     pulumi.IntPtrInput
+	Edition                   pulumi.StringPtrInput
+	PropertyBag               pulumi.StringPtrInput
+	RegistrationID            pulumi.StringPtrInput
+	ResourceGroupName         pulumi.StringInput
+	SqlServerName             pulumi.StringPtrInput
 	SqlServerRegistrationName pulumi.StringInput
-	// Version of the Sql Server.
-	Version pulumi.StringPtrInput
+	Version                   pulumi.StringPtrInput
 }
 
 func (SqlServerArgs) ElementType() reflect.Type {
@@ -153,9 +130,7 @@ func (i *SqlServer) ToSqlServerOutputWithContext(ctx context.Context) SqlServerO
 	return pulumi.ToOutputWithContext(ctx, i).(SqlServerOutput)
 }
 
-type SqlServerOutput struct {
-	*pulumi.OutputState
-}
+type SqlServerOutput struct{ *pulumi.OutputState }
 
 func (SqlServerOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*SqlServer)(nil))

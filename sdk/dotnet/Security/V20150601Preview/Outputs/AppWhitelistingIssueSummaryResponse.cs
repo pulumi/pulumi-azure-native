@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.Security.V20150601Preview.Outputs
 {
 
+    /// <summary>
+    /// Represents a summary of the alerts of the VM/server group
+    /// </summary>
     [OutputType]
     public sealed class AppWhitelistingIssueSummaryResponse
     {

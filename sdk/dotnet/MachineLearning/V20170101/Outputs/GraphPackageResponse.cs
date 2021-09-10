@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.MachineLearning.V20170101.Outputs
 {
 
+    /// <summary>
+    /// Defines the graph of modules making up the machine learning solution.
+    /// </summary>
     [OutputType]
     public sealed class GraphPackageResponse
     {

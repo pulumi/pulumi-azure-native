@@ -7,7 +7,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// The Connection Monitor Test class.
 func LookupConnectionMonitorTest(ctx *pulumi.Context, args *LookupConnectionMonitorTestArgs, opts ...pulumi.InvokeOption) (*LookupConnectionMonitorTestResult, error) {
 	var rv LookupConnectionMonitorTestResult
 	err := ctx.Invoke("azure-native:peering/v20210601:getConnectionMonitorTest", args, &rv, opts...)
@@ -18,34 +17,21 @@ func LookupConnectionMonitorTest(ctx *pulumi.Context, args *LookupConnectionMoni
 }
 
 type LookupConnectionMonitorTestArgs struct {
-	// The name of the connection monitor test
 	ConnectionMonitorTestName string `pulumi:"connectionMonitorTestName"`
-	// The name of the peering service.
-	PeeringServiceName string `pulumi:"peeringServiceName"`
-	// The name of the resource group.
-	ResourceGroupName string `pulumi:"resourceGroupName"`
+	PeeringServiceName        string `pulumi:"peeringServiceName"`
+	ResourceGroupName         string `pulumi:"resourceGroupName"`
 }
 
 // The Connection Monitor Test class.
 type LookupConnectionMonitorTestResult struct {
-	// The Connection Monitor test destination
-	Destination *string `pulumi:"destination"`
-	// The Connection Monitor test destination port
-	DestinationPort *int `pulumi:"destinationPort"`
-	// The ID of the resource.
-	Id string `pulumi:"id"`
-	// The flag that indicates if the Connection Monitor test is successful or not.
-	IsTestSuccessful bool `pulumi:"isTestSuccessful"`
-	// The name of the resource.
-	Name string `pulumi:"name"`
-	// The path representing the Connection Monitor test.
-	Path []string `pulumi:"path"`
-	// The provisioning state of the resource.
-	ProvisioningState string `pulumi:"provisioningState"`
-	// The Connection Monitor test source agent
-	SourceAgent *string `pulumi:"sourceAgent"`
-	// The Connection Monitor test frequency in seconds
-	TestFrequencyInSec *int `pulumi:"testFrequencyInSec"`
-	// The type of the resource.
-	Type string `pulumi:"type"`
+	Destination        *string  `pulumi:"destination"`
+	DestinationPort    *int     `pulumi:"destinationPort"`
+	Id                 string   `pulumi:"id"`
+	IsTestSuccessful   bool     `pulumi:"isTestSuccessful"`
+	Name               string   `pulumi:"name"`
+	Path               []string `pulumi:"path"`
+	ProvisioningState  string   `pulumi:"provisioningState"`
+	SourceAgent        *string  `pulumi:"sourceAgent"`
+	TestFrequencyInSec *int     `pulumi:"testFrequencyInSec"`
+	Type               string   `pulumi:"type"`
 }

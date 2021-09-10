@@ -7,7 +7,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Workspace connection.
 func LookupWorkspaceConnection(ctx *pulumi.Context, args *LookupWorkspaceConnectionArgs, opts ...pulumi.InvokeOption) (*LookupWorkspaceConnectionResult, error) {
 	var rv LookupWorkspaceConnectionResult
 	err := ctx.Invoke("azure-native:machinelearningservices/v20210301preview:getWorkspaceConnection", args, &rv, opts...)
@@ -18,30 +17,19 @@ func LookupWorkspaceConnection(ctx *pulumi.Context, args *LookupWorkspaceConnect
 }
 
 type LookupWorkspaceConnectionArgs struct {
-	// Friendly name of the workspace connection
-	ConnectionName string `pulumi:"connectionName"`
-	// The name of the resource group. The name is case insensitive.
+	ConnectionName    string `pulumi:"connectionName"`
 	ResourceGroupName string `pulumi:"resourceGroupName"`
-	// Name of Azure Machine Learning workspace.
-	WorkspaceName string `pulumi:"workspaceName"`
+	WorkspaceName     string `pulumi:"workspaceName"`
 }
 
 // Workspace connection.
 type LookupWorkspaceConnectionResult struct {
-	// Authorization type of the workspace connection.
-	AuthType *string `pulumi:"authType"`
-	// Category of the workspace connection.
-	Category *string `pulumi:"category"`
-	// ResourceId of the workspace connection.
-	Id string `pulumi:"id"`
-	// Friendly name of the workspace connection.
-	Name string `pulumi:"name"`
-	// Target of the workspace connection.
-	Target *string `pulumi:"target"`
-	// Resource type of workspace connection.
-	Type string `pulumi:"type"`
-	// Value details of the workspace connection.
-	Value *string `pulumi:"value"`
-	// format for the workspace connection value
+	AuthType    *string `pulumi:"authType"`
+	Category    *string `pulumi:"category"`
+	Id          string  `pulumi:"id"`
+	Name        string  `pulumi:"name"`
+	Target      *string `pulumi:"target"`
+	Type        string  `pulumi:"type"`
+	Value       *string `pulumi:"value"`
 	ValueFormat *string `pulumi:"valueFormat"`
 }

@@ -7,7 +7,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// IP firewall rule
 func LookupIpFirewallRule(ctx *pulumi.Context, args *LookupIpFirewallRuleArgs, opts ...pulumi.InvokeOption) (*LookupIpFirewallRuleResult, error) {
 	var rv LookupIpFirewallRuleResult
 	err := ctx.Invoke("azure-native:synapse/v20210601preview:getIpFirewallRule", args, &rv, opts...)
@@ -18,26 +17,17 @@ func LookupIpFirewallRule(ctx *pulumi.Context, args *LookupIpFirewallRuleArgs, o
 }
 
 type LookupIpFirewallRuleArgs struct {
-	// The name of the resource group. The name is case insensitive.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
-	// The IP firewall rule name
-	RuleName string `pulumi:"ruleName"`
-	// The name of the workspace
-	WorkspaceName string `pulumi:"workspaceName"`
+	RuleName          string `pulumi:"ruleName"`
+	WorkspaceName     string `pulumi:"workspaceName"`
 }
 
 // IP firewall rule
 type LookupIpFirewallRuleResult struct {
-	// The end IP address of the firewall rule. Must be IPv4 format. Must be greater than or equal to startIpAddress
-	EndIpAddress *string `pulumi:"endIpAddress"`
-	// Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
-	Id string `pulumi:"id"`
-	// The name of the resource
-	Name string `pulumi:"name"`
-	// Resource provisioning state
-	ProvisioningState string `pulumi:"provisioningState"`
-	// The start IP address of the firewall rule. Must be IPv4 format
-	StartIpAddress *string `pulumi:"startIpAddress"`
-	// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
-	Type string `pulumi:"type"`
+	EndIpAddress      *string `pulumi:"endIpAddress"`
+	Id                string  `pulumi:"id"`
+	Name              string  `pulumi:"name"`
+	ProvisioningState string  `pulumi:"provisioningState"`
+	StartIpAddress    *string `pulumi:"startIpAddress"`
+	Type              string  `pulumi:"type"`
 }

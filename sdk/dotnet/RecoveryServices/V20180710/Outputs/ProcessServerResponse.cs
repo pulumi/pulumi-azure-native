@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.RecoveryServices.V20180710.Outputs
 {
 
+    /// <summary>
+    /// Details of the Process Server.
+    /// </summary>
     [OutputType]
     public sealed class ProcessServerResponse
     {

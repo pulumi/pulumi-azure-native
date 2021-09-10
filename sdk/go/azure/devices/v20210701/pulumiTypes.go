@@ -11,8 +11,7 @@ import (
 )
 
 type ArmIdentity struct {
-	// The type of identity used for the resource. The type 'SystemAssigned, UserAssigned' includes both an implicitly created identity and a set of user assigned identities. The type 'None' will remove any identities from the service.
-	Type                   *string                `pulumi:"type"`
+	Type                   *ResourceIdentityType  `pulumi:"type"`
 	UserAssignedIdentities map[string]interface{} `pulumi:"userAssignedIdentities"`
 }
 
@@ -28,9 +27,8 @@ type ArmIdentityInput interface {
 }
 
 type ArmIdentityArgs struct {
-	// The type of identity used for the resource. The type 'SystemAssigned, UserAssigned' includes both an implicitly created identity and a set of user assigned identities. The type 'None' will remove any identities from the service.
-	Type                   *ResourceIdentityType `pulumi:"type"`
-	UserAssignedIdentities pulumi.MapInput       `pulumi:"userAssignedIdentities"`
+	Type                   ResourceIdentityTypePtrInput `pulumi:"type"`
+	UserAssignedIdentities pulumi.MapInput              `pulumi:"userAssignedIdentities"`
 }
 
 func (ArmIdentityArgs) ElementType() reflect.Type {
@@ -105,14 +103,13 @@ func (o ArmIdentityOutput) ToArmIdentityPtrOutput() ArmIdentityPtrOutput {
 }
 
 func (o ArmIdentityOutput) ToArmIdentityPtrOutputWithContext(ctx context.Context) ArmIdentityPtrOutput {
-	return o.ApplyT(func(v ArmIdentity) *ArmIdentity {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ArmIdentity) *ArmIdentity {
 		return &v
 	}).(ArmIdentityPtrOutput)
 }
 
-// The type of identity used for the resource. The type 'SystemAssigned, UserAssigned' includes both an implicitly created identity and a set of user assigned identities. The type 'None' will remove any identities from the service.
-func (o ArmIdentityOutput) Type() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v ArmIdentity) *string { return v.Type }).(pulumi.StringPtrOutput)
+func (o ArmIdentityOutput) Type() ResourceIdentityTypePtrOutput {
+	return o.ApplyT(func(v ArmIdentity) *ResourceIdentityType { return v.Type }).(ResourceIdentityTypePtrOutput)
 }
 
 func (o ArmIdentityOutput) UserAssignedIdentities() pulumi.MapOutput {
@@ -134,17 +131,22 @@ func (o ArmIdentityPtrOutput) ToArmIdentityPtrOutputWithContext(ctx context.Cont
 }
 
 func (o ArmIdentityPtrOutput) Elem() ArmIdentityOutput {
-	return o.ApplyT(func(v *ArmIdentity) ArmIdentity { return *v }).(ArmIdentityOutput)
+	return o.ApplyT(func(v *ArmIdentity) ArmIdentity {
+		if v != nil {
+			return *v
+		}
+		var ret ArmIdentity
+		return ret
+	}).(ArmIdentityOutput)
 }
 
-// The type of identity used for the resource. The type 'SystemAssigned, UserAssigned' includes both an implicitly created identity and a set of user assigned identities. The type 'None' will remove any identities from the service.
-func (o ArmIdentityPtrOutput) Type() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *ArmIdentity) *string {
+func (o ArmIdentityPtrOutput) Type() ResourceIdentityTypePtrOutput {
+	return o.ApplyT(func(v *ArmIdentity) *ResourceIdentityType {
 		if v == nil {
 			return nil
 		}
 		return v.Type
-	}).(pulumi.StringPtrOutput)
+	}).(ResourceIdentityTypePtrOutput)
 }
 
 func (o ArmIdentityPtrOutput) UserAssignedIdentities() pulumi.MapOutput {
@@ -157,11 +159,8 @@ func (o ArmIdentityPtrOutput) UserAssignedIdentities() pulumi.MapOutput {
 }
 
 type ArmIdentityResponse struct {
-	// Principal Id
-	PrincipalId string `pulumi:"principalId"`
-	// Tenant Id
-	TenantId string `pulumi:"tenantId"`
-	// The type of identity used for the resource. The type 'SystemAssigned, UserAssigned' includes both an implicitly created identity and a set of user assigned identities. The type 'None' will remove any identities from the service.
+	PrincipalId            string                             `pulumi:"principalId"`
+	TenantId               string                             `pulumi:"tenantId"`
 	Type                   *string                            `pulumi:"type"`
 	UserAssignedIdentities map[string]ArmUserIdentityResponse `pulumi:"userAssignedIdentities"`
 }
@@ -178,11 +177,8 @@ type ArmIdentityResponseInput interface {
 }
 
 type ArmIdentityResponseArgs struct {
-	// Principal Id
-	PrincipalId pulumi.StringInput `pulumi:"principalId"`
-	// Tenant Id
-	TenantId pulumi.StringInput `pulumi:"tenantId"`
-	// The type of identity used for the resource. The type 'SystemAssigned, UserAssigned' includes both an implicitly created identity and a set of user assigned identities. The type 'None' will remove any identities from the service.
+	PrincipalId            pulumi.StringInput              `pulumi:"principalId"`
+	TenantId               pulumi.StringInput              `pulumi:"tenantId"`
 	Type                   pulumi.StringPtrInput           `pulumi:"type"`
 	UserAssignedIdentities ArmUserIdentityResponseMapInput `pulumi:"userAssignedIdentities"`
 }
@@ -259,22 +255,19 @@ func (o ArmIdentityResponseOutput) ToArmIdentityResponsePtrOutput() ArmIdentityR
 }
 
 func (o ArmIdentityResponseOutput) ToArmIdentityResponsePtrOutputWithContext(ctx context.Context) ArmIdentityResponsePtrOutput {
-	return o.ApplyT(func(v ArmIdentityResponse) *ArmIdentityResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ArmIdentityResponse) *ArmIdentityResponse {
 		return &v
 	}).(ArmIdentityResponsePtrOutput)
 }
 
-// Principal Id
 func (o ArmIdentityResponseOutput) PrincipalId() pulumi.StringOutput {
 	return o.ApplyT(func(v ArmIdentityResponse) string { return v.PrincipalId }).(pulumi.StringOutput)
 }
 
-// Tenant Id
 func (o ArmIdentityResponseOutput) TenantId() pulumi.StringOutput {
 	return o.ApplyT(func(v ArmIdentityResponse) string { return v.TenantId }).(pulumi.StringOutput)
 }
 
-// The type of identity used for the resource. The type 'SystemAssigned, UserAssigned' includes both an implicitly created identity and a set of user assigned identities. The type 'None' will remove any identities from the service.
 func (o ArmIdentityResponseOutput) Type() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ArmIdentityResponse) *string { return v.Type }).(pulumi.StringPtrOutput)
 }
@@ -298,10 +291,15 @@ func (o ArmIdentityResponsePtrOutput) ToArmIdentityResponsePtrOutputWithContext(
 }
 
 func (o ArmIdentityResponsePtrOutput) Elem() ArmIdentityResponseOutput {
-	return o.ApplyT(func(v *ArmIdentityResponse) ArmIdentityResponse { return *v }).(ArmIdentityResponseOutput)
+	return o.ApplyT(func(v *ArmIdentityResponse) ArmIdentityResponse {
+		if v != nil {
+			return *v
+		}
+		var ret ArmIdentityResponse
+		return ret
+	}).(ArmIdentityResponseOutput)
 }
 
-// Principal Id
 func (o ArmIdentityResponsePtrOutput) PrincipalId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ArmIdentityResponse) *string {
 		if v == nil {
@@ -311,7 +309,6 @@ func (o ArmIdentityResponsePtrOutput) PrincipalId() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Tenant Id
 func (o ArmIdentityResponsePtrOutput) TenantId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ArmIdentityResponse) *string {
 		if v == nil {
@@ -321,7 +318,6 @@ func (o ArmIdentityResponsePtrOutput) TenantId() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The type of identity used for the resource. The type 'SystemAssigned, UserAssigned' includes both an implicitly created identity and a set of user assigned identities. The type 'None' will remove any identities from the service.
 func (o ArmIdentityResponsePtrOutput) Type() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ArmIdentityResponse) *string {
 		if v == nil {
@@ -440,12 +436,9 @@ func (o ArmUserIdentityResponseMapOutput) MapIndex(k pulumi.StringInput) ArmUser
 	}).(ArmUserIdentityResponseOutput)
 }
 
-// The description of an X509 CA Certificate.
 type CertificateProperties struct {
-	// The certificate content
 	Certificate *string `pulumi:"certificate"`
-	// Determines whether certificate has been verified.
-	IsVerified *bool `pulumi:"isVerified"`
+	IsVerified  *bool   `pulumi:"isVerified"`
 }
 
 // CertificatePropertiesInput is an input type that accepts CertificatePropertiesArgs and CertificatePropertiesOutput values.
@@ -459,12 +452,9 @@ type CertificatePropertiesInput interface {
 	ToCertificatePropertiesOutputWithContext(context.Context) CertificatePropertiesOutput
 }
 
-// The description of an X509 CA Certificate.
 type CertificatePropertiesArgs struct {
-	// The certificate content
 	Certificate pulumi.StringPtrInput `pulumi:"certificate"`
-	// Determines whether certificate has been verified.
-	IsVerified pulumi.BoolPtrInput `pulumi:"isVerified"`
+	IsVerified  pulumi.BoolPtrInput   `pulumi:"isVerified"`
 }
 
 func (CertificatePropertiesArgs) ElementType() reflect.Type {
@@ -520,7 +510,6 @@ func (i *certificatePropertiesPtrType) ToCertificatePropertiesPtrOutputWithConte
 	return pulumi.ToOutputWithContext(ctx, i).(CertificatePropertiesPtrOutput)
 }
 
-// The description of an X509 CA Certificate.
 type CertificatePropertiesOutput struct{ *pulumi.OutputState }
 
 func (CertificatePropertiesOutput) ElementType() reflect.Type {
@@ -540,17 +529,15 @@ func (o CertificatePropertiesOutput) ToCertificatePropertiesPtrOutput() Certific
 }
 
 func (o CertificatePropertiesOutput) ToCertificatePropertiesPtrOutputWithContext(ctx context.Context) CertificatePropertiesPtrOutput {
-	return o.ApplyT(func(v CertificateProperties) *CertificateProperties {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v CertificateProperties) *CertificateProperties {
 		return &v
 	}).(CertificatePropertiesPtrOutput)
 }
 
-// The certificate content
 func (o CertificatePropertiesOutput) Certificate() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v CertificateProperties) *string { return v.Certificate }).(pulumi.StringPtrOutput)
 }
 
-// Determines whether certificate has been verified.
 func (o CertificatePropertiesOutput) IsVerified() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v CertificateProperties) *bool { return v.IsVerified }).(pulumi.BoolPtrOutput)
 }
@@ -570,10 +557,15 @@ func (o CertificatePropertiesPtrOutput) ToCertificatePropertiesPtrOutputWithCont
 }
 
 func (o CertificatePropertiesPtrOutput) Elem() CertificatePropertiesOutput {
-	return o.ApplyT(func(v *CertificateProperties) CertificateProperties { return *v }).(CertificatePropertiesOutput)
+	return o.ApplyT(func(v *CertificateProperties) CertificateProperties {
+		if v != nil {
+			return *v
+		}
+		var ret CertificateProperties
+		return ret
+	}).(CertificatePropertiesOutput)
 }
 
-// The certificate content
 func (o CertificatePropertiesPtrOutput) Certificate() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *CertificateProperties) *string {
 		if v == nil {
@@ -583,7 +575,6 @@ func (o CertificatePropertiesPtrOutput) Certificate() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Determines whether certificate has been verified.
 func (o CertificatePropertiesPtrOutput) IsVerified() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *CertificateProperties) *bool {
 		if v == nil {
@@ -593,22 +584,14 @@ func (o CertificatePropertiesPtrOutput) IsVerified() pulumi.BoolPtrOutput {
 	}).(pulumi.BoolPtrOutput)
 }
 
-// The description of an X509 CA Certificate.
 type CertificatePropertiesResponse struct {
-	// The certificate content
 	Certificate *string `pulumi:"certificate"`
-	// The certificate's create date and time.
-	Created string `pulumi:"created"`
-	// The certificate's expiration date and time.
-	Expiry string `pulumi:"expiry"`
-	// Determines whether certificate has been verified.
-	IsVerified *bool `pulumi:"isVerified"`
-	// The certificate's subject name.
-	Subject string `pulumi:"subject"`
-	// The certificate's thumbprint.
-	Thumbprint string `pulumi:"thumbprint"`
-	// The certificate's last update date and time.
-	Updated string `pulumi:"updated"`
+	Created     string  `pulumi:"created"`
+	Expiry      string  `pulumi:"expiry"`
+	IsVerified  *bool   `pulumi:"isVerified"`
+	Subject     string  `pulumi:"subject"`
+	Thumbprint  string  `pulumi:"thumbprint"`
+	Updated     string  `pulumi:"updated"`
 }
 
 // CertificatePropertiesResponseInput is an input type that accepts CertificatePropertiesResponseArgs and CertificatePropertiesResponseOutput values.
@@ -622,22 +605,14 @@ type CertificatePropertiesResponseInput interface {
 	ToCertificatePropertiesResponseOutputWithContext(context.Context) CertificatePropertiesResponseOutput
 }
 
-// The description of an X509 CA Certificate.
 type CertificatePropertiesResponseArgs struct {
-	// The certificate content
 	Certificate pulumi.StringPtrInput `pulumi:"certificate"`
-	// The certificate's create date and time.
-	Created pulumi.StringInput `pulumi:"created"`
-	// The certificate's expiration date and time.
-	Expiry pulumi.StringInput `pulumi:"expiry"`
-	// Determines whether certificate has been verified.
-	IsVerified pulumi.BoolPtrInput `pulumi:"isVerified"`
-	// The certificate's subject name.
-	Subject pulumi.StringInput `pulumi:"subject"`
-	// The certificate's thumbprint.
-	Thumbprint pulumi.StringInput `pulumi:"thumbprint"`
-	// The certificate's last update date and time.
-	Updated pulumi.StringInput `pulumi:"updated"`
+	Created     pulumi.StringInput    `pulumi:"created"`
+	Expiry      pulumi.StringInput    `pulumi:"expiry"`
+	IsVerified  pulumi.BoolPtrInput   `pulumi:"isVerified"`
+	Subject     pulumi.StringInput    `pulumi:"subject"`
+	Thumbprint  pulumi.StringInput    `pulumi:"thumbprint"`
+	Updated     pulumi.StringInput    `pulumi:"updated"`
 }
 
 func (CertificatePropertiesResponseArgs) ElementType() reflect.Type {
@@ -693,7 +668,6 @@ func (i *certificatePropertiesResponsePtrType) ToCertificatePropertiesResponsePt
 	return pulumi.ToOutputWithContext(ctx, i).(CertificatePropertiesResponsePtrOutput)
 }
 
-// The description of an X509 CA Certificate.
 type CertificatePropertiesResponseOutput struct{ *pulumi.OutputState }
 
 func (CertificatePropertiesResponseOutput) ElementType() reflect.Type {
@@ -713,42 +687,35 @@ func (o CertificatePropertiesResponseOutput) ToCertificatePropertiesResponsePtrO
 }
 
 func (o CertificatePropertiesResponseOutput) ToCertificatePropertiesResponsePtrOutputWithContext(ctx context.Context) CertificatePropertiesResponsePtrOutput {
-	return o.ApplyT(func(v CertificatePropertiesResponse) *CertificatePropertiesResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v CertificatePropertiesResponse) *CertificatePropertiesResponse {
 		return &v
 	}).(CertificatePropertiesResponsePtrOutput)
 }
 
-// The certificate content
 func (o CertificatePropertiesResponseOutput) Certificate() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v CertificatePropertiesResponse) *string { return v.Certificate }).(pulumi.StringPtrOutput)
 }
 
-// The certificate's create date and time.
 func (o CertificatePropertiesResponseOutput) Created() pulumi.StringOutput {
 	return o.ApplyT(func(v CertificatePropertiesResponse) string { return v.Created }).(pulumi.StringOutput)
 }
 
-// The certificate's expiration date and time.
 func (o CertificatePropertiesResponseOutput) Expiry() pulumi.StringOutput {
 	return o.ApplyT(func(v CertificatePropertiesResponse) string { return v.Expiry }).(pulumi.StringOutput)
 }
 
-// Determines whether certificate has been verified.
 func (o CertificatePropertiesResponseOutput) IsVerified() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v CertificatePropertiesResponse) *bool { return v.IsVerified }).(pulumi.BoolPtrOutput)
 }
 
-// The certificate's subject name.
 func (o CertificatePropertiesResponseOutput) Subject() pulumi.StringOutput {
 	return o.ApplyT(func(v CertificatePropertiesResponse) string { return v.Subject }).(pulumi.StringOutput)
 }
 
-// The certificate's thumbprint.
 func (o CertificatePropertiesResponseOutput) Thumbprint() pulumi.StringOutput {
 	return o.ApplyT(func(v CertificatePropertiesResponse) string { return v.Thumbprint }).(pulumi.StringOutput)
 }
 
-// The certificate's last update date and time.
 func (o CertificatePropertiesResponseOutput) Updated() pulumi.StringOutput {
 	return o.ApplyT(func(v CertificatePropertiesResponse) string { return v.Updated }).(pulumi.StringOutput)
 }
@@ -768,10 +735,15 @@ func (o CertificatePropertiesResponsePtrOutput) ToCertificatePropertiesResponseP
 }
 
 func (o CertificatePropertiesResponsePtrOutput) Elem() CertificatePropertiesResponseOutput {
-	return o.ApplyT(func(v *CertificatePropertiesResponse) CertificatePropertiesResponse { return *v }).(CertificatePropertiesResponseOutput)
+	return o.ApplyT(func(v *CertificatePropertiesResponse) CertificatePropertiesResponse {
+		if v != nil {
+			return *v
+		}
+		var ret CertificatePropertiesResponse
+		return ret
+	}).(CertificatePropertiesResponseOutput)
 }
 
-// The certificate content
 func (o CertificatePropertiesResponsePtrOutput) Certificate() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *CertificatePropertiesResponse) *string {
 		if v == nil {
@@ -781,7 +753,6 @@ func (o CertificatePropertiesResponsePtrOutput) Certificate() pulumi.StringPtrOu
 	}).(pulumi.StringPtrOutput)
 }
 
-// The certificate's create date and time.
 func (o CertificatePropertiesResponsePtrOutput) Created() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *CertificatePropertiesResponse) *string {
 		if v == nil {
@@ -791,7 +762,6 @@ func (o CertificatePropertiesResponsePtrOutput) Created() pulumi.StringPtrOutput
 	}).(pulumi.StringPtrOutput)
 }
 
-// The certificate's expiration date and time.
 func (o CertificatePropertiesResponsePtrOutput) Expiry() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *CertificatePropertiesResponse) *string {
 		if v == nil {
@@ -801,7 +771,6 @@ func (o CertificatePropertiesResponsePtrOutput) Expiry() pulumi.StringPtrOutput 
 	}).(pulumi.StringPtrOutput)
 }
 
-// Determines whether certificate has been verified.
 func (o CertificatePropertiesResponsePtrOutput) IsVerified() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *CertificatePropertiesResponse) *bool {
 		if v == nil {
@@ -811,7 +780,6 @@ func (o CertificatePropertiesResponsePtrOutput) IsVerified() pulumi.BoolPtrOutpu
 	}).(pulumi.BoolPtrOutput)
 }
 
-// The certificate's subject name.
 func (o CertificatePropertiesResponsePtrOutput) Subject() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *CertificatePropertiesResponse) *string {
 		if v == nil {
@@ -821,7 +789,6 @@ func (o CertificatePropertiesResponsePtrOutput) Subject() pulumi.StringPtrOutput
 	}).(pulumi.StringPtrOutput)
 }
 
-// The certificate's thumbprint.
 func (o CertificatePropertiesResponsePtrOutput) Thumbprint() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *CertificatePropertiesResponse) *string {
 		if v == nil {
@@ -831,7 +798,6 @@ func (o CertificatePropertiesResponsePtrOutput) Thumbprint() pulumi.StringPtrOut
 	}).(pulumi.StringPtrOutput)
 }
 
-// The certificate's last update date and time.
 func (o CertificatePropertiesResponsePtrOutput) Updated() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *CertificatePropertiesResponse) *string {
 		if v == nil {
@@ -841,14 +807,10 @@ func (o CertificatePropertiesResponsePtrOutput) Updated() pulumi.StringPtrOutput
 	}).(pulumi.StringPtrOutput)
 }
 
-// The IoT hub cloud-to-device messaging properties.
 type CloudToDeviceProperties struct {
-	// The default time to live for cloud-to-device messages in the device queue. See: https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-messaging#cloud-to-device-messages.
-	DefaultTtlAsIso8601 *string `pulumi:"defaultTtlAsIso8601"`
-	// The properties of the feedback queue for cloud-to-device messages.
-	Feedback *FeedbackProperties `pulumi:"feedback"`
-	// The max delivery count for cloud-to-device messages in the device queue. See: https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-messaging#cloud-to-device-messages.
-	MaxDeliveryCount *int `pulumi:"maxDeliveryCount"`
+	DefaultTtlAsIso8601 *string             `pulumi:"defaultTtlAsIso8601"`
+	Feedback            *FeedbackProperties `pulumi:"feedback"`
+	MaxDeliveryCount    *int                `pulumi:"maxDeliveryCount"`
 }
 
 // CloudToDevicePropertiesInput is an input type that accepts CloudToDevicePropertiesArgs and CloudToDevicePropertiesOutput values.
@@ -862,14 +824,10 @@ type CloudToDevicePropertiesInput interface {
 	ToCloudToDevicePropertiesOutputWithContext(context.Context) CloudToDevicePropertiesOutput
 }
 
-// The IoT hub cloud-to-device messaging properties.
 type CloudToDevicePropertiesArgs struct {
-	// The default time to live for cloud-to-device messages in the device queue. See: https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-messaging#cloud-to-device-messages.
-	DefaultTtlAsIso8601 pulumi.StringPtrInput `pulumi:"defaultTtlAsIso8601"`
-	// The properties of the feedback queue for cloud-to-device messages.
-	Feedback FeedbackPropertiesPtrInput `pulumi:"feedback"`
-	// The max delivery count for cloud-to-device messages in the device queue. See: https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-messaging#cloud-to-device-messages.
-	MaxDeliveryCount pulumi.IntPtrInput `pulumi:"maxDeliveryCount"`
+	DefaultTtlAsIso8601 pulumi.StringPtrInput      `pulumi:"defaultTtlAsIso8601"`
+	Feedback            FeedbackPropertiesPtrInput `pulumi:"feedback"`
+	MaxDeliveryCount    pulumi.IntPtrInput         `pulumi:"maxDeliveryCount"`
 }
 
 func (CloudToDevicePropertiesArgs) ElementType() reflect.Type {
@@ -925,7 +883,6 @@ func (i *cloudToDevicePropertiesPtrType) ToCloudToDevicePropertiesPtrOutputWithC
 	return pulumi.ToOutputWithContext(ctx, i).(CloudToDevicePropertiesPtrOutput)
 }
 
-// The IoT hub cloud-to-device messaging properties.
 type CloudToDevicePropertiesOutput struct{ *pulumi.OutputState }
 
 func (CloudToDevicePropertiesOutput) ElementType() reflect.Type {
@@ -945,22 +902,19 @@ func (o CloudToDevicePropertiesOutput) ToCloudToDevicePropertiesPtrOutput() Clou
 }
 
 func (o CloudToDevicePropertiesOutput) ToCloudToDevicePropertiesPtrOutputWithContext(ctx context.Context) CloudToDevicePropertiesPtrOutput {
-	return o.ApplyT(func(v CloudToDeviceProperties) *CloudToDeviceProperties {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v CloudToDeviceProperties) *CloudToDeviceProperties {
 		return &v
 	}).(CloudToDevicePropertiesPtrOutput)
 }
 
-// The default time to live for cloud-to-device messages in the device queue. See: https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-messaging#cloud-to-device-messages.
 func (o CloudToDevicePropertiesOutput) DefaultTtlAsIso8601() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v CloudToDeviceProperties) *string { return v.DefaultTtlAsIso8601 }).(pulumi.StringPtrOutput)
 }
 
-// The properties of the feedback queue for cloud-to-device messages.
 func (o CloudToDevicePropertiesOutput) Feedback() FeedbackPropertiesPtrOutput {
 	return o.ApplyT(func(v CloudToDeviceProperties) *FeedbackProperties { return v.Feedback }).(FeedbackPropertiesPtrOutput)
 }
 
-// The max delivery count for cloud-to-device messages in the device queue. See: https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-messaging#cloud-to-device-messages.
 func (o CloudToDevicePropertiesOutput) MaxDeliveryCount() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v CloudToDeviceProperties) *int { return v.MaxDeliveryCount }).(pulumi.IntPtrOutput)
 }
@@ -980,10 +934,15 @@ func (o CloudToDevicePropertiesPtrOutput) ToCloudToDevicePropertiesPtrOutputWith
 }
 
 func (o CloudToDevicePropertiesPtrOutput) Elem() CloudToDevicePropertiesOutput {
-	return o.ApplyT(func(v *CloudToDeviceProperties) CloudToDeviceProperties { return *v }).(CloudToDevicePropertiesOutput)
+	return o.ApplyT(func(v *CloudToDeviceProperties) CloudToDeviceProperties {
+		if v != nil {
+			return *v
+		}
+		var ret CloudToDeviceProperties
+		return ret
+	}).(CloudToDevicePropertiesOutput)
 }
 
-// The default time to live for cloud-to-device messages in the device queue. See: https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-messaging#cloud-to-device-messages.
 func (o CloudToDevicePropertiesPtrOutput) DefaultTtlAsIso8601() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *CloudToDeviceProperties) *string {
 		if v == nil {
@@ -993,7 +952,6 @@ func (o CloudToDevicePropertiesPtrOutput) DefaultTtlAsIso8601() pulumi.StringPtr
 	}).(pulumi.StringPtrOutput)
 }
 
-// The properties of the feedback queue for cloud-to-device messages.
 func (o CloudToDevicePropertiesPtrOutput) Feedback() FeedbackPropertiesPtrOutput {
 	return o.ApplyT(func(v *CloudToDeviceProperties) *FeedbackProperties {
 		if v == nil {
@@ -1003,7 +961,6 @@ func (o CloudToDevicePropertiesPtrOutput) Feedback() FeedbackPropertiesPtrOutput
 	}).(FeedbackPropertiesPtrOutput)
 }
 
-// The max delivery count for cloud-to-device messages in the device queue. See: https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-messaging#cloud-to-device-messages.
 func (o CloudToDevicePropertiesPtrOutput) MaxDeliveryCount() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *CloudToDeviceProperties) *int {
 		if v == nil {
@@ -1013,14 +970,10 @@ func (o CloudToDevicePropertiesPtrOutput) MaxDeliveryCount() pulumi.IntPtrOutput
 	}).(pulumi.IntPtrOutput)
 }
 
-// The IoT hub cloud-to-device messaging properties.
 type CloudToDevicePropertiesResponse struct {
-	// The default time to live for cloud-to-device messages in the device queue. See: https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-messaging#cloud-to-device-messages.
-	DefaultTtlAsIso8601 *string `pulumi:"defaultTtlAsIso8601"`
-	// The properties of the feedback queue for cloud-to-device messages.
-	Feedback *FeedbackPropertiesResponse `pulumi:"feedback"`
-	// The max delivery count for cloud-to-device messages in the device queue. See: https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-messaging#cloud-to-device-messages.
-	MaxDeliveryCount *int `pulumi:"maxDeliveryCount"`
+	DefaultTtlAsIso8601 *string                     `pulumi:"defaultTtlAsIso8601"`
+	Feedback            *FeedbackPropertiesResponse `pulumi:"feedback"`
+	MaxDeliveryCount    *int                        `pulumi:"maxDeliveryCount"`
 }
 
 // CloudToDevicePropertiesResponseInput is an input type that accepts CloudToDevicePropertiesResponseArgs and CloudToDevicePropertiesResponseOutput values.
@@ -1034,14 +987,10 @@ type CloudToDevicePropertiesResponseInput interface {
 	ToCloudToDevicePropertiesResponseOutputWithContext(context.Context) CloudToDevicePropertiesResponseOutput
 }
 
-// The IoT hub cloud-to-device messaging properties.
 type CloudToDevicePropertiesResponseArgs struct {
-	// The default time to live for cloud-to-device messages in the device queue. See: https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-messaging#cloud-to-device-messages.
-	DefaultTtlAsIso8601 pulumi.StringPtrInput `pulumi:"defaultTtlAsIso8601"`
-	// The properties of the feedback queue for cloud-to-device messages.
-	Feedback FeedbackPropertiesResponsePtrInput `pulumi:"feedback"`
-	// The max delivery count for cloud-to-device messages in the device queue. See: https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-messaging#cloud-to-device-messages.
-	MaxDeliveryCount pulumi.IntPtrInput `pulumi:"maxDeliveryCount"`
+	DefaultTtlAsIso8601 pulumi.StringPtrInput              `pulumi:"defaultTtlAsIso8601"`
+	Feedback            FeedbackPropertiesResponsePtrInput `pulumi:"feedback"`
+	MaxDeliveryCount    pulumi.IntPtrInput                 `pulumi:"maxDeliveryCount"`
 }
 
 func (CloudToDevicePropertiesResponseArgs) ElementType() reflect.Type {
@@ -1097,7 +1046,6 @@ func (i *cloudToDevicePropertiesResponsePtrType) ToCloudToDevicePropertiesRespon
 	return pulumi.ToOutputWithContext(ctx, i).(CloudToDevicePropertiesResponsePtrOutput)
 }
 
-// The IoT hub cloud-to-device messaging properties.
 type CloudToDevicePropertiesResponseOutput struct{ *pulumi.OutputState }
 
 func (CloudToDevicePropertiesResponseOutput) ElementType() reflect.Type {
@@ -1117,22 +1065,19 @@ func (o CloudToDevicePropertiesResponseOutput) ToCloudToDevicePropertiesResponse
 }
 
 func (o CloudToDevicePropertiesResponseOutput) ToCloudToDevicePropertiesResponsePtrOutputWithContext(ctx context.Context) CloudToDevicePropertiesResponsePtrOutput {
-	return o.ApplyT(func(v CloudToDevicePropertiesResponse) *CloudToDevicePropertiesResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v CloudToDevicePropertiesResponse) *CloudToDevicePropertiesResponse {
 		return &v
 	}).(CloudToDevicePropertiesResponsePtrOutput)
 }
 
-// The default time to live for cloud-to-device messages in the device queue. See: https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-messaging#cloud-to-device-messages.
 func (o CloudToDevicePropertiesResponseOutput) DefaultTtlAsIso8601() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v CloudToDevicePropertiesResponse) *string { return v.DefaultTtlAsIso8601 }).(pulumi.StringPtrOutput)
 }
 
-// The properties of the feedback queue for cloud-to-device messages.
 func (o CloudToDevicePropertiesResponseOutput) Feedback() FeedbackPropertiesResponsePtrOutput {
 	return o.ApplyT(func(v CloudToDevicePropertiesResponse) *FeedbackPropertiesResponse { return v.Feedback }).(FeedbackPropertiesResponsePtrOutput)
 }
 
-// The max delivery count for cloud-to-device messages in the device queue. See: https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-messaging#cloud-to-device-messages.
 func (o CloudToDevicePropertiesResponseOutput) MaxDeliveryCount() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v CloudToDevicePropertiesResponse) *int { return v.MaxDeliveryCount }).(pulumi.IntPtrOutput)
 }
@@ -1152,10 +1097,15 @@ func (o CloudToDevicePropertiesResponsePtrOutput) ToCloudToDevicePropertiesRespo
 }
 
 func (o CloudToDevicePropertiesResponsePtrOutput) Elem() CloudToDevicePropertiesResponseOutput {
-	return o.ApplyT(func(v *CloudToDevicePropertiesResponse) CloudToDevicePropertiesResponse { return *v }).(CloudToDevicePropertiesResponseOutput)
+	return o.ApplyT(func(v *CloudToDevicePropertiesResponse) CloudToDevicePropertiesResponse {
+		if v != nil {
+			return *v
+		}
+		var ret CloudToDevicePropertiesResponse
+		return ret
+	}).(CloudToDevicePropertiesResponseOutput)
 }
 
-// The default time to live for cloud-to-device messages in the device queue. See: https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-messaging#cloud-to-device-messages.
 func (o CloudToDevicePropertiesResponsePtrOutput) DefaultTtlAsIso8601() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *CloudToDevicePropertiesResponse) *string {
 		if v == nil {
@@ -1165,7 +1115,6 @@ func (o CloudToDevicePropertiesResponsePtrOutput) DefaultTtlAsIso8601() pulumi.S
 	}).(pulumi.StringPtrOutput)
 }
 
-// The properties of the feedback queue for cloud-to-device messages.
 func (o CloudToDevicePropertiesResponsePtrOutput) Feedback() FeedbackPropertiesResponsePtrOutput {
 	return o.ApplyT(func(v *CloudToDevicePropertiesResponse) *FeedbackPropertiesResponse {
 		if v == nil {
@@ -1175,7 +1124,6 @@ func (o CloudToDevicePropertiesResponsePtrOutput) Feedback() FeedbackPropertiesR
 	}).(FeedbackPropertiesResponsePtrOutput)
 }
 
-// The max delivery count for cloud-to-device messages in the device queue. See: https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-messaging#cloud-to-device-messages.
 func (o CloudToDevicePropertiesResponsePtrOutput) MaxDeliveryCount() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *CloudToDevicePropertiesResponse) *int {
 		if v == nil {
@@ -1185,14 +1133,10 @@ func (o CloudToDevicePropertiesResponsePtrOutput) MaxDeliveryCount() pulumi.IntP
 	}).(pulumi.IntPtrOutput)
 }
 
-// The properties of an enrichment that your IoT hub applies to messages delivered to endpoints.
 type EnrichmentProperties struct {
-	// The list of endpoints for which the enrichment is applied to the message.
 	EndpointNames []string `pulumi:"endpointNames"`
-	// The key or name for the enrichment property.
-	Key string `pulumi:"key"`
-	// The value for the enrichment property.
-	Value string `pulumi:"value"`
+	Key           string   `pulumi:"key"`
+	Value         string   `pulumi:"value"`
 }
 
 // EnrichmentPropertiesInput is an input type that accepts EnrichmentPropertiesArgs and EnrichmentPropertiesOutput values.
@@ -1206,14 +1150,10 @@ type EnrichmentPropertiesInput interface {
 	ToEnrichmentPropertiesOutputWithContext(context.Context) EnrichmentPropertiesOutput
 }
 
-// The properties of an enrichment that your IoT hub applies to messages delivered to endpoints.
 type EnrichmentPropertiesArgs struct {
-	// The list of endpoints for which the enrichment is applied to the message.
 	EndpointNames pulumi.StringArrayInput `pulumi:"endpointNames"`
-	// The key or name for the enrichment property.
-	Key pulumi.StringInput `pulumi:"key"`
-	// The value for the enrichment property.
-	Value pulumi.StringInput `pulumi:"value"`
+	Key           pulumi.StringInput      `pulumi:"key"`
+	Value         pulumi.StringInput      `pulumi:"value"`
 }
 
 func (EnrichmentPropertiesArgs) ElementType() reflect.Type {
@@ -1253,7 +1193,6 @@ func (i EnrichmentPropertiesArray) ToEnrichmentPropertiesArrayOutputWithContext(
 	return pulumi.ToOutputWithContext(ctx, i).(EnrichmentPropertiesArrayOutput)
 }
 
-// The properties of an enrichment that your IoT hub applies to messages delivered to endpoints.
 type EnrichmentPropertiesOutput struct{ *pulumi.OutputState }
 
 func (EnrichmentPropertiesOutput) ElementType() reflect.Type {
@@ -1268,17 +1207,14 @@ func (o EnrichmentPropertiesOutput) ToEnrichmentPropertiesOutputWithContext(ctx 
 	return o
 }
 
-// The list of endpoints for which the enrichment is applied to the message.
 func (o EnrichmentPropertiesOutput) EndpointNames() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v EnrichmentProperties) []string { return v.EndpointNames }).(pulumi.StringArrayOutput)
 }
 
-// The key or name for the enrichment property.
 func (o EnrichmentPropertiesOutput) Key() pulumi.StringOutput {
 	return o.ApplyT(func(v EnrichmentProperties) string { return v.Key }).(pulumi.StringOutput)
 }
 
-// The value for the enrichment property.
 func (o EnrichmentPropertiesOutput) Value() pulumi.StringOutput {
 	return o.ApplyT(func(v EnrichmentProperties) string { return v.Value }).(pulumi.StringOutput)
 }
@@ -1303,14 +1239,10 @@ func (o EnrichmentPropertiesArrayOutput) Index(i pulumi.IntInput) EnrichmentProp
 	}).(EnrichmentPropertiesOutput)
 }
 
-// The properties of an enrichment that your IoT hub applies to messages delivered to endpoints.
 type EnrichmentPropertiesResponse struct {
-	// The list of endpoints for which the enrichment is applied to the message.
 	EndpointNames []string `pulumi:"endpointNames"`
-	// The key or name for the enrichment property.
-	Key string `pulumi:"key"`
-	// The value for the enrichment property.
-	Value string `pulumi:"value"`
+	Key           string   `pulumi:"key"`
+	Value         string   `pulumi:"value"`
 }
 
 // EnrichmentPropertiesResponseInput is an input type that accepts EnrichmentPropertiesResponseArgs and EnrichmentPropertiesResponseOutput values.
@@ -1324,14 +1256,10 @@ type EnrichmentPropertiesResponseInput interface {
 	ToEnrichmentPropertiesResponseOutputWithContext(context.Context) EnrichmentPropertiesResponseOutput
 }
 
-// The properties of an enrichment that your IoT hub applies to messages delivered to endpoints.
 type EnrichmentPropertiesResponseArgs struct {
-	// The list of endpoints for which the enrichment is applied to the message.
 	EndpointNames pulumi.StringArrayInput `pulumi:"endpointNames"`
-	// The key or name for the enrichment property.
-	Key pulumi.StringInput `pulumi:"key"`
-	// The value for the enrichment property.
-	Value pulumi.StringInput `pulumi:"value"`
+	Key           pulumi.StringInput      `pulumi:"key"`
+	Value         pulumi.StringInput      `pulumi:"value"`
 }
 
 func (EnrichmentPropertiesResponseArgs) ElementType() reflect.Type {
@@ -1371,7 +1299,6 @@ func (i EnrichmentPropertiesResponseArray) ToEnrichmentPropertiesResponseArrayOu
 	return pulumi.ToOutputWithContext(ctx, i).(EnrichmentPropertiesResponseArrayOutput)
 }
 
-// The properties of an enrichment that your IoT hub applies to messages delivered to endpoints.
 type EnrichmentPropertiesResponseOutput struct{ *pulumi.OutputState }
 
 func (EnrichmentPropertiesResponseOutput) ElementType() reflect.Type {
@@ -1386,17 +1313,14 @@ func (o EnrichmentPropertiesResponseOutput) ToEnrichmentPropertiesResponseOutput
 	return o
 }
 
-// The list of endpoints for which the enrichment is applied to the message.
 func (o EnrichmentPropertiesResponseOutput) EndpointNames() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v EnrichmentPropertiesResponse) []string { return v.EndpointNames }).(pulumi.StringArrayOutput)
 }
 
-// The key or name for the enrichment property.
 func (o EnrichmentPropertiesResponseOutput) Key() pulumi.StringOutput {
 	return o.ApplyT(func(v EnrichmentPropertiesResponse) string { return v.Key }).(pulumi.StringOutput)
 }
 
-// The value for the enrichment property.
 func (o EnrichmentPropertiesResponseOutput) Value() pulumi.StringOutput {
 	return o.ApplyT(func(v EnrichmentPropertiesResponse) string { return v.Value }).(pulumi.StringOutput)
 }
@@ -1421,9 +1345,7 @@ func (o EnrichmentPropertiesResponseArrayOutput) Index(i pulumi.IntInput) Enrich
 	}).(EnrichmentPropertiesResponseOutput)
 }
 
-// The EventHub consumer group name.
 type EventHubConsumerGroupName struct {
-	// EventHub consumer group name
 	Name string `pulumi:"name"`
 }
 
@@ -1438,9 +1360,7 @@ type EventHubConsumerGroupNameInput interface {
 	ToEventHubConsumerGroupNameOutputWithContext(context.Context) EventHubConsumerGroupNameOutput
 }
 
-// The EventHub consumer group name.
 type EventHubConsumerGroupNameArgs struct {
-	// EventHub consumer group name
 	Name pulumi.StringInput `pulumi:"name"`
 }
 
@@ -1497,7 +1417,6 @@ func (i *eventHubConsumerGroupNamePtrType) ToEventHubConsumerGroupNamePtrOutputW
 	return pulumi.ToOutputWithContext(ctx, i).(EventHubConsumerGroupNamePtrOutput)
 }
 
-// The EventHub consumer group name.
 type EventHubConsumerGroupNameOutput struct{ *pulumi.OutputState }
 
 func (EventHubConsumerGroupNameOutput) ElementType() reflect.Type {
@@ -1517,12 +1436,11 @@ func (o EventHubConsumerGroupNameOutput) ToEventHubConsumerGroupNamePtrOutput() 
 }
 
 func (o EventHubConsumerGroupNameOutput) ToEventHubConsumerGroupNamePtrOutputWithContext(ctx context.Context) EventHubConsumerGroupNamePtrOutput {
-	return o.ApplyT(func(v EventHubConsumerGroupName) *EventHubConsumerGroupName {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v EventHubConsumerGroupName) *EventHubConsumerGroupName {
 		return &v
 	}).(EventHubConsumerGroupNamePtrOutput)
 }
 
-// EventHub consumer group name
 func (o EventHubConsumerGroupNameOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v EventHubConsumerGroupName) string { return v.Name }).(pulumi.StringOutput)
 }
@@ -1542,10 +1460,15 @@ func (o EventHubConsumerGroupNamePtrOutput) ToEventHubConsumerGroupNamePtrOutput
 }
 
 func (o EventHubConsumerGroupNamePtrOutput) Elem() EventHubConsumerGroupNameOutput {
-	return o.ApplyT(func(v *EventHubConsumerGroupName) EventHubConsumerGroupName { return *v }).(EventHubConsumerGroupNameOutput)
+	return o.ApplyT(func(v *EventHubConsumerGroupName) EventHubConsumerGroupName {
+		if v != nil {
+			return *v
+		}
+		var ret EventHubConsumerGroupName
+		return ret
+	}).(EventHubConsumerGroupNameOutput)
 }
 
-// EventHub consumer group name
 func (o EventHubConsumerGroupNamePtrOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *EventHubConsumerGroupName) *string {
 		if v == nil {
@@ -1555,11 +1478,8 @@ func (o EventHubConsumerGroupNamePtrOutput) Name() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The properties of the provisioned Event Hub-compatible endpoint used by the IoT hub.
 type EventHubProperties struct {
-	// The number of partitions for receiving device-to-cloud messages in the Event Hub-compatible endpoint. See: https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-messaging#device-to-cloud-messages.
-	PartitionCount *int `pulumi:"partitionCount"`
-	// The retention time for device-to-cloud messages in days. See: https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-messaging#device-to-cloud-messages
+	PartitionCount      *int     `pulumi:"partitionCount"`
 	RetentionTimeInDays *float64 `pulumi:"retentionTimeInDays"`
 }
 
@@ -1574,11 +1494,8 @@ type EventHubPropertiesInput interface {
 	ToEventHubPropertiesOutputWithContext(context.Context) EventHubPropertiesOutput
 }
 
-// The properties of the provisioned Event Hub-compatible endpoint used by the IoT hub.
 type EventHubPropertiesArgs struct {
-	// The number of partitions for receiving device-to-cloud messages in the Event Hub-compatible endpoint. See: https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-messaging#device-to-cloud-messages.
-	PartitionCount pulumi.IntPtrInput `pulumi:"partitionCount"`
-	// The retention time for device-to-cloud messages in days. See: https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-messaging#device-to-cloud-messages
+	PartitionCount      pulumi.IntPtrInput     `pulumi:"partitionCount"`
 	RetentionTimeInDays pulumi.Float64PtrInput `pulumi:"retentionTimeInDays"`
 }
 
@@ -1619,7 +1536,6 @@ func (i EventHubPropertiesMap) ToEventHubPropertiesMapOutputWithContext(ctx cont
 	return pulumi.ToOutputWithContext(ctx, i).(EventHubPropertiesMapOutput)
 }
 
-// The properties of the provisioned Event Hub-compatible endpoint used by the IoT hub.
 type EventHubPropertiesOutput struct{ *pulumi.OutputState }
 
 func (EventHubPropertiesOutput) ElementType() reflect.Type {
@@ -1634,12 +1550,10 @@ func (o EventHubPropertiesOutput) ToEventHubPropertiesOutputWithContext(ctx cont
 	return o
 }
 
-// The number of partitions for receiving device-to-cloud messages in the Event Hub-compatible endpoint. See: https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-messaging#device-to-cloud-messages.
 func (o EventHubPropertiesOutput) PartitionCount() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v EventHubProperties) *int { return v.PartitionCount }).(pulumi.IntPtrOutput)
 }
 
-// The retention time for device-to-cloud messages in days. See: https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-messaging#device-to-cloud-messages
 func (o EventHubPropertiesOutput) RetentionTimeInDays() pulumi.Float64PtrOutput {
 	return o.ApplyT(func(v EventHubProperties) *float64 { return v.RetentionTimeInDays }).(pulumi.Float64PtrOutput)
 }
@@ -1664,17 +1578,11 @@ func (o EventHubPropertiesMapOutput) MapIndex(k pulumi.StringInput) EventHubProp
 	}).(EventHubPropertiesOutput)
 }
 
-// The properties of the provisioned Event Hub-compatible endpoint used by the IoT hub.
 type EventHubPropertiesResponse struct {
-	// The Event Hub-compatible endpoint.
-	Endpoint string `pulumi:"endpoint"`
-	// The number of partitions for receiving device-to-cloud messages in the Event Hub-compatible endpoint. See: https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-messaging#device-to-cloud-messages.
-	PartitionCount *int `pulumi:"partitionCount"`
-	// The partition ids in the Event Hub-compatible endpoint.
-	PartitionIds []string `pulumi:"partitionIds"`
-	// The Event Hub-compatible name.
-	Path string `pulumi:"path"`
-	// The retention time for device-to-cloud messages in days. See: https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-messaging#device-to-cloud-messages
+	Endpoint            string   `pulumi:"endpoint"`
+	PartitionCount      *int     `pulumi:"partitionCount"`
+	PartitionIds        []string `pulumi:"partitionIds"`
+	Path                string   `pulumi:"path"`
 	RetentionTimeInDays *float64 `pulumi:"retentionTimeInDays"`
 }
 
@@ -1689,18 +1597,12 @@ type EventHubPropertiesResponseInput interface {
 	ToEventHubPropertiesResponseOutputWithContext(context.Context) EventHubPropertiesResponseOutput
 }
 
-// The properties of the provisioned Event Hub-compatible endpoint used by the IoT hub.
 type EventHubPropertiesResponseArgs struct {
-	// The Event Hub-compatible endpoint.
-	Endpoint pulumi.StringInput `pulumi:"endpoint"`
-	// The number of partitions for receiving device-to-cloud messages in the Event Hub-compatible endpoint. See: https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-messaging#device-to-cloud-messages.
-	PartitionCount pulumi.IntPtrInput `pulumi:"partitionCount"`
-	// The partition ids in the Event Hub-compatible endpoint.
-	PartitionIds pulumi.StringArrayInput `pulumi:"partitionIds"`
-	// The Event Hub-compatible name.
-	Path pulumi.StringInput `pulumi:"path"`
-	// The retention time for device-to-cloud messages in days. See: https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-messaging#device-to-cloud-messages
-	RetentionTimeInDays pulumi.Float64PtrInput `pulumi:"retentionTimeInDays"`
+	Endpoint            pulumi.StringInput      `pulumi:"endpoint"`
+	PartitionCount      pulumi.IntPtrInput      `pulumi:"partitionCount"`
+	PartitionIds        pulumi.StringArrayInput `pulumi:"partitionIds"`
+	Path                pulumi.StringInput      `pulumi:"path"`
+	RetentionTimeInDays pulumi.Float64PtrInput  `pulumi:"retentionTimeInDays"`
 }
 
 func (EventHubPropertiesResponseArgs) ElementType() reflect.Type {
@@ -1740,7 +1642,6 @@ func (i EventHubPropertiesResponseMap) ToEventHubPropertiesResponseMapOutputWith
 	return pulumi.ToOutputWithContext(ctx, i).(EventHubPropertiesResponseMapOutput)
 }
 
-// The properties of the provisioned Event Hub-compatible endpoint used by the IoT hub.
 type EventHubPropertiesResponseOutput struct{ *pulumi.OutputState }
 
 func (EventHubPropertiesResponseOutput) ElementType() reflect.Type {
@@ -1755,27 +1656,22 @@ func (o EventHubPropertiesResponseOutput) ToEventHubPropertiesResponseOutputWith
 	return o
 }
 
-// The Event Hub-compatible endpoint.
 func (o EventHubPropertiesResponseOutput) Endpoint() pulumi.StringOutput {
 	return o.ApplyT(func(v EventHubPropertiesResponse) string { return v.Endpoint }).(pulumi.StringOutput)
 }
 
-// The number of partitions for receiving device-to-cloud messages in the Event Hub-compatible endpoint. See: https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-messaging#device-to-cloud-messages.
 func (o EventHubPropertiesResponseOutput) PartitionCount() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v EventHubPropertiesResponse) *int { return v.PartitionCount }).(pulumi.IntPtrOutput)
 }
 
-// The partition ids in the Event Hub-compatible endpoint.
 func (o EventHubPropertiesResponseOutput) PartitionIds() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v EventHubPropertiesResponse) []string { return v.PartitionIds }).(pulumi.StringArrayOutput)
 }
 
-// The Event Hub-compatible name.
 func (o EventHubPropertiesResponseOutput) Path() pulumi.StringOutput {
 	return o.ApplyT(func(v EventHubPropertiesResponse) string { return v.Path }).(pulumi.StringOutput)
 }
 
-// The retention time for device-to-cloud messages in days. See: https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-messaging#device-to-cloud-messages
 func (o EventHubPropertiesResponseOutput) RetentionTimeInDays() pulumi.Float64PtrOutput {
 	return o.ApplyT(func(v EventHubPropertiesResponse) *float64 { return v.RetentionTimeInDays }).(pulumi.Float64PtrOutput)
 }
@@ -1800,18 +1696,12 @@ func (o EventHubPropertiesResponseMapOutput) MapIndex(k pulumi.StringInput) Even
 	}).(EventHubPropertiesResponseOutput)
 }
 
-// The properties of the fallback route. IoT Hub uses these properties when it routes messages to the fallback endpoint.
 type FallbackRouteProperties struct {
-	// The condition which is evaluated in order to apply the fallback route. If the condition is not provided it will evaluate to true by default. For grammar, See: https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-query-language
-	Condition *string `pulumi:"condition"`
-	// The list of endpoints to which the messages that satisfy the condition are routed to. Currently only 1 endpoint is allowed.
+	Condition     *string  `pulumi:"condition"`
 	EndpointNames []string `pulumi:"endpointNames"`
-	// Used to specify whether the fallback route is enabled.
-	IsEnabled bool `pulumi:"isEnabled"`
-	// The name of the route. The name can only include alphanumeric characters, periods, underscores, hyphens, has a maximum length of 64 characters, and must be unique.
-	Name *string `pulumi:"name"`
-	// The source to which the routing rule is to be applied to. For example, DeviceMessages
-	Source string `pulumi:"source"`
+	IsEnabled     bool     `pulumi:"isEnabled"`
+	Name          *string  `pulumi:"name"`
+	Source        string   `pulumi:"source"`
 }
 
 // FallbackRoutePropertiesInput is an input type that accepts FallbackRoutePropertiesArgs and FallbackRoutePropertiesOutput values.
@@ -1825,18 +1715,12 @@ type FallbackRoutePropertiesInput interface {
 	ToFallbackRoutePropertiesOutputWithContext(context.Context) FallbackRoutePropertiesOutput
 }
 
-// The properties of the fallback route. IoT Hub uses these properties when it routes messages to the fallback endpoint.
 type FallbackRoutePropertiesArgs struct {
-	// The condition which is evaluated in order to apply the fallback route. If the condition is not provided it will evaluate to true by default. For grammar, See: https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-query-language
-	Condition pulumi.StringPtrInput `pulumi:"condition"`
-	// The list of endpoints to which the messages that satisfy the condition are routed to. Currently only 1 endpoint is allowed.
+	Condition     pulumi.StringPtrInput   `pulumi:"condition"`
 	EndpointNames pulumi.StringArrayInput `pulumi:"endpointNames"`
-	// Used to specify whether the fallback route is enabled.
-	IsEnabled pulumi.BoolInput `pulumi:"isEnabled"`
-	// The name of the route. The name can only include alphanumeric characters, periods, underscores, hyphens, has a maximum length of 64 characters, and must be unique.
-	Name pulumi.StringPtrInput `pulumi:"name"`
-	// The source to which the routing rule is to be applied to. For example, DeviceMessages
-	Source pulumi.StringInput `pulumi:"source"`
+	IsEnabled     pulumi.BoolInput        `pulumi:"isEnabled"`
+	Name          pulumi.StringPtrInput   `pulumi:"name"`
+	Source        pulumi.StringInput      `pulumi:"source"`
 }
 
 func (FallbackRoutePropertiesArgs) ElementType() reflect.Type {
@@ -1892,7 +1776,6 @@ func (i *fallbackRoutePropertiesPtrType) ToFallbackRoutePropertiesPtrOutputWithC
 	return pulumi.ToOutputWithContext(ctx, i).(FallbackRoutePropertiesPtrOutput)
 }
 
-// The properties of the fallback route. IoT Hub uses these properties when it routes messages to the fallback endpoint.
 type FallbackRoutePropertiesOutput struct{ *pulumi.OutputState }
 
 func (FallbackRoutePropertiesOutput) ElementType() reflect.Type {
@@ -1912,32 +1795,27 @@ func (o FallbackRoutePropertiesOutput) ToFallbackRoutePropertiesPtrOutput() Fall
 }
 
 func (o FallbackRoutePropertiesOutput) ToFallbackRoutePropertiesPtrOutputWithContext(ctx context.Context) FallbackRoutePropertiesPtrOutput {
-	return o.ApplyT(func(v FallbackRouteProperties) *FallbackRouteProperties {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v FallbackRouteProperties) *FallbackRouteProperties {
 		return &v
 	}).(FallbackRoutePropertiesPtrOutput)
 }
 
-// The condition which is evaluated in order to apply the fallback route. If the condition is not provided it will evaluate to true by default. For grammar, See: https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-query-language
 func (o FallbackRoutePropertiesOutput) Condition() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v FallbackRouteProperties) *string { return v.Condition }).(pulumi.StringPtrOutput)
 }
 
-// The list of endpoints to which the messages that satisfy the condition are routed to. Currently only 1 endpoint is allowed.
 func (o FallbackRoutePropertiesOutput) EndpointNames() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v FallbackRouteProperties) []string { return v.EndpointNames }).(pulumi.StringArrayOutput)
 }
 
-// Used to specify whether the fallback route is enabled.
 func (o FallbackRoutePropertiesOutput) IsEnabled() pulumi.BoolOutput {
 	return o.ApplyT(func(v FallbackRouteProperties) bool { return v.IsEnabled }).(pulumi.BoolOutput)
 }
 
-// The name of the route. The name can only include alphanumeric characters, periods, underscores, hyphens, has a maximum length of 64 characters, and must be unique.
 func (o FallbackRoutePropertiesOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v FallbackRouteProperties) *string { return v.Name }).(pulumi.StringPtrOutput)
 }
 
-// The source to which the routing rule is to be applied to. For example, DeviceMessages
 func (o FallbackRoutePropertiesOutput) Source() pulumi.StringOutput {
 	return o.ApplyT(func(v FallbackRouteProperties) string { return v.Source }).(pulumi.StringOutput)
 }
@@ -1957,10 +1835,15 @@ func (o FallbackRoutePropertiesPtrOutput) ToFallbackRoutePropertiesPtrOutputWith
 }
 
 func (o FallbackRoutePropertiesPtrOutput) Elem() FallbackRoutePropertiesOutput {
-	return o.ApplyT(func(v *FallbackRouteProperties) FallbackRouteProperties { return *v }).(FallbackRoutePropertiesOutput)
+	return o.ApplyT(func(v *FallbackRouteProperties) FallbackRouteProperties {
+		if v != nil {
+			return *v
+		}
+		var ret FallbackRouteProperties
+		return ret
+	}).(FallbackRoutePropertiesOutput)
 }
 
-// The condition which is evaluated in order to apply the fallback route. If the condition is not provided it will evaluate to true by default. For grammar, See: https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-query-language
 func (o FallbackRoutePropertiesPtrOutput) Condition() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *FallbackRouteProperties) *string {
 		if v == nil {
@@ -1970,7 +1853,6 @@ func (o FallbackRoutePropertiesPtrOutput) Condition() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The list of endpoints to which the messages that satisfy the condition are routed to. Currently only 1 endpoint is allowed.
 func (o FallbackRoutePropertiesPtrOutput) EndpointNames() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *FallbackRouteProperties) []string {
 		if v == nil {
@@ -1980,7 +1862,6 @@ func (o FallbackRoutePropertiesPtrOutput) EndpointNames() pulumi.StringArrayOutp
 	}).(pulumi.StringArrayOutput)
 }
 
-// Used to specify whether the fallback route is enabled.
 func (o FallbackRoutePropertiesPtrOutput) IsEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *FallbackRouteProperties) *bool {
 		if v == nil {
@@ -1990,7 +1871,6 @@ func (o FallbackRoutePropertiesPtrOutput) IsEnabled() pulumi.BoolPtrOutput {
 	}).(pulumi.BoolPtrOutput)
 }
 
-// The name of the route. The name can only include alphanumeric characters, periods, underscores, hyphens, has a maximum length of 64 characters, and must be unique.
 func (o FallbackRoutePropertiesPtrOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *FallbackRouteProperties) *string {
 		if v == nil {
@@ -2000,7 +1880,6 @@ func (o FallbackRoutePropertiesPtrOutput) Name() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The source to which the routing rule is to be applied to. For example, DeviceMessages
 func (o FallbackRoutePropertiesPtrOutput) Source() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *FallbackRouteProperties) *string {
 		if v == nil {
@@ -2010,18 +1889,12 @@ func (o FallbackRoutePropertiesPtrOutput) Source() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The properties of the fallback route. IoT Hub uses these properties when it routes messages to the fallback endpoint.
 type FallbackRoutePropertiesResponse struct {
-	// The condition which is evaluated in order to apply the fallback route. If the condition is not provided it will evaluate to true by default. For grammar, See: https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-query-language
-	Condition *string `pulumi:"condition"`
-	// The list of endpoints to which the messages that satisfy the condition are routed to. Currently only 1 endpoint is allowed.
+	Condition     *string  `pulumi:"condition"`
 	EndpointNames []string `pulumi:"endpointNames"`
-	// Used to specify whether the fallback route is enabled.
-	IsEnabled bool `pulumi:"isEnabled"`
-	// The name of the route. The name can only include alphanumeric characters, periods, underscores, hyphens, has a maximum length of 64 characters, and must be unique.
-	Name *string `pulumi:"name"`
-	// The source to which the routing rule is to be applied to. For example, DeviceMessages
-	Source string `pulumi:"source"`
+	IsEnabled     bool     `pulumi:"isEnabled"`
+	Name          *string  `pulumi:"name"`
+	Source        string   `pulumi:"source"`
 }
 
 // FallbackRoutePropertiesResponseInput is an input type that accepts FallbackRoutePropertiesResponseArgs and FallbackRoutePropertiesResponseOutput values.
@@ -2035,18 +1908,12 @@ type FallbackRoutePropertiesResponseInput interface {
 	ToFallbackRoutePropertiesResponseOutputWithContext(context.Context) FallbackRoutePropertiesResponseOutput
 }
 
-// The properties of the fallback route. IoT Hub uses these properties when it routes messages to the fallback endpoint.
 type FallbackRoutePropertiesResponseArgs struct {
-	// The condition which is evaluated in order to apply the fallback route. If the condition is not provided it will evaluate to true by default. For grammar, See: https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-query-language
-	Condition pulumi.StringPtrInput `pulumi:"condition"`
-	// The list of endpoints to which the messages that satisfy the condition are routed to. Currently only 1 endpoint is allowed.
+	Condition     pulumi.StringPtrInput   `pulumi:"condition"`
 	EndpointNames pulumi.StringArrayInput `pulumi:"endpointNames"`
-	// Used to specify whether the fallback route is enabled.
-	IsEnabled pulumi.BoolInput `pulumi:"isEnabled"`
-	// The name of the route. The name can only include alphanumeric characters, periods, underscores, hyphens, has a maximum length of 64 characters, and must be unique.
-	Name pulumi.StringPtrInput `pulumi:"name"`
-	// The source to which the routing rule is to be applied to. For example, DeviceMessages
-	Source pulumi.StringInput `pulumi:"source"`
+	IsEnabled     pulumi.BoolInput        `pulumi:"isEnabled"`
+	Name          pulumi.StringPtrInput   `pulumi:"name"`
+	Source        pulumi.StringInput      `pulumi:"source"`
 }
 
 func (FallbackRoutePropertiesResponseArgs) ElementType() reflect.Type {
@@ -2102,7 +1969,6 @@ func (i *fallbackRoutePropertiesResponsePtrType) ToFallbackRoutePropertiesRespon
 	return pulumi.ToOutputWithContext(ctx, i).(FallbackRoutePropertiesResponsePtrOutput)
 }
 
-// The properties of the fallback route. IoT Hub uses these properties when it routes messages to the fallback endpoint.
 type FallbackRoutePropertiesResponseOutput struct{ *pulumi.OutputState }
 
 func (FallbackRoutePropertiesResponseOutput) ElementType() reflect.Type {
@@ -2122,32 +1988,27 @@ func (o FallbackRoutePropertiesResponseOutput) ToFallbackRoutePropertiesResponse
 }
 
 func (o FallbackRoutePropertiesResponseOutput) ToFallbackRoutePropertiesResponsePtrOutputWithContext(ctx context.Context) FallbackRoutePropertiesResponsePtrOutput {
-	return o.ApplyT(func(v FallbackRoutePropertiesResponse) *FallbackRoutePropertiesResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v FallbackRoutePropertiesResponse) *FallbackRoutePropertiesResponse {
 		return &v
 	}).(FallbackRoutePropertiesResponsePtrOutput)
 }
 
-// The condition which is evaluated in order to apply the fallback route. If the condition is not provided it will evaluate to true by default. For grammar, See: https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-query-language
 func (o FallbackRoutePropertiesResponseOutput) Condition() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v FallbackRoutePropertiesResponse) *string { return v.Condition }).(pulumi.StringPtrOutput)
 }
 
-// The list of endpoints to which the messages that satisfy the condition are routed to. Currently only 1 endpoint is allowed.
 func (o FallbackRoutePropertiesResponseOutput) EndpointNames() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v FallbackRoutePropertiesResponse) []string { return v.EndpointNames }).(pulumi.StringArrayOutput)
 }
 
-// Used to specify whether the fallback route is enabled.
 func (o FallbackRoutePropertiesResponseOutput) IsEnabled() pulumi.BoolOutput {
 	return o.ApplyT(func(v FallbackRoutePropertiesResponse) bool { return v.IsEnabled }).(pulumi.BoolOutput)
 }
 
-// The name of the route. The name can only include alphanumeric characters, periods, underscores, hyphens, has a maximum length of 64 characters, and must be unique.
 func (o FallbackRoutePropertiesResponseOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v FallbackRoutePropertiesResponse) *string { return v.Name }).(pulumi.StringPtrOutput)
 }
 
-// The source to which the routing rule is to be applied to. For example, DeviceMessages
 func (o FallbackRoutePropertiesResponseOutput) Source() pulumi.StringOutput {
 	return o.ApplyT(func(v FallbackRoutePropertiesResponse) string { return v.Source }).(pulumi.StringOutput)
 }
@@ -2167,10 +2028,15 @@ func (o FallbackRoutePropertiesResponsePtrOutput) ToFallbackRoutePropertiesRespo
 }
 
 func (o FallbackRoutePropertiesResponsePtrOutput) Elem() FallbackRoutePropertiesResponseOutput {
-	return o.ApplyT(func(v *FallbackRoutePropertiesResponse) FallbackRoutePropertiesResponse { return *v }).(FallbackRoutePropertiesResponseOutput)
+	return o.ApplyT(func(v *FallbackRoutePropertiesResponse) FallbackRoutePropertiesResponse {
+		if v != nil {
+			return *v
+		}
+		var ret FallbackRoutePropertiesResponse
+		return ret
+	}).(FallbackRoutePropertiesResponseOutput)
 }
 
-// The condition which is evaluated in order to apply the fallback route. If the condition is not provided it will evaluate to true by default. For grammar, See: https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-query-language
 func (o FallbackRoutePropertiesResponsePtrOutput) Condition() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *FallbackRoutePropertiesResponse) *string {
 		if v == nil {
@@ -2180,7 +2046,6 @@ func (o FallbackRoutePropertiesResponsePtrOutput) Condition() pulumi.StringPtrOu
 	}).(pulumi.StringPtrOutput)
 }
 
-// The list of endpoints to which the messages that satisfy the condition are routed to. Currently only 1 endpoint is allowed.
 func (o FallbackRoutePropertiesResponsePtrOutput) EndpointNames() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *FallbackRoutePropertiesResponse) []string {
 		if v == nil {
@@ -2190,7 +2055,6 @@ func (o FallbackRoutePropertiesResponsePtrOutput) EndpointNames() pulumi.StringA
 	}).(pulumi.StringArrayOutput)
 }
 
-// Used to specify whether the fallback route is enabled.
 func (o FallbackRoutePropertiesResponsePtrOutput) IsEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *FallbackRoutePropertiesResponse) *bool {
 		if v == nil {
@@ -2200,7 +2064,6 @@ func (o FallbackRoutePropertiesResponsePtrOutput) IsEnabled() pulumi.BoolPtrOutp
 	}).(pulumi.BoolPtrOutput)
 }
 
-// The name of the route. The name can only include alphanumeric characters, periods, underscores, hyphens, has a maximum length of 64 characters, and must be unique.
 func (o FallbackRoutePropertiesResponsePtrOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *FallbackRoutePropertiesResponse) *string {
 		if v == nil {
@@ -2210,7 +2073,6 @@ func (o FallbackRoutePropertiesResponsePtrOutput) Name() pulumi.StringPtrOutput 
 	}).(pulumi.StringPtrOutput)
 }
 
-// The source to which the routing rule is to be applied to. For example, DeviceMessages
 func (o FallbackRoutePropertiesResponsePtrOutput) Source() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *FallbackRoutePropertiesResponse) *string {
 		if v == nil {
@@ -2220,14 +2082,10 @@ func (o FallbackRoutePropertiesResponsePtrOutput) Source() pulumi.StringPtrOutpu
 	}).(pulumi.StringPtrOutput)
 }
 
-// The properties of the feedback queue for cloud-to-device messages.
 type FeedbackProperties struct {
-	// The lock duration for the feedback queue. See: https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-messaging#cloud-to-device-messages.
 	LockDurationAsIso8601 *string `pulumi:"lockDurationAsIso8601"`
-	// The number of times the IoT hub attempts to deliver a message on the feedback queue. See: https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-messaging#cloud-to-device-messages.
-	MaxDeliveryCount *int `pulumi:"maxDeliveryCount"`
-	// The period of time for which a message is available to consume before it is expired by the IoT hub. See: https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-messaging#cloud-to-device-messages.
-	TtlAsIso8601 *string `pulumi:"ttlAsIso8601"`
+	MaxDeliveryCount      *int    `pulumi:"maxDeliveryCount"`
+	TtlAsIso8601          *string `pulumi:"ttlAsIso8601"`
 }
 
 // FeedbackPropertiesInput is an input type that accepts FeedbackPropertiesArgs and FeedbackPropertiesOutput values.
@@ -2241,14 +2099,10 @@ type FeedbackPropertiesInput interface {
 	ToFeedbackPropertiesOutputWithContext(context.Context) FeedbackPropertiesOutput
 }
 
-// The properties of the feedback queue for cloud-to-device messages.
 type FeedbackPropertiesArgs struct {
-	// The lock duration for the feedback queue. See: https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-messaging#cloud-to-device-messages.
 	LockDurationAsIso8601 pulumi.StringPtrInput `pulumi:"lockDurationAsIso8601"`
-	// The number of times the IoT hub attempts to deliver a message on the feedback queue. See: https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-messaging#cloud-to-device-messages.
-	MaxDeliveryCount pulumi.IntPtrInput `pulumi:"maxDeliveryCount"`
-	// The period of time for which a message is available to consume before it is expired by the IoT hub. See: https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-messaging#cloud-to-device-messages.
-	TtlAsIso8601 pulumi.StringPtrInput `pulumi:"ttlAsIso8601"`
+	MaxDeliveryCount      pulumi.IntPtrInput    `pulumi:"maxDeliveryCount"`
+	TtlAsIso8601          pulumi.StringPtrInput `pulumi:"ttlAsIso8601"`
 }
 
 func (FeedbackPropertiesArgs) ElementType() reflect.Type {
@@ -2304,7 +2158,6 @@ func (i *feedbackPropertiesPtrType) ToFeedbackPropertiesPtrOutputWithContext(ctx
 	return pulumi.ToOutputWithContext(ctx, i).(FeedbackPropertiesPtrOutput)
 }
 
-// The properties of the feedback queue for cloud-to-device messages.
 type FeedbackPropertiesOutput struct{ *pulumi.OutputState }
 
 func (FeedbackPropertiesOutput) ElementType() reflect.Type {
@@ -2324,22 +2177,19 @@ func (o FeedbackPropertiesOutput) ToFeedbackPropertiesPtrOutput() FeedbackProper
 }
 
 func (o FeedbackPropertiesOutput) ToFeedbackPropertiesPtrOutputWithContext(ctx context.Context) FeedbackPropertiesPtrOutput {
-	return o.ApplyT(func(v FeedbackProperties) *FeedbackProperties {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v FeedbackProperties) *FeedbackProperties {
 		return &v
 	}).(FeedbackPropertiesPtrOutput)
 }
 
-// The lock duration for the feedback queue. See: https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-messaging#cloud-to-device-messages.
 func (o FeedbackPropertiesOutput) LockDurationAsIso8601() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v FeedbackProperties) *string { return v.LockDurationAsIso8601 }).(pulumi.StringPtrOutput)
 }
 
-// The number of times the IoT hub attempts to deliver a message on the feedback queue. See: https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-messaging#cloud-to-device-messages.
 func (o FeedbackPropertiesOutput) MaxDeliveryCount() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v FeedbackProperties) *int { return v.MaxDeliveryCount }).(pulumi.IntPtrOutput)
 }
 
-// The period of time for which a message is available to consume before it is expired by the IoT hub. See: https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-messaging#cloud-to-device-messages.
 func (o FeedbackPropertiesOutput) TtlAsIso8601() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v FeedbackProperties) *string { return v.TtlAsIso8601 }).(pulumi.StringPtrOutput)
 }
@@ -2359,10 +2209,15 @@ func (o FeedbackPropertiesPtrOutput) ToFeedbackPropertiesPtrOutputWithContext(ct
 }
 
 func (o FeedbackPropertiesPtrOutput) Elem() FeedbackPropertiesOutput {
-	return o.ApplyT(func(v *FeedbackProperties) FeedbackProperties { return *v }).(FeedbackPropertiesOutput)
+	return o.ApplyT(func(v *FeedbackProperties) FeedbackProperties {
+		if v != nil {
+			return *v
+		}
+		var ret FeedbackProperties
+		return ret
+	}).(FeedbackPropertiesOutput)
 }
 
-// The lock duration for the feedback queue. See: https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-messaging#cloud-to-device-messages.
 func (o FeedbackPropertiesPtrOutput) LockDurationAsIso8601() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *FeedbackProperties) *string {
 		if v == nil {
@@ -2372,7 +2227,6 @@ func (o FeedbackPropertiesPtrOutput) LockDurationAsIso8601() pulumi.StringPtrOut
 	}).(pulumi.StringPtrOutput)
 }
 
-// The number of times the IoT hub attempts to deliver a message on the feedback queue. See: https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-messaging#cloud-to-device-messages.
 func (o FeedbackPropertiesPtrOutput) MaxDeliveryCount() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *FeedbackProperties) *int {
 		if v == nil {
@@ -2382,7 +2236,6 @@ func (o FeedbackPropertiesPtrOutput) MaxDeliveryCount() pulumi.IntPtrOutput {
 	}).(pulumi.IntPtrOutput)
 }
 
-// The period of time for which a message is available to consume before it is expired by the IoT hub. See: https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-messaging#cloud-to-device-messages.
 func (o FeedbackPropertiesPtrOutput) TtlAsIso8601() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *FeedbackProperties) *string {
 		if v == nil {
@@ -2392,14 +2245,10 @@ func (o FeedbackPropertiesPtrOutput) TtlAsIso8601() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The properties of the feedback queue for cloud-to-device messages.
 type FeedbackPropertiesResponse struct {
-	// The lock duration for the feedback queue. See: https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-messaging#cloud-to-device-messages.
 	LockDurationAsIso8601 *string `pulumi:"lockDurationAsIso8601"`
-	// The number of times the IoT hub attempts to deliver a message on the feedback queue. See: https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-messaging#cloud-to-device-messages.
-	MaxDeliveryCount *int `pulumi:"maxDeliveryCount"`
-	// The period of time for which a message is available to consume before it is expired by the IoT hub. See: https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-messaging#cloud-to-device-messages.
-	TtlAsIso8601 *string `pulumi:"ttlAsIso8601"`
+	MaxDeliveryCount      *int    `pulumi:"maxDeliveryCount"`
+	TtlAsIso8601          *string `pulumi:"ttlAsIso8601"`
 }
 
 // FeedbackPropertiesResponseInput is an input type that accepts FeedbackPropertiesResponseArgs and FeedbackPropertiesResponseOutput values.
@@ -2413,14 +2262,10 @@ type FeedbackPropertiesResponseInput interface {
 	ToFeedbackPropertiesResponseOutputWithContext(context.Context) FeedbackPropertiesResponseOutput
 }
 
-// The properties of the feedback queue for cloud-to-device messages.
 type FeedbackPropertiesResponseArgs struct {
-	// The lock duration for the feedback queue. See: https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-messaging#cloud-to-device-messages.
 	LockDurationAsIso8601 pulumi.StringPtrInput `pulumi:"lockDurationAsIso8601"`
-	// The number of times the IoT hub attempts to deliver a message on the feedback queue. See: https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-messaging#cloud-to-device-messages.
-	MaxDeliveryCount pulumi.IntPtrInput `pulumi:"maxDeliveryCount"`
-	// The period of time for which a message is available to consume before it is expired by the IoT hub. See: https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-messaging#cloud-to-device-messages.
-	TtlAsIso8601 pulumi.StringPtrInput `pulumi:"ttlAsIso8601"`
+	MaxDeliveryCount      pulumi.IntPtrInput    `pulumi:"maxDeliveryCount"`
+	TtlAsIso8601          pulumi.StringPtrInput `pulumi:"ttlAsIso8601"`
 }
 
 func (FeedbackPropertiesResponseArgs) ElementType() reflect.Type {
@@ -2476,7 +2321,6 @@ func (i *feedbackPropertiesResponsePtrType) ToFeedbackPropertiesResponsePtrOutpu
 	return pulumi.ToOutputWithContext(ctx, i).(FeedbackPropertiesResponsePtrOutput)
 }
 
-// The properties of the feedback queue for cloud-to-device messages.
 type FeedbackPropertiesResponseOutput struct{ *pulumi.OutputState }
 
 func (FeedbackPropertiesResponseOutput) ElementType() reflect.Type {
@@ -2496,22 +2340,19 @@ func (o FeedbackPropertiesResponseOutput) ToFeedbackPropertiesResponsePtrOutput(
 }
 
 func (o FeedbackPropertiesResponseOutput) ToFeedbackPropertiesResponsePtrOutputWithContext(ctx context.Context) FeedbackPropertiesResponsePtrOutput {
-	return o.ApplyT(func(v FeedbackPropertiesResponse) *FeedbackPropertiesResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v FeedbackPropertiesResponse) *FeedbackPropertiesResponse {
 		return &v
 	}).(FeedbackPropertiesResponsePtrOutput)
 }
 
-// The lock duration for the feedback queue. See: https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-messaging#cloud-to-device-messages.
 func (o FeedbackPropertiesResponseOutput) LockDurationAsIso8601() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v FeedbackPropertiesResponse) *string { return v.LockDurationAsIso8601 }).(pulumi.StringPtrOutput)
 }
 
-// The number of times the IoT hub attempts to deliver a message on the feedback queue. See: https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-messaging#cloud-to-device-messages.
 func (o FeedbackPropertiesResponseOutput) MaxDeliveryCount() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v FeedbackPropertiesResponse) *int { return v.MaxDeliveryCount }).(pulumi.IntPtrOutput)
 }
 
-// The period of time for which a message is available to consume before it is expired by the IoT hub. See: https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-messaging#cloud-to-device-messages.
 func (o FeedbackPropertiesResponseOutput) TtlAsIso8601() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v FeedbackPropertiesResponse) *string { return v.TtlAsIso8601 }).(pulumi.StringPtrOutput)
 }
@@ -2531,10 +2372,15 @@ func (o FeedbackPropertiesResponsePtrOutput) ToFeedbackPropertiesResponsePtrOutp
 }
 
 func (o FeedbackPropertiesResponsePtrOutput) Elem() FeedbackPropertiesResponseOutput {
-	return o.ApplyT(func(v *FeedbackPropertiesResponse) FeedbackPropertiesResponse { return *v }).(FeedbackPropertiesResponseOutput)
+	return o.ApplyT(func(v *FeedbackPropertiesResponse) FeedbackPropertiesResponse {
+		if v != nil {
+			return *v
+		}
+		var ret FeedbackPropertiesResponse
+		return ret
+	}).(FeedbackPropertiesResponseOutput)
 }
 
-// The lock duration for the feedback queue. See: https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-messaging#cloud-to-device-messages.
 func (o FeedbackPropertiesResponsePtrOutput) LockDurationAsIso8601() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *FeedbackPropertiesResponse) *string {
 		if v == nil {
@@ -2544,7 +2390,6 @@ func (o FeedbackPropertiesResponsePtrOutput) LockDurationAsIso8601() pulumi.Stri
 	}).(pulumi.StringPtrOutput)
 }
 
-// The number of times the IoT hub attempts to deliver a message on the feedback queue. See: https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-messaging#cloud-to-device-messages.
 func (o FeedbackPropertiesResponsePtrOutput) MaxDeliveryCount() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *FeedbackPropertiesResponse) *int {
 		if v == nil {
@@ -2554,7 +2399,6 @@ func (o FeedbackPropertiesResponsePtrOutput) MaxDeliveryCount() pulumi.IntPtrOut
 	}).(pulumi.IntPtrOutput)
 }
 
-// The period of time for which a message is available to consume before it is expired by the IoT hub. See: https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-messaging#cloud-to-device-messages.
 func (o FeedbackPropertiesResponsePtrOutput) TtlAsIso8601() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *FeedbackPropertiesResponse) *string {
 		if v == nil {
@@ -2564,12 +2408,9 @@ func (o FeedbackPropertiesResponsePtrOutput) TtlAsIso8601() pulumi.StringPtrOutp
 	}).(pulumi.StringPtrOutput)
 }
 
-// Public representation of one of the locations where a resource is provisioned.
 type IotHubLocationDescriptionResponse struct {
-	// The name of the Azure region
 	Location *string `pulumi:"location"`
-	// The role of the region, can be either primary or secondary. The primary region is where the IoT hub is currently provisioned. The secondary region is the Azure disaster recovery (DR) paired region and also the region where the IoT hub can failover to.
-	Role *string `pulumi:"role"`
+	Role     *string `pulumi:"role"`
 }
 
 // IotHubLocationDescriptionResponseInput is an input type that accepts IotHubLocationDescriptionResponseArgs and IotHubLocationDescriptionResponseOutput values.
@@ -2583,12 +2424,9 @@ type IotHubLocationDescriptionResponseInput interface {
 	ToIotHubLocationDescriptionResponseOutputWithContext(context.Context) IotHubLocationDescriptionResponseOutput
 }
 
-// Public representation of one of the locations where a resource is provisioned.
 type IotHubLocationDescriptionResponseArgs struct {
-	// The name of the Azure region
 	Location pulumi.StringPtrInput `pulumi:"location"`
-	// The role of the region, can be either primary or secondary. The primary region is where the IoT hub is currently provisioned. The secondary region is the Azure disaster recovery (DR) paired region and also the region where the IoT hub can failover to.
-	Role pulumi.StringPtrInput `pulumi:"role"`
+	Role     pulumi.StringPtrInput `pulumi:"role"`
 }
 
 func (IotHubLocationDescriptionResponseArgs) ElementType() reflect.Type {
@@ -2628,7 +2466,6 @@ func (i IotHubLocationDescriptionResponseArray) ToIotHubLocationDescriptionRespo
 	return pulumi.ToOutputWithContext(ctx, i).(IotHubLocationDescriptionResponseArrayOutput)
 }
 
-// Public representation of one of the locations where a resource is provisioned.
 type IotHubLocationDescriptionResponseOutput struct{ *pulumi.OutputState }
 
 func (IotHubLocationDescriptionResponseOutput) ElementType() reflect.Type {
@@ -2643,12 +2480,10 @@ func (o IotHubLocationDescriptionResponseOutput) ToIotHubLocationDescriptionResp
 	return o
 }
 
-// The name of the Azure region
 func (o IotHubLocationDescriptionResponseOutput) Location() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v IotHubLocationDescriptionResponse) *string { return v.Location }).(pulumi.StringPtrOutput)
 }
 
-// The role of the region, can be either primary or secondary. The primary region is where the IoT hub is currently provisioned. The secondary region is the Azure disaster recovery (DR) paired region and also the region where the IoT hub can failover to.
 func (o IotHubLocationDescriptionResponseOutput) Role() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v IotHubLocationDescriptionResponse) *string { return v.Role }).(pulumi.StringPtrOutput)
 }
@@ -2673,46 +2508,26 @@ func (o IotHubLocationDescriptionResponseArrayOutput) Index(i pulumi.IntInput) I
 	}).(IotHubLocationDescriptionResponseOutput)
 }
 
-// The properties of an IoT hub.
 type IotHubProperties struct {
-	// List of allowed FQDNs(Fully Qualified Domain Name) for egress from Iot Hub.
-	AllowedFqdnList []string `pulumi:"allowedFqdnList"`
-	// The shared access policies you can use to secure a connection to the IoT hub.
-	AuthorizationPolicies []SharedAccessSignatureAuthorizationRule `pulumi:"authorizationPolicies"`
-	// The IoT hub cloud-to-device messaging properties.
-	CloudToDevice *CloudToDeviceProperties `pulumi:"cloudToDevice"`
-	// IoT hub comments.
-	Comments *string `pulumi:"comments"`
-	// If true, all device(including Edge devices but excluding modules) scoped SAS keys cannot be used for authentication.
-	DisableDeviceSAS *bool `pulumi:"disableDeviceSAS"`
-	// If true, SAS tokens with Iot hub scoped SAS keys cannot be used for authentication.
-	DisableLocalAuth *bool `pulumi:"disableLocalAuth"`
-	// If true, all module scoped SAS keys cannot be used for authentication.
-	DisableModuleSAS *bool `pulumi:"disableModuleSAS"`
-	// If True, file upload notifications are enabled.
-	EnableFileUploadNotifications *bool `pulumi:"enableFileUploadNotifications"`
-	// The Event Hub-compatible endpoint properties. The only possible keys to this dictionary is events. This key has to be present in the dictionary while making create or update calls for the IoT hub.
-	EventHubEndpoints map[string]EventHubProperties `pulumi:"eventHubEndpoints"`
-	// The capabilities and features enabled for the IoT hub.
-	Features *string `pulumi:"features"`
-	// The IP filter rules.
-	IpFilterRules []IpFilterRule `pulumi:"ipFilterRules"`
-	// The messaging endpoint properties for the file upload notification queue.
-	MessagingEndpoints map[string]MessagingEndpointProperties `pulumi:"messagingEndpoints"`
-	// Specifies the minimum TLS version to support for this hub. Can be set to "1.2" to have clients that use a TLS version below 1.2 to be rejected.
-	MinTlsVersion *string `pulumi:"minTlsVersion"`
-	// Network Rule Set Properties of IotHub
-	NetworkRuleSets *NetworkRuleSetProperties `pulumi:"networkRuleSets"`
-	// Private endpoint connections created on this IotHub
-	PrivateEndpointConnections []PrivateEndpointConnectionType `pulumi:"privateEndpointConnections"`
-	// Whether requests from Public Network are allowed
-	PublicNetworkAccess *string `pulumi:"publicNetworkAccess"`
-	// If true, egress from IotHub will be restricted to only the allowed FQDNs that are configured via allowedFqdnList.
-	RestrictOutboundNetworkAccess *bool `pulumi:"restrictOutboundNetworkAccess"`
-	// The routing related properties of the IoT hub. See: https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-messaging
-	Routing *RoutingProperties `pulumi:"routing"`
-	// The list of Azure Storage endpoints where you can upload files. Currently you can configure only one Azure Storage account and that MUST have its key as $default. Specifying more than one storage account causes an error to be thrown. Not specifying a value for this property when the enableFileUploadNotifications property is set to True, causes an error to be thrown.
-	StorageEndpoints map[string]StorageEndpointProperties `pulumi:"storageEndpoints"`
+	AllowedFqdnList               []string                                 `pulumi:"allowedFqdnList"`
+	AuthorizationPolicies         []SharedAccessSignatureAuthorizationRule `pulumi:"authorizationPolicies"`
+	CloudToDevice                 *CloudToDeviceProperties                 `pulumi:"cloudToDevice"`
+	Comments                      *string                                  `pulumi:"comments"`
+	DisableDeviceSAS              *bool                                    `pulumi:"disableDeviceSAS"`
+	DisableLocalAuth              *bool                                    `pulumi:"disableLocalAuth"`
+	DisableModuleSAS              *bool                                    `pulumi:"disableModuleSAS"`
+	EnableFileUploadNotifications *bool                                    `pulumi:"enableFileUploadNotifications"`
+	EventHubEndpoints             map[string]EventHubProperties            `pulumi:"eventHubEndpoints"`
+	Features                      *string                                  `pulumi:"features"`
+	IpFilterRules                 []IpFilterRule                           `pulumi:"ipFilterRules"`
+	MessagingEndpoints            map[string]MessagingEndpointProperties   `pulumi:"messagingEndpoints"`
+	MinTlsVersion                 *string                                  `pulumi:"minTlsVersion"`
+	NetworkRuleSets               *NetworkRuleSetProperties                `pulumi:"networkRuleSets"`
+	PrivateEndpointConnections    []PrivateEndpointConnectionType          `pulumi:"privateEndpointConnections"`
+	PublicNetworkAccess           *string                                  `pulumi:"publicNetworkAccess"`
+	RestrictOutboundNetworkAccess *bool                                    `pulumi:"restrictOutboundNetworkAccess"`
+	Routing                       *RoutingProperties                       `pulumi:"routing"`
+	StorageEndpoints              map[string]StorageEndpointProperties     `pulumi:"storageEndpoints"`
 }
 
 // IotHubPropertiesInput is an input type that accepts IotHubPropertiesArgs and IotHubPropertiesOutput values.
@@ -2726,46 +2541,26 @@ type IotHubPropertiesInput interface {
 	ToIotHubPropertiesOutputWithContext(context.Context) IotHubPropertiesOutput
 }
 
-// The properties of an IoT hub.
 type IotHubPropertiesArgs struct {
-	// List of allowed FQDNs(Fully Qualified Domain Name) for egress from Iot Hub.
-	AllowedFqdnList pulumi.StringArrayInput `pulumi:"allowedFqdnList"`
-	// The shared access policies you can use to secure a connection to the IoT hub.
-	AuthorizationPolicies SharedAccessSignatureAuthorizationRuleArrayInput `pulumi:"authorizationPolicies"`
-	// The IoT hub cloud-to-device messaging properties.
-	CloudToDevice CloudToDevicePropertiesPtrInput `pulumi:"cloudToDevice"`
-	// IoT hub comments.
-	Comments pulumi.StringPtrInput `pulumi:"comments"`
-	// If true, all device(including Edge devices but excluding modules) scoped SAS keys cannot be used for authentication.
-	DisableDeviceSAS pulumi.BoolPtrInput `pulumi:"disableDeviceSAS"`
-	// If true, SAS tokens with Iot hub scoped SAS keys cannot be used for authentication.
-	DisableLocalAuth pulumi.BoolPtrInput `pulumi:"disableLocalAuth"`
-	// If true, all module scoped SAS keys cannot be used for authentication.
-	DisableModuleSAS pulumi.BoolPtrInput `pulumi:"disableModuleSAS"`
-	// If True, file upload notifications are enabled.
-	EnableFileUploadNotifications pulumi.BoolPtrInput `pulumi:"enableFileUploadNotifications"`
-	// The Event Hub-compatible endpoint properties. The only possible keys to this dictionary is events. This key has to be present in the dictionary while making create or update calls for the IoT hub.
-	EventHubEndpoints EventHubPropertiesMapInput `pulumi:"eventHubEndpoints"`
-	// The capabilities and features enabled for the IoT hub.
-	Features pulumi.StringPtrInput `pulumi:"features"`
-	// The IP filter rules.
-	IpFilterRules IpFilterRuleArrayInput `pulumi:"ipFilterRules"`
-	// The messaging endpoint properties for the file upload notification queue.
-	MessagingEndpoints MessagingEndpointPropertiesMapInput `pulumi:"messagingEndpoints"`
-	// Specifies the minimum TLS version to support for this hub. Can be set to "1.2" to have clients that use a TLS version below 1.2 to be rejected.
-	MinTlsVersion pulumi.StringPtrInput `pulumi:"minTlsVersion"`
-	// Network Rule Set Properties of IotHub
-	NetworkRuleSets NetworkRuleSetPropertiesPtrInput `pulumi:"networkRuleSets"`
-	// Private endpoint connections created on this IotHub
-	PrivateEndpointConnections PrivateEndpointConnectionTypeArrayInput `pulumi:"privateEndpointConnections"`
-	// Whether requests from Public Network are allowed
-	PublicNetworkAccess pulumi.StringPtrInput `pulumi:"publicNetworkAccess"`
-	// If true, egress from IotHub will be restricted to only the allowed FQDNs that are configured via allowedFqdnList.
-	RestrictOutboundNetworkAccess pulumi.BoolPtrInput `pulumi:"restrictOutboundNetworkAccess"`
-	// The routing related properties of the IoT hub. See: https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-messaging
-	Routing RoutingPropertiesPtrInput `pulumi:"routing"`
-	// The list of Azure Storage endpoints where you can upload files. Currently you can configure only one Azure Storage account and that MUST have its key as $default. Specifying more than one storage account causes an error to be thrown. Not specifying a value for this property when the enableFileUploadNotifications property is set to True, causes an error to be thrown.
-	StorageEndpoints StorageEndpointPropertiesMapInput `pulumi:"storageEndpoints"`
+	AllowedFqdnList               pulumi.StringArrayInput                          `pulumi:"allowedFqdnList"`
+	AuthorizationPolicies         SharedAccessSignatureAuthorizationRuleArrayInput `pulumi:"authorizationPolicies"`
+	CloudToDevice                 CloudToDevicePropertiesPtrInput                  `pulumi:"cloudToDevice"`
+	Comments                      pulumi.StringPtrInput                            `pulumi:"comments"`
+	DisableDeviceSAS              pulumi.BoolPtrInput                              `pulumi:"disableDeviceSAS"`
+	DisableLocalAuth              pulumi.BoolPtrInput                              `pulumi:"disableLocalAuth"`
+	DisableModuleSAS              pulumi.BoolPtrInput                              `pulumi:"disableModuleSAS"`
+	EnableFileUploadNotifications pulumi.BoolPtrInput                              `pulumi:"enableFileUploadNotifications"`
+	EventHubEndpoints             EventHubPropertiesMapInput                       `pulumi:"eventHubEndpoints"`
+	Features                      pulumi.StringPtrInput                            `pulumi:"features"`
+	IpFilterRules                 IpFilterRuleArrayInput                           `pulumi:"ipFilterRules"`
+	MessagingEndpoints            MessagingEndpointPropertiesMapInput              `pulumi:"messagingEndpoints"`
+	MinTlsVersion                 pulumi.StringPtrInput                            `pulumi:"minTlsVersion"`
+	NetworkRuleSets               NetworkRuleSetPropertiesPtrInput                 `pulumi:"networkRuleSets"`
+	PrivateEndpointConnections    PrivateEndpointConnectionTypeArrayInput          `pulumi:"privateEndpointConnections"`
+	PublicNetworkAccess           pulumi.StringPtrInput                            `pulumi:"publicNetworkAccess"`
+	RestrictOutboundNetworkAccess pulumi.BoolPtrInput                              `pulumi:"restrictOutboundNetworkAccess"`
+	Routing                       RoutingPropertiesPtrInput                        `pulumi:"routing"`
+	StorageEndpoints              StorageEndpointPropertiesMapInput                `pulumi:"storageEndpoints"`
 }
 
 func (IotHubPropertiesArgs) ElementType() reflect.Type {
@@ -2821,7 +2616,6 @@ func (i *iotHubPropertiesPtrType) ToIotHubPropertiesPtrOutputWithContext(ctx con
 	return pulumi.ToOutputWithContext(ctx, i).(IotHubPropertiesPtrOutput)
 }
 
-// The properties of an IoT hub.
 type IotHubPropertiesOutput struct{ *pulumi.OutputState }
 
 func (IotHubPropertiesOutput) ElementType() reflect.Type {
@@ -2841,102 +2635,83 @@ func (o IotHubPropertiesOutput) ToIotHubPropertiesPtrOutput() IotHubPropertiesPt
 }
 
 func (o IotHubPropertiesOutput) ToIotHubPropertiesPtrOutputWithContext(ctx context.Context) IotHubPropertiesPtrOutput {
-	return o.ApplyT(func(v IotHubProperties) *IotHubProperties {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v IotHubProperties) *IotHubProperties {
 		return &v
 	}).(IotHubPropertiesPtrOutput)
 }
 
-// List of allowed FQDNs(Fully Qualified Domain Name) for egress from Iot Hub.
 func (o IotHubPropertiesOutput) AllowedFqdnList() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v IotHubProperties) []string { return v.AllowedFqdnList }).(pulumi.StringArrayOutput)
 }
 
-// The shared access policies you can use to secure a connection to the IoT hub.
 func (o IotHubPropertiesOutput) AuthorizationPolicies() SharedAccessSignatureAuthorizationRuleArrayOutput {
 	return o.ApplyT(func(v IotHubProperties) []SharedAccessSignatureAuthorizationRule { return v.AuthorizationPolicies }).(SharedAccessSignatureAuthorizationRuleArrayOutput)
 }
 
-// The IoT hub cloud-to-device messaging properties.
 func (o IotHubPropertiesOutput) CloudToDevice() CloudToDevicePropertiesPtrOutput {
 	return o.ApplyT(func(v IotHubProperties) *CloudToDeviceProperties { return v.CloudToDevice }).(CloudToDevicePropertiesPtrOutput)
 }
 
-// IoT hub comments.
 func (o IotHubPropertiesOutput) Comments() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v IotHubProperties) *string { return v.Comments }).(pulumi.StringPtrOutput)
 }
 
-// If true, all device(including Edge devices but excluding modules) scoped SAS keys cannot be used for authentication.
 func (o IotHubPropertiesOutput) DisableDeviceSAS() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v IotHubProperties) *bool { return v.DisableDeviceSAS }).(pulumi.BoolPtrOutput)
 }
 
-// If true, SAS tokens with Iot hub scoped SAS keys cannot be used for authentication.
 func (o IotHubPropertiesOutput) DisableLocalAuth() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v IotHubProperties) *bool { return v.DisableLocalAuth }).(pulumi.BoolPtrOutput)
 }
 
-// If true, all module scoped SAS keys cannot be used for authentication.
 func (o IotHubPropertiesOutput) DisableModuleSAS() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v IotHubProperties) *bool { return v.DisableModuleSAS }).(pulumi.BoolPtrOutput)
 }
 
-// If True, file upload notifications are enabled.
 func (o IotHubPropertiesOutput) EnableFileUploadNotifications() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v IotHubProperties) *bool { return v.EnableFileUploadNotifications }).(pulumi.BoolPtrOutput)
 }
 
-// The Event Hub-compatible endpoint properties. The only possible keys to this dictionary is events. This key has to be present in the dictionary while making create or update calls for the IoT hub.
 func (o IotHubPropertiesOutput) EventHubEndpoints() EventHubPropertiesMapOutput {
 	return o.ApplyT(func(v IotHubProperties) map[string]EventHubProperties { return v.EventHubEndpoints }).(EventHubPropertiesMapOutput)
 }
 
-// The capabilities and features enabled for the IoT hub.
 func (o IotHubPropertiesOutput) Features() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v IotHubProperties) *string { return v.Features }).(pulumi.StringPtrOutput)
 }
 
-// The IP filter rules.
 func (o IotHubPropertiesOutput) IpFilterRules() IpFilterRuleArrayOutput {
 	return o.ApplyT(func(v IotHubProperties) []IpFilterRule { return v.IpFilterRules }).(IpFilterRuleArrayOutput)
 }
 
-// The messaging endpoint properties for the file upload notification queue.
 func (o IotHubPropertiesOutput) MessagingEndpoints() MessagingEndpointPropertiesMapOutput {
 	return o.ApplyT(func(v IotHubProperties) map[string]MessagingEndpointProperties { return v.MessagingEndpoints }).(MessagingEndpointPropertiesMapOutput)
 }
 
-// Specifies the minimum TLS version to support for this hub. Can be set to "1.2" to have clients that use a TLS version below 1.2 to be rejected.
 func (o IotHubPropertiesOutput) MinTlsVersion() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v IotHubProperties) *string { return v.MinTlsVersion }).(pulumi.StringPtrOutput)
 }
 
-// Network Rule Set Properties of IotHub
 func (o IotHubPropertiesOutput) NetworkRuleSets() NetworkRuleSetPropertiesPtrOutput {
 	return o.ApplyT(func(v IotHubProperties) *NetworkRuleSetProperties { return v.NetworkRuleSets }).(NetworkRuleSetPropertiesPtrOutput)
 }
 
-// Private endpoint connections created on this IotHub
 func (o IotHubPropertiesOutput) PrivateEndpointConnections() PrivateEndpointConnectionTypeArrayOutput {
 	return o.ApplyT(func(v IotHubProperties) []PrivateEndpointConnectionType { return v.PrivateEndpointConnections }).(PrivateEndpointConnectionTypeArrayOutput)
 }
 
-// Whether requests from Public Network are allowed
 func (o IotHubPropertiesOutput) PublicNetworkAccess() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v IotHubProperties) *string { return v.PublicNetworkAccess }).(pulumi.StringPtrOutput)
 }
 
-// If true, egress from IotHub will be restricted to only the allowed FQDNs that are configured via allowedFqdnList.
 func (o IotHubPropertiesOutput) RestrictOutboundNetworkAccess() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v IotHubProperties) *bool { return v.RestrictOutboundNetworkAccess }).(pulumi.BoolPtrOutput)
 }
 
-// The routing related properties of the IoT hub. See: https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-messaging
 func (o IotHubPropertiesOutput) Routing() RoutingPropertiesPtrOutput {
 	return o.ApplyT(func(v IotHubProperties) *RoutingProperties { return v.Routing }).(RoutingPropertiesPtrOutput)
 }
 
-// The list of Azure Storage endpoints where you can upload files. Currently you can configure only one Azure Storage account and that MUST have its key as $default. Specifying more than one storage account causes an error to be thrown. Not specifying a value for this property when the enableFileUploadNotifications property is set to True, causes an error to be thrown.
 func (o IotHubPropertiesOutput) StorageEndpoints() StorageEndpointPropertiesMapOutput {
 	return o.ApplyT(func(v IotHubProperties) map[string]StorageEndpointProperties { return v.StorageEndpoints }).(StorageEndpointPropertiesMapOutput)
 }
@@ -2956,10 +2731,15 @@ func (o IotHubPropertiesPtrOutput) ToIotHubPropertiesPtrOutputWithContext(ctx co
 }
 
 func (o IotHubPropertiesPtrOutput) Elem() IotHubPropertiesOutput {
-	return o.ApplyT(func(v *IotHubProperties) IotHubProperties { return *v }).(IotHubPropertiesOutput)
+	return o.ApplyT(func(v *IotHubProperties) IotHubProperties {
+		if v != nil {
+			return *v
+		}
+		var ret IotHubProperties
+		return ret
+	}).(IotHubPropertiesOutput)
 }
 
-// List of allowed FQDNs(Fully Qualified Domain Name) for egress from Iot Hub.
 func (o IotHubPropertiesPtrOutput) AllowedFqdnList() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *IotHubProperties) []string {
 		if v == nil {
@@ -2969,7 +2749,6 @@ func (o IotHubPropertiesPtrOutput) AllowedFqdnList() pulumi.StringArrayOutput {
 	}).(pulumi.StringArrayOutput)
 }
 
-// The shared access policies you can use to secure a connection to the IoT hub.
 func (o IotHubPropertiesPtrOutput) AuthorizationPolicies() SharedAccessSignatureAuthorizationRuleArrayOutput {
 	return o.ApplyT(func(v *IotHubProperties) []SharedAccessSignatureAuthorizationRule {
 		if v == nil {
@@ -2979,7 +2758,6 @@ func (o IotHubPropertiesPtrOutput) AuthorizationPolicies() SharedAccessSignature
 	}).(SharedAccessSignatureAuthorizationRuleArrayOutput)
 }
 
-// The IoT hub cloud-to-device messaging properties.
 func (o IotHubPropertiesPtrOutput) CloudToDevice() CloudToDevicePropertiesPtrOutput {
 	return o.ApplyT(func(v *IotHubProperties) *CloudToDeviceProperties {
 		if v == nil {
@@ -2989,7 +2767,6 @@ func (o IotHubPropertiesPtrOutput) CloudToDevice() CloudToDevicePropertiesPtrOut
 	}).(CloudToDevicePropertiesPtrOutput)
 }
 
-// IoT hub comments.
 func (o IotHubPropertiesPtrOutput) Comments() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *IotHubProperties) *string {
 		if v == nil {
@@ -2999,7 +2776,6 @@ func (o IotHubPropertiesPtrOutput) Comments() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// If true, all device(including Edge devices but excluding modules) scoped SAS keys cannot be used for authentication.
 func (o IotHubPropertiesPtrOutput) DisableDeviceSAS() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *IotHubProperties) *bool {
 		if v == nil {
@@ -3009,7 +2785,6 @@ func (o IotHubPropertiesPtrOutput) DisableDeviceSAS() pulumi.BoolPtrOutput {
 	}).(pulumi.BoolPtrOutput)
 }
 
-// If true, SAS tokens with Iot hub scoped SAS keys cannot be used for authentication.
 func (o IotHubPropertiesPtrOutput) DisableLocalAuth() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *IotHubProperties) *bool {
 		if v == nil {
@@ -3019,7 +2794,6 @@ func (o IotHubPropertiesPtrOutput) DisableLocalAuth() pulumi.BoolPtrOutput {
 	}).(pulumi.BoolPtrOutput)
 }
 
-// If true, all module scoped SAS keys cannot be used for authentication.
 func (o IotHubPropertiesPtrOutput) DisableModuleSAS() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *IotHubProperties) *bool {
 		if v == nil {
@@ -3029,7 +2803,6 @@ func (o IotHubPropertiesPtrOutput) DisableModuleSAS() pulumi.BoolPtrOutput {
 	}).(pulumi.BoolPtrOutput)
 }
 
-// If True, file upload notifications are enabled.
 func (o IotHubPropertiesPtrOutput) EnableFileUploadNotifications() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *IotHubProperties) *bool {
 		if v == nil {
@@ -3039,7 +2812,6 @@ func (o IotHubPropertiesPtrOutput) EnableFileUploadNotifications() pulumi.BoolPt
 	}).(pulumi.BoolPtrOutput)
 }
 
-// The Event Hub-compatible endpoint properties. The only possible keys to this dictionary is events. This key has to be present in the dictionary while making create or update calls for the IoT hub.
 func (o IotHubPropertiesPtrOutput) EventHubEndpoints() EventHubPropertiesMapOutput {
 	return o.ApplyT(func(v *IotHubProperties) map[string]EventHubProperties {
 		if v == nil {
@@ -3049,7 +2821,6 @@ func (o IotHubPropertiesPtrOutput) EventHubEndpoints() EventHubPropertiesMapOutp
 	}).(EventHubPropertiesMapOutput)
 }
 
-// The capabilities and features enabled for the IoT hub.
 func (o IotHubPropertiesPtrOutput) Features() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *IotHubProperties) *string {
 		if v == nil {
@@ -3059,7 +2830,6 @@ func (o IotHubPropertiesPtrOutput) Features() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The IP filter rules.
 func (o IotHubPropertiesPtrOutput) IpFilterRules() IpFilterRuleArrayOutput {
 	return o.ApplyT(func(v *IotHubProperties) []IpFilterRule {
 		if v == nil {
@@ -3069,7 +2839,6 @@ func (o IotHubPropertiesPtrOutput) IpFilterRules() IpFilterRuleArrayOutput {
 	}).(IpFilterRuleArrayOutput)
 }
 
-// The messaging endpoint properties for the file upload notification queue.
 func (o IotHubPropertiesPtrOutput) MessagingEndpoints() MessagingEndpointPropertiesMapOutput {
 	return o.ApplyT(func(v *IotHubProperties) map[string]MessagingEndpointProperties {
 		if v == nil {
@@ -3079,7 +2848,6 @@ func (o IotHubPropertiesPtrOutput) MessagingEndpoints() MessagingEndpointPropert
 	}).(MessagingEndpointPropertiesMapOutput)
 }
 
-// Specifies the minimum TLS version to support for this hub. Can be set to "1.2" to have clients that use a TLS version below 1.2 to be rejected.
 func (o IotHubPropertiesPtrOutput) MinTlsVersion() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *IotHubProperties) *string {
 		if v == nil {
@@ -3089,7 +2857,6 @@ func (o IotHubPropertiesPtrOutput) MinTlsVersion() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Network Rule Set Properties of IotHub
 func (o IotHubPropertiesPtrOutput) NetworkRuleSets() NetworkRuleSetPropertiesPtrOutput {
 	return o.ApplyT(func(v *IotHubProperties) *NetworkRuleSetProperties {
 		if v == nil {
@@ -3099,7 +2866,6 @@ func (o IotHubPropertiesPtrOutput) NetworkRuleSets() NetworkRuleSetPropertiesPtr
 	}).(NetworkRuleSetPropertiesPtrOutput)
 }
 
-// Private endpoint connections created on this IotHub
 func (o IotHubPropertiesPtrOutput) PrivateEndpointConnections() PrivateEndpointConnectionTypeArrayOutput {
 	return o.ApplyT(func(v *IotHubProperties) []PrivateEndpointConnectionType {
 		if v == nil {
@@ -3109,7 +2875,6 @@ func (o IotHubPropertiesPtrOutput) PrivateEndpointConnections() PrivateEndpointC
 	}).(PrivateEndpointConnectionTypeArrayOutput)
 }
 
-// Whether requests from Public Network are allowed
 func (o IotHubPropertiesPtrOutput) PublicNetworkAccess() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *IotHubProperties) *string {
 		if v == nil {
@@ -3119,7 +2884,6 @@ func (o IotHubPropertiesPtrOutput) PublicNetworkAccess() pulumi.StringPtrOutput 
 	}).(pulumi.StringPtrOutput)
 }
 
-// If true, egress from IotHub will be restricted to only the allowed FQDNs that are configured via allowedFqdnList.
 func (o IotHubPropertiesPtrOutput) RestrictOutboundNetworkAccess() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *IotHubProperties) *bool {
 		if v == nil {
@@ -3129,7 +2893,6 @@ func (o IotHubPropertiesPtrOutput) RestrictOutboundNetworkAccess() pulumi.BoolPt
 	}).(pulumi.BoolPtrOutput)
 }
 
-// The routing related properties of the IoT hub. See: https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-messaging
 func (o IotHubPropertiesPtrOutput) Routing() RoutingPropertiesPtrOutput {
 	return o.ApplyT(func(v *IotHubProperties) *RoutingProperties {
 		if v == nil {
@@ -3139,7 +2902,6 @@ func (o IotHubPropertiesPtrOutput) Routing() RoutingPropertiesPtrOutput {
 	}).(RoutingPropertiesPtrOutput)
 }
 
-// The list of Azure Storage endpoints where you can upload files. Currently you can configure only one Azure Storage account and that MUST have its key as $default. Specifying more than one storage account causes an error to be thrown. Not specifying a value for this property when the enableFileUploadNotifications property is set to True, causes an error to be thrown.
 func (o IotHubPropertiesPtrOutput) StorageEndpoints() StorageEndpointPropertiesMapOutput {
 	return o.ApplyT(func(v *IotHubProperties) map[string]StorageEndpointProperties {
 		if v == nil {
@@ -3149,54 +2911,30 @@ func (o IotHubPropertiesPtrOutput) StorageEndpoints() StorageEndpointPropertiesM
 	}).(StorageEndpointPropertiesMapOutput)
 }
 
-// The properties of an IoT hub.
 type IotHubPropertiesResponse struct {
-	// List of allowed FQDNs(Fully Qualified Domain Name) for egress from Iot Hub.
-	AllowedFqdnList []string `pulumi:"allowedFqdnList"`
-	// The shared access policies you can use to secure a connection to the IoT hub.
-	AuthorizationPolicies []SharedAccessSignatureAuthorizationRuleResponse `pulumi:"authorizationPolicies"`
-	// The IoT hub cloud-to-device messaging properties.
-	CloudToDevice *CloudToDevicePropertiesResponse `pulumi:"cloudToDevice"`
-	// IoT hub comments.
-	Comments *string `pulumi:"comments"`
-	// If true, all device(including Edge devices but excluding modules) scoped SAS keys cannot be used for authentication.
-	DisableDeviceSAS *bool `pulumi:"disableDeviceSAS"`
-	// If true, SAS tokens with Iot hub scoped SAS keys cannot be used for authentication.
-	DisableLocalAuth *bool `pulumi:"disableLocalAuth"`
-	// If true, all module scoped SAS keys cannot be used for authentication.
-	DisableModuleSAS *bool `pulumi:"disableModuleSAS"`
-	// If True, file upload notifications are enabled.
-	EnableFileUploadNotifications *bool `pulumi:"enableFileUploadNotifications"`
-	// The Event Hub-compatible endpoint properties. The only possible keys to this dictionary is events. This key has to be present in the dictionary while making create or update calls for the IoT hub.
-	EventHubEndpoints map[string]EventHubPropertiesResponse `pulumi:"eventHubEndpoints"`
-	// The capabilities and features enabled for the IoT hub.
-	Features *string `pulumi:"features"`
-	// The name of the host.
-	HostName string `pulumi:"hostName"`
-	// The IP filter rules.
-	IpFilterRules []IpFilterRuleResponse `pulumi:"ipFilterRules"`
-	// Primary and secondary location for iot hub
-	Locations []IotHubLocationDescriptionResponse `pulumi:"locations"`
-	// The messaging endpoint properties for the file upload notification queue.
-	MessagingEndpoints map[string]MessagingEndpointPropertiesResponse `pulumi:"messagingEndpoints"`
-	// Specifies the minimum TLS version to support for this hub. Can be set to "1.2" to have clients that use a TLS version below 1.2 to be rejected.
-	MinTlsVersion *string `pulumi:"minTlsVersion"`
-	// Network Rule Set Properties of IotHub
-	NetworkRuleSets *NetworkRuleSetPropertiesResponse `pulumi:"networkRuleSets"`
-	// Private endpoint connections created on this IotHub
-	PrivateEndpointConnections []PrivateEndpointConnectionResponse `pulumi:"privateEndpointConnections"`
-	// The provisioning state.
-	ProvisioningState string `pulumi:"provisioningState"`
-	// Whether requests from Public Network are allowed
-	PublicNetworkAccess *string `pulumi:"publicNetworkAccess"`
-	// If true, egress from IotHub will be restricted to only the allowed FQDNs that are configured via allowedFqdnList.
-	RestrictOutboundNetworkAccess *bool `pulumi:"restrictOutboundNetworkAccess"`
-	// The routing related properties of the IoT hub. See: https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-messaging
-	Routing *RoutingPropertiesResponse `pulumi:"routing"`
-	// The hub state.
-	State string `pulumi:"state"`
-	// The list of Azure Storage endpoints where you can upload files. Currently you can configure only one Azure Storage account and that MUST have its key as $default. Specifying more than one storage account causes an error to be thrown. Not specifying a value for this property when the enableFileUploadNotifications property is set to True, causes an error to be thrown.
-	StorageEndpoints map[string]StorageEndpointPropertiesResponse `pulumi:"storageEndpoints"`
+	AllowedFqdnList               []string                                         `pulumi:"allowedFqdnList"`
+	AuthorizationPolicies         []SharedAccessSignatureAuthorizationRuleResponse `pulumi:"authorizationPolicies"`
+	CloudToDevice                 *CloudToDevicePropertiesResponse                 `pulumi:"cloudToDevice"`
+	Comments                      *string                                          `pulumi:"comments"`
+	DisableDeviceSAS              *bool                                            `pulumi:"disableDeviceSAS"`
+	DisableLocalAuth              *bool                                            `pulumi:"disableLocalAuth"`
+	DisableModuleSAS              *bool                                            `pulumi:"disableModuleSAS"`
+	EnableFileUploadNotifications *bool                                            `pulumi:"enableFileUploadNotifications"`
+	EventHubEndpoints             map[string]EventHubPropertiesResponse            `pulumi:"eventHubEndpoints"`
+	Features                      *string                                          `pulumi:"features"`
+	HostName                      string                                           `pulumi:"hostName"`
+	IpFilterRules                 []IpFilterRuleResponse                           `pulumi:"ipFilterRules"`
+	Locations                     []IotHubLocationDescriptionResponse              `pulumi:"locations"`
+	MessagingEndpoints            map[string]MessagingEndpointPropertiesResponse   `pulumi:"messagingEndpoints"`
+	MinTlsVersion                 *string                                          `pulumi:"minTlsVersion"`
+	NetworkRuleSets               *NetworkRuleSetPropertiesResponse                `pulumi:"networkRuleSets"`
+	PrivateEndpointConnections    []PrivateEndpointConnectionResponse              `pulumi:"privateEndpointConnections"`
+	ProvisioningState             string                                           `pulumi:"provisioningState"`
+	PublicNetworkAccess           *string                                          `pulumi:"publicNetworkAccess"`
+	RestrictOutboundNetworkAccess *bool                                            `pulumi:"restrictOutboundNetworkAccess"`
+	Routing                       *RoutingPropertiesResponse                       `pulumi:"routing"`
+	State                         string                                           `pulumi:"state"`
+	StorageEndpoints              map[string]StorageEndpointPropertiesResponse     `pulumi:"storageEndpoints"`
 }
 
 // IotHubPropertiesResponseInput is an input type that accepts IotHubPropertiesResponseArgs and IotHubPropertiesResponseOutput values.
@@ -3210,54 +2948,30 @@ type IotHubPropertiesResponseInput interface {
 	ToIotHubPropertiesResponseOutputWithContext(context.Context) IotHubPropertiesResponseOutput
 }
 
-// The properties of an IoT hub.
 type IotHubPropertiesResponseArgs struct {
-	// List of allowed FQDNs(Fully Qualified Domain Name) for egress from Iot Hub.
-	AllowedFqdnList pulumi.StringArrayInput `pulumi:"allowedFqdnList"`
-	// The shared access policies you can use to secure a connection to the IoT hub.
-	AuthorizationPolicies SharedAccessSignatureAuthorizationRuleResponseArrayInput `pulumi:"authorizationPolicies"`
-	// The IoT hub cloud-to-device messaging properties.
-	CloudToDevice CloudToDevicePropertiesResponsePtrInput `pulumi:"cloudToDevice"`
-	// IoT hub comments.
-	Comments pulumi.StringPtrInput `pulumi:"comments"`
-	// If true, all device(including Edge devices but excluding modules) scoped SAS keys cannot be used for authentication.
-	DisableDeviceSAS pulumi.BoolPtrInput `pulumi:"disableDeviceSAS"`
-	// If true, SAS tokens with Iot hub scoped SAS keys cannot be used for authentication.
-	DisableLocalAuth pulumi.BoolPtrInput `pulumi:"disableLocalAuth"`
-	// If true, all module scoped SAS keys cannot be used for authentication.
-	DisableModuleSAS pulumi.BoolPtrInput `pulumi:"disableModuleSAS"`
-	// If True, file upload notifications are enabled.
-	EnableFileUploadNotifications pulumi.BoolPtrInput `pulumi:"enableFileUploadNotifications"`
-	// The Event Hub-compatible endpoint properties. The only possible keys to this dictionary is events. This key has to be present in the dictionary while making create or update calls for the IoT hub.
-	EventHubEndpoints EventHubPropertiesResponseMapInput `pulumi:"eventHubEndpoints"`
-	// The capabilities and features enabled for the IoT hub.
-	Features pulumi.StringPtrInput `pulumi:"features"`
-	// The name of the host.
-	HostName pulumi.StringInput `pulumi:"hostName"`
-	// The IP filter rules.
-	IpFilterRules IpFilterRuleResponseArrayInput `pulumi:"ipFilterRules"`
-	// Primary and secondary location for iot hub
-	Locations IotHubLocationDescriptionResponseArrayInput `pulumi:"locations"`
-	// The messaging endpoint properties for the file upload notification queue.
-	MessagingEndpoints MessagingEndpointPropertiesResponseMapInput `pulumi:"messagingEndpoints"`
-	// Specifies the minimum TLS version to support for this hub. Can be set to "1.2" to have clients that use a TLS version below 1.2 to be rejected.
-	MinTlsVersion pulumi.StringPtrInput `pulumi:"minTlsVersion"`
-	// Network Rule Set Properties of IotHub
-	NetworkRuleSets NetworkRuleSetPropertiesResponsePtrInput `pulumi:"networkRuleSets"`
-	// Private endpoint connections created on this IotHub
-	PrivateEndpointConnections PrivateEndpointConnectionResponseArrayInput `pulumi:"privateEndpointConnections"`
-	// The provisioning state.
-	ProvisioningState pulumi.StringInput `pulumi:"provisioningState"`
-	// Whether requests from Public Network are allowed
-	PublicNetworkAccess pulumi.StringPtrInput `pulumi:"publicNetworkAccess"`
-	// If true, egress from IotHub will be restricted to only the allowed FQDNs that are configured via allowedFqdnList.
-	RestrictOutboundNetworkAccess pulumi.BoolPtrInput `pulumi:"restrictOutboundNetworkAccess"`
-	// The routing related properties of the IoT hub. See: https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-messaging
-	Routing RoutingPropertiesResponsePtrInput `pulumi:"routing"`
-	// The hub state.
-	State pulumi.StringInput `pulumi:"state"`
-	// The list of Azure Storage endpoints where you can upload files. Currently you can configure only one Azure Storage account and that MUST have its key as $default. Specifying more than one storage account causes an error to be thrown. Not specifying a value for this property when the enableFileUploadNotifications property is set to True, causes an error to be thrown.
-	StorageEndpoints StorageEndpointPropertiesResponseMapInput `pulumi:"storageEndpoints"`
+	AllowedFqdnList               pulumi.StringArrayInput                                  `pulumi:"allowedFqdnList"`
+	AuthorizationPolicies         SharedAccessSignatureAuthorizationRuleResponseArrayInput `pulumi:"authorizationPolicies"`
+	CloudToDevice                 CloudToDevicePropertiesResponsePtrInput                  `pulumi:"cloudToDevice"`
+	Comments                      pulumi.StringPtrInput                                    `pulumi:"comments"`
+	DisableDeviceSAS              pulumi.BoolPtrInput                                      `pulumi:"disableDeviceSAS"`
+	DisableLocalAuth              pulumi.BoolPtrInput                                      `pulumi:"disableLocalAuth"`
+	DisableModuleSAS              pulumi.BoolPtrInput                                      `pulumi:"disableModuleSAS"`
+	EnableFileUploadNotifications pulumi.BoolPtrInput                                      `pulumi:"enableFileUploadNotifications"`
+	EventHubEndpoints             EventHubPropertiesResponseMapInput                       `pulumi:"eventHubEndpoints"`
+	Features                      pulumi.StringPtrInput                                    `pulumi:"features"`
+	HostName                      pulumi.StringInput                                       `pulumi:"hostName"`
+	IpFilterRules                 IpFilterRuleResponseArrayInput                           `pulumi:"ipFilterRules"`
+	Locations                     IotHubLocationDescriptionResponseArrayInput              `pulumi:"locations"`
+	MessagingEndpoints            MessagingEndpointPropertiesResponseMapInput              `pulumi:"messagingEndpoints"`
+	MinTlsVersion                 pulumi.StringPtrInput                                    `pulumi:"minTlsVersion"`
+	NetworkRuleSets               NetworkRuleSetPropertiesResponsePtrInput                 `pulumi:"networkRuleSets"`
+	PrivateEndpointConnections    PrivateEndpointConnectionResponseArrayInput              `pulumi:"privateEndpointConnections"`
+	ProvisioningState             pulumi.StringInput                                       `pulumi:"provisioningState"`
+	PublicNetworkAccess           pulumi.StringPtrInput                                    `pulumi:"publicNetworkAccess"`
+	RestrictOutboundNetworkAccess pulumi.BoolPtrInput                                      `pulumi:"restrictOutboundNetworkAccess"`
+	Routing                       RoutingPropertiesResponsePtrInput                        `pulumi:"routing"`
+	State                         pulumi.StringInput                                       `pulumi:"state"`
+	StorageEndpoints              StorageEndpointPropertiesResponseMapInput                `pulumi:"storageEndpoints"`
 }
 
 func (IotHubPropertiesResponseArgs) ElementType() reflect.Type {
@@ -3313,7 +3027,6 @@ func (i *iotHubPropertiesResponsePtrType) ToIotHubPropertiesResponsePtrOutputWit
 	return pulumi.ToOutputWithContext(ctx, i).(IotHubPropertiesResponsePtrOutput)
 }
 
-// The properties of an IoT hub.
 type IotHubPropertiesResponseOutput struct{ *pulumi.OutputState }
 
 func (IotHubPropertiesResponseOutput) ElementType() reflect.Type {
@@ -3333,128 +3046,105 @@ func (o IotHubPropertiesResponseOutput) ToIotHubPropertiesResponsePtrOutput() Io
 }
 
 func (o IotHubPropertiesResponseOutput) ToIotHubPropertiesResponsePtrOutputWithContext(ctx context.Context) IotHubPropertiesResponsePtrOutput {
-	return o.ApplyT(func(v IotHubPropertiesResponse) *IotHubPropertiesResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v IotHubPropertiesResponse) *IotHubPropertiesResponse {
 		return &v
 	}).(IotHubPropertiesResponsePtrOutput)
 }
 
-// List of allowed FQDNs(Fully Qualified Domain Name) for egress from Iot Hub.
 func (o IotHubPropertiesResponseOutput) AllowedFqdnList() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v IotHubPropertiesResponse) []string { return v.AllowedFqdnList }).(pulumi.StringArrayOutput)
 }
 
-// The shared access policies you can use to secure a connection to the IoT hub.
 func (o IotHubPropertiesResponseOutput) AuthorizationPolicies() SharedAccessSignatureAuthorizationRuleResponseArrayOutput {
 	return o.ApplyT(func(v IotHubPropertiesResponse) []SharedAccessSignatureAuthorizationRuleResponse {
 		return v.AuthorizationPolicies
 	}).(SharedAccessSignatureAuthorizationRuleResponseArrayOutput)
 }
 
-// The IoT hub cloud-to-device messaging properties.
 func (o IotHubPropertiesResponseOutput) CloudToDevice() CloudToDevicePropertiesResponsePtrOutput {
 	return o.ApplyT(func(v IotHubPropertiesResponse) *CloudToDevicePropertiesResponse { return v.CloudToDevice }).(CloudToDevicePropertiesResponsePtrOutput)
 }
 
-// IoT hub comments.
 func (o IotHubPropertiesResponseOutput) Comments() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v IotHubPropertiesResponse) *string { return v.Comments }).(pulumi.StringPtrOutput)
 }
 
-// If true, all device(including Edge devices but excluding modules) scoped SAS keys cannot be used for authentication.
 func (o IotHubPropertiesResponseOutput) DisableDeviceSAS() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v IotHubPropertiesResponse) *bool { return v.DisableDeviceSAS }).(pulumi.BoolPtrOutput)
 }
 
-// If true, SAS tokens with Iot hub scoped SAS keys cannot be used for authentication.
 func (o IotHubPropertiesResponseOutput) DisableLocalAuth() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v IotHubPropertiesResponse) *bool { return v.DisableLocalAuth }).(pulumi.BoolPtrOutput)
 }
 
-// If true, all module scoped SAS keys cannot be used for authentication.
 func (o IotHubPropertiesResponseOutput) DisableModuleSAS() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v IotHubPropertiesResponse) *bool { return v.DisableModuleSAS }).(pulumi.BoolPtrOutput)
 }
 
-// If True, file upload notifications are enabled.
 func (o IotHubPropertiesResponseOutput) EnableFileUploadNotifications() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v IotHubPropertiesResponse) *bool { return v.EnableFileUploadNotifications }).(pulumi.BoolPtrOutput)
 }
 
-// The Event Hub-compatible endpoint properties. The only possible keys to this dictionary is events. This key has to be present in the dictionary while making create or update calls for the IoT hub.
 func (o IotHubPropertiesResponseOutput) EventHubEndpoints() EventHubPropertiesResponseMapOutput {
 	return o.ApplyT(func(v IotHubPropertiesResponse) map[string]EventHubPropertiesResponse { return v.EventHubEndpoints }).(EventHubPropertiesResponseMapOutput)
 }
 
-// The capabilities and features enabled for the IoT hub.
 func (o IotHubPropertiesResponseOutput) Features() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v IotHubPropertiesResponse) *string { return v.Features }).(pulumi.StringPtrOutput)
 }
 
-// The name of the host.
 func (o IotHubPropertiesResponseOutput) HostName() pulumi.StringOutput {
 	return o.ApplyT(func(v IotHubPropertiesResponse) string { return v.HostName }).(pulumi.StringOutput)
 }
 
-// The IP filter rules.
 func (o IotHubPropertiesResponseOutput) IpFilterRules() IpFilterRuleResponseArrayOutput {
 	return o.ApplyT(func(v IotHubPropertiesResponse) []IpFilterRuleResponse { return v.IpFilterRules }).(IpFilterRuleResponseArrayOutput)
 }
 
-// Primary and secondary location for iot hub
 func (o IotHubPropertiesResponseOutput) Locations() IotHubLocationDescriptionResponseArrayOutput {
 	return o.ApplyT(func(v IotHubPropertiesResponse) []IotHubLocationDescriptionResponse { return v.Locations }).(IotHubLocationDescriptionResponseArrayOutput)
 }
 
-// The messaging endpoint properties for the file upload notification queue.
 func (o IotHubPropertiesResponseOutput) MessagingEndpoints() MessagingEndpointPropertiesResponseMapOutput {
 	return o.ApplyT(func(v IotHubPropertiesResponse) map[string]MessagingEndpointPropertiesResponse {
 		return v.MessagingEndpoints
 	}).(MessagingEndpointPropertiesResponseMapOutput)
 }
 
-// Specifies the minimum TLS version to support for this hub. Can be set to "1.2" to have clients that use a TLS version below 1.2 to be rejected.
 func (o IotHubPropertiesResponseOutput) MinTlsVersion() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v IotHubPropertiesResponse) *string { return v.MinTlsVersion }).(pulumi.StringPtrOutput)
 }
 
-// Network Rule Set Properties of IotHub
 func (o IotHubPropertiesResponseOutput) NetworkRuleSets() NetworkRuleSetPropertiesResponsePtrOutput {
 	return o.ApplyT(func(v IotHubPropertiesResponse) *NetworkRuleSetPropertiesResponse { return v.NetworkRuleSets }).(NetworkRuleSetPropertiesResponsePtrOutput)
 }
 
-// Private endpoint connections created on this IotHub
 func (o IotHubPropertiesResponseOutput) PrivateEndpointConnections() PrivateEndpointConnectionResponseArrayOutput {
 	return o.ApplyT(func(v IotHubPropertiesResponse) []PrivateEndpointConnectionResponse {
 		return v.PrivateEndpointConnections
 	}).(PrivateEndpointConnectionResponseArrayOutput)
 }
 
-// The provisioning state.
 func (o IotHubPropertiesResponseOutput) ProvisioningState() pulumi.StringOutput {
 	return o.ApplyT(func(v IotHubPropertiesResponse) string { return v.ProvisioningState }).(pulumi.StringOutput)
 }
 
-// Whether requests from Public Network are allowed
 func (o IotHubPropertiesResponseOutput) PublicNetworkAccess() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v IotHubPropertiesResponse) *string { return v.PublicNetworkAccess }).(pulumi.StringPtrOutput)
 }
 
-// If true, egress from IotHub will be restricted to only the allowed FQDNs that are configured via allowedFqdnList.
 func (o IotHubPropertiesResponseOutput) RestrictOutboundNetworkAccess() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v IotHubPropertiesResponse) *bool { return v.RestrictOutboundNetworkAccess }).(pulumi.BoolPtrOutput)
 }
 
-// The routing related properties of the IoT hub. See: https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-messaging
 func (o IotHubPropertiesResponseOutput) Routing() RoutingPropertiesResponsePtrOutput {
 	return o.ApplyT(func(v IotHubPropertiesResponse) *RoutingPropertiesResponse { return v.Routing }).(RoutingPropertiesResponsePtrOutput)
 }
 
-// The hub state.
 func (o IotHubPropertiesResponseOutput) State() pulumi.StringOutput {
 	return o.ApplyT(func(v IotHubPropertiesResponse) string { return v.State }).(pulumi.StringOutput)
 }
 
-// The list of Azure Storage endpoints where you can upload files. Currently you can configure only one Azure Storage account and that MUST have its key as $default. Specifying more than one storage account causes an error to be thrown. Not specifying a value for this property when the enableFileUploadNotifications property is set to True, causes an error to be thrown.
 func (o IotHubPropertiesResponseOutput) StorageEndpoints() StorageEndpointPropertiesResponseMapOutput {
 	return o.ApplyT(func(v IotHubPropertiesResponse) map[string]StorageEndpointPropertiesResponse {
 		return v.StorageEndpoints
@@ -3476,10 +3166,15 @@ func (o IotHubPropertiesResponsePtrOutput) ToIotHubPropertiesResponsePtrOutputWi
 }
 
 func (o IotHubPropertiesResponsePtrOutput) Elem() IotHubPropertiesResponseOutput {
-	return o.ApplyT(func(v *IotHubPropertiesResponse) IotHubPropertiesResponse { return *v }).(IotHubPropertiesResponseOutput)
+	return o.ApplyT(func(v *IotHubPropertiesResponse) IotHubPropertiesResponse {
+		if v != nil {
+			return *v
+		}
+		var ret IotHubPropertiesResponse
+		return ret
+	}).(IotHubPropertiesResponseOutput)
 }
 
-// List of allowed FQDNs(Fully Qualified Domain Name) for egress from Iot Hub.
 func (o IotHubPropertiesResponsePtrOutput) AllowedFqdnList() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *IotHubPropertiesResponse) []string {
 		if v == nil {
@@ -3489,7 +3184,6 @@ func (o IotHubPropertiesResponsePtrOutput) AllowedFqdnList() pulumi.StringArrayO
 	}).(pulumi.StringArrayOutput)
 }
 
-// The shared access policies you can use to secure a connection to the IoT hub.
 func (o IotHubPropertiesResponsePtrOutput) AuthorizationPolicies() SharedAccessSignatureAuthorizationRuleResponseArrayOutput {
 	return o.ApplyT(func(v *IotHubPropertiesResponse) []SharedAccessSignatureAuthorizationRuleResponse {
 		if v == nil {
@@ -3499,7 +3193,6 @@ func (o IotHubPropertiesResponsePtrOutput) AuthorizationPolicies() SharedAccessS
 	}).(SharedAccessSignatureAuthorizationRuleResponseArrayOutput)
 }
 
-// The IoT hub cloud-to-device messaging properties.
 func (o IotHubPropertiesResponsePtrOutput) CloudToDevice() CloudToDevicePropertiesResponsePtrOutput {
 	return o.ApplyT(func(v *IotHubPropertiesResponse) *CloudToDevicePropertiesResponse {
 		if v == nil {
@@ -3509,7 +3202,6 @@ func (o IotHubPropertiesResponsePtrOutput) CloudToDevice() CloudToDeviceProperti
 	}).(CloudToDevicePropertiesResponsePtrOutput)
 }
 
-// IoT hub comments.
 func (o IotHubPropertiesResponsePtrOutput) Comments() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *IotHubPropertiesResponse) *string {
 		if v == nil {
@@ -3519,7 +3211,6 @@ func (o IotHubPropertiesResponsePtrOutput) Comments() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// If true, all device(including Edge devices but excluding modules) scoped SAS keys cannot be used for authentication.
 func (o IotHubPropertiesResponsePtrOutput) DisableDeviceSAS() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *IotHubPropertiesResponse) *bool {
 		if v == nil {
@@ -3529,7 +3220,6 @@ func (o IotHubPropertiesResponsePtrOutput) DisableDeviceSAS() pulumi.BoolPtrOutp
 	}).(pulumi.BoolPtrOutput)
 }
 
-// If true, SAS tokens with Iot hub scoped SAS keys cannot be used for authentication.
 func (o IotHubPropertiesResponsePtrOutput) DisableLocalAuth() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *IotHubPropertiesResponse) *bool {
 		if v == nil {
@@ -3539,7 +3229,6 @@ func (o IotHubPropertiesResponsePtrOutput) DisableLocalAuth() pulumi.BoolPtrOutp
 	}).(pulumi.BoolPtrOutput)
 }
 
-// If true, all module scoped SAS keys cannot be used for authentication.
 func (o IotHubPropertiesResponsePtrOutput) DisableModuleSAS() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *IotHubPropertiesResponse) *bool {
 		if v == nil {
@@ -3549,7 +3238,6 @@ func (o IotHubPropertiesResponsePtrOutput) DisableModuleSAS() pulumi.BoolPtrOutp
 	}).(pulumi.BoolPtrOutput)
 }
 
-// If True, file upload notifications are enabled.
 func (o IotHubPropertiesResponsePtrOutput) EnableFileUploadNotifications() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *IotHubPropertiesResponse) *bool {
 		if v == nil {
@@ -3559,7 +3247,6 @@ func (o IotHubPropertiesResponsePtrOutput) EnableFileUploadNotifications() pulum
 	}).(pulumi.BoolPtrOutput)
 }
 
-// The Event Hub-compatible endpoint properties. The only possible keys to this dictionary is events. This key has to be present in the dictionary while making create or update calls for the IoT hub.
 func (o IotHubPropertiesResponsePtrOutput) EventHubEndpoints() EventHubPropertiesResponseMapOutput {
 	return o.ApplyT(func(v *IotHubPropertiesResponse) map[string]EventHubPropertiesResponse {
 		if v == nil {
@@ -3569,7 +3256,6 @@ func (o IotHubPropertiesResponsePtrOutput) EventHubEndpoints() EventHubPropertie
 	}).(EventHubPropertiesResponseMapOutput)
 }
 
-// The capabilities and features enabled for the IoT hub.
 func (o IotHubPropertiesResponsePtrOutput) Features() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *IotHubPropertiesResponse) *string {
 		if v == nil {
@@ -3579,7 +3265,6 @@ func (o IotHubPropertiesResponsePtrOutput) Features() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The name of the host.
 func (o IotHubPropertiesResponsePtrOutput) HostName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *IotHubPropertiesResponse) *string {
 		if v == nil {
@@ -3589,7 +3274,6 @@ func (o IotHubPropertiesResponsePtrOutput) HostName() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The IP filter rules.
 func (o IotHubPropertiesResponsePtrOutput) IpFilterRules() IpFilterRuleResponseArrayOutput {
 	return o.ApplyT(func(v *IotHubPropertiesResponse) []IpFilterRuleResponse {
 		if v == nil {
@@ -3599,7 +3283,6 @@ func (o IotHubPropertiesResponsePtrOutput) IpFilterRules() IpFilterRuleResponseA
 	}).(IpFilterRuleResponseArrayOutput)
 }
 
-// Primary and secondary location for iot hub
 func (o IotHubPropertiesResponsePtrOutput) Locations() IotHubLocationDescriptionResponseArrayOutput {
 	return o.ApplyT(func(v *IotHubPropertiesResponse) []IotHubLocationDescriptionResponse {
 		if v == nil {
@@ -3609,7 +3292,6 @@ func (o IotHubPropertiesResponsePtrOutput) Locations() IotHubLocationDescription
 	}).(IotHubLocationDescriptionResponseArrayOutput)
 }
 
-// The messaging endpoint properties for the file upload notification queue.
 func (o IotHubPropertiesResponsePtrOutput) MessagingEndpoints() MessagingEndpointPropertiesResponseMapOutput {
 	return o.ApplyT(func(v *IotHubPropertiesResponse) map[string]MessagingEndpointPropertiesResponse {
 		if v == nil {
@@ -3619,7 +3301,6 @@ func (o IotHubPropertiesResponsePtrOutput) MessagingEndpoints() MessagingEndpoin
 	}).(MessagingEndpointPropertiesResponseMapOutput)
 }
 
-// Specifies the minimum TLS version to support for this hub. Can be set to "1.2" to have clients that use a TLS version below 1.2 to be rejected.
 func (o IotHubPropertiesResponsePtrOutput) MinTlsVersion() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *IotHubPropertiesResponse) *string {
 		if v == nil {
@@ -3629,7 +3310,6 @@ func (o IotHubPropertiesResponsePtrOutput) MinTlsVersion() pulumi.StringPtrOutpu
 	}).(pulumi.StringPtrOutput)
 }
 
-// Network Rule Set Properties of IotHub
 func (o IotHubPropertiesResponsePtrOutput) NetworkRuleSets() NetworkRuleSetPropertiesResponsePtrOutput {
 	return o.ApplyT(func(v *IotHubPropertiesResponse) *NetworkRuleSetPropertiesResponse {
 		if v == nil {
@@ -3639,7 +3319,6 @@ func (o IotHubPropertiesResponsePtrOutput) NetworkRuleSets() NetworkRuleSetPrope
 	}).(NetworkRuleSetPropertiesResponsePtrOutput)
 }
 
-// Private endpoint connections created on this IotHub
 func (o IotHubPropertiesResponsePtrOutput) PrivateEndpointConnections() PrivateEndpointConnectionResponseArrayOutput {
 	return o.ApplyT(func(v *IotHubPropertiesResponse) []PrivateEndpointConnectionResponse {
 		if v == nil {
@@ -3649,7 +3328,6 @@ func (o IotHubPropertiesResponsePtrOutput) PrivateEndpointConnections() PrivateE
 	}).(PrivateEndpointConnectionResponseArrayOutput)
 }
 
-// The provisioning state.
 func (o IotHubPropertiesResponsePtrOutput) ProvisioningState() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *IotHubPropertiesResponse) *string {
 		if v == nil {
@@ -3659,7 +3337,6 @@ func (o IotHubPropertiesResponsePtrOutput) ProvisioningState() pulumi.StringPtrO
 	}).(pulumi.StringPtrOutput)
 }
 
-// Whether requests from Public Network are allowed
 func (o IotHubPropertiesResponsePtrOutput) PublicNetworkAccess() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *IotHubPropertiesResponse) *string {
 		if v == nil {
@@ -3669,7 +3346,6 @@ func (o IotHubPropertiesResponsePtrOutput) PublicNetworkAccess() pulumi.StringPt
 	}).(pulumi.StringPtrOutput)
 }
 
-// If true, egress from IotHub will be restricted to only the allowed FQDNs that are configured via allowedFqdnList.
 func (o IotHubPropertiesResponsePtrOutput) RestrictOutboundNetworkAccess() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *IotHubPropertiesResponse) *bool {
 		if v == nil {
@@ -3679,7 +3355,6 @@ func (o IotHubPropertiesResponsePtrOutput) RestrictOutboundNetworkAccess() pulum
 	}).(pulumi.BoolPtrOutput)
 }
 
-// The routing related properties of the IoT hub. See: https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-messaging
 func (o IotHubPropertiesResponsePtrOutput) Routing() RoutingPropertiesResponsePtrOutput {
 	return o.ApplyT(func(v *IotHubPropertiesResponse) *RoutingPropertiesResponse {
 		if v == nil {
@@ -3689,7 +3364,6 @@ func (o IotHubPropertiesResponsePtrOutput) Routing() RoutingPropertiesResponsePt
 	}).(RoutingPropertiesResponsePtrOutput)
 }
 
-// The hub state.
 func (o IotHubPropertiesResponsePtrOutput) State() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *IotHubPropertiesResponse) *string {
 		if v == nil {
@@ -3699,7 +3373,6 @@ func (o IotHubPropertiesResponsePtrOutput) State() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The list of Azure Storage endpoints where you can upload files. Currently you can configure only one Azure Storage account and that MUST have its key as $default. Specifying more than one storage account causes an error to be thrown. Not specifying a value for this property when the enableFileUploadNotifications property is set to True, causes an error to be thrown.
 func (o IotHubPropertiesResponsePtrOutput) StorageEndpoints() StorageEndpointPropertiesResponseMapOutput {
 	return o.ApplyT(func(v *IotHubPropertiesResponse) map[string]StorageEndpointPropertiesResponse {
 		if v == nil {
@@ -3709,12 +3382,9 @@ func (o IotHubPropertiesResponsePtrOutput) StorageEndpoints() StorageEndpointPro
 	}).(StorageEndpointPropertiesResponseMapOutput)
 }
 
-// Information about the SKU of the IoT hub.
 type IotHubSkuInfo struct {
-	// The number of provisioned IoT Hub units. See: https://docs.microsoft.com/azure/azure-subscription-service-limits#iot-hub-limits.
 	Capacity *float64 `pulumi:"capacity"`
-	// The name of the SKU.
-	Name string `pulumi:"name"`
+	Name     string   `pulumi:"name"`
 }
 
 // IotHubSkuInfoInput is an input type that accepts IotHubSkuInfoArgs and IotHubSkuInfoOutput values.
@@ -3728,12 +3398,9 @@ type IotHubSkuInfoInput interface {
 	ToIotHubSkuInfoOutputWithContext(context.Context) IotHubSkuInfoOutput
 }
 
-// Information about the SKU of the IoT hub.
 type IotHubSkuInfoArgs struct {
-	// The number of provisioned IoT Hub units. See: https://docs.microsoft.com/azure/azure-subscription-service-limits#iot-hub-limits.
 	Capacity pulumi.Float64PtrInput `pulumi:"capacity"`
-	// The name of the SKU.
-	Name pulumi.StringInput `pulumi:"name"`
+	Name     pulumi.StringInput     `pulumi:"name"`
 }
 
 func (IotHubSkuInfoArgs) ElementType() reflect.Type {
@@ -3789,7 +3456,6 @@ func (i *iotHubSkuInfoPtrType) ToIotHubSkuInfoPtrOutputWithContext(ctx context.C
 	return pulumi.ToOutputWithContext(ctx, i).(IotHubSkuInfoPtrOutput)
 }
 
-// Information about the SKU of the IoT hub.
 type IotHubSkuInfoOutput struct{ *pulumi.OutputState }
 
 func (IotHubSkuInfoOutput) ElementType() reflect.Type {
@@ -3809,17 +3475,15 @@ func (o IotHubSkuInfoOutput) ToIotHubSkuInfoPtrOutput() IotHubSkuInfoPtrOutput {
 }
 
 func (o IotHubSkuInfoOutput) ToIotHubSkuInfoPtrOutputWithContext(ctx context.Context) IotHubSkuInfoPtrOutput {
-	return o.ApplyT(func(v IotHubSkuInfo) *IotHubSkuInfo {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v IotHubSkuInfo) *IotHubSkuInfo {
 		return &v
 	}).(IotHubSkuInfoPtrOutput)
 }
 
-// The number of provisioned IoT Hub units. See: https://docs.microsoft.com/azure/azure-subscription-service-limits#iot-hub-limits.
 func (o IotHubSkuInfoOutput) Capacity() pulumi.Float64PtrOutput {
 	return o.ApplyT(func(v IotHubSkuInfo) *float64 { return v.Capacity }).(pulumi.Float64PtrOutput)
 }
 
-// The name of the SKU.
 func (o IotHubSkuInfoOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v IotHubSkuInfo) string { return v.Name }).(pulumi.StringOutput)
 }
@@ -3839,10 +3503,15 @@ func (o IotHubSkuInfoPtrOutput) ToIotHubSkuInfoPtrOutputWithContext(ctx context.
 }
 
 func (o IotHubSkuInfoPtrOutput) Elem() IotHubSkuInfoOutput {
-	return o.ApplyT(func(v *IotHubSkuInfo) IotHubSkuInfo { return *v }).(IotHubSkuInfoOutput)
+	return o.ApplyT(func(v *IotHubSkuInfo) IotHubSkuInfo {
+		if v != nil {
+			return *v
+		}
+		var ret IotHubSkuInfo
+		return ret
+	}).(IotHubSkuInfoOutput)
 }
 
-// The number of provisioned IoT Hub units. See: https://docs.microsoft.com/azure/azure-subscription-service-limits#iot-hub-limits.
 func (o IotHubSkuInfoPtrOutput) Capacity() pulumi.Float64PtrOutput {
 	return o.ApplyT(func(v *IotHubSkuInfo) *float64 {
 		if v == nil {
@@ -3852,7 +3521,6 @@ func (o IotHubSkuInfoPtrOutput) Capacity() pulumi.Float64PtrOutput {
 	}).(pulumi.Float64PtrOutput)
 }
 
-// The name of the SKU.
 func (o IotHubSkuInfoPtrOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *IotHubSkuInfo) *string {
 		if v == nil {
@@ -3862,14 +3530,10 @@ func (o IotHubSkuInfoPtrOutput) Name() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Information about the SKU of the IoT hub.
 type IotHubSkuInfoResponse struct {
-	// The number of provisioned IoT Hub units. See: https://docs.microsoft.com/azure/azure-subscription-service-limits#iot-hub-limits.
 	Capacity *float64 `pulumi:"capacity"`
-	// The name of the SKU.
-	Name string `pulumi:"name"`
-	// The billing tier for the IoT hub.
-	Tier string `pulumi:"tier"`
+	Name     string   `pulumi:"name"`
+	Tier     string   `pulumi:"tier"`
 }
 
 // IotHubSkuInfoResponseInput is an input type that accepts IotHubSkuInfoResponseArgs and IotHubSkuInfoResponseOutput values.
@@ -3883,14 +3547,10 @@ type IotHubSkuInfoResponseInput interface {
 	ToIotHubSkuInfoResponseOutputWithContext(context.Context) IotHubSkuInfoResponseOutput
 }
 
-// Information about the SKU of the IoT hub.
 type IotHubSkuInfoResponseArgs struct {
-	// The number of provisioned IoT Hub units. See: https://docs.microsoft.com/azure/azure-subscription-service-limits#iot-hub-limits.
 	Capacity pulumi.Float64PtrInput `pulumi:"capacity"`
-	// The name of the SKU.
-	Name pulumi.StringInput `pulumi:"name"`
-	// The billing tier for the IoT hub.
-	Tier pulumi.StringInput `pulumi:"tier"`
+	Name     pulumi.StringInput     `pulumi:"name"`
+	Tier     pulumi.StringInput     `pulumi:"tier"`
 }
 
 func (IotHubSkuInfoResponseArgs) ElementType() reflect.Type {
@@ -3946,7 +3606,6 @@ func (i *iotHubSkuInfoResponsePtrType) ToIotHubSkuInfoResponsePtrOutputWithConte
 	return pulumi.ToOutputWithContext(ctx, i).(IotHubSkuInfoResponsePtrOutput)
 }
 
-// Information about the SKU of the IoT hub.
 type IotHubSkuInfoResponseOutput struct{ *pulumi.OutputState }
 
 func (IotHubSkuInfoResponseOutput) ElementType() reflect.Type {
@@ -3966,22 +3625,19 @@ func (o IotHubSkuInfoResponseOutput) ToIotHubSkuInfoResponsePtrOutput() IotHubSk
 }
 
 func (o IotHubSkuInfoResponseOutput) ToIotHubSkuInfoResponsePtrOutputWithContext(ctx context.Context) IotHubSkuInfoResponsePtrOutput {
-	return o.ApplyT(func(v IotHubSkuInfoResponse) *IotHubSkuInfoResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v IotHubSkuInfoResponse) *IotHubSkuInfoResponse {
 		return &v
 	}).(IotHubSkuInfoResponsePtrOutput)
 }
 
-// The number of provisioned IoT Hub units. See: https://docs.microsoft.com/azure/azure-subscription-service-limits#iot-hub-limits.
 func (o IotHubSkuInfoResponseOutput) Capacity() pulumi.Float64PtrOutput {
 	return o.ApplyT(func(v IotHubSkuInfoResponse) *float64 { return v.Capacity }).(pulumi.Float64PtrOutput)
 }
 
-// The name of the SKU.
 func (o IotHubSkuInfoResponseOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v IotHubSkuInfoResponse) string { return v.Name }).(pulumi.StringOutput)
 }
 
-// The billing tier for the IoT hub.
 func (o IotHubSkuInfoResponseOutput) Tier() pulumi.StringOutput {
 	return o.ApplyT(func(v IotHubSkuInfoResponse) string { return v.Tier }).(pulumi.StringOutput)
 }
@@ -4001,10 +3657,15 @@ func (o IotHubSkuInfoResponsePtrOutput) ToIotHubSkuInfoResponsePtrOutputWithCont
 }
 
 func (o IotHubSkuInfoResponsePtrOutput) Elem() IotHubSkuInfoResponseOutput {
-	return o.ApplyT(func(v *IotHubSkuInfoResponse) IotHubSkuInfoResponse { return *v }).(IotHubSkuInfoResponseOutput)
+	return o.ApplyT(func(v *IotHubSkuInfoResponse) IotHubSkuInfoResponse {
+		if v != nil {
+			return *v
+		}
+		var ret IotHubSkuInfoResponse
+		return ret
+	}).(IotHubSkuInfoResponseOutput)
 }
 
-// The number of provisioned IoT Hub units. See: https://docs.microsoft.com/azure/azure-subscription-service-limits#iot-hub-limits.
 func (o IotHubSkuInfoResponsePtrOutput) Capacity() pulumi.Float64PtrOutput {
 	return o.ApplyT(func(v *IotHubSkuInfoResponse) *float64 {
 		if v == nil {
@@ -4014,7 +3675,6 @@ func (o IotHubSkuInfoResponsePtrOutput) Capacity() pulumi.Float64PtrOutput {
 	}).(pulumi.Float64PtrOutput)
 }
 
-// The name of the SKU.
 func (o IotHubSkuInfoResponsePtrOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *IotHubSkuInfoResponse) *string {
 		if v == nil {
@@ -4024,7 +3684,6 @@ func (o IotHubSkuInfoResponsePtrOutput) Name() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The billing tier for the IoT hub.
 func (o IotHubSkuInfoResponsePtrOutput) Tier() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *IotHubSkuInfoResponse) *string {
 		if v == nil {
@@ -4034,14 +3693,10 @@ func (o IotHubSkuInfoResponsePtrOutput) Tier() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The IP filter rules for the IoT hub.
 type IpFilterRule struct {
-	// The desired action for requests captured by this rule.
-	Action string `pulumi:"action"`
-	// The name of the IP filter rule.
-	FilterName string `pulumi:"filterName"`
-	// A string that contains the IP address range in CIDR notation for the rule.
-	IpMask string `pulumi:"ipMask"`
+	Action     IpFilterActionType `pulumi:"action"`
+	FilterName string             `pulumi:"filterName"`
+	IpMask     string             `pulumi:"ipMask"`
 }
 
 // IpFilterRuleInput is an input type that accepts IpFilterRuleArgs and IpFilterRuleOutput values.
@@ -4055,14 +3710,10 @@ type IpFilterRuleInput interface {
 	ToIpFilterRuleOutputWithContext(context.Context) IpFilterRuleOutput
 }
 
-// The IP filter rules for the IoT hub.
 type IpFilterRuleArgs struct {
-	// The desired action for requests captured by this rule.
-	Action IpFilterActionType `pulumi:"action"`
-	// The name of the IP filter rule.
-	FilterName pulumi.StringInput `pulumi:"filterName"`
-	// A string that contains the IP address range in CIDR notation for the rule.
-	IpMask pulumi.StringInput `pulumi:"ipMask"`
+	Action     IpFilterActionTypeInput `pulumi:"action"`
+	FilterName pulumi.StringInput      `pulumi:"filterName"`
+	IpMask     pulumi.StringInput      `pulumi:"ipMask"`
 }
 
 func (IpFilterRuleArgs) ElementType() reflect.Type {
@@ -4102,7 +3753,6 @@ func (i IpFilterRuleArray) ToIpFilterRuleArrayOutputWithContext(ctx context.Cont
 	return pulumi.ToOutputWithContext(ctx, i).(IpFilterRuleArrayOutput)
 }
 
-// The IP filter rules for the IoT hub.
 type IpFilterRuleOutput struct{ *pulumi.OutputState }
 
 func (IpFilterRuleOutput) ElementType() reflect.Type {
@@ -4117,17 +3767,14 @@ func (o IpFilterRuleOutput) ToIpFilterRuleOutputWithContext(ctx context.Context)
 	return o
 }
 
-// The desired action for requests captured by this rule.
-func (o IpFilterRuleOutput) Action() pulumi.StringOutput {
-	return o.ApplyT(func(v IpFilterRule) string { return v.Action }).(pulumi.StringOutput)
+func (o IpFilterRuleOutput) Action() IpFilterActionTypeOutput {
+	return o.ApplyT(func(v IpFilterRule) IpFilterActionType { return v.Action }).(IpFilterActionTypeOutput)
 }
 
-// The name of the IP filter rule.
 func (o IpFilterRuleOutput) FilterName() pulumi.StringOutput {
 	return o.ApplyT(func(v IpFilterRule) string { return v.FilterName }).(pulumi.StringOutput)
 }
 
-// A string that contains the IP address range in CIDR notation for the rule.
 func (o IpFilterRuleOutput) IpMask() pulumi.StringOutput {
 	return o.ApplyT(func(v IpFilterRule) string { return v.IpMask }).(pulumi.StringOutput)
 }
@@ -4152,14 +3799,10 @@ func (o IpFilterRuleArrayOutput) Index(i pulumi.IntInput) IpFilterRuleOutput {
 	}).(IpFilterRuleOutput)
 }
 
-// The IP filter rules for the IoT hub.
 type IpFilterRuleResponse struct {
-	// The desired action for requests captured by this rule.
-	Action string `pulumi:"action"`
-	// The name of the IP filter rule.
+	Action     string `pulumi:"action"`
 	FilterName string `pulumi:"filterName"`
-	// A string that contains the IP address range in CIDR notation for the rule.
-	IpMask string `pulumi:"ipMask"`
+	IpMask     string `pulumi:"ipMask"`
 }
 
 // IpFilterRuleResponseInput is an input type that accepts IpFilterRuleResponseArgs and IpFilterRuleResponseOutput values.
@@ -4173,14 +3816,10 @@ type IpFilterRuleResponseInput interface {
 	ToIpFilterRuleResponseOutputWithContext(context.Context) IpFilterRuleResponseOutput
 }
 
-// The IP filter rules for the IoT hub.
 type IpFilterRuleResponseArgs struct {
-	// The desired action for requests captured by this rule.
-	Action pulumi.StringInput `pulumi:"action"`
-	// The name of the IP filter rule.
+	Action     pulumi.StringInput `pulumi:"action"`
 	FilterName pulumi.StringInput `pulumi:"filterName"`
-	// A string that contains the IP address range in CIDR notation for the rule.
-	IpMask pulumi.StringInput `pulumi:"ipMask"`
+	IpMask     pulumi.StringInput `pulumi:"ipMask"`
 }
 
 func (IpFilterRuleResponseArgs) ElementType() reflect.Type {
@@ -4220,7 +3859,6 @@ func (i IpFilterRuleResponseArray) ToIpFilterRuleResponseArrayOutputWithContext(
 	return pulumi.ToOutputWithContext(ctx, i).(IpFilterRuleResponseArrayOutput)
 }
 
-// The IP filter rules for the IoT hub.
 type IpFilterRuleResponseOutput struct{ *pulumi.OutputState }
 
 func (IpFilterRuleResponseOutput) ElementType() reflect.Type {
@@ -4235,17 +3873,14 @@ func (o IpFilterRuleResponseOutput) ToIpFilterRuleResponseOutputWithContext(ctx 
 	return o
 }
 
-// The desired action for requests captured by this rule.
 func (o IpFilterRuleResponseOutput) Action() pulumi.StringOutput {
 	return o.ApplyT(func(v IpFilterRuleResponse) string { return v.Action }).(pulumi.StringOutput)
 }
 
-// The name of the IP filter rule.
 func (o IpFilterRuleResponseOutput) FilterName() pulumi.StringOutput {
 	return o.ApplyT(func(v IpFilterRuleResponse) string { return v.FilterName }).(pulumi.StringOutput)
 }
 
-// A string that contains the IP address range in CIDR notation for the rule.
 func (o IpFilterRuleResponseOutput) IpMask() pulumi.StringOutput {
 	return o.ApplyT(func(v IpFilterRuleResponse) string { return v.IpMask }).(pulumi.StringOutput)
 }
@@ -4270,9 +3905,7 @@ func (o IpFilterRuleResponseArrayOutput) Index(i pulumi.IntInput) IpFilterRuleRe
 	}).(IpFilterRuleResponseOutput)
 }
 
-// The properties of the Managed identity.
 type ManagedIdentity struct {
-	// The user assigned identity.
 	UserAssignedIdentity *string `pulumi:"userAssignedIdentity"`
 }
 
@@ -4287,9 +3920,7 @@ type ManagedIdentityInput interface {
 	ToManagedIdentityOutputWithContext(context.Context) ManagedIdentityOutput
 }
 
-// The properties of the Managed identity.
 type ManagedIdentityArgs struct {
-	// The user assigned identity.
 	UserAssignedIdentity pulumi.StringPtrInput `pulumi:"userAssignedIdentity"`
 }
 
@@ -4346,7 +3977,6 @@ func (i *managedIdentityPtrType) ToManagedIdentityPtrOutputWithContext(ctx conte
 	return pulumi.ToOutputWithContext(ctx, i).(ManagedIdentityPtrOutput)
 }
 
-// The properties of the Managed identity.
 type ManagedIdentityOutput struct{ *pulumi.OutputState }
 
 func (ManagedIdentityOutput) ElementType() reflect.Type {
@@ -4366,12 +3996,11 @@ func (o ManagedIdentityOutput) ToManagedIdentityPtrOutput() ManagedIdentityPtrOu
 }
 
 func (o ManagedIdentityOutput) ToManagedIdentityPtrOutputWithContext(ctx context.Context) ManagedIdentityPtrOutput {
-	return o.ApplyT(func(v ManagedIdentity) *ManagedIdentity {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ManagedIdentity) *ManagedIdentity {
 		return &v
 	}).(ManagedIdentityPtrOutput)
 }
 
-// The user assigned identity.
 func (o ManagedIdentityOutput) UserAssignedIdentity() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ManagedIdentity) *string { return v.UserAssignedIdentity }).(pulumi.StringPtrOutput)
 }
@@ -4391,10 +4020,15 @@ func (o ManagedIdentityPtrOutput) ToManagedIdentityPtrOutputWithContext(ctx cont
 }
 
 func (o ManagedIdentityPtrOutput) Elem() ManagedIdentityOutput {
-	return o.ApplyT(func(v *ManagedIdentity) ManagedIdentity { return *v }).(ManagedIdentityOutput)
+	return o.ApplyT(func(v *ManagedIdentity) ManagedIdentity {
+		if v != nil {
+			return *v
+		}
+		var ret ManagedIdentity
+		return ret
+	}).(ManagedIdentityOutput)
 }
 
-// The user assigned identity.
 func (o ManagedIdentityPtrOutput) UserAssignedIdentity() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ManagedIdentity) *string {
 		if v == nil {
@@ -4404,9 +4038,7 @@ func (o ManagedIdentityPtrOutput) UserAssignedIdentity() pulumi.StringPtrOutput 
 	}).(pulumi.StringPtrOutput)
 }
 
-// The properties of the Managed identity.
 type ManagedIdentityResponse struct {
-	// The user assigned identity.
 	UserAssignedIdentity *string `pulumi:"userAssignedIdentity"`
 }
 
@@ -4421,9 +4053,7 @@ type ManagedIdentityResponseInput interface {
 	ToManagedIdentityResponseOutputWithContext(context.Context) ManagedIdentityResponseOutput
 }
 
-// The properties of the Managed identity.
 type ManagedIdentityResponseArgs struct {
-	// The user assigned identity.
 	UserAssignedIdentity pulumi.StringPtrInput `pulumi:"userAssignedIdentity"`
 }
 
@@ -4480,7 +4110,6 @@ func (i *managedIdentityResponsePtrType) ToManagedIdentityResponsePtrOutputWithC
 	return pulumi.ToOutputWithContext(ctx, i).(ManagedIdentityResponsePtrOutput)
 }
 
-// The properties of the Managed identity.
 type ManagedIdentityResponseOutput struct{ *pulumi.OutputState }
 
 func (ManagedIdentityResponseOutput) ElementType() reflect.Type {
@@ -4500,12 +4129,11 @@ func (o ManagedIdentityResponseOutput) ToManagedIdentityResponsePtrOutput() Mana
 }
 
 func (o ManagedIdentityResponseOutput) ToManagedIdentityResponsePtrOutputWithContext(ctx context.Context) ManagedIdentityResponsePtrOutput {
-	return o.ApplyT(func(v ManagedIdentityResponse) *ManagedIdentityResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ManagedIdentityResponse) *ManagedIdentityResponse {
 		return &v
 	}).(ManagedIdentityResponsePtrOutput)
 }
 
-// The user assigned identity.
 func (o ManagedIdentityResponseOutput) UserAssignedIdentity() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ManagedIdentityResponse) *string { return v.UserAssignedIdentity }).(pulumi.StringPtrOutput)
 }
@@ -4525,10 +4153,15 @@ func (o ManagedIdentityResponsePtrOutput) ToManagedIdentityResponsePtrOutputWith
 }
 
 func (o ManagedIdentityResponsePtrOutput) Elem() ManagedIdentityResponseOutput {
-	return o.ApplyT(func(v *ManagedIdentityResponse) ManagedIdentityResponse { return *v }).(ManagedIdentityResponseOutput)
+	return o.ApplyT(func(v *ManagedIdentityResponse) ManagedIdentityResponse {
+		if v != nil {
+			return *v
+		}
+		var ret ManagedIdentityResponse
+		return ret
+	}).(ManagedIdentityResponseOutput)
 }
 
-// The user assigned identity.
 func (o ManagedIdentityResponsePtrOutput) UserAssignedIdentity() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ManagedIdentityResponse) *string {
 		if v == nil {
@@ -4538,14 +4171,10 @@ func (o ManagedIdentityResponsePtrOutput) UserAssignedIdentity() pulumi.StringPt
 	}).(pulumi.StringPtrOutput)
 }
 
-// The properties of the messaging endpoints used by this IoT hub.
 type MessagingEndpointProperties struct {
-	// The lock duration. See: https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-file-upload.
 	LockDurationAsIso8601 *string `pulumi:"lockDurationAsIso8601"`
-	// The number of times the IoT hub attempts to deliver a message. See: https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-file-upload.
-	MaxDeliveryCount *int `pulumi:"maxDeliveryCount"`
-	// The period of time for which a message is available to consume before it is expired by the IoT hub. See: https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-file-upload.
-	TtlAsIso8601 *string `pulumi:"ttlAsIso8601"`
+	MaxDeliveryCount      *int    `pulumi:"maxDeliveryCount"`
+	TtlAsIso8601          *string `pulumi:"ttlAsIso8601"`
 }
 
 // MessagingEndpointPropertiesInput is an input type that accepts MessagingEndpointPropertiesArgs and MessagingEndpointPropertiesOutput values.
@@ -4559,14 +4188,10 @@ type MessagingEndpointPropertiesInput interface {
 	ToMessagingEndpointPropertiesOutputWithContext(context.Context) MessagingEndpointPropertiesOutput
 }
 
-// The properties of the messaging endpoints used by this IoT hub.
 type MessagingEndpointPropertiesArgs struct {
-	// The lock duration. See: https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-file-upload.
 	LockDurationAsIso8601 pulumi.StringPtrInput `pulumi:"lockDurationAsIso8601"`
-	// The number of times the IoT hub attempts to deliver a message. See: https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-file-upload.
-	MaxDeliveryCount pulumi.IntPtrInput `pulumi:"maxDeliveryCount"`
-	// The period of time for which a message is available to consume before it is expired by the IoT hub. See: https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-file-upload.
-	TtlAsIso8601 pulumi.StringPtrInput `pulumi:"ttlAsIso8601"`
+	MaxDeliveryCount      pulumi.IntPtrInput    `pulumi:"maxDeliveryCount"`
+	TtlAsIso8601          pulumi.StringPtrInput `pulumi:"ttlAsIso8601"`
 }
 
 func (MessagingEndpointPropertiesArgs) ElementType() reflect.Type {
@@ -4606,7 +4231,6 @@ func (i MessagingEndpointPropertiesMap) ToMessagingEndpointPropertiesMapOutputWi
 	return pulumi.ToOutputWithContext(ctx, i).(MessagingEndpointPropertiesMapOutput)
 }
 
-// The properties of the messaging endpoints used by this IoT hub.
 type MessagingEndpointPropertiesOutput struct{ *pulumi.OutputState }
 
 func (MessagingEndpointPropertiesOutput) ElementType() reflect.Type {
@@ -4621,17 +4245,14 @@ func (o MessagingEndpointPropertiesOutput) ToMessagingEndpointPropertiesOutputWi
 	return o
 }
 
-// The lock duration. See: https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-file-upload.
 func (o MessagingEndpointPropertiesOutput) LockDurationAsIso8601() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v MessagingEndpointProperties) *string { return v.LockDurationAsIso8601 }).(pulumi.StringPtrOutput)
 }
 
-// The number of times the IoT hub attempts to deliver a message. See: https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-file-upload.
 func (o MessagingEndpointPropertiesOutput) MaxDeliveryCount() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v MessagingEndpointProperties) *int { return v.MaxDeliveryCount }).(pulumi.IntPtrOutput)
 }
 
-// The period of time for which a message is available to consume before it is expired by the IoT hub. See: https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-file-upload.
 func (o MessagingEndpointPropertiesOutput) TtlAsIso8601() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v MessagingEndpointProperties) *string { return v.TtlAsIso8601 }).(pulumi.StringPtrOutput)
 }
@@ -4656,14 +4277,10 @@ func (o MessagingEndpointPropertiesMapOutput) MapIndex(k pulumi.StringInput) Mes
 	}).(MessagingEndpointPropertiesOutput)
 }
 
-// The properties of the messaging endpoints used by this IoT hub.
 type MessagingEndpointPropertiesResponse struct {
-	// The lock duration. See: https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-file-upload.
 	LockDurationAsIso8601 *string `pulumi:"lockDurationAsIso8601"`
-	// The number of times the IoT hub attempts to deliver a message. See: https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-file-upload.
-	MaxDeliveryCount *int `pulumi:"maxDeliveryCount"`
-	// The period of time for which a message is available to consume before it is expired by the IoT hub. See: https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-file-upload.
-	TtlAsIso8601 *string `pulumi:"ttlAsIso8601"`
+	MaxDeliveryCount      *int    `pulumi:"maxDeliveryCount"`
+	TtlAsIso8601          *string `pulumi:"ttlAsIso8601"`
 }
 
 // MessagingEndpointPropertiesResponseInput is an input type that accepts MessagingEndpointPropertiesResponseArgs and MessagingEndpointPropertiesResponseOutput values.
@@ -4677,14 +4294,10 @@ type MessagingEndpointPropertiesResponseInput interface {
 	ToMessagingEndpointPropertiesResponseOutputWithContext(context.Context) MessagingEndpointPropertiesResponseOutput
 }
 
-// The properties of the messaging endpoints used by this IoT hub.
 type MessagingEndpointPropertiesResponseArgs struct {
-	// The lock duration. See: https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-file-upload.
 	LockDurationAsIso8601 pulumi.StringPtrInput `pulumi:"lockDurationAsIso8601"`
-	// The number of times the IoT hub attempts to deliver a message. See: https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-file-upload.
-	MaxDeliveryCount pulumi.IntPtrInput `pulumi:"maxDeliveryCount"`
-	// The period of time for which a message is available to consume before it is expired by the IoT hub. See: https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-file-upload.
-	TtlAsIso8601 pulumi.StringPtrInput `pulumi:"ttlAsIso8601"`
+	MaxDeliveryCount      pulumi.IntPtrInput    `pulumi:"maxDeliveryCount"`
+	TtlAsIso8601          pulumi.StringPtrInput `pulumi:"ttlAsIso8601"`
 }
 
 func (MessagingEndpointPropertiesResponseArgs) ElementType() reflect.Type {
@@ -4724,7 +4337,6 @@ func (i MessagingEndpointPropertiesResponseMap) ToMessagingEndpointPropertiesRes
 	return pulumi.ToOutputWithContext(ctx, i).(MessagingEndpointPropertiesResponseMapOutput)
 }
 
-// The properties of the messaging endpoints used by this IoT hub.
 type MessagingEndpointPropertiesResponseOutput struct{ *pulumi.OutputState }
 
 func (MessagingEndpointPropertiesResponseOutput) ElementType() reflect.Type {
@@ -4739,17 +4351,14 @@ func (o MessagingEndpointPropertiesResponseOutput) ToMessagingEndpointProperties
 	return o
 }
 
-// The lock duration. See: https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-file-upload.
 func (o MessagingEndpointPropertiesResponseOutput) LockDurationAsIso8601() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v MessagingEndpointPropertiesResponse) *string { return v.LockDurationAsIso8601 }).(pulumi.StringPtrOutput)
 }
 
-// The number of times the IoT hub attempts to deliver a message. See: https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-file-upload.
 func (o MessagingEndpointPropertiesResponseOutput) MaxDeliveryCount() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v MessagingEndpointPropertiesResponse) *int { return v.MaxDeliveryCount }).(pulumi.IntPtrOutput)
 }
 
-// The period of time for which a message is available to consume before it is expired by the IoT hub. See: https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-file-upload.
 func (o MessagingEndpointPropertiesResponseOutput) TtlAsIso8601() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v MessagingEndpointPropertiesResponse) *string { return v.TtlAsIso8601 }).(pulumi.StringPtrOutput)
 }
@@ -4774,14 +4383,10 @@ func (o MessagingEndpointPropertiesResponseMapOutput) MapIndex(k pulumi.StringIn
 	}).(MessagingEndpointPropertiesResponseOutput)
 }
 
-// IP Rule to be applied as part of Network Rule Set
 type NetworkRuleSetIpRule struct {
-	// IP Filter Action
-	Action *string `pulumi:"action"`
-	// Name of the IP filter rule.
-	FilterName string `pulumi:"filterName"`
-	// A string that contains the IP address range in CIDR notation for the rule.
-	IpMask string `pulumi:"ipMask"`
+	Action     *string `pulumi:"action"`
+	FilterName string  `pulumi:"filterName"`
+	IpMask     string  `pulumi:"ipMask"`
 }
 
 // NetworkRuleSetIpRuleInput is an input type that accepts NetworkRuleSetIpRuleArgs and NetworkRuleSetIpRuleOutput values.
@@ -4795,14 +4400,10 @@ type NetworkRuleSetIpRuleInput interface {
 	ToNetworkRuleSetIpRuleOutputWithContext(context.Context) NetworkRuleSetIpRuleOutput
 }
 
-// IP Rule to be applied as part of Network Rule Set
 type NetworkRuleSetIpRuleArgs struct {
-	// IP Filter Action
-	Action pulumi.StringPtrInput `pulumi:"action"`
-	// Name of the IP filter rule.
-	FilterName pulumi.StringInput `pulumi:"filterName"`
-	// A string that contains the IP address range in CIDR notation for the rule.
-	IpMask pulumi.StringInput `pulumi:"ipMask"`
+	Action     pulumi.StringPtrInput `pulumi:"action"`
+	FilterName pulumi.StringInput    `pulumi:"filterName"`
+	IpMask     pulumi.StringInput    `pulumi:"ipMask"`
 }
 
 func (NetworkRuleSetIpRuleArgs) ElementType() reflect.Type {
@@ -4842,7 +4443,6 @@ func (i NetworkRuleSetIpRuleArray) ToNetworkRuleSetIpRuleArrayOutputWithContext(
 	return pulumi.ToOutputWithContext(ctx, i).(NetworkRuleSetIpRuleArrayOutput)
 }
 
-// IP Rule to be applied as part of Network Rule Set
 type NetworkRuleSetIpRuleOutput struct{ *pulumi.OutputState }
 
 func (NetworkRuleSetIpRuleOutput) ElementType() reflect.Type {
@@ -4857,17 +4457,14 @@ func (o NetworkRuleSetIpRuleOutput) ToNetworkRuleSetIpRuleOutputWithContext(ctx 
 	return o
 }
 
-// IP Filter Action
 func (o NetworkRuleSetIpRuleOutput) Action() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v NetworkRuleSetIpRule) *string { return v.Action }).(pulumi.StringPtrOutput)
 }
 
-// Name of the IP filter rule.
 func (o NetworkRuleSetIpRuleOutput) FilterName() pulumi.StringOutput {
 	return o.ApplyT(func(v NetworkRuleSetIpRule) string { return v.FilterName }).(pulumi.StringOutput)
 }
 
-// A string that contains the IP address range in CIDR notation for the rule.
 func (o NetworkRuleSetIpRuleOutput) IpMask() pulumi.StringOutput {
 	return o.ApplyT(func(v NetworkRuleSetIpRule) string { return v.IpMask }).(pulumi.StringOutput)
 }
@@ -4892,14 +4489,10 @@ func (o NetworkRuleSetIpRuleArrayOutput) Index(i pulumi.IntInput) NetworkRuleSet
 	}).(NetworkRuleSetIpRuleOutput)
 }
 
-// IP Rule to be applied as part of Network Rule Set
 type NetworkRuleSetIpRuleResponse struct {
-	// IP Filter Action
-	Action *string `pulumi:"action"`
-	// Name of the IP filter rule.
-	FilterName string `pulumi:"filterName"`
-	// A string that contains the IP address range in CIDR notation for the rule.
-	IpMask string `pulumi:"ipMask"`
+	Action     *string `pulumi:"action"`
+	FilterName string  `pulumi:"filterName"`
+	IpMask     string  `pulumi:"ipMask"`
 }
 
 // NetworkRuleSetIpRuleResponseInput is an input type that accepts NetworkRuleSetIpRuleResponseArgs and NetworkRuleSetIpRuleResponseOutput values.
@@ -4913,14 +4506,10 @@ type NetworkRuleSetIpRuleResponseInput interface {
 	ToNetworkRuleSetIpRuleResponseOutputWithContext(context.Context) NetworkRuleSetIpRuleResponseOutput
 }
 
-// IP Rule to be applied as part of Network Rule Set
 type NetworkRuleSetIpRuleResponseArgs struct {
-	// IP Filter Action
-	Action pulumi.StringPtrInput `pulumi:"action"`
-	// Name of the IP filter rule.
-	FilterName pulumi.StringInput `pulumi:"filterName"`
-	// A string that contains the IP address range in CIDR notation for the rule.
-	IpMask pulumi.StringInput `pulumi:"ipMask"`
+	Action     pulumi.StringPtrInput `pulumi:"action"`
+	FilterName pulumi.StringInput    `pulumi:"filterName"`
+	IpMask     pulumi.StringInput    `pulumi:"ipMask"`
 }
 
 func (NetworkRuleSetIpRuleResponseArgs) ElementType() reflect.Type {
@@ -4960,7 +4549,6 @@ func (i NetworkRuleSetIpRuleResponseArray) ToNetworkRuleSetIpRuleResponseArrayOu
 	return pulumi.ToOutputWithContext(ctx, i).(NetworkRuleSetIpRuleResponseArrayOutput)
 }
 
-// IP Rule to be applied as part of Network Rule Set
 type NetworkRuleSetIpRuleResponseOutput struct{ *pulumi.OutputState }
 
 func (NetworkRuleSetIpRuleResponseOutput) ElementType() reflect.Type {
@@ -4975,17 +4563,14 @@ func (o NetworkRuleSetIpRuleResponseOutput) ToNetworkRuleSetIpRuleResponseOutput
 	return o
 }
 
-// IP Filter Action
 func (o NetworkRuleSetIpRuleResponseOutput) Action() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v NetworkRuleSetIpRuleResponse) *string { return v.Action }).(pulumi.StringPtrOutput)
 }
 
-// Name of the IP filter rule.
 func (o NetworkRuleSetIpRuleResponseOutput) FilterName() pulumi.StringOutput {
 	return o.ApplyT(func(v NetworkRuleSetIpRuleResponse) string { return v.FilterName }).(pulumi.StringOutput)
 }
 
-// A string that contains the IP address range in CIDR notation for the rule.
 func (o NetworkRuleSetIpRuleResponseOutput) IpMask() pulumi.StringOutput {
 	return o.ApplyT(func(v NetworkRuleSetIpRuleResponse) string { return v.IpMask }).(pulumi.StringOutput)
 }
@@ -5010,14 +4595,10 @@ func (o NetworkRuleSetIpRuleResponseArrayOutput) Index(i pulumi.IntInput) Networ
 	}).(NetworkRuleSetIpRuleResponseOutput)
 }
 
-// Network Rule Set Properties of IotHub
 type NetworkRuleSetProperties struct {
-	// If True, then Network Rule Set is also applied to BuiltIn EventHub EndPoint of IotHub
-	ApplyToBuiltInEventHubEndpoint bool `pulumi:"applyToBuiltInEventHubEndpoint"`
-	// Default Action for Network Rule Set
-	DefaultAction *string `pulumi:"defaultAction"`
-	// List of IP Rules
-	IpRules []NetworkRuleSetIpRule `pulumi:"ipRules"`
+	ApplyToBuiltInEventHubEndpoint bool                   `pulumi:"applyToBuiltInEventHubEndpoint"`
+	DefaultAction                  *string                `pulumi:"defaultAction"`
+	IpRules                        []NetworkRuleSetIpRule `pulumi:"ipRules"`
 }
 
 // NetworkRuleSetPropertiesInput is an input type that accepts NetworkRuleSetPropertiesArgs and NetworkRuleSetPropertiesOutput values.
@@ -5031,14 +4612,10 @@ type NetworkRuleSetPropertiesInput interface {
 	ToNetworkRuleSetPropertiesOutputWithContext(context.Context) NetworkRuleSetPropertiesOutput
 }
 
-// Network Rule Set Properties of IotHub
 type NetworkRuleSetPropertiesArgs struct {
-	// If True, then Network Rule Set is also applied to BuiltIn EventHub EndPoint of IotHub
-	ApplyToBuiltInEventHubEndpoint pulumi.BoolInput `pulumi:"applyToBuiltInEventHubEndpoint"`
-	// Default Action for Network Rule Set
-	DefaultAction pulumi.StringPtrInput `pulumi:"defaultAction"`
-	// List of IP Rules
-	IpRules NetworkRuleSetIpRuleArrayInput `pulumi:"ipRules"`
+	ApplyToBuiltInEventHubEndpoint pulumi.BoolInput               `pulumi:"applyToBuiltInEventHubEndpoint"`
+	DefaultAction                  pulumi.StringPtrInput          `pulumi:"defaultAction"`
+	IpRules                        NetworkRuleSetIpRuleArrayInput `pulumi:"ipRules"`
 }
 
 func (NetworkRuleSetPropertiesArgs) ElementType() reflect.Type {
@@ -5094,7 +4671,6 @@ func (i *networkRuleSetPropertiesPtrType) ToNetworkRuleSetPropertiesPtrOutputWit
 	return pulumi.ToOutputWithContext(ctx, i).(NetworkRuleSetPropertiesPtrOutput)
 }
 
-// Network Rule Set Properties of IotHub
 type NetworkRuleSetPropertiesOutput struct{ *pulumi.OutputState }
 
 func (NetworkRuleSetPropertiesOutput) ElementType() reflect.Type {
@@ -5114,22 +4690,19 @@ func (o NetworkRuleSetPropertiesOutput) ToNetworkRuleSetPropertiesPtrOutput() Ne
 }
 
 func (o NetworkRuleSetPropertiesOutput) ToNetworkRuleSetPropertiesPtrOutputWithContext(ctx context.Context) NetworkRuleSetPropertiesPtrOutput {
-	return o.ApplyT(func(v NetworkRuleSetProperties) *NetworkRuleSetProperties {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v NetworkRuleSetProperties) *NetworkRuleSetProperties {
 		return &v
 	}).(NetworkRuleSetPropertiesPtrOutput)
 }
 
-// If True, then Network Rule Set is also applied to BuiltIn EventHub EndPoint of IotHub
 func (o NetworkRuleSetPropertiesOutput) ApplyToBuiltInEventHubEndpoint() pulumi.BoolOutput {
 	return o.ApplyT(func(v NetworkRuleSetProperties) bool { return v.ApplyToBuiltInEventHubEndpoint }).(pulumi.BoolOutput)
 }
 
-// Default Action for Network Rule Set
 func (o NetworkRuleSetPropertiesOutput) DefaultAction() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v NetworkRuleSetProperties) *string { return v.DefaultAction }).(pulumi.StringPtrOutput)
 }
 
-// List of IP Rules
 func (o NetworkRuleSetPropertiesOutput) IpRules() NetworkRuleSetIpRuleArrayOutput {
 	return o.ApplyT(func(v NetworkRuleSetProperties) []NetworkRuleSetIpRule { return v.IpRules }).(NetworkRuleSetIpRuleArrayOutput)
 }
@@ -5149,10 +4722,15 @@ func (o NetworkRuleSetPropertiesPtrOutput) ToNetworkRuleSetPropertiesPtrOutputWi
 }
 
 func (o NetworkRuleSetPropertiesPtrOutput) Elem() NetworkRuleSetPropertiesOutput {
-	return o.ApplyT(func(v *NetworkRuleSetProperties) NetworkRuleSetProperties { return *v }).(NetworkRuleSetPropertiesOutput)
+	return o.ApplyT(func(v *NetworkRuleSetProperties) NetworkRuleSetProperties {
+		if v != nil {
+			return *v
+		}
+		var ret NetworkRuleSetProperties
+		return ret
+	}).(NetworkRuleSetPropertiesOutput)
 }
 
-// If True, then Network Rule Set is also applied to BuiltIn EventHub EndPoint of IotHub
 func (o NetworkRuleSetPropertiesPtrOutput) ApplyToBuiltInEventHubEndpoint() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *NetworkRuleSetProperties) *bool {
 		if v == nil {
@@ -5162,7 +4740,6 @@ func (o NetworkRuleSetPropertiesPtrOutput) ApplyToBuiltInEventHubEndpoint() pulu
 	}).(pulumi.BoolPtrOutput)
 }
 
-// Default Action for Network Rule Set
 func (o NetworkRuleSetPropertiesPtrOutput) DefaultAction() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *NetworkRuleSetProperties) *string {
 		if v == nil {
@@ -5172,7 +4749,6 @@ func (o NetworkRuleSetPropertiesPtrOutput) DefaultAction() pulumi.StringPtrOutpu
 	}).(pulumi.StringPtrOutput)
 }
 
-// List of IP Rules
 func (o NetworkRuleSetPropertiesPtrOutput) IpRules() NetworkRuleSetIpRuleArrayOutput {
 	return o.ApplyT(func(v *NetworkRuleSetProperties) []NetworkRuleSetIpRule {
 		if v == nil {
@@ -5182,14 +4758,10 @@ func (o NetworkRuleSetPropertiesPtrOutput) IpRules() NetworkRuleSetIpRuleArrayOu
 	}).(NetworkRuleSetIpRuleArrayOutput)
 }
 
-// Network Rule Set Properties of IotHub
 type NetworkRuleSetPropertiesResponse struct {
-	// If True, then Network Rule Set is also applied to BuiltIn EventHub EndPoint of IotHub
-	ApplyToBuiltInEventHubEndpoint bool `pulumi:"applyToBuiltInEventHubEndpoint"`
-	// Default Action for Network Rule Set
-	DefaultAction *string `pulumi:"defaultAction"`
-	// List of IP Rules
-	IpRules []NetworkRuleSetIpRuleResponse `pulumi:"ipRules"`
+	ApplyToBuiltInEventHubEndpoint bool                           `pulumi:"applyToBuiltInEventHubEndpoint"`
+	DefaultAction                  *string                        `pulumi:"defaultAction"`
+	IpRules                        []NetworkRuleSetIpRuleResponse `pulumi:"ipRules"`
 }
 
 // NetworkRuleSetPropertiesResponseInput is an input type that accepts NetworkRuleSetPropertiesResponseArgs and NetworkRuleSetPropertiesResponseOutput values.
@@ -5203,14 +4775,10 @@ type NetworkRuleSetPropertiesResponseInput interface {
 	ToNetworkRuleSetPropertiesResponseOutputWithContext(context.Context) NetworkRuleSetPropertiesResponseOutput
 }
 
-// Network Rule Set Properties of IotHub
 type NetworkRuleSetPropertiesResponseArgs struct {
-	// If True, then Network Rule Set is also applied to BuiltIn EventHub EndPoint of IotHub
-	ApplyToBuiltInEventHubEndpoint pulumi.BoolInput `pulumi:"applyToBuiltInEventHubEndpoint"`
-	// Default Action for Network Rule Set
-	DefaultAction pulumi.StringPtrInput `pulumi:"defaultAction"`
-	// List of IP Rules
-	IpRules NetworkRuleSetIpRuleResponseArrayInput `pulumi:"ipRules"`
+	ApplyToBuiltInEventHubEndpoint pulumi.BoolInput                       `pulumi:"applyToBuiltInEventHubEndpoint"`
+	DefaultAction                  pulumi.StringPtrInput                  `pulumi:"defaultAction"`
+	IpRules                        NetworkRuleSetIpRuleResponseArrayInput `pulumi:"ipRules"`
 }
 
 func (NetworkRuleSetPropertiesResponseArgs) ElementType() reflect.Type {
@@ -5266,7 +4834,6 @@ func (i *networkRuleSetPropertiesResponsePtrType) ToNetworkRuleSetPropertiesResp
 	return pulumi.ToOutputWithContext(ctx, i).(NetworkRuleSetPropertiesResponsePtrOutput)
 }
 
-// Network Rule Set Properties of IotHub
 type NetworkRuleSetPropertiesResponseOutput struct{ *pulumi.OutputState }
 
 func (NetworkRuleSetPropertiesResponseOutput) ElementType() reflect.Type {
@@ -5286,22 +4853,19 @@ func (o NetworkRuleSetPropertiesResponseOutput) ToNetworkRuleSetPropertiesRespon
 }
 
 func (o NetworkRuleSetPropertiesResponseOutput) ToNetworkRuleSetPropertiesResponsePtrOutputWithContext(ctx context.Context) NetworkRuleSetPropertiesResponsePtrOutput {
-	return o.ApplyT(func(v NetworkRuleSetPropertiesResponse) *NetworkRuleSetPropertiesResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v NetworkRuleSetPropertiesResponse) *NetworkRuleSetPropertiesResponse {
 		return &v
 	}).(NetworkRuleSetPropertiesResponsePtrOutput)
 }
 
-// If True, then Network Rule Set is also applied to BuiltIn EventHub EndPoint of IotHub
 func (o NetworkRuleSetPropertiesResponseOutput) ApplyToBuiltInEventHubEndpoint() pulumi.BoolOutput {
 	return o.ApplyT(func(v NetworkRuleSetPropertiesResponse) bool { return v.ApplyToBuiltInEventHubEndpoint }).(pulumi.BoolOutput)
 }
 
-// Default Action for Network Rule Set
 func (o NetworkRuleSetPropertiesResponseOutput) DefaultAction() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v NetworkRuleSetPropertiesResponse) *string { return v.DefaultAction }).(pulumi.StringPtrOutput)
 }
 
-// List of IP Rules
 func (o NetworkRuleSetPropertiesResponseOutput) IpRules() NetworkRuleSetIpRuleResponseArrayOutput {
 	return o.ApplyT(func(v NetworkRuleSetPropertiesResponse) []NetworkRuleSetIpRuleResponse { return v.IpRules }).(NetworkRuleSetIpRuleResponseArrayOutput)
 }
@@ -5321,10 +4885,15 @@ func (o NetworkRuleSetPropertiesResponsePtrOutput) ToNetworkRuleSetPropertiesRes
 }
 
 func (o NetworkRuleSetPropertiesResponsePtrOutput) Elem() NetworkRuleSetPropertiesResponseOutput {
-	return o.ApplyT(func(v *NetworkRuleSetPropertiesResponse) NetworkRuleSetPropertiesResponse { return *v }).(NetworkRuleSetPropertiesResponseOutput)
+	return o.ApplyT(func(v *NetworkRuleSetPropertiesResponse) NetworkRuleSetPropertiesResponse {
+		if v != nil {
+			return *v
+		}
+		var ret NetworkRuleSetPropertiesResponse
+		return ret
+	}).(NetworkRuleSetPropertiesResponseOutput)
 }
 
-// If True, then Network Rule Set is also applied to BuiltIn EventHub EndPoint of IotHub
 func (o NetworkRuleSetPropertiesResponsePtrOutput) ApplyToBuiltInEventHubEndpoint() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *NetworkRuleSetPropertiesResponse) *bool {
 		if v == nil {
@@ -5334,7 +4903,6 @@ func (o NetworkRuleSetPropertiesResponsePtrOutput) ApplyToBuiltInEventHubEndpoin
 	}).(pulumi.BoolPtrOutput)
 }
 
-// Default Action for Network Rule Set
 func (o NetworkRuleSetPropertiesResponsePtrOutput) DefaultAction() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *NetworkRuleSetPropertiesResponse) *string {
 		if v == nil {
@@ -5344,7 +4912,6 @@ func (o NetworkRuleSetPropertiesResponsePtrOutput) DefaultAction() pulumi.String
 	}).(pulumi.StringPtrOutput)
 }
 
-// List of IP Rules
 func (o NetworkRuleSetPropertiesResponsePtrOutput) IpRules() NetworkRuleSetIpRuleResponseArrayOutput {
 	return o.ApplyT(func(v *NetworkRuleSetPropertiesResponse) []NetworkRuleSetIpRuleResponse {
 		if v == nil {
@@ -5354,9 +4921,7 @@ func (o NetworkRuleSetPropertiesResponsePtrOutput) IpRules() NetworkRuleSetIpRul
 	}).(NetworkRuleSetIpRuleResponseArrayOutput)
 }
 
-// The private endpoint connection of an IotHub
 type PrivateEndpointConnectionType struct {
-	// The properties of a private endpoint connection
 	Properties PrivateEndpointConnectionProperties `pulumi:"properties"`
 }
 
@@ -5371,9 +4936,7 @@ type PrivateEndpointConnectionTypeInput interface {
 	ToPrivateEndpointConnectionTypeOutputWithContext(context.Context) PrivateEndpointConnectionTypeOutput
 }
 
-// The private endpoint connection of an IotHub
 type PrivateEndpointConnectionTypeArgs struct {
-	// The properties of a private endpoint connection
 	Properties PrivateEndpointConnectionPropertiesInput `pulumi:"properties"`
 }
 
@@ -5414,7 +4977,6 @@ func (i PrivateEndpointConnectionTypeArray) ToPrivateEndpointConnectionTypeArray
 	return pulumi.ToOutputWithContext(ctx, i).(PrivateEndpointConnectionTypeArrayOutput)
 }
 
-// The private endpoint connection of an IotHub
 type PrivateEndpointConnectionTypeOutput struct{ *pulumi.OutputState }
 
 func (PrivateEndpointConnectionTypeOutput) ElementType() reflect.Type {
@@ -5429,7 +4991,6 @@ func (o PrivateEndpointConnectionTypeOutput) ToPrivateEndpointConnectionTypeOutp
 	return o
 }
 
-// The properties of a private endpoint connection
 func (o PrivateEndpointConnectionTypeOutput) Properties() PrivateEndpointConnectionPropertiesOutput {
 	return o.ApplyT(func(v PrivateEndpointConnectionType) PrivateEndpointConnectionProperties { return v.Properties }).(PrivateEndpointConnectionPropertiesOutput)
 }
@@ -5454,9 +5015,7 @@ func (o PrivateEndpointConnectionTypeArrayOutput) Index(i pulumi.IntInput) Priva
 	}).(PrivateEndpointConnectionTypeOutput)
 }
 
-// The properties of a private endpoint connection
 type PrivateEndpointConnectionProperties struct {
-	// The current state of a private endpoint connection
 	PrivateLinkServiceConnectionState PrivateLinkServiceConnectionState `pulumi:"privateLinkServiceConnectionState"`
 }
 
@@ -5471,9 +5030,7 @@ type PrivateEndpointConnectionPropertiesInput interface {
 	ToPrivateEndpointConnectionPropertiesOutputWithContext(context.Context) PrivateEndpointConnectionPropertiesOutput
 }
 
-// The properties of a private endpoint connection
 type PrivateEndpointConnectionPropertiesArgs struct {
-	// The current state of a private endpoint connection
 	PrivateLinkServiceConnectionState PrivateLinkServiceConnectionStateInput `pulumi:"privateLinkServiceConnectionState"`
 }
 
@@ -5530,7 +5087,6 @@ func (i *privateEndpointConnectionPropertiesPtrType) ToPrivateEndpointConnection
 	return pulumi.ToOutputWithContext(ctx, i).(PrivateEndpointConnectionPropertiesPtrOutput)
 }
 
-// The properties of a private endpoint connection
 type PrivateEndpointConnectionPropertiesOutput struct{ *pulumi.OutputState }
 
 func (PrivateEndpointConnectionPropertiesOutput) ElementType() reflect.Type {
@@ -5550,12 +5106,11 @@ func (o PrivateEndpointConnectionPropertiesOutput) ToPrivateEndpointConnectionPr
 }
 
 func (o PrivateEndpointConnectionPropertiesOutput) ToPrivateEndpointConnectionPropertiesPtrOutputWithContext(ctx context.Context) PrivateEndpointConnectionPropertiesPtrOutput {
-	return o.ApplyT(func(v PrivateEndpointConnectionProperties) *PrivateEndpointConnectionProperties {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v PrivateEndpointConnectionProperties) *PrivateEndpointConnectionProperties {
 		return &v
 	}).(PrivateEndpointConnectionPropertiesPtrOutput)
 }
 
-// The current state of a private endpoint connection
 func (o PrivateEndpointConnectionPropertiesOutput) PrivateLinkServiceConnectionState() PrivateLinkServiceConnectionStateOutput {
 	return o.ApplyT(func(v PrivateEndpointConnectionProperties) PrivateLinkServiceConnectionState {
 		return v.PrivateLinkServiceConnectionState
@@ -5577,10 +5132,15 @@ func (o PrivateEndpointConnectionPropertiesPtrOutput) ToPrivateEndpointConnectio
 }
 
 func (o PrivateEndpointConnectionPropertiesPtrOutput) Elem() PrivateEndpointConnectionPropertiesOutput {
-	return o.ApplyT(func(v *PrivateEndpointConnectionProperties) PrivateEndpointConnectionProperties { return *v }).(PrivateEndpointConnectionPropertiesOutput)
+	return o.ApplyT(func(v *PrivateEndpointConnectionProperties) PrivateEndpointConnectionProperties {
+		if v != nil {
+			return *v
+		}
+		var ret PrivateEndpointConnectionProperties
+		return ret
+	}).(PrivateEndpointConnectionPropertiesOutput)
 }
 
-// The current state of a private endpoint connection
 func (o PrivateEndpointConnectionPropertiesPtrOutput) PrivateLinkServiceConnectionState() PrivateLinkServiceConnectionStatePtrOutput {
 	return o.ApplyT(func(v *PrivateEndpointConnectionProperties) *PrivateLinkServiceConnectionState {
 		if v == nil {
@@ -5590,11 +5150,8 @@ func (o PrivateEndpointConnectionPropertiesPtrOutput) PrivateLinkServiceConnecti
 	}).(PrivateLinkServiceConnectionStatePtrOutput)
 }
 
-// The properties of a private endpoint connection
 type PrivateEndpointConnectionPropertiesResponse struct {
-	// The private endpoint property of a private endpoint connection
-	PrivateEndpoint *PrivateEndpointResponse `pulumi:"privateEndpoint"`
-	// The current state of a private endpoint connection
+	PrivateEndpoint                   *PrivateEndpointResponse                  `pulumi:"privateEndpoint"`
 	PrivateLinkServiceConnectionState PrivateLinkServiceConnectionStateResponse `pulumi:"privateLinkServiceConnectionState"`
 }
 
@@ -5609,11 +5166,8 @@ type PrivateEndpointConnectionPropertiesResponseInput interface {
 	ToPrivateEndpointConnectionPropertiesResponseOutputWithContext(context.Context) PrivateEndpointConnectionPropertiesResponseOutput
 }
 
-// The properties of a private endpoint connection
 type PrivateEndpointConnectionPropertiesResponseArgs struct {
-	// The private endpoint property of a private endpoint connection
-	PrivateEndpoint PrivateEndpointResponsePtrInput `pulumi:"privateEndpoint"`
-	// The current state of a private endpoint connection
+	PrivateEndpoint                   PrivateEndpointResponsePtrInput                `pulumi:"privateEndpoint"`
 	PrivateLinkServiceConnectionState PrivateLinkServiceConnectionStateResponseInput `pulumi:"privateLinkServiceConnectionState"`
 }
 
@@ -5670,7 +5224,6 @@ func (i *privateEndpointConnectionPropertiesResponsePtrType) ToPrivateEndpointCo
 	return pulumi.ToOutputWithContext(ctx, i).(PrivateEndpointConnectionPropertiesResponsePtrOutput)
 }
 
-// The properties of a private endpoint connection
 type PrivateEndpointConnectionPropertiesResponseOutput struct{ *pulumi.OutputState }
 
 func (PrivateEndpointConnectionPropertiesResponseOutput) ElementType() reflect.Type {
@@ -5690,17 +5243,15 @@ func (o PrivateEndpointConnectionPropertiesResponseOutput) ToPrivateEndpointConn
 }
 
 func (o PrivateEndpointConnectionPropertiesResponseOutput) ToPrivateEndpointConnectionPropertiesResponsePtrOutputWithContext(ctx context.Context) PrivateEndpointConnectionPropertiesResponsePtrOutput {
-	return o.ApplyT(func(v PrivateEndpointConnectionPropertiesResponse) *PrivateEndpointConnectionPropertiesResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v PrivateEndpointConnectionPropertiesResponse) *PrivateEndpointConnectionPropertiesResponse {
 		return &v
 	}).(PrivateEndpointConnectionPropertiesResponsePtrOutput)
 }
 
-// The private endpoint property of a private endpoint connection
 func (o PrivateEndpointConnectionPropertiesResponseOutput) PrivateEndpoint() PrivateEndpointResponsePtrOutput {
 	return o.ApplyT(func(v PrivateEndpointConnectionPropertiesResponse) *PrivateEndpointResponse { return v.PrivateEndpoint }).(PrivateEndpointResponsePtrOutput)
 }
 
-// The current state of a private endpoint connection
 func (o PrivateEndpointConnectionPropertiesResponseOutput) PrivateLinkServiceConnectionState() PrivateLinkServiceConnectionStateResponseOutput {
 	return o.ApplyT(func(v PrivateEndpointConnectionPropertiesResponse) PrivateLinkServiceConnectionStateResponse {
 		return v.PrivateLinkServiceConnectionState
@@ -5723,11 +5274,14 @@ func (o PrivateEndpointConnectionPropertiesResponsePtrOutput) ToPrivateEndpointC
 
 func (o PrivateEndpointConnectionPropertiesResponsePtrOutput) Elem() PrivateEndpointConnectionPropertiesResponseOutput {
 	return o.ApplyT(func(v *PrivateEndpointConnectionPropertiesResponse) PrivateEndpointConnectionPropertiesResponse {
-		return *v
+		if v != nil {
+			return *v
+		}
+		var ret PrivateEndpointConnectionPropertiesResponse
+		return ret
 	}).(PrivateEndpointConnectionPropertiesResponseOutput)
 }
 
-// The private endpoint property of a private endpoint connection
 func (o PrivateEndpointConnectionPropertiesResponsePtrOutput) PrivateEndpoint() PrivateEndpointResponsePtrOutput {
 	return o.ApplyT(func(v *PrivateEndpointConnectionPropertiesResponse) *PrivateEndpointResponse {
 		if v == nil {
@@ -5737,7 +5291,6 @@ func (o PrivateEndpointConnectionPropertiesResponsePtrOutput) PrivateEndpoint() 
 	}).(PrivateEndpointResponsePtrOutput)
 }
 
-// The current state of a private endpoint connection
 func (o PrivateEndpointConnectionPropertiesResponsePtrOutput) PrivateLinkServiceConnectionState() PrivateLinkServiceConnectionStateResponsePtrOutput {
 	return o.ApplyT(func(v *PrivateEndpointConnectionPropertiesResponse) *PrivateLinkServiceConnectionStateResponse {
 		if v == nil {
@@ -5747,16 +5300,11 @@ func (o PrivateEndpointConnectionPropertiesResponsePtrOutput) PrivateLinkService
 	}).(PrivateLinkServiceConnectionStateResponsePtrOutput)
 }
 
-// The private endpoint connection of an IotHub
 type PrivateEndpointConnectionResponse struct {
-	// The resource identifier.
-	Id string `pulumi:"id"`
-	// The resource name.
-	Name string `pulumi:"name"`
-	// The properties of a private endpoint connection
+	Id         string                                      `pulumi:"id"`
+	Name       string                                      `pulumi:"name"`
 	Properties PrivateEndpointConnectionPropertiesResponse `pulumi:"properties"`
-	// The resource type.
-	Type string `pulumi:"type"`
+	Type       string                                      `pulumi:"type"`
 }
 
 // PrivateEndpointConnectionResponseInput is an input type that accepts PrivateEndpointConnectionResponseArgs and PrivateEndpointConnectionResponseOutput values.
@@ -5770,16 +5318,11 @@ type PrivateEndpointConnectionResponseInput interface {
 	ToPrivateEndpointConnectionResponseOutputWithContext(context.Context) PrivateEndpointConnectionResponseOutput
 }
 
-// The private endpoint connection of an IotHub
 type PrivateEndpointConnectionResponseArgs struct {
-	// The resource identifier.
-	Id pulumi.StringInput `pulumi:"id"`
-	// The resource name.
-	Name pulumi.StringInput `pulumi:"name"`
-	// The properties of a private endpoint connection
+	Id         pulumi.StringInput                               `pulumi:"id"`
+	Name       pulumi.StringInput                               `pulumi:"name"`
 	Properties PrivateEndpointConnectionPropertiesResponseInput `pulumi:"properties"`
-	// The resource type.
-	Type pulumi.StringInput `pulumi:"type"`
+	Type       pulumi.StringInput                               `pulumi:"type"`
 }
 
 func (PrivateEndpointConnectionResponseArgs) ElementType() reflect.Type {
@@ -5819,7 +5362,6 @@ func (i PrivateEndpointConnectionResponseArray) ToPrivateEndpointConnectionRespo
 	return pulumi.ToOutputWithContext(ctx, i).(PrivateEndpointConnectionResponseArrayOutput)
 }
 
-// The private endpoint connection of an IotHub
 type PrivateEndpointConnectionResponseOutput struct{ *pulumi.OutputState }
 
 func (PrivateEndpointConnectionResponseOutput) ElementType() reflect.Type {
@@ -5834,24 +5376,20 @@ func (o PrivateEndpointConnectionResponseOutput) ToPrivateEndpointConnectionResp
 	return o
 }
 
-// The resource identifier.
 func (o PrivateEndpointConnectionResponseOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v PrivateEndpointConnectionResponse) string { return v.Id }).(pulumi.StringOutput)
 }
 
-// The resource name.
 func (o PrivateEndpointConnectionResponseOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v PrivateEndpointConnectionResponse) string { return v.Name }).(pulumi.StringOutput)
 }
 
-// The properties of a private endpoint connection
 func (o PrivateEndpointConnectionResponseOutput) Properties() PrivateEndpointConnectionPropertiesResponseOutput {
 	return o.ApplyT(func(v PrivateEndpointConnectionResponse) PrivateEndpointConnectionPropertiesResponse {
 		return v.Properties
 	}).(PrivateEndpointConnectionPropertiesResponseOutput)
 }
 
-// The resource type.
 func (o PrivateEndpointConnectionResponseOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v PrivateEndpointConnectionResponse) string { return v.Type }).(pulumi.StringOutput)
 }
@@ -5876,9 +5414,7 @@ func (o PrivateEndpointConnectionResponseArrayOutput) Index(i pulumi.IntInput) P
 	}).(PrivateEndpointConnectionResponseOutput)
 }
 
-// The private endpoint property of a private endpoint connection
 type PrivateEndpointResponse struct {
-	// The resource identifier.
 	Id string `pulumi:"id"`
 }
 
@@ -5893,9 +5429,7 @@ type PrivateEndpointResponseInput interface {
 	ToPrivateEndpointResponseOutputWithContext(context.Context) PrivateEndpointResponseOutput
 }
 
-// The private endpoint property of a private endpoint connection
 type PrivateEndpointResponseArgs struct {
-	// The resource identifier.
 	Id pulumi.StringInput `pulumi:"id"`
 }
 
@@ -5952,7 +5486,6 @@ func (i *privateEndpointResponsePtrType) ToPrivateEndpointResponsePtrOutputWithC
 	return pulumi.ToOutputWithContext(ctx, i).(PrivateEndpointResponsePtrOutput)
 }
 
-// The private endpoint property of a private endpoint connection
 type PrivateEndpointResponseOutput struct{ *pulumi.OutputState }
 
 func (PrivateEndpointResponseOutput) ElementType() reflect.Type {
@@ -5972,12 +5505,11 @@ func (o PrivateEndpointResponseOutput) ToPrivateEndpointResponsePtrOutput() Priv
 }
 
 func (o PrivateEndpointResponseOutput) ToPrivateEndpointResponsePtrOutputWithContext(ctx context.Context) PrivateEndpointResponsePtrOutput {
-	return o.ApplyT(func(v PrivateEndpointResponse) *PrivateEndpointResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v PrivateEndpointResponse) *PrivateEndpointResponse {
 		return &v
 	}).(PrivateEndpointResponsePtrOutput)
 }
 
-// The resource identifier.
 func (o PrivateEndpointResponseOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v PrivateEndpointResponse) string { return v.Id }).(pulumi.StringOutput)
 }
@@ -5997,10 +5529,15 @@ func (o PrivateEndpointResponsePtrOutput) ToPrivateEndpointResponsePtrOutputWith
 }
 
 func (o PrivateEndpointResponsePtrOutput) Elem() PrivateEndpointResponseOutput {
-	return o.ApplyT(func(v *PrivateEndpointResponse) PrivateEndpointResponse { return *v }).(PrivateEndpointResponseOutput)
+	return o.ApplyT(func(v *PrivateEndpointResponse) PrivateEndpointResponse {
+		if v != nil {
+			return *v
+		}
+		var ret PrivateEndpointResponse
+		return ret
+	}).(PrivateEndpointResponseOutput)
 }
 
-// The resource identifier.
 func (o PrivateEndpointResponsePtrOutput) Id() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *PrivateEndpointResponse) *string {
 		if v == nil {
@@ -6010,14 +5547,10 @@ func (o PrivateEndpointResponsePtrOutput) Id() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The current state of a private endpoint connection
 type PrivateLinkServiceConnectionState struct {
-	// Actions required for a private endpoint connection
 	ActionsRequired *string `pulumi:"actionsRequired"`
-	// The description for the current state of a private endpoint connection
-	Description string `pulumi:"description"`
-	// The status of a private endpoint connection
-	Status string `pulumi:"status"`
+	Description     string  `pulumi:"description"`
+	Status          string  `pulumi:"status"`
 }
 
 // PrivateLinkServiceConnectionStateInput is an input type that accepts PrivateLinkServiceConnectionStateArgs and PrivateLinkServiceConnectionStateOutput values.
@@ -6031,14 +5564,10 @@ type PrivateLinkServiceConnectionStateInput interface {
 	ToPrivateLinkServiceConnectionStateOutputWithContext(context.Context) PrivateLinkServiceConnectionStateOutput
 }
 
-// The current state of a private endpoint connection
 type PrivateLinkServiceConnectionStateArgs struct {
-	// Actions required for a private endpoint connection
 	ActionsRequired pulumi.StringPtrInput `pulumi:"actionsRequired"`
-	// The description for the current state of a private endpoint connection
-	Description pulumi.StringInput `pulumi:"description"`
-	// The status of a private endpoint connection
-	Status pulumi.StringInput `pulumi:"status"`
+	Description     pulumi.StringInput    `pulumi:"description"`
+	Status          pulumi.StringInput    `pulumi:"status"`
 }
 
 func (PrivateLinkServiceConnectionStateArgs) ElementType() reflect.Type {
@@ -6094,7 +5623,6 @@ func (i *privateLinkServiceConnectionStatePtrType) ToPrivateLinkServiceConnectio
 	return pulumi.ToOutputWithContext(ctx, i).(PrivateLinkServiceConnectionStatePtrOutput)
 }
 
-// The current state of a private endpoint connection
 type PrivateLinkServiceConnectionStateOutput struct{ *pulumi.OutputState }
 
 func (PrivateLinkServiceConnectionStateOutput) ElementType() reflect.Type {
@@ -6114,22 +5642,19 @@ func (o PrivateLinkServiceConnectionStateOutput) ToPrivateLinkServiceConnectionS
 }
 
 func (o PrivateLinkServiceConnectionStateOutput) ToPrivateLinkServiceConnectionStatePtrOutputWithContext(ctx context.Context) PrivateLinkServiceConnectionStatePtrOutput {
-	return o.ApplyT(func(v PrivateLinkServiceConnectionState) *PrivateLinkServiceConnectionState {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v PrivateLinkServiceConnectionState) *PrivateLinkServiceConnectionState {
 		return &v
 	}).(PrivateLinkServiceConnectionStatePtrOutput)
 }
 
-// Actions required for a private endpoint connection
 func (o PrivateLinkServiceConnectionStateOutput) ActionsRequired() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v PrivateLinkServiceConnectionState) *string { return v.ActionsRequired }).(pulumi.StringPtrOutput)
 }
 
-// The description for the current state of a private endpoint connection
 func (o PrivateLinkServiceConnectionStateOutput) Description() pulumi.StringOutput {
 	return o.ApplyT(func(v PrivateLinkServiceConnectionState) string { return v.Description }).(pulumi.StringOutput)
 }
 
-// The status of a private endpoint connection
 func (o PrivateLinkServiceConnectionStateOutput) Status() pulumi.StringOutput {
 	return o.ApplyT(func(v PrivateLinkServiceConnectionState) string { return v.Status }).(pulumi.StringOutput)
 }
@@ -6149,10 +5674,15 @@ func (o PrivateLinkServiceConnectionStatePtrOutput) ToPrivateLinkServiceConnecti
 }
 
 func (o PrivateLinkServiceConnectionStatePtrOutput) Elem() PrivateLinkServiceConnectionStateOutput {
-	return o.ApplyT(func(v *PrivateLinkServiceConnectionState) PrivateLinkServiceConnectionState { return *v }).(PrivateLinkServiceConnectionStateOutput)
+	return o.ApplyT(func(v *PrivateLinkServiceConnectionState) PrivateLinkServiceConnectionState {
+		if v != nil {
+			return *v
+		}
+		var ret PrivateLinkServiceConnectionState
+		return ret
+	}).(PrivateLinkServiceConnectionStateOutput)
 }
 
-// Actions required for a private endpoint connection
 func (o PrivateLinkServiceConnectionStatePtrOutput) ActionsRequired() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *PrivateLinkServiceConnectionState) *string {
 		if v == nil {
@@ -6162,7 +5692,6 @@ func (o PrivateLinkServiceConnectionStatePtrOutput) ActionsRequired() pulumi.Str
 	}).(pulumi.StringPtrOutput)
 }
 
-// The description for the current state of a private endpoint connection
 func (o PrivateLinkServiceConnectionStatePtrOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *PrivateLinkServiceConnectionState) *string {
 		if v == nil {
@@ -6172,7 +5701,6 @@ func (o PrivateLinkServiceConnectionStatePtrOutput) Description() pulumi.StringP
 	}).(pulumi.StringPtrOutput)
 }
 
-// The status of a private endpoint connection
 func (o PrivateLinkServiceConnectionStatePtrOutput) Status() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *PrivateLinkServiceConnectionState) *string {
 		if v == nil {
@@ -6182,14 +5710,10 @@ func (o PrivateLinkServiceConnectionStatePtrOutput) Status() pulumi.StringPtrOut
 	}).(pulumi.StringPtrOutput)
 }
 
-// The current state of a private endpoint connection
 type PrivateLinkServiceConnectionStateResponse struct {
-	// Actions required for a private endpoint connection
 	ActionsRequired *string `pulumi:"actionsRequired"`
-	// The description for the current state of a private endpoint connection
-	Description string `pulumi:"description"`
-	// The status of a private endpoint connection
-	Status string `pulumi:"status"`
+	Description     string  `pulumi:"description"`
+	Status          string  `pulumi:"status"`
 }
 
 // PrivateLinkServiceConnectionStateResponseInput is an input type that accepts PrivateLinkServiceConnectionStateResponseArgs and PrivateLinkServiceConnectionStateResponseOutput values.
@@ -6203,14 +5727,10 @@ type PrivateLinkServiceConnectionStateResponseInput interface {
 	ToPrivateLinkServiceConnectionStateResponseOutputWithContext(context.Context) PrivateLinkServiceConnectionStateResponseOutput
 }
 
-// The current state of a private endpoint connection
 type PrivateLinkServiceConnectionStateResponseArgs struct {
-	// Actions required for a private endpoint connection
 	ActionsRequired pulumi.StringPtrInput `pulumi:"actionsRequired"`
-	// The description for the current state of a private endpoint connection
-	Description pulumi.StringInput `pulumi:"description"`
-	// The status of a private endpoint connection
-	Status pulumi.StringInput `pulumi:"status"`
+	Description     pulumi.StringInput    `pulumi:"description"`
+	Status          pulumi.StringInput    `pulumi:"status"`
 }
 
 func (PrivateLinkServiceConnectionStateResponseArgs) ElementType() reflect.Type {
@@ -6266,7 +5786,6 @@ func (i *privateLinkServiceConnectionStateResponsePtrType) ToPrivateLinkServiceC
 	return pulumi.ToOutputWithContext(ctx, i).(PrivateLinkServiceConnectionStateResponsePtrOutput)
 }
 
-// The current state of a private endpoint connection
 type PrivateLinkServiceConnectionStateResponseOutput struct{ *pulumi.OutputState }
 
 func (PrivateLinkServiceConnectionStateResponseOutput) ElementType() reflect.Type {
@@ -6286,22 +5805,19 @@ func (o PrivateLinkServiceConnectionStateResponseOutput) ToPrivateLinkServiceCon
 }
 
 func (o PrivateLinkServiceConnectionStateResponseOutput) ToPrivateLinkServiceConnectionStateResponsePtrOutputWithContext(ctx context.Context) PrivateLinkServiceConnectionStateResponsePtrOutput {
-	return o.ApplyT(func(v PrivateLinkServiceConnectionStateResponse) *PrivateLinkServiceConnectionStateResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v PrivateLinkServiceConnectionStateResponse) *PrivateLinkServiceConnectionStateResponse {
 		return &v
 	}).(PrivateLinkServiceConnectionStateResponsePtrOutput)
 }
 
-// Actions required for a private endpoint connection
 func (o PrivateLinkServiceConnectionStateResponseOutput) ActionsRequired() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v PrivateLinkServiceConnectionStateResponse) *string { return v.ActionsRequired }).(pulumi.StringPtrOutput)
 }
 
-// The description for the current state of a private endpoint connection
 func (o PrivateLinkServiceConnectionStateResponseOutput) Description() pulumi.StringOutput {
 	return o.ApplyT(func(v PrivateLinkServiceConnectionStateResponse) string { return v.Description }).(pulumi.StringOutput)
 }
 
-// The status of a private endpoint connection
 func (o PrivateLinkServiceConnectionStateResponseOutput) Status() pulumi.StringOutput {
 	return o.ApplyT(func(v PrivateLinkServiceConnectionStateResponse) string { return v.Status }).(pulumi.StringOutput)
 }
@@ -6322,11 +5838,14 @@ func (o PrivateLinkServiceConnectionStateResponsePtrOutput) ToPrivateLinkService
 
 func (o PrivateLinkServiceConnectionStateResponsePtrOutput) Elem() PrivateLinkServiceConnectionStateResponseOutput {
 	return o.ApplyT(func(v *PrivateLinkServiceConnectionStateResponse) PrivateLinkServiceConnectionStateResponse {
-		return *v
+		if v != nil {
+			return *v
+		}
+		var ret PrivateLinkServiceConnectionStateResponse
+		return ret
 	}).(PrivateLinkServiceConnectionStateResponseOutput)
 }
 
-// Actions required for a private endpoint connection
 func (o PrivateLinkServiceConnectionStateResponsePtrOutput) ActionsRequired() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *PrivateLinkServiceConnectionStateResponse) *string {
 		if v == nil {
@@ -6336,7 +5855,6 @@ func (o PrivateLinkServiceConnectionStateResponsePtrOutput) ActionsRequired() pu
 	}).(pulumi.StringPtrOutput)
 }
 
-// The description for the current state of a private endpoint connection
 func (o PrivateLinkServiceConnectionStateResponsePtrOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *PrivateLinkServiceConnectionStateResponse) *string {
 		if v == nil {
@@ -6346,7 +5864,6 @@ func (o PrivateLinkServiceConnectionStateResponsePtrOutput) Description() pulumi
 	}).(pulumi.StringPtrOutput)
 }
 
-// The status of a private endpoint connection
 func (o PrivateLinkServiceConnectionStateResponsePtrOutput) Status() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *PrivateLinkServiceConnectionStateResponse) *string {
 		if v == nil {
@@ -6356,18 +5873,12 @@ func (o PrivateLinkServiceConnectionStateResponsePtrOutput) Status() pulumi.Stri
 	}).(pulumi.StringPtrOutput)
 }
 
-// The properties of a routing rule that your IoT hub uses to route messages to endpoints.
 type RouteProperties struct {
-	// The condition that is evaluated to apply the routing rule. If no condition is provided, it evaluates to true by default. For grammar, see: https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-query-language
-	Condition *string `pulumi:"condition"`
-	// The list of endpoints to which messages that satisfy the condition are routed. Currently only one endpoint is allowed.
+	Condition     *string  `pulumi:"condition"`
 	EndpointNames []string `pulumi:"endpointNames"`
-	// Used to specify whether a route is enabled.
-	IsEnabled bool `pulumi:"isEnabled"`
-	// The name of the route. The name can only include alphanumeric characters, periods, underscores, hyphens, has a maximum length of 64 characters, and must be unique.
-	Name string `pulumi:"name"`
-	// The source that the routing rule is to be applied to, such as DeviceMessages.
-	Source string `pulumi:"source"`
+	IsEnabled     bool     `pulumi:"isEnabled"`
+	Name          string   `pulumi:"name"`
+	Source        string   `pulumi:"source"`
 }
 
 // RoutePropertiesInput is an input type that accepts RoutePropertiesArgs and RoutePropertiesOutput values.
@@ -6381,18 +5892,12 @@ type RoutePropertiesInput interface {
 	ToRoutePropertiesOutputWithContext(context.Context) RoutePropertiesOutput
 }
 
-// The properties of a routing rule that your IoT hub uses to route messages to endpoints.
 type RoutePropertiesArgs struct {
-	// The condition that is evaluated to apply the routing rule. If no condition is provided, it evaluates to true by default. For grammar, see: https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-query-language
-	Condition pulumi.StringPtrInput `pulumi:"condition"`
-	// The list of endpoints to which messages that satisfy the condition are routed. Currently only one endpoint is allowed.
+	Condition     pulumi.StringPtrInput   `pulumi:"condition"`
 	EndpointNames pulumi.StringArrayInput `pulumi:"endpointNames"`
-	// Used to specify whether a route is enabled.
-	IsEnabled pulumi.BoolInput `pulumi:"isEnabled"`
-	// The name of the route. The name can only include alphanumeric characters, periods, underscores, hyphens, has a maximum length of 64 characters, and must be unique.
-	Name pulumi.StringInput `pulumi:"name"`
-	// The source that the routing rule is to be applied to, such as DeviceMessages.
-	Source pulumi.StringInput `pulumi:"source"`
+	IsEnabled     pulumi.BoolInput        `pulumi:"isEnabled"`
+	Name          pulumi.StringInput      `pulumi:"name"`
+	Source        pulumi.StringInput      `pulumi:"source"`
 }
 
 func (RoutePropertiesArgs) ElementType() reflect.Type {
@@ -6432,7 +5937,6 @@ func (i RoutePropertiesArray) ToRoutePropertiesArrayOutputWithContext(ctx contex
 	return pulumi.ToOutputWithContext(ctx, i).(RoutePropertiesArrayOutput)
 }
 
-// The properties of a routing rule that your IoT hub uses to route messages to endpoints.
 type RoutePropertiesOutput struct{ *pulumi.OutputState }
 
 func (RoutePropertiesOutput) ElementType() reflect.Type {
@@ -6447,27 +5951,22 @@ func (o RoutePropertiesOutput) ToRoutePropertiesOutputWithContext(ctx context.Co
 	return o
 }
 
-// The condition that is evaluated to apply the routing rule. If no condition is provided, it evaluates to true by default. For grammar, see: https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-query-language
 func (o RoutePropertiesOutput) Condition() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v RouteProperties) *string { return v.Condition }).(pulumi.StringPtrOutput)
 }
 
-// The list of endpoints to which messages that satisfy the condition are routed. Currently only one endpoint is allowed.
 func (o RoutePropertiesOutput) EndpointNames() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v RouteProperties) []string { return v.EndpointNames }).(pulumi.StringArrayOutput)
 }
 
-// Used to specify whether a route is enabled.
 func (o RoutePropertiesOutput) IsEnabled() pulumi.BoolOutput {
 	return o.ApplyT(func(v RouteProperties) bool { return v.IsEnabled }).(pulumi.BoolOutput)
 }
 
-// The name of the route. The name can only include alphanumeric characters, periods, underscores, hyphens, has a maximum length of 64 characters, and must be unique.
 func (o RoutePropertiesOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v RouteProperties) string { return v.Name }).(pulumi.StringOutput)
 }
 
-// The source that the routing rule is to be applied to, such as DeviceMessages.
 func (o RoutePropertiesOutput) Source() pulumi.StringOutput {
 	return o.ApplyT(func(v RouteProperties) string { return v.Source }).(pulumi.StringOutput)
 }
@@ -6492,18 +5991,12 @@ func (o RoutePropertiesArrayOutput) Index(i pulumi.IntInput) RoutePropertiesOutp
 	}).(RoutePropertiesOutput)
 }
 
-// The properties of a routing rule that your IoT hub uses to route messages to endpoints.
 type RoutePropertiesResponse struct {
-	// The condition that is evaluated to apply the routing rule. If no condition is provided, it evaluates to true by default. For grammar, see: https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-query-language
-	Condition *string `pulumi:"condition"`
-	// The list of endpoints to which messages that satisfy the condition are routed. Currently only one endpoint is allowed.
+	Condition     *string  `pulumi:"condition"`
 	EndpointNames []string `pulumi:"endpointNames"`
-	// Used to specify whether a route is enabled.
-	IsEnabled bool `pulumi:"isEnabled"`
-	// The name of the route. The name can only include alphanumeric characters, periods, underscores, hyphens, has a maximum length of 64 characters, and must be unique.
-	Name string `pulumi:"name"`
-	// The source that the routing rule is to be applied to, such as DeviceMessages.
-	Source string `pulumi:"source"`
+	IsEnabled     bool     `pulumi:"isEnabled"`
+	Name          string   `pulumi:"name"`
+	Source        string   `pulumi:"source"`
 }
 
 // RoutePropertiesResponseInput is an input type that accepts RoutePropertiesResponseArgs and RoutePropertiesResponseOutput values.
@@ -6517,18 +6010,12 @@ type RoutePropertiesResponseInput interface {
 	ToRoutePropertiesResponseOutputWithContext(context.Context) RoutePropertiesResponseOutput
 }
 
-// The properties of a routing rule that your IoT hub uses to route messages to endpoints.
 type RoutePropertiesResponseArgs struct {
-	// The condition that is evaluated to apply the routing rule. If no condition is provided, it evaluates to true by default. For grammar, see: https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-query-language
-	Condition pulumi.StringPtrInput `pulumi:"condition"`
-	// The list of endpoints to which messages that satisfy the condition are routed. Currently only one endpoint is allowed.
+	Condition     pulumi.StringPtrInput   `pulumi:"condition"`
 	EndpointNames pulumi.StringArrayInput `pulumi:"endpointNames"`
-	// Used to specify whether a route is enabled.
-	IsEnabled pulumi.BoolInput `pulumi:"isEnabled"`
-	// The name of the route. The name can only include alphanumeric characters, periods, underscores, hyphens, has a maximum length of 64 characters, and must be unique.
-	Name pulumi.StringInput `pulumi:"name"`
-	// The source that the routing rule is to be applied to, such as DeviceMessages.
-	Source pulumi.StringInput `pulumi:"source"`
+	IsEnabled     pulumi.BoolInput        `pulumi:"isEnabled"`
+	Name          pulumi.StringInput      `pulumi:"name"`
+	Source        pulumi.StringInput      `pulumi:"source"`
 }
 
 func (RoutePropertiesResponseArgs) ElementType() reflect.Type {
@@ -6568,7 +6055,6 @@ func (i RoutePropertiesResponseArray) ToRoutePropertiesResponseArrayOutputWithCo
 	return pulumi.ToOutputWithContext(ctx, i).(RoutePropertiesResponseArrayOutput)
 }
 
-// The properties of a routing rule that your IoT hub uses to route messages to endpoints.
 type RoutePropertiesResponseOutput struct{ *pulumi.OutputState }
 
 func (RoutePropertiesResponseOutput) ElementType() reflect.Type {
@@ -6583,27 +6069,22 @@ func (o RoutePropertiesResponseOutput) ToRoutePropertiesResponseOutputWithContex
 	return o
 }
 
-// The condition that is evaluated to apply the routing rule. If no condition is provided, it evaluates to true by default. For grammar, see: https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-query-language
 func (o RoutePropertiesResponseOutput) Condition() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v RoutePropertiesResponse) *string { return v.Condition }).(pulumi.StringPtrOutput)
 }
 
-// The list of endpoints to which messages that satisfy the condition are routed. Currently only one endpoint is allowed.
 func (o RoutePropertiesResponseOutput) EndpointNames() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v RoutePropertiesResponse) []string { return v.EndpointNames }).(pulumi.StringArrayOutput)
 }
 
-// Used to specify whether a route is enabled.
 func (o RoutePropertiesResponseOutput) IsEnabled() pulumi.BoolOutput {
 	return o.ApplyT(func(v RoutePropertiesResponse) bool { return v.IsEnabled }).(pulumi.BoolOutput)
 }
 
-// The name of the route. The name can only include alphanumeric characters, periods, underscores, hyphens, has a maximum length of 64 characters, and must be unique.
 func (o RoutePropertiesResponseOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v RoutePropertiesResponse) string { return v.Name }).(pulumi.StringOutput)
 }
 
-// The source that the routing rule is to be applied to, such as DeviceMessages.
 func (o RoutePropertiesResponseOutput) Source() pulumi.StringOutput {
 	return o.ApplyT(func(v RoutePropertiesResponse) string { return v.Source }).(pulumi.StringOutput)
 }
@@ -6628,16 +6109,11 @@ func (o RoutePropertiesResponseArrayOutput) Index(i pulumi.IntInput) RouteProper
 	}).(RoutePropertiesResponseOutput)
 }
 
-// The properties related to the custom endpoints to which your IoT hub routes messages based on the routing rules. A maximum of 10 custom endpoints are allowed across all endpoint types for paid hubs and only 1 custom endpoint is allowed across all endpoint types for free hubs.
 type RoutingEndpoints struct {
-	// The list of Event Hubs endpoints that IoT hub routes messages to, based on the routing rules. This list does not include the built-in Event Hubs endpoint.
-	EventHubs []RoutingEventHubProperties `pulumi:"eventHubs"`
-	// The list of Service Bus queue endpoints that IoT hub routes the messages to, based on the routing rules.
-	ServiceBusQueues []RoutingServiceBusQueueEndpointProperties `pulumi:"serviceBusQueues"`
-	// The list of Service Bus topic endpoints that the IoT hub routes the messages to, based on the routing rules.
-	ServiceBusTopics []RoutingServiceBusTopicEndpointProperties `pulumi:"serviceBusTopics"`
-	// The list of storage container endpoints that IoT hub routes messages to, based on the routing rules.
-	StorageContainers []RoutingStorageContainerProperties `pulumi:"storageContainers"`
+	EventHubs         []RoutingEventHubProperties                `pulumi:"eventHubs"`
+	ServiceBusQueues  []RoutingServiceBusQueueEndpointProperties `pulumi:"serviceBusQueues"`
+	ServiceBusTopics  []RoutingServiceBusTopicEndpointProperties `pulumi:"serviceBusTopics"`
+	StorageContainers []RoutingStorageContainerProperties        `pulumi:"storageContainers"`
 }
 
 // RoutingEndpointsInput is an input type that accepts RoutingEndpointsArgs and RoutingEndpointsOutput values.
@@ -6651,16 +6127,11 @@ type RoutingEndpointsInput interface {
 	ToRoutingEndpointsOutputWithContext(context.Context) RoutingEndpointsOutput
 }
 
-// The properties related to the custom endpoints to which your IoT hub routes messages based on the routing rules. A maximum of 10 custom endpoints are allowed across all endpoint types for paid hubs and only 1 custom endpoint is allowed across all endpoint types for free hubs.
 type RoutingEndpointsArgs struct {
-	// The list of Event Hubs endpoints that IoT hub routes messages to, based on the routing rules. This list does not include the built-in Event Hubs endpoint.
-	EventHubs RoutingEventHubPropertiesArrayInput `pulumi:"eventHubs"`
-	// The list of Service Bus queue endpoints that IoT hub routes the messages to, based on the routing rules.
-	ServiceBusQueues RoutingServiceBusQueueEndpointPropertiesArrayInput `pulumi:"serviceBusQueues"`
-	// The list of Service Bus topic endpoints that the IoT hub routes the messages to, based on the routing rules.
-	ServiceBusTopics RoutingServiceBusTopicEndpointPropertiesArrayInput `pulumi:"serviceBusTopics"`
-	// The list of storage container endpoints that IoT hub routes messages to, based on the routing rules.
-	StorageContainers RoutingStorageContainerPropertiesArrayInput `pulumi:"storageContainers"`
+	EventHubs         RoutingEventHubPropertiesArrayInput                `pulumi:"eventHubs"`
+	ServiceBusQueues  RoutingServiceBusQueueEndpointPropertiesArrayInput `pulumi:"serviceBusQueues"`
+	ServiceBusTopics  RoutingServiceBusTopicEndpointPropertiesArrayInput `pulumi:"serviceBusTopics"`
+	StorageContainers RoutingStorageContainerPropertiesArrayInput        `pulumi:"storageContainers"`
 }
 
 func (RoutingEndpointsArgs) ElementType() reflect.Type {
@@ -6716,7 +6187,6 @@ func (i *routingEndpointsPtrType) ToRoutingEndpointsPtrOutputWithContext(ctx con
 	return pulumi.ToOutputWithContext(ctx, i).(RoutingEndpointsPtrOutput)
 }
 
-// The properties related to the custom endpoints to which your IoT hub routes messages based on the routing rules. A maximum of 10 custom endpoints are allowed across all endpoint types for paid hubs and only 1 custom endpoint is allowed across all endpoint types for free hubs.
 type RoutingEndpointsOutput struct{ *pulumi.OutputState }
 
 func (RoutingEndpointsOutput) ElementType() reflect.Type {
@@ -6736,27 +6206,23 @@ func (o RoutingEndpointsOutput) ToRoutingEndpointsPtrOutput() RoutingEndpointsPt
 }
 
 func (o RoutingEndpointsOutput) ToRoutingEndpointsPtrOutputWithContext(ctx context.Context) RoutingEndpointsPtrOutput {
-	return o.ApplyT(func(v RoutingEndpoints) *RoutingEndpoints {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v RoutingEndpoints) *RoutingEndpoints {
 		return &v
 	}).(RoutingEndpointsPtrOutput)
 }
 
-// The list of Event Hubs endpoints that IoT hub routes messages to, based on the routing rules. This list does not include the built-in Event Hubs endpoint.
 func (o RoutingEndpointsOutput) EventHubs() RoutingEventHubPropertiesArrayOutput {
 	return o.ApplyT(func(v RoutingEndpoints) []RoutingEventHubProperties { return v.EventHubs }).(RoutingEventHubPropertiesArrayOutput)
 }
 
-// The list of Service Bus queue endpoints that IoT hub routes the messages to, based on the routing rules.
 func (o RoutingEndpointsOutput) ServiceBusQueues() RoutingServiceBusQueueEndpointPropertiesArrayOutput {
 	return o.ApplyT(func(v RoutingEndpoints) []RoutingServiceBusQueueEndpointProperties { return v.ServiceBusQueues }).(RoutingServiceBusQueueEndpointPropertiesArrayOutput)
 }
 
-// The list of Service Bus topic endpoints that the IoT hub routes the messages to, based on the routing rules.
 func (o RoutingEndpointsOutput) ServiceBusTopics() RoutingServiceBusTopicEndpointPropertiesArrayOutput {
 	return o.ApplyT(func(v RoutingEndpoints) []RoutingServiceBusTopicEndpointProperties { return v.ServiceBusTopics }).(RoutingServiceBusTopicEndpointPropertiesArrayOutput)
 }
 
-// The list of storage container endpoints that IoT hub routes messages to, based on the routing rules.
 func (o RoutingEndpointsOutput) StorageContainers() RoutingStorageContainerPropertiesArrayOutput {
 	return o.ApplyT(func(v RoutingEndpoints) []RoutingStorageContainerProperties { return v.StorageContainers }).(RoutingStorageContainerPropertiesArrayOutput)
 }
@@ -6776,10 +6242,15 @@ func (o RoutingEndpointsPtrOutput) ToRoutingEndpointsPtrOutputWithContext(ctx co
 }
 
 func (o RoutingEndpointsPtrOutput) Elem() RoutingEndpointsOutput {
-	return o.ApplyT(func(v *RoutingEndpoints) RoutingEndpoints { return *v }).(RoutingEndpointsOutput)
+	return o.ApplyT(func(v *RoutingEndpoints) RoutingEndpoints {
+		if v != nil {
+			return *v
+		}
+		var ret RoutingEndpoints
+		return ret
+	}).(RoutingEndpointsOutput)
 }
 
-// The list of Event Hubs endpoints that IoT hub routes messages to, based on the routing rules. This list does not include the built-in Event Hubs endpoint.
 func (o RoutingEndpointsPtrOutput) EventHubs() RoutingEventHubPropertiesArrayOutput {
 	return o.ApplyT(func(v *RoutingEndpoints) []RoutingEventHubProperties {
 		if v == nil {
@@ -6789,7 +6260,6 @@ func (o RoutingEndpointsPtrOutput) EventHubs() RoutingEventHubPropertiesArrayOut
 	}).(RoutingEventHubPropertiesArrayOutput)
 }
 
-// The list of Service Bus queue endpoints that IoT hub routes the messages to, based on the routing rules.
 func (o RoutingEndpointsPtrOutput) ServiceBusQueues() RoutingServiceBusQueueEndpointPropertiesArrayOutput {
 	return o.ApplyT(func(v *RoutingEndpoints) []RoutingServiceBusQueueEndpointProperties {
 		if v == nil {
@@ -6799,7 +6269,6 @@ func (o RoutingEndpointsPtrOutput) ServiceBusQueues() RoutingServiceBusQueueEndp
 	}).(RoutingServiceBusQueueEndpointPropertiesArrayOutput)
 }
 
-// The list of Service Bus topic endpoints that the IoT hub routes the messages to, based on the routing rules.
 func (o RoutingEndpointsPtrOutput) ServiceBusTopics() RoutingServiceBusTopicEndpointPropertiesArrayOutput {
 	return o.ApplyT(func(v *RoutingEndpoints) []RoutingServiceBusTopicEndpointProperties {
 		if v == nil {
@@ -6809,7 +6278,6 @@ func (o RoutingEndpointsPtrOutput) ServiceBusTopics() RoutingServiceBusTopicEndp
 	}).(RoutingServiceBusTopicEndpointPropertiesArrayOutput)
 }
 
-// The list of storage container endpoints that IoT hub routes messages to, based on the routing rules.
 func (o RoutingEndpointsPtrOutput) StorageContainers() RoutingStorageContainerPropertiesArrayOutput {
 	return o.ApplyT(func(v *RoutingEndpoints) []RoutingStorageContainerProperties {
 		if v == nil {
@@ -6819,16 +6287,11 @@ func (o RoutingEndpointsPtrOutput) StorageContainers() RoutingStorageContainerPr
 	}).(RoutingStorageContainerPropertiesArrayOutput)
 }
 
-// The properties related to the custom endpoints to which your IoT hub routes messages based on the routing rules. A maximum of 10 custom endpoints are allowed across all endpoint types for paid hubs and only 1 custom endpoint is allowed across all endpoint types for free hubs.
 type RoutingEndpointsResponse struct {
-	// The list of Event Hubs endpoints that IoT hub routes messages to, based on the routing rules. This list does not include the built-in Event Hubs endpoint.
-	EventHubs []RoutingEventHubPropertiesResponse `pulumi:"eventHubs"`
-	// The list of Service Bus queue endpoints that IoT hub routes the messages to, based on the routing rules.
-	ServiceBusQueues []RoutingServiceBusQueueEndpointPropertiesResponse `pulumi:"serviceBusQueues"`
-	// The list of Service Bus topic endpoints that the IoT hub routes the messages to, based on the routing rules.
-	ServiceBusTopics []RoutingServiceBusTopicEndpointPropertiesResponse `pulumi:"serviceBusTopics"`
-	// The list of storage container endpoints that IoT hub routes messages to, based on the routing rules.
-	StorageContainers []RoutingStorageContainerPropertiesResponse `pulumi:"storageContainers"`
+	EventHubs         []RoutingEventHubPropertiesResponse                `pulumi:"eventHubs"`
+	ServiceBusQueues  []RoutingServiceBusQueueEndpointPropertiesResponse `pulumi:"serviceBusQueues"`
+	ServiceBusTopics  []RoutingServiceBusTopicEndpointPropertiesResponse `pulumi:"serviceBusTopics"`
+	StorageContainers []RoutingStorageContainerPropertiesResponse        `pulumi:"storageContainers"`
 }
 
 // RoutingEndpointsResponseInput is an input type that accepts RoutingEndpointsResponseArgs and RoutingEndpointsResponseOutput values.
@@ -6842,16 +6305,11 @@ type RoutingEndpointsResponseInput interface {
 	ToRoutingEndpointsResponseOutputWithContext(context.Context) RoutingEndpointsResponseOutput
 }
 
-// The properties related to the custom endpoints to which your IoT hub routes messages based on the routing rules. A maximum of 10 custom endpoints are allowed across all endpoint types for paid hubs and only 1 custom endpoint is allowed across all endpoint types for free hubs.
 type RoutingEndpointsResponseArgs struct {
-	// The list of Event Hubs endpoints that IoT hub routes messages to, based on the routing rules. This list does not include the built-in Event Hubs endpoint.
-	EventHubs RoutingEventHubPropertiesResponseArrayInput `pulumi:"eventHubs"`
-	// The list of Service Bus queue endpoints that IoT hub routes the messages to, based on the routing rules.
-	ServiceBusQueues RoutingServiceBusQueueEndpointPropertiesResponseArrayInput `pulumi:"serviceBusQueues"`
-	// The list of Service Bus topic endpoints that the IoT hub routes the messages to, based on the routing rules.
-	ServiceBusTopics RoutingServiceBusTopicEndpointPropertiesResponseArrayInput `pulumi:"serviceBusTopics"`
-	// The list of storage container endpoints that IoT hub routes messages to, based on the routing rules.
-	StorageContainers RoutingStorageContainerPropertiesResponseArrayInput `pulumi:"storageContainers"`
+	EventHubs         RoutingEventHubPropertiesResponseArrayInput                `pulumi:"eventHubs"`
+	ServiceBusQueues  RoutingServiceBusQueueEndpointPropertiesResponseArrayInput `pulumi:"serviceBusQueues"`
+	ServiceBusTopics  RoutingServiceBusTopicEndpointPropertiesResponseArrayInput `pulumi:"serviceBusTopics"`
+	StorageContainers RoutingStorageContainerPropertiesResponseArrayInput        `pulumi:"storageContainers"`
 }
 
 func (RoutingEndpointsResponseArgs) ElementType() reflect.Type {
@@ -6907,7 +6365,6 @@ func (i *routingEndpointsResponsePtrType) ToRoutingEndpointsResponsePtrOutputWit
 	return pulumi.ToOutputWithContext(ctx, i).(RoutingEndpointsResponsePtrOutput)
 }
 
-// The properties related to the custom endpoints to which your IoT hub routes messages based on the routing rules. A maximum of 10 custom endpoints are allowed across all endpoint types for paid hubs and only 1 custom endpoint is allowed across all endpoint types for free hubs.
 type RoutingEndpointsResponseOutput struct{ *pulumi.OutputState }
 
 func (RoutingEndpointsResponseOutput) ElementType() reflect.Type {
@@ -6927,31 +6384,27 @@ func (o RoutingEndpointsResponseOutput) ToRoutingEndpointsResponsePtrOutput() Ro
 }
 
 func (o RoutingEndpointsResponseOutput) ToRoutingEndpointsResponsePtrOutputWithContext(ctx context.Context) RoutingEndpointsResponsePtrOutput {
-	return o.ApplyT(func(v RoutingEndpointsResponse) *RoutingEndpointsResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v RoutingEndpointsResponse) *RoutingEndpointsResponse {
 		return &v
 	}).(RoutingEndpointsResponsePtrOutput)
 }
 
-// The list of Event Hubs endpoints that IoT hub routes messages to, based on the routing rules. This list does not include the built-in Event Hubs endpoint.
 func (o RoutingEndpointsResponseOutput) EventHubs() RoutingEventHubPropertiesResponseArrayOutput {
 	return o.ApplyT(func(v RoutingEndpointsResponse) []RoutingEventHubPropertiesResponse { return v.EventHubs }).(RoutingEventHubPropertiesResponseArrayOutput)
 }
 
-// The list of Service Bus queue endpoints that IoT hub routes the messages to, based on the routing rules.
 func (o RoutingEndpointsResponseOutput) ServiceBusQueues() RoutingServiceBusQueueEndpointPropertiesResponseArrayOutput {
 	return o.ApplyT(func(v RoutingEndpointsResponse) []RoutingServiceBusQueueEndpointPropertiesResponse {
 		return v.ServiceBusQueues
 	}).(RoutingServiceBusQueueEndpointPropertiesResponseArrayOutput)
 }
 
-// The list of Service Bus topic endpoints that the IoT hub routes the messages to, based on the routing rules.
 func (o RoutingEndpointsResponseOutput) ServiceBusTopics() RoutingServiceBusTopicEndpointPropertiesResponseArrayOutput {
 	return o.ApplyT(func(v RoutingEndpointsResponse) []RoutingServiceBusTopicEndpointPropertiesResponse {
 		return v.ServiceBusTopics
 	}).(RoutingServiceBusTopicEndpointPropertiesResponseArrayOutput)
 }
 
-// The list of storage container endpoints that IoT hub routes messages to, based on the routing rules.
 func (o RoutingEndpointsResponseOutput) StorageContainers() RoutingStorageContainerPropertiesResponseArrayOutput {
 	return o.ApplyT(func(v RoutingEndpointsResponse) []RoutingStorageContainerPropertiesResponse {
 		return v.StorageContainers
@@ -6973,10 +6426,15 @@ func (o RoutingEndpointsResponsePtrOutput) ToRoutingEndpointsResponsePtrOutputWi
 }
 
 func (o RoutingEndpointsResponsePtrOutput) Elem() RoutingEndpointsResponseOutput {
-	return o.ApplyT(func(v *RoutingEndpointsResponse) RoutingEndpointsResponse { return *v }).(RoutingEndpointsResponseOutput)
+	return o.ApplyT(func(v *RoutingEndpointsResponse) RoutingEndpointsResponse {
+		if v != nil {
+			return *v
+		}
+		var ret RoutingEndpointsResponse
+		return ret
+	}).(RoutingEndpointsResponseOutput)
 }
 
-// The list of Event Hubs endpoints that IoT hub routes messages to, based on the routing rules. This list does not include the built-in Event Hubs endpoint.
 func (o RoutingEndpointsResponsePtrOutput) EventHubs() RoutingEventHubPropertiesResponseArrayOutput {
 	return o.ApplyT(func(v *RoutingEndpointsResponse) []RoutingEventHubPropertiesResponse {
 		if v == nil {
@@ -6986,7 +6444,6 @@ func (o RoutingEndpointsResponsePtrOutput) EventHubs() RoutingEventHubProperties
 	}).(RoutingEventHubPropertiesResponseArrayOutput)
 }
 
-// The list of Service Bus queue endpoints that IoT hub routes the messages to, based on the routing rules.
 func (o RoutingEndpointsResponsePtrOutput) ServiceBusQueues() RoutingServiceBusQueueEndpointPropertiesResponseArrayOutput {
 	return o.ApplyT(func(v *RoutingEndpointsResponse) []RoutingServiceBusQueueEndpointPropertiesResponse {
 		if v == nil {
@@ -6996,7 +6453,6 @@ func (o RoutingEndpointsResponsePtrOutput) ServiceBusQueues() RoutingServiceBusQ
 	}).(RoutingServiceBusQueueEndpointPropertiesResponseArrayOutput)
 }
 
-// The list of Service Bus topic endpoints that the IoT hub routes the messages to, based on the routing rules.
 func (o RoutingEndpointsResponsePtrOutput) ServiceBusTopics() RoutingServiceBusTopicEndpointPropertiesResponseArrayOutput {
 	return o.ApplyT(func(v *RoutingEndpointsResponse) []RoutingServiceBusTopicEndpointPropertiesResponse {
 		if v == nil {
@@ -7006,7 +6462,6 @@ func (o RoutingEndpointsResponsePtrOutput) ServiceBusTopics() RoutingServiceBusT
 	}).(RoutingServiceBusTopicEndpointPropertiesResponseArrayOutput)
 }
 
-// The list of storage container endpoints that IoT hub routes messages to, based on the routing rules.
 func (o RoutingEndpointsResponsePtrOutput) StorageContainers() RoutingStorageContainerPropertiesResponseArrayOutput {
 	return o.ApplyT(func(v *RoutingEndpointsResponse) []RoutingStorageContainerPropertiesResponse {
 		if v == nil {
@@ -7016,26 +6471,16 @@ func (o RoutingEndpointsResponsePtrOutput) StorageContainers() RoutingStorageCon
 	}).(RoutingStorageContainerPropertiesResponseArrayOutput)
 }
 
-// The properties related to an event hub endpoint.
 type RoutingEventHubProperties struct {
-	// Method used to authenticate against the event hub endpoint
-	AuthenticationType *string `pulumi:"authenticationType"`
-	// The connection string of the event hub endpoint.
-	ConnectionString *string `pulumi:"connectionString"`
-	// The url of the event hub endpoint. It must include the protocol sb://
-	EndpointUri *string `pulumi:"endpointUri"`
-	// Event hub name on the event hub namespace
-	EntityPath *string `pulumi:"entityPath"`
-	// Id of the event hub endpoint
-	Id *string `pulumi:"id"`
-	// Managed identity properties of routing event hub endpoint.
-	Identity *ManagedIdentity `pulumi:"identity"`
-	// The name that identifies this endpoint. The name can only include alphanumeric characters, periods, underscores, hyphens and has a maximum length of 64 characters. The following names are reserved:  events, fileNotifications, $default. Endpoint names must be unique across endpoint types.
-	Name string `pulumi:"name"`
-	// The name of the resource group of the event hub endpoint.
-	ResourceGroup *string `pulumi:"resourceGroup"`
-	// The subscription identifier of the event hub endpoint.
-	SubscriptionId *string `pulumi:"subscriptionId"`
+	AuthenticationType *string          `pulumi:"authenticationType"`
+	ConnectionString   *string          `pulumi:"connectionString"`
+	EndpointUri        *string          `pulumi:"endpointUri"`
+	EntityPath         *string          `pulumi:"entityPath"`
+	Id                 *string          `pulumi:"id"`
+	Identity           *ManagedIdentity `pulumi:"identity"`
+	Name               string           `pulumi:"name"`
+	ResourceGroup      *string          `pulumi:"resourceGroup"`
+	SubscriptionId     *string          `pulumi:"subscriptionId"`
 }
 
 // RoutingEventHubPropertiesInput is an input type that accepts RoutingEventHubPropertiesArgs and RoutingEventHubPropertiesOutput values.
@@ -7049,26 +6494,16 @@ type RoutingEventHubPropertiesInput interface {
 	ToRoutingEventHubPropertiesOutputWithContext(context.Context) RoutingEventHubPropertiesOutput
 }
 
-// The properties related to an event hub endpoint.
 type RoutingEventHubPropertiesArgs struct {
-	// Method used to authenticate against the event hub endpoint
-	AuthenticationType pulumi.StringPtrInput `pulumi:"authenticationType"`
-	// The connection string of the event hub endpoint.
-	ConnectionString pulumi.StringPtrInput `pulumi:"connectionString"`
-	// The url of the event hub endpoint. It must include the protocol sb://
-	EndpointUri pulumi.StringPtrInput `pulumi:"endpointUri"`
-	// Event hub name on the event hub namespace
-	EntityPath pulumi.StringPtrInput `pulumi:"entityPath"`
-	// Id of the event hub endpoint
-	Id pulumi.StringPtrInput `pulumi:"id"`
-	// Managed identity properties of routing event hub endpoint.
-	Identity ManagedIdentityPtrInput `pulumi:"identity"`
-	// The name that identifies this endpoint. The name can only include alphanumeric characters, periods, underscores, hyphens and has a maximum length of 64 characters. The following names are reserved:  events, fileNotifications, $default. Endpoint names must be unique across endpoint types.
-	Name pulumi.StringInput `pulumi:"name"`
-	// The name of the resource group of the event hub endpoint.
-	ResourceGroup pulumi.StringPtrInput `pulumi:"resourceGroup"`
-	// The subscription identifier of the event hub endpoint.
-	SubscriptionId pulumi.StringPtrInput `pulumi:"subscriptionId"`
+	AuthenticationType pulumi.StringPtrInput   `pulumi:"authenticationType"`
+	ConnectionString   pulumi.StringPtrInput   `pulumi:"connectionString"`
+	EndpointUri        pulumi.StringPtrInput   `pulumi:"endpointUri"`
+	EntityPath         pulumi.StringPtrInput   `pulumi:"entityPath"`
+	Id                 pulumi.StringPtrInput   `pulumi:"id"`
+	Identity           ManagedIdentityPtrInput `pulumi:"identity"`
+	Name               pulumi.StringInput      `pulumi:"name"`
+	ResourceGroup      pulumi.StringPtrInput   `pulumi:"resourceGroup"`
+	SubscriptionId     pulumi.StringPtrInput   `pulumi:"subscriptionId"`
 }
 
 func (RoutingEventHubPropertiesArgs) ElementType() reflect.Type {
@@ -7108,7 +6543,6 @@ func (i RoutingEventHubPropertiesArray) ToRoutingEventHubPropertiesArrayOutputWi
 	return pulumi.ToOutputWithContext(ctx, i).(RoutingEventHubPropertiesArrayOutput)
 }
 
-// The properties related to an event hub endpoint.
 type RoutingEventHubPropertiesOutput struct{ *pulumi.OutputState }
 
 func (RoutingEventHubPropertiesOutput) ElementType() reflect.Type {
@@ -7123,47 +6557,38 @@ func (o RoutingEventHubPropertiesOutput) ToRoutingEventHubPropertiesOutputWithCo
 	return o
 }
 
-// Method used to authenticate against the event hub endpoint
 func (o RoutingEventHubPropertiesOutput) AuthenticationType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v RoutingEventHubProperties) *string { return v.AuthenticationType }).(pulumi.StringPtrOutput)
 }
 
-// The connection string of the event hub endpoint.
 func (o RoutingEventHubPropertiesOutput) ConnectionString() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v RoutingEventHubProperties) *string { return v.ConnectionString }).(pulumi.StringPtrOutput)
 }
 
-// The url of the event hub endpoint. It must include the protocol sb://
 func (o RoutingEventHubPropertiesOutput) EndpointUri() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v RoutingEventHubProperties) *string { return v.EndpointUri }).(pulumi.StringPtrOutput)
 }
 
-// Event hub name on the event hub namespace
 func (o RoutingEventHubPropertiesOutput) EntityPath() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v RoutingEventHubProperties) *string { return v.EntityPath }).(pulumi.StringPtrOutput)
 }
 
-// Id of the event hub endpoint
 func (o RoutingEventHubPropertiesOutput) Id() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v RoutingEventHubProperties) *string { return v.Id }).(pulumi.StringPtrOutput)
 }
 
-// Managed identity properties of routing event hub endpoint.
 func (o RoutingEventHubPropertiesOutput) Identity() ManagedIdentityPtrOutput {
 	return o.ApplyT(func(v RoutingEventHubProperties) *ManagedIdentity { return v.Identity }).(ManagedIdentityPtrOutput)
 }
 
-// The name that identifies this endpoint. The name can only include alphanumeric characters, periods, underscores, hyphens and has a maximum length of 64 characters. The following names are reserved:  events, fileNotifications, $default. Endpoint names must be unique across endpoint types.
 func (o RoutingEventHubPropertiesOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v RoutingEventHubProperties) string { return v.Name }).(pulumi.StringOutput)
 }
 
-// The name of the resource group of the event hub endpoint.
 func (o RoutingEventHubPropertiesOutput) ResourceGroup() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v RoutingEventHubProperties) *string { return v.ResourceGroup }).(pulumi.StringPtrOutput)
 }
 
-// The subscription identifier of the event hub endpoint.
 func (o RoutingEventHubPropertiesOutput) SubscriptionId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v RoutingEventHubProperties) *string { return v.SubscriptionId }).(pulumi.StringPtrOutput)
 }
@@ -7188,26 +6613,16 @@ func (o RoutingEventHubPropertiesArrayOutput) Index(i pulumi.IntInput) RoutingEv
 	}).(RoutingEventHubPropertiesOutput)
 }
 
-// The properties related to an event hub endpoint.
 type RoutingEventHubPropertiesResponse struct {
-	// Method used to authenticate against the event hub endpoint
-	AuthenticationType *string `pulumi:"authenticationType"`
-	// The connection string of the event hub endpoint.
-	ConnectionString *string `pulumi:"connectionString"`
-	// The url of the event hub endpoint. It must include the protocol sb://
-	EndpointUri *string `pulumi:"endpointUri"`
-	// Event hub name on the event hub namespace
-	EntityPath *string `pulumi:"entityPath"`
-	// Id of the event hub endpoint
-	Id *string `pulumi:"id"`
-	// Managed identity properties of routing event hub endpoint.
-	Identity *ManagedIdentityResponse `pulumi:"identity"`
-	// The name that identifies this endpoint. The name can only include alphanumeric characters, periods, underscores, hyphens and has a maximum length of 64 characters. The following names are reserved:  events, fileNotifications, $default. Endpoint names must be unique across endpoint types.
-	Name string `pulumi:"name"`
-	// The name of the resource group of the event hub endpoint.
-	ResourceGroup *string `pulumi:"resourceGroup"`
-	// The subscription identifier of the event hub endpoint.
-	SubscriptionId *string `pulumi:"subscriptionId"`
+	AuthenticationType *string                  `pulumi:"authenticationType"`
+	ConnectionString   *string                  `pulumi:"connectionString"`
+	EndpointUri        *string                  `pulumi:"endpointUri"`
+	EntityPath         *string                  `pulumi:"entityPath"`
+	Id                 *string                  `pulumi:"id"`
+	Identity           *ManagedIdentityResponse `pulumi:"identity"`
+	Name               string                   `pulumi:"name"`
+	ResourceGroup      *string                  `pulumi:"resourceGroup"`
+	SubscriptionId     *string                  `pulumi:"subscriptionId"`
 }
 
 // RoutingEventHubPropertiesResponseInput is an input type that accepts RoutingEventHubPropertiesResponseArgs and RoutingEventHubPropertiesResponseOutput values.
@@ -7221,26 +6636,16 @@ type RoutingEventHubPropertiesResponseInput interface {
 	ToRoutingEventHubPropertiesResponseOutputWithContext(context.Context) RoutingEventHubPropertiesResponseOutput
 }
 
-// The properties related to an event hub endpoint.
 type RoutingEventHubPropertiesResponseArgs struct {
-	// Method used to authenticate against the event hub endpoint
-	AuthenticationType pulumi.StringPtrInput `pulumi:"authenticationType"`
-	// The connection string of the event hub endpoint.
-	ConnectionString pulumi.StringPtrInput `pulumi:"connectionString"`
-	// The url of the event hub endpoint. It must include the protocol sb://
-	EndpointUri pulumi.StringPtrInput `pulumi:"endpointUri"`
-	// Event hub name on the event hub namespace
-	EntityPath pulumi.StringPtrInput `pulumi:"entityPath"`
-	// Id of the event hub endpoint
-	Id pulumi.StringPtrInput `pulumi:"id"`
-	// Managed identity properties of routing event hub endpoint.
-	Identity ManagedIdentityResponsePtrInput `pulumi:"identity"`
-	// The name that identifies this endpoint. The name can only include alphanumeric characters, periods, underscores, hyphens and has a maximum length of 64 characters. The following names are reserved:  events, fileNotifications, $default. Endpoint names must be unique across endpoint types.
-	Name pulumi.StringInput `pulumi:"name"`
-	// The name of the resource group of the event hub endpoint.
-	ResourceGroup pulumi.StringPtrInput `pulumi:"resourceGroup"`
-	// The subscription identifier of the event hub endpoint.
-	SubscriptionId pulumi.StringPtrInput `pulumi:"subscriptionId"`
+	AuthenticationType pulumi.StringPtrInput           `pulumi:"authenticationType"`
+	ConnectionString   pulumi.StringPtrInput           `pulumi:"connectionString"`
+	EndpointUri        pulumi.StringPtrInput           `pulumi:"endpointUri"`
+	EntityPath         pulumi.StringPtrInput           `pulumi:"entityPath"`
+	Id                 pulumi.StringPtrInput           `pulumi:"id"`
+	Identity           ManagedIdentityResponsePtrInput `pulumi:"identity"`
+	Name               pulumi.StringInput              `pulumi:"name"`
+	ResourceGroup      pulumi.StringPtrInput           `pulumi:"resourceGroup"`
+	SubscriptionId     pulumi.StringPtrInput           `pulumi:"subscriptionId"`
 }
 
 func (RoutingEventHubPropertiesResponseArgs) ElementType() reflect.Type {
@@ -7280,7 +6685,6 @@ func (i RoutingEventHubPropertiesResponseArray) ToRoutingEventHubPropertiesRespo
 	return pulumi.ToOutputWithContext(ctx, i).(RoutingEventHubPropertiesResponseArrayOutput)
 }
 
-// The properties related to an event hub endpoint.
 type RoutingEventHubPropertiesResponseOutput struct{ *pulumi.OutputState }
 
 func (RoutingEventHubPropertiesResponseOutput) ElementType() reflect.Type {
@@ -7295,47 +6699,38 @@ func (o RoutingEventHubPropertiesResponseOutput) ToRoutingEventHubPropertiesResp
 	return o
 }
 
-// Method used to authenticate against the event hub endpoint
 func (o RoutingEventHubPropertiesResponseOutput) AuthenticationType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v RoutingEventHubPropertiesResponse) *string { return v.AuthenticationType }).(pulumi.StringPtrOutput)
 }
 
-// The connection string of the event hub endpoint.
 func (o RoutingEventHubPropertiesResponseOutput) ConnectionString() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v RoutingEventHubPropertiesResponse) *string { return v.ConnectionString }).(pulumi.StringPtrOutput)
 }
 
-// The url of the event hub endpoint. It must include the protocol sb://
 func (o RoutingEventHubPropertiesResponseOutput) EndpointUri() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v RoutingEventHubPropertiesResponse) *string { return v.EndpointUri }).(pulumi.StringPtrOutput)
 }
 
-// Event hub name on the event hub namespace
 func (o RoutingEventHubPropertiesResponseOutput) EntityPath() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v RoutingEventHubPropertiesResponse) *string { return v.EntityPath }).(pulumi.StringPtrOutput)
 }
 
-// Id of the event hub endpoint
 func (o RoutingEventHubPropertiesResponseOutput) Id() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v RoutingEventHubPropertiesResponse) *string { return v.Id }).(pulumi.StringPtrOutput)
 }
 
-// Managed identity properties of routing event hub endpoint.
 func (o RoutingEventHubPropertiesResponseOutput) Identity() ManagedIdentityResponsePtrOutput {
 	return o.ApplyT(func(v RoutingEventHubPropertiesResponse) *ManagedIdentityResponse { return v.Identity }).(ManagedIdentityResponsePtrOutput)
 }
 
-// The name that identifies this endpoint. The name can only include alphanumeric characters, periods, underscores, hyphens and has a maximum length of 64 characters. The following names are reserved:  events, fileNotifications, $default. Endpoint names must be unique across endpoint types.
 func (o RoutingEventHubPropertiesResponseOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v RoutingEventHubPropertiesResponse) string { return v.Name }).(pulumi.StringOutput)
 }
 
-// The name of the resource group of the event hub endpoint.
 func (o RoutingEventHubPropertiesResponseOutput) ResourceGroup() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v RoutingEventHubPropertiesResponse) *string { return v.ResourceGroup }).(pulumi.StringPtrOutput)
 }
 
-// The subscription identifier of the event hub endpoint.
 func (o RoutingEventHubPropertiesResponseOutput) SubscriptionId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v RoutingEventHubPropertiesResponse) *string { return v.SubscriptionId }).(pulumi.StringPtrOutput)
 }
@@ -7360,16 +6755,11 @@ func (o RoutingEventHubPropertiesResponseArrayOutput) Index(i pulumi.IntInput) R
 	}).(RoutingEventHubPropertiesResponseOutput)
 }
 
-// The routing related properties of the IoT hub. See: https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-messaging
 type RoutingProperties struct {
-	// The properties related to the custom endpoints to which your IoT hub routes messages based on the routing rules. A maximum of 10 custom endpoints are allowed across all endpoint types for paid hubs and only 1 custom endpoint is allowed across all endpoint types for free hubs.
-	Endpoints *RoutingEndpoints `pulumi:"endpoints"`
-	// The list of user-provided enrichments that the IoT hub applies to messages to be delivered to built-in and custom endpoints. See: https://aka.ms/telemetryoneventgrid
-	Enrichments []EnrichmentProperties `pulumi:"enrichments"`
-	// The properties of the route that is used as a fall-back route when none of the conditions specified in the 'routes' section are met. This is an optional parameter. When this property is not set, the messages which do not meet any of the conditions specified in the 'routes' section get routed to the built-in eventhub endpoint.
+	Endpoints     *RoutingEndpoints        `pulumi:"endpoints"`
+	Enrichments   []EnrichmentProperties   `pulumi:"enrichments"`
 	FallbackRoute *FallbackRouteProperties `pulumi:"fallbackRoute"`
-	// The list of user-provided routing rules that the IoT hub uses to route messages to built-in and custom endpoints. A maximum of 100 routing rules are allowed for paid hubs and a maximum of 5 routing rules are allowed for free hubs.
-	Routes []RouteProperties `pulumi:"routes"`
+	Routes        []RouteProperties        `pulumi:"routes"`
 }
 
 // RoutingPropertiesInput is an input type that accepts RoutingPropertiesArgs and RoutingPropertiesOutput values.
@@ -7383,16 +6773,11 @@ type RoutingPropertiesInput interface {
 	ToRoutingPropertiesOutputWithContext(context.Context) RoutingPropertiesOutput
 }
 
-// The routing related properties of the IoT hub. See: https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-messaging
 type RoutingPropertiesArgs struct {
-	// The properties related to the custom endpoints to which your IoT hub routes messages based on the routing rules. A maximum of 10 custom endpoints are allowed across all endpoint types for paid hubs and only 1 custom endpoint is allowed across all endpoint types for free hubs.
-	Endpoints RoutingEndpointsPtrInput `pulumi:"endpoints"`
-	// The list of user-provided enrichments that the IoT hub applies to messages to be delivered to built-in and custom endpoints. See: https://aka.ms/telemetryoneventgrid
-	Enrichments EnrichmentPropertiesArrayInput `pulumi:"enrichments"`
-	// The properties of the route that is used as a fall-back route when none of the conditions specified in the 'routes' section are met. This is an optional parameter. When this property is not set, the messages which do not meet any of the conditions specified in the 'routes' section get routed to the built-in eventhub endpoint.
+	Endpoints     RoutingEndpointsPtrInput        `pulumi:"endpoints"`
+	Enrichments   EnrichmentPropertiesArrayInput  `pulumi:"enrichments"`
 	FallbackRoute FallbackRoutePropertiesPtrInput `pulumi:"fallbackRoute"`
-	// The list of user-provided routing rules that the IoT hub uses to route messages to built-in and custom endpoints. A maximum of 100 routing rules are allowed for paid hubs and a maximum of 5 routing rules are allowed for free hubs.
-	Routes RoutePropertiesArrayInput `pulumi:"routes"`
+	Routes        RoutePropertiesArrayInput       `pulumi:"routes"`
 }
 
 func (RoutingPropertiesArgs) ElementType() reflect.Type {
@@ -7448,7 +6833,6 @@ func (i *routingPropertiesPtrType) ToRoutingPropertiesPtrOutputWithContext(ctx c
 	return pulumi.ToOutputWithContext(ctx, i).(RoutingPropertiesPtrOutput)
 }
 
-// The routing related properties of the IoT hub. See: https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-messaging
 type RoutingPropertiesOutput struct{ *pulumi.OutputState }
 
 func (RoutingPropertiesOutput) ElementType() reflect.Type {
@@ -7468,27 +6852,23 @@ func (o RoutingPropertiesOutput) ToRoutingPropertiesPtrOutput() RoutingPropertie
 }
 
 func (o RoutingPropertiesOutput) ToRoutingPropertiesPtrOutputWithContext(ctx context.Context) RoutingPropertiesPtrOutput {
-	return o.ApplyT(func(v RoutingProperties) *RoutingProperties {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v RoutingProperties) *RoutingProperties {
 		return &v
 	}).(RoutingPropertiesPtrOutput)
 }
 
-// The properties related to the custom endpoints to which your IoT hub routes messages based on the routing rules. A maximum of 10 custom endpoints are allowed across all endpoint types for paid hubs and only 1 custom endpoint is allowed across all endpoint types for free hubs.
 func (o RoutingPropertiesOutput) Endpoints() RoutingEndpointsPtrOutput {
 	return o.ApplyT(func(v RoutingProperties) *RoutingEndpoints { return v.Endpoints }).(RoutingEndpointsPtrOutput)
 }
 
-// The list of user-provided enrichments that the IoT hub applies to messages to be delivered to built-in and custom endpoints. See: https://aka.ms/telemetryoneventgrid
 func (o RoutingPropertiesOutput) Enrichments() EnrichmentPropertiesArrayOutput {
 	return o.ApplyT(func(v RoutingProperties) []EnrichmentProperties { return v.Enrichments }).(EnrichmentPropertiesArrayOutput)
 }
 
-// The properties of the route that is used as a fall-back route when none of the conditions specified in the 'routes' section are met. This is an optional parameter. When this property is not set, the messages which do not meet any of the conditions specified in the 'routes' section get routed to the built-in eventhub endpoint.
 func (o RoutingPropertiesOutput) FallbackRoute() FallbackRoutePropertiesPtrOutput {
 	return o.ApplyT(func(v RoutingProperties) *FallbackRouteProperties { return v.FallbackRoute }).(FallbackRoutePropertiesPtrOutput)
 }
 
-// The list of user-provided routing rules that the IoT hub uses to route messages to built-in and custom endpoints. A maximum of 100 routing rules are allowed for paid hubs and a maximum of 5 routing rules are allowed for free hubs.
 func (o RoutingPropertiesOutput) Routes() RoutePropertiesArrayOutput {
 	return o.ApplyT(func(v RoutingProperties) []RouteProperties { return v.Routes }).(RoutePropertiesArrayOutput)
 }
@@ -7508,10 +6888,15 @@ func (o RoutingPropertiesPtrOutput) ToRoutingPropertiesPtrOutputWithContext(ctx 
 }
 
 func (o RoutingPropertiesPtrOutput) Elem() RoutingPropertiesOutput {
-	return o.ApplyT(func(v *RoutingProperties) RoutingProperties { return *v }).(RoutingPropertiesOutput)
+	return o.ApplyT(func(v *RoutingProperties) RoutingProperties {
+		if v != nil {
+			return *v
+		}
+		var ret RoutingProperties
+		return ret
+	}).(RoutingPropertiesOutput)
 }
 
-// The properties related to the custom endpoints to which your IoT hub routes messages based on the routing rules. A maximum of 10 custom endpoints are allowed across all endpoint types for paid hubs and only 1 custom endpoint is allowed across all endpoint types for free hubs.
 func (o RoutingPropertiesPtrOutput) Endpoints() RoutingEndpointsPtrOutput {
 	return o.ApplyT(func(v *RoutingProperties) *RoutingEndpoints {
 		if v == nil {
@@ -7521,7 +6906,6 @@ func (o RoutingPropertiesPtrOutput) Endpoints() RoutingEndpointsPtrOutput {
 	}).(RoutingEndpointsPtrOutput)
 }
 
-// The list of user-provided enrichments that the IoT hub applies to messages to be delivered to built-in and custom endpoints. See: https://aka.ms/telemetryoneventgrid
 func (o RoutingPropertiesPtrOutput) Enrichments() EnrichmentPropertiesArrayOutput {
 	return o.ApplyT(func(v *RoutingProperties) []EnrichmentProperties {
 		if v == nil {
@@ -7531,7 +6915,6 @@ func (o RoutingPropertiesPtrOutput) Enrichments() EnrichmentPropertiesArrayOutpu
 	}).(EnrichmentPropertiesArrayOutput)
 }
 
-// The properties of the route that is used as a fall-back route when none of the conditions specified in the 'routes' section are met. This is an optional parameter. When this property is not set, the messages which do not meet any of the conditions specified in the 'routes' section get routed to the built-in eventhub endpoint.
 func (o RoutingPropertiesPtrOutput) FallbackRoute() FallbackRoutePropertiesPtrOutput {
 	return o.ApplyT(func(v *RoutingProperties) *FallbackRouteProperties {
 		if v == nil {
@@ -7541,7 +6924,6 @@ func (o RoutingPropertiesPtrOutput) FallbackRoute() FallbackRoutePropertiesPtrOu
 	}).(FallbackRoutePropertiesPtrOutput)
 }
 
-// The list of user-provided routing rules that the IoT hub uses to route messages to built-in and custom endpoints. A maximum of 100 routing rules are allowed for paid hubs and a maximum of 5 routing rules are allowed for free hubs.
 func (o RoutingPropertiesPtrOutput) Routes() RoutePropertiesArrayOutput {
 	return o.ApplyT(func(v *RoutingProperties) []RouteProperties {
 		if v == nil {
@@ -7551,16 +6933,11 @@ func (o RoutingPropertiesPtrOutput) Routes() RoutePropertiesArrayOutput {
 	}).(RoutePropertiesArrayOutput)
 }
 
-// The routing related properties of the IoT hub. See: https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-messaging
 type RoutingPropertiesResponse struct {
-	// The properties related to the custom endpoints to which your IoT hub routes messages based on the routing rules. A maximum of 10 custom endpoints are allowed across all endpoint types for paid hubs and only 1 custom endpoint is allowed across all endpoint types for free hubs.
-	Endpoints *RoutingEndpointsResponse `pulumi:"endpoints"`
-	// The list of user-provided enrichments that the IoT hub applies to messages to be delivered to built-in and custom endpoints. See: https://aka.ms/telemetryoneventgrid
-	Enrichments []EnrichmentPropertiesResponse `pulumi:"enrichments"`
-	// The properties of the route that is used as a fall-back route when none of the conditions specified in the 'routes' section are met. This is an optional parameter. When this property is not set, the messages which do not meet any of the conditions specified in the 'routes' section get routed to the built-in eventhub endpoint.
+	Endpoints     *RoutingEndpointsResponse        `pulumi:"endpoints"`
+	Enrichments   []EnrichmentPropertiesResponse   `pulumi:"enrichments"`
 	FallbackRoute *FallbackRoutePropertiesResponse `pulumi:"fallbackRoute"`
-	// The list of user-provided routing rules that the IoT hub uses to route messages to built-in and custom endpoints. A maximum of 100 routing rules are allowed for paid hubs and a maximum of 5 routing rules are allowed for free hubs.
-	Routes []RoutePropertiesResponse `pulumi:"routes"`
+	Routes        []RoutePropertiesResponse        `pulumi:"routes"`
 }
 
 // RoutingPropertiesResponseInput is an input type that accepts RoutingPropertiesResponseArgs and RoutingPropertiesResponseOutput values.
@@ -7574,16 +6951,11 @@ type RoutingPropertiesResponseInput interface {
 	ToRoutingPropertiesResponseOutputWithContext(context.Context) RoutingPropertiesResponseOutput
 }
 
-// The routing related properties of the IoT hub. See: https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-messaging
 type RoutingPropertiesResponseArgs struct {
-	// The properties related to the custom endpoints to which your IoT hub routes messages based on the routing rules. A maximum of 10 custom endpoints are allowed across all endpoint types for paid hubs and only 1 custom endpoint is allowed across all endpoint types for free hubs.
-	Endpoints RoutingEndpointsResponsePtrInput `pulumi:"endpoints"`
-	// The list of user-provided enrichments that the IoT hub applies to messages to be delivered to built-in and custom endpoints. See: https://aka.ms/telemetryoneventgrid
-	Enrichments EnrichmentPropertiesResponseArrayInput `pulumi:"enrichments"`
-	// The properties of the route that is used as a fall-back route when none of the conditions specified in the 'routes' section are met. This is an optional parameter. When this property is not set, the messages which do not meet any of the conditions specified in the 'routes' section get routed to the built-in eventhub endpoint.
+	Endpoints     RoutingEndpointsResponsePtrInput        `pulumi:"endpoints"`
+	Enrichments   EnrichmentPropertiesResponseArrayInput  `pulumi:"enrichments"`
 	FallbackRoute FallbackRoutePropertiesResponsePtrInput `pulumi:"fallbackRoute"`
-	// The list of user-provided routing rules that the IoT hub uses to route messages to built-in and custom endpoints. A maximum of 100 routing rules are allowed for paid hubs and a maximum of 5 routing rules are allowed for free hubs.
-	Routes RoutePropertiesResponseArrayInput `pulumi:"routes"`
+	Routes        RoutePropertiesResponseArrayInput       `pulumi:"routes"`
 }
 
 func (RoutingPropertiesResponseArgs) ElementType() reflect.Type {
@@ -7639,7 +7011,6 @@ func (i *routingPropertiesResponsePtrType) ToRoutingPropertiesResponsePtrOutputW
 	return pulumi.ToOutputWithContext(ctx, i).(RoutingPropertiesResponsePtrOutput)
 }
 
-// The routing related properties of the IoT hub. See: https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-messaging
 type RoutingPropertiesResponseOutput struct{ *pulumi.OutputState }
 
 func (RoutingPropertiesResponseOutput) ElementType() reflect.Type {
@@ -7659,27 +7030,23 @@ func (o RoutingPropertiesResponseOutput) ToRoutingPropertiesResponsePtrOutput() 
 }
 
 func (o RoutingPropertiesResponseOutput) ToRoutingPropertiesResponsePtrOutputWithContext(ctx context.Context) RoutingPropertiesResponsePtrOutput {
-	return o.ApplyT(func(v RoutingPropertiesResponse) *RoutingPropertiesResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v RoutingPropertiesResponse) *RoutingPropertiesResponse {
 		return &v
 	}).(RoutingPropertiesResponsePtrOutput)
 }
 
-// The properties related to the custom endpoints to which your IoT hub routes messages based on the routing rules. A maximum of 10 custom endpoints are allowed across all endpoint types for paid hubs and only 1 custom endpoint is allowed across all endpoint types for free hubs.
 func (o RoutingPropertiesResponseOutput) Endpoints() RoutingEndpointsResponsePtrOutput {
 	return o.ApplyT(func(v RoutingPropertiesResponse) *RoutingEndpointsResponse { return v.Endpoints }).(RoutingEndpointsResponsePtrOutput)
 }
 
-// The list of user-provided enrichments that the IoT hub applies to messages to be delivered to built-in and custom endpoints. See: https://aka.ms/telemetryoneventgrid
 func (o RoutingPropertiesResponseOutput) Enrichments() EnrichmentPropertiesResponseArrayOutput {
 	return o.ApplyT(func(v RoutingPropertiesResponse) []EnrichmentPropertiesResponse { return v.Enrichments }).(EnrichmentPropertiesResponseArrayOutput)
 }
 
-// The properties of the route that is used as a fall-back route when none of the conditions specified in the 'routes' section are met. This is an optional parameter. When this property is not set, the messages which do not meet any of the conditions specified in the 'routes' section get routed to the built-in eventhub endpoint.
 func (o RoutingPropertiesResponseOutput) FallbackRoute() FallbackRoutePropertiesResponsePtrOutput {
 	return o.ApplyT(func(v RoutingPropertiesResponse) *FallbackRoutePropertiesResponse { return v.FallbackRoute }).(FallbackRoutePropertiesResponsePtrOutput)
 }
 
-// The list of user-provided routing rules that the IoT hub uses to route messages to built-in and custom endpoints. A maximum of 100 routing rules are allowed for paid hubs and a maximum of 5 routing rules are allowed for free hubs.
 func (o RoutingPropertiesResponseOutput) Routes() RoutePropertiesResponseArrayOutput {
 	return o.ApplyT(func(v RoutingPropertiesResponse) []RoutePropertiesResponse { return v.Routes }).(RoutePropertiesResponseArrayOutput)
 }
@@ -7699,10 +7066,15 @@ func (o RoutingPropertiesResponsePtrOutput) ToRoutingPropertiesResponsePtrOutput
 }
 
 func (o RoutingPropertiesResponsePtrOutput) Elem() RoutingPropertiesResponseOutput {
-	return o.ApplyT(func(v *RoutingPropertiesResponse) RoutingPropertiesResponse { return *v }).(RoutingPropertiesResponseOutput)
+	return o.ApplyT(func(v *RoutingPropertiesResponse) RoutingPropertiesResponse {
+		if v != nil {
+			return *v
+		}
+		var ret RoutingPropertiesResponse
+		return ret
+	}).(RoutingPropertiesResponseOutput)
 }
 
-// The properties related to the custom endpoints to which your IoT hub routes messages based on the routing rules. A maximum of 10 custom endpoints are allowed across all endpoint types for paid hubs and only 1 custom endpoint is allowed across all endpoint types for free hubs.
 func (o RoutingPropertiesResponsePtrOutput) Endpoints() RoutingEndpointsResponsePtrOutput {
 	return o.ApplyT(func(v *RoutingPropertiesResponse) *RoutingEndpointsResponse {
 		if v == nil {
@@ -7712,7 +7084,6 @@ func (o RoutingPropertiesResponsePtrOutput) Endpoints() RoutingEndpointsResponse
 	}).(RoutingEndpointsResponsePtrOutput)
 }
 
-// The list of user-provided enrichments that the IoT hub applies to messages to be delivered to built-in and custom endpoints. See: https://aka.ms/telemetryoneventgrid
 func (o RoutingPropertiesResponsePtrOutput) Enrichments() EnrichmentPropertiesResponseArrayOutput {
 	return o.ApplyT(func(v *RoutingPropertiesResponse) []EnrichmentPropertiesResponse {
 		if v == nil {
@@ -7722,7 +7093,6 @@ func (o RoutingPropertiesResponsePtrOutput) Enrichments() EnrichmentPropertiesRe
 	}).(EnrichmentPropertiesResponseArrayOutput)
 }
 
-// The properties of the route that is used as a fall-back route when none of the conditions specified in the 'routes' section are met. This is an optional parameter. When this property is not set, the messages which do not meet any of the conditions specified in the 'routes' section get routed to the built-in eventhub endpoint.
 func (o RoutingPropertiesResponsePtrOutput) FallbackRoute() FallbackRoutePropertiesResponsePtrOutput {
 	return o.ApplyT(func(v *RoutingPropertiesResponse) *FallbackRoutePropertiesResponse {
 		if v == nil {
@@ -7732,7 +7102,6 @@ func (o RoutingPropertiesResponsePtrOutput) FallbackRoute() FallbackRoutePropert
 	}).(FallbackRoutePropertiesResponsePtrOutput)
 }
 
-// The list of user-provided routing rules that the IoT hub uses to route messages to built-in and custom endpoints. A maximum of 100 routing rules are allowed for paid hubs and a maximum of 5 routing rules are allowed for free hubs.
 func (o RoutingPropertiesResponsePtrOutput) Routes() RoutePropertiesResponseArrayOutput {
 	return o.ApplyT(func(v *RoutingPropertiesResponse) []RoutePropertiesResponse {
 		if v == nil {
@@ -7742,26 +7111,16 @@ func (o RoutingPropertiesResponsePtrOutput) Routes() RoutePropertiesResponseArra
 	}).(RoutePropertiesResponseArrayOutput)
 }
 
-// The properties related to service bus queue endpoint types.
 type RoutingServiceBusQueueEndpointProperties struct {
-	// Method used to authenticate against the service bus queue endpoint
-	AuthenticationType *string `pulumi:"authenticationType"`
-	// The connection string of the service bus queue endpoint.
-	ConnectionString *string `pulumi:"connectionString"`
-	// The url of the service bus queue endpoint. It must include the protocol sb://
-	EndpointUri *string `pulumi:"endpointUri"`
-	// Queue name on the service bus namespace
-	EntityPath *string `pulumi:"entityPath"`
-	// Id of the service bus queue endpoint
-	Id *string `pulumi:"id"`
-	// Managed identity properties of routing service bus queue endpoint.
-	Identity *ManagedIdentity `pulumi:"identity"`
-	// The name that identifies this endpoint. The name can only include alphanumeric characters, periods, underscores, hyphens and has a maximum length of 64 characters. The following names are reserved:  events, fileNotifications, $default. Endpoint names must be unique across endpoint types. The name need not be the same as the actual queue name.
-	Name string `pulumi:"name"`
-	// The name of the resource group of the service bus queue endpoint.
-	ResourceGroup *string `pulumi:"resourceGroup"`
-	// The subscription identifier of the service bus queue endpoint.
-	SubscriptionId *string `pulumi:"subscriptionId"`
+	AuthenticationType *string          `pulumi:"authenticationType"`
+	ConnectionString   *string          `pulumi:"connectionString"`
+	EndpointUri        *string          `pulumi:"endpointUri"`
+	EntityPath         *string          `pulumi:"entityPath"`
+	Id                 *string          `pulumi:"id"`
+	Identity           *ManagedIdentity `pulumi:"identity"`
+	Name               string           `pulumi:"name"`
+	ResourceGroup      *string          `pulumi:"resourceGroup"`
+	SubscriptionId     *string          `pulumi:"subscriptionId"`
 }
 
 // RoutingServiceBusQueueEndpointPropertiesInput is an input type that accepts RoutingServiceBusQueueEndpointPropertiesArgs and RoutingServiceBusQueueEndpointPropertiesOutput values.
@@ -7775,26 +7134,16 @@ type RoutingServiceBusQueueEndpointPropertiesInput interface {
 	ToRoutingServiceBusQueueEndpointPropertiesOutputWithContext(context.Context) RoutingServiceBusQueueEndpointPropertiesOutput
 }
 
-// The properties related to service bus queue endpoint types.
 type RoutingServiceBusQueueEndpointPropertiesArgs struct {
-	// Method used to authenticate against the service bus queue endpoint
-	AuthenticationType pulumi.StringPtrInput `pulumi:"authenticationType"`
-	// The connection string of the service bus queue endpoint.
-	ConnectionString pulumi.StringPtrInput `pulumi:"connectionString"`
-	// The url of the service bus queue endpoint. It must include the protocol sb://
-	EndpointUri pulumi.StringPtrInput `pulumi:"endpointUri"`
-	// Queue name on the service bus namespace
-	EntityPath pulumi.StringPtrInput `pulumi:"entityPath"`
-	// Id of the service bus queue endpoint
-	Id pulumi.StringPtrInput `pulumi:"id"`
-	// Managed identity properties of routing service bus queue endpoint.
-	Identity ManagedIdentityPtrInput `pulumi:"identity"`
-	// The name that identifies this endpoint. The name can only include alphanumeric characters, periods, underscores, hyphens and has a maximum length of 64 characters. The following names are reserved:  events, fileNotifications, $default. Endpoint names must be unique across endpoint types. The name need not be the same as the actual queue name.
-	Name pulumi.StringInput `pulumi:"name"`
-	// The name of the resource group of the service bus queue endpoint.
-	ResourceGroup pulumi.StringPtrInput `pulumi:"resourceGroup"`
-	// The subscription identifier of the service bus queue endpoint.
-	SubscriptionId pulumi.StringPtrInput `pulumi:"subscriptionId"`
+	AuthenticationType pulumi.StringPtrInput   `pulumi:"authenticationType"`
+	ConnectionString   pulumi.StringPtrInput   `pulumi:"connectionString"`
+	EndpointUri        pulumi.StringPtrInput   `pulumi:"endpointUri"`
+	EntityPath         pulumi.StringPtrInput   `pulumi:"entityPath"`
+	Id                 pulumi.StringPtrInput   `pulumi:"id"`
+	Identity           ManagedIdentityPtrInput `pulumi:"identity"`
+	Name               pulumi.StringInput      `pulumi:"name"`
+	ResourceGroup      pulumi.StringPtrInput   `pulumi:"resourceGroup"`
+	SubscriptionId     pulumi.StringPtrInput   `pulumi:"subscriptionId"`
 }
 
 func (RoutingServiceBusQueueEndpointPropertiesArgs) ElementType() reflect.Type {
@@ -7834,7 +7183,6 @@ func (i RoutingServiceBusQueueEndpointPropertiesArray) ToRoutingServiceBusQueueE
 	return pulumi.ToOutputWithContext(ctx, i).(RoutingServiceBusQueueEndpointPropertiesArrayOutput)
 }
 
-// The properties related to service bus queue endpoint types.
 type RoutingServiceBusQueueEndpointPropertiesOutput struct{ *pulumi.OutputState }
 
 func (RoutingServiceBusQueueEndpointPropertiesOutput) ElementType() reflect.Type {
@@ -7849,47 +7197,38 @@ func (o RoutingServiceBusQueueEndpointPropertiesOutput) ToRoutingServiceBusQueue
 	return o
 }
 
-// Method used to authenticate against the service bus queue endpoint
 func (o RoutingServiceBusQueueEndpointPropertiesOutput) AuthenticationType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v RoutingServiceBusQueueEndpointProperties) *string { return v.AuthenticationType }).(pulumi.StringPtrOutput)
 }
 
-// The connection string of the service bus queue endpoint.
 func (o RoutingServiceBusQueueEndpointPropertiesOutput) ConnectionString() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v RoutingServiceBusQueueEndpointProperties) *string { return v.ConnectionString }).(pulumi.StringPtrOutput)
 }
 
-// The url of the service bus queue endpoint. It must include the protocol sb://
 func (o RoutingServiceBusQueueEndpointPropertiesOutput) EndpointUri() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v RoutingServiceBusQueueEndpointProperties) *string { return v.EndpointUri }).(pulumi.StringPtrOutput)
 }
 
-// Queue name on the service bus namespace
 func (o RoutingServiceBusQueueEndpointPropertiesOutput) EntityPath() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v RoutingServiceBusQueueEndpointProperties) *string { return v.EntityPath }).(pulumi.StringPtrOutput)
 }
 
-// Id of the service bus queue endpoint
 func (o RoutingServiceBusQueueEndpointPropertiesOutput) Id() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v RoutingServiceBusQueueEndpointProperties) *string { return v.Id }).(pulumi.StringPtrOutput)
 }
 
-// Managed identity properties of routing service bus queue endpoint.
 func (o RoutingServiceBusQueueEndpointPropertiesOutput) Identity() ManagedIdentityPtrOutput {
 	return o.ApplyT(func(v RoutingServiceBusQueueEndpointProperties) *ManagedIdentity { return v.Identity }).(ManagedIdentityPtrOutput)
 }
 
-// The name that identifies this endpoint. The name can only include alphanumeric characters, periods, underscores, hyphens and has a maximum length of 64 characters. The following names are reserved:  events, fileNotifications, $default. Endpoint names must be unique across endpoint types. The name need not be the same as the actual queue name.
 func (o RoutingServiceBusQueueEndpointPropertiesOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v RoutingServiceBusQueueEndpointProperties) string { return v.Name }).(pulumi.StringOutput)
 }
 
-// The name of the resource group of the service bus queue endpoint.
 func (o RoutingServiceBusQueueEndpointPropertiesOutput) ResourceGroup() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v RoutingServiceBusQueueEndpointProperties) *string { return v.ResourceGroup }).(pulumi.StringPtrOutput)
 }
 
-// The subscription identifier of the service bus queue endpoint.
 func (o RoutingServiceBusQueueEndpointPropertiesOutput) SubscriptionId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v RoutingServiceBusQueueEndpointProperties) *string { return v.SubscriptionId }).(pulumi.StringPtrOutput)
 }
@@ -7914,26 +7253,16 @@ func (o RoutingServiceBusQueueEndpointPropertiesArrayOutput) Index(i pulumi.IntI
 	}).(RoutingServiceBusQueueEndpointPropertiesOutput)
 }
 
-// The properties related to service bus queue endpoint types.
 type RoutingServiceBusQueueEndpointPropertiesResponse struct {
-	// Method used to authenticate against the service bus queue endpoint
-	AuthenticationType *string `pulumi:"authenticationType"`
-	// The connection string of the service bus queue endpoint.
-	ConnectionString *string `pulumi:"connectionString"`
-	// The url of the service bus queue endpoint. It must include the protocol sb://
-	EndpointUri *string `pulumi:"endpointUri"`
-	// Queue name on the service bus namespace
-	EntityPath *string `pulumi:"entityPath"`
-	// Id of the service bus queue endpoint
-	Id *string `pulumi:"id"`
-	// Managed identity properties of routing service bus queue endpoint.
-	Identity *ManagedIdentityResponse `pulumi:"identity"`
-	// The name that identifies this endpoint. The name can only include alphanumeric characters, periods, underscores, hyphens and has a maximum length of 64 characters. The following names are reserved:  events, fileNotifications, $default. Endpoint names must be unique across endpoint types. The name need not be the same as the actual queue name.
-	Name string `pulumi:"name"`
-	// The name of the resource group of the service bus queue endpoint.
-	ResourceGroup *string `pulumi:"resourceGroup"`
-	// The subscription identifier of the service bus queue endpoint.
-	SubscriptionId *string `pulumi:"subscriptionId"`
+	AuthenticationType *string                  `pulumi:"authenticationType"`
+	ConnectionString   *string                  `pulumi:"connectionString"`
+	EndpointUri        *string                  `pulumi:"endpointUri"`
+	EntityPath         *string                  `pulumi:"entityPath"`
+	Id                 *string                  `pulumi:"id"`
+	Identity           *ManagedIdentityResponse `pulumi:"identity"`
+	Name               string                   `pulumi:"name"`
+	ResourceGroup      *string                  `pulumi:"resourceGroup"`
+	SubscriptionId     *string                  `pulumi:"subscriptionId"`
 }
 
 // RoutingServiceBusQueueEndpointPropertiesResponseInput is an input type that accepts RoutingServiceBusQueueEndpointPropertiesResponseArgs and RoutingServiceBusQueueEndpointPropertiesResponseOutput values.
@@ -7947,26 +7276,16 @@ type RoutingServiceBusQueueEndpointPropertiesResponseInput interface {
 	ToRoutingServiceBusQueueEndpointPropertiesResponseOutputWithContext(context.Context) RoutingServiceBusQueueEndpointPropertiesResponseOutput
 }
 
-// The properties related to service bus queue endpoint types.
 type RoutingServiceBusQueueEndpointPropertiesResponseArgs struct {
-	// Method used to authenticate against the service bus queue endpoint
-	AuthenticationType pulumi.StringPtrInput `pulumi:"authenticationType"`
-	// The connection string of the service bus queue endpoint.
-	ConnectionString pulumi.StringPtrInput `pulumi:"connectionString"`
-	// The url of the service bus queue endpoint. It must include the protocol sb://
-	EndpointUri pulumi.StringPtrInput `pulumi:"endpointUri"`
-	// Queue name on the service bus namespace
-	EntityPath pulumi.StringPtrInput `pulumi:"entityPath"`
-	// Id of the service bus queue endpoint
-	Id pulumi.StringPtrInput `pulumi:"id"`
-	// Managed identity properties of routing service bus queue endpoint.
-	Identity ManagedIdentityResponsePtrInput `pulumi:"identity"`
-	// The name that identifies this endpoint. The name can only include alphanumeric characters, periods, underscores, hyphens and has a maximum length of 64 characters. The following names are reserved:  events, fileNotifications, $default. Endpoint names must be unique across endpoint types. The name need not be the same as the actual queue name.
-	Name pulumi.StringInput `pulumi:"name"`
-	// The name of the resource group of the service bus queue endpoint.
-	ResourceGroup pulumi.StringPtrInput `pulumi:"resourceGroup"`
-	// The subscription identifier of the service bus queue endpoint.
-	SubscriptionId pulumi.StringPtrInput `pulumi:"subscriptionId"`
+	AuthenticationType pulumi.StringPtrInput           `pulumi:"authenticationType"`
+	ConnectionString   pulumi.StringPtrInput           `pulumi:"connectionString"`
+	EndpointUri        pulumi.StringPtrInput           `pulumi:"endpointUri"`
+	EntityPath         pulumi.StringPtrInput           `pulumi:"entityPath"`
+	Id                 pulumi.StringPtrInput           `pulumi:"id"`
+	Identity           ManagedIdentityResponsePtrInput `pulumi:"identity"`
+	Name               pulumi.StringInput              `pulumi:"name"`
+	ResourceGroup      pulumi.StringPtrInput           `pulumi:"resourceGroup"`
+	SubscriptionId     pulumi.StringPtrInput           `pulumi:"subscriptionId"`
 }
 
 func (RoutingServiceBusQueueEndpointPropertiesResponseArgs) ElementType() reflect.Type {
@@ -8006,7 +7325,6 @@ func (i RoutingServiceBusQueueEndpointPropertiesResponseArray) ToRoutingServiceB
 	return pulumi.ToOutputWithContext(ctx, i).(RoutingServiceBusQueueEndpointPropertiesResponseArrayOutput)
 }
 
-// The properties related to service bus queue endpoint types.
 type RoutingServiceBusQueueEndpointPropertiesResponseOutput struct{ *pulumi.OutputState }
 
 func (RoutingServiceBusQueueEndpointPropertiesResponseOutput) ElementType() reflect.Type {
@@ -8021,47 +7339,38 @@ func (o RoutingServiceBusQueueEndpointPropertiesResponseOutput) ToRoutingService
 	return o
 }
 
-// Method used to authenticate against the service bus queue endpoint
 func (o RoutingServiceBusQueueEndpointPropertiesResponseOutput) AuthenticationType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v RoutingServiceBusQueueEndpointPropertiesResponse) *string { return v.AuthenticationType }).(pulumi.StringPtrOutput)
 }
 
-// The connection string of the service bus queue endpoint.
 func (o RoutingServiceBusQueueEndpointPropertiesResponseOutput) ConnectionString() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v RoutingServiceBusQueueEndpointPropertiesResponse) *string { return v.ConnectionString }).(pulumi.StringPtrOutput)
 }
 
-// The url of the service bus queue endpoint. It must include the protocol sb://
 func (o RoutingServiceBusQueueEndpointPropertiesResponseOutput) EndpointUri() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v RoutingServiceBusQueueEndpointPropertiesResponse) *string { return v.EndpointUri }).(pulumi.StringPtrOutput)
 }
 
-// Queue name on the service bus namespace
 func (o RoutingServiceBusQueueEndpointPropertiesResponseOutput) EntityPath() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v RoutingServiceBusQueueEndpointPropertiesResponse) *string { return v.EntityPath }).(pulumi.StringPtrOutput)
 }
 
-// Id of the service bus queue endpoint
 func (o RoutingServiceBusQueueEndpointPropertiesResponseOutput) Id() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v RoutingServiceBusQueueEndpointPropertiesResponse) *string { return v.Id }).(pulumi.StringPtrOutput)
 }
 
-// Managed identity properties of routing service bus queue endpoint.
 func (o RoutingServiceBusQueueEndpointPropertiesResponseOutput) Identity() ManagedIdentityResponsePtrOutput {
 	return o.ApplyT(func(v RoutingServiceBusQueueEndpointPropertiesResponse) *ManagedIdentityResponse { return v.Identity }).(ManagedIdentityResponsePtrOutput)
 }
 
-// The name that identifies this endpoint. The name can only include alphanumeric characters, periods, underscores, hyphens and has a maximum length of 64 characters. The following names are reserved:  events, fileNotifications, $default. Endpoint names must be unique across endpoint types. The name need not be the same as the actual queue name.
 func (o RoutingServiceBusQueueEndpointPropertiesResponseOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v RoutingServiceBusQueueEndpointPropertiesResponse) string { return v.Name }).(pulumi.StringOutput)
 }
 
-// The name of the resource group of the service bus queue endpoint.
 func (o RoutingServiceBusQueueEndpointPropertiesResponseOutput) ResourceGroup() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v RoutingServiceBusQueueEndpointPropertiesResponse) *string { return v.ResourceGroup }).(pulumi.StringPtrOutput)
 }
 
-// The subscription identifier of the service bus queue endpoint.
 func (o RoutingServiceBusQueueEndpointPropertiesResponseOutput) SubscriptionId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v RoutingServiceBusQueueEndpointPropertiesResponse) *string { return v.SubscriptionId }).(pulumi.StringPtrOutput)
 }
@@ -8086,26 +7395,16 @@ func (o RoutingServiceBusQueueEndpointPropertiesResponseArrayOutput) Index(i pul
 	}).(RoutingServiceBusQueueEndpointPropertiesResponseOutput)
 }
 
-// The properties related to service bus topic endpoint types.
 type RoutingServiceBusTopicEndpointProperties struct {
-	// Method used to authenticate against the service bus topic endpoint
-	AuthenticationType *string `pulumi:"authenticationType"`
-	// The connection string of the service bus topic endpoint.
-	ConnectionString *string `pulumi:"connectionString"`
-	// The url of the service bus topic endpoint. It must include the protocol sb://
-	EndpointUri *string `pulumi:"endpointUri"`
-	// Queue name on the service bus topic
-	EntityPath *string `pulumi:"entityPath"`
-	// Id of the service bus topic endpoint
-	Id *string `pulumi:"id"`
-	// Managed identity properties of routing service bus topic endpoint.
-	Identity *ManagedIdentity `pulumi:"identity"`
-	// The name that identifies this endpoint. The name can only include alphanumeric characters, periods, underscores, hyphens and has a maximum length of 64 characters. The following names are reserved:  events, fileNotifications, $default. Endpoint names must be unique across endpoint types.  The name need not be the same as the actual topic name.
-	Name string `pulumi:"name"`
-	// The name of the resource group of the service bus topic endpoint.
-	ResourceGroup *string `pulumi:"resourceGroup"`
-	// The subscription identifier of the service bus topic endpoint.
-	SubscriptionId *string `pulumi:"subscriptionId"`
+	AuthenticationType *string          `pulumi:"authenticationType"`
+	ConnectionString   *string          `pulumi:"connectionString"`
+	EndpointUri        *string          `pulumi:"endpointUri"`
+	EntityPath         *string          `pulumi:"entityPath"`
+	Id                 *string          `pulumi:"id"`
+	Identity           *ManagedIdentity `pulumi:"identity"`
+	Name               string           `pulumi:"name"`
+	ResourceGroup      *string          `pulumi:"resourceGroup"`
+	SubscriptionId     *string          `pulumi:"subscriptionId"`
 }
 
 // RoutingServiceBusTopicEndpointPropertiesInput is an input type that accepts RoutingServiceBusTopicEndpointPropertiesArgs and RoutingServiceBusTopicEndpointPropertiesOutput values.
@@ -8119,26 +7418,16 @@ type RoutingServiceBusTopicEndpointPropertiesInput interface {
 	ToRoutingServiceBusTopicEndpointPropertiesOutputWithContext(context.Context) RoutingServiceBusTopicEndpointPropertiesOutput
 }
 
-// The properties related to service bus topic endpoint types.
 type RoutingServiceBusTopicEndpointPropertiesArgs struct {
-	// Method used to authenticate against the service bus topic endpoint
-	AuthenticationType pulumi.StringPtrInput `pulumi:"authenticationType"`
-	// The connection string of the service bus topic endpoint.
-	ConnectionString pulumi.StringPtrInput `pulumi:"connectionString"`
-	// The url of the service bus topic endpoint. It must include the protocol sb://
-	EndpointUri pulumi.StringPtrInput `pulumi:"endpointUri"`
-	// Queue name on the service bus topic
-	EntityPath pulumi.StringPtrInput `pulumi:"entityPath"`
-	// Id of the service bus topic endpoint
-	Id pulumi.StringPtrInput `pulumi:"id"`
-	// Managed identity properties of routing service bus topic endpoint.
-	Identity ManagedIdentityPtrInput `pulumi:"identity"`
-	// The name that identifies this endpoint. The name can only include alphanumeric characters, periods, underscores, hyphens and has a maximum length of 64 characters. The following names are reserved:  events, fileNotifications, $default. Endpoint names must be unique across endpoint types.  The name need not be the same as the actual topic name.
-	Name pulumi.StringInput `pulumi:"name"`
-	// The name of the resource group of the service bus topic endpoint.
-	ResourceGroup pulumi.StringPtrInput `pulumi:"resourceGroup"`
-	// The subscription identifier of the service bus topic endpoint.
-	SubscriptionId pulumi.StringPtrInput `pulumi:"subscriptionId"`
+	AuthenticationType pulumi.StringPtrInput   `pulumi:"authenticationType"`
+	ConnectionString   pulumi.StringPtrInput   `pulumi:"connectionString"`
+	EndpointUri        pulumi.StringPtrInput   `pulumi:"endpointUri"`
+	EntityPath         pulumi.StringPtrInput   `pulumi:"entityPath"`
+	Id                 pulumi.StringPtrInput   `pulumi:"id"`
+	Identity           ManagedIdentityPtrInput `pulumi:"identity"`
+	Name               pulumi.StringInput      `pulumi:"name"`
+	ResourceGroup      pulumi.StringPtrInput   `pulumi:"resourceGroup"`
+	SubscriptionId     pulumi.StringPtrInput   `pulumi:"subscriptionId"`
 }
 
 func (RoutingServiceBusTopicEndpointPropertiesArgs) ElementType() reflect.Type {
@@ -8178,7 +7467,6 @@ func (i RoutingServiceBusTopicEndpointPropertiesArray) ToRoutingServiceBusTopicE
 	return pulumi.ToOutputWithContext(ctx, i).(RoutingServiceBusTopicEndpointPropertiesArrayOutput)
 }
 
-// The properties related to service bus topic endpoint types.
 type RoutingServiceBusTopicEndpointPropertiesOutput struct{ *pulumi.OutputState }
 
 func (RoutingServiceBusTopicEndpointPropertiesOutput) ElementType() reflect.Type {
@@ -8193,47 +7481,38 @@ func (o RoutingServiceBusTopicEndpointPropertiesOutput) ToRoutingServiceBusTopic
 	return o
 }
 
-// Method used to authenticate against the service bus topic endpoint
 func (o RoutingServiceBusTopicEndpointPropertiesOutput) AuthenticationType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v RoutingServiceBusTopicEndpointProperties) *string { return v.AuthenticationType }).(pulumi.StringPtrOutput)
 }
 
-// The connection string of the service bus topic endpoint.
 func (o RoutingServiceBusTopicEndpointPropertiesOutput) ConnectionString() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v RoutingServiceBusTopicEndpointProperties) *string { return v.ConnectionString }).(pulumi.StringPtrOutput)
 }
 
-// The url of the service bus topic endpoint. It must include the protocol sb://
 func (o RoutingServiceBusTopicEndpointPropertiesOutput) EndpointUri() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v RoutingServiceBusTopicEndpointProperties) *string { return v.EndpointUri }).(pulumi.StringPtrOutput)
 }
 
-// Queue name on the service bus topic
 func (o RoutingServiceBusTopicEndpointPropertiesOutput) EntityPath() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v RoutingServiceBusTopicEndpointProperties) *string { return v.EntityPath }).(pulumi.StringPtrOutput)
 }
 
-// Id of the service bus topic endpoint
 func (o RoutingServiceBusTopicEndpointPropertiesOutput) Id() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v RoutingServiceBusTopicEndpointProperties) *string { return v.Id }).(pulumi.StringPtrOutput)
 }
 
-// Managed identity properties of routing service bus topic endpoint.
 func (o RoutingServiceBusTopicEndpointPropertiesOutput) Identity() ManagedIdentityPtrOutput {
 	return o.ApplyT(func(v RoutingServiceBusTopicEndpointProperties) *ManagedIdentity { return v.Identity }).(ManagedIdentityPtrOutput)
 }
 
-// The name that identifies this endpoint. The name can only include alphanumeric characters, periods, underscores, hyphens and has a maximum length of 64 characters. The following names are reserved:  events, fileNotifications, $default. Endpoint names must be unique across endpoint types.  The name need not be the same as the actual topic name.
 func (o RoutingServiceBusTopicEndpointPropertiesOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v RoutingServiceBusTopicEndpointProperties) string { return v.Name }).(pulumi.StringOutput)
 }
 
-// The name of the resource group of the service bus topic endpoint.
 func (o RoutingServiceBusTopicEndpointPropertiesOutput) ResourceGroup() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v RoutingServiceBusTopicEndpointProperties) *string { return v.ResourceGroup }).(pulumi.StringPtrOutput)
 }
 
-// The subscription identifier of the service bus topic endpoint.
 func (o RoutingServiceBusTopicEndpointPropertiesOutput) SubscriptionId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v RoutingServiceBusTopicEndpointProperties) *string { return v.SubscriptionId }).(pulumi.StringPtrOutput)
 }
@@ -8258,26 +7537,16 @@ func (o RoutingServiceBusTopicEndpointPropertiesArrayOutput) Index(i pulumi.IntI
 	}).(RoutingServiceBusTopicEndpointPropertiesOutput)
 }
 
-// The properties related to service bus topic endpoint types.
 type RoutingServiceBusTopicEndpointPropertiesResponse struct {
-	// Method used to authenticate against the service bus topic endpoint
-	AuthenticationType *string `pulumi:"authenticationType"`
-	// The connection string of the service bus topic endpoint.
-	ConnectionString *string `pulumi:"connectionString"`
-	// The url of the service bus topic endpoint. It must include the protocol sb://
-	EndpointUri *string `pulumi:"endpointUri"`
-	// Queue name on the service bus topic
-	EntityPath *string `pulumi:"entityPath"`
-	// Id of the service bus topic endpoint
-	Id *string `pulumi:"id"`
-	// Managed identity properties of routing service bus topic endpoint.
-	Identity *ManagedIdentityResponse `pulumi:"identity"`
-	// The name that identifies this endpoint. The name can only include alphanumeric characters, periods, underscores, hyphens and has a maximum length of 64 characters. The following names are reserved:  events, fileNotifications, $default. Endpoint names must be unique across endpoint types.  The name need not be the same as the actual topic name.
-	Name string `pulumi:"name"`
-	// The name of the resource group of the service bus topic endpoint.
-	ResourceGroup *string `pulumi:"resourceGroup"`
-	// The subscription identifier of the service bus topic endpoint.
-	SubscriptionId *string `pulumi:"subscriptionId"`
+	AuthenticationType *string                  `pulumi:"authenticationType"`
+	ConnectionString   *string                  `pulumi:"connectionString"`
+	EndpointUri        *string                  `pulumi:"endpointUri"`
+	EntityPath         *string                  `pulumi:"entityPath"`
+	Id                 *string                  `pulumi:"id"`
+	Identity           *ManagedIdentityResponse `pulumi:"identity"`
+	Name               string                   `pulumi:"name"`
+	ResourceGroup      *string                  `pulumi:"resourceGroup"`
+	SubscriptionId     *string                  `pulumi:"subscriptionId"`
 }
 
 // RoutingServiceBusTopicEndpointPropertiesResponseInput is an input type that accepts RoutingServiceBusTopicEndpointPropertiesResponseArgs and RoutingServiceBusTopicEndpointPropertiesResponseOutput values.
@@ -8291,26 +7560,16 @@ type RoutingServiceBusTopicEndpointPropertiesResponseInput interface {
 	ToRoutingServiceBusTopicEndpointPropertiesResponseOutputWithContext(context.Context) RoutingServiceBusTopicEndpointPropertiesResponseOutput
 }
 
-// The properties related to service bus topic endpoint types.
 type RoutingServiceBusTopicEndpointPropertiesResponseArgs struct {
-	// Method used to authenticate against the service bus topic endpoint
-	AuthenticationType pulumi.StringPtrInput `pulumi:"authenticationType"`
-	// The connection string of the service bus topic endpoint.
-	ConnectionString pulumi.StringPtrInput `pulumi:"connectionString"`
-	// The url of the service bus topic endpoint. It must include the protocol sb://
-	EndpointUri pulumi.StringPtrInput `pulumi:"endpointUri"`
-	// Queue name on the service bus topic
-	EntityPath pulumi.StringPtrInput `pulumi:"entityPath"`
-	// Id of the service bus topic endpoint
-	Id pulumi.StringPtrInput `pulumi:"id"`
-	// Managed identity properties of routing service bus topic endpoint.
-	Identity ManagedIdentityResponsePtrInput `pulumi:"identity"`
-	// The name that identifies this endpoint. The name can only include alphanumeric characters, periods, underscores, hyphens and has a maximum length of 64 characters. The following names are reserved:  events, fileNotifications, $default. Endpoint names must be unique across endpoint types.  The name need not be the same as the actual topic name.
-	Name pulumi.StringInput `pulumi:"name"`
-	// The name of the resource group of the service bus topic endpoint.
-	ResourceGroup pulumi.StringPtrInput `pulumi:"resourceGroup"`
-	// The subscription identifier of the service bus topic endpoint.
-	SubscriptionId pulumi.StringPtrInput `pulumi:"subscriptionId"`
+	AuthenticationType pulumi.StringPtrInput           `pulumi:"authenticationType"`
+	ConnectionString   pulumi.StringPtrInput           `pulumi:"connectionString"`
+	EndpointUri        pulumi.StringPtrInput           `pulumi:"endpointUri"`
+	EntityPath         pulumi.StringPtrInput           `pulumi:"entityPath"`
+	Id                 pulumi.StringPtrInput           `pulumi:"id"`
+	Identity           ManagedIdentityResponsePtrInput `pulumi:"identity"`
+	Name               pulumi.StringInput              `pulumi:"name"`
+	ResourceGroup      pulumi.StringPtrInput           `pulumi:"resourceGroup"`
+	SubscriptionId     pulumi.StringPtrInput           `pulumi:"subscriptionId"`
 }
 
 func (RoutingServiceBusTopicEndpointPropertiesResponseArgs) ElementType() reflect.Type {
@@ -8350,7 +7609,6 @@ func (i RoutingServiceBusTopicEndpointPropertiesResponseArray) ToRoutingServiceB
 	return pulumi.ToOutputWithContext(ctx, i).(RoutingServiceBusTopicEndpointPropertiesResponseArrayOutput)
 }
 
-// The properties related to service bus topic endpoint types.
 type RoutingServiceBusTopicEndpointPropertiesResponseOutput struct{ *pulumi.OutputState }
 
 func (RoutingServiceBusTopicEndpointPropertiesResponseOutput) ElementType() reflect.Type {
@@ -8365,47 +7623,38 @@ func (o RoutingServiceBusTopicEndpointPropertiesResponseOutput) ToRoutingService
 	return o
 }
 
-// Method used to authenticate against the service bus topic endpoint
 func (o RoutingServiceBusTopicEndpointPropertiesResponseOutput) AuthenticationType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v RoutingServiceBusTopicEndpointPropertiesResponse) *string { return v.AuthenticationType }).(pulumi.StringPtrOutput)
 }
 
-// The connection string of the service bus topic endpoint.
 func (o RoutingServiceBusTopicEndpointPropertiesResponseOutput) ConnectionString() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v RoutingServiceBusTopicEndpointPropertiesResponse) *string { return v.ConnectionString }).(pulumi.StringPtrOutput)
 }
 
-// The url of the service bus topic endpoint. It must include the protocol sb://
 func (o RoutingServiceBusTopicEndpointPropertiesResponseOutput) EndpointUri() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v RoutingServiceBusTopicEndpointPropertiesResponse) *string { return v.EndpointUri }).(pulumi.StringPtrOutput)
 }
 
-// Queue name on the service bus topic
 func (o RoutingServiceBusTopicEndpointPropertiesResponseOutput) EntityPath() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v RoutingServiceBusTopicEndpointPropertiesResponse) *string { return v.EntityPath }).(pulumi.StringPtrOutput)
 }
 
-// Id of the service bus topic endpoint
 func (o RoutingServiceBusTopicEndpointPropertiesResponseOutput) Id() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v RoutingServiceBusTopicEndpointPropertiesResponse) *string { return v.Id }).(pulumi.StringPtrOutput)
 }
 
-// Managed identity properties of routing service bus topic endpoint.
 func (o RoutingServiceBusTopicEndpointPropertiesResponseOutput) Identity() ManagedIdentityResponsePtrOutput {
 	return o.ApplyT(func(v RoutingServiceBusTopicEndpointPropertiesResponse) *ManagedIdentityResponse { return v.Identity }).(ManagedIdentityResponsePtrOutput)
 }
 
-// The name that identifies this endpoint. The name can only include alphanumeric characters, periods, underscores, hyphens and has a maximum length of 64 characters. The following names are reserved:  events, fileNotifications, $default. Endpoint names must be unique across endpoint types.  The name need not be the same as the actual topic name.
 func (o RoutingServiceBusTopicEndpointPropertiesResponseOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v RoutingServiceBusTopicEndpointPropertiesResponse) string { return v.Name }).(pulumi.StringOutput)
 }
 
-// The name of the resource group of the service bus topic endpoint.
 func (o RoutingServiceBusTopicEndpointPropertiesResponseOutput) ResourceGroup() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v RoutingServiceBusTopicEndpointPropertiesResponse) *string { return v.ResourceGroup }).(pulumi.StringPtrOutput)
 }
 
-// The subscription identifier of the service bus topic endpoint.
 func (o RoutingServiceBusTopicEndpointPropertiesResponseOutput) SubscriptionId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v RoutingServiceBusTopicEndpointPropertiesResponse) *string { return v.SubscriptionId }).(pulumi.StringPtrOutput)
 }
@@ -8430,34 +7679,20 @@ func (o RoutingServiceBusTopicEndpointPropertiesResponseArrayOutput) Index(i pul
 	}).(RoutingServiceBusTopicEndpointPropertiesResponseOutput)
 }
 
-// The properties related to a storage container endpoint.
 type RoutingStorageContainerProperties struct {
-	// Method used to authenticate against the storage endpoint
-	AuthenticationType *string `pulumi:"authenticationType"`
-	// Time interval at which blobs are written to storage. Value should be between 60 and 720 seconds. Default value is 300 seconds.
-	BatchFrequencyInSeconds *int `pulumi:"batchFrequencyInSeconds"`
-	// The connection string of the storage account.
-	ConnectionString *string `pulumi:"connectionString"`
-	// The name of storage container in the storage account.
-	ContainerName string `pulumi:"containerName"`
-	// Encoding that is used to serialize messages to blobs. Supported values are 'avro', 'avrodeflate', and 'JSON'. Default value is 'avro'.
-	Encoding *string `pulumi:"encoding"`
-	// The url of the storage endpoint. It must include the protocol https://
-	EndpointUri *string `pulumi:"endpointUri"`
-	// File name format for the blob. Default format is {iothub}/{partition}/{YYYY}/{MM}/{DD}/{HH}/{mm}. All parameters are mandatory but can be reordered.
-	FileNameFormat *string `pulumi:"fileNameFormat"`
-	// Id of the storage container endpoint
-	Id *string `pulumi:"id"`
-	// Managed identity properties of routing storage endpoint.
-	Identity *ManagedIdentity `pulumi:"identity"`
-	// Maximum number of bytes for each blob written to storage. Value should be between 10485760(10MB) and 524288000(500MB). Default value is 314572800(300MB).
-	MaxChunkSizeInBytes *int `pulumi:"maxChunkSizeInBytes"`
-	// The name that identifies this endpoint. The name can only include alphanumeric characters, periods, underscores, hyphens and has a maximum length of 64 characters. The following names are reserved:  events, fileNotifications, $default. Endpoint names must be unique across endpoint types.
-	Name string `pulumi:"name"`
-	// The name of the resource group of the storage account.
-	ResourceGroup *string `pulumi:"resourceGroup"`
-	// The subscription identifier of the storage account.
-	SubscriptionId *string `pulumi:"subscriptionId"`
+	AuthenticationType      *string          `pulumi:"authenticationType"`
+	BatchFrequencyInSeconds *int             `pulumi:"batchFrequencyInSeconds"`
+	ConnectionString        *string          `pulumi:"connectionString"`
+	ContainerName           string           `pulumi:"containerName"`
+	Encoding                *string          `pulumi:"encoding"`
+	EndpointUri             *string          `pulumi:"endpointUri"`
+	FileNameFormat          *string          `pulumi:"fileNameFormat"`
+	Id                      *string          `pulumi:"id"`
+	Identity                *ManagedIdentity `pulumi:"identity"`
+	MaxChunkSizeInBytes     *int             `pulumi:"maxChunkSizeInBytes"`
+	Name                    string           `pulumi:"name"`
+	ResourceGroup           *string          `pulumi:"resourceGroup"`
+	SubscriptionId          *string          `pulumi:"subscriptionId"`
 }
 
 // RoutingStorageContainerPropertiesInput is an input type that accepts RoutingStorageContainerPropertiesArgs and RoutingStorageContainerPropertiesOutput values.
@@ -8471,34 +7706,20 @@ type RoutingStorageContainerPropertiesInput interface {
 	ToRoutingStorageContainerPropertiesOutputWithContext(context.Context) RoutingStorageContainerPropertiesOutput
 }
 
-// The properties related to a storage container endpoint.
 type RoutingStorageContainerPropertiesArgs struct {
-	// Method used to authenticate against the storage endpoint
-	AuthenticationType pulumi.StringPtrInput `pulumi:"authenticationType"`
-	// Time interval at which blobs are written to storage. Value should be between 60 and 720 seconds. Default value is 300 seconds.
-	BatchFrequencyInSeconds pulumi.IntPtrInput `pulumi:"batchFrequencyInSeconds"`
-	// The connection string of the storage account.
-	ConnectionString pulumi.StringPtrInput `pulumi:"connectionString"`
-	// The name of storage container in the storage account.
-	ContainerName pulumi.StringInput `pulumi:"containerName"`
-	// Encoding that is used to serialize messages to blobs. Supported values are 'avro', 'avrodeflate', and 'JSON'. Default value is 'avro'.
-	Encoding pulumi.StringPtrInput `pulumi:"encoding"`
-	// The url of the storage endpoint. It must include the protocol https://
-	EndpointUri pulumi.StringPtrInput `pulumi:"endpointUri"`
-	// File name format for the blob. Default format is {iothub}/{partition}/{YYYY}/{MM}/{DD}/{HH}/{mm}. All parameters are mandatory but can be reordered.
-	FileNameFormat pulumi.StringPtrInput `pulumi:"fileNameFormat"`
-	// Id of the storage container endpoint
-	Id pulumi.StringPtrInput `pulumi:"id"`
-	// Managed identity properties of routing storage endpoint.
-	Identity ManagedIdentityPtrInput `pulumi:"identity"`
-	// Maximum number of bytes for each blob written to storage. Value should be between 10485760(10MB) and 524288000(500MB). Default value is 314572800(300MB).
-	MaxChunkSizeInBytes pulumi.IntPtrInput `pulumi:"maxChunkSizeInBytes"`
-	// The name that identifies this endpoint. The name can only include alphanumeric characters, periods, underscores, hyphens and has a maximum length of 64 characters. The following names are reserved:  events, fileNotifications, $default. Endpoint names must be unique across endpoint types.
-	Name pulumi.StringInput `pulumi:"name"`
-	// The name of the resource group of the storage account.
-	ResourceGroup pulumi.StringPtrInput `pulumi:"resourceGroup"`
-	// The subscription identifier of the storage account.
-	SubscriptionId pulumi.StringPtrInput `pulumi:"subscriptionId"`
+	AuthenticationType      pulumi.StringPtrInput   `pulumi:"authenticationType"`
+	BatchFrequencyInSeconds pulumi.IntPtrInput      `pulumi:"batchFrequencyInSeconds"`
+	ConnectionString        pulumi.StringPtrInput   `pulumi:"connectionString"`
+	ContainerName           pulumi.StringInput      `pulumi:"containerName"`
+	Encoding                pulumi.StringPtrInput   `pulumi:"encoding"`
+	EndpointUri             pulumi.StringPtrInput   `pulumi:"endpointUri"`
+	FileNameFormat          pulumi.StringPtrInput   `pulumi:"fileNameFormat"`
+	Id                      pulumi.StringPtrInput   `pulumi:"id"`
+	Identity                ManagedIdentityPtrInput `pulumi:"identity"`
+	MaxChunkSizeInBytes     pulumi.IntPtrInput      `pulumi:"maxChunkSizeInBytes"`
+	Name                    pulumi.StringInput      `pulumi:"name"`
+	ResourceGroup           pulumi.StringPtrInput   `pulumi:"resourceGroup"`
+	SubscriptionId          pulumi.StringPtrInput   `pulumi:"subscriptionId"`
 }
 
 func (RoutingStorageContainerPropertiesArgs) ElementType() reflect.Type {
@@ -8538,7 +7759,6 @@ func (i RoutingStorageContainerPropertiesArray) ToRoutingStorageContainerPropert
 	return pulumi.ToOutputWithContext(ctx, i).(RoutingStorageContainerPropertiesArrayOutput)
 }
 
-// The properties related to a storage container endpoint.
 type RoutingStorageContainerPropertiesOutput struct{ *pulumi.OutputState }
 
 func (RoutingStorageContainerPropertiesOutput) ElementType() reflect.Type {
@@ -8553,67 +7773,54 @@ func (o RoutingStorageContainerPropertiesOutput) ToRoutingStorageContainerProper
 	return o
 }
 
-// Method used to authenticate against the storage endpoint
 func (o RoutingStorageContainerPropertiesOutput) AuthenticationType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v RoutingStorageContainerProperties) *string { return v.AuthenticationType }).(pulumi.StringPtrOutput)
 }
 
-// Time interval at which blobs are written to storage. Value should be between 60 and 720 seconds. Default value is 300 seconds.
 func (o RoutingStorageContainerPropertiesOutput) BatchFrequencyInSeconds() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v RoutingStorageContainerProperties) *int { return v.BatchFrequencyInSeconds }).(pulumi.IntPtrOutput)
 }
 
-// The connection string of the storage account.
 func (o RoutingStorageContainerPropertiesOutput) ConnectionString() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v RoutingStorageContainerProperties) *string { return v.ConnectionString }).(pulumi.StringPtrOutput)
 }
 
-// The name of storage container in the storage account.
 func (o RoutingStorageContainerPropertiesOutput) ContainerName() pulumi.StringOutput {
 	return o.ApplyT(func(v RoutingStorageContainerProperties) string { return v.ContainerName }).(pulumi.StringOutput)
 }
 
-// Encoding that is used to serialize messages to blobs. Supported values are 'avro', 'avrodeflate', and 'JSON'. Default value is 'avro'.
 func (o RoutingStorageContainerPropertiesOutput) Encoding() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v RoutingStorageContainerProperties) *string { return v.Encoding }).(pulumi.StringPtrOutput)
 }
 
-// The url of the storage endpoint. It must include the protocol https://
 func (o RoutingStorageContainerPropertiesOutput) EndpointUri() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v RoutingStorageContainerProperties) *string { return v.EndpointUri }).(pulumi.StringPtrOutput)
 }
 
-// File name format for the blob. Default format is {iothub}/{partition}/{YYYY}/{MM}/{DD}/{HH}/{mm}. All parameters are mandatory but can be reordered.
 func (o RoutingStorageContainerPropertiesOutput) FileNameFormat() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v RoutingStorageContainerProperties) *string { return v.FileNameFormat }).(pulumi.StringPtrOutput)
 }
 
-// Id of the storage container endpoint
 func (o RoutingStorageContainerPropertiesOutput) Id() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v RoutingStorageContainerProperties) *string { return v.Id }).(pulumi.StringPtrOutput)
 }
 
-// Managed identity properties of routing storage endpoint.
 func (o RoutingStorageContainerPropertiesOutput) Identity() ManagedIdentityPtrOutput {
 	return o.ApplyT(func(v RoutingStorageContainerProperties) *ManagedIdentity { return v.Identity }).(ManagedIdentityPtrOutput)
 }
 
-// Maximum number of bytes for each blob written to storage. Value should be between 10485760(10MB) and 524288000(500MB). Default value is 314572800(300MB).
 func (o RoutingStorageContainerPropertiesOutput) MaxChunkSizeInBytes() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v RoutingStorageContainerProperties) *int { return v.MaxChunkSizeInBytes }).(pulumi.IntPtrOutput)
 }
 
-// The name that identifies this endpoint. The name can only include alphanumeric characters, periods, underscores, hyphens and has a maximum length of 64 characters. The following names are reserved:  events, fileNotifications, $default. Endpoint names must be unique across endpoint types.
 func (o RoutingStorageContainerPropertiesOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v RoutingStorageContainerProperties) string { return v.Name }).(pulumi.StringOutput)
 }
 
-// The name of the resource group of the storage account.
 func (o RoutingStorageContainerPropertiesOutput) ResourceGroup() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v RoutingStorageContainerProperties) *string { return v.ResourceGroup }).(pulumi.StringPtrOutput)
 }
 
-// The subscription identifier of the storage account.
 func (o RoutingStorageContainerPropertiesOutput) SubscriptionId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v RoutingStorageContainerProperties) *string { return v.SubscriptionId }).(pulumi.StringPtrOutput)
 }
@@ -8638,34 +7845,20 @@ func (o RoutingStorageContainerPropertiesArrayOutput) Index(i pulumi.IntInput) R
 	}).(RoutingStorageContainerPropertiesOutput)
 }
 
-// The properties related to a storage container endpoint.
 type RoutingStorageContainerPropertiesResponse struct {
-	// Method used to authenticate against the storage endpoint
-	AuthenticationType *string `pulumi:"authenticationType"`
-	// Time interval at which blobs are written to storage. Value should be between 60 and 720 seconds. Default value is 300 seconds.
-	BatchFrequencyInSeconds *int `pulumi:"batchFrequencyInSeconds"`
-	// The connection string of the storage account.
-	ConnectionString *string `pulumi:"connectionString"`
-	// The name of storage container in the storage account.
-	ContainerName string `pulumi:"containerName"`
-	// Encoding that is used to serialize messages to blobs. Supported values are 'avro', 'avrodeflate', and 'JSON'. Default value is 'avro'.
-	Encoding *string `pulumi:"encoding"`
-	// The url of the storage endpoint. It must include the protocol https://
-	EndpointUri *string `pulumi:"endpointUri"`
-	// File name format for the blob. Default format is {iothub}/{partition}/{YYYY}/{MM}/{DD}/{HH}/{mm}. All parameters are mandatory but can be reordered.
-	FileNameFormat *string `pulumi:"fileNameFormat"`
-	// Id of the storage container endpoint
-	Id *string `pulumi:"id"`
-	// Managed identity properties of routing storage endpoint.
-	Identity *ManagedIdentityResponse `pulumi:"identity"`
-	// Maximum number of bytes for each blob written to storage. Value should be between 10485760(10MB) and 524288000(500MB). Default value is 314572800(300MB).
-	MaxChunkSizeInBytes *int `pulumi:"maxChunkSizeInBytes"`
-	// The name that identifies this endpoint. The name can only include alphanumeric characters, periods, underscores, hyphens and has a maximum length of 64 characters. The following names are reserved:  events, fileNotifications, $default. Endpoint names must be unique across endpoint types.
-	Name string `pulumi:"name"`
-	// The name of the resource group of the storage account.
-	ResourceGroup *string `pulumi:"resourceGroup"`
-	// The subscription identifier of the storage account.
-	SubscriptionId *string `pulumi:"subscriptionId"`
+	AuthenticationType      *string                  `pulumi:"authenticationType"`
+	BatchFrequencyInSeconds *int                     `pulumi:"batchFrequencyInSeconds"`
+	ConnectionString        *string                  `pulumi:"connectionString"`
+	ContainerName           string                   `pulumi:"containerName"`
+	Encoding                *string                  `pulumi:"encoding"`
+	EndpointUri             *string                  `pulumi:"endpointUri"`
+	FileNameFormat          *string                  `pulumi:"fileNameFormat"`
+	Id                      *string                  `pulumi:"id"`
+	Identity                *ManagedIdentityResponse `pulumi:"identity"`
+	MaxChunkSizeInBytes     *int                     `pulumi:"maxChunkSizeInBytes"`
+	Name                    string                   `pulumi:"name"`
+	ResourceGroup           *string                  `pulumi:"resourceGroup"`
+	SubscriptionId          *string                  `pulumi:"subscriptionId"`
 }
 
 // RoutingStorageContainerPropertiesResponseInput is an input type that accepts RoutingStorageContainerPropertiesResponseArgs and RoutingStorageContainerPropertiesResponseOutput values.
@@ -8679,34 +7872,20 @@ type RoutingStorageContainerPropertiesResponseInput interface {
 	ToRoutingStorageContainerPropertiesResponseOutputWithContext(context.Context) RoutingStorageContainerPropertiesResponseOutput
 }
 
-// The properties related to a storage container endpoint.
 type RoutingStorageContainerPropertiesResponseArgs struct {
-	// Method used to authenticate against the storage endpoint
-	AuthenticationType pulumi.StringPtrInput `pulumi:"authenticationType"`
-	// Time interval at which blobs are written to storage. Value should be between 60 and 720 seconds. Default value is 300 seconds.
-	BatchFrequencyInSeconds pulumi.IntPtrInput `pulumi:"batchFrequencyInSeconds"`
-	// The connection string of the storage account.
-	ConnectionString pulumi.StringPtrInput `pulumi:"connectionString"`
-	// The name of storage container in the storage account.
-	ContainerName pulumi.StringInput `pulumi:"containerName"`
-	// Encoding that is used to serialize messages to blobs. Supported values are 'avro', 'avrodeflate', and 'JSON'. Default value is 'avro'.
-	Encoding pulumi.StringPtrInput `pulumi:"encoding"`
-	// The url of the storage endpoint. It must include the protocol https://
-	EndpointUri pulumi.StringPtrInput `pulumi:"endpointUri"`
-	// File name format for the blob. Default format is {iothub}/{partition}/{YYYY}/{MM}/{DD}/{HH}/{mm}. All parameters are mandatory but can be reordered.
-	FileNameFormat pulumi.StringPtrInput `pulumi:"fileNameFormat"`
-	// Id of the storage container endpoint
-	Id pulumi.StringPtrInput `pulumi:"id"`
-	// Managed identity properties of routing storage endpoint.
-	Identity ManagedIdentityResponsePtrInput `pulumi:"identity"`
-	// Maximum number of bytes for each blob written to storage. Value should be between 10485760(10MB) and 524288000(500MB). Default value is 314572800(300MB).
-	MaxChunkSizeInBytes pulumi.IntPtrInput `pulumi:"maxChunkSizeInBytes"`
-	// The name that identifies this endpoint. The name can only include alphanumeric characters, periods, underscores, hyphens and has a maximum length of 64 characters. The following names are reserved:  events, fileNotifications, $default. Endpoint names must be unique across endpoint types.
-	Name pulumi.StringInput `pulumi:"name"`
-	// The name of the resource group of the storage account.
-	ResourceGroup pulumi.StringPtrInput `pulumi:"resourceGroup"`
-	// The subscription identifier of the storage account.
-	SubscriptionId pulumi.StringPtrInput `pulumi:"subscriptionId"`
+	AuthenticationType      pulumi.StringPtrInput           `pulumi:"authenticationType"`
+	BatchFrequencyInSeconds pulumi.IntPtrInput              `pulumi:"batchFrequencyInSeconds"`
+	ConnectionString        pulumi.StringPtrInput           `pulumi:"connectionString"`
+	ContainerName           pulumi.StringInput              `pulumi:"containerName"`
+	Encoding                pulumi.StringPtrInput           `pulumi:"encoding"`
+	EndpointUri             pulumi.StringPtrInput           `pulumi:"endpointUri"`
+	FileNameFormat          pulumi.StringPtrInput           `pulumi:"fileNameFormat"`
+	Id                      pulumi.StringPtrInput           `pulumi:"id"`
+	Identity                ManagedIdentityResponsePtrInput `pulumi:"identity"`
+	MaxChunkSizeInBytes     pulumi.IntPtrInput              `pulumi:"maxChunkSizeInBytes"`
+	Name                    pulumi.StringInput              `pulumi:"name"`
+	ResourceGroup           pulumi.StringPtrInput           `pulumi:"resourceGroup"`
+	SubscriptionId          pulumi.StringPtrInput           `pulumi:"subscriptionId"`
 }
 
 func (RoutingStorageContainerPropertiesResponseArgs) ElementType() reflect.Type {
@@ -8746,7 +7925,6 @@ func (i RoutingStorageContainerPropertiesResponseArray) ToRoutingStorageContaine
 	return pulumi.ToOutputWithContext(ctx, i).(RoutingStorageContainerPropertiesResponseArrayOutput)
 }
 
-// The properties related to a storage container endpoint.
 type RoutingStorageContainerPropertiesResponseOutput struct{ *pulumi.OutputState }
 
 func (RoutingStorageContainerPropertiesResponseOutput) ElementType() reflect.Type {
@@ -8761,67 +7939,54 @@ func (o RoutingStorageContainerPropertiesResponseOutput) ToRoutingStorageContain
 	return o
 }
 
-// Method used to authenticate against the storage endpoint
 func (o RoutingStorageContainerPropertiesResponseOutput) AuthenticationType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v RoutingStorageContainerPropertiesResponse) *string { return v.AuthenticationType }).(pulumi.StringPtrOutput)
 }
 
-// Time interval at which blobs are written to storage. Value should be between 60 and 720 seconds. Default value is 300 seconds.
 func (o RoutingStorageContainerPropertiesResponseOutput) BatchFrequencyInSeconds() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v RoutingStorageContainerPropertiesResponse) *int { return v.BatchFrequencyInSeconds }).(pulumi.IntPtrOutput)
 }
 
-// The connection string of the storage account.
 func (o RoutingStorageContainerPropertiesResponseOutput) ConnectionString() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v RoutingStorageContainerPropertiesResponse) *string { return v.ConnectionString }).(pulumi.StringPtrOutput)
 }
 
-// The name of storage container in the storage account.
 func (o RoutingStorageContainerPropertiesResponseOutput) ContainerName() pulumi.StringOutput {
 	return o.ApplyT(func(v RoutingStorageContainerPropertiesResponse) string { return v.ContainerName }).(pulumi.StringOutput)
 }
 
-// Encoding that is used to serialize messages to blobs. Supported values are 'avro', 'avrodeflate', and 'JSON'. Default value is 'avro'.
 func (o RoutingStorageContainerPropertiesResponseOutput) Encoding() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v RoutingStorageContainerPropertiesResponse) *string { return v.Encoding }).(pulumi.StringPtrOutput)
 }
 
-// The url of the storage endpoint. It must include the protocol https://
 func (o RoutingStorageContainerPropertiesResponseOutput) EndpointUri() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v RoutingStorageContainerPropertiesResponse) *string { return v.EndpointUri }).(pulumi.StringPtrOutput)
 }
 
-// File name format for the blob. Default format is {iothub}/{partition}/{YYYY}/{MM}/{DD}/{HH}/{mm}. All parameters are mandatory but can be reordered.
 func (o RoutingStorageContainerPropertiesResponseOutput) FileNameFormat() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v RoutingStorageContainerPropertiesResponse) *string { return v.FileNameFormat }).(pulumi.StringPtrOutput)
 }
 
-// Id of the storage container endpoint
 func (o RoutingStorageContainerPropertiesResponseOutput) Id() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v RoutingStorageContainerPropertiesResponse) *string { return v.Id }).(pulumi.StringPtrOutput)
 }
 
-// Managed identity properties of routing storage endpoint.
 func (o RoutingStorageContainerPropertiesResponseOutput) Identity() ManagedIdentityResponsePtrOutput {
 	return o.ApplyT(func(v RoutingStorageContainerPropertiesResponse) *ManagedIdentityResponse { return v.Identity }).(ManagedIdentityResponsePtrOutput)
 }
 
-// Maximum number of bytes for each blob written to storage. Value should be between 10485760(10MB) and 524288000(500MB). Default value is 314572800(300MB).
 func (o RoutingStorageContainerPropertiesResponseOutput) MaxChunkSizeInBytes() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v RoutingStorageContainerPropertiesResponse) *int { return v.MaxChunkSizeInBytes }).(pulumi.IntPtrOutput)
 }
 
-// The name that identifies this endpoint. The name can only include alphanumeric characters, periods, underscores, hyphens and has a maximum length of 64 characters. The following names are reserved:  events, fileNotifications, $default. Endpoint names must be unique across endpoint types.
 func (o RoutingStorageContainerPropertiesResponseOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v RoutingStorageContainerPropertiesResponse) string { return v.Name }).(pulumi.StringOutput)
 }
 
-// The name of the resource group of the storage account.
 func (o RoutingStorageContainerPropertiesResponseOutput) ResourceGroup() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v RoutingStorageContainerPropertiesResponse) *string { return v.ResourceGroup }).(pulumi.StringPtrOutput)
 }
 
-// The subscription identifier of the storage account.
 func (o RoutingStorageContainerPropertiesResponseOutput) SubscriptionId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v RoutingStorageContainerPropertiesResponse) *string { return v.SubscriptionId }).(pulumi.StringPtrOutput)
 }
@@ -8846,16 +8011,11 @@ func (o RoutingStorageContainerPropertiesResponseArrayOutput) Index(i pulumi.Int
 	}).(RoutingStorageContainerPropertiesResponseOutput)
 }
 
-// The properties of an IoT hub shared access policy.
 type SharedAccessSignatureAuthorizationRule struct {
-	// The name of the shared access policy.
-	KeyName string `pulumi:"keyName"`
-	// The primary key.
-	PrimaryKey *string `pulumi:"primaryKey"`
-	// The permissions assigned to the shared access policy.
-	Rights string `pulumi:"rights"`
-	// The secondary key.
-	SecondaryKey *string `pulumi:"secondaryKey"`
+	KeyName      string       `pulumi:"keyName"`
+	PrimaryKey   *string      `pulumi:"primaryKey"`
+	Rights       AccessRights `pulumi:"rights"`
+	SecondaryKey *string      `pulumi:"secondaryKey"`
 }
 
 // SharedAccessSignatureAuthorizationRuleInput is an input type that accepts SharedAccessSignatureAuthorizationRuleArgs and SharedAccessSignatureAuthorizationRuleOutput values.
@@ -8869,15 +8029,10 @@ type SharedAccessSignatureAuthorizationRuleInput interface {
 	ToSharedAccessSignatureAuthorizationRuleOutputWithContext(context.Context) SharedAccessSignatureAuthorizationRuleOutput
 }
 
-// The properties of an IoT hub shared access policy.
 type SharedAccessSignatureAuthorizationRuleArgs struct {
-	// The name of the shared access policy.
-	KeyName pulumi.StringInput `pulumi:"keyName"`
-	// The primary key.
-	PrimaryKey pulumi.StringPtrInput `pulumi:"primaryKey"`
-	// The permissions assigned to the shared access policy.
-	Rights AccessRights `pulumi:"rights"`
-	// The secondary key.
+	KeyName      pulumi.StringInput    `pulumi:"keyName"`
+	PrimaryKey   pulumi.StringPtrInput `pulumi:"primaryKey"`
+	Rights       AccessRightsInput     `pulumi:"rights"`
 	SecondaryKey pulumi.StringPtrInput `pulumi:"secondaryKey"`
 }
 
@@ -8918,7 +8073,6 @@ func (i SharedAccessSignatureAuthorizationRuleArray) ToSharedAccessSignatureAuth
 	return pulumi.ToOutputWithContext(ctx, i).(SharedAccessSignatureAuthorizationRuleArrayOutput)
 }
 
-// The properties of an IoT hub shared access policy.
 type SharedAccessSignatureAuthorizationRuleOutput struct{ *pulumi.OutputState }
 
 func (SharedAccessSignatureAuthorizationRuleOutput) ElementType() reflect.Type {
@@ -8933,22 +8087,18 @@ func (o SharedAccessSignatureAuthorizationRuleOutput) ToSharedAccessSignatureAut
 	return o
 }
 
-// The name of the shared access policy.
 func (o SharedAccessSignatureAuthorizationRuleOutput) KeyName() pulumi.StringOutput {
 	return o.ApplyT(func(v SharedAccessSignatureAuthorizationRule) string { return v.KeyName }).(pulumi.StringOutput)
 }
 
-// The primary key.
 func (o SharedAccessSignatureAuthorizationRuleOutput) PrimaryKey() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SharedAccessSignatureAuthorizationRule) *string { return v.PrimaryKey }).(pulumi.StringPtrOutput)
 }
 
-// The permissions assigned to the shared access policy.
-func (o SharedAccessSignatureAuthorizationRuleOutput) Rights() pulumi.StringOutput {
-	return o.ApplyT(func(v SharedAccessSignatureAuthorizationRule) string { return v.Rights }).(pulumi.StringOutput)
+func (o SharedAccessSignatureAuthorizationRuleOutput) Rights() AccessRightsOutput {
+	return o.ApplyT(func(v SharedAccessSignatureAuthorizationRule) AccessRights { return v.Rights }).(AccessRightsOutput)
 }
 
-// The secondary key.
 func (o SharedAccessSignatureAuthorizationRuleOutput) SecondaryKey() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SharedAccessSignatureAuthorizationRule) *string { return v.SecondaryKey }).(pulumi.StringPtrOutput)
 }
@@ -8973,15 +8123,10 @@ func (o SharedAccessSignatureAuthorizationRuleArrayOutput) Index(i pulumi.IntInp
 	}).(SharedAccessSignatureAuthorizationRuleOutput)
 }
 
-// The properties of an IoT hub shared access policy.
 type SharedAccessSignatureAuthorizationRuleResponse struct {
-	// The name of the shared access policy.
-	KeyName string `pulumi:"keyName"`
-	// The primary key.
-	PrimaryKey *string `pulumi:"primaryKey"`
-	// The permissions assigned to the shared access policy.
-	Rights string `pulumi:"rights"`
-	// The secondary key.
+	KeyName      string  `pulumi:"keyName"`
+	PrimaryKey   *string `pulumi:"primaryKey"`
+	Rights       string  `pulumi:"rights"`
 	SecondaryKey *string `pulumi:"secondaryKey"`
 }
 
@@ -8996,15 +8141,10 @@ type SharedAccessSignatureAuthorizationRuleResponseInput interface {
 	ToSharedAccessSignatureAuthorizationRuleResponseOutputWithContext(context.Context) SharedAccessSignatureAuthorizationRuleResponseOutput
 }
 
-// The properties of an IoT hub shared access policy.
 type SharedAccessSignatureAuthorizationRuleResponseArgs struct {
-	// The name of the shared access policy.
-	KeyName pulumi.StringInput `pulumi:"keyName"`
-	// The primary key.
-	PrimaryKey pulumi.StringPtrInput `pulumi:"primaryKey"`
-	// The permissions assigned to the shared access policy.
-	Rights pulumi.StringInput `pulumi:"rights"`
-	// The secondary key.
+	KeyName      pulumi.StringInput    `pulumi:"keyName"`
+	PrimaryKey   pulumi.StringPtrInput `pulumi:"primaryKey"`
+	Rights       pulumi.StringInput    `pulumi:"rights"`
 	SecondaryKey pulumi.StringPtrInput `pulumi:"secondaryKey"`
 }
 
@@ -9045,7 +8185,6 @@ func (i SharedAccessSignatureAuthorizationRuleResponseArray) ToSharedAccessSigna
 	return pulumi.ToOutputWithContext(ctx, i).(SharedAccessSignatureAuthorizationRuleResponseArrayOutput)
 }
 
-// The properties of an IoT hub shared access policy.
 type SharedAccessSignatureAuthorizationRuleResponseOutput struct{ *pulumi.OutputState }
 
 func (SharedAccessSignatureAuthorizationRuleResponseOutput) ElementType() reflect.Type {
@@ -9060,22 +8199,18 @@ func (o SharedAccessSignatureAuthorizationRuleResponseOutput) ToSharedAccessSign
 	return o
 }
 
-// The name of the shared access policy.
 func (o SharedAccessSignatureAuthorizationRuleResponseOutput) KeyName() pulumi.StringOutput {
 	return o.ApplyT(func(v SharedAccessSignatureAuthorizationRuleResponse) string { return v.KeyName }).(pulumi.StringOutput)
 }
 
-// The primary key.
 func (o SharedAccessSignatureAuthorizationRuleResponseOutput) PrimaryKey() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SharedAccessSignatureAuthorizationRuleResponse) *string { return v.PrimaryKey }).(pulumi.StringPtrOutput)
 }
 
-// The permissions assigned to the shared access policy.
 func (o SharedAccessSignatureAuthorizationRuleResponseOutput) Rights() pulumi.StringOutput {
 	return o.ApplyT(func(v SharedAccessSignatureAuthorizationRuleResponse) string { return v.Rights }).(pulumi.StringOutput)
 }
 
-// The secondary key.
 func (o SharedAccessSignatureAuthorizationRuleResponseOutput) SecondaryKey() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SharedAccessSignatureAuthorizationRuleResponse) *string { return v.SecondaryKey }).(pulumi.StringPtrOutput)
 }
@@ -9100,18 +8235,12 @@ func (o SharedAccessSignatureAuthorizationRuleResponseArrayOutput) Index(i pulum
 	}).(SharedAccessSignatureAuthorizationRuleResponseOutput)
 }
 
-// The properties of the Azure Storage endpoint for file upload.
 type StorageEndpointProperties struct {
-	// Specifies authentication type being used for connecting to the storage account.
-	AuthenticationType *string `pulumi:"authenticationType"`
-	// The connection string for the Azure Storage account to which files are uploaded.
-	ConnectionString string `pulumi:"connectionString"`
-	// The name of the root container where you upload files. The container need not exist but should be creatable using the connectionString specified.
-	ContainerName string `pulumi:"containerName"`
-	// Managed identity properties of storage endpoint for file upload.
-	Identity *ManagedIdentity `pulumi:"identity"`
-	// The period of time for which the SAS URI generated by IoT Hub for file upload is valid. See: https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-file-upload#file-upload-notification-configuration-options.
-	SasTtlAsIso8601 *string `pulumi:"sasTtlAsIso8601"`
+	AuthenticationType *string          `pulumi:"authenticationType"`
+	ConnectionString   string           `pulumi:"connectionString"`
+	ContainerName      string           `pulumi:"containerName"`
+	Identity           *ManagedIdentity `pulumi:"identity"`
+	SasTtlAsIso8601    *string          `pulumi:"sasTtlAsIso8601"`
 }
 
 // StorageEndpointPropertiesInput is an input type that accepts StorageEndpointPropertiesArgs and StorageEndpointPropertiesOutput values.
@@ -9125,18 +8254,12 @@ type StorageEndpointPropertiesInput interface {
 	ToStorageEndpointPropertiesOutputWithContext(context.Context) StorageEndpointPropertiesOutput
 }
 
-// The properties of the Azure Storage endpoint for file upload.
 type StorageEndpointPropertiesArgs struct {
-	// Specifies authentication type being used for connecting to the storage account.
-	AuthenticationType pulumi.StringPtrInput `pulumi:"authenticationType"`
-	// The connection string for the Azure Storage account to which files are uploaded.
-	ConnectionString pulumi.StringInput `pulumi:"connectionString"`
-	// The name of the root container where you upload files. The container need not exist but should be creatable using the connectionString specified.
-	ContainerName pulumi.StringInput `pulumi:"containerName"`
-	// Managed identity properties of storage endpoint for file upload.
-	Identity ManagedIdentityPtrInput `pulumi:"identity"`
-	// The period of time for which the SAS URI generated by IoT Hub for file upload is valid. See: https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-file-upload#file-upload-notification-configuration-options.
-	SasTtlAsIso8601 pulumi.StringPtrInput `pulumi:"sasTtlAsIso8601"`
+	AuthenticationType pulumi.StringPtrInput   `pulumi:"authenticationType"`
+	ConnectionString   pulumi.StringInput      `pulumi:"connectionString"`
+	ContainerName      pulumi.StringInput      `pulumi:"containerName"`
+	Identity           ManagedIdentityPtrInput `pulumi:"identity"`
+	SasTtlAsIso8601    pulumi.StringPtrInput   `pulumi:"sasTtlAsIso8601"`
 }
 
 func (StorageEndpointPropertiesArgs) ElementType() reflect.Type {
@@ -9176,7 +8299,6 @@ func (i StorageEndpointPropertiesMap) ToStorageEndpointPropertiesMapOutputWithCo
 	return pulumi.ToOutputWithContext(ctx, i).(StorageEndpointPropertiesMapOutput)
 }
 
-// The properties of the Azure Storage endpoint for file upload.
 type StorageEndpointPropertiesOutput struct{ *pulumi.OutputState }
 
 func (StorageEndpointPropertiesOutput) ElementType() reflect.Type {
@@ -9191,27 +8313,22 @@ func (o StorageEndpointPropertiesOutput) ToStorageEndpointPropertiesOutputWithCo
 	return o
 }
 
-// Specifies authentication type being used for connecting to the storage account.
 func (o StorageEndpointPropertiesOutput) AuthenticationType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v StorageEndpointProperties) *string { return v.AuthenticationType }).(pulumi.StringPtrOutput)
 }
 
-// The connection string for the Azure Storage account to which files are uploaded.
 func (o StorageEndpointPropertiesOutput) ConnectionString() pulumi.StringOutput {
 	return o.ApplyT(func(v StorageEndpointProperties) string { return v.ConnectionString }).(pulumi.StringOutput)
 }
 
-// The name of the root container where you upload files. The container need not exist but should be creatable using the connectionString specified.
 func (o StorageEndpointPropertiesOutput) ContainerName() pulumi.StringOutput {
 	return o.ApplyT(func(v StorageEndpointProperties) string { return v.ContainerName }).(pulumi.StringOutput)
 }
 
-// Managed identity properties of storage endpoint for file upload.
 func (o StorageEndpointPropertiesOutput) Identity() ManagedIdentityPtrOutput {
 	return o.ApplyT(func(v StorageEndpointProperties) *ManagedIdentity { return v.Identity }).(ManagedIdentityPtrOutput)
 }
 
-// The period of time for which the SAS URI generated by IoT Hub for file upload is valid. See: https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-file-upload#file-upload-notification-configuration-options.
 func (o StorageEndpointPropertiesOutput) SasTtlAsIso8601() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v StorageEndpointProperties) *string { return v.SasTtlAsIso8601 }).(pulumi.StringPtrOutput)
 }
@@ -9236,18 +8353,12 @@ func (o StorageEndpointPropertiesMapOutput) MapIndex(k pulumi.StringInput) Stora
 	}).(StorageEndpointPropertiesOutput)
 }
 
-// The properties of the Azure Storage endpoint for file upload.
 type StorageEndpointPropertiesResponse struct {
-	// Specifies authentication type being used for connecting to the storage account.
-	AuthenticationType *string `pulumi:"authenticationType"`
-	// The connection string for the Azure Storage account to which files are uploaded.
-	ConnectionString string `pulumi:"connectionString"`
-	// The name of the root container where you upload files. The container need not exist but should be creatable using the connectionString specified.
-	ContainerName string `pulumi:"containerName"`
-	// Managed identity properties of storage endpoint for file upload.
-	Identity *ManagedIdentityResponse `pulumi:"identity"`
-	// The period of time for which the SAS URI generated by IoT Hub for file upload is valid. See: https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-file-upload#file-upload-notification-configuration-options.
-	SasTtlAsIso8601 *string `pulumi:"sasTtlAsIso8601"`
+	AuthenticationType *string                  `pulumi:"authenticationType"`
+	ConnectionString   string                   `pulumi:"connectionString"`
+	ContainerName      string                   `pulumi:"containerName"`
+	Identity           *ManagedIdentityResponse `pulumi:"identity"`
+	SasTtlAsIso8601    *string                  `pulumi:"sasTtlAsIso8601"`
 }
 
 // StorageEndpointPropertiesResponseInput is an input type that accepts StorageEndpointPropertiesResponseArgs and StorageEndpointPropertiesResponseOutput values.
@@ -9261,18 +8372,12 @@ type StorageEndpointPropertiesResponseInput interface {
 	ToStorageEndpointPropertiesResponseOutputWithContext(context.Context) StorageEndpointPropertiesResponseOutput
 }
 
-// The properties of the Azure Storage endpoint for file upload.
 type StorageEndpointPropertiesResponseArgs struct {
-	// Specifies authentication type being used for connecting to the storage account.
-	AuthenticationType pulumi.StringPtrInput `pulumi:"authenticationType"`
-	// The connection string for the Azure Storage account to which files are uploaded.
-	ConnectionString pulumi.StringInput `pulumi:"connectionString"`
-	// The name of the root container where you upload files. The container need not exist but should be creatable using the connectionString specified.
-	ContainerName pulumi.StringInput `pulumi:"containerName"`
-	// Managed identity properties of storage endpoint for file upload.
-	Identity ManagedIdentityResponsePtrInput `pulumi:"identity"`
-	// The period of time for which the SAS URI generated by IoT Hub for file upload is valid. See: https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-file-upload#file-upload-notification-configuration-options.
-	SasTtlAsIso8601 pulumi.StringPtrInput `pulumi:"sasTtlAsIso8601"`
+	AuthenticationType pulumi.StringPtrInput           `pulumi:"authenticationType"`
+	ConnectionString   pulumi.StringInput              `pulumi:"connectionString"`
+	ContainerName      pulumi.StringInput              `pulumi:"containerName"`
+	Identity           ManagedIdentityResponsePtrInput `pulumi:"identity"`
+	SasTtlAsIso8601    pulumi.StringPtrInput           `pulumi:"sasTtlAsIso8601"`
 }
 
 func (StorageEndpointPropertiesResponseArgs) ElementType() reflect.Type {
@@ -9312,7 +8417,6 @@ func (i StorageEndpointPropertiesResponseMap) ToStorageEndpointPropertiesRespons
 	return pulumi.ToOutputWithContext(ctx, i).(StorageEndpointPropertiesResponseMapOutput)
 }
 
-// The properties of the Azure Storage endpoint for file upload.
 type StorageEndpointPropertiesResponseOutput struct{ *pulumi.OutputState }
 
 func (StorageEndpointPropertiesResponseOutput) ElementType() reflect.Type {
@@ -9327,27 +8431,22 @@ func (o StorageEndpointPropertiesResponseOutput) ToStorageEndpointPropertiesResp
 	return o
 }
 
-// Specifies authentication type being used for connecting to the storage account.
 func (o StorageEndpointPropertiesResponseOutput) AuthenticationType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v StorageEndpointPropertiesResponse) *string { return v.AuthenticationType }).(pulumi.StringPtrOutput)
 }
 
-// The connection string for the Azure Storage account to which files are uploaded.
 func (o StorageEndpointPropertiesResponseOutput) ConnectionString() pulumi.StringOutput {
 	return o.ApplyT(func(v StorageEndpointPropertiesResponse) string { return v.ConnectionString }).(pulumi.StringOutput)
 }
 
-// The name of the root container where you upload files. The container need not exist but should be creatable using the connectionString specified.
 func (o StorageEndpointPropertiesResponseOutput) ContainerName() pulumi.StringOutput {
 	return o.ApplyT(func(v StorageEndpointPropertiesResponse) string { return v.ContainerName }).(pulumi.StringOutput)
 }
 
-// Managed identity properties of storage endpoint for file upload.
 func (o StorageEndpointPropertiesResponseOutput) Identity() ManagedIdentityResponsePtrOutput {
 	return o.ApplyT(func(v StorageEndpointPropertiesResponse) *ManagedIdentityResponse { return v.Identity }).(ManagedIdentityResponsePtrOutput)
 }
 
-// The period of time for which the SAS URI generated by IoT Hub for file upload is valid. See: https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-file-upload#file-upload-notification-configuration-options.
 func (o StorageEndpointPropertiesResponseOutput) SasTtlAsIso8601() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v StorageEndpointPropertiesResponse) *string { return v.SasTtlAsIso8601 }).(pulumi.StringPtrOutput)
 }

@@ -7,7 +7,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Definition of the variable.
 func LookupVariable(ctx *pulumi.Context, args *LookupVariableArgs, opts ...pulumi.InvokeOption) (*LookupVariableResult, error) {
 	var rv LookupVariableResult
 	err := ctx.Invoke("azure-native:automation/v20190601:getVariable", args, &rv, opts...)
@@ -18,30 +17,19 @@ func LookupVariable(ctx *pulumi.Context, args *LookupVariableArgs, opts ...pulum
 }
 
 type LookupVariableArgs struct {
-	// The name of the automation account.
 	AutomationAccountName string `pulumi:"automationAccountName"`
-	// Name of an Azure Resource group.
-	ResourceGroupName string `pulumi:"resourceGroupName"`
-	// The name of variable.
-	VariableName string `pulumi:"variableName"`
+	ResourceGroupName     string `pulumi:"resourceGroupName"`
+	VariableName          string `pulumi:"variableName"`
 }
 
 // Definition of the variable.
 type LookupVariableResult struct {
-	// Gets or sets the creation time.
-	CreationTime *string `pulumi:"creationTime"`
-	// Gets or sets the description.
-	Description *string `pulumi:"description"`
-	// Fully qualified resource Id for the resource
-	Id string `pulumi:"id"`
-	// Gets or sets the encrypted flag of the variable.
-	IsEncrypted *bool `pulumi:"isEncrypted"`
-	// Gets or sets the last modified time.
+	CreationTime     *string `pulumi:"creationTime"`
+	Description      *string `pulumi:"description"`
+	Id               string  `pulumi:"id"`
+	IsEncrypted      *bool   `pulumi:"isEncrypted"`
 	LastModifiedTime *string `pulumi:"lastModifiedTime"`
-	// The name of the resource
-	Name string `pulumi:"name"`
-	// The type of the resource.
-	Type string `pulumi:"type"`
-	// Gets or sets the value of the variable.
-	Value *string `pulumi:"value"`
+	Name             string  `pulumi:"name"`
+	Type             string  `pulumi:"type"`
+	Value            *string `pulumi:"value"`
 }

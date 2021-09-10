@@ -180,9 +180,7 @@ func (i *Property) ToPropertyOutputWithContext(ctx context.Context) PropertyOutp
 	return pulumi.ToOutputWithContext(ctx, i).(PropertyOutput)
 }
 
-type PropertyOutput struct {
-	*pulumi.OutputState
-}
+type PropertyOutput struct{ *pulumi.OutputState }
 
 func (PropertyOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*Property)(nil))

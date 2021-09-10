@@ -7,7 +7,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Server communication link.
 func LookupServerCommunicationLink(ctx *pulumi.Context, args *LookupServerCommunicationLinkArgs, opts ...pulumi.InvokeOption) (*LookupServerCommunicationLinkResult, error) {
 	var rv LookupServerCommunicationLinkResult
 	err := ctx.Invoke("azure-native:sql/v20140401:getServerCommunicationLink", args, &rv, opts...)
@@ -18,28 +17,18 @@ func LookupServerCommunicationLink(ctx *pulumi.Context, args *LookupServerCommun
 }
 
 type LookupServerCommunicationLinkArgs struct {
-	// The name of the server communication link.
 	CommunicationLinkName string `pulumi:"communicationLinkName"`
-	// The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
-	ResourceGroupName string `pulumi:"resourceGroupName"`
-	// The name of the server.
-	ServerName string `pulumi:"serverName"`
+	ResourceGroupName     string `pulumi:"resourceGroupName"`
+	ServerName            string `pulumi:"serverName"`
 }
 
 // Server communication link.
 type LookupServerCommunicationLinkResult struct {
-	// Resource ID.
-	Id string `pulumi:"id"`
-	// Communication link kind.  This property is used for Azure Portal metadata.
-	Kind string `pulumi:"kind"`
-	// Communication link location.
-	Location string `pulumi:"location"`
-	// Resource name.
-	Name string `pulumi:"name"`
-	// The name of the partner server.
+	Id            string `pulumi:"id"`
+	Kind          string `pulumi:"kind"`
+	Location      string `pulumi:"location"`
+	Name          string `pulumi:"name"`
 	PartnerServer string `pulumi:"partnerServer"`
-	// The state.
-	State string `pulumi:"state"`
-	// Resource type.
-	Type string `pulumi:"type"`
+	State         string `pulumi:"state"`
+	Type          string `pulumi:"type"`
 }

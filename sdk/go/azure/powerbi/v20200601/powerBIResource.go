@@ -14,20 +14,13 @@ import (
 type PowerBIResource struct {
 	pulumi.CustomResourceState
 
-	// Specifies the location of the resource.
-	Location pulumi.StringPtrOutput `pulumi:"location"`
-	// Specifies the name of the resource.
-	Name pulumi.StringOutput `pulumi:"name"`
-	// Specifies the private endpoint connections of the resource.
+	Location                   pulumi.StringPtrOutput                       `pulumi:"location"`
+	Name                       pulumi.StringOutput                          `pulumi:"name"`
 	PrivateEndpointConnections PrivateEndpointConnectionResponseArrayOutput `pulumi:"privateEndpointConnections"`
-	// The system metadata relating to this resource.
-	SystemData SystemDataResponseOutput `pulumi:"systemData"`
-	// Specifies the tags of the resource.
-	Tags pulumi.StringMapOutput `pulumi:"tags"`
-	// Specifies the tenant id of the resource.
-	TenantId pulumi.StringPtrOutput `pulumi:"tenantId"`
-	// Specifies the type of the resource.
-	Type pulumi.StringOutput `pulumi:"type"`
+	SystemData                 SystemDataResponseOutput                     `pulumi:"systemData"`
+	Tags                       pulumi.StringMapOutput                       `pulumi:"tags"`
+	TenantId                   pulumi.StringPtrOutput                       `pulumi:"tenantId"`
+	Type                       pulumi.StringOutput                          `pulumi:"type"`
 }
 
 // NewPowerBIResource registers a new resource with the given unique name, arguments, and options.
@@ -84,34 +77,22 @@ func (PowerBIResourceState) ElementType() reflect.Type {
 }
 
 type powerBIResourceArgs struct {
-	// The name of the Azure resource.
-	AzureResourceName *string `pulumi:"azureResourceName"`
-	// Specifies the location of the resource.
-	Location *string `pulumi:"location"`
-	// Specifies the private endpoint connections of the resource.
+	AzureResourceName          *string                         `pulumi:"azureResourceName"`
+	Location                   *string                         `pulumi:"location"`
 	PrivateEndpointConnections []PrivateEndpointConnectionType `pulumi:"privateEndpointConnections"`
-	// The name of the resource group.
-	ResourceGroupName string `pulumi:"resourceGroupName"`
-	// Specifies the tags of the resource.
-	Tags map[string]string `pulumi:"tags"`
-	// Specifies the tenant id of the resource.
-	TenantId *string `pulumi:"tenantId"`
+	ResourceGroupName          string                          `pulumi:"resourceGroupName"`
+	Tags                       map[string]string               `pulumi:"tags"`
+	TenantId                   *string                         `pulumi:"tenantId"`
 }
 
 // The set of arguments for constructing a PowerBIResource resource.
 type PowerBIResourceArgs struct {
-	// The name of the Azure resource.
-	AzureResourceName pulumi.StringPtrInput
-	// Specifies the location of the resource.
-	Location pulumi.StringPtrInput
-	// Specifies the private endpoint connections of the resource.
+	AzureResourceName          pulumi.StringPtrInput
+	Location                   pulumi.StringPtrInput
 	PrivateEndpointConnections PrivateEndpointConnectionTypeArrayInput
-	// The name of the resource group.
-	ResourceGroupName pulumi.StringInput
-	// Specifies the tags of the resource.
-	Tags pulumi.StringMapInput
-	// Specifies the tenant id of the resource.
-	TenantId pulumi.StringPtrInput
+	ResourceGroupName          pulumi.StringInput
+	Tags                       pulumi.StringMapInput
+	TenantId                   pulumi.StringPtrInput
 }
 
 func (PowerBIResourceArgs) ElementType() reflect.Type {
@@ -137,9 +118,7 @@ func (i *PowerBIResource) ToPowerBIResourceOutputWithContext(ctx context.Context
 	return pulumi.ToOutputWithContext(ctx, i).(PowerBIResourceOutput)
 }
 
-type PowerBIResourceOutput struct {
-	*pulumi.OutputState
-}
+type PowerBIResourceOutput struct{ *pulumi.OutputState }
 
 func (PowerBIResourceOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*PowerBIResource)(nil))

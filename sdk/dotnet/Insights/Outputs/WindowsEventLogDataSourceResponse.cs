@@ -10,6 +10,10 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.Insights.Outputs
 {
 
+    /// <summary>
+    /// Definition of which Windows Event Log events will be collected and how they will be collected.
+    /// Only collected from Windows machines.
+    /// </summary>
     [OutputType]
     public sealed class WindowsEventLogDataSourceResponse
     {

@@ -11,22 +11,15 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Rule Collection Group resource.
 type FirewallPolicyRuleCollectionGroup struct {
 	pulumi.CustomResourceState
 
-	// A unique read-only string that changes whenever the resource is updated.
-	Etag pulumi.StringOutput `pulumi:"etag"`
-	// The name of the resource that is unique within a resource group. This name can be used to access the resource.
-	Name pulumi.StringPtrOutput `pulumi:"name"`
-	// Priority of the Firewall Policy Rule Collection Group resource.
-	Priority pulumi.IntPtrOutput `pulumi:"priority"`
-	// The provisioning state of the firewall policy rule collection group resource.
-	ProvisioningState pulumi.StringOutput `pulumi:"provisioningState"`
-	// Group of Firewall Policy rule collections.
-	RuleCollections pulumi.ArrayOutput `pulumi:"ruleCollections"`
-	// Rule Group type.
-	Type pulumi.StringOutput `pulumi:"type"`
+	Etag              pulumi.StringOutput    `pulumi:"etag"`
+	Name              pulumi.StringPtrOutput `pulumi:"name"`
+	Priority          pulumi.IntPtrOutput    `pulumi:"priority"`
+	ProvisioningState pulumi.StringOutput    `pulumi:"provisioningState"`
+	RuleCollections   pulumi.ArrayOutput     `pulumi:"ruleCollections"`
+	Type              pulumi.StringOutput    `pulumi:"type"`
 }
 
 // NewFirewallPolicyRuleCollectionGroup registers a new resource with the given unique name, arguments, and options.
@@ -122,38 +115,24 @@ func (FirewallPolicyRuleCollectionGroupState) ElementType() reflect.Type {
 }
 
 type firewallPolicyRuleCollectionGroupArgs struct {
-	// The name of the Firewall Policy.
-	FirewallPolicyName string `pulumi:"firewallPolicyName"`
-	// Resource ID.
-	Id *string `pulumi:"id"`
-	// The name of the resource that is unique within a resource group. This name can be used to access the resource.
-	Name *string `pulumi:"name"`
-	// Priority of the Firewall Policy Rule Collection Group resource.
-	Priority *int `pulumi:"priority"`
-	// The name of the resource group.
-	ResourceGroupName string `pulumi:"resourceGroupName"`
-	// The name of the FirewallPolicyRuleCollectionGroup.
-	RuleCollectionGroupName *string `pulumi:"ruleCollectionGroupName"`
-	// Group of Firewall Policy rule collections.
-	RuleCollections []interface{} `pulumi:"ruleCollections"`
+	FirewallPolicyName      string        `pulumi:"firewallPolicyName"`
+	Id                      *string       `pulumi:"id"`
+	Name                    *string       `pulumi:"name"`
+	Priority                *int          `pulumi:"priority"`
+	ResourceGroupName       string        `pulumi:"resourceGroupName"`
+	RuleCollectionGroupName *string       `pulumi:"ruleCollectionGroupName"`
+	RuleCollections         []interface{} `pulumi:"ruleCollections"`
 }
 
 // The set of arguments for constructing a FirewallPolicyRuleCollectionGroup resource.
 type FirewallPolicyRuleCollectionGroupArgs struct {
-	// The name of the Firewall Policy.
-	FirewallPolicyName pulumi.StringInput
-	// Resource ID.
-	Id pulumi.StringPtrInput
-	// The name of the resource that is unique within a resource group. This name can be used to access the resource.
-	Name pulumi.StringPtrInput
-	// Priority of the Firewall Policy Rule Collection Group resource.
-	Priority pulumi.IntPtrInput
-	// The name of the resource group.
-	ResourceGroupName pulumi.StringInput
-	// The name of the FirewallPolicyRuleCollectionGroup.
+	FirewallPolicyName      pulumi.StringInput
+	Id                      pulumi.StringPtrInput
+	Name                    pulumi.StringPtrInput
+	Priority                pulumi.IntPtrInput
+	ResourceGroupName       pulumi.StringInput
 	RuleCollectionGroupName pulumi.StringPtrInput
-	// Group of Firewall Policy rule collections.
-	RuleCollections pulumi.ArrayInput
+	RuleCollections         pulumi.ArrayInput
 }
 
 func (FirewallPolicyRuleCollectionGroupArgs) ElementType() reflect.Type {
@@ -179,9 +158,7 @@ func (i *FirewallPolicyRuleCollectionGroup) ToFirewallPolicyRuleCollectionGroupO
 	return pulumi.ToOutputWithContext(ctx, i).(FirewallPolicyRuleCollectionGroupOutput)
 }
 
-type FirewallPolicyRuleCollectionGroupOutput struct {
-	*pulumi.OutputState
-}
+type FirewallPolicyRuleCollectionGroupOutput struct{ *pulumi.OutputState }
 
 func (FirewallPolicyRuleCollectionGroupOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*FirewallPolicyRuleCollectionGroup)(nil))

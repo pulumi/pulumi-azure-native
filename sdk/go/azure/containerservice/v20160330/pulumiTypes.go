@@ -10,16 +10,11 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Profile for the container service agent pool.
 type ContainerServiceAgentPoolProfile struct {
-	// Number of agents (VMs) to host docker containers. Allowed values must be in the range of 1 to 100 (inclusive). The default value is 1.
-	Count *int `pulumi:"count"`
-	// DNS prefix to be used to create the FQDN for the agent pool.
+	Count     *int   `pulumi:"count"`
 	DnsPrefix string `pulumi:"dnsPrefix"`
-	// Unique name of the agent pool profile in the context of the subscription and resource group.
-	Name string `pulumi:"name"`
-	// Size of agent VMs.
-	VmSize string `pulumi:"vmSize"`
+	Name      string `pulumi:"name"`
+	VmSize    string `pulumi:"vmSize"`
 }
 
 // ContainerServiceAgentPoolProfileInput is an input type that accepts ContainerServiceAgentPoolProfileArgs and ContainerServiceAgentPoolProfileOutput values.
@@ -33,16 +28,11 @@ type ContainerServiceAgentPoolProfileInput interface {
 	ToContainerServiceAgentPoolProfileOutputWithContext(context.Context) ContainerServiceAgentPoolProfileOutput
 }
 
-// Profile for the container service agent pool.
 type ContainerServiceAgentPoolProfileArgs struct {
-	// Number of agents (VMs) to host docker containers. Allowed values must be in the range of 1 to 100 (inclusive). The default value is 1.
-	Count pulumi.IntPtrInput `pulumi:"count"`
-	// DNS prefix to be used to create the FQDN for the agent pool.
+	Count     pulumi.IntPtrInput `pulumi:"count"`
 	DnsPrefix pulumi.StringInput `pulumi:"dnsPrefix"`
-	// Unique name of the agent pool profile in the context of the subscription and resource group.
-	Name pulumi.StringInput `pulumi:"name"`
-	// Size of agent VMs.
-	VmSize pulumi.StringInput `pulumi:"vmSize"`
+	Name      pulumi.StringInput `pulumi:"name"`
+	VmSize    pulumi.StringInput `pulumi:"vmSize"`
 }
 
 func (ContainerServiceAgentPoolProfileArgs) ElementType() reflect.Type {
@@ -82,7 +72,6 @@ func (i ContainerServiceAgentPoolProfileArray) ToContainerServiceAgentPoolProfil
 	return pulumi.ToOutputWithContext(ctx, i).(ContainerServiceAgentPoolProfileArrayOutput)
 }
 
-// Profile for the container service agent pool.
 type ContainerServiceAgentPoolProfileOutput struct{ *pulumi.OutputState }
 
 func (ContainerServiceAgentPoolProfileOutput) ElementType() reflect.Type {
@@ -97,22 +86,18 @@ func (o ContainerServiceAgentPoolProfileOutput) ToContainerServiceAgentPoolProfi
 	return o
 }
 
-// Number of agents (VMs) to host docker containers. Allowed values must be in the range of 1 to 100 (inclusive). The default value is 1.
 func (o ContainerServiceAgentPoolProfileOutput) Count() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v ContainerServiceAgentPoolProfile) *int { return v.Count }).(pulumi.IntPtrOutput)
 }
 
-// DNS prefix to be used to create the FQDN for the agent pool.
 func (o ContainerServiceAgentPoolProfileOutput) DnsPrefix() pulumi.StringOutput {
 	return o.ApplyT(func(v ContainerServiceAgentPoolProfile) string { return v.DnsPrefix }).(pulumi.StringOutput)
 }
 
-// Unique name of the agent pool profile in the context of the subscription and resource group.
 func (o ContainerServiceAgentPoolProfileOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v ContainerServiceAgentPoolProfile) string { return v.Name }).(pulumi.StringOutput)
 }
 
-// Size of agent VMs.
 func (o ContainerServiceAgentPoolProfileOutput) VmSize() pulumi.StringOutput {
 	return o.ApplyT(func(v ContainerServiceAgentPoolProfile) string { return v.VmSize }).(pulumi.StringOutput)
 }
@@ -137,18 +122,12 @@ func (o ContainerServiceAgentPoolProfileArrayOutput) Index(i pulumi.IntInput) Co
 	}).(ContainerServiceAgentPoolProfileOutput)
 }
 
-// Profile for the container service agent pool.
 type ContainerServiceAgentPoolProfileResponse struct {
-	// Number of agents (VMs) to host docker containers. Allowed values must be in the range of 1 to 100 (inclusive). The default value is 1.
-	Count *int `pulumi:"count"`
-	// DNS prefix to be used to create the FQDN for the agent pool.
+	Count     *int   `pulumi:"count"`
 	DnsPrefix string `pulumi:"dnsPrefix"`
-	// FQDN for the agent pool.
-	Fqdn string `pulumi:"fqdn"`
-	// Unique name of the agent pool profile in the context of the subscription and resource group.
-	Name string `pulumi:"name"`
-	// Size of agent VMs.
-	VmSize string `pulumi:"vmSize"`
+	Fqdn      string `pulumi:"fqdn"`
+	Name      string `pulumi:"name"`
+	VmSize    string `pulumi:"vmSize"`
 }
 
 // ContainerServiceAgentPoolProfileResponseInput is an input type that accepts ContainerServiceAgentPoolProfileResponseArgs and ContainerServiceAgentPoolProfileResponseOutput values.
@@ -162,18 +141,12 @@ type ContainerServiceAgentPoolProfileResponseInput interface {
 	ToContainerServiceAgentPoolProfileResponseOutputWithContext(context.Context) ContainerServiceAgentPoolProfileResponseOutput
 }
 
-// Profile for the container service agent pool.
 type ContainerServiceAgentPoolProfileResponseArgs struct {
-	// Number of agents (VMs) to host docker containers. Allowed values must be in the range of 1 to 100 (inclusive). The default value is 1.
-	Count pulumi.IntPtrInput `pulumi:"count"`
-	// DNS prefix to be used to create the FQDN for the agent pool.
+	Count     pulumi.IntPtrInput `pulumi:"count"`
 	DnsPrefix pulumi.StringInput `pulumi:"dnsPrefix"`
-	// FQDN for the agent pool.
-	Fqdn pulumi.StringInput `pulumi:"fqdn"`
-	// Unique name of the agent pool profile in the context of the subscription and resource group.
-	Name pulumi.StringInput `pulumi:"name"`
-	// Size of agent VMs.
-	VmSize pulumi.StringInput `pulumi:"vmSize"`
+	Fqdn      pulumi.StringInput `pulumi:"fqdn"`
+	Name      pulumi.StringInput `pulumi:"name"`
+	VmSize    pulumi.StringInput `pulumi:"vmSize"`
 }
 
 func (ContainerServiceAgentPoolProfileResponseArgs) ElementType() reflect.Type {
@@ -213,7 +186,6 @@ func (i ContainerServiceAgentPoolProfileResponseArray) ToContainerServiceAgentPo
 	return pulumi.ToOutputWithContext(ctx, i).(ContainerServiceAgentPoolProfileResponseArrayOutput)
 }
 
-// Profile for the container service agent pool.
 type ContainerServiceAgentPoolProfileResponseOutput struct{ *pulumi.OutputState }
 
 func (ContainerServiceAgentPoolProfileResponseOutput) ElementType() reflect.Type {
@@ -228,27 +200,22 @@ func (o ContainerServiceAgentPoolProfileResponseOutput) ToContainerServiceAgentP
 	return o
 }
 
-// Number of agents (VMs) to host docker containers. Allowed values must be in the range of 1 to 100 (inclusive). The default value is 1.
 func (o ContainerServiceAgentPoolProfileResponseOutput) Count() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v ContainerServiceAgentPoolProfileResponse) *int { return v.Count }).(pulumi.IntPtrOutput)
 }
 
-// DNS prefix to be used to create the FQDN for the agent pool.
 func (o ContainerServiceAgentPoolProfileResponseOutput) DnsPrefix() pulumi.StringOutput {
 	return o.ApplyT(func(v ContainerServiceAgentPoolProfileResponse) string { return v.DnsPrefix }).(pulumi.StringOutput)
 }
 
-// FQDN for the agent pool.
 func (o ContainerServiceAgentPoolProfileResponseOutput) Fqdn() pulumi.StringOutput {
 	return o.ApplyT(func(v ContainerServiceAgentPoolProfileResponse) string { return v.Fqdn }).(pulumi.StringOutput)
 }
 
-// Unique name of the agent pool profile in the context of the subscription and resource group.
 func (o ContainerServiceAgentPoolProfileResponseOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v ContainerServiceAgentPoolProfileResponse) string { return v.Name }).(pulumi.StringOutput)
 }
 
-// Size of agent VMs.
 func (o ContainerServiceAgentPoolProfileResponseOutput) VmSize() pulumi.StringOutput {
 	return o.ApplyT(func(v ContainerServiceAgentPoolProfileResponse) string { return v.VmSize }).(pulumi.StringOutput)
 }
@@ -274,7 +241,6 @@ func (o ContainerServiceAgentPoolProfileResponseArrayOutput) Index(i pulumi.IntI
 }
 
 type ContainerServiceDiagnosticsProfile struct {
-	// Profile for the container service VM diagnostic agent.
 	VmDiagnostics ContainerServiceVMDiagnostics `pulumi:"vmDiagnostics"`
 }
 
@@ -290,7 +256,6 @@ type ContainerServiceDiagnosticsProfileInput interface {
 }
 
 type ContainerServiceDiagnosticsProfileArgs struct {
-	// Profile for the container service VM diagnostic agent.
 	VmDiagnostics ContainerServiceVMDiagnosticsInput `pulumi:"vmDiagnostics"`
 }
 
@@ -366,12 +331,11 @@ func (o ContainerServiceDiagnosticsProfileOutput) ToContainerServiceDiagnosticsP
 }
 
 func (o ContainerServiceDiagnosticsProfileOutput) ToContainerServiceDiagnosticsProfilePtrOutputWithContext(ctx context.Context) ContainerServiceDiagnosticsProfilePtrOutput {
-	return o.ApplyT(func(v ContainerServiceDiagnosticsProfile) *ContainerServiceDiagnosticsProfile {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ContainerServiceDiagnosticsProfile) *ContainerServiceDiagnosticsProfile {
 		return &v
 	}).(ContainerServiceDiagnosticsProfilePtrOutput)
 }
 
-// Profile for the container service VM diagnostic agent.
 func (o ContainerServiceDiagnosticsProfileOutput) VmDiagnostics() ContainerServiceVMDiagnosticsOutput {
 	return o.ApplyT(func(v ContainerServiceDiagnosticsProfile) ContainerServiceVMDiagnostics { return v.VmDiagnostics }).(ContainerServiceVMDiagnosticsOutput)
 }
@@ -391,10 +355,15 @@ func (o ContainerServiceDiagnosticsProfilePtrOutput) ToContainerServiceDiagnosti
 }
 
 func (o ContainerServiceDiagnosticsProfilePtrOutput) Elem() ContainerServiceDiagnosticsProfileOutput {
-	return o.ApplyT(func(v *ContainerServiceDiagnosticsProfile) ContainerServiceDiagnosticsProfile { return *v }).(ContainerServiceDiagnosticsProfileOutput)
+	return o.ApplyT(func(v *ContainerServiceDiagnosticsProfile) ContainerServiceDiagnosticsProfile {
+		if v != nil {
+			return *v
+		}
+		var ret ContainerServiceDiagnosticsProfile
+		return ret
+	}).(ContainerServiceDiagnosticsProfileOutput)
 }
 
-// Profile for the container service VM diagnostic agent.
 func (o ContainerServiceDiagnosticsProfilePtrOutput) VmDiagnostics() ContainerServiceVMDiagnosticsPtrOutput {
 	return o.ApplyT(func(v *ContainerServiceDiagnosticsProfile) *ContainerServiceVMDiagnostics {
 		if v == nil {
@@ -405,7 +374,6 @@ func (o ContainerServiceDiagnosticsProfilePtrOutput) VmDiagnostics() ContainerSe
 }
 
 type ContainerServiceDiagnosticsProfileResponse struct {
-	// Profile for the container service VM diagnostic agent.
 	VmDiagnostics ContainerServiceVMDiagnosticsResponse `pulumi:"vmDiagnostics"`
 }
 
@@ -421,7 +389,6 @@ type ContainerServiceDiagnosticsProfileResponseInput interface {
 }
 
 type ContainerServiceDiagnosticsProfileResponseArgs struct {
-	// Profile for the container service VM diagnostic agent.
 	VmDiagnostics ContainerServiceVMDiagnosticsResponseInput `pulumi:"vmDiagnostics"`
 }
 
@@ -497,12 +464,11 @@ func (o ContainerServiceDiagnosticsProfileResponseOutput) ToContainerServiceDiag
 }
 
 func (o ContainerServiceDiagnosticsProfileResponseOutput) ToContainerServiceDiagnosticsProfileResponsePtrOutputWithContext(ctx context.Context) ContainerServiceDiagnosticsProfileResponsePtrOutput {
-	return o.ApplyT(func(v ContainerServiceDiagnosticsProfileResponse) *ContainerServiceDiagnosticsProfileResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ContainerServiceDiagnosticsProfileResponse) *ContainerServiceDiagnosticsProfileResponse {
 		return &v
 	}).(ContainerServiceDiagnosticsProfileResponsePtrOutput)
 }
 
-// Profile for the container service VM diagnostic agent.
 func (o ContainerServiceDiagnosticsProfileResponseOutput) VmDiagnostics() ContainerServiceVMDiagnosticsResponseOutput {
 	return o.ApplyT(func(v ContainerServiceDiagnosticsProfileResponse) ContainerServiceVMDiagnosticsResponse {
 		return v.VmDiagnostics
@@ -525,11 +491,14 @@ func (o ContainerServiceDiagnosticsProfileResponsePtrOutput) ToContainerServiceD
 
 func (o ContainerServiceDiagnosticsProfileResponsePtrOutput) Elem() ContainerServiceDiagnosticsProfileResponseOutput {
 	return o.ApplyT(func(v *ContainerServiceDiagnosticsProfileResponse) ContainerServiceDiagnosticsProfileResponse {
-		return *v
+		if v != nil {
+			return *v
+		}
+		var ret ContainerServiceDiagnosticsProfileResponse
+		return ret
 	}).(ContainerServiceDiagnosticsProfileResponseOutput)
 }
 
-// Profile for the container service VM diagnostic agent.
 func (o ContainerServiceDiagnosticsProfileResponsePtrOutput) VmDiagnostics() ContainerServiceVMDiagnosticsResponsePtrOutput {
 	return o.ApplyT(func(v *ContainerServiceDiagnosticsProfileResponse) *ContainerServiceVMDiagnosticsResponse {
 		if v == nil {
@@ -539,12 +508,9 @@ func (o ContainerServiceDiagnosticsProfileResponsePtrOutput) VmDiagnostics() Con
 	}).(ContainerServiceVMDiagnosticsResponsePtrOutput)
 }
 
-// Profile for Linux VMs in the container service cluster.
 type ContainerServiceLinuxProfile struct {
-	// The administrator username to use for all Linux VMs
-	AdminUsername string `pulumi:"adminUsername"`
-	// The ssh key configuration for Linux VMs.
-	Ssh ContainerServiceSshConfiguration `pulumi:"ssh"`
+	AdminUsername string                           `pulumi:"adminUsername"`
+	Ssh           ContainerServiceSshConfiguration `pulumi:"ssh"`
 }
 
 // ContainerServiceLinuxProfileInput is an input type that accepts ContainerServiceLinuxProfileArgs and ContainerServiceLinuxProfileOutput values.
@@ -558,12 +524,9 @@ type ContainerServiceLinuxProfileInput interface {
 	ToContainerServiceLinuxProfileOutputWithContext(context.Context) ContainerServiceLinuxProfileOutput
 }
 
-// Profile for Linux VMs in the container service cluster.
 type ContainerServiceLinuxProfileArgs struct {
-	// The administrator username to use for all Linux VMs
-	AdminUsername pulumi.StringInput `pulumi:"adminUsername"`
-	// The ssh key configuration for Linux VMs.
-	Ssh ContainerServiceSshConfigurationInput `pulumi:"ssh"`
+	AdminUsername pulumi.StringInput                    `pulumi:"adminUsername"`
+	Ssh           ContainerServiceSshConfigurationInput `pulumi:"ssh"`
 }
 
 func (ContainerServiceLinuxProfileArgs) ElementType() reflect.Type {
@@ -619,7 +582,6 @@ func (i *containerServiceLinuxProfilePtrType) ToContainerServiceLinuxProfilePtrO
 	return pulumi.ToOutputWithContext(ctx, i).(ContainerServiceLinuxProfilePtrOutput)
 }
 
-// Profile for Linux VMs in the container service cluster.
 type ContainerServiceLinuxProfileOutput struct{ *pulumi.OutputState }
 
 func (ContainerServiceLinuxProfileOutput) ElementType() reflect.Type {
@@ -639,17 +601,15 @@ func (o ContainerServiceLinuxProfileOutput) ToContainerServiceLinuxProfilePtrOut
 }
 
 func (o ContainerServiceLinuxProfileOutput) ToContainerServiceLinuxProfilePtrOutputWithContext(ctx context.Context) ContainerServiceLinuxProfilePtrOutput {
-	return o.ApplyT(func(v ContainerServiceLinuxProfile) *ContainerServiceLinuxProfile {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ContainerServiceLinuxProfile) *ContainerServiceLinuxProfile {
 		return &v
 	}).(ContainerServiceLinuxProfilePtrOutput)
 }
 
-// The administrator username to use for all Linux VMs
 func (o ContainerServiceLinuxProfileOutput) AdminUsername() pulumi.StringOutput {
 	return o.ApplyT(func(v ContainerServiceLinuxProfile) string { return v.AdminUsername }).(pulumi.StringOutput)
 }
 
-// The ssh key configuration for Linux VMs.
 func (o ContainerServiceLinuxProfileOutput) Ssh() ContainerServiceSshConfigurationOutput {
 	return o.ApplyT(func(v ContainerServiceLinuxProfile) ContainerServiceSshConfiguration { return v.Ssh }).(ContainerServiceSshConfigurationOutput)
 }
@@ -669,10 +629,15 @@ func (o ContainerServiceLinuxProfilePtrOutput) ToContainerServiceLinuxProfilePtr
 }
 
 func (o ContainerServiceLinuxProfilePtrOutput) Elem() ContainerServiceLinuxProfileOutput {
-	return o.ApplyT(func(v *ContainerServiceLinuxProfile) ContainerServiceLinuxProfile { return *v }).(ContainerServiceLinuxProfileOutput)
+	return o.ApplyT(func(v *ContainerServiceLinuxProfile) ContainerServiceLinuxProfile {
+		if v != nil {
+			return *v
+		}
+		var ret ContainerServiceLinuxProfile
+		return ret
+	}).(ContainerServiceLinuxProfileOutput)
 }
 
-// The administrator username to use for all Linux VMs
 func (o ContainerServiceLinuxProfilePtrOutput) AdminUsername() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ContainerServiceLinuxProfile) *string {
 		if v == nil {
@@ -682,7 +647,6 @@ func (o ContainerServiceLinuxProfilePtrOutput) AdminUsername() pulumi.StringPtrO
 	}).(pulumi.StringPtrOutput)
 }
 
-// The ssh key configuration for Linux VMs.
 func (o ContainerServiceLinuxProfilePtrOutput) Ssh() ContainerServiceSshConfigurationPtrOutput {
 	return o.ApplyT(func(v *ContainerServiceLinuxProfile) *ContainerServiceSshConfiguration {
 		if v == nil {
@@ -692,12 +656,9 @@ func (o ContainerServiceLinuxProfilePtrOutput) Ssh() ContainerServiceSshConfigur
 	}).(ContainerServiceSshConfigurationPtrOutput)
 }
 
-// Profile for Linux VMs in the container service cluster.
 type ContainerServiceLinuxProfileResponse struct {
-	// The administrator username to use for all Linux VMs
-	AdminUsername string `pulumi:"adminUsername"`
-	// The ssh key configuration for Linux VMs.
-	Ssh ContainerServiceSshConfigurationResponse `pulumi:"ssh"`
+	AdminUsername string                                   `pulumi:"adminUsername"`
+	Ssh           ContainerServiceSshConfigurationResponse `pulumi:"ssh"`
 }
 
 // ContainerServiceLinuxProfileResponseInput is an input type that accepts ContainerServiceLinuxProfileResponseArgs and ContainerServiceLinuxProfileResponseOutput values.
@@ -711,12 +672,9 @@ type ContainerServiceLinuxProfileResponseInput interface {
 	ToContainerServiceLinuxProfileResponseOutputWithContext(context.Context) ContainerServiceLinuxProfileResponseOutput
 }
 
-// Profile for Linux VMs in the container service cluster.
 type ContainerServiceLinuxProfileResponseArgs struct {
-	// The administrator username to use for all Linux VMs
-	AdminUsername pulumi.StringInput `pulumi:"adminUsername"`
-	// The ssh key configuration for Linux VMs.
-	Ssh ContainerServiceSshConfigurationResponseInput `pulumi:"ssh"`
+	AdminUsername pulumi.StringInput                            `pulumi:"adminUsername"`
+	Ssh           ContainerServiceSshConfigurationResponseInput `pulumi:"ssh"`
 }
 
 func (ContainerServiceLinuxProfileResponseArgs) ElementType() reflect.Type {
@@ -772,7 +730,6 @@ func (i *containerServiceLinuxProfileResponsePtrType) ToContainerServiceLinuxPro
 	return pulumi.ToOutputWithContext(ctx, i).(ContainerServiceLinuxProfileResponsePtrOutput)
 }
 
-// Profile for Linux VMs in the container service cluster.
 type ContainerServiceLinuxProfileResponseOutput struct{ *pulumi.OutputState }
 
 func (ContainerServiceLinuxProfileResponseOutput) ElementType() reflect.Type {
@@ -792,17 +749,15 @@ func (o ContainerServiceLinuxProfileResponseOutput) ToContainerServiceLinuxProfi
 }
 
 func (o ContainerServiceLinuxProfileResponseOutput) ToContainerServiceLinuxProfileResponsePtrOutputWithContext(ctx context.Context) ContainerServiceLinuxProfileResponsePtrOutput {
-	return o.ApplyT(func(v ContainerServiceLinuxProfileResponse) *ContainerServiceLinuxProfileResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ContainerServiceLinuxProfileResponse) *ContainerServiceLinuxProfileResponse {
 		return &v
 	}).(ContainerServiceLinuxProfileResponsePtrOutput)
 }
 
-// The administrator username to use for all Linux VMs
 func (o ContainerServiceLinuxProfileResponseOutput) AdminUsername() pulumi.StringOutput {
 	return o.ApplyT(func(v ContainerServiceLinuxProfileResponse) string { return v.AdminUsername }).(pulumi.StringOutput)
 }
 
-// The ssh key configuration for Linux VMs.
 func (o ContainerServiceLinuxProfileResponseOutput) Ssh() ContainerServiceSshConfigurationResponseOutput {
 	return o.ApplyT(func(v ContainerServiceLinuxProfileResponse) ContainerServiceSshConfigurationResponse { return v.Ssh }).(ContainerServiceSshConfigurationResponseOutput)
 }
@@ -822,10 +777,15 @@ func (o ContainerServiceLinuxProfileResponsePtrOutput) ToContainerServiceLinuxPr
 }
 
 func (o ContainerServiceLinuxProfileResponsePtrOutput) Elem() ContainerServiceLinuxProfileResponseOutput {
-	return o.ApplyT(func(v *ContainerServiceLinuxProfileResponse) ContainerServiceLinuxProfileResponse { return *v }).(ContainerServiceLinuxProfileResponseOutput)
+	return o.ApplyT(func(v *ContainerServiceLinuxProfileResponse) ContainerServiceLinuxProfileResponse {
+		if v != nil {
+			return *v
+		}
+		var ret ContainerServiceLinuxProfileResponse
+		return ret
+	}).(ContainerServiceLinuxProfileResponseOutput)
 }
 
-// The administrator username to use for all Linux VMs
 func (o ContainerServiceLinuxProfileResponsePtrOutput) AdminUsername() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ContainerServiceLinuxProfileResponse) *string {
 		if v == nil {
@@ -835,7 +795,6 @@ func (o ContainerServiceLinuxProfileResponsePtrOutput) AdminUsername() pulumi.St
 	}).(pulumi.StringPtrOutput)
 }
 
-// The ssh key configuration for Linux VMs.
 func (o ContainerServiceLinuxProfileResponsePtrOutput) Ssh() ContainerServiceSshConfigurationResponsePtrOutput {
 	return o.ApplyT(func(v *ContainerServiceLinuxProfileResponse) *ContainerServiceSshConfigurationResponse {
 		if v == nil {
@@ -845,11 +804,8 @@ func (o ContainerServiceLinuxProfileResponsePtrOutput) Ssh() ContainerServiceSsh
 	}).(ContainerServiceSshConfigurationResponsePtrOutput)
 }
 
-// Profile for the container service master.
 type ContainerServiceMasterProfile struct {
-	// Number of masters (VMs) in the container service cluster. Allowed values are 1, 3, and 5. The default value is 1.
-	Count *int `pulumi:"count"`
-	// DNS prefix to be used to create the FQDN for master.
+	Count     *int   `pulumi:"count"`
 	DnsPrefix string `pulumi:"dnsPrefix"`
 }
 
@@ -864,11 +820,8 @@ type ContainerServiceMasterProfileInput interface {
 	ToContainerServiceMasterProfileOutputWithContext(context.Context) ContainerServiceMasterProfileOutput
 }
 
-// Profile for the container service master.
 type ContainerServiceMasterProfileArgs struct {
-	// Number of masters (VMs) in the container service cluster. Allowed values are 1, 3, and 5. The default value is 1.
-	Count pulumi.IntPtrInput `pulumi:"count"`
-	// DNS prefix to be used to create the FQDN for master.
+	Count     pulumi.IntPtrInput `pulumi:"count"`
 	DnsPrefix pulumi.StringInput `pulumi:"dnsPrefix"`
 }
 
@@ -925,7 +878,6 @@ func (i *containerServiceMasterProfilePtrType) ToContainerServiceMasterProfilePt
 	return pulumi.ToOutputWithContext(ctx, i).(ContainerServiceMasterProfilePtrOutput)
 }
 
-// Profile for the container service master.
 type ContainerServiceMasterProfileOutput struct{ *pulumi.OutputState }
 
 func (ContainerServiceMasterProfileOutput) ElementType() reflect.Type {
@@ -945,17 +897,15 @@ func (o ContainerServiceMasterProfileOutput) ToContainerServiceMasterProfilePtrO
 }
 
 func (o ContainerServiceMasterProfileOutput) ToContainerServiceMasterProfilePtrOutputWithContext(ctx context.Context) ContainerServiceMasterProfilePtrOutput {
-	return o.ApplyT(func(v ContainerServiceMasterProfile) *ContainerServiceMasterProfile {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ContainerServiceMasterProfile) *ContainerServiceMasterProfile {
 		return &v
 	}).(ContainerServiceMasterProfilePtrOutput)
 }
 
-// Number of masters (VMs) in the container service cluster. Allowed values are 1, 3, and 5. The default value is 1.
 func (o ContainerServiceMasterProfileOutput) Count() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v ContainerServiceMasterProfile) *int { return v.Count }).(pulumi.IntPtrOutput)
 }
 
-// DNS prefix to be used to create the FQDN for master.
 func (o ContainerServiceMasterProfileOutput) DnsPrefix() pulumi.StringOutput {
 	return o.ApplyT(func(v ContainerServiceMasterProfile) string { return v.DnsPrefix }).(pulumi.StringOutput)
 }
@@ -975,10 +925,15 @@ func (o ContainerServiceMasterProfilePtrOutput) ToContainerServiceMasterProfileP
 }
 
 func (o ContainerServiceMasterProfilePtrOutput) Elem() ContainerServiceMasterProfileOutput {
-	return o.ApplyT(func(v *ContainerServiceMasterProfile) ContainerServiceMasterProfile { return *v }).(ContainerServiceMasterProfileOutput)
+	return o.ApplyT(func(v *ContainerServiceMasterProfile) ContainerServiceMasterProfile {
+		if v != nil {
+			return *v
+		}
+		var ret ContainerServiceMasterProfile
+		return ret
+	}).(ContainerServiceMasterProfileOutput)
 }
 
-// Number of masters (VMs) in the container service cluster. Allowed values are 1, 3, and 5. The default value is 1.
 func (o ContainerServiceMasterProfilePtrOutput) Count() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *ContainerServiceMasterProfile) *int {
 		if v == nil {
@@ -988,7 +943,6 @@ func (o ContainerServiceMasterProfilePtrOutput) Count() pulumi.IntPtrOutput {
 	}).(pulumi.IntPtrOutput)
 }
 
-// DNS prefix to be used to create the FQDN for master.
 func (o ContainerServiceMasterProfilePtrOutput) DnsPrefix() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ContainerServiceMasterProfile) *string {
 		if v == nil {
@@ -998,14 +952,10 @@ func (o ContainerServiceMasterProfilePtrOutput) DnsPrefix() pulumi.StringPtrOutp
 	}).(pulumi.StringPtrOutput)
 }
 
-// Profile for the container service master.
 type ContainerServiceMasterProfileResponse struct {
-	// Number of masters (VMs) in the container service cluster. Allowed values are 1, 3, and 5. The default value is 1.
-	Count *int `pulumi:"count"`
-	// DNS prefix to be used to create the FQDN for master.
+	Count     *int   `pulumi:"count"`
 	DnsPrefix string `pulumi:"dnsPrefix"`
-	// FQDN for the master.
-	Fqdn string `pulumi:"fqdn"`
+	Fqdn      string `pulumi:"fqdn"`
 }
 
 // ContainerServiceMasterProfileResponseInput is an input type that accepts ContainerServiceMasterProfileResponseArgs and ContainerServiceMasterProfileResponseOutput values.
@@ -1019,14 +969,10 @@ type ContainerServiceMasterProfileResponseInput interface {
 	ToContainerServiceMasterProfileResponseOutputWithContext(context.Context) ContainerServiceMasterProfileResponseOutput
 }
 
-// Profile for the container service master.
 type ContainerServiceMasterProfileResponseArgs struct {
-	// Number of masters (VMs) in the container service cluster. Allowed values are 1, 3, and 5. The default value is 1.
-	Count pulumi.IntPtrInput `pulumi:"count"`
-	// DNS prefix to be used to create the FQDN for master.
+	Count     pulumi.IntPtrInput `pulumi:"count"`
 	DnsPrefix pulumi.StringInput `pulumi:"dnsPrefix"`
-	// FQDN for the master.
-	Fqdn pulumi.StringInput `pulumi:"fqdn"`
+	Fqdn      pulumi.StringInput `pulumi:"fqdn"`
 }
 
 func (ContainerServiceMasterProfileResponseArgs) ElementType() reflect.Type {
@@ -1082,7 +1028,6 @@ func (i *containerServiceMasterProfileResponsePtrType) ToContainerServiceMasterP
 	return pulumi.ToOutputWithContext(ctx, i).(ContainerServiceMasterProfileResponsePtrOutput)
 }
 
-// Profile for the container service master.
 type ContainerServiceMasterProfileResponseOutput struct{ *pulumi.OutputState }
 
 func (ContainerServiceMasterProfileResponseOutput) ElementType() reflect.Type {
@@ -1102,22 +1047,19 @@ func (o ContainerServiceMasterProfileResponseOutput) ToContainerServiceMasterPro
 }
 
 func (o ContainerServiceMasterProfileResponseOutput) ToContainerServiceMasterProfileResponsePtrOutputWithContext(ctx context.Context) ContainerServiceMasterProfileResponsePtrOutput {
-	return o.ApplyT(func(v ContainerServiceMasterProfileResponse) *ContainerServiceMasterProfileResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ContainerServiceMasterProfileResponse) *ContainerServiceMasterProfileResponse {
 		return &v
 	}).(ContainerServiceMasterProfileResponsePtrOutput)
 }
 
-// Number of masters (VMs) in the container service cluster. Allowed values are 1, 3, and 5. The default value is 1.
 func (o ContainerServiceMasterProfileResponseOutput) Count() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v ContainerServiceMasterProfileResponse) *int { return v.Count }).(pulumi.IntPtrOutput)
 }
 
-// DNS prefix to be used to create the FQDN for master.
 func (o ContainerServiceMasterProfileResponseOutput) DnsPrefix() pulumi.StringOutput {
 	return o.ApplyT(func(v ContainerServiceMasterProfileResponse) string { return v.DnsPrefix }).(pulumi.StringOutput)
 }
 
-// FQDN for the master.
 func (o ContainerServiceMasterProfileResponseOutput) Fqdn() pulumi.StringOutput {
 	return o.ApplyT(func(v ContainerServiceMasterProfileResponse) string { return v.Fqdn }).(pulumi.StringOutput)
 }
@@ -1137,10 +1079,15 @@ func (o ContainerServiceMasterProfileResponsePtrOutput) ToContainerServiceMaster
 }
 
 func (o ContainerServiceMasterProfileResponsePtrOutput) Elem() ContainerServiceMasterProfileResponseOutput {
-	return o.ApplyT(func(v *ContainerServiceMasterProfileResponse) ContainerServiceMasterProfileResponse { return *v }).(ContainerServiceMasterProfileResponseOutput)
+	return o.ApplyT(func(v *ContainerServiceMasterProfileResponse) ContainerServiceMasterProfileResponse {
+		if v != nil {
+			return *v
+		}
+		var ret ContainerServiceMasterProfileResponse
+		return ret
+	}).(ContainerServiceMasterProfileResponseOutput)
 }
 
-// Number of masters (VMs) in the container service cluster. Allowed values are 1, 3, and 5. The default value is 1.
 func (o ContainerServiceMasterProfileResponsePtrOutput) Count() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *ContainerServiceMasterProfileResponse) *int {
 		if v == nil {
@@ -1150,7 +1097,6 @@ func (o ContainerServiceMasterProfileResponsePtrOutput) Count() pulumi.IntPtrOut
 	}).(pulumi.IntPtrOutput)
 }
 
-// DNS prefix to be used to create the FQDN for master.
 func (o ContainerServiceMasterProfileResponsePtrOutput) DnsPrefix() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ContainerServiceMasterProfileResponse) *string {
 		if v == nil {
@@ -1160,7 +1106,6 @@ func (o ContainerServiceMasterProfileResponsePtrOutput) DnsPrefix() pulumi.Strin
 	}).(pulumi.StringPtrOutput)
 }
 
-// FQDN for the master.
 func (o ContainerServiceMasterProfileResponsePtrOutput) Fqdn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ContainerServiceMasterProfileResponse) *string {
 		if v == nil {
@@ -1170,10 +1115,8 @@ func (o ContainerServiceMasterProfileResponsePtrOutput) Fqdn() pulumi.StringPtrO
 	}).(pulumi.StringPtrOutput)
 }
 
-// Profile for the container service orchestrator.
 type ContainerServiceOrchestratorProfile struct {
-	// The orchestrator to use to manage container service cluster resources. Valid values are Swarm, DCOS, and Custom.
-	OrchestratorType string `pulumi:"orchestratorType"`
+	OrchestratorType ContainerServiceOchestratorTypes `pulumi:"orchestratorType"`
 }
 
 // ContainerServiceOrchestratorProfileInput is an input type that accepts ContainerServiceOrchestratorProfileArgs and ContainerServiceOrchestratorProfileOutput values.
@@ -1187,10 +1130,8 @@ type ContainerServiceOrchestratorProfileInput interface {
 	ToContainerServiceOrchestratorProfileOutputWithContext(context.Context) ContainerServiceOrchestratorProfileOutput
 }
 
-// Profile for the container service orchestrator.
 type ContainerServiceOrchestratorProfileArgs struct {
-	// The orchestrator to use to manage container service cluster resources. Valid values are Swarm, DCOS, and Custom.
-	OrchestratorType ContainerServiceOchestratorTypes `pulumi:"orchestratorType"`
+	OrchestratorType ContainerServiceOchestratorTypesInput `pulumi:"orchestratorType"`
 }
 
 func (ContainerServiceOrchestratorProfileArgs) ElementType() reflect.Type {
@@ -1246,7 +1187,6 @@ func (i *containerServiceOrchestratorProfilePtrType) ToContainerServiceOrchestra
 	return pulumi.ToOutputWithContext(ctx, i).(ContainerServiceOrchestratorProfilePtrOutput)
 }
 
-// Profile for the container service orchestrator.
 type ContainerServiceOrchestratorProfileOutput struct{ *pulumi.OutputState }
 
 func (ContainerServiceOrchestratorProfileOutput) ElementType() reflect.Type {
@@ -1266,14 +1206,15 @@ func (o ContainerServiceOrchestratorProfileOutput) ToContainerServiceOrchestrato
 }
 
 func (o ContainerServiceOrchestratorProfileOutput) ToContainerServiceOrchestratorProfilePtrOutputWithContext(ctx context.Context) ContainerServiceOrchestratorProfilePtrOutput {
-	return o.ApplyT(func(v ContainerServiceOrchestratorProfile) *ContainerServiceOrchestratorProfile {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ContainerServiceOrchestratorProfile) *ContainerServiceOrchestratorProfile {
 		return &v
 	}).(ContainerServiceOrchestratorProfilePtrOutput)
 }
 
-// The orchestrator to use to manage container service cluster resources. Valid values are Swarm, DCOS, and Custom.
-func (o ContainerServiceOrchestratorProfileOutput) OrchestratorType() pulumi.StringOutput {
-	return o.ApplyT(func(v ContainerServiceOrchestratorProfile) string { return v.OrchestratorType }).(pulumi.StringOutput)
+func (o ContainerServiceOrchestratorProfileOutput) OrchestratorType() ContainerServiceOchestratorTypesOutput {
+	return o.ApplyT(func(v ContainerServiceOrchestratorProfile) ContainerServiceOchestratorTypes {
+		return v.OrchestratorType
+	}).(ContainerServiceOchestratorTypesOutput)
 }
 
 type ContainerServiceOrchestratorProfilePtrOutput struct{ *pulumi.OutputState }
@@ -1291,22 +1232,25 @@ func (o ContainerServiceOrchestratorProfilePtrOutput) ToContainerServiceOrchestr
 }
 
 func (o ContainerServiceOrchestratorProfilePtrOutput) Elem() ContainerServiceOrchestratorProfileOutput {
-	return o.ApplyT(func(v *ContainerServiceOrchestratorProfile) ContainerServiceOrchestratorProfile { return *v }).(ContainerServiceOrchestratorProfileOutput)
+	return o.ApplyT(func(v *ContainerServiceOrchestratorProfile) ContainerServiceOrchestratorProfile {
+		if v != nil {
+			return *v
+		}
+		var ret ContainerServiceOrchestratorProfile
+		return ret
+	}).(ContainerServiceOrchestratorProfileOutput)
 }
 
-// The orchestrator to use to manage container service cluster resources. Valid values are Swarm, DCOS, and Custom.
-func (o ContainerServiceOrchestratorProfilePtrOutput) OrchestratorType() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *ContainerServiceOrchestratorProfile) *string {
+func (o ContainerServiceOrchestratorProfilePtrOutput) OrchestratorType() ContainerServiceOchestratorTypesPtrOutput {
+	return o.ApplyT(func(v *ContainerServiceOrchestratorProfile) *ContainerServiceOchestratorTypes {
 		if v == nil {
 			return nil
 		}
 		return &v.OrchestratorType
-	}).(pulumi.StringPtrOutput)
+	}).(ContainerServiceOchestratorTypesPtrOutput)
 }
 
-// Profile for the container service orchestrator.
 type ContainerServiceOrchestratorProfileResponse struct {
-	// The orchestrator to use to manage container service cluster resources. Valid values are Swarm, DCOS, and Custom.
 	OrchestratorType string `pulumi:"orchestratorType"`
 }
 
@@ -1321,9 +1265,7 @@ type ContainerServiceOrchestratorProfileResponseInput interface {
 	ToContainerServiceOrchestratorProfileResponseOutputWithContext(context.Context) ContainerServiceOrchestratorProfileResponseOutput
 }
 
-// Profile for the container service orchestrator.
 type ContainerServiceOrchestratorProfileResponseArgs struct {
-	// The orchestrator to use to manage container service cluster resources. Valid values are Swarm, DCOS, and Custom.
 	OrchestratorType pulumi.StringInput `pulumi:"orchestratorType"`
 }
 
@@ -1380,7 +1322,6 @@ func (i *containerServiceOrchestratorProfileResponsePtrType) ToContainerServiceO
 	return pulumi.ToOutputWithContext(ctx, i).(ContainerServiceOrchestratorProfileResponsePtrOutput)
 }
 
-// Profile for the container service orchestrator.
 type ContainerServiceOrchestratorProfileResponseOutput struct{ *pulumi.OutputState }
 
 func (ContainerServiceOrchestratorProfileResponseOutput) ElementType() reflect.Type {
@@ -1400,12 +1341,11 @@ func (o ContainerServiceOrchestratorProfileResponseOutput) ToContainerServiceOrc
 }
 
 func (o ContainerServiceOrchestratorProfileResponseOutput) ToContainerServiceOrchestratorProfileResponsePtrOutputWithContext(ctx context.Context) ContainerServiceOrchestratorProfileResponsePtrOutput {
-	return o.ApplyT(func(v ContainerServiceOrchestratorProfileResponse) *ContainerServiceOrchestratorProfileResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ContainerServiceOrchestratorProfileResponse) *ContainerServiceOrchestratorProfileResponse {
 		return &v
 	}).(ContainerServiceOrchestratorProfileResponsePtrOutput)
 }
 
-// The orchestrator to use to manage container service cluster resources. Valid values are Swarm, DCOS, and Custom.
 func (o ContainerServiceOrchestratorProfileResponseOutput) OrchestratorType() pulumi.StringOutput {
 	return o.ApplyT(func(v ContainerServiceOrchestratorProfileResponse) string { return v.OrchestratorType }).(pulumi.StringOutput)
 }
@@ -1426,11 +1366,14 @@ func (o ContainerServiceOrchestratorProfileResponsePtrOutput) ToContainerService
 
 func (o ContainerServiceOrchestratorProfileResponsePtrOutput) Elem() ContainerServiceOrchestratorProfileResponseOutput {
 	return o.ApplyT(func(v *ContainerServiceOrchestratorProfileResponse) ContainerServiceOrchestratorProfileResponse {
-		return *v
+		if v != nil {
+			return *v
+		}
+		var ret ContainerServiceOrchestratorProfileResponse
+		return ret
 	}).(ContainerServiceOrchestratorProfileResponseOutput)
 }
 
-// The orchestrator to use to manage container service cluster resources. Valid values are Swarm, DCOS, and Custom.
 func (o ContainerServiceOrchestratorProfileResponsePtrOutput) OrchestratorType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ContainerServiceOrchestratorProfileResponse) *string {
 		if v == nil {
@@ -1440,9 +1383,7 @@ func (o ContainerServiceOrchestratorProfileResponsePtrOutput) OrchestratorType()
 	}).(pulumi.StringPtrOutput)
 }
 
-// SSH configuration for Linux-based VMs running on Azure.
 type ContainerServiceSshConfiguration struct {
-	// the list of SSH public keys used to authenticate with Linux-based VMs.
 	PublicKeys []ContainerServiceSshPublicKey `pulumi:"publicKeys"`
 }
 
@@ -1457,9 +1398,7 @@ type ContainerServiceSshConfigurationInput interface {
 	ToContainerServiceSshConfigurationOutputWithContext(context.Context) ContainerServiceSshConfigurationOutput
 }
 
-// SSH configuration for Linux-based VMs running on Azure.
 type ContainerServiceSshConfigurationArgs struct {
-	// the list of SSH public keys used to authenticate with Linux-based VMs.
 	PublicKeys ContainerServiceSshPublicKeyArrayInput `pulumi:"publicKeys"`
 }
 
@@ -1516,7 +1455,6 @@ func (i *containerServiceSshConfigurationPtrType) ToContainerServiceSshConfigura
 	return pulumi.ToOutputWithContext(ctx, i).(ContainerServiceSshConfigurationPtrOutput)
 }
 
-// SSH configuration for Linux-based VMs running on Azure.
 type ContainerServiceSshConfigurationOutput struct{ *pulumi.OutputState }
 
 func (ContainerServiceSshConfigurationOutput) ElementType() reflect.Type {
@@ -1536,12 +1474,11 @@ func (o ContainerServiceSshConfigurationOutput) ToContainerServiceSshConfigurati
 }
 
 func (o ContainerServiceSshConfigurationOutput) ToContainerServiceSshConfigurationPtrOutputWithContext(ctx context.Context) ContainerServiceSshConfigurationPtrOutput {
-	return o.ApplyT(func(v ContainerServiceSshConfiguration) *ContainerServiceSshConfiguration {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ContainerServiceSshConfiguration) *ContainerServiceSshConfiguration {
 		return &v
 	}).(ContainerServiceSshConfigurationPtrOutput)
 }
 
-// the list of SSH public keys used to authenticate with Linux-based VMs.
 func (o ContainerServiceSshConfigurationOutput) PublicKeys() ContainerServiceSshPublicKeyArrayOutput {
 	return o.ApplyT(func(v ContainerServiceSshConfiguration) []ContainerServiceSshPublicKey { return v.PublicKeys }).(ContainerServiceSshPublicKeyArrayOutput)
 }
@@ -1561,10 +1498,15 @@ func (o ContainerServiceSshConfigurationPtrOutput) ToContainerServiceSshConfigur
 }
 
 func (o ContainerServiceSshConfigurationPtrOutput) Elem() ContainerServiceSshConfigurationOutput {
-	return o.ApplyT(func(v *ContainerServiceSshConfiguration) ContainerServiceSshConfiguration { return *v }).(ContainerServiceSshConfigurationOutput)
+	return o.ApplyT(func(v *ContainerServiceSshConfiguration) ContainerServiceSshConfiguration {
+		if v != nil {
+			return *v
+		}
+		var ret ContainerServiceSshConfiguration
+		return ret
+	}).(ContainerServiceSshConfigurationOutput)
 }
 
-// the list of SSH public keys used to authenticate with Linux-based VMs.
 func (o ContainerServiceSshConfigurationPtrOutput) PublicKeys() ContainerServiceSshPublicKeyArrayOutput {
 	return o.ApplyT(func(v *ContainerServiceSshConfiguration) []ContainerServiceSshPublicKey {
 		if v == nil {
@@ -1574,9 +1516,7 @@ func (o ContainerServiceSshConfigurationPtrOutput) PublicKeys() ContainerService
 	}).(ContainerServiceSshPublicKeyArrayOutput)
 }
 
-// SSH configuration for Linux-based VMs running on Azure.
 type ContainerServiceSshConfigurationResponse struct {
-	// the list of SSH public keys used to authenticate with Linux-based VMs.
 	PublicKeys []ContainerServiceSshPublicKeyResponse `pulumi:"publicKeys"`
 }
 
@@ -1591,9 +1531,7 @@ type ContainerServiceSshConfigurationResponseInput interface {
 	ToContainerServiceSshConfigurationResponseOutputWithContext(context.Context) ContainerServiceSshConfigurationResponseOutput
 }
 
-// SSH configuration for Linux-based VMs running on Azure.
 type ContainerServiceSshConfigurationResponseArgs struct {
-	// the list of SSH public keys used to authenticate with Linux-based VMs.
 	PublicKeys ContainerServiceSshPublicKeyResponseArrayInput `pulumi:"publicKeys"`
 }
 
@@ -1650,7 +1588,6 @@ func (i *containerServiceSshConfigurationResponsePtrType) ToContainerServiceSshC
 	return pulumi.ToOutputWithContext(ctx, i).(ContainerServiceSshConfigurationResponsePtrOutput)
 }
 
-// SSH configuration for Linux-based VMs running on Azure.
 type ContainerServiceSshConfigurationResponseOutput struct{ *pulumi.OutputState }
 
 func (ContainerServiceSshConfigurationResponseOutput) ElementType() reflect.Type {
@@ -1670,12 +1607,11 @@ func (o ContainerServiceSshConfigurationResponseOutput) ToContainerServiceSshCon
 }
 
 func (o ContainerServiceSshConfigurationResponseOutput) ToContainerServiceSshConfigurationResponsePtrOutputWithContext(ctx context.Context) ContainerServiceSshConfigurationResponsePtrOutput {
-	return o.ApplyT(func(v ContainerServiceSshConfigurationResponse) *ContainerServiceSshConfigurationResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ContainerServiceSshConfigurationResponse) *ContainerServiceSshConfigurationResponse {
 		return &v
 	}).(ContainerServiceSshConfigurationResponsePtrOutput)
 }
 
-// the list of SSH public keys used to authenticate with Linux-based VMs.
 func (o ContainerServiceSshConfigurationResponseOutput) PublicKeys() ContainerServiceSshPublicKeyResponseArrayOutput {
 	return o.ApplyT(func(v ContainerServiceSshConfigurationResponse) []ContainerServiceSshPublicKeyResponse {
 		return v.PublicKeys
@@ -1697,10 +1633,15 @@ func (o ContainerServiceSshConfigurationResponsePtrOutput) ToContainerServiceSsh
 }
 
 func (o ContainerServiceSshConfigurationResponsePtrOutput) Elem() ContainerServiceSshConfigurationResponseOutput {
-	return o.ApplyT(func(v *ContainerServiceSshConfigurationResponse) ContainerServiceSshConfigurationResponse { return *v }).(ContainerServiceSshConfigurationResponseOutput)
+	return o.ApplyT(func(v *ContainerServiceSshConfigurationResponse) ContainerServiceSshConfigurationResponse {
+		if v != nil {
+			return *v
+		}
+		var ret ContainerServiceSshConfigurationResponse
+		return ret
+	}).(ContainerServiceSshConfigurationResponseOutput)
 }
 
-// the list of SSH public keys used to authenticate with Linux-based VMs.
 func (o ContainerServiceSshConfigurationResponsePtrOutput) PublicKeys() ContainerServiceSshPublicKeyResponseArrayOutput {
 	return o.ApplyT(func(v *ContainerServiceSshConfigurationResponse) []ContainerServiceSshPublicKeyResponse {
 		if v == nil {
@@ -1710,9 +1651,7 @@ func (o ContainerServiceSshConfigurationResponsePtrOutput) PublicKeys() Containe
 	}).(ContainerServiceSshPublicKeyResponseArrayOutput)
 }
 
-// Contains information about SSH certificate public key data.
 type ContainerServiceSshPublicKey struct {
-	// Certificate public key used to authenticate with VMs through SSH. The certificate must be in PEM format with or without headers.
 	KeyData string `pulumi:"keyData"`
 }
 
@@ -1727,9 +1666,7 @@ type ContainerServiceSshPublicKeyInput interface {
 	ToContainerServiceSshPublicKeyOutputWithContext(context.Context) ContainerServiceSshPublicKeyOutput
 }
 
-// Contains information about SSH certificate public key data.
 type ContainerServiceSshPublicKeyArgs struct {
-	// Certificate public key used to authenticate with VMs through SSH. The certificate must be in PEM format with or without headers.
 	KeyData pulumi.StringInput `pulumi:"keyData"`
 }
 
@@ -1770,7 +1707,6 @@ func (i ContainerServiceSshPublicKeyArray) ToContainerServiceSshPublicKeyArrayOu
 	return pulumi.ToOutputWithContext(ctx, i).(ContainerServiceSshPublicKeyArrayOutput)
 }
 
-// Contains information about SSH certificate public key data.
 type ContainerServiceSshPublicKeyOutput struct{ *pulumi.OutputState }
 
 func (ContainerServiceSshPublicKeyOutput) ElementType() reflect.Type {
@@ -1785,7 +1721,6 @@ func (o ContainerServiceSshPublicKeyOutput) ToContainerServiceSshPublicKeyOutput
 	return o
 }
 
-// Certificate public key used to authenticate with VMs through SSH. The certificate must be in PEM format with or without headers.
 func (o ContainerServiceSshPublicKeyOutput) KeyData() pulumi.StringOutput {
 	return o.ApplyT(func(v ContainerServiceSshPublicKey) string { return v.KeyData }).(pulumi.StringOutput)
 }
@@ -1810,9 +1745,7 @@ func (o ContainerServiceSshPublicKeyArrayOutput) Index(i pulumi.IntInput) Contai
 	}).(ContainerServiceSshPublicKeyOutput)
 }
 
-// Contains information about SSH certificate public key data.
 type ContainerServiceSshPublicKeyResponse struct {
-	// Certificate public key used to authenticate with VMs through SSH. The certificate must be in PEM format with or without headers.
 	KeyData string `pulumi:"keyData"`
 }
 
@@ -1827,9 +1760,7 @@ type ContainerServiceSshPublicKeyResponseInput interface {
 	ToContainerServiceSshPublicKeyResponseOutputWithContext(context.Context) ContainerServiceSshPublicKeyResponseOutput
 }
 
-// Contains information about SSH certificate public key data.
 type ContainerServiceSshPublicKeyResponseArgs struct {
-	// Certificate public key used to authenticate with VMs through SSH. The certificate must be in PEM format with or without headers.
 	KeyData pulumi.StringInput `pulumi:"keyData"`
 }
 
@@ -1870,7 +1801,6 @@ func (i ContainerServiceSshPublicKeyResponseArray) ToContainerServiceSshPublicKe
 	return pulumi.ToOutputWithContext(ctx, i).(ContainerServiceSshPublicKeyResponseArrayOutput)
 }
 
-// Contains information about SSH certificate public key data.
 type ContainerServiceSshPublicKeyResponseOutput struct{ *pulumi.OutputState }
 
 func (ContainerServiceSshPublicKeyResponseOutput) ElementType() reflect.Type {
@@ -1885,7 +1815,6 @@ func (o ContainerServiceSshPublicKeyResponseOutput) ToContainerServiceSshPublicK
 	return o
 }
 
-// Certificate public key used to authenticate with VMs through SSH. The certificate must be in PEM format with or without headers.
 func (o ContainerServiceSshPublicKeyResponseOutput) KeyData() pulumi.StringOutput {
 	return o.ApplyT(func(v ContainerServiceSshPublicKeyResponse) string { return v.KeyData }).(pulumi.StringOutput)
 }
@@ -1910,9 +1839,7 @@ func (o ContainerServiceSshPublicKeyResponseArrayOutput) Index(i pulumi.IntInput
 	}).(ContainerServiceSshPublicKeyResponseOutput)
 }
 
-// Profile for diagnostics on the container service VMs.
 type ContainerServiceVMDiagnostics struct {
-	// Whether the VM diagnostic agent is provisioned on the VM.
 	Enabled bool `pulumi:"enabled"`
 }
 
@@ -1927,9 +1854,7 @@ type ContainerServiceVMDiagnosticsInput interface {
 	ToContainerServiceVMDiagnosticsOutputWithContext(context.Context) ContainerServiceVMDiagnosticsOutput
 }
 
-// Profile for diagnostics on the container service VMs.
 type ContainerServiceVMDiagnosticsArgs struct {
-	// Whether the VM diagnostic agent is provisioned on the VM.
 	Enabled pulumi.BoolInput `pulumi:"enabled"`
 }
 
@@ -1986,7 +1911,6 @@ func (i *containerServiceVMDiagnosticsPtrType) ToContainerServiceVMDiagnosticsPt
 	return pulumi.ToOutputWithContext(ctx, i).(ContainerServiceVMDiagnosticsPtrOutput)
 }
 
-// Profile for diagnostics on the container service VMs.
 type ContainerServiceVMDiagnosticsOutput struct{ *pulumi.OutputState }
 
 func (ContainerServiceVMDiagnosticsOutput) ElementType() reflect.Type {
@@ -2006,12 +1930,11 @@ func (o ContainerServiceVMDiagnosticsOutput) ToContainerServiceVMDiagnosticsPtrO
 }
 
 func (o ContainerServiceVMDiagnosticsOutput) ToContainerServiceVMDiagnosticsPtrOutputWithContext(ctx context.Context) ContainerServiceVMDiagnosticsPtrOutput {
-	return o.ApplyT(func(v ContainerServiceVMDiagnostics) *ContainerServiceVMDiagnostics {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ContainerServiceVMDiagnostics) *ContainerServiceVMDiagnostics {
 		return &v
 	}).(ContainerServiceVMDiagnosticsPtrOutput)
 }
 
-// Whether the VM diagnostic agent is provisioned on the VM.
 func (o ContainerServiceVMDiagnosticsOutput) Enabled() pulumi.BoolOutput {
 	return o.ApplyT(func(v ContainerServiceVMDiagnostics) bool { return v.Enabled }).(pulumi.BoolOutput)
 }
@@ -2031,10 +1954,15 @@ func (o ContainerServiceVMDiagnosticsPtrOutput) ToContainerServiceVMDiagnosticsP
 }
 
 func (o ContainerServiceVMDiagnosticsPtrOutput) Elem() ContainerServiceVMDiagnosticsOutput {
-	return o.ApplyT(func(v *ContainerServiceVMDiagnostics) ContainerServiceVMDiagnostics { return *v }).(ContainerServiceVMDiagnosticsOutput)
+	return o.ApplyT(func(v *ContainerServiceVMDiagnostics) ContainerServiceVMDiagnostics {
+		if v != nil {
+			return *v
+		}
+		var ret ContainerServiceVMDiagnostics
+		return ret
+	}).(ContainerServiceVMDiagnosticsOutput)
 }
 
-// Whether the VM diagnostic agent is provisioned on the VM.
 func (o ContainerServiceVMDiagnosticsPtrOutput) Enabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *ContainerServiceVMDiagnostics) *bool {
 		if v == nil {
@@ -2044,11 +1972,8 @@ func (o ContainerServiceVMDiagnosticsPtrOutput) Enabled() pulumi.BoolPtrOutput {
 	}).(pulumi.BoolPtrOutput)
 }
 
-// Profile for diagnostics on the container service VMs.
 type ContainerServiceVMDiagnosticsResponse struct {
-	// Whether the VM diagnostic agent is provisioned on the VM.
-	Enabled bool `pulumi:"enabled"`
-	// The URI of the storage account where diagnostics are stored.
+	Enabled    bool   `pulumi:"enabled"`
 	StorageUri string `pulumi:"storageUri"`
 }
 
@@ -2063,11 +1988,8 @@ type ContainerServiceVMDiagnosticsResponseInput interface {
 	ToContainerServiceVMDiagnosticsResponseOutputWithContext(context.Context) ContainerServiceVMDiagnosticsResponseOutput
 }
 
-// Profile for diagnostics on the container service VMs.
 type ContainerServiceVMDiagnosticsResponseArgs struct {
-	// Whether the VM diagnostic agent is provisioned on the VM.
-	Enabled pulumi.BoolInput `pulumi:"enabled"`
-	// The URI of the storage account where diagnostics are stored.
+	Enabled    pulumi.BoolInput   `pulumi:"enabled"`
 	StorageUri pulumi.StringInput `pulumi:"storageUri"`
 }
 
@@ -2124,7 +2046,6 @@ func (i *containerServiceVMDiagnosticsResponsePtrType) ToContainerServiceVMDiagn
 	return pulumi.ToOutputWithContext(ctx, i).(ContainerServiceVMDiagnosticsResponsePtrOutput)
 }
 
-// Profile for diagnostics on the container service VMs.
 type ContainerServiceVMDiagnosticsResponseOutput struct{ *pulumi.OutputState }
 
 func (ContainerServiceVMDiagnosticsResponseOutput) ElementType() reflect.Type {
@@ -2144,17 +2065,15 @@ func (o ContainerServiceVMDiagnosticsResponseOutput) ToContainerServiceVMDiagnos
 }
 
 func (o ContainerServiceVMDiagnosticsResponseOutput) ToContainerServiceVMDiagnosticsResponsePtrOutputWithContext(ctx context.Context) ContainerServiceVMDiagnosticsResponsePtrOutput {
-	return o.ApplyT(func(v ContainerServiceVMDiagnosticsResponse) *ContainerServiceVMDiagnosticsResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ContainerServiceVMDiagnosticsResponse) *ContainerServiceVMDiagnosticsResponse {
 		return &v
 	}).(ContainerServiceVMDiagnosticsResponsePtrOutput)
 }
 
-// Whether the VM diagnostic agent is provisioned on the VM.
 func (o ContainerServiceVMDiagnosticsResponseOutput) Enabled() pulumi.BoolOutput {
 	return o.ApplyT(func(v ContainerServiceVMDiagnosticsResponse) bool { return v.Enabled }).(pulumi.BoolOutput)
 }
 
-// The URI of the storage account where diagnostics are stored.
 func (o ContainerServiceVMDiagnosticsResponseOutput) StorageUri() pulumi.StringOutput {
 	return o.ApplyT(func(v ContainerServiceVMDiagnosticsResponse) string { return v.StorageUri }).(pulumi.StringOutput)
 }
@@ -2174,10 +2093,15 @@ func (o ContainerServiceVMDiagnosticsResponsePtrOutput) ToContainerServiceVMDiag
 }
 
 func (o ContainerServiceVMDiagnosticsResponsePtrOutput) Elem() ContainerServiceVMDiagnosticsResponseOutput {
-	return o.ApplyT(func(v *ContainerServiceVMDiagnosticsResponse) ContainerServiceVMDiagnosticsResponse { return *v }).(ContainerServiceVMDiagnosticsResponseOutput)
+	return o.ApplyT(func(v *ContainerServiceVMDiagnosticsResponse) ContainerServiceVMDiagnosticsResponse {
+		if v != nil {
+			return *v
+		}
+		var ret ContainerServiceVMDiagnosticsResponse
+		return ret
+	}).(ContainerServiceVMDiagnosticsResponseOutput)
 }
 
-// Whether the VM diagnostic agent is provisioned on the VM.
 func (o ContainerServiceVMDiagnosticsResponsePtrOutput) Enabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *ContainerServiceVMDiagnosticsResponse) *bool {
 		if v == nil {
@@ -2187,7 +2111,6 @@ func (o ContainerServiceVMDiagnosticsResponsePtrOutput) Enabled() pulumi.BoolPtr
 	}).(pulumi.BoolPtrOutput)
 }
 
-// The URI of the storage account where diagnostics are stored.
 func (o ContainerServiceVMDiagnosticsResponsePtrOutput) StorageUri() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ContainerServiceVMDiagnosticsResponse) *string {
 		if v == nil {
@@ -2197,11 +2120,8 @@ func (o ContainerServiceVMDiagnosticsResponsePtrOutput) StorageUri() pulumi.Stri
 	}).(pulumi.StringPtrOutput)
 }
 
-// Profile for Windows VMs in the container service cluster.
 type ContainerServiceWindowsProfile struct {
-	// The administrator password to use for Windows VMs
 	AdminPassword string `pulumi:"adminPassword"`
-	// The administrator username to use for Windows VMs
 	AdminUsername string `pulumi:"adminUsername"`
 }
 
@@ -2216,11 +2136,8 @@ type ContainerServiceWindowsProfileInput interface {
 	ToContainerServiceWindowsProfileOutputWithContext(context.Context) ContainerServiceWindowsProfileOutput
 }
 
-// Profile for Windows VMs in the container service cluster.
 type ContainerServiceWindowsProfileArgs struct {
-	// The administrator password to use for Windows VMs
 	AdminPassword pulumi.StringInput `pulumi:"adminPassword"`
-	// The administrator username to use for Windows VMs
 	AdminUsername pulumi.StringInput `pulumi:"adminUsername"`
 }
 
@@ -2277,7 +2194,6 @@ func (i *containerServiceWindowsProfilePtrType) ToContainerServiceWindowsProfile
 	return pulumi.ToOutputWithContext(ctx, i).(ContainerServiceWindowsProfilePtrOutput)
 }
 
-// Profile for Windows VMs in the container service cluster.
 type ContainerServiceWindowsProfileOutput struct{ *pulumi.OutputState }
 
 func (ContainerServiceWindowsProfileOutput) ElementType() reflect.Type {
@@ -2297,17 +2213,15 @@ func (o ContainerServiceWindowsProfileOutput) ToContainerServiceWindowsProfilePt
 }
 
 func (o ContainerServiceWindowsProfileOutput) ToContainerServiceWindowsProfilePtrOutputWithContext(ctx context.Context) ContainerServiceWindowsProfilePtrOutput {
-	return o.ApplyT(func(v ContainerServiceWindowsProfile) *ContainerServiceWindowsProfile {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ContainerServiceWindowsProfile) *ContainerServiceWindowsProfile {
 		return &v
 	}).(ContainerServiceWindowsProfilePtrOutput)
 }
 
-// The administrator password to use for Windows VMs
 func (o ContainerServiceWindowsProfileOutput) AdminPassword() pulumi.StringOutput {
 	return o.ApplyT(func(v ContainerServiceWindowsProfile) string { return v.AdminPassword }).(pulumi.StringOutput)
 }
 
-// The administrator username to use for Windows VMs
 func (o ContainerServiceWindowsProfileOutput) AdminUsername() pulumi.StringOutput {
 	return o.ApplyT(func(v ContainerServiceWindowsProfile) string { return v.AdminUsername }).(pulumi.StringOutput)
 }
@@ -2327,10 +2241,15 @@ func (o ContainerServiceWindowsProfilePtrOutput) ToContainerServiceWindowsProfil
 }
 
 func (o ContainerServiceWindowsProfilePtrOutput) Elem() ContainerServiceWindowsProfileOutput {
-	return o.ApplyT(func(v *ContainerServiceWindowsProfile) ContainerServiceWindowsProfile { return *v }).(ContainerServiceWindowsProfileOutput)
+	return o.ApplyT(func(v *ContainerServiceWindowsProfile) ContainerServiceWindowsProfile {
+		if v != nil {
+			return *v
+		}
+		var ret ContainerServiceWindowsProfile
+		return ret
+	}).(ContainerServiceWindowsProfileOutput)
 }
 
-// The administrator password to use for Windows VMs
 func (o ContainerServiceWindowsProfilePtrOutput) AdminPassword() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ContainerServiceWindowsProfile) *string {
 		if v == nil {
@@ -2340,7 +2259,6 @@ func (o ContainerServiceWindowsProfilePtrOutput) AdminPassword() pulumi.StringPt
 	}).(pulumi.StringPtrOutput)
 }
 
-// The administrator username to use for Windows VMs
 func (o ContainerServiceWindowsProfilePtrOutput) AdminUsername() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ContainerServiceWindowsProfile) *string {
 		if v == nil {
@@ -2350,11 +2268,8 @@ func (o ContainerServiceWindowsProfilePtrOutput) AdminUsername() pulumi.StringPt
 	}).(pulumi.StringPtrOutput)
 }
 
-// Profile for Windows VMs in the container service cluster.
 type ContainerServiceWindowsProfileResponse struct {
-	// The administrator password to use for Windows VMs
 	AdminPassword string `pulumi:"adminPassword"`
-	// The administrator username to use for Windows VMs
 	AdminUsername string `pulumi:"adminUsername"`
 }
 
@@ -2369,11 +2284,8 @@ type ContainerServiceWindowsProfileResponseInput interface {
 	ToContainerServiceWindowsProfileResponseOutputWithContext(context.Context) ContainerServiceWindowsProfileResponseOutput
 }
 
-// Profile for Windows VMs in the container service cluster.
 type ContainerServiceWindowsProfileResponseArgs struct {
-	// The administrator password to use for Windows VMs
 	AdminPassword pulumi.StringInput `pulumi:"adminPassword"`
-	// The administrator username to use for Windows VMs
 	AdminUsername pulumi.StringInput `pulumi:"adminUsername"`
 }
 
@@ -2430,7 +2342,6 @@ func (i *containerServiceWindowsProfileResponsePtrType) ToContainerServiceWindow
 	return pulumi.ToOutputWithContext(ctx, i).(ContainerServiceWindowsProfileResponsePtrOutput)
 }
 
-// Profile for Windows VMs in the container service cluster.
 type ContainerServiceWindowsProfileResponseOutput struct{ *pulumi.OutputState }
 
 func (ContainerServiceWindowsProfileResponseOutput) ElementType() reflect.Type {
@@ -2450,17 +2361,15 @@ func (o ContainerServiceWindowsProfileResponseOutput) ToContainerServiceWindowsP
 }
 
 func (o ContainerServiceWindowsProfileResponseOutput) ToContainerServiceWindowsProfileResponsePtrOutputWithContext(ctx context.Context) ContainerServiceWindowsProfileResponsePtrOutput {
-	return o.ApplyT(func(v ContainerServiceWindowsProfileResponse) *ContainerServiceWindowsProfileResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ContainerServiceWindowsProfileResponse) *ContainerServiceWindowsProfileResponse {
 		return &v
 	}).(ContainerServiceWindowsProfileResponsePtrOutput)
 }
 
-// The administrator password to use for Windows VMs
 func (o ContainerServiceWindowsProfileResponseOutput) AdminPassword() pulumi.StringOutput {
 	return o.ApplyT(func(v ContainerServiceWindowsProfileResponse) string { return v.AdminPassword }).(pulumi.StringOutput)
 }
 
-// The administrator username to use for Windows VMs
 func (o ContainerServiceWindowsProfileResponseOutput) AdminUsername() pulumi.StringOutput {
 	return o.ApplyT(func(v ContainerServiceWindowsProfileResponse) string { return v.AdminUsername }).(pulumi.StringOutput)
 }
@@ -2480,10 +2389,15 @@ func (o ContainerServiceWindowsProfileResponsePtrOutput) ToContainerServiceWindo
 }
 
 func (o ContainerServiceWindowsProfileResponsePtrOutput) Elem() ContainerServiceWindowsProfileResponseOutput {
-	return o.ApplyT(func(v *ContainerServiceWindowsProfileResponse) ContainerServiceWindowsProfileResponse { return *v }).(ContainerServiceWindowsProfileResponseOutput)
+	return o.ApplyT(func(v *ContainerServiceWindowsProfileResponse) ContainerServiceWindowsProfileResponse {
+		if v != nil {
+			return *v
+		}
+		var ret ContainerServiceWindowsProfileResponse
+		return ret
+	}).(ContainerServiceWindowsProfileResponseOutput)
 }
 
-// The administrator password to use for Windows VMs
 func (o ContainerServiceWindowsProfileResponsePtrOutput) AdminPassword() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ContainerServiceWindowsProfileResponse) *string {
 		if v == nil {
@@ -2493,7 +2407,6 @@ func (o ContainerServiceWindowsProfileResponsePtrOutput) AdminPassword() pulumi.
 	}).(pulumi.StringPtrOutput)
 }
 
-// The administrator username to use for Windows VMs
 func (o ContainerServiceWindowsProfileResponsePtrOutput) AdminUsername() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ContainerServiceWindowsProfileResponse) *string {
 		if v == nil {

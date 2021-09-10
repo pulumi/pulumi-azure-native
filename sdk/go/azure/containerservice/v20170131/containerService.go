@@ -11,36 +11,22 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Container service.
 type ContainerService struct {
 	pulumi.CustomResourceState
 
-	// Properties of the agent pool.
-	AgentPoolProfiles ContainerServiceAgentPoolProfileResponseArrayOutput `pulumi:"agentPoolProfiles"`
-	// Properties for custom clusters.
-	CustomProfile ContainerServiceCustomProfileResponsePtrOutput `pulumi:"customProfile"`
-	// Properties of the diagnostic agent.
-	DiagnosticsProfile ContainerServiceDiagnosticsProfileResponsePtrOutput `pulumi:"diagnosticsProfile"`
-	// Properties of Linux VMs.
-	LinuxProfile ContainerServiceLinuxProfileResponseOutput `pulumi:"linuxProfile"`
-	// Resource location
-	Location pulumi.StringOutput `pulumi:"location"`
-	// Properties of master agents.
-	MasterProfile ContainerServiceMasterProfileResponseOutput `pulumi:"masterProfile"`
-	// Resource name
-	Name pulumi.StringOutput `pulumi:"name"`
-	// Properties of the orchestrator.
-	OrchestratorProfile ContainerServiceOrchestratorProfileResponsePtrOutput `pulumi:"orchestratorProfile"`
-	// the current deployment or provisioning state, which only appears in the response.
-	ProvisioningState pulumi.StringOutput `pulumi:"provisioningState"`
-	// Properties for cluster service principals.
+	AgentPoolProfiles       ContainerServiceAgentPoolProfileResponseArrayOutput      `pulumi:"agentPoolProfiles"`
+	CustomProfile           ContainerServiceCustomProfileResponsePtrOutput           `pulumi:"customProfile"`
+	DiagnosticsProfile      ContainerServiceDiagnosticsProfileResponsePtrOutput      `pulumi:"diagnosticsProfile"`
+	LinuxProfile            ContainerServiceLinuxProfileResponseOutput               `pulumi:"linuxProfile"`
+	Location                pulumi.StringOutput                                      `pulumi:"location"`
+	MasterProfile           ContainerServiceMasterProfileResponseOutput              `pulumi:"masterProfile"`
+	Name                    pulumi.StringOutput                                      `pulumi:"name"`
+	OrchestratorProfile     ContainerServiceOrchestratorProfileResponsePtrOutput     `pulumi:"orchestratorProfile"`
+	ProvisioningState       pulumi.StringOutput                                      `pulumi:"provisioningState"`
 	ServicePrincipalProfile ContainerServiceServicePrincipalProfileResponsePtrOutput `pulumi:"servicePrincipalProfile"`
-	// Resource tags
-	Tags pulumi.StringMapOutput `pulumi:"tags"`
-	// Resource type
-	Type pulumi.StringOutput `pulumi:"type"`
-	// Properties of Windows VMs.
-	WindowsProfile ContainerServiceWindowsProfileResponsePtrOutput `pulumi:"windowsProfile"`
+	Tags                    pulumi.StringMapOutput                                   `pulumi:"tags"`
+	Type                    pulumi.StringOutput                                      `pulumi:"type"`
+	WindowsProfile          ContainerServiceWindowsProfileResponsePtrOutput          `pulumi:"windowsProfile"`
 }
 
 // NewContainerService registers a new resource with the given unique name, arguments, and options.
@@ -118,58 +104,34 @@ func (ContainerServiceState) ElementType() reflect.Type {
 }
 
 type containerServiceArgs struct {
-	// Properties of the agent pool.
-	AgentPoolProfiles []ContainerServiceAgentPoolProfile `pulumi:"agentPoolProfiles"`
-	// The name of the container service in the specified subscription and resource group.
-	ContainerServiceName *string `pulumi:"containerServiceName"`
-	// Properties for custom clusters.
-	CustomProfile *ContainerServiceCustomProfile `pulumi:"customProfile"`
-	// Properties of the diagnostic agent.
-	DiagnosticsProfile *ContainerServiceDiagnosticsProfile `pulumi:"diagnosticsProfile"`
-	// Properties of Linux VMs.
-	LinuxProfile ContainerServiceLinuxProfile `pulumi:"linuxProfile"`
-	// Resource location
-	Location *string `pulumi:"location"`
-	// Properties of master agents.
-	MasterProfile ContainerServiceMasterProfile `pulumi:"masterProfile"`
-	// Properties of the orchestrator.
-	OrchestratorProfile *ContainerServiceOrchestratorProfile `pulumi:"orchestratorProfile"`
-	// The name of the resource group.
-	ResourceGroupName string `pulumi:"resourceGroupName"`
-	// Properties for cluster service principals.
+	AgentPoolProfiles       []ContainerServiceAgentPoolProfile       `pulumi:"agentPoolProfiles"`
+	ContainerServiceName    *string                                  `pulumi:"containerServiceName"`
+	CustomProfile           *ContainerServiceCustomProfile           `pulumi:"customProfile"`
+	DiagnosticsProfile      *ContainerServiceDiagnosticsProfile      `pulumi:"diagnosticsProfile"`
+	LinuxProfile            ContainerServiceLinuxProfile             `pulumi:"linuxProfile"`
+	Location                *string                                  `pulumi:"location"`
+	MasterProfile           ContainerServiceMasterProfile            `pulumi:"masterProfile"`
+	OrchestratorProfile     *ContainerServiceOrchestratorProfile     `pulumi:"orchestratorProfile"`
+	ResourceGroupName       string                                   `pulumi:"resourceGroupName"`
 	ServicePrincipalProfile *ContainerServiceServicePrincipalProfile `pulumi:"servicePrincipalProfile"`
-	// Resource tags
-	Tags map[string]string `pulumi:"tags"`
-	// Properties of Windows VMs.
-	WindowsProfile *ContainerServiceWindowsProfile `pulumi:"windowsProfile"`
+	Tags                    map[string]string                        `pulumi:"tags"`
+	WindowsProfile          *ContainerServiceWindowsProfile          `pulumi:"windowsProfile"`
 }
 
 // The set of arguments for constructing a ContainerService resource.
 type ContainerServiceArgs struct {
-	// Properties of the agent pool.
-	AgentPoolProfiles ContainerServiceAgentPoolProfileArrayInput
-	// The name of the container service in the specified subscription and resource group.
-	ContainerServiceName pulumi.StringPtrInput
-	// Properties for custom clusters.
-	CustomProfile ContainerServiceCustomProfilePtrInput
-	// Properties of the diagnostic agent.
-	DiagnosticsProfile ContainerServiceDiagnosticsProfilePtrInput
-	// Properties of Linux VMs.
-	LinuxProfile ContainerServiceLinuxProfileInput
-	// Resource location
-	Location pulumi.StringPtrInput
-	// Properties of master agents.
-	MasterProfile ContainerServiceMasterProfileInput
-	// Properties of the orchestrator.
-	OrchestratorProfile ContainerServiceOrchestratorProfilePtrInput
-	// The name of the resource group.
-	ResourceGroupName pulumi.StringInput
-	// Properties for cluster service principals.
+	AgentPoolProfiles       ContainerServiceAgentPoolProfileArrayInput
+	ContainerServiceName    pulumi.StringPtrInput
+	CustomProfile           ContainerServiceCustomProfilePtrInput
+	DiagnosticsProfile      ContainerServiceDiagnosticsProfilePtrInput
+	LinuxProfile            ContainerServiceLinuxProfileInput
+	Location                pulumi.StringPtrInput
+	MasterProfile           ContainerServiceMasterProfileInput
+	OrchestratorProfile     ContainerServiceOrchestratorProfilePtrInput
+	ResourceGroupName       pulumi.StringInput
 	ServicePrincipalProfile ContainerServiceServicePrincipalProfilePtrInput
-	// Resource tags
-	Tags pulumi.StringMapInput
-	// Properties of Windows VMs.
-	WindowsProfile ContainerServiceWindowsProfilePtrInput
+	Tags                    pulumi.StringMapInput
+	WindowsProfile          ContainerServiceWindowsProfilePtrInput
 }
 
 func (ContainerServiceArgs) ElementType() reflect.Type {
@@ -195,9 +157,7 @@ func (i *ContainerService) ToContainerServiceOutputWithContext(ctx context.Conte
 	return pulumi.ToOutputWithContext(ctx, i).(ContainerServiceOutput)
 }
 
-type ContainerServiceOutput struct {
-	*pulumi.OutputState
-}
+type ContainerServiceOutput struct{ *pulumi.OutputState }
 
 func (ContainerServiceOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*ContainerService)(nil))

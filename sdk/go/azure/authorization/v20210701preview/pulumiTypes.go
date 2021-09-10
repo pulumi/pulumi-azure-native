@@ -10,16 +10,11 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Access Review Instance.
 type AccessReviewInstance struct {
-	// This is the collection of backup reviewers.
 	BackupReviewers []AccessReviewReviewer `pulumi:"backupReviewers"`
-	// The DateTime when the review instance is scheduled to end.
-	EndDateTime *string `pulumi:"endDateTime"`
-	// This is the collection of reviewers.
-	Reviewers []AccessReviewReviewer `pulumi:"reviewers"`
-	// The DateTime when the review instance is scheduled to be start.
-	StartDateTime *string `pulumi:"startDateTime"`
+	EndDateTime     *string                `pulumi:"endDateTime"`
+	Reviewers       []AccessReviewReviewer `pulumi:"reviewers"`
+	StartDateTime   *string                `pulumi:"startDateTime"`
 }
 
 // AccessReviewInstanceInput is an input type that accepts AccessReviewInstanceArgs and AccessReviewInstanceOutput values.
@@ -33,16 +28,11 @@ type AccessReviewInstanceInput interface {
 	ToAccessReviewInstanceOutputWithContext(context.Context) AccessReviewInstanceOutput
 }
 
-// Access Review Instance.
 type AccessReviewInstanceArgs struct {
-	// This is the collection of backup reviewers.
 	BackupReviewers AccessReviewReviewerArrayInput `pulumi:"backupReviewers"`
-	// The DateTime when the review instance is scheduled to end.
-	EndDateTime pulumi.StringPtrInput `pulumi:"endDateTime"`
-	// This is the collection of reviewers.
-	Reviewers AccessReviewReviewerArrayInput `pulumi:"reviewers"`
-	// The DateTime when the review instance is scheduled to be start.
-	StartDateTime pulumi.StringPtrInput `pulumi:"startDateTime"`
+	EndDateTime     pulumi.StringPtrInput          `pulumi:"endDateTime"`
+	Reviewers       AccessReviewReviewerArrayInput `pulumi:"reviewers"`
+	StartDateTime   pulumi.StringPtrInput          `pulumi:"startDateTime"`
 }
 
 func (AccessReviewInstanceArgs) ElementType() reflect.Type {
@@ -82,7 +72,6 @@ func (i AccessReviewInstanceArray) ToAccessReviewInstanceArrayOutputWithContext(
 	return pulumi.ToOutputWithContext(ctx, i).(AccessReviewInstanceArrayOutput)
 }
 
-// Access Review Instance.
 type AccessReviewInstanceOutput struct{ *pulumi.OutputState }
 
 func (AccessReviewInstanceOutput) ElementType() reflect.Type {
@@ -97,22 +86,18 @@ func (o AccessReviewInstanceOutput) ToAccessReviewInstanceOutputWithContext(ctx 
 	return o
 }
 
-// This is the collection of backup reviewers.
 func (o AccessReviewInstanceOutput) BackupReviewers() AccessReviewReviewerArrayOutput {
 	return o.ApplyT(func(v AccessReviewInstance) []AccessReviewReviewer { return v.BackupReviewers }).(AccessReviewReviewerArrayOutput)
 }
 
-// The DateTime when the review instance is scheduled to end.
 func (o AccessReviewInstanceOutput) EndDateTime() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AccessReviewInstance) *string { return v.EndDateTime }).(pulumi.StringPtrOutput)
 }
 
-// This is the collection of reviewers.
 func (o AccessReviewInstanceOutput) Reviewers() AccessReviewReviewerArrayOutput {
 	return o.ApplyT(func(v AccessReviewInstance) []AccessReviewReviewer { return v.Reviewers }).(AccessReviewReviewerArrayOutput)
 }
 
-// The DateTime when the review instance is scheduled to be start.
 func (o AccessReviewInstanceOutput) StartDateTime() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AccessReviewInstance) *string { return v.StartDateTime }).(pulumi.StringPtrOutput)
 }
@@ -137,26 +122,16 @@ func (o AccessReviewInstanceArrayOutput) Index(i pulumi.IntInput) AccessReviewIn
 	}).(AccessReviewInstanceOutput)
 }
 
-// Access Review Instance.
 type AccessReviewInstanceResponse struct {
-	// This is the collection of backup reviewers.
 	BackupReviewers []AccessReviewReviewerResponse `pulumi:"backupReviewers"`
-	// The DateTime when the review instance is scheduled to end.
-	EndDateTime *string `pulumi:"endDateTime"`
-	// The access review instance id.
-	Id string `pulumi:"id"`
-	// The access review instance name.
-	Name string `pulumi:"name"`
-	// This is the collection of reviewers.
-	Reviewers []AccessReviewReviewerResponse `pulumi:"reviewers"`
-	// This field specifies the type of reviewers for a review. Usually for a review, reviewers are explicitly assigned. However, in some cases, the reviewers may not be assigned and instead be chosen dynamically. For example managers review or self review.
-	ReviewersType string `pulumi:"reviewersType"`
-	// The DateTime when the review instance is scheduled to be start.
-	StartDateTime *string `pulumi:"startDateTime"`
-	// This read-only field specifies the status of an access review instance.
-	Status string `pulumi:"status"`
-	// The resource type.
-	Type string `pulumi:"type"`
+	EndDateTime     *string                        `pulumi:"endDateTime"`
+	Id              string                         `pulumi:"id"`
+	Name            string                         `pulumi:"name"`
+	Reviewers       []AccessReviewReviewerResponse `pulumi:"reviewers"`
+	ReviewersType   string                         `pulumi:"reviewersType"`
+	StartDateTime   *string                        `pulumi:"startDateTime"`
+	Status          string                         `pulumi:"status"`
+	Type            string                         `pulumi:"type"`
 }
 
 // AccessReviewInstanceResponseInput is an input type that accepts AccessReviewInstanceResponseArgs and AccessReviewInstanceResponseOutput values.
@@ -170,26 +145,16 @@ type AccessReviewInstanceResponseInput interface {
 	ToAccessReviewInstanceResponseOutputWithContext(context.Context) AccessReviewInstanceResponseOutput
 }
 
-// Access Review Instance.
 type AccessReviewInstanceResponseArgs struct {
-	// This is the collection of backup reviewers.
 	BackupReviewers AccessReviewReviewerResponseArrayInput `pulumi:"backupReviewers"`
-	// The DateTime when the review instance is scheduled to end.
-	EndDateTime pulumi.StringPtrInput `pulumi:"endDateTime"`
-	// The access review instance id.
-	Id pulumi.StringInput `pulumi:"id"`
-	// The access review instance name.
-	Name pulumi.StringInput `pulumi:"name"`
-	// This is the collection of reviewers.
-	Reviewers AccessReviewReviewerResponseArrayInput `pulumi:"reviewers"`
-	// This field specifies the type of reviewers for a review. Usually for a review, reviewers are explicitly assigned. However, in some cases, the reviewers may not be assigned and instead be chosen dynamically. For example managers review or self review.
-	ReviewersType pulumi.StringInput `pulumi:"reviewersType"`
-	// The DateTime when the review instance is scheduled to be start.
-	StartDateTime pulumi.StringPtrInput `pulumi:"startDateTime"`
-	// This read-only field specifies the status of an access review instance.
-	Status pulumi.StringInput `pulumi:"status"`
-	// The resource type.
-	Type pulumi.StringInput `pulumi:"type"`
+	EndDateTime     pulumi.StringPtrInput                  `pulumi:"endDateTime"`
+	Id              pulumi.StringInput                     `pulumi:"id"`
+	Name            pulumi.StringInput                     `pulumi:"name"`
+	Reviewers       AccessReviewReviewerResponseArrayInput `pulumi:"reviewers"`
+	ReviewersType   pulumi.StringInput                     `pulumi:"reviewersType"`
+	StartDateTime   pulumi.StringPtrInput                  `pulumi:"startDateTime"`
+	Status          pulumi.StringInput                     `pulumi:"status"`
+	Type            pulumi.StringInput                     `pulumi:"type"`
 }
 
 func (AccessReviewInstanceResponseArgs) ElementType() reflect.Type {
@@ -229,7 +194,6 @@ func (i AccessReviewInstanceResponseArray) ToAccessReviewInstanceResponseArrayOu
 	return pulumi.ToOutputWithContext(ctx, i).(AccessReviewInstanceResponseArrayOutput)
 }
 
-// Access Review Instance.
 type AccessReviewInstanceResponseOutput struct{ *pulumi.OutputState }
 
 func (AccessReviewInstanceResponseOutput) ElementType() reflect.Type {
@@ -244,47 +208,38 @@ func (o AccessReviewInstanceResponseOutput) ToAccessReviewInstanceResponseOutput
 	return o
 }
 
-// This is the collection of backup reviewers.
 func (o AccessReviewInstanceResponseOutput) BackupReviewers() AccessReviewReviewerResponseArrayOutput {
 	return o.ApplyT(func(v AccessReviewInstanceResponse) []AccessReviewReviewerResponse { return v.BackupReviewers }).(AccessReviewReviewerResponseArrayOutput)
 }
 
-// The DateTime when the review instance is scheduled to end.
 func (o AccessReviewInstanceResponseOutput) EndDateTime() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AccessReviewInstanceResponse) *string { return v.EndDateTime }).(pulumi.StringPtrOutput)
 }
 
-// The access review instance id.
 func (o AccessReviewInstanceResponseOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v AccessReviewInstanceResponse) string { return v.Id }).(pulumi.StringOutput)
 }
 
-// The access review instance name.
 func (o AccessReviewInstanceResponseOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v AccessReviewInstanceResponse) string { return v.Name }).(pulumi.StringOutput)
 }
 
-// This is the collection of reviewers.
 func (o AccessReviewInstanceResponseOutput) Reviewers() AccessReviewReviewerResponseArrayOutput {
 	return o.ApplyT(func(v AccessReviewInstanceResponse) []AccessReviewReviewerResponse { return v.Reviewers }).(AccessReviewReviewerResponseArrayOutput)
 }
 
-// This field specifies the type of reviewers for a review. Usually for a review, reviewers are explicitly assigned. However, in some cases, the reviewers may not be assigned and instead be chosen dynamically. For example managers review or self review.
 func (o AccessReviewInstanceResponseOutput) ReviewersType() pulumi.StringOutput {
 	return o.ApplyT(func(v AccessReviewInstanceResponse) string { return v.ReviewersType }).(pulumi.StringOutput)
 }
 
-// The DateTime when the review instance is scheduled to be start.
 func (o AccessReviewInstanceResponseOutput) StartDateTime() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AccessReviewInstanceResponse) *string { return v.StartDateTime }).(pulumi.StringPtrOutput)
 }
 
-// This read-only field specifies the status of an access review instance.
 func (o AccessReviewInstanceResponseOutput) Status() pulumi.StringOutput {
 	return o.ApplyT(func(v AccessReviewInstanceResponse) string { return v.Status }).(pulumi.StringOutput)
 }
 
-// The resource type.
 func (o AccessReviewInstanceResponseOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v AccessReviewInstanceResponse) string { return v.Type }).(pulumi.StringOutput)
 }
@@ -309,9 +264,7 @@ func (o AccessReviewInstanceResponseArrayOutput) Index(i pulumi.IntInput) Access
 	}).(AccessReviewInstanceResponseOutput)
 }
 
-// Descriptor for what needs to be reviewed
 type AccessReviewReviewer struct {
-	// The id of the reviewer(user/servicePrincipal)
 	PrincipalId *string `pulumi:"principalId"`
 }
 
@@ -326,9 +279,7 @@ type AccessReviewReviewerInput interface {
 	ToAccessReviewReviewerOutputWithContext(context.Context) AccessReviewReviewerOutput
 }
 
-// Descriptor for what needs to be reviewed
 type AccessReviewReviewerArgs struct {
-	// The id of the reviewer(user/servicePrincipal)
 	PrincipalId pulumi.StringPtrInput `pulumi:"principalId"`
 }
 
@@ -369,7 +320,6 @@ func (i AccessReviewReviewerArray) ToAccessReviewReviewerArrayOutputWithContext(
 	return pulumi.ToOutputWithContext(ctx, i).(AccessReviewReviewerArrayOutput)
 }
 
-// Descriptor for what needs to be reviewed
 type AccessReviewReviewerOutput struct{ *pulumi.OutputState }
 
 func (AccessReviewReviewerOutput) ElementType() reflect.Type {
@@ -384,7 +334,6 @@ func (o AccessReviewReviewerOutput) ToAccessReviewReviewerOutputWithContext(ctx 
 	return o
 }
 
-// The id of the reviewer(user/servicePrincipal)
 func (o AccessReviewReviewerOutput) PrincipalId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AccessReviewReviewer) *string { return v.PrincipalId }).(pulumi.StringPtrOutput)
 }
@@ -409,12 +358,9 @@ func (o AccessReviewReviewerArrayOutput) Index(i pulumi.IntInput) AccessReviewRe
 	}).(AccessReviewReviewerOutput)
 }
 
-// Descriptor for what needs to be reviewed
 type AccessReviewReviewerResponse struct {
-	// The id of the reviewer(user/servicePrincipal)
-	PrincipalId *string `pulumi:"principalId"`
-	// The identity type : user/servicePrincipal
-	PrincipalType string `pulumi:"principalType"`
+	PrincipalId   *string `pulumi:"principalId"`
+	PrincipalType string  `pulumi:"principalType"`
 }
 
 // AccessReviewReviewerResponseInput is an input type that accepts AccessReviewReviewerResponseArgs and AccessReviewReviewerResponseOutput values.
@@ -428,12 +374,9 @@ type AccessReviewReviewerResponseInput interface {
 	ToAccessReviewReviewerResponseOutputWithContext(context.Context) AccessReviewReviewerResponseOutput
 }
 
-// Descriptor for what needs to be reviewed
 type AccessReviewReviewerResponseArgs struct {
-	// The id of the reviewer(user/servicePrincipal)
-	PrincipalId pulumi.StringPtrInput `pulumi:"principalId"`
-	// The identity type : user/servicePrincipal
-	PrincipalType pulumi.StringInput `pulumi:"principalType"`
+	PrincipalId   pulumi.StringPtrInput `pulumi:"principalId"`
+	PrincipalType pulumi.StringInput    `pulumi:"principalType"`
 }
 
 func (AccessReviewReviewerResponseArgs) ElementType() reflect.Type {
@@ -473,7 +416,6 @@ func (i AccessReviewReviewerResponseArray) ToAccessReviewReviewerResponseArrayOu
 	return pulumi.ToOutputWithContext(ctx, i).(AccessReviewReviewerResponseArrayOutput)
 }
 
-// Descriptor for what needs to be reviewed
 type AccessReviewReviewerResponseOutput struct{ *pulumi.OutputState }
 
 func (AccessReviewReviewerResponseOutput) ElementType() reflect.Type {
@@ -488,12 +430,10 @@ func (o AccessReviewReviewerResponseOutput) ToAccessReviewReviewerResponseOutput
 	return o
 }
 
-// The id of the reviewer(user/servicePrincipal)
 func (o AccessReviewReviewerResponseOutput) PrincipalId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AccessReviewReviewerResponse) *string { return v.PrincipalId }).(pulumi.StringPtrOutput)
 }
 
-// The identity type : user/servicePrincipal
 func (o AccessReviewReviewerResponseOutput) PrincipalType() pulumi.StringOutput {
 	return o.ApplyT(func(v AccessReviewReviewerResponse) string { return v.PrincipalType }).(pulumi.StringOutput)
 }

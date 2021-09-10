@@ -7,7 +7,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Response containing the primary and secondary API keys for a given Azure Search service.
 func ListAdminKey(ctx *pulumi.Context, args *ListAdminKeyArgs, opts ...pulumi.InvokeOption) (*ListAdminKeyResult, error) {
 	var rv ListAdminKeyResult
 	err := ctx.Invoke("azure-native:search/v20150228:listAdminKey", args, &rv, opts...)
@@ -18,16 +17,12 @@ func ListAdminKey(ctx *pulumi.Context, args *ListAdminKeyArgs, opts ...pulumi.In
 }
 
 type ListAdminKeyArgs struct {
-	// The name of the resource group within the current subscription.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
-	// The name of the Search service for which to list admin keys.
-	ServiceName string `pulumi:"serviceName"`
+	ServiceName       string `pulumi:"serviceName"`
 }
 
 // Response containing the primary and secondary API keys for a given Azure Search service.
 type ListAdminKeyResult struct {
-	// The primary API key of the Search service.
-	PrimaryKey string `pulumi:"primaryKey"`
-	// The secondary API key of the Search service.
+	PrimaryKey   string `pulumi:"primaryKey"`
 	SecondaryKey string `pulumi:"secondaryKey"`
 }

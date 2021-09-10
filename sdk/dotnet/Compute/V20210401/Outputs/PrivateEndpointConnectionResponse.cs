@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.Compute.V20210401.Outputs
 {
 
+    /// <summary>
+    /// The Private Endpoint Connection resource.
+    /// </summary>
     [OutputType]
     public sealed class PrivateEndpointConnectionResponse
     {

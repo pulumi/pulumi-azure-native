@@ -7,7 +7,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Represents a server firewall rule.
 func LookupFirewallRule(ctx *pulumi.Context, args *LookupFirewallRuleArgs, opts ...pulumi.InvokeOption) (*LookupFirewallRuleResult, error) {
 	var rv LookupFirewallRuleResult
 	err := ctx.Invoke("azure-native:dbformysql/v20200701preview:getFirewallRule", args, &rv, opts...)
@@ -18,24 +17,16 @@ func LookupFirewallRule(ctx *pulumi.Context, args *LookupFirewallRuleArgs, opts 
 }
 
 type LookupFirewallRuleArgs struct {
-	// The name of the server firewall rule.
-	FirewallRuleName string `pulumi:"firewallRuleName"`
-	// The name of the resource group. The name is case insensitive.
+	FirewallRuleName  string `pulumi:"firewallRuleName"`
 	ResourceGroupName string `pulumi:"resourceGroupName"`
-	// The name of the server.
-	ServerName string `pulumi:"serverName"`
+	ServerName        string `pulumi:"serverName"`
 }
 
 // Represents a server firewall rule.
 type LookupFirewallRuleResult struct {
-	// The end IP address of the server firewall rule. Must be IPv4 format.
-	EndIpAddress string `pulumi:"endIpAddress"`
-	// Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
-	Id string `pulumi:"id"`
-	// The name of the resource
-	Name string `pulumi:"name"`
-	// The start IP address of the server firewall rule. Must be IPv4 format.
+	EndIpAddress   string `pulumi:"endIpAddress"`
+	Id             string `pulumi:"id"`
+	Name           string `pulumi:"name"`
 	StartIpAddress string `pulumi:"startIpAddress"`
-	// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
-	Type string `pulumi:"type"`
+	Type           string `pulumi:"type"`
 }

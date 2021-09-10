@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.WebPubSub.V20210401Preview.Outputs
 {
 
+    /// <summary>
+    /// TLS settings for the resource
+    /// </summary>
     [OutputType]
     public sealed class WebPubSubTlsSettingsResponse
     {

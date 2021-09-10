@@ -7,7 +7,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Response containing the query API keys for a given Azure Cognitive Search service.
 func ListQueryKeyBySearchService(ctx *pulumi.Context, args *ListQueryKeyBySearchServiceArgs, opts ...pulumi.InvokeOption) (*ListQueryKeyBySearchServiceResult, error) {
 	var rv ListQueryKeyBySearchServiceResult
 	err := ctx.Invoke("azure-native:search/v20200801:listQueryKeyBySearchService", args, &rv, opts...)
@@ -18,16 +17,12 @@ func ListQueryKeyBySearchService(ctx *pulumi.Context, args *ListQueryKeyBySearch
 }
 
 type ListQueryKeyBySearchServiceArgs struct {
-	// The name of the resource group within the current subscription. You can obtain this value from the Azure Resource Manager API or the portal.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
-	// The name of the Azure Cognitive Search service associated with the specified resource group.
 	SearchServiceName string `pulumi:"searchServiceName"`
 }
 
 // Response containing the query API keys for a given Azure Cognitive Search service.
 type ListQueryKeyBySearchServiceResult struct {
-	// Request URL that can be used to query next page of query keys. Returned when the total number of requested query keys exceed maximum page size.
-	NextLink string `pulumi:"nextLink"`
-	// The query keys for the Azure Cognitive Search service.
-	Value []QueryKeyResponse `pulumi:"value"`
+	NextLink string             `pulumi:"nextLink"`
+	Value    []QueryKeyResponse `pulumi:"value"`
 }

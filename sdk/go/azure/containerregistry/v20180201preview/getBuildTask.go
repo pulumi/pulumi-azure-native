@@ -7,7 +7,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// The build task that has the resource properties and all build items. The build task will have all information to schedule a build against it.
 func LookupBuildTask(ctx *pulumi.Context, args *LookupBuildTaskArgs, opts ...pulumi.InvokeOption) (*LookupBuildTaskResult, error) {
 	var rv LookupBuildTaskResult
 	err := ctx.Invoke("azure-native:containerregistry/v20180201preview:getBuildTask", args, &rv, opts...)
@@ -18,38 +17,23 @@ func LookupBuildTask(ctx *pulumi.Context, args *LookupBuildTaskArgs, opts ...pul
 }
 
 type LookupBuildTaskArgs struct {
-	// The name of the container registry build task.
-	BuildTaskName string `pulumi:"buildTaskName"`
-	// The name of the container registry.
-	RegistryName string `pulumi:"registryName"`
-	// The name of the resource group to which the container registry belongs.
+	BuildTaskName     string `pulumi:"buildTaskName"`
+	RegistryName      string `pulumi:"registryName"`
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 }
 
 // The build task that has the resource properties and all build items. The build task will have all information to schedule a build against it.
 type LookupBuildTaskResult struct {
-	// The alternative updatable name for a build task.
-	Alias string `pulumi:"alias"`
-	// The creation date of build task.
-	CreationDate string `pulumi:"creationDate"`
-	// The resource ID.
-	Id string `pulumi:"id"`
-	// The location of the resource. This cannot be changed after the resource is created.
-	Location string `pulumi:"location"`
-	// The name of the resource.
-	Name string `pulumi:"name"`
-	// The platform properties against which the build has to happen.
-	Platform PlatformPropertiesResponse `pulumi:"platform"`
-	// The provisioning state of the build task.
-	ProvisioningState string `pulumi:"provisioningState"`
-	// The properties that describes the source(code) for the build task.
-	SourceRepository SourceRepositoryPropertiesResponse `pulumi:"sourceRepository"`
-	// The current status of build task.
-	Status *string `pulumi:"status"`
-	// The tags of the resource.
-	Tags map[string]string `pulumi:"tags"`
-	// Build timeout in seconds.
-	Timeout *int `pulumi:"timeout"`
-	// The type of the resource.
-	Type string `pulumi:"type"`
+	Alias             string                             `pulumi:"alias"`
+	CreationDate      string                             `pulumi:"creationDate"`
+	Id                string                             `pulumi:"id"`
+	Location          string                             `pulumi:"location"`
+	Name              string                             `pulumi:"name"`
+	Platform          PlatformPropertiesResponse         `pulumi:"platform"`
+	ProvisioningState string                             `pulumi:"provisioningState"`
+	SourceRepository  SourceRepositoryPropertiesResponse `pulumi:"sourceRepository"`
+	Status            *string                            `pulumi:"status"`
+	Tags              map[string]string                  `pulumi:"tags"`
+	Timeout           *int                               `pulumi:"timeout"`
+	Type              string                             `pulumi:"type"`
 }

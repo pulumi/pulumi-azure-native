@@ -7,7 +7,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// An Azure SQL Database sync agent.
 func LookupSyncAgent(ctx *pulumi.Context, args *LookupSyncAgentArgs, opts ...pulumi.InvokeOption) (*LookupSyncAgentResult, error) {
 	var rv LookupSyncAgentResult
 	err := ctx.Invoke("azure-native:sql/v20200202preview:getSyncAgent", args, &rv, opts...)
@@ -18,32 +17,20 @@ func LookupSyncAgent(ctx *pulumi.Context, args *LookupSyncAgentArgs, opts ...pul
 }
 
 type LookupSyncAgentArgs struct {
-	// The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
-	// The name of the server on which the sync agent is hosted.
-	ServerName string `pulumi:"serverName"`
-	// The name of the sync agent.
-	SyncAgentName string `pulumi:"syncAgentName"`
+	ServerName        string `pulumi:"serverName"`
+	SyncAgentName     string `pulumi:"syncAgentName"`
 }
 
 // An Azure SQL Database sync agent.
 type LookupSyncAgentResult struct {
-	// Expiration time of the sync agent version.
-	ExpiryTime string `pulumi:"expiryTime"`
-	// Resource ID.
-	Id string `pulumi:"id"`
-	// If the sync agent version is up to date.
-	IsUpToDate bool `pulumi:"isUpToDate"`
-	// Last alive time of the sync agent.
-	LastAliveTime string `pulumi:"lastAliveTime"`
-	// Resource name.
-	Name string `pulumi:"name"`
-	// State of the sync agent.
-	State string `pulumi:"state"`
-	// ARM resource id of the sync database in the sync agent.
+	ExpiryTime     string  `pulumi:"expiryTime"`
+	Id             string  `pulumi:"id"`
+	IsUpToDate     bool    `pulumi:"isUpToDate"`
+	LastAliveTime  string  `pulumi:"lastAliveTime"`
+	Name           string  `pulumi:"name"`
+	State          string  `pulumi:"state"`
 	SyncDatabaseId *string `pulumi:"syncDatabaseId"`
-	// Resource type.
-	Type string `pulumi:"type"`
-	// Version of the sync agent.
-	Version string `pulumi:"version"`
+	Type           string  `pulumi:"type"`
+	Version        string  `pulumi:"version"`
 }

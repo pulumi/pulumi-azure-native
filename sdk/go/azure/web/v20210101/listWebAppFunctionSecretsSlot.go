@@ -7,7 +7,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Function secrets.
 func ListWebAppFunctionSecretsSlot(ctx *pulumi.Context, args *ListWebAppFunctionSecretsSlotArgs, opts ...pulumi.InvokeOption) (*ListWebAppFunctionSecretsSlotResult, error) {
 	var rv ListWebAppFunctionSecretsSlotResult
 	err := ctx.Invoke("azure-native:web/v20210101:listWebAppFunctionSecretsSlot", args, &rv, opts...)
@@ -18,20 +17,14 @@ func ListWebAppFunctionSecretsSlot(ctx *pulumi.Context, args *ListWebAppFunction
 }
 
 type ListWebAppFunctionSecretsSlotArgs struct {
-	// Function name.
-	FunctionName string `pulumi:"functionName"`
-	// Site name.
-	Name string `pulumi:"name"`
-	// Name of the resource group to which the resource belongs.
+	FunctionName      string `pulumi:"functionName"`
+	Name              string `pulumi:"name"`
 	ResourceGroupName string `pulumi:"resourceGroupName"`
-	// Name of the deployment slot.
-	Slot string `pulumi:"slot"`
+	Slot              string `pulumi:"slot"`
 }
 
 // Function secrets.
 type ListWebAppFunctionSecretsSlotResult struct {
-	// Secret key.
-	Key *string `pulumi:"key"`
-	// Trigger URL.
+	Key        *string `pulumi:"key"`
 	TriggerUrl *string `pulumi:"triggerUrl"`
 }

@@ -11,22 +11,15 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Migrate Project REST Resource.
 type MigrateProject struct {
 	pulumi.CustomResourceState
 
-	// Gets or sets the eTag for concurrency control.
-	ETag pulumi.StringPtrOutput `pulumi:"eTag"`
-	// Gets or sets the Azure location in which migrate project is created.
-	Location pulumi.StringPtrOutput `pulumi:"location"`
-	// Gets the name of the migrate project.
-	Name pulumi.StringOutput `pulumi:"name"`
-	// Gets or sets the nested properties.
+	ETag       pulumi.StringPtrOutput                 `pulumi:"eTag"`
+	Location   pulumi.StringPtrOutput                 `pulumi:"location"`
+	Name       pulumi.StringOutput                    `pulumi:"name"`
 	Properties MigrateProjectPropertiesResponseOutput `pulumi:"properties"`
-	// Gets or sets the tags.
-	Tags MigrateProjectResponseTagsPtrOutput `pulumi:"tags"`
-	// Handled by resource provider. Type = Microsoft.Migrate/MigrateProject.
-	Type pulumi.StringOutput `pulumi:"type"`
+	Tags       MigrateProjectResponseTagsPtrOutput    `pulumi:"tags"`
+	Type       pulumi.StringOutput                    `pulumi:"type"`
 }
 
 // NewMigrateProject registers a new resource with the given unique name, arguments, and options.
@@ -89,34 +82,22 @@ func (MigrateProjectState) ElementType() reflect.Type {
 }
 
 type migrateProjectArgs struct {
-	// Gets or sets the eTag for concurrency control.
-	ETag *string `pulumi:"eTag"`
-	// Gets or sets the Azure location in which migrate project is created.
-	Location *string `pulumi:"location"`
-	// Name of the Azure Migrate project.
-	MigrateProjectName *string `pulumi:"migrateProjectName"`
-	// Gets or sets the nested properties.
-	Properties *MigrateProjectProperties `pulumi:"properties"`
-	// Name of the Azure Resource Group that migrate project is part of.
-	ResourceGroupName string `pulumi:"resourceGroupName"`
-	// Gets or sets the tags.
-	Tags *MigrateProjectTags `pulumi:"tags"`
+	ETag               *string                   `pulumi:"eTag"`
+	Location           *string                   `pulumi:"location"`
+	MigrateProjectName *string                   `pulumi:"migrateProjectName"`
+	Properties         *MigrateProjectProperties `pulumi:"properties"`
+	ResourceGroupName  string                    `pulumi:"resourceGroupName"`
+	Tags               *MigrateProjectTags       `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a MigrateProject resource.
 type MigrateProjectArgs struct {
-	// Gets or sets the eTag for concurrency control.
-	ETag pulumi.StringPtrInput
-	// Gets or sets the Azure location in which migrate project is created.
-	Location pulumi.StringPtrInput
-	// Name of the Azure Migrate project.
+	ETag               pulumi.StringPtrInput
+	Location           pulumi.StringPtrInput
 	MigrateProjectName pulumi.StringPtrInput
-	// Gets or sets the nested properties.
-	Properties MigrateProjectPropertiesPtrInput
-	// Name of the Azure Resource Group that migrate project is part of.
-	ResourceGroupName pulumi.StringInput
-	// Gets or sets the tags.
-	Tags MigrateProjectTagsPtrInput
+	Properties         MigrateProjectPropertiesPtrInput
+	ResourceGroupName  pulumi.StringInput
+	Tags               MigrateProjectTagsPtrInput
 }
 
 func (MigrateProjectArgs) ElementType() reflect.Type {
@@ -142,9 +123,7 @@ func (i *MigrateProject) ToMigrateProjectOutputWithContext(ctx context.Context) 
 	return pulumi.ToOutputWithContext(ctx, i).(MigrateProjectOutput)
 }
 
-type MigrateProjectOutput struct {
-	*pulumi.OutputState
-}
+type MigrateProjectOutput struct{ *pulumi.OutputState }
 
 func (MigrateProjectOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*MigrateProject)(nil))

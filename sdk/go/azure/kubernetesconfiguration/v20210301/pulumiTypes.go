@@ -10,16 +10,11 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Compliance Status details
 type ComplianceStatusResponse struct {
-	// The compliance state of the configuration.
-	ComplianceState string `pulumi:"complianceState"`
-	// Datetime the configuration was last applied.
+	ComplianceState   string  `pulumi:"complianceState"`
 	LastConfigApplied *string `pulumi:"lastConfigApplied"`
-	// Message from when the configuration was applied.
-	Message *string `pulumi:"message"`
-	// Level of the message.
-	MessageLevel *string `pulumi:"messageLevel"`
+	Message           *string `pulumi:"message"`
+	MessageLevel      *string `pulumi:"messageLevel"`
 }
 
 // ComplianceStatusResponseInput is an input type that accepts ComplianceStatusResponseArgs and ComplianceStatusResponseOutput values.
@@ -33,16 +28,11 @@ type ComplianceStatusResponseInput interface {
 	ToComplianceStatusResponseOutputWithContext(context.Context) ComplianceStatusResponseOutput
 }
 
-// Compliance Status details
 type ComplianceStatusResponseArgs struct {
-	// The compliance state of the configuration.
-	ComplianceState pulumi.StringInput `pulumi:"complianceState"`
-	// Datetime the configuration was last applied.
+	ComplianceState   pulumi.StringInput    `pulumi:"complianceState"`
 	LastConfigApplied pulumi.StringPtrInput `pulumi:"lastConfigApplied"`
-	// Message from when the configuration was applied.
-	Message pulumi.StringPtrInput `pulumi:"message"`
-	// Level of the message.
-	MessageLevel pulumi.StringPtrInput `pulumi:"messageLevel"`
+	Message           pulumi.StringPtrInput `pulumi:"message"`
+	MessageLevel      pulumi.StringPtrInput `pulumi:"messageLevel"`
 }
 
 func (ComplianceStatusResponseArgs) ElementType() reflect.Type {
@@ -98,7 +88,6 @@ func (i *complianceStatusResponsePtrType) ToComplianceStatusResponsePtrOutputWit
 	return pulumi.ToOutputWithContext(ctx, i).(ComplianceStatusResponsePtrOutput)
 }
 
-// Compliance Status details
 type ComplianceStatusResponseOutput struct{ *pulumi.OutputState }
 
 func (ComplianceStatusResponseOutput) ElementType() reflect.Type {
@@ -118,27 +107,23 @@ func (o ComplianceStatusResponseOutput) ToComplianceStatusResponsePtrOutput() Co
 }
 
 func (o ComplianceStatusResponseOutput) ToComplianceStatusResponsePtrOutputWithContext(ctx context.Context) ComplianceStatusResponsePtrOutput {
-	return o.ApplyT(func(v ComplianceStatusResponse) *ComplianceStatusResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ComplianceStatusResponse) *ComplianceStatusResponse {
 		return &v
 	}).(ComplianceStatusResponsePtrOutput)
 }
 
-// The compliance state of the configuration.
 func (o ComplianceStatusResponseOutput) ComplianceState() pulumi.StringOutput {
 	return o.ApplyT(func(v ComplianceStatusResponse) string { return v.ComplianceState }).(pulumi.StringOutput)
 }
 
-// Datetime the configuration was last applied.
 func (o ComplianceStatusResponseOutput) LastConfigApplied() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ComplianceStatusResponse) *string { return v.LastConfigApplied }).(pulumi.StringPtrOutput)
 }
 
-// Message from when the configuration was applied.
 func (o ComplianceStatusResponseOutput) Message() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ComplianceStatusResponse) *string { return v.Message }).(pulumi.StringPtrOutput)
 }
 
-// Level of the message.
 func (o ComplianceStatusResponseOutput) MessageLevel() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ComplianceStatusResponse) *string { return v.MessageLevel }).(pulumi.StringPtrOutput)
 }
@@ -158,10 +143,15 @@ func (o ComplianceStatusResponsePtrOutput) ToComplianceStatusResponsePtrOutputWi
 }
 
 func (o ComplianceStatusResponsePtrOutput) Elem() ComplianceStatusResponseOutput {
-	return o.ApplyT(func(v *ComplianceStatusResponse) ComplianceStatusResponse { return *v }).(ComplianceStatusResponseOutput)
+	return o.ApplyT(func(v *ComplianceStatusResponse) ComplianceStatusResponse {
+		if v != nil {
+			return *v
+		}
+		var ret ComplianceStatusResponse
+		return ret
+	}).(ComplianceStatusResponseOutput)
 }
 
-// The compliance state of the configuration.
 func (o ComplianceStatusResponsePtrOutput) ComplianceState() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ComplianceStatusResponse) *string {
 		if v == nil {
@@ -171,7 +161,6 @@ func (o ComplianceStatusResponsePtrOutput) ComplianceState() pulumi.StringPtrOut
 	}).(pulumi.StringPtrOutput)
 }
 
-// Datetime the configuration was last applied.
 func (o ComplianceStatusResponsePtrOutput) LastConfigApplied() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ComplianceStatusResponse) *string {
 		if v == nil {
@@ -181,7 +170,6 @@ func (o ComplianceStatusResponsePtrOutput) LastConfigApplied() pulumi.StringPtrO
 	}).(pulumi.StringPtrOutput)
 }
 
-// Message from when the configuration was applied.
 func (o ComplianceStatusResponsePtrOutput) Message() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ComplianceStatusResponse) *string {
 		if v == nil {
@@ -191,7 +179,6 @@ func (o ComplianceStatusResponsePtrOutput) Message() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Level of the message.
 func (o ComplianceStatusResponsePtrOutput) MessageLevel() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ComplianceStatusResponse) *string {
 		if v == nil {
@@ -201,11 +188,8 @@ func (o ComplianceStatusResponsePtrOutput) MessageLevel() pulumi.StringPtrOutput
 	}).(pulumi.StringPtrOutput)
 }
 
-// Properties for Helm operator.
 type HelmOperatorProperties struct {
-	// Values override for the operator Helm chart.
-	ChartValues *string `pulumi:"chartValues"`
-	// Version of the operator Helm chart.
+	ChartValues  *string `pulumi:"chartValues"`
 	ChartVersion *string `pulumi:"chartVersion"`
 }
 
@@ -220,11 +204,8 @@ type HelmOperatorPropertiesInput interface {
 	ToHelmOperatorPropertiesOutputWithContext(context.Context) HelmOperatorPropertiesOutput
 }
 
-// Properties for Helm operator.
 type HelmOperatorPropertiesArgs struct {
-	// Values override for the operator Helm chart.
-	ChartValues pulumi.StringPtrInput `pulumi:"chartValues"`
-	// Version of the operator Helm chart.
+	ChartValues  pulumi.StringPtrInput `pulumi:"chartValues"`
 	ChartVersion pulumi.StringPtrInput `pulumi:"chartVersion"`
 }
 
@@ -281,7 +262,6 @@ func (i *helmOperatorPropertiesPtrType) ToHelmOperatorPropertiesPtrOutputWithCon
 	return pulumi.ToOutputWithContext(ctx, i).(HelmOperatorPropertiesPtrOutput)
 }
 
-// Properties for Helm operator.
 type HelmOperatorPropertiesOutput struct{ *pulumi.OutputState }
 
 func (HelmOperatorPropertiesOutput) ElementType() reflect.Type {
@@ -301,17 +281,15 @@ func (o HelmOperatorPropertiesOutput) ToHelmOperatorPropertiesPtrOutput() HelmOp
 }
 
 func (o HelmOperatorPropertiesOutput) ToHelmOperatorPropertiesPtrOutputWithContext(ctx context.Context) HelmOperatorPropertiesPtrOutput {
-	return o.ApplyT(func(v HelmOperatorProperties) *HelmOperatorProperties {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v HelmOperatorProperties) *HelmOperatorProperties {
 		return &v
 	}).(HelmOperatorPropertiesPtrOutput)
 }
 
-// Values override for the operator Helm chart.
 func (o HelmOperatorPropertiesOutput) ChartValues() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v HelmOperatorProperties) *string { return v.ChartValues }).(pulumi.StringPtrOutput)
 }
 
-// Version of the operator Helm chart.
 func (o HelmOperatorPropertiesOutput) ChartVersion() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v HelmOperatorProperties) *string { return v.ChartVersion }).(pulumi.StringPtrOutput)
 }
@@ -331,10 +309,15 @@ func (o HelmOperatorPropertiesPtrOutput) ToHelmOperatorPropertiesPtrOutputWithCo
 }
 
 func (o HelmOperatorPropertiesPtrOutput) Elem() HelmOperatorPropertiesOutput {
-	return o.ApplyT(func(v *HelmOperatorProperties) HelmOperatorProperties { return *v }).(HelmOperatorPropertiesOutput)
+	return o.ApplyT(func(v *HelmOperatorProperties) HelmOperatorProperties {
+		if v != nil {
+			return *v
+		}
+		var ret HelmOperatorProperties
+		return ret
+	}).(HelmOperatorPropertiesOutput)
 }
 
-// Values override for the operator Helm chart.
 func (o HelmOperatorPropertiesPtrOutput) ChartValues() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *HelmOperatorProperties) *string {
 		if v == nil {
@@ -344,7 +327,6 @@ func (o HelmOperatorPropertiesPtrOutput) ChartValues() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Version of the operator Helm chart.
 func (o HelmOperatorPropertiesPtrOutput) ChartVersion() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *HelmOperatorProperties) *string {
 		if v == nil {
@@ -354,11 +336,8 @@ func (o HelmOperatorPropertiesPtrOutput) ChartVersion() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Properties for Helm operator.
 type HelmOperatorPropertiesResponse struct {
-	// Values override for the operator Helm chart.
-	ChartValues *string `pulumi:"chartValues"`
-	// Version of the operator Helm chart.
+	ChartValues  *string `pulumi:"chartValues"`
 	ChartVersion *string `pulumi:"chartVersion"`
 }
 
@@ -373,11 +352,8 @@ type HelmOperatorPropertiesResponseInput interface {
 	ToHelmOperatorPropertiesResponseOutputWithContext(context.Context) HelmOperatorPropertiesResponseOutput
 }
 
-// Properties for Helm operator.
 type HelmOperatorPropertiesResponseArgs struct {
-	// Values override for the operator Helm chart.
-	ChartValues pulumi.StringPtrInput `pulumi:"chartValues"`
-	// Version of the operator Helm chart.
+	ChartValues  pulumi.StringPtrInput `pulumi:"chartValues"`
 	ChartVersion pulumi.StringPtrInput `pulumi:"chartVersion"`
 }
 
@@ -434,7 +410,6 @@ func (i *helmOperatorPropertiesResponsePtrType) ToHelmOperatorPropertiesResponse
 	return pulumi.ToOutputWithContext(ctx, i).(HelmOperatorPropertiesResponsePtrOutput)
 }
 
-// Properties for Helm operator.
 type HelmOperatorPropertiesResponseOutput struct{ *pulumi.OutputState }
 
 func (HelmOperatorPropertiesResponseOutput) ElementType() reflect.Type {
@@ -454,17 +429,15 @@ func (o HelmOperatorPropertiesResponseOutput) ToHelmOperatorPropertiesResponsePt
 }
 
 func (o HelmOperatorPropertiesResponseOutput) ToHelmOperatorPropertiesResponsePtrOutputWithContext(ctx context.Context) HelmOperatorPropertiesResponsePtrOutput {
-	return o.ApplyT(func(v HelmOperatorPropertiesResponse) *HelmOperatorPropertiesResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v HelmOperatorPropertiesResponse) *HelmOperatorPropertiesResponse {
 		return &v
 	}).(HelmOperatorPropertiesResponsePtrOutput)
 }
 
-// Values override for the operator Helm chart.
 func (o HelmOperatorPropertiesResponseOutput) ChartValues() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v HelmOperatorPropertiesResponse) *string { return v.ChartValues }).(pulumi.StringPtrOutput)
 }
 
-// Version of the operator Helm chart.
 func (o HelmOperatorPropertiesResponseOutput) ChartVersion() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v HelmOperatorPropertiesResponse) *string { return v.ChartVersion }).(pulumi.StringPtrOutput)
 }
@@ -484,10 +457,15 @@ func (o HelmOperatorPropertiesResponsePtrOutput) ToHelmOperatorPropertiesRespons
 }
 
 func (o HelmOperatorPropertiesResponsePtrOutput) Elem() HelmOperatorPropertiesResponseOutput {
-	return o.ApplyT(func(v *HelmOperatorPropertiesResponse) HelmOperatorPropertiesResponse { return *v }).(HelmOperatorPropertiesResponseOutput)
+	return o.ApplyT(func(v *HelmOperatorPropertiesResponse) HelmOperatorPropertiesResponse {
+		if v != nil {
+			return *v
+		}
+		var ret HelmOperatorPropertiesResponse
+		return ret
+	}).(HelmOperatorPropertiesResponseOutput)
 }
 
-// Values override for the operator Helm chart.
 func (o HelmOperatorPropertiesResponsePtrOutput) ChartValues() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *HelmOperatorPropertiesResponse) *string {
 		if v == nil {
@@ -497,7 +475,6 @@ func (o HelmOperatorPropertiesResponsePtrOutput) ChartValues() pulumi.StringPtrO
 	}).(pulumi.StringPtrOutput)
 }
 
-// Version of the operator Helm chart.
 func (o HelmOperatorPropertiesResponsePtrOutput) ChartVersion() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *HelmOperatorPropertiesResponse) *string {
 		if v == nil {
@@ -507,19 +484,12 @@ func (o HelmOperatorPropertiesResponsePtrOutput) ChartVersion() pulumi.StringPtr
 	}).(pulumi.StringPtrOutput)
 }
 
-// Metadata pertaining to creation and last modification of the resource.
 type SystemDataResponse struct {
-	// The timestamp of resource creation (UTC).
-	CreatedAt *string `pulumi:"createdAt"`
-	// The identity that created the resource.
-	CreatedBy *string `pulumi:"createdBy"`
-	// The type of identity that created the resource.
-	CreatedByType *string `pulumi:"createdByType"`
-	// The timestamp of resource last modification (UTC)
-	LastModifiedAt *string `pulumi:"lastModifiedAt"`
-	// The identity that last modified the resource.
-	LastModifiedBy *string `pulumi:"lastModifiedBy"`
-	// The type of identity that last modified the resource.
+	CreatedAt          *string `pulumi:"createdAt"`
+	CreatedBy          *string `pulumi:"createdBy"`
+	CreatedByType      *string `pulumi:"createdByType"`
+	LastModifiedAt     *string `pulumi:"lastModifiedAt"`
+	LastModifiedBy     *string `pulumi:"lastModifiedBy"`
 	LastModifiedByType *string `pulumi:"lastModifiedByType"`
 }
 
@@ -534,19 +504,12 @@ type SystemDataResponseInput interface {
 	ToSystemDataResponseOutputWithContext(context.Context) SystemDataResponseOutput
 }
 
-// Metadata pertaining to creation and last modification of the resource.
 type SystemDataResponseArgs struct {
-	// The timestamp of resource creation (UTC).
-	CreatedAt pulumi.StringPtrInput `pulumi:"createdAt"`
-	// The identity that created the resource.
-	CreatedBy pulumi.StringPtrInput `pulumi:"createdBy"`
-	// The type of identity that created the resource.
-	CreatedByType pulumi.StringPtrInput `pulumi:"createdByType"`
-	// The timestamp of resource last modification (UTC)
-	LastModifiedAt pulumi.StringPtrInput `pulumi:"lastModifiedAt"`
-	// The identity that last modified the resource.
-	LastModifiedBy pulumi.StringPtrInput `pulumi:"lastModifiedBy"`
-	// The type of identity that last modified the resource.
+	CreatedAt          pulumi.StringPtrInput `pulumi:"createdAt"`
+	CreatedBy          pulumi.StringPtrInput `pulumi:"createdBy"`
+	CreatedByType      pulumi.StringPtrInput `pulumi:"createdByType"`
+	LastModifiedAt     pulumi.StringPtrInput `pulumi:"lastModifiedAt"`
+	LastModifiedBy     pulumi.StringPtrInput `pulumi:"lastModifiedBy"`
 	LastModifiedByType pulumi.StringPtrInput `pulumi:"lastModifiedByType"`
 }
 
@@ -603,7 +566,6 @@ func (i *systemDataResponsePtrType) ToSystemDataResponsePtrOutputWithContext(ctx
 	return pulumi.ToOutputWithContext(ctx, i).(SystemDataResponsePtrOutput)
 }
 
-// Metadata pertaining to creation and last modification of the resource.
 type SystemDataResponseOutput struct{ *pulumi.OutputState }
 
 func (SystemDataResponseOutput) ElementType() reflect.Type {
@@ -623,37 +585,31 @@ func (o SystemDataResponseOutput) ToSystemDataResponsePtrOutput() SystemDataResp
 }
 
 func (o SystemDataResponseOutput) ToSystemDataResponsePtrOutputWithContext(ctx context.Context) SystemDataResponsePtrOutput {
-	return o.ApplyT(func(v SystemDataResponse) *SystemDataResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v SystemDataResponse) *SystemDataResponse {
 		return &v
 	}).(SystemDataResponsePtrOutput)
 }
 
-// The timestamp of resource creation (UTC).
 func (o SystemDataResponseOutput) CreatedAt() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SystemDataResponse) *string { return v.CreatedAt }).(pulumi.StringPtrOutput)
 }
 
-// The identity that created the resource.
 func (o SystemDataResponseOutput) CreatedBy() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SystemDataResponse) *string { return v.CreatedBy }).(pulumi.StringPtrOutput)
 }
 
-// The type of identity that created the resource.
 func (o SystemDataResponseOutput) CreatedByType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SystemDataResponse) *string { return v.CreatedByType }).(pulumi.StringPtrOutput)
 }
 
-// The timestamp of resource last modification (UTC)
 func (o SystemDataResponseOutput) LastModifiedAt() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SystemDataResponse) *string { return v.LastModifiedAt }).(pulumi.StringPtrOutput)
 }
 
-// The identity that last modified the resource.
 func (o SystemDataResponseOutput) LastModifiedBy() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SystemDataResponse) *string { return v.LastModifiedBy }).(pulumi.StringPtrOutput)
 }
 
-// The type of identity that last modified the resource.
 func (o SystemDataResponseOutput) LastModifiedByType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SystemDataResponse) *string { return v.LastModifiedByType }).(pulumi.StringPtrOutput)
 }
@@ -673,10 +629,15 @@ func (o SystemDataResponsePtrOutput) ToSystemDataResponsePtrOutputWithContext(ct
 }
 
 func (o SystemDataResponsePtrOutput) Elem() SystemDataResponseOutput {
-	return o.ApplyT(func(v *SystemDataResponse) SystemDataResponse { return *v }).(SystemDataResponseOutput)
+	return o.ApplyT(func(v *SystemDataResponse) SystemDataResponse {
+		if v != nil {
+			return *v
+		}
+		var ret SystemDataResponse
+		return ret
+	}).(SystemDataResponseOutput)
 }
 
-// The timestamp of resource creation (UTC).
 func (o SystemDataResponsePtrOutput) CreatedAt() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SystemDataResponse) *string {
 		if v == nil {
@@ -686,7 +647,6 @@ func (o SystemDataResponsePtrOutput) CreatedAt() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The identity that created the resource.
 func (o SystemDataResponsePtrOutput) CreatedBy() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SystemDataResponse) *string {
 		if v == nil {
@@ -696,7 +656,6 @@ func (o SystemDataResponsePtrOutput) CreatedBy() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The type of identity that created the resource.
 func (o SystemDataResponsePtrOutput) CreatedByType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SystemDataResponse) *string {
 		if v == nil {
@@ -706,7 +665,6 @@ func (o SystemDataResponsePtrOutput) CreatedByType() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The timestamp of resource last modification (UTC)
 func (o SystemDataResponsePtrOutput) LastModifiedAt() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SystemDataResponse) *string {
 		if v == nil {
@@ -716,7 +674,6 @@ func (o SystemDataResponsePtrOutput) LastModifiedAt() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The identity that last modified the resource.
 func (o SystemDataResponsePtrOutput) LastModifiedBy() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SystemDataResponse) *string {
 		if v == nil {
@@ -726,7 +683,6 @@ func (o SystemDataResponsePtrOutput) LastModifiedBy() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The type of identity that last modified the resource.
 func (o SystemDataResponsePtrOutput) LastModifiedByType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SystemDataResponse) *string {
 		if v == nil {

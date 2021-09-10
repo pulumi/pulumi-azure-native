@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.CostManagement.Outputs
 {
 
+    /// <summary>
+    /// The destination information for the delivery of the report.
+    /// </summary>
     [OutputType]
     public sealed class ReportDeliveryDestinationResponse
     {

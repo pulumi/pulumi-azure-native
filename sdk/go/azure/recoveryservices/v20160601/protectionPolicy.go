@@ -11,22 +11,15 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// The base class for backup policy. Workload-specific backup policies are derived from this class.
 type ProtectionPolicy struct {
 	pulumi.CustomResourceState
 
-	// Optional ETag.
-	ETag pulumi.StringPtrOutput `pulumi:"eTag"`
-	// Resource location.
-	Location pulumi.StringPtrOutput `pulumi:"location"`
-	// Resource name associated with the resource.
-	Name pulumi.StringPtrOutput `pulumi:"name"`
-	// The base class for a backup policy. Workload-specific backup policies are derived from this class.
-	Properties pulumi.AnyOutput `pulumi:"properties"`
-	// Resource tags.
-	Tags pulumi.StringMapOutput `pulumi:"tags"`
-	// Resource type represents the complete path of the form Namespace/ResourceType/ResourceType/...
-	Type pulumi.StringPtrOutput `pulumi:"type"`
+	ETag       pulumi.StringPtrOutput `pulumi:"eTag"`
+	Location   pulumi.StringPtrOutput `pulumi:"location"`
+	Name       pulumi.StringPtrOutput `pulumi:"name"`
+	Properties pulumi.AnyOutput       `pulumi:"properties"`
+	Tags       pulumi.StringMapOutput `pulumi:"tags"`
+	Type       pulumi.StringPtrOutput `pulumi:"type"`
 }
 
 // NewProtectionPolicy registers a new resource with the given unique name, arguments, and options.
@@ -146,50 +139,30 @@ func (ProtectionPolicyState) ElementType() reflect.Type {
 }
 
 type protectionPolicyArgs struct {
-	// Optional ETag.
-	ETag *string `pulumi:"eTag"`
-	// Resource ID represents the complete path to the resource.
-	Id *string `pulumi:"id"`
-	// Resource location.
-	Location *string `pulumi:"location"`
-	// Resource name associated with the resource.
-	Name *string `pulumi:"name"`
-	// The backup policy to be created.
-	PolicyName *string `pulumi:"policyName"`
-	// The base class for a backup policy. Workload-specific backup policies are derived from this class.
-	Properties interface{} `pulumi:"properties"`
-	// The name of the resource group associated with the Recovery Services vault.
-	ResourceGroupName string `pulumi:"resourceGroupName"`
-	// Resource tags.
-	Tags map[string]string `pulumi:"tags"`
-	// Resource type represents the complete path of the form Namespace/ResourceType/ResourceType/...
-	Type *string `pulumi:"type"`
-	// The name of the Recovery Services vault.
-	VaultName string `pulumi:"vaultName"`
+	ETag              *string           `pulumi:"eTag"`
+	Id                *string           `pulumi:"id"`
+	Location          *string           `pulumi:"location"`
+	Name              *string           `pulumi:"name"`
+	PolicyName        *string           `pulumi:"policyName"`
+	Properties        interface{}       `pulumi:"properties"`
+	ResourceGroupName string            `pulumi:"resourceGroupName"`
+	Tags              map[string]string `pulumi:"tags"`
+	Type              *string           `pulumi:"type"`
+	VaultName         string            `pulumi:"vaultName"`
 }
 
 // The set of arguments for constructing a ProtectionPolicy resource.
 type ProtectionPolicyArgs struct {
-	// Optional ETag.
-	ETag pulumi.StringPtrInput
-	// Resource ID represents the complete path to the resource.
-	Id pulumi.StringPtrInput
-	// Resource location.
-	Location pulumi.StringPtrInput
-	// Resource name associated with the resource.
-	Name pulumi.StringPtrInput
-	// The backup policy to be created.
-	PolicyName pulumi.StringPtrInput
-	// The base class for a backup policy. Workload-specific backup policies are derived from this class.
-	Properties pulumi.Input
-	// The name of the resource group associated with the Recovery Services vault.
+	ETag              pulumi.StringPtrInput
+	Id                pulumi.StringPtrInput
+	Location          pulumi.StringPtrInput
+	Name              pulumi.StringPtrInput
+	PolicyName        pulumi.StringPtrInput
+	Properties        pulumi.Input
 	ResourceGroupName pulumi.StringInput
-	// Resource tags.
-	Tags pulumi.StringMapInput
-	// Resource type represents the complete path of the form Namespace/ResourceType/ResourceType/...
-	Type pulumi.StringPtrInput
-	// The name of the Recovery Services vault.
-	VaultName pulumi.StringInput
+	Tags              pulumi.StringMapInput
+	Type              pulumi.StringPtrInput
+	VaultName         pulumi.StringInput
 }
 
 func (ProtectionPolicyArgs) ElementType() reflect.Type {
@@ -215,9 +188,7 @@ func (i *ProtectionPolicy) ToProtectionPolicyOutputWithContext(ctx context.Conte
 	return pulumi.ToOutputWithContext(ctx, i).(ProtectionPolicyOutput)
 }
 
-type ProtectionPolicyOutput struct {
-	*pulumi.OutputState
-}
+type ProtectionPolicyOutput struct{ *pulumi.OutputState }
 
 func (ProtectionPolicyOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*ProtectionPolicy)(nil))

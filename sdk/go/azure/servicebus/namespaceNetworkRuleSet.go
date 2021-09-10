@@ -152,9 +152,7 @@ func (i *NamespaceNetworkRuleSet) ToNamespaceNetworkRuleSetOutputWithContext(ctx
 	return pulumi.ToOutputWithContext(ctx, i).(NamespaceNetworkRuleSetOutput)
 }
 
-type NamespaceNetworkRuleSetOutput struct {
-	*pulumi.OutputState
-}
+type NamespaceNetworkRuleSetOutput struct{ *pulumi.OutputState }
 
 func (NamespaceNetworkRuleSetOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*NamespaceNetworkRuleSet)(nil))

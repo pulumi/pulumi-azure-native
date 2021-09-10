@@ -11,18 +11,13 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Azure Resource Manager resource envelope.
 type ModelVersion struct {
 	pulumi.CustomResourceState
 
-	// The name of the resource
-	Name pulumi.StringOutput `pulumi:"name"`
-	// Additional attributes of the entity.
+	Name       pulumi.StringOutput        `pulumi:"name"`
 	Properties ModelVersionResponseOutput `pulumi:"properties"`
-	// System data associated with resource provider
-	SystemData SystemDataResponseOutput `pulumi:"systemData"`
-	// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
-	Type pulumi.StringOutput `pulumi:"type"`
+	SystemData SystemDataResponseOutput   `pulumi:"systemData"`
+	Type       pulumi.StringOutput        `pulumi:"type"`
 }
 
 // NewModelVersion registers a new resource with the given unique name, arguments, and options.
@@ -88,30 +83,20 @@ func (ModelVersionState) ElementType() reflect.Type {
 }
 
 type modelVersionArgs struct {
-	// Container name.
-	Name string `pulumi:"name"`
-	// Additional attributes of the entity.
-	Properties ModelVersionType `pulumi:"properties"`
-	// The name of the resource group. The name is case insensitive.
-	ResourceGroupName string `pulumi:"resourceGroupName"`
-	// Version identifier.
-	Version *string `pulumi:"version"`
-	// Name of Azure Machine Learning workspace.
-	WorkspaceName string `pulumi:"workspaceName"`
+	Name              string           `pulumi:"name"`
+	Properties        ModelVersionType `pulumi:"properties"`
+	ResourceGroupName string           `pulumi:"resourceGroupName"`
+	Version           *string          `pulumi:"version"`
+	WorkspaceName     string           `pulumi:"workspaceName"`
 }
 
 // The set of arguments for constructing a ModelVersion resource.
 type ModelVersionArgs struct {
-	// Container name.
-	Name pulumi.StringInput
-	// Additional attributes of the entity.
-	Properties ModelVersionTypeInput
-	// The name of the resource group. The name is case insensitive.
+	Name              pulumi.StringInput
+	Properties        ModelVersionTypeInput
 	ResourceGroupName pulumi.StringInput
-	// Version identifier.
-	Version pulumi.StringPtrInput
-	// Name of Azure Machine Learning workspace.
-	WorkspaceName pulumi.StringInput
+	Version           pulumi.StringPtrInput
+	WorkspaceName     pulumi.StringInput
 }
 
 func (ModelVersionArgs) ElementType() reflect.Type {
@@ -137,9 +122,7 @@ func (i *ModelVersion) ToModelVersionOutputWithContext(ctx context.Context) Mode
 	return pulumi.ToOutputWithContext(ctx, i).(ModelVersionOutput)
 }
 
-type ModelVersionOutput struct {
-	*pulumi.OutputState
-}
+type ModelVersionOutput struct{ *pulumi.OutputState }
 
 func (ModelVersionOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*ModelVersion)(nil))

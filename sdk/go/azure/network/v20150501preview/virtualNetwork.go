@@ -11,30 +11,19 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Virtual Network resource
 type VirtualNetwork struct {
 	pulumi.CustomResourceState
 
-	// Gets or sets AddressSpace that contains an array of IP address ranges that can be used by subnets
-	AddressSpace AddressSpaceResponsePtrOutput `pulumi:"addressSpace"`
-	// Gets or sets DHCPOptions that contains an array of DNS servers available to VMs deployed in the virtual network
-	DhcpOptions DhcpOptionsResponsePtrOutput `pulumi:"dhcpOptions"`
-	// Gets a unique read-only string that changes whenever the resource is updated
-	Etag pulumi.StringPtrOutput `pulumi:"etag"`
-	// Resource location
-	Location pulumi.StringOutput `pulumi:"location"`
-	// Resource name
-	Name pulumi.StringOutput `pulumi:"name"`
-	// Gets or sets Provisioning state of the PublicIP resource Updating/Deleting/Failed
-	ProvisioningState pulumi.StringPtrOutput `pulumi:"provisioningState"`
-	// Gets or sets resource guid property of the VirtualNetwork resource
-	ResourceGuid pulumi.StringPtrOutput `pulumi:"resourceGuid"`
-	// Gets or sets List of subnets in a VirtualNetwork
-	Subnets SubnetResponseArrayOutput `pulumi:"subnets"`
-	// Resource tags
-	Tags pulumi.StringMapOutput `pulumi:"tags"`
-	// Resource type
-	Type pulumi.StringOutput `pulumi:"type"`
+	AddressSpace      AddressSpaceResponsePtrOutput `pulumi:"addressSpace"`
+	DhcpOptions       DhcpOptionsResponsePtrOutput  `pulumi:"dhcpOptions"`
+	Etag              pulumi.StringPtrOutput        `pulumi:"etag"`
+	Location          pulumi.StringOutput           `pulumi:"location"`
+	Name              pulumi.StringOutput           `pulumi:"name"`
+	ProvisioningState pulumi.StringPtrOutput        `pulumi:"provisioningState"`
+	ResourceGuid      pulumi.StringPtrOutput        `pulumi:"resourceGuid"`
+	Subnets           SubnetResponseArrayOutput     `pulumi:"subnets"`
+	Tags              pulumi.StringMapOutput        `pulumi:"tags"`
+	Type              pulumi.StringOutput           `pulumi:"type"`
 }
 
 // NewVirtualNetwork registers a new resource with the given unique name, arguments, and options.
@@ -313,49 +302,29 @@ func (VirtualNetworkState) ElementType() reflect.Type {
 }
 
 type virtualNetworkArgs struct {
-	// Gets or sets AddressSpace that contains an array of IP address ranges that can be used by subnets
-	AddressSpace *AddressSpace `pulumi:"addressSpace"`
-	// Gets or sets DHCPOptions that contains an array of DNS servers available to VMs deployed in the virtual network
-	DhcpOptions *DhcpOptions `pulumi:"dhcpOptions"`
-	// Gets a unique read-only string that changes whenever the resource is updated
-	Etag *string `pulumi:"etag"`
-	// Resource location
-	Location *string `pulumi:"location"`
-	// Gets or sets Provisioning state of the PublicIP resource Updating/Deleting/Failed
-	ProvisioningState *string `pulumi:"provisioningState"`
-	// The name of the resource group.
-	ResourceGroupName string `pulumi:"resourceGroupName"`
-	// Gets or sets resource guid property of the VirtualNetwork resource
-	ResourceGuid *string `pulumi:"resourceGuid"`
-	// Gets or sets List of subnets in a VirtualNetwork
-	Subnets []SubnetType `pulumi:"subnets"`
-	// Resource tags
-	Tags map[string]string `pulumi:"tags"`
-	// The name of the virtual network.
-	VirtualNetworkName *string `pulumi:"virtualNetworkName"`
+	AddressSpace       *AddressSpace     `pulumi:"addressSpace"`
+	DhcpOptions        *DhcpOptions      `pulumi:"dhcpOptions"`
+	Etag               *string           `pulumi:"etag"`
+	Location           *string           `pulumi:"location"`
+	ProvisioningState  *string           `pulumi:"provisioningState"`
+	ResourceGroupName  string            `pulumi:"resourceGroupName"`
+	ResourceGuid       *string           `pulumi:"resourceGuid"`
+	Subnets            []SubnetType      `pulumi:"subnets"`
+	Tags               map[string]string `pulumi:"tags"`
+	VirtualNetworkName *string           `pulumi:"virtualNetworkName"`
 }
 
 // The set of arguments for constructing a VirtualNetwork resource.
 type VirtualNetworkArgs struct {
-	// Gets or sets AddressSpace that contains an array of IP address ranges that can be used by subnets
-	AddressSpace AddressSpacePtrInput
-	// Gets or sets DHCPOptions that contains an array of DNS servers available to VMs deployed in the virtual network
-	DhcpOptions DhcpOptionsPtrInput
-	// Gets a unique read-only string that changes whenever the resource is updated
-	Etag pulumi.StringPtrInput
-	// Resource location
-	Location pulumi.StringPtrInput
-	// Gets or sets Provisioning state of the PublicIP resource Updating/Deleting/Failed
-	ProvisioningState pulumi.StringPtrInput
-	// The name of the resource group.
-	ResourceGroupName pulumi.StringInput
-	// Gets or sets resource guid property of the VirtualNetwork resource
-	ResourceGuid pulumi.StringPtrInput
-	// Gets or sets List of subnets in a VirtualNetwork
-	Subnets SubnetTypeArrayInput
-	// Resource tags
-	Tags pulumi.StringMapInput
-	// The name of the virtual network.
+	AddressSpace       AddressSpacePtrInput
+	DhcpOptions        DhcpOptionsPtrInput
+	Etag               pulumi.StringPtrInput
+	Location           pulumi.StringPtrInput
+	ProvisioningState  pulumi.StringPtrInput
+	ResourceGroupName  pulumi.StringInput
+	ResourceGuid       pulumi.StringPtrInput
+	Subnets            SubnetTypeArrayInput
+	Tags               pulumi.StringMapInput
 	VirtualNetworkName pulumi.StringPtrInput
 }
 
@@ -382,9 +351,7 @@ func (i *VirtualNetwork) ToVirtualNetworkOutputWithContext(ctx context.Context) 
 	return pulumi.ToOutputWithContext(ctx, i).(VirtualNetworkOutput)
 }
 
-type VirtualNetworkOutput struct {
-	*pulumi.OutputState
-}
+type VirtualNetworkOutput struct{ *pulumi.OutputState }
 
 func (VirtualNetworkOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*VirtualNetwork)(nil))

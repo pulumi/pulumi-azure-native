@@ -11,18 +11,13 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// The Get Storage Account ManagementPolicies operation response.
 type ManagementPolicy struct {
 	pulumi.CustomResourceState
 
-	// Returns the date and time the ManagementPolicies was last modified.
 	LastModifiedTime pulumi.StringOutput `pulumi:"lastModifiedTime"`
-	// The name of the resource
-	Name pulumi.StringOutput `pulumi:"name"`
-	// The Storage Account ManagementPolicies Rules, in JSON format. See more details in: https://docs.microsoft.com/en-us/azure/storage/common/storage-lifecycle-managment-concepts.
-	Policy pulumi.AnyOutput `pulumi:"policy"`
-	// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
-	Type pulumi.StringOutput `pulumi:"type"`
+	Name             pulumi.StringOutput `pulumi:"name"`
+	Policy           pulumi.AnyOutput    `pulumi:"policy"`
+	Type             pulumi.StringOutput `pulumi:"type"`
 }
 
 // NewManagementPolicy registers a new resource with the given unique name, arguments, and options.
@@ -124,26 +119,18 @@ func (ManagementPolicyState) ElementType() reflect.Type {
 }
 
 type managementPolicyArgs struct {
-	// The name of the storage account within the specified resource group. Storage account names must be between 3 and 24 characters in length and use numbers and lower-case letters only.
-	AccountName string `pulumi:"accountName"`
-	// The name of the Storage Account Management Policy. It should always be 'default'
-	ManagementPolicyName *string `pulumi:"managementPolicyName"`
-	// The Storage Account ManagementPolicies Rules, in JSON format. See more details in: https://docs.microsoft.com/en-us/azure/storage/common/storage-lifecycle-managment-concepts.
-	Policy interface{} `pulumi:"policy"`
-	// The name of the resource group within the user's subscription. The name is case insensitive.
-	ResourceGroupName string `pulumi:"resourceGroupName"`
+	AccountName          string      `pulumi:"accountName"`
+	ManagementPolicyName *string     `pulumi:"managementPolicyName"`
+	Policy               interface{} `pulumi:"policy"`
+	ResourceGroupName    string      `pulumi:"resourceGroupName"`
 }
 
 // The set of arguments for constructing a ManagementPolicy resource.
 type ManagementPolicyArgs struct {
-	// The name of the storage account within the specified resource group. Storage account names must be between 3 and 24 characters in length and use numbers and lower-case letters only.
-	AccountName pulumi.StringInput
-	// The name of the Storage Account Management Policy. It should always be 'default'
+	AccountName          pulumi.StringInput
 	ManagementPolicyName pulumi.StringPtrInput
-	// The Storage Account ManagementPolicies Rules, in JSON format. See more details in: https://docs.microsoft.com/en-us/azure/storage/common/storage-lifecycle-managment-concepts.
-	Policy pulumi.Input
-	// The name of the resource group within the user's subscription. The name is case insensitive.
-	ResourceGroupName pulumi.StringInput
+	Policy               pulumi.Input
+	ResourceGroupName    pulumi.StringInput
 }
 
 func (ManagementPolicyArgs) ElementType() reflect.Type {
@@ -169,9 +156,7 @@ func (i *ManagementPolicy) ToManagementPolicyOutputWithContext(ctx context.Conte
 	return pulumi.ToOutputWithContext(ctx, i).(ManagementPolicyOutput)
 }
 
-type ManagementPolicyOutput struct {
-	*pulumi.OutputState
-}
+type ManagementPolicyOutput struct{ *pulumi.OutputState }
 
 func (ManagementPolicyOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*ManagementPolicy)(nil))

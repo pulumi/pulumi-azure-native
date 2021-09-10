@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.SignalRService.V20200701Preview.Outputs
 {
 
+    /// <summary>
+    /// The settings for the Upstream when the service is in server-less mode.
+    /// </summary>
     [OutputType]
     public sealed class ServerlessUpstreamSettingsResponse
     {

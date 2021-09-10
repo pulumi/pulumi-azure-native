@@ -11,22 +11,15 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// EventGrid Domain.
 type Domain struct {
 	pulumi.CustomResourceState
 
-	// Endpoint for the domain.
-	Endpoint pulumi.StringOutput `pulumi:"endpoint"`
-	// Location of the resource.
-	Location pulumi.StringOutput `pulumi:"location"`
-	// Name of the resource.
-	Name pulumi.StringOutput `pulumi:"name"`
-	// Provisioning state of the domain.
-	ProvisioningState pulumi.StringOutput `pulumi:"provisioningState"`
-	// Tags of the resource.
-	Tags pulumi.StringMapOutput `pulumi:"tags"`
-	// Type of the resource.
-	Type pulumi.StringOutput `pulumi:"type"`
+	Endpoint          pulumi.StringOutput    `pulumi:"endpoint"`
+	Location          pulumi.StringOutput    `pulumi:"location"`
+	Name              pulumi.StringOutput    `pulumi:"name"`
+	ProvisioningState pulumi.StringOutput    `pulumi:"provisioningState"`
+	Tags              pulumi.StringMapOutput `pulumi:"tags"`
+	Type              pulumi.StringOutput    `pulumi:"type"`
 }
 
 // NewDomain registers a new resource with the given unique name, arguments, and options.
@@ -125,26 +118,18 @@ func (DomainState) ElementType() reflect.Type {
 }
 
 type domainArgs struct {
-	// Name of the domain.
-	DomainName *string `pulumi:"domainName"`
-	// Location of the resource.
-	Location *string `pulumi:"location"`
-	// The name of the resource group within the user's subscription.
-	ResourceGroupName string `pulumi:"resourceGroupName"`
-	// Tags of the resource.
-	Tags map[string]string `pulumi:"tags"`
+	DomainName        *string           `pulumi:"domainName"`
+	Location          *string           `pulumi:"location"`
+	ResourceGroupName string            `pulumi:"resourceGroupName"`
+	Tags              map[string]string `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a Domain resource.
 type DomainArgs struct {
-	// Name of the domain.
-	DomainName pulumi.StringPtrInput
-	// Location of the resource.
-	Location pulumi.StringPtrInput
-	// The name of the resource group within the user's subscription.
+	DomainName        pulumi.StringPtrInput
+	Location          pulumi.StringPtrInput
 	ResourceGroupName pulumi.StringInput
-	// Tags of the resource.
-	Tags pulumi.StringMapInput
+	Tags              pulumi.StringMapInput
 }
 
 func (DomainArgs) ElementType() reflect.Type {
@@ -170,9 +155,7 @@ func (i *Domain) ToDomainOutputWithContext(ctx context.Context) DomainOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(DomainOutput)
 }
 
-type DomainOutput struct {
-	*pulumi.OutputState
-}
+type DomainOutput struct{ *pulumi.OutputState }
 
 func (DomainOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*Domain)(nil))

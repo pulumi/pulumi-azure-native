@@ -7,7 +7,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// An Azure storage blob data set.
 func LookupBlobDataSet(ctx *pulumi.Context, args *LookupBlobDataSetArgs, opts ...pulumi.InvokeOption) (*LookupBlobDataSetResult, error) {
 	var rv LookupBlobDataSetResult
 	err := ctx.Invoke("azure-native:datashare/v20200901:getBlobDataSet", args, &rv, opts...)
@@ -18,39 +17,23 @@ func LookupBlobDataSet(ctx *pulumi.Context, args *LookupBlobDataSetArgs, opts ..
 }
 
 type LookupBlobDataSetArgs struct {
-	// The name of the share account.
-	AccountName string `pulumi:"accountName"`
-	// The name of the dataSet.
-	DataSetName string `pulumi:"dataSetName"`
-	// The resource group name.
+	AccountName       string `pulumi:"accountName"`
+	DataSetName       string `pulumi:"dataSetName"`
 	ResourceGroupName string `pulumi:"resourceGroupName"`
-	// The name of the share.
-	ShareName string `pulumi:"shareName"`
+	ShareName         string `pulumi:"shareName"`
 }
 
 // An Azure storage blob data set.
 type LookupBlobDataSetResult struct {
-	// Container that has the file path.
-	ContainerName string `pulumi:"containerName"`
-	// Unique id for identifying a data set resource
-	DataSetId string `pulumi:"dataSetId"`
-	// File path within the source data set
-	FilePath string `pulumi:"filePath"`
-	// The resource id of the azure resource
-	Id string `pulumi:"id"`
-	// Kind of data set.
-	// Expected value is 'Blob'.
-	Kind string `pulumi:"kind"`
-	// Name of the azure resource
-	Name string `pulumi:"name"`
-	// Resource group of storage account
-	ResourceGroup string `pulumi:"resourceGroup"`
-	// Storage account name of the source data set
-	StorageAccountName string `pulumi:"storageAccountName"`
-	// Subscription id of storage account
-	SubscriptionId string `pulumi:"subscriptionId"`
-	// System Data of the Azure resource.
-	SystemData SystemDataResponse `pulumi:"systemData"`
-	// Type of the azure resource
-	Type string `pulumi:"type"`
+	ContainerName      string             `pulumi:"containerName"`
+	DataSetId          string             `pulumi:"dataSetId"`
+	FilePath           string             `pulumi:"filePath"`
+	Id                 string             `pulumi:"id"`
+	Kind               string             `pulumi:"kind"`
+	Name               string             `pulumi:"name"`
+	ResourceGroup      string             `pulumi:"resourceGroup"`
+	StorageAccountName string             `pulumi:"storageAccountName"`
+	SubscriptionId     string             `pulumi:"subscriptionId"`
+	SystemData         SystemDataResponse `pulumi:"systemData"`
+	Type               string             `pulumi:"type"`
 }

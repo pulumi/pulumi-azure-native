@@ -11,25 +11,16 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Logger details.
 type Logger struct {
 	pulumi.CustomResourceState
 
-	// The name and SendRule connection string of the event hub for azureEventHub logger.
-	// Instrumentation key for applicationInsights logger.
 	Credentials pulumi.StringMapOutput `pulumi:"credentials"`
-	// Logger description.
 	Description pulumi.StringPtrOutput `pulumi:"description"`
-	// Whether records are buffered in the logger before publishing. Default is assumed to be true.
-	IsBuffered pulumi.BoolPtrOutput `pulumi:"isBuffered"`
-	// Logger type.
-	LoggerType pulumi.StringOutput `pulumi:"loggerType"`
-	// Resource name.
-	Name pulumi.StringOutput `pulumi:"name"`
-	// Azure Resource Id of a log target (either Azure Event Hub resource or Azure Application Insights resource).
-	ResourceId pulumi.StringPtrOutput `pulumi:"resourceId"`
-	// Resource type for API Management resource.
-	Type pulumi.StringOutput `pulumi:"type"`
+	IsBuffered  pulumi.BoolPtrOutput   `pulumi:"isBuffered"`
+	LoggerType  pulumi.StringOutput    `pulumi:"loggerType"`
+	Name        pulumi.StringOutput    `pulumi:"name"`
+	ResourceId  pulumi.StringPtrOutput `pulumi:"resourceId"`
+	Type        pulumi.StringOutput    `pulumi:"type"`
 }
 
 // NewLogger registers a new resource with the given unique name, arguments, and options.
@@ -152,44 +143,26 @@ func (LoggerState) ElementType() reflect.Type {
 }
 
 type loggerArgs struct {
-	// The name and SendRule connection string of the event hub for azureEventHub logger.
-	// Instrumentation key for applicationInsights logger.
-	Credentials map[string]string `pulumi:"credentials"`
-	// Logger description.
-	Description *string `pulumi:"description"`
-	// Whether records are buffered in the logger before publishing. Default is assumed to be true.
-	IsBuffered *bool `pulumi:"isBuffered"`
-	// Logger identifier. Must be unique in the API Management service instance.
-	LoggerId *string `pulumi:"loggerId"`
-	// Logger type.
-	LoggerType string `pulumi:"loggerType"`
-	// The name of the resource group.
-	ResourceGroupName string `pulumi:"resourceGroupName"`
-	// Azure Resource Id of a log target (either Azure Event Hub resource or Azure Application Insights resource).
-	ResourceId *string `pulumi:"resourceId"`
-	// The name of the API Management service.
-	ServiceName string `pulumi:"serviceName"`
+	Credentials       map[string]string `pulumi:"credentials"`
+	Description       *string           `pulumi:"description"`
+	IsBuffered        *bool             `pulumi:"isBuffered"`
+	LoggerId          *string           `pulumi:"loggerId"`
+	LoggerType        string            `pulumi:"loggerType"`
+	ResourceGroupName string            `pulumi:"resourceGroupName"`
+	ResourceId        *string           `pulumi:"resourceId"`
+	ServiceName       string            `pulumi:"serviceName"`
 }
 
 // The set of arguments for constructing a Logger resource.
 type LoggerArgs struct {
-	// The name and SendRule connection string of the event hub for azureEventHub logger.
-	// Instrumentation key for applicationInsights logger.
-	Credentials pulumi.StringMapInput
-	// Logger description.
-	Description pulumi.StringPtrInput
-	// Whether records are buffered in the logger before publishing. Default is assumed to be true.
-	IsBuffered pulumi.BoolPtrInput
-	// Logger identifier. Must be unique in the API Management service instance.
-	LoggerId pulumi.StringPtrInput
-	// Logger type.
-	LoggerType pulumi.StringInput
-	// The name of the resource group.
+	Credentials       pulumi.StringMapInput
+	Description       pulumi.StringPtrInput
+	IsBuffered        pulumi.BoolPtrInput
+	LoggerId          pulumi.StringPtrInput
+	LoggerType        pulumi.StringInput
 	ResourceGroupName pulumi.StringInput
-	// Azure Resource Id of a log target (either Azure Event Hub resource or Azure Application Insights resource).
-	ResourceId pulumi.StringPtrInput
-	// The name of the API Management service.
-	ServiceName pulumi.StringInput
+	ResourceId        pulumi.StringPtrInput
+	ServiceName       pulumi.StringInput
 }
 
 func (LoggerArgs) ElementType() reflect.Type {
@@ -215,9 +188,7 @@ func (i *Logger) ToLoggerOutputWithContext(ctx context.Context) LoggerOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(LoggerOutput)
 }
 
-type LoggerOutput struct {
-	*pulumi.OutputState
-}
+type LoggerOutput struct{ *pulumi.OutputState }
 
 func (LoggerOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*Logger)(nil))

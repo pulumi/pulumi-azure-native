@@ -11,28 +11,18 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Defines the security configuration
 type SecurityAdminConfiguration struct {
 	pulumi.CustomResourceState
 
-	// Flag if need to delete existing network security groups.
-	DeleteExistingNSGs pulumi.StringPtrOutput `pulumi:"deleteExistingNSGs"`
-	// A description of the security configuration.
-	Description pulumi.StringPtrOutput `pulumi:"description"`
-	// A display name of the security configuration.
-	DisplayName pulumi.StringPtrOutput `pulumi:"displayName"`
-	// A unique read-only string that changes whenever the resource is updated.
-	Etag pulumi.StringOutput `pulumi:"etag"`
-	// Resource name.
-	Name pulumi.StringOutput `pulumi:"name"`
-	// The provisioning state of the resource.
-	ProvisioningState pulumi.StringOutput `pulumi:"provisioningState"`
-	// Security Type.
-	SecurityType pulumi.StringPtrOutput `pulumi:"securityType"`
-	// The system metadata related to this resource.
-	SystemData SystemDataResponseOutput `pulumi:"systemData"`
-	// Resource type.
-	Type pulumi.StringOutput `pulumi:"type"`
+	DeleteExistingNSGs pulumi.StringPtrOutput   `pulumi:"deleteExistingNSGs"`
+	Description        pulumi.StringPtrOutput   `pulumi:"description"`
+	DisplayName        pulumi.StringPtrOutput   `pulumi:"displayName"`
+	Etag               pulumi.StringOutput      `pulumi:"etag"`
+	Name               pulumi.StringOutput      `pulumi:"name"`
+	ProvisioningState  pulumi.StringOutput      `pulumi:"provisioningState"`
+	SecurityType       pulumi.StringPtrOutput   `pulumi:"securityType"`
+	SystemData         SystemDataResponseOutput `pulumi:"systemData"`
+	Type               pulumi.StringOutput      `pulumi:"type"`
 }
 
 // NewSecurityAdminConfiguration registers a new resource with the given unique name, arguments, and options.
@@ -92,38 +82,24 @@ func (SecurityAdminConfigurationState) ElementType() reflect.Type {
 }
 
 type securityAdminConfigurationArgs struct {
-	// The name of the network manager security Configuration.
-	ConfigurationName *string `pulumi:"configurationName"`
-	// Flag if need to delete existing network security groups.
+	ConfigurationName  *string `pulumi:"configurationName"`
 	DeleteExistingNSGs *string `pulumi:"deleteExistingNSGs"`
-	// A description of the security configuration.
-	Description *string `pulumi:"description"`
-	// A display name of the security configuration.
-	DisplayName *string `pulumi:"displayName"`
-	// The name of the network manager.
-	NetworkManagerName string `pulumi:"networkManagerName"`
-	// The name of the resource group.
-	ResourceGroupName string `pulumi:"resourceGroupName"`
-	// Security Type.
-	SecurityType *string `pulumi:"securityType"`
+	Description        *string `pulumi:"description"`
+	DisplayName        *string `pulumi:"displayName"`
+	NetworkManagerName string  `pulumi:"networkManagerName"`
+	ResourceGroupName  string  `pulumi:"resourceGroupName"`
+	SecurityType       *string `pulumi:"securityType"`
 }
 
 // The set of arguments for constructing a SecurityAdminConfiguration resource.
 type SecurityAdminConfigurationArgs struct {
-	// The name of the network manager security Configuration.
-	ConfigurationName pulumi.StringPtrInput
-	// Flag if need to delete existing network security groups.
+	ConfigurationName  pulumi.StringPtrInput
 	DeleteExistingNSGs pulumi.StringPtrInput
-	// A description of the security configuration.
-	Description pulumi.StringPtrInput
-	// A display name of the security configuration.
-	DisplayName pulumi.StringPtrInput
-	// The name of the network manager.
+	Description        pulumi.StringPtrInput
+	DisplayName        pulumi.StringPtrInput
 	NetworkManagerName pulumi.StringInput
-	// The name of the resource group.
-	ResourceGroupName pulumi.StringInput
-	// Security Type.
-	SecurityType pulumi.StringPtrInput
+	ResourceGroupName  pulumi.StringInput
+	SecurityType       pulumi.StringPtrInput
 }
 
 func (SecurityAdminConfigurationArgs) ElementType() reflect.Type {
@@ -149,9 +125,7 @@ func (i *SecurityAdminConfiguration) ToSecurityAdminConfigurationOutputWithConte
 	return pulumi.ToOutputWithContext(ctx, i).(SecurityAdminConfigurationOutput)
 }
 
-type SecurityAdminConfigurationOutput struct {
-	*pulumi.OutputState
-}
+type SecurityAdminConfigurationOutput struct{ *pulumi.OutputState }
 
 func (SecurityAdminConfigurationOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*SecurityAdminConfiguration)(nil))

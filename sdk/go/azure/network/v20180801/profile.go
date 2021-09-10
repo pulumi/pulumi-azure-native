@@ -11,34 +11,21 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Class representing a Traffic Manager profile.
 type Profile struct {
 	pulumi.CustomResourceState
 
-	// The list of allowed endpoint record types.
-	AllowedEndpointRecordTypes pulumi.StringArrayOutput `pulumi:"allowedEndpointRecordTypes"`
-	// The DNS settings of the Traffic Manager profile.
-	DnsConfig DnsConfigResponsePtrOutput `pulumi:"dnsConfig"`
-	// The list of endpoints in the Traffic Manager profile.
-	Endpoints EndpointResponseArrayOutput `pulumi:"endpoints"`
-	// The Azure Region where the resource lives
-	Location pulumi.StringPtrOutput `pulumi:"location"`
-	// Maximum number of endpoints to be returned for MultiValue routing type.
-	MaxReturn pulumi.Float64PtrOutput `pulumi:"maxReturn"`
-	// The endpoint monitoring settings of the Traffic Manager profile.
-	MonitorConfig MonitorConfigResponsePtrOutput `pulumi:"monitorConfig"`
-	// The name of the resource
-	Name pulumi.StringPtrOutput `pulumi:"name"`
-	// The status of the Traffic Manager profile.
-	ProfileStatus pulumi.StringPtrOutput `pulumi:"profileStatus"`
-	// Resource tags.
-	Tags pulumi.StringMapOutput `pulumi:"tags"`
-	// The traffic routing method of the Traffic Manager profile.
-	TrafficRoutingMethod pulumi.StringPtrOutput `pulumi:"trafficRoutingMethod"`
-	// Indicates whether Traffic View is 'Enabled' or 'Disabled' for the Traffic Manager profile. Null, indicates 'Disabled'. Enabling this feature will increase the cost of the Traffic Manage profile.
-	TrafficViewEnrollmentStatus pulumi.StringPtrOutput `pulumi:"trafficViewEnrollmentStatus"`
-	// The type of the resource. Ex- Microsoft.Network/trafficManagerProfiles.
-	Type pulumi.StringPtrOutput `pulumi:"type"`
+	AllowedEndpointRecordTypes  pulumi.StringArrayOutput       `pulumi:"allowedEndpointRecordTypes"`
+	DnsConfig                   DnsConfigResponsePtrOutput     `pulumi:"dnsConfig"`
+	Endpoints                   EndpointResponseArrayOutput    `pulumi:"endpoints"`
+	Location                    pulumi.StringPtrOutput         `pulumi:"location"`
+	MaxReturn                   pulumi.Float64PtrOutput        `pulumi:"maxReturn"`
+	MonitorConfig               MonitorConfigResponsePtrOutput `pulumi:"monitorConfig"`
+	Name                        pulumi.StringPtrOutput         `pulumi:"name"`
+	ProfileStatus               pulumi.StringPtrOutput         `pulumi:"profileStatus"`
+	Tags                        pulumi.StringMapOutput         `pulumi:"tags"`
+	TrafficRoutingMethod        pulumi.StringPtrOutput         `pulumi:"trafficRoutingMethod"`
+	TrafficViewEnrollmentStatus pulumi.StringPtrOutput         `pulumi:"trafficViewEnrollmentStatus"`
+	Type                        pulumi.StringPtrOutput         `pulumi:"type"`
 }
 
 // NewProfile registers a new resource with the given unique name, arguments, and options.
@@ -131,70 +118,40 @@ func (ProfileState) ElementType() reflect.Type {
 }
 
 type profileArgs struct {
-	// The list of allowed endpoint record types.
-	AllowedEndpointRecordTypes []string `pulumi:"allowedEndpointRecordTypes"`
-	// The DNS settings of the Traffic Manager profile.
-	DnsConfig *DnsConfig `pulumi:"dnsConfig"`
-	// The list of endpoints in the Traffic Manager profile.
-	Endpoints []EndpointType `pulumi:"endpoints"`
-	// Fully qualified resource Id for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Network/trafficManagerProfiles/{resourceName}
-	Id *string `pulumi:"id"`
-	// The Azure Region where the resource lives
-	Location *string `pulumi:"location"`
-	// Maximum number of endpoints to be returned for MultiValue routing type.
-	MaxReturn *float64 `pulumi:"maxReturn"`
-	// The endpoint monitoring settings of the Traffic Manager profile.
-	MonitorConfig *MonitorConfig `pulumi:"monitorConfig"`
-	// The name of the resource
-	Name *string `pulumi:"name"`
-	// The name of the Traffic Manager profile.
-	ProfileName *string `pulumi:"profileName"`
-	// The status of the Traffic Manager profile.
-	ProfileStatus *string `pulumi:"profileStatus"`
-	// The name of the resource group containing the Traffic Manager profile.
-	ResourceGroupName string `pulumi:"resourceGroupName"`
-	// Resource tags.
-	Tags map[string]string `pulumi:"tags"`
-	// The traffic routing method of the Traffic Manager profile.
-	TrafficRoutingMethod *string `pulumi:"trafficRoutingMethod"`
-	// Indicates whether Traffic View is 'Enabled' or 'Disabled' for the Traffic Manager profile. Null, indicates 'Disabled'. Enabling this feature will increase the cost of the Traffic Manage profile.
-	TrafficViewEnrollmentStatus *string `pulumi:"trafficViewEnrollmentStatus"`
-	// The type of the resource. Ex- Microsoft.Network/trafficManagerProfiles.
-	Type *string `pulumi:"type"`
+	AllowedEndpointRecordTypes  []string          `pulumi:"allowedEndpointRecordTypes"`
+	DnsConfig                   *DnsConfig        `pulumi:"dnsConfig"`
+	Endpoints                   []EndpointType    `pulumi:"endpoints"`
+	Id                          *string           `pulumi:"id"`
+	Location                    *string           `pulumi:"location"`
+	MaxReturn                   *float64          `pulumi:"maxReturn"`
+	MonitorConfig               *MonitorConfig    `pulumi:"monitorConfig"`
+	Name                        *string           `pulumi:"name"`
+	ProfileName                 *string           `pulumi:"profileName"`
+	ProfileStatus               *string           `pulumi:"profileStatus"`
+	ResourceGroupName           string            `pulumi:"resourceGroupName"`
+	Tags                        map[string]string `pulumi:"tags"`
+	TrafficRoutingMethod        *string           `pulumi:"trafficRoutingMethod"`
+	TrafficViewEnrollmentStatus *string           `pulumi:"trafficViewEnrollmentStatus"`
+	Type                        *string           `pulumi:"type"`
 }
 
 // The set of arguments for constructing a Profile resource.
 type ProfileArgs struct {
-	// The list of allowed endpoint record types.
-	AllowedEndpointRecordTypes pulumi.StringArrayInput
-	// The DNS settings of the Traffic Manager profile.
-	DnsConfig DnsConfigPtrInput
-	// The list of endpoints in the Traffic Manager profile.
-	Endpoints EndpointTypeArrayInput
-	// Fully qualified resource Id for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Network/trafficManagerProfiles/{resourceName}
-	Id pulumi.StringPtrInput
-	// The Azure Region where the resource lives
-	Location pulumi.StringPtrInput
-	// Maximum number of endpoints to be returned for MultiValue routing type.
-	MaxReturn pulumi.Float64PtrInput
-	// The endpoint monitoring settings of the Traffic Manager profile.
-	MonitorConfig MonitorConfigPtrInput
-	// The name of the resource
-	Name pulumi.StringPtrInput
-	// The name of the Traffic Manager profile.
-	ProfileName pulumi.StringPtrInput
-	// The status of the Traffic Manager profile.
-	ProfileStatus pulumi.StringPtrInput
-	// The name of the resource group containing the Traffic Manager profile.
-	ResourceGroupName pulumi.StringInput
-	// Resource tags.
-	Tags pulumi.StringMapInput
-	// The traffic routing method of the Traffic Manager profile.
-	TrafficRoutingMethod pulumi.StringPtrInput
-	// Indicates whether Traffic View is 'Enabled' or 'Disabled' for the Traffic Manager profile. Null, indicates 'Disabled'. Enabling this feature will increase the cost of the Traffic Manage profile.
+	AllowedEndpointRecordTypes  pulumi.StringArrayInput
+	DnsConfig                   DnsConfigPtrInput
+	Endpoints                   EndpointTypeArrayInput
+	Id                          pulumi.StringPtrInput
+	Location                    pulumi.StringPtrInput
+	MaxReturn                   pulumi.Float64PtrInput
+	MonitorConfig               MonitorConfigPtrInput
+	Name                        pulumi.StringPtrInput
+	ProfileName                 pulumi.StringPtrInput
+	ProfileStatus               pulumi.StringPtrInput
+	ResourceGroupName           pulumi.StringInput
+	Tags                        pulumi.StringMapInput
+	TrafficRoutingMethod        pulumi.StringPtrInput
 	TrafficViewEnrollmentStatus pulumi.StringPtrInput
-	// The type of the resource. Ex- Microsoft.Network/trafficManagerProfiles.
-	Type pulumi.StringPtrInput
+	Type                        pulumi.StringPtrInput
 }
 
 func (ProfileArgs) ElementType() reflect.Type {
@@ -220,9 +177,7 @@ func (i *Profile) ToProfileOutputWithContext(ctx context.Context) ProfileOutput 
 	return pulumi.ToOutputWithContext(ctx, i).(ProfileOutput)
 }
 
-type ProfileOutput struct {
-	*pulumi.OutputState
-}
+type ProfileOutput struct{ *pulumi.OutputState }
 
 func (ProfileOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*Profile)(nil))

@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.ContainerService.Outputs
 {
 
+    /// <summary>
+    /// Data used when creating a target resource from a source resource.
+    /// </summary>
     [OutputType]
     public sealed class CreationDataResponse
     {

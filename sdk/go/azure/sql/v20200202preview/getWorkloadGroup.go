@@ -7,7 +7,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Workload group operations for a data warehouse
 func LookupWorkloadGroup(ctx *pulumi.Context, args *LookupWorkloadGroupArgs, opts ...pulumi.InvokeOption) (*LookupWorkloadGroupResult, error) {
 	var rv LookupWorkloadGroupResult
 	err := ctx.Invoke("azure-native:sql/v20200202preview:getWorkloadGroup", args, &rv, opts...)
@@ -18,34 +17,21 @@ func LookupWorkloadGroup(ctx *pulumi.Context, args *LookupWorkloadGroupArgs, opt
 }
 
 type LookupWorkloadGroupArgs struct {
-	// The name of the database.
-	DatabaseName string `pulumi:"databaseName"`
-	// The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
+	DatabaseName      string `pulumi:"databaseName"`
 	ResourceGroupName string `pulumi:"resourceGroupName"`
-	// The name of the server.
-	ServerName string `pulumi:"serverName"`
-	// The name of the workload group.
+	ServerName        string `pulumi:"serverName"`
 	WorkloadGroupName string `pulumi:"workloadGroupName"`
 }
 
 // Workload group operations for a data warehouse
 type LookupWorkloadGroupResult struct {
-	// Resource ID.
-	Id string `pulumi:"id"`
-	// The workload group importance level.
-	Importance *string `pulumi:"importance"`
-	// The workload group cap percentage resource.
-	MaxResourcePercent int `pulumi:"maxResourcePercent"`
-	// The workload group request maximum grant percentage.
+	Id                           string   `pulumi:"id"`
+	Importance                   *string  `pulumi:"importance"`
+	MaxResourcePercent           int      `pulumi:"maxResourcePercent"`
 	MaxResourcePercentPerRequest *float64 `pulumi:"maxResourcePercentPerRequest"`
-	// The workload group minimum percentage resource.
-	MinResourcePercent int `pulumi:"minResourcePercent"`
-	// The workload group request minimum grant percentage.
-	MinResourcePercentPerRequest float64 `pulumi:"minResourcePercentPerRequest"`
-	// Resource name.
-	Name string `pulumi:"name"`
-	// The workload group query execution timeout.
-	QueryExecutionTimeout *int `pulumi:"queryExecutionTimeout"`
-	// Resource type.
-	Type string `pulumi:"type"`
+	MinResourcePercent           int      `pulumi:"minResourcePercent"`
+	MinResourcePercentPerRequest float64  `pulumi:"minResourcePercentPerRequest"`
+	Name                         string   `pulumi:"name"`
+	QueryExecutionTimeout        *int     `pulumi:"queryExecutionTimeout"`
+	Type                         string   `pulumi:"type"`
 }

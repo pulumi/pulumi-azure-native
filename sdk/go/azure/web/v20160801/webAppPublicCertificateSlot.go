@@ -11,22 +11,15 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Public certificate object
 type WebAppPublicCertificateSlot struct {
 	pulumi.CustomResourceState
 
-	// Public Certificate byte array
-	Blob pulumi.StringPtrOutput `pulumi:"blob"`
-	// Kind of resource.
-	Kind pulumi.StringPtrOutput `pulumi:"kind"`
-	// Resource Name.
-	Name pulumi.StringOutput `pulumi:"name"`
-	// Public Certificate Location
+	Blob                      pulumi.StringPtrOutput `pulumi:"blob"`
+	Kind                      pulumi.StringPtrOutput `pulumi:"kind"`
+	Name                      pulumi.StringOutput    `pulumi:"name"`
 	PublicCertificateLocation pulumi.StringPtrOutput `pulumi:"publicCertificateLocation"`
-	// Certificate Thumbprint
-	Thumbprint pulumi.StringOutput `pulumi:"thumbprint"`
-	// Resource type.
-	Type pulumi.StringOutput `pulumi:"type"`
+	Thumbprint                pulumi.StringOutput    `pulumi:"thumbprint"`
+	Type                      pulumi.StringOutput    `pulumi:"type"`
 }
 
 // NewWebAppPublicCertificateSlot registers a new resource with the given unique name, arguments, and options.
@@ -149,38 +142,24 @@ func (WebAppPublicCertificateSlotState) ElementType() reflect.Type {
 }
 
 type webAppPublicCertificateSlotArgs struct {
-	// Public Certificate byte array
-	Blob *string `pulumi:"blob"`
-	// Kind of resource.
-	Kind *string `pulumi:"kind"`
-	// Name of the app.
-	Name string `pulumi:"name"`
-	// Public Certificate Location
-	PublicCertificateLocation *string `pulumi:"publicCertificateLocation"`
-	// Public certificate name.
-	PublicCertificateName *string `pulumi:"publicCertificateName"`
-	// Name of the resource group to which the resource belongs.
-	ResourceGroupName string `pulumi:"resourceGroupName"`
-	// Name of the deployment slot. If a slot is not specified, the API will create a binding for the production slot.
-	Slot string `pulumi:"slot"`
+	Blob                      *string                    `pulumi:"blob"`
+	Kind                      *string                    `pulumi:"kind"`
+	Name                      string                     `pulumi:"name"`
+	PublicCertificateLocation *PublicCertificateLocation `pulumi:"publicCertificateLocation"`
+	PublicCertificateName     *string                    `pulumi:"publicCertificateName"`
+	ResourceGroupName         string                     `pulumi:"resourceGroupName"`
+	Slot                      string                     `pulumi:"slot"`
 }
 
 // The set of arguments for constructing a WebAppPublicCertificateSlot resource.
 type WebAppPublicCertificateSlotArgs struct {
-	// Public Certificate byte array
-	Blob pulumi.StringPtrInput
-	// Kind of resource.
-	Kind pulumi.StringPtrInput
-	// Name of the app.
-	Name pulumi.StringInput
-	// Public Certificate Location
-	PublicCertificateLocation *PublicCertificateLocation
-	// Public certificate name.
-	PublicCertificateName pulumi.StringPtrInput
-	// Name of the resource group to which the resource belongs.
-	ResourceGroupName pulumi.StringInput
-	// Name of the deployment slot. If a slot is not specified, the API will create a binding for the production slot.
-	Slot pulumi.StringInput
+	Blob                      pulumi.StringPtrInput
+	Kind                      pulumi.StringPtrInput
+	Name                      pulumi.StringInput
+	PublicCertificateLocation PublicCertificateLocationPtrInput
+	PublicCertificateName     pulumi.StringPtrInput
+	ResourceGroupName         pulumi.StringInput
+	Slot                      pulumi.StringInput
 }
 
 func (WebAppPublicCertificateSlotArgs) ElementType() reflect.Type {
@@ -206,9 +185,7 @@ func (i *WebAppPublicCertificateSlot) ToWebAppPublicCertificateSlotOutputWithCon
 	return pulumi.ToOutputWithContext(ctx, i).(WebAppPublicCertificateSlotOutput)
 }
 
-type WebAppPublicCertificateSlotOutput struct {
-	*pulumi.OutputState
-}
+type WebAppPublicCertificateSlotOutput struct{ *pulumi.OutputState }
 
 func (WebAppPublicCertificateSlotOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*WebAppPublicCertificateSlot)(nil))

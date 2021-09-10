@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.AzureStackHCI.V20210901.Outputs
 {
 
+    /// <summary>
+    /// Status of Arc Extension for a particular node in HCI Cluster.
+    /// </summary>
     [OutputType]
     public sealed class PerNodeExtensionStateResponse
     {

@@ -7,7 +7,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// A set of Azure Batch account keys.
 func ListBatchAccountKeys(ctx *pulumi.Context, args *ListBatchAccountKeysArgs, opts ...pulumi.InvokeOption) (*ListBatchAccountKeysResult, error) {
 	var rv ListBatchAccountKeysResult
 	err := ctx.Invoke("azure-native:batch/v20151201:listBatchAccountKeys", args, &rv, opts...)
@@ -18,16 +17,12 @@ func ListBatchAccountKeys(ctx *pulumi.Context, args *ListBatchAccountKeysArgs, o
 }
 
 type ListBatchAccountKeysArgs struct {
-	// The name of the account.
-	AccountName string `pulumi:"accountName"`
-	// The name of the resource group that contains the Batch account.
+	AccountName       string `pulumi:"accountName"`
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 }
 
 // A set of Azure Batch account keys.
 type ListBatchAccountKeysResult struct {
-	// The primary key associated with the account.
-	Primary *string `pulumi:"primary"`
-	// The secondary key associated with the account.
+	Primary   *string `pulumi:"primary"`
 	Secondary *string `pulumi:"secondary"`
 }

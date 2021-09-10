@@ -10,9 +10,7 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// The Activity query definitions
 type ActivityEntityQueriesPropertiesQueryDefinitions struct {
-	// The Activity query to run on a given entity
 	Query *string `pulumi:"query"`
 }
 
@@ -27,9 +25,7 @@ type ActivityEntityQueriesPropertiesQueryDefinitionsInput interface {
 	ToActivityEntityQueriesPropertiesQueryDefinitionsOutputWithContext(context.Context) ActivityEntityQueriesPropertiesQueryDefinitionsOutput
 }
 
-// The Activity query definitions
 type ActivityEntityQueriesPropertiesQueryDefinitionsArgs struct {
-	// The Activity query to run on a given entity
 	Query pulumi.StringPtrInput `pulumi:"query"`
 }
 
@@ -86,7 +82,6 @@ func (i *activityEntityQueriesPropertiesQueryDefinitionsPtrType) ToActivityEntit
 	return pulumi.ToOutputWithContext(ctx, i).(ActivityEntityQueriesPropertiesQueryDefinitionsPtrOutput)
 }
 
-// The Activity query definitions
 type ActivityEntityQueriesPropertiesQueryDefinitionsOutput struct{ *pulumi.OutputState }
 
 func (ActivityEntityQueriesPropertiesQueryDefinitionsOutput) ElementType() reflect.Type {
@@ -106,12 +101,11 @@ func (o ActivityEntityQueriesPropertiesQueryDefinitionsOutput) ToActivityEntityQ
 }
 
 func (o ActivityEntityQueriesPropertiesQueryDefinitionsOutput) ToActivityEntityQueriesPropertiesQueryDefinitionsPtrOutputWithContext(ctx context.Context) ActivityEntityQueriesPropertiesQueryDefinitionsPtrOutput {
-	return o.ApplyT(func(v ActivityEntityQueriesPropertiesQueryDefinitions) *ActivityEntityQueriesPropertiesQueryDefinitions {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ActivityEntityQueriesPropertiesQueryDefinitions) *ActivityEntityQueriesPropertiesQueryDefinitions {
 		return &v
 	}).(ActivityEntityQueriesPropertiesQueryDefinitionsPtrOutput)
 }
 
-// The Activity query to run on a given entity
 func (o ActivityEntityQueriesPropertiesQueryDefinitionsOutput) Query() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ActivityEntityQueriesPropertiesQueryDefinitions) *string { return v.Query }).(pulumi.StringPtrOutput)
 }
@@ -132,11 +126,14 @@ func (o ActivityEntityQueriesPropertiesQueryDefinitionsPtrOutput) ToActivityEnti
 
 func (o ActivityEntityQueriesPropertiesQueryDefinitionsPtrOutput) Elem() ActivityEntityQueriesPropertiesQueryDefinitionsOutput {
 	return o.ApplyT(func(v *ActivityEntityQueriesPropertiesQueryDefinitions) ActivityEntityQueriesPropertiesQueryDefinitions {
-		return *v
+		if v != nil {
+			return *v
+		}
+		var ret ActivityEntityQueriesPropertiesQueryDefinitions
+		return ret
 	}).(ActivityEntityQueriesPropertiesQueryDefinitionsOutput)
 }
 
-// The Activity query to run on a given entity
 func (o ActivityEntityQueriesPropertiesQueryDefinitionsPtrOutput) Query() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ActivityEntityQueriesPropertiesQueryDefinitions) *string {
 		if v == nil {
@@ -146,9 +143,7 @@ func (o ActivityEntityQueriesPropertiesQueryDefinitionsPtrOutput) Query() pulumi
 	}).(pulumi.StringPtrOutput)
 }
 
-// The Activity query definitions
 type ActivityEntityQueriesPropertiesResponseQueryDefinitions struct {
-	// The Activity query to run on a given entity
 	Query *string `pulumi:"query"`
 }
 
@@ -163,9 +158,7 @@ type ActivityEntityQueriesPropertiesResponseQueryDefinitionsInput interface {
 	ToActivityEntityQueriesPropertiesResponseQueryDefinitionsOutputWithContext(context.Context) ActivityEntityQueriesPropertiesResponseQueryDefinitionsOutput
 }
 
-// The Activity query definitions
 type ActivityEntityQueriesPropertiesResponseQueryDefinitionsArgs struct {
-	// The Activity query to run on a given entity
 	Query pulumi.StringPtrInput `pulumi:"query"`
 }
 
@@ -222,7 +215,6 @@ func (i *activityEntityQueriesPropertiesResponseQueryDefinitionsPtrType) ToActiv
 	return pulumi.ToOutputWithContext(ctx, i).(ActivityEntityQueriesPropertiesResponseQueryDefinitionsPtrOutput)
 }
 
-// The Activity query definitions
 type ActivityEntityQueriesPropertiesResponseQueryDefinitionsOutput struct{ *pulumi.OutputState }
 
 func (ActivityEntityQueriesPropertiesResponseQueryDefinitionsOutput) ElementType() reflect.Type {
@@ -242,12 +234,11 @@ func (o ActivityEntityQueriesPropertiesResponseQueryDefinitionsOutput) ToActivit
 }
 
 func (o ActivityEntityQueriesPropertiesResponseQueryDefinitionsOutput) ToActivityEntityQueriesPropertiesResponseQueryDefinitionsPtrOutputWithContext(ctx context.Context) ActivityEntityQueriesPropertiesResponseQueryDefinitionsPtrOutput {
-	return o.ApplyT(func(v ActivityEntityQueriesPropertiesResponseQueryDefinitions) *ActivityEntityQueriesPropertiesResponseQueryDefinitions {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ActivityEntityQueriesPropertiesResponseQueryDefinitions) *ActivityEntityQueriesPropertiesResponseQueryDefinitions {
 		return &v
 	}).(ActivityEntityQueriesPropertiesResponseQueryDefinitionsPtrOutput)
 }
 
-// The Activity query to run on a given entity
 func (o ActivityEntityQueriesPropertiesResponseQueryDefinitionsOutput) Query() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ActivityEntityQueriesPropertiesResponseQueryDefinitions) *string { return v.Query }).(pulumi.StringPtrOutput)
 }
@@ -268,11 +259,14 @@ func (o ActivityEntityQueriesPropertiesResponseQueryDefinitionsPtrOutput) ToActi
 
 func (o ActivityEntityQueriesPropertiesResponseQueryDefinitionsPtrOutput) Elem() ActivityEntityQueriesPropertiesResponseQueryDefinitionsOutput {
 	return o.ApplyT(func(v *ActivityEntityQueriesPropertiesResponseQueryDefinitions) ActivityEntityQueriesPropertiesResponseQueryDefinitions {
-		return *v
+		if v != nil {
+			return *v
+		}
+		var ret ActivityEntityQueriesPropertiesResponseQueryDefinitions
+		return ret
 	}).(ActivityEntityQueriesPropertiesResponseQueryDefinitionsOutput)
 }
 
-// The Activity query to run on a given entity
 func (o ActivityEntityQueriesPropertiesResponseQueryDefinitionsPtrOutput) Query() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ActivityEntityQueriesPropertiesResponseQueryDefinitions) *string {
 		if v == nil {
@@ -282,16 +276,11 @@ func (o ActivityEntityQueriesPropertiesResponseQueryDefinitionsPtrOutput) Query(
 	}).(pulumi.StringPtrOutput)
 }
 
-// Settings for how to dynamically override alert static details
 type AlertDetailsOverride struct {
-	// the format containing columns name(s) to override the alert description
-	AlertDescriptionFormat *string `pulumi:"alertDescriptionFormat"`
-	// the format containing columns name(s) to override the alert name
-	AlertDisplayNameFormat *string `pulumi:"alertDisplayNameFormat"`
-	// the column name to take the alert severity from
+	AlertDescriptionFormat  *string `pulumi:"alertDescriptionFormat"`
+	AlertDisplayNameFormat  *string `pulumi:"alertDisplayNameFormat"`
 	AlertSeverityColumnName *string `pulumi:"alertSeverityColumnName"`
-	// the column name to take the alert tactics from
-	AlertTacticsColumnName *string `pulumi:"alertTacticsColumnName"`
+	AlertTacticsColumnName  *string `pulumi:"alertTacticsColumnName"`
 }
 
 // AlertDetailsOverrideInput is an input type that accepts AlertDetailsOverrideArgs and AlertDetailsOverrideOutput values.
@@ -305,16 +294,11 @@ type AlertDetailsOverrideInput interface {
 	ToAlertDetailsOverrideOutputWithContext(context.Context) AlertDetailsOverrideOutput
 }
 
-// Settings for how to dynamically override alert static details
 type AlertDetailsOverrideArgs struct {
-	// the format containing columns name(s) to override the alert description
-	AlertDescriptionFormat pulumi.StringPtrInput `pulumi:"alertDescriptionFormat"`
-	// the format containing columns name(s) to override the alert name
-	AlertDisplayNameFormat pulumi.StringPtrInput `pulumi:"alertDisplayNameFormat"`
-	// the column name to take the alert severity from
+	AlertDescriptionFormat  pulumi.StringPtrInput `pulumi:"alertDescriptionFormat"`
+	AlertDisplayNameFormat  pulumi.StringPtrInput `pulumi:"alertDisplayNameFormat"`
 	AlertSeverityColumnName pulumi.StringPtrInput `pulumi:"alertSeverityColumnName"`
-	// the column name to take the alert tactics from
-	AlertTacticsColumnName pulumi.StringPtrInput `pulumi:"alertTacticsColumnName"`
+	AlertTacticsColumnName  pulumi.StringPtrInput `pulumi:"alertTacticsColumnName"`
 }
 
 func (AlertDetailsOverrideArgs) ElementType() reflect.Type {
@@ -370,7 +354,6 @@ func (i *alertDetailsOverridePtrType) ToAlertDetailsOverridePtrOutputWithContext
 	return pulumi.ToOutputWithContext(ctx, i).(AlertDetailsOverridePtrOutput)
 }
 
-// Settings for how to dynamically override alert static details
 type AlertDetailsOverrideOutput struct{ *pulumi.OutputState }
 
 func (AlertDetailsOverrideOutput) ElementType() reflect.Type {
@@ -390,27 +373,23 @@ func (o AlertDetailsOverrideOutput) ToAlertDetailsOverridePtrOutput() AlertDetai
 }
 
 func (o AlertDetailsOverrideOutput) ToAlertDetailsOverridePtrOutputWithContext(ctx context.Context) AlertDetailsOverridePtrOutput {
-	return o.ApplyT(func(v AlertDetailsOverride) *AlertDetailsOverride {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v AlertDetailsOverride) *AlertDetailsOverride {
 		return &v
 	}).(AlertDetailsOverridePtrOutput)
 }
 
-// the format containing columns name(s) to override the alert description
 func (o AlertDetailsOverrideOutput) AlertDescriptionFormat() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AlertDetailsOverride) *string { return v.AlertDescriptionFormat }).(pulumi.StringPtrOutput)
 }
 
-// the format containing columns name(s) to override the alert name
 func (o AlertDetailsOverrideOutput) AlertDisplayNameFormat() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AlertDetailsOverride) *string { return v.AlertDisplayNameFormat }).(pulumi.StringPtrOutput)
 }
 
-// the column name to take the alert severity from
 func (o AlertDetailsOverrideOutput) AlertSeverityColumnName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AlertDetailsOverride) *string { return v.AlertSeverityColumnName }).(pulumi.StringPtrOutput)
 }
 
-// the column name to take the alert tactics from
 func (o AlertDetailsOverrideOutput) AlertTacticsColumnName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AlertDetailsOverride) *string { return v.AlertTacticsColumnName }).(pulumi.StringPtrOutput)
 }
@@ -430,10 +409,15 @@ func (o AlertDetailsOverridePtrOutput) ToAlertDetailsOverridePtrOutputWithContex
 }
 
 func (o AlertDetailsOverridePtrOutput) Elem() AlertDetailsOverrideOutput {
-	return o.ApplyT(func(v *AlertDetailsOverride) AlertDetailsOverride { return *v }).(AlertDetailsOverrideOutput)
+	return o.ApplyT(func(v *AlertDetailsOverride) AlertDetailsOverride {
+		if v != nil {
+			return *v
+		}
+		var ret AlertDetailsOverride
+		return ret
+	}).(AlertDetailsOverrideOutput)
 }
 
-// the format containing columns name(s) to override the alert description
 func (o AlertDetailsOverridePtrOutput) AlertDescriptionFormat() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *AlertDetailsOverride) *string {
 		if v == nil {
@@ -443,7 +427,6 @@ func (o AlertDetailsOverridePtrOutput) AlertDescriptionFormat() pulumi.StringPtr
 	}).(pulumi.StringPtrOutput)
 }
 
-// the format containing columns name(s) to override the alert name
 func (o AlertDetailsOverridePtrOutput) AlertDisplayNameFormat() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *AlertDetailsOverride) *string {
 		if v == nil {
@@ -453,7 +436,6 @@ func (o AlertDetailsOverridePtrOutput) AlertDisplayNameFormat() pulumi.StringPtr
 	}).(pulumi.StringPtrOutput)
 }
 
-// the column name to take the alert severity from
 func (o AlertDetailsOverridePtrOutput) AlertSeverityColumnName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *AlertDetailsOverride) *string {
 		if v == nil {
@@ -463,7 +445,6 @@ func (o AlertDetailsOverridePtrOutput) AlertSeverityColumnName() pulumi.StringPt
 	}).(pulumi.StringPtrOutput)
 }
 
-// the column name to take the alert tactics from
 func (o AlertDetailsOverridePtrOutput) AlertTacticsColumnName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *AlertDetailsOverride) *string {
 		if v == nil {
@@ -473,16 +454,11 @@ func (o AlertDetailsOverridePtrOutput) AlertTacticsColumnName() pulumi.StringPtr
 	}).(pulumi.StringPtrOutput)
 }
 
-// Settings for how to dynamically override alert static details
 type AlertDetailsOverrideResponse struct {
-	// the format containing columns name(s) to override the alert description
-	AlertDescriptionFormat *string `pulumi:"alertDescriptionFormat"`
-	// the format containing columns name(s) to override the alert name
-	AlertDisplayNameFormat *string `pulumi:"alertDisplayNameFormat"`
-	// the column name to take the alert severity from
+	AlertDescriptionFormat  *string `pulumi:"alertDescriptionFormat"`
+	AlertDisplayNameFormat  *string `pulumi:"alertDisplayNameFormat"`
 	AlertSeverityColumnName *string `pulumi:"alertSeverityColumnName"`
-	// the column name to take the alert tactics from
-	AlertTacticsColumnName *string `pulumi:"alertTacticsColumnName"`
+	AlertTacticsColumnName  *string `pulumi:"alertTacticsColumnName"`
 }
 
 // AlertDetailsOverrideResponseInput is an input type that accepts AlertDetailsOverrideResponseArgs and AlertDetailsOverrideResponseOutput values.
@@ -496,16 +472,11 @@ type AlertDetailsOverrideResponseInput interface {
 	ToAlertDetailsOverrideResponseOutputWithContext(context.Context) AlertDetailsOverrideResponseOutput
 }
 
-// Settings for how to dynamically override alert static details
 type AlertDetailsOverrideResponseArgs struct {
-	// the format containing columns name(s) to override the alert description
-	AlertDescriptionFormat pulumi.StringPtrInput `pulumi:"alertDescriptionFormat"`
-	// the format containing columns name(s) to override the alert name
-	AlertDisplayNameFormat pulumi.StringPtrInput `pulumi:"alertDisplayNameFormat"`
-	// the column name to take the alert severity from
+	AlertDescriptionFormat  pulumi.StringPtrInput `pulumi:"alertDescriptionFormat"`
+	AlertDisplayNameFormat  pulumi.StringPtrInput `pulumi:"alertDisplayNameFormat"`
 	AlertSeverityColumnName pulumi.StringPtrInput `pulumi:"alertSeverityColumnName"`
-	// the column name to take the alert tactics from
-	AlertTacticsColumnName pulumi.StringPtrInput `pulumi:"alertTacticsColumnName"`
+	AlertTacticsColumnName  pulumi.StringPtrInput `pulumi:"alertTacticsColumnName"`
 }
 
 func (AlertDetailsOverrideResponseArgs) ElementType() reflect.Type {
@@ -561,7 +532,6 @@ func (i *alertDetailsOverrideResponsePtrType) ToAlertDetailsOverrideResponsePtrO
 	return pulumi.ToOutputWithContext(ctx, i).(AlertDetailsOverrideResponsePtrOutput)
 }
 
-// Settings for how to dynamically override alert static details
 type AlertDetailsOverrideResponseOutput struct{ *pulumi.OutputState }
 
 func (AlertDetailsOverrideResponseOutput) ElementType() reflect.Type {
@@ -581,27 +551,23 @@ func (o AlertDetailsOverrideResponseOutput) ToAlertDetailsOverrideResponsePtrOut
 }
 
 func (o AlertDetailsOverrideResponseOutput) ToAlertDetailsOverrideResponsePtrOutputWithContext(ctx context.Context) AlertDetailsOverrideResponsePtrOutput {
-	return o.ApplyT(func(v AlertDetailsOverrideResponse) *AlertDetailsOverrideResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v AlertDetailsOverrideResponse) *AlertDetailsOverrideResponse {
 		return &v
 	}).(AlertDetailsOverrideResponsePtrOutput)
 }
 
-// the format containing columns name(s) to override the alert description
 func (o AlertDetailsOverrideResponseOutput) AlertDescriptionFormat() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AlertDetailsOverrideResponse) *string { return v.AlertDescriptionFormat }).(pulumi.StringPtrOutput)
 }
 
-// the format containing columns name(s) to override the alert name
 func (o AlertDetailsOverrideResponseOutput) AlertDisplayNameFormat() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AlertDetailsOverrideResponse) *string { return v.AlertDisplayNameFormat }).(pulumi.StringPtrOutput)
 }
 
-// the column name to take the alert severity from
 func (o AlertDetailsOverrideResponseOutput) AlertSeverityColumnName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AlertDetailsOverrideResponse) *string { return v.AlertSeverityColumnName }).(pulumi.StringPtrOutput)
 }
 
-// the column name to take the alert tactics from
 func (o AlertDetailsOverrideResponseOutput) AlertTacticsColumnName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AlertDetailsOverrideResponse) *string { return v.AlertTacticsColumnName }).(pulumi.StringPtrOutput)
 }
@@ -621,10 +587,15 @@ func (o AlertDetailsOverrideResponsePtrOutput) ToAlertDetailsOverrideResponsePtr
 }
 
 func (o AlertDetailsOverrideResponsePtrOutput) Elem() AlertDetailsOverrideResponseOutput {
-	return o.ApplyT(func(v *AlertDetailsOverrideResponse) AlertDetailsOverrideResponse { return *v }).(AlertDetailsOverrideResponseOutput)
+	return o.ApplyT(func(v *AlertDetailsOverrideResponse) AlertDetailsOverrideResponse {
+		if v != nil {
+			return *v
+		}
+		var ret AlertDetailsOverrideResponse
+		return ret
+	}).(AlertDetailsOverrideResponseOutput)
 }
 
-// the format containing columns name(s) to override the alert description
 func (o AlertDetailsOverrideResponsePtrOutput) AlertDescriptionFormat() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *AlertDetailsOverrideResponse) *string {
 		if v == nil {
@@ -634,7 +605,6 @@ func (o AlertDetailsOverrideResponsePtrOutput) AlertDescriptionFormat() pulumi.S
 	}).(pulumi.StringPtrOutput)
 }
 
-// the format containing columns name(s) to override the alert name
 func (o AlertDetailsOverrideResponsePtrOutput) AlertDisplayNameFormat() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *AlertDetailsOverrideResponse) *string {
 		if v == nil {
@@ -644,7 +614,6 @@ func (o AlertDetailsOverrideResponsePtrOutput) AlertDisplayNameFormat() pulumi.S
 	}).(pulumi.StringPtrOutput)
 }
 
-// the column name to take the alert severity from
 func (o AlertDetailsOverrideResponsePtrOutput) AlertSeverityColumnName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *AlertDetailsOverrideResponse) *string {
 		if v == nil {
@@ -654,7 +623,6 @@ func (o AlertDetailsOverrideResponsePtrOutput) AlertSeverityColumnName() pulumi.
 	}).(pulumi.StringPtrOutput)
 }
 
-// the column name to take the alert tactics from
 func (o AlertDetailsOverrideResponsePtrOutput) AlertTacticsColumnName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *AlertDetailsOverrideResponse) *string {
 		if v == nil {
@@ -664,9 +632,7 @@ func (o AlertDetailsOverrideResponsePtrOutput) AlertTacticsColumnName() pulumi.S
 	}).(pulumi.StringPtrOutput)
 }
 
-// Alerts data type for data connectors.
 type AlertsDataTypeOfDataConnector struct {
-	// Alerts data type connection.
 	Alerts DataConnectorDataTypeCommon `pulumi:"alerts"`
 }
 
@@ -681,9 +647,7 @@ type AlertsDataTypeOfDataConnectorInput interface {
 	ToAlertsDataTypeOfDataConnectorOutputWithContext(context.Context) AlertsDataTypeOfDataConnectorOutput
 }
 
-// Alerts data type for data connectors.
 type AlertsDataTypeOfDataConnectorArgs struct {
-	// Alerts data type connection.
 	Alerts DataConnectorDataTypeCommonInput `pulumi:"alerts"`
 }
 
@@ -740,7 +704,6 @@ func (i *alertsDataTypeOfDataConnectorPtrType) ToAlertsDataTypeOfDataConnectorPt
 	return pulumi.ToOutputWithContext(ctx, i).(AlertsDataTypeOfDataConnectorPtrOutput)
 }
 
-// Alerts data type for data connectors.
 type AlertsDataTypeOfDataConnectorOutput struct{ *pulumi.OutputState }
 
 func (AlertsDataTypeOfDataConnectorOutput) ElementType() reflect.Type {
@@ -760,12 +723,11 @@ func (o AlertsDataTypeOfDataConnectorOutput) ToAlertsDataTypeOfDataConnectorPtrO
 }
 
 func (o AlertsDataTypeOfDataConnectorOutput) ToAlertsDataTypeOfDataConnectorPtrOutputWithContext(ctx context.Context) AlertsDataTypeOfDataConnectorPtrOutput {
-	return o.ApplyT(func(v AlertsDataTypeOfDataConnector) *AlertsDataTypeOfDataConnector {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v AlertsDataTypeOfDataConnector) *AlertsDataTypeOfDataConnector {
 		return &v
 	}).(AlertsDataTypeOfDataConnectorPtrOutput)
 }
 
-// Alerts data type connection.
 func (o AlertsDataTypeOfDataConnectorOutput) Alerts() DataConnectorDataTypeCommonOutput {
 	return o.ApplyT(func(v AlertsDataTypeOfDataConnector) DataConnectorDataTypeCommon { return v.Alerts }).(DataConnectorDataTypeCommonOutput)
 }
@@ -785,10 +747,15 @@ func (o AlertsDataTypeOfDataConnectorPtrOutput) ToAlertsDataTypeOfDataConnectorP
 }
 
 func (o AlertsDataTypeOfDataConnectorPtrOutput) Elem() AlertsDataTypeOfDataConnectorOutput {
-	return o.ApplyT(func(v *AlertsDataTypeOfDataConnector) AlertsDataTypeOfDataConnector { return *v }).(AlertsDataTypeOfDataConnectorOutput)
+	return o.ApplyT(func(v *AlertsDataTypeOfDataConnector) AlertsDataTypeOfDataConnector {
+		if v != nil {
+			return *v
+		}
+		var ret AlertsDataTypeOfDataConnector
+		return ret
+	}).(AlertsDataTypeOfDataConnectorOutput)
 }
 
-// Alerts data type connection.
 func (o AlertsDataTypeOfDataConnectorPtrOutput) Alerts() DataConnectorDataTypeCommonPtrOutput {
 	return o.ApplyT(func(v *AlertsDataTypeOfDataConnector) *DataConnectorDataTypeCommon {
 		if v == nil {
@@ -798,9 +765,7 @@ func (o AlertsDataTypeOfDataConnectorPtrOutput) Alerts() DataConnectorDataTypeCo
 	}).(DataConnectorDataTypeCommonPtrOutput)
 }
 
-// Alerts data type for data connectors.
 type AlertsDataTypeOfDataConnectorResponse struct {
-	// Alerts data type connection.
 	Alerts DataConnectorDataTypeCommonResponse `pulumi:"alerts"`
 }
 
@@ -815,9 +780,7 @@ type AlertsDataTypeOfDataConnectorResponseInput interface {
 	ToAlertsDataTypeOfDataConnectorResponseOutputWithContext(context.Context) AlertsDataTypeOfDataConnectorResponseOutput
 }
 
-// Alerts data type for data connectors.
 type AlertsDataTypeOfDataConnectorResponseArgs struct {
-	// Alerts data type connection.
 	Alerts DataConnectorDataTypeCommonResponseInput `pulumi:"alerts"`
 }
 
@@ -874,7 +837,6 @@ func (i *alertsDataTypeOfDataConnectorResponsePtrType) ToAlertsDataTypeOfDataCon
 	return pulumi.ToOutputWithContext(ctx, i).(AlertsDataTypeOfDataConnectorResponsePtrOutput)
 }
 
-// Alerts data type for data connectors.
 type AlertsDataTypeOfDataConnectorResponseOutput struct{ *pulumi.OutputState }
 
 func (AlertsDataTypeOfDataConnectorResponseOutput) ElementType() reflect.Type {
@@ -894,12 +856,11 @@ func (o AlertsDataTypeOfDataConnectorResponseOutput) ToAlertsDataTypeOfDataConne
 }
 
 func (o AlertsDataTypeOfDataConnectorResponseOutput) ToAlertsDataTypeOfDataConnectorResponsePtrOutputWithContext(ctx context.Context) AlertsDataTypeOfDataConnectorResponsePtrOutput {
-	return o.ApplyT(func(v AlertsDataTypeOfDataConnectorResponse) *AlertsDataTypeOfDataConnectorResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v AlertsDataTypeOfDataConnectorResponse) *AlertsDataTypeOfDataConnectorResponse {
 		return &v
 	}).(AlertsDataTypeOfDataConnectorResponsePtrOutput)
 }
 
-// Alerts data type connection.
 func (o AlertsDataTypeOfDataConnectorResponseOutput) Alerts() DataConnectorDataTypeCommonResponseOutput {
 	return o.ApplyT(func(v AlertsDataTypeOfDataConnectorResponse) DataConnectorDataTypeCommonResponse { return v.Alerts }).(DataConnectorDataTypeCommonResponseOutput)
 }
@@ -919,10 +880,15 @@ func (o AlertsDataTypeOfDataConnectorResponsePtrOutput) ToAlertsDataTypeOfDataCo
 }
 
 func (o AlertsDataTypeOfDataConnectorResponsePtrOutput) Elem() AlertsDataTypeOfDataConnectorResponseOutput {
-	return o.ApplyT(func(v *AlertsDataTypeOfDataConnectorResponse) AlertsDataTypeOfDataConnectorResponse { return *v }).(AlertsDataTypeOfDataConnectorResponseOutput)
+	return o.ApplyT(func(v *AlertsDataTypeOfDataConnectorResponse) AlertsDataTypeOfDataConnectorResponse {
+		if v != nil {
+			return *v
+		}
+		var ret AlertsDataTypeOfDataConnectorResponse
+		return ret
+	}).(AlertsDataTypeOfDataConnectorResponseOutput)
 }
 
-// Alerts data type connection.
 func (o AlertsDataTypeOfDataConnectorResponsePtrOutput) Alerts() DataConnectorDataTypeCommonResponsePtrOutput {
 	return o.ApplyT(func(v *AlertsDataTypeOfDataConnectorResponse) *DataConnectorDataTypeCommonResponse {
 		if v == nil {
@@ -932,12 +898,9 @@ func (o AlertsDataTypeOfDataConnectorResponsePtrOutput) Alerts() DataConnectorDa
 	}).(DataConnectorDataTypeCommonResponsePtrOutput)
 }
 
-// Connector Availability Status
 type Availability struct {
-	// Set connector as preview
 	IsPreview *bool `pulumi:"isPreview"`
-	// The connector Availability Status
-	Status *int `pulumi:"status"`
+	Status    *int  `pulumi:"status"`
 }
 
 // AvailabilityInput is an input type that accepts AvailabilityArgs and AvailabilityOutput values.
@@ -951,12 +914,9 @@ type AvailabilityInput interface {
 	ToAvailabilityOutputWithContext(context.Context) AvailabilityOutput
 }
 
-// Connector Availability Status
 type AvailabilityArgs struct {
-	// Set connector as preview
 	IsPreview pulumi.BoolPtrInput `pulumi:"isPreview"`
-	// The connector Availability Status
-	Status pulumi.IntPtrInput `pulumi:"status"`
+	Status    pulumi.IntPtrInput  `pulumi:"status"`
 }
 
 func (AvailabilityArgs) ElementType() reflect.Type {
@@ -1012,7 +972,6 @@ func (i *availabilityPtrType) ToAvailabilityPtrOutputWithContext(ctx context.Con
 	return pulumi.ToOutputWithContext(ctx, i).(AvailabilityPtrOutput)
 }
 
-// Connector Availability Status
 type AvailabilityOutput struct{ *pulumi.OutputState }
 
 func (AvailabilityOutput) ElementType() reflect.Type {
@@ -1032,17 +991,15 @@ func (o AvailabilityOutput) ToAvailabilityPtrOutput() AvailabilityPtrOutput {
 }
 
 func (o AvailabilityOutput) ToAvailabilityPtrOutputWithContext(ctx context.Context) AvailabilityPtrOutput {
-	return o.ApplyT(func(v Availability) *Availability {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v Availability) *Availability {
 		return &v
 	}).(AvailabilityPtrOutput)
 }
 
-// Set connector as preview
 func (o AvailabilityOutput) IsPreview() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v Availability) *bool { return v.IsPreview }).(pulumi.BoolPtrOutput)
 }
 
-// The connector Availability Status
 func (o AvailabilityOutput) Status() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v Availability) *int { return v.Status }).(pulumi.IntPtrOutput)
 }
@@ -1062,10 +1019,15 @@ func (o AvailabilityPtrOutput) ToAvailabilityPtrOutputWithContext(ctx context.Co
 }
 
 func (o AvailabilityPtrOutput) Elem() AvailabilityOutput {
-	return o.ApplyT(func(v *Availability) Availability { return *v }).(AvailabilityOutput)
+	return o.ApplyT(func(v *Availability) Availability {
+		if v != nil {
+			return *v
+		}
+		var ret Availability
+		return ret
+	}).(AvailabilityOutput)
 }
 
-// Set connector as preview
 func (o AvailabilityPtrOutput) IsPreview() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *Availability) *bool {
 		if v == nil {
@@ -1075,7 +1037,6 @@ func (o AvailabilityPtrOutput) IsPreview() pulumi.BoolPtrOutput {
 	}).(pulumi.BoolPtrOutput)
 }
 
-// The connector Availability Status
 func (o AvailabilityPtrOutput) Status() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *Availability) *int {
 		if v == nil {
@@ -1085,12 +1046,9 @@ func (o AvailabilityPtrOutput) Status() pulumi.IntPtrOutput {
 	}).(pulumi.IntPtrOutput)
 }
 
-// Connector Availability Status
 type AvailabilityResponse struct {
-	// Set connector as preview
 	IsPreview *bool `pulumi:"isPreview"`
-	// The connector Availability Status
-	Status *int `pulumi:"status"`
+	Status    *int  `pulumi:"status"`
 }
 
 // AvailabilityResponseInput is an input type that accepts AvailabilityResponseArgs and AvailabilityResponseOutput values.
@@ -1104,12 +1062,9 @@ type AvailabilityResponseInput interface {
 	ToAvailabilityResponseOutputWithContext(context.Context) AvailabilityResponseOutput
 }
 
-// Connector Availability Status
 type AvailabilityResponseArgs struct {
-	// Set connector as preview
 	IsPreview pulumi.BoolPtrInput `pulumi:"isPreview"`
-	// The connector Availability Status
-	Status pulumi.IntPtrInput `pulumi:"status"`
+	Status    pulumi.IntPtrInput  `pulumi:"status"`
 }
 
 func (AvailabilityResponseArgs) ElementType() reflect.Type {
@@ -1165,7 +1120,6 @@ func (i *availabilityResponsePtrType) ToAvailabilityResponsePtrOutputWithContext
 	return pulumi.ToOutputWithContext(ctx, i).(AvailabilityResponsePtrOutput)
 }
 
-// Connector Availability Status
 type AvailabilityResponseOutput struct{ *pulumi.OutputState }
 
 func (AvailabilityResponseOutput) ElementType() reflect.Type {
@@ -1185,17 +1139,15 @@ func (o AvailabilityResponseOutput) ToAvailabilityResponsePtrOutput() Availabili
 }
 
 func (o AvailabilityResponseOutput) ToAvailabilityResponsePtrOutputWithContext(ctx context.Context) AvailabilityResponsePtrOutput {
-	return o.ApplyT(func(v AvailabilityResponse) *AvailabilityResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v AvailabilityResponse) *AvailabilityResponse {
 		return &v
 	}).(AvailabilityResponsePtrOutput)
 }
 
-// Set connector as preview
 func (o AvailabilityResponseOutput) IsPreview() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v AvailabilityResponse) *bool { return v.IsPreview }).(pulumi.BoolPtrOutput)
 }
 
-// The connector Availability Status
 func (o AvailabilityResponseOutput) Status() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v AvailabilityResponse) *int { return v.Status }).(pulumi.IntPtrOutput)
 }
@@ -1215,10 +1167,15 @@ func (o AvailabilityResponsePtrOutput) ToAvailabilityResponsePtrOutputWithContex
 }
 
 func (o AvailabilityResponsePtrOutput) Elem() AvailabilityResponseOutput {
-	return o.ApplyT(func(v *AvailabilityResponse) AvailabilityResponse { return *v }).(AvailabilityResponseOutput)
+	return o.ApplyT(func(v *AvailabilityResponse) AvailabilityResponse {
+		if v != nil {
+			return *v
+		}
+		var ret AvailabilityResponse
+		return ret
+	}).(AvailabilityResponseOutput)
 }
 
-// Set connector as preview
 func (o AvailabilityResponsePtrOutput) IsPreview() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *AvailabilityResponse) *bool {
 		if v == nil {
@@ -1228,7 +1185,6 @@ func (o AvailabilityResponsePtrOutput) IsPreview() pulumi.BoolPtrOutput {
 	}).(pulumi.BoolPtrOutput)
 }
 
-// The connector Availability Status
 func (o AvailabilityResponsePtrOutput) Status() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *AvailabilityResponse) *int {
 		if v == nil {
@@ -1238,9 +1194,7 @@ func (o AvailabilityResponsePtrOutput) Status() pulumi.IntPtrOutput {
 	}).(pulumi.IntPtrOutput)
 }
 
-// The available data types for Amazon Web Services CloudTrail data connector.
 type AwsCloudTrailDataConnectorDataTypes struct {
-	// Logs data type.
 	Logs AwsCloudTrailDataConnectorDataTypesLogs `pulumi:"logs"`
 }
 
@@ -1255,9 +1209,7 @@ type AwsCloudTrailDataConnectorDataTypesInput interface {
 	ToAwsCloudTrailDataConnectorDataTypesOutputWithContext(context.Context) AwsCloudTrailDataConnectorDataTypesOutput
 }
 
-// The available data types for Amazon Web Services CloudTrail data connector.
 type AwsCloudTrailDataConnectorDataTypesArgs struct {
-	// Logs data type.
 	Logs AwsCloudTrailDataConnectorDataTypesLogsInput `pulumi:"logs"`
 }
 
@@ -1314,7 +1266,6 @@ func (i *awsCloudTrailDataConnectorDataTypesPtrType) ToAwsCloudTrailDataConnecto
 	return pulumi.ToOutputWithContext(ctx, i).(AwsCloudTrailDataConnectorDataTypesPtrOutput)
 }
 
-// The available data types for Amazon Web Services CloudTrail data connector.
 type AwsCloudTrailDataConnectorDataTypesOutput struct{ *pulumi.OutputState }
 
 func (AwsCloudTrailDataConnectorDataTypesOutput) ElementType() reflect.Type {
@@ -1334,12 +1285,11 @@ func (o AwsCloudTrailDataConnectorDataTypesOutput) ToAwsCloudTrailDataConnectorD
 }
 
 func (o AwsCloudTrailDataConnectorDataTypesOutput) ToAwsCloudTrailDataConnectorDataTypesPtrOutputWithContext(ctx context.Context) AwsCloudTrailDataConnectorDataTypesPtrOutput {
-	return o.ApplyT(func(v AwsCloudTrailDataConnectorDataTypes) *AwsCloudTrailDataConnectorDataTypes {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v AwsCloudTrailDataConnectorDataTypes) *AwsCloudTrailDataConnectorDataTypes {
 		return &v
 	}).(AwsCloudTrailDataConnectorDataTypesPtrOutput)
 }
 
-// Logs data type.
 func (o AwsCloudTrailDataConnectorDataTypesOutput) Logs() AwsCloudTrailDataConnectorDataTypesLogsOutput {
 	return o.ApplyT(func(v AwsCloudTrailDataConnectorDataTypes) AwsCloudTrailDataConnectorDataTypesLogs { return v.Logs }).(AwsCloudTrailDataConnectorDataTypesLogsOutput)
 }
@@ -1359,10 +1309,15 @@ func (o AwsCloudTrailDataConnectorDataTypesPtrOutput) ToAwsCloudTrailDataConnect
 }
 
 func (o AwsCloudTrailDataConnectorDataTypesPtrOutput) Elem() AwsCloudTrailDataConnectorDataTypesOutput {
-	return o.ApplyT(func(v *AwsCloudTrailDataConnectorDataTypes) AwsCloudTrailDataConnectorDataTypes { return *v }).(AwsCloudTrailDataConnectorDataTypesOutput)
+	return o.ApplyT(func(v *AwsCloudTrailDataConnectorDataTypes) AwsCloudTrailDataConnectorDataTypes {
+		if v != nil {
+			return *v
+		}
+		var ret AwsCloudTrailDataConnectorDataTypes
+		return ret
+	}).(AwsCloudTrailDataConnectorDataTypesOutput)
 }
 
-// Logs data type.
 func (o AwsCloudTrailDataConnectorDataTypesPtrOutput) Logs() AwsCloudTrailDataConnectorDataTypesLogsPtrOutput {
 	return o.ApplyT(func(v *AwsCloudTrailDataConnectorDataTypes) *AwsCloudTrailDataConnectorDataTypesLogs {
 		if v == nil {
@@ -1372,9 +1327,7 @@ func (o AwsCloudTrailDataConnectorDataTypesPtrOutput) Logs() AwsCloudTrailDataCo
 	}).(AwsCloudTrailDataConnectorDataTypesLogsPtrOutput)
 }
 
-// Logs data type.
 type AwsCloudTrailDataConnectorDataTypesLogs struct {
-	// Describe whether this data type connection is enabled or not.
 	State string `pulumi:"state"`
 }
 
@@ -1389,9 +1342,7 @@ type AwsCloudTrailDataConnectorDataTypesLogsInput interface {
 	ToAwsCloudTrailDataConnectorDataTypesLogsOutputWithContext(context.Context) AwsCloudTrailDataConnectorDataTypesLogsOutput
 }
 
-// Logs data type.
 type AwsCloudTrailDataConnectorDataTypesLogsArgs struct {
-	// Describe whether this data type connection is enabled or not.
 	State pulumi.StringInput `pulumi:"state"`
 }
 
@@ -1448,7 +1399,6 @@ func (i *awsCloudTrailDataConnectorDataTypesLogsPtrType) ToAwsCloudTrailDataConn
 	return pulumi.ToOutputWithContext(ctx, i).(AwsCloudTrailDataConnectorDataTypesLogsPtrOutput)
 }
 
-// Logs data type.
 type AwsCloudTrailDataConnectorDataTypesLogsOutput struct{ *pulumi.OutputState }
 
 func (AwsCloudTrailDataConnectorDataTypesLogsOutput) ElementType() reflect.Type {
@@ -1468,12 +1418,11 @@ func (o AwsCloudTrailDataConnectorDataTypesLogsOutput) ToAwsCloudTrailDataConnec
 }
 
 func (o AwsCloudTrailDataConnectorDataTypesLogsOutput) ToAwsCloudTrailDataConnectorDataTypesLogsPtrOutputWithContext(ctx context.Context) AwsCloudTrailDataConnectorDataTypesLogsPtrOutput {
-	return o.ApplyT(func(v AwsCloudTrailDataConnectorDataTypesLogs) *AwsCloudTrailDataConnectorDataTypesLogs {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v AwsCloudTrailDataConnectorDataTypesLogs) *AwsCloudTrailDataConnectorDataTypesLogs {
 		return &v
 	}).(AwsCloudTrailDataConnectorDataTypesLogsPtrOutput)
 }
 
-// Describe whether this data type connection is enabled or not.
 func (o AwsCloudTrailDataConnectorDataTypesLogsOutput) State() pulumi.StringOutput {
 	return o.ApplyT(func(v AwsCloudTrailDataConnectorDataTypesLogs) string { return v.State }).(pulumi.StringOutput)
 }
@@ -1493,10 +1442,15 @@ func (o AwsCloudTrailDataConnectorDataTypesLogsPtrOutput) ToAwsCloudTrailDataCon
 }
 
 func (o AwsCloudTrailDataConnectorDataTypesLogsPtrOutput) Elem() AwsCloudTrailDataConnectorDataTypesLogsOutput {
-	return o.ApplyT(func(v *AwsCloudTrailDataConnectorDataTypesLogs) AwsCloudTrailDataConnectorDataTypesLogs { return *v }).(AwsCloudTrailDataConnectorDataTypesLogsOutput)
+	return o.ApplyT(func(v *AwsCloudTrailDataConnectorDataTypesLogs) AwsCloudTrailDataConnectorDataTypesLogs {
+		if v != nil {
+			return *v
+		}
+		var ret AwsCloudTrailDataConnectorDataTypesLogs
+		return ret
+	}).(AwsCloudTrailDataConnectorDataTypesLogsOutput)
 }
 
-// Describe whether this data type connection is enabled or not.
 func (o AwsCloudTrailDataConnectorDataTypesLogsPtrOutput) State() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *AwsCloudTrailDataConnectorDataTypesLogs) *string {
 		if v == nil {
@@ -1506,9 +1460,7 @@ func (o AwsCloudTrailDataConnectorDataTypesLogsPtrOutput) State() pulumi.StringP
 	}).(pulumi.StringPtrOutput)
 }
 
-// The available data types for Amazon Web Services CloudTrail data connector.
 type AwsCloudTrailDataConnectorDataTypesResponse struct {
-	// Logs data type.
 	Logs AwsCloudTrailDataConnectorDataTypesResponseLogs `pulumi:"logs"`
 }
 
@@ -1523,9 +1475,7 @@ type AwsCloudTrailDataConnectorDataTypesResponseInput interface {
 	ToAwsCloudTrailDataConnectorDataTypesResponseOutputWithContext(context.Context) AwsCloudTrailDataConnectorDataTypesResponseOutput
 }
 
-// The available data types for Amazon Web Services CloudTrail data connector.
 type AwsCloudTrailDataConnectorDataTypesResponseArgs struct {
-	// Logs data type.
 	Logs AwsCloudTrailDataConnectorDataTypesResponseLogsInput `pulumi:"logs"`
 }
 
@@ -1582,7 +1532,6 @@ func (i *awsCloudTrailDataConnectorDataTypesResponsePtrType) ToAwsCloudTrailData
 	return pulumi.ToOutputWithContext(ctx, i).(AwsCloudTrailDataConnectorDataTypesResponsePtrOutput)
 }
 
-// The available data types for Amazon Web Services CloudTrail data connector.
 type AwsCloudTrailDataConnectorDataTypesResponseOutput struct{ *pulumi.OutputState }
 
 func (AwsCloudTrailDataConnectorDataTypesResponseOutput) ElementType() reflect.Type {
@@ -1602,12 +1551,11 @@ func (o AwsCloudTrailDataConnectorDataTypesResponseOutput) ToAwsCloudTrailDataCo
 }
 
 func (o AwsCloudTrailDataConnectorDataTypesResponseOutput) ToAwsCloudTrailDataConnectorDataTypesResponsePtrOutputWithContext(ctx context.Context) AwsCloudTrailDataConnectorDataTypesResponsePtrOutput {
-	return o.ApplyT(func(v AwsCloudTrailDataConnectorDataTypesResponse) *AwsCloudTrailDataConnectorDataTypesResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v AwsCloudTrailDataConnectorDataTypesResponse) *AwsCloudTrailDataConnectorDataTypesResponse {
 		return &v
 	}).(AwsCloudTrailDataConnectorDataTypesResponsePtrOutput)
 }
 
-// Logs data type.
 func (o AwsCloudTrailDataConnectorDataTypesResponseOutput) Logs() AwsCloudTrailDataConnectorDataTypesResponseLogsOutput {
 	return o.ApplyT(func(v AwsCloudTrailDataConnectorDataTypesResponse) AwsCloudTrailDataConnectorDataTypesResponseLogs {
 		return v.Logs
@@ -1630,11 +1578,14 @@ func (o AwsCloudTrailDataConnectorDataTypesResponsePtrOutput) ToAwsCloudTrailDat
 
 func (o AwsCloudTrailDataConnectorDataTypesResponsePtrOutput) Elem() AwsCloudTrailDataConnectorDataTypesResponseOutput {
 	return o.ApplyT(func(v *AwsCloudTrailDataConnectorDataTypesResponse) AwsCloudTrailDataConnectorDataTypesResponse {
-		return *v
+		if v != nil {
+			return *v
+		}
+		var ret AwsCloudTrailDataConnectorDataTypesResponse
+		return ret
 	}).(AwsCloudTrailDataConnectorDataTypesResponseOutput)
 }
 
-// Logs data type.
 func (o AwsCloudTrailDataConnectorDataTypesResponsePtrOutput) Logs() AwsCloudTrailDataConnectorDataTypesResponseLogsPtrOutput {
 	return o.ApplyT(func(v *AwsCloudTrailDataConnectorDataTypesResponse) *AwsCloudTrailDataConnectorDataTypesResponseLogs {
 		if v == nil {
@@ -1644,9 +1595,7 @@ func (o AwsCloudTrailDataConnectorDataTypesResponsePtrOutput) Logs() AwsCloudTra
 	}).(AwsCloudTrailDataConnectorDataTypesResponseLogsPtrOutput)
 }
 
-// Logs data type.
 type AwsCloudTrailDataConnectorDataTypesResponseLogs struct {
-	// Describe whether this data type connection is enabled or not.
 	State string `pulumi:"state"`
 }
 
@@ -1661,9 +1610,7 @@ type AwsCloudTrailDataConnectorDataTypesResponseLogsInput interface {
 	ToAwsCloudTrailDataConnectorDataTypesResponseLogsOutputWithContext(context.Context) AwsCloudTrailDataConnectorDataTypesResponseLogsOutput
 }
 
-// Logs data type.
 type AwsCloudTrailDataConnectorDataTypesResponseLogsArgs struct {
-	// Describe whether this data type connection is enabled or not.
 	State pulumi.StringInput `pulumi:"state"`
 }
 
@@ -1720,7 +1667,6 @@ func (i *awsCloudTrailDataConnectorDataTypesResponseLogsPtrType) ToAwsCloudTrail
 	return pulumi.ToOutputWithContext(ctx, i).(AwsCloudTrailDataConnectorDataTypesResponseLogsPtrOutput)
 }
 
-// Logs data type.
 type AwsCloudTrailDataConnectorDataTypesResponseLogsOutput struct{ *pulumi.OutputState }
 
 func (AwsCloudTrailDataConnectorDataTypesResponseLogsOutput) ElementType() reflect.Type {
@@ -1740,12 +1686,11 @@ func (o AwsCloudTrailDataConnectorDataTypesResponseLogsOutput) ToAwsCloudTrailDa
 }
 
 func (o AwsCloudTrailDataConnectorDataTypesResponseLogsOutput) ToAwsCloudTrailDataConnectorDataTypesResponseLogsPtrOutputWithContext(ctx context.Context) AwsCloudTrailDataConnectorDataTypesResponseLogsPtrOutput {
-	return o.ApplyT(func(v AwsCloudTrailDataConnectorDataTypesResponseLogs) *AwsCloudTrailDataConnectorDataTypesResponseLogs {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v AwsCloudTrailDataConnectorDataTypesResponseLogs) *AwsCloudTrailDataConnectorDataTypesResponseLogs {
 		return &v
 	}).(AwsCloudTrailDataConnectorDataTypesResponseLogsPtrOutput)
 }
 
-// Describe whether this data type connection is enabled or not.
 func (o AwsCloudTrailDataConnectorDataTypesResponseLogsOutput) State() pulumi.StringOutput {
 	return o.ApplyT(func(v AwsCloudTrailDataConnectorDataTypesResponseLogs) string { return v.State }).(pulumi.StringOutput)
 }
@@ -1766,11 +1711,14 @@ func (o AwsCloudTrailDataConnectorDataTypesResponseLogsPtrOutput) ToAwsCloudTrai
 
 func (o AwsCloudTrailDataConnectorDataTypesResponseLogsPtrOutput) Elem() AwsCloudTrailDataConnectorDataTypesResponseLogsOutput {
 	return o.ApplyT(func(v *AwsCloudTrailDataConnectorDataTypesResponseLogs) AwsCloudTrailDataConnectorDataTypesResponseLogs {
-		return *v
+		if v != nil {
+			return *v
+		}
+		var ret AwsCloudTrailDataConnectorDataTypesResponseLogs
+		return ret
 	}).(AwsCloudTrailDataConnectorDataTypesResponseLogsOutput)
 }
 
-// Describe whether this data type connection is enabled or not.
 func (o AwsCloudTrailDataConnectorDataTypesResponseLogsPtrOutput) State() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *AwsCloudTrailDataConnectorDataTypesResponseLogs) *string {
 		if v == nil {
@@ -1780,15 +1728,10 @@ func (o AwsCloudTrailDataConnectorDataTypesResponseLogsPtrOutput) State() pulumi
 	}).(pulumi.StringPtrOutput)
 }
 
-// Information on the client (user or application) that made some action
 type ClientInfoResponse struct {
-	// The email of the client.
-	Email *string `pulumi:"email"`
-	// The name of the client.
-	Name *string `pulumi:"name"`
-	// The object id of the client.
-	ObjectId *string `pulumi:"objectId"`
-	// The user principal name of the client.
+	Email             *string `pulumi:"email"`
+	Name              *string `pulumi:"name"`
+	ObjectId          *string `pulumi:"objectId"`
 	UserPrincipalName *string `pulumi:"userPrincipalName"`
 }
 
@@ -1803,15 +1746,10 @@ type ClientInfoResponseInput interface {
 	ToClientInfoResponseOutputWithContext(context.Context) ClientInfoResponseOutput
 }
 
-// Information on the client (user or application) that made some action
 type ClientInfoResponseArgs struct {
-	// The email of the client.
-	Email pulumi.StringPtrInput `pulumi:"email"`
-	// The name of the client.
-	Name pulumi.StringPtrInput `pulumi:"name"`
-	// The object id of the client.
-	ObjectId pulumi.StringPtrInput `pulumi:"objectId"`
-	// The user principal name of the client.
+	Email             pulumi.StringPtrInput `pulumi:"email"`
+	Name              pulumi.StringPtrInput `pulumi:"name"`
+	ObjectId          pulumi.StringPtrInput `pulumi:"objectId"`
 	UserPrincipalName pulumi.StringPtrInput `pulumi:"userPrincipalName"`
 }
 
@@ -1868,7 +1806,6 @@ func (i *clientInfoResponsePtrType) ToClientInfoResponsePtrOutputWithContext(ctx
 	return pulumi.ToOutputWithContext(ctx, i).(ClientInfoResponsePtrOutput)
 }
 
-// Information on the client (user or application) that made some action
 type ClientInfoResponseOutput struct{ *pulumi.OutputState }
 
 func (ClientInfoResponseOutput) ElementType() reflect.Type {
@@ -1888,27 +1825,23 @@ func (o ClientInfoResponseOutput) ToClientInfoResponsePtrOutput() ClientInfoResp
 }
 
 func (o ClientInfoResponseOutput) ToClientInfoResponsePtrOutputWithContext(ctx context.Context) ClientInfoResponsePtrOutput {
-	return o.ApplyT(func(v ClientInfoResponse) *ClientInfoResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ClientInfoResponse) *ClientInfoResponse {
 		return &v
 	}).(ClientInfoResponsePtrOutput)
 }
 
-// The email of the client.
 func (o ClientInfoResponseOutput) Email() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ClientInfoResponse) *string { return v.Email }).(pulumi.StringPtrOutput)
 }
 
-// The name of the client.
 func (o ClientInfoResponseOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ClientInfoResponse) *string { return v.Name }).(pulumi.StringPtrOutput)
 }
 
-// The object id of the client.
 func (o ClientInfoResponseOutput) ObjectId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ClientInfoResponse) *string { return v.ObjectId }).(pulumi.StringPtrOutput)
 }
 
-// The user principal name of the client.
 func (o ClientInfoResponseOutput) UserPrincipalName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ClientInfoResponse) *string { return v.UserPrincipalName }).(pulumi.StringPtrOutput)
 }
@@ -1928,10 +1861,15 @@ func (o ClientInfoResponsePtrOutput) ToClientInfoResponsePtrOutputWithContext(ct
 }
 
 func (o ClientInfoResponsePtrOutput) Elem() ClientInfoResponseOutput {
-	return o.ApplyT(func(v *ClientInfoResponse) ClientInfoResponse { return *v }).(ClientInfoResponseOutput)
+	return o.ApplyT(func(v *ClientInfoResponse) ClientInfoResponse {
+		if v != nil {
+			return *v
+		}
+		var ret ClientInfoResponse
+		return ret
+	}).(ClientInfoResponseOutput)
 }
 
-// The email of the client.
 func (o ClientInfoResponsePtrOutput) Email() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ClientInfoResponse) *string {
 		if v == nil {
@@ -1941,7 +1879,6 @@ func (o ClientInfoResponsePtrOutput) Email() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The name of the client.
 func (o ClientInfoResponsePtrOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ClientInfoResponse) *string {
 		if v == nil {
@@ -1951,7 +1888,6 @@ func (o ClientInfoResponsePtrOutput) Name() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The object id of the client.
 func (o ClientInfoResponsePtrOutput) ObjectId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ClientInfoResponse) *string {
 		if v == nil {
@@ -1961,7 +1897,6 @@ func (o ClientInfoResponsePtrOutput) ObjectId() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The user principal name of the client.
 func (o ClientInfoResponsePtrOutput) UserPrincipalName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ClientInfoResponse) *string {
 		if v == nil {
@@ -1971,32 +1906,19 @@ func (o ClientInfoResponsePtrOutput) UserPrincipalName() pulumi.StringPtrOutput 
 	}).(pulumi.StringPtrOutput)
 }
 
-// Config to describe the instructions blade
 type CodelessUiConnectorConfigProperties struct {
-	// Connector Availability Status
-	Availability Availability `pulumi:"availability"`
-	// Define the way the connector check connectivity
-	ConnectivityCriteria []CodelessUiConnectorConfigPropertiesConnectivityCriteria `pulumi:"connectivityCriteria"`
-	// An optional custom image to be used when displaying the connector within Azure Sentinel's connector's gallery
-	CustomImage *string `pulumi:"customImage"`
-	// Data types to check for last data received
-	DataTypes []CodelessUiConnectorConfigPropertiesDataTypes `pulumi:"dataTypes"`
-	// Connector description
-	DescriptionMarkdown string `pulumi:"descriptionMarkdown"`
-	// The graph query to show the current data status
-	GraphQueries []CodelessUiConnectorConfigPropertiesGraphQueries `pulumi:"graphQueries"`
-	// Name of the table the connector will insert the data to
-	GraphQueriesTableName string `pulumi:"graphQueriesTableName"`
-	// Instruction steps to enable the connector
-	InstructionSteps []CodelessUiConnectorConfigPropertiesInstructionSteps `pulumi:"instructionSteps"`
-	// Permissions required for the connector
-	Permissions Permissions `pulumi:"permissions"`
-	// Connector publisher name
-	Publisher string `pulumi:"publisher"`
-	// The sample queries for the connector
-	SampleQueries []CodelessUiConnectorConfigPropertiesSampleQueries `pulumi:"sampleQueries"`
-	// Connector blade title
-	Title string `pulumi:"title"`
+	Availability          Availability                                              `pulumi:"availability"`
+	ConnectivityCriteria  []CodelessUiConnectorConfigPropertiesConnectivityCriteria `pulumi:"connectivityCriteria"`
+	CustomImage           *string                                                   `pulumi:"customImage"`
+	DataTypes             []CodelessUiConnectorConfigPropertiesDataTypes            `pulumi:"dataTypes"`
+	DescriptionMarkdown   string                                                    `pulumi:"descriptionMarkdown"`
+	GraphQueries          []CodelessUiConnectorConfigPropertiesGraphQueries         `pulumi:"graphQueries"`
+	GraphQueriesTableName string                                                    `pulumi:"graphQueriesTableName"`
+	InstructionSteps      []CodelessUiConnectorConfigPropertiesInstructionSteps     `pulumi:"instructionSteps"`
+	Permissions           Permissions                                               `pulumi:"permissions"`
+	Publisher             string                                                    `pulumi:"publisher"`
+	SampleQueries         []CodelessUiConnectorConfigPropertiesSampleQueries        `pulumi:"sampleQueries"`
+	Title                 string                                                    `pulumi:"title"`
 }
 
 // CodelessUiConnectorConfigPropertiesInput is an input type that accepts CodelessUiConnectorConfigPropertiesArgs and CodelessUiConnectorConfigPropertiesOutput values.
@@ -2010,32 +1932,19 @@ type CodelessUiConnectorConfigPropertiesInput interface {
 	ToCodelessUiConnectorConfigPropertiesOutputWithContext(context.Context) CodelessUiConnectorConfigPropertiesOutput
 }
 
-// Config to describe the instructions blade
 type CodelessUiConnectorConfigPropertiesArgs struct {
-	// Connector Availability Status
-	Availability AvailabilityInput `pulumi:"availability"`
-	// Define the way the connector check connectivity
-	ConnectivityCriteria CodelessUiConnectorConfigPropertiesConnectivityCriteriaArrayInput `pulumi:"connectivityCriteria"`
-	// An optional custom image to be used when displaying the connector within Azure Sentinel's connector's gallery
-	CustomImage pulumi.StringPtrInput `pulumi:"customImage"`
-	// Data types to check for last data received
-	DataTypes CodelessUiConnectorConfigPropertiesDataTypesArrayInput `pulumi:"dataTypes"`
-	// Connector description
-	DescriptionMarkdown pulumi.StringInput `pulumi:"descriptionMarkdown"`
-	// The graph query to show the current data status
-	GraphQueries CodelessUiConnectorConfigPropertiesGraphQueriesArrayInput `pulumi:"graphQueries"`
-	// Name of the table the connector will insert the data to
-	GraphQueriesTableName pulumi.StringInput `pulumi:"graphQueriesTableName"`
-	// Instruction steps to enable the connector
-	InstructionSteps CodelessUiConnectorConfigPropertiesInstructionStepsArrayInput `pulumi:"instructionSteps"`
-	// Permissions required for the connector
-	Permissions PermissionsInput `pulumi:"permissions"`
-	// Connector publisher name
-	Publisher pulumi.StringInput `pulumi:"publisher"`
-	// The sample queries for the connector
-	SampleQueries CodelessUiConnectorConfigPropertiesSampleQueriesArrayInput `pulumi:"sampleQueries"`
-	// Connector blade title
-	Title pulumi.StringInput `pulumi:"title"`
+	Availability          AvailabilityInput                                                 `pulumi:"availability"`
+	ConnectivityCriteria  CodelessUiConnectorConfigPropertiesConnectivityCriteriaArrayInput `pulumi:"connectivityCriteria"`
+	CustomImage           pulumi.StringPtrInput                                             `pulumi:"customImage"`
+	DataTypes             CodelessUiConnectorConfigPropertiesDataTypesArrayInput            `pulumi:"dataTypes"`
+	DescriptionMarkdown   pulumi.StringInput                                                `pulumi:"descriptionMarkdown"`
+	GraphQueries          CodelessUiConnectorConfigPropertiesGraphQueriesArrayInput         `pulumi:"graphQueries"`
+	GraphQueriesTableName pulumi.StringInput                                                `pulumi:"graphQueriesTableName"`
+	InstructionSteps      CodelessUiConnectorConfigPropertiesInstructionStepsArrayInput     `pulumi:"instructionSteps"`
+	Permissions           PermissionsInput                                                  `pulumi:"permissions"`
+	Publisher             pulumi.StringInput                                                `pulumi:"publisher"`
+	SampleQueries         CodelessUiConnectorConfigPropertiesSampleQueriesArrayInput        `pulumi:"sampleQueries"`
+	Title                 pulumi.StringInput                                                `pulumi:"title"`
 }
 
 func (CodelessUiConnectorConfigPropertiesArgs) ElementType() reflect.Type {
@@ -2091,7 +2000,6 @@ func (i *codelessUiConnectorConfigPropertiesPtrType) ToCodelessUiConnectorConfig
 	return pulumi.ToOutputWithContext(ctx, i).(CodelessUiConnectorConfigPropertiesPtrOutput)
 }
 
-// Config to describe the instructions blade
 type CodelessUiConnectorConfigPropertiesOutput struct{ *pulumi.OutputState }
 
 func (CodelessUiConnectorConfigPropertiesOutput) ElementType() reflect.Type {
@@ -2111,77 +2019,65 @@ func (o CodelessUiConnectorConfigPropertiesOutput) ToCodelessUiConnectorConfigPr
 }
 
 func (o CodelessUiConnectorConfigPropertiesOutput) ToCodelessUiConnectorConfigPropertiesPtrOutputWithContext(ctx context.Context) CodelessUiConnectorConfigPropertiesPtrOutput {
-	return o.ApplyT(func(v CodelessUiConnectorConfigProperties) *CodelessUiConnectorConfigProperties {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v CodelessUiConnectorConfigProperties) *CodelessUiConnectorConfigProperties {
 		return &v
 	}).(CodelessUiConnectorConfigPropertiesPtrOutput)
 }
 
-// Connector Availability Status
 func (o CodelessUiConnectorConfigPropertiesOutput) Availability() AvailabilityOutput {
 	return o.ApplyT(func(v CodelessUiConnectorConfigProperties) Availability { return v.Availability }).(AvailabilityOutput)
 }
 
-// Define the way the connector check connectivity
 func (o CodelessUiConnectorConfigPropertiesOutput) ConnectivityCriteria() CodelessUiConnectorConfigPropertiesConnectivityCriteriaArrayOutput {
 	return o.ApplyT(func(v CodelessUiConnectorConfigProperties) []CodelessUiConnectorConfigPropertiesConnectivityCriteria {
 		return v.ConnectivityCriteria
 	}).(CodelessUiConnectorConfigPropertiesConnectivityCriteriaArrayOutput)
 }
 
-// An optional custom image to be used when displaying the connector within Azure Sentinel's connector's gallery
 func (o CodelessUiConnectorConfigPropertiesOutput) CustomImage() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v CodelessUiConnectorConfigProperties) *string { return v.CustomImage }).(pulumi.StringPtrOutput)
 }
 
-// Data types to check for last data received
 func (o CodelessUiConnectorConfigPropertiesOutput) DataTypes() CodelessUiConnectorConfigPropertiesDataTypesArrayOutput {
 	return o.ApplyT(func(v CodelessUiConnectorConfigProperties) []CodelessUiConnectorConfigPropertiesDataTypes {
 		return v.DataTypes
 	}).(CodelessUiConnectorConfigPropertiesDataTypesArrayOutput)
 }
 
-// Connector description
 func (o CodelessUiConnectorConfigPropertiesOutput) DescriptionMarkdown() pulumi.StringOutput {
 	return o.ApplyT(func(v CodelessUiConnectorConfigProperties) string { return v.DescriptionMarkdown }).(pulumi.StringOutput)
 }
 
-// The graph query to show the current data status
 func (o CodelessUiConnectorConfigPropertiesOutput) GraphQueries() CodelessUiConnectorConfigPropertiesGraphQueriesArrayOutput {
 	return o.ApplyT(func(v CodelessUiConnectorConfigProperties) []CodelessUiConnectorConfigPropertiesGraphQueries {
 		return v.GraphQueries
 	}).(CodelessUiConnectorConfigPropertiesGraphQueriesArrayOutput)
 }
 
-// Name of the table the connector will insert the data to
 func (o CodelessUiConnectorConfigPropertiesOutput) GraphQueriesTableName() pulumi.StringOutput {
 	return o.ApplyT(func(v CodelessUiConnectorConfigProperties) string { return v.GraphQueriesTableName }).(pulumi.StringOutput)
 }
 
-// Instruction steps to enable the connector
 func (o CodelessUiConnectorConfigPropertiesOutput) InstructionSteps() CodelessUiConnectorConfigPropertiesInstructionStepsArrayOutput {
 	return o.ApplyT(func(v CodelessUiConnectorConfigProperties) []CodelessUiConnectorConfigPropertiesInstructionSteps {
 		return v.InstructionSteps
 	}).(CodelessUiConnectorConfigPropertiesInstructionStepsArrayOutput)
 }
 
-// Permissions required for the connector
 func (o CodelessUiConnectorConfigPropertiesOutput) Permissions() PermissionsOutput {
 	return o.ApplyT(func(v CodelessUiConnectorConfigProperties) Permissions { return v.Permissions }).(PermissionsOutput)
 }
 
-// Connector publisher name
 func (o CodelessUiConnectorConfigPropertiesOutput) Publisher() pulumi.StringOutput {
 	return o.ApplyT(func(v CodelessUiConnectorConfigProperties) string { return v.Publisher }).(pulumi.StringOutput)
 }
 
-// The sample queries for the connector
 func (o CodelessUiConnectorConfigPropertiesOutput) SampleQueries() CodelessUiConnectorConfigPropertiesSampleQueriesArrayOutput {
 	return o.ApplyT(func(v CodelessUiConnectorConfigProperties) []CodelessUiConnectorConfigPropertiesSampleQueries {
 		return v.SampleQueries
 	}).(CodelessUiConnectorConfigPropertiesSampleQueriesArrayOutput)
 }
 
-// Connector blade title
 func (o CodelessUiConnectorConfigPropertiesOutput) Title() pulumi.StringOutput {
 	return o.ApplyT(func(v CodelessUiConnectorConfigProperties) string { return v.Title }).(pulumi.StringOutput)
 }
@@ -2201,10 +2097,15 @@ func (o CodelessUiConnectorConfigPropertiesPtrOutput) ToCodelessUiConnectorConfi
 }
 
 func (o CodelessUiConnectorConfigPropertiesPtrOutput) Elem() CodelessUiConnectorConfigPropertiesOutput {
-	return o.ApplyT(func(v *CodelessUiConnectorConfigProperties) CodelessUiConnectorConfigProperties { return *v }).(CodelessUiConnectorConfigPropertiesOutput)
+	return o.ApplyT(func(v *CodelessUiConnectorConfigProperties) CodelessUiConnectorConfigProperties {
+		if v != nil {
+			return *v
+		}
+		var ret CodelessUiConnectorConfigProperties
+		return ret
+	}).(CodelessUiConnectorConfigPropertiesOutput)
 }
 
-// Connector Availability Status
 func (o CodelessUiConnectorConfigPropertiesPtrOutput) Availability() AvailabilityPtrOutput {
 	return o.ApplyT(func(v *CodelessUiConnectorConfigProperties) *Availability {
 		if v == nil {
@@ -2214,7 +2115,6 @@ func (o CodelessUiConnectorConfigPropertiesPtrOutput) Availability() Availabilit
 	}).(AvailabilityPtrOutput)
 }
 
-// Define the way the connector check connectivity
 func (o CodelessUiConnectorConfigPropertiesPtrOutput) ConnectivityCriteria() CodelessUiConnectorConfigPropertiesConnectivityCriteriaArrayOutput {
 	return o.ApplyT(func(v *CodelessUiConnectorConfigProperties) []CodelessUiConnectorConfigPropertiesConnectivityCriteria {
 		if v == nil {
@@ -2224,7 +2124,6 @@ func (o CodelessUiConnectorConfigPropertiesPtrOutput) ConnectivityCriteria() Cod
 	}).(CodelessUiConnectorConfigPropertiesConnectivityCriteriaArrayOutput)
 }
 
-// An optional custom image to be used when displaying the connector within Azure Sentinel's connector's gallery
 func (o CodelessUiConnectorConfigPropertiesPtrOutput) CustomImage() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *CodelessUiConnectorConfigProperties) *string {
 		if v == nil {
@@ -2234,7 +2133,6 @@ func (o CodelessUiConnectorConfigPropertiesPtrOutput) CustomImage() pulumi.Strin
 	}).(pulumi.StringPtrOutput)
 }
 
-// Data types to check for last data received
 func (o CodelessUiConnectorConfigPropertiesPtrOutput) DataTypes() CodelessUiConnectorConfigPropertiesDataTypesArrayOutput {
 	return o.ApplyT(func(v *CodelessUiConnectorConfigProperties) []CodelessUiConnectorConfigPropertiesDataTypes {
 		if v == nil {
@@ -2244,7 +2142,6 @@ func (o CodelessUiConnectorConfigPropertiesPtrOutput) DataTypes() CodelessUiConn
 	}).(CodelessUiConnectorConfigPropertiesDataTypesArrayOutput)
 }
 
-// Connector description
 func (o CodelessUiConnectorConfigPropertiesPtrOutput) DescriptionMarkdown() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *CodelessUiConnectorConfigProperties) *string {
 		if v == nil {
@@ -2254,7 +2151,6 @@ func (o CodelessUiConnectorConfigPropertiesPtrOutput) DescriptionMarkdown() pulu
 	}).(pulumi.StringPtrOutput)
 }
 
-// The graph query to show the current data status
 func (o CodelessUiConnectorConfigPropertiesPtrOutput) GraphQueries() CodelessUiConnectorConfigPropertiesGraphQueriesArrayOutput {
 	return o.ApplyT(func(v *CodelessUiConnectorConfigProperties) []CodelessUiConnectorConfigPropertiesGraphQueries {
 		if v == nil {
@@ -2264,7 +2160,6 @@ func (o CodelessUiConnectorConfigPropertiesPtrOutput) GraphQueries() CodelessUiC
 	}).(CodelessUiConnectorConfigPropertiesGraphQueriesArrayOutput)
 }
 
-// Name of the table the connector will insert the data to
 func (o CodelessUiConnectorConfigPropertiesPtrOutput) GraphQueriesTableName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *CodelessUiConnectorConfigProperties) *string {
 		if v == nil {
@@ -2274,7 +2169,6 @@ func (o CodelessUiConnectorConfigPropertiesPtrOutput) GraphQueriesTableName() pu
 	}).(pulumi.StringPtrOutput)
 }
 
-// Instruction steps to enable the connector
 func (o CodelessUiConnectorConfigPropertiesPtrOutput) InstructionSteps() CodelessUiConnectorConfigPropertiesInstructionStepsArrayOutput {
 	return o.ApplyT(func(v *CodelessUiConnectorConfigProperties) []CodelessUiConnectorConfigPropertiesInstructionSteps {
 		if v == nil {
@@ -2284,7 +2178,6 @@ func (o CodelessUiConnectorConfigPropertiesPtrOutput) InstructionSteps() Codeles
 	}).(CodelessUiConnectorConfigPropertiesInstructionStepsArrayOutput)
 }
 
-// Permissions required for the connector
 func (o CodelessUiConnectorConfigPropertiesPtrOutput) Permissions() PermissionsPtrOutput {
 	return o.ApplyT(func(v *CodelessUiConnectorConfigProperties) *Permissions {
 		if v == nil {
@@ -2294,7 +2187,6 @@ func (o CodelessUiConnectorConfigPropertiesPtrOutput) Permissions() PermissionsP
 	}).(PermissionsPtrOutput)
 }
 
-// Connector publisher name
 func (o CodelessUiConnectorConfigPropertiesPtrOutput) Publisher() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *CodelessUiConnectorConfigProperties) *string {
 		if v == nil {
@@ -2304,7 +2196,6 @@ func (o CodelessUiConnectorConfigPropertiesPtrOutput) Publisher() pulumi.StringP
 	}).(pulumi.StringPtrOutput)
 }
 
-// The sample queries for the connector
 func (o CodelessUiConnectorConfigPropertiesPtrOutput) SampleQueries() CodelessUiConnectorConfigPropertiesSampleQueriesArrayOutput {
 	return o.ApplyT(func(v *CodelessUiConnectorConfigProperties) []CodelessUiConnectorConfigPropertiesSampleQueries {
 		if v == nil {
@@ -2314,7 +2205,6 @@ func (o CodelessUiConnectorConfigPropertiesPtrOutput) SampleQueries() CodelessUi
 	}).(CodelessUiConnectorConfigPropertiesSampleQueriesArrayOutput)
 }
 
-// Connector blade title
 func (o CodelessUiConnectorConfigPropertiesPtrOutput) Title() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *CodelessUiConnectorConfigProperties) *string {
 		if v == nil {
@@ -2325,9 +2215,7 @@ func (o CodelessUiConnectorConfigPropertiesPtrOutput) Title() pulumi.StringPtrOu
 }
 
 type CodelessUiConnectorConfigPropertiesConnectivityCriteria struct {
-	// type of connectivity
-	Type *string `pulumi:"type"`
-	// Queries for checking connectivity
+	Type  *string  `pulumi:"type"`
 	Value []string `pulumi:"value"`
 }
 
@@ -2343,9 +2231,7 @@ type CodelessUiConnectorConfigPropertiesConnectivityCriteriaInput interface {
 }
 
 type CodelessUiConnectorConfigPropertiesConnectivityCriteriaArgs struct {
-	// type of connectivity
-	Type pulumi.StringPtrInput `pulumi:"type"`
-	// Queries for checking connectivity
+	Type  pulumi.StringPtrInput   `pulumi:"type"`
 	Value pulumi.StringArrayInput `pulumi:"value"`
 }
 
@@ -2400,12 +2286,10 @@ func (o CodelessUiConnectorConfigPropertiesConnectivityCriteriaOutput) ToCodeles
 	return o
 }
 
-// type of connectivity
 func (o CodelessUiConnectorConfigPropertiesConnectivityCriteriaOutput) Type() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v CodelessUiConnectorConfigPropertiesConnectivityCriteria) *string { return v.Type }).(pulumi.StringPtrOutput)
 }
 
-// Queries for checking connectivity
 func (o CodelessUiConnectorConfigPropertiesConnectivityCriteriaOutput) Value() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v CodelessUiConnectorConfigPropertiesConnectivityCriteria) []string { return v.Value }).(pulumi.StringArrayOutput)
 }
@@ -2431,10 +2315,8 @@ func (o CodelessUiConnectorConfigPropertiesConnectivityCriteriaArrayOutput) Inde
 }
 
 type CodelessUiConnectorConfigPropertiesDataTypes struct {
-	// Query for indicate last data received
 	LastDataReceivedQuery *string `pulumi:"lastDataReceivedQuery"`
-	// Name of the data type to show in the graph. can be use with {{graphQueriesTableName}} placeholder
-	Name *string `pulumi:"name"`
+	Name                  *string `pulumi:"name"`
 }
 
 // CodelessUiConnectorConfigPropertiesDataTypesInput is an input type that accepts CodelessUiConnectorConfigPropertiesDataTypesArgs and CodelessUiConnectorConfigPropertiesDataTypesOutput values.
@@ -2449,10 +2331,8 @@ type CodelessUiConnectorConfigPropertiesDataTypesInput interface {
 }
 
 type CodelessUiConnectorConfigPropertiesDataTypesArgs struct {
-	// Query for indicate last data received
 	LastDataReceivedQuery pulumi.StringPtrInput `pulumi:"lastDataReceivedQuery"`
-	// Name of the data type to show in the graph. can be use with {{graphQueriesTableName}} placeholder
-	Name pulumi.StringPtrInput `pulumi:"name"`
+	Name                  pulumi.StringPtrInput `pulumi:"name"`
 }
 
 func (CodelessUiConnectorConfigPropertiesDataTypesArgs) ElementType() reflect.Type {
@@ -2506,12 +2386,10 @@ func (o CodelessUiConnectorConfigPropertiesDataTypesOutput) ToCodelessUiConnecto
 	return o
 }
 
-// Query for indicate last data received
 func (o CodelessUiConnectorConfigPropertiesDataTypesOutput) LastDataReceivedQuery() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v CodelessUiConnectorConfigPropertiesDataTypes) *string { return v.LastDataReceivedQuery }).(pulumi.StringPtrOutput)
 }
 
-// Name of the data type to show in the graph. can be use with {{graphQueriesTableName}} placeholder
 func (o CodelessUiConnectorConfigPropertiesDataTypesOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v CodelessUiConnectorConfigPropertiesDataTypes) *string { return v.Name }).(pulumi.StringPtrOutput)
 }
@@ -2537,11 +2415,8 @@ func (o CodelessUiConnectorConfigPropertiesDataTypesArrayOutput) Index(i pulumi.
 }
 
 type CodelessUiConnectorConfigPropertiesGraphQueries struct {
-	// The base query for the graph
-	BaseQuery *string `pulumi:"baseQuery"`
-	// The legend for the graph
-	Legend *string `pulumi:"legend"`
-	// the metric that the query is checking
+	BaseQuery  *string `pulumi:"baseQuery"`
+	Legend     *string `pulumi:"legend"`
 	MetricName *string `pulumi:"metricName"`
 }
 
@@ -2557,11 +2432,8 @@ type CodelessUiConnectorConfigPropertiesGraphQueriesInput interface {
 }
 
 type CodelessUiConnectorConfigPropertiesGraphQueriesArgs struct {
-	// The base query for the graph
-	BaseQuery pulumi.StringPtrInput `pulumi:"baseQuery"`
-	// The legend for the graph
-	Legend pulumi.StringPtrInput `pulumi:"legend"`
-	// the metric that the query is checking
+	BaseQuery  pulumi.StringPtrInput `pulumi:"baseQuery"`
+	Legend     pulumi.StringPtrInput `pulumi:"legend"`
 	MetricName pulumi.StringPtrInput `pulumi:"metricName"`
 }
 
@@ -2616,17 +2488,14 @@ func (o CodelessUiConnectorConfigPropertiesGraphQueriesOutput) ToCodelessUiConne
 	return o
 }
 
-// The base query for the graph
 func (o CodelessUiConnectorConfigPropertiesGraphQueriesOutput) BaseQuery() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v CodelessUiConnectorConfigPropertiesGraphQueries) *string { return v.BaseQuery }).(pulumi.StringPtrOutput)
 }
 
-// The legend for the graph
 func (o CodelessUiConnectorConfigPropertiesGraphQueriesOutput) Legend() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v CodelessUiConnectorConfigPropertiesGraphQueries) *string { return v.Legend }).(pulumi.StringPtrOutput)
 }
 
-// the metric that the query is checking
 func (o CodelessUiConnectorConfigPropertiesGraphQueriesOutput) MetricName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v CodelessUiConnectorConfigPropertiesGraphQueries) *string { return v.MetricName }).(pulumi.StringPtrOutput)
 }
@@ -2652,12 +2521,9 @@ func (o CodelessUiConnectorConfigPropertiesGraphQueriesArrayOutput) Index(i pulu
 }
 
 type CodelessUiConnectorConfigPropertiesInstructionSteps struct {
-	// Instruction step description
-	Description *string `pulumi:"description"`
-	// Instruction step details
+	Description  *string                        `pulumi:"description"`
 	Instructions []InstructionStepsInstructions `pulumi:"instructions"`
-	// Instruction step title
-	Title *string `pulumi:"title"`
+	Title        *string                        `pulumi:"title"`
 }
 
 // CodelessUiConnectorConfigPropertiesInstructionStepsInput is an input type that accepts CodelessUiConnectorConfigPropertiesInstructionStepsArgs and CodelessUiConnectorConfigPropertiesInstructionStepsOutput values.
@@ -2672,12 +2538,9 @@ type CodelessUiConnectorConfigPropertiesInstructionStepsInput interface {
 }
 
 type CodelessUiConnectorConfigPropertiesInstructionStepsArgs struct {
-	// Instruction step description
-	Description pulumi.StringPtrInput `pulumi:"description"`
-	// Instruction step details
+	Description  pulumi.StringPtrInput                  `pulumi:"description"`
 	Instructions InstructionStepsInstructionsArrayInput `pulumi:"instructions"`
-	// Instruction step title
-	Title pulumi.StringPtrInput `pulumi:"title"`
+	Title        pulumi.StringPtrInput                  `pulumi:"title"`
 }
 
 func (CodelessUiConnectorConfigPropertiesInstructionStepsArgs) ElementType() reflect.Type {
@@ -2731,19 +2594,16 @@ func (o CodelessUiConnectorConfigPropertiesInstructionStepsOutput) ToCodelessUiC
 	return o
 }
 
-// Instruction step description
 func (o CodelessUiConnectorConfigPropertiesInstructionStepsOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v CodelessUiConnectorConfigPropertiesInstructionSteps) *string { return v.Description }).(pulumi.StringPtrOutput)
 }
 
-// Instruction step details
 func (o CodelessUiConnectorConfigPropertiesInstructionStepsOutput) Instructions() InstructionStepsInstructionsArrayOutput {
 	return o.ApplyT(func(v CodelessUiConnectorConfigPropertiesInstructionSteps) []InstructionStepsInstructions {
 		return v.Instructions
 	}).(InstructionStepsInstructionsArrayOutput)
 }
 
-// Instruction step title
 func (o CodelessUiConnectorConfigPropertiesInstructionStepsOutput) Title() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v CodelessUiConnectorConfigPropertiesInstructionSteps) *string { return v.Title }).(pulumi.StringPtrOutput)
 }
@@ -2768,32 +2628,19 @@ func (o CodelessUiConnectorConfigPropertiesInstructionStepsArrayOutput) Index(i 
 	}).(CodelessUiConnectorConfigPropertiesInstructionStepsOutput)
 }
 
-// Config to describe the instructions blade
 type CodelessUiConnectorConfigPropertiesResponse struct {
-	// Connector Availability Status
-	Availability AvailabilityResponse `pulumi:"availability"`
-	// Define the way the connector check connectivity
-	ConnectivityCriteria []CodelessUiConnectorConfigPropertiesResponseConnectivityCriteria `pulumi:"connectivityCriteria"`
-	// An optional custom image to be used when displaying the connector within Azure Sentinel's connector's gallery
-	CustomImage *string `pulumi:"customImage"`
-	// Data types to check for last data received
-	DataTypes []CodelessUiConnectorConfigPropertiesResponseDataTypes `pulumi:"dataTypes"`
-	// Connector description
-	DescriptionMarkdown string `pulumi:"descriptionMarkdown"`
-	// The graph query to show the current data status
-	GraphQueries []CodelessUiConnectorConfigPropertiesResponseGraphQueries `pulumi:"graphQueries"`
-	// Name of the table the connector will insert the data to
-	GraphQueriesTableName string `pulumi:"graphQueriesTableName"`
-	// Instruction steps to enable the connector
-	InstructionSteps []CodelessUiConnectorConfigPropertiesResponseInstructionSteps `pulumi:"instructionSteps"`
-	// Permissions required for the connector
-	Permissions PermissionsResponse `pulumi:"permissions"`
-	// Connector publisher name
-	Publisher string `pulumi:"publisher"`
-	// The sample queries for the connector
-	SampleQueries []CodelessUiConnectorConfigPropertiesResponseSampleQueries `pulumi:"sampleQueries"`
-	// Connector blade title
-	Title string `pulumi:"title"`
+	Availability          AvailabilityResponse                                              `pulumi:"availability"`
+	ConnectivityCriteria  []CodelessUiConnectorConfigPropertiesResponseConnectivityCriteria `pulumi:"connectivityCriteria"`
+	CustomImage           *string                                                           `pulumi:"customImage"`
+	DataTypes             []CodelessUiConnectorConfigPropertiesResponseDataTypes            `pulumi:"dataTypes"`
+	DescriptionMarkdown   string                                                            `pulumi:"descriptionMarkdown"`
+	GraphQueries          []CodelessUiConnectorConfigPropertiesResponseGraphQueries         `pulumi:"graphQueries"`
+	GraphQueriesTableName string                                                            `pulumi:"graphQueriesTableName"`
+	InstructionSteps      []CodelessUiConnectorConfigPropertiesResponseInstructionSteps     `pulumi:"instructionSteps"`
+	Permissions           PermissionsResponse                                               `pulumi:"permissions"`
+	Publisher             string                                                            `pulumi:"publisher"`
+	SampleQueries         []CodelessUiConnectorConfigPropertiesResponseSampleQueries        `pulumi:"sampleQueries"`
+	Title                 string                                                            `pulumi:"title"`
 }
 
 // CodelessUiConnectorConfigPropertiesResponseInput is an input type that accepts CodelessUiConnectorConfigPropertiesResponseArgs and CodelessUiConnectorConfigPropertiesResponseOutput values.
@@ -2807,32 +2654,19 @@ type CodelessUiConnectorConfigPropertiesResponseInput interface {
 	ToCodelessUiConnectorConfigPropertiesResponseOutputWithContext(context.Context) CodelessUiConnectorConfigPropertiesResponseOutput
 }
 
-// Config to describe the instructions blade
 type CodelessUiConnectorConfigPropertiesResponseArgs struct {
-	// Connector Availability Status
-	Availability AvailabilityResponseInput `pulumi:"availability"`
-	// Define the way the connector check connectivity
-	ConnectivityCriteria CodelessUiConnectorConfigPropertiesResponseConnectivityCriteriaArrayInput `pulumi:"connectivityCriteria"`
-	// An optional custom image to be used when displaying the connector within Azure Sentinel's connector's gallery
-	CustomImage pulumi.StringPtrInput `pulumi:"customImage"`
-	// Data types to check for last data received
-	DataTypes CodelessUiConnectorConfigPropertiesResponseDataTypesArrayInput `pulumi:"dataTypes"`
-	// Connector description
-	DescriptionMarkdown pulumi.StringInput `pulumi:"descriptionMarkdown"`
-	// The graph query to show the current data status
-	GraphQueries CodelessUiConnectorConfigPropertiesResponseGraphQueriesArrayInput `pulumi:"graphQueries"`
-	// Name of the table the connector will insert the data to
-	GraphQueriesTableName pulumi.StringInput `pulumi:"graphQueriesTableName"`
-	// Instruction steps to enable the connector
-	InstructionSteps CodelessUiConnectorConfigPropertiesResponseInstructionStepsArrayInput `pulumi:"instructionSteps"`
-	// Permissions required for the connector
-	Permissions PermissionsResponseInput `pulumi:"permissions"`
-	// Connector publisher name
-	Publisher pulumi.StringInput `pulumi:"publisher"`
-	// The sample queries for the connector
-	SampleQueries CodelessUiConnectorConfigPropertiesResponseSampleQueriesArrayInput `pulumi:"sampleQueries"`
-	// Connector blade title
-	Title pulumi.StringInput `pulumi:"title"`
+	Availability          AvailabilityResponseInput                                                 `pulumi:"availability"`
+	ConnectivityCriteria  CodelessUiConnectorConfigPropertiesResponseConnectivityCriteriaArrayInput `pulumi:"connectivityCriteria"`
+	CustomImage           pulumi.StringPtrInput                                                     `pulumi:"customImage"`
+	DataTypes             CodelessUiConnectorConfigPropertiesResponseDataTypesArrayInput            `pulumi:"dataTypes"`
+	DescriptionMarkdown   pulumi.StringInput                                                        `pulumi:"descriptionMarkdown"`
+	GraphQueries          CodelessUiConnectorConfigPropertiesResponseGraphQueriesArrayInput         `pulumi:"graphQueries"`
+	GraphQueriesTableName pulumi.StringInput                                                        `pulumi:"graphQueriesTableName"`
+	InstructionSteps      CodelessUiConnectorConfigPropertiesResponseInstructionStepsArrayInput     `pulumi:"instructionSteps"`
+	Permissions           PermissionsResponseInput                                                  `pulumi:"permissions"`
+	Publisher             pulumi.StringInput                                                        `pulumi:"publisher"`
+	SampleQueries         CodelessUiConnectorConfigPropertiesResponseSampleQueriesArrayInput        `pulumi:"sampleQueries"`
+	Title                 pulumi.StringInput                                                        `pulumi:"title"`
 }
 
 func (CodelessUiConnectorConfigPropertiesResponseArgs) ElementType() reflect.Type {
@@ -2888,7 +2722,6 @@ func (i *codelessUiConnectorConfigPropertiesResponsePtrType) ToCodelessUiConnect
 	return pulumi.ToOutputWithContext(ctx, i).(CodelessUiConnectorConfigPropertiesResponsePtrOutput)
 }
 
-// Config to describe the instructions blade
 type CodelessUiConnectorConfigPropertiesResponseOutput struct{ *pulumi.OutputState }
 
 func (CodelessUiConnectorConfigPropertiesResponseOutput) ElementType() reflect.Type {
@@ -2908,77 +2741,65 @@ func (o CodelessUiConnectorConfigPropertiesResponseOutput) ToCodelessUiConnector
 }
 
 func (o CodelessUiConnectorConfigPropertiesResponseOutput) ToCodelessUiConnectorConfigPropertiesResponsePtrOutputWithContext(ctx context.Context) CodelessUiConnectorConfigPropertiesResponsePtrOutput {
-	return o.ApplyT(func(v CodelessUiConnectorConfigPropertiesResponse) *CodelessUiConnectorConfigPropertiesResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v CodelessUiConnectorConfigPropertiesResponse) *CodelessUiConnectorConfigPropertiesResponse {
 		return &v
 	}).(CodelessUiConnectorConfigPropertiesResponsePtrOutput)
 }
 
-// Connector Availability Status
 func (o CodelessUiConnectorConfigPropertiesResponseOutput) Availability() AvailabilityResponseOutput {
 	return o.ApplyT(func(v CodelessUiConnectorConfigPropertiesResponse) AvailabilityResponse { return v.Availability }).(AvailabilityResponseOutput)
 }
 
-// Define the way the connector check connectivity
 func (o CodelessUiConnectorConfigPropertiesResponseOutput) ConnectivityCriteria() CodelessUiConnectorConfigPropertiesResponseConnectivityCriteriaArrayOutput {
 	return o.ApplyT(func(v CodelessUiConnectorConfigPropertiesResponse) []CodelessUiConnectorConfigPropertiesResponseConnectivityCriteria {
 		return v.ConnectivityCriteria
 	}).(CodelessUiConnectorConfigPropertiesResponseConnectivityCriteriaArrayOutput)
 }
 
-// An optional custom image to be used when displaying the connector within Azure Sentinel's connector's gallery
 func (o CodelessUiConnectorConfigPropertiesResponseOutput) CustomImage() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v CodelessUiConnectorConfigPropertiesResponse) *string { return v.CustomImage }).(pulumi.StringPtrOutput)
 }
 
-// Data types to check for last data received
 func (o CodelessUiConnectorConfigPropertiesResponseOutput) DataTypes() CodelessUiConnectorConfigPropertiesResponseDataTypesArrayOutput {
 	return o.ApplyT(func(v CodelessUiConnectorConfigPropertiesResponse) []CodelessUiConnectorConfigPropertiesResponseDataTypes {
 		return v.DataTypes
 	}).(CodelessUiConnectorConfigPropertiesResponseDataTypesArrayOutput)
 }
 
-// Connector description
 func (o CodelessUiConnectorConfigPropertiesResponseOutput) DescriptionMarkdown() pulumi.StringOutput {
 	return o.ApplyT(func(v CodelessUiConnectorConfigPropertiesResponse) string { return v.DescriptionMarkdown }).(pulumi.StringOutput)
 }
 
-// The graph query to show the current data status
 func (o CodelessUiConnectorConfigPropertiesResponseOutput) GraphQueries() CodelessUiConnectorConfigPropertiesResponseGraphQueriesArrayOutput {
 	return o.ApplyT(func(v CodelessUiConnectorConfigPropertiesResponse) []CodelessUiConnectorConfigPropertiesResponseGraphQueries {
 		return v.GraphQueries
 	}).(CodelessUiConnectorConfigPropertiesResponseGraphQueriesArrayOutput)
 }
 
-// Name of the table the connector will insert the data to
 func (o CodelessUiConnectorConfigPropertiesResponseOutput) GraphQueriesTableName() pulumi.StringOutput {
 	return o.ApplyT(func(v CodelessUiConnectorConfigPropertiesResponse) string { return v.GraphQueriesTableName }).(pulumi.StringOutput)
 }
 
-// Instruction steps to enable the connector
 func (o CodelessUiConnectorConfigPropertiesResponseOutput) InstructionSteps() CodelessUiConnectorConfigPropertiesResponseInstructionStepsArrayOutput {
 	return o.ApplyT(func(v CodelessUiConnectorConfigPropertiesResponse) []CodelessUiConnectorConfigPropertiesResponseInstructionSteps {
 		return v.InstructionSteps
 	}).(CodelessUiConnectorConfigPropertiesResponseInstructionStepsArrayOutput)
 }
 
-// Permissions required for the connector
 func (o CodelessUiConnectorConfigPropertiesResponseOutput) Permissions() PermissionsResponseOutput {
 	return o.ApplyT(func(v CodelessUiConnectorConfigPropertiesResponse) PermissionsResponse { return v.Permissions }).(PermissionsResponseOutput)
 }
 
-// Connector publisher name
 func (o CodelessUiConnectorConfigPropertiesResponseOutput) Publisher() pulumi.StringOutput {
 	return o.ApplyT(func(v CodelessUiConnectorConfigPropertiesResponse) string { return v.Publisher }).(pulumi.StringOutput)
 }
 
-// The sample queries for the connector
 func (o CodelessUiConnectorConfigPropertiesResponseOutput) SampleQueries() CodelessUiConnectorConfigPropertiesResponseSampleQueriesArrayOutput {
 	return o.ApplyT(func(v CodelessUiConnectorConfigPropertiesResponse) []CodelessUiConnectorConfigPropertiesResponseSampleQueries {
 		return v.SampleQueries
 	}).(CodelessUiConnectorConfigPropertiesResponseSampleQueriesArrayOutput)
 }
 
-// Connector blade title
 func (o CodelessUiConnectorConfigPropertiesResponseOutput) Title() pulumi.StringOutput {
 	return o.ApplyT(func(v CodelessUiConnectorConfigPropertiesResponse) string { return v.Title }).(pulumi.StringOutput)
 }
@@ -2999,11 +2820,14 @@ func (o CodelessUiConnectorConfigPropertiesResponsePtrOutput) ToCodelessUiConnec
 
 func (o CodelessUiConnectorConfigPropertiesResponsePtrOutput) Elem() CodelessUiConnectorConfigPropertiesResponseOutput {
 	return o.ApplyT(func(v *CodelessUiConnectorConfigPropertiesResponse) CodelessUiConnectorConfigPropertiesResponse {
-		return *v
+		if v != nil {
+			return *v
+		}
+		var ret CodelessUiConnectorConfigPropertiesResponse
+		return ret
 	}).(CodelessUiConnectorConfigPropertiesResponseOutput)
 }
 
-// Connector Availability Status
 func (o CodelessUiConnectorConfigPropertiesResponsePtrOutput) Availability() AvailabilityResponsePtrOutput {
 	return o.ApplyT(func(v *CodelessUiConnectorConfigPropertiesResponse) *AvailabilityResponse {
 		if v == nil {
@@ -3013,7 +2837,6 @@ func (o CodelessUiConnectorConfigPropertiesResponsePtrOutput) Availability() Ava
 	}).(AvailabilityResponsePtrOutput)
 }
 
-// Define the way the connector check connectivity
 func (o CodelessUiConnectorConfigPropertiesResponsePtrOutput) ConnectivityCriteria() CodelessUiConnectorConfigPropertiesResponseConnectivityCriteriaArrayOutput {
 	return o.ApplyT(func(v *CodelessUiConnectorConfigPropertiesResponse) []CodelessUiConnectorConfigPropertiesResponseConnectivityCriteria {
 		if v == nil {
@@ -3023,7 +2846,6 @@ func (o CodelessUiConnectorConfigPropertiesResponsePtrOutput) ConnectivityCriter
 	}).(CodelessUiConnectorConfigPropertiesResponseConnectivityCriteriaArrayOutput)
 }
 
-// An optional custom image to be used when displaying the connector within Azure Sentinel's connector's gallery
 func (o CodelessUiConnectorConfigPropertiesResponsePtrOutput) CustomImage() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *CodelessUiConnectorConfigPropertiesResponse) *string {
 		if v == nil {
@@ -3033,7 +2855,6 @@ func (o CodelessUiConnectorConfigPropertiesResponsePtrOutput) CustomImage() pulu
 	}).(pulumi.StringPtrOutput)
 }
 
-// Data types to check for last data received
 func (o CodelessUiConnectorConfigPropertiesResponsePtrOutput) DataTypes() CodelessUiConnectorConfigPropertiesResponseDataTypesArrayOutput {
 	return o.ApplyT(func(v *CodelessUiConnectorConfigPropertiesResponse) []CodelessUiConnectorConfigPropertiesResponseDataTypes {
 		if v == nil {
@@ -3043,7 +2864,6 @@ func (o CodelessUiConnectorConfigPropertiesResponsePtrOutput) DataTypes() Codele
 	}).(CodelessUiConnectorConfigPropertiesResponseDataTypesArrayOutput)
 }
 
-// Connector description
 func (o CodelessUiConnectorConfigPropertiesResponsePtrOutput) DescriptionMarkdown() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *CodelessUiConnectorConfigPropertiesResponse) *string {
 		if v == nil {
@@ -3053,7 +2873,6 @@ func (o CodelessUiConnectorConfigPropertiesResponsePtrOutput) DescriptionMarkdow
 	}).(pulumi.StringPtrOutput)
 }
 
-// The graph query to show the current data status
 func (o CodelessUiConnectorConfigPropertiesResponsePtrOutput) GraphQueries() CodelessUiConnectorConfigPropertiesResponseGraphQueriesArrayOutput {
 	return o.ApplyT(func(v *CodelessUiConnectorConfigPropertiesResponse) []CodelessUiConnectorConfigPropertiesResponseGraphQueries {
 		if v == nil {
@@ -3063,7 +2882,6 @@ func (o CodelessUiConnectorConfigPropertiesResponsePtrOutput) GraphQueries() Cod
 	}).(CodelessUiConnectorConfigPropertiesResponseGraphQueriesArrayOutput)
 }
 
-// Name of the table the connector will insert the data to
 func (o CodelessUiConnectorConfigPropertiesResponsePtrOutput) GraphQueriesTableName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *CodelessUiConnectorConfigPropertiesResponse) *string {
 		if v == nil {
@@ -3073,7 +2891,6 @@ func (o CodelessUiConnectorConfigPropertiesResponsePtrOutput) GraphQueriesTableN
 	}).(pulumi.StringPtrOutput)
 }
 
-// Instruction steps to enable the connector
 func (o CodelessUiConnectorConfigPropertiesResponsePtrOutput) InstructionSteps() CodelessUiConnectorConfigPropertiesResponseInstructionStepsArrayOutput {
 	return o.ApplyT(func(v *CodelessUiConnectorConfigPropertiesResponse) []CodelessUiConnectorConfigPropertiesResponseInstructionSteps {
 		if v == nil {
@@ -3083,7 +2900,6 @@ func (o CodelessUiConnectorConfigPropertiesResponsePtrOutput) InstructionSteps()
 	}).(CodelessUiConnectorConfigPropertiesResponseInstructionStepsArrayOutput)
 }
 
-// Permissions required for the connector
 func (o CodelessUiConnectorConfigPropertiesResponsePtrOutput) Permissions() PermissionsResponsePtrOutput {
 	return o.ApplyT(func(v *CodelessUiConnectorConfigPropertiesResponse) *PermissionsResponse {
 		if v == nil {
@@ -3093,7 +2909,6 @@ func (o CodelessUiConnectorConfigPropertiesResponsePtrOutput) Permissions() Perm
 	}).(PermissionsResponsePtrOutput)
 }
 
-// Connector publisher name
 func (o CodelessUiConnectorConfigPropertiesResponsePtrOutput) Publisher() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *CodelessUiConnectorConfigPropertiesResponse) *string {
 		if v == nil {
@@ -3103,7 +2918,6 @@ func (o CodelessUiConnectorConfigPropertiesResponsePtrOutput) Publisher() pulumi
 	}).(pulumi.StringPtrOutput)
 }
 
-// The sample queries for the connector
 func (o CodelessUiConnectorConfigPropertiesResponsePtrOutput) SampleQueries() CodelessUiConnectorConfigPropertiesResponseSampleQueriesArrayOutput {
 	return o.ApplyT(func(v *CodelessUiConnectorConfigPropertiesResponse) []CodelessUiConnectorConfigPropertiesResponseSampleQueries {
 		if v == nil {
@@ -3113,7 +2927,6 @@ func (o CodelessUiConnectorConfigPropertiesResponsePtrOutput) SampleQueries() Co
 	}).(CodelessUiConnectorConfigPropertiesResponseSampleQueriesArrayOutput)
 }
 
-// Connector blade title
 func (o CodelessUiConnectorConfigPropertiesResponsePtrOutput) Title() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *CodelessUiConnectorConfigPropertiesResponse) *string {
 		if v == nil {
@@ -3124,9 +2937,7 @@ func (o CodelessUiConnectorConfigPropertiesResponsePtrOutput) Title() pulumi.Str
 }
 
 type CodelessUiConnectorConfigPropertiesResponseConnectivityCriteria struct {
-	// type of connectivity
-	Type *string `pulumi:"type"`
-	// Queries for checking connectivity
+	Type  *string  `pulumi:"type"`
 	Value []string `pulumi:"value"`
 }
 
@@ -3142,9 +2953,7 @@ type CodelessUiConnectorConfigPropertiesResponseConnectivityCriteriaInput interf
 }
 
 type CodelessUiConnectorConfigPropertiesResponseConnectivityCriteriaArgs struct {
-	// type of connectivity
-	Type pulumi.StringPtrInput `pulumi:"type"`
-	// Queries for checking connectivity
+	Type  pulumi.StringPtrInput   `pulumi:"type"`
 	Value pulumi.StringArrayInput `pulumi:"value"`
 }
 
@@ -3199,12 +3008,10 @@ func (o CodelessUiConnectorConfigPropertiesResponseConnectivityCriteriaOutput) T
 	return o
 }
 
-// type of connectivity
 func (o CodelessUiConnectorConfigPropertiesResponseConnectivityCriteriaOutput) Type() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v CodelessUiConnectorConfigPropertiesResponseConnectivityCriteria) *string { return v.Type }).(pulumi.StringPtrOutput)
 }
 
-// Queries for checking connectivity
 func (o CodelessUiConnectorConfigPropertiesResponseConnectivityCriteriaOutput) Value() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v CodelessUiConnectorConfigPropertiesResponseConnectivityCriteria) []string { return v.Value }).(pulumi.StringArrayOutput)
 }
@@ -3230,10 +3037,8 @@ func (o CodelessUiConnectorConfigPropertiesResponseConnectivityCriteriaArrayOutp
 }
 
 type CodelessUiConnectorConfigPropertiesResponseDataTypes struct {
-	// Query for indicate last data received
 	LastDataReceivedQuery *string `pulumi:"lastDataReceivedQuery"`
-	// Name of the data type to show in the graph. can be use with {{graphQueriesTableName}} placeholder
-	Name *string `pulumi:"name"`
+	Name                  *string `pulumi:"name"`
 }
 
 // CodelessUiConnectorConfigPropertiesResponseDataTypesInput is an input type that accepts CodelessUiConnectorConfigPropertiesResponseDataTypesArgs and CodelessUiConnectorConfigPropertiesResponseDataTypesOutput values.
@@ -3248,10 +3053,8 @@ type CodelessUiConnectorConfigPropertiesResponseDataTypesInput interface {
 }
 
 type CodelessUiConnectorConfigPropertiesResponseDataTypesArgs struct {
-	// Query for indicate last data received
 	LastDataReceivedQuery pulumi.StringPtrInput `pulumi:"lastDataReceivedQuery"`
-	// Name of the data type to show in the graph. can be use with {{graphQueriesTableName}} placeholder
-	Name pulumi.StringPtrInput `pulumi:"name"`
+	Name                  pulumi.StringPtrInput `pulumi:"name"`
 }
 
 func (CodelessUiConnectorConfigPropertiesResponseDataTypesArgs) ElementType() reflect.Type {
@@ -3305,12 +3108,10 @@ func (o CodelessUiConnectorConfigPropertiesResponseDataTypesOutput) ToCodelessUi
 	return o
 }
 
-// Query for indicate last data received
 func (o CodelessUiConnectorConfigPropertiesResponseDataTypesOutput) LastDataReceivedQuery() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v CodelessUiConnectorConfigPropertiesResponseDataTypes) *string { return v.LastDataReceivedQuery }).(pulumi.StringPtrOutput)
 }
 
-// Name of the data type to show in the graph. can be use with {{graphQueriesTableName}} placeholder
 func (o CodelessUiConnectorConfigPropertiesResponseDataTypesOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v CodelessUiConnectorConfigPropertiesResponseDataTypes) *string { return v.Name }).(pulumi.StringPtrOutput)
 }
@@ -3336,11 +3137,8 @@ func (o CodelessUiConnectorConfigPropertiesResponseDataTypesArrayOutput) Index(i
 }
 
 type CodelessUiConnectorConfigPropertiesResponseGraphQueries struct {
-	// The base query for the graph
-	BaseQuery *string `pulumi:"baseQuery"`
-	// The legend for the graph
-	Legend *string `pulumi:"legend"`
-	// the metric that the query is checking
+	BaseQuery  *string `pulumi:"baseQuery"`
+	Legend     *string `pulumi:"legend"`
 	MetricName *string `pulumi:"metricName"`
 }
 
@@ -3356,11 +3154,8 @@ type CodelessUiConnectorConfigPropertiesResponseGraphQueriesInput interface {
 }
 
 type CodelessUiConnectorConfigPropertiesResponseGraphQueriesArgs struct {
-	// The base query for the graph
-	BaseQuery pulumi.StringPtrInput `pulumi:"baseQuery"`
-	// The legend for the graph
-	Legend pulumi.StringPtrInput `pulumi:"legend"`
-	// the metric that the query is checking
+	BaseQuery  pulumi.StringPtrInput `pulumi:"baseQuery"`
+	Legend     pulumi.StringPtrInput `pulumi:"legend"`
 	MetricName pulumi.StringPtrInput `pulumi:"metricName"`
 }
 
@@ -3415,17 +3210,14 @@ func (o CodelessUiConnectorConfigPropertiesResponseGraphQueriesOutput) ToCodeles
 	return o
 }
 
-// The base query for the graph
 func (o CodelessUiConnectorConfigPropertiesResponseGraphQueriesOutput) BaseQuery() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v CodelessUiConnectorConfigPropertiesResponseGraphQueries) *string { return v.BaseQuery }).(pulumi.StringPtrOutput)
 }
 
-// The legend for the graph
 func (o CodelessUiConnectorConfigPropertiesResponseGraphQueriesOutput) Legend() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v CodelessUiConnectorConfigPropertiesResponseGraphQueries) *string { return v.Legend }).(pulumi.StringPtrOutput)
 }
 
-// the metric that the query is checking
 func (o CodelessUiConnectorConfigPropertiesResponseGraphQueriesOutput) MetricName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v CodelessUiConnectorConfigPropertiesResponseGraphQueries) *string { return v.MetricName }).(pulumi.StringPtrOutput)
 }
@@ -3451,12 +3243,9 @@ func (o CodelessUiConnectorConfigPropertiesResponseGraphQueriesArrayOutput) Inde
 }
 
 type CodelessUiConnectorConfigPropertiesResponseInstructionSteps struct {
-	// Instruction step description
-	Description *string `pulumi:"description"`
-	// Instruction step details
+	Description  *string                                `pulumi:"description"`
 	Instructions []InstructionStepsResponseInstructions `pulumi:"instructions"`
-	// Instruction step title
-	Title *string `pulumi:"title"`
+	Title        *string                                `pulumi:"title"`
 }
 
 // CodelessUiConnectorConfigPropertiesResponseInstructionStepsInput is an input type that accepts CodelessUiConnectorConfigPropertiesResponseInstructionStepsArgs and CodelessUiConnectorConfigPropertiesResponseInstructionStepsOutput values.
@@ -3471,12 +3260,9 @@ type CodelessUiConnectorConfigPropertiesResponseInstructionStepsInput interface 
 }
 
 type CodelessUiConnectorConfigPropertiesResponseInstructionStepsArgs struct {
-	// Instruction step description
-	Description pulumi.StringPtrInput `pulumi:"description"`
-	// Instruction step details
+	Description  pulumi.StringPtrInput                          `pulumi:"description"`
 	Instructions InstructionStepsResponseInstructionsArrayInput `pulumi:"instructions"`
-	// Instruction step title
-	Title pulumi.StringPtrInput `pulumi:"title"`
+	Title        pulumi.StringPtrInput                          `pulumi:"title"`
 }
 
 func (CodelessUiConnectorConfigPropertiesResponseInstructionStepsArgs) ElementType() reflect.Type {
@@ -3530,19 +3316,16 @@ func (o CodelessUiConnectorConfigPropertiesResponseInstructionStepsOutput) ToCod
 	return o
 }
 
-// Instruction step description
 func (o CodelessUiConnectorConfigPropertiesResponseInstructionStepsOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v CodelessUiConnectorConfigPropertiesResponseInstructionSteps) *string { return v.Description }).(pulumi.StringPtrOutput)
 }
 
-// Instruction step details
 func (o CodelessUiConnectorConfigPropertiesResponseInstructionStepsOutput) Instructions() InstructionStepsResponseInstructionsArrayOutput {
 	return o.ApplyT(func(v CodelessUiConnectorConfigPropertiesResponseInstructionSteps) []InstructionStepsResponseInstructions {
 		return v.Instructions
 	}).(InstructionStepsResponseInstructionsArrayOutput)
 }
 
-// Instruction step title
 func (o CodelessUiConnectorConfigPropertiesResponseInstructionStepsOutput) Title() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v CodelessUiConnectorConfigPropertiesResponseInstructionSteps) *string { return v.Title }).(pulumi.StringPtrOutput)
 }
@@ -3568,10 +3351,8 @@ func (o CodelessUiConnectorConfigPropertiesResponseInstructionStepsArrayOutput) 
 }
 
 type CodelessUiConnectorConfigPropertiesResponseSampleQueries struct {
-	// The sample query description
 	Description *string `pulumi:"description"`
-	// the sample query
-	Query *string `pulumi:"query"`
+	Query       *string `pulumi:"query"`
 }
 
 // CodelessUiConnectorConfigPropertiesResponseSampleQueriesInput is an input type that accepts CodelessUiConnectorConfigPropertiesResponseSampleQueriesArgs and CodelessUiConnectorConfigPropertiesResponseSampleQueriesOutput values.
@@ -3586,10 +3367,8 @@ type CodelessUiConnectorConfigPropertiesResponseSampleQueriesInput interface {
 }
 
 type CodelessUiConnectorConfigPropertiesResponseSampleQueriesArgs struct {
-	// The sample query description
 	Description pulumi.StringPtrInput `pulumi:"description"`
-	// the sample query
-	Query pulumi.StringPtrInput `pulumi:"query"`
+	Query       pulumi.StringPtrInput `pulumi:"query"`
 }
 
 func (CodelessUiConnectorConfigPropertiesResponseSampleQueriesArgs) ElementType() reflect.Type {
@@ -3643,12 +3422,10 @@ func (o CodelessUiConnectorConfigPropertiesResponseSampleQueriesOutput) ToCodele
 	return o
 }
 
-// The sample query description
 func (o CodelessUiConnectorConfigPropertiesResponseSampleQueriesOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v CodelessUiConnectorConfigPropertiesResponseSampleQueries) *string { return v.Description }).(pulumi.StringPtrOutput)
 }
 
-// the sample query
 func (o CodelessUiConnectorConfigPropertiesResponseSampleQueriesOutput) Query() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v CodelessUiConnectorConfigPropertiesResponseSampleQueries) *string { return v.Query }).(pulumi.StringPtrOutput)
 }
@@ -3674,10 +3451,8 @@ func (o CodelessUiConnectorConfigPropertiesResponseSampleQueriesArrayOutput) Ind
 }
 
 type CodelessUiConnectorConfigPropertiesSampleQueries struct {
-	// The sample query description
 	Description *string `pulumi:"description"`
-	// the sample query
-	Query *string `pulumi:"query"`
+	Query       *string `pulumi:"query"`
 }
 
 // CodelessUiConnectorConfigPropertiesSampleQueriesInput is an input type that accepts CodelessUiConnectorConfigPropertiesSampleQueriesArgs and CodelessUiConnectorConfigPropertiesSampleQueriesOutput values.
@@ -3692,10 +3467,8 @@ type CodelessUiConnectorConfigPropertiesSampleQueriesInput interface {
 }
 
 type CodelessUiConnectorConfigPropertiesSampleQueriesArgs struct {
-	// The sample query description
 	Description pulumi.StringPtrInput `pulumi:"description"`
-	// the sample query
-	Query pulumi.StringPtrInput `pulumi:"query"`
+	Query       pulumi.StringPtrInput `pulumi:"query"`
 }
 
 func (CodelessUiConnectorConfigPropertiesSampleQueriesArgs) ElementType() reflect.Type {
@@ -3749,12 +3522,10 @@ func (o CodelessUiConnectorConfigPropertiesSampleQueriesOutput) ToCodelessUiConn
 	return o
 }
 
-// The sample query description
 func (o CodelessUiConnectorConfigPropertiesSampleQueriesOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v CodelessUiConnectorConfigPropertiesSampleQueries) *string { return v.Description }).(pulumi.StringPtrOutput)
 }
 
-// the sample query
 func (o CodelessUiConnectorConfigPropertiesSampleQueriesOutput) Query() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v CodelessUiConnectorConfigPropertiesSampleQueries) *string { return v.Query }).(pulumi.StringPtrOutput)
 }
@@ -3779,12 +3550,9 @@ func (o CodelessUiConnectorConfigPropertiesSampleQueriesArrayOutput) Index(i pul
 	}).(CodelessUiConnectorConfigPropertiesSampleQueriesOutput)
 }
 
-// The mapping of content type to a repo path.
 type ContentPathMap struct {
-	// Content type.
 	ContentType *string `pulumi:"contentType"`
-	// The path to the content.
-	Path *string `pulumi:"path"`
+	Path        *string `pulumi:"path"`
 }
 
 // ContentPathMapInput is an input type that accepts ContentPathMap and ContentPathMapOutput values.
@@ -3798,12 +3566,9 @@ type ContentPathMapInput interface {
 	ToContentPathMapOutputWithContext(context.Context) ContentPathMapOutput
 }
 
-// The mapping of content type to a repo path.
 type ContentPathMapArgs struct {
-	// Content type.
 	ContentType pulumi.StringPtrInput `pulumi:"contentType"`
-	// The path to the content.
-	Path pulumi.StringPtrInput `pulumi:"path"`
+	Path        pulumi.StringPtrInput `pulumi:"path"`
 }
 
 func (ContentPathMapArgs) ElementType() reflect.Type {
@@ -3843,7 +3608,6 @@ func (i ContentPathMapArray) ToContentPathMapArrayOutputWithContext(ctx context.
 	return pulumi.ToOutputWithContext(ctx, i).(ContentPathMapArrayOutput)
 }
 
-// The mapping of content type to a repo path.
 type ContentPathMapOutput struct{ *pulumi.OutputState }
 
 func (ContentPathMapOutput) ElementType() reflect.Type {
@@ -3858,12 +3622,10 @@ func (o ContentPathMapOutput) ToContentPathMapOutputWithContext(ctx context.Cont
 	return o
 }
 
-// Content type.
 func (o ContentPathMapOutput) ContentType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ContentPathMap) *string { return v.ContentType }).(pulumi.StringPtrOutput)
 }
 
-// The path to the content.
 func (o ContentPathMapOutput) Path() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ContentPathMap) *string { return v.Path }).(pulumi.StringPtrOutput)
 }
@@ -3888,12 +3650,9 @@ func (o ContentPathMapArrayOutput) Index(i pulumi.IntInput) ContentPathMapOutput
 	}).(ContentPathMapOutput)
 }
 
-// The mapping of content type to a repo path.
 type ContentPathMapResponse struct {
-	// Content type.
 	ContentType *string `pulumi:"contentType"`
-	// The path to the content.
-	Path *string `pulumi:"path"`
+	Path        *string `pulumi:"path"`
 }
 
 // ContentPathMapResponseInput is an input type that accepts ContentPathMapResponseArgs and ContentPathMapResponseOutput values.
@@ -3907,12 +3666,9 @@ type ContentPathMapResponseInput interface {
 	ToContentPathMapResponseOutputWithContext(context.Context) ContentPathMapResponseOutput
 }
 
-// The mapping of content type to a repo path.
 type ContentPathMapResponseArgs struct {
-	// Content type.
 	ContentType pulumi.StringPtrInput `pulumi:"contentType"`
-	// The path to the content.
-	Path pulumi.StringPtrInput `pulumi:"path"`
+	Path        pulumi.StringPtrInput `pulumi:"path"`
 }
 
 func (ContentPathMapResponseArgs) ElementType() reflect.Type {
@@ -3952,7 +3708,6 @@ func (i ContentPathMapResponseArray) ToContentPathMapResponseArrayOutputWithCont
 	return pulumi.ToOutputWithContext(ctx, i).(ContentPathMapResponseArrayOutput)
 }
 
-// The mapping of content type to a repo path.
 type ContentPathMapResponseOutput struct{ *pulumi.OutputState }
 
 func (ContentPathMapResponseOutput) ElementType() reflect.Type {
@@ -3967,12 +3722,10 @@ func (o ContentPathMapResponseOutput) ToContentPathMapResponseOutputWithContext(
 	return o
 }
 
-// Content type.
 func (o ContentPathMapResponseOutput) ContentType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ContentPathMapResponse) *string { return v.ContentType }).(pulumi.StringPtrOutput)
 }
 
-// The path to the content.
 func (o ContentPathMapResponseOutput) Path() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ContentPathMapResponse) *string { return v.Path }).(pulumi.StringPtrOutput)
 }
@@ -3997,9 +3750,7 @@ func (o ContentPathMapResponseArrayOutput) Index(i pulumi.IntInput) ContentPathM
 	}).(ContentPathMapResponseOutput)
 }
 
-// Common field for data type in data connectors.
 type DataConnectorDataTypeCommon struct {
-	// Describe whether this data type connection is enabled or not.
 	State string `pulumi:"state"`
 }
 
@@ -4014,9 +3765,7 @@ type DataConnectorDataTypeCommonInput interface {
 	ToDataConnectorDataTypeCommonOutputWithContext(context.Context) DataConnectorDataTypeCommonOutput
 }
 
-// Common field for data type in data connectors.
 type DataConnectorDataTypeCommonArgs struct {
-	// Describe whether this data type connection is enabled or not.
 	State pulumi.StringInput `pulumi:"state"`
 }
 
@@ -4073,7 +3822,6 @@ func (i *dataConnectorDataTypeCommonPtrType) ToDataConnectorDataTypeCommonPtrOut
 	return pulumi.ToOutputWithContext(ctx, i).(DataConnectorDataTypeCommonPtrOutput)
 }
 
-// Common field for data type in data connectors.
 type DataConnectorDataTypeCommonOutput struct{ *pulumi.OutputState }
 
 func (DataConnectorDataTypeCommonOutput) ElementType() reflect.Type {
@@ -4093,12 +3841,11 @@ func (o DataConnectorDataTypeCommonOutput) ToDataConnectorDataTypeCommonPtrOutpu
 }
 
 func (o DataConnectorDataTypeCommonOutput) ToDataConnectorDataTypeCommonPtrOutputWithContext(ctx context.Context) DataConnectorDataTypeCommonPtrOutput {
-	return o.ApplyT(func(v DataConnectorDataTypeCommon) *DataConnectorDataTypeCommon {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v DataConnectorDataTypeCommon) *DataConnectorDataTypeCommon {
 		return &v
 	}).(DataConnectorDataTypeCommonPtrOutput)
 }
 
-// Describe whether this data type connection is enabled or not.
 func (o DataConnectorDataTypeCommonOutput) State() pulumi.StringOutput {
 	return o.ApplyT(func(v DataConnectorDataTypeCommon) string { return v.State }).(pulumi.StringOutput)
 }
@@ -4118,10 +3865,15 @@ func (o DataConnectorDataTypeCommonPtrOutput) ToDataConnectorDataTypeCommonPtrOu
 }
 
 func (o DataConnectorDataTypeCommonPtrOutput) Elem() DataConnectorDataTypeCommonOutput {
-	return o.ApplyT(func(v *DataConnectorDataTypeCommon) DataConnectorDataTypeCommon { return *v }).(DataConnectorDataTypeCommonOutput)
+	return o.ApplyT(func(v *DataConnectorDataTypeCommon) DataConnectorDataTypeCommon {
+		if v != nil {
+			return *v
+		}
+		var ret DataConnectorDataTypeCommon
+		return ret
+	}).(DataConnectorDataTypeCommonOutput)
 }
 
-// Describe whether this data type connection is enabled or not.
 func (o DataConnectorDataTypeCommonPtrOutput) State() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *DataConnectorDataTypeCommon) *string {
 		if v == nil {
@@ -4131,9 +3883,7 @@ func (o DataConnectorDataTypeCommonPtrOutput) State() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Common field for data type in data connectors.
 type DataConnectorDataTypeCommonResponse struct {
-	// Describe whether this data type connection is enabled or not.
 	State string `pulumi:"state"`
 }
 
@@ -4148,9 +3898,7 @@ type DataConnectorDataTypeCommonResponseInput interface {
 	ToDataConnectorDataTypeCommonResponseOutputWithContext(context.Context) DataConnectorDataTypeCommonResponseOutput
 }
 
-// Common field for data type in data connectors.
 type DataConnectorDataTypeCommonResponseArgs struct {
-	// Describe whether this data type connection is enabled or not.
 	State pulumi.StringInput `pulumi:"state"`
 }
 
@@ -4207,7 +3955,6 @@ func (i *dataConnectorDataTypeCommonResponsePtrType) ToDataConnectorDataTypeComm
 	return pulumi.ToOutputWithContext(ctx, i).(DataConnectorDataTypeCommonResponsePtrOutput)
 }
 
-// Common field for data type in data connectors.
 type DataConnectorDataTypeCommonResponseOutput struct{ *pulumi.OutputState }
 
 func (DataConnectorDataTypeCommonResponseOutput) ElementType() reflect.Type {
@@ -4227,12 +3974,11 @@ func (o DataConnectorDataTypeCommonResponseOutput) ToDataConnectorDataTypeCommon
 }
 
 func (o DataConnectorDataTypeCommonResponseOutput) ToDataConnectorDataTypeCommonResponsePtrOutputWithContext(ctx context.Context) DataConnectorDataTypeCommonResponsePtrOutput {
-	return o.ApplyT(func(v DataConnectorDataTypeCommonResponse) *DataConnectorDataTypeCommonResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v DataConnectorDataTypeCommonResponse) *DataConnectorDataTypeCommonResponse {
 		return &v
 	}).(DataConnectorDataTypeCommonResponsePtrOutput)
 }
 
-// Describe whether this data type connection is enabled or not.
 func (o DataConnectorDataTypeCommonResponseOutput) State() pulumi.StringOutput {
 	return o.ApplyT(func(v DataConnectorDataTypeCommonResponse) string { return v.State }).(pulumi.StringOutput)
 }
@@ -4252,10 +3998,15 @@ func (o DataConnectorDataTypeCommonResponsePtrOutput) ToDataConnectorDataTypeCom
 }
 
 func (o DataConnectorDataTypeCommonResponsePtrOutput) Elem() DataConnectorDataTypeCommonResponseOutput {
-	return o.ApplyT(func(v *DataConnectorDataTypeCommonResponse) DataConnectorDataTypeCommonResponse { return *v }).(DataConnectorDataTypeCommonResponseOutput)
+	return o.ApplyT(func(v *DataConnectorDataTypeCommonResponse) DataConnectorDataTypeCommonResponse {
+		if v != nil {
+			return *v
+		}
+		var ret DataConnectorDataTypeCommonResponse
+		return ret
+	}).(DataConnectorDataTypeCommonResponseOutput)
 }
 
-// Describe whether this data type connection is enabled or not.
 func (o DataConnectorDataTypeCommonResponsePtrOutput) State() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *DataConnectorDataTypeCommonResponse) *string {
 		if v == nil {
@@ -4265,9 +4016,7 @@ func (o DataConnectorDataTypeCommonResponsePtrOutput) State() pulumi.StringPtrOu
 	}).(pulumi.StringPtrOutput)
 }
 
-// The available data types for Dynamics365 data connector.
 type Dynamics365DataConnectorDataTypes struct {
-	// Common Data Service data type connection.
 	Dynamics365CdsActivities Dynamics365DataConnectorDataTypesDynamics365CdsActivities `pulumi:"dynamics365CdsActivities"`
 }
 
@@ -4282,9 +4031,7 @@ type Dynamics365DataConnectorDataTypesInput interface {
 	ToDynamics365DataConnectorDataTypesOutputWithContext(context.Context) Dynamics365DataConnectorDataTypesOutput
 }
 
-// The available data types for Dynamics365 data connector.
 type Dynamics365DataConnectorDataTypesArgs struct {
-	// Common Data Service data type connection.
 	Dynamics365CdsActivities Dynamics365DataConnectorDataTypesDynamics365CdsActivitiesInput `pulumi:"dynamics365CdsActivities"`
 }
 
@@ -4341,7 +4088,6 @@ func (i *dynamics365DataConnectorDataTypesPtrType) ToDynamics365DataConnectorDat
 	return pulumi.ToOutputWithContext(ctx, i).(Dynamics365DataConnectorDataTypesPtrOutput)
 }
 
-// The available data types for Dynamics365 data connector.
 type Dynamics365DataConnectorDataTypesOutput struct{ *pulumi.OutputState }
 
 func (Dynamics365DataConnectorDataTypesOutput) ElementType() reflect.Type {
@@ -4361,12 +4107,11 @@ func (o Dynamics365DataConnectorDataTypesOutput) ToDynamics365DataConnectorDataT
 }
 
 func (o Dynamics365DataConnectorDataTypesOutput) ToDynamics365DataConnectorDataTypesPtrOutputWithContext(ctx context.Context) Dynamics365DataConnectorDataTypesPtrOutput {
-	return o.ApplyT(func(v Dynamics365DataConnectorDataTypes) *Dynamics365DataConnectorDataTypes {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v Dynamics365DataConnectorDataTypes) *Dynamics365DataConnectorDataTypes {
 		return &v
 	}).(Dynamics365DataConnectorDataTypesPtrOutput)
 }
 
-// Common Data Service data type connection.
 func (o Dynamics365DataConnectorDataTypesOutput) Dynamics365CdsActivities() Dynamics365DataConnectorDataTypesDynamics365CdsActivitiesOutput {
 	return o.ApplyT(func(v Dynamics365DataConnectorDataTypes) Dynamics365DataConnectorDataTypesDynamics365CdsActivities {
 		return v.Dynamics365CdsActivities
@@ -4388,10 +4133,15 @@ func (o Dynamics365DataConnectorDataTypesPtrOutput) ToDynamics365DataConnectorDa
 }
 
 func (o Dynamics365DataConnectorDataTypesPtrOutput) Elem() Dynamics365DataConnectorDataTypesOutput {
-	return o.ApplyT(func(v *Dynamics365DataConnectorDataTypes) Dynamics365DataConnectorDataTypes { return *v }).(Dynamics365DataConnectorDataTypesOutput)
+	return o.ApplyT(func(v *Dynamics365DataConnectorDataTypes) Dynamics365DataConnectorDataTypes {
+		if v != nil {
+			return *v
+		}
+		var ret Dynamics365DataConnectorDataTypes
+		return ret
+	}).(Dynamics365DataConnectorDataTypesOutput)
 }
 
-// Common Data Service data type connection.
 func (o Dynamics365DataConnectorDataTypesPtrOutput) Dynamics365CdsActivities() Dynamics365DataConnectorDataTypesDynamics365CdsActivitiesPtrOutput {
 	return o.ApplyT(func(v *Dynamics365DataConnectorDataTypes) *Dynamics365DataConnectorDataTypesDynamics365CdsActivities {
 		if v == nil {
@@ -4401,9 +4151,7 @@ func (o Dynamics365DataConnectorDataTypesPtrOutput) Dynamics365CdsActivities() D
 	}).(Dynamics365DataConnectorDataTypesDynamics365CdsActivitiesPtrOutput)
 }
 
-// Common Data Service data type connection.
 type Dynamics365DataConnectorDataTypesDynamics365CdsActivities struct {
-	// Describe whether this data type connection is enabled or not.
 	State string `pulumi:"state"`
 }
 
@@ -4418,9 +4166,7 @@ type Dynamics365DataConnectorDataTypesDynamics365CdsActivitiesInput interface {
 	ToDynamics365DataConnectorDataTypesDynamics365CdsActivitiesOutputWithContext(context.Context) Dynamics365DataConnectorDataTypesDynamics365CdsActivitiesOutput
 }
 
-// Common Data Service data type connection.
 type Dynamics365DataConnectorDataTypesDynamics365CdsActivitiesArgs struct {
-	// Describe whether this data type connection is enabled or not.
 	State pulumi.StringInput `pulumi:"state"`
 }
 
@@ -4477,7 +4223,6 @@ func (i *dynamics365DataConnectorDataTypesDynamics365CdsActivitiesPtrType) ToDyn
 	return pulumi.ToOutputWithContext(ctx, i).(Dynamics365DataConnectorDataTypesDynamics365CdsActivitiesPtrOutput)
 }
 
-// Common Data Service data type connection.
 type Dynamics365DataConnectorDataTypesDynamics365CdsActivitiesOutput struct{ *pulumi.OutputState }
 
 func (Dynamics365DataConnectorDataTypesDynamics365CdsActivitiesOutput) ElementType() reflect.Type {
@@ -4497,12 +4242,11 @@ func (o Dynamics365DataConnectorDataTypesDynamics365CdsActivitiesOutput) ToDynam
 }
 
 func (o Dynamics365DataConnectorDataTypesDynamics365CdsActivitiesOutput) ToDynamics365DataConnectorDataTypesDynamics365CdsActivitiesPtrOutputWithContext(ctx context.Context) Dynamics365DataConnectorDataTypesDynamics365CdsActivitiesPtrOutput {
-	return o.ApplyT(func(v Dynamics365DataConnectorDataTypesDynamics365CdsActivities) *Dynamics365DataConnectorDataTypesDynamics365CdsActivities {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v Dynamics365DataConnectorDataTypesDynamics365CdsActivities) *Dynamics365DataConnectorDataTypesDynamics365CdsActivities {
 		return &v
 	}).(Dynamics365DataConnectorDataTypesDynamics365CdsActivitiesPtrOutput)
 }
 
-// Describe whether this data type connection is enabled or not.
 func (o Dynamics365DataConnectorDataTypesDynamics365CdsActivitiesOutput) State() pulumi.StringOutput {
 	return o.ApplyT(func(v Dynamics365DataConnectorDataTypesDynamics365CdsActivities) string { return v.State }).(pulumi.StringOutput)
 }
@@ -4523,11 +4267,14 @@ func (o Dynamics365DataConnectorDataTypesDynamics365CdsActivitiesPtrOutput) ToDy
 
 func (o Dynamics365DataConnectorDataTypesDynamics365CdsActivitiesPtrOutput) Elem() Dynamics365DataConnectorDataTypesDynamics365CdsActivitiesOutput {
 	return o.ApplyT(func(v *Dynamics365DataConnectorDataTypesDynamics365CdsActivities) Dynamics365DataConnectorDataTypesDynamics365CdsActivities {
-		return *v
+		if v != nil {
+			return *v
+		}
+		var ret Dynamics365DataConnectorDataTypesDynamics365CdsActivities
+		return ret
 	}).(Dynamics365DataConnectorDataTypesDynamics365CdsActivitiesOutput)
 }
 
-// Describe whether this data type connection is enabled or not.
 func (o Dynamics365DataConnectorDataTypesDynamics365CdsActivitiesPtrOutput) State() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Dynamics365DataConnectorDataTypesDynamics365CdsActivities) *string {
 		if v == nil {
@@ -4537,9 +4284,7 @@ func (o Dynamics365DataConnectorDataTypesDynamics365CdsActivitiesPtrOutput) Stat
 	}).(pulumi.StringPtrOutput)
 }
 
-// The available data types for Dynamics365 data connector.
 type Dynamics365DataConnectorDataTypesResponse struct {
-	// Common Data Service data type connection.
 	Dynamics365CdsActivities Dynamics365DataConnectorDataTypesResponseDynamics365CdsActivities `pulumi:"dynamics365CdsActivities"`
 }
 
@@ -4554,9 +4299,7 @@ type Dynamics365DataConnectorDataTypesResponseInput interface {
 	ToDynamics365DataConnectorDataTypesResponseOutputWithContext(context.Context) Dynamics365DataConnectorDataTypesResponseOutput
 }
 
-// The available data types for Dynamics365 data connector.
 type Dynamics365DataConnectorDataTypesResponseArgs struct {
-	// Common Data Service data type connection.
 	Dynamics365CdsActivities Dynamics365DataConnectorDataTypesResponseDynamics365CdsActivitiesInput `pulumi:"dynamics365CdsActivities"`
 }
 
@@ -4613,7 +4356,6 @@ func (i *dynamics365DataConnectorDataTypesResponsePtrType) ToDynamics365DataConn
 	return pulumi.ToOutputWithContext(ctx, i).(Dynamics365DataConnectorDataTypesResponsePtrOutput)
 }
 
-// The available data types for Dynamics365 data connector.
 type Dynamics365DataConnectorDataTypesResponseOutput struct{ *pulumi.OutputState }
 
 func (Dynamics365DataConnectorDataTypesResponseOutput) ElementType() reflect.Type {
@@ -4633,12 +4375,11 @@ func (o Dynamics365DataConnectorDataTypesResponseOutput) ToDynamics365DataConnec
 }
 
 func (o Dynamics365DataConnectorDataTypesResponseOutput) ToDynamics365DataConnectorDataTypesResponsePtrOutputWithContext(ctx context.Context) Dynamics365DataConnectorDataTypesResponsePtrOutput {
-	return o.ApplyT(func(v Dynamics365DataConnectorDataTypesResponse) *Dynamics365DataConnectorDataTypesResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v Dynamics365DataConnectorDataTypesResponse) *Dynamics365DataConnectorDataTypesResponse {
 		return &v
 	}).(Dynamics365DataConnectorDataTypesResponsePtrOutput)
 }
 
-// Common Data Service data type connection.
 func (o Dynamics365DataConnectorDataTypesResponseOutput) Dynamics365CdsActivities() Dynamics365DataConnectorDataTypesResponseDynamics365CdsActivitiesOutput {
 	return o.ApplyT(func(v Dynamics365DataConnectorDataTypesResponse) Dynamics365DataConnectorDataTypesResponseDynamics365CdsActivities {
 		return v.Dynamics365CdsActivities
@@ -4661,11 +4402,14 @@ func (o Dynamics365DataConnectorDataTypesResponsePtrOutput) ToDynamics365DataCon
 
 func (o Dynamics365DataConnectorDataTypesResponsePtrOutput) Elem() Dynamics365DataConnectorDataTypesResponseOutput {
 	return o.ApplyT(func(v *Dynamics365DataConnectorDataTypesResponse) Dynamics365DataConnectorDataTypesResponse {
-		return *v
+		if v != nil {
+			return *v
+		}
+		var ret Dynamics365DataConnectorDataTypesResponse
+		return ret
 	}).(Dynamics365DataConnectorDataTypesResponseOutput)
 }
 
-// Common Data Service data type connection.
 func (o Dynamics365DataConnectorDataTypesResponsePtrOutput) Dynamics365CdsActivities() Dynamics365DataConnectorDataTypesResponseDynamics365CdsActivitiesPtrOutput {
 	return o.ApplyT(func(v *Dynamics365DataConnectorDataTypesResponse) *Dynamics365DataConnectorDataTypesResponseDynamics365CdsActivities {
 		if v == nil {
@@ -4675,9 +4419,7 @@ func (o Dynamics365DataConnectorDataTypesResponsePtrOutput) Dynamics365CdsActivi
 	}).(Dynamics365DataConnectorDataTypesResponseDynamics365CdsActivitiesPtrOutput)
 }
 
-// Common Data Service data type connection.
 type Dynamics365DataConnectorDataTypesResponseDynamics365CdsActivities struct {
-	// Describe whether this data type connection is enabled or not.
 	State string `pulumi:"state"`
 }
 
@@ -4692,9 +4434,7 @@ type Dynamics365DataConnectorDataTypesResponseDynamics365CdsActivitiesInput inte
 	ToDynamics365DataConnectorDataTypesResponseDynamics365CdsActivitiesOutputWithContext(context.Context) Dynamics365DataConnectorDataTypesResponseDynamics365CdsActivitiesOutput
 }
 
-// Common Data Service data type connection.
 type Dynamics365DataConnectorDataTypesResponseDynamics365CdsActivitiesArgs struct {
-	// Describe whether this data type connection is enabled or not.
 	State pulumi.StringInput `pulumi:"state"`
 }
 
@@ -4751,7 +4491,6 @@ func (i *dynamics365DataConnectorDataTypesResponseDynamics365CdsActivitiesPtrTyp
 	return pulumi.ToOutputWithContext(ctx, i).(Dynamics365DataConnectorDataTypesResponseDynamics365CdsActivitiesPtrOutput)
 }
 
-// Common Data Service data type connection.
 type Dynamics365DataConnectorDataTypesResponseDynamics365CdsActivitiesOutput struct{ *pulumi.OutputState }
 
 func (Dynamics365DataConnectorDataTypesResponseDynamics365CdsActivitiesOutput) ElementType() reflect.Type {
@@ -4771,12 +4510,11 @@ func (o Dynamics365DataConnectorDataTypesResponseDynamics365CdsActivitiesOutput)
 }
 
 func (o Dynamics365DataConnectorDataTypesResponseDynamics365CdsActivitiesOutput) ToDynamics365DataConnectorDataTypesResponseDynamics365CdsActivitiesPtrOutputWithContext(ctx context.Context) Dynamics365DataConnectorDataTypesResponseDynamics365CdsActivitiesPtrOutput {
-	return o.ApplyT(func(v Dynamics365DataConnectorDataTypesResponseDynamics365CdsActivities) *Dynamics365DataConnectorDataTypesResponseDynamics365CdsActivities {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v Dynamics365DataConnectorDataTypesResponseDynamics365CdsActivities) *Dynamics365DataConnectorDataTypesResponseDynamics365CdsActivities {
 		return &v
 	}).(Dynamics365DataConnectorDataTypesResponseDynamics365CdsActivitiesPtrOutput)
 }
 
-// Describe whether this data type connection is enabled or not.
 func (o Dynamics365DataConnectorDataTypesResponseDynamics365CdsActivitiesOutput) State() pulumi.StringOutput {
 	return o.ApplyT(func(v Dynamics365DataConnectorDataTypesResponseDynamics365CdsActivities) string { return v.State }).(pulumi.StringOutput)
 }
@@ -4797,11 +4535,14 @@ func (o Dynamics365DataConnectorDataTypesResponseDynamics365CdsActivitiesPtrOutp
 
 func (o Dynamics365DataConnectorDataTypesResponseDynamics365CdsActivitiesPtrOutput) Elem() Dynamics365DataConnectorDataTypesResponseDynamics365CdsActivitiesOutput {
 	return o.ApplyT(func(v *Dynamics365DataConnectorDataTypesResponseDynamics365CdsActivities) Dynamics365DataConnectorDataTypesResponseDynamics365CdsActivities {
-		return *v
+		if v != nil {
+			return *v
+		}
+		var ret Dynamics365DataConnectorDataTypesResponseDynamics365CdsActivities
+		return ret
 	}).(Dynamics365DataConnectorDataTypesResponseDynamics365CdsActivitiesOutput)
 }
 
-// Describe whether this data type connection is enabled or not.
 func (o Dynamics365DataConnectorDataTypesResponseDynamics365CdsActivitiesPtrOutput) State() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Dynamics365DataConnectorDataTypesResponseDynamics365CdsActivities) *string {
 		if v == nil {
@@ -4811,11 +4552,8 @@ func (o Dynamics365DataConnectorDataTypesResponseDynamics365CdsActivitiesPtrOutp
 	}).(pulumi.StringPtrOutput)
 }
 
-// Single entity mapping for the alert rule
 type EntityMapping struct {
-	// The V3 type of the mapped entity
-	EntityType *string `pulumi:"entityType"`
-	// array of field mappings for the given entity mapping
+	EntityType    *string        `pulumi:"entityType"`
 	FieldMappings []FieldMapping `pulumi:"fieldMappings"`
 }
 
@@ -4830,11 +4568,8 @@ type EntityMappingInput interface {
 	ToEntityMappingOutputWithContext(context.Context) EntityMappingOutput
 }
 
-// Single entity mapping for the alert rule
 type EntityMappingArgs struct {
-	// The V3 type of the mapped entity
-	EntityType pulumi.StringPtrInput `pulumi:"entityType"`
-	// array of field mappings for the given entity mapping
+	EntityType    pulumi.StringPtrInput  `pulumi:"entityType"`
 	FieldMappings FieldMappingArrayInput `pulumi:"fieldMappings"`
 }
 
@@ -4875,7 +4610,6 @@ func (i EntityMappingArray) ToEntityMappingArrayOutputWithContext(ctx context.Co
 	return pulumi.ToOutputWithContext(ctx, i).(EntityMappingArrayOutput)
 }
 
-// Single entity mapping for the alert rule
 type EntityMappingOutput struct{ *pulumi.OutputState }
 
 func (EntityMappingOutput) ElementType() reflect.Type {
@@ -4890,12 +4624,10 @@ func (o EntityMappingOutput) ToEntityMappingOutputWithContext(ctx context.Contex
 	return o
 }
 
-// The V3 type of the mapped entity
 func (o EntityMappingOutput) EntityType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v EntityMapping) *string { return v.EntityType }).(pulumi.StringPtrOutput)
 }
 
-// array of field mappings for the given entity mapping
 func (o EntityMappingOutput) FieldMappings() FieldMappingArrayOutput {
 	return o.ApplyT(func(v EntityMapping) []FieldMapping { return v.FieldMappings }).(FieldMappingArrayOutput)
 }
@@ -4920,11 +4652,8 @@ func (o EntityMappingArrayOutput) Index(i pulumi.IntInput) EntityMappingOutput {
 	}).(EntityMappingOutput)
 }
 
-// Single entity mapping for the alert rule
 type EntityMappingResponse struct {
-	// The V3 type of the mapped entity
-	EntityType *string `pulumi:"entityType"`
-	// array of field mappings for the given entity mapping
+	EntityType    *string                `pulumi:"entityType"`
 	FieldMappings []FieldMappingResponse `pulumi:"fieldMappings"`
 }
 
@@ -4939,11 +4668,8 @@ type EntityMappingResponseInput interface {
 	ToEntityMappingResponseOutputWithContext(context.Context) EntityMappingResponseOutput
 }
 
-// Single entity mapping for the alert rule
 type EntityMappingResponseArgs struct {
-	// The V3 type of the mapped entity
-	EntityType pulumi.StringPtrInput `pulumi:"entityType"`
-	// array of field mappings for the given entity mapping
+	EntityType    pulumi.StringPtrInput          `pulumi:"entityType"`
 	FieldMappings FieldMappingResponseArrayInput `pulumi:"fieldMappings"`
 }
 
@@ -4984,7 +4710,6 @@ func (i EntityMappingResponseArray) ToEntityMappingResponseArrayOutputWithContex
 	return pulumi.ToOutputWithContext(ctx, i).(EntityMappingResponseArrayOutput)
 }
 
-// Single entity mapping for the alert rule
 type EntityMappingResponseOutput struct{ *pulumi.OutputState }
 
 func (EntityMappingResponseOutput) ElementType() reflect.Type {
@@ -4999,12 +4724,10 @@ func (o EntityMappingResponseOutput) ToEntityMappingResponseOutputWithContext(ct
 	return o
 }
 
-// The V3 type of the mapped entity
 func (o EntityMappingResponseOutput) EntityType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v EntityMappingResponse) *string { return v.EntityType }).(pulumi.StringPtrOutput)
 }
 
-// array of field mappings for the given entity mapping
 func (o EntityMappingResponseOutput) FieldMappings() FieldMappingResponseArrayOutput {
 	return o.ApplyT(func(v EntityMappingResponse) []FieldMappingResponse { return v.FieldMappings }).(FieldMappingResponseArrayOutput)
 }
@@ -5029,9 +4752,7 @@ func (o EntityMappingResponseArrayOutput) Index(i pulumi.IntInput) EntityMapping
 	}).(EntityMappingResponseOutput)
 }
 
-// Event grouping settings property bag.
 type EventGroupingSettings struct {
-	// The event grouping aggregation kinds
 	AggregationKind *string `pulumi:"aggregationKind"`
 }
 
@@ -5046,9 +4767,7 @@ type EventGroupingSettingsInput interface {
 	ToEventGroupingSettingsOutputWithContext(context.Context) EventGroupingSettingsOutput
 }
 
-// Event grouping settings property bag.
 type EventGroupingSettingsArgs struct {
-	// The event grouping aggregation kinds
 	AggregationKind pulumi.StringPtrInput `pulumi:"aggregationKind"`
 }
 
@@ -5105,7 +4824,6 @@ func (i *eventGroupingSettingsPtrType) ToEventGroupingSettingsPtrOutputWithConte
 	return pulumi.ToOutputWithContext(ctx, i).(EventGroupingSettingsPtrOutput)
 }
 
-// Event grouping settings property bag.
 type EventGroupingSettingsOutput struct{ *pulumi.OutputState }
 
 func (EventGroupingSettingsOutput) ElementType() reflect.Type {
@@ -5125,12 +4843,11 @@ func (o EventGroupingSettingsOutput) ToEventGroupingSettingsPtrOutput() EventGro
 }
 
 func (o EventGroupingSettingsOutput) ToEventGroupingSettingsPtrOutputWithContext(ctx context.Context) EventGroupingSettingsPtrOutput {
-	return o.ApplyT(func(v EventGroupingSettings) *EventGroupingSettings {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v EventGroupingSettings) *EventGroupingSettings {
 		return &v
 	}).(EventGroupingSettingsPtrOutput)
 }
 
-// The event grouping aggregation kinds
 func (o EventGroupingSettingsOutput) AggregationKind() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v EventGroupingSettings) *string { return v.AggregationKind }).(pulumi.StringPtrOutput)
 }
@@ -5150,10 +4867,15 @@ func (o EventGroupingSettingsPtrOutput) ToEventGroupingSettingsPtrOutputWithCont
 }
 
 func (o EventGroupingSettingsPtrOutput) Elem() EventGroupingSettingsOutput {
-	return o.ApplyT(func(v *EventGroupingSettings) EventGroupingSettings { return *v }).(EventGroupingSettingsOutput)
+	return o.ApplyT(func(v *EventGroupingSettings) EventGroupingSettings {
+		if v != nil {
+			return *v
+		}
+		var ret EventGroupingSettings
+		return ret
+	}).(EventGroupingSettingsOutput)
 }
 
-// The event grouping aggregation kinds
 func (o EventGroupingSettingsPtrOutput) AggregationKind() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *EventGroupingSettings) *string {
 		if v == nil {
@@ -5163,9 +4885,7 @@ func (o EventGroupingSettingsPtrOutput) AggregationKind() pulumi.StringPtrOutput
 	}).(pulumi.StringPtrOutput)
 }
 
-// Event grouping settings property bag.
 type EventGroupingSettingsResponse struct {
-	// The event grouping aggregation kinds
 	AggregationKind *string `pulumi:"aggregationKind"`
 }
 
@@ -5180,9 +4900,7 @@ type EventGroupingSettingsResponseInput interface {
 	ToEventGroupingSettingsResponseOutputWithContext(context.Context) EventGroupingSettingsResponseOutput
 }
 
-// Event grouping settings property bag.
 type EventGroupingSettingsResponseArgs struct {
-	// The event grouping aggregation kinds
 	AggregationKind pulumi.StringPtrInput `pulumi:"aggregationKind"`
 }
 
@@ -5239,7 +4957,6 @@ func (i *eventGroupingSettingsResponsePtrType) ToEventGroupingSettingsResponsePt
 	return pulumi.ToOutputWithContext(ctx, i).(EventGroupingSettingsResponsePtrOutput)
 }
 
-// Event grouping settings property bag.
 type EventGroupingSettingsResponseOutput struct{ *pulumi.OutputState }
 
 func (EventGroupingSettingsResponseOutput) ElementType() reflect.Type {
@@ -5259,12 +4976,11 @@ func (o EventGroupingSettingsResponseOutput) ToEventGroupingSettingsResponsePtrO
 }
 
 func (o EventGroupingSettingsResponseOutput) ToEventGroupingSettingsResponsePtrOutputWithContext(ctx context.Context) EventGroupingSettingsResponsePtrOutput {
-	return o.ApplyT(func(v EventGroupingSettingsResponse) *EventGroupingSettingsResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v EventGroupingSettingsResponse) *EventGroupingSettingsResponse {
 		return &v
 	}).(EventGroupingSettingsResponsePtrOutput)
 }
 
-// The event grouping aggregation kinds
 func (o EventGroupingSettingsResponseOutput) AggregationKind() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v EventGroupingSettingsResponse) *string { return v.AggregationKind }).(pulumi.StringPtrOutput)
 }
@@ -5284,10 +5000,15 @@ func (o EventGroupingSettingsResponsePtrOutput) ToEventGroupingSettingsResponseP
 }
 
 func (o EventGroupingSettingsResponsePtrOutput) Elem() EventGroupingSettingsResponseOutput {
-	return o.ApplyT(func(v *EventGroupingSettingsResponse) EventGroupingSettingsResponse { return *v }).(EventGroupingSettingsResponseOutput)
+	return o.ApplyT(func(v *EventGroupingSettingsResponse) EventGroupingSettingsResponse {
+		if v != nil {
+			return *v
+		}
+		var ret EventGroupingSettingsResponse
+		return ret
+	}).(EventGroupingSettingsResponseOutput)
 }
 
-// The event grouping aggregation kinds
 func (o EventGroupingSettingsResponsePtrOutput) AggregationKind() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *EventGroupingSettingsResponse) *string {
 		if v == nil {
@@ -5297,11 +5018,8 @@ func (o EventGroupingSettingsResponsePtrOutput) AggregationKind() pulumi.StringP
 	}).(pulumi.StringPtrOutput)
 }
 
-// A single field mapping of the mapped entity
 type FieldMapping struct {
-	// the column name to be mapped to the identifier
 	ColumnName *string `pulumi:"columnName"`
-	// the V3 identifier of the entity
 	Identifier *string `pulumi:"identifier"`
 }
 
@@ -5316,11 +5034,8 @@ type FieldMappingInput interface {
 	ToFieldMappingOutputWithContext(context.Context) FieldMappingOutput
 }
 
-// A single field mapping of the mapped entity
 type FieldMappingArgs struct {
-	// the column name to be mapped to the identifier
 	ColumnName pulumi.StringPtrInput `pulumi:"columnName"`
-	// the V3 identifier of the entity
 	Identifier pulumi.StringPtrInput `pulumi:"identifier"`
 }
 
@@ -5361,7 +5076,6 @@ func (i FieldMappingArray) ToFieldMappingArrayOutputWithContext(ctx context.Cont
 	return pulumi.ToOutputWithContext(ctx, i).(FieldMappingArrayOutput)
 }
 
-// A single field mapping of the mapped entity
 type FieldMappingOutput struct{ *pulumi.OutputState }
 
 func (FieldMappingOutput) ElementType() reflect.Type {
@@ -5376,12 +5090,10 @@ func (o FieldMappingOutput) ToFieldMappingOutputWithContext(ctx context.Context)
 	return o
 }
 
-// the column name to be mapped to the identifier
 func (o FieldMappingOutput) ColumnName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v FieldMapping) *string { return v.ColumnName }).(pulumi.StringPtrOutput)
 }
 
-// the V3 identifier of the entity
 func (o FieldMappingOutput) Identifier() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v FieldMapping) *string { return v.Identifier }).(pulumi.StringPtrOutput)
 }
@@ -5406,11 +5118,8 @@ func (o FieldMappingArrayOutput) Index(i pulumi.IntInput) FieldMappingOutput {
 	}).(FieldMappingOutput)
 }
 
-// A single field mapping of the mapped entity
 type FieldMappingResponse struct {
-	// the column name to be mapped to the identifier
 	ColumnName *string `pulumi:"columnName"`
-	// the V3 identifier of the entity
 	Identifier *string `pulumi:"identifier"`
 }
 
@@ -5425,11 +5134,8 @@ type FieldMappingResponseInput interface {
 	ToFieldMappingResponseOutputWithContext(context.Context) FieldMappingResponseOutput
 }
 
-// A single field mapping of the mapped entity
 type FieldMappingResponseArgs struct {
-	// the column name to be mapped to the identifier
 	ColumnName pulumi.StringPtrInput `pulumi:"columnName"`
-	// the V3 identifier of the entity
 	Identifier pulumi.StringPtrInput `pulumi:"identifier"`
 }
 
@@ -5470,7 +5176,6 @@ func (i FieldMappingResponseArray) ToFieldMappingResponseArrayOutputWithContext(
 	return pulumi.ToOutputWithContext(ctx, i).(FieldMappingResponseArrayOutput)
 }
 
-// A single field mapping of the mapped entity
 type FieldMappingResponseOutput struct{ *pulumi.OutputState }
 
 func (FieldMappingResponseOutput) ElementType() reflect.Type {
@@ -5485,12 +5190,10 @@ func (o FieldMappingResponseOutput) ToFieldMappingResponseOutputWithContext(ctx 
 	return o
 }
 
-// the column name to be mapped to the identifier
 func (o FieldMappingResponseOutput) ColumnName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v FieldMappingResponse) *string { return v.ColumnName }).(pulumi.StringPtrOutput)
 }
 
-// the V3 identifier of the entity
 func (o FieldMappingResponseOutput) Identifier() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v FieldMappingResponse) *string { return v.Identifier }).(pulumi.StringPtrOutput)
 }
@@ -5515,22 +5218,14 @@ func (o FieldMappingResponseArrayOutput) Index(i pulumi.IntInput) FieldMappingRe
 	}).(FieldMappingResponseOutput)
 }
 
-// Grouping configuration property bag.
 type GroupingConfiguration struct {
-	// Grouping enabled
-	Enabled bool `pulumi:"enabled"`
-	// A list of alert details to group by (when matchingMethod is Selected)
-	GroupByAlertDetails []string `pulumi:"groupByAlertDetails"`
-	// A list of custom details keys to group by (when matchingMethod is Selected). Only keys defined in the current alert rule may be used.
+	Enabled              bool     `pulumi:"enabled"`
+	GroupByAlertDetails  []string `pulumi:"groupByAlertDetails"`
 	GroupByCustomDetails []string `pulumi:"groupByCustomDetails"`
-	// A list of entity types to group by (when matchingMethod is Selected). Only entities defined in the current alert rule may be used.
-	GroupByEntities []string `pulumi:"groupByEntities"`
-	// Limit the group to alerts created within the lookback duration (in ISO 8601 duration format)
-	LookbackDuration string `pulumi:"lookbackDuration"`
-	// Grouping matching method. When method is Selected at least one of groupByEntities, groupByAlertDetails, groupByCustomDetails must be provided and not empty.
-	MatchingMethod string `pulumi:"matchingMethod"`
-	// Re-open closed matching incidents
-	ReopenClosedIncident bool `pulumi:"reopenClosedIncident"`
+	GroupByEntities      []string `pulumi:"groupByEntities"`
+	LookbackDuration     string   `pulumi:"lookbackDuration"`
+	MatchingMethod       string   `pulumi:"matchingMethod"`
+	ReopenClosedIncident bool     `pulumi:"reopenClosedIncident"`
 }
 
 // GroupingConfigurationInput is an input type that accepts GroupingConfigurationArgs and GroupingConfigurationOutput values.
@@ -5544,22 +5239,14 @@ type GroupingConfigurationInput interface {
 	ToGroupingConfigurationOutputWithContext(context.Context) GroupingConfigurationOutput
 }
 
-// Grouping configuration property bag.
 type GroupingConfigurationArgs struct {
-	// Grouping enabled
-	Enabled pulumi.BoolInput `pulumi:"enabled"`
-	// A list of alert details to group by (when matchingMethod is Selected)
-	GroupByAlertDetails pulumi.StringArrayInput `pulumi:"groupByAlertDetails"`
-	// A list of custom details keys to group by (when matchingMethod is Selected). Only keys defined in the current alert rule may be used.
+	Enabled              pulumi.BoolInput        `pulumi:"enabled"`
+	GroupByAlertDetails  pulumi.StringArrayInput `pulumi:"groupByAlertDetails"`
 	GroupByCustomDetails pulumi.StringArrayInput `pulumi:"groupByCustomDetails"`
-	// A list of entity types to group by (when matchingMethod is Selected). Only entities defined in the current alert rule may be used.
-	GroupByEntities pulumi.StringArrayInput `pulumi:"groupByEntities"`
-	// Limit the group to alerts created within the lookback duration (in ISO 8601 duration format)
-	LookbackDuration pulumi.StringInput `pulumi:"lookbackDuration"`
-	// Grouping matching method. When method is Selected at least one of groupByEntities, groupByAlertDetails, groupByCustomDetails must be provided and not empty.
-	MatchingMethod pulumi.StringInput `pulumi:"matchingMethod"`
-	// Re-open closed matching incidents
-	ReopenClosedIncident pulumi.BoolInput `pulumi:"reopenClosedIncident"`
+	GroupByEntities      pulumi.StringArrayInput `pulumi:"groupByEntities"`
+	LookbackDuration     pulumi.StringInput      `pulumi:"lookbackDuration"`
+	MatchingMethod       pulumi.StringInput      `pulumi:"matchingMethod"`
+	ReopenClosedIncident pulumi.BoolInput        `pulumi:"reopenClosedIncident"`
 }
 
 func (GroupingConfigurationArgs) ElementType() reflect.Type {
@@ -5615,7 +5302,6 @@ func (i *groupingConfigurationPtrType) ToGroupingConfigurationPtrOutputWithConte
 	return pulumi.ToOutputWithContext(ctx, i).(GroupingConfigurationPtrOutput)
 }
 
-// Grouping configuration property bag.
 type GroupingConfigurationOutput struct{ *pulumi.OutputState }
 
 func (GroupingConfigurationOutput) ElementType() reflect.Type {
@@ -5635,42 +5321,35 @@ func (o GroupingConfigurationOutput) ToGroupingConfigurationPtrOutput() Grouping
 }
 
 func (o GroupingConfigurationOutput) ToGroupingConfigurationPtrOutputWithContext(ctx context.Context) GroupingConfigurationPtrOutput {
-	return o.ApplyT(func(v GroupingConfiguration) *GroupingConfiguration {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v GroupingConfiguration) *GroupingConfiguration {
 		return &v
 	}).(GroupingConfigurationPtrOutput)
 }
 
-// Grouping enabled
 func (o GroupingConfigurationOutput) Enabled() pulumi.BoolOutput {
 	return o.ApplyT(func(v GroupingConfiguration) bool { return v.Enabled }).(pulumi.BoolOutput)
 }
 
-// A list of alert details to group by (when matchingMethod is Selected)
 func (o GroupingConfigurationOutput) GroupByAlertDetails() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v GroupingConfiguration) []string { return v.GroupByAlertDetails }).(pulumi.StringArrayOutput)
 }
 
-// A list of custom details keys to group by (when matchingMethod is Selected). Only keys defined in the current alert rule may be used.
 func (o GroupingConfigurationOutput) GroupByCustomDetails() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v GroupingConfiguration) []string { return v.GroupByCustomDetails }).(pulumi.StringArrayOutput)
 }
 
-// A list of entity types to group by (when matchingMethod is Selected). Only entities defined in the current alert rule may be used.
 func (o GroupingConfigurationOutput) GroupByEntities() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v GroupingConfiguration) []string { return v.GroupByEntities }).(pulumi.StringArrayOutput)
 }
 
-// Limit the group to alerts created within the lookback duration (in ISO 8601 duration format)
 func (o GroupingConfigurationOutput) LookbackDuration() pulumi.StringOutput {
 	return o.ApplyT(func(v GroupingConfiguration) string { return v.LookbackDuration }).(pulumi.StringOutput)
 }
 
-// Grouping matching method. When method is Selected at least one of groupByEntities, groupByAlertDetails, groupByCustomDetails must be provided and not empty.
 func (o GroupingConfigurationOutput) MatchingMethod() pulumi.StringOutput {
 	return o.ApplyT(func(v GroupingConfiguration) string { return v.MatchingMethod }).(pulumi.StringOutput)
 }
 
-// Re-open closed matching incidents
 func (o GroupingConfigurationOutput) ReopenClosedIncident() pulumi.BoolOutput {
 	return o.ApplyT(func(v GroupingConfiguration) bool { return v.ReopenClosedIncident }).(pulumi.BoolOutput)
 }
@@ -5690,10 +5369,15 @@ func (o GroupingConfigurationPtrOutput) ToGroupingConfigurationPtrOutputWithCont
 }
 
 func (o GroupingConfigurationPtrOutput) Elem() GroupingConfigurationOutput {
-	return o.ApplyT(func(v *GroupingConfiguration) GroupingConfiguration { return *v }).(GroupingConfigurationOutput)
+	return o.ApplyT(func(v *GroupingConfiguration) GroupingConfiguration {
+		if v != nil {
+			return *v
+		}
+		var ret GroupingConfiguration
+		return ret
+	}).(GroupingConfigurationOutput)
 }
 
-// Grouping enabled
 func (o GroupingConfigurationPtrOutput) Enabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *GroupingConfiguration) *bool {
 		if v == nil {
@@ -5703,7 +5387,6 @@ func (o GroupingConfigurationPtrOutput) Enabled() pulumi.BoolPtrOutput {
 	}).(pulumi.BoolPtrOutput)
 }
 
-// A list of alert details to group by (when matchingMethod is Selected)
 func (o GroupingConfigurationPtrOutput) GroupByAlertDetails() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *GroupingConfiguration) []string {
 		if v == nil {
@@ -5713,7 +5396,6 @@ func (o GroupingConfigurationPtrOutput) GroupByAlertDetails() pulumi.StringArray
 	}).(pulumi.StringArrayOutput)
 }
 
-// A list of custom details keys to group by (when matchingMethod is Selected). Only keys defined in the current alert rule may be used.
 func (o GroupingConfigurationPtrOutput) GroupByCustomDetails() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *GroupingConfiguration) []string {
 		if v == nil {
@@ -5723,7 +5405,6 @@ func (o GroupingConfigurationPtrOutput) GroupByCustomDetails() pulumi.StringArra
 	}).(pulumi.StringArrayOutput)
 }
 
-// A list of entity types to group by (when matchingMethod is Selected). Only entities defined in the current alert rule may be used.
 func (o GroupingConfigurationPtrOutput) GroupByEntities() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *GroupingConfiguration) []string {
 		if v == nil {
@@ -5733,7 +5414,6 @@ func (o GroupingConfigurationPtrOutput) GroupByEntities() pulumi.StringArrayOutp
 	}).(pulumi.StringArrayOutput)
 }
 
-// Limit the group to alerts created within the lookback duration (in ISO 8601 duration format)
 func (o GroupingConfigurationPtrOutput) LookbackDuration() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *GroupingConfiguration) *string {
 		if v == nil {
@@ -5743,7 +5423,6 @@ func (o GroupingConfigurationPtrOutput) LookbackDuration() pulumi.StringPtrOutpu
 	}).(pulumi.StringPtrOutput)
 }
 
-// Grouping matching method. When method is Selected at least one of groupByEntities, groupByAlertDetails, groupByCustomDetails must be provided and not empty.
 func (o GroupingConfigurationPtrOutput) MatchingMethod() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *GroupingConfiguration) *string {
 		if v == nil {
@@ -5753,7 +5432,6 @@ func (o GroupingConfigurationPtrOutput) MatchingMethod() pulumi.StringPtrOutput 
 	}).(pulumi.StringPtrOutput)
 }
 
-// Re-open closed matching incidents
 func (o GroupingConfigurationPtrOutput) ReopenClosedIncident() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *GroupingConfiguration) *bool {
 		if v == nil {
@@ -5763,22 +5441,14 @@ func (o GroupingConfigurationPtrOutput) ReopenClosedIncident() pulumi.BoolPtrOut
 	}).(pulumi.BoolPtrOutput)
 }
 
-// Grouping configuration property bag.
 type GroupingConfigurationResponse struct {
-	// Grouping enabled
-	Enabled bool `pulumi:"enabled"`
-	// A list of alert details to group by (when matchingMethod is Selected)
-	GroupByAlertDetails []string `pulumi:"groupByAlertDetails"`
-	// A list of custom details keys to group by (when matchingMethod is Selected). Only keys defined in the current alert rule may be used.
+	Enabled              bool     `pulumi:"enabled"`
+	GroupByAlertDetails  []string `pulumi:"groupByAlertDetails"`
 	GroupByCustomDetails []string `pulumi:"groupByCustomDetails"`
-	// A list of entity types to group by (when matchingMethod is Selected). Only entities defined in the current alert rule may be used.
-	GroupByEntities []string `pulumi:"groupByEntities"`
-	// Limit the group to alerts created within the lookback duration (in ISO 8601 duration format)
-	LookbackDuration string `pulumi:"lookbackDuration"`
-	// Grouping matching method. When method is Selected at least one of groupByEntities, groupByAlertDetails, groupByCustomDetails must be provided and not empty.
-	MatchingMethod string `pulumi:"matchingMethod"`
-	// Re-open closed matching incidents
-	ReopenClosedIncident bool `pulumi:"reopenClosedIncident"`
+	GroupByEntities      []string `pulumi:"groupByEntities"`
+	LookbackDuration     string   `pulumi:"lookbackDuration"`
+	MatchingMethod       string   `pulumi:"matchingMethod"`
+	ReopenClosedIncident bool     `pulumi:"reopenClosedIncident"`
 }
 
 // GroupingConfigurationResponseInput is an input type that accepts GroupingConfigurationResponseArgs and GroupingConfigurationResponseOutput values.
@@ -5792,22 +5462,14 @@ type GroupingConfigurationResponseInput interface {
 	ToGroupingConfigurationResponseOutputWithContext(context.Context) GroupingConfigurationResponseOutput
 }
 
-// Grouping configuration property bag.
 type GroupingConfigurationResponseArgs struct {
-	// Grouping enabled
-	Enabled pulumi.BoolInput `pulumi:"enabled"`
-	// A list of alert details to group by (when matchingMethod is Selected)
-	GroupByAlertDetails pulumi.StringArrayInput `pulumi:"groupByAlertDetails"`
-	// A list of custom details keys to group by (when matchingMethod is Selected). Only keys defined in the current alert rule may be used.
+	Enabled              pulumi.BoolInput        `pulumi:"enabled"`
+	GroupByAlertDetails  pulumi.StringArrayInput `pulumi:"groupByAlertDetails"`
 	GroupByCustomDetails pulumi.StringArrayInput `pulumi:"groupByCustomDetails"`
-	// A list of entity types to group by (when matchingMethod is Selected). Only entities defined in the current alert rule may be used.
-	GroupByEntities pulumi.StringArrayInput `pulumi:"groupByEntities"`
-	// Limit the group to alerts created within the lookback duration (in ISO 8601 duration format)
-	LookbackDuration pulumi.StringInput `pulumi:"lookbackDuration"`
-	// Grouping matching method. When method is Selected at least one of groupByEntities, groupByAlertDetails, groupByCustomDetails must be provided and not empty.
-	MatchingMethod pulumi.StringInput `pulumi:"matchingMethod"`
-	// Re-open closed matching incidents
-	ReopenClosedIncident pulumi.BoolInput `pulumi:"reopenClosedIncident"`
+	GroupByEntities      pulumi.StringArrayInput `pulumi:"groupByEntities"`
+	LookbackDuration     pulumi.StringInput      `pulumi:"lookbackDuration"`
+	MatchingMethod       pulumi.StringInput      `pulumi:"matchingMethod"`
+	ReopenClosedIncident pulumi.BoolInput        `pulumi:"reopenClosedIncident"`
 }
 
 func (GroupingConfigurationResponseArgs) ElementType() reflect.Type {
@@ -5863,7 +5525,6 @@ func (i *groupingConfigurationResponsePtrType) ToGroupingConfigurationResponsePt
 	return pulumi.ToOutputWithContext(ctx, i).(GroupingConfigurationResponsePtrOutput)
 }
 
-// Grouping configuration property bag.
 type GroupingConfigurationResponseOutput struct{ *pulumi.OutputState }
 
 func (GroupingConfigurationResponseOutput) ElementType() reflect.Type {
@@ -5883,42 +5544,35 @@ func (o GroupingConfigurationResponseOutput) ToGroupingConfigurationResponsePtrO
 }
 
 func (o GroupingConfigurationResponseOutput) ToGroupingConfigurationResponsePtrOutputWithContext(ctx context.Context) GroupingConfigurationResponsePtrOutput {
-	return o.ApplyT(func(v GroupingConfigurationResponse) *GroupingConfigurationResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v GroupingConfigurationResponse) *GroupingConfigurationResponse {
 		return &v
 	}).(GroupingConfigurationResponsePtrOutput)
 }
 
-// Grouping enabled
 func (o GroupingConfigurationResponseOutput) Enabled() pulumi.BoolOutput {
 	return o.ApplyT(func(v GroupingConfigurationResponse) bool { return v.Enabled }).(pulumi.BoolOutput)
 }
 
-// A list of alert details to group by (when matchingMethod is Selected)
 func (o GroupingConfigurationResponseOutput) GroupByAlertDetails() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v GroupingConfigurationResponse) []string { return v.GroupByAlertDetails }).(pulumi.StringArrayOutput)
 }
 
-// A list of custom details keys to group by (when matchingMethod is Selected). Only keys defined in the current alert rule may be used.
 func (o GroupingConfigurationResponseOutput) GroupByCustomDetails() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v GroupingConfigurationResponse) []string { return v.GroupByCustomDetails }).(pulumi.StringArrayOutput)
 }
 
-// A list of entity types to group by (when matchingMethod is Selected). Only entities defined in the current alert rule may be used.
 func (o GroupingConfigurationResponseOutput) GroupByEntities() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v GroupingConfigurationResponse) []string { return v.GroupByEntities }).(pulumi.StringArrayOutput)
 }
 
-// Limit the group to alerts created within the lookback duration (in ISO 8601 duration format)
 func (o GroupingConfigurationResponseOutput) LookbackDuration() pulumi.StringOutput {
 	return o.ApplyT(func(v GroupingConfigurationResponse) string { return v.LookbackDuration }).(pulumi.StringOutput)
 }
 
-// Grouping matching method. When method is Selected at least one of groupByEntities, groupByAlertDetails, groupByCustomDetails must be provided and not empty.
 func (o GroupingConfigurationResponseOutput) MatchingMethod() pulumi.StringOutput {
 	return o.ApplyT(func(v GroupingConfigurationResponse) string { return v.MatchingMethod }).(pulumi.StringOutput)
 }
 
-// Re-open closed matching incidents
 func (o GroupingConfigurationResponseOutput) ReopenClosedIncident() pulumi.BoolOutput {
 	return o.ApplyT(func(v GroupingConfigurationResponse) bool { return v.ReopenClosedIncident }).(pulumi.BoolOutput)
 }
@@ -5938,10 +5592,15 @@ func (o GroupingConfigurationResponsePtrOutput) ToGroupingConfigurationResponseP
 }
 
 func (o GroupingConfigurationResponsePtrOutput) Elem() GroupingConfigurationResponseOutput {
-	return o.ApplyT(func(v *GroupingConfigurationResponse) GroupingConfigurationResponse { return *v }).(GroupingConfigurationResponseOutput)
+	return o.ApplyT(func(v *GroupingConfigurationResponse) GroupingConfigurationResponse {
+		if v != nil {
+			return *v
+		}
+		var ret GroupingConfigurationResponse
+		return ret
+	}).(GroupingConfigurationResponseOutput)
 }
 
-// Grouping enabled
 func (o GroupingConfigurationResponsePtrOutput) Enabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *GroupingConfigurationResponse) *bool {
 		if v == nil {
@@ -5951,7 +5610,6 @@ func (o GroupingConfigurationResponsePtrOutput) Enabled() pulumi.BoolPtrOutput {
 	}).(pulumi.BoolPtrOutput)
 }
 
-// A list of alert details to group by (when matchingMethod is Selected)
 func (o GroupingConfigurationResponsePtrOutput) GroupByAlertDetails() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *GroupingConfigurationResponse) []string {
 		if v == nil {
@@ -5961,7 +5619,6 @@ func (o GroupingConfigurationResponsePtrOutput) GroupByAlertDetails() pulumi.Str
 	}).(pulumi.StringArrayOutput)
 }
 
-// A list of custom details keys to group by (when matchingMethod is Selected). Only keys defined in the current alert rule may be used.
 func (o GroupingConfigurationResponsePtrOutput) GroupByCustomDetails() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *GroupingConfigurationResponse) []string {
 		if v == nil {
@@ -5971,7 +5628,6 @@ func (o GroupingConfigurationResponsePtrOutput) GroupByCustomDetails() pulumi.St
 	}).(pulumi.StringArrayOutput)
 }
 
-// A list of entity types to group by (when matchingMethod is Selected). Only entities defined in the current alert rule may be used.
 func (o GroupingConfigurationResponsePtrOutput) GroupByEntities() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *GroupingConfigurationResponse) []string {
 		if v == nil {
@@ -5981,7 +5637,6 @@ func (o GroupingConfigurationResponsePtrOutput) GroupByEntities() pulumi.StringA
 	}).(pulumi.StringArrayOutput)
 }
 
-// Limit the group to alerts created within the lookback duration (in ISO 8601 duration format)
 func (o GroupingConfigurationResponsePtrOutput) LookbackDuration() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *GroupingConfigurationResponse) *string {
 		if v == nil {
@@ -5991,7 +5646,6 @@ func (o GroupingConfigurationResponsePtrOutput) LookbackDuration() pulumi.String
 	}).(pulumi.StringPtrOutput)
 }
 
-// Grouping matching method. When method is Selected at least one of groupByEntities, groupByAlertDetails, groupByCustomDetails must be provided and not empty.
 func (o GroupingConfigurationResponsePtrOutput) MatchingMethod() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *GroupingConfigurationResponse) *string {
 		if v == nil {
@@ -6001,7 +5655,6 @@ func (o GroupingConfigurationResponsePtrOutput) MatchingMethod() pulumi.StringPt
 	}).(pulumi.StringPtrOutput)
 }
 
-// Re-open closed matching incidents
 func (o GroupingConfigurationResponsePtrOutput) ReopenClosedIncident() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *GroupingConfigurationResponse) *bool {
 		if v == nil {
@@ -6011,18 +5664,12 @@ func (o GroupingConfigurationResponsePtrOutput) ReopenClosedIncident() pulumi.Bo
 	}).(pulumi.BoolPtrOutput)
 }
 
-// Incident additional data property bag.
 type IncidentAdditionalDataResponse struct {
-	// List of product names of alerts in the incident
 	AlertProductNames []string `pulumi:"alertProductNames"`
-	// The number of alerts in the incident
-	AlertsCount int `pulumi:"alertsCount"`
-	// The number of bookmarks in the incident
-	BookmarksCount int `pulumi:"bookmarksCount"`
-	// The number of comments in the incident
-	CommentsCount int `pulumi:"commentsCount"`
-	// The tactics associated with incident
-	Tactics []string `pulumi:"tactics"`
+	AlertsCount       int      `pulumi:"alertsCount"`
+	BookmarksCount    int      `pulumi:"bookmarksCount"`
+	CommentsCount     int      `pulumi:"commentsCount"`
+	Tactics           []string `pulumi:"tactics"`
 }
 
 // IncidentAdditionalDataResponseInput is an input type that accepts IncidentAdditionalDataResponseArgs and IncidentAdditionalDataResponseOutput values.
@@ -6036,18 +5683,12 @@ type IncidentAdditionalDataResponseInput interface {
 	ToIncidentAdditionalDataResponseOutputWithContext(context.Context) IncidentAdditionalDataResponseOutput
 }
 
-// Incident additional data property bag.
 type IncidentAdditionalDataResponseArgs struct {
-	// List of product names of alerts in the incident
 	AlertProductNames pulumi.StringArrayInput `pulumi:"alertProductNames"`
-	// The number of alerts in the incident
-	AlertsCount pulumi.IntInput `pulumi:"alertsCount"`
-	// The number of bookmarks in the incident
-	BookmarksCount pulumi.IntInput `pulumi:"bookmarksCount"`
-	// The number of comments in the incident
-	CommentsCount pulumi.IntInput `pulumi:"commentsCount"`
-	// The tactics associated with incident
-	Tactics pulumi.StringArrayInput `pulumi:"tactics"`
+	AlertsCount       pulumi.IntInput         `pulumi:"alertsCount"`
+	BookmarksCount    pulumi.IntInput         `pulumi:"bookmarksCount"`
+	CommentsCount     pulumi.IntInput         `pulumi:"commentsCount"`
+	Tactics           pulumi.StringArrayInput `pulumi:"tactics"`
 }
 
 func (IncidentAdditionalDataResponseArgs) ElementType() reflect.Type {
@@ -6103,7 +5744,6 @@ func (i *incidentAdditionalDataResponsePtrType) ToIncidentAdditionalDataResponse
 	return pulumi.ToOutputWithContext(ctx, i).(IncidentAdditionalDataResponsePtrOutput)
 }
 
-// Incident additional data property bag.
 type IncidentAdditionalDataResponseOutput struct{ *pulumi.OutputState }
 
 func (IncidentAdditionalDataResponseOutput) ElementType() reflect.Type {
@@ -6123,32 +5763,27 @@ func (o IncidentAdditionalDataResponseOutput) ToIncidentAdditionalDataResponsePt
 }
 
 func (o IncidentAdditionalDataResponseOutput) ToIncidentAdditionalDataResponsePtrOutputWithContext(ctx context.Context) IncidentAdditionalDataResponsePtrOutput {
-	return o.ApplyT(func(v IncidentAdditionalDataResponse) *IncidentAdditionalDataResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v IncidentAdditionalDataResponse) *IncidentAdditionalDataResponse {
 		return &v
 	}).(IncidentAdditionalDataResponsePtrOutput)
 }
 
-// List of product names of alerts in the incident
 func (o IncidentAdditionalDataResponseOutput) AlertProductNames() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v IncidentAdditionalDataResponse) []string { return v.AlertProductNames }).(pulumi.StringArrayOutput)
 }
 
-// The number of alerts in the incident
 func (o IncidentAdditionalDataResponseOutput) AlertsCount() pulumi.IntOutput {
 	return o.ApplyT(func(v IncidentAdditionalDataResponse) int { return v.AlertsCount }).(pulumi.IntOutput)
 }
 
-// The number of bookmarks in the incident
 func (o IncidentAdditionalDataResponseOutput) BookmarksCount() pulumi.IntOutput {
 	return o.ApplyT(func(v IncidentAdditionalDataResponse) int { return v.BookmarksCount }).(pulumi.IntOutput)
 }
 
-// The number of comments in the incident
 func (o IncidentAdditionalDataResponseOutput) CommentsCount() pulumi.IntOutput {
 	return o.ApplyT(func(v IncidentAdditionalDataResponse) int { return v.CommentsCount }).(pulumi.IntOutput)
 }
 
-// The tactics associated with incident
 func (o IncidentAdditionalDataResponseOutput) Tactics() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v IncidentAdditionalDataResponse) []string { return v.Tactics }).(pulumi.StringArrayOutput)
 }
@@ -6168,10 +5803,15 @@ func (o IncidentAdditionalDataResponsePtrOutput) ToIncidentAdditionalDataRespons
 }
 
 func (o IncidentAdditionalDataResponsePtrOutput) Elem() IncidentAdditionalDataResponseOutput {
-	return o.ApplyT(func(v *IncidentAdditionalDataResponse) IncidentAdditionalDataResponse { return *v }).(IncidentAdditionalDataResponseOutput)
+	return o.ApplyT(func(v *IncidentAdditionalDataResponse) IncidentAdditionalDataResponse {
+		if v != nil {
+			return *v
+		}
+		var ret IncidentAdditionalDataResponse
+		return ret
+	}).(IncidentAdditionalDataResponseOutput)
 }
 
-// List of product names of alerts in the incident
 func (o IncidentAdditionalDataResponsePtrOutput) AlertProductNames() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *IncidentAdditionalDataResponse) []string {
 		if v == nil {
@@ -6181,7 +5821,6 @@ func (o IncidentAdditionalDataResponsePtrOutput) AlertProductNames() pulumi.Stri
 	}).(pulumi.StringArrayOutput)
 }
 
-// The number of alerts in the incident
 func (o IncidentAdditionalDataResponsePtrOutput) AlertsCount() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *IncidentAdditionalDataResponse) *int {
 		if v == nil {
@@ -6191,7 +5830,6 @@ func (o IncidentAdditionalDataResponsePtrOutput) AlertsCount() pulumi.IntPtrOutp
 	}).(pulumi.IntPtrOutput)
 }
 
-// The number of bookmarks in the incident
 func (o IncidentAdditionalDataResponsePtrOutput) BookmarksCount() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *IncidentAdditionalDataResponse) *int {
 		if v == nil {
@@ -6201,7 +5839,6 @@ func (o IncidentAdditionalDataResponsePtrOutput) BookmarksCount() pulumi.IntPtrO
 	}).(pulumi.IntPtrOutput)
 }
 
-// The number of comments in the incident
 func (o IncidentAdditionalDataResponsePtrOutput) CommentsCount() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *IncidentAdditionalDataResponse) *int {
 		if v == nil {
@@ -6211,7 +5848,6 @@ func (o IncidentAdditionalDataResponsePtrOutput) CommentsCount() pulumi.IntPtrOu
 	}).(pulumi.IntPtrOutput)
 }
 
-// The tactics associated with incident
 func (o IncidentAdditionalDataResponsePtrOutput) Tactics() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *IncidentAdditionalDataResponse) []string {
 		if v == nil {
@@ -6221,11 +5857,8 @@ func (o IncidentAdditionalDataResponsePtrOutput) Tactics() pulumi.StringArrayOut
 	}).(pulumi.StringArrayOutput)
 }
 
-// Incident Configuration property bag.
 type IncidentConfiguration struct {
-	// Create incidents from alerts triggered by this analytics rule
-	CreateIncident bool `pulumi:"createIncident"`
-	// Set how the alerts that are triggered by this analytics rule, are grouped into incidents
+	CreateIncident        bool                   `pulumi:"createIncident"`
 	GroupingConfiguration *GroupingConfiguration `pulumi:"groupingConfiguration"`
 }
 
@@ -6240,11 +5873,8 @@ type IncidentConfigurationInput interface {
 	ToIncidentConfigurationOutputWithContext(context.Context) IncidentConfigurationOutput
 }
 
-// Incident Configuration property bag.
 type IncidentConfigurationArgs struct {
-	// Create incidents from alerts triggered by this analytics rule
-	CreateIncident pulumi.BoolInput `pulumi:"createIncident"`
-	// Set how the alerts that are triggered by this analytics rule, are grouped into incidents
+	CreateIncident        pulumi.BoolInput              `pulumi:"createIncident"`
 	GroupingConfiguration GroupingConfigurationPtrInput `pulumi:"groupingConfiguration"`
 }
 
@@ -6301,7 +5931,6 @@ func (i *incidentConfigurationPtrType) ToIncidentConfigurationPtrOutputWithConte
 	return pulumi.ToOutputWithContext(ctx, i).(IncidentConfigurationPtrOutput)
 }
 
-// Incident Configuration property bag.
 type IncidentConfigurationOutput struct{ *pulumi.OutputState }
 
 func (IncidentConfigurationOutput) ElementType() reflect.Type {
@@ -6321,17 +5950,15 @@ func (o IncidentConfigurationOutput) ToIncidentConfigurationPtrOutput() Incident
 }
 
 func (o IncidentConfigurationOutput) ToIncidentConfigurationPtrOutputWithContext(ctx context.Context) IncidentConfigurationPtrOutput {
-	return o.ApplyT(func(v IncidentConfiguration) *IncidentConfiguration {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v IncidentConfiguration) *IncidentConfiguration {
 		return &v
 	}).(IncidentConfigurationPtrOutput)
 }
 
-// Create incidents from alerts triggered by this analytics rule
 func (o IncidentConfigurationOutput) CreateIncident() pulumi.BoolOutput {
 	return o.ApplyT(func(v IncidentConfiguration) bool { return v.CreateIncident }).(pulumi.BoolOutput)
 }
 
-// Set how the alerts that are triggered by this analytics rule, are grouped into incidents
 func (o IncidentConfigurationOutput) GroupingConfiguration() GroupingConfigurationPtrOutput {
 	return o.ApplyT(func(v IncidentConfiguration) *GroupingConfiguration { return v.GroupingConfiguration }).(GroupingConfigurationPtrOutput)
 }
@@ -6351,10 +5978,15 @@ func (o IncidentConfigurationPtrOutput) ToIncidentConfigurationPtrOutputWithCont
 }
 
 func (o IncidentConfigurationPtrOutput) Elem() IncidentConfigurationOutput {
-	return o.ApplyT(func(v *IncidentConfiguration) IncidentConfiguration { return *v }).(IncidentConfigurationOutput)
+	return o.ApplyT(func(v *IncidentConfiguration) IncidentConfiguration {
+		if v != nil {
+			return *v
+		}
+		var ret IncidentConfiguration
+		return ret
+	}).(IncidentConfigurationOutput)
 }
 
-// Create incidents from alerts triggered by this analytics rule
 func (o IncidentConfigurationPtrOutput) CreateIncident() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *IncidentConfiguration) *bool {
 		if v == nil {
@@ -6364,7 +5996,6 @@ func (o IncidentConfigurationPtrOutput) CreateIncident() pulumi.BoolPtrOutput {
 	}).(pulumi.BoolPtrOutput)
 }
 
-// Set how the alerts that are triggered by this analytics rule, are grouped into incidents
 func (o IncidentConfigurationPtrOutput) GroupingConfiguration() GroupingConfigurationPtrOutput {
 	return o.ApplyT(func(v *IncidentConfiguration) *GroupingConfiguration {
 		if v == nil {
@@ -6374,11 +6005,8 @@ func (o IncidentConfigurationPtrOutput) GroupingConfiguration() GroupingConfigur
 	}).(GroupingConfigurationPtrOutput)
 }
 
-// Incident Configuration property bag.
 type IncidentConfigurationResponse struct {
-	// Create incidents from alerts triggered by this analytics rule
-	CreateIncident bool `pulumi:"createIncident"`
-	// Set how the alerts that are triggered by this analytics rule, are grouped into incidents
+	CreateIncident        bool                           `pulumi:"createIncident"`
 	GroupingConfiguration *GroupingConfigurationResponse `pulumi:"groupingConfiguration"`
 }
 
@@ -6393,11 +6021,8 @@ type IncidentConfigurationResponseInput interface {
 	ToIncidentConfigurationResponseOutputWithContext(context.Context) IncidentConfigurationResponseOutput
 }
 
-// Incident Configuration property bag.
 type IncidentConfigurationResponseArgs struct {
-	// Create incidents from alerts triggered by this analytics rule
-	CreateIncident pulumi.BoolInput `pulumi:"createIncident"`
-	// Set how the alerts that are triggered by this analytics rule, are grouped into incidents
+	CreateIncident        pulumi.BoolInput                      `pulumi:"createIncident"`
 	GroupingConfiguration GroupingConfigurationResponsePtrInput `pulumi:"groupingConfiguration"`
 }
 
@@ -6454,7 +6079,6 @@ func (i *incidentConfigurationResponsePtrType) ToIncidentConfigurationResponsePt
 	return pulumi.ToOutputWithContext(ctx, i).(IncidentConfigurationResponsePtrOutput)
 }
 
-// Incident Configuration property bag.
 type IncidentConfigurationResponseOutput struct{ *pulumi.OutputState }
 
 func (IncidentConfigurationResponseOutput) ElementType() reflect.Type {
@@ -6474,17 +6098,15 @@ func (o IncidentConfigurationResponseOutput) ToIncidentConfigurationResponsePtrO
 }
 
 func (o IncidentConfigurationResponseOutput) ToIncidentConfigurationResponsePtrOutputWithContext(ctx context.Context) IncidentConfigurationResponsePtrOutput {
-	return o.ApplyT(func(v IncidentConfigurationResponse) *IncidentConfigurationResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v IncidentConfigurationResponse) *IncidentConfigurationResponse {
 		return &v
 	}).(IncidentConfigurationResponsePtrOutput)
 }
 
-// Create incidents from alerts triggered by this analytics rule
 func (o IncidentConfigurationResponseOutput) CreateIncident() pulumi.BoolOutput {
 	return o.ApplyT(func(v IncidentConfigurationResponse) bool { return v.CreateIncident }).(pulumi.BoolOutput)
 }
 
-// Set how the alerts that are triggered by this analytics rule, are grouped into incidents
 func (o IncidentConfigurationResponseOutput) GroupingConfiguration() GroupingConfigurationResponsePtrOutput {
 	return o.ApplyT(func(v IncidentConfigurationResponse) *GroupingConfigurationResponse { return v.GroupingConfiguration }).(GroupingConfigurationResponsePtrOutput)
 }
@@ -6504,10 +6126,15 @@ func (o IncidentConfigurationResponsePtrOutput) ToIncidentConfigurationResponseP
 }
 
 func (o IncidentConfigurationResponsePtrOutput) Elem() IncidentConfigurationResponseOutput {
-	return o.ApplyT(func(v *IncidentConfigurationResponse) IncidentConfigurationResponse { return *v }).(IncidentConfigurationResponseOutput)
+	return o.ApplyT(func(v *IncidentConfigurationResponse) IncidentConfigurationResponse {
+		if v != nil {
+			return *v
+		}
+		var ret IncidentConfigurationResponse
+		return ret
+	}).(IncidentConfigurationResponseOutput)
 }
 
-// Create incidents from alerts triggered by this analytics rule
 func (o IncidentConfigurationResponsePtrOutput) CreateIncident() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *IncidentConfigurationResponse) *bool {
 		if v == nil {
@@ -6517,7 +6144,6 @@ func (o IncidentConfigurationResponsePtrOutput) CreateIncident() pulumi.BoolPtrO
 	}).(pulumi.BoolPtrOutput)
 }
 
-// Set how the alerts that are triggered by this analytics rule, are grouped into incidents
 func (o IncidentConfigurationResponsePtrOutput) GroupingConfiguration() GroupingConfigurationResponsePtrOutput {
 	return o.ApplyT(func(v *IncidentConfigurationResponse) *GroupingConfigurationResponse {
 		if v == nil {
@@ -6527,9 +6153,7 @@ func (o IncidentConfigurationResponsePtrOutput) GroupingConfiguration() Grouping
 	}).(GroupingConfigurationResponsePtrOutput)
 }
 
-// Represents an incident label
 type IncidentLabel struct {
-	// The name of the label
 	LabelName string `pulumi:"labelName"`
 }
 
@@ -6544,9 +6168,7 @@ type IncidentLabelInput interface {
 	ToIncidentLabelOutputWithContext(context.Context) IncidentLabelOutput
 }
 
-// Represents an incident label
 type IncidentLabelArgs struct {
-	// The name of the label
 	LabelName pulumi.StringInput `pulumi:"labelName"`
 }
 
@@ -6587,7 +6209,6 @@ func (i IncidentLabelArray) ToIncidentLabelArrayOutputWithContext(ctx context.Co
 	return pulumi.ToOutputWithContext(ctx, i).(IncidentLabelArrayOutput)
 }
 
-// Represents an incident label
 type IncidentLabelOutput struct{ *pulumi.OutputState }
 
 func (IncidentLabelOutput) ElementType() reflect.Type {
@@ -6602,7 +6223,6 @@ func (o IncidentLabelOutput) ToIncidentLabelOutputWithContext(ctx context.Contex
 	return o
 }
 
-// The name of the label
 func (o IncidentLabelOutput) LabelName() pulumi.StringOutput {
 	return o.ApplyT(func(v IncidentLabel) string { return v.LabelName }).(pulumi.StringOutput)
 }
@@ -6627,11 +6247,8 @@ func (o IncidentLabelArrayOutput) Index(i pulumi.IntInput) IncidentLabelOutput {
 	}).(IncidentLabelOutput)
 }
 
-// Represents an incident label
 type IncidentLabelResponse struct {
-	// The name of the label
 	LabelName string `pulumi:"labelName"`
-	// The type of the label
 	LabelType string `pulumi:"labelType"`
 }
 
@@ -6646,11 +6263,8 @@ type IncidentLabelResponseInput interface {
 	ToIncidentLabelResponseOutputWithContext(context.Context) IncidentLabelResponseOutput
 }
 
-// Represents an incident label
 type IncidentLabelResponseArgs struct {
-	// The name of the label
 	LabelName pulumi.StringInput `pulumi:"labelName"`
-	// The type of the label
 	LabelType pulumi.StringInput `pulumi:"labelType"`
 }
 
@@ -6691,7 +6305,6 @@ func (i IncidentLabelResponseArray) ToIncidentLabelResponseArrayOutputWithContex
 	return pulumi.ToOutputWithContext(ctx, i).(IncidentLabelResponseArrayOutput)
 }
 
-// Represents an incident label
 type IncidentLabelResponseOutput struct{ *pulumi.OutputState }
 
 func (IncidentLabelResponseOutput) ElementType() reflect.Type {
@@ -6706,12 +6319,10 @@ func (o IncidentLabelResponseOutput) ToIncidentLabelResponseOutputWithContext(ct
 	return o
 }
 
-// The name of the label
 func (o IncidentLabelResponseOutput) LabelName() pulumi.StringOutput {
 	return o.ApplyT(func(v IncidentLabelResponse) string { return v.LabelName }).(pulumi.StringOutput)
 }
 
-// The type of the label
 func (o IncidentLabelResponseOutput) LabelType() pulumi.StringOutput {
 	return o.ApplyT(func(v IncidentLabelResponse) string { return v.LabelType }).(pulumi.StringOutput)
 }
@@ -6736,15 +6347,10 @@ func (o IncidentLabelResponseArrayOutput) Index(i pulumi.IntInput) IncidentLabel
 	}).(IncidentLabelResponseOutput)
 }
 
-// Information on the user an incident is assigned to
 type IncidentOwnerInfo struct {
-	// The name of the user the incident is assigned to.
-	AssignedTo *string `pulumi:"assignedTo"`
-	// The email of the user the incident is assigned to.
-	Email *string `pulumi:"email"`
-	// The object id of the user the incident is assigned to.
-	ObjectId *string `pulumi:"objectId"`
-	// The user principal name of the user the incident is assigned to.
+	AssignedTo        *string `pulumi:"assignedTo"`
+	Email             *string `pulumi:"email"`
+	ObjectId          *string `pulumi:"objectId"`
 	UserPrincipalName *string `pulumi:"userPrincipalName"`
 }
 
@@ -6759,15 +6365,10 @@ type IncidentOwnerInfoInput interface {
 	ToIncidentOwnerInfoOutputWithContext(context.Context) IncidentOwnerInfoOutput
 }
 
-// Information on the user an incident is assigned to
 type IncidentOwnerInfoArgs struct {
-	// The name of the user the incident is assigned to.
-	AssignedTo pulumi.StringPtrInput `pulumi:"assignedTo"`
-	// The email of the user the incident is assigned to.
-	Email pulumi.StringPtrInput `pulumi:"email"`
-	// The object id of the user the incident is assigned to.
-	ObjectId pulumi.StringPtrInput `pulumi:"objectId"`
-	// The user principal name of the user the incident is assigned to.
+	AssignedTo        pulumi.StringPtrInput `pulumi:"assignedTo"`
+	Email             pulumi.StringPtrInput `pulumi:"email"`
+	ObjectId          pulumi.StringPtrInput `pulumi:"objectId"`
 	UserPrincipalName pulumi.StringPtrInput `pulumi:"userPrincipalName"`
 }
 
@@ -6824,7 +6425,6 @@ func (i *incidentOwnerInfoPtrType) ToIncidentOwnerInfoPtrOutputWithContext(ctx c
 	return pulumi.ToOutputWithContext(ctx, i).(IncidentOwnerInfoPtrOutput)
 }
 
-// Information on the user an incident is assigned to
 type IncidentOwnerInfoOutput struct{ *pulumi.OutputState }
 
 func (IncidentOwnerInfoOutput) ElementType() reflect.Type {
@@ -6844,27 +6444,23 @@ func (o IncidentOwnerInfoOutput) ToIncidentOwnerInfoPtrOutput() IncidentOwnerInf
 }
 
 func (o IncidentOwnerInfoOutput) ToIncidentOwnerInfoPtrOutputWithContext(ctx context.Context) IncidentOwnerInfoPtrOutput {
-	return o.ApplyT(func(v IncidentOwnerInfo) *IncidentOwnerInfo {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v IncidentOwnerInfo) *IncidentOwnerInfo {
 		return &v
 	}).(IncidentOwnerInfoPtrOutput)
 }
 
-// The name of the user the incident is assigned to.
 func (o IncidentOwnerInfoOutput) AssignedTo() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v IncidentOwnerInfo) *string { return v.AssignedTo }).(pulumi.StringPtrOutput)
 }
 
-// The email of the user the incident is assigned to.
 func (o IncidentOwnerInfoOutput) Email() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v IncidentOwnerInfo) *string { return v.Email }).(pulumi.StringPtrOutput)
 }
 
-// The object id of the user the incident is assigned to.
 func (o IncidentOwnerInfoOutput) ObjectId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v IncidentOwnerInfo) *string { return v.ObjectId }).(pulumi.StringPtrOutput)
 }
 
-// The user principal name of the user the incident is assigned to.
 func (o IncidentOwnerInfoOutput) UserPrincipalName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v IncidentOwnerInfo) *string { return v.UserPrincipalName }).(pulumi.StringPtrOutput)
 }
@@ -6884,10 +6480,15 @@ func (o IncidentOwnerInfoPtrOutput) ToIncidentOwnerInfoPtrOutputWithContext(ctx 
 }
 
 func (o IncidentOwnerInfoPtrOutput) Elem() IncidentOwnerInfoOutput {
-	return o.ApplyT(func(v *IncidentOwnerInfo) IncidentOwnerInfo { return *v }).(IncidentOwnerInfoOutput)
+	return o.ApplyT(func(v *IncidentOwnerInfo) IncidentOwnerInfo {
+		if v != nil {
+			return *v
+		}
+		var ret IncidentOwnerInfo
+		return ret
+	}).(IncidentOwnerInfoOutput)
 }
 
-// The name of the user the incident is assigned to.
 func (o IncidentOwnerInfoPtrOutput) AssignedTo() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *IncidentOwnerInfo) *string {
 		if v == nil {
@@ -6897,7 +6498,6 @@ func (o IncidentOwnerInfoPtrOutput) AssignedTo() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The email of the user the incident is assigned to.
 func (o IncidentOwnerInfoPtrOutput) Email() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *IncidentOwnerInfo) *string {
 		if v == nil {
@@ -6907,7 +6507,6 @@ func (o IncidentOwnerInfoPtrOutput) Email() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The object id of the user the incident is assigned to.
 func (o IncidentOwnerInfoPtrOutput) ObjectId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *IncidentOwnerInfo) *string {
 		if v == nil {
@@ -6917,7 +6516,6 @@ func (o IncidentOwnerInfoPtrOutput) ObjectId() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The user principal name of the user the incident is assigned to.
 func (o IncidentOwnerInfoPtrOutput) UserPrincipalName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *IncidentOwnerInfo) *string {
 		if v == nil {
@@ -6927,17 +6525,11 @@ func (o IncidentOwnerInfoPtrOutput) UserPrincipalName() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Information on the user an incident is assigned to
 type IncidentOwnerInfoResponse struct {
-	// The name of the user the incident is assigned to.
-	AssignedTo *string `pulumi:"assignedTo"`
-	// The email of the user the incident is assigned to.
-	Email *string `pulumi:"email"`
-	// The object id of the user the incident is assigned to.
-	ObjectId *string `pulumi:"objectId"`
-	// The type of the owner the incident is assigned to.
-	OwnerType string `pulumi:"ownerType"`
-	// The user principal name of the user the incident is assigned to.
+	AssignedTo        *string `pulumi:"assignedTo"`
+	Email             *string `pulumi:"email"`
+	ObjectId          *string `pulumi:"objectId"`
+	OwnerType         string  `pulumi:"ownerType"`
 	UserPrincipalName *string `pulumi:"userPrincipalName"`
 }
 
@@ -6952,17 +6544,11 @@ type IncidentOwnerInfoResponseInput interface {
 	ToIncidentOwnerInfoResponseOutputWithContext(context.Context) IncidentOwnerInfoResponseOutput
 }
 
-// Information on the user an incident is assigned to
 type IncidentOwnerInfoResponseArgs struct {
-	// The name of the user the incident is assigned to.
-	AssignedTo pulumi.StringPtrInput `pulumi:"assignedTo"`
-	// The email of the user the incident is assigned to.
-	Email pulumi.StringPtrInput `pulumi:"email"`
-	// The object id of the user the incident is assigned to.
-	ObjectId pulumi.StringPtrInput `pulumi:"objectId"`
-	// The type of the owner the incident is assigned to.
-	OwnerType pulumi.StringInput `pulumi:"ownerType"`
-	// The user principal name of the user the incident is assigned to.
+	AssignedTo        pulumi.StringPtrInput `pulumi:"assignedTo"`
+	Email             pulumi.StringPtrInput `pulumi:"email"`
+	ObjectId          pulumi.StringPtrInput `pulumi:"objectId"`
+	OwnerType         pulumi.StringInput    `pulumi:"ownerType"`
 	UserPrincipalName pulumi.StringPtrInput `pulumi:"userPrincipalName"`
 }
 
@@ -7019,7 +6605,6 @@ func (i *incidentOwnerInfoResponsePtrType) ToIncidentOwnerInfoResponsePtrOutputW
 	return pulumi.ToOutputWithContext(ctx, i).(IncidentOwnerInfoResponsePtrOutput)
 }
 
-// Information on the user an incident is assigned to
 type IncidentOwnerInfoResponseOutput struct{ *pulumi.OutputState }
 
 func (IncidentOwnerInfoResponseOutput) ElementType() reflect.Type {
@@ -7039,32 +6624,27 @@ func (o IncidentOwnerInfoResponseOutput) ToIncidentOwnerInfoResponsePtrOutput() 
 }
 
 func (o IncidentOwnerInfoResponseOutput) ToIncidentOwnerInfoResponsePtrOutputWithContext(ctx context.Context) IncidentOwnerInfoResponsePtrOutput {
-	return o.ApplyT(func(v IncidentOwnerInfoResponse) *IncidentOwnerInfoResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v IncidentOwnerInfoResponse) *IncidentOwnerInfoResponse {
 		return &v
 	}).(IncidentOwnerInfoResponsePtrOutput)
 }
 
-// The name of the user the incident is assigned to.
 func (o IncidentOwnerInfoResponseOutput) AssignedTo() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v IncidentOwnerInfoResponse) *string { return v.AssignedTo }).(pulumi.StringPtrOutput)
 }
 
-// The email of the user the incident is assigned to.
 func (o IncidentOwnerInfoResponseOutput) Email() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v IncidentOwnerInfoResponse) *string { return v.Email }).(pulumi.StringPtrOutput)
 }
 
-// The object id of the user the incident is assigned to.
 func (o IncidentOwnerInfoResponseOutput) ObjectId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v IncidentOwnerInfoResponse) *string { return v.ObjectId }).(pulumi.StringPtrOutput)
 }
 
-// The type of the owner the incident is assigned to.
 func (o IncidentOwnerInfoResponseOutput) OwnerType() pulumi.StringOutput {
 	return o.ApplyT(func(v IncidentOwnerInfoResponse) string { return v.OwnerType }).(pulumi.StringOutput)
 }
 
-// The user principal name of the user the incident is assigned to.
 func (o IncidentOwnerInfoResponseOutput) UserPrincipalName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v IncidentOwnerInfoResponse) *string { return v.UserPrincipalName }).(pulumi.StringPtrOutput)
 }
@@ -7084,10 +6664,15 @@ func (o IncidentOwnerInfoResponsePtrOutput) ToIncidentOwnerInfoResponsePtrOutput
 }
 
 func (o IncidentOwnerInfoResponsePtrOutput) Elem() IncidentOwnerInfoResponseOutput {
-	return o.ApplyT(func(v *IncidentOwnerInfoResponse) IncidentOwnerInfoResponse { return *v }).(IncidentOwnerInfoResponseOutput)
+	return o.ApplyT(func(v *IncidentOwnerInfoResponse) IncidentOwnerInfoResponse {
+		if v != nil {
+			return *v
+		}
+		var ret IncidentOwnerInfoResponse
+		return ret
+	}).(IncidentOwnerInfoResponseOutput)
 }
 
-// The name of the user the incident is assigned to.
 func (o IncidentOwnerInfoResponsePtrOutput) AssignedTo() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *IncidentOwnerInfoResponse) *string {
 		if v == nil {
@@ -7097,7 +6682,6 @@ func (o IncidentOwnerInfoResponsePtrOutput) AssignedTo() pulumi.StringPtrOutput 
 	}).(pulumi.StringPtrOutput)
 }
 
-// The email of the user the incident is assigned to.
 func (o IncidentOwnerInfoResponsePtrOutput) Email() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *IncidentOwnerInfoResponse) *string {
 		if v == nil {
@@ -7107,7 +6691,6 @@ func (o IncidentOwnerInfoResponsePtrOutput) Email() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The object id of the user the incident is assigned to.
 func (o IncidentOwnerInfoResponsePtrOutput) ObjectId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *IncidentOwnerInfoResponse) *string {
 		if v == nil {
@@ -7117,7 +6700,6 @@ func (o IncidentOwnerInfoResponsePtrOutput) ObjectId() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The type of the owner the incident is assigned to.
 func (o IncidentOwnerInfoResponsePtrOutput) OwnerType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *IncidentOwnerInfoResponse) *string {
 		if v == nil {
@@ -7127,7 +6709,6 @@ func (o IncidentOwnerInfoResponsePtrOutput) OwnerType() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The user principal name of the user the incident is assigned to.
 func (o IncidentOwnerInfoResponsePtrOutput) UserPrincipalName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *IncidentOwnerInfoResponse) *string {
 		if v == nil {
@@ -7138,10 +6719,8 @@ func (o IncidentOwnerInfoResponsePtrOutput) UserPrincipalName() pulumi.StringPtr
 }
 
 type InstructionStepsInstructions struct {
-	// The parameters for the setting
 	Parameters interface{} `pulumi:"parameters"`
-	// The kind of the setting
-	Type string `pulumi:"type"`
+	Type       string      `pulumi:"type"`
 }
 
 // InstructionStepsInstructionsInput is an input type that accepts InstructionStepsInstructionsArgs and InstructionStepsInstructionsOutput values.
@@ -7156,10 +6735,8 @@ type InstructionStepsInstructionsInput interface {
 }
 
 type InstructionStepsInstructionsArgs struct {
-	// The parameters for the setting
-	Parameters pulumi.Input `pulumi:"parameters"`
-	// The kind of the setting
-	Type pulumi.StringInput `pulumi:"type"`
+	Parameters pulumi.Input       `pulumi:"parameters"`
+	Type       pulumi.StringInput `pulumi:"type"`
 }
 
 func (InstructionStepsInstructionsArgs) ElementType() reflect.Type {
@@ -7213,12 +6790,10 @@ func (o InstructionStepsInstructionsOutput) ToInstructionStepsInstructionsOutput
 	return o
 }
 
-// The parameters for the setting
 func (o InstructionStepsInstructionsOutput) Parameters() pulumi.AnyOutput {
 	return o.ApplyT(func(v InstructionStepsInstructions) interface{} { return v.Parameters }).(pulumi.AnyOutput)
 }
 
-// The kind of the setting
 func (o InstructionStepsInstructionsOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v InstructionStepsInstructions) string { return v.Type }).(pulumi.StringOutput)
 }
@@ -7244,10 +6819,8 @@ func (o InstructionStepsInstructionsArrayOutput) Index(i pulumi.IntInput) Instru
 }
 
 type InstructionStepsResponseInstructions struct {
-	// The parameters for the setting
 	Parameters interface{} `pulumi:"parameters"`
-	// The kind of the setting
-	Type string `pulumi:"type"`
+	Type       string      `pulumi:"type"`
 }
 
 // InstructionStepsResponseInstructionsInput is an input type that accepts InstructionStepsResponseInstructionsArgs and InstructionStepsResponseInstructionsOutput values.
@@ -7262,10 +6835,8 @@ type InstructionStepsResponseInstructionsInput interface {
 }
 
 type InstructionStepsResponseInstructionsArgs struct {
-	// The parameters for the setting
-	Parameters pulumi.Input `pulumi:"parameters"`
-	// The kind of the setting
-	Type pulumi.StringInput `pulumi:"type"`
+	Parameters pulumi.Input       `pulumi:"parameters"`
+	Type       pulumi.StringInput `pulumi:"type"`
 }
 
 func (InstructionStepsResponseInstructionsArgs) ElementType() reflect.Type {
@@ -7319,12 +6890,10 @@ func (o InstructionStepsResponseInstructionsOutput) ToInstructionStepsResponseIn
 	return o
 }
 
-// The parameters for the setting
 func (o InstructionStepsResponseInstructionsOutput) Parameters() pulumi.AnyOutput {
 	return o.ApplyT(func(v InstructionStepsResponseInstructions) interface{} { return v.Parameters }).(pulumi.AnyOutput)
 }
 
-// The kind of the setting
 func (o InstructionStepsResponseInstructionsOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v InstructionStepsResponseInstructions) string { return v.Type }).(pulumi.StringOutput)
 }
@@ -7349,11 +6918,8 @@ func (o InstructionStepsResponseInstructionsArrayOutput) Index(i pulumi.IntInput
 	}).(InstructionStepsResponseInstructionsOutput)
 }
 
-// The available data types for MCAS (Microsoft Cloud App Security) data connector.
 type MCASDataConnectorDataTypes struct {
-	// Alerts data type connection.
-	Alerts DataConnectorDataTypeCommon `pulumi:"alerts"`
-	// Discovery log data type connection.
+	Alerts        DataConnectorDataTypeCommon  `pulumi:"alerts"`
 	DiscoveryLogs *DataConnectorDataTypeCommon `pulumi:"discoveryLogs"`
 }
 
@@ -7368,11 +6934,8 @@ type MCASDataConnectorDataTypesInput interface {
 	ToMCASDataConnectorDataTypesOutputWithContext(context.Context) MCASDataConnectorDataTypesOutput
 }
 
-// The available data types for MCAS (Microsoft Cloud App Security) data connector.
 type MCASDataConnectorDataTypesArgs struct {
-	// Alerts data type connection.
-	Alerts DataConnectorDataTypeCommonInput `pulumi:"alerts"`
-	// Discovery log data type connection.
+	Alerts        DataConnectorDataTypeCommonInput    `pulumi:"alerts"`
 	DiscoveryLogs DataConnectorDataTypeCommonPtrInput `pulumi:"discoveryLogs"`
 }
 
@@ -7429,7 +6992,6 @@ func (i *mcasdataConnectorDataTypesPtrType) ToMCASDataConnectorDataTypesPtrOutpu
 	return pulumi.ToOutputWithContext(ctx, i).(MCASDataConnectorDataTypesPtrOutput)
 }
 
-// The available data types for MCAS (Microsoft Cloud App Security) data connector.
 type MCASDataConnectorDataTypesOutput struct{ *pulumi.OutputState }
 
 func (MCASDataConnectorDataTypesOutput) ElementType() reflect.Type {
@@ -7449,17 +7011,15 @@ func (o MCASDataConnectorDataTypesOutput) ToMCASDataConnectorDataTypesPtrOutput(
 }
 
 func (o MCASDataConnectorDataTypesOutput) ToMCASDataConnectorDataTypesPtrOutputWithContext(ctx context.Context) MCASDataConnectorDataTypesPtrOutput {
-	return o.ApplyT(func(v MCASDataConnectorDataTypes) *MCASDataConnectorDataTypes {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v MCASDataConnectorDataTypes) *MCASDataConnectorDataTypes {
 		return &v
 	}).(MCASDataConnectorDataTypesPtrOutput)
 }
 
-// Alerts data type connection.
 func (o MCASDataConnectorDataTypesOutput) Alerts() DataConnectorDataTypeCommonOutput {
 	return o.ApplyT(func(v MCASDataConnectorDataTypes) DataConnectorDataTypeCommon { return v.Alerts }).(DataConnectorDataTypeCommonOutput)
 }
 
-// Discovery log data type connection.
 func (o MCASDataConnectorDataTypesOutput) DiscoveryLogs() DataConnectorDataTypeCommonPtrOutput {
 	return o.ApplyT(func(v MCASDataConnectorDataTypes) *DataConnectorDataTypeCommon { return v.DiscoveryLogs }).(DataConnectorDataTypeCommonPtrOutput)
 }
@@ -7479,10 +7039,15 @@ func (o MCASDataConnectorDataTypesPtrOutput) ToMCASDataConnectorDataTypesPtrOutp
 }
 
 func (o MCASDataConnectorDataTypesPtrOutput) Elem() MCASDataConnectorDataTypesOutput {
-	return o.ApplyT(func(v *MCASDataConnectorDataTypes) MCASDataConnectorDataTypes { return *v }).(MCASDataConnectorDataTypesOutput)
+	return o.ApplyT(func(v *MCASDataConnectorDataTypes) MCASDataConnectorDataTypes {
+		if v != nil {
+			return *v
+		}
+		var ret MCASDataConnectorDataTypes
+		return ret
+	}).(MCASDataConnectorDataTypesOutput)
 }
 
-// Alerts data type connection.
 func (o MCASDataConnectorDataTypesPtrOutput) Alerts() DataConnectorDataTypeCommonPtrOutput {
 	return o.ApplyT(func(v *MCASDataConnectorDataTypes) *DataConnectorDataTypeCommon {
 		if v == nil {
@@ -7492,7 +7057,6 @@ func (o MCASDataConnectorDataTypesPtrOutput) Alerts() DataConnectorDataTypeCommo
 	}).(DataConnectorDataTypeCommonPtrOutput)
 }
 
-// Discovery log data type connection.
 func (o MCASDataConnectorDataTypesPtrOutput) DiscoveryLogs() DataConnectorDataTypeCommonPtrOutput {
 	return o.ApplyT(func(v *MCASDataConnectorDataTypes) *DataConnectorDataTypeCommon {
 		if v == nil {
@@ -7502,11 +7066,8 @@ func (o MCASDataConnectorDataTypesPtrOutput) DiscoveryLogs() DataConnectorDataTy
 	}).(DataConnectorDataTypeCommonPtrOutput)
 }
 
-// The available data types for MCAS (Microsoft Cloud App Security) data connector.
 type MCASDataConnectorDataTypesResponse struct {
-	// Alerts data type connection.
-	Alerts DataConnectorDataTypeCommonResponse `pulumi:"alerts"`
-	// Discovery log data type connection.
+	Alerts        DataConnectorDataTypeCommonResponse  `pulumi:"alerts"`
 	DiscoveryLogs *DataConnectorDataTypeCommonResponse `pulumi:"discoveryLogs"`
 }
 
@@ -7521,11 +7082,8 @@ type MCASDataConnectorDataTypesResponseInput interface {
 	ToMCASDataConnectorDataTypesResponseOutputWithContext(context.Context) MCASDataConnectorDataTypesResponseOutput
 }
 
-// The available data types for MCAS (Microsoft Cloud App Security) data connector.
 type MCASDataConnectorDataTypesResponseArgs struct {
-	// Alerts data type connection.
-	Alerts DataConnectorDataTypeCommonResponseInput `pulumi:"alerts"`
-	// Discovery log data type connection.
+	Alerts        DataConnectorDataTypeCommonResponseInput    `pulumi:"alerts"`
 	DiscoveryLogs DataConnectorDataTypeCommonResponsePtrInput `pulumi:"discoveryLogs"`
 }
 
@@ -7582,7 +7140,6 @@ func (i *mcasdataConnectorDataTypesResponsePtrType) ToMCASDataConnectorDataTypes
 	return pulumi.ToOutputWithContext(ctx, i).(MCASDataConnectorDataTypesResponsePtrOutput)
 }
 
-// The available data types for MCAS (Microsoft Cloud App Security) data connector.
 type MCASDataConnectorDataTypesResponseOutput struct{ *pulumi.OutputState }
 
 func (MCASDataConnectorDataTypesResponseOutput) ElementType() reflect.Type {
@@ -7602,17 +7159,15 @@ func (o MCASDataConnectorDataTypesResponseOutput) ToMCASDataConnectorDataTypesRe
 }
 
 func (o MCASDataConnectorDataTypesResponseOutput) ToMCASDataConnectorDataTypesResponsePtrOutputWithContext(ctx context.Context) MCASDataConnectorDataTypesResponsePtrOutput {
-	return o.ApplyT(func(v MCASDataConnectorDataTypesResponse) *MCASDataConnectorDataTypesResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v MCASDataConnectorDataTypesResponse) *MCASDataConnectorDataTypesResponse {
 		return &v
 	}).(MCASDataConnectorDataTypesResponsePtrOutput)
 }
 
-// Alerts data type connection.
 func (o MCASDataConnectorDataTypesResponseOutput) Alerts() DataConnectorDataTypeCommonResponseOutput {
 	return o.ApplyT(func(v MCASDataConnectorDataTypesResponse) DataConnectorDataTypeCommonResponse { return v.Alerts }).(DataConnectorDataTypeCommonResponseOutput)
 }
 
-// Discovery log data type connection.
 func (o MCASDataConnectorDataTypesResponseOutput) DiscoveryLogs() DataConnectorDataTypeCommonResponsePtrOutput {
 	return o.ApplyT(func(v MCASDataConnectorDataTypesResponse) *DataConnectorDataTypeCommonResponse {
 		return v.DiscoveryLogs
@@ -7634,10 +7189,15 @@ func (o MCASDataConnectorDataTypesResponsePtrOutput) ToMCASDataConnectorDataType
 }
 
 func (o MCASDataConnectorDataTypesResponsePtrOutput) Elem() MCASDataConnectorDataTypesResponseOutput {
-	return o.ApplyT(func(v *MCASDataConnectorDataTypesResponse) MCASDataConnectorDataTypesResponse { return *v }).(MCASDataConnectorDataTypesResponseOutput)
+	return o.ApplyT(func(v *MCASDataConnectorDataTypesResponse) MCASDataConnectorDataTypesResponse {
+		if v != nil {
+			return *v
+		}
+		var ret MCASDataConnectorDataTypesResponse
+		return ret
+	}).(MCASDataConnectorDataTypesResponseOutput)
 }
 
-// Alerts data type connection.
 func (o MCASDataConnectorDataTypesResponsePtrOutput) Alerts() DataConnectorDataTypeCommonResponsePtrOutput {
 	return o.ApplyT(func(v *MCASDataConnectorDataTypesResponse) *DataConnectorDataTypeCommonResponse {
 		if v == nil {
@@ -7647,7 +7207,6 @@ func (o MCASDataConnectorDataTypesResponsePtrOutput) Alerts() DataConnectorDataT
 	}).(DataConnectorDataTypeCommonResponsePtrOutput)
 }
 
-// Discovery log data type connection.
 func (o MCASDataConnectorDataTypesResponsePtrOutput) DiscoveryLogs() DataConnectorDataTypeCommonResponsePtrOutput {
 	return o.ApplyT(func(v *MCASDataConnectorDataTypesResponse) *DataConnectorDataTypeCommonResponse {
 		if v == nil {
@@ -7657,11 +7216,8 @@ func (o MCASDataConnectorDataTypesResponsePtrOutput) DiscoveryLogs() DataConnect
 	}).(DataConnectorDataTypeCommonResponsePtrOutput)
 }
 
-// The available data types for Microsoft Threat Intelligence Platforms data connector.
 type MSTIDataConnectorDataTypes struct {
-	// Data type for Microsoft Threat Intelligence Platforms data connector.
-	BingSafetyPhishingURL MSTIDataConnectorDataTypesBingSafetyPhishingURL `pulumi:"bingSafetyPhishingURL"`
-	// Data type for Microsoft Threat Intelligence Platforms data connector.
+	BingSafetyPhishingURL       MSTIDataConnectorDataTypesBingSafetyPhishingURL       `pulumi:"bingSafetyPhishingURL"`
 	MicrosoftEmergingThreatFeed MSTIDataConnectorDataTypesMicrosoftEmergingThreatFeed `pulumi:"microsoftEmergingThreatFeed"`
 }
 
@@ -7676,11 +7232,8 @@ type MSTIDataConnectorDataTypesInput interface {
 	ToMSTIDataConnectorDataTypesOutputWithContext(context.Context) MSTIDataConnectorDataTypesOutput
 }
 
-// The available data types for Microsoft Threat Intelligence Platforms data connector.
 type MSTIDataConnectorDataTypesArgs struct {
-	// Data type for Microsoft Threat Intelligence Platforms data connector.
-	BingSafetyPhishingURL MSTIDataConnectorDataTypesBingSafetyPhishingURLInput `pulumi:"bingSafetyPhishingURL"`
-	// Data type for Microsoft Threat Intelligence Platforms data connector.
+	BingSafetyPhishingURL       MSTIDataConnectorDataTypesBingSafetyPhishingURLInput       `pulumi:"bingSafetyPhishingURL"`
 	MicrosoftEmergingThreatFeed MSTIDataConnectorDataTypesMicrosoftEmergingThreatFeedInput `pulumi:"microsoftEmergingThreatFeed"`
 }
 
@@ -7737,7 +7290,6 @@ func (i *mstidataConnectorDataTypesPtrType) ToMSTIDataConnectorDataTypesPtrOutpu
 	return pulumi.ToOutputWithContext(ctx, i).(MSTIDataConnectorDataTypesPtrOutput)
 }
 
-// The available data types for Microsoft Threat Intelligence Platforms data connector.
 type MSTIDataConnectorDataTypesOutput struct{ *pulumi.OutputState }
 
 func (MSTIDataConnectorDataTypesOutput) ElementType() reflect.Type {
@@ -7757,19 +7309,17 @@ func (o MSTIDataConnectorDataTypesOutput) ToMSTIDataConnectorDataTypesPtrOutput(
 }
 
 func (o MSTIDataConnectorDataTypesOutput) ToMSTIDataConnectorDataTypesPtrOutputWithContext(ctx context.Context) MSTIDataConnectorDataTypesPtrOutput {
-	return o.ApplyT(func(v MSTIDataConnectorDataTypes) *MSTIDataConnectorDataTypes {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v MSTIDataConnectorDataTypes) *MSTIDataConnectorDataTypes {
 		return &v
 	}).(MSTIDataConnectorDataTypesPtrOutput)
 }
 
-// Data type for Microsoft Threat Intelligence Platforms data connector.
 func (o MSTIDataConnectorDataTypesOutput) BingSafetyPhishingURL() MSTIDataConnectorDataTypesBingSafetyPhishingURLOutput {
 	return o.ApplyT(func(v MSTIDataConnectorDataTypes) MSTIDataConnectorDataTypesBingSafetyPhishingURL {
 		return v.BingSafetyPhishingURL
 	}).(MSTIDataConnectorDataTypesBingSafetyPhishingURLOutput)
 }
 
-// Data type for Microsoft Threat Intelligence Platforms data connector.
 func (o MSTIDataConnectorDataTypesOutput) MicrosoftEmergingThreatFeed() MSTIDataConnectorDataTypesMicrosoftEmergingThreatFeedOutput {
 	return o.ApplyT(func(v MSTIDataConnectorDataTypes) MSTIDataConnectorDataTypesMicrosoftEmergingThreatFeed {
 		return v.MicrosoftEmergingThreatFeed
@@ -7791,10 +7341,15 @@ func (o MSTIDataConnectorDataTypesPtrOutput) ToMSTIDataConnectorDataTypesPtrOutp
 }
 
 func (o MSTIDataConnectorDataTypesPtrOutput) Elem() MSTIDataConnectorDataTypesOutput {
-	return o.ApplyT(func(v *MSTIDataConnectorDataTypes) MSTIDataConnectorDataTypes { return *v }).(MSTIDataConnectorDataTypesOutput)
+	return o.ApplyT(func(v *MSTIDataConnectorDataTypes) MSTIDataConnectorDataTypes {
+		if v != nil {
+			return *v
+		}
+		var ret MSTIDataConnectorDataTypes
+		return ret
+	}).(MSTIDataConnectorDataTypesOutput)
 }
 
-// Data type for Microsoft Threat Intelligence Platforms data connector.
 func (o MSTIDataConnectorDataTypesPtrOutput) BingSafetyPhishingURL() MSTIDataConnectorDataTypesBingSafetyPhishingURLPtrOutput {
 	return o.ApplyT(func(v *MSTIDataConnectorDataTypes) *MSTIDataConnectorDataTypesBingSafetyPhishingURL {
 		if v == nil {
@@ -7804,7 +7359,6 @@ func (o MSTIDataConnectorDataTypesPtrOutput) BingSafetyPhishingURL() MSTIDataCon
 	}).(MSTIDataConnectorDataTypesBingSafetyPhishingURLPtrOutput)
 }
 
-// Data type for Microsoft Threat Intelligence Platforms data connector.
 func (o MSTIDataConnectorDataTypesPtrOutput) MicrosoftEmergingThreatFeed() MSTIDataConnectorDataTypesMicrosoftEmergingThreatFeedPtrOutput {
 	return o.ApplyT(func(v *MSTIDataConnectorDataTypes) *MSTIDataConnectorDataTypesMicrosoftEmergingThreatFeed {
 		if v == nil {
@@ -7814,12 +7368,9 @@ func (o MSTIDataConnectorDataTypesPtrOutput) MicrosoftEmergingThreatFeed() MSTID
 	}).(MSTIDataConnectorDataTypesMicrosoftEmergingThreatFeedPtrOutput)
 }
 
-// Data type for Microsoft Threat Intelligence Platforms data connector.
 type MSTIDataConnectorDataTypesBingSafetyPhishingURL struct {
-	// lookback period
 	LookbackPeriod string `pulumi:"lookbackPeriod"`
-	// Describe whether this data type connection is enabled or not.
-	State string `pulumi:"state"`
+	State          string `pulumi:"state"`
 }
 
 // MSTIDataConnectorDataTypesBingSafetyPhishingURLInput is an input type that accepts MSTIDataConnectorDataTypesBingSafetyPhishingURLArgs and MSTIDataConnectorDataTypesBingSafetyPhishingURLOutput values.
@@ -7833,12 +7384,9 @@ type MSTIDataConnectorDataTypesBingSafetyPhishingURLInput interface {
 	ToMSTIDataConnectorDataTypesBingSafetyPhishingURLOutputWithContext(context.Context) MSTIDataConnectorDataTypesBingSafetyPhishingURLOutput
 }
 
-// Data type for Microsoft Threat Intelligence Platforms data connector.
 type MSTIDataConnectorDataTypesBingSafetyPhishingURLArgs struct {
-	// lookback period
 	LookbackPeriod pulumi.StringInput `pulumi:"lookbackPeriod"`
-	// Describe whether this data type connection is enabled or not.
-	State pulumi.StringInput `pulumi:"state"`
+	State          pulumi.StringInput `pulumi:"state"`
 }
 
 func (MSTIDataConnectorDataTypesBingSafetyPhishingURLArgs) ElementType() reflect.Type {
@@ -7894,7 +7442,6 @@ func (i *mstidataConnectorDataTypesBingSafetyPhishingURLPtrType) ToMSTIDataConne
 	return pulumi.ToOutputWithContext(ctx, i).(MSTIDataConnectorDataTypesBingSafetyPhishingURLPtrOutput)
 }
 
-// Data type for Microsoft Threat Intelligence Platforms data connector.
 type MSTIDataConnectorDataTypesBingSafetyPhishingURLOutput struct{ *pulumi.OutputState }
 
 func (MSTIDataConnectorDataTypesBingSafetyPhishingURLOutput) ElementType() reflect.Type {
@@ -7914,17 +7461,15 @@ func (o MSTIDataConnectorDataTypesBingSafetyPhishingURLOutput) ToMSTIDataConnect
 }
 
 func (o MSTIDataConnectorDataTypesBingSafetyPhishingURLOutput) ToMSTIDataConnectorDataTypesBingSafetyPhishingURLPtrOutputWithContext(ctx context.Context) MSTIDataConnectorDataTypesBingSafetyPhishingURLPtrOutput {
-	return o.ApplyT(func(v MSTIDataConnectorDataTypesBingSafetyPhishingURL) *MSTIDataConnectorDataTypesBingSafetyPhishingURL {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v MSTIDataConnectorDataTypesBingSafetyPhishingURL) *MSTIDataConnectorDataTypesBingSafetyPhishingURL {
 		return &v
 	}).(MSTIDataConnectorDataTypesBingSafetyPhishingURLPtrOutput)
 }
 
-// lookback period
 func (o MSTIDataConnectorDataTypesBingSafetyPhishingURLOutput) LookbackPeriod() pulumi.StringOutput {
 	return o.ApplyT(func(v MSTIDataConnectorDataTypesBingSafetyPhishingURL) string { return v.LookbackPeriod }).(pulumi.StringOutput)
 }
 
-// Describe whether this data type connection is enabled or not.
 func (o MSTIDataConnectorDataTypesBingSafetyPhishingURLOutput) State() pulumi.StringOutput {
 	return o.ApplyT(func(v MSTIDataConnectorDataTypesBingSafetyPhishingURL) string { return v.State }).(pulumi.StringOutput)
 }
@@ -7945,11 +7490,14 @@ func (o MSTIDataConnectorDataTypesBingSafetyPhishingURLPtrOutput) ToMSTIDataConn
 
 func (o MSTIDataConnectorDataTypesBingSafetyPhishingURLPtrOutput) Elem() MSTIDataConnectorDataTypesBingSafetyPhishingURLOutput {
 	return o.ApplyT(func(v *MSTIDataConnectorDataTypesBingSafetyPhishingURL) MSTIDataConnectorDataTypesBingSafetyPhishingURL {
-		return *v
+		if v != nil {
+			return *v
+		}
+		var ret MSTIDataConnectorDataTypesBingSafetyPhishingURL
+		return ret
 	}).(MSTIDataConnectorDataTypesBingSafetyPhishingURLOutput)
 }
 
-// lookback period
 func (o MSTIDataConnectorDataTypesBingSafetyPhishingURLPtrOutput) LookbackPeriod() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *MSTIDataConnectorDataTypesBingSafetyPhishingURL) *string {
 		if v == nil {
@@ -7959,7 +7507,6 @@ func (o MSTIDataConnectorDataTypesBingSafetyPhishingURLPtrOutput) LookbackPeriod
 	}).(pulumi.StringPtrOutput)
 }
 
-// Describe whether this data type connection is enabled or not.
 func (o MSTIDataConnectorDataTypesBingSafetyPhishingURLPtrOutput) State() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *MSTIDataConnectorDataTypesBingSafetyPhishingURL) *string {
 		if v == nil {
@@ -7969,12 +7516,9 @@ func (o MSTIDataConnectorDataTypesBingSafetyPhishingURLPtrOutput) State() pulumi
 	}).(pulumi.StringPtrOutput)
 }
 
-// Data type for Microsoft Threat Intelligence Platforms data connector.
 type MSTIDataConnectorDataTypesMicrosoftEmergingThreatFeed struct {
-	// lookback period
 	LookbackPeriod string `pulumi:"lookbackPeriod"`
-	// Describe whether this data type connection is enabled or not.
-	State string `pulumi:"state"`
+	State          string `pulumi:"state"`
 }
 
 // MSTIDataConnectorDataTypesMicrosoftEmergingThreatFeedInput is an input type that accepts MSTIDataConnectorDataTypesMicrosoftEmergingThreatFeedArgs and MSTIDataConnectorDataTypesMicrosoftEmergingThreatFeedOutput values.
@@ -7988,12 +7532,9 @@ type MSTIDataConnectorDataTypesMicrosoftEmergingThreatFeedInput interface {
 	ToMSTIDataConnectorDataTypesMicrosoftEmergingThreatFeedOutputWithContext(context.Context) MSTIDataConnectorDataTypesMicrosoftEmergingThreatFeedOutput
 }
 
-// Data type for Microsoft Threat Intelligence Platforms data connector.
 type MSTIDataConnectorDataTypesMicrosoftEmergingThreatFeedArgs struct {
-	// lookback period
 	LookbackPeriod pulumi.StringInput `pulumi:"lookbackPeriod"`
-	// Describe whether this data type connection is enabled or not.
-	State pulumi.StringInput `pulumi:"state"`
+	State          pulumi.StringInput `pulumi:"state"`
 }
 
 func (MSTIDataConnectorDataTypesMicrosoftEmergingThreatFeedArgs) ElementType() reflect.Type {
@@ -8049,7 +7590,6 @@ func (i *mstidataConnectorDataTypesMicrosoftEmergingThreatFeedPtrType) ToMSTIDat
 	return pulumi.ToOutputWithContext(ctx, i).(MSTIDataConnectorDataTypesMicrosoftEmergingThreatFeedPtrOutput)
 }
 
-// Data type for Microsoft Threat Intelligence Platforms data connector.
 type MSTIDataConnectorDataTypesMicrosoftEmergingThreatFeedOutput struct{ *pulumi.OutputState }
 
 func (MSTIDataConnectorDataTypesMicrosoftEmergingThreatFeedOutput) ElementType() reflect.Type {
@@ -8069,17 +7609,15 @@ func (o MSTIDataConnectorDataTypesMicrosoftEmergingThreatFeedOutput) ToMSTIDataC
 }
 
 func (o MSTIDataConnectorDataTypesMicrosoftEmergingThreatFeedOutput) ToMSTIDataConnectorDataTypesMicrosoftEmergingThreatFeedPtrOutputWithContext(ctx context.Context) MSTIDataConnectorDataTypesMicrosoftEmergingThreatFeedPtrOutput {
-	return o.ApplyT(func(v MSTIDataConnectorDataTypesMicrosoftEmergingThreatFeed) *MSTIDataConnectorDataTypesMicrosoftEmergingThreatFeed {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v MSTIDataConnectorDataTypesMicrosoftEmergingThreatFeed) *MSTIDataConnectorDataTypesMicrosoftEmergingThreatFeed {
 		return &v
 	}).(MSTIDataConnectorDataTypesMicrosoftEmergingThreatFeedPtrOutput)
 }
 
-// lookback period
 func (o MSTIDataConnectorDataTypesMicrosoftEmergingThreatFeedOutput) LookbackPeriod() pulumi.StringOutput {
 	return o.ApplyT(func(v MSTIDataConnectorDataTypesMicrosoftEmergingThreatFeed) string { return v.LookbackPeriod }).(pulumi.StringOutput)
 }
 
-// Describe whether this data type connection is enabled or not.
 func (o MSTIDataConnectorDataTypesMicrosoftEmergingThreatFeedOutput) State() pulumi.StringOutput {
 	return o.ApplyT(func(v MSTIDataConnectorDataTypesMicrosoftEmergingThreatFeed) string { return v.State }).(pulumi.StringOutput)
 }
@@ -8100,11 +7638,14 @@ func (o MSTIDataConnectorDataTypesMicrosoftEmergingThreatFeedPtrOutput) ToMSTIDa
 
 func (o MSTIDataConnectorDataTypesMicrosoftEmergingThreatFeedPtrOutput) Elem() MSTIDataConnectorDataTypesMicrosoftEmergingThreatFeedOutput {
 	return o.ApplyT(func(v *MSTIDataConnectorDataTypesMicrosoftEmergingThreatFeed) MSTIDataConnectorDataTypesMicrosoftEmergingThreatFeed {
-		return *v
+		if v != nil {
+			return *v
+		}
+		var ret MSTIDataConnectorDataTypesMicrosoftEmergingThreatFeed
+		return ret
 	}).(MSTIDataConnectorDataTypesMicrosoftEmergingThreatFeedOutput)
 }
 
-// lookback period
 func (o MSTIDataConnectorDataTypesMicrosoftEmergingThreatFeedPtrOutput) LookbackPeriod() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *MSTIDataConnectorDataTypesMicrosoftEmergingThreatFeed) *string {
 		if v == nil {
@@ -8114,7 +7655,6 @@ func (o MSTIDataConnectorDataTypesMicrosoftEmergingThreatFeedPtrOutput) Lookback
 	}).(pulumi.StringPtrOutput)
 }
 
-// Describe whether this data type connection is enabled or not.
 func (o MSTIDataConnectorDataTypesMicrosoftEmergingThreatFeedPtrOutput) State() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *MSTIDataConnectorDataTypesMicrosoftEmergingThreatFeed) *string {
 		if v == nil {
@@ -8124,11 +7664,8 @@ func (o MSTIDataConnectorDataTypesMicrosoftEmergingThreatFeedPtrOutput) State() 
 	}).(pulumi.StringPtrOutput)
 }
 
-// The available data types for Microsoft Threat Intelligence Platforms data connector.
 type MSTIDataConnectorDataTypesResponse struct {
-	// Data type for Microsoft Threat Intelligence Platforms data connector.
-	BingSafetyPhishingURL MSTIDataConnectorDataTypesResponseBingSafetyPhishingURL `pulumi:"bingSafetyPhishingURL"`
-	// Data type for Microsoft Threat Intelligence Platforms data connector.
+	BingSafetyPhishingURL       MSTIDataConnectorDataTypesResponseBingSafetyPhishingURL       `pulumi:"bingSafetyPhishingURL"`
 	MicrosoftEmergingThreatFeed MSTIDataConnectorDataTypesResponseMicrosoftEmergingThreatFeed `pulumi:"microsoftEmergingThreatFeed"`
 }
 
@@ -8143,11 +7680,8 @@ type MSTIDataConnectorDataTypesResponseInput interface {
 	ToMSTIDataConnectorDataTypesResponseOutputWithContext(context.Context) MSTIDataConnectorDataTypesResponseOutput
 }
 
-// The available data types for Microsoft Threat Intelligence Platforms data connector.
 type MSTIDataConnectorDataTypesResponseArgs struct {
-	// Data type for Microsoft Threat Intelligence Platforms data connector.
-	BingSafetyPhishingURL MSTIDataConnectorDataTypesResponseBingSafetyPhishingURLInput `pulumi:"bingSafetyPhishingURL"`
-	// Data type for Microsoft Threat Intelligence Platforms data connector.
+	BingSafetyPhishingURL       MSTIDataConnectorDataTypesResponseBingSafetyPhishingURLInput       `pulumi:"bingSafetyPhishingURL"`
 	MicrosoftEmergingThreatFeed MSTIDataConnectorDataTypesResponseMicrosoftEmergingThreatFeedInput `pulumi:"microsoftEmergingThreatFeed"`
 }
 
@@ -8204,7 +7738,6 @@ func (i *mstidataConnectorDataTypesResponsePtrType) ToMSTIDataConnectorDataTypes
 	return pulumi.ToOutputWithContext(ctx, i).(MSTIDataConnectorDataTypesResponsePtrOutput)
 }
 
-// The available data types for Microsoft Threat Intelligence Platforms data connector.
 type MSTIDataConnectorDataTypesResponseOutput struct{ *pulumi.OutputState }
 
 func (MSTIDataConnectorDataTypesResponseOutput) ElementType() reflect.Type {
@@ -8224,19 +7757,17 @@ func (o MSTIDataConnectorDataTypesResponseOutput) ToMSTIDataConnectorDataTypesRe
 }
 
 func (o MSTIDataConnectorDataTypesResponseOutput) ToMSTIDataConnectorDataTypesResponsePtrOutputWithContext(ctx context.Context) MSTIDataConnectorDataTypesResponsePtrOutput {
-	return o.ApplyT(func(v MSTIDataConnectorDataTypesResponse) *MSTIDataConnectorDataTypesResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v MSTIDataConnectorDataTypesResponse) *MSTIDataConnectorDataTypesResponse {
 		return &v
 	}).(MSTIDataConnectorDataTypesResponsePtrOutput)
 }
 
-// Data type for Microsoft Threat Intelligence Platforms data connector.
 func (o MSTIDataConnectorDataTypesResponseOutput) BingSafetyPhishingURL() MSTIDataConnectorDataTypesResponseBingSafetyPhishingURLOutput {
 	return o.ApplyT(func(v MSTIDataConnectorDataTypesResponse) MSTIDataConnectorDataTypesResponseBingSafetyPhishingURL {
 		return v.BingSafetyPhishingURL
 	}).(MSTIDataConnectorDataTypesResponseBingSafetyPhishingURLOutput)
 }
 
-// Data type for Microsoft Threat Intelligence Platforms data connector.
 func (o MSTIDataConnectorDataTypesResponseOutput) MicrosoftEmergingThreatFeed() MSTIDataConnectorDataTypesResponseMicrosoftEmergingThreatFeedOutput {
 	return o.ApplyT(func(v MSTIDataConnectorDataTypesResponse) MSTIDataConnectorDataTypesResponseMicrosoftEmergingThreatFeed {
 		return v.MicrosoftEmergingThreatFeed
@@ -8258,10 +7789,15 @@ func (o MSTIDataConnectorDataTypesResponsePtrOutput) ToMSTIDataConnectorDataType
 }
 
 func (o MSTIDataConnectorDataTypesResponsePtrOutput) Elem() MSTIDataConnectorDataTypesResponseOutput {
-	return o.ApplyT(func(v *MSTIDataConnectorDataTypesResponse) MSTIDataConnectorDataTypesResponse { return *v }).(MSTIDataConnectorDataTypesResponseOutput)
+	return o.ApplyT(func(v *MSTIDataConnectorDataTypesResponse) MSTIDataConnectorDataTypesResponse {
+		if v != nil {
+			return *v
+		}
+		var ret MSTIDataConnectorDataTypesResponse
+		return ret
+	}).(MSTIDataConnectorDataTypesResponseOutput)
 }
 
-// Data type for Microsoft Threat Intelligence Platforms data connector.
 func (o MSTIDataConnectorDataTypesResponsePtrOutput) BingSafetyPhishingURL() MSTIDataConnectorDataTypesResponseBingSafetyPhishingURLPtrOutput {
 	return o.ApplyT(func(v *MSTIDataConnectorDataTypesResponse) *MSTIDataConnectorDataTypesResponseBingSafetyPhishingURL {
 		if v == nil {
@@ -8271,7 +7807,6 @@ func (o MSTIDataConnectorDataTypesResponsePtrOutput) BingSafetyPhishingURL() MST
 	}).(MSTIDataConnectorDataTypesResponseBingSafetyPhishingURLPtrOutput)
 }
 
-// Data type for Microsoft Threat Intelligence Platforms data connector.
 func (o MSTIDataConnectorDataTypesResponsePtrOutput) MicrosoftEmergingThreatFeed() MSTIDataConnectorDataTypesResponseMicrosoftEmergingThreatFeedPtrOutput {
 	return o.ApplyT(func(v *MSTIDataConnectorDataTypesResponse) *MSTIDataConnectorDataTypesResponseMicrosoftEmergingThreatFeed {
 		if v == nil {
@@ -8281,12 +7816,9 @@ func (o MSTIDataConnectorDataTypesResponsePtrOutput) MicrosoftEmergingThreatFeed
 	}).(MSTIDataConnectorDataTypesResponseMicrosoftEmergingThreatFeedPtrOutput)
 }
 
-// Data type for Microsoft Threat Intelligence Platforms data connector.
 type MSTIDataConnectorDataTypesResponseBingSafetyPhishingURL struct {
-	// lookback period
 	LookbackPeriod string `pulumi:"lookbackPeriod"`
-	// Describe whether this data type connection is enabled or not.
-	State string `pulumi:"state"`
+	State          string `pulumi:"state"`
 }
 
 // MSTIDataConnectorDataTypesResponseBingSafetyPhishingURLInput is an input type that accepts MSTIDataConnectorDataTypesResponseBingSafetyPhishingURLArgs and MSTIDataConnectorDataTypesResponseBingSafetyPhishingURLOutput values.
@@ -8300,12 +7832,9 @@ type MSTIDataConnectorDataTypesResponseBingSafetyPhishingURLInput interface {
 	ToMSTIDataConnectorDataTypesResponseBingSafetyPhishingURLOutputWithContext(context.Context) MSTIDataConnectorDataTypesResponseBingSafetyPhishingURLOutput
 }
 
-// Data type for Microsoft Threat Intelligence Platforms data connector.
 type MSTIDataConnectorDataTypesResponseBingSafetyPhishingURLArgs struct {
-	// lookback period
 	LookbackPeriod pulumi.StringInput `pulumi:"lookbackPeriod"`
-	// Describe whether this data type connection is enabled or not.
-	State pulumi.StringInput `pulumi:"state"`
+	State          pulumi.StringInput `pulumi:"state"`
 }
 
 func (MSTIDataConnectorDataTypesResponseBingSafetyPhishingURLArgs) ElementType() reflect.Type {
@@ -8361,7 +7890,6 @@ func (i *mstidataConnectorDataTypesResponseBingSafetyPhishingURLPtrType) ToMSTID
 	return pulumi.ToOutputWithContext(ctx, i).(MSTIDataConnectorDataTypesResponseBingSafetyPhishingURLPtrOutput)
 }
 
-// Data type for Microsoft Threat Intelligence Platforms data connector.
 type MSTIDataConnectorDataTypesResponseBingSafetyPhishingURLOutput struct{ *pulumi.OutputState }
 
 func (MSTIDataConnectorDataTypesResponseBingSafetyPhishingURLOutput) ElementType() reflect.Type {
@@ -8381,17 +7909,15 @@ func (o MSTIDataConnectorDataTypesResponseBingSafetyPhishingURLOutput) ToMSTIDat
 }
 
 func (o MSTIDataConnectorDataTypesResponseBingSafetyPhishingURLOutput) ToMSTIDataConnectorDataTypesResponseBingSafetyPhishingURLPtrOutputWithContext(ctx context.Context) MSTIDataConnectorDataTypesResponseBingSafetyPhishingURLPtrOutput {
-	return o.ApplyT(func(v MSTIDataConnectorDataTypesResponseBingSafetyPhishingURL) *MSTIDataConnectorDataTypesResponseBingSafetyPhishingURL {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v MSTIDataConnectorDataTypesResponseBingSafetyPhishingURL) *MSTIDataConnectorDataTypesResponseBingSafetyPhishingURL {
 		return &v
 	}).(MSTIDataConnectorDataTypesResponseBingSafetyPhishingURLPtrOutput)
 }
 
-// lookback period
 func (o MSTIDataConnectorDataTypesResponseBingSafetyPhishingURLOutput) LookbackPeriod() pulumi.StringOutput {
 	return o.ApplyT(func(v MSTIDataConnectorDataTypesResponseBingSafetyPhishingURL) string { return v.LookbackPeriod }).(pulumi.StringOutput)
 }
 
-// Describe whether this data type connection is enabled or not.
 func (o MSTIDataConnectorDataTypesResponseBingSafetyPhishingURLOutput) State() pulumi.StringOutput {
 	return o.ApplyT(func(v MSTIDataConnectorDataTypesResponseBingSafetyPhishingURL) string { return v.State }).(pulumi.StringOutput)
 }
@@ -8412,11 +7938,14 @@ func (o MSTIDataConnectorDataTypesResponseBingSafetyPhishingURLPtrOutput) ToMSTI
 
 func (o MSTIDataConnectorDataTypesResponseBingSafetyPhishingURLPtrOutput) Elem() MSTIDataConnectorDataTypesResponseBingSafetyPhishingURLOutput {
 	return o.ApplyT(func(v *MSTIDataConnectorDataTypesResponseBingSafetyPhishingURL) MSTIDataConnectorDataTypesResponseBingSafetyPhishingURL {
-		return *v
+		if v != nil {
+			return *v
+		}
+		var ret MSTIDataConnectorDataTypesResponseBingSafetyPhishingURL
+		return ret
 	}).(MSTIDataConnectorDataTypesResponseBingSafetyPhishingURLOutput)
 }
 
-// lookback period
 func (o MSTIDataConnectorDataTypesResponseBingSafetyPhishingURLPtrOutput) LookbackPeriod() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *MSTIDataConnectorDataTypesResponseBingSafetyPhishingURL) *string {
 		if v == nil {
@@ -8426,7 +7955,6 @@ func (o MSTIDataConnectorDataTypesResponseBingSafetyPhishingURLPtrOutput) Lookba
 	}).(pulumi.StringPtrOutput)
 }
 
-// Describe whether this data type connection is enabled or not.
 func (o MSTIDataConnectorDataTypesResponseBingSafetyPhishingURLPtrOutput) State() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *MSTIDataConnectorDataTypesResponseBingSafetyPhishingURL) *string {
 		if v == nil {
@@ -8436,12 +7964,9 @@ func (o MSTIDataConnectorDataTypesResponseBingSafetyPhishingURLPtrOutput) State(
 	}).(pulumi.StringPtrOutput)
 }
 
-// Data type for Microsoft Threat Intelligence Platforms data connector.
 type MSTIDataConnectorDataTypesResponseMicrosoftEmergingThreatFeed struct {
-	// lookback period
 	LookbackPeriod string `pulumi:"lookbackPeriod"`
-	// Describe whether this data type connection is enabled or not.
-	State string `pulumi:"state"`
+	State          string `pulumi:"state"`
 }
 
 // MSTIDataConnectorDataTypesResponseMicrosoftEmergingThreatFeedInput is an input type that accepts MSTIDataConnectorDataTypesResponseMicrosoftEmergingThreatFeedArgs and MSTIDataConnectorDataTypesResponseMicrosoftEmergingThreatFeedOutput values.
@@ -8455,12 +7980,9 @@ type MSTIDataConnectorDataTypesResponseMicrosoftEmergingThreatFeedInput interfac
 	ToMSTIDataConnectorDataTypesResponseMicrosoftEmergingThreatFeedOutputWithContext(context.Context) MSTIDataConnectorDataTypesResponseMicrosoftEmergingThreatFeedOutput
 }
 
-// Data type for Microsoft Threat Intelligence Platforms data connector.
 type MSTIDataConnectorDataTypesResponseMicrosoftEmergingThreatFeedArgs struct {
-	// lookback period
 	LookbackPeriod pulumi.StringInput `pulumi:"lookbackPeriod"`
-	// Describe whether this data type connection is enabled or not.
-	State pulumi.StringInput `pulumi:"state"`
+	State          pulumi.StringInput `pulumi:"state"`
 }
 
 func (MSTIDataConnectorDataTypesResponseMicrosoftEmergingThreatFeedArgs) ElementType() reflect.Type {
@@ -8516,7 +8038,6 @@ func (i *mstidataConnectorDataTypesResponseMicrosoftEmergingThreatFeedPtrType) T
 	return pulumi.ToOutputWithContext(ctx, i).(MSTIDataConnectorDataTypesResponseMicrosoftEmergingThreatFeedPtrOutput)
 }
 
-// Data type for Microsoft Threat Intelligence Platforms data connector.
 type MSTIDataConnectorDataTypesResponseMicrosoftEmergingThreatFeedOutput struct{ *pulumi.OutputState }
 
 func (MSTIDataConnectorDataTypesResponseMicrosoftEmergingThreatFeedOutput) ElementType() reflect.Type {
@@ -8536,17 +8057,15 @@ func (o MSTIDataConnectorDataTypesResponseMicrosoftEmergingThreatFeedOutput) ToM
 }
 
 func (o MSTIDataConnectorDataTypesResponseMicrosoftEmergingThreatFeedOutput) ToMSTIDataConnectorDataTypesResponseMicrosoftEmergingThreatFeedPtrOutputWithContext(ctx context.Context) MSTIDataConnectorDataTypesResponseMicrosoftEmergingThreatFeedPtrOutput {
-	return o.ApplyT(func(v MSTIDataConnectorDataTypesResponseMicrosoftEmergingThreatFeed) *MSTIDataConnectorDataTypesResponseMicrosoftEmergingThreatFeed {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v MSTIDataConnectorDataTypesResponseMicrosoftEmergingThreatFeed) *MSTIDataConnectorDataTypesResponseMicrosoftEmergingThreatFeed {
 		return &v
 	}).(MSTIDataConnectorDataTypesResponseMicrosoftEmergingThreatFeedPtrOutput)
 }
 
-// lookback period
 func (o MSTIDataConnectorDataTypesResponseMicrosoftEmergingThreatFeedOutput) LookbackPeriod() pulumi.StringOutput {
 	return o.ApplyT(func(v MSTIDataConnectorDataTypesResponseMicrosoftEmergingThreatFeed) string { return v.LookbackPeriod }).(pulumi.StringOutput)
 }
 
-// Describe whether this data type connection is enabled or not.
 func (o MSTIDataConnectorDataTypesResponseMicrosoftEmergingThreatFeedOutput) State() pulumi.StringOutput {
 	return o.ApplyT(func(v MSTIDataConnectorDataTypesResponseMicrosoftEmergingThreatFeed) string { return v.State }).(pulumi.StringOutput)
 }
@@ -8567,11 +8086,14 @@ func (o MSTIDataConnectorDataTypesResponseMicrosoftEmergingThreatFeedPtrOutput) 
 
 func (o MSTIDataConnectorDataTypesResponseMicrosoftEmergingThreatFeedPtrOutput) Elem() MSTIDataConnectorDataTypesResponseMicrosoftEmergingThreatFeedOutput {
 	return o.ApplyT(func(v *MSTIDataConnectorDataTypesResponseMicrosoftEmergingThreatFeed) MSTIDataConnectorDataTypesResponseMicrosoftEmergingThreatFeed {
-		return *v
+		if v != nil {
+			return *v
+		}
+		var ret MSTIDataConnectorDataTypesResponseMicrosoftEmergingThreatFeed
+		return ret
 	}).(MSTIDataConnectorDataTypesResponseMicrosoftEmergingThreatFeedOutput)
 }
 
-// lookback period
 func (o MSTIDataConnectorDataTypesResponseMicrosoftEmergingThreatFeedPtrOutput) LookbackPeriod() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *MSTIDataConnectorDataTypesResponseMicrosoftEmergingThreatFeed) *string {
 		if v == nil {
@@ -8581,7 +8103,6 @@ func (o MSTIDataConnectorDataTypesResponseMicrosoftEmergingThreatFeedPtrOutput) 
 	}).(pulumi.StringPtrOutput)
 }
 
-// Describe whether this data type connection is enabled or not.
 func (o MSTIDataConnectorDataTypesResponseMicrosoftEmergingThreatFeedPtrOutput) State() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *MSTIDataConnectorDataTypesResponseMicrosoftEmergingThreatFeed) *string {
 		if v == nil {
@@ -8591,9 +8112,7 @@ func (o MSTIDataConnectorDataTypesResponseMicrosoftEmergingThreatFeedPtrOutput) 
 	}).(pulumi.StringPtrOutput)
 }
 
-// The available data types for Microsoft Threat Protection Platforms data connector.
 type MTPDataConnectorDataTypes struct {
-	// Data type for Microsoft Threat Protection Platforms data connector.
 	Incidents MTPDataConnectorDataTypesIncidents `pulumi:"incidents"`
 }
 
@@ -8608,9 +8127,7 @@ type MTPDataConnectorDataTypesInput interface {
 	ToMTPDataConnectorDataTypesOutputWithContext(context.Context) MTPDataConnectorDataTypesOutput
 }
 
-// The available data types for Microsoft Threat Protection Platforms data connector.
 type MTPDataConnectorDataTypesArgs struct {
-	// Data type for Microsoft Threat Protection Platforms data connector.
 	Incidents MTPDataConnectorDataTypesIncidentsInput `pulumi:"incidents"`
 }
 
@@ -8667,7 +8184,6 @@ func (i *mtpdataConnectorDataTypesPtrType) ToMTPDataConnectorDataTypesPtrOutputW
 	return pulumi.ToOutputWithContext(ctx, i).(MTPDataConnectorDataTypesPtrOutput)
 }
 
-// The available data types for Microsoft Threat Protection Platforms data connector.
 type MTPDataConnectorDataTypesOutput struct{ *pulumi.OutputState }
 
 func (MTPDataConnectorDataTypesOutput) ElementType() reflect.Type {
@@ -8687,12 +8203,11 @@ func (o MTPDataConnectorDataTypesOutput) ToMTPDataConnectorDataTypesPtrOutput() 
 }
 
 func (o MTPDataConnectorDataTypesOutput) ToMTPDataConnectorDataTypesPtrOutputWithContext(ctx context.Context) MTPDataConnectorDataTypesPtrOutput {
-	return o.ApplyT(func(v MTPDataConnectorDataTypes) *MTPDataConnectorDataTypes {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v MTPDataConnectorDataTypes) *MTPDataConnectorDataTypes {
 		return &v
 	}).(MTPDataConnectorDataTypesPtrOutput)
 }
 
-// Data type for Microsoft Threat Protection Platforms data connector.
 func (o MTPDataConnectorDataTypesOutput) Incidents() MTPDataConnectorDataTypesIncidentsOutput {
 	return o.ApplyT(func(v MTPDataConnectorDataTypes) MTPDataConnectorDataTypesIncidents { return v.Incidents }).(MTPDataConnectorDataTypesIncidentsOutput)
 }
@@ -8712,10 +8227,15 @@ func (o MTPDataConnectorDataTypesPtrOutput) ToMTPDataConnectorDataTypesPtrOutput
 }
 
 func (o MTPDataConnectorDataTypesPtrOutput) Elem() MTPDataConnectorDataTypesOutput {
-	return o.ApplyT(func(v *MTPDataConnectorDataTypes) MTPDataConnectorDataTypes { return *v }).(MTPDataConnectorDataTypesOutput)
+	return o.ApplyT(func(v *MTPDataConnectorDataTypes) MTPDataConnectorDataTypes {
+		if v != nil {
+			return *v
+		}
+		var ret MTPDataConnectorDataTypes
+		return ret
+	}).(MTPDataConnectorDataTypesOutput)
 }
 
-// Data type for Microsoft Threat Protection Platforms data connector.
 func (o MTPDataConnectorDataTypesPtrOutput) Incidents() MTPDataConnectorDataTypesIncidentsPtrOutput {
 	return o.ApplyT(func(v *MTPDataConnectorDataTypes) *MTPDataConnectorDataTypesIncidents {
 		if v == nil {
@@ -8725,9 +8245,7 @@ func (o MTPDataConnectorDataTypesPtrOutput) Incidents() MTPDataConnectorDataType
 	}).(MTPDataConnectorDataTypesIncidentsPtrOutput)
 }
 
-// Data type for Microsoft Threat Protection Platforms data connector.
 type MTPDataConnectorDataTypesIncidents struct {
-	// Describe whether this data type connection is enabled or not.
 	State string `pulumi:"state"`
 }
 
@@ -8742,9 +8260,7 @@ type MTPDataConnectorDataTypesIncidentsInput interface {
 	ToMTPDataConnectorDataTypesIncidentsOutputWithContext(context.Context) MTPDataConnectorDataTypesIncidentsOutput
 }
 
-// Data type for Microsoft Threat Protection Platforms data connector.
 type MTPDataConnectorDataTypesIncidentsArgs struct {
-	// Describe whether this data type connection is enabled or not.
 	State pulumi.StringInput `pulumi:"state"`
 }
 
@@ -8801,7 +8317,6 @@ func (i *mtpdataConnectorDataTypesIncidentsPtrType) ToMTPDataConnectorDataTypesI
 	return pulumi.ToOutputWithContext(ctx, i).(MTPDataConnectorDataTypesIncidentsPtrOutput)
 }
 
-// Data type for Microsoft Threat Protection Platforms data connector.
 type MTPDataConnectorDataTypesIncidentsOutput struct{ *pulumi.OutputState }
 
 func (MTPDataConnectorDataTypesIncidentsOutput) ElementType() reflect.Type {
@@ -8821,12 +8336,11 @@ func (o MTPDataConnectorDataTypesIncidentsOutput) ToMTPDataConnectorDataTypesInc
 }
 
 func (o MTPDataConnectorDataTypesIncidentsOutput) ToMTPDataConnectorDataTypesIncidentsPtrOutputWithContext(ctx context.Context) MTPDataConnectorDataTypesIncidentsPtrOutput {
-	return o.ApplyT(func(v MTPDataConnectorDataTypesIncidents) *MTPDataConnectorDataTypesIncidents {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v MTPDataConnectorDataTypesIncidents) *MTPDataConnectorDataTypesIncidents {
 		return &v
 	}).(MTPDataConnectorDataTypesIncidentsPtrOutput)
 }
 
-// Describe whether this data type connection is enabled or not.
 func (o MTPDataConnectorDataTypesIncidentsOutput) State() pulumi.StringOutput {
 	return o.ApplyT(func(v MTPDataConnectorDataTypesIncidents) string { return v.State }).(pulumi.StringOutput)
 }
@@ -8846,10 +8360,15 @@ func (o MTPDataConnectorDataTypesIncidentsPtrOutput) ToMTPDataConnectorDataTypes
 }
 
 func (o MTPDataConnectorDataTypesIncidentsPtrOutput) Elem() MTPDataConnectorDataTypesIncidentsOutput {
-	return o.ApplyT(func(v *MTPDataConnectorDataTypesIncidents) MTPDataConnectorDataTypesIncidents { return *v }).(MTPDataConnectorDataTypesIncidentsOutput)
+	return o.ApplyT(func(v *MTPDataConnectorDataTypesIncidents) MTPDataConnectorDataTypesIncidents {
+		if v != nil {
+			return *v
+		}
+		var ret MTPDataConnectorDataTypesIncidents
+		return ret
+	}).(MTPDataConnectorDataTypesIncidentsOutput)
 }
 
-// Describe whether this data type connection is enabled or not.
 func (o MTPDataConnectorDataTypesIncidentsPtrOutput) State() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *MTPDataConnectorDataTypesIncidents) *string {
 		if v == nil {
@@ -8859,9 +8378,7 @@ func (o MTPDataConnectorDataTypesIncidentsPtrOutput) State() pulumi.StringPtrOut
 	}).(pulumi.StringPtrOutput)
 }
 
-// The available data types for Microsoft Threat Protection Platforms data connector.
 type MTPDataConnectorDataTypesResponse struct {
-	// Data type for Microsoft Threat Protection Platforms data connector.
 	Incidents MTPDataConnectorDataTypesResponseIncidents `pulumi:"incidents"`
 }
 
@@ -8876,9 +8393,7 @@ type MTPDataConnectorDataTypesResponseInput interface {
 	ToMTPDataConnectorDataTypesResponseOutputWithContext(context.Context) MTPDataConnectorDataTypesResponseOutput
 }
 
-// The available data types for Microsoft Threat Protection Platforms data connector.
 type MTPDataConnectorDataTypesResponseArgs struct {
-	// Data type for Microsoft Threat Protection Platforms data connector.
 	Incidents MTPDataConnectorDataTypesResponseIncidentsInput `pulumi:"incidents"`
 }
 
@@ -8935,7 +8450,6 @@ func (i *mtpdataConnectorDataTypesResponsePtrType) ToMTPDataConnectorDataTypesRe
 	return pulumi.ToOutputWithContext(ctx, i).(MTPDataConnectorDataTypesResponsePtrOutput)
 }
 
-// The available data types for Microsoft Threat Protection Platforms data connector.
 type MTPDataConnectorDataTypesResponseOutput struct{ *pulumi.OutputState }
 
 func (MTPDataConnectorDataTypesResponseOutput) ElementType() reflect.Type {
@@ -8955,12 +8469,11 @@ func (o MTPDataConnectorDataTypesResponseOutput) ToMTPDataConnectorDataTypesResp
 }
 
 func (o MTPDataConnectorDataTypesResponseOutput) ToMTPDataConnectorDataTypesResponsePtrOutputWithContext(ctx context.Context) MTPDataConnectorDataTypesResponsePtrOutput {
-	return o.ApplyT(func(v MTPDataConnectorDataTypesResponse) *MTPDataConnectorDataTypesResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v MTPDataConnectorDataTypesResponse) *MTPDataConnectorDataTypesResponse {
 		return &v
 	}).(MTPDataConnectorDataTypesResponsePtrOutput)
 }
 
-// Data type for Microsoft Threat Protection Platforms data connector.
 func (o MTPDataConnectorDataTypesResponseOutput) Incidents() MTPDataConnectorDataTypesResponseIncidentsOutput {
 	return o.ApplyT(func(v MTPDataConnectorDataTypesResponse) MTPDataConnectorDataTypesResponseIncidents {
 		return v.Incidents
@@ -8982,10 +8495,15 @@ func (o MTPDataConnectorDataTypesResponsePtrOutput) ToMTPDataConnectorDataTypesR
 }
 
 func (o MTPDataConnectorDataTypesResponsePtrOutput) Elem() MTPDataConnectorDataTypesResponseOutput {
-	return o.ApplyT(func(v *MTPDataConnectorDataTypesResponse) MTPDataConnectorDataTypesResponse { return *v }).(MTPDataConnectorDataTypesResponseOutput)
+	return o.ApplyT(func(v *MTPDataConnectorDataTypesResponse) MTPDataConnectorDataTypesResponse {
+		if v != nil {
+			return *v
+		}
+		var ret MTPDataConnectorDataTypesResponse
+		return ret
+	}).(MTPDataConnectorDataTypesResponseOutput)
 }
 
-// Data type for Microsoft Threat Protection Platforms data connector.
 func (o MTPDataConnectorDataTypesResponsePtrOutput) Incidents() MTPDataConnectorDataTypesResponseIncidentsPtrOutput {
 	return o.ApplyT(func(v *MTPDataConnectorDataTypesResponse) *MTPDataConnectorDataTypesResponseIncidents {
 		if v == nil {
@@ -8995,9 +8513,7 @@ func (o MTPDataConnectorDataTypesResponsePtrOutput) Incidents() MTPDataConnector
 	}).(MTPDataConnectorDataTypesResponseIncidentsPtrOutput)
 }
 
-// Data type for Microsoft Threat Protection Platforms data connector.
 type MTPDataConnectorDataTypesResponseIncidents struct {
-	// Describe whether this data type connection is enabled or not.
 	State string `pulumi:"state"`
 }
 
@@ -9012,9 +8528,7 @@ type MTPDataConnectorDataTypesResponseIncidentsInput interface {
 	ToMTPDataConnectorDataTypesResponseIncidentsOutputWithContext(context.Context) MTPDataConnectorDataTypesResponseIncidentsOutput
 }
 
-// Data type for Microsoft Threat Protection Platforms data connector.
 type MTPDataConnectorDataTypesResponseIncidentsArgs struct {
-	// Describe whether this data type connection is enabled or not.
 	State pulumi.StringInput `pulumi:"state"`
 }
 
@@ -9071,7 +8585,6 @@ func (i *mtpdataConnectorDataTypesResponseIncidentsPtrType) ToMTPDataConnectorDa
 	return pulumi.ToOutputWithContext(ctx, i).(MTPDataConnectorDataTypesResponseIncidentsPtrOutput)
 }
 
-// Data type for Microsoft Threat Protection Platforms data connector.
 type MTPDataConnectorDataTypesResponseIncidentsOutput struct{ *pulumi.OutputState }
 
 func (MTPDataConnectorDataTypesResponseIncidentsOutput) ElementType() reflect.Type {
@@ -9091,12 +8604,11 @@ func (o MTPDataConnectorDataTypesResponseIncidentsOutput) ToMTPDataConnectorData
 }
 
 func (o MTPDataConnectorDataTypesResponseIncidentsOutput) ToMTPDataConnectorDataTypesResponseIncidentsPtrOutputWithContext(ctx context.Context) MTPDataConnectorDataTypesResponseIncidentsPtrOutput {
-	return o.ApplyT(func(v MTPDataConnectorDataTypesResponseIncidents) *MTPDataConnectorDataTypesResponseIncidents {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v MTPDataConnectorDataTypesResponseIncidents) *MTPDataConnectorDataTypesResponseIncidents {
 		return &v
 	}).(MTPDataConnectorDataTypesResponseIncidentsPtrOutput)
 }
 
-// Describe whether this data type connection is enabled or not.
 func (o MTPDataConnectorDataTypesResponseIncidentsOutput) State() pulumi.StringOutput {
 	return o.ApplyT(func(v MTPDataConnectorDataTypesResponseIncidents) string { return v.State }).(pulumi.StringOutput)
 }
@@ -9117,11 +8629,14 @@ func (o MTPDataConnectorDataTypesResponseIncidentsPtrOutput) ToMTPDataConnectorD
 
 func (o MTPDataConnectorDataTypesResponseIncidentsPtrOutput) Elem() MTPDataConnectorDataTypesResponseIncidentsOutput {
 	return o.ApplyT(func(v *MTPDataConnectorDataTypesResponseIncidents) MTPDataConnectorDataTypesResponseIncidents {
-		return *v
+		if v != nil {
+			return *v
+		}
+		var ret MTPDataConnectorDataTypesResponseIncidents
+		return ret
 	}).(MTPDataConnectorDataTypesResponseIncidentsOutput)
 }
 
-// Describe whether this data type connection is enabled or not.
 func (o MTPDataConnectorDataTypesResponseIncidentsPtrOutput) State() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *MTPDataConnectorDataTypesResponseIncidents) *string {
 		if v == nil {
@@ -9131,14 +8646,10 @@ func (o MTPDataConnectorDataTypesResponseIncidentsPtrOutput) State() pulumi.Stri
 	}).(pulumi.StringPtrOutput)
 }
 
-// Publisher or creator of the content item.
 type MetadataAuthor struct {
-	// Email of author contact
 	Email *string `pulumi:"email"`
-	// Link for author/vendor page
-	Link *string `pulumi:"link"`
-	// Name of the author. Company or person.
-	Name *string `pulumi:"name"`
+	Link  *string `pulumi:"link"`
+	Name  *string `pulumi:"name"`
 }
 
 // MetadataAuthorInput is an input type that accepts MetadataAuthorArgs and MetadataAuthorOutput values.
@@ -9152,14 +8663,10 @@ type MetadataAuthorInput interface {
 	ToMetadataAuthorOutputWithContext(context.Context) MetadataAuthorOutput
 }
 
-// Publisher or creator of the content item.
 type MetadataAuthorArgs struct {
-	// Email of author contact
 	Email pulumi.StringPtrInput `pulumi:"email"`
-	// Link for author/vendor page
-	Link pulumi.StringPtrInput `pulumi:"link"`
-	// Name of the author. Company or person.
-	Name pulumi.StringPtrInput `pulumi:"name"`
+	Link  pulumi.StringPtrInput `pulumi:"link"`
+	Name  pulumi.StringPtrInput `pulumi:"name"`
 }
 
 func (MetadataAuthorArgs) ElementType() reflect.Type {
@@ -9215,7 +8722,6 @@ func (i *metadataAuthorPtrType) ToMetadataAuthorPtrOutputWithContext(ctx context
 	return pulumi.ToOutputWithContext(ctx, i).(MetadataAuthorPtrOutput)
 }
 
-// Publisher or creator of the content item.
 type MetadataAuthorOutput struct{ *pulumi.OutputState }
 
 func (MetadataAuthorOutput) ElementType() reflect.Type {
@@ -9235,22 +8741,19 @@ func (o MetadataAuthorOutput) ToMetadataAuthorPtrOutput() MetadataAuthorPtrOutpu
 }
 
 func (o MetadataAuthorOutput) ToMetadataAuthorPtrOutputWithContext(ctx context.Context) MetadataAuthorPtrOutput {
-	return o.ApplyT(func(v MetadataAuthor) *MetadataAuthor {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v MetadataAuthor) *MetadataAuthor {
 		return &v
 	}).(MetadataAuthorPtrOutput)
 }
 
-// Email of author contact
 func (o MetadataAuthorOutput) Email() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v MetadataAuthor) *string { return v.Email }).(pulumi.StringPtrOutput)
 }
 
-// Link for author/vendor page
 func (o MetadataAuthorOutput) Link() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v MetadataAuthor) *string { return v.Link }).(pulumi.StringPtrOutput)
 }
 
-// Name of the author. Company or person.
 func (o MetadataAuthorOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v MetadataAuthor) *string { return v.Name }).(pulumi.StringPtrOutput)
 }
@@ -9270,10 +8773,15 @@ func (o MetadataAuthorPtrOutput) ToMetadataAuthorPtrOutputWithContext(ctx contex
 }
 
 func (o MetadataAuthorPtrOutput) Elem() MetadataAuthorOutput {
-	return o.ApplyT(func(v *MetadataAuthor) MetadataAuthor { return *v }).(MetadataAuthorOutput)
+	return o.ApplyT(func(v *MetadataAuthor) MetadataAuthor {
+		if v != nil {
+			return *v
+		}
+		var ret MetadataAuthor
+		return ret
+	}).(MetadataAuthorOutput)
 }
 
-// Email of author contact
 func (o MetadataAuthorPtrOutput) Email() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *MetadataAuthor) *string {
 		if v == nil {
@@ -9283,7 +8791,6 @@ func (o MetadataAuthorPtrOutput) Email() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Link for author/vendor page
 func (o MetadataAuthorPtrOutput) Link() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *MetadataAuthor) *string {
 		if v == nil {
@@ -9293,7 +8800,6 @@ func (o MetadataAuthorPtrOutput) Link() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Name of the author. Company or person.
 func (o MetadataAuthorPtrOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *MetadataAuthor) *string {
 		if v == nil {
@@ -9303,14 +8809,10 @@ func (o MetadataAuthorPtrOutput) Name() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Publisher or creator of the content item.
 type MetadataAuthorResponse struct {
-	// Email of author contact
 	Email *string `pulumi:"email"`
-	// Link for author/vendor page
-	Link *string `pulumi:"link"`
-	// Name of the author. Company or person.
-	Name *string `pulumi:"name"`
+	Link  *string `pulumi:"link"`
+	Name  *string `pulumi:"name"`
 }
 
 // MetadataAuthorResponseInput is an input type that accepts MetadataAuthorResponseArgs and MetadataAuthorResponseOutput values.
@@ -9324,14 +8826,10 @@ type MetadataAuthorResponseInput interface {
 	ToMetadataAuthorResponseOutputWithContext(context.Context) MetadataAuthorResponseOutput
 }
 
-// Publisher or creator of the content item.
 type MetadataAuthorResponseArgs struct {
-	// Email of author contact
 	Email pulumi.StringPtrInput `pulumi:"email"`
-	// Link for author/vendor page
-	Link pulumi.StringPtrInput `pulumi:"link"`
-	// Name of the author. Company or person.
-	Name pulumi.StringPtrInput `pulumi:"name"`
+	Link  pulumi.StringPtrInput `pulumi:"link"`
+	Name  pulumi.StringPtrInput `pulumi:"name"`
 }
 
 func (MetadataAuthorResponseArgs) ElementType() reflect.Type {
@@ -9387,7 +8885,6 @@ func (i *metadataAuthorResponsePtrType) ToMetadataAuthorResponsePtrOutputWithCon
 	return pulumi.ToOutputWithContext(ctx, i).(MetadataAuthorResponsePtrOutput)
 }
 
-// Publisher or creator of the content item.
 type MetadataAuthorResponseOutput struct{ *pulumi.OutputState }
 
 func (MetadataAuthorResponseOutput) ElementType() reflect.Type {
@@ -9407,22 +8904,19 @@ func (o MetadataAuthorResponseOutput) ToMetadataAuthorResponsePtrOutput() Metada
 }
 
 func (o MetadataAuthorResponseOutput) ToMetadataAuthorResponsePtrOutputWithContext(ctx context.Context) MetadataAuthorResponsePtrOutput {
-	return o.ApplyT(func(v MetadataAuthorResponse) *MetadataAuthorResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v MetadataAuthorResponse) *MetadataAuthorResponse {
 		return &v
 	}).(MetadataAuthorResponsePtrOutput)
 }
 
-// Email of author contact
 func (o MetadataAuthorResponseOutput) Email() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v MetadataAuthorResponse) *string { return v.Email }).(pulumi.StringPtrOutput)
 }
 
-// Link for author/vendor page
 func (o MetadataAuthorResponseOutput) Link() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v MetadataAuthorResponse) *string { return v.Link }).(pulumi.StringPtrOutput)
 }
 
-// Name of the author. Company or person.
 func (o MetadataAuthorResponseOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v MetadataAuthorResponse) *string { return v.Name }).(pulumi.StringPtrOutput)
 }
@@ -9442,10 +8936,15 @@ func (o MetadataAuthorResponsePtrOutput) ToMetadataAuthorResponsePtrOutputWithCo
 }
 
 func (o MetadataAuthorResponsePtrOutput) Elem() MetadataAuthorResponseOutput {
-	return o.ApplyT(func(v *MetadataAuthorResponse) MetadataAuthorResponse { return *v }).(MetadataAuthorResponseOutput)
+	return o.ApplyT(func(v *MetadataAuthorResponse) MetadataAuthorResponse {
+		if v != nil {
+			return *v
+		}
+		var ret MetadataAuthorResponse
+		return ret
+	}).(MetadataAuthorResponseOutput)
 }
 
-// Email of author contact
 func (o MetadataAuthorResponsePtrOutput) Email() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *MetadataAuthorResponse) *string {
 		if v == nil {
@@ -9455,7 +8954,6 @@ func (o MetadataAuthorResponsePtrOutput) Email() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Link for author/vendor page
 func (o MetadataAuthorResponsePtrOutput) Link() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *MetadataAuthorResponse) *string {
 		if v == nil {
@@ -9465,7 +8963,6 @@ func (o MetadataAuthorResponsePtrOutput) Link() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Name of the author. Company or person.
 func (o MetadataAuthorResponsePtrOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *MetadataAuthorResponse) *string {
 		if v == nil {
@@ -9475,20 +8972,13 @@ func (o MetadataAuthorResponsePtrOutput) Name() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Dependencies for the content item, what other content items it requires to work.  Can describe more complex dependencies using a recursive/nested structure. For a single dependency an id/kind/version can be supplied or operator/criteria for complex dependencies.
 type MetadataDependencies struct {
-	// Id of the content item we depend on
-	ContentId *string `pulumi:"contentId"`
-	// This is the list of dependencies we must fulfill, according to the AND/OR operator
-	Criteria []MetadataDependencies `pulumi:"criteria"`
-	// Type of the content item we depend on
-	Kind *string `pulumi:"kind"`
-	// Name of the content item
-	Name *string `pulumi:"name"`
-	// Operator used for list of dependencies in criteria array.
-	Operator *string `pulumi:"operator"`
-	// Version of the the content item we depend on.  Can be blank, * or missing to indicate any version fulfills the dependency.  If version does not match our defined numeric format then an exact match is required.
-	Version *string `pulumi:"version"`
+	ContentId *string                `pulumi:"contentId"`
+	Criteria  []MetadataDependencies `pulumi:"criteria"`
+	Kind      *string                `pulumi:"kind"`
+	Name      *string                `pulumi:"name"`
+	Operator  *string                `pulumi:"operator"`
+	Version   *string                `pulumi:"version"`
 }
 
 // MetadataDependenciesInput is an input type that accepts MetadataDependenciesArgs and MetadataDependenciesOutput values.
@@ -9502,20 +8992,13 @@ type MetadataDependenciesInput interface {
 	ToMetadataDependenciesOutputWithContext(context.Context) MetadataDependenciesOutput
 }
 
-// Dependencies for the content item, what other content items it requires to work.  Can describe more complex dependencies using a recursive/nested structure. For a single dependency an id/kind/version can be supplied or operator/criteria for complex dependencies.
 type MetadataDependenciesArgs struct {
-	// Id of the content item we depend on
-	ContentId pulumi.StringPtrInput `pulumi:"contentId"`
-	// This is the list of dependencies we must fulfill, according to the AND/OR operator
-	Criteria MetadataDependenciesArrayInput `pulumi:"criteria"`
-	// Type of the content item we depend on
-	Kind pulumi.StringPtrInput `pulumi:"kind"`
-	// Name of the content item
-	Name pulumi.StringPtrInput `pulumi:"name"`
-	// Operator used for list of dependencies in criteria array.
-	Operator pulumi.StringPtrInput `pulumi:"operator"`
-	// Version of the the content item we depend on.  Can be blank, * or missing to indicate any version fulfills the dependency.  If version does not match our defined numeric format then an exact match is required.
-	Version pulumi.StringPtrInput `pulumi:"version"`
+	ContentId pulumi.StringPtrInput          `pulumi:"contentId"`
+	Criteria  MetadataDependenciesArrayInput `pulumi:"criteria"`
+	Kind      pulumi.StringPtrInput          `pulumi:"kind"`
+	Name      pulumi.StringPtrInput          `pulumi:"name"`
+	Operator  pulumi.StringPtrInput          `pulumi:"operator"`
+	Version   pulumi.StringPtrInput          `pulumi:"version"`
 }
 
 func (MetadataDependenciesArgs) ElementType() reflect.Type {
@@ -9596,7 +9079,6 @@ func (i MetadataDependenciesArray) ToMetadataDependenciesArrayOutputWithContext(
 	return pulumi.ToOutputWithContext(ctx, i).(MetadataDependenciesArrayOutput)
 }
 
-// Dependencies for the content item, what other content items it requires to work.  Can describe more complex dependencies using a recursive/nested structure. For a single dependency an id/kind/version can be supplied or operator/criteria for complex dependencies.
 type MetadataDependenciesOutput struct{ *pulumi.OutputState }
 
 func (MetadataDependenciesOutput) ElementType() reflect.Type {
@@ -9616,37 +9098,31 @@ func (o MetadataDependenciesOutput) ToMetadataDependenciesPtrOutput() MetadataDe
 }
 
 func (o MetadataDependenciesOutput) ToMetadataDependenciesPtrOutputWithContext(ctx context.Context) MetadataDependenciesPtrOutput {
-	return o.ApplyT(func(v MetadataDependencies) *MetadataDependencies {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v MetadataDependencies) *MetadataDependencies {
 		return &v
 	}).(MetadataDependenciesPtrOutput)
 }
 
-// Id of the content item we depend on
 func (o MetadataDependenciesOutput) ContentId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v MetadataDependencies) *string { return v.ContentId }).(pulumi.StringPtrOutput)
 }
 
-// This is the list of dependencies we must fulfill, according to the AND/OR operator
 func (o MetadataDependenciesOutput) Criteria() MetadataDependenciesArrayOutput {
 	return o.ApplyT(func(v MetadataDependencies) []MetadataDependencies { return v.Criteria }).(MetadataDependenciesArrayOutput)
 }
 
-// Type of the content item we depend on
 func (o MetadataDependenciesOutput) Kind() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v MetadataDependencies) *string { return v.Kind }).(pulumi.StringPtrOutput)
 }
 
-// Name of the content item
 func (o MetadataDependenciesOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v MetadataDependencies) *string { return v.Name }).(pulumi.StringPtrOutput)
 }
 
-// Operator used for list of dependencies in criteria array.
 func (o MetadataDependenciesOutput) Operator() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v MetadataDependencies) *string { return v.Operator }).(pulumi.StringPtrOutput)
 }
 
-// Version of the the content item we depend on.  Can be blank, * or missing to indicate any version fulfills the dependency.  If version does not match our defined numeric format then an exact match is required.
 func (o MetadataDependenciesOutput) Version() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v MetadataDependencies) *string { return v.Version }).(pulumi.StringPtrOutput)
 }
@@ -9666,10 +9142,15 @@ func (o MetadataDependenciesPtrOutput) ToMetadataDependenciesPtrOutputWithContex
 }
 
 func (o MetadataDependenciesPtrOutput) Elem() MetadataDependenciesOutput {
-	return o.ApplyT(func(v *MetadataDependencies) MetadataDependencies { return *v }).(MetadataDependenciesOutput)
+	return o.ApplyT(func(v *MetadataDependencies) MetadataDependencies {
+		if v != nil {
+			return *v
+		}
+		var ret MetadataDependencies
+		return ret
+	}).(MetadataDependenciesOutput)
 }
 
-// Id of the content item we depend on
 func (o MetadataDependenciesPtrOutput) ContentId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *MetadataDependencies) *string {
 		if v == nil {
@@ -9679,7 +9160,6 @@ func (o MetadataDependenciesPtrOutput) ContentId() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// This is the list of dependencies we must fulfill, according to the AND/OR operator
 func (o MetadataDependenciesPtrOutput) Criteria() MetadataDependenciesArrayOutput {
 	return o.ApplyT(func(v *MetadataDependencies) []MetadataDependencies {
 		if v == nil {
@@ -9689,7 +9169,6 @@ func (o MetadataDependenciesPtrOutput) Criteria() MetadataDependenciesArrayOutpu
 	}).(MetadataDependenciesArrayOutput)
 }
 
-// Type of the content item we depend on
 func (o MetadataDependenciesPtrOutput) Kind() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *MetadataDependencies) *string {
 		if v == nil {
@@ -9699,7 +9178,6 @@ func (o MetadataDependenciesPtrOutput) Kind() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Name of the content item
 func (o MetadataDependenciesPtrOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *MetadataDependencies) *string {
 		if v == nil {
@@ -9709,7 +9187,6 @@ func (o MetadataDependenciesPtrOutput) Name() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Operator used for list of dependencies in criteria array.
 func (o MetadataDependenciesPtrOutput) Operator() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *MetadataDependencies) *string {
 		if v == nil {
@@ -9719,7 +9196,6 @@ func (o MetadataDependenciesPtrOutput) Operator() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Version of the the content item we depend on.  Can be blank, * or missing to indicate any version fulfills the dependency.  If version does not match our defined numeric format then an exact match is required.
 func (o MetadataDependenciesPtrOutput) Version() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *MetadataDependencies) *string {
 		if v == nil {
@@ -9749,20 +9225,13 @@ func (o MetadataDependenciesArrayOutput) Index(i pulumi.IntInput) MetadataDepend
 	}).(MetadataDependenciesOutput)
 }
 
-// Dependencies for the content item, what other content items it requires to work.  Can describe more complex dependencies using a recursive/nested structure. For a single dependency an id/kind/version can be supplied or operator/criteria for complex dependencies.
 type MetadataDependenciesResponse struct {
-	// Id of the content item we depend on
-	ContentId *string `pulumi:"contentId"`
-	// This is the list of dependencies we must fulfill, according to the AND/OR operator
-	Criteria []MetadataDependenciesResponse `pulumi:"criteria"`
-	// Type of the content item we depend on
-	Kind *string `pulumi:"kind"`
-	// Name of the content item
-	Name *string `pulumi:"name"`
-	// Operator used for list of dependencies in criteria array.
-	Operator *string `pulumi:"operator"`
-	// Version of the the content item we depend on.  Can be blank, * or missing to indicate any version fulfills the dependency.  If version does not match our defined numeric format then an exact match is required.
-	Version *string `pulumi:"version"`
+	ContentId *string                        `pulumi:"contentId"`
+	Criteria  []MetadataDependenciesResponse `pulumi:"criteria"`
+	Kind      *string                        `pulumi:"kind"`
+	Name      *string                        `pulumi:"name"`
+	Operator  *string                        `pulumi:"operator"`
+	Version   *string                        `pulumi:"version"`
 }
 
 // MetadataDependenciesResponseInput is an input type that accepts MetadataDependenciesResponseArgs and MetadataDependenciesResponseOutput values.
@@ -9776,20 +9245,13 @@ type MetadataDependenciesResponseInput interface {
 	ToMetadataDependenciesResponseOutputWithContext(context.Context) MetadataDependenciesResponseOutput
 }
 
-// Dependencies for the content item, what other content items it requires to work.  Can describe more complex dependencies using a recursive/nested structure. For a single dependency an id/kind/version can be supplied or operator/criteria for complex dependencies.
 type MetadataDependenciesResponseArgs struct {
-	// Id of the content item we depend on
-	ContentId pulumi.StringPtrInput `pulumi:"contentId"`
-	// This is the list of dependencies we must fulfill, according to the AND/OR operator
-	Criteria MetadataDependenciesResponseArrayInput `pulumi:"criteria"`
-	// Type of the content item we depend on
-	Kind pulumi.StringPtrInput `pulumi:"kind"`
-	// Name of the content item
-	Name pulumi.StringPtrInput `pulumi:"name"`
-	// Operator used for list of dependencies in criteria array.
-	Operator pulumi.StringPtrInput `pulumi:"operator"`
-	// Version of the the content item we depend on.  Can be blank, * or missing to indicate any version fulfills the dependency.  If version does not match our defined numeric format then an exact match is required.
-	Version pulumi.StringPtrInput `pulumi:"version"`
+	ContentId pulumi.StringPtrInput                  `pulumi:"contentId"`
+	Criteria  MetadataDependenciesResponseArrayInput `pulumi:"criteria"`
+	Kind      pulumi.StringPtrInput                  `pulumi:"kind"`
+	Name      pulumi.StringPtrInput                  `pulumi:"name"`
+	Operator  pulumi.StringPtrInput                  `pulumi:"operator"`
+	Version   pulumi.StringPtrInput                  `pulumi:"version"`
 }
 
 func (MetadataDependenciesResponseArgs) ElementType() reflect.Type {
@@ -9870,7 +9332,6 @@ func (i MetadataDependenciesResponseArray) ToMetadataDependenciesResponseArrayOu
 	return pulumi.ToOutputWithContext(ctx, i).(MetadataDependenciesResponseArrayOutput)
 }
 
-// Dependencies for the content item, what other content items it requires to work.  Can describe more complex dependencies using a recursive/nested structure. For a single dependency an id/kind/version can be supplied or operator/criteria for complex dependencies.
 type MetadataDependenciesResponseOutput struct{ *pulumi.OutputState }
 
 func (MetadataDependenciesResponseOutput) ElementType() reflect.Type {
@@ -9890,37 +9351,31 @@ func (o MetadataDependenciesResponseOutput) ToMetadataDependenciesResponsePtrOut
 }
 
 func (o MetadataDependenciesResponseOutput) ToMetadataDependenciesResponsePtrOutputWithContext(ctx context.Context) MetadataDependenciesResponsePtrOutput {
-	return o.ApplyT(func(v MetadataDependenciesResponse) *MetadataDependenciesResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v MetadataDependenciesResponse) *MetadataDependenciesResponse {
 		return &v
 	}).(MetadataDependenciesResponsePtrOutput)
 }
 
-// Id of the content item we depend on
 func (o MetadataDependenciesResponseOutput) ContentId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v MetadataDependenciesResponse) *string { return v.ContentId }).(pulumi.StringPtrOutput)
 }
 
-// This is the list of dependencies we must fulfill, according to the AND/OR operator
 func (o MetadataDependenciesResponseOutput) Criteria() MetadataDependenciesResponseArrayOutput {
 	return o.ApplyT(func(v MetadataDependenciesResponse) []MetadataDependenciesResponse { return v.Criteria }).(MetadataDependenciesResponseArrayOutput)
 }
 
-// Type of the content item we depend on
 func (o MetadataDependenciesResponseOutput) Kind() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v MetadataDependenciesResponse) *string { return v.Kind }).(pulumi.StringPtrOutput)
 }
 
-// Name of the content item
 func (o MetadataDependenciesResponseOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v MetadataDependenciesResponse) *string { return v.Name }).(pulumi.StringPtrOutput)
 }
 
-// Operator used for list of dependencies in criteria array.
 func (o MetadataDependenciesResponseOutput) Operator() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v MetadataDependenciesResponse) *string { return v.Operator }).(pulumi.StringPtrOutput)
 }
 
-// Version of the the content item we depend on.  Can be blank, * or missing to indicate any version fulfills the dependency.  If version does not match our defined numeric format then an exact match is required.
 func (o MetadataDependenciesResponseOutput) Version() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v MetadataDependenciesResponse) *string { return v.Version }).(pulumi.StringPtrOutput)
 }
@@ -9940,10 +9395,15 @@ func (o MetadataDependenciesResponsePtrOutput) ToMetadataDependenciesResponsePtr
 }
 
 func (o MetadataDependenciesResponsePtrOutput) Elem() MetadataDependenciesResponseOutput {
-	return o.ApplyT(func(v *MetadataDependenciesResponse) MetadataDependenciesResponse { return *v }).(MetadataDependenciesResponseOutput)
+	return o.ApplyT(func(v *MetadataDependenciesResponse) MetadataDependenciesResponse {
+		if v != nil {
+			return *v
+		}
+		var ret MetadataDependenciesResponse
+		return ret
+	}).(MetadataDependenciesResponseOutput)
 }
 
-// Id of the content item we depend on
 func (o MetadataDependenciesResponsePtrOutput) ContentId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *MetadataDependenciesResponse) *string {
 		if v == nil {
@@ -9953,7 +9413,6 @@ func (o MetadataDependenciesResponsePtrOutput) ContentId() pulumi.StringPtrOutpu
 	}).(pulumi.StringPtrOutput)
 }
 
-// This is the list of dependencies we must fulfill, according to the AND/OR operator
 func (o MetadataDependenciesResponsePtrOutput) Criteria() MetadataDependenciesResponseArrayOutput {
 	return o.ApplyT(func(v *MetadataDependenciesResponse) []MetadataDependenciesResponse {
 		if v == nil {
@@ -9963,7 +9422,6 @@ func (o MetadataDependenciesResponsePtrOutput) Criteria() MetadataDependenciesRe
 	}).(MetadataDependenciesResponseArrayOutput)
 }
 
-// Type of the content item we depend on
 func (o MetadataDependenciesResponsePtrOutput) Kind() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *MetadataDependenciesResponse) *string {
 		if v == nil {
@@ -9973,7 +9431,6 @@ func (o MetadataDependenciesResponsePtrOutput) Kind() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Name of the content item
 func (o MetadataDependenciesResponsePtrOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *MetadataDependenciesResponse) *string {
 		if v == nil {
@@ -9983,7 +9440,6 @@ func (o MetadataDependenciesResponsePtrOutput) Name() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Operator used for list of dependencies in criteria array.
 func (o MetadataDependenciesResponsePtrOutput) Operator() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *MetadataDependenciesResponse) *string {
 		if v == nil {
@@ -9993,7 +9449,6 @@ func (o MetadataDependenciesResponsePtrOutput) Operator() pulumi.StringPtrOutput
 	}).(pulumi.StringPtrOutput)
 }
 
-// Version of the the content item we depend on.  Can be blank, * or missing to indicate any version fulfills the dependency.  If version does not match our defined numeric format then an exact match is required.
 func (o MetadataDependenciesResponsePtrOutput) Version() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *MetadataDependenciesResponse) *string {
 		if v == nil {
@@ -10023,13 +9478,9 @@ func (o MetadataDependenciesResponseArrayOutput) Index(i pulumi.IntInput) Metada
 	}).(MetadataDependenciesResponseOutput)
 }
 
-// The original source of the content item, where it comes from.
 type MetadataSource struct {
-	// Source type of the content
-	Kind string `pulumi:"kind"`
-	// Name of the content source.  The repo name, solution name, LA workspace name etc.
-	Name *string `pulumi:"name"`
-	// ID of the content source.  The solution ID, workspace ID, etc
+	Kind     string  `pulumi:"kind"`
+	Name     *string `pulumi:"name"`
 	SourceId *string `pulumi:"sourceId"`
 }
 
@@ -10044,13 +9495,9 @@ type MetadataSourceInput interface {
 	ToMetadataSourceOutputWithContext(context.Context) MetadataSourceOutput
 }
 
-// The original source of the content item, where it comes from.
 type MetadataSourceArgs struct {
-	// Source type of the content
-	Kind pulumi.StringInput `pulumi:"kind"`
-	// Name of the content source.  The repo name, solution name, LA workspace name etc.
-	Name pulumi.StringPtrInput `pulumi:"name"`
-	// ID of the content source.  The solution ID, workspace ID, etc
+	Kind     pulumi.StringInput    `pulumi:"kind"`
+	Name     pulumi.StringPtrInput `pulumi:"name"`
 	SourceId pulumi.StringPtrInput `pulumi:"sourceId"`
 }
 
@@ -10107,7 +9554,6 @@ func (i *metadataSourcePtrType) ToMetadataSourcePtrOutputWithContext(ctx context
 	return pulumi.ToOutputWithContext(ctx, i).(MetadataSourcePtrOutput)
 }
 
-// The original source of the content item, where it comes from.
 type MetadataSourceOutput struct{ *pulumi.OutputState }
 
 func (MetadataSourceOutput) ElementType() reflect.Type {
@@ -10127,22 +9573,19 @@ func (o MetadataSourceOutput) ToMetadataSourcePtrOutput() MetadataSourcePtrOutpu
 }
 
 func (o MetadataSourceOutput) ToMetadataSourcePtrOutputWithContext(ctx context.Context) MetadataSourcePtrOutput {
-	return o.ApplyT(func(v MetadataSource) *MetadataSource {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v MetadataSource) *MetadataSource {
 		return &v
 	}).(MetadataSourcePtrOutput)
 }
 
-// Source type of the content
 func (o MetadataSourceOutput) Kind() pulumi.StringOutput {
 	return o.ApplyT(func(v MetadataSource) string { return v.Kind }).(pulumi.StringOutput)
 }
 
-// Name of the content source.  The repo name, solution name, LA workspace name etc.
 func (o MetadataSourceOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v MetadataSource) *string { return v.Name }).(pulumi.StringPtrOutput)
 }
 
-// ID of the content source.  The solution ID, workspace ID, etc
 func (o MetadataSourceOutput) SourceId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v MetadataSource) *string { return v.SourceId }).(pulumi.StringPtrOutput)
 }
@@ -10162,10 +9605,15 @@ func (o MetadataSourcePtrOutput) ToMetadataSourcePtrOutputWithContext(ctx contex
 }
 
 func (o MetadataSourcePtrOutput) Elem() MetadataSourceOutput {
-	return o.ApplyT(func(v *MetadataSource) MetadataSource { return *v }).(MetadataSourceOutput)
+	return o.ApplyT(func(v *MetadataSource) MetadataSource {
+		if v != nil {
+			return *v
+		}
+		var ret MetadataSource
+		return ret
+	}).(MetadataSourceOutput)
 }
 
-// Source type of the content
 func (o MetadataSourcePtrOutput) Kind() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *MetadataSource) *string {
 		if v == nil {
@@ -10175,7 +9623,6 @@ func (o MetadataSourcePtrOutput) Kind() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Name of the content source.  The repo name, solution name, LA workspace name etc.
 func (o MetadataSourcePtrOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *MetadataSource) *string {
 		if v == nil {
@@ -10185,7 +9632,6 @@ func (o MetadataSourcePtrOutput) Name() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// ID of the content source.  The solution ID, workspace ID, etc
 func (o MetadataSourcePtrOutput) SourceId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *MetadataSource) *string {
 		if v == nil {
@@ -10195,13 +9641,9 @@ func (o MetadataSourcePtrOutput) SourceId() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The original source of the content item, where it comes from.
 type MetadataSourceResponse struct {
-	// Source type of the content
-	Kind string `pulumi:"kind"`
-	// Name of the content source.  The repo name, solution name, LA workspace name etc.
-	Name *string `pulumi:"name"`
-	// ID of the content source.  The solution ID, workspace ID, etc
+	Kind     string  `pulumi:"kind"`
+	Name     *string `pulumi:"name"`
 	SourceId *string `pulumi:"sourceId"`
 }
 
@@ -10216,13 +9658,9 @@ type MetadataSourceResponseInput interface {
 	ToMetadataSourceResponseOutputWithContext(context.Context) MetadataSourceResponseOutput
 }
 
-// The original source of the content item, where it comes from.
 type MetadataSourceResponseArgs struct {
-	// Source type of the content
-	Kind pulumi.StringInput `pulumi:"kind"`
-	// Name of the content source.  The repo name, solution name, LA workspace name etc.
-	Name pulumi.StringPtrInput `pulumi:"name"`
-	// ID of the content source.  The solution ID, workspace ID, etc
+	Kind     pulumi.StringInput    `pulumi:"kind"`
+	Name     pulumi.StringPtrInput `pulumi:"name"`
 	SourceId pulumi.StringPtrInput `pulumi:"sourceId"`
 }
 
@@ -10279,7 +9717,6 @@ func (i *metadataSourceResponsePtrType) ToMetadataSourceResponsePtrOutputWithCon
 	return pulumi.ToOutputWithContext(ctx, i).(MetadataSourceResponsePtrOutput)
 }
 
-// The original source of the content item, where it comes from.
 type MetadataSourceResponseOutput struct{ *pulumi.OutputState }
 
 func (MetadataSourceResponseOutput) ElementType() reflect.Type {
@@ -10299,22 +9736,19 @@ func (o MetadataSourceResponseOutput) ToMetadataSourceResponsePtrOutput() Metada
 }
 
 func (o MetadataSourceResponseOutput) ToMetadataSourceResponsePtrOutputWithContext(ctx context.Context) MetadataSourceResponsePtrOutput {
-	return o.ApplyT(func(v MetadataSourceResponse) *MetadataSourceResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v MetadataSourceResponse) *MetadataSourceResponse {
 		return &v
 	}).(MetadataSourceResponsePtrOutput)
 }
 
-// Source type of the content
 func (o MetadataSourceResponseOutput) Kind() pulumi.StringOutput {
 	return o.ApplyT(func(v MetadataSourceResponse) string { return v.Kind }).(pulumi.StringOutput)
 }
 
-// Name of the content source.  The repo name, solution name, LA workspace name etc.
 func (o MetadataSourceResponseOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v MetadataSourceResponse) *string { return v.Name }).(pulumi.StringPtrOutput)
 }
 
-// ID of the content source.  The solution ID, workspace ID, etc
 func (o MetadataSourceResponseOutput) SourceId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v MetadataSourceResponse) *string { return v.SourceId }).(pulumi.StringPtrOutput)
 }
@@ -10334,10 +9768,15 @@ func (o MetadataSourceResponsePtrOutput) ToMetadataSourceResponsePtrOutputWithCo
 }
 
 func (o MetadataSourceResponsePtrOutput) Elem() MetadataSourceResponseOutput {
-	return o.ApplyT(func(v *MetadataSourceResponse) MetadataSourceResponse { return *v }).(MetadataSourceResponseOutput)
+	return o.ApplyT(func(v *MetadataSourceResponse) MetadataSourceResponse {
+		if v != nil {
+			return *v
+		}
+		var ret MetadataSourceResponse
+		return ret
+	}).(MetadataSourceResponseOutput)
 }
 
-// Source type of the content
 func (o MetadataSourceResponsePtrOutput) Kind() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *MetadataSourceResponse) *string {
 		if v == nil {
@@ -10347,7 +9786,6 @@ func (o MetadataSourceResponsePtrOutput) Kind() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Name of the content source.  The repo name, solution name, LA workspace name etc.
 func (o MetadataSourceResponsePtrOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *MetadataSourceResponse) *string {
 		if v == nil {
@@ -10357,7 +9795,6 @@ func (o MetadataSourceResponsePtrOutput) Name() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// ID of the content source.  The solution ID, workspace ID, etc
 func (o MetadataSourceResponsePtrOutput) SourceId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *MetadataSourceResponse) *string {
 		if v == nil {
@@ -10367,16 +9804,11 @@ func (o MetadataSourceResponsePtrOutput) SourceId() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Support information for the content item.
 type MetadataSupport struct {
-	// Email of support contact
 	Email *string `pulumi:"email"`
-	// Link for support help, like to support page to open a ticket etc.
-	Link *string `pulumi:"link"`
-	// Name of the support contact. Company or person.
-	Name *string `pulumi:"name"`
-	// Type of support for content item
-	Tier string `pulumi:"tier"`
+	Link  *string `pulumi:"link"`
+	Name  *string `pulumi:"name"`
+	Tier  string  `pulumi:"tier"`
 }
 
 // MetadataSupportInput is an input type that accepts MetadataSupportArgs and MetadataSupportOutput values.
@@ -10390,16 +9822,11 @@ type MetadataSupportInput interface {
 	ToMetadataSupportOutputWithContext(context.Context) MetadataSupportOutput
 }
 
-// Support information for the content item.
 type MetadataSupportArgs struct {
-	// Email of support contact
 	Email pulumi.StringPtrInput `pulumi:"email"`
-	// Link for support help, like to support page to open a ticket etc.
-	Link pulumi.StringPtrInput `pulumi:"link"`
-	// Name of the support contact. Company or person.
-	Name pulumi.StringPtrInput `pulumi:"name"`
-	// Type of support for content item
-	Tier pulumi.StringInput `pulumi:"tier"`
+	Link  pulumi.StringPtrInput `pulumi:"link"`
+	Name  pulumi.StringPtrInput `pulumi:"name"`
+	Tier  pulumi.StringInput    `pulumi:"tier"`
 }
 
 func (MetadataSupportArgs) ElementType() reflect.Type {
@@ -10455,7 +9882,6 @@ func (i *metadataSupportPtrType) ToMetadataSupportPtrOutputWithContext(ctx conte
 	return pulumi.ToOutputWithContext(ctx, i).(MetadataSupportPtrOutput)
 }
 
-// Support information for the content item.
 type MetadataSupportOutput struct{ *pulumi.OutputState }
 
 func (MetadataSupportOutput) ElementType() reflect.Type {
@@ -10475,27 +9901,23 @@ func (o MetadataSupportOutput) ToMetadataSupportPtrOutput() MetadataSupportPtrOu
 }
 
 func (o MetadataSupportOutput) ToMetadataSupportPtrOutputWithContext(ctx context.Context) MetadataSupportPtrOutput {
-	return o.ApplyT(func(v MetadataSupport) *MetadataSupport {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v MetadataSupport) *MetadataSupport {
 		return &v
 	}).(MetadataSupportPtrOutput)
 }
 
-// Email of support contact
 func (o MetadataSupportOutput) Email() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v MetadataSupport) *string { return v.Email }).(pulumi.StringPtrOutput)
 }
 
-// Link for support help, like to support page to open a ticket etc.
 func (o MetadataSupportOutput) Link() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v MetadataSupport) *string { return v.Link }).(pulumi.StringPtrOutput)
 }
 
-// Name of the support contact. Company or person.
 func (o MetadataSupportOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v MetadataSupport) *string { return v.Name }).(pulumi.StringPtrOutput)
 }
 
-// Type of support for content item
 func (o MetadataSupportOutput) Tier() pulumi.StringOutput {
 	return o.ApplyT(func(v MetadataSupport) string { return v.Tier }).(pulumi.StringOutput)
 }
@@ -10515,10 +9937,15 @@ func (o MetadataSupportPtrOutput) ToMetadataSupportPtrOutputWithContext(ctx cont
 }
 
 func (o MetadataSupportPtrOutput) Elem() MetadataSupportOutput {
-	return o.ApplyT(func(v *MetadataSupport) MetadataSupport { return *v }).(MetadataSupportOutput)
+	return o.ApplyT(func(v *MetadataSupport) MetadataSupport {
+		if v != nil {
+			return *v
+		}
+		var ret MetadataSupport
+		return ret
+	}).(MetadataSupportOutput)
 }
 
-// Email of support contact
 func (o MetadataSupportPtrOutput) Email() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *MetadataSupport) *string {
 		if v == nil {
@@ -10528,7 +9955,6 @@ func (o MetadataSupportPtrOutput) Email() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Link for support help, like to support page to open a ticket etc.
 func (o MetadataSupportPtrOutput) Link() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *MetadataSupport) *string {
 		if v == nil {
@@ -10538,7 +9964,6 @@ func (o MetadataSupportPtrOutput) Link() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Name of the support contact. Company or person.
 func (o MetadataSupportPtrOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *MetadataSupport) *string {
 		if v == nil {
@@ -10548,7 +9973,6 @@ func (o MetadataSupportPtrOutput) Name() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Type of support for content item
 func (o MetadataSupportPtrOutput) Tier() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *MetadataSupport) *string {
 		if v == nil {
@@ -10558,16 +9982,11 @@ func (o MetadataSupportPtrOutput) Tier() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Support information for the content item.
 type MetadataSupportResponse struct {
-	// Email of support contact
 	Email *string `pulumi:"email"`
-	// Link for support help, like to support page to open a ticket etc.
-	Link *string `pulumi:"link"`
-	// Name of the support contact. Company or person.
-	Name *string `pulumi:"name"`
-	// Type of support for content item
-	Tier string `pulumi:"tier"`
+	Link  *string `pulumi:"link"`
+	Name  *string `pulumi:"name"`
+	Tier  string  `pulumi:"tier"`
 }
 
 // MetadataSupportResponseInput is an input type that accepts MetadataSupportResponseArgs and MetadataSupportResponseOutput values.
@@ -10581,16 +10000,11 @@ type MetadataSupportResponseInput interface {
 	ToMetadataSupportResponseOutputWithContext(context.Context) MetadataSupportResponseOutput
 }
 
-// Support information for the content item.
 type MetadataSupportResponseArgs struct {
-	// Email of support contact
 	Email pulumi.StringPtrInput `pulumi:"email"`
-	// Link for support help, like to support page to open a ticket etc.
-	Link pulumi.StringPtrInput `pulumi:"link"`
-	// Name of the support contact. Company or person.
-	Name pulumi.StringPtrInput `pulumi:"name"`
-	// Type of support for content item
-	Tier pulumi.StringInput `pulumi:"tier"`
+	Link  pulumi.StringPtrInput `pulumi:"link"`
+	Name  pulumi.StringPtrInput `pulumi:"name"`
+	Tier  pulumi.StringInput    `pulumi:"tier"`
 }
 
 func (MetadataSupportResponseArgs) ElementType() reflect.Type {
@@ -10646,7 +10060,6 @@ func (i *metadataSupportResponsePtrType) ToMetadataSupportResponsePtrOutputWithC
 	return pulumi.ToOutputWithContext(ctx, i).(MetadataSupportResponsePtrOutput)
 }
 
-// Support information for the content item.
 type MetadataSupportResponseOutput struct{ *pulumi.OutputState }
 
 func (MetadataSupportResponseOutput) ElementType() reflect.Type {
@@ -10666,27 +10079,23 @@ func (o MetadataSupportResponseOutput) ToMetadataSupportResponsePtrOutput() Meta
 }
 
 func (o MetadataSupportResponseOutput) ToMetadataSupportResponsePtrOutputWithContext(ctx context.Context) MetadataSupportResponsePtrOutput {
-	return o.ApplyT(func(v MetadataSupportResponse) *MetadataSupportResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v MetadataSupportResponse) *MetadataSupportResponse {
 		return &v
 	}).(MetadataSupportResponsePtrOutput)
 }
 
-// Email of support contact
 func (o MetadataSupportResponseOutput) Email() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v MetadataSupportResponse) *string { return v.Email }).(pulumi.StringPtrOutput)
 }
 
-// Link for support help, like to support page to open a ticket etc.
 func (o MetadataSupportResponseOutput) Link() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v MetadataSupportResponse) *string { return v.Link }).(pulumi.StringPtrOutput)
 }
 
-// Name of the support contact. Company or person.
 func (o MetadataSupportResponseOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v MetadataSupportResponse) *string { return v.Name }).(pulumi.StringPtrOutput)
 }
 
-// Type of support for content item
 func (o MetadataSupportResponseOutput) Tier() pulumi.StringOutput {
 	return o.ApplyT(func(v MetadataSupportResponse) string { return v.Tier }).(pulumi.StringOutput)
 }
@@ -10706,10 +10115,15 @@ func (o MetadataSupportResponsePtrOutput) ToMetadataSupportResponsePtrOutputWith
 }
 
 func (o MetadataSupportResponsePtrOutput) Elem() MetadataSupportResponseOutput {
-	return o.ApplyT(func(v *MetadataSupportResponse) MetadataSupportResponse { return *v }).(MetadataSupportResponseOutput)
+	return o.ApplyT(func(v *MetadataSupportResponse) MetadataSupportResponse {
+		if v != nil {
+			return *v
+		}
+		var ret MetadataSupportResponse
+		return ret
+	}).(MetadataSupportResponseOutput)
 }
 
-// Email of support contact
 func (o MetadataSupportResponsePtrOutput) Email() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *MetadataSupportResponse) *string {
 		if v == nil {
@@ -10719,7 +10133,6 @@ func (o MetadataSupportResponsePtrOutput) Email() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Link for support help, like to support page to open a ticket etc.
 func (o MetadataSupportResponsePtrOutput) Link() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *MetadataSupportResponse) *string {
 		if v == nil {
@@ -10729,7 +10142,6 @@ func (o MetadataSupportResponsePtrOutput) Link() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Name of the support contact. Company or person.
 func (o MetadataSupportResponsePtrOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *MetadataSupportResponse) *string {
 		if v == nil {
@@ -10739,7 +10151,6 @@ func (o MetadataSupportResponsePtrOutput) Name() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Type of support for content item
 func (o MetadataSupportResponsePtrOutput) Tier() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *MetadataSupportResponse) *string {
 		if v == nil {
@@ -10749,14 +10160,10 @@ func (o MetadataSupportResponsePtrOutput) Tier() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The available data types for office data connector.
 type OfficeDataConnectorDataTypes struct {
-	// Exchange data type connection.
-	Exchange OfficeDataConnectorDataTypesExchange `pulumi:"exchange"`
-	// SharePoint data type connection.
+	Exchange   OfficeDataConnectorDataTypesExchange   `pulumi:"exchange"`
 	SharePoint OfficeDataConnectorDataTypesSharePoint `pulumi:"sharePoint"`
-	// Teams data type connection.
-	Teams OfficeDataConnectorDataTypesTeams `pulumi:"teams"`
+	Teams      OfficeDataConnectorDataTypesTeams      `pulumi:"teams"`
 }
 
 // OfficeDataConnectorDataTypesInput is an input type that accepts OfficeDataConnectorDataTypesArgs and OfficeDataConnectorDataTypesOutput values.
@@ -10770,14 +10177,10 @@ type OfficeDataConnectorDataTypesInput interface {
 	ToOfficeDataConnectorDataTypesOutputWithContext(context.Context) OfficeDataConnectorDataTypesOutput
 }
 
-// The available data types for office data connector.
 type OfficeDataConnectorDataTypesArgs struct {
-	// Exchange data type connection.
-	Exchange OfficeDataConnectorDataTypesExchangeInput `pulumi:"exchange"`
-	// SharePoint data type connection.
+	Exchange   OfficeDataConnectorDataTypesExchangeInput   `pulumi:"exchange"`
 	SharePoint OfficeDataConnectorDataTypesSharePointInput `pulumi:"sharePoint"`
-	// Teams data type connection.
-	Teams OfficeDataConnectorDataTypesTeamsInput `pulumi:"teams"`
+	Teams      OfficeDataConnectorDataTypesTeamsInput      `pulumi:"teams"`
 }
 
 func (OfficeDataConnectorDataTypesArgs) ElementType() reflect.Type {
@@ -10833,7 +10236,6 @@ func (i *officeDataConnectorDataTypesPtrType) ToOfficeDataConnectorDataTypesPtrO
 	return pulumi.ToOutputWithContext(ctx, i).(OfficeDataConnectorDataTypesPtrOutput)
 }
 
-// The available data types for office data connector.
 type OfficeDataConnectorDataTypesOutput struct{ *pulumi.OutputState }
 
 func (OfficeDataConnectorDataTypesOutput) ElementType() reflect.Type {
@@ -10853,22 +10255,19 @@ func (o OfficeDataConnectorDataTypesOutput) ToOfficeDataConnectorDataTypesPtrOut
 }
 
 func (o OfficeDataConnectorDataTypesOutput) ToOfficeDataConnectorDataTypesPtrOutputWithContext(ctx context.Context) OfficeDataConnectorDataTypesPtrOutput {
-	return o.ApplyT(func(v OfficeDataConnectorDataTypes) *OfficeDataConnectorDataTypes {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v OfficeDataConnectorDataTypes) *OfficeDataConnectorDataTypes {
 		return &v
 	}).(OfficeDataConnectorDataTypesPtrOutput)
 }
 
-// Exchange data type connection.
 func (o OfficeDataConnectorDataTypesOutput) Exchange() OfficeDataConnectorDataTypesExchangeOutput {
 	return o.ApplyT(func(v OfficeDataConnectorDataTypes) OfficeDataConnectorDataTypesExchange { return v.Exchange }).(OfficeDataConnectorDataTypesExchangeOutput)
 }
 
-// SharePoint data type connection.
 func (o OfficeDataConnectorDataTypesOutput) SharePoint() OfficeDataConnectorDataTypesSharePointOutput {
 	return o.ApplyT(func(v OfficeDataConnectorDataTypes) OfficeDataConnectorDataTypesSharePoint { return v.SharePoint }).(OfficeDataConnectorDataTypesSharePointOutput)
 }
 
-// Teams data type connection.
 func (o OfficeDataConnectorDataTypesOutput) Teams() OfficeDataConnectorDataTypesTeamsOutput {
 	return o.ApplyT(func(v OfficeDataConnectorDataTypes) OfficeDataConnectorDataTypesTeams { return v.Teams }).(OfficeDataConnectorDataTypesTeamsOutput)
 }
@@ -10888,10 +10287,15 @@ func (o OfficeDataConnectorDataTypesPtrOutput) ToOfficeDataConnectorDataTypesPtr
 }
 
 func (o OfficeDataConnectorDataTypesPtrOutput) Elem() OfficeDataConnectorDataTypesOutput {
-	return o.ApplyT(func(v *OfficeDataConnectorDataTypes) OfficeDataConnectorDataTypes { return *v }).(OfficeDataConnectorDataTypesOutput)
+	return o.ApplyT(func(v *OfficeDataConnectorDataTypes) OfficeDataConnectorDataTypes {
+		if v != nil {
+			return *v
+		}
+		var ret OfficeDataConnectorDataTypes
+		return ret
+	}).(OfficeDataConnectorDataTypesOutput)
 }
 
-// Exchange data type connection.
 func (o OfficeDataConnectorDataTypesPtrOutput) Exchange() OfficeDataConnectorDataTypesExchangePtrOutput {
 	return o.ApplyT(func(v *OfficeDataConnectorDataTypes) *OfficeDataConnectorDataTypesExchange {
 		if v == nil {
@@ -10901,7 +10305,6 @@ func (o OfficeDataConnectorDataTypesPtrOutput) Exchange() OfficeDataConnectorDat
 	}).(OfficeDataConnectorDataTypesExchangePtrOutput)
 }
 
-// SharePoint data type connection.
 func (o OfficeDataConnectorDataTypesPtrOutput) SharePoint() OfficeDataConnectorDataTypesSharePointPtrOutput {
 	return o.ApplyT(func(v *OfficeDataConnectorDataTypes) *OfficeDataConnectorDataTypesSharePoint {
 		if v == nil {
@@ -10911,7 +10314,6 @@ func (o OfficeDataConnectorDataTypesPtrOutput) SharePoint() OfficeDataConnectorD
 	}).(OfficeDataConnectorDataTypesSharePointPtrOutput)
 }
 
-// Teams data type connection.
 func (o OfficeDataConnectorDataTypesPtrOutput) Teams() OfficeDataConnectorDataTypesTeamsPtrOutput {
 	return o.ApplyT(func(v *OfficeDataConnectorDataTypes) *OfficeDataConnectorDataTypesTeams {
 		if v == nil {
@@ -10921,9 +10323,7 @@ func (o OfficeDataConnectorDataTypesPtrOutput) Teams() OfficeDataConnectorDataTy
 	}).(OfficeDataConnectorDataTypesTeamsPtrOutput)
 }
 
-// Exchange data type connection.
 type OfficeDataConnectorDataTypesExchange struct {
-	// Describe whether this data type connection is enabled or not.
 	State string `pulumi:"state"`
 }
 
@@ -10938,9 +10338,7 @@ type OfficeDataConnectorDataTypesExchangeInput interface {
 	ToOfficeDataConnectorDataTypesExchangeOutputWithContext(context.Context) OfficeDataConnectorDataTypesExchangeOutput
 }
 
-// Exchange data type connection.
 type OfficeDataConnectorDataTypesExchangeArgs struct {
-	// Describe whether this data type connection is enabled or not.
 	State pulumi.StringInput `pulumi:"state"`
 }
 
@@ -10997,7 +10395,6 @@ func (i *officeDataConnectorDataTypesExchangePtrType) ToOfficeDataConnectorDataT
 	return pulumi.ToOutputWithContext(ctx, i).(OfficeDataConnectorDataTypesExchangePtrOutput)
 }
 
-// Exchange data type connection.
 type OfficeDataConnectorDataTypesExchangeOutput struct{ *pulumi.OutputState }
 
 func (OfficeDataConnectorDataTypesExchangeOutput) ElementType() reflect.Type {
@@ -11017,12 +10414,11 @@ func (o OfficeDataConnectorDataTypesExchangeOutput) ToOfficeDataConnectorDataTyp
 }
 
 func (o OfficeDataConnectorDataTypesExchangeOutput) ToOfficeDataConnectorDataTypesExchangePtrOutputWithContext(ctx context.Context) OfficeDataConnectorDataTypesExchangePtrOutput {
-	return o.ApplyT(func(v OfficeDataConnectorDataTypesExchange) *OfficeDataConnectorDataTypesExchange {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v OfficeDataConnectorDataTypesExchange) *OfficeDataConnectorDataTypesExchange {
 		return &v
 	}).(OfficeDataConnectorDataTypesExchangePtrOutput)
 }
 
-// Describe whether this data type connection is enabled or not.
 func (o OfficeDataConnectorDataTypesExchangeOutput) State() pulumi.StringOutput {
 	return o.ApplyT(func(v OfficeDataConnectorDataTypesExchange) string { return v.State }).(pulumi.StringOutput)
 }
@@ -11042,10 +10438,15 @@ func (o OfficeDataConnectorDataTypesExchangePtrOutput) ToOfficeDataConnectorData
 }
 
 func (o OfficeDataConnectorDataTypesExchangePtrOutput) Elem() OfficeDataConnectorDataTypesExchangeOutput {
-	return o.ApplyT(func(v *OfficeDataConnectorDataTypesExchange) OfficeDataConnectorDataTypesExchange { return *v }).(OfficeDataConnectorDataTypesExchangeOutput)
+	return o.ApplyT(func(v *OfficeDataConnectorDataTypesExchange) OfficeDataConnectorDataTypesExchange {
+		if v != nil {
+			return *v
+		}
+		var ret OfficeDataConnectorDataTypesExchange
+		return ret
+	}).(OfficeDataConnectorDataTypesExchangeOutput)
 }
 
-// Describe whether this data type connection is enabled or not.
 func (o OfficeDataConnectorDataTypesExchangePtrOutput) State() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *OfficeDataConnectorDataTypesExchange) *string {
 		if v == nil {
@@ -11055,14 +10456,10 @@ func (o OfficeDataConnectorDataTypesExchangePtrOutput) State() pulumi.StringPtrO
 	}).(pulumi.StringPtrOutput)
 }
 
-// The available data types for office data connector.
 type OfficeDataConnectorDataTypesResponse struct {
-	// Exchange data type connection.
-	Exchange OfficeDataConnectorDataTypesResponseExchange `pulumi:"exchange"`
-	// SharePoint data type connection.
+	Exchange   OfficeDataConnectorDataTypesResponseExchange   `pulumi:"exchange"`
 	SharePoint OfficeDataConnectorDataTypesResponseSharePoint `pulumi:"sharePoint"`
-	// Teams data type connection.
-	Teams OfficeDataConnectorDataTypesResponseTeams `pulumi:"teams"`
+	Teams      OfficeDataConnectorDataTypesResponseTeams      `pulumi:"teams"`
 }
 
 // OfficeDataConnectorDataTypesResponseInput is an input type that accepts OfficeDataConnectorDataTypesResponseArgs and OfficeDataConnectorDataTypesResponseOutput values.
@@ -11076,14 +10473,10 @@ type OfficeDataConnectorDataTypesResponseInput interface {
 	ToOfficeDataConnectorDataTypesResponseOutputWithContext(context.Context) OfficeDataConnectorDataTypesResponseOutput
 }
 
-// The available data types for office data connector.
 type OfficeDataConnectorDataTypesResponseArgs struct {
-	// Exchange data type connection.
-	Exchange OfficeDataConnectorDataTypesResponseExchangeInput `pulumi:"exchange"`
-	// SharePoint data type connection.
+	Exchange   OfficeDataConnectorDataTypesResponseExchangeInput   `pulumi:"exchange"`
 	SharePoint OfficeDataConnectorDataTypesResponseSharePointInput `pulumi:"sharePoint"`
-	// Teams data type connection.
-	Teams OfficeDataConnectorDataTypesResponseTeamsInput `pulumi:"teams"`
+	Teams      OfficeDataConnectorDataTypesResponseTeamsInput      `pulumi:"teams"`
 }
 
 func (OfficeDataConnectorDataTypesResponseArgs) ElementType() reflect.Type {
@@ -11139,7 +10532,6 @@ func (i *officeDataConnectorDataTypesResponsePtrType) ToOfficeDataConnectorDataT
 	return pulumi.ToOutputWithContext(ctx, i).(OfficeDataConnectorDataTypesResponsePtrOutput)
 }
 
-// The available data types for office data connector.
 type OfficeDataConnectorDataTypesResponseOutput struct{ *pulumi.OutputState }
 
 func (OfficeDataConnectorDataTypesResponseOutput) ElementType() reflect.Type {
@@ -11159,26 +10551,23 @@ func (o OfficeDataConnectorDataTypesResponseOutput) ToOfficeDataConnectorDataTyp
 }
 
 func (o OfficeDataConnectorDataTypesResponseOutput) ToOfficeDataConnectorDataTypesResponsePtrOutputWithContext(ctx context.Context) OfficeDataConnectorDataTypesResponsePtrOutput {
-	return o.ApplyT(func(v OfficeDataConnectorDataTypesResponse) *OfficeDataConnectorDataTypesResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v OfficeDataConnectorDataTypesResponse) *OfficeDataConnectorDataTypesResponse {
 		return &v
 	}).(OfficeDataConnectorDataTypesResponsePtrOutput)
 }
 
-// Exchange data type connection.
 func (o OfficeDataConnectorDataTypesResponseOutput) Exchange() OfficeDataConnectorDataTypesResponseExchangeOutput {
 	return o.ApplyT(func(v OfficeDataConnectorDataTypesResponse) OfficeDataConnectorDataTypesResponseExchange {
 		return v.Exchange
 	}).(OfficeDataConnectorDataTypesResponseExchangeOutput)
 }
 
-// SharePoint data type connection.
 func (o OfficeDataConnectorDataTypesResponseOutput) SharePoint() OfficeDataConnectorDataTypesResponseSharePointOutput {
 	return o.ApplyT(func(v OfficeDataConnectorDataTypesResponse) OfficeDataConnectorDataTypesResponseSharePoint {
 		return v.SharePoint
 	}).(OfficeDataConnectorDataTypesResponseSharePointOutput)
 }
 
-// Teams data type connection.
 func (o OfficeDataConnectorDataTypesResponseOutput) Teams() OfficeDataConnectorDataTypesResponseTeamsOutput {
 	return o.ApplyT(func(v OfficeDataConnectorDataTypesResponse) OfficeDataConnectorDataTypesResponseTeams { return v.Teams }).(OfficeDataConnectorDataTypesResponseTeamsOutput)
 }
@@ -11198,10 +10587,15 @@ func (o OfficeDataConnectorDataTypesResponsePtrOutput) ToOfficeDataConnectorData
 }
 
 func (o OfficeDataConnectorDataTypesResponsePtrOutput) Elem() OfficeDataConnectorDataTypesResponseOutput {
-	return o.ApplyT(func(v *OfficeDataConnectorDataTypesResponse) OfficeDataConnectorDataTypesResponse { return *v }).(OfficeDataConnectorDataTypesResponseOutput)
+	return o.ApplyT(func(v *OfficeDataConnectorDataTypesResponse) OfficeDataConnectorDataTypesResponse {
+		if v != nil {
+			return *v
+		}
+		var ret OfficeDataConnectorDataTypesResponse
+		return ret
+	}).(OfficeDataConnectorDataTypesResponseOutput)
 }
 
-// Exchange data type connection.
 func (o OfficeDataConnectorDataTypesResponsePtrOutput) Exchange() OfficeDataConnectorDataTypesResponseExchangePtrOutput {
 	return o.ApplyT(func(v *OfficeDataConnectorDataTypesResponse) *OfficeDataConnectorDataTypesResponseExchange {
 		if v == nil {
@@ -11211,7 +10605,6 @@ func (o OfficeDataConnectorDataTypesResponsePtrOutput) Exchange() OfficeDataConn
 	}).(OfficeDataConnectorDataTypesResponseExchangePtrOutput)
 }
 
-// SharePoint data type connection.
 func (o OfficeDataConnectorDataTypesResponsePtrOutput) SharePoint() OfficeDataConnectorDataTypesResponseSharePointPtrOutput {
 	return o.ApplyT(func(v *OfficeDataConnectorDataTypesResponse) *OfficeDataConnectorDataTypesResponseSharePoint {
 		if v == nil {
@@ -11221,7 +10614,6 @@ func (o OfficeDataConnectorDataTypesResponsePtrOutput) SharePoint() OfficeDataCo
 	}).(OfficeDataConnectorDataTypesResponseSharePointPtrOutput)
 }
 
-// Teams data type connection.
 func (o OfficeDataConnectorDataTypesResponsePtrOutput) Teams() OfficeDataConnectorDataTypesResponseTeamsPtrOutput {
 	return o.ApplyT(func(v *OfficeDataConnectorDataTypesResponse) *OfficeDataConnectorDataTypesResponseTeams {
 		if v == nil {
@@ -11231,9 +10623,7 @@ func (o OfficeDataConnectorDataTypesResponsePtrOutput) Teams() OfficeDataConnect
 	}).(OfficeDataConnectorDataTypesResponseTeamsPtrOutput)
 }
 
-// Exchange data type connection.
 type OfficeDataConnectorDataTypesResponseExchange struct {
-	// Describe whether this data type connection is enabled or not.
 	State string `pulumi:"state"`
 }
 
@@ -11248,9 +10638,7 @@ type OfficeDataConnectorDataTypesResponseExchangeInput interface {
 	ToOfficeDataConnectorDataTypesResponseExchangeOutputWithContext(context.Context) OfficeDataConnectorDataTypesResponseExchangeOutput
 }
 
-// Exchange data type connection.
 type OfficeDataConnectorDataTypesResponseExchangeArgs struct {
-	// Describe whether this data type connection is enabled or not.
 	State pulumi.StringInput `pulumi:"state"`
 }
 
@@ -11307,7 +10695,6 @@ func (i *officeDataConnectorDataTypesResponseExchangePtrType) ToOfficeDataConnec
 	return pulumi.ToOutputWithContext(ctx, i).(OfficeDataConnectorDataTypesResponseExchangePtrOutput)
 }
 
-// Exchange data type connection.
 type OfficeDataConnectorDataTypesResponseExchangeOutput struct{ *pulumi.OutputState }
 
 func (OfficeDataConnectorDataTypesResponseExchangeOutput) ElementType() reflect.Type {
@@ -11327,12 +10714,11 @@ func (o OfficeDataConnectorDataTypesResponseExchangeOutput) ToOfficeDataConnecto
 }
 
 func (o OfficeDataConnectorDataTypesResponseExchangeOutput) ToOfficeDataConnectorDataTypesResponseExchangePtrOutputWithContext(ctx context.Context) OfficeDataConnectorDataTypesResponseExchangePtrOutput {
-	return o.ApplyT(func(v OfficeDataConnectorDataTypesResponseExchange) *OfficeDataConnectorDataTypesResponseExchange {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v OfficeDataConnectorDataTypesResponseExchange) *OfficeDataConnectorDataTypesResponseExchange {
 		return &v
 	}).(OfficeDataConnectorDataTypesResponseExchangePtrOutput)
 }
 
-// Describe whether this data type connection is enabled or not.
 func (o OfficeDataConnectorDataTypesResponseExchangeOutput) State() pulumi.StringOutput {
 	return o.ApplyT(func(v OfficeDataConnectorDataTypesResponseExchange) string { return v.State }).(pulumi.StringOutput)
 }
@@ -11353,11 +10739,14 @@ func (o OfficeDataConnectorDataTypesResponseExchangePtrOutput) ToOfficeDataConne
 
 func (o OfficeDataConnectorDataTypesResponseExchangePtrOutput) Elem() OfficeDataConnectorDataTypesResponseExchangeOutput {
 	return o.ApplyT(func(v *OfficeDataConnectorDataTypesResponseExchange) OfficeDataConnectorDataTypesResponseExchange {
-		return *v
+		if v != nil {
+			return *v
+		}
+		var ret OfficeDataConnectorDataTypesResponseExchange
+		return ret
 	}).(OfficeDataConnectorDataTypesResponseExchangeOutput)
 }
 
-// Describe whether this data type connection is enabled or not.
 func (o OfficeDataConnectorDataTypesResponseExchangePtrOutput) State() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *OfficeDataConnectorDataTypesResponseExchange) *string {
 		if v == nil {
@@ -11367,9 +10756,7 @@ func (o OfficeDataConnectorDataTypesResponseExchangePtrOutput) State() pulumi.St
 	}).(pulumi.StringPtrOutput)
 }
 
-// SharePoint data type connection.
 type OfficeDataConnectorDataTypesResponseSharePoint struct {
-	// Describe whether this data type connection is enabled or not.
 	State string `pulumi:"state"`
 }
 
@@ -11384,9 +10771,7 @@ type OfficeDataConnectorDataTypesResponseSharePointInput interface {
 	ToOfficeDataConnectorDataTypesResponseSharePointOutputWithContext(context.Context) OfficeDataConnectorDataTypesResponseSharePointOutput
 }
 
-// SharePoint data type connection.
 type OfficeDataConnectorDataTypesResponseSharePointArgs struct {
-	// Describe whether this data type connection is enabled or not.
 	State pulumi.StringInput `pulumi:"state"`
 }
 
@@ -11443,7 +10828,6 @@ func (i *officeDataConnectorDataTypesResponseSharePointPtrType) ToOfficeDataConn
 	return pulumi.ToOutputWithContext(ctx, i).(OfficeDataConnectorDataTypesResponseSharePointPtrOutput)
 }
 
-// SharePoint data type connection.
 type OfficeDataConnectorDataTypesResponseSharePointOutput struct{ *pulumi.OutputState }
 
 func (OfficeDataConnectorDataTypesResponseSharePointOutput) ElementType() reflect.Type {
@@ -11463,12 +10847,11 @@ func (o OfficeDataConnectorDataTypesResponseSharePointOutput) ToOfficeDataConnec
 }
 
 func (o OfficeDataConnectorDataTypesResponseSharePointOutput) ToOfficeDataConnectorDataTypesResponseSharePointPtrOutputWithContext(ctx context.Context) OfficeDataConnectorDataTypesResponseSharePointPtrOutput {
-	return o.ApplyT(func(v OfficeDataConnectorDataTypesResponseSharePoint) *OfficeDataConnectorDataTypesResponseSharePoint {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v OfficeDataConnectorDataTypesResponseSharePoint) *OfficeDataConnectorDataTypesResponseSharePoint {
 		return &v
 	}).(OfficeDataConnectorDataTypesResponseSharePointPtrOutput)
 }
 
-// Describe whether this data type connection is enabled or not.
 func (o OfficeDataConnectorDataTypesResponseSharePointOutput) State() pulumi.StringOutput {
 	return o.ApplyT(func(v OfficeDataConnectorDataTypesResponseSharePoint) string { return v.State }).(pulumi.StringOutput)
 }
@@ -11489,11 +10872,14 @@ func (o OfficeDataConnectorDataTypesResponseSharePointPtrOutput) ToOfficeDataCon
 
 func (o OfficeDataConnectorDataTypesResponseSharePointPtrOutput) Elem() OfficeDataConnectorDataTypesResponseSharePointOutput {
 	return o.ApplyT(func(v *OfficeDataConnectorDataTypesResponseSharePoint) OfficeDataConnectorDataTypesResponseSharePoint {
-		return *v
+		if v != nil {
+			return *v
+		}
+		var ret OfficeDataConnectorDataTypesResponseSharePoint
+		return ret
 	}).(OfficeDataConnectorDataTypesResponseSharePointOutput)
 }
 
-// Describe whether this data type connection is enabled or not.
 func (o OfficeDataConnectorDataTypesResponseSharePointPtrOutput) State() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *OfficeDataConnectorDataTypesResponseSharePoint) *string {
 		if v == nil {
@@ -11503,9 +10889,7 @@ func (o OfficeDataConnectorDataTypesResponseSharePointPtrOutput) State() pulumi.
 	}).(pulumi.StringPtrOutput)
 }
 
-// Teams data type connection.
 type OfficeDataConnectorDataTypesResponseTeams struct {
-	// Describe whether this data type connection is enabled or not.
 	State string `pulumi:"state"`
 }
 
@@ -11520,9 +10904,7 @@ type OfficeDataConnectorDataTypesResponseTeamsInput interface {
 	ToOfficeDataConnectorDataTypesResponseTeamsOutputWithContext(context.Context) OfficeDataConnectorDataTypesResponseTeamsOutput
 }
 
-// Teams data type connection.
 type OfficeDataConnectorDataTypesResponseTeamsArgs struct {
-	// Describe whether this data type connection is enabled or not.
 	State pulumi.StringInput `pulumi:"state"`
 }
 
@@ -11579,7 +10961,6 @@ func (i *officeDataConnectorDataTypesResponseTeamsPtrType) ToOfficeDataConnector
 	return pulumi.ToOutputWithContext(ctx, i).(OfficeDataConnectorDataTypesResponseTeamsPtrOutput)
 }
 
-// Teams data type connection.
 type OfficeDataConnectorDataTypesResponseTeamsOutput struct{ *pulumi.OutputState }
 
 func (OfficeDataConnectorDataTypesResponseTeamsOutput) ElementType() reflect.Type {
@@ -11599,12 +10980,11 @@ func (o OfficeDataConnectorDataTypesResponseTeamsOutput) ToOfficeDataConnectorDa
 }
 
 func (o OfficeDataConnectorDataTypesResponseTeamsOutput) ToOfficeDataConnectorDataTypesResponseTeamsPtrOutputWithContext(ctx context.Context) OfficeDataConnectorDataTypesResponseTeamsPtrOutput {
-	return o.ApplyT(func(v OfficeDataConnectorDataTypesResponseTeams) *OfficeDataConnectorDataTypesResponseTeams {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v OfficeDataConnectorDataTypesResponseTeams) *OfficeDataConnectorDataTypesResponseTeams {
 		return &v
 	}).(OfficeDataConnectorDataTypesResponseTeamsPtrOutput)
 }
 
-// Describe whether this data type connection is enabled or not.
 func (o OfficeDataConnectorDataTypesResponseTeamsOutput) State() pulumi.StringOutput {
 	return o.ApplyT(func(v OfficeDataConnectorDataTypesResponseTeams) string { return v.State }).(pulumi.StringOutput)
 }
@@ -11625,11 +11005,14 @@ func (o OfficeDataConnectorDataTypesResponseTeamsPtrOutput) ToOfficeDataConnecto
 
 func (o OfficeDataConnectorDataTypesResponseTeamsPtrOutput) Elem() OfficeDataConnectorDataTypesResponseTeamsOutput {
 	return o.ApplyT(func(v *OfficeDataConnectorDataTypesResponseTeams) OfficeDataConnectorDataTypesResponseTeams {
-		return *v
+		if v != nil {
+			return *v
+		}
+		var ret OfficeDataConnectorDataTypesResponseTeams
+		return ret
 	}).(OfficeDataConnectorDataTypesResponseTeamsOutput)
 }
 
-// Describe whether this data type connection is enabled or not.
 func (o OfficeDataConnectorDataTypesResponseTeamsPtrOutput) State() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *OfficeDataConnectorDataTypesResponseTeams) *string {
 		if v == nil {
@@ -11639,9 +11022,7 @@ func (o OfficeDataConnectorDataTypesResponseTeamsPtrOutput) State() pulumi.Strin
 	}).(pulumi.StringPtrOutput)
 }
 
-// SharePoint data type connection.
 type OfficeDataConnectorDataTypesSharePoint struct {
-	// Describe whether this data type connection is enabled or not.
 	State string `pulumi:"state"`
 }
 
@@ -11656,9 +11037,7 @@ type OfficeDataConnectorDataTypesSharePointInput interface {
 	ToOfficeDataConnectorDataTypesSharePointOutputWithContext(context.Context) OfficeDataConnectorDataTypesSharePointOutput
 }
 
-// SharePoint data type connection.
 type OfficeDataConnectorDataTypesSharePointArgs struct {
-	// Describe whether this data type connection is enabled or not.
 	State pulumi.StringInput `pulumi:"state"`
 }
 
@@ -11715,7 +11094,6 @@ func (i *officeDataConnectorDataTypesSharePointPtrType) ToOfficeDataConnectorDat
 	return pulumi.ToOutputWithContext(ctx, i).(OfficeDataConnectorDataTypesSharePointPtrOutput)
 }
 
-// SharePoint data type connection.
 type OfficeDataConnectorDataTypesSharePointOutput struct{ *pulumi.OutputState }
 
 func (OfficeDataConnectorDataTypesSharePointOutput) ElementType() reflect.Type {
@@ -11735,12 +11113,11 @@ func (o OfficeDataConnectorDataTypesSharePointOutput) ToOfficeDataConnectorDataT
 }
 
 func (o OfficeDataConnectorDataTypesSharePointOutput) ToOfficeDataConnectorDataTypesSharePointPtrOutputWithContext(ctx context.Context) OfficeDataConnectorDataTypesSharePointPtrOutput {
-	return o.ApplyT(func(v OfficeDataConnectorDataTypesSharePoint) *OfficeDataConnectorDataTypesSharePoint {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v OfficeDataConnectorDataTypesSharePoint) *OfficeDataConnectorDataTypesSharePoint {
 		return &v
 	}).(OfficeDataConnectorDataTypesSharePointPtrOutput)
 }
 
-// Describe whether this data type connection is enabled or not.
 func (o OfficeDataConnectorDataTypesSharePointOutput) State() pulumi.StringOutput {
 	return o.ApplyT(func(v OfficeDataConnectorDataTypesSharePoint) string { return v.State }).(pulumi.StringOutput)
 }
@@ -11760,10 +11137,15 @@ func (o OfficeDataConnectorDataTypesSharePointPtrOutput) ToOfficeDataConnectorDa
 }
 
 func (o OfficeDataConnectorDataTypesSharePointPtrOutput) Elem() OfficeDataConnectorDataTypesSharePointOutput {
-	return o.ApplyT(func(v *OfficeDataConnectorDataTypesSharePoint) OfficeDataConnectorDataTypesSharePoint { return *v }).(OfficeDataConnectorDataTypesSharePointOutput)
+	return o.ApplyT(func(v *OfficeDataConnectorDataTypesSharePoint) OfficeDataConnectorDataTypesSharePoint {
+		if v != nil {
+			return *v
+		}
+		var ret OfficeDataConnectorDataTypesSharePoint
+		return ret
+	}).(OfficeDataConnectorDataTypesSharePointOutput)
 }
 
-// Describe whether this data type connection is enabled or not.
 func (o OfficeDataConnectorDataTypesSharePointPtrOutput) State() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *OfficeDataConnectorDataTypesSharePoint) *string {
 		if v == nil {
@@ -11773,9 +11155,7 @@ func (o OfficeDataConnectorDataTypesSharePointPtrOutput) State() pulumi.StringPt
 	}).(pulumi.StringPtrOutput)
 }
 
-// Teams data type connection.
 type OfficeDataConnectorDataTypesTeams struct {
-	// Describe whether this data type connection is enabled or not.
 	State string `pulumi:"state"`
 }
 
@@ -11790,9 +11170,7 @@ type OfficeDataConnectorDataTypesTeamsInput interface {
 	ToOfficeDataConnectorDataTypesTeamsOutputWithContext(context.Context) OfficeDataConnectorDataTypesTeamsOutput
 }
 
-// Teams data type connection.
 type OfficeDataConnectorDataTypesTeamsArgs struct {
-	// Describe whether this data type connection is enabled or not.
 	State pulumi.StringInput `pulumi:"state"`
 }
 
@@ -11849,7 +11227,6 @@ func (i *officeDataConnectorDataTypesTeamsPtrType) ToOfficeDataConnectorDataType
 	return pulumi.ToOutputWithContext(ctx, i).(OfficeDataConnectorDataTypesTeamsPtrOutput)
 }
 
-// Teams data type connection.
 type OfficeDataConnectorDataTypesTeamsOutput struct{ *pulumi.OutputState }
 
 func (OfficeDataConnectorDataTypesTeamsOutput) ElementType() reflect.Type {
@@ -11869,12 +11246,11 @@ func (o OfficeDataConnectorDataTypesTeamsOutput) ToOfficeDataConnectorDataTypesT
 }
 
 func (o OfficeDataConnectorDataTypesTeamsOutput) ToOfficeDataConnectorDataTypesTeamsPtrOutputWithContext(ctx context.Context) OfficeDataConnectorDataTypesTeamsPtrOutput {
-	return o.ApplyT(func(v OfficeDataConnectorDataTypesTeams) *OfficeDataConnectorDataTypesTeams {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v OfficeDataConnectorDataTypesTeams) *OfficeDataConnectorDataTypesTeams {
 		return &v
 	}).(OfficeDataConnectorDataTypesTeamsPtrOutput)
 }
 
-// Describe whether this data type connection is enabled or not.
 func (o OfficeDataConnectorDataTypesTeamsOutput) State() pulumi.StringOutput {
 	return o.ApplyT(func(v OfficeDataConnectorDataTypesTeams) string { return v.State }).(pulumi.StringOutput)
 }
@@ -11894,10 +11270,15 @@ func (o OfficeDataConnectorDataTypesTeamsPtrOutput) ToOfficeDataConnectorDataTyp
 }
 
 func (o OfficeDataConnectorDataTypesTeamsPtrOutput) Elem() OfficeDataConnectorDataTypesTeamsOutput {
-	return o.ApplyT(func(v *OfficeDataConnectorDataTypesTeams) OfficeDataConnectorDataTypesTeams { return *v }).(OfficeDataConnectorDataTypesTeamsOutput)
+	return o.ApplyT(func(v *OfficeDataConnectorDataTypesTeams) OfficeDataConnectorDataTypesTeams {
+		if v != nil {
+			return *v
+		}
+		var ret OfficeDataConnectorDataTypesTeams
+		return ret
+	}).(OfficeDataConnectorDataTypesTeamsOutput)
 }
 
-// Describe whether this data type connection is enabled or not.
 func (o OfficeDataConnectorDataTypesTeamsPtrOutput) State() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *OfficeDataConnectorDataTypesTeams) *string {
 		if v == nil {
@@ -11907,11 +11288,8 @@ func (o OfficeDataConnectorDataTypesTeamsPtrOutput) State() pulumi.StringPtrOutp
 	}).(pulumi.StringPtrOutput)
 }
 
-// Permissions required for the connector
 type Permissions struct {
-	// Customs permissions required for the connector
-	Customs []PermissionsCustoms `pulumi:"customs"`
-	// Resource provider permissions required for the connector
+	Customs          []PermissionsCustoms          `pulumi:"customs"`
 	ResourceProvider []PermissionsResourceProvider `pulumi:"resourceProvider"`
 }
 
@@ -11926,11 +11304,8 @@ type PermissionsInput interface {
 	ToPermissionsOutputWithContext(context.Context) PermissionsOutput
 }
 
-// Permissions required for the connector
 type PermissionsArgs struct {
-	// Customs permissions required for the connector
-	Customs PermissionsCustomsArrayInput `pulumi:"customs"`
-	// Resource provider permissions required for the connector
+	Customs          PermissionsCustomsArrayInput          `pulumi:"customs"`
 	ResourceProvider PermissionsResourceProviderArrayInput `pulumi:"resourceProvider"`
 }
 
@@ -11987,7 +11362,6 @@ func (i *permissionsPtrType) ToPermissionsPtrOutputWithContext(ctx context.Conte
 	return pulumi.ToOutputWithContext(ctx, i).(PermissionsPtrOutput)
 }
 
-// Permissions required for the connector
 type PermissionsOutput struct{ *pulumi.OutputState }
 
 func (PermissionsOutput) ElementType() reflect.Type {
@@ -12007,17 +11381,15 @@ func (o PermissionsOutput) ToPermissionsPtrOutput() PermissionsPtrOutput {
 }
 
 func (o PermissionsOutput) ToPermissionsPtrOutputWithContext(ctx context.Context) PermissionsPtrOutput {
-	return o.ApplyT(func(v Permissions) *Permissions {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v Permissions) *Permissions {
 		return &v
 	}).(PermissionsPtrOutput)
 }
 
-// Customs permissions required for the connector
 func (o PermissionsOutput) Customs() PermissionsCustomsArrayOutput {
 	return o.ApplyT(func(v Permissions) []PermissionsCustoms { return v.Customs }).(PermissionsCustomsArrayOutput)
 }
 
-// Resource provider permissions required for the connector
 func (o PermissionsOutput) ResourceProvider() PermissionsResourceProviderArrayOutput {
 	return o.ApplyT(func(v Permissions) []PermissionsResourceProvider { return v.ResourceProvider }).(PermissionsResourceProviderArrayOutput)
 }
@@ -12037,10 +11409,15 @@ func (o PermissionsPtrOutput) ToPermissionsPtrOutputWithContext(ctx context.Cont
 }
 
 func (o PermissionsPtrOutput) Elem() PermissionsOutput {
-	return o.ApplyT(func(v *Permissions) Permissions { return *v }).(PermissionsOutput)
+	return o.ApplyT(func(v *Permissions) Permissions {
+		if v != nil {
+			return *v
+		}
+		var ret Permissions
+		return ret
+	}).(PermissionsOutput)
 }
 
-// Customs permissions required for the connector
 func (o PermissionsPtrOutput) Customs() PermissionsCustomsArrayOutput {
 	return o.ApplyT(func(v *Permissions) []PermissionsCustoms {
 		if v == nil {
@@ -12050,7 +11427,6 @@ func (o PermissionsPtrOutput) Customs() PermissionsCustomsArrayOutput {
 	}).(PermissionsCustomsArrayOutput)
 }
 
-// Resource provider permissions required for the connector
 func (o PermissionsPtrOutput) ResourceProvider() PermissionsResourceProviderArrayOutput {
 	return o.ApplyT(func(v *Permissions) []PermissionsResourceProvider {
 		if v == nil {
@@ -12061,10 +11437,8 @@ func (o PermissionsPtrOutput) ResourceProvider() PermissionsResourceProviderArra
 }
 
 type PermissionsCustoms struct {
-	// Customs permissions description
 	Description *string `pulumi:"description"`
-	// Customs permissions name
-	Name *string `pulumi:"name"`
+	Name        *string `pulumi:"name"`
 }
 
 // PermissionsCustomsInput is an input type that accepts PermissionsCustomsArgs and PermissionsCustomsOutput values.
@@ -12079,10 +11453,8 @@ type PermissionsCustomsInput interface {
 }
 
 type PermissionsCustomsArgs struct {
-	// Customs permissions description
 	Description pulumi.StringPtrInput `pulumi:"description"`
-	// Customs permissions name
-	Name pulumi.StringPtrInput `pulumi:"name"`
+	Name        pulumi.StringPtrInput `pulumi:"name"`
 }
 
 func (PermissionsCustomsArgs) ElementType() reflect.Type {
@@ -12136,12 +11508,10 @@ func (o PermissionsCustomsOutput) ToPermissionsCustomsOutputWithContext(ctx cont
 	return o
 }
 
-// Customs permissions description
 func (o PermissionsCustomsOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v PermissionsCustoms) *string { return v.Description }).(pulumi.StringPtrOutput)
 }
 
-// Customs permissions name
 func (o PermissionsCustomsOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v PermissionsCustoms) *string { return v.Name }).(pulumi.StringPtrOutput)
 }
@@ -12167,16 +11537,11 @@ func (o PermissionsCustomsArrayOutput) Index(i pulumi.IntInput) PermissionsCusto
 }
 
 type PermissionsResourceProvider struct {
-	// Permission description text
-	PermissionsDisplayText *string `pulumi:"permissionsDisplayText"`
-	// Provider name
-	Provider *string `pulumi:"provider"`
-	// Permission provider display name
-	ProviderDisplayName *string `pulumi:"providerDisplayName"`
-	// Required permissions for the connector
-	RequiredPermissions *RequiredPermissions `pulumi:"requiredPermissions"`
-	// Permission provider scope
-	Scope *string `pulumi:"scope"`
+	PermissionsDisplayText *string              `pulumi:"permissionsDisplayText"`
+	Provider               *string              `pulumi:"provider"`
+	ProviderDisplayName    *string              `pulumi:"providerDisplayName"`
+	RequiredPermissions    *RequiredPermissions `pulumi:"requiredPermissions"`
+	Scope                  *string              `pulumi:"scope"`
 }
 
 // PermissionsResourceProviderInput is an input type that accepts PermissionsResourceProviderArgs and PermissionsResourceProviderOutput values.
@@ -12191,16 +11556,11 @@ type PermissionsResourceProviderInput interface {
 }
 
 type PermissionsResourceProviderArgs struct {
-	// Permission description text
-	PermissionsDisplayText pulumi.StringPtrInput `pulumi:"permissionsDisplayText"`
-	// Provider name
-	Provider pulumi.StringPtrInput `pulumi:"provider"`
-	// Permission provider display name
-	ProviderDisplayName pulumi.StringPtrInput `pulumi:"providerDisplayName"`
-	// Required permissions for the connector
-	RequiredPermissions RequiredPermissionsPtrInput `pulumi:"requiredPermissions"`
-	// Permission provider scope
-	Scope pulumi.StringPtrInput `pulumi:"scope"`
+	PermissionsDisplayText pulumi.StringPtrInput       `pulumi:"permissionsDisplayText"`
+	Provider               pulumi.StringPtrInput       `pulumi:"provider"`
+	ProviderDisplayName    pulumi.StringPtrInput       `pulumi:"providerDisplayName"`
+	RequiredPermissions    RequiredPermissionsPtrInput `pulumi:"requiredPermissions"`
+	Scope                  pulumi.StringPtrInput       `pulumi:"scope"`
 }
 
 func (PermissionsResourceProviderArgs) ElementType() reflect.Type {
@@ -12254,27 +11614,22 @@ func (o PermissionsResourceProviderOutput) ToPermissionsResourceProviderOutputWi
 	return o
 }
 
-// Permission description text
 func (o PermissionsResourceProviderOutput) PermissionsDisplayText() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v PermissionsResourceProvider) *string { return v.PermissionsDisplayText }).(pulumi.StringPtrOutput)
 }
 
-// Provider name
 func (o PermissionsResourceProviderOutput) Provider() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v PermissionsResourceProvider) *string { return v.Provider }).(pulumi.StringPtrOutput)
 }
 
-// Permission provider display name
 func (o PermissionsResourceProviderOutput) ProviderDisplayName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v PermissionsResourceProvider) *string { return v.ProviderDisplayName }).(pulumi.StringPtrOutput)
 }
 
-// Required permissions for the connector
 func (o PermissionsResourceProviderOutput) RequiredPermissions() RequiredPermissionsPtrOutput {
 	return o.ApplyT(func(v PermissionsResourceProvider) *RequiredPermissions { return v.RequiredPermissions }).(RequiredPermissionsPtrOutput)
 }
 
-// Permission provider scope
 func (o PermissionsResourceProviderOutput) Scope() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v PermissionsResourceProvider) *string { return v.Scope }).(pulumi.StringPtrOutput)
 }
@@ -12299,11 +11654,8 @@ func (o PermissionsResourceProviderArrayOutput) Index(i pulumi.IntInput) Permiss
 	}).(PermissionsResourceProviderOutput)
 }
 
-// Permissions required for the connector
 type PermissionsResponse struct {
-	// Customs permissions required for the connector
-	Customs []PermissionsResponseCustoms `pulumi:"customs"`
-	// Resource provider permissions required for the connector
+	Customs          []PermissionsResponseCustoms          `pulumi:"customs"`
 	ResourceProvider []PermissionsResponseResourceProvider `pulumi:"resourceProvider"`
 }
 
@@ -12318,11 +11670,8 @@ type PermissionsResponseInput interface {
 	ToPermissionsResponseOutputWithContext(context.Context) PermissionsResponseOutput
 }
 
-// Permissions required for the connector
 type PermissionsResponseArgs struct {
-	// Customs permissions required for the connector
-	Customs PermissionsResponseCustomsArrayInput `pulumi:"customs"`
-	// Resource provider permissions required for the connector
+	Customs          PermissionsResponseCustomsArrayInput          `pulumi:"customs"`
 	ResourceProvider PermissionsResponseResourceProviderArrayInput `pulumi:"resourceProvider"`
 }
 
@@ -12379,7 +11728,6 @@ func (i *permissionsResponsePtrType) ToPermissionsResponsePtrOutputWithContext(c
 	return pulumi.ToOutputWithContext(ctx, i).(PermissionsResponsePtrOutput)
 }
 
-// Permissions required for the connector
 type PermissionsResponseOutput struct{ *pulumi.OutputState }
 
 func (PermissionsResponseOutput) ElementType() reflect.Type {
@@ -12399,17 +11747,15 @@ func (o PermissionsResponseOutput) ToPermissionsResponsePtrOutput() PermissionsR
 }
 
 func (o PermissionsResponseOutput) ToPermissionsResponsePtrOutputWithContext(ctx context.Context) PermissionsResponsePtrOutput {
-	return o.ApplyT(func(v PermissionsResponse) *PermissionsResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v PermissionsResponse) *PermissionsResponse {
 		return &v
 	}).(PermissionsResponsePtrOutput)
 }
 
-// Customs permissions required for the connector
 func (o PermissionsResponseOutput) Customs() PermissionsResponseCustomsArrayOutput {
 	return o.ApplyT(func(v PermissionsResponse) []PermissionsResponseCustoms { return v.Customs }).(PermissionsResponseCustomsArrayOutput)
 }
 
-// Resource provider permissions required for the connector
 func (o PermissionsResponseOutput) ResourceProvider() PermissionsResponseResourceProviderArrayOutput {
 	return o.ApplyT(func(v PermissionsResponse) []PermissionsResponseResourceProvider { return v.ResourceProvider }).(PermissionsResponseResourceProviderArrayOutput)
 }
@@ -12429,10 +11775,15 @@ func (o PermissionsResponsePtrOutput) ToPermissionsResponsePtrOutputWithContext(
 }
 
 func (o PermissionsResponsePtrOutput) Elem() PermissionsResponseOutput {
-	return o.ApplyT(func(v *PermissionsResponse) PermissionsResponse { return *v }).(PermissionsResponseOutput)
+	return o.ApplyT(func(v *PermissionsResponse) PermissionsResponse {
+		if v != nil {
+			return *v
+		}
+		var ret PermissionsResponse
+		return ret
+	}).(PermissionsResponseOutput)
 }
 
-// Customs permissions required for the connector
 func (o PermissionsResponsePtrOutput) Customs() PermissionsResponseCustomsArrayOutput {
 	return o.ApplyT(func(v *PermissionsResponse) []PermissionsResponseCustoms {
 		if v == nil {
@@ -12442,7 +11793,6 @@ func (o PermissionsResponsePtrOutput) Customs() PermissionsResponseCustomsArrayO
 	}).(PermissionsResponseCustomsArrayOutput)
 }
 
-// Resource provider permissions required for the connector
 func (o PermissionsResponsePtrOutput) ResourceProvider() PermissionsResponseResourceProviderArrayOutput {
 	return o.ApplyT(func(v *PermissionsResponse) []PermissionsResponseResourceProvider {
 		if v == nil {
@@ -12453,10 +11803,8 @@ func (o PermissionsResponsePtrOutput) ResourceProvider() PermissionsResponseReso
 }
 
 type PermissionsResponseCustoms struct {
-	// Customs permissions description
 	Description *string `pulumi:"description"`
-	// Customs permissions name
-	Name *string `pulumi:"name"`
+	Name        *string `pulumi:"name"`
 }
 
 // PermissionsResponseCustomsInput is an input type that accepts PermissionsResponseCustomsArgs and PermissionsResponseCustomsOutput values.
@@ -12471,10 +11819,8 @@ type PermissionsResponseCustomsInput interface {
 }
 
 type PermissionsResponseCustomsArgs struct {
-	// Customs permissions description
 	Description pulumi.StringPtrInput `pulumi:"description"`
-	// Customs permissions name
-	Name pulumi.StringPtrInput `pulumi:"name"`
+	Name        pulumi.StringPtrInput `pulumi:"name"`
 }
 
 func (PermissionsResponseCustomsArgs) ElementType() reflect.Type {
@@ -12528,12 +11874,10 @@ func (o PermissionsResponseCustomsOutput) ToPermissionsResponseCustomsOutputWith
 	return o
 }
 
-// Customs permissions description
 func (o PermissionsResponseCustomsOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v PermissionsResponseCustoms) *string { return v.Description }).(pulumi.StringPtrOutput)
 }
 
-// Customs permissions name
 func (o PermissionsResponseCustomsOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v PermissionsResponseCustoms) *string { return v.Name }).(pulumi.StringPtrOutput)
 }
@@ -12559,16 +11903,11 @@ func (o PermissionsResponseCustomsArrayOutput) Index(i pulumi.IntInput) Permissi
 }
 
 type PermissionsResponseResourceProvider struct {
-	// Permission description text
-	PermissionsDisplayText *string `pulumi:"permissionsDisplayText"`
-	// Provider name
-	Provider *string `pulumi:"provider"`
-	// Permission provider display name
-	ProviderDisplayName *string `pulumi:"providerDisplayName"`
-	// Required permissions for the connector
-	RequiredPermissions *RequiredPermissionsResponse `pulumi:"requiredPermissions"`
-	// Permission provider scope
-	Scope *string `pulumi:"scope"`
+	PermissionsDisplayText *string                      `pulumi:"permissionsDisplayText"`
+	Provider               *string                      `pulumi:"provider"`
+	ProviderDisplayName    *string                      `pulumi:"providerDisplayName"`
+	RequiredPermissions    *RequiredPermissionsResponse `pulumi:"requiredPermissions"`
+	Scope                  *string                      `pulumi:"scope"`
 }
 
 // PermissionsResponseResourceProviderInput is an input type that accepts PermissionsResponseResourceProviderArgs and PermissionsResponseResourceProviderOutput values.
@@ -12583,16 +11922,11 @@ type PermissionsResponseResourceProviderInput interface {
 }
 
 type PermissionsResponseResourceProviderArgs struct {
-	// Permission description text
-	PermissionsDisplayText pulumi.StringPtrInput `pulumi:"permissionsDisplayText"`
-	// Provider name
-	Provider pulumi.StringPtrInput `pulumi:"provider"`
-	// Permission provider display name
-	ProviderDisplayName pulumi.StringPtrInput `pulumi:"providerDisplayName"`
-	// Required permissions for the connector
-	RequiredPermissions RequiredPermissionsResponsePtrInput `pulumi:"requiredPermissions"`
-	// Permission provider scope
-	Scope pulumi.StringPtrInput `pulumi:"scope"`
+	PermissionsDisplayText pulumi.StringPtrInput               `pulumi:"permissionsDisplayText"`
+	Provider               pulumi.StringPtrInput               `pulumi:"provider"`
+	ProviderDisplayName    pulumi.StringPtrInput               `pulumi:"providerDisplayName"`
+	RequiredPermissions    RequiredPermissionsResponsePtrInput `pulumi:"requiredPermissions"`
+	Scope                  pulumi.StringPtrInput               `pulumi:"scope"`
 }
 
 func (PermissionsResponseResourceProviderArgs) ElementType() reflect.Type {
@@ -12646,27 +11980,22 @@ func (o PermissionsResponseResourceProviderOutput) ToPermissionsResponseResource
 	return o
 }
 
-// Permission description text
 func (o PermissionsResponseResourceProviderOutput) PermissionsDisplayText() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v PermissionsResponseResourceProvider) *string { return v.PermissionsDisplayText }).(pulumi.StringPtrOutput)
 }
 
-// Provider name
 func (o PermissionsResponseResourceProviderOutput) Provider() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v PermissionsResponseResourceProvider) *string { return v.Provider }).(pulumi.StringPtrOutput)
 }
 
-// Permission provider display name
 func (o PermissionsResponseResourceProviderOutput) ProviderDisplayName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v PermissionsResponseResourceProvider) *string { return v.ProviderDisplayName }).(pulumi.StringPtrOutput)
 }
 
-// Required permissions for the connector
 func (o PermissionsResponseResourceProviderOutput) RequiredPermissions() RequiredPermissionsResponsePtrOutput {
 	return o.ApplyT(func(v PermissionsResponseResourceProvider) *RequiredPermissionsResponse { return v.RequiredPermissions }).(RequiredPermissionsResponsePtrOutput)
 }
 
-// Permission provider scope
 func (o PermissionsResponseResourceProviderOutput) Scope() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v PermissionsResponseResourceProvider) *string { return v.Scope }).(pulumi.StringPtrOutput)
 }
@@ -12691,14 +12020,10 @@ func (o PermissionsResponseResourceProviderArrayOutput) Index(i pulumi.IntInput)
 	}).(PermissionsResponseResourceProviderOutput)
 }
 
-// Represents a repository.
 type RepoResponse struct {
-	// Array of branches.
 	Branches []string `pulumi:"branches"`
-	// The name of the repository.
-	FullName *string `pulumi:"fullName"`
-	// The url to access the repository.
-	Url *string `pulumi:"url"`
+	FullName *string  `pulumi:"fullName"`
+	Url      *string  `pulumi:"url"`
 }
 
 // RepoResponseInput is an input type that accepts RepoResponseArgs and RepoResponseOutput values.
@@ -12712,14 +12037,10 @@ type RepoResponseInput interface {
 	ToRepoResponseOutputWithContext(context.Context) RepoResponseOutput
 }
 
-// Represents a repository.
 type RepoResponseArgs struct {
-	// Array of branches.
 	Branches pulumi.StringArrayInput `pulumi:"branches"`
-	// The name of the repository.
-	FullName pulumi.StringPtrInput `pulumi:"fullName"`
-	// The url to access the repository.
-	Url pulumi.StringPtrInput `pulumi:"url"`
+	FullName pulumi.StringPtrInput   `pulumi:"fullName"`
+	Url      pulumi.StringPtrInput   `pulumi:"url"`
 }
 
 func (RepoResponseArgs) ElementType() reflect.Type {
@@ -12759,7 +12080,6 @@ func (i RepoResponseArray) ToRepoResponseArrayOutputWithContext(ctx context.Cont
 	return pulumi.ToOutputWithContext(ctx, i).(RepoResponseArrayOutput)
 }
 
-// Represents a repository.
 type RepoResponseOutput struct{ *pulumi.OutputState }
 
 func (RepoResponseOutput) ElementType() reflect.Type {
@@ -12774,17 +12094,14 @@ func (o RepoResponseOutput) ToRepoResponseOutputWithContext(ctx context.Context)
 	return o
 }
 
-// Array of branches.
 func (o RepoResponseOutput) Branches() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v RepoResponse) []string { return v.Branches }).(pulumi.StringArrayOutput)
 }
 
-// The name of the repository.
 func (o RepoResponseOutput) FullName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v RepoResponse) *string { return v.FullName }).(pulumi.StringPtrOutput)
 }
 
-// The url to access the repository.
 func (o RepoResponseOutput) Url() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v RepoResponse) *string { return v.Url }).(pulumi.StringPtrOutput)
 }
@@ -12809,14 +12126,10 @@ func (o RepoResponseArrayOutput) Index(i pulumi.IntInput) RepoResponseOutput {
 	}).(RepoResponseOutput)
 }
 
-// metadata of a repository.
 type Repository struct {
-	// Branch name of repository.
-	Branch *string `pulumi:"branch"`
-	// Dictionary of source control content type and path mapping.
+	Branch      *string          `pulumi:"branch"`
 	PathMapping []ContentPathMap `pulumi:"pathMapping"`
-	// Url of repository.
-	Url *string `pulumi:"url"`
+	Url         *string          `pulumi:"url"`
 }
 
 // RepositoryInput is an input type that accepts RepositoryArgs and RepositoryOutput values.
@@ -12830,14 +12143,10 @@ type RepositoryInput interface {
 	ToRepositoryOutputWithContext(context.Context) RepositoryOutput
 }
 
-// metadata of a repository.
 type RepositoryArgs struct {
-	// Branch name of repository.
-	Branch pulumi.StringPtrInput `pulumi:"branch"`
-	// Dictionary of source control content type and path mapping.
+	Branch      pulumi.StringPtrInput    `pulumi:"branch"`
 	PathMapping ContentPathMapArrayInput `pulumi:"pathMapping"`
-	// Url of repository.
-	Url pulumi.StringPtrInput `pulumi:"url"`
+	Url         pulumi.StringPtrInput    `pulumi:"url"`
 }
 
 func (RepositoryArgs) ElementType() reflect.Type {
@@ -12893,7 +12202,6 @@ func (i *repositoryPtrType) ToRepositoryPtrOutputWithContext(ctx context.Context
 	return pulumi.ToOutputWithContext(ctx, i).(RepositoryPtrOutput)
 }
 
-// metadata of a repository.
 type RepositoryOutput struct{ *pulumi.OutputState }
 
 func (RepositoryOutput) ElementType() reflect.Type {
@@ -12913,22 +12221,19 @@ func (o RepositoryOutput) ToRepositoryPtrOutput() RepositoryPtrOutput {
 }
 
 func (o RepositoryOutput) ToRepositoryPtrOutputWithContext(ctx context.Context) RepositoryPtrOutput {
-	return o.ApplyT(func(v Repository) *Repository {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v Repository) *Repository {
 		return &v
 	}).(RepositoryPtrOutput)
 }
 
-// Branch name of repository.
 func (o RepositoryOutput) Branch() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v Repository) *string { return v.Branch }).(pulumi.StringPtrOutput)
 }
 
-// Dictionary of source control content type and path mapping.
 func (o RepositoryOutput) PathMapping() ContentPathMapArrayOutput {
 	return o.ApplyT(func(v Repository) []ContentPathMap { return v.PathMapping }).(ContentPathMapArrayOutput)
 }
 
-// Url of repository.
 func (o RepositoryOutput) Url() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v Repository) *string { return v.Url }).(pulumi.StringPtrOutput)
 }
@@ -12948,10 +12253,15 @@ func (o RepositoryPtrOutput) ToRepositoryPtrOutputWithContext(ctx context.Contex
 }
 
 func (o RepositoryPtrOutput) Elem() RepositoryOutput {
-	return o.ApplyT(func(v *Repository) Repository { return *v }).(RepositoryOutput)
+	return o.ApplyT(func(v *Repository) Repository {
+		if v != nil {
+			return *v
+		}
+		var ret Repository
+		return ret
+	}).(RepositoryOutput)
 }
 
-// Branch name of repository.
 func (o RepositoryPtrOutput) Branch() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Repository) *string {
 		if v == nil {
@@ -12961,7 +12271,6 @@ func (o RepositoryPtrOutput) Branch() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Dictionary of source control content type and path mapping.
 func (o RepositoryPtrOutput) PathMapping() ContentPathMapArrayOutput {
 	return o.ApplyT(func(v *Repository) []ContentPathMap {
 		if v == nil {
@@ -12971,7 +12280,6 @@ func (o RepositoryPtrOutput) PathMapping() ContentPathMapArrayOutput {
 	}).(ContentPathMapArrayOutput)
 }
 
-// Url of repository.
 func (o RepositoryPtrOutput) Url() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Repository) *string {
 		if v == nil {
@@ -12981,14 +12289,10 @@ func (o RepositoryPtrOutput) Url() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// metadata of a repository.
 type RepositoryResponse struct {
-	// Branch name of repository.
-	Branch *string `pulumi:"branch"`
-	// Dictionary of source control content type and path mapping.
+	Branch      *string                  `pulumi:"branch"`
 	PathMapping []ContentPathMapResponse `pulumi:"pathMapping"`
-	// Url of repository.
-	Url *string `pulumi:"url"`
+	Url         *string                  `pulumi:"url"`
 }
 
 // RepositoryResponseInput is an input type that accepts RepositoryResponseArgs and RepositoryResponseOutput values.
@@ -13002,14 +12306,10 @@ type RepositoryResponseInput interface {
 	ToRepositoryResponseOutputWithContext(context.Context) RepositoryResponseOutput
 }
 
-// metadata of a repository.
 type RepositoryResponseArgs struct {
-	// Branch name of repository.
-	Branch pulumi.StringPtrInput `pulumi:"branch"`
-	// Dictionary of source control content type and path mapping.
+	Branch      pulumi.StringPtrInput            `pulumi:"branch"`
 	PathMapping ContentPathMapResponseArrayInput `pulumi:"pathMapping"`
-	// Url of repository.
-	Url pulumi.StringPtrInput `pulumi:"url"`
+	Url         pulumi.StringPtrInput            `pulumi:"url"`
 }
 
 func (RepositoryResponseArgs) ElementType() reflect.Type {
@@ -13065,7 +12365,6 @@ func (i *repositoryResponsePtrType) ToRepositoryResponsePtrOutputWithContext(ctx
 	return pulumi.ToOutputWithContext(ctx, i).(RepositoryResponsePtrOutput)
 }
 
-// metadata of a repository.
 type RepositoryResponseOutput struct{ *pulumi.OutputState }
 
 func (RepositoryResponseOutput) ElementType() reflect.Type {
@@ -13085,22 +12384,19 @@ func (o RepositoryResponseOutput) ToRepositoryResponsePtrOutput() RepositoryResp
 }
 
 func (o RepositoryResponseOutput) ToRepositoryResponsePtrOutputWithContext(ctx context.Context) RepositoryResponsePtrOutput {
-	return o.ApplyT(func(v RepositoryResponse) *RepositoryResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v RepositoryResponse) *RepositoryResponse {
 		return &v
 	}).(RepositoryResponsePtrOutput)
 }
 
-// Branch name of repository.
 func (o RepositoryResponseOutput) Branch() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v RepositoryResponse) *string { return v.Branch }).(pulumi.StringPtrOutput)
 }
 
-// Dictionary of source control content type and path mapping.
 func (o RepositoryResponseOutput) PathMapping() ContentPathMapResponseArrayOutput {
 	return o.ApplyT(func(v RepositoryResponse) []ContentPathMapResponse { return v.PathMapping }).(ContentPathMapResponseArrayOutput)
 }
 
-// Url of repository.
 func (o RepositoryResponseOutput) Url() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v RepositoryResponse) *string { return v.Url }).(pulumi.StringPtrOutput)
 }
@@ -13120,10 +12416,15 @@ func (o RepositoryResponsePtrOutput) ToRepositoryResponsePtrOutputWithContext(ct
 }
 
 func (o RepositoryResponsePtrOutput) Elem() RepositoryResponseOutput {
-	return o.ApplyT(func(v *RepositoryResponse) RepositoryResponse { return *v }).(RepositoryResponseOutput)
+	return o.ApplyT(func(v *RepositoryResponse) RepositoryResponse {
+		if v != nil {
+			return *v
+		}
+		var ret RepositoryResponse
+		return ret
+	}).(RepositoryResponseOutput)
 }
 
-// Branch name of repository.
 func (o RepositoryResponsePtrOutput) Branch() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *RepositoryResponse) *string {
 		if v == nil {
@@ -13133,7 +12434,6 @@ func (o RepositoryResponsePtrOutput) Branch() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Dictionary of source control content type and path mapping.
 func (o RepositoryResponsePtrOutput) PathMapping() ContentPathMapResponseArrayOutput {
 	return o.ApplyT(func(v *RepositoryResponse) []ContentPathMapResponse {
 		if v == nil {
@@ -13143,7 +12443,6 @@ func (o RepositoryResponsePtrOutput) PathMapping() ContentPathMapResponseArrayOu
 	}).(ContentPathMapResponseArrayOutput)
 }
 
-// Url of repository.
 func (o RepositoryResponsePtrOutput) Url() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *RepositoryResponse) *string {
 		if v == nil {
@@ -13153,16 +12452,11 @@ func (o RepositoryResponsePtrOutput) Url() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Required permissions for the connector
 type RequiredPermissions struct {
-	// action permission
 	Action *bool `pulumi:"action"`
-	// delete permission
 	Delete *bool `pulumi:"delete"`
-	// read permission
-	Read *bool `pulumi:"read"`
-	// write permission
-	Write *bool `pulumi:"write"`
+	Read   *bool `pulumi:"read"`
+	Write  *bool `pulumi:"write"`
 }
 
 // RequiredPermissionsInput is an input type that accepts RequiredPermissionsArgs and RequiredPermissionsOutput values.
@@ -13176,16 +12470,11 @@ type RequiredPermissionsInput interface {
 	ToRequiredPermissionsOutputWithContext(context.Context) RequiredPermissionsOutput
 }
 
-// Required permissions for the connector
 type RequiredPermissionsArgs struct {
-	// action permission
 	Action pulumi.BoolPtrInput `pulumi:"action"`
-	// delete permission
 	Delete pulumi.BoolPtrInput `pulumi:"delete"`
-	// read permission
-	Read pulumi.BoolPtrInput `pulumi:"read"`
-	// write permission
-	Write pulumi.BoolPtrInput `pulumi:"write"`
+	Read   pulumi.BoolPtrInput `pulumi:"read"`
+	Write  pulumi.BoolPtrInput `pulumi:"write"`
 }
 
 func (RequiredPermissionsArgs) ElementType() reflect.Type {
@@ -13241,7 +12530,6 @@ func (i *requiredPermissionsPtrType) ToRequiredPermissionsPtrOutputWithContext(c
 	return pulumi.ToOutputWithContext(ctx, i).(RequiredPermissionsPtrOutput)
 }
 
-// Required permissions for the connector
 type RequiredPermissionsOutput struct{ *pulumi.OutputState }
 
 func (RequiredPermissionsOutput) ElementType() reflect.Type {
@@ -13261,27 +12549,23 @@ func (o RequiredPermissionsOutput) ToRequiredPermissionsPtrOutput() RequiredPerm
 }
 
 func (o RequiredPermissionsOutput) ToRequiredPermissionsPtrOutputWithContext(ctx context.Context) RequiredPermissionsPtrOutput {
-	return o.ApplyT(func(v RequiredPermissions) *RequiredPermissions {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v RequiredPermissions) *RequiredPermissions {
 		return &v
 	}).(RequiredPermissionsPtrOutput)
 }
 
-// action permission
 func (o RequiredPermissionsOutput) Action() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v RequiredPermissions) *bool { return v.Action }).(pulumi.BoolPtrOutput)
 }
 
-// delete permission
 func (o RequiredPermissionsOutput) Delete() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v RequiredPermissions) *bool { return v.Delete }).(pulumi.BoolPtrOutput)
 }
 
-// read permission
 func (o RequiredPermissionsOutput) Read() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v RequiredPermissions) *bool { return v.Read }).(pulumi.BoolPtrOutput)
 }
 
-// write permission
 func (o RequiredPermissionsOutput) Write() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v RequiredPermissions) *bool { return v.Write }).(pulumi.BoolPtrOutput)
 }
@@ -13301,10 +12585,15 @@ func (o RequiredPermissionsPtrOutput) ToRequiredPermissionsPtrOutputWithContext(
 }
 
 func (o RequiredPermissionsPtrOutput) Elem() RequiredPermissionsOutput {
-	return o.ApplyT(func(v *RequiredPermissions) RequiredPermissions { return *v }).(RequiredPermissionsOutput)
+	return o.ApplyT(func(v *RequiredPermissions) RequiredPermissions {
+		if v != nil {
+			return *v
+		}
+		var ret RequiredPermissions
+		return ret
+	}).(RequiredPermissionsOutput)
 }
 
-// action permission
 func (o RequiredPermissionsPtrOutput) Action() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *RequiredPermissions) *bool {
 		if v == nil {
@@ -13314,7 +12603,6 @@ func (o RequiredPermissionsPtrOutput) Action() pulumi.BoolPtrOutput {
 	}).(pulumi.BoolPtrOutput)
 }
 
-// delete permission
 func (o RequiredPermissionsPtrOutput) Delete() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *RequiredPermissions) *bool {
 		if v == nil {
@@ -13324,7 +12612,6 @@ func (o RequiredPermissionsPtrOutput) Delete() pulumi.BoolPtrOutput {
 	}).(pulumi.BoolPtrOutput)
 }
 
-// read permission
 func (o RequiredPermissionsPtrOutput) Read() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *RequiredPermissions) *bool {
 		if v == nil {
@@ -13334,7 +12621,6 @@ func (o RequiredPermissionsPtrOutput) Read() pulumi.BoolPtrOutput {
 	}).(pulumi.BoolPtrOutput)
 }
 
-// write permission
 func (o RequiredPermissionsPtrOutput) Write() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *RequiredPermissions) *bool {
 		if v == nil {
@@ -13344,16 +12630,11 @@ func (o RequiredPermissionsPtrOutput) Write() pulumi.BoolPtrOutput {
 	}).(pulumi.BoolPtrOutput)
 }
 
-// Required permissions for the connector
 type RequiredPermissionsResponse struct {
-	// action permission
 	Action *bool `pulumi:"action"`
-	// delete permission
 	Delete *bool `pulumi:"delete"`
-	// read permission
-	Read *bool `pulumi:"read"`
-	// write permission
-	Write *bool `pulumi:"write"`
+	Read   *bool `pulumi:"read"`
+	Write  *bool `pulumi:"write"`
 }
 
 // RequiredPermissionsResponseInput is an input type that accepts RequiredPermissionsResponseArgs and RequiredPermissionsResponseOutput values.
@@ -13367,16 +12648,11 @@ type RequiredPermissionsResponseInput interface {
 	ToRequiredPermissionsResponseOutputWithContext(context.Context) RequiredPermissionsResponseOutput
 }
 
-// Required permissions for the connector
 type RequiredPermissionsResponseArgs struct {
-	// action permission
 	Action pulumi.BoolPtrInput `pulumi:"action"`
-	// delete permission
 	Delete pulumi.BoolPtrInput `pulumi:"delete"`
-	// read permission
-	Read pulumi.BoolPtrInput `pulumi:"read"`
-	// write permission
-	Write pulumi.BoolPtrInput `pulumi:"write"`
+	Read   pulumi.BoolPtrInput `pulumi:"read"`
+	Write  pulumi.BoolPtrInput `pulumi:"write"`
 }
 
 func (RequiredPermissionsResponseArgs) ElementType() reflect.Type {
@@ -13432,7 +12708,6 @@ func (i *requiredPermissionsResponsePtrType) ToRequiredPermissionsResponsePtrOut
 	return pulumi.ToOutputWithContext(ctx, i).(RequiredPermissionsResponsePtrOutput)
 }
 
-// Required permissions for the connector
 type RequiredPermissionsResponseOutput struct{ *pulumi.OutputState }
 
 func (RequiredPermissionsResponseOutput) ElementType() reflect.Type {
@@ -13452,27 +12727,23 @@ func (o RequiredPermissionsResponseOutput) ToRequiredPermissionsResponsePtrOutpu
 }
 
 func (o RequiredPermissionsResponseOutput) ToRequiredPermissionsResponsePtrOutputWithContext(ctx context.Context) RequiredPermissionsResponsePtrOutput {
-	return o.ApplyT(func(v RequiredPermissionsResponse) *RequiredPermissionsResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v RequiredPermissionsResponse) *RequiredPermissionsResponse {
 		return &v
 	}).(RequiredPermissionsResponsePtrOutput)
 }
 
-// action permission
 func (o RequiredPermissionsResponseOutput) Action() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v RequiredPermissionsResponse) *bool { return v.Action }).(pulumi.BoolPtrOutput)
 }
 
-// delete permission
 func (o RequiredPermissionsResponseOutput) Delete() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v RequiredPermissionsResponse) *bool { return v.Delete }).(pulumi.BoolPtrOutput)
 }
 
-// read permission
 func (o RequiredPermissionsResponseOutput) Read() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v RequiredPermissionsResponse) *bool { return v.Read }).(pulumi.BoolPtrOutput)
 }
 
-// write permission
 func (o RequiredPermissionsResponseOutput) Write() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v RequiredPermissionsResponse) *bool { return v.Write }).(pulumi.BoolPtrOutput)
 }
@@ -13492,10 +12763,15 @@ func (o RequiredPermissionsResponsePtrOutput) ToRequiredPermissionsResponsePtrOu
 }
 
 func (o RequiredPermissionsResponsePtrOutput) Elem() RequiredPermissionsResponseOutput {
-	return o.ApplyT(func(v *RequiredPermissionsResponse) RequiredPermissionsResponse { return *v }).(RequiredPermissionsResponseOutput)
+	return o.ApplyT(func(v *RequiredPermissionsResponse) RequiredPermissionsResponse {
+		if v != nil {
+			return *v
+		}
+		var ret RequiredPermissionsResponse
+		return ret
+	}).(RequiredPermissionsResponseOutput)
 }
 
-// action permission
 func (o RequiredPermissionsResponsePtrOutput) Action() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *RequiredPermissionsResponse) *bool {
 		if v == nil {
@@ -13505,7 +12781,6 @@ func (o RequiredPermissionsResponsePtrOutput) Action() pulumi.BoolPtrOutput {
 	}).(pulumi.BoolPtrOutput)
 }
 
-// delete permission
 func (o RequiredPermissionsResponsePtrOutput) Delete() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *RequiredPermissionsResponse) *bool {
 		if v == nil {
@@ -13515,7 +12790,6 @@ func (o RequiredPermissionsResponsePtrOutput) Delete() pulumi.BoolPtrOutput {
 	}).(pulumi.BoolPtrOutput)
 }
 
-// read permission
 func (o RequiredPermissionsResponsePtrOutput) Read() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *RequiredPermissionsResponse) *bool {
 		if v == nil {
@@ -13525,7 +12799,6 @@ func (o RequiredPermissionsResponsePtrOutput) Read() pulumi.BoolPtrOutput {
 	}).(pulumi.BoolPtrOutput)
 }
 
-// write permission
 func (o RequiredPermissionsResponsePtrOutput) Write() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *RequiredPermissionsResponse) *bool {
 		if v == nil {
@@ -13535,19 +12808,12 @@ func (o RequiredPermissionsResponsePtrOutput) Write() pulumi.BoolPtrOutput {
 	}).(pulumi.BoolPtrOutput)
 }
 
-// Metadata pertaining to creation and last modification of the resource.
 type SystemDataResponse struct {
-	// The timestamp of resource creation (UTC).
-	CreatedAt *string `pulumi:"createdAt"`
-	// The identity that created the resource.
-	CreatedBy *string `pulumi:"createdBy"`
-	// The type of identity that created the resource.
-	CreatedByType *string `pulumi:"createdByType"`
-	// The timestamp of resource last modification (UTC)
-	LastModifiedAt *string `pulumi:"lastModifiedAt"`
-	// The identity that last modified the resource.
-	LastModifiedBy *string `pulumi:"lastModifiedBy"`
-	// The type of identity that last modified the resource.
+	CreatedAt          *string `pulumi:"createdAt"`
+	CreatedBy          *string `pulumi:"createdBy"`
+	CreatedByType      *string `pulumi:"createdByType"`
+	LastModifiedAt     *string `pulumi:"lastModifiedAt"`
+	LastModifiedBy     *string `pulumi:"lastModifiedBy"`
 	LastModifiedByType *string `pulumi:"lastModifiedByType"`
 }
 
@@ -13562,19 +12828,12 @@ type SystemDataResponseInput interface {
 	ToSystemDataResponseOutputWithContext(context.Context) SystemDataResponseOutput
 }
 
-// Metadata pertaining to creation and last modification of the resource.
 type SystemDataResponseArgs struct {
-	// The timestamp of resource creation (UTC).
-	CreatedAt pulumi.StringPtrInput `pulumi:"createdAt"`
-	// The identity that created the resource.
-	CreatedBy pulumi.StringPtrInput `pulumi:"createdBy"`
-	// The type of identity that created the resource.
-	CreatedByType pulumi.StringPtrInput `pulumi:"createdByType"`
-	// The timestamp of resource last modification (UTC)
-	LastModifiedAt pulumi.StringPtrInput `pulumi:"lastModifiedAt"`
-	// The identity that last modified the resource.
-	LastModifiedBy pulumi.StringPtrInput `pulumi:"lastModifiedBy"`
-	// The type of identity that last modified the resource.
+	CreatedAt          pulumi.StringPtrInput `pulumi:"createdAt"`
+	CreatedBy          pulumi.StringPtrInput `pulumi:"createdBy"`
+	CreatedByType      pulumi.StringPtrInput `pulumi:"createdByType"`
+	LastModifiedAt     pulumi.StringPtrInput `pulumi:"lastModifiedAt"`
+	LastModifiedBy     pulumi.StringPtrInput `pulumi:"lastModifiedBy"`
 	LastModifiedByType pulumi.StringPtrInput `pulumi:"lastModifiedByType"`
 }
 
@@ -13631,7 +12890,6 @@ func (i *systemDataResponsePtrType) ToSystemDataResponsePtrOutputWithContext(ctx
 	return pulumi.ToOutputWithContext(ctx, i).(SystemDataResponsePtrOutput)
 }
 
-// Metadata pertaining to creation and last modification of the resource.
 type SystemDataResponseOutput struct{ *pulumi.OutputState }
 
 func (SystemDataResponseOutput) ElementType() reflect.Type {
@@ -13651,37 +12909,31 @@ func (o SystemDataResponseOutput) ToSystemDataResponsePtrOutput() SystemDataResp
 }
 
 func (o SystemDataResponseOutput) ToSystemDataResponsePtrOutputWithContext(ctx context.Context) SystemDataResponsePtrOutput {
-	return o.ApplyT(func(v SystemDataResponse) *SystemDataResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v SystemDataResponse) *SystemDataResponse {
 		return &v
 	}).(SystemDataResponsePtrOutput)
 }
 
-// The timestamp of resource creation (UTC).
 func (o SystemDataResponseOutput) CreatedAt() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SystemDataResponse) *string { return v.CreatedAt }).(pulumi.StringPtrOutput)
 }
 
-// The identity that created the resource.
 func (o SystemDataResponseOutput) CreatedBy() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SystemDataResponse) *string { return v.CreatedBy }).(pulumi.StringPtrOutput)
 }
 
-// The type of identity that created the resource.
 func (o SystemDataResponseOutput) CreatedByType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SystemDataResponse) *string { return v.CreatedByType }).(pulumi.StringPtrOutput)
 }
 
-// The timestamp of resource last modification (UTC)
 func (o SystemDataResponseOutput) LastModifiedAt() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SystemDataResponse) *string { return v.LastModifiedAt }).(pulumi.StringPtrOutput)
 }
 
-// The identity that last modified the resource.
 func (o SystemDataResponseOutput) LastModifiedBy() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SystemDataResponse) *string { return v.LastModifiedBy }).(pulumi.StringPtrOutput)
 }
 
-// The type of identity that last modified the resource.
 func (o SystemDataResponseOutput) LastModifiedByType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SystemDataResponse) *string { return v.LastModifiedByType }).(pulumi.StringPtrOutput)
 }
@@ -13701,10 +12953,15 @@ func (o SystemDataResponsePtrOutput) ToSystemDataResponsePtrOutputWithContext(ct
 }
 
 func (o SystemDataResponsePtrOutput) Elem() SystemDataResponseOutput {
-	return o.ApplyT(func(v *SystemDataResponse) SystemDataResponse { return *v }).(SystemDataResponseOutput)
+	return o.ApplyT(func(v *SystemDataResponse) SystemDataResponse {
+		if v != nil {
+			return *v
+		}
+		var ret SystemDataResponse
+		return ret
+	}).(SystemDataResponseOutput)
 }
 
-// The timestamp of resource creation (UTC).
 func (o SystemDataResponsePtrOutput) CreatedAt() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SystemDataResponse) *string {
 		if v == nil {
@@ -13714,7 +12971,6 @@ func (o SystemDataResponsePtrOutput) CreatedAt() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The identity that created the resource.
 func (o SystemDataResponsePtrOutput) CreatedBy() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SystemDataResponse) *string {
 		if v == nil {
@@ -13724,7 +12980,6 @@ func (o SystemDataResponsePtrOutput) CreatedBy() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The type of identity that created the resource.
 func (o SystemDataResponsePtrOutput) CreatedByType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SystemDataResponse) *string {
 		if v == nil {
@@ -13734,7 +12989,6 @@ func (o SystemDataResponsePtrOutput) CreatedByType() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The timestamp of resource last modification (UTC)
 func (o SystemDataResponsePtrOutput) LastModifiedAt() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SystemDataResponse) *string {
 		if v == nil {
@@ -13744,7 +12998,6 @@ func (o SystemDataResponsePtrOutput) LastModifiedAt() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The identity that last modified the resource.
 func (o SystemDataResponsePtrOutput) LastModifiedBy() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SystemDataResponse) *string {
 		if v == nil {
@@ -13754,7 +13007,6 @@ func (o SystemDataResponsePtrOutput) LastModifiedBy() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The type of identity that last modified the resource.
 func (o SystemDataResponsePtrOutput) LastModifiedByType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SystemDataResponse) *string {
 		if v == nil {
@@ -13764,9 +13016,7 @@ func (o SystemDataResponsePtrOutput) LastModifiedByType() pulumi.StringPtrOutput
 	}).(pulumi.StringPtrOutput)
 }
 
-// The available data types for TI (Threat Intelligence) data connector.
 type TIDataConnectorDataTypes struct {
-	// Data type for indicators connection.
 	Indicators TIDataConnectorDataTypesIndicators `pulumi:"indicators"`
 }
 
@@ -13781,9 +13031,7 @@ type TIDataConnectorDataTypesInput interface {
 	ToTIDataConnectorDataTypesOutputWithContext(context.Context) TIDataConnectorDataTypesOutput
 }
 
-// The available data types for TI (Threat Intelligence) data connector.
 type TIDataConnectorDataTypesArgs struct {
-	// Data type for indicators connection.
 	Indicators TIDataConnectorDataTypesIndicatorsInput `pulumi:"indicators"`
 }
 
@@ -13840,7 +13088,6 @@ func (i *tidataConnectorDataTypesPtrType) ToTIDataConnectorDataTypesPtrOutputWit
 	return pulumi.ToOutputWithContext(ctx, i).(TIDataConnectorDataTypesPtrOutput)
 }
 
-// The available data types for TI (Threat Intelligence) data connector.
 type TIDataConnectorDataTypesOutput struct{ *pulumi.OutputState }
 
 func (TIDataConnectorDataTypesOutput) ElementType() reflect.Type {
@@ -13860,12 +13107,11 @@ func (o TIDataConnectorDataTypesOutput) ToTIDataConnectorDataTypesPtrOutput() TI
 }
 
 func (o TIDataConnectorDataTypesOutput) ToTIDataConnectorDataTypesPtrOutputWithContext(ctx context.Context) TIDataConnectorDataTypesPtrOutput {
-	return o.ApplyT(func(v TIDataConnectorDataTypes) *TIDataConnectorDataTypes {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v TIDataConnectorDataTypes) *TIDataConnectorDataTypes {
 		return &v
 	}).(TIDataConnectorDataTypesPtrOutput)
 }
 
-// Data type for indicators connection.
 func (o TIDataConnectorDataTypesOutput) Indicators() TIDataConnectorDataTypesIndicatorsOutput {
 	return o.ApplyT(func(v TIDataConnectorDataTypes) TIDataConnectorDataTypesIndicators { return v.Indicators }).(TIDataConnectorDataTypesIndicatorsOutput)
 }
@@ -13885,10 +13131,15 @@ func (o TIDataConnectorDataTypesPtrOutput) ToTIDataConnectorDataTypesPtrOutputWi
 }
 
 func (o TIDataConnectorDataTypesPtrOutput) Elem() TIDataConnectorDataTypesOutput {
-	return o.ApplyT(func(v *TIDataConnectorDataTypes) TIDataConnectorDataTypes { return *v }).(TIDataConnectorDataTypesOutput)
+	return o.ApplyT(func(v *TIDataConnectorDataTypes) TIDataConnectorDataTypes {
+		if v != nil {
+			return *v
+		}
+		var ret TIDataConnectorDataTypes
+		return ret
+	}).(TIDataConnectorDataTypesOutput)
 }
 
-// Data type for indicators connection.
 func (o TIDataConnectorDataTypesPtrOutput) Indicators() TIDataConnectorDataTypesIndicatorsPtrOutput {
 	return o.ApplyT(func(v *TIDataConnectorDataTypes) *TIDataConnectorDataTypesIndicators {
 		if v == nil {
@@ -13898,9 +13149,7 @@ func (o TIDataConnectorDataTypesPtrOutput) Indicators() TIDataConnectorDataTypes
 	}).(TIDataConnectorDataTypesIndicatorsPtrOutput)
 }
 
-// Data type for indicators connection.
 type TIDataConnectorDataTypesIndicators struct {
-	// Describe whether this data type connection is enabled or not.
 	State string `pulumi:"state"`
 }
 
@@ -13915,9 +13164,7 @@ type TIDataConnectorDataTypesIndicatorsInput interface {
 	ToTIDataConnectorDataTypesIndicatorsOutputWithContext(context.Context) TIDataConnectorDataTypesIndicatorsOutput
 }
 
-// Data type for indicators connection.
 type TIDataConnectorDataTypesIndicatorsArgs struct {
-	// Describe whether this data type connection is enabled or not.
 	State pulumi.StringInput `pulumi:"state"`
 }
 
@@ -13974,7 +13221,6 @@ func (i *tidataConnectorDataTypesIndicatorsPtrType) ToTIDataConnectorDataTypesIn
 	return pulumi.ToOutputWithContext(ctx, i).(TIDataConnectorDataTypesIndicatorsPtrOutput)
 }
 
-// Data type for indicators connection.
 type TIDataConnectorDataTypesIndicatorsOutput struct{ *pulumi.OutputState }
 
 func (TIDataConnectorDataTypesIndicatorsOutput) ElementType() reflect.Type {
@@ -13994,12 +13240,11 @@ func (o TIDataConnectorDataTypesIndicatorsOutput) ToTIDataConnectorDataTypesIndi
 }
 
 func (o TIDataConnectorDataTypesIndicatorsOutput) ToTIDataConnectorDataTypesIndicatorsPtrOutputWithContext(ctx context.Context) TIDataConnectorDataTypesIndicatorsPtrOutput {
-	return o.ApplyT(func(v TIDataConnectorDataTypesIndicators) *TIDataConnectorDataTypesIndicators {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v TIDataConnectorDataTypesIndicators) *TIDataConnectorDataTypesIndicators {
 		return &v
 	}).(TIDataConnectorDataTypesIndicatorsPtrOutput)
 }
 
-// Describe whether this data type connection is enabled or not.
 func (o TIDataConnectorDataTypesIndicatorsOutput) State() pulumi.StringOutput {
 	return o.ApplyT(func(v TIDataConnectorDataTypesIndicators) string { return v.State }).(pulumi.StringOutput)
 }
@@ -14019,10 +13264,15 @@ func (o TIDataConnectorDataTypesIndicatorsPtrOutput) ToTIDataConnectorDataTypesI
 }
 
 func (o TIDataConnectorDataTypesIndicatorsPtrOutput) Elem() TIDataConnectorDataTypesIndicatorsOutput {
-	return o.ApplyT(func(v *TIDataConnectorDataTypesIndicators) TIDataConnectorDataTypesIndicators { return *v }).(TIDataConnectorDataTypesIndicatorsOutput)
+	return o.ApplyT(func(v *TIDataConnectorDataTypesIndicators) TIDataConnectorDataTypesIndicators {
+		if v != nil {
+			return *v
+		}
+		var ret TIDataConnectorDataTypesIndicators
+		return ret
+	}).(TIDataConnectorDataTypesIndicatorsOutput)
 }
 
-// Describe whether this data type connection is enabled or not.
 func (o TIDataConnectorDataTypesIndicatorsPtrOutput) State() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *TIDataConnectorDataTypesIndicators) *string {
 		if v == nil {
@@ -14032,9 +13282,7 @@ func (o TIDataConnectorDataTypesIndicatorsPtrOutput) State() pulumi.StringPtrOut
 	}).(pulumi.StringPtrOutput)
 }
 
-// The available data types for TI (Threat Intelligence) data connector.
 type TIDataConnectorDataTypesResponse struct {
-	// Data type for indicators connection.
 	Indicators TIDataConnectorDataTypesResponseIndicators `pulumi:"indicators"`
 }
 
@@ -14049,9 +13297,7 @@ type TIDataConnectorDataTypesResponseInput interface {
 	ToTIDataConnectorDataTypesResponseOutputWithContext(context.Context) TIDataConnectorDataTypesResponseOutput
 }
 
-// The available data types for TI (Threat Intelligence) data connector.
 type TIDataConnectorDataTypesResponseArgs struct {
-	// Data type for indicators connection.
 	Indicators TIDataConnectorDataTypesResponseIndicatorsInput `pulumi:"indicators"`
 }
 
@@ -14108,7 +13354,6 @@ func (i *tidataConnectorDataTypesResponsePtrType) ToTIDataConnectorDataTypesResp
 	return pulumi.ToOutputWithContext(ctx, i).(TIDataConnectorDataTypesResponsePtrOutput)
 }
 
-// The available data types for TI (Threat Intelligence) data connector.
 type TIDataConnectorDataTypesResponseOutput struct{ *pulumi.OutputState }
 
 func (TIDataConnectorDataTypesResponseOutput) ElementType() reflect.Type {
@@ -14128,12 +13373,11 @@ func (o TIDataConnectorDataTypesResponseOutput) ToTIDataConnectorDataTypesRespon
 }
 
 func (o TIDataConnectorDataTypesResponseOutput) ToTIDataConnectorDataTypesResponsePtrOutputWithContext(ctx context.Context) TIDataConnectorDataTypesResponsePtrOutput {
-	return o.ApplyT(func(v TIDataConnectorDataTypesResponse) *TIDataConnectorDataTypesResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v TIDataConnectorDataTypesResponse) *TIDataConnectorDataTypesResponse {
 		return &v
 	}).(TIDataConnectorDataTypesResponsePtrOutput)
 }
 
-// Data type for indicators connection.
 func (o TIDataConnectorDataTypesResponseOutput) Indicators() TIDataConnectorDataTypesResponseIndicatorsOutput {
 	return o.ApplyT(func(v TIDataConnectorDataTypesResponse) TIDataConnectorDataTypesResponseIndicators {
 		return v.Indicators
@@ -14155,10 +13399,15 @@ func (o TIDataConnectorDataTypesResponsePtrOutput) ToTIDataConnectorDataTypesRes
 }
 
 func (o TIDataConnectorDataTypesResponsePtrOutput) Elem() TIDataConnectorDataTypesResponseOutput {
-	return o.ApplyT(func(v *TIDataConnectorDataTypesResponse) TIDataConnectorDataTypesResponse { return *v }).(TIDataConnectorDataTypesResponseOutput)
+	return o.ApplyT(func(v *TIDataConnectorDataTypesResponse) TIDataConnectorDataTypesResponse {
+		if v != nil {
+			return *v
+		}
+		var ret TIDataConnectorDataTypesResponse
+		return ret
+	}).(TIDataConnectorDataTypesResponseOutput)
 }
 
-// Data type for indicators connection.
 func (o TIDataConnectorDataTypesResponsePtrOutput) Indicators() TIDataConnectorDataTypesResponseIndicatorsPtrOutput {
 	return o.ApplyT(func(v *TIDataConnectorDataTypesResponse) *TIDataConnectorDataTypesResponseIndicators {
 		if v == nil {
@@ -14168,9 +13417,7 @@ func (o TIDataConnectorDataTypesResponsePtrOutput) Indicators() TIDataConnectorD
 	}).(TIDataConnectorDataTypesResponseIndicatorsPtrOutput)
 }
 
-// Data type for indicators connection.
 type TIDataConnectorDataTypesResponseIndicators struct {
-	// Describe whether this data type connection is enabled or not.
 	State string `pulumi:"state"`
 }
 
@@ -14185,9 +13432,7 @@ type TIDataConnectorDataTypesResponseIndicatorsInput interface {
 	ToTIDataConnectorDataTypesResponseIndicatorsOutputWithContext(context.Context) TIDataConnectorDataTypesResponseIndicatorsOutput
 }
 
-// Data type for indicators connection.
 type TIDataConnectorDataTypesResponseIndicatorsArgs struct {
-	// Describe whether this data type connection is enabled or not.
 	State pulumi.StringInput `pulumi:"state"`
 }
 
@@ -14244,7 +13489,6 @@ func (i *tidataConnectorDataTypesResponseIndicatorsPtrType) ToTIDataConnectorDat
 	return pulumi.ToOutputWithContext(ctx, i).(TIDataConnectorDataTypesResponseIndicatorsPtrOutput)
 }
 
-// Data type for indicators connection.
 type TIDataConnectorDataTypesResponseIndicatorsOutput struct{ *pulumi.OutputState }
 
 func (TIDataConnectorDataTypesResponseIndicatorsOutput) ElementType() reflect.Type {
@@ -14264,12 +13508,11 @@ func (o TIDataConnectorDataTypesResponseIndicatorsOutput) ToTIDataConnectorDataT
 }
 
 func (o TIDataConnectorDataTypesResponseIndicatorsOutput) ToTIDataConnectorDataTypesResponseIndicatorsPtrOutputWithContext(ctx context.Context) TIDataConnectorDataTypesResponseIndicatorsPtrOutput {
-	return o.ApplyT(func(v TIDataConnectorDataTypesResponseIndicators) *TIDataConnectorDataTypesResponseIndicators {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v TIDataConnectorDataTypesResponseIndicators) *TIDataConnectorDataTypesResponseIndicators {
 		return &v
 	}).(TIDataConnectorDataTypesResponseIndicatorsPtrOutput)
 }
 
-// Describe whether this data type connection is enabled or not.
 func (o TIDataConnectorDataTypesResponseIndicatorsOutput) State() pulumi.StringOutput {
 	return o.ApplyT(func(v TIDataConnectorDataTypesResponseIndicators) string { return v.State }).(pulumi.StringOutput)
 }
@@ -14290,11 +13533,14 @@ func (o TIDataConnectorDataTypesResponseIndicatorsPtrOutput) ToTIDataConnectorDa
 
 func (o TIDataConnectorDataTypesResponseIndicatorsPtrOutput) Elem() TIDataConnectorDataTypesResponseIndicatorsOutput {
 	return o.ApplyT(func(v *TIDataConnectorDataTypesResponseIndicators) TIDataConnectorDataTypesResponseIndicators {
-		return *v
+		if v != nil {
+			return *v
+		}
+		var ret TIDataConnectorDataTypesResponseIndicators
+		return ret
 	}).(TIDataConnectorDataTypesResponseIndicatorsOutput)
 }
 
-// Describe whether this data type connection is enabled or not.
 func (o TIDataConnectorDataTypesResponseIndicatorsPtrOutput) State() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *TIDataConnectorDataTypesResponseIndicators) *string {
 		if v == nil {
@@ -14304,9 +13550,7 @@ func (o TIDataConnectorDataTypesResponseIndicatorsPtrOutput) State() pulumi.Stri
 	}).(pulumi.StringPtrOutput)
 }
 
-// The available data types for Threat Intelligence TAXII data connector.
 type TiTaxiiDataConnectorDataTypes struct {
-	// Data type for TAXII connector.
 	TaxiiClient TiTaxiiDataConnectorDataTypesTaxiiClient `pulumi:"taxiiClient"`
 }
 
@@ -14321,9 +13565,7 @@ type TiTaxiiDataConnectorDataTypesInput interface {
 	ToTiTaxiiDataConnectorDataTypesOutputWithContext(context.Context) TiTaxiiDataConnectorDataTypesOutput
 }
 
-// The available data types for Threat Intelligence TAXII data connector.
 type TiTaxiiDataConnectorDataTypesArgs struct {
-	// Data type for TAXII connector.
 	TaxiiClient TiTaxiiDataConnectorDataTypesTaxiiClientInput `pulumi:"taxiiClient"`
 }
 
@@ -14380,7 +13622,6 @@ func (i *tiTaxiiDataConnectorDataTypesPtrType) ToTiTaxiiDataConnectorDataTypesPt
 	return pulumi.ToOutputWithContext(ctx, i).(TiTaxiiDataConnectorDataTypesPtrOutput)
 }
 
-// The available data types for Threat Intelligence TAXII data connector.
 type TiTaxiiDataConnectorDataTypesOutput struct{ *pulumi.OutputState }
 
 func (TiTaxiiDataConnectorDataTypesOutput) ElementType() reflect.Type {
@@ -14400,12 +13641,11 @@ func (o TiTaxiiDataConnectorDataTypesOutput) ToTiTaxiiDataConnectorDataTypesPtrO
 }
 
 func (o TiTaxiiDataConnectorDataTypesOutput) ToTiTaxiiDataConnectorDataTypesPtrOutputWithContext(ctx context.Context) TiTaxiiDataConnectorDataTypesPtrOutput {
-	return o.ApplyT(func(v TiTaxiiDataConnectorDataTypes) *TiTaxiiDataConnectorDataTypes {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v TiTaxiiDataConnectorDataTypes) *TiTaxiiDataConnectorDataTypes {
 		return &v
 	}).(TiTaxiiDataConnectorDataTypesPtrOutput)
 }
 
-// Data type for TAXII connector.
 func (o TiTaxiiDataConnectorDataTypesOutput) TaxiiClient() TiTaxiiDataConnectorDataTypesTaxiiClientOutput {
 	return o.ApplyT(func(v TiTaxiiDataConnectorDataTypes) TiTaxiiDataConnectorDataTypesTaxiiClient { return v.TaxiiClient }).(TiTaxiiDataConnectorDataTypesTaxiiClientOutput)
 }
@@ -14425,10 +13665,15 @@ func (o TiTaxiiDataConnectorDataTypesPtrOutput) ToTiTaxiiDataConnectorDataTypesP
 }
 
 func (o TiTaxiiDataConnectorDataTypesPtrOutput) Elem() TiTaxiiDataConnectorDataTypesOutput {
-	return o.ApplyT(func(v *TiTaxiiDataConnectorDataTypes) TiTaxiiDataConnectorDataTypes { return *v }).(TiTaxiiDataConnectorDataTypesOutput)
+	return o.ApplyT(func(v *TiTaxiiDataConnectorDataTypes) TiTaxiiDataConnectorDataTypes {
+		if v != nil {
+			return *v
+		}
+		var ret TiTaxiiDataConnectorDataTypes
+		return ret
+	}).(TiTaxiiDataConnectorDataTypesOutput)
 }
 
-// Data type for TAXII connector.
 func (o TiTaxiiDataConnectorDataTypesPtrOutput) TaxiiClient() TiTaxiiDataConnectorDataTypesTaxiiClientPtrOutput {
 	return o.ApplyT(func(v *TiTaxiiDataConnectorDataTypes) *TiTaxiiDataConnectorDataTypesTaxiiClient {
 		if v == nil {
@@ -14438,9 +13683,7 @@ func (o TiTaxiiDataConnectorDataTypesPtrOutput) TaxiiClient() TiTaxiiDataConnect
 	}).(TiTaxiiDataConnectorDataTypesTaxiiClientPtrOutput)
 }
 
-// The available data types for Threat Intelligence TAXII data connector.
 type TiTaxiiDataConnectorDataTypesResponse struct {
-	// Data type for TAXII connector.
 	TaxiiClient TiTaxiiDataConnectorDataTypesResponseTaxiiClient `pulumi:"taxiiClient"`
 }
 
@@ -14455,9 +13698,7 @@ type TiTaxiiDataConnectorDataTypesResponseInput interface {
 	ToTiTaxiiDataConnectorDataTypesResponseOutputWithContext(context.Context) TiTaxiiDataConnectorDataTypesResponseOutput
 }
 
-// The available data types for Threat Intelligence TAXII data connector.
 type TiTaxiiDataConnectorDataTypesResponseArgs struct {
-	// Data type for TAXII connector.
 	TaxiiClient TiTaxiiDataConnectorDataTypesResponseTaxiiClientInput `pulumi:"taxiiClient"`
 }
 
@@ -14514,7 +13755,6 @@ func (i *tiTaxiiDataConnectorDataTypesResponsePtrType) ToTiTaxiiDataConnectorDat
 	return pulumi.ToOutputWithContext(ctx, i).(TiTaxiiDataConnectorDataTypesResponsePtrOutput)
 }
 
-// The available data types for Threat Intelligence TAXII data connector.
 type TiTaxiiDataConnectorDataTypesResponseOutput struct{ *pulumi.OutputState }
 
 func (TiTaxiiDataConnectorDataTypesResponseOutput) ElementType() reflect.Type {
@@ -14534,12 +13774,11 @@ func (o TiTaxiiDataConnectorDataTypesResponseOutput) ToTiTaxiiDataConnectorDataT
 }
 
 func (o TiTaxiiDataConnectorDataTypesResponseOutput) ToTiTaxiiDataConnectorDataTypesResponsePtrOutputWithContext(ctx context.Context) TiTaxiiDataConnectorDataTypesResponsePtrOutput {
-	return o.ApplyT(func(v TiTaxiiDataConnectorDataTypesResponse) *TiTaxiiDataConnectorDataTypesResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v TiTaxiiDataConnectorDataTypesResponse) *TiTaxiiDataConnectorDataTypesResponse {
 		return &v
 	}).(TiTaxiiDataConnectorDataTypesResponsePtrOutput)
 }
 
-// Data type for TAXII connector.
 func (o TiTaxiiDataConnectorDataTypesResponseOutput) TaxiiClient() TiTaxiiDataConnectorDataTypesResponseTaxiiClientOutput {
 	return o.ApplyT(func(v TiTaxiiDataConnectorDataTypesResponse) TiTaxiiDataConnectorDataTypesResponseTaxiiClient {
 		return v.TaxiiClient
@@ -14561,10 +13800,15 @@ func (o TiTaxiiDataConnectorDataTypesResponsePtrOutput) ToTiTaxiiDataConnectorDa
 }
 
 func (o TiTaxiiDataConnectorDataTypesResponsePtrOutput) Elem() TiTaxiiDataConnectorDataTypesResponseOutput {
-	return o.ApplyT(func(v *TiTaxiiDataConnectorDataTypesResponse) TiTaxiiDataConnectorDataTypesResponse { return *v }).(TiTaxiiDataConnectorDataTypesResponseOutput)
+	return o.ApplyT(func(v *TiTaxiiDataConnectorDataTypesResponse) TiTaxiiDataConnectorDataTypesResponse {
+		if v != nil {
+			return *v
+		}
+		var ret TiTaxiiDataConnectorDataTypesResponse
+		return ret
+	}).(TiTaxiiDataConnectorDataTypesResponseOutput)
 }
 
-// Data type for TAXII connector.
 func (o TiTaxiiDataConnectorDataTypesResponsePtrOutput) TaxiiClient() TiTaxiiDataConnectorDataTypesResponseTaxiiClientPtrOutput {
 	return o.ApplyT(func(v *TiTaxiiDataConnectorDataTypesResponse) *TiTaxiiDataConnectorDataTypesResponseTaxiiClient {
 		if v == nil {
@@ -14574,9 +13818,7 @@ func (o TiTaxiiDataConnectorDataTypesResponsePtrOutput) TaxiiClient() TiTaxiiDat
 	}).(TiTaxiiDataConnectorDataTypesResponseTaxiiClientPtrOutput)
 }
 
-// Data type for TAXII connector.
 type TiTaxiiDataConnectorDataTypesResponseTaxiiClient struct {
-	// Describe whether this data type connection is enabled or not.
 	State string `pulumi:"state"`
 }
 
@@ -14591,9 +13833,7 @@ type TiTaxiiDataConnectorDataTypesResponseTaxiiClientInput interface {
 	ToTiTaxiiDataConnectorDataTypesResponseTaxiiClientOutputWithContext(context.Context) TiTaxiiDataConnectorDataTypesResponseTaxiiClientOutput
 }
 
-// Data type for TAXII connector.
 type TiTaxiiDataConnectorDataTypesResponseTaxiiClientArgs struct {
-	// Describe whether this data type connection is enabled or not.
 	State pulumi.StringInput `pulumi:"state"`
 }
 
@@ -14650,7 +13890,6 @@ func (i *tiTaxiiDataConnectorDataTypesResponseTaxiiClientPtrType) ToTiTaxiiDataC
 	return pulumi.ToOutputWithContext(ctx, i).(TiTaxiiDataConnectorDataTypesResponseTaxiiClientPtrOutput)
 }
 
-// Data type for TAXII connector.
 type TiTaxiiDataConnectorDataTypesResponseTaxiiClientOutput struct{ *pulumi.OutputState }
 
 func (TiTaxiiDataConnectorDataTypesResponseTaxiiClientOutput) ElementType() reflect.Type {
@@ -14670,12 +13909,11 @@ func (o TiTaxiiDataConnectorDataTypesResponseTaxiiClientOutput) ToTiTaxiiDataCon
 }
 
 func (o TiTaxiiDataConnectorDataTypesResponseTaxiiClientOutput) ToTiTaxiiDataConnectorDataTypesResponseTaxiiClientPtrOutputWithContext(ctx context.Context) TiTaxiiDataConnectorDataTypesResponseTaxiiClientPtrOutput {
-	return o.ApplyT(func(v TiTaxiiDataConnectorDataTypesResponseTaxiiClient) *TiTaxiiDataConnectorDataTypesResponseTaxiiClient {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v TiTaxiiDataConnectorDataTypesResponseTaxiiClient) *TiTaxiiDataConnectorDataTypesResponseTaxiiClient {
 		return &v
 	}).(TiTaxiiDataConnectorDataTypesResponseTaxiiClientPtrOutput)
 }
 
-// Describe whether this data type connection is enabled or not.
 func (o TiTaxiiDataConnectorDataTypesResponseTaxiiClientOutput) State() pulumi.StringOutput {
 	return o.ApplyT(func(v TiTaxiiDataConnectorDataTypesResponseTaxiiClient) string { return v.State }).(pulumi.StringOutput)
 }
@@ -14696,11 +13934,14 @@ func (o TiTaxiiDataConnectorDataTypesResponseTaxiiClientPtrOutput) ToTiTaxiiData
 
 func (o TiTaxiiDataConnectorDataTypesResponseTaxiiClientPtrOutput) Elem() TiTaxiiDataConnectorDataTypesResponseTaxiiClientOutput {
 	return o.ApplyT(func(v *TiTaxiiDataConnectorDataTypesResponseTaxiiClient) TiTaxiiDataConnectorDataTypesResponseTaxiiClient {
-		return *v
+		if v != nil {
+			return *v
+		}
+		var ret TiTaxiiDataConnectorDataTypesResponseTaxiiClient
+		return ret
 	}).(TiTaxiiDataConnectorDataTypesResponseTaxiiClientOutput)
 }
 
-// Describe whether this data type connection is enabled or not.
 func (o TiTaxiiDataConnectorDataTypesResponseTaxiiClientPtrOutput) State() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *TiTaxiiDataConnectorDataTypesResponseTaxiiClient) *string {
 		if v == nil {
@@ -14710,9 +13951,7 @@ func (o TiTaxiiDataConnectorDataTypesResponseTaxiiClientPtrOutput) State() pulum
 	}).(pulumi.StringPtrOutput)
 }
 
-// Data type for TAXII connector.
 type TiTaxiiDataConnectorDataTypesTaxiiClient struct {
-	// Describe whether this data type connection is enabled or not.
 	State string `pulumi:"state"`
 }
 
@@ -14727,9 +13966,7 @@ type TiTaxiiDataConnectorDataTypesTaxiiClientInput interface {
 	ToTiTaxiiDataConnectorDataTypesTaxiiClientOutputWithContext(context.Context) TiTaxiiDataConnectorDataTypesTaxiiClientOutput
 }
 
-// Data type for TAXII connector.
 type TiTaxiiDataConnectorDataTypesTaxiiClientArgs struct {
-	// Describe whether this data type connection is enabled or not.
 	State pulumi.StringInput `pulumi:"state"`
 }
 
@@ -14786,7 +14023,6 @@ func (i *tiTaxiiDataConnectorDataTypesTaxiiClientPtrType) ToTiTaxiiDataConnector
 	return pulumi.ToOutputWithContext(ctx, i).(TiTaxiiDataConnectorDataTypesTaxiiClientPtrOutput)
 }
 
-// Data type for TAXII connector.
 type TiTaxiiDataConnectorDataTypesTaxiiClientOutput struct{ *pulumi.OutputState }
 
 func (TiTaxiiDataConnectorDataTypesTaxiiClientOutput) ElementType() reflect.Type {
@@ -14806,12 +14042,11 @@ func (o TiTaxiiDataConnectorDataTypesTaxiiClientOutput) ToTiTaxiiDataConnectorDa
 }
 
 func (o TiTaxiiDataConnectorDataTypesTaxiiClientOutput) ToTiTaxiiDataConnectorDataTypesTaxiiClientPtrOutputWithContext(ctx context.Context) TiTaxiiDataConnectorDataTypesTaxiiClientPtrOutput {
-	return o.ApplyT(func(v TiTaxiiDataConnectorDataTypesTaxiiClient) *TiTaxiiDataConnectorDataTypesTaxiiClient {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v TiTaxiiDataConnectorDataTypesTaxiiClient) *TiTaxiiDataConnectorDataTypesTaxiiClient {
 		return &v
 	}).(TiTaxiiDataConnectorDataTypesTaxiiClientPtrOutput)
 }
 
-// Describe whether this data type connection is enabled or not.
 func (o TiTaxiiDataConnectorDataTypesTaxiiClientOutput) State() pulumi.StringOutput {
 	return o.ApplyT(func(v TiTaxiiDataConnectorDataTypesTaxiiClient) string { return v.State }).(pulumi.StringOutput)
 }
@@ -14831,10 +14066,15 @@ func (o TiTaxiiDataConnectorDataTypesTaxiiClientPtrOutput) ToTiTaxiiDataConnecto
 }
 
 func (o TiTaxiiDataConnectorDataTypesTaxiiClientPtrOutput) Elem() TiTaxiiDataConnectorDataTypesTaxiiClientOutput {
-	return o.ApplyT(func(v *TiTaxiiDataConnectorDataTypesTaxiiClient) TiTaxiiDataConnectorDataTypesTaxiiClient { return *v }).(TiTaxiiDataConnectorDataTypesTaxiiClientOutput)
+	return o.ApplyT(func(v *TiTaxiiDataConnectorDataTypesTaxiiClient) TiTaxiiDataConnectorDataTypesTaxiiClient {
+		if v != nil {
+			return *v
+		}
+		var ret TiTaxiiDataConnectorDataTypesTaxiiClient
+		return ret
+	}).(TiTaxiiDataConnectorDataTypesTaxiiClientOutput)
 }
 
-// Describe whether this data type connection is enabled or not.
 func (o TiTaxiiDataConnectorDataTypesTaxiiClientPtrOutput) State() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *TiTaxiiDataConnectorDataTypesTaxiiClient) *string {
 		if v == nil {
@@ -14844,9 +14084,7 @@ func (o TiTaxiiDataConnectorDataTypesTaxiiClientPtrOutput) State() pulumi.String
 	}).(pulumi.StringPtrOutput)
 }
 
-// User information that made some action
 type WatchlistUserInfo struct {
-	// The object id of the user.
 	ObjectId *string `pulumi:"objectId"`
 }
 
@@ -14861,9 +14099,7 @@ type WatchlistUserInfoInput interface {
 	ToWatchlistUserInfoOutputWithContext(context.Context) WatchlistUserInfoOutput
 }
 
-// User information that made some action
 type WatchlistUserInfoArgs struct {
-	// The object id of the user.
 	ObjectId pulumi.StringPtrInput `pulumi:"objectId"`
 }
 
@@ -14920,7 +14156,6 @@ func (i *watchlistUserInfoPtrType) ToWatchlistUserInfoPtrOutputWithContext(ctx c
 	return pulumi.ToOutputWithContext(ctx, i).(WatchlistUserInfoPtrOutput)
 }
 
-// User information that made some action
 type WatchlistUserInfoOutput struct{ *pulumi.OutputState }
 
 func (WatchlistUserInfoOutput) ElementType() reflect.Type {
@@ -14940,12 +14175,11 @@ func (o WatchlistUserInfoOutput) ToWatchlistUserInfoPtrOutput() WatchlistUserInf
 }
 
 func (o WatchlistUserInfoOutput) ToWatchlistUserInfoPtrOutputWithContext(ctx context.Context) WatchlistUserInfoPtrOutput {
-	return o.ApplyT(func(v WatchlistUserInfo) *WatchlistUserInfo {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v WatchlistUserInfo) *WatchlistUserInfo {
 		return &v
 	}).(WatchlistUserInfoPtrOutput)
 }
 
-// The object id of the user.
 func (o WatchlistUserInfoOutput) ObjectId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v WatchlistUserInfo) *string { return v.ObjectId }).(pulumi.StringPtrOutput)
 }
@@ -14965,10 +14199,15 @@ func (o WatchlistUserInfoPtrOutput) ToWatchlistUserInfoPtrOutputWithContext(ctx 
 }
 
 func (o WatchlistUserInfoPtrOutput) Elem() WatchlistUserInfoOutput {
-	return o.ApplyT(func(v *WatchlistUserInfo) WatchlistUserInfo { return *v }).(WatchlistUserInfoOutput)
+	return o.ApplyT(func(v *WatchlistUserInfo) WatchlistUserInfo {
+		if v != nil {
+			return *v
+		}
+		var ret WatchlistUserInfo
+		return ret
+	}).(WatchlistUserInfoOutput)
 }
 
-// The object id of the user.
 func (o WatchlistUserInfoPtrOutput) ObjectId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *WatchlistUserInfo) *string {
 		if v == nil {
@@ -14978,13 +14217,9 @@ func (o WatchlistUserInfoPtrOutput) ObjectId() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// User information that made some action
 type WatchlistUserInfoResponse struct {
-	// The email of the user.
-	Email string `pulumi:"email"`
-	// The name of the user.
-	Name string `pulumi:"name"`
-	// The object id of the user.
+	Email    string  `pulumi:"email"`
+	Name     string  `pulumi:"name"`
 	ObjectId *string `pulumi:"objectId"`
 }
 
@@ -14999,13 +14234,9 @@ type WatchlistUserInfoResponseInput interface {
 	ToWatchlistUserInfoResponseOutputWithContext(context.Context) WatchlistUserInfoResponseOutput
 }
 
-// User information that made some action
 type WatchlistUserInfoResponseArgs struct {
-	// The email of the user.
-	Email pulumi.StringInput `pulumi:"email"`
-	// The name of the user.
-	Name pulumi.StringInput `pulumi:"name"`
-	// The object id of the user.
+	Email    pulumi.StringInput    `pulumi:"email"`
+	Name     pulumi.StringInput    `pulumi:"name"`
 	ObjectId pulumi.StringPtrInput `pulumi:"objectId"`
 }
 
@@ -15062,7 +14293,6 @@ func (i *watchlistUserInfoResponsePtrType) ToWatchlistUserInfoResponsePtrOutputW
 	return pulumi.ToOutputWithContext(ctx, i).(WatchlistUserInfoResponsePtrOutput)
 }
 
-// User information that made some action
 type WatchlistUserInfoResponseOutput struct{ *pulumi.OutputState }
 
 func (WatchlistUserInfoResponseOutput) ElementType() reflect.Type {
@@ -15082,22 +14312,19 @@ func (o WatchlistUserInfoResponseOutput) ToWatchlistUserInfoResponsePtrOutput() 
 }
 
 func (o WatchlistUserInfoResponseOutput) ToWatchlistUserInfoResponsePtrOutputWithContext(ctx context.Context) WatchlistUserInfoResponsePtrOutput {
-	return o.ApplyT(func(v WatchlistUserInfoResponse) *WatchlistUserInfoResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v WatchlistUserInfoResponse) *WatchlistUserInfoResponse {
 		return &v
 	}).(WatchlistUserInfoResponsePtrOutput)
 }
 
-// The email of the user.
 func (o WatchlistUserInfoResponseOutput) Email() pulumi.StringOutput {
 	return o.ApplyT(func(v WatchlistUserInfoResponse) string { return v.Email }).(pulumi.StringOutput)
 }
 
-// The name of the user.
 func (o WatchlistUserInfoResponseOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v WatchlistUserInfoResponse) string { return v.Name }).(pulumi.StringOutput)
 }
 
-// The object id of the user.
 func (o WatchlistUserInfoResponseOutput) ObjectId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v WatchlistUserInfoResponse) *string { return v.ObjectId }).(pulumi.StringPtrOutput)
 }
@@ -15117,10 +14344,15 @@ func (o WatchlistUserInfoResponsePtrOutput) ToWatchlistUserInfoResponsePtrOutput
 }
 
 func (o WatchlistUserInfoResponsePtrOutput) Elem() WatchlistUserInfoResponseOutput {
-	return o.ApplyT(func(v *WatchlistUserInfoResponse) WatchlistUserInfoResponse { return *v }).(WatchlistUserInfoResponseOutput)
+	return o.ApplyT(func(v *WatchlistUserInfoResponse) WatchlistUserInfoResponse {
+		if v != nil {
+			return *v
+		}
+		var ret WatchlistUserInfoResponse
+		return ret
+	}).(WatchlistUserInfoResponseOutput)
 }
 
-// The email of the user.
 func (o WatchlistUserInfoResponsePtrOutput) Email() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *WatchlistUserInfoResponse) *string {
 		if v == nil {
@@ -15130,7 +14362,6 @@ func (o WatchlistUserInfoResponsePtrOutput) Email() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The name of the user.
 func (o WatchlistUserInfoResponsePtrOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *WatchlistUserInfoResponse) *string {
 		if v == nil {
@@ -15140,7 +14371,6 @@ func (o WatchlistUserInfoResponsePtrOutput) Name() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The object id of the user.
 func (o WatchlistUserInfoResponsePtrOutput) ObjectId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *WatchlistUserInfoResponse) *string {
 		if v == nil {

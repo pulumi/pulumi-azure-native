@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.Web.V20201201.Outputs
 {
 
+    /// <summary>
+    /// A wrapper for an ARM resource id
+    /// </summary>
     [OutputType]
     public sealed class ArmIdWrapperResponse
     {

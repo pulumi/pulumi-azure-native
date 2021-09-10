@@ -10,6 +10,10 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.Insights.Outputs
 {
 
+    /// <summary>
+    /// Definition of which performance counters will be collected and how they will be collected by this data collection rule.
+    /// Collected from both Windows and Linux machines where the counter is present.
+    /// </summary>
     [OutputType]
     public sealed class PerfCounterDataSourceResponse
     {

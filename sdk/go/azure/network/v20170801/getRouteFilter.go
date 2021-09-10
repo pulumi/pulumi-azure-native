@@ -7,7 +7,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Route Filter Resource.
 func LookupRouteFilter(ctx *pulumi.Context, args *LookupRouteFilterArgs, opts ...pulumi.InvokeOption) (*LookupRouteFilterResult, error) {
 	var rv LookupRouteFilterResult
 	err := ctx.Invoke("azure-native:network/v20170801:getRouteFilter", args, &rv, opts...)
@@ -18,32 +17,20 @@ func LookupRouteFilter(ctx *pulumi.Context, args *LookupRouteFilterArgs, opts ..
 }
 
 type LookupRouteFilterArgs struct {
-	// Expands referenced express route bgp peering resources.
-	Expand *string `pulumi:"expand"`
-	// The name of the resource group.
-	ResourceGroupName string `pulumi:"resourceGroupName"`
-	// The name of the route filter.
-	RouteFilterName string `pulumi:"routeFilterName"`
+	Expand            *string `pulumi:"expand"`
+	ResourceGroupName string  `pulumi:"resourceGroupName"`
+	RouteFilterName   string  `pulumi:"routeFilterName"`
 }
 
 // Route Filter Resource.
 type LookupRouteFilterResult struct {
-	// Gets a unique read-only string that changes whenever the resource is updated.
-	Etag string `pulumi:"etag"`
-	// Resource ID.
-	Id *string `pulumi:"id"`
-	// Resource location.
-	Location string `pulumi:"location"`
-	// Resource name.
-	Name string `pulumi:"name"`
-	// A collection of references to express route circuit peerings.
-	Peerings []ExpressRouteCircuitPeeringResponse `pulumi:"peerings"`
-	// The provisioning state of the resource. Possible values are: 'Updating', 'Deleting', 'Succeeded' and 'Failed'.
-	ProvisioningState string `pulumi:"provisioningState"`
-	// Collection of RouteFilterRules contained within a route filter.
-	Rules []RouteFilterRuleResponse `pulumi:"rules"`
-	// Resource tags.
-	Tags map[string]string `pulumi:"tags"`
-	// Resource type.
-	Type string `pulumi:"type"`
+	Etag              string                               `pulumi:"etag"`
+	Id                *string                              `pulumi:"id"`
+	Location          string                               `pulumi:"location"`
+	Name              string                               `pulumi:"name"`
+	Peerings          []ExpressRouteCircuitPeeringResponse `pulumi:"peerings"`
+	ProvisioningState string                               `pulumi:"provisioningState"`
+	Rules             []RouteFilterRuleResponse            `pulumi:"rules"`
+	Tags              map[string]string                    `pulumi:"tags"`
+	Type              string                               `pulumi:"type"`
 }

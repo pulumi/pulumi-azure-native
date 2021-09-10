@@ -7,7 +7,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Response to put/get linked server (with properties) for Redis cache.
 func LookupLinkedServer(ctx *pulumi.Context, args *LookupLinkedServerArgs, opts ...pulumi.InvokeOption) (*LookupLinkedServerResult, error) {
 	var rv LookupLinkedServerResult
 	err := ctx.Invoke("azure-native:cache/v20201201:getLinkedServer", args, &rv, opts...)
@@ -18,28 +17,18 @@ func LookupLinkedServer(ctx *pulumi.Context, args *LookupLinkedServerArgs, opts 
 }
 
 type LookupLinkedServerArgs struct {
-	// The name of the linked server.
-	LinkedServerName string `pulumi:"linkedServerName"`
-	// The name of the redis cache.
-	Name string `pulumi:"name"`
-	// The name of the resource group.
+	LinkedServerName  string `pulumi:"linkedServerName"`
+	Name              string `pulumi:"name"`
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 }
 
 // Response to put/get linked server (with properties) for Redis cache.
 type LookupLinkedServerResult struct {
-	// Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
-	Id string `pulumi:"id"`
-	// Fully qualified resourceId of the linked redis cache.
-	LinkedRedisCacheId string `pulumi:"linkedRedisCacheId"`
-	// Location of the linked redis cache.
+	Id                       string `pulumi:"id"`
+	LinkedRedisCacheId       string `pulumi:"linkedRedisCacheId"`
 	LinkedRedisCacheLocation string `pulumi:"linkedRedisCacheLocation"`
-	// The name of the resource
-	Name string `pulumi:"name"`
-	// Terminal state of the link between primary and secondary redis cache.
-	ProvisioningState string `pulumi:"provisioningState"`
-	// Role of the linked server.
-	ServerRole string `pulumi:"serverRole"`
-	// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
-	Type string `pulumi:"type"`
+	Name                     string `pulumi:"name"`
+	ProvisioningState        string `pulumi:"provisioningState"`
+	ServerRole               string `pulumi:"serverRole"`
+	Type                     string `pulumi:"type"`
 }

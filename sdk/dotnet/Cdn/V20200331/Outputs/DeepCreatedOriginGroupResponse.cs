@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.Cdn.V20200331.Outputs
 {
 
+    /// <summary>
+    /// The origin group for CDN content which is added when creating a CDN endpoint. Traffic is sent to the origins within the origin group based on origin health.
+    /// </summary>
     [OutputType]
     public sealed class DeepCreatedOriginGroupResponse
     {

@@ -7,7 +7,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// A Content Key Policy resource.
 func LookupContentKeyPolicy(ctx *pulumi.Context, args *LookupContentKeyPolicyArgs, opts ...pulumi.InvokeOption) (*LookupContentKeyPolicyResult, error) {
 	var rv LookupContentKeyPolicyResult
 	err := ctx.Invoke("azure-native:media/v20210601:getContentKeyPolicy", args, &rv, opts...)
@@ -18,32 +17,20 @@ func LookupContentKeyPolicy(ctx *pulumi.Context, args *LookupContentKeyPolicyArg
 }
 
 type LookupContentKeyPolicyArgs struct {
-	// The Media Services account name.
-	AccountName string `pulumi:"accountName"`
-	// The Content Key Policy name.
+	AccountName          string `pulumi:"accountName"`
 	ContentKeyPolicyName string `pulumi:"contentKeyPolicyName"`
-	// The name of the resource group within the Azure subscription.
-	ResourceGroupName string `pulumi:"resourceGroupName"`
+	ResourceGroupName    string `pulumi:"resourceGroupName"`
 }
 
 // A Content Key Policy resource.
 type LookupContentKeyPolicyResult struct {
-	// The creation date of the Policy
-	Created string `pulumi:"created"`
-	// A description for the Policy.
-	Description *string `pulumi:"description"`
-	// Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
-	Id string `pulumi:"id"`
-	// The last modified date of the Policy
-	LastModified string `pulumi:"lastModified"`
-	// The name of the resource
-	Name string `pulumi:"name"`
-	// The Key Policy options.
-	Options []ContentKeyPolicyOptionResponse `pulumi:"options"`
-	// The legacy Policy ID.
-	PolicyId string `pulumi:"policyId"`
-	// The system metadata relating to this resource.
-	SystemData SystemDataResponse `pulumi:"systemData"`
-	// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
-	Type string `pulumi:"type"`
+	Created      string                           `pulumi:"created"`
+	Description  *string                          `pulumi:"description"`
+	Id           string                           `pulumi:"id"`
+	LastModified string                           `pulumi:"lastModified"`
+	Name         string                           `pulumi:"name"`
+	Options      []ContentKeyPolicyOptionResponse `pulumi:"options"`
+	PolicyId     string                           `pulumi:"policyId"`
+	SystemData   SystemDataResponse               `pulumi:"systemData"`
+	Type         string                           `pulumi:"type"`
 }

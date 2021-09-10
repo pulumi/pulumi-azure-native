@@ -10,18 +10,12 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Properties that describe a base image dependency.
 type BaseImageDependencyResponse struct {
-	// The sha256-based digest of the image manifest.
-	Digest *string `pulumi:"digest"`
-	// The registry login server.
-	Registry *string `pulumi:"registry"`
-	// The repository name.
+	Digest     *string `pulumi:"digest"`
+	Registry   *string `pulumi:"registry"`
 	Repository *string `pulumi:"repository"`
-	// The tag name.
-	Tag *string `pulumi:"tag"`
-	// The type of the base image dependency.
-	Type *string `pulumi:"type"`
+	Tag        *string `pulumi:"tag"`
+	Type       *string `pulumi:"type"`
 }
 
 // BaseImageDependencyResponseInput is an input type that accepts BaseImageDependencyResponseArgs and BaseImageDependencyResponseOutput values.
@@ -35,18 +29,12 @@ type BaseImageDependencyResponseInput interface {
 	ToBaseImageDependencyResponseOutputWithContext(context.Context) BaseImageDependencyResponseOutput
 }
 
-// Properties that describe a base image dependency.
 type BaseImageDependencyResponseArgs struct {
-	// The sha256-based digest of the image manifest.
-	Digest pulumi.StringPtrInput `pulumi:"digest"`
-	// The registry login server.
-	Registry pulumi.StringPtrInput `pulumi:"registry"`
-	// The repository name.
+	Digest     pulumi.StringPtrInput `pulumi:"digest"`
+	Registry   pulumi.StringPtrInput `pulumi:"registry"`
 	Repository pulumi.StringPtrInput `pulumi:"repository"`
-	// The tag name.
-	Tag pulumi.StringPtrInput `pulumi:"tag"`
-	// The type of the base image dependency.
-	Type pulumi.StringPtrInput `pulumi:"type"`
+	Tag        pulumi.StringPtrInput `pulumi:"tag"`
+	Type       pulumi.StringPtrInput `pulumi:"type"`
 }
 
 func (BaseImageDependencyResponseArgs) ElementType() reflect.Type {
@@ -86,7 +74,6 @@ func (i BaseImageDependencyResponseArray) ToBaseImageDependencyResponseArrayOutp
 	return pulumi.ToOutputWithContext(ctx, i).(BaseImageDependencyResponseArrayOutput)
 }
 
-// Properties that describe a base image dependency.
 type BaseImageDependencyResponseOutput struct{ *pulumi.OutputState }
 
 func (BaseImageDependencyResponseOutput) ElementType() reflect.Type {
@@ -101,27 +88,22 @@ func (o BaseImageDependencyResponseOutput) ToBaseImageDependencyResponseOutputWi
 	return o
 }
 
-// The sha256-based digest of the image manifest.
 func (o BaseImageDependencyResponseOutput) Digest() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v BaseImageDependencyResponse) *string { return v.Digest }).(pulumi.StringPtrOutput)
 }
 
-// The registry login server.
 func (o BaseImageDependencyResponseOutput) Registry() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v BaseImageDependencyResponse) *string { return v.Registry }).(pulumi.StringPtrOutput)
 }
 
-// The repository name.
 func (o BaseImageDependencyResponseOutput) Repository() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v BaseImageDependencyResponse) *string { return v.Repository }).(pulumi.StringPtrOutput)
 }
 
-// The tag name.
 func (o BaseImageDependencyResponseOutput) Tag() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v BaseImageDependencyResponse) *string { return v.Tag }).(pulumi.StringPtrOutput)
 }
 
-// The type of the base image dependency.
 func (o BaseImageDependencyResponseOutput) Type() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v BaseImageDependencyResponse) *string { return v.Type }).(pulumi.StringPtrOutput)
 }
@@ -146,16 +128,11 @@ func (o BaseImageDependencyResponseArrayOutput) Index(i pulumi.IntInput) BaseIma
 	}).(BaseImageDependencyResponseOutput)
 }
 
-// Properties of a build argument.
 type BuildArgumentResponse struct {
-	// Flag to indicate whether the argument represents a secret and want to be removed from build logs.
-	IsSecret *bool `pulumi:"isSecret"`
-	// The name of the argument.
-	Name string `pulumi:"name"`
-	// The type of the argument.
-	Type string `pulumi:"type"`
-	// The value of the argument.
-	Value string `pulumi:"value"`
+	IsSecret *bool  `pulumi:"isSecret"`
+	Name     string `pulumi:"name"`
+	Type     string `pulumi:"type"`
+	Value    string `pulumi:"value"`
 }
 
 // BuildArgumentResponseInput is an input type that accepts BuildArgumentResponseArgs and BuildArgumentResponseOutput values.
@@ -169,16 +146,11 @@ type BuildArgumentResponseInput interface {
 	ToBuildArgumentResponseOutputWithContext(context.Context) BuildArgumentResponseOutput
 }
 
-// Properties of a build argument.
 type BuildArgumentResponseArgs struct {
-	// Flag to indicate whether the argument represents a secret and want to be removed from build logs.
 	IsSecret pulumi.BoolPtrInput `pulumi:"isSecret"`
-	// The name of the argument.
-	Name pulumi.StringInput `pulumi:"name"`
-	// The type of the argument.
-	Type pulumi.StringInput `pulumi:"type"`
-	// The value of the argument.
-	Value pulumi.StringInput `pulumi:"value"`
+	Name     pulumi.StringInput  `pulumi:"name"`
+	Type     pulumi.StringInput  `pulumi:"type"`
+	Value    pulumi.StringInput  `pulumi:"value"`
 }
 
 func (BuildArgumentResponseArgs) ElementType() reflect.Type {
@@ -218,7 +190,6 @@ func (i BuildArgumentResponseArray) ToBuildArgumentResponseArrayOutputWithContex
 	return pulumi.ToOutputWithContext(ctx, i).(BuildArgumentResponseArrayOutput)
 }
 
-// Properties of a build argument.
 type BuildArgumentResponseOutput struct{ *pulumi.OutputState }
 
 func (BuildArgumentResponseOutput) ElementType() reflect.Type {
@@ -233,22 +204,18 @@ func (o BuildArgumentResponseOutput) ToBuildArgumentResponseOutputWithContext(ct
 	return o
 }
 
-// Flag to indicate whether the argument represents a secret and want to be removed from build logs.
 func (o BuildArgumentResponseOutput) GetIsSecret() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v BuildArgumentResponse) *bool { return v.IsSecret }).(pulumi.BoolPtrOutput)
 }
 
-// The name of the argument.
 func (o BuildArgumentResponseOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v BuildArgumentResponse) string { return v.Name }).(pulumi.StringOutput)
 }
 
-// The type of the argument.
 func (o BuildArgumentResponseOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v BuildArgumentResponse) string { return v.Type }).(pulumi.StringOutput)
 }
 
-// The value of the argument.
 func (o BuildArgumentResponseOutput) Value() pulumi.StringOutput {
 	return o.ApplyT(func(v BuildArgumentResponse) string { return v.Value }).(pulumi.StringOutput)
 }
@@ -273,31 +240,18 @@ func (o BuildArgumentResponseArrayOutput) Index(i pulumi.IntInput) BuildArgument
 	}).(BuildArgumentResponseOutput)
 }
 
-// The Docker build step.
 type DockerBuildStepResponse struct {
-	// List of base image dependencies for a step.
 	BaseImageDependencies []BaseImageDependencyResponse `pulumi:"baseImageDependencies"`
-	// The type of the auto trigger for base image dependency updates.
-	BaseImageTrigger *string `pulumi:"baseImageTrigger"`
-	// The repository branch name.
-	Branch *string `pulumi:"branch"`
-	// The custom arguments for building this build step.
-	BuildArguments []BuildArgumentResponse `pulumi:"buildArguments"`
-	// The relative context path for a docker build in the source.
-	ContextPath *string `pulumi:"contextPath"`
-	// The Docker file path relative to the source control root.
-	DockerFilePath *string `pulumi:"dockerFilePath"`
-	// The fully qualified image names including the repository and tag.
-	ImageNames []string `pulumi:"imageNames"`
-	// The value of this property indicates whether the image built should be pushed to the registry or not.
-	IsPushEnabled *bool `pulumi:"isPushEnabled"`
-	// The value of this property indicates whether the image cache is enabled or not.
-	NoCache *bool `pulumi:"noCache"`
-	// The provisioning state of the build step.
-	ProvisioningState string `pulumi:"provisioningState"`
-	// The type of the step.
-	// Expected value is 'Docker'.
-	Type string `pulumi:"type"`
+	BaseImageTrigger      *string                       `pulumi:"baseImageTrigger"`
+	Branch                *string                       `pulumi:"branch"`
+	BuildArguments        []BuildArgumentResponse       `pulumi:"buildArguments"`
+	ContextPath           *string                       `pulumi:"contextPath"`
+	DockerFilePath        *string                       `pulumi:"dockerFilePath"`
+	ImageNames            []string                      `pulumi:"imageNames"`
+	IsPushEnabled         *bool                         `pulumi:"isPushEnabled"`
+	NoCache               *bool                         `pulumi:"noCache"`
+	ProvisioningState     string                        `pulumi:"provisioningState"`
+	Type                  string                        `pulumi:"type"`
 }
 
 // DockerBuildStepResponseInput is an input type that accepts DockerBuildStepResponseArgs and DockerBuildStepResponseOutput values.
@@ -311,31 +265,18 @@ type DockerBuildStepResponseInput interface {
 	ToDockerBuildStepResponseOutputWithContext(context.Context) DockerBuildStepResponseOutput
 }
 
-// The Docker build step.
 type DockerBuildStepResponseArgs struct {
-	// List of base image dependencies for a step.
 	BaseImageDependencies BaseImageDependencyResponseArrayInput `pulumi:"baseImageDependencies"`
-	// The type of the auto trigger for base image dependency updates.
-	BaseImageTrigger pulumi.StringPtrInput `pulumi:"baseImageTrigger"`
-	// The repository branch name.
-	Branch pulumi.StringPtrInput `pulumi:"branch"`
-	// The custom arguments for building this build step.
-	BuildArguments BuildArgumentResponseArrayInput `pulumi:"buildArguments"`
-	// The relative context path for a docker build in the source.
-	ContextPath pulumi.StringPtrInput `pulumi:"contextPath"`
-	// The Docker file path relative to the source control root.
-	DockerFilePath pulumi.StringPtrInput `pulumi:"dockerFilePath"`
-	// The fully qualified image names including the repository and tag.
-	ImageNames pulumi.StringArrayInput `pulumi:"imageNames"`
-	// The value of this property indicates whether the image built should be pushed to the registry or not.
-	IsPushEnabled pulumi.BoolPtrInput `pulumi:"isPushEnabled"`
-	// The value of this property indicates whether the image cache is enabled or not.
-	NoCache pulumi.BoolPtrInput `pulumi:"noCache"`
-	// The provisioning state of the build step.
-	ProvisioningState pulumi.StringInput `pulumi:"provisioningState"`
-	// The type of the step.
-	// Expected value is 'Docker'.
-	Type pulumi.StringInput `pulumi:"type"`
+	BaseImageTrigger      pulumi.StringPtrInput                 `pulumi:"baseImageTrigger"`
+	Branch                pulumi.StringPtrInput                 `pulumi:"branch"`
+	BuildArguments        BuildArgumentResponseArrayInput       `pulumi:"buildArguments"`
+	ContextPath           pulumi.StringPtrInput                 `pulumi:"contextPath"`
+	DockerFilePath        pulumi.StringPtrInput                 `pulumi:"dockerFilePath"`
+	ImageNames            pulumi.StringArrayInput               `pulumi:"imageNames"`
+	IsPushEnabled         pulumi.BoolPtrInput                   `pulumi:"isPushEnabled"`
+	NoCache               pulumi.BoolPtrInput                   `pulumi:"noCache"`
+	ProvisioningState     pulumi.StringInput                    `pulumi:"provisioningState"`
+	Type                  pulumi.StringInput                    `pulumi:"type"`
 }
 
 func (DockerBuildStepResponseArgs) ElementType() reflect.Type {
@@ -391,7 +332,6 @@ func (i *dockerBuildStepResponsePtrType) ToDockerBuildStepResponsePtrOutputWithC
 	return pulumi.ToOutputWithContext(ctx, i).(DockerBuildStepResponsePtrOutput)
 }
 
-// The Docker build step.
 type DockerBuildStepResponseOutput struct{ *pulumi.OutputState }
 
 func (DockerBuildStepResponseOutput) ElementType() reflect.Type {
@@ -411,63 +351,51 @@ func (o DockerBuildStepResponseOutput) ToDockerBuildStepResponsePtrOutput() Dock
 }
 
 func (o DockerBuildStepResponseOutput) ToDockerBuildStepResponsePtrOutputWithContext(ctx context.Context) DockerBuildStepResponsePtrOutput {
-	return o.ApplyT(func(v DockerBuildStepResponse) *DockerBuildStepResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v DockerBuildStepResponse) *DockerBuildStepResponse {
 		return &v
 	}).(DockerBuildStepResponsePtrOutput)
 }
 
-// List of base image dependencies for a step.
 func (o DockerBuildStepResponseOutput) BaseImageDependencies() BaseImageDependencyResponseArrayOutput {
 	return o.ApplyT(func(v DockerBuildStepResponse) []BaseImageDependencyResponse { return v.BaseImageDependencies }).(BaseImageDependencyResponseArrayOutput)
 }
 
-// The type of the auto trigger for base image dependency updates.
 func (o DockerBuildStepResponseOutput) BaseImageTrigger() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v DockerBuildStepResponse) *string { return v.BaseImageTrigger }).(pulumi.StringPtrOutput)
 }
 
-// The repository branch name.
 func (o DockerBuildStepResponseOutput) Branch() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v DockerBuildStepResponse) *string { return v.Branch }).(pulumi.StringPtrOutput)
 }
 
-// The custom arguments for building this build step.
 func (o DockerBuildStepResponseOutput) BuildArguments() BuildArgumentResponseArrayOutput {
 	return o.ApplyT(func(v DockerBuildStepResponse) []BuildArgumentResponse { return v.BuildArguments }).(BuildArgumentResponseArrayOutput)
 }
 
-// The relative context path for a docker build in the source.
 func (o DockerBuildStepResponseOutput) ContextPath() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v DockerBuildStepResponse) *string { return v.ContextPath }).(pulumi.StringPtrOutput)
 }
 
-// The Docker file path relative to the source control root.
 func (o DockerBuildStepResponseOutput) DockerFilePath() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v DockerBuildStepResponse) *string { return v.DockerFilePath }).(pulumi.StringPtrOutput)
 }
 
-// The fully qualified image names including the repository and tag.
 func (o DockerBuildStepResponseOutput) ImageNames() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v DockerBuildStepResponse) []string { return v.ImageNames }).(pulumi.StringArrayOutput)
 }
 
-// The value of this property indicates whether the image built should be pushed to the registry or not.
 func (o DockerBuildStepResponseOutput) IsPushEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v DockerBuildStepResponse) *bool { return v.IsPushEnabled }).(pulumi.BoolPtrOutput)
 }
 
-// The value of this property indicates whether the image cache is enabled or not.
 func (o DockerBuildStepResponseOutput) NoCache() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v DockerBuildStepResponse) *bool { return v.NoCache }).(pulumi.BoolPtrOutput)
 }
 
-// The provisioning state of the build step.
 func (o DockerBuildStepResponseOutput) ProvisioningState() pulumi.StringOutput {
 	return o.ApplyT(func(v DockerBuildStepResponse) string { return v.ProvisioningState }).(pulumi.StringOutput)
 }
 
-// The type of the step.
-// Expected value is 'Docker'.
 func (o DockerBuildStepResponseOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v DockerBuildStepResponse) string { return v.Type }).(pulumi.StringOutput)
 }
@@ -487,10 +415,15 @@ func (o DockerBuildStepResponsePtrOutput) ToDockerBuildStepResponsePtrOutputWith
 }
 
 func (o DockerBuildStepResponsePtrOutput) Elem() DockerBuildStepResponseOutput {
-	return o.ApplyT(func(v *DockerBuildStepResponse) DockerBuildStepResponse { return *v }).(DockerBuildStepResponseOutput)
+	return o.ApplyT(func(v *DockerBuildStepResponse) DockerBuildStepResponse {
+		if v != nil {
+			return *v
+		}
+		var ret DockerBuildStepResponse
+		return ret
+	}).(DockerBuildStepResponseOutput)
 }
 
-// List of base image dependencies for a step.
 func (o DockerBuildStepResponsePtrOutput) BaseImageDependencies() BaseImageDependencyResponseArrayOutput {
 	return o.ApplyT(func(v *DockerBuildStepResponse) []BaseImageDependencyResponse {
 		if v == nil {
@@ -500,7 +433,6 @@ func (o DockerBuildStepResponsePtrOutput) BaseImageDependencies() BaseImageDepen
 	}).(BaseImageDependencyResponseArrayOutput)
 }
 
-// The type of the auto trigger for base image dependency updates.
 func (o DockerBuildStepResponsePtrOutput) BaseImageTrigger() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *DockerBuildStepResponse) *string {
 		if v == nil {
@@ -510,7 +442,6 @@ func (o DockerBuildStepResponsePtrOutput) BaseImageTrigger() pulumi.StringPtrOut
 	}).(pulumi.StringPtrOutput)
 }
 
-// The repository branch name.
 func (o DockerBuildStepResponsePtrOutput) Branch() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *DockerBuildStepResponse) *string {
 		if v == nil {
@@ -520,7 +451,6 @@ func (o DockerBuildStepResponsePtrOutput) Branch() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The custom arguments for building this build step.
 func (o DockerBuildStepResponsePtrOutput) BuildArguments() BuildArgumentResponseArrayOutput {
 	return o.ApplyT(func(v *DockerBuildStepResponse) []BuildArgumentResponse {
 		if v == nil {
@@ -530,7 +460,6 @@ func (o DockerBuildStepResponsePtrOutput) BuildArguments() BuildArgumentResponse
 	}).(BuildArgumentResponseArrayOutput)
 }
 
-// The relative context path for a docker build in the source.
 func (o DockerBuildStepResponsePtrOutput) ContextPath() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *DockerBuildStepResponse) *string {
 		if v == nil {
@@ -540,7 +469,6 @@ func (o DockerBuildStepResponsePtrOutput) ContextPath() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The Docker file path relative to the source control root.
 func (o DockerBuildStepResponsePtrOutput) DockerFilePath() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *DockerBuildStepResponse) *string {
 		if v == nil {
@@ -550,7 +478,6 @@ func (o DockerBuildStepResponsePtrOutput) DockerFilePath() pulumi.StringPtrOutpu
 	}).(pulumi.StringPtrOutput)
 }
 
-// The fully qualified image names including the repository and tag.
 func (o DockerBuildStepResponsePtrOutput) ImageNames() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *DockerBuildStepResponse) []string {
 		if v == nil {
@@ -560,7 +487,6 @@ func (o DockerBuildStepResponsePtrOutput) ImageNames() pulumi.StringArrayOutput 
 	}).(pulumi.StringArrayOutput)
 }
 
-// The value of this property indicates whether the image built should be pushed to the registry or not.
 func (o DockerBuildStepResponsePtrOutput) IsPushEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *DockerBuildStepResponse) *bool {
 		if v == nil {
@@ -570,7 +496,6 @@ func (o DockerBuildStepResponsePtrOutput) IsPushEnabled() pulumi.BoolPtrOutput {
 	}).(pulumi.BoolPtrOutput)
 }
 
-// The value of this property indicates whether the image cache is enabled or not.
 func (o DockerBuildStepResponsePtrOutput) NoCache() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *DockerBuildStepResponse) *bool {
 		if v == nil {
@@ -580,7 +505,6 @@ func (o DockerBuildStepResponsePtrOutput) NoCache() pulumi.BoolPtrOutput {
 	}).(pulumi.BoolPtrOutput)
 }
 
-// The provisioning state of the build step.
 func (o DockerBuildStepResponsePtrOutput) ProvisioningState() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *DockerBuildStepResponse) *string {
 		if v == nil {
@@ -590,8 +514,6 @@ func (o DockerBuildStepResponsePtrOutput) ProvisioningState() pulumi.StringPtrOu
 	}).(pulumi.StringPtrOutput)
 }
 
-// The type of the step.
-// Expected value is 'Docker'.
 func (o DockerBuildStepResponsePtrOutput) Type() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *DockerBuildStepResponse) *string {
 		if v == nil {
@@ -601,11 +523,8 @@ func (o DockerBuildStepResponsePtrOutput) Type() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The platform properties against which the build has to happen.
 type PlatformProperties struct {
-	// The CPU configuration in terms of number of cores required for the build.
-	Cpu *int `pulumi:"cpu"`
-	// The operating system type required for the build.
+	Cpu    *int   `pulumi:"cpu"`
 	OsType string `pulumi:"osType"`
 }
 
@@ -620,11 +539,8 @@ type PlatformPropertiesInput interface {
 	ToPlatformPropertiesOutputWithContext(context.Context) PlatformPropertiesOutput
 }
 
-// The platform properties against which the build has to happen.
 type PlatformPropertiesArgs struct {
-	// The CPU configuration in terms of number of cores required for the build.
-	Cpu pulumi.IntPtrInput `pulumi:"cpu"`
-	// The operating system type required for the build.
+	Cpu    pulumi.IntPtrInput `pulumi:"cpu"`
 	OsType pulumi.StringInput `pulumi:"osType"`
 }
 
@@ -681,7 +597,6 @@ func (i *platformPropertiesPtrType) ToPlatformPropertiesPtrOutputWithContext(ctx
 	return pulumi.ToOutputWithContext(ctx, i).(PlatformPropertiesPtrOutput)
 }
 
-// The platform properties against which the build has to happen.
 type PlatformPropertiesOutput struct{ *pulumi.OutputState }
 
 func (PlatformPropertiesOutput) ElementType() reflect.Type {
@@ -701,17 +616,15 @@ func (o PlatformPropertiesOutput) ToPlatformPropertiesPtrOutput() PlatformProper
 }
 
 func (o PlatformPropertiesOutput) ToPlatformPropertiesPtrOutputWithContext(ctx context.Context) PlatformPropertiesPtrOutput {
-	return o.ApplyT(func(v PlatformProperties) *PlatformProperties {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v PlatformProperties) *PlatformProperties {
 		return &v
 	}).(PlatformPropertiesPtrOutput)
 }
 
-// The CPU configuration in terms of number of cores required for the build.
 func (o PlatformPropertiesOutput) Cpu() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v PlatformProperties) *int { return v.Cpu }).(pulumi.IntPtrOutput)
 }
 
-// The operating system type required for the build.
 func (o PlatformPropertiesOutput) OsType() pulumi.StringOutput {
 	return o.ApplyT(func(v PlatformProperties) string { return v.OsType }).(pulumi.StringOutput)
 }
@@ -731,10 +644,15 @@ func (o PlatformPropertiesPtrOutput) ToPlatformPropertiesPtrOutputWithContext(ct
 }
 
 func (o PlatformPropertiesPtrOutput) Elem() PlatformPropertiesOutput {
-	return o.ApplyT(func(v *PlatformProperties) PlatformProperties { return *v }).(PlatformPropertiesOutput)
+	return o.ApplyT(func(v *PlatformProperties) PlatformProperties {
+		if v != nil {
+			return *v
+		}
+		var ret PlatformProperties
+		return ret
+	}).(PlatformPropertiesOutput)
 }
 
-// The CPU configuration in terms of number of cores required for the build.
 func (o PlatformPropertiesPtrOutput) Cpu() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *PlatformProperties) *int {
 		if v == nil {
@@ -744,7 +662,6 @@ func (o PlatformPropertiesPtrOutput) Cpu() pulumi.IntPtrOutput {
 	}).(pulumi.IntPtrOutput)
 }
 
-// The operating system type required for the build.
 func (o PlatformPropertiesPtrOutput) OsType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *PlatformProperties) *string {
 		if v == nil {
@@ -754,11 +671,8 @@ func (o PlatformPropertiesPtrOutput) OsType() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The platform properties against which the build has to happen.
 type PlatformPropertiesResponse struct {
-	// The CPU configuration in terms of number of cores required for the build.
-	Cpu *int `pulumi:"cpu"`
-	// The operating system type required for the build.
+	Cpu    *int   `pulumi:"cpu"`
 	OsType string `pulumi:"osType"`
 }
 
@@ -773,11 +687,8 @@ type PlatformPropertiesResponseInput interface {
 	ToPlatformPropertiesResponseOutputWithContext(context.Context) PlatformPropertiesResponseOutput
 }
 
-// The platform properties against which the build has to happen.
 type PlatformPropertiesResponseArgs struct {
-	// The CPU configuration in terms of number of cores required for the build.
-	Cpu pulumi.IntPtrInput `pulumi:"cpu"`
-	// The operating system type required for the build.
+	Cpu    pulumi.IntPtrInput `pulumi:"cpu"`
 	OsType pulumi.StringInput `pulumi:"osType"`
 }
 
@@ -834,7 +745,6 @@ func (i *platformPropertiesResponsePtrType) ToPlatformPropertiesResponsePtrOutpu
 	return pulumi.ToOutputWithContext(ctx, i).(PlatformPropertiesResponsePtrOutput)
 }
 
-// The platform properties against which the build has to happen.
 type PlatformPropertiesResponseOutput struct{ *pulumi.OutputState }
 
 func (PlatformPropertiesResponseOutput) ElementType() reflect.Type {
@@ -854,17 +764,15 @@ func (o PlatformPropertiesResponseOutput) ToPlatformPropertiesResponsePtrOutput(
 }
 
 func (o PlatformPropertiesResponseOutput) ToPlatformPropertiesResponsePtrOutputWithContext(ctx context.Context) PlatformPropertiesResponsePtrOutput {
-	return o.ApplyT(func(v PlatformPropertiesResponse) *PlatformPropertiesResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v PlatformPropertiesResponse) *PlatformPropertiesResponse {
 		return &v
 	}).(PlatformPropertiesResponsePtrOutput)
 }
 
-// The CPU configuration in terms of number of cores required for the build.
 func (o PlatformPropertiesResponseOutput) Cpu() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v PlatformPropertiesResponse) *int { return v.Cpu }).(pulumi.IntPtrOutput)
 }
 
-// The operating system type required for the build.
 func (o PlatformPropertiesResponseOutput) OsType() pulumi.StringOutput {
 	return o.ApplyT(func(v PlatformPropertiesResponse) string { return v.OsType }).(pulumi.StringOutput)
 }
@@ -884,10 +792,15 @@ func (o PlatformPropertiesResponsePtrOutput) ToPlatformPropertiesResponsePtrOutp
 }
 
 func (o PlatformPropertiesResponsePtrOutput) Elem() PlatformPropertiesResponseOutput {
-	return o.ApplyT(func(v *PlatformPropertiesResponse) PlatformPropertiesResponse { return *v }).(PlatformPropertiesResponseOutput)
+	return o.ApplyT(func(v *PlatformPropertiesResponse) PlatformPropertiesResponse {
+		if v != nil {
+			return *v
+		}
+		var ret PlatformPropertiesResponse
+		return ret
+	}).(PlatformPropertiesResponseOutput)
 }
 
-// The CPU configuration in terms of number of cores required for the build.
 func (o PlatformPropertiesResponsePtrOutput) Cpu() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *PlatformPropertiesResponse) *int {
 		if v == nil {
@@ -897,7 +810,6 @@ func (o PlatformPropertiesResponsePtrOutput) Cpu() pulumi.IntPtrOutput {
 	}).(pulumi.IntPtrOutput)
 }
 
-// The operating system type required for the build.
 func (o PlatformPropertiesResponsePtrOutput) OsType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *PlatformPropertiesResponse) *string {
 		if v == nil {
@@ -907,18 +819,12 @@ func (o PlatformPropertiesResponsePtrOutput) OsType() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The authorization properties for accessing the source code repository.
 type SourceControlAuthInfo struct {
-	// Time in seconds that the token remains valid
-	ExpiresIn *int `pulumi:"expiresIn"`
-	// The refresh token used to refresh the access token.
+	ExpiresIn    *int    `pulumi:"expiresIn"`
 	RefreshToken *string `pulumi:"refreshToken"`
-	// The scope of the access token.
-	Scope *string `pulumi:"scope"`
-	// The access token used to access the source control provider.
-	Token string `pulumi:"token"`
-	// The type of Auth token.
-	TokenType *string `pulumi:"tokenType"`
+	Scope        *string `pulumi:"scope"`
+	Token        string  `pulumi:"token"`
+	TokenType    *string `pulumi:"tokenType"`
 }
 
 // SourceControlAuthInfoInput is an input type that accepts SourceControlAuthInfoArgs and SourceControlAuthInfoOutput values.
@@ -932,18 +838,12 @@ type SourceControlAuthInfoInput interface {
 	ToSourceControlAuthInfoOutputWithContext(context.Context) SourceControlAuthInfoOutput
 }
 
-// The authorization properties for accessing the source code repository.
 type SourceControlAuthInfoArgs struct {
-	// Time in seconds that the token remains valid
-	ExpiresIn pulumi.IntPtrInput `pulumi:"expiresIn"`
-	// The refresh token used to refresh the access token.
+	ExpiresIn    pulumi.IntPtrInput    `pulumi:"expiresIn"`
 	RefreshToken pulumi.StringPtrInput `pulumi:"refreshToken"`
-	// The scope of the access token.
-	Scope pulumi.StringPtrInput `pulumi:"scope"`
-	// The access token used to access the source control provider.
-	Token pulumi.StringInput `pulumi:"token"`
-	// The type of Auth token.
-	TokenType pulumi.StringPtrInput `pulumi:"tokenType"`
+	Scope        pulumi.StringPtrInput `pulumi:"scope"`
+	Token        pulumi.StringInput    `pulumi:"token"`
+	TokenType    pulumi.StringPtrInput `pulumi:"tokenType"`
 }
 
 func (SourceControlAuthInfoArgs) ElementType() reflect.Type {
@@ -999,7 +899,6 @@ func (i *sourceControlAuthInfoPtrType) ToSourceControlAuthInfoPtrOutputWithConte
 	return pulumi.ToOutputWithContext(ctx, i).(SourceControlAuthInfoPtrOutput)
 }
 
-// The authorization properties for accessing the source code repository.
 type SourceControlAuthInfoOutput struct{ *pulumi.OutputState }
 
 func (SourceControlAuthInfoOutput) ElementType() reflect.Type {
@@ -1019,32 +918,27 @@ func (o SourceControlAuthInfoOutput) ToSourceControlAuthInfoPtrOutput() SourceCo
 }
 
 func (o SourceControlAuthInfoOutput) ToSourceControlAuthInfoPtrOutputWithContext(ctx context.Context) SourceControlAuthInfoPtrOutput {
-	return o.ApplyT(func(v SourceControlAuthInfo) *SourceControlAuthInfo {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v SourceControlAuthInfo) *SourceControlAuthInfo {
 		return &v
 	}).(SourceControlAuthInfoPtrOutput)
 }
 
-// Time in seconds that the token remains valid
 func (o SourceControlAuthInfoOutput) ExpiresIn() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v SourceControlAuthInfo) *int { return v.ExpiresIn }).(pulumi.IntPtrOutput)
 }
 
-// The refresh token used to refresh the access token.
 func (o SourceControlAuthInfoOutput) RefreshToken() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SourceControlAuthInfo) *string { return v.RefreshToken }).(pulumi.StringPtrOutput)
 }
 
-// The scope of the access token.
 func (o SourceControlAuthInfoOutput) Scope() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SourceControlAuthInfo) *string { return v.Scope }).(pulumi.StringPtrOutput)
 }
 
-// The access token used to access the source control provider.
 func (o SourceControlAuthInfoOutput) Token() pulumi.StringOutput {
 	return o.ApplyT(func(v SourceControlAuthInfo) string { return v.Token }).(pulumi.StringOutput)
 }
 
-// The type of Auth token.
 func (o SourceControlAuthInfoOutput) TokenType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SourceControlAuthInfo) *string { return v.TokenType }).(pulumi.StringPtrOutput)
 }
@@ -1064,10 +958,15 @@ func (o SourceControlAuthInfoPtrOutput) ToSourceControlAuthInfoPtrOutputWithCont
 }
 
 func (o SourceControlAuthInfoPtrOutput) Elem() SourceControlAuthInfoOutput {
-	return o.ApplyT(func(v *SourceControlAuthInfo) SourceControlAuthInfo { return *v }).(SourceControlAuthInfoOutput)
+	return o.ApplyT(func(v *SourceControlAuthInfo) SourceControlAuthInfo {
+		if v != nil {
+			return *v
+		}
+		var ret SourceControlAuthInfo
+		return ret
+	}).(SourceControlAuthInfoOutput)
 }
 
-// Time in seconds that the token remains valid
 func (o SourceControlAuthInfoPtrOutput) ExpiresIn() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *SourceControlAuthInfo) *int {
 		if v == nil {
@@ -1077,7 +976,6 @@ func (o SourceControlAuthInfoPtrOutput) ExpiresIn() pulumi.IntPtrOutput {
 	}).(pulumi.IntPtrOutput)
 }
 
-// The refresh token used to refresh the access token.
 func (o SourceControlAuthInfoPtrOutput) RefreshToken() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SourceControlAuthInfo) *string {
 		if v == nil {
@@ -1087,7 +985,6 @@ func (o SourceControlAuthInfoPtrOutput) RefreshToken() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The scope of the access token.
 func (o SourceControlAuthInfoPtrOutput) Scope() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SourceControlAuthInfo) *string {
 		if v == nil {
@@ -1097,7 +994,6 @@ func (o SourceControlAuthInfoPtrOutput) Scope() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The access token used to access the source control provider.
 func (o SourceControlAuthInfoPtrOutput) Token() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SourceControlAuthInfo) *string {
 		if v == nil {
@@ -1107,7 +1003,6 @@ func (o SourceControlAuthInfoPtrOutput) Token() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The type of Auth token.
 func (o SourceControlAuthInfoPtrOutput) TokenType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SourceControlAuthInfo) *string {
 		if v == nil {
@@ -1117,18 +1012,12 @@ func (o SourceControlAuthInfoPtrOutput) TokenType() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The authorization properties for accessing the source code repository.
 type SourceControlAuthInfoResponse struct {
-	// Time in seconds that the token remains valid
-	ExpiresIn *int `pulumi:"expiresIn"`
-	// The refresh token used to refresh the access token.
+	ExpiresIn    *int    `pulumi:"expiresIn"`
 	RefreshToken *string `pulumi:"refreshToken"`
-	// The scope of the access token.
-	Scope *string `pulumi:"scope"`
-	// The access token used to access the source control provider.
-	Token string `pulumi:"token"`
-	// The type of Auth token.
-	TokenType *string `pulumi:"tokenType"`
+	Scope        *string `pulumi:"scope"`
+	Token        string  `pulumi:"token"`
+	TokenType    *string `pulumi:"tokenType"`
 }
 
 // SourceControlAuthInfoResponseInput is an input type that accepts SourceControlAuthInfoResponseArgs and SourceControlAuthInfoResponseOutput values.
@@ -1142,18 +1031,12 @@ type SourceControlAuthInfoResponseInput interface {
 	ToSourceControlAuthInfoResponseOutputWithContext(context.Context) SourceControlAuthInfoResponseOutput
 }
 
-// The authorization properties for accessing the source code repository.
 type SourceControlAuthInfoResponseArgs struct {
-	// Time in seconds that the token remains valid
-	ExpiresIn pulumi.IntPtrInput `pulumi:"expiresIn"`
-	// The refresh token used to refresh the access token.
+	ExpiresIn    pulumi.IntPtrInput    `pulumi:"expiresIn"`
 	RefreshToken pulumi.StringPtrInput `pulumi:"refreshToken"`
-	// The scope of the access token.
-	Scope pulumi.StringPtrInput `pulumi:"scope"`
-	// The access token used to access the source control provider.
-	Token pulumi.StringInput `pulumi:"token"`
-	// The type of Auth token.
-	TokenType pulumi.StringPtrInput `pulumi:"tokenType"`
+	Scope        pulumi.StringPtrInput `pulumi:"scope"`
+	Token        pulumi.StringInput    `pulumi:"token"`
+	TokenType    pulumi.StringPtrInput `pulumi:"tokenType"`
 }
 
 func (SourceControlAuthInfoResponseArgs) ElementType() reflect.Type {
@@ -1209,7 +1092,6 @@ func (i *sourceControlAuthInfoResponsePtrType) ToSourceControlAuthInfoResponsePt
 	return pulumi.ToOutputWithContext(ctx, i).(SourceControlAuthInfoResponsePtrOutput)
 }
 
-// The authorization properties for accessing the source code repository.
 type SourceControlAuthInfoResponseOutput struct{ *pulumi.OutputState }
 
 func (SourceControlAuthInfoResponseOutput) ElementType() reflect.Type {
@@ -1229,32 +1111,27 @@ func (o SourceControlAuthInfoResponseOutput) ToSourceControlAuthInfoResponsePtrO
 }
 
 func (o SourceControlAuthInfoResponseOutput) ToSourceControlAuthInfoResponsePtrOutputWithContext(ctx context.Context) SourceControlAuthInfoResponsePtrOutput {
-	return o.ApplyT(func(v SourceControlAuthInfoResponse) *SourceControlAuthInfoResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v SourceControlAuthInfoResponse) *SourceControlAuthInfoResponse {
 		return &v
 	}).(SourceControlAuthInfoResponsePtrOutput)
 }
 
-// Time in seconds that the token remains valid
 func (o SourceControlAuthInfoResponseOutput) ExpiresIn() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v SourceControlAuthInfoResponse) *int { return v.ExpiresIn }).(pulumi.IntPtrOutput)
 }
 
-// The refresh token used to refresh the access token.
 func (o SourceControlAuthInfoResponseOutput) RefreshToken() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SourceControlAuthInfoResponse) *string { return v.RefreshToken }).(pulumi.StringPtrOutput)
 }
 
-// The scope of the access token.
 func (o SourceControlAuthInfoResponseOutput) Scope() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SourceControlAuthInfoResponse) *string { return v.Scope }).(pulumi.StringPtrOutput)
 }
 
-// The access token used to access the source control provider.
 func (o SourceControlAuthInfoResponseOutput) Token() pulumi.StringOutput {
 	return o.ApplyT(func(v SourceControlAuthInfoResponse) string { return v.Token }).(pulumi.StringOutput)
 }
 
-// The type of Auth token.
 func (o SourceControlAuthInfoResponseOutput) TokenType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SourceControlAuthInfoResponse) *string { return v.TokenType }).(pulumi.StringPtrOutput)
 }
@@ -1274,10 +1151,15 @@ func (o SourceControlAuthInfoResponsePtrOutput) ToSourceControlAuthInfoResponseP
 }
 
 func (o SourceControlAuthInfoResponsePtrOutput) Elem() SourceControlAuthInfoResponseOutput {
-	return o.ApplyT(func(v *SourceControlAuthInfoResponse) SourceControlAuthInfoResponse { return *v }).(SourceControlAuthInfoResponseOutput)
+	return o.ApplyT(func(v *SourceControlAuthInfoResponse) SourceControlAuthInfoResponse {
+		if v != nil {
+			return *v
+		}
+		var ret SourceControlAuthInfoResponse
+		return ret
+	}).(SourceControlAuthInfoResponseOutput)
 }
 
-// Time in seconds that the token remains valid
 func (o SourceControlAuthInfoResponsePtrOutput) ExpiresIn() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *SourceControlAuthInfoResponse) *int {
 		if v == nil {
@@ -1287,7 +1169,6 @@ func (o SourceControlAuthInfoResponsePtrOutput) ExpiresIn() pulumi.IntPtrOutput 
 	}).(pulumi.IntPtrOutput)
 }
 
-// The refresh token used to refresh the access token.
 func (o SourceControlAuthInfoResponsePtrOutput) RefreshToken() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SourceControlAuthInfoResponse) *string {
 		if v == nil {
@@ -1297,7 +1178,6 @@ func (o SourceControlAuthInfoResponsePtrOutput) RefreshToken() pulumi.StringPtrO
 	}).(pulumi.StringPtrOutput)
 }
 
-// The scope of the access token.
 func (o SourceControlAuthInfoResponsePtrOutput) Scope() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SourceControlAuthInfoResponse) *string {
 		if v == nil {
@@ -1307,7 +1187,6 @@ func (o SourceControlAuthInfoResponsePtrOutput) Scope() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The access token used to access the source control provider.
 func (o SourceControlAuthInfoResponsePtrOutput) Token() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SourceControlAuthInfoResponse) *string {
 		if v == nil {
@@ -1317,7 +1196,6 @@ func (o SourceControlAuthInfoResponsePtrOutput) Token() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The type of Auth token.
 func (o SourceControlAuthInfoResponsePtrOutput) TokenType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SourceControlAuthInfoResponse) *string {
 		if v == nil {
@@ -1327,16 +1205,11 @@ func (o SourceControlAuthInfoResponsePtrOutput) TokenType() pulumi.StringPtrOutp
 	}).(pulumi.StringPtrOutput)
 }
 
-// The properties of the source code repository.
 type SourceRepositoryProperties struct {
-	// The value of this property indicates whether the source control commit trigger is enabled or not.
-	IsCommitTriggerEnabled *bool `pulumi:"isCommitTriggerEnabled"`
-	// The full URL to the source code repository
-	RepositoryUrl string `pulumi:"repositoryUrl"`
-	// The authorization properties for accessing the source code repository.
+	IsCommitTriggerEnabled      *bool                  `pulumi:"isCommitTriggerEnabled"`
+	RepositoryUrl               string                 `pulumi:"repositoryUrl"`
 	SourceControlAuthProperties *SourceControlAuthInfo `pulumi:"sourceControlAuthProperties"`
-	// The type of source control service.
-	SourceControlType string `pulumi:"sourceControlType"`
+	SourceControlType           string                 `pulumi:"sourceControlType"`
 }
 
 // SourceRepositoryPropertiesInput is an input type that accepts SourceRepositoryPropertiesArgs and SourceRepositoryPropertiesOutput values.
@@ -1350,16 +1223,11 @@ type SourceRepositoryPropertiesInput interface {
 	ToSourceRepositoryPropertiesOutputWithContext(context.Context) SourceRepositoryPropertiesOutput
 }
 
-// The properties of the source code repository.
 type SourceRepositoryPropertiesArgs struct {
-	// The value of this property indicates whether the source control commit trigger is enabled or not.
-	IsCommitTriggerEnabled pulumi.BoolPtrInput `pulumi:"isCommitTriggerEnabled"`
-	// The full URL to the source code repository
-	RepositoryUrl pulumi.StringInput `pulumi:"repositoryUrl"`
-	// The authorization properties for accessing the source code repository.
+	IsCommitTriggerEnabled      pulumi.BoolPtrInput           `pulumi:"isCommitTriggerEnabled"`
+	RepositoryUrl               pulumi.StringInput            `pulumi:"repositoryUrl"`
 	SourceControlAuthProperties SourceControlAuthInfoPtrInput `pulumi:"sourceControlAuthProperties"`
-	// The type of source control service.
-	SourceControlType pulumi.StringInput `pulumi:"sourceControlType"`
+	SourceControlType           pulumi.StringInput            `pulumi:"sourceControlType"`
 }
 
 func (SourceRepositoryPropertiesArgs) ElementType() reflect.Type {
@@ -1415,7 +1283,6 @@ func (i *sourceRepositoryPropertiesPtrType) ToSourceRepositoryPropertiesPtrOutpu
 	return pulumi.ToOutputWithContext(ctx, i).(SourceRepositoryPropertiesPtrOutput)
 }
 
-// The properties of the source code repository.
 type SourceRepositoryPropertiesOutput struct{ *pulumi.OutputState }
 
 func (SourceRepositoryPropertiesOutput) ElementType() reflect.Type {
@@ -1435,27 +1302,23 @@ func (o SourceRepositoryPropertiesOutput) ToSourceRepositoryPropertiesPtrOutput(
 }
 
 func (o SourceRepositoryPropertiesOutput) ToSourceRepositoryPropertiesPtrOutputWithContext(ctx context.Context) SourceRepositoryPropertiesPtrOutput {
-	return o.ApplyT(func(v SourceRepositoryProperties) *SourceRepositoryProperties {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v SourceRepositoryProperties) *SourceRepositoryProperties {
 		return &v
 	}).(SourceRepositoryPropertiesPtrOutput)
 }
 
-// The value of this property indicates whether the source control commit trigger is enabled or not.
 func (o SourceRepositoryPropertiesOutput) IsCommitTriggerEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v SourceRepositoryProperties) *bool { return v.IsCommitTriggerEnabled }).(pulumi.BoolPtrOutput)
 }
 
-// The full URL to the source code repository
 func (o SourceRepositoryPropertiesOutput) RepositoryUrl() pulumi.StringOutput {
 	return o.ApplyT(func(v SourceRepositoryProperties) string { return v.RepositoryUrl }).(pulumi.StringOutput)
 }
 
-// The authorization properties for accessing the source code repository.
 func (o SourceRepositoryPropertiesOutput) SourceControlAuthProperties() SourceControlAuthInfoPtrOutput {
 	return o.ApplyT(func(v SourceRepositoryProperties) *SourceControlAuthInfo { return v.SourceControlAuthProperties }).(SourceControlAuthInfoPtrOutput)
 }
 
-// The type of source control service.
 func (o SourceRepositoryPropertiesOutput) SourceControlType() pulumi.StringOutput {
 	return o.ApplyT(func(v SourceRepositoryProperties) string { return v.SourceControlType }).(pulumi.StringOutput)
 }
@@ -1475,10 +1338,15 @@ func (o SourceRepositoryPropertiesPtrOutput) ToSourceRepositoryPropertiesPtrOutp
 }
 
 func (o SourceRepositoryPropertiesPtrOutput) Elem() SourceRepositoryPropertiesOutput {
-	return o.ApplyT(func(v *SourceRepositoryProperties) SourceRepositoryProperties { return *v }).(SourceRepositoryPropertiesOutput)
+	return o.ApplyT(func(v *SourceRepositoryProperties) SourceRepositoryProperties {
+		if v != nil {
+			return *v
+		}
+		var ret SourceRepositoryProperties
+		return ret
+	}).(SourceRepositoryPropertiesOutput)
 }
 
-// The value of this property indicates whether the source control commit trigger is enabled or not.
 func (o SourceRepositoryPropertiesPtrOutput) IsCommitTriggerEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *SourceRepositoryProperties) *bool {
 		if v == nil {
@@ -1488,7 +1356,6 @@ func (o SourceRepositoryPropertiesPtrOutput) IsCommitTriggerEnabled() pulumi.Boo
 	}).(pulumi.BoolPtrOutput)
 }
 
-// The full URL to the source code repository
 func (o SourceRepositoryPropertiesPtrOutput) RepositoryUrl() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SourceRepositoryProperties) *string {
 		if v == nil {
@@ -1498,7 +1365,6 @@ func (o SourceRepositoryPropertiesPtrOutput) RepositoryUrl() pulumi.StringPtrOut
 	}).(pulumi.StringPtrOutput)
 }
 
-// The authorization properties for accessing the source code repository.
 func (o SourceRepositoryPropertiesPtrOutput) SourceControlAuthProperties() SourceControlAuthInfoPtrOutput {
 	return o.ApplyT(func(v *SourceRepositoryProperties) *SourceControlAuthInfo {
 		if v == nil {
@@ -1508,7 +1374,6 @@ func (o SourceRepositoryPropertiesPtrOutput) SourceControlAuthProperties() Sourc
 	}).(SourceControlAuthInfoPtrOutput)
 }
 
-// The type of source control service.
 func (o SourceRepositoryPropertiesPtrOutput) SourceControlType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SourceRepositoryProperties) *string {
 		if v == nil {
@@ -1518,16 +1383,11 @@ func (o SourceRepositoryPropertiesPtrOutput) SourceControlType() pulumi.StringPt
 	}).(pulumi.StringPtrOutput)
 }
 
-// The properties of the source code repository.
 type SourceRepositoryPropertiesResponse struct {
-	// The value of this property indicates whether the source control commit trigger is enabled or not.
-	IsCommitTriggerEnabled *bool `pulumi:"isCommitTriggerEnabled"`
-	// The full URL to the source code repository
-	RepositoryUrl string `pulumi:"repositoryUrl"`
-	// The authorization properties for accessing the source code repository.
+	IsCommitTriggerEnabled      *bool                          `pulumi:"isCommitTriggerEnabled"`
+	RepositoryUrl               string                         `pulumi:"repositoryUrl"`
 	SourceControlAuthProperties *SourceControlAuthInfoResponse `pulumi:"sourceControlAuthProperties"`
-	// The type of source control service.
-	SourceControlType string `pulumi:"sourceControlType"`
+	SourceControlType           string                         `pulumi:"sourceControlType"`
 }
 
 // SourceRepositoryPropertiesResponseInput is an input type that accepts SourceRepositoryPropertiesResponseArgs and SourceRepositoryPropertiesResponseOutput values.
@@ -1541,16 +1401,11 @@ type SourceRepositoryPropertiesResponseInput interface {
 	ToSourceRepositoryPropertiesResponseOutputWithContext(context.Context) SourceRepositoryPropertiesResponseOutput
 }
 
-// The properties of the source code repository.
 type SourceRepositoryPropertiesResponseArgs struct {
-	// The value of this property indicates whether the source control commit trigger is enabled or not.
-	IsCommitTriggerEnabled pulumi.BoolPtrInput `pulumi:"isCommitTriggerEnabled"`
-	// The full URL to the source code repository
-	RepositoryUrl pulumi.StringInput `pulumi:"repositoryUrl"`
-	// The authorization properties for accessing the source code repository.
+	IsCommitTriggerEnabled      pulumi.BoolPtrInput                   `pulumi:"isCommitTriggerEnabled"`
+	RepositoryUrl               pulumi.StringInput                    `pulumi:"repositoryUrl"`
 	SourceControlAuthProperties SourceControlAuthInfoResponsePtrInput `pulumi:"sourceControlAuthProperties"`
-	// The type of source control service.
-	SourceControlType pulumi.StringInput `pulumi:"sourceControlType"`
+	SourceControlType           pulumi.StringInput                    `pulumi:"sourceControlType"`
 }
 
 func (SourceRepositoryPropertiesResponseArgs) ElementType() reflect.Type {
@@ -1606,7 +1461,6 @@ func (i *sourceRepositoryPropertiesResponsePtrType) ToSourceRepositoryProperties
 	return pulumi.ToOutputWithContext(ctx, i).(SourceRepositoryPropertiesResponsePtrOutput)
 }
 
-// The properties of the source code repository.
 type SourceRepositoryPropertiesResponseOutput struct{ *pulumi.OutputState }
 
 func (SourceRepositoryPropertiesResponseOutput) ElementType() reflect.Type {
@@ -1626,29 +1480,25 @@ func (o SourceRepositoryPropertiesResponseOutput) ToSourceRepositoryPropertiesRe
 }
 
 func (o SourceRepositoryPropertiesResponseOutput) ToSourceRepositoryPropertiesResponsePtrOutputWithContext(ctx context.Context) SourceRepositoryPropertiesResponsePtrOutput {
-	return o.ApplyT(func(v SourceRepositoryPropertiesResponse) *SourceRepositoryPropertiesResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v SourceRepositoryPropertiesResponse) *SourceRepositoryPropertiesResponse {
 		return &v
 	}).(SourceRepositoryPropertiesResponsePtrOutput)
 }
 
-// The value of this property indicates whether the source control commit trigger is enabled or not.
 func (o SourceRepositoryPropertiesResponseOutput) IsCommitTriggerEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v SourceRepositoryPropertiesResponse) *bool { return v.IsCommitTriggerEnabled }).(pulumi.BoolPtrOutput)
 }
 
-// The full URL to the source code repository
 func (o SourceRepositoryPropertiesResponseOutput) RepositoryUrl() pulumi.StringOutput {
 	return o.ApplyT(func(v SourceRepositoryPropertiesResponse) string { return v.RepositoryUrl }).(pulumi.StringOutput)
 }
 
-// The authorization properties for accessing the source code repository.
 func (o SourceRepositoryPropertiesResponseOutput) SourceControlAuthProperties() SourceControlAuthInfoResponsePtrOutput {
 	return o.ApplyT(func(v SourceRepositoryPropertiesResponse) *SourceControlAuthInfoResponse {
 		return v.SourceControlAuthProperties
 	}).(SourceControlAuthInfoResponsePtrOutput)
 }
 
-// The type of source control service.
 func (o SourceRepositoryPropertiesResponseOutput) SourceControlType() pulumi.StringOutput {
 	return o.ApplyT(func(v SourceRepositoryPropertiesResponse) string { return v.SourceControlType }).(pulumi.StringOutput)
 }
@@ -1668,10 +1518,15 @@ func (o SourceRepositoryPropertiesResponsePtrOutput) ToSourceRepositoryPropertie
 }
 
 func (o SourceRepositoryPropertiesResponsePtrOutput) Elem() SourceRepositoryPropertiesResponseOutput {
-	return o.ApplyT(func(v *SourceRepositoryPropertiesResponse) SourceRepositoryPropertiesResponse { return *v }).(SourceRepositoryPropertiesResponseOutput)
+	return o.ApplyT(func(v *SourceRepositoryPropertiesResponse) SourceRepositoryPropertiesResponse {
+		if v != nil {
+			return *v
+		}
+		var ret SourceRepositoryPropertiesResponse
+		return ret
+	}).(SourceRepositoryPropertiesResponseOutput)
 }
 
-// The value of this property indicates whether the source control commit trigger is enabled or not.
 func (o SourceRepositoryPropertiesResponsePtrOutput) IsCommitTriggerEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *SourceRepositoryPropertiesResponse) *bool {
 		if v == nil {
@@ -1681,7 +1536,6 @@ func (o SourceRepositoryPropertiesResponsePtrOutput) IsCommitTriggerEnabled() pu
 	}).(pulumi.BoolPtrOutput)
 }
 
-// The full URL to the source code repository
 func (o SourceRepositoryPropertiesResponsePtrOutput) RepositoryUrl() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SourceRepositoryPropertiesResponse) *string {
 		if v == nil {
@@ -1691,7 +1545,6 @@ func (o SourceRepositoryPropertiesResponsePtrOutput) RepositoryUrl() pulumi.Stri
 	}).(pulumi.StringPtrOutput)
 }
 
-// The authorization properties for accessing the source code repository.
 func (o SourceRepositoryPropertiesResponsePtrOutput) SourceControlAuthProperties() SourceControlAuthInfoResponsePtrOutput {
 	return o.ApplyT(func(v *SourceRepositoryPropertiesResponse) *SourceControlAuthInfoResponse {
 		if v == nil {
@@ -1701,7 +1554,6 @@ func (o SourceRepositoryPropertiesResponsePtrOutput) SourceControlAuthProperties
 	}).(SourceControlAuthInfoResponsePtrOutput)
 }
 
-// The type of source control service.
 func (o SourceRepositoryPropertiesResponsePtrOutput) SourceControlType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SourceRepositoryPropertiesResponse) *string {
 		if v == nil {

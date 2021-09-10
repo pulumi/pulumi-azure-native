@@ -150,9 +150,7 @@ func (i *QueueServiceProperties) ToQueueServicePropertiesOutputWithContext(ctx c
 	return pulumi.ToOutputWithContext(ctx, i).(QueueServicePropertiesOutput)
 }
 
-type QueueServicePropertiesOutput struct {
-	*pulumi.OutputState
-}
+type QueueServicePropertiesOutput struct{ *pulumi.OutputState }
 
 func (QueueServicePropertiesOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*QueueServiceProperties)(nil))

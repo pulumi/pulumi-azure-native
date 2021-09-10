@@ -10,11 +10,8 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Properties pertaining to the BlobNfsTarget.
 type BlobNfsTarget struct {
-	// Resource ID of the storage container.
-	Target *string `pulumi:"target"`
-	// Identifies the StorageCache usage model to be used for this storage target.
+	Target     *string `pulumi:"target"`
 	UsageModel *string `pulumi:"usageModel"`
 }
 
@@ -29,11 +26,8 @@ type BlobNfsTargetInput interface {
 	ToBlobNfsTargetOutputWithContext(context.Context) BlobNfsTargetOutput
 }
 
-// Properties pertaining to the BlobNfsTarget.
 type BlobNfsTargetArgs struct {
-	// Resource ID of the storage container.
-	Target pulumi.StringPtrInput `pulumi:"target"`
-	// Identifies the StorageCache usage model to be used for this storage target.
+	Target     pulumi.StringPtrInput `pulumi:"target"`
 	UsageModel pulumi.StringPtrInput `pulumi:"usageModel"`
 }
 
@@ -90,7 +84,6 @@ func (i *blobNfsTargetPtrType) ToBlobNfsTargetPtrOutputWithContext(ctx context.C
 	return pulumi.ToOutputWithContext(ctx, i).(BlobNfsTargetPtrOutput)
 }
 
-// Properties pertaining to the BlobNfsTarget.
 type BlobNfsTargetOutput struct{ *pulumi.OutputState }
 
 func (BlobNfsTargetOutput) ElementType() reflect.Type {
@@ -110,17 +103,15 @@ func (o BlobNfsTargetOutput) ToBlobNfsTargetPtrOutput() BlobNfsTargetPtrOutput {
 }
 
 func (o BlobNfsTargetOutput) ToBlobNfsTargetPtrOutputWithContext(ctx context.Context) BlobNfsTargetPtrOutput {
-	return o.ApplyT(func(v BlobNfsTarget) *BlobNfsTarget {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v BlobNfsTarget) *BlobNfsTarget {
 		return &v
 	}).(BlobNfsTargetPtrOutput)
 }
 
-// Resource ID of the storage container.
 func (o BlobNfsTargetOutput) Target() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v BlobNfsTarget) *string { return v.Target }).(pulumi.StringPtrOutput)
 }
 
-// Identifies the StorageCache usage model to be used for this storage target.
 func (o BlobNfsTargetOutput) UsageModel() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v BlobNfsTarget) *string { return v.UsageModel }).(pulumi.StringPtrOutput)
 }
@@ -140,10 +131,15 @@ func (o BlobNfsTargetPtrOutput) ToBlobNfsTargetPtrOutputWithContext(ctx context.
 }
 
 func (o BlobNfsTargetPtrOutput) Elem() BlobNfsTargetOutput {
-	return o.ApplyT(func(v *BlobNfsTarget) BlobNfsTarget { return *v }).(BlobNfsTargetOutput)
+	return o.ApplyT(func(v *BlobNfsTarget) BlobNfsTarget {
+		if v != nil {
+			return *v
+		}
+		var ret BlobNfsTarget
+		return ret
+	}).(BlobNfsTargetOutput)
 }
 
-// Resource ID of the storage container.
 func (o BlobNfsTargetPtrOutput) Target() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *BlobNfsTarget) *string {
 		if v == nil {
@@ -153,7 +149,6 @@ func (o BlobNfsTargetPtrOutput) Target() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Identifies the StorageCache usage model to be used for this storage target.
 func (o BlobNfsTargetPtrOutput) UsageModel() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *BlobNfsTarget) *string {
 		if v == nil {
@@ -163,11 +158,8 @@ func (o BlobNfsTargetPtrOutput) UsageModel() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Properties pertaining to the BlobNfsTarget.
 type BlobNfsTargetResponse struct {
-	// Resource ID of the storage container.
-	Target *string `pulumi:"target"`
-	// Identifies the StorageCache usage model to be used for this storage target.
+	Target     *string `pulumi:"target"`
 	UsageModel *string `pulumi:"usageModel"`
 }
 
@@ -182,11 +174,8 @@ type BlobNfsTargetResponseInput interface {
 	ToBlobNfsTargetResponseOutputWithContext(context.Context) BlobNfsTargetResponseOutput
 }
 
-// Properties pertaining to the BlobNfsTarget.
 type BlobNfsTargetResponseArgs struct {
-	// Resource ID of the storage container.
-	Target pulumi.StringPtrInput `pulumi:"target"`
-	// Identifies the StorageCache usage model to be used for this storage target.
+	Target     pulumi.StringPtrInput `pulumi:"target"`
 	UsageModel pulumi.StringPtrInput `pulumi:"usageModel"`
 }
 
@@ -243,7 +232,6 @@ func (i *blobNfsTargetResponsePtrType) ToBlobNfsTargetResponsePtrOutputWithConte
 	return pulumi.ToOutputWithContext(ctx, i).(BlobNfsTargetResponsePtrOutput)
 }
 
-// Properties pertaining to the BlobNfsTarget.
 type BlobNfsTargetResponseOutput struct{ *pulumi.OutputState }
 
 func (BlobNfsTargetResponseOutput) ElementType() reflect.Type {
@@ -263,17 +251,15 @@ func (o BlobNfsTargetResponseOutput) ToBlobNfsTargetResponsePtrOutput() BlobNfsT
 }
 
 func (o BlobNfsTargetResponseOutput) ToBlobNfsTargetResponsePtrOutputWithContext(ctx context.Context) BlobNfsTargetResponsePtrOutput {
-	return o.ApplyT(func(v BlobNfsTargetResponse) *BlobNfsTargetResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v BlobNfsTargetResponse) *BlobNfsTargetResponse {
 		return &v
 	}).(BlobNfsTargetResponsePtrOutput)
 }
 
-// Resource ID of the storage container.
 func (o BlobNfsTargetResponseOutput) Target() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v BlobNfsTargetResponse) *string { return v.Target }).(pulumi.StringPtrOutput)
 }
 
-// Identifies the StorageCache usage model to be used for this storage target.
 func (o BlobNfsTargetResponseOutput) UsageModel() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v BlobNfsTargetResponse) *string { return v.UsageModel }).(pulumi.StringPtrOutput)
 }
@@ -293,10 +279,15 @@ func (o BlobNfsTargetResponsePtrOutput) ToBlobNfsTargetResponsePtrOutputWithCont
 }
 
 func (o BlobNfsTargetResponsePtrOutput) Elem() BlobNfsTargetResponseOutput {
-	return o.ApplyT(func(v *BlobNfsTargetResponse) BlobNfsTargetResponse { return *v }).(BlobNfsTargetResponseOutput)
+	return o.ApplyT(func(v *BlobNfsTargetResponse) BlobNfsTargetResponse {
+		if v != nil {
+			return *v
+		}
+		var ret BlobNfsTargetResponse
+		return ret
+	}).(BlobNfsTargetResponseOutput)
 }
 
-// Resource ID of the storage container.
 func (o BlobNfsTargetResponsePtrOutput) Target() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *BlobNfsTargetResponse) *string {
 		if v == nil {
@@ -306,7 +297,6 @@ func (o BlobNfsTargetResponsePtrOutput) Target() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Identifies the StorageCache usage model to be used for this storage target.
 func (o BlobNfsTargetResponsePtrOutput) UsageModel() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *BlobNfsTargetResponse) *string {
 		if v == nil {
@@ -316,20 +306,13 @@ func (o BlobNfsTargetResponsePtrOutput) UsageModel() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Active Directory settings used to join a cache to a domain.
 type CacheActiveDirectorySettings struct {
-	// The NetBIOS name to assign to the HPC Cache when it joins the Active Directory domain as a server. Length must 1-15 characters from the class [-0-9a-zA-Z].
-	CacheNetBiosName string `pulumi:"cacheNetBiosName"`
-	// Active Directory admin credentials used to join the HPC Cache to a domain.
-	Credentials *CacheActiveDirectorySettingsCredentials `pulumi:"credentials"`
-	// The fully qualified domain name of the Active Directory domain controller.
-	DomainName string `pulumi:"domainName"`
-	// The Active Directory domain's NetBIOS name.
-	DomainNetBiosName string `pulumi:"domainNetBiosName"`
-	// Primary DNS IP address used to resolve the Active Directory domain controller's fully qualified domain name.
-	PrimaryDnsIpAddress string `pulumi:"primaryDnsIpAddress"`
-	// Secondary DNS IP address used to resolve the Active Directory domain controller's fully qualified domain name.
-	SecondaryDnsIpAddress *string `pulumi:"secondaryDnsIpAddress"`
+	CacheNetBiosName      string                                   `pulumi:"cacheNetBiosName"`
+	Credentials           *CacheActiveDirectorySettingsCredentials `pulumi:"credentials"`
+	DomainName            string                                   `pulumi:"domainName"`
+	DomainNetBiosName     string                                   `pulumi:"domainNetBiosName"`
+	PrimaryDnsIpAddress   string                                   `pulumi:"primaryDnsIpAddress"`
+	SecondaryDnsIpAddress *string                                  `pulumi:"secondaryDnsIpAddress"`
 }
 
 // CacheActiveDirectorySettingsInput is an input type that accepts CacheActiveDirectorySettingsArgs and CacheActiveDirectorySettingsOutput values.
@@ -343,20 +326,13 @@ type CacheActiveDirectorySettingsInput interface {
 	ToCacheActiveDirectorySettingsOutputWithContext(context.Context) CacheActiveDirectorySettingsOutput
 }
 
-// Active Directory settings used to join a cache to a domain.
 type CacheActiveDirectorySettingsArgs struct {
-	// The NetBIOS name to assign to the HPC Cache when it joins the Active Directory domain as a server. Length must 1-15 characters from the class [-0-9a-zA-Z].
-	CacheNetBiosName pulumi.StringInput `pulumi:"cacheNetBiosName"`
-	// Active Directory admin credentials used to join the HPC Cache to a domain.
-	Credentials CacheActiveDirectorySettingsCredentialsPtrInput `pulumi:"credentials"`
-	// The fully qualified domain name of the Active Directory domain controller.
-	DomainName pulumi.StringInput `pulumi:"domainName"`
-	// The Active Directory domain's NetBIOS name.
-	DomainNetBiosName pulumi.StringInput `pulumi:"domainNetBiosName"`
-	// Primary DNS IP address used to resolve the Active Directory domain controller's fully qualified domain name.
-	PrimaryDnsIpAddress pulumi.StringInput `pulumi:"primaryDnsIpAddress"`
-	// Secondary DNS IP address used to resolve the Active Directory domain controller's fully qualified domain name.
-	SecondaryDnsIpAddress pulumi.StringPtrInput `pulumi:"secondaryDnsIpAddress"`
+	CacheNetBiosName      pulumi.StringInput                              `pulumi:"cacheNetBiosName"`
+	Credentials           CacheActiveDirectorySettingsCredentialsPtrInput `pulumi:"credentials"`
+	DomainName            pulumi.StringInput                              `pulumi:"domainName"`
+	DomainNetBiosName     pulumi.StringInput                              `pulumi:"domainNetBiosName"`
+	PrimaryDnsIpAddress   pulumi.StringInput                              `pulumi:"primaryDnsIpAddress"`
+	SecondaryDnsIpAddress pulumi.StringPtrInput                           `pulumi:"secondaryDnsIpAddress"`
 }
 
 func (CacheActiveDirectorySettingsArgs) ElementType() reflect.Type {
@@ -412,7 +388,6 @@ func (i *cacheActiveDirectorySettingsPtrType) ToCacheActiveDirectorySettingsPtrO
 	return pulumi.ToOutputWithContext(ctx, i).(CacheActiveDirectorySettingsPtrOutput)
 }
 
-// Active Directory settings used to join a cache to a domain.
 type CacheActiveDirectorySettingsOutput struct{ *pulumi.OutputState }
 
 func (CacheActiveDirectorySettingsOutput) ElementType() reflect.Type {
@@ -432,37 +407,31 @@ func (o CacheActiveDirectorySettingsOutput) ToCacheActiveDirectorySettingsPtrOut
 }
 
 func (o CacheActiveDirectorySettingsOutput) ToCacheActiveDirectorySettingsPtrOutputWithContext(ctx context.Context) CacheActiveDirectorySettingsPtrOutput {
-	return o.ApplyT(func(v CacheActiveDirectorySettings) *CacheActiveDirectorySettings {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v CacheActiveDirectorySettings) *CacheActiveDirectorySettings {
 		return &v
 	}).(CacheActiveDirectorySettingsPtrOutput)
 }
 
-// The NetBIOS name to assign to the HPC Cache when it joins the Active Directory domain as a server. Length must 1-15 characters from the class [-0-9a-zA-Z].
 func (o CacheActiveDirectorySettingsOutput) CacheNetBiosName() pulumi.StringOutput {
 	return o.ApplyT(func(v CacheActiveDirectorySettings) string { return v.CacheNetBiosName }).(pulumi.StringOutput)
 }
 
-// Active Directory admin credentials used to join the HPC Cache to a domain.
 func (o CacheActiveDirectorySettingsOutput) Credentials() CacheActiveDirectorySettingsCredentialsPtrOutput {
 	return o.ApplyT(func(v CacheActiveDirectorySettings) *CacheActiveDirectorySettingsCredentials { return v.Credentials }).(CacheActiveDirectorySettingsCredentialsPtrOutput)
 }
 
-// The fully qualified domain name of the Active Directory domain controller.
 func (o CacheActiveDirectorySettingsOutput) DomainName() pulumi.StringOutput {
 	return o.ApplyT(func(v CacheActiveDirectorySettings) string { return v.DomainName }).(pulumi.StringOutput)
 }
 
-// The Active Directory domain's NetBIOS name.
 func (o CacheActiveDirectorySettingsOutput) DomainNetBiosName() pulumi.StringOutput {
 	return o.ApplyT(func(v CacheActiveDirectorySettings) string { return v.DomainNetBiosName }).(pulumi.StringOutput)
 }
 
-// Primary DNS IP address used to resolve the Active Directory domain controller's fully qualified domain name.
 func (o CacheActiveDirectorySettingsOutput) PrimaryDnsIpAddress() pulumi.StringOutput {
 	return o.ApplyT(func(v CacheActiveDirectorySettings) string { return v.PrimaryDnsIpAddress }).(pulumi.StringOutput)
 }
 
-// Secondary DNS IP address used to resolve the Active Directory domain controller's fully qualified domain name.
 func (o CacheActiveDirectorySettingsOutput) SecondaryDnsIpAddress() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v CacheActiveDirectorySettings) *string { return v.SecondaryDnsIpAddress }).(pulumi.StringPtrOutput)
 }
@@ -482,10 +451,15 @@ func (o CacheActiveDirectorySettingsPtrOutput) ToCacheActiveDirectorySettingsPtr
 }
 
 func (o CacheActiveDirectorySettingsPtrOutput) Elem() CacheActiveDirectorySettingsOutput {
-	return o.ApplyT(func(v *CacheActiveDirectorySettings) CacheActiveDirectorySettings { return *v }).(CacheActiveDirectorySettingsOutput)
+	return o.ApplyT(func(v *CacheActiveDirectorySettings) CacheActiveDirectorySettings {
+		if v != nil {
+			return *v
+		}
+		var ret CacheActiveDirectorySettings
+		return ret
+	}).(CacheActiveDirectorySettingsOutput)
 }
 
-// The NetBIOS name to assign to the HPC Cache when it joins the Active Directory domain as a server. Length must 1-15 characters from the class [-0-9a-zA-Z].
 func (o CacheActiveDirectorySettingsPtrOutput) CacheNetBiosName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *CacheActiveDirectorySettings) *string {
 		if v == nil {
@@ -495,7 +469,6 @@ func (o CacheActiveDirectorySettingsPtrOutput) CacheNetBiosName() pulumi.StringP
 	}).(pulumi.StringPtrOutput)
 }
 
-// Active Directory admin credentials used to join the HPC Cache to a domain.
 func (o CacheActiveDirectorySettingsPtrOutput) Credentials() CacheActiveDirectorySettingsCredentialsPtrOutput {
 	return o.ApplyT(func(v *CacheActiveDirectorySettings) *CacheActiveDirectorySettingsCredentials {
 		if v == nil {
@@ -505,7 +478,6 @@ func (o CacheActiveDirectorySettingsPtrOutput) Credentials() CacheActiveDirector
 	}).(CacheActiveDirectorySettingsCredentialsPtrOutput)
 }
 
-// The fully qualified domain name of the Active Directory domain controller.
 func (o CacheActiveDirectorySettingsPtrOutput) DomainName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *CacheActiveDirectorySettings) *string {
 		if v == nil {
@@ -515,7 +487,6 @@ func (o CacheActiveDirectorySettingsPtrOutput) DomainName() pulumi.StringPtrOutp
 	}).(pulumi.StringPtrOutput)
 }
 
-// The Active Directory domain's NetBIOS name.
 func (o CacheActiveDirectorySettingsPtrOutput) DomainNetBiosName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *CacheActiveDirectorySettings) *string {
 		if v == nil {
@@ -525,7 +496,6 @@ func (o CacheActiveDirectorySettingsPtrOutput) DomainNetBiosName() pulumi.String
 	}).(pulumi.StringPtrOutput)
 }
 
-// Primary DNS IP address used to resolve the Active Directory domain controller's fully qualified domain name.
 func (o CacheActiveDirectorySettingsPtrOutput) PrimaryDnsIpAddress() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *CacheActiveDirectorySettings) *string {
 		if v == nil {
@@ -535,7 +505,6 @@ func (o CacheActiveDirectorySettingsPtrOutput) PrimaryDnsIpAddress() pulumi.Stri
 	}).(pulumi.StringPtrOutput)
 }
 
-// Secondary DNS IP address used to resolve the Active Directory domain controller's fully qualified domain name.
 func (o CacheActiveDirectorySettingsPtrOutput) SecondaryDnsIpAddress() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *CacheActiveDirectorySettings) *string {
 		if v == nil {
@@ -545,11 +514,8 @@ func (o CacheActiveDirectorySettingsPtrOutput) SecondaryDnsIpAddress() pulumi.St
 	}).(pulumi.StringPtrOutput)
 }
 
-// Active Directory admin credentials used to join the HPC Cache to a domain.
 type CacheActiveDirectorySettingsCredentials struct {
-	// Plain text password of the Active Directory domain administrator. This value is stored encrypted and not returned on response.
 	Password string `pulumi:"password"`
-	// Username of the Active Directory domain administrator. This value is stored encrypted and not returned on response.
 	Username string `pulumi:"username"`
 }
 
@@ -564,11 +530,8 @@ type CacheActiveDirectorySettingsCredentialsInput interface {
 	ToCacheActiveDirectorySettingsCredentialsOutputWithContext(context.Context) CacheActiveDirectorySettingsCredentialsOutput
 }
 
-// Active Directory admin credentials used to join the HPC Cache to a domain.
 type CacheActiveDirectorySettingsCredentialsArgs struct {
-	// Plain text password of the Active Directory domain administrator. This value is stored encrypted and not returned on response.
 	Password pulumi.StringInput `pulumi:"password"`
-	// Username of the Active Directory domain administrator. This value is stored encrypted and not returned on response.
 	Username pulumi.StringInput `pulumi:"username"`
 }
 
@@ -625,7 +588,6 @@ func (i *cacheActiveDirectorySettingsCredentialsPtrType) ToCacheActiveDirectoryS
 	return pulumi.ToOutputWithContext(ctx, i).(CacheActiveDirectorySettingsCredentialsPtrOutput)
 }
 
-// Active Directory admin credentials used to join the HPC Cache to a domain.
 type CacheActiveDirectorySettingsCredentialsOutput struct{ *pulumi.OutputState }
 
 func (CacheActiveDirectorySettingsCredentialsOutput) ElementType() reflect.Type {
@@ -645,17 +607,15 @@ func (o CacheActiveDirectorySettingsCredentialsOutput) ToCacheActiveDirectorySet
 }
 
 func (o CacheActiveDirectorySettingsCredentialsOutput) ToCacheActiveDirectorySettingsCredentialsPtrOutputWithContext(ctx context.Context) CacheActiveDirectorySettingsCredentialsPtrOutput {
-	return o.ApplyT(func(v CacheActiveDirectorySettingsCredentials) *CacheActiveDirectorySettingsCredentials {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v CacheActiveDirectorySettingsCredentials) *CacheActiveDirectorySettingsCredentials {
 		return &v
 	}).(CacheActiveDirectorySettingsCredentialsPtrOutput)
 }
 
-// Plain text password of the Active Directory domain administrator. This value is stored encrypted and not returned on response.
 func (o CacheActiveDirectorySettingsCredentialsOutput) Password() pulumi.StringOutput {
 	return o.ApplyT(func(v CacheActiveDirectorySettingsCredentials) string { return v.Password }).(pulumi.StringOutput)
 }
 
-// Username of the Active Directory domain administrator. This value is stored encrypted and not returned on response.
 func (o CacheActiveDirectorySettingsCredentialsOutput) Username() pulumi.StringOutput {
 	return o.ApplyT(func(v CacheActiveDirectorySettingsCredentials) string { return v.Username }).(pulumi.StringOutput)
 }
@@ -675,10 +635,15 @@ func (o CacheActiveDirectorySettingsCredentialsPtrOutput) ToCacheActiveDirectory
 }
 
 func (o CacheActiveDirectorySettingsCredentialsPtrOutput) Elem() CacheActiveDirectorySettingsCredentialsOutput {
-	return o.ApplyT(func(v *CacheActiveDirectorySettingsCredentials) CacheActiveDirectorySettingsCredentials { return *v }).(CacheActiveDirectorySettingsCredentialsOutput)
+	return o.ApplyT(func(v *CacheActiveDirectorySettingsCredentials) CacheActiveDirectorySettingsCredentials {
+		if v != nil {
+			return *v
+		}
+		var ret CacheActiveDirectorySettingsCredentials
+		return ret
+	}).(CacheActiveDirectorySettingsCredentialsOutput)
 }
 
-// Plain text password of the Active Directory domain administrator. This value is stored encrypted and not returned on response.
 func (o CacheActiveDirectorySettingsCredentialsPtrOutput) Password() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *CacheActiveDirectorySettingsCredentials) *string {
 		if v == nil {
@@ -688,7 +653,6 @@ func (o CacheActiveDirectorySettingsCredentialsPtrOutput) Password() pulumi.Stri
 	}).(pulumi.StringPtrOutput)
 }
 
-// Username of the Active Directory domain administrator. This value is stored encrypted and not returned on response.
 func (o CacheActiveDirectorySettingsCredentialsPtrOutput) Username() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *CacheActiveDirectorySettingsCredentials) *string {
 		if v == nil {
@@ -698,22 +662,14 @@ func (o CacheActiveDirectorySettingsCredentialsPtrOutput) Username() pulumi.Stri
 	}).(pulumi.StringPtrOutput)
 }
 
-// Active Directory settings used to join a cache to a domain.
 type CacheActiveDirectorySettingsResponse struct {
-	// The NetBIOS name to assign to the HPC Cache when it joins the Active Directory domain as a server. Length must 1-15 characters from the class [-0-9a-zA-Z].
-	CacheNetBiosName string `pulumi:"cacheNetBiosName"`
-	// Active Directory admin credentials used to join the HPC Cache to a domain.
-	Credentials *CacheActiveDirectorySettingsResponseCredentials `pulumi:"credentials"`
-	// True if the HPC Cache is joined to the Active Directory domain.
-	DomainJoined string `pulumi:"domainJoined"`
-	// The fully qualified domain name of the Active Directory domain controller.
-	DomainName string `pulumi:"domainName"`
-	// The Active Directory domain's NetBIOS name.
-	DomainNetBiosName string `pulumi:"domainNetBiosName"`
-	// Primary DNS IP address used to resolve the Active Directory domain controller's fully qualified domain name.
-	PrimaryDnsIpAddress string `pulumi:"primaryDnsIpAddress"`
-	// Secondary DNS IP address used to resolve the Active Directory domain controller's fully qualified domain name.
-	SecondaryDnsIpAddress *string `pulumi:"secondaryDnsIpAddress"`
+	CacheNetBiosName      string                                           `pulumi:"cacheNetBiosName"`
+	Credentials           *CacheActiveDirectorySettingsResponseCredentials `pulumi:"credentials"`
+	DomainJoined          string                                           `pulumi:"domainJoined"`
+	DomainName            string                                           `pulumi:"domainName"`
+	DomainNetBiosName     string                                           `pulumi:"domainNetBiosName"`
+	PrimaryDnsIpAddress   string                                           `pulumi:"primaryDnsIpAddress"`
+	SecondaryDnsIpAddress *string                                          `pulumi:"secondaryDnsIpAddress"`
 }
 
 // CacheActiveDirectorySettingsResponseInput is an input type that accepts CacheActiveDirectorySettingsResponseArgs and CacheActiveDirectorySettingsResponseOutput values.
@@ -727,22 +683,14 @@ type CacheActiveDirectorySettingsResponseInput interface {
 	ToCacheActiveDirectorySettingsResponseOutputWithContext(context.Context) CacheActiveDirectorySettingsResponseOutput
 }
 
-// Active Directory settings used to join a cache to a domain.
 type CacheActiveDirectorySettingsResponseArgs struct {
-	// The NetBIOS name to assign to the HPC Cache when it joins the Active Directory domain as a server. Length must 1-15 characters from the class [-0-9a-zA-Z].
-	CacheNetBiosName pulumi.StringInput `pulumi:"cacheNetBiosName"`
-	// Active Directory admin credentials used to join the HPC Cache to a domain.
-	Credentials CacheActiveDirectorySettingsResponseCredentialsPtrInput `pulumi:"credentials"`
-	// True if the HPC Cache is joined to the Active Directory domain.
-	DomainJoined pulumi.StringInput `pulumi:"domainJoined"`
-	// The fully qualified domain name of the Active Directory domain controller.
-	DomainName pulumi.StringInput `pulumi:"domainName"`
-	// The Active Directory domain's NetBIOS name.
-	DomainNetBiosName pulumi.StringInput `pulumi:"domainNetBiosName"`
-	// Primary DNS IP address used to resolve the Active Directory domain controller's fully qualified domain name.
-	PrimaryDnsIpAddress pulumi.StringInput `pulumi:"primaryDnsIpAddress"`
-	// Secondary DNS IP address used to resolve the Active Directory domain controller's fully qualified domain name.
-	SecondaryDnsIpAddress pulumi.StringPtrInput `pulumi:"secondaryDnsIpAddress"`
+	CacheNetBiosName      pulumi.StringInput                                      `pulumi:"cacheNetBiosName"`
+	Credentials           CacheActiveDirectorySettingsResponseCredentialsPtrInput `pulumi:"credentials"`
+	DomainJoined          pulumi.StringInput                                      `pulumi:"domainJoined"`
+	DomainName            pulumi.StringInput                                      `pulumi:"domainName"`
+	DomainNetBiosName     pulumi.StringInput                                      `pulumi:"domainNetBiosName"`
+	PrimaryDnsIpAddress   pulumi.StringInput                                      `pulumi:"primaryDnsIpAddress"`
+	SecondaryDnsIpAddress pulumi.StringPtrInput                                   `pulumi:"secondaryDnsIpAddress"`
 }
 
 func (CacheActiveDirectorySettingsResponseArgs) ElementType() reflect.Type {
@@ -798,7 +746,6 @@ func (i *cacheActiveDirectorySettingsResponsePtrType) ToCacheActiveDirectorySett
 	return pulumi.ToOutputWithContext(ctx, i).(CacheActiveDirectorySettingsResponsePtrOutput)
 }
 
-// Active Directory settings used to join a cache to a domain.
 type CacheActiveDirectorySettingsResponseOutput struct{ *pulumi.OutputState }
 
 func (CacheActiveDirectorySettingsResponseOutput) ElementType() reflect.Type {
@@ -818,44 +765,37 @@ func (o CacheActiveDirectorySettingsResponseOutput) ToCacheActiveDirectorySettin
 }
 
 func (o CacheActiveDirectorySettingsResponseOutput) ToCacheActiveDirectorySettingsResponsePtrOutputWithContext(ctx context.Context) CacheActiveDirectorySettingsResponsePtrOutput {
-	return o.ApplyT(func(v CacheActiveDirectorySettingsResponse) *CacheActiveDirectorySettingsResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v CacheActiveDirectorySettingsResponse) *CacheActiveDirectorySettingsResponse {
 		return &v
 	}).(CacheActiveDirectorySettingsResponsePtrOutput)
 }
 
-// The NetBIOS name to assign to the HPC Cache when it joins the Active Directory domain as a server. Length must 1-15 characters from the class [-0-9a-zA-Z].
 func (o CacheActiveDirectorySettingsResponseOutput) CacheNetBiosName() pulumi.StringOutput {
 	return o.ApplyT(func(v CacheActiveDirectorySettingsResponse) string { return v.CacheNetBiosName }).(pulumi.StringOutput)
 }
 
-// Active Directory admin credentials used to join the HPC Cache to a domain.
 func (o CacheActiveDirectorySettingsResponseOutput) Credentials() CacheActiveDirectorySettingsResponseCredentialsPtrOutput {
 	return o.ApplyT(func(v CacheActiveDirectorySettingsResponse) *CacheActiveDirectorySettingsResponseCredentials {
 		return v.Credentials
 	}).(CacheActiveDirectorySettingsResponseCredentialsPtrOutput)
 }
 
-// True if the HPC Cache is joined to the Active Directory domain.
 func (o CacheActiveDirectorySettingsResponseOutput) DomainJoined() pulumi.StringOutput {
 	return o.ApplyT(func(v CacheActiveDirectorySettingsResponse) string { return v.DomainJoined }).(pulumi.StringOutput)
 }
 
-// The fully qualified domain name of the Active Directory domain controller.
 func (o CacheActiveDirectorySettingsResponseOutput) DomainName() pulumi.StringOutput {
 	return o.ApplyT(func(v CacheActiveDirectorySettingsResponse) string { return v.DomainName }).(pulumi.StringOutput)
 }
 
-// The Active Directory domain's NetBIOS name.
 func (o CacheActiveDirectorySettingsResponseOutput) DomainNetBiosName() pulumi.StringOutput {
 	return o.ApplyT(func(v CacheActiveDirectorySettingsResponse) string { return v.DomainNetBiosName }).(pulumi.StringOutput)
 }
 
-// Primary DNS IP address used to resolve the Active Directory domain controller's fully qualified domain name.
 func (o CacheActiveDirectorySettingsResponseOutput) PrimaryDnsIpAddress() pulumi.StringOutput {
 	return o.ApplyT(func(v CacheActiveDirectorySettingsResponse) string { return v.PrimaryDnsIpAddress }).(pulumi.StringOutput)
 }
 
-// Secondary DNS IP address used to resolve the Active Directory domain controller's fully qualified domain name.
 func (o CacheActiveDirectorySettingsResponseOutput) SecondaryDnsIpAddress() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v CacheActiveDirectorySettingsResponse) *string { return v.SecondaryDnsIpAddress }).(pulumi.StringPtrOutput)
 }
@@ -875,10 +815,15 @@ func (o CacheActiveDirectorySettingsResponsePtrOutput) ToCacheActiveDirectorySet
 }
 
 func (o CacheActiveDirectorySettingsResponsePtrOutput) Elem() CacheActiveDirectorySettingsResponseOutput {
-	return o.ApplyT(func(v *CacheActiveDirectorySettingsResponse) CacheActiveDirectorySettingsResponse { return *v }).(CacheActiveDirectorySettingsResponseOutput)
+	return o.ApplyT(func(v *CacheActiveDirectorySettingsResponse) CacheActiveDirectorySettingsResponse {
+		if v != nil {
+			return *v
+		}
+		var ret CacheActiveDirectorySettingsResponse
+		return ret
+	}).(CacheActiveDirectorySettingsResponseOutput)
 }
 
-// The NetBIOS name to assign to the HPC Cache when it joins the Active Directory domain as a server. Length must 1-15 characters from the class [-0-9a-zA-Z].
 func (o CacheActiveDirectorySettingsResponsePtrOutput) CacheNetBiosName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *CacheActiveDirectorySettingsResponse) *string {
 		if v == nil {
@@ -888,7 +833,6 @@ func (o CacheActiveDirectorySettingsResponsePtrOutput) CacheNetBiosName() pulumi
 	}).(pulumi.StringPtrOutput)
 }
 
-// Active Directory admin credentials used to join the HPC Cache to a domain.
 func (o CacheActiveDirectorySettingsResponsePtrOutput) Credentials() CacheActiveDirectorySettingsResponseCredentialsPtrOutput {
 	return o.ApplyT(func(v *CacheActiveDirectorySettingsResponse) *CacheActiveDirectorySettingsResponseCredentials {
 		if v == nil {
@@ -898,7 +842,6 @@ func (o CacheActiveDirectorySettingsResponsePtrOutput) Credentials() CacheActive
 	}).(CacheActiveDirectorySettingsResponseCredentialsPtrOutput)
 }
 
-// True if the HPC Cache is joined to the Active Directory domain.
 func (o CacheActiveDirectorySettingsResponsePtrOutput) DomainJoined() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *CacheActiveDirectorySettingsResponse) *string {
 		if v == nil {
@@ -908,7 +851,6 @@ func (o CacheActiveDirectorySettingsResponsePtrOutput) DomainJoined() pulumi.Str
 	}).(pulumi.StringPtrOutput)
 }
 
-// The fully qualified domain name of the Active Directory domain controller.
 func (o CacheActiveDirectorySettingsResponsePtrOutput) DomainName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *CacheActiveDirectorySettingsResponse) *string {
 		if v == nil {
@@ -918,7 +860,6 @@ func (o CacheActiveDirectorySettingsResponsePtrOutput) DomainName() pulumi.Strin
 	}).(pulumi.StringPtrOutput)
 }
 
-// The Active Directory domain's NetBIOS name.
 func (o CacheActiveDirectorySettingsResponsePtrOutput) DomainNetBiosName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *CacheActiveDirectorySettingsResponse) *string {
 		if v == nil {
@@ -928,7 +869,6 @@ func (o CacheActiveDirectorySettingsResponsePtrOutput) DomainNetBiosName() pulum
 	}).(pulumi.StringPtrOutput)
 }
 
-// Primary DNS IP address used to resolve the Active Directory domain controller's fully qualified domain name.
 func (o CacheActiveDirectorySettingsResponsePtrOutput) PrimaryDnsIpAddress() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *CacheActiveDirectorySettingsResponse) *string {
 		if v == nil {
@@ -938,7 +878,6 @@ func (o CacheActiveDirectorySettingsResponsePtrOutput) PrimaryDnsIpAddress() pul
 	}).(pulumi.StringPtrOutput)
 }
 
-// Secondary DNS IP address used to resolve the Active Directory domain controller's fully qualified domain name.
 func (o CacheActiveDirectorySettingsResponsePtrOutput) SecondaryDnsIpAddress() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *CacheActiveDirectorySettingsResponse) *string {
 		if v == nil {
@@ -948,11 +887,8 @@ func (o CacheActiveDirectorySettingsResponsePtrOutput) SecondaryDnsIpAddress() p
 	}).(pulumi.StringPtrOutput)
 }
 
-// Active Directory admin credentials used to join the HPC Cache to a domain.
 type CacheActiveDirectorySettingsResponseCredentials struct {
-	// Plain text password of the Active Directory domain administrator. This value is stored encrypted and not returned on response.
 	Password string `pulumi:"password"`
-	// Username of the Active Directory domain administrator. This value is stored encrypted and not returned on response.
 	Username string `pulumi:"username"`
 }
 
@@ -967,11 +903,8 @@ type CacheActiveDirectorySettingsResponseCredentialsInput interface {
 	ToCacheActiveDirectorySettingsResponseCredentialsOutputWithContext(context.Context) CacheActiveDirectorySettingsResponseCredentialsOutput
 }
 
-// Active Directory admin credentials used to join the HPC Cache to a domain.
 type CacheActiveDirectorySettingsResponseCredentialsArgs struct {
-	// Plain text password of the Active Directory domain administrator. This value is stored encrypted and not returned on response.
 	Password pulumi.StringInput `pulumi:"password"`
-	// Username of the Active Directory domain administrator. This value is stored encrypted and not returned on response.
 	Username pulumi.StringInput `pulumi:"username"`
 }
 
@@ -1028,7 +961,6 @@ func (i *cacheActiveDirectorySettingsResponseCredentialsPtrType) ToCacheActiveDi
 	return pulumi.ToOutputWithContext(ctx, i).(CacheActiveDirectorySettingsResponseCredentialsPtrOutput)
 }
 
-// Active Directory admin credentials used to join the HPC Cache to a domain.
 type CacheActiveDirectorySettingsResponseCredentialsOutput struct{ *pulumi.OutputState }
 
 func (CacheActiveDirectorySettingsResponseCredentialsOutput) ElementType() reflect.Type {
@@ -1048,17 +980,15 @@ func (o CacheActiveDirectorySettingsResponseCredentialsOutput) ToCacheActiveDire
 }
 
 func (o CacheActiveDirectorySettingsResponseCredentialsOutput) ToCacheActiveDirectorySettingsResponseCredentialsPtrOutputWithContext(ctx context.Context) CacheActiveDirectorySettingsResponseCredentialsPtrOutput {
-	return o.ApplyT(func(v CacheActiveDirectorySettingsResponseCredentials) *CacheActiveDirectorySettingsResponseCredentials {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v CacheActiveDirectorySettingsResponseCredentials) *CacheActiveDirectorySettingsResponseCredentials {
 		return &v
 	}).(CacheActiveDirectorySettingsResponseCredentialsPtrOutput)
 }
 
-// Plain text password of the Active Directory domain administrator. This value is stored encrypted and not returned on response.
 func (o CacheActiveDirectorySettingsResponseCredentialsOutput) Password() pulumi.StringOutput {
 	return o.ApplyT(func(v CacheActiveDirectorySettingsResponseCredentials) string { return v.Password }).(pulumi.StringOutput)
 }
 
-// Username of the Active Directory domain administrator. This value is stored encrypted and not returned on response.
 func (o CacheActiveDirectorySettingsResponseCredentialsOutput) Username() pulumi.StringOutput {
 	return o.ApplyT(func(v CacheActiveDirectorySettingsResponseCredentials) string { return v.Username }).(pulumi.StringOutput)
 }
@@ -1079,11 +1009,14 @@ func (o CacheActiveDirectorySettingsResponseCredentialsPtrOutput) ToCacheActiveD
 
 func (o CacheActiveDirectorySettingsResponseCredentialsPtrOutput) Elem() CacheActiveDirectorySettingsResponseCredentialsOutput {
 	return o.ApplyT(func(v *CacheActiveDirectorySettingsResponseCredentials) CacheActiveDirectorySettingsResponseCredentials {
-		return *v
+		if v != nil {
+			return *v
+		}
+		var ret CacheActiveDirectorySettingsResponseCredentials
+		return ret
 	}).(CacheActiveDirectorySettingsResponseCredentialsOutput)
 }
 
-// Plain text password of the Active Directory domain administrator. This value is stored encrypted and not returned on response.
 func (o CacheActiveDirectorySettingsResponseCredentialsPtrOutput) Password() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *CacheActiveDirectorySettingsResponseCredentials) *string {
 		if v == nil {
@@ -1093,7 +1026,6 @@ func (o CacheActiveDirectorySettingsResponseCredentialsPtrOutput) Password() pul
 	}).(pulumi.StringPtrOutput)
 }
 
-// Username of the Active Directory domain administrator. This value is stored encrypted and not returned on response.
 func (o CacheActiveDirectorySettingsResponseCredentialsPtrOutput) Username() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *CacheActiveDirectorySettingsResponseCredentials) *string {
 		if v == nil {
@@ -1103,11 +1035,8 @@ func (o CacheActiveDirectorySettingsResponseCredentialsPtrOutput) Username() pul
 	}).(pulumi.StringPtrOutput)
 }
 
-// Cache Directory Services settings.
 type CacheDirectorySettings struct {
-	// Specifies settings for joining the HPC Cache to an Active Directory domain.
-	ActiveDirectory *CacheActiveDirectorySettings `pulumi:"activeDirectory"`
-	// Specifies settings for Extended Groups. Extended Groups allows users to be members of more than 16 groups.
+	ActiveDirectory  *CacheActiveDirectorySettings  `pulumi:"activeDirectory"`
 	UsernameDownload *CacheUsernameDownloadSettings `pulumi:"usernameDownload"`
 }
 
@@ -1122,11 +1051,8 @@ type CacheDirectorySettingsInput interface {
 	ToCacheDirectorySettingsOutputWithContext(context.Context) CacheDirectorySettingsOutput
 }
 
-// Cache Directory Services settings.
 type CacheDirectorySettingsArgs struct {
-	// Specifies settings for joining the HPC Cache to an Active Directory domain.
-	ActiveDirectory CacheActiveDirectorySettingsPtrInput `pulumi:"activeDirectory"`
-	// Specifies settings for Extended Groups. Extended Groups allows users to be members of more than 16 groups.
+	ActiveDirectory  CacheActiveDirectorySettingsPtrInput  `pulumi:"activeDirectory"`
 	UsernameDownload CacheUsernameDownloadSettingsPtrInput `pulumi:"usernameDownload"`
 }
 
@@ -1183,7 +1109,6 @@ func (i *cacheDirectorySettingsPtrType) ToCacheDirectorySettingsPtrOutputWithCon
 	return pulumi.ToOutputWithContext(ctx, i).(CacheDirectorySettingsPtrOutput)
 }
 
-// Cache Directory Services settings.
 type CacheDirectorySettingsOutput struct{ *pulumi.OutputState }
 
 func (CacheDirectorySettingsOutput) ElementType() reflect.Type {
@@ -1203,17 +1128,15 @@ func (o CacheDirectorySettingsOutput) ToCacheDirectorySettingsPtrOutput() CacheD
 }
 
 func (o CacheDirectorySettingsOutput) ToCacheDirectorySettingsPtrOutputWithContext(ctx context.Context) CacheDirectorySettingsPtrOutput {
-	return o.ApplyT(func(v CacheDirectorySettings) *CacheDirectorySettings {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v CacheDirectorySettings) *CacheDirectorySettings {
 		return &v
 	}).(CacheDirectorySettingsPtrOutput)
 }
 
-// Specifies settings for joining the HPC Cache to an Active Directory domain.
 func (o CacheDirectorySettingsOutput) ActiveDirectory() CacheActiveDirectorySettingsPtrOutput {
 	return o.ApplyT(func(v CacheDirectorySettings) *CacheActiveDirectorySettings { return v.ActiveDirectory }).(CacheActiveDirectorySettingsPtrOutput)
 }
 
-// Specifies settings for Extended Groups. Extended Groups allows users to be members of more than 16 groups.
 func (o CacheDirectorySettingsOutput) UsernameDownload() CacheUsernameDownloadSettingsPtrOutput {
 	return o.ApplyT(func(v CacheDirectorySettings) *CacheUsernameDownloadSettings { return v.UsernameDownload }).(CacheUsernameDownloadSettingsPtrOutput)
 }
@@ -1233,10 +1156,15 @@ func (o CacheDirectorySettingsPtrOutput) ToCacheDirectorySettingsPtrOutputWithCo
 }
 
 func (o CacheDirectorySettingsPtrOutput) Elem() CacheDirectorySettingsOutput {
-	return o.ApplyT(func(v *CacheDirectorySettings) CacheDirectorySettings { return *v }).(CacheDirectorySettingsOutput)
+	return o.ApplyT(func(v *CacheDirectorySettings) CacheDirectorySettings {
+		if v != nil {
+			return *v
+		}
+		var ret CacheDirectorySettings
+		return ret
+	}).(CacheDirectorySettingsOutput)
 }
 
-// Specifies settings for joining the HPC Cache to an Active Directory domain.
 func (o CacheDirectorySettingsPtrOutput) ActiveDirectory() CacheActiveDirectorySettingsPtrOutput {
 	return o.ApplyT(func(v *CacheDirectorySettings) *CacheActiveDirectorySettings {
 		if v == nil {
@@ -1246,7 +1174,6 @@ func (o CacheDirectorySettingsPtrOutput) ActiveDirectory() CacheActiveDirectoryS
 	}).(CacheActiveDirectorySettingsPtrOutput)
 }
 
-// Specifies settings for Extended Groups. Extended Groups allows users to be members of more than 16 groups.
 func (o CacheDirectorySettingsPtrOutput) UsernameDownload() CacheUsernameDownloadSettingsPtrOutput {
 	return o.ApplyT(func(v *CacheDirectorySettings) *CacheUsernameDownloadSettings {
 		if v == nil {
@@ -1256,11 +1183,8 @@ func (o CacheDirectorySettingsPtrOutput) UsernameDownload() CacheUsernameDownloa
 	}).(CacheUsernameDownloadSettingsPtrOutput)
 }
 
-// Cache Directory Services settings.
 type CacheDirectorySettingsResponse struct {
-	// Specifies settings for joining the HPC Cache to an Active Directory domain.
-	ActiveDirectory *CacheActiveDirectorySettingsResponse `pulumi:"activeDirectory"`
-	// Specifies settings for Extended Groups. Extended Groups allows users to be members of more than 16 groups.
+	ActiveDirectory  *CacheActiveDirectorySettingsResponse  `pulumi:"activeDirectory"`
 	UsernameDownload *CacheUsernameDownloadSettingsResponse `pulumi:"usernameDownload"`
 }
 
@@ -1275,11 +1199,8 @@ type CacheDirectorySettingsResponseInput interface {
 	ToCacheDirectorySettingsResponseOutputWithContext(context.Context) CacheDirectorySettingsResponseOutput
 }
 
-// Cache Directory Services settings.
 type CacheDirectorySettingsResponseArgs struct {
-	// Specifies settings for joining the HPC Cache to an Active Directory domain.
-	ActiveDirectory CacheActiveDirectorySettingsResponsePtrInput `pulumi:"activeDirectory"`
-	// Specifies settings for Extended Groups. Extended Groups allows users to be members of more than 16 groups.
+	ActiveDirectory  CacheActiveDirectorySettingsResponsePtrInput  `pulumi:"activeDirectory"`
 	UsernameDownload CacheUsernameDownloadSettingsResponsePtrInput `pulumi:"usernameDownload"`
 }
 
@@ -1336,7 +1257,6 @@ func (i *cacheDirectorySettingsResponsePtrType) ToCacheDirectorySettingsResponse
 	return pulumi.ToOutputWithContext(ctx, i).(CacheDirectorySettingsResponsePtrOutput)
 }
 
-// Cache Directory Services settings.
 type CacheDirectorySettingsResponseOutput struct{ *pulumi.OutputState }
 
 func (CacheDirectorySettingsResponseOutput) ElementType() reflect.Type {
@@ -1356,17 +1276,15 @@ func (o CacheDirectorySettingsResponseOutput) ToCacheDirectorySettingsResponsePt
 }
 
 func (o CacheDirectorySettingsResponseOutput) ToCacheDirectorySettingsResponsePtrOutputWithContext(ctx context.Context) CacheDirectorySettingsResponsePtrOutput {
-	return o.ApplyT(func(v CacheDirectorySettingsResponse) *CacheDirectorySettingsResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v CacheDirectorySettingsResponse) *CacheDirectorySettingsResponse {
 		return &v
 	}).(CacheDirectorySettingsResponsePtrOutput)
 }
 
-// Specifies settings for joining the HPC Cache to an Active Directory domain.
 func (o CacheDirectorySettingsResponseOutput) ActiveDirectory() CacheActiveDirectorySettingsResponsePtrOutput {
 	return o.ApplyT(func(v CacheDirectorySettingsResponse) *CacheActiveDirectorySettingsResponse { return v.ActiveDirectory }).(CacheActiveDirectorySettingsResponsePtrOutput)
 }
 
-// Specifies settings for Extended Groups. Extended Groups allows users to be members of more than 16 groups.
 func (o CacheDirectorySettingsResponseOutput) UsernameDownload() CacheUsernameDownloadSettingsResponsePtrOutput {
 	return o.ApplyT(func(v CacheDirectorySettingsResponse) *CacheUsernameDownloadSettingsResponse {
 		return v.UsernameDownload
@@ -1388,10 +1306,15 @@ func (o CacheDirectorySettingsResponsePtrOutput) ToCacheDirectorySettingsRespons
 }
 
 func (o CacheDirectorySettingsResponsePtrOutput) Elem() CacheDirectorySettingsResponseOutput {
-	return o.ApplyT(func(v *CacheDirectorySettingsResponse) CacheDirectorySettingsResponse { return *v }).(CacheDirectorySettingsResponseOutput)
+	return o.ApplyT(func(v *CacheDirectorySettingsResponse) CacheDirectorySettingsResponse {
+		if v != nil {
+			return *v
+		}
+		var ret CacheDirectorySettingsResponse
+		return ret
+	}).(CacheDirectorySettingsResponseOutput)
 }
 
-// Specifies settings for joining the HPC Cache to an Active Directory domain.
 func (o CacheDirectorySettingsResponsePtrOutput) ActiveDirectory() CacheActiveDirectorySettingsResponsePtrOutput {
 	return o.ApplyT(func(v *CacheDirectorySettingsResponse) *CacheActiveDirectorySettingsResponse {
 		if v == nil {
@@ -1401,7 +1324,6 @@ func (o CacheDirectorySettingsResponsePtrOutput) ActiveDirectory() CacheActiveDi
 	}).(CacheActiveDirectorySettingsResponsePtrOutput)
 }
 
-// Specifies settings for Extended Groups. Extended Groups allows users to be members of more than 16 groups.
 func (o CacheDirectorySettingsResponsePtrOutput) UsernameDownload() CacheUsernameDownloadSettingsResponsePtrOutput {
 	return o.ApplyT(func(v *CacheDirectorySettingsResponse) *CacheUsernameDownloadSettingsResponse {
 		if v == nil {
@@ -1411,12 +1333,9 @@ func (o CacheDirectorySettingsResponsePtrOutput) UsernameDownload() CacheUsernam
 	}).(CacheUsernameDownloadSettingsResponsePtrOutput)
 }
 
-// Cache encryption settings.
 type CacheEncryptionSettings struct {
-	// Specifies the location of the key encryption key in Key Vault.
-	KeyEncryptionKey *KeyVaultKeyReference `pulumi:"keyEncryptionKey"`
-	// Specifies whether the service will automatically rotate to the newest version of the key in the Key Vault.
-	RotationToLatestKeyVersionEnabled *bool `pulumi:"rotationToLatestKeyVersionEnabled"`
+	KeyEncryptionKey                  *KeyVaultKeyReference `pulumi:"keyEncryptionKey"`
+	RotationToLatestKeyVersionEnabled *bool                 `pulumi:"rotationToLatestKeyVersionEnabled"`
 }
 
 // CacheEncryptionSettingsInput is an input type that accepts CacheEncryptionSettingsArgs and CacheEncryptionSettingsOutput values.
@@ -1430,12 +1349,9 @@ type CacheEncryptionSettingsInput interface {
 	ToCacheEncryptionSettingsOutputWithContext(context.Context) CacheEncryptionSettingsOutput
 }
 
-// Cache encryption settings.
 type CacheEncryptionSettingsArgs struct {
-	// Specifies the location of the key encryption key in Key Vault.
-	KeyEncryptionKey KeyVaultKeyReferencePtrInput `pulumi:"keyEncryptionKey"`
-	// Specifies whether the service will automatically rotate to the newest version of the key in the Key Vault.
-	RotationToLatestKeyVersionEnabled pulumi.BoolPtrInput `pulumi:"rotationToLatestKeyVersionEnabled"`
+	KeyEncryptionKey                  KeyVaultKeyReferencePtrInput `pulumi:"keyEncryptionKey"`
+	RotationToLatestKeyVersionEnabled pulumi.BoolPtrInput          `pulumi:"rotationToLatestKeyVersionEnabled"`
 }
 
 func (CacheEncryptionSettingsArgs) ElementType() reflect.Type {
@@ -1491,7 +1407,6 @@ func (i *cacheEncryptionSettingsPtrType) ToCacheEncryptionSettingsPtrOutputWithC
 	return pulumi.ToOutputWithContext(ctx, i).(CacheEncryptionSettingsPtrOutput)
 }
 
-// Cache encryption settings.
 type CacheEncryptionSettingsOutput struct{ *pulumi.OutputState }
 
 func (CacheEncryptionSettingsOutput) ElementType() reflect.Type {
@@ -1511,17 +1426,15 @@ func (o CacheEncryptionSettingsOutput) ToCacheEncryptionSettingsPtrOutput() Cach
 }
 
 func (o CacheEncryptionSettingsOutput) ToCacheEncryptionSettingsPtrOutputWithContext(ctx context.Context) CacheEncryptionSettingsPtrOutput {
-	return o.ApplyT(func(v CacheEncryptionSettings) *CacheEncryptionSettings {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v CacheEncryptionSettings) *CacheEncryptionSettings {
 		return &v
 	}).(CacheEncryptionSettingsPtrOutput)
 }
 
-// Specifies the location of the key encryption key in Key Vault.
 func (o CacheEncryptionSettingsOutput) KeyEncryptionKey() KeyVaultKeyReferencePtrOutput {
 	return o.ApplyT(func(v CacheEncryptionSettings) *KeyVaultKeyReference { return v.KeyEncryptionKey }).(KeyVaultKeyReferencePtrOutput)
 }
 
-// Specifies whether the service will automatically rotate to the newest version of the key in the Key Vault.
 func (o CacheEncryptionSettingsOutput) RotationToLatestKeyVersionEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v CacheEncryptionSettings) *bool { return v.RotationToLatestKeyVersionEnabled }).(pulumi.BoolPtrOutput)
 }
@@ -1541,10 +1454,15 @@ func (o CacheEncryptionSettingsPtrOutput) ToCacheEncryptionSettingsPtrOutputWith
 }
 
 func (o CacheEncryptionSettingsPtrOutput) Elem() CacheEncryptionSettingsOutput {
-	return o.ApplyT(func(v *CacheEncryptionSettings) CacheEncryptionSettings { return *v }).(CacheEncryptionSettingsOutput)
+	return o.ApplyT(func(v *CacheEncryptionSettings) CacheEncryptionSettings {
+		if v != nil {
+			return *v
+		}
+		var ret CacheEncryptionSettings
+		return ret
+	}).(CacheEncryptionSettingsOutput)
 }
 
-// Specifies the location of the key encryption key in Key Vault.
 func (o CacheEncryptionSettingsPtrOutput) KeyEncryptionKey() KeyVaultKeyReferencePtrOutput {
 	return o.ApplyT(func(v *CacheEncryptionSettings) *KeyVaultKeyReference {
 		if v == nil {
@@ -1554,7 +1472,6 @@ func (o CacheEncryptionSettingsPtrOutput) KeyEncryptionKey() KeyVaultKeyReferenc
 	}).(KeyVaultKeyReferencePtrOutput)
 }
 
-// Specifies whether the service will automatically rotate to the newest version of the key in the Key Vault.
 func (o CacheEncryptionSettingsPtrOutput) RotationToLatestKeyVersionEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *CacheEncryptionSettings) *bool {
 		if v == nil {
@@ -1564,12 +1481,9 @@ func (o CacheEncryptionSettingsPtrOutput) RotationToLatestKeyVersionEnabled() pu
 	}).(pulumi.BoolPtrOutput)
 }
 
-// Cache encryption settings.
 type CacheEncryptionSettingsResponse struct {
-	// Specifies the location of the key encryption key in Key Vault.
-	KeyEncryptionKey *KeyVaultKeyReferenceResponse `pulumi:"keyEncryptionKey"`
-	// Specifies whether the service will automatically rotate to the newest version of the key in the Key Vault.
-	RotationToLatestKeyVersionEnabled *bool `pulumi:"rotationToLatestKeyVersionEnabled"`
+	KeyEncryptionKey                  *KeyVaultKeyReferenceResponse `pulumi:"keyEncryptionKey"`
+	RotationToLatestKeyVersionEnabled *bool                         `pulumi:"rotationToLatestKeyVersionEnabled"`
 }
 
 // CacheEncryptionSettingsResponseInput is an input type that accepts CacheEncryptionSettingsResponseArgs and CacheEncryptionSettingsResponseOutput values.
@@ -1583,12 +1497,9 @@ type CacheEncryptionSettingsResponseInput interface {
 	ToCacheEncryptionSettingsResponseOutputWithContext(context.Context) CacheEncryptionSettingsResponseOutput
 }
 
-// Cache encryption settings.
 type CacheEncryptionSettingsResponseArgs struct {
-	// Specifies the location of the key encryption key in Key Vault.
-	KeyEncryptionKey KeyVaultKeyReferenceResponsePtrInput `pulumi:"keyEncryptionKey"`
-	// Specifies whether the service will automatically rotate to the newest version of the key in the Key Vault.
-	RotationToLatestKeyVersionEnabled pulumi.BoolPtrInput `pulumi:"rotationToLatestKeyVersionEnabled"`
+	KeyEncryptionKey                  KeyVaultKeyReferenceResponsePtrInput `pulumi:"keyEncryptionKey"`
+	RotationToLatestKeyVersionEnabled pulumi.BoolPtrInput                  `pulumi:"rotationToLatestKeyVersionEnabled"`
 }
 
 func (CacheEncryptionSettingsResponseArgs) ElementType() reflect.Type {
@@ -1644,7 +1555,6 @@ func (i *cacheEncryptionSettingsResponsePtrType) ToCacheEncryptionSettingsRespon
 	return pulumi.ToOutputWithContext(ctx, i).(CacheEncryptionSettingsResponsePtrOutput)
 }
 
-// Cache encryption settings.
 type CacheEncryptionSettingsResponseOutput struct{ *pulumi.OutputState }
 
 func (CacheEncryptionSettingsResponseOutput) ElementType() reflect.Type {
@@ -1664,17 +1574,15 @@ func (o CacheEncryptionSettingsResponseOutput) ToCacheEncryptionSettingsResponse
 }
 
 func (o CacheEncryptionSettingsResponseOutput) ToCacheEncryptionSettingsResponsePtrOutputWithContext(ctx context.Context) CacheEncryptionSettingsResponsePtrOutput {
-	return o.ApplyT(func(v CacheEncryptionSettingsResponse) *CacheEncryptionSettingsResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v CacheEncryptionSettingsResponse) *CacheEncryptionSettingsResponse {
 		return &v
 	}).(CacheEncryptionSettingsResponsePtrOutput)
 }
 
-// Specifies the location of the key encryption key in Key Vault.
 func (o CacheEncryptionSettingsResponseOutput) KeyEncryptionKey() KeyVaultKeyReferenceResponsePtrOutput {
 	return o.ApplyT(func(v CacheEncryptionSettingsResponse) *KeyVaultKeyReferenceResponse { return v.KeyEncryptionKey }).(KeyVaultKeyReferenceResponsePtrOutput)
 }
 
-// Specifies whether the service will automatically rotate to the newest version of the key in the Key Vault.
 func (o CacheEncryptionSettingsResponseOutput) RotationToLatestKeyVersionEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v CacheEncryptionSettingsResponse) *bool { return v.RotationToLatestKeyVersionEnabled }).(pulumi.BoolPtrOutput)
 }
@@ -1694,10 +1602,15 @@ func (o CacheEncryptionSettingsResponsePtrOutput) ToCacheEncryptionSettingsRespo
 }
 
 func (o CacheEncryptionSettingsResponsePtrOutput) Elem() CacheEncryptionSettingsResponseOutput {
-	return o.ApplyT(func(v *CacheEncryptionSettingsResponse) CacheEncryptionSettingsResponse { return *v }).(CacheEncryptionSettingsResponseOutput)
+	return o.ApplyT(func(v *CacheEncryptionSettingsResponse) CacheEncryptionSettingsResponse {
+		if v != nil {
+			return *v
+		}
+		var ret CacheEncryptionSettingsResponse
+		return ret
+	}).(CacheEncryptionSettingsResponseOutput)
 }
 
-// Specifies the location of the key encryption key in Key Vault.
 func (o CacheEncryptionSettingsResponsePtrOutput) KeyEncryptionKey() KeyVaultKeyReferenceResponsePtrOutput {
 	return o.ApplyT(func(v *CacheEncryptionSettingsResponse) *KeyVaultKeyReferenceResponse {
 		if v == nil {
@@ -1707,7 +1620,6 @@ func (o CacheEncryptionSettingsResponsePtrOutput) KeyEncryptionKey() KeyVaultKey
 	}).(KeyVaultKeyReferenceResponsePtrOutput)
 }
 
-// Specifies whether the service will automatically rotate to the newest version of the key in the Key Vault.
 func (o CacheEncryptionSettingsResponsePtrOutput) RotationToLatestKeyVersionEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *CacheEncryptionSettingsResponse) *bool {
 		if v == nil {
@@ -1717,14 +1629,10 @@ func (o CacheEncryptionSettingsResponsePtrOutput) RotationToLatestKeyVersionEnab
 	}).(pulumi.BoolPtrOutput)
 }
 
-// An indication of Cache health. Gives more information about health than just that related to provisioning.
 type CacheHealthResponse struct {
-	// Outstanding conditions that need to be investigated and resolved.
-	Conditions []ConditionResponse `pulumi:"conditions"`
-	// List of Cache health states.
-	State *string `pulumi:"state"`
-	// Describes explanation of state.
-	StatusDescription *string `pulumi:"statusDescription"`
+	Conditions        []ConditionResponse `pulumi:"conditions"`
+	State             *string             `pulumi:"state"`
+	StatusDescription *string             `pulumi:"statusDescription"`
 }
 
 // CacheHealthResponseInput is an input type that accepts CacheHealthResponseArgs and CacheHealthResponseOutput values.
@@ -1738,14 +1646,10 @@ type CacheHealthResponseInput interface {
 	ToCacheHealthResponseOutputWithContext(context.Context) CacheHealthResponseOutput
 }
 
-// An indication of Cache health. Gives more information about health than just that related to provisioning.
 type CacheHealthResponseArgs struct {
-	// Outstanding conditions that need to be investigated and resolved.
-	Conditions ConditionResponseArrayInput `pulumi:"conditions"`
-	// List of Cache health states.
-	State pulumi.StringPtrInput `pulumi:"state"`
-	// Describes explanation of state.
-	StatusDescription pulumi.StringPtrInput `pulumi:"statusDescription"`
+	Conditions        ConditionResponseArrayInput `pulumi:"conditions"`
+	State             pulumi.StringPtrInput       `pulumi:"state"`
+	StatusDescription pulumi.StringPtrInput       `pulumi:"statusDescription"`
 }
 
 func (CacheHealthResponseArgs) ElementType() reflect.Type {
@@ -1801,7 +1705,6 @@ func (i *cacheHealthResponsePtrType) ToCacheHealthResponsePtrOutputWithContext(c
 	return pulumi.ToOutputWithContext(ctx, i).(CacheHealthResponsePtrOutput)
 }
 
-// An indication of Cache health. Gives more information about health than just that related to provisioning.
 type CacheHealthResponseOutput struct{ *pulumi.OutputState }
 
 func (CacheHealthResponseOutput) ElementType() reflect.Type {
@@ -1821,22 +1724,19 @@ func (o CacheHealthResponseOutput) ToCacheHealthResponsePtrOutput() CacheHealthR
 }
 
 func (o CacheHealthResponseOutput) ToCacheHealthResponsePtrOutputWithContext(ctx context.Context) CacheHealthResponsePtrOutput {
-	return o.ApplyT(func(v CacheHealthResponse) *CacheHealthResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v CacheHealthResponse) *CacheHealthResponse {
 		return &v
 	}).(CacheHealthResponsePtrOutput)
 }
 
-// Outstanding conditions that need to be investigated and resolved.
 func (o CacheHealthResponseOutput) Conditions() ConditionResponseArrayOutput {
 	return o.ApplyT(func(v CacheHealthResponse) []ConditionResponse { return v.Conditions }).(ConditionResponseArrayOutput)
 }
 
-// List of Cache health states.
 func (o CacheHealthResponseOutput) State() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v CacheHealthResponse) *string { return v.State }).(pulumi.StringPtrOutput)
 }
 
-// Describes explanation of state.
 func (o CacheHealthResponseOutput) StatusDescription() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v CacheHealthResponse) *string { return v.StatusDescription }).(pulumi.StringPtrOutput)
 }
@@ -1856,10 +1756,15 @@ func (o CacheHealthResponsePtrOutput) ToCacheHealthResponsePtrOutputWithContext(
 }
 
 func (o CacheHealthResponsePtrOutput) Elem() CacheHealthResponseOutput {
-	return o.ApplyT(func(v *CacheHealthResponse) CacheHealthResponse { return *v }).(CacheHealthResponseOutput)
+	return o.ApplyT(func(v *CacheHealthResponse) CacheHealthResponse {
+		if v != nil {
+			return *v
+		}
+		var ret CacheHealthResponse
+		return ret
+	}).(CacheHealthResponseOutput)
 }
 
-// Outstanding conditions that need to be investigated and resolved.
 func (o CacheHealthResponsePtrOutput) Conditions() ConditionResponseArrayOutput {
 	return o.ApplyT(func(v *CacheHealthResponse) []ConditionResponse {
 		if v == nil {
@@ -1869,7 +1774,6 @@ func (o CacheHealthResponsePtrOutput) Conditions() ConditionResponseArrayOutput 
 	}).(ConditionResponseArrayOutput)
 }
 
-// List of Cache health states.
 func (o CacheHealthResponsePtrOutput) State() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *CacheHealthResponse) *string {
 		if v == nil {
@@ -1879,7 +1783,6 @@ func (o CacheHealthResponsePtrOutput) State() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Describes explanation of state.
 func (o CacheHealthResponsePtrOutput) StatusDescription() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *CacheHealthResponse) *string {
 		if v == nil {
@@ -1889,11 +1792,8 @@ func (o CacheHealthResponsePtrOutput) StatusDescription() pulumi.StringPtrOutput
 	}).(pulumi.StringPtrOutput)
 }
 
-// Cache identity properties.
 type CacheIdentity struct {
-	// The type of identity used for the cache
-	Type *string `pulumi:"type"`
-	// A dictionary where each key is a user assigned identity resource ID, and each key's value is an empty dictionary.
+	Type                   *CacheIdentityType     `pulumi:"type"`
 	UserAssignedIdentities map[string]interface{} `pulumi:"userAssignedIdentities"`
 }
 
@@ -1908,12 +1808,9 @@ type CacheIdentityInput interface {
 	ToCacheIdentityOutputWithContext(context.Context) CacheIdentityOutput
 }
 
-// Cache identity properties.
 type CacheIdentityArgs struct {
-	// The type of identity used for the cache
-	Type *CacheIdentityType `pulumi:"type"`
-	// A dictionary where each key is a user assigned identity resource ID, and each key's value is an empty dictionary.
-	UserAssignedIdentities pulumi.MapInput `pulumi:"userAssignedIdentities"`
+	Type                   CacheIdentityTypePtrInput `pulumi:"type"`
+	UserAssignedIdentities pulumi.MapInput           `pulumi:"userAssignedIdentities"`
 }
 
 func (CacheIdentityArgs) ElementType() reflect.Type {
@@ -1969,7 +1866,6 @@ func (i *cacheIdentityPtrType) ToCacheIdentityPtrOutputWithContext(ctx context.C
 	return pulumi.ToOutputWithContext(ctx, i).(CacheIdentityPtrOutput)
 }
 
-// Cache identity properties.
 type CacheIdentityOutput struct{ *pulumi.OutputState }
 
 func (CacheIdentityOutput) ElementType() reflect.Type {
@@ -1989,17 +1885,15 @@ func (o CacheIdentityOutput) ToCacheIdentityPtrOutput() CacheIdentityPtrOutput {
 }
 
 func (o CacheIdentityOutput) ToCacheIdentityPtrOutputWithContext(ctx context.Context) CacheIdentityPtrOutput {
-	return o.ApplyT(func(v CacheIdentity) *CacheIdentity {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v CacheIdentity) *CacheIdentity {
 		return &v
 	}).(CacheIdentityPtrOutput)
 }
 
-// The type of identity used for the cache
-func (o CacheIdentityOutput) Type() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v CacheIdentity) *string { return v.Type }).(pulumi.StringPtrOutput)
+func (o CacheIdentityOutput) Type() CacheIdentityTypePtrOutput {
+	return o.ApplyT(func(v CacheIdentity) *CacheIdentityType { return v.Type }).(CacheIdentityTypePtrOutput)
 }
 
-// A dictionary where each key is a user assigned identity resource ID, and each key's value is an empty dictionary.
 func (o CacheIdentityOutput) UserAssignedIdentities() pulumi.MapOutput {
 	return o.ApplyT(func(v CacheIdentity) map[string]interface{} { return v.UserAssignedIdentities }).(pulumi.MapOutput)
 }
@@ -2019,20 +1913,24 @@ func (o CacheIdentityPtrOutput) ToCacheIdentityPtrOutputWithContext(ctx context.
 }
 
 func (o CacheIdentityPtrOutput) Elem() CacheIdentityOutput {
-	return o.ApplyT(func(v *CacheIdentity) CacheIdentity { return *v }).(CacheIdentityOutput)
+	return o.ApplyT(func(v *CacheIdentity) CacheIdentity {
+		if v != nil {
+			return *v
+		}
+		var ret CacheIdentity
+		return ret
+	}).(CacheIdentityOutput)
 }
 
-// The type of identity used for the cache
-func (o CacheIdentityPtrOutput) Type() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *CacheIdentity) *string {
+func (o CacheIdentityPtrOutput) Type() CacheIdentityTypePtrOutput {
+	return o.ApplyT(func(v *CacheIdentity) *CacheIdentityType {
 		if v == nil {
 			return nil
 		}
 		return v.Type
-	}).(pulumi.StringPtrOutput)
+	}).(CacheIdentityTypePtrOutput)
 }
 
-// A dictionary where each key is a user assigned identity resource ID, and each key's value is an empty dictionary.
 func (o CacheIdentityPtrOutput) UserAssignedIdentities() pulumi.MapOutput {
 	return o.ApplyT(func(v *CacheIdentity) map[string]interface{} {
 		if v == nil {
@@ -2042,15 +1940,10 @@ func (o CacheIdentityPtrOutput) UserAssignedIdentities() pulumi.MapOutput {
 	}).(pulumi.MapOutput)
 }
 
-// Cache identity properties.
 type CacheIdentityResponse struct {
-	// The principal ID for the system-assigned identity of the cache.
-	PrincipalId string `pulumi:"principalId"`
-	// The tenant ID associated with the cache.
-	TenantId string `pulumi:"tenantId"`
-	// The type of identity used for the cache
-	Type *string `pulumi:"type"`
-	// A dictionary where each key is a user assigned identity resource ID, and each key's value is an empty dictionary.
+	PrincipalId            string                                                 `pulumi:"principalId"`
+	TenantId               string                                                 `pulumi:"tenantId"`
+	Type                   *string                                                `pulumi:"type"`
 	UserAssignedIdentities map[string]CacheIdentityResponseUserAssignedIdentities `pulumi:"userAssignedIdentities"`
 }
 
@@ -2065,15 +1958,10 @@ type CacheIdentityResponseInput interface {
 	ToCacheIdentityResponseOutputWithContext(context.Context) CacheIdentityResponseOutput
 }
 
-// Cache identity properties.
 type CacheIdentityResponseArgs struct {
-	// The principal ID for the system-assigned identity of the cache.
-	PrincipalId pulumi.StringInput `pulumi:"principalId"`
-	// The tenant ID associated with the cache.
-	TenantId pulumi.StringInput `pulumi:"tenantId"`
-	// The type of identity used for the cache
-	Type pulumi.StringPtrInput `pulumi:"type"`
-	// A dictionary where each key is a user assigned identity resource ID, and each key's value is an empty dictionary.
+	PrincipalId            pulumi.StringInput                                  `pulumi:"principalId"`
+	TenantId               pulumi.StringInput                                  `pulumi:"tenantId"`
+	Type                   pulumi.StringPtrInput                               `pulumi:"type"`
 	UserAssignedIdentities CacheIdentityResponseUserAssignedIdentitiesMapInput `pulumi:"userAssignedIdentities"`
 }
 
@@ -2130,7 +2018,6 @@ func (i *cacheIdentityResponsePtrType) ToCacheIdentityResponsePtrOutputWithConte
 	return pulumi.ToOutputWithContext(ctx, i).(CacheIdentityResponsePtrOutput)
 }
 
-// Cache identity properties.
 type CacheIdentityResponseOutput struct{ *pulumi.OutputState }
 
 func (CacheIdentityResponseOutput) ElementType() reflect.Type {
@@ -2150,27 +2037,23 @@ func (o CacheIdentityResponseOutput) ToCacheIdentityResponsePtrOutput() CacheIde
 }
 
 func (o CacheIdentityResponseOutput) ToCacheIdentityResponsePtrOutputWithContext(ctx context.Context) CacheIdentityResponsePtrOutput {
-	return o.ApplyT(func(v CacheIdentityResponse) *CacheIdentityResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v CacheIdentityResponse) *CacheIdentityResponse {
 		return &v
 	}).(CacheIdentityResponsePtrOutput)
 }
 
-// The principal ID for the system-assigned identity of the cache.
 func (o CacheIdentityResponseOutput) PrincipalId() pulumi.StringOutput {
 	return o.ApplyT(func(v CacheIdentityResponse) string { return v.PrincipalId }).(pulumi.StringOutput)
 }
 
-// The tenant ID associated with the cache.
 func (o CacheIdentityResponseOutput) TenantId() pulumi.StringOutput {
 	return o.ApplyT(func(v CacheIdentityResponse) string { return v.TenantId }).(pulumi.StringOutput)
 }
 
-// The type of identity used for the cache
 func (o CacheIdentityResponseOutput) Type() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v CacheIdentityResponse) *string { return v.Type }).(pulumi.StringPtrOutput)
 }
 
-// A dictionary where each key is a user assigned identity resource ID, and each key's value is an empty dictionary.
 func (o CacheIdentityResponseOutput) UserAssignedIdentities() CacheIdentityResponseUserAssignedIdentitiesMapOutput {
 	return o.ApplyT(func(v CacheIdentityResponse) map[string]CacheIdentityResponseUserAssignedIdentities {
 		return v.UserAssignedIdentities
@@ -2192,10 +2075,15 @@ func (o CacheIdentityResponsePtrOutput) ToCacheIdentityResponsePtrOutputWithCont
 }
 
 func (o CacheIdentityResponsePtrOutput) Elem() CacheIdentityResponseOutput {
-	return o.ApplyT(func(v *CacheIdentityResponse) CacheIdentityResponse { return *v }).(CacheIdentityResponseOutput)
+	return o.ApplyT(func(v *CacheIdentityResponse) CacheIdentityResponse {
+		if v != nil {
+			return *v
+		}
+		var ret CacheIdentityResponse
+		return ret
+	}).(CacheIdentityResponseOutput)
 }
 
-// The principal ID for the system-assigned identity of the cache.
 func (o CacheIdentityResponsePtrOutput) PrincipalId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *CacheIdentityResponse) *string {
 		if v == nil {
@@ -2205,7 +2093,6 @@ func (o CacheIdentityResponsePtrOutput) PrincipalId() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The tenant ID associated with the cache.
 func (o CacheIdentityResponsePtrOutput) TenantId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *CacheIdentityResponse) *string {
 		if v == nil {
@@ -2215,7 +2102,6 @@ func (o CacheIdentityResponsePtrOutput) TenantId() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The type of identity used for the cache
 func (o CacheIdentityResponsePtrOutput) Type() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *CacheIdentityResponse) *string {
 		if v == nil {
@@ -2225,7 +2111,6 @@ func (o CacheIdentityResponsePtrOutput) Type() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// A dictionary where each key is a user assigned identity resource ID, and each key's value is an empty dictionary.
 func (o CacheIdentityResponsePtrOutput) UserAssignedIdentities() CacheIdentityResponseUserAssignedIdentitiesMapOutput {
 	return o.ApplyT(func(v *CacheIdentityResponse) map[string]CacheIdentityResponseUserAssignedIdentities {
 		if v == nil {
@@ -2236,9 +2121,7 @@ func (o CacheIdentityResponsePtrOutput) UserAssignedIdentities() CacheIdentityRe
 }
 
 type CacheIdentityResponseUserAssignedIdentities struct {
-	// The client ID of the user-assigned identity.
-	ClientId string `pulumi:"clientId"`
-	// The principal ID of the user-assigned identity.
+	ClientId    string `pulumi:"clientId"`
 	PrincipalId string `pulumi:"principalId"`
 }
 
@@ -2254,9 +2137,7 @@ type CacheIdentityResponseUserAssignedIdentitiesInput interface {
 }
 
 type CacheIdentityResponseUserAssignedIdentitiesArgs struct {
-	// The client ID of the user-assigned identity.
-	ClientId pulumi.StringInput `pulumi:"clientId"`
-	// The principal ID of the user-assigned identity.
+	ClientId    pulumi.StringInput `pulumi:"clientId"`
 	PrincipalId pulumi.StringInput `pulumi:"principalId"`
 }
 
@@ -2311,12 +2192,10 @@ func (o CacheIdentityResponseUserAssignedIdentitiesOutput) ToCacheIdentityRespon
 	return o
 }
 
-// The client ID of the user-assigned identity.
 func (o CacheIdentityResponseUserAssignedIdentitiesOutput) ClientId() pulumi.StringOutput {
 	return o.ApplyT(func(v CacheIdentityResponseUserAssignedIdentities) string { return v.ClientId }).(pulumi.StringOutput)
 }
 
-// The principal ID of the user-assigned identity.
 func (o CacheIdentityResponseUserAssignedIdentitiesOutput) PrincipalId() pulumi.StringOutput {
 	return o.ApplyT(func(v CacheIdentityResponseUserAssignedIdentities) string { return v.PrincipalId }).(pulumi.StringOutput)
 }
@@ -2341,16 +2220,11 @@ func (o CacheIdentityResponseUserAssignedIdentitiesMapOutput) MapIndex(k pulumi.
 	}).(CacheIdentityResponseUserAssignedIdentitiesOutput)
 }
 
-// Cache network settings.
 type CacheNetworkSettings struct {
-	// DNS search domain
-	DnsSearchDomain *string `pulumi:"dnsSearchDomain"`
-	// DNS servers for the cache to use.  It will be set from the network configuration if no value is provided.
-	DnsServers []string `pulumi:"dnsServers"`
-	// The IPv4 maximum transmission unit configured for the subnet.
-	Mtu *int `pulumi:"mtu"`
-	// NTP server IP Address or FQDN for the cache to use. The default is time.windows.com.
-	NtpServer *string `pulumi:"ntpServer"`
+	DnsSearchDomain *string  `pulumi:"dnsSearchDomain"`
+	DnsServers      []string `pulumi:"dnsServers"`
+	Mtu             *int     `pulumi:"mtu"`
+	NtpServer       *string  `pulumi:"ntpServer"`
 }
 
 // CacheNetworkSettingsInput is an input type that accepts CacheNetworkSettingsArgs and CacheNetworkSettingsOutput values.
@@ -2364,16 +2238,11 @@ type CacheNetworkSettingsInput interface {
 	ToCacheNetworkSettingsOutputWithContext(context.Context) CacheNetworkSettingsOutput
 }
 
-// Cache network settings.
 type CacheNetworkSettingsArgs struct {
-	// DNS search domain
-	DnsSearchDomain pulumi.StringPtrInput `pulumi:"dnsSearchDomain"`
-	// DNS servers for the cache to use.  It will be set from the network configuration if no value is provided.
-	DnsServers pulumi.StringArrayInput `pulumi:"dnsServers"`
-	// The IPv4 maximum transmission unit configured for the subnet.
-	Mtu pulumi.IntPtrInput `pulumi:"mtu"`
-	// NTP server IP Address or FQDN for the cache to use. The default is time.windows.com.
-	NtpServer pulumi.StringPtrInput `pulumi:"ntpServer"`
+	DnsSearchDomain pulumi.StringPtrInput   `pulumi:"dnsSearchDomain"`
+	DnsServers      pulumi.StringArrayInput `pulumi:"dnsServers"`
+	Mtu             pulumi.IntPtrInput      `pulumi:"mtu"`
+	NtpServer       pulumi.StringPtrInput   `pulumi:"ntpServer"`
 }
 
 func (CacheNetworkSettingsArgs) ElementType() reflect.Type {
@@ -2429,7 +2298,6 @@ func (i *cacheNetworkSettingsPtrType) ToCacheNetworkSettingsPtrOutputWithContext
 	return pulumi.ToOutputWithContext(ctx, i).(CacheNetworkSettingsPtrOutput)
 }
 
-// Cache network settings.
 type CacheNetworkSettingsOutput struct{ *pulumi.OutputState }
 
 func (CacheNetworkSettingsOutput) ElementType() reflect.Type {
@@ -2449,27 +2317,23 @@ func (o CacheNetworkSettingsOutput) ToCacheNetworkSettingsPtrOutput() CacheNetwo
 }
 
 func (o CacheNetworkSettingsOutput) ToCacheNetworkSettingsPtrOutputWithContext(ctx context.Context) CacheNetworkSettingsPtrOutput {
-	return o.ApplyT(func(v CacheNetworkSettings) *CacheNetworkSettings {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v CacheNetworkSettings) *CacheNetworkSettings {
 		return &v
 	}).(CacheNetworkSettingsPtrOutput)
 }
 
-// DNS search domain
 func (o CacheNetworkSettingsOutput) DnsSearchDomain() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v CacheNetworkSettings) *string { return v.DnsSearchDomain }).(pulumi.StringPtrOutput)
 }
 
-// DNS servers for the cache to use.  It will be set from the network configuration if no value is provided.
 func (o CacheNetworkSettingsOutput) DnsServers() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v CacheNetworkSettings) []string { return v.DnsServers }).(pulumi.StringArrayOutput)
 }
 
-// The IPv4 maximum transmission unit configured for the subnet.
 func (o CacheNetworkSettingsOutput) Mtu() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v CacheNetworkSettings) *int { return v.Mtu }).(pulumi.IntPtrOutput)
 }
 
-// NTP server IP Address or FQDN for the cache to use. The default is time.windows.com.
 func (o CacheNetworkSettingsOutput) NtpServer() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v CacheNetworkSettings) *string { return v.NtpServer }).(pulumi.StringPtrOutput)
 }
@@ -2489,10 +2353,15 @@ func (o CacheNetworkSettingsPtrOutput) ToCacheNetworkSettingsPtrOutputWithContex
 }
 
 func (o CacheNetworkSettingsPtrOutput) Elem() CacheNetworkSettingsOutput {
-	return o.ApplyT(func(v *CacheNetworkSettings) CacheNetworkSettings { return *v }).(CacheNetworkSettingsOutput)
+	return o.ApplyT(func(v *CacheNetworkSettings) CacheNetworkSettings {
+		if v != nil {
+			return *v
+		}
+		var ret CacheNetworkSettings
+		return ret
+	}).(CacheNetworkSettingsOutput)
 }
 
-// DNS search domain
 func (o CacheNetworkSettingsPtrOutput) DnsSearchDomain() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *CacheNetworkSettings) *string {
 		if v == nil {
@@ -2502,7 +2371,6 @@ func (o CacheNetworkSettingsPtrOutput) DnsSearchDomain() pulumi.StringPtrOutput 
 	}).(pulumi.StringPtrOutput)
 }
 
-// DNS servers for the cache to use.  It will be set from the network configuration if no value is provided.
 func (o CacheNetworkSettingsPtrOutput) DnsServers() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *CacheNetworkSettings) []string {
 		if v == nil {
@@ -2512,7 +2380,6 @@ func (o CacheNetworkSettingsPtrOutput) DnsServers() pulumi.StringArrayOutput {
 	}).(pulumi.StringArrayOutput)
 }
 
-// The IPv4 maximum transmission unit configured for the subnet.
 func (o CacheNetworkSettingsPtrOutput) Mtu() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *CacheNetworkSettings) *int {
 		if v == nil {
@@ -2522,7 +2389,6 @@ func (o CacheNetworkSettingsPtrOutput) Mtu() pulumi.IntPtrOutput {
 	}).(pulumi.IntPtrOutput)
 }
 
-// NTP server IP Address or FQDN for the cache to use. The default is time.windows.com.
 func (o CacheNetworkSettingsPtrOutput) NtpServer() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *CacheNetworkSettings) *string {
 		if v == nil {
@@ -2532,17 +2398,11 @@ func (o CacheNetworkSettingsPtrOutput) NtpServer() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Cache network settings.
 type CacheNetworkSettingsResponse struct {
-	// DNS search domain
-	DnsSearchDomain *string `pulumi:"dnsSearchDomain"`
-	// DNS servers for the cache to use.  It will be set from the network configuration if no value is provided.
-	DnsServers []string `pulumi:"dnsServers"`
-	// The IPv4 maximum transmission unit configured for the subnet.
-	Mtu *int `pulumi:"mtu"`
-	// NTP server IP Address or FQDN for the cache to use. The default is time.windows.com.
-	NtpServer *string `pulumi:"ntpServer"`
-	// Array of additional IP addresses used by this Cache.
+	DnsSearchDomain  *string  `pulumi:"dnsSearchDomain"`
+	DnsServers       []string `pulumi:"dnsServers"`
+	Mtu              *int     `pulumi:"mtu"`
+	NtpServer        *string  `pulumi:"ntpServer"`
 	UtilityAddresses []string `pulumi:"utilityAddresses"`
 }
 
@@ -2557,17 +2417,11 @@ type CacheNetworkSettingsResponseInput interface {
 	ToCacheNetworkSettingsResponseOutputWithContext(context.Context) CacheNetworkSettingsResponseOutput
 }
 
-// Cache network settings.
 type CacheNetworkSettingsResponseArgs struct {
-	// DNS search domain
-	DnsSearchDomain pulumi.StringPtrInput `pulumi:"dnsSearchDomain"`
-	// DNS servers for the cache to use.  It will be set from the network configuration if no value is provided.
-	DnsServers pulumi.StringArrayInput `pulumi:"dnsServers"`
-	// The IPv4 maximum transmission unit configured for the subnet.
-	Mtu pulumi.IntPtrInput `pulumi:"mtu"`
-	// NTP server IP Address or FQDN for the cache to use. The default is time.windows.com.
-	NtpServer pulumi.StringPtrInput `pulumi:"ntpServer"`
-	// Array of additional IP addresses used by this Cache.
+	DnsSearchDomain  pulumi.StringPtrInput   `pulumi:"dnsSearchDomain"`
+	DnsServers       pulumi.StringArrayInput `pulumi:"dnsServers"`
+	Mtu              pulumi.IntPtrInput      `pulumi:"mtu"`
+	NtpServer        pulumi.StringPtrInput   `pulumi:"ntpServer"`
 	UtilityAddresses pulumi.StringArrayInput `pulumi:"utilityAddresses"`
 }
 
@@ -2624,7 +2478,6 @@ func (i *cacheNetworkSettingsResponsePtrType) ToCacheNetworkSettingsResponsePtrO
 	return pulumi.ToOutputWithContext(ctx, i).(CacheNetworkSettingsResponsePtrOutput)
 }
 
-// Cache network settings.
 type CacheNetworkSettingsResponseOutput struct{ *pulumi.OutputState }
 
 func (CacheNetworkSettingsResponseOutput) ElementType() reflect.Type {
@@ -2644,32 +2497,27 @@ func (o CacheNetworkSettingsResponseOutput) ToCacheNetworkSettingsResponsePtrOut
 }
 
 func (o CacheNetworkSettingsResponseOutput) ToCacheNetworkSettingsResponsePtrOutputWithContext(ctx context.Context) CacheNetworkSettingsResponsePtrOutput {
-	return o.ApplyT(func(v CacheNetworkSettingsResponse) *CacheNetworkSettingsResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v CacheNetworkSettingsResponse) *CacheNetworkSettingsResponse {
 		return &v
 	}).(CacheNetworkSettingsResponsePtrOutput)
 }
 
-// DNS search domain
 func (o CacheNetworkSettingsResponseOutput) DnsSearchDomain() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v CacheNetworkSettingsResponse) *string { return v.DnsSearchDomain }).(pulumi.StringPtrOutput)
 }
 
-// DNS servers for the cache to use.  It will be set from the network configuration if no value is provided.
 func (o CacheNetworkSettingsResponseOutput) DnsServers() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v CacheNetworkSettingsResponse) []string { return v.DnsServers }).(pulumi.StringArrayOutput)
 }
 
-// The IPv4 maximum transmission unit configured for the subnet.
 func (o CacheNetworkSettingsResponseOutput) Mtu() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v CacheNetworkSettingsResponse) *int { return v.Mtu }).(pulumi.IntPtrOutput)
 }
 
-// NTP server IP Address or FQDN for the cache to use. The default is time.windows.com.
 func (o CacheNetworkSettingsResponseOutput) NtpServer() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v CacheNetworkSettingsResponse) *string { return v.NtpServer }).(pulumi.StringPtrOutput)
 }
 
-// Array of additional IP addresses used by this Cache.
 func (o CacheNetworkSettingsResponseOutput) UtilityAddresses() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v CacheNetworkSettingsResponse) []string { return v.UtilityAddresses }).(pulumi.StringArrayOutput)
 }
@@ -2689,10 +2537,15 @@ func (o CacheNetworkSettingsResponsePtrOutput) ToCacheNetworkSettingsResponsePtr
 }
 
 func (o CacheNetworkSettingsResponsePtrOutput) Elem() CacheNetworkSettingsResponseOutput {
-	return o.ApplyT(func(v *CacheNetworkSettingsResponse) CacheNetworkSettingsResponse { return *v }).(CacheNetworkSettingsResponseOutput)
+	return o.ApplyT(func(v *CacheNetworkSettingsResponse) CacheNetworkSettingsResponse {
+		if v != nil {
+			return *v
+		}
+		var ret CacheNetworkSettingsResponse
+		return ret
+	}).(CacheNetworkSettingsResponseOutput)
 }
 
-// DNS search domain
 func (o CacheNetworkSettingsResponsePtrOutput) DnsSearchDomain() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *CacheNetworkSettingsResponse) *string {
 		if v == nil {
@@ -2702,7 +2555,6 @@ func (o CacheNetworkSettingsResponsePtrOutput) DnsSearchDomain() pulumi.StringPt
 	}).(pulumi.StringPtrOutput)
 }
 
-// DNS servers for the cache to use.  It will be set from the network configuration if no value is provided.
 func (o CacheNetworkSettingsResponsePtrOutput) DnsServers() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *CacheNetworkSettingsResponse) []string {
 		if v == nil {
@@ -2712,7 +2564,6 @@ func (o CacheNetworkSettingsResponsePtrOutput) DnsServers() pulumi.StringArrayOu
 	}).(pulumi.StringArrayOutput)
 }
 
-// The IPv4 maximum transmission unit configured for the subnet.
 func (o CacheNetworkSettingsResponsePtrOutput) Mtu() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *CacheNetworkSettingsResponse) *int {
 		if v == nil {
@@ -2722,7 +2573,6 @@ func (o CacheNetworkSettingsResponsePtrOutput) Mtu() pulumi.IntPtrOutput {
 	}).(pulumi.IntPtrOutput)
 }
 
-// NTP server IP Address or FQDN for the cache to use. The default is time.windows.com.
 func (o CacheNetworkSettingsResponsePtrOutput) NtpServer() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *CacheNetworkSettingsResponse) *string {
 		if v == nil {
@@ -2732,7 +2582,6 @@ func (o CacheNetworkSettingsResponsePtrOutput) NtpServer() pulumi.StringPtrOutpu
 	}).(pulumi.StringPtrOutput)
 }
 
-// Array of additional IP addresses used by this Cache.
 func (o CacheNetworkSettingsResponsePtrOutput) UtilityAddresses() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *CacheNetworkSettingsResponse) []string {
 		if v == nil {
@@ -2742,9 +2591,7 @@ func (o CacheNetworkSettingsResponsePtrOutput) UtilityAddresses() pulumi.StringA
 	}).(pulumi.StringArrayOutput)
 }
 
-// SKU for the Cache.
 type CacheResponseSku struct {
-	// SKU name for this Cache.
 	Name *string `pulumi:"name"`
 }
 
@@ -2759,9 +2606,7 @@ type CacheResponseSkuInput interface {
 	ToCacheResponseSkuOutputWithContext(context.Context) CacheResponseSkuOutput
 }
 
-// SKU for the Cache.
 type CacheResponseSkuArgs struct {
-	// SKU name for this Cache.
 	Name pulumi.StringPtrInput `pulumi:"name"`
 }
 
@@ -2818,7 +2663,6 @@ func (i *cacheResponseSkuPtrType) ToCacheResponseSkuPtrOutputWithContext(ctx con
 	return pulumi.ToOutputWithContext(ctx, i).(CacheResponseSkuPtrOutput)
 }
 
-// SKU for the Cache.
 type CacheResponseSkuOutput struct{ *pulumi.OutputState }
 
 func (CacheResponseSkuOutput) ElementType() reflect.Type {
@@ -2838,12 +2682,11 @@ func (o CacheResponseSkuOutput) ToCacheResponseSkuPtrOutput() CacheResponseSkuPt
 }
 
 func (o CacheResponseSkuOutput) ToCacheResponseSkuPtrOutputWithContext(ctx context.Context) CacheResponseSkuPtrOutput {
-	return o.ApplyT(func(v CacheResponseSku) *CacheResponseSku {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v CacheResponseSku) *CacheResponseSku {
 		return &v
 	}).(CacheResponseSkuPtrOutput)
 }
 
-// SKU name for this Cache.
 func (o CacheResponseSkuOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v CacheResponseSku) *string { return v.Name }).(pulumi.StringPtrOutput)
 }
@@ -2863,10 +2706,15 @@ func (o CacheResponseSkuPtrOutput) ToCacheResponseSkuPtrOutputWithContext(ctx co
 }
 
 func (o CacheResponseSkuPtrOutput) Elem() CacheResponseSkuOutput {
-	return o.ApplyT(func(v *CacheResponseSku) CacheResponseSku { return *v }).(CacheResponseSkuOutput)
+	return o.ApplyT(func(v *CacheResponseSku) CacheResponseSku {
+		if v != nil {
+			return *v
+		}
+		var ret CacheResponseSku
+		return ret
+	}).(CacheResponseSkuOutput)
 }
 
-// SKU name for this Cache.
 func (o CacheResponseSkuPtrOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *CacheResponseSku) *string {
 		if v == nil {
@@ -2876,9 +2724,7 @@ func (o CacheResponseSkuPtrOutput) Name() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Cache security settings.
 type CacheSecuritySettings struct {
-	// NFS access policies defined for this cache.
 	AccessPolicies []NfsAccessPolicy `pulumi:"accessPolicies"`
 }
 
@@ -2893,9 +2739,7 @@ type CacheSecuritySettingsInput interface {
 	ToCacheSecuritySettingsOutputWithContext(context.Context) CacheSecuritySettingsOutput
 }
 
-// Cache security settings.
 type CacheSecuritySettingsArgs struct {
-	// NFS access policies defined for this cache.
 	AccessPolicies NfsAccessPolicyArrayInput `pulumi:"accessPolicies"`
 }
 
@@ -2952,7 +2796,6 @@ func (i *cacheSecuritySettingsPtrType) ToCacheSecuritySettingsPtrOutputWithConte
 	return pulumi.ToOutputWithContext(ctx, i).(CacheSecuritySettingsPtrOutput)
 }
 
-// Cache security settings.
 type CacheSecuritySettingsOutput struct{ *pulumi.OutputState }
 
 func (CacheSecuritySettingsOutput) ElementType() reflect.Type {
@@ -2972,12 +2815,11 @@ func (o CacheSecuritySettingsOutput) ToCacheSecuritySettingsPtrOutput() CacheSec
 }
 
 func (o CacheSecuritySettingsOutput) ToCacheSecuritySettingsPtrOutputWithContext(ctx context.Context) CacheSecuritySettingsPtrOutput {
-	return o.ApplyT(func(v CacheSecuritySettings) *CacheSecuritySettings {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v CacheSecuritySettings) *CacheSecuritySettings {
 		return &v
 	}).(CacheSecuritySettingsPtrOutput)
 }
 
-// NFS access policies defined for this cache.
 func (o CacheSecuritySettingsOutput) AccessPolicies() NfsAccessPolicyArrayOutput {
 	return o.ApplyT(func(v CacheSecuritySettings) []NfsAccessPolicy { return v.AccessPolicies }).(NfsAccessPolicyArrayOutput)
 }
@@ -2997,10 +2839,15 @@ func (o CacheSecuritySettingsPtrOutput) ToCacheSecuritySettingsPtrOutputWithCont
 }
 
 func (o CacheSecuritySettingsPtrOutput) Elem() CacheSecuritySettingsOutput {
-	return o.ApplyT(func(v *CacheSecuritySettings) CacheSecuritySettings { return *v }).(CacheSecuritySettingsOutput)
+	return o.ApplyT(func(v *CacheSecuritySettings) CacheSecuritySettings {
+		if v != nil {
+			return *v
+		}
+		var ret CacheSecuritySettings
+		return ret
+	}).(CacheSecuritySettingsOutput)
 }
 
-// NFS access policies defined for this cache.
 func (o CacheSecuritySettingsPtrOutput) AccessPolicies() NfsAccessPolicyArrayOutput {
 	return o.ApplyT(func(v *CacheSecuritySettings) []NfsAccessPolicy {
 		if v == nil {
@@ -3010,9 +2857,7 @@ func (o CacheSecuritySettingsPtrOutput) AccessPolicies() NfsAccessPolicyArrayOut
 	}).(NfsAccessPolicyArrayOutput)
 }
 
-// Cache security settings.
 type CacheSecuritySettingsResponse struct {
-	// NFS access policies defined for this cache.
 	AccessPolicies []NfsAccessPolicyResponse `pulumi:"accessPolicies"`
 }
 
@@ -3027,9 +2872,7 @@ type CacheSecuritySettingsResponseInput interface {
 	ToCacheSecuritySettingsResponseOutputWithContext(context.Context) CacheSecuritySettingsResponseOutput
 }
 
-// Cache security settings.
 type CacheSecuritySettingsResponseArgs struct {
-	// NFS access policies defined for this cache.
 	AccessPolicies NfsAccessPolicyResponseArrayInput `pulumi:"accessPolicies"`
 }
 
@@ -3086,7 +2929,6 @@ func (i *cacheSecuritySettingsResponsePtrType) ToCacheSecuritySettingsResponsePt
 	return pulumi.ToOutputWithContext(ctx, i).(CacheSecuritySettingsResponsePtrOutput)
 }
 
-// Cache security settings.
 type CacheSecuritySettingsResponseOutput struct{ *pulumi.OutputState }
 
 func (CacheSecuritySettingsResponseOutput) ElementType() reflect.Type {
@@ -3106,12 +2948,11 @@ func (o CacheSecuritySettingsResponseOutput) ToCacheSecuritySettingsResponsePtrO
 }
 
 func (o CacheSecuritySettingsResponseOutput) ToCacheSecuritySettingsResponsePtrOutputWithContext(ctx context.Context) CacheSecuritySettingsResponsePtrOutput {
-	return o.ApplyT(func(v CacheSecuritySettingsResponse) *CacheSecuritySettingsResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v CacheSecuritySettingsResponse) *CacheSecuritySettingsResponse {
 		return &v
 	}).(CacheSecuritySettingsResponsePtrOutput)
 }
 
-// NFS access policies defined for this cache.
 func (o CacheSecuritySettingsResponseOutput) AccessPolicies() NfsAccessPolicyResponseArrayOutput {
 	return o.ApplyT(func(v CacheSecuritySettingsResponse) []NfsAccessPolicyResponse { return v.AccessPolicies }).(NfsAccessPolicyResponseArrayOutput)
 }
@@ -3131,10 +2972,15 @@ func (o CacheSecuritySettingsResponsePtrOutput) ToCacheSecuritySettingsResponseP
 }
 
 func (o CacheSecuritySettingsResponsePtrOutput) Elem() CacheSecuritySettingsResponseOutput {
-	return o.ApplyT(func(v *CacheSecuritySettingsResponse) CacheSecuritySettingsResponse { return *v }).(CacheSecuritySettingsResponseOutput)
+	return o.ApplyT(func(v *CacheSecuritySettingsResponse) CacheSecuritySettingsResponse {
+		if v != nil {
+			return *v
+		}
+		var ret CacheSecuritySettingsResponse
+		return ret
+	}).(CacheSecuritySettingsResponseOutput)
 }
 
-// NFS access policies defined for this cache.
 func (o CacheSecuritySettingsResponsePtrOutput) AccessPolicies() NfsAccessPolicyResponseArrayOutput {
 	return o.ApplyT(func(v *CacheSecuritySettingsResponse) []NfsAccessPolicyResponse {
 		if v == nil {
@@ -3144,9 +2990,7 @@ func (o CacheSecuritySettingsResponsePtrOutput) AccessPolicies() NfsAccessPolicy
 	}).(NfsAccessPolicyResponseArrayOutput)
 }
 
-// SKU for the Cache.
 type CacheSku struct {
-	// SKU name for this Cache.
 	Name *string `pulumi:"name"`
 }
 
@@ -3161,9 +3005,7 @@ type CacheSkuInput interface {
 	ToCacheSkuOutputWithContext(context.Context) CacheSkuOutput
 }
 
-// SKU for the Cache.
 type CacheSkuArgs struct {
-	// SKU name for this Cache.
 	Name pulumi.StringPtrInput `pulumi:"name"`
 }
 
@@ -3220,7 +3062,6 @@ func (i *cacheSkuPtrType) ToCacheSkuPtrOutputWithContext(ctx context.Context) Ca
 	return pulumi.ToOutputWithContext(ctx, i).(CacheSkuPtrOutput)
 }
 
-// SKU for the Cache.
 type CacheSkuOutput struct{ *pulumi.OutputState }
 
 func (CacheSkuOutput) ElementType() reflect.Type {
@@ -3240,12 +3081,11 @@ func (o CacheSkuOutput) ToCacheSkuPtrOutput() CacheSkuPtrOutput {
 }
 
 func (o CacheSkuOutput) ToCacheSkuPtrOutputWithContext(ctx context.Context) CacheSkuPtrOutput {
-	return o.ApplyT(func(v CacheSku) *CacheSku {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v CacheSku) *CacheSku {
 		return &v
 	}).(CacheSkuPtrOutput)
 }
 
-// SKU name for this Cache.
 func (o CacheSkuOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v CacheSku) *string { return v.Name }).(pulumi.StringPtrOutput)
 }
@@ -3265,10 +3105,15 @@ func (o CacheSkuPtrOutput) ToCacheSkuPtrOutputWithContext(ctx context.Context) C
 }
 
 func (o CacheSkuPtrOutput) Elem() CacheSkuOutput {
-	return o.ApplyT(func(v *CacheSku) CacheSku { return *v }).(CacheSkuOutput)
+	return o.ApplyT(func(v *CacheSku) CacheSku {
+		if v != nil {
+			return *v
+		}
+		var ret CacheSku
+		return ret
+	}).(CacheSkuOutput)
 }
 
-// SKU name for this Cache.
 func (o CacheSkuPtrOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *CacheSku) *string {
 		if v == nil {
@@ -3278,17 +3123,11 @@ func (o CacheSkuPtrOutput) Name() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Properties describing the software upgrade state of the Cache.
 type CacheUpgradeStatusResponse struct {
-	// Version string of the firmware currently installed on this Cache.
 	CurrentFirmwareVersion string `pulumi:"currentFirmwareVersion"`
-	// Time at which the pending firmware update will automatically be installed on the Cache.
 	FirmwareUpdateDeadline string `pulumi:"firmwareUpdateDeadline"`
-	// True if there is a firmware update ready to install on this Cache. The firmware will automatically be installed after firmwareUpdateDeadline if not triggered earlier via the upgrade operation.
-	FirmwareUpdateStatus string `pulumi:"firmwareUpdateStatus"`
-	// Time of the last successful firmware update.
-	LastFirmwareUpdate string `pulumi:"lastFirmwareUpdate"`
-	// When firmwareUpdateAvailable is true, this field holds the version string for the update.
+	FirmwareUpdateStatus   string `pulumi:"firmwareUpdateStatus"`
+	LastFirmwareUpdate     string `pulumi:"lastFirmwareUpdate"`
 	PendingFirmwareVersion string `pulumi:"pendingFirmwareVersion"`
 }
 
@@ -3303,17 +3142,11 @@ type CacheUpgradeStatusResponseInput interface {
 	ToCacheUpgradeStatusResponseOutputWithContext(context.Context) CacheUpgradeStatusResponseOutput
 }
 
-// Properties describing the software upgrade state of the Cache.
 type CacheUpgradeStatusResponseArgs struct {
-	// Version string of the firmware currently installed on this Cache.
 	CurrentFirmwareVersion pulumi.StringInput `pulumi:"currentFirmwareVersion"`
-	// Time at which the pending firmware update will automatically be installed on the Cache.
 	FirmwareUpdateDeadline pulumi.StringInput `pulumi:"firmwareUpdateDeadline"`
-	// True if there is a firmware update ready to install on this Cache. The firmware will automatically be installed after firmwareUpdateDeadline if not triggered earlier via the upgrade operation.
-	FirmwareUpdateStatus pulumi.StringInput `pulumi:"firmwareUpdateStatus"`
-	// Time of the last successful firmware update.
-	LastFirmwareUpdate pulumi.StringInput `pulumi:"lastFirmwareUpdate"`
-	// When firmwareUpdateAvailable is true, this field holds the version string for the update.
+	FirmwareUpdateStatus   pulumi.StringInput `pulumi:"firmwareUpdateStatus"`
+	LastFirmwareUpdate     pulumi.StringInput `pulumi:"lastFirmwareUpdate"`
 	PendingFirmwareVersion pulumi.StringInput `pulumi:"pendingFirmwareVersion"`
 }
 
@@ -3370,7 +3203,6 @@ func (i *cacheUpgradeStatusResponsePtrType) ToCacheUpgradeStatusResponsePtrOutpu
 	return pulumi.ToOutputWithContext(ctx, i).(CacheUpgradeStatusResponsePtrOutput)
 }
 
-// Properties describing the software upgrade state of the Cache.
 type CacheUpgradeStatusResponseOutput struct{ *pulumi.OutputState }
 
 func (CacheUpgradeStatusResponseOutput) ElementType() reflect.Type {
@@ -3390,32 +3222,27 @@ func (o CacheUpgradeStatusResponseOutput) ToCacheUpgradeStatusResponsePtrOutput(
 }
 
 func (o CacheUpgradeStatusResponseOutput) ToCacheUpgradeStatusResponsePtrOutputWithContext(ctx context.Context) CacheUpgradeStatusResponsePtrOutput {
-	return o.ApplyT(func(v CacheUpgradeStatusResponse) *CacheUpgradeStatusResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v CacheUpgradeStatusResponse) *CacheUpgradeStatusResponse {
 		return &v
 	}).(CacheUpgradeStatusResponsePtrOutput)
 }
 
-// Version string of the firmware currently installed on this Cache.
 func (o CacheUpgradeStatusResponseOutput) CurrentFirmwareVersion() pulumi.StringOutput {
 	return o.ApplyT(func(v CacheUpgradeStatusResponse) string { return v.CurrentFirmwareVersion }).(pulumi.StringOutput)
 }
 
-// Time at which the pending firmware update will automatically be installed on the Cache.
 func (o CacheUpgradeStatusResponseOutput) FirmwareUpdateDeadline() pulumi.StringOutput {
 	return o.ApplyT(func(v CacheUpgradeStatusResponse) string { return v.FirmwareUpdateDeadline }).(pulumi.StringOutput)
 }
 
-// True if there is a firmware update ready to install on this Cache. The firmware will automatically be installed after firmwareUpdateDeadline if not triggered earlier via the upgrade operation.
 func (o CacheUpgradeStatusResponseOutput) FirmwareUpdateStatus() pulumi.StringOutput {
 	return o.ApplyT(func(v CacheUpgradeStatusResponse) string { return v.FirmwareUpdateStatus }).(pulumi.StringOutput)
 }
 
-// Time of the last successful firmware update.
 func (o CacheUpgradeStatusResponseOutput) LastFirmwareUpdate() pulumi.StringOutput {
 	return o.ApplyT(func(v CacheUpgradeStatusResponse) string { return v.LastFirmwareUpdate }).(pulumi.StringOutput)
 }
 
-// When firmwareUpdateAvailable is true, this field holds the version string for the update.
 func (o CacheUpgradeStatusResponseOutput) PendingFirmwareVersion() pulumi.StringOutput {
 	return o.ApplyT(func(v CacheUpgradeStatusResponse) string { return v.PendingFirmwareVersion }).(pulumi.StringOutput)
 }
@@ -3435,10 +3262,15 @@ func (o CacheUpgradeStatusResponsePtrOutput) ToCacheUpgradeStatusResponsePtrOutp
 }
 
 func (o CacheUpgradeStatusResponsePtrOutput) Elem() CacheUpgradeStatusResponseOutput {
-	return o.ApplyT(func(v *CacheUpgradeStatusResponse) CacheUpgradeStatusResponse { return *v }).(CacheUpgradeStatusResponseOutput)
+	return o.ApplyT(func(v *CacheUpgradeStatusResponse) CacheUpgradeStatusResponse {
+		if v != nil {
+			return *v
+		}
+		var ret CacheUpgradeStatusResponse
+		return ret
+	}).(CacheUpgradeStatusResponseOutput)
 }
 
-// Version string of the firmware currently installed on this Cache.
 func (o CacheUpgradeStatusResponsePtrOutput) CurrentFirmwareVersion() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *CacheUpgradeStatusResponse) *string {
 		if v == nil {
@@ -3448,7 +3280,6 @@ func (o CacheUpgradeStatusResponsePtrOutput) CurrentFirmwareVersion() pulumi.Str
 	}).(pulumi.StringPtrOutput)
 }
 
-// Time at which the pending firmware update will automatically be installed on the Cache.
 func (o CacheUpgradeStatusResponsePtrOutput) FirmwareUpdateDeadline() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *CacheUpgradeStatusResponse) *string {
 		if v == nil {
@@ -3458,7 +3289,6 @@ func (o CacheUpgradeStatusResponsePtrOutput) FirmwareUpdateDeadline() pulumi.Str
 	}).(pulumi.StringPtrOutput)
 }
 
-// True if there is a firmware update ready to install on this Cache. The firmware will automatically be installed after firmwareUpdateDeadline if not triggered earlier via the upgrade operation.
 func (o CacheUpgradeStatusResponsePtrOutput) FirmwareUpdateStatus() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *CacheUpgradeStatusResponse) *string {
 		if v == nil {
@@ -3468,7 +3298,6 @@ func (o CacheUpgradeStatusResponsePtrOutput) FirmwareUpdateStatus() pulumi.Strin
 	}).(pulumi.StringPtrOutput)
 }
 
-// Time of the last successful firmware update.
 func (o CacheUpgradeStatusResponsePtrOutput) LastFirmwareUpdate() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *CacheUpgradeStatusResponse) *string {
 		if v == nil {
@@ -3478,7 +3307,6 @@ func (o CacheUpgradeStatusResponsePtrOutput) LastFirmwareUpdate() pulumi.StringP
 	}).(pulumi.StringPtrOutput)
 }
 
-// When firmwareUpdateAvailable is true, this field holds the version string for the update.
 func (o CacheUpgradeStatusResponsePtrOutput) PendingFirmwareVersion() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *CacheUpgradeStatusResponse) *string {
 		if v == nil {
@@ -3488,30 +3316,18 @@ func (o CacheUpgradeStatusResponsePtrOutput) PendingFirmwareVersion() pulumi.Str
 	}).(pulumi.StringPtrOutput)
 }
 
-// Settings for Extended Groups username and group download.
 type CacheUsernameDownloadSettings struct {
-	// Determines if the certificate should be automatically downloaded. This applies to 'caCertificateURI' only if 'requireValidCertificate' is true.
-	AutoDownloadCertificate *bool `pulumi:"autoDownloadCertificate"`
-	// The URI of the CA certificate to validate the LDAP secure connection. This field must be populated when 'requireValidCertificate' is set to true.
-	CaCertificateURI *string `pulumi:"caCertificateURI"`
-	// When present, these are the credentials for the secure LDAP connection.
-	Credentials *CacheUsernameDownloadSettingsCredentials `pulumi:"credentials"`
-	// Whether or not the LDAP connection should be encrypted.
-	EncryptLdapConnection *bool `pulumi:"encryptLdapConnection"`
-	// Whether or not Extended Groups is enabled.
-	ExtendedGroups *bool `pulumi:"extendedGroups"`
-	// The URI of the file containing group information (in /etc/group file format). This field must be populated when 'usernameSource' is set to 'File'.
-	GroupFileURI *string `pulumi:"groupFileURI"`
-	// The base distinguished name for the LDAP domain.
-	LdapBaseDN *string `pulumi:"ldapBaseDN"`
-	// The fully qualified domain name or IP address of the LDAP server to use.
-	LdapServer *string `pulumi:"ldapServer"`
-	// Determines if the certificates must be validated by a certificate authority. When true, caCertificateURI must be provided.
-	RequireValidCertificate *bool `pulumi:"requireValidCertificate"`
-	// The URI of the file containing user information (in /etc/passwd file format). This field must be populated when 'usernameSource' is set to 'File'.
-	UserFileURI *string `pulumi:"userFileURI"`
-	// This setting determines how the cache gets username and group names for clients.
-	UsernameSource *string `pulumi:"usernameSource"`
+	AutoDownloadCertificate *bool                                     `pulumi:"autoDownloadCertificate"`
+	CaCertificateURI        *string                                   `pulumi:"caCertificateURI"`
+	Credentials             *CacheUsernameDownloadSettingsCredentials `pulumi:"credentials"`
+	EncryptLdapConnection   *bool                                     `pulumi:"encryptLdapConnection"`
+	ExtendedGroups          *bool                                     `pulumi:"extendedGroups"`
+	GroupFileURI            *string                                   `pulumi:"groupFileURI"`
+	LdapBaseDN              *string                                   `pulumi:"ldapBaseDN"`
+	LdapServer              *string                                   `pulumi:"ldapServer"`
+	RequireValidCertificate *bool                                     `pulumi:"requireValidCertificate"`
+	UserFileURI             *string                                   `pulumi:"userFileURI"`
+	UsernameSource          *string                                   `pulumi:"usernameSource"`
 }
 
 // CacheUsernameDownloadSettingsInput is an input type that accepts CacheUsernameDownloadSettingsArgs and CacheUsernameDownloadSettingsOutput values.
@@ -3525,30 +3341,18 @@ type CacheUsernameDownloadSettingsInput interface {
 	ToCacheUsernameDownloadSettingsOutputWithContext(context.Context) CacheUsernameDownloadSettingsOutput
 }
 
-// Settings for Extended Groups username and group download.
 type CacheUsernameDownloadSettingsArgs struct {
-	// Determines if the certificate should be automatically downloaded. This applies to 'caCertificateURI' only if 'requireValidCertificate' is true.
-	AutoDownloadCertificate pulumi.BoolPtrInput `pulumi:"autoDownloadCertificate"`
-	// The URI of the CA certificate to validate the LDAP secure connection. This field must be populated when 'requireValidCertificate' is set to true.
-	CaCertificateURI pulumi.StringPtrInput `pulumi:"caCertificateURI"`
-	// When present, these are the credentials for the secure LDAP connection.
-	Credentials CacheUsernameDownloadSettingsCredentialsPtrInput `pulumi:"credentials"`
-	// Whether or not the LDAP connection should be encrypted.
-	EncryptLdapConnection pulumi.BoolPtrInput `pulumi:"encryptLdapConnection"`
-	// Whether or not Extended Groups is enabled.
-	ExtendedGroups pulumi.BoolPtrInput `pulumi:"extendedGroups"`
-	// The URI of the file containing group information (in /etc/group file format). This field must be populated when 'usernameSource' is set to 'File'.
-	GroupFileURI pulumi.StringPtrInput `pulumi:"groupFileURI"`
-	// The base distinguished name for the LDAP domain.
-	LdapBaseDN pulumi.StringPtrInput `pulumi:"ldapBaseDN"`
-	// The fully qualified domain name or IP address of the LDAP server to use.
-	LdapServer pulumi.StringPtrInput `pulumi:"ldapServer"`
-	// Determines if the certificates must be validated by a certificate authority. When true, caCertificateURI must be provided.
-	RequireValidCertificate pulumi.BoolPtrInput `pulumi:"requireValidCertificate"`
-	// The URI of the file containing user information (in /etc/passwd file format). This field must be populated when 'usernameSource' is set to 'File'.
-	UserFileURI pulumi.StringPtrInput `pulumi:"userFileURI"`
-	// This setting determines how the cache gets username and group names for clients.
-	UsernameSource pulumi.StringPtrInput `pulumi:"usernameSource"`
+	AutoDownloadCertificate pulumi.BoolPtrInput                              `pulumi:"autoDownloadCertificate"`
+	CaCertificateURI        pulumi.StringPtrInput                            `pulumi:"caCertificateURI"`
+	Credentials             CacheUsernameDownloadSettingsCredentialsPtrInput `pulumi:"credentials"`
+	EncryptLdapConnection   pulumi.BoolPtrInput                              `pulumi:"encryptLdapConnection"`
+	ExtendedGroups          pulumi.BoolPtrInput                              `pulumi:"extendedGroups"`
+	GroupFileURI            pulumi.StringPtrInput                            `pulumi:"groupFileURI"`
+	LdapBaseDN              pulumi.StringPtrInput                            `pulumi:"ldapBaseDN"`
+	LdapServer              pulumi.StringPtrInput                            `pulumi:"ldapServer"`
+	RequireValidCertificate pulumi.BoolPtrInput                              `pulumi:"requireValidCertificate"`
+	UserFileURI             pulumi.StringPtrInput                            `pulumi:"userFileURI"`
+	UsernameSource          pulumi.StringPtrInput                            `pulumi:"usernameSource"`
 }
 
 func (CacheUsernameDownloadSettingsArgs) ElementType() reflect.Type {
@@ -3604,7 +3408,6 @@ func (i *cacheUsernameDownloadSettingsPtrType) ToCacheUsernameDownloadSettingsPt
 	return pulumi.ToOutputWithContext(ctx, i).(CacheUsernameDownloadSettingsPtrOutput)
 }
 
-// Settings for Extended Groups username and group download.
 type CacheUsernameDownloadSettingsOutput struct{ *pulumi.OutputState }
 
 func (CacheUsernameDownloadSettingsOutput) ElementType() reflect.Type {
@@ -3624,62 +3427,51 @@ func (o CacheUsernameDownloadSettingsOutput) ToCacheUsernameDownloadSettingsPtrO
 }
 
 func (o CacheUsernameDownloadSettingsOutput) ToCacheUsernameDownloadSettingsPtrOutputWithContext(ctx context.Context) CacheUsernameDownloadSettingsPtrOutput {
-	return o.ApplyT(func(v CacheUsernameDownloadSettings) *CacheUsernameDownloadSettings {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v CacheUsernameDownloadSettings) *CacheUsernameDownloadSettings {
 		return &v
 	}).(CacheUsernameDownloadSettingsPtrOutput)
 }
 
-// Determines if the certificate should be automatically downloaded. This applies to 'caCertificateURI' only if 'requireValidCertificate' is true.
 func (o CacheUsernameDownloadSettingsOutput) AutoDownloadCertificate() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v CacheUsernameDownloadSettings) *bool { return v.AutoDownloadCertificate }).(pulumi.BoolPtrOutput)
 }
 
-// The URI of the CA certificate to validate the LDAP secure connection. This field must be populated when 'requireValidCertificate' is set to true.
 func (o CacheUsernameDownloadSettingsOutput) CaCertificateURI() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v CacheUsernameDownloadSettings) *string { return v.CaCertificateURI }).(pulumi.StringPtrOutput)
 }
 
-// When present, these are the credentials for the secure LDAP connection.
 func (o CacheUsernameDownloadSettingsOutput) Credentials() CacheUsernameDownloadSettingsCredentialsPtrOutput {
 	return o.ApplyT(func(v CacheUsernameDownloadSettings) *CacheUsernameDownloadSettingsCredentials { return v.Credentials }).(CacheUsernameDownloadSettingsCredentialsPtrOutput)
 }
 
-// Whether or not the LDAP connection should be encrypted.
 func (o CacheUsernameDownloadSettingsOutput) EncryptLdapConnection() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v CacheUsernameDownloadSettings) *bool { return v.EncryptLdapConnection }).(pulumi.BoolPtrOutput)
 }
 
-// Whether or not Extended Groups is enabled.
 func (o CacheUsernameDownloadSettingsOutput) ExtendedGroups() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v CacheUsernameDownloadSettings) *bool { return v.ExtendedGroups }).(pulumi.BoolPtrOutput)
 }
 
-// The URI of the file containing group information (in /etc/group file format). This field must be populated when 'usernameSource' is set to 'File'.
 func (o CacheUsernameDownloadSettingsOutput) GroupFileURI() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v CacheUsernameDownloadSettings) *string { return v.GroupFileURI }).(pulumi.StringPtrOutput)
 }
 
-// The base distinguished name for the LDAP domain.
 func (o CacheUsernameDownloadSettingsOutput) LdapBaseDN() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v CacheUsernameDownloadSettings) *string { return v.LdapBaseDN }).(pulumi.StringPtrOutput)
 }
 
-// The fully qualified domain name or IP address of the LDAP server to use.
 func (o CacheUsernameDownloadSettingsOutput) LdapServer() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v CacheUsernameDownloadSettings) *string { return v.LdapServer }).(pulumi.StringPtrOutput)
 }
 
-// Determines if the certificates must be validated by a certificate authority. When true, caCertificateURI must be provided.
 func (o CacheUsernameDownloadSettingsOutput) RequireValidCertificate() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v CacheUsernameDownloadSettings) *bool { return v.RequireValidCertificate }).(pulumi.BoolPtrOutput)
 }
 
-// The URI of the file containing user information (in /etc/passwd file format). This field must be populated when 'usernameSource' is set to 'File'.
 func (o CacheUsernameDownloadSettingsOutput) UserFileURI() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v CacheUsernameDownloadSettings) *string { return v.UserFileURI }).(pulumi.StringPtrOutput)
 }
 
-// This setting determines how the cache gets username and group names for clients.
 func (o CacheUsernameDownloadSettingsOutput) UsernameSource() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v CacheUsernameDownloadSettings) *string { return v.UsernameSource }).(pulumi.StringPtrOutput)
 }
@@ -3699,10 +3491,15 @@ func (o CacheUsernameDownloadSettingsPtrOutput) ToCacheUsernameDownloadSettingsP
 }
 
 func (o CacheUsernameDownloadSettingsPtrOutput) Elem() CacheUsernameDownloadSettingsOutput {
-	return o.ApplyT(func(v *CacheUsernameDownloadSettings) CacheUsernameDownloadSettings { return *v }).(CacheUsernameDownloadSettingsOutput)
+	return o.ApplyT(func(v *CacheUsernameDownloadSettings) CacheUsernameDownloadSettings {
+		if v != nil {
+			return *v
+		}
+		var ret CacheUsernameDownloadSettings
+		return ret
+	}).(CacheUsernameDownloadSettingsOutput)
 }
 
-// Determines if the certificate should be automatically downloaded. This applies to 'caCertificateURI' only if 'requireValidCertificate' is true.
 func (o CacheUsernameDownloadSettingsPtrOutput) AutoDownloadCertificate() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *CacheUsernameDownloadSettings) *bool {
 		if v == nil {
@@ -3712,7 +3509,6 @@ func (o CacheUsernameDownloadSettingsPtrOutput) AutoDownloadCertificate() pulumi
 	}).(pulumi.BoolPtrOutput)
 }
 
-// The URI of the CA certificate to validate the LDAP secure connection. This field must be populated when 'requireValidCertificate' is set to true.
 func (o CacheUsernameDownloadSettingsPtrOutput) CaCertificateURI() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *CacheUsernameDownloadSettings) *string {
 		if v == nil {
@@ -3722,7 +3518,6 @@ func (o CacheUsernameDownloadSettingsPtrOutput) CaCertificateURI() pulumi.String
 	}).(pulumi.StringPtrOutput)
 }
 
-// When present, these are the credentials for the secure LDAP connection.
 func (o CacheUsernameDownloadSettingsPtrOutput) Credentials() CacheUsernameDownloadSettingsCredentialsPtrOutput {
 	return o.ApplyT(func(v *CacheUsernameDownloadSettings) *CacheUsernameDownloadSettingsCredentials {
 		if v == nil {
@@ -3732,7 +3527,6 @@ func (o CacheUsernameDownloadSettingsPtrOutput) Credentials() CacheUsernameDownl
 	}).(CacheUsernameDownloadSettingsCredentialsPtrOutput)
 }
 
-// Whether or not the LDAP connection should be encrypted.
 func (o CacheUsernameDownloadSettingsPtrOutput) EncryptLdapConnection() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *CacheUsernameDownloadSettings) *bool {
 		if v == nil {
@@ -3742,7 +3536,6 @@ func (o CacheUsernameDownloadSettingsPtrOutput) EncryptLdapConnection() pulumi.B
 	}).(pulumi.BoolPtrOutput)
 }
 
-// Whether or not Extended Groups is enabled.
 func (o CacheUsernameDownloadSettingsPtrOutput) ExtendedGroups() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *CacheUsernameDownloadSettings) *bool {
 		if v == nil {
@@ -3752,7 +3545,6 @@ func (o CacheUsernameDownloadSettingsPtrOutput) ExtendedGroups() pulumi.BoolPtrO
 	}).(pulumi.BoolPtrOutput)
 }
 
-// The URI of the file containing group information (in /etc/group file format). This field must be populated when 'usernameSource' is set to 'File'.
 func (o CacheUsernameDownloadSettingsPtrOutput) GroupFileURI() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *CacheUsernameDownloadSettings) *string {
 		if v == nil {
@@ -3762,7 +3554,6 @@ func (o CacheUsernameDownloadSettingsPtrOutput) GroupFileURI() pulumi.StringPtrO
 	}).(pulumi.StringPtrOutput)
 }
 
-// The base distinguished name for the LDAP domain.
 func (o CacheUsernameDownloadSettingsPtrOutput) LdapBaseDN() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *CacheUsernameDownloadSettings) *string {
 		if v == nil {
@@ -3772,7 +3563,6 @@ func (o CacheUsernameDownloadSettingsPtrOutput) LdapBaseDN() pulumi.StringPtrOut
 	}).(pulumi.StringPtrOutput)
 }
 
-// The fully qualified domain name or IP address of the LDAP server to use.
 func (o CacheUsernameDownloadSettingsPtrOutput) LdapServer() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *CacheUsernameDownloadSettings) *string {
 		if v == nil {
@@ -3782,7 +3572,6 @@ func (o CacheUsernameDownloadSettingsPtrOutput) LdapServer() pulumi.StringPtrOut
 	}).(pulumi.StringPtrOutput)
 }
 
-// Determines if the certificates must be validated by a certificate authority. When true, caCertificateURI must be provided.
 func (o CacheUsernameDownloadSettingsPtrOutput) RequireValidCertificate() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *CacheUsernameDownloadSettings) *bool {
 		if v == nil {
@@ -3792,7 +3581,6 @@ func (o CacheUsernameDownloadSettingsPtrOutput) RequireValidCertificate() pulumi
 	}).(pulumi.BoolPtrOutput)
 }
 
-// The URI of the file containing user information (in /etc/passwd file format). This field must be populated when 'usernameSource' is set to 'File'.
 func (o CacheUsernameDownloadSettingsPtrOutput) UserFileURI() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *CacheUsernameDownloadSettings) *string {
 		if v == nil {
@@ -3802,7 +3590,6 @@ func (o CacheUsernameDownloadSettingsPtrOutput) UserFileURI() pulumi.StringPtrOu
 	}).(pulumi.StringPtrOutput)
 }
 
-// This setting determines how the cache gets username and group names for clients.
 func (o CacheUsernameDownloadSettingsPtrOutput) UsernameSource() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *CacheUsernameDownloadSettings) *string {
 		if v == nil {
@@ -3812,11 +3599,8 @@ func (o CacheUsernameDownloadSettingsPtrOutput) UsernameSource() pulumi.StringPt
 	}).(pulumi.StringPtrOutput)
 }
 
-// When present, these are the credentials for the secure LDAP connection.
 type CacheUsernameDownloadSettingsCredentials struct {
-	// The Bind Distinguished Name identity to be used in the secure LDAP connection. This value is stored encrypted and not returned on response.
-	BindDn *string `pulumi:"bindDn"`
-	// The Bind password to be used in the secure LDAP connection. This value is stored encrypted and not returned on response.
+	BindDn       *string `pulumi:"bindDn"`
 	BindPassword *string `pulumi:"bindPassword"`
 }
 
@@ -3831,11 +3615,8 @@ type CacheUsernameDownloadSettingsCredentialsInput interface {
 	ToCacheUsernameDownloadSettingsCredentialsOutputWithContext(context.Context) CacheUsernameDownloadSettingsCredentialsOutput
 }
 
-// When present, these are the credentials for the secure LDAP connection.
 type CacheUsernameDownloadSettingsCredentialsArgs struct {
-	// The Bind Distinguished Name identity to be used in the secure LDAP connection. This value is stored encrypted and not returned on response.
-	BindDn pulumi.StringPtrInput `pulumi:"bindDn"`
-	// The Bind password to be used in the secure LDAP connection. This value is stored encrypted and not returned on response.
+	BindDn       pulumi.StringPtrInput `pulumi:"bindDn"`
 	BindPassword pulumi.StringPtrInput `pulumi:"bindPassword"`
 }
 
@@ -3892,7 +3673,6 @@ func (i *cacheUsernameDownloadSettingsCredentialsPtrType) ToCacheUsernameDownloa
 	return pulumi.ToOutputWithContext(ctx, i).(CacheUsernameDownloadSettingsCredentialsPtrOutput)
 }
 
-// When present, these are the credentials for the secure LDAP connection.
 type CacheUsernameDownloadSettingsCredentialsOutput struct{ *pulumi.OutputState }
 
 func (CacheUsernameDownloadSettingsCredentialsOutput) ElementType() reflect.Type {
@@ -3912,17 +3692,15 @@ func (o CacheUsernameDownloadSettingsCredentialsOutput) ToCacheUsernameDownloadS
 }
 
 func (o CacheUsernameDownloadSettingsCredentialsOutput) ToCacheUsernameDownloadSettingsCredentialsPtrOutputWithContext(ctx context.Context) CacheUsernameDownloadSettingsCredentialsPtrOutput {
-	return o.ApplyT(func(v CacheUsernameDownloadSettingsCredentials) *CacheUsernameDownloadSettingsCredentials {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v CacheUsernameDownloadSettingsCredentials) *CacheUsernameDownloadSettingsCredentials {
 		return &v
 	}).(CacheUsernameDownloadSettingsCredentialsPtrOutput)
 }
 
-// The Bind Distinguished Name identity to be used in the secure LDAP connection. This value is stored encrypted and not returned on response.
 func (o CacheUsernameDownloadSettingsCredentialsOutput) BindDn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v CacheUsernameDownloadSettingsCredentials) *string { return v.BindDn }).(pulumi.StringPtrOutput)
 }
 
-// The Bind password to be used in the secure LDAP connection. This value is stored encrypted and not returned on response.
 func (o CacheUsernameDownloadSettingsCredentialsOutput) BindPassword() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v CacheUsernameDownloadSettingsCredentials) *string { return v.BindPassword }).(pulumi.StringPtrOutput)
 }
@@ -3942,10 +3720,15 @@ func (o CacheUsernameDownloadSettingsCredentialsPtrOutput) ToCacheUsernameDownlo
 }
 
 func (o CacheUsernameDownloadSettingsCredentialsPtrOutput) Elem() CacheUsernameDownloadSettingsCredentialsOutput {
-	return o.ApplyT(func(v *CacheUsernameDownloadSettingsCredentials) CacheUsernameDownloadSettingsCredentials { return *v }).(CacheUsernameDownloadSettingsCredentialsOutput)
+	return o.ApplyT(func(v *CacheUsernameDownloadSettingsCredentials) CacheUsernameDownloadSettingsCredentials {
+		if v != nil {
+			return *v
+		}
+		var ret CacheUsernameDownloadSettingsCredentials
+		return ret
+	}).(CacheUsernameDownloadSettingsCredentialsOutput)
 }
 
-// The Bind Distinguished Name identity to be used in the secure LDAP connection. This value is stored encrypted and not returned on response.
 func (o CacheUsernameDownloadSettingsCredentialsPtrOutput) BindDn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *CacheUsernameDownloadSettingsCredentials) *string {
 		if v == nil {
@@ -3955,7 +3738,6 @@ func (o CacheUsernameDownloadSettingsCredentialsPtrOutput) BindDn() pulumi.Strin
 	}).(pulumi.StringPtrOutput)
 }
 
-// The Bind password to be used in the secure LDAP connection. This value is stored encrypted and not returned on response.
 func (o CacheUsernameDownloadSettingsCredentialsPtrOutput) BindPassword() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *CacheUsernameDownloadSettingsCredentials) *string {
 		if v == nil {
@@ -3965,32 +3747,19 @@ func (o CacheUsernameDownloadSettingsCredentialsPtrOutput) BindPassword() pulumi
 	}).(pulumi.StringPtrOutput)
 }
 
-// Settings for Extended Groups username and group download.
 type CacheUsernameDownloadSettingsResponse struct {
-	// Determines if the certificate should be automatically downloaded. This applies to 'caCertificateURI' only if 'requireValidCertificate' is true.
-	AutoDownloadCertificate *bool `pulumi:"autoDownloadCertificate"`
-	// The URI of the CA certificate to validate the LDAP secure connection. This field must be populated when 'requireValidCertificate' is set to true.
-	CaCertificateURI *string `pulumi:"caCertificateURI"`
-	// When present, these are the credentials for the secure LDAP connection.
-	Credentials *CacheUsernameDownloadSettingsResponseCredentials `pulumi:"credentials"`
-	// Whether or not the LDAP connection should be encrypted.
-	EncryptLdapConnection *bool `pulumi:"encryptLdapConnection"`
-	// Whether or not Extended Groups is enabled.
-	ExtendedGroups *bool `pulumi:"extendedGroups"`
-	// The URI of the file containing group information (in /etc/group file format). This field must be populated when 'usernameSource' is set to 'File'.
-	GroupFileURI *string `pulumi:"groupFileURI"`
-	// The base distinguished name for the LDAP domain.
-	LdapBaseDN *string `pulumi:"ldapBaseDN"`
-	// The fully qualified domain name or IP address of the LDAP server to use.
-	LdapServer *string `pulumi:"ldapServer"`
-	// Determines if the certificates must be validated by a certificate authority. When true, caCertificateURI must be provided.
-	RequireValidCertificate *bool `pulumi:"requireValidCertificate"`
-	// The URI of the file containing user information (in /etc/passwd file format). This field must be populated when 'usernameSource' is set to 'File'.
-	UserFileURI *string `pulumi:"userFileURI"`
-	// Indicates whether or not the HPC Cache has performed the username download successfully.
-	UsernameDownloaded string `pulumi:"usernameDownloaded"`
-	// This setting determines how the cache gets username and group names for clients.
-	UsernameSource *string `pulumi:"usernameSource"`
+	AutoDownloadCertificate *bool                                             `pulumi:"autoDownloadCertificate"`
+	CaCertificateURI        *string                                           `pulumi:"caCertificateURI"`
+	Credentials             *CacheUsernameDownloadSettingsResponseCredentials `pulumi:"credentials"`
+	EncryptLdapConnection   *bool                                             `pulumi:"encryptLdapConnection"`
+	ExtendedGroups          *bool                                             `pulumi:"extendedGroups"`
+	GroupFileURI            *string                                           `pulumi:"groupFileURI"`
+	LdapBaseDN              *string                                           `pulumi:"ldapBaseDN"`
+	LdapServer              *string                                           `pulumi:"ldapServer"`
+	RequireValidCertificate *bool                                             `pulumi:"requireValidCertificate"`
+	UserFileURI             *string                                           `pulumi:"userFileURI"`
+	UsernameDownloaded      string                                            `pulumi:"usernameDownloaded"`
+	UsernameSource          *string                                           `pulumi:"usernameSource"`
 }
 
 // CacheUsernameDownloadSettingsResponseInput is an input type that accepts CacheUsernameDownloadSettingsResponseArgs and CacheUsernameDownloadSettingsResponseOutput values.
@@ -4004,32 +3773,19 @@ type CacheUsernameDownloadSettingsResponseInput interface {
 	ToCacheUsernameDownloadSettingsResponseOutputWithContext(context.Context) CacheUsernameDownloadSettingsResponseOutput
 }
 
-// Settings for Extended Groups username and group download.
 type CacheUsernameDownloadSettingsResponseArgs struct {
-	// Determines if the certificate should be automatically downloaded. This applies to 'caCertificateURI' only if 'requireValidCertificate' is true.
-	AutoDownloadCertificate pulumi.BoolPtrInput `pulumi:"autoDownloadCertificate"`
-	// The URI of the CA certificate to validate the LDAP secure connection. This field must be populated when 'requireValidCertificate' is set to true.
-	CaCertificateURI pulumi.StringPtrInput `pulumi:"caCertificateURI"`
-	// When present, these are the credentials for the secure LDAP connection.
-	Credentials CacheUsernameDownloadSettingsResponseCredentialsPtrInput `pulumi:"credentials"`
-	// Whether or not the LDAP connection should be encrypted.
-	EncryptLdapConnection pulumi.BoolPtrInput `pulumi:"encryptLdapConnection"`
-	// Whether or not Extended Groups is enabled.
-	ExtendedGroups pulumi.BoolPtrInput `pulumi:"extendedGroups"`
-	// The URI of the file containing group information (in /etc/group file format). This field must be populated when 'usernameSource' is set to 'File'.
-	GroupFileURI pulumi.StringPtrInput `pulumi:"groupFileURI"`
-	// The base distinguished name for the LDAP domain.
-	LdapBaseDN pulumi.StringPtrInput `pulumi:"ldapBaseDN"`
-	// The fully qualified domain name or IP address of the LDAP server to use.
-	LdapServer pulumi.StringPtrInput `pulumi:"ldapServer"`
-	// Determines if the certificates must be validated by a certificate authority. When true, caCertificateURI must be provided.
-	RequireValidCertificate pulumi.BoolPtrInput `pulumi:"requireValidCertificate"`
-	// The URI of the file containing user information (in /etc/passwd file format). This field must be populated when 'usernameSource' is set to 'File'.
-	UserFileURI pulumi.StringPtrInput `pulumi:"userFileURI"`
-	// Indicates whether or not the HPC Cache has performed the username download successfully.
-	UsernameDownloaded pulumi.StringInput `pulumi:"usernameDownloaded"`
-	// This setting determines how the cache gets username and group names for clients.
-	UsernameSource pulumi.StringPtrInput `pulumi:"usernameSource"`
+	AutoDownloadCertificate pulumi.BoolPtrInput                                      `pulumi:"autoDownloadCertificate"`
+	CaCertificateURI        pulumi.StringPtrInput                                    `pulumi:"caCertificateURI"`
+	Credentials             CacheUsernameDownloadSettingsResponseCredentialsPtrInput `pulumi:"credentials"`
+	EncryptLdapConnection   pulumi.BoolPtrInput                                      `pulumi:"encryptLdapConnection"`
+	ExtendedGroups          pulumi.BoolPtrInput                                      `pulumi:"extendedGroups"`
+	GroupFileURI            pulumi.StringPtrInput                                    `pulumi:"groupFileURI"`
+	LdapBaseDN              pulumi.StringPtrInput                                    `pulumi:"ldapBaseDN"`
+	LdapServer              pulumi.StringPtrInput                                    `pulumi:"ldapServer"`
+	RequireValidCertificate pulumi.BoolPtrInput                                      `pulumi:"requireValidCertificate"`
+	UserFileURI             pulumi.StringPtrInput                                    `pulumi:"userFileURI"`
+	UsernameDownloaded      pulumi.StringInput                                       `pulumi:"usernameDownloaded"`
+	UsernameSource          pulumi.StringPtrInput                                    `pulumi:"usernameSource"`
 }
 
 func (CacheUsernameDownloadSettingsResponseArgs) ElementType() reflect.Type {
@@ -4085,7 +3841,6 @@ func (i *cacheUsernameDownloadSettingsResponsePtrType) ToCacheUsernameDownloadSe
 	return pulumi.ToOutputWithContext(ctx, i).(CacheUsernameDownloadSettingsResponsePtrOutput)
 }
 
-// Settings for Extended Groups username and group download.
 type CacheUsernameDownloadSettingsResponseOutput struct{ *pulumi.OutputState }
 
 func (CacheUsernameDownloadSettingsResponseOutput) ElementType() reflect.Type {
@@ -4105,69 +3860,57 @@ func (o CacheUsernameDownloadSettingsResponseOutput) ToCacheUsernameDownloadSett
 }
 
 func (o CacheUsernameDownloadSettingsResponseOutput) ToCacheUsernameDownloadSettingsResponsePtrOutputWithContext(ctx context.Context) CacheUsernameDownloadSettingsResponsePtrOutput {
-	return o.ApplyT(func(v CacheUsernameDownloadSettingsResponse) *CacheUsernameDownloadSettingsResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v CacheUsernameDownloadSettingsResponse) *CacheUsernameDownloadSettingsResponse {
 		return &v
 	}).(CacheUsernameDownloadSettingsResponsePtrOutput)
 }
 
-// Determines if the certificate should be automatically downloaded. This applies to 'caCertificateURI' only if 'requireValidCertificate' is true.
 func (o CacheUsernameDownloadSettingsResponseOutput) AutoDownloadCertificate() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v CacheUsernameDownloadSettingsResponse) *bool { return v.AutoDownloadCertificate }).(pulumi.BoolPtrOutput)
 }
 
-// The URI of the CA certificate to validate the LDAP secure connection. This field must be populated when 'requireValidCertificate' is set to true.
 func (o CacheUsernameDownloadSettingsResponseOutput) CaCertificateURI() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v CacheUsernameDownloadSettingsResponse) *string { return v.CaCertificateURI }).(pulumi.StringPtrOutput)
 }
 
-// When present, these are the credentials for the secure LDAP connection.
 func (o CacheUsernameDownloadSettingsResponseOutput) Credentials() CacheUsernameDownloadSettingsResponseCredentialsPtrOutput {
 	return o.ApplyT(func(v CacheUsernameDownloadSettingsResponse) *CacheUsernameDownloadSettingsResponseCredentials {
 		return v.Credentials
 	}).(CacheUsernameDownloadSettingsResponseCredentialsPtrOutput)
 }
 
-// Whether or not the LDAP connection should be encrypted.
 func (o CacheUsernameDownloadSettingsResponseOutput) EncryptLdapConnection() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v CacheUsernameDownloadSettingsResponse) *bool { return v.EncryptLdapConnection }).(pulumi.BoolPtrOutput)
 }
 
-// Whether or not Extended Groups is enabled.
 func (o CacheUsernameDownloadSettingsResponseOutput) ExtendedGroups() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v CacheUsernameDownloadSettingsResponse) *bool { return v.ExtendedGroups }).(pulumi.BoolPtrOutput)
 }
 
-// The URI of the file containing group information (in /etc/group file format). This field must be populated when 'usernameSource' is set to 'File'.
 func (o CacheUsernameDownloadSettingsResponseOutput) GroupFileURI() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v CacheUsernameDownloadSettingsResponse) *string { return v.GroupFileURI }).(pulumi.StringPtrOutput)
 }
 
-// The base distinguished name for the LDAP domain.
 func (o CacheUsernameDownloadSettingsResponseOutput) LdapBaseDN() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v CacheUsernameDownloadSettingsResponse) *string { return v.LdapBaseDN }).(pulumi.StringPtrOutput)
 }
 
-// The fully qualified domain name or IP address of the LDAP server to use.
 func (o CacheUsernameDownloadSettingsResponseOutput) LdapServer() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v CacheUsernameDownloadSettingsResponse) *string { return v.LdapServer }).(pulumi.StringPtrOutput)
 }
 
-// Determines if the certificates must be validated by a certificate authority. When true, caCertificateURI must be provided.
 func (o CacheUsernameDownloadSettingsResponseOutput) RequireValidCertificate() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v CacheUsernameDownloadSettingsResponse) *bool { return v.RequireValidCertificate }).(pulumi.BoolPtrOutput)
 }
 
-// The URI of the file containing user information (in /etc/passwd file format). This field must be populated when 'usernameSource' is set to 'File'.
 func (o CacheUsernameDownloadSettingsResponseOutput) UserFileURI() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v CacheUsernameDownloadSettingsResponse) *string { return v.UserFileURI }).(pulumi.StringPtrOutput)
 }
 
-// Indicates whether or not the HPC Cache has performed the username download successfully.
 func (o CacheUsernameDownloadSettingsResponseOutput) UsernameDownloaded() pulumi.StringOutput {
 	return o.ApplyT(func(v CacheUsernameDownloadSettingsResponse) string { return v.UsernameDownloaded }).(pulumi.StringOutput)
 }
 
-// This setting determines how the cache gets username and group names for clients.
 func (o CacheUsernameDownloadSettingsResponseOutput) UsernameSource() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v CacheUsernameDownloadSettingsResponse) *string { return v.UsernameSource }).(pulumi.StringPtrOutput)
 }
@@ -4187,10 +3930,15 @@ func (o CacheUsernameDownloadSettingsResponsePtrOutput) ToCacheUsernameDownloadS
 }
 
 func (o CacheUsernameDownloadSettingsResponsePtrOutput) Elem() CacheUsernameDownloadSettingsResponseOutput {
-	return o.ApplyT(func(v *CacheUsernameDownloadSettingsResponse) CacheUsernameDownloadSettingsResponse { return *v }).(CacheUsernameDownloadSettingsResponseOutput)
+	return o.ApplyT(func(v *CacheUsernameDownloadSettingsResponse) CacheUsernameDownloadSettingsResponse {
+		if v != nil {
+			return *v
+		}
+		var ret CacheUsernameDownloadSettingsResponse
+		return ret
+	}).(CacheUsernameDownloadSettingsResponseOutput)
 }
 
-// Determines if the certificate should be automatically downloaded. This applies to 'caCertificateURI' only if 'requireValidCertificate' is true.
 func (o CacheUsernameDownloadSettingsResponsePtrOutput) AutoDownloadCertificate() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *CacheUsernameDownloadSettingsResponse) *bool {
 		if v == nil {
@@ -4200,7 +3948,6 @@ func (o CacheUsernameDownloadSettingsResponsePtrOutput) AutoDownloadCertificate(
 	}).(pulumi.BoolPtrOutput)
 }
 
-// The URI of the CA certificate to validate the LDAP secure connection. This field must be populated when 'requireValidCertificate' is set to true.
 func (o CacheUsernameDownloadSettingsResponsePtrOutput) CaCertificateURI() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *CacheUsernameDownloadSettingsResponse) *string {
 		if v == nil {
@@ -4210,7 +3957,6 @@ func (o CacheUsernameDownloadSettingsResponsePtrOutput) CaCertificateURI() pulum
 	}).(pulumi.StringPtrOutput)
 }
 
-// When present, these are the credentials for the secure LDAP connection.
 func (o CacheUsernameDownloadSettingsResponsePtrOutput) Credentials() CacheUsernameDownloadSettingsResponseCredentialsPtrOutput {
 	return o.ApplyT(func(v *CacheUsernameDownloadSettingsResponse) *CacheUsernameDownloadSettingsResponseCredentials {
 		if v == nil {
@@ -4220,7 +3966,6 @@ func (o CacheUsernameDownloadSettingsResponsePtrOutput) Credentials() CacheUsern
 	}).(CacheUsernameDownloadSettingsResponseCredentialsPtrOutput)
 }
 
-// Whether or not the LDAP connection should be encrypted.
 func (o CacheUsernameDownloadSettingsResponsePtrOutput) EncryptLdapConnection() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *CacheUsernameDownloadSettingsResponse) *bool {
 		if v == nil {
@@ -4230,7 +3975,6 @@ func (o CacheUsernameDownloadSettingsResponsePtrOutput) EncryptLdapConnection() 
 	}).(pulumi.BoolPtrOutput)
 }
 
-// Whether or not Extended Groups is enabled.
 func (o CacheUsernameDownloadSettingsResponsePtrOutput) ExtendedGroups() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *CacheUsernameDownloadSettingsResponse) *bool {
 		if v == nil {
@@ -4240,7 +3984,6 @@ func (o CacheUsernameDownloadSettingsResponsePtrOutput) ExtendedGroups() pulumi.
 	}).(pulumi.BoolPtrOutput)
 }
 
-// The URI of the file containing group information (in /etc/group file format). This field must be populated when 'usernameSource' is set to 'File'.
 func (o CacheUsernameDownloadSettingsResponsePtrOutput) GroupFileURI() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *CacheUsernameDownloadSettingsResponse) *string {
 		if v == nil {
@@ -4250,7 +3993,6 @@ func (o CacheUsernameDownloadSettingsResponsePtrOutput) GroupFileURI() pulumi.St
 	}).(pulumi.StringPtrOutput)
 }
 
-// The base distinguished name for the LDAP domain.
 func (o CacheUsernameDownloadSettingsResponsePtrOutput) LdapBaseDN() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *CacheUsernameDownloadSettingsResponse) *string {
 		if v == nil {
@@ -4260,7 +4002,6 @@ func (o CacheUsernameDownloadSettingsResponsePtrOutput) LdapBaseDN() pulumi.Stri
 	}).(pulumi.StringPtrOutput)
 }
 
-// The fully qualified domain name or IP address of the LDAP server to use.
 func (o CacheUsernameDownloadSettingsResponsePtrOutput) LdapServer() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *CacheUsernameDownloadSettingsResponse) *string {
 		if v == nil {
@@ -4270,7 +4011,6 @@ func (o CacheUsernameDownloadSettingsResponsePtrOutput) LdapServer() pulumi.Stri
 	}).(pulumi.StringPtrOutput)
 }
 
-// Determines if the certificates must be validated by a certificate authority. When true, caCertificateURI must be provided.
 func (o CacheUsernameDownloadSettingsResponsePtrOutput) RequireValidCertificate() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *CacheUsernameDownloadSettingsResponse) *bool {
 		if v == nil {
@@ -4280,7 +4020,6 @@ func (o CacheUsernameDownloadSettingsResponsePtrOutput) RequireValidCertificate(
 	}).(pulumi.BoolPtrOutput)
 }
 
-// The URI of the file containing user information (in /etc/passwd file format). This field must be populated when 'usernameSource' is set to 'File'.
 func (o CacheUsernameDownloadSettingsResponsePtrOutput) UserFileURI() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *CacheUsernameDownloadSettingsResponse) *string {
 		if v == nil {
@@ -4290,7 +4029,6 @@ func (o CacheUsernameDownloadSettingsResponsePtrOutput) UserFileURI() pulumi.Str
 	}).(pulumi.StringPtrOutput)
 }
 
-// Indicates whether or not the HPC Cache has performed the username download successfully.
 func (o CacheUsernameDownloadSettingsResponsePtrOutput) UsernameDownloaded() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *CacheUsernameDownloadSettingsResponse) *string {
 		if v == nil {
@@ -4300,7 +4038,6 @@ func (o CacheUsernameDownloadSettingsResponsePtrOutput) UsernameDownloaded() pul
 	}).(pulumi.StringPtrOutput)
 }
 
-// This setting determines how the cache gets username and group names for clients.
 func (o CacheUsernameDownloadSettingsResponsePtrOutput) UsernameSource() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *CacheUsernameDownloadSettingsResponse) *string {
 		if v == nil {
@@ -4310,11 +4047,8 @@ func (o CacheUsernameDownloadSettingsResponsePtrOutput) UsernameSource() pulumi.
 	}).(pulumi.StringPtrOutput)
 }
 
-// When present, these are the credentials for the secure LDAP connection.
 type CacheUsernameDownloadSettingsResponseCredentials struct {
-	// The Bind Distinguished Name identity to be used in the secure LDAP connection. This value is stored encrypted and not returned on response.
-	BindDn *string `pulumi:"bindDn"`
-	// The Bind password to be used in the secure LDAP connection. This value is stored encrypted and not returned on response.
+	BindDn       *string `pulumi:"bindDn"`
 	BindPassword *string `pulumi:"bindPassword"`
 }
 
@@ -4329,11 +4063,8 @@ type CacheUsernameDownloadSettingsResponseCredentialsInput interface {
 	ToCacheUsernameDownloadSettingsResponseCredentialsOutputWithContext(context.Context) CacheUsernameDownloadSettingsResponseCredentialsOutput
 }
 
-// When present, these are the credentials for the secure LDAP connection.
 type CacheUsernameDownloadSettingsResponseCredentialsArgs struct {
-	// The Bind Distinguished Name identity to be used in the secure LDAP connection. This value is stored encrypted and not returned on response.
-	BindDn pulumi.StringPtrInput `pulumi:"bindDn"`
-	// The Bind password to be used in the secure LDAP connection. This value is stored encrypted and not returned on response.
+	BindDn       pulumi.StringPtrInput `pulumi:"bindDn"`
 	BindPassword pulumi.StringPtrInput `pulumi:"bindPassword"`
 }
 
@@ -4390,7 +4121,6 @@ func (i *cacheUsernameDownloadSettingsResponseCredentialsPtrType) ToCacheUsernam
 	return pulumi.ToOutputWithContext(ctx, i).(CacheUsernameDownloadSettingsResponseCredentialsPtrOutput)
 }
 
-// When present, these are the credentials for the secure LDAP connection.
 type CacheUsernameDownloadSettingsResponseCredentialsOutput struct{ *pulumi.OutputState }
 
 func (CacheUsernameDownloadSettingsResponseCredentialsOutput) ElementType() reflect.Type {
@@ -4410,17 +4140,15 @@ func (o CacheUsernameDownloadSettingsResponseCredentialsOutput) ToCacheUsernameD
 }
 
 func (o CacheUsernameDownloadSettingsResponseCredentialsOutput) ToCacheUsernameDownloadSettingsResponseCredentialsPtrOutputWithContext(ctx context.Context) CacheUsernameDownloadSettingsResponseCredentialsPtrOutput {
-	return o.ApplyT(func(v CacheUsernameDownloadSettingsResponseCredentials) *CacheUsernameDownloadSettingsResponseCredentials {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v CacheUsernameDownloadSettingsResponseCredentials) *CacheUsernameDownloadSettingsResponseCredentials {
 		return &v
 	}).(CacheUsernameDownloadSettingsResponseCredentialsPtrOutput)
 }
 
-// The Bind Distinguished Name identity to be used in the secure LDAP connection. This value is stored encrypted and not returned on response.
 func (o CacheUsernameDownloadSettingsResponseCredentialsOutput) BindDn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v CacheUsernameDownloadSettingsResponseCredentials) *string { return v.BindDn }).(pulumi.StringPtrOutput)
 }
 
-// The Bind password to be used in the secure LDAP connection. This value is stored encrypted and not returned on response.
 func (o CacheUsernameDownloadSettingsResponseCredentialsOutput) BindPassword() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v CacheUsernameDownloadSettingsResponseCredentials) *string { return v.BindPassword }).(pulumi.StringPtrOutput)
 }
@@ -4441,11 +4169,14 @@ func (o CacheUsernameDownloadSettingsResponseCredentialsPtrOutput) ToCacheUserna
 
 func (o CacheUsernameDownloadSettingsResponseCredentialsPtrOutput) Elem() CacheUsernameDownloadSettingsResponseCredentialsOutput {
 	return o.ApplyT(func(v *CacheUsernameDownloadSettingsResponseCredentials) CacheUsernameDownloadSettingsResponseCredentials {
-		return *v
+		if v != nil {
+			return *v
+		}
+		var ret CacheUsernameDownloadSettingsResponseCredentials
+		return ret
 	}).(CacheUsernameDownloadSettingsResponseCredentialsOutput)
 }
 
-// The Bind Distinguished Name identity to be used in the secure LDAP connection. This value is stored encrypted and not returned on response.
 func (o CacheUsernameDownloadSettingsResponseCredentialsPtrOutput) BindDn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *CacheUsernameDownloadSettingsResponseCredentials) *string {
 		if v == nil {
@@ -4455,7 +4186,6 @@ func (o CacheUsernameDownloadSettingsResponseCredentialsPtrOutput) BindDn() pulu
 	}).(pulumi.StringPtrOutput)
 }
 
-// The Bind password to be used in the secure LDAP connection. This value is stored encrypted and not returned on response.
 func (o CacheUsernameDownloadSettingsResponseCredentialsPtrOutput) BindPassword() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *CacheUsernameDownloadSettingsResponseCredentials) *string {
 		if v == nil {
@@ -4465,9 +4195,7 @@ func (o CacheUsernameDownloadSettingsResponseCredentialsPtrOutput) BindPassword(
 	}).(pulumi.StringPtrOutput)
 }
 
-// Properties pertaining to the ClfsTarget
 type ClfsTarget struct {
-	// Resource ID of storage container.
 	Target *string `pulumi:"target"`
 }
 
@@ -4482,9 +4210,7 @@ type ClfsTargetInput interface {
 	ToClfsTargetOutputWithContext(context.Context) ClfsTargetOutput
 }
 
-// Properties pertaining to the ClfsTarget
 type ClfsTargetArgs struct {
-	// Resource ID of storage container.
 	Target pulumi.StringPtrInput `pulumi:"target"`
 }
 
@@ -4541,7 +4267,6 @@ func (i *clfsTargetPtrType) ToClfsTargetPtrOutputWithContext(ctx context.Context
 	return pulumi.ToOutputWithContext(ctx, i).(ClfsTargetPtrOutput)
 }
 
-// Properties pertaining to the ClfsTarget
 type ClfsTargetOutput struct{ *pulumi.OutputState }
 
 func (ClfsTargetOutput) ElementType() reflect.Type {
@@ -4561,12 +4286,11 @@ func (o ClfsTargetOutput) ToClfsTargetPtrOutput() ClfsTargetPtrOutput {
 }
 
 func (o ClfsTargetOutput) ToClfsTargetPtrOutputWithContext(ctx context.Context) ClfsTargetPtrOutput {
-	return o.ApplyT(func(v ClfsTarget) *ClfsTarget {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ClfsTarget) *ClfsTarget {
 		return &v
 	}).(ClfsTargetPtrOutput)
 }
 
-// Resource ID of storage container.
 func (o ClfsTargetOutput) Target() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ClfsTarget) *string { return v.Target }).(pulumi.StringPtrOutput)
 }
@@ -4586,10 +4310,15 @@ func (o ClfsTargetPtrOutput) ToClfsTargetPtrOutputWithContext(ctx context.Contex
 }
 
 func (o ClfsTargetPtrOutput) Elem() ClfsTargetOutput {
-	return o.ApplyT(func(v *ClfsTarget) ClfsTarget { return *v }).(ClfsTargetOutput)
+	return o.ApplyT(func(v *ClfsTarget) ClfsTarget {
+		if v != nil {
+			return *v
+		}
+		var ret ClfsTarget
+		return ret
+	}).(ClfsTargetOutput)
 }
 
-// Resource ID of storage container.
 func (o ClfsTargetPtrOutput) Target() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ClfsTarget) *string {
 		if v == nil {
@@ -4599,9 +4328,7 @@ func (o ClfsTargetPtrOutput) Target() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Properties pertaining to the ClfsTarget
 type ClfsTargetResponse struct {
-	// Resource ID of storage container.
 	Target *string `pulumi:"target"`
 }
 
@@ -4616,9 +4343,7 @@ type ClfsTargetResponseInput interface {
 	ToClfsTargetResponseOutputWithContext(context.Context) ClfsTargetResponseOutput
 }
 
-// Properties pertaining to the ClfsTarget
 type ClfsTargetResponseArgs struct {
-	// Resource ID of storage container.
 	Target pulumi.StringPtrInput `pulumi:"target"`
 }
 
@@ -4675,7 +4400,6 @@ func (i *clfsTargetResponsePtrType) ToClfsTargetResponsePtrOutputWithContext(ctx
 	return pulumi.ToOutputWithContext(ctx, i).(ClfsTargetResponsePtrOutput)
 }
 
-// Properties pertaining to the ClfsTarget
 type ClfsTargetResponseOutput struct{ *pulumi.OutputState }
 
 func (ClfsTargetResponseOutput) ElementType() reflect.Type {
@@ -4695,12 +4419,11 @@ func (o ClfsTargetResponseOutput) ToClfsTargetResponsePtrOutput() ClfsTargetResp
 }
 
 func (o ClfsTargetResponseOutput) ToClfsTargetResponsePtrOutputWithContext(ctx context.Context) ClfsTargetResponsePtrOutput {
-	return o.ApplyT(func(v ClfsTargetResponse) *ClfsTargetResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ClfsTargetResponse) *ClfsTargetResponse {
 		return &v
 	}).(ClfsTargetResponsePtrOutput)
 }
 
-// Resource ID of storage container.
 func (o ClfsTargetResponseOutput) Target() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ClfsTargetResponse) *string { return v.Target }).(pulumi.StringPtrOutput)
 }
@@ -4720,10 +4443,15 @@ func (o ClfsTargetResponsePtrOutput) ToClfsTargetResponsePtrOutputWithContext(ct
 }
 
 func (o ClfsTargetResponsePtrOutput) Elem() ClfsTargetResponseOutput {
-	return o.ApplyT(func(v *ClfsTargetResponse) ClfsTargetResponse { return *v }).(ClfsTargetResponseOutput)
+	return o.ApplyT(func(v *ClfsTargetResponse) ClfsTargetResponse {
+		if v != nil {
+			return *v
+		}
+		var ret ClfsTargetResponse
+		return ret
+	}).(ClfsTargetResponseOutput)
 }
 
-// Resource ID of storage container.
 func (o ClfsTargetResponsePtrOutput) Target() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ClfsTargetResponse) *string {
 		if v == nil {
@@ -4733,11 +4461,8 @@ func (o ClfsTargetResponsePtrOutput) Target() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Outstanding conditions that will need to be resolved.
 type ConditionResponse struct {
-	// The issue requiring attention.
-	Message string `pulumi:"message"`
-	// The time when the condition was raised.
+	Message   string `pulumi:"message"`
 	Timestamp string `pulumi:"timestamp"`
 }
 
@@ -4752,11 +4477,8 @@ type ConditionResponseInput interface {
 	ToConditionResponseOutputWithContext(context.Context) ConditionResponseOutput
 }
 
-// Outstanding conditions that will need to be resolved.
 type ConditionResponseArgs struct {
-	// The issue requiring attention.
-	Message pulumi.StringInput `pulumi:"message"`
-	// The time when the condition was raised.
+	Message   pulumi.StringInput `pulumi:"message"`
 	Timestamp pulumi.StringInput `pulumi:"timestamp"`
 }
 
@@ -4797,7 +4519,6 @@ func (i ConditionResponseArray) ToConditionResponseArrayOutputWithContext(ctx co
 	return pulumi.ToOutputWithContext(ctx, i).(ConditionResponseArrayOutput)
 }
 
-// Outstanding conditions that will need to be resolved.
 type ConditionResponseOutput struct{ *pulumi.OutputState }
 
 func (ConditionResponseOutput) ElementType() reflect.Type {
@@ -4812,12 +4533,10 @@ func (o ConditionResponseOutput) ToConditionResponseOutputWithContext(ctx contex
 	return o
 }
 
-// The issue requiring attention.
 func (o ConditionResponseOutput) Message() pulumi.StringOutput {
 	return o.ApplyT(func(v ConditionResponse) string { return v.Message }).(pulumi.StringOutput)
 }
 
-// The time when the condition was raised.
 func (o ConditionResponseOutput) Timestamp() pulumi.StringOutput {
 	return o.ApplyT(func(v ConditionResponse) string { return v.Timestamp }).(pulumi.StringOutput)
 }
@@ -4842,11 +4561,8 @@ func (o ConditionResponseArrayOutput) Index(i pulumi.IntInput) ConditionResponse
 	}).(ConditionResponseOutput)
 }
 
-// Describes a reference to Key Vault Key.
 type KeyVaultKeyReference struct {
-	// The URL referencing a key encryption key in Key Vault.
-	KeyUrl string `pulumi:"keyUrl"`
-	// Describes a resource Id to source Key Vault.
+	KeyUrl      string                          `pulumi:"keyUrl"`
 	SourceVault KeyVaultKeyReferenceSourceVault `pulumi:"sourceVault"`
 }
 
@@ -4861,11 +4577,8 @@ type KeyVaultKeyReferenceInput interface {
 	ToKeyVaultKeyReferenceOutputWithContext(context.Context) KeyVaultKeyReferenceOutput
 }
 
-// Describes a reference to Key Vault Key.
 type KeyVaultKeyReferenceArgs struct {
-	// The URL referencing a key encryption key in Key Vault.
-	KeyUrl pulumi.StringInput `pulumi:"keyUrl"`
-	// Describes a resource Id to source Key Vault.
+	KeyUrl      pulumi.StringInput                   `pulumi:"keyUrl"`
 	SourceVault KeyVaultKeyReferenceSourceVaultInput `pulumi:"sourceVault"`
 }
 
@@ -4922,7 +4635,6 @@ func (i *keyVaultKeyReferencePtrType) ToKeyVaultKeyReferencePtrOutputWithContext
 	return pulumi.ToOutputWithContext(ctx, i).(KeyVaultKeyReferencePtrOutput)
 }
 
-// Describes a reference to Key Vault Key.
 type KeyVaultKeyReferenceOutput struct{ *pulumi.OutputState }
 
 func (KeyVaultKeyReferenceOutput) ElementType() reflect.Type {
@@ -4942,17 +4654,15 @@ func (o KeyVaultKeyReferenceOutput) ToKeyVaultKeyReferencePtrOutput() KeyVaultKe
 }
 
 func (o KeyVaultKeyReferenceOutput) ToKeyVaultKeyReferencePtrOutputWithContext(ctx context.Context) KeyVaultKeyReferencePtrOutput {
-	return o.ApplyT(func(v KeyVaultKeyReference) *KeyVaultKeyReference {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v KeyVaultKeyReference) *KeyVaultKeyReference {
 		return &v
 	}).(KeyVaultKeyReferencePtrOutput)
 }
 
-// The URL referencing a key encryption key in Key Vault.
 func (o KeyVaultKeyReferenceOutput) KeyUrl() pulumi.StringOutput {
 	return o.ApplyT(func(v KeyVaultKeyReference) string { return v.KeyUrl }).(pulumi.StringOutput)
 }
 
-// Describes a resource Id to source Key Vault.
 func (o KeyVaultKeyReferenceOutput) SourceVault() KeyVaultKeyReferenceSourceVaultOutput {
 	return o.ApplyT(func(v KeyVaultKeyReference) KeyVaultKeyReferenceSourceVault { return v.SourceVault }).(KeyVaultKeyReferenceSourceVaultOutput)
 }
@@ -4972,10 +4682,15 @@ func (o KeyVaultKeyReferencePtrOutput) ToKeyVaultKeyReferencePtrOutputWithContex
 }
 
 func (o KeyVaultKeyReferencePtrOutput) Elem() KeyVaultKeyReferenceOutput {
-	return o.ApplyT(func(v *KeyVaultKeyReference) KeyVaultKeyReference { return *v }).(KeyVaultKeyReferenceOutput)
+	return o.ApplyT(func(v *KeyVaultKeyReference) KeyVaultKeyReference {
+		if v != nil {
+			return *v
+		}
+		var ret KeyVaultKeyReference
+		return ret
+	}).(KeyVaultKeyReferenceOutput)
 }
 
-// The URL referencing a key encryption key in Key Vault.
 func (o KeyVaultKeyReferencePtrOutput) KeyUrl() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *KeyVaultKeyReference) *string {
 		if v == nil {
@@ -4985,7 +4700,6 @@ func (o KeyVaultKeyReferencePtrOutput) KeyUrl() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Describes a resource Id to source Key Vault.
 func (o KeyVaultKeyReferencePtrOutput) SourceVault() KeyVaultKeyReferenceSourceVaultPtrOutput {
 	return o.ApplyT(func(v *KeyVaultKeyReference) *KeyVaultKeyReferenceSourceVault {
 		if v == nil {
@@ -4995,11 +4709,8 @@ func (o KeyVaultKeyReferencePtrOutput) SourceVault() KeyVaultKeyReferenceSourceV
 	}).(KeyVaultKeyReferenceSourceVaultPtrOutput)
 }
 
-// Describes a reference to Key Vault Key.
 type KeyVaultKeyReferenceResponse struct {
-	// The URL referencing a key encryption key in Key Vault.
-	KeyUrl string `pulumi:"keyUrl"`
-	// Describes a resource Id to source Key Vault.
+	KeyUrl      string                                  `pulumi:"keyUrl"`
 	SourceVault KeyVaultKeyReferenceResponseSourceVault `pulumi:"sourceVault"`
 }
 
@@ -5014,11 +4725,8 @@ type KeyVaultKeyReferenceResponseInput interface {
 	ToKeyVaultKeyReferenceResponseOutputWithContext(context.Context) KeyVaultKeyReferenceResponseOutput
 }
 
-// Describes a reference to Key Vault Key.
 type KeyVaultKeyReferenceResponseArgs struct {
-	// The URL referencing a key encryption key in Key Vault.
-	KeyUrl pulumi.StringInput `pulumi:"keyUrl"`
-	// Describes a resource Id to source Key Vault.
+	KeyUrl      pulumi.StringInput                           `pulumi:"keyUrl"`
 	SourceVault KeyVaultKeyReferenceResponseSourceVaultInput `pulumi:"sourceVault"`
 }
 
@@ -5075,7 +4783,6 @@ func (i *keyVaultKeyReferenceResponsePtrType) ToKeyVaultKeyReferenceResponsePtrO
 	return pulumi.ToOutputWithContext(ctx, i).(KeyVaultKeyReferenceResponsePtrOutput)
 }
 
-// Describes a reference to Key Vault Key.
 type KeyVaultKeyReferenceResponseOutput struct{ *pulumi.OutputState }
 
 func (KeyVaultKeyReferenceResponseOutput) ElementType() reflect.Type {
@@ -5095,17 +4802,15 @@ func (o KeyVaultKeyReferenceResponseOutput) ToKeyVaultKeyReferenceResponsePtrOut
 }
 
 func (o KeyVaultKeyReferenceResponseOutput) ToKeyVaultKeyReferenceResponsePtrOutputWithContext(ctx context.Context) KeyVaultKeyReferenceResponsePtrOutput {
-	return o.ApplyT(func(v KeyVaultKeyReferenceResponse) *KeyVaultKeyReferenceResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v KeyVaultKeyReferenceResponse) *KeyVaultKeyReferenceResponse {
 		return &v
 	}).(KeyVaultKeyReferenceResponsePtrOutput)
 }
 
-// The URL referencing a key encryption key in Key Vault.
 func (o KeyVaultKeyReferenceResponseOutput) KeyUrl() pulumi.StringOutput {
 	return o.ApplyT(func(v KeyVaultKeyReferenceResponse) string { return v.KeyUrl }).(pulumi.StringOutput)
 }
 
-// Describes a resource Id to source Key Vault.
 func (o KeyVaultKeyReferenceResponseOutput) SourceVault() KeyVaultKeyReferenceResponseSourceVaultOutput {
 	return o.ApplyT(func(v KeyVaultKeyReferenceResponse) KeyVaultKeyReferenceResponseSourceVault { return v.SourceVault }).(KeyVaultKeyReferenceResponseSourceVaultOutput)
 }
@@ -5125,10 +4830,15 @@ func (o KeyVaultKeyReferenceResponsePtrOutput) ToKeyVaultKeyReferenceResponsePtr
 }
 
 func (o KeyVaultKeyReferenceResponsePtrOutput) Elem() KeyVaultKeyReferenceResponseOutput {
-	return o.ApplyT(func(v *KeyVaultKeyReferenceResponse) KeyVaultKeyReferenceResponse { return *v }).(KeyVaultKeyReferenceResponseOutput)
+	return o.ApplyT(func(v *KeyVaultKeyReferenceResponse) KeyVaultKeyReferenceResponse {
+		if v != nil {
+			return *v
+		}
+		var ret KeyVaultKeyReferenceResponse
+		return ret
+	}).(KeyVaultKeyReferenceResponseOutput)
 }
 
-// The URL referencing a key encryption key in Key Vault.
 func (o KeyVaultKeyReferenceResponsePtrOutput) KeyUrl() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *KeyVaultKeyReferenceResponse) *string {
 		if v == nil {
@@ -5138,7 +4848,6 @@ func (o KeyVaultKeyReferenceResponsePtrOutput) KeyUrl() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Describes a resource Id to source Key Vault.
 func (o KeyVaultKeyReferenceResponsePtrOutput) SourceVault() KeyVaultKeyReferenceResponseSourceVaultPtrOutput {
 	return o.ApplyT(func(v *KeyVaultKeyReferenceResponse) *KeyVaultKeyReferenceResponseSourceVault {
 		if v == nil {
@@ -5148,9 +4857,7 @@ func (o KeyVaultKeyReferenceResponsePtrOutput) SourceVault() KeyVaultKeyReferenc
 	}).(KeyVaultKeyReferenceResponseSourceVaultPtrOutput)
 }
 
-// Describes a resource Id to source Key Vault.
 type KeyVaultKeyReferenceResponseSourceVault struct {
-	// Resource Id.
 	Id *string `pulumi:"id"`
 }
 
@@ -5165,9 +4872,7 @@ type KeyVaultKeyReferenceResponseSourceVaultInput interface {
 	ToKeyVaultKeyReferenceResponseSourceVaultOutputWithContext(context.Context) KeyVaultKeyReferenceResponseSourceVaultOutput
 }
 
-// Describes a resource Id to source Key Vault.
 type KeyVaultKeyReferenceResponseSourceVaultArgs struct {
-	// Resource Id.
 	Id pulumi.StringPtrInput `pulumi:"id"`
 }
 
@@ -5224,7 +4929,6 @@ func (i *keyVaultKeyReferenceResponseSourceVaultPtrType) ToKeyVaultKeyReferenceR
 	return pulumi.ToOutputWithContext(ctx, i).(KeyVaultKeyReferenceResponseSourceVaultPtrOutput)
 }
 
-// Describes a resource Id to source Key Vault.
 type KeyVaultKeyReferenceResponseSourceVaultOutput struct{ *pulumi.OutputState }
 
 func (KeyVaultKeyReferenceResponseSourceVaultOutput) ElementType() reflect.Type {
@@ -5244,12 +4948,11 @@ func (o KeyVaultKeyReferenceResponseSourceVaultOutput) ToKeyVaultKeyReferenceRes
 }
 
 func (o KeyVaultKeyReferenceResponseSourceVaultOutput) ToKeyVaultKeyReferenceResponseSourceVaultPtrOutputWithContext(ctx context.Context) KeyVaultKeyReferenceResponseSourceVaultPtrOutput {
-	return o.ApplyT(func(v KeyVaultKeyReferenceResponseSourceVault) *KeyVaultKeyReferenceResponseSourceVault {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v KeyVaultKeyReferenceResponseSourceVault) *KeyVaultKeyReferenceResponseSourceVault {
 		return &v
 	}).(KeyVaultKeyReferenceResponseSourceVaultPtrOutput)
 }
 
-// Resource Id.
 func (o KeyVaultKeyReferenceResponseSourceVaultOutput) Id() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v KeyVaultKeyReferenceResponseSourceVault) *string { return v.Id }).(pulumi.StringPtrOutput)
 }
@@ -5269,10 +4972,15 @@ func (o KeyVaultKeyReferenceResponseSourceVaultPtrOutput) ToKeyVaultKeyReference
 }
 
 func (o KeyVaultKeyReferenceResponseSourceVaultPtrOutput) Elem() KeyVaultKeyReferenceResponseSourceVaultOutput {
-	return o.ApplyT(func(v *KeyVaultKeyReferenceResponseSourceVault) KeyVaultKeyReferenceResponseSourceVault { return *v }).(KeyVaultKeyReferenceResponseSourceVaultOutput)
+	return o.ApplyT(func(v *KeyVaultKeyReferenceResponseSourceVault) KeyVaultKeyReferenceResponseSourceVault {
+		if v != nil {
+			return *v
+		}
+		var ret KeyVaultKeyReferenceResponseSourceVault
+		return ret
+	}).(KeyVaultKeyReferenceResponseSourceVaultOutput)
 }
 
-// Resource Id.
 func (o KeyVaultKeyReferenceResponseSourceVaultPtrOutput) Id() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *KeyVaultKeyReferenceResponseSourceVault) *string {
 		if v == nil {
@@ -5282,9 +4990,7 @@ func (o KeyVaultKeyReferenceResponseSourceVaultPtrOutput) Id() pulumi.StringPtrO
 	}).(pulumi.StringPtrOutput)
 }
 
-// Describes a resource Id to source Key Vault.
 type KeyVaultKeyReferenceSourceVault struct {
-	// Resource Id.
 	Id *string `pulumi:"id"`
 }
 
@@ -5299,9 +5005,7 @@ type KeyVaultKeyReferenceSourceVaultInput interface {
 	ToKeyVaultKeyReferenceSourceVaultOutputWithContext(context.Context) KeyVaultKeyReferenceSourceVaultOutput
 }
 
-// Describes a resource Id to source Key Vault.
 type KeyVaultKeyReferenceSourceVaultArgs struct {
-	// Resource Id.
 	Id pulumi.StringPtrInput `pulumi:"id"`
 }
 
@@ -5358,7 +5062,6 @@ func (i *keyVaultKeyReferenceSourceVaultPtrType) ToKeyVaultKeyReferenceSourceVau
 	return pulumi.ToOutputWithContext(ctx, i).(KeyVaultKeyReferenceSourceVaultPtrOutput)
 }
 
-// Describes a resource Id to source Key Vault.
 type KeyVaultKeyReferenceSourceVaultOutput struct{ *pulumi.OutputState }
 
 func (KeyVaultKeyReferenceSourceVaultOutput) ElementType() reflect.Type {
@@ -5378,12 +5081,11 @@ func (o KeyVaultKeyReferenceSourceVaultOutput) ToKeyVaultKeyReferenceSourceVault
 }
 
 func (o KeyVaultKeyReferenceSourceVaultOutput) ToKeyVaultKeyReferenceSourceVaultPtrOutputWithContext(ctx context.Context) KeyVaultKeyReferenceSourceVaultPtrOutput {
-	return o.ApplyT(func(v KeyVaultKeyReferenceSourceVault) *KeyVaultKeyReferenceSourceVault {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v KeyVaultKeyReferenceSourceVault) *KeyVaultKeyReferenceSourceVault {
 		return &v
 	}).(KeyVaultKeyReferenceSourceVaultPtrOutput)
 }
 
-// Resource Id.
 func (o KeyVaultKeyReferenceSourceVaultOutput) Id() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v KeyVaultKeyReferenceSourceVault) *string { return v.Id }).(pulumi.StringPtrOutput)
 }
@@ -5403,10 +5105,15 @@ func (o KeyVaultKeyReferenceSourceVaultPtrOutput) ToKeyVaultKeyReferenceSourceVa
 }
 
 func (o KeyVaultKeyReferenceSourceVaultPtrOutput) Elem() KeyVaultKeyReferenceSourceVaultOutput {
-	return o.ApplyT(func(v *KeyVaultKeyReferenceSourceVault) KeyVaultKeyReferenceSourceVault { return *v }).(KeyVaultKeyReferenceSourceVaultOutput)
+	return o.ApplyT(func(v *KeyVaultKeyReferenceSourceVault) KeyVaultKeyReferenceSourceVault {
+		if v != nil {
+			return *v
+		}
+		var ret KeyVaultKeyReferenceSourceVault
+		return ret
+	}).(KeyVaultKeyReferenceSourceVaultOutput)
 }
 
-// Resource Id.
 func (o KeyVaultKeyReferenceSourceVaultPtrOutput) Id() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *KeyVaultKeyReferenceSourceVault) *string {
 		if v == nil {
@@ -5416,16 +5123,11 @@ func (o KeyVaultKeyReferenceSourceVaultPtrOutput) Id() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// A namespace junction.
 type NamespaceJunction struct {
-	// Namespace path on a Cache for a Storage Target.
-	NamespacePath *string `pulumi:"namespacePath"`
-	// Name of the access policy applied to this junction.
+	NamespacePath   *string `pulumi:"namespacePath"`
 	NfsAccessPolicy *string `pulumi:"nfsAccessPolicy"`
-	// NFS export where targetPath exists.
-	NfsExport *string `pulumi:"nfsExport"`
-	// Path in Storage Target to which namespacePath points.
-	TargetPath *string `pulumi:"targetPath"`
+	NfsExport       *string `pulumi:"nfsExport"`
+	TargetPath      *string `pulumi:"targetPath"`
 }
 
 // NamespaceJunctionInput is an input type that accepts NamespaceJunctionArgs and NamespaceJunctionOutput values.
@@ -5439,16 +5141,11 @@ type NamespaceJunctionInput interface {
 	ToNamespaceJunctionOutputWithContext(context.Context) NamespaceJunctionOutput
 }
 
-// A namespace junction.
 type NamespaceJunctionArgs struct {
-	// Namespace path on a Cache for a Storage Target.
-	NamespacePath pulumi.StringPtrInput `pulumi:"namespacePath"`
-	// Name of the access policy applied to this junction.
+	NamespacePath   pulumi.StringPtrInput `pulumi:"namespacePath"`
 	NfsAccessPolicy pulumi.StringPtrInput `pulumi:"nfsAccessPolicy"`
-	// NFS export where targetPath exists.
-	NfsExport pulumi.StringPtrInput `pulumi:"nfsExport"`
-	// Path in Storage Target to which namespacePath points.
-	TargetPath pulumi.StringPtrInput `pulumi:"targetPath"`
+	NfsExport       pulumi.StringPtrInput `pulumi:"nfsExport"`
+	TargetPath      pulumi.StringPtrInput `pulumi:"targetPath"`
 }
 
 func (NamespaceJunctionArgs) ElementType() reflect.Type {
@@ -5488,7 +5185,6 @@ func (i NamespaceJunctionArray) ToNamespaceJunctionArrayOutputWithContext(ctx co
 	return pulumi.ToOutputWithContext(ctx, i).(NamespaceJunctionArrayOutput)
 }
 
-// A namespace junction.
 type NamespaceJunctionOutput struct{ *pulumi.OutputState }
 
 func (NamespaceJunctionOutput) ElementType() reflect.Type {
@@ -5503,22 +5199,18 @@ func (o NamespaceJunctionOutput) ToNamespaceJunctionOutputWithContext(ctx contex
 	return o
 }
 
-// Namespace path on a Cache for a Storage Target.
 func (o NamespaceJunctionOutput) NamespacePath() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v NamespaceJunction) *string { return v.NamespacePath }).(pulumi.StringPtrOutput)
 }
 
-// Name of the access policy applied to this junction.
 func (o NamespaceJunctionOutput) NfsAccessPolicy() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v NamespaceJunction) *string { return v.NfsAccessPolicy }).(pulumi.StringPtrOutput)
 }
 
-// NFS export where targetPath exists.
 func (o NamespaceJunctionOutput) NfsExport() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v NamespaceJunction) *string { return v.NfsExport }).(pulumi.StringPtrOutput)
 }
 
-// Path in Storage Target to which namespacePath points.
 func (o NamespaceJunctionOutput) TargetPath() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v NamespaceJunction) *string { return v.TargetPath }).(pulumi.StringPtrOutput)
 }
@@ -5543,16 +5235,11 @@ func (o NamespaceJunctionArrayOutput) Index(i pulumi.IntInput) NamespaceJunction
 	}).(NamespaceJunctionOutput)
 }
 
-// A namespace junction.
 type NamespaceJunctionResponse struct {
-	// Namespace path on a Cache for a Storage Target.
-	NamespacePath *string `pulumi:"namespacePath"`
-	// Name of the access policy applied to this junction.
+	NamespacePath   *string `pulumi:"namespacePath"`
 	NfsAccessPolicy *string `pulumi:"nfsAccessPolicy"`
-	// NFS export where targetPath exists.
-	NfsExport *string `pulumi:"nfsExport"`
-	// Path in Storage Target to which namespacePath points.
-	TargetPath *string `pulumi:"targetPath"`
+	NfsExport       *string `pulumi:"nfsExport"`
+	TargetPath      *string `pulumi:"targetPath"`
 }
 
 // NamespaceJunctionResponseInput is an input type that accepts NamespaceJunctionResponseArgs and NamespaceJunctionResponseOutput values.
@@ -5566,16 +5253,11 @@ type NamespaceJunctionResponseInput interface {
 	ToNamespaceJunctionResponseOutputWithContext(context.Context) NamespaceJunctionResponseOutput
 }
 
-// A namespace junction.
 type NamespaceJunctionResponseArgs struct {
-	// Namespace path on a Cache for a Storage Target.
-	NamespacePath pulumi.StringPtrInput `pulumi:"namespacePath"`
-	// Name of the access policy applied to this junction.
+	NamespacePath   pulumi.StringPtrInput `pulumi:"namespacePath"`
 	NfsAccessPolicy pulumi.StringPtrInput `pulumi:"nfsAccessPolicy"`
-	// NFS export where targetPath exists.
-	NfsExport pulumi.StringPtrInput `pulumi:"nfsExport"`
-	// Path in Storage Target to which namespacePath points.
-	TargetPath pulumi.StringPtrInput `pulumi:"targetPath"`
+	NfsExport       pulumi.StringPtrInput `pulumi:"nfsExport"`
+	TargetPath      pulumi.StringPtrInput `pulumi:"targetPath"`
 }
 
 func (NamespaceJunctionResponseArgs) ElementType() reflect.Type {
@@ -5615,7 +5297,6 @@ func (i NamespaceJunctionResponseArray) ToNamespaceJunctionResponseArrayOutputWi
 	return pulumi.ToOutputWithContext(ctx, i).(NamespaceJunctionResponseArrayOutput)
 }
 
-// A namespace junction.
 type NamespaceJunctionResponseOutput struct{ *pulumi.OutputState }
 
 func (NamespaceJunctionResponseOutput) ElementType() reflect.Type {
@@ -5630,22 +5311,18 @@ func (o NamespaceJunctionResponseOutput) ToNamespaceJunctionResponseOutputWithCo
 	return o
 }
 
-// Namespace path on a Cache for a Storage Target.
 func (o NamespaceJunctionResponseOutput) NamespacePath() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v NamespaceJunctionResponse) *string { return v.NamespacePath }).(pulumi.StringPtrOutput)
 }
 
-// Name of the access policy applied to this junction.
 func (o NamespaceJunctionResponseOutput) NfsAccessPolicy() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v NamespaceJunctionResponse) *string { return v.NfsAccessPolicy }).(pulumi.StringPtrOutput)
 }
 
-// NFS export where targetPath exists.
 func (o NamespaceJunctionResponseOutput) NfsExport() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v NamespaceJunctionResponse) *string { return v.NfsExport }).(pulumi.StringPtrOutput)
 }
 
-// Path in Storage Target to which namespacePath points.
 func (o NamespaceJunctionResponseOutput) TargetPath() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v NamespaceJunctionResponse) *string { return v.TargetPath }).(pulumi.StringPtrOutput)
 }
@@ -5670,11 +5347,8 @@ func (o NamespaceJunctionResponseArrayOutput) Index(i pulumi.IntInput) Namespace
 	}).(NamespaceJunctionResponseOutput)
 }
 
-// Properties pertaining to the Nfs3Target
 type Nfs3Target struct {
-	// IP address or host name of an NFSv3 host (e.g., 10.0.44.44).
-	Target *string `pulumi:"target"`
-	// Identifies the StorageCache usage model to be used for this storage target.
+	Target     *string `pulumi:"target"`
 	UsageModel *string `pulumi:"usageModel"`
 }
 
@@ -5689,11 +5363,8 @@ type Nfs3TargetInput interface {
 	ToNfs3TargetOutputWithContext(context.Context) Nfs3TargetOutput
 }
 
-// Properties pertaining to the Nfs3Target
 type Nfs3TargetArgs struct {
-	// IP address or host name of an NFSv3 host (e.g., 10.0.44.44).
-	Target pulumi.StringPtrInput `pulumi:"target"`
-	// Identifies the StorageCache usage model to be used for this storage target.
+	Target     pulumi.StringPtrInput `pulumi:"target"`
 	UsageModel pulumi.StringPtrInput `pulumi:"usageModel"`
 }
 
@@ -5750,7 +5421,6 @@ func (i *nfs3TargetPtrType) ToNfs3TargetPtrOutputWithContext(ctx context.Context
 	return pulumi.ToOutputWithContext(ctx, i).(Nfs3TargetPtrOutput)
 }
 
-// Properties pertaining to the Nfs3Target
 type Nfs3TargetOutput struct{ *pulumi.OutputState }
 
 func (Nfs3TargetOutput) ElementType() reflect.Type {
@@ -5770,17 +5440,15 @@ func (o Nfs3TargetOutput) ToNfs3TargetPtrOutput() Nfs3TargetPtrOutput {
 }
 
 func (o Nfs3TargetOutput) ToNfs3TargetPtrOutputWithContext(ctx context.Context) Nfs3TargetPtrOutput {
-	return o.ApplyT(func(v Nfs3Target) *Nfs3Target {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v Nfs3Target) *Nfs3Target {
 		return &v
 	}).(Nfs3TargetPtrOutput)
 }
 
-// IP address or host name of an NFSv3 host (e.g., 10.0.44.44).
 func (o Nfs3TargetOutput) Target() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v Nfs3Target) *string { return v.Target }).(pulumi.StringPtrOutput)
 }
 
-// Identifies the StorageCache usage model to be used for this storage target.
 func (o Nfs3TargetOutput) UsageModel() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v Nfs3Target) *string { return v.UsageModel }).(pulumi.StringPtrOutput)
 }
@@ -5800,10 +5468,15 @@ func (o Nfs3TargetPtrOutput) ToNfs3TargetPtrOutputWithContext(ctx context.Contex
 }
 
 func (o Nfs3TargetPtrOutput) Elem() Nfs3TargetOutput {
-	return o.ApplyT(func(v *Nfs3Target) Nfs3Target { return *v }).(Nfs3TargetOutput)
+	return o.ApplyT(func(v *Nfs3Target) Nfs3Target {
+		if v != nil {
+			return *v
+		}
+		var ret Nfs3Target
+		return ret
+	}).(Nfs3TargetOutput)
 }
 
-// IP address or host name of an NFSv3 host (e.g., 10.0.44.44).
 func (o Nfs3TargetPtrOutput) Target() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Nfs3Target) *string {
 		if v == nil {
@@ -5813,7 +5486,6 @@ func (o Nfs3TargetPtrOutput) Target() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Identifies the StorageCache usage model to be used for this storage target.
 func (o Nfs3TargetPtrOutput) UsageModel() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Nfs3Target) *string {
 		if v == nil {
@@ -5823,11 +5495,8 @@ func (o Nfs3TargetPtrOutput) UsageModel() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Properties pertaining to the Nfs3Target
 type Nfs3TargetResponse struct {
-	// IP address or host name of an NFSv3 host (e.g., 10.0.44.44).
-	Target *string `pulumi:"target"`
-	// Identifies the StorageCache usage model to be used for this storage target.
+	Target     *string `pulumi:"target"`
 	UsageModel *string `pulumi:"usageModel"`
 }
 
@@ -5842,11 +5511,8 @@ type Nfs3TargetResponseInput interface {
 	ToNfs3TargetResponseOutputWithContext(context.Context) Nfs3TargetResponseOutput
 }
 
-// Properties pertaining to the Nfs3Target
 type Nfs3TargetResponseArgs struct {
-	// IP address or host name of an NFSv3 host (e.g., 10.0.44.44).
-	Target pulumi.StringPtrInput `pulumi:"target"`
-	// Identifies the StorageCache usage model to be used for this storage target.
+	Target     pulumi.StringPtrInput `pulumi:"target"`
 	UsageModel pulumi.StringPtrInput `pulumi:"usageModel"`
 }
 
@@ -5903,7 +5569,6 @@ func (i *nfs3TargetResponsePtrType) ToNfs3TargetResponsePtrOutputWithContext(ctx
 	return pulumi.ToOutputWithContext(ctx, i).(Nfs3TargetResponsePtrOutput)
 }
 
-// Properties pertaining to the Nfs3Target
 type Nfs3TargetResponseOutput struct{ *pulumi.OutputState }
 
 func (Nfs3TargetResponseOutput) ElementType() reflect.Type {
@@ -5923,17 +5588,15 @@ func (o Nfs3TargetResponseOutput) ToNfs3TargetResponsePtrOutput() Nfs3TargetResp
 }
 
 func (o Nfs3TargetResponseOutput) ToNfs3TargetResponsePtrOutputWithContext(ctx context.Context) Nfs3TargetResponsePtrOutput {
-	return o.ApplyT(func(v Nfs3TargetResponse) *Nfs3TargetResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v Nfs3TargetResponse) *Nfs3TargetResponse {
 		return &v
 	}).(Nfs3TargetResponsePtrOutput)
 }
 
-// IP address or host name of an NFSv3 host (e.g., 10.0.44.44).
 func (o Nfs3TargetResponseOutput) Target() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v Nfs3TargetResponse) *string { return v.Target }).(pulumi.StringPtrOutput)
 }
 
-// Identifies the StorageCache usage model to be used for this storage target.
 func (o Nfs3TargetResponseOutput) UsageModel() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v Nfs3TargetResponse) *string { return v.UsageModel }).(pulumi.StringPtrOutput)
 }
@@ -5953,10 +5616,15 @@ func (o Nfs3TargetResponsePtrOutput) ToNfs3TargetResponsePtrOutputWithContext(ct
 }
 
 func (o Nfs3TargetResponsePtrOutput) Elem() Nfs3TargetResponseOutput {
-	return o.ApplyT(func(v *Nfs3TargetResponse) Nfs3TargetResponse { return *v }).(Nfs3TargetResponseOutput)
+	return o.ApplyT(func(v *Nfs3TargetResponse) Nfs3TargetResponse {
+		if v != nil {
+			return *v
+		}
+		var ret Nfs3TargetResponse
+		return ret
+	}).(Nfs3TargetResponseOutput)
 }
 
-// IP address or host name of an NFSv3 host (e.g., 10.0.44.44).
 func (o Nfs3TargetResponsePtrOutput) Target() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Nfs3TargetResponse) *string {
 		if v == nil {
@@ -5966,7 +5634,6 @@ func (o Nfs3TargetResponsePtrOutput) Target() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Identifies the StorageCache usage model to be used for this storage target.
 func (o Nfs3TargetResponsePtrOutput) UsageModel() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Nfs3TargetResponse) *string {
 		if v == nil {
@@ -5976,12 +5643,9 @@ func (o Nfs3TargetResponsePtrOutput) UsageModel() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// A set of rules describing access policies applied to NFSv3 clients of the cache.
 type NfsAccessPolicy struct {
-	// The set of rules describing client accesses allowed under this policy.
 	AccessRules []NfsAccessRule `pulumi:"accessRules"`
-	// Name identifying this policy. Access Policy names are not case sensitive.
-	Name string `pulumi:"name"`
+	Name        string          `pulumi:"name"`
 }
 
 // NfsAccessPolicyInput is an input type that accepts NfsAccessPolicyArgs and NfsAccessPolicyOutput values.
@@ -5995,12 +5659,9 @@ type NfsAccessPolicyInput interface {
 	ToNfsAccessPolicyOutputWithContext(context.Context) NfsAccessPolicyOutput
 }
 
-// A set of rules describing access policies applied to NFSv3 clients of the cache.
 type NfsAccessPolicyArgs struct {
-	// The set of rules describing client accesses allowed under this policy.
 	AccessRules NfsAccessRuleArrayInput `pulumi:"accessRules"`
-	// Name identifying this policy. Access Policy names are not case sensitive.
-	Name pulumi.StringInput `pulumi:"name"`
+	Name        pulumi.StringInput      `pulumi:"name"`
 }
 
 func (NfsAccessPolicyArgs) ElementType() reflect.Type {
@@ -6040,7 +5701,6 @@ func (i NfsAccessPolicyArray) ToNfsAccessPolicyArrayOutputWithContext(ctx contex
 	return pulumi.ToOutputWithContext(ctx, i).(NfsAccessPolicyArrayOutput)
 }
 
-// A set of rules describing access policies applied to NFSv3 clients of the cache.
 type NfsAccessPolicyOutput struct{ *pulumi.OutputState }
 
 func (NfsAccessPolicyOutput) ElementType() reflect.Type {
@@ -6055,12 +5715,10 @@ func (o NfsAccessPolicyOutput) ToNfsAccessPolicyOutputWithContext(ctx context.Co
 	return o
 }
 
-// The set of rules describing client accesses allowed under this policy.
 func (o NfsAccessPolicyOutput) AccessRules() NfsAccessRuleArrayOutput {
 	return o.ApplyT(func(v NfsAccessPolicy) []NfsAccessRule { return v.AccessRules }).(NfsAccessRuleArrayOutput)
 }
 
-// Name identifying this policy. Access Policy names are not case sensitive.
 func (o NfsAccessPolicyOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v NfsAccessPolicy) string { return v.Name }).(pulumi.StringOutput)
 }
@@ -6085,12 +5743,9 @@ func (o NfsAccessPolicyArrayOutput) Index(i pulumi.IntInput) NfsAccessPolicyOutp
 	}).(NfsAccessPolicyOutput)
 }
 
-// A set of rules describing access policies applied to NFSv3 clients of the cache.
 type NfsAccessPolicyResponse struct {
-	// The set of rules describing client accesses allowed under this policy.
 	AccessRules []NfsAccessRuleResponse `pulumi:"accessRules"`
-	// Name identifying this policy. Access Policy names are not case sensitive.
-	Name string `pulumi:"name"`
+	Name        string                  `pulumi:"name"`
 }
 
 // NfsAccessPolicyResponseInput is an input type that accepts NfsAccessPolicyResponseArgs and NfsAccessPolicyResponseOutput values.
@@ -6104,12 +5759,9 @@ type NfsAccessPolicyResponseInput interface {
 	ToNfsAccessPolicyResponseOutputWithContext(context.Context) NfsAccessPolicyResponseOutput
 }
 
-// A set of rules describing access policies applied to NFSv3 clients of the cache.
 type NfsAccessPolicyResponseArgs struct {
-	// The set of rules describing client accesses allowed under this policy.
 	AccessRules NfsAccessRuleResponseArrayInput `pulumi:"accessRules"`
-	// Name identifying this policy. Access Policy names are not case sensitive.
-	Name pulumi.StringInput `pulumi:"name"`
+	Name        pulumi.StringInput              `pulumi:"name"`
 }
 
 func (NfsAccessPolicyResponseArgs) ElementType() reflect.Type {
@@ -6149,7 +5801,6 @@ func (i NfsAccessPolicyResponseArray) ToNfsAccessPolicyResponseArrayOutputWithCo
 	return pulumi.ToOutputWithContext(ctx, i).(NfsAccessPolicyResponseArrayOutput)
 }
 
-// A set of rules describing access policies applied to NFSv3 clients of the cache.
 type NfsAccessPolicyResponseOutput struct{ *pulumi.OutputState }
 
 func (NfsAccessPolicyResponseOutput) ElementType() reflect.Type {
@@ -6164,12 +5815,10 @@ func (o NfsAccessPolicyResponseOutput) ToNfsAccessPolicyResponseOutputWithContex
 	return o
 }
 
-// The set of rules describing client accesses allowed under this policy.
 func (o NfsAccessPolicyResponseOutput) AccessRules() NfsAccessRuleResponseArrayOutput {
 	return o.ApplyT(func(v NfsAccessPolicyResponse) []NfsAccessRuleResponse { return v.AccessRules }).(NfsAccessRuleResponseArrayOutput)
 }
 
-// Name identifying this policy. Access Policy names are not case sensitive.
 func (o NfsAccessPolicyResponseOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v NfsAccessPolicyResponse) string { return v.Name }).(pulumi.StringOutput)
 }
@@ -6194,24 +5843,15 @@ func (o NfsAccessPolicyResponseArrayOutput) Index(i pulumi.IntInput) NfsAccessPo
 	}).(NfsAccessPolicyResponseOutput)
 }
 
-// Rule to place restrictions on portions of the cache namespace being presented to clients.
 type NfsAccessRule struct {
-	// Access allowed by this rule.
-	Access string `pulumi:"access"`
-	// GID value that replaces 0 when rootSquash is true. This will use the value of anonymousUID if not provided.
-	AnonymousGID *string `pulumi:"anonymousGID"`
-	// UID value that replaces 0 when rootSquash is true. 65534 will be used if not provided.
-	AnonymousUID *string `pulumi:"anonymousUID"`
-	// Filter applied to the scope for this rule. The filter's format depends on its scope. 'default' scope matches all clients and has no filter value. 'network' scope takes a filter in CIDR format (for example, 10.99.1.0/24). 'host' takes an IP address or fully qualified domain name as filter. If a client does not match any filter rule and there is no default rule, access is denied.
-	Filter *string `pulumi:"filter"`
-	// Map root accesses to anonymousUID and anonymousGID.
-	RootSquash *bool `pulumi:"rootSquash"`
-	// Scope for this rule. The scope and filter determine which clients match the rule.
-	Scope string `pulumi:"scope"`
-	// For the default policy, allow access to subdirectories under the root export. If this is set to no, clients can only mount the path '/'. If set to yes, clients can mount a deeper path, like '/a/b'.
-	SubmountAccess *bool `pulumi:"submountAccess"`
-	// Allow SUID semantics.
-	Suid *bool `pulumi:"suid"`
+	Access         string  `pulumi:"access"`
+	AnonymousGID   *string `pulumi:"anonymousGID"`
+	AnonymousUID   *string `pulumi:"anonymousUID"`
+	Filter         *string `pulumi:"filter"`
+	RootSquash     *bool   `pulumi:"rootSquash"`
+	Scope          string  `pulumi:"scope"`
+	SubmountAccess *bool   `pulumi:"submountAccess"`
+	Suid           *bool   `pulumi:"suid"`
 }
 
 // NfsAccessRuleInput is an input type that accepts NfsAccessRuleArgs and NfsAccessRuleOutput values.
@@ -6225,24 +5865,15 @@ type NfsAccessRuleInput interface {
 	ToNfsAccessRuleOutputWithContext(context.Context) NfsAccessRuleOutput
 }
 
-// Rule to place restrictions on portions of the cache namespace being presented to clients.
 type NfsAccessRuleArgs struct {
-	// Access allowed by this rule.
-	Access pulumi.StringInput `pulumi:"access"`
-	// GID value that replaces 0 when rootSquash is true. This will use the value of anonymousUID if not provided.
-	AnonymousGID pulumi.StringPtrInput `pulumi:"anonymousGID"`
-	// UID value that replaces 0 when rootSquash is true. 65534 will be used if not provided.
-	AnonymousUID pulumi.StringPtrInput `pulumi:"anonymousUID"`
-	// Filter applied to the scope for this rule. The filter's format depends on its scope. 'default' scope matches all clients and has no filter value. 'network' scope takes a filter in CIDR format (for example, 10.99.1.0/24). 'host' takes an IP address or fully qualified domain name as filter. If a client does not match any filter rule and there is no default rule, access is denied.
-	Filter pulumi.StringPtrInput `pulumi:"filter"`
-	// Map root accesses to anonymousUID and anonymousGID.
-	RootSquash pulumi.BoolPtrInput `pulumi:"rootSquash"`
-	// Scope for this rule. The scope and filter determine which clients match the rule.
-	Scope pulumi.StringInput `pulumi:"scope"`
-	// For the default policy, allow access to subdirectories under the root export. If this is set to no, clients can only mount the path '/'. If set to yes, clients can mount a deeper path, like '/a/b'.
-	SubmountAccess pulumi.BoolPtrInput `pulumi:"submountAccess"`
-	// Allow SUID semantics.
-	Suid pulumi.BoolPtrInput `pulumi:"suid"`
+	Access         pulumi.StringInput    `pulumi:"access"`
+	AnonymousGID   pulumi.StringPtrInput `pulumi:"anonymousGID"`
+	AnonymousUID   pulumi.StringPtrInput `pulumi:"anonymousUID"`
+	Filter         pulumi.StringPtrInput `pulumi:"filter"`
+	RootSquash     pulumi.BoolPtrInput   `pulumi:"rootSquash"`
+	Scope          pulumi.StringInput    `pulumi:"scope"`
+	SubmountAccess pulumi.BoolPtrInput   `pulumi:"submountAccess"`
+	Suid           pulumi.BoolPtrInput   `pulumi:"suid"`
 }
 
 func (NfsAccessRuleArgs) ElementType() reflect.Type {
@@ -6282,7 +5913,6 @@ func (i NfsAccessRuleArray) ToNfsAccessRuleArrayOutputWithContext(ctx context.Co
 	return pulumi.ToOutputWithContext(ctx, i).(NfsAccessRuleArrayOutput)
 }
 
-// Rule to place restrictions on portions of the cache namespace being presented to clients.
 type NfsAccessRuleOutput struct{ *pulumi.OutputState }
 
 func (NfsAccessRuleOutput) ElementType() reflect.Type {
@@ -6297,42 +5927,34 @@ func (o NfsAccessRuleOutput) ToNfsAccessRuleOutputWithContext(ctx context.Contex
 	return o
 }
 
-// Access allowed by this rule.
 func (o NfsAccessRuleOutput) Access() pulumi.StringOutput {
 	return o.ApplyT(func(v NfsAccessRule) string { return v.Access }).(pulumi.StringOutput)
 }
 
-// GID value that replaces 0 when rootSquash is true. This will use the value of anonymousUID if not provided.
 func (o NfsAccessRuleOutput) AnonymousGID() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v NfsAccessRule) *string { return v.AnonymousGID }).(pulumi.StringPtrOutput)
 }
 
-// UID value that replaces 0 when rootSquash is true. 65534 will be used if not provided.
 func (o NfsAccessRuleOutput) AnonymousUID() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v NfsAccessRule) *string { return v.AnonymousUID }).(pulumi.StringPtrOutput)
 }
 
-// Filter applied to the scope for this rule. The filter's format depends on its scope. 'default' scope matches all clients and has no filter value. 'network' scope takes a filter in CIDR format (for example, 10.99.1.0/24). 'host' takes an IP address or fully qualified domain name as filter. If a client does not match any filter rule and there is no default rule, access is denied.
 func (o NfsAccessRuleOutput) Filter() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v NfsAccessRule) *string { return v.Filter }).(pulumi.StringPtrOutput)
 }
 
-// Map root accesses to anonymousUID and anonymousGID.
 func (o NfsAccessRuleOutput) RootSquash() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v NfsAccessRule) *bool { return v.RootSquash }).(pulumi.BoolPtrOutput)
 }
 
-// Scope for this rule. The scope and filter determine which clients match the rule.
 func (o NfsAccessRuleOutput) Scope() pulumi.StringOutput {
 	return o.ApplyT(func(v NfsAccessRule) string { return v.Scope }).(pulumi.StringOutput)
 }
 
-// For the default policy, allow access to subdirectories under the root export. If this is set to no, clients can only mount the path '/'. If set to yes, clients can mount a deeper path, like '/a/b'.
 func (o NfsAccessRuleOutput) SubmountAccess() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v NfsAccessRule) *bool { return v.SubmountAccess }).(pulumi.BoolPtrOutput)
 }
 
-// Allow SUID semantics.
 func (o NfsAccessRuleOutput) Suid() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v NfsAccessRule) *bool { return v.Suid }).(pulumi.BoolPtrOutput)
 }
@@ -6357,24 +5979,15 @@ func (o NfsAccessRuleArrayOutput) Index(i pulumi.IntInput) NfsAccessRuleOutput {
 	}).(NfsAccessRuleOutput)
 }
 
-// Rule to place restrictions on portions of the cache namespace being presented to clients.
 type NfsAccessRuleResponse struct {
-	// Access allowed by this rule.
-	Access string `pulumi:"access"`
-	// GID value that replaces 0 when rootSquash is true. This will use the value of anonymousUID if not provided.
-	AnonymousGID *string `pulumi:"anonymousGID"`
-	// UID value that replaces 0 when rootSquash is true. 65534 will be used if not provided.
-	AnonymousUID *string `pulumi:"anonymousUID"`
-	// Filter applied to the scope for this rule. The filter's format depends on its scope. 'default' scope matches all clients and has no filter value. 'network' scope takes a filter in CIDR format (for example, 10.99.1.0/24). 'host' takes an IP address or fully qualified domain name as filter. If a client does not match any filter rule and there is no default rule, access is denied.
-	Filter *string `pulumi:"filter"`
-	// Map root accesses to anonymousUID and anonymousGID.
-	RootSquash *bool `pulumi:"rootSquash"`
-	// Scope for this rule. The scope and filter determine which clients match the rule.
-	Scope string `pulumi:"scope"`
-	// For the default policy, allow access to subdirectories under the root export. If this is set to no, clients can only mount the path '/'. If set to yes, clients can mount a deeper path, like '/a/b'.
-	SubmountAccess *bool `pulumi:"submountAccess"`
-	// Allow SUID semantics.
-	Suid *bool `pulumi:"suid"`
+	Access         string  `pulumi:"access"`
+	AnonymousGID   *string `pulumi:"anonymousGID"`
+	AnonymousUID   *string `pulumi:"anonymousUID"`
+	Filter         *string `pulumi:"filter"`
+	RootSquash     *bool   `pulumi:"rootSquash"`
+	Scope          string  `pulumi:"scope"`
+	SubmountAccess *bool   `pulumi:"submountAccess"`
+	Suid           *bool   `pulumi:"suid"`
 }
 
 // NfsAccessRuleResponseInput is an input type that accepts NfsAccessRuleResponseArgs and NfsAccessRuleResponseOutput values.
@@ -6388,24 +6001,15 @@ type NfsAccessRuleResponseInput interface {
 	ToNfsAccessRuleResponseOutputWithContext(context.Context) NfsAccessRuleResponseOutput
 }
 
-// Rule to place restrictions on portions of the cache namespace being presented to clients.
 type NfsAccessRuleResponseArgs struct {
-	// Access allowed by this rule.
-	Access pulumi.StringInput `pulumi:"access"`
-	// GID value that replaces 0 when rootSquash is true. This will use the value of anonymousUID if not provided.
-	AnonymousGID pulumi.StringPtrInput `pulumi:"anonymousGID"`
-	// UID value that replaces 0 when rootSquash is true. 65534 will be used if not provided.
-	AnonymousUID pulumi.StringPtrInput `pulumi:"anonymousUID"`
-	// Filter applied to the scope for this rule. The filter's format depends on its scope. 'default' scope matches all clients and has no filter value. 'network' scope takes a filter in CIDR format (for example, 10.99.1.0/24). 'host' takes an IP address or fully qualified domain name as filter. If a client does not match any filter rule and there is no default rule, access is denied.
-	Filter pulumi.StringPtrInput `pulumi:"filter"`
-	// Map root accesses to anonymousUID and anonymousGID.
-	RootSquash pulumi.BoolPtrInput `pulumi:"rootSquash"`
-	// Scope for this rule. The scope and filter determine which clients match the rule.
-	Scope pulumi.StringInput `pulumi:"scope"`
-	// For the default policy, allow access to subdirectories under the root export. If this is set to no, clients can only mount the path '/'. If set to yes, clients can mount a deeper path, like '/a/b'.
-	SubmountAccess pulumi.BoolPtrInput `pulumi:"submountAccess"`
-	// Allow SUID semantics.
-	Suid pulumi.BoolPtrInput `pulumi:"suid"`
+	Access         pulumi.StringInput    `pulumi:"access"`
+	AnonymousGID   pulumi.StringPtrInput `pulumi:"anonymousGID"`
+	AnonymousUID   pulumi.StringPtrInput `pulumi:"anonymousUID"`
+	Filter         pulumi.StringPtrInput `pulumi:"filter"`
+	RootSquash     pulumi.BoolPtrInput   `pulumi:"rootSquash"`
+	Scope          pulumi.StringInput    `pulumi:"scope"`
+	SubmountAccess pulumi.BoolPtrInput   `pulumi:"submountAccess"`
+	Suid           pulumi.BoolPtrInput   `pulumi:"suid"`
 }
 
 func (NfsAccessRuleResponseArgs) ElementType() reflect.Type {
@@ -6445,7 +6049,6 @@ func (i NfsAccessRuleResponseArray) ToNfsAccessRuleResponseArrayOutputWithContex
 	return pulumi.ToOutputWithContext(ctx, i).(NfsAccessRuleResponseArrayOutput)
 }
 
-// Rule to place restrictions on portions of the cache namespace being presented to clients.
 type NfsAccessRuleResponseOutput struct{ *pulumi.OutputState }
 
 func (NfsAccessRuleResponseOutput) ElementType() reflect.Type {
@@ -6460,42 +6063,34 @@ func (o NfsAccessRuleResponseOutput) ToNfsAccessRuleResponseOutputWithContext(ct
 	return o
 }
 
-// Access allowed by this rule.
 func (o NfsAccessRuleResponseOutput) Access() pulumi.StringOutput {
 	return o.ApplyT(func(v NfsAccessRuleResponse) string { return v.Access }).(pulumi.StringOutput)
 }
 
-// GID value that replaces 0 when rootSquash is true. This will use the value of anonymousUID if not provided.
 func (o NfsAccessRuleResponseOutput) AnonymousGID() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v NfsAccessRuleResponse) *string { return v.AnonymousGID }).(pulumi.StringPtrOutput)
 }
 
-// UID value that replaces 0 when rootSquash is true. 65534 will be used if not provided.
 func (o NfsAccessRuleResponseOutput) AnonymousUID() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v NfsAccessRuleResponse) *string { return v.AnonymousUID }).(pulumi.StringPtrOutput)
 }
 
-// Filter applied to the scope for this rule. The filter's format depends on its scope. 'default' scope matches all clients and has no filter value. 'network' scope takes a filter in CIDR format (for example, 10.99.1.0/24). 'host' takes an IP address or fully qualified domain name as filter. If a client does not match any filter rule and there is no default rule, access is denied.
 func (o NfsAccessRuleResponseOutput) Filter() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v NfsAccessRuleResponse) *string { return v.Filter }).(pulumi.StringPtrOutput)
 }
 
-// Map root accesses to anonymousUID and anonymousGID.
 func (o NfsAccessRuleResponseOutput) RootSquash() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v NfsAccessRuleResponse) *bool { return v.RootSquash }).(pulumi.BoolPtrOutput)
 }
 
-// Scope for this rule. The scope and filter determine which clients match the rule.
 func (o NfsAccessRuleResponseOutput) Scope() pulumi.StringOutput {
 	return o.ApplyT(func(v NfsAccessRuleResponse) string { return v.Scope }).(pulumi.StringOutput)
 }
 
-// For the default policy, allow access to subdirectories under the root export. If this is set to no, clients can only mount the path '/'. If set to yes, clients can mount a deeper path, like '/a/b'.
 func (o NfsAccessRuleResponseOutput) SubmountAccess() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v NfsAccessRuleResponse) *bool { return v.SubmountAccess }).(pulumi.BoolPtrOutput)
 }
 
-// Allow SUID semantics.
 func (o NfsAccessRuleResponseOutput) Suid() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v NfsAccessRuleResponse) *bool { return v.Suid }).(pulumi.BoolPtrOutput)
 }
@@ -6520,19 +6115,12 @@ func (o NfsAccessRuleResponseArrayOutput) Index(i pulumi.IntInput) NfsAccessRule
 	}).(NfsAccessRuleResponseOutput)
 }
 
-// Metadata pertaining to creation and last modification of the resource.
 type SystemDataResponse struct {
-	// The timestamp of resource creation (UTC).
-	CreatedAt *string `pulumi:"createdAt"`
-	// The identity that created the resource.
-	CreatedBy *string `pulumi:"createdBy"`
-	// The type of identity that created the resource.
-	CreatedByType *string `pulumi:"createdByType"`
-	// The timestamp of resource last modification (UTC)
-	LastModifiedAt *string `pulumi:"lastModifiedAt"`
-	// The identity that last modified the resource.
-	LastModifiedBy *string `pulumi:"lastModifiedBy"`
-	// The type of identity that last modified the resource.
+	CreatedAt          *string `pulumi:"createdAt"`
+	CreatedBy          *string `pulumi:"createdBy"`
+	CreatedByType      *string `pulumi:"createdByType"`
+	LastModifiedAt     *string `pulumi:"lastModifiedAt"`
+	LastModifiedBy     *string `pulumi:"lastModifiedBy"`
 	LastModifiedByType *string `pulumi:"lastModifiedByType"`
 }
 
@@ -6547,19 +6135,12 @@ type SystemDataResponseInput interface {
 	ToSystemDataResponseOutputWithContext(context.Context) SystemDataResponseOutput
 }
 
-// Metadata pertaining to creation and last modification of the resource.
 type SystemDataResponseArgs struct {
-	// The timestamp of resource creation (UTC).
-	CreatedAt pulumi.StringPtrInput `pulumi:"createdAt"`
-	// The identity that created the resource.
-	CreatedBy pulumi.StringPtrInput `pulumi:"createdBy"`
-	// The type of identity that created the resource.
-	CreatedByType pulumi.StringPtrInput `pulumi:"createdByType"`
-	// The timestamp of resource last modification (UTC)
-	LastModifiedAt pulumi.StringPtrInput `pulumi:"lastModifiedAt"`
-	// The identity that last modified the resource.
-	LastModifiedBy pulumi.StringPtrInput `pulumi:"lastModifiedBy"`
-	// The type of identity that last modified the resource.
+	CreatedAt          pulumi.StringPtrInput `pulumi:"createdAt"`
+	CreatedBy          pulumi.StringPtrInput `pulumi:"createdBy"`
+	CreatedByType      pulumi.StringPtrInput `pulumi:"createdByType"`
+	LastModifiedAt     pulumi.StringPtrInput `pulumi:"lastModifiedAt"`
+	LastModifiedBy     pulumi.StringPtrInput `pulumi:"lastModifiedBy"`
 	LastModifiedByType pulumi.StringPtrInput `pulumi:"lastModifiedByType"`
 }
 
@@ -6616,7 +6197,6 @@ func (i *systemDataResponsePtrType) ToSystemDataResponsePtrOutputWithContext(ctx
 	return pulumi.ToOutputWithContext(ctx, i).(SystemDataResponsePtrOutput)
 }
 
-// Metadata pertaining to creation and last modification of the resource.
 type SystemDataResponseOutput struct{ *pulumi.OutputState }
 
 func (SystemDataResponseOutput) ElementType() reflect.Type {
@@ -6636,37 +6216,31 @@ func (o SystemDataResponseOutput) ToSystemDataResponsePtrOutput() SystemDataResp
 }
 
 func (o SystemDataResponseOutput) ToSystemDataResponsePtrOutputWithContext(ctx context.Context) SystemDataResponsePtrOutput {
-	return o.ApplyT(func(v SystemDataResponse) *SystemDataResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v SystemDataResponse) *SystemDataResponse {
 		return &v
 	}).(SystemDataResponsePtrOutput)
 }
 
-// The timestamp of resource creation (UTC).
 func (o SystemDataResponseOutput) CreatedAt() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SystemDataResponse) *string { return v.CreatedAt }).(pulumi.StringPtrOutput)
 }
 
-// The identity that created the resource.
 func (o SystemDataResponseOutput) CreatedBy() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SystemDataResponse) *string { return v.CreatedBy }).(pulumi.StringPtrOutput)
 }
 
-// The type of identity that created the resource.
 func (o SystemDataResponseOutput) CreatedByType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SystemDataResponse) *string { return v.CreatedByType }).(pulumi.StringPtrOutput)
 }
 
-// The timestamp of resource last modification (UTC)
 func (o SystemDataResponseOutput) LastModifiedAt() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SystemDataResponse) *string { return v.LastModifiedAt }).(pulumi.StringPtrOutput)
 }
 
-// The identity that last modified the resource.
 func (o SystemDataResponseOutput) LastModifiedBy() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SystemDataResponse) *string { return v.LastModifiedBy }).(pulumi.StringPtrOutput)
 }
 
-// The type of identity that last modified the resource.
 func (o SystemDataResponseOutput) LastModifiedByType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SystemDataResponse) *string { return v.LastModifiedByType }).(pulumi.StringPtrOutput)
 }
@@ -6686,10 +6260,15 @@ func (o SystemDataResponsePtrOutput) ToSystemDataResponsePtrOutputWithContext(ct
 }
 
 func (o SystemDataResponsePtrOutput) Elem() SystemDataResponseOutput {
-	return o.ApplyT(func(v *SystemDataResponse) SystemDataResponse { return *v }).(SystemDataResponseOutput)
+	return o.ApplyT(func(v *SystemDataResponse) SystemDataResponse {
+		if v != nil {
+			return *v
+		}
+		var ret SystemDataResponse
+		return ret
+	}).(SystemDataResponseOutput)
 }
 
-// The timestamp of resource creation (UTC).
 func (o SystemDataResponsePtrOutput) CreatedAt() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SystemDataResponse) *string {
 		if v == nil {
@@ -6699,7 +6278,6 @@ func (o SystemDataResponsePtrOutput) CreatedAt() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The identity that created the resource.
 func (o SystemDataResponsePtrOutput) CreatedBy() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SystemDataResponse) *string {
 		if v == nil {
@@ -6709,7 +6287,6 @@ func (o SystemDataResponsePtrOutput) CreatedBy() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The type of identity that created the resource.
 func (o SystemDataResponsePtrOutput) CreatedByType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SystemDataResponse) *string {
 		if v == nil {
@@ -6719,7 +6296,6 @@ func (o SystemDataResponsePtrOutput) CreatedByType() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The timestamp of resource last modification (UTC)
 func (o SystemDataResponsePtrOutput) LastModifiedAt() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SystemDataResponse) *string {
 		if v == nil {
@@ -6729,7 +6305,6 @@ func (o SystemDataResponsePtrOutput) LastModifiedAt() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The identity that last modified the resource.
 func (o SystemDataResponsePtrOutput) LastModifiedBy() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SystemDataResponse) *string {
 		if v == nil {
@@ -6739,7 +6314,6 @@ func (o SystemDataResponsePtrOutput) LastModifiedBy() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The type of identity that last modified the resource.
 func (o SystemDataResponsePtrOutput) LastModifiedByType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SystemDataResponse) *string {
 		if v == nil {
@@ -6749,9 +6323,7 @@ func (o SystemDataResponsePtrOutput) LastModifiedByType() pulumi.StringPtrOutput
 	}).(pulumi.StringPtrOutput)
 }
 
-// Properties pertaining to the UnknownTarget
 type UnknownTarget struct {
-	// Dictionary of string->string pairs containing information about the Storage Target.
 	Attributes map[string]string `pulumi:"attributes"`
 }
 
@@ -6766,9 +6338,7 @@ type UnknownTargetInput interface {
 	ToUnknownTargetOutputWithContext(context.Context) UnknownTargetOutput
 }
 
-// Properties pertaining to the UnknownTarget
 type UnknownTargetArgs struct {
-	// Dictionary of string->string pairs containing information about the Storage Target.
 	Attributes pulumi.StringMapInput `pulumi:"attributes"`
 }
 
@@ -6825,7 +6395,6 @@ func (i *unknownTargetPtrType) ToUnknownTargetPtrOutputWithContext(ctx context.C
 	return pulumi.ToOutputWithContext(ctx, i).(UnknownTargetPtrOutput)
 }
 
-// Properties pertaining to the UnknownTarget
 type UnknownTargetOutput struct{ *pulumi.OutputState }
 
 func (UnknownTargetOutput) ElementType() reflect.Type {
@@ -6845,12 +6414,11 @@ func (o UnknownTargetOutput) ToUnknownTargetPtrOutput() UnknownTargetPtrOutput {
 }
 
 func (o UnknownTargetOutput) ToUnknownTargetPtrOutputWithContext(ctx context.Context) UnknownTargetPtrOutput {
-	return o.ApplyT(func(v UnknownTarget) *UnknownTarget {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v UnknownTarget) *UnknownTarget {
 		return &v
 	}).(UnknownTargetPtrOutput)
 }
 
-// Dictionary of string->string pairs containing information about the Storage Target.
 func (o UnknownTargetOutput) Attributes() pulumi.StringMapOutput {
 	return o.ApplyT(func(v UnknownTarget) map[string]string { return v.Attributes }).(pulumi.StringMapOutput)
 }
@@ -6870,10 +6438,15 @@ func (o UnknownTargetPtrOutput) ToUnknownTargetPtrOutputWithContext(ctx context.
 }
 
 func (o UnknownTargetPtrOutput) Elem() UnknownTargetOutput {
-	return o.ApplyT(func(v *UnknownTarget) UnknownTarget { return *v }).(UnknownTargetOutput)
+	return o.ApplyT(func(v *UnknownTarget) UnknownTarget {
+		if v != nil {
+			return *v
+		}
+		var ret UnknownTarget
+		return ret
+	}).(UnknownTargetOutput)
 }
 
-// Dictionary of string->string pairs containing information about the Storage Target.
 func (o UnknownTargetPtrOutput) Attributes() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *UnknownTarget) map[string]string {
 		if v == nil {
@@ -6883,9 +6456,7 @@ func (o UnknownTargetPtrOutput) Attributes() pulumi.StringMapOutput {
 	}).(pulumi.StringMapOutput)
 }
 
-// Properties pertaining to the UnknownTarget
 type UnknownTargetResponse struct {
-	// Dictionary of string->string pairs containing information about the Storage Target.
 	Attributes map[string]string `pulumi:"attributes"`
 }
 
@@ -6900,9 +6471,7 @@ type UnknownTargetResponseInput interface {
 	ToUnknownTargetResponseOutputWithContext(context.Context) UnknownTargetResponseOutput
 }
 
-// Properties pertaining to the UnknownTarget
 type UnknownTargetResponseArgs struct {
-	// Dictionary of string->string pairs containing information about the Storage Target.
 	Attributes pulumi.StringMapInput `pulumi:"attributes"`
 }
 
@@ -6959,7 +6528,6 @@ func (i *unknownTargetResponsePtrType) ToUnknownTargetResponsePtrOutputWithConte
 	return pulumi.ToOutputWithContext(ctx, i).(UnknownTargetResponsePtrOutput)
 }
 
-// Properties pertaining to the UnknownTarget
 type UnknownTargetResponseOutput struct{ *pulumi.OutputState }
 
 func (UnknownTargetResponseOutput) ElementType() reflect.Type {
@@ -6979,12 +6547,11 @@ func (o UnknownTargetResponseOutput) ToUnknownTargetResponsePtrOutput() UnknownT
 }
 
 func (o UnknownTargetResponseOutput) ToUnknownTargetResponsePtrOutputWithContext(ctx context.Context) UnknownTargetResponsePtrOutput {
-	return o.ApplyT(func(v UnknownTargetResponse) *UnknownTargetResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v UnknownTargetResponse) *UnknownTargetResponse {
 		return &v
 	}).(UnknownTargetResponsePtrOutput)
 }
 
-// Dictionary of string->string pairs containing information about the Storage Target.
 func (o UnknownTargetResponseOutput) Attributes() pulumi.StringMapOutput {
 	return o.ApplyT(func(v UnknownTargetResponse) map[string]string { return v.Attributes }).(pulumi.StringMapOutput)
 }
@@ -7004,10 +6571,15 @@ func (o UnknownTargetResponsePtrOutput) ToUnknownTargetResponsePtrOutputWithCont
 }
 
 func (o UnknownTargetResponsePtrOutput) Elem() UnknownTargetResponseOutput {
-	return o.ApplyT(func(v *UnknownTargetResponse) UnknownTargetResponse { return *v }).(UnknownTargetResponseOutput)
+	return o.ApplyT(func(v *UnknownTargetResponse) UnknownTargetResponse {
+		if v != nil {
+			return *v
+		}
+		var ret UnknownTargetResponse
+		return ret
+	}).(UnknownTargetResponseOutput)
 }
 
-// Dictionary of string->string pairs containing information about the Storage Target.
 func (o UnknownTargetResponsePtrOutput) Attributes() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *UnknownTargetResponse) map[string]string {
 		if v == nil {

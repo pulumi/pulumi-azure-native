@@ -11,20 +11,14 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Description of a NotificationHub Resource.
 type NotificationHub struct {
 	pulumi.CustomResourceState
 
-	// Gets or sets datacenter location of the NotificationHub.
-	Location pulumi.StringPtrOutput `pulumi:"location"`
-	// Gets or sets name of the NotificationHub.
-	Name pulumi.StringPtrOutput `pulumi:"name"`
-	// Gets or sets properties of the NotificationHub.
+	Location   pulumi.StringPtrOutput                  `pulumi:"location"`
+	Name       pulumi.StringPtrOutput                  `pulumi:"name"`
 	Properties NotificationHubPropertiesResponseOutput `pulumi:"properties"`
-	// Gets or sets tags of the NotificationHub.
-	Tags pulumi.StringMapOutput `pulumi:"tags"`
-	// Gets or sets resource type of the NotificationHub.
-	Type pulumi.StringPtrOutput `pulumi:"type"`
+	Tags       pulumi.StringMapOutput                  `pulumi:"tags"`
+	Type       pulumi.StringPtrOutput                  `pulumi:"type"`
 }
 
 // NewNotificationHub registers a new resource with the given unique name, arguments, and options.
@@ -99,34 +93,22 @@ func (NotificationHubState) ElementType() reflect.Type {
 }
 
 type notificationHubArgs struct {
-	// Gets or sets NotificationHub data center location.
-	Location *string `pulumi:"location"`
-	// The namespace name.
-	NamespaceName string `pulumi:"namespaceName"`
-	// The notification hub name.
-	NotificationHubName *string `pulumi:"notificationHubName"`
-	// Gets or sets properties of the NotificationHub.
-	Properties NotificationHubProperties `pulumi:"properties"`
-	// The name of the resource group.
-	ResourceGroupName string `pulumi:"resourceGroupName"`
-	// Gets or sets NotificationHub tags.
-	Tags map[string]string `pulumi:"tags"`
+	Location            *string                   `pulumi:"location"`
+	NamespaceName       string                    `pulumi:"namespaceName"`
+	NotificationHubName *string                   `pulumi:"notificationHubName"`
+	Properties          NotificationHubProperties `pulumi:"properties"`
+	ResourceGroupName   string                    `pulumi:"resourceGroupName"`
+	Tags                map[string]string         `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a NotificationHub resource.
 type NotificationHubArgs struct {
-	// Gets or sets NotificationHub data center location.
-	Location pulumi.StringPtrInput
-	// The namespace name.
-	NamespaceName pulumi.StringInput
-	// The notification hub name.
+	Location            pulumi.StringPtrInput
+	NamespaceName       pulumi.StringInput
 	NotificationHubName pulumi.StringPtrInput
-	// Gets or sets properties of the NotificationHub.
-	Properties NotificationHubPropertiesInput
-	// The name of the resource group.
-	ResourceGroupName pulumi.StringInput
-	// Gets or sets NotificationHub tags.
-	Tags pulumi.StringMapInput
+	Properties          NotificationHubPropertiesInput
+	ResourceGroupName   pulumi.StringInput
+	Tags                pulumi.StringMapInput
 }
 
 func (NotificationHubArgs) ElementType() reflect.Type {
@@ -152,9 +134,7 @@ func (i *NotificationHub) ToNotificationHubOutputWithContext(ctx context.Context
 	return pulumi.ToOutputWithContext(ctx, i).(NotificationHubOutput)
 }
 
-type NotificationHubOutput struct {
-	*pulumi.OutputState
-}
+type NotificationHubOutput struct{ *pulumi.OutputState }
 
 func (NotificationHubOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*NotificationHub)(nil))

@@ -14,22 +14,14 @@ import (
 type ResourceGuard struct {
 	pulumi.CustomResourceState
 
-	// Optional ETag.
-	ETag pulumi.StringPtrOutput `pulumi:"eTag"`
-	// Input Managed Identity Details
-	Identity DppIdentityDetailsResponsePtrOutput `pulumi:"identity"`
-	// Resource location.
-	Location pulumi.StringPtrOutput `pulumi:"location"`
-	// Resource name associated with the resource.
-	Name pulumi.StringOutput `pulumi:"name"`
-	// ResourceGuardResource properties
-	Properties ResourceGuardResponseOutput `pulumi:"properties"`
-	// Metadata pertaining to creation and last modification of the resource.
-	SystemData SystemDataResponseOutput `pulumi:"systemData"`
-	// Resource tags.
-	Tags pulumi.StringMapOutput `pulumi:"tags"`
-	// Resource type represents the complete path of the form Namespace/ResourceType/ResourceType/...
-	Type pulumi.StringOutput `pulumi:"type"`
+	ETag       pulumi.StringPtrOutput              `pulumi:"eTag"`
+	Identity   DppIdentityDetailsResponsePtrOutput `pulumi:"identity"`
+	Location   pulumi.StringPtrOutput              `pulumi:"location"`
+	Name       pulumi.StringOutput                 `pulumi:"name"`
+	Properties ResourceGuardResponseOutput         `pulumi:"properties"`
+	SystemData SystemDataResponseOutput            `pulumi:"systemData"`
+	Tags       pulumi.StringMapOutput              `pulumi:"tags"`
+	Type       pulumi.StringOutput                 `pulumi:"type"`
 }
 
 // NewResourceGuard registers a new resource with the given unique name, arguments, and options.
@@ -86,34 +78,22 @@ func (ResourceGuardState) ElementType() reflect.Type {
 }
 
 type resourceGuardArgs struct {
-	// Optional ETag.
-	ETag *string `pulumi:"eTag"`
-	// Input Managed Identity Details
-	Identity *DppIdentityDetails `pulumi:"identity"`
-	// Resource location.
-	Location *string `pulumi:"location"`
-	// The name of the resource group where the backup vault is present.
-	ResourceGroupName string `pulumi:"resourceGroupName"`
-	// The name of ResourceGuard
-	ResourceGuardsName *string `pulumi:"resourceGuardsName"`
-	// Resource tags.
-	Tags map[string]string `pulumi:"tags"`
+	ETag               *string             `pulumi:"eTag"`
+	Identity           *DppIdentityDetails `pulumi:"identity"`
+	Location           *string             `pulumi:"location"`
+	ResourceGroupName  string              `pulumi:"resourceGroupName"`
+	ResourceGuardsName *string             `pulumi:"resourceGuardsName"`
+	Tags               map[string]string   `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a ResourceGuard resource.
 type ResourceGuardArgs struct {
-	// Optional ETag.
-	ETag pulumi.StringPtrInput
-	// Input Managed Identity Details
-	Identity DppIdentityDetailsPtrInput
-	// Resource location.
-	Location pulumi.StringPtrInput
-	// The name of the resource group where the backup vault is present.
-	ResourceGroupName pulumi.StringInput
-	// The name of ResourceGuard
+	ETag               pulumi.StringPtrInput
+	Identity           DppIdentityDetailsPtrInput
+	Location           pulumi.StringPtrInput
+	ResourceGroupName  pulumi.StringInput
 	ResourceGuardsName pulumi.StringPtrInput
-	// Resource tags.
-	Tags pulumi.StringMapInput
+	Tags               pulumi.StringMapInput
 }
 
 func (ResourceGuardArgs) ElementType() reflect.Type {
@@ -139,9 +119,7 @@ func (i *ResourceGuard) ToResourceGuardOutputWithContext(ctx context.Context) Re
 	return pulumi.ToOutputWithContext(ctx, i).(ResourceGuardOutput)
 }
 
-type ResourceGuardOutput struct {
-	*pulumi.OutputState
-}
+type ResourceGuardOutput struct{ *pulumi.OutputState }
 
 func (ResourceGuardOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*ResourceGuard)(nil))

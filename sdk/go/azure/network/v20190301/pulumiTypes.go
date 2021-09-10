@@ -10,24 +10,15 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Defines contents of a web application rule
 type CustomRule struct {
-	// Describes what action to be applied when rule matches.
-	Action string `pulumi:"action"`
-	// Describes if the custom rule is in enabled or disabled state. Defaults to Enabled if not specified.
-	EnabledState *string `pulumi:"enabledState"`
-	// List of match conditions.
-	MatchConditions []FrontDoorMatchCondition `pulumi:"matchConditions"`
-	// Describes the name of the rule.
-	Name *string `pulumi:"name"`
-	// Describes priority of the rule. Rules with a lower value will be evaluated before rules with a higher value.
-	Priority int `pulumi:"priority"`
-	// Time window for resetting the rate limit count. Default is 1 minute.
-	RateLimitDurationInMinutes *int `pulumi:"rateLimitDurationInMinutes"`
-	// Number of allowed requests per client within the time window.
-	RateLimitThreshold *int `pulumi:"rateLimitThreshold"`
-	// Describes type of rule.
-	RuleType string `pulumi:"ruleType"`
+	Action                     string                    `pulumi:"action"`
+	EnabledState               *string                   `pulumi:"enabledState"`
+	MatchConditions            []FrontDoorMatchCondition `pulumi:"matchConditions"`
+	Name                       *string                   `pulumi:"name"`
+	Priority                   int                       `pulumi:"priority"`
+	RateLimitDurationInMinutes *int                      `pulumi:"rateLimitDurationInMinutes"`
+	RateLimitThreshold         *int                      `pulumi:"rateLimitThreshold"`
+	RuleType                   string                    `pulumi:"ruleType"`
 }
 
 // CustomRuleInput is an input type that accepts CustomRuleArgs and CustomRuleOutput values.
@@ -41,24 +32,15 @@ type CustomRuleInput interface {
 	ToCustomRuleOutputWithContext(context.Context) CustomRuleOutput
 }
 
-// Defines contents of a web application rule
 type CustomRuleArgs struct {
-	// Describes what action to be applied when rule matches.
-	Action pulumi.StringInput `pulumi:"action"`
-	// Describes if the custom rule is in enabled or disabled state. Defaults to Enabled if not specified.
-	EnabledState pulumi.StringPtrInput `pulumi:"enabledState"`
-	// List of match conditions.
-	MatchConditions FrontDoorMatchConditionArrayInput `pulumi:"matchConditions"`
-	// Describes the name of the rule.
-	Name pulumi.StringPtrInput `pulumi:"name"`
-	// Describes priority of the rule. Rules with a lower value will be evaluated before rules with a higher value.
-	Priority pulumi.IntInput `pulumi:"priority"`
-	// Time window for resetting the rate limit count. Default is 1 minute.
-	RateLimitDurationInMinutes pulumi.IntPtrInput `pulumi:"rateLimitDurationInMinutes"`
-	// Number of allowed requests per client within the time window.
-	RateLimitThreshold pulumi.IntPtrInput `pulumi:"rateLimitThreshold"`
-	// Describes type of rule.
-	RuleType pulumi.StringInput `pulumi:"ruleType"`
+	Action                     pulumi.StringInput                `pulumi:"action"`
+	EnabledState               pulumi.StringPtrInput             `pulumi:"enabledState"`
+	MatchConditions            FrontDoorMatchConditionArrayInput `pulumi:"matchConditions"`
+	Name                       pulumi.StringPtrInput             `pulumi:"name"`
+	Priority                   pulumi.IntInput                   `pulumi:"priority"`
+	RateLimitDurationInMinutes pulumi.IntPtrInput                `pulumi:"rateLimitDurationInMinutes"`
+	RateLimitThreshold         pulumi.IntPtrInput                `pulumi:"rateLimitThreshold"`
+	RuleType                   pulumi.StringInput                `pulumi:"ruleType"`
 }
 
 func (CustomRuleArgs) ElementType() reflect.Type {
@@ -98,7 +80,6 @@ func (i CustomRuleArray) ToCustomRuleArrayOutputWithContext(ctx context.Context)
 	return pulumi.ToOutputWithContext(ctx, i).(CustomRuleArrayOutput)
 }
 
-// Defines contents of a web application rule
 type CustomRuleOutput struct{ *pulumi.OutputState }
 
 func (CustomRuleOutput) ElementType() reflect.Type {
@@ -113,42 +94,34 @@ func (o CustomRuleOutput) ToCustomRuleOutputWithContext(ctx context.Context) Cus
 	return o
 }
 
-// Describes what action to be applied when rule matches.
 func (o CustomRuleOutput) Action() pulumi.StringOutput {
 	return o.ApplyT(func(v CustomRule) string { return v.Action }).(pulumi.StringOutput)
 }
 
-// Describes if the custom rule is in enabled or disabled state. Defaults to Enabled if not specified.
 func (o CustomRuleOutput) EnabledState() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v CustomRule) *string { return v.EnabledState }).(pulumi.StringPtrOutput)
 }
 
-// List of match conditions.
 func (o CustomRuleOutput) MatchConditions() FrontDoorMatchConditionArrayOutput {
 	return o.ApplyT(func(v CustomRule) []FrontDoorMatchCondition { return v.MatchConditions }).(FrontDoorMatchConditionArrayOutput)
 }
 
-// Describes the name of the rule.
 func (o CustomRuleOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v CustomRule) *string { return v.Name }).(pulumi.StringPtrOutput)
 }
 
-// Describes priority of the rule. Rules with a lower value will be evaluated before rules with a higher value.
 func (o CustomRuleOutput) Priority() pulumi.IntOutput {
 	return o.ApplyT(func(v CustomRule) int { return v.Priority }).(pulumi.IntOutput)
 }
 
-// Time window for resetting the rate limit count. Default is 1 minute.
 func (o CustomRuleOutput) RateLimitDurationInMinutes() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v CustomRule) *int { return v.RateLimitDurationInMinutes }).(pulumi.IntPtrOutput)
 }
 
-// Number of allowed requests per client within the time window.
 func (o CustomRuleOutput) RateLimitThreshold() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v CustomRule) *int { return v.RateLimitThreshold }).(pulumi.IntPtrOutput)
 }
 
-// Describes type of rule.
 func (o CustomRuleOutput) RuleType() pulumi.StringOutput {
 	return o.ApplyT(func(v CustomRule) string { return v.RuleType }).(pulumi.StringOutput)
 }
@@ -173,9 +146,7 @@ func (o CustomRuleArrayOutput) Index(i pulumi.IntInput) CustomRuleOutput {
 	}).(CustomRuleOutput)
 }
 
-// Defines contents of custom rules
 type CustomRuleList struct {
-	// List of rules
 	Rules []CustomRule `pulumi:"rules"`
 }
 
@@ -190,9 +161,7 @@ type CustomRuleListInput interface {
 	ToCustomRuleListOutputWithContext(context.Context) CustomRuleListOutput
 }
 
-// Defines contents of custom rules
 type CustomRuleListArgs struct {
-	// List of rules
 	Rules CustomRuleArrayInput `pulumi:"rules"`
 }
 
@@ -249,7 +218,6 @@ func (i *customRuleListPtrType) ToCustomRuleListPtrOutputWithContext(ctx context
 	return pulumi.ToOutputWithContext(ctx, i).(CustomRuleListPtrOutput)
 }
 
-// Defines contents of custom rules
 type CustomRuleListOutput struct{ *pulumi.OutputState }
 
 func (CustomRuleListOutput) ElementType() reflect.Type {
@@ -269,12 +237,11 @@ func (o CustomRuleListOutput) ToCustomRuleListPtrOutput() CustomRuleListPtrOutpu
 }
 
 func (o CustomRuleListOutput) ToCustomRuleListPtrOutputWithContext(ctx context.Context) CustomRuleListPtrOutput {
-	return o.ApplyT(func(v CustomRuleList) *CustomRuleList {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v CustomRuleList) *CustomRuleList {
 		return &v
 	}).(CustomRuleListPtrOutput)
 }
 
-// List of rules
 func (o CustomRuleListOutput) Rules() CustomRuleArrayOutput {
 	return o.ApplyT(func(v CustomRuleList) []CustomRule { return v.Rules }).(CustomRuleArrayOutput)
 }
@@ -294,10 +261,15 @@ func (o CustomRuleListPtrOutput) ToCustomRuleListPtrOutputWithContext(ctx contex
 }
 
 func (o CustomRuleListPtrOutput) Elem() CustomRuleListOutput {
-	return o.ApplyT(func(v *CustomRuleList) CustomRuleList { return *v }).(CustomRuleListOutput)
+	return o.ApplyT(func(v *CustomRuleList) CustomRuleList {
+		if v != nil {
+			return *v
+		}
+		var ret CustomRuleList
+		return ret
+	}).(CustomRuleListOutput)
 }
 
-// List of rules
 func (o CustomRuleListPtrOutput) Rules() CustomRuleArrayOutput {
 	return o.ApplyT(func(v *CustomRuleList) []CustomRule {
 		if v == nil {
@@ -307,9 +279,7 @@ func (o CustomRuleListPtrOutput) Rules() CustomRuleArrayOutput {
 	}).(CustomRuleArrayOutput)
 }
 
-// Defines contents of custom rules
 type CustomRuleListResponse struct {
-	// List of rules
 	Rules []CustomRuleResponse `pulumi:"rules"`
 }
 
@@ -324,9 +294,7 @@ type CustomRuleListResponseInput interface {
 	ToCustomRuleListResponseOutputWithContext(context.Context) CustomRuleListResponseOutput
 }
 
-// Defines contents of custom rules
 type CustomRuleListResponseArgs struct {
-	// List of rules
 	Rules CustomRuleResponseArrayInput `pulumi:"rules"`
 }
 
@@ -383,7 +351,6 @@ func (i *customRuleListResponsePtrType) ToCustomRuleListResponsePtrOutputWithCon
 	return pulumi.ToOutputWithContext(ctx, i).(CustomRuleListResponsePtrOutput)
 }
 
-// Defines contents of custom rules
 type CustomRuleListResponseOutput struct{ *pulumi.OutputState }
 
 func (CustomRuleListResponseOutput) ElementType() reflect.Type {
@@ -403,12 +370,11 @@ func (o CustomRuleListResponseOutput) ToCustomRuleListResponsePtrOutput() Custom
 }
 
 func (o CustomRuleListResponseOutput) ToCustomRuleListResponsePtrOutputWithContext(ctx context.Context) CustomRuleListResponsePtrOutput {
-	return o.ApplyT(func(v CustomRuleListResponse) *CustomRuleListResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v CustomRuleListResponse) *CustomRuleListResponse {
 		return &v
 	}).(CustomRuleListResponsePtrOutput)
 }
 
-// List of rules
 func (o CustomRuleListResponseOutput) Rules() CustomRuleResponseArrayOutput {
 	return o.ApplyT(func(v CustomRuleListResponse) []CustomRuleResponse { return v.Rules }).(CustomRuleResponseArrayOutput)
 }
@@ -428,10 +394,15 @@ func (o CustomRuleListResponsePtrOutput) ToCustomRuleListResponsePtrOutputWithCo
 }
 
 func (o CustomRuleListResponsePtrOutput) Elem() CustomRuleListResponseOutput {
-	return o.ApplyT(func(v *CustomRuleListResponse) CustomRuleListResponse { return *v }).(CustomRuleListResponseOutput)
+	return o.ApplyT(func(v *CustomRuleListResponse) CustomRuleListResponse {
+		if v != nil {
+			return *v
+		}
+		var ret CustomRuleListResponse
+		return ret
+	}).(CustomRuleListResponseOutput)
 }
 
-// List of rules
 func (o CustomRuleListResponsePtrOutput) Rules() CustomRuleResponseArrayOutput {
 	return o.ApplyT(func(v *CustomRuleListResponse) []CustomRuleResponse {
 		if v == nil {
@@ -441,24 +412,15 @@ func (o CustomRuleListResponsePtrOutput) Rules() CustomRuleResponseArrayOutput {
 	}).(CustomRuleResponseArrayOutput)
 }
 
-// Defines contents of a web application rule
 type CustomRuleResponse struct {
-	// Describes what action to be applied when rule matches.
-	Action string `pulumi:"action"`
-	// Describes if the custom rule is in enabled or disabled state. Defaults to Enabled if not specified.
-	EnabledState *string `pulumi:"enabledState"`
-	// List of match conditions.
-	MatchConditions []FrontDoorMatchConditionResponse `pulumi:"matchConditions"`
-	// Describes the name of the rule.
-	Name *string `pulumi:"name"`
-	// Describes priority of the rule. Rules with a lower value will be evaluated before rules with a higher value.
-	Priority int `pulumi:"priority"`
-	// Time window for resetting the rate limit count. Default is 1 minute.
-	RateLimitDurationInMinutes *int `pulumi:"rateLimitDurationInMinutes"`
-	// Number of allowed requests per client within the time window.
-	RateLimitThreshold *int `pulumi:"rateLimitThreshold"`
-	// Describes type of rule.
-	RuleType string `pulumi:"ruleType"`
+	Action                     string                            `pulumi:"action"`
+	EnabledState               *string                           `pulumi:"enabledState"`
+	MatchConditions            []FrontDoorMatchConditionResponse `pulumi:"matchConditions"`
+	Name                       *string                           `pulumi:"name"`
+	Priority                   int                               `pulumi:"priority"`
+	RateLimitDurationInMinutes *int                              `pulumi:"rateLimitDurationInMinutes"`
+	RateLimitThreshold         *int                              `pulumi:"rateLimitThreshold"`
+	RuleType                   string                            `pulumi:"ruleType"`
 }
 
 // CustomRuleResponseInput is an input type that accepts CustomRuleResponseArgs and CustomRuleResponseOutput values.
@@ -472,24 +434,15 @@ type CustomRuleResponseInput interface {
 	ToCustomRuleResponseOutputWithContext(context.Context) CustomRuleResponseOutput
 }
 
-// Defines contents of a web application rule
 type CustomRuleResponseArgs struct {
-	// Describes what action to be applied when rule matches.
-	Action pulumi.StringInput `pulumi:"action"`
-	// Describes if the custom rule is in enabled or disabled state. Defaults to Enabled if not specified.
-	EnabledState pulumi.StringPtrInput `pulumi:"enabledState"`
-	// List of match conditions.
-	MatchConditions FrontDoorMatchConditionResponseArrayInput `pulumi:"matchConditions"`
-	// Describes the name of the rule.
-	Name pulumi.StringPtrInput `pulumi:"name"`
-	// Describes priority of the rule. Rules with a lower value will be evaluated before rules with a higher value.
-	Priority pulumi.IntInput `pulumi:"priority"`
-	// Time window for resetting the rate limit count. Default is 1 minute.
-	RateLimitDurationInMinutes pulumi.IntPtrInput `pulumi:"rateLimitDurationInMinutes"`
-	// Number of allowed requests per client within the time window.
-	RateLimitThreshold pulumi.IntPtrInput `pulumi:"rateLimitThreshold"`
-	// Describes type of rule.
-	RuleType pulumi.StringInput `pulumi:"ruleType"`
+	Action                     pulumi.StringInput                        `pulumi:"action"`
+	EnabledState               pulumi.StringPtrInput                     `pulumi:"enabledState"`
+	MatchConditions            FrontDoorMatchConditionResponseArrayInput `pulumi:"matchConditions"`
+	Name                       pulumi.StringPtrInput                     `pulumi:"name"`
+	Priority                   pulumi.IntInput                           `pulumi:"priority"`
+	RateLimitDurationInMinutes pulumi.IntPtrInput                        `pulumi:"rateLimitDurationInMinutes"`
+	RateLimitThreshold         pulumi.IntPtrInput                        `pulumi:"rateLimitThreshold"`
+	RuleType                   pulumi.StringInput                        `pulumi:"ruleType"`
 }
 
 func (CustomRuleResponseArgs) ElementType() reflect.Type {
@@ -529,7 +482,6 @@ func (i CustomRuleResponseArray) ToCustomRuleResponseArrayOutputWithContext(ctx 
 	return pulumi.ToOutputWithContext(ctx, i).(CustomRuleResponseArrayOutput)
 }
 
-// Defines contents of a web application rule
 type CustomRuleResponseOutput struct{ *pulumi.OutputState }
 
 func (CustomRuleResponseOutput) ElementType() reflect.Type {
@@ -544,42 +496,34 @@ func (o CustomRuleResponseOutput) ToCustomRuleResponseOutputWithContext(ctx cont
 	return o
 }
 
-// Describes what action to be applied when rule matches.
 func (o CustomRuleResponseOutput) Action() pulumi.StringOutput {
 	return o.ApplyT(func(v CustomRuleResponse) string { return v.Action }).(pulumi.StringOutput)
 }
 
-// Describes if the custom rule is in enabled or disabled state. Defaults to Enabled if not specified.
 func (o CustomRuleResponseOutput) EnabledState() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v CustomRuleResponse) *string { return v.EnabledState }).(pulumi.StringPtrOutput)
 }
 
-// List of match conditions.
 func (o CustomRuleResponseOutput) MatchConditions() FrontDoorMatchConditionResponseArrayOutput {
 	return o.ApplyT(func(v CustomRuleResponse) []FrontDoorMatchConditionResponse { return v.MatchConditions }).(FrontDoorMatchConditionResponseArrayOutput)
 }
 
-// Describes the name of the rule.
 func (o CustomRuleResponseOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v CustomRuleResponse) *string { return v.Name }).(pulumi.StringPtrOutput)
 }
 
-// Describes priority of the rule. Rules with a lower value will be evaluated before rules with a higher value.
 func (o CustomRuleResponseOutput) Priority() pulumi.IntOutput {
 	return o.ApplyT(func(v CustomRuleResponse) int { return v.Priority }).(pulumi.IntOutput)
 }
 
-// Time window for resetting the rate limit count. Default is 1 minute.
 func (o CustomRuleResponseOutput) RateLimitDurationInMinutes() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v CustomRuleResponse) *int { return v.RateLimitDurationInMinutes }).(pulumi.IntPtrOutput)
 }
 
-// Number of allowed requests per client within the time window.
 func (o CustomRuleResponseOutput) RateLimitThreshold() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v CustomRuleResponse) *int { return v.RateLimitThreshold }).(pulumi.IntPtrOutput)
 }
 
-// Describes type of rule.
 func (o CustomRuleResponseOutput) RuleType() pulumi.StringOutput {
 	return o.ApplyT(func(v CustomRuleResponse) string { return v.RuleType }).(pulumi.StringOutput)
 }
@@ -604,12 +548,9 @@ func (o CustomRuleResponseArrayOutput) Index(i pulumi.IntInput) CustomRuleRespon
 	}).(CustomRuleResponseOutput)
 }
 
-// Defines a managed rule group override setting.
 type FrontDoorManagedRuleGroupOverride struct {
-	// Describes the managed rule group to override.
-	RuleGroupName string `pulumi:"ruleGroupName"`
-	// List of rules that will be disabled. If none specified, all rules in the group will be disabled.
-	Rules []FrontDoorManagedRuleOverride `pulumi:"rules"`
+	RuleGroupName string                         `pulumi:"ruleGroupName"`
+	Rules         []FrontDoorManagedRuleOverride `pulumi:"rules"`
 }
 
 // FrontDoorManagedRuleGroupOverrideInput is an input type that accepts FrontDoorManagedRuleGroupOverrideArgs and FrontDoorManagedRuleGroupOverrideOutput values.
@@ -623,12 +564,9 @@ type FrontDoorManagedRuleGroupOverrideInput interface {
 	ToFrontDoorManagedRuleGroupOverrideOutputWithContext(context.Context) FrontDoorManagedRuleGroupOverrideOutput
 }
 
-// Defines a managed rule group override setting.
 type FrontDoorManagedRuleGroupOverrideArgs struct {
-	// Describes the managed rule group to override.
-	RuleGroupName pulumi.StringInput `pulumi:"ruleGroupName"`
-	// List of rules that will be disabled. If none specified, all rules in the group will be disabled.
-	Rules FrontDoorManagedRuleOverrideArrayInput `pulumi:"rules"`
+	RuleGroupName pulumi.StringInput                     `pulumi:"ruleGroupName"`
+	Rules         FrontDoorManagedRuleOverrideArrayInput `pulumi:"rules"`
 }
 
 func (FrontDoorManagedRuleGroupOverrideArgs) ElementType() reflect.Type {
@@ -668,7 +606,6 @@ func (i FrontDoorManagedRuleGroupOverrideArray) ToFrontDoorManagedRuleGroupOverr
 	return pulumi.ToOutputWithContext(ctx, i).(FrontDoorManagedRuleGroupOverrideArrayOutput)
 }
 
-// Defines a managed rule group override setting.
 type FrontDoorManagedRuleGroupOverrideOutput struct{ *pulumi.OutputState }
 
 func (FrontDoorManagedRuleGroupOverrideOutput) ElementType() reflect.Type {
@@ -683,12 +620,10 @@ func (o FrontDoorManagedRuleGroupOverrideOutput) ToFrontDoorManagedRuleGroupOver
 	return o
 }
 
-// Describes the managed rule group to override.
 func (o FrontDoorManagedRuleGroupOverrideOutput) RuleGroupName() pulumi.StringOutput {
 	return o.ApplyT(func(v FrontDoorManagedRuleGroupOverride) string { return v.RuleGroupName }).(pulumi.StringOutput)
 }
 
-// List of rules that will be disabled. If none specified, all rules in the group will be disabled.
 func (o FrontDoorManagedRuleGroupOverrideOutput) Rules() FrontDoorManagedRuleOverrideArrayOutput {
 	return o.ApplyT(func(v FrontDoorManagedRuleGroupOverride) []FrontDoorManagedRuleOverride { return v.Rules }).(FrontDoorManagedRuleOverrideArrayOutput)
 }
@@ -713,12 +648,9 @@ func (o FrontDoorManagedRuleGroupOverrideArrayOutput) Index(i pulumi.IntInput) F
 	}).(FrontDoorManagedRuleGroupOverrideOutput)
 }
 
-// Defines a managed rule group override setting.
 type FrontDoorManagedRuleGroupOverrideResponse struct {
-	// Describes the managed rule group to override.
-	RuleGroupName string `pulumi:"ruleGroupName"`
-	// List of rules that will be disabled. If none specified, all rules in the group will be disabled.
-	Rules []FrontDoorManagedRuleOverrideResponse `pulumi:"rules"`
+	RuleGroupName string                                 `pulumi:"ruleGroupName"`
+	Rules         []FrontDoorManagedRuleOverrideResponse `pulumi:"rules"`
 }
 
 // FrontDoorManagedRuleGroupOverrideResponseInput is an input type that accepts FrontDoorManagedRuleGroupOverrideResponseArgs and FrontDoorManagedRuleGroupOverrideResponseOutput values.
@@ -732,12 +664,9 @@ type FrontDoorManagedRuleGroupOverrideResponseInput interface {
 	ToFrontDoorManagedRuleGroupOverrideResponseOutputWithContext(context.Context) FrontDoorManagedRuleGroupOverrideResponseOutput
 }
 
-// Defines a managed rule group override setting.
 type FrontDoorManagedRuleGroupOverrideResponseArgs struct {
-	// Describes the managed rule group to override.
-	RuleGroupName pulumi.StringInput `pulumi:"ruleGroupName"`
-	// List of rules that will be disabled. If none specified, all rules in the group will be disabled.
-	Rules FrontDoorManagedRuleOverrideResponseArrayInput `pulumi:"rules"`
+	RuleGroupName pulumi.StringInput                             `pulumi:"ruleGroupName"`
+	Rules         FrontDoorManagedRuleOverrideResponseArrayInput `pulumi:"rules"`
 }
 
 func (FrontDoorManagedRuleGroupOverrideResponseArgs) ElementType() reflect.Type {
@@ -777,7 +706,6 @@ func (i FrontDoorManagedRuleGroupOverrideResponseArray) ToFrontDoorManagedRuleGr
 	return pulumi.ToOutputWithContext(ctx, i).(FrontDoorManagedRuleGroupOverrideResponseArrayOutput)
 }
 
-// Defines a managed rule group override setting.
 type FrontDoorManagedRuleGroupOverrideResponseOutput struct{ *pulumi.OutputState }
 
 func (FrontDoorManagedRuleGroupOverrideResponseOutput) ElementType() reflect.Type {
@@ -792,12 +720,10 @@ func (o FrontDoorManagedRuleGroupOverrideResponseOutput) ToFrontDoorManagedRuleG
 	return o
 }
 
-// Describes the managed rule group to override.
 func (o FrontDoorManagedRuleGroupOverrideResponseOutput) RuleGroupName() pulumi.StringOutput {
 	return o.ApplyT(func(v FrontDoorManagedRuleGroupOverrideResponse) string { return v.RuleGroupName }).(pulumi.StringOutput)
 }
 
-// List of rules that will be disabled. If none specified, all rules in the group will be disabled.
 func (o FrontDoorManagedRuleGroupOverrideResponseOutput) Rules() FrontDoorManagedRuleOverrideResponseArrayOutput {
 	return o.ApplyT(func(v FrontDoorManagedRuleGroupOverrideResponse) []FrontDoorManagedRuleOverrideResponse {
 		return v.Rules
@@ -824,14 +750,10 @@ func (o FrontDoorManagedRuleGroupOverrideResponseArrayOutput) Index(i pulumi.Int
 	}).(FrontDoorManagedRuleGroupOverrideResponseOutput)
 }
 
-// Defines a managed rule group override setting.
 type FrontDoorManagedRuleOverride struct {
-	// Describes the override action to be applied when rule matches.
-	Action *string `pulumi:"action"`
-	// Describes if the managed rule is in enabled or disabled state. Defaults to Disabled if not specified.
+	Action       *string `pulumi:"action"`
 	EnabledState *string `pulumi:"enabledState"`
-	// Identifier for the managed rule.
-	RuleId string `pulumi:"ruleId"`
+	RuleId       string  `pulumi:"ruleId"`
 }
 
 // FrontDoorManagedRuleOverrideInput is an input type that accepts FrontDoorManagedRuleOverrideArgs and FrontDoorManagedRuleOverrideOutput values.
@@ -845,14 +767,10 @@ type FrontDoorManagedRuleOverrideInput interface {
 	ToFrontDoorManagedRuleOverrideOutputWithContext(context.Context) FrontDoorManagedRuleOverrideOutput
 }
 
-// Defines a managed rule group override setting.
 type FrontDoorManagedRuleOverrideArgs struct {
-	// Describes the override action to be applied when rule matches.
-	Action pulumi.StringPtrInput `pulumi:"action"`
-	// Describes if the managed rule is in enabled or disabled state. Defaults to Disabled if not specified.
+	Action       pulumi.StringPtrInput `pulumi:"action"`
 	EnabledState pulumi.StringPtrInput `pulumi:"enabledState"`
-	// Identifier for the managed rule.
-	RuleId pulumi.StringInput `pulumi:"ruleId"`
+	RuleId       pulumi.StringInput    `pulumi:"ruleId"`
 }
 
 func (FrontDoorManagedRuleOverrideArgs) ElementType() reflect.Type {
@@ -892,7 +810,6 @@ func (i FrontDoorManagedRuleOverrideArray) ToFrontDoorManagedRuleOverrideArrayOu
 	return pulumi.ToOutputWithContext(ctx, i).(FrontDoorManagedRuleOverrideArrayOutput)
 }
 
-// Defines a managed rule group override setting.
 type FrontDoorManagedRuleOverrideOutput struct{ *pulumi.OutputState }
 
 func (FrontDoorManagedRuleOverrideOutput) ElementType() reflect.Type {
@@ -907,17 +824,14 @@ func (o FrontDoorManagedRuleOverrideOutput) ToFrontDoorManagedRuleOverrideOutput
 	return o
 }
 
-// Describes the override action to be applied when rule matches.
 func (o FrontDoorManagedRuleOverrideOutput) Action() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v FrontDoorManagedRuleOverride) *string { return v.Action }).(pulumi.StringPtrOutput)
 }
 
-// Describes if the managed rule is in enabled or disabled state. Defaults to Disabled if not specified.
 func (o FrontDoorManagedRuleOverrideOutput) EnabledState() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v FrontDoorManagedRuleOverride) *string { return v.EnabledState }).(pulumi.StringPtrOutput)
 }
 
-// Identifier for the managed rule.
 func (o FrontDoorManagedRuleOverrideOutput) RuleId() pulumi.StringOutput {
 	return o.ApplyT(func(v FrontDoorManagedRuleOverride) string { return v.RuleId }).(pulumi.StringOutput)
 }
@@ -942,14 +856,10 @@ func (o FrontDoorManagedRuleOverrideArrayOutput) Index(i pulumi.IntInput) FrontD
 	}).(FrontDoorManagedRuleOverrideOutput)
 }
 
-// Defines a managed rule group override setting.
 type FrontDoorManagedRuleOverrideResponse struct {
-	// Describes the override action to be applied when rule matches.
-	Action *string `pulumi:"action"`
-	// Describes if the managed rule is in enabled or disabled state. Defaults to Disabled if not specified.
+	Action       *string `pulumi:"action"`
 	EnabledState *string `pulumi:"enabledState"`
-	// Identifier for the managed rule.
-	RuleId string `pulumi:"ruleId"`
+	RuleId       string  `pulumi:"ruleId"`
 }
 
 // FrontDoorManagedRuleOverrideResponseInput is an input type that accepts FrontDoorManagedRuleOverrideResponseArgs and FrontDoorManagedRuleOverrideResponseOutput values.
@@ -963,14 +873,10 @@ type FrontDoorManagedRuleOverrideResponseInput interface {
 	ToFrontDoorManagedRuleOverrideResponseOutputWithContext(context.Context) FrontDoorManagedRuleOverrideResponseOutput
 }
 
-// Defines a managed rule group override setting.
 type FrontDoorManagedRuleOverrideResponseArgs struct {
-	// Describes the override action to be applied when rule matches.
-	Action pulumi.StringPtrInput `pulumi:"action"`
-	// Describes if the managed rule is in enabled or disabled state. Defaults to Disabled if not specified.
+	Action       pulumi.StringPtrInput `pulumi:"action"`
 	EnabledState pulumi.StringPtrInput `pulumi:"enabledState"`
-	// Identifier for the managed rule.
-	RuleId pulumi.StringInput `pulumi:"ruleId"`
+	RuleId       pulumi.StringInput    `pulumi:"ruleId"`
 }
 
 func (FrontDoorManagedRuleOverrideResponseArgs) ElementType() reflect.Type {
@@ -1010,7 +916,6 @@ func (i FrontDoorManagedRuleOverrideResponseArray) ToFrontDoorManagedRuleOverrid
 	return pulumi.ToOutputWithContext(ctx, i).(FrontDoorManagedRuleOverrideResponseArrayOutput)
 }
 
-// Defines a managed rule group override setting.
 type FrontDoorManagedRuleOverrideResponseOutput struct{ *pulumi.OutputState }
 
 func (FrontDoorManagedRuleOverrideResponseOutput) ElementType() reflect.Type {
@@ -1025,17 +930,14 @@ func (o FrontDoorManagedRuleOverrideResponseOutput) ToFrontDoorManagedRuleOverri
 	return o
 }
 
-// Describes the override action to be applied when rule matches.
 func (o FrontDoorManagedRuleOverrideResponseOutput) Action() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v FrontDoorManagedRuleOverrideResponse) *string { return v.Action }).(pulumi.StringPtrOutput)
 }
 
-// Describes if the managed rule is in enabled or disabled state. Defaults to Disabled if not specified.
 func (o FrontDoorManagedRuleOverrideResponseOutput) EnabledState() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v FrontDoorManagedRuleOverrideResponse) *string { return v.EnabledState }).(pulumi.StringPtrOutput)
 }
 
-// Identifier for the managed rule.
 func (o FrontDoorManagedRuleOverrideResponseOutput) RuleId() pulumi.StringOutput {
 	return o.ApplyT(func(v FrontDoorManagedRuleOverrideResponse) string { return v.RuleId }).(pulumi.StringOutput)
 }
@@ -1060,14 +962,10 @@ func (o FrontDoorManagedRuleOverrideResponseArrayOutput) Index(i pulumi.IntInput
 	}).(FrontDoorManagedRuleOverrideResponseOutput)
 }
 
-// Defines a managed rule set.
 type FrontDoorManagedRuleSet struct {
-	// Defines the rule group overrides to apply to the rule set.
 	RuleGroupOverrides []FrontDoorManagedRuleGroupOverride `pulumi:"ruleGroupOverrides"`
-	// Defines the rule set type to use.
-	RuleSetType string `pulumi:"ruleSetType"`
-	// Defines the version of the rule set to use.
-	RuleSetVersion string `pulumi:"ruleSetVersion"`
+	RuleSetType        string                              `pulumi:"ruleSetType"`
+	RuleSetVersion     string                              `pulumi:"ruleSetVersion"`
 }
 
 // FrontDoorManagedRuleSetInput is an input type that accepts FrontDoorManagedRuleSetArgs and FrontDoorManagedRuleSetOutput values.
@@ -1081,14 +979,10 @@ type FrontDoorManagedRuleSetInput interface {
 	ToFrontDoorManagedRuleSetOutputWithContext(context.Context) FrontDoorManagedRuleSetOutput
 }
 
-// Defines a managed rule set.
 type FrontDoorManagedRuleSetArgs struct {
-	// Defines the rule group overrides to apply to the rule set.
 	RuleGroupOverrides FrontDoorManagedRuleGroupOverrideArrayInput `pulumi:"ruleGroupOverrides"`
-	// Defines the rule set type to use.
-	RuleSetType pulumi.StringInput `pulumi:"ruleSetType"`
-	// Defines the version of the rule set to use.
-	RuleSetVersion pulumi.StringInput `pulumi:"ruleSetVersion"`
+	RuleSetType        pulumi.StringInput                          `pulumi:"ruleSetType"`
+	RuleSetVersion     pulumi.StringInput                          `pulumi:"ruleSetVersion"`
 }
 
 func (FrontDoorManagedRuleSetArgs) ElementType() reflect.Type {
@@ -1128,7 +1022,6 @@ func (i FrontDoorManagedRuleSetArray) ToFrontDoorManagedRuleSetArrayOutputWithCo
 	return pulumi.ToOutputWithContext(ctx, i).(FrontDoorManagedRuleSetArrayOutput)
 }
 
-// Defines a managed rule set.
 type FrontDoorManagedRuleSetOutput struct{ *pulumi.OutputState }
 
 func (FrontDoorManagedRuleSetOutput) ElementType() reflect.Type {
@@ -1143,17 +1036,14 @@ func (o FrontDoorManagedRuleSetOutput) ToFrontDoorManagedRuleSetOutputWithContex
 	return o
 }
 
-// Defines the rule group overrides to apply to the rule set.
 func (o FrontDoorManagedRuleSetOutput) RuleGroupOverrides() FrontDoorManagedRuleGroupOverrideArrayOutput {
 	return o.ApplyT(func(v FrontDoorManagedRuleSet) []FrontDoorManagedRuleGroupOverride { return v.RuleGroupOverrides }).(FrontDoorManagedRuleGroupOverrideArrayOutput)
 }
 
-// Defines the rule set type to use.
 func (o FrontDoorManagedRuleSetOutput) RuleSetType() pulumi.StringOutput {
 	return o.ApplyT(func(v FrontDoorManagedRuleSet) string { return v.RuleSetType }).(pulumi.StringOutput)
 }
 
-// Defines the version of the rule set to use.
 func (o FrontDoorManagedRuleSetOutput) RuleSetVersion() pulumi.StringOutput {
 	return o.ApplyT(func(v FrontDoorManagedRuleSet) string { return v.RuleSetVersion }).(pulumi.StringOutput)
 }
@@ -1178,14 +1068,10 @@ func (o FrontDoorManagedRuleSetArrayOutput) Index(i pulumi.IntInput) FrontDoorMa
 	}).(FrontDoorManagedRuleSetOutput)
 }
 
-// Defines a managed rule set.
 type FrontDoorManagedRuleSetResponse struct {
-	// Defines the rule group overrides to apply to the rule set.
 	RuleGroupOverrides []FrontDoorManagedRuleGroupOverrideResponse `pulumi:"ruleGroupOverrides"`
-	// Defines the rule set type to use.
-	RuleSetType string `pulumi:"ruleSetType"`
-	// Defines the version of the rule set to use.
-	RuleSetVersion string `pulumi:"ruleSetVersion"`
+	RuleSetType        string                                      `pulumi:"ruleSetType"`
+	RuleSetVersion     string                                      `pulumi:"ruleSetVersion"`
 }
 
 // FrontDoorManagedRuleSetResponseInput is an input type that accepts FrontDoorManagedRuleSetResponseArgs and FrontDoorManagedRuleSetResponseOutput values.
@@ -1199,14 +1085,10 @@ type FrontDoorManagedRuleSetResponseInput interface {
 	ToFrontDoorManagedRuleSetResponseOutputWithContext(context.Context) FrontDoorManagedRuleSetResponseOutput
 }
 
-// Defines a managed rule set.
 type FrontDoorManagedRuleSetResponseArgs struct {
-	// Defines the rule group overrides to apply to the rule set.
 	RuleGroupOverrides FrontDoorManagedRuleGroupOverrideResponseArrayInput `pulumi:"ruleGroupOverrides"`
-	// Defines the rule set type to use.
-	RuleSetType pulumi.StringInput `pulumi:"ruleSetType"`
-	// Defines the version of the rule set to use.
-	RuleSetVersion pulumi.StringInput `pulumi:"ruleSetVersion"`
+	RuleSetType        pulumi.StringInput                                  `pulumi:"ruleSetType"`
+	RuleSetVersion     pulumi.StringInput                                  `pulumi:"ruleSetVersion"`
 }
 
 func (FrontDoorManagedRuleSetResponseArgs) ElementType() reflect.Type {
@@ -1246,7 +1128,6 @@ func (i FrontDoorManagedRuleSetResponseArray) ToFrontDoorManagedRuleSetResponseA
 	return pulumi.ToOutputWithContext(ctx, i).(FrontDoorManagedRuleSetResponseArrayOutput)
 }
 
-// Defines a managed rule set.
 type FrontDoorManagedRuleSetResponseOutput struct{ *pulumi.OutputState }
 
 func (FrontDoorManagedRuleSetResponseOutput) ElementType() reflect.Type {
@@ -1261,19 +1142,16 @@ func (o FrontDoorManagedRuleSetResponseOutput) ToFrontDoorManagedRuleSetResponse
 	return o
 }
 
-// Defines the rule group overrides to apply to the rule set.
 func (o FrontDoorManagedRuleSetResponseOutput) RuleGroupOverrides() FrontDoorManagedRuleGroupOverrideResponseArrayOutput {
 	return o.ApplyT(func(v FrontDoorManagedRuleSetResponse) []FrontDoorManagedRuleGroupOverrideResponse {
 		return v.RuleGroupOverrides
 	}).(FrontDoorManagedRuleGroupOverrideResponseArrayOutput)
 }
 
-// Defines the rule set type to use.
 func (o FrontDoorManagedRuleSetResponseOutput) RuleSetType() pulumi.StringOutput {
 	return o.ApplyT(func(v FrontDoorManagedRuleSetResponse) string { return v.RuleSetType }).(pulumi.StringOutput)
 }
 
-// Defines the version of the rule set to use.
 func (o FrontDoorManagedRuleSetResponseOutput) RuleSetVersion() pulumi.StringOutput {
 	return o.ApplyT(func(v FrontDoorManagedRuleSetResponse) string { return v.RuleSetVersion }).(pulumi.StringOutput)
 }
@@ -1298,20 +1176,13 @@ func (o FrontDoorManagedRuleSetResponseArrayOutput) Index(i pulumi.IntInput) Fro
 	}).(FrontDoorManagedRuleSetResponseOutput)
 }
 
-// Define a match condition.
 type FrontDoorMatchCondition struct {
-	// List of possible match values.
-	MatchValue []string `pulumi:"matchValue"`
-	// Request variable to compare with.
-	MatchVariable string `pulumi:"matchVariable"`
-	// Describes if the result of this condition should be negated.
-	NegateCondition *bool `pulumi:"negateCondition"`
-	// Comparison type to use for matching with the variable value.
-	Operator string `pulumi:"operator"`
-	// Match against a specific key from the QueryString, PostArgs, RequestHeader or Cookies variables. Default is null.
-	Selector *string `pulumi:"selector"`
-	// List of transforms.
-	Transforms []string `pulumi:"transforms"`
+	MatchValue      []string `pulumi:"matchValue"`
+	MatchVariable   string   `pulumi:"matchVariable"`
+	NegateCondition *bool    `pulumi:"negateCondition"`
+	Operator        string   `pulumi:"operator"`
+	Selector        *string  `pulumi:"selector"`
+	Transforms      []string `pulumi:"transforms"`
 }
 
 // FrontDoorMatchConditionInput is an input type that accepts FrontDoorMatchConditionArgs and FrontDoorMatchConditionOutput values.
@@ -1325,20 +1196,13 @@ type FrontDoorMatchConditionInput interface {
 	ToFrontDoorMatchConditionOutputWithContext(context.Context) FrontDoorMatchConditionOutput
 }
 
-// Define a match condition.
 type FrontDoorMatchConditionArgs struct {
-	// List of possible match values.
-	MatchValue pulumi.StringArrayInput `pulumi:"matchValue"`
-	// Request variable to compare with.
-	MatchVariable pulumi.StringInput `pulumi:"matchVariable"`
-	// Describes if the result of this condition should be negated.
-	NegateCondition pulumi.BoolPtrInput `pulumi:"negateCondition"`
-	// Comparison type to use for matching with the variable value.
-	Operator pulumi.StringInput `pulumi:"operator"`
-	// Match against a specific key from the QueryString, PostArgs, RequestHeader or Cookies variables. Default is null.
-	Selector pulumi.StringPtrInput `pulumi:"selector"`
-	// List of transforms.
-	Transforms pulumi.StringArrayInput `pulumi:"transforms"`
+	MatchValue      pulumi.StringArrayInput `pulumi:"matchValue"`
+	MatchVariable   pulumi.StringInput      `pulumi:"matchVariable"`
+	NegateCondition pulumi.BoolPtrInput     `pulumi:"negateCondition"`
+	Operator        pulumi.StringInput      `pulumi:"operator"`
+	Selector        pulumi.StringPtrInput   `pulumi:"selector"`
+	Transforms      pulumi.StringArrayInput `pulumi:"transforms"`
 }
 
 func (FrontDoorMatchConditionArgs) ElementType() reflect.Type {
@@ -1378,7 +1242,6 @@ func (i FrontDoorMatchConditionArray) ToFrontDoorMatchConditionArrayOutputWithCo
 	return pulumi.ToOutputWithContext(ctx, i).(FrontDoorMatchConditionArrayOutput)
 }
 
-// Define a match condition.
 type FrontDoorMatchConditionOutput struct{ *pulumi.OutputState }
 
 func (FrontDoorMatchConditionOutput) ElementType() reflect.Type {
@@ -1393,32 +1256,26 @@ func (o FrontDoorMatchConditionOutput) ToFrontDoorMatchConditionOutputWithContex
 	return o
 }
 
-// List of possible match values.
 func (o FrontDoorMatchConditionOutput) MatchValue() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v FrontDoorMatchCondition) []string { return v.MatchValue }).(pulumi.StringArrayOutput)
 }
 
-// Request variable to compare with.
 func (o FrontDoorMatchConditionOutput) MatchVariable() pulumi.StringOutput {
 	return o.ApplyT(func(v FrontDoorMatchCondition) string { return v.MatchVariable }).(pulumi.StringOutput)
 }
 
-// Describes if the result of this condition should be negated.
 func (o FrontDoorMatchConditionOutput) NegateCondition() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v FrontDoorMatchCondition) *bool { return v.NegateCondition }).(pulumi.BoolPtrOutput)
 }
 
-// Comparison type to use for matching with the variable value.
 func (o FrontDoorMatchConditionOutput) Operator() pulumi.StringOutput {
 	return o.ApplyT(func(v FrontDoorMatchCondition) string { return v.Operator }).(pulumi.StringOutput)
 }
 
-// Match against a specific key from the QueryString, PostArgs, RequestHeader or Cookies variables. Default is null.
 func (o FrontDoorMatchConditionOutput) Selector() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v FrontDoorMatchCondition) *string { return v.Selector }).(pulumi.StringPtrOutput)
 }
 
-// List of transforms.
 func (o FrontDoorMatchConditionOutput) Transforms() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v FrontDoorMatchCondition) []string { return v.Transforms }).(pulumi.StringArrayOutput)
 }
@@ -1443,20 +1300,13 @@ func (o FrontDoorMatchConditionArrayOutput) Index(i pulumi.IntInput) FrontDoorMa
 	}).(FrontDoorMatchConditionOutput)
 }
 
-// Define a match condition.
 type FrontDoorMatchConditionResponse struct {
-	// List of possible match values.
-	MatchValue []string `pulumi:"matchValue"`
-	// Request variable to compare with.
-	MatchVariable string `pulumi:"matchVariable"`
-	// Describes if the result of this condition should be negated.
-	NegateCondition *bool `pulumi:"negateCondition"`
-	// Comparison type to use for matching with the variable value.
-	Operator string `pulumi:"operator"`
-	// Match against a specific key from the QueryString, PostArgs, RequestHeader or Cookies variables. Default is null.
-	Selector *string `pulumi:"selector"`
-	// List of transforms.
-	Transforms []string `pulumi:"transforms"`
+	MatchValue      []string `pulumi:"matchValue"`
+	MatchVariable   string   `pulumi:"matchVariable"`
+	NegateCondition *bool    `pulumi:"negateCondition"`
+	Operator        string   `pulumi:"operator"`
+	Selector        *string  `pulumi:"selector"`
+	Transforms      []string `pulumi:"transforms"`
 }
 
 // FrontDoorMatchConditionResponseInput is an input type that accepts FrontDoorMatchConditionResponseArgs and FrontDoorMatchConditionResponseOutput values.
@@ -1470,20 +1320,13 @@ type FrontDoorMatchConditionResponseInput interface {
 	ToFrontDoorMatchConditionResponseOutputWithContext(context.Context) FrontDoorMatchConditionResponseOutput
 }
 
-// Define a match condition.
 type FrontDoorMatchConditionResponseArgs struct {
-	// List of possible match values.
-	MatchValue pulumi.StringArrayInput `pulumi:"matchValue"`
-	// Request variable to compare with.
-	MatchVariable pulumi.StringInput `pulumi:"matchVariable"`
-	// Describes if the result of this condition should be negated.
-	NegateCondition pulumi.BoolPtrInput `pulumi:"negateCondition"`
-	// Comparison type to use for matching with the variable value.
-	Operator pulumi.StringInput `pulumi:"operator"`
-	// Match against a specific key from the QueryString, PostArgs, RequestHeader or Cookies variables. Default is null.
-	Selector pulumi.StringPtrInput `pulumi:"selector"`
-	// List of transforms.
-	Transforms pulumi.StringArrayInput `pulumi:"transforms"`
+	MatchValue      pulumi.StringArrayInput `pulumi:"matchValue"`
+	MatchVariable   pulumi.StringInput      `pulumi:"matchVariable"`
+	NegateCondition pulumi.BoolPtrInput     `pulumi:"negateCondition"`
+	Operator        pulumi.StringInput      `pulumi:"operator"`
+	Selector        pulumi.StringPtrInput   `pulumi:"selector"`
+	Transforms      pulumi.StringArrayInput `pulumi:"transforms"`
 }
 
 func (FrontDoorMatchConditionResponseArgs) ElementType() reflect.Type {
@@ -1523,7 +1366,6 @@ func (i FrontDoorMatchConditionResponseArray) ToFrontDoorMatchConditionResponseA
 	return pulumi.ToOutputWithContext(ctx, i).(FrontDoorMatchConditionResponseArrayOutput)
 }
 
-// Define a match condition.
 type FrontDoorMatchConditionResponseOutput struct{ *pulumi.OutputState }
 
 func (FrontDoorMatchConditionResponseOutput) ElementType() reflect.Type {
@@ -1538,32 +1380,26 @@ func (o FrontDoorMatchConditionResponseOutput) ToFrontDoorMatchConditionResponse
 	return o
 }
 
-// List of possible match values.
 func (o FrontDoorMatchConditionResponseOutput) MatchValue() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v FrontDoorMatchConditionResponse) []string { return v.MatchValue }).(pulumi.StringArrayOutput)
 }
 
-// Request variable to compare with.
 func (o FrontDoorMatchConditionResponseOutput) MatchVariable() pulumi.StringOutput {
 	return o.ApplyT(func(v FrontDoorMatchConditionResponse) string { return v.MatchVariable }).(pulumi.StringOutput)
 }
 
-// Describes if the result of this condition should be negated.
 func (o FrontDoorMatchConditionResponseOutput) NegateCondition() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v FrontDoorMatchConditionResponse) *bool { return v.NegateCondition }).(pulumi.BoolPtrOutput)
 }
 
-// Comparison type to use for matching with the variable value.
 func (o FrontDoorMatchConditionResponseOutput) Operator() pulumi.StringOutput {
 	return o.ApplyT(func(v FrontDoorMatchConditionResponse) string { return v.Operator }).(pulumi.StringOutput)
 }
 
-// Match against a specific key from the QueryString, PostArgs, RequestHeader or Cookies variables. Default is null.
 func (o FrontDoorMatchConditionResponseOutput) Selector() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v FrontDoorMatchConditionResponse) *string { return v.Selector }).(pulumi.StringPtrOutput)
 }
 
-// List of transforms.
 func (o FrontDoorMatchConditionResponseOutput) Transforms() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v FrontDoorMatchConditionResponse) []string { return v.Transforms }).(pulumi.StringArrayOutput)
 }
@@ -1588,18 +1424,12 @@ func (o FrontDoorMatchConditionResponseArrayOutput) Index(i pulumi.IntInput) Fro
 	}).(FrontDoorMatchConditionResponseOutput)
 }
 
-// Defines top-level WebApplicationFirewallPolicy configuration settings.
 type FrontDoorPolicySettings struct {
-	// If the action type is block, customer can override the response body. The body must be specified in base64 encoding.
-	CustomBlockResponseBody *string `pulumi:"customBlockResponseBody"`
-	// If the action type is block, customer can override the response status code.
-	CustomBlockResponseStatusCode *int `pulumi:"customBlockResponseStatusCode"`
-	// Describes if the policy is in enabled or disabled state. Defaults to Enabled if not specified.
-	EnabledState *string `pulumi:"enabledState"`
-	// Describes if it is in detection mode or prevention mode at policy level.
-	Mode *string `pulumi:"mode"`
-	// If action type is redirect, this field represents redirect URL for the client.
-	RedirectUrl *string `pulumi:"redirectUrl"`
+	CustomBlockResponseBody       *string `pulumi:"customBlockResponseBody"`
+	CustomBlockResponseStatusCode *int    `pulumi:"customBlockResponseStatusCode"`
+	EnabledState                  *string `pulumi:"enabledState"`
+	Mode                          *string `pulumi:"mode"`
+	RedirectUrl                   *string `pulumi:"redirectUrl"`
 }
 
 // FrontDoorPolicySettingsInput is an input type that accepts FrontDoorPolicySettingsArgs and FrontDoorPolicySettingsOutput values.
@@ -1613,18 +1443,12 @@ type FrontDoorPolicySettingsInput interface {
 	ToFrontDoorPolicySettingsOutputWithContext(context.Context) FrontDoorPolicySettingsOutput
 }
 
-// Defines top-level WebApplicationFirewallPolicy configuration settings.
 type FrontDoorPolicySettingsArgs struct {
-	// If the action type is block, customer can override the response body. The body must be specified in base64 encoding.
-	CustomBlockResponseBody pulumi.StringPtrInput `pulumi:"customBlockResponseBody"`
-	// If the action type is block, customer can override the response status code.
-	CustomBlockResponseStatusCode pulumi.IntPtrInput `pulumi:"customBlockResponseStatusCode"`
-	// Describes if the policy is in enabled or disabled state. Defaults to Enabled if not specified.
-	EnabledState pulumi.StringPtrInput `pulumi:"enabledState"`
-	// Describes if it is in detection mode or prevention mode at policy level.
-	Mode pulumi.StringPtrInput `pulumi:"mode"`
-	// If action type is redirect, this field represents redirect URL for the client.
-	RedirectUrl pulumi.StringPtrInput `pulumi:"redirectUrl"`
+	CustomBlockResponseBody       pulumi.StringPtrInput `pulumi:"customBlockResponseBody"`
+	CustomBlockResponseStatusCode pulumi.IntPtrInput    `pulumi:"customBlockResponseStatusCode"`
+	EnabledState                  pulumi.StringPtrInput `pulumi:"enabledState"`
+	Mode                          pulumi.StringPtrInput `pulumi:"mode"`
+	RedirectUrl                   pulumi.StringPtrInput `pulumi:"redirectUrl"`
 }
 
 func (FrontDoorPolicySettingsArgs) ElementType() reflect.Type {
@@ -1680,7 +1504,6 @@ func (i *frontDoorPolicySettingsPtrType) ToFrontDoorPolicySettingsPtrOutputWithC
 	return pulumi.ToOutputWithContext(ctx, i).(FrontDoorPolicySettingsPtrOutput)
 }
 
-// Defines top-level WebApplicationFirewallPolicy configuration settings.
 type FrontDoorPolicySettingsOutput struct{ *pulumi.OutputState }
 
 func (FrontDoorPolicySettingsOutput) ElementType() reflect.Type {
@@ -1700,32 +1523,27 @@ func (o FrontDoorPolicySettingsOutput) ToFrontDoorPolicySettingsPtrOutput() Fron
 }
 
 func (o FrontDoorPolicySettingsOutput) ToFrontDoorPolicySettingsPtrOutputWithContext(ctx context.Context) FrontDoorPolicySettingsPtrOutput {
-	return o.ApplyT(func(v FrontDoorPolicySettings) *FrontDoorPolicySettings {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v FrontDoorPolicySettings) *FrontDoorPolicySettings {
 		return &v
 	}).(FrontDoorPolicySettingsPtrOutput)
 }
 
-// If the action type is block, customer can override the response body. The body must be specified in base64 encoding.
 func (o FrontDoorPolicySettingsOutput) CustomBlockResponseBody() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v FrontDoorPolicySettings) *string { return v.CustomBlockResponseBody }).(pulumi.StringPtrOutput)
 }
 
-// If the action type is block, customer can override the response status code.
 func (o FrontDoorPolicySettingsOutput) CustomBlockResponseStatusCode() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v FrontDoorPolicySettings) *int { return v.CustomBlockResponseStatusCode }).(pulumi.IntPtrOutput)
 }
 
-// Describes if the policy is in enabled or disabled state. Defaults to Enabled if not specified.
 func (o FrontDoorPolicySettingsOutput) EnabledState() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v FrontDoorPolicySettings) *string { return v.EnabledState }).(pulumi.StringPtrOutput)
 }
 
-// Describes if it is in detection mode or prevention mode at policy level.
 func (o FrontDoorPolicySettingsOutput) Mode() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v FrontDoorPolicySettings) *string { return v.Mode }).(pulumi.StringPtrOutput)
 }
 
-// If action type is redirect, this field represents redirect URL for the client.
 func (o FrontDoorPolicySettingsOutput) RedirectUrl() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v FrontDoorPolicySettings) *string { return v.RedirectUrl }).(pulumi.StringPtrOutput)
 }
@@ -1745,10 +1563,15 @@ func (o FrontDoorPolicySettingsPtrOutput) ToFrontDoorPolicySettingsPtrOutputWith
 }
 
 func (o FrontDoorPolicySettingsPtrOutput) Elem() FrontDoorPolicySettingsOutput {
-	return o.ApplyT(func(v *FrontDoorPolicySettings) FrontDoorPolicySettings { return *v }).(FrontDoorPolicySettingsOutput)
+	return o.ApplyT(func(v *FrontDoorPolicySettings) FrontDoorPolicySettings {
+		if v != nil {
+			return *v
+		}
+		var ret FrontDoorPolicySettings
+		return ret
+	}).(FrontDoorPolicySettingsOutput)
 }
 
-// If the action type is block, customer can override the response body. The body must be specified in base64 encoding.
 func (o FrontDoorPolicySettingsPtrOutput) CustomBlockResponseBody() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *FrontDoorPolicySettings) *string {
 		if v == nil {
@@ -1758,7 +1581,6 @@ func (o FrontDoorPolicySettingsPtrOutput) CustomBlockResponseBody() pulumi.Strin
 	}).(pulumi.StringPtrOutput)
 }
 
-// If the action type is block, customer can override the response status code.
 func (o FrontDoorPolicySettingsPtrOutput) CustomBlockResponseStatusCode() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *FrontDoorPolicySettings) *int {
 		if v == nil {
@@ -1768,7 +1590,6 @@ func (o FrontDoorPolicySettingsPtrOutput) CustomBlockResponseStatusCode() pulumi
 	}).(pulumi.IntPtrOutput)
 }
 
-// Describes if the policy is in enabled or disabled state. Defaults to Enabled if not specified.
 func (o FrontDoorPolicySettingsPtrOutput) EnabledState() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *FrontDoorPolicySettings) *string {
 		if v == nil {
@@ -1778,7 +1599,6 @@ func (o FrontDoorPolicySettingsPtrOutput) EnabledState() pulumi.StringPtrOutput 
 	}).(pulumi.StringPtrOutput)
 }
 
-// Describes if it is in detection mode or prevention mode at policy level.
 func (o FrontDoorPolicySettingsPtrOutput) Mode() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *FrontDoorPolicySettings) *string {
 		if v == nil {
@@ -1788,7 +1608,6 @@ func (o FrontDoorPolicySettingsPtrOutput) Mode() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// If action type is redirect, this field represents redirect URL for the client.
 func (o FrontDoorPolicySettingsPtrOutput) RedirectUrl() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *FrontDoorPolicySettings) *string {
 		if v == nil {
@@ -1798,18 +1617,12 @@ func (o FrontDoorPolicySettingsPtrOutput) RedirectUrl() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Defines top-level WebApplicationFirewallPolicy configuration settings.
 type FrontDoorPolicySettingsResponse struct {
-	// If the action type is block, customer can override the response body. The body must be specified in base64 encoding.
-	CustomBlockResponseBody *string `pulumi:"customBlockResponseBody"`
-	// If the action type is block, customer can override the response status code.
-	CustomBlockResponseStatusCode *int `pulumi:"customBlockResponseStatusCode"`
-	// Describes if the policy is in enabled or disabled state. Defaults to Enabled if not specified.
-	EnabledState *string `pulumi:"enabledState"`
-	// Describes if it is in detection mode or prevention mode at policy level.
-	Mode *string `pulumi:"mode"`
-	// If action type is redirect, this field represents redirect URL for the client.
-	RedirectUrl *string `pulumi:"redirectUrl"`
+	CustomBlockResponseBody       *string `pulumi:"customBlockResponseBody"`
+	CustomBlockResponseStatusCode *int    `pulumi:"customBlockResponseStatusCode"`
+	EnabledState                  *string `pulumi:"enabledState"`
+	Mode                          *string `pulumi:"mode"`
+	RedirectUrl                   *string `pulumi:"redirectUrl"`
 }
 
 // FrontDoorPolicySettingsResponseInput is an input type that accepts FrontDoorPolicySettingsResponseArgs and FrontDoorPolicySettingsResponseOutput values.
@@ -1823,18 +1636,12 @@ type FrontDoorPolicySettingsResponseInput interface {
 	ToFrontDoorPolicySettingsResponseOutputWithContext(context.Context) FrontDoorPolicySettingsResponseOutput
 }
 
-// Defines top-level WebApplicationFirewallPolicy configuration settings.
 type FrontDoorPolicySettingsResponseArgs struct {
-	// If the action type is block, customer can override the response body. The body must be specified in base64 encoding.
-	CustomBlockResponseBody pulumi.StringPtrInput `pulumi:"customBlockResponseBody"`
-	// If the action type is block, customer can override the response status code.
-	CustomBlockResponseStatusCode pulumi.IntPtrInput `pulumi:"customBlockResponseStatusCode"`
-	// Describes if the policy is in enabled or disabled state. Defaults to Enabled if not specified.
-	EnabledState pulumi.StringPtrInput `pulumi:"enabledState"`
-	// Describes if it is in detection mode or prevention mode at policy level.
-	Mode pulumi.StringPtrInput `pulumi:"mode"`
-	// If action type is redirect, this field represents redirect URL for the client.
-	RedirectUrl pulumi.StringPtrInput `pulumi:"redirectUrl"`
+	CustomBlockResponseBody       pulumi.StringPtrInput `pulumi:"customBlockResponseBody"`
+	CustomBlockResponseStatusCode pulumi.IntPtrInput    `pulumi:"customBlockResponseStatusCode"`
+	EnabledState                  pulumi.StringPtrInput `pulumi:"enabledState"`
+	Mode                          pulumi.StringPtrInput `pulumi:"mode"`
+	RedirectUrl                   pulumi.StringPtrInput `pulumi:"redirectUrl"`
 }
 
 func (FrontDoorPolicySettingsResponseArgs) ElementType() reflect.Type {
@@ -1890,7 +1697,6 @@ func (i *frontDoorPolicySettingsResponsePtrType) ToFrontDoorPolicySettingsRespon
 	return pulumi.ToOutputWithContext(ctx, i).(FrontDoorPolicySettingsResponsePtrOutput)
 }
 
-// Defines top-level WebApplicationFirewallPolicy configuration settings.
 type FrontDoorPolicySettingsResponseOutput struct{ *pulumi.OutputState }
 
 func (FrontDoorPolicySettingsResponseOutput) ElementType() reflect.Type {
@@ -1910,32 +1716,27 @@ func (o FrontDoorPolicySettingsResponseOutput) ToFrontDoorPolicySettingsResponse
 }
 
 func (o FrontDoorPolicySettingsResponseOutput) ToFrontDoorPolicySettingsResponsePtrOutputWithContext(ctx context.Context) FrontDoorPolicySettingsResponsePtrOutput {
-	return o.ApplyT(func(v FrontDoorPolicySettingsResponse) *FrontDoorPolicySettingsResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v FrontDoorPolicySettingsResponse) *FrontDoorPolicySettingsResponse {
 		return &v
 	}).(FrontDoorPolicySettingsResponsePtrOutput)
 }
 
-// If the action type is block, customer can override the response body. The body must be specified in base64 encoding.
 func (o FrontDoorPolicySettingsResponseOutput) CustomBlockResponseBody() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v FrontDoorPolicySettingsResponse) *string { return v.CustomBlockResponseBody }).(pulumi.StringPtrOutput)
 }
 
-// If the action type is block, customer can override the response status code.
 func (o FrontDoorPolicySettingsResponseOutput) CustomBlockResponseStatusCode() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v FrontDoorPolicySettingsResponse) *int { return v.CustomBlockResponseStatusCode }).(pulumi.IntPtrOutput)
 }
 
-// Describes if the policy is in enabled or disabled state. Defaults to Enabled if not specified.
 func (o FrontDoorPolicySettingsResponseOutput) EnabledState() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v FrontDoorPolicySettingsResponse) *string { return v.EnabledState }).(pulumi.StringPtrOutput)
 }
 
-// Describes if it is in detection mode or prevention mode at policy level.
 func (o FrontDoorPolicySettingsResponseOutput) Mode() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v FrontDoorPolicySettingsResponse) *string { return v.Mode }).(pulumi.StringPtrOutput)
 }
 
-// If action type is redirect, this field represents redirect URL for the client.
 func (o FrontDoorPolicySettingsResponseOutput) RedirectUrl() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v FrontDoorPolicySettingsResponse) *string { return v.RedirectUrl }).(pulumi.StringPtrOutput)
 }
@@ -1955,10 +1756,15 @@ func (o FrontDoorPolicySettingsResponsePtrOutput) ToFrontDoorPolicySettingsRespo
 }
 
 func (o FrontDoorPolicySettingsResponsePtrOutput) Elem() FrontDoorPolicySettingsResponseOutput {
-	return o.ApplyT(func(v *FrontDoorPolicySettingsResponse) FrontDoorPolicySettingsResponse { return *v }).(FrontDoorPolicySettingsResponseOutput)
+	return o.ApplyT(func(v *FrontDoorPolicySettingsResponse) FrontDoorPolicySettingsResponse {
+		if v != nil {
+			return *v
+		}
+		var ret FrontDoorPolicySettingsResponse
+		return ret
+	}).(FrontDoorPolicySettingsResponseOutput)
 }
 
-// If the action type is block, customer can override the response body. The body must be specified in base64 encoding.
 func (o FrontDoorPolicySettingsResponsePtrOutput) CustomBlockResponseBody() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *FrontDoorPolicySettingsResponse) *string {
 		if v == nil {
@@ -1968,7 +1774,6 @@ func (o FrontDoorPolicySettingsResponsePtrOutput) CustomBlockResponseBody() pulu
 	}).(pulumi.StringPtrOutput)
 }
 
-// If the action type is block, customer can override the response status code.
 func (o FrontDoorPolicySettingsResponsePtrOutput) CustomBlockResponseStatusCode() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *FrontDoorPolicySettingsResponse) *int {
 		if v == nil {
@@ -1978,7 +1783,6 @@ func (o FrontDoorPolicySettingsResponsePtrOutput) CustomBlockResponseStatusCode(
 	}).(pulumi.IntPtrOutput)
 }
 
-// Describes if the policy is in enabled or disabled state. Defaults to Enabled if not specified.
 func (o FrontDoorPolicySettingsResponsePtrOutput) EnabledState() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *FrontDoorPolicySettingsResponse) *string {
 		if v == nil {
@@ -1988,7 +1792,6 @@ func (o FrontDoorPolicySettingsResponsePtrOutput) EnabledState() pulumi.StringPt
 	}).(pulumi.StringPtrOutput)
 }
 
-// Describes if it is in detection mode or prevention mode at policy level.
 func (o FrontDoorPolicySettingsResponsePtrOutput) Mode() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *FrontDoorPolicySettingsResponse) *string {
 		if v == nil {
@@ -1998,7 +1801,6 @@ func (o FrontDoorPolicySettingsResponsePtrOutput) Mode() pulumi.StringPtrOutput 
 	}).(pulumi.StringPtrOutput)
 }
 
-// If action type is redirect, this field represents redirect URL for the client.
 func (o FrontDoorPolicySettingsResponsePtrOutput) RedirectUrl() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *FrontDoorPolicySettingsResponse) *string {
 		if v == nil {
@@ -2008,9 +1810,7 @@ func (o FrontDoorPolicySettingsResponsePtrOutput) RedirectUrl() pulumi.StringPtr
 	}).(pulumi.StringPtrOutput)
 }
 
-// Defines the Resource ID for a Frontend Endpoint.
 type FrontendEndpointLinkResponse struct {
-	// Resource ID.
 	Id *string `pulumi:"id"`
 }
 
@@ -2025,9 +1825,7 @@ type FrontendEndpointLinkResponseInput interface {
 	ToFrontendEndpointLinkResponseOutputWithContext(context.Context) FrontendEndpointLinkResponseOutput
 }
 
-// Defines the Resource ID for a Frontend Endpoint.
 type FrontendEndpointLinkResponseArgs struct {
-	// Resource ID.
 	Id pulumi.StringPtrInput `pulumi:"id"`
 }
 
@@ -2068,7 +1866,6 @@ func (i FrontendEndpointLinkResponseArray) ToFrontendEndpointLinkResponseArrayOu
 	return pulumi.ToOutputWithContext(ctx, i).(FrontendEndpointLinkResponseArrayOutput)
 }
 
-// Defines the Resource ID for a Frontend Endpoint.
 type FrontendEndpointLinkResponseOutput struct{ *pulumi.OutputState }
 
 func (FrontendEndpointLinkResponseOutput) ElementType() reflect.Type {
@@ -2083,7 +1880,6 @@ func (o FrontendEndpointLinkResponseOutput) ToFrontendEndpointLinkResponseOutput
 	return o
 }
 
-// Resource ID.
 func (o FrontendEndpointLinkResponseOutput) Id() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v FrontendEndpointLinkResponse) *string { return v.Id }).(pulumi.StringPtrOutput)
 }
@@ -2108,9 +1904,7 @@ func (o FrontendEndpointLinkResponseArrayOutput) Index(i pulumi.IntInput) Fronte
 	}).(FrontendEndpointLinkResponseOutput)
 }
 
-// Defines the list of managed rule sets for the policy.
 type ManagedRuleSetList struct {
-	// List of rule sets.
 	ManagedRuleSets []FrontDoorManagedRuleSet `pulumi:"managedRuleSets"`
 }
 
@@ -2125,9 +1919,7 @@ type ManagedRuleSetListInput interface {
 	ToManagedRuleSetListOutputWithContext(context.Context) ManagedRuleSetListOutput
 }
 
-// Defines the list of managed rule sets for the policy.
 type ManagedRuleSetListArgs struct {
-	// List of rule sets.
 	ManagedRuleSets FrontDoorManagedRuleSetArrayInput `pulumi:"managedRuleSets"`
 }
 
@@ -2184,7 +1976,6 @@ func (i *managedRuleSetListPtrType) ToManagedRuleSetListPtrOutputWithContext(ctx
 	return pulumi.ToOutputWithContext(ctx, i).(ManagedRuleSetListPtrOutput)
 }
 
-// Defines the list of managed rule sets for the policy.
 type ManagedRuleSetListOutput struct{ *pulumi.OutputState }
 
 func (ManagedRuleSetListOutput) ElementType() reflect.Type {
@@ -2204,12 +1995,11 @@ func (o ManagedRuleSetListOutput) ToManagedRuleSetListPtrOutput() ManagedRuleSet
 }
 
 func (o ManagedRuleSetListOutput) ToManagedRuleSetListPtrOutputWithContext(ctx context.Context) ManagedRuleSetListPtrOutput {
-	return o.ApplyT(func(v ManagedRuleSetList) *ManagedRuleSetList {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ManagedRuleSetList) *ManagedRuleSetList {
 		return &v
 	}).(ManagedRuleSetListPtrOutput)
 }
 
-// List of rule sets.
 func (o ManagedRuleSetListOutput) ManagedRuleSets() FrontDoorManagedRuleSetArrayOutput {
 	return o.ApplyT(func(v ManagedRuleSetList) []FrontDoorManagedRuleSet { return v.ManagedRuleSets }).(FrontDoorManagedRuleSetArrayOutput)
 }
@@ -2229,10 +2019,15 @@ func (o ManagedRuleSetListPtrOutput) ToManagedRuleSetListPtrOutputWithContext(ct
 }
 
 func (o ManagedRuleSetListPtrOutput) Elem() ManagedRuleSetListOutput {
-	return o.ApplyT(func(v *ManagedRuleSetList) ManagedRuleSetList { return *v }).(ManagedRuleSetListOutput)
+	return o.ApplyT(func(v *ManagedRuleSetList) ManagedRuleSetList {
+		if v != nil {
+			return *v
+		}
+		var ret ManagedRuleSetList
+		return ret
+	}).(ManagedRuleSetListOutput)
 }
 
-// List of rule sets.
 func (o ManagedRuleSetListPtrOutput) ManagedRuleSets() FrontDoorManagedRuleSetArrayOutput {
 	return o.ApplyT(func(v *ManagedRuleSetList) []FrontDoorManagedRuleSet {
 		if v == nil {
@@ -2242,9 +2037,7 @@ func (o ManagedRuleSetListPtrOutput) ManagedRuleSets() FrontDoorManagedRuleSetAr
 	}).(FrontDoorManagedRuleSetArrayOutput)
 }
 
-// Defines the list of managed rule sets for the policy.
 type ManagedRuleSetListResponse struct {
-	// List of rule sets.
 	ManagedRuleSets []FrontDoorManagedRuleSetResponse `pulumi:"managedRuleSets"`
 }
 
@@ -2259,9 +2052,7 @@ type ManagedRuleSetListResponseInput interface {
 	ToManagedRuleSetListResponseOutputWithContext(context.Context) ManagedRuleSetListResponseOutput
 }
 
-// Defines the list of managed rule sets for the policy.
 type ManagedRuleSetListResponseArgs struct {
-	// List of rule sets.
 	ManagedRuleSets FrontDoorManagedRuleSetResponseArrayInput `pulumi:"managedRuleSets"`
 }
 
@@ -2318,7 +2109,6 @@ func (i *managedRuleSetListResponsePtrType) ToManagedRuleSetListResponsePtrOutpu
 	return pulumi.ToOutputWithContext(ctx, i).(ManagedRuleSetListResponsePtrOutput)
 }
 
-// Defines the list of managed rule sets for the policy.
 type ManagedRuleSetListResponseOutput struct{ *pulumi.OutputState }
 
 func (ManagedRuleSetListResponseOutput) ElementType() reflect.Type {
@@ -2338,12 +2128,11 @@ func (o ManagedRuleSetListResponseOutput) ToManagedRuleSetListResponsePtrOutput(
 }
 
 func (o ManagedRuleSetListResponseOutput) ToManagedRuleSetListResponsePtrOutputWithContext(ctx context.Context) ManagedRuleSetListResponsePtrOutput {
-	return o.ApplyT(func(v ManagedRuleSetListResponse) *ManagedRuleSetListResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ManagedRuleSetListResponse) *ManagedRuleSetListResponse {
 		return &v
 	}).(ManagedRuleSetListResponsePtrOutput)
 }
 
-// List of rule sets.
 func (o ManagedRuleSetListResponseOutput) ManagedRuleSets() FrontDoorManagedRuleSetResponseArrayOutput {
 	return o.ApplyT(func(v ManagedRuleSetListResponse) []FrontDoorManagedRuleSetResponse { return v.ManagedRuleSets }).(FrontDoorManagedRuleSetResponseArrayOutput)
 }
@@ -2363,10 +2152,15 @@ func (o ManagedRuleSetListResponsePtrOutput) ToManagedRuleSetListResponsePtrOutp
 }
 
 func (o ManagedRuleSetListResponsePtrOutput) Elem() ManagedRuleSetListResponseOutput {
-	return o.ApplyT(func(v *ManagedRuleSetListResponse) ManagedRuleSetListResponse { return *v }).(ManagedRuleSetListResponseOutput)
+	return o.ApplyT(func(v *ManagedRuleSetListResponse) ManagedRuleSetListResponse {
+		if v != nil {
+			return *v
+		}
+		var ret ManagedRuleSetListResponse
+		return ret
+	}).(ManagedRuleSetListResponseOutput)
 }
 
-// List of rule sets.
 func (o ManagedRuleSetListResponsePtrOutput) ManagedRuleSets() FrontDoorManagedRuleSetResponseArrayOutput {
 	return o.ApplyT(func(v *ManagedRuleSetListResponse) []FrontDoorManagedRuleSetResponse {
 		if v == nil {

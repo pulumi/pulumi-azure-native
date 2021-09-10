@@ -159,9 +159,7 @@ func (i *ScopeMap) ToScopeMapOutputWithContext(ctx context.Context) ScopeMapOutp
 	return pulumi.ToOutputWithContext(ctx, i).(ScopeMapOutput)
 }
 
-type ScopeMapOutput struct {
-	*pulumi.OutputState
-}
+type ScopeMapOutput struct{ *pulumi.OutputState }
 
 func (ScopeMapOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*ScopeMap)(nil))

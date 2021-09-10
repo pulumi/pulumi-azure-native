@@ -11,22 +11,15 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// An environment receives data from one or more event sources. Each event source has associated connection info that allows the Time Series Insights ingress pipeline to connect to and pull data from the event source
-//
 // Deprecated: Please use one of the variants: EventHubEventSource, IoTHubEventSource.
 type EventSource struct {
 	pulumi.CustomResourceState
 
-	// The kind of the event source.
-	Kind pulumi.StringOutput `pulumi:"kind"`
-	// Resource location
-	Location pulumi.StringOutput `pulumi:"location"`
-	// Resource name
-	Name pulumi.StringOutput `pulumi:"name"`
-	// Resource tags
-	Tags pulumi.StringMapOutput `pulumi:"tags"`
-	// Resource type
-	Type pulumi.StringOutput `pulumi:"type"`
+	Kind     pulumi.StringOutput    `pulumi:"kind"`
+	Location pulumi.StringOutput    `pulumi:"location"`
+	Name     pulumi.StringOutput    `pulumi:"name"`
+	Tags     pulumi.StringMapOutput `pulumi:"tags"`
+	Type     pulumi.StringOutput    `pulumi:"type"`
 }
 
 // NewEventSource registers a new resource with the given unique name, arguments, and options.
@@ -113,38 +106,24 @@ func (EventSourceState) ElementType() reflect.Type {
 }
 
 type eventSourceArgs struct {
-	// The name of the Time Series Insights environment associated with the specified resource group.
-	EnvironmentName string `pulumi:"environmentName"`
-	// Name of the event source.
-	EventSourceName *string `pulumi:"eventSourceName"`
-	// The kind of the event source.
-	Kind string `pulumi:"kind"`
-	// An object that represents the local timestamp property. It contains the format of local timestamp that needs to be used and the corresponding timezone offset information. If a value isn't specified for localTimestamp, or if null, then the local timestamp will not be ingressed with the events.
-	LocalTimestamp *LocalTimestamp `pulumi:"localTimestamp"`
-	// The location of the resource.
-	Location *string `pulumi:"location"`
-	// Name of an Azure Resource group.
-	ResourceGroupName string `pulumi:"resourceGroupName"`
-	// Key-value pairs of additional properties for the resource.
-	Tags map[string]string `pulumi:"tags"`
+	EnvironmentName   string            `pulumi:"environmentName"`
+	EventSourceName   *string           `pulumi:"eventSourceName"`
+	Kind              string            `pulumi:"kind"`
+	LocalTimestamp    *LocalTimestamp   `pulumi:"localTimestamp"`
+	Location          *string           `pulumi:"location"`
+	ResourceGroupName string            `pulumi:"resourceGroupName"`
+	Tags              map[string]string `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a EventSource resource.
 type EventSourceArgs struct {
-	// The name of the Time Series Insights environment associated with the specified resource group.
-	EnvironmentName pulumi.StringInput
-	// Name of the event source.
-	EventSourceName pulumi.StringPtrInput
-	// The kind of the event source.
-	Kind pulumi.StringInput
-	// An object that represents the local timestamp property. It contains the format of local timestamp that needs to be used and the corresponding timezone offset information. If a value isn't specified for localTimestamp, or if null, then the local timestamp will not be ingressed with the events.
-	LocalTimestamp LocalTimestampPtrInput
-	// The location of the resource.
-	Location pulumi.StringPtrInput
-	// Name of an Azure Resource group.
+	EnvironmentName   pulumi.StringInput
+	EventSourceName   pulumi.StringPtrInput
+	Kind              pulumi.StringInput
+	LocalTimestamp    LocalTimestampPtrInput
+	Location          pulumi.StringPtrInput
 	ResourceGroupName pulumi.StringInput
-	// Key-value pairs of additional properties for the resource.
-	Tags pulumi.StringMapInput
+	Tags              pulumi.StringMapInput
 }
 
 func (EventSourceArgs) ElementType() reflect.Type {
@@ -170,9 +149,7 @@ func (i *EventSource) ToEventSourceOutputWithContext(ctx context.Context) EventS
 	return pulumi.ToOutputWithContext(ctx, i).(EventSourceOutput)
 }
 
-type EventSourceOutput struct {
-	*pulumi.OutputState
-}
+type EventSourceOutput struct{ *pulumi.OutputState }
 
 func (EventSourceOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*EventSource)(nil))

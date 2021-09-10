@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.Media.V20200201Preview.Outputs
 {
 
+    /// <summary>
+    /// Username/password credential pair.
+    /// </summary>
     [OutputType]
     public sealed class MediaGraphUsernamePasswordCredentialsResponse
     {

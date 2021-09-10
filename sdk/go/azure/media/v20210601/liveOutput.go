@@ -11,36 +11,22 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// The Live Output.
 type LiveOutput struct {
 	pulumi.CustomResourceState
 
-	// ISO 8601 time between 1 minute to 25 hours to indicate the maximum content length that can be archived in the asset for this live output. This also sets the maximum content length for the rewind window. For example, use PT1H30M to indicate 1 hour and 30 minutes of archive window.
-	ArchiveWindowLength pulumi.StringOutput `pulumi:"archiveWindowLength"`
-	// The asset that the live output will write to.
-	AssetName pulumi.StringOutput `pulumi:"assetName"`
-	// The creation time the live output.
-	Created pulumi.StringOutput `pulumi:"created"`
-	// The description of the live output.
-	Description pulumi.StringPtrOutput `pulumi:"description"`
-	// HTTP Live Streaming (HLS) packing setting for the live output.
-	Hls HlsResponsePtrOutput `pulumi:"hls"`
-	// The time the live output was last modified.
-	LastModified pulumi.StringOutput `pulumi:"lastModified"`
-	// The manifest file name. If not provided, the service will generate one automatically.
-	ManifestName pulumi.StringPtrOutput `pulumi:"manifestName"`
-	// The name of the resource
-	Name pulumi.StringOutput `pulumi:"name"`
-	// The initial timestamp that the live output will start at, any content before this value will not be archived.
-	OutputSnapTime pulumi.Float64PtrOutput `pulumi:"outputSnapTime"`
-	// The provisioning state of the live output.
-	ProvisioningState pulumi.StringOutput `pulumi:"provisioningState"`
-	// The resource state of the live output.
-	ResourceState pulumi.StringOutput `pulumi:"resourceState"`
-	// The system metadata relating to this resource.
-	SystemData SystemDataResponseOutput `pulumi:"systemData"`
-	// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
-	Type pulumi.StringOutput `pulumi:"type"`
+	ArchiveWindowLength pulumi.StringOutput      `pulumi:"archiveWindowLength"`
+	AssetName           pulumi.StringOutput      `pulumi:"assetName"`
+	Created             pulumi.StringOutput      `pulumi:"created"`
+	Description         pulumi.StringPtrOutput   `pulumi:"description"`
+	Hls                 HlsResponsePtrOutput     `pulumi:"hls"`
+	LastModified        pulumi.StringOutput      `pulumi:"lastModified"`
+	ManifestName        pulumi.StringPtrOutput   `pulumi:"manifestName"`
+	Name                pulumi.StringOutput      `pulumi:"name"`
+	OutputSnapTime      pulumi.Float64PtrOutput  `pulumi:"outputSnapTime"`
+	ProvisioningState   pulumi.StringOutput      `pulumi:"provisioningState"`
+	ResourceState       pulumi.StringOutput      `pulumi:"resourceState"`
+	SystemData          SystemDataResponseOutput `pulumi:"systemData"`
+	Type                pulumi.StringOutput      `pulumi:"type"`
 }
 
 // NewLiveOutput registers a new resource with the given unique name, arguments, and options.
@@ -139,50 +125,30 @@ func (LiveOutputState) ElementType() reflect.Type {
 }
 
 type liveOutputArgs struct {
-	// The Media Services account name.
-	AccountName string `pulumi:"accountName"`
-	// ISO 8601 time between 1 minute to 25 hours to indicate the maximum content length that can be archived in the asset for this live output. This also sets the maximum content length for the rewind window. For example, use PT1H30M to indicate 1 hour and 30 minutes of archive window.
-	ArchiveWindowLength string `pulumi:"archiveWindowLength"`
-	// The asset that the live output will write to.
-	AssetName string `pulumi:"assetName"`
-	// The description of the live output.
-	Description *string `pulumi:"description"`
-	// HTTP Live Streaming (HLS) packing setting for the live output.
-	Hls *Hls `pulumi:"hls"`
-	// The name of the live event, maximum length is 32.
-	LiveEventName string `pulumi:"liveEventName"`
-	// The name of the live output.
-	LiveOutputName *string `pulumi:"liveOutputName"`
-	// The manifest file name. If not provided, the service will generate one automatically.
-	ManifestName *string `pulumi:"manifestName"`
-	// The initial timestamp that the live output will start at, any content before this value will not be archived.
-	OutputSnapTime *float64 `pulumi:"outputSnapTime"`
-	// The name of the resource group within the Azure subscription.
-	ResourceGroupName string `pulumi:"resourceGroupName"`
+	AccountName         string   `pulumi:"accountName"`
+	ArchiveWindowLength string   `pulumi:"archiveWindowLength"`
+	AssetName           string   `pulumi:"assetName"`
+	Description         *string  `pulumi:"description"`
+	Hls                 *Hls     `pulumi:"hls"`
+	LiveEventName       string   `pulumi:"liveEventName"`
+	LiveOutputName      *string  `pulumi:"liveOutputName"`
+	ManifestName        *string  `pulumi:"manifestName"`
+	OutputSnapTime      *float64 `pulumi:"outputSnapTime"`
+	ResourceGroupName   string   `pulumi:"resourceGroupName"`
 }
 
 // The set of arguments for constructing a LiveOutput resource.
 type LiveOutputArgs struct {
-	// The Media Services account name.
-	AccountName pulumi.StringInput
-	// ISO 8601 time between 1 minute to 25 hours to indicate the maximum content length that can be archived in the asset for this live output. This also sets the maximum content length for the rewind window. For example, use PT1H30M to indicate 1 hour and 30 minutes of archive window.
+	AccountName         pulumi.StringInput
 	ArchiveWindowLength pulumi.StringInput
-	// The asset that the live output will write to.
-	AssetName pulumi.StringInput
-	// The description of the live output.
-	Description pulumi.StringPtrInput
-	// HTTP Live Streaming (HLS) packing setting for the live output.
-	Hls HlsPtrInput
-	// The name of the live event, maximum length is 32.
-	LiveEventName pulumi.StringInput
-	// The name of the live output.
-	LiveOutputName pulumi.StringPtrInput
-	// The manifest file name. If not provided, the service will generate one automatically.
-	ManifestName pulumi.StringPtrInput
-	// The initial timestamp that the live output will start at, any content before this value will not be archived.
-	OutputSnapTime pulumi.Float64PtrInput
-	// The name of the resource group within the Azure subscription.
-	ResourceGroupName pulumi.StringInput
+	AssetName           pulumi.StringInput
+	Description         pulumi.StringPtrInput
+	Hls                 HlsPtrInput
+	LiveEventName       pulumi.StringInput
+	LiveOutputName      pulumi.StringPtrInput
+	ManifestName        pulumi.StringPtrInput
+	OutputSnapTime      pulumi.Float64PtrInput
+	ResourceGroupName   pulumi.StringInput
 }
 
 func (LiveOutputArgs) ElementType() reflect.Type {
@@ -208,9 +174,7 @@ func (i *LiveOutput) ToLiveOutputOutputWithContext(ctx context.Context) LiveOutp
 	return pulumi.ToOutputWithContext(ctx, i).(LiveOutputOutput)
 }
 
-type LiveOutputOutput struct {
-	*pulumi.OutputState
-}
+type LiveOutputOutput struct{ *pulumi.OutputState }
 
 func (LiveOutputOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*LiveOutput)(nil))

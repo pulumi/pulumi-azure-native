@@ -15,6 +15,12 @@ CHANGELOG
 - `documentdb.getCassandraResourceCassandraView`
 - `documentdb.getGraphResourceGraph`
 
+#### Dependencies
+
+- Updated `pulumi/pulumi` dependencies to 3.10.3
+- The type of discriminated union inputs in the .NET SDK has changed from `Input<object>` to `object`
+- Support inputty Go enums
+
 ---
 
 ## 1.26.0 (2021-09-09)
@@ -48,6 +54,8 @@ CHANGELOG
 
 - `authorization:ManagementLock*` resources and functions updated from `2016-09-01` to `2017-04-01`
 - `aadiam.privateLinkForAzureAd" changed from `2020-03-01-preview` to `2020-03-01`
+
+---
 
 ## 1.25.0 (2021-09-01)
 

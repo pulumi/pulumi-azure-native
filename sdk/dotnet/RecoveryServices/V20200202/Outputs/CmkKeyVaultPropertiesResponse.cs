@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.RecoveryServices.V20200202.Outputs
 {
 
+    /// <summary>
+    /// The properties of the Key Vault which hosts CMK
+    /// </summary>
     [OutputType]
     public sealed class CmkKeyVaultPropertiesResponse
     {

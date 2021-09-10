@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.Authorization.V20210601.Outputs
 {
 
+    /// <summary>
+    /// The policy definition group.
+    /// </summary>
     [OutputType]
     public sealed class PolicyDefinitionGroupResponse
     {

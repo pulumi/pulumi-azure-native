@@ -7,7 +7,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// An Azure SQL Database sync member.
 func LookupSyncMember(ctx *pulumi.Context, args *LookupSyncMemberArgs, opts ...pulumi.InvokeOption) (*LookupSyncMemberResult, error) {
 	var rv LookupSyncMemberResult
 	err := ctx.Invoke("azure-native:sql/v20200801preview:getSyncMember", args, &rv, opts...)
@@ -18,46 +17,27 @@ func LookupSyncMember(ctx *pulumi.Context, args *LookupSyncMemberArgs, opts ...p
 }
 
 type LookupSyncMemberArgs struct {
-	// The name of the database on which the sync group is hosted.
-	DatabaseName string `pulumi:"databaseName"`
-	// The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
+	DatabaseName      string `pulumi:"databaseName"`
 	ResourceGroupName string `pulumi:"resourceGroupName"`
-	// The name of the server.
-	ServerName string `pulumi:"serverName"`
-	// The name of the sync group on which the sync member is hosted.
-	SyncGroupName string `pulumi:"syncGroupName"`
-	// The name of the sync member.
-	SyncMemberName string `pulumi:"syncMemberName"`
+	ServerName        string `pulumi:"serverName"`
+	SyncGroupName     string `pulumi:"syncGroupName"`
+	SyncMemberName    string `pulumi:"syncMemberName"`
 }
 
 // An Azure SQL Database sync member.
 type LookupSyncMemberResult struct {
-	// Database name of the member database in the sync member.
-	DatabaseName *string `pulumi:"databaseName"`
-	// Database type of the sync member.
-	DatabaseType *string `pulumi:"databaseType"`
-	// Resource ID.
-	Id string `pulumi:"id"`
-	// Resource name.
-	Name string `pulumi:"name"`
-	// Private endpoint name of the sync member if use private link connection is enabled, for sync members in Azure.
-	PrivateEndpointName string `pulumi:"privateEndpointName"`
-	// Server name of the member database in the sync member
-	ServerName *string `pulumi:"serverName"`
-	// SQL Server database id of the sync member.
-	SqlServerDatabaseId *string `pulumi:"sqlServerDatabaseId"`
-	// ARM resource id of the sync agent in the sync member.
-	SyncAgentId *string `pulumi:"syncAgentId"`
-	// Sync direction of the sync member.
-	SyncDirection *string `pulumi:"syncDirection"`
-	// ARM resource id of the sync member logical database, for sync members in Azure.
+	DatabaseName                      *string `pulumi:"databaseName"`
+	DatabaseType                      *string `pulumi:"databaseType"`
+	Id                                string  `pulumi:"id"`
+	Name                              string  `pulumi:"name"`
+	PrivateEndpointName               string  `pulumi:"privateEndpointName"`
+	ServerName                        *string `pulumi:"serverName"`
+	SqlServerDatabaseId               *string `pulumi:"sqlServerDatabaseId"`
+	SyncAgentId                       *string `pulumi:"syncAgentId"`
+	SyncDirection                     *string `pulumi:"syncDirection"`
 	SyncMemberAzureDatabaseResourceId *string `pulumi:"syncMemberAzureDatabaseResourceId"`
-	// Sync state of the sync member.
-	SyncState string `pulumi:"syncState"`
-	// Resource type.
-	Type string `pulumi:"type"`
-	// Whether to use private link connection.
-	UsePrivateLinkConnection *bool `pulumi:"usePrivateLinkConnection"`
-	// User name of the member database in the sync member.
-	UserName *string `pulumi:"userName"`
+	SyncState                         string  `pulumi:"syncState"`
+	Type                              string  `pulumi:"type"`
+	UsePrivateLinkConnection          *bool   `pulumi:"usePrivateLinkConnection"`
+	UserName                          *string `pulumi:"userName"`
 }

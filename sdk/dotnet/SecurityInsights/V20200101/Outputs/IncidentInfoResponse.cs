@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.SecurityInsights.V20200101.Outputs
 {
 
+    /// <summary>
+    /// Describes related incident information for the bookmark
+    /// </summary>
     [OutputType]
     public sealed class IncidentInfoResponse
     {

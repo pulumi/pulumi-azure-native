@@ -7,7 +7,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// An environment, which is essentially an ARM template deployment.
 func LookupEnvironment(ctx *pulumi.Context, args *LookupEnvironmentArgs, opts ...pulumi.InvokeOption) (*LookupEnvironmentResult, error) {
 	var rv LookupEnvironmentResult
 	err := ctx.Invoke("azure-native:devtestlab/v20180915:getEnvironment", args, &rv, opts...)
@@ -18,40 +17,24 @@ func LookupEnvironment(ctx *pulumi.Context, args *LookupEnvironmentArgs, opts ..
 }
 
 type LookupEnvironmentArgs struct {
-	// Specify the $expand query. Example: 'properties($select=deploymentProperties)'
-	Expand *string `pulumi:"expand"`
-	// The name of the lab.
-	LabName string `pulumi:"labName"`
-	// The name of the environment.
-	Name string `pulumi:"name"`
-	// The name of the resource group.
-	ResourceGroupName string `pulumi:"resourceGroupName"`
-	// The name of the user profile.
-	UserName string `pulumi:"userName"`
+	Expand            *string `pulumi:"expand"`
+	LabName           string  `pulumi:"labName"`
+	Name              string  `pulumi:"name"`
+	ResourceGroupName string  `pulumi:"resourceGroupName"`
+	UserName          string  `pulumi:"userName"`
 }
 
 // An environment, which is essentially an ARM template deployment.
 type LookupEnvironmentResult struct {
-	// The display name of the Azure Resource Manager template that produced the environment.
-	ArmTemplateDisplayName *string `pulumi:"armTemplateDisplayName"`
-	// The creator of the environment.
-	CreatedByUser string `pulumi:"createdByUser"`
-	// The deployment properties of the environment.
-	DeploymentProperties *EnvironmentDeploymentPropertiesResponse `pulumi:"deploymentProperties"`
-	// The identifier of the resource.
-	Id string `pulumi:"id"`
-	// The location of the resource.
-	Location *string `pulumi:"location"`
-	// The name of the resource.
-	Name string `pulumi:"name"`
-	// The provisioning status of the resource.
-	ProvisioningState string `pulumi:"provisioningState"`
-	// The identifier of the resource group containing the environment's resources.
-	ResourceGroupId string `pulumi:"resourceGroupId"`
-	// The tags of the resource.
-	Tags map[string]string `pulumi:"tags"`
-	// The type of the resource.
-	Type string `pulumi:"type"`
-	// The unique immutable identifier of a resource (Guid).
-	UniqueIdentifier string `pulumi:"uniqueIdentifier"`
+	ArmTemplateDisplayName *string                                  `pulumi:"armTemplateDisplayName"`
+	CreatedByUser          string                                   `pulumi:"createdByUser"`
+	DeploymentProperties   *EnvironmentDeploymentPropertiesResponse `pulumi:"deploymentProperties"`
+	Id                     string                                   `pulumi:"id"`
+	Location               *string                                  `pulumi:"location"`
+	Name                   string                                   `pulumi:"name"`
+	ProvisioningState      string                                   `pulumi:"provisioningState"`
+	ResourceGroupId        string                                   `pulumi:"resourceGroupId"`
+	Tags                   map[string]string                        `pulumi:"tags"`
+	Type                   string                                   `pulumi:"type"`
+	UniqueIdentifier       string                                   `pulumi:"uniqueIdentifier"`
 }

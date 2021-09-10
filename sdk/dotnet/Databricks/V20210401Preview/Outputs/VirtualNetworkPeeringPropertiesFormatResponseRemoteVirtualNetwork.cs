@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.Databricks.V20210401Preview.Outputs
 {
 
+    /// <summary>
+    ///  The remote virtual network should be in the same region. See here to learn more (https://docs.microsoft.com/en-us/azure/databricks/administration-guide/cloud-configurations/azure/vnet-peering).
+    /// </summary>
     [OutputType]
     public sealed class VirtualNetworkPeeringPropertiesFormatResponseRemoteVirtualNetwork
     {

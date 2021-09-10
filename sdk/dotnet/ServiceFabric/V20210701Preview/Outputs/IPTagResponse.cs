@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.ServiceFabric.V20210701Preview.Outputs
 {
 
+    /// <summary>
+    /// IPTag associated with the object.
+    /// </summary>
     [OutputType]
     public sealed class IPTagResponse
     {

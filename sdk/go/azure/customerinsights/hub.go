@@ -149,9 +149,7 @@ func (i *Hub) ToHubOutputWithContext(ctx context.Context) HubOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(HubOutput)
 }
 
-type HubOutput struct {
-	*pulumi.OutputState
-}
+type HubOutput struct{ *pulumi.OutputState }
 
 func (HubOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*Hub)(nil))

@@ -7,7 +7,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Issue Attachment Contract details.
 func LookupApiIssueAttachment(ctx *pulumi.Context, args *LookupApiIssueAttachmentArgs, opts ...pulumi.InvokeOption) (*LookupApiIssueAttachmentResult, error) {
 	var rv LookupApiIssueAttachmentResult
 	err := ctx.Invoke("azure-native:apimanagement/v20190101:getApiIssueAttachment", args, &rv, opts...)
@@ -18,30 +17,19 @@ func LookupApiIssueAttachment(ctx *pulumi.Context, args *LookupApiIssueAttachmen
 }
 
 type LookupApiIssueAttachmentArgs struct {
-	// API identifier. Must be unique in the current API Management service instance.
-	ApiId string `pulumi:"apiId"`
-	// Attachment identifier within an Issue. Must be unique in the current Issue.
-	AttachmentId string `pulumi:"attachmentId"`
-	// Issue identifier. Must be unique in the current API Management service instance.
-	IssueId string `pulumi:"issueId"`
-	// The name of the resource group.
+	ApiId             string `pulumi:"apiId"`
+	AttachmentId      string `pulumi:"attachmentId"`
+	IssueId           string `pulumi:"issueId"`
 	ResourceGroupName string `pulumi:"resourceGroupName"`
-	// The name of the API Management service.
-	ServiceName string `pulumi:"serviceName"`
+	ServiceName       string `pulumi:"serviceName"`
 }
 
 // Issue Attachment Contract details.
 type LookupApiIssueAttachmentResult struct {
-	// An HTTP link or Base64-encoded binary data.
-	Content string `pulumi:"content"`
-	// Either 'link' if content is provided via an HTTP link or the MIME type of the Base64-encoded binary data provided in the 'content' property.
+	Content       string `pulumi:"content"`
 	ContentFormat string `pulumi:"contentFormat"`
-	// Resource ID.
-	Id string `pulumi:"id"`
-	// Resource name.
-	Name string `pulumi:"name"`
-	// Filename by which the binary data will be saved.
-	Title string `pulumi:"title"`
-	// Resource type for API Management resource.
-	Type string `pulumi:"type"`
+	Id            string `pulumi:"id"`
+	Name          string `pulumi:"name"`
+	Title         string `pulumi:"title"`
+	Type          string `pulumi:"type"`
 }

@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.RedHatOpenShift.V20210901Preview.Outputs
 {
 
+    /// <summary>
+    /// ClusterProfile represents a cluster profile.
+    /// </summary>
     [OutputType]
     public sealed class ClusterProfileResponse
     {

@@ -11,40 +11,24 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Describes a Virtual Machine run command.
 type VirtualMachineScaleSetVMRunCommand struct {
 	pulumi.CustomResourceState
 
-	// Optional. If set to true, provisioning will complete as soon as the script starts and will not wait for script to complete.
-	AsyncExecution pulumi.BoolPtrOutput `pulumi:"asyncExecution"`
-	// Specifies the Azure storage blob where script error stream will be uploaded.
-	ErrorBlobUri pulumi.StringPtrOutput `pulumi:"errorBlobUri"`
-	// The virtual machine run command instance view.
-	InstanceView VirtualMachineRunCommandInstanceViewResponseOutput `pulumi:"instanceView"`
-	// Resource location
-	Location pulumi.StringOutput `pulumi:"location"`
-	// Resource name
-	Name pulumi.StringOutput `pulumi:"name"`
-	// Specifies the Azure storage blob where script output stream will be uploaded.
-	OutputBlobUri pulumi.StringPtrOutput `pulumi:"outputBlobUri"`
-	// The parameters used by the script.
-	Parameters RunCommandInputParameterResponseArrayOutput `pulumi:"parameters"`
-	// The parameters used by the script.
-	ProtectedParameters RunCommandInputParameterResponseArrayOutput `pulumi:"protectedParameters"`
-	// The provisioning state, which only appears in the response.
-	ProvisioningState pulumi.StringOutput `pulumi:"provisioningState"`
-	// Specifies the user account password on the VM when executing the run command.
-	RunAsPassword pulumi.StringPtrOutput `pulumi:"runAsPassword"`
-	// Specifies the user account on the VM when executing the run command.
-	RunAsUser pulumi.StringPtrOutput `pulumi:"runAsUser"`
-	// The source of the run command script.
-	Source VirtualMachineRunCommandScriptSourceResponsePtrOutput `pulumi:"source"`
-	// Resource tags
-	Tags pulumi.StringMapOutput `pulumi:"tags"`
-	// The timeout in seconds to execute the run command.
-	TimeoutInSeconds pulumi.IntPtrOutput `pulumi:"timeoutInSeconds"`
-	// Resource type
-	Type pulumi.StringOutput `pulumi:"type"`
+	AsyncExecution      pulumi.BoolPtrOutput                                  `pulumi:"asyncExecution"`
+	ErrorBlobUri        pulumi.StringPtrOutput                                `pulumi:"errorBlobUri"`
+	InstanceView        VirtualMachineRunCommandInstanceViewResponseOutput    `pulumi:"instanceView"`
+	Location            pulumi.StringOutput                                   `pulumi:"location"`
+	Name                pulumi.StringOutput                                   `pulumi:"name"`
+	OutputBlobUri       pulumi.StringPtrOutput                                `pulumi:"outputBlobUri"`
+	Parameters          RunCommandInputParameterResponseArrayOutput           `pulumi:"parameters"`
+	ProtectedParameters RunCommandInputParameterResponseArrayOutput           `pulumi:"protectedParameters"`
+	ProvisioningState   pulumi.StringOutput                                   `pulumi:"provisioningState"`
+	RunAsPassword       pulumi.StringPtrOutput                                `pulumi:"runAsPassword"`
+	RunAsUser           pulumi.StringPtrOutput                                `pulumi:"runAsUser"`
+	Source              VirtualMachineRunCommandScriptSourceResponsePtrOutput `pulumi:"source"`
+	Tags                pulumi.StringMapOutput                                `pulumi:"tags"`
+	TimeoutInSeconds    pulumi.IntPtrOutput                                   `pulumi:"timeoutInSeconds"`
+	Type                pulumi.StringOutput                                   `pulumi:"type"`
 }
 
 // NewVirtualMachineScaleSetVMRunCommand registers a new resource with the given unique name, arguments, and options.
@@ -134,70 +118,40 @@ func (VirtualMachineScaleSetVMRunCommandState) ElementType() reflect.Type {
 }
 
 type virtualMachineScaleSetVMRunCommandArgs struct {
-	// Optional. If set to true, provisioning will complete as soon as the script starts and will not wait for script to complete.
-	AsyncExecution *bool `pulumi:"asyncExecution"`
-	// Specifies the Azure storage blob where script error stream will be uploaded.
-	ErrorBlobUri *string `pulumi:"errorBlobUri"`
-	// The instance ID of the virtual machine.
-	InstanceId string `pulumi:"instanceId"`
-	// Resource location
-	Location *string `pulumi:"location"`
-	// Specifies the Azure storage blob where script output stream will be uploaded.
-	OutputBlobUri *string `pulumi:"outputBlobUri"`
-	// The parameters used by the script.
-	Parameters []RunCommandInputParameter `pulumi:"parameters"`
-	// The parameters used by the script.
-	ProtectedParameters []RunCommandInputParameter `pulumi:"protectedParameters"`
-	// The name of the resource group.
-	ResourceGroupName string `pulumi:"resourceGroupName"`
-	// Specifies the user account password on the VM when executing the run command.
-	RunAsPassword *string `pulumi:"runAsPassword"`
-	// Specifies the user account on the VM when executing the run command.
-	RunAsUser *string `pulumi:"runAsUser"`
-	// The name of the virtual machine run command.
-	RunCommandName *string `pulumi:"runCommandName"`
-	// The source of the run command script.
-	Source *VirtualMachineRunCommandScriptSource `pulumi:"source"`
-	// Resource tags
-	Tags map[string]string `pulumi:"tags"`
-	// The timeout in seconds to execute the run command.
-	TimeoutInSeconds *int `pulumi:"timeoutInSeconds"`
-	// The name of the VM scale set.
-	VmScaleSetName string `pulumi:"vmScaleSetName"`
+	AsyncExecution      *bool                                 `pulumi:"asyncExecution"`
+	ErrorBlobUri        *string                               `pulumi:"errorBlobUri"`
+	InstanceId          string                                `pulumi:"instanceId"`
+	Location            *string                               `pulumi:"location"`
+	OutputBlobUri       *string                               `pulumi:"outputBlobUri"`
+	Parameters          []RunCommandInputParameter            `pulumi:"parameters"`
+	ProtectedParameters []RunCommandInputParameter            `pulumi:"protectedParameters"`
+	ResourceGroupName   string                                `pulumi:"resourceGroupName"`
+	RunAsPassword       *string                               `pulumi:"runAsPassword"`
+	RunAsUser           *string                               `pulumi:"runAsUser"`
+	RunCommandName      *string                               `pulumi:"runCommandName"`
+	Source              *VirtualMachineRunCommandScriptSource `pulumi:"source"`
+	Tags                map[string]string                     `pulumi:"tags"`
+	TimeoutInSeconds    *int                                  `pulumi:"timeoutInSeconds"`
+	VmScaleSetName      string                                `pulumi:"vmScaleSetName"`
 }
 
 // The set of arguments for constructing a VirtualMachineScaleSetVMRunCommand resource.
 type VirtualMachineScaleSetVMRunCommandArgs struct {
-	// Optional. If set to true, provisioning will complete as soon as the script starts and will not wait for script to complete.
-	AsyncExecution pulumi.BoolPtrInput
-	// Specifies the Azure storage blob where script error stream will be uploaded.
-	ErrorBlobUri pulumi.StringPtrInput
-	// The instance ID of the virtual machine.
-	InstanceId pulumi.StringInput
-	// Resource location
-	Location pulumi.StringPtrInput
-	// Specifies the Azure storage blob where script output stream will be uploaded.
-	OutputBlobUri pulumi.StringPtrInput
-	// The parameters used by the script.
-	Parameters RunCommandInputParameterArrayInput
-	// The parameters used by the script.
+	AsyncExecution      pulumi.BoolPtrInput
+	ErrorBlobUri        pulumi.StringPtrInput
+	InstanceId          pulumi.StringInput
+	Location            pulumi.StringPtrInput
+	OutputBlobUri       pulumi.StringPtrInput
+	Parameters          RunCommandInputParameterArrayInput
 	ProtectedParameters RunCommandInputParameterArrayInput
-	// The name of the resource group.
-	ResourceGroupName pulumi.StringInput
-	// Specifies the user account password on the VM when executing the run command.
-	RunAsPassword pulumi.StringPtrInput
-	// Specifies the user account on the VM when executing the run command.
-	RunAsUser pulumi.StringPtrInput
-	// The name of the virtual machine run command.
-	RunCommandName pulumi.StringPtrInput
-	// The source of the run command script.
-	Source VirtualMachineRunCommandScriptSourcePtrInput
-	// Resource tags
-	Tags pulumi.StringMapInput
-	// The timeout in seconds to execute the run command.
-	TimeoutInSeconds pulumi.IntPtrInput
-	// The name of the VM scale set.
-	VmScaleSetName pulumi.StringInput
+	ResourceGroupName   pulumi.StringInput
+	RunAsPassword       pulumi.StringPtrInput
+	RunAsUser           pulumi.StringPtrInput
+	RunCommandName      pulumi.StringPtrInput
+	Source              VirtualMachineRunCommandScriptSourcePtrInput
+	Tags                pulumi.StringMapInput
+	TimeoutInSeconds    pulumi.IntPtrInput
+	VmScaleSetName      pulumi.StringInput
 }
 
 func (VirtualMachineScaleSetVMRunCommandArgs) ElementType() reflect.Type {
@@ -223,9 +177,7 @@ func (i *VirtualMachineScaleSetVMRunCommand) ToVirtualMachineScaleSetVMRunComman
 	return pulumi.ToOutputWithContext(ctx, i).(VirtualMachineScaleSetVMRunCommandOutput)
 }
 
-type VirtualMachineScaleSetVMRunCommandOutput struct {
-	*pulumi.OutputState
-}
+type VirtualMachineScaleSetVMRunCommandOutput struct{ *pulumi.OutputState }
 
 func (VirtualMachineScaleSetVMRunCommandOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*VirtualMachineScaleSetVMRunCommand)(nil))

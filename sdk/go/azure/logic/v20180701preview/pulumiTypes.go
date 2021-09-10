@@ -10,16 +10,11 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// The AS2 agreement acknowledgement connection settings.
 type AS2AcknowledgementConnectionSettings struct {
-	// The value indicating whether to ignore mismatch in certificate name.
 	IgnoreCertificateNameMismatch bool `pulumi:"ignoreCertificateNameMismatch"`
-	// The value indicating whether to keep the connection alive.
-	KeepHttpConnectionAlive bool `pulumi:"keepHttpConnectionAlive"`
-	// The value indicating whether to support HTTP status code 'CONTINUE'.
+	KeepHttpConnectionAlive       bool `pulumi:"keepHttpConnectionAlive"`
 	SupportHttpStatusCodeContinue bool `pulumi:"supportHttpStatusCodeContinue"`
-	// The value indicating whether to unfold the HTTP headers.
-	UnfoldHttpHeaders bool `pulumi:"unfoldHttpHeaders"`
+	UnfoldHttpHeaders             bool `pulumi:"unfoldHttpHeaders"`
 }
 
 // AS2AcknowledgementConnectionSettingsInput is an input type that accepts AS2AcknowledgementConnectionSettingsArgs and AS2AcknowledgementConnectionSettingsOutput values.
@@ -33,16 +28,11 @@ type AS2AcknowledgementConnectionSettingsInput interface {
 	ToAS2AcknowledgementConnectionSettingsOutputWithContext(context.Context) AS2AcknowledgementConnectionSettingsOutput
 }
 
-// The AS2 agreement acknowledgement connection settings.
 type AS2AcknowledgementConnectionSettingsArgs struct {
-	// The value indicating whether to ignore mismatch in certificate name.
 	IgnoreCertificateNameMismatch pulumi.BoolInput `pulumi:"ignoreCertificateNameMismatch"`
-	// The value indicating whether to keep the connection alive.
-	KeepHttpConnectionAlive pulumi.BoolInput `pulumi:"keepHttpConnectionAlive"`
-	// The value indicating whether to support HTTP status code 'CONTINUE'.
+	KeepHttpConnectionAlive       pulumi.BoolInput `pulumi:"keepHttpConnectionAlive"`
 	SupportHttpStatusCodeContinue pulumi.BoolInput `pulumi:"supportHttpStatusCodeContinue"`
-	// The value indicating whether to unfold the HTTP headers.
-	UnfoldHttpHeaders pulumi.BoolInput `pulumi:"unfoldHttpHeaders"`
+	UnfoldHttpHeaders             pulumi.BoolInput `pulumi:"unfoldHttpHeaders"`
 }
 
 func (AS2AcknowledgementConnectionSettingsArgs) ElementType() reflect.Type {
@@ -98,7 +88,6 @@ func (i *as2acknowledgementConnectionSettingsPtrType) ToAS2AcknowledgementConnec
 	return pulumi.ToOutputWithContext(ctx, i).(AS2AcknowledgementConnectionSettingsPtrOutput)
 }
 
-// The AS2 agreement acknowledgement connection settings.
 type AS2AcknowledgementConnectionSettingsOutput struct{ *pulumi.OutputState }
 
 func (AS2AcknowledgementConnectionSettingsOutput) ElementType() reflect.Type {
@@ -118,27 +107,23 @@ func (o AS2AcknowledgementConnectionSettingsOutput) ToAS2AcknowledgementConnecti
 }
 
 func (o AS2AcknowledgementConnectionSettingsOutput) ToAS2AcknowledgementConnectionSettingsPtrOutputWithContext(ctx context.Context) AS2AcknowledgementConnectionSettingsPtrOutput {
-	return o.ApplyT(func(v AS2AcknowledgementConnectionSettings) *AS2AcknowledgementConnectionSettings {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v AS2AcknowledgementConnectionSettings) *AS2AcknowledgementConnectionSettings {
 		return &v
 	}).(AS2AcknowledgementConnectionSettingsPtrOutput)
 }
 
-// The value indicating whether to ignore mismatch in certificate name.
 func (o AS2AcknowledgementConnectionSettingsOutput) IgnoreCertificateNameMismatch() pulumi.BoolOutput {
 	return o.ApplyT(func(v AS2AcknowledgementConnectionSettings) bool { return v.IgnoreCertificateNameMismatch }).(pulumi.BoolOutput)
 }
 
-// The value indicating whether to keep the connection alive.
 func (o AS2AcknowledgementConnectionSettingsOutput) KeepHttpConnectionAlive() pulumi.BoolOutput {
 	return o.ApplyT(func(v AS2AcknowledgementConnectionSettings) bool { return v.KeepHttpConnectionAlive }).(pulumi.BoolOutput)
 }
 
-// The value indicating whether to support HTTP status code 'CONTINUE'.
 func (o AS2AcknowledgementConnectionSettingsOutput) SupportHttpStatusCodeContinue() pulumi.BoolOutput {
 	return o.ApplyT(func(v AS2AcknowledgementConnectionSettings) bool { return v.SupportHttpStatusCodeContinue }).(pulumi.BoolOutput)
 }
 
-// The value indicating whether to unfold the HTTP headers.
 func (o AS2AcknowledgementConnectionSettingsOutput) UnfoldHttpHeaders() pulumi.BoolOutput {
 	return o.ApplyT(func(v AS2AcknowledgementConnectionSettings) bool { return v.UnfoldHttpHeaders }).(pulumi.BoolOutput)
 }
@@ -158,10 +143,15 @@ func (o AS2AcknowledgementConnectionSettingsPtrOutput) ToAS2AcknowledgementConne
 }
 
 func (o AS2AcknowledgementConnectionSettingsPtrOutput) Elem() AS2AcknowledgementConnectionSettingsOutput {
-	return o.ApplyT(func(v *AS2AcknowledgementConnectionSettings) AS2AcknowledgementConnectionSettings { return *v }).(AS2AcknowledgementConnectionSettingsOutput)
+	return o.ApplyT(func(v *AS2AcknowledgementConnectionSettings) AS2AcknowledgementConnectionSettings {
+		if v != nil {
+			return *v
+		}
+		var ret AS2AcknowledgementConnectionSettings
+		return ret
+	}).(AS2AcknowledgementConnectionSettingsOutput)
 }
 
-// The value indicating whether to ignore mismatch in certificate name.
 func (o AS2AcknowledgementConnectionSettingsPtrOutput) IgnoreCertificateNameMismatch() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *AS2AcknowledgementConnectionSettings) *bool {
 		if v == nil {
@@ -171,7 +161,6 @@ func (o AS2AcknowledgementConnectionSettingsPtrOutput) IgnoreCertificateNameMism
 	}).(pulumi.BoolPtrOutput)
 }
 
-// The value indicating whether to keep the connection alive.
 func (o AS2AcknowledgementConnectionSettingsPtrOutput) KeepHttpConnectionAlive() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *AS2AcknowledgementConnectionSettings) *bool {
 		if v == nil {
@@ -181,7 +170,6 @@ func (o AS2AcknowledgementConnectionSettingsPtrOutput) KeepHttpConnectionAlive()
 	}).(pulumi.BoolPtrOutput)
 }
 
-// The value indicating whether to support HTTP status code 'CONTINUE'.
 func (o AS2AcknowledgementConnectionSettingsPtrOutput) SupportHttpStatusCodeContinue() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *AS2AcknowledgementConnectionSettings) *bool {
 		if v == nil {
@@ -191,7 +179,6 @@ func (o AS2AcknowledgementConnectionSettingsPtrOutput) SupportHttpStatusCodeCont
 	}).(pulumi.BoolPtrOutput)
 }
 
-// The value indicating whether to unfold the HTTP headers.
 func (o AS2AcknowledgementConnectionSettingsPtrOutput) UnfoldHttpHeaders() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *AS2AcknowledgementConnectionSettings) *bool {
 		if v == nil {
@@ -201,16 +188,11 @@ func (o AS2AcknowledgementConnectionSettingsPtrOutput) UnfoldHttpHeaders() pulum
 	}).(pulumi.BoolPtrOutput)
 }
 
-// The AS2 agreement acknowledgement connection settings.
 type AS2AcknowledgementConnectionSettingsResponse struct {
-	// The value indicating whether to ignore mismatch in certificate name.
 	IgnoreCertificateNameMismatch bool `pulumi:"ignoreCertificateNameMismatch"`
-	// The value indicating whether to keep the connection alive.
-	KeepHttpConnectionAlive bool `pulumi:"keepHttpConnectionAlive"`
-	// The value indicating whether to support HTTP status code 'CONTINUE'.
+	KeepHttpConnectionAlive       bool `pulumi:"keepHttpConnectionAlive"`
 	SupportHttpStatusCodeContinue bool `pulumi:"supportHttpStatusCodeContinue"`
-	// The value indicating whether to unfold the HTTP headers.
-	UnfoldHttpHeaders bool `pulumi:"unfoldHttpHeaders"`
+	UnfoldHttpHeaders             bool `pulumi:"unfoldHttpHeaders"`
 }
 
 // AS2AcknowledgementConnectionSettingsResponseInput is an input type that accepts AS2AcknowledgementConnectionSettingsResponseArgs and AS2AcknowledgementConnectionSettingsResponseOutput values.
@@ -224,16 +206,11 @@ type AS2AcknowledgementConnectionSettingsResponseInput interface {
 	ToAS2AcknowledgementConnectionSettingsResponseOutputWithContext(context.Context) AS2AcknowledgementConnectionSettingsResponseOutput
 }
 
-// The AS2 agreement acknowledgement connection settings.
 type AS2AcknowledgementConnectionSettingsResponseArgs struct {
-	// The value indicating whether to ignore mismatch in certificate name.
 	IgnoreCertificateNameMismatch pulumi.BoolInput `pulumi:"ignoreCertificateNameMismatch"`
-	// The value indicating whether to keep the connection alive.
-	KeepHttpConnectionAlive pulumi.BoolInput `pulumi:"keepHttpConnectionAlive"`
-	// The value indicating whether to support HTTP status code 'CONTINUE'.
+	KeepHttpConnectionAlive       pulumi.BoolInput `pulumi:"keepHttpConnectionAlive"`
 	SupportHttpStatusCodeContinue pulumi.BoolInput `pulumi:"supportHttpStatusCodeContinue"`
-	// The value indicating whether to unfold the HTTP headers.
-	UnfoldHttpHeaders pulumi.BoolInput `pulumi:"unfoldHttpHeaders"`
+	UnfoldHttpHeaders             pulumi.BoolInput `pulumi:"unfoldHttpHeaders"`
 }
 
 func (AS2AcknowledgementConnectionSettingsResponseArgs) ElementType() reflect.Type {
@@ -289,7 +266,6 @@ func (i *as2acknowledgementConnectionSettingsResponsePtrType) ToAS2Acknowledgeme
 	return pulumi.ToOutputWithContext(ctx, i).(AS2AcknowledgementConnectionSettingsResponsePtrOutput)
 }
 
-// The AS2 agreement acknowledgement connection settings.
 type AS2AcknowledgementConnectionSettingsResponseOutput struct{ *pulumi.OutputState }
 
 func (AS2AcknowledgementConnectionSettingsResponseOutput) ElementType() reflect.Type {
@@ -309,27 +285,23 @@ func (o AS2AcknowledgementConnectionSettingsResponseOutput) ToAS2Acknowledgement
 }
 
 func (o AS2AcknowledgementConnectionSettingsResponseOutput) ToAS2AcknowledgementConnectionSettingsResponsePtrOutputWithContext(ctx context.Context) AS2AcknowledgementConnectionSettingsResponsePtrOutput {
-	return o.ApplyT(func(v AS2AcknowledgementConnectionSettingsResponse) *AS2AcknowledgementConnectionSettingsResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v AS2AcknowledgementConnectionSettingsResponse) *AS2AcknowledgementConnectionSettingsResponse {
 		return &v
 	}).(AS2AcknowledgementConnectionSettingsResponsePtrOutput)
 }
 
-// The value indicating whether to ignore mismatch in certificate name.
 func (o AS2AcknowledgementConnectionSettingsResponseOutput) IgnoreCertificateNameMismatch() pulumi.BoolOutput {
 	return o.ApplyT(func(v AS2AcknowledgementConnectionSettingsResponse) bool { return v.IgnoreCertificateNameMismatch }).(pulumi.BoolOutput)
 }
 
-// The value indicating whether to keep the connection alive.
 func (o AS2AcknowledgementConnectionSettingsResponseOutput) KeepHttpConnectionAlive() pulumi.BoolOutput {
 	return o.ApplyT(func(v AS2AcknowledgementConnectionSettingsResponse) bool { return v.KeepHttpConnectionAlive }).(pulumi.BoolOutput)
 }
 
-// The value indicating whether to support HTTP status code 'CONTINUE'.
 func (o AS2AcknowledgementConnectionSettingsResponseOutput) SupportHttpStatusCodeContinue() pulumi.BoolOutput {
 	return o.ApplyT(func(v AS2AcknowledgementConnectionSettingsResponse) bool { return v.SupportHttpStatusCodeContinue }).(pulumi.BoolOutput)
 }
 
-// The value indicating whether to unfold the HTTP headers.
 func (o AS2AcknowledgementConnectionSettingsResponseOutput) UnfoldHttpHeaders() pulumi.BoolOutput {
 	return o.ApplyT(func(v AS2AcknowledgementConnectionSettingsResponse) bool { return v.UnfoldHttpHeaders }).(pulumi.BoolOutput)
 }
@@ -350,11 +322,14 @@ func (o AS2AcknowledgementConnectionSettingsResponsePtrOutput) ToAS2Acknowledgem
 
 func (o AS2AcknowledgementConnectionSettingsResponsePtrOutput) Elem() AS2AcknowledgementConnectionSettingsResponseOutput {
 	return o.ApplyT(func(v *AS2AcknowledgementConnectionSettingsResponse) AS2AcknowledgementConnectionSettingsResponse {
-		return *v
+		if v != nil {
+			return *v
+		}
+		var ret AS2AcknowledgementConnectionSettingsResponse
+		return ret
 	}).(AS2AcknowledgementConnectionSettingsResponseOutput)
 }
 
-// The value indicating whether to ignore mismatch in certificate name.
 func (o AS2AcknowledgementConnectionSettingsResponsePtrOutput) IgnoreCertificateNameMismatch() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *AS2AcknowledgementConnectionSettingsResponse) *bool {
 		if v == nil {
@@ -364,7 +339,6 @@ func (o AS2AcknowledgementConnectionSettingsResponsePtrOutput) IgnoreCertificate
 	}).(pulumi.BoolPtrOutput)
 }
 
-// The value indicating whether to keep the connection alive.
 func (o AS2AcknowledgementConnectionSettingsResponsePtrOutput) KeepHttpConnectionAlive() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *AS2AcknowledgementConnectionSettingsResponse) *bool {
 		if v == nil {
@@ -374,7 +348,6 @@ func (o AS2AcknowledgementConnectionSettingsResponsePtrOutput) KeepHttpConnectio
 	}).(pulumi.BoolPtrOutput)
 }
 
-// The value indicating whether to support HTTP status code 'CONTINUE'.
 func (o AS2AcknowledgementConnectionSettingsResponsePtrOutput) SupportHttpStatusCodeContinue() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *AS2AcknowledgementConnectionSettingsResponse) *bool {
 		if v == nil {
@@ -384,7 +357,6 @@ func (o AS2AcknowledgementConnectionSettingsResponsePtrOutput) SupportHttpStatus
 	}).(pulumi.BoolPtrOutput)
 }
 
-// The value indicating whether to unfold the HTTP headers.
 func (o AS2AcknowledgementConnectionSettingsResponsePtrOutput) UnfoldHttpHeaders() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *AS2AcknowledgementConnectionSettingsResponse) *bool {
 		if v == nil {
@@ -394,12 +366,9 @@ func (o AS2AcknowledgementConnectionSettingsResponsePtrOutput) UnfoldHttpHeaders
 	}).(pulumi.BoolPtrOutput)
 }
 
-// The integration account AS2 agreement content.
 type AS2AgreementContent struct {
-	// The AS2 one-way receive agreement.
 	ReceiveAgreement AS2OneWayAgreement `pulumi:"receiveAgreement"`
-	// The AS2 one-way send agreement.
-	SendAgreement AS2OneWayAgreement `pulumi:"sendAgreement"`
+	SendAgreement    AS2OneWayAgreement `pulumi:"sendAgreement"`
 }
 
 // AS2AgreementContentInput is an input type that accepts AS2AgreementContentArgs and AS2AgreementContentOutput values.
@@ -413,12 +382,9 @@ type AS2AgreementContentInput interface {
 	ToAS2AgreementContentOutputWithContext(context.Context) AS2AgreementContentOutput
 }
 
-// The integration account AS2 agreement content.
 type AS2AgreementContentArgs struct {
-	// The AS2 one-way receive agreement.
 	ReceiveAgreement AS2OneWayAgreementInput `pulumi:"receiveAgreement"`
-	// The AS2 one-way send agreement.
-	SendAgreement AS2OneWayAgreementInput `pulumi:"sendAgreement"`
+	SendAgreement    AS2OneWayAgreementInput `pulumi:"sendAgreement"`
 }
 
 func (AS2AgreementContentArgs) ElementType() reflect.Type {
@@ -474,7 +440,6 @@ func (i *as2agreementContentPtrType) ToAS2AgreementContentPtrOutputWithContext(c
 	return pulumi.ToOutputWithContext(ctx, i).(AS2AgreementContentPtrOutput)
 }
 
-// The integration account AS2 agreement content.
 type AS2AgreementContentOutput struct{ *pulumi.OutputState }
 
 func (AS2AgreementContentOutput) ElementType() reflect.Type {
@@ -494,17 +459,15 @@ func (o AS2AgreementContentOutput) ToAS2AgreementContentPtrOutput() AS2Agreement
 }
 
 func (o AS2AgreementContentOutput) ToAS2AgreementContentPtrOutputWithContext(ctx context.Context) AS2AgreementContentPtrOutput {
-	return o.ApplyT(func(v AS2AgreementContent) *AS2AgreementContent {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v AS2AgreementContent) *AS2AgreementContent {
 		return &v
 	}).(AS2AgreementContentPtrOutput)
 }
 
-// The AS2 one-way receive agreement.
 func (o AS2AgreementContentOutput) ReceiveAgreement() AS2OneWayAgreementOutput {
 	return o.ApplyT(func(v AS2AgreementContent) AS2OneWayAgreement { return v.ReceiveAgreement }).(AS2OneWayAgreementOutput)
 }
 
-// The AS2 one-way send agreement.
 func (o AS2AgreementContentOutput) SendAgreement() AS2OneWayAgreementOutput {
 	return o.ApplyT(func(v AS2AgreementContent) AS2OneWayAgreement { return v.SendAgreement }).(AS2OneWayAgreementOutput)
 }
@@ -524,10 +487,15 @@ func (o AS2AgreementContentPtrOutput) ToAS2AgreementContentPtrOutputWithContext(
 }
 
 func (o AS2AgreementContentPtrOutput) Elem() AS2AgreementContentOutput {
-	return o.ApplyT(func(v *AS2AgreementContent) AS2AgreementContent { return *v }).(AS2AgreementContentOutput)
+	return o.ApplyT(func(v *AS2AgreementContent) AS2AgreementContent {
+		if v != nil {
+			return *v
+		}
+		var ret AS2AgreementContent
+		return ret
+	}).(AS2AgreementContentOutput)
 }
 
-// The AS2 one-way receive agreement.
 func (o AS2AgreementContentPtrOutput) ReceiveAgreement() AS2OneWayAgreementPtrOutput {
 	return o.ApplyT(func(v *AS2AgreementContent) *AS2OneWayAgreement {
 		if v == nil {
@@ -537,7 +505,6 @@ func (o AS2AgreementContentPtrOutput) ReceiveAgreement() AS2OneWayAgreementPtrOu
 	}).(AS2OneWayAgreementPtrOutput)
 }
 
-// The AS2 one-way send agreement.
 func (o AS2AgreementContentPtrOutput) SendAgreement() AS2OneWayAgreementPtrOutput {
 	return o.ApplyT(func(v *AS2AgreementContent) *AS2OneWayAgreement {
 		if v == nil {
@@ -547,12 +514,9 @@ func (o AS2AgreementContentPtrOutput) SendAgreement() AS2OneWayAgreementPtrOutpu
 	}).(AS2OneWayAgreementPtrOutput)
 }
 
-// The integration account AS2 agreement content.
 type AS2AgreementContentResponse struct {
-	// The AS2 one-way receive agreement.
 	ReceiveAgreement AS2OneWayAgreementResponse `pulumi:"receiveAgreement"`
-	// The AS2 one-way send agreement.
-	SendAgreement AS2OneWayAgreementResponse `pulumi:"sendAgreement"`
+	SendAgreement    AS2OneWayAgreementResponse `pulumi:"sendAgreement"`
 }
 
 // AS2AgreementContentResponseInput is an input type that accepts AS2AgreementContentResponseArgs and AS2AgreementContentResponseOutput values.
@@ -566,12 +530,9 @@ type AS2AgreementContentResponseInput interface {
 	ToAS2AgreementContentResponseOutputWithContext(context.Context) AS2AgreementContentResponseOutput
 }
 
-// The integration account AS2 agreement content.
 type AS2AgreementContentResponseArgs struct {
-	// The AS2 one-way receive agreement.
 	ReceiveAgreement AS2OneWayAgreementResponseInput `pulumi:"receiveAgreement"`
-	// The AS2 one-way send agreement.
-	SendAgreement AS2OneWayAgreementResponseInput `pulumi:"sendAgreement"`
+	SendAgreement    AS2OneWayAgreementResponseInput `pulumi:"sendAgreement"`
 }
 
 func (AS2AgreementContentResponseArgs) ElementType() reflect.Type {
@@ -627,7 +588,6 @@ func (i *as2agreementContentResponsePtrType) ToAS2AgreementContentResponsePtrOut
 	return pulumi.ToOutputWithContext(ctx, i).(AS2AgreementContentResponsePtrOutput)
 }
 
-// The integration account AS2 agreement content.
 type AS2AgreementContentResponseOutput struct{ *pulumi.OutputState }
 
 func (AS2AgreementContentResponseOutput) ElementType() reflect.Type {
@@ -647,17 +607,15 @@ func (o AS2AgreementContentResponseOutput) ToAS2AgreementContentResponsePtrOutpu
 }
 
 func (o AS2AgreementContentResponseOutput) ToAS2AgreementContentResponsePtrOutputWithContext(ctx context.Context) AS2AgreementContentResponsePtrOutput {
-	return o.ApplyT(func(v AS2AgreementContentResponse) *AS2AgreementContentResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v AS2AgreementContentResponse) *AS2AgreementContentResponse {
 		return &v
 	}).(AS2AgreementContentResponsePtrOutput)
 }
 
-// The AS2 one-way receive agreement.
 func (o AS2AgreementContentResponseOutput) ReceiveAgreement() AS2OneWayAgreementResponseOutput {
 	return o.ApplyT(func(v AS2AgreementContentResponse) AS2OneWayAgreementResponse { return v.ReceiveAgreement }).(AS2OneWayAgreementResponseOutput)
 }
 
-// The AS2 one-way send agreement.
 func (o AS2AgreementContentResponseOutput) SendAgreement() AS2OneWayAgreementResponseOutput {
 	return o.ApplyT(func(v AS2AgreementContentResponse) AS2OneWayAgreementResponse { return v.SendAgreement }).(AS2OneWayAgreementResponseOutput)
 }
@@ -677,10 +635,15 @@ func (o AS2AgreementContentResponsePtrOutput) ToAS2AgreementContentResponsePtrOu
 }
 
 func (o AS2AgreementContentResponsePtrOutput) Elem() AS2AgreementContentResponseOutput {
-	return o.ApplyT(func(v *AS2AgreementContentResponse) AS2AgreementContentResponse { return *v }).(AS2AgreementContentResponseOutput)
+	return o.ApplyT(func(v *AS2AgreementContentResponse) AS2AgreementContentResponse {
+		if v != nil {
+			return *v
+		}
+		var ret AS2AgreementContentResponse
+		return ret
+	}).(AS2AgreementContentResponseOutput)
 }
 
-// The AS2 one-way receive agreement.
 func (o AS2AgreementContentResponsePtrOutput) ReceiveAgreement() AS2OneWayAgreementResponsePtrOutput {
 	return o.ApplyT(func(v *AS2AgreementContentResponse) *AS2OneWayAgreementResponse {
 		if v == nil {
@@ -690,7 +653,6 @@ func (o AS2AgreementContentResponsePtrOutput) ReceiveAgreement() AS2OneWayAgreem
 	}).(AS2OneWayAgreementResponsePtrOutput)
 }
 
-// The AS2 one-way send agreement.
 func (o AS2AgreementContentResponsePtrOutput) SendAgreement() AS2OneWayAgreementResponsePtrOutput {
 	return o.ApplyT(func(v *AS2AgreementContentResponse) *AS2OneWayAgreementResponse {
 		if v == nil {
@@ -700,18 +662,12 @@ func (o AS2AgreementContentResponsePtrOutput) SendAgreement() AS2OneWayAgreement
 	}).(AS2OneWayAgreementResponsePtrOutput)
 }
 
-// The AS2 agreement envelope settings.
 type AS2EnvelopeSettings struct {
-	// The value indicating whether to auto generate file name.
-	AutogenerateFileName bool `pulumi:"autogenerateFileName"`
-	// The template for file name.
-	FileNameTemplate string `pulumi:"fileNameTemplate"`
-	// The message content type.
-	MessageContentType string `pulumi:"messageContentType"`
-	// The value indicating whether to suspend message on file name generation error.
-	SuspendMessageOnFileNameGenerationError bool `pulumi:"suspendMessageOnFileNameGenerationError"`
-	// The value indicating whether to transmit file name in mime header.
-	TransmitFileNameInMimeHeader bool `pulumi:"transmitFileNameInMimeHeader"`
+	AutogenerateFileName                    bool   `pulumi:"autogenerateFileName"`
+	FileNameTemplate                        string `pulumi:"fileNameTemplate"`
+	MessageContentType                      string `pulumi:"messageContentType"`
+	SuspendMessageOnFileNameGenerationError bool   `pulumi:"suspendMessageOnFileNameGenerationError"`
+	TransmitFileNameInMimeHeader            bool   `pulumi:"transmitFileNameInMimeHeader"`
 }
 
 // AS2EnvelopeSettingsInput is an input type that accepts AS2EnvelopeSettingsArgs and AS2EnvelopeSettingsOutput values.
@@ -725,18 +681,12 @@ type AS2EnvelopeSettingsInput interface {
 	ToAS2EnvelopeSettingsOutputWithContext(context.Context) AS2EnvelopeSettingsOutput
 }
 
-// The AS2 agreement envelope settings.
 type AS2EnvelopeSettingsArgs struct {
-	// The value indicating whether to auto generate file name.
-	AutogenerateFileName pulumi.BoolInput `pulumi:"autogenerateFileName"`
-	// The template for file name.
-	FileNameTemplate pulumi.StringInput `pulumi:"fileNameTemplate"`
-	// The message content type.
-	MessageContentType pulumi.StringInput `pulumi:"messageContentType"`
-	// The value indicating whether to suspend message on file name generation error.
-	SuspendMessageOnFileNameGenerationError pulumi.BoolInput `pulumi:"suspendMessageOnFileNameGenerationError"`
-	// The value indicating whether to transmit file name in mime header.
-	TransmitFileNameInMimeHeader pulumi.BoolInput `pulumi:"transmitFileNameInMimeHeader"`
+	AutogenerateFileName                    pulumi.BoolInput   `pulumi:"autogenerateFileName"`
+	FileNameTemplate                        pulumi.StringInput `pulumi:"fileNameTemplate"`
+	MessageContentType                      pulumi.StringInput `pulumi:"messageContentType"`
+	SuspendMessageOnFileNameGenerationError pulumi.BoolInput   `pulumi:"suspendMessageOnFileNameGenerationError"`
+	TransmitFileNameInMimeHeader            pulumi.BoolInput   `pulumi:"transmitFileNameInMimeHeader"`
 }
 
 func (AS2EnvelopeSettingsArgs) ElementType() reflect.Type {
@@ -792,7 +742,6 @@ func (i *as2envelopeSettingsPtrType) ToAS2EnvelopeSettingsPtrOutputWithContext(c
 	return pulumi.ToOutputWithContext(ctx, i).(AS2EnvelopeSettingsPtrOutput)
 }
 
-// The AS2 agreement envelope settings.
 type AS2EnvelopeSettingsOutput struct{ *pulumi.OutputState }
 
 func (AS2EnvelopeSettingsOutput) ElementType() reflect.Type {
@@ -812,32 +761,27 @@ func (o AS2EnvelopeSettingsOutput) ToAS2EnvelopeSettingsPtrOutput() AS2EnvelopeS
 }
 
 func (o AS2EnvelopeSettingsOutput) ToAS2EnvelopeSettingsPtrOutputWithContext(ctx context.Context) AS2EnvelopeSettingsPtrOutput {
-	return o.ApplyT(func(v AS2EnvelopeSettings) *AS2EnvelopeSettings {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v AS2EnvelopeSettings) *AS2EnvelopeSettings {
 		return &v
 	}).(AS2EnvelopeSettingsPtrOutput)
 }
 
-// The value indicating whether to auto generate file name.
 func (o AS2EnvelopeSettingsOutput) AutogenerateFileName() pulumi.BoolOutput {
 	return o.ApplyT(func(v AS2EnvelopeSettings) bool { return v.AutogenerateFileName }).(pulumi.BoolOutput)
 }
 
-// The template for file name.
 func (o AS2EnvelopeSettingsOutput) FileNameTemplate() pulumi.StringOutput {
 	return o.ApplyT(func(v AS2EnvelopeSettings) string { return v.FileNameTemplate }).(pulumi.StringOutput)
 }
 
-// The message content type.
 func (o AS2EnvelopeSettingsOutput) MessageContentType() pulumi.StringOutput {
 	return o.ApplyT(func(v AS2EnvelopeSettings) string { return v.MessageContentType }).(pulumi.StringOutput)
 }
 
-// The value indicating whether to suspend message on file name generation error.
 func (o AS2EnvelopeSettingsOutput) SuspendMessageOnFileNameGenerationError() pulumi.BoolOutput {
 	return o.ApplyT(func(v AS2EnvelopeSettings) bool { return v.SuspendMessageOnFileNameGenerationError }).(pulumi.BoolOutput)
 }
 
-// The value indicating whether to transmit file name in mime header.
 func (o AS2EnvelopeSettingsOutput) TransmitFileNameInMimeHeader() pulumi.BoolOutput {
 	return o.ApplyT(func(v AS2EnvelopeSettings) bool { return v.TransmitFileNameInMimeHeader }).(pulumi.BoolOutput)
 }
@@ -857,10 +801,15 @@ func (o AS2EnvelopeSettingsPtrOutput) ToAS2EnvelopeSettingsPtrOutputWithContext(
 }
 
 func (o AS2EnvelopeSettingsPtrOutput) Elem() AS2EnvelopeSettingsOutput {
-	return o.ApplyT(func(v *AS2EnvelopeSettings) AS2EnvelopeSettings { return *v }).(AS2EnvelopeSettingsOutput)
+	return o.ApplyT(func(v *AS2EnvelopeSettings) AS2EnvelopeSettings {
+		if v != nil {
+			return *v
+		}
+		var ret AS2EnvelopeSettings
+		return ret
+	}).(AS2EnvelopeSettingsOutput)
 }
 
-// The value indicating whether to auto generate file name.
 func (o AS2EnvelopeSettingsPtrOutput) AutogenerateFileName() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *AS2EnvelopeSettings) *bool {
 		if v == nil {
@@ -870,7 +819,6 @@ func (o AS2EnvelopeSettingsPtrOutput) AutogenerateFileName() pulumi.BoolPtrOutpu
 	}).(pulumi.BoolPtrOutput)
 }
 
-// The template for file name.
 func (o AS2EnvelopeSettingsPtrOutput) FileNameTemplate() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *AS2EnvelopeSettings) *string {
 		if v == nil {
@@ -880,7 +828,6 @@ func (o AS2EnvelopeSettingsPtrOutput) FileNameTemplate() pulumi.StringPtrOutput 
 	}).(pulumi.StringPtrOutput)
 }
 
-// The message content type.
 func (o AS2EnvelopeSettingsPtrOutput) MessageContentType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *AS2EnvelopeSettings) *string {
 		if v == nil {
@@ -890,7 +837,6 @@ func (o AS2EnvelopeSettingsPtrOutput) MessageContentType() pulumi.StringPtrOutpu
 	}).(pulumi.StringPtrOutput)
 }
 
-// The value indicating whether to suspend message on file name generation error.
 func (o AS2EnvelopeSettingsPtrOutput) SuspendMessageOnFileNameGenerationError() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *AS2EnvelopeSettings) *bool {
 		if v == nil {
@@ -900,7 +846,6 @@ func (o AS2EnvelopeSettingsPtrOutput) SuspendMessageOnFileNameGenerationError() 
 	}).(pulumi.BoolPtrOutput)
 }
 
-// The value indicating whether to transmit file name in mime header.
 func (o AS2EnvelopeSettingsPtrOutput) TransmitFileNameInMimeHeader() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *AS2EnvelopeSettings) *bool {
 		if v == nil {
@@ -910,18 +855,12 @@ func (o AS2EnvelopeSettingsPtrOutput) TransmitFileNameInMimeHeader() pulumi.Bool
 	}).(pulumi.BoolPtrOutput)
 }
 
-// The AS2 agreement envelope settings.
 type AS2EnvelopeSettingsResponse struct {
-	// The value indicating whether to auto generate file name.
-	AutogenerateFileName bool `pulumi:"autogenerateFileName"`
-	// The template for file name.
-	FileNameTemplate string `pulumi:"fileNameTemplate"`
-	// The message content type.
-	MessageContentType string `pulumi:"messageContentType"`
-	// The value indicating whether to suspend message on file name generation error.
-	SuspendMessageOnFileNameGenerationError bool `pulumi:"suspendMessageOnFileNameGenerationError"`
-	// The value indicating whether to transmit file name in mime header.
-	TransmitFileNameInMimeHeader bool `pulumi:"transmitFileNameInMimeHeader"`
+	AutogenerateFileName                    bool   `pulumi:"autogenerateFileName"`
+	FileNameTemplate                        string `pulumi:"fileNameTemplate"`
+	MessageContentType                      string `pulumi:"messageContentType"`
+	SuspendMessageOnFileNameGenerationError bool   `pulumi:"suspendMessageOnFileNameGenerationError"`
+	TransmitFileNameInMimeHeader            bool   `pulumi:"transmitFileNameInMimeHeader"`
 }
 
 // AS2EnvelopeSettingsResponseInput is an input type that accepts AS2EnvelopeSettingsResponseArgs and AS2EnvelopeSettingsResponseOutput values.
@@ -935,18 +874,12 @@ type AS2EnvelopeSettingsResponseInput interface {
 	ToAS2EnvelopeSettingsResponseOutputWithContext(context.Context) AS2EnvelopeSettingsResponseOutput
 }
 
-// The AS2 agreement envelope settings.
 type AS2EnvelopeSettingsResponseArgs struct {
-	// The value indicating whether to auto generate file name.
-	AutogenerateFileName pulumi.BoolInput `pulumi:"autogenerateFileName"`
-	// The template for file name.
-	FileNameTemplate pulumi.StringInput `pulumi:"fileNameTemplate"`
-	// The message content type.
-	MessageContentType pulumi.StringInput `pulumi:"messageContentType"`
-	// The value indicating whether to suspend message on file name generation error.
-	SuspendMessageOnFileNameGenerationError pulumi.BoolInput `pulumi:"suspendMessageOnFileNameGenerationError"`
-	// The value indicating whether to transmit file name in mime header.
-	TransmitFileNameInMimeHeader pulumi.BoolInput `pulumi:"transmitFileNameInMimeHeader"`
+	AutogenerateFileName                    pulumi.BoolInput   `pulumi:"autogenerateFileName"`
+	FileNameTemplate                        pulumi.StringInput `pulumi:"fileNameTemplate"`
+	MessageContentType                      pulumi.StringInput `pulumi:"messageContentType"`
+	SuspendMessageOnFileNameGenerationError pulumi.BoolInput   `pulumi:"suspendMessageOnFileNameGenerationError"`
+	TransmitFileNameInMimeHeader            pulumi.BoolInput   `pulumi:"transmitFileNameInMimeHeader"`
 }
 
 func (AS2EnvelopeSettingsResponseArgs) ElementType() reflect.Type {
@@ -1002,7 +935,6 @@ func (i *as2envelopeSettingsResponsePtrType) ToAS2EnvelopeSettingsResponsePtrOut
 	return pulumi.ToOutputWithContext(ctx, i).(AS2EnvelopeSettingsResponsePtrOutput)
 }
 
-// The AS2 agreement envelope settings.
 type AS2EnvelopeSettingsResponseOutput struct{ *pulumi.OutputState }
 
 func (AS2EnvelopeSettingsResponseOutput) ElementType() reflect.Type {
@@ -1022,32 +954,27 @@ func (o AS2EnvelopeSettingsResponseOutput) ToAS2EnvelopeSettingsResponsePtrOutpu
 }
 
 func (o AS2EnvelopeSettingsResponseOutput) ToAS2EnvelopeSettingsResponsePtrOutputWithContext(ctx context.Context) AS2EnvelopeSettingsResponsePtrOutput {
-	return o.ApplyT(func(v AS2EnvelopeSettingsResponse) *AS2EnvelopeSettingsResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v AS2EnvelopeSettingsResponse) *AS2EnvelopeSettingsResponse {
 		return &v
 	}).(AS2EnvelopeSettingsResponsePtrOutput)
 }
 
-// The value indicating whether to auto generate file name.
 func (o AS2EnvelopeSettingsResponseOutput) AutogenerateFileName() pulumi.BoolOutput {
 	return o.ApplyT(func(v AS2EnvelopeSettingsResponse) bool { return v.AutogenerateFileName }).(pulumi.BoolOutput)
 }
 
-// The template for file name.
 func (o AS2EnvelopeSettingsResponseOutput) FileNameTemplate() pulumi.StringOutput {
 	return o.ApplyT(func(v AS2EnvelopeSettingsResponse) string { return v.FileNameTemplate }).(pulumi.StringOutput)
 }
 
-// The message content type.
 func (o AS2EnvelopeSettingsResponseOutput) MessageContentType() pulumi.StringOutput {
 	return o.ApplyT(func(v AS2EnvelopeSettingsResponse) string { return v.MessageContentType }).(pulumi.StringOutput)
 }
 
-// The value indicating whether to suspend message on file name generation error.
 func (o AS2EnvelopeSettingsResponseOutput) SuspendMessageOnFileNameGenerationError() pulumi.BoolOutput {
 	return o.ApplyT(func(v AS2EnvelopeSettingsResponse) bool { return v.SuspendMessageOnFileNameGenerationError }).(pulumi.BoolOutput)
 }
 
-// The value indicating whether to transmit file name in mime header.
 func (o AS2EnvelopeSettingsResponseOutput) TransmitFileNameInMimeHeader() pulumi.BoolOutput {
 	return o.ApplyT(func(v AS2EnvelopeSettingsResponse) bool { return v.TransmitFileNameInMimeHeader }).(pulumi.BoolOutput)
 }
@@ -1067,10 +994,15 @@ func (o AS2EnvelopeSettingsResponsePtrOutput) ToAS2EnvelopeSettingsResponsePtrOu
 }
 
 func (o AS2EnvelopeSettingsResponsePtrOutput) Elem() AS2EnvelopeSettingsResponseOutput {
-	return o.ApplyT(func(v *AS2EnvelopeSettingsResponse) AS2EnvelopeSettingsResponse { return *v }).(AS2EnvelopeSettingsResponseOutput)
+	return o.ApplyT(func(v *AS2EnvelopeSettingsResponse) AS2EnvelopeSettingsResponse {
+		if v != nil {
+			return *v
+		}
+		var ret AS2EnvelopeSettingsResponse
+		return ret
+	}).(AS2EnvelopeSettingsResponseOutput)
 }
 
-// The value indicating whether to auto generate file name.
 func (o AS2EnvelopeSettingsResponsePtrOutput) AutogenerateFileName() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *AS2EnvelopeSettingsResponse) *bool {
 		if v == nil {
@@ -1080,7 +1012,6 @@ func (o AS2EnvelopeSettingsResponsePtrOutput) AutogenerateFileName() pulumi.Bool
 	}).(pulumi.BoolPtrOutput)
 }
 
-// The template for file name.
 func (o AS2EnvelopeSettingsResponsePtrOutput) FileNameTemplate() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *AS2EnvelopeSettingsResponse) *string {
 		if v == nil {
@@ -1090,7 +1021,6 @@ func (o AS2EnvelopeSettingsResponsePtrOutput) FileNameTemplate() pulumi.StringPt
 	}).(pulumi.StringPtrOutput)
 }
 
-// The message content type.
 func (o AS2EnvelopeSettingsResponsePtrOutput) MessageContentType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *AS2EnvelopeSettingsResponse) *string {
 		if v == nil {
@@ -1100,7 +1030,6 @@ func (o AS2EnvelopeSettingsResponsePtrOutput) MessageContentType() pulumi.String
 	}).(pulumi.StringPtrOutput)
 }
 
-// The value indicating whether to suspend message on file name generation error.
 func (o AS2EnvelopeSettingsResponsePtrOutput) SuspendMessageOnFileNameGenerationError() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *AS2EnvelopeSettingsResponse) *bool {
 		if v == nil {
@@ -1110,7 +1039,6 @@ func (o AS2EnvelopeSettingsResponsePtrOutput) SuspendMessageOnFileNameGeneration
 	}).(pulumi.BoolPtrOutput)
 }
 
-// The value indicating whether to transmit file name in mime header.
 func (o AS2EnvelopeSettingsResponsePtrOutput) TransmitFileNameInMimeHeader() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *AS2EnvelopeSettingsResponse) *bool {
 		if v == nil {
@@ -1120,11 +1048,8 @@ func (o AS2EnvelopeSettingsResponsePtrOutput) TransmitFileNameInMimeHeader() pul
 	}).(pulumi.BoolPtrOutput)
 }
 
-// The AS2 agreement error settings.
 type AS2ErrorSettings struct {
-	// The value indicating whether to resend message If MDN is not received.
-	ResendIfMDNNotReceived bool `pulumi:"resendIfMDNNotReceived"`
-	// The value indicating whether to suspend duplicate message.
+	ResendIfMDNNotReceived  bool `pulumi:"resendIfMDNNotReceived"`
 	SuspendDuplicateMessage bool `pulumi:"suspendDuplicateMessage"`
 }
 
@@ -1139,11 +1064,8 @@ type AS2ErrorSettingsInput interface {
 	ToAS2ErrorSettingsOutputWithContext(context.Context) AS2ErrorSettingsOutput
 }
 
-// The AS2 agreement error settings.
 type AS2ErrorSettingsArgs struct {
-	// The value indicating whether to resend message If MDN is not received.
-	ResendIfMDNNotReceived pulumi.BoolInput `pulumi:"resendIfMDNNotReceived"`
-	// The value indicating whether to suspend duplicate message.
+	ResendIfMDNNotReceived  pulumi.BoolInput `pulumi:"resendIfMDNNotReceived"`
 	SuspendDuplicateMessage pulumi.BoolInput `pulumi:"suspendDuplicateMessage"`
 }
 
@@ -1200,7 +1122,6 @@ func (i *as2errorSettingsPtrType) ToAS2ErrorSettingsPtrOutputWithContext(ctx con
 	return pulumi.ToOutputWithContext(ctx, i).(AS2ErrorSettingsPtrOutput)
 }
 
-// The AS2 agreement error settings.
 type AS2ErrorSettingsOutput struct{ *pulumi.OutputState }
 
 func (AS2ErrorSettingsOutput) ElementType() reflect.Type {
@@ -1220,17 +1141,15 @@ func (o AS2ErrorSettingsOutput) ToAS2ErrorSettingsPtrOutput() AS2ErrorSettingsPt
 }
 
 func (o AS2ErrorSettingsOutput) ToAS2ErrorSettingsPtrOutputWithContext(ctx context.Context) AS2ErrorSettingsPtrOutput {
-	return o.ApplyT(func(v AS2ErrorSettings) *AS2ErrorSettings {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v AS2ErrorSettings) *AS2ErrorSettings {
 		return &v
 	}).(AS2ErrorSettingsPtrOutput)
 }
 
-// The value indicating whether to resend message If MDN is not received.
 func (o AS2ErrorSettingsOutput) ResendIfMDNNotReceived() pulumi.BoolOutput {
 	return o.ApplyT(func(v AS2ErrorSettings) bool { return v.ResendIfMDNNotReceived }).(pulumi.BoolOutput)
 }
 
-// The value indicating whether to suspend duplicate message.
 func (o AS2ErrorSettingsOutput) SuspendDuplicateMessage() pulumi.BoolOutput {
 	return o.ApplyT(func(v AS2ErrorSettings) bool { return v.SuspendDuplicateMessage }).(pulumi.BoolOutput)
 }
@@ -1250,10 +1169,15 @@ func (o AS2ErrorSettingsPtrOutput) ToAS2ErrorSettingsPtrOutputWithContext(ctx co
 }
 
 func (o AS2ErrorSettingsPtrOutput) Elem() AS2ErrorSettingsOutput {
-	return o.ApplyT(func(v *AS2ErrorSettings) AS2ErrorSettings { return *v }).(AS2ErrorSettingsOutput)
+	return o.ApplyT(func(v *AS2ErrorSettings) AS2ErrorSettings {
+		if v != nil {
+			return *v
+		}
+		var ret AS2ErrorSettings
+		return ret
+	}).(AS2ErrorSettingsOutput)
 }
 
-// The value indicating whether to resend message If MDN is not received.
 func (o AS2ErrorSettingsPtrOutput) ResendIfMDNNotReceived() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *AS2ErrorSettings) *bool {
 		if v == nil {
@@ -1263,7 +1187,6 @@ func (o AS2ErrorSettingsPtrOutput) ResendIfMDNNotReceived() pulumi.BoolPtrOutput
 	}).(pulumi.BoolPtrOutput)
 }
 
-// The value indicating whether to suspend duplicate message.
 func (o AS2ErrorSettingsPtrOutput) SuspendDuplicateMessage() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *AS2ErrorSettings) *bool {
 		if v == nil {
@@ -1273,11 +1196,8 @@ func (o AS2ErrorSettingsPtrOutput) SuspendDuplicateMessage() pulumi.BoolPtrOutpu
 	}).(pulumi.BoolPtrOutput)
 }
 
-// The AS2 agreement error settings.
 type AS2ErrorSettingsResponse struct {
-	// The value indicating whether to resend message If MDN is not received.
-	ResendIfMDNNotReceived bool `pulumi:"resendIfMDNNotReceived"`
-	// The value indicating whether to suspend duplicate message.
+	ResendIfMDNNotReceived  bool `pulumi:"resendIfMDNNotReceived"`
 	SuspendDuplicateMessage bool `pulumi:"suspendDuplicateMessage"`
 }
 
@@ -1292,11 +1212,8 @@ type AS2ErrorSettingsResponseInput interface {
 	ToAS2ErrorSettingsResponseOutputWithContext(context.Context) AS2ErrorSettingsResponseOutput
 }
 
-// The AS2 agreement error settings.
 type AS2ErrorSettingsResponseArgs struct {
-	// The value indicating whether to resend message If MDN is not received.
-	ResendIfMDNNotReceived pulumi.BoolInput `pulumi:"resendIfMDNNotReceived"`
-	// The value indicating whether to suspend duplicate message.
+	ResendIfMDNNotReceived  pulumi.BoolInput `pulumi:"resendIfMDNNotReceived"`
 	SuspendDuplicateMessage pulumi.BoolInput `pulumi:"suspendDuplicateMessage"`
 }
 
@@ -1353,7 +1270,6 @@ func (i *as2errorSettingsResponsePtrType) ToAS2ErrorSettingsResponsePtrOutputWit
 	return pulumi.ToOutputWithContext(ctx, i).(AS2ErrorSettingsResponsePtrOutput)
 }
 
-// The AS2 agreement error settings.
 type AS2ErrorSettingsResponseOutput struct{ *pulumi.OutputState }
 
 func (AS2ErrorSettingsResponseOutput) ElementType() reflect.Type {
@@ -1373,17 +1289,15 @@ func (o AS2ErrorSettingsResponseOutput) ToAS2ErrorSettingsResponsePtrOutput() AS
 }
 
 func (o AS2ErrorSettingsResponseOutput) ToAS2ErrorSettingsResponsePtrOutputWithContext(ctx context.Context) AS2ErrorSettingsResponsePtrOutput {
-	return o.ApplyT(func(v AS2ErrorSettingsResponse) *AS2ErrorSettingsResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v AS2ErrorSettingsResponse) *AS2ErrorSettingsResponse {
 		return &v
 	}).(AS2ErrorSettingsResponsePtrOutput)
 }
 
-// The value indicating whether to resend message If MDN is not received.
 func (o AS2ErrorSettingsResponseOutput) ResendIfMDNNotReceived() pulumi.BoolOutput {
 	return o.ApplyT(func(v AS2ErrorSettingsResponse) bool { return v.ResendIfMDNNotReceived }).(pulumi.BoolOutput)
 }
 
-// The value indicating whether to suspend duplicate message.
 func (o AS2ErrorSettingsResponseOutput) SuspendDuplicateMessage() pulumi.BoolOutput {
 	return o.ApplyT(func(v AS2ErrorSettingsResponse) bool { return v.SuspendDuplicateMessage }).(pulumi.BoolOutput)
 }
@@ -1403,10 +1317,15 @@ func (o AS2ErrorSettingsResponsePtrOutput) ToAS2ErrorSettingsResponsePtrOutputWi
 }
 
 func (o AS2ErrorSettingsResponsePtrOutput) Elem() AS2ErrorSettingsResponseOutput {
-	return o.ApplyT(func(v *AS2ErrorSettingsResponse) AS2ErrorSettingsResponse { return *v }).(AS2ErrorSettingsResponseOutput)
+	return o.ApplyT(func(v *AS2ErrorSettingsResponse) AS2ErrorSettingsResponse {
+		if v != nil {
+			return *v
+		}
+		var ret AS2ErrorSettingsResponse
+		return ret
+	}).(AS2ErrorSettingsResponseOutput)
 }
 
-// The value indicating whether to resend message If MDN is not received.
 func (o AS2ErrorSettingsResponsePtrOutput) ResendIfMDNNotReceived() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *AS2ErrorSettingsResponse) *bool {
 		if v == nil {
@@ -1416,7 +1335,6 @@ func (o AS2ErrorSettingsResponsePtrOutput) ResendIfMDNNotReceived() pulumi.BoolP
 	}).(pulumi.BoolPtrOutput)
 }
 
-// The value indicating whether to suspend duplicate message.
 func (o AS2ErrorSettingsResponsePtrOutput) SuspendDuplicateMessage() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *AS2ErrorSettingsResponse) *bool {
 		if v == nil {
@@ -1426,26 +1344,16 @@ func (o AS2ErrorSettingsResponsePtrOutput) SuspendDuplicateMessage() pulumi.Bool
 	}).(pulumi.BoolPtrOutput)
 }
 
-// The AS2 agreement mdn settings.
 type AS2MdnSettings struct {
-	// The disposition notification to header value.
-	DispositionNotificationTo *string `pulumi:"dispositionNotificationTo"`
-	// The MDN text.
-	MdnText *string `pulumi:"mdnText"`
-	// The signing or hashing algorithm.
-	MicHashingAlgorithm string `pulumi:"micHashingAlgorithm"`
-	// The value indicating whether to send or request a MDN.
-	NeedMDN bool `pulumi:"needMDN"`
-	// The receipt delivery URL.
-	ReceiptDeliveryUrl *string `pulumi:"receiptDeliveryUrl"`
-	// The value indicating whether to send inbound MDN to message box.
-	SendInboundMDNToMessageBox bool `pulumi:"sendInboundMDNToMessageBox"`
-	// The value indicating whether to send the asynchronous MDN.
-	SendMDNAsynchronously bool `pulumi:"sendMDNAsynchronously"`
-	// The value indicating whether the MDN needs to be signed or not.
-	SignMDN bool `pulumi:"signMDN"`
-	// The value indicating whether to sign the outbound MDN if optional.
-	SignOutboundMDNIfOptional bool `pulumi:"signOutboundMDNIfOptional"`
+	DispositionNotificationTo  *string `pulumi:"dispositionNotificationTo"`
+	MdnText                    *string `pulumi:"mdnText"`
+	MicHashingAlgorithm        string  `pulumi:"micHashingAlgorithm"`
+	NeedMDN                    bool    `pulumi:"needMDN"`
+	ReceiptDeliveryUrl         *string `pulumi:"receiptDeliveryUrl"`
+	SendInboundMDNToMessageBox bool    `pulumi:"sendInboundMDNToMessageBox"`
+	SendMDNAsynchronously      bool    `pulumi:"sendMDNAsynchronously"`
+	SignMDN                    bool    `pulumi:"signMDN"`
+	SignOutboundMDNIfOptional  bool    `pulumi:"signOutboundMDNIfOptional"`
 }
 
 // AS2MdnSettingsInput is an input type that accepts AS2MdnSettingsArgs and AS2MdnSettingsOutput values.
@@ -1459,26 +1367,16 @@ type AS2MdnSettingsInput interface {
 	ToAS2MdnSettingsOutputWithContext(context.Context) AS2MdnSettingsOutput
 }
 
-// The AS2 agreement mdn settings.
 type AS2MdnSettingsArgs struct {
-	// The disposition notification to header value.
-	DispositionNotificationTo pulumi.StringPtrInput `pulumi:"dispositionNotificationTo"`
-	// The MDN text.
-	MdnText pulumi.StringPtrInput `pulumi:"mdnText"`
-	// The signing or hashing algorithm.
-	MicHashingAlgorithm pulumi.StringInput `pulumi:"micHashingAlgorithm"`
-	// The value indicating whether to send or request a MDN.
-	NeedMDN pulumi.BoolInput `pulumi:"needMDN"`
-	// The receipt delivery URL.
-	ReceiptDeliveryUrl pulumi.StringPtrInput `pulumi:"receiptDeliveryUrl"`
-	// The value indicating whether to send inbound MDN to message box.
-	SendInboundMDNToMessageBox pulumi.BoolInput `pulumi:"sendInboundMDNToMessageBox"`
-	// The value indicating whether to send the asynchronous MDN.
-	SendMDNAsynchronously pulumi.BoolInput `pulumi:"sendMDNAsynchronously"`
-	// The value indicating whether the MDN needs to be signed or not.
-	SignMDN pulumi.BoolInput `pulumi:"signMDN"`
-	// The value indicating whether to sign the outbound MDN if optional.
-	SignOutboundMDNIfOptional pulumi.BoolInput `pulumi:"signOutboundMDNIfOptional"`
+	DispositionNotificationTo  pulumi.StringPtrInput `pulumi:"dispositionNotificationTo"`
+	MdnText                    pulumi.StringPtrInput `pulumi:"mdnText"`
+	MicHashingAlgorithm        pulumi.StringInput    `pulumi:"micHashingAlgorithm"`
+	NeedMDN                    pulumi.BoolInput      `pulumi:"needMDN"`
+	ReceiptDeliveryUrl         pulumi.StringPtrInput `pulumi:"receiptDeliveryUrl"`
+	SendInboundMDNToMessageBox pulumi.BoolInput      `pulumi:"sendInboundMDNToMessageBox"`
+	SendMDNAsynchronously      pulumi.BoolInput      `pulumi:"sendMDNAsynchronously"`
+	SignMDN                    pulumi.BoolInput      `pulumi:"signMDN"`
+	SignOutboundMDNIfOptional  pulumi.BoolInput      `pulumi:"signOutboundMDNIfOptional"`
 }
 
 func (AS2MdnSettingsArgs) ElementType() reflect.Type {
@@ -1534,7 +1432,6 @@ func (i *as2mdnSettingsPtrType) ToAS2MdnSettingsPtrOutputWithContext(ctx context
 	return pulumi.ToOutputWithContext(ctx, i).(AS2MdnSettingsPtrOutput)
 }
 
-// The AS2 agreement mdn settings.
 type AS2MdnSettingsOutput struct{ *pulumi.OutputState }
 
 func (AS2MdnSettingsOutput) ElementType() reflect.Type {
@@ -1554,52 +1451,43 @@ func (o AS2MdnSettingsOutput) ToAS2MdnSettingsPtrOutput() AS2MdnSettingsPtrOutpu
 }
 
 func (o AS2MdnSettingsOutput) ToAS2MdnSettingsPtrOutputWithContext(ctx context.Context) AS2MdnSettingsPtrOutput {
-	return o.ApplyT(func(v AS2MdnSettings) *AS2MdnSettings {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v AS2MdnSettings) *AS2MdnSettings {
 		return &v
 	}).(AS2MdnSettingsPtrOutput)
 }
 
-// The disposition notification to header value.
 func (o AS2MdnSettingsOutput) DispositionNotificationTo() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AS2MdnSettings) *string { return v.DispositionNotificationTo }).(pulumi.StringPtrOutput)
 }
 
-// The MDN text.
 func (o AS2MdnSettingsOutput) MdnText() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AS2MdnSettings) *string { return v.MdnText }).(pulumi.StringPtrOutput)
 }
 
-// The signing or hashing algorithm.
 func (o AS2MdnSettingsOutput) MicHashingAlgorithm() pulumi.StringOutput {
 	return o.ApplyT(func(v AS2MdnSettings) string { return v.MicHashingAlgorithm }).(pulumi.StringOutput)
 }
 
-// The value indicating whether to send or request a MDN.
 func (o AS2MdnSettingsOutput) NeedMDN() pulumi.BoolOutput {
 	return o.ApplyT(func(v AS2MdnSettings) bool { return v.NeedMDN }).(pulumi.BoolOutput)
 }
 
-// The receipt delivery URL.
 func (o AS2MdnSettingsOutput) ReceiptDeliveryUrl() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AS2MdnSettings) *string { return v.ReceiptDeliveryUrl }).(pulumi.StringPtrOutput)
 }
 
-// The value indicating whether to send inbound MDN to message box.
 func (o AS2MdnSettingsOutput) SendInboundMDNToMessageBox() pulumi.BoolOutput {
 	return o.ApplyT(func(v AS2MdnSettings) bool { return v.SendInboundMDNToMessageBox }).(pulumi.BoolOutput)
 }
 
-// The value indicating whether to send the asynchronous MDN.
 func (o AS2MdnSettingsOutput) SendMDNAsynchronously() pulumi.BoolOutput {
 	return o.ApplyT(func(v AS2MdnSettings) bool { return v.SendMDNAsynchronously }).(pulumi.BoolOutput)
 }
 
-// The value indicating whether the MDN needs to be signed or not.
 func (o AS2MdnSettingsOutput) SignMDN() pulumi.BoolOutput {
 	return o.ApplyT(func(v AS2MdnSettings) bool { return v.SignMDN }).(pulumi.BoolOutput)
 }
 
-// The value indicating whether to sign the outbound MDN if optional.
 func (o AS2MdnSettingsOutput) SignOutboundMDNIfOptional() pulumi.BoolOutput {
 	return o.ApplyT(func(v AS2MdnSettings) bool { return v.SignOutboundMDNIfOptional }).(pulumi.BoolOutput)
 }
@@ -1619,10 +1507,15 @@ func (o AS2MdnSettingsPtrOutput) ToAS2MdnSettingsPtrOutputWithContext(ctx contex
 }
 
 func (o AS2MdnSettingsPtrOutput) Elem() AS2MdnSettingsOutput {
-	return o.ApplyT(func(v *AS2MdnSettings) AS2MdnSettings { return *v }).(AS2MdnSettingsOutput)
+	return o.ApplyT(func(v *AS2MdnSettings) AS2MdnSettings {
+		if v != nil {
+			return *v
+		}
+		var ret AS2MdnSettings
+		return ret
+	}).(AS2MdnSettingsOutput)
 }
 
-// The disposition notification to header value.
 func (o AS2MdnSettingsPtrOutput) DispositionNotificationTo() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *AS2MdnSettings) *string {
 		if v == nil {
@@ -1632,7 +1525,6 @@ func (o AS2MdnSettingsPtrOutput) DispositionNotificationTo() pulumi.StringPtrOut
 	}).(pulumi.StringPtrOutput)
 }
 
-// The MDN text.
 func (o AS2MdnSettingsPtrOutput) MdnText() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *AS2MdnSettings) *string {
 		if v == nil {
@@ -1642,7 +1534,6 @@ func (o AS2MdnSettingsPtrOutput) MdnText() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The signing or hashing algorithm.
 func (o AS2MdnSettingsPtrOutput) MicHashingAlgorithm() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *AS2MdnSettings) *string {
 		if v == nil {
@@ -1652,7 +1543,6 @@ func (o AS2MdnSettingsPtrOutput) MicHashingAlgorithm() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The value indicating whether to send or request a MDN.
 func (o AS2MdnSettingsPtrOutput) NeedMDN() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *AS2MdnSettings) *bool {
 		if v == nil {
@@ -1662,7 +1552,6 @@ func (o AS2MdnSettingsPtrOutput) NeedMDN() pulumi.BoolPtrOutput {
 	}).(pulumi.BoolPtrOutput)
 }
 
-// The receipt delivery URL.
 func (o AS2MdnSettingsPtrOutput) ReceiptDeliveryUrl() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *AS2MdnSettings) *string {
 		if v == nil {
@@ -1672,7 +1561,6 @@ func (o AS2MdnSettingsPtrOutput) ReceiptDeliveryUrl() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The value indicating whether to send inbound MDN to message box.
 func (o AS2MdnSettingsPtrOutput) SendInboundMDNToMessageBox() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *AS2MdnSettings) *bool {
 		if v == nil {
@@ -1682,7 +1570,6 @@ func (o AS2MdnSettingsPtrOutput) SendInboundMDNToMessageBox() pulumi.BoolPtrOutp
 	}).(pulumi.BoolPtrOutput)
 }
 
-// The value indicating whether to send the asynchronous MDN.
 func (o AS2MdnSettingsPtrOutput) SendMDNAsynchronously() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *AS2MdnSettings) *bool {
 		if v == nil {
@@ -1692,7 +1579,6 @@ func (o AS2MdnSettingsPtrOutput) SendMDNAsynchronously() pulumi.BoolPtrOutput {
 	}).(pulumi.BoolPtrOutput)
 }
 
-// The value indicating whether the MDN needs to be signed or not.
 func (o AS2MdnSettingsPtrOutput) SignMDN() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *AS2MdnSettings) *bool {
 		if v == nil {
@@ -1702,7 +1588,6 @@ func (o AS2MdnSettingsPtrOutput) SignMDN() pulumi.BoolPtrOutput {
 	}).(pulumi.BoolPtrOutput)
 }
 
-// The value indicating whether to sign the outbound MDN if optional.
 func (o AS2MdnSettingsPtrOutput) SignOutboundMDNIfOptional() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *AS2MdnSettings) *bool {
 		if v == nil {
@@ -1712,26 +1597,16 @@ func (o AS2MdnSettingsPtrOutput) SignOutboundMDNIfOptional() pulumi.BoolPtrOutpu
 	}).(pulumi.BoolPtrOutput)
 }
 
-// The AS2 agreement mdn settings.
 type AS2MdnSettingsResponse struct {
-	// The disposition notification to header value.
-	DispositionNotificationTo *string `pulumi:"dispositionNotificationTo"`
-	// The MDN text.
-	MdnText *string `pulumi:"mdnText"`
-	// The signing or hashing algorithm.
-	MicHashingAlgorithm string `pulumi:"micHashingAlgorithm"`
-	// The value indicating whether to send or request a MDN.
-	NeedMDN bool `pulumi:"needMDN"`
-	// The receipt delivery URL.
-	ReceiptDeliveryUrl *string `pulumi:"receiptDeliveryUrl"`
-	// The value indicating whether to send inbound MDN to message box.
-	SendInboundMDNToMessageBox bool `pulumi:"sendInboundMDNToMessageBox"`
-	// The value indicating whether to send the asynchronous MDN.
-	SendMDNAsynchronously bool `pulumi:"sendMDNAsynchronously"`
-	// The value indicating whether the MDN needs to be signed or not.
-	SignMDN bool `pulumi:"signMDN"`
-	// The value indicating whether to sign the outbound MDN if optional.
-	SignOutboundMDNIfOptional bool `pulumi:"signOutboundMDNIfOptional"`
+	DispositionNotificationTo  *string `pulumi:"dispositionNotificationTo"`
+	MdnText                    *string `pulumi:"mdnText"`
+	MicHashingAlgorithm        string  `pulumi:"micHashingAlgorithm"`
+	NeedMDN                    bool    `pulumi:"needMDN"`
+	ReceiptDeliveryUrl         *string `pulumi:"receiptDeliveryUrl"`
+	SendInboundMDNToMessageBox bool    `pulumi:"sendInboundMDNToMessageBox"`
+	SendMDNAsynchronously      bool    `pulumi:"sendMDNAsynchronously"`
+	SignMDN                    bool    `pulumi:"signMDN"`
+	SignOutboundMDNIfOptional  bool    `pulumi:"signOutboundMDNIfOptional"`
 }
 
 // AS2MdnSettingsResponseInput is an input type that accepts AS2MdnSettingsResponseArgs and AS2MdnSettingsResponseOutput values.
@@ -1745,26 +1620,16 @@ type AS2MdnSettingsResponseInput interface {
 	ToAS2MdnSettingsResponseOutputWithContext(context.Context) AS2MdnSettingsResponseOutput
 }
 
-// The AS2 agreement mdn settings.
 type AS2MdnSettingsResponseArgs struct {
-	// The disposition notification to header value.
-	DispositionNotificationTo pulumi.StringPtrInput `pulumi:"dispositionNotificationTo"`
-	// The MDN text.
-	MdnText pulumi.StringPtrInput `pulumi:"mdnText"`
-	// The signing or hashing algorithm.
-	MicHashingAlgorithm pulumi.StringInput `pulumi:"micHashingAlgorithm"`
-	// The value indicating whether to send or request a MDN.
-	NeedMDN pulumi.BoolInput `pulumi:"needMDN"`
-	// The receipt delivery URL.
-	ReceiptDeliveryUrl pulumi.StringPtrInput `pulumi:"receiptDeliveryUrl"`
-	// The value indicating whether to send inbound MDN to message box.
-	SendInboundMDNToMessageBox pulumi.BoolInput `pulumi:"sendInboundMDNToMessageBox"`
-	// The value indicating whether to send the asynchronous MDN.
-	SendMDNAsynchronously pulumi.BoolInput `pulumi:"sendMDNAsynchronously"`
-	// The value indicating whether the MDN needs to be signed or not.
-	SignMDN pulumi.BoolInput `pulumi:"signMDN"`
-	// The value indicating whether to sign the outbound MDN if optional.
-	SignOutboundMDNIfOptional pulumi.BoolInput `pulumi:"signOutboundMDNIfOptional"`
+	DispositionNotificationTo  pulumi.StringPtrInput `pulumi:"dispositionNotificationTo"`
+	MdnText                    pulumi.StringPtrInput `pulumi:"mdnText"`
+	MicHashingAlgorithm        pulumi.StringInput    `pulumi:"micHashingAlgorithm"`
+	NeedMDN                    pulumi.BoolInput      `pulumi:"needMDN"`
+	ReceiptDeliveryUrl         pulumi.StringPtrInput `pulumi:"receiptDeliveryUrl"`
+	SendInboundMDNToMessageBox pulumi.BoolInput      `pulumi:"sendInboundMDNToMessageBox"`
+	SendMDNAsynchronously      pulumi.BoolInput      `pulumi:"sendMDNAsynchronously"`
+	SignMDN                    pulumi.BoolInput      `pulumi:"signMDN"`
+	SignOutboundMDNIfOptional  pulumi.BoolInput      `pulumi:"signOutboundMDNIfOptional"`
 }
 
 func (AS2MdnSettingsResponseArgs) ElementType() reflect.Type {
@@ -1820,7 +1685,6 @@ func (i *as2mdnSettingsResponsePtrType) ToAS2MdnSettingsResponsePtrOutputWithCon
 	return pulumi.ToOutputWithContext(ctx, i).(AS2MdnSettingsResponsePtrOutput)
 }
 
-// The AS2 agreement mdn settings.
 type AS2MdnSettingsResponseOutput struct{ *pulumi.OutputState }
 
 func (AS2MdnSettingsResponseOutput) ElementType() reflect.Type {
@@ -1840,52 +1704,43 @@ func (o AS2MdnSettingsResponseOutput) ToAS2MdnSettingsResponsePtrOutput() AS2Mdn
 }
 
 func (o AS2MdnSettingsResponseOutput) ToAS2MdnSettingsResponsePtrOutputWithContext(ctx context.Context) AS2MdnSettingsResponsePtrOutput {
-	return o.ApplyT(func(v AS2MdnSettingsResponse) *AS2MdnSettingsResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v AS2MdnSettingsResponse) *AS2MdnSettingsResponse {
 		return &v
 	}).(AS2MdnSettingsResponsePtrOutput)
 }
 
-// The disposition notification to header value.
 func (o AS2MdnSettingsResponseOutput) DispositionNotificationTo() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AS2MdnSettingsResponse) *string { return v.DispositionNotificationTo }).(pulumi.StringPtrOutput)
 }
 
-// The MDN text.
 func (o AS2MdnSettingsResponseOutput) MdnText() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AS2MdnSettingsResponse) *string { return v.MdnText }).(pulumi.StringPtrOutput)
 }
 
-// The signing or hashing algorithm.
 func (o AS2MdnSettingsResponseOutput) MicHashingAlgorithm() pulumi.StringOutput {
 	return o.ApplyT(func(v AS2MdnSettingsResponse) string { return v.MicHashingAlgorithm }).(pulumi.StringOutput)
 }
 
-// The value indicating whether to send or request a MDN.
 func (o AS2MdnSettingsResponseOutput) NeedMDN() pulumi.BoolOutput {
 	return o.ApplyT(func(v AS2MdnSettingsResponse) bool { return v.NeedMDN }).(pulumi.BoolOutput)
 }
 
-// The receipt delivery URL.
 func (o AS2MdnSettingsResponseOutput) ReceiptDeliveryUrl() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AS2MdnSettingsResponse) *string { return v.ReceiptDeliveryUrl }).(pulumi.StringPtrOutput)
 }
 
-// The value indicating whether to send inbound MDN to message box.
 func (o AS2MdnSettingsResponseOutput) SendInboundMDNToMessageBox() pulumi.BoolOutput {
 	return o.ApplyT(func(v AS2MdnSettingsResponse) bool { return v.SendInboundMDNToMessageBox }).(pulumi.BoolOutput)
 }
 
-// The value indicating whether to send the asynchronous MDN.
 func (o AS2MdnSettingsResponseOutput) SendMDNAsynchronously() pulumi.BoolOutput {
 	return o.ApplyT(func(v AS2MdnSettingsResponse) bool { return v.SendMDNAsynchronously }).(pulumi.BoolOutput)
 }
 
-// The value indicating whether the MDN needs to be signed or not.
 func (o AS2MdnSettingsResponseOutput) SignMDN() pulumi.BoolOutput {
 	return o.ApplyT(func(v AS2MdnSettingsResponse) bool { return v.SignMDN }).(pulumi.BoolOutput)
 }
 
-// The value indicating whether to sign the outbound MDN if optional.
 func (o AS2MdnSettingsResponseOutput) SignOutboundMDNIfOptional() pulumi.BoolOutput {
 	return o.ApplyT(func(v AS2MdnSettingsResponse) bool { return v.SignOutboundMDNIfOptional }).(pulumi.BoolOutput)
 }
@@ -1905,10 +1760,15 @@ func (o AS2MdnSettingsResponsePtrOutput) ToAS2MdnSettingsResponsePtrOutputWithCo
 }
 
 func (o AS2MdnSettingsResponsePtrOutput) Elem() AS2MdnSettingsResponseOutput {
-	return o.ApplyT(func(v *AS2MdnSettingsResponse) AS2MdnSettingsResponse { return *v }).(AS2MdnSettingsResponseOutput)
+	return o.ApplyT(func(v *AS2MdnSettingsResponse) AS2MdnSettingsResponse {
+		if v != nil {
+			return *v
+		}
+		var ret AS2MdnSettingsResponse
+		return ret
+	}).(AS2MdnSettingsResponseOutput)
 }
 
-// The disposition notification to header value.
 func (o AS2MdnSettingsResponsePtrOutput) DispositionNotificationTo() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *AS2MdnSettingsResponse) *string {
 		if v == nil {
@@ -1918,7 +1778,6 @@ func (o AS2MdnSettingsResponsePtrOutput) DispositionNotificationTo() pulumi.Stri
 	}).(pulumi.StringPtrOutput)
 }
 
-// The MDN text.
 func (o AS2MdnSettingsResponsePtrOutput) MdnText() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *AS2MdnSettingsResponse) *string {
 		if v == nil {
@@ -1928,7 +1787,6 @@ func (o AS2MdnSettingsResponsePtrOutput) MdnText() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The signing or hashing algorithm.
 func (o AS2MdnSettingsResponsePtrOutput) MicHashingAlgorithm() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *AS2MdnSettingsResponse) *string {
 		if v == nil {
@@ -1938,7 +1796,6 @@ func (o AS2MdnSettingsResponsePtrOutput) MicHashingAlgorithm() pulumi.StringPtrO
 	}).(pulumi.StringPtrOutput)
 }
 
-// The value indicating whether to send or request a MDN.
 func (o AS2MdnSettingsResponsePtrOutput) NeedMDN() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *AS2MdnSettingsResponse) *bool {
 		if v == nil {
@@ -1948,7 +1805,6 @@ func (o AS2MdnSettingsResponsePtrOutput) NeedMDN() pulumi.BoolPtrOutput {
 	}).(pulumi.BoolPtrOutput)
 }
 
-// The receipt delivery URL.
 func (o AS2MdnSettingsResponsePtrOutput) ReceiptDeliveryUrl() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *AS2MdnSettingsResponse) *string {
 		if v == nil {
@@ -1958,7 +1814,6 @@ func (o AS2MdnSettingsResponsePtrOutput) ReceiptDeliveryUrl() pulumi.StringPtrOu
 	}).(pulumi.StringPtrOutput)
 }
 
-// The value indicating whether to send inbound MDN to message box.
 func (o AS2MdnSettingsResponsePtrOutput) SendInboundMDNToMessageBox() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *AS2MdnSettingsResponse) *bool {
 		if v == nil {
@@ -1968,7 +1823,6 @@ func (o AS2MdnSettingsResponsePtrOutput) SendInboundMDNToMessageBox() pulumi.Boo
 	}).(pulumi.BoolPtrOutput)
 }
 
-// The value indicating whether to send the asynchronous MDN.
 func (o AS2MdnSettingsResponsePtrOutput) SendMDNAsynchronously() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *AS2MdnSettingsResponse) *bool {
 		if v == nil {
@@ -1978,7 +1832,6 @@ func (o AS2MdnSettingsResponsePtrOutput) SendMDNAsynchronously() pulumi.BoolPtrO
 	}).(pulumi.BoolPtrOutput)
 }
 
-// The value indicating whether the MDN needs to be signed or not.
 func (o AS2MdnSettingsResponsePtrOutput) SignMDN() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *AS2MdnSettingsResponse) *bool {
 		if v == nil {
@@ -1988,7 +1841,6 @@ func (o AS2MdnSettingsResponsePtrOutput) SignMDN() pulumi.BoolPtrOutput {
 	}).(pulumi.BoolPtrOutput)
 }
 
-// The value indicating whether to sign the outbound MDN if optional.
 func (o AS2MdnSettingsResponsePtrOutput) SignOutboundMDNIfOptional() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *AS2MdnSettingsResponse) *bool {
 		if v == nil {
@@ -1998,16 +1850,11 @@ func (o AS2MdnSettingsResponsePtrOutput) SignOutboundMDNIfOptional() pulumi.Bool
 	}).(pulumi.BoolPtrOutput)
 }
 
-// The AS2 agreement message connection settings.
 type AS2MessageConnectionSettings struct {
-	// The value indicating whether to ignore mismatch in certificate name.
 	IgnoreCertificateNameMismatch bool `pulumi:"ignoreCertificateNameMismatch"`
-	// The value indicating whether to keep the connection alive.
-	KeepHttpConnectionAlive bool `pulumi:"keepHttpConnectionAlive"`
-	// The value indicating whether to support HTTP status code 'CONTINUE'.
+	KeepHttpConnectionAlive       bool `pulumi:"keepHttpConnectionAlive"`
 	SupportHttpStatusCodeContinue bool `pulumi:"supportHttpStatusCodeContinue"`
-	// The value indicating whether to unfold the HTTP headers.
-	UnfoldHttpHeaders bool `pulumi:"unfoldHttpHeaders"`
+	UnfoldHttpHeaders             bool `pulumi:"unfoldHttpHeaders"`
 }
 
 // AS2MessageConnectionSettingsInput is an input type that accepts AS2MessageConnectionSettingsArgs and AS2MessageConnectionSettingsOutput values.
@@ -2021,16 +1868,11 @@ type AS2MessageConnectionSettingsInput interface {
 	ToAS2MessageConnectionSettingsOutputWithContext(context.Context) AS2MessageConnectionSettingsOutput
 }
 
-// The AS2 agreement message connection settings.
 type AS2MessageConnectionSettingsArgs struct {
-	// The value indicating whether to ignore mismatch in certificate name.
 	IgnoreCertificateNameMismatch pulumi.BoolInput `pulumi:"ignoreCertificateNameMismatch"`
-	// The value indicating whether to keep the connection alive.
-	KeepHttpConnectionAlive pulumi.BoolInput `pulumi:"keepHttpConnectionAlive"`
-	// The value indicating whether to support HTTP status code 'CONTINUE'.
+	KeepHttpConnectionAlive       pulumi.BoolInput `pulumi:"keepHttpConnectionAlive"`
 	SupportHttpStatusCodeContinue pulumi.BoolInput `pulumi:"supportHttpStatusCodeContinue"`
-	// The value indicating whether to unfold the HTTP headers.
-	UnfoldHttpHeaders pulumi.BoolInput `pulumi:"unfoldHttpHeaders"`
+	UnfoldHttpHeaders             pulumi.BoolInput `pulumi:"unfoldHttpHeaders"`
 }
 
 func (AS2MessageConnectionSettingsArgs) ElementType() reflect.Type {
@@ -2086,7 +1928,6 @@ func (i *as2messageConnectionSettingsPtrType) ToAS2MessageConnectionSettingsPtrO
 	return pulumi.ToOutputWithContext(ctx, i).(AS2MessageConnectionSettingsPtrOutput)
 }
 
-// The AS2 agreement message connection settings.
 type AS2MessageConnectionSettingsOutput struct{ *pulumi.OutputState }
 
 func (AS2MessageConnectionSettingsOutput) ElementType() reflect.Type {
@@ -2106,27 +1947,23 @@ func (o AS2MessageConnectionSettingsOutput) ToAS2MessageConnectionSettingsPtrOut
 }
 
 func (o AS2MessageConnectionSettingsOutput) ToAS2MessageConnectionSettingsPtrOutputWithContext(ctx context.Context) AS2MessageConnectionSettingsPtrOutput {
-	return o.ApplyT(func(v AS2MessageConnectionSettings) *AS2MessageConnectionSettings {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v AS2MessageConnectionSettings) *AS2MessageConnectionSettings {
 		return &v
 	}).(AS2MessageConnectionSettingsPtrOutput)
 }
 
-// The value indicating whether to ignore mismatch in certificate name.
 func (o AS2MessageConnectionSettingsOutput) IgnoreCertificateNameMismatch() pulumi.BoolOutput {
 	return o.ApplyT(func(v AS2MessageConnectionSettings) bool { return v.IgnoreCertificateNameMismatch }).(pulumi.BoolOutput)
 }
 
-// The value indicating whether to keep the connection alive.
 func (o AS2MessageConnectionSettingsOutput) KeepHttpConnectionAlive() pulumi.BoolOutput {
 	return o.ApplyT(func(v AS2MessageConnectionSettings) bool { return v.KeepHttpConnectionAlive }).(pulumi.BoolOutput)
 }
 
-// The value indicating whether to support HTTP status code 'CONTINUE'.
 func (o AS2MessageConnectionSettingsOutput) SupportHttpStatusCodeContinue() pulumi.BoolOutput {
 	return o.ApplyT(func(v AS2MessageConnectionSettings) bool { return v.SupportHttpStatusCodeContinue }).(pulumi.BoolOutput)
 }
 
-// The value indicating whether to unfold the HTTP headers.
 func (o AS2MessageConnectionSettingsOutput) UnfoldHttpHeaders() pulumi.BoolOutput {
 	return o.ApplyT(func(v AS2MessageConnectionSettings) bool { return v.UnfoldHttpHeaders }).(pulumi.BoolOutput)
 }
@@ -2146,10 +1983,15 @@ func (o AS2MessageConnectionSettingsPtrOutput) ToAS2MessageConnectionSettingsPtr
 }
 
 func (o AS2MessageConnectionSettingsPtrOutput) Elem() AS2MessageConnectionSettingsOutput {
-	return o.ApplyT(func(v *AS2MessageConnectionSettings) AS2MessageConnectionSettings { return *v }).(AS2MessageConnectionSettingsOutput)
+	return o.ApplyT(func(v *AS2MessageConnectionSettings) AS2MessageConnectionSettings {
+		if v != nil {
+			return *v
+		}
+		var ret AS2MessageConnectionSettings
+		return ret
+	}).(AS2MessageConnectionSettingsOutput)
 }
 
-// The value indicating whether to ignore mismatch in certificate name.
 func (o AS2MessageConnectionSettingsPtrOutput) IgnoreCertificateNameMismatch() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *AS2MessageConnectionSettings) *bool {
 		if v == nil {
@@ -2159,7 +2001,6 @@ func (o AS2MessageConnectionSettingsPtrOutput) IgnoreCertificateNameMismatch() p
 	}).(pulumi.BoolPtrOutput)
 }
 
-// The value indicating whether to keep the connection alive.
 func (o AS2MessageConnectionSettingsPtrOutput) KeepHttpConnectionAlive() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *AS2MessageConnectionSettings) *bool {
 		if v == nil {
@@ -2169,7 +2010,6 @@ func (o AS2MessageConnectionSettingsPtrOutput) KeepHttpConnectionAlive() pulumi.
 	}).(pulumi.BoolPtrOutput)
 }
 
-// The value indicating whether to support HTTP status code 'CONTINUE'.
 func (o AS2MessageConnectionSettingsPtrOutput) SupportHttpStatusCodeContinue() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *AS2MessageConnectionSettings) *bool {
 		if v == nil {
@@ -2179,7 +2019,6 @@ func (o AS2MessageConnectionSettingsPtrOutput) SupportHttpStatusCodeContinue() p
 	}).(pulumi.BoolPtrOutput)
 }
 
-// The value indicating whether to unfold the HTTP headers.
 func (o AS2MessageConnectionSettingsPtrOutput) UnfoldHttpHeaders() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *AS2MessageConnectionSettings) *bool {
 		if v == nil {
@@ -2189,16 +2028,11 @@ func (o AS2MessageConnectionSettingsPtrOutput) UnfoldHttpHeaders() pulumi.BoolPt
 	}).(pulumi.BoolPtrOutput)
 }
 
-// The AS2 agreement message connection settings.
 type AS2MessageConnectionSettingsResponse struct {
-	// The value indicating whether to ignore mismatch in certificate name.
 	IgnoreCertificateNameMismatch bool `pulumi:"ignoreCertificateNameMismatch"`
-	// The value indicating whether to keep the connection alive.
-	KeepHttpConnectionAlive bool `pulumi:"keepHttpConnectionAlive"`
-	// The value indicating whether to support HTTP status code 'CONTINUE'.
+	KeepHttpConnectionAlive       bool `pulumi:"keepHttpConnectionAlive"`
 	SupportHttpStatusCodeContinue bool `pulumi:"supportHttpStatusCodeContinue"`
-	// The value indicating whether to unfold the HTTP headers.
-	UnfoldHttpHeaders bool `pulumi:"unfoldHttpHeaders"`
+	UnfoldHttpHeaders             bool `pulumi:"unfoldHttpHeaders"`
 }
 
 // AS2MessageConnectionSettingsResponseInput is an input type that accepts AS2MessageConnectionSettingsResponseArgs and AS2MessageConnectionSettingsResponseOutput values.
@@ -2212,16 +2046,11 @@ type AS2MessageConnectionSettingsResponseInput interface {
 	ToAS2MessageConnectionSettingsResponseOutputWithContext(context.Context) AS2MessageConnectionSettingsResponseOutput
 }
 
-// The AS2 agreement message connection settings.
 type AS2MessageConnectionSettingsResponseArgs struct {
-	// The value indicating whether to ignore mismatch in certificate name.
 	IgnoreCertificateNameMismatch pulumi.BoolInput `pulumi:"ignoreCertificateNameMismatch"`
-	// The value indicating whether to keep the connection alive.
-	KeepHttpConnectionAlive pulumi.BoolInput `pulumi:"keepHttpConnectionAlive"`
-	// The value indicating whether to support HTTP status code 'CONTINUE'.
+	KeepHttpConnectionAlive       pulumi.BoolInput `pulumi:"keepHttpConnectionAlive"`
 	SupportHttpStatusCodeContinue pulumi.BoolInput `pulumi:"supportHttpStatusCodeContinue"`
-	// The value indicating whether to unfold the HTTP headers.
-	UnfoldHttpHeaders pulumi.BoolInput `pulumi:"unfoldHttpHeaders"`
+	UnfoldHttpHeaders             pulumi.BoolInput `pulumi:"unfoldHttpHeaders"`
 }
 
 func (AS2MessageConnectionSettingsResponseArgs) ElementType() reflect.Type {
@@ -2277,7 +2106,6 @@ func (i *as2messageConnectionSettingsResponsePtrType) ToAS2MessageConnectionSett
 	return pulumi.ToOutputWithContext(ctx, i).(AS2MessageConnectionSettingsResponsePtrOutput)
 }
 
-// The AS2 agreement message connection settings.
 type AS2MessageConnectionSettingsResponseOutput struct{ *pulumi.OutputState }
 
 func (AS2MessageConnectionSettingsResponseOutput) ElementType() reflect.Type {
@@ -2297,27 +2125,23 @@ func (o AS2MessageConnectionSettingsResponseOutput) ToAS2MessageConnectionSettin
 }
 
 func (o AS2MessageConnectionSettingsResponseOutput) ToAS2MessageConnectionSettingsResponsePtrOutputWithContext(ctx context.Context) AS2MessageConnectionSettingsResponsePtrOutput {
-	return o.ApplyT(func(v AS2MessageConnectionSettingsResponse) *AS2MessageConnectionSettingsResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v AS2MessageConnectionSettingsResponse) *AS2MessageConnectionSettingsResponse {
 		return &v
 	}).(AS2MessageConnectionSettingsResponsePtrOutput)
 }
 
-// The value indicating whether to ignore mismatch in certificate name.
 func (o AS2MessageConnectionSettingsResponseOutput) IgnoreCertificateNameMismatch() pulumi.BoolOutput {
 	return o.ApplyT(func(v AS2MessageConnectionSettingsResponse) bool { return v.IgnoreCertificateNameMismatch }).(pulumi.BoolOutput)
 }
 
-// The value indicating whether to keep the connection alive.
 func (o AS2MessageConnectionSettingsResponseOutput) KeepHttpConnectionAlive() pulumi.BoolOutput {
 	return o.ApplyT(func(v AS2MessageConnectionSettingsResponse) bool { return v.KeepHttpConnectionAlive }).(pulumi.BoolOutput)
 }
 
-// The value indicating whether to support HTTP status code 'CONTINUE'.
 func (o AS2MessageConnectionSettingsResponseOutput) SupportHttpStatusCodeContinue() pulumi.BoolOutput {
 	return o.ApplyT(func(v AS2MessageConnectionSettingsResponse) bool { return v.SupportHttpStatusCodeContinue }).(pulumi.BoolOutput)
 }
 
-// The value indicating whether to unfold the HTTP headers.
 func (o AS2MessageConnectionSettingsResponseOutput) UnfoldHttpHeaders() pulumi.BoolOutput {
 	return o.ApplyT(func(v AS2MessageConnectionSettingsResponse) bool { return v.UnfoldHttpHeaders }).(pulumi.BoolOutput)
 }
@@ -2337,10 +2161,15 @@ func (o AS2MessageConnectionSettingsResponsePtrOutput) ToAS2MessageConnectionSet
 }
 
 func (o AS2MessageConnectionSettingsResponsePtrOutput) Elem() AS2MessageConnectionSettingsResponseOutput {
-	return o.ApplyT(func(v *AS2MessageConnectionSettingsResponse) AS2MessageConnectionSettingsResponse { return *v }).(AS2MessageConnectionSettingsResponseOutput)
+	return o.ApplyT(func(v *AS2MessageConnectionSettingsResponse) AS2MessageConnectionSettingsResponse {
+		if v != nil {
+			return *v
+		}
+		var ret AS2MessageConnectionSettingsResponse
+		return ret
+	}).(AS2MessageConnectionSettingsResponseOutput)
 }
 
-// The value indicating whether to ignore mismatch in certificate name.
 func (o AS2MessageConnectionSettingsResponsePtrOutput) IgnoreCertificateNameMismatch() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *AS2MessageConnectionSettingsResponse) *bool {
 		if v == nil {
@@ -2350,7 +2179,6 @@ func (o AS2MessageConnectionSettingsResponsePtrOutput) IgnoreCertificateNameMism
 	}).(pulumi.BoolPtrOutput)
 }
 
-// The value indicating whether to keep the connection alive.
 func (o AS2MessageConnectionSettingsResponsePtrOutput) KeepHttpConnectionAlive() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *AS2MessageConnectionSettingsResponse) *bool {
 		if v == nil {
@@ -2360,7 +2188,6 @@ func (o AS2MessageConnectionSettingsResponsePtrOutput) KeepHttpConnectionAlive()
 	}).(pulumi.BoolPtrOutput)
 }
 
-// The value indicating whether to support HTTP status code 'CONTINUE'.
 func (o AS2MessageConnectionSettingsResponsePtrOutput) SupportHttpStatusCodeContinue() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *AS2MessageConnectionSettingsResponse) *bool {
 		if v == nil {
@@ -2370,7 +2197,6 @@ func (o AS2MessageConnectionSettingsResponsePtrOutput) SupportHttpStatusCodeCont
 	}).(pulumi.BoolPtrOutput)
 }
 
-// The value indicating whether to unfold the HTTP headers.
 func (o AS2MessageConnectionSettingsResponsePtrOutput) UnfoldHttpHeaders() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *AS2MessageConnectionSettingsResponse) *bool {
 		if v == nil {
@@ -2380,14 +2206,10 @@ func (o AS2MessageConnectionSettingsResponsePtrOutput) UnfoldHttpHeaders() pulum
 	}).(pulumi.BoolPtrOutput)
 }
 
-// The integration account AS2 one-way agreement.
 type AS2OneWayAgreement struct {
-	// The AS2 protocol settings.
-	ProtocolSettings AS2ProtocolSettings `pulumi:"protocolSettings"`
-	// The receiver business identity
-	ReceiverBusinessIdentity BusinessIdentity `pulumi:"receiverBusinessIdentity"`
-	// The sender business identity
-	SenderBusinessIdentity BusinessIdentity `pulumi:"senderBusinessIdentity"`
+	ProtocolSettings         AS2ProtocolSettings `pulumi:"protocolSettings"`
+	ReceiverBusinessIdentity BusinessIdentity    `pulumi:"receiverBusinessIdentity"`
+	SenderBusinessIdentity   BusinessIdentity    `pulumi:"senderBusinessIdentity"`
 }
 
 // AS2OneWayAgreementInput is an input type that accepts AS2OneWayAgreementArgs and AS2OneWayAgreementOutput values.
@@ -2401,14 +2223,10 @@ type AS2OneWayAgreementInput interface {
 	ToAS2OneWayAgreementOutputWithContext(context.Context) AS2OneWayAgreementOutput
 }
 
-// The integration account AS2 one-way agreement.
 type AS2OneWayAgreementArgs struct {
-	// The AS2 protocol settings.
-	ProtocolSettings AS2ProtocolSettingsInput `pulumi:"protocolSettings"`
-	// The receiver business identity
-	ReceiverBusinessIdentity BusinessIdentityInput `pulumi:"receiverBusinessIdentity"`
-	// The sender business identity
-	SenderBusinessIdentity BusinessIdentityInput `pulumi:"senderBusinessIdentity"`
+	ProtocolSettings         AS2ProtocolSettingsInput `pulumi:"protocolSettings"`
+	ReceiverBusinessIdentity BusinessIdentityInput    `pulumi:"receiverBusinessIdentity"`
+	SenderBusinessIdentity   BusinessIdentityInput    `pulumi:"senderBusinessIdentity"`
 }
 
 func (AS2OneWayAgreementArgs) ElementType() reflect.Type {
@@ -2464,7 +2282,6 @@ func (i *as2oneWayAgreementPtrType) ToAS2OneWayAgreementPtrOutputWithContext(ctx
 	return pulumi.ToOutputWithContext(ctx, i).(AS2OneWayAgreementPtrOutput)
 }
 
-// The integration account AS2 one-way agreement.
 type AS2OneWayAgreementOutput struct{ *pulumi.OutputState }
 
 func (AS2OneWayAgreementOutput) ElementType() reflect.Type {
@@ -2484,22 +2301,19 @@ func (o AS2OneWayAgreementOutput) ToAS2OneWayAgreementPtrOutput() AS2OneWayAgree
 }
 
 func (o AS2OneWayAgreementOutput) ToAS2OneWayAgreementPtrOutputWithContext(ctx context.Context) AS2OneWayAgreementPtrOutput {
-	return o.ApplyT(func(v AS2OneWayAgreement) *AS2OneWayAgreement {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v AS2OneWayAgreement) *AS2OneWayAgreement {
 		return &v
 	}).(AS2OneWayAgreementPtrOutput)
 }
 
-// The AS2 protocol settings.
 func (o AS2OneWayAgreementOutput) ProtocolSettings() AS2ProtocolSettingsOutput {
 	return o.ApplyT(func(v AS2OneWayAgreement) AS2ProtocolSettings { return v.ProtocolSettings }).(AS2ProtocolSettingsOutput)
 }
 
-// The receiver business identity
 func (o AS2OneWayAgreementOutput) ReceiverBusinessIdentity() BusinessIdentityOutput {
 	return o.ApplyT(func(v AS2OneWayAgreement) BusinessIdentity { return v.ReceiverBusinessIdentity }).(BusinessIdentityOutput)
 }
 
-// The sender business identity
 func (o AS2OneWayAgreementOutput) SenderBusinessIdentity() BusinessIdentityOutput {
 	return o.ApplyT(func(v AS2OneWayAgreement) BusinessIdentity { return v.SenderBusinessIdentity }).(BusinessIdentityOutput)
 }
@@ -2519,10 +2333,15 @@ func (o AS2OneWayAgreementPtrOutput) ToAS2OneWayAgreementPtrOutputWithContext(ct
 }
 
 func (o AS2OneWayAgreementPtrOutput) Elem() AS2OneWayAgreementOutput {
-	return o.ApplyT(func(v *AS2OneWayAgreement) AS2OneWayAgreement { return *v }).(AS2OneWayAgreementOutput)
+	return o.ApplyT(func(v *AS2OneWayAgreement) AS2OneWayAgreement {
+		if v != nil {
+			return *v
+		}
+		var ret AS2OneWayAgreement
+		return ret
+	}).(AS2OneWayAgreementOutput)
 }
 
-// The AS2 protocol settings.
 func (o AS2OneWayAgreementPtrOutput) ProtocolSettings() AS2ProtocolSettingsPtrOutput {
 	return o.ApplyT(func(v *AS2OneWayAgreement) *AS2ProtocolSettings {
 		if v == nil {
@@ -2532,7 +2351,6 @@ func (o AS2OneWayAgreementPtrOutput) ProtocolSettings() AS2ProtocolSettingsPtrOu
 	}).(AS2ProtocolSettingsPtrOutput)
 }
 
-// The receiver business identity
 func (o AS2OneWayAgreementPtrOutput) ReceiverBusinessIdentity() BusinessIdentityPtrOutput {
 	return o.ApplyT(func(v *AS2OneWayAgreement) *BusinessIdentity {
 		if v == nil {
@@ -2542,7 +2360,6 @@ func (o AS2OneWayAgreementPtrOutput) ReceiverBusinessIdentity() BusinessIdentity
 	}).(BusinessIdentityPtrOutput)
 }
 
-// The sender business identity
 func (o AS2OneWayAgreementPtrOutput) SenderBusinessIdentity() BusinessIdentityPtrOutput {
 	return o.ApplyT(func(v *AS2OneWayAgreement) *BusinessIdentity {
 		if v == nil {
@@ -2552,14 +2369,10 @@ func (o AS2OneWayAgreementPtrOutput) SenderBusinessIdentity() BusinessIdentityPt
 	}).(BusinessIdentityPtrOutput)
 }
 
-// The integration account AS2 one-way agreement.
 type AS2OneWayAgreementResponse struct {
-	// The AS2 protocol settings.
-	ProtocolSettings AS2ProtocolSettingsResponse `pulumi:"protocolSettings"`
-	// The receiver business identity
-	ReceiverBusinessIdentity BusinessIdentityResponse `pulumi:"receiverBusinessIdentity"`
-	// The sender business identity
-	SenderBusinessIdentity BusinessIdentityResponse `pulumi:"senderBusinessIdentity"`
+	ProtocolSettings         AS2ProtocolSettingsResponse `pulumi:"protocolSettings"`
+	ReceiverBusinessIdentity BusinessIdentityResponse    `pulumi:"receiverBusinessIdentity"`
+	SenderBusinessIdentity   BusinessIdentityResponse    `pulumi:"senderBusinessIdentity"`
 }
 
 // AS2OneWayAgreementResponseInput is an input type that accepts AS2OneWayAgreementResponseArgs and AS2OneWayAgreementResponseOutput values.
@@ -2573,14 +2386,10 @@ type AS2OneWayAgreementResponseInput interface {
 	ToAS2OneWayAgreementResponseOutputWithContext(context.Context) AS2OneWayAgreementResponseOutput
 }
 
-// The integration account AS2 one-way agreement.
 type AS2OneWayAgreementResponseArgs struct {
-	// The AS2 protocol settings.
-	ProtocolSettings AS2ProtocolSettingsResponseInput `pulumi:"protocolSettings"`
-	// The receiver business identity
-	ReceiverBusinessIdentity BusinessIdentityResponseInput `pulumi:"receiverBusinessIdentity"`
-	// The sender business identity
-	SenderBusinessIdentity BusinessIdentityResponseInput `pulumi:"senderBusinessIdentity"`
+	ProtocolSettings         AS2ProtocolSettingsResponseInput `pulumi:"protocolSettings"`
+	ReceiverBusinessIdentity BusinessIdentityResponseInput    `pulumi:"receiverBusinessIdentity"`
+	SenderBusinessIdentity   BusinessIdentityResponseInput    `pulumi:"senderBusinessIdentity"`
 }
 
 func (AS2OneWayAgreementResponseArgs) ElementType() reflect.Type {
@@ -2636,7 +2445,6 @@ func (i *as2oneWayAgreementResponsePtrType) ToAS2OneWayAgreementResponsePtrOutpu
 	return pulumi.ToOutputWithContext(ctx, i).(AS2OneWayAgreementResponsePtrOutput)
 }
 
-// The integration account AS2 one-way agreement.
 type AS2OneWayAgreementResponseOutput struct{ *pulumi.OutputState }
 
 func (AS2OneWayAgreementResponseOutput) ElementType() reflect.Type {
@@ -2656,22 +2464,19 @@ func (o AS2OneWayAgreementResponseOutput) ToAS2OneWayAgreementResponsePtrOutput(
 }
 
 func (o AS2OneWayAgreementResponseOutput) ToAS2OneWayAgreementResponsePtrOutputWithContext(ctx context.Context) AS2OneWayAgreementResponsePtrOutput {
-	return o.ApplyT(func(v AS2OneWayAgreementResponse) *AS2OneWayAgreementResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v AS2OneWayAgreementResponse) *AS2OneWayAgreementResponse {
 		return &v
 	}).(AS2OneWayAgreementResponsePtrOutput)
 }
 
-// The AS2 protocol settings.
 func (o AS2OneWayAgreementResponseOutput) ProtocolSettings() AS2ProtocolSettingsResponseOutput {
 	return o.ApplyT(func(v AS2OneWayAgreementResponse) AS2ProtocolSettingsResponse { return v.ProtocolSettings }).(AS2ProtocolSettingsResponseOutput)
 }
 
-// The receiver business identity
 func (o AS2OneWayAgreementResponseOutput) ReceiverBusinessIdentity() BusinessIdentityResponseOutput {
 	return o.ApplyT(func(v AS2OneWayAgreementResponse) BusinessIdentityResponse { return v.ReceiverBusinessIdentity }).(BusinessIdentityResponseOutput)
 }
 
-// The sender business identity
 func (o AS2OneWayAgreementResponseOutput) SenderBusinessIdentity() BusinessIdentityResponseOutput {
 	return o.ApplyT(func(v AS2OneWayAgreementResponse) BusinessIdentityResponse { return v.SenderBusinessIdentity }).(BusinessIdentityResponseOutput)
 }
@@ -2691,10 +2496,15 @@ func (o AS2OneWayAgreementResponsePtrOutput) ToAS2OneWayAgreementResponsePtrOutp
 }
 
 func (o AS2OneWayAgreementResponsePtrOutput) Elem() AS2OneWayAgreementResponseOutput {
-	return o.ApplyT(func(v *AS2OneWayAgreementResponse) AS2OneWayAgreementResponse { return *v }).(AS2OneWayAgreementResponseOutput)
+	return o.ApplyT(func(v *AS2OneWayAgreementResponse) AS2OneWayAgreementResponse {
+		if v != nil {
+			return *v
+		}
+		var ret AS2OneWayAgreementResponse
+		return ret
+	}).(AS2OneWayAgreementResponseOutput)
 }
 
-// The AS2 protocol settings.
 func (o AS2OneWayAgreementResponsePtrOutput) ProtocolSettings() AS2ProtocolSettingsResponsePtrOutput {
 	return o.ApplyT(func(v *AS2OneWayAgreementResponse) *AS2ProtocolSettingsResponse {
 		if v == nil {
@@ -2704,7 +2514,6 @@ func (o AS2OneWayAgreementResponsePtrOutput) ProtocolSettings() AS2ProtocolSetti
 	}).(AS2ProtocolSettingsResponsePtrOutput)
 }
 
-// The receiver business identity
 func (o AS2OneWayAgreementResponsePtrOutput) ReceiverBusinessIdentity() BusinessIdentityResponsePtrOutput {
 	return o.ApplyT(func(v *AS2OneWayAgreementResponse) *BusinessIdentityResponse {
 		if v == nil {
@@ -2714,7 +2523,6 @@ func (o AS2OneWayAgreementResponsePtrOutput) ReceiverBusinessIdentity() Business
 	}).(BusinessIdentityResponsePtrOutput)
 }
 
-// The sender business identity
 func (o AS2OneWayAgreementResponsePtrOutput) SenderBusinessIdentity() BusinessIdentityResponsePtrOutput {
 	return o.ApplyT(func(v *AS2OneWayAgreementResponse) *BusinessIdentityResponse {
 		if v == nil {
@@ -2724,22 +2532,14 @@ func (o AS2OneWayAgreementResponsePtrOutput) SenderBusinessIdentity() BusinessId
 	}).(BusinessIdentityResponsePtrOutput)
 }
 
-// The AS2 agreement protocol settings.
 type AS2ProtocolSettings struct {
-	// The acknowledgement connection settings.
 	AcknowledgementConnectionSettings AS2AcknowledgementConnectionSettings `pulumi:"acknowledgementConnectionSettings"`
-	// The envelope settings.
-	EnvelopeSettings AS2EnvelopeSettings `pulumi:"envelopeSettings"`
-	// The error settings.
-	ErrorSettings AS2ErrorSettings `pulumi:"errorSettings"`
-	// The MDN settings.
-	MdnSettings AS2MdnSettings `pulumi:"mdnSettings"`
-	// The message connection settings.
-	MessageConnectionSettings AS2MessageConnectionSettings `pulumi:"messageConnectionSettings"`
-	// The security settings.
-	SecuritySettings AS2SecuritySettings `pulumi:"securitySettings"`
-	// The validation settings.
-	ValidationSettings AS2ValidationSettings `pulumi:"validationSettings"`
+	EnvelopeSettings                  AS2EnvelopeSettings                  `pulumi:"envelopeSettings"`
+	ErrorSettings                     AS2ErrorSettings                     `pulumi:"errorSettings"`
+	MdnSettings                       AS2MdnSettings                       `pulumi:"mdnSettings"`
+	MessageConnectionSettings         AS2MessageConnectionSettings         `pulumi:"messageConnectionSettings"`
+	SecuritySettings                  AS2SecuritySettings                  `pulumi:"securitySettings"`
+	ValidationSettings                AS2ValidationSettings                `pulumi:"validationSettings"`
 }
 
 // AS2ProtocolSettingsInput is an input type that accepts AS2ProtocolSettingsArgs and AS2ProtocolSettingsOutput values.
@@ -2753,22 +2553,14 @@ type AS2ProtocolSettingsInput interface {
 	ToAS2ProtocolSettingsOutputWithContext(context.Context) AS2ProtocolSettingsOutput
 }
 
-// The AS2 agreement protocol settings.
 type AS2ProtocolSettingsArgs struct {
-	// The acknowledgement connection settings.
 	AcknowledgementConnectionSettings AS2AcknowledgementConnectionSettingsInput `pulumi:"acknowledgementConnectionSettings"`
-	// The envelope settings.
-	EnvelopeSettings AS2EnvelopeSettingsInput `pulumi:"envelopeSettings"`
-	// The error settings.
-	ErrorSettings AS2ErrorSettingsInput `pulumi:"errorSettings"`
-	// The MDN settings.
-	MdnSettings AS2MdnSettingsInput `pulumi:"mdnSettings"`
-	// The message connection settings.
-	MessageConnectionSettings AS2MessageConnectionSettingsInput `pulumi:"messageConnectionSettings"`
-	// The security settings.
-	SecuritySettings AS2SecuritySettingsInput `pulumi:"securitySettings"`
-	// The validation settings.
-	ValidationSettings AS2ValidationSettingsInput `pulumi:"validationSettings"`
+	EnvelopeSettings                  AS2EnvelopeSettingsInput                  `pulumi:"envelopeSettings"`
+	ErrorSettings                     AS2ErrorSettingsInput                     `pulumi:"errorSettings"`
+	MdnSettings                       AS2MdnSettingsInput                       `pulumi:"mdnSettings"`
+	MessageConnectionSettings         AS2MessageConnectionSettingsInput         `pulumi:"messageConnectionSettings"`
+	SecuritySettings                  AS2SecuritySettingsInput                  `pulumi:"securitySettings"`
+	ValidationSettings                AS2ValidationSettingsInput                `pulumi:"validationSettings"`
 }
 
 func (AS2ProtocolSettingsArgs) ElementType() reflect.Type {
@@ -2824,7 +2616,6 @@ func (i *as2protocolSettingsPtrType) ToAS2ProtocolSettingsPtrOutputWithContext(c
 	return pulumi.ToOutputWithContext(ctx, i).(AS2ProtocolSettingsPtrOutput)
 }
 
-// The AS2 agreement protocol settings.
 type AS2ProtocolSettingsOutput struct{ *pulumi.OutputState }
 
 func (AS2ProtocolSettingsOutput) ElementType() reflect.Type {
@@ -2844,44 +2635,37 @@ func (o AS2ProtocolSettingsOutput) ToAS2ProtocolSettingsPtrOutput() AS2ProtocolS
 }
 
 func (o AS2ProtocolSettingsOutput) ToAS2ProtocolSettingsPtrOutputWithContext(ctx context.Context) AS2ProtocolSettingsPtrOutput {
-	return o.ApplyT(func(v AS2ProtocolSettings) *AS2ProtocolSettings {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v AS2ProtocolSettings) *AS2ProtocolSettings {
 		return &v
 	}).(AS2ProtocolSettingsPtrOutput)
 }
 
-// The acknowledgement connection settings.
 func (o AS2ProtocolSettingsOutput) AcknowledgementConnectionSettings() AS2AcknowledgementConnectionSettingsOutput {
 	return o.ApplyT(func(v AS2ProtocolSettings) AS2AcknowledgementConnectionSettings {
 		return v.AcknowledgementConnectionSettings
 	}).(AS2AcknowledgementConnectionSettingsOutput)
 }
 
-// The envelope settings.
 func (o AS2ProtocolSettingsOutput) EnvelopeSettings() AS2EnvelopeSettingsOutput {
 	return o.ApplyT(func(v AS2ProtocolSettings) AS2EnvelopeSettings { return v.EnvelopeSettings }).(AS2EnvelopeSettingsOutput)
 }
 
-// The error settings.
 func (o AS2ProtocolSettingsOutput) ErrorSettings() AS2ErrorSettingsOutput {
 	return o.ApplyT(func(v AS2ProtocolSettings) AS2ErrorSettings { return v.ErrorSettings }).(AS2ErrorSettingsOutput)
 }
 
-// The MDN settings.
 func (o AS2ProtocolSettingsOutput) MdnSettings() AS2MdnSettingsOutput {
 	return o.ApplyT(func(v AS2ProtocolSettings) AS2MdnSettings { return v.MdnSettings }).(AS2MdnSettingsOutput)
 }
 
-// The message connection settings.
 func (o AS2ProtocolSettingsOutput) MessageConnectionSettings() AS2MessageConnectionSettingsOutput {
 	return o.ApplyT(func(v AS2ProtocolSettings) AS2MessageConnectionSettings { return v.MessageConnectionSettings }).(AS2MessageConnectionSettingsOutput)
 }
 
-// The security settings.
 func (o AS2ProtocolSettingsOutput) SecuritySettings() AS2SecuritySettingsOutput {
 	return o.ApplyT(func(v AS2ProtocolSettings) AS2SecuritySettings { return v.SecuritySettings }).(AS2SecuritySettingsOutput)
 }
 
-// The validation settings.
 func (o AS2ProtocolSettingsOutput) ValidationSettings() AS2ValidationSettingsOutput {
 	return o.ApplyT(func(v AS2ProtocolSettings) AS2ValidationSettings { return v.ValidationSettings }).(AS2ValidationSettingsOutput)
 }
@@ -2901,10 +2685,15 @@ func (o AS2ProtocolSettingsPtrOutput) ToAS2ProtocolSettingsPtrOutputWithContext(
 }
 
 func (o AS2ProtocolSettingsPtrOutput) Elem() AS2ProtocolSettingsOutput {
-	return o.ApplyT(func(v *AS2ProtocolSettings) AS2ProtocolSettings { return *v }).(AS2ProtocolSettingsOutput)
+	return o.ApplyT(func(v *AS2ProtocolSettings) AS2ProtocolSettings {
+		if v != nil {
+			return *v
+		}
+		var ret AS2ProtocolSettings
+		return ret
+	}).(AS2ProtocolSettingsOutput)
 }
 
-// The acknowledgement connection settings.
 func (o AS2ProtocolSettingsPtrOutput) AcknowledgementConnectionSettings() AS2AcknowledgementConnectionSettingsPtrOutput {
 	return o.ApplyT(func(v *AS2ProtocolSettings) *AS2AcknowledgementConnectionSettings {
 		if v == nil {
@@ -2914,7 +2703,6 @@ func (o AS2ProtocolSettingsPtrOutput) AcknowledgementConnectionSettings() AS2Ack
 	}).(AS2AcknowledgementConnectionSettingsPtrOutput)
 }
 
-// The envelope settings.
 func (o AS2ProtocolSettingsPtrOutput) EnvelopeSettings() AS2EnvelopeSettingsPtrOutput {
 	return o.ApplyT(func(v *AS2ProtocolSettings) *AS2EnvelopeSettings {
 		if v == nil {
@@ -2924,7 +2712,6 @@ func (o AS2ProtocolSettingsPtrOutput) EnvelopeSettings() AS2EnvelopeSettingsPtrO
 	}).(AS2EnvelopeSettingsPtrOutput)
 }
 
-// The error settings.
 func (o AS2ProtocolSettingsPtrOutput) ErrorSettings() AS2ErrorSettingsPtrOutput {
 	return o.ApplyT(func(v *AS2ProtocolSettings) *AS2ErrorSettings {
 		if v == nil {
@@ -2934,7 +2721,6 @@ func (o AS2ProtocolSettingsPtrOutput) ErrorSettings() AS2ErrorSettingsPtrOutput 
 	}).(AS2ErrorSettingsPtrOutput)
 }
 
-// The MDN settings.
 func (o AS2ProtocolSettingsPtrOutput) MdnSettings() AS2MdnSettingsPtrOutput {
 	return o.ApplyT(func(v *AS2ProtocolSettings) *AS2MdnSettings {
 		if v == nil {
@@ -2944,7 +2730,6 @@ func (o AS2ProtocolSettingsPtrOutput) MdnSettings() AS2MdnSettingsPtrOutput {
 	}).(AS2MdnSettingsPtrOutput)
 }
 
-// The message connection settings.
 func (o AS2ProtocolSettingsPtrOutput) MessageConnectionSettings() AS2MessageConnectionSettingsPtrOutput {
 	return o.ApplyT(func(v *AS2ProtocolSettings) *AS2MessageConnectionSettings {
 		if v == nil {
@@ -2954,7 +2739,6 @@ func (o AS2ProtocolSettingsPtrOutput) MessageConnectionSettings() AS2MessageConn
 	}).(AS2MessageConnectionSettingsPtrOutput)
 }
 
-// The security settings.
 func (o AS2ProtocolSettingsPtrOutput) SecuritySettings() AS2SecuritySettingsPtrOutput {
 	return o.ApplyT(func(v *AS2ProtocolSettings) *AS2SecuritySettings {
 		if v == nil {
@@ -2964,7 +2748,6 @@ func (o AS2ProtocolSettingsPtrOutput) SecuritySettings() AS2SecuritySettingsPtrO
 	}).(AS2SecuritySettingsPtrOutput)
 }
 
-// The validation settings.
 func (o AS2ProtocolSettingsPtrOutput) ValidationSettings() AS2ValidationSettingsPtrOutput {
 	return o.ApplyT(func(v *AS2ProtocolSettings) *AS2ValidationSettings {
 		if v == nil {
@@ -2974,22 +2757,14 @@ func (o AS2ProtocolSettingsPtrOutput) ValidationSettings() AS2ValidationSettings
 	}).(AS2ValidationSettingsPtrOutput)
 }
 
-// The AS2 agreement protocol settings.
 type AS2ProtocolSettingsResponse struct {
-	// The acknowledgement connection settings.
 	AcknowledgementConnectionSettings AS2AcknowledgementConnectionSettingsResponse `pulumi:"acknowledgementConnectionSettings"`
-	// The envelope settings.
-	EnvelopeSettings AS2EnvelopeSettingsResponse `pulumi:"envelopeSettings"`
-	// The error settings.
-	ErrorSettings AS2ErrorSettingsResponse `pulumi:"errorSettings"`
-	// The MDN settings.
-	MdnSettings AS2MdnSettingsResponse `pulumi:"mdnSettings"`
-	// The message connection settings.
-	MessageConnectionSettings AS2MessageConnectionSettingsResponse `pulumi:"messageConnectionSettings"`
-	// The security settings.
-	SecuritySettings AS2SecuritySettingsResponse `pulumi:"securitySettings"`
-	// The validation settings.
-	ValidationSettings AS2ValidationSettingsResponse `pulumi:"validationSettings"`
+	EnvelopeSettings                  AS2EnvelopeSettingsResponse                  `pulumi:"envelopeSettings"`
+	ErrorSettings                     AS2ErrorSettingsResponse                     `pulumi:"errorSettings"`
+	MdnSettings                       AS2MdnSettingsResponse                       `pulumi:"mdnSettings"`
+	MessageConnectionSettings         AS2MessageConnectionSettingsResponse         `pulumi:"messageConnectionSettings"`
+	SecuritySettings                  AS2SecuritySettingsResponse                  `pulumi:"securitySettings"`
+	ValidationSettings                AS2ValidationSettingsResponse                `pulumi:"validationSettings"`
 }
 
 // AS2ProtocolSettingsResponseInput is an input type that accepts AS2ProtocolSettingsResponseArgs and AS2ProtocolSettingsResponseOutput values.
@@ -3003,22 +2778,14 @@ type AS2ProtocolSettingsResponseInput interface {
 	ToAS2ProtocolSettingsResponseOutputWithContext(context.Context) AS2ProtocolSettingsResponseOutput
 }
 
-// The AS2 agreement protocol settings.
 type AS2ProtocolSettingsResponseArgs struct {
-	// The acknowledgement connection settings.
 	AcknowledgementConnectionSettings AS2AcknowledgementConnectionSettingsResponseInput `pulumi:"acknowledgementConnectionSettings"`
-	// The envelope settings.
-	EnvelopeSettings AS2EnvelopeSettingsResponseInput `pulumi:"envelopeSettings"`
-	// The error settings.
-	ErrorSettings AS2ErrorSettingsResponseInput `pulumi:"errorSettings"`
-	// The MDN settings.
-	MdnSettings AS2MdnSettingsResponseInput `pulumi:"mdnSettings"`
-	// The message connection settings.
-	MessageConnectionSettings AS2MessageConnectionSettingsResponseInput `pulumi:"messageConnectionSettings"`
-	// The security settings.
-	SecuritySettings AS2SecuritySettingsResponseInput `pulumi:"securitySettings"`
-	// The validation settings.
-	ValidationSettings AS2ValidationSettingsResponseInput `pulumi:"validationSettings"`
+	EnvelopeSettings                  AS2EnvelopeSettingsResponseInput                  `pulumi:"envelopeSettings"`
+	ErrorSettings                     AS2ErrorSettingsResponseInput                     `pulumi:"errorSettings"`
+	MdnSettings                       AS2MdnSettingsResponseInput                       `pulumi:"mdnSettings"`
+	MessageConnectionSettings         AS2MessageConnectionSettingsResponseInput         `pulumi:"messageConnectionSettings"`
+	SecuritySettings                  AS2SecuritySettingsResponseInput                  `pulumi:"securitySettings"`
+	ValidationSettings                AS2ValidationSettingsResponseInput                `pulumi:"validationSettings"`
 }
 
 func (AS2ProtocolSettingsResponseArgs) ElementType() reflect.Type {
@@ -3074,7 +2841,6 @@ func (i *as2protocolSettingsResponsePtrType) ToAS2ProtocolSettingsResponsePtrOut
 	return pulumi.ToOutputWithContext(ctx, i).(AS2ProtocolSettingsResponsePtrOutput)
 }
 
-// The AS2 agreement protocol settings.
 type AS2ProtocolSettingsResponseOutput struct{ *pulumi.OutputState }
 
 func (AS2ProtocolSettingsResponseOutput) ElementType() reflect.Type {
@@ -3094,46 +2860,39 @@ func (o AS2ProtocolSettingsResponseOutput) ToAS2ProtocolSettingsResponsePtrOutpu
 }
 
 func (o AS2ProtocolSettingsResponseOutput) ToAS2ProtocolSettingsResponsePtrOutputWithContext(ctx context.Context) AS2ProtocolSettingsResponsePtrOutput {
-	return o.ApplyT(func(v AS2ProtocolSettingsResponse) *AS2ProtocolSettingsResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v AS2ProtocolSettingsResponse) *AS2ProtocolSettingsResponse {
 		return &v
 	}).(AS2ProtocolSettingsResponsePtrOutput)
 }
 
-// The acknowledgement connection settings.
 func (o AS2ProtocolSettingsResponseOutput) AcknowledgementConnectionSettings() AS2AcknowledgementConnectionSettingsResponseOutput {
 	return o.ApplyT(func(v AS2ProtocolSettingsResponse) AS2AcknowledgementConnectionSettingsResponse {
 		return v.AcknowledgementConnectionSettings
 	}).(AS2AcknowledgementConnectionSettingsResponseOutput)
 }
 
-// The envelope settings.
 func (o AS2ProtocolSettingsResponseOutput) EnvelopeSettings() AS2EnvelopeSettingsResponseOutput {
 	return o.ApplyT(func(v AS2ProtocolSettingsResponse) AS2EnvelopeSettingsResponse { return v.EnvelopeSettings }).(AS2EnvelopeSettingsResponseOutput)
 }
 
-// The error settings.
 func (o AS2ProtocolSettingsResponseOutput) ErrorSettings() AS2ErrorSettingsResponseOutput {
 	return o.ApplyT(func(v AS2ProtocolSettingsResponse) AS2ErrorSettingsResponse { return v.ErrorSettings }).(AS2ErrorSettingsResponseOutput)
 }
 
-// The MDN settings.
 func (o AS2ProtocolSettingsResponseOutput) MdnSettings() AS2MdnSettingsResponseOutput {
 	return o.ApplyT(func(v AS2ProtocolSettingsResponse) AS2MdnSettingsResponse { return v.MdnSettings }).(AS2MdnSettingsResponseOutput)
 }
 
-// The message connection settings.
 func (o AS2ProtocolSettingsResponseOutput) MessageConnectionSettings() AS2MessageConnectionSettingsResponseOutput {
 	return o.ApplyT(func(v AS2ProtocolSettingsResponse) AS2MessageConnectionSettingsResponse {
 		return v.MessageConnectionSettings
 	}).(AS2MessageConnectionSettingsResponseOutput)
 }
 
-// The security settings.
 func (o AS2ProtocolSettingsResponseOutput) SecuritySettings() AS2SecuritySettingsResponseOutput {
 	return o.ApplyT(func(v AS2ProtocolSettingsResponse) AS2SecuritySettingsResponse { return v.SecuritySettings }).(AS2SecuritySettingsResponseOutput)
 }
 
-// The validation settings.
 func (o AS2ProtocolSettingsResponseOutput) ValidationSettings() AS2ValidationSettingsResponseOutput {
 	return o.ApplyT(func(v AS2ProtocolSettingsResponse) AS2ValidationSettingsResponse { return v.ValidationSettings }).(AS2ValidationSettingsResponseOutput)
 }
@@ -3153,10 +2912,15 @@ func (o AS2ProtocolSettingsResponsePtrOutput) ToAS2ProtocolSettingsResponsePtrOu
 }
 
 func (o AS2ProtocolSettingsResponsePtrOutput) Elem() AS2ProtocolSettingsResponseOutput {
-	return o.ApplyT(func(v *AS2ProtocolSettingsResponse) AS2ProtocolSettingsResponse { return *v }).(AS2ProtocolSettingsResponseOutput)
+	return o.ApplyT(func(v *AS2ProtocolSettingsResponse) AS2ProtocolSettingsResponse {
+		if v != nil {
+			return *v
+		}
+		var ret AS2ProtocolSettingsResponse
+		return ret
+	}).(AS2ProtocolSettingsResponseOutput)
 }
 
-// The acknowledgement connection settings.
 func (o AS2ProtocolSettingsResponsePtrOutput) AcknowledgementConnectionSettings() AS2AcknowledgementConnectionSettingsResponsePtrOutput {
 	return o.ApplyT(func(v *AS2ProtocolSettingsResponse) *AS2AcknowledgementConnectionSettingsResponse {
 		if v == nil {
@@ -3166,7 +2930,6 @@ func (o AS2ProtocolSettingsResponsePtrOutput) AcknowledgementConnectionSettings(
 	}).(AS2AcknowledgementConnectionSettingsResponsePtrOutput)
 }
 
-// The envelope settings.
 func (o AS2ProtocolSettingsResponsePtrOutput) EnvelopeSettings() AS2EnvelopeSettingsResponsePtrOutput {
 	return o.ApplyT(func(v *AS2ProtocolSettingsResponse) *AS2EnvelopeSettingsResponse {
 		if v == nil {
@@ -3176,7 +2939,6 @@ func (o AS2ProtocolSettingsResponsePtrOutput) EnvelopeSettings() AS2EnvelopeSett
 	}).(AS2EnvelopeSettingsResponsePtrOutput)
 }
 
-// The error settings.
 func (o AS2ProtocolSettingsResponsePtrOutput) ErrorSettings() AS2ErrorSettingsResponsePtrOutput {
 	return o.ApplyT(func(v *AS2ProtocolSettingsResponse) *AS2ErrorSettingsResponse {
 		if v == nil {
@@ -3186,7 +2948,6 @@ func (o AS2ProtocolSettingsResponsePtrOutput) ErrorSettings() AS2ErrorSettingsRe
 	}).(AS2ErrorSettingsResponsePtrOutput)
 }
 
-// The MDN settings.
 func (o AS2ProtocolSettingsResponsePtrOutput) MdnSettings() AS2MdnSettingsResponsePtrOutput {
 	return o.ApplyT(func(v *AS2ProtocolSettingsResponse) *AS2MdnSettingsResponse {
 		if v == nil {
@@ -3196,7 +2957,6 @@ func (o AS2ProtocolSettingsResponsePtrOutput) MdnSettings() AS2MdnSettingsRespon
 	}).(AS2MdnSettingsResponsePtrOutput)
 }
 
-// The message connection settings.
 func (o AS2ProtocolSettingsResponsePtrOutput) MessageConnectionSettings() AS2MessageConnectionSettingsResponsePtrOutput {
 	return o.ApplyT(func(v *AS2ProtocolSettingsResponse) *AS2MessageConnectionSettingsResponse {
 		if v == nil {
@@ -3206,7 +2966,6 @@ func (o AS2ProtocolSettingsResponsePtrOutput) MessageConnectionSettings() AS2Mes
 	}).(AS2MessageConnectionSettingsResponsePtrOutput)
 }
 
-// The security settings.
 func (o AS2ProtocolSettingsResponsePtrOutput) SecuritySettings() AS2SecuritySettingsResponsePtrOutput {
 	return o.ApplyT(func(v *AS2ProtocolSettingsResponse) *AS2SecuritySettingsResponse {
 		if v == nil {
@@ -3216,7 +2975,6 @@ func (o AS2ProtocolSettingsResponsePtrOutput) SecuritySettings() AS2SecuritySett
 	}).(AS2SecuritySettingsResponsePtrOutput)
 }
 
-// The validation settings.
 func (o AS2ProtocolSettingsResponsePtrOutput) ValidationSettings() AS2ValidationSettingsResponsePtrOutput {
 	return o.ApplyT(func(v *AS2ProtocolSettingsResponse) *AS2ValidationSettingsResponse {
 		if v == nil {
@@ -3226,28 +2984,17 @@ func (o AS2ProtocolSettingsResponsePtrOutput) ValidationSettings() AS2Validation
 	}).(AS2ValidationSettingsResponsePtrOutput)
 }
 
-// The AS2 agreement security settings.
 type AS2SecuritySettings struct {
-	// The value indicating whether to enable NRR for inbound decoded messages.
-	EnableNRRForInboundDecodedMessages bool `pulumi:"enableNRRForInboundDecodedMessages"`
-	// The value indicating whether to enable NRR for inbound encoded messages.
-	EnableNRRForInboundEncodedMessages bool `pulumi:"enableNRRForInboundEncodedMessages"`
-	// The value indicating whether to enable NRR for inbound MDN.
-	EnableNRRForInboundMDN bool `pulumi:"enableNRRForInboundMDN"`
-	// The value indicating whether to enable NRR for outbound decoded messages.
-	EnableNRRForOutboundDecodedMessages bool `pulumi:"enableNRRForOutboundDecodedMessages"`
-	// The value indicating whether to enable NRR for outbound encoded messages.
-	EnableNRRForOutboundEncodedMessages bool `pulumi:"enableNRRForOutboundEncodedMessages"`
-	// The value indicating whether to enable NRR for outbound MDN.
-	EnableNRRForOutboundMDN bool `pulumi:"enableNRRForOutboundMDN"`
-	// The name of the encryption certificate.
-	EncryptionCertificateName *string `pulumi:"encryptionCertificateName"`
-	// The value indicating whether to send or request a MDN.
-	OverrideGroupSigningCertificate bool `pulumi:"overrideGroupSigningCertificate"`
-	// The Sha2 algorithm format. Valid values are Sha2, ShaHashSize, ShaHyphenHashSize, Sha2UnderscoreHashSize.
-	Sha2AlgorithmFormat *string `pulumi:"sha2AlgorithmFormat"`
-	// The name of the signing certificate.
-	SigningCertificateName *string `pulumi:"signingCertificateName"`
+	EnableNRRForInboundDecodedMessages  bool    `pulumi:"enableNRRForInboundDecodedMessages"`
+	EnableNRRForInboundEncodedMessages  bool    `pulumi:"enableNRRForInboundEncodedMessages"`
+	EnableNRRForInboundMDN              bool    `pulumi:"enableNRRForInboundMDN"`
+	EnableNRRForOutboundDecodedMessages bool    `pulumi:"enableNRRForOutboundDecodedMessages"`
+	EnableNRRForOutboundEncodedMessages bool    `pulumi:"enableNRRForOutboundEncodedMessages"`
+	EnableNRRForOutboundMDN             bool    `pulumi:"enableNRRForOutboundMDN"`
+	EncryptionCertificateName           *string `pulumi:"encryptionCertificateName"`
+	OverrideGroupSigningCertificate     bool    `pulumi:"overrideGroupSigningCertificate"`
+	Sha2AlgorithmFormat                 *string `pulumi:"sha2AlgorithmFormat"`
+	SigningCertificateName              *string `pulumi:"signingCertificateName"`
 }
 
 // AS2SecuritySettingsInput is an input type that accepts AS2SecuritySettingsArgs and AS2SecuritySettingsOutput values.
@@ -3261,28 +3008,17 @@ type AS2SecuritySettingsInput interface {
 	ToAS2SecuritySettingsOutputWithContext(context.Context) AS2SecuritySettingsOutput
 }
 
-// The AS2 agreement security settings.
 type AS2SecuritySettingsArgs struct {
-	// The value indicating whether to enable NRR for inbound decoded messages.
-	EnableNRRForInboundDecodedMessages pulumi.BoolInput `pulumi:"enableNRRForInboundDecodedMessages"`
-	// The value indicating whether to enable NRR for inbound encoded messages.
-	EnableNRRForInboundEncodedMessages pulumi.BoolInput `pulumi:"enableNRRForInboundEncodedMessages"`
-	// The value indicating whether to enable NRR for inbound MDN.
-	EnableNRRForInboundMDN pulumi.BoolInput `pulumi:"enableNRRForInboundMDN"`
-	// The value indicating whether to enable NRR for outbound decoded messages.
-	EnableNRRForOutboundDecodedMessages pulumi.BoolInput `pulumi:"enableNRRForOutboundDecodedMessages"`
-	// The value indicating whether to enable NRR for outbound encoded messages.
-	EnableNRRForOutboundEncodedMessages pulumi.BoolInput `pulumi:"enableNRRForOutboundEncodedMessages"`
-	// The value indicating whether to enable NRR for outbound MDN.
-	EnableNRRForOutboundMDN pulumi.BoolInput `pulumi:"enableNRRForOutboundMDN"`
-	// The name of the encryption certificate.
-	EncryptionCertificateName pulumi.StringPtrInput `pulumi:"encryptionCertificateName"`
-	// The value indicating whether to send or request a MDN.
-	OverrideGroupSigningCertificate pulumi.BoolInput `pulumi:"overrideGroupSigningCertificate"`
-	// The Sha2 algorithm format. Valid values are Sha2, ShaHashSize, ShaHyphenHashSize, Sha2UnderscoreHashSize.
-	Sha2AlgorithmFormat pulumi.StringPtrInput `pulumi:"sha2AlgorithmFormat"`
-	// The name of the signing certificate.
-	SigningCertificateName pulumi.StringPtrInput `pulumi:"signingCertificateName"`
+	EnableNRRForInboundDecodedMessages  pulumi.BoolInput      `pulumi:"enableNRRForInboundDecodedMessages"`
+	EnableNRRForInboundEncodedMessages  pulumi.BoolInput      `pulumi:"enableNRRForInboundEncodedMessages"`
+	EnableNRRForInboundMDN              pulumi.BoolInput      `pulumi:"enableNRRForInboundMDN"`
+	EnableNRRForOutboundDecodedMessages pulumi.BoolInput      `pulumi:"enableNRRForOutboundDecodedMessages"`
+	EnableNRRForOutboundEncodedMessages pulumi.BoolInput      `pulumi:"enableNRRForOutboundEncodedMessages"`
+	EnableNRRForOutboundMDN             pulumi.BoolInput      `pulumi:"enableNRRForOutboundMDN"`
+	EncryptionCertificateName           pulumi.StringPtrInput `pulumi:"encryptionCertificateName"`
+	OverrideGroupSigningCertificate     pulumi.BoolInput      `pulumi:"overrideGroupSigningCertificate"`
+	Sha2AlgorithmFormat                 pulumi.StringPtrInput `pulumi:"sha2AlgorithmFormat"`
+	SigningCertificateName              pulumi.StringPtrInput `pulumi:"signingCertificateName"`
 }
 
 func (AS2SecuritySettingsArgs) ElementType() reflect.Type {
@@ -3338,7 +3074,6 @@ func (i *as2securitySettingsPtrType) ToAS2SecuritySettingsPtrOutputWithContext(c
 	return pulumi.ToOutputWithContext(ctx, i).(AS2SecuritySettingsPtrOutput)
 }
 
-// The AS2 agreement security settings.
 type AS2SecuritySettingsOutput struct{ *pulumi.OutputState }
 
 func (AS2SecuritySettingsOutput) ElementType() reflect.Type {
@@ -3358,57 +3093,47 @@ func (o AS2SecuritySettingsOutput) ToAS2SecuritySettingsPtrOutput() AS2SecurityS
 }
 
 func (o AS2SecuritySettingsOutput) ToAS2SecuritySettingsPtrOutputWithContext(ctx context.Context) AS2SecuritySettingsPtrOutput {
-	return o.ApplyT(func(v AS2SecuritySettings) *AS2SecuritySettings {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v AS2SecuritySettings) *AS2SecuritySettings {
 		return &v
 	}).(AS2SecuritySettingsPtrOutput)
 }
 
-// The value indicating whether to enable NRR for inbound decoded messages.
 func (o AS2SecuritySettingsOutput) EnableNRRForInboundDecodedMessages() pulumi.BoolOutput {
 	return o.ApplyT(func(v AS2SecuritySettings) bool { return v.EnableNRRForInboundDecodedMessages }).(pulumi.BoolOutput)
 }
 
-// The value indicating whether to enable NRR for inbound encoded messages.
 func (o AS2SecuritySettingsOutput) EnableNRRForInboundEncodedMessages() pulumi.BoolOutput {
 	return o.ApplyT(func(v AS2SecuritySettings) bool { return v.EnableNRRForInboundEncodedMessages }).(pulumi.BoolOutput)
 }
 
-// The value indicating whether to enable NRR for inbound MDN.
 func (o AS2SecuritySettingsOutput) EnableNRRForInboundMDN() pulumi.BoolOutput {
 	return o.ApplyT(func(v AS2SecuritySettings) bool { return v.EnableNRRForInboundMDN }).(pulumi.BoolOutput)
 }
 
-// The value indicating whether to enable NRR for outbound decoded messages.
 func (o AS2SecuritySettingsOutput) EnableNRRForOutboundDecodedMessages() pulumi.BoolOutput {
 	return o.ApplyT(func(v AS2SecuritySettings) bool { return v.EnableNRRForOutboundDecodedMessages }).(pulumi.BoolOutput)
 }
 
-// The value indicating whether to enable NRR for outbound encoded messages.
 func (o AS2SecuritySettingsOutput) EnableNRRForOutboundEncodedMessages() pulumi.BoolOutput {
 	return o.ApplyT(func(v AS2SecuritySettings) bool { return v.EnableNRRForOutboundEncodedMessages }).(pulumi.BoolOutput)
 }
 
-// The value indicating whether to enable NRR for outbound MDN.
 func (o AS2SecuritySettingsOutput) EnableNRRForOutboundMDN() pulumi.BoolOutput {
 	return o.ApplyT(func(v AS2SecuritySettings) bool { return v.EnableNRRForOutboundMDN }).(pulumi.BoolOutput)
 }
 
-// The name of the encryption certificate.
 func (o AS2SecuritySettingsOutput) EncryptionCertificateName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AS2SecuritySettings) *string { return v.EncryptionCertificateName }).(pulumi.StringPtrOutput)
 }
 
-// The value indicating whether to send or request a MDN.
 func (o AS2SecuritySettingsOutput) OverrideGroupSigningCertificate() pulumi.BoolOutput {
 	return o.ApplyT(func(v AS2SecuritySettings) bool { return v.OverrideGroupSigningCertificate }).(pulumi.BoolOutput)
 }
 
-// The Sha2 algorithm format. Valid values are Sha2, ShaHashSize, ShaHyphenHashSize, Sha2UnderscoreHashSize.
 func (o AS2SecuritySettingsOutput) Sha2AlgorithmFormat() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AS2SecuritySettings) *string { return v.Sha2AlgorithmFormat }).(pulumi.StringPtrOutput)
 }
 
-// The name of the signing certificate.
 func (o AS2SecuritySettingsOutput) SigningCertificateName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AS2SecuritySettings) *string { return v.SigningCertificateName }).(pulumi.StringPtrOutput)
 }
@@ -3428,10 +3153,15 @@ func (o AS2SecuritySettingsPtrOutput) ToAS2SecuritySettingsPtrOutputWithContext(
 }
 
 func (o AS2SecuritySettingsPtrOutput) Elem() AS2SecuritySettingsOutput {
-	return o.ApplyT(func(v *AS2SecuritySettings) AS2SecuritySettings { return *v }).(AS2SecuritySettingsOutput)
+	return o.ApplyT(func(v *AS2SecuritySettings) AS2SecuritySettings {
+		if v != nil {
+			return *v
+		}
+		var ret AS2SecuritySettings
+		return ret
+	}).(AS2SecuritySettingsOutput)
 }
 
-// The value indicating whether to enable NRR for inbound decoded messages.
 func (o AS2SecuritySettingsPtrOutput) EnableNRRForInboundDecodedMessages() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *AS2SecuritySettings) *bool {
 		if v == nil {
@@ -3441,7 +3171,6 @@ func (o AS2SecuritySettingsPtrOutput) EnableNRRForInboundDecodedMessages() pulum
 	}).(pulumi.BoolPtrOutput)
 }
 
-// The value indicating whether to enable NRR for inbound encoded messages.
 func (o AS2SecuritySettingsPtrOutput) EnableNRRForInboundEncodedMessages() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *AS2SecuritySettings) *bool {
 		if v == nil {
@@ -3451,7 +3180,6 @@ func (o AS2SecuritySettingsPtrOutput) EnableNRRForInboundEncodedMessages() pulum
 	}).(pulumi.BoolPtrOutput)
 }
 
-// The value indicating whether to enable NRR for inbound MDN.
 func (o AS2SecuritySettingsPtrOutput) EnableNRRForInboundMDN() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *AS2SecuritySettings) *bool {
 		if v == nil {
@@ -3461,7 +3189,6 @@ func (o AS2SecuritySettingsPtrOutput) EnableNRRForInboundMDN() pulumi.BoolPtrOut
 	}).(pulumi.BoolPtrOutput)
 }
 
-// The value indicating whether to enable NRR for outbound decoded messages.
 func (o AS2SecuritySettingsPtrOutput) EnableNRRForOutboundDecodedMessages() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *AS2SecuritySettings) *bool {
 		if v == nil {
@@ -3471,7 +3198,6 @@ func (o AS2SecuritySettingsPtrOutput) EnableNRRForOutboundDecodedMessages() pulu
 	}).(pulumi.BoolPtrOutput)
 }
 
-// The value indicating whether to enable NRR for outbound encoded messages.
 func (o AS2SecuritySettingsPtrOutput) EnableNRRForOutboundEncodedMessages() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *AS2SecuritySettings) *bool {
 		if v == nil {
@@ -3481,7 +3207,6 @@ func (o AS2SecuritySettingsPtrOutput) EnableNRRForOutboundEncodedMessages() pulu
 	}).(pulumi.BoolPtrOutput)
 }
 
-// The value indicating whether to enable NRR for outbound MDN.
 func (o AS2SecuritySettingsPtrOutput) EnableNRRForOutboundMDN() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *AS2SecuritySettings) *bool {
 		if v == nil {
@@ -3491,7 +3216,6 @@ func (o AS2SecuritySettingsPtrOutput) EnableNRRForOutboundMDN() pulumi.BoolPtrOu
 	}).(pulumi.BoolPtrOutput)
 }
 
-// The name of the encryption certificate.
 func (o AS2SecuritySettingsPtrOutput) EncryptionCertificateName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *AS2SecuritySettings) *string {
 		if v == nil {
@@ -3501,7 +3225,6 @@ func (o AS2SecuritySettingsPtrOutput) EncryptionCertificateName() pulumi.StringP
 	}).(pulumi.StringPtrOutput)
 }
 
-// The value indicating whether to send or request a MDN.
 func (o AS2SecuritySettingsPtrOutput) OverrideGroupSigningCertificate() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *AS2SecuritySettings) *bool {
 		if v == nil {
@@ -3511,7 +3234,6 @@ func (o AS2SecuritySettingsPtrOutput) OverrideGroupSigningCertificate() pulumi.B
 	}).(pulumi.BoolPtrOutput)
 }
 
-// The Sha2 algorithm format. Valid values are Sha2, ShaHashSize, ShaHyphenHashSize, Sha2UnderscoreHashSize.
 func (o AS2SecuritySettingsPtrOutput) Sha2AlgorithmFormat() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *AS2SecuritySettings) *string {
 		if v == nil {
@@ -3521,7 +3243,6 @@ func (o AS2SecuritySettingsPtrOutput) Sha2AlgorithmFormat() pulumi.StringPtrOutp
 	}).(pulumi.StringPtrOutput)
 }
 
-// The name of the signing certificate.
 func (o AS2SecuritySettingsPtrOutput) SigningCertificateName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *AS2SecuritySettings) *string {
 		if v == nil {
@@ -3531,28 +3252,17 @@ func (o AS2SecuritySettingsPtrOutput) SigningCertificateName() pulumi.StringPtrO
 	}).(pulumi.StringPtrOutput)
 }
 
-// The AS2 agreement security settings.
 type AS2SecuritySettingsResponse struct {
-	// The value indicating whether to enable NRR for inbound decoded messages.
-	EnableNRRForInboundDecodedMessages bool `pulumi:"enableNRRForInboundDecodedMessages"`
-	// The value indicating whether to enable NRR for inbound encoded messages.
-	EnableNRRForInboundEncodedMessages bool `pulumi:"enableNRRForInboundEncodedMessages"`
-	// The value indicating whether to enable NRR for inbound MDN.
-	EnableNRRForInboundMDN bool `pulumi:"enableNRRForInboundMDN"`
-	// The value indicating whether to enable NRR for outbound decoded messages.
-	EnableNRRForOutboundDecodedMessages bool `pulumi:"enableNRRForOutboundDecodedMessages"`
-	// The value indicating whether to enable NRR for outbound encoded messages.
-	EnableNRRForOutboundEncodedMessages bool `pulumi:"enableNRRForOutboundEncodedMessages"`
-	// The value indicating whether to enable NRR for outbound MDN.
-	EnableNRRForOutboundMDN bool `pulumi:"enableNRRForOutboundMDN"`
-	// The name of the encryption certificate.
-	EncryptionCertificateName *string `pulumi:"encryptionCertificateName"`
-	// The value indicating whether to send or request a MDN.
-	OverrideGroupSigningCertificate bool `pulumi:"overrideGroupSigningCertificate"`
-	// The Sha2 algorithm format. Valid values are Sha2, ShaHashSize, ShaHyphenHashSize, Sha2UnderscoreHashSize.
-	Sha2AlgorithmFormat *string `pulumi:"sha2AlgorithmFormat"`
-	// The name of the signing certificate.
-	SigningCertificateName *string `pulumi:"signingCertificateName"`
+	EnableNRRForInboundDecodedMessages  bool    `pulumi:"enableNRRForInboundDecodedMessages"`
+	EnableNRRForInboundEncodedMessages  bool    `pulumi:"enableNRRForInboundEncodedMessages"`
+	EnableNRRForInboundMDN              bool    `pulumi:"enableNRRForInboundMDN"`
+	EnableNRRForOutboundDecodedMessages bool    `pulumi:"enableNRRForOutboundDecodedMessages"`
+	EnableNRRForOutboundEncodedMessages bool    `pulumi:"enableNRRForOutboundEncodedMessages"`
+	EnableNRRForOutboundMDN             bool    `pulumi:"enableNRRForOutboundMDN"`
+	EncryptionCertificateName           *string `pulumi:"encryptionCertificateName"`
+	OverrideGroupSigningCertificate     bool    `pulumi:"overrideGroupSigningCertificate"`
+	Sha2AlgorithmFormat                 *string `pulumi:"sha2AlgorithmFormat"`
+	SigningCertificateName              *string `pulumi:"signingCertificateName"`
 }
 
 // AS2SecuritySettingsResponseInput is an input type that accepts AS2SecuritySettingsResponseArgs and AS2SecuritySettingsResponseOutput values.
@@ -3566,28 +3276,17 @@ type AS2SecuritySettingsResponseInput interface {
 	ToAS2SecuritySettingsResponseOutputWithContext(context.Context) AS2SecuritySettingsResponseOutput
 }
 
-// The AS2 agreement security settings.
 type AS2SecuritySettingsResponseArgs struct {
-	// The value indicating whether to enable NRR for inbound decoded messages.
-	EnableNRRForInboundDecodedMessages pulumi.BoolInput `pulumi:"enableNRRForInboundDecodedMessages"`
-	// The value indicating whether to enable NRR for inbound encoded messages.
-	EnableNRRForInboundEncodedMessages pulumi.BoolInput `pulumi:"enableNRRForInboundEncodedMessages"`
-	// The value indicating whether to enable NRR for inbound MDN.
-	EnableNRRForInboundMDN pulumi.BoolInput `pulumi:"enableNRRForInboundMDN"`
-	// The value indicating whether to enable NRR for outbound decoded messages.
-	EnableNRRForOutboundDecodedMessages pulumi.BoolInput `pulumi:"enableNRRForOutboundDecodedMessages"`
-	// The value indicating whether to enable NRR for outbound encoded messages.
-	EnableNRRForOutboundEncodedMessages pulumi.BoolInput `pulumi:"enableNRRForOutboundEncodedMessages"`
-	// The value indicating whether to enable NRR for outbound MDN.
-	EnableNRRForOutboundMDN pulumi.BoolInput `pulumi:"enableNRRForOutboundMDN"`
-	// The name of the encryption certificate.
-	EncryptionCertificateName pulumi.StringPtrInput `pulumi:"encryptionCertificateName"`
-	// The value indicating whether to send or request a MDN.
-	OverrideGroupSigningCertificate pulumi.BoolInput `pulumi:"overrideGroupSigningCertificate"`
-	// The Sha2 algorithm format. Valid values are Sha2, ShaHashSize, ShaHyphenHashSize, Sha2UnderscoreHashSize.
-	Sha2AlgorithmFormat pulumi.StringPtrInput `pulumi:"sha2AlgorithmFormat"`
-	// The name of the signing certificate.
-	SigningCertificateName pulumi.StringPtrInput `pulumi:"signingCertificateName"`
+	EnableNRRForInboundDecodedMessages  pulumi.BoolInput      `pulumi:"enableNRRForInboundDecodedMessages"`
+	EnableNRRForInboundEncodedMessages  pulumi.BoolInput      `pulumi:"enableNRRForInboundEncodedMessages"`
+	EnableNRRForInboundMDN              pulumi.BoolInput      `pulumi:"enableNRRForInboundMDN"`
+	EnableNRRForOutboundDecodedMessages pulumi.BoolInput      `pulumi:"enableNRRForOutboundDecodedMessages"`
+	EnableNRRForOutboundEncodedMessages pulumi.BoolInput      `pulumi:"enableNRRForOutboundEncodedMessages"`
+	EnableNRRForOutboundMDN             pulumi.BoolInput      `pulumi:"enableNRRForOutboundMDN"`
+	EncryptionCertificateName           pulumi.StringPtrInput `pulumi:"encryptionCertificateName"`
+	OverrideGroupSigningCertificate     pulumi.BoolInput      `pulumi:"overrideGroupSigningCertificate"`
+	Sha2AlgorithmFormat                 pulumi.StringPtrInput `pulumi:"sha2AlgorithmFormat"`
+	SigningCertificateName              pulumi.StringPtrInput `pulumi:"signingCertificateName"`
 }
 
 func (AS2SecuritySettingsResponseArgs) ElementType() reflect.Type {
@@ -3643,7 +3342,6 @@ func (i *as2securitySettingsResponsePtrType) ToAS2SecuritySettingsResponsePtrOut
 	return pulumi.ToOutputWithContext(ctx, i).(AS2SecuritySettingsResponsePtrOutput)
 }
 
-// The AS2 agreement security settings.
 type AS2SecuritySettingsResponseOutput struct{ *pulumi.OutputState }
 
 func (AS2SecuritySettingsResponseOutput) ElementType() reflect.Type {
@@ -3663,57 +3361,47 @@ func (o AS2SecuritySettingsResponseOutput) ToAS2SecuritySettingsResponsePtrOutpu
 }
 
 func (o AS2SecuritySettingsResponseOutput) ToAS2SecuritySettingsResponsePtrOutputWithContext(ctx context.Context) AS2SecuritySettingsResponsePtrOutput {
-	return o.ApplyT(func(v AS2SecuritySettingsResponse) *AS2SecuritySettingsResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v AS2SecuritySettingsResponse) *AS2SecuritySettingsResponse {
 		return &v
 	}).(AS2SecuritySettingsResponsePtrOutput)
 }
 
-// The value indicating whether to enable NRR for inbound decoded messages.
 func (o AS2SecuritySettingsResponseOutput) EnableNRRForInboundDecodedMessages() pulumi.BoolOutput {
 	return o.ApplyT(func(v AS2SecuritySettingsResponse) bool { return v.EnableNRRForInboundDecodedMessages }).(pulumi.BoolOutput)
 }
 
-// The value indicating whether to enable NRR for inbound encoded messages.
 func (o AS2SecuritySettingsResponseOutput) EnableNRRForInboundEncodedMessages() pulumi.BoolOutput {
 	return o.ApplyT(func(v AS2SecuritySettingsResponse) bool { return v.EnableNRRForInboundEncodedMessages }).(pulumi.BoolOutput)
 }
 
-// The value indicating whether to enable NRR for inbound MDN.
 func (o AS2SecuritySettingsResponseOutput) EnableNRRForInboundMDN() pulumi.BoolOutput {
 	return o.ApplyT(func(v AS2SecuritySettingsResponse) bool { return v.EnableNRRForInboundMDN }).(pulumi.BoolOutput)
 }
 
-// The value indicating whether to enable NRR for outbound decoded messages.
 func (o AS2SecuritySettingsResponseOutput) EnableNRRForOutboundDecodedMessages() pulumi.BoolOutput {
 	return o.ApplyT(func(v AS2SecuritySettingsResponse) bool { return v.EnableNRRForOutboundDecodedMessages }).(pulumi.BoolOutput)
 }
 
-// The value indicating whether to enable NRR for outbound encoded messages.
 func (o AS2SecuritySettingsResponseOutput) EnableNRRForOutboundEncodedMessages() pulumi.BoolOutput {
 	return o.ApplyT(func(v AS2SecuritySettingsResponse) bool { return v.EnableNRRForOutboundEncodedMessages }).(pulumi.BoolOutput)
 }
 
-// The value indicating whether to enable NRR for outbound MDN.
 func (o AS2SecuritySettingsResponseOutput) EnableNRRForOutboundMDN() pulumi.BoolOutput {
 	return o.ApplyT(func(v AS2SecuritySettingsResponse) bool { return v.EnableNRRForOutboundMDN }).(pulumi.BoolOutput)
 }
 
-// The name of the encryption certificate.
 func (o AS2SecuritySettingsResponseOutput) EncryptionCertificateName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AS2SecuritySettingsResponse) *string { return v.EncryptionCertificateName }).(pulumi.StringPtrOutput)
 }
 
-// The value indicating whether to send or request a MDN.
 func (o AS2SecuritySettingsResponseOutput) OverrideGroupSigningCertificate() pulumi.BoolOutput {
 	return o.ApplyT(func(v AS2SecuritySettingsResponse) bool { return v.OverrideGroupSigningCertificate }).(pulumi.BoolOutput)
 }
 
-// The Sha2 algorithm format. Valid values are Sha2, ShaHashSize, ShaHyphenHashSize, Sha2UnderscoreHashSize.
 func (o AS2SecuritySettingsResponseOutput) Sha2AlgorithmFormat() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AS2SecuritySettingsResponse) *string { return v.Sha2AlgorithmFormat }).(pulumi.StringPtrOutput)
 }
 
-// The name of the signing certificate.
 func (o AS2SecuritySettingsResponseOutput) SigningCertificateName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AS2SecuritySettingsResponse) *string { return v.SigningCertificateName }).(pulumi.StringPtrOutput)
 }
@@ -3733,10 +3421,15 @@ func (o AS2SecuritySettingsResponsePtrOutput) ToAS2SecuritySettingsResponsePtrOu
 }
 
 func (o AS2SecuritySettingsResponsePtrOutput) Elem() AS2SecuritySettingsResponseOutput {
-	return o.ApplyT(func(v *AS2SecuritySettingsResponse) AS2SecuritySettingsResponse { return *v }).(AS2SecuritySettingsResponseOutput)
+	return o.ApplyT(func(v *AS2SecuritySettingsResponse) AS2SecuritySettingsResponse {
+		if v != nil {
+			return *v
+		}
+		var ret AS2SecuritySettingsResponse
+		return ret
+	}).(AS2SecuritySettingsResponseOutput)
 }
 
-// The value indicating whether to enable NRR for inbound decoded messages.
 func (o AS2SecuritySettingsResponsePtrOutput) EnableNRRForInboundDecodedMessages() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *AS2SecuritySettingsResponse) *bool {
 		if v == nil {
@@ -3746,7 +3439,6 @@ func (o AS2SecuritySettingsResponsePtrOutput) EnableNRRForInboundDecodedMessages
 	}).(pulumi.BoolPtrOutput)
 }
 
-// The value indicating whether to enable NRR for inbound encoded messages.
 func (o AS2SecuritySettingsResponsePtrOutput) EnableNRRForInboundEncodedMessages() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *AS2SecuritySettingsResponse) *bool {
 		if v == nil {
@@ -3756,7 +3448,6 @@ func (o AS2SecuritySettingsResponsePtrOutput) EnableNRRForInboundEncodedMessages
 	}).(pulumi.BoolPtrOutput)
 }
 
-// The value indicating whether to enable NRR for inbound MDN.
 func (o AS2SecuritySettingsResponsePtrOutput) EnableNRRForInboundMDN() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *AS2SecuritySettingsResponse) *bool {
 		if v == nil {
@@ -3766,7 +3457,6 @@ func (o AS2SecuritySettingsResponsePtrOutput) EnableNRRForInboundMDN() pulumi.Bo
 	}).(pulumi.BoolPtrOutput)
 }
 
-// The value indicating whether to enable NRR for outbound decoded messages.
 func (o AS2SecuritySettingsResponsePtrOutput) EnableNRRForOutboundDecodedMessages() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *AS2SecuritySettingsResponse) *bool {
 		if v == nil {
@@ -3776,7 +3466,6 @@ func (o AS2SecuritySettingsResponsePtrOutput) EnableNRRForOutboundDecodedMessage
 	}).(pulumi.BoolPtrOutput)
 }
 
-// The value indicating whether to enable NRR for outbound encoded messages.
 func (o AS2SecuritySettingsResponsePtrOutput) EnableNRRForOutboundEncodedMessages() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *AS2SecuritySettingsResponse) *bool {
 		if v == nil {
@@ -3786,7 +3475,6 @@ func (o AS2SecuritySettingsResponsePtrOutput) EnableNRRForOutboundEncodedMessage
 	}).(pulumi.BoolPtrOutput)
 }
 
-// The value indicating whether to enable NRR for outbound MDN.
 func (o AS2SecuritySettingsResponsePtrOutput) EnableNRRForOutboundMDN() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *AS2SecuritySettingsResponse) *bool {
 		if v == nil {
@@ -3796,7 +3484,6 @@ func (o AS2SecuritySettingsResponsePtrOutput) EnableNRRForOutboundMDN() pulumi.B
 	}).(pulumi.BoolPtrOutput)
 }
 
-// The name of the encryption certificate.
 func (o AS2SecuritySettingsResponsePtrOutput) EncryptionCertificateName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *AS2SecuritySettingsResponse) *string {
 		if v == nil {
@@ -3806,7 +3493,6 @@ func (o AS2SecuritySettingsResponsePtrOutput) EncryptionCertificateName() pulumi
 	}).(pulumi.StringPtrOutput)
 }
 
-// The value indicating whether to send or request a MDN.
 func (o AS2SecuritySettingsResponsePtrOutput) OverrideGroupSigningCertificate() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *AS2SecuritySettingsResponse) *bool {
 		if v == nil {
@@ -3816,7 +3502,6 @@ func (o AS2SecuritySettingsResponsePtrOutput) OverrideGroupSigningCertificate() 
 	}).(pulumi.BoolPtrOutput)
 }
 
-// The Sha2 algorithm format. Valid values are Sha2, ShaHashSize, ShaHyphenHashSize, Sha2UnderscoreHashSize.
 func (o AS2SecuritySettingsResponsePtrOutput) Sha2AlgorithmFormat() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *AS2SecuritySettingsResponse) *string {
 		if v == nil {
@@ -3826,7 +3511,6 @@ func (o AS2SecuritySettingsResponsePtrOutput) Sha2AlgorithmFormat() pulumi.Strin
 	}).(pulumi.StringPtrOutput)
 }
 
-// The name of the signing certificate.
 func (o AS2SecuritySettingsResponsePtrOutput) SigningCertificateName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *AS2SecuritySettingsResponse) *string {
 		if v == nil {
@@ -3836,28 +3520,17 @@ func (o AS2SecuritySettingsResponsePtrOutput) SigningCertificateName() pulumi.St
 	}).(pulumi.StringPtrOutput)
 }
 
-// The AS2 agreement validation settings.
 type AS2ValidationSettings struct {
-	// The value indicating whether to check for certificate revocation list on receive.
-	CheckCertificateRevocationListOnReceive bool `pulumi:"checkCertificateRevocationListOnReceive"`
-	// The value indicating whether to check for certificate revocation list on send.
-	CheckCertificateRevocationListOnSend bool `pulumi:"checkCertificateRevocationListOnSend"`
-	// The value indicating whether to check for duplicate message.
-	CheckDuplicateMessage bool `pulumi:"checkDuplicateMessage"`
-	// The value indicating whether the message has to be compressed.
-	CompressMessage bool `pulumi:"compressMessage"`
-	// The value indicating whether the message has to be encrypted.
-	EncryptMessage bool `pulumi:"encryptMessage"`
-	// The encryption algorithm.
-	EncryptionAlgorithm string `pulumi:"encryptionAlgorithm"`
-	// The number of days to look back for duplicate interchange.
-	InterchangeDuplicatesValidityDays int `pulumi:"interchangeDuplicatesValidityDays"`
-	// The value indicating whether to override incoming message properties with those in agreement.
-	OverrideMessageProperties bool `pulumi:"overrideMessageProperties"`
-	// The value indicating whether the message has to be signed.
-	SignMessage bool `pulumi:"signMessage"`
-	// The signing algorithm.
-	SigningAlgorithm *string `pulumi:"signingAlgorithm"`
+	CheckCertificateRevocationListOnReceive bool    `pulumi:"checkCertificateRevocationListOnReceive"`
+	CheckCertificateRevocationListOnSend    bool    `pulumi:"checkCertificateRevocationListOnSend"`
+	CheckDuplicateMessage                   bool    `pulumi:"checkDuplicateMessage"`
+	CompressMessage                         bool    `pulumi:"compressMessage"`
+	EncryptMessage                          bool    `pulumi:"encryptMessage"`
+	EncryptionAlgorithm                     string  `pulumi:"encryptionAlgorithm"`
+	InterchangeDuplicatesValidityDays       int     `pulumi:"interchangeDuplicatesValidityDays"`
+	OverrideMessageProperties               bool    `pulumi:"overrideMessageProperties"`
+	SignMessage                             bool    `pulumi:"signMessage"`
+	SigningAlgorithm                        *string `pulumi:"signingAlgorithm"`
 }
 
 // AS2ValidationSettingsInput is an input type that accepts AS2ValidationSettingsArgs and AS2ValidationSettingsOutput values.
@@ -3871,28 +3544,17 @@ type AS2ValidationSettingsInput interface {
 	ToAS2ValidationSettingsOutputWithContext(context.Context) AS2ValidationSettingsOutput
 }
 
-// The AS2 agreement validation settings.
 type AS2ValidationSettingsArgs struct {
-	// The value indicating whether to check for certificate revocation list on receive.
-	CheckCertificateRevocationListOnReceive pulumi.BoolInput `pulumi:"checkCertificateRevocationListOnReceive"`
-	// The value indicating whether to check for certificate revocation list on send.
-	CheckCertificateRevocationListOnSend pulumi.BoolInput `pulumi:"checkCertificateRevocationListOnSend"`
-	// The value indicating whether to check for duplicate message.
-	CheckDuplicateMessage pulumi.BoolInput `pulumi:"checkDuplicateMessage"`
-	// The value indicating whether the message has to be compressed.
-	CompressMessage pulumi.BoolInput `pulumi:"compressMessage"`
-	// The value indicating whether the message has to be encrypted.
-	EncryptMessage pulumi.BoolInput `pulumi:"encryptMessage"`
-	// The encryption algorithm.
-	EncryptionAlgorithm pulumi.StringInput `pulumi:"encryptionAlgorithm"`
-	// The number of days to look back for duplicate interchange.
-	InterchangeDuplicatesValidityDays pulumi.IntInput `pulumi:"interchangeDuplicatesValidityDays"`
-	// The value indicating whether to override incoming message properties with those in agreement.
-	OverrideMessageProperties pulumi.BoolInput `pulumi:"overrideMessageProperties"`
-	// The value indicating whether the message has to be signed.
-	SignMessage pulumi.BoolInput `pulumi:"signMessage"`
-	// The signing algorithm.
-	SigningAlgorithm pulumi.StringPtrInput `pulumi:"signingAlgorithm"`
+	CheckCertificateRevocationListOnReceive pulumi.BoolInput      `pulumi:"checkCertificateRevocationListOnReceive"`
+	CheckCertificateRevocationListOnSend    pulumi.BoolInput      `pulumi:"checkCertificateRevocationListOnSend"`
+	CheckDuplicateMessage                   pulumi.BoolInput      `pulumi:"checkDuplicateMessage"`
+	CompressMessage                         pulumi.BoolInput      `pulumi:"compressMessage"`
+	EncryptMessage                          pulumi.BoolInput      `pulumi:"encryptMessage"`
+	EncryptionAlgorithm                     pulumi.StringInput    `pulumi:"encryptionAlgorithm"`
+	InterchangeDuplicatesValidityDays       pulumi.IntInput       `pulumi:"interchangeDuplicatesValidityDays"`
+	OverrideMessageProperties               pulumi.BoolInput      `pulumi:"overrideMessageProperties"`
+	SignMessage                             pulumi.BoolInput      `pulumi:"signMessage"`
+	SigningAlgorithm                        pulumi.StringPtrInput `pulumi:"signingAlgorithm"`
 }
 
 func (AS2ValidationSettingsArgs) ElementType() reflect.Type {
@@ -3948,7 +3610,6 @@ func (i *as2validationSettingsPtrType) ToAS2ValidationSettingsPtrOutputWithConte
 	return pulumi.ToOutputWithContext(ctx, i).(AS2ValidationSettingsPtrOutput)
 }
 
-// The AS2 agreement validation settings.
 type AS2ValidationSettingsOutput struct{ *pulumi.OutputState }
 
 func (AS2ValidationSettingsOutput) ElementType() reflect.Type {
@@ -3968,57 +3629,47 @@ func (o AS2ValidationSettingsOutput) ToAS2ValidationSettingsPtrOutput() AS2Valid
 }
 
 func (o AS2ValidationSettingsOutput) ToAS2ValidationSettingsPtrOutputWithContext(ctx context.Context) AS2ValidationSettingsPtrOutput {
-	return o.ApplyT(func(v AS2ValidationSettings) *AS2ValidationSettings {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v AS2ValidationSettings) *AS2ValidationSettings {
 		return &v
 	}).(AS2ValidationSettingsPtrOutput)
 }
 
-// The value indicating whether to check for certificate revocation list on receive.
 func (o AS2ValidationSettingsOutput) CheckCertificateRevocationListOnReceive() pulumi.BoolOutput {
 	return o.ApplyT(func(v AS2ValidationSettings) bool { return v.CheckCertificateRevocationListOnReceive }).(pulumi.BoolOutput)
 }
 
-// The value indicating whether to check for certificate revocation list on send.
 func (o AS2ValidationSettingsOutput) CheckCertificateRevocationListOnSend() pulumi.BoolOutput {
 	return o.ApplyT(func(v AS2ValidationSettings) bool { return v.CheckCertificateRevocationListOnSend }).(pulumi.BoolOutput)
 }
 
-// The value indicating whether to check for duplicate message.
 func (o AS2ValidationSettingsOutput) CheckDuplicateMessage() pulumi.BoolOutput {
 	return o.ApplyT(func(v AS2ValidationSettings) bool { return v.CheckDuplicateMessage }).(pulumi.BoolOutput)
 }
 
-// The value indicating whether the message has to be compressed.
 func (o AS2ValidationSettingsOutput) CompressMessage() pulumi.BoolOutput {
 	return o.ApplyT(func(v AS2ValidationSettings) bool { return v.CompressMessage }).(pulumi.BoolOutput)
 }
 
-// The value indicating whether the message has to be encrypted.
 func (o AS2ValidationSettingsOutput) EncryptMessage() pulumi.BoolOutput {
 	return o.ApplyT(func(v AS2ValidationSettings) bool { return v.EncryptMessage }).(pulumi.BoolOutput)
 }
 
-// The encryption algorithm.
 func (o AS2ValidationSettingsOutput) EncryptionAlgorithm() pulumi.StringOutput {
 	return o.ApplyT(func(v AS2ValidationSettings) string { return v.EncryptionAlgorithm }).(pulumi.StringOutput)
 }
 
-// The number of days to look back for duplicate interchange.
 func (o AS2ValidationSettingsOutput) InterchangeDuplicatesValidityDays() pulumi.IntOutput {
 	return o.ApplyT(func(v AS2ValidationSettings) int { return v.InterchangeDuplicatesValidityDays }).(pulumi.IntOutput)
 }
 
-// The value indicating whether to override incoming message properties with those in agreement.
 func (o AS2ValidationSettingsOutput) OverrideMessageProperties() pulumi.BoolOutput {
 	return o.ApplyT(func(v AS2ValidationSettings) bool { return v.OverrideMessageProperties }).(pulumi.BoolOutput)
 }
 
-// The value indicating whether the message has to be signed.
 func (o AS2ValidationSettingsOutput) SignMessage() pulumi.BoolOutput {
 	return o.ApplyT(func(v AS2ValidationSettings) bool { return v.SignMessage }).(pulumi.BoolOutput)
 }
 
-// The signing algorithm.
 func (o AS2ValidationSettingsOutput) SigningAlgorithm() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AS2ValidationSettings) *string { return v.SigningAlgorithm }).(pulumi.StringPtrOutput)
 }
@@ -4038,10 +3689,15 @@ func (o AS2ValidationSettingsPtrOutput) ToAS2ValidationSettingsPtrOutputWithCont
 }
 
 func (o AS2ValidationSettingsPtrOutput) Elem() AS2ValidationSettingsOutput {
-	return o.ApplyT(func(v *AS2ValidationSettings) AS2ValidationSettings { return *v }).(AS2ValidationSettingsOutput)
+	return o.ApplyT(func(v *AS2ValidationSettings) AS2ValidationSettings {
+		if v != nil {
+			return *v
+		}
+		var ret AS2ValidationSettings
+		return ret
+	}).(AS2ValidationSettingsOutput)
 }
 
-// The value indicating whether to check for certificate revocation list on receive.
 func (o AS2ValidationSettingsPtrOutput) CheckCertificateRevocationListOnReceive() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *AS2ValidationSettings) *bool {
 		if v == nil {
@@ -4051,7 +3707,6 @@ func (o AS2ValidationSettingsPtrOutput) CheckCertificateRevocationListOnReceive(
 	}).(pulumi.BoolPtrOutput)
 }
 
-// The value indicating whether to check for certificate revocation list on send.
 func (o AS2ValidationSettingsPtrOutput) CheckCertificateRevocationListOnSend() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *AS2ValidationSettings) *bool {
 		if v == nil {
@@ -4061,7 +3716,6 @@ func (o AS2ValidationSettingsPtrOutput) CheckCertificateRevocationListOnSend() p
 	}).(pulumi.BoolPtrOutput)
 }
 
-// The value indicating whether to check for duplicate message.
 func (o AS2ValidationSettingsPtrOutput) CheckDuplicateMessage() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *AS2ValidationSettings) *bool {
 		if v == nil {
@@ -4071,7 +3725,6 @@ func (o AS2ValidationSettingsPtrOutput) CheckDuplicateMessage() pulumi.BoolPtrOu
 	}).(pulumi.BoolPtrOutput)
 }
 
-// The value indicating whether the message has to be compressed.
 func (o AS2ValidationSettingsPtrOutput) CompressMessage() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *AS2ValidationSettings) *bool {
 		if v == nil {
@@ -4081,7 +3734,6 @@ func (o AS2ValidationSettingsPtrOutput) CompressMessage() pulumi.BoolPtrOutput {
 	}).(pulumi.BoolPtrOutput)
 }
 
-// The value indicating whether the message has to be encrypted.
 func (o AS2ValidationSettingsPtrOutput) EncryptMessage() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *AS2ValidationSettings) *bool {
 		if v == nil {
@@ -4091,7 +3743,6 @@ func (o AS2ValidationSettingsPtrOutput) EncryptMessage() pulumi.BoolPtrOutput {
 	}).(pulumi.BoolPtrOutput)
 }
 
-// The encryption algorithm.
 func (o AS2ValidationSettingsPtrOutput) EncryptionAlgorithm() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *AS2ValidationSettings) *string {
 		if v == nil {
@@ -4101,7 +3752,6 @@ func (o AS2ValidationSettingsPtrOutput) EncryptionAlgorithm() pulumi.StringPtrOu
 	}).(pulumi.StringPtrOutput)
 }
 
-// The number of days to look back for duplicate interchange.
 func (o AS2ValidationSettingsPtrOutput) InterchangeDuplicatesValidityDays() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *AS2ValidationSettings) *int {
 		if v == nil {
@@ -4111,7 +3761,6 @@ func (o AS2ValidationSettingsPtrOutput) InterchangeDuplicatesValidityDays() pulu
 	}).(pulumi.IntPtrOutput)
 }
 
-// The value indicating whether to override incoming message properties with those in agreement.
 func (o AS2ValidationSettingsPtrOutput) OverrideMessageProperties() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *AS2ValidationSettings) *bool {
 		if v == nil {
@@ -4121,7 +3770,6 @@ func (o AS2ValidationSettingsPtrOutput) OverrideMessageProperties() pulumi.BoolP
 	}).(pulumi.BoolPtrOutput)
 }
 
-// The value indicating whether the message has to be signed.
 func (o AS2ValidationSettingsPtrOutput) SignMessage() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *AS2ValidationSettings) *bool {
 		if v == nil {
@@ -4131,7 +3779,6 @@ func (o AS2ValidationSettingsPtrOutput) SignMessage() pulumi.BoolPtrOutput {
 	}).(pulumi.BoolPtrOutput)
 }
 
-// The signing algorithm.
 func (o AS2ValidationSettingsPtrOutput) SigningAlgorithm() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *AS2ValidationSettings) *string {
 		if v == nil {
@@ -4141,28 +3788,17 @@ func (o AS2ValidationSettingsPtrOutput) SigningAlgorithm() pulumi.StringPtrOutpu
 	}).(pulumi.StringPtrOutput)
 }
 
-// The AS2 agreement validation settings.
 type AS2ValidationSettingsResponse struct {
-	// The value indicating whether to check for certificate revocation list on receive.
-	CheckCertificateRevocationListOnReceive bool `pulumi:"checkCertificateRevocationListOnReceive"`
-	// The value indicating whether to check for certificate revocation list on send.
-	CheckCertificateRevocationListOnSend bool `pulumi:"checkCertificateRevocationListOnSend"`
-	// The value indicating whether to check for duplicate message.
-	CheckDuplicateMessage bool `pulumi:"checkDuplicateMessage"`
-	// The value indicating whether the message has to be compressed.
-	CompressMessage bool `pulumi:"compressMessage"`
-	// The value indicating whether the message has to be encrypted.
-	EncryptMessage bool `pulumi:"encryptMessage"`
-	// The encryption algorithm.
-	EncryptionAlgorithm string `pulumi:"encryptionAlgorithm"`
-	// The number of days to look back for duplicate interchange.
-	InterchangeDuplicatesValidityDays int `pulumi:"interchangeDuplicatesValidityDays"`
-	// The value indicating whether to override incoming message properties with those in agreement.
-	OverrideMessageProperties bool `pulumi:"overrideMessageProperties"`
-	// The value indicating whether the message has to be signed.
-	SignMessage bool `pulumi:"signMessage"`
-	// The signing algorithm.
-	SigningAlgorithm *string `pulumi:"signingAlgorithm"`
+	CheckCertificateRevocationListOnReceive bool    `pulumi:"checkCertificateRevocationListOnReceive"`
+	CheckCertificateRevocationListOnSend    bool    `pulumi:"checkCertificateRevocationListOnSend"`
+	CheckDuplicateMessage                   bool    `pulumi:"checkDuplicateMessage"`
+	CompressMessage                         bool    `pulumi:"compressMessage"`
+	EncryptMessage                          bool    `pulumi:"encryptMessage"`
+	EncryptionAlgorithm                     string  `pulumi:"encryptionAlgorithm"`
+	InterchangeDuplicatesValidityDays       int     `pulumi:"interchangeDuplicatesValidityDays"`
+	OverrideMessageProperties               bool    `pulumi:"overrideMessageProperties"`
+	SignMessage                             bool    `pulumi:"signMessage"`
+	SigningAlgorithm                        *string `pulumi:"signingAlgorithm"`
 }
 
 // AS2ValidationSettingsResponseInput is an input type that accepts AS2ValidationSettingsResponseArgs and AS2ValidationSettingsResponseOutput values.
@@ -4176,28 +3812,17 @@ type AS2ValidationSettingsResponseInput interface {
 	ToAS2ValidationSettingsResponseOutputWithContext(context.Context) AS2ValidationSettingsResponseOutput
 }
 
-// The AS2 agreement validation settings.
 type AS2ValidationSettingsResponseArgs struct {
-	// The value indicating whether to check for certificate revocation list on receive.
-	CheckCertificateRevocationListOnReceive pulumi.BoolInput `pulumi:"checkCertificateRevocationListOnReceive"`
-	// The value indicating whether to check for certificate revocation list on send.
-	CheckCertificateRevocationListOnSend pulumi.BoolInput `pulumi:"checkCertificateRevocationListOnSend"`
-	// The value indicating whether to check for duplicate message.
-	CheckDuplicateMessage pulumi.BoolInput `pulumi:"checkDuplicateMessage"`
-	// The value indicating whether the message has to be compressed.
-	CompressMessage pulumi.BoolInput `pulumi:"compressMessage"`
-	// The value indicating whether the message has to be encrypted.
-	EncryptMessage pulumi.BoolInput `pulumi:"encryptMessage"`
-	// The encryption algorithm.
-	EncryptionAlgorithm pulumi.StringInput `pulumi:"encryptionAlgorithm"`
-	// The number of days to look back for duplicate interchange.
-	InterchangeDuplicatesValidityDays pulumi.IntInput `pulumi:"interchangeDuplicatesValidityDays"`
-	// The value indicating whether to override incoming message properties with those in agreement.
-	OverrideMessageProperties pulumi.BoolInput `pulumi:"overrideMessageProperties"`
-	// The value indicating whether the message has to be signed.
-	SignMessage pulumi.BoolInput `pulumi:"signMessage"`
-	// The signing algorithm.
-	SigningAlgorithm pulumi.StringPtrInput `pulumi:"signingAlgorithm"`
+	CheckCertificateRevocationListOnReceive pulumi.BoolInput      `pulumi:"checkCertificateRevocationListOnReceive"`
+	CheckCertificateRevocationListOnSend    pulumi.BoolInput      `pulumi:"checkCertificateRevocationListOnSend"`
+	CheckDuplicateMessage                   pulumi.BoolInput      `pulumi:"checkDuplicateMessage"`
+	CompressMessage                         pulumi.BoolInput      `pulumi:"compressMessage"`
+	EncryptMessage                          pulumi.BoolInput      `pulumi:"encryptMessage"`
+	EncryptionAlgorithm                     pulumi.StringInput    `pulumi:"encryptionAlgorithm"`
+	InterchangeDuplicatesValidityDays       pulumi.IntInput       `pulumi:"interchangeDuplicatesValidityDays"`
+	OverrideMessageProperties               pulumi.BoolInput      `pulumi:"overrideMessageProperties"`
+	SignMessage                             pulumi.BoolInput      `pulumi:"signMessage"`
+	SigningAlgorithm                        pulumi.StringPtrInput `pulumi:"signingAlgorithm"`
 }
 
 func (AS2ValidationSettingsResponseArgs) ElementType() reflect.Type {
@@ -4253,7 +3878,6 @@ func (i *as2validationSettingsResponsePtrType) ToAS2ValidationSettingsResponsePt
 	return pulumi.ToOutputWithContext(ctx, i).(AS2ValidationSettingsResponsePtrOutput)
 }
 
-// The AS2 agreement validation settings.
 type AS2ValidationSettingsResponseOutput struct{ *pulumi.OutputState }
 
 func (AS2ValidationSettingsResponseOutput) ElementType() reflect.Type {
@@ -4273,57 +3897,47 @@ func (o AS2ValidationSettingsResponseOutput) ToAS2ValidationSettingsResponsePtrO
 }
 
 func (o AS2ValidationSettingsResponseOutput) ToAS2ValidationSettingsResponsePtrOutputWithContext(ctx context.Context) AS2ValidationSettingsResponsePtrOutput {
-	return o.ApplyT(func(v AS2ValidationSettingsResponse) *AS2ValidationSettingsResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v AS2ValidationSettingsResponse) *AS2ValidationSettingsResponse {
 		return &v
 	}).(AS2ValidationSettingsResponsePtrOutput)
 }
 
-// The value indicating whether to check for certificate revocation list on receive.
 func (o AS2ValidationSettingsResponseOutput) CheckCertificateRevocationListOnReceive() pulumi.BoolOutput {
 	return o.ApplyT(func(v AS2ValidationSettingsResponse) bool { return v.CheckCertificateRevocationListOnReceive }).(pulumi.BoolOutput)
 }
 
-// The value indicating whether to check for certificate revocation list on send.
 func (o AS2ValidationSettingsResponseOutput) CheckCertificateRevocationListOnSend() pulumi.BoolOutput {
 	return o.ApplyT(func(v AS2ValidationSettingsResponse) bool { return v.CheckCertificateRevocationListOnSend }).(pulumi.BoolOutput)
 }
 
-// The value indicating whether to check for duplicate message.
 func (o AS2ValidationSettingsResponseOutput) CheckDuplicateMessage() pulumi.BoolOutput {
 	return o.ApplyT(func(v AS2ValidationSettingsResponse) bool { return v.CheckDuplicateMessage }).(pulumi.BoolOutput)
 }
 
-// The value indicating whether the message has to be compressed.
 func (o AS2ValidationSettingsResponseOutput) CompressMessage() pulumi.BoolOutput {
 	return o.ApplyT(func(v AS2ValidationSettingsResponse) bool { return v.CompressMessage }).(pulumi.BoolOutput)
 }
 
-// The value indicating whether the message has to be encrypted.
 func (o AS2ValidationSettingsResponseOutput) EncryptMessage() pulumi.BoolOutput {
 	return o.ApplyT(func(v AS2ValidationSettingsResponse) bool { return v.EncryptMessage }).(pulumi.BoolOutput)
 }
 
-// The encryption algorithm.
 func (o AS2ValidationSettingsResponseOutput) EncryptionAlgorithm() pulumi.StringOutput {
 	return o.ApplyT(func(v AS2ValidationSettingsResponse) string { return v.EncryptionAlgorithm }).(pulumi.StringOutput)
 }
 
-// The number of days to look back for duplicate interchange.
 func (o AS2ValidationSettingsResponseOutput) InterchangeDuplicatesValidityDays() pulumi.IntOutput {
 	return o.ApplyT(func(v AS2ValidationSettingsResponse) int { return v.InterchangeDuplicatesValidityDays }).(pulumi.IntOutput)
 }
 
-// The value indicating whether to override incoming message properties with those in agreement.
 func (o AS2ValidationSettingsResponseOutput) OverrideMessageProperties() pulumi.BoolOutput {
 	return o.ApplyT(func(v AS2ValidationSettingsResponse) bool { return v.OverrideMessageProperties }).(pulumi.BoolOutput)
 }
 
-// The value indicating whether the message has to be signed.
 func (o AS2ValidationSettingsResponseOutput) SignMessage() pulumi.BoolOutput {
 	return o.ApplyT(func(v AS2ValidationSettingsResponse) bool { return v.SignMessage }).(pulumi.BoolOutput)
 }
 
-// The signing algorithm.
 func (o AS2ValidationSettingsResponseOutput) SigningAlgorithm() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AS2ValidationSettingsResponse) *string { return v.SigningAlgorithm }).(pulumi.StringPtrOutput)
 }
@@ -4343,10 +3957,15 @@ func (o AS2ValidationSettingsResponsePtrOutput) ToAS2ValidationSettingsResponseP
 }
 
 func (o AS2ValidationSettingsResponsePtrOutput) Elem() AS2ValidationSettingsResponseOutput {
-	return o.ApplyT(func(v *AS2ValidationSettingsResponse) AS2ValidationSettingsResponse { return *v }).(AS2ValidationSettingsResponseOutput)
+	return o.ApplyT(func(v *AS2ValidationSettingsResponse) AS2ValidationSettingsResponse {
+		if v != nil {
+			return *v
+		}
+		var ret AS2ValidationSettingsResponse
+		return ret
+	}).(AS2ValidationSettingsResponseOutput)
 }
 
-// The value indicating whether to check for certificate revocation list on receive.
 func (o AS2ValidationSettingsResponsePtrOutput) CheckCertificateRevocationListOnReceive() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *AS2ValidationSettingsResponse) *bool {
 		if v == nil {
@@ -4356,7 +3975,6 @@ func (o AS2ValidationSettingsResponsePtrOutput) CheckCertificateRevocationListOn
 	}).(pulumi.BoolPtrOutput)
 }
 
-// The value indicating whether to check for certificate revocation list on send.
 func (o AS2ValidationSettingsResponsePtrOutput) CheckCertificateRevocationListOnSend() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *AS2ValidationSettingsResponse) *bool {
 		if v == nil {
@@ -4366,7 +3984,6 @@ func (o AS2ValidationSettingsResponsePtrOutput) CheckCertificateRevocationListOn
 	}).(pulumi.BoolPtrOutput)
 }
 
-// The value indicating whether to check for duplicate message.
 func (o AS2ValidationSettingsResponsePtrOutput) CheckDuplicateMessage() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *AS2ValidationSettingsResponse) *bool {
 		if v == nil {
@@ -4376,7 +3993,6 @@ func (o AS2ValidationSettingsResponsePtrOutput) CheckDuplicateMessage() pulumi.B
 	}).(pulumi.BoolPtrOutput)
 }
 
-// The value indicating whether the message has to be compressed.
 func (o AS2ValidationSettingsResponsePtrOutput) CompressMessage() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *AS2ValidationSettingsResponse) *bool {
 		if v == nil {
@@ -4386,7 +4002,6 @@ func (o AS2ValidationSettingsResponsePtrOutput) CompressMessage() pulumi.BoolPtr
 	}).(pulumi.BoolPtrOutput)
 }
 
-// The value indicating whether the message has to be encrypted.
 func (o AS2ValidationSettingsResponsePtrOutput) EncryptMessage() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *AS2ValidationSettingsResponse) *bool {
 		if v == nil {
@@ -4396,7 +4011,6 @@ func (o AS2ValidationSettingsResponsePtrOutput) EncryptMessage() pulumi.BoolPtrO
 	}).(pulumi.BoolPtrOutput)
 }
 
-// The encryption algorithm.
 func (o AS2ValidationSettingsResponsePtrOutput) EncryptionAlgorithm() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *AS2ValidationSettingsResponse) *string {
 		if v == nil {
@@ -4406,7 +4020,6 @@ func (o AS2ValidationSettingsResponsePtrOutput) EncryptionAlgorithm() pulumi.Str
 	}).(pulumi.StringPtrOutput)
 }
 
-// The number of days to look back for duplicate interchange.
 func (o AS2ValidationSettingsResponsePtrOutput) InterchangeDuplicatesValidityDays() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *AS2ValidationSettingsResponse) *int {
 		if v == nil {
@@ -4416,7 +4029,6 @@ func (o AS2ValidationSettingsResponsePtrOutput) InterchangeDuplicatesValidityDay
 	}).(pulumi.IntPtrOutput)
 }
 
-// The value indicating whether to override incoming message properties with those in agreement.
 func (o AS2ValidationSettingsResponsePtrOutput) OverrideMessageProperties() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *AS2ValidationSettingsResponse) *bool {
 		if v == nil {
@@ -4426,7 +4038,6 @@ func (o AS2ValidationSettingsResponsePtrOutput) OverrideMessageProperties() pulu
 	}).(pulumi.BoolPtrOutput)
 }
 
-// The value indicating whether the message has to be signed.
 func (o AS2ValidationSettingsResponsePtrOutput) SignMessage() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *AS2ValidationSettingsResponse) *bool {
 		if v == nil {
@@ -4436,7 +4047,6 @@ func (o AS2ValidationSettingsResponsePtrOutput) SignMessage() pulumi.BoolPtrOutp
 	}).(pulumi.BoolPtrOutput)
 }
 
-// The signing algorithm.
 func (o AS2ValidationSettingsResponsePtrOutput) SigningAlgorithm() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *AS2ValidationSettingsResponse) *string {
 		if v == nil {
@@ -4446,14 +4056,10 @@ func (o AS2ValidationSettingsResponsePtrOutput) SigningAlgorithm() pulumi.String
 	}).(pulumi.StringPtrOutput)
 }
 
-// The integration account agreement content.
 type AgreementContent struct {
-	// The AS2 agreement content.
-	AS2 *AS2AgreementContent `pulumi:"aS2"`
-	// The EDIFACT agreement content.
+	AS2     *AS2AgreementContent     `pulumi:"aS2"`
 	Edifact *EdifactAgreementContent `pulumi:"edifact"`
-	// The X12 agreement content.
-	X12 *X12AgreementContent `pulumi:"x12"`
+	X12     *X12AgreementContent     `pulumi:"x12"`
 }
 
 // AgreementContentInput is an input type that accepts AgreementContentArgs and AgreementContentOutput values.
@@ -4467,14 +4073,10 @@ type AgreementContentInput interface {
 	ToAgreementContentOutputWithContext(context.Context) AgreementContentOutput
 }
 
-// The integration account agreement content.
 type AgreementContentArgs struct {
-	// The AS2 agreement content.
-	AS2 AS2AgreementContentPtrInput `pulumi:"aS2"`
-	// The EDIFACT agreement content.
+	AS2     AS2AgreementContentPtrInput     `pulumi:"aS2"`
 	Edifact EdifactAgreementContentPtrInput `pulumi:"edifact"`
-	// The X12 agreement content.
-	X12 X12AgreementContentPtrInput `pulumi:"x12"`
+	X12     X12AgreementContentPtrInput     `pulumi:"x12"`
 }
 
 func (AgreementContentArgs) ElementType() reflect.Type {
@@ -4530,7 +4132,6 @@ func (i *agreementContentPtrType) ToAgreementContentPtrOutputWithContext(ctx con
 	return pulumi.ToOutputWithContext(ctx, i).(AgreementContentPtrOutput)
 }
 
-// The integration account agreement content.
 type AgreementContentOutput struct{ *pulumi.OutputState }
 
 func (AgreementContentOutput) ElementType() reflect.Type {
@@ -4550,22 +4151,19 @@ func (o AgreementContentOutput) ToAgreementContentPtrOutput() AgreementContentPt
 }
 
 func (o AgreementContentOutput) ToAgreementContentPtrOutputWithContext(ctx context.Context) AgreementContentPtrOutput {
-	return o.ApplyT(func(v AgreementContent) *AgreementContent {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v AgreementContent) *AgreementContent {
 		return &v
 	}).(AgreementContentPtrOutput)
 }
 
-// The AS2 agreement content.
 func (o AgreementContentOutput) AS2() AS2AgreementContentPtrOutput {
 	return o.ApplyT(func(v AgreementContent) *AS2AgreementContent { return v.AS2 }).(AS2AgreementContentPtrOutput)
 }
 
-// The EDIFACT agreement content.
 func (o AgreementContentOutput) Edifact() EdifactAgreementContentPtrOutput {
 	return o.ApplyT(func(v AgreementContent) *EdifactAgreementContent { return v.Edifact }).(EdifactAgreementContentPtrOutput)
 }
 
-// The X12 agreement content.
 func (o AgreementContentOutput) X12() X12AgreementContentPtrOutput {
 	return o.ApplyT(func(v AgreementContent) *X12AgreementContent { return v.X12 }).(X12AgreementContentPtrOutput)
 }
@@ -4585,10 +4183,15 @@ func (o AgreementContentPtrOutput) ToAgreementContentPtrOutputWithContext(ctx co
 }
 
 func (o AgreementContentPtrOutput) Elem() AgreementContentOutput {
-	return o.ApplyT(func(v *AgreementContent) AgreementContent { return *v }).(AgreementContentOutput)
+	return o.ApplyT(func(v *AgreementContent) AgreementContent {
+		if v != nil {
+			return *v
+		}
+		var ret AgreementContent
+		return ret
+	}).(AgreementContentOutput)
 }
 
-// The AS2 agreement content.
 func (o AgreementContentPtrOutput) AS2() AS2AgreementContentPtrOutput {
 	return o.ApplyT(func(v *AgreementContent) *AS2AgreementContent {
 		if v == nil {
@@ -4598,7 +4201,6 @@ func (o AgreementContentPtrOutput) AS2() AS2AgreementContentPtrOutput {
 	}).(AS2AgreementContentPtrOutput)
 }
 
-// The EDIFACT agreement content.
 func (o AgreementContentPtrOutput) Edifact() EdifactAgreementContentPtrOutput {
 	return o.ApplyT(func(v *AgreementContent) *EdifactAgreementContent {
 		if v == nil {
@@ -4608,7 +4210,6 @@ func (o AgreementContentPtrOutput) Edifact() EdifactAgreementContentPtrOutput {
 	}).(EdifactAgreementContentPtrOutput)
 }
 
-// The X12 agreement content.
 func (o AgreementContentPtrOutput) X12() X12AgreementContentPtrOutput {
 	return o.ApplyT(func(v *AgreementContent) *X12AgreementContent {
 		if v == nil {
@@ -4618,14 +4219,10 @@ func (o AgreementContentPtrOutput) X12() X12AgreementContentPtrOutput {
 	}).(X12AgreementContentPtrOutput)
 }
 
-// The integration account agreement content.
 type AgreementContentResponse struct {
-	// The AS2 agreement content.
-	AS2 *AS2AgreementContentResponse `pulumi:"aS2"`
-	// The EDIFACT agreement content.
+	AS2     *AS2AgreementContentResponse     `pulumi:"aS2"`
 	Edifact *EdifactAgreementContentResponse `pulumi:"edifact"`
-	// The X12 agreement content.
-	X12 *X12AgreementContentResponse `pulumi:"x12"`
+	X12     *X12AgreementContentResponse     `pulumi:"x12"`
 }
 
 // AgreementContentResponseInput is an input type that accepts AgreementContentResponseArgs and AgreementContentResponseOutput values.
@@ -4639,14 +4236,10 @@ type AgreementContentResponseInput interface {
 	ToAgreementContentResponseOutputWithContext(context.Context) AgreementContentResponseOutput
 }
 
-// The integration account agreement content.
 type AgreementContentResponseArgs struct {
-	// The AS2 agreement content.
-	AS2 AS2AgreementContentResponsePtrInput `pulumi:"aS2"`
-	// The EDIFACT agreement content.
+	AS2     AS2AgreementContentResponsePtrInput     `pulumi:"aS2"`
 	Edifact EdifactAgreementContentResponsePtrInput `pulumi:"edifact"`
-	// The X12 agreement content.
-	X12 X12AgreementContentResponsePtrInput `pulumi:"x12"`
+	X12     X12AgreementContentResponsePtrInput     `pulumi:"x12"`
 }
 
 func (AgreementContentResponseArgs) ElementType() reflect.Type {
@@ -4702,7 +4295,6 @@ func (i *agreementContentResponsePtrType) ToAgreementContentResponsePtrOutputWit
 	return pulumi.ToOutputWithContext(ctx, i).(AgreementContentResponsePtrOutput)
 }
 
-// The integration account agreement content.
 type AgreementContentResponseOutput struct{ *pulumi.OutputState }
 
 func (AgreementContentResponseOutput) ElementType() reflect.Type {
@@ -4722,22 +4314,19 @@ func (o AgreementContentResponseOutput) ToAgreementContentResponsePtrOutput() Ag
 }
 
 func (o AgreementContentResponseOutput) ToAgreementContentResponsePtrOutputWithContext(ctx context.Context) AgreementContentResponsePtrOutput {
-	return o.ApplyT(func(v AgreementContentResponse) *AgreementContentResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v AgreementContentResponse) *AgreementContentResponse {
 		return &v
 	}).(AgreementContentResponsePtrOutput)
 }
 
-// The AS2 agreement content.
 func (o AgreementContentResponseOutput) AS2() AS2AgreementContentResponsePtrOutput {
 	return o.ApplyT(func(v AgreementContentResponse) *AS2AgreementContentResponse { return v.AS2 }).(AS2AgreementContentResponsePtrOutput)
 }
 
-// The EDIFACT agreement content.
 func (o AgreementContentResponseOutput) Edifact() EdifactAgreementContentResponsePtrOutput {
 	return o.ApplyT(func(v AgreementContentResponse) *EdifactAgreementContentResponse { return v.Edifact }).(EdifactAgreementContentResponsePtrOutput)
 }
 
-// The X12 agreement content.
 func (o AgreementContentResponseOutput) X12() X12AgreementContentResponsePtrOutput {
 	return o.ApplyT(func(v AgreementContentResponse) *X12AgreementContentResponse { return v.X12 }).(X12AgreementContentResponsePtrOutput)
 }
@@ -4757,10 +4346,15 @@ func (o AgreementContentResponsePtrOutput) ToAgreementContentResponsePtrOutputWi
 }
 
 func (o AgreementContentResponsePtrOutput) Elem() AgreementContentResponseOutput {
-	return o.ApplyT(func(v *AgreementContentResponse) AgreementContentResponse { return *v }).(AgreementContentResponseOutput)
+	return o.ApplyT(func(v *AgreementContentResponse) AgreementContentResponse {
+		if v != nil {
+			return *v
+		}
+		var ret AgreementContentResponse
+		return ret
+	}).(AgreementContentResponseOutput)
 }
 
-// The AS2 agreement content.
 func (o AgreementContentResponsePtrOutput) AS2() AS2AgreementContentResponsePtrOutput {
 	return o.ApplyT(func(v *AgreementContentResponse) *AS2AgreementContentResponse {
 		if v == nil {
@@ -4770,7 +4364,6 @@ func (o AgreementContentResponsePtrOutput) AS2() AS2AgreementContentResponsePtrO
 	}).(AS2AgreementContentResponsePtrOutput)
 }
 
-// The EDIFACT agreement content.
 func (o AgreementContentResponsePtrOutput) Edifact() EdifactAgreementContentResponsePtrOutput {
 	return o.ApplyT(func(v *AgreementContentResponse) *EdifactAgreementContentResponse {
 		if v == nil {
@@ -4780,7 +4373,6 @@ func (o AgreementContentResponsePtrOutput) Edifact() EdifactAgreementContentResp
 	}).(EdifactAgreementContentResponsePtrOutput)
 }
 
-// The X12 agreement content.
 func (o AgreementContentResponsePtrOutput) X12() X12AgreementContentResponsePtrOutput {
 	return o.ApplyT(func(v *AgreementContentResponse) *X12AgreementContentResponse {
 		if v == nil {
@@ -4790,26 +4382,17 @@ func (o AgreementContentResponsePtrOutput) X12() X12AgreementContentResponsePtrO
 	}).(X12AgreementContentResponsePtrOutput)
 }
 
-// The assembly properties definition.
 type AssemblyProperties struct {
-	// The assembly culture.
-	AssemblyCulture *string `pulumi:"assemblyCulture"`
-	// The assembly name.
-	AssemblyName string `pulumi:"assemblyName"`
-	// The assembly public key token.
-	AssemblyPublicKeyToken *string `pulumi:"assemblyPublicKeyToken"`
-	// The assembly version.
-	AssemblyVersion *string `pulumi:"assemblyVersion"`
-	// The artifact changed time.
-	ChangedTime *string     `pulumi:"changedTime"`
-	Content     interface{} `pulumi:"content"`
-	// The content link.
-	ContentLink *ContentLink `pulumi:"contentLink"`
-	// The content type.
-	ContentType *string `pulumi:"contentType"`
-	// The artifact creation time.
-	CreatedTime *string     `pulumi:"createdTime"`
-	Metadata    interface{} `pulumi:"metadata"`
+	AssemblyCulture        *string      `pulumi:"assemblyCulture"`
+	AssemblyName           string       `pulumi:"assemblyName"`
+	AssemblyPublicKeyToken *string      `pulumi:"assemblyPublicKeyToken"`
+	AssemblyVersion        *string      `pulumi:"assemblyVersion"`
+	ChangedTime            *string      `pulumi:"changedTime"`
+	Content                interface{}  `pulumi:"content"`
+	ContentLink            *ContentLink `pulumi:"contentLink"`
+	ContentType            *string      `pulumi:"contentType"`
+	CreatedTime            *string      `pulumi:"createdTime"`
+	Metadata               interface{}  `pulumi:"metadata"`
 }
 
 // AssemblyPropertiesInput is an input type that accepts AssemblyPropertiesArgs and AssemblyPropertiesOutput values.
@@ -4823,26 +4406,17 @@ type AssemblyPropertiesInput interface {
 	ToAssemblyPropertiesOutputWithContext(context.Context) AssemblyPropertiesOutput
 }
 
-// The assembly properties definition.
 type AssemblyPropertiesArgs struct {
-	// The assembly culture.
-	AssemblyCulture pulumi.StringPtrInput `pulumi:"assemblyCulture"`
-	// The assembly name.
-	AssemblyName pulumi.StringInput `pulumi:"assemblyName"`
-	// The assembly public key token.
+	AssemblyCulture        pulumi.StringPtrInput `pulumi:"assemblyCulture"`
+	AssemblyName           pulumi.StringInput    `pulumi:"assemblyName"`
 	AssemblyPublicKeyToken pulumi.StringPtrInput `pulumi:"assemblyPublicKeyToken"`
-	// The assembly version.
-	AssemblyVersion pulumi.StringPtrInput `pulumi:"assemblyVersion"`
-	// The artifact changed time.
-	ChangedTime pulumi.StringPtrInput `pulumi:"changedTime"`
-	Content     pulumi.Input          `pulumi:"content"`
-	// The content link.
-	ContentLink ContentLinkPtrInput `pulumi:"contentLink"`
-	// The content type.
-	ContentType pulumi.StringPtrInput `pulumi:"contentType"`
-	// The artifact creation time.
-	CreatedTime pulumi.StringPtrInput `pulumi:"createdTime"`
-	Metadata    pulumi.Input          `pulumi:"metadata"`
+	AssemblyVersion        pulumi.StringPtrInput `pulumi:"assemblyVersion"`
+	ChangedTime            pulumi.StringPtrInput `pulumi:"changedTime"`
+	Content                pulumi.Input          `pulumi:"content"`
+	ContentLink            ContentLinkPtrInput   `pulumi:"contentLink"`
+	ContentType            pulumi.StringPtrInput `pulumi:"contentType"`
+	CreatedTime            pulumi.StringPtrInput `pulumi:"createdTime"`
+	Metadata               pulumi.Input          `pulumi:"metadata"`
 }
 
 func (AssemblyPropertiesArgs) ElementType() reflect.Type {
@@ -4898,7 +4472,6 @@ func (i *assemblyPropertiesPtrType) ToAssemblyPropertiesPtrOutputWithContext(ctx
 	return pulumi.ToOutputWithContext(ctx, i).(AssemblyPropertiesPtrOutput)
 }
 
-// The assembly properties definition.
 type AssemblyPropertiesOutput struct{ *pulumi.OutputState }
 
 func (AssemblyPropertiesOutput) ElementType() reflect.Type {
@@ -4918,32 +4491,27 @@ func (o AssemblyPropertiesOutput) ToAssemblyPropertiesPtrOutput() AssemblyProper
 }
 
 func (o AssemblyPropertiesOutput) ToAssemblyPropertiesPtrOutputWithContext(ctx context.Context) AssemblyPropertiesPtrOutput {
-	return o.ApplyT(func(v AssemblyProperties) *AssemblyProperties {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v AssemblyProperties) *AssemblyProperties {
 		return &v
 	}).(AssemblyPropertiesPtrOutput)
 }
 
-// The assembly culture.
 func (o AssemblyPropertiesOutput) AssemblyCulture() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AssemblyProperties) *string { return v.AssemblyCulture }).(pulumi.StringPtrOutput)
 }
 
-// The assembly name.
 func (o AssemblyPropertiesOutput) AssemblyName() pulumi.StringOutput {
 	return o.ApplyT(func(v AssemblyProperties) string { return v.AssemblyName }).(pulumi.StringOutput)
 }
 
-// The assembly public key token.
 func (o AssemblyPropertiesOutput) AssemblyPublicKeyToken() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AssemblyProperties) *string { return v.AssemblyPublicKeyToken }).(pulumi.StringPtrOutput)
 }
 
-// The assembly version.
 func (o AssemblyPropertiesOutput) AssemblyVersion() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AssemblyProperties) *string { return v.AssemblyVersion }).(pulumi.StringPtrOutput)
 }
 
-// The artifact changed time.
 func (o AssemblyPropertiesOutput) ChangedTime() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AssemblyProperties) *string { return v.ChangedTime }).(pulumi.StringPtrOutput)
 }
@@ -4952,17 +4520,14 @@ func (o AssemblyPropertiesOutput) Content() pulumi.AnyOutput {
 	return o.ApplyT(func(v AssemblyProperties) interface{} { return v.Content }).(pulumi.AnyOutput)
 }
 
-// The content link.
 func (o AssemblyPropertiesOutput) ContentLink() ContentLinkPtrOutput {
 	return o.ApplyT(func(v AssemblyProperties) *ContentLink { return v.ContentLink }).(ContentLinkPtrOutput)
 }
 
-// The content type.
 func (o AssemblyPropertiesOutput) ContentType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AssemblyProperties) *string { return v.ContentType }).(pulumi.StringPtrOutput)
 }
 
-// The artifact creation time.
 func (o AssemblyPropertiesOutput) CreatedTime() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AssemblyProperties) *string { return v.CreatedTime }).(pulumi.StringPtrOutput)
 }
@@ -4986,10 +4551,15 @@ func (o AssemblyPropertiesPtrOutput) ToAssemblyPropertiesPtrOutputWithContext(ct
 }
 
 func (o AssemblyPropertiesPtrOutput) Elem() AssemblyPropertiesOutput {
-	return o.ApplyT(func(v *AssemblyProperties) AssemblyProperties { return *v }).(AssemblyPropertiesOutput)
+	return o.ApplyT(func(v *AssemblyProperties) AssemblyProperties {
+		if v != nil {
+			return *v
+		}
+		var ret AssemblyProperties
+		return ret
+	}).(AssemblyPropertiesOutput)
 }
 
-// The assembly culture.
 func (o AssemblyPropertiesPtrOutput) AssemblyCulture() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *AssemblyProperties) *string {
 		if v == nil {
@@ -4999,7 +4569,6 @@ func (o AssemblyPropertiesPtrOutput) AssemblyCulture() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The assembly name.
 func (o AssemblyPropertiesPtrOutput) AssemblyName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *AssemblyProperties) *string {
 		if v == nil {
@@ -5009,7 +4578,6 @@ func (o AssemblyPropertiesPtrOutput) AssemblyName() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The assembly public key token.
 func (o AssemblyPropertiesPtrOutput) AssemblyPublicKeyToken() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *AssemblyProperties) *string {
 		if v == nil {
@@ -5019,7 +4587,6 @@ func (o AssemblyPropertiesPtrOutput) AssemblyPublicKeyToken() pulumi.StringPtrOu
 	}).(pulumi.StringPtrOutput)
 }
 
-// The assembly version.
 func (o AssemblyPropertiesPtrOutput) AssemblyVersion() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *AssemblyProperties) *string {
 		if v == nil {
@@ -5029,7 +4596,6 @@ func (o AssemblyPropertiesPtrOutput) AssemblyVersion() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The artifact changed time.
 func (o AssemblyPropertiesPtrOutput) ChangedTime() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *AssemblyProperties) *string {
 		if v == nil {
@@ -5048,7 +4614,6 @@ func (o AssemblyPropertiesPtrOutput) Content() pulumi.AnyOutput {
 	}).(pulumi.AnyOutput)
 }
 
-// The content link.
 func (o AssemblyPropertiesPtrOutput) ContentLink() ContentLinkPtrOutput {
 	return o.ApplyT(func(v *AssemblyProperties) *ContentLink {
 		if v == nil {
@@ -5058,7 +4623,6 @@ func (o AssemblyPropertiesPtrOutput) ContentLink() ContentLinkPtrOutput {
 	}).(ContentLinkPtrOutput)
 }
 
-// The content type.
 func (o AssemblyPropertiesPtrOutput) ContentType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *AssemblyProperties) *string {
 		if v == nil {
@@ -5068,7 +4632,6 @@ func (o AssemblyPropertiesPtrOutput) ContentType() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The artifact creation time.
 func (o AssemblyPropertiesPtrOutput) CreatedTime() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *AssemblyProperties) *string {
 		if v == nil {
@@ -5087,26 +4650,17 @@ func (o AssemblyPropertiesPtrOutput) Metadata() pulumi.AnyOutput {
 	}).(pulumi.AnyOutput)
 }
 
-// The assembly properties definition.
 type AssemblyPropertiesResponse struct {
-	// The assembly culture.
-	AssemblyCulture *string `pulumi:"assemblyCulture"`
-	// The assembly name.
-	AssemblyName string `pulumi:"assemblyName"`
-	// The assembly public key token.
-	AssemblyPublicKeyToken *string `pulumi:"assemblyPublicKeyToken"`
-	// The assembly version.
-	AssemblyVersion *string `pulumi:"assemblyVersion"`
-	// The artifact changed time.
-	ChangedTime *string     `pulumi:"changedTime"`
-	Content     interface{} `pulumi:"content"`
-	// The content link.
-	ContentLink *ContentLinkResponse `pulumi:"contentLink"`
-	// The content type.
-	ContentType *string `pulumi:"contentType"`
-	// The artifact creation time.
-	CreatedTime *string     `pulumi:"createdTime"`
-	Metadata    interface{} `pulumi:"metadata"`
+	AssemblyCulture        *string              `pulumi:"assemblyCulture"`
+	AssemblyName           string               `pulumi:"assemblyName"`
+	AssemblyPublicKeyToken *string              `pulumi:"assemblyPublicKeyToken"`
+	AssemblyVersion        *string              `pulumi:"assemblyVersion"`
+	ChangedTime            *string              `pulumi:"changedTime"`
+	Content                interface{}          `pulumi:"content"`
+	ContentLink            *ContentLinkResponse `pulumi:"contentLink"`
+	ContentType            *string              `pulumi:"contentType"`
+	CreatedTime            *string              `pulumi:"createdTime"`
+	Metadata               interface{}          `pulumi:"metadata"`
 }
 
 // AssemblyPropertiesResponseInput is an input type that accepts AssemblyPropertiesResponseArgs and AssemblyPropertiesResponseOutput values.
@@ -5120,26 +4674,17 @@ type AssemblyPropertiesResponseInput interface {
 	ToAssemblyPropertiesResponseOutputWithContext(context.Context) AssemblyPropertiesResponseOutput
 }
 
-// The assembly properties definition.
 type AssemblyPropertiesResponseArgs struct {
-	// The assembly culture.
-	AssemblyCulture pulumi.StringPtrInput `pulumi:"assemblyCulture"`
-	// The assembly name.
-	AssemblyName pulumi.StringInput `pulumi:"assemblyName"`
-	// The assembly public key token.
-	AssemblyPublicKeyToken pulumi.StringPtrInput `pulumi:"assemblyPublicKeyToken"`
-	// The assembly version.
-	AssemblyVersion pulumi.StringPtrInput `pulumi:"assemblyVersion"`
-	// The artifact changed time.
-	ChangedTime pulumi.StringPtrInput `pulumi:"changedTime"`
-	Content     pulumi.Input          `pulumi:"content"`
-	// The content link.
-	ContentLink ContentLinkResponsePtrInput `pulumi:"contentLink"`
-	// The content type.
-	ContentType pulumi.StringPtrInput `pulumi:"contentType"`
-	// The artifact creation time.
-	CreatedTime pulumi.StringPtrInput `pulumi:"createdTime"`
-	Metadata    pulumi.Input          `pulumi:"metadata"`
+	AssemblyCulture        pulumi.StringPtrInput       `pulumi:"assemblyCulture"`
+	AssemblyName           pulumi.StringInput          `pulumi:"assemblyName"`
+	AssemblyPublicKeyToken pulumi.StringPtrInput       `pulumi:"assemblyPublicKeyToken"`
+	AssemblyVersion        pulumi.StringPtrInput       `pulumi:"assemblyVersion"`
+	ChangedTime            pulumi.StringPtrInput       `pulumi:"changedTime"`
+	Content                pulumi.Input                `pulumi:"content"`
+	ContentLink            ContentLinkResponsePtrInput `pulumi:"contentLink"`
+	ContentType            pulumi.StringPtrInput       `pulumi:"contentType"`
+	CreatedTime            pulumi.StringPtrInput       `pulumi:"createdTime"`
+	Metadata               pulumi.Input                `pulumi:"metadata"`
 }
 
 func (AssemblyPropertiesResponseArgs) ElementType() reflect.Type {
@@ -5195,7 +4740,6 @@ func (i *assemblyPropertiesResponsePtrType) ToAssemblyPropertiesResponsePtrOutpu
 	return pulumi.ToOutputWithContext(ctx, i).(AssemblyPropertiesResponsePtrOutput)
 }
 
-// The assembly properties definition.
 type AssemblyPropertiesResponseOutput struct{ *pulumi.OutputState }
 
 func (AssemblyPropertiesResponseOutput) ElementType() reflect.Type {
@@ -5215,32 +4759,27 @@ func (o AssemblyPropertiesResponseOutput) ToAssemblyPropertiesResponsePtrOutput(
 }
 
 func (o AssemblyPropertiesResponseOutput) ToAssemblyPropertiesResponsePtrOutputWithContext(ctx context.Context) AssemblyPropertiesResponsePtrOutput {
-	return o.ApplyT(func(v AssemblyPropertiesResponse) *AssemblyPropertiesResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v AssemblyPropertiesResponse) *AssemblyPropertiesResponse {
 		return &v
 	}).(AssemblyPropertiesResponsePtrOutput)
 }
 
-// The assembly culture.
 func (o AssemblyPropertiesResponseOutput) AssemblyCulture() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AssemblyPropertiesResponse) *string { return v.AssemblyCulture }).(pulumi.StringPtrOutput)
 }
 
-// The assembly name.
 func (o AssemblyPropertiesResponseOutput) AssemblyName() pulumi.StringOutput {
 	return o.ApplyT(func(v AssemblyPropertiesResponse) string { return v.AssemblyName }).(pulumi.StringOutput)
 }
 
-// The assembly public key token.
 func (o AssemblyPropertiesResponseOutput) AssemblyPublicKeyToken() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AssemblyPropertiesResponse) *string { return v.AssemblyPublicKeyToken }).(pulumi.StringPtrOutput)
 }
 
-// The assembly version.
 func (o AssemblyPropertiesResponseOutput) AssemblyVersion() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AssemblyPropertiesResponse) *string { return v.AssemblyVersion }).(pulumi.StringPtrOutput)
 }
 
-// The artifact changed time.
 func (o AssemblyPropertiesResponseOutput) ChangedTime() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AssemblyPropertiesResponse) *string { return v.ChangedTime }).(pulumi.StringPtrOutput)
 }
@@ -5249,17 +4788,14 @@ func (o AssemblyPropertiesResponseOutput) Content() pulumi.AnyOutput {
 	return o.ApplyT(func(v AssemblyPropertiesResponse) interface{} { return v.Content }).(pulumi.AnyOutput)
 }
 
-// The content link.
 func (o AssemblyPropertiesResponseOutput) ContentLink() ContentLinkResponsePtrOutput {
 	return o.ApplyT(func(v AssemblyPropertiesResponse) *ContentLinkResponse { return v.ContentLink }).(ContentLinkResponsePtrOutput)
 }
 
-// The content type.
 func (o AssemblyPropertiesResponseOutput) ContentType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AssemblyPropertiesResponse) *string { return v.ContentType }).(pulumi.StringPtrOutput)
 }
 
-// The artifact creation time.
 func (o AssemblyPropertiesResponseOutput) CreatedTime() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AssemblyPropertiesResponse) *string { return v.CreatedTime }).(pulumi.StringPtrOutput)
 }
@@ -5283,10 +4819,15 @@ func (o AssemblyPropertiesResponsePtrOutput) ToAssemblyPropertiesResponsePtrOutp
 }
 
 func (o AssemblyPropertiesResponsePtrOutput) Elem() AssemblyPropertiesResponseOutput {
-	return o.ApplyT(func(v *AssemblyPropertiesResponse) AssemblyPropertiesResponse { return *v }).(AssemblyPropertiesResponseOutput)
+	return o.ApplyT(func(v *AssemblyPropertiesResponse) AssemblyPropertiesResponse {
+		if v != nil {
+			return *v
+		}
+		var ret AssemblyPropertiesResponse
+		return ret
+	}).(AssemblyPropertiesResponseOutput)
 }
 
-// The assembly culture.
 func (o AssemblyPropertiesResponsePtrOutput) AssemblyCulture() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *AssemblyPropertiesResponse) *string {
 		if v == nil {
@@ -5296,7 +4837,6 @@ func (o AssemblyPropertiesResponsePtrOutput) AssemblyCulture() pulumi.StringPtrO
 	}).(pulumi.StringPtrOutput)
 }
 
-// The assembly name.
 func (o AssemblyPropertiesResponsePtrOutput) AssemblyName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *AssemblyPropertiesResponse) *string {
 		if v == nil {
@@ -5306,7 +4846,6 @@ func (o AssemblyPropertiesResponsePtrOutput) AssemblyName() pulumi.StringPtrOutp
 	}).(pulumi.StringPtrOutput)
 }
 
-// The assembly public key token.
 func (o AssemblyPropertiesResponsePtrOutput) AssemblyPublicKeyToken() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *AssemblyPropertiesResponse) *string {
 		if v == nil {
@@ -5316,7 +4855,6 @@ func (o AssemblyPropertiesResponsePtrOutput) AssemblyPublicKeyToken() pulumi.Str
 	}).(pulumi.StringPtrOutput)
 }
 
-// The assembly version.
 func (o AssemblyPropertiesResponsePtrOutput) AssemblyVersion() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *AssemblyPropertiesResponse) *string {
 		if v == nil {
@@ -5326,7 +4864,6 @@ func (o AssemblyPropertiesResponsePtrOutput) AssemblyVersion() pulumi.StringPtrO
 	}).(pulumi.StringPtrOutput)
 }
 
-// The artifact changed time.
 func (o AssemblyPropertiesResponsePtrOutput) ChangedTime() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *AssemblyPropertiesResponse) *string {
 		if v == nil {
@@ -5345,7 +4882,6 @@ func (o AssemblyPropertiesResponsePtrOutput) Content() pulumi.AnyOutput {
 	}).(pulumi.AnyOutput)
 }
 
-// The content link.
 func (o AssemblyPropertiesResponsePtrOutput) ContentLink() ContentLinkResponsePtrOutput {
 	return o.ApplyT(func(v *AssemblyPropertiesResponse) *ContentLinkResponse {
 		if v == nil {
@@ -5355,7 +4891,6 @@ func (o AssemblyPropertiesResponsePtrOutput) ContentLink() ContentLinkResponsePt
 	}).(ContentLinkResponsePtrOutput)
 }
 
-// The content type.
 func (o AssemblyPropertiesResponsePtrOutput) ContentType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *AssemblyPropertiesResponse) *string {
 		if v == nil {
@@ -5365,7 +4900,6 @@ func (o AssemblyPropertiesResponsePtrOutput) ContentType() pulumi.StringPtrOutpu
 	}).(pulumi.StringPtrOutput)
 }
 
-// The artifact creation time.
 func (o AssemblyPropertiesResponsePtrOutput) CreatedTime() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *AssemblyPropertiesResponse) *string {
 		if v == nil {
@@ -5384,14 +4918,10 @@ func (o AssemblyPropertiesResponsePtrOutput) Metadata() pulumi.AnyOutput {
 	}).(pulumi.AnyOutput)
 }
 
-// The azure resource error info.
 type AzureResourceErrorInfoResponse struct {
-	// The error code.
-	Code string `pulumi:"code"`
-	// The error details.
+	Code    string                           `pulumi:"code"`
 	Details []AzureResourceErrorInfoResponse `pulumi:"details"`
-	// The error message.
-	Message string `pulumi:"message"`
+	Message string                           `pulumi:"message"`
 }
 
 // AzureResourceErrorInfoResponseInput is an input type that accepts AzureResourceErrorInfoResponseArgs and AzureResourceErrorInfoResponseOutput values.
@@ -5405,14 +4935,10 @@ type AzureResourceErrorInfoResponseInput interface {
 	ToAzureResourceErrorInfoResponseOutputWithContext(context.Context) AzureResourceErrorInfoResponseOutput
 }
 
-// The azure resource error info.
 type AzureResourceErrorInfoResponseArgs struct {
-	// The error code.
-	Code pulumi.StringInput `pulumi:"code"`
-	// The error details.
+	Code    pulumi.StringInput                       `pulumi:"code"`
 	Details AzureResourceErrorInfoResponseArrayInput `pulumi:"details"`
-	// The error message.
-	Message pulumi.StringInput `pulumi:"message"`
+	Message pulumi.StringInput                       `pulumi:"message"`
 }
 
 func (AzureResourceErrorInfoResponseArgs) ElementType() reflect.Type {
@@ -5493,7 +5019,6 @@ func (i AzureResourceErrorInfoResponseArray) ToAzureResourceErrorInfoResponseArr
 	return pulumi.ToOutputWithContext(ctx, i).(AzureResourceErrorInfoResponseArrayOutput)
 }
 
-// The azure resource error info.
 type AzureResourceErrorInfoResponseOutput struct{ *pulumi.OutputState }
 
 func (AzureResourceErrorInfoResponseOutput) ElementType() reflect.Type {
@@ -5513,22 +5038,19 @@ func (o AzureResourceErrorInfoResponseOutput) ToAzureResourceErrorInfoResponsePt
 }
 
 func (o AzureResourceErrorInfoResponseOutput) ToAzureResourceErrorInfoResponsePtrOutputWithContext(ctx context.Context) AzureResourceErrorInfoResponsePtrOutput {
-	return o.ApplyT(func(v AzureResourceErrorInfoResponse) *AzureResourceErrorInfoResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v AzureResourceErrorInfoResponse) *AzureResourceErrorInfoResponse {
 		return &v
 	}).(AzureResourceErrorInfoResponsePtrOutput)
 }
 
-// The error code.
 func (o AzureResourceErrorInfoResponseOutput) Code() pulumi.StringOutput {
 	return o.ApplyT(func(v AzureResourceErrorInfoResponse) string { return v.Code }).(pulumi.StringOutput)
 }
 
-// The error details.
 func (o AzureResourceErrorInfoResponseOutput) Details() AzureResourceErrorInfoResponseArrayOutput {
 	return o.ApplyT(func(v AzureResourceErrorInfoResponse) []AzureResourceErrorInfoResponse { return v.Details }).(AzureResourceErrorInfoResponseArrayOutput)
 }
 
-// The error message.
 func (o AzureResourceErrorInfoResponseOutput) Message() pulumi.StringOutput {
 	return o.ApplyT(func(v AzureResourceErrorInfoResponse) string { return v.Message }).(pulumi.StringOutput)
 }
@@ -5548,10 +5070,15 @@ func (o AzureResourceErrorInfoResponsePtrOutput) ToAzureResourceErrorInfoRespons
 }
 
 func (o AzureResourceErrorInfoResponsePtrOutput) Elem() AzureResourceErrorInfoResponseOutput {
-	return o.ApplyT(func(v *AzureResourceErrorInfoResponse) AzureResourceErrorInfoResponse { return *v }).(AzureResourceErrorInfoResponseOutput)
+	return o.ApplyT(func(v *AzureResourceErrorInfoResponse) AzureResourceErrorInfoResponse {
+		if v != nil {
+			return *v
+		}
+		var ret AzureResourceErrorInfoResponse
+		return ret
+	}).(AzureResourceErrorInfoResponseOutput)
 }
 
-// The error code.
 func (o AzureResourceErrorInfoResponsePtrOutput) Code() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *AzureResourceErrorInfoResponse) *string {
 		if v == nil {
@@ -5561,7 +5088,6 @@ func (o AzureResourceErrorInfoResponsePtrOutput) Code() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The error details.
 func (o AzureResourceErrorInfoResponsePtrOutput) Details() AzureResourceErrorInfoResponseArrayOutput {
 	return o.ApplyT(func(v *AzureResourceErrorInfoResponse) []AzureResourceErrorInfoResponse {
 		if v == nil {
@@ -5571,7 +5097,6 @@ func (o AzureResourceErrorInfoResponsePtrOutput) Details() AzureResourceErrorInf
 	}).(AzureResourceErrorInfoResponseArrayOutput)
 }
 
-// The error message.
 func (o AzureResourceErrorInfoResponsePtrOutput) Message() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *AzureResourceErrorInfoResponse) *string {
 		if v == nil {
@@ -5601,9 +5126,7 @@ func (o AzureResourceErrorInfoResponseArrayOutput) Index(i pulumi.IntInput) Azur
 	}).(AzureResourceErrorInfoResponseOutput)
 }
 
-// The B2B partner content.
 type B2BPartnerContent struct {
-	// The list of partner business identities.
 	BusinessIdentities []BusinessIdentity `pulumi:"businessIdentities"`
 }
 
@@ -5618,9 +5141,7 @@ type B2BPartnerContentInput interface {
 	ToB2BPartnerContentOutputWithContext(context.Context) B2BPartnerContentOutput
 }
 
-// The B2B partner content.
 type B2BPartnerContentArgs struct {
-	// The list of partner business identities.
 	BusinessIdentities BusinessIdentityArrayInput `pulumi:"businessIdentities"`
 }
 
@@ -5677,7 +5198,6 @@ func (i *b2bpartnerContentPtrType) ToB2BPartnerContentPtrOutputWithContext(ctx c
 	return pulumi.ToOutputWithContext(ctx, i).(B2BPartnerContentPtrOutput)
 }
 
-// The B2B partner content.
 type B2BPartnerContentOutput struct{ *pulumi.OutputState }
 
 func (B2BPartnerContentOutput) ElementType() reflect.Type {
@@ -5697,12 +5217,11 @@ func (o B2BPartnerContentOutput) ToB2BPartnerContentPtrOutput() B2BPartnerConten
 }
 
 func (o B2BPartnerContentOutput) ToB2BPartnerContentPtrOutputWithContext(ctx context.Context) B2BPartnerContentPtrOutput {
-	return o.ApplyT(func(v B2BPartnerContent) *B2BPartnerContent {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v B2BPartnerContent) *B2BPartnerContent {
 		return &v
 	}).(B2BPartnerContentPtrOutput)
 }
 
-// The list of partner business identities.
 func (o B2BPartnerContentOutput) BusinessIdentities() BusinessIdentityArrayOutput {
 	return o.ApplyT(func(v B2BPartnerContent) []BusinessIdentity { return v.BusinessIdentities }).(BusinessIdentityArrayOutput)
 }
@@ -5722,10 +5241,15 @@ func (o B2BPartnerContentPtrOutput) ToB2BPartnerContentPtrOutputWithContext(ctx 
 }
 
 func (o B2BPartnerContentPtrOutput) Elem() B2BPartnerContentOutput {
-	return o.ApplyT(func(v *B2BPartnerContent) B2BPartnerContent { return *v }).(B2BPartnerContentOutput)
+	return o.ApplyT(func(v *B2BPartnerContent) B2BPartnerContent {
+		if v != nil {
+			return *v
+		}
+		var ret B2BPartnerContent
+		return ret
+	}).(B2BPartnerContentOutput)
 }
 
-// The list of partner business identities.
 func (o B2BPartnerContentPtrOutput) BusinessIdentities() BusinessIdentityArrayOutput {
 	return o.ApplyT(func(v *B2BPartnerContent) []BusinessIdentity {
 		if v == nil {
@@ -5735,9 +5259,7 @@ func (o B2BPartnerContentPtrOutput) BusinessIdentities() BusinessIdentityArrayOu
 	}).(BusinessIdentityArrayOutput)
 }
 
-// The B2B partner content.
 type B2BPartnerContentResponse struct {
-	// The list of partner business identities.
 	BusinessIdentities []BusinessIdentityResponse `pulumi:"businessIdentities"`
 }
 
@@ -5752,9 +5274,7 @@ type B2BPartnerContentResponseInput interface {
 	ToB2BPartnerContentResponseOutputWithContext(context.Context) B2BPartnerContentResponseOutput
 }
 
-// The B2B partner content.
 type B2BPartnerContentResponseArgs struct {
-	// The list of partner business identities.
 	BusinessIdentities BusinessIdentityResponseArrayInput `pulumi:"businessIdentities"`
 }
 
@@ -5811,7 +5331,6 @@ func (i *b2bpartnerContentResponsePtrType) ToB2BPartnerContentResponsePtrOutputW
 	return pulumi.ToOutputWithContext(ctx, i).(B2BPartnerContentResponsePtrOutput)
 }
 
-// The B2B partner content.
 type B2BPartnerContentResponseOutput struct{ *pulumi.OutputState }
 
 func (B2BPartnerContentResponseOutput) ElementType() reflect.Type {
@@ -5831,12 +5350,11 @@ func (o B2BPartnerContentResponseOutput) ToB2BPartnerContentResponsePtrOutput() 
 }
 
 func (o B2BPartnerContentResponseOutput) ToB2BPartnerContentResponsePtrOutputWithContext(ctx context.Context) B2BPartnerContentResponsePtrOutput {
-	return o.ApplyT(func(v B2BPartnerContentResponse) *B2BPartnerContentResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v B2BPartnerContentResponse) *B2BPartnerContentResponse {
 		return &v
 	}).(B2BPartnerContentResponsePtrOutput)
 }
 
-// The list of partner business identities.
 func (o B2BPartnerContentResponseOutput) BusinessIdentities() BusinessIdentityResponseArrayOutput {
 	return o.ApplyT(func(v B2BPartnerContentResponse) []BusinessIdentityResponse { return v.BusinessIdentities }).(BusinessIdentityResponseArrayOutput)
 }
@@ -5856,10 +5374,15 @@ func (o B2BPartnerContentResponsePtrOutput) ToB2BPartnerContentResponsePtrOutput
 }
 
 func (o B2BPartnerContentResponsePtrOutput) Elem() B2BPartnerContentResponseOutput {
-	return o.ApplyT(func(v *B2BPartnerContentResponse) B2BPartnerContentResponse { return *v }).(B2BPartnerContentResponseOutput)
+	return o.ApplyT(func(v *B2BPartnerContentResponse) B2BPartnerContentResponse {
+		if v != nil {
+			return *v
+		}
+		var ret B2BPartnerContentResponse
+		return ret
+	}).(B2BPartnerContentResponseOutput)
 }
 
-// The list of partner business identities.
 func (o B2BPartnerContentResponsePtrOutput) BusinessIdentities() BusinessIdentityResponseArrayOutput {
 	return o.ApplyT(func(v *B2BPartnerContentResponse) []BusinessIdentityResponse {
 		if v == nil {
@@ -5869,16 +5392,11 @@ func (o B2BPartnerContentResponsePtrOutput) BusinessIdentities() BusinessIdentit
 	}).(BusinessIdentityResponseArrayOutput)
 }
 
-// The batch configuration properties definition.
 type BatchConfigurationProperties struct {
-	// The name of the batch group.
-	BatchGroupName string `pulumi:"batchGroupName"`
-	// The artifact changed time.
-	ChangedTime *string `pulumi:"changedTime"`
-	// The artifact creation time.
-	CreatedTime *string     `pulumi:"createdTime"`
-	Metadata    interface{} `pulumi:"metadata"`
-	// The batch release criteria.
+	BatchGroupName  string               `pulumi:"batchGroupName"`
+	ChangedTime     *string              `pulumi:"changedTime"`
+	CreatedTime     *string              `pulumi:"createdTime"`
+	Metadata        interface{}          `pulumi:"metadata"`
 	ReleaseCriteria BatchReleaseCriteria `pulumi:"releaseCriteria"`
 }
 
@@ -5893,16 +5411,11 @@ type BatchConfigurationPropertiesInput interface {
 	ToBatchConfigurationPropertiesOutputWithContext(context.Context) BatchConfigurationPropertiesOutput
 }
 
-// The batch configuration properties definition.
 type BatchConfigurationPropertiesArgs struct {
-	// The name of the batch group.
-	BatchGroupName pulumi.StringInput `pulumi:"batchGroupName"`
-	// The artifact changed time.
-	ChangedTime pulumi.StringPtrInput `pulumi:"changedTime"`
-	// The artifact creation time.
-	CreatedTime pulumi.StringPtrInput `pulumi:"createdTime"`
-	Metadata    pulumi.Input          `pulumi:"metadata"`
-	// The batch release criteria.
+	BatchGroupName  pulumi.StringInput        `pulumi:"batchGroupName"`
+	ChangedTime     pulumi.StringPtrInput     `pulumi:"changedTime"`
+	CreatedTime     pulumi.StringPtrInput     `pulumi:"createdTime"`
+	Metadata        pulumi.Input              `pulumi:"metadata"`
 	ReleaseCriteria BatchReleaseCriteriaInput `pulumi:"releaseCriteria"`
 }
 
@@ -5959,7 +5472,6 @@ func (i *batchConfigurationPropertiesPtrType) ToBatchConfigurationPropertiesPtrO
 	return pulumi.ToOutputWithContext(ctx, i).(BatchConfigurationPropertiesPtrOutput)
 }
 
-// The batch configuration properties definition.
 type BatchConfigurationPropertiesOutput struct{ *pulumi.OutputState }
 
 func (BatchConfigurationPropertiesOutput) ElementType() reflect.Type {
@@ -5979,22 +5491,19 @@ func (o BatchConfigurationPropertiesOutput) ToBatchConfigurationPropertiesPtrOut
 }
 
 func (o BatchConfigurationPropertiesOutput) ToBatchConfigurationPropertiesPtrOutputWithContext(ctx context.Context) BatchConfigurationPropertiesPtrOutput {
-	return o.ApplyT(func(v BatchConfigurationProperties) *BatchConfigurationProperties {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v BatchConfigurationProperties) *BatchConfigurationProperties {
 		return &v
 	}).(BatchConfigurationPropertiesPtrOutput)
 }
 
-// The name of the batch group.
 func (o BatchConfigurationPropertiesOutput) BatchGroupName() pulumi.StringOutput {
 	return o.ApplyT(func(v BatchConfigurationProperties) string { return v.BatchGroupName }).(pulumi.StringOutput)
 }
 
-// The artifact changed time.
 func (o BatchConfigurationPropertiesOutput) ChangedTime() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v BatchConfigurationProperties) *string { return v.ChangedTime }).(pulumi.StringPtrOutput)
 }
 
-// The artifact creation time.
 func (o BatchConfigurationPropertiesOutput) CreatedTime() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v BatchConfigurationProperties) *string { return v.CreatedTime }).(pulumi.StringPtrOutput)
 }
@@ -6003,7 +5512,6 @@ func (o BatchConfigurationPropertiesOutput) Metadata() pulumi.AnyOutput {
 	return o.ApplyT(func(v BatchConfigurationProperties) interface{} { return v.Metadata }).(pulumi.AnyOutput)
 }
 
-// The batch release criteria.
 func (o BatchConfigurationPropertiesOutput) ReleaseCriteria() BatchReleaseCriteriaOutput {
 	return o.ApplyT(func(v BatchConfigurationProperties) BatchReleaseCriteria { return v.ReleaseCriteria }).(BatchReleaseCriteriaOutput)
 }
@@ -6023,10 +5531,15 @@ func (o BatchConfigurationPropertiesPtrOutput) ToBatchConfigurationPropertiesPtr
 }
 
 func (o BatchConfigurationPropertiesPtrOutput) Elem() BatchConfigurationPropertiesOutput {
-	return o.ApplyT(func(v *BatchConfigurationProperties) BatchConfigurationProperties { return *v }).(BatchConfigurationPropertiesOutput)
+	return o.ApplyT(func(v *BatchConfigurationProperties) BatchConfigurationProperties {
+		if v != nil {
+			return *v
+		}
+		var ret BatchConfigurationProperties
+		return ret
+	}).(BatchConfigurationPropertiesOutput)
 }
 
-// The name of the batch group.
 func (o BatchConfigurationPropertiesPtrOutput) BatchGroupName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *BatchConfigurationProperties) *string {
 		if v == nil {
@@ -6036,7 +5549,6 @@ func (o BatchConfigurationPropertiesPtrOutput) BatchGroupName() pulumi.StringPtr
 	}).(pulumi.StringPtrOutput)
 }
 
-// The artifact changed time.
 func (o BatchConfigurationPropertiesPtrOutput) ChangedTime() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *BatchConfigurationProperties) *string {
 		if v == nil {
@@ -6046,7 +5558,6 @@ func (o BatchConfigurationPropertiesPtrOutput) ChangedTime() pulumi.StringPtrOut
 	}).(pulumi.StringPtrOutput)
 }
 
-// The artifact creation time.
 func (o BatchConfigurationPropertiesPtrOutput) CreatedTime() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *BatchConfigurationProperties) *string {
 		if v == nil {
@@ -6065,7 +5576,6 @@ func (o BatchConfigurationPropertiesPtrOutput) Metadata() pulumi.AnyOutput {
 	}).(pulumi.AnyOutput)
 }
 
-// The batch release criteria.
 func (o BatchConfigurationPropertiesPtrOutput) ReleaseCriteria() BatchReleaseCriteriaPtrOutput {
 	return o.ApplyT(func(v *BatchConfigurationProperties) *BatchReleaseCriteria {
 		if v == nil {
@@ -6075,16 +5585,11 @@ func (o BatchConfigurationPropertiesPtrOutput) ReleaseCriteria() BatchReleaseCri
 	}).(BatchReleaseCriteriaPtrOutput)
 }
 
-// The batch configuration properties definition.
 type BatchConfigurationPropertiesResponse struct {
-	// The name of the batch group.
-	BatchGroupName string `pulumi:"batchGroupName"`
-	// The artifact changed time.
-	ChangedTime *string `pulumi:"changedTime"`
-	// The artifact creation time.
-	CreatedTime *string     `pulumi:"createdTime"`
-	Metadata    interface{} `pulumi:"metadata"`
-	// The batch release criteria.
+	BatchGroupName  string                       `pulumi:"batchGroupName"`
+	ChangedTime     *string                      `pulumi:"changedTime"`
+	CreatedTime     *string                      `pulumi:"createdTime"`
+	Metadata        interface{}                  `pulumi:"metadata"`
 	ReleaseCriteria BatchReleaseCriteriaResponse `pulumi:"releaseCriteria"`
 }
 
@@ -6099,16 +5604,11 @@ type BatchConfigurationPropertiesResponseInput interface {
 	ToBatchConfigurationPropertiesResponseOutputWithContext(context.Context) BatchConfigurationPropertiesResponseOutput
 }
 
-// The batch configuration properties definition.
 type BatchConfigurationPropertiesResponseArgs struct {
-	// The name of the batch group.
-	BatchGroupName pulumi.StringInput `pulumi:"batchGroupName"`
-	// The artifact changed time.
-	ChangedTime pulumi.StringPtrInput `pulumi:"changedTime"`
-	// The artifact creation time.
-	CreatedTime pulumi.StringPtrInput `pulumi:"createdTime"`
-	Metadata    pulumi.Input          `pulumi:"metadata"`
-	// The batch release criteria.
+	BatchGroupName  pulumi.StringInput                `pulumi:"batchGroupName"`
+	ChangedTime     pulumi.StringPtrInput             `pulumi:"changedTime"`
+	CreatedTime     pulumi.StringPtrInput             `pulumi:"createdTime"`
+	Metadata        pulumi.Input                      `pulumi:"metadata"`
 	ReleaseCriteria BatchReleaseCriteriaResponseInput `pulumi:"releaseCriteria"`
 }
 
@@ -6165,7 +5665,6 @@ func (i *batchConfigurationPropertiesResponsePtrType) ToBatchConfigurationProper
 	return pulumi.ToOutputWithContext(ctx, i).(BatchConfigurationPropertiesResponsePtrOutput)
 }
 
-// The batch configuration properties definition.
 type BatchConfigurationPropertiesResponseOutput struct{ *pulumi.OutputState }
 
 func (BatchConfigurationPropertiesResponseOutput) ElementType() reflect.Type {
@@ -6185,22 +5684,19 @@ func (o BatchConfigurationPropertiesResponseOutput) ToBatchConfigurationProperti
 }
 
 func (o BatchConfigurationPropertiesResponseOutput) ToBatchConfigurationPropertiesResponsePtrOutputWithContext(ctx context.Context) BatchConfigurationPropertiesResponsePtrOutput {
-	return o.ApplyT(func(v BatchConfigurationPropertiesResponse) *BatchConfigurationPropertiesResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v BatchConfigurationPropertiesResponse) *BatchConfigurationPropertiesResponse {
 		return &v
 	}).(BatchConfigurationPropertiesResponsePtrOutput)
 }
 
-// The name of the batch group.
 func (o BatchConfigurationPropertiesResponseOutput) BatchGroupName() pulumi.StringOutput {
 	return o.ApplyT(func(v BatchConfigurationPropertiesResponse) string { return v.BatchGroupName }).(pulumi.StringOutput)
 }
 
-// The artifact changed time.
 func (o BatchConfigurationPropertiesResponseOutput) ChangedTime() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v BatchConfigurationPropertiesResponse) *string { return v.ChangedTime }).(pulumi.StringPtrOutput)
 }
 
-// The artifact creation time.
 func (o BatchConfigurationPropertiesResponseOutput) CreatedTime() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v BatchConfigurationPropertiesResponse) *string { return v.CreatedTime }).(pulumi.StringPtrOutput)
 }
@@ -6209,7 +5705,6 @@ func (o BatchConfigurationPropertiesResponseOutput) Metadata() pulumi.AnyOutput 
 	return o.ApplyT(func(v BatchConfigurationPropertiesResponse) interface{} { return v.Metadata }).(pulumi.AnyOutput)
 }
 
-// The batch release criteria.
 func (o BatchConfigurationPropertiesResponseOutput) ReleaseCriteria() BatchReleaseCriteriaResponseOutput {
 	return o.ApplyT(func(v BatchConfigurationPropertiesResponse) BatchReleaseCriteriaResponse { return v.ReleaseCriteria }).(BatchReleaseCriteriaResponseOutput)
 }
@@ -6229,10 +5724,15 @@ func (o BatchConfigurationPropertiesResponsePtrOutput) ToBatchConfigurationPrope
 }
 
 func (o BatchConfigurationPropertiesResponsePtrOutput) Elem() BatchConfigurationPropertiesResponseOutput {
-	return o.ApplyT(func(v *BatchConfigurationPropertiesResponse) BatchConfigurationPropertiesResponse { return *v }).(BatchConfigurationPropertiesResponseOutput)
+	return o.ApplyT(func(v *BatchConfigurationPropertiesResponse) BatchConfigurationPropertiesResponse {
+		if v != nil {
+			return *v
+		}
+		var ret BatchConfigurationPropertiesResponse
+		return ret
+	}).(BatchConfigurationPropertiesResponseOutput)
 }
 
-// The name of the batch group.
 func (o BatchConfigurationPropertiesResponsePtrOutput) BatchGroupName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *BatchConfigurationPropertiesResponse) *string {
 		if v == nil {
@@ -6242,7 +5742,6 @@ func (o BatchConfigurationPropertiesResponsePtrOutput) BatchGroupName() pulumi.S
 	}).(pulumi.StringPtrOutput)
 }
 
-// The artifact changed time.
 func (o BatchConfigurationPropertiesResponsePtrOutput) ChangedTime() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *BatchConfigurationPropertiesResponse) *string {
 		if v == nil {
@@ -6252,7 +5751,6 @@ func (o BatchConfigurationPropertiesResponsePtrOutput) ChangedTime() pulumi.Stri
 	}).(pulumi.StringPtrOutput)
 }
 
-// The artifact creation time.
 func (o BatchConfigurationPropertiesResponsePtrOutput) CreatedTime() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *BatchConfigurationPropertiesResponse) *string {
 		if v == nil {
@@ -6271,7 +5769,6 @@ func (o BatchConfigurationPropertiesResponsePtrOutput) Metadata() pulumi.AnyOutp
 	}).(pulumi.AnyOutput)
 }
 
-// The batch release criteria.
 func (o BatchConfigurationPropertiesResponsePtrOutput) ReleaseCriteria() BatchReleaseCriteriaResponsePtrOutput {
 	return o.ApplyT(func(v *BatchConfigurationPropertiesResponse) *BatchReleaseCriteriaResponse {
 		if v == nil {
@@ -6281,14 +5778,10 @@ func (o BatchConfigurationPropertiesResponsePtrOutput) ReleaseCriteria() BatchRe
 	}).(BatchReleaseCriteriaResponsePtrOutput)
 }
 
-// The batch release criteria.
 type BatchReleaseCriteria struct {
-	// The batch size in bytes.
-	BatchSize *int `pulumi:"batchSize"`
-	// The message count.
-	MessageCount *int `pulumi:"messageCount"`
-	// The recurrence.
-	Recurrence *WorkflowTriggerRecurrence `pulumi:"recurrence"`
+	BatchSize    *int                       `pulumi:"batchSize"`
+	MessageCount *int                       `pulumi:"messageCount"`
+	Recurrence   *WorkflowTriggerRecurrence `pulumi:"recurrence"`
 }
 
 // BatchReleaseCriteriaInput is an input type that accepts BatchReleaseCriteriaArgs and BatchReleaseCriteriaOutput values.
@@ -6302,14 +5795,10 @@ type BatchReleaseCriteriaInput interface {
 	ToBatchReleaseCriteriaOutputWithContext(context.Context) BatchReleaseCriteriaOutput
 }
 
-// The batch release criteria.
 type BatchReleaseCriteriaArgs struct {
-	// The batch size in bytes.
-	BatchSize pulumi.IntPtrInput `pulumi:"batchSize"`
-	// The message count.
-	MessageCount pulumi.IntPtrInput `pulumi:"messageCount"`
-	// The recurrence.
-	Recurrence WorkflowTriggerRecurrencePtrInput `pulumi:"recurrence"`
+	BatchSize    pulumi.IntPtrInput                `pulumi:"batchSize"`
+	MessageCount pulumi.IntPtrInput                `pulumi:"messageCount"`
+	Recurrence   WorkflowTriggerRecurrencePtrInput `pulumi:"recurrence"`
 }
 
 func (BatchReleaseCriteriaArgs) ElementType() reflect.Type {
@@ -6365,7 +5854,6 @@ func (i *batchReleaseCriteriaPtrType) ToBatchReleaseCriteriaPtrOutputWithContext
 	return pulumi.ToOutputWithContext(ctx, i).(BatchReleaseCriteriaPtrOutput)
 }
 
-// The batch release criteria.
 type BatchReleaseCriteriaOutput struct{ *pulumi.OutputState }
 
 func (BatchReleaseCriteriaOutput) ElementType() reflect.Type {
@@ -6385,22 +5873,19 @@ func (o BatchReleaseCriteriaOutput) ToBatchReleaseCriteriaPtrOutput() BatchRelea
 }
 
 func (o BatchReleaseCriteriaOutput) ToBatchReleaseCriteriaPtrOutputWithContext(ctx context.Context) BatchReleaseCriteriaPtrOutput {
-	return o.ApplyT(func(v BatchReleaseCriteria) *BatchReleaseCriteria {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v BatchReleaseCriteria) *BatchReleaseCriteria {
 		return &v
 	}).(BatchReleaseCriteriaPtrOutput)
 }
 
-// The batch size in bytes.
 func (o BatchReleaseCriteriaOutput) BatchSize() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v BatchReleaseCriteria) *int { return v.BatchSize }).(pulumi.IntPtrOutput)
 }
 
-// The message count.
 func (o BatchReleaseCriteriaOutput) MessageCount() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v BatchReleaseCriteria) *int { return v.MessageCount }).(pulumi.IntPtrOutput)
 }
 
-// The recurrence.
 func (o BatchReleaseCriteriaOutput) Recurrence() WorkflowTriggerRecurrencePtrOutput {
 	return o.ApplyT(func(v BatchReleaseCriteria) *WorkflowTriggerRecurrence { return v.Recurrence }).(WorkflowTriggerRecurrencePtrOutput)
 }
@@ -6420,10 +5905,15 @@ func (o BatchReleaseCriteriaPtrOutput) ToBatchReleaseCriteriaPtrOutputWithContex
 }
 
 func (o BatchReleaseCriteriaPtrOutput) Elem() BatchReleaseCriteriaOutput {
-	return o.ApplyT(func(v *BatchReleaseCriteria) BatchReleaseCriteria { return *v }).(BatchReleaseCriteriaOutput)
+	return o.ApplyT(func(v *BatchReleaseCriteria) BatchReleaseCriteria {
+		if v != nil {
+			return *v
+		}
+		var ret BatchReleaseCriteria
+		return ret
+	}).(BatchReleaseCriteriaOutput)
 }
 
-// The batch size in bytes.
 func (o BatchReleaseCriteriaPtrOutput) BatchSize() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *BatchReleaseCriteria) *int {
 		if v == nil {
@@ -6433,7 +5923,6 @@ func (o BatchReleaseCriteriaPtrOutput) BatchSize() pulumi.IntPtrOutput {
 	}).(pulumi.IntPtrOutput)
 }
 
-// The message count.
 func (o BatchReleaseCriteriaPtrOutput) MessageCount() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *BatchReleaseCriteria) *int {
 		if v == nil {
@@ -6443,7 +5932,6 @@ func (o BatchReleaseCriteriaPtrOutput) MessageCount() pulumi.IntPtrOutput {
 	}).(pulumi.IntPtrOutput)
 }
 
-// The recurrence.
 func (o BatchReleaseCriteriaPtrOutput) Recurrence() WorkflowTriggerRecurrencePtrOutput {
 	return o.ApplyT(func(v *BatchReleaseCriteria) *WorkflowTriggerRecurrence {
 		if v == nil {
@@ -6453,14 +5941,10 @@ func (o BatchReleaseCriteriaPtrOutput) Recurrence() WorkflowTriggerRecurrencePtr
 	}).(WorkflowTriggerRecurrencePtrOutput)
 }
 
-// The batch release criteria.
 type BatchReleaseCriteriaResponse struct {
-	// The batch size in bytes.
-	BatchSize *int `pulumi:"batchSize"`
-	// The message count.
-	MessageCount *int `pulumi:"messageCount"`
-	// The recurrence.
-	Recurrence *WorkflowTriggerRecurrenceResponse `pulumi:"recurrence"`
+	BatchSize    *int                               `pulumi:"batchSize"`
+	MessageCount *int                               `pulumi:"messageCount"`
+	Recurrence   *WorkflowTriggerRecurrenceResponse `pulumi:"recurrence"`
 }
 
 // BatchReleaseCriteriaResponseInput is an input type that accepts BatchReleaseCriteriaResponseArgs and BatchReleaseCriteriaResponseOutput values.
@@ -6474,14 +5958,10 @@ type BatchReleaseCriteriaResponseInput interface {
 	ToBatchReleaseCriteriaResponseOutputWithContext(context.Context) BatchReleaseCriteriaResponseOutput
 }
 
-// The batch release criteria.
 type BatchReleaseCriteriaResponseArgs struct {
-	// The batch size in bytes.
-	BatchSize pulumi.IntPtrInput `pulumi:"batchSize"`
-	// The message count.
-	MessageCount pulumi.IntPtrInput `pulumi:"messageCount"`
-	// The recurrence.
-	Recurrence WorkflowTriggerRecurrenceResponsePtrInput `pulumi:"recurrence"`
+	BatchSize    pulumi.IntPtrInput                        `pulumi:"batchSize"`
+	MessageCount pulumi.IntPtrInput                        `pulumi:"messageCount"`
+	Recurrence   WorkflowTriggerRecurrenceResponsePtrInput `pulumi:"recurrence"`
 }
 
 func (BatchReleaseCriteriaResponseArgs) ElementType() reflect.Type {
@@ -6537,7 +6017,6 @@ func (i *batchReleaseCriteriaResponsePtrType) ToBatchReleaseCriteriaResponsePtrO
 	return pulumi.ToOutputWithContext(ctx, i).(BatchReleaseCriteriaResponsePtrOutput)
 }
 
-// The batch release criteria.
 type BatchReleaseCriteriaResponseOutput struct{ *pulumi.OutputState }
 
 func (BatchReleaseCriteriaResponseOutput) ElementType() reflect.Type {
@@ -6557,22 +6036,19 @@ func (o BatchReleaseCriteriaResponseOutput) ToBatchReleaseCriteriaResponsePtrOut
 }
 
 func (o BatchReleaseCriteriaResponseOutput) ToBatchReleaseCriteriaResponsePtrOutputWithContext(ctx context.Context) BatchReleaseCriteriaResponsePtrOutput {
-	return o.ApplyT(func(v BatchReleaseCriteriaResponse) *BatchReleaseCriteriaResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v BatchReleaseCriteriaResponse) *BatchReleaseCriteriaResponse {
 		return &v
 	}).(BatchReleaseCriteriaResponsePtrOutput)
 }
 
-// The batch size in bytes.
 func (o BatchReleaseCriteriaResponseOutput) BatchSize() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v BatchReleaseCriteriaResponse) *int { return v.BatchSize }).(pulumi.IntPtrOutput)
 }
 
-// The message count.
 func (o BatchReleaseCriteriaResponseOutput) MessageCount() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v BatchReleaseCriteriaResponse) *int { return v.MessageCount }).(pulumi.IntPtrOutput)
 }
 
-// The recurrence.
 func (o BatchReleaseCriteriaResponseOutput) Recurrence() WorkflowTriggerRecurrenceResponsePtrOutput {
 	return o.ApplyT(func(v BatchReleaseCriteriaResponse) *WorkflowTriggerRecurrenceResponse { return v.Recurrence }).(WorkflowTriggerRecurrenceResponsePtrOutput)
 }
@@ -6592,10 +6068,15 @@ func (o BatchReleaseCriteriaResponsePtrOutput) ToBatchReleaseCriteriaResponsePtr
 }
 
 func (o BatchReleaseCriteriaResponsePtrOutput) Elem() BatchReleaseCriteriaResponseOutput {
-	return o.ApplyT(func(v *BatchReleaseCriteriaResponse) BatchReleaseCriteriaResponse { return *v }).(BatchReleaseCriteriaResponseOutput)
+	return o.ApplyT(func(v *BatchReleaseCriteriaResponse) BatchReleaseCriteriaResponse {
+		if v != nil {
+			return *v
+		}
+		var ret BatchReleaseCriteriaResponse
+		return ret
+	}).(BatchReleaseCriteriaResponseOutput)
 }
 
-// The batch size in bytes.
 func (o BatchReleaseCriteriaResponsePtrOutput) BatchSize() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *BatchReleaseCriteriaResponse) *int {
 		if v == nil {
@@ -6605,7 +6086,6 @@ func (o BatchReleaseCriteriaResponsePtrOutput) BatchSize() pulumi.IntPtrOutput {
 	}).(pulumi.IntPtrOutput)
 }
 
-// The message count.
 func (o BatchReleaseCriteriaResponsePtrOutput) MessageCount() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *BatchReleaseCriteriaResponse) *int {
 		if v == nil {
@@ -6615,7 +6095,6 @@ func (o BatchReleaseCriteriaResponsePtrOutput) MessageCount() pulumi.IntPtrOutpu
 	}).(pulumi.IntPtrOutput)
 }
 
-// The recurrence.
 func (o BatchReleaseCriteriaResponsePtrOutput) Recurrence() WorkflowTriggerRecurrenceResponsePtrOutput {
 	return o.ApplyT(func(v *BatchReleaseCriteriaResponse) *WorkflowTriggerRecurrenceResponse {
 		if v == nil {
@@ -6625,12 +6104,9 @@ func (o BatchReleaseCriteriaResponsePtrOutput) Recurrence() WorkflowTriggerRecur
 	}).(WorkflowTriggerRecurrenceResponsePtrOutput)
 }
 
-// The integration account partner's business identity.
 type BusinessIdentity struct {
-	// The business identity qualifier e.g. as2identity, ZZ, ZZZ, 31, 32
 	Qualifier string `pulumi:"qualifier"`
-	// The user defined business identity value.
-	Value string `pulumi:"value"`
+	Value     string `pulumi:"value"`
 }
 
 // BusinessIdentityInput is an input type that accepts BusinessIdentityArgs and BusinessIdentityOutput values.
@@ -6644,12 +6120,9 @@ type BusinessIdentityInput interface {
 	ToBusinessIdentityOutputWithContext(context.Context) BusinessIdentityOutput
 }
 
-// The integration account partner's business identity.
 type BusinessIdentityArgs struct {
-	// The business identity qualifier e.g. as2identity, ZZ, ZZZ, 31, 32
 	Qualifier pulumi.StringInput `pulumi:"qualifier"`
-	// The user defined business identity value.
-	Value pulumi.StringInput `pulumi:"value"`
+	Value     pulumi.StringInput `pulumi:"value"`
 }
 
 func (BusinessIdentityArgs) ElementType() reflect.Type {
@@ -6730,7 +6203,6 @@ func (i BusinessIdentityArray) ToBusinessIdentityArrayOutputWithContext(ctx cont
 	return pulumi.ToOutputWithContext(ctx, i).(BusinessIdentityArrayOutput)
 }
 
-// The integration account partner's business identity.
 type BusinessIdentityOutput struct{ *pulumi.OutputState }
 
 func (BusinessIdentityOutput) ElementType() reflect.Type {
@@ -6750,17 +6222,15 @@ func (o BusinessIdentityOutput) ToBusinessIdentityPtrOutput() BusinessIdentityPt
 }
 
 func (o BusinessIdentityOutput) ToBusinessIdentityPtrOutputWithContext(ctx context.Context) BusinessIdentityPtrOutput {
-	return o.ApplyT(func(v BusinessIdentity) *BusinessIdentity {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v BusinessIdentity) *BusinessIdentity {
 		return &v
 	}).(BusinessIdentityPtrOutput)
 }
 
-// The business identity qualifier e.g. as2identity, ZZ, ZZZ, 31, 32
 func (o BusinessIdentityOutput) Qualifier() pulumi.StringOutput {
 	return o.ApplyT(func(v BusinessIdentity) string { return v.Qualifier }).(pulumi.StringOutput)
 }
 
-// The user defined business identity value.
 func (o BusinessIdentityOutput) Value() pulumi.StringOutput {
 	return o.ApplyT(func(v BusinessIdentity) string { return v.Value }).(pulumi.StringOutput)
 }
@@ -6780,10 +6250,15 @@ func (o BusinessIdentityPtrOutput) ToBusinessIdentityPtrOutputWithContext(ctx co
 }
 
 func (o BusinessIdentityPtrOutput) Elem() BusinessIdentityOutput {
-	return o.ApplyT(func(v *BusinessIdentity) BusinessIdentity { return *v }).(BusinessIdentityOutput)
+	return o.ApplyT(func(v *BusinessIdentity) BusinessIdentity {
+		if v != nil {
+			return *v
+		}
+		var ret BusinessIdentity
+		return ret
+	}).(BusinessIdentityOutput)
 }
 
-// The business identity qualifier e.g. as2identity, ZZ, ZZZ, 31, 32
 func (o BusinessIdentityPtrOutput) Qualifier() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *BusinessIdentity) *string {
 		if v == nil {
@@ -6793,7 +6268,6 @@ func (o BusinessIdentityPtrOutput) Qualifier() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The user defined business identity value.
 func (o BusinessIdentityPtrOutput) Value() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *BusinessIdentity) *string {
 		if v == nil {
@@ -6823,12 +6297,9 @@ func (o BusinessIdentityArrayOutput) Index(i pulumi.IntInput) BusinessIdentityOu
 	}).(BusinessIdentityOutput)
 }
 
-// The integration account partner's business identity.
 type BusinessIdentityResponse struct {
-	// The business identity qualifier e.g. as2identity, ZZ, ZZZ, 31, 32
 	Qualifier string `pulumi:"qualifier"`
-	// The user defined business identity value.
-	Value string `pulumi:"value"`
+	Value     string `pulumi:"value"`
 }
 
 // BusinessIdentityResponseInput is an input type that accepts BusinessIdentityResponseArgs and BusinessIdentityResponseOutput values.
@@ -6842,12 +6313,9 @@ type BusinessIdentityResponseInput interface {
 	ToBusinessIdentityResponseOutputWithContext(context.Context) BusinessIdentityResponseOutput
 }
 
-// The integration account partner's business identity.
 type BusinessIdentityResponseArgs struct {
-	// The business identity qualifier e.g. as2identity, ZZ, ZZZ, 31, 32
 	Qualifier pulumi.StringInput `pulumi:"qualifier"`
-	// The user defined business identity value.
-	Value pulumi.StringInput `pulumi:"value"`
+	Value     pulumi.StringInput `pulumi:"value"`
 }
 
 func (BusinessIdentityResponseArgs) ElementType() reflect.Type {
@@ -6928,7 +6396,6 @@ func (i BusinessIdentityResponseArray) ToBusinessIdentityResponseArrayOutputWith
 	return pulumi.ToOutputWithContext(ctx, i).(BusinessIdentityResponseArrayOutput)
 }
 
-// The integration account partner's business identity.
 type BusinessIdentityResponseOutput struct{ *pulumi.OutputState }
 
 func (BusinessIdentityResponseOutput) ElementType() reflect.Type {
@@ -6948,17 +6415,15 @@ func (o BusinessIdentityResponseOutput) ToBusinessIdentityResponsePtrOutput() Bu
 }
 
 func (o BusinessIdentityResponseOutput) ToBusinessIdentityResponsePtrOutputWithContext(ctx context.Context) BusinessIdentityResponsePtrOutput {
-	return o.ApplyT(func(v BusinessIdentityResponse) *BusinessIdentityResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v BusinessIdentityResponse) *BusinessIdentityResponse {
 		return &v
 	}).(BusinessIdentityResponsePtrOutput)
 }
 
-// The business identity qualifier e.g. as2identity, ZZ, ZZZ, 31, 32
 func (o BusinessIdentityResponseOutput) Qualifier() pulumi.StringOutput {
 	return o.ApplyT(func(v BusinessIdentityResponse) string { return v.Qualifier }).(pulumi.StringOutput)
 }
 
-// The user defined business identity value.
 func (o BusinessIdentityResponseOutput) Value() pulumi.StringOutput {
 	return o.ApplyT(func(v BusinessIdentityResponse) string { return v.Value }).(pulumi.StringOutput)
 }
@@ -6978,10 +6443,15 @@ func (o BusinessIdentityResponsePtrOutput) ToBusinessIdentityResponsePtrOutputWi
 }
 
 func (o BusinessIdentityResponsePtrOutput) Elem() BusinessIdentityResponseOutput {
-	return o.ApplyT(func(v *BusinessIdentityResponse) BusinessIdentityResponse { return *v }).(BusinessIdentityResponseOutput)
+	return o.ApplyT(func(v *BusinessIdentityResponse) BusinessIdentityResponse {
+		if v != nil {
+			return *v
+		}
+		var ret BusinessIdentityResponse
+		return ret
+	}).(BusinessIdentityResponseOutput)
 }
 
-// The business identity qualifier e.g. as2identity, ZZ, ZZZ, 31, 32
 func (o BusinessIdentityResponsePtrOutput) Qualifier() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *BusinessIdentityResponse) *string {
 		if v == nil {
@@ -6991,7 +6461,6 @@ func (o BusinessIdentityResponsePtrOutput) Qualifier() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The user defined business identity value.
 func (o BusinessIdentityResponsePtrOutput) Value() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *BusinessIdentityResponse) *string {
 		if v == nil {
@@ -7021,12 +6490,9 @@ func (o BusinessIdentityResponseArrayOutput) Index(i pulumi.IntInput) BusinessId
 	}).(BusinessIdentityResponseOutput)
 }
 
-// The content hash.
 type ContentHash struct {
-	// The algorithm of the content hash.
 	Algorithm *string `pulumi:"algorithm"`
-	// The value of the content hash.
-	Value *string `pulumi:"value"`
+	Value     *string `pulumi:"value"`
 }
 
 // ContentHashInput is an input type that accepts ContentHashArgs and ContentHashOutput values.
@@ -7040,12 +6506,9 @@ type ContentHashInput interface {
 	ToContentHashOutputWithContext(context.Context) ContentHashOutput
 }
 
-// The content hash.
 type ContentHashArgs struct {
-	// The algorithm of the content hash.
 	Algorithm pulumi.StringPtrInput `pulumi:"algorithm"`
-	// The value of the content hash.
-	Value pulumi.StringPtrInput `pulumi:"value"`
+	Value     pulumi.StringPtrInput `pulumi:"value"`
 }
 
 func (ContentHashArgs) ElementType() reflect.Type {
@@ -7101,7 +6564,6 @@ func (i *contentHashPtrType) ToContentHashPtrOutputWithContext(ctx context.Conte
 	return pulumi.ToOutputWithContext(ctx, i).(ContentHashPtrOutput)
 }
 
-// The content hash.
 type ContentHashOutput struct{ *pulumi.OutputState }
 
 func (ContentHashOutput) ElementType() reflect.Type {
@@ -7121,17 +6583,15 @@ func (o ContentHashOutput) ToContentHashPtrOutput() ContentHashPtrOutput {
 }
 
 func (o ContentHashOutput) ToContentHashPtrOutputWithContext(ctx context.Context) ContentHashPtrOutput {
-	return o.ApplyT(func(v ContentHash) *ContentHash {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ContentHash) *ContentHash {
 		return &v
 	}).(ContentHashPtrOutput)
 }
 
-// The algorithm of the content hash.
 func (o ContentHashOutput) Algorithm() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ContentHash) *string { return v.Algorithm }).(pulumi.StringPtrOutput)
 }
 
-// The value of the content hash.
 func (o ContentHashOutput) Value() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ContentHash) *string { return v.Value }).(pulumi.StringPtrOutput)
 }
@@ -7151,10 +6611,15 @@ func (o ContentHashPtrOutput) ToContentHashPtrOutputWithContext(ctx context.Cont
 }
 
 func (o ContentHashPtrOutput) Elem() ContentHashOutput {
-	return o.ApplyT(func(v *ContentHash) ContentHash { return *v }).(ContentHashOutput)
+	return o.ApplyT(func(v *ContentHash) ContentHash {
+		if v != nil {
+			return *v
+		}
+		var ret ContentHash
+		return ret
+	}).(ContentHashOutput)
 }
 
-// The algorithm of the content hash.
 func (o ContentHashPtrOutput) Algorithm() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ContentHash) *string {
 		if v == nil {
@@ -7164,7 +6629,6 @@ func (o ContentHashPtrOutput) Algorithm() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The value of the content hash.
 func (o ContentHashPtrOutput) Value() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ContentHash) *string {
 		if v == nil {
@@ -7174,12 +6638,9 @@ func (o ContentHashPtrOutput) Value() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The content hash.
 type ContentHashResponse struct {
-	// The algorithm of the content hash.
 	Algorithm *string `pulumi:"algorithm"`
-	// The value of the content hash.
-	Value *string `pulumi:"value"`
+	Value     *string `pulumi:"value"`
 }
 
 // ContentHashResponseInput is an input type that accepts ContentHashResponseArgs and ContentHashResponseOutput values.
@@ -7193,12 +6654,9 @@ type ContentHashResponseInput interface {
 	ToContentHashResponseOutputWithContext(context.Context) ContentHashResponseOutput
 }
 
-// The content hash.
 type ContentHashResponseArgs struct {
-	// The algorithm of the content hash.
 	Algorithm pulumi.StringPtrInput `pulumi:"algorithm"`
-	// The value of the content hash.
-	Value pulumi.StringPtrInput `pulumi:"value"`
+	Value     pulumi.StringPtrInput `pulumi:"value"`
 }
 
 func (ContentHashResponseArgs) ElementType() reflect.Type {
@@ -7254,7 +6712,6 @@ func (i *contentHashResponsePtrType) ToContentHashResponsePtrOutputWithContext(c
 	return pulumi.ToOutputWithContext(ctx, i).(ContentHashResponsePtrOutput)
 }
 
-// The content hash.
 type ContentHashResponseOutput struct{ *pulumi.OutputState }
 
 func (ContentHashResponseOutput) ElementType() reflect.Type {
@@ -7274,17 +6731,15 @@ func (o ContentHashResponseOutput) ToContentHashResponsePtrOutput() ContentHashR
 }
 
 func (o ContentHashResponseOutput) ToContentHashResponsePtrOutputWithContext(ctx context.Context) ContentHashResponsePtrOutput {
-	return o.ApplyT(func(v ContentHashResponse) *ContentHashResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ContentHashResponse) *ContentHashResponse {
 		return &v
 	}).(ContentHashResponsePtrOutput)
 }
 
-// The algorithm of the content hash.
 func (o ContentHashResponseOutput) Algorithm() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ContentHashResponse) *string { return v.Algorithm }).(pulumi.StringPtrOutput)
 }
 
-// The value of the content hash.
 func (o ContentHashResponseOutput) Value() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ContentHashResponse) *string { return v.Value }).(pulumi.StringPtrOutput)
 }
@@ -7304,10 +6759,15 @@ func (o ContentHashResponsePtrOutput) ToContentHashResponsePtrOutputWithContext(
 }
 
 func (o ContentHashResponsePtrOutput) Elem() ContentHashResponseOutput {
-	return o.ApplyT(func(v *ContentHashResponse) ContentHashResponse { return *v }).(ContentHashResponseOutput)
+	return o.ApplyT(func(v *ContentHashResponse) ContentHashResponse {
+		if v != nil {
+			return *v
+		}
+		var ret ContentHashResponse
+		return ret
+	}).(ContentHashResponseOutput)
 }
 
-// The algorithm of the content hash.
 func (o ContentHashResponsePtrOutput) Algorithm() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ContentHashResponse) *string {
 		if v == nil {
@@ -7317,7 +6777,6 @@ func (o ContentHashResponsePtrOutput) Algorithm() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The value of the content hash.
 func (o ContentHashResponsePtrOutput) Value() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ContentHashResponse) *string {
 		if v == nil {
@@ -7327,18 +6786,12 @@ func (o ContentHashResponsePtrOutput) Value() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The content link.
 type ContentLink struct {
-	// The content hash.
-	ContentHash *ContentHash `pulumi:"contentHash"`
-	// The content size.
-	ContentSize *float64 `pulumi:"contentSize"`
-	// The content version.
-	ContentVersion *string `pulumi:"contentVersion"`
-	// The metadata.
-	Metadata interface{} `pulumi:"metadata"`
-	// The content link URI.
-	Uri *string `pulumi:"uri"`
+	ContentHash    *ContentHash `pulumi:"contentHash"`
+	ContentSize    *float64     `pulumi:"contentSize"`
+	ContentVersion *string      `pulumi:"contentVersion"`
+	Metadata       interface{}  `pulumi:"metadata"`
+	Uri            *string      `pulumi:"uri"`
 }
 
 // ContentLinkInput is an input type that accepts ContentLinkArgs and ContentLinkOutput values.
@@ -7352,18 +6805,12 @@ type ContentLinkInput interface {
 	ToContentLinkOutputWithContext(context.Context) ContentLinkOutput
 }
 
-// The content link.
 type ContentLinkArgs struct {
-	// The content hash.
-	ContentHash ContentHashPtrInput `pulumi:"contentHash"`
-	// The content size.
-	ContentSize pulumi.Float64PtrInput `pulumi:"contentSize"`
-	// The content version.
-	ContentVersion pulumi.StringPtrInput `pulumi:"contentVersion"`
-	// The metadata.
-	Metadata pulumi.Input `pulumi:"metadata"`
-	// The content link URI.
-	Uri pulumi.StringPtrInput `pulumi:"uri"`
+	ContentHash    ContentHashPtrInput    `pulumi:"contentHash"`
+	ContentSize    pulumi.Float64PtrInput `pulumi:"contentSize"`
+	ContentVersion pulumi.StringPtrInput  `pulumi:"contentVersion"`
+	Metadata       pulumi.Input           `pulumi:"metadata"`
+	Uri            pulumi.StringPtrInput  `pulumi:"uri"`
 }
 
 func (ContentLinkArgs) ElementType() reflect.Type {
@@ -7419,7 +6866,6 @@ func (i *contentLinkPtrType) ToContentLinkPtrOutputWithContext(ctx context.Conte
 	return pulumi.ToOutputWithContext(ctx, i).(ContentLinkPtrOutput)
 }
 
-// The content link.
 type ContentLinkOutput struct{ *pulumi.OutputState }
 
 func (ContentLinkOutput) ElementType() reflect.Type {
@@ -7439,32 +6885,27 @@ func (o ContentLinkOutput) ToContentLinkPtrOutput() ContentLinkPtrOutput {
 }
 
 func (o ContentLinkOutput) ToContentLinkPtrOutputWithContext(ctx context.Context) ContentLinkPtrOutput {
-	return o.ApplyT(func(v ContentLink) *ContentLink {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ContentLink) *ContentLink {
 		return &v
 	}).(ContentLinkPtrOutput)
 }
 
-// The content hash.
 func (o ContentLinkOutput) ContentHash() ContentHashPtrOutput {
 	return o.ApplyT(func(v ContentLink) *ContentHash { return v.ContentHash }).(ContentHashPtrOutput)
 }
 
-// The content size.
 func (o ContentLinkOutput) ContentSize() pulumi.Float64PtrOutput {
 	return o.ApplyT(func(v ContentLink) *float64 { return v.ContentSize }).(pulumi.Float64PtrOutput)
 }
 
-// The content version.
 func (o ContentLinkOutput) ContentVersion() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ContentLink) *string { return v.ContentVersion }).(pulumi.StringPtrOutput)
 }
 
-// The metadata.
 func (o ContentLinkOutput) Metadata() pulumi.AnyOutput {
 	return o.ApplyT(func(v ContentLink) interface{} { return v.Metadata }).(pulumi.AnyOutput)
 }
 
-// The content link URI.
 func (o ContentLinkOutput) Uri() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ContentLink) *string { return v.Uri }).(pulumi.StringPtrOutput)
 }
@@ -7484,10 +6925,15 @@ func (o ContentLinkPtrOutput) ToContentLinkPtrOutputWithContext(ctx context.Cont
 }
 
 func (o ContentLinkPtrOutput) Elem() ContentLinkOutput {
-	return o.ApplyT(func(v *ContentLink) ContentLink { return *v }).(ContentLinkOutput)
+	return o.ApplyT(func(v *ContentLink) ContentLink {
+		if v != nil {
+			return *v
+		}
+		var ret ContentLink
+		return ret
+	}).(ContentLinkOutput)
 }
 
-// The content hash.
 func (o ContentLinkPtrOutput) ContentHash() ContentHashPtrOutput {
 	return o.ApplyT(func(v *ContentLink) *ContentHash {
 		if v == nil {
@@ -7497,7 +6943,6 @@ func (o ContentLinkPtrOutput) ContentHash() ContentHashPtrOutput {
 	}).(ContentHashPtrOutput)
 }
 
-// The content size.
 func (o ContentLinkPtrOutput) ContentSize() pulumi.Float64PtrOutput {
 	return o.ApplyT(func(v *ContentLink) *float64 {
 		if v == nil {
@@ -7507,7 +6952,6 @@ func (o ContentLinkPtrOutput) ContentSize() pulumi.Float64PtrOutput {
 	}).(pulumi.Float64PtrOutput)
 }
 
-// The content version.
 func (o ContentLinkPtrOutput) ContentVersion() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ContentLink) *string {
 		if v == nil {
@@ -7517,7 +6961,6 @@ func (o ContentLinkPtrOutput) ContentVersion() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The metadata.
 func (o ContentLinkPtrOutput) Metadata() pulumi.AnyOutput {
 	return o.ApplyT(func(v *ContentLink) interface{} {
 		if v == nil {
@@ -7527,7 +6970,6 @@ func (o ContentLinkPtrOutput) Metadata() pulumi.AnyOutput {
 	}).(pulumi.AnyOutput)
 }
 
-// The content link URI.
 func (o ContentLinkPtrOutput) Uri() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ContentLink) *string {
 		if v == nil {
@@ -7537,18 +6979,12 @@ func (o ContentLinkPtrOutput) Uri() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The content link.
 type ContentLinkResponse struct {
-	// The content hash.
-	ContentHash *ContentHashResponse `pulumi:"contentHash"`
-	// The content size.
-	ContentSize *float64 `pulumi:"contentSize"`
-	// The content version.
-	ContentVersion *string `pulumi:"contentVersion"`
-	// The metadata.
-	Metadata interface{} `pulumi:"metadata"`
-	// The content link URI.
-	Uri *string `pulumi:"uri"`
+	ContentHash    *ContentHashResponse `pulumi:"contentHash"`
+	ContentSize    *float64             `pulumi:"contentSize"`
+	ContentVersion *string              `pulumi:"contentVersion"`
+	Metadata       interface{}          `pulumi:"metadata"`
+	Uri            *string              `pulumi:"uri"`
 }
 
 // ContentLinkResponseInput is an input type that accepts ContentLinkResponseArgs and ContentLinkResponseOutput values.
@@ -7562,18 +6998,12 @@ type ContentLinkResponseInput interface {
 	ToContentLinkResponseOutputWithContext(context.Context) ContentLinkResponseOutput
 }
 
-// The content link.
 type ContentLinkResponseArgs struct {
-	// The content hash.
-	ContentHash ContentHashResponsePtrInput `pulumi:"contentHash"`
-	// The content size.
-	ContentSize pulumi.Float64PtrInput `pulumi:"contentSize"`
-	// The content version.
-	ContentVersion pulumi.StringPtrInput `pulumi:"contentVersion"`
-	// The metadata.
-	Metadata pulumi.Input `pulumi:"metadata"`
-	// The content link URI.
-	Uri pulumi.StringPtrInput `pulumi:"uri"`
+	ContentHash    ContentHashResponsePtrInput `pulumi:"contentHash"`
+	ContentSize    pulumi.Float64PtrInput      `pulumi:"contentSize"`
+	ContentVersion pulumi.StringPtrInput       `pulumi:"contentVersion"`
+	Metadata       pulumi.Input                `pulumi:"metadata"`
+	Uri            pulumi.StringPtrInput       `pulumi:"uri"`
 }
 
 func (ContentLinkResponseArgs) ElementType() reflect.Type {
@@ -7629,7 +7059,6 @@ func (i *contentLinkResponsePtrType) ToContentLinkResponsePtrOutputWithContext(c
 	return pulumi.ToOutputWithContext(ctx, i).(ContentLinkResponsePtrOutput)
 }
 
-// The content link.
 type ContentLinkResponseOutput struct{ *pulumi.OutputState }
 
 func (ContentLinkResponseOutput) ElementType() reflect.Type {
@@ -7649,32 +7078,27 @@ func (o ContentLinkResponseOutput) ToContentLinkResponsePtrOutput() ContentLinkR
 }
 
 func (o ContentLinkResponseOutput) ToContentLinkResponsePtrOutputWithContext(ctx context.Context) ContentLinkResponsePtrOutput {
-	return o.ApplyT(func(v ContentLinkResponse) *ContentLinkResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ContentLinkResponse) *ContentLinkResponse {
 		return &v
 	}).(ContentLinkResponsePtrOutput)
 }
 
-// The content hash.
 func (o ContentLinkResponseOutput) ContentHash() ContentHashResponsePtrOutput {
 	return o.ApplyT(func(v ContentLinkResponse) *ContentHashResponse { return v.ContentHash }).(ContentHashResponsePtrOutput)
 }
 
-// The content size.
 func (o ContentLinkResponseOutput) ContentSize() pulumi.Float64PtrOutput {
 	return o.ApplyT(func(v ContentLinkResponse) *float64 { return v.ContentSize }).(pulumi.Float64PtrOutput)
 }
 
-// The content version.
 func (o ContentLinkResponseOutput) ContentVersion() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ContentLinkResponse) *string { return v.ContentVersion }).(pulumi.StringPtrOutput)
 }
 
-// The metadata.
 func (o ContentLinkResponseOutput) Metadata() pulumi.AnyOutput {
 	return o.ApplyT(func(v ContentLinkResponse) interface{} { return v.Metadata }).(pulumi.AnyOutput)
 }
 
-// The content link URI.
 func (o ContentLinkResponseOutput) Uri() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ContentLinkResponse) *string { return v.Uri }).(pulumi.StringPtrOutput)
 }
@@ -7694,10 +7118,15 @@ func (o ContentLinkResponsePtrOutput) ToContentLinkResponsePtrOutputWithContext(
 }
 
 func (o ContentLinkResponsePtrOutput) Elem() ContentLinkResponseOutput {
-	return o.ApplyT(func(v *ContentLinkResponse) ContentLinkResponse { return *v }).(ContentLinkResponseOutput)
+	return o.ApplyT(func(v *ContentLinkResponse) ContentLinkResponse {
+		if v != nil {
+			return *v
+		}
+		var ret ContentLinkResponse
+		return ret
+	}).(ContentLinkResponseOutput)
 }
 
-// The content hash.
 func (o ContentLinkResponsePtrOutput) ContentHash() ContentHashResponsePtrOutput {
 	return o.ApplyT(func(v *ContentLinkResponse) *ContentHashResponse {
 		if v == nil {
@@ -7707,7 +7136,6 @@ func (o ContentLinkResponsePtrOutput) ContentHash() ContentHashResponsePtrOutput
 	}).(ContentHashResponsePtrOutput)
 }
 
-// The content size.
 func (o ContentLinkResponsePtrOutput) ContentSize() pulumi.Float64PtrOutput {
 	return o.ApplyT(func(v *ContentLinkResponse) *float64 {
 		if v == nil {
@@ -7717,7 +7145,6 @@ func (o ContentLinkResponsePtrOutput) ContentSize() pulumi.Float64PtrOutput {
 	}).(pulumi.Float64PtrOutput)
 }
 
-// The content version.
 func (o ContentLinkResponsePtrOutput) ContentVersion() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ContentLinkResponse) *string {
 		if v == nil {
@@ -7727,7 +7154,6 @@ func (o ContentLinkResponsePtrOutput) ContentVersion() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The metadata.
 func (o ContentLinkResponsePtrOutput) Metadata() pulumi.AnyOutput {
 	return o.ApplyT(func(v *ContentLinkResponse) interface{} {
 		if v == nil {
@@ -7737,7 +7163,6 @@ func (o ContentLinkResponsePtrOutput) Metadata() pulumi.AnyOutput {
 	}).(pulumi.AnyOutput)
 }
 
-// The content link URI.
 func (o ContentLinkResponsePtrOutput) Uri() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ContentLinkResponse) *string {
 		if v == nil {
@@ -7747,30 +7172,18 @@ func (o ContentLinkResponsePtrOutput) Uri() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The Edifact agreement acknowledgement settings.
 type EdifactAcknowledgementSettings struct {
-	// The acknowledgement control number lower bound.
-	AcknowledgementControlNumberLowerBound int `pulumi:"acknowledgementControlNumberLowerBound"`
-	// The acknowledgement control number prefix.
-	AcknowledgementControlNumberPrefix *string `pulumi:"acknowledgementControlNumberPrefix"`
-	// The acknowledgement control number suffix.
-	AcknowledgementControlNumberSuffix *string `pulumi:"acknowledgementControlNumberSuffix"`
-	// The acknowledgement control number upper bound.
-	AcknowledgementControlNumberUpperBound int `pulumi:"acknowledgementControlNumberUpperBound"`
-	// The value indicating whether to batch functional acknowledgements.
-	BatchFunctionalAcknowledgements bool `pulumi:"batchFunctionalAcknowledgements"`
-	// The value indicating whether to batch the technical acknowledgements.
-	BatchTechnicalAcknowledgements bool `pulumi:"batchTechnicalAcknowledgements"`
-	// The value indicating whether functional acknowledgement is needed.
-	NeedFunctionalAcknowledgement bool `pulumi:"needFunctionalAcknowledgement"`
-	// The value indicating whether a loop is needed for valid messages.
-	NeedLoopForValidMessages bool `pulumi:"needLoopForValidMessages"`
-	// The value indicating whether technical acknowledgement is needed.
-	NeedTechnicalAcknowledgement bool `pulumi:"needTechnicalAcknowledgement"`
-	// The value indicating whether to rollover acknowledgement control number.
-	RolloverAcknowledgementControlNumber bool `pulumi:"rolloverAcknowledgementControlNumber"`
-	// The value indicating whether to send synchronous acknowledgement.
-	SendSynchronousAcknowledgement bool `pulumi:"sendSynchronousAcknowledgement"`
+	AcknowledgementControlNumberLowerBound int     `pulumi:"acknowledgementControlNumberLowerBound"`
+	AcknowledgementControlNumberPrefix     *string `pulumi:"acknowledgementControlNumberPrefix"`
+	AcknowledgementControlNumberSuffix     *string `pulumi:"acknowledgementControlNumberSuffix"`
+	AcknowledgementControlNumberUpperBound int     `pulumi:"acknowledgementControlNumberUpperBound"`
+	BatchFunctionalAcknowledgements        bool    `pulumi:"batchFunctionalAcknowledgements"`
+	BatchTechnicalAcknowledgements         bool    `pulumi:"batchTechnicalAcknowledgements"`
+	NeedFunctionalAcknowledgement          bool    `pulumi:"needFunctionalAcknowledgement"`
+	NeedLoopForValidMessages               bool    `pulumi:"needLoopForValidMessages"`
+	NeedTechnicalAcknowledgement           bool    `pulumi:"needTechnicalAcknowledgement"`
+	RolloverAcknowledgementControlNumber   bool    `pulumi:"rolloverAcknowledgementControlNumber"`
+	SendSynchronousAcknowledgement         bool    `pulumi:"sendSynchronousAcknowledgement"`
 }
 
 // EdifactAcknowledgementSettingsInput is an input type that accepts EdifactAcknowledgementSettingsArgs and EdifactAcknowledgementSettingsOutput values.
@@ -7784,30 +7197,18 @@ type EdifactAcknowledgementSettingsInput interface {
 	ToEdifactAcknowledgementSettingsOutputWithContext(context.Context) EdifactAcknowledgementSettingsOutput
 }
 
-// The Edifact agreement acknowledgement settings.
 type EdifactAcknowledgementSettingsArgs struct {
-	// The acknowledgement control number lower bound.
-	AcknowledgementControlNumberLowerBound pulumi.IntInput `pulumi:"acknowledgementControlNumberLowerBound"`
-	// The acknowledgement control number prefix.
-	AcknowledgementControlNumberPrefix pulumi.StringPtrInput `pulumi:"acknowledgementControlNumberPrefix"`
-	// The acknowledgement control number suffix.
-	AcknowledgementControlNumberSuffix pulumi.StringPtrInput `pulumi:"acknowledgementControlNumberSuffix"`
-	// The acknowledgement control number upper bound.
-	AcknowledgementControlNumberUpperBound pulumi.IntInput `pulumi:"acknowledgementControlNumberUpperBound"`
-	// The value indicating whether to batch functional acknowledgements.
-	BatchFunctionalAcknowledgements pulumi.BoolInput `pulumi:"batchFunctionalAcknowledgements"`
-	// The value indicating whether to batch the technical acknowledgements.
-	BatchTechnicalAcknowledgements pulumi.BoolInput `pulumi:"batchTechnicalAcknowledgements"`
-	// The value indicating whether functional acknowledgement is needed.
-	NeedFunctionalAcknowledgement pulumi.BoolInput `pulumi:"needFunctionalAcknowledgement"`
-	// The value indicating whether a loop is needed for valid messages.
-	NeedLoopForValidMessages pulumi.BoolInput `pulumi:"needLoopForValidMessages"`
-	// The value indicating whether technical acknowledgement is needed.
-	NeedTechnicalAcknowledgement pulumi.BoolInput `pulumi:"needTechnicalAcknowledgement"`
-	// The value indicating whether to rollover acknowledgement control number.
-	RolloverAcknowledgementControlNumber pulumi.BoolInput `pulumi:"rolloverAcknowledgementControlNumber"`
-	// The value indicating whether to send synchronous acknowledgement.
-	SendSynchronousAcknowledgement pulumi.BoolInput `pulumi:"sendSynchronousAcknowledgement"`
+	AcknowledgementControlNumberLowerBound pulumi.IntInput       `pulumi:"acknowledgementControlNumberLowerBound"`
+	AcknowledgementControlNumberPrefix     pulumi.StringPtrInput `pulumi:"acknowledgementControlNumberPrefix"`
+	AcknowledgementControlNumberSuffix     pulumi.StringPtrInput `pulumi:"acknowledgementControlNumberSuffix"`
+	AcknowledgementControlNumberUpperBound pulumi.IntInput       `pulumi:"acknowledgementControlNumberUpperBound"`
+	BatchFunctionalAcknowledgements        pulumi.BoolInput      `pulumi:"batchFunctionalAcknowledgements"`
+	BatchTechnicalAcknowledgements         pulumi.BoolInput      `pulumi:"batchTechnicalAcknowledgements"`
+	NeedFunctionalAcknowledgement          pulumi.BoolInput      `pulumi:"needFunctionalAcknowledgement"`
+	NeedLoopForValidMessages               pulumi.BoolInput      `pulumi:"needLoopForValidMessages"`
+	NeedTechnicalAcknowledgement           pulumi.BoolInput      `pulumi:"needTechnicalAcknowledgement"`
+	RolloverAcknowledgementControlNumber   pulumi.BoolInput      `pulumi:"rolloverAcknowledgementControlNumber"`
+	SendSynchronousAcknowledgement         pulumi.BoolInput      `pulumi:"sendSynchronousAcknowledgement"`
 }
 
 func (EdifactAcknowledgementSettingsArgs) ElementType() reflect.Type {
@@ -7863,7 +7264,6 @@ func (i *edifactAcknowledgementSettingsPtrType) ToEdifactAcknowledgementSettings
 	return pulumi.ToOutputWithContext(ctx, i).(EdifactAcknowledgementSettingsPtrOutput)
 }
 
-// The Edifact agreement acknowledgement settings.
 type EdifactAcknowledgementSettingsOutput struct{ *pulumi.OutputState }
 
 func (EdifactAcknowledgementSettingsOutput) ElementType() reflect.Type {
@@ -7883,62 +7283,51 @@ func (o EdifactAcknowledgementSettingsOutput) ToEdifactAcknowledgementSettingsPt
 }
 
 func (o EdifactAcknowledgementSettingsOutput) ToEdifactAcknowledgementSettingsPtrOutputWithContext(ctx context.Context) EdifactAcknowledgementSettingsPtrOutput {
-	return o.ApplyT(func(v EdifactAcknowledgementSettings) *EdifactAcknowledgementSettings {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v EdifactAcknowledgementSettings) *EdifactAcknowledgementSettings {
 		return &v
 	}).(EdifactAcknowledgementSettingsPtrOutput)
 }
 
-// The acknowledgement control number lower bound.
 func (o EdifactAcknowledgementSettingsOutput) AcknowledgementControlNumberLowerBound() pulumi.IntOutput {
 	return o.ApplyT(func(v EdifactAcknowledgementSettings) int { return v.AcknowledgementControlNumberLowerBound }).(pulumi.IntOutput)
 }
 
-// The acknowledgement control number prefix.
 func (o EdifactAcknowledgementSettingsOutput) AcknowledgementControlNumberPrefix() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v EdifactAcknowledgementSettings) *string { return v.AcknowledgementControlNumberPrefix }).(pulumi.StringPtrOutput)
 }
 
-// The acknowledgement control number suffix.
 func (o EdifactAcknowledgementSettingsOutput) AcknowledgementControlNumberSuffix() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v EdifactAcknowledgementSettings) *string { return v.AcknowledgementControlNumberSuffix }).(pulumi.StringPtrOutput)
 }
 
-// The acknowledgement control number upper bound.
 func (o EdifactAcknowledgementSettingsOutput) AcknowledgementControlNumberUpperBound() pulumi.IntOutput {
 	return o.ApplyT(func(v EdifactAcknowledgementSettings) int { return v.AcknowledgementControlNumberUpperBound }).(pulumi.IntOutput)
 }
 
-// The value indicating whether to batch functional acknowledgements.
 func (o EdifactAcknowledgementSettingsOutput) BatchFunctionalAcknowledgements() pulumi.BoolOutput {
 	return o.ApplyT(func(v EdifactAcknowledgementSettings) bool { return v.BatchFunctionalAcknowledgements }).(pulumi.BoolOutput)
 }
 
-// The value indicating whether to batch the technical acknowledgements.
 func (o EdifactAcknowledgementSettingsOutput) BatchTechnicalAcknowledgements() pulumi.BoolOutput {
 	return o.ApplyT(func(v EdifactAcknowledgementSettings) bool { return v.BatchTechnicalAcknowledgements }).(pulumi.BoolOutput)
 }
 
-// The value indicating whether functional acknowledgement is needed.
 func (o EdifactAcknowledgementSettingsOutput) NeedFunctionalAcknowledgement() pulumi.BoolOutput {
 	return o.ApplyT(func(v EdifactAcknowledgementSettings) bool { return v.NeedFunctionalAcknowledgement }).(pulumi.BoolOutput)
 }
 
-// The value indicating whether a loop is needed for valid messages.
 func (o EdifactAcknowledgementSettingsOutput) NeedLoopForValidMessages() pulumi.BoolOutput {
 	return o.ApplyT(func(v EdifactAcknowledgementSettings) bool { return v.NeedLoopForValidMessages }).(pulumi.BoolOutput)
 }
 
-// The value indicating whether technical acknowledgement is needed.
 func (o EdifactAcknowledgementSettingsOutput) NeedTechnicalAcknowledgement() pulumi.BoolOutput {
 	return o.ApplyT(func(v EdifactAcknowledgementSettings) bool { return v.NeedTechnicalAcknowledgement }).(pulumi.BoolOutput)
 }
 
-// The value indicating whether to rollover acknowledgement control number.
 func (o EdifactAcknowledgementSettingsOutput) RolloverAcknowledgementControlNumber() pulumi.BoolOutput {
 	return o.ApplyT(func(v EdifactAcknowledgementSettings) bool { return v.RolloverAcknowledgementControlNumber }).(pulumi.BoolOutput)
 }
 
-// The value indicating whether to send synchronous acknowledgement.
 func (o EdifactAcknowledgementSettingsOutput) SendSynchronousAcknowledgement() pulumi.BoolOutput {
 	return o.ApplyT(func(v EdifactAcknowledgementSettings) bool { return v.SendSynchronousAcknowledgement }).(pulumi.BoolOutput)
 }
@@ -7958,10 +7347,15 @@ func (o EdifactAcknowledgementSettingsPtrOutput) ToEdifactAcknowledgementSetting
 }
 
 func (o EdifactAcknowledgementSettingsPtrOutput) Elem() EdifactAcknowledgementSettingsOutput {
-	return o.ApplyT(func(v *EdifactAcknowledgementSettings) EdifactAcknowledgementSettings { return *v }).(EdifactAcknowledgementSettingsOutput)
+	return o.ApplyT(func(v *EdifactAcknowledgementSettings) EdifactAcknowledgementSettings {
+		if v != nil {
+			return *v
+		}
+		var ret EdifactAcknowledgementSettings
+		return ret
+	}).(EdifactAcknowledgementSettingsOutput)
 }
 
-// The acknowledgement control number lower bound.
 func (o EdifactAcknowledgementSettingsPtrOutput) AcknowledgementControlNumberLowerBound() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *EdifactAcknowledgementSettings) *int {
 		if v == nil {
@@ -7971,7 +7365,6 @@ func (o EdifactAcknowledgementSettingsPtrOutput) AcknowledgementControlNumberLow
 	}).(pulumi.IntPtrOutput)
 }
 
-// The acknowledgement control number prefix.
 func (o EdifactAcknowledgementSettingsPtrOutput) AcknowledgementControlNumberPrefix() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *EdifactAcknowledgementSettings) *string {
 		if v == nil {
@@ -7981,7 +7374,6 @@ func (o EdifactAcknowledgementSettingsPtrOutput) AcknowledgementControlNumberPre
 	}).(pulumi.StringPtrOutput)
 }
 
-// The acknowledgement control number suffix.
 func (o EdifactAcknowledgementSettingsPtrOutput) AcknowledgementControlNumberSuffix() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *EdifactAcknowledgementSettings) *string {
 		if v == nil {
@@ -7991,7 +7383,6 @@ func (o EdifactAcknowledgementSettingsPtrOutput) AcknowledgementControlNumberSuf
 	}).(pulumi.StringPtrOutput)
 }
 
-// The acknowledgement control number upper bound.
 func (o EdifactAcknowledgementSettingsPtrOutput) AcknowledgementControlNumberUpperBound() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *EdifactAcknowledgementSettings) *int {
 		if v == nil {
@@ -8001,7 +7392,6 @@ func (o EdifactAcknowledgementSettingsPtrOutput) AcknowledgementControlNumberUpp
 	}).(pulumi.IntPtrOutput)
 }
 
-// The value indicating whether to batch functional acknowledgements.
 func (o EdifactAcknowledgementSettingsPtrOutput) BatchFunctionalAcknowledgements() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *EdifactAcknowledgementSettings) *bool {
 		if v == nil {
@@ -8011,7 +7401,6 @@ func (o EdifactAcknowledgementSettingsPtrOutput) BatchFunctionalAcknowledgements
 	}).(pulumi.BoolPtrOutput)
 }
 
-// The value indicating whether to batch the technical acknowledgements.
 func (o EdifactAcknowledgementSettingsPtrOutput) BatchTechnicalAcknowledgements() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *EdifactAcknowledgementSettings) *bool {
 		if v == nil {
@@ -8021,7 +7410,6 @@ func (o EdifactAcknowledgementSettingsPtrOutput) BatchTechnicalAcknowledgements(
 	}).(pulumi.BoolPtrOutput)
 }
 
-// The value indicating whether functional acknowledgement is needed.
 func (o EdifactAcknowledgementSettingsPtrOutput) NeedFunctionalAcknowledgement() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *EdifactAcknowledgementSettings) *bool {
 		if v == nil {
@@ -8031,7 +7419,6 @@ func (o EdifactAcknowledgementSettingsPtrOutput) NeedFunctionalAcknowledgement()
 	}).(pulumi.BoolPtrOutput)
 }
 
-// The value indicating whether a loop is needed for valid messages.
 func (o EdifactAcknowledgementSettingsPtrOutput) NeedLoopForValidMessages() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *EdifactAcknowledgementSettings) *bool {
 		if v == nil {
@@ -8041,7 +7428,6 @@ func (o EdifactAcknowledgementSettingsPtrOutput) NeedLoopForValidMessages() pulu
 	}).(pulumi.BoolPtrOutput)
 }
 
-// The value indicating whether technical acknowledgement is needed.
 func (o EdifactAcknowledgementSettingsPtrOutput) NeedTechnicalAcknowledgement() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *EdifactAcknowledgementSettings) *bool {
 		if v == nil {
@@ -8051,7 +7437,6 @@ func (o EdifactAcknowledgementSettingsPtrOutput) NeedTechnicalAcknowledgement() 
 	}).(pulumi.BoolPtrOutput)
 }
 
-// The value indicating whether to rollover acknowledgement control number.
 func (o EdifactAcknowledgementSettingsPtrOutput) RolloverAcknowledgementControlNumber() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *EdifactAcknowledgementSettings) *bool {
 		if v == nil {
@@ -8061,7 +7446,6 @@ func (o EdifactAcknowledgementSettingsPtrOutput) RolloverAcknowledgementControlN
 	}).(pulumi.BoolPtrOutput)
 }
 
-// The value indicating whether to send synchronous acknowledgement.
 func (o EdifactAcknowledgementSettingsPtrOutput) SendSynchronousAcknowledgement() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *EdifactAcknowledgementSettings) *bool {
 		if v == nil {
@@ -8071,30 +7455,18 @@ func (o EdifactAcknowledgementSettingsPtrOutput) SendSynchronousAcknowledgement(
 	}).(pulumi.BoolPtrOutput)
 }
 
-// The Edifact agreement acknowledgement settings.
 type EdifactAcknowledgementSettingsResponse struct {
-	// The acknowledgement control number lower bound.
-	AcknowledgementControlNumberLowerBound int `pulumi:"acknowledgementControlNumberLowerBound"`
-	// The acknowledgement control number prefix.
-	AcknowledgementControlNumberPrefix *string `pulumi:"acknowledgementControlNumberPrefix"`
-	// The acknowledgement control number suffix.
-	AcknowledgementControlNumberSuffix *string `pulumi:"acknowledgementControlNumberSuffix"`
-	// The acknowledgement control number upper bound.
-	AcknowledgementControlNumberUpperBound int `pulumi:"acknowledgementControlNumberUpperBound"`
-	// The value indicating whether to batch functional acknowledgements.
-	BatchFunctionalAcknowledgements bool `pulumi:"batchFunctionalAcknowledgements"`
-	// The value indicating whether to batch the technical acknowledgements.
-	BatchTechnicalAcknowledgements bool `pulumi:"batchTechnicalAcknowledgements"`
-	// The value indicating whether functional acknowledgement is needed.
-	NeedFunctionalAcknowledgement bool `pulumi:"needFunctionalAcknowledgement"`
-	// The value indicating whether a loop is needed for valid messages.
-	NeedLoopForValidMessages bool `pulumi:"needLoopForValidMessages"`
-	// The value indicating whether technical acknowledgement is needed.
-	NeedTechnicalAcknowledgement bool `pulumi:"needTechnicalAcknowledgement"`
-	// The value indicating whether to rollover acknowledgement control number.
-	RolloverAcknowledgementControlNumber bool `pulumi:"rolloverAcknowledgementControlNumber"`
-	// The value indicating whether to send synchronous acknowledgement.
-	SendSynchronousAcknowledgement bool `pulumi:"sendSynchronousAcknowledgement"`
+	AcknowledgementControlNumberLowerBound int     `pulumi:"acknowledgementControlNumberLowerBound"`
+	AcknowledgementControlNumberPrefix     *string `pulumi:"acknowledgementControlNumberPrefix"`
+	AcknowledgementControlNumberSuffix     *string `pulumi:"acknowledgementControlNumberSuffix"`
+	AcknowledgementControlNumberUpperBound int     `pulumi:"acknowledgementControlNumberUpperBound"`
+	BatchFunctionalAcknowledgements        bool    `pulumi:"batchFunctionalAcknowledgements"`
+	BatchTechnicalAcknowledgements         bool    `pulumi:"batchTechnicalAcknowledgements"`
+	NeedFunctionalAcknowledgement          bool    `pulumi:"needFunctionalAcknowledgement"`
+	NeedLoopForValidMessages               bool    `pulumi:"needLoopForValidMessages"`
+	NeedTechnicalAcknowledgement           bool    `pulumi:"needTechnicalAcknowledgement"`
+	RolloverAcknowledgementControlNumber   bool    `pulumi:"rolloverAcknowledgementControlNumber"`
+	SendSynchronousAcknowledgement         bool    `pulumi:"sendSynchronousAcknowledgement"`
 }
 
 // EdifactAcknowledgementSettingsResponseInput is an input type that accepts EdifactAcknowledgementSettingsResponseArgs and EdifactAcknowledgementSettingsResponseOutput values.
@@ -8108,30 +7480,18 @@ type EdifactAcknowledgementSettingsResponseInput interface {
 	ToEdifactAcknowledgementSettingsResponseOutputWithContext(context.Context) EdifactAcknowledgementSettingsResponseOutput
 }
 
-// The Edifact agreement acknowledgement settings.
 type EdifactAcknowledgementSettingsResponseArgs struct {
-	// The acknowledgement control number lower bound.
-	AcknowledgementControlNumberLowerBound pulumi.IntInput `pulumi:"acknowledgementControlNumberLowerBound"`
-	// The acknowledgement control number prefix.
-	AcknowledgementControlNumberPrefix pulumi.StringPtrInput `pulumi:"acknowledgementControlNumberPrefix"`
-	// The acknowledgement control number suffix.
-	AcknowledgementControlNumberSuffix pulumi.StringPtrInput `pulumi:"acknowledgementControlNumberSuffix"`
-	// The acknowledgement control number upper bound.
-	AcknowledgementControlNumberUpperBound pulumi.IntInput `pulumi:"acknowledgementControlNumberUpperBound"`
-	// The value indicating whether to batch functional acknowledgements.
-	BatchFunctionalAcknowledgements pulumi.BoolInput `pulumi:"batchFunctionalAcknowledgements"`
-	// The value indicating whether to batch the technical acknowledgements.
-	BatchTechnicalAcknowledgements pulumi.BoolInput `pulumi:"batchTechnicalAcknowledgements"`
-	// The value indicating whether functional acknowledgement is needed.
-	NeedFunctionalAcknowledgement pulumi.BoolInput `pulumi:"needFunctionalAcknowledgement"`
-	// The value indicating whether a loop is needed for valid messages.
-	NeedLoopForValidMessages pulumi.BoolInput `pulumi:"needLoopForValidMessages"`
-	// The value indicating whether technical acknowledgement is needed.
-	NeedTechnicalAcknowledgement pulumi.BoolInput `pulumi:"needTechnicalAcknowledgement"`
-	// The value indicating whether to rollover acknowledgement control number.
-	RolloverAcknowledgementControlNumber pulumi.BoolInput `pulumi:"rolloverAcknowledgementControlNumber"`
-	// The value indicating whether to send synchronous acknowledgement.
-	SendSynchronousAcknowledgement pulumi.BoolInput `pulumi:"sendSynchronousAcknowledgement"`
+	AcknowledgementControlNumberLowerBound pulumi.IntInput       `pulumi:"acknowledgementControlNumberLowerBound"`
+	AcknowledgementControlNumberPrefix     pulumi.StringPtrInput `pulumi:"acknowledgementControlNumberPrefix"`
+	AcknowledgementControlNumberSuffix     pulumi.StringPtrInput `pulumi:"acknowledgementControlNumberSuffix"`
+	AcknowledgementControlNumberUpperBound pulumi.IntInput       `pulumi:"acknowledgementControlNumberUpperBound"`
+	BatchFunctionalAcknowledgements        pulumi.BoolInput      `pulumi:"batchFunctionalAcknowledgements"`
+	BatchTechnicalAcknowledgements         pulumi.BoolInput      `pulumi:"batchTechnicalAcknowledgements"`
+	NeedFunctionalAcknowledgement          pulumi.BoolInput      `pulumi:"needFunctionalAcknowledgement"`
+	NeedLoopForValidMessages               pulumi.BoolInput      `pulumi:"needLoopForValidMessages"`
+	NeedTechnicalAcknowledgement           pulumi.BoolInput      `pulumi:"needTechnicalAcknowledgement"`
+	RolloverAcknowledgementControlNumber   pulumi.BoolInput      `pulumi:"rolloverAcknowledgementControlNumber"`
+	SendSynchronousAcknowledgement         pulumi.BoolInput      `pulumi:"sendSynchronousAcknowledgement"`
 }
 
 func (EdifactAcknowledgementSettingsResponseArgs) ElementType() reflect.Type {
@@ -8187,7 +7547,6 @@ func (i *edifactAcknowledgementSettingsResponsePtrType) ToEdifactAcknowledgement
 	return pulumi.ToOutputWithContext(ctx, i).(EdifactAcknowledgementSettingsResponsePtrOutput)
 }
 
-// The Edifact agreement acknowledgement settings.
 type EdifactAcknowledgementSettingsResponseOutput struct{ *pulumi.OutputState }
 
 func (EdifactAcknowledgementSettingsResponseOutput) ElementType() reflect.Type {
@@ -8207,62 +7566,51 @@ func (o EdifactAcknowledgementSettingsResponseOutput) ToEdifactAcknowledgementSe
 }
 
 func (o EdifactAcknowledgementSettingsResponseOutput) ToEdifactAcknowledgementSettingsResponsePtrOutputWithContext(ctx context.Context) EdifactAcknowledgementSettingsResponsePtrOutput {
-	return o.ApplyT(func(v EdifactAcknowledgementSettingsResponse) *EdifactAcknowledgementSettingsResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v EdifactAcknowledgementSettingsResponse) *EdifactAcknowledgementSettingsResponse {
 		return &v
 	}).(EdifactAcknowledgementSettingsResponsePtrOutput)
 }
 
-// The acknowledgement control number lower bound.
 func (o EdifactAcknowledgementSettingsResponseOutput) AcknowledgementControlNumberLowerBound() pulumi.IntOutput {
 	return o.ApplyT(func(v EdifactAcknowledgementSettingsResponse) int { return v.AcknowledgementControlNumberLowerBound }).(pulumi.IntOutput)
 }
 
-// The acknowledgement control number prefix.
 func (o EdifactAcknowledgementSettingsResponseOutput) AcknowledgementControlNumberPrefix() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v EdifactAcknowledgementSettingsResponse) *string { return v.AcknowledgementControlNumberPrefix }).(pulumi.StringPtrOutput)
 }
 
-// The acknowledgement control number suffix.
 func (o EdifactAcknowledgementSettingsResponseOutput) AcknowledgementControlNumberSuffix() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v EdifactAcknowledgementSettingsResponse) *string { return v.AcknowledgementControlNumberSuffix }).(pulumi.StringPtrOutput)
 }
 
-// The acknowledgement control number upper bound.
 func (o EdifactAcknowledgementSettingsResponseOutput) AcknowledgementControlNumberUpperBound() pulumi.IntOutput {
 	return o.ApplyT(func(v EdifactAcknowledgementSettingsResponse) int { return v.AcknowledgementControlNumberUpperBound }).(pulumi.IntOutput)
 }
 
-// The value indicating whether to batch functional acknowledgements.
 func (o EdifactAcknowledgementSettingsResponseOutput) BatchFunctionalAcknowledgements() pulumi.BoolOutput {
 	return o.ApplyT(func(v EdifactAcknowledgementSettingsResponse) bool { return v.BatchFunctionalAcknowledgements }).(pulumi.BoolOutput)
 }
 
-// The value indicating whether to batch the technical acknowledgements.
 func (o EdifactAcknowledgementSettingsResponseOutput) BatchTechnicalAcknowledgements() pulumi.BoolOutput {
 	return o.ApplyT(func(v EdifactAcknowledgementSettingsResponse) bool { return v.BatchTechnicalAcknowledgements }).(pulumi.BoolOutput)
 }
 
-// The value indicating whether functional acknowledgement is needed.
 func (o EdifactAcknowledgementSettingsResponseOutput) NeedFunctionalAcknowledgement() pulumi.BoolOutput {
 	return o.ApplyT(func(v EdifactAcknowledgementSettingsResponse) bool { return v.NeedFunctionalAcknowledgement }).(pulumi.BoolOutput)
 }
 
-// The value indicating whether a loop is needed for valid messages.
 func (o EdifactAcknowledgementSettingsResponseOutput) NeedLoopForValidMessages() pulumi.BoolOutput {
 	return o.ApplyT(func(v EdifactAcknowledgementSettingsResponse) bool { return v.NeedLoopForValidMessages }).(pulumi.BoolOutput)
 }
 
-// The value indicating whether technical acknowledgement is needed.
 func (o EdifactAcknowledgementSettingsResponseOutput) NeedTechnicalAcknowledgement() pulumi.BoolOutput {
 	return o.ApplyT(func(v EdifactAcknowledgementSettingsResponse) bool { return v.NeedTechnicalAcknowledgement }).(pulumi.BoolOutput)
 }
 
-// The value indicating whether to rollover acknowledgement control number.
 func (o EdifactAcknowledgementSettingsResponseOutput) RolloverAcknowledgementControlNumber() pulumi.BoolOutput {
 	return o.ApplyT(func(v EdifactAcknowledgementSettingsResponse) bool { return v.RolloverAcknowledgementControlNumber }).(pulumi.BoolOutput)
 }
 
-// The value indicating whether to send synchronous acknowledgement.
 func (o EdifactAcknowledgementSettingsResponseOutput) SendSynchronousAcknowledgement() pulumi.BoolOutput {
 	return o.ApplyT(func(v EdifactAcknowledgementSettingsResponse) bool { return v.SendSynchronousAcknowledgement }).(pulumi.BoolOutput)
 }
@@ -8282,10 +7630,15 @@ func (o EdifactAcknowledgementSettingsResponsePtrOutput) ToEdifactAcknowledgemen
 }
 
 func (o EdifactAcknowledgementSettingsResponsePtrOutput) Elem() EdifactAcknowledgementSettingsResponseOutput {
-	return o.ApplyT(func(v *EdifactAcknowledgementSettingsResponse) EdifactAcknowledgementSettingsResponse { return *v }).(EdifactAcknowledgementSettingsResponseOutput)
+	return o.ApplyT(func(v *EdifactAcknowledgementSettingsResponse) EdifactAcknowledgementSettingsResponse {
+		if v != nil {
+			return *v
+		}
+		var ret EdifactAcknowledgementSettingsResponse
+		return ret
+	}).(EdifactAcknowledgementSettingsResponseOutput)
 }
 
-// The acknowledgement control number lower bound.
 func (o EdifactAcknowledgementSettingsResponsePtrOutput) AcknowledgementControlNumberLowerBound() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *EdifactAcknowledgementSettingsResponse) *int {
 		if v == nil {
@@ -8295,7 +7648,6 @@ func (o EdifactAcknowledgementSettingsResponsePtrOutput) AcknowledgementControlN
 	}).(pulumi.IntPtrOutput)
 }
 
-// The acknowledgement control number prefix.
 func (o EdifactAcknowledgementSettingsResponsePtrOutput) AcknowledgementControlNumberPrefix() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *EdifactAcknowledgementSettingsResponse) *string {
 		if v == nil {
@@ -8305,7 +7657,6 @@ func (o EdifactAcknowledgementSettingsResponsePtrOutput) AcknowledgementControlN
 	}).(pulumi.StringPtrOutput)
 }
 
-// The acknowledgement control number suffix.
 func (o EdifactAcknowledgementSettingsResponsePtrOutput) AcknowledgementControlNumberSuffix() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *EdifactAcknowledgementSettingsResponse) *string {
 		if v == nil {
@@ -8315,7 +7666,6 @@ func (o EdifactAcknowledgementSettingsResponsePtrOutput) AcknowledgementControlN
 	}).(pulumi.StringPtrOutput)
 }
 
-// The acknowledgement control number upper bound.
 func (o EdifactAcknowledgementSettingsResponsePtrOutput) AcknowledgementControlNumberUpperBound() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *EdifactAcknowledgementSettingsResponse) *int {
 		if v == nil {
@@ -8325,7 +7675,6 @@ func (o EdifactAcknowledgementSettingsResponsePtrOutput) AcknowledgementControlN
 	}).(pulumi.IntPtrOutput)
 }
 
-// The value indicating whether to batch functional acknowledgements.
 func (o EdifactAcknowledgementSettingsResponsePtrOutput) BatchFunctionalAcknowledgements() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *EdifactAcknowledgementSettingsResponse) *bool {
 		if v == nil {
@@ -8335,7 +7684,6 @@ func (o EdifactAcknowledgementSettingsResponsePtrOutput) BatchFunctionalAcknowle
 	}).(pulumi.BoolPtrOutput)
 }
 
-// The value indicating whether to batch the technical acknowledgements.
 func (o EdifactAcknowledgementSettingsResponsePtrOutput) BatchTechnicalAcknowledgements() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *EdifactAcknowledgementSettingsResponse) *bool {
 		if v == nil {
@@ -8345,7 +7693,6 @@ func (o EdifactAcknowledgementSettingsResponsePtrOutput) BatchTechnicalAcknowled
 	}).(pulumi.BoolPtrOutput)
 }
 
-// The value indicating whether functional acknowledgement is needed.
 func (o EdifactAcknowledgementSettingsResponsePtrOutput) NeedFunctionalAcknowledgement() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *EdifactAcknowledgementSettingsResponse) *bool {
 		if v == nil {
@@ -8355,7 +7702,6 @@ func (o EdifactAcknowledgementSettingsResponsePtrOutput) NeedFunctionalAcknowled
 	}).(pulumi.BoolPtrOutput)
 }
 
-// The value indicating whether a loop is needed for valid messages.
 func (o EdifactAcknowledgementSettingsResponsePtrOutput) NeedLoopForValidMessages() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *EdifactAcknowledgementSettingsResponse) *bool {
 		if v == nil {
@@ -8365,7 +7711,6 @@ func (o EdifactAcknowledgementSettingsResponsePtrOutput) NeedLoopForValidMessage
 	}).(pulumi.BoolPtrOutput)
 }
 
-// The value indicating whether technical acknowledgement is needed.
 func (o EdifactAcknowledgementSettingsResponsePtrOutput) NeedTechnicalAcknowledgement() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *EdifactAcknowledgementSettingsResponse) *bool {
 		if v == nil {
@@ -8375,7 +7720,6 @@ func (o EdifactAcknowledgementSettingsResponsePtrOutput) NeedTechnicalAcknowledg
 	}).(pulumi.BoolPtrOutput)
 }
 
-// The value indicating whether to rollover acknowledgement control number.
 func (o EdifactAcknowledgementSettingsResponsePtrOutput) RolloverAcknowledgementControlNumber() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *EdifactAcknowledgementSettingsResponse) *bool {
 		if v == nil {
@@ -8385,7 +7729,6 @@ func (o EdifactAcknowledgementSettingsResponsePtrOutput) RolloverAcknowledgement
 	}).(pulumi.BoolPtrOutput)
 }
 
-// The value indicating whether to send synchronous acknowledgement.
 func (o EdifactAcknowledgementSettingsResponsePtrOutput) SendSynchronousAcknowledgement() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *EdifactAcknowledgementSettingsResponse) *bool {
 		if v == nil {
@@ -8395,12 +7738,9 @@ func (o EdifactAcknowledgementSettingsResponsePtrOutput) SendSynchronousAcknowle
 	}).(pulumi.BoolPtrOutput)
 }
 
-// The Edifact agreement content.
 type EdifactAgreementContent struct {
-	// The EDIFACT one-way receive agreement.
 	ReceiveAgreement EdifactOneWayAgreement `pulumi:"receiveAgreement"`
-	// The EDIFACT one-way send agreement.
-	SendAgreement EdifactOneWayAgreement `pulumi:"sendAgreement"`
+	SendAgreement    EdifactOneWayAgreement `pulumi:"sendAgreement"`
 }
 
 // EdifactAgreementContentInput is an input type that accepts EdifactAgreementContentArgs and EdifactAgreementContentOutput values.
@@ -8414,12 +7754,9 @@ type EdifactAgreementContentInput interface {
 	ToEdifactAgreementContentOutputWithContext(context.Context) EdifactAgreementContentOutput
 }
 
-// The Edifact agreement content.
 type EdifactAgreementContentArgs struct {
-	// The EDIFACT one-way receive agreement.
 	ReceiveAgreement EdifactOneWayAgreementInput `pulumi:"receiveAgreement"`
-	// The EDIFACT one-way send agreement.
-	SendAgreement EdifactOneWayAgreementInput `pulumi:"sendAgreement"`
+	SendAgreement    EdifactOneWayAgreementInput `pulumi:"sendAgreement"`
 }
 
 func (EdifactAgreementContentArgs) ElementType() reflect.Type {
@@ -8475,7 +7812,6 @@ func (i *edifactAgreementContentPtrType) ToEdifactAgreementContentPtrOutputWithC
 	return pulumi.ToOutputWithContext(ctx, i).(EdifactAgreementContentPtrOutput)
 }
 
-// The Edifact agreement content.
 type EdifactAgreementContentOutput struct{ *pulumi.OutputState }
 
 func (EdifactAgreementContentOutput) ElementType() reflect.Type {
@@ -8495,17 +7831,15 @@ func (o EdifactAgreementContentOutput) ToEdifactAgreementContentPtrOutput() Edif
 }
 
 func (o EdifactAgreementContentOutput) ToEdifactAgreementContentPtrOutputWithContext(ctx context.Context) EdifactAgreementContentPtrOutput {
-	return o.ApplyT(func(v EdifactAgreementContent) *EdifactAgreementContent {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v EdifactAgreementContent) *EdifactAgreementContent {
 		return &v
 	}).(EdifactAgreementContentPtrOutput)
 }
 
-// The EDIFACT one-way receive agreement.
 func (o EdifactAgreementContentOutput) ReceiveAgreement() EdifactOneWayAgreementOutput {
 	return o.ApplyT(func(v EdifactAgreementContent) EdifactOneWayAgreement { return v.ReceiveAgreement }).(EdifactOneWayAgreementOutput)
 }
 
-// The EDIFACT one-way send agreement.
 func (o EdifactAgreementContentOutput) SendAgreement() EdifactOneWayAgreementOutput {
 	return o.ApplyT(func(v EdifactAgreementContent) EdifactOneWayAgreement { return v.SendAgreement }).(EdifactOneWayAgreementOutput)
 }
@@ -8525,10 +7859,15 @@ func (o EdifactAgreementContentPtrOutput) ToEdifactAgreementContentPtrOutputWith
 }
 
 func (o EdifactAgreementContentPtrOutput) Elem() EdifactAgreementContentOutput {
-	return o.ApplyT(func(v *EdifactAgreementContent) EdifactAgreementContent { return *v }).(EdifactAgreementContentOutput)
+	return o.ApplyT(func(v *EdifactAgreementContent) EdifactAgreementContent {
+		if v != nil {
+			return *v
+		}
+		var ret EdifactAgreementContent
+		return ret
+	}).(EdifactAgreementContentOutput)
 }
 
-// The EDIFACT one-way receive agreement.
 func (o EdifactAgreementContentPtrOutput) ReceiveAgreement() EdifactOneWayAgreementPtrOutput {
 	return o.ApplyT(func(v *EdifactAgreementContent) *EdifactOneWayAgreement {
 		if v == nil {
@@ -8538,7 +7877,6 @@ func (o EdifactAgreementContentPtrOutput) ReceiveAgreement() EdifactOneWayAgreem
 	}).(EdifactOneWayAgreementPtrOutput)
 }
 
-// The EDIFACT one-way send agreement.
 func (o EdifactAgreementContentPtrOutput) SendAgreement() EdifactOneWayAgreementPtrOutput {
 	return o.ApplyT(func(v *EdifactAgreementContent) *EdifactOneWayAgreement {
 		if v == nil {
@@ -8548,12 +7886,9 @@ func (o EdifactAgreementContentPtrOutput) SendAgreement() EdifactOneWayAgreement
 	}).(EdifactOneWayAgreementPtrOutput)
 }
 
-// The Edifact agreement content.
 type EdifactAgreementContentResponse struct {
-	// The EDIFACT one-way receive agreement.
 	ReceiveAgreement EdifactOneWayAgreementResponse `pulumi:"receiveAgreement"`
-	// The EDIFACT one-way send agreement.
-	SendAgreement EdifactOneWayAgreementResponse `pulumi:"sendAgreement"`
+	SendAgreement    EdifactOneWayAgreementResponse `pulumi:"sendAgreement"`
 }
 
 // EdifactAgreementContentResponseInput is an input type that accepts EdifactAgreementContentResponseArgs and EdifactAgreementContentResponseOutput values.
@@ -8567,12 +7902,9 @@ type EdifactAgreementContentResponseInput interface {
 	ToEdifactAgreementContentResponseOutputWithContext(context.Context) EdifactAgreementContentResponseOutput
 }
 
-// The Edifact agreement content.
 type EdifactAgreementContentResponseArgs struct {
-	// The EDIFACT one-way receive agreement.
 	ReceiveAgreement EdifactOneWayAgreementResponseInput `pulumi:"receiveAgreement"`
-	// The EDIFACT one-way send agreement.
-	SendAgreement EdifactOneWayAgreementResponseInput `pulumi:"sendAgreement"`
+	SendAgreement    EdifactOneWayAgreementResponseInput `pulumi:"sendAgreement"`
 }
 
 func (EdifactAgreementContentResponseArgs) ElementType() reflect.Type {
@@ -8628,7 +7960,6 @@ func (i *edifactAgreementContentResponsePtrType) ToEdifactAgreementContentRespon
 	return pulumi.ToOutputWithContext(ctx, i).(EdifactAgreementContentResponsePtrOutput)
 }
 
-// The Edifact agreement content.
 type EdifactAgreementContentResponseOutput struct{ *pulumi.OutputState }
 
 func (EdifactAgreementContentResponseOutput) ElementType() reflect.Type {
@@ -8648,17 +7979,15 @@ func (o EdifactAgreementContentResponseOutput) ToEdifactAgreementContentResponse
 }
 
 func (o EdifactAgreementContentResponseOutput) ToEdifactAgreementContentResponsePtrOutputWithContext(ctx context.Context) EdifactAgreementContentResponsePtrOutput {
-	return o.ApplyT(func(v EdifactAgreementContentResponse) *EdifactAgreementContentResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v EdifactAgreementContentResponse) *EdifactAgreementContentResponse {
 		return &v
 	}).(EdifactAgreementContentResponsePtrOutput)
 }
 
-// The EDIFACT one-way receive agreement.
 func (o EdifactAgreementContentResponseOutput) ReceiveAgreement() EdifactOneWayAgreementResponseOutput {
 	return o.ApplyT(func(v EdifactAgreementContentResponse) EdifactOneWayAgreementResponse { return v.ReceiveAgreement }).(EdifactOneWayAgreementResponseOutput)
 }
 
-// The EDIFACT one-way send agreement.
 func (o EdifactAgreementContentResponseOutput) SendAgreement() EdifactOneWayAgreementResponseOutput {
 	return o.ApplyT(func(v EdifactAgreementContentResponse) EdifactOneWayAgreementResponse { return v.SendAgreement }).(EdifactOneWayAgreementResponseOutput)
 }
@@ -8678,10 +8007,15 @@ func (o EdifactAgreementContentResponsePtrOutput) ToEdifactAgreementContentRespo
 }
 
 func (o EdifactAgreementContentResponsePtrOutput) Elem() EdifactAgreementContentResponseOutput {
-	return o.ApplyT(func(v *EdifactAgreementContentResponse) EdifactAgreementContentResponse { return *v }).(EdifactAgreementContentResponseOutput)
+	return o.ApplyT(func(v *EdifactAgreementContentResponse) EdifactAgreementContentResponse {
+		if v != nil {
+			return *v
+		}
+		var ret EdifactAgreementContentResponse
+		return ret
+	}).(EdifactAgreementContentResponseOutput)
 }
 
-// The EDIFACT one-way receive agreement.
 func (o EdifactAgreementContentResponsePtrOutput) ReceiveAgreement() EdifactOneWayAgreementResponsePtrOutput {
 	return o.ApplyT(func(v *EdifactAgreementContentResponse) *EdifactOneWayAgreementResponse {
 		if v == nil {
@@ -8691,7 +8025,6 @@ func (o EdifactAgreementContentResponsePtrOutput) ReceiveAgreement() EdifactOneW
 	}).(EdifactOneWayAgreementResponsePtrOutput)
 }
 
-// The EDIFACT one-way send agreement.
 func (o EdifactAgreementContentResponsePtrOutput) SendAgreement() EdifactOneWayAgreementResponsePtrOutput {
 	return o.ApplyT(func(v *EdifactAgreementContentResponse) *EdifactOneWayAgreementResponse {
 		if v == nil {
@@ -8701,32 +8034,19 @@ func (o EdifactAgreementContentResponsePtrOutput) SendAgreement() EdifactOneWayA
 	}).(EdifactOneWayAgreementResponsePtrOutput)
 }
 
-// The Edifact delimiter override settings.
 type EdifactDelimiterOverride struct {
-	// The component separator.
-	ComponentSeparator int `pulumi:"componentSeparator"`
-	// The data element separator.
-	DataElementSeparator int `pulumi:"dataElementSeparator"`
-	// The decimal point indicator.
-	DecimalPointIndicator string `pulumi:"decimalPointIndicator"`
-	// The message association assigned code.
-	MessageAssociationAssignedCode *string `pulumi:"messageAssociationAssignedCode"`
-	// The message id.
-	MessageId *string `pulumi:"messageId"`
-	// The message release.
-	MessageRelease *string `pulumi:"messageRelease"`
-	// The message version.
-	MessageVersion *string `pulumi:"messageVersion"`
-	// The release indicator.
-	ReleaseIndicator int `pulumi:"releaseIndicator"`
-	// The repetition separator.
-	RepetitionSeparator int `pulumi:"repetitionSeparator"`
-	// The segment terminator.
-	SegmentTerminator int `pulumi:"segmentTerminator"`
-	// The segment terminator suffix.
-	SegmentTerminatorSuffix string `pulumi:"segmentTerminatorSuffix"`
-	// The target namespace on which this delimiter settings has to be applied.
-	TargetNamespace *string `pulumi:"targetNamespace"`
+	ComponentSeparator             int                     `pulumi:"componentSeparator"`
+	DataElementSeparator           int                     `pulumi:"dataElementSeparator"`
+	DecimalPointIndicator          EdifactDecimalIndicator `pulumi:"decimalPointIndicator"`
+	MessageAssociationAssignedCode *string                 `pulumi:"messageAssociationAssignedCode"`
+	MessageId                      *string                 `pulumi:"messageId"`
+	MessageRelease                 *string                 `pulumi:"messageRelease"`
+	MessageVersion                 *string                 `pulumi:"messageVersion"`
+	ReleaseIndicator               int                     `pulumi:"releaseIndicator"`
+	RepetitionSeparator            int                     `pulumi:"repetitionSeparator"`
+	SegmentTerminator              int                     `pulumi:"segmentTerminator"`
+	SegmentTerminatorSuffix        SegmentTerminatorSuffix `pulumi:"segmentTerminatorSuffix"`
+	TargetNamespace                *string                 `pulumi:"targetNamespace"`
 }
 
 // EdifactDelimiterOverrideInput is an input type that accepts EdifactDelimiterOverrideArgs and EdifactDelimiterOverrideOutput values.
@@ -8740,32 +8060,19 @@ type EdifactDelimiterOverrideInput interface {
 	ToEdifactDelimiterOverrideOutputWithContext(context.Context) EdifactDelimiterOverrideOutput
 }
 
-// The Edifact delimiter override settings.
 type EdifactDelimiterOverrideArgs struct {
-	// The component separator.
-	ComponentSeparator pulumi.IntInput `pulumi:"componentSeparator"`
-	// The data element separator.
-	DataElementSeparator pulumi.IntInput `pulumi:"dataElementSeparator"`
-	// The decimal point indicator.
-	DecimalPointIndicator EdifactDecimalIndicator `pulumi:"decimalPointIndicator"`
-	// The message association assigned code.
-	MessageAssociationAssignedCode pulumi.StringPtrInput `pulumi:"messageAssociationAssignedCode"`
-	// The message id.
-	MessageId pulumi.StringPtrInput `pulumi:"messageId"`
-	// The message release.
-	MessageRelease pulumi.StringPtrInput `pulumi:"messageRelease"`
-	// The message version.
-	MessageVersion pulumi.StringPtrInput `pulumi:"messageVersion"`
-	// The release indicator.
-	ReleaseIndicator pulumi.IntInput `pulumi:"releaseIndicator"`
-	// The repetition separator.
-	RepetitionSeparator pulumi.IntInput `pulumi:"repetitionSeparator"`
-	// The segment terminator.
-	SegmentTerminator pulumi.IntInput `pulumi:"segmentTerminator"`
-	// The segment terminator suffix.
-	SegmentTerminatorSuffix SegmentTerminatorSuffix `pulumi:"segmentTerminatorSuffix"`
-	// The target namespace on which this delimiter settings has to be applied.
-	TargetNamespace pulumi.StringPtrInput `pulumi:"targetNamespace"`
+	ComponentSeparator             pulumi.IntInput              `pulumi:"componentSeparator"`
+	DataElementSeparator           pulumi.IntInput              `pulumi:"dataElementSeparator"`
+	DecimalPointIndicator          EdifactDecimalIndicatorInput `pulumi:"decimalPointIndicator"`
+	MessageAssociationAssignedCode pulumi.StringPtrInput        `pulumi:"messageAssociationAssignedCode"`
+	MessageId                      pulumi.StringPtrInput        `pulumi:"messageId"`
+	MessageRelease                 pulumi.StringPtrInput        `pulumi:"messageRelease"`
+	MessageVersion                 pulumi.StringPtrInput        `pulumi:"messageVersion"`
+	ReleaseIndicator               pulumi.IntInput              `pulumi:"releaseIndicator"`
+	RepetitionSeparator            pulumi.IntInput              `pulumi:"repetitionSeparator"`
+	SegmentTerminator              pulumi.IntInput              `pulumi:"segmentTerminator"`
+	SegmentTerminatorSuffix        SegmentTerminatorSuffixInput `pulumi:"segmentTerminatorSuffix"`
+	TargetNamespace                pulumi.StringPtrInput        `pulumi:"targetNamespace"`
 }
 
 func (EdifactDelimiterOverrideArgs) ElementType() reflect.Type {
@@ -8805,7 +8112,6 @@ func (i EdifactDelimiterOverrideArray) ToEdifactDelimiterOverrideArrayOutputWith
 	return pulumi.ToOutputWithContext(ctx, i).(EdifactDelimiterOverrideArrayOutput)
 }
 
-// The Edifact delimiter override settings.
 type EdifactDelimiterOverrideOutput struct{ *pulumi.OutputState }
 
 func (EdifactDelimiterOverrideOutput) ElementType() reflect.Type {
@@ -8820,62 +8126,50 @@ func (o EdifactDelimiterOverrideOutput) ToEdifactDelimiterOverrideOutputWithCont
 	return o
 }
 
-// The component separator.
 func (o EdifactDelimiterOverrideOutput) ComponentSeparator() pulumi.IntOutput {
 	return o.ApplyT(func(v EdifactDelimiterOverride) int { return v.ComponentSeparator }).(pulumi.IntOutput)
 }
 
-// The data element separator.
 func (o EdifactDelimiterOverrideOutput) DataElementSeparator() pulumi.IntOutput {
 	return o.ApplyT(func(v EdifactDelimiterOverride) int { return v.DataElementSeparator }).(pulumi.IntOutput)
 }
 
-// The decimal point indicator.
-func (o EdifactDelimiterOverrideOutput) DecimalPointIndicator() pulumi.StringOutput {
-	return o.ApplyT(func(v EdifactDelimiterOverride) string { return v.DecimalPointIndicator }).(pulumi.StringOutput)
+func (o EdifactDelimiterOverrideOutput) DecimalPointIndicator() EdifactDecimalIndicatorOutput {
+	return o.ApplyT(func(v EdifactDelimiterOverride) EdifactDecimalIndicator { return v.DecimalPointIndicator }).(EdifactDecimalIndicatorOutput)
 }
 
-// The message association assigned code.
 func (o EdifactDelimiterOverrideOutput) MessageAssociationAssignedCode() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v EdifactDelimiterOverride) *string { return v.MessageAssociationAssignedCode }).(pulumi.StringPtrOutput)
 }
 
-// The message id.
 func (o EdifactDelimiterOverrideOutput) MessageId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v EdifactDelimiterOverride) *string { return v.MessageId }).(pulumi.StringPtrOutput)
 }
 
-// The message release.
 func (o EdifactDelimiterOverrideOutput) MessageRelease() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v EdifactDelimiterOverride) *string { return v.MessageRelease }).(pulumi.StringPtrOutput)
 }
 
-// The message version.
 func (o EdifactDelimiterOverrideOutput) MessageVersion() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v EdifactDelimiterOverride) *string { return v.MessageVersion }).(pulumi.StringPtrOutput)
 }
 
-// The release indicator.
 func (o EdifactDelimiterOverrideOutput) ReleaseIndicator() pulumi.IntOutput {
 	return o.ApplyT(func(v EdifactDelimiterOverride) int { return v.ReleaseIndicator }).(pulumi.IntOutput)
 }
 
-// The repetition separator.
 func (o EdifactDelimiterOverrideOutput) RepetitionSeparator() pulumi.IntOutput {
 	return o.ApplyT(func(v EdifactDelimiterOverride) int { return v.RepetitionSeparator }).(pulumi.IntOutput)
 }
 
-// The segment terminator.
 func (o EdifactDelimiterOverrideOutput) SegmentTerminator() pulumi.IntOutput {
 	return o.ApplyT(func(v EdifactDelimiterOverride) int { return v.SegmentTerminator }).(pulumi.IntOutput)
 }
 
-// The segment terminator suffix.
-func (o EdifactDelimiterOverrideOutput) SegmentTerminatorSuffix() pulumi.StringOutput {
-	return o.ApplyT(func(v EdifactDelimiterOverride) string { return v.SegmentTerminatorSuffix }).(pulumi.StringOutput)
+func (o EdifactDelimiterOverrideOutput) SegmentTerminatorSuffix() SegmentTerminatorSuffixOutput {
+	return o.ApplyT(func(v EdifactDelimiterOverride) SegmentTerminatorSuffix { return v.SegmentTerminatorSuffix }).(SegmentTerminatorSuffixOutput)
 }
 
-// The target namespace on which this delimiter settings has to be applied.
 func (o EdifactDelimiterOverrideOutput) TargetNamespace() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v EdifactDelimiterOverride) *string { return v.TargetNamespace }).(pulumi.StringPtrOutput)
 }
@@ -8900,32 +8194,19 @@ func (o EdifactDelimiterOverrideArrayOutput) Index(i pulumi.IntInput) EdifactDel
 	}).(EdifactDelimiterOverrideOutput)
 }
 
-// The Edifact delimiter override settings.
 type EdifactDelimiterOverrideResponse struct {
-	// The component separator.
-	ComponentSeparator int `pulumi:"componentSeparator"`
-	// The data element separator.
-	DataElementSeparator int `pulumi:"dataElementSeparator"`
-	// The decimal point indicator.
-	DecimalPointIndicator string `pulumi:"decimalPointIndicator"`
-	// The message association assigned code.
+	ComponentSeparator             int     `pulumi:"componentSeparator"`
+	DataElementSeparator           int     `pulumi:"dataElementSeparator"`
+	DecimalPointIndicator          string  `pulumi:"decimalPointIndicator"`
 	MessageAssociationAssignedCode *string `pulumi:"messageAssociationAssignedCode"`
-	// The message id.
-	MessageId *string `pulumi:"messageId"`
-	// The message release.
-	MessageRelease *string `pulumi:"messageRelease"`
-	// The message version.
-	MessageVersion *string `pulumi:"messageVersion"`
-	// The release indicator.
-	ReleaseIndicator int `pulumi:"releaseIndicator"`
-	// The repetition separator.
-	RepetitionSeparator int `pulumi:"repetitionSeparator"`
-	// The segment terminator.
-	SegmentTerminator int `pulumi:"segmentTerminator"`
-	// The segment terminator suffix.
-	SegmentTerminatorSuffix string `pulumi:"segmentTerminatorSuffix"`
-	// The target namespace on which this delimiter settings has to be applied.
-	TargetNamespace *string `pulumi:"targetNamespace"`
+	MessageId                      *string `pulumi:"messageId"`
+	MessageRelease                 *string `pulumi:"messageRelease"`
+	MessageVersion                 *string `pulumi:"messageVersion"`
+	ReleaseIndicator               int     `pulumi:"releaseIndicator"`
+	RepetitionSeparator            int     `pulumi:"repetitionSeparator"`
+	SegmentTerminator              int     `pulumi:"segmentTerminator"`
+	SegmentTerminatorSuffix        string  `pulumi:"segmentTerminatorSuffix"`
+	TargetNamespace                *string `pulumi:"targetNamespace"`
 }
 
 // EdifactDelimiterOverrideResponseInput is an input type that accepts EdifactDelimiterOverrideResponseArgs and EdifactDelimiterOverrideResponseOutput values.
@@ -8939,32 +8220,19 @@ type EdifactDelimiterOverrideResponseInput interface {
 	ToEdifactDelimiterOverrideResponseOutputWithContext(context.Context) EdifactDelimiterOverrideResponseOutput
 }
 
-// The Edifact delimiter override settings.
 type EdifactDelimiterOverrideResponseArgs struct {
-	// The component separator.
-	ComponentSeparator pulumi.IntInput `pulumi:"componentSeparator"`
-	// The data element separator.
-	DataElementSeparator pulumi.IntInput `pulumi:"dataElementSeparator"`
-	// The decimal point indicator.
-	DecimalPointIndicator pulumi.StringInput `pulumi:"decimalPointIndicator"`
-	// The message association assigned code.
+	ComponentSeparator             pulumi.IntInput       `pulumi:"componentSeparator"`
+	DataElementSeparator           pulumi.IntInput       `pulumi:"dataElementSeparator"`
+	DecimalPointIndicator          pulumi.StringInput    `pulumi:"decimalPointIndicator"`
 	MessageAssociationAssignedCode pulumi.StringPtrInput `pulumi:"messageAssociationAssignedCode"`
-	// The message id.
-	MessageId pulumi.StringPtrInput `pulumi:"messageId"`
-	// The message release.
-	MessageRelease pulumi.StringPtrInput `pulumi:"messageRelease"`
-	// The message version.
-	MessageVersion pulumi.StringPtrInput `pulumi:"messageVersion"`
-	// The release indicator.
-	ReleaseIndicator pulumi.IntInput `pulumi:"releaseIndicator"`
-	// The repetition separator.
-	RepetitionSeparator pulumi.IntInput `pulumi:"repetitionSeparator"`
-	// The segment terminator.
-	SegmentTerminator pulumi.IntInput `pulumi:"segmentTerminator"`
-	// The segment terminator suffix.
-	SegmentTerminatorSuffix pulumi.StringInput `pulumi:"segmentTerminatorSuffix"`
-	// The target namespace on which this delimiter settings has to be applied.
-	TargetNamespace pulumi.StringPtrInput `pulumi:"targetNamespace"`
+	MessageId                      pulumi.StringPtrInput `pulumi:"messageId"`
+	MessageRelease                 pulumi.StringPtrInput `pulumi:"messageRelease"`
+	MessageVersion                 pulumi.StringPtrInput `pulumi:"messageVersion"`
+	ReleaseIndicator               pulumi.IntInput       `pulumi:"releaseIndicator"`
+	RepetitionSeparator            pulumi.IntInput       `pulumi:"repetitionSeparator"`
+	SegmentTerminator              pulumi.IntInput       `pulumi:"segmentTerminator"`
+	SegmentTerminatorSuffix        pulumi.StringInput    `pulumi:"segmentTerminatorSuffix"`
+	TargetNamespace                pulumi.StringPtrInput `pulumi:"targetNamespace"`
 }
 
 func (EdifactDelimiterOverrideResponseArgs) ElementType() reflect.Type {
@@ -9004,7 +8272,6 @@ func (i EdifactDelimiterOverrideResponseArray) ToEdifactDelimiterOverrideRespons
 	return pulumi.ToOutputWithContext(ctx, i).(EdifactDelimiterOverrideResponseArrayOutput)
 }
 
-// The Edifact delimiter override settings.
 type EdifactDelimiterOverrideResponseOutput struct{ *pulumi.OutputState }
 
 func (EdifactDelimiterOverrideResponseOutput) ElementType() reflect.Type {
@@ -9019,62 +8286,50 @@ func (o EdifactDelimiterOverrideResponseOutput) ToEdifactDelimiterOverrideRespon
 	return o
 }
 
-// The component separator.
 func (o EdifactDelimiterOverrideResponseOutput) ComponentSeparator() pulumi.IntOutput {
 	return o.ApplyT(func(v EdifactDelimiterOverrideResponse) int { return v.ComponentSeparator }).(pulumi.IntOutput)
 }
 
-// The data element separator.
 func (o EdifactDelimiterOverrideResponseOutput) DataElementSeparator() pulumi.IntOutput {
 	return o.ApplyT(func(v EdifactDelimiterOverrideResponse) int { return v.DataElementSeparator }).(pulumi.IntOutput)
 }
 
-// The decimal point indicator.
 func (o EdifactDelimiterOverrideResponseOutput) DecimalPointIndicator() pulumi.StringOutput {
 	return o.ApplyT(func(v EdifactDelimiterOverrideResponse) string { return v.DecimalPointIndicator }).(pulumi.StringOutput)
 }
 
-// The message association assigned code.
 func (o EdifactDelimiterOverrideResponseOutput) MessageAssociationAssignedCode() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v EdifactDelimiterOverrideResponse) *string { return v.MessageAssociationAssignedCode }).(pulumi.StringPtrOutput)
 }
 
-// The message id.
 func (o EdifactDelimiterOverrideResponseOutput) MessageId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v EdifactDelimiterOverrideResponse) *string { return v.MessageId }).(pulumi.StringPtrOutput)
 }
 
-// The message release.
 func (o EdifactDelimiterOverrideResponseOutput) MessageRelease() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v EdifactDelimiterOverrideResponse) *string { return v.MessageRelease }).(pulumi.StringPtrOutput)
 }
 
-// The message version.
 func (o EdifactDelimiterOverrideResponseOutput) MessageVersion() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v EdifactDelimiterOverrideResponse) *string { return v.MessageVersion }).(pulumi.StringPtrOutput)
 }
 
-// The release indicator.
 func (o EdifactDelimiterOverrideResponseOutput) ReleaseIndicator() pulumi.IntOutput {
 	return o.ApplyT(func(v EdifactDelimiterOverrideResponse) int { return v.ReleaseIndicator }).(pulumi.IntOutput)
 }
 
-// The repetition separator.
 func (o EdifactDelimiterOverrideResponseOutput) RepetitionSeparator() pulumi.IntOutput {
 	return o.ApplyT(func(v EdifactDelimiterOverrideResponse) int { return v.RepetitionSeparator }).(pulumi.IntOutput)
 }
 
-// The segment terminator.
 func (o EdifactDelimiterOverrideResponseOutput) SegmentTerminator() pulumi.IntOutput {
 	return o.ApplyT(func(v EdifactDelimiterOverrideResponse) int { return v.SegmentTerminator }).(pulumi.IntOutput)
 }
 
-// The segment terminator suffix.
 func (o EdifactDelimiterOverrideResponseOutput) SegmentTerminatorSuffix() pulumi.StringOutput {
 	return o.ApplyT(func(v EdifactDelimiterOverrideResponse) string { return v.SegmentTerminatorSuffix }).(pulumi.StringOutput)
 }
 
-// The target namespace on which this delimiter settings has to be applied.
 func (o EdifactDelimiterOverrideResponseOutput) TargetNamespace() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v EdifactDelimiterOverrideResponse) *string { return v.TargetNamespace }).(pulumi.StringPtrOutput)
 }
@@ -9099,38 +8354,22 @@ func (o EdifactDelimiterOverrideResponseArrayOutput) Index(i pulumi.IntInput) Ed
 	}).(EdifactDelimiterOverrideResponseOutput)
 }
 
-// The Edifact envelope override settings.
 type EdifactEnvelopeOverride struct {
-	// The application password.
-	ApplicationPassword *string `pulumi:"applicationPassword"`
-	// The association assigned code.
-	AssociationAssignedCode *string `pulumi:"associationAssignedCode"`
-	// The controlling agency code.
-	ControllingAgencyCode *string `pulumi:"controllingAgencyCode"`
-	// The functional group id.
-	FunctionalGroupId *string `pulumi:"functionalGroupId"`
-	// The group header message release.
-	GroupHeaderMessageRelease *string `pulumi:"groupHeaderMessageRelease"`
-	// The group header message version.
-	GroupHeaderMessageVersion *string `pulumi:"groupHeaderMessageVersion"`
-	// The message association assigned code.
+	ApplicationPassword            *string `pulumi:"applicationPassword"`
+	AssociationAssignedCode        *string `pulumi:"associationAssignedCode"`
+	ControllingAgencyCode          *string `pulumi:"controllingAgencyCode"`
+	FunctionalGroupId              *string `pulumi:"functionalGroupId"`
+	GroupHeaderMessageRelease      *string `pulumi:"groupHeaderMessageRelease"`
+	GroupHeaderMessageVersion      *string `pulumi:"groupHeaderMessageVersion"`
 	MessageAssociationAssignedCode *string `pulumi:"messageAssociationAssignedCode"`
-	// The message id on which this envelope settings has to be applied.
-	MessageId *string `pulumi:"messageId"`
-	// The message release version on which this envelope settings has to be applied.
-	MessageRelease *string `pulumi:"messageRelease"`
-	// The message version on which this envelope settings has to be applied.
-	MessageVersion *string `pulumi:"messageVersion"`
-	// The receiver application id.
-	ReceiverApplicationId *string `pulumi:"receiverApplicationId"`
-	// The receiver application qualifier.
-	ReceiverApplicationQualifier *string `pulumi:"receiverApplicationQualifier"`
-	// The sender application id.
-	SenderApplicationId *string `pulumi:"senderApplicationId"`
-	// The sender application qualifier.
-	SenderApplicationQualifier *string `pulumi:"senderApplicationQualifier"`
-	// The target namespace on which this envelope settings has to be applied.
-	TargetNamespace *string `pulumi:"targetNamespace"`
+	MessageId                      *string `pulumi:"messageId"`
+	MessageRelease                 *string `pulumi:"messageRelease"`
+	MessageVersion                 *string `pulumi:"messageVersion"`
+	ReceiverApplicationId          *string `pulumi:"receiverApplicationId"`
+	ReceiverApplicationQualifier   *string `pulumi:"receiverApplicationQualifier"`
+	SenderApplicationId            *string `pulumi:"senderApplicationId"`
+	SenderApplicationQualifier     *string `pulumi:"senderApplicationQualifier"`
+	TargetNamespace                *string `pulumi:"targetNamespace"`
 }
 
 // EdifactEnvelopeOverrideInput is an input type that accepts EdifactEnvelopeOverrideArgs and EdifactEnvelopeOverrideOutput values.
@@ -9144,38 +8383,22 @@ type EdifactEnvelopeOverrideInput interface {
 	ToEdifactEnvelopeOverrideOutputWithContext(context.Context) EdifactEnvelopeOverrideOutput
 }
 
-// The Edifact envelope override settings.
 type EdifactEnvelopeOverrideArgs struct {
-	// The application password.
-	ApplicationPassword pulumi.StringPtrInput `pulumi:"applicationPassword"`
-	// The association assigned code.
-	AssociationAssignedCode pulumi.StringPtrInput `pulumi:"associationAssignedCode"`
-	// The controlling agency code.
-	ControllingAgencyCode pulumi.StringPtrInput `pulumi:"controllingAgencyCode"`
-	// The functional group id.
-	FunctionalGroupId pulumi.StringPtrInput `pulumi:"functionalGroupId"`
-	// The group header message release.
-	GroupHeaderMessageRelease pulumi.StringPtrInput `pulumi:"groupHeaderMessageRelease"`
-	// The group header message version.
-	GroupHeaderMessageVersion pulumi.StringPtrInput `pulumi:"groupHeaderMessageVersion"`
-	// The message association assigned code.
+	ApplicationPassword            pulumi.StringPtrInput `pulumi:"applicationPassword"`
+	AssociationAssignedCode        pulumi.StringPtrInput `pulumi:"associationAssignedCode"`
+	ControllingAgencyCode          pulumi.StringPtrInput `pulumi:"controllingAgencyCode"`
+	FunctionalGroupId              pulumi.StringPtrInput `pulumi:"functionalGroupId"`
+	GroupHeaderMessageRelease      pulumi.StringPtrInput `pulumi:"groupHeaderMessageRelease"`
+	GroupHeaderMessageVersion      pulumi.StringPtrInput `pulumi:"groupHeaderMessageVersion"`
 	MessageAssociationAssignedCode pulumi.StringPtrInput `pulumi:"messageAssociationAssignedCode"`
-	// The message id on which this envelope settings has to be applied.
-	MessageId pulumi.StringPtrInput `pulumi:"messageId"`
-	// The message release version on which this envelope settings has to be applied.
-	MessageRelease pulumi.StringPtrInput `pulumi:"messageRelease"`
-	// The message version on which this envelope settings has to be applied.
-	MessageVersion pulumi.StringPtrInput `pulumi:"messageVersion"`
-	// The receiver application id.
-	ReceiverApplicationId pulumi.StringPtrInput `pulumi:"receiverApplicationId"`
-	// The receiver application qualifier.
-	ReceiverApplicationQualifier pulumi.StringPtrInput `pulumi:"receiverApplicationQualifier"`
-	// The sender application id.
-	SenderApplicationId pulumi.StringPtrInput `pulumi:"senderApplicationId"`
-	// The sender application qualifier.
-	SenderApplicationQualifier pulumi.StringPtrInput `pulumi:"senderApplicationQualifier"`
-	// The target namespace on which this envelope settings has to be applied.
-	TargetNamespace pulumi.StringPtrInput `pulumi:"targetNamespace"`
+	MessageId                      pulumi.StringPtrInput `pulumi:"messageId"`
+	MessageRelease                 pulumi.StringPtrInput `pulumi:"messageRelease"`
+	MessageVersion                 pulumi.StringPtrInput `pulumi:"messageVersion"`
+	ReceiverApplicationId          pulumi.StringPtrInput `pulumi:"receiverApplicationId"`
+	ReceiverApplicationQualifier   pulumi.StringPtrInput `pulumi:"receiverApplicationQualifier"`
+	SenderApplicationId            pulumi.StringPtrInput `pulumi:"senderApplicationId"`
+	SenderApplicationQualifier     pulumi.StringPtrInput `pulumi:"senderApplicationQualifier"`
+	TargetNamespace                pulumi.StringPtrInput `pulumi:"targetNamespace"`
 }
 
 func (EdifactEnvelopeOverrideArgs) ElementType() reflect.Type {
@@ -9215,7 +8438,6 @@ func (i EdifactEnvelopeOverrideArray) ToEdifactEnvelopeOverrideArrayOutputWithCo
 	return pulumi.ToOutputWithContext(ctx, i).(EdifactEnvelopeOverrideArrayOutput)
 }
 
-// The Edifact envelope override settings.
 type EdifactEnvelopeOverrideOutput struct{ *pulumi.OutputState }
 
 func (EdifactEnvelopeOverrideOutput) ElementType() reflect.Type {
@@ -9230,77 +8452,62 @@ func (o EdifactEnvelopeOverrideOutput) ToEdifactEnvelopeOverrideOutputWithContex
 	return o
 }
 
-// The application password.
 func (o EdifactEnvelopeOverrideOutput) ApplicationPassword() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v EdifactEnvelopeOverride) *string { return v.ApplicationPassword }).(pulumi.StringPtrOutput)
 }
 
-// The association assigned code.
 func (o EdifactEnvelopeOverrideOutput) AssociationAssignedCode() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v EdifactEnvelopeOverride) *string { return v.AssociationAssignedCode }).(pulumi.StringPtrOutput)
 }
 
-// The controlling agency code.
 func (o EdifactEnvelopeOverrideOutput) ControllingAgencyCode() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v EdifactEnvelopeOverride) *string { return v.ControllingAgencyCode }).(pulumi.StringPtrOutput)
 }
 
-// The functional group id.
 func (o EdifactEnvelopeOverrideOutput) FunctionalGroupId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v EdifactEnvelopeOverride) *string { return v.FunctionalGroupId }).(pulumi.StringPtrOutput)
 }
 
-// The group header message release.
 func (o EdifactEnvelopeOverrideOutput) GroupHeaderMessageRelease() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v EdifactEnvelopeOverride) *string { return v.GroupHeaderMessageRelease }).(pulumi.StringPtrOutput)
 }
 
-// The group header message version.
 func (o EdifactEnvelopeOverrideOutput) GroupHeaderMessageVersion() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v EdifactEnvelopeOverride) *string { return v.GroupHeaderMessageVersion }).(pulumi.StringPtrOutput)
 }
 
-// The message association assigned code.
 func (o EdifactEnvelopeOverrideOutput) MessageAssociationAssignedCode() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v EdifactEnvelopeOverride) *string { return v.MessageAssociationAssignedCode }).(pulumi.StringPtrOutput)
 }
 
-// The message id on which this envelope settings has to be applied.
 func (o EdifactEnvelopeOverrideOutput) MessageId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v EdifactEnvelopeOverride) *string { return v.MessageId }).(pulumi.StringPtrOutput)
 }
 
-// The message release version on which this envelope settings has to be applied.
 func (o EdifactEnvelopeOverrideOutput) MessageRelease() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v EdifactEnvelopeOverride) *string { return v.MessageRelease }).(pulumi.StringPtrOutput)
 }
 
-// The message version on which this envelope settings has to be applied.
 func (o EdifactEnvelopeOverrideOutput) MessageVersion() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v EdifactEnvelopeOverride) *string { return v.MessageVersion }).(pulumi.StringPtrOutput)
 }
 
-// The receiver application id.
 func (o EdifactEnvelopeOverrideOutput) ReceiverApplicationId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v EdifactEnvelopeOverride) *string { return v.ReceiverApplicationId }).(pulumi.StringPtrOutput)
 }
 
-// The receiver application qualifier.
 func (o EdifactEnvelopeOverrideOutput) ReceiverApplicationQualifier() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v EdifactEnvelopeOverride) *string { return v.ReceiverApplicationQualifier }).(pulumi.StringPtrOutput)
 }
 
-// The sender application id.
 func (o EdifactEnvelopeOverrideOutput) SenderApplicationId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v EdifactEnvelopeOverride) *string { return v.SenderApplicationId }).(pulumi.StringPtrOutput)
 }
 
-// The sender application qualifier.
 func (o EdifactEnvelopeOverrideOutput) SenderApplicationQualifier() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v EdifactEnvelopeOverride) *string { return v.SenderApplicationQualifier }).(pulumi.StringPtrOutput)
 }
 
-// The target namespace on which this envelope settings has to be applied.
 func (o EdifactEnvelopeOverrideOutput) TargetNamespace() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v EdifactEnvelopeOverride) *string { return v.TargetNamespace }).(pulumi.StringPtrOutput)
 }
@@ -9325,38 +8532,22 @@ func (o EdifactEnvelopeOverrideArrayOutput) Index(i pulumi.IntInput) EdifactEnve
 	}).(EdifactEnvelopeOverrideOutput)
 }
 
-// The Edifact envelope override settings.
 type EdifactEnvelopeOverrideResponse struct {
-	// The application password.
-	ApplicationPassword *string `pulumi:"applicationPassword"`
-	// The association assigned code.
-	AssociationAssignedCode *string `pulumi:"associationAssignedCode"`
-	// The controlling agency code.
-	ControllingAgencyCode *string `pulumi:"controllingAgencyCode"`
-	// The functional group id.
-	FunctionalGroupId *string `pulumi:"functionalGroupId"`
-	// The group header message release.
-	GroupHeaderMessageRelease *string `pulumi:"groupHeaderMessageRelease"`
-	// The group header message version.
-	GroupHeaderMessageVersion *string `pulumi:"groupHeaderMessageVersion"`
-	// The message association assigned code.
+	ApplicationPassword            *string `pulumi:"applicationPassword"`
+	AssociationAssignedCode        *string `pulumi:"associationAssignedCode"`
+	ControllingAgencyCode          *string `pulumi:"controllingAgencyCode"`
+	FunctionalGroupId              *string `pulumi:"functionalGroupId"`
+	GroupHeaderMessageRelease      *string `pulumi:"groupHeaderMessageRelease"`
+	GroupHeaderMessageVersion      *string `pulumi:"groupHeaderMessageVersion"`
 	MessageAssociationAssignedCode *string `pulumi:"messageAssociationAssignedCode"`
-	// The message id on which this envelope settings has to be applied.
-	MessageId *string `pulumi:"messageId"`
-	// The message release version on which this envelope settings has to be applied.
-	MessageRelease *string `pulumi:"messageRelease"`
-	// The message version on which this envelope settings has to be applied.
-	MessageVersion *string `pulumi:"messageVersion"`
-	// The receiver application id.
-	ReceiverApplicationId *string `pulumi:"receiverApplicationId"`
-	// The receiver application qualifier.
-	ReceiverApplicationQualifier *string `pulumi:"receiverApplicationQualifier"`
-	// The sender application id.
-	SenderApplicationId *string `pulumi:"senderApplicationId"`
-	// The sender application qualifier.
-	SenderApplicationQualifier *string `pulumi:"senderApplicationQualifier"`
-	// The target namespace on which this envelope settings has to be applied.
-	TargetNamespace *string `pulumi:"targetNamespace"`
+	MessageId                      *string `pulumi:"messageId"`
+	MessageRelease                 *string `pulumi:"messageRelease"`
+	MessageVersion                 *string `pulumi:"messageVersion"`
+	ReceiverApplicationId          *string `pulumi:"receiverApplicationId"`
+	ReceiverApplicationQualifier   *string `pulumi:"receiverApplicationQualifier"`
+	SenderApplicationId            *string `pulumi:"senderApplicationId"`
+	SenderApplicationQualifier     *string `pulumi:"senderApplicationQualifier"`
+	TargetNamespace                *string `pulumi:"targetNamespace"`
 }
 
 // EdifactEnvelopeOverrideResponseInput is an input type that accepts EdifactEnvelopeOverrideResponseArgs and EdifactEnvelopeOverrideResponseOutput values.
@@ -9370,38 +8561,22 @@ type EdifactEnvelopeOverrideResponseInput interface {
 	ToEdifactEnvelopeOverrideResponseOutputWithContext(context.Context) EdifactEnvelopeOverrideResponseOutput
 }
 
-// The Edifact envelope override settings.
 type EdifactEnvelopeOverrideResponseArgs struct {
-	// The application password.
-	ApplicationPassword pulumi.StringPtrInput `pulumi:"applicationPassword"`
-	// The association assigned code.
-	AssociationAssignedCode pulumi.StringPtrInput `pulumi:"associationAssignedCode"`
-	// The controlling agency code.
-	ControllingAgencyCode pulumi.StringPtrInput `pulumi:"controllingAgencyCode"`
-	// The functional group id.
-	FunctionalGroupId pulumi.StringPtrInput `pulumi:"functionalGroupId"`
-	// The group header message release.
-	GroupHeaderMessageRelease pulumi.StringPtrInput `pulumi:"groupHeaderMessageRelease"`
-	// The group header message version.
-	GroupHeaderMessageVersion pulumi.StringPtrInput `pulumi:"groupHeaderMessageVersion"`
-	// The message association assigned code.
+	ApplicationPassword            pulumi.StringPtrInput `pulumi:"applicationPassword"`
+	AssociationAssignedCode        pulumi.StringPtrInput `pulumi:"associationAssignedCode"`
+	ControllingAgencyCode          pulumi.StringPtrInput `pulumi:"controllingAgencyCode"`
+	FunctionalGroupId              pulumi.StringPtrInput `pulumi:"functionalGroupId"`
+	GroupHeaderMessageRelease      pulumi.StringPtrInput `pulumi:"groupHeaderMessageRelease"`
+	GroupHeaderMessageVersion      pulumi.StringPtrInput `pulumi:"groupHeaderMessageVersion"`
 	MessageAssociationAssignedCode pulumi.StringPtrInput `pulumi:"messageAssociationAssignedCode"`
-	// The message id on which this envelope settings has to be applied.
-	MessageId pulumi.StringPtrInput `pulumi:"messageId"`
-	// The message release version on which this envelope settings has to be applied.
-	MessageRelease pulumi.StringPtrInput `pulumi:"messageRelease"`
-	// The message version on which this envelope settings has to be applied.
-	MessageVersion pulumi.StringPtrInput `pulumi:"messageVersion"`
-	// The receiver application id.
-	ReceiverApplicationId pulumi.StringPtrInput `pulumi:"receiverApplicationId"`
-	// The receiver application qualifier.
-	ReceiverApplicationQualifier pulumi.StringPtrInput `pulumi:"receiverApplicationQualifier"`
-	// The sender application id.
-	SenderApplicationId pulumi.StringPtrInput `pulumi:"senderApplicationId"`
-	// The sender application qualifier.
-	SenderApplicationQualifier pulumi.StringPtrInput `pulumi:"senderApplicationQualifier"`
-	// The target namespace on which this envelope settings has to be applied.
-	TargetNamespace pulumi.StringPtrInput `pulumi:"targetNamespace"`
+	MessageId                      pulumi.StringPtrInput `pulumi:"messageId"`
+	MessageRelease                 pulumi.StringPtrInput `pulumi:"messageRelease"`
+	MessageVersion                 pulumi.StringPtrInput `pulumi:"messageVersion"`
+	ReceiverApplicationId          pulumi.StringPtrInput `pulumi:"receiverApplicationId"`
+	ReceiverApplicationQualifier   pulumi.StringPtrInput `pulumi:"receiverApplicationQualifier"`
+	SenderApplicationId            pulumi.StringPtrInput `pulumi:"senderApplicationId"`
+	SenderApplicationQualifier     pulumi.StringPtrInput `pulumi:"senderApplicationQualifier"`
+	TargetNamespace                pulumi.StringPtrInput `pulumi:"targetNamespace"`
 }
 
 func (EdifactEnvelopeOverrideResponseArgs) ElementType() reflect.Type {
@@ -9441,7 +8616,6 @@ func (i EdifactEnvelopeOverrideResponseArray) ToEdifactEnvelopeOverrideResponseA
 	return pulumi.ToOutputWithContext(ctx, i).(EdifactEnvelopeOverrideResponseArrayOutput)
 }
 
-// The Edifact envelope override settings.
 type EdifactEnvelopeOverrideResponseOutput struct{ *pulumi.OutputState }
 
 func (EdifactEnvelopeOverrideResponseOutput) ElementType() reflect.Type {
@@ -9456,77 +8630,62 @@ func (o EdifactEnvelopeOverrideResponseOutput) ToEdifactEnvelopeOverrideResponse
 	return o
 }
 
-// The application password.
 func (o EdifactEnvelopeOverrideResponseOutput) ApplicationPassword() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v EdifactEnvelopeOverrideResponse) *string { return v.ApplicationPassword }).(pulumi.StringPtrOutput)
 }
 
-// The association assigned code.
 func (o EdifactEnvelopeOverrideResponseOutput) AssociationAssignedCode() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v EdifactEnvelopeOverrideResponse) *string { return v.AssociationAssignedCode }).(pulumi.StringPtrOutput)
 }
 
-// The controlling agency code.
 func (o EdifactEnvelopeOverrideResponseOutput) ControllingAgencyCode() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v EdifactEnvelopeOverrideResponse) *string { return v.ControllingAgencyCode }).(pulumi.StringPtrOutput)
 }
 
-// The functional group id.
 func (o EdifactEnvelopeOverrideResponseOutput) FunctionalGroupId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v EdifactEnvelopeOverrideResponse) *string { return v.FunctionalGroupId }).(pulumi.StringPtrOutput)
 }
 
-// The group header message release.
 func (o EdifactEnvelopeOverrideResponseOutput) GroupHeaderMessageRelease() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v EdifactEnvelopeOverrideResponse) *string { return v.GroupHeaderMessageRelease }).(pulumi.StringPtrOutput)
 }
 
-// The group header message version.
 func (o EdifactEnvelopeOverrideResponseOutput) GroupHeaderMessageVersion() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v EdifactEnvelopeOverrideResponse) *string { return v.GroupHeaderMessageVersion }).(pulumi.StringPtrOutput)
 }
 
-// The message association assigned code.
 func (o EdifactEnvelopeOverrideResponseOutput) MessageAssociationAssignedCode() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v EdifactEnvelopeOverrideResponse) *string { return v.MessageAssociationAssignedCode }).(pulumi.StringPtrOutput)
 }
 
-// The message id on which this envelope settings has to be applied.
 func (o EdifactEnvelopeOverrideResponseOutput) MessageId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v EdifactEnvelopeOverrideResponse) *string { return v.MessageId }).(pulumi.StringPtrOutput)
 }
 
-// The message release version on which this envelope settings has to be applied.
 func (o EdifactEnvelopeOverrideResponseOutput) MessageRelease() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v EdifactEnvelopeOverrideResponse) *string { return v.MessageRelease }).(pulumi.StringPtrOutput)
 }
 
-// The message version on which this envelope settings has to be applied.
 func (o EdifactEnvelopeOverrideResponseOutput) MessageVersion() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v EdifactEnvelopeOverrideResponse) *string { return v.MessageVersion }).(pulumi.StringPtrOutput)
 }
 
-// The receiver application id.
 func (o EdifactEnvelopeOverrideResponseOutput) ReceiverApplicationId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v EdifactEnvelopeOverrideResponse) *string { return v.ReceiverApplicationId }).(pulumi.StringPtrOutput)
 }
 
-// The receiver application qualifier.
 func (o EdifactEnvelopeOverrideResponseOutput) ReceiverApplicationQualifier() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v EdifactEnvelopeOverrideResponse) *string { return v.ReceiverApplicationQualifier }).(pulumi.StringPtrOutput)
 }
 
-// The sender application id.
 func (o EdifactEnvelopeOverrideResponseOutput) SenderApplicationId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v EdifactEnvelopeOverrideResponse) *string { return v.SenderApplicationId }).(pulumi.StringPtrOutput)
 }
 
-// The sender application qualifier.
 func (o EdifactEnvelopeOverrideResponseOutput) SenderApplicationQualifier() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v EdifactEnvelopeOverrideResponse) *string { return v.SenderApplicationQualifier }).(pulumi.StringPtrOutput)
 }
 
-// The target namespace on which this envelope settings has to be applied.
 func (o EdifactEnvelopeOverrideResponseOutput) TargetNamespace() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v EdifactEnvelopeOverrideResponse) *string { return v.TargetNamespace }).(pulumi.StringPtrOutput)
 }
@@ -9551,90 +8710,48 @@ func (o EdifactEnvelopeOverrideResponseArrayOutput) Index(i pulumi.IntInput) Edi
 	}).(EdifactEnvelopeOverrideResponseOutput)
 }
 
-// The Edifact agreement envelope settings.
 type EdifactEnvelopeSettings struct {
-	// The application reference id.
-	ApplicationReferenceId *string `pulumi:"applicationReferenceId"`
-	// The value indicating whether to apply delimiter string advice.
-	ApplyDelimiterStringAdvice bool `pulumi:"applyDelimiterStringAdvice"`
-	// The communication agreement id.
-	CommunicationAgreementId *string `pulumi:"communicationAgreementId"`
-	// The value indicating whether to create grouping segments.
-	CreateGroupingSegments bool `pulumi:"createGroupingSegments"`
-	// The value indicating whether to enable default group headers.
-	EnableDefaultGroupHeaders bool `pulumi:"enableDefaultGroupHeaders"`
-	// The functional group id.
-	FunctionalGroupId *string `pulumi:"functionalGroupId"`
-	// The group application password.
-	GroupApplicationPassword *string `pulumi:"groupApplicationPassword"`
-	// The group application receiver id.
-	GroupApplicationReceiverId *string `pulumi:"groupApplicationReceiverId"`
-	// The group application receiver qualifier.
-	GroupApplicationReceiverQualifier *string `pulumi:"groupApplicationReceiverQualifier"`
-	// The group application sender id.
-	GroupApplicationSenderId *string `pulumi:"groupApplicationSenderId"`
-	// The group application sender qualifier.
-	GroupApplicationSenderQualifier *string `pulumi:"groupApplicationSenderQualifier"`
-	// The group association assigned code.
-	GroupAssociationAssignedCode *string `pulumi:"groupAssociationAssignedCode"`
-	// The group control number lower bound.
-	GroupControlNumberLowerBound float64 `pulumi:"groupControlNumberLowerBound"`
-	// The group control number prefix.
-	GroupControlNumberPrefix *string `pulumi:"groupControlNumberPrefix"`
-	// The group control number suffix.
-	GroupControlNumberSuffix *string `pulumi:"groupControlNumberSuffix"`
-	// The group control number upper bound.
-	GroupControlNumberUpperBound float64 `pulumi:"groupControlNumberUpperBound"`
-	// The group controlling agency code.
-	GroupControllingAgencyCode *string `pulumi:"groupControllingAgencyCode"`
-	// The group message release.
-	GroupMessageRelease *string `pulumi:"groupMessageRelease"`
-	// The group message version.
-	GroupMessageVersion *string `pulumi:"groupMessageVersion"`
-	// The interchange control number lower bound.
-	InterchangeControlNumberLowerBound float64 `pulumi:"interchangeControlNumberLowerBound"`
-	// The interchange control number prefix.
-	InterchangeControlNumberPrefix *string `pulumi:"interchangeControlNumberPrefix"`
-	// The interchange control number suffix.
-	InterchangeControlNumberSuffix *string `pulumi:"interchangeControlNumberSuffix"`
-	// The interchange control number upper bound.
-	InterchangeControlNumberUpperBound float64 `pulumi:"interchangeControlNumberUpperBound"`
-	// The value indicating whether the message is a test interchange.
-	IsTestInterchange bool `pulumi:"isTestInterchange"`
-	// The value indicating whether to overwrite existing transaction set control number.
-	OverwriteExistingTransactionSetControlNumber bool `pulumi:"overwriteExistingTransactionSetControlNumber"`
-	// The processing priority code.
-	ProcessingPriorityCode *string `pulumi:"processingPriorityCode"`
-	// The receiver internal identification.
-	ReceiverInternalIdentification *string `pulumi:"receiverInternalIdentification"`
-	// The receiver internal sub identification.
-	ReceiverInternalSubIdentification *string `pulumi:"receiverInternalSubIdentification"`
-	// The receiver reverse routing address.
-	ReceiverReverseRoutingAddress *string `pulumi:"receiverReverseRoutingAddress"`
-	// The recipient reference password qualifier.
-	RecipientReferencePasswordQualifier *string `pulumi:"recipientReferencePasswordQualifier"`
-	// The recipient reference password value.
-	RecipientReferencePasswordValue *string `pulumi:"recipientReferencePasswordValue"`
-	// The value indicating whether to rollover group control number.
-	RolloverGroupControlNumber bool `pulumi:"rolloverGroupControlNumber"`
-	// The value indicating whether to rollover interchange control number.
-	RolloverInterchangeControlNumber bool `pulumi:"rolloverInterchangeControlNumber"`
-	// The value indicating whether to rollover transaction set control number.
-	RolloverTransactionSetControlNumber bool `pulumi:"rolloverTransactionSetControlNumber"`
-	// The sender internal identification.
-	SenderInternalIdentification *string `pulumi:"senderInternalIdentification"`
-	// The sender internal sub identification.
-	SenderInternalSubIdentification *string `pulumi:"senderInternalSubIdentification"`
-	// The sender reverse routing address.
-	SenderReverseRoutingAddress *string `pulumi:"senderReverseRoutingAddress"`
-	// The transaction set control number lower bound.
-	TransactionSetControlNumberLowerBound float64 `pulumi:"transactionSetControlNumberLowerBound"`
-	// The transaction set control number prefix.
-	TransactionSetControlNumberPrefix *string `pulumi:"transactionSetControlNumberPrefix"`
-	// The transaction set control number suffix.
-	TransactionSetControlNumberSuffix *string `pulumi:"transactionSetControlNumberSuffix"`
-	// The transaction set control number upper bound.
-	TransactionSetControlNumberUpperBound float64 `pulumi:"transactionSetControlNumberUpperBound"`
+	ApplicationReferenceId                       *string `pulumi:"applicationReferenceId"`
+	ApplyDelimiterStringAdvice                   bool    `pulumi:"applyDelimiterStringAdvice"`
+	CommunicationAgreementId                     *string `pulumi:"communicationAgreementId"`
+	CreateGroupingSegments                       bool    `pulumi:"createGroupingSegments"`
+	EnableDefaultGroupHeaders                    bool    `pulumi:"enableDefaultGroupHeaders"`
+	FunctionalGroupId                            *string `pulumi:"functionalGroupId"`
+	GroupApplicationPassword                     *string `pulumi:"groupApplicationPassword"`
+	GroupApplicationReceiverId                   *string `pulumi:"groupApplicationReceiverId"`
+	GroupApplicationReceiverQualifier            *string `pulumi:"groupApplicationReceiverQualifier"`
+	GroupApplicationSenderId                     *string `pulumi:"groupApplicationSenderId"`
+	GroupApplicationSenderQualifier              *string `pulumi:"groupApplicationSenderQualifier"`
+	GroupAssociationAssignedCode                 *string `pulumi:"groupAssociationAssignedCode"`
+	GroupControlNumberLowerBound                 float64 `pulumi:"groupControlNumberLowerBound"`
+	GroupControlNumberPrefix                     *string `pulumi:"groupControlNumberPrefix"`
+	GroupControlNumberSuffix                     *string `pulumi:"groupControlNumberSuffix"`
+	GroupControlNumberUpperBound                 float64 `pulumi:"groupControlNumberUpperBound"`
+	GroupControllingAgencyCode                   *string `pulumi:"groupControllingAgencyCode"`
+	GroupMessageRelease                          *string `pulumi:"groupMessageRelease"`
+	GroupMessageVersion                          *string `pulumi:"groupMessageVersion"`
+	InterchangeControlNumberLowerBound           float64 `pulumi:"interchangeControlNumberLowerBound"`
+	InterchangeControlNumberPrefix               *string `pulumi:"interchangeControlNumberPrefix"`
+	InterchangeControlNumberSuffix               *string `pulumi:"interchangeControlNumberSuffix"`
+	InterchangeControlNumberUpperBound           float64 `pulumi:"interchangeControlNumberUpperBound"`
+	IsTestInterchange                            bool    `pulumi:"isTestInterchange"`
+	OverwriteExistingTransactionSetControlNumber bool    `pulumi:"overwriteExistingTransactionSetControlNumber"`
+	ProcessingPriorityCode                       *string `pulumi:"processingPriorityCode"`
+	ReceiverInternalIdentification               *string `pulumi:"receiverInternalIdentification"`
+	ReceiverInternalSubIdentification            *string `pulumi:"receiverInternalSubIdentification"`
+	ReceiverReverseRoutingAddress                *string `pulumi:"receiverReverseRoutingAddress"`
+	RecipientReferencePasswordQualifier          *string `pulumi:"recipientReferencePasswordQualifier"`
+	RecipientReferencePasswordValue              *string `pulumi:"recipientReferencePasswordValue"`
+	RolloverGroupControlNumber                   bool    `pulumi:"rolloverGroupControlNumber"`
+	RolloverInterchangeControlNumber             bool    `pulumi:"rolloverInterchangeControlNumber"`
+	RolloverTransactionSetControlNumber          bool    `pulumi:"rolloverTransactionSetControlNumber"`
+	SenderInternalIdentification                 *string `pulumi:"senderInternalIdentification"`
+	SenderInternalSubIdentification              *string `pulumi:"senderInternalSubIdentification"`
+	SenderReverseRoutingAddress                  *string `pulumi:"senderReverseRoutingAddress"`
+	TransactionSetControlNumberLowerBound        float64 `pulumi:"transactionSetControlNumberLowerBound"`
+	TransactionSetControlNumberPrefix            *string `pulumi:"transactionSetControlNumberPrefix"`
+	TransactionSetControlNumberSuffix            *string `pulumi:"transactionSetControlNumberSuffix"`
+	TransactionSetControlNumberUpperBound        float64 `pulumi:"transactionSetControlNumberUpperBound"`
 }
 
 // EdifactEnvelopeSettingsInput is an input type that accepts EdifactEnvelopeSettingsArgs and EdifactEnvelopeSettingsOutput values.
@@ -9648,90 +8765,48 @@ type EdifactEnvelopeSettingsInput interface {
 	ToEdifactEnvelopeSettingsOutputWithContext(context.Context) EdifactEnvelopeSettingsOutput
 }
 
-// The Edifact agreement envelope settings.
 type EdifactEnvelopeSettingsArgs struct {
-	// The application reference id.
-	ApplicationReferenceId pulumi.StringPtrInput `pulumi:"applicationReferenceId"`
-	// The value indicating whether to apply delimiter string advice.
-	ApplyDelimiterStringAdvice pulumi.BoolInput `pulumi:"applyDelimiterStringAdvice"`
-	// The communication agreement id.
-	CommunicationAgreementId pulumi.StringPtrInput `pulumi:"communicationAgreementId"`
-	// The value indicating whether to create grouping segments.
-	CreateGroupingSegments pulumi.BoolInput `pulumi:"createGroupingSegments"`
-	// The value indicating whether to enable default group headers.
-	EnableDefaultGroupHeaders pulumi.BoolInput `pulumi:"enableDefaultGroupHeaders"`
-	// The functional group id.
-	FunctionalGroupId pulumi.StringPtrInput `pulumi:"functionalGroupId"`
-	// The group application password.
-	GroupApplicationPassword pulumi.StringPtrInput `pulumi:"groupApplicationPassword"`
-	// The group application receiver id.
-	GroupApplicationReceiverId pulumi.StringPtrInput `pulumi:"groupApplicationReceiverId"`
-	// The group application receiver qualifier.
-	GroupApplicationReceiverQualifier pulumi.StringPtrInput `pulumi:"groupApplicationReceiverQualifier"`
-	// The group application sender id.
-	GroupApplicationSenderId pulumi.StringPtrInput `pulumi:"groupApplicationSenderId"`
-	// The group application sender qualifier.
-	GroupApplicationSenderQualifier pulumi.StringPtrInput `pulumi:"groupApplicationSenderQualifier"`
-	// The group association assigned code.
-	GroupAssociationAssignedCode pulumi.StringPtrInput `pulumi:"groupAssociationAssignedCode"`
-	// The group control number lower bound.
-	GroupControlNumberLowerBound pulumi.Float64Input `pulumi:"groupControlNumberLowerBound"`
-	// The group control number prefix.
-	GroupControlNumberPrefix pulumi.StringPtrInput `pulumi:"groupControlNumberPrefix"`
-	// The group control number suffix.
-	GroupControlNumberSuffix pulumi.StringPtrInput `pulumi:"groupControlNumberSuffix"`
-	// The group control number upper bound.
-	GroupControlNumberUpperBound pulumi.Float64Input `pulumi:"groupControlNumberUpperBound"`
-	// The group controlling agency code.
-	GroupControllingAgencyCode pulumi.StringPtrInput `pulumi:"groupControllingAgencyCode"`
-	// The group message release.
-	GroupMessageRelease pulumi.StringPtrInput `pulumi:"groupMessageRelease"`
-	// The group message version.
-	GroupMessageVersion pulumi.StringPtrInput `pulumi:"groupMessageVersion"`
-	// The interchange control number lower bound.
-	InterchangeControlNumberLowerBound pulumi.Float64Input `pulumi:"interchangeControlNumberLowerBound"`
-	// The interchange control number prefix.
-	InterchangeControlNumberPrefix pulumi.StringPtrInput `pulumi:"interchangeControlNumberPrefix"`
-	// The interchange control number suffix.
-	InterchangeControlNumberSuffix pulumi.StringPtrInput `pulumi:"interchangeControlNumberSuffix"`
-	// The interchange control number upper bound.
-	InterchangeControlNumberUpperBound pulumi.Float64Input `pulumi:"interchangeControlNumberUpperBound"`
-	// The value indicating whether the message is a test interchange.
-	IsTestInterchange pulumi.BoolInput `pulumi:"isTestInterchange"`
-	// The value indicating whether to overwrite existing transaction set control number.
-	OverwriteExistingTransactionSetControlNumber pulumi.BoolInput `pulumi:"overwriteExistingTransactionSetControlNumber"`
-	// The processing priority code.
-	ProcessingPriorityCode pulumi.StringPtrInput `pulumi:"processingPriorityCode"`
-	// The receiver internal identification.
-	ReceiverInternalIdentification pulumi.StringPtrInput `pulumi:"receiverInternalIdentification"`
-	// The receiver internal sub identification.
-	ReceiverInternalSubIdentification pulumi.StringPtrInput `pulumi:"receiverInternalSubIdentification"`
-	// The receiver reverse routing address.
-	ReceiverReverseRoutingAddress pulumi.StringPtrInput `pulumi:"receiverReverseRoutingAddress"`
-	// The recipient reference password qualifier.
-	RecipientReferencePasswordQualifier pulumi.StringPtrInput `pulumi:"recipientReferencePasswordQualifier"`
-	// The recipient reference password value.
-	RecipientReferencePasswordValue pulumi.StringPtrInput `pulumi:"recipientReferencePasswordValue"`
-	// The value indicating whether to rollover group control number.
-	RolloverGroupControlNumber pulumi.BoolInput `pulumi:"rolloverGroupControlNumber"`
-	// The value indicating whether to rollover interchange control number.
-	RolloverInterchangeControlNumber pulumi.BoolInput `pulumi:"rolloverInterchangeControlNumber"`
-	// The value indicating whether to rollover transaction set control number.
-	RolloverTransactionSetControlNumber pulumi.BoolInput `pulumi:"rolloverTransactionSetControlNumber"`
-	// The sender internal identification.
-	SenderInternalIdentification pulumi.StringPtrInput `pulumi:"senderInternalIdentification"`
-	// The sender internal sub identification.
-	SenderInternalSubIdentification pulumi.StringPtrInput `pulumi:"senderInternalSubIdentification"`
-	// The sender reverse routing address.
-	SenderReverseRoutingAddress pulumi.StringPtrInput `pulumi:"senderReverseRoutingAddress"`
-	// The transaction set control number lower bound.
-	TransactionSetControlNumberLowerBound pulumi.Float64Input `pulumi:"transactionSetControlNumberLowerBound"`
-	// The transaction set control number prefix.
-	TransactionSetControlNumberPrefix pulumi.StringPtrInput `pulumi:"transactionSetControlNumberPrefix"`
-	// The transaction set control number suffix.
-	TransactionSetControlNumberSuffix pulumi.StringPtrInput `pulumi:"transactionSetControlNumberSuffix"`
-	// The transaction set control number upper bound.
-	TransactionSetControlNumberUpperBound pulumi.Float64Input `pulumi:"transactionSetControlNumberUpperBound"`
+	ApplicationReferenceId                       pulumi.StringPtrInput `pulumi:"applicationReferenceId"`
+	ApplyDelimiterStringAdvice                   pulumi.BoolInput      `pulumi:"applyDelimiterStringAdvice"`
+	CommunicationAgreementId                     pulumi.StringPtrInput `pulumi:"communicationAgreementId"`
+	CreateGroupingSegments                       pulumi.BoolInput      `pulumi:"createGroupingSegments"`
+	EnableDefaultGroupHeaders                    pulumi.BoolInput      `pulumi:"enableDefaultGroupHeaders"`
+	FunctionalGroupId                            pulumi.StringPtrInput `pulumi:"functionalGroupId"`
+	GroupApplicationPassword                     pulumi.StringPtrInput `pulumi:"groupApplicationPassword"`
+	GroupApplicationReceiverId                   pulumi.StringPtrInput `pulumi:"groupApplicationReceiverId"`
+	GroupApplicationReceiverQualifier            pulumi.StringPtrInput `pulumi:"groupApplicationReceiverQualifier"`
+	GroupApplicationSenderId                     pulumi.StringPtrInput `pulumi:"groupApplicationSenderId"`
+	GroupApplicationSenderQualifier              pulumi.StringPtrInput `pulumi:"groupApplicationSenderQualifier"`
+	GroupAssociationAssignedCode                 pulumi.StringPtrInput `pulumi:"groupAssociationAssignedCode"`
+	GroupControlNumberLowerBound                 pulumi.Float64Input   `pulumi:"groupControlNumberLowerBound"`
+	GroupControlNumberPrefix                     pulumi.StringPtrInput `pulumi:"groupControlNumberPrefix"`
+	GroupControlNumberSuffix                     pulumi.StringPtrInput `pulumi:"groupControlNumberSuffix"`
+	GroupControlNumberUpperBound                 pulumi.Float64Input   `pulumi:"groupControlNumberUpperBound"`
+	GroupControllingAgencyCode                   pulumi.StringPtrInput `pulumi:"groupControllingAgencyCode"`
+	GroupMessageRelease                          pulumi.StringPtrInput `pulumi:"groupMessageRelease"`
+	GroupMessageVersion                          pulumi.StringPtrInput `pulumi:"groupMessageVersion"`
+	InterchangeControlNumberLowerBound           pulumi.Float64Input   `pulumi:"interchangeControlNumberLowerBound"`
+	InterchangeControlNumberPrefix               pulumi.StringPtrInput `pulumi:"interchangeControlNumberPrefix"`
+	InterchangeControlNumberSuffix               pulumi.StringPtrInput `pulumi:"interchangeControlNumberSuffix"`
+	InterchangeControlNumberUpperBound           pulumi.Float64Input   `pulumi:"interchangeControlNumberUpperBound"`
+	IsTestInterchange                            pulumi.BoolInput      `pulumi:"isTestInterchange"`
+	OverwriteExistingTransactionSetControlNumber pulumi.BoolInput      `pulumi:"overwriteExistingTransactionSetControlNumber"`
+	ProcessingPriorityCode                       pulumi.StringPtrInput `pulumi:"processingPriorityCode"`
+	ReceiverInternalIdentification               pulumi.StringPtrInput `pulumi:"receiverInternalIdentification"`
+	ReceiverInternalSubIdentification            pulumi.StringPtrInput `pulumi:"receiverInternalSubIdentification"`
+	ReceiverReverseRoutingAddress                pulumi.StringPtrInput `pulumi:"receiverReverseRoutingAddress"`
+	RecipientReferencePasswordQualifier          pulumi.StringPtrInput `pulumi:"recipientReferencePasswordQualifier"`
+	RecipientReferencePasswordValue              pulumi.StringPtrInput `pulumi:"recipientReferencePasswordValue"`
+	RolloverGroupControlNumber                   pulumi.BoolInput      `pulumi:"rolloverGroupControlNumber"`
+	RolloverInterchangeControlNumber             pulumi.BoolInput      `pulumi:"rolloverInterchangeControlNumber"`
+	RolloverTransactionSetControlNumber          pulumi.BoolInput      `pulumi:"rolloverTransactionSetControlNumber"`
+	SenderInternalIdentification                 pulumi.StringPtrInput `pulumi:"senderInternalIdentification"`
+	SenderInternalSubIdentification              pulumi.StringPtrInput `pulumi:"senderInternalSubIdentification"`
+	SenderReverseRoutingAddress                  pulumi.StringPtrInput `pulumi:"senderReverseRoutingAddress"`
+	TransactionSetControlNumberLowerBound        pulumi.Float64Input   `pulumi:"transactionSetControlNumberLowerBound"`
+	TransactionSetControlNumberPrefix            pulumi.StringPtrInput `pulumi:"transactionSetControlNumberPrefix"`
+	TransactionSetControlNumberSuffix            pulumi.StringPtrInput `pulumi:"transactionSetControlNumberSuffix"`
+	TransactionSetControlNumberUpperBound        pulumi.Float64Input   `pulumi:"transactionSetControlNumberUpperBound"`
 }
 
 func (EdifactEnvelopeSettingsArgs) ElementType() reflect.Type {
@@ -9787,7 +8862,6 @@ func (i *edifactEnvelopeSettingsPtrType) ToEdifactEnvelopeSettingsPtrOutputWithC
 	return pulumi.ToOutputWithContext(ctx, i).(EdifactEnvelopeSettingsPtrOutput)
 }
 
-// The Edifact agreement envelope settings.
 type EdifactEnvelopeSettingsOutput struct{ *pulumi.OutputState }
 
 func (EdifactEnvelopeSettingsOutput) ElementType() reflect.Type {
@@ -9807,212 +8881,171 @@ func (o EdifactEnvelopeSettingsOutput) ToEdifactEnvelopeSettingsPtrOutput() Edif
 }
 
 func (o EdifactEnvelopeSettingsOutput) ToEdifactEnvelopeSettingsPtrOutputWithContext(ctx context.Context) EdifactEnvelopeSettingsPtrOutput {
-	return o.ApplyT(func(v EdifactEnvelopeSettings) *EdifactEnvelopeSettings {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v EdifactEnvelopeSettings) *EdifactEnvelopeSettings {
 		return &v
 	}).(EdifactEnvelopeSettingsPtrOutput)
 }
 
-// The application reference id.
 func (o EdifactEnvelopeSettingsOutput) ApplicationReferenceId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v EdifactEnvelopeSettings) *string { return v.ApplicationReferenceId }).(pulumi.StringPtrOutput)
 }
 
-// The value indicating whether to apply delimiter string advice.
 func (o EdifactEnvelopeSettingsOutput) ApplyDelimiterStringAdvice() pulumi.BoolOutput {
 	return o.ApplyT(func(v EdifactEnvelopeSettings) bool { return v.ApplyDelimiterStringAdvice }).(pulumi.BoolOutput)
 }
 
-// The communication agreement id.
 func (o EdifactEnvelopeSettingsOutput) CommunicationAgreementId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v EdifactEnvelopeSettings) *string { return v.CommunicationAgreementId }).(pulumi.StringPtrOutput)
 }
 
-// The value indicating whether to create grouping segments.
 func (o EdifactEnvelopeSettingsOutput) CreateGroupingSegments() pulumi.BoolOutput {
 	return o.ApplyT(func(v EdifactEnvelopeSettings) bool { return v.CreateGroupingSegments }).(pulumi.BoolOutput)
 }
 
-// The value indicating whether to enable default group headers.
 func (o EdifactEnvelopeSettingsOutput) EnableDefaultGroupHeaders() pulumi.BoolOutput {
 	return o.ApplyT(func(v EdifactEnvelopeSettings) bool { return v.EnableDefaultGroupHeaders }).(pulumi.BoolOutput)
 }
 
-// The functional group id.
 func (o EdifactEnvelopeSettingsOutput) FunctionalGroupId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v EdifactEnvelopeSettings) *string { return v.FunctionalGroupId }).(pulumi.StringPtrOutput)
 }
 
-// The group application password.
 func (o EdifactEnvelopeSettingsOutput) GroupApplicationPassword() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v EdifactEnvelopeSettings) *string { return v.GroupApplicationPassword }).(pulumi.StringPtrOutput)
 }
 
-// The group application receiver id.
 func (o EdifactEnvelopeSettingsOutput) GroupApplicationReceiverId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v EdifactEnvelopeSettings) *string { return v.GroupApplicationReceiverId }).(pulumi.StringPtrOutput)
 }
 
-// The group application receiver qualifier.
 func (o EdifactEnvelopeSettingsOutput) GroupApplicationReceiverQualifier() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v EdifactEnvelopeSettings) *string { return v.GroupApplicationReceiverQualifier }).(pulumi.StringPtrOutput)
 }
 
-// The group application sender id.
 func (o EdifactEnvelopeSettingsOutput) GroupApplicationSenderId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v EdifactEnvelopeSettings) *string { return v.GroupApplicationSenderId }).(pulumi.StringPtrOutput)
 }
 
-// The group application sender qualifier.
 func (o EdifactEnvelopeSettingsOutput) GroupApplicationSenderQualifier() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v EdifactEnvelopeSettings) *string { return v.GroupApplicationSenderQualifier }).(pulumi.StringPtrOutput)
 }
 
-// The group association assigned code.
 func (o EdifactEnvelopeSettingsOutput) GroupAssociationAssignedCode() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v EdifactEnvelopeSettings) *string { return v.GroupAssociationAssignedCode }).(pulumi.StringPtrOutput)
 }
 
-// The group control number lower bound.
 func (o EdifactEnvelopeSettingsOutput) GroupControlNumberLowerBound() pulumi.Float64Output {
 	return o.ApplyT(func(v EdifactEnvelopeSettings) float64 { return v.GroupControlNumberLowerBound }).(pulumi.Float64Output)
 }
 
-// The group control number prefix.
 func (o EdifactEnvelopeSettingsOutput) GroupControlNumberPrefix() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v EdifactEnvelopeSettings) *string { return v.GroupControlNumberPrefix }).(pulumi.StringPtrOutput)
 }
 
-// The group control number suffix.
 func (o EdifactEnvelopeSettingsOutput) GroupControlNumberSuffix() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v EdifactEnvelopeSettings) *string { return v.GroupControlNumberSuffix }).(pulumi.StringPtrOutput)
 }
 
-// The group control number upper bound.
 func (o EdifactEnvelopeSettingsOutput) GroupControlNumberUpperBound() pulumi.Float64Output {
 	return o.ApplyT(func(v EdifactEnvelopeSettings) float64 { return v.GroupControlNumberUpperBound }).(pulumi.Float64Output)
 }
 
-// The group controlling agency code.
 func (o EdifactEnvelopeSettingsOutput) GroupControllingAgencyCode() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v EdifactEnvelopeSettings) *string { return v.GroupControllingAgencyCode }).(pulumi.StringPtrOutput)
 }
 
-// The group message release.
 func (o EdifactEnvelopeSettingsOutput) GroupMessageRelease() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v EdifactEnvelopeSettings) *string { return v.GroupMessageRelease }).(pulumi.StringPtrOutput)
 }
 
-// The group message version.
 func (o EdifactEnvelopeSettingsOutput) GroupMessageVersion() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v EdifactEnvelopeSettings) *string { return v.GroupMessageVersion }).(pulumi.StringPtrOutput)
 }
 
-// The interchange control number lower bound.
 func (o EdifactEnvelopeSettingsOutput) InterchangeControlNumberLowerBound() pulumi.Float64Output {
 	return o.ApplyT(func(v EdifactEnvelopeSettings) float64 { return v.InterchangeControlNumberLowerBound }).(pulumi.Float64Output)
 }
 
-// The interchange control number prefix.
 func (o EdifactEnvelopeSettingsOutput) InterchangeControlNumberPrefix() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v EdifactEnvelopeSettings) *string { return v.InterchangeControlNumberPrefix }).(pulumi.StringPtrOutput)
 }
 
-// The interchange control number suffix.
 func (o EdifactEnvelopeSettingsOutput) InterchangeControlNumberSuffix() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v EdifactEnvelopeSettings) *string { return v.InterchangeControlNumberSuffix }).(pulumi.StringPtrOutput)
 }
 
-// The interchange control number upper bound.
 func (o EdifactEnvelopeSettingsOutput) InterchangeControlNumberUpperBound() pulumi.Float64Output {
 	return o.ApplyT(func(v EdifactEnvelopeSettings) float64 { return v.InterchangeControlNumberUpperBound }).(pulumi.Float64Output)
 }
 
-// The value indicating whether the message is a test interchange.
 func (o EdifactEnvelopeSettingsOutput) IsTestInterchange() pulumi.BoolOutput {
 	return o.ApplyT(func(v EdifactEnvelopeSettings) bool { return v.IsTestInterchange }).(pulumi.BoolOutput)
 }
 
-// The value indicating whether to overwrite existing transaction set control number.
 func (o EdifactEnvelopeSettingsOutput) OverwriteExistingTransactionSetControlNumber() pulumi.BoolOutput {
 	return o.ApplyT(func(v EdifactEnvelopeSettings) bool { return v.OverwriteExistingTransactionSetControlNumber }).(pulumi.BoolOutput)
 }
 
-// The processing priority code.
 func (o EdifactEnvelopeSettingsOutput) ProcessingPriorityCode() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v EdifactEnvelopeSettings) *string { return v.ProcessingPriorityCode }).(pulumi.StringPtrOutput)
 }
 
-// The receiver internal identification.
 func (o EdifactEnvelopeSettingsOutput) ReceiverInternalIdentification() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v EdifactEnvelopeSettings) *string { return v.ReceiverInternalIdentification }).(pulumi.StringPtrOutput)
 }
 
-// The receiver internal sub identification.
 func (o EdifactEnvelopeSettingsOutput) ReceiverInternalSubIdentification() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v EdifactEnvelopeSettings) *string { return v.ReceiverInternalSubIdentification }).(pulumi.StringPtrOutput)
 }
 
-// The receiver reverse routing address.
 func (o EdifactEnvelopeSettingsOutput) ReceiverReverseRoutingAddress() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v EdifactEnvelopeSettings) *string { return v.ReceiverReverseRoutingAddress }).(pulumi.StringPtrOutput)
 }
 
-// The recipient reference password qualifier.
 func (o EdifactEnvelopeSettingsOutput) RecipientReferencePasswordQualifier() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v EdifactEnvelopeSettings) *string { return v.RecipientReferencePasswordQualifier }).(pulumi.StringPtrOutput)
 }
 
-// The recipient reference password value.
 func (o EdifactEnvelopeSettingsOutput) RecipientReferencePasswordValue() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v EdifactEnvelopeSettings) *string { return v.RecipientReferencePasswordValue }).(pulumi.StringPtrOutput)
 }
 
-// The value indicating whether to rollover group control number.
 func (o EdifactEnvelopeSettingsOutput) RolloverGroupControlNumber() pulumi.BoolOutput {
 	return o.ApplyT(func(v EdifactEnvelopeSettings) bool { return v.RolloverGroupControlNumber }).(pulumi.BoolOutput)
 }
 
-// The value indicating whether to rollover interchange control number.
 func (o EdifactEnvelopeSettingsOutput) RolloverInterchangeControlNumber() pulumi.BoolOutput {
 	return o.ApplyT(func(v EdifactEnvelopeSettings) bool { return v.RolloverInterchangeControlNumber }).(pulumi.BoolOutput)
 }
 
-// The value indicating whether to rollover transaction set control number.
 func (o EdifactEnvelopeSettingsOutput) RolloverTransactionSetControlNumber() pulumi.BoolOutput {
 	return o.ApplyT(func(v EdifactEnvelopeSettings) bool { return v.RolloverTransactionSetControlNumber }).(pulumi.BoolOutput)
 }
 
-// The sender internal identification.
 func (o EdifactEnvelopeSettingsOutput) SenderInternalIdentification() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v EdifactEnvelopeSettings) *string { return v.SenderInternalIdentification }).(pulumi.StringPtrOutput)
 }
 
-// The sender internal sub identification.
 func (o EdifactEnvelopeSettingsOutput) SenderInternalSubIdentification() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v EdifactEnvelopeSettings) *string { return v.SenderInternalSubIdentification }).(pulumi.StringPtrOutput)
 }
 
-// The sender reverse routing address.
 func (o EdifactEnvelopeSettingsOutput) SenderReverseRoutingAddress() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v EdifactEnvelopeSettings) *string { return v.SenderReverseRoutingAddress }).(pulumi.StringPtrOutput)
 }
 
-// The transaction set control number lower bound.
 func (o EdifactEnvelopeSettingsOutput) TransactionSetControlNumberLowerBound() pulumi.Float64Output {
 	return o.ApplyT(func(v EdifactEnvelopeSettings) float64 { return v.TransactionSetControlNumberLowerBound }).(pulumi.Float64Output)
 }
 
-// The transaction set control number prefix.
 func (o EdifactEnvelopeSettingsOutput) TransactionSetControlNumberPrefix() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v EdifactEnvelopeSettings) *string { return v.TransactionSetControlNumberPrefix }).(pulumi.StringPtrOutput)
 }
 
-// The transaction set control number suffix.
 func (o EdifactEnvelopeSettingsOutput) TransactionSetControlNumberSuffix() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v EdifactEnvelopeSettings) *string { return v.TransactionSetControlNumberSuffix }).(pulumi.StringPtrOutput)
 }
 
-// The transaction set control number upper bound.
 func (o EdifactEnvelopeSettingsOutput) TransactionSetControlNumberUpperBound() pulumi.Float64Output {
 	return o.ApplyT(func(v EdifactEnvelopeSettings) float64 { return v.TransactionSetControlNumberUpperBound }).(pulumi.Float64Output)
 }
@@ -10032,10 +9065,15 @@ func (o EdifactEnvelopeSettingsPtrOutput) ToEdifactEnvelopeSettingsPtrOutputWith
 }
 
 func (o EdifactEnvelopeSettingsPtrOutput) Elem() EdifactEnvelopeSettingsOutput {
-	return o.ApplyT(func(v *EdifactEnvelopeSettings) EdifactEnvelopeSettings { return *v }).(EdifactEnvelopeSettingsOutput)
+	return o.ApplyT(func(v *EdifactEnvelopeSettings) EdifactEnvelopeSettings {
+		if v != nil {
+			return *v
+		}
+		var ret EdifactEnvelopeSettings
+		return ret
+	}).(EdifactEnvelopeSettingsOutput)
 }
 
-// The application reference id.
 func (o EdifactEnvelopeSettingsPtrOutput) ApplicationReferenceId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *EdifactEnvelopeSettings) *string {
 		if v == nil {
@@ -10045,7 +9083,6 @@ func (o EdifactEnvelopeSettingsPtrOutput) ApplicationReferenceId() pulumi.String
 	}).(pulumi.StringPtrOutput)
 }
 
-// The value indicating whether to apply delimiter string advice.
 func (o EdifactEnvelopeSettingsPtrOutput) ApplyDelimiterStringAdvice() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *EdifactEnvelopeSettings) *bool {
 		if v == nil {
@@ -10055,7 +9092,6 @@ func (o EdifactEnvelopeSettingsPtrOutput) ApplyDelimiterStringAdvice() pulumi.Bo
 	}).(pulumi.BoolPtrOutput)
 }
 
-// The communication agreement id.
 func (o EdifactEnvelopeSettingsPtrOutput) CommunicationAgreementId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *EdifactEnvelopeSettings) *string {
 		if v == nil {
@@ -10065,7 +9101,6 @@ func (o EdifactEnvelopeSettingsPtrOutput) CommunicationAgreementId() pulumi.Stri
 	}).(pulumi.StringPtrOutput)
 }
 
-// The value indicating whether to create grouping segments.
 func (o EdifactEnvelopeSettingsPtrOutput) CreateGroupingSegments() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *EdifactEnvelopeSettings) *bool {
 		if v == nil {
@@ -10075,7 +9110,6 @@ func (o EdifactEnvelopeSettingsPtrOutput) CreateGroupingSegments() pulumi.BoolPt
 	}).(pulumi.BoolPtrOutput)
 }
 
-// The value indicating whether to enable default group headers.
 func (o EdifactEnvelopeSettingsPtrOutput) EnableDefaultGroupHeaders() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *EdifactEnvelopeSettings) *bool {
 		if v == nil {
@@ -10085,7 +9119,6 @@ func (o EdifactEnvelopeSettingsPtrOutput) EnableDefaultGroupHeaders() pulumi.Boo
 	}).(pulumi.BoolPtrOutput)
 }
 
-// The functional group id.
 func (o EdifactEnvelopeSettingsPtrOutput) FunctionalGroupId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *EdifactEnvelopeSettings) *string {
 		if v == nil {
@@ -10095,7 +9128,6 @@ func (o EdifactEnvelopeSettingsPtrOutput) FunctionalGroupId() pulumi.StringPtrOu
 	}).(pulumi.StringPtrOutput)
 }
 
-// The group application password.
 func (o EdifactEnvelopeSettingsPtrOutput) GroupApplicationPassword() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *EdifactEnvelopeSettings) *string {
 		if v == nil {
@@ -10105,7 +9137,6 @@ func (o EdifactEnvelopeSettingsPtrOutput) GroupApplicationPassword() pulumi.Stri
 	}).(pulumi.StringPtrOutput)
 }
 
-// The group application receiver id.
 func (o EdifactEnvelopeSettingsPtrOutput) GroupApplicationReceiverId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *EdifactEnvelopeSettings) *string {
 		if v == nil {
@@ -10115,7 +9146,6 @@ func (o EdifactEnvelopeSettingsPtrOutput) GroupApplicationReceiverId() pulumi.St
 	}).(pulumi.StringPtrOutput)
 }
 
-// The group application receiver qualifier.
 func (o EdifactEnvelopeSettingsPtrOutput) GroupApplicationReceiverQualifier() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *EdifactEnvelopeSettings) *string {
 		if v == nil {
@@ -10125,7 +9155,6 @@ func (o EdifactEnvelopeSettingsPtrOutput) GroupApplicationReceiverQualifier() pu
 	}).(pulumi.StringPtrOutput)
 }
 
-// The group application sender id.
 func (o EdifactEnvelopeSettingsPtrOutput) GroupApplicationSenderId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *EdifactEnvelopeSettings) *string {
 		if v == nil {
@@ -10135,7 +9164,6 @@ func (o EdifactEnvelopeSettingsPtrOutput) GroupApplicationSenderId() pulumi.Stri
 	}).(pulumi.StringPtrOutput)
 }
 
-// The group application sender qualifier.
 func (o EdifactEnvelopeSettingsPtrOutput) GroupApplicationSenderQualifier() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *EdifactEnvelopeSettings) *string {
 		if v == nil {
@@ -10145,7 +9173,6 @@ func (o EdifactEnvelopeSettingsPtrOutput) GroupApplicationSenderQualifier() pulu
 	}).(pulumi.StringPtrOutput)
 }
 
-// The group association assigned code.
 func (o EdifactEnvelopeSettingsPtrOutput) GroupAssociationAssignedCode() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *EdifactEnvelopeSettings) *string {
 		if v == nil {
@@ -10155,7 +9182,6 @@ func (o EdifactEnvelopeSettingsPtrOutput) GroupAssociationAssignedCode() pulumi.
 	}).(pulumi.StringPtrOutput)
 }
 
-// The group control number lower bound.
 func (o EdifactEnvelopeSettingsPtrOutput) GroupControlNumberLowerBound() pulumi.Float64PtrOutput {
 	return o.ApplyT(func(v *EdifactEnvelopeSettings) *float64 {
 		if v == nil {
@@ -10165,7 +9191,6 @@ func (o EdifactEnvelopeSettingsPtrOutput) GroupControlNumberLowerBound() pulumi.
 	}).(pulumi.Float64PtrOutput)
 }
 
-// The group control number prefix.
 func (o EdifactEnvelopeSettingsPtrOutput) GroupControlNumberPrefix() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *EdifactEnvelopeSettings) *string {
 		if v == nil {
@@ -10175,7 +9200,6 @@ func (o EdifactEnvelopeSettingsPtrOutput) GroupControlNumberPrefix() pulumi.Stri
 	}).(pulumi.StringPtrOutput)
 }
 
-// The group control number suffix.
 func (o EdifactEnvelopeSettingsPtrOutput) GroupControlNumberSuffix() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *EdifactEnvelopeSettings) *string {
 		if v == nil {
@@ -10185,7 +9209,6 @@ func (o EdifactEnvelopeSettingsPtrOutput) GroupControlNumberSuffix() pulumi.Stri
 	}).(pulumi.StringPtrOutput)
 }
 
-// The group control number upper bound.
 func (o EdifactEnvelopeSettingsPtrOutput) GroupControlNumberUpperBound() pulumi.Float64PtrOutput {
 	return o.ApplyT(func(v *EdifactEnvelopeSettings) *float64 {
 		if v == nil {
@@ -10195,7 +9218,6 @@ func (o EdifactEnvelopeSettingsPtrOutput) GroupControlNumberUpperBound() pulumi.
 	}).(pulumi.Float64PtrOutput)
 }
 
-// The group controlling agency code.
 func (o EdifactEnvelopeSettingsPtrOutput) GroupControllingAgencyCode() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *EdifactEnvelopeSettings) *string {
 		if v == nil {
@@ -10205,7 +9227,6 @@ func (o EdifactEnvelopeSettingsPtrOutput) GroupControllingAgencyCode() pulumi.St
 	}).(pulumi.StringPtrOutput)
 }
 
-// The group message release.
 func (o EdifactEnvelopeSettingsPtrOutput) GroupMessageRelease() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *EdifactEnvelopeSettings) *string {
 		if v == nil {
@@ -10215,7 +9236,6 @@ func (o EdifactEnvelopeSettingsPtrOutput) GroupMessageRelease() pulumi.StringPtr
 	}).(pulumi.StringPtrOutput)
 }
 
-// The group message version.
 func (o EdifactEnvelopeSettingsPtrOutput) GroupMessageVersion() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *EdifactEnvelopeSettings) *string {
 		if v == nil {
@@ -10225,7 +9245,6 @@ func (o EdifactEnvelopeSettingsPtrOutput) GroupMessageVersion() pulumi.StringPtr
 	}).(pulumi.StringPtrOutput)
 }
 
-// The interchange control number lower bound.
 func (o EdifactEnvelopeSettingsPtrOutput) InterchangeControlNumberLowerBound() pulumi.Float64PtrOutput {
 	return o.ApplyT(func(v *EdifactEnvelopeSettings) *float64 {
 		if v == nil {
@@ -10235,7 +9254,6 @@ func (o EdifactEnvelopeSettingsPtrOutput) InterchangeControlNumberLowerBound() p
 	}).(pulumi.Float64PtrOutput)
 }
 
-// The interchange control number prefix.
 func (o EdifactEnvelopeSettingsPtrOutput) InterchangeControlNumberPrefix() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *EdifactEnvelopeSettings) *string {
 		if v == nil {
@@ -10245,7 +9263,6 @@ func (o EdifactEnvelopeSettingsPtrOutput) InterchangeControlNumberPrefix() pulum
 	}).(pulumi.StringPtrOutput)
 }
 
-// The interchange control number suffix.
 func (o EdifactEnvelopeSettingsPtrOutput) InterchangeControlNumberSuffix() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *EdifactEnvelopeSettings) *string {
 		if v == nil {
@@ -10255,7 +9272,6 @@ func (o EdifactEnvelopeSettingsPtrOutput) InterchangeControlNumberSuffix() pulum
 	}).(pulumi.StringPtrOutput)
 }
 
-// The interchange control number upper bound.
 func (o EdifactEnvelopeSettingsPtrOutput) InterchangeControlNumberUpperBound() pulumi.Float64PtrOutput {
 	return o.ApplyT(func(v *EdifactEnvelopeSettings) *float64 {
 		if v == nil {
@@ -10265,7 +9281,6 @@ func (o EdifactEnvelopeSettingsPtrOutput) InterchangeControlNumberUpperBound() p
 	}).(pulumi.Float64PtrOutput)
 }
 
-// The value indicating whether the message is a test interchange.
 func (o EdifactEnvelopeSettingsPtrOutput) IsTestInterchange() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *EdifactEnvelopeSettings) *bool {
 		if v == nil {
@@ -10275,7 +9290,6 @@ func (o EdifactEnvelopeSettingsPtrOutput) IsTestInterchange() pulumi.BoolPtrOutp
 	}).(pulumi.BoolPtrOutput)
 }
 
-// The value indicating whether to overwrite existing transaction set control number.
 func (o EdifactEnvelopeSettingsPtrOutput) OverwriteExistingTransactionSetControlNumber() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *EdifactEnvelopeSettings) *bool {
 		if v == nil {
@@ -10285,7 +9299,6 @@ func (o EdifactEnvelopeSettingsPtrOutput) OverwriteExistingTransactionSetControl
 	}).(pulumi.BoolPtrOutput)
 }
 
-// The processing priority code.
 func (o EdifactEnvelopeSettingsPtrOutput) ProcessingPriorityCode() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *EdifactEnvelopeSettings) *string {
 		if v == nil {
@@ -10295,7 +9308,6 @@ func (o EdifactEnvelopeSettingsPtrOutput) ProcessingPriorityCode() pulumi.String
 	}).(pulumi.StringPtrOutput)
 }
 
-// The receiver internal identification.
 func (o EdifactEnvelopeSettingsPtrOutput) ReceiverInternalIdentification() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *EdifactEnvelopeSettings) *string {
 		if v == nil {
@@ -10305,7 +9317,6 @@ func (o EdifactEnvelopeSettingsPtrOutput) ReceiverInternalIdentification() pulum
 	}).(pulumi.StringPtrOutput)
 }
 
-// The receiver internal sub identification.
 func (o EdifactEnvelopeSettingsPtrOutput) ReceiverInternalSubIdentification() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *EdifactEnvelopeSettings) *string {
 		if v == nil {
@@ -10315,7 +9326,6 @@ func (o EdifactEnvelopeSettingsPtrOutput) ReceiverInternalSubIdentification() pu
 	}).(pulumi.StringPtrOutput)
 }
 
-// The receiver reverse routing address.
 func (o EdifactEnvelopeSettingsPtrOutput) ReceiverReverseRoutingAddress() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *EdifactEnvelopeSettings) *string {
 		if v == nil {
@@ -10325,7 +9335,6 @@ func (o EdifactEnvelopeSettingsPtrOutput) ReceiverReverseRoutingAddress() pulumi
 	}).(pulumi.StringPtrOutput)
 }
 
-// The recipient reference password qualifier.
 func (o EdifactEnvelopeSettingsPtrOutput) RecipientReferencePasswordQualifier() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *EdifactEnvelopeSettings) *string {
 		if v == nil {
@@ -10335,7 +9344,6 @@ func (o EdifactEnvelopeSettingsPtrOutput) RecipientReferencePasswordQualifier() 
 	}).(pulumi.StringPtrOutput)
 }
 
-// The recipient reference password value.
 func (o EdifactEnvelopeSettingsPtrOutput) RecipientReferencePasswordValue() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *EdifactEnvelopeSettings) *string {
 		if v == nil {
@@ -10345,7 +9353,6 @@ func (o EdifactEnvelopeSettingsPtrOutput) RecipientReferencePasswordValue() pulu
 	}).(pulumi.StringPtrOutput)
 }
 
-// The value indicating whether to rollover group control number.
 func (o EdifactEnvelopeSettingsPtrOutput) RolloverGroupControlNumber() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *EdifactEnvelopeSettings) *bool {
 		if v == nil {
@@ -10355,7 +9362,6 @@ func (o EdifactEnvelopeSettingsPtrOutput) RolloverGroupControlNumber() pulumi.Bo
 	}).(pulumi.BoolPtrOutput)
 }
 
-// The value indicating whether to rollover interchange control number.
 func (o EdifactEnvelopeSettingsPtrOutput) RolloverInterchangeControlNumber() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *EdifactEnvelopeSettings) *bool {
 		if v == nil {
@@ -10365,7 +9371,6 @@ func (o EdifactEnvelopeSettingsPtrOutput) RolloverInterchangeControlNumber() pul
 	}).(pulumi.BoolPtrOutput)
 }
 
-// The value indicating whether to rollover transaction set control number.
 func (o EdifactEnvelopeSettingsPtrOutput) RolloverTransactionSetControlNumber() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *EdifactEnvelopeSettings) *bool {
 		if v == nil {
@@ -10375,7 +9380,6 @@ func (o EdifactEnvelopeSettingsPtrOutput) RolloverTransactionSetControlNumber() 
 	}).(pulumi.BoolPtrOutput)
 }
 
-// The sender internal identification.
 func (o EdifactEnvelopeSettingsPtrOutput) SenderInternalIdentification() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *EdifactEnvelopeSettings) *string {
 		if v == nil {
@@ -10385,7 +9389,6 @@ func (o EdifactEnvelopeSettingsPtrOutput) SenderInternalIdentification() pulumi.
 	}).(pulumi.StringPtrOutput)
 }
 
-// The sender internal sub identification.
 func (o EdifactEnvelopeSettingsPtrOutput) SenderInternalSubIdentification() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *EdifactEnvelopeSettings) *string {
 		if v == nil {
@@ -10395,7 +9398,6 @@ func (o EdifactEnvelopeSettingsPtrOutput) SenderInternalSubIdentification() pulu
 	}).(pulumi.StringPtrOutput)
 }
 
-// The sender reverse routing address.
 func (o EdifactEnvelopeSettingsPtrOutput) SenderReverseRoutingAddress() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *EdifactEnvelopeSettings) *string {
 		if v == nil {
@@ -10405,7 +9407,6 @@ func (o EdifactEnvelopeSettingsPtrOutput) SenderReverseRoutingAddress() pulumi.S
 	}).(pulumi.StringPtrOutput)
 }
 
-// The transaction set control number lower bound.
 func (o EdifactEnvelopeSettingsPtrOutput) TransactionSetControlNumberLowerBound() pulumi.Float64PtrOutput {
 	return o.ApplyT(func(v *EdifactEnvelopeSettings) *float64 {
 		if v == nil {
@@ -10415,7 +9416,6 @@ func (o EdifactEnvelopeSettingsPtrOutput) TransactionSetControlNumberLowerBound(
 	}).(pulumi.Float64PtrOutput)
 }
 
-// The transaction set control number prefix.
 func (o EdifactEnvelopeSettingsPtrOutput) TransactionSetControlNumberPrefix() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *EdifactEnvelopeSettings) *string {
 		if v == nil {
@@ -10425,7 +9425,6 @@ func (o EdifactEnvelopeSettingsPtrOutput) TransactionSetControlNumberPrefix() pu
 	}).(pulumi.StringPtrOutput)
 }
 
-// The transaction set control number suffix.
 func (o EdifactEnvelopeSettingsPtrOutput) TransactionSetControlNumberSuffix() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *EdifactEnvelopeSettings) *string {
 		if v == nil {
@@ -10435,7 +9434,6 @@ func (o EdifactEnvelopeSettingsPtrOutput) TransactionSetControlNumberSuffix() pu
 	}).(pulumi.StringPtrOutput)
 }
 
-// The transaction set control number upper bound.
 func (o EdifactEnvelopeSettingsPtrOutput) TransactionSetControlNumberUpperBound() pulumi.Float64PtrOutput {
 	return o.ApplyT(func(v *EdifactEnvelopeSettings) *float64 {
 		if v == nil {
@@ -10445,90 +9443,48 @@ func (o EdifactEnvelopeSettingsPtrOutput) TransactionSetControlNumberUpperBound(
 	}).(pulumi.Float64PtrOutput)
 }
 
-// The Edifact agreement envelope settings.
 type EdifactEnvelopeSettingsResponse struct {
-	// The application reference id.
-	ApplicationReferenceId *string `pulumi:"applicationReferenceId"`
-	// The value indicating whether to apply delimiter string advice.
-	ApplyDelimiterStringAdvice bool `pulumi:"applyDelimiterStringAdvice"`
-	// The communication agreement id.
-	CommunicationAgreementId *string `pulumi:"communicationAgreementId"`
-	// The value indicating whether to create grouping segments.
-	CreateGroupingSegments bool `pulumi:"createGroupingSegments"`
-	// The value indicating whether to enable default group headers.
-	EnableDefaultGroupHeaders bool `pulumi:"enableDefaultGroupHeaders"`
-	// The functional group id.
-	FunctionalGroupId *string `pulumi:"functionalGroupId"`
-	// The group application password.
-	GroupApplicationPassword *string `pulumi:"groupApplicationPassword"`
-	// The group application receiver id.
-	GroupApplicationReceiverId *string `pulumi:"groupApplicationReceiverId"`
-	// The group application receiver qualifier.
-	GroupApplicationReceiverQualifier *string `pulumi:"groupApplicationReceiverQualifier"`
-	// The group application sender id.
-	GroupApplicationSenderId *string `pulumi:"groupApplicationSenderId"`
-	// The group application sender qualifier.
-	GroupApplicationSenderQualifier *string `pulumi:"groupApplicationSenderQualifier"`
-	// The group association assigned code.
-	GroupAssociationAssignedCode *string `pulumi:"groupAssociationAssignedCode"`
-	// The group control number lower bound.
-	GroupControlNumberLowerBound float64 `pulumi:"groupControlNumberLowerBound"`
-	// The group control number prefix.
-	GroupControlNumberPrefix *string `pulumi:"groupControlNumberPrefix"`
-	// The group control number suffix.
-	GroupControlNumberSuffix *string `pulumi:"groupControlNumberSuffix"`
-	// The group control number upper bound.
-	GroupControlNumberUpperBound float64 `pulumi:"groupControlNumberUpperBound"`
-	// The group controlling agency code.
-	GroupControllingAgencyCode *string `pulumi:"groupControllingAgencyCode"`
-	// The group message release.
-	GroupMessageRelease *string `pulumi:"groupMessageRelease"`
-	// The group message version.
-	GroupMessageVersion *string `pulumi:"groupMessageVersion"`
-	// The interchange control number lower bound.
-	InterchangeControlNumberLowerBound float64 `pulumi:"interchangeControlNumberLowerBound"`
-	// The interchange control number prefix.
-	InterchangeControlNumberPrefix *string `pulumi:"interchangeControlNumberPrefix"`
-	// The interchange control number suffix.
-	InterchangeControlNumberSuffix *string `pulumi:"interchangeControlNumberSuffix"`
-	// The interchange control number upper bound.
-	InterchangeControlNumberUpperBound float64 `pulumi:"interchangeControlNumberUpperBound"`
-	// The value indicating whether the message is a test interchange.
-	IsTestInterchange bool `pulumi:"isTestInterchange"`
-	// The value indicating whether to overwrite existing transaction set control number.
-	OverwriteExistingTransactionSetControlNumber bool `pulumi:"overwriteExistingTransactionSetControlNumber"`
-	// The processing priority code.
-	ProcessingPriorityCode *string `pulumi:"processingPriorityCode"`
-	// The receiver internal identification.
-	ReceiverInternalIdentification *string `pulumi:"receiverInternalIdentification"`
-	// The receiver internal sub identification.
-	ReceiverInternalSubIdentification *string `pulumi:"receiverInternalSubIdentification"`
-	// The receiver reverse routing address.
-	ReceiverReverseRoutingAddress *string `pulumi:"receiverReverseRoutingAddress"`
-	// The recipient reference password qualifier.
-	RecipientReferencePasswordQualifier *string `pulumi:"recipientReferencePasswordQualifier"`
-	// The recipient reference password value.
-	RecipientReferencePasswordValue *string `pulumi:"recipientReferencePasswordValue"`
-	// The value indicating whether to rollover group control number.
-	RolloverGroupControlNumber bool `pulumi:"rolloverGroupControlNumber"`
-	// The value indicating whether to rollover interchange control number.
-	RolloverInterchangeControlNumber bool `pulumi:"rolloverInterchangeControlNumber"`
-	// The value indicating whether to rollover transaction set control number.
-	RolloverTransactionSetControlNumber bool `pulumi:"rolloverTransactionSetControlNumber"`
-	// The sender internal identification.
-	SenderInternalIdentification *string `pulumi:"senderInternalIdentification"`
-	// The sender internal sub identification.
-	SenderInternalSubIdentification *string `pulumi:"senderInternalSubIdentification"`
-	// The sender reverse routing address.
-	SenderReverseRoutingAddress *string `pulumi:"senderReverseRoutingAddress"`
-	// The transaction set control number lower bound.
-	TransactionSetControlNumberLowerBound float64 `pulumi:"transactionSetControlNumberLowerBound"`
-	// The transaction set control number prefix.
-	TransactionSetControlNumberPrefix *string `pulumi:"transactionSetControlNumberPrefix"`
-	// The transaction set control number suffix.
-	TransactionSetControlNumberSuffix *string `pulumi:"transactionSetControlNumberSuffix"`
-	// The transaction set control number upper bound.
-	TransactionSetControlNumberUpperBound float64 `pulumi:"transactionSetControlNumberUpperBound"`
+	ApplicationReferenceId                       *string `pulumi:"applicationReferenceId"`
+	ApplyDelimiterStringAdvice                   bool    `pulumi:"applyDelimiterStringAdvice"`
+	CommunicationAgreementId                     *string `pulumi:"communicationAgreementId"`
+	CreateGroupingSegments                       bool    `pulumi:"createGroupingSegments"`
+	EnableDefaultGroupHeaders                    bool    `pulumi:"enableDefaultGroupHeaders"`
+	FunctionalGroupId                            *string `pulumi:"functionalGroupId"`
+	GroupApplicationPassword                     *string `pulumi:"groupApplicationPassword"`
+	GroupApplicationReceiverId                   *string `pulumi:"groupApplicationReceiverId"`
+	GroupApplicationReceiverQualifier            *string `pulumi:"groupApplicationReceiverQualifier"`
+	GroupApplicationSenderId                     *string `pulumi:"groupApplicationSenderId"`
+	GroupApplicationSenderQualifier              *string `pulumi:"groupApplicationSenderQualifier"`
+	GroupAssociationAssignedCode                 *string `pulumi:"groupAssociationAssignedCode"`
+	GroupControlNumberLowerBound                 float64 `pulumi:"groupControlNumberLowerBound"`
+	GroupControlNumberPrefix                     *string `pulumi:"groupControlNumberPrefix"`
+	GroupControlNumberSuffix                     *string `pulumi:"groupControlNumberSuffix"`
+	GroupControlNumberUpperBound                 float64 `pulumi:"groupControlNumberUpperBound"`
+	GroupControllingAgencyCode                   *string `pulumi:"groupControllingAgencyCode"`
+	GroupMessageRelease                          *string `pulumi:"groupMessageRelease"`
+	GroupMessageVersion                          *string `pulumi:"groupMessageVersion"`
+	InterchangeControlNumberLowerBound           float64 `pulumi:"interchangeControlNumberLowerBound"`
+	InterchangeControlNumberPrefix               *string `pulumi:"interchangeControlNumberPrefix"`
+	InterchangeControlNumberSuffix               *string `pulumi:"interchangeControlNumberSuffix"`
+	InterchangeControlNumberUpperBound           float64 `pulumi:"interchangeControlNumberUpperBound"`
+	IsTestInterchange                            bool    `pulumi:"isTestInterchange"`
+	OverwriteExistingTransactionSetControlNumber bool    `pulumi:"overwriteExistingTransactionSetControlNumber"`
+	ProcessingPriorityCode                       *string `pulumi:"processingPriorityCode"`
+	ReceiverInternalIdentification               *string `pulumi:"receiverInternalIdentification"`
+	ReceiverInternalSubIdentification            *string `pulumi:"receiverInternalSubIdentification"`
+	ReceiverReverseRoutingAddress                *string `pulumi:"receiverReverseRoutingAddress"`
+	RecipientReferencePasswordQualifier          *string `pulumi:"recipientReferencePasswordQualifier"`
+	RecipientReferencePasswordValue              *string `pulumi:"recipientReferencePasswordValue"`
+	RolloverGroupControlNumber                   bool    `pulumi:"rolloverGroupControlNumber"`
+	RolloverInterchangeControlNumber             bool    `pulumi:"rolloverInterchangeControlNumber"`
+	RolloverTransactionSetControlNumber          bool    `pulumi:"rolloverTransactionSetControlNumber"`
+	SenderInternalIdentification                 *string `pulumi:"senderInternalIdentification"`
+	SenderInternalSubIdentification              *string `pulumi:"senderInternalSubIdentification"`
+	SenderReverseRoutingAddress                  *string `pulumi:"senderReverseRoutingAddress"`
+	TransactionSetControlNumberLowerBound        float64 `pulumi:"transactionSetControlNumberLowerBound"`
+	TransactionSetControlNumberPrefix            *string `pulumi:"transactionSetControlNumberPrefix"`
+	TransactionSetControlNumberSuffix            *string `pulumi:"transactionSetControlNumberSuffix"`
+	TransactionSetControlNumberUpperBound        float64 `pulumi:"transactionSetControlNumberUpperBound"`
 }
 
 // EdifactEnvelopeSettingsResponseInput is an input type that accepts EdifactEnvelopeSettingsResponseArgs and EdifactEnvelopeSettingsResponseOutput values.
@@ -10542,90 +9498,48 @@ type EdifactEnvelopeSettingsResponseInput interface {
 	ToEdifactEnvelopeSettingsResponseOutputWithContext(context.Context) EdifactEnvelopeSettingsResponseOutput
 }
 
-// The Edifact agreement envelope settings.
 type EdifactEnvelopeSettingsResponseArgs struct {
-	// The application reference id.
-	ApplicationReferenceId pulumi.StringPtrInput `pulumi:"applicationReferenceId"`
-	// The value indicating whether to apply delimiter string advice.
-	ApplyDelimiterStringAdvice pulumi.BoolInput `pulumi:"applyDelimiterStringAdvice"`
-	// The communication agreement id.
-	CommunicationAgreementId pulumi.StringPtrInput `pulumi:"communicationAgreementId"`
-	// The value indicating whether to create grouping segments.
-	CreateGroupingSegments pulumi.BoolInput `pulumi:"createGroupingSegments"`
-	// The value indicating whether to enable default group headers.
-	EnableDefaultGroupHeaders pulumi.BoolInput `pulumi:"enableDefaultGroupHeaders"`
-	// The functional group id.
-	FunctionalGroupId pulumi.StringPtrInput `pulumi:"functionalGroupId"`
-	// The group application password.
-	GroupApplicationPassword pulumi.StringPtrInput `pulumi:"groupApplicationPassword"`
-	// The group application receiver id.
-	GroupApplicationReceiverId pulumi.StringPtrInput `pulumi:"groupApplicationReceiverId"`
-	// The group application receiver qualifier.
-	GroupApplicationReceiverQualifier pulumi.StringPtrInput `pulumi:"groupApplicationReceiverQualifier"`
-	// The group application sender id.
-	GroupApplicationSenderId pulumi.StringPtrInput `pulumi:"groupApplicationSenderId"`
-	// The group application sender qualifier.
-	GroupApplicationSenderQualifier pulumi.StringPtrInput `pulumi:"groupApplicationSenderQualifier"`
-	// The group association assigned code.
-	GroupAssociationAssignedCode pulumi.StringPtrInput `pulumi:"groupAssociationAssignedCode"`
-	// The group control number lower bound.
-	GroupControlNumberLowerBound pulumi.Float64Input `pulumi:"groupControlNumberLowerBound"`
-	// The group control number prefix.
-	GroupControlNumberPrefix pulumi.StringPtrInput `pulumi:"groupControlNumberPrefix"`
-	// The group control number suffix.
-	GroupControlNumberSuffix pulumi.StringPtrInput `pulumi:"groupControlNumberSuffix"`
-	// The group control number upper bound.
-	GroupControlNumberUpperBound pulumi.Float64Input `pulumi:"groupControlNumberUpperBound"`
-	// The group controlling agency code.
-	GroupControllingAgencyCode pulumi.StringPtrInput `pulumi:"groupControllingAgencyCode"`
-	// The group message release.
-	GroupMessageRelease pulumi.StringPtrInput `pulumi:"groupMessageRelease"`
-	// The group message version.
-	GroupMessageVersion pulumi.StringPtrInput `pulumi:"groupMessageVersion"`
-	// The interchange control number lower bound.
-	InterchangeControlNumberLowerBound pulumi.Float64Input `pulumi:"interchangeControlNumberLowerBound"`
-	// The interchange control number prefix.
-	InterchangeControlNumberPrefix pulumi.StringPtrInput `pulumi:"interchangeControlNumberPrefix"`
-	// The interchange control number suffix.
-	InterchangeControlNumberSuffix pulumi.StringPtrInput `pulumi:"interchangeControlNumberSuffix"`
-	// The interchange control number upper bound.
-	InterchangeControlNumberUpperBound pulumi.Float64Input `pulumi:"interchangeControlNumberUpperBound"`
-	// The value indicating whether the message is a test interchange.
-	IsTestInterchange pulumi.BoolInput `pulumi:"isTestInterchange"`
-	// The value indicating whether to overwrite existing transaction set control number.
-	OverwriteExistingTransactionSetControlNumber pulumi.BoolInput `pulumi:"overwriteExistingTransactionSetControlNumber"`
-	// The processing priority code.
-	ProcessingPriorityCode pulumi.StringPtrInput `pulumi:"processingPriorityCode"`
-	// The receiver internal identification.
-	ReceiverInternalIdentification pulumi.StringPtrInput `pulumi:"receiverInternalIdentification"`
-	// The receiver internal sub identification.
-	ReceiverInternalSubIdentification pulumi.StringPtrInput `pulumi:"receiverInternalSubIdentification"`
-	// The receiver reverse routing address.
-	ReceiverReverseRoutingAddress pulumi.StringPtrInput `pulumi:"receiverReverseRoutingAddress"`
-	// The recipient reference password qualifier.
-	RecipientReferencePasswordQualifier pulumi.StringPtrInput `pulumi:"recipientReferencePasswordQualifier"`
-	// The recipient reference password value.
-	RecipientReferencePasswordValue pulumi.StringPtrInput `pulumi:"recipientReferencePasswordValue"`
-	// The value indicating whether to rollover group control number.
-	RolloverGroupControlNumber pulumi.BoolInput `pulumi:"rolloverGroupControlNumber"`
-	// The value indicating whether to rollover interchange control number.
-	RolloverInterchangeControlNumber pulumi.BoolInput `pulumi:"rolloverInterchangeControlNumber"`
-	// The value indicating whether to rollover transaction set control number.
-	RolloverTransactionSetControlNumber pulumi.BoolInput `pulumi:"rolloverTransactionSetControlNumber"`
-	// The sender internal identification.
-	SenderInternalIdentification pulumi.StringPtrInput `pulumi:"senderInternalIdentification"`
-	// The sender internal sub identification.
-	SenderInternalSubIdentification pulumi.StringPtrInput `pulumi:"senderInternalSubIdentification"`
-	// The sender reverse routing address.
-	SenderReverseRoutingAddress pulumi.StringPtrInput `pulumi:"senderReverseRoutingAddress"`
-	// The transaction set control number lower bound.
-	TransactionSetControlNumberLowerBound pulumi.Float64Input `pulumi:"transactionSetControlNumberLowerBound"`
-	// The transaction set control number prefix.
-	TransactionSetControlNumberPrefix pulumi.StringPtrInput `pulumi:"transactionSetControlNumberPrefix"`
-	// The transaction set control number suffix.
-	TransactionSetControlNumberSuffix pulumi.StringPtrInput `pulumi:"transactionSetControlNumberSuffix"`
-	// The transaction set control number upper bound.
-	TransactionSetControlNumberUpperBound pulumi.Float64Input `pulumi:"transactionSetControlNumberUpperBound"`
+	ApplicationReferenceId                       pulumi.StringPtrInput `pulumi:"applicationReferenceId"`
+	ApplyDelimiterStringAdvice                   pulumi.BoolInput      `pulumi:"applyDelimiterStringAdvice"`
+	CommunicationAgreementId                     pulumi.StringPtrInput `pulumi:"communicationAgreementId"`
+	CreateGroupingSegments                       pulumi.BoolInput      `pulumi:"createGroupingSegments"`
+	EnableDefaultGroupHeaders                    pulumi.BoolInput      `pulumi:"enableDefaultGroupHeaders"`
+	FunctionalGroupId                            pulumi.StringPtrInput `pulumi:"functionalGroupId"`
+	GroupApplicationPassword                     pulumi.StringPtrInput `pulumi:"groupApplicationPassword"`
+	GroupApplicationReceiverId                   pulumi.StringPtrInput `pulumi:"groupApplicationReceiverId"`
+	GroupApplicationReceiverQualifier            pulumi.StringPtrInput `pulumi:"groupApplicationReceiverQualifier"`
+	GroupApplicationSenderId                     pulumi.StringPtrInput `pulumi:"groupApplicationSenderId"`
+	GroupApplicationSenderQualifier              pulumi.StringPtrInput `pulumi:"groupApplicationSenderQualifier"`
+	GroupAssociationAssignedCode                 pulumi.StringPtrInput `pulumi:"groupAssociationAssignedCode"`
+	GroupControlNumberLowerBound                 pulumi.Float64Input   `pulumi:"groupControlNumberLowerBound"`
+	GroupControlNumberPrefix                     pulumi.StringPtrInput `pulumi:"groupControlNumberPrefix"`
+	GroupControlNumberSuffix                     pulumi.StringPtrInput `pulumi:"groupControlNumberSuffix"`
+	GroupControlNumberUpperBound                 pulumi.Float64Input   `pulumi:"groupControlNumberUpperBound"`
+	GroupControllingAgencyCode                   pulumi.StringPtrInput `pulumi:"groupControllingAgencyCode"`
+	GroupMessageRelease                          pulumi.StringPtrInput `pulumi:"groupMessageRelease"`
+	GroupMessageVersion                          pulumi.StringPtrInput `pulumi:"groupMessageVersion"`
+	InterchangeControlNumberLowerBound           pulumi.Float64Input   `pulumi:"interchangeControlNumberLowerBound"`
+	InterchangeControlNumberPrefix               pulumi.StringPtrInput `pulumi:"interchangeControlNumberPrefix"`
+	InterchangeControlNumberSuffix               pulumi.StringPtrInput `pulumi:"interchangeControlNumberSuffix"`
+	InterchangeControlNumberUpperBound           pulumi.Float64Input   `pulumi:"interchangeControlNumberUpperBound"`
+	IsTestInterchange                            pulumi.BoolInput      `pulumi:"isTestInterchange"`
+	OverwriteExistingTransactionSetControlNumber pulumi.BoolInput      `pulumi:"overwriteExistingTransactionSetControlNumber"`
+	ProcessingPriorityCode                       pulumi.StringPtrInput `pulumi:"processingPriorityCode"`
+	ReceiverInternalIdentification               pulumi.StringPtrInput `pulumi:"receiverInternalIdentification"`
+	ReceiverInternalSubIdentification            pulumi.StringPtrInput `pulumi:"receiverInternalSubIdentification"`
+	ReceiverReverseRoutingAddress                pulumi.StringPtrInput `pulumi:"receiverReverseRoutingAddress"`
+	RecipientReferencePasswordQualifier          pulumi.StringPtrInput `pulumi:"recipientReferencePasswordQualifier"`
+	RecipientReferencePasswordValue              pulumi.StringPtrInput `pulumi:"recipientReferencePasswordValue"`
+	RolloverGroupControlNumber                   pulumi.BoolInput      `pulumi:"rolloverGroupControlNumber"`
+	RolloverInterchangeControlNumber             pulumi.BoolInput      `pulumi:"rolloverInterchangeControlNumber"`
+	RolloverTransactionSetControlNumber          pulumi.BoolInput      `pulumi:"rolloverTransactionSetControlNumber"`
+	SenderInternalIdentification                 pulumi.StringPtrInput `pulumi:"senderInternalIdentification"`
+	SenderInternalSubIdentification              pulumi.StringPtrInput `pulumi:"senderInternalSubIdentification"`
+	SenderReverseRoutingAddress                  pulumi.StringPtrInput `pulumi:"senderReverseRoutingAddress"`
+	TransactionSetControlNumberLowerBound        pulumi.Float64Input   `pulumi:"transactionSetControlNumberLowerBound"`
+	TransactionSetControlNumberPrefix            pulumi.StringPtrInput `pulumi:"transactionSetControlNumberPrefix"`
+	TransactionSetControlNumberSuffix            pulumi.StringPtrInput `pulumi:"transactionSetControlNumberSuffix"`
+	TransactionSetControlNumberUpperBound        pulumi.Float64Input   `pulumi:"transactionSetControlNumberUpperBound"`
 }
 
 func (EdifactEnvelopeSettingsResponseArgs) ElementType() reflect.Type {
@@ -10681,7 +9595,6 @@ func (i *edifactEnvelopeSettingsResponsePtrType) ToEdifactEnvelopeSettingsRespon
 	return pulumi.ToOutputWithContext(ctx, i).(EdifactEnvelopeSettingsResponsePtrOutput)
 }
 
-// The Edifact agreement envelope settings.
 type EdifactEnvelopeSettingsResponseOutput struct{ *pulumi.OutputState }
 
 func (EdifactEnvelopeSettingsResponseOutput) ElementType() reflect.Type {
@@ -10701,212 +9614,171 @@ func (o EdifactEnvelopeSettingsResponseOutput) ToEdifactEnvelopeSettingsResponse
 }
 
 func (o EdifactEnvelopeSettingsResponseOutput) ToEdifactEnvelopeSettingsResponsePtrOutputWithContext(ctx context.Context) EdifactEnvelopeSettingsResponsePtrOutput {
-	return o.ApplyT(func(v EdifactEnvelopeSettingsResponse) *EdifactEnvelopeSettingsResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v EdifactEnvelopeSettingsResponse) *EdifactEnvelopeSettingsResponse {
 		return &v
 	}).(EdifactEnvelopeSettingsResponsePtrOutput)
 }
 
-// The application reference id.
 func (o EdifactEnvelopeSettingsResponseOutput) ApplicationReferenceId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v EdifactEnvelopeSettingsResponse) *string { return v.ApplicationReferenceId }).(pulumi.StringPtrOutput)
 }
 
-// The value indicating whether to apply delimiter string advice.
 func (o EdifactEnvelopeSettingsResponseOutput) ApplyDelimiterStringAdvice() pulumi.BoolOutput {
 	return o.ApplyT(func(v EdifactEnvelopeSettingsResponse) bool { return v.ApplyDelimiterStringAdvice }).(pulumi.BoolOutput)
 }
 
-// The communication agreement id.
 func (o EdifactEnvelopeSettingsResponseOutput) CommunicationAgreementId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v EdifactEnvelopeSettingsResponse) *string { return v.CommunicationAgreementId }).(pulumi.StringPtrOutput)
 }
 
-// The value indicating whether to create grouping segments.
 func (o EdifactEnvelopeSettingsResponseOutput) CreateGroupingSegments() pulumi.BoolOutput {
 	return o.ApplyT(func(v EdifactEnvelopeSettingsResponse) bool { return v.CreateGroupingSegments }).(pulumi.BoolOutput)
 }
 
-// The value indicating whether to enable default group headers.
 func (o EdifactEnvelopeSettingsResponseOutput) EnableDefaultGroupHeaders() pulumi.BoolOutput {
 	return o.ApplyT(func(v EdifactEnvelopeSettingsResponse) bool { return v.EnableDefaultGroupHeaders }).(pulumi.BoolOutput)
 }
 
-// The functional group id.
 func (o EdifactEnvelopeSettingsResponseOutput) FunctionalGroupId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v EdifactEnvelopeSettingsResponse) *string { return v.FunctionalGroupId }).(pulumi.StringPtrOutput)
 }
 
-// The group application password.
 func (o EdifactEnvelopeSettingsResponseOutput) GroupApplicationPassword() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v EdifactEnvelopeSettingsResponse) *string { return v.GroupApplicationPassword }).(pulumi.StringPtrOutput)
 }
 
-// The group application receiver id.
 func (o EdifactEnvelopeSettingsResponseOutput) GroupApplicationReceiverId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v EdifactEnvelopeSettingsResponse) *string { return v.GroupApplicationReceiverId }).(pulumi.StringPtrOutput)
 }
 
-// The group application receiver qualifier.
 func (o EdifactEnvelopeSettingsResponseOutput) GroupApplicationReceiverQualifier() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v EdifactEnvelopeSettingsResponse) *string { return v.GroupApplicationReceiverQualifier }).(pulumi.StringPtrOutput)
 }
 
-// The group application sender id.
 func (o EdifactEnvelopeSettingsResponseOutput) GroupApplicationSenderId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v EdifactEnvelopeSettingsResponse) *string { return v.GroupApplicationSenderId }).(pulumi.StringPtrOutput)
 }
 
-// The group application sender qualifier.
 func (o EdifactEnvelopeSettingsResponseOutput) GroupApplicationSenderQualifier() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v EdifactEnvelopeSettingsResponse) *string { return v.GroupApplicationSenderQualifier }).(pulumi.StringPtrOutput)
 }
 
-// The group association assigned code.
 func (o EdifactEnvelopeSettingsResponseOutput) GroupAssociationAssignedCode() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v EdifactEnvelopeSettingsResponse) *string { return v.GroupAssociationAssignedCode }).(pulumi.StringPtrOutput)
 }
 
-// The group control number lower bound.
 func (o EdifactEnvelopeSettingsResponseOutput) GroupControlNumberLowerBound() pulumi.Float64Output {
 	return o.ApplyT(func(v EdifactEnvelopeSettingsResponse) float64 { return v.GroupControlNumberLowerBound }).(pulumi.Float64Output)
 }
 
-// The group control number prefix.
 func (o EdifactEnvelopeSettingsResponseOutput) GroupControlNumberPrefix() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v EdifactEnvelopeSettingsResponse) *string { return v.GroupControlNumberPrefix }).(pulumi.StringPtrOutput)
 }
 
-// The group control number suffix.
 func (o EdifactEnvelopeSettingsResponseOutput) GroupControlNumberSuffix() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v EdifactEnvelopeSettingsResponse) *string { return v.GroupControlNumberSuffix }).(pulumi.StringPtrOutput)
 }
 
-// The group control number upper bound.
 func (o EdifactEnvelopeSettingsResponseOutput) GroupControlNumberUpperBound() pulumi.Float64Output {
 	return o.ApplyT(func(v EdifactEnvelopeSettingsResponse) float64 { return v.GroupControlNumberUpperBound }).(pulumi.Float64Output)
 }
 
-// The group controlling agency code.
 func (o EdifactEnvelopeSettingsResponseOutput) GroupControllingAgencyCode() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v EdifactEnvelopeSettingsResponse) *string { return v.GroupControllingAgencyCode }).(pulumi.StringPtrOutput)
 }
 
-// The group message release.
 func (o EdifactEnvelopeSettingsResponseOutput) GroupMessageRelease() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v EdifactEnvelopeSettingsResponse) *string { return v.GroupMessageRelease }).(pulumi.StringPtrOutput)
 }
 
-// The group message version.
 func (o EdifactEnvelopeSettingsResponseOutput) GroupMessageVersion() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v EdifactEnvelopeSettingsResponse) *string { return v.GroupMessageVersion }).(pulumi.StringPtrOutput)
 }
 
-// The interchange control number lower bound.
 func (o EdifactEnvelopeSettingsResponseOutput) InterchangeControlNumberLowerBound() pulumi.Float64Output {
 	return o.ApplyT(func(v EdifactEnvelopeSettingsResponse) float64 { return v.InterchangeControlNumberLowerBound }).(pulumi.Float64Output)
 }
 
-// The interchange control number prefix.
 func (o EdifactEnvelopeSettingsResponseOutput) InterchangeControlNumberPrefix() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v EdifactEnvelopeSettingsResponse) *string { return v.InterchangeControlNumberPrefix }).(pulumi.StringPtrOutput)
 }
 
-// The interchange control number suffix.
 func (o EdifactEnvelopeSettingsResponseOutput) InterchangeControlNumberSuffix() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v EdifactEnvelopeSettingsResponse) *string { return v.InterchangeControlNumberSuffix }).(pulumi.StringPtrOutput)
 }
 
-// The interchange control number upper bound.
 func (o EdifactEnvelopeSettingsResponseOutput) InterchangeControlNumberUpperBound() pulumi.Float64Output {
 	return o.ApplyT(func(v EdifactEnvelopeSettingsResponse) float64 { return v.InterchangeControlNumberUpperBound }).(pulumi.Float64Output)
 }
 
-// The value indicating whether the message is a test interchange.
 func (o EdifactEnvelopeSettingsResponseOutput) IsTestInterchange() pulumi.BoolOutput {
 	return o.ApplyT(func(v EdifactEnvelopeSettingsResponse) bool { return v.IsTestInterchange }).(pulumi.BoolOutput)
 }
 
-// The value indicating whether to overwrite existing transaction set control number.
 func (o EdifactEnvelopeSettingsResponseOutput) OverwriteExistingTransactionSetControlNumber() pulumi.BoolOutput {
 	return o.ApplyT(func(v EdifactEnvelopeSettingsResponse) bool { return v.OverwriteExistingTransactionSetControlNumber }).(pulumi.BoolOutput)
 }
 
-// The processing priority code.
 func (o EdifactEnvelopeSettingsResponseOutput) ProcessingPriorityCode() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v EdifactEnvelopeSettingsResponse) *string { return v.ProcessingPriorityCode }).(pulumi.StringPtrOutput)
 }
 
-// The receiver internal identification.
 func (o EdifactEnvelopeSettingsResponseOutput) ReceiverInternalIdentification() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v EdifactEnvelopeSettingsResponse) *string { return v.ReceiverInternalIdentification }).(pulumi.StringPtrOutput)
 }
 
-// The receiver internal sub identification.
 func (o EdifactEnvelopeSettingsResponseOutput) ReceiverInternalSubIdentification() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v EdifactEnvelopeSettingsResponse) *string { return v.ReceiverInternalSubIdentification }).(pulumi.StringPtrOutput)
 }
 
-// The receiver reverse routing address.
 func (o EdifactEnvelopeSettingsResponseOutput) ReceiverReverseRoutingAddress() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v EdifactEnvelopeSettingsResponse) *string { return v.ReceiverReverseRoutingAddress }).(pulumi.StringPtrOutput)
 }
 
-// The recipient reference password qualifier.
 func (o EdifactEnvelopeSettingsResponseOutput) RecipientReferencePasswordQualifier() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v EdifactEnvelopeSettingsResponse) *string { return v.RecipientReferencePasswordQualifier }).(pulumi.StringPtrOutput)
 }
 
-// The recipient reference password value.
 func (o EdifactEnvelopeSettingsResponseOutput) RecipientReferencePasswordValue() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v EdifactEnvelopeSettingsResponse) *string { return v.RecipientReferencePasswordValue }).(pulumi.StringPtrOutput)
 }
 
-// The value indicating whether to rollover group control number.
 func (o EdifactEnvelopeSettingsResponseOutput) RolloverGroupControlNumber() pulumi.BoolOutput {
 	return o.ApplyT(func(v EdifactEnvelopeSettingsResponse) bool { return v.RolloverGroupControlNumber }).(pulumi.BoolOutput)
 }
 
-// The value indicating whether to rollover interchange control number.
 func (o EdifactEnvelopeSettingsResponseOutput) RolloverInterchangeControlNumber() pulumi.BoolOutput {
 	return o.ApplyT(func(v EdifactEnvelopeSettingsResponse) bool { return v.RolloverInterchangeControlNumber }).(pulumi.BoolOutput)
 }
 
-// The value indicating whether to rollover transaction set control number.
 func (o EdifactEnvelopeSettingsResponseOutput) RolloverTransactionSetControlNumber() pulumi.BoolOutput {
 	return o.ApplyT(func(v EdifactEnvelopeSettingsResponse) bool { return v.RolloverTransactionSetControlNumber }).(pulumi.BoolOutput)
 }
 
-// The sender internal identification.
 func (o EdifactEnvelopeSettingsResponseOutput) SenderInternalIdentification() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v EdifactEnvelopeSettingsResponse) *string { return v.SenderInternalIdentification }).(pulumi.StringPtrOutput)
 }
 
-// The sender internal sub identification.
 func (o EdifactEnvelopeSettingsResponseOutput) SenderInternalSubIdentification() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v EdifactEnvelopeSettingsResponse) *string { return v.SenderInternalSubIdentification }).(pulumi.StringPtrOutput)
 }
 
-// The sender reverse routing address.
 func (o EdifactEnvelopeSettingsResponseOutput) SenderReverseRoutingAddress() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v EdifactEnvelopeSettingsResponse) *string { return v.SenderReverseRoutingAddress }).(pulumi.StringPtrOutput)
 }
 
-// The transaction set control number lower bound.
 func (o EdifactEnvelopeSettingsResponseOutput) TransactionSetControlNumberLowerBound() pulumi.Float64Output {
 	return o.ApplyT(func(v EdifactEnvelopeSettingsResponse) float64 { return v.TransactionSetControlNumberLowerBound }).(pulumi.Float64Output)
 }
 
-// The transaction set control number prefix.
 func (o EdifactEnvelopeSettingsResponseOutput) TransactionSetControlNumberPrefix() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v EdifactEnvelopeSettingsResponse) *string { return v.TransactionSetControlNumberPrefix }).(pulumi.StringPtrOutput)
 }
 
-// The transaction set control number suffix.
 func (o EdifactEnvelopeSettingsResponseOutput) TransactionSetControlNumberSuffix() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v EdifactEnvelopeSettingsResponse) *string { return v.TransactionSetControlNumberSuffix }).(pulumi.StringPtrOutput)
 }
 
-// The transaction set control number upper bound.
 func (o EdifactEnvelopeSettingsResponseOutput) TransactionSetControlNumberUpperBound() pulumi.Float64Output {
 	return o.ApplyT(func(v EdifactEnvelopeSettingsResponse) float64 { return v.TransactionSetControlNumberUpperBound }).(pulumi.Float64Output)
 }
@@ -10926,10 +9798,15 @@ func (o EdifactEnvelopeSettingsResponsePtrOutput) ToEdifactEnvelopeSettingsRespo
 }
 
 func (o EdifactEnvelopeSettingsResponsePtrOutput) Elem() EdifactEnvelopeSettingsResponseOutput {
-	return o.ApplyT(func(v *EdifactEnvelopeSettingsResponse) EdifactEnvelopeSettingsResponse { return *v }).(EdifactEnvelopeSettingsResponseOutput)
+	return o.ApplyT(func(v *EdifactEnvelopeSettingsResponse) EdifactEnvelopeSettingsResponse {
+		if v != nil {
+			return *v
+		}
+		var ret EdifactEnvelopeSettingsResponse
+		return ret
+	}).(EdifactEnvelopeSettingsResponseOutput)
 }
 
-// The application reference id.
 func (o EdifactEnvelopeSettingsResponsePtrOutput) ApplicationReferenceId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *EdifactEnvelopeSettingsResponse) *string {
 		if v == nil {
@@ -10939,7 +9816,6 @@ func (o EdifactEnvelopeSettingsResponsePtrOutput) ApplicationReferenceId() pulum
 	}).(pulumi.StringPtrOutput)
 }
 
-// The value indicating whether to apply delimiter string advice.
 func (o EdifactEnvelopeSettingsResponsePtrOutput) ApplyDelimiterStringAdvice() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *EdifactEnvelopeSettingsResponse) *bool {
 		if v == nil {
@@ -10949,7 +9825,6 @@ func (o EdifactEnvelopeSettingsResponsePtrOutput) ApplyDelimiterStringAdvice() p
 	}).(pulumi.BoolPtrOutput)
 }
 
-// The communication agreement id.
 func (o EdifactEnvelopeSettingsResponsePtrOutput) CommunicationAgreementId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *EdifactEnvelopeSettingsResponse) *string {
 		if v == nil {
@@ -10959,7 +9834,6 @@ func (o EdifactEnvelopeSettingsResponsePtrOutput) CommunicationAgreementId() pul
 	}).(pulumi.StringPtrOutput)
 }
 
-// The value indicating whether to create grouping segments.
 func (o EdifactEnvelopeSettingsResponsePtrOutput) CreateGroupingSegments() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *EdifactEnvelopeSettingsResponse) *bool {
 		if v == nil {
@@ -10969,7 +9843,6 @@ func (o EdifactEnvelopeSettingsResponsePtrOutput) CreateGroupingSegments() pulum
 	}).(pulumi.BoolPtrOutput)
 }
 
-// The value indicating whether to enable default group headers.
 func (o EdifactEnvelopeSettingsResponsePtrOutput) EnableDefaultGroupHeaders() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *EdifactEnvelopeSettingsResponse) *bool {
 		if v == nil {
@@ -10979,7 +9852,6 @@ func (o EdifactEnvelopeSettingsResponsePtrOutput) EnableDefaultGroupHeaders() pu
 	}).(pulumi.BoolPtrOutput)
 }
 
-// The functional group id.
 func (o EdifactEnvelopeSettingsResponsePtrOutput) FunctionalGroupId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *EdifactEnvelopeSettingsResponse) *string {
 		if v == nil {
@@ -10989,7 +9861,6 @@ func (o EdifactEnvelopeSettingsResponsePtrOutput) FunctionalGroupId() pulumi.Str
 	}).(pulumi.StringPtrOutput)
 }
 
-// The group application password.
 func (o EdifactEnvelopeSettingsResponsePtrOutput) GroupApplicationPassword() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *EdifactEnvelopeSettingsResponse) *string {
 		if v == nil {
@@ -10999,7 +9870,6 @@ func (o EdifactEnvelopeSettingsResponsePtrOutput) GroupApplicationPassword() pul
 	}).(pulumi.StringPtrOutput)
 }
 
-// The group application receiver id.
 func (o EdifactEnvelopeSettingsResponsePtrOutput) GroupApplicationReceiverId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *EdifactEnvelopeSettingsResponse) *string {
 		if v == nil {
@@ -11009,7 +9879,6 @@ func (o EdifactEnvelopeSettingsResponsePtrOutput) GroupApplicationReceiverId() p
 	}).(pulumi.StringPtrOutput)
 }
 
-// The group application receiver qualifier.
 func (o EdifactEnvelopeSettingsResponsePtrOutput) GroupApplicationReceiverQualifier() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *EdifactEnvelopeSettingsResponse) *string {
 		if v == nil {
@@ -11019,7 +9888,6 @@ func (o EdifactEnvelopeSettingsResponsePtrOutput) GroupApplicationReceiverQualif
 	}).(pulumi.StringPtrOutput)
 }
 
-// The group application sender id.
 func (o EdifactEnvelopeSettingsResponsePtrOutput) GroupApplicationSenderId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *EdifactEnvelopeSettingsResponse) *string {
 		if v == nil {
@@ -11029,7 +9897,6 @@ func (o EdifactEnvelopeSettingsResponsePtrOutput) GroupApplicationSenderId() pul
 	}).(pulumi.StringPtrOutput)
 }
 
-// The group application sender qualifier.
 func (o EdifactEnvelopeSettingsResponsePtrOutput) GroupApplicationSenderQualifier() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *EdifactEnvelopeSettingsResponse) *string {
 		if v == nil {
@@ -11039,7 +9906,6 @@ func (o EdifactEnvelopeSettingsResponsePtrOutput) GroupApplicationSenderQualifie
 	}).(pulumi.StringPtrOutput)
 }
 
-// The group association assigned code.
 func (o EdifactEnvelopeSettingsResponsePtrOutput) GroupAssociationAssignedCode() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *EdifactEnvelopeSettingsResponse) *string {
 		if v == nil {
@@ -11049,7 +9915,6 @@ func (o EdifactEnvelopeSettingsResponsePtrOutput) GroupAssociationAssignedCode()
 	}).(pulumi.StringPtrOutput)
 }
 
-// The group control number lower bound.
 func (o EdifactEnvelopeSettingsResponsePtrOutput) GroupControlNumberLowerBound() pulumi.Float64PtrOutput {
 	return o.ApplyT(func(v *EdifactEnvelopeSettingsResponse) *float64 {
 		if v == nil {
@@ -11059,7 +9924,6 @@ func (o EdifactEnvelopeSettingsResponsePtrOutput) GroupControlNumberLowerBound()
 	}).(pulumi.Float64PtrOutput)
 }
 
-// The group control number prefix.
 func (o EdifactEnvelopeSettingsResponsePtrOutput) GroupControlNumberPrefix() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *EdifactEnvelopeSettingsResponse) *string {
 		if v == nil {
@@ -11069,7 +9933,6 @@ func (o EdifactEnvelopeSettingsResponsePtrOutput) GroupControlNumberPrefix() pul
 	}).(pulumi.StringPtrOutput)
 }
 
-// The group control number suffix.
 func (o EdifactEnvelopeSettingsResponsePtrOutput) GroupControlNumberSuffix() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *EdifactEnvelopeSettingsResponse) *string {
 		if v == nil {
@@ -11079,7 +9942,6 @@ func (o EdifactEnvelopeSettingsResponsePtrOutput) GroupControlNumberSuffix() pul
 	}).(pulumi.StringPtrOutput)
 }
 
-// The group control number upper bound.
 func (o EdifactEnvelopeSettingsResponsePtrOutput) GroupControlNumberUpperBound() pulumi.Float64PtrOutput {
 	return o.ApplyT(func(v *EdifactEnvelopeSettingsResponse) *float64 {
 		if v == nil {
@@ -11089,7 +9951,6 @@ func (o EdifactEnvelopeSettingsResponsePtrOutput) GroupControlNumberUpperBound()
 	}).(pulumi.Float64PtrOutput)
 }
 
-// The group controlling agency code.
 func (o EdifactEnvelopeSettingsResponsePtrOutput) GroupControllingAgencyCode() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *EdifactEnvelopeSettingsResponse) *string {
 		if v == nil {
@@ -11099,7 +9960,6 @@ func (o EdifactEnvelopeSettingsResponsePtrOutput) GroupControllingAgencyCode() p
 	}).(pulumi.StringPtrOutput)
 }
 
-// The group message release.
 func (o EdifactEnvelopeSettingsResponsePtrOutput) GroupMessageRelease() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *EdifactEnvelopeSettingsResponse) *string {
 		if v == nil {
@@ -11109,7 +9969,6 @@ func (o EdifactEnvelopeSettingsResponsePtrOutput) GroupMessageRelease() pulumi.S
 	}).(pulumi.StringPtrOutput)
 }
 
-// The group message version.
 func (o EdifactEnvelopeSettingsResponsePtrOutput) GroupMessageVersion() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *EdifactEnvelopeSettingsResponse) *string {
 		if v == nil {
@@ -11119,7 +9978,6 @@ func (o EdifactEnvelopeSettingsResponsePtrOutput) GroupMessageVersion() pulumi.S
 	}).(pulumi.StringPtrOutput)
 }
 
-// The interchange control number lower bound.
 func (o EdifactEnvelopeSettingsResponsePtrOutput) InterchangeControlNumberLowerBound() pulumi.Float64PtrOutput {
 	return o.ApplyT(func(v *EdifactEnvelopeSettingsResponse) *float64 {
 		if v == nil {
@@ -11129,7 +9987,6 @@ func (o EdifactEnvelopeSettingsResponsePtrOutput) InterchangeControlNumberLowerB
 	}).(pulumi.Float64PtrOutput)
 }
 
-// The interchange control number prefix.
 func (o EdifactEnvelopeSettingsResponsePtrOutput) InterchangeControlNumberPrefix() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *EdifactEnvelopeSettingsResponse) *string {
 		if v == nil {
@@ -11139,7 +9996,6 @@ func (o EdifactEnvelopeSettingsResponsePtrOutput) InterchangeControlNumberPrefix
 	}).(pulumi.StringPtrOutput)
 }
 
-// The interchange control number suffix.
 func (o EdifactEnvelopeSettingsResponsePtrOutput) InterchangeControlNumberSuffix() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *EdifactEnvelopeSettingsResponse) *string {
 		if v == nil {
@@ -11149,7 +10005,6 @@ func (o EdifactEnvelopeSettingsResponsePtrOutput) InterchangeControlNumberSuffix
 	}).(pulumi.StringPtrOutput)
 }
 
-// The interchange control number upper bound.
 func (o EdifactEnvelopeSettingsResponsePtrOutput) InterchangeControlNumberUpperBound() pulumi.Float64PtrOutput {
 	return o.ApplyT(func(v *EdifactEnvelopeSettingsResponse) *float64 {
 		if v == nil {
@@ -11159,7 +10014,6 @@ func (o EdifactEnvelopeSettingsResponsePtrOutput) InterchangeControlNumberUpperB
 	}).(pulumi.Float64PtrOutput)
 }
 
-// The value indicating whether the message is a test interchange.
 func (o EdifactEnvelopeSettingsResponsePtrOutput) IsTestInterchange() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *EdifactEnvelopeSettingsResponse) *bool {
 		if v == nil {
@@ -11169,7 +10023,6 @@ func (o EdifactEnvelopeSettingsResponsePtrOutput) IsTestInterchange() pulumi.Boo
 	}).(pulumi.BoolPtrOutput)
 }
 
-// The value indicating whether to overwrite existing transaction set control number.
 func (o EdifactEnvelopeSettingsResponsePtrOutput) OverwriteExistingTransactionSetControlNumber() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *EdifactEnvelopeSettingsResponse) *bool {
 		if v == nil {
@@ -11179,7 +10032,6 @@ func (o EdifactEnvelopeSettingsResponsePtrOutput) OverwriteExistingTransactionSe
 	}).(pulumi.BoolPtrOutput)
 }
 
-// The processing priority code.
 func (o EdifactEnvelopeSettingsResponsePtrOutput) ProcessingPriorityCode() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *EdifactEnvelopeSettingsResponse) *string {
 		if v == nil {
@@ -11189,7 +10041,6 @@ func (o EdifactEnvelopeSettingsResponsePtrOutput) ProcessingPriorityCode() pulum
 	}).(pulumi.StringPtrOutput)
 }
 
-// The receiver internal identification.
 func (o EdifactEnvelopeSettingsResponsePtrOutput) ReceiverInternalIdentification() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *EdifactEnvelopeSettingsResponse) *string {
 		if v == nil {
@@ -11199,7 +10050,6 @@ func (o EdifactEnvelopeSettingsResponsePtrOutput) ReceiverInternalIdentification
 	}).(pulumi.StringPtrOutput)
 }
 
-// The receiver internal sub identification.
 func (o EdifactEnvelopeSettingsResponsePtrOutput) ReceiverInternalSubIdentification() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *EdifactEnvelopeSettingsResponse) *string {
 		if v == nil {
@@ -11209,7 +10059,6 @@ func (o EdifactEnvelopeSettingsResponsePtrOutput) ReceiverInternalSubIdentificat
 	}).(pulumi.StringPtrOutput)
 }
 
-// The receiver reverse routing address.
 func (o EdifactEnvelopeSettingsResponsePtrOutput) ReceiverReverseRoutingAddress() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *EdifactEnvelopeSettingsResponse) *string {
 		if v == nil {
@@ -11219,7 +10068,6 @@ func (o EdifactEnvelopeSettingsResponsePtrOutput) ReceiverReverseRoutingAddress(
 	}).(pulumi.StringPtrOutput)
 }
 
-// The recipient reference password qualifier.
 func (o EdifactEnvelopeSettingsResponsePtrOutput) RecipientReferencePasswordQualifier() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *EdifactEnvelopeSettingsResponse) *string {
 		if v == nil {
@@ -11229,7 +10077,6 @@ func (o EdifactEnvelopeSettingsResponsePtrOutput) RecipientReferencePasswordQual
 	}).(pulumi.StringPtrOutput)
 }
 
-// The recipient reference password value.
 func (o EdifactEnvelopeSettingsResponsePtrOutput) RecipientReferencePasswordValue() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *EdifactEnvelopeSettingsResponse) *string {
 		if v == nil {
@@ -11239,7 +10086,6 @@ func (o EdifactEnvelopeSettingsResponsePtrOutput) RecipientReferencePasswordValu
 	}).(pulumi.StringPtrOutput)
 }
 
-// The value indicating whether to rollover group control number.
 func (o EdifactEnvelopeSettingsResponsePtrOutput) RolloverGroupControlNumber() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *EdifactEnvelopeSettingsResponse) *bool {
 		if v == nil {
@@ -11249,7 +10095,6 @@ func (o EdifactEnvelopeSettingsResponsePtrOutput) RolloverGroupControlNumber() p
 	}).(pulumi.BoolPtrOutput)
 }
 
-// The value indicating whether to rollover interchange control number.
 func (o EdifactEnvelopeSettingsResponsePtrOutput) RolloverInterchangeControlNumber() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *EdifactEnvelopeSettingsResponse) *bool {
 		if v == nil {
@@ -11259,7 +10104,6 @@ func (o EdifactEnvelopeSettingsResponsePtrOutput) RolloverInterchangeControlNumb
 	}).(pulumi.BoolPtrOutput)
 }
 
-// The value indicating whether to rollover transaction set control number.
 func (o EdifactEnvelopeSettingsResponsePtrOutput) RolloverTransactionSetControlNumber() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *EdifactEnvelopeSettingsResponse) *bool {
 		if v == nil {
@@ -11269,7 +10113,6 @@ func (o EdifactEnvelopeSettingsResponsePtrOutput) RolloverTransactionSetControlN
 	}).(pulumi.BoolPtrOutput)
 }
 
-// The sender internal identification.
 func (o EdifactEnvelopeSettingsResponsePtrOutput) SenderInternalIdentification() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *EdifactEnvelopeSettingsResponse) *string {
 		if v == nil {
@@ -11279,7 +10122,6 @@ func (o EdifactEnvelopeSettingsResponsePtrOutput) SenderInternalIdentification()
 	}).(pulumi.StringPtrOutput)
 }
 
-// The sender internal sub identification.
 func (o EdifactEnvelopeSettingsResponsePtrOutput) SenderInternalSubIdentification() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *EdifactEnvelopeSettingsResponse) *string {
 		if v == nil {
@@ -11289,7 +10131,6 @@ func (o EdifactEnvelopeSettingsResponsePtrOutput) SenderInternalSubIdentificatio
 	}).(pulumi.StringPtrOutput)
 }
 
-// The sender reverse routing address.
 func (o EdifactEnvelopeSettingsResponsePtrOutput) SenderReverseRoutingAddress() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *EdifactEnvelopeSettingsResponse) *string {
 		if v == nil {
@@ -11299,7 +10140,6 @@ func (o EdifactEnvelopeSettingsResponsePtrOutput) SenderReverseRoutingAddress() 
 	}).(pulumi.StringPtrOutput)
 }
 
-// The transaction set control number lower bound.
 func (o EdifactEnvelopeSettingsResponsePtrOutput) TransactionSetControlNumberLowerBound() pulumi.Float64PtrOutput {
 	return o.ApplyT(func(v *EdifactEnvelopeSettingsResponse) *float64 {
 		if v == nil {
@@ -11309,7 +10149,6 @@ func (o EdifactEnvelopeSettingsResponsePtrOutput) TransactionSetControlNumberLow
 	}).(pulumi.Float64PtrOutput)
 }
 
-// The transaction set control number prefix.
 func (o EdifactEnvelopeSettingsResponsePtrOutput) TransactionSetControlNumberPrefix() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *EdifactEnvelopeSettingsResponse) *string {
 		if v == nil {
@@ -11319,7 +10158,6 @@ func (o EdifactEnvelopeSettingsResponsePtrOutput) TransactionSetControlNumberPre
 	}).(pulumi.StringPtrOutput)
 }
 
-// The transaction set control number suffix.
 func (o EdifactEnvelopeSettingsResponsePtrOutput) TransactionSetControlNumberSuffix() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *EdifactEnvelopeSettingsResponse) *string {
 		if v == nil {
@@ -11329,7 +10167,6 @@ func (o EdifactEnvelopeSettingsResponsePtrOutput) TransactionSetControlNumberSuf
 	}).(pulumi.StringPtrOutput)
 }
 
-// The transaction set control number upper bound.
 func (o EdifactEnvelopeSettingsResponsePtrOutput) TransactionSetControlNumberUpperBound() pulumi.Float64PtrOutput {
 	return o.ApplyT(func(v *EdifactEnvelopeSettingsResponse) *float64 {
 		if v == nil {
@@ -11339,30 +10176,18 @@ func (o EdifactEnvelopeSettingsResponsePtrOutput) TransactionSetControlNumberUpp
 	}).(pulumi.Float64PtrOutput)
 }
 
-// The Edifact agreement framing settings.
 type EdifactFramingSettings struct {
-	// The character encoding.
-	CharacterEncoding *string `pulumi:"characterEncoding"`
-	// The EDIFACT frame setting characterSet.
-	CharacterSet string `pulumi:"characterSet"`
-	// The component separator.
-	ComponentSeparator int `pulumi:"componentSeparator"`
-	// The data element separator.
-	DataElementSeparator int `pulumi:"dataElementSeparator"`
-	// The EDIFACT frame setting decimal indicator.
-	DecimalPointIndicator string `pulumi:"decimalPointIndicator"`
-	// The protocol version.
-	ProtocolVersion int `pulumi:"protocolVersion"`
-	// The release indicator.
-	ReleaseIndicator int `pulumi:"releaseIndicator"`
-	// The repetition separator.
-	RepetitionSeparator int `pulumi:"repetitionSeparator"`
-	// The segment terminator.
-	SegmentTerminator int `pulumi:"segmentTerminator"`
-	// The EDIFACT frame setting segment terminator suffix.
-	SegmentTerminatorSuffix string `pulumi:"segmentTerminatorSuffix"`
-	// The service code list directory version.
-	ServiceCodeListDirectoryVersion *string `pulumi:"serviceCodeListDirectoryVersion"`
+	CharacterEncoding               *string                 `pulumi:"characterEncoding"`
+	CharacterSet                    string                  `pulumi:"characterSet"`
+	ComponentSeparator              int                     `pulumi:"componentSeparator"`
+	DataElementSeparator            int                     `pulumi:"dataElementSeparator"`
+	DecimalPointIndicator           EdifactDecimalIndicator `pulumi:"decimalPointIndicator"`
+	ProtocolVersion                 int                     `pulumi:"protocolVersion"`
+	ReleaseIndicator                int                     `pulumi:"releaseIndicator"`
+	RepetitionSeparator             int                     `pulumi:"repetitionSeparator"`
+	SegmentTerminator               int                     `pulumi:"segmentTerminator"`
+	SegmentTerminatorSuffix         SegmentTerminatorSuffix `pulumi:"segmentTerminatorSuffix"`
+	ServiceCodeListDirectoryVersion *string                 `pulumi:"serviceCodeListDirectoryVersion"`
 }
 
 // EdifactFramingSettingsInput is an input type that accepts EdifactFramingSettingsArgs and EdifactFramingSettingsOutput values.
@@ -11376,30 +10201,18 @@ type EdifactFramingSettingsInput interface {
 	ToEdifactFramingSettingsOutputWithContext(context.Context) EdifactFramingSettingsOutput
 }
 
-// The Edifact agreement framing settings.
 type EdifactFramingSettingsArgs struct {
-	// The character encoding.
-	CharacterEncoding pulumi.StringPtrInput `pulumi:"characterEncoding"`
-	// The EDIFACT frame setting characterSet.
-	CharacterSet pulumi.StringInput `pulumi:"characterSet"`
-	// The component separator.
-	ComponentSeparator pulumi.IntInput `pulumi:"componentSeparator"`
-	// The data element separator.
-	DataElementSeparator pulumi.IntInput `pulumi:"dataElementSeparator"`
-	// The EDIFACT frame setting decimal indicator.
-	DecimalPointIndicator EdifactDecimalIndicator `pulumi:"decimalPointIndicator"`
-	// The protocol version.
-	ProtocolVersion pulumi.IntInput `pulumi:"protocolVersion"`
-	// The release indicator.
-	ReleaseIndicator pulumi.IntInput `pulumi:"releaseIndicator"`
-	// The repetition separator.
-	RepetitionSeparator pulumi.IntInput `pulumi:"repetitionSeparator"`
-	// The segment terminator.
-	SegmentTerminator pulumi.IntInput `pulumi:"segmentTerminator"`
-	// The EDIFACT frame setting segment terminator suffix.
-	SegmentTerminatorSuffix SegmentTerminatorSuffix `pulumi:"segmentTerminatorSuffix"`
-	// The service code list directory version.
-	ServiceCodeListDirectoryVersion pulumi.StringPtrInput `pulumi:"serviceCodeListDirectoryVersion"`
+	CharacterEncoding               pulumi.StringPtrInput        `pulumi:"characterEncoding"`
+	CharacterSet                    pulumi.StringInput           `pulumi:"characterSet"`
+	ComponentSeparator              pulumi.IntInput              `pulumi:"componentSeparator"`
+	DataElementSeparator            pulumi.IntInput              `pulumi:"dataElementSeparator"`
+	DecimalPointIndicator           EdifactDecimalIndicatorInput `pulumi:"decimalPointIndicator"`
+	ProtocolVersion                 pulumi.IntInput              `pulumi:"protocolVersion"`
+	ReleaseIndicator                pulumi.IntInput              `pulumi:"releaseIndicator"`
+	RepetitionSeparator             pulumi.IntInput              `pulumi:"repetitionSeparator"`
+	SegmentTerminator               pulumi.IntInput              `pulumi:"segmentTerminator"`
+	SegmentTerminatorSuffix         SegmentTerminatorSuffixInput `pulumi:"segmentTerminatorSuffix"`
+	ServiceCodeListDirectoryVersion pulumi.StringPtrInput        `pulumi:"serviceCodeListDirectoryVersion"`
 }
 
 func (EdifactFramingSettingsArgs) ElementType() reflect.Type {
@@ -11455,7 +10268,6 @@ func (i *edifactFramingSettingsPtrType) ToEdifactFramingSettingsPtrOutputWithCon
 	return pulumi.ToOutputWithContext(ctx, i).(EdifactFramingSettingsPtrOutput)
 }
 
-// The Edifact agreement framing settings.
 type EdifactFramingSettingsOutput struct{ *pulumi.OutputState }
 
 func (EdifactFramingSettingsOutput) ElementType() reflect.Type {
@@ -11475,62 +10287,51 @@ func (o EdifactFramingSettingsOutput) ToEdifactFramingSettingsPtrOutput() Edifac
 }
 
 func (o EdifactFramingSettingsOutput) ToEdifactFramingSettingsPtrOutputWithContext(ctx context.Context) EdifactFramingSettingsPtrOutput {
-	return o.ApplyT(func(v EdifactFramingSettings) *EdifactFramingSettings {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v EdifactFramingSettings) *EdifactFramingSettings {
 		return &v
 	}).(EdifactFramingSettingsPtrOutput)
 }
 
-// The character encoding.
 func (o EdifactFramingSettingsOutput) CharacterEncoding() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v EdifactFramingSettings) *string { return v.CharacterEncoding }).(pulumi.StringPtrOutput)
 }
 
-// The EDIFACT frame setting characterSet.
 func (o EdifactFramingSettingsOutput) CharacterSet() pulumi.StringOutput {
 	return o.ApplyT(func(v EdifactFramingSettings) string { return v.CharacterSet }).(pulumi.StringOutput)
 }
 
-// The component separator.
 func (o EdifactFramingSettingsOutput) ComponentSeparator() pulumi.IntOutput {
 	return o.ApplyT(func(v EdifactFramingSettings) int { return v.ComponentSeparator }).(pulumi.IntOutput)
 }
 
-// The data element separator.
 func (o EdifactFramingSettingsOutput) DataElementSeparator() pulumi.IntOutput {
 	return o.ApplyT(func(v EdifactFramingSettings) int { return v.DataElementSeparator }).(pulumi.IntOutput)
 }
 
-// The EDIFACT frame setting decimal indicator.
-func (o EdifactFramingSettingsOutput) DecimalPointIndicator() pulumi.StringOutput {
-	return o.ApplyT(func(v EdifactFramingSettings) string { return v.DecimalPointIndicator }).(pulumi.StringOutput)
+func (o EdifactFramingSettingsOutput) DecimalPointIndicator() EdifactDecimalIndicatorOutput {
+	return o.ApplyT(func(v EdifactFramingSettings) EdifactDecimalIndicator { return v.DecimalPointIndicator }).(EdifactDecimalIndicatorOutput)
 }
 
-// The protocol version.
 func (o EdifactFramingSettingsOutput) ProtocolVersion() pulumi.IntOutput {
 	return o.ApplyT(func(v EdifactFramingSettings) int { return v.ProtocolVersion }).(pulumi.IntOutput)
 }
 
-// The release indicator.
 func (o EdifactFramingSettingsOutput) ReleaseIndicator() pulumi.IntOutput {
 	return o.ApplyT(func(v EdifactFramingSettings) int { return v.ReleaseIndicator }).(pulumi.IntOutput)
 }
 
-// The repetition separator.
 func (o EdifactFramingSettingsOutput) RepetitionSeparator() pulumi.IntOutput {
 	return o.ApplyT(func(v EdifactFramingSettings) int { return v.RepetitionSeparator }).(pulumi.IntOutput)
 }
 
-// The segment terminator.
 func (o EdifactFramingSettingsOutput) SegmentTerminator() pulumi.IntOutput {
 	return o.ApplyT(func(v EdifactFramingSettings) int { return v.SegmentTerminator }).(pulumi.IntOutput)
 }
 
-// The EDIFACT frame setting segment terminator suffix.
-func (o EdifactFramingSettingsOutput) SegmentTerminatorSuffix() pulumi.StringOutput {
-	return o.ApplyT(func(v EdifactFramingSettings) string { return v.SegmentTerminatorSuffix }).(pulumi.StringOutput)
+func (o EdifactFramingSettingsOutput) SegmentTerminatorSuffix() SegmentTerminatorSuffixOutput {
+	return o.ApplyT(func(v EdifactFramingSettings) SegmentTerminatorSuffix { return v.SegmentTerminatorSuffix }).(SegmentTerminatorSuffixOutput)
 }
 
-// The service code list directory version.
 func (o EdifactFramingSettingsOutput) ServiceCodeListDirectoryVersion() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v EdifactFramingSettings) *string { return v.ServiceCodeListDirectoryVersion }).(pulumi.StringPtrOutput)
 }
@@ -11550,10 +10351,15 @@ func (o EdifactFramingSettingsPtrOutput) ToEdifactFramingSettingsPtrOutputWithCo
 }
 
 func (o EdifactFramingSettingsPtrOutput) Elem() EdifactFramingSettingsOutput {
-	return o.ApplyT(func(v *EdifactFramingSettings) EdifactFramingSettings { return *v }).(EdifactFramingSettingsOutput)
+	return o.ApplyT(func(v *EdifactFramingSettings) EdifactFramingSettings {
+		if v != nil {
+			return *v
+		}
+		var ret EdifactFramingSettings
+		return ret
+	}).(EdifactFramingSettingsOutput)
 }
 
-// The character encoding.
 func (o EdifactFramingSettingsPtrOutput) CharacterEncoding() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *EdifactFramingSettings) *string {
 		if v == nil {
@@ -11563,7 +10369,6 @@ func (o EdifactFramingSettingsPtrOutput) CharacterEncoding() pulumi.StringPtrOut
 	}).(pulumi.StringPtrOutput)
 }
 
-// The EDIFACT frame setting characterSet.
 func (o EdifactFramingSettingsPtrOutput) CharacterSet() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *EdifactFramingSettings) *string {
 		if v == nil {
@@ -11573,7 +10378,6 @@ func (o EdifactFramingSettingsPtrOutput) CharacterSet() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The component separator.
 func (o EdifactFramingSettingsPtrOutput) ComponentSeparator() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *EdifactFramingSettings) *int {
 		if v == nil {
@@ -11583,7 +10387,6 @@ func (o EdifactFramingSettingsPtrOutput) ComponentSeparator() pulumi.IntPtrOutpu
 	}).(pulumi.IntPtrOutput)
 }
 
-// The data element separator.
 func (o EdifactFramingSettingsPtrOutput) DataElementSeparator() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *EdifactFramingSettings) *int {
 		if v == nil {
@@ -11593,17 +10396,15 @@ func (o EdifactFramingSettingsPtrOutput) DataElementSeparator() pulumi.IntPtrOut
 	}).(pulumi.IntPtrOutput)
 }
 
-// The EDIFACT frame setting decimal indicator.
-func (o EdifactFramingSettingsPtrOutput) DecimalPointIndicator() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *EdifactFramingSettings) *string {
+func (o EdifactFramingSettingsPtrOutput) DecimalPointIndicator() EdifactDecimalIndicatorPtrOutput {
+	return o.ApplyT(func(v *EdifactFramingSettings) *EdifactDecimalIndicator {
 		if v == nil {
 			return nil
 		}
 		return &v.DecimalPointIndicator
-	}).(pulumi.StringPtrOutput)
+	}).(EdifactDecimalIndicatorPtrOutput)
 }
 
-// The protocol version.
 func (o EdifactFramingSettingsPtrOutput) ProtocolVersion() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *EdifactFramingSettings) *int {
 		if v == nil {
@@ -11613,7 +10414,6 @@ func (o EdifactFramingSettingsPtrOutput) ProtocolVersion() pulumi.IntPtrOutput {
 	}).(pulumi.IntPtrOutput)
 }
 
-// The release indicator.
 func (o EdifactFramingSettingsPtrOutput) ReleaseIndicator() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *EdifactFramingSettings) *int {
 		if v == nil {
@@ -11623,7 +10423,6 @@ func (o EdifactFramingSettingsPtrOutput) ReleaseIndicator() pulumi.IntPtrOutput 
 	}).(pulumi.IntPtrOutput)
 }
 
-// The repetition separator.
 func (o EdifactFramingSettingsPtrOutput) RepetitionSeparator() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *EdifactFramingSettings) *int {
 		if v == nil {
@@ -11633,7 +10432,6 @@ func (o EdifactFramingSettingsPtrOutput) RepetitionSeparator() pulumi.IntPtrOutp
 	}).(pulumi.IntPtrOutput)
 }
 
-// The segment terminator.
 func (o EdifactFramingSettingsPtrOutput) SegmentTerminator() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *EdifactFramingSettings) *int {
 		if v == nil {
@@ -11643,17 +10441,15 @@ func (o EdifactFramingSettingsPtrOutput) SegmentTerminator() pulumi.IntPtrOutput
 	}).(pulumi.IntPtrOutput)
 }
 
-// The EDIFACT frame setting segment terminator suffix.
-func (o EdifactFramingSettingsPtrOutput) SegmentTerminatorSuffix() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *EdifactFramingSettings) *string {
+func (o EdifactFramingSettingsPtrOutput) SegmentTerminatorSuffix() SegmentTerminatorSuffixPtrOutput {
+	return o.ApplyT(func(v *EdifactFramingSettings) *SegmentTerminatorSuffix {
 		if v == nil {
 			return nil
 		}
 		return &v.SegmentTerminatorSuffix
-	}).(pulumi.StringPtrOutput)
+	}).(SegmentTerminatorSuffixPtrOutput)
 }
 
-// The service code list directory version.
 func (o EdifactFramingSettingsPtrOutput) ServiceCodeListDirectoryVersion() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *EdifactFramingSettings) *string {
 		if v == nil {
@@ -11663,29 +10459,17 @@ func (o EdifactFramingSettingsPtrOutput) ServiceCodeListDirectoryVersion() pulum
 	}).(pulumi.StringPtrOutput)
 }
 
-// The Edifact agreement framing settings.
 type EdifactFramingSettingsResponse struct {
-	// The character encoding.
-	CharacterEncoding *string `pulumi:"characterEncoding"`
-	// The EDIFACT frame setting characterSet.
-	CharacterSet string `pulumi:"characterSet"`
-	// The component separator.
-	ComponentSeparator int `pulumi:"componentSeparator"`
-	// The data element separator.
-	DataElementSeparator int `pulumi:"dataElementSeparator"`
-	// The EDIFACT frame setting decimal indicator.
-	DecimalPointIndicator string `pulumi:"decimalPointIndicator"`
-	// The protocol version.
-	ProtocolVersion int `pulumi:"protocolVersion"`
-	// The release indicator.
-	ReleaseIndicator int `pulumi:"releaseIndicator"`
-	// The repetition separator.
-	RepetitionSeparator int `pulumi:"repetitionSeparator"`
-	// The segment terminator.
-	SegmentTerminator int `pulumi:"segmentTerminator"`
-	// The EDIFACT frame setting segment terminator suffix.
-	SegmentTerminatorSuffix string `pulumi:"segmentTerminatorSuffix"`
-	// The service code list directory version.
+	CharacterEncoding               *string `pulumi:"characterEncoding"`
+	CharacterSet                    string  `pulumi:"characterSet"`
+	ComponentSeparator              int     `pulumi:"componentSeparator"`
+	DataElementSeparator            int     `pulumi:"dataElementSeparator"`
+	DecimalPointIndicator           string  `pulumi:"decimalPointIndicator"`
+	ProtocolVersion                 int     `pulumi:"protocolVersion"`
+	ReleaseIndicator                int     `pulumi:"releaseIndicator"`
+	RepetitionSeparator             int     `pulumi:"repetitionSeparator"`
+	SegmentTerminator               int     `pulumi:"segmentTerminator"`
+	SegmentTerminatorSuffix         string  `pulumi:"segmentTerminatorSuffix"`
 	ServiceCodeListDirectoryVersion *string `pulumi:"serviceCodeListDirectoryVersion"`
 }
 
@@ -11700,29 +10484,17 @@ type EdifactFramingSettingsResponseInput interface {
 	ToEdifactFramingSettingsResponseOutputWithContext(context.Context) EdifactFramingSettingsResponseOutput
 }
 
-// The Edifact agreement framing settings.
 type EdifactFramingSettingsResponseArgs struct {
-	// The character encoding.
-	CharacterEncoding pulumi.StringPtrInput `pulumi:"characterEncoding"`
-	// The EDIFACT frame setting characterSet.
-	CharacterSet pulumi.StringInput `pulumi:"characterSet"`
-	// The component separator.
-	ComponentSeparator pulumi.IntInput `pulumi:"componentSeparator"`
-	// The data element separator.
-	DataElementSeparator pulumi.IntInput `pulumi:"dataElementSeparator"`
-	// The EDIFACT frame setting decimal indicator.
-	DecimalPointIndicator pulumi.StringInput `pulumi:"decimalPointIndicator"`
-	// The protocol version.
-	ProtocolVersion pulumi.IntInput `pulumi:"protocolVersion"`
-	// The release indicator.
-	ReleaseIndicator pulumi.IntInput `pulumi:"releaseIndicator"`
-	// The repetition separator.
-	RepetitionSeparator pulumi.IntInput `pulumi:"repetitionSeparator"`
-	// The segment terminator.
-	SegmentTerminator pulumi.IntInput `pulumi:"segmentTerminator"`
-	// The EDIFACT frame setting segment terminator suffix.
-	SegmentTerminatorSuffix pulumi.StringInput `pulumi:"segmentTerminatorSuffix"`
-	// The service code list directory version.
+	CharacterEncoding               pulumi.StringPtrInput `pulumi:"characterEncoding"`
+	CharacterSet                    pulumi.StringInput    `pulumi:"characterSet"`
+	ComponentSeparator              pulumi.IntInput       `pulumi:"componentSeparator"`
+	DataElementSeparator            pulumi.IntInput       `pulumi:"dataElementSeparator"`
+	DecimalPointIndicator           pulumi.StringInput    `pulumi:"decimalPointIndicator"`
+	ProtocolVersion                 pulumi.IntInput       `pulumi:"protocolVersion"`
+	ReleaseIndicator                pulumi.IntInput       `pulumi:"releaseIndicator"`
+	RepetitionSeparator             pulumi.IntInput       `pulumi:"repetitionSeparator"`
+	SegmentTerminator               pulumi.IntInput       `pulumi:"segmentTerminator"`
+	SegmentTerminatorSuffix         pulumi.StringInput    `pulumi:"segmentTerminatorSuffix"`
 	ServiceCodeListDirectoryVersion pulumi.StringPtrInput `pulumi:"serviceCodeListDirectoryVersion"`
 }
 
@@ -11779,7 +10551,6 @@ func (i *edifactFramingSettingsResponsePtrType) ToEdifactFramingSettingsResponse
 	return pulumi.ToOutputWithContext(ctx, i).(EdifactFramingSettingsResponsePtrOutput)
 }
 
-// The Edifact agreement framing settings.
 type EdifactFramingSettingsResponseOutput struct{ *pulumi.OutputState }
 
 func (EdifactFramingSettingsResponseOutput) ElementType() reflect.Type {
@@ -11799,62 +10570,51 @@ func (o EdifactFramingSettingsResponseOutput) ToEdifactFramingSettingsResponsePt
 }
 
 func (o EdifactFramingSettingsResponseOutput) ToEdifactFramingSettingsResponsePtrOutputWithContext(ctx context.Context) EdifactFramingSettingsResponsePtrOutput {
-	return o.ApplyT(func(v EdifactFramingSettingsResponse) *EdifactFramingSettingsResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v EdifactFramingSettingsResponse) *EdifactFramingSettingsResponse {
 		return &v
 	}).(EdifactFramingSettingsResponsePtrOutput)
 }
 
-// The character encoding.
 func (o EdifactFramingSettingsResponseOutput) CharacterEncoding() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v EdifactFramingSettingsResponse) *string { return v.CharacterEncoding }).(pulumi.StringPtrOutput)
 }
 
-// The EDIFACT frame setting characterSet.
 func (o EdifactFramingSettingsResponseOutput) CharacterSet() pulumi.StringOutput {
 	return o.ApplyT(func(v EdifactFramingSettingsResponse) string { return v.CharacterSet }).(pulumi.StringOutput)
 }
 
-// The component separator.
 func (o EdifactFramingSettingsResponseOutput) ComponentSeparator() pulumi.IntOutput {
 	return o.ApplyT(func(v EdifactFramingSettingsResponse) int { return v.ComponentSeparator }).(pulumi.IntOutput)
 }
 
-// The data element separator.
 func (o EdifactFramingSettingsResponseOutput) DataElementSeparator() pulumi.IntOutput {
 	return o.ApplyT(func(v EdifactFramingSettingsResponse) int { return v.DataElementSeparator }).(pulumi.IntOutput)
 }
 
-// The EDIFACT frame setting decimal indicator.
 func (o EdifactFramingSettingsResponseOutput) DecimalPointIndicator() pulumi.StringOutput {
 	return o.ApplyT(func(v EdifactFramingSettingsResponse) string { return v.DecimalPointIndicator }).(pulumi.StringOutput)
 }
 
-// The protocol version.
 func (o EdifactFramingSettingsResponseOutput) ProtocolVersion() pulumi.IntOutput {
 	return o.ApplyT(func(v EdifactFramingSettingsResponse) int { return v.ProtocolVersion }).(pulumi.IntOutput)
 }
 
-// The release indicator.
 func (o EdifactFramingSettingsResponseOutput) ReleaseIndicator() pulumi.IntOutput {
 	return o.ApplyT(func(v EdifactFramingSettingsResponse) int { return v.ReleaseIndicator }).(pulumi.IntOutput)
 }
 
-// The repetition separator.
 func (o EdifactFramingSettingsResponseOutput) RepetitionSeparator() pulumi.IntOutput {
 	return o.ApplyT(func(v EdifactFramingSettingsResponse) int { return v.RepetitionSeparator }).(pulumi.IntOutput)
 }
 
-// The segment terminator.
 func (o EdifactFramingSettingsResponseOutput) SegmentTerminator() pulumi.IntOutput {
 	return o.ApplyT(func(v EdifactFramingSettingsResponse) int { return v.SegmentTerminator }).(pulumi.IntOutput)
 }
 
-// The EDIFACT frame setting segment terminator suffix.
 func (o EdifactFramingSettingsResponseOutput) SegmentTerminatorSuffix() pulumi.StringOutput {
 	return o.ApplyT(func(v EdifactFramingSettingsResponse) string { return v.SegmentTerminatorSuffix }).(pulumi.StringOutput)
 }
 
-// The service code list directory version.
 func (o EdifactFramingSettingsResponseOutput) ServiceCodeListDirectoryVersion() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v EdifactFramingSettingsResponse) *string { return v.ServiceCodeListDirectoryVersion }).(pulumi.StringPtrOutput)
 }
@@ -11874,10 +10634,15 @@ func (o EdifactFramingSettingsResponsePtrOutput) ToEdifactFramingSettingsRespons
 }
 
 func (o EdifactFramingSettingsResponsePtrOutput) Elem() EdifactFramingSettingsResponseOutput {
-	return o.ApplyT(func(v *EdifactFramingSettingsResponse) EdifactFramingSettingsResponse { return *v }).(EdifactFramingSettingsResponseOutput)
+	return o.ApplyT(func(v *EdifactFramingSettingsResponse) EdifactFramingSettingsResponse {
+		if v != nil {
+			return *v
+		}
+		var ret EdifactFramingSettingsResponse
+		return ret
+	}).(EdifactFramingSettingsResponseOutput)
 }
 
-// The character encoding.
 func (o EdifactFramingSettingsResponsePtrOutput) CharacterEncoding() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *EdifactFramingSettingsResponse) *string {
 		if v == nil {
@@ -11887,7 +10652,6 @@ func (o EdifactFramingSettingsResponsePtrOutput) CharacterEncoding() pulumi.Stri
 	}).(pulumi.StringPtrOutput)
 }
 
-// The EDIFACT frame setting characterSet.
 func (o EdifactFramingSettingsResponsePtrOutput) CharacterSet() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *EdifactFramingSettingsResponse) *string {
 		if v == nil {
@@ -11897,7 +10661,6 @@ func (o EdifactFramingSettingsResponsePtrOutput) CharacterSet() pulumi.StringPtr
 	}).(pulumi.StringPtrOutput)
 }
 
-// The component separator.
 func (o EdifactFramingSettingsResponsePtrOutput) ComponentSeparator() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *EdifactFramingSettingsResponse) *int {
 		if v == nil {
@@ -11907,7 +10670,6 @@ func (o EdifactFramingSettingsResponsePtrOutput) ComponentSeparator() pulumi.Int
 	}).(pulumi.IntPtrOutput)
 }
 
-// The data element separator.
 func (o EdifactFramingSettingsResponsePtrOutput) DataElementSeparator() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *EdifactFramingSettingsResponse) *int {
 		if v == nil {
@@ -11917,7 +10679,6 @@ func (o EdifactFramingSettingsResponsePtrOutput) DataElementSeparator() pulumi.I
 	}).(pulumi.IntPtrOutput)
 }
 
-// The EDIFACT frame setting decimal indicator.
 func (o EdifactFramingSettingsResponsePtrOutput) DecimalPointIndicator() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *EdifactFramingSettingsResponse) *string {
 		if v == nil {
@@ -11927,7 +10688,6 @@ func (o EdifactFramingSettingsResponsePtrOutput) DecimalPointIndicator() pulumi.
 	}).(pulumi.StringPtrOutput)
 }
 
-// The protocol version.
 func (o EdifactFramingSettingsResponsePtrOutput) ProtocolVersion() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *EdifactFramingSettingsResponse) *int {
 		if v == nil {
@@ -11937,7 +10697,6 @@ func (o EdifactFramingSettingsResponsePtrOutput) ProtocolVersion() pulumi.IntPtr
 	}).(pulumi.IntPtrOutput)
 }
 
-// The release indicator.
 func (o EdifactFramingSettingsResponsePtrOutput) ReleaseIndicator() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *EdifactFramingSettingsResponse) *int {
 		if v == nil {
@@ -11947,7 +10706,6 @@ func (o EdifactFramingSettingsResponsePtrOutput) ReleaseIndicator() pulumi.IntPt
 	}).(pulumi.IntPtrOutput)
 }
 
-// The repetition separator.
 func (o EdifactFramingSettingsResponsePtrOutput) RepetitionSeparator() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *EdifactFramingSettingsResponse) *int {
 		if v == nil {
@@ -11957,7 +10715,6 @@ func (o EdifactFramingSettingsResponsePtrOutput) RepetitionSeparator() pulumi.In
 	}).(pulumi.IntPtrOutput)
 }
 
-// The segment terminator.
 func (o EdifactFramingSettingsResponsePtrOutput) SegmentTerminator() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *EdifactFramingSettingsResponse) *int {
 		if v == nil {
@@ -11967,7 +10724,6 @@ func (o EdifactFramingSettingsResponsePtrOutput) SegmentTerminator() pulumi.IntP
 	}).(pulumi.IntPtrOutput)
 }
 
-// The EDIFACT frame setting segment terminator suffix.
 func (o EdifactFramingSettingsResponsePtrOutput) SegmentTerminatorSuffix() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *EdifactFramingSettingsResponse) *string {
 		if v == nil {
@@ -11977,7 +10733,6 @@ func (o EdifactFramingSettingsResponsePtrOutput) SegmentTerminatorSuffix() pulum
 	}).(pulumi.StringPtrOutput)
 }
 
-// The service code list directory version.
 func (o EdifactFramingSettingsResponsePtrOutput) ServiceCodeListDirectoryVersion() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *EdifactFramingSettingsResponse) *string {
 		if v == nil {
@@ -11987,9 +10742,7 @@ func (o EdifactFramingSettingsResponsePtrOutput) ServiceCodeListDirectoryVersion
 	}).(pulumi.StringPtrOutput)
 }
 
-// The Edifact message filter for odata query.
 type EdifactMessageFilter struct {
-	// The message filter type.
 	MessageFilterType string `pulumi:"messageFilterType"`
 }
 
@@ -12004,9 +10757,7 @@ type EdifactMessageFilterInput interface {
 	ToEdifactMessageFilterOutputWithContext(context.Context) EdifactMessageFilterOutput
 }
 
-// The Edifact message filter for odata query.
 type EdifactMessageFilterArgs struct {
-	// The message filter type.
 	MessageFilterType pulumi.StringInput `pulumi:"messageFilterType"`
 }
 
@@ -12063,7 +10814,6 @@ func (i *edifactMessageFilterPtrType) ToEdifactMessageFilterPtrOutputWithContext
 	return pulumi.ToOutputWithContext(ctx, i).(EdifactMessageFilterPtrOutput)
 }
 
-// The Edifact message filter for odata query.
 type EdifactMessageFilterOutput struct{ *pulumi.OutputState }
 
 func (EdifactMessageFilterOutput) ElementType() reflect.Type {
@@ -12083,12 +10833,11 @@ func (o EdifactMessageFilterOutput) ToEdifactMessageFilterPtrOutput() EdifactMes
 }
 
 func (o EdifactMessageFilterOutput) ToEdifactMessageFilterPtrOutputWithContext(ctx context.Context) EdifactMessageFilterPtrOutput {
-	return o.ApplyT(func(v EdifactMessageFilter) *EdifactMessageFilter {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v EdifactMessageFilter) *EdifactMessageFilter {
 		return &v
 	}).(EdifactMessageFilterPtrOutput)
 }
 
-// The message filter type.
 func (o EdifactMessageFilterOutput) MessageFilterType() pulumi.StringOutput {
 	return o.ApplyT(func(v EdifactMessageFilter) string { return v.MessageFilterType }).(pulumi.StringOutput)
 }
@@ -12108,10 +10857,15 @@ func (o EdifactMessageFilterPtrOutput) ToEdifactMessageFilterPtrOutputWithContex
 }
 
 func (o EdifactMessageFilterPtrOutput) Elem() EdifactMessageFilterOutput {
-	return o.ApplyT(func(v *EdifactMessageFilter) EdifactMessageFilter { return *v }).(EdifactMessageFilterOutput)
+	return o.ApplyT(func(v *EdifactMessageFilter) EdifactMessageFilter {
+		if v != nil {
+			return *v
+		}
+		var ret EdifactMessageFilter
+		return ret
+	}).(EdifactMessageFilterOutput)
 }
 
-// The message filter type.
 func (o EdifactMessageFilterPtrOutput) MessageFilterType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *EdifactMessageFilter) *string {
 		if v == nil {
@@ -12121,9 +10875,7 @@ func (o EdifactMessageFilterPtrOutput) MessageFilterType() pulumi.StringPtrOutpu
 	}).(pulumi.StringPtrOutput)
 }
 
-// The Edifact message filter for odata query.
 type EdifactMessageFilterResponse struct {
-	// The message filter type.
 	MessageFilterType string `pulumi:"messageFilterType"`
 }
 
@@ -12138,9 +10890,7 @@ type EdifactMessageFilterResponseInput interface {
 	ToEdifactMessageFilterResponseOutputWithContext(context.Context) EdifactMessageFilterResponseOutput
 }
 
-// The Edifact message filter for odata query.
 type EdifactMessageFilterResponseArgs struct {
-	// The message filter type.
 	MessageFilterType pulumi.StringInput `pulumi:"messageFilterType"`
 }
 
@@ -12197,7 +10947,6 @@ func (i *edifactMessageFilterResponsePtrType) ToEdifactMessageFilterResponsePtrO
 	return pulumi.ToOutputWithContext(ctx, i).(EdifactMessageFilterResponsePtrOutput)
 }
 
-// The Edifact message filter for odata query.
 type EdifactMessageFilterResponseOutput struct{ *pulumi.OutputState }
 
 func (EdifactMessageFilterResponseOutput) ElementType() reflect.Type {
@@ -12217,12 +10966,11 @@ func (o EdifactMessageFilterResponseOutput) ToEdifactMessageFilterResponsePtrOut
 }
 
 func (o EdifactMessageFilterResponseOutput) ToEdifactMessageFilterResponsePtrOutputWithContext(ctx context.Context) EdifactMessageFilterResponsePtrOutput {
-	return o.ApplyT(func(v EdifactMessageFilterResponse) *EdifactMessageFilterResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v EdifactMessageFilterResponse) *EdifactMessageFilterResponse {
 		return &v
 	}).(EdifactMessageFilterResponsePtrOutput)
 }
 
-// The message filter type.
 func (o EdifactMessageFilterResponseOutput) MessageFilterType() pulumi.StringOutput {
 	return o.ApplyT(func(v EdifactMessageFilterResponse) string { return v.MessageFilterType }).(pulumi.StringOutput)
 }
@@ -12242,10 +10990,15 @@ func (o EdifactMessageFilterResponsePtrOutput) ToEdifactMessageFilterResponsePtr
 }
 
 func (o EdifactMessageFilterResponsePtrOutput) Elem() EdifactMessageFilterResponseOutput {
-	return o.ApplyT(func(v *EdifactMessageFilterResponse) EdifactMessageFilterResponse { return *v }).(EdifactMessageFilterResponseOutput)
+	return o.ApplyT(func(v *EdifactMessageFilterResponse) EdifactMessageFilterResponse {
+		if v != nil {
+			return *v
+		}
+		var ret EdifactMessageFilterResponse
+		return ret
+	}).(EdifactMessageFilterResponseOutput)
 }
 
-// The message filter type.
 func (o EdifactMessageFilterResponsePtrOutput) MessageFilterType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *EdifactMessageFilterResponse) *string {
 		if v == nil {
@@ -12255,9 +11008,7 @@ func (o EdifactMessageFilterResponsePtrOutput) MessageFilterType() pulumi.String
 	}).(pulumi.StringPtrOutput)
 }
 
-// The Edifact message identifier.
 type EdifactMessageIdentifier struct {
-	// The message id on which this envelope settings has to be applied.
 	MessageId string `pulumi:"messageId"`
 }
 
@@ -12272,9 +11023,7 @@ type EdifactMessageIdentifierInput interface {
 	ToEdifactMessageIdentifierOutputWithContext(context.Context) EdifactMessageIdentifierOutput
 }
 
-// The Edifact message identifier.
 type EdifactMessageIdentifierArgs struct {
-	// The message id on which this envelope settings has to be applied.
 	MessageId pulumi.StringInput `pulumi:"messageId"`
 }
 
@@ -12315,7 +11064,6 @@ func (i EdifactMessageIdentifierArray) ToEdifactMessageIdentifierArrayOutputWith
 	return pulumi.ToOutputWithContext(ctx, i).(EdifactMessageIdentifierArrayOutput)
 }
 
-// The Edifact message identifier.
 type EdifactMessageIdentifierOutput struct{ *pulumi.OutputState }
 
 func (EdifactMessageIdentifierOutput) ElementType() reflect.Type {
@@ -12330,7 +11078,6 @@ func (o EdifactMessageIdentifierOutput) ToEdifactMessageIdentifierOutputWithCont
 	return o
 }
 
-// The message id on which this envelope settings has to be applied.
 func (o EdifactMessageIdentifierOutput) MessageId() pulumi.StringOutput {
 	return o.ApplyT(func(v EdifactMessageIdentifier) string { return v.MessageId }).(pulumi.StringOutput)
 }
@@ -12355,9 +11102,7 @@ func (o EdifactMessageIdentifierArrayOutput) Index(i pulumi.IntInput) EdifactMes
 	}).(EdifactMessageIdentifierOutput)
 }
 
-// The Edifact message identifier.
 type EdifactMessageIdentifierResponse struct {
-	// The message id on which this envelope settings has to be applied.
 	MessageId string `pulumi:"messageId"`
 }
 
@@ -12372,9 +11117,7 @@ type EdifactMessageIdentifierResponseInput interface {
 	ToEdifactMessageIdentifierResponseOutputWithContext(context.Context) EdifactMessageIdentifierResponseOutput
 }
 
-// The Edifact message identifier.
 type EdifactMessageIdentifierResponseArgs struct {
-	// The message id on which this envelope settings has to be applied.
 	MessageId pulumi.StringInput `pulumi:"messageId"`
 }
 
@@ -12415,7 +11158,6 @@ func (i EdifactMessageIdentifierResponseArray) ToEdifactMessageIdentifierRespons
 	return pulumi.ToOutputWithContext(ctx, i).(EdifactMessageIdentifierResponseArrayOutput)
 }
 
-// The Edifact message identifier.
 type EdifactMessageIdentifierResponseOutput struct{ *pulumi.OutputState }
 
 func (EdifactMessageIdentifierResponseOutput) ElementType() reflect.Type {
@@ -12430,7 +11172,6 @@ func (o EdifactMessageIdentifierResponseOutput) ToEdifactMessageIdentifierRespon
 	return o
 }
 
-// The message id on which this envelope settings has to be applied.
 func (o EdifactMessageIdentifierResponseOutput) MessageId() pulumi.StringOutput {
 	return o.ApplyT(func(v EdifactMessageIdentifierResponse) string { return v.MessageId }).(pulumi.StringOutput)
 }
@@ -12455,14 +11196,10 @@ func (o EdifactMessageIdentifierResponseArrayOutput) Index(i pulumi.IntInput) Ed
 	}).(EdifactMessageIdentifierResponseOutput)
 }
 
-// The Edifact one way agreement.
 type EdifactOneWayAgreement struct {
-	// The EDIFACT protocol settings.
-	ProtocolSettings EdifactProtocolSettings `pulumi:"protocolSettings"`
-	// The receiver business identity
-	ReceiverBusinessIdentity BusinessIdentity `pulumi:"receiverBusinessIdentity"`
-	// The sender business identity
-	SenderBusinessIdentity BusinessIdentity `pulumi:"senderBusinessIdentity"`
+	ProtocolSettings         EdifactProtocolSettings `pulumi:"protocolSettings"`
+	ReceiverBusinessIdentity BusinessIdentity        `pulumi:"receiverBusinessIdentity"`
+	SenderBusinessIdentity   BusinessIdentity        `pulumi:"senderBusinessIdentity"`
 }
 
 // EdifactOneWayAgreementInput is an input type that accepts EdifactOneWayAgreementArgs and EdifactOneWayAgreementOutput values.
@@ -12476,14 +11213,10 @@ type EdifactOneWayAgreementInput interface {
 	ToEdifactOneWayAgreementOutputWithContext(context.Context) EdifactOneWayAgreementOutput
 }
 
-// The Edifact one way agreement.
 type EdifactOneWayAgreementArgs struct {
-	// The EDIFACT protocol settings.
-	ProtocolSettings EdifactProtocolSettingsInput `pulumi:"protocolSettings"`
-	// The receiver business identity
-	ReceiverBusinessIdentity BusinessIdentityInput `pulumi:"receiverBusinessIdentity"`
-	// The sender business identity
-	SenderBusinessIdentity BusinessIdentityInput `pulumi:"senderBusinessIdentity"`
+	ProtocolSettings         EdifactProtocolSettingsInput `pulumi:"protocolSettings"`
+	ReceiverBusinessIdentity BusinessIdentityInput        `pulumi:"receiverBusinessIdentity"`
+	SenderBusinessIdentity   BusinessIdentityInput        `pulumi:"senderBusinessIdentity"`
 }
 
 func (EdifactOneWayAgreementArgs) ElementType() reflect.Type {
@@ -12539,7 +11272,6 @@ func (i *edifactOneWayAgreementPtrType) ToEdifactOneWayAgreementPtrOutputWithCon
 	return pulumi.ToOutputWithContext(ctx, i).(EdifactOneWayAgreementPtrOutput)
 }
 
-// The Edifact one way agreement.
 type EdifactOneWayAgreementOutput struct{ *pulumi.OutputState }
 
 func (EdifactOneWayAgreementOutput) ElementType() reflect.Type {
@@ -12559,22 +11291,19 @@ func (o EdifactOneWayAgreementOutput) ToEdifactOneWayAgreementPtrOutput() Edifac
 }
 
 func (o EdifactOneWayAgreementOutput) ToEdifactOneWayAgreementPtrOutputWithContext(ctx context.Context) EdifactOneWayAgreementPtrOutput {
-	return o.ApplyT(func(v EdifactOneWayAgreement) *EdifactOneWayAgreement {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v EdifactOneWayAgreement) *EdifactOneWayAgreement {
 		return &v
 	}).(EdifactOneWayAgreementPtrOutput)
 }
 
-// The EDIFACT protocol settings.
 func (o EdifactOneWayAgreementOutput) ProtocolSettings() EdifactProtocolSettingsOutput {
 	return o.ApplyT(func(v EdifactOneWayAgreement) EdifactProtocolSettings { return v.ProtocolSettings }).(EdifactProtocolSettingsOutput)
 }
 
-// The receiver business identity
 func (o EdifactOneWayAgreementOutput) ReceiverBusinessIdentity() BusinessIdentityOutput {
 	return o.ApplyT(func(v EdifactOneWayAgreement) BusinessIdentity { return v.ReceiverBusinessIdentity }).(BusinessIdentityOutput)
 }
 
-// The sender business identity
 func (o EdifactOneWayAgreementOutput) SenderBusinessIdentity() BusinessIdentityOutput {
 	return o.ApplyT(func(v EdifactOneWayAgreement) BusinessIdentity { return v.SenderBusinessIdentity }).(BusinessIdentityOutput)
 }
@@ -12594,10 +11323,15 @@ func (o EdifactOneWayAgreementPtrOutput) ToEdifactOneWayAgreementPtrOutputWithCo
 }
 
 func (o EdifactOneWayAgreementPtrOutput) Elem() EdifactOneWayAgreementOutput {
-	return o.ApplyT(func(v *EdifactOneWayAgreement) EdifactOneWayAgreement { return *v }).(EdifactOneWayAgreementOutput)
+	return o.ApplyT(func(v *EdifactOneWayAgreement) EdifactOneWayAgreement {
+		if v != nil {
+			return *v
+		}
+		var ret EdifactOneWayAgreement
+		return ret
+	}).(EdifactOneWayAgreementOutput)
 }
 
-// The EDIFACT protocol settings.
 func (o EdifactOneWayAgreementPtrOutput) ProtocolSettings() EdifactProtocolSettingsPtrOutput {
 	return o.ApplyT(func(v *EdifactOneWayAgreement) *EdifactProtocolSettings {
 		if v == nil {
@@ -12607,7 +11341,6 @@ func (o EdifactOneWayAgreementPtrOutput) ProtocolSettings() EdifactProtocolSetti
 	}).(EdifactProtocolSettingsPtrOutput)
 }
 
-// The receiver business identity
 func (o EdifactOneWayAgreementPtrOutput) ReceiverBusinessIdentity() BusinessIdentityPtrOutput {
 	return o.ApplyT(func(v *EdifactOneWayAgreement) *BusinessIdentity {
 		if v == nil {
@@ -12617,7 +11350,6 @@ func (o EdifactOneWayAgreementPtrOutput) ReceiverBusinessIdentity() BusinessIden
 	}).(BusinessIdentityPtrOutput)
 }
 
-// The sender business identity
 func (o EdifactOneWayAgreementPtrOutput) SenderBusinessIdentity() BusinessIdentityPtrOutput {
 	return o.ApplyT(func(v *EdifactOneWayAgreement) *BusinessIdentity {
 		if v == nil {
@@ -12627,14 +11359,10 @@ func (o EdifactOneWayAgreementPtrOutput) SenderBusinessIdentity() BusinessIdenti
 	}).(BusinessIdentityPtrOutput)
 }
 
-// The Edifact one way agreement.
 type EdifactOneWayAgreementResponse struct {
-	// The EDIFACT protocol settings.
-	ProtocolSettings EdifactProtocolSettingsResponse `pulumi:"protocolSettings"`
-	// The receiver business identity
-	ReceiverBusinessIdentity BusinessIdentityResponse `pulumi:"receiverBusinessIdentity"`
-	// The sender business identity
-	SenderBusinessIdentity BusinessIdentityResponse `pulumi:"senderBusinessIdentity"`
+	ProtocolSettings         EdifactProtocolSettingsResponse `pulumi:"protocolSettings"`
+	ReceiverBusinessIdentity BusinessIdentityResponse        `pulumi:"receiverBusinessIdentity"`
+	SenderBusinessIdentity   BusinessIdentityResponse        `pulumi:"senderBusinessIdentity"`
 }
 
 // EdifactOneWayAgreementResponseInput is an input type that accepts EdifactOneWayAgreementResponseArgs and EdifactOneWayAgreementResponseOutput values.
@@ -12648,14 +11376,10 @@ type EdifactOneWayAgreementResponseInput interface {
 	ToEdifactOneWayAgreementResponseOutputWithContext(context.Context) EdifactOneWayAgreementResponseOutput
 }
 
-// The Edifact one way agreement.
 type EdifactOneWayAgreementResponseArgs struct {
-	// The EDIFACT protocol settings.
-	ProtocolSettings EdifactProtocolSettingsResponseInput `pulumi:"protocolSettings"`
-	// The receiver business identity
-	ReceiverBusinessIdentity BusinessIdentityResponseInput `pulumi:"receiverBusinessIdentity"`
-	// The sender business identity
-	SenderBusinessIdentity BusinessIdentityResponseInput `pulumi:"senderBusinessIdentity"`
+	ProtocolSettings         EdifactProtocolSettingsResponseInput `pulumi:"protocolSettings"`
+	ReceiverBusinessIdentity BusinessIdentityResponseInput        `pulumi:"receiverBusinessIdentity"`
+	SenderBusinessIdentity   BusinessIdentityResponseInput        `pulumi:"senderBusinessIdentity"`
 }
 
 func (EdifactOneWayAgreementResponseArgs) ElementType() reflect.Type {
@@ -12711,7 +11435,6 @@ func (i *edifactOneWayAgreementResponsePtrType) ToEdifactOneWayAgreementResponse
 	return pulumi.ToOutputWithContext(ctx, i).(EdifactOneWayAgreementResponsePtrOutput)
 }
 
-// The Edifact one way agreement.
 type EdifactOneWayAgreementResponseOutput struct{ *pulumi.OutputState }
 
 func (EdifactOneWayAgreementResponseOutput) ElementType() reflect.Type {
@@ -12731,22 +11454,19 @@ func (o EdifactOneWayAgreementResponseOutput) ToEdifactOneWayAgreementResponsePt
 }
 
 func (o EdifactOneWayAgreementResponseOutput) ToEdifactOneWayAgreementResponsePtrOutputWithContext(ctx context.Context) EdifactOneWayAgreementResponsePtrOutput {
-	return o.ApplyT(func(v EdifactOneWayAgreementResponse) *EdifactOneWayAgreementResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v EdifactOneWayAgreementResponse) *EdifactOneWayAgreementResponse {
 		return &v
 	}).(EdifactOneWayAgreementResponsePtrOutput)
 }
 
-// The EDIFACT protocol settings.
 func (o EdifactOneWayAgreementResponseOutput) ProtocolSettings() EdifactProtocolSettingsResponseOutput {
 	return o.ApplyT(func(v EdifactOneWayAgreementResponse) EdifactProtocolSettingsResponse { return v.ProtocolSettings }).(EdifactProtocolSettingsResponseOutput)
 }
 
-// The receiver business identity
 func (o EdifactOneWayAgreementResponseOutput) ReceiverBusinessIdentity() BusinessIdentityResponseOutput {
 	return o.ApplyT(func(v EdifactOneWayAgreementResponse) BusinessIdentityResponse { return v.ReceiverBusinessIdentity }).(BusinessIdentityResponseOutput)
 }
 
-// The sender business identity
 func (o EdifactOneWayAgreementResponseOutput) SenderBusinessIdentity() BusinessIdentityResponseOutput {
 	return o.ApplyT(func(v EdifactOneWayAgreementResponse) BusinessIdentityResponse { return v.SenderBusinessIdentity }).(BusinessIdentityResponseOutput)
 }
@@ -12766,10 +11486,15 @@ func (o EdifactOneWayAgreementResponsePtrOutput) ToEdifactOneWayAgreementRespons
 }
 
 func (o EdifactOneWayAgreementResponsePtrOutput) Elem() EdifactOneWayAgreementResponseOutput {
-	return o.ApplyT(func(v *EdifactOneWayAgreementResponse) EdifactOneWayAgreementResponse { return *v }).(EdifactOneWayAgreementResponseOutput)
+	return o.ApplyT(func(v *EdifactOneWayAgreementResponse) EdifactOneWayAgreementResponse {
+		if v != nil {
+			return *v
+		}
+		var ret EdifactOneWayAgreementResponse
+		return ret
+	}).(EdifactOneWayAgreementResponseOutput)
 }
 
-// The EDIFACT protocol settings.
 func (o EdifactOneWayAgreementResponsePtrOutput) ProtocolSettings() EdifactProtocolSettingsResponsePtrOutput {
 	return o.ApplyT(func(v *EdifactOneWayAgreementResponse) *EdifactProtocolSettingsResponse {
 		if v == nil {
@@ -12779,7 +11504,6 @@ func (o EdifactOneWayAgreementResponsePtrOutput) ProtocolSettings() EdifactProto
 	}).(EdifactProtocolSettingsResponsePtrOutput)
 }
 
-// The receiver business identity
 func (o EdifactOneWayAgreementResponsePtrOutput) ReceiverBusinessIdentity() BusinessIdentityResponsePtrOutput {
 	return o.ApplyT(func(v *EdifactOneWayAgreementResponse) *BusinessIdentityResponse {
 		if v == nil {
@@ -12789,7 +11513,6 @@ func (o EdifactOneWayAgreementResponsePtrOutput) ReceiverBusinessIdentity() Busi
 	}).(BusinessIdentityResponsePtrOutput)
 }
 
-// The sender business identity
 func (o EdifactOneWayAgreementResponsePtrOutput) SenderBusinessIdentity() BusinessIdentityResponsePtrOutput {
 	return o.ApplyT(func(v *EdifactOneWayAgreementResponse) *BusinessIdentityResponse {
 		if v == nil {
@@ -12799,18 +11522,12 @@ func (o EdifactOneWayAgreementResponsePtrOutput) SenderBusinessIdentity() Busine
 	}).(BusinessIdentityResponsePtrOutput)
 }
 
-// The Edifact agreement protocol settings.
 type EdifactProcessingSettings struct {
-	// The value indicating whether to create empty xml tags for trailing separators.
 	CreateEmptyXmlTagsForTrailingSeparators bool `pulumi:"createEmptyXmlTagsForTrailingSeparators"`
-	// The value indicating whether to mask security information.
-	MaskSecurityInfo bool `pulumi:"maskSecurityInfo"`
-	// The value indicating whether to preserve interchange.
-	PreserveInterchange bool `pulumi:"preserveInterchange"`
-	// The value indicating whether to suspend interchange on error.
-	SuspendInterchangeOnError bool `pulumi:"suspendInterchangeOnError"`
-	// The value indicating whether to use dot as decimal separator.
-	UseDotAsDecimalSeparator bool `pulumi:"useDotAsDecimalSeparator"`
+	MaskSecurityInfo                        bool `pulumi:"maskSecurityInfo"`
+	PreserveInterchange                     bool `pulumi:"preserveInterchange"`
+	SuspendInterchangeOnError               bool `pulumi:"suspendInterchangeOnError"`
+	UseDotAsDecimalSeparator                bool `pulumi:"useDotAsDecimalSeparator"`
 }
 
 // EdifactProcessingSettingsInput is an input type that accepts EdifactProcessingSettingsArgs and EdifactProcessingSettingsOutput values.
@@ -12824,18 +11541,12 @@ type EdifactProcessingSettingsInput interface {
 	ToEdifactProcessingSettingsOutputWithContext(context.Context) EdifactProcessingSettingsOutput
 }
 
-// The Edifact agreement protocol settings.
 type EdifactProcessingSettingsArgs struct {
-	// The value indicating whether to create empty xml tags for trailing separators.
 	CreateEmptyXmlTagsForTrailingSeparators pulumi.BoolInput `pulumi:"createEmptyXmlTagsForTrailingSeparators"`
-	// The value indicating whether to mask security information.
-	MaskSecurityInfo pulumi.BoolInput `pulumi:"maskSecurityInfo"`
-	// The value indicating whether to preserve interchange.
-	PreserveInterchange pulumi.BoolInput `pulumi:"preserveInterchange"`
-	// The value indicating whether to suspend interchange on error.
-	SuspendInterchangeOnError pulumi.BoolInput `pulumi:"suspendInterchangeOnError"`
-	// The value indicating whether to use dot as decimal separator.
-	UseDotAsDecimalSeparator pulumi.BoolInput `pulumi:"useDotAsDecimalSeparator"`
+	MaskSecurityInfo                        pulumi.BoolInput `pulumi:"maskSecurityInfo"`
+	PreserveInterchange                     pulumi.BoolInput `pulumi:"preserveInterchange"`
+	SuspendInterchangeOnError               pulumi.BoolInput `pulumi:"suspendInterchangeOnError"`
+	UseDotAsDecimalSeparator                pulumi.BoolInput `pulumi:"useDotAsDecimalSeparator"`
 }
 
 func (EdifactProcessingSettingsArgs) ElementType() reflect.Type {
@@ -12891,7 +11602,6 @@ func (i *edifactProcessingSettingsPtrType) ToEdifactProcessingSettingsPtrOutputW
 	return pulumi.ToOutputWithContext(ctx, i).(EdifactProcessingSettingsPtrOutput)
 }
 
-// The Edifact agreement protocol settings.
 type EdifactProcessingSettingsOutput struct{ *pulumi.OutputState }
 
 func (EdifactProcessingSettingsOutput) ElementType() reflect.Type {
@@ -12911,32 +11621,27 @@ func (o EdifactProcessingSettingsOutput) ToEdifactProcessingSettingsPtrOutput() 
 }
 
 func (o EdifactProcessingSettingsOutput) ToEdifactProcessingSettingsPtrOutputWithContext(ctx context.Context) EdifactProcessingSettingsPtrOutput {
-	return o.ApplyT(func(v EdifactProcessingSettings) *EdifactProcessingSettings {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v EdifactProcessingSettings) *EdifactProcessingSettings {
 		return &v
 	}).(EdifactProcessingSettingsPtrOutput)
 }
 
-// The value indicating whether to create empty xml tags for trailing separators.
 func (o EdifactProcessingSettingsOutput) CreateEmptyXmlTagsForTrailingSeparators() pulumi.BoolOutput {
 	return o.ApplyT(func(v EdifactProcessingSettings) bool { return v.CreateEmptyXmlTagsForTrailingSeparators }).(pulumi.BoolOutput)
 }
 
-// The value indicating whether to mask security information.
 func (o EdifactProcessingSettingsOutput) MaskSecurityInfo() pulumi.BoolOutput {
 	return o.ApplyT(func(v EdifactProcessingSettings) bool { return v.MaskSecurityInfo }).(pulumi.BoolOutput)
 }
 
-// The value indicating whether to preserve interchange.
 func (o EdifactProcessingSettingsOutput) PreserveInterchange() pulumi.BoolOutput {
 	return o.ApplyT(func(v EdifactProcessingSettings) bool { return v.PreserveInterchange }).(pulumi.BoolOutput)
 }
 
-// The value indicating whether to suspend interchange on error.
 func (o EdifactProcessingSettingsOutput) SuspendInterchangeOnError() pulumi.BoolOutput {
 	return o.ApplyT(func(v EdifactProcessingSettings) bool { return v.SuspendInterchangeOnError }).(pulumi.BoolOutput)
 }
 
-// The value indicating whether to use dot as decimal separator.
 func (o EdifactProcessingSettingsOutput) UseDotAsDecimalSeparator() pulumi.BoolOutput {
 	return o.ApplyT(func(v EdifactProcessingSettings) bool { return v.UseDotAsDecimalSeparator }).(pulumi.BoolOutput)
 }
@@ -12956,10 +11661,15 @@ func (o EdifactProcessingSettingsPtrOutput) ToEdifactProcessingSettingsPtrOutput
 }
 
 func (o EdifactProcessingSettingsPtrOutput) Elem() EdifactProcessingSettingsOutput {
-	return o.ApplyT(func(v *EdifactProcessingSettings) EdifactProcessingSettings { return *v }).(EdifactProcessingSettingsOutput)
+	return o.ApplyT(func(v *EdifactProcessingSettings) EdifactProcessingSettings {
+		if v != nil {
+			return *v
+		}
+		var ret EdifactProcessingSettings
+		return ret
+	}).(EdifactProcessingSettingsOutput)
 }
 
-// The value indicating whether to create empty xml tags for trailing separators.
 func (o EdifactProcessingSettingsPtrOutput) CreateEmptyXmlTagsForTrailingSeparators() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *EdifactProcessingSettings) *bool {
 		if v == nil {
@@ -12969,7 +11679,6 @@ func (o EdifactProcessingSettingsPtrOutput) CreateEmptyXmlTagsForTrailingSeparat
 	}).(pulumi.BoolPtrOutput)
 }
 
-// The value indicating whether to mask security information.
 func (o EdifactProcessingSettingsPtrOutput) MaskSecurityInfo() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *EdifactProcessingSettings) *bool {
 		if v == nil {
@@ -12979,7 +11688,6 @@ func (o EdifactProcessingSettingsPtrOutput) MaskSecurityInfo() pulumi.BoolPtrOut
 	}).(pulumi.BoolPtrOutput)
 }
 
-// The value indicating whether to preserve interchange.
 func (o EdifactProcessingSettingsPtrOutput) PreserveInterchange() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *EdifactProcessingSettings) *bool {
 		if v == nil {
@@ -12989,7 +11697,6 @@ func (o EdifactProcessingSettingsPtrOutput) PreserveInterchange() pulumi.BoolPtr
 	}).(pulumi.BoolPtrOutput)
 }
 
-// The value indicating whether to suspend interchange on error.
 func (o EdifactProcessingSettingsPtrOutput) SuspendInterchangeOnError() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *EdifactProcessingSettings) *bool {
 		if v == nil {
@@ -12999,7 +11706,6 @@ func (o EdifactProcessingSettingsPtrOutput) SuspendInterchangeOnError() pulumi.B
 	}).(pulumi.BoolPtrOutput)
 }
 
-// The value indicating whether to use dot as decimal separator.
 func (o EdifactProcessingSettingsPtrOutput) UseDotAsDecimalSeparator() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *EdifactProcessingSettings) *bool {
 		if v == nil {
@@ -13009,18 +11715,12 @@ func (o EdifactProcessingSettingsPtrOutput) UseDotAsDecimalSeparator() pulumi.Bo
 	}).(pulumi.BoolPtrOutput)
 }
 
-// The Edifact agreement protocol settings.
 type EdifactProcessingSettingsResponse struct {
-	// The value indicating whether to create empty xml tags for trailing separators.
 	CreateEmptyXmlTagsForTrailingSeparators bool `pulumi:"createEmptyXmlTagsForTrailingSeparators"`
-	// The value indicating whether to mask security information.
-	MaskSecurityInfo bool `pulumi:"maskSecurityInfo"`
-	// The value indicating whether to preserve interchange.
-	PreserveInterchange bool `pulumi:"preserveInterchange"`
-	// The value indicating whether to suspend interchange on error.
-	SuspendInterchangeOnError bool `pulumi:"suspendInterchangeOnError"`
-	// The value indicating whether to use dot as decimal separator.
-	UseDotAsDecimalSeparator bool `pulumi:"useDotAsDecimalSeparator"`
+	MaskSecurityInfo                        bool `pulumi:"maskSecurityInfo"`
+	PreserveInterchange                     bool `pulumi:"preserveInterchange"`
+	SuspendInterchangeOnError               bool `pulumi:"suspendInterchangeOnError"`
+	UseDotAsDecimalSeparator                bool `pulumi:"useDotAsDecimalSeparator"`
 }
 
 // EdifactProcessingSettingsResponseInput is an input type that accepts EdifactProcessingSettingsResponseArgs and EdifactProcessingSettingsResponseOutput values.
@@ -13034,18 +11734,12 @@ type EdifactProcessingSettingsResponseInput interface {
 	ToEdifactProcessingSettingsResponseOutputWithContext(context.Context) EdifactProcessingSettingsResponseOutput
 }
 
-// The Edifact agreement protocol settings.
 type EdifactProcessingSettingsResponseArgs struct {
-	// The value indicating whether to create empty xml tags for trailing separators.
 	CreateEmptyXmlTagsForTrailingSeparators pulumi.BoolInput `pulumi:"createEmptyXmlTagsForTrailingSeparators"`
-	// The value indicating whether to mask security information.
-	MaskSecurityInfo pulumi.BoolInput `pulumi:"maskSecurityInfo"`
-	// The value indicating whether to preserve interchange.
-	PreserveInterchange pulumi.BoolInput `pulumi:"preserveInterchange"`
-	// The value indicating whether to suspend interchange on error.
-	SuspendInterchangeOnError pulumi.BoolInput `pulumi:"suspendInterchangeOnError"`
-	// The value indicating whether to use dot as decimal separator.
-	UseDotAsDecimalSeparator pulumi.BoolInput `pulumi:"useDotAsDecimalSeparator"`
+	MaskSecurityInfo                        pulumi.BoolInput `pulumi:"maskSecurityInfo"`
+	PreserveInterchange                     pulumi.BoolInput `pulumi:"preserveInterchange"`
+	SuspendInterchangeOnError               pulumi.BoolInput `pulumi:"suspendInterchangeOnError"`
+	UseDotAsDecimalSeparator                pulumi.BoolInput `pulumi:"useDotAsDecimalSeparator"`
 }
 
 func (EdifactProcessingSettingsResponseArgs) ElementType() reflect.Type {
@@ -13101,7 +11795,6 @@ func (i *edifactProcessingSettingsResponsePtrType) ToEdifactProcessingSettingsRe
 	return pulumi.ToOutputWithContext(ctx, i).(EdifactProcessingSettingsResponsePtrOutput)
 }
 
-// The Edifact agreement protocol settings.
 type EdifactProcessingSettingsResponseOutput struct{ *pulumi.OutputState }
 
 func (EdifactProcessingSettingsResponseOutput) ElementType() reflect.Type {
@@ -13121,32 +11814,27 @@ func (o EdifactProcessingSettingsResponseOutput) ToEdifactProcessingSettingsResp
 }
 
 func (o EdifactProcessingSettingsResponseOutput) ToEdifactProcessingSettingsResponsePtrOutputWithContext(ctx context.Context) EdifactProcessingSettingsResponsePtrOutput {
-	return o.ApplyT(func(v EdifactProcessingSettingsResponse) *EdifactProcessingSettingsResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v EdifactProcessingSettingsResponse) *EdifactProcessingSettingsResponse {
 		return &v
 	}).(EdifactProcessingSettingsResponsePtrOutput)
 }
 
-// The value indicating whether to create empty xml tags for trailing separators.
 func (o EdifactProcessingSettingsResponseOutput) CreateEmptyXmlTagsForTrailingSeparators() pulumi.BoolOutput {
 	return o.ApplyT(func(v EdifactProcessingSettingsResponse) bool { return v.CreateEmptyXmlTagsForTrailingSeparators }).(pulumi.BoolOutput)
 }
 
-// The value indicating whether to mask security information.
 func (o EdifactProcessingSettingsResponseOutput) MaskSecurityInfo() pulumi.BoolOutput {
 	return o.ApplyT(func(v EdifactProcessingSettingsResponse) bool { return v.MaskSecurityInfo }).(pulumi.BoolOutput)
 }
 
-// The value indicating whether to preserve interchange.
 func (o EdifactProcessingSettingsResponseOutput) PreserveInterchange() pulumi.BoolOutput {
 	return o.ApplyT(func(v EdifactProcessingSettingsResponse) bool { return v.PreserveInterchange }).(pulumi.BoolOutput)
 }
 
-// The value indicating whether to suspend interchange on error.
 func (o EdifactProcessingSettingsResponseOutput) SuspendInterchangeOnError() pulumi.BoolOutput {
 	return o.ApplyT(func(v EdifactProcessingSettingsResponse) bool { return v.SuspendInterchangeOnError }).(pulumi.BoolOutput)
 }
 
-// The value indicating whether to use dot as decimal separator.
 func (o EdifactProcessingSettingsResponseOutput) UseDotAsDecimalSeparator() pulumi.BoolOutput {
 	return o.ApplyT(func(v EdifactProcessingSettingsResponse) bool { return v.UseDotAsDecimalSeparator }).(pulumi.BoolOutput)
 }
@@ -13166,10 +11854,15 @@ func (o EdifactProcessingSettingsResponsePtrOutput) ToEdifactProcessingSettingsR
 }
 
 func (o EdifactProcessingSettingsResponsePtrOutput) Elem() EdifactProcessingSettingsResponseOutput {
-	return o.ApplyT(func(v *EdifactProcessingSettingsResponse) EdifactProcessingSettingsResponse { return *v }).(EdifactProcessingSettingsResponseOutput)
+	return o.ApplyT(func(v *EdifactProcessingSettingsResponse) EdifactProcessingSettingsResponse {
+		if v != nil {
+			return *v
+		}
+		var ret EdifactProcessingSettingsResponse
+		return ret
+	}).(EdifactProcessingSettingsResponseOutput)
 }
 
-// The value indicating whether to create empty xml tags for trailing separators.
 func (o EdifactProcessingSettingsResponsePtrOutput) CreateEmptyXmlTagsForTrailingSeparators() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *EdifactProcessingSettingsResponse) *bool {
 		if v == nil {
@@ -13179,7 +11872,6 @@ func (o EdifactProcessingSettingsResponsePtrOutput) CreateEmptyXmlTagsForTrailin
 	}).(pulumi.BoolPtrOutput)
 }
 
-// The value indicating whether to mask security information.
 func (o EdifactProcessingSettingsResponsePtrOutput) MaskSecurityInfo() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *EdifactProcessingSettingsResponse) *bool {
 		if v == nil {
@@ -13189,7 +11881,6 @@ func (o EdifactProcessingSettingsResponsePtrOutput) MaskSecurityInfo() pulumi.Bo
 	}).(pulumi.BoolPtrOutput)
 }
 
-// The value indicating whether to preserve interchange.
 func (o EdifactProcessingSettingsResponsePtrOutput) PreserveInterchange() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *EdifactProcessingSettingsResponse) *bool {
 		if v == nil {
@@ -13199,7 +11890,6 @@ func (o EdifactProcessingSettingsResponsePtrOutput) PreserveInterchange() pulumi
 	}).(pulumi.BoolPtrOutput)
 }
 
-// The value indicating whether to suspend interchange on error.
 func (o EdifactProcessingSettingsResponsePtrOutput) SuspendInterchangeOnError() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *EdifactProcessingSettingsResponse) *bool {
 		if v == nil {
@@ -13209,7 +11899,6 @@ func (o EdifactProcessingSettingsResponsePtrOutput) SuspendInterchangeOnError() 
 	}).(pulumi.BoolPtrOutput)
 }
 
-// The value indicating whether to use dot as decimal separator.
 func (o EdifactProcessingSettingsResponsePtrOutput) UseDotAsDecimalSeparator() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *EdifactProcessingSettingsResponse) *bool {
 		if v == nil {
@@ -13219,30 +11908,18 @@ func (o EdifactProcessingSettingsResponsePtrOutput) UseDotAsDecimalSeparator() p
 	}).(pulumi.BoolPtrOutput)
 }
 
-// The Edifact agreement protocol settings.
 type EdifactProtocolSettings struct {
-	// The EDIFACT acknowledgement settings.
-	AcknowledgementSettings EdifactAcknowledgementSettings `pulumi:"acknowledgementSettings"`
-	// The EDIFACT delimiter override settings.
-	EdifactDelimiterOverrides []EdifactDelimiterOverride `pulumi:"edifactDelimiterOverrides"`
-	// The EDIFACT envelope override settings.
-	EnvelopeOverrides []EdifactEnvelopeOverride `pulumi:"envelopeOverrides"`
-	// The EDIFACT envelope settings.
-	EnvelopeSettings EdifactEnvelopeSettings `pulumi:"envelopeSettings"`
-	// The EDIFACT framing settings.
-	FramingSettings EdifactFramingSettings `pulumi:"framingSettings"`
-	// The EDIFACT message filter.
-	MessageFilter EdifactMessageFilter `pulumi:"messageFilter"`
-	// The EDIFACT message filter list.
-	MessageFilterList []EdifactMessageIdentifier `pulumi:"messageFilterList"`
-	// The EDIFACT processing Settings.
-	ProcessingSettings EdifactProcessingSettings `pulumi:"processingSettings"`
-	// The EDIFACT schema references.
-	SchemaReferences []EdifactSchemaReference `pulumi:"schemaReferences"`
-	// The EDIFACT validation override settings.
-	ValidationOverrides []EdifactValidationOverride `pulumi:"validationOverrides"`
-	// The EDIFACT validation settings.
-	ValidationSettings EdifactValidationSettings `pulumi:"validationSettings"`
+	AcknowledgementSettings   EdifactAcknowledgementSettings `pulumi:"acknowledgementSettings"`
+	EdifactDelimiterOverrides []EdifactDelimiterOverride     `pulumi:"edifactDelimiterOverrides"`
+	EnvelopeOverrides         []EdifactEnvelopeOverride      `pulumi:"envelopeOverrides"`
+	EnvelopeSettings          EdifactEnvelopeSettings        `pulumi:"envelopeSettings"`
+	FramingSettings           EdifactFramingSettings         `pulumi:"framingSettings"`
+	MessageFilter             EdifactMessageFilter           `pulumi:"messageFilter"`
+	MessageFilterList         []EdifactMessageIdentifier     `pulumi:"messageFilterList"`
+	ProcessingSettings        EdifactProcessingSettings      `pulumi:"processingSettings"`
+	SchemaReferences          []EdifactSchemaReference       `pulumi:"schemaReferences"`
+	ValidationOverrides       []EdifactValidationOverride    `pulumi:"validationOverrides"`
+	ValidationSettings        EdifactValidationSettings      `pulumi:"validationSettings"`
 }
 
 // EdifactProtocolSettingsInput is an input type that accepts EdifactProtocolSettingsArgs and EdifactProtocolSettingsOutput values.
@@ -13256,30 +11933,18 @@ type EdifactProtocolSettingsInput interface {
 	ToEdifactProtocolSettingsOutputWithContext(context.Context) EdifactProtocolSettingsOutput
 }
 
-// The Edifact agreement protocol settings.
 type EdifactProtocolSettingsArgs struct {
-	// The EDIFACT acknowledgement settings.
-	AcknowledgementSettings EdifactAcknowledgementSettingsInput `pulumi:"acknowledgementSettings"`
-	// The EDIFACT delimiter override settings.
-	EdifactDelimiterOverrides EdifactDelimiterOverrideArrayInput `pulumi:"edifactDelimiterOverrides"`
-	// The EDIFACT envelope override settings.
-	EnvelopeOverrides EdifactEnvelopeOverrideArrayInput `pulumi:"envelopeOverrides"`
-	// The EDIFACT envelope settings.
-	EnvelopeSettings EdifactEnvelopeSettingsInput `pulumi:"envelopeSettings"`
-	// The EDIFACT framing settings.
-	FramingSettings EdifactFramingSettingsInput `pulumi:"framingSettings"`
-	// The EDIFACT message filter.
-	MessageFilter EdifactMessageFilterInput `pulumi:"messageFilter"`
-	// The EDIFACT message filter list.
-	MessageFilterList EdifactMessageIdentifierArrayInput `pulumi:"messageFilterList"`
-	// The EDIFACT processing Settings.
-	ProcessingSettings EdifactProcessingSettingsInput `pulumi:"processingSettings"`
-	// The EDIFACT schema references.
-	SchemaReferences EdifactSchemaReferenceArrayInput `pulumi:"schemaReferences"`
-	// The EDIFACT validation override settings.
-	ValidationOverrides EdifactValidationOverrideArrayInput `pulumi:"validationOverrides"`
-	// The EDIFACT validation settings.
-	ValidationSettings EdifactValidationSettingsInput `pulumi:"validationSettings"`
+	AcknowledgementSettings   EdifactAcknowledgementSettingsInput `pulumi:"acknowledgementSettings"`
+	EdifactDelimiterOverrides EdifactDelimiterOverrideArrayInput  `pulumi:"edifactDelimiterOverrides"`
+	EnvelopeOverrides         EdifactEnvelopeOverrideArrayInput   `pulumi:"envelopeOverrides"`
+	EnvelopeSettings          EdifactEnvelopeSettingsInput        `pulumi:"envelopeSettings"`
+	FramingSettings           EdifactFramingSettingsInput         `pulumi:"framingSettings"`
+	MessageFilter             EdifactMessageFilterInput           `pulumi:"messageFilter"`
+	MessageFilterList         EdifactMessageIdentifierArrayInput  `pulumi:"messageFilterList"`
+	ProcessingSettings        EdifactProcessingSettingsInput      `pulumi:"processingSettings"`
+	SchemaReferences          EdifactSchemaReferenceArrayInput    `pulumi:"schemaReferences"`
+	ValidationOverrides       EdifactValidationOverrideArrayInput `pulumi:"validationOverrides"`
+	ValidationSettings        EdifactValidationSettingsInput      `pulumi:"validationSettings"`
 }
 
 func (EdifactProtocolSettingsArgs) ElementType() reflect.Type {
@@ -13335,7 +12000,6 @@ func (i *edifactProtocolSettingsPtrType) ToEdifactProtocolSettingsPtrOutputWithC
 	return pulumi.ToOutputWithContext(ctx, i).(EdifactProtocolSettingsPtrOutput)
 }
 
-// The Edifact agreement protocol settings.
 type EdifactProtocolSettingsOutput struct{ *pulumi.OutputState }
 
 func (EdifactProtocolSettingsOutput) ElementType() reflect.Type {
@@ -13355,62 +12019,51 @@ func (o EdifactProtocolSettingsOutput) ToEdifactProtocolSettingsPtrOutput() Edif
 }
 
 func (o EdifactProtocolSettingsOutput) ToEdifactProtocolSettingsPtrOutputWithContext(ctx context.Context) EdifactProtocolSettingsPtrOutput {
-	return o.ApplyT(func(v EdifactProtocolSettings) *EdifactProtocolSettings {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v EdifactProtocolSettings) *EdifactProtocolSettings {
 		return &v
 	}).(EdifactProtocolSettingsPtrOutput)
 }
 
-// The EDIFACT acknowledgement settings.
 func (o EdifactProtocolSettingsOutput) AcknowledgementSettings() EdifactAcknowledgementSettingsOutput {
 	return o.ApplyT(func(v EdifactProtocolSettings) EdifactAcknowledgementSettings { return v.AcknowledgementSettings }).(EdifactAcknowledgementSettingsOutput)
 }
 
-// The EDIFACT delimiter override settings.
 func (o EdifactProtocolSettingsOutput) EdifactDelimiterOverrides() EdifactDelimiterOverrideArrayOutput {
 	return o.ApplyT(func(v EdifactProtocolSettings) []EdifactDelimiterOverride { return v.EdifactDelimiterOverrides }).(EdifactDelimiterOverrideArrayOutput)
 }
 
-// The EDIFACT envelope override settings.
 func (o EdifactProtocolSettingsOutput) EnvelopeOverrides() EdifactEnvelopeOverrideArrayOutput {
 	return o.ApplyT(func(v EdifactProtocolSettings) []EdifactEnvelopeOverride { return v.EnvelopeOverrides }).(EdifactEnvelopeOverrideArrayOutput)
 }
 
-// The EDIFACT envelope settings.
 func (o EdifactProtocolSettingsOutput) EnvelopeSettings() EdifactEnvelopeSettingsOutput {
 	return o.ApplyT(func(v EdifactProtocolSettings) EdifactEnvelopeSettings { return v.EnvelopeSettings }).(EdifactEnvelopeSettingsOutput)
 }
 
-// The EDIFACT framing settings.
 func (o EdifactProtocolSettingsOutput) FramingSettings() EdifactFramingSettingsOutput {
 	return o.ApplyT(func(v EdifactProtocolSettings) EdifactFramingSettings { return v.FramingSettings }).(EdifactFramingSettingsOutput)
 }
 
-// The EDIFACT message filter.
 func (o EdifactProtocolSettingsOutput) MessageFilter() EdifactMessageFilterOutput {
 	return o.ApplyT(func(v EdifactProtocolSettings) EdifactMessageFilter { return v.MessageFilter }).(EdifactMessageFilterOutput)
 }
 
-// The EDIFACT message filter list.
 func (o EdifactProtocolSettingsOutput) MessageFilterList() EdifactMessageIdentifierArrayOutput {
 	return o.ApplyT(func(v EdifactProtocolSettings) []EdifactMessageIdentifier { return v.MessageFilterList }).(EdifactMessageIdentifierArrayOutput)
 }
 
-// The EDIFACT processing Settings.
 func (o EdifactProtocolSettingsOutput) ProcessingSettings() EdifactProcessingSettingsOutput {
 	return o.ApplyT(func(v EdifactProtocolSettings) EdifactProcessingSettings { return v.ProcessingSettings }).(EdifactProcessingSettingsOutput)
 }
 
-// The EDIFACT schema references.
 func (o EdifactProtocolSettingsOutput) SchemaReferences() EdifactSchemaReferenceArrayOutput {
 	return o.ApplyT(func(v EdifactProtocolSettings) []EdifactSchemaReference { return v.SchemaReferences }).(EdifactSchemaReferenceArrayOutput)
 }
 
-// The EDIFACT validation override settings.
 func (o EdifactProtocolSettingsOutput) ValidationOverrides() EdifactValidationOverrideArrayOutput {
 	return o.ApplyT(func(v EdifactProtocolSettings) []EdifactValidationOverride { return v.ValidationOverrides }).(EdifactValidationOverrideArrayOutput)
 }
 
-// The EDIFACT validation settings.
 func (o EdifactProtocolSettingsOutput) ValidationSettings() EdifactValidationSettingsOutput {
 	return o.ApplyT(func(v EdifactProtocolSettings) EdifactValidationSettings { return v.ValidationSettings }).(EdifactValidationSettingsOutput)
 }
@@ -13430,10 +12083,15 @@ func (o EdifactProtocolSettingsPtrOutput) ToEdifactProtocolSettingsPtrOutputWith
 }
 
 func (o EdifactProtocolSettingsPtrOutput) Elem() EdifactProtocolSettingsOutput {
-	return o.ApplyT(func(v *EdifactProtocolSettings) EdifactProtocolSettings { return *v }).(EdifactProtocolSettingsOutput)
+	return o.ApplyT(func(v *EdifactProtocolSettings) EdifactProtocolSettings {
+		if v != nil {
+			return *v
+		}
+		var ret EdifactProtocolSettings
+		return ret
+	}).(EdifactProtocolSettingsOutput)
 }
 
-// The EDIFACT acknowledgement settings.
 func (o EdifactProtocolSettingsPtrOutput) AcknowledgementSettings() EdifactAcknowledgementSettingsPtrOutput {
 	return o.ApplyT(func(v *EdifactProtocolSettings) *EdifactAcknowledgementSettings {
 		if v == nil {
@@ -13443,7 +12101,6 @@ func (o EdifactProtocolSettingsPtrOutput) AcknowledgementSettings() EdifactAckno
 	}).(EdifactAcknowledgementSettingsPtrOutput)
 }
 
-// The EDIFACT delimiter override settings.
 func (o EdifactProtocolSettingsPtrOutput) EdifactDelimiterOverrides() EdifactDelimiterOverrideArrayOutput {
 	return o.ApplyT(func(v *EdifactProtocolSettings) []EdifactDelimiterOverride {
 		if v == nil {
@@ -13453,7 +12110,6 @@ func (o EdifactProtocolSettingsPtrOutput) EdifactDelimiterOverrides() EdifactDel
 	}).(EdifactDelimiterOverrideArrayOutput)
 }
 
-// The EDIFACT envelope override settings.
 func (o EdifactProtocolSettingsPtrOutput) EnvelopeOverrides() EdifactEnvelopeOverrideArrayOutput {
 	return o.ApplyT(func(v *EdifactProtocolSettings) []EdifactEnvelopeOverride {
 		if v == nil {
@@ -13463,7 +12119,6 @@ func (o EdifactProtocolSettingsPtrOutput) EnvelopeOverrides() EdifactEnvelopeOve
 	}).(EdifactEnvelopeOverrideArrayOutput)
 }
 
-// The EDIFACT envelope settings.
 func (o EdifactProtocolSettingsPtrOutput) EnvelopeSettings() EdifactEnvelopeSettingsPtrOutput {
 	return o.ApplyT(func(v *EdifactProtocolSettings) *EdifactEnvelopeSettings {
 		if v == nil {
@@ -13473,7 +12128,6 @@ func (o EdifactProtocolSettingsPtrOutput) EnvelopeSettings() EdifactEnvelopeSett
 	}).(EdifactEnvelopeSettingsPtrOutput)
 }
 
-// The EDIFACT framing settings.
 func (o EdifactProtocolSettingsPtrOutput) FramingSettings() EdifactFramingSettingsPtrOutput {
 	return o.ApplyT(func(v *EdifactProtocolSettings) *EdifactFramingSettings {
 		if v == nil {
@@ -13483,7 +12137,6 @@ func (o EdifactProtocolSettingsPtrOutput) FramingSettings() EdifactFramingSettin
 	}).(EdifactFramingSettingsPtrOutput)
 }
 
-// The EDIFACT message filter.
 func (o EdifactProtocolSettingsPtrOutput) MessageFilter() EdifactMessageFilterPtrOutput {
 	return o.ApplyT(func(v *EdifactProtocolSettings) *EdifactMessageFilter {
 		if v == nil {
@@ -13493,7 +12146,6 @@ func (o EdifactProtocolSettingsPtrOutput) MessageFilter() EdifactMessageFilterPt
 	}).(EdifactMessageFilterPtrOutput)
 }
 
-// The EDIFACT message filter list.
 func (o EdifactProtocolSettingsPtrOutput) MessageFilterList() EdifactMessageIdentifierArrayOutput {
 	return o.ApplyT(func(v *EdifactProtocolSettings) []EdifactMessageIdentifier {
 		if v == nil {
@@ -13503,7 +12155,6 @@ func (o EdifactProtocolSettingsPtrOutput) MessageFilterList() EdifactMessageIden
 	}).(EdifactMessageIdentifierArrayOutput)
 }
 
-// The EDIFACT processing Settings.
 func (o EdifactProtocolSettingsPtrOutput) ProcessingSettings() EdifactProcessingSettingsPtrOutput {
 	return o.ApplyT(func(v *EdifactProtocolSettings) *EdifactProcessingSettings {
 		if v == nil {
@@ -13513,7 +12164,6 @@ func (o EdifactProtocolSettingsPtrOutput) ProcessingSettings() EdifactProcessing
 	}).(EdifactProcessingSettingsPtrOutput)
 }
 
-// The EDIFACT schema references.
 func (o EdifactProtocolSettingsPtrOutput) SchemaReferences() EdifactSchemaReferenceArrayOutput {
 	return o.ApplyT(func(v *EdifactProtocolSettings) []EdifactSchemaReference {
 		if v == nil {
@@ -13523,7 +12173,6 @@ func (o EdifactProtocolSettingsPtrOutput) SchemaReferences() EdifactSchemaRefere
 	}).(EdifactSchemaReferenceArrayOutput)
 }
 
-// The EDIFACT validation override settings.
 func (o EdifactProtocolSettingsPtrOutput) ValidationOverrides() EdifactValidationOverrideArrayOutput {
 	return o.ApplyT(func(v *EdifactProtocolSettings) []EdifactValidationOverride {
 		if v == nil {
@@ -13533,7 +12182,6 @@ func (o EdifactProtocolSettingsPtrOutput) ValidationOverrides() EdifactValidatio
 	}).(EdifactValidationOverrideArrayOutput)
 }
 
-// The EDIFACT validation settings.
 func (o EdifactProtocolSettingsPtrOutput) ValidationSettings() EdifactValidationSettingsPtrOutput {
 	return o.ApplyT(func(v *EdifactProtocolSettings) *EdifactValidationSettings {
 		if v == nil {
@@ -13543,30 +12191,18 @@ func (o EdifactProtocolSettingsPtrOutput) ValidationSettings() EdifactValidation
 	}).(EdifactValidationSettingsPtrOutput)
 }
 
-// The Edifact agreement protocol settings.
 type EdifactProtocolSettingsResponse struct {
-	// The EDIFACT acknowledgement settings.
-	AcknowledgementSettings EdifactAcknowledgementSettingsResponse `pulumi:"acknowledgementSettings"`
-	// The EDIFACT delimiter override settings.
-	EdifactDelimiterOverrides []EdifactDelimiterOverrideResponse `pulumi:"edifactDelimiterOverrides"`
-	// The EDIFACT envelope override settings.
-	EnvelopeOverrides []EdifactEnvelopeOverrideResponse `pulumi:"envelopeOverrides"`
-	// The EDIFACT envelope settings.
-	EnvelopeSettings EdifactEnvelopeSettingsResponse `pulumi:"envelopeSettings"`
-	// The EDIFACT framing settings.
-	FramingSettings EdifactFramingSettingsResponse `pulumi:"framingSettings"`
-	// The EDIFACT message filter.
-	MessageFilter EdifactMessageFilterResponse `pulumi:"messageFilter"`
-	// The EDIFACT message filter list.
-	MessageFilterList []EdifactMessageIdentifierResponse `pulumi:"messageFilterList"`
-	// The EDIFACT processing Settings.
-	ProcessingSettings EdifactProcessingSettingsResponse `pulumi:"processingSettings"`
-	// The EDIFACT schema references.
-	SchemaReferences []EdifactSchemaReferenceResponse `pulumi:"schemaReferences"`
-	// The EDIFACT validation override settings.
-	ValidationOverrides []EdifactValidationOverrideResponse `pulumi:"validationOverrides"`
-	// The EDIFACT validation settings.
-	ValidationSettings EdifactValidationSettingsResponse `pulumi:"validationSettings"`
+	AcknowledgementSettings   EdifactAcknowledgementSettingsResponse `pulumi:"acknowledgementSettings"`
+	EdifactDelimiterOverrides []EdifactDelimiterOverrideResponse     `pulumi:"edifactDelimiterOverrides"`
+	EnvelopeOverrides         []EdifactEnvelopeOverrideResponse      `pulumi:"envelopeOverrides"`
+	EnvelopeSettings          EdifactEnvelopeSettingsResponse        `pulumi:"envelopeSettings"`
+	FramingSettings           EdifactFramingSettingsResponse         `pulumi:"framingSettings"`
+	MessageFilter             EdifactMessageFilterResponse           `pulumi:"messageFilter"`
+	MessageFilterList         []EdifactMessageIdentifierResponse     `pulumi:"messageFilterList"`
+	ProcessingSettings        EdifactProcessingSettingsResponse      `pulumi:"processingSettings"`
+	SchemaReferences          []EdifactSchemaReferenceResponse       `pulumi:"schemaReferences"`
+	ValidationOverrides       []EdifactValidationOverrideResponse    `pulumi:"validationOverrides"`
+	ValidationSettings        EdifactValidationSettingsResponse      `pulumi:"validationSettings"`
 }
 
 // EdifactProtocolSettingsResponseInput is an input type that accepts EdifactProtocolSettingsResponseArgs and EdifactProtocolSettingsResponseOutput values.
@@ -13580,30 +12216,18 @@ type EdifactProtocolSettingsResponseInput interface {
 	ToEdifactProtocolSettingsResponseOutputWithContext(context.Context) EdifactProtocolSettingsResponseOutput
 }
 
-// The Edifact agreement protocol settings.
 type EdifactProtocolSettingsResponseArgs struct {
-	// The EDIFACT acknowledgement settings.
-	AcknowledgementSettings EdifactAcknowledgementSettingsResponseInput `pulumi:"acknowledgementSettings"`
-	// The EDIFACT delimiter override settings.
-	EdifactDelimiterOverrides EdifactDelimiterOverrideResponseArrayInput `pulumi:"edifactDelimiterOverrides"`
-	// The EDIFACT envelope override settings.
-	EnvelopeOverrides EdifactEnvelopeOverrideResponseArrayInput `pulumi:"envelopeOverrides"`
-	// The EDIFACT envelope settings.
-	EnvelopeSettings EdifactEnvelopeSettingsResponseInput `pulumi:"envelopeSettings"`
-	// The EDIFACT framing settings.
-	FramingSettings EdifactFramingSettingsResponseInput `pulumi:"framingSettings"`
-	// The EDIFACT message filter.
-	MessageFilter EdifactMessageFilterResponseInput `pulumi:"messageFilter"`
-	// The EDIFACT message filter list.
-	MessageFilterList EdifactMessageIdentifierResponseArrayInput `pulumi:"messageFilterList"`
-	// The EDIFACT processing Settings.
-	ProcessingSettings EdifactProcessingSettingsResponseInput `pulumi:"processingSettings"`
-	// The EDIFACT schema references.
-	SchemaReferences EdifactSchemaReferenceResponseArrayInput `pulumi:"schemaReferences"`
-	// The EDIFACT validation override settings.
-	ValidationOverrides EdifactValidationOverrideResponseArrayInput `pulumi:"validationOverrides"`
-	// The EDIFACT validation settings.
-	ValidationSettings EdifactValidationSettingsResponseInput `pulumi:"validationSettings"`
+	AcknowledgementSettings   EdifactAcknowledgementSettingsResponseInput `pulumi:"acknowledgementSettings"`
+	EdifactDelimiterOverrides EdifactDelimiterOverrideResponseArrayInput  `pulumi:"edifactDelimiterOverrides"`
+	EnvelopeOverrides         EdifactEnvelopeOverrideResponseArrayInput   `pulumi:"envelopeOverrides"`
+	EnvelopeSettings          EdifactEnvelopeSettingsResponseInput        `pulumi:"envelopeSettings"`
+	FramingSettings           EdifactFramingSettingsResponseInput         `pulumi:"framingSettings"`
+	MessageFilter             EdifactMessageFilterResponseInput           `pulumi:"messageFilter"`
+	MessageFilterList         EdifactMessageIdentifierResponseArrayInput  `pulumi:"messageFilterList"`
+	ProcessingSettings        EdifactProcessingSettingsResponseInput      `pulumi:"processingSettings"`
+	SchemaReferences          EdifactSchemaReferenceResponseArrayInput    `pulumi:"schemaReferences"`
+	ValidationOverrides       EdifactValidationOverrideResponseArrayInput `pulumi:"validationOverrides"`
+	ValidationSettings        EdifactValidationSettingsResponseInput      `pulumi:"validationSettings"`
 }
 
 func (EdifactProtocolSettingsResponseArgs) ElementType() reflect.Type {
@@ -13659,7 +12283,6 @@ func (i *edifactProtocolSettingsResponsePtrType) ToEdifactProtocolSettingsRespon
 	return pulumi.ToOutputWithContext(ctx, i).(EdifactProtocolSettingsResponsePtrOutput)
 }
 
-// The Edifact agreement protocol settings.
 type EdifactProtocolSettingsResponseOutput struct{ *pulumi.OutputState }
 
 func (EdifactProtocolSettingsResponseOutput) ElementType() reflect.Type {
@@ -13679,68 +12302,57 @@ func (o EdifactProtocolSettingsResponseOutput) ToEdifactProtocolSettingsResponse
 }
 
 func (o EdifactProtocolSettingsResponseOutput) ToEdifactProtocolSettingsResponsePtrOutputWithContext(ctx context.Context) EdifactProtocolSettingsResponsePtrOutput {
-	return o.ApplyT(func(v EdifactProtocolSettingsResponse) *EdifactProtocolSettingsResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v EdifactProtocolSettingsResponse) *EdifactProtocolSettingsResponse {
 		return &v
 	}).(EdifactProtocolSettingsResponsePtrOutput)
 }
 
-// The EDIFACT acknowledgement settings.
 func (o EdifactProtocolSettingsResponseOutput) AcknowledgementSettings() EdifactAcknowledgementSettingsResponseOutput {
 	return o.ApplyT(func(v EdifactProtocolSettingsResponse) EdifactAcknowledgementSettingsResponse {
 		return v.AcknowledgementSettings
 	}).(EdifactAcknowledgementSettingsResponseOutput)
 }
 
-// The EDIFACT delimiter override settings.
 func (o EdifactProtocolSettingsResponseOutput) EdifactDelimiterOverrides() EdifactDelimiterOverrideResponseArrayOutput {
 	return o.ApplyT(func(v EdifactProtocolSettingsResponse) []EdifactDelimiterOverrideResponse {
 		return v.EdifactDelimiterOverrides
 	}).(EdifactDelimiterOverrideResponseArrayOutput)
 }
 
-// The EDIFACT envelope override settings.
 func (o EdifactProtocolSettingsResponseOutput) EnvelopeOverrides() EdifactEnvelopeOverrideResponseArrayOutput {
 	return o.ApplyT(func(v EdifactProtocolSettingsResponse) []EdifactEnvelopeOverrideResponse { return v.EnvelopeOverrides }).(EdifactEnvelopeOverrideResponseArrayOutput)
 }
 
-// The EDIFACT envelope settings.
 func (o EdifactProtocolSettingsResponseOutput) EnvelopeSettings() EdifactEnvelopeSettingsResponseOutput {
 	return o.ApplyT(func(v EdifactProtocolSettingsResponse) EdifactEnvelopeSettingsResponse { return v.EnvelopeSettings }).(EdifactEnvelopeSettingsResponseOutput)
 }
 
-// The EDIFACT framing settings.
 func (o EdifactProtocolSettingsResponseOutput) FramingSettings() EdifactFramingSettingsResponseOutput {
 	return o.ApplyT(func(v EdifactProtocolSettingsResponse) EdifactFramingSettingsResponse { return v.FramingSettings }).(EdifactFramingSettingsResponseOutput)
 }
 
-// The EDIFACT message filter.
 func (o EdifactProtocolSettingsResponseOutput) MessageFilter() EdifactMessageFilterResponseOutput {
 	return o.ApplyT(func(v EdifactProtocolSettingsResponse) EdifactMessageFilterResponse { return v.MessageFilter }).(EdifactMessageFilterResponseOutput)
 }
 
-// The EDIFACT message filter list.
 func (o EdifactProtocolSettingsResponseOutput) MessageFilterList() EdifactMessageIdentifierResponseArrayOutput {
 	return o.ApplyT(func(v EdifactProtocolSettingsResponse) []EdifactMessageIdentifierResponse { return v.MessageFilterList }).(EdifactMessageIdentifierResponseArrayOutput)
 }
 
-// The EDIFACT processing Settings.
 func (o EdifactProtocolSettingsResponseOutput) ProcessingSettings() EdifactProcessingSettingsResponseOutput {
 	return o.ApplyT(func(v EdifactProtocolSettingsResponse) EdifactProcessingSettingsResponse { return v.ProcessingSettings }).(EdifactProcessingSettingsResponseOutput)
 }
 
-// The EDIFACT schema references.
 func (o EdifactProtocolSettingsResponseOutput) SchemaReferences() EdifactSchemaReferenceResponseArrayOutput {
 	return o.ApplyT(func(v EdifactProtocolSettingsResponse) []EdifactSchemaReferenceResponse { return v.SchemaReferences }).(EdifactSchemaReferenceResponseArrayOutput)
 }
 
-// The EDIFACT validation override settings.
 func (o EdifactProtocolSettingsResponseOutput) ValidationOverrides() EdifactValidationOverrideResponseArrayOutput {
 	return o.ApplyT(func(v EdifactProtocolSettingsResponse) []EdifactValidationOverrideResponse {
 		return v.ValidationOverrides
 	}).(EdifactValidationOverrideResponseArrayOutput)
 }
 
-// The EDIFACT validation settings.
 func (o EdifactProtocolSettingsResponseOutput) ValidationSettings() EdifactValidationSettingsResponseOutput {
 	return o.ApplyT(func(v EdifactProtocolSettingsResponse) EdifactValidationSettingsResponse { return v.ValidationSettings }).(EdifactValidationSettingsResponseOutput)
 }
@@ -13760,10 +12372,15 @@ func (o EdifactProtocolSettingsResponsePtrOutput) ToEdifactProtocolSettingsRespo
 }
 
 func (o EdifactProtocolSettingsResponsePtrOutput) Elem() EdifactProtocolSettingsResponseOutput {
-	return o.ApplyT(func(v *EdifactProtocolSettingsResponse) EdifactProtocolSettingsResponse { return *v }).(EdifactProtocolSettingsResponseOutput)
+	return o.ApplyT(func(v *EdifactProtocolSettingsResponse) EdifactProtocolSettingsResponse {
+		if v != nil {
+			return *v
+		}
+		var ret EdifactProtocolSettingsResponse
+		return ret
+	}).(EdifactProtocolSettingsResponseOutput)
 }
 
-// The EDIFACT acknowledgement settings.
 func (o EdifactProtocolSettingsResponsePtrOutput) AcknowledgementSettings() EdifactAcknowledgementSettingsResponsePtrOutput {
 	return o.ApplyT(func(v *EdifactProtocolSettingsResponse) *EdifactAcknowledgementSettingsResponse {
 		if v == nil {
@@ -13773,7 +12390,6 @@ func (o EdifactProtocolSettingsResponsePtrOutput) AcknowledgementSettings() Edif
 	}).(EdifactAcknowledgementSettingsResponsePtrOutput)
 }
 
-// The EDIFACT delimiter override settings.
 func (o EdifactProtocolSettingsResponsePtrOutput) EdifactDelimiterOverrides() EdifactDelimiterOverrideResponseArrayOutput {
 	return o.ApplyT(func(v *EdifactProtocolSettingsResponse) []EdifactDelimiterOverrideResponse {
 		if v == nil {
@@ -13783,7 +12399,6 @@ func (o EdifactProtocolSettingsResponsePtrOutput) EdifactDelimiterOverrides() Ed
 	}).(EdifactDelimiterOverrideResponseArrayOutput)
 }
 
-// The EDIFACT envelope override settings.
 func (o EdifactProtocolSettingsResponsePtrOutput) EnvelopeOverrides() EdifactEnvelopeOverrideResponseArrayOutput {
 	return o.ApplyT(func(v *EdifactProtocolSettingsResponse) []EdifactEnvelopeOverrideResponse {
 		if v == nil {
@@ -13793,7 +12408,6 @@ func (o EdifactProtocolSettingsResponsePtrOutput) EnvelopeOverrides() EdifactEnv
 	}).(EdifactEnvelopeOverrideResponseArrayOutput)
 }
 
-// The EDIFACT envelope settings.
 func (o EdifactProtocolSettingsResponsePtrOutput) EnvelopeSettings() EdifactEnvelopeSettingsResponsePtrOutput {
 	return o.ApplyT(func(v *EdifactProtocolSettingsResponse) *EdifactEnvelopeSettingsResponse {
 		if v == nil {
@@ -13803,7 +12417,6 @@ func (o EdifactProtocolSettingsResponsePtrOutput) EnvelopeSettings() EdifactEnve
 	}).(EdifactEnvelopeSettingsResponsePtrOutput)
 }
 
-// The EDIFACT framing settings.
 func (o EdifactProtocolSettingsResponsePtrOutput) FramingSettings() EdifactFramingSettingsResponsePtrOutput {
 	return o.ApplyT(func(v *EdifactProtocolSettingsResponse) *EdifactFramingSettingsResponse {
 		if v == nil {
@@ -13813,7 +12426,6 @@ func (o EdifactProtocolSettingsResponsePtrOutput) FramingSettings() EdifactFrami
 	}).(EdifactFramingSettingsResponsePtrOutput)
 }
 
-// The EDIFACT message filter.
 func (o EdifactProtocolSettingsResponsePtrOutput) MessageFilter() EdifactMessageFilterResponsePtrOutput {
 	return o.ApplyT(func(v *EdifactProtocolSettingsResponse) *EdifactMessageFilterResponse {
 		if v == nil {
@@ -13823,7 +12435,6 @@ func (o EdifactProtocolSettingsResponsePtrOutput) MessageFilter() EdifactMessage
 	}).(EdifactMessageFilterResponsePtrOutput)
 }
 
-// The EDIFACT message filter list.
 func (o EdifactProtocolSettingsResponsePtrOutput) MessageFilterList() EdifactMessageIdentifierResponseArrayOutput {
 	return o.ApplyT(func(v *EdifactProtocolSettingsResponse) []EdifactMessageIdentifierResponse {
 		if v == nil {
@@ -13833,7 +12444,6 @@ func (o EdifactProtocolSettingsResponsePtrOutput) MessageFilterList() EdifactMes
 	}).(EdifactMessageIdentifierResponseArrayOutput)
 }
 
-// The EDIFACT processing Settings.
 func (o EdifactProtocolSettingsResponsePtrOutput) ProcessingSettings() EdifactProcessingSettingsResponsePtrOutput {
 	return o.ApplyT(func(v *EdifactProtocolSettingsResponse) *EdifactProcessingSettingsResponse {
 		if v == nil {
@@ -13843,7 +12453,6 @@ func (o EdifactProtocolSettingsResponsePtrOutput) ProcessingSettings() EdifactPr
 	}).(EdifactProcessingSettingsResponsePtrOutput)
 }
 
-// The EDIFACT schema references.
 func (o EdifactProtocolSettingsResponsePtrOutput) SchemaReferences() EdifactSchemaReferenceResponseArrayOutput {
 	return o.ApplyT(func(v *EdifactProtocolSettingsResponse) []EdifactSchemaReferenceResponse {
 		if v == nil {
@@ -13853,7 +12462,6 @@ func (o EdifactProtocolSettingsResponsePtrOutput) SchemaReferences() EdifactSche
 	}).(EdifactSchemaReferenceResponseArrayOutput)
 }
 
-// The EDIFACT validation override settings.
 func (o EdifactProtocolSettingsResponsePtrOutput) ValidationOverrides() EdifactValidationOverrideResponseArrayOutput {
 	return o.ApplyT(func(v *EdifactProtocolSettingsResponse) []EdifactValidationOverrideResponse {
 		if v == nil {
@@ -13863,7 +12471,6 @@ func (o EdifactProtocolSettingsResponsePtrOutput) ValidationOverrides() EdifactV
 	}).(EdifactValidationOverrideResponseArrayOutput)
 }
 
-// The EDIFACT validation settings.
 func (o EdifactProtocolSettingsResponsePtrOutput) ValidationSettings() EdifactValidationSettingsResponsePtrOutput {
 	return o.ApplyT(func(v *EdifactProtocolSettingsResponse) *EdifactValidationSettingsResponse {
 		if v == nil {
@@ -13873,21 +12480,13 @@ func (o EdifactProtocolSettingsResponsePtrOutput) ValidationSettings() EdifactVa
 	}).(EdifactValidationSettingsResponsePtrOutput)
 }
 
-// The Edifact schema reference.
 type EdifactSchemaReference struct {
-	// The association assigned code.
-	AssociationAssignedCode *string `pulumi:"associationAssignedCode"`
-	// The message id.
-	MessageId string `pulumi:"messageId"`
-	// The message release version.
-	MessageRelease string `pulumi:"messageRelease"`
-	// The message version.
-	MessageVersion string `pulumi:"messageVersion"`
-	// The schema name.
-	SchemaName string `pulumi:"schemaName"`
-	// The sender application id.
-	SenderApplicationId *string `pulumi:"senderApplicationId"`
-	// The sender application qualifier.
+	AssociationAssignedCode    *string `pulumi:"associationAssignedCode"`
+	MessageId                  string  `pulumi:"messageId"`
+	MessageRelease             string  `pulumi:"messageRelease"`
+	MessageVersion             string  `pulumi:"messageVersion"`
+	SchemaName                 string  `pulumi:"schemaName"`
+	SenderApplicationId        *string `pulumi:"senderApplicationId"`
 	SenderApplicationQualifier *string `pulumi:"senderApplicationQualifier"`
 }
 
@@ -13902,21 +12501,13 @@ type EdifactSchemaReferenceInput interface {
 	ToEdifactSchemaReferenceOutputWithContext(context.Context) EdifactSchemaReferenceOutput
 }
 
-// The Edifact schema reference.
 type EdifactSchemaReferenceArgs struct {
-	// The association assigned code.
-	AssociationAssignedCode pulumi.StringPtrInput `pulumi:"associationAssignedCode"`
-	// The message id.
-	MessageId pulumi.StringInput `pulumi:"messageId"`
-	// The message release version.
-	MessageRelease pulumi.StringInput `pulumi:"messageRelease"`
-	// The message version.
-	MessageVersion pulumi.StringInput `pulumi:"messageVersion"`
-	// The schema name.
-	SchemaName pulumi.StringInput `pulumi:"schemaName"`
-	// The sender application id.
-	SenderApplicationId pulumi.StringPtrInput `pulumi:"senderApplicationId"`
-	// The sender application qualifier.
+	AssociationAssignedCode    pulumi.StringPtrInput `pulumi:"associationAssignedCode"`
+	MessageId                  pulumi.StringInput    `pulumi:"messageId"`
+	MessageRelease             pulumi.StringInput    `pulumi:"messageRelease"`
+	MessageVersion             pulumi.StringInput    `pulumi:"messageVersion"`
+	SchemaName                 pulumi.StringInput    `pulumi:"schemaName"`
+	SenderApplicationId        pulumi.StringPtrInput `pulumi:"senderApplicationId"`
 	SenderApplicationQualifier pulumi.StringPtrInput `pulumi:"senderApplicationQualifier"`
 }
 
@@ -13957,7 +12548,6 @@ func (i EdifactSchemaReferenceArray) ToEdifactSchemaReferenceArrayOutputWithCont
 	return pulumi.ToOutputWithContext(ctx, i).(EdifactSchemaReferenceArrayOutput)
 }
 
-// The Edifact schema reference.
 type EdifactSchemaReferenceOutput struct{ *pulumi.OutputState }
 
 func (EdifactSchemaReferenceOutput) ElementType() reflect.Type {
@@ -13972,37 +12562,30 @@ func (o EdifactSchemaReferenceOutput) ToEdifactSchemaReferenceOutputWithContext(
 	return o
 }
 
-// The association assigned code.
 func (o EdifactSchemaReferenceOutput) AssociationAssignedCode() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v EdifactSchemaReference) *string { return v.AssociationAssignedCode }).(pulumi.StringPtrOutput)
 }
 
-// The message id.
 func (o EdifactSchemaReferenceOutput) MessageId() pulumi.StringOutput {
 	return o.ApplyT(func(v EdifactSchemaReference) string { return v.MessageId }).(pulumi.StringOutput)
 }
 
-// The message release version.
 func (o EdifactSchemaReferenceOutput) MessageRelease() pulumi.StringOutput {
 	return o.ApplyT(func(v EdifactSchemaReference) string { return v.MessageRelease }).(pulumi.StringOutput)
 }
 
-// The message version.
 func (o EdifactSchemaReferenceOutput) MessageVersion() pulumi.StringOutput {
 	return o.ApplyT(func(v EdifactSchemaReference) string { return v.MessageVersion }).(pulumi.StringOutput)
 }
 
-// The schema name.
 func (o EdifactSchemaReferenceOutput) SchemaName() pulumi.StringOutput {
 	return o.ApplyT(func(v EdifactSchemaReference) string { return v.SchemaName }).(pulumi.StringOutput)
 }
 
-// The sender application id.
 func (o EdifactSchemaReferenceOutput) SenderApplicationId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v EdifactSchemaReference) *string { return v.SenderApplicationId }).(pulumi.StringPtrOutput)
 }
 
-// The sender application qualifier.
 func (o EdifactSchemaReferenceOutput) SenderApplicationQualifier() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v EdifactSchemaReference) *string { return v.SenderApplicationQualifier }).(pulumi.StringPtrOutput)
 }
@@ -14027,21 +12610,13 @@ func (o EdifactSchemaReferenceArrayOutput) Index(i pulumi.IntInput) EdifactSchem
 	}).(EdifactSchemaReferenceOutput)
 }
 
-// The Edifact schema reference.
 type EdifactSchemaReferenceResponse struct {
-	// The association assigned code.
-	AssociationAssignedCode *string `pulumi:"associationAssignedCode"`
-	// The message id.
-	MessageId string `pulumi:"messageId"`
-	// The message release version.
-	MessageRelease string `pulumi:"messageRelease"`
-	// The message version.
-	MessageVersion string `pulumi:"messageVersion"`
-	// The schema name.
-	SchemaName string `pulumi:"schemaName"`
-	// The sender application id.
-	SenderApplicationId *string `pulumi:"senderApplicationId"`
-	// The sender application qualifier.
+	AssociationAssignedCode    *string `pulumi:"associationAssignedCode"`
+	MessageId                  string  `pulumi:"messageId"`
+	MessageRelease             string  `pulumi:"messageRelease"`
+	MessageVersion             string  `pulumi:"messageVersion"`
+	SchemaName                 string  `pulumi:"schemaName"`
+	SenderApplicationId        *string `pulumi:"senderApplicationId"`
 	SenderApplicationQualifier *string `pulumi:"senderApplicationQualifier"`
 }
 
@@ -14056,21 +12631,13 @@ type EdifactSchemaReferenceResponseInput interface {
 	ToEdifactSchemaReferenceResponseOutputWithContext(context.Context) EdifactSchemaReferenceResponseOutput
 }
 
-// The Edifact schema reference.
 type EdifactSchemaReferenceResponseArgs struct {
-	// The association assigned code.
-	AssociationAssignedCode pulumi.StringPtrInput `pulumi:"associationAssignedCode"`
-	// The message id.
-	MessageId pulumi.StringInput `pulumi:"messageId"`
-	// The message release version.
-	MessageRelease pulumi.StringInput `pulumi:"messageRelease"`
-	// The message version.
-	MessageVersion pulumi.StringInput `pulumi:"messageVersion"`
-	// The schema name.
-	SchemaName pulumi.StringInput `pulumi:"schemaName"`
-	// The sender application id.
-	SenderApplicationId pulumi.StringPtrInput `pulumi:"senderApplicationId"`
-	// The sender application qualifier.
+	AssociationAssignedCode    pulumi.StringPtrInput `pulumi:"associationAssignedCode"`
+	MessageId                  pulumi.StringInput    `pulumi:"messageId"`
+	MessageRelease             pulumi.StringInput    `pulumi:"messageRelease"`
+	MessageVersion             pulumi.StringInput    `pulumi:"messageVersion"`
+	SchemaName                 pulumi.StringInput    `pulumi:"schemaName"`
+	SenderApplicationId        pulumi.StringPtrInput `pulumi:"senderApplicationId"`
 	SenderApplicationQualifier pulumi.StringPtrInput `pulumi:"senderApplicationQualifier"`
 }
 
@@ -14111,7 +12678,6 @@ func (i EdifactSchemaReferenceResponseArray) ToEdifactSchemaReferenceResponseArr
 	return pulumi.ToOutputWithContext(ctx, i).(EdifactSchemaReferenceResponseArrayOutput)
 }
 
-// The Edifact schema reference.
 type EdifactSchemaReferenceResponseOutput struct{ *pulumi.OutputState }
 
 func (EdifactSchemaReferenceResponseOutput) ElementType() reflect.Type {
@@ -14126,37 +12692,30 @@ func (o EdifactSchemaReferenceResponseOutput) ToEdifactSchemaReferenceResponseOu
 	return o
 }
 
-// The association assigned code.
 func (o EdifactSchemaReferenceResponseOutput) AssociationAssignedCode() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v EdifactSchemaReferenceResponse) *string { return v.AssociationAssignedCode }).(pulumi.StringPtrOutput)
 }
 
-// The message id.
 func (o EdifactSchemaReferenceResponseOutput) MessageId() pulumi.StringOutput {
 	return o.ApplyT(func(v EdifactSchemaReferenceResponse) string { return v.MessageId }).(pulumi.StringOutput)
 }
 
-// The message release version.
 func (o EdifactSchemaReferenceResponseOutput) MessageRelease() pulumi.StringOutput {
 	return o.ApplyT(func(v EdifactSchemaReferenceResponse) string { return v.MessageRelease }).(pulumi.StringOutput)
 }
 
-// The message version.
 func (o EdifactSchemaReferenceResponseOutput) MessageVersion() pulumi.StringOutput {
 	return o.ApplyT(func(v EdifactSchemaReferenceResponse) string { return v.MessageVersion }).(pulumi.StringOutput)
 }
 
-// The schema name.
 func (o EdifactSchemaReferenceResponseOutput) SchemaName() pulumi.StringOutput {
 	return o.ApplyT(func(v EdifactSchemaReferenceResponse) string { return v.SchemaName }).(pulumi.StringOutput)
 }
 
-// The sender application id.
 func (o EdifactSchemaReferenceResponseOutput) SenderApplicationId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v EdifactSchemaReferenceResponse) *string { return v.SenderApplicationId }).(pulumi.StringPtrOutput)
 }
 
-// The sender application qualifier.
 func (o EdifactSchemaReferenceResponseOutput) SenderApplicationQualifier() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v EdifactSchemaReferenceResponse) *string { return v.SenderApplicationQualifier }).(pulumi.StringPtrOutput)
 }
@@ -14181,22 +12740,14 @@ func (o EdifactSchemaReferenceResponseArrayOutput) Index(i pulumi.IntInput) Edif
 	}).(EdifactSchemaReferenceResponseOutput)
 }
 
-// The Edifact validation override settings.
 type EdifactValidationOverride struct {
-	// The value indicating whether to allow leading and trailing spaces and zeroes.
-	AllowLeadingAndTrailingSpacesAndZeroes bool `pulumi:"allowLeadingAndTrailingSpacesAndZeroes"`
-	// The value indicating whether to validate character Set.
-	EnforceCharacterSet bool `pulumi:"enforceCharacterSet"`
-	// The message id on which the validation settings has to be applied.
-	MessageId string `pulumi:"messageId"`
-	// The trailing separator policy.
-	TrailingSeparatorPolicy string `pulumi:"trailingSeparatorPolicy"`
-	// The value indicating whether to trim leading and trailing spaces and zeroes.
-	TrimLeadingAndTrailingSpacesAndZeroes bool `pulumi:"trimLeadingAndTrailingSpacesAndZeroes"`
-	// The value indicating whether to validate EDI types.
-	ValidateEDITypes bool `pulumi:"validateEDITypes"`
-	// The value indicating whether to validate XSD types.
-	ValidateXSDTypes bool `pulumi:"validateXSDTypes"`
+	AllowLeadingAndTrailingSpacesAndZeroes bool   `pulumi:"allowLeadingAndTrailingSpacesAndZeroes"`
+	EnforceCharacterSet                    bool   `pulumi:"enforceCharacterSet"`
+	MessageId                              string `pulumi:"messageId"`
+	TrailingSeparatorPolicy                string `pulumi:"trailingSeparatorPolicy"`
+	TrimLeadingAndTrailingSpacesAndZeroes  bool   `pulumi:"trimLeadingAndTrailingSpacesAndZeroes"`
+	ValidateEDITypes                       bool   `pulumi:"validateEDITypes"`
+	ValidateXSDTypes                       bool   `pulumi:"validateXSDTypes"`
 }
 
 // EdifactValidationOverrideInput is an input type that accepts EdifactValidationOverrideArgs and EdifactValidationOverrideOutput values.
@@ -14210,22 +12761,14 @@ type EdifactValidationOverrideInput interface {
 	ToEdifactValidationOverrideOutputWithContext(context.Context) EdifactValidationOverrideOutput
 }
 
-// The Edifact validation override settings.
 type EdifactValidationOverrideArgs struct {
-	// The value indicating whether to allow leading and trailing spaces and zeroes.
-	AllowLeadingAndTrailingSpacesAndZeroes pulumi.BoolInput `pulumi:"allowLeadingAndTrailingSpacesAndZeroes"`
-	// The value indicating whether to validate character Set.
-	EnforceCharacterSet pulumi.BoolInput `pulumi:"enforceCharacterSet"`
-	// The message id on which the validation settings has to be applied.
-	MessageId pulumi.StringInput `pulumi:"messageId"`
-	// The trailing separator policy.
-	TrailingSeparatorPolicy pulumi.StringInput `pulumi:"trailingSeparatorPolicy"`
-	// The value indicating whether to trim leading and trailing spaces and zeroes.
-	TrimLeadingAndTrailingSpacesAndZeroes pulumi.BoolInput `pulumi:"trimLeadingAndTrailingSpacesAndZeroes"`
-	// The value indicating whether to validate EDI types.
-	ValidateEDITypes pulumi.BoolInput `pulumi:"validateEDITypes"`
-	// The value indicating whether to validate XSD types.
-	ValidateXSDTypes pulumi.BoolInput `pulumi:"validateXSDTypes"`
+	AllowLeadingAndTrailingSpacesAndZeroes pulumi.BoolInput   `pulumi:"allowLeadingAndTrailingSpacesAndZeroes"`
+	EnforceCharacterSet                    pulumi.BoolInput   `pulumi:"enforceCharacterSet"`
+	MessageId                              pulumi.StringInput `pulumi:"messageId"`
+	TrailingSeparatorPolicy                pulumi.StringInput `pulumi:"trailingSeparatorPolicy"`
+	TrimLeadingAndTrailingSpacesAndZeroes  pulumi.BoolInput   `pulumi:"trimLeadingAndTrailingSpacesAndZeroes"`
+	ValidateEDITypes                       pulumi.BoolInput   `pulumi:"validateEDITypes"`
+	ValidateXSDTypes                       pulumi.BoolInput   `pulumi:"validateXSDTypes"`
 }
 
 func (EdifactValidationOverrideArgs) ElementType() reflect.Type {
@@ -14265,7 +12808,6 @@ func (i EdifactValidationOverrideArray) ToEdifactValidationOverrideArrayOutputWi
 	return pulumi.ToOutputWithContext(ctx, i).(EdifactValidationOverrideArrayOutput)
 }
 
-// The Edifact validation override settings.
 type EdifactValidationOverrideOutput struct{ *pulumi.OutputState }
 
 func (EdifactValidationOverrideOutput) ElementType() reflect.Type {
@@ -14280,37 +12822,30 @@ func (o EdifactValidationOverrideOutput) ToEdifactValidationOverrideOutputWithCo
 	return o
 }
 
-// The value indicating whether to allow leading and trailing spaces and zeroes.
 func (o EdifactValidationOverrideOutput) AllowLeadingAndTrailingSpacesAndZeroes() pulumi.BoolOutput {
 	return o.ApplyT(func(v EdifactValidationOverride) bool { return v.AllowLeadingAndTrailingSpacesAndZeroes }).(pulumi.BoolOutput)
 }
 
-// The value indicating whether to validate character Set.
 func (o EdifactValidationOverrideOutput) EnforceCharacterSet() pulumi.BoolOutput {
 	return o.ApplyT(func(v EdifactValidationOverride) bool { return v.EnforceCharacterSet }).(pulumi.BoolOutput)
 }
 
-// The message id on which the validation settings has to be applied.
 func (o EdifactValidationOverrideOutput) MessageId() pulumi.StringOutput {
 	return o.ApplyT(func(v EdifactValidationOverride) string { return v.MessageId }).(pulumi.StringOutput)
 }
 
-// The trailing separator policy.
 func (o EdifactValidationOverrideOutput) TrailingSeparatorPolicy() pulumi.StringOutput {
 	return o.ApplyT(func(v EdifactValidationOverride) string { return v.TrailingSeparatorPolicy }).(pulumi.StringOutput)
 }
 
-// The value indicating whether to trim leading and trailing spaces and zeroes.
 func (o EdifactValidationOverrideOutput) TrimLeadingAndTrailingSpacesAndZeroes() pulumi.BoolOutput {
 	return o.ApplyT(func(v EdifactValidationOverride) bool { return v.TrimLeadingAndTrailingSpacesAndZeroes }).(pulumi.BoolOutput)
 }
 
-// The value indicating whether to validate EDI types.
 func (o EdifactValidationOverrideOutput) ValidateEDITypes() pulumi.BoolOutput {
 	return o.ApplyT(func(v EdifactValidationOverride) bool { return v.ValidateEDITypes }).(pulumi.BoolOutput)
 }
 
-// The value indicating whether to validate XSD types.
 func (o EdifactValidationOverrideOutput) ValidateXSDTypes() pulumi.BoolOutput {
 	return o.ApplyT(func(v EdifactValidationOverride) bool { return v.ValidateXSDTypes }).(pulumi.BoolOutput)
 }
@@ -14335,22 +12870,14 @@ func (o EdifactValidationOverrideArrayOutput) Index(i pulumi.IntInput) EdifactVa
 	}).(EdifactValidationOverrideOutput)
 }
 
-// The Edifact validation override settings.
 type EdifactValidationOverrideResponse struct {
-	// The value indicating whether to allow leading and trailing spaces and zeroes.
-	AllowLeadingAndTrailingSpacesAndZeroes bool `pulumi:"allowLeadingAndTrailingSpacesAndZeroes"`
-	// The value indicating whether to validate character Set.
-	EnforceCharacterSet bool `pulumi:"enforceCharacterSet"`
-	// The message id on which the validation settings has to be applied.
-	MessageId string `pulumi:"messageId"`
-	// The trailing separator policy.
-	TrailingSeparatorPolicy string `pulumi:"trailingSeparatorPolicy"`
-	// The value indicating whether to trim leading and trailing spaces and zeroes.
-	TrimLeadingAndTrailingSpacesAndZeroes bool `pulumi:"trimLeadingAndTrailingSpacesAndZeroes"`
-	// The value indicating whether to validate EDI types.
-	ValidateEDITypes bool `pulumi:"validateEDITypes"`
-	// The value indicating whether to validate XSD types.
-	ValidateXSDTypes bool `pulumi:"validateXSDTypes"`
+	AllowLeadingAndTrailingSpacesAndZeroes bool   `pulumi:"allowLeadingAndTrailingSpacesAndZeroes"`
+	EnforceCharacterSet                    bool   `pulumi:"enforceCharacterSet"`
+	MessageId                              string `pulumi:"messageId"`
+	TrailingSeparatorPolicy                string `pulumi:"trailingSeparatorPolicy"`
+	TrimLeadingAndTrailingSpacesAndZeroes  bool   `pulumi:"trimLeadingAndTrailingSpacesAndZeroes"`
+	ValidateEDITypes                       bool   `pulumi:"validateEDITypes"`
+	ValidateXSDTypes                       bool   `pulumi:"validateXSDTypes"`
 }
 
 // EdifactValidationOverrideResponseInput is an input type that accepts EdifactValidationOverrideResponseArgs and EdifactValidationOverrideResponseOutput values.
@@ -14364,22 +12891,14 @@ type EdifactValidationOverrideResponseInput interface {
 	ToEdifactValidationOverrideResponseOutputWithContext(context.Context) EdifactValidationOverrideResponseOutput
 }
 
-// The Edifact validation override settings.
 type EdifactValidationOverrideResponseArgs struct {
-	// The value indicating whether to allow leading and trailing spaces and zeroes.
-	AllowLeadingAndTrailingSpacesAndZeroes pulumi.BoolInput `pulumi:"allowLeadingAndTrailingSpacesAndZeroes"`
-	// The value indicating whether to validate character Set.
-	EnforceCharacterSet pulumi.BoolInput `pulumi:"enforceCharacterSet"`
-	// The message id on which the validation settings has to be applied.
-	MessageId pulumi.StringInput `pulumi:"messageId"`
-	// The trailing separator policy.
-	TrailingSeparatorPolicy pulumi.StringInput `pulumi:"trailingSeparatorPolicy"`
-	// The value indicating whether to trim leading and trailing spaces and zeroes.
-	TrimLeadingAndTrailingSpacesAndZeroes pulumi.BoolInput `pulumi:"trimLeadingAndTrailingSpacesAndZeroes"`
-	// The value indicating whether to validate EDI types.
-	ValidateEDITypes pulumi.BoolInput `pulumi:"validateEDITypes"`
-	// The value indicating whether to validate XSD types.
-	ValidateXSDTypes pulumi.BoolInput `pulumi:"validateXSDTypes"`
+	AllowLeadingAndTrailingSpacesAndZeroes pulumi.BoolInput   `pulumi:"allowLeadingAndTrailingSpacesAndZeroes"`
+	EnforceCharacterSet                    pulumi.BoolInput   `pulumi:"enforceCharacterSet"`
+	MessageId                              pulumi.StringInput `pulumi:"messageId"`
+	TrailingSeparatorPolicy                pulumi.StringInput `pulumi:"trailingSeparatorPolicy"`
+	TrimLeadingAndTrailingSpacesAndZeroes  pulumi.BoolInput   `pulumi:"trimLeadingAndTrailingSpacesAndZeroes"`
+	ValidateEDITypes                       pulumi.BoolInput   `pulumi:"validateEDITypes"`
+	ValidateXSDTypes                       pulumi.BoolInput   `pulumi:"validateXSDTypes"`
 }
 
 func (EdifactValidationOverrideResponseArgs) ElementType() reflect.Type {
@@ -14419,7 +12938,6 @@ func (i EdifactValidationOverrideResponseArray) ToEdifactValidationOverrideRespo
 	return pulumi.ToOutputWithContext(ctx, i).(EdifactValidationOverrideResponseArrayOutput)
 }
 
-// The Edifact validation override settings.
 type EdifactValidationOverrideResponseOutput struct{ *pulumi.OutputState }
 
 func (EdifactValidationOverrideResponseOutput) ElementType() reflect.Type {
@@ -14434,37 +12952,30 @@ func (o EdifactValidationOverrideResponseOutput) ToEdifactValidationOverrideResp
 	return o
 }
 
-// The value indicating whether to allow leading and trailing spaces and zeroes.
 func (o EdifactValidationOverrideResponseOutput) AllowLeadingAndTrailingSpacesAndZeroes() pulumi.BoolOutput {
 	return o.ApplyT(func(v EdifactValidationOverrideResponse) bool { return v.AllowLeadingAndTrailingSpacesAndZeroes }).(pulumi.BoolOutput)
 }
 
-// The value indicating whether to validate character Set.
 func (o EdifactValidationOverrideResponseOutput) EnforceCharacterSet() pulumi.BoolOutput {
 	return o.ApplyT(func(v EdifactValidationOverrideResponse) bool { return v.EnforceCharacterSet }).(pulumi.BoolOutput)
 }
 
-// The message id on which the validation settings has to be applied.
 func (o EdifactValidationOverrideResponseOutput) MessageId() pulumi.StringOutput {
 	return o.ApplyT(func(v EdifactValidationOverrideResponse) string { return v.MessageId }).(pulumi.StringOutput)
 }
 
-// The trailing separator policy.
 func (o EdifactValidationOverrideResponseOutput) TrailingSeparatorPolicy() pulumi.StringOutput {
 	return o.ApplyT(func(v EdifactValidationOverrideResponse) string { return v.TrailingSeparatorPolicy }).(pulumi.StringOutput)
 }
 
-// The value indicating whether to trim leading and trailing spaces and zeroes.
 func (o EdifactValidationOverrideResponseOutput) TrimLeadingAndTrailingSpacesAndZeroes() pulumi.BoolOutput {
 	return o.ApplyT(func(v EdifactValidationOverrideResponse) bool { return v.TrimLeadingAndTrailingSpacesAndZeroes }).(pulumi.BoolOutput)
 }
 
-// The value indicating whether to validate EDI types.
 func (o EdifactValidationOverrideResponseOutput) ValidateEDITypes() pulumi.BoolOutput {
 	return o.ApplyT(func(v EdifactValidationOverrideResponse) bool { return v.ValidateEDITypes }).(pulumi.BoolOutput)
 }
 
-// The value indicating whether to validate XSD types.
 func (o EdifactValidationOverrideResponseOutput) ValidateXSDTypes() pulumi.BoolOutput {
 	return o.ApplyT(func(v EdifactValidationOverrideResponse) bool { return v.ValidateXSDTypes }).(pulumi.BoolOutput)
 }
@@ -14489,28 +13000,17 @@ func (o EdifactValidationOverrideResponseArrayOutput) Index(i pulumi.IntInput) E
 	}).(EdifactValidationOverrideResponseOutput)
 }
 
-// The Edifact agreement validation settings.
 type EdifactValidationSettings struct {
-	// The value indicating whether to allow leading and trailing spaces and zeroes.
-	AllowLeadingAndTrailingSpacesAndZeroes bool `pulumi:"allowLeadingAndTrailingSpacesAndZeroes"`
-	// The value indicating whether to check for duplicate group control number.
-	CheckDuplicateGroupControlNumber bool `pulumi:"checkDuplicateGroupControlNumber"`
-	// The value indicating whether to check for duplicate interchange control number.
-	CheckDuplicateInterchangeControlNumber bool `pulumi:"checkDuplicateInterchangeControlNumber"`
-	// The value indicating whether to check for duplicate transaction set control number.
-	CheckDuplicateTransactionSetControlNumber bool `pulumi:"checkDuplicateTransactionSetControlNumber"`
-	// The validity period of interchange control number.
-	InterchangeControlNumberValidityDays int `pulumi:"interchangeControlNumberValidityDays"`
-	// The trailing separator policy.
-	TrailingSeparatorPolicy string `pulumi:"trailingSeparatorPolicy"`
-	// The value indicating whether to trim leading and trailing spaces and zeroes.
-	TrimLeadingAndTrailingSpacesAndZeroes bool `pulumi:"trimLeadingAndTrailingSpacesAndZeroes"`
-	// The value indicating whether to validate character set in the message.
-	ValidateCharacterSet bool `pulumi:"validateCharacterSet"`
-	// The value indicating whether to Whether to validate EDI types.
-	ValidateEDITypes bool `pulumi:"validateEDITypes"`
-	// The value indicating whether to Whether to validate XSD types.
-	ValidateXSDTypes bool `pulumi:"validateXSDTypes"`
+	AllowLeadingAndTrailingSpacesAndZeroes    bool   `pulumi:"allowLeadingAndTrailingSpacesAndZeroes"`
+	CheckDuplicateGroupControlNumber          bool   `pulumi:"checkDuplicateGroupControlNumber"`
+	CheckDuplicateInterchangeControlNumber    bool   `pulumi:"checkDuplicateInterchangeControlNumber"`
+	CheckDuplicateTransactionSetControlNumber bool   `pulumi:"checkDuplicateTransactionSetControlNumber"`
+	InterchangeControlNumberValidityDays      int    `pulumi:"interchangeControlNumberValidityDays"`
+	TrailingSeparatorPolicy                   string `pulumi:"trailingSeparatorPolicy"`
+	TrimLeadingAndTrailingSpacesAndZeroes     bool   `pulumi:"trimLeadingAndTrailingSpacesAndZeroes"`
+	ValidateCharacterSet                      bool   `pulumi:"validateCharacterSet"`
+	ValidateEDITypes                          bool   `pulumi:"validateEDITypes"`
+	ValidateXSDTypes                          bool   `pulumi:"validateXSDTypes"`
 }
 
 // EdifactValidationSettingsInput is an input type that accepts EdifactValidationSettingsArgs and EdifactValidationSettingsOutput values.
@@ -14524,28 +13024,17 @@ type EdifactValidationSettingsInput interface {
 	ToEdifactValidationSettingsOutputWithContext(context.Context) EdifactValidationSettingsOutput
 }
 
-// The Edifact agreement validation settings.
 type EdifactValidationSettingsArgs struct {
-	// The value indicating whether to allow leading and trailing spaces and zeroes.
-	AllowLeadingAndTrailingSpacesAndZeroes pulumi.BoolInput `pulumi:"allowLeadingAndTrailingSpacesAndZeroes"`
-	// The value indicating whether to check for duplicate group control number.
-	CheckDuplicateGroupControlNumber pulumi.BoolInput `pulumi:"checkDuplicateGroupControlNumber"`
-	// The value indicating whether to check for duplicate interchange control number.
-	CheckDuplicateInterchangeControlNumber pulumi.BoolInput `pulumi:"checkDuplicateInterchangeControlNumber"`
-	// The value indicating whether to check for duplicate transaction set control number.
-	CheckDuplicateTransactionSetControlNumber pulumi.BoolInput `pulumi:"checkDuplicateTransactionSetControlNumber"`
-	// The validity period of interchange control number.
-	InterchangeControlNumberValidityDays pulumi.IntInput `pulumi:"interchangeControlNumberValidityDays"`
-	// The trailing separator policy.
-	TrailingSeparatorPolicy pulumi.StringInput `pulumi:"trailingSeparatorPolicy"`
-	// The value indicating whether to trim leading and trailing spaces and zeroes.
-	TrimLeadingAndTrailingSpacesAndZeroes pulumi.BoolInput `pulumi:"trimLeadingAndTrailingSpacesAndZeroes"`
-	// The value indicating whether to validate character set in the message.
-	ValidateCharacterSet pulumi.BoolInput `pulumi:"validateCharacterSet"`
-	// The value indicating whether to Whether to validate EDI types.
-	ValidateEDITypes pulumi.BoolInput `pulumi:"validateEDITypes"`
-	// The value indicating whether to Whether to validate XSD types.
-	ValidateXSDTypes pulumi.BoolInput `pulumi:"validateXSDTypes"`
+	AllowLeadingAndTrailingSpacesAndZeroes    pulumi.BoolInput   `pulumi:"allowLeadingAndTrailingSpacesAndZeroes"`
+	CheckDuplicateGroupControlNumber          pulumi.BoolInput   `pulumi:"checkDuplicateGroupControlNumber"`
+	CheckDuplicateInterchangeControlNumber    pulumi.BoolInput   `pulumi:"checkDuplicateInterchangeControlNumber"`
+	CheckDuplicateTransactionSetControlNumber pulumi.BoolInput   `pulumi:"checkDuplicateTransactionSetControlNumber"`
+	InterchangeControlNumberValidityDays      pulumi.IntInput    `pulumi:"interchangeControlNumberValidityDays"`
+	TrailingSeparatorPolicy                   pulumi.StringInput `pulumi:"trailingSeparatorPolicy"`
+	TrimLeadingAndTrailingSpacesAndZeroes     pulumi.BoolInput   `pulumi:"trimLeadingAndTrailingSpacesAndZeroes"`
+	ValidateCharacterSet                      pulumi.BoolInput   `pulumi:"validateCharacterSet"`
+	ValidateEDITypes                          pulumi.BoolInput   `pulumi:"validateEDITypes"`
+	ValidateXSDTypes                          pulumi.BoolInput   `pulumi:"validateXSDTypes"`
 }
 
 func (EdifactValidationSettingsArgs) ElementType() reflect.Type {
@@ -14601,7 +13090,6 @@ func (i *edifactValidationSettingsPtrType) ToEdifactValidationSettingsPtrOutputW
 	return pulumi.ToOutputWithContext(ctx, i).(EdifactValidationSettingsPtrOutput)
 }
 
-// The Edifact agreement validation settings.
 type EdifactValidationSettingsOutput struct{ *pulumi.OutputState }
 
 func (EdifactValidationSettingsOutput) ElementType() reflect.Type {
@@ -14621,57 +13109,47 @@ func (o EdifactValidationSettingsOutput) ToEdifactValidationSettingsPtrOutput() 
 }
 
 func (o EdifactValidationSettingsOutput) ToEdifactValidationSettingsPtrOutputWithContext(ctx context.Context) EdifactValidationSettingsPtrOutput {
-	return o.ApplyT(func(v EdifactValidationSettings) *EdifactValidationSettings {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v EdifactValidationSettings) *EdifactValidationSettings {
 		return &v
 	}).(EdifactValidationSettingsPtrOutput)
 }
 
-// The value indicating whether to allow leading and trailing spaces and zeroes.
 func (o EdifactValidationSettingsOutput) AllowLeadingAndTrailingSpacesAndZeroes() pulumi.BoolOutput {
 	return o.ApplyT(func(v EdifactValidationSettings) bool { return v.AllowLeadingAndTrailingSpacesAndZeroes }).(pulumi.BoolOutput)
 }
 
-// The value indicating whether to check for duplicate group control number.
 func (o EdifactValidationSettingsOutput) CheckDuplicateGroupControlNumber() pulumi.BoolOutput {
 	return o.ApplyT(func(v EdifactValidationSettings) bool { return v.CheckDuplicateGroupControlNumber }).(pulumi.BoolOutput)
 }
 
-// The value indicating whether to check for duplicate interchange control number.
 func (o EdifactValidationSettingsOutput) CheckDuplicateInterchangeControlNumber() pulumi.BoolOutput {
 	return o.ApplyT(func(v EdifactValidationSettings) bool { return v.CheckDuplicateInterchangeControlNumber }).(pulumi.BoolOutput)
 }
 
-// The value indicating whether to check for duplicate transaction set control number.
 func (o EdifactValidationSettingsOutput) CheckDuplicateTransactionSetControlNumber() pulumi.BoolOutput {
 	return o.ApplyT(func(v EdifactValidationSettings) bool { return v.CheckDuplicateTransactionSetControlNumber }).(pulumi.BoolOutput)
 }
 
-// The validity period of interchange control number.
 func (o EdifactValidationSettingsOutput) InterchangeControlNumberValidityDays() pulumi.IntOutput {
 	return o.ApplyT(func(v EdifactValidationSettings) int { return v.InterchangeControlNumberValidityDays }).(pulumi.IntOutput)
 }
 
-// The trailing separator policy.
 func (o EdifactValidationSettingsOutput) TrailingSeparatorPolicy() pulumi.StringOutput {
 	return o.ApplyT(func(v EdifactValidationSettings) string { return v.TrailingSeparatorPolicy }).(pulumi.StringOutput)
 }
 
-// The value indicating whether to trim leading and trailing spaces and zeroes.
 func (o EdifactValidationSettingsOutput) TrimLeadingAndTrailingSpacesAndZeroes() pulumi.BoolOutput {
 	return o.ApplyT(func(v EdifactValidationSettings) bool { return v.TrimLeadingAndTrailingSpacesAndZeroes }).(pulumi.BoolOutput)
 }
 
-// The value indicating whether to validate character set in the message.
 func (o EdifactValidationSettingsOutput) ValidateCharacterSet() pulumi.BoolOutput {
 	return o.ApplyT(func(v EdifactValidationSettings) bool { return v.ValidateCharacterSet }).(pulumi.BoolOutput)
 }
 
-// The value indicating whether to Whether to validate EDI types.
 func (o EdifactValidationSettingsOutput) ValidateEDITypes() pulumi.BoolOutput {
 	return o.ApplyT(func(v EdifactValidationSettings) bool { return v.ValidateEDITypes }).(pulumi.BoolOutput)
 }
 
-// The value indicating whether to Whether to validate XSD types.
 func (o EdifactValidationSettingsOutput) ValidateXSDTypes() pulumi.BoolOutput {
 	return o.ApplyT(func(v EdifactValidationSettings) bool { return v.ValidateXSDTypes }).(pulumi.BoolOutput)
 }
@@ -14691,10 +13169,15 @@ func (o EdifactValidationSettingsPtrOutput) ToEdifactValidationSettingsPtrOutput
 }
 
 func (o EdifactValidationSettingsPtrOutput) Elem() EdifactValidationSettingsOutput {
-	return o.ApplyT(func(v *EdifactValidationSettings) EdifactValidationSettings { return *v }).(EdifactValidationSettingsOutput)
+	return o.ApplyT(func(v *EdifactValidationSettings) EdifactValidationSettings {
+		if v != nil {
+			return *v
+		}
+		var ret EdifactValidationSettings
+		return ret
+	}).(EdifactValidationSettingsOutput)
 }
 
-// The value indicating whether to allow leading and trailing spaces and zeroes.
 func (o EdifactValidationSettingsPtrOutput) AllowLeadingAndTrailingSpacesAndZeroes() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *EdifactValidationSettings) *bool {
 		if v == nil {
@@ -14704,7 +13187,6 @@ func (o EdifactValidationSettingsPtrOutput) AllowLeadingAndTrailingSpacesAndZero
 	}).(pulumi.BoolPtrOutput)
 }
 
-// The value indicating whether to check for duplicate group control number.
 func (o EdifactValidationSettingsPtrOutput) CheckDuplicateGroupControlNumber() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *EdifactValidationSettings) *bool {
 		if v == nil {
@@ -14714,7 +13196,6 @@ func (o EdifactValidationSettingsPtrOutput) CheckDuplicateGroupControlNumber() p
 	}).(pulumi.BoolPtrOutput)
 }
 
-// The value indicating whether to check for duplicate interchange control number.
 func (o EdifactValidationSettingsPtrOutput) CheckDuplicateInterchangeControlNumber() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *EdifactValidationSettings) *bool {
 		if v == nil {
@@ -14724,7 +13205,6 @@ func (o EdifactValidationSettingsPtrOutput) CheckDuplicateInterchangeControlNumb
 	}).(pulumi.BoolPtrOutput)
 }
 
-// The value indicating whether to check for duplicate transaction set control number.
 func (o EdifactValidationSettingsPtrOutput) CheckDuplicateTransactionSetControlNumber() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *EdifactValidationSettings) *bool {
 		if v == nil {
@@ -14734,7 +13214,6 @@ func (o EdifactValidationSettingsPtrOutput) CheckDuplicateTransactionSetControlN
 	}).(pulumi.BoolPtrOutput)
 }
 
-// The validity period of interchange control number.
 func (o EdifactValidationSettingsPtrOutput) InterchangeControlNumberValidityDays() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *EdifactValidationSettings) *int {
 		if v == nil {
@@ -14744,7 +13223,6 @@ func (o EdifactValidationSettingsPtrOutput) InterchangeControlNumberValidityDays
 	}).(pulumi.IntPtrOutput)
 }
 
-// The trailing separator policy.
 func (o EdifactValidationSettingsPtrOutput) TrailingSeparatorPolicy() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *EdifactValidationSettings) *string {
 		if v == nil {
@@ -14754,7 +13232,6 @@ func (o EdifactValidationSettingsPtrOutput) TrailingSeparatorPolicy() pulumi.Str
 	}).(pulumi.StringPtrOutput)
 }
 
-// The value indicating whether to trim leading and trailing spaces and zeroes.
 func (o EdifactValidationSettingsPtrOutput) TrimLeadingAndTrailingSpacesAndZeroes() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *EdifactValidationSettings) *bool {
 		if v == nil {
@@ -14764,7 +13241,6 @@ func (o EdifactValidationSettingsPtrOutput) TrimLeadingAndTrailingSpacesAndZeroe
 	}).(pulumi.BoolPtrOutput)
 }
 
-// The value indicating whether to validate character set in the message.
 func (o EdifactValidationSettingsPtrOutput) ValidateCharacterSet() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *EdifactValidationSettings) *bool {
 		if v == nil {
@@ -14774,7 +13250,6 @@ func (o EdifactValidationSettingsPtrOutput) ValidateCharacterSet() pulumi.BoolPt
 	}).(pulumi.BoolPtrOutput)
 }
 
-// The value indicating whether to Whether to validate EDI types.
 func (o EdifactValidationSettingsPtrOutput) ValidateEDITypes() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *EdifactValidationSettings) *bool {
 		if v == nil {
@@ -14784,7 +13259,6 @@ func (o EdifactValidationSettingsPtrOutput) ValidateEDITypes() pulumi.BoolPtrOut
 	}).(pulumi.BoolPtrOutput)
 }
 
-// The value indicating whether to Whether to validate XSD types.
 func (o EdifactValidationSettingsPtrOutput) ValidateXSDTypes() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *EdifactValidationSettings) *bool {
 		if v == nil {
@@ -14794,28 +13268,17 @@ func (o EdifactValidationSettingsPtrOutput) ValidateXSDTypes() pulumi.BoolPtrOut
 	}).(pulumi.BoolPtrOutput)
 }
 
-// The Edifact agreement validation settings.
 type EdifactValidationSettingsResponse struct {
-	// The value indicating whether to allow leading and trailing spaces and zeroes.
-	AllowLeadingAndTrailingSpacesAndZeroes bool `pulumi:"allowLeadingAndTrailingSpacesAndZeroes"`
-	// The value indicating whether to check for duplicate group control number.
-	CheckDuplicateGroupControlNumber bool `pulumi:"checkDuplicateGroupControlNumber"`
-	// The value indicating whether to check for duplicate interchange control number.
-	CheckDuplicateInterchangeControlNumber bool `pulumi:"checkDuplicateInterchangeControlNumber"`
-	// The value indicating whether to check for duplicate transaction set control number.
-	CheckDuplicateTransactionSetControlNumber bool `pulumi:"checkDuplicateTransactionSetControlNumber"`
-	// The validity period of interchange control number.
-	InterchangeControlNumberValidityDays int `pulumi:"interchangeControlNumberValidityDays"`
-	// The trailing separator policy.
-	TrailingSeparatorPolicy string `pulumi:"trailingSeparatorPolicy"`
-	// The value indicating whether to trim leading and trailing spaces and zeroes.
-	TrimLeadingAndTrailingSpacesAndZeroes bool `pulumi:"trimLeadingAndTrailingSpacesAndZeroes"`
-	// The value indicating whether to validate character set in the message.
-	ValidateCharacterSet bool `pulumi:"validateCharacterSet"`
-	// The value indicating whether to Whether to validate EDI types.
-	ValidateEDITypes bool `pulumi:"validateEDITypes"`
-	// The value indicating whether to Whether to validate XSD types.
-	ValidateXSDTypes bool `pulumi:"validateXSDTypes"`
+	AllowLeadingAndTrailingSpacesAndZeroes    bool   `pulumi:"allowLeadingAndTrailingSpacesAndZeroes"`
+	CheckDuplicateGroupControlNumber          bool   `pulumi:"checkDuplicateGroupControlNumber"`
+	CheckDuplicateInterchangeControlNumber    bool   `pulumi:"checkDuplicateInterchangeControlNumber"`
+	CheckDuplicateTransactionSetControlNumber bool   `pulumi:"checkDuplicateTransactionSetControlNumber"`
+	InterchangeControlNumberValidityDays      int    `pulumi:"interchangeControlNumberValidityDays"`
+	TrailingSeparatorPolicy                   string `pulumi:"trailingSeparatorPolicy"`
+	TrimLeadingAndTrailingSpacesAndZeroes     bool   `pulumi:"trimLeadingAndTrailingSpacesAndZeroes"`
+	ValidateCharacterSet                      bool   `pulumi:"validateCharacterSet"`
+	ValidateEDITypes                          bool   `pulumi:"validateEDITypes"`
+	ValidateXSDTypes                          bool   `pulumi:"validateXSDTypes"`
 }
 
 // EdifactValidationSettingsResponseInput is an input type that accepts EdifactValidationSettingsResponseArgs and EdifactValidationSettingsResponseOutput values.
@@ -14829,28 +13292,17 @@ type EdifactValidationSettingsResponseInput interface {
 	ToEdifactValidationSettingsResponseOutputWithContext(context.Context) EdifactValidationSettingsResponseOutput
 }
 
-// The Edifact agreement validation settings.
 type EdifactValidationSettingsResponseArgs struct {
-	// The value indicating whether to allow leading and trailing spaces and zeroes.
-	AllowLeadingAndTrailingSpacesAndZeroes pulumi.BoolInput `pulumi:"allowLeadingAndTrailingSpacesAndZeroes"`
-	// The value indicating whether to check for duplicate group control number.
-	CheckDuplicateGroupControlNumber pulumi.BoolInput `pulumi:"checkDuplicateGroupControlNumber"`
-	// The value indicating whether to check for duplicate interchange control number.
-	CheckDuplicateInterchangeControlNumber pulumi.BoolInput `pulumi:"checkDuplicateInterchangeControlNumber"`
-	// The value indicating whether to check for duplicate transaction set control number.
-	CheckDuplicateTransactionSetControlNumber pulumi.BoolInput `pulumi:"checkDuplicateTransactionSetControlNumber"`
-	// The validity period of interchange control number.
-	InterchangeControlNumberValidityDays pulumi.IntInput `pulumi:"interchangeControlNumberValidityDays"`
-	// The trailing separator policy.
-	TrailingSeparatorPolicy pulumi.StringInput `pulumi:"trailingSeparatorPolicy"`
-	// The value indicating whether to trim leading and trailing spaces and zeroes.
-	TrimLeadingAndTrailingSpacesAndZeroes pulumi.BoolInput `pulumi:"trimLeadingAndTrailingSpacesAndZeroes"`
-	// The value indicating whether to validate character set in the message.
-	ValidateCharacterSet pulumi.BoolInput `pulumi:"validateCharacterSet"`
-	// The value indicating whether to Whether to validate EDI types.
-	ValidateEDITypes pulumi.BoolInput `pulumi:"validateEDITypes"`
-	// The value indicating whether to Whether to validate XSD types.
-	ValidateXSDTypes pulumi.BoolInput `pulumi:"validateXSDTypes"`
+	AllowLeadingAndTrailingSpacesAndZeroes    pulumi.BoolInput   `pulumi:"allowLeadingAndTrailingSpacesAndZeroes"`
+	CheckDuplicateGroupControlNumber          pulumi.BoolInput   `pulumi:"checkDuplicateGroupControlNumber"`
+	CheckDuplicateInterchangeControlNumber    pulumi.BoolInput   `pulumi:"checkDuplicateInterchangeControlNumber"`
+	CheckDuplicateTransactionSetControlNumber pulumi.BoolInput   `pulumi:"checkDuplicateTransactionSetControlNumber"`
+	InterchangeControlNumberValidityDays      pulumi.IntInput    `pulumi:"interchangeControlNumberValidityDays"`
+	TrailingSeparatorPolicy                   pulumi.StringInput `pulumi:"trailingSeparatorPolicy"`
+	TrimLeadingAndTrailingSpacesAndZeroes     pulumi.BoolInput   `pulumi:"trimLeadingAndTrailingSpacesAndZeroes"`
+	ValidateCharacterSet                      pulumi.BoolInput   `pulumi:"validateCharacterSet"`
+	ValidateEDITypes                          pulumi.BoolInput   `pulumi:"validateEDITypes"`
+	ValidateXSDTypes                          pulumi.BoolInput   `pulumi:"validateXSDTypes"`
 }
 
 func (EdifactValidationSettingsResponseArgs) ElementType() reflect.Type {
@@ -14906,7 +13358,6 @@ func (i *edifactValidationSettingsResponsePtrType) ToEdifactValidationSettingsRe
 	return pulumi.ToOutputWithContext(ctx, i).(EdifactValidationSettingsResponsePtrOutput)
 }
 
-// The Edifact agreement validation settings.
 type EdifactValidationSettingsResponseOutput struct{ *pulumi.OutputState }
 
 func (EdifactValidationSettingsResponseOutput) ElementType() reflect.Type {
@@ -14926,57 +13377,47 @@ func (o EdifactValidationSettingsResponseOutput) ToEdifactValidationSettingsResp
 }
 
 func (o EdifactValidationSettingsResponseOutput) ToEdifactValidationSettingsResponsePtrOutputWithContext(ctx context.Context) EdifactValidationSettingsResponsePtrOutput {
-	return o.ApplyT(func(v EdifactValidationSettingsResponse) *EdifactValidationSettingsResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v EdifactValidationSettingsResponse) *EdifactValidationSettingsResponse {
 		return &v
 	}).(EdifactValidationSettingsResponsePtrOutput)
 }
 
-// The value indicating whether to allow leading and trailing spaces and zeroes.
 func (o EdifactValidationSettingsResponseOutput) AllowLeadingAndTrailingSpacesAndZeroes() pulumi.BoolOutput {
 	return o.ApplyT(func(v EdifactValidationSettingsResponse) bool { return v.AllowLeadingAndTrailingSpacesAndZeroes }).(pulumi.BoolOutput)
 }
 
-// The value indicating whether to check for duplicate group control number.
 func (o EdifactValidationSettingsResponseOutput) CheckDuplicateGroupControlNumber() pulumi.BoolOutput {
 	return o.ApplyT(func(v EdifactValidationSettingsResponse) bool { return v.CheckDuplicateGroupControlNumber }).(pulumi.BoolOutput)
 }
 
-// The value indicating whether to check for duplicate interchange control number.
 func (o EdifactValidationSettingsResponseOutput) CheckDuplicateInterchangeControlNumber() pulumi.BoolOutput {
 	return o.ApplyT(func(v EdifactValidationSettingsResponse) bool { return v.CheckDuplicateInterchangeControlNumber }).(pulumi.BoolOutput)
 }
 
-// The value indicating whether to check for duplicate transaction set control number.
 func (o EdifactValidationSettingsResponseOutput) CheckDuplicateTransactionSetControlNumber() pulumi.BoolOutput {
 	return o.ApplyT(func(v EdifactValidationSettingsResponse) bool { return v.CheckDuplicateTransactionSetControlNumber }).(pulumi.BoolOutput)
 }
 
-// The validity period of interchange control number.
 func (o EdifactValidationSettingsResponseOutput) InterchangeControlNumberValidityDays() pulumi.IntOutput {
 	return o.ApplyT(func(v EdifactValidationSettingsResponse) int { return v.InterchangeControlNumberValidityDays }).(pulumi.IntOutput)
 }
 
-// The trailing separator policy.
 func (o EdifactValidationSettingsResponseOutput) TrailingSeparatorPolicy() pulumi.StringOutput {
 	return o.ApplyT(func(v EdifactValidationSettingsResponse) string { return v.TrailingSeparatorPolicy }).(pulumi.StringOutput)
 }
 
-// The value indicating whether to trim leading and trailing spaces and zeroes.
 func (o EdifactValidationSettingsResponseOutput) TrimLeadingAndTrailingSpacesAndZeroes() pulumi.BoolOutput {
 	return o.ApplyT(func(v EdifactValidationSettingsResponse) bool { return v.TrimLeadingAndTrailingSpacesAndZeroes }).(pulumi.BoolOutput)
 }
 
-// The value indicating whether to validate character set in the message.
 func (o EdifactValidationSettingsResponseOutput) ValidateCharacterSet() pulumi.BoolOutput {
 	return o.ApplyT(func(v EdifactValidationSettingsResponse) bool { return v.ValidateCharacterSet }).(pulumi.BoolOutput)
 }
 
-// The value indicating whether to Whether to validate EDI types.
 func (o EdifactValidationSettingsResponseOutput) ValidateEDITypes() pulumi.BoolOutput {
 	return o.ApplyT(func(v EdifactValidationSettingsResponse) bool { return v.ValidateEDITypes }).(pulumi.BoolOutput)
 }
 
-// The value indicating whether to Whether to validate XSD types.
 func (o EdifactValidationSettingsResponseOutput) ValidateXSDTypes() pulumi.BoolOutput {
 	return o.ApplyT(func(v EdifactValidationSettingsResponse) bool { return v.ValidateXSDTypes }).(pulumi.BoolOutput)
 }
@@ -14996,10 +13437,15 @@ func (o EdifactValidationSettingsResponsePtrOutput) ToEdifactValidationSettingsR
 }
 
 func (o EdifactValidationSettingsResponsePtrOutput) Elem() EdifactValidationSettingsResponseOutput {
-	return o.ApplyT(func(v *EdifactValidationSettingsResponse) EdifactValidationSettingsResponse { return *v }).(EdifactValidationSettingsResponseOutput)
+	return o.ApplyT(func(v *EdifactValidationSettingsResponse) EdifactValidationSettingsResponse {
+		if v != nil {
+			return *v
+		}
+		var ret EdifactValidationSettingsResponse
+		return ret
+	}).(EdifactValidationSettingsResponseOutput)
 }
 
-// The value indicating whether to allow leading and trailing spaces and zeroes.
 func (o EdifactValidationSettingsResponsePtrOutput) AllowLeadingAndTrailingSpacesAndZeroes() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *EdifactValidationSettingsResponse) *bool {
 		if v == nil {
@@ -15009,7 +13455,6 @@ func (o EdifactValidationSettingsResponsePtrOutput) AllowLeadingAndTrailingSpace
 	}).(pulumi.BoolPtrOutput)
 }
 
-// The value indicating whether to check for duplicate group control number.
 func (o EdifactValidationSettingsResponsePtrOutput) CheckDuplicateGroupControlNumber() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *EdifactValidationSettingsResponse) *bool {
 		if v == nil {
@@ -15019,7 +13464,6 @@ func (o EdifactValidationSettingsResponsePtrOutput) CheckDuplicateGroupControlNu
 	}).(pulumi.BoolPtrOutput)
 }
 
-// The value indicating whether to check for duplicate interchange control number.
 func (o EdifactValidationSettingsResponsePtrOutput) CheckDuplicateInterchangeControlNumber() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *EdifactValidationSettingsResponse) *bool {
 		if v == nil {
@@ -15029,7 +13473,6 @@ func (o EdifactValidationSettingsResponsePtrOutput) CheckDuplicateInterchangeCon
 	}).(pulumi.BoolPtrOutput)
 }
 
-// The value indicating whether to check for duplicate transaction set control number.
 func (o EdifactValidationSettingsResponsePtrOutput) CheckDuplicateTransactionSetControlNumber() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *EdifactValidationSettingsResponse) *bool {
 		if v == nil {
@@ -15039,7 +13482,6 @@ func (o EdifactValidationSettingsResponsePtrOutput) CheckDuplicateTransactionSet
 	}).(pulumi.BoolPtrOutput)
 }
 
-// The validity period of interchange control number.
 func (o EdifactValidationSettingsResponsePtrOutput) InterchangeControlNumberValidityDays() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *EdifactValidationSettingsResponse) *int {
 		if v == nil {
@@ -15049,7 +13491,6 @@ func (o EdifactValidationSettingsResponsePtrOutput) InterchangeControlNumberVali
 	}).(pulumi.IntPtrOutput)
 }
 
-// The trailing separator policy.
 func (o EdifactValidationSettingsResponsePtrOutput) TrailingSeparatorPolicy() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *EdifactValidationSettingsResponse) *string {
 		if v == nil {
@@ -15059,7 +13500,6 @@ func (o EdifactValidationSettingsResponsePtrOutput) TrailingSeparatorPolicy() pu
 	}).(pulumi.StringPtrOutput)
 }
 
-// The value indicating whether to trim leading and trailing spaces and zeroes.
 func (o EdifactValidationSettingsResponsePtrOutput) TrimLeadingAndTrailingSpacesAndZeroes() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *EdifactValidationSettingsResponse) *bool {
 		if v == nil {
@@ -15069,7 +13509,6 @@ func (o EdifactValidationSettingsResponsePtrOutput) TrimLeadingAndTrailingSpaces
 	}).(pulumi.BoolPtrOutput)
 }
 
-// The value indicating whether to validate character set in the message.
 func (o EdifactValidationSettingsResponsePtrOutput) ValidateCharacterSet() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *EdifactValidationSettingsResponse) *bool {
 		if v == nil {
@@ -15079,7 +13518,6 @@ func (o EdifactValidationSettingsResponsePtrOutput) ValidateCharacterSet() pulum
 	}).(pulumi.BoolPtrOutput)
 }
 
-// The value indicating whether to Whether to validate EDI types.
 func (o EdifactValidationSettingsResponsePtrOutput) ValidateEDITypes() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *EdifactValidationSettingsResponse) *bool {
 		if v == nil {
@@ -15089,7 +13527,6 @@ func (o EdifactValidationSettingsResponsePtrOutput) ValidateEDITypes() pulumi.Bo
 	}).(pulumi.BoolPtrOutput)
 }
 
-// The value indicating whether to Whether to validate XSD types.
 func (o EdifactValidationSettingsResponsePtrOutput) ValidateXSDTypes() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *EdifactValidationSettingsResponse) *bool {
 		if v == nil {
@@ -15100,7 +13537,6 @@ func (o EdifactValidationSettingsResponsePtrOutput) ValidateXSDTypes() pulumi.Bo
 }
 
 type ExpressionResponse struct {
-	// The azure resource error info.
 	Error          *AzureResourceErrorInfoResponse `pulumi:"error"`
 	Subexpressions []ExpressionResponse            `pulumi:"subexpressions"`
 	Text           *string                         `pulumi:"text"`
@@ -15119,7 +13555,6 @@ type ExpressionResponseInput interface {
 }
 
 type ExpressionResponseArgs struct {
-	// The azure resource error info.
 	Error          AzureResourceErrorInfoResponsePtrInput `pulumi:"error"`
 	Subexpressions ExpressionResponseArrayInput           `pulumi:"subexpressions"`
 	Text           pulumi.StringPtrInput                  `pulumi:"text"`
@@ -15177,7 +13612,6 @@ func (o ExpressionResponseOutput) ToExpressionResponseOutputWithContext(ctx cont
 	return o
 }
 
-// The azure resource error info.
 func (o ExpressionResponseOutput) Error() AzureResourceErrorInfoResponsePtrOutput {
 	return o.ApplyT(func(v ExpressionResponse) *AzureResourceErrorInfoResponse { return v.Error }).(AzureResourceErrorInfoResponsePtrOutput)
 }
@@ -15215,13 +13649,11 @@ func (o ExpressionResponseArrayOutput) Index(i pulumi.IntInput) ExpressionRespon
 }
 
 type ExpressionRootResponse struct {
-	// The azure resource error info.
-	Error *AzureResourceErrorInfoResponse `pulumi:"error"`
-	// The path.
-	Path           *string              `pulumi:"path"`
-	Subexpressions []ExpressionResponse `pulumi:"subexpressions"`
-	Text           *string              `pulumi:"text"`
-	Value          interface{}          `pulumi:"value"`
+	Error          *AzureResourceErrorInfoResponse `pulumi:"error"`
+	Path           *string                         `pulumi:"path"`
+	Subexpressions []ExpressionResponse            `pulumi:"subexpressions"`
+	Text           *string                         `pulumi:"text"`
+	Value          interface{}                     `pulumi:"value"`
 }
 
 // ExpressionRootResponseInput is an input type that accepts ExpressionRootResponseArgs and ExpressionRootResponseOutput values.
@@ -15236,13 +13668,11 @@ type ExpressionRootResponseInput interface {
 }
 
 type ExpressionRootResponseArgs struct {
-	// The azure resource error info.
-	Error AzureResourceErrorInfoResponsePtrInput `pulumi:"error"`
-	// The path.
-	Path           pulumi.StringPtrInput        `pulumi:"path"`
-	Subexpressions ExpressionResponseArrayInput `pulumi:"subexpressions"`
-	Text           pulumi.StringPtrInput        `pulumi:"text"`
-	Value          pulumi.Input                 `pulumi:"value"`
+	Error          AzureResourceErrorInfoResponsePtrInput `pulumi:"error"`
+	Path           pulumi.StringPtrInput                  `pulumi:"path"`
+	Subexpressions ExpressionResponseArrayInput           `pulumi:"subexpressions"`
+	Text           pulumi.StringPtrInput                  `pulumi:"text"`
+	Value          pulumi.Input                           `pulumi:"value"`
 }
 
 func (ExpressionRootResponseArgs) ElementType() reflect.Type {
@@ -15296,12 +13726,10 @@ func (o ExpressionRootResponseOutput) ToExpressionRootResponseOutputWithContext(
 	return o
 }
 
-// The azure resource error info.
 func (o ExpressionRootResponseOutput) Error() AzureResourceErrorInfoResponsePtrOutput {
 	return o.ApplyT(func(v ExpressionRootResponse) *AzureResourceErrorInfoResponse { return v.Error }).(AzureResourceErrorInfoResponsePtrOutput)
 }
 
-// The path.
 func (o ExpressionRootResponseOutput) Path() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ExpressionRootResponse) *string { return v.Path }).(pulumi.StringPtrOutput)
 }
@@ -15338,9 +13766,7 @@ func (o ExpressionRootResponseArrayOutput) Index(i pulumi.IntInput) ExpressionRo
 	}).(ExpressionRootResponseOutput)
 }
 
-// The parameters schema of integration account map.
 type IntegrationAccountMapPropertiesParametersSchema struct {
-	// The reference name.
 	Ref *string `pulumi:"ref"`
 }
 
@@ -15355,9 +13781,7 @@ type IntegrationAccountMapPropertiesParametersSchemaInput interface {
 	ToIntegrationAccountMapPropertiesParametersSchemaOutputWithContext(context.Context) IntegrationAccountMapPropertiesParametersSchemaOutput
 }
 
-// The parameters schema of integration account map.
 type IntegrationAccountMapPropertiesParametersSchemaArgs struct {
-	// The reference name.
 	Ref pulumi.StringPtrInput `pulumi:"ref"`
 }
 
@@ -15414,7 +13838,6 @@ func (i *integrationAccountMapPropertiesParametersSchemaPtrType) ToIntegrationAc
 	return pulumi.ToOutputWithContext(ctx, i).(IntegrationAccountMapPropertiesParametersSchemaPtrOutput)
 }
 
-// The parameters schema of integration account map.
 type IntegrationAccountMapPropertiesParametersSchemaOutput struct{ *pulumi.OutputState }
 
 func (IntegrationAccountMapPropertiesParametersSchemaOutput) ElementType() reflect.Type {
@@ -15434,12 +13857,11 @@ func (o IntegrationAccountMapPropertiesParametersSchemaOutput) ToIntegrationAcco
 }
 
 func (o IntegrationAccountMapPropertiesParametersSchemaOutput) ToIntegrationAccountMapPropertiesParametersSchemaPtrOutputWithContext(ctx context.Context) IntegrationAccountMapPropertiesParametersSchemaPtrOutput {
-	return o.ApplyT(func(v IntegrationAccountMapPropertiesParametersSchema) *IntegrationAccountMapPropertiesParametersSchema {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v IntegrationAccountMapPropertiesParametersSchema) *IntegrationAccountMapPropertiesParametersSchema {
 		return &v
 	}).(IntegrationAccountMapPropertiesParametersSchemaPtrOutput)
 }
 
-// The reference name.
 func (o IntegrationAccountMapPropertiesParametersSchemaOutput) Ref() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v IntegrationAccountMapPropertiesParametersSchema) *string { return v.Ref }).(pulumi.StringPtrOutput)
 }
@@ -15460,11 +13882,14 @@ func (o IntegrationAccountMapPropertiesParametersSchemaPtrOutput) ToIntegrationA
 
 func (o IntegrationAccountMapPropertiesParametersSchemaPtrOutput) Elem() IntegrationAccountMapPropertiesParametersSchemaOutput {
 	return o.ApplyT(func(v *IntegrationAccountMapPropertiesParametersSchema) IntegrationAccountMapPropertiesParametersSchema {
-		return *v
+		if v != nil {
+			return *v
+		}
+		var ret IntegrationAccountMapPropertiesParametersSchema
+		return ret
 	}).(IntegrationAccountMapPropertiesParametersSchemaOutput)
 }
 
-// The reference name.
 func (o IntegrationAccountMapPropertiesParametersSchemaPtrOutput) Ref() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *IntegrationAccountMapPropertiesParametersSchema) *string {
 		if v == nil {
@@ -15474,9 +13899,7 @@ func (o IntegrationAccountMapPropertiesParametersSchemaPtrOutput) Ref() pulumi.S
 	}).(pulumi.StringPtrOutput)
 }
 
-// The parameters schema of integration account map.
 type IntegrationAccountMapPropertiesResponseParametersSchema struct {
-	// The reference name.
 	Ref *string `pulumi:"ref"`
 }
 
@@ -15491,9 +13914,7 @@ type IntegrationAccountMapPropertiesResponseParametersSchemaInput interface {
 	ToIntegrationAccountMapPropertiesResponseParametersSchemaOutputWithContext(context.Context) IntegrationAccountMapPropertiesResponseParametersSchemaOutput
 }
 
-// The parameters schema of integration account map.
 type IntegrationAccountMapPropertiesResponseParametersSchemaArgs struct {
-	// The reference name.
 	Ref pulumi.StringPtrInput `pulumi:"ref"`
 }
 
@@ -15550,7 +13971,6 @@ func (i *integrationAccountMapPropertiesResponseParametersSchemaPtrType) ToInteg
 	return pulumi.ToOutputWithContext(ctx, i).(IntegrationAccountMapPropertiesResponseParametersSchemaPtrOutput)
 }
 
-// The parameters schema of integration account map.
 type IntegrationAccountMapPropertiesResponseParametersSchemaOutput struct{ *pulumi.OutputState }
 
 func (IntegrationAccountMapPropertiesResponseParametersSchemaOutput) ElementType() reflect.Type {
@@ -15570,12 +13990,11 @@ func (o IntegrationAccountMapPropertiesResponseParametersSchemaOutput) ToIntegra
 }
 
 func (o IntegrationAccountMapPropertiesResponseParametersSchemaOutput) ToIntegrationAccountMapPropertiesResponseParametersSchemaPtrOutputWithContext(ctx context.Context) IntegrationAccountMapPropertiesResponseParametersSchemaPtrOutput {
-	return o.ApplyT(func(v IntegrationAccountMapPropertiesResponseParametersSchema) *IntegrationAccountMapPropertiesResponseParametersSchema {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v IntegrationAccountMapPropertiesResponseParametersSchema) *IntegrationAccountMapPropertiesResponseParametersSchema {
 		return &v
 	}).(IntegrationAccountMapPropertiesResponseParametersSchemaPtrOutput)
 }
 
-// The reference name.
 func (o IntegrationAccountMapPropertiesResponseParametersSchemaOutput) Ref() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v IntegrationAccountMapPropertiesResponseParametersSchema) *string { return v.Ref }).(pulumi.StringPtrOutput)
 }
@@ -15596,11 +14015,14 @@ func (o IntegrationAccountMapPropertiesResponseParametersSchemaPtrOutput) ToInte
 
 func (o IntegrationAccountMapPropertiesResponseParametersSchemaPtrOutput) Elem() IntegrationAccountMapPropertiesResponseParametersSchemaOutput {
 	return o.ApplyT(func(v *IntegrationAccountMapPropertiesResponseParametersSchema) IntegrationAccountMapPropertiesResponseParametersSchema {
-		return *v
+		if v != nil {
+			return *v
+		}
+		var ret IntegrationAccountMapPropertiesResponseParametersSchema
+		return ret
 	}).(IntegrationAccountMapPropertiesResponseParametersSchemaOutput)
 }
 
-// The reference name.
 func (o IntegrationAccountMapPropertiesResponseParametersSchemaPtrOutput) Ref() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *IntegrationAccountMapPropertiesResponseParametersSchema) *string {
 		if v == nil {
@@ -15610,9 +14032,7 @@ func (o IntegrationAccountMapPropertiesResponseParametersSchemaPtrOutput) Ref() 
 	}).(pulumi.StringPtrOutput)
 }
 
-// The integration account sku.
 type IntegrationAccountSku struct {
-	// The sku name.
 	Name string `pulumi:"name"`
 }
 
@@ -15627,9 +14047,7 @@ type IntegrationAccountSkuInput interface {
 	ToIntegrationAccountSkuOutputWithContext(context.Context) IntegrationAccountSkuOutput
 }
 
-// The integration account sku.
 type IntegrationAccountSkuArgs struct {
-	// The sku name.
 	Name pulumi.StringInput `pulumi:"name"`
 }
 
@@ -15686,7 +14104,6 @@ func (i *integrationAccountSkuPtrType) ToIntegrationAccountSkuPtrOutputWithConte
 	return pulumi.ToOutputWithContext(ctx, i).(IntegrationAccountSkuPtrOutput)
 }
 
-// The integration account sku.
 type IntegrationAccountSkuOutput struct{ *pulumi.OutputState }
 
 func (IntegrationAccountSkuOutput) ElementType() reflect.Type {
@@ -15706,12 +14123,11 @@ func (o IntegrationAccountSkuOutput) ToIntegrationAccountSkuPtrOutput() Integrat
 }
 
 func (o IntegrationAccountSkuOutput) ToIntegrationAccountSkuPtrOutputWithContext(ctx context.Context) IntegrationAccountSkuPtrOutput {
-	return o.ApplyT(func(v IntegrationAccountSku) *IntegrationAccountSku {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v IntegrationAccountSku) *IntegrationAccountSku {
 		return &v
 	}).(IntegrationAccountSkuPtrOutput)
 }
 
-// The sku name.
 func (o IntegrationAccountSkuOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v IntegrationAccountSku) string { return v.Name }).(pulumi.StringOutput)
 }
@@ -15731,10 +14147,15 @@ func (o IntegrationAccountSkuPtrOutput) ToIntegrationAccountSkuPtrOutputWithCont
 }
 
 func (o IntegrationAccountSkuPtrOutput) Elem() IntegrationAccountSkuOutput {
-	return o.ApplyT(func(v *IntegrationAccountSku) IntegrationAccountSku { return *v }).(IntegrationAccountSkuOutput)
+	return o.ApplyT(func(v *IntegrationAccountSku) IntegrationAccountSku {
+		if v != nil {
+			return *v
+		}
+		var ret IntegrationAccountSku
+		return ret
+	}).(IntegrationAccountSkuOutput)
 }
 
-// The sku name.
 func (o IntegrationAccountSkuPtrOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *IntegrationAccountSku) *string {
 		if v == nil {
@@ -15744,9 +14165,7 @@ func (o IntegrationAccountSkuPtrOutput) Name() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The integration account sku.
 type IntegrationAccountSkuResponse struct {
-	// The sku name.
 	Name string `pulumi:"name"`
 }
 
@@ -15761,9 +14180,7 @@ type IntegrationAccountSkuResponseInput interface {
 	ToIntegrationAccountSkuResponseOutputWithContext(context.Context) IntegrationAccountSkuResponseOutput
 }
 
-// The integration account sku.
 type IntegrationAccountSkuResponseArgs struct {
-	// The sku name.
 	Name pulumi.StringInput `pulumi:"name"`
 }
 
@@ -15820,7 +14237,6 @@ func (i *integrationAccountSkuResponsePtrType) ToIntegrationAccountSkuResponsePt
 	return pulumi.ToOutputWithContext(ctx, i).(IntegrationAccountSkuResponsePtrOutput)
 }
 
-// The integration account sku.
 type IntegrationAccountSkuResponseOutput struct{ *pulumi.OutputState }
 
 func (IntegrationAccountSkuResponseOutput) ElementType() reflect.Type {
@@ -15840,12 +14256,11 @@ func (o IntegrationAccountSkuResponseOutput) ToIntegrationAccountSkuResponsePtrO
 }
 
 func (o IntegrationAccountSkuResponseOutput) ToIntegrationAccountSkuResponsePtrOutputWithContext(ctx context.Context) IntegrationAccountSkuResponsePtrOutput {
-	return o.ApplyT(func(v IntegrationAccountSkuResponse) *IntegrationAccountSkuResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v IntegrationAccountSkuResponse) *IntegrationAccountSkuResponse {
 		return &v
 	}).(IntegrationAccountSkuResponsePtrOutput)
 }
 
-// The sku name.
 func (o IntegrationAccountSkuResponseOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v IntegrationAccountSkuResponse) string { return v.Name }).(pulumi.StringOutput)
 }
@@ -15865,10 +14280,15 @@ func (o IntegrationAccountSkuResponsePtrOutput) ToIntegrationAccountSkuResponseP
 }
 
 func (o IntegrationAccountSkuResponsePtrOutput) Elem() IntegrationAccountSkuResponseOutput {
-	return o.ApplyT(func(v *IntegrationAccountSkuResponse) IntegrationAccountSkuResponse { return *v }).(IntegrationAccountSkuResponseOutput)
+	return o.ApplyT(func(v *IntegrationAccountSkuResponse) IntegrationAccountSkuResponse {
+		if v != nil {
+			return *v
+		}
+		var ret IntegrationAccountSkuResponse
+		return ret
+	}).(IntegrationAccountSkuResponseOutput)
 }
 
-// The sku name.
 func (o IntegrationAccountSkuResponsePtrOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *IntegrationAccountSkuResponse) *string {
 		if v == nil {
@@ -15878,14 +14298,10 @@ func (o IntegrationAccountSkuResponsePtrOutput) Name() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The reference to the key vault key.
 type KeyVaultKeyReference struct {
-	// The private key name in key vault.
-	KeyName string `pulumi:"keyName"`
-	// The key vault reference.
-	KeyVault KeyVaultKeyReferenceKeyVault `pulumi:"keyVault"`
-	// The private key version in key vault.
-	KeyVersion *string `pulumi:"keyVersion"`
+	KeyName    string                       `pulumi:"keyName"`
+	KeyVault   KeyVaultKeyReferenceKeyVault `pulumi:"keyVault"`
+	KeyVersion *string                      `pulumi:"keyVersion"`
 }
 
 // KeyVaultKeyReferenceInput is an input type that accepts KeyVaultKeyReferenceArgs and KeyVaultKeyReferenceOutput values.
@@ -15899,14 +14315,10 @@ type KeyVaultKeyReferenceInput interface {
 	ToKeyVaultKeyReferenceOutputWithContext(context.Context) KeyVaultKeyReferenceOutput
 }
 
-// The reference to the key vault key.
 type KeyVaultKeyReferenceArgs struct {
-	// The private key name in key vault.
-	KeyName pulumi.StringInput `pulumi:"keyName"`
-	// The key vault reference.
-	KeyVault KeyVaultKeyReferenceKeyVaultInput `pulumi:"keyVault"`
-	// The private key version in key vault.
-	KeyVersion pulumi.StringPtrInput `pulumi:"keyVersion"`
+	KeyName    pulumi.StringInput                `pulumi:"keyName"`
+	KeyVault   KeyVaultKeyReferenceKeyVaultInput `pulumi:"keyVault"`
+	KeyVersion pulumi.StringPtrInput             `pulumi:"keyVersion"`
 }
 
 func (KeyVaultKeyReferenceArgs) ElementType() reflect.Type {
@@ -15962,7 +14374,6 @@ func (i *keyVaultKeyReferencePtrType) ToKeyVaultKeyReferencePtrOutputWithContext
 	return pulumi.ToOutputWithContext(ctx, i).(KeyVaultKeyReferencePtrOutput)
 }
 
-// The reference to the key vault key.
 type KeyVaultKeyReferenceOutput struct{ *pulumi.OutputState }
 
 func (KeyVaultKeyReferenceOutput) ElementType() reflect.Type {
@@ -15982,22 +14393,19 @@ func (o KeyVaultKeyReferenceOutput) ToKeyVaultKeyReferencePtrOutput() KeyVaultKe
 }
 
 func (o KeyVaultKeyReferenceOutput) ToKeyVaultKeyReferencePtrOutputWithContext(ctx context.Context) KeyVaultKeyReferencePtrOutput {
-	return o.ApplyT(func(v KeyVaultKeyReference) *KeyVaultKeyReference {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v KeyVaultKeyReference) *KeyVaultKeyReference {
 		return &v
 	}).(KeyVaultKeyReferencePtrOutput)
 }
 
-// The private key name in key vault.
 func (o KeyVaultKeyReferenceOutput) KeyName() pulumi.StringOutput {
 	return o.ApplyT(func(v KeyVaultKeyReference) string { return v.KeyName }).(pulumi.StringOutput)
 }
 
-// The key vault reference.
 func (o KeyVaultKeyReferenceOutput) KeyVault() KeyVaultKeyReferenceKeyVaultOutput {
 	return o.ApplyT(func(v KeyVaultKeyReference) KeyVaultKeyReferenceKeyVault { return v.KeyVault }).(KeyVaultKeyReferenceKeyVaultOutput)
 }
 
-// The private key version in key vault.
 func (o KeyVaultKeyReferenceOutput) KeyVersion() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v KeyVaultKeyReference) *string { return v.KeyVersion }).(pulumi.StringPtrOutput)
 }
@@ -16017,10 +14425,15 @@ func (o KeyVaultKeyReferencePtrOutput) ToKeyVaultKeyReferencePtrOutputWithContex
 }
 
 func (o KeyVaultKeyReferencePtrOutput) Elem() KeyVaultKeyReferenceOutput {
-	return o.ApplyT(func(v *KeyVaultKeyReference) KeyVaultKeyReference { return *v }).(KeyVaultKeyReferenceOutput)
+	return o.ApplyT(func(v *KeyVaultKeyReference) KeyVaultKeyReference {
+		if v != nil {
+			return *v
+		}
+		var ret KeyVaultKeyReference
+		return ret
+	}).(KeyVaultKeyReferenceOutput)
 }
 
-// The private key name in key vault.
 func (o KeyVaultKeyReferencePtrOutput) KeyName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *KeyVaultKeyReference) *string {
 		if v == nil {
@@ -16030,7 +14443,6 @@ func (o KeyVaultKeyReferencePtrOutput) KeyName() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The key vault reference.
 func (o KeyVaultKeyReferencePtrOutput) KeyVault() KeyVaultKeyReferenceKeyVaultPtrOutput {
 	return o.ApplyT(func(v *KeyVaultKeyReference) *KeyVaultKeyReferenceKeyVault {
 		if v == nil {
@@ -16040,7 +14452,6 @@ func (o KeyVaultKeyReferencePtrOutput) KeyVault() KeyVaultKeyReferenceKeyVaultPt
 	}).(KeyVaultKeyReferenceKeyVaultPtrOutput)
 }
 
-// The private key version in key vault.
 func (o KeyVaultKeyReferencePtrOutput) KeyVersion() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *KeyVaultKeyReference) *string {
 		if v == nil {
@@ -16050,9 +14461,7 @@ func (o KeyVaultKeyReferencePtrOutput) KeyVersion() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The key vault reference.
 type KeyVaultKeyReferenceKeyVault struct {
-	// The resource id.
 	Id *string `pulumi:"id"`
 }
 
@@ -16067,9 +14476,7 @@ type KeyVaultKeyReferenceKeyVaultInput interface {
 	ToKeyVaultKeyReferenceKeyVaultOutputWithContext(context.Context) KeyVaultKeyReferenceKeyVaultOutput
 }
 
-// The key vault reference.
 type KeyVaultKeyReferenceKeyVaultArgs struct {
-	// The resource id.
 	Id pulumi.StringPtrInput `pulumi:"id"`
 }
 
@@ -16126,7 +14533,6 @@ func (i *keyVaultKeyReferenceKeyVaultPtrType) ToKeyVaultKeyReferenceKeyVaultPtrO
 	return pulumi.ToOutputWithContext(ctx, i).(KeyVaultKeyReferenceKeyVaultPtrOutput)
 }
 
-// The key vault reference.
 type KeyVaultKeyReferenceKeyVaultOutput struct{ *pulumi.OutputState }
 
 func (KeyVaultKeyReferenceKeyVaultOutput) ElementType() reflect.Type {
@@ -16146,12 +14552,11 @@ func (o KeyVaultKeyReferenceKeyVaultOutput) ToKeyVaultKeyReferenceKeyVaultPtrOut
 }
 
 func (o KeyVaultKeyReferenceKeyVaultOutput) ToKeyVaultKeyReferenceKeyVaultPtrOutputWithContext(ctx context.Context) KeyVaultKeyReferenceKeyVaultPtrOutput {
-	return o.ApplyT(func(v KeyVaultKeyReferenceKeyVault) *KeyVaultKeyReferenceKeyVault {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v KeyVaultKeyReferenceKeyVault) *KeyVaultKeyReferenceKeyVault {
 		return &v
 	}).(KeyVaultKeyReferenceKeyVaultPtrOutput)
 }
 
-// The resource id.
 func (o KeyVaultKeyReferenceKeyVaultOutput) Id() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v KeyVaultKeyReferenceKeyVault) *string { return v.Id }).(pulumi.StringPtrOutput)
 }
@@ -16171,10 +14576,15 @@ func (o KeyVaultKeyReferenceKeyVaultPtrOutput) ToKeyVaultKeyReferenceKeyVaultPtr
 }
 
 func (o KeyVaultKeyReferenceKeyVaultPtrOutput) Elem() KeyVaultKeyReferenceKeyVaultOutput {
-	return o.ApplyT(func(v *KeyVaultKeyReferenceKeyVault) KeyVaultKeyReferenceKeyVault { return *v }).(KeyVaultKeyReferenceKeyVaultOutput)
+	return o.ApplyT(func(v *KeyVaultKeyReferenceKeyVault) KeyVaultKeyReferenceKeyVault {
+		if v != nil {
+			return *v
+		}
+		var ret KeyVaultKeyReferenceKeyVault
+		return ret
+	}).(KeyVaultKeyReferenceKeyVaultOutput)
 }
 
-// The resource id.
 func (o KeyVaultKeyReferenceKeyVaultPtrOutput) Id() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *KeyVaultKeyReferenceKeyVault) *string {
 		if v == nil {
@@ -16184,14 +14594,10 @@ func (o KeyVaultKeyReferenceKeyVaultPtrOutput) Id() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The reference to the key vault key.
 type KeyVaultKeyReferenceResponse struct {
-	// The private key name in key vault.
-	KeyName string `pulumi:"keyName"`
-	// The key vault reference.
-	KeyVault KeyVaultKeyReferenceResponseKeyVault `pulumi:"keyVault"`
-	// The private key version in key vault.
-	KeyVersion *string `pulumi:"keyVersion"`
+	KeyName    string                               `pulumi:"keyName"`
+	KeyVault   KeyVaultKeyReferenceResponseKeyVault `pulumi:"keyVault"`
+	KeyVersion *string                              `pulumi:"keyVersion"`
 }
 
 // KeyVaultKeyReferenceResponseInput is an input type that accepts KeyVaultKeyReferenceResponseArgs and KeyVaultKeyReferenceResponseOutput values.
@@ -16205,14 +14611,10 @@ type KeyVaultKeyReferenceResponseInput interface {
 	ToKeyVaultKeyReferenceResponseOutputWithContext(context.Context) KeyVaultKeyReferenceResponseOutput
 }
 
-// The reference to the key vault key.
 type KeyVaultKeyReferenceResponseArgs struct {
-	// The private key name in key vault.
-	KeyName pulumi.StringInput `pulumi:"keyName"`
-	// The key vault reference.
-	KeyVault KeyVaultKeyReferenceResponseKeyVaultInput `pulumi:"keyVault"`
-	// The private key version in key vault.
-	KeyVersion pulumi.StringPtrInput `pulumi:"keyVersion"`
+	KeyName    pulumi.StringInput                        `pulumi:"keyName"`
+	KeyVault   KeyVaultKeyReferenceResponseKeyVaultInput `pulumi:"keyVault"`
+	KeyVersion pulumi.StringPtrInput                     `pulumi:"keyVersion"`
 }
 
 func (KeyVaultKeyReferenceResponseArgs) ElementType() reflect.Type {
@@ -16268,7 +14670,6 @@ func (i *keyVaultKeyReferenceResponsePtrType) ToKeyVaultKeyReferenceResponsePtrO
 	return pulumi.ToOutputWithContext(ctx, i).(KeyVaultKeyReferenceResponsePtrOutput)
 }
 
-// The reference to the key vault key.
 type KeyVaultKeyReferenceResponseOutput struct{ *pulumi.OutputState }
 
 func (KeyVaultKeyReferenceResponseOutput) ElementType() reflect.Type {
@@ -16288,22 +14689,19 @@ func (o KeyVaultKeyReferenceResponseOutput) ToKeyVaultKeyReferenceResponsePtrOut
 }
 
 func (o KeyVaultKeyReferenceResponseOutput) ToKeyVaultKeyReferenceResponsePtrOutputWithContext(ctx context.Context) KeyVaultKeyReferenceResponsePtrOutput {
-	return o.ApplyT(func(v KeyVaultKeyReferenceResponse) *KeyVaultKeyReferenceResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v KeyVaultKeyReferenceResponse) *KeyVaultKeyReferenceResponse {
 		return &v
 	}).(KeyVaultKeyReferenceResponsePtrOutput)
 }
 
-// The private key name in key vault.
 func (o KeyVaultKeyReferenceResponseOutput) KeyName() pulumi.StringOutput {
 	return o.ApplyT(func(v KeyVaultKeyReferenceResponse) string { return v.KeyName }).(pulumi.StringOutput)
 }
 
-// The key vault reference.
 func (o KeyVaultKeyReferenceResponseOutput) KeyVault() KeyVaultKeyReferenceResponseKeyVaultOutput {
 	return o.ApplyT(func(v KeyVaultKeyReferenceResponse) KeyVaultKeyReferenceResponseKeyVault { return v.KeyVault }).(KeyVaultKeyReferenceResponseKeyVaultOutput)
 }
 
-// The private key version in key vault.
 func (o KeyVaultKeyReferenceResponseOutput) KeyVersion() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v KeyVaultKeyReferenceResponse) *string { return v.KeyVersion }).(pulumi.StringPtrOutput)
 }
@@ -16323,10 +14721,15 @@ func (o KeyVaultKeyReferenceResponsePtrOutput) ToKeyVaultKeyReferenceResponsePtr
 }
 
 func (o KeyVaultKeyReferenceResponsePtrOutput) Elem() KeyVaultKeyReferenceResponseOutput {
-	return o.ApplyT(func(v *KeyVaultKeyReferenceResponse) KeyVaultKeyReferenceResponse { return *v }).(KeyVaultKeyReferenceResponseOutput)
+	return o.ApplyT(func(v *KeyVaultKeyReferenceResponse) KeyVaultKeyReferenceResponse {
+		if v != nil {
+			return *v
+		}
+		var ret KeyVaultKeyReferenceResponse
+		return ret
+	}).(KeyVaultKeyReferenceResponseOutput)
 }
 
-// The private key name in key vault.
 func (o KeyVaultKeyReferenceResponsePtrOutput) KeyName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *KeyVaultKeyReferenceResponse) *string {
 		if v == nil {
@@ -16336,7 +14739,6 @@ func (o KeyVaultKeyReferenceResponsePtrOutput) KeyName() pulumi.StringPtrOutput 
 	}).(pulumi.StringPtrOutput)
 }
 
-// The key vault reference.
 func (o KeyVaultKeyReferenceResponsePtrOutput) KeyVault() KeyVaultKeyReferenceResponseKeyVaultPtrOutput {
 	return o.ApplyT(func(v *KeyVaultKeyReferenceResponse) *KeyVaultKeyReferenceResponseKeyVault {
 		if v == nil {
@@ -16346,7 +14748,6 @@ func (o KeyVaultKeyReferenceResponsePtrOutput) KeyVault() KeyVaultKeyReferenceRe
 	}).(KeyVaultKeyReferenceResponseKeyVaultPtrOutput)
 }
 
-// The private key version in key vault.
 func (o KeyVaultKeyReferenceResponsePtrOutput) KeyVersion() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *KeyVaultKeyReferenceResponse) *string {
 		if v == nil {
@@ -16356,14 +14757,10 @@ func (o KeyVaultKeyReferenceResponsePtrOutput) KeyVersion() pulumi.StringPtrOutp
 	}).(pulumi.StringPtrOutput)
 }
 
-// The key vault reference.
 type KeyVaultKeyReferenceResponseKeyVault struct {
-	// The resource id.
-	Id *string `pulumi:"id"`
-	// The resource name.
-	Name string `pulumi:"name"`
-	// The resource type.
-	Type string `pulumi:"type"`
+	Id   *string `pulumi:"id"`
+	Name string  `pulumi:"name"`
+	Type string  `pulumi:"type"`
 }
 
 // KeyVaultKeyReferenceResponseKeyVaultInput is an input type that accepts KeyVaultKeyReferenceResponseKeyVaultArgs and KeyVaultKeyReferenceResponseKeyVaultOutput values.
@@ -16377,14 +14774,10 @@ type KeyVaultKeyReferenceResponseKeyVaultInput interface {
 	ToKeyVaultKeyReferenceResponseKeyVaultOutputWithContext(context.Context) KeyVaultKeyReferenceResponseKeyVaultOutput
 }
 
-// The key vault reference.
 type KeyVaultKeyReferenceResponseKeyVaultArgs struct {
-	// The resource id.
-	Id pulumi.StringPtrInput `pulumi:"id"`
-	// The resource name.
-	Name pulumi.StringInput `pulumi:"name"`
-	// The resource type.
-	Type pulumi.StringInput `pulumi:"type"`
+	Id   pulumi.StringPtrInput `pulumi:"id"`
+	Name pulumi.StringInput    `pulumi:"name"`
+	Type pulumi.StringInput    `pulumi:"type"`
 }
 
 func (KeyVaultKeyReferenceResponseKeyVaultArgs) ElementType() reflect.Type {
@@ -16440,7 +14833,6 @@ func (i *keyVaultKeyReferenceResponseKeyVaultPtrType) ToKeyVaultKeyReferenceResp
 	return pulumi.ToOutputWithContext(ctx, i).(KeyVaultKeyReferenceResponseKeyVaultPtrOutput)
 }
 
-// The key vault reference.
 type KeyVaultKeyReferenceResponseKeyVaultOutput struct{ *pulumi.OutputState }
 
 func (KeyVaultKeyReferenceResponseKeyVaultOutput) ElementType() reflect.Type {
@@ -16460,22 +14852,19 @@ func (o KeyVaultKeyReferenceResponseKeyVaultOutput) ToKeyVaultKeyReferenceRespon
 }
 
 func (o KeyVaultKeyReferenceResponseKeyVaultOutput) ToKeyVaultKeyReferenceResponseKeyVaultPtrOutputWithContext(ctx context.Context) KeyVaultKeyReferenceResponseKeyVaultPtrOutput {
-	return o.ApplyT(func(v KeyVaultKeyReferenceResponseKeyVault) *KeyVaultKeyReferenceResponseKeyVault {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v KeyVaultKeyReferenceResponseKeyVault) *KeyVaultKeyReferenceResponseKeyVault {
 		return &v
 	}).(KeyVaultKeyReferenceResponseKeyVaultPtrOutput)
 }
 
-// The resource id.
 func (o KeyVaultKeyReferenceResponseKeyVaultOutput) Id() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v KeyVaultKeyReferenceResponseKeyVault) *string { return v.Id }).(pulumi.StringPtrOutput)
 }
 
-// The resource name.
 func (o KeyVaultKeyReferenceResponseKeyVaultOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v KeyVaultKeyReferenceResponseKeyVault) string { return v.Name }).(pulumi.StringOutput)
 }
 
-// The resource type.
 func (o KeyVaultKeyReferenceResponseKeyVaultOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v KeyVaultKeyReferenceResponseKeyVault) string { return v.Type }).(pulumi.StringOutput)
 }
@@ -16495,10 +14884,15 @@ func (o KeyVaultKeyReferenceResponseKeyVaultPtrOutput) ToKeyVaultKeyReferenceRes
 }
 
 func (o KeyVaultKeyReferenceResponseKeyVaultPtrOutput) Elem() KeyVaultKeyReferenceResponseKeyVaultOutput {
-	return o.ApplyT(func(v *KeyVaultKeyReferenceResponseKeyVault) KeyVaultKeyReferenceResponseKeyVault { return *v }).(KeyVaultKeyReferenceResponseKeyVaultOutput)
+	return o.ApplyT(func(v *KeyVaultKeyReferenceResponseKeyVault) KeyVaultKeyReferenceResponseKeyVault {
+		if v != nil {
+			return *v
+		}
+		var ret KeyVaultKeyReferenceResponseKeyVault
+		return ret
+	}).(KeyVaultKeyReferenceResponseKeyVaultOutput)
 }
 
-// The resource id.
 func (o KeyVaultKeyReferenceResponseKeyVaultPtrOutput) Id() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *KeyVaultKeyReferenceResponseKeyVault) *string {
 		if v == nil {
@@ -16508,7 +14902,6 @@ func (o KeyVaultKeyReferenceResponseKeyVaultPtrOutput) Id() pulumi.StringPtrOutp
 	}).(pulumi.StringPtrOutput)
 }
 
-// The resource name.
 func (o KeyVaultKeyReferenceResponseKeyVaultPtrOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *KeyVaultKeyReferenceResponseKeyVault) *string {
 		if v == nil {
@@ -16518,7 +14911,6 @@ func (o KeyVaultKeyReferenceResponseKeyVaultPtrOutput) Name() pulumi.StringPtrOu
 	}).(pulumi.StringPtrOutput)
 }
 
-// The resource type.
 func (o KeyVaultKeyReferenceResponseKeyVaultPtrOutput) Type() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *KeyVaultKeyReferenceResponseKeyVault) *string {
 		if v == nil {
@@ -16528,12 +14920,9 @@ func (o KeyVaultKeyReferenceResponseKeyVaultPtrOutput) Type() pulumi.StringPtrOu
 	}).(pulumi.StringPtrOutput)
 }
 
-// The key vault key.
 type KeyVaultKeyResponse struct {
-	// The key attributes.
 	Attributes *KeyVaultKeyResponseAttributes `pulumi:"attributes"`
-	// The key id.
-	Kid *string `pulumi:"kid"`
+	Kid        *string                        `pulumi:"kid"`
 }
 
 // KeyVaultKeyResponseInput is an input type that accepts KeyVaultKeyResponseArgs and KeyVaultKeyResponseOutput values.
@@ -16547,12 +14936,9 @@ type KeyVaultKeyResponseInput interface {
 	ToKeyVaultKeyResponseOutputWithContext(context.Context) KeyVaultKeyResponseOutput
 }
 
-// The key vault key.
 type KeyVaultKeyResponseArgs struct {
-	// The key attributes.
 	Attributes KeyVaultKeyResponseAttributesPtrInput `pulumi:"attributes"`
-	// The key id.
-	Kid pulumi.StringPtrInput `pulumi:"kid"`
+	Kid        pulumi.StringPtrInput                 `pulumi:"kid"`
 }
 
 func (KeyVaultKeyResponseArgs) ElementType() reflect.Type {
@@ -16592,7 +14978,6 @@ func (i KeyVaultKeyResponseArray) ToKeyVaultKeyResponseArrayOutputWithContext(ct
 	return pulumi.ToOutputWithContext(ctx, i).(KeyVaultKeyResponseArrayOutput)
 }
 
-// The key vault key.
 type KeyVaultKeyResponseOutput struct{ *pulumi.OutputState }
 
 func (KeyVaultKeyResponseOutput) ElementType() reflect.Type {
@@ -16607,12 +14992,10 @@ func (o KeyVaultKeyResponseOutput) ToKeyVaultKeyResponseOutputWithContext(ctx co
 	return o
 }
 
-// The key attributes.
 func (o KeyVaultKeyResponseOutput) Attributes() KeyVaultKeyResponseAttributesPtrOutput {
 	return o.ApplyT(func(v KeyVaultKeyResponse) *KeyVaultKeyResponseAttributes { return v.Attributes }).(KeyVaultKeyResponseAttributesPtrOutput)
 }
 
-// The key id.
 func (o KeyVaultKeyResponseOutput) Kid() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v KeyVaultKeyResponse) *string { return v.Kid }).(pulumi.StringPtrOutput)
 }
@@ -16637,13 +15020,9 @@ func (o KeyVaultKeyResponseArrayOutput) Index(i pulumi.IntInput) KeyVaultKeyResp
 	}).(KeyVaultKeyResponseOutput)
 }
 
-// The key attributes.
 type KeyVaultKeyResponseAttributes struct {
-	// When the key was created.
 	Created *float64 `pulumi:"created"`
-	// Whether the key is enabled or not.
-	Enabled *bool `pulumi:"enabled"`
-	// When the key was updated.
+	Enabled *bool    `pulumi:"enabled"`
 	Updated *float64 `pulumi:"updated"`
 }
 
@@ -16658,13 +15037,9 @@ type KeyVaultKeyResponseAttributesInput interface {
 	ToKeyVaultKeyResponseAttributesOutputWithContext(context.Context) KeyVaultKeyResponseAttributesOutput
 }
 
-// The key attributes.
 type KeyVaultKeyResponseAttributesArgs struct {
-	// When the key was created.
 	Created pulumi.Float64PtrInput `pulumi:"created"`
-	// Whether the key is enabled or not.
-	Enabled pulumi.BoolPtrInput `pulumi:"enabled"`
-	// When the key was updated.
+	Enabled pulumi.BoolPtrInput    `pulumi:"enabled"`
 	Updated pulumi.Float64PtrInput `pulumi:"updated"`
 }
 
@@ -16721,7 +15096,6 @@ func (i *keyVaultKeyResponseAttributesPtrType) ToKeyVaultKeyResponseAttributesPt
 	return pulumi.ToOutputWithContext(ctx, i).(KeyVaultKeyResponseAttributesPtrOutput)
 }
 
-// The key attributes.
 type KeyVaultKeyResponseAttributesOutput struct{ *pulumi.OutputState }
 
 func (KeyVaultKeyResponseAttributesOutput) ElementType() reflect.Type {
@@ -16741,22 +15115,19 @@ func (o KeyVaultKeyResponseAttributesOutput) ToKeyVaultKeyResponseAttributesPtrO
 }
 
 func (o KeyVaultKeyResponseAttributesOutput) ToKeyVaultKeyResponseAttributesPtrOutputWithContext(ctx context.Context) KeyVaultKeyResponseAttributesPtrOutput {
-	return o.ApplyT(func(v KeyVaultKeyResponseAttributes) *KeyVaultKeyResponseAttributes {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v KeyVaultKeyResponseAttributes) *KeyVaultKeyResponseAttributes {
 		return &v
 	}).(KeyVaultKeyResponseAttributesPtrOutput)
 }
 
-// When the key was created.
 func (o KeyVaultKeyResponseAttributesOutput) Created() pulumi.Float64PtrOutput {
 	return o.ApplyT(func(v KeyVaultKeyResponseAttributes) *float64 { return v.Created }).(pulumi.Float64PtrOutput)
 }
 
-// Whether the key is enabled or not.
 func (o KeyVaultKeyResponseAttributesOutput) Enabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v KeyVaultKeyResponseAttributes) *bool { return v.Enabled }).(pulumi.BoolPtrOutput)
 }
 
-// When the key was updated.
 func (o KeyVaultKeyResponseAttributesOutput) Updated() pulumi.Float64PtrOutput {
 	return o.ApplyT(func(v KeyVaultKeyResponseAttributes) *float64 { return v.Updated }).(pulumi.Float64PtrOutput)
 }
@@ -16776,10 +15147,15 @@ func (o KeyVaultKeyResponseAttributesPtrOutput) ToKeyVaultKeyResponseAttributesP
 }
 
 func (o KeyVaultKeyResponseAttributesPtrOutput) Elem() KeyVaultKeyResponseAttributesOutput {
-	return o.ApplyT(func(v *KeyVaultKeyResponseAttributes) KeyVaultKeyResponseAttributes { return *v }).(KeyVaultKeyResponseAttributesOutput)
+	return o.ApplyT(func(v *KeyVaultKeyResponseAttributes) KeyVaultKeyResponseAttributes {
+		if v != nil {
+			return *v
+		}
+		var ret KeyVaultKeyResponseAttributes
+		return ret
+	}).(KeyVaultKeyResponseAttributesOutput)
 }
 
-// When the key was created.
 func (o KeyVaultKeyResponseAttributesPtrOutput) Created() pulumi.Float64PtrOutput {
 	return o.ApplyT(func(v *KeyVaultKeyResponseAttributes) *float64 {
 		if v == nil {
@@ -16789,7 +15165,6 @@ func (o KeyVaultKeyResponseAttributesPtrOutput) Created() pulumi.Float64PtrOutpu
 	}).(pulumi.Float64PtrOutput)
 }
 
-// Whether the key is enabled or not.
 func (o KeyVaultKeyResponseAttributesPtrOutput) Enabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *KeyVaultKeyResponseAttributes) *bool {
 		if v == nil {
@@ -16799,7 +15174,6 @@ func (o KeyVaultKeyResponseAttributesPtrOutput) Enabled() pulumi.BoolPtrOutput {
 	}).(pulumi.BoolPtrOutput)
 }
 
-// When the key was updated.
 func (o KeyVaultKeyResponseAttributesPtrOutput) Updated() pulumi.Float64PtrOutput {
 	return o.ApplyT(func(v *KeyVaultKeyResponseAttributes) *float64 {
 		if v == nil {
@@ -16809,11 +15183,8 @@ func (o KeyVaultKeyResponseAttributesPtrOutput) Updated() pulumi.Float64PtrOutpu
 	}).(pulumi.Float64PtrOutput)
 }
 
-// The key vault reference.
 type KeyVaultReference struct {
-	// The resource id.
-	Id *string `pulumi:"id"`
-	// The key vault name.
+	Id   *string `pulumi:"id"`
 	Name *string `pulumi:"name"`
 }
 
@@ -16828,11 +15199,8 @@ type KeyVaultReferenceInput interface {
 	ToKeyVaultReferenceOutputWithContext(context.Context) KeyVaultReferenceOutput
 }
 
-// The key vault reference.
 type KeyVaultReferenceArgs struct {
-	// The resource id.
-	Id pulumi.StringPtrInput `pulumi:"id"`
-	// The key vault name.
+	Id   pulumi.StringPtrInput `pulumi:"id"`
 	Name pulumi.StringPtrInput `pulumi:"name"`
 }
 
@@ -16848,7 +15216,6 @@ func (i KeyVaultReferenceArgs) ToKeyVaultReferenceOutputWithContext(ctx context.
 	return pulumi.ToOutputWithContext(ctx, i).(KeyVaultReferenceOutput)
 }
 
-// The key vault reference.
 type KeyVaultReferenceOutput struct{ *pulumi.OutputState }
 
 func (KeyVaultReferenceOutput) ElementType() reflect.Type {
@@ -16863,19 +15230,15 @@ func (o KeyVaultReferenceOutput) ToKeyVaultReferenceOutputWithContext(ctx contex
 	return o
 }
 
-// The resource id.
 func (o KeyVaultReferenceOutput) Id() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v KeyVaultReference) *string { return v.Id }).(pulumi.StringPtrOutput)
 }
 
-// The key vault name.
 func (o KeyVaultReferenceOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v KeyVaultReference) *string { return v.Name }).(pulumi.StringPtrOutput)
 }
 
-// The integration account partner content.
 type PartnerContent struct {
-	// The B2B partner content.
 	B2b *B2BPartnerContent `pulumi:"b2b"`
 }
 
@@ -16890,9 +15253,7 @@ type PartnerContentInput interface {
 	ToPartnerContentOutputWithContext(context.Context) PartnerContentOutput
 }
 
-// The integration account partner content.
 type PartnerContentArgs struct {
-	// The B2B partner content.
 	B2b B2BPartnerContentPtrInput `pulumi:"b2b"`
 }
 
@@ -16949,7 +15310,6 @@ func (i *partnerContentPtrType) ToPartnerContentPtrOutputWithContext(ctx context
 	return pulumi.ToOutputWithContext(ctx, i).(PartnerContentPtrOutput)
 }
 
-// The integration account partner content.
 type PartnerContentOutput struct{ *pulumi.OutputState }
 
 func (PartnerContentOutput) ElementType() reflect.Type {
@@ -16969,12 +15329,11 @@ func (o PartnerContentOutput) ToPartnerContentPtrOutput() PartnerContentPtrOutpu
 }
 
 func (o PartnerContentOutput) ToPartnerContentPtrOutputWithContext(ctx context.Context) PartnerContentPtrOutput {
-	return o.ApplyT(func(v PartnerContent) *PartnerContent {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v PartnerContent) *PartnerContent {
 		return &v
 	}).(PartnerContentPtrOutput)
 }
 
-// The B2B partner content.
 func (o PartnerContentOutput) B2b() B2BPartnerContentPtrOutput {
 	return o.ApplyT(func(v PartnerContent) *B2BPartnerContent { return v.B2b }).(B2BPartnerContentPtrOutput)
 }
@@ -16994,10 +15353,15 @@ func (o PartnerContentPtrOutput) ToPartnerContentPtrOutputWithContext(ctx contex
 }
 
 func (o PartnerContentPtrOutput) Elem() PartnerContentOutput {
-	return o.ApplyT(func(v *PartnerContent) PartnerContent { return *v }).(PartnerContentOutput)
+	return o.ApplyT(func(v *PartnerContent) PartnerContent {
+		if v != nil {
+			return *v
+		}
+		var ret PartnerContent
+		return ret
+	}).(PartnerContentOutput)
 }
 
-// The B2B partner content.
 func (o PartnerContentPtrOutput) B2b() B2BPartnerContentPtrOutput {
 	return o.ApplyT(func(v *PartnerContent) *B2BPartnerContent {
 		if v == nil {
@@ -17007,9 +15371,7 @@ func (o PartnerContentPtrOutput) B2b() B2BPartnerContentPtrOutput {
 	}).(B2BPartnerContentPtrOutput)
 }
 
-// The integration account partner content.
 type PartnerContentResponse struct {
-	// The B2B partner content.
 	B2b *B2BPartnerContentResponse `pulumi:"b2b"`
 }
 
@@ -17024,9 +15386,7 @@ type PartnerContentResponseInput interface {
 	ToPartnerContentResponseOutputWithContext(context.Context) PartnerContentResponseOutput
 }
 
-// The integration account partner content.
 type PartnerContentResponseArgs struct {
-	// The B2B partner content.
 	B2b B2BPartnerContentResponsePtrInput `pulumi:"b2b"`
 }
 
@@ -17083,7 +15443,6 @@ func (i *partnerContentResponsePtrType) ToPartnerContentResponsePtrOutputWithCon
 	return pulumi.ToOutputWithContext(ctx, i).(PartnerContentResponsePtrOutput)
 }
 
-// The integration account partner content.
 type PartnerContentResponseOutput struct{ *pulumi.OutputState }
 
 func (PartnerContentResponseOutput) ElementType() reflect.Type {
@@ -17103,12 +15462,11 @@ func (o PartnerContentResponseOutput) ToPartnerContentResponsePtrOutput() Partne
 }
 
 func (o PartnerContentResponseOutput) ToPartnerContentResponsePtrOutputWithContext(ctx context.Context) PartnerContentResponsePtrOutput {
-	return o.ApplyT(func(v PartnerContentResponse) *PartnerContentResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v PartnerContentResponse) *PartnerContentResponse {
 		return &v
 	}).(PartnerContentResponsePtrOutput)
 }
 
-// The B2B partner content.
 func (o PartnerContentResponseOutput) B2b() B2BPartnerContentResponsePtrOutput {
 	return o.ApplyT(func(v PartnerContentResponse) *B2BPartnerContentResponse { return v.B2b }).(B2BPartnerContentResponsePtrOutput)
 }
@@ -17128,10 +15486,15 @@ func (o PartnerContentResponsePtrOutput) ToPartnerContentResponsePtrOutputWithCo
 }
 
 func (o PartnerContentResponsePtrOutput) Elem() PartnerContentResponseOutput {
-	return o.ApplyT(func(v *PartnerContentResponse) PartnerContentResponse { return *v }).(PartnerContentResponseOutput)
+	return o.ApplyT(func(v *PartnerContentResponse) PartnerContentResponse {
+		if v != nil {
+			return *v
+		}
+		var ret PartnerContentResponse
+		return ret
+	}).(PartnerContentResponseOutput)
 }
 
-// The B2B partner content.
 func (o PartnerContentResponsePtrOutput) B2b() B2BPartnerContentResponsePtrOutput {
 	return o.ApplyT(func(v *PartnerContentResponse) *B2BPartnerContentResponse {
 		if v == nil {
@@ -17141,18 +15504,12 @@ func (o PartnerContentResponsePtrOutput) B2b() B2BPartnerContentResponsePtrOutpu
 	}).(B2BPartnerContentResponsePtrOutput)
 }
 
-// The recurrence schedule.
 type RecurrenceSchedule struct {
-	// The hours.
-	Hours []int `pulumi:"hours"`
-	// The minutes.
-	Minutes []int `pulumi:"minutes"`
-	// The month days.
-	MonthDays []int `pulumi:"monthDays"`
-	// The monthly occurrences.
+	Hours              []int                          `pulumi:"hours"`
+	Minutes            []int                          `pulumi:"minutes"`
+	MonthDays          []int                          `pulumi:"monthDays"`
 	MonthlyOccurrences []RecurrenceScheduleOccurrence `pulumi:"monthlyOccurrences"`
-	// The days of the week.
-	WeekDays []string `pulumi:"weekDays"`
+	WeekDays           []DaysOfWeek                   `pulumi:"weekDays"`
 }
 
 // RecurrenceScheduleInput is an input type that accepts RecurrenceScheduleArgs and RecurrenceScheduleOutput values.
@@ -17166,18 +15523,12 @@ type RecurrenceScheduleInput interface {
 	ToRecurrenceScheduleOutputWithContext(context.Context) RecurrenceScheduleOutput
 }
 
-// The recurrence schedule.
 type RecurrenceScheduleArgs struct {
-	// The hours.
-	Hours pulumi.IntArrayInput `pulumi:"hours"`
-	// The minutes.
-	Minutes pulumi.IntArrayInput `pulumi:"minutes"`
-	// The month days.
-	MonthDays pulumi.IntArrayInput `pulumi:"monthDays"`
-	// The monthly occurrences.
+	Hours              pulumi.IntArrayInput                   `pulumi:"hours"`
+	Minutes            pulumi.IntArrayInput                   `pulumi:"minutes"`
+	MonthDays          pulumi.IntArrayInput                   `pulumi:"monthDays"`
 	MonthlyOccurrences RecurrenceScheduleOccurrenceArrayInput `pulumi:"monthlyOccurrences"`
-	// The days of the week.
-	WeekDays DaysOfWeekArrayInput `pulumi:"weekDays"`
+	WeekDays           DaysOfWeekArrayInput                   `pulumi:"weekDays"`
 }
 
 func (RecurrenceScheduleArgs) ElementType() reflect.Type {
@@ -17233,7 +15584,6 @@ func (i *recurrenceSchedulePtrType) ToRecurrenceSchedulePtrOutputWithContext(ctx
 	return pulumi.ToOutputWithContext(ctx, i).(RecurrenceSchedulePtrOutput)
 }
 
-// The recurrence schedule.
 type RecurrenceScheduleOutput struct{ *pulumi.OutputState }
 
 func (RecurrenceScheduleOutput) ElementType() reflect.Type {
@@ -17253,34 +15603,29 @@ func (o RecurrenceScheduleOutput) ToRecurrenceSchedulePtrOutput() RecurrenceSche
 }
 
 func (o RecurrenceScheduleOutput) ToRecurrenceSchedulePtrOutputWithContext(ctx context.Context) RecurrenceSchedulePtrOutput {
-	return o.ApplyT(func(v RecurrenceSchedule) *RecurrenceSchedule {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v RecurrenceSchedule) *RecurrenceSchedule {
 		return &v
 	}).(RecurrenceSchedulePtrOutput)
 }
 
-// The hours.
 func (o RecurrenceScheduleOutput) Hours() pulumi.IntArrayOutput {
 	return o.ApplyT(func(v RecurrenceSchedule) []int { return v.Hours }).(pulumi.IntArrayOutput)
 }
 
-// The minutes.
 func (o RecurrenceScheduleOutput) Minutes() pulumi.IntArrayOutput {
 	return o.ApplyT(func(v RecurrenceSchedule) []int { return v.Minutes }).(pulumi.IntArrayOutput)
 }
 
-// The month days.
 func (o RecurrenceScheduleOutput) MonthDays() pulumi.IntArrayOutput {
 	return o.ApplyT(func(v RecurrenceSchedule) []int { return v.MonthDays }).(pulumi.IntArrayOutput)
 }
 
-// The monthly occurrences.
 func (o RecurrenceScheduleOutput) MonthlyOccurrences() RecurrenceScheduleOccurrenceArrayOutput {
 	return o.ApplyT(func(v RecurrenceSchedule) []RecurrenceScheduleOccurrence { return v.MonthlyOccurrences }).(RecurrenceScheduleOccurrenceArrayOutput)
 }
 
-// The days of the week.
-func (o RecurrenceScheduleOutput) WeekDays() pulumi.StringArrayOutput {
-	return o.ApplyT(func(v RecurrenceSchedule) []string { return v.WeekDays }).(pulumi.StringArrayOutput)
+func (o RecurrenceScheduleOutput) WeekDays() DaysOfWeekArrayOutput {
+	return o.ApplyT(func(v RecurrenceSchedule) []DaysOfWeek { return v.WeekDays }).(DaysOfWeekArrayOutput)
 }
 
 type RecurrenceSchedulePtrOutput struct{ *pulumi.OutputState }
@@ -17298,10 +15643,15 @@ func (o RecurrenceSchedulePtrOutput) ToRecurrenceSchedulePtrOutputWithContext(ct
 }
 
 func (o RecurrenceSchedulePtrOutput) Elem() RecurrenceScheduleOutput {
-	return o.ApplyT(func(v *RecurrenceSchedule) RecurrenceSchedule { return *v }).(RecurrenceScheduleOutput)
+	return o.ApplyT(func(v *RecurrenceSchedule) RecurrenceSchedule {
+		if v != nil {
+			return *v
+		}
+		var ret RecurrenceSchedule
+		return ret
+	}).(RecurrenceScheduleOutput)
 }
 
-// The hours.
 func (o RecurrenceSchedulePtrOutput) Hours() pulumi.IntArrayOutput {
 	return o.ApplyT(func(v *RecurrenceSchedule) []int {
 		if v == nil {
@@ -17311,7 +15661,6 @@ func (o RecurrenceSchedulePtrOutput) Hours() pulumi.IntArrayOutput {
 	}).(pulumi.IntArrayOutput)
 }
 
-// The minutes.
 func (o RecurrenceSchedulePtrOutput) Minutes() pulumi.IntArrayOutput {
 	return o.ApplyT(func(v *RecurrenceSchedule) []int {
 		if v == nil {
@@ -17321,7 +15670,6 @@ func (o RecurrenceSchedulePtrOutput) Minutes() pulumi.IntArrayOutput {
 	}).(pulumi.IntArrayOutput)
 }
 
-// The month days.
 func (o RecurrenceSchedulePtrOutput) MonthDays() pulumi.IntArrayOutput {
 	return o.ApplyT(func(v *RecurrenceSchedule) []int {
 		if v == nil {
@@ -17331,7 +15679,6 @@ func (o RecurrenceSchedulePtrOutput) MonthDays() pulumi.IntArrayOutput {
 	}).(pulumi.IntArrayOutput)
 }
 
-// The monthly occurrences.
 func (o RecurrenceSchedulePtrOutput) MonthlyOccurrences() RecurrenceScheduleOccurrenceArrayOutput {
 	return o.ApplyT(func(v *RecurrenceSchedule) []RecurrenceScheduleOccurrence {
 		if v == nil {
@@ -17341,22 +15688,18 @@ func (o RecurrenceSchedulePtrOutput) MonthlyOccurrences() RecurrenceScheduleOccu
 	}).(RecurrenceScheduleOccurrenceArrayOutput)
 }
 
-// The days of the week.
-func (o RecurrenceSchedulePtrOutput) WeekDays() pulumi.StringArrayOutput {
-	return o.ApplyT(func(v *RecurrenceSchedule) []string {
+func (o RecurrenceSchedulePtrOutput) WeekDays() DaysOfWeekArrayOutput {
+	return o.ApplyT(func(v *RecurrenceSchedule) []DaysOfWeek {
 		if v == nil {
 			return nil
 		}
 		return v.WeekDays
-	}).(pulumi.StringArrayOutput)
+	}).(DaysOfWeekArrayOutput)
 }
 
-// The recurrence schedule occurrence.
 type RecurrenceScheduleOccurrence struct {
-	// The day of the week.
-	Day *string `pulumi:"day"`
-	// The occurrence.
-	Occurrence *int `pulumi:"occurrence"`
+	Day        *DayOfWeek `pulumi:"day"`
+	Occurrence *int       `pulumi:"occurrence"`
 }
 
 // RecurrenceScheduleOccurrenceInput is an input type that accepts RecurrenceScheduleOccurrenceArgs and RecurrenceScheduleOccurrenceOutput values.
@@ -17370,11 +15713,8 @@ type RecurrenceScheduleOccurrenceInput interface {
 	ToRecurrenceScheduleOccurrenceOutputWithContext(context.Context) RecurrenceScheduleOccurrenceOutput
 }
 
-// The recurrence schedule occurrence.
 type RecurrenceScheduleOccurrenceArgs struct {
-	// The day of the week.
-	Day *DayOfWeek `pulumi:"day"`
-	// The occurrence.
+	Day        DayOfWeekPtrInput  `pulumi:"day"`
 	Occurrence pulumi.IntPtrInput `pulumi:"occurrence"`
 }
 
@@ -17415,7 +15755,6 @@ func (i RecurrenceScheduleOccurrenceArray) ToRecurrenceScheduleOccurrenceArrayOu
 	return pulumi.ToOutputWithContext(ctx, i).(RecurrenceScheduleOccurrenceArrayOutput)
 }
 
-// The recurrence schedule occurrence.
 type RecurrenceScheduleOccurrenceOutput struct{ *pulumi.OutputState }
 
 func (RecurrenceScheduleOccurrenceOutput) ElementType() reflect.Type {
@@ -17430,12 +15769,10 @@ func (o RecurrenceScheduleOccurrenceOutput) ToRecurrenceScheduleOccurrenceOutput
 	return o
 }
 
-// The day of the week.
-func (o RecurrenceScheduleOccurrenceOutput) Day() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v RecurrenceScheduleOccurrence) *string { return v.Day }).(pulumi.StringPtrOutput)
+func (o RecurrenceScheduleOccurrenceOutput) Day() DayOfWeekPtrOutput {
+	return o.ApplyT(func(v RecurrenceScheduleOccurrence) *DayOfWeek { return v.Day }).(DayOfWeekPtrOutput)
 }
 
-// The occurrence.
 func (o RecurrenceScheduleOccurrenceOutput) Occurrence() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v RecurrenceScheduleOccurrence) *int { return v.Occurrence }).(pulumi.IntPtrOutput)
 }
@@ -17460,12 +15797,9 @@ func (o RecurrenceScheduleOccurrenceArrayOutput) Index(i pulumi.IntInput) Recurr
 	}).(RecurrenceScheduleOccurrenceOutput)
 }
 
-// The recurrence schedule occurrence.
 type RecurrenceScheduleOccurrenceResponse struct {
-	// The day of the week.
-	Day *string `pulumi:"day"`
-	// The occurrence.
-	Occurrence *int `pulumi:"occurrence"`
+	Day        *string `pulumi:"day"`
+	Occurrence *int    `pulumi:"occurrence"`
 }
 
 // RecurrenceScheduleOccurrenceResponseInput is an input type that accepts RecurrenceScheduleOccurrenceResponseArgs and RecurrenceScheduleOccurrenceResponseOutput values.
@@ -17479,12 +15813,9 @@ type RecurrenceScheduleOccurrenceResponseInput interface {
 	ToRecurrenceScheduleOccurrenceResponseOutputWithContext(context.Context) RecurrenceScheduleOccurrenceResponseOutput
 }
 
-// The recurrence schedule occurrence.
 type RecurrenceScheduleOccurrenceResponseArgs struct {
-	// The day of the week.
-	Day pulumi.StringPtrInput `pulumi:"day"`
-	// The occurrence.
-	Occurrence pulumi.IntPtrInput `pulumi:"occurrence"`
+	Day        pulumi.StringPtrInput `pulumi:"day"`
+	Occurrence pulumi.IntPtrInput    `pulumi:"occurrence"`
 }
 
 func (RecurrenceScheduleOccurrenceResponseArgs) ElementType() reflect.Type {
@@ -17524,7 +15855,6 @@ func (i RecurrenceScheduleOccurrenceResponseArray) ToRecurrenceScheduleOccurrenc
 	return pulumi.ToOutputWithContext(ctx, i).(RecurrenceScheduleOccurrenceResponseArrayOutput)
 }
 
-// The recurrence schedule occurrence.
 type RecurrenceScheduleOccurrenceResponseOutput struct{ *pulumi.OutputState }
 
 func (RecurrenceScheduleOccurrenceResponseOutput) ElementType() reflect.Type {
@@ -17539,12 +15869,10 @@ func (o RecurrenceScheduleOccurrenceResponseOutput) ToRecurrenceScheduleOccurren
 	return o
 }
 
-// The day of the week.
 func (o RecurrenceScheduleOccurrenceResponseOutput) Day() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v RecurrenceScheduleOccurrenceResponse) *string { return v.Day }).(pulumi.StringPtrOutput)
 }
 
-// The occurrence.
 func (o RecurrenceScheduleOccurrenceResponseOutput) Occurrence() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v RecurrenceScheduleOccurrenceResponse) *int { return v.Occurrence }).(pulumi.IntPtrOutput)
 }
@@ -17569,18 +15897,12 @@ func (o RecurrenceScheduleOccurrenceResponseArrayOutput) Index(i pulumi.IntInput
 	}).(RecurrenceScheduleOccurrenceResponseOutput)
 }
 
-// The recurrence schedule.
 type RecurrenceScheduleResponse struct {
-	// The hours.
-	Hours []int `pulumi:"hours"`
-	// The minutes.
-	Minutes []int `pulumi:"minutes"`
-	// The month days.
-	MonthDays []int `pulumi:"monthDays"`
-	// The monthly occurrences.
+	Hours              []int                                  `pulumi:"hours"`
+	Minutes            []int                                  `pulumi:"minutes"`
+	MonthDays          []int                                  `pulumi:"monthDays"`
 	MonthlyOccurrences []RecurrenceScheduleOccurrenceResponse `pulumi:"monthlyOccurrences"`
-	// The days of the week.
-	WeekDays []string `pulumi:"weekDays"`
+	WeekDays           []string                               `pulumi:"weekDays"`
 }
 
 // RecurrenceScheduleResponseInput is an input type that accepts RecurrenceScheduleResponseArgs and RecurrenceScheduleResponseOutput values.
@@ -17594,18 +15916,12 @@ type RecurrenceScheduleResponseInput interface {
 	ToRecurrenceScheduleResponseOutputWithContext(context.Context) RecurrenceScheduleResponseOutput
 }
 
-// The recurrence schedule.
 type RecurrenceScheduleResponseArgs struct {
-	// The hours.
-	Hours pulumi.IntArrayInput `pulumi:"hours"`
-	// The minutes.
-	Minutes pulumi.IntArrayInput `pulumi:"minutes"`
-	// The month days.
-	MonthDays pulumi.IntArrayInput `pulumi:"monthDays"`
-	// The monthly occurrences.
+	Hours              pulumi.IntArrayInput                           `pulumi:"hours"`
+	Minutes            pulumi.IntArrayInput                           `pulumi:"minutes"`
+	MonthDays          pulumi.IntArrayInput                           `pulumi:"monthDays"`
 	MonthlyOccurrences RecurrenceScheduleOccurrenceResponseArrayInput `pulumi:"monthlyOccurrences"`
-	// The days of the week.
-	WeekDays pulumi.StringArrayInput `pulumi:"weekDays"`
+	WeekDays           pulumi.StringArrayInput                        `pulumi:"weekDays"`
 }
 
 func (RecurrenceScheduleResponseArgs) ElementType() reflect.Type {
@@ -17661,7 +15977,6 @@ func (i *recurrenceScheduleResponsePtrType) ToRecurrenceScheduleResponsePtrOutpu
 	return pulumi.ToOutputWithContext(ctx, i).(RecurrenceScheduleResponsePtrOutput)
 }
 
-// The recurrence schedule.
 type RecurrenceScheduleResponseOutput struct{ *pulumi.OutputState }
 
 func (RecurrenceScheduleResponseOutput) ElementType() reflect.Type {
@@ -17681,32 +15996,27 @@ func (o RecurrenceScheduleResponseOutput) ToRecurrenceScheduleResponsePtrOutput(
 }
 
 func (o RecurrenceScheduleResponseOutput) ToRecurrenceScheduleResponsePtrOutputWithContext(ctx context.Context) RecurrenceScheduleResponsePtrOutput {
-	return o.ApplyT(func(v RecurrenceScheduleResponse) *RecurrenceScheduleResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v RecurrenceScheduleResponse) *RecurrenceScheduleResponse {
 		return &v
 	}).(RecurrenceScheduleResponsePtrOutput)
 }
 
-// The hours.
 func (o RecurrenceScheduleResponseOutput) Hours() pulumi.IntArrayOutput {
 	return o.ApplyT(func(v RecurrenceScheduleResponse) []int { return v.Hours }).(pulumi.IntArrayOutput)
 }
 
-// The minutes.
 func (o RecurrenceScheduleResponseOutput) Minutes() pulumi.IntArrayOutput {
 	return o.ApplyT(func(v RecurrenceScheduleResponse) []int { return v.Minutes }).(pulumi.IntArrayOutput)
 }
 
-// The month days.
 func (o RecurrenceScheduleResponseOutput) MonthDays() pulumi.IntArrayOutput {
 	return o.ApplyT(func(v RecurrenceScheduleResponse) []int { return v.MonthDays }).(pulumi.IntArrayOutput)
 }
 
-// The monthly occurrences.
 func (o RecurrenceScheduleResponseOutput) MonthlyOccurrences() RecurrenceScheduleOccurrenceResponseArrayOutput {
 	return o.ApplyT(func(v RecurrenceScheduleResponse) []RecurrenceScheduleOccurrenceResponse { return v.MonthlyOccurrences }).(RecurrenceScheduleOccurrenceResponseArrayOutput)
 }
 
-// The days of the week.
 func (o RecurrenceScheduleResponseOutput) WeekDays() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v RecurrenceScheduleResponse) []string { return v.WeekDays }).(pulumi.StringArrayOutput)
 }
@@ -17726,10 +16036,15 @@ func (o RecurrenceScheduleResponsePtrOutput) ToRecurrenceScheduleResponsePtrOutp
 }
 
 func (o RecurrenceScheduleResponsePtrOutput) Elem() RecurrenceScheduleResponseOutput {
-	return o.ApplyT(func(v *RecurrenceScheduleResponse) RecurrenceScheduleResponse { return *v }).(RecurrenceScheduleResponseOutput)
+	return o.ApplyT(func(v *RecurrenceScheduleResponse) RecurrenceScheduleResponse {
+		if v != nil {
+			return *v
+		}
+		var ret RecurrenceScheduleResponse
+		return ret
+	}).(RecurrenceScheduleResponseOutput)
 }
 
-// The hours.
 func (o RecurrenceScheduleResponsePtrOutput) Hours() pulumi.IntArrayOutput {
 	return o.ApplyT(func(v *RecurrenceScheduleResponse) []int {
 		if v == nil {
@@ -17739,7 +16054,6 @@ func (o RecurrenceScheduleResponsePtrOutput) Hours() pulumi.IntArrayOutput {
 	}).(pulumi.IntArrayOutput)
 }
 
-// The minutes.
 func (o RecurrenceScheduleResponsePtrOutput) Minutes() pulumi.IntArrayOutput {
 	return o.ApplyT(func(v *RecurrenceScheduleResponse) []int {
 		if v == nil {
@@ -17749,7 +16063,6 @@ func (o RecurrenceScheduleResponsePtrOutput) Minutes() pulumi.IntArrayOutput {
 	}).(pulumi.IntArrayOutput)
 }
 
-// The month days.
 func (o RecurrenceScheduleResponsePtrOutput) MonthDays() pulumi.IntArrayOutput {
 	return o.ApplyT(func(v *RecurrenceScheduleResponse) []int {
 		if v == nil {
@@ -17759,7 +16072,6 @@ func (o RecurrenceScheduleResponsePtrOutput) MonthDays() pulumi.IntArrayOutput {
 	}).(pulumi.IntArrayOutput)
 }
 
-// The monthly occurrences.
 func (o RecurrenceScheduleResponsePtrOutput) MonthlyOccurrences() RecurrenceScheduleOccurrenceResponseArrayOutput {
 	return o.ApplyT(func(v *RecurrenceScheduleResponse) []RecurrenceScheduleOccurrenceResponse {
 		if v == nil {
@@ -17769,7 +16081,6 @@ func (o RecurrenceScheduleResponsePtrOutput) MonthlyOccurrences() RecurrenceSche
 	}).(RecurrenceScheduleOccurrenceResponseArrayOutput)
 }
 
-// The days of the week.
 func (o RecurrenceScheduleResponsePtrOutput) WeekDays() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *RecurrenceScheduleResponse) []string {
 		if v == nil {
@@ -17779,9 +16090,7 @@ func (o RecurrenceScheduleResponsePtrOutput) WeekDays() pulumi.StringArrayOutput
 	}).(pulumi.StringArrayOutput)
 }
 
-// The resource reference.
 type ResourceReference struct {
-	// The resource id.
 	Id *string `pulumi:"id"`
 }
 
@@ -17796,9 +16105,7 @@ type ResourceReferenceInput interface {
 	ToResourceReferenceOutputWithContext(context.Context) ResourceReferenceOutput
 }
 
-// The resource reference.
 type ResourceReferenceArgs struct {
-	// The resource id.
 	Id pulumi.StringPtrInput `pulumi:"id"`
 }
 
@@ -17855,7 +16162,6 @@ func (i *resourceReferencePtrType) ToResourceReferencePtrOutputWithContext(ctx c
 	return pulumi.ToOutputWithContext(ctx, i).(ResourceReferencePtrOutput)
 }
 
-// The resource reference.
 type ResourceReferenceOutput struct{ *pulumi.OutputState }
 
 func (ResourceReferenceOutput) ElementType() reflect.Type {
@@ -17875,12 +16181,11 @@ func (o ResourceReferenceOutput) ToResourceReferencePtrOutput() ResourceReferenc
 }
 
 func (o ResourceReferenceOutput) ToResourceReferencePtrOutputWithContext(ctx context.Context) ResourceReferencePtrOutput {
-	return o.ApplyT(func(v ResourceReference) *ResourceReference {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ResourceReference) *ResourceReference {
 		return &v
 	}).(ResourceReferencePtrOutput)
 }
 
-// The resource id.
 func (o ResourceReferenceOutput) Id() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ResourceReference) *string { return v.Id }).(pulumi.StringPtrOutput)
 }
@@ -17900,10 +16205,15 @@ func (o ResourceReferencePtrOutput) ToResourceReferencePtrOutputWithContext(ctx 
 }
 
 func (o ResourceReferencePtrOutput) Elem() ResourceReferenceOutput {
-	return o.ApplyT(func(v *ResourceReference) ResourceReference { return *v }).(ResourceReferenceOutput)
+	return o.ApplyT(func(v *ResourceReference) ResourceReference {
+		if v != nil {
+			return *v
+		}
+		var ret ResourceReference
+		return ret
+	}).(ResourceReferenceOutput)
 }
 
-// The resource id.
 func (o ResourceReferencePtrOutput) Id() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ResourceReference) *string {
 		if v == nil {
@@ -17913,14 +16223,10 @@ func (o ResourceReferencePtrOutput) Id() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The resource reference.
 type ResourceReferenceResponse struct {
-	// The resource id.
-	Id *string `pulumi:"id"`
-	// Gets the resource name.
-	Name string `pulumi:"name"`
-	// Gets the resource type.
-	Type string `pulumi:"type"`
+	Id   *string `pulumi:"id"`
+	Name string  `pulumi:"name"`
+	Type string  `pulumi:"type"`
 }
 
 // ResourceReferenceResponseInput is an input type that accepts ResourceReferenceResponseArgs and ResourceReferenceResponseOutput values.
@@ -17934,14 +16240,10 @@ type ResourceReferenceResponseInput interface {
 	ToResourceReferenceResponseOutputWithContext(context.Context) ResourceReferenceResponseOutput
 }
 
-// The resource reference.
 type ResourceReferenceResponseArgs struct {
-	// The resource id.
-	Id pulumi.StringPtrInput `pulumi:"id"`
-	// Gets the resource name.
-	Name pulumi.StringInput `pulumi:"name"`
-	// Gets the resource type.
-	Type pulumi.StringInput `pulumi:"type"`
+	Id   pulumi.StringPtrInput `pulumi:"id"`
+	Name pulumi.StringInput    `pulumi:"name"`
+	Type pulumi.StringInput    `pulumi:"type"`
 }
 
 func (ResourceReferenceResponseArgs) ElementType() reflect.Type {
@@ -17997,7 +16299,6 @@ func (i *resourceReferenceResponsePtrType) ToResourceReferenceResponsePtrOutputW
 	return pulumi.ToOutputWithContext(ctx, i).(ResourceReferenceResponsePtrOutput)
 }
 
-// The resource reference.
 type ResourceReferenceResponseOutput struct{ *pulumi.OutputState }
 
 func (ResourceReferenceResponseOutput) ElementType() reflect.Type {
@@ -18017,22 +16318,19 @@ func (o ResourceReferenceResponseOutput) ToResourceReferenceResponsePtrOutput() 
 }
 
 func (o ResourceReferenceResponseOutput) ToResourceReferenceResponsePtrOutputWithContext(ctx context.Context) ResourceReferenceResponsePtrOutput {
-	return o.ApplyT(func(v ResourceReferenceResponse) *ResourceReferenceResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ResourceReferenceResponse) *ResourceReferenceResponse {
 		return &v
 	}).(ResourceReferenceResponsePtrOutput)
 }
 
-// The resource id.
 func (o ResourceReferenceResponseOutput) Id() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ResourceReferenceResponse) *string { return v.Id }).(pulumi.StringPtrOutput)
 }
 
-// Gets the resource name.
 func (o ResourceReferenceResponseOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v ResourceReferenceResponse) string { return v.Name }).(pulumi.StringOutput)
 }
 
-// Gets the resource type.
 func (o ResourceReferenceResponseOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v ResourceReferenceResponse) string { return v.Type }).(pulumi.StringOutput)
 }
@@ -18052,10 +16350,15 @@ func (o ResourceReferenceResponsePtrOutput) ToResourceReferenceResponsePtrOutput
 }
 
 func (o ResourceReferenceResponsePtrOutput) Elem() ResourceReferenceResponseOutput {
-	return o.ApplyT(func(v *ResourceReferenceResponse) ResourceReferenceResponse { return *v }).(ResourceReferenceResponseOutput)
+	return o.ApplyT(func(v *ResourceReferenceResponse) ResourceReferenceResponse {
+		if v != nil {
+			return *v
+		}
+		var ret ResourceReferenceResponse
+		return ret
+	}).(ResourceReferenceResponseOutput)
 }
 
-// The resource id.
 func (o ResourceReferenceResponsePtrOutput) Id() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ResourceReferenceResponse) *string {
 		if v == nil {
@@ -18065,7 +16368,6 @@ func (o ResourceReferenceResponsePtrOutput) Id() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Gets the resource name.
 func (o ResourceReferenceResponsePtrOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ResourceReferenceResponse) *string {
 		if v == nil {
@@ -18075,7 +16377,6 @@ func (o ResourceReferenceResponsePtrOutput) Name() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Gets the resource type.
 func (o ResourceReferenceResponsePtrOutput) Type() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ResourceReferenceResponse) *string {
 		if v == nil {
@@ -18085,11 +16386,8 @@ func (o ResourceReferenceResponsePtrOutput) Type() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The sku type.
 type Sku struct {
-	// The name.
-	Name string `pulumi:"name"`
-	// The reference to plan.
+	Name string             `pulumi:"name"`
 	Plan *ResourceReference `pulumi:"plan"`
 }
 
@@ -18104,11 +16402,8 @@ type SkuInput interface {
 	ToSkuOutputWithContext(context.Context) SkuOutput
 }
 
-// The sku type.
 type SkuArgs struct {
-	// The name.
-	Name pulumi.StringInput `pulumi:"name"`
-	// The reference to plan.
+	Name pulumi.StringInput        `pulumi:"name"`
 	Plan ResourceReferencePtrInput `pulumi:"plan"`
 }
 
@@ -18165,7 +16460,6 @@ func (i *skuPtrType) ToSkuPtrOutputWithContext(ctx context.Context) SkuPtrOutput
 	return pulumi.ToOutputWithContext(ctx, i).(SkuPtrOutput)
 }
 
-// The sku type.
 type SkuOutput struct{ *pulumi.OutputState }
 
 func (SkuOutput) ElementType() reflect.Type {
@@ -18185,17 +16479,15 @@ func (o SkuOutput) ToSkuPtrOutput() SkuPtrOutput {
 }
 
 func (o SkuOutput) ToSkuPtrOutputWithContext(ctx context.Context) SkuPtrOutput {
-	return o.ApplyT(func(v Sku) *Sku {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v Sku) *Sku {
 		return &v
 	}).(SkuPtrOutput)
 }
 
-// The name.
 func (o SkuOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v Sku) string { return v.Name }).(pulumi.StringOutput)
 }
 
-// The reference to plan.
 func (o SkuOutput) Plan() ResourceReferencePtrOutput {
 	return o.ApplyT(func(v Sku) *ResourceReference { return v.Plan }).(ResourceReferencePtrOutput)
 }
@@ -18215,10 +16507,15 @@ func (o SkuPtrOutput) ToSkuPtrOutputWithContext(ctx context.Context) SkuPtrOutpu
 }
 
 func (o SkuPtrOutput) Elem() SkuOutput {
-	return o.ApplyT(func(v *Sku) Sku { return *v }).(SkuOutput)
+	return o.ApplyT(func(v *Sku) Sku {
+		if v != nil {
+			return *v
+		}
+		var ret Sku
+		return ret
+	}).(SkuOutput)
 }
 
-// The name.
 func (o SkuPtrOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Sku) *string {
 		if v == nil {
@@ -18228,7 +16525,6 @@ func (o SkuPtrOutput) Name() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The reference to plan.
 func (o SkuPtrOutput) Plan() ResourceReferencePtrOutput {
 	return o.ApplyT(func(v *Sku) *ResourceReference {
 		if v == nil {
@@ -18238,11 +16534,8 @@ func (o SkuPtrOutput) Plan() ResourceReferencePtrOutput {
 	}).(ResourceReferencePtrOutput)
 }
 
-// The sku type.
 type SkuResponse struct {
-	// The name.
-	Name string `pulumi:"name"`
-	// The reference to plan.
+	Name string                     `pulumi:"name"`
 	Plan *ResourceReferenceResponse `pulumi:"plan"`
 }
 
@@ -18257,11 +16550,8 @@ type SkuResponseInput interface {
 	ToSkuResponseOutputWithContext(context.Context) SkuResponseOutput
 }
 
-// The sku type.
 type SkuResponseArgs struct {
-	// The name.
-	Name pulumi.StringInput `pulumi:"name"`
-	// The reference to plan.
+	Name pulumi.StringInput                `pulumi:"name"`
 	Plan ResourceReferenceResponsePtrInput `pulumi:"plan"`
 }
 
@@ -18318,7 +16608,6 @@ func (i *skuResponsePtrType) ToSkuResponsePtrOutputWithContext(ctx context.Conte
 	return pulumi.ToOutputWithContext(ctx, i).(SkuResponsePtrOutput)
 }
 
-// The sku type.
 type SkuResponseOutput struct{ *pulumi.OutputState }
 
 func (SkuResponseOutput) ElementType() reflect.Type {
@@ -18338,17 +16627,15 @@ func (o SkuResponseOutput) ToSkuResponsePtrOutput() SkuResponsePtrOutput {
 }
 
 func (o SkuResponseOutput) ToSkuResponsePtrOutputWithContext(ctx context.Context) SkuResponsePtrOutput {
-	return o.ApplyT(func(v SkuResponse) *SkuResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v SkuResponse) *SkuResponse {
 		return &v
 	}).(SkuResponsePtrOutput)
 }
 
-// The name.
 func (o SkuResponseOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v SkuResponse) string { return v.Name }).(pulumi.StringOutput)
 }
 
-// The reference to plan.
 func (o SkuResponseOutput) Plan() ResourceReferenceResponsePtrOutput {
 	return o.ApplyT(func(v SkuResponse) *ResourceReferenceResponse { return v.Plan }).(ResourceReferenceResponsePtrOutput)
 }
@@ -18368,10 +16655,15 @@ func (o SkuResponsePtrOutput) ToSkuResponsePtrOutputWithContext(ctx context.Cont
 }
 
 func (o SkuResponsePtrOutput) Elem() SkuResponseOutput {
-	return o.ApplyT(func(v *SkuResponse) SkuResponse { return *v }).(SkuResponseOutput)
+	return o.ApplyT(func(v *SkuResponse) SkuResponse {
+		if v != nil {
+			return *v
+		}
+		var ret SkuResponse
+		return ret
+	}).(SkuResponseOutput)
 }
 
-// The name.
 func (o SkuResponsePtrOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SkuResponse) *string {
 		if v == nil {
@@ -18381,7 +16673,6 @@ func (o SkuResponsePtrOutput) Name() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The reference to plan.
 func (o SkuResponsePtrOutput) Plan() ResourceReferenceResponsePtrOutput {
 	return o.ApplyT(func(v *SkuResponse) *ResourceReferenceResponse {
 		if v == nil {
@@ -18391,16 +16682,11 @@ func (o SkuResponsePtrOutput) Plan() ResourceReferenceResponsePtrOutput {
 	}).(ResourceReferenceResponsePtrOutput)
 }
 
-// The workflow parameters.
 type WorkflowParameter struct {
-	// The description.
-	Description *string `pulumi:"description"`
-	// The metadata.
-	Metadata interface{} `pulumi:"metadata"`
-	// The type.
-	Type *string `pulumi:"type"`
-	// The value.
-	Value interface{} `pulumi:"value"`
+	Description *string     `pulumi:"description"`
+	Metadata    interface{} `pulumi:"metadata"`
+	Type        *string     `pulumi:"type"`
+	Value       interface{} `pulumi:"value"`
 }
 
 // WorkflowParameterInput is an input type that accepts WorkflowParameterArgs and WorkflowParameterOutput values.
@@ -18414,16 +16700,11 @@ type WorkflowParameterInput interface {
 	ToWorkflowParameterOutputWithContext(context.Context) WorkflowParameterOutput
 }
 
-// The workflow parameters.
 type WorkflowParameterArgs struct {
-	// The description.
 	Description pulumi.StringPtrInput `pulumi:"description"`
-	// The metadata.
-	Metadata pulumi.Input `pulumi:"metadata"`
-	// The type.
-	Type pulumi.StringPtrInput `pulumi:"type"`
-	// The value.
-	Value pulumi.Input `pulumi:"value"`
+	Metadata    pulumi.Input          `pulumi:"metadata"`
+	Type        pulumi.StringPtrInput `pulumi:"type"`
+	Value       pulumi.Input          `pulumi:"value"`
 }
 
 func (WorkflowParameterArgs) ElementType() reflect.Type {
@@ -18463,7 +16744,6 @@ func (i WorkflowParameterMap) ToWorkflowParameterMapOutputWithContext(ctx contex
 	return pulumi.ToOutputWithContext(ctx, i).(WorkflowParameterMapOutput)
 }
 
-// The workflow parameters.
 type WorkflowParameterOutput struct{ *pulumi.OutputState }
 
 func (WorkflowParameterOutput) ElementType() reflect.Type {
@@ -18478,22 +16758,18 @@ func (o WorkflowParameterOutput) ToWorkflowParameterOutputWithContext(ctx contex
 	return o
 }
 
-// The description.
 func (o WorkflowParameterOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v WorkflowParameter) *string { return v.Description }).(pulumi.StringPtrOutput)
 }
 
-// The metadata.
 func (o WorkflowParameterOutput) Metadata() pulumi.AnyOutput {
 	return o.ApplyT(func(v WorkflowParameter) interface{} { return v.Metadata }).(pulumi.AnyOutput)
 }
 
-// The type.
 func (o WorkflowParameterOutput) Type() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v WorkflowParameter) *string { return v.Type }).(pulumi.StringPtrOutput)
 }
 
-// The value.
 func (o WorkflowParameterOutput) Value() pulumi.AnyOutput {
 	return o.ApplyT(func(v WorkflowParameter) interface{} { return v.Value }).(pulumi.AnyOutput)
 }
@@ -18518,16 +16794,11 @@ func (o WorkflowParameterMapOutput) MapIndex(k pulumi.StringInput) WorkflowParam
 	}).(WorkflowParameterOutput)
 }
 
-// The workflow parameters.
 type WorkflowParameterResponse struct {
-	// The description.
-	Description *string `pulumi:"description"`
-	// The metadata.
-	Metadata interface{} `pulumi:"metadata"`
-	// The type.
-	Type *string `pulumi:"type"`
-	// The value.
-	Value interface{} `pulumi:"value"`
+	Description *string     `pulumi:"description"`
+	Metadata    interface{} `pulumi:"metadata"`
+	Type        *string     `pulumi:"type"`
+	Value       interface{} `pulumi:"value"`
 }
 
 // WorkflowParameterResponseInput is an input type that accepts WorkflowParameterResponseArgs and WorkflowParameterResponseOutput values.
@@ -18541,16 +16812,11 @@ type WorkflowParameterResponseInput interface {
 	ToWorkflowParameterResponseOutputWithContext(context.Context) WorkflowParameterResponseOutput
 }
 
-// The workflow parameters.
 type WorkflowParameterResponseArgs struct {
-	// The description.
 	Description pulumi.StringPtrInput `pulumi:"description"`
-	// The metadata.
-	Metadata pulumi.Input `pulumi:"metadata"`
-	// The type.
-	Type pulumi.StringPtrInput `pulumi:"type"`
-	// The value.
-	Value pulumi.Input `pulumi:"value"`
+	Metadata    pulumi.Input          `pulumi:"metadata"`
+	Type        pulumi.StringPtrInput `pulumi:"type"`
+	Value       pulumi.Input          `pulumi:"value"`
 }
 
 func (WorkflowParameterResponseArgs) ElementType() reflect.Type {
@@ -18590,7 +16856,6 @@ func (i WorkflowParameterResponseMap) ToWorkflowParameterResponseMapOutputWithCo
 	return pulumi.ToOutputWithContext(ctx, i).(WorkflowParameterResponseMapOutput)
 }
 
-// The workflow parameters.
 type WorkflowParameterResponseOutput struct{ *pulumi.OutputState }
 
 func (WorkflowParameterResponseOutput) ElementType() reflect.Type {
@@ -18605,22 +16870,18 @@ func (o WorkflowParameterResponseOutput) ToWorkflowParameterResponseOutputWithCo
 	return o
 }
 
-// The description.
 func (o WorkflowParameterResponseOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v WorkflowParameterResponse) *string { return v.Description }).(pulumi.StringPtrOutput)
 }
 
-// The metadata.
 func (o WorkflowParameterResponseOutput) Metadata() pulumi.AnyOutput {
 	return o.ApplyT(func(v WorkflowParameterResponse) interface{} { return v.Metadata }).(pulumi.AnyOutput)
 }
 
-// The type.
 func (o WorkflowParameterResponseOutput) Type() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v WorkflowParameterResponse) *string { return v.Type }).(pulumi.StringPtrOutput)
 }
 
-// The value.
 func (o WorkflowParameterResponseOutput) Value() pulumi.AnyOutput {
 	return o.ApplyT(func(v WorkflowParameterResponse) interface{} { return v.Value }).(pulumi.AnyOutput)
 }
@@ -18645,18 +16906,12 @@ func (o WorkflowParameterResponseMapOutput) MapIndex(k pulumi.StringInput) Workf
 	}).(WorkflowParameterResponseOutput)
 }
 
-// Gets the workflow trigger callback URL query parameters.
 type WorkflowTriggerListCallbackUrlQueriesResponse struct {
-	// The api version.
 	ApiVersion *string `pulumi:"apiVersion"`
-	// The SAS timestamp.
-	Se *string `pulumi:"se"`
-	// The SAS signature.
-	Sig *string `pulumi:"sig"`
-	// The SAS permissions.
-	Sp *string `pulumi:"sp"`
-	// The SAS version.
-	Sv *string `pulumi:"sv"`
+	Se         *string `pulumi:"se"`
+	Sig        *string `pulumi:"sig"`
+	Sp         *string `pulumi:"sp"`
+	Sv         *string `pulumi:"sv"`
 }
 
 // WorkflowTriggerListCallbackUrlQueriesResponseInput is an input type that accepts WorkflowTriggerListCallbackUrlQueriesResponseArgs and WorkflowTriggerListCallbackUrlQueriesResponseOutput values.
@@ -18670,18 +16925,12 @@ type WorkflowTriggerListCallbackUrlQueriesResponseInput interface {
 	ToWorkflowTriggerListCallbackUrlQueriesResponseOutputWithContext(context.Context) WorkflowTriggerListCallbackUrlQueriesResponseOutput
 }
 
-// Gets the workflow trigger callback URL query parameters.
 type WorkflowTriggerListCallbackUrlQueriesResponseArgs struct {
-	// The api version.
 	ApiVersion pulumi.StringPtrInput `pulumi:"apiVersion"`
-	// The SAS timestamp.
-	Se pulumi.StringPtrInput `pulumi:"se"`
-	// The SAS signature.
-	Sig pulumi.StringPtrInput `pulumi:"sig"`
-	// The SAS permissions.
-	Sp pulumi.StringPtrInput `pulumi:"sp"`
-	// The SAS version.
-	Sv pulumi.StringPtrInput `pulumi:"sv"`
+	Se         pulumi.StringPtrInput `pulumi:"se"`
+	Sig        pulumi.StringPtrInput `pulumi:"sig"`
+	Sp         pulumi.StringPtrInput `pulumi:"sp"`
+	Sv         pulumi.StringPtrInput `pulumi:"sv"`
 }
 
 func (WorkflowTriggerListCallbackUrlQueriesResponseArgs) ElementType() reflect.Type {
@@ -18696,7 +16945,6 @@ func (i WorkflowTriggerListCallbackUrlQueriesResponseArgs) ToWorkflowTriggerList
 	return pulumi.ToOutputWithContext(ctx, i).(WorkflowTriggerListCallbackUrlQueriesResponseOutput)
 }
 
-// Gets the workflow trigger callback URL query parameters.
 type WorkflowTriggerListCallbackUrlQueriesResponseOutput struct{ *pulumi.OutputState }
 
 func (WorkflowTriggerListCallbackUrlQueriesResponseOutput) ElementType() reflect.Type {
@@ -18711,45 +16959,33 @@ func (o WorkflowTriggerListCallbackUrlQueriesResponseOutput) ToWorkflowTriggerLi
 	return o
 }
 
-// The api version.
 func (o WorkflowTriggerListCallbackUrlQueriesResponseOutput) ApiVersion() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v WorkflowTriggerListCallbackUrlQueriesResponse) *string { return v.ApiVersion }).(pulumi.StringPtrOutput)
 }
 
-// The SAS timestamp.
 func (o WorkflowTriggerListCallbackUrlQueriesResponseOutput) Se() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v WorkflowTriggerListCallbackUrlQueriesResponse) *string { return v.Se }).(pulumi.StringPtrOutput)
 }
 
-// The SAS signature.
 func (o WorkflowTriggerListCallbackUrlQueriesResponseOutput) Sig() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v WorkflowTriggerListCallbackUrlQueriesResponse) *string { return v.Sig }).(pulumi.StringPtrOutput)
 }
 
-// The SAS permissions.
 func (o WorkflowTriggerListCallbackUrlQueriesResponseOutput) Sp() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v WorkflowTriggerListCallbackUrlQueriesResponse) *string { return v.Sp }).(pulumi.StringPtrOutput)
 }
 
-// The SAS version.
 func (o WorkflowTriggerListCallbackUrlQueriesResponseOutput) Sv() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v WorkflowTriggerListCallbackUrlQueriesResponse) *string { return v.Sv }).(pulumi.StringPtrOutput)
 }
 
-// The workflow trigger recurrence.
 type WorkflowTriggerRecurrence struct {
-	// The end time.
-	EndTime *string `pulumi:"endTime"`
-	// The frequency.
-	Frequency *string `pulumi:"frequency"`
-	// The interval.
-	Interval *int `pulumi:"interval"`
-	// The recurrence schedule.
-	Schedule *RecurrenceSchedule `pulumi:"schedule"`
-	// The start time.
-	StartTime *string `pulumi:"startTime"`
-	// The time zone.
-	TimeZone *string `pulumi:"timeZone"`
+	EndTime   *string             `pulumi:"endTime"`
+	Frequency *string             `pulumi:"frequency"`
+	Interval  *int                `pulumi:"interval"`
+	Schedule  *RecurrenceSchedule `pulumi:"schedule"`
+	StartTime *string             `pulumi:"startTime"`
+	TimeZone  *string             `pulumi:"timeZone"`
 }
 
 // WorkflowTriggerRecurrenceInput is an input type that accepts WorkflowTriggerRecurrenceArgs and WorkflowTriggerRecurrenceOutput values.
@@ -18763,20 +16999,13 @@ type WorkflowTriggerRecurrenceInput interface {
 	ToWorkflowTriggerRecurrenceOutputWithContext(context.Context) WorkflowTriggerRecurrenceOutput
 }
 
-// The workflow trigger recurrence.
 type WorkflowTriggerRecurrenceArgs struct {
-	// The end time.
-	EndTime pulumi.StringPtrInput `pulumi:"endTime"`
-	// The frequency.
-	Frequency pulumi.StringPtrInput `pulumi:"frequency"`
-	// The interval.
-	Interval pulumi.IntPtrInput `pulumi:"interval"`
-	// The recurrence schedule.
-	Schedule RecurrenceSchedulePtrInput `pulumi:"schedule"`
-	// The start time.
-	StartTime pulumi.StringPtrInput `pulumi:"startTime"`
-	// The time zone.
-	TimeZone pulumi.StringPtrInput `pulumi:"timeZone"`
+	EndTime   pulumi.StringPtrInput      `pulumi:"endTime"`
+	Frequency pulumi.StringPtrInput      `pulumi:"frequency"`
+	Interval  pulumi.IntPtrInput         `pulumi:"interval"`
+	Schedule  RecurrenceSchedulePtrInput `pulumi:"schedule"`
+	StartTime pulumi.StringPtrInput      `pulumi:"startTime"`
+	TimeZone  pulumi.StringPtrInput      `pulumi:"timeZone"`
 }
 
 func (WorkflowTriggerRecurrenceArgs) ElementType() reflect.Type {
@@ -18832,7 +17061,6 @@ func (i *workflowTriggerRecurrencePtrType) ToWorkflowTriggerRecurrencePtrOutputW
 	return pulumi.ToOutputWithContext(ctx, i).(WorkflowTriggerRecurrencePtrOutput)
 }
 
-// The workflow trigger recurrence.
 type WorkflowTriggerRecurrenceOutput struct{ *pulumi.OutputState }
 
 func (WorkflowTriggerRecurrenceOutput) ElementType() reflect.Type {
@@ -18852,37 +17080,31 @@ func (o WorkflowTriggerRecurrenceOutput) ToWorkflowTriggerRecurrencePtrOutput() 
 }
 
 func (o WorkflowTriggerRecurrenceOutput) ToWorkflowTriggerRecurrencePtrOutputWithContext(ctx context.Context) WorkflowTriggerRecurrencePtrOutput {
-	return o.ApplyT(func(v WorkflowTriggerRecurrence) *WorkflowTriggerRecurrence {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v WorkflowTriggerRecurrence) *WorkflowTriggerRecurrence {
 		return &v
 	}).(WorkflowTriggerRecurrencePtrOutput)
 }
 
-// The end time.
 func (o WorkflowTriggerRecurrenceOutput) EndTime() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v WorkflowTriggerRecurrence) *string { return v.EndTime }).(pulumi.StringPtrOutput)
 }
 
-// The frequency.
 func (o WorkflowTriggerRecurrenceOutput) Frequency() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v WorkflowTriggerRecurrence) *string { return v.Frequency }).(pulumi.StringPtrOutput)
 }
 
-// The interval.
 func (o WorkflowTriggerRecurrenceOutput) Interval() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v WorkflowTriggerRecurrence) *int { return v.Interval }).(pulumi.IntPtrOutput)
 }
 
-// The recurrence schedule.
 func (o WorkflowTriggerRecurrenceOutput) Schedule() RecurrenceSchedulePtrOutput {
 	return o.ApplyT(func(v WorkflowTriggerRecurrence) *RecurrenceSchedule { return v.Schedule }).(RecurrenceSchedulePtrOutput)
 }
 
-// The start time.
 func (o WorkflowTriggerRecurrenceOutput) StartTime() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v WorkflowTriggerRecurrence) *string { return v.StartTime }).(pulumi.StringPtrOutput)
 }
 
-// The time zone.
 func (o WorkflowTriggerRecurrenceOutput) TimeZone() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v WorkflowTriggerRecurrence) *string { return v.TimeZone }).(pulumi.StringPtrOutput)
 }
@@ -18902,10 +17124,15 @@ func (o WorkflowTriggerRecurrencePtrOutput) ToWorkflowTriggerRecurrencePtrOutput
 }
 
 func (o WorkflowTriggerRecurrencePtrOutput) Elem() WorkflowTriggerRecurrenceOutput {
-	return o.ApplyT(func(v *WorkflowTriggerRecurrence) WorkflowTriggerRecurrence { return *v }).(WorkflowTriggerRecurrenceOutput)
+	return o.ApplyT(func(v *WorkflowTriggerRecurrence) WorkflowTriggerRecurrence {
+		if v != nil {
+			return *v
+		}
+		var ret WorkflowTriggerRecurrence
+		return ret
+	}).(WorkflowTriggerRecurrenceOutput)
 }
 
-// The end time.
 func (o WorkflowTriggerRecurrencePtrOutput) EndTime() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *WorkflowTriggerRecurrence) *string {
 		if v == nil {
@@ -18915,7 +17142,6 @@ func (o WorkflowTriggerRecurrencePtrOutput) EndTime() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The frequency.
 func (o WorkflowTriggerRecurrencePtrOutput) Frequency() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *WorkflowTriggerRecurrence) *string {
 		if v == nil {
@@ -18925,7 +17151,6 @@ func (o WorkflowTriggerRecurrencePtrOutput) Frequency() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The interval.
 func (o WorkflowTriggerRecurrencePtrOutput) Interval() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *WorkflowTriggerRecurrence) *int {
 		if v == nil {
@@ -18935,7 +17160,6 @@ func (o WorkflowTriggerRecurrencePtrOutput) Interval() pulumi.IntPtrOutput {
 	}).(pulumi.IntPtrOutput)
 }
 
-// The recurrence schedule.
 func (o WorkflowTriggerRecurrencePtrOutput) Schedule() RecurrenceSchedulePtrOutput {
 	return o.ApplyT(func(v *WorkflowTriggerRecurrence) *RecurrenceSchedule {
 		if v == nil {
@@ -18945,7 +17169,6 @@ func (o WorkflowTriggerRecurrencePtrOutput) Schedule() RecurrenceSchedulePtrOutp
 	}).(RecurrenceSchedulePtrOutput)
 }
 
-// The start time.
 func (o WorkflowTriggerRecurrencePtrOutput) StartTime() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *WorkflowTriggerRecurrence) *string {
 		if v == nil {
@@ -18955,7 +17178,6 @@ func (o WorkflowTriggerRecurrencePtrOutput) StartTime() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The time zone.
 func (o WorkflowTriggerRecurrencePtrOutput) TimeZone() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *WorkflowTriggerRecurrence) *string {
 		if v == nil {
@@ -18965,20 +17187,13 @@ func (o WorkflowTriggerRecurrencePtrOutput) TimeZone() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The workflow trigger recurrence.
 type WorkflowTriggerRecurrenceResponse struct {
-	// The end time.
-	EndTime *string `pulumi:"endTime"`
-	// The frequency.
-	Frequency *string `pulumi:"frequency"`
-	// The interval.
-	Interval *int `pulumi:"interval"`
-	// The recurrence schedule.
-	Schedule *RecurrenceScheduleResponse `pulumi:"schedule"`
-	// The start time.
-	StartTime *string `pulumi:"startTime"`
-	// The time zone.
-	TimeZone *string `pulumi:"timeZone"`
+	EndTime   *string                     `pulumi:"endTime"`
+	Frequency *string                     `pulumi:"frequency"`
+	Interval  *int                        `pulumi:"interval"`
+	Schedule  *RecurrenceScheduleResponse `pulumi:"schedule"`
+	StartTime *string                     `pulumi:"startTime"`
+	TimeZone  *string                     `pulumi:"timeZone"`
 }
 
 // WorkflowTriggerRecurrenceResponseInput is an input type that accepts WorkflowTriggerRecurrenceResponseArgs and WorkflowTriggerRecurrenceResponseOutput values.
@@ -18992,20 +17207,13 @@ type WorkflowTriggerRecurrenceResponseInput interface {
 	ToWorkflowTriggerRecurrenceResponseOutputWithContext(context.Context) WorkflowTriggerRecurrenceResponseOutput
 }
 
-// The workflow trigger recurrence.
 type WorkflowTriggerRecurrenceResponseArgs struct {
-	// The end time.
-	EndTime pulumi.StringPtrInput `pulumi:"endTime"`
-	// The frequency.
-	Frequency pulumi.StringPtrInput `pulumi:"frequency"`
-	// The interval.
-	Interval pulumi.IntPtrInput `pulumi:"interval"`
-	// The recurrence schedule.
-	Schedule RecurrenceScheduleResponsePtrInput `pulumi:"schedule"`
-	// The start time.
-	StartTime pulumi.StringPtrInput `pulumi:"startTime"`
-	// The time zone.
-	TimeZone pulumi.StringPtrInput `pulumi:"timeZone"`
+	EndTime   pulumi.StringPtrInput              `pulumi:"endTime"`
+	Frequency pulumi.StringPtrInput              `pulumi:"frequency"`
+	Interval  pulumi.IntPtrInput                 `pulumi:"interval"`
+	Schedule  RecurrenceScheduleResponsePtrInput `pulumi:"schedule"`
+	StartTime pulumi.StringPtrInput              `pulumi:"startTime"`
+	TimeZone  pulumi.StringPtrInput              `pulumi:"timeZone"`
 }
 
 func (WorkflowTriggerRecurrenceResponseArgs) ElementType() reflect.Type {
@@ -19061,7 +17269,6 @@ func (i *workflowTriggerRecurrenceResponsePtrType) ToWorkflowTriggerRecurrenceRe
 	return pulumi.ToOutputWithContext(ctx, i).(WorkflowTriggerRecurrenceResponsePtrOutput)
 }
 
-// The workflow trigger recurrence.
 type WorkflowTriggerRecurrenceResponseOutput struct{ *pulumi.OutputState }
 
 func (WorkflowTriggerRecurrenceResponseOutput) ElementType() reflect.Type {
@@ -19081,37 +17288,31 @@ func (o WorkflowTriggerRecurrenceResponseOutput) ToWorkflowTriggerRecurrenceResp
 }
 
 func (o WorkflowTriggerRecurrenceResponseOutput) ToWorkflowTriggerRecurrenceResponsePtrOutputWithContext(ctx context.Context) WorkflowTriggerRecurrenceResponsePtrOutput {
-	return o.ApplyT(func(v WorkflowTriggerRecurrenceResponse) *WorkflowTriggerRecurrenceResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v WorkflowTriggerRecurrenceResponse) *WorkflowTriggerRecurrenceResponse {
 		return &v
 	}).(WorkflowTriggerRecurrenceResponsePtrOutput)
 }
 
-// The end time.
 func (o WorkflowTriggerRecurrenceResponseOutput) EndTime() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v WorkflowTriggerRecurrenceResponse) *string { return v.EndTime }).(pulumi.StringPtrOutput)
 }
 
-// The frequency.
 func (o WorkflowTriggerRecurrenceResponseOutput) Frequency() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v WorkflowTriggerRecurrenceResponse) *string { return v.Frequency }).(pulumi.StringPtrOutput)
 }
 
-// The interval.
 func (o WorkflowTriggerRecurrenceResponseOutput) Interval() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v WorkflowTriggerRecurrenceResponse) *int { return v.Interval }).(pulumi.IntPtrOutput)
 }
 
-// The recurrence schedule.
 func (o WorkflowTriggerRecurrenceResponseOutput) Schedule() RecurrenceScheduleResponsePtrOutput {
 	return o.ApplyT(func(v WorkflowTriggerRecurrenceResponse) *RecurrenceScheduleResponse { return v.Schedule }).(RecurrenceScheduleResponsePtrOutput)
 }
 
-// The start time.
 func (o WorkflowTriggerRecurrenceResponseOutput) StartTime() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v WorkflowTriggerRecurrenceResponse) *string { return v.StartTime }).(pulumi.StringPtrOutput)
 }
 
-// The time zone.
 func (o WorkflowTriggerRecurrenceResponseOutput) TimeZone() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v WorkflowTriggerRecurrenceResponse) *string { return v.TimeZone }).(pulumi.StringPtrOutput)
 }
@@ -19131,10 +17332,15 @@ func (o WorkflowTriggerRecurrenceResponsePtrOutput) ToWorkflowTriggerRecurrenceR
 }
 
 func (o WorkflowTriggerRecurrenceResponsePtrOutput) Elem() WorkflowTriggerRecurrenceResponseOutput {
-	return o.ApplyT(func(v *WorkflowTriggerRecurrenceResponse) WorkflowTriggerRecurrenceResponse { return *v }).(WorkflowTriggerRecurrenceResponseOutput)
+	return o.ApplyT(func(v *WorkflowTriggerRecurrenceResponse) WorkflowTriggerRecurrenceResponse {
+		if v != nil {
+			return *v
+		}
+		var ret WorkflowTriggerRecurrenceResponse
+		return ret
+	}).(WorkflowTriggerRecurrenceResponseOutput)
 }
 
-// The end time.
 func (o WorkflowTriggerRecurrenceResponsePtrOutput) EndTime() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *WorkflowTriggerRecurrenceResponse) *string {
 		if v == nil {
@@ -19144,7 +17350,6 @@ func (o WorkflowTriggerRecurrenceResponsePtrOutput) EndTime() pulumi.StringPtrOu
 	}).(pulumi.StringPtrOutput)
 }
 
-// The frequency.
 func (o WorkflowTriggerRecurrenceResponsePtrOutput) Frequency() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *WorkflowTriggerRecurrenceResponse) *string {
 		if v == nil {
@@ -19154,7 +17359,6 @@ func (o WorkflowTriggerRecurrenceResponsePtrOutput) Frequency() pulumi.StringPtr
 	}).(pulumi.StringPtrOutput)
 }
 
-// The interval.
 func (o WorkflowTriggerRecurrenceResponsePtrOutput) Interval() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *WorkflowTriggerRecurrenceResponse) *int {
 		if v == nil {
@@ -19164,7 +17368,6 @@ func (o WorkflowTriggerRecurrenceResponsePtrOutput) Interval() pulumi.IntPtrOutp
 	}).(pulumi.IntPtrOutput)
 }
 
-// The recurrence schedule.
 func (o WorkflowTriggerRecurrenceResponsePtrOutput) Schedule() RecurrenceScheduleResponsePtrOutput {
 	return o.ApplyT(func(v *WorkflowTriggerRecurrenceResponse) *RecurrenceScheduleResponse {
 		if v == nil {
@@ -19174,7 +17377,6 @@ func (o WorkflowTriggerRecurrenceResponsePtrOutput) Schedule() RecurrenceSchedul
 	}).(RecurrenceScheduleResponsePtrOutput)
 }
 
-// The start time.
 func (o WorkflowTriggerRecurrenceResponsePtrOutput) StartTime() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *WorkflowTriggerRecurrenceResponse) *string {
 		if v == nil {
@@ -19184,7 +17386,6 @@ func (o WorkflowTriggerRecurrenceResponsePtrOutput) StartTime() pulumi.StringPtr
 	}).(pulumi.StringPtrOutput)
 }
 
-// The time zone.
 func (o WorkflowTriggerRecurrenceResponsePtrOutput) TimeZone() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *WorkflowTriggerRecurrenceResponse) *string {
 		if v == nil {
@@ -19194,38 +17395,22 @@ func (o WorkflowTriggerRecurrenceResponsePtrOutput) TimeZone() pulumi.StringPtrO
 	}).(pulumi.StringPtrOutput)
 }
 
-// The X12 agreement acknowledgement settings.
 type X12AcknowledgementSettings struct {
-	// The acknowledgement control number lower bound.
-	AcknowledgementControlNumberLowerBound int `pulumi:"acknowledgementControlNumberLowerBound"`
-	// The acknowledgement control number prefix.
-	AcknowledgementControlNumberPrefix *string `pulumi:"acknowledgementControlNumberPrefix"`
-	// The acknowledgement control number suffix.
-	AcknowledgementControlNumberSuffix *string `pulumi:"acknowledgementControlNumberSuffix"`
-	// The acknowledgement control number upper bound.
-	AcknowledgementControlNumberUpperBound int `pulumi:"acknowledgementControlNumberUpperBound"`
-	// The value indicating whether to batch functional acknowledgements.
-	BatchFunctionalAcknowledgements bool `pulumi:"batchFunctionalAcknowledgements"`
-	// The value indicating whether to batch implementation acknowledgements.
-	BatchImplementationAcknowledgements bool `pulumi:"batchImplementationAcknowledgements"`
-	// The value indicating whether to batch the technical acknowledgements.
-	BatchTechnicalAcknowledgements bool `pulumi:"batchTechnicalAcknowledgements"`
-	// The functional acknowledgement version.
-	FunctionalAcknowledgementVersion *string `pulumi:"functionalAcknowledgementVersion"`
-	// The implementation acknowledgement version.
-	ImplementationAcknowledgementVersion *string `pulumi:"implementationAcknowledgementVersion"`
-	// The value indicating whether functional acknowledgement is needed.
-	NeedFunctionalAcknowledgement bool `pulumi:"needFunctionalAcknowledgement"`
-	// The value indicating whether implementation acknowledgement is needed.
-	NeedImplementationAcknowledgement bool `pulumi:"needImplementationAcknowledgement"`
-	// The value indicating whether a loop is needed for valid messages.
-	NeedLoopForValidMessages bool `pulumi:"needLoopForValidMessages"`
-	// The value indicating whether technical acknowledgement is needed.
-	NeedTechnicalAcknowledgement bool `pulumi:"needTechnicalAcknowledgement"`
-	// The value indicating whether to rollover acknowledgement control number.
-	RolloverAcknowledgementControlNumber bool `pulumi:"rolloverAcknowledgementControlNumber"`
-	// The value indicating whether to send synchronous acknowledgement.
-	SendSynchronousAcknowledgement bool `pulumi:"sendSynchronousAcknowledgement"`
+	AcknowledgementControlNumberLowerBound int     `pulumi:"acknowledgementControlNumberLowerBound"`
+	AcknowledgementControlNumberPrefix     *string `pulumi:"acknowledgementControlNumberPrefix"`
+	AcknowledgementControlNumberSuffix     *string `pulumi:"acknowledgementControlNumberSuffix"`
+	AcknowledgementControlNumberUpperBound int     `pulumi:"acknowledgementControlNumberUpperBound"`
+	BatchFunctionalAcknowledgements        bool    `pulumi:"batchFunctionalAcknowledgements"`
+	BatchImplementationAcknowledgements    bool    `pulumi:"batchImplementationAcknowledgements"`
+	BatchTechnicalAcknowledgements         bool    `pulumi:"batchTechnicalAcknowledgements"`
+	FunctionalAcknowledgementVersion       *string `pulumi:"functionalAcknowledgementVersion"`
+	ImplementationAcknowledgementVersion   *string `pulumi:"implementationAcknowledgementVersion"`
+	NeedFunctionalAcknowledgement          bool    `pulumi:"needFunctionalAcknowledgement"`
+	NeedImplementationAcknowledgement      bool    `pulumi:"needImplementationAcknowledgement"`
+	NeedLoopForValidMessages               bool    `pulumi:"needLoopForValidMessages"`
+	NeedTechnicalAcknowledgement           bool    `pulumi:"needTechnicalAcknowledgement"`
+	RolloverAcknowledgementControlNumber   bool    `pulumi:"rolloverAcknowledgementControlNumber"`
+	SendSynchronousAcknowledgement         bool    `pulumi:"sendSynchronousAcknowledgement"`
 }
 
 // X12AcknowledgementSettingsInput is an input type that accepts X12AcknowledgementSettingsArgs and X12AcknowledgementSettingsOutput values.
@@ -19239,38 +17424,22 @@ type X12AcknowledgementSettingsInput interface {
 	ToX12AcknowledgementSettingsOutputWithContext(context.Context) X12AcknowledgementSettingsOutput
 }
 
-// The X12 agreement acknowledgement settings.
 type X12AcknowledgementSettingsArgs struct {
-	// The acknowledgement control number lower bound.
-	AcknowledgementControlNumberLowerBound pulumi.IntInput `pulumi:"acknowledgementControlNumberLowerBound"`
-	// The acknowledgement control number prefix.
-	AcknowledgementControlNumberPrefix pulumi.StringPtrInput `pulumi:"acknowledgementControlNumberPrefix"`
-	// The acknowledgement control number suffix.
-	AcknowledgementControlNumberSuffix pulumi.StringPtrInput `pulumi:"acknowledgementControlNumberSuffix"`
-	// The acknowledgement control number upper bound.
-	AcknowledgementControlNumberUpperBound pulumi.IntInput `pulumi:"acknowledgementControlNumberUpperBound"`
-	// The value indicating whether to batch functional acknowledgements.
-	BatchFunctionalAcknowledgements pulumi.BoolInput `pulumi:"batchFunctionalAcknowledgements"`
-	// The value indicating whether to batch implementation acknowledgements.
-	BatchImplementationAcknowledgements pulumi.BoolInput `pulumi:"batchImplementationAcknowledgements"`
-	// The value indicating whether to batch the technical acknowledgements.
-	BatchTechnicalAcknowledgements pulumi.BoolInput `pulumi:"batchTechnicalAcknowledgements"`
-	// The functional acknowledgement version.
-	FunctionalAcknowledgementVersion pulumi.StringPtrInput `pulumi:"functionalAcknowledgementVersion"`
-	// The implementation acknowledgement version.
-	ImplementationAcknowledgementVersion pulumi.StringPtrInput `pulumi:"implementationAcknowledgementVersion"`
-	// The value indicating whether functional acknowledgement is needed.
-	NeedFunctionalAcknowledgement pulumi.BoolInput `pulumi:"needFunctionalAcknowledgement"`
-	// The value indicating whether implementation acknowledgement is needed.
-	NeedImplementationAcknowledgement pulumi.BoolInput `pulumi:"needImplementationAcknowledgement"`
-	// The value indicating whether a loop is needed for valid messages.
-	NeedLoopForValidMessages pulumi.BoolInput `pulumi:"needLoopForValidMessages"`
-	// The value indicating whether technical acknowledgement is needed.
-	NeedTechnicalAcknowledgement pulumi.BoolInput `pulumi:"needTechnicalAcknowledgement"`
-	// The value indicating whether to rollover acknowledgement control number.
-	RolloverAcknowledgementControlNumber pulumi.BoolInput `pulumi:"rolloverAcknowledgementControlNumber"`
-	// The value indicating whether to send synchronous acknowledgement.
-	SendSynchronousAcknowledgement pulumi.BoolInput `pulumi:"sendSynchronousAcknowledgement"`
+	AcknowledgementControlNumberLowerBound pulumi.IntInput       `pulumi:"acknowledgementControlNumberLowerBound"`
+	AcknowledgementControlNumberPrefix     pulumi.StringPtrInput `pulumi:"acknowledgementControlNumberPrefix"`
+	AcknowledgementControlNumberSuffix     pulumi.StringPtrInput `pulumi:"acknowledgementControlNumberSuffix"`
+	AcknowledgementControlNumberUpperBound pulumi.IntInput       `pulumi:"acknowledgementControlNumberUpperBound"`
+	BatchFunctionalAcknowledgements        pulumi.BoolInput      `pulumi:"batchFunctionalAcknowledgements"`
+	BatchImplementationAcknowledgements    pulumi.BoolInput      `pulumi:"batchImplementationAcknowledgements"`
+	BatchTechnicalAcknowledgements         pulumi.BoolInput      `pulumi:"batchTechnicalAcknowledgements"`
+	FunctionalAcknowledgementVersion       pulumi.StringPtrInput `pulumi:"functionalAcknowledgementVersion"`
+	ImplementationAcknowledgementVersion   pulumi.StringPtrInput `pulumi:"implementationAcknowledgementVersion"`
+	NeedFunctionalAcknowledgement          pulumi.BoolInput      `pulumi:"needFunctionalAcknowledgement"`
+	NeedImplementationAcknowledgement      pulumi.BoolInput      `pulumi:"needImplementationAcknowledgement"`
+	NeedLoopForValidMessages               pulumi.BoolInput      `pulumi:"needLoopForValidMessages"`
+	NeedTechnicalAcknowledgement           pulumi.BoolInput      `pulumi:"needTechnicalAcknowledgement"`
+	RolloverAcknowledgementControlNumber   pulumi.BoolInput      `pulumi:"rolloverAcknowledgementControlNumber"`
+	SendSynchronousAcknowledgement         pulumi.BoolInput      `pulumi:"sendSynchronousAcknowledgement"`
 }
 
 func (X12AcknowledgementSettingsArgs) ElementType() reflect.Type {
@@ -19326,7 +17495,6 @@ func (i *x12acknowledgementSettingsPtrType) ToX12AcknowledgementSettingsPtrOutpu
 	return pulumi.ToOutputWithContext(ctx, i).(X12AcknowledgementSettingsPtrOutput)
 }
 
-// The X12 agreement acknowledgement settings.
 type X12AcknowledgementSettingsOutput struct{ *pulumi.OutputState }
 
 func (X12AcknowledgementSettingsOutput) ElementType() reflect.Type {
@@ -19346,82 +17514,67 @@ func (o X12AcknowledgementSettingsOutput) ToX12AcknowledgementSettingsPtrOutput(
 }
 
 func (o X12AcknowledgementSettingsOutput) ToX12AcknowledgementSettingsPtrOutputWithContext(ctx context.Context) X12AcknowledgementSettingsPtrOutput {
-	return o.ApplyT(func(v X12AcknowledgementSettings) *X12AcknowledgementSettings {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v X12AcknowledgementSettings) *X12AcknowledgementSettings {
 		return &v
 	}).(X12AcknowledgementSettingsPtrOutput)
 }
 
-// The acknowledgement control number lower bound.
 func (o X12AcknowledgementSettingsOutput) AcknowledgementControlNumberLowerBound() pulumi.IntOutput {
 	return o.ApplyT(func(v X12AcknowledgementSettings) int { return v.AcknowledgementControlNumberLowerBound }).(pulumi.IntOutput)
 }
 
-// The acknowledgement control number prefix.
 func (o X12AcknowledgementSettingsOutput) AcknowledgementControlNumberPrefix() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v X12AcknowledgementSettings) *string { return v.AcknowledgementControlNumberPrefix }).(pulumi.StringPtrOutput)
 }
 
-// The acknowledgement control number suffix.
 func (o X12AcknowledgementSettingsOutput) AcknowledgementControlNumberSuffix() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v X12AcknowledgementSettings) *string { return v.AcknowledgementControlNumberSuffix }).(pulumi.StringPtrOutput)
 }
 
-// The acknowledgement control number upper bound.
 func (o X12AcknowledgementSettingsOutput) AcknowledgementControlNumberUpperBound() pulumi.IntOutput {
 	return o.ApplyT(func(v X12AcknowledgementSettings) int { return v.AcknowledgementControlNumberUpperBound }).(pulumi.IntOutput)
 }
 
-// The value indicating whether to batch functional acknowledgements.
 func (o X12AcknowledgementSettingsOutput) BatchFunctionalAcknowledgements() pulumi.BoolOutput {
 	return o.ApplyT(func(v X12AcknowledgementSettings) bool { return v.BatchFunctionalAcknowledgements }).(pulumi.BoolOutput)
 }
 
-// The value indicating whether to batch implementation acknowledgements.
 func (o X12AcknowledgementSettingsOutput) BatchImplementationAcknowledgements() pulumi.BoolOutput {
 	return o.ApplyT(func(v X12AcknowledgementSettings) bool { return v.BatchImplementationAcknowledgements }).(pulumi.BoolOutput)
 }
 
-// The value indicating whether to batch the technical acknowledgements.
 func (o X12AcknowledgementSettingsOutput) BatchTechnicalAcknowledgements() pulumi.BoolOutput {
 	return o.ApplyT(func(v X12AcknowledgementSettings) bool { return v.BatchTechnicalAcknowledgements }).(pulumi.BoolOutput)
 }
 
-// The functional acknowledgement version.
 func (o X12AcknowledgementSettingsOutput) FunctionalAcknowledgementVersion() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v X12AcknowledgementSettings) *string { return v.FunctionalAcknowledgementVersion }).(pulumi.StringPtrOutput)
 }
 
-// The implementation acknowledgement version.
 func (o X12AcknowledgementSettingsOutput) ImplementationAcknowledgementVersion() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v X12AcknowledgementSettings) *string { return v.ImplementationAcknowledgementVersion }).(pulumi.StringPtrOutput)
 }
 
-// The value indicating whether functional acknowledgement is needed.
 func (o X12AcknowledgementSettingsOutput) NeedFunctionalAcknowledgement() pulumi.BoolOutput {
 	return o.ApplyT(func(v X12AcknowledgementSettings) bool { return v.NeedFunctionalAcknowledgement }).(pulumi.BoolOutput)
 }
 
-// The value indicating whether implementation acknowledgement is needed.
 func (o X12AcknowledgementSettingsOutput) NeedImplementationAcknowledgement() pulumi.BoolOutput {
 	return o.ApplyT(func(v X12AcknowledgementSettings) bool { return v.NeedImplementationAcknowledgement }).(pulumi.BoolOutput)
 }
 
-// The value indicating whether a loop is needed for valid messages.
 func (o X12AcknowledgementSettingsOutput) NeedLoopForValidMessages() pulumi.BoolOutput {
 	return o.ApplyT(func(v X12AcknowledgementSettings) bool { return v.NeedLoopForValidMessages }).(pulumi.BoolOutput)
 }
 
-// The value indicating whether technical acknowledgement is needed.
 func (o X12AcknowledgementSettingsOutput) NeedTechnicalAcknowledgement() pulumi.BoolOutput {
 	return o.ApplyT(func(v X12AcknowledgementSettings) bool { return v.NeedTechnicalAcknowledgement }).(pulumi.BoolOutput)
 }
 
-// The value indicating whether to rollover acknowledgement control number.
 func (o X12AcknowledgementSettingsOutput) RolloverAcknowledgementControlNumber() pulumi.BoolOutput {
 	return o.ApplyT(func(v X12AcknowledgementSettings) bool { return v.RolloverAcknowledgementControlNumber }).(pulumi.BoolOutput)
 }
 
-// The value indicating whether to send synchronous acknowledgement.
 func (o X12AcknowledgementSettingsOutput) SendSynchronousAcknowledgement() pulumi.BoolOutput {
 	return o.ApplyT(func(v X12AcknowledgementSettings) bool { return v.SendSynchronousAcknowledgement }).(pulumi.BoolOutput)
 }
@@ -19441,10 +17594,15 @@ func (o X12AcknowledgementSettingsPtrOutput) ToX12AcknowledgementSettingsPtrOutp
 }
 
 func (o X12AcknowledgementSettingsPtrOutput) Elem() X12AcknowledgementSettingsOutput {
-	return o.ApplyT(func(v *X12AcknowledgementSettings) X12AcknowledgementSettings { return *v }).(X12AcknowledgementSettingsOutput)
+	return o.ApplyT(func(v *X12AcknowledgementSettings) X12AcknowledgementSettings {
+		if v != nil {
+			return *v
+		}
+		var ret X12AcknowledgementSettings
+		return ret
+	}).(X12AcknowledgementSettingsOutput)
 }
 
-// The acknowledgement control number lower bound.
 func (o X12AcknowledgementSettingsPtrOutput) AcknowledgementControlNumberLowerBound() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *X12AcknowledgementSettings) *int {
 		if v == nil {
@@ -19454,7 +17612,6 @@ func (o X12AcknowledgementSettingsPtrOutput) AcknowledgementControlNumberLowerBo
 	}).(pulumi.IntPtrOutput)
 }
 
-// The acknowledgement control number prefix.
 func (o X12AcknowledgementSettingsPtrOutput) AcknowledgementControlNumberPrefix() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *X12AcknowledgementSettings) *string {
 		if v == nil {
@@ -19464,7 +17621,6 @@ func (o X12AcknowledgementSettingsPtrOutput) AcknowledgementControlNumberPrefix(
 	}).(pulumi.StringPtrOutput)
 }
 
-// The acknowledgement control number suffix.
 func (o X12AcknowledgementSettingsPtrOutput) AcknowledgementControlNumberSuffix() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *X12AcknowledgementSettings) *string {
 		if v == nil {
@@ -19474,7 +17630,6 @@ func (o X12AcknowledgementSettingsPtrOutput) AcknowledgementControlNumberSuffix(
 	}).(pulumi.StringPtrOutput)
 }
 
-// The acknowledgement control number upper bound.
 func (o X12AcknowledgementSettingsPtrOutput) AcknowledgementControlNumberUpperBound() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *X12AcknowledgementSettings) *int {
 		if v == nil {
@@ -19484,7 +17639,6 @@ func (o X12AcknowledgementSettingsPtrOutput) AcknowledgementControlNumberUpperBo
 	}).(pulumi.IntPtrOutput)
 }
 
-// The value indicating whether to batch functional acknowledgements.
 func (o X12AcknowledgementSettingsPtrOutput) BatchFunctionalAcknowledgements() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *X12AcknowledgementSettings) *bool {
 		if v == nil {
@@ -19494,7 +17648,6 @@ func (o X12AcknowledgementSettingsPtrOutput) BatchFunctionalAcknowledgements() p
 	}).(pulumi.BoolPtrOutput)
 }
 
-// The value indicating whether to batch implementation acknowledgements.
 func (o X12AcknowledgementSettingsPtrOutput) BatchImplementationAcknowledgements() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *X12AcknowledgementSettings) *bool {
 		if v == nil {
@@ -19504,7 +17657,6 @@ func (o X12AcknowledgementSettingsPtrOutput) BatchImplementationAcknowledgements
 	}).(pulumi.BoolPtrOutput)
 }
 
-// The value indicating whether to batch the technical acknowledgements.
 func (o X12AcknowledgementSettingsPtrOutput) BatchTechnicalAcknowledgements() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *X12AcknowledgementSettings) *bool {
 		if v == nil {
@@ -19514,7 +17666,6 @@ func (o X12AcknowledgementSettingsPtrOutput) BatchTechnicalAcknowledgements() pu
 	}).(pulumi.BoolPtrOutput)
 }
 
-// The functional acknowledgement version.
 func (o X12AcknowledgementSettingsPtrOutput) FunctionalAcknowledgementVersion() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *X12AcknowledgementSettings) *string {
 		if v == nil {
@@ -19524,7 +17675,6 @@ func (o X12AcknowledgementSettingsPtrOutput) FunctionalAcknowledgementVersion() 
 	}).(pulumi.StringPtrOutput)
 }
 
-// The implementation acknowledgement version.
 func (o X12AcknowledgementSettingsPtrOutput) ImplementationAcknowledgementVersion() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *X12AcknowledgementSettings) *string {
 		if v == nil {
@@ -19534,7 +17684,6 @@ func (o X12AcknowledgementSettingsPtrOutput) ImplementationAcknowledgementVersio
 	}).(pulumi.StringPtrOutput)
 }
 
-// The value indicating whether functional acknowledgement is needed.
 func (o X12AcknowledgementSettingsPtrOutput) NeedFunctionalAcknowledgement() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *X12AcknowledgementSettings) *bool {
 		if v == nil {
@@ -19544,7 +17693,6 @@ func (o X12AcknowledgementSettingsPtrOutput) NeedFunctionalAcknowledgement() pul
 	}).(pulumi.BoolPtrOutput)
 }
 
-// The value indicating whether implementation acknowledgement is needed.
 func (o X12AcknowledgementSettingsPtrOutput) NeedImplementationAcknowledgement() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *X12AcknowledgementSettings) *bool {
 		if v == nil {
@@ -19554,7 +17702,6 @@ func (o X12AcknowledgementSettingsPtrOutput) NeedImplementationAcknowledgement()
 	}).(pulumi.BoolPtrOutput)
 }
 
-// The value indicating whether a loop is needed for valid messages.
 func (o X12AcknowledgementSettingsPtrOutput) NeedLoopForValidMessages() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *X12AcknowledgementSettings) *bool {
 		if v == nil {
@@ -19564,7 +17711,6 @@ func (o X12AcknowledgementSettingsPtrOutput) NeedLoopForValidMessages() pulumi.B
 	}).(pulumi.BoolPtrOutput)
 }
 
-// The value indicating whether technical acknowledgement is needed.
 func (o X12AcknowledgementSettingsPtrOutput) NeedTechnicalAcknowledgement() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *X12AcknowledgementSettings) *bool {
 		if v == nil {
@@ -19574,7 +17720,6 @@ func (o X12AcknowledgementSettingsPtrOutput) NeedTechnicalAcknowledgement() pulu
 	}).(pulumi.BoolPtrOutput)
 }
 
-// The value indicating whether to rollover acknowledgement control number.
 func (o X12AcknowledgementSettingsPtrOutput) RolloverAcknowledgementControlNumber() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *X12AcknowledgementSettings) *bool {
 		if v == nil {
@@ -19584,7 +17729,6 @@ func (o X12AcknowledgementSettingsPtrOutput) RolloverAcknowledgementControlNumbe
 	}).(pulumi.BoolPtrOutput)
 }
 
-// The value indicating whether to send synchronous acknowledgement.
 func (o X12AcknowledgementSettingsPtrOutput) SendSynchronousAcknowledgement() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *X12AcknowledgementSettings) *bool {
 		if v == nil {
@@ -19594,38 +17738,22 @@ func (o X12AcknowledgementSettingsPtrOutput) SendSynchronousAcknowledgement() pu
 	}).(pulumi.BoolPtrOutput)
 }
 
-// The X12 agreement acknowledgement settings.
 type X12AcknowledgementSettingsResponse struct {
-	// The acknowledgement control number lower bound.
-	AcknowledgementControlNumberLowerBound int `pulumi:"acknowledgementControlNumberLowerBound"`
-	// The acknowledgement control number prefix.
-	AcknowledgementControlNumberPrefix *string `pulumi:"acknowledgementControlNumberPrefix"`
-	// The acknowledgement control number suffix.
-	AcknowledgementControlNumberSuffix *string `pulumi:"acknowledgementControlNumberSuffix"`
-	// The acknowledgement control number upper bound.
-	AcknowledgementControlNumberUpperBound int `pulumi:"acknowledgementControlNumberUpperBound"`
-	// The value indicating whether to batch functional acknowledgements.
-	BatchFunctionalAcknowledgements bool `pulumi:"batchFunctionalAcknowledgements"`
-	// The value indicating whether to batch implementation acknowledgements.
-	BatchImplementationAcknowledgements bool `pulumi:"batchImplementationAcknowledgements"`
-	// The value indicating whether to batch the technical acknowledgements.
-	BatchTechnicalAcknowledgements bool `pulumi:"batchTechnicalAcknowledgements"`
-	// The functional acknowledgement version.
-	FunctionalAcknowledgementVersion *string `pulumi:"functionalAcknowledgementVersion"`
-	// The implementation acknowledgement version.
-	ImplementationAcknowledgementVersion *string `pulumi:"implementationAcknowledgementVersion"`
-	// The value indicating whether functional acknowledgement is needed.
-	NeedFunctionalAcknowledgement bool `pulumi:"needFunctionalAcknowledgement"`
-	// The value indicating whether implementation acknowledgement is needed.
-	NeedImplementationAcknowledgement bool `pulumi:"needImplementationAcknowledgement"`
-	// The value indicating whether a loop is needed for valid messages.
-	NeedLoopForValidMessages bool `pulumi:"needLoopForValidMessages"`
-	// The value indicating whether technical acknowledgement is needed.
-	NeedTechnicalAcknowledgement bool `pulumi:"needTechnicalAcknowledgement"`
-	// The value indicating whether to rollover acknowledgement control number.
-	RolloverAcknowledgementControlNumber bool `pulumi:"rolloverAcknowledgementControlNumber"`
-	// The value indicating whether to send synchronous acknowledgement.
-	SendSynchronousAcknowledgement bool `pulumi:"sendSynchronousAcknowledgement"`
+	AcknowledgementControlNumberLowerBound int     `pulumi:"acknowledgementControlNumberLowerBound"`
+	AcknowledgementControlNumberPrefix     *string `pulumi:"acknowledgementControlNumberPrefix"`
+	AcknowledgementControlNumberSuffix     *string `pulumi:"acknowledgementControlNumberSuffix"`
+	AcknowledgementControlNumberUpperBound int     `pulumi:"acknowledgementControlNumberUpperBound"`
+	BatchFunctionalAcknowledgements        bool    `pulumi:"batchFunctionalAcknowledgements"`
+	BatchImplementationAcknowledgements    bool    `pulumi:"batchImplementationAcknowledgements"`
+	BatchTechnicalAcknowledgements         bool    `pulumi:"batchTechnicalAcknowledgements"`
+	FunctionalAcknowledgementVersion       *string `pulumi:"functionalAcknowledgementVersion"`
+	ImplementationAcknowledgementVersion   *string `pulumi:"implementationAcknowledgementVersion"`
+	NeedFunctionalAcknowledgement          bool    `pulumi:"needFunctionalAcknowledgement"`
+	NeedImplementationAcknowledgement      bool    `pulumi:"needImplementationAcknowledgement"`
+	NeedLoopForValidMessages               bool    `pulumi:"needLoopForValidMessages"`
+	NeedTechnicalAcknowledgement           bool    `pulumi:"needTechnicalAcknowledgement"`
+	RolloverAcknowledgementControlNumber   bool    `pulumi:"rolloverAcknowledgementControlNumber"`
+	SendSynchronousAcknowledgement         bool    `pulumi:"sendSynchronousAcknowledgement"`
 }
 
 // X12AcknowledgementSettingsResponseInput is an input type that accepts X12AcknowledgementSettingsResponseArgs and X12AcknowledgementSettingsResponseOutput values.
@@ -19639,38 +17767,22 @@ type X12AcknowledgementSettingsResponseInput interface {
 	ToX12AcknowledgementSettingsResponseOutputWithContext(context.Context) X12AcknowledgementSettingsResponseOutput
 }
 
-// The X12 agreement acknowledgement settings.
 type X12AcknowledgementSettingsResponseArgs struct {
-	// The acknowledgement control number lower bound.
-	AcknowledgementControlNumberLowerBound pulumi.IntInput `pulumi:"acknowledgementControlNumberLowerBound"`
-	// The acknowledgement control number prefix.
-	AcknowledgementControlNumberPrefix pulumi.StringPtrInput `pulumi:"acknowledgementControlNumberPrefix"`
-	// The acknowledgement control number suffix.
-	AcknowledgementControlNumberSuffix pulumi.StringPtrInput `pulumi:"acknowledgementControlNumberSuffix"`
-	// The acknowledgement control number upper bound.
-	AcknowledgementControlNumberUpperBound pulumi.IntInput `pulumi:"acknowledgementControlNumberUpperBound"`
-	// The value indicating whether to batch functional acknowledgements.
-	BatchFunctionalAcknowledgements pulumi.BoolInput `pulumi:"batchFunctionalAcknowledgements"`
-	// The value indicating whether to batch implementation acknowledgements.
-	BatchImplementationAcknowledgements pulumi.BoolInput `pulumi:"batchImplementationAcknowledgements"`
-	// The value indicating whether to batch the technical acknowledgements.
-	BatchTechnicalAcknowledgements pulumi.BoolInput `pulumi:"batchTechnicalAcknowledgements"`
-	// The functional acknowledgement version.
-	FunctionalAcknowledgementVersion pulumi.StringPtrInput `pulumi:"functionalAcknowledgementVersion"`
-	// The implementation acknowledgement version.
-	ImplementationAcknowledgementVersion pulumi.StringPtrInput `pulumi:"implementationAcknowledgementVersion"`
-	// The value indicating whether functional acknowledgement is needed.
-	NeedFunctionalAcknowledgement pulumi.BoolInput `pulumi:"needFunctionalAcknowledgement"`
-	// The value indicating whether implementation acknowledgement is needed.
-	NeedImplementationAcknowledgement pulumi.BoolInput `pulumi:"needImplementationAcknowledgement"`
-	// The value indicating whether a loop is needed for valid messages.
-	NeedLoopForValidMessages pulumi.BoolInput `pulumi:"needLoopForValidMessages"`
-	// The value indicating whether technical acknowledgement is needed.
-	NeedTechnicalAcknowledgement pulumi.BoolInput `pulumi:"needTechnicalAcknowledgement"`
-	// The value indicating whether to rollover acknowledgement control number.
-	RolloverAcknowledgementControlNumber pulumi.BoolInput `pulumi:"rolloverAcknowledgementControlNumber"`
-	// The value indicating whether to send synchronous acknowledgement.
-	SendSynchronousAcknowledgement pulumi.BoolInput `pulumi:"sendSynchronousAcknowledgement"`
+	AcknowledgementControlNumberLowerBound pulumi.IntInput       `pulumi:"acknowledgementControlNumberLowerBound"`
+	AcknowledgementControlNumberPrefix     pulumi.StringPtrInput `pulumi:"acknowledgementControlNumberPrefix"`
+	AcknowledgementControlNumberSuffix     pulumi.StringPtrInput `pulumi:"acknowledgementControlNumberSuffix"`
+	AcknowledgementControlNumberUpperBound pulumi.IntInput       `pulumi:"acknowledgementControlNumberUpperBound"`
+	BatchFunctionalAcknowledgements        pulumi.BoolInput      `pulumi:"batchFunctionalAcknowledgements"`
+	BatchImplementationAcknowledgements    pulumi.BoolInput      `pulumi:"batchImplementationAcknowledgements"`
+	BatchTechnicalAcknowledgements         pulumi.BoolInput      `pulumi:"batchTechnicalAcknowledgements"`
+	FunctionalAcknowledgementVersion       pulumi.StringPtrInput `pulumi:"functionalAcknowledgementVersion"`
+	ImplementationAcknowledgementVersion   pulumi.StringPtrInput `pulumi:"implementationAcknowledgementVersion"`
+	NeedFunctionalAcknowledgement          pulumi.BoolInput      `pulumi:"needFunctionalAcknowledgement"`
+	NeedImplementationAcknowledgement      pulumi.BoolInput      `pulumi:"needImplementationAcknowledgement"`
+	NeedLoopForValidMessages               pulumi.BoolInput      `pulumi:"needLoopForValidMessages"`
+	NeedTechnicalAcknowledgement           pulumi.BoolInput      `pulumi:"needTechnicalAcknowledgement"`
+	RolloverAcknowledgementControlNumber   pulumi.BoolInput      `pulumi:"rolloverAcknowledgementControlNumber"`
+	SendSynchronousAcknowledgement         pulumi.BoolInput      `pulumi:"sendSynchronousAcknowledgement"`
 }
 
 func (X12AcknowledgementSettingsResponseArgs) ElementType() reflect.Type {
@@ -19726,7 +17838,6 @@ func (i *x12acknowledgementSettingsResponsePtrType) ToX12AcknowledgementSettings
 	return pulumi.ToOutputWithContext(ctx, i).(X12AcknowledgementSettingsResponsePtrOutput)
 }
 
-// The X12 agreement acknowledgement settings.
 type X12AcknowledgementSettingsResponseOutput struct{ *pulumi.OutputState }
 
 func (X12AcknowledgementSettingsResponseOutput) ElementType() reflect.Type {
@@ -19746,82 +17857,67 @@ func (o X12AcknowledgementSettingsResponseOutput) ToX12AcknowledgementSettingsRe
 }
 
 func (o X12AcknowledgementSettingsResponseOutput) ToX12AcknowledgementSettingsResponsePtrOutputWithContext(ctx context.Context) X12AcknowledgementSettingsResponsePtrOutput {
-	return o.ApplyT(func(v X12AcknowledgementSettingsResponse) *X12AcknowledgementSettingsResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v X12AcknowledgementSettingsResponse) *X12AcknowledgementSettingsResponse {
 		return &v
 	}).(X12AcknowledgementSettingsResponsePtrOutput)
 }
 
-// The acknowledgement control number lower bound.
 func (o X12AcknowledgementSettingsResponseOutput) AcknowledgementControlNumberLowerBound() pulumi.IntOutput {
 	return o.ApplyT(func(v X12AcknowledgementSettingsResponse) int { return v.AcknowledgementControlNumberLowerBound }).(pulumi.IntOutput)
 }
 
-// The acknowledgement control number prefix.
 func (o X12AcknowledgementSettingsResponseOutput) AcknowledgementControlNumberPrefix() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v X12AcknowledgementSettingsResponse) *string { return v.AcknowledgementControlNumberPrefix }).(pulumi.StringPtrOutput)
 }
 
-// The acknowledgement control number suffix.
 func (o X12AcknowledgementSettingsResponseOutput) AcknowledgementControlNumberSuffix() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v X12AcknowledgementSettingsResponse) *string { return v.AcknowledgementControlNumberSuffix }).(pulumi.StringPtrOutput)
 }
 
-// The acknowledgement control number upper bound.
 func (o X12AcknowledgementSettingsResponseOutput) AcknowledgementControlNumberUpperBound() pulumi.IntOutput {
 	return o.ApplyT(func(v X12AcknowledgementSettingsResponse) int { return v.AcknowledgementControlNumberUpperBound }).(pulumi.IntOutput)
 }
 
-// The value indicating whether to batch functional acknowledgements.
 func (o X12AcknowledgementSettingsResponseOutput) BatchFunctionalAcknowledgements() pulumi.BoolOutput {
 	return o.ApplyT(func(v X12AcknowledgementSettingsResponse) bool { return v.BatchFunctionalAcknowledgements }).(pulumi.BoolOutput)
 }
 
-// The value indicating whether to batch implementation acknowledgements.
 func (o X12AcknowledgementSettingsResponseOutput) BatchImplementationAcknowledgements() pulumi.BoolOutput {
 	return o.ApplyT(func(v X12AcknowledgementSettingsResponse) bool { return v.BatchImplementationAcknowledgements }).(pulumi.BoolOutput)
 }
 
-// The value indicating whether to batch the technical acknowledgements.
 func (o X12AcknowledgementSettingsResponseOutput) BatchTechnicalAcknowledgements() pulumi.BoolOutput {
 	return o.ApplyT(func(v X12AcknowledgementSettingsResponse) bool { return v.BatchTechnicalAcknowledgements }).(pulumi.BoolOutput)
 }
 
-// The functional acknowledgement version.
 func (o X12AcknowledgementSettingsResponseOutput) FunctionalAcknowledgementVersion() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v X12AcknowledgementSettingsResponse) *string { return v.FunctionalAcknowledgementVersion }).(pulumi.StringPtrOutput)
 }
 
-// The implementation acknowledgement version.
 func (o X12AcknowledgementSettingsResponseOutput) ImplementationAcknowledgementVersion() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v X12AcknowledgementSettingsResponse) *string { return v.ImplementationAcknowledgementVersion }).(pulumi.StringPtrOutput)
 }
 
-// The value indicating whether functional acknowledgement is needed.
 func (o X12AcknowledgementSettingsResponseOutput) NeedFunctionalAcknowledgement() pulumi.BoolOutput {
 	return o.ApplyT(func(v X12AcknowledgementSettingsResponse) bool { return v.NeedFunctionalAcknowledgement }).(pulumi.BoolOutput)
 }
 
-// The value indicating whether implementation acknowledgement is needed.
 func (o X12AcknowledgementSettingsResponseOutput) NeedImplementationAcknowledgement() pulumi.BoolOutput {
 	return o.ApplyT(func(v X12AcknowledgementSettingsResponse) bool { return v.NeedImplementationAcknowledgement }).(pulumi.BoolOutput)
 }
 
-// The value indicating whether a loop is needed for valid messages.
 func (o X12AcknowledgementSettingsResponseOutput) NeedLoopForValidMessages() pulumi.BoolOutput {
 	return o.ApplyT(func(v X12AcknowledgementSettingsResponse) bool { return v.NeedLoopForValidMessages }).(pulumi.BoolOutput)
 }
 
-// The value indicating whether technical acknowledgement is needed.
 func (o X12AcknowledgementSettingsResponseOutput) NeedTechnicalAcknowledgement() pulumi.BoolOutput {
 	return o.ApplyT(func(v X12AcknowledgementSettingsResponse) bool { return v.NeedTechnicalAcknowledgement }).(pulumi.BoolOutput)
 }
 
-// The value indicating whether to rollover acknowledgement control number.
 func (o X12AcknowledgementSettingsResponseOutput) RolloverAcknowledgementControlNumber() pulumi.BoolOutput {
 	return o.ApplyT(func(v X12AcknowledgementSettingsResponse) bool { return v.RolloverAcknowledgementControlNumber }).(pulumi.BoolOutput)
 }
 
-// The value indicating whether to send synchronous acknowledgement.
 func (o X12AcknowledgementSettingsResponseOutput) SendSynchronousAcknowledgement() pulumi.BoolOutput {
 	return o.ApplyT(func(v X12AcknowledgementSettingsResponse) bool { return v.SendSynchronousAcknowledgement }).(pulumi.BoolOutput)
 }
@@ -19841,10 +17937,15 @@ func (o X12AcknowledgementSettingsResponsePtrOutput) ToX12AcknowledgementSetting
 }
 
 func (o X12AcknowledgementSettingsResponsePtrOutput) Elem() X12AcknowledgementSettingsResponseOutput {
-	return o.ApplyT(func(v *X12AcknowledgementSettingsResponse) X12AcknowledgementSettingsResponse { return *v }).(X12AcknowledgementSettingsResponseOutput)
+	return o.ApplyT(func(v *X12AcknowledgementSettingsResponse) X12AcknowledgementSettingsResponse {
+		if v != nil {
+			return *v
+		}
+		var ret X12AcknowledgementSettingsResponse
+		return ret
+	}).(X12AcknowledgementSettingsResponseOutput)
 }
 
-// The acknowledgement control number lower bound.
 func (o X12AcknowledgementSettingsResponsePtrOutput) AcknowledgementControlNumberLowerBound() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *X12AcknowledgementSettingsResponse) *int {
 		if v == nil {
@@ -19854,7 +17955,6 @@ func (o X12AcknowledgementSettingsResponsePtrOutput) AcknowledgementControlNumbe
 	}).(pulumi.IntPtrOutput)
 }
 
-// The acknowledgement control number prefix.
 func (o X12AcknowledgementSettingsResponsePtrOutput) AcknowledgementControlNumberPrefix() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *X12AcknowledgementSettingsResponse) *string {
 		if v == nil {
@@ -19864,7 +17964,6 @@ func (o X12AcknowledgementSettingsResponsePtrOutput) AcknowledgementControlNumbe
 	}).(pulumi.StringPtrOutput)
 }
 
-// The acknowledgement control number suffix.
 func (o X12AcknowledgementSettingsResponsePtrOutput) AcknowledgementControlNumberSuffix() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *X12AcknowledgementSettingsResponse) *string {
 		if v == nil {
@@ -19874,7 +17973,6 @@ func (o X12AcknowledgementSettingsResponsePtrOutput) AcknowledgementControlNumbe
 	}).(pulumi.StringPtrOutput)
 }
 
-// The acknowledgement control number upper bound.
 func (o X12AcknowledgementSettingsResponsePtrOutput) AcknowledgementControlNumberUpperBound() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *X12AcknowledgementSettingsResponse) *int {
 		if v == nil {
@@ -19884,7 +17982,6 @@ func (o X12AcknowledgementSettingsResponsePtrOutput) AcknowledgementControlNumbe
 	}).(pulumi.IntPtrOutput)
 }
 
-// The value indicating whether to batch functional acknowledgements.
 func (o X12AcknowledgementSettingsResponsePtrOutput) BatchFunctionalAcknowledgements() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *X12AcknowledgementSettingsResponse) *bool {
 		if v == nil {
@@ -19894,7 +17991,6 @@ func (o X12AcknowledgementSettingsResponsePtrOutput) BatchFunctionalAcknowledgem
 	}).(pulumi.BoolPtrOutput)
 }
 
-// The value indicating whether to batch implementation acknowledgements.
 func (o X12AcknowledgementSettingsResponsePtrOutput) BatchImplementationAcknowledgements() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *X12AcknowledgementSettingsResponse) *bool {
 		if v == nil {
@@ -19904,7 +18000,6 @@ func (o X12AcknowledgementSettingsResponsePtrOutput) BatchImplementationAcknowle
 	}).(pulumi.BoolPtrOutput)
 }
 
-// The value indicating whether to batch the technical acknowledgements.
 func (o X12AcknowledgementSettingsResponsePtrOutput) BatchTechnicalAcknowledgements() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *X12AcknowledgementSettingsResponse) *bool {
 		if v == nil {
@@ -19914,7 +18009,6 @@ func (o X12AcknowledgementSettingsResponsePtrOutput) BatchTechnicalAcknowledgeme
 	}).(pulumi.BoolPtrOutput)
 }
 
-// The functional acknowledgement version.
 func (o X12AcknowledgementSettingsResponsePtrOutput) FunctionalAcknowledgementVersion() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *X12AcknowledgementSettingsResponse) *string {
 		if v == nil {
@@ -19924,7 +18018,6 @@ func (o X12AcknowledgementSettingsResponsePtrOutput) FunctionalAcknowledgementVe
 	}).(pulumi.StringPtrOutput)
 }
 
-// The implementation acknowledgement version.
 func (o X12AcknowledgementSettingsResponsePtrOutput) ImplementationAcknowledgementVersion() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *X12AcknowledgementSettingsResponse) *string {
 		if v == nil {
@@ -19934,7 +18027,6 @@ func (o X12AcknowledgementSettingsResponsePtrOutput) ImplementationAcknowledgeme
 	}).(pulumi.StringPtrOutput)
 }
 
-// The value indicating whether functional acknowledgement is needed.
 func (o X12AcknowledgementSettingsResponsePtrOutput) NeedFunctionalAcknowledgement() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *X12AcknowledgementSettingsResponse) *bool {
 		if v == nil {
@@ -19944,7 +18036,6 @@ func (o X12AcknowledgementSettingsResponsePtrOutput) NeedFunctionalAcknowledgeme
 	}).(pulumi.BoolPtrOutput)
 }
 
-// The value indicating whether implementation acknowledgement is needed.
 func (o X12AcknowledgementSettingsResponsePtrOutput) NeedImplementationAcknowledgement() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *X12AcknowledgementSettingsResponse) *bool {
 		if v == nil {
@@ -19954,7 +18045,6 @@ func (o X12AcknowledgementSettingsResponsePtrOutput) NeedImplementationAcknowled
 	}).(pulumi.BoolPtrOutput)
 }
 
-// The value indicating whether a loop is needed for valid messages.
 func (o X12AcknowledgementSettingsResponsePtrOutput) NeedLoopForValidMessages() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *X12AcknowledgementSettingsResponse) *bool {
 		if v == nil {
@@ -19964,7 +18054,6 @@ func (o X12AcknowledgementSettingsResponsePtrOutput) NeedLoopForValidMessages() 
 	}).(pulumi.BoolPtrOutput)
 }
 
-// The value indicating whether technical acknowledgement is needed.
 func (o X12AcknowledgementSettingsResponsePtrOutput) NeedTechnicalAcknowledgement() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *X12AcknowledgementSettingsResponse) *bool {
 		if v == nil {
@@ -19974,7 +18063,6 @@ func (o X12AcknowledgementSettingsResponsePtrOutput) NeedTechnicalAcknowledgemen
 	}).(pulumi.BoolPtrOutput)
 }
 
-// The value indicating whether to rollover acknowledgement control number.
 func (o X12AcknowledgementSettingsResponsePtrOutput) RolloverAcknowledgementControlNumber() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *X12AcknowledgementSettingsResponse) *bool {
 		if v == nil {
@@ -19984,7 +18072,6 @@ func (o X12AcknowledgementSettingsResponsePtrOutput) RolloverAcknowledgementCont
 	}).(pulumi.BoolPtrOutput)
 }
 
-// The value indicating whether to send synchronous acknowledgement.
 func (o X12AcknowledgementSettingsResponsePtrOutput) SendSynchronousAcknowledgement() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *X12AcknowledgementSettingsResponse) *bool {
 		if v == nil {
@@ -19994,12 +18081,9 @@ func (o X12AcknowledgementSettingsResponsePtrOutput) SendSynchronousAcknowledgem
 	}).(pulumi.BoolPtrOutput)
 }
 
-// The X12 agreement content.
 type X12AgreementContent struct {
-	// The X12 one-way receive agreement.
 	ReceiveAgreement X12OneWayAgreement `pulumi:"receiveAgreement"`
-	// The X12 one-way send agreement.
-	SendAgreement X12OneWayAgreement `pulumi:"sendAgreement"`
+	SendAgreement    X12OneWayAgreement `pulumi:"sendAgreement"`
 }
 
 // X12AgreementContentInput is an input type that accepts X12AgreementContentArgs and X12AgreementContentOutput values.
@@ -20013,12 +18097,9 @@ type X12AgreementContentInput interface {
 	ToX12AgreementContentOutputWithContext(context.Context) X12AgreementContentOutput
 }
 
-// The X12 agreement content.
 type X12AgreementContentArgs struct {
-	// The X12 one-way receive agreement.
 	ReceiveAgreement X12OneWayAgreementInput `pulumi:"receiveAgreement"`
-	// The X12 one-way send agreement.
-	SendAgreement X12OneWayAgreementInput `pulumi:"sendAgreement"`
+	SendAgreement    X12OneWayAgreementInput `pulumi:"sendAgreement"`
 }
 
 func (X12AgreementContentArgs) ElementType() reflect.Type {
@@ -20074,7 +18155,6 @@ func (i *x12agreementContentPtrType) ToX12AgreementContentPtrOutputWithContext(c
 	return pulumi.ToOutputWithContext(ctx, i).(X12AgreementContentPtrOutput)
 }
 
-// The X12 agreement content.
 type X12AgreementContentOutput struct{ *pulumi.OutputState }
 
 func (X12AgreementContentOutput) ElementType() reflect.Type {
@@ -20094,17 +18174,15 @@ func (o X12AgreementContentOutput) ToX12AgreementContentPtrOutput() X12Agreement
 }
 
 func (o X12AgreementContentOutput) ToX12AgreementContentPtrOutputWithContext(ctx context.Context) X12AgreementContentPtrOutput {
-	return o.ApplyT(func(v X12AgreementContent) *X12AgreementContent {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v X12AgreementContent) *X12AgreementContent {
 		return &v
 	}).(X12AgreementContentPtrOutput)
 }
 
-// The X12 one-way receive agreement.
 func (o X12AgreementContentOutput) ReceiveAgreement() X12OneWayAgreementOutput {
 	return o.ApplyT(func(v X12AgreementContent) X12OneWayAgreement { return v.ReceiveAgreement }).(X12OneWayAgreementOutput)
 }
 
-// The X12 one-way send agreement.
 func (o X12AgreementContentOutput) SendAgreement() X12OneWayAgreementOutput {
 	return o.ApplyT(func(v X12AgreementContent) X12OneWayAgreement { return v.SendAgreement }).(X12OneWayAgreementOutput)
 }
@@ -20124,10 +18202,15 @@ func (o X12AgreementContentPtrOutput) ToX12AgreementContentPtrOutputWithContext(
 }
 
 func (o X12AgreementContentPtrOutput) Elem() X12AgreementContentOutput {
-	return o.ApplyT(func(v *X12AgreementContent) X12AgreementContent { return *v }).(X12AgreementContentOutput)
+	return o.ApplyT(func(v *X12AgreementContent) X12AgreementContent {
+		if v != nil {
+			return *v
+		}
+		var ret X12AgreementContent
+		return ret
+	}).(X12AgreementContentOutput)
 }
 
-// The X12 one-way receive agreement.
 func (o X12AgreementContentPtrOutput) ReceiveAgreement() X12OneWayAgreementPtrOutput {
 	return o.ApplyT(func(v *X12AgreementContent) *X12OneWayAgreement {
 		if v == nil {
@@ -20137,7 +18220,6 @@ func (o X12AgreementContentPtrOutput) ReceiveAgreement() X12OneWayAgreementPtrOu
 	}).(X12OneWayAgreementPtrOutput)
 }
 
-// The X12 one-way send agreement.
 func (o X12AgreementContentPtrOutput) SendAgreement() X12OneWayAgreementPtrOutput {
 	return o.ApplyT(func(v *X12AgreementContent) *X12OneWayAgreement {
 		if v == nil {
@@ -20147,12 +18229,9 @@ func (o X12AgreementContentPtrOutput) SendAgreement() X12OneWayAgreementPtrOutpu
 	}).(X12OneWayAgreementPtrOutput)
 }
 
-// The X12 agreement content.
 type X12AgreementContentResponse struct {
-	// The X12 one-way receive agreement.
 	ReceiveAgreement X12OneWayAgreementResponse `pulumi:"receiveAgreement"`
-	// The X12 one-way send agreement.
-	SendAgreement X12OneWayAgreementResponse `pulumi:"sendAgreement"`
+	SendAgreement    X12OneWayAgreementResponse `pulumi:"sendAgreement"`
 }
 
 // X12AgreementContentResponseInput is an input type that accepts X12AgreementContentResponseArgs and X12AgreementContentResponseOutput values.
@@ -20166,12 +18245,9 @@ type X12AgreementContentResponseInput interface {
 	ToX12AgreementContentResponseOutputWithContext(context.Context) X12AgreementContentResponseOutput
 }
 
-// The X12 agreement content.
 type X12AgreementContentResponseArgs struct {
-	// The X12 one-way receive agreement.
 	ReceiveAgreement X12OneWayAgreementResponseInput `pulumi:"receiveAgreement"`
-	// The X12 one-way send agreement.
-	SendAgreement X12OneWayAgreementResponseInput `pulumi:"sendAgreement"`
+	SendAgreement    X12OneWayAgreementResponseInput `pulumi:"sendAgreement"`
 }
 
 func (X12AgreementContentResponseArgs) ElementType() reflect.Type {
@@ -20227,7 +18303,6 @@ func (i *x12agreementContentResponsePtrType) ToX12AgreementContentResponsePtrOut
 	return pulumi.ToOutputWithContext(ctx, i).(X12AgreementContentResponsePtrOutput)
 }
 
-// The X12 agreement content.
 type X12AgreementContentResponseOutput struct{ *pulumi.OutputState }
 
 func (X12AgreementContentResponseOutput) ElementType() reflect.Type {
@@ -20247,17 +18322,15 @@ func (o X12AgreementContentResponseOutput) ToX12AgreementContentResponsePtrOutpu
 }
 
 func (o X12AgreementContentResponseOutput) ToX12AgreementContentResponsePtrOutputWithContext(ctx context.Context) X12AgreementContentResponsePtrOutput {
-	return o.ApplyT(func(v X12AgreementContentResponse) *X12AgreementContentResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v X12AgreementContentResponse) *X12AgreementContentResponse {
 		return &v
 	}).(X12AgreementContentResponsePtrOutput)
 }
 
-// The X12 one-way receive agreement.
 func (o X12AgreementContentResponseOutput) ReceiveAgreement() X12OneWayAgreementResponseOutput {
 	return o.ApplyT(func(v X12AgreementContentResponse) X12OneWayAgreementResponse { return v.ReceiveAgreement }).(X12OneWayAgreementResponseOutput)
 }
 
-// The X12 one-way send agreement.
 func (o X12AgreementContentResponseOutput) SendAgreement() X12OneWayAgreementResponseOutput {
 	return o.ApplyT(func(v X12AgreementContentResponse) X12OneWayAgreementResponse { return v.SendAgreement }).(X12OneWayAgreementResponseOutput)
 }
@@ -20277,10 +18350,15 @@ func (o X12AgreementContentResponsePtrOutput) ToX12AgreementContentResponsePtrOu
 }
 
 func (o X12AgreementContentResponsePtrOutput) Elem() X12AgreementContentResponseOutput {
-	return o.ApplyT(func(v *X12AgreementContentResponse) X12AgreementContentResponse { return *v }).(X12AgreementContentResponseOutput)
+	return o.ApplyT(func(v *X12AgreementContentResponse) X12AgreementContentResponse {
+		if v != nil {
+			return *v
+		}
+		var ret X12AgreementContentResponse
+		return ret
+	}).(X12AgreementContentResponseOutput)
 }
 
-// The X12 one-way receive agreement.
 func (o X12AgreementContentResponsePtrOutput) ReceiveAgreement() X12OneWayAgreementResponsePtrOutput {
 	return o.ApplyT(func(v *X12AgreementContentResponse) *X12OneWayAgreementResponse {
 		if v == nil {
@@ -20290,7 +18368,6 @@ func (o X12AgreementContentResponsePtrOutput) ReceiveAgreement() X12OneWayAgreem
 	}).(X12OneWayAgreementResponsePtrOutput)
 }
 
-// The X12 one-way send agreement.
 func (o X12AgreementContentResponsePtrOutput) SendAgreement() X12OneWayAgreementResponsePtrOutput {
 	return o.ApplyT(func(v *X12AgreementContentResponse) *X12OneWayAgreementResponse {
 		if v == nil {
@@ -20300,26 +18377,16 @@ func (o X12AgreementContentResponsePtrOutput) SendAgreement() X12OneWayAgreement
 	}).(X12OneWayAgreementResponsePtrOutput)
 }
 
-// The X12 delimiter override settings.
 type X12DelimiterOverrides struct {
-	// The component separator.
-	ComponentSeparator int `pulumi:"componentSeparator"`
-	// The data element separator.
-	DataElementSeparator int `pulumi:"dataElementSeparator"`
-	// The message id.
-	MessageId *string `pulumi:"messageId"`
-	// The protocol version.
-	ProtocolVersion *string `pulumi:"protocolVersion"`
-	// The replacement character.
-	ReplaceCharacter int `pulumi:"replaceCharacter"`
-	// The value indicating whether to replace separators in payload.
-	ReplaceSeparatorsInPayload bool `pulumi:"replaceSeparatorsInPayload"`
-	// The segment terminator.
-	SegmentTerminator int `pulumi:"segmentTerminator"`
-	// The segment terminator suffix.
-	SegmentTerminatorSuffix string `pulumi:"segmentTerminatorSuffix"`
-	// The target namespace on which this delimiter settings has to be applied.
-	TargetNamespace *string `pulumi:"targetNamespace"`
+	ComponentSeparator         int                     `pulumi:"componentSeparator"`
+	DataElementSeparator       int                     `pulumi:"dataElementSeparator"`
+	MessageId                  *string                 `pulumi:"messageId"`
+	ProtocolVersion            *string                 `pulumi:"protocolVersion"`
+	ReplaceCharacter           int                     `pulumi:"replaceCharacter"`
+	ReplaceSeparatorsInPayload bool                    `pulumi:"replaceSeparatorsInPayload"`
+	SegmentTerminator          int                     `pulumi:"segmentTerminator"`
+	SegmentTerminatorSuffix    SegmentTerminatorSuffix `pulumi:"segmentTerminatorSuffix"`
+	TargetNamespace            *string                 `pulumi:"targetNamespace"`
 }
 
 // X12DelimiterOverridesInput is an input type that accepts X12DelimiterOverridesArgs and X12DelimiterOverridesOutput values.
@@ -20333,26 +18400,16 @@ type X12DelimiterOverridesInput interface {
 	ToX12DelimiterOverridesOutputWithContext(context.Context) X12DelimiterOverridesOutput
 }
 
-// The X12 delimiter override settings.
 type X12DelimiterOverridesArgs struct {
-	// The component separator.
-	ComponentSeparator pulumi.IntInput `pulumi:"componentSeparator"`
-	// The data element separator.
-	DataElementSeparator pulumi.IntInput `pulumi:"dataElementSeparator"`
-	// The message id.
-	MessageId pulumi.StringPtrInput `pulumi:"messageId"`
-	// The protocol version.
-	ProtocolVersion pulumi.StringPtrInput `pulumi:"protocolVersion"`
-	// The replacement character.
-	ReplaceCharacter pulumi.IntInput `pulumi:"replaceCharacter"`
-	// The value indicating whether to replace separators in payload.
-	ReplaceSeparatorsInPayload pulumi.BoolInput `pulumi:"replaceSeparatorsInPayload"`
-	// The segment terminator.
-	SegmentTerminator pulumi.IntInput `pulumi:"segmentTerminator"`
-	// The segment terminator suffix.
-	SegmentTerminatorSuffix SegmentTerminatorSuffix `pulumi:"segmentTerminatorSuffix"`
-	// The target namespace on which this delimiter settings has to be applied.
-	TargetNamespace pulumi.StringPtrInput `pulumi:"targetNamespace"`
+	ComponentSeparator         pulumi.IntInput              `pulumi:"componentSeparator"`
+	DataElementSeparator       pulumi.IntInput              `pulumi:"dataElementSeparator"`
+	MessageId                  pulumi.StringPtrInput        `pulumi:"messageId"`
+	ProtocolVersion            pulumi.StringPtrInput        `pulumi:"protocolVersion"`
+	ReplaceCharacter           pulumi.IntInput              `pulumi:"replaceCharacter"`
+	ReplaceSeparatorsInPayload pulumi.BoolInput             `pulumi:"replaceSeparatorsInPayload"`
+	SegmentTerminator          pulumi.IntInput              `pulumi:"segmentTerminator"`
+	SegmentTerminatorSuffix    SegmentTerminatorSuffixInput `pulumi:"segmentTerminatorSuffix"`
+	TargetNamespace            pulumi.StringPtrInput        `pulumi:"targetNamespace"`
 }
 
 func (X12DelimiterOverridesArgs) ElementType() reflect.Type {
@@ -20392,7 +18449,6 @@ func (i X12DelimiterOverridesArray) ToX12DelimiterOverridesArrayOutputWithContex
 	return pulumi.ToOutputWithContext(ctx, i).(X12DelimiterOverridesArrayOutput)
 }
 
-// The X12 delimiter override settings.
 type X12DelimiterOverridesOutput struct{ *pulumi.OutputState }
 
 func (X12DelimiterOverridesOutput) ElementType() reflect.Type {
@@ -20407,47 +18463,38 @@ func (o X12DelimiterOverridesOutput) ToX12DelimiterOverridesOutputWithContext(ct
 	return o
 }
 
-// The component separator.
 func (o X12DelimiterOverridesOutput) ComponentSeparator() pulumi.IntOutput {
 	return o.ApplyT(func(v X12DelimiterOverrides) int { return v.ComponentSeparator }).(pulumi.IntOutput)
 }
 
-// The data element separator.
 func (o X12DelimiterOverridesOutput) DataElementSeparator() pulumi.IntOutput {
 	return o.ApplyT(func(v X12DelimiterOverrides) int { return v.DataElementSeparator }).(pulumi.IntOutput)
 }
 
-// The message id.
 func (o X12DelimiterOverridesOutput) MessageId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v X12DelimiterOverrides) *string { return v.MessageId }).(pulumi.StringPtrOutput)
 }
 
-// The protocol version.
 func (o X12DelimiterOverridesOutput) ProtocolVersion() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v X12DelimiterOverrides) *string { return v.ProtocolVersion }).(pulumi.StringPtrOutput)
 }
 
-// The replacement character.
 func (o X12DelimiterOverridesOutput) ReplaceCharacter() pulumi.IntOutput {
 	return o.ApplyT(func(v X12DelimiterOverrides) int { return v.ReplaceCharacter }).(pulumi.IntOutput)
 }
 
-// The value indicating whether to replace separators in payload.
 func (o X12DelimiterOverridesOutput) ReplaceSeparatorsInPayload() pulumi.BoolOutput {
 	return o.ApplyT(func(v X12DelimiterOverrides) bool { return v.ReplaceSeparatorsInPayload }).(pulumi.BoolOutput)
 }
 
-// The segment terminator.
 func (o X12DelimiterOverridesOutput) SegmentTerminator() pulumi.IntOutput {
 	return o.ApplyT(func(v X12DelimiterOverrides) int { return v.SegmentTerminator }).(pulumi.IntOutput)
 }
 
-// The segment terminator suffix.
-func (o X12DelimiterOverridesOutput) SegmentTerminatorSuffix() pulumi.StringOutput {
-	return o.ApplyT(func(v X12DelimiterOverrides) string { return v.SegmentTerminatorSuffix }).(pulumi.StringOutput)
+func (o X12DelimiterOverridesOutput) SegmentTerminatorSuffix() SegmentTerminatorSuffixOutput {
+	return o.ApplyT(func(v X12DelimiterOverrides) SegmentTerminatorSuffix { return v.SegmentTerminatorSuffix }).(SegmentTerminatorSuffixOutput)
 }
 
-// The target namespace on which this delimiter settings has to be applied.
 func (o X12DelimiterOverridesOutput) TargetNamespace() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v X12DelimiterOverrides) *string { return v.TargetNamespace }).(pulumi.StringPtrOutput)
 }
@@ -20472,26 +18519,16 @@ func (o X12DelimiterOverridesArrayOutput) Index(i pulumi.IntInput) X12DelimiterO
 	}).(X12DelimiterOverridesOutput)
 }
 
-// The X12 delimiter override settings.
 type X12DelimiterOverridesResponse struct {
-	// The component separator.
-	ComponentSeparator int `pulumi:"componentSeparator"`
-	// The data element separator.
-	DataElementSeparator int `pulumi:"dataElementSeparator"`
-	// The message id.
-	MessageId *string `pulumi:"messageId"`
-	// The protocol version.
-	ProtocolVersion *string `pulumi:"protocolVersion"`
-	// The replacement character.
-	ReplaceCharacter int `pulumi:"replaceCharacter"`
-	// The value indicating whether to replace separators in payload.
-	ReplaceSeparatorsInPayload bool `pulumi:"replaceSeparatorsInPayload"`
-	// The segment terminator.
-	SegmentTerminator int `pulumi:"segmentTerminator"`
-	// The segment terminator suffix.
-	SegmentTerminatorSuffix string `pulumi:"segmentTerminatorSuffix"`
-	// The target namespace on which this delimiter settings has to be applied.
-	TargetNamespace *string `pulumi:"targetNamespace"`
+	ComponentSeparator         int     `pulumi:"componentSeparator"`
+	DataElementSeparator       int     `pulumi:"dataElementSeparator"`
+	MessageId                  *string `pulumi:"messageId"`
+	ProtocolVersion            *string `pulumi:"protocolVersion"`
+	ReplaceCharacter           int     `pulumi:"replaceCharacter"`
+	ReplaceSeparatorsInPayload bool    `pulumi:"replaceSeparatorsInPayload"`
+	SegmentTerminator          int     `pulumi:"segmentTerminator"`
+	SegmentTerminatorSuffix    string  `pulumi:"segmentTerminatorSuffix"`
+	TargetNamespace            *string `pulumi:"targetNamespace"`
 }
 
 // X12DelimiterOverridesResponseInput is an input type that accepts X12DelimiterOverridesResponseArgs and X12DelimiterOverridesResponseOutput values.
@@ -20505,26 +18542,16 @@ type X12DelimiterOverridesResponseInput interface {
 	ToX12DelimiterOverridesResponseOutputWithContext(context.Context) X12DelimiterOverridesResponseOutput
 }
 
-// The X12 delimiter override settings.
 type X12DelimiterOverridesResponseArgs struct {
-	// The component separator.
-	ComponentSeparator pulumi.IntInput `pulumi:"componentSeparator"`
-	// The data element separator.
-	DataElementSeparator pulumi.IntInput `pulumi:"dataElementSeparator"`
-	// The message id.
-	MessageId pulumi.StringPtrInput `pulumi:"messageId"`
-	// The protocol version.
-	ProtocolVersion pulumi.StringPtrInput `pulumi:"protocolVersion"`
-	// The replacement character.
-	ReplaceCharacter pulumi.IntInput `pulumi:"replaceCharacter"`
-	// The value indicating whether to replace separators in payload.
-	ReplaceSeparatorsInPayload pulumi.BoolInput `pulumi:"replaceSeparatorsInPayload"`
-	// The segment terminator.
-	SegmentTerminator pulumi.IntInput `pulumi:"segmentTerminator"`
-	// The segment terminator suffix.
-	SegmentTerminatorSuffix pulumi.StringInput `pulumi:"segmentTerminatorSuffix"`
-	// The target namespace on which this delimiter settings has to be applied.
-	TargetNamespace pulumi.StringPtrInput `pulumi:"targetNamespace"`
+	ComponentSeparator         pulumi.IntInput       `pulumi:"componentSeparator"`
+	DataElementSeparator       pulumi.IntInput       `pulumi:"dataElementSeparator"`
+	MessageId                  pulumi.StringPtrInput `pulumi:"messageId"`
+	ProtocolVersion            pulumi.StringPtrInput `pulumi:"protocolVersion"`
+	ReplaceCharacter           pulumi.IntInput       `pulumi:"replaceCharacter"`
+	ReplaceSeparatorsInPayload pulumi.BoolInput      `pulumi:"replaceSeparatorsInPayload"`
+	SegmentTerminator          pulumi.IntInput       `pulumi:"segmentTerminator"`
+	SegmentTerminatorSuffix    pulumi.StringInput    `pulumi:"segmentTerminatorSuffix"`
+	TargetNamespace            pulumi.StringPtrInput `pulumi:"targetNamespace"`
 }
 
 func (X12DelimiterOverridesResponseArgs) ElementType() reflect.Type {
@@ -20564,7 +18591,6 @@ func (i X12DelimiterOverridesResponseArray) ToX12DelimiterOverridesResponseArray
 	return pulumi.ToOutputWithContext(ctx, i).(X12DelimiterOverridesResponseArrayOutput)
 }
 
-// The X12 delimiter override settings.
 type X12DelimiterOverridesResponseOutput struct{ *pulumi.OutputState }
 
 func (X12DelimiterOverridesResponseOutput) ElementType() reflect.Type {
@@ -20579,47 +18605,38 @@ func (o X12DelimiterOverridesResponseOutput) ToX12DelimiterOverridesResponseOutp
 	return o
 }
 
-// The component separator.
 func (o X12DelimiterOverridesResponseOutput) ComponentSeparator() pulumi.IntOutput {
 	return o.ApplyT(func(v X12DelimiterOverridesResponse) int { return v.ComponentSeparator }).(pulumi.IntOutput)
 }
 
-// The data element separator.
 func (o X12DelimiterOverridesResponseOutput) DataElementSeparator() pulumi.IntOutput {
 	return o.ApplyT(func(v X12DelimiterOverridesResponse) int { return v.DataElementSeparator }).(pulumi.IntOutput)
 }
 
-// The message id.
 func (o X12DelimiterOverridesResponseOutput) MessageId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v X12DelimiterOverridesResponse) *string { return v.MessageId }).(pulumi.StringPtrOutput)
 }
 
-// The protocol version.
 func (o X12DelimiterOverridesResponseOutput) ProtocolVersion() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v X12DelimiterOverridesResponse) *string { return v.ProtocolVersion }).(pulumi.StringPtrOutput)
 }
 
-// The replacement character.
 func (o X12DelimiterOverridesResponseOutput) ReplaceCharacter() pulumi.IntOutput {
 	return o.ApplyT(func(v X12DelimiterOverridesResponse) int { return v.ReplaceCharacter }).(pulumi.IntOutput)
 }
 
-// The value indicating whether to replace separators in payload.
 func (o X12DelimiterOverridesResponseOutput) ReplaceSeparatorsInPayload() pulumi.BoolOutput {
 	return o.ApplyT(func(v X12DelimiterOverridesResponse) bool { return v.ReplaceSeparatorsInPayload }).(pulumi.BoolOutput)
 }
 
-// The segment terminator.
 func (o X12DelimiterOverridesResponseOutput) SegmentTerminator() pulumi.IntOutput {
 	return o.ApplyT(func(v X12DelimiterOverridesResponse) int { return v.SegmentTerminator }).(pulumi.IntOutput)
 }
 
-// The segment terminator suffix.
 func (o X12DelimiterOverridesResponseOutput) SegmentTerminatorSuffix() pulumi.StringOutput {
 	return o.ApplyT(func(v X12DelimiterOverridesResponse) string { return v.SegmentTerminatorSuffix }).(pulumi.StringOutput)
 }
 
-// The target namespace on which this delimiter settings has to be applied.
 func (o X12DelimiterOverridesResponseOutput) TargetNamespace() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v X12DelimiterOverridesResponse) *string { return v.TargetNamespace }).(pulumi.StringPtrOutput)
 }
@@ -20644,28 +18661,17 @@ func (o X12DelimiterOverridesResponseArrayOutput) Index(i pulumi.IntInput) X12De
 	}).(X12DelimiterOverridesResponseOutput)
 }
 
-// The X12 envelope override settings.
 type X12EnvelopeOverride struct {
-	// The date format.
-	DateFormat string `pulumi:"dateFormat"`
-	// The functional identifier code.
+	DateFormat               string  `pulumi:"dateFormat"`
 	FunctionalIdentifierCode *string `pulumi:"functionalIdentifierCode"`
-	// The header version.
-	HeaderVersion string `pulumi:"headerVersion"`
-	// The message id on which this envelope settings has to be applied.
-	MessageId string `pulumi:"messageId"`
-	// The protocol version on which this envelope settings has to be applied.
-	ProtocolVersion string `pulumi:"protocolVersion"`
-	// The receiver application id.
-	ReceiverApplicationId string `pulumi:"receiverApplicationId"`
-	// The responsible agency code.
-	ResponsibleAgencyCode string `pulumi:"responsibleAgencyCode"`
-	// The sender application id.
-	SenderApplicationId string `pulumi:"senderApplicationId"`
-	// The target namespace on which this envelope settings has to be applied.
-	TargetNamespace string `pulumi:"targetNamespace"`
-	// The time format.
-	TimeFormat string `pulumi:"timeFormat"`
+	HeaderVersion            string  `pulumi:"headerVersion"`
+	MessageId                string  `pulumi:"messageId"`
+	ProtocolVersion          string  `pulumi:"protocolVersion"`
+	ReceiverApplicationId    string  `pulumi:"receiverApplicationId"`
+	ResponsibleAgencyCode    string  `pulumi:"responsibleAgencyCode"`
+	SenderApplicationId      string  `pulumi:"senderApplicationId"`
+	TargetNamespace          string  `pulumi:"targetNamespace"`
+	TimeFormat               string  `pulumi:"timeFormat"`
 }
 
 // X12EnvelopeOverrideInput is an input type that accepts X12EnvelopeOverrideArgs and X12EnvelopeOverrideOutput values.
@@ -20679,28 +18685,17 @@ type X12EnvelopeOverrideInput interface {
 	ToX12EnvelopeOverrideOutputWithContext(context.Context) X12EnvelopeOverrideOutput
 }
 
-// The X12 envelope override settings.
 type X12EnvelopeOverrideArgs struct {
-	// The date format.
-	DateFormat pulumi.StringInput `pulumi:"dateFormat"`
-	// The functional identifier code.
+	DateFormat               pulumi.StringInput    `pulumi:"dateFormat"`
 	FunctionalIdentifierCode pulumi.StringPtrInput `pulumi:"functionalIdentifierCode"`
-	// The header version.
-	HeaderVersion pulumi.StringInput `pulumi:"headerVersion"`
-	// The message id on which this envelope settings has to be applied.
-	MessageId pulumi.StringInput `pulumi:"messageId"`
-	// The protocol version on which this envelope settings has to be applied.
-	ProtocolVersion pulumi.StringInput `pulumi:"protocolVersion"`
-	// The receiver application id.
-	ReceiverApplicationId pulumi.StringInput `pulumi:"receiverApplicationId"`
-	// The responsible agency code.
-	ResponsibleAgencyCode pulumi.StringInput `pulumi:"responsibleAgencyCode"`
-	// The sender application id.
-	SenderApplicationId pulumi.StringInput `pulumi:"senderApplicationId"`
-	// The target namespace on which this envelope settings has to be applied.
-	TargetNamespace pulumi.StringInput `pulumi:"targetNamespace"`
-	// The time format.
-	TimeFormat pulumi.StringInput `pulumi:"timeFormat"`
+	HeaderVersion            pulumi.StringInput    `pulumi:"headerVersion"`
+	MessageId                pulumi.StringInput    `pulumi:"messageId"`
+	ProtocolVersion          pulumi.StringInput    `pulumi:"protocolVersion"`
+	ReceiverApplicationId    pulumi.StringInput    `pulumi:"receiverApplicationId"`
+	ResponsibleAgencyCode    pulumi.StringInput    `pulumi:"responsibleAgencyCode"`
+	SenderApplicationId      pulumi.StringInput    `pulumi:"senderApplicationId"`
+	TargetNamespace          pulumi.StringInput    `pulumi:"targetNamespace"`
+	TimeFormat               pulumi.StringInput    `pulumi:"timeFormat"`
 }
 
 func (X12EnvelopeOverrideArgs) ElementType() reflect.Type {
@@ -20740,7 +18735,6 @@ func (i X12EnvelopeOverrideArray) ToX12EnvelopeOverrideArrayOutputWithContext(ct
 	return pulumi.ToOutputWithContext(ctx, i).(X12EnvelopeOverrideArrayOutput)
 }
 
-// The X12 envelope override settings.
 type X12EnvelopeOverrideOutput struct{ *pulumi.OutputState }
 
 func (X12EnvelopeOverrideOutput) ElementType() reflect.Type {
@@ -20755,52 +18749,42 @@ func (o X12EnvelopeOverrideOutput) ToX12EnvelopeOverrideOutputWithContext(ctx co
 	return o
 }
 
-// The date format.
 func (o X12EnvelopeOverrideOutput) DateFormat() pulumi.StringOutput {
 	return o.ApplyT(func(v X12EnvelopeOverride) string { return v.DateFormat }).(pulumi.StringOutput)
 }
 
-// The functional identifier code.
 func (o X12EnvelopeOverrideOutput) FunctionalIdentifierCode() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v X12EnvelopeOverride) *string { return v.FunctionalIdentifierCode }).(pulumi.StringPtrOutput)
 }
 
-// The header version.
 func (o X12EnvelopeOverrideOutput) HeaderVersion() pulumi.StringOutput {
 	return o.ApplyT(func(v X12EnvelopeOverride) string { return v.HeaderVersion }).(pulumi.StringOutput)
 }
 
-// The message id on which this envelope settings has to be applied.
 func (o X12EnvelopeOverrideOutput) MessageId() pulumi.StringOutput {
 	return o.ApplyT(func(v X12EnvelopeOverride) string { return v.MessageId }).(pulumi.StringOutput)
 }
 
-// The protocol version on which this envelope settings has to be applied.
 func (o X12EnvelopeOverrideOutput) ProtocolVersion() pulumi.StringOutput {
 	return o.ApplyT(func(v X12EnvelopeOverride) string { return v.ProtocolVersion }).(pulumi.StringOutput)
 }
 
-// The receiver application id.
 func (o X12EnvelopeOverrideOutput) ReceiverApplicationId() pulumi.StringOutput {
 	return o.ApplyT(func(v X12EnvelopeOverride) string { return v.ReceiverApplicationId }).(pulumi.StringOutput)
 }
 
-// The responsible agency code.
 func (o X12EnvelopeOverrideOutput) ResponsibleAgencyCode() pulumi.StringOutput {
 	return o.ApplyT(func(v X12EnvelopeOverride) string { return v.ResponsibleAgencyCode }).(pulumi.StringOutput)
 }
 
-// The sender application id.
 func (o X12EnvelopeOverrideOutput) SenderApplicationId() pulumi.StringOutput {
 	return o.ApplyT(func(v X12EnvelopeOverride) string { return v.SenderApplicationId }).(pulumi.StringOutput)
 }
 
-// The target namespace on which this envelope settings has to be applied.
 func (o X12EnvelopeOverrideOutput) TargetNamespace() pulumi.StringOutput {
 	return o.ApplyT(func(v X12EnvelopeOverride) string { return v.TargetNamespace }).(pulumi.StringOutput)
 }
 
-// The time format.
 func (o X12EnvelopeOverrideOutput) TimeFormat() pulumi.StringOutput {
 	return o.ApplyT(func(v X12EnvelopeOverride) string { return v.TimeFormat }).(pulumi.StringOutput)
 }
@@ -20825,28 +18809,17 @@ func (o X12EnvelopeOverrideArrayOutput) Index(i pulumi.IntInput) X12EnvelopeOver
 	}).(X12EnvelopeOverrideOutput)
 }
 
-// The X12 envelope override settings.
 type X12EnvelopeOverrideResponse struct {
-	// The date format.
-	DateFormat string `pulumi:"dateFormat"`
-	// The functional identifier code.
+	DateFormat               string  `pulumi:"dateFormat"`
 	FunctionalIdentifierCode *string `pulumi:"functionalIdentifierCode"`
-	// The header version.
-	HeaderVersion string `pulumi:"headerVersion"`
-	// The message id on which this envelope settings has to be applied.
-	MessageId string `pulumi:"messageId"`
-	// The protocol version on which this envelope settings has to be applied.
-	ProtocolVersion string `pulumi:"protocolVersion"`
-	// The receiver application id.
-	ReceiverApplicationId string `pulumi:"receiverApplicationId"`
-	// The responsible agency code.
-	ResponsibleAgencyCode string `pulumi:"responsibleAgencyCode"`
-	// The sender application id.
-	SenderApplicationId string `pulumi:"senderApplicationId"`
-	// The target namespace on which this envelope settings has to be applied.
-	TargetNamespace string `pulumi:"targetNamespace"`
-	// The time format.
-	TimeFormat string `pulumi:"timeFormat"`
+	HeaderVersion            string  `pulumi:"headerVersion"`
+	MessageId                string  `pulumi:"messageId"`
+	ProtocolVersion          string  `pulumi:"protocolVersion"`
+	ReceiverApplicationId    string  `pulumi:"receiverApplicationId"`
+	ResponsibleAgencyCode    string  `pulumi:"responsibleAgencyCode"`
+	SenderApplicationId      string  `pulumi:"senderApplicationId"`
+	TargetNamespace          string  `pulumi:"targetNamespace"`
+	TimeFormat               string  `pulumi:"timeFormat"`
 }
 
 // X12EnvelopeOverrideResponseInput is an input type that accepts X12EnvelopeOverrideResponseArgs and X12EnvelopeOverrideResponseOutput values.
@@ -20860,28 +18833,17 @@ type X12EnvelopeOverrideResponseInput interface {
 	ToX12EnvelopeOverrideResponseOutputWithContext(context.Context) X12EnvelopeOverrideResponseOutput
 }
 
-// The X12 envelope override settings.
 type X12EnvelopeOverrideResponseArgs struct {
-	// The date format.
-	DateFormat pulumi.StringInput `pulumi:"dateFormat"`
-	// The functional identifier code.
+	DateFormat               pulumi.StringInput    `pulumi:"dateFormat"`
 	FunctionalIdentifierCode pulumi.StringPtrInput `pulumi:"functionalIdentifierCode"`
-	// The header version.
-	HeaderVersion pulumi.StringInput `pulumi:"headerVersion"`
-	// The message id on which this envelope settings has to be applied.
-	MessageId pulumi.StringInput `pulumi:"messageId"`
-	// The protocol version on which this envelope settings has to be applied.
-	ProtocolVersion pulumi.StringInput `pulumi:"protocolVersion"`
-	// The receiver application id.
-	ReceiverApplicationId pulumi.StringInput `pulumi:"receiverApplicationId"`
-	// The responsible agency code.
-	ResponsibleAgencyCode pulumi.StringInput `pulumi:"responsibleAgencyCode"`
-	// The sender application id.
-	SenderApplicationId pulumi.StringInput `pulumi:"senderApplicationId"`
-	// The target namespace on which this envelope settings has to be applied.
-	TargetNamespace pulumi.StringInput `pulumi:"targetNamespace"`
-	// The time format.
-	TimeFormat pulumi.StringInput `pulumi:"timeFormat"`
+	HeaderVersion            pulumi.StringInput    `pulumi:"headerVersion"`
+	MessageId                pulumi.StringInput    `pulumi:"messageId"`
+	ProtocolVersion          pulumi.StringInput    `pulumi:"protocolVersion"`
+	ReceiverApplicationId    pulumi.StringInput    `pulumi:"receiverApplicationId"`
+	ResponsibleAgencyCode    pulumi.StringInput    `pulumi:"responsibleAgencyCode"`
+	SenderApplicationId      pulumi.StringInput    `pulumi:"senderApplicationId"`
+	TargetNamespace          pulumi.StringInput    `pulumi:"targetNamespace"`
+	TimeFormat               pulumi.StringInput    `pulumi:"timeFormat"`
 }
 
 func (X12EnvelopeOverrideResponseArgs) ElementType() reflect.Type {
@@ -20921,7 +18883,6 @@ func (i X12EnvelopeOverrideResponseArray) ToX12EnvelopeOverrideResponseArrayOutp
 	return pulumi.ToOutputWithContext(ctx, i).(X12EnvelopeOverrideResponseArrayOutput)
 }
 
-// The X12 envelope override settings.
 type X12EnvelopeOverrideResponseOutput struct{ *pulumi.OutputState }
 
 func (X12EnvelopeOverrideResponseOutput) ElementType() reflect.Type {
@@ -20936,52 +18897,42 @@ func (o X12EnvelopeOverrideResponseOutput) ToX12EnvelopeOverrideResponseOutputWi
 	return o
 }
 
-// The date format.
 func (o X12EnvelopeOverrideResponseOutput) DateFormat() pulumi.StringOutput {
 	return o.ApplyT(func(v X12EnvelopeOverrideResponse) string { return v.DateFormat }).(pulumi.StringOutput)
 }
 
-// The functional identifier code.
 func (o X12EnvelopeOverrideResponseOutput) FunctionalIdentifierCode() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v X12EnvelopeOverrideResponse) *string { return v.FunctionalIdentifierCode }).(pulumi.StringPtrOutput)
 }
 
-// The header version.
 func (o X12EnvelopeOverrideResponseOutput) HeaderVersion() pulumi.StringOutput {
 	return o.ApplyT(func(v X12EnvelopeOverrideResponse) string { return v.HeaderVersion }).(pulumi.StringOutput)
 }
 
-// The message id on which this envelope settings has to be applied.
 func (o X12EnvelopeOverrideResponseOutput) MessageId() pulumi.StringOutput {
 	return o.ApplyT(func(v X12EnvelopeOverrideResponse) string { return v.MessageId }).(pulumi.StringOutput)
 }
 
-// The protocol version on which this envelope settings has to be applied.
 func (o X12EnvelopeOverrideResponseOutput) ProtocolVersion() pulumi.StringOutput {
 	return o.ApplyT(func(v X12EnvelopeOverrideResponse) string { return v.ProtocolVersion }).(pulumi.StringOutput)
 }
 
-// The receiver application id.
 func (o X12EnvelopeOverrideResponseOutput) ReceiverApplicationId() pulumi.StringOutput {
 	return o.ApplyT(func(v X12EnvelopeOverrideResponse) string { return v.ReceiverApplicationId }).(pulumi.StringOutput)
 }
 
-// The responsible agency code.
 func (o X12EnvelopeOverrideResponseOutput) ResponsibleAgencyCode() pulumi.StringOutput {
 	return o.ApplyT(func(v X12EnvelopeOverrideResponse) string { return v.ResponsibleAgencyCode }).(pulumi.StringOutput)
 }
 
-// The sender application id.
 func (o X12EnvelopeOverrideResponseOutput) SenderApplicationId() pulumi.StringOutput {
 	return o.ApplyT(func(v X12EnvelopeOverrideResponse) string { return v.SenderApplicationId }).(pulumi.StringOutput)
 }
 
-// The target namespace on which this envelope settings has to be applied.
 func (o X12EnvelopeOverrideResponseOutput) TargetNamespace() pulumi.StringOutput {
 	return o.ApplyT(func(v X12EnvelopeOverrideResponse) string { return v.TargetNamespace }).(pulumi.StringOutput)
 }
 
-// The time format.
 func (o X12EnvelopeOverrideResponseOutput) TimeFormat() pulumi.StringOutput {
 	return o.ApplyT(func(v X12EnvelopeOverrideResponse) string { return v.TimeFormat }).(pulumi.StringOutput)
 }
@@ -21006,56 +18957,31 @@ func (o X12EnvelopeOverrideResponseArrayOutput) Index(i pulumi.IntInput) X12Enve
 	}).(X12EnvelopeOverrideResponseOutput)
 }
 
-// The X12 agreement envelope settings.
 type X12EnvelopeSettings struct {
-	// The controls standards id.
-	ControlStandardsId int `pulumi:"controlStandardsId"`
-	// The control version number.
-	ControlVersionNumber string `pulumi:"controlVersionNumber"`
-	// The value indicating whether to enable default group headers.
-	EnableDefaultGroupHeaders bool `pulumi:"enableDefaultGroupHeaders"`
-	// The functional group id.
-	FunctionalGroupId *string `pulumi:"functionalGroupId"`
-	// The group control number lower bound.
-	GroupControlNumberLowerBound int `pulumi:"groupControlNumberLowerBound"`
-	// The group control number upper bound.
-	GroupControlNumberUpperBound int `pulumi:"groupControlNumberUpperBound"`
-	// The group header agency code.
-	GroupHeaderAgencyCode string `pulumi:"groupHeaderAgencyCode"`
-	// The group header date format.
-	GroupHeaderDateFormat string `pulumi:"groupHeaderDateFormat"`
-	// The group header time format.
-	GroupHeaderTimeFormat string `pulumi:"groupHeaderTimeFormat"`
-	// The group header version.
-	GroupHeaderVersion string `pulumi:"groupHeaderVersion"`
-	// The interchange  control number lower bound.
-	InterchangeControlNumberLowerBound int `pulumi:"interchangeControlNumberLowerBound"`
-	// The interchange  control number upper bound.
-	InterchangeControlNumberUpperBound int `pulumi:"interchangeControlNumberUpperBound"`
-	// The value indicating whether to overwrite existing transaction set control number.
-	OverwriteExistingTransactionSetControlNumber bool `pulumi:"overwriteExistingTransactionSetControlNumber"`
-	// The receiver application id.
-	ReceiverApplicationId string `pulumi:"receiverApplicationId"`
-	// The value indicating whether to rollover group control number.
-	RolloverGroupControlNumber bool `pulumi:"rolloverGroupControlNumber"`
-	// The value indicating whether to rollover interchange control number.
-	RolloverInterchangeControlNumber bool `pulumi:"rolloverInterchangeControlNumber"`
-	// The value indicating whether to rollover transaction set control number.
-	RolloverTransactionSetControlNumber bool `pulumi:"rolloverTransactionSetControlNumber"`
-	// The sender application id.
-	SenderApplicationId string `pulumi:"senderApplicationId"`
-	// The transaction set control number lower bound.
-	TransactionSetControlNumberLowerBound int `pulumi:"transactionSetControlNumberLowerBound"`
-	// The transaction set control number prefix.
-	TransactionSetControlNumberPrefix *string `pulumi:"transactionSetControlNumberPrefix"`
-	// The transaction set control number suffix.
-	TransactionSetControlNumberSuffix *string `pulumi:"transactionSetControlNumberSuffix"`
-	// The transaction set control number upper bound.
-	TransactionSetControlNumberUpperBound int `pulumi:"transactionSetControlNumberUpperBound"`
-	// The usage indicator.
-	UsageIndicator string `pulumi:"usageIndicator"`
-	// The value indicating whether to use control standards id as repetition character.
-	UseControlStandardsIdAsRepetitionCharacter bool `pulumi:"useControlStandardsIdAsRepetitionCharacter"`
+	ControlStandardsId                           int     `pulumi:"controlStandardsId"`
+	ControlVersionNumber                         string  `pulumi:"controlVersionNumber"`
+	EnableDefaultGroupHeaders                    bool    `pulumi:"enableDefaultGroupHeaders"`
+	FunctionalGroupId                            *string `pulumi:"functionalGroupId"`
+	GroupControlNumberLowerBound                 int     `pulumi:"groupControlNumberLowerBound"`
+	GroupControlNumberUpperBound                 int     `pulumi:"groupControlNumberUpperBound"`
+	GroupHeaderAgencyCode                        string  `pulumi:"groupHeaderAgencyCode"`
+	GroupHeaderDateFormat                        string  `pulumi:"groupHeaderDateFormat"`
+	GroupHeaderTimeFormat                        string  `pulumi:"groupHeaderTimeFormat"`
+	GroupHeaderVersion                           string  `pulumi:"groupHeaderVersion"`
+	InterchangeControlNumberLowerBound           int     `pulumi:"interchangeControlNumberLowerBound"`
+	InterchangeControlNumberUpperBound           int     `pulumi:"interchangeControlNumberUpperBound"`
+	OverwriteExistingTransactionSetControlNumber bool    `pulumi:"overwriteExistingTransactionSetControlNumber"`
+	ReceiverApplicationId                        string  `pulumi:"receiverApplicationId"`
+	RolloverGroupControlNumber                   bool    `pulumi:"rolloverGroupControlNumber"`
+	RolloverInterchangeControlNumber             bool    `pulumi:"rolloverInterchangeControlNumber"`
+	RolloverTransactionSetControlNumber          bool    `pulumi:"rolloverTransactionSetControlNumber"`
+	SenderApplicationId                          string  `pulumi:"senderApplicationId"`
+	TransactionSetControlNumberLowerBound        int     `pulumi:"transactionSetControlNumberLowerBound"`
+	TransactionSetControlNumberPrefix            *string `pulumi:"transactionSetControlNumberPrefix"`
+	TransactionSetControlNumberSuffix            *string `pulumi:"transactionSetControlNumberSuffix"`
+	TransactionSetControlNumberUpperBound        int     `pulumi:"transactionSetControlNumberUpperBound"`
+	UsageIndicator                               string  `pulumi:"usageIndicator"`
+	UseControlStandardsIdAsRepetitionCharacter   bool    `pulumi:"useControlStandardsIdAsRepetitionCharacter"`
 }
 
 // X12EnvelopeSettingsInput is an input type that accepts X12EnvelopeSettingsArgs and X12EnvelopeSettingsOutput values.
@@ -21069,56 +18995,31 @@ type X12EnvelopeSettingsInput interface {
 	ToX12EnvelopeSettingsOutputWithContext(context.Context) X12EnvelopeSettingsOutput
 }
 
-// The X12 agreement envelope settings.
 type X12EnvelopeSettingsArgs struct {
-	// The controls standards id.
-	ControlStandardsId pulumi.IntInput `pulumi:"controlStandardsId"`
-	// The control version number.
-	ControlVersionNumber pulumi.StringInput `pulumi:"controlVersionNumber"`
-	// The value indicating whether to enable default group headers.
-	EnableDefaultGroupHeaders pulumi.BoolInput `pulumi:"enableDefaultGroupHeaders"`
-	// The functional group id.
-	FunctionalGroupId pulumi.StringPtrInput `pulumi:"functionalGroupId"`
-	// The group control number lower bound.
-	GroupControlNumberLowerBound pulumi.IntInput `pulumi:"groupControlNumberLowerBound"`
-	// The group control number upper bound.
-	GroupControlNumberUpperBound pulumi.IntInput `pulumi:"groupControlNumberUpperBound"`
-	// The group header agency code.
-	GroupHeaderAgencyCode pulumi.StringInput `pulumi:"groupHeaderAgencyCode"`
-	// The group header date format.
-	GroupHeaderDateFormat pulumi.StringInput `pulumi:"groupHeaderDateFormat"`
-	// The group header time format.
-	GroupHeaderTimeFormat pulumi.StringInput `pulumi:"groupHeaderTimeFormat"`
-	// The group header version.
-	GroupHeaderVersion pulumi.StringInput `pulumi:"groupHeaderVersion"`
-	// The interchange  control number lower bound.
-	InterchangeControlNumberLowerBound pulumi.IntInput `pulumi:"interchangeControlNumberLowerBound"`
-	// The interchange  control number upper bound.
-	InterchangeControlNumberUpperBound pulumi.IntInput `pulumi:"interchangeControlNumberUpperBound"`
-	// The value indicating whether to overwrite existing transaction set control number.
-	OverwriteExistingTransactionSetControlNumber pulumi.BoolInput `pulumi:"overwriteExistingTransactionSetControlNumber"`
-	// The receiver application id.
-	ReceiverApplicationId pulumi.StringInput `pulumi:"receiverApplicationId"`
-	// The value indicating whether to rollover group control number.
-	RolloverGroupControlNumber pulumi.BoolInput `pulumi:"rolloverGroupControlNumber"`
-	// The value indicating whether to rollover interchange control number.
-	RolloverInterchangeControlNumber pulumi.BoolInput `pulumi:"rolloverInterchangeControlNumber"`
-	// The value indicating whether to rollover transaction set control number.
-	RolloverTransactionSetControlNumber pulumi.BoolInput `pulumi:"rolloverTransactionSetControlNumber"`
-	// The sender application id.
-	SenderApplicationId pulumi.StringInput `pulumi:"senderApplicationId"`
-	// The transaction set control number lower bound.
-	TransactionSetControlNumberLowerBound pulumi.IntInput `pulumi:"transactionSetControlNumberLowerBound"`
-	// The transaction set control number prefix.
-	TransactionSetControlNumberPrefix pulumi.StringPtrInput `pulumi:"transactionSetControlNumberPrefix"`
-	// The transaction set control number suffix.
-	TransactionSetControlNumberSuffix pulumi.StringPtrInput `pulumi:"transactionSetControlNumberSuffix"`
-	// The transaction set control number upper bound.
-	TransactionSetControlNumberUpperBound pulumi.IntInput `pulumi:"transactionSetControlNumberUpperBound"`
-	// The usage indicator.
-	UsageIndicator pulumi.StringInput `pulumi:"usageIndicator"`
-	// The value indicating whether to use control standards id as repetition character.
-	UseControlStandardsIdAsRepetitionCharacter pulumi.BoolInput `pulumi:"useControlStandardsIdAsRepetitionCharacter"`
+	ControlStandardsId                           pulumi.IntInput       `pulumi:"controlStandardsId"`
+	ControlVersionNumber                         pulumi.StringInput    `pulumi:"controlVersionNumber"`
+	EnableDefaultGroupHeaders                    pulumi.BoolInput      `pulumi:"enableDefaultGroupHeaders"`
+	FunctionalGroupId                            pulumi.StringPtrInput `pulumi:"functionalGroupId"`
+	GroupControlNumberLowerBound                 pulumi.IntInput       `pulumi:"groupControlNumberLowerBound"`
+	GroupControlNumberUpperBound                 pulumi.IntInput       `pulumi:"groupControlNumberUpperBound"`
+	GroupHeaderAgencyCode                        pulumi.StringInput    `pulumi:"groupHeaderAgencyCode"`
+	GroupHeaderDateFormat                        pulumi.StringInput    `pulumi:"groupHeaderDateFormat"`
+	GroupHeaderTimeFormat                        pulumi.StringInput    `pulumi:"groupHeaderTimeFormat"`
+	GroupHeaderVersion                           pulumi.StringInput    `pulumi:"groupHeaderVersion"`
+	InterchangeControlNumberLowerBound           pulumi.IntInput       `pulumi:"interchangeControlNumberLowerBound"`
+	InterchangeControlNumberUpperBound           pulumi.IntInput       `pulumi:"interchangeControlNumberUpperBound"`
+	OverwriteExistingTransactionSetControlNumber pulumi.BoolInput      `pulumi:"overwriteExistingTransactionSetControlNumber"`
+	ReceiverApplicationId                        pulumi.StringInput    `pulumi:"receiverApplicationId"`
+	RolloverGroupControlNumber                   pulumi.BoolInput      `pulumi:"rolloverGroupControlNumber"`
+	RolloverInterchangeControlNumber             pulumi.BoolInput      `pulumi:"rolloverInterchangeControlNumber"`
+	RolloverTransactionSetControlNumber          pulumi.BoolInput      `pulumi:"rolloverTransactionSetControlNumber"`
+	SenderApplicationId                          pulumi.StringInput    `pulumi:"senderApplicationId"`
+	TransactionSetControlNumberLowerBound        pulumi.IntInput       `pulumi:"transactionSetControlNumberLowerBound"`
+	TransactionSetControlNumberPrefix            pulumi.StringPtrInput `pulumi:"transactionSetControlNumberPrefix"`
+	TransactionSetControlNumberSuffix            pulumi.StringPtrInput `pulumi:"transactionSetControlNumberSuffix"`
+	TransactionSetControlNumberUpperBound        pulumi.IntInput       `pulumi:"transactionSetControlNumberUpperBound"`
+	UsageIndicator                               pulumi.StringInput    `pulumi:"usageIndicator"`
+	UseControlStandardsIdAsRepetitionCharacter   pulumi.BoolInput      `pulumi:"useControlStandardsIdAsRepetitionCharacter"`
 }
 
 func (X12EnvelopeSettingsArgs) ElementType() reflect.Type {
@@ -21174,7 +19075,6 @@ func (i *x12envelopeSettingsPtrType) ToX12EnvelopeSettingsPtrOutputWithContext(c
 	return pulumi.ToOutputWithContext(ctx, i).(X12EnvelopeSettingsPtrOutput)
 }
 
-// The X12 agreement envelope settings.
 type X12EnvelopeSettingsOutput struct{ *pulumi.OutputState }
 
 func (X12EnvelopeSettingsOutput) ElementType() reflect.Type {
@@ -21194,127 +19094,103 @@ func (o X12EnvelopeSettingsOutput) ToX12EnvelopeSettingsPtrOutput() X12EnvelopeS
 }
 
 func (o X12EnvelopeSettingsOutput) ToX12EnvelopeSettingsPtrOutputWithContext(ctx context.Context) X12EnvelopeSettingsPtrOutput {
-	return o.ApplyT(func(v X12EnvelopeSettings) *X12EnvelopeSettings {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v X12EnvelopeSettings) *X12EnvelopeSettings {
 		return &v
 	}).(X12EnvelopeSettingsPtrOutput)
 }
 
-// The controls standards id.
 func (o X12EnvelopeSettingsOutput) ControlStandardsId() pulumi.IntOutput {
 	return o.ApplyT(func(v X12EnvelopeSettings) int { return v.ControlStandardsId }).(pulumi.IntOutput)
 }
 
-// The control version number.
 func (o X12EnvelopeSettingsOutput) ControlVersionNumber() pulumi.StringOutput {
 	return o.ApplyT(func(v X12EnvelopeSettings) string { return v.ControlVersionNumber }).(pulumi.StringOutput)
 }
 
-// The value indicating whether to enable default group headers.
 func (o X12EnvelopeSettingsOutput) EnableDefaultGroupHeaders() pulumi.BoolOutput {
 	return o.ApplyT(func(v X12EnvelopeSettings) bool { return v.EnableDefaultGroupHeaders }).(pulumi.BoolOutput)
 }
 
-// The functional group id.
 func (o X12EnvelopeSettingsOutput) FunctionalGroupId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v X12EnvelopeSettings) *string { return v.FunctionalGroupId }).(pulumi.StringPtrOutput)
 }
 
-// The group control number lower bound.
 func (o X12EnvelopeSettingsOutput) GroupControlNumberLowerBound() pulumi.IntOutput {
 	return o.ApplyT(func(v X12EnvelopeSettings) int { return v.GroupControlNumberLowerBound }).(pulumi.IntOutput)
 }
 
-// The group control number upper bound.
 func (o X12EnvelopeSettingsOutput) GroupControlNumberUpperBound() pulumi.IntOutput {
 	return o.ApplyT(func(v X12EnvelopeSettings) int { return v.GroupControlNumberUpperBound }).(pulumi.IntOutput)
 }
 
-// The group header agency code.
 func (o X12EnvelopeSettingsOutput) GroupHeaderAgencyCode() pulumi.StringOutput {
 	return o.ApplyT(func(v X12EnvelopeSettings) string { return v.GroupHeaderAgencyCode }).(pulumi.StringOutput)
 }
 
-// The group header date format.
 func (o X12EnvelopeSettingsOutput) GroupHeaderDateFormat() pulumi.StringOutput {
 	return o.ApplyT(func(v X12EnvelopeSettings) string { return v.GroupHeaderDateFormat }).(pulumi.StringOutput)
 }
 
-// The group header time format.
 func (o X12EnvelopeSettingsOutput) GroupHeaderTimeFormat() pulumi.StringOutput {
 	return o.ApplyT(func(v X12EnvelopeSettings) string { return v.GroupHeaderTimeFormat }).(pulumi.StringOutput)
 }
 
-// The group header version.
 func (o X12EnvelopeSettingsOutput) GroupHeaderVersion() pulumi.StringOutput {
 	return o.ApplyT(func(v X12EnvelopeSettings) string { return v.GroupHeaderVersion }).(pulumi.StringOutput)
 }
 
-// The interchange  control number lower bound.
 func (o X12EnvelopeSettingsOutput) InterchangeControlNumberLowerBound() pulumi.IntOutput {
 	return o.ApplyT(func(v X12EnvelopeSettings) int { return v.InterchangeControlNumberLowerBound }).(pulumi.IntOutput)
 }
 
-// The interchange  control number upper bound.
 func (o X12EnvelopeSettingsOutput) InterchangeControlNumberUpperBound() pulumi.IntOutput {
 	return o.ApplyT(func(v X12EnvelopeSettings) int { return v.InterchangeControlNumberUpperBound }).(pulumi.IntOutput)
 }
 
-// The value indicating whether to overwrite existing transaction set control number.
 func (o X12EnvelopeSettingsOutput) OverwriteExistingTransactionSetControlNumber() pulumi.BoolOutput {
 	return o.ApplyT(func(v X12EnvelopeSettings) bool { return v.OverwriteExistingTransactionSetControlNumber }).(pulumi.BoolOutput)
 }
 
-// The receiver application id.
 func (o X12EnvelopeSettingsOutput) ReceiverApplicationId() pulumi.StringOutput {
 	return o.ApplyT(func(v X12EnvelopeSettings) string { return v.ReceiverApplicationId }).(pulumi.StringOutput)
 }
 
-// The value indicating whether to rollover group control number.
 func (o X12EnvelopeSettingsOutput) RolloverGroupControlNumber() pulumi.BoolOutput {
 	return o.ApplyT(func(v X12EnvelopeSettings) bool { return v.RolloverGroupControlNumber }).(pulumi.BoolOutput)
 }
 
-// The value indicating whether to rollover interchange control number.
 func (o X12EnvelopeSettingsOutput) RolloverInterchangeControlNumber() pulumi.BoolOutput {
 	return o.ApplyT(func(v X12EnvelopeSettings) bool { return v.RolloverInterchangeControlNumber }).(pulumi.BoolOutput)
 }
 
-// The value indicating whether to rollover transaction set control number.
 func (o X12EnvelopeSettingsOutput) RolloverTransactionSetControlNumber() pulumi.BoolOutput {
 	return o.ApplyT(func(v X12EnvelopeSettings) bool { return v.RolloverTransactionSetControlNumber }).(pulumi.BoolOutput)
 }
 
-// The sender application id.
 func (o X12EnvelopeSettingsOutput) SenderApplicationId() pulumi.StringOutput {
 	return o.ApplyT(func(v X12EnvelopeSettings) string { return v.SenderApplicationId }).(pulumi.StringOutput)
 }
 
-// The transaction set control number lower bound.
 func (o X12EnvelopeSettingsOutput) TransactionSetControlNumberLowerBound() pulumi.IntOutput {
 	return o.ApplyT(func(v X12EnvelopeSettings) int { return v.TransactionSetControlNumberLowerBound }).(pulumi.IntOutput)
 }
 
-// The transaction set control number prefix.
 func (o X12EnvelopeSettingsOutput) TransactionSetControlNumberPrefix() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v X12EnvelopeSettings) *string { return v.TransactionSetControlNumberPrefix }).(pulumi.StringPtrOutput)
 }
 
-// The transaction set control number suffix.
 func (o X12EnvelopeSettingsOutput) TransactionSetControlNumberSuffix() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v X12EnvelopeSettings) *string { return v.TransactionSetControlNumberSuffix }).(pulumi.StringPtrOutput)
 }
 
-// The transaction set control number upper bound.
 func (o X12EnvelopeSettingsOutput) TransactionSetControlNumberUpperBound() pulumi.IntOutput {
 	return o.ApplyT(func(v X12EnvelopeSettings) int { return v.TransactionSetControlNumberUpperBound }).(pulumi.IntOutput)
 }
 
-// The usage indicator.
 func (o X12EnvelopeSettingsOutput) UsageIndicator() pulumi.StringOutput {
 	return o.ApplyT(func(v X12EnvelopeSettings) string { return v.UsageIndicator }).(pulumi.StringOutput)
 }
 
-// The value indicating whether to use control standards id as repetition character.
 func (o X12EnvelopeSettingsOutput) UseControlStandardsIdAsRepetitionCharacter() pulumi.BoolOutput {
 	return o.ApplyT(func(v X12EnvelopeSettings) bool { return v.UseControlStandardsIdAsRepetitionCharacter }).(pulumi.BoolOutput)
 }
@@ -21334,10 +19210,15 @@ func (o X12EnvelopeSettingsPtrOutput) ToX12EnvelopeSettingsPtrOutputWithContext(
 }
 
 func (o X12EnvelopeSettingsPtrOutput) Elem() X12EnvelopeSettingsOutput {
-	return o.ApplyT(func(v *X12EnvelopeSettings) X12EnvelopeSettings { return *v }).(X12EnvelopeSettingsOutput)
+	return o.ApplyT(func(v *X12EnvelopeSettings) X12EnvelopeSettings {
+		if v != nil {
+			return *v
+		}
+		var ret X12EnvelopeSettings
+		return ret
+	}).(X12EnvelopeSettingsOutput)
 }
 
-// The controls standards id.
 func (o X12EnvelopeSettingsPtrOutput) ControlStandardsId() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *X12EnvelopeSettings) *int {
 		if v == nil {
@@ -21347,7 +19228,6 @@ func (o X12EnvelopeSettingsPtrOutput) ControlStandardsId() pulumi.IntPtrOutput {
 	}).(pulumi.IntPtrOutput)
 }
 
-// The control version number.
 func (o X12EnvelopeSettingsPtrOutput) ControlVersionNumber() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *X12EnvelopeSettings) *string {
 		if v == nil {
@@ -21357,7 +19237,6 @@ func (o X12EnvelopeSettingsPtrOutput) ControlVersionNumber() pulumi.StringPtrOut
 	}).(pulumi.StringPtrOutput)
 }
 
-// The value indicating whether to enable default group headers.
 func (o X12EnvelopeSettingsPtrOutput) EnableDefaultGroupHeaders() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *X12EnvelopeSettings) *bool {
 		if v == nil {
@@ -21367,7 +19246,6 @@ func (o X12EnvelopeSettingsPtrOutput) EnableDefaultGroupHeaders() pulumi.BoolPtr
 	}).(pulumi.BoolPtrOutput)
 }
 
-// The functional group id.
 func (o X12EnvelopeSettingsPtrOutput) FunctionalGroupId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *X12EnvelopeSettings) *string {
 		if v == nil {
@@ -21377,7 +19255,6 @@ func (o X12EnvelopeSettingsPtrOutput) FunctionalGroupId() pulumi.StringPtrOutput
 	}).(pulumi.StringPtrOutput)
 }
 
-// The group control number lower bound.
 func (o X12EnvelopeSettingsPtrOutput) GroupControlNumberLowerBound() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *X12EnvelopeSettings) *int {
 		if v == nil {
@@ -21387,7 +19264,6 @@ func (o X12EnvelopeSettingsPtrOutput) GroupControlNumberLowerBound() pulumi.IntP
 	}).(pulumi.IntPtrOutput)
 }
 
-// The group control number upper bound.
 func (o X12EnvelopeSettingsPtrOutput) GroupControlNumberUpperBound() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *X12EnvelopeSettings) *int {
 		if v == nil {
@@ -21397,7 +19273,6 @@ func (o X12EnvelopeSettingsPtrOutput) GroupControlNumberUpperBound() pulumi.IntP
 	}).(pulumi.IntPtrOutput)
 }
 
-// The group header agency code.
 func (o X12EnvelopeSettingsPtrOutput) GroupHeaderAgencyCode() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *X12EnvelopeSettings) *string {
 		if v == nil {
@@ -21407,7 +19282,6 @@ func (o X12EnvelopeSettingsPtrOutput) GroupHeaderAgencyCode() pulumi.StringPtrOu
 	}).(pulumi.StringPtrOutput)
 }
 
-// The group header date format.
 func (o X12EnvelopeSettingsPtrOutput) GroupHeaderDateFormat() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *X12EnvelopeSettings) *string {
 		if v == nil {
@@ -21417,7 +19291,6 @@ func (o X12EnvelopeSettingsPtrOutput) GroupHeaderDateFormat() pulumi.StringPtrOu
 	}).(pulumi.StringPtrOutput)
 }
 
-// The group header time format.
 func (o X12EnvelopeSettingsPtrOutput) GroupHeaderTimeFormat() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *X12EnvelopeSettings) *string {
 		if v == nil {
@@ -21427,7 +19300,6 @@ func (o X12EnvelopeSettingsPtrOutput) GroupHeaderTimeFormat() pulumi.StringPtrOu
 	}).(pulumi.StringPtrOutput)
 }
 
-// The group header version.
 func (o X12EnvelopeSettingsPtrOutput) GroupHeaderVersion() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *X12EnvelopeSettings) *string {
 		if v == nil {
@@ -21437,7 +19309,6 @@ func (o X12EnvelopeSettingsPtrOutput) GroupHeaderVersion() pulumi.StringPtrOutpu
 	}).(pulumi.StringPtrOutput)
 }
 
-// The interchange  control number lower bound.
 func (o X12EnvelopeSettingsPtrOutput) InterchangeControlNumberLowerBound() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *X12EnvelopeSettings) *int {
 		if v == nil {
@@ -21447,7 +19318,6 @@ func (o X12EnvelopeSettingsPtrOutput) InterchangeControlNumberLowerBound() pulum
 	}).(pulumi.IntPtrOutput)
 }
 
-// The interchange  control number upper bound.
 func (o X12EnvelopeSettingsPtrOutput) InterchangeControlNumberUpperBound() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *X12EnvelopeSettings) *int {
 		if v == nil {
@@ -21457,7 +19327,6 @@ func (o X12EnvelopeSettingsPtrOutput) InterchangeControlNumberUpperBound() pulum
 	}).(pulumi.IntPtrOutput)
 }
 
-// The value indicating whether to overwrite existing transaction set control number.
 func (o X12EnvelopeSettingsPtrOutput) OverwriteExistingTransactionSetControlNumber() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *X12EnvelopeSettings) *bool {
 		if v == nil {
@@ -21467,7 +19336,6 @@ func (o X12EnvelopeSettingsPtrOutput) OverwriteExistingTransactionSetControlNumb
 	}).(pulumi.BoolPtrOutput)
 }
 
-// The receiver application id.
 func (o X12EnvelopeSettingsPtrOutput) ReceiverApplicationId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *X12EnvelopeSettings) *string {
 		if v == nil {
@@ -21477,7 +19345,6 @@ func (o X12EnvelopeSettingsPtrOutput) ReceiverApplicationId() pulumi.StringPtrOu
 	}).(pulumi.StringPtrOutput)
 }
 
-// The value indicating whether to rollover group control number.
 func (o X12EnvelopeSettingsPtrOutput) RolloverGroupControlNumber() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *X12EnvelopeSettings) *bool {
 		if v == nil {
@@ -21487,7 +19354,6 @@ func (o X12EnvelopeSettingsPtrOutput) RolloverGroupControlNumber() pulumi.BoolPt
 	}).(pulumi.BoolPtrOutput)
 }
 
-// The value indicating whether to rollover interchange control number.
 func (o X12EnvelopeSettingsPtrOutput) RolloverInterchangeControlNumber() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *X12EnvelopeSettings) *bool {
 		if v == nil {
@@ -21497,7 +19363,6 @@ func (o X12EnvelopeSettingsPtrOutput) RolloverInterchangeControlNumber() pulumi.
 	}).(pulumi.BoolPtrOutput)
 }
 
-// The value indicating whether to rollover transaction set control number.
 func (o X12EnvelopeSettingsPtrOutput) RolloverTransactionSetControlNumber() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *X12EnvelopeSettings) *bool {
 		if v == nil {
@@ -21507,7 +19372,6 @@ func (o X12EnvelopeSettingsPtrOutput) RolloverTransactionSetControlNumber() pulu
 	}).(pulumi.BoolPtrOutput)
 }
 
-// The sender application id.
 func (o X12EnvelopeSettingsPtrOutput) SenderApplicationId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *X12EnvelopeSettings) *string {
 		if v == nil {
@@ -21517,7 +19381,6 @@ func (o X12EnvelopeSettingsPtrOutput) SenderApplicationId() pulumi.StringPtrOutp
 	}).(pulumi.StringPtrOutput)
 }
 
-// The transaction set control number lower bound.
 func (o X12EnvelopeSettingsPtrOutput) TransactionSetControlNumberLowerBound() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *X12EnvelopeSettings) *int {
 		if v == nil {
@@ -21527,7 +19390,6 @@ func (o X12EnvelopeSettingsPtrOutput) TransactionSetControlNumberLowerBound() pu
 	}).(pulumi.IntPtrOutput)
 }
 
-// The transaction set control number prefix.
 func (o X12EnvelopeSettingsPtrOutput) TransactionSetControlNumberPrefix() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *X12EnvelopeSettings) *string {
 		if v == nil {
@@ -21537,7 +19399,6 @@ func (o X12EnvelopeSettingsPtrOutput) TransactionSetControlNumberPrefix() pulumi
 	}).(pulumi.StringPtrOutput)
 }
 
-// The transaction set control number suffix.
 func (o X12EnvelopeSettingsPtrOutput) TransactionSetControlNumberSuffix() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *X12EnvelopeSettings) *string {
 		if v == nil {
@@ -21547,7 +19408,6 @@ func (o X12EnvelopeSettingsPtrOutput) TransactionSetControlNumberSuffix() pulumi
 	}).(pulumi.StringPtrOutput)
 }
 
-// The transaction set control number upper bound.
 func (o X12EnvelopeSettingsPtrOutput) TransactionSetControlNumberUpperBound() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *X12EnvelopeSettings) *int {
 		if v == nil {
@@ -21557,7 +19417,6 @@ func (o X12EnvelopeSettingsPtrOutput) TransactionSetControlNumberUpperBound() pu
 	}).(pulumi.IntPtrOutput)
 }
 
-// The usage indicator.
 func (o X12EnvelopeSettingsPtrOutput) UsageIndicator() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *X12EnvelopeSettings) *string {
 		if v == nil {
@@ -21567,7 +19426,6 @@ func (o X12EnvelopeSettingsPtrOutput) UsageIndicator() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The value indicating whether to use control standards id as repetition character.
 func (o X12EnvelopeSettingsPtrOutput) UseControlStandardsIdAsRepetitionCharacter() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *X12EnvelopeSettings) *bool {
 		if v == nil {
@@ -21577,56 +19435,31 @@ func (o X12EnvelopeSettingsPtrOutput) UseControlStandardsIdAsRepetitionCharacter
 	}).(pulumi.BoolPtrOutput)
 }
 
-// The X12 agreement envelope settings.
 type X12EnvelopeSettingsResponse struct {
-	// The controls standards id.
-	ControlStandardsId int `pulumi:"controlStandardsId"`
-	// The control version number.
-	ControlVersionNumber string `pulumi:"controlVersionNumber"`
-	// The value indicating whether to enable default group headers.
-	EnableDefaultGroupHeaders bool `pulumi:"enableDefaultGroupHeaders"`
-	// The functional group id.
-	FunctionalGroupId *string `pulumi:"functionalGroupId"`
-	// The group control number lower bound.
-	GroupControlNumberLowerBound int `pulumi:"groupControlNumberLowerBound"`
-	// The group control number upper bound.
-	GroupControlNumberUpperBound int `pulumi:"groupControlNumberUpperBound"`
-	// The group header agency code.
-	GroupHeaderAgencyCode string `pulumi:"groupHeaderAgencyCode"`
-	// The group header date format.
-	GroupHeaderDateFormat string `pulumi:"groupHeaderDateFormat"`
-	// The group header time format.
-	GroupHeaderTimeFormat string `pulumi:"groupHeaderTimeFormat"`
-	// The group header version.
-	GroupHeaderVersion string `pulumi:"groupHeaderVersion"`
-	// The interchange  control number lower bound.
-	InterchangeControlNumberLowerBound int `pulumi:"interchangeControlNumberLowerBound"`
-	// The interchange  control number upper bound.
-	InterchangeControlNumberUpperBound int `pulumi:"interchangeControlNumberUpperBound"`
-	// The value indicating whether to overwrite existing transaction set control number.
-	OverwriteExistingTransactionSetControlNumber bool `pulumi:"overwriteExistingTransactionSetControlNumber"`
-	// The receiver application id.
-	ReceiverApplicationId string `pulumi:"receiverApplicationId"`
-	// The value indicating whether to rollover group control number.
-	RolloverGroupControlNumber bool `pulumi:"rolloverGroupControlNumber"`
-	// The value indicating whether to rollover interchange control number.
-	RolloverInterchangeControlNumber bool `pulumi:"rolloverInterchangeControlNumber"`
-	// The value indicating whether to rollover transaction set control number.
-	RolloverTransactionSetControlNumber bool `pulumi:"rolloverTransactionSetControlNumber"`
-	// The sender application id.
-	SenderApplicationId string `pulumi:"senderApplicationId"`
-	// The transaction set control number lower bound.
-	TransactionSetControlNumberLowerBound int `pulumi:"transactionSetControlNumberLowerBound"`
-	// The transaction set control number prefix.
-	TransactionSetControlNumberPrefix *string `pulumi:"transactionSetControlNumberPrefix"`
-	// The transaction set control number suffix.
-	TransactionSetControlNumberSuffix *string `pulumi:"transactionSetControlNumberSuffix"`
-	// The transaction set control number upper bound.
-	TransactionSetControlNumberUpperBound int `pulumi:"transactionSetControlNumberUpperBound"`
-	// The usage indicator.
-	UsageIndicator string `pulumi:"usageIndicator"`
-	// The value indicating whether to use control standards id as repetition character.
-	UseControlStandardsIdAsRepetitionCharacter bool `pulumi:"useControlStandardsIdAsRepetitionCharacter"`
+	ControlStandardsId                           int     `pulumi:"controlStandardsId"`
+	ControlVersionNumber                         string  `pulumi:"controlVersionNumber"`
+	EnableDefaultGroupHeaders                    bool    `pulumi:"enableDefaultGroupHeaders"`
+	FunctionalGroupId                            *string `pulumi:"functionalGroupId"`
+	GroupControlNumberLowerBound                 int     `pulumi:"groupControlNumberLowerBound"`
+	GroupControlNumberUpperBound                 int     `pulumi:"groupControlNumberUpperBound"`
+	GroupHeaderAgencyCode                        string  `pulumi:"groupHeaderAgencyCode"`
+	GroupHeaderDateFormat                        string  `pulumi:"groupHeaderDateFormat"`
+	GroupHeaderTimeFormat                        string  `pulumi:"groupHeaderTimeFormat"`
+	GroupHeaderVersion                           string  `pulumi:"groupHeaderVersion"`
+	InterchangeControlNumberLowerBound           int     `pulumi:"interchangeControlNumberLowerBound"`
+	InterchangeControlNumberUpperBound           int     `pulumi:"interchangeControlNumberUpperBound"`
+	OverwriteExistingTransactionSetControlNumber bool    `pulumi:"overwriteExistingTransactionSetControlNumber"`
+	ReceiverApplicationId                        string  `pulumi:"receiverApplicationId"`
+	RolloverGroupControlNumber                   bool    `pulumi:"rolloverGroupControlNumber"`
+	RolloverInterchangeControlNumber             bool    `pulumi:"rolloverInterchangeControlNumber"`
+	RolloverTransactionSetControlNumber          bool    `pulumi:"rolloverTransactionSetControlNumber"`
+	SenderApplicationId                          string  `pulumi:"senderApplicationId"`
+	TransactionSetControlNumberLowerBound        int     `pulumi:"transactionSetControlNumberLowerBound"`
+	TransactionSetControlNumberPrefix            *string `pulumi:"transactionSetControlNumberPrefix"`
+	TransactionSetControlNumberSuffix            *string `pulumi:"transactionSetControlNumberSuffix"`
+	TransactionSetControlNumberUpperBound        int     `pulumi:"transactionSetControlNumberUpperBound"`
+	UsageIndicator                               string  `pulumi:"usageIndicator"`
+	UseControlStandardsIdAsRepetitionCharacter   bool    `pulumi:"useControlStandardsIdAsRepetitionCharacter"`
 }
 
 // X12EnvelopeSettingsResponseInput is an input type that accepts X12EnvelopeSettingsResponseArgs and X12EnvelopeSettingsResponseOutput values.
@@ -21640,56 +19473,31 @@ type X12EnvelopeSettingsResponseInput interface {
 	ToX12EnvelopeSettingsResponseOutputWithContext(context.Context) X12EnvelopeSettingsResponseOutput
 }
 
-// The X12 agreement envelope settings.
 type X12EnvelopeSettingsResponseArgs struct {
-	// The controls standards id.
-	ControlStandardsId pulumi.IntInput `pulumi:"controlStandardsId"`
-	// The control version number.
-	ControlVersionNumber pulumi.StringInput `pulumi:"controlVersionNumber"`
-	// The value indicating whether to enable default group headers.
-	EnableDefaultGroupHeaders pulumi.BoolInput `pulumi:"enableDefaultGroupHeaders"`
-	// The functional group id.
-	FunctionalGroupId pulumi.StringPtrInput `pulumi:"functionalGroupId"`
-	// The group control number lower bound.
-	GroupControlNumberLowerBound pulumi.IntInput `pulumi:"groupControlNumberLowerBound"`
-	// The group control number upper bound.
-	GroupControlNumberUpperBound pulumi.IntInput `pulumi:"groupControlNumberUpperBound"`
-	// The group header agency code.
-	GroupHeaderAgencyCode pulumi.StringInput `pulumi:"groupHeaderAgencyCode"`
-	// The group header date format.
-	GroupHeaderDateFormat pulumi.StringInput `pulumi:"groupHeaderDateFormat"`
-	// The group header time format.
-	GroupHeaderTimeFormat pulumi.StringInput `pulumi:"groupHeaderTimeFormat"`
-	// The group header version.
-	GroupHeaderVersion pulumi.StringInput `pulumi:"groupHeaderVersion"`
-	// The interchange  control number lower bound.
-	InterchangeControlNumberLowerBound pulumi.IntInput `pulumi:"interchangeControlNumberLowerBound"`
-	// The interchange  control number upper bound.
-	InterchangeControlNumberUpperBound pulumi.IntInput `pulumi:"interchangeControlNumberUpperBound"`
-	// The value indicating whether to overwrite existing transaction set control number.
-	OverwriteExistingTransactionSetControlNumber pulumi.BoolInput `pulumi:"overwriteExistingTransactionSetControlNumber"`
-	// The receiver application id.
-	ReceiverApplicationId pulumi.StringInput `pulumi:"receiverApplicationId"`
-	// The value indicating whether to rollover group control number.
-	RolloverGroupControlNumber pulumi.BoolInput `pulumi:"rolloverGroupControlNumber"`
-	// The value indicating whether to rollover interchange control number.
-	RolloverInterchangeControlNumber pulumi.BoolInput `pulumi:"rolloverInterchangeControlNumber"`
-	// The value indicating whether to rollover transaction set control number.
-	RolloverTransactionSetControlNumber pulumi.BoolInput `pulumi:"rolloverTransactionSetControlNumber"`
-	// The sender application id.
-	SenderApplicationId pulumi.StringInput `pulumi:"senderApplicationId"`
-	// The transaction set control number lower bound.
-	TransactionSetControlNumberLowerBound pulumi.IntInput `pulumi:"transactionSetControlNumberLowerBound"`
-	// The transaction set control number prefix.
-	TransactionSetControlNumberPrefix pulumi.StringPtrInput `pulumi:"transactionSetControlNumberPrefix"`
-	// The transaction set control number suffix.
-	TransactionSetControlNumberSuffix pulumi.StringPtrInput `pulumi:"transactionSetControlNumberSuffix"`
-	// The transaction set control number upper bound.
-	TransactionSetControlNumberUpperBound pulumi.IntInput `pulumi:"transactionSetControlNumberUpperBound"`
-	// The usage indicator.
-	UsageIndicator pulumi.StringInput `pulumi:"usageIndicator"`
-	// The value indicating whether to use control standards id as repetition character.
-	UseControlStandardsIdAsRepetitionCharacter pulumi.BoolInput `pulumi:"useControlStandardsIdAsRepetitionCharacter"`
+	ControlStandardsId                           pulumi.IntInput       `pulumi:"controlStandardsId"`
+	ControlVersionNumber                         pulumi.StringInput    `pulumi:"controlVersionNumber"`
+	EnableDefaultGroupHeaders                    pulumi.BoolInput      `pulumi:"enableDefaultGroupHeaders"`
+	FunctionalGroupId                            pulumi.StringPtrInput `pulumi:"functionalGroupId"`
+	GroupControlNumberLowerBound                 pulumi.IntInput       `pulumi:"groupControlNumberLowerBound"`
+	GroupControlNumberUpperBound                 pulumi.IntInput       `pulumi:"groupControlNumberUpperBound"`
+	GroupHeaderAgencyCode                        pulumi.StringInput    `pulumi:"groupHeaderAgencyCode"`
+	GroupHeaderDateFormat                        pulumi.StringInput    `pulumi:"groupHeaderDateFormat"`
+	GroupHeaderTimeFormat                        pulumi.StringInput    `pulumi:"groupHeaderTimeFormat"`
+	GroupHeaderVersion                           pulumi.StringInput    `pulumi:"groupHeaderVersion"`
+	InterchangeControlNumberLowerBound           pulumi.IntInput       `pulumi:"interchangeControlNumberLowerBound"`
+	InterchangeControlNumberUpperBound           pulumi.IntInput       `pulumi:"interchangeControlNumberUpperBound"`
+	OverwriteExistingTransactionSetControlNumber pulumi.BoolInput      `pulumi:"overwriteExistingTransactionSetControlNumber"`
+	ReceiverApplicationId                        pulumi.StringInput    `pulumi:"receiverApplicationId"`
+	RolloverGroupControlNumber                   pulumi.BoolInput      `pulumi:"rolloverGroupControlNumber"`
+	RolloverInterchangeControlNumber             pulumi.BoolInput      `pulumi:"rolloverInterchangeControlNumber"`
+	RolloverTransactionSetControlNumber          pulumi.BoolInput      `pulumi:"rolloverTransactionSetControlNumber"`
+	SenderApplicationId                          pulumi.StringInput    `pulumi:"senderApplicationId"`
+	TransactionSetControlNumberLowerBound        pulumi.IntInput       `pulumi:"transactionSetControlNumberLowerBound"`
+	TransactionSetControlNumberPrefix            pulumi.StringPtrInput `pulumi:"transactionSetControlNumberPrefix"`
+	TransactionSetControlNumberSuffix            pulumi.StringPtrInput `pulumi:"transactionSetControlNumberSuffix"`
+	TransactionSetControlNumberUpperBound        pulumi.IntInput       `pulumi:"transactionSetControlNumberUpperBound"`
+	UsageIndicator                               pulumi.StringInput    `pulumi:"usageIndicator"`
+	UseControlStandardsIdAsRepetitionCharacter   pulumi.BoolInput      `pulumi:"useControlStandardsIdAsRepetitionCharacter"`
 }
 
 func (X12EnvelopeSettingsResponseArgs) ElementType() reflect.Type {
@@ -21745,7 +19553,6 @@ func (i *x12envelopeSettingsResponsePtrType) ToX12EnvelopeSettingsResponsePtrOut
 	return pulumi.ToOutputWithContext(ctx, i).(X12EnvelopeSettingsResponsePtrOutput)
 }
 
-// The X12 agreement envelope settings.
 type X12EnvelopeSettingsResponseOutput struct{ *pulumi.OutputState }
 
 func (X12EnvelopeSettingsResponseOutput) ElementType() reflect.Type {
@@ -21765,127 +19572,103 @@ func (o X12EnvelopeSettingsResponseOutput) ToX12EnvelopeSettingsResponsePtrOutpu
 }
 
 func (o X12EnvelopeSettingsResponseOutput) ToX12EnvelopeSettingsResponsePtrOutputWithContext(ctx context.Context) X12EnvelopeSettingsResponsePtrOutput {
-	return o.ApplyT(func(v X12EnvelopeSettingsResponse) *X12EnvelopeSettingsResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v X12EnvelopeSettingsResponse) *X12EnvelopeSettingsResponse {
 		return &v
 	}).(X12EnvelopeSettingsResponsePtrOutput)
 }
 
-// The controls standards id.
 func (o X12EnvelopeSettingsResponseOutput) ControlStandardsId() pulumi.IntOutput {
 	return o.ApplyT(func(v X12EnvelopeSettingsResponse) int { return v.ControlStandardsId }).(pulumi.IntOutput)
 }
 
-// The control version number.
 func (o X12EnvelopeSettingsResponseOutput) ControlVersionNumber() pulumi.StringOutput {
 	return o.ApplyT(func(v X12EnvelopeSettingsResponse) string { return v.ControlVersionNumber }).(pulumi.StringOutput)
 }
 
-// The value indicating whether to enable default group headers.
 func (o X12EnvelopeSettingsResponseOutput) EnableDefaultGroupHeaders() pulumi.BoolOutput {
 	return o.ApplyT(func(v X12EnvelopeSettingsResponse) bool { return v.EnableDefaultGroupHeaders }).(pulumi.BoolOutput)
 }
 
-// The functional group id.
 func (o X12EnvelopeSettingsResponseOutput) FunctionalGroupId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v X12EnvelopeSettingsResponse) *string { return v.FunctionalGroupId }).(pulumi.StringPtrOutput)
 }
 
-// The group control number lower bound.
 func (o X12EnvelopeSettingsResponseOutput) GroupControlNumberLowerBound() pulumi.IntOutput {
 	return o.ApplyT(func(v X12EnvelopeSettingsResponse) int { return v.GroupControlNumberLowerBound }).(pulumi.IntOutput)
 }
 
-// The group control number upper bound.
 func (o X12EnvelopeSettingsResponseOutput) GroupControlNumberUpperBound() pulumi.IntOutput {
 	return o.ApplyT(func(v X12EnvelopeSettingsResponse) int { return v.GroupControlNumberUpperBound }).(pulumi.IntOutput)
 }
 
-// The group header agency code.
 func (o X12EnvelopeSettingsResponseOutput) GroupHeaderAgencyCode() pulumi.StringOutput {
 	return o.ApplyT(func(v X12EnvelopeSettingsResponse) string { return v.GroupHeaderAgencyCode }).(pulumi.StringOutput)
 }
 
-// The group header date format.
 func (o X12EnvelopeSettingsResponseOutput) GroupHeaderDateFormat() pulumi.StringOutput {
 	return o.ApplyT(func(v X12EnvelopeSettingsResponse) string { return v.GroupHeaderDateFormat }).(pulumi.StringOutput)
 }
 
-// The group header time format.
 func (o X12EnvelopeSettingsResponseOutput) GroupHeaderTimeFormat() pulumi.StringOutput {
 	return o.ApplyT(func(v X12EnvelopeSettingsResponse) string { return v.GroupHeaderTimeFormat }).(pulumi.StringOutput)
 }
 
-// The group header version.
 func (o X12EnvelopeSettingsResponseOutput) GroupHeaderVersion() pulumi.StringOutput {
 	return o.ApplyT(func(v X12EnvelopeSettingsResponse) string { return v.GroupHeaderVersion }).(pulumi.StringOutput)
 }
 
-// The interchange  control number lower bound.
 func (o X12EnvelopeSettingsResponseOutput) InterchangeControlNumberLowerBound() pulumi.IntOutput {
 	return o.ApplyT(func(v X12EnvelopeSettingsResponse) int { return v.InterchangeControlNumberLowerBound }).(pulumi.IntOutput)
 }
 
-// The interchange  control number upper bound.
 func (o X12EnvelopeSettingsResponseOutput) InterchangeControlNumberUpperBound() pulumi.IntOutput {
 	return o.ApplyT(func(v X12EnvelopeSettingsResponse) int { return v.InterchangeControlNumberUpperBound }).(pulumi.IntOutput)
 }
 
-// The value indicating whether to overwrite existing transaction set control number.
 func (o X12EnvelopeSettingsResponseOutput) OverwriteExistingTransactionSetControlNumber() pulumi.BoolOutput {
 	return o.ApplyT(func(v X12EnvelopeSettingsResponse) bool { return v.OverwriteExistingTransactionSetControlNumber }).(pulumi.BoolOutput)
 }
 
-// The receiver application id.
 func (o X12EnvelopeSettingsResponseOutput) ReceiverApplicationId() pulumi.StringOutput {
 	return o.ApplyT(func(v X12EnvelopeSettingsResponse) string { return v.ReceiverApplicationId }).(pulumi.StringOutput)
 }
 
-// The value indicating whether to rollover group control number.
 func (o X12EnvelopeSettingsResponseOutput) RolloverGroupControlNumber() pulumi.BoolOutput {
 	return o.ApplyT(func(v X12EnvelopeSettingsResponse) bool { return v.RolloverGroupControlNumber }).(pulumi.BoolOutput)
 }
 
-// The value indicating whether to rollover interchange control number.
 func (o X12EnvelopeSettingsResponseOutput) RolloverInterchangeControlNumber() pulumi.BoolOutput {
 	return o.ApplyT(func(v X12EnvelopeSettingsResponse) bool { return v.RolloverInterchangeControlNumber }).(pulumi.BoolOutput)
 }
 
-// The value indicating whether to rollover transaction set control number.
 func (o X12EnvelopeSettingsResponseOutput) RolloverTransactionSetControlNumber() pulumi.BoolOutput {
 	return o.ApplyT(func(v X12EnvelopeSettingsResponse) bool { return v.RolloverTransactionSetControlNumber }).(pulumi.BoolOutput)
 }
 
-// The sender application id.
 func (o X12EnvelopeSettingsResponseOutput) SenderApplicationId() pulumi.StringOutput {
 	return o.ApplyT(func(v X12EnvelopeSettingsResponse) string { return v.SenderApplicationId }).(pulumi.StringOutput)
 }
 
-// The transaction set control number lower bound.
 func (o X12EnvelopeSettingsResponseOutput) TransactionSetControlNumberLowerBound() pulumi.IntOutput {
 	return o.ApplyT(func(v X12EnvelopeSettingsResponse) int { return v.TransactionSetControlNumberLowerBound }).(pulumi.IntOutput)
 }
 
-// The transaction set control number prefix.
 func (o X12EnvelopeSettingsResponseOutput) TransactionSetControlNumberPrefix() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v X12EnvelopeSettingsResponse) *string { return v.TransactionSetControlNumberPrefix }).(pulumi.StringPtrOutput)
 }
 
-// The transaction set control number suffix.
 func (o X12EnvelopeSettingsResponseOutput) TransactionSetControlNumberSuffix() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v X12EnvelopeSettingsResponse) *string { return v.TransactionSetControlNumberSuffix }).(pulumi.StringPtrOutput)
 }
 
-// The transaction set control number upper bound.
 func (o X12EnvelopeSettingsResponseOutput) TransactionSetControlNumberUpperBound() pulumi.IntOutput {
 	return o.ApplyT(func(v X12EnvelopeSettingsResponse) int { return v.TransactionSetControlNumberUpperBound }).(pulumi.IntOutput)
 }
 
-// The usage indicator.
 func (o X12EnvelopeSettingsResponseOutput) UsageIndicator() pulumi.StringOutput {
 	return o.ApplyT(func(v X12EnvelopeSettingsResponse) string { return v.UsageIndicator }).(pulumi.StringOutput)
 }
 
-// The value indicating whether to use control standards id as repetition character.
 func (o X12EnvelopeSettingsResponseOutput) UseControlStandardsIdAsRepetitionCharacter() pulumi.BoolOutput {
 	return o.ApplyT(func(v X12EnvelopeSettingsResponse) bool { return v.UseControlStandardsIdAsRepetitionCharacter }).(pulumi.BoolOutput)
 }
@@ -21905,10 +19688,15 @@ func (o X12EnvelopeSettingsResponsePtrOutput) ToX12EnvelopeSettingsResponsePtrOu
 }
 
 func (o X12EnvelopeSettingsResponsePtrOutput) Elem() X12EnvelopeSettingsResponseOutput {
-	return o.ApplyT(func(v *X12EnvelopeSettingsResponse) X12EnvelopeSettingsResponse { return *v }).(X12EnvelopeSettingsResponseOutput)
+	return o.ApplyT(func(v *X12EnvelopeSettingsResponse) X12EnvelopeSettingsResponse {
+		if v != nil {
+			return *v
+		}
+		var ret X12EnvelopeSettingsResponse
+		return ret
+	}).(X12EnvelopeSettingsResponseOutput)
 }
 
-// The controls standards id.
 func (o X12EnvelopeSettingsResponsePtrOutput) ControlStandardsId() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *X12EnvelopeSettingsResponse) *int {
 		if v == nil {
@@ -21918,7 +19706,6 @@ func (o X12EnvelopeSettingsResponsePtrOutput) ControlStandardsId() pulumi.IntPtr
 	}).(pulumi.IntPtrOutput)
 }
 
-// The control version number.
 func (o X12EnvelopeSettingsResponsePtrOutput) ControlVersionNumber() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *X12EnvelopeSettingsResponse) *string {
 		if v == nil {
@@ -21928,7 +19715,6 @@ func (o X12EnvelopeSettingsResponsePtrOutput) ControlVersionNumber() pulumi.Stri
 	}).(pulumi.StringPtrOutput)
 }
 
-// The value indicating whether to enable default group headers.
 func (o X12EnvelopeSettingsResponsePtrOutput) EnableDefaultGroupHeaders() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *X12EnvelopeSettingsResponse) *bool {
 		if v == nil {
@@ -21938,7 +19724,6 @@ func (o X12EnvelopeSettingsResponsePtrOutput) EnableDefaultGroupHeaders() pulumi
 	}).(pulumi.BoolPtrOutput)
 }
 
-// The functional group id.
 func (o X12EnvelopeSettingsResponsePtrOutput) FunctionalGroupId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *X12EnvelopeSettingsResponse) *string {
 		if v == nil {
@@ -21948,7 +19733,6 @@ func (o X12EnvelopeSettingsResponsePtrOutput) FunctionalGroupId() pulumi.StringP
 	}).(pulumi.StringPtrOutput)
 }
 
-// The group control number lower bound.
 func (o X12EnvelopeSettingsResponsePtrOutput) GroupControlNumberLowerBound() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *X12EnvelopeSettingsResponse) *int {
 		if v == nil {
@@ -21958,7 +19742,6 @@ func (o X12EnvelopeSettingsResponsePtrOutput) GroupControlNumberLowerBound() pul
 	}).(pulumi.IntPtrOutput)
 }
 
-// The group control number upper bound.
 func (o X12EnvelopeSettingsResponsePtrOutput) GroupControlNumberUpperBound() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *X12EnvelopeSettingsResponse) *int {
 		if v == nil {
@@ -21968,7 +19751,6 @@ func (o X12EnvelopeSettingsResponsePtrOutput) GroupControlNumberUpperBound() pul
 	}).(pulumi.IntPtrOutput)
 }
 
-// The group header agency code.
 func (o X12EnvelopeSettingsResponsePtrOutput) GroupHeaderAgencyCode() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *X12EnvelopeSettingsResponse) *string {
 		if v == nil {
@@ -21978,7 +19760,6 @@ func (o X12EnvelopeSettingsResponsePtrOutput) GroupHeaderAgencyCode() pulumi.Str
 	}).(pulumi.StringPtrOutput)
 }
 
-// The group header date format.
 func (o X12EnvelopeSettingsResponsePtrOutput) GroupHeaderDateFormat() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *X12EnvelopeSettingsResponse) *string {
 		if v == nil {
@@ -21988,7 +19769,6 @@ func (o X12EnvelopeSettingsResponsePtrOutput) GroupHeaderDateFormat() pulumi.Str
 	}).(pulumi.StringPtrOutput)
 }
 
-// The group header time format.
 func (o X12EnvelopeSettingsResponsePtrOutput) GroupHeaderTimeFormat() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *X12EnvelopeSettingsResponse) *string {
 		if v == nil {
@@ -21998,7 +19778,6 @@ func (o X12EnvelopeSettingsResponsePtrOutput) GroupHeaderTimeFormat() pulumi.Str
 	}).(pulumi.StringPtrOutput)
 }
 
-// The group header version.
 func (o X12EnvelopeSettingsResponsePtrOutput) GroupHeaderVersion() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *X12EnvelopeSettingsResponse) *string {
 		if v == nil {
@@ -22008,7 +19787,6 @@ func (o X12EnvelopeSettingsResponsePtrOutput) GroupHeaderVersion() pulumi.String
 	}).(pulumi.StringPtrOutput)
 }
 
-// The interchange  control number lower bound.
 func (o X12EnvelopeSettingsResponsePtrOutput) InterchangeControlNumberLowerBound() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *X12EnvelopeSettingsResponse) *int {
 		if v == nil {
@@ -22018,7 +19796,6 @@ func (o X12EnvelopeSettingsResponsePtrOutput) InterchangeControlNumberLowerBound
 	}).(pulumi.IntPtrOutput)
 }
 
-// The interchange  control number upper bound.
 func (o X12EnvelopeSettingsResponsePtrOutput) InterchangeControlNumberUpperBound() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *X12EnvelopeSettingsResponse) *int {
 		if v == nil {
@@ -22028,7 +19805,6 @@ func (o X12EnvelopeSettingsResponsePtrOutput) InterchangeControlNumberUpperBound
 	}).(pulumi.IntPtrOutput)
 }
 
-// The value indicating whether to overwrite existing transaction set control number.
 func (o X12EnvelopeSettingsResponsePtrOutput) OverwriteExistingTransactionSetControlNumber() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *X12EnvelopeSettingsResponse) *bool {
 		if v == nil {
@@ -22038,7 +19814,6 @@ func (o X12EnvelopeSettingsResponsePtrOutput) OverwriteExistingTransactionSetCon
 	}).(pulumi.BoolPtrOutput)
 }
 
-// The receiver application id.
 func (o X12EnvelopeSettingsResponsePtrOutput) ReceiverApplicationId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *X12EnvelopeSettingsResponse) *string {
 		if v == nil {
@@ -22048,7 +19823,6 @@ func (o X12EnvelopeSettingsResponsePtrOutput) ReceiverApplicationId() pulumi.Str
 	}).(pulumi.StringPtrOutput)
 }
 
-// The value indicating whether to rollover group control number.
 func (o X12EnvelopeSettingsResponsePtrOutput) RolloverGroupControlNumber() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *X12EnvelopeSettingsResponse) *bool {
 		if v == nil {
@@ -22058,7 +19832,6 @@ func (o X12EnvelopeSettingsResponsePtrOutput) RolloverGroupControlNumber() pulum
 	}).(pulumi.BoolPtrOutput)
 }
 
-// The value indicating whether to rollover interchange control number.
 func (o X12EnvelopeSettingsResponsePtrOutput) RolloverInterchangeControlNumber() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *X12EnvelopeSettingsResponse) *bool {
 		if v == nil {
@@ -22068,7 +19841,6 @@ func (o X12EnvelopeSettingsResponsePtrOutput) RolloverInterchangeControlNumber()
 	}).(pulumi.BoolPtrOutput)
 }
 
-// The value indicating whether to rollover transaction set control number.
 func (o X12EnvelopeSettingsResponsePtrOutput) RolloverTransactionSetControlNumber() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *X12EnvelopeSettingsResponse) *bool {
 		if v == nil {
@@ -22078,7 +19850,6 @@ func (o X12EnvelopeSettingsResponsePtrOutput) RolloverTransactionSetControlNumbe
 	}).(pulumi.BoolPtrOutput)
 }
 
-// The sender application id.
 func (o X12EnvelopeSettingsResponsePtrOutput) SenderApplicationId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *X12EnvelopeSettingsResponse) *string {
 		if v == nil {
@@ -22088,7 +19859,6 @@ func (o X12EnvelopeSettingsResponsePtrOutput) SenderApplicationId() pulumi.Strin
 	}).(pulumi.StringPtrOutput)
 }
 
-// The transaction set control number lower bound.
 func (o X12EnvelopeSettingsResponsePtrOutput) TransactionSetControlNumberLowerBound() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *X12EnvelopeSettingsResponse) *int {
 		if v == nil {
@@ -22098,7 +19868,6 @@ func (o X12EnvelopeSettingsResponsePtrOutput) TransactionSetControlNumberLowerBo
 	}).(pulumi.IntPtrOutput)
 }
 
-// The transaction set control number prefix.
 func (o X12EnvelopeSettingsResponsePtrOutput) TransactionSetControlNumberPrefix() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *X12EnvelopeSettingsResponse) *string {
 		if v == nil {
@@ -22108,7 +19877,6 @@ func (o X12EnvelopeSettingsResponsePtrOutput) TransactionSetControlNumberPrefix(
 	}).(pulumi.StringPtrOutput)
 }
 
-// The transaction set control number suffix.
 func (o X12EnvelopeSettingsResponsePtrOutput) TransactionSetControlNumberSuffix() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *X12EnvelopeSettingsResponse) *string {
 		if v == nil {
@@ -22118,7 +19886,6 @@ func (o X12EnvelopeSettingsResponsePtrOutput) TransactionSetControlNumberSuffix(
 	}).(pulumi.StringPtrOutput)
 }
 
-// The transaction set control number upper bound.
 func (o X12EnvelopeSettingsResponsePtrOutput) TransactionSetControlNumberUpperBound() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *X12EnvelopeSettingsResponse) *int {
 		if v == nil {
@@ -22128,7 +19895,6 @@ func (o X12EnvelopeSettingsResponsePtrOutput) TransactionSetControlNumberUpperBo
 	}).(pulumi.IntPtrOutput)
 }
 
-// The usage indicator.
 func (o X12EnvelopeSettingsResponsePtrOutput) UsageIndicator() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *X12EnvelopeSettingsResponse) *string {
 		if v == nil {
@@ -22138,7 +19904,6 @@ func (o X12EnvelopeSettingsResponsePtrOutput) UsageIndicator() pulumi.StringPtrO
 	}).(pulumi.StringPtrOutput)
 }
 
-// The value indicating whether to use control standards id as repetition character.
 func (o X12EnvelopeSettingsResponsePtrOutput) UseControlStandardsIdAsRepetitionCharacter() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *X12EnvelopeSettingsResponse) *bool {
 		if v == nil {
@@ -22148,22 +19913,14 @@ func (o X12EnvelopeSettingsResponsePtrOutput) UseControlStandardsIdAsRepetitionC
 	}).(pulumi.BoolPtrOutput)
 }
 
-// The X12 agreement framing settings.
 type X12FramingSettings struct {
-	// The X12 character set.
-	CharacterSet string `pulumi:"characterSet"`
-	// The component separator.
-	ComponentSeparator int `pulumi:"componentSeparator"`
-	// The data element separator.
-	DataElementSeparator int `pulumi:"dataElementSeparator"`
-	// The replacement character.
-	ReplaceCharacter int `pulumi:"replaceCharacter"`
-	// The value indicating whether to replace separators in payload.
-	ReplaceSeparatorsInPayload bool `pulumi:"replaceSeparatorsInPayload"`
-	// The segment terminator.
-	SegmentTerminator int `pulumi:"segmentTerminator"`
-	// The segment terminator suffix.
-	SegmentTerminatorSuffix string `pulumi:"segmentTerminatorSuffix"`
+	CharacterSet               string                  `pulumi:"characterSet"`
+	ComponentSeparator         int                     `pulumi:"componentSeparator"`
+	DataElementSeparator       int                     `pulumi:"dataElementSeparator"`
+	ReplaceCharacter           int                     `pulumi:"replaceCharacter"`
+	ReplaceSeparatorsInPayload bool                    `pulumi:"replaceSeparatorsInPayload"`
+	SegmentTerminator          int                     `pulumi:"segmentTerminator"`
+	SegmentTerminatorSuffix    SegmentTerminatorSuffix `pulumi:"segmentTerminatorSuffix"`
 }
 
 // X12FramingSettingsInput is an input type that accepts X12FramingSettingsArgs and X12FramingSettingsOutput values.
@@ -22177,22 +19934,14 @@ type X12FramingSettingsInput interface {
 	ToX12FramingSettingsOutputWithContext(context.Context) X12FramingSettingsOutput
 }
 
-// The X12 agreement framing settings.
 type X12FramingSettingsArgs struct {
-	// The X12 character set.
-	CharacterSet pulumi.StringInput `pulumi:"characterSet"`
-	// The component separator.
-	ComponentSeparator pulumi.IntInput `pulumi:"componentSeparator"`
-	// The data element separator.
-	DataElementSeparator pulumi.IntInput `pulumi:"dataElementSeparator"`
-	// The replacement character.
-	ReplaceCharacter pulumi.IntInput `pulumi:"replaceCharacter"`
-	// The value indicating whether to replace separators in payload.
-	ReplaceSeparatorsInPayload pulumi.BoolInput `pulumi:"replaceSeparatorsInPayload"`
-	// The segment terminator.
-	SegmentTerminator pulumi.IntInput `pulumi:"segmentTerminator"`
-	// The segment terminator suffix.
-	SegmentTerminatorSuffix SegmentTerminatorSuffix `pulumi:"segmentTerminatorSuffix"`
+	CharacterSet               pulumi.StringInput           `pulumi:"characterSet"`
+	ComponentSeparator         pulumi.IntInput              `pulumi:"componentSeparator"`
+	DataElementSeparator       pulumi.IntInput              `pulumi:"dataElementSeparator"`
+	ReplaceCharacter           pulumi.IntInput              `pulumi:"replaceCharacter"`
+	ReplaceSeparatorsInPayload pulumi.BoolInput             `pulumi:"replaceSeparatorsInPayload"`
+	SegmentTerminator          pulumi.IntInput              `pulumi:"segmentTerminator"`
+	SegmentTerminatorSuffix    SegmentTerminatorSuffixInput `pulumi:"segmentTerminatorSuffix"`
 }
 
 func (X12FramingSettingsArgs) ElementType() reflect.Type {
@@ -22248,7 +19997,6 @@ func (i *x12framingSettingsPtrType) ToX12FramingSettingsPtrOutputWithContext(ctx
 	return pulumi.ToOutputWithContext(ctx, i).(X12FramingSettingsPtrOutput)
 }
 
-// The X12 agreement framing settings.
 type X12FramingSettingsOutput struct{ *pulumi.OutputState }
 
 func (X12FramingSettingsOutput) ElementType() reflect.Type {
@@ -22268,44 +20016,37 @@ func (o X12FramingSettingsOutput) ToX12FramingSettingsPtrOutput() X12FramingSett
 }
 
 func (o X12FramingSettingsOutput) ToX12FramingSettingsPtrOutputWithContext(ctx context.Context) X12FramingSettingsPtrOutput {
-	return o.ApplyT(func(v X12FramingSettings) *X12FramingSettings {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v X12FramingSettings) *X12FramingSettings {
 		return &v
 	}).(X12FramingSettingsPtrOutput)
 }
 
-// The X12 character set.
 func (o X12FramingSettingsOutput) CharacterSet() pulumi.StringOutput {
 	return o.ApplyT(func(v X12FramingSettings) string { return v.CharacterSet }).(pulumi.StringOutput)
 }
 
-// The component separator.
 func (o X12FramingSettingsOutput) ComponentSeparator() pulumi.IntOutput {
 	return o.ApplyT(func(v X12FramingSettings) int { return v.ComponentSeparator }).(pulumi.IntOutput)
 }
 
-// The data element separator.
 func (o X12FramingSettingsOutput) DataElementSeparator() pulumi.IntOutput {
 	return o.ApplyT(func(v X12FramingSettings) int { return v.DataElementSeparator }).(pulumi.IntOutput)
 }
 
-// The replacement character.
 func (o X12FramingSettingsOutput) ReplaceCharacter() pulumi.IntOutput {
 	return o.ApplyT(func(v X12FramingSettings) int { return v.ReplaceCharacter }).(pulumi.IntOutput)
 }
 
-// The value indicating whether to replace separators in payload.
 func (o X12FramingSettingsOutput) ReplaceSeparatorsInPayload() pulumi.BoolOutput {
 	return o.ApplyT(func(v X12FramingSettings) bool { return v.ReplaceSeparatorsInPayload }).(pulumi.BoolOutput)
 }
 
-// The segment terminator.
 func (o X12FramingSettingsOutput) SegmentTerminator() pulumi.IntOutput {
 	return o.ApplyT(func(v X12FramingSettings) int { return v.SegmentTerminator }).(pulumi.IntOutput)
 }
 
-// The segment terminator suffix.
-func (o X12FramingSettingsOutput) SegmentTerminatorSuffix() pulumi.StringOutput {
-	return o.ApplyT(func(v X12FramingSettings) string { return v.SegmentTerminatorSuffix }).(pulumi.StringOutput)
+func (o X12FramingSettingsOutput) SegmentTerminatorSuffix() SegmentTerminatorSuffixOutput {
+	return o.ApplyT(func(v X12FramingSettings) SegmentTerminatorSuffix { return v.SegmentTerminatorSuffix }).(SegmentTerminatorSuffixOutput)
 }
 
 type X12FramingSettingsPtrOutput struct{ *pulumi.OutputState }
@@ -22323,10 +20064,15 @@ func (o X12FramingSettingsPtrOutput) ToX12FramingSettingsPtrOutputWithContext(ct
 }
 
 func (o X12FramingSettingsPtrOutput) Elem() X12FramingSettingsOutput {
-	return o.ApplyT(func(v *X12FramingSettings) X12FramingSettings { return *v }).(X12FramingSettingsOutput)
+	return o.ApplyT(func(v *X12FramingSettings) X12FramingSettings {
+		if v != nil {
+			return *v
+		}
+		var ret X12FramingSettings
+		return ret
+	}).(X12FramingSettingsOutput)
 }
 
-// The X12 character set.
 func (o X12FramingSettingsPtrOutput) CharacterSet() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *X12FramingSettings) *string {
 		if v == nil {
@@ -22336,7 +20082,6 @@ func (o X12FramingSettingsPtrOutput) CharacterSet() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The component separator.
 func (o X12FramingSettingsPtrOutput) ComponentSeparator() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *X12FramingSettings) *int {
 		if v == nil {
@@ -22346,7 +20091,6 @@ func (o X12FramingSettingsPtrOutput) ComponentSeparator() pulumi.IntPtrOutput {
 	}).(pulumi.IntPtrOutput)
 }
 
-// The data element separator.
 func (o X12FramingSettingsPtrOutput) DataElementSeparator() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *X12FramingSettings) *int {
 		if v == nil {
@@ -22356,7 +20100,6 @@ func (o X12FramingSettingsPtrOutput) DataElementSeparator() pulumi.IntPtrOutput 
 	}).(pulumi.IntPtrOutput)
 }
 
-// The replacement character.
 func (o X12FramingSettingsPtrOutput) ReplaceCharacter() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *X12FramingSettings) *int {
 		if v == nil {
@@ -22366,7 +20109,6 @@ func (o X12FramingSettingsPtrOutput) ReplaceCharacter() pulumi.IntPtrOutput {
 	}).(pulumi.IntPtrOutput)
 }
 
-// The value indicating whether to replace separators in payload.
 func (o X12FramingSettingsPtrOutput) ReplaceSeparatorsInPayload() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *X12FramingSettings) *bool {
 		if v == nil {
@@ -22376,7 +20118,6 @@ func (o X12FramingSettingsPtrOutput) ReplaceSeparatorsInPayload() pulumi.BoolPtr
 	}).(pulumi.BoolPtrOutput)
 }
 
-// The segment terminator.
 func (o X12FramingSettingsPtrOutput) SegmentTerminator() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *X12FramingSettings) *int {
 		if v == nil {
@@ -22386,32 +20127,23 @@ func (o X12FramingSettingsPtrOutput) SegmentTerminator() pulumi.IntPtrOutput {
 	}).(pulumi.IntPtrOutput)
 }
 
-// The segment terminator suffix.
-func (o X12FramingSettingsPtrOutput) SegmentTerminatorSuffix() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *X12FramingSettings) *string {
+func (o X12FramingSettingsPtrOutput) SegmentTerminatorSuffix() SegmentTerminatorSuffixPtrOutput {
+	return o.ApplyT(func(v *X12FramingSettings) *SegmentTerminatorSuffix {
 		if v == nil {
 			return nil
 		}
 		return &v.SegmentTerminatorSuffix
-	}).(pulumi.StringPtrOutput)
+	}).(SegmentTerminatorSuffixPtrOutput)
 }
 
-// The X12 agreement framing settings.
 type X12FramingSettingsResponse struct {
-	// The X12 character set.
-	CharacterSet string `pulumi:"characterSet"`
-	// The component separator.
-	ComponentSeparator int `pulumi:"componentSeparator"`
-	// The data element separator.
-	DataElementSeparator int `pulumi:"dataElementSeparator"`
-	// The replacement character.
-	ReplaceCharacter int `pulumi:"replaceCharacter"`
-	// The value indicating whether to replace separators in payload.
-	ReplaceSeparatorsInPayload bool `pulumi:"replaceSeparatorsInPayload"`
-	// The segment terminator.
-	SegmentTerminator int `pulumi:"segmentTerminator"`
-	// The segment terminator suffix.
-	SegmentTerminatorSuffix string `pulumi:"segmentTerminatorSuffix"`
+	CharacterSet               string `pulumi:"characterSet"`
+	ComponentSeparator         int    `pulumi:"componentSeparator"`
+	DataElementSeparator       int    `pulumi:"dataElementSeparator"`
+	ReplaceCharacter           int    `pulumi:"replaceCharacter"`
+	ReplaceSeparatorsInPayload bool   `pulumi:"replaceSeparatorsInPayload"`
+	SegmentTerminator          int    `pulumi:"segmentTerminator"`
+	SegmentTerminatorSuffix    string `pulumi:"segmentTerminatorSuffix"`
 }
 
 // X12FramingSettingsResponseInput is an input type that accepts X12FramingSettingsResponseArgs and X12FramingSettingsResponseOutput values.
@@ -22425,22 +20157,14 @@ type X12FramingSettingsResponseInput interface {
 	ToX12FramingSettingsResponseOutputWithContext(context.Context) X12FramingSettingsResponseOutput
 }
 
-// The X12 agreement framing settings.
 type X12FramingSettingsResponseArgs struct {
-	// The X12 character set.
-	CharacterSet pulumi.StringInput `pulumi:"characterSet"`
-	// The component separator.
-	ComponentSeparator pulumi.IntInput `pulumi:"componentSeparator"`
-	// The data element separator.
-	DataElementSeparator pulumi.IntInput `pulumi:"dataElementSeparator"`
-	// The replacement character.
-	ReplaceCharacter pulumi.IntInput `pulumi:"replaceCharacter"`
-	// The value indicating whether to replace separators in payload.
-	ReplaceSeparatorsInPayload pulumi.BoolInput `pulumi:"replaceSeparatorsInPayload"`
-	// The segment terminator.
-	SegmentTerminator pulumi.IntInput `pulumi:"segmentTerminator"`
-	// The segment terminator suffix.
-	SegmentTerminatorSuffix pulumi.StringInput `pulumi:"segmentTerminatorSuffix"`
+	CharacterSet               pulumi.StringInput `pulumi:"characterSet"`
+	ComponentSeparator         pulumi.IntInput    `pulumi:"componentSeparator"`
+	DataElementSeparator       pulumi.IntInput    `pulumi:"dataElementSeparator"`
+	ReplaceCharacter           pulumi.IntInput    `pulumi:"replaceCharacter"`
+	ReplaceSeparatorsInPayload pulumi.BoolInput   `pulumi:"replaceSeparatorsInPayload"`
+	SegmentTerminator          pulumi.IntInput    `pulumi:"segmentTerminator"`
+	SegmentTerminatorSuffix    pulumi.StringInput `pulumi:"segmentTerminatorSuffix"`
 }
 
 func (X12FramingSettingsResponseArgs) ElementType() reflect.Type {
@@ -22496,7 +20220,6 @@ func (i *x12framingSettingsResponsePtrType) ToX12FramingSettingsResponsePtrOutpu
 	return pulumi.ToOutputWithContext(ctx, i).(X12FramingSettingsResponsePtrOutput)
 }
 
-// The X12 agreement framing settings.
 type X12FramingSettingsResponseOutput struct{ *pulumi.OutputState }
 
 func (X12FramingSettingsResponseOutput) ElementType() reflect.Type {
@@ -22516,42 +20239,35 @@ func (o X12FramingSettingsResponseOutput) ToX12FramingSettingsResponsePtrOutput(
 }
 
 func (o X12FramingSettingsResponseOutput) ToX12FramingSettingsResponsePtrOutputWithContext(ctx context.Context) X12FramingSettingsResponsePtrOutput {
-	return o.ApplyT(func(v X12FramingSettingsResponse) *X12FramingSettingsResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v X12FramingSettingsResponse) *X12FramingSettingsResponse {
 		return &v
 	}).(X12FramingSettingsResponsePtrOutput)
 }
 
-// The X12 character set.
 func (o X12FramingSettingsResponseOutput) CharacterSet() pulumi.StringOutput {
 	return o.ApplyT(func(v X12FramingSettingsResponse) string { return v.CharacterSet }).(pulumi.StringOutput)
 }
 
-// The component separator.
 func (o X12FramingSettingsResponseOutput) ComponentSeparator() pulumi.IntOutput {
 	return o.ApplyT(func(v X12FramingSettingsResponse) int { return v.ComponentSeparator }).(pulumi.IntOutput)
 }
 
-// The data element separator.
 func (o X12FramingSettingsResponseOutput) DataElementSeparator() pulumi.IntOutput {
 	return o.ApplyT(func(v X12FramingSettingsResponse) int { return v.DataElementSeparator }).(pulumi.IntOutput)
 }
 
-// The replacement character.
 func (o X12FramingSettingsResponseOutput) ReplaceCharacter() pulumi.IntOutput {
 	return o.ApplyT(func(v X12FramingSettingsResponse) int { return v.ReplaceCharacter }).(pulumi.IntOutput)
 }
 
-// The value indicating whether to replace separators in payload.
 func (o X12FramingSettingsResponseOutput) ReplaceSeparatorsInPayload() pulumi.BoolOutput {
 	return o.ApplyT(func(v X12FramingSettingsResponse) bool { return v.ReplaceSeparatorsInPayload }).(pulumi.BoolOutput)
 }
 
-// The segment terminator.
 func (o X12FramingSettingsResponseOutput) SegmentTerminator() pulumi.IntOutput {
 	return o.ApplyT(func(v X12FramingSettingsResponse) int { return v.SegmentTerminator }).(pulumi.IntOutput)
 }
 
-// The segment terminator suffix.
 func (o X12FramingSettingsResponseOutput) SegmentTerminatorSuffix() pulumi.StringOutput {
 	return o.ApplyT(func(v X12FramingSettingsResponse) string { return v.SegmentTerminatorSuffix }).(pulumi.StringOutput)
 }
@@ -22571,10 +20287,15 @@ func (o X12FramingSettingsResponsePtrOutput) ToX12FramingSettingsResponsePtrOutp
 }
 
 func (o X12FramingSettingsResponsePtrOutput) Elem() X12FramingSettingsResponseOutput {
-	return o.ApplyT(func(v *X12FramingSettingsResponse) X12FramingSettingsResponse { return *v }).(X12FramingSettingsResponseOutput)
+	return o.ApplyT(func(v *X12FramingSettingsResponse) X12FramingSettingsResponse {
+		if v != nil {
+			return *v
+		}
+		var ret X12FramingSettingsResponse
+		return ret
+	}).(X12FramingSettingsResponseOutput)
 }
 
-// The X12 character set.
 func (o X12FramingSettingsResponsePtrOutput) CharacterSet() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *X12FramingSettingsResponse) *string {
 		if v == nil {
@@ -22584,7 +20305,6 @@ func (o X12FramingSettingsResponsePtrOutput) CharacterSet() pulumi.StringPtrOutp
 	}).(pulumi.StringPtrOutput)
 }
 
-// The component separator.
 func (o X12FramingSettingsResponsePtrOutput) ComponentSeparator() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *X12FramingSettingsResponse) *int {
 		if v == nil {
@@ -22594,7 +20314,6 @@ func (o X12FramingSettingsResponsePtrOutput) ComponentSeparator() pulumi.IntPtrO
 	}).(pulumi.IntPtrOutput)
 }
 
-// The data element separator.
 func (o X12FramingSettingsResponsePtrOutput) DataElementSeparator() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *X12FramingSettingsResponse) *int {
 		if v == nil {
@@ -22604,7 +20323,6 @@ func (o X12FramingSettingsResponsePtrOutput) DataElementSeparator() pulumi.IntPt
 	}).(pulumi.IntPtrOutput)
 }
 
-// The replacement character.
 func (o X12FramingSettingsResponsePtrOutput) ReplaceCharacter() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *X12FramingSettingsResponse) *int {
 		if v == nil {
@@ -22614,7 +20332,6 @@ func (o X12FramingSettingsResponsePtrOutput) ReplaceCharacter() pulumi.IntPtrOut
 	}).(pulumi.IntPtrOutput)
 }
 
-// The value indicating whether to replace separators in payload.
 func (o X12FramingSettingsResponsePtrOutput) ReplaceSeparatorsInPayload() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *X12FramingSettingsResponse) *bool {
 		if v == nil {
@@ -22624,7 +20341,6 @@ func (o X12FramingSettingsResponsePtrOutput) ReplaceSeparatorsInPayload() pulumi
 	}).(pulumi.BoolPtrOutput)
 }
 
-// The segment terminator.
 func (o X12FramingSettingsResponsePtrOutput) SegmentTerminator() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *X12FramingSettingsResponse) *int {
 		if v == nil {
@@ -22634,7 +20350,6 @@ func (o X12FramingSettingsResponsePtrOutput) SegmentTerminator() pulumi.IntPtrOu
 	}).(pulumi.IntPtrOutput)
 }
 
-// The segment terminator suffix.
 func (o X12FramingSettingsResponsePtrOutput) SegmentTerminatorSuffix() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *X12FramingSettingsResponse) *string {
 		if v == nil {
@@ -22644,9 +20359,7 @@ func (o X12FramingSettingsResponsePtrOutput) SegmentTerminatorSuffix() pulumi.St
 	}).(pulumi.StringPtrOutput)
 }
 
-// The X12 message filter for odata query.
 type X12MessageFilter struct {
-	// The message filter type.
 	MessageFilterType string `pulumi:"messageFilterType"`
 }
 
@@ -22661,9 +20374,7 @@ type X12MessageFilterInput interface {
 	ToX12MessageFilterOutputWithContext(context.Context) X12MessageFilterOutput
 }
 
-// The X12 message filter for odata query.
 type X12MessageFilterArgs struct {
-	// The message filter type.
 	MessageFilterType pulumi.StringInput `pulumi:"messageFilterType"`
 }
 
@@ -22720,7 +20431,6 @@ func (i *x12messageFilterPtrType) ToX12MessageFilterPtrOutputWithContext(ctx con
 	return pulumi.ToOutputWithContext(ctx, i).(X12MessageFilterPtrOutput)
 }
 
-// The X12 message filter for odata query.
 type X12MessageFilterOutput struct{ *pulumi.OutputState }
 
 func (X12MessageFilterOutput) ElementType() reflect.Type {
@@ -22740,12 +20450,11 @@ func (o X12MessageFilterOutput) ToX12MessageFilterPtrOutput() X12MessageFilterPt
 }
 
 func (o X12MessageFilterOutput) ToX12MessageFilterPtrOutputWithContext(ctx context.Context) X12MessageFilterPtrOutput {
-	return o.ApplyT(func(v X12MessageFilter) *X12MessageFilter {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v X12MessageFilter) *X12MessageFilter {
 		return &v
 	}).(X12MessageFilterPtrOutput)
 }
 
-// The message filter type.
 func (o X12MessageFilterOutput) MessageFilterType() pulumi.StringOutput {
 	return o.ApplyT(func(v X12MessageFilter) string { return v.MessageFilterType }).(pulumi.StringOutput)
 }
@@ -22765,10 +20474,15 @@ func (o X12MessageFilterPtrOutput) ToX12MessageFilterPtrOutputWithContext(ctx co
 }
 
 func (o X12MessageFilterPtrOutput) Elem() X12MessageFilterOutput {
-	return o.ApplyT(func(v *X12MessageFilter) X12MessageFilter { return *v }).(X12MessageFilterOutput)
+	return o.ApplyT(func(v *X12MessageFilter) X12MessageFilter {
+		if v != nil {
+			return *v
+		}
+		var ret X12MessageFilter
+		return ret
+	}).(X12MessageFilterOutput)
 }
 
-// The message filter type.
 func (o X12MessageFilterPtrOutput) MessageFilterType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *X12MessageFilter) *string {
 		if v == nil {
@@ -22778,9 +20492,7 @@ func (o X12MessageFilterPtrOutput) MessageFilterType() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The X12 message filter for odata query.
 type X12MessageFilterResponse struct {
-	// The message filter type.
 	MessageFilterType string `pulumi:"messageFilterType"`
 }
 
@@ -22795,9 +20507,7 @@ type X12MessageFilterResponseInput interface {
 	ToX12MessageFilterResponseOutputWithContext(context.Context) X12MessageFilterResponseOutput
 }
 
-// The X12 message filter for odata query.
 type X12MessageFilterResponseArgs struct {
-	// The message filter type.
 	MessageFilterType pulumi.StringInput `pulumi:"messageFilterType"`
 }
 
@@ -22854,7 +20564,6 @@ func (i *x12messageFilterResponsePtrType) ToX12MessageFilterResponsePtrOutputWit
 	return pulumi.ToOutputWithContext(ctx, i).(X12MessageFilterResponsePtrOutput)
 }
 
-// The X12 message filter for odata query.
 type X12MessageFilterResponseOutput struct{ *pulumi.OutputState }
 
 func (X12MessageFilterResponseOutput) ElementType() reflect.Type {
@@ -22874,12 +20583,11 @@ func (o X12MessageFilterResponseOutput) ToX12MessageFilterResponsePtrOutput() X1
 }
 
 func (o X12MessageFilterResponseOutput) ToX12MessageFilterResponsePtrOutputWithContext(ctx context.Context) X12MessageFilterResponsePtrOutput {
-	return o.ApplyT(func(v X12MessageFilterResponse) *X12MessageFilterResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v X12MessageFilterResponse) *X12MessageFilterResponse {
 		return &v
 	}).(X12MessageFilterResponsePtrOutput)
 }
 
-// The message filter type.
 func (o X12MessageFilterResponseOutput) MessageFilterType() pulumi.StringOutput {
 	return o.ApplyT(func(v X12MessageFilterResponse) string { return v.MessageFilterType }).(pulumi.StringOutput)
 }
@@ -22899,10 +20607,15 @@ func (o X12MessageFilterResponsePtrOutput) ToX12MessageFilterResponsePtrOutputWi
 }
 
 func (o X12MessageFilterResponsePtrOutput) Elem() X12MessageFilterResponseOutput {
-	return o.ApplyT(func(v *X12MessageFilterResponse) X12MessageFilterResponse { return *v }).(X12MessageFilterResponseOutput)
+	return o.ApplyT(func(v *X12MessageFilterResponse) X12MessageFilterResponse {
+		if v != nil {
+			return *v
+		}
+		var ret X12MessageFilterResponse
+		return ret
+	}).(X12MessageFilterResponseOutput)
 }
 
-// The message filter type.
 func (o X12MessageFilterResponsePtrOutput) MessageFilterType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *X12MessageFilterResponse) *string {
 		if v == nil {
@@ -22912,9 +20625,7 @@ func (o X12MessageFilterResponsePtrOutput) MessageFilterType() pulumi.StringPtrO
 	}).(pulumi.StringPtrOutput)
 }
 
-// The X12 message identifier.
 type X12MessageIdentifier struct {
-	// The message id.
 	MessageId string `pulumi:"messageId"`
 }
 
@@ -22929,9 +20640,7 @@ type X12MessageIdentifierInput interface {
 	ToX12MessageIdentifierOutputWithContext(context.Context) X12MessageIdentifierOutput
 }
 
-// The X12 message identifier.
 type X12MessageIdentifierArgs struct {
-	// The message id.
 	MessageId pulumi.StringInput `pulumi:"messageId"`
 }
 
@@ -22972,7 +20681,6 @@ func (i X12MessageIdentifierArray) ToX12MessageIdentifierArrayOutputWithContext(
 	return pulumi.ToOutputWithContext(ctx, i).(X12MessageIdentifierArrayOutput)
 }
 
-// The X12 message identifier.
 type X12MessageIdentifierOutput struct{ *pulumi.OutputState }
 
 func (X12MessageIdentifierOutput) ElementType() reflect.Type {
@@ -22987,7 +20695,6 @@ func (o X12MessageIdentifierOutput) ToX12MessageIdentifierOutputWithContext(ctx 
 	return o
 }
 
-// The message id.
 func (o X12MessageIdentifierOutput) MessageId() pulumi.StringOutput {
 	return o.ApplyT(func(v X12MessageIdentifier) string { return v.MessageId }).(pulumi.StringOutput)
 }
@@ -23012,9 +20719,7 @@ func (o X12MessageIdentifierArrayOutput) Index(i pulumi.IntInput) X12MessageIden
 	}).(X12MessageIdentifierOutput)
 }
 
-// The X12 message identifier.
 type X12MessageIdentifierResponse struct {
-	// The message id.
 	MessageId string `pulumi:"messageId"`
 }
 
@@ -23029,9 +20734,7 @@ type X12MessageIdentifierResponseInput interface {
 	ToX12MessageIdentifierResponseOutputWithContext(context.Context) X12MessageIdentifierResponseOutput
 }
 
-// The X12 message identifier.
 type X12MessageIdentifierResponseArgs struct {
-	// The message id.
 	MessageId pulumi.StringInput `pulumi:"messageId"`
 }
 
@@ -23072,7 +20775,6 @@ func (i X12MessageIdentifierResponseArray) ToX12MessageIdentifierResponseArrayOu
 	return pulumi.ToOutputWithContext(ctx, i).(X12MessageIdentifierResponseArrayOutput)
 }
 
-// The X12 message identifier.
 type X12MessageIdentifierResponseOutput struct{ *pulumi.OutputState }
 
 func (X12MessageIdentifierResponseOutput) ElementType() reflect.Type {
@@ -23087,7 +20789,6 @@ func (o X12MessageIdentifierResponseOutput) ToX12MessageIdentifierResponseOutput
 	return o
 }
 
-// The message id.
 func (o X12MessageIdentifierResponseOutput) MessageId() pulumi.StringOutput {
 	return o.ApplyT(func(v X12MessageIdentifierResponse) string { return v.MessageId }).(pulumi.StringOutput)
 }
@@ -23112,14 +20813,10 @@ func (o X12MessageIdentifierResponseArrayOutput) Index(i pulumi.IntInput) X12Mes
 	}).(X12MessageIdentifierResponseOutput)
 }
 
-// The X12 one-way agreement.
 type X12OneWayAgreement struct {
-	// The X12 protocol settings.
-	ProtocolSettings X12ProtocolSettings `pulumi:"protocolSettings"`
-	// The receiver business identity
-	ReceiverBusinessIdentity BusinessIdentity `pulumi:"receiverBusinessIdentity"`
-	// The sender business identity
-	SenderBusinessIdentity BusinessIdentity `pulumi:"senderBusinessIdentity"`
+	ProtocolSettings         X12ProtocolSettings `pulumi:"protocolSettings"`
+	ReceiverBusinessIdentity BusinessIdentity    `pulumi:"receiverBusinessIdentity"`
+	SenderBusinessIdentity   BusinessIdentity    `pulumi:"senderBusinessIdentity"`
 }
 
 // X12OneWayAgreementInput is an input type that accepts X12OneWayAgreementArgs and X12OneWayAgreementOutput values.
@@ -23133,14 +20830,10 @@ type X12OneWayAgreementInput interface {
 	ToX12OneWayAgreementOutputWithContext(context.Context) X12OneWayAgreementOutput
 }
 
-// The X12 one-way agreement.
 type X12OneWayAgreementArgs struct {
-	// The X12 protocol settings.
-	ProtocolSettings X12ProtocolSettingsInput `pulumi:"protocolSettings"`
-	// The receiver business identity
-	ReceiverBusinessIdentity BusinessIdentityInput `pulumi:"receiverBusinessIdentity"`
-	// The sender business identity
-	SenderBusinessIdentity BusinessIdentityInput `pulumi:"senderBusinessIdentity"`
+	ProtocolSettings         X12ProtocolSettingsInput `pulumi:"protocolSettings"`
+	ReceiverBusinessIdentity BusinessIdentityInput    `pulumi:"receiverBusinessIdentity"`
+	SenderBusinessIdentity   BusinessIdentityInput    `pulumi:"senderBusinessIdentity"`
 }
 
 func (X12OneWayAgreementArgs) ElementType() reflect.Type {
@@ -23196,7 +20889,6 @@ func (i *x12oneWayAgreementPtrType) ToX12OneWayAgreementPtrOutputWithContext(ctx
 	return pulumi.ToOutputWithContext(ctx, i).(X12OneWayAgreementPtrOutput)
 }
 
-// The X12 one-way agreement.
 type X12OneWayAgreementOutput struct{ *pulumi.OutputState }
 
 func (X12OneWayAgreementOutput) ElementType() reflect.Type {
@@ -23216,22 +20908,19 @@ func (o X12OneWayAgreementOutput) ToX12OneWayAgreementPtrOutput() X12OneWayAgree
 }
 
 func (o X12OneWayAgreementOutput) ToX12OneWayAgreementPtrOutputWithContext(ctx context.Context) X12OneWayAgreementPtrOutput {
-	return o.ApplyT(func(v X12OneWayAgreement) *X12OneWayAgreement {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v X12OneWayAgreement) *X12OneWayAgreement {
 		return &v
 	}).(X12OneWayAgreementPtrOutput)
 }
 
-// The X12 protocol settings.
 func (o X12OneWayAgreementOutput) ProtocolSettings() X12ProtocolSettingsOutput {
 	return o.ApplyT(func(v X12OneWayAgreement) X12ProtocolSettings { return v.ProtocolSettings }).(X12ProtocolSettingsOutput)
 }
 
-// The receiver business identity
 func (o X12OneWayAgreementOutput) ReceiverBusinessIdentity() BusinessIdentityOutput {
 	return o.ApplyT(func(v X12OneWayAgreement) BusinessIdentity { return v.ReceiverBusinessIdentity }).(BusinessIdentityOutput)
 }
 
-// The sender business identity
 func (o X12OneWayAgreementOutput) SenderBusinessIdentity() BusinessIdentityOutput {
 	return o.ApplyT(func(v X12OneWayAgreement) BusinessIdentity { return v.SenderBusinessIdentity }).(BusinessIdentityOutput)
 }
@@ -23251,10 +20940,15 @@ func (o X12OneWayAgreementPtrOutput) ToX12OneWayAgreementPtrOutputWithContext(ct
 }
 
 func (o X12OneWayAgreementPtrOutput) Elem() X12OneWayAgreementOutput {
-	return o.ApplyT(func(v *X12OneWayAgreement) X12OneWayAgreement { return *v }).(X12OneWayAgreementOutput)
+	return o.ApplyT(func(v *X12OneWayAgreement) X12OneWayAgreement {
+		if v != nil {
+			return *v
+		}
+		var ret X12OneWayAgreement
+		return ret
+	}).(X12OneWayAgreementOutput)
 }
 
-// The X12 protocol settings.
 func (o X12OneWayAgreementPtrOutput) ProtocolSettings() X12ProtocolSettingsPtrOutput {
 	return o.ApplyT(func(v *X12OneWayAgreement) *X12ProtocolSettings {
 		if v == nil {
@@ -23264,7 +20958,6 @@ func (o X12OneWayAgreementPtrOutput) ProtocolSettings() X12ProtocolSettingsPtrOu
 	}).(X12ProtocolSettingsPtrOutput)
 }
 
-// The receiver business identity
 func (o X12OneWayAgreementPtrOutput) ReceiverBusinessIdentity() BusinessIdentityPtrOutput {
 	return o.ApplyT(func(v *X12OneWayAgreement) *BusinessIdentity {
 		if v == nil {
@@ -23274,7 +20967,6 @@ func (o X12OneWayAgreementPtrOutput) ReceiverBusinessIdentity() BusinessIdentity
 	}).(BusinessIdentityPtrOutput)
 }
 
-// The sender business identity
 func (o X12OneWayAgreementPtrOutput) SenderBusinessIdentity() BusinessIdentityPtrOutput {
 	return o.ApplyT(func(v *X12OneWayAgreement) *BusinessIdentity {
 		if v == nil {
@@ -23284,14 +20976,10 @@ func (o X12OneWayAgreementPtrOutput) SenderBusinessIdentity() BusinessIdentityPt
 	}).(BusinessIdentityPtrOutput)
 }
 
-// The X12 one-way agreement.
 type X12OneWayAgreementResponse struct {
-	// The X12 protocol settings.
-	ProtocolSettings X12ProtocolSettingsResponse `pulumi:"protocolSettings"`
-	// The receiver business identity
-	ReceiverBusinessIdentity BusinessIdentityResponse `pulumi:"receiverBusinessIdentity"`
-	// The sender business identity
-	SenderBusinessIdentity BusinessIdentityResponse `pulumi:"senderBusinessIdentity"`
+	ProtocolSettings         X12ProtocolSettingsResponse `pulumi:"protocolSettings"`
+	ReceiverBusinessIdentity BusinessIdentityResponse    `pulumi:"receiverBusinessIdentity"`
+	SenderBusinessIdentity   BusinessIdentityResponse    `pulumi:"senderBusinessIdentity"`
 }
 
 // X12OneWayAgreementResponseInput is an input type that accepts X12OneWayAgreementResponseArgs and X12OneWayAgreementResponseOutput values.
@@ -23305,14 +20993,10 @@ type X12OneWayAgreementResponseInput interface {
 	ToX12OneWayAgreementResponseOutputWithContext(context.Context) X12OneWayAgreementResponseOutput
 }
 
-// The X12 one-way agreement.
 type X12OneWayAgreementResponseArgs struct {
-	// The X12 protocol settings.
-	ProtocolSettings X12ProtocolSettingsResponseInput `pulumi:"protocolSettings"`
-	// The receiver business identity
-	ReceiverBusinessIdentity BusinessIdentityResponseInput `pulumi:"receiverBusinessIdentity"`
-	// The sender business identity
-	SenderBusinessIdentity BusinessIdentityResponseInput `pulumi:"senderBusinessIdentity"`
+	ProtocolSettings         X12ProtocolSettingsResponseInput `pulumi:"protocolSettings"`
+	ReceiverBusinessIdentity BusinessIdentityResponseInput    `pulumi:"receiverBusinessIdentity"`
+	SenderBusinessIdentity   BusinessIdentityResponseInput    `pulumi:"senderBusinessIdentity"`
 }
 
 func (X12OneWayAgreementResponseArgs) ElementType() reflect.Type {
@@ -23368,7 +21052,6 @@ func (i *x12oneWayAgreementResponsePtrType) ToX12OneWayAgreementResponsePtrOutpu
 	return pulumi.ToOutputWithContext(ctx, i).(X12OneWayAgreementResponsePtrOutput)
 }
 
-// The X12 one-way agreement.
 type X12OneWayAgreementResponseOutput struct{ *pulumi.OutputState }
 
 func (X12OneWayAgreementResponseOutput) ElementType() reflect.Type {
@@ -23388,22 +21071,19 @@ func (o X12OneWayAgreementResponseOutput) ToX12OneWayAgreementResponsePtrOutput(
 }
 
 func (o X12OneWayAgreementResponseOutput) ToX12OneWayAgreementResponsePtrOutputWithContext(ctx context.Context) X12OneWayAgreementResponsePtrOutput {
-	return o.ApplyT(func(v X12OneWayAgreementResponse) *X12OneWayAgreementResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v X12OneWayAgreementResponse) *X12OneWayAgreementResponse {
 		return &v
 	}).(X12OneWayAgreementResponsePtrOutput)
 }
 
-// The X12 protocol settings.
 func (o X12OneWayAgreementResponseOutput) ProtocolSettings() X12ProtocolSettingsResponseOutput {
 	return o.ApplyT(func(v X12OneWayAgreementResponse) X12ProtocolSettingsResponse { return v.ProtocolSettings }).(X12ProtocolSettingsResponseOutput)
 }
 
-// The receiver business identity
 func (o X12OneWayAgreementResponseOutput) ReceiverBusinessIdentity() BusinessIdentityResponseOutput {
 	return o.ApplyT(func(v X12OneWayAgreementResponse) BusinessIdentityResponse { return v.ReceiverBusinessIdentity }).(BusinessIdentityResponseOutput)
 }
 
-// The sender business identity
 func (o X12OneWayAgreementResponseOutput) SenderBusinessIdentity() BusinessIdentityResponseOutput {
 	return o.ApplyT(func(v X12OneWayAgreementResponse) BusinessIdentityResponse { return v.SenderBusinessIdentity }).(BusinessIdentityResponseOutput)
 }
@@ -23423,10 +21103,15 @@ func (o X12OneWayAgreementResponsePtrOutput) ToX12OneWayAgreementResponsePtrOutp
 }
 
 func (o X12OneWayAgreementResponsePtrOutput) Elem() X12OneWayAgreementResponseOutput {
-	return o.ApplyT(func(v *X12OneWayAgreementResponse) X12OneWayAgreementResponse { return *v }).(X12OneWayAgreementResponseOutput)
+	return o.ApplyT(func(v *X12OneWayAgreementResponse) X12OneWayAgreementResponse {
+		if v != nil {
+			return *v
+		}
+		var ret X12OneWayAgreementResponse
+		return ret
+	}).(X12OneWayAgreementResponseOutput)
 }
 
-// The X12 protocol settings.
 func (o X12OneWayAgreementResponsePtrOutput) ProtocolSettings() X12ProtocolSettingsResponsePtrOutput {
 	return o.ApplyT(func(v *X12OneWayAgreementResponse) *X12ProtocolSettingsResponse {
 		if v == nil {
@@ -23436,7 +21121,6 @@ func (o X12OneWayAgreementResponsePtrOutput) ProtocolSettings() X12ProtocolSetti
 	}).(X12ProtocolSettingsResponsePtrOutput)
 }
 
-// The receiver business identity
 func (o X12OneWayAgreementResponsePtrOutput) ReceiverBusinessIdentity() BusinessIdentityResponsePtrOutput {
 	return o.ApplyT(func(v *X12OneWayAgreementResponse) *BusinessIdentityResponse {
 		if v == nil {
@@ -23446,7 +21130,6 @@ func (o X12OneWayAgreementResponsePtrOutput) ReceiverBusinessIdentity() Business
 	}).(BusinessIdentityResponsePtrOutput)
 }
 
-// The sender business identity
 func (o X12OneWayAgreementResponsePtrOutput) SenderBusinessIdentity() BusinessIdentityResponsePtrOutput {
 	return o.ApplyT(func(v *X12OneWayAgreementResponse) *BusinessIdentityResponse {
 		if v == nil {
@@ -23456,20 +21139,13 @@ func (o X12OneWayAgreementResponsePtrOutput) SenderBusinessIdentity() BusinessId
 	}).(BusinessIdentityResponsePtrOutput)
 }
 
-// The X12 processing settings.
 type X12ProcessingSettings struct {
-	// The value indicating whether to convert numerical type to implied decimal.
-	ConvertImpliedDecimal bool `pulumi:"convertImpliedDecimal"`
-	// The value indicating whether to create empty xml tags for trailing separators.
+	ConvertImpliedDecimal                   bool `pulumi:"convertImpliedDecimal"`
 	CreateEmptyXmlTagsForTrailingSeparators bool `pulumi:"createEmptyXmlTagsForTrailingSeparators"`
-	// The value indicating whether to mask security information.
-	MaskSecurityInfo bool `pulumi:"maskSecurityInfo"`
-	// The value indicating whether to preserve interchange.
-	PreserveInterchange bool `pulumi:"preserveInterchange"`
-	// The value indicating whether to suspend interchange on error.
-	SuspendInterchangeOnError bool `pulumi:"suspendInterchangeOnError"`
-	// The value indicating whether to use dot as decimal separator.
-	UseDotAsDecimalSeparator bool `pulumi:"useDotAsDecimalSeparator"`
+	MaskSecurityInfo                        bool `pulumi:"maskSecurityInfo"`
+	PreserveInterchange                     bool `pulumi:"preserveInterchange"`
+	SuspendInterchangeOnError               bool `pulumi:"suspendInterchangeOnError"`
+	UseDotAsDecimalSeparator                bool `pulumi:"useDotAsDecimalSeparator"`
 }
 
 // X12ProcessingSettingsInput is an input type that accepts X12ProcessingSettingsArgs and X12ProcessingSettingsOutput values.
@@ -23483,20 +21159,13 @@ type X12ProcessingSettingsInput interface {
 	ToX12ProcessingSettingsOutputWithContext(context.Context) X12ProcessingSettingsOutput
 }
 
-// The X12 processing settings.
 type X12ProcessingSettingsArgs struct {
-	// The value indicating whether to convert numerical type to implied decimal.
-	ConvertImpliedDecimal pulumi.BoolInput `pulumi:"convertImpliedDecimal"`
-	// The value indicating whether to create empty xml tags for trailing separators.
+	ConvertImpliedDecimal                   pulumi.BoolInput `pulumi:"convertImpliedDecimal"`
 	CreateEmptyXmlTagsForTrailingSeparators pulumi.BoolInput `pulumi:"createEmptyXmlTagsForTrailingSeparators"`
-	// The value indicating whether to mask security information.
-	MaskSecurityInfo pulumi.BoolInput `pulumi:"maskSecurityInfo"`
-	// The value indicating whether to preserve interchange.
-	PreserveInterchange pulumi.BoolInput `pulumi:"preserveInterchange"`
-	// The value indicating whether to suspend interchange on error.
-	SuspendInterchangeOnError pulumi.BoolInput `pulumi:"suspendInterchangeOnError"`
-	// The value indicating whether to use dot as decimal separator.
-	UseDotAsDecimalSeparator pulumi.BoolInput `pulumi:"useDotAsDecimalSeparator"`
+	MaskSecurityInfo                        pulumi.BoolInput `pulumi:"maskSecurityInfo"`
+	PreserveInterchange                     pulumi.BoolInput `pulumi:"preserveInterchange"`
+	SuspendInterchangeOnError               pulumi.BoolInput `pulumi:"suspendInterchangeOnError"`
+	UseDotAsDecimalSeparator                pulumi.BoolInput `pulumi:"useDotAsDecimalSeparator"`
 }
 
 func (X12ProcessingSettingsArgs) ElementType() reflect.Type {
@@ -23552,7 +21221,6 @@ func (i *x12processingSettingsPtrType) ToX12ProcessingSettingsPtrOutputWithConte
 	return pulumi.ToOutputWithContext(ctx, i).(X12ProcessingSettingsPtrOutput)
 }
 
-// The X12 processing settings.
 type X12ProcessingSettingsOutput struct{ *pulumi.OutputState }
 
 func (X12ProcessingSettingsOutput) ElementType() reflect.Type {
@@ -23572,37 +21240,31 @@ func (o X12ProcessingSettingsOutput) ToX12ProcessingSettingsPtrOutput() X12Proce
 }
 
 func (o X12ProcessingSettingsOutput) ToX12ProcessingSettingsPtrOutputWithContext(ctx context.Context) X12ProcessingSettingsPtrOutput {
-	return o.ApplyT(func(v X12ProcessingSettings) *X12ProcessingSettings {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v X12ProcessingSettings) *X12ProcessingSettings {
 		return &v
 	}).(X12ProcessingSettingsPtrOutput)
 }
 
-// The value indicating whether to convert numerical type to implied decimal.
 func (o X12ProcessingSettingsOutput) ConvertImpliedDecimal() pulumi.BoolOutput {
 	return o.ApplyT(func(v X12ProcessingSettings) bool { return v.ConvertImpliedDecimal }).(pulumi.BoolOutput)
 }
 
-// The value indicating whether to create empty xml tags for trailing separators.
 func (o X12ProcessingSettingsOutput) CreateEmptyXmlTagsForTrailingSeparators() pulumi.BoolOutput {
 	return o.ApplyT(func(v X12ProcessingSettings) bool { return v.CreateEmptyXmlTagsForTrailingSeparators }).(pulumi.BoolOutput)
 }
 
-// The value indicating whether to mask security information.
 func (o X12ProcessingSettingsOutput) MaskSecurityInfo() pulumi.BoolOutput {
 	return o.ApplyT(func(v X12ProcessingSettings) bool { return v.MaskSecurityInfo }).(pulumi.BoolOutput)
 }
 
-// The value indicating whether to preserve interchange.
 func (o X12ProcessingSettingsOutput) PreserveInterchange() pulumi.BoolOutput {
 	return o.ApplyT(func(v X12ProcessingSettings) bool { return v.PreserveInterchange }).(pulumi.BoolOutput)
 }
 
-// The value indicating whether to suspend interchange on error.
 func (o X12ProcessingSettingsOutput) SuspendInterchangeOnError() pulumi.BoolOutput {
 	return o.ApplyT(func(v X12ProcessingSettings) bool { return v.SuspendInterchangeOnError }).(pulumi.BoolOutput)
 }
 
-// The value indicating whether to use dot as decimal separator.
 func (o X12ProcessingSettingsOutput) UseDotAsDecimalSeparator() pulumi.BoolOutput {
 	return o.ApplyT(func(v X12ProcessingSettings) bool { return v.UseDotAsDecimalSeparator }).(pulumi.BoolOutput)
 }
@@ -23622,10 +21284,15 @@ func (o X12ProcessingSettingsPtrOutput) ToX12ProcessingSettingsPtrOutputWithCont
 }
 
 func (o X12ProcessingSettingsPtrOutput) Elem() X12ProcessingSettingsOutput {
-	return o.ApplyT(func(v *X12ProcessingSettings) X12ProcessingSettings { return *v }).(X12ProcessingSettingsOutput)
+	return o.ApplyT(func(v *X12ProcessingSettings) X12ProcessingSettings {
+		if v != nil {
+			return *v
+		}
+		var ret X12ProcessingSettings
+		return ret
+	}).(X12ProcessingSettingsOutput)
 }
 
-// The value indicating whether to convert numerical type to implied decimal.
 func (o X12ProcessingSettingsPtrOutput) ConvertImpliedDecimal() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *X12ProcessingSettings) *bool {
 		if v == nil {
@@ -23635,7 +21302,6 @@ func (o X12ProcessingSettingsPtrOutput) ConvertImpliedDecimal() pulumi.BoolPtrOu
 	}).(pulumi.BoolPtrOutput)
 }
 
-// The value indicating whether to create empty xml tags for trailing separators.
 func (o X12ProcessingSettingsPtrOutput) CreateEmptyXmlTagsForTrailingSeparators() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *X12ProcessingSettings) *bool {
 		if v == nil {
@@ -23645,7 +21311,6 @@ func (o X12ProcessingSettingsPtrOutput) CreateEmptyXmlTagsForTrailingSeparators(
 	}).(pulumi.BoolPtrOutput)
 }
 
-// The value indicating whether to mask security information.
 func (o X12ProcessingSettingsPtrOutput) MaskSecurityInfo() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *X12ProcessingSettings) *bool {
 		if v == nil {
@@ -23655,7 +21320,6 @@ func (o X12ProcessingSettingsPtrOutput) MaskSecurityInfo() pulumi.BoolPtrOutput 
 	}).(pulumi.BoolPtrOutput)
 }
 
-// The value indicating whether to preserve interchange.
 func (o X12ProcessingSettingsPtrOutput) PreserveInterchange() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *X12ProcessingSettings) *bool {
 		if v == nil {
@@ -23665,7 +21329,6 @@ func (o X12ProcessingSettingsPtrOutput) PreserveInterchange() pulumi.BoolPtrOutp
 	}).(pulumi.BoolPtrOutput)
 }
 
-// The value indicating whether to suspend interchange on error.
 func (o X12ProcessingSettingsPtrOutput) SuspendInterchangeOnError() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *X12ProcessingSettings) *bool {
 		if v == nil {
@@ -23675,7 +21338,6 @@ func (o X12ProcessingSettingsPtrOutput) SuspendInterchangeOnError() pulumi.BoolP
 	}).(pulumi.BoolPtrOutput)
 }
 
-// The value indicating whether to use dot as decimal separator.
 func (o X12ProcessingSettingsPtrOutput) UseDotAsDecimalSeparator() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *X12ProcessingSettings) *bool {
 		if v == nil {
@@ -23685,20 +21347,13 @@ func (o X12ProcessingSettingsPtrOutput) UseDotAsDecimalSeparator() pulumi.BoolPt
 	}).(pulumi.BoolPtrOutput)
 }
 
-// The X12 processing settings.
 type X12ProcessingSettingsResponse struct {
-	// The value indicating whether to convert numerical type to implied decimal.
-	ConvertImpliedDecimal bool `pulumi:"convertImpliedDecimal"`
-	// The value indicating whether to create empty xml tags for trailing separators.
+	ConvertImpliedDecimal                   bool `pulumi:"convertImpliedDecimal"`
 	CreateEmptyXmlTagsForTrailingSeparators bool `pulumi:"createEmptyXmlTagsForTrailingSeparators"`
-	// The value indicating whether to mask security information.
-	MaskSecurityInfo bool `pulumi:"maskSecurityInfo"`
-	// The value indicating whether to preserve interchange.
-	PreserveInterchange bool `pulumi:"preserveInterchange"`
-	// The value indicating whether to suspend interchange on error.
-	SuspendInterchangeOnError bool `pulumi:"suspendInterchangeOnError"`
-	// The value indicating whether to use dot as decimal separator.
-	UseDotAsDecimalSeparator bool `pulumi:"useDotAsDecimalSeparator"`
+	MaskSecurityInfo                        bool `pulumi:"maskSecurityInfo"`
+	PreserveInterchange                     bool `pulumi:"preserveInterchange"`
+	SuspendInterchangeOnError               bool `pulumi:"suspendInterchangeOnError"`
+	UseDotAsDecimalSeparator                bool `pulumi:"useDotAsDecimalSeparator"`
 }
 
 // X12ProcessingSettingsResponseInput is an input type that accepts X12ProcessingSettingsResponseArgs and X12ProcessingSettingsResponseOutput values.
@@ -23712,20 +21367,13 @@ type X12ProcessingSettingsResponseInput interface {
 	ToX12ProcessingSettingsResponseOutputWithContext(context.Context) X12ProcessingSettingsResponseOutput
 }
 
-// The X12 processing settings.
 type X12ProcessingSettingsResponseArgs struct {
-	// The value indicating whether to convert numerical type to implied decimal.
-	ConvertImpliedDecimal pulumi.BoolInput `pulumi:"convertImpliedDecimal"`
-	// The value indicating whether to create empty xml tags for trailing separators.
+	ConvertImpliedDecimal                   pulumi.BoolInput `pulumi:"convertImpliedDecimal"`
 	CreateEmptyXmlTagsForTrailingSeparators pulumi.BoolInput `pulumi:"createEmptyXmlTagsForTrailingSeparators"`
-	// The value indicating whether to mask security information.
-	MaskSecurityInfo pulumi.BoolInput `pulumi:"maskSecurityInfo"`
-	// The value indicating whether to preserve interchange.
-	PreserveInterchange pulumi.BoolInput `pulumi:"preserveInterchange"`
-	// The value indicating whether to suspend interchange on error.
-	SuspendInterchangeOnError pulumi.BoolInput `pulumi:"suspendInterchangeOnError"`
-	// The value indicating whether to use dot as decimal separator.
-	UseDotAsDecimalSeparator pulumi.BoolInput `pulumi:"useDotAsDecimalSeparator"`
+	MaskSecurityInfo                        pulumi.BoolInput `pulumi:"maskSecurityInfo"`
+	PreserveInterchange                     pulumi.BoolInput `pulumi:"preserveInterchange"`
+	SuspendInterchangeOnError               pulumi.BoolInput `pulumi:"suspendInterchangeOnError"`
+	UseDotAsDecimalSeparator                pulumi.BoolInput `pulumi:"useDotAsDecimalSeparator"`
 }
 
 func (X12ProcessingSettingsResponseArgs) ElementType() reflect.Type {
@@ -23781,7 +21429,6 @@ func (i *x12processingSettingsResponsePtrType) ToX12ProcessingSettingsResponsePt
 	return pulumi.ToOutputWithContext(ctx, i).(X12ProcessingSettingsResponsePtrOutput)
 }
 
-// The X12 processing settings.
 type X12ProcessingSettingsResponseOutput struct{ *pulumi.OutputState }
 
 func (X12ProcessingSettingsResponseOutput) ElementType() reflect.Type {
@@ -23801,37 +21448,31 @@ func (o X12ProcessingSettingsResponseOutput) ToX12ProcessingSettingsResponsePtrO
 }
 
 func (o X12ProcessingSettingsResponseOutput) ToX12ProcessingSettingsResponsePtrOutputWithContext(ctx context.Context) X12ProcessingSettingsResponsePtrOutput {
-	return o.ApplyT(func(v X12ProcessingSettingsResponse) *X12ProcessingSettingsResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v X12ProcessingSettingsResponse) *X12ProcessingSettingsResponse {
 		return &v
 	}).(X12ProcessingSettingsResponsePtrOutput)
 }
 
-// The value indicating whether to convert numerical type to implied decimal.
 func (o X12ProcessingSettingsResponseOutput) ConvertImpliedDecimal() pulumi.BoolOutput {
 	return o.ApplyT(func(v X12ProcessingSettingsResponse) bool { return v.ConvertImpliedDecimal }).(pulumi.BoolOutput)
 }
 
-// The value indicating whether to create empty xml tags for trailing separators.
 func (o X12ProcessingSettingsResponseOutput) CreateEmptyXmlTagsForTrailingSeparators() pulumi.BoolOutput {
 	return o.ApplyT(func(v X12ProcessingSettingsResponse) bool { return v.CreateEmptyXmlTagsForTrailingSeparators }).(pulumi.BoolOutput)
 }
 
-// The value indicating whether to mask security information.
 func (o X12ProcessingSettingsResponseOutput) MaskSecurityInfo() pulumi.BoolOutput {
 	return o.ApplyT(func(v X12ProcessingSettingsResponse) bool { return v.MaskSecurityInfo }).(pulumi.BoolOutput)
 }
 
-// The value indicating whether to preserve interchange.
 func (o X12ProcessingSettingsResponseOutput) PreserveInterchange() pulumi.BoolOutput {
 	return o.ApplyT(func(v X12ProcessingSettingsResponse) bool { return v.PreserveInterchange }).(pulumi.BoolOutput)
 }
 
-// The value indicating whether to suspend interchange on error.
 func (o X12ProcessingSettingsResponseOutput) SuspendInterchangeOnError() pulumi.BoolOutput {
 	return o.ApplyT(func(v X12ProcessingSettingsResponse) bool { return v.SuspendInterchangeOnError }).(pulumi.BoolOutput)
 }
 
-// The value indicating whether to use dot as decimal separator.
 func (o X12ProcessingSettingsResponseOutput) UseDotAsDecimalSeparator() pulumi.BoolOutput {
 	return o.ApplyT(func(v X12ProcessingSettingsResponse) bool { return v.UseDotAsDecimalSeparator }).(pulumi.BoolOutput)
 }
@@ -23851,10 +21492,15 @@ func (o X12ProcessingSettingsResponsePtrOutput) ToX12ProcessingSettingsResponseP
 }
 
 func (o X12ProcessingSettingsResponsePtrOutput) Elem() X12ProcessingSettingsResponseOutput {
-	return o.ApplyT(func(v *X12ProcessingSettingsResponse) X12ProcessingSettingsResponse { return *v }).(X12ProcessingSettingsResponseOutput)
+	return o.ApplyT(func(v *X12ProcessingSettingsResponse) X12ProcessingSettingsResponse {
+		if v != nil {
+			return *v
+		}
+		var ret X12ProcessingSettingsResponse
+		return ret
+	}).(X12ProcessingSettingsResponseOutput)
 }
 
-// The value indicating whether to convert numerical type to implied decimal.
 func (o X12ProcessingSettingsResponsePtrOutput) ConvertImpliedDecimal() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *X12ProcessingSettingsResponse) *bool {
 		if v == nil {
@@ -23864,7 +21510,6 @@ func (o X12ProcessingSettingsResponsePtrOutput) ConvertImpliedDecimal() pulumi.B
 	}).(pulumi.BoolPtrOutput)
 }
 
-// The value indicating whether to create empty xml tags for trailing separators.
 func (o X12ProcessingSettingsResponsePtrOutput) CreateEmptyXmlTagsForTrailingSeparators() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *X12ProcessingSettingsResponse) *bool {
 		if v == nil {
@@ -23874,7 +21519,6 @@ func (o X12ProcessingSettingsResponsePtrOutput) CreateEmptyXmlTagsForTrailingSep
 	}).(pulumi.BoolPtrOutput)
 }
 
-// The value indicating whether to mask security information.
 func (o X12ProcessingSettingsResponsePtrOutput) MaskSecurityInfo() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *X12ProcessingSettingsResponse) *bool {
 		if v == nil {
@@ -23884,7 +21528,6 @@ func (o X12ProcessingSettingsResponsePtrOutput) MaskSecurityInfo() pulumi.BoolPt
 	}).(pulumi.BoolPtrOutput)
 }
 
-// The value indicating whether to preserve interchange.
 func (o X12ProcessingSettingsResponsePtrOutput) PreserveInterchange() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *X12ProcessingSettingsResponse) *bool {
 		if v == nil {
@@ -23894,7 +21537,6 @@ func (o X12ProcessingSettingsResponsePtrOutput) PreserveInterchange() pulumi.Boo
 	}).(pulumi.BoolPtrOutput)
 }
 
-// The value indicating whether to suspend interchange on error.
 func (o X12ProcessingSettingsResponsePtrOutput) SuspendInterchangeOnError() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *X12ProcessingSettingsResponse) *bool {
 		if v == nil {
@@ -23904,7 +21546,6 @@ func (o X12ProcessingSettingsResponsePtrOutput) SuspendInterchangeOnError() pulu
 	}).(pulumi.BoolPtrOutput)
 }
 
-// The value indicating whether to use dot as decimal separator.
 func (o X12ProcessingSettingsResponsePtrOutput) UseDotAsDecimalSeparator() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *X12ProcessingSettingsResponse) *bool {
 		if v == nil {
@@ -23914,32 +21555,19 @@ func (o X12ProcessingSettingsResponsePtrOutput) UseDotAsDecimalSeparator() pulum
 	}).(pulumi.BoolPtrOutput)
 }
 
-// The X12 agreement protocol settings.
 type X12ProtocolSettings struct {
-	// The X12 acknowledgment settings.
 	AcknowledgementSettings X12AcknowledgementSettings `pulumi:"acknowledgementSettings"`
-	// The X12 envelope override settings.
-	EnvelopeOverrides []X12EnvelopeOverride `pulumi:"envelopeOverrides"`
-	// The X12 envelope settings.
-	EnvelopeSettings X12EnvelopeSettings `pulumi:"envelopeSettings"`
-	// The X12 framing settings.
-	FramingSettings X12FramingSettings `pulumi:"framingSettings"`
-	// The X12 message filter.
-	MessageFilter X12MessageFilter `pulumi:"messageFilter"`
-	// The X12 message filter list.
-	MessageFilterList []X12MessageIdentifier `pulumi:"messageFilterList"`
-	// The X12 processing settings.
-	ProcessingSettings X12ProcessingSettings `pulumi:"processingSettings"`
-	// The X12 schema references.
-	SchemaReferences []X12SchemaReference `pulumi:"schemaReferences"`
-	// The X12 security settings.
-	SecuritySettings X12SecuritySettings `pulumi:"securitySettings"`
-	// The X12 validation override settings.
-	ValidationOverrides []X12ValidationOverride `pulumi:"validationOverrides"`
-	// The X12 validation settings.
-	ValidationSettings X12ValidationSettings `pulumi:"validationSettings"`
-	// The X12 delimiter override settings.
-	X12DelimiterOverrides []X12DelimiterOverrides `pulumi:"x12DelimiterOverrides"`
+	EnvelopeOverrides       []X12EnvelopeOverride      `pulumi:"envelopeOverrides"`
+	EnvelopeSettings        X12EnvelopeSettings        `pulumi:"envelopeSettings"`
+	FramingSettings         X12FramingSettings         `pulumi:"framingSettings"`
+	MessageFilter           X12MessageFilter           `pulumi:"messageFilter"`
+	MessageFilterList       []X12MessageIdentifier     `pulumi:"messageFilterList"`
+	ProcessingSettings      X12ProcessingSettings      `pulumi:"processingSettings"`
+	SchemaReferences        []X12SchemaReference       `pulumi:"schemaReferences"`
+	SecuritySettings        X12SecuritySettings        `pulumi:"securitySettings"`
+	ValidationOverrides     []X12ValidationOverride    `pulumi:"validationOverrides"`
+	ValidationSettings      X12ValidationSettings      `pulumi:"validationSettings"`
+	X12DelimiterOverrides   []X12DelimiterOverrides    `pulumi:"x12DelimiterOverrides"`
 }
 
 // X12ProtocolSettingsInput is an input type that accepts X12ProtocolSettingsArgs and X12ProtocolSettingsOutput values.
@@ -23953,32 +21581,19 @@ type X12ProtocolSettingsInput interface {
 	ToX12ProtocolSettingsOutputWithContext(context.Context) X12ProtocolSettingsOutput
 }
 
-// The X12 agreement protocol settings.
 type X12ProtocolSettingsArgs struct {
-	// The X12 acknowledgment settings.
 	AcknowledgementSettings X12AcknowledgementSettingsInput `pulumi:"acknowledgementSettings"`
-	// The X12 envelope override settings.
-	EnvelopeOverrides X12EnvelopeOverrideArrayInput `pulumi:"envelopeOverrides"`
-	// The X12 envelope settings.
-	EnvelopeSettings X12EnvelopeSettingsInput `pulumi:"envelopeSettings"`
-	// The X12 framing settings.
-	FramingSettings X12FramingSettingsInput `pulumi:"framingSettings"`
-	// The X12 message filter.
-	MessageFilter X12MessageFilterInput `pulumi:"messageFilter"`
-	// The X12 message filter list.
-	MessageFilterList X12MessageIdentifierArrayInput `pulumi:"messageFilterList"`
-	// The X12 processing settings.
-	ProcessingSettings X12ProcessingSettingsInput `pulumi:"processingSettings"`
-	// The X12 schema references.
-	SchemaReferences X12SchemaReferenceArrayInput `pulumi:"schemaReferences"`
-	// The X12 security settings.
-	SecuritySettings X12SecuritySettingsInput `pulumi:"securitySettings"`
-	// The X12 validation override settings.
-	ValidationOverrides X12ValidationOverrideArrayInput `pulumi:"validationOverrides"`
-	// The X12 validation settings.
-	ValidationSettings X12ValidationSettingsInput `pulumi:"validationSettings"`
-	// The X12 delimiter override settings.
-	X12DelimiterOverrides X12DelimiterOverridesArrayInput `pulumi:"x12DelimiterOverrides"`
+	EnvelopeOverrides       X12EnvelopeOverrideArrayInput   `pulumi:"envelopeOverrides"`
+	EnvelopeSettings        X12EnvelopeSettingsInput        `pulumi:"envelopeSettings"`
+	FramingSettings         X12FramingSettingsInput         `pulumi:"framingSettings"`
+	MessageFilter           X12MessageFilterInput           `pulumi:"messageFilter"`
+	MessageFilterList       X12MessageIdentifierArrayInput  `pulumi:"messageFilterList"`
+	ProcessingSettings      X12ProcessingSettingsInput      `pulumi:"processingSettings"`
+	SchemaReferences        X12SchemaReferenceArrayInput    `pulumi:"schemaReferences"`
+	SecuritySettings        X12SecuritySettingsInput        `pulumi:"securitySettings"`
+	ValidationOverrides     X12ValidationOverrideArrayInput `pulumi:"validationOverrides"`
+	ValidationSettings      X12ValidationSettingsInput      `pulumi:"validationSettings"`
+	X12DelimiterOverrides   X12DelimiterOverridesArrayInput `pulumi:"x12DelimiterOverrides"`
 }
 
 func (X12ProtocolSettingsArgs) ElementType() reflect.Type {
@@ -24034,7 +21649,6 @@ func (i *x12protocolSettingsPtrType) ToX12ProtocolSettingsPtrOutputWithContext(c
 	return pulumi.ToOutputWithContext(ctx, i).(X12ProtocolSettingsPtrOutput)
 }
 
-// The X12 agreement protocol settings.
 type X12ProtocolSettingsOutput struct{ *pulumi.OutputState }
 
 func (X12ProtocolSettingsOutput) ElementType() reflect.Type {
@@ -24054,67 +21668,55 @@ func (o X12ProtocolSettingsOutput) ToX12ProtocolSettingsPtrOutput() X12ProtocolS
 }
 
 func (o X12ProtocolSettingsOutput) ToX12ProtocolSettingsPtrOutputWithContext(ctx context.Context) X12ProtocolSettingsPtrOutput {
-	return o.ApplyT(func(v X12ProtocolSettings) *X12ProtocolSettings {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v X12ProtocolSettings) *X12ProtocolSettings {
 		return &v
 	}).(X12ProtocolSettingsPtrOutput)
 }
 
-// The X12 acknowledgment settings.
 func (o X12ProtocolSettingsOutput) AcknowledgementSettings() X12AcknowledgementSettingsOutput {
 	return o.ApplyT(func(v X12ProtocolSettings) X12AcknowledgementSettings { return v.AcknowledgementSettings }).(X12AcknowledgementSettingsOutput)
 }
 
-// The X12 envelope override settings.
 func (o X12ProtocolSettingsOutput) EnvelopeOverrides() X12EnvelopeOverrideArrayOutput {
 	return o.ApplyT(func(v X12ProtocolSettings) []X12EnvelopeOverride { return v.EnvelopeOverrides }).(X12EnvelopeOverrideArrayOutput)
 }
 
-// The X12 envelope settings.
 func (o X12ProtocolSettingsOutput) EnvelopeSettings() X12EnvelopeSettingsOutput {
 	return o.ApplyT(func(v X12ProtocolSettings) X12EnvelopeSettings { return v.EnvelopeSettings }).(X12EnvelopeSettingsOutput)
 }
 
-// The X12 framing settings.
 func (o X12ProtocolSettingsOutput) FramingSettings() X12FramingSettingsOutput {
 	return o.ApplyT(func(v X12ProtocolSettings) X12FramingSettings { return v.FramingSettings }).(X12FramingSettingsOutput)
 }
 
-// The X12 message filter.
 func (o X12ProtocolSettingsOutput) MessageFilter() X12MessageFilterOutput {
 	return o.ApplyT(func(v X12ProtocolSettings) X12MessageFilter { return v.MessageFilter }).(X12MessageFilterOutput)
 }
 
-// The X12 message filter list.
 func (o X12ProtocolSettingsOutput) MessageFilterList() X12MessageIdentifierArrayOutput {
 	return o.ApplyT(func(v X12ProtocolSettings) []X12MessageIdentifier { return v.MessageFilterList }).(X12MessageIdentifierArrayOutput)
 }
 
-// The X12 processing settings.
 func (o X12ProtocolSettingsOutput) ProcessingSettings() X12ProcessingSettingsOutput {
 	return o.ApplyT(func(v X12ProtocolSettings) X12ProcessingSettings { return v.ProcessingSettings }).(X12ProcessingSettingsOutput)
 }
 
-// The X12 schema references.
 func (o X12ProtocolSettingsOutput) SchemaReferences() X12SchemaReferenceArrayOutput {
 	return o.ApplyT(func(v X12ProtocolSettings) []X12SchemaReference { return v.SchemaReferences }).(X12SchemaReferenceArrayOutput)
 }
 
-// The X12 security settings.
 func (o X12ProtocolSettingsOutput) SecuritySettings() X12SecuritySettingsOutput {
 	return o.ApplyT(func(v X12ProtocolSettings) X12SecuritySettings { return v.SecuritySettings }).(X12SecuritySettingsOutput)
 }
 
-// The X12 validation override settings.
 func (o X12ProtocolSettingsOutput) ValidationOverrides() X12ValidationOverrideArrayOutput {
 	return o.ApplyT(func(v X12ProtocolSettings) []X12ValidationOverride { return v.ValidationOverrides }).(X12ValidationOverrideArrayOutput)
 }
 
-// The X12 validation settings.
 func (o X12ProtocolSettingsOutput) ValidationSettings() X12ValidationSettingsOutput {
 	return o.ApplyT(func(v X12ProtocolSettings) X12ValidationSettings { return v.ValidationSettings }).(X12ValidationSettingsOutput)
 }
 
-// The X12 delimiter override settings.
 func (o X12ProtocolSettingsOutput) X12DelimiterOverrides() X12DelimiterOverridesArrayOutput {
 	return o.ApplyT(func(v X12ProtocolSettings) []X12DelimiterOverrides { return v.X12DelimiterOverrides }).(X12DelimiterOverridesArrayOutput)
 }
@@ -24134,10 +21736,15 @@ func (o X12ProtocolSettingsPtrOutput) ToX12ProtocolSettingsPtrOutputWithContext(
 }
 
 func (o X12ProtocolSettingsPtrOutput) Elem() X12ProtocolSettingsOutput {
-	return o.ApplyT(func(v *X12ProtocolSettings) X12ProtocolSettings { return *v }).(X12ProtocolSettingsOutput)
+	return o.ApplyT(func(v *X12ProtocolSettings) X12ProtocolSettings {
+		if v != nil {
+			return *v
+		}
+		var ret X12ProtocolSettings
+		return ret
+	}).(X12ProtocolSettingsOutput)
 }
 
-// The X12 acknowledgment settings.
 func (o X12ProtocolSettingsPtrOutput) AcknowledgementSettings() X12AcknowledgementSettingsPtrOutput {
 	return o.ApplyT(func(v *X12ProtocolSettings) *X12AcknowledgementSettings {
 		if v == nil {
@@ -24147,7 +21754,6 @@ func (o X12ProtocolSettingsPtrOutput) AcknowledgementSettings() X12Acknowledgeme
 	}).(X12AcknowledgementSettingsPtrOutput)
 }
 
-// The X12 envelope override settings.
 func (o X12ProtocolSettingsPtrOutput) EnvelopeOverrides() X12EnvelopeOverrideArrayOutput {
 	return o.ApplyT(func(v *X12ProtocolSettings) []X12EnvelopeOverride {
 		if v == nil {
@@ -24157,7 +21763,6 @@ func (o X12ProtocolSettingsPtrOutput) EnvelopeOverrides() X12EnvelopeOverrideArr
 	}).(X12EnvelopeOverrideArrayOutput)
 }
 
-// The X12 envelope settings.
 func (o X12ProtocolSettingsPtrOutput) EnvelopeSettings() X12EnvelopeSettingsPtrOutput {
 	return o.ApplyT(func(v *X12ProtocolSettings) *X12EnvelopeSettings {
 		if v == nil {
@@ -24167,7 +21772,6 @@ func (o X12ProtocolSettingsPtrOutput) EnvelopeSettings() X12EnvelopeSettingsPtrO
 	}).(X12EnvelopeSettingsPtrOutput)
 }
 
-// The X12 framing settings.
 func (o X12ProtocolSettingsPtrOutput) FramingSettings() X12FramingSettingsPtrOutput {
 	return o.ApplyT(func(v *X12ProtocolSettings) *X12FramingSettings {
 		if v == nil {
@@ -24177,7 +21781,6 @@ func (o X12ProtocolSettingsPtrOutput) FramingSettings() X12FramingSettingsPtrOut
 	}).(X12FramingSettingsPtrOutput)
 }
 
-// The X12 message filter.
 func (o X12ProtocolSettingsPtrOutput) MessageFilter() X12MessageFilterPtrOutput {
 	return o.ApplyT(func(v *X12ProtocolSettings) *X12MessageFilter {
 		if v == nil {
@@ -24187,7 +21790,6 @@ func (o X12ProtocolSettingsPtrOutput) MessageFilter() X12MessageFilterPtrOutput 
 	}).(X12MessageFilterPtrOutput)
 }
 
-// The X12 message filter list.
 func (o X12ProtocolSettingsPtrOutput) MessageFilterList() X12MessageIdentifierArrayOutput {
 	return o.ApplyT(func(v *X12ProtocolSettings) []X12MessageIdentifier {
 		if v == nil {
@@ -24197,7 +21799,6 @@ func (o X12ProtocolSettingsPtrOutput) MessageFilterList() X12MessageIdentifierAr
 	}).(X12MessageIdentifierArrayOutput)
 }
 
-// The X12 processing settings.
 func (o X12ProtocolSettingsPtrOutput) ProcessingSettings() X12ProcessingSettingsPtrOutput {
 	return o.ApplyT(func(v *X12ProtocolSettings) *X12ProcessingSettings {
 		if v == nil {
@@ -24207,7 +21808,6 @@ func (o X12ProtocolSettingsPtrOutput) ProcessingSettings() X12ProcessingSettings
 	}).(X12ProcessingSettingsPtrOutput)
 }
 
-// The X12 schema references.
 func (o X12ProtocolSettingsPtrOutput) SchemaReferences() X12SchemaReferenceArrayOutput {
 	return o.ApplyT(func(v *X12ProtocolSettings) []X12SchemaReference {
 		if v == nil {
@@ -24217,7 +21817,6 @@ func (o X12ProtocolSettingsPtrOutput) SchemaReferences() X12SchemaReferenceArray
 	}).(X12SchemaReferenceArrayOutput)
 }
 
-// The X12 security settings.
 func (o X12ProtocolSettingsPtrOutput) SecuritySettings() X12SecuritySettingsPtrOutput {
 	return o.ApplyT(func(v *X12ProtocolSettings) *X12SecuritySettings {
 		if v == nil {
@@ -24227,7 +21826,6 @@ func (o X12ProtocolSettingsPtrOutput) SecuritySettings() X12SecuritySettingsPtrO
 	}).(X12SecuritySettingsPtrOutput)
 }
 
-// The X12 validation override settings.
 func (o X12ProtocolSettingsPtrOutput) ValidationOverrides() X12ValidationOverrideArrayOutput {
 	return o.ApplyT(func(v *X12ProtocolSettings) []X12ValidationOverride {
 		if v == nil {
@@ -24237,7 +21835,6 @@ func (o X12ProtocolSettingsPtrOutput) ValidationOverrides() X12ValidationOverrid
 	}).(X12ValidationOverrideArrayOutput)
 }
 
-// The X12 validation settings.
 func (o X12ProtocolSettingsPtrOutput) ValidationSettings() X12ValidationSettingsPtrOutput {
 	return o.ApplyT(func(v *X12ProtocolSettings) *X12ValidationSettings {
 		if v == nil {
@@ -24247,7 +21844,6 @@ func (o X12ProtocolSettingsPtrOutput) ValidationSettings() X12ValidationSettings
 	}).(X12ValidationSettingsPtrOutput)
 }
 
-// The X12 delimiter override settings.
 func (o X12ProtocolSettingsPtrOutput) X12DelimiterOverrides() X12DelimiterOverridesArrayOutput {
 	return o.ApplyT(func(v *X12ProtocolSettings) []X12DelimiterOverrides {
 		if v == nil {
@@ -24257,32 +21853,19 @@ func (o X12ProtocolSettingsPtrOutput) X12DelimiterOverrides() X12DelimiterOverri
 	}).(X12DelimiterOverridesArrayOutput)
 }
 
-// The X12 agreement protocol settings.
 type X12ProtocolSettingsResponse struct {
-	// The X12 acknowledgment settings.
 	AcknowledgementSettings X12AcknowledgementSettingsResponse `pulumi:"acknowledgementSettings"`
-	// The X12 envelope override settings.
-	EnvelopeOverrides []X12EnvelopeOverrideResponse `pulumi:"envelopeOverrides"`
-	// The X12 envelope settings.
-	EnvelopeSettings X12EnvelopeSettingsResponse `pulumi:"envelopeSettings"`
-	// The X12 framing settings.
-	FramingSettings X12FramingSettingsResponse `pulumi:"framingSettings"`
-	// The X12 message filter.
-	MessageFilter X12MessageFilterResponse `pulumi:"messageFilter"`
-	// The X12 message filter list.
-	MessageFilterList []X12MessageIdentifierResponse `pulumi:"messageFilterList"`
-	// The X12 processing settings.
-	ProcessingSettings X12ProcessingSettingsResponse `pulumi:"processingSettings"`
-	// The X12 schema references.
-	SchemaReferences []X12SchemaReferenceResponse `pulumi:"schemaReferences"`
-	// The X12 security settings.
-	SecuritySettings X12SecuritySettingsResponse `pulumi:"securitySettings"`
-	// The X12 validation override settings.
-	ValidationOverrides []X12ValidationOverrideResponse `pulumi:"validationOverrides"`
-	// The X12 validation settings.
-	ValidationSettings X12ValidationSettingsResponse `pulumi:"validationSettings"`
-	// The X12 delimiter override settings.
-	X12DelimiterOverrides []X12DelimiterOverridesResponse `pulumi:"x12DelimiterOverrides"`
+	EnvelopeOverrides       []X12EnvelopeOverrideResponse      `pulumi:"envelopeOverrides"`
+	EnvelopeSettings        X12EnvelopeSettingsResponse        `pulumi:"envelopeSettings"`
+	FramingSettings         X12FramingSettingsResponse         `pulumi:"framingSettings"`
+	MessageFilter           X12MessageFilterResponse           `pulumi:"messageFilter"`
+	MessageFilterList       []X12MessageIdentifierResponse     `pulumi:"messageFilterList"`
+	ProcessingSettings      X12ProcessingSettingsResponse      `pulumi:"processingSettings"`
+	SchemaReferences        []X12SchemaReferenceResponse       `pulumi:"schemaReferences"`
+	SecuritySettings        X12SecuritySettingsResponse        `pulumi:"securitySettings"`
+	ValidationOverrides     []X12ValidationOverrideResponse    `pulumi:"validationOverrides"`
+	ValidationSettings      X12ValidationSettingsResponse      `pulumi:"validationSettings"`
+	X12DelimiterOverrides   []X12DelimiterOverridesResponse    `pulumi:"x12DelimiterOverrides"`
 }
 
 // X12ProtocolSettingsResponseInput is an input type that accepts X12ProtocolSettingsResponseArgs and X12ProtocolSettingsResponseOutput values.
@@ -24296,32 +21879,19 @@ type X12ProtocolSettingsResponseInput interface {
 	ToX12ProtocolSettingsResponseOutputWithContext(context.Context) X12ProtocolSettingsResponseOutput
 }
 
-// The X12 agreement protocol settings.
 type X12ProtocolSettingsResponseArgs struct {
-	// The X12 acknowledgment settings.
 	AcknowledgementSettings X12AcknowledgementSettingsResponseInput `pulumi:"acknowledgementSettings"`
-	// The X12 envelope override settings.
-	EnvelopeOverrides X12EnvelopeOverrideResponseArrayInput `pulumi:"envelopeOverrides"`
-	// The X12 envelope settings.
-	EnvelopeSettings X12EnvelopeSettingsResponseInput `pulumi:"envelopeSettings"`
-	// The X12 framing settings.
-	FramingSettings X12FramingSettingsResponseInput `pulumi:"framingSettings"`
-	// The X12 message filter.
-	MessageFilter X12MessageFilterResponseInput `pulumi:"messageFilter"`
-	// The X12 message filter list.
-	MessageFilterList X12MessageIdentifierResponseArrayInput `pulumi:"messageFilterList"`
-	// The X12 processing settings.
-	ProcessingSettings X12ProcessingSettingsResponseInput `pulumi:"processingSettings"`
-	// The X12 schema references.
-	SchemaReferences X12SchemaReferenceResponseArrayInput `pulumi:"schemaReferences"`
-	// The X12 security settings.
-	SecuritySettings X12SecuritySettingsResponseInput `pulumi:"securitySettings"`
-	// The X12 validation override settings.
-	ValidationOverrides X12ValidationOverrideResponseArrayInput `pulumi:"validationOverrides"`
-	// The X12 validation settings.
-	ValidationSettings X12ValidationSettingsResponseInput `pulumi:"validationSettings"`
-	// The X12 delimiter override settings.
-	X12DelimiterOverrides X12DelimiterOverridesResponseArrayInput `pulumi:"x12DelimiterOverrides"`
+	EnvelopeOverrides       X12EnvelopeOverrideResponseArrayInput   `pulumi:"envelopeOverrides"`
+	EnvelopeSettings        X12EnvelopeSettingsResponseInput        `pulumi:"envelopeSettings"`
+	FramingSettings         X12FramingSettingsResponseInput         `pulumi:"framingSettings"`
+	MessageFilter           X12MessageFilterResponseInput           `pulumi:"messageFilter"`
+	MessageFilterList       X12MessageIdentifierResponseArrayInput  `pulumi:"messageFilterList"`
+	ProcessingSettings      X12ProcessingSettingsResponseInput      `pulumi:"processingSettings"`
+	SchemaReferences        X12SchemaReferenceResponseArrayInput    `pulumi:"schemaReferences"`
+	SecuritySettings        X12SecuritySettingsResponseInput        `pulumi:"securitySettings"`
+	ValidationOverrides     X12ValidationOverrideResponseArrayInput `pulumi:"validationOverrides"`
+	ValidationSettings      X12ValidationSettingsResponseInput      `pulumi:"validationSettings"`
+	X12DelimiterOverrides   X12DelimiterOverridesResponseArrayInput `pulumi:"x12DelimiterOverrides"`
 }
 
 func (X12ProtocolSettingsResponseArgs) ElementType() reflect.Type {
@@ -24377,7 +21947,6 @@ func (i *x12protocolSettingsResponsePtrType) ToX12ProtocolSettingsResponsePtrOut
 	return pulumi.ToOutputWithContext(ctx, i).(X12ProtocolSettingsResponsePtrOutput)
 }
 
-// The X12 agreement protocol settings.
 type X12ProtocolSettingsResponseOutput struct{ *pulumi.OutputState }
 
 func (X12ProtocolSettingsResponseOutput) ElementType() reflect.Type {
@@ -24397,69 +21966,57 @@ func (o X12ProtocolSettingsResponseOutput) ToX12ProtocolSettingsResponsePtrOutpu
 }
 
 func (o X12ProtocolSettingsResponseOutput) ToX12ProtocolSettingsResponsePtrOutputWithContext(ctx context.Context) X12ProtocolSettingsResponsePtrOutput {
-	return o.ApplyT(func(v X12ProtocolSettingsResponse) *X12ProtocolSettingsResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v X12ProtocolSettingsResponse) *X12ProtocolSettingsResponse {
 		return &v
 	}).(X12ProtocolSettingsResponsePtrOutput)
 }
 
-// The X12 acknowledgment settings.
 func (o X12ProtocolSettingsResponseOutput) AcknowledgementSettings() X12AcknowledgementSettingsResponseOutput {
 	return o.ApplyT(func(v X12ProtocolSettingsResponse) X12AcknowledgementSettingsResponse {
 		return v.AcknowledgementSettings
 	}).(X12AcknowledgementSettingsResponseOutput)
 }
 
-// The X12 envelope override settings.
 func (o X12ProtocolSettingsResponseOutput) EnvelopeOverrides() X12EnvelopeOverrideResponseArrayOutput {
 	return o.ApplyT(func(v X12ProtocolSettingsResponse) []X12EnvelopeOverrideResponse { return v.EnvelopeOverrides }).(X12EnvelopeOverrideResponseArrayOutput)
 }
 
-// The X12 envelope settings.
 func (o X12ProtocolSettingsResponseOutput) EnvelopeSettings() X12EnvelopeSettingsResponseOutput {
 	return o.ApplyT(func(v X12ProtocolSettingsResponse) X12EnvelopeSettingsResponse { return v.EnvelopeSettings }).(X12EnvelopeSettingsResponseOutput)
 }
 
-// The X12 framing settings.
 func (o X12ProtocolSettingsResponseOutput) FramingSettings() X12FramingSettingsResponseOutput {
 	return o.ApplyT(func(v X12ProtocolSettingsResponse) X12FramingSettingsResponse { return v.FramingSettings }).(X12FramingSettingsResponseOutput)
 }
 
-// The X12 message filter.
 func (o X12ProtocolSettingsResponseOutput) MessageFilter() X12MessageFilterResponseOutput {
 	return o.ApplyT(func(v X12ProtocolSettingsResponse) X12MessageFilterResponse { return v.MessageFilter }).(X12MessageFilterResponseOutput)
 }
 
-// The X12 message filter list.
 func (o X12ProtocolSettingsResponseOutput) MessageFilterList() X12MessageIdentifierResponseArrayOutput {
 	return o.ApplyT(func(v X12ProtocolSettingsResponse) []X12MessageIdentifierResponse { return v.MessageFilterList }).(X12MessageIdentifierResponseArrayOutput)
 }
 
-// The X12 processing settings.
 func (o X12ProtocolSettingsResponseOutput) ProcessingSettings() X12ProcessingSettingsResponseOutput {
 	return o.ApplyT(func(v X12ProtocolSettingsResponse) X12ProcessingSettingsResponse { return v.ProcessingSettings }).(X12ProcessingSettingsResponseOutput)
 }
 
-// The X12 schema references.
 func (o X12ProtocolSettingsResponseOutput) SchemaReferences() X12SchemaReferenceResponseArrayOutput {
 	return o.ApplyT(func(v X12ProtocolSettingsResponse) []X12SchemaReferenceResponse { return v.SchemaReferences }).(X12SchemaReferenceResponseArrayOutput)
 }
 
-// The X12 security settings.
 func (o X12ProtocolSettingsResponseOutput) SecuritySettings() X12SecuritySettingsResponseOutput {
 	return o.ApplyT(func(v X12ProtocolSettingsResponse) X12SecuritySettingsResponse { return v.SecuritySettings }).(X12SecuritySettingsResponseOutput)
 }
 
-// The X12 validation override settings.
 func (o X12ProtocolSettingsResponseOutput) ValidationOverrides() X12ValidationOverrideResponseArrayOutput {
 	return o.ApplyT(func(v X12ProtocolSettingsResponse) []X12ValidationOverrideResponse { return v.ValidationOverrides }).(X12ValidationOverrideResponseArrayOutput)
 }
 
-// The X12 validation settings.
 func (o X12ProtocolSettingsResponseOutput) ValidationSettings() X12ValidationSettingsResponseOutput {
 	return o.ApplyT(func(v X12ProtocolSettingsResponse) X12ValidationSettingsResponse { return v.ValidationSettings }).(X12ValidationSettingsResponseOutput)
 }
 
-// The X12 delimiter override settings.
 func (o X12ProtocolSettingsResponseOutput) X12DelimiterOverrides() X12DelimiterOverridesResponseArrayOutput {
 	return o.ApplyT(func(v X12ProtocolSettingsResponse) []X12DelimiterOverridesResponse { return v.X12DelimiterOverrides }).(X12DelimiterOverridesResponseArrayOutput)
 }
@@ -24479,10 +22036,15 @@ func (o X12ProtocolSettingsResponsePtrOutput) ToX12ProtocolSettingsResponsePtrOu
 }
 
 func (o X12ProtocolSettingsResponsePtrOutput) Elem() X12ProtocolSettingsResponseOutput {
-	return o.ApplyT(func(v *X12ProtocolSettingsResponse) X12ProtocolSettingsResponse { return *v }).(X12ProtocolSettingsResponseOutput)
+	return o.ApplyT(func(v *X12ProtocolSettingsResponse) X12ProtocolSettingsResponse {
+		if v != nil {
+			return *v
+		}
+		var ret X12ProtocolSettingsResponse
+		return ret
+	}).(X12ProtocolSettingsResponseOutput)
 }
 
-// The X12 acknowledgment settings.
 func (o X12ProtocolSettingsResponsePtrOutput) AcknowledgementSettings() X12AcknowledgementSettingsResponsePtrOutput {
 	return o.ApplyT(func(v *X12ProtocolSettingsResponse) *X12AcknowledgementSettingsResponse {
 		if v == nil {
@@ -24492,7 +22054,6 @@ func (o X12ProtocolSettingsResponsePtrOutput) AcknowledgementSettings() X12Ackno
 	}).(X12AcknowledgementSettingsResponsePtrOutput)
 }
 
-// The X12 envelope override settings.
 func (o X12ProtocolSettingsResponsePtrOutput) EnvelopeOverrides() X12EnvelopeOverrideResponseArrayOutput {
 	return o.ApplyT(func(v *X12ProtocolSettingsResponse) []X12EnvelopeOverrideResponse {
 		if v == nil {
@@ -24502,7 +22063,6 @@ func (o X12ProtocolSettingsResponsePtrOutput) EnvelopeOverrides() X12EnvelopeOve
 	}).(X12EnvelopeOverrideResponseArrayOutput)
 }
 
-// The X12 envelope settings.
 func (o X12ProtocolSettingsResponsePtrOutput) EnvelopeSettings() X12EnvelopeSettingsResponsePtrOutput {
 	return o.ApplyT(func(v *X12ProtocolSettingsResponse) *X12EnvelopeSettingsResponse {
 		if v == nil {
@@ -24512,7 +22072,6 @@ func (o X12ProtocolSettingsResponsePtrOutput) EnvelopeSettings() X12EnvelopeSett
 	}).(X12EnvelopeSettingsResponsePtrOutput)
 }
 
-// The X12 framing settings.
 func (o X12ProtocolSettingsResponsePtrOutput) FramingSettings() X12FramingSettingsResponsePtrOutput {
 	return o.ApplyT(func(v *X12ProtocolSettingsResponse) *X12FramingSettingsResponse {
 		if v == nil {
@@ -24522,7 +22081,6 @@ func (o X12ProtocolSettingsResponsePtrOutput) FramingSettings() X12FramingSettin
 	}).(X12FramingSettingsResponsePtrOutput)
 }
 
-// The X12 message filter.
 func (o X12ProtocolSettingsResponsePtrOutput) MessageFilter() X12MessageFilterResponsePtrOutput {
 	return o.ApplyT(func(v *X12ProtocolSettingsResponse) *X12MessageFilterResponse {
 		if v == nil {
@@ -24532,7 +22090,6 @@ func (o X12ProtocolSettingsResponsePtrOutput) MessageFilter() X12MessageFilterRe
 	}).(X12MessageFilterResponsePtrOutput)
 }
 
-// The X12 message filter list.
 func (o X12ProtocolSettingsResponsePtrOutput) MessageFilterList() X12MessageIdentifierResponseArrayOutput {
 	return o.ApplyT(func(v *X12ProtocolSettingsResponse) []X12MessageIdentifierResponse {
 		if v == nil {
@@ -24542,7 +22099,6 @@ func (o X12ProtocolSettingsResponsePtrOutput) MessageFilterList() X12MessageIden
 	}).(X12MessageIdentifierResponseArrayOutput)
 }
 
-// The X12 processing settings.
 func (o X12ProtocolSettingsResponsePtrOutput) ProcessingSettings() X12ProcessingSettingsResponsePtrOutput {
 	return o.ApplyT(func(v *X12ProtocolSettingsResponse) *X12ProcessingSettingsResponse {
 		if v == nil {
@@ -24552,7 +22108,6 @@ func (o X12ProtocolSettingsResponsePtrOutput) ProcessingSettings() X12Processing
 	}).(X12ProcessingSettingsResponsePtrOutput)
 }
 
-// The X12 schema references.
 func (o X12ProtocolSettingsResponsePtrOutput) SchemaReferences() X12SchemaReferenceResponseArrayOutput {
 	return o.ApplyT(func(v *X12ProtocolSettingsResponse) []X12SchemaReferenceResponse {
 		if v == nil {
@@ -24562,7 +22117,6 @@ func (o X12ProtocolSettingsResponsePtrOutput) SchemaReferences() X12SchemaRefere
 	}).(X12SchemaReferenceResponseArrayOutput)
 }
 
-// The X12 security settings.
 func (o X12ProtocolSettingsResponsePtrOutput) SecuritySettings() X12SecuritySettingsResponsePtrOutput {
 	return o.ApplyT(func(v *X12ProtocolSettingsResponse) *X12SecuritySettingsResponse {
 		if v == nil {
@@ -24572,7 +22126,6 @@ func (o X12ProtocolSettingsResponsePtrOutput) SecuritySettings() X12SecuritySett
 	}).(X12SecuritySettingsResponsePtrOutput)
 }
 
-// The X12 validation override settings.
 func (o X12ProtocolSettingsResponsePtrOutput) ValidationOverrides() X12ValidationOverrideResponseArrayOutput {
 	return o.ApplyT(func(v *X12ProtocolSettingsResponse) []X12ValidationOverrideResponse {
 		if v == nil {
@@ -24582,7 +22135,6 @@ func (o X12ProtocolSettingsResponsePtrOutput) ValidationOverrides() X12Validatio
 	}).(X12ValidationOverrideResponseArrayOutput)
 }
 
-// The X12 validation settings.
 func (o X12ProtocolSettingsResponsePtrOutput) ValidationSettings() X12ValidationSettingsResponsePtrOutput {
 	return o.ApplyT(func(v *X12ProtocolSettingsResponse) *X12ValidationSettingsResponse {
 		if v == nil {
@@ -24592,7 +22144,6 @@ func (o X12ProtocolSettingsResponsePtrOutput) ValidationSettings() X12Validation
 	}).(X12ValidationSettingsResponsePtrOutput)
 }
 
-// The X12 delimiter override settings.
 func (o X12ProtocolSettingsResponsePtrOutput) X12DelimiterOverrides() X12DelimiterOverridesResponseArrayOutput {
 	return o.ApplyT(func(v *X12ProtocolSettingsResponse) []X12DelimiterOverridesResponse {
 		if v == nil {
@@ -24602,15 +22153,10 @@ func (o X12ProtocolSettingsResponsePtrOutput) X12DelimiterOverrides() X12Delimit
 	}).(X12DelimiterOverridesResponseArrayOutput)
 }
 
-// The X12 schema reference.
 type X12SchemaReference struct {
-	// The message id.
-	MessageId string `pulumi:"messageId"`
-	// The schema name.
-	SchemaName string `pulumi:"schemaName"`
-	// The schema version.
-	SchemaVersion string `pulumi:"schemaVersion"`
-	// The sender application id.
+	MessageId           string  `pulumi:"messageId"`
+	SchemaName          string  `pulumi:"schemaName"`
+	SchemaVersion       string  `pulumi:"schemaVersion"`
 	SenderApplicationId *string `pulumi:"senderApplicationId"`
 }
 
@@ -24625,15 +22171,10 @@ type X12SchemaReferenceInput interface {
 	ToX12SchemaReferenceOutputWithContext(context.Context) X12SchemaReferenceOutput
 }
 
-// The X12 schema reference.
 type X12SchemaReferenceArgs struct {
-	// The message id.
-	MessageId pulumi.StringInput `pulumi:"messageId"`
-	// The schema name.
-	SchemaName pulumi.StringInput `pulumi:"schemaName"`
-	// The schema version.
-	SchemaVersion pulumi.StringInput `pulumi:"schemaVersion"`
-	// The sender application id.
+	MessageId           pulumi.StringInput    `pulumi:"messageId"`
+	SchemaName          pulumi.StringInput    `pulumi:"schemaName"`
+	SchemaVersion       pulumi.StringInput    `pulumi:"schemaVersion"`
 	SenderApplicationId pulumi.StringPtrInput `pulumi:"senderApplicationId"`
 }
 
@@ -24674,7 +22215,6 @@ func (i X12SchemaReferenceArray) ToX12SchemaReferenceArrayOutputWithContext(ctx 
 	return pulumi.ToOutputWithContext(ctx, i).(X12SchemaReferenceArrayOutput)
 }
 
-// The X12 schema reference.
 type X12SchemaReferenceOutput struct{ *pulumi.OutputState }
 
 func (X12SchemaReferenceOutput) ElementType() reflect.Type {
@@ -24689,22 +22229,18 @@ func (o X12SchemaReferenceOutput) ToX12SchemaReferenceOutputWithContext(ctx cont
 	return o
 }
 
-// The message id.
 func (o X12SchemaReferenceOutput) MessageId() pulumi.StringOutput {
 	return o.ApplyT(func(v X12SchemaReference) string { return v.MessageId }).(pulumi.StringOutput)
 }
 
-// The schema name.
 func (o X12SchemaReferenceOutput) SchemaName() pulumi.StringOutput {
 	return o.ApplyT(func(v X12SchemaReference) string { return v.SchemaName }).(pulumi.StringOutput)
 }
 
-// The schema version.
 func (o X12SchemaReferenceOutput) SchemaVersion() pulumi.StringOutput {
 	return o.ApplyT(func(v X12SchemaReference) string { return v.SchemaVersion }).(pulumi.StringOutput)
 }
 
-// The sender application id.
 func (o X12SchemaReferenceOutput) SenderApplicationId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v X12SchemaReference) *string { return v.SenderApplicationId }).(pulumi.StringPtrOutput)
 }
@@ -24729,15 +22265,10 @@ func (o X12SchemaReferenceArrayOutput) Index(i pulumi.IntInput) X12SchemaReferen
 	}).(X12SchemaReferenceOutput)
 }
 
-// The X12 schema reference.
 type X12SchemaReferenceResponse struct {
-	// The message id.
-	MessageId string `pulumi:"messageId"`
-	// The schema name.
-	SchemaName string `pulumi:"schemaName"`
-	// The schema version.
-	SchemaVersion string `pulumi:"schemaVersion"`
-	// The sender application id.
+	MessageId           string  `pulumi:"messageId"`
+	SchemaName          string  `pulumi:"schemaName"`
+	SchemaVersion       string  `pulumi:"schemaVersion"`
 	SenderApplicationId *string `pulumi:"senderApplicationId"`
 }
 
@@ -24752,15 +22283,10 @@ type X12SchemaReferenceResponseInput interface {
 	ToX12SchemaReferenceResponseOutputWithContext(context.Context) X12SchemaReferenceResponseOutput
 }
 
-// The X12 schema reference.
 type X12SchemaReferenceResponseArgs struct {
-	// The message id.
-	MessageId pulumi.StringInput `pulumi:"messageId"`
-	// The schema name.
-	SchemaName pulumi.StringInput `pulumi:"schemaName"`
-	// The schema version.
-	SchemaVersion pulumi.StringInput `pulumi:"schemaVersion"`
-	// The sender application id.
+	MessageId           pulumi.StringInput    `pulumi:"messageId"`
+	SchemaName          pulumi.StringInput    `pulumi:"schemaName"`
+	SchemaVersion       pulumi.StringInput    `pulumi:"schemaVersion"`
 	SenderApplicationId pulumi.StringPtrInput `pulumi:"senderApplicationId"`
 }
 
@@ -24801,7 +22327,6 @@ func (i X12SchemaReferenceResponseArray) ToX12SchemaReferenceResponseArrayOutput
 	return pulumi.ToOutputWithContext(ctx, i).(X12SchemaReferenceResponseArrayOutput)
 }
 
-// The X12 schema reference.
 type X12SchemaReferenceResponseOutput struct{ *pulumi.OutputState }
 
 func (X12SchemaReferenceResponseOutput) ElementType() reflect.Type {
@@ -24816,22 +22341,18 @@ func (o X12SchemaReferenceResponseOutput) ToX12SchemaReferenceResponseOutputWith
 	return o
 }
 
-// The message id.
 func (o X12SchemaReferenceResponseOutput) MessageId() pulumi.StringOutput {
 	return o.ApplyT(func(v X12SchemaReferenceResponse) string { return v.MessageId }).(pulumi.StringOutput)
 }
 
-// The schema name.
 func (o X12SchemaReferenceResponseOutput) SchemaName() pulumi.StringOutput {
 	return o.ApplyT(func(v X12SchemaReferenceResponse) string { return v.SchemaName }).(pulumi.StringOutput)
 }
 
-// The schema version.
 func (o X12SchemaReferenceResponseOutput) SchemaVersion() pulumi.StringOutput {
 	return o.ApplyT(func(v X12SchemaReferenceResponse) string { return v.SchemaVersion }).(pulumi.StringOutput)
 }
 
-// The sender application id.
 func (o X12SchemaReferenceResponseOutput) SenderApplicationId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v X12SchemaReferenceResponse) *string { return v.SenderApplicationId }).(pulumi.StringPtrOutput)
 }
@@ -24856,16 +22377,11 @@ func (o X12SchemaReferenceResponseArrayOutput) Index(i pulumi.IntInput) X12Schem
 	}).(X12SchemaReferenceResponseOutput)
 }
 
-// The X12 agreement security settings.
 type X12SecuritySettings struct {
-	// The authorization qualifier.
-	AuthorizationQualifier string `pulumi:"authorizationQualifier"`
-	// The authorization value.
-	AuthorizationValue *string `pulumi:"authorizationValue"`
-	// The password value.
-	PasswordValue *string `pulumi:"passwordValue"`
-	// The security qualifier.
-	SecurityQualifier string `pulumi:"securityQualifier"`
+	AuthorizationQualifier string  `pulumi:"authorizationQualifier"`
+	AuthorizationValue     *string `pulumi:"authorizationValue"`
+	PasswordValue          *string `pulumi:"passwordValue"`
+	SecurityQualifier      string  `pulumi:"securityQualifier"`
 }
 
 // X12SecuritySettingsInput is an input type that accepts X12SecuritySettingsArgs and X12SecuritySettingsOutput values.
@@ -24879,16 +22395,11 @@ type X12SecuritySettingsInput interface {
 	ToX12SecuritySettingsOutputWithContext(context.Context) X12SecuritySettingsOutput
 }
 
-// The X12 agreement security settings.
 type X12SecuritySettingsArgs struct {
-	// The authorization qualifier.
-	AuthorizationQualifier pulumi.StringInput `pulumi:"authorizationQualifier"`
-	// The authorization value.
-	AuthorizationValue pulumi.StringPtrInput `pulumi:"authorizationValue"`
-	// The password value.
-	PasswordValue pulumi.StringPtrInput `pulumi:"passwordValue"`
-	// The security qualifier.
-	SecurityQualifier pulumi.StringInput `pulumi:"securityQualifier"`
+	AuthorizationQualifier pulumi.StringInput    `pulumi:"authorizationQualifier"`
+	AuthorizationValue     pulumi.StringPtrInput `pulumi:"authorizationValue"`
+	PasswordValue          pulumi.StringPtrInput `pulumi:"passwordValue"`
+	SecurityQualifier      pulumi.StringInput    `pulumi:"securityQualifier"`
 }
 
 func (X12SecuritySettingsArgs) ElementType() reflect.Type {
@@ -24944,7 +22455,6 @@ func (i *x12securitySettingsPtrType) ToX12SecuritySettingsPtrOutputWithContext(c
 	return pulumi.ToOutputWithContext(ctx, i).(X12SecuritySettingsPtrOutput)
 }
 
-// The X12 agreement security settings.
 type X12SecuritySettingsOutput struct{ *pulumi.OutputState }
 
 func (X12SecuritySettingsOutput) ElementType() reflect.Type {
@@ -24964,27 +22474,23 @@ func (o X12SecuritySettingsOutput) ToX12SecuritySettingsPtrOutput() X12SecurityS
 }
 
 func (o X12SecuritySettingsOutput) ToX12SecuritySettingsPtrOutputWithContext(ctx context.Context) X12SecuritySettingsPtrOutput {
-	return o.ApplyT(func(v X12SecuritySettings) *X12SecuritySettings {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v X12SecuritySettings) *X12SecuritySettings {
 		return &v
 	}).(X12SecuritySettingsPtrOutput)
 }
 
-// The authorization qualifier.
 func (o X12SecuritySettingsOutput) AuthorizationQualifier() pulumi.StringOutput {
 	return o.ApplyT(func(v X12SecuritySettings) string { return v.AuthorizationQualifier }).(pulumi.StringOutput)
 }
 
-// The authorization value.
 func (o X12SecuritySettingsOutput) AuthorizationValue() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v X12SecuritySettings) *string { return v.AuthorizationValue }).(pulumi.StringPtrOutput)
 }
 
-// The password value.
 func (o X12SecuritySettingsOutput) PasswordValue() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v X12SecuritySettings) *string { return v.PasswordValue }).(pulumi.StringPtrOutput)
 }
 
-// The security qualifier.
 func (o X12SecuritySettingsOutput) SecurityQualifier() pulumi.StringOutput {
 	return o.ApplyT(func(v X12SecuritySettings) string { return v.SecurityQualifier }).(pulumi.StringOutput)
 }
@@ -25004,10 +22510,15 @@ func (o X12SecuritySettingsPtrOutput) ToX12SecuritySettingsPtrOutputWithContext(
 }
 
 func (o X12SecuritySettingsPtrOutput) Elem() X12SecuritySettingsOutput {
-	return o.ApplyT(func(v *X12SecuritySettings) X12SecuritySettings { return *v }).(X12SecuritySettingsOutput)
+	return o.ApplyT(func(v *X12SecuritySettings) X12SecuritySettings {
+		if v != nil {
+			return *v
+		}
+		var ret X12SecuritySettings
+		return ret
+	}).(X12SecuritySettingsOutput)
 }
 
-// The authorization qualifier.
 func (o X12SecuritySettingsPtrOutput) AuthorizationQualifier() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *X12SecuritySettings) *string {
 		if v == nil {
@@ -25017,7 +22528,6 @@ func (o X12SecuritySettingsPtrOutput) AuthorizationQualifier() pulumi.StringPtrO
 	}).(pulumi.StringPtrOutput)
 }
 
-// The authorization value.
 func (o X12SecuritySettingsPtrOutput) AuthorizationValue() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *X12SecuritySettings) *string {
 		if v == nil {
@@ -25027,7 +22537,6 @@ func (o X12SecuritySettingsPtrOutput) AuthorizationValue() pulumi.StringPtrOutpu
 	}).(pulumi.StringPtrOutput)
 }
 
-// The password value.
 func (o X12SecuritySettingsPtrOutput) PasswordValue() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *X12SecuritySettings) *string {
 		if v == nil {
@@ -25037,7 +22546,6 @@ func (o X12SecuritySettingsPtrOutput) PasswordValue() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The security qualifier.
 func (o X12SecuritySettingsPtrOutput) SecurityQualifier() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *X12SecuritySettings) *string {
 		if v == nil {
@@ -25047,16 +22555,11 @@ func (o X12SecuritySettingsPtrOutput) SecurityQualifier() pulumi.StringPtrOutput
 	}).(pulumi.StringPtrOutput)
 }
 
-// The X12 agreement security settings.
 type X12SecuritySettingsResponse struct {
-	// The authorization qualifier.
-	AuthorizationQualifier string `pulumi:"authorizationQualifier"`
-	// The authorization value.
-	AuthorizationValue *string `pulumi:"authorizationValue"`
-	// The password value.
-	PasswordValue *string `pulumi:"passwordValue"`
-	// The security qualifier.
-	SecurityQualifier string `pulumi:"securityQualifier"`
+	AuthorizationQualifier string  `pulumi:"authorizationQualifier"`
+	AuthorizationValue     *string `pulumi:"authorizationValue"`
+	PasswordValue          *string `pulumi:"passwordValue"`
+	SecurityQualifier      string  `pulumi:"securityQualifier"`
 }
 
 // X12SecuritySettingsResponseInput is an input type that accepts X12SecuritySettingsResponseArgs and X12SecuritySettingsResponseOutput values.
@@ -25070,16 +22573,11 @@ type X12SecuritySettingsResponseInput interface {
 	ToX12SecuritySettingsResponseOutputWithContext(context.Context) X12SecuritySettingsResponseOutput
 }
 
-// The X12 agreement security settings.
 type X12SecuritySettingsResponseArgs struct {
-	// The authorization qualifier.
-	AuthorizationQualifier pulumi.StringInput `pulumi:"authorizationQualifier"`
-	// The authorization value.
-	AuthorizationValue pulumi.StringPtrInput `pulumi:"authorizationValue"`
-	// The password value.
-	PasswordValue pulumi.StringPtrInput `pulumi:"passwordValue"`
-	// The security qualifier.
-	SecurityQualifier pulumi.StringInput `pulumi:"securityQualifier"`
+	AuthorizationQualifier pulumi.StringInput    `pulumi:"authorizationQualifier"`
+	AuthorizationValue     pulumi.StringPtrInput `pulumi:"authorizationValue"`
+	PasswordValue          pulumi.StringPtrInput `pulumi:"passwordValue"`
+	SecurityQualifier      pulumi.StringInput    `pulumi:"securityQualifier"`
 }
 
 func (X12SecuritySettingsResponseArgs) ElementType() reflect.Type {
@@ -25135,7 +22633,6 @@ func (i *x12securitySettingsResponsePtrType) ToX12SecuritySettingsResponsePtrOut
 	return pulumi.ToOutputWithContext(ctx, i).(X12SecuritySettingsResponsePtrOutput)
 }
 
-// The X12 agreement security settings.
 type X12SecuritySettingsResponseOutput struct{ *pulumi.OutputState }
 
 func (X12SecuritySettingsResponseOutput) ElementType() reflect.Type {
@@ -25155,27 +22652,23 @@ func (o X12SecuritySettingsResponseOutput) ToX12SecuritySettingsResponsePtrOutpu
 }
 
 func (o X12SecuritySettingsResponseOutput) ToX12SecuritySettingsResponsePtrOutputWithContext(ctx context.Context) X12SecuritySettingsResponsePtrOutput {
-	return o.ApplyT(func(v X12SecuritySettingsResponse) *X12SecuritySettingsResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v X12SecuritySettingsResponse) *X12SecuritySettingsResponse {
 		return &v
 	}).(X12SecuritySettingsResponsePtrOutput)
 }
 
-// The authorization qualifier.
 func (o X12SecuritySettingsResponseOutput) AuthorizationQualifier() pulumi.StringOutput {
 	return o.ApplyT(func(v X12SecuritySettingsResponse) string { return v.AuthorizationQualifier }).(pulumi.StringOutput)
 }
 
-// The authorization value.
 func (o X12SecuritySettingsResponseOutput) AuthorizationValue() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v X12SecuritySettingsResponse) *string { return v.AuthorizationValue }).(pulumi.StringPtrOutput)
 }
 
-// The password value.
 func (o X12SecuritySettingsResponseOutput) PasswordValue() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v X12SecuritySettingsResponse) *string { return v.PasswordValue }).(pulumi.StringPtrOutput)
 }
 
-// The security qualifier.
 func (o X12SecuritySettingsResponseOutput) SecurityQualifier() pulumi.StringOutput {
 	return o.ApplyT(func(v X12SecuritySettingsResponse) string { return v.SecurityQualifier }).(pulumi.StringOutput)
 }
@@ -25195,10 +22688,15 @@ func (o X12SecuritySettingsResponsePtrOutput) ToX12SecuritySettingsResponsePtrOu
 }
 
 func (o X12SecuritySettingsResponsePtrOutput) Elem() X12SecuritySettingsResponseOutput {
-	return o.ApplyT(func(v *X12SecuritySettingsResponse) X12SecuritySettingsResponse { return *v }).(X12SecuritySettingsResponseOutput)
+	return o.ApplyT(func(v *X12SecuritySettingsResponse) X12SecuritySettingsResponse {
+		if v != nil {
+			return *v
+		}
+		var ret X12SecuritySettingsResponse
+		return ret
+	}).(X12SecuritySettingsResponseOutput)
 }
 
-// The authorization qualifier.
 func (o X12SecuritySettingsResponsePtrOutput) AuthorizationQualifier() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *X12SecuritySettingsResponse) *string {
 		if v == nil {
@@ -25208,7 +22706,6 @@ func (o X12SecuritySettingsResponsePtrOutput) AuthorizationQualifier() pulumi.St
 	}).(pulumi.StringPtrOutput)
 }
 
-// The authorization value.
 func (o X12SecuritySettingsResponsePtrOutput) AuthorizationValue() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *X12SecuritySettingsResponse) *string {
 		if v == nil {
@@ -25218,7 +22715,6 @@ func (o X12SecuritySettingsResponsePtrOutput) AuthorizationValue() pulumi.String
 	}).(pulumi.StringPtrOutput)
 }
 
-// The password value.
 func (o X12SecuritySettingsResponsePtrOutput) PasswordValue() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *X12SecuritySettingsResponse) *string {
 		if v == nil {
@@ -25228,7 +22724,6 @@ func (o X12SecuritySettingsResponsePtrOutput) PasswordValue() pulumi.StringPtrOu
 	}).(pulumi.StringPtrOutput)
 }
 
-// The security qualifier.
 func (o X12SecuritySettingsResponsePtrOutput) SecurityQualifier() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *X12SecuritySettingsResponse) *string {
 		if v == nil {
@@ -25238,22 +22733,14 @@ func (o X12SecuritySettingsResponsePtrOutput) SecurityQualifier() pulumi.StringP
 	}).(pulumi.StringPtrOutput)
 }
 
-// The X12 validation override settings.
 type X12ValidationOverride struct {
-	// The value indicating whether to allow leading and trailing spaces and zeroes.
-	AllowLeadingAndTrailingSpacesAndZeroes bool `pulumi:"allowLeadingAndTrailingSpacesAndZeroes"`
-	// The message id on which the validation settings has to be applied.
-	MessageId string `pulumi:"messageId"`
-	// The trailing separator policy.
-	TrailingSeparatorPolicy string `pulumi:"trailingSeparatorPolicy"`
-	// The value indicating whether to trim leading and trailing spaces and zeroes.
-	TrimLeadingAndTrailingSpacesAndZeroes bool `pulumi:"trimLeadingAndTrailingSpacesAndZeroes"`
-	// The value indicating whether to validate character Set.
-	ValidateCharacterSet bool `pulumi:"validateCharacterSet"`
-	// The value indicating whether to validate EDI types.
-	ValidateEDITypes bool `pulumi:"validateEDITypes"`
-	// The value indicating whether to validate XSD types.
-	ValidateXSDTypes bool `pulumi:"validateXSDTypes"`
+	AllowLeadingAndTrailingSpacesAndZeroes bool   `pulumi:"allowLeadingAndTrailingSpacesAndZeroes"`
+	MessageId                              string `pulumi:"messageId"`
+	TrailingSeparatorPolicy                string `pulumi:"trailingSeparatorPolicy"`
+	TrimLeadingAndTrailingSpacesAndZeroes  bool   `pulumi:"trimLeadingAndTrailingSpacesAndZeroes"`
+	ValidateCharacterSet                   bool   `pulumi:"validateCharacterSet"`
+	ValidateEDITypes                       bool   `pulumi:"validateEDITypes"`
+	ValidateXSDTypes                       bool   `pulumi:"validateXSDTypes"`
 }
 
 // X12ValidationOverrideInput is an input type that accepts X12ValidationOverrideArgs and X12ValidationOverrideOutput values.
@@ -25267,22 +22754,14 @@ type X12ValidationOverrideInput interface {
 	ToX12ValidationOverrideOutputWithContext(context.Context) X12ValidationOverrideOutput
 }
 
-// The X12 validation override settings.
 type X12ValidationOverrideArgs struct {
-	// The value indicating whether to allow leading and trailing spaces and zeroes.
-	AllowLeadingAndTrailingSpacesAndZeroes pulumi.BoolInput `pulumi:"allowLeadingAndTrailingSpacesAndZeroes"`
-	// The message id on which the validation settings has to be applied.
-	MessageId pulumi.StringInput `pulumi:"messageId"`
-	// The trailing separator policy.
-	TrailingSeparatorPolicy pulumi.StringInput `pulumi:"trailingSeparatorPolicy"`
-	// The value indicating whether to trim leading and trailing spaces and zeroes.
-	TrimLeadingAndTrailingSpacesAndZeroes pulumi.BoolInput `pulumi:"trimLeadingAndTrailingSpacesAndZeroes"`
-	// The value indicating whether to validate character Set.
-	ValidateCharacterSet pulumi.BoolInput `pulumi:"validateCharacterSet"`
-	// The value indicating whether to validate EDI types.
-	ValidateEDITypes pulumi.BoolInput `pulumi:"validateEDITypes"`
-	// The value indicating whether to validate XSD types.
-	ValidateXSDTypes pulumi.BoolInput `pulumi:"validateXSDTypes"`
+	AllowLeadingAndTrailingSpacesAndZeroes pulumi.BoolInput   `pulumi:"allowLeadingAndTrailingSpacesAndZeroes"`
+	MessageId                              pulumi.StringInput `pulumi:"messageId"`
+	TrailingSeparatorPolicy                pulumi.StringInput `pulumi:"trailingSeparatorPolicy"`
+	TrimLeadingAndTrailingSpacesAndZeroes  pulumi.BoolInput   `pulumi:"trimLeadingAndTrailingSpacesAndZeroes"`
+	ValidateCharacterSet                   pulumi.BoolInput   `pulumi:"validateCharacterSet"`
+	ValidateEDITypes                       pulumi.BoolInput   `pulumi:"validateEDITypes"`
+	ValidateXSDTypes                       pulumi.BoolInput   `pulumi:"validateXSDTypes"`
 }
 
 func (X12ValidationOverrideArgs) ElementType() reflect.Type {
@@ -25322,7 +22801,6 @@ func (i X12ValidationOverrideArray) ToX12ValidationOverrideArrayOutputWithContex
 	return pulumi.ToOutputWithContext(ctx, i).(X12ValidationOverrideArrayOutput)
 }
 
-// The X12 validation override settings.
 type X12ValidationOverrideOutput struct{ *pulumi.OutputState }
 
 func (X12ValidationOverrideOutput) ElementType() reflect.Type {
@@ -25337,37 +22815,30 @@ func (o X12ValidationOverrideOutput) ToX12ValidationOverrideOutputWithContext(ct
 	return o
 }
 
-// The value indicating whether to allow leading and trailing spaces and zeroes.
 func (o X12ValidationOverrideOutput) AllowLeadingAndTrailingSpacesAndZeroes() pulumi.BoolOutput {
 	return o.ApplyT(func(v X12ValidationOverride) bool { return v.AllowLeadingAndTrailingSpacesAndZeroes }).(pulumi.BoolOutput)
 }
 
-// The message id on which the validation settings has to be applied.
 func (o X12ValidationOverrideOutput) MessageId() pulumi.StringOutput {
 	return o.ApplyT(func(v X12ValidationOverride) string { return v.MessageId }).(pulumi.StringOutput)
 }
 
-// The trailing separator policy.
 func (o X12ValidationOverrideOutput) TrailingSeparatorPolicy() pulumi.StringOutput {
 	return o.ApplyT(func(v X12ValidationOverride) string { return v.TrailingSeparatorPolicy }).(pulumi.StringOutput)
 }
 
-// The value indicating whether to trim leading and trailing spaces and zeroes.
 func (o X12ValidationOverrideOutput) TrimLeadingAndTrailingSpacesAndZeroes() pulumi.BoolOutput {
 	return o.ApplyT(func(v X12ValidationOverride) bool { return v.TrimLeadingAndTrailingSpacesAndZeroes }).(pulumi.BoolOutput)
 }
 
-// The value indicating whether to validate character Set.
 func (o X12ValidationOverrideOutput) ValidateCharacterSet() pulumi.BoolOutput {
 	return o.ApplyT(func(v X12ValidationOverride) bool { return v.ValidateCharacterSet }).(pulumi.BoolOutput)
 }
 
-// The value indicating whether to validate EDI types.
 func (o X12ValidationOverrideOutput) ValidateEDITypes() pulumi.BoolOutput {
 	return o.ApplyT(func(v X12ValidationOverride) bool { return v.ValidateEDITypes }).(pulumi.BoolOutput)
 }
 
-// The value indicating whether to validate XSD types.
 func (o X12ValidationOverrideOutput) ValidateXSDTypes() pulumi.BoolOutput {
 	return o.ApplyT(func(v X12ValidationOverride) bool { return v.ValidateXSDTypes }).(pulumi.BoolOutput)
 }
@@ -25392,22 +22863,14 @@ func (o X12ValidationOverrideArrayOutput) Index(i pulumi.IntInput) X12Validation
 	}).(X12ValidationOverrideOutput)
 }
 
-// The X12 validation override settings.
 type X12ValidationOverrideResponse struct {
-	// The value indicating whether to allow leading and trailing spaces and zeroes.
-	AllowLeadingAndTrailingSpacesAndZeroes bool `pulumi:"allowLeadingAndTrailingSpacesAndZeroes"`
-	// The message id on which the validation settings has to be applied.
-	MessageId string `pulumi:"messageId"`
-	// The trailing separator policy.
-	TrailingSeparatorPolicy string `pulumi:"trailingSeparatorPolicy"`
-	// The value indicating whether to trim leading and trailing spaces and zeroes.
-	TrimLeadingAndTrailingSpacesAndZeroes bool `pulumi:"trimLeadingAndTrailingSpacesAndZeroes"`
-	// The value indicating whether to validate character Set.
-	ValidateCharacterSet bool `pulumi:"validateCharacterSet"`
-	// The value indicating whether to validate EDI types.
-	ValidateEDITypes bool `pulumi:"validateEDITypes"`
-	// The value indicating whether to validate XSD types.
-	ValidateXSDTypes bool `pulumi:"validateXSDTypes"`
+	AllowLeadingAndTrailingSpacesAndZeroes bool   `pulumi:"allowLeadingAndTrailingSpacesAndZeroes"`
+	MessageId                              string `pulumi:"messageId"`
+	TrailingSeparatorPolicy                string `pulumi:"trailingSeparatorPolicy"`
+	TrimLeadingAndTrailingSpacesAndZeroes  bool   `pulumi:"trimLeadingAndTrailingSpacesAndZeroes"`
+	ValidateCharacterSet                   bool   `pulumi:"validateCharacterSet"`
+	ValidateEDITypes                       bool   `pulumi:"validateEDITypes"`
+	ValidateXSDTypes                       bool   `pulumi:"validateXSDTypes"`
 }
 
 // X12ValidationOverrideResponseInput is an input type that accepts X12ValidationOverrideResponseArgs and X12ValidationOverrideResponseOutput values.
@@ -25421,22 +22884,14 @@ type X12ValidationOverrideResponseInput interface {
 	ToX12ValidationOverrideResponseOutputWithContext(context.Context) X12ValidationOverrideResponseOutput
 }
 
-// The X12 validation override settings.
 type X12ValidationOverrideResponseArgs struct {
-	// The value indicating whether to allow leading and trailing spaces and zeroes.
-	AllowLeadingAndTrailingSpacesAndZeroes pulumi.BoolInput `pulumi:"allowLeadingAndTrailingSpacesAndZeroes"`
-	// The message id on which the validation settings has to be applied.
-	MessageId pulumi.StringInput `pulumi:"messageId"`
-	// The trailing separator policy.
-	TrailingSeparatorPolicy pulumi.StringInput `pulumi:"trailingSeparatorPolicy"`
-	// The value indicating whether to trim leading and trailing spaces and zeroes.
-	TrimLeadingAndTrailingSpacesAndZeroes pulumi.BoolInput `pulumi:"trimLeadingAndTrailingSpacesAndZeroes"`
-	// The value indicating whether to validate character Set.
-	ValidateCharacterSet pulumi.BoolInput `pulumi:"validateCharacterSet"`
-	// The value indicating whether to validate EDI types.
-	ValidateEDITypes pulumi.BoolInput `pulumi:"validateEDITypes"`
-	// The value indicating whether to validate XSD types.
-	ValidateXSDTypes pulumi.BoolInput `pulumi:"validateXSDTypes"`
+	AllowLeadingAndTrailingSpacesAndZeroes pulumi.BoolInput   `pulumi:"allowLeadingAndTrailingSpacesAndZeroes"`
+	MessageId                              pulumi.StringInput `pulumi:"messageId"`
+	TrailingSeparatorPolicy                pulumi.StringInput `pulumi:"trailingSeparatorPolicy"`
+	TrimLeadingAndTrailingSpacesAndZeroes  pulumi.BoolInput   `pulumi:"trimLeadingAndTrailingSpacesAndZeroes"`
+	ValidateCharacterSet                   pulumi.BoolInput   `pulumi:"validateCharacterSet"`
+	ValidateEDITypes                       pulumi.BoolInput   `pulumi:"validateEDITypes"`
+	ValidateXSDTypes                       pulumi.BoolInput   `pulumi:"validateXSDTypes"`
 }
 
 func (X12ValidationOverrideResponseArgs) ElementType() reflect.Type {
@@ -25476,7 +22931,6 @@ func (i X12ValidationOverrideResponseArray) ToX12ValidationOverrideResponseArray
 	return pulumi.ToOutputWithContext(ctx, i).(X12ValidationOverrideResponseArrayOutput)
 }
 
-// The X12 validation override settings.
 type X12ValidationOverrideResponseOutput struct{ *pulumi.OutputState }
 
 func (X12ValidationOverrideResponseOutput) ElementType() reflect.Type {
@@ -25491,37 +22945,30 @@ func (o X12ValidationOverrideResponseOutput) ToX12ValidationOverrideResponseOutp
 	return o
 }
 
-// The value indicating whether to allow leading and trailing spaces and zeroes.
 func (o X12ValidationOverrideResponseOutput) AllowLeadingAndTrailingSpacesAndZeroes() pulumi.BoolOutput {
 	return o.ApplyT(func(v X12ValidationOverrideResponse) bool { return v.AllowLeadingAndTrailingSpacesAndZeroes }).(pulumi.BoolOutput)
 }
 
-// The message id on which the validation settings has to be applied.
 func (o X12ValidationOverrideResponseOutput) MessageId() pulumi.StringOutput {
 	return o.ApplyT(func(v X12ValidationOverrideResponse) string { return v.MessageId }).(pulumi.StringOutput)
 }
 
-// The trailing separator policy.
 func (o X12ValidationOverrideResponseOutput) TrailingSeparatorPolicy() pulumi.StringOutput {
 	return o.ApplyT(func(v X12ValidationOverrideResponse) string { return v.TrailingSeparatorPolicy }).(pulumi.StringOutput)
 }
 
-// The value indicating whether to trim leading and trailing spaces and zeroes.
 func (o X12ValidationOverrideResponseOutput) TrimLeadingAndTrailingSpacesAndZeroes() pulumi.BoolOutput {
 	return o.ApplyT(func(v X12ValidationOverrideResponse) bool { return v.TrimLeadingAndTrailingSpacesAndZeroes }).(pulumi.BoolOutput)
 }
 
-// The value indicating whether to validate character Set.
 func (o X12ValidationOverrideResponseOutput) ValidateCharacterSet() pulumi.BoolOutput {
 	return o.ApplyT(func(v X12ValidationOverrideResponse) bool { return v.ValidateCharacterSet }).(pulumi.BoolOutput)
 }
 
-// The value indicating whether to validate EDI types.
 func (o X12ValidationOverrideResponseOutput) ValidateEDITypes() pulumi.BoolOutput {
 	return o.ApplyT(func(v X12ValidationOverrideResponse) bool { return v.ValidateEDITypes }).(pulumi.BoolOutput)
 }
 
-// The value indicating whether to validate XSD types.
 func (o X12ValidationOverrideResponseOutput) ValidateXSDTypes() pulumi.BoolOutput {
 	return o.ApplyT(func(v X12ValidationOverrideResponse) bool { return v.ValidateXSDTypes }).(pulumi.BoolOutput)
 }
@@ -25546,28 +22993,17 @@ func (o X12ValidationOverrideResponseArrayOutput) Index(i pulumi.IntInput) X12Va
 	}).(X12ValidationOverrideResponseOutput)
 }
 
-// The X12 agreement validation settings.
 type X12ValidationSettings struct {
-	// The value indicating whether to allow leading and trailing spaces and zeroes.
-	AllowLeadingAndTrailingSpacesAndZeroes bool `pulumi:"allowLeadingAndTrailingSpacesAndZeroes"`
-	// The value indicating whether to check for duplicate group control number.
-	CheckDuplicateGroupControlNumber bool `pulumi:"checkDuplicateGroupControlNumber"`
-	// The value indicating whether to check for duplicate interchange control number.
-	CheckDuplicateInterchangeControlNumber bool `pulumi:"checkDuplicateInterchangeControlNumber"`
-	// The value indicating whether to check for duplicate transaction set control number.
-	CheckDuplicateTransactionSetControlNumber bool `pulumi:"checkDuplicateTransactionSetControlNumber"`
-	// The validity period of interchange control number.
-	InterchangeControlNumberValidityDays int `pulumi:"interchangeControlNumberValidityDays"`
-	// The trailing separator policy.
-	TrailingSeparatorPolicy string `pulumi:"trailingSeparatorPolicy"`
-	// The value indicating whether to trim leading and trailing spaces and zeroes.
-	TrimLeadingAndTrailingSpacesAndZeroes bool `pulumi:"trimLeadingAndTrailingSpacesAndZeroes"`
-	// The value indicating whether to validate character set in the message.
-	ValidateCharacterSet bool `pulumi:"validateCharacterSet"`
-	// The value indicating whether to Whether to validate EDI types.
-	ValidateEDITypes bool `pulumi:"validateEDITypes"`
-	// The value indicating whether to Whether to validate XSD types.
-	ValidateXSDTypes bool `pulumi:"validateXSDTypes"`
+	AllowLeadingAndTrailingSpacesAndZeroes    bool   `pulumi:"allowLeadingAndTrailingSpacesAndZeroes"`
+	CheckDuplicateGroupControlNumber          bool   `pulumi:"checkDuplicateGroupControlNumber"`
+	CheckDuplicateInterchangeControlNumber    bool   `pulumi:"checkDuplicateInterchangeControlNumber"`
+	CheckDuplicateTransactionSetControlNumber bool   `pulumi:"checkDuplicateTransactionSetControlNumber"`
+	InterchangeControlNumberValidityDays      int    `pulumi:"interchangeControlNumberValidityDays"`
+	TrailingSeparatorPolicy                   string `pulumi:"trailingSeparatorPolicy"`
+	TrimLeadingAndTrailingSpacesAndZeroes     bool   `pulumi:"trimLeadingAndTrailingSpacesAndZeroes"`
+	ValidateCharacterSet                      bool   `pulumi:"validateCharacterSet"`
+	ValidateEDITypes                          bool   `pulumi:"validateEDITypes"`
+	ValidateXSDTypes                          bool   `pulumi:"validateXSDTypes"`
 }
 
 // X12ValidationSettingsInput is an input type that accepts X12ValidationSettingsArgs and X12ValidationSettingsOutput values.
@@ -25581,28 +23017,17 @@ type X12ValidationSettingsInput interface {
 	ToX12ValidationSettingsOutputWithContext(context.Context) X12ValidationSettingsOutput
 }
 
-// The X12 agreement validation settings.
 type X12ValidationSettingsArgs struct {
-	// The value indicating whether to allow leading and trailing spaces and zeroes.
-	AllowLeadingAndTrailingSpacesAndZeroes pulumi.BoolInput `pulumi:"allowLeadingAndTrailingSpacesAndZeroes"`
-	// The value indicating whether to check for duplicate group control number.
-	CheckDuplicateGroupControlNumber pulumi.BoolInput `pulumi:"checkDuplicateGroupControlNumber"`
-	// The value indicating whether to check for duplicate interchange control number.
-	CheckDuplicateInterchangeControlNumber pulumi.BoolInput `pulumi:"checkDuplicateInterchangeControlNumber"`
-	// The value indicating whether to check for duplicate transaction set control number.
-	CheckDuplicateTransactionSetControlNumber pulumi.BoolInput `pulumi:"checkDuplicateTransactionSetControlNumber"`
-	// The validity period of interchange control number.
-	InterchangeControlNumberValidityDays pulumi.IntInput `pulumi:"interchangeControlNumberValidityDays"`
-	// The trailing separator policy.
-	TrailingSeparatorPolicy pulumi.StringInput `pulumi:"trailingSeparatorPolicy"`
-	// The value indicating whether to trim leading and trailing spaces and zeroes.
-	TrimLeadingAndTrailingSpacesAndZeroes pulumi.BoolInput `pulumi:"trimLeadingAndTrailingSpacesAndZeroes"`
-	// The value indicating whether to validate character set in the message.
-	ValidateCharacterSet pulumi.BoolInput `pulumi:"validateCharacterSet"`
-	// The value indicating whether to Whether to validate EDI types.
-	ValidateEDITypes pulumi.BoolInput `pulumi:"validateEDITypes"`
-	// The value indicating whether to Whether to validate XSD types.
-	ValidateXSDTypes pulumi.BoolInput `pulumi:"validateXSDTypes"`
+	AllowLeadingAndTrailingSpacesAndZeroes    pulumi.BoolInput   `pulumi:"allowLeadingAndTrailingSpacesAndZeroes"`
+	CheckDuplicateGroupControlNumber          pulumi.BoolInput   `pulumi:"checkDuplicateGroupControlNumber"`
+	CheckDuplicateInterchangeControlNumber    pulumi.BoolInput   `pulumi:"checkDuplicateInterchangeControlNumber"`
+	CheckDuplicateTransactionSetControlNumber pulumi.BoolInput   `pulumi:"checkDuplicateTransactionSetControlNumber"`
+	InterchangeControlNumberValidityDays      pulumi.IntInput    `pulumi:"interchangeControlNumberValidityDays"`
+	TrailingSeparatorPolicy                   pulumi.StringInput `pulumi:"trailingSeparatorPolicy"`
+	TrimLeadingAndTrailingSpacesAndZeroes     pulumi.BoolInput   `pulumi:"trimLeadingAndTrailingSpacesAndZeroes"`
+	ValidateCharacterSet                      pulumi.BoolInput   `pulumi:"validateCharacterSet"`
+	ValidateEDITypes                          pulumi.BoolInput   `pulumi:"validateEDITypes"`
+	ValidateXSDTypes                          pulumi.BoolInput   `pulumi:"validateXSDTypes"`
 }
 
 func (X12ValidationSettingsArgs) ElementType() reflect.Type {
@@ -25658,7 +23083,6 @@ func (i *x12validationSettingsPtrType) ToX12ValidationSettingsPtrOutputWithConte
 	return pulumi.ToOutputWithContext(ctx, i).(X12ValidationSettingsPtrOutput)
 }
 
-// The X12 agreement validation settings.
 type X12ValidationSettingsOutput struct{ *pulumi.OutputState }
 
 func (X12ValidationSettingsOutput) ElementType() reflect.Type {
@@ -25678,57 +23102,47 @@ func (o X12ValidationSettingsOutput) ToX12ValidationSettingsPtrOutput() X12Valid
 }
 
 func (o X12ValidationSettingsOutput) ToX12ValidationSettingsPtrOutputWithContext(ctx context.Context) X12ValidationSettingsPtrOutput {
-	return o.ApplyT(func(v X12ValidationSettings) *X12ValidationSettings {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v X12ValidationSettings) *X12ValidationSettings {
 		return &v
 	}).(X12ValidationSettingsPtrOutput)
 }
 
-// The value indicating whether to allow leading and trailing spaces and zeroes.
 func (o X12ValidationSettingsOutput) AllowLeadingAndTrailingSpacesAndZeroes() pulumi.BoolOutput {
 	return o.ApplyT(func(v X12ValidationSettings) bool { return v.AllowLeadingAndTrailingSpacesAndZeroes }).(pulumi.BoolOutput)
 }
 
-// The value indicating whether to check for duplicate group control number.
 func (o X12ValidationSettingsOutput) CheckDuplicateGroupControlNumber() pulumi.BoolOutput {
 	return o.ApplyT(func(v X12ValidationSettings) bool { return v.CheckDuplicateGroupControlNumber }).(pulumi.BoolOutput)
 }
 
-// The value indicating whether to check for duplicate interchange control number.
 func (o X12ValidationSettingsOutput) CheckDuplicateInterchangeControlNumber() pulumi.BoolOutput {
 	return o.ApplyT(func(v X12ValidationSettings) bool { return v.CheckDuplicateInterchangeControlNumber }).(pulumi.BoolOutput)
 }
 
-// The value indicating whether to check for duplicate transaction set control number.
 func (o X12ValidationSettingsOutput) CheckDuplicateTransactionSetControlNumber() pulumi.BoolOutput {
 	return o.ApplyT(func(v X12ValidationSettings) bool { return v.CheckDuplicateTransactionSetControlNumber }).(pulumi.BoolOutput)
 }
 
-// The validity period of interchange control number.
 func (o X12ValidationSettingsOutput) InterchangeControlNumberValidityDays() pulumi.IntOutput {
 	return o.ApplyT(func(v X12ValidationSettings) int { return v.InterchangeControlNumberValidityDays }).(pulumi.IntOutput)
 }
 
-// The trailing separator policy.
 func (o X12ValidationSettingsOutput) TrailingSeparatorPolicy() pulumi.StringOutput {
 	return o.ApplyT(func(v X12ValidationSettings) string { return v.TrailingSeparatorPolicy }).(pulumi.StringOutput)
 }
 
-// The value indicating whether to trim leading and trailing spaces and zeroes.
 func (o X12ValidationSettingsOutput) TrimLeadingAndTrailingSpacesAndZeroes() pulumi.BoolOutput {
 	return o.ApplyT(func(v X12ValidationSettings) bool { return v.TrimLeadingAndTrailingSpacesAndZeroes }).(pulumi.BoolOutput)
 }
 
-// The value indicating whether to validate character set in the message.
 func (o X12ValidationSettingsOutput) ValidateCharacterSet() pulumi.BoolOutput {
 	return o.ApplyT(func(v X12ValidationSettings) bool { return v.ValidateCharacterSet }).(pulumi.BoolOutput)
 }
 
-// The value indicating whether to Whether to validate EDI types.
 func (o X12ValidationSettingsOutput) ValidateEDITypes() pulumi.BoolOutput {
 	return o.ApplyT(func(v X12ValidationSettings) bool { return v.ValidateEDITypes }).(pulumi.BoolOutput)
 }
 
-// The value indicating whether to Whether to validate XSD types.
 func (o X12ValidationSettingsOutput) ValidateXSDTypes() pulumi.BoolOutput {
 	return o.ApplyT(func(v X12ValidationSettings) bool { return v.ValidateXSDTypes }).(pulumi.BoolOutput)
 }
@@ -25748,10 +23162,15 @@ func (o X12ValidationSettingsPtrOutput) ToX12ValidationSettingsPtrOutputWithCont
 }
 
 func (o X12ValidationSettingsPtrOutput) Elem() X12ValidationSettingsOutput {
-	return o.ApplyT(func(v *X12ValidationSettings) X12ValidationSettings { return *v }).(X12ValidationSettingsOutput)
+	return o.ApplyT(func(v *X12ValidationSettings) X12ValidationSettings {
+		if v != nil {
+			return *v
+		}
+		var ret X12ValidationSettings
+		return ret
+	}).(X12ValidationSettingsOutput)
 }
 
-// The value indicating whether to allow leading and trailing spaces and zeroes.
 func (o X12ValidationSettingsPtrOutput) AllowLeadingAndTrailingSpacesAndZeroes() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *X12ValidationSettings) *bool {
 		if v == nil {
@@ -25761,7 +23180,6 @@ func (o X12ValidationSettingsPtrOutput) AllowLeadingAndTrailingSpacesAndZeroes()
 	}).(pulumi.BoolPtrOutput)
 }
 
-// The value indicating whether to check for duplicate group control number.
 func (o X12ValidationSettingsPtrOutput) CheckDuplicateGroupControlNumber() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *X12ValidationSettings) *bool {
 		if v == nil {
@@ -25771,7 +23189,6 @@ func (o X12ValidationSettingsPtrOutput) CheckDuplicateGroupControlNumber() pulum
 	}).(pulumi.BoolPtrOutput)
 }
 
-// The value indicating whether to check for duplicate interchange control number.
 func (o X12ValidationSettingsPtrOutput) CheckDuplicateInterchangeControlNumber() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *X12ValidationSettings) *bool {
 		if v == nil {
@@ -25781,7 +23198,6 @@ func (o X12ValidationSettingsPtrOutput) CheckDuplicateInterchangeControlNumber()
 	}).(pulumi.BoolPtrOutput)
 }
 
-// The value indicating whether to check for duplicate transaction set control number.
 func (o X12ValidationSettingsPtrOutput) CheckDuplicateTransactionSetControlNumber() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *X12ValidationSettings) *bool {
 		if v == nil {
@@ -25791,7 +23207,6 @@ func (o X12ValidationSettingsPtrOutput) CheckDuplicateTransactionSetControlNumbe
 	}).(pulumi.BoolPtrOutput)
 }
 
-// The validity period of interchange control number.
 func (o X12ValidationSettingsPtrOutput) InterchangeControlNumberValidityDays() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *X12ValidationSettings) *int {
 		if v == nil {
@@ -25801,7 +23216,6 @@ func (o X12ValidationSettingsPtrOutput) InterchangeControlNumberValidityDays() p
 	}).(pulumi.IntPtrOutput)
 }
 
-// The trailing separator policy.
 func (o X12ValidationSettingsPtrOutput) TrailingSeparatorPolicy() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *X12ValidationSettings) *string {
 		if v == nil {
@@ -25811,7 +23225,6 @@ func (o X12ValidationSettingsPtrOutput) TrailingSeparatorPolicy() pulumi.StringP
 	}).(pulumi.StringPtrOutput)
 }
 
-// The value indicating whether to trim leading and trailing spaces and zeroes.
 func (o X12ValidationSettingsPtrOutput) TrimLeadingAndTrailingSpacesAndZeroes() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *X12ValidationSettings) *bool {
 		if v == nil {
@@ -25821,7 +23234,6 @@ func (o X12ValidationSettingsPtrOutput) TrimLeadingAndTrailingSpacesAndZeroes() 
 	}).(pulumi.BoolPtrOutput)
 }
 
-// The value indicating whether to validate character set in the message.
 func (o X12ValidationSettingsPtrOutput) ValidateCharacterSet() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *X12ValidationSettings) *bool {
 		if v == nil {
@@ -25831,7 +23243,6 @@ func (o X12ValidationSettingsPtrOutput) ValidateCharacterSet() pulumi.BoolPtrOut
 	}).(pulumi.BoolPtrOutput)
 }
 
-// The value indicating whether to Whether to validate EDI types.
 func (o X12ValidationSettingsPtrOutput) ValidateEDITypes() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *X12ValidationSettings) *bool {
 		if v == nil {
@@ -25841,7 +23252,6 @@ func (o X12ValidationSettingsPtrOutput) ValidateEDITypes() pulumi.BoolPtrOutput 
 	}).(pulumi.BoolPtrOutput)
 }
 
-// The value indicating whether to Whether to validate XSD types.
 func (o X12ValidationSettingsPtrOutput) ValidateXSDTypes() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *X12ValidationSettings) *bool {
 		if v == nil {
@@ -25851,28 +23261,17 @@ func (o X12ValidationSettingsPtrOutput) ValidateXSDTypes() pulumi.BoolPtrOutput 
 	}).(pulumi.BoolPtrOutput)
 }
 
-// The X12 agreement validation settings.
 type X12ValidationSettingsResponse struct {
-	// The value indicating whether to allow leading and trailing spaces and zeroes.
-	AllowLeadingAndTrailingSpacesAndZeroes bool `pulumi:"allowLeadingAndTrailingSpacesAndZeroes"`
-	// The value indicating whether to check for duplicate group control number.
-	CheckDuplicateGroupControlNumber bool `pulumi:"checkDuplicateGroupControlNumber"`
-	// The value indicating whether to check for duplicate interchange control number.
-	CheckDuplicateInterchangeControlNumber bool `pulumi:"checkDuplicateInterchangeControlNumber"`
-	// The value indicating whether to check for duplicate transaction set control number.
-	CheckDuplicateTransactionSetControlNumber bool `pulumi:"checkDuplicateTransactionSetControlNumber"`
-	// The validity period of interchange control number.
-	InterchangeControlNumberValidityDays int `pulumi:"interchangeControlNumberValidityDays"`
-	// The trailing separator policy.
-	TrailingSeparatorPolicy string `pulumi:"trailingSeparatorPolicy"`
-	// The value indicating whether to trim leading and trailing spaces and zeroes.
-	TrimLeadingAndTrailingSpacesAndZeroes bool `pulumi:"trimLeadingAndTrailingSpacesAndZeroes"`
-	// The value indicating whether to validate character set in the message.
-	ValidateCharacterSet bool `pulumi:"validateCharacterSet"`
-	// The value indicating whether to Whether to validate EDI types.
-	ValidateEDITypes bool `pulumi:"validateEDITypes"`
-	// The value indicating whether to Whether to validate XSD types.
-	ValidateXSDTypes bool `pulumi:"validateXSDTypes"`
+	AllowLeadingAndTrailingSpacesAndZeroes    bool   `pulumi:"allowLeadingAndTrailingSpacesAndZeroes"`
+	CheckDuplicateGroupControlNumber          bool   `pulumi:"checkDuplicateGroupControlNumber"`
+	CheckDuplicateInterchangeControlNumber    bool   `pulumi:"checkDuplicateInterchangeControlNumber"`
+	CheckDuplicateTransactionSetControlNumber bool   `pulumi:"checkDuplicateTransactionSetControlNumber"`
+	InterchangeControlNumberValidityDays      int    `pulumi:"interchangeControlNumberValidityDays"`
+	TrailingSeparatorPolicy                   string `pulumi:"trailingSeparatorPolicy"`
+	TrimLeadingAndTrailingSpacesAndZeroes     bool   `pulumi:"trimLeadingAndTrailingSpacesAndZeroes"`
+	ValidateCharacterSet                      bool   `pulumi:"validateCharacterSet"`
+	ValidateEDITypes                          bool   `pulumi:"validateEDITypes"`
+	ValidateXSDTypes                          bool   `pulumi:"validateXSDTypes"`
 }
 
 // X12ValidationSettingsResponseInput is an input type that accepts X12ValidationSettingsResponseArgs and X12ValidationSettingsResponseOutput values.
@@ -25886,28 +23285,17 @@ type X12ValidationSettingsResponseInput interface {
 	ToX12ValidationSettingsResponseOutputWithContext(context.Context) X12ValidationSettingsResponseOutput
 }
 
-// The X12 agreement validation settings.
 type X12ValidationSettingsResponseArgs struct {
-	// The value indicating whether to allow leading and trailing spaces and zeroes.
-	AllowLeadingAndTrailingSpacesAndZeroes pulumi.BoolInput `pulumi:"allowLeadingAndTrailingSpacesAndZeroes"`
-	// The value indicating whether to check for duplicate group control number.
-	CheckDuplicateGroupControlNumber pulumi.BoolInput `pulumi:"checkDuplicateGroupControlNumber"`
-	// The value indicating whether to check for duplicate interchange control number.
-	CheckDuplicateInterchangeControlNumber pulumi.BoolInput `pulumi:"checkDuplicateInterchangeControlNumber"`
-	// The value indicating whether to check for duplicate transaction set control number.
-	CheckDuplicateTransactionSetControlNumber pulumi.BoolInput `pulumi:"checkDuplicateTransactionSetControlNumber"`
-	// The validity period of interchange control number.
-	InterchangeControlNumberValidityDays pulumi.IntInput `pulumi:"interchangeControlNumberValidityDays"`
-	// The trailing separator policy.
-	TrailingSeparatorPolicy pulumi.StringInput `pulumi:"trailingSeparatorPolicy"`
-	// The value indicating whether to trim leading and trailing spaces and zeroes.
-	TrimLeadingAndTrailingSpacesAndZeroes pulumi.BoolInput `pulumi:"trimLeadingAndTrailingSpacesAndZeroes"`
-	// The value indicating whether to validate character set in the message.
-	ValidateCharacterSet pulumi.BoolInput `pulumi:"validateCharacterSet"`
-	// The value indicating whether to Whether to validate EDI types.
-	ValidateEDITypes pulumi.BoolInput `pulumi:"validateEDITypes"`
-	// The value indicating whether to Whether to validate XSD types.
-	ValidateXSDTypes pulumi.BoolInput `pulumi:"validateXSDTypes"`
+	AllowLeadingAndTrailingSpacesAndZeroes    pulumi.BoolInput   `pulumi:"allowLeadingAndTrailingSpacesAndZeroes"`
+	CheckDuplicateGroupControlNumber          pulumi.BoolInput   `pulumi:"checkDuplicateGroupControlNumber"`
+	CheckDuplicateInterchangeControlNumber    pulumi.BoolInput   `pulumi:"checkDuplicateInterchangeControlNumber"`
+	CheckDuplicateTransactionSetControlNumber pulumi.BoolInput   `pulumi:"checkDuplicateTransactionSetControlNumber"`
+	InterchangeControlNumberValidityDays      pulumi.IntInput    `pulumi:"interchangeControlNumberValidityDays"`
+	TrailingSeparatorPolicy                   pulumi.StringInput `pulumi:"trailingSeparatorPolicy"`
+	TrimLeadingAndTrailingSpacesAndZeroes     pulumi.BoolInput   `pulumi:"trimLeadingAndTrailingSpacesAndZeroes"`
+	ValidateCharacterSet                      pulumi.BoolInput   `pulumi:"validateCharacterSet"`
+	ValidateEDITypes                          pulumi.BoolInput   `pulumi:"validateEDITypes"`
+	ValidateXSDTypes                          pulumi.BoolInput   `pulumi:"validateXSDTypes"`
 }
 
 func (X12ValidationSettingsResponseArgs) ElementType() reflect.Type {
@@ -25963,7 +23351,6 @@ func (i *x12validationSettingsResponsePtrType) ToX12ValidationSettingsResponsePt
 	return pulumi.ToOutputWithContext(ctx, i).(X12ValidationSettingsResponsePtrOutput)
 }
 
-// The X12 agreement validation settings.
 type X12ValidationSettingsResponseOutput struct{ *pulumi.OutputState }
 
 func (X12ValidationSettingsResponseOutput) ElementType() reflect.Type {
@@ -25983,57 +23370,47 @@ func (o X12ValidationSettingsResponseOutput) ToX12ValidationSettingsResponsePtrO
 }
 
 func (o X12ValidationSettingsResponseOutput) ToX12ValidationSettingsResponsePtrOutputWithContext(ctx context.Context) X12ValidationSettingsResponsePtrOutput {
-	return o.ApplyT(func(v X12ValidationSettingsResponse) *X12ValidationSettingsResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v X12ValidationSettingsResponse) *X12ValidationSettingsResponse {
 		return &v
 	}).(X12ValidationSettingsResponsePtrOutput)
 }
 
-// The value indicating whether to allow leading and trailing spaces and zeroes.
 func (o X12ValidationSettingsResponseOutput) AllowLeadingAndTrailingSpacesAndZeroes() pulumi.BoolOutput {
 	return o.ApplyT(func(v X12ValidationSettingsResponse) bool { return v.AllowLeadingAndTrailingSpacesAndZeroes }).(pulumi.BoolOutput)
 }
 
-// The value indicating whether to check for duplicate group control number.
 func (o X12ValidationSettingsResponseOutput) CheckDuplicateGroupControlNumber() pulumi.BoolOutput {
 	return o.ApplyT(func(v X12ValidationSettingsResponse) bool { return v.CheckDuplicateGroupControlNumber }).(pulumi.BoolOutput)
 }
 
-// The value indicating whether to check for duplicate interchange control number.
 func (o X12ValidationSettingsResponseOutput) CheckDuplicateInterchangeControlNumber() pulumi.BoolOutput {
 	return o.ApplyT(func(v X12ValidationSettingsResponse) bool { return v.CheckDuplicateInterchangeControlNumber }).(pulumi.BoolOutput)
 }
 
-// The value indicating whether to check for duplicate transaction set control number.
 func (o X12ValidationSettingsResponseOutput) CheckDuplicateTransactionSetControlNumber() pulumi.BoolOutput {
 	return o.ApplyT(func(v X12ValidationSettingsResponse) bool { return v.CheckDuplicateTransactionSetControlNumber }).(pulumi.BoolOutput)
 }
 
-// The validity period of interchange control number.
 func (o X12ValidationSettingsResponseOutput) InterchangeControlNumberValidityDays() pulumi.IntOutput {
 	return o.ApplyT(func(v X12ValidationSettingsResponse) int { return v.InterchangeControlNumberValidityDays }).(pulumi.IntOutput)
 }
 
-// The trailing separator policy.
 func (o X12ValidationSettingsResponseOutput) TrailingSeparatorPolicy() pulumi.StringOutput {
 	return o.ApplyT(func(v X12ValidationSettingsResponse) string { return v.TrailingSeparatorPolicy }).(pulumi.StringOutput)
 }
 
-// The value indicating whether to trim leading and trailing spaces and zeroes.
 func (o X12ValidationSettingsResponseOutput) TrimLeadingAndTrailingSpacesAndZeroes() pulumi.BoolOutput {
 	return o.ApplyT(func(v X12ValidationSettingsResponse) bool { return v.TrimLeadingAndTrailingSpacesAndZeroes }).(pulumi.BoolOutput)
 }
 
-// The value indicating whether to validate character set in the message.
 func (o X12ValidationSettingsResponseOutput) ValidateCharacterSet() pulumi.BoolOutput {
 	return o.ApplyT(func(v X12ValidationSettingsResponse) bool { return v.ValidateCharacterSet }).(pulumi.BoolOutput)
 }
 
-// The value indicating whether to Whether to validate EDI types.
 func (o X12ValidationSettingsResponseOutput) ValidateEDITypes() pulumi.BoolOutput {
 	return o.ApplyT(func(v X12ValidationSettingsResponse) bool { return v.ValidateEDITypes }).(pulumi.BoolOutput)
 }
 
-// The value indicating whether to Whether to validate XSD types.
 func (o X12ValidationSettingsResponseOutput) ValidateXSDTypes() pulumi.BoolOutput {
 	return o.ApplyT(func(v X12ValidationSettingsResponse) bool { return v.ValidateXSDTypes }).(pulumi.BoolOutput)
 }
@@ -26053,10 +23430,15 @@ func (o X12ValidationSettingsResponsePtrOutput) ToX12ValidationSettingsResponseP
 }
 
 func (o X12ValidationSettingsResponsePtrOutput) Elem() X12ValidationSettingsResponseOutput {
-	return o.ApplyT(func(v *X12ValidationSettingsResponse) X12ValidationSettingsResponse { return *v }).(X12ValidationSettingsResponseOutput)
+	return o.ApplyT(func(v *X12ValidationSettingsResponse) X12ValidationSettingsResponse {
+		if v != nil {
+			return *v
+		}
+		var ret X12ValidationSettingsResponse
+		return ret
+	}).(X12ValidationSettingsResponseOutput)
 }
 
-// The value indicating whether to allow leading and trailing spaces and zeroes.
 func (o X12ValidationSettingsResponsePtrOutput) AllowLeadingAndTrailingSpacesAndZeroes() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *X12ValidationSettingsResponse) *bool {
 		if v == nil {
@@ -26066,7 +23448,6 @@ func (o X12ValidationSettingsResponsePtrOutput) AllowLeadingAndTrailingSpacesAnd
 	}).(pulumi.BoolPtrOutput)
 }
 
-// The value indicating whether to check for duplicate group control number.
 func (o X12ValidationSettingsResponsePtrOutput) CheckDuplicateGroupControlNumber() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *X12ValidationSettingsResponse) *bool {
 		if v == nil {
@@ -26076,7 +23457,6 @@ func (o X12ValidationSettingsResponsePtrOutput) CheckDuplicateGroupControlNumber
 	}).(pulumi.BoolPtrOutput)
 }
 
-// The value indicating whether to check for duplicate interchange control number.
 func (o X12ValidationSettingsResponsePtrOutput) CheckDuplicateInterchangeControlNumber() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *X12ValidationSettingsResponse) *bool {
 		if v == nil {
@@ -26086,7 +23466,6 @@ func (o X12ValidationSettingsResponsePtrOutput) CheckDuplicateInterchangeControl
 	}).(pulumi.BoolPtrOutput)
 }
 
-// The value indicating whether to check for duplicate transaction set control number.
 func (o X12ValidationSettingsResponsePtrOutput) CheckDuplicateTransactionSetControlNumber() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *X12ValidationSettingsResponse) *bool {
 		if v == nil {
@@ -26096,7 +23475,6 @@ func (o X12ValidationSettingsResponsePtrOutput) CheckDuplicateTransactionSetCont
 	}).(pulumi.BoolPtrOutput)
 }
 
-// The validity period of interchange control number.
 func (o X12ValidationSettingsResponsePtrOutput) InterchangeControlNumberValidityDays() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *X12ValidationSettingsResponse) *int {
 		if v == nil {
@@ -26106,7 +23484,6 @@ func (o X12ValidationSettingsResponsePtrOutput) InterchangeControlNumberValidity
 	}).(pulumi.IntPtrOutput)
 }
 
-// The trailing separator policy.
 func (o X12ValidationSettingsResponsePtrOutput) TrailingSeparatorPolicy() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *X12ValidationSettingsResponse) *string {
 		if v == nil {
@@ -26116,7 +23493,6 @@ func (o X12ValidationSettingsResponsePtrOutput) TrailingSeparatorPolicy() pulumi
 	}).(pulumi.StringPtrOutput)
 }
 
-// The value indicating whether to trim leading and trailing spaces and zeroes.
 func (o X12ValidationSettingsResponsePtrOutput) TrimLeadingAndTrailingSpacesAndZeroes() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *X12ValidationSettingsResponse) *bool {
 		if v == nil {
@@ -26126,7 +23502,6 @@ func (o X12ValidationSettingsResponsePtrOutput) TrimLeadingAndTrailingSpacesAndZ
 	}).(pulumi.BoolPtrOutput)
 }
 
-// The value indicating whether to validate character set in the message.
 func (o X12ValidationSettingsResponsePtrOutput) ValidateCharacterSet() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *X12ValidationSettingsResponse) *bool {
 		if v == nil {
@@ -26136,7 +23511,6 @@ func (o X12ValidationSettingsResponsePtrOutput) ValidateCharacterSet() pulumi.Bo
 	}).(pulumi.BoolPtrOutput)
 }
 
-// The value indicating whether to Whether to validate EDI types.
 func (o X12ValidationSettingsResponsePtrOutput) ValidateEDITypes() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *X12ValidationSettingsResponse) *bool {
 		if v == nil {
@@ -26146,7 +23520,6 @@ func (o X12ValidationSettingsResponsePtrOutput) ValidateEDITypes() pulumi.BoolPt
 	}).(pulumi.BoolPtrOutput)
 }
 
-// The value indicating whether to Whether to validate XSD types.
 func (o X12ValidationSettingsResponsePtrOutput) ValidateXSDTypes() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *X12ValidationSettingsResponse) *bool {
 		if v == nil {

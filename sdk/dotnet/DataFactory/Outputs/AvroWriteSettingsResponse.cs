@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.DataFactory.Outputs
 {
 
+    /// <summary>
+    /// Avro write settings.
+    /// </summary>
     [OutputType]
     public sealed class AvroWriteSettingsResponse
     {

@@ -7,7 +7,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Response of a list operation.
 func ListVMHost(ctx *pulumi.Context, args *ListVMHostArgs, opts ...pulumi.InvokeOption) (*ListVMHostResult, error) {
 	var rv ListVMHostResult
 	err := ctx.Invoke("azure-native:elastic/v20200701:listVMHost", args, &rv, opts...)
@@ -18,16 +17,12 @@ func ListVMHost(ctx *pulumi.Context, args *ListVMHostArgs, opts ...pulumi.Invoke
 }
 
 type ListVMHostArgs struct {
-	// Monitor resource name
-	MonitorName string `pulumi:"monitorName"`
-	// The name of the resource group to which the Elastic resource belongs.
+	MonitorName       string `pulumi:"monitorName"`
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 }
 
 // Response of a list operation.
 type ListVMHostResult struct {
-	// Link to the next Vm resource Id, if any.
-	NextLink *string `pulumi:"nextLink"`
-	// Results of a list operation.
-	Value []VMResourcesResponse `pulumi:"value"`
+	NextLink *string               `pulumi:"nextLink"`
+	Value    []VMResourcesResponse `pulumi:"value"`
 }

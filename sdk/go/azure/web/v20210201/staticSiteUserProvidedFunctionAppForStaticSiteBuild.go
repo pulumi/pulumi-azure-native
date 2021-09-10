@@ -11,22 +11,15 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Static Site User Provided Function App ARM resource.
 type StaticSiteUserProvidedFunctionAppForStaticSiteBuild struct {
 	pulumi.CustomResourceState
 
-	// The date and time on which the function app was registered with the static site.
-	CreatedOn pulumi.StringOutput `pulumi:"createdOn"`
-	// The region of the function app registered with the static site
-	FunctionAppRegion pulumi.StringPtrOutput `pulumi:"functionAppRegion"`
-	// The resource id of the function app registered with the static site
+	CreatedOn             pulumi.StringOutput    `pulumi:"createdOn"`
+	FunctionAppRegion     pulumi.StringPtrOutput `pulumi:"functionAppRegion"`
 	FunctionAppResourceId pulumi.StringPtrOutput `pulumi:"functionAppResourceId"`
-	// Kind of resource.
-	Kind pulumi.StringPtrOutput `pulumi:"kind"`
-	// Resource Name.
-	Name pulumi.StringOutput `pulumi:"name"`
-	// Resource type.
-	Type pulumi.StringOutput `pulumi:"type"`
+	Kind                  pulumi.StringPtrOutput `pulumi:"kind"`
+	Name                  pulumi.StringOutput    `pulumi:"name"`
+	Type                  pulumi.StringOutput    `pulumi:"type"`
 }
 
 // NewStaticSiteUserProvidedFunctionAppForStaticSiteBuild registers a new resource with the given unique name, arguments, and options.
@@ -107,42 +100,26 @@ func (StaticSiteUserProvidedFunctionAppForStaticSiteBuildState) ElementType() re
 }
 
 type staticSiteUserProvidedFunctionAppForStaticSiteBuildArgs struct {
-	// The stage site identifier.
-	EnvironmentName string `pulumi:"environmentName"`
-	// Name of the function app to register with the static site build.
-	FunctionAppName *string `pulumi:"functionAppName"`
-	// The region of the function app registered with the static site
-	FunctionAppRegion *string `pulumi:"functionAppRegion"`
-	// The resource id of the function app registered with the static site
+	EnvironmentName       string  `pulumi:"environmentName"`
+	FunctionAppName       *string `pulumi:"functionAppName"`
+	FunctionAppRegion     *string `pulumi:"functionAppRegion"`
 	FunctionAppResourceId *string `pulumi:"functionAppResourceId"`
-	// Specify <code>true</code> to force the update of the auth configuration on the function app even if an AzureStaticWebApps provider is already configured on the function app. The default is <code>false</code>.
-	IsForced *bool `pulumi:"isForced"`
-	// Kind of resource.
-	Kind *string `pulumi:"kind"`
-	// Name of the static site.
-	Name string `pulumi:"name"`
-	// Name of the resource group to which the resource belongs.
-	ResourceGroupName string `pulumi:"resourceGroupName"`
+	IsForced              *bool   `pulumi:"isForced"`
+	Kind                  *string `pulumi:"kind"`
+	Name                  string  `pulumi:"name"`
+	ResourceGroupName     string  `pulumi:"resourceGroupName"`
 }
 
 // The set of arguments for constructing a StaticSiteUserProvidedFunctionAppForStaticSiteBuild resource.
 type StaticSiteUserProvidedFunctionAppForStaticSiteBuildArgs struct {
-	// The stage site identifier.
-	EnvironmentName pulumi.StringInput
-	// Name of the function app to register with the static site build.
-	FunctionAppName pulumi.StringPtrInput
-	// The region of the function app registered with the static site
-	FunctionAppRegion pulumi.StringPtrInput
-	// The resource id of the function app registered with the static site
+	EnvironmentName       pulumi.StringInput
+	FunctionAppName       pulumi.StringPtrInput
+	FunctionAppRegion     pulumi.StringPtrInput
 	FunctionAppResourceId pulumi.StringPtrInput
-	// Specify <code>true</code> to force the update of the auth configuration on the function app even if an AzureStaticWebApps provider is already configured on the function app. The default is <code>false</code>.
-	IsForced pulumi.BoolPtrInput
-	// Kind of resource.
-	Kind pulumi.StringPtrInput
-	// Name of the static site.
-	Name pulumi.StringInput
-	// Name of the resource group to which the resource belongs.
-	ResourceGroupName pulumi.StringInput
+	IsForced              pulumi.BoolPtrInput
+	Kind                  pulumi.StringPtrInput
+	Name                  pulumi.StringInput
+	ResourceGroupName     pulumi.StringInput
 }
 
 func (StaticSiteUserProvidedFunctionAppForStaticSiteBuildArgs) ElementType() reflect.Type {
@@ -168,9 +145,7 @@ func (i *StaticSiteUserProvidedFunctionAppForStaticSiteBuild) ToStaticSiteUserPr
 	return pulumi.ToOutputWithContext(ctx, i).(StaticSiteUserProvidedFunctionAppForStaticSiteBuildOutput)
 }
 
-type StaticSiteUserProvidedFunctionAppForStaticSiteBuildOutput struct {
-	*pulumi.OutputState
-}
+type StaticSiteUserProvidedFunctionAppForStaticSiteBuildOutput struct{ *pulumi.OutputState }
 
 func (StaticSiteUserProvidedFunctionAppForStaticSiteBuildOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*StaticSiteUserProvidedFunctionAppForStaticSiteBuild)(nil))

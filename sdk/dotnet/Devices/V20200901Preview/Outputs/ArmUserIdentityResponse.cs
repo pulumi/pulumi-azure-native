@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.Devices.V20200901Preview.Outputs
 {
 
+    /// <summary>
+    /// The ARM UserAssigned identity information
+    /// </summary>
     [OutputType]
     public sealed class ArmUserIdentityResponse
     {

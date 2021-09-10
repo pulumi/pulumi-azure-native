@@ -11,42 +11,25 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// ExpressRouteCircuit resource
 type ExpressRouteCircuit struct {
 	pulumi.CustomResourceState
 
-	// Allow classic operations
-	AllowClassicOperations pulumi.BoolPtrOutput `pulumi:"allowClassicOperations"`
-	// The list of authorizations.
-	Authorizations ExpressRouteCircuitAuthorizationResponseArrayOutput `pulumi:"authorizations"`
-	// The CircuitProvisioningState state of the resource.
-	CircuitProvisioningState pulumi.StringPtrOutput `pulumi:"circuitProvisioningState"`
-	// Gets a unique read-only string that changes whenever the resource is updated.
-	Etag pulumi.StringOutput `pulumi:"etag"`
-	// The GatewayManager Etag.
-	GatewayManagerEtag pulumi.StringPtrOutput `pulumi:"gatewayManagerEtag"`
-	// Resource location.
-	Location pulumi.StringPtrOutput `pulumi:"location"`
-	// Resource name.
-	Name pulumi.StringOutput `pulumi:"name"`
-	// The list of peerings.
-	Peerings ExpressRouteCircuitPeeringResponseArrayOutput `pulumi:"peerings"`
-	// Gets the provisioning state of the public IP resource. Possible values are: 'Updating', 'Deleting', and 'Failed'.
-	ProvisioningState pulumi.StringPtrOutput `pulumi:"provisioningState"`
-	// The ServiceKey.
-	ServiceKey pulumi.StringPtrOutput `pulumi:"serviceKey"`
-	// The ServiceProviderNotes.
-	ServiceProviderNotes pulumi.StringPtrOutput `pulumi:"serviceProviderNotes"`
-	// The ServiceProviderProperties.
-	ServiceProviderProperties ExpressRouteCircuitServiceProviderPropertiesResponsePtrOutput `pulumi:"serviceProviderProperties"`
-	// The ServiceProviderProvisioningState state of the resource. Possible values are 'NotProvisioned', 'Provisioning', 'Provisioned', and 'Deprovisioning'.
-	ServiceProviderProvisioningState pulumi.StringPtrOutput `pulumi:"serviceProviderProvisioningState"`
-	// The SKU.
-	Sku ExpressRouteCircuitSkuResponsePtrOutput `pulumi:"sku"`
-	// Resource tags.
-	Tags pulumi.StringMapOutput `pulumi:"tags"`
-	// Resource type.
-	Type pulumi.StringOutput `pulumi:"type"`
+	AllowClassicOperations           pulumi.BoolPtrOutput                                          `pulumi:"allowClassicOperations"`
+	Authorizations                   ExpressRouteCircuitAuthorizationResponseArrayOutput           `pulumi:"authorizations"`
+	CircuitProvisioningState         pulumi.StringPtrOutput                                        `pulumi:"circuitProvisioningState"`
+	Etag                             pulumi.StringOutput                                           `pulumi:"etag"`
+	GatewayManagerEtag               pulumi.StringPtrOutput                                        `pulumi:"gatewayManagerEtag"`
+	Location                         pulumi.StringPtrOutput                                        `pulumi:"location"`
+	Name                             pulumi.StringOutput                                           `pulumi:"name"`
+	Peerings                         ExpressRouteCircuitPeeringResponseArrayOutput                 `pulumi:"peerings"`
+	ProvisioningState                pulumi.StringPtrOutput                                        `pulumi:"provisioningState"`
+	ServiceKey                       pulumi.StringPtrOutput                                        `pulumi:"serviceKey"`
+	ServiceProviderNotes             pulumi.StringPtrOutput                                        `pulumi:"serviceProviderNotes"`
+	ServiceProviderProperties        ExpressRouteCircuitServiceProviderPropertiesResponsePtrOutput `pulumi:"serviceProviderProperties"`
+	ServiceProviderProvisioningState pulumi.StringPtrOutput                                        `pulumi:"serviceProviderProvisioningState"`
+	Sku                              ExpressRouteCircuitSkuResponsePtrOutput                       `pulumi:"sku"`
+	Tags                             pulumi.StringMapOutput                                        `pulumi:"tags"`
+	Type                             pulumi.StringOutput                                           `pulumi:"type"`
 }
 
 // NewExpressRouteCircuit registers a new resource with the given unique name, arguments, and options.
@@ -325,74 +308,42 @@ func (ExpressRouteCircuitState) ElementType() reflect.Type {
 }
 
 type expressRouteCircuitArgs struct {
-	// Allow classic operations
-	AllowClassicOperations *bool `pulumi:"allowClassicOperations"`
-	// The list of authorizations.
-	Authorizations []ExpressRouteCircuitAuthorizationType `pulumi:"authorizations"`
-	// The name of the circuit.
-	CircuitName *string `pulumi:"circuitName"`
-	// The CircuitProvisioningState state of the resource.
-	CircuitProvisioningState *string `pulumi:"circuitProvisioningState"`
-	// The GatewayManager Etag.
-	GatewayManagerEtag *string `pulumi:"gatewayManagerEtag"`
-	// Resource ID.
-	Id *string `pulumi:"id"`
-	// Resource location.
-	Location *string `pulumi:"location"`
-	// The list of peerings.
-	Peerings []ExpressRouteCircuitPeeringType `pulumi:"peerings"`
-	// Gets the provisioning state of the public IP resource. Possible values are: 'Updating', 'Deleting', and 'Failed'.
-	ProvisioningState *string `pulumi:"provisioningState"`
-	// The name of the resource group.
-	ResourceGroupName string `pulumi:"resourceGroupName"`
-	// The ServiceKey.
-	ServiceKey *string `pulumi:"serviceKey"`
-	// The ServiceProviderNotes.
-	ServiceProviderNotes *string `pulumi:"serviceProviderNotes"`
-	// The ServiceProviderProperties.
-	ServiceProviderProperties *ExpressRouteCircuitServiceProviderProperties `pulumi:"serviceProviderProperties"`
-	// The ServiceProviderProvisioningState state of the resource. Possible values are 'NotProvisioned', 'Provisioning', 'Provisioned', and 'Deprovisioning'.
-	ServiceProviderProvisioningState *string `pulumi:"serviceProviderProvisioningState"`
-	// The SKU.
-	Sku *ExpressRouteCircuitSku `pulumi:"sku"`
-	// Resource tags.
-	Tags map[string]string `pulumi:"tags"`
+	AllowClassicOperations           *bool                                         `pulumi:"allowClassicOperations"`
+	Authorizations                   []ExpressRouteCircuitAuthorizationType        `pulumi:"authorizations"`
+	CircuitName                      *string                                       `pulumi:"circuitName"`
+	CircuitProvisioningState         *string                                       `pulumi:"circuitProvisioningState"`
+	GatewayManagerEtag               *string                                       `pulumi:"gatewayManagerEtag"`
+	Id                               *string                                       `pulumi:"id"`
+	Location                         *string                                       `pulumi:"location"`
+	Peerings                         []ExpressRouteCircuitPeeringType              `pulumi:"peerings"`
+	ProvisioningState                *string                                       `pulumi:"provisioningState"`
+	ResourceGroupName                string                                        `pulumi:"resourceGroupName"`
+	ServiceKey                       *string                                       `pulumi:"serviceKey"`
+	ServiceProviderNotes             *string                                       `pulumi:"serviceProviderNotes"`
+	ServiceProviderProperties        *ExpressRouteCircuitServiceProviderProperties `pulumi:"serviceProviderProperties"`
+	ServiceProviderProvisioningState *string                                       `pulumi:"serviceProviderProvisioningState"`
+	Sku                              *ExpressRouteCircuitSku                       `pulumi:"sku"`
+	Tags                             map[string]string                             `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a ExpressRouteCircuit resource.
 type ExpressRouteCircuitArgs struct {
-	// Allow classic operations
-	AllowClassicOperations pulumi.BoolPtrInput
-	// The list of authorizations.
-	Authorizations ExpressRouteCircuitAuthorizationTypeArrayInput
-	// The name of the circuit.
-	CircuitName pulumi.StringPtrInput
-	// The CircuitProvisioningState state of the resource.
-	CircuitProvisioningState pulumi.StringPtrInput
-	// The GatewayManager Etag.
-	GatewayManagerEtag pulumi.StringPtrInput
-	// Resource ID.
-	Id pulumi.StringPtrInput
-	// Resource location.
-	Location pulumi.StringPtrInput
-	// The list of peerings.
-	Peerings ExpressRouteCircuitPeeringTypeArrayInput
-	// Gets the provisioning state of the public IP resource. Possible values are: 'Updating', 'Deleting', and 'Failed'.
-	ProvisioningState pulumi.StringPtrInput
-	// The name of the resource group.
-	ResourceGroupName pulumi.StringInput
-	// The ServiceKey.
-	ServiceKey pulumi.StringPtrInput
-	// The ServiceProviderNotes.
-	ServiceProviderNotes pulumi.StringPtrInput
-	// The ServiceProviderProperties.
-	ServiceProviderProperties ExpressRouteCircuitServiceProviderPropertiesPtrInput
-	// The ServiceProviderProvisioningState state of the resource. Possible values are 'NotProvisioned', 'Provisioning', 'Provisioned', and 'Deprovisioning'.
+	AllowClassicOperations           pulumi.BoolPtrInput
+	Authorizations                   ExpressRouteCircuitAuthorizationTypeArrayInput
+	CircuitName                      pulumi.StringPtrInput
+	CircuitProvisioningState         pulumi.StringPtrInput
+	GatewayManagerEtag               pulumi.StringPtrInput
+	Id                               pulumi.StringPtrInput
+	Location                         pulumi.StringPtrInput
+	Peerings                         ExpressRouteCircuitPeeringTypeArrayInput
+	ProvisioningState                pulumi.StringPtrInput
+	ResourceGroupName                pulumi.StringInput
+	ServiceKey                       pulumi.StringPtrInput
+	ServiceProviderNotes             pulumi.StringPtrInput
+	ServiceProviderProperties        ExpressRouteCircuitServiceProviderPropertiesPtrInput
 	ServiceProviderProvisioningState pulumi.StringPtrInput
-	// The SKU.
-	Sku ExpressRouteCircuitSkuPtrInput
-	// Resource tags.
-	Tags pulumi.StringMapInput
+	Sku                              ExpressRouteCircuitSkuPtrInput
+	Tags                             pulumi.StringMapInput
 }
 
 func (ExpressRouteCircuitArgs) ElementType() reflect.Type {
@@ -418,9 +369,7 @@ func (i *ExpressRouteCircuit) ToExpressRouteCircuitOutputWithContext(ctx context
 	return pulumi.ToOutputWithContext(ctx, i).(ExpressRouteCircuitOutput)
 }
 
-type ExpressRouteCircuitOutput struct {
-	*pulumi.OutputState
-}
+type ExpressRouteCircuitOutput struct{ *pulumi.OutputState }
 
 func (ExpressRouteCircuitOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*ExpressRouteCircuit)(nil))

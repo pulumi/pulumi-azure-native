@@ -7,7 +7,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// A ProactiveDetection configuration definition.
 func LookupProactiveDetectionConfiguration(ctx *pulumi.Context, args *LookupProactiveDetectionConfigurationArgs, opts ...pulumi.InvokeOption) (*LookupProactiveDetectionConfigurationResult, error) {
 	var rv LookupProactiveDetectionConfigurationResult
 	err := ctx.Invoke("azure-native:insights/v20180501preview:getProactiveDetectionConfiguration", args, &rv, opts...)
@@ -18,32 +17,20 @@ func LookupProactiveDetectionConfiguration(ctx *pulumi.Context, args *LookupProa
 }
 
 type LookupProactiveDetectionConfigurationArgs struct {
-	// The ProactiveDetection configuration ID. This is unique within a Application Insights component.
-	ConfigurationId string `pulumi:"configurationId"`
-	// The name of the resource group. The name is case insensitive.
+	ConfigurationId   string `pulumi:"configurationId"`
 	ResourceGroupName string `pulumi:"resourceGroupName"`
-	// The name of the Application Insights component resource.
-	ResourceName string `pulumi:"resourceName"`
+	ResourceName      string `pulumi:"resourceName"`
 }
 
 // A ProactiveDetection configuration definition.
 type LookupProactiveDetectionConfigurationResult struct {
-	// Custom email addresses for this rule notifications
-	CustomEmails []string `pulumi:"customEmails"`
-	// A flag that indicates whether this rule is enabled by the user
-	Enabled *bool `pulumi:"enabled"`
-	// Azure resource Id
-	Id string `pulumi:"id"`
-	// The last time this rule was updated
-	LastUpdatedTime string `pulumi:"lastUpdatedTime"`
-	// Resource location
-	Location *string `pulumi:"location"`
-	// The rule name
-	Name string `pulumi:"name"`
-	// Static definitions of the ProactiveDetection configuration rule (same values for all components).
-	RuleDefinitions *ApplicationInsightsComponentProactiveDetectionConfigurationPropertiesResponseRuleDefinitions `pulumi:"ruleDefinitions"`
-	// A flag that indicated whether notifications on this rule should be sent to subscription owners
-	SendEmailsToSubscriptionOwners *bool `pulumi:"sendEmailsToSubscriptionOwners"`
-	// Azure resource type
-	Type string `pulumi:"type"`
+	CustomEmails                   []string                                                                                      `pulumi:"customEmails"`
+	Enabled                        *bool                                                                                         `pulumi:"enabled"`
+	Id                             string                                                                                        `pulumi:"id"`
+	LastUpdatedTime                string                                                                                        `pulumi:"lastUpdatedTime"`
+	Location                       *string                                                                                       `pulumi:"location"`
+	Name                           string                                                                                        `pulumi:"name"`
+	RuleDefinitions                *ApplicationInsightsComponentProactiveDetectionConfigurationPropertiesResponseRuleDefinitions `pulumi:"ruleDefinitions"`
+	SendEmailsToSubscriptionOwners *bool                                                                                         `pulumi:"sendEmailsToSubscriptionOwners"`
+	Type                           string                                                                                        `pulumi:"type"`
 }

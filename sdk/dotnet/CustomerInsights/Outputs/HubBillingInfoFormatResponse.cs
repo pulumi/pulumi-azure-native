@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.CustomerInsights.Outputs
 {
 
+    /// <summary>
+    /// Hub billing info.
+    /// </summary>
     [OutputType]
     public sealed class HubBillingInfoFormatResponse
     {

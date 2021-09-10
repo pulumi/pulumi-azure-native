@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.ServiceFabric.V20210701Preview.Outputs
 {
 
+    /// <summary>
+    /// Describes the frontend configurations for the node type.
+    /// </summary>
     [OutputType]
     public sealed class FrontendConfigurationResponse
     {

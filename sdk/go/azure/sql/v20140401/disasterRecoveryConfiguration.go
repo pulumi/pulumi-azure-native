@@ -11,30 +11,19 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Represents a disaster recovery configuration.
 type DisasterRecoveryConfiguration struct {
 	pulumi.CustomResourceState
 
-	// Whether or not failover can be done automatically.
-	AutoFailover pulumi.StringOutput `pulumi:"autoFailover"`
-	// How aggressive the automatic failover should be.
-	FailoverPolicy pulumi.StringOutput `pulumi:"failoverPolicy"`
-	// Location of the server that contains this disaster recovery configuration.
-	Location pulumi.StringOutput `pulumi:"location"`
-	// Logical name of the server.
-	LogicalServerName pulumi.StringOutput `pulumi:"logicalServerName"`
-	// Resource name.
-	Name pulumi.StringOutput `pulumi:"name"`
-	// Logical name of the partner server.
+	AutoFailover             pulumi.StringOutput `pulumi:"autoFailover"`
+	FailoverPolicy           pulumi.StringOutput `pulumi:"failoverPolicy"`
+	Location                 pulumi.StringOutput `pulumi:"location"`
+	LogicalServerName        pulumi.StringOutput `pulumi:"logicalServerName"`
+	Name                     pulumi.StringOutput `pulumi:"name"`
 	PartnerLogicalServerName pulumi.StringOutput `pulumi:"partnerLogicalServerName"`
-	// Id of the partner server.
-	PartnerServerId pulumi.StringOutput `pulumi:"partnerServerId"`
-	// The role of the current server in the disaster recovery configuration.
-	Role pulumi.StringOutput `pulumi:"role"`
-	// The status of the disaster recovery configuration.
-	Status pulumi.StringOutput `pulumi:"status"`
-	// Resource type.
-	Type pulumi.StringOutput `pulumi:"type"`
+	PartnerServerId          pulumi.StringOutput `pulumi:"partnerServerId"`
+	Role                     pulumi.StringOutput `pulumi:"role"`
+	Status                   pulumi.StringOutput `pulumi:"status"`
+	Type                     pulumi.StringOutput `pulumi:"type"`
 }
 
 // NewDisasterRecoveryConfiguration registers a new resource with the given unique name, arguments, and options.
@@ -94,22 +83,16 @@ func (DisasterRecoveryConfigurationState) ElementType() reflect.Type {
 }
 
 type disasterRecoveryConfigurationArgs struct {
-	// The name of the disaster recovery configuration to be created/updated.
 	DisasterRecoveryConfigurationName *string `pulumi:"disasterRecoveryConfigurationName"`
-	// The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
-	ResourceGroupName string `pulumi:"resourceGroupName"`
-	// The name of the server.
-	ServerName string `pulumi:"serverName"`
+	ResourceGroupName                 string  `pulumi:"resourceGroupName"`
+	ServerName                        string  `pulumi:"serverName"`
 }
 
 // The set of arguments for constructing a DisasterRecoveryConfiguration resource.
 type DisasterRecoveryConfigurationArgs struct {
-	// The name of the disaster recovery configuration to be created/updated.
 	DisasterRecoveryConfigurationName pulumi.StringPtrInput
-	// The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
-	ResourceGroupName pulumi.StringInput
-	// The name of the server.
-	ServerName pulumi.StringInput
+	ResourceGroupName                 pulumi.StringInput
+	ServerName                        pulumi.StringInput
 }
 
 func (DisasterRecoveryConfigurationArgs) ElementType() reflect.Type {
@@ -135,9 +118,7 @@ func (i *DisasterRecoveryConfiguration) ToDisasterRecoveryConfigurationOutputWit
 	return pulumi.ToOutputWithContext(ctx, i).(DisasterRecoveryConfigurationOutput)
 }
 
-type DisasterRecoveryConfigurationOutput struct {
-	*pulumi.OutputState
-}
+type DisasterRecoveryConfigurationOutput struct{ *pulumi.OutputState }
 
 func (DisasterRecoveryConfigurationOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*DisasterRecoveryConfiguration)(nil))

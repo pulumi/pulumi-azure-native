@@ -11,22 +11,15 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// An output object, containing all information associated with the named output. All outputs are contained under a streaming job.
 type Output struct {
 	pulumi.CustomResourceState
 
-	// Describes the data source that output will be written to. Required on PUT (CreateOrReplace) requests.
-	Datasource pulumi.AnyOutput `pulumi:"datasource"`
-	// Describes conditions applicable to the Input, Output, or the job overall, that warrant customer attention.
-	Diagnostics DiagnosticsResponseOutput `pulumi:"diagnostics"`
-	// The current entity tag for the output. This is an opaque string. You can use it to detect whether the resource has changed between requests. You can also use it in the If-Match or If-None-Match headers for write operations for optimistic concurrency.
-	Etag pulumi.StringOutput `pulumi:"etag"`
-	// Resource name
-	Name pulumi.StringPtrOutput `pulumi:"name"`
-	// Describes how data from an input is serialized or how data is serialized when written to an output. Required on PUT (CreateOrReplace) requests.
-	Serialization pulumi.AnyOutput `pulumi:"serialization"`
-	// Resource type
-	Type pulumi.StringOutput `pulumi:"type"`
+	Datasource    pulumi.AnyOutput          `pulumi:"datasource"`
+	Diagnostics   DiagnosticsResponseOutput `pulumi:"diagnostics"`
+	Etag          pulumi.StringOutput       `pulumi:"etag"`
+	Name          pulumi.StringPtrOutput    `pulumi:"name"`
+	Serialization pulumi.AnyOutput          `pulumi:"serialization"`
+	Type          pulumi.StringOutput       `pulumi:"type"`
 }
 
 // NewOutput registers a new resource with the given unique name, arguments, and options.
@@ -98,34 +91,22 @@ func (OutputState) ElementType() reflect.Type {
 }
 
 type outputArgs struct {
-	// Describes the data source that output will be written to. Required on PUT (CreateOrReplace) requests.
-	Datasource interface{} `pulumi:"datasource"`
-	// The name of the streaming job.
-	JobName string `pulumi:"jobName"`
-	// Resource name
-	Name *string `pulumi:"name"`
-	// The name of the output.
-	OutputName *string `pulumi:"outputName"`
-	// The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
-	ResourceGroupName string `pulumi:"resourceGroupName"`
-	// Describes how data from an input is serialized or how data is serialized when written to an output. Required on PUT (CreateOrReplace) requests.
-	Serialization interface{} `pulumi:"serialization"`
+	Datasource        interface{} `pulumi:"datasource"`
+	JobName           string      `pulumi:"jobName"`
+	Name              *string     `pulumi:"name"`
+	OutputName        *string     `pulumi:"outputName"`
+	ResourceGroupName string      `pulumi:"resourceGroupName"`
+	Serialization     interface{} `pulumi:"serialization"`
 }
 
 // The set of arguments for constructing a Output resource.
 type OutputArgs struct {
-	// Describes the data source that output will be written to. Required on PUT (CreateOrReplace) requests.
-	Datasource pulumi.Input
-	// The name of the streaming job.
-	JobName pulumi.StringInput
-	// Resource name
-	Name pulumi.StringPtrInput
-	// The name of the output.
-	OutputName pulumi.StringPtrInput
-	// The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
+	Datasource        pulumi.Input
+	JobName           pulumi.StringInput
+	Name              pulumi.StringPtrInput
+	OutputName        pulumi.StringPtrInput
 	ResourceGroupName pulumi.StringInput
-	// Describes how data from an input is serialized or how data is serialized when written to an output. Required on PUT (CreateOrReplace) requests.
-	Serialization pulumi.Input
+	Serialization     pulumi.Input
 }
 
 func (OutputArgs) ElementType() reflect.Type {
@@ -151,9 +132,7 @@ func (i *Output) ToOutputOutputWithContext(ctx context.Context) OutputOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(OutputOutput)
 }
 
-type OutputOutput struct {
-	*pulumi.OutputState
-}
+type OutputOutput struct{ *pulumi.OutputState }
 
 func (OutputOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*Output)(nil))

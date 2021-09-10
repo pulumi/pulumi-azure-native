@@ -7,7 +7,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Capacity pool resource
 func LookupPool(ctx *pulumi.Context, args *LookupPoolArgs, opts ...pulumi.InvokeOption) (*LookupPoolResult, error) {
 	var rv LookupPoolResult
 	err := ctx.Invoke("azure-native:netapp/v20200501:getPool", args, &rv, opts...)
@@ -18,32 +17,20 @@ func LookupPool(ctx *pulumi.Context, args *LookupPoolArgs, opts ...pulumi.Invoke
 }
 
 type LookupPoolArgs struct {
-	// The name of the NetApp account
-	AccountName string `pulumi:"accountName"`
-	// The name of the capacity pool
-	PoolName string `pulumi:"poolName"`
-	// The name of the resource group.
+	AccountName       string `pulumi:"accountName"`
+	PoolName          string `pulumi:"poolName"`
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 }
 
 // Capacity pool resource
 type LookupPoolResult struct {
-	// Resource Id
-	Id string `pulumi:"id"`
-	// Resource location
-	Location string `pulumi:"location"`
-	// Resource name
-	Name string `pulumi:"name"`
-	// UUID v4 used to identify the Pool
-	PoolId string `pulumi:"poolId"`
-	// Azure lifecycle management
-	ProvisioningState string `pulumi:"provisioningState"`
-	// The service level of the file system
-	ServiceLevel string `pulumi:"serviceLevel"`
-	// Provisioned size of the pool (in bytes). Allowed values are in 4TiB chunks (value must be multiply of 4398046511104).
-	Size float64 `pulumi:"size"`
-	// Resource tags
-	Tags map[string]string `pulumi:"tags"`
-	// Resource type
-	Type string `pulumi:"type"`
+	Id                string            `pulumi:"id"`
+	Location          string            `pulumi:"location"`
+	Name              string            `pulumi:"name"`
+	PoolId            string            `pulumi:"poolId"`
+	ProvisioningState string            `pulumi:"provisioningState"`
+	ServiceLevel      string            `pulumi:"serviceLevel"`
+	Size              float64           `pulumi:"size"`
+	Tags              map[string]string `pulumi:"tags"`
+	Type              string            `pulumi:"type"`
 }

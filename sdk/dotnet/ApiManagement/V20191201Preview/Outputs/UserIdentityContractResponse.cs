@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.ApiManagement.V20191201Preview.Outputs
 {
 
+    /// <summary>
+    /// User identity details.
+    /// </summary>
     [OutputType]
     public sealed class UserIdentityContractResponse
     {

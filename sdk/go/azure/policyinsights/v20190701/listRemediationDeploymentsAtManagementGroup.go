@@ -7,7 +7,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// List of deployments for a remediation.
 func ListRemediationDeploymentsAtManagementGroup(ctx *pulumi.Context, args *ListRemediationDeploymentsAtManagementGroupArgs, opts ...pulumi.InvokeOption) (*ListRemediationDeploymentsAtManagementGroupResult, error) {
 	var rv ListRemediationDeploymentsAtManagementGroupResult
 	err := ctx.Invoke("azure-native:policyinsights/v20190701:listRemediationDeploymentsAtManagementGroup", args, &rv, opts...)
@@ -18,20 +17,14 @@ func ListRemediationDeploymentsAtManagementGroup(ctx *pulumi.Context, args *List
 }
 
 type ListRemediationDeploymentsAtManagementGroupArgs struct {
-	// Management group ID.
-	ManagementGroupId string `pulumi:"managementGroupId"`
-	// The namespace for Microsoft Management RP; only "Microsoft.Management" is allowed.
+	ManagementGroupId         string `pulumi:"managementGroupId"`
 	ManagementGroupsNamespace string `pulumi:"managementGroupsNamespace"`
-	// The name of the remediation.
-	RemediationName string `pulumi:"remediationName"`
-	// Maximum number of records to return.
-	Top *int `pulumi:"top"`
+	RemediationName           string `pulumi:"remediationName"`
+	Top                       *int   `pulumi:"top"`
 }
 
 // List of deployments for a remediation.
 type ListRemediationDeploymentsAtManagementGroupResult struct {
-	// The URL to get the next set of results.
-	NextLink string `pulumi:"nextLink"`
-	// Array of deployments for the remediation.
-	Value []RemediationDeploymentResponse `pulumi:"value"`
+	NextLink string                          `pulumi:"nextLink"`
+	Value    []RemediationDeploymentResponse `pulumi:"value"`
 }

@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.Web.Outputs
 {
 
+    /// <summary>
+    /// Build properties for the static site.
+    /// </summary>
     [OutputType]
     public sealed class StaticSiteBuildPropertiesResponse
     {

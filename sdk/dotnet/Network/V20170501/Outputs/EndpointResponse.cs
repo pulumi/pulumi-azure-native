@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.Network.V20170501.Outputs
 {
 
+    /// <summary>
+    /// Class representing a Traffic Manager endpoint.
+    /// </summary>
     [OutputType]
     public sealed class EndpointResponse
     {

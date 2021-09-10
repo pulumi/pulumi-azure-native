@@ -7,7 +7,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// A job step.
 func LookupJobStep(ctx *pulumi.Context, args *LookupJobStepArgs, opts ...pulumi.InvokeOption) (*LookupJobStepResult, error) {
 	var rv LookupJobStepResult
 	err := ctx.Invoke("azure-native:sql/v20170301preview:getJobStep", args, &rv, opts...)
@@ -18,36 +17,22 @@ func LookupJobStep(ctx *pulumi.Context, args *LookupJobStepArgs, opts ...pulumi.
 }
 
 type LookupJobStepArgs struct {
-	// The name of the job agent.
-	JobAgentName string `pulumi:"jobAgentName"`
-	// The name of the job.
-	JobName string `pulumi:"jobName"`
-	// The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
+	JobAgentName      string `pulumi:"jobAgentName"`
+	JobName           string `pulumi:"jobName"`
 	ResourceGroupName string `pulumi:"resourceGroupName"`
-	// The name of the server.
-	ServerName string `pulumi:"serverName"`
-	// The name of the job step.
-	StepName string `pulumi:"stepName"`
+	ServerName        string `pulumi:"serverName"`
+	StepName          string `pulumi:"stepName"`
 }
 
 // A job step.
 type LookupJobStepResult struct {
-	// The action payload of the job step.
-	Action JobStepActionResponse `pulumi:"action"`
-	// The resource ID of the job credential that will be used to connect to the targets.
-	Credential string `pulumi:"credential"`
-	// Execution options for the job step.
+	Action           JobStepActionResponse            `pulumi:"action"`
+	Credential       string                           `pulumi:"credential"`
 	ExecutionOptions *JobStepExecutionOptionsResponse `pulumi:"executionOptions"`
-	// Resource ID.
-	Id string `pulumi:"id"`
-	// Resource name.
-	Name string `pulumi:"name"`
-	// Output destination properties of the job step.
-	Output *JobStepOutputResponse `pulumi:"output"`
-	// The job step's index within the job. If not specified when creating the job step, it will be created as the last step. If not specified when updating the job step, the step id is not modified.
-	StepId *int `pulumi:"stepId"`
-	// The resource ID of the target group that the job step will be executed on.
-	TargetGroup string `pulumi:"targetGroup"`
-	// Resource type.
-	Type string `pulumi:"type"`
+	Id               string                           `pulumi:"id"`
+	Name             string                           `pulumi:"name"`
+	Output           *JobStepOutputResponse           `pulumi:"output"`
+	StepId           *int                             `pulumi:"stepId"`
+	TargetGroup      string                           `pulumi:"targetGroup"`
+	Type             string                           `pulumi:"type"`
 }

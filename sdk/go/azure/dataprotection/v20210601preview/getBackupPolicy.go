@@ -7,7 +7,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// BaseBackupPolicy resource
 func LookupBackupPolicy(ctx *pulumi.Context, args *LookupBackupPolicyArgs, opts ...pulumi.InvokeOption) (*LookupBackupPolicyResult, error) {
 	var rv LookupBackupPolicyResult
 	err := ctx.Invoke("azure-native:dataprotection/v20210601preview:getBackupPolicy", args, &rv, opts...)
@@ -18,23 +17,16 @@ func LookupBackupPolicy(ctx *pulumi.Context, args *LookupBackupPolicyArgs, opts 
 }
 
 type LookupBackupPolicyArgs struct {
-	BackupPolicyName string `pulumi:"backupPolicyName"`
-	// The name of the resource group where the backup vault is present.
+	BackupPolicyName  string `pulumi:"backupPolicyName"`
 	ResourceGroupName string `pulumi:"resourceGroupName"`
-	// The name of the backup vault.
-	VaultName string `pulumi:"vaultName"`
+	VaultName         string `pulumi:"vaultName"`
 }
 
 // BaseBackupPolicy resource
 type LookupBackupPolicyResult struct {
-	// Resource Id represents the complete path to the resource.
-	Id string `pulumi:"id"`
-	// Resource name associated with the resource.
-	Name string `pulumi:"name"`
-	// BaseBackupPolicyResource properties
+	Id         string               `pulumi:"id"`
+	Name       string               `pulumi:"name"`
 	Properties BackupPolicyResponse `pulumi:"properties"`
-	// Metadata pertaining to creation and last modification of the resource.
-	SystemData SystemDataResponse `pulumi:"systemData"`
-	// Resource type represents the complete path of the form Namespace/ResourceType/ResourceType/...
-	Type string `pulumi:"type"`
+	SystemData SystemDataResponse   `pulumi:"systemData"`
+	Type       string               `pulumi:"type"`
 }

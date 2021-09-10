@@ -11,22 +11,15 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// An ADP Data Pool.
 type DataPool struct {
 	pulumi.CustomResourceState
 
-	// The Data Pool's data-plane ID
-	DataPoolId pulumi.StringOutput `pulumi:"dataPoolId"`
-	// Gets or sets the collection of locations where Data Pool resources should be created.
-	Locations DataPoolLocationResponseArrayOutput `pulumi:"locations"`
-	// The name of the resource
-	Name pulumi.StringOutput `pulumi:"name"`
-	// Gets the status of the data pool at the time the operation was called.
-	ProvisioningState pulumi.StringOutput `pulumi:"provisioningState"`
-	// The system meta data relating to this resource.
-	SystemData SystemDataResponseOutput `pulumi:"systemData"`
-	// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
-	Type pulumi.StringOutput `pulumi:"type"`
+	DataPoolId        pulumi.StringOutput                 `pulumi:"dataPoolId"`
+	Locations         DataPoolLocationResponseArrayOutput `pulumi:"locations"`
+	Name              pulumi.StringOutput                 `pulumi:"name"`
+	ProvisioningState pulumi.StringOutput                 `pulumi:"provisioningState"`
+	SystemData        SystemDataResponseOutput            `pulumi:"systemData"`
+	Type              pulumi.StringOutput                 `pulumi:"type"`
 }
 
 // NewDataPool registers a new resource with the given unique name, arguments, and options.
@@ -95,25 +88,17 @@ func (DataPoolState) ElementType() reflect.Type {
 }
 
 type dataPoolArgs struct {
-	// The name of the ADP account.
-	AccountName string `pulumi:"accountName"`
-	// The name of the Data Pool.
-	DataPoolName *string `pulumi:"dataPoolName"`
-	// Gets or sets the collection of locations where Data Pool resources should be created.
-	Locations []DataPoolLocation `pulumi:"locations"`
-	// The name of the resource group. The name is case insensitive.
-	ResourceGroupName string `pulumi:"resourceGroupName"`
+	AccountName       string             `pulumi:"accountName"`
+	DataPoolName      *string            `pulumi:"dataPoolName"`
+	Locations         []DataPoolLocation `pulumi:"locations"`
+	ResourceGroupName string             `pulumi:"resourceGroupName"`
 }
 
 // The set of arguments for constructing a DataPool resource.
 type DataPoolArgs struct {
-	// The name of the ADP account.
-	AccountName pulumi.StringInput
-	// The name of the Data Pool.
-	DataPoolName pulumi.StringPtrInput
-	// Gets or sets the collection of locations where Data Pool resources should be created.
-	Locations DataPoolLocationArrayInput
-	// The name of the resource group. The name is case insensitive.
+	AccountName       pulumi.StringInput
+	DataPoolName      pulumi.StringPtrInput
+	Locations         DataPoolLocationArrayInput
 	ResourceGroupName pulumi.StringInput
 }
 
@@ -140,9 +125,7 @@ func (i *DataPool) ToDataPoolOutputWithContext(ctx context.Context) DataPoolOutp
 	return pulumi.ToOutputWithContext(ctx, i).(DataPoolOutput)
 }
 
-type DataPoolOutput struct {
-	*pulumi.OutputState
-}
+type DataPoolOutput struct{ *pulumi.OutputState }
 
 func (DataPoolOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*DataPool)(nil))

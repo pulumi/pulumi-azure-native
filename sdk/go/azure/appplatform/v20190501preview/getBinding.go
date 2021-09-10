@@ -7,7 +7,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Binding resource payload
 func LookupBinding(ctx *pulumi.Context, args *LookupBindingArgs, opts ...pulumi.InvokeOption) (*LookupBindingResult, error) {
 	var rv LookupBindingResult
 	err := ctx.Invoke("azure-native:appplatform/v20190501preview:getBinding", args, &rv, opts...)
@@ -18,24 +17,16 @@ func LookupBinding(ctx *pulumi.Context, args *LookupBindingArgs, opts ...pulumi.
 }
 
 type LookupBindingArgs struct {
-	// The name of the App resource.
-	AppName string `pulumi:"appName"`
-	// The name of the Binding resource.
-	BindingName string `pulumi:"bindingName"`
-	// The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
+	AppName           string `pulumi:"appName"`
+	BindingName       string `pulumi:"bindingName"`
 	ResourceGroupName string `pulumi:"resourceGroupName"`
-	// The name of the Service resource.
-	ServiceName string `pulumi:"serviceName"`
+	ServiceName       string `pulumi:"serviceName"`
 }
 
 // Binding resource payload
 type LookupBindingResult struct {
-	// Fully qualified resource Id for the resource.
-	Id string `pulumi:"id"`
-	// The name of the resource.
-	Name string `pulumi:"name"`
-	// Properties of the Binding resource
+	Id         string                            `pulumi:"id"`
+	Name       string                            `pulumi:"name"`
 	Properties BindingResourcePropertiesResponse `pulumi:"properties"`
-	// The type of the resource.
-	Type string `pulumi:"type"`
+	Type       string                            `pulumi:"type"`
 }

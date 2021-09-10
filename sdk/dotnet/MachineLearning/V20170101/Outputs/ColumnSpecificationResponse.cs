@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.MachineLearning.V20170101.Outputs
 {
 
+    /// <summary>
+    /// Swagger 2.0 schema for a column within the data table representing a web service input or output. See Swagger specification: http://swagger.io/specification/
+    /// </summary>
     [OutputType]
     public sealed class ColumnSpecificationResponse
     {

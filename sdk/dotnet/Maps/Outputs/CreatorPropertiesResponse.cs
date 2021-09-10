@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.Maps.Outputs
 {
 
+    /// <summary>
+    /// Creator resource properties
+    /// </summary>
     [OutputType]
     public sealed class CreatorPropertiesResponse
     {

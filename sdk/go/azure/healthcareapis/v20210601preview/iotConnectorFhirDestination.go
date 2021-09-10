@@ -11,26 +11,17 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// IoT Connector FHIR destination definition.
 type IotConnectorFhirDestination struct {
 	pulumi.CustomResourceState
 
-	// An etag associated with the resource, used for optimistic concurrency when editing it.
-	Etag pulumi.StringPtrOutput `pulumi:"etag"`
-	// FHIR Mappings
-	FhirMapping IotMappingPropertiesResponseOutput `pulumi:"fhirMapping"`
-	// Fully qualified resource id of the FHIR service to connect to.
-	FhirServiceResourceId pulumi.StringOutput `pulumi:"fhirServiceResourceId"`
-	// The resource location.
-	Location pulumi.StringPtrOutput `pulumi:"location"`
-	// The resource name.
-	Name pulumi.StringOutput `pulumi:"name"`
-	// Determines how resource identity is resolved on the destination.
-	ResourceIdentityResolutionType pulumi.StringOutput `pulumi:"resourceIdentityResolutionType"`
-	// Metadata pertaining to creation and last modification of the resource.
-	SystemData SystemDataResponseOutput `pulumi:"systemData"`
-	// The resource type.
-	Type pulumi.StringOutput `pulumi:"type"`
+	Etag                           pulumi.StringPtrOutput             `pulumi:"etag"`
+	FhirMapping                    IotMappingPropertiesResponseOutput `pulumi:"fhirMapping"`
+	FhirServiceResourceId          pulumi.StringOutput                `pulumi:"fhirServiceResourceId"`
+	Location                       pulumi.StringPtrOutput             `pulumi:"location"`
+	Name                           pulumi.StringOutput                `pulumi:"name"`
+	ResourceIdentityResolutionType pulumi.StringOutput                `pulumi:"resourceIdentityResolutionType"`
+	SystemData                     SystemDataResponseOutput           `pulumi:"systemData"`
+	Type                           pulumi.StringOutput                `pulumi:"type"`
 }
 
 // NewIotConnectorFhirDestination registers a new resource with the given unique name, arguments, and options.
@@ -102,46 +93,28 @@ func (IotConnectorFhirDestinationState) ElementType() reflect.Type {
 }
 
 type iotConnectorFhirDestinationArgs struct {
-	// An etag associated with the resource, used for optimistic concurrency when editing it.
-	Etag *string `pulumi:"etag"`
-	// The name of IoT Connector FHIR destination resource.
-	FhirDestinationName *string `pulumi:"fhirDestinationName"`
-	// FHIR Mappings
-	FhirMapping IotMappingProperties `pulumi:"fhirMapping"`
-	// Fully qualified resource id of the FHIR service to connect to.
-	FhirServiceResourceId string `pulumi:"fhirServiceResourceId"`
-	// The name of IoT Connector resource.
-	IotConnectorName string `pulumi:"iotConnectorName"`
-	// The resource location.
-	Location *string `pulumi:"location"`
-	// The name of the resource group that contains the service instance.
-	ResourceGroupName string `pulumi:"resourceGroupName"`
-	// Determines how resource identity is resolved on the destination.
-	ResourceIdentityResolutionType string `pulumi:"resourceIdentityResolutionType"`
-	// The name of workspace resource.
-	WorkspaceName string `pulumi:"workspaceName"`
+	Etag                           *string              `pulumi:"etag"`
+	FhirDestinationName            *string              `pulumi:"fhirDestinationName"`
+	FhirMapping                    IotMappingProperties `pulumi:"fhirMapping"`
+	FhirServiceResourceId          string               `pulumi:"fhirServiceResourceId"`
+	IotConnectorName               string               `pulumi:"iotConnectorName"`
+	Location                       *string              `pulumi:"location"`
+	ResourceGroupName              string               `pulumi:"resourceGroupName"`
+	ResourceIdentityResolutionType string               `pulumi:"resourceIdentityResolutionType"`
+	WorkspaceName                  string               `pulumi:"workspaceName"`
 }
 
 // The set of arguments for constructing a IotConnectorFhirDestination resource.
 type IotConnectorFhirDestinationArgs struct {
-	// An etag associated with the resource, used for optimistic concurrency when editing it.
-	Etag pulumi.StringPtrInput
-	// The name of IoT Connector FHIR destination resource.
-	FhirDestinationName pulumi.StringPtrInput
-	// FHIR Mappings
-	FhirMapping IotMappingPropertiesInput
-	// Fully qualified resource id of the FHIR service to connect to.
-	FhirServiceResourceId pulumi.StringInput
-	// The name of IoT Connector resource.
-	IotConnectorName pulumi.StringInput
-	// The resource location.
-	Location pulumi.StringPtrInput
-	// The name of the resource group that contains the service instance.
-	ResourceGroupName pulumi.StringInput
-	// Determines how resource identity is resolved on the destination.
+	Etag                           pulumi.StringPtrInput
+	FhirDestinationName            pulumi.StringPtrInput
+	FhirMapping                    IotMappingPropertiesInput
+	FhirServiceResourceId          pulumi.StringInput
+	IotConnectorName               pulumi.StringInput
+	Location                       pulumi.StringPtrInput
+	ResourceGroupName              pulumi.StringInput
 	ResourceIdentityResolutionType pulumi.StringInput
-	// The name of workspace resource.
-	WorkspaceName pulumi.StringInput
+	WorkspaceName                  pulumi.StringInput
 }
 
 func (IotConnectorFhirDestinationArgs) ElementType() reflect.Type {
@@ -167,9 +140,7 @@ func (i *IotConnectorFhirDestination) ToIotConnectorFhirDestinationOutputWithCon
 	return pulumi.ToOutputWithContext(ctx, i).(IotConnectorFhirDestinationOutput)
 }
 
-type IotConnectorFhirDestinationOutput struct {
-	*pulumi.OutputState
-}
+type IotConnectorFhirDestinationOutput struct{ *pulumi.OutputState }
 
 func (IotConnectorFhirDestinationOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*IotConnectorFhirDestination)(nil))

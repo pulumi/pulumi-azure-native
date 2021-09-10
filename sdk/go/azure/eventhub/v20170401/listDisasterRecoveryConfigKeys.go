@@ -7,7 +7,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Namespace/EventHub Connection String
 func ListDisasterRecoveryConfigKeys(ctx *pulumi.Context, args *ListDisasterRecoveryConfigKeysArgs, opts ...pulumi.InvokeOption) (*ListDisasterRecoveryConfigKeysResult, error) {
 	var rv ListDisasterRecoveryConfigKeysResult
 	err := ctx.Invoke("azure-native:eventhub/v20170401:listDisasterRecoveryConfigKeys", args, &rv, opts...)
@@ -18,30 +17,19 @@ func ListDisasterRecoveryConfigKeys(ctx *pulumi.Context, args *ListDisasterRecov
 }
 
 type ListDisasterRecoveryConfigKeysArgs struct {
-	// The Disaster Recovery configuration name
-	Alias string `pulumi:"alias"`
-	// The authorization rule name.
+	Alias                 string `pulumi:"alias"`
 	AuthorizationRuleName string `pulumi:"authorizationRuleName"`
-	// The Namespace name
-	NamespaceName string `pulumi:"namespaceName"`
-	// Name of the resource group within the azure subscription.
-	ResourceGroupName string `pulumi:"resourceGroupName"`
+	NamespaceName         string `pulumi:"namespaceName"`
+	ResourceGroupName     string `pulumi:"resourceGroupName"`
 }
 
 // Namespace/EventHub Connection String
 type ListDisasterRecoveryConfigKeysResult struct {
-	// Primary connection string of the alias if GEO DR is enabled
-	AliasPrimaryConnectionString string `pulumi:"aliasPrimaryConnectionString"`
-	// Secondary  connection string of the alias if GEO DR is enabled
+	AliasPrimaryConnectionString   string `pulumi:"aliasPrimaryConnectionString"`
 	AliasSecondaryConnectionString string `pulumi:"aliasSecondaryConnectionString"`
-	// A string that describes the AuthorizationRule.
-	KeyName string `pulumi:"keyName"`
-	// Primary connection string of the created namespace AuthorizationRule.
-	PrimaryConnectionString string `pulumi:"primaryConnectionString"`
-	// A base64-encoded 256-bit primary key for signing and validating the SAS token.
-	PrimaryKey string `pulumi:"primaryKey"`
-	// Secondary connection string of the created namespace AuthorizationRule.
-	SecondaryConnectionString string `pulumi:"secondaryConnectionString"`
-	// A base64-encoded 256-bit primary key for signing and validating the SAS token.
-	SecondaryKey string `pulumi:"secondaryKey"`
+	KeyName                        string `pulumi:"keyName"`
+	PrimaryConnectionString        string `pulumi:"primaryConnectionString"`
+	PrimaryKey                     string `pulumi:"primaryKey"`
+	SecondaryConnectionString      string `pulumi:"secondaryConnectionString"`
+	SecondaryKey                   string `pulumi:"secondaryKey"`
 }

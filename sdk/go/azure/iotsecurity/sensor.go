@@ -153,9 +153,7 @@ func (i *Sensor) ToSensorOutputWithContext(ctx context.Context) SensorOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(SensorOutput)
 }
 
-type SensorOutput struct {
-	*pulumi.OutputState
-}
+type SensorOutput struct{ *pulumi.OutputState }
 
 func (SensorOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*Sensor)(nil))

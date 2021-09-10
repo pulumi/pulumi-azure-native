@@ -7,7 +7,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// An Azure Cosmos DB MongoDB collection.
 func LookupDatabaseAccountMongoDBCollection(ctx *pulumi.Context, args *LookupDatabaseAccountMongoDBCollectionArgs, opts ...pulumi.InvokeOption) (*LookupDatabaseAccountMongoDBCollectionResult, error) {
 	var rv LookupDatabaseAccountMongoDBCollectionResult
 	err := ctx.Invoke("azure-native:documentdb/v20150401:getDatabaseAccountMongoDBCollection", args, &rv, opts...)
@@ -18,30 +17,19 @@ func LookupDatabaseAccountMongoDBCollection(ctx *pulumi.Context, args *LookupDat
 }
 
 type LookupDatabaseAccountMongoDBCollectionArgs struct {
-	// Cosmos DB database account name.
-	AccountName string `pulumi:"accountName"`
-	// Cosmos DB collection name.
-	CollectionName string `pulumi:"collectionName"`
-	// Cosmos DB database name.
-	DatabaseName string `pulumi:"databaseName"`
-	// Name of an Azure resource group.
+	AccountName       string `pulumi:"accountName"`
+	CollectionName    string `pulumi:"collectionName"`
+	DatabaseName      string `pulumi:"databaseName"`
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 }
 
 // An Azure Cosmos DB MongoDB collection.
 type LookupDatabaseAccountMongoDBCollectionResult struct {
-	// The unique resource identifier of the database account.
-	Id string `pulumi:"id"`
-	// List of index keys
-	Indexes []MongoIndexResponse `pulumi:"indexes"`
-	// The location of the resource group to which the resource belongs.
-	Location *string `pulumi:"location"`
-	// The name of the database account.
-	Name string `pulumi:"name"`
-	// A key-value pair of shard keys to be applied for the request.
-	ShardKey map[string]string `pulumi:"shardKey"`
-	// Tags are a list of key-value pairs that describe the resource. These tags can be used in viewing and grouping this resource (across resource groups). A maximum of 15 tags can be provided for a resource. Each tag must have a key no greater than 128 characters and value no greater than 256 characters. For example, the default experience for a template type is set with "defaultExperience": "Cassandra". Current "defaultExperience" values also include "Table", "Graph", "DocumentDB", and "MongoDB".
-	Tags map[string]string `pulumi:"tags"`
-	// The type of Azure resource.
-	Type string `pulumi:"type"`
+	Id       string               `pulumi:"id"`
+	Indexes  []MongoIndexResponse `pulumi:"indexes"`
+	Location *string              `pulumi:"location"`
+	Name     string               `pulumi:"name"`
+	ShardKey map[string]string    `pulumi:"shardKey"`
+	Tags     map[string]string    `pulumi:"tags"`
+	Type     string               `pulumi:"type"`
 }

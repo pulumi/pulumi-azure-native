@@ -11,18 +11,13 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// String dictionary resource.
 type WebAppConnectionStrings struct {
 	pulumi.CustomResourceState
 
-	// Kind of resource.
-	Kind pulumi.StringPtrOutput `pulumi:"kind"`
-	// Resource Name.
-	Name pulumi.StringOutput `pulumi:"name"`
-	// Connection strings.
+	Kind       pulumi.StringPtrOutput                   `pulumi:"kind"`
+	Name       pulumi.StringOutput                      `pulumi:"name"`
 	Properties ConnStringValueTypePairResponseMapOutput `pulumi:"properties"`
-	// Resource type.
-	Type pulumi.StringOutput `pulumi:"type"`
+	Type       pulumi.StringOutput                      `pulumi:"type"`
 }
 
 // NewWebAppConnectionStrings registers a new resource with the given unique name, arguments, and options.
@@ -148,25 +143,17 @@ func (WebAppConnectionStringsState) ElementType() reflect.Type {
 }
 
 type webAppConnectionStringsArgs struct {
-	// Kind of resource.
-	Kind *string `pulumi:"kind"`
-	// Name of the app.
-	Name string `pulumi:"name"`
-	// Connection strings.
-	Properties map[string]ConnStringValueTypePair `pulumi:"properties"`
-	// Name of the resource group to which the resource belongs.
-	ResourceGroupName string `pulumi:"resourceGroupName"`
+	Kind              *string                            `pulumi:"kind"`
+	Name              string                             `pulumi:"name"`
+	Properties        map[string]ConnStringValueTypePair `pulumi:"properties"`
+	ResourceGroupName string                             `pulumi:"resourceGroupName"`
 }
 
 // The set of arguments for constructing a WebAppConnectionStrings resource.
 type WebAppConnectionStringsArgs struct {
-	// Kind of resource.
-	Kind pulumi.StringPtrInput
-	// Name of the app.
-	Name pulumi.StringInput
-	// Connection strings.
-	Properties ConnStringValueTypePairMapInput
-	// Name of the resource group to which the resource belongs.
+	Kind              pulumi.StringPtrInput
+	Name              pulumi.StringInput
+	Properties        ConnStringValueTypePairMapInput
 	ResourceGroupName pulumi.StringInput
 }
 
@@ -193,9 +180,7 @@ func (i *WebAppConnectionStrings) ToWebAppConnectionStringsOutputWithContext(ctx
 	return pulumi.ToOutputWithContext(ctx, i).(WebAppConnectionStringsOutput)
 }
 
-type WebAppConnectionStringsOutput struct {
-	*pulumi.OutputState
-}
+type WebAppConnectionStringsOutput struct{ *pulumi.OutputState }
 
 func (WebAppConnectionStringsOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*WebAppConnectionStrings)(nil))

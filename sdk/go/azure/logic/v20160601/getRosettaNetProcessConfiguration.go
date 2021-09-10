@@ -7,7 +7,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// The integration account RosettaNet process configuration.
 func LookupRosettaNetProcessConfiguration(ctx *pulumi.Context, args *LookupRosettaNetProcessConfigurationArgs, opts ...pulumi.InvokeOption) (*LookupRosettaNetProcessConfigurationResult, error) {
 	var rv LookupRosettaNetProcessConfigurationResult
 	err := ctx.Invoke("azure-native:logic/v20160601:getRosettaNetProcessConfiguration", args, &rv, opts...)
@@ -18,44 +17,26 @@ func LookupRosettaNetProcessConfiguration(ctx *pulumi.Context, args *LookupRoset
 }
 
 type LookupRosettaNetProcessConfigurationArgs struct {
-	// The integration account name.
-	IntegrationAccountName string `pulumi:"integrationAccountName"`
-	// The resource group name.
-	ResourceGroupName string `pulumi:"resourceGroupName"`
-	// The integration account RosettaNetProcessConfiguration name.
+	IntegrationAccountName             string `pulumi:"integrationAccountName"`
+	ResourceGroupName                  string `pulumi:"resourceGroupName"`
 	RosettaNetProcessConfigurationName string `pulumi:"rosettaNetProcessConfigurationName"`
 }
 
 // The integration account RosettaNet process configuration.
 type LookupRosettaNetProcessConfigurationResult struct {
-	// The RosettaNet process configuration activity settings.
-	ActivitySettings RosettaNetPipActivitySettingsResponse `pulumi:"activitySettings"`
-	// The changed time.
-	ChangedTime string `pulumi:"changedTime"`
-	// The created time.
-	CreatedTime string `pulumi:"createdTime"`
-	// The integration account RosettaNet ProcessConfiguration properties.
-	Description *string `pulumi:"description"`
-	// The resource id.
-	Id string `pulumi:"id"`
-	// The RosettaNet initiator role settings.
-	InitiatorRoleSettings RosettaNetPipRoleSettingsResponse `pulumi:"initiatorRoleSettings"`
-	// The resource location.
-	Location *string `pulumi:"location"`
-	// The metadata.
-	Metadata map[string]string `pulumi:"metadata"`
-	// Gets the resource name.
-	Name string `pulumi:"name"`
-	// The integration account RosettaNet process code.
-	ProcessCode string `pulumi:"processCode"`
-	// The integration account RosettaNet process name.
-	ProcessName string `pulumi:"processName"`
-	// The integration account RosettaNet process version.
-	ProcessVersion string `pulumi:"processVersion"`
-	// The RosettaNet responder role settings.
-	ResponderRoleSettings RosettaNetPipRoleSettingsResponse `pulumi:"responderRoleSettings"`
-	// The resource tags.
-	Tags map[string]string `pulumi:"tags"`
-	// Gets the resource type.
-	Type string `pulumi:"type"`
+	ActivitySettings      RosettaNetPipActivitySettingsResponse `pulumi:"activitySettings"`
+	ChangedTime           string                                `pulumi:"changedTime"`
+	CreatedTime           string                                `pulumi:"createdTime"`
+	Description           *string                               `pulumi:"description"`
+	Id                    string                                `pulumi:"id"`
+	InitiatorRoleSettings RosettaNetPipRoleSettingsResponse     `pulumi:"initiatorRoleSettings"`
+	Location              *string                               `pulumi:"location"`
+	Metadata              map[string]string                     `pulumi:"metadata"`
+	Name                  string                                `pulumi:"name"`
+	ProcessCode           string                                `pulumi:"processCode"`
+	ProcessName           string                                `pulumi:"processName"`
+	ProcessVersion        string                                `pulumi:"processVersion"`
+	ResponderRoleSettings RosettaNetPipRoleSettingsResponse     `pulumi:"responderRoleSettings"`
+	Tags                  map[string]string                     `pulumi:"tags"`
+	Type                  string                                `pulumi:"type"`
 }

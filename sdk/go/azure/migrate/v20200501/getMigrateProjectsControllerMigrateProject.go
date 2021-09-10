@@ -7,7 +7,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Migrate project.
 func LookupMigrateProjectsControllerMigrateProject(ctx *pulumi.Context, args *LookupMigrateProjectsControllerMigrateProjectArgs, opts ...pulumi.InvokeOption) (*LookupMigrateProjectsControllerMigrateProjectResult, error) {
 	var rv LookupMigrateProjectsControllerMigrateProjectResult
 	err := ctx.Invoke("azure-native:migrate/v20200501:getMigrateProjectsControllerMigrateProject", args, &rv, opts...)
@@ -18,26 +17,17 @@ func LookupMigrateProjectsControllerMigrateProject(ctx *pulumi.Context, args *Lo
 }
 
 type LookupMigrateProjectsControllerMigrateProjectArgs struct {
-	// Migrate project name.
 	MigrateProjectName string `pulumi:"migrateProjectName"`
-	// Name of the Azure Resource Group that project is part of.
-	ResourceGroupName string `pulumi:"resourceGroupName"`
+	ResourceGroupName  string `pulumi:"resourceGroupName"`
 }
 
 // Migrate project.
 type LookupMigrateProjectsControllerMigrateProjectResult struct {
-	// For optimistic concurrency control.
-	ETag *string `pulumi:"eTag"`
-	// Path reference to this project /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Migrate/migrateProjects/{projectName}
-	Id string `pulumi:"id"`
-	// Azure location in which project is created.
-	Location *string `pulumi:"location"`
-	// Name of the project.
-	Name string `pulumi:"name"`
-	// Properties of a migrate project.
+	ETag       *string                          `pulumi:"eTag"`
+	Id         string                           `pulumi:"id"`
+	Location   *string                          `pulumi:"location"`
+	Name       string                           `pulumi:"name"`
 	Properties MigrateProjectPropertiesResponse `pulumi:"properties"`
-	// Metadata pertaining to creation and last modification of the resource.
-	SystemData SystemDataResponse `pulumi:"systemData"`
-	// Type of the object = [Microsoft.Migrate/migrateProjects].
-	Type string `pulumi:"type"`
+	SystemData SystemDataResponse               `pulumi:"systemData"`
+	Type       string                           `pulumi:"type"`
 }

@@ -10,16 +10,11 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Deep created origins within a CDN endpoint.
 type DeepCreatedOrigin struct {
-	// The address of the origin. Domain names, IPv4 addresses, and IPv6 addresses are supported.
-	HostName string `pulumi:"hostName"`
-	// The value of the HTTP port. Must be between 1 and 65535
-	HttpPort *int `pulumi:"httpPort"`
-	// The value of the HTTPS port. Must be between 1 and 65535
-	HttpsPort *int `pulumi:"httpsPort"`
-	// Origin name
-	Name string `pulumi:"name"`
+	HostName  string `pulumi:"hostName"`
+	HttpPort  *int   `pulumi:"httpPort"`
+	HttpsPort *int   `pulumi:"httpsPort"`
+	Name      string `pulumi:"name"`
 }
 
 // DeepCreatedOriginInput is an input type that accepts DeepCreatedOriginArgs and DeepCreatedOriginOutput values.
@@ -33,16 +28,11 @@ type DeepCreatedOriginInput interface {
 	ToDeepCreatedOriginOutputWithContext(context.Context) DeepCreatedOriginOutput
 }
 
-// Deep created origins within a CDN endpoint.
 type DeepCreatedOriginArgs struct {
-	// The address of the origin. Domain names, IPv4 addresses, and IPv6 addresses are supported.
-	HostName pulumi.StringInput `pulumi:"hostName"`
-	// The value of the HTTP port. Must be between 1 and 65535
-	HttpPort pulumi.IntPtrInput `pulumi:"httpPort"`
-	// The value of the HTTPS port. Must be between 1 and 65535
+	HostName  pulumi.StringInput `pulumi:"hostName"`
+	HttpPort  pulumi.IntPtrInput `pulumi:"httpPort"`
 	HttpsPort pulumi.IntPtrInput `pulumi:"httpsPort"`
-	// Origin name
-	Name pulumi.StringInput `pulumi:"name"`
+	Name      pulumi.StringInput `pulumi:"name"`
 }
 
 func (DeepCreatedOriginArgs) ElementType() reflect.Type {
@@ -82,7 +72,6 @@ func (i DeepCreatedOriginArray) ToDeepCreatedOriginArrayOutputWithContext(ctx co
 	return pulumi.ToOutputWithContext(ctx, i).(DeepCreatedOriginArrayOutput)
 }
 
-// Deep created origins within a CDN endpoint.
 type DeepCreatedOriginOutput struct{ *pulumi.OutputState }
 
 func (DeepCreatedOriginOutput) ElementType() reflect.Type {
@@ -97,22 +86,18 @@ func (o DeepCreatedOriginOutput) ToDeepCreatedOriginOutputWithContext(ctx contex
 	return o
 }
 
-// The address of the origin. Domain names, IPv4 addresses, and IPv6 addresses are supported.
 func (o DeepCreatedOriginOutput) HostName() pulumi.StringOutput {
 	return o.ApplyT(func(v DeepCreatedOrigin) string { return v.HostName }).(pulumi.StringOutput)
 }
 
-// The value of the HTTP port. Must be between 1 and 65535
 func (o DeepCreatedOriginOutput) HttpPort() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v DeepCreatedOrigin) *int { return v.HttpPort }).(pulumi.IntPtrOutput)
 }
 
-// The value of the HTTPS port. Must be between 1 and 65535
 func (o DeepCreatedOriginOutput) HttpsPort() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v DeepCreatedOrigin) *int { return v.HttpsPort }).(pulumi.IntPtrOutput)
 }
 
-// Origin name
 func (o DeepCreatedOriginOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v DeepCreatedOrigin) string { return v.Name }).(pulumi.StringOutput)
 }
@@ -137,16 +122,11 @@ func (o DeepCreatedOriginArrayOutput) Index(i pulumi.IntInput) DeepCreatedOrigin
 	}).(DeepCreatedOriginOutput)
 }
 
-// Deep created origins within a CDN endpoint.
 type DeepCreatedOriginResponse struct {
-	// The address of the origin. Domain names, IPv4 addresses, and IPv6 addresses are supported.
-	HostName string `pulumi:"hostName"`
-	// The value of the HTTP port. Must be between 1 and 65535
-	HttpPort *int `pulumi:"httpPort"`
-	// The value of the HTTPS port. Must be between 1 and 65535
-	HttpsPort *int `pulumi:"httpsPort"`
-	// Origin name
-	Name string `pulumi:"name"`
+	HostName  string `pulumi:"hostName"`
+	HttpPort  *int   `pulumi:"httpPort"`
+	HttpsPort *int   `pulumi:"httpsPort"`
+	Name      string `pulumi:"name"`
 }
 
 // DeepCreatedOriginResponseInput is an input type that accepts DeepCreatedOriginResponseArgs and DeepCreatedOriginResponseOutput values.
@@ -160,16 +140,11 @@ type DeepCreatedOriginResponseInput interface {
 	ToDeepCreatedOriginResponseOutputWithContext(context.Context) DeepCreatedOriginResponseOutput
 }
 
-// Deep created origins within a CDN endpoint.
 type DeepCreatedOriginResponseArgs struct {
-	// The address of the origin. Domain names, IPv4 addresses, and IPv6 addresses are supported.
-	HostName pulumi.StringInput `pulumi:"hostName"`
-	// The value of the HTTP port. Must be between 1 and 65535
-	HttpPort pulumi.IntPtrInput `pulumi:"httpPort"`
-	// The value of the HTTPS port. Must be between 1 and 65535
+	HostName  pulumi.StringInput `pulumi:"hostName"`
+	HttpPort  pulumi.IntPtrInput `pulumi:"httpPort"`
 	HttpsPort pulumi.IntPtrInput `pulumi:"httpsPort"`
-	// Origin name
-	Name pulumi.StringInput `pulumi:"name"`
+	Name      pulumi.StringInput `pulumi:"name"`
 }
 
 func (DeepCreatedOriginResponseArgs) ElementType() reflect.Type {
@@ -209,7 +184,6 @@ func (i DeepCreatedOriginResponseArray) ToDeepCreatedOriginResponseArrayOutputWi
 	return pulumi.ToOutputWithContext(ctx, i).(DeepCreatedOriginResponseArrayOutput)
 }
 
-// Deep created origins within a CDN endpoint.
 type DeepCreatedOriginResponseOutput struct{ *pulumi.OutputState }
 
 func (DeepCreatedOriginResponseOutput) ElementType() reflect.Type {
@@ -224,22 +198,18 @@ func (o DeepCreatedOriginResponseOutput) ToDeepCreatedOriginResponseOutputWithCo
 	return o
 }
 
-// The address of the origin. Domain names, IPv4 addresses, and IPv6 addresses are supported.
 func (o DeepCreatedOriginResponseOutput) HostName() pulumi.StringOutput {
 	return o.ApplyT(func(v DeepCreatedOriginResponse) string { return v.HostName }).(pulumi.StringOutput)
 }
 
-// The value of the HTTP port. Must be between 1 and 65535
 func (o DeepCreatedOriginResponseOutput) HttpPort() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v DeepCreatedOriginResponse) *int { return v.HttpPort }).(pulumi.IntPtrOutput)
 }
 
-// The value of the HTTPS port. Must be between 1 and 65535
 func (o DeepCreatedOriginResponseOutput) HttpsPort() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v DeepCreatedOriginResponse) *int { return v.HttpsPort }).(pulumi.IntPtrOutput)
 }
 
-// Origin name
 func (o DeepCreatedOriginResponseOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v DeepCreatedOriginResponse) string { return v.Name }).(pulumi.StringOutput)
 }
@@ -264,10 +234,8 @@ func (o DeepCreatedOriginResponseArrayOutput) Index(i pulumi.IntInput) DeepCreat
 	}).(DeepCreatedOriginResponseOutput)
 }
 
-// The SKU (pricing tier) of the CDN profile.
 type Sku struct {
-	// Name of the pricing tier
-	Name *string `pulumi:"name"`
+	Name *SkuName `pulumi:"name"`
 }
 
 // SkuInput is an input type that accepts SkuArgs and SkuOutput values.
@@ -281,10 +249,8 @@ type SkuInput interface {
 	ToSkuOutputWithContext(context.Context) SkuOutput
 }
 
-// The SKU (pricing tier) of the CDN profile.
 type SkuArgs struct {
-	// Name of the pricing tier
-	Name *SkuName `pulumi:"name"`
+	Name SkuNamePtrInput `pulumi:"name"`
 }
 
 func (SkuArgs) ElementType() reflect.Type {
@@ -340,7 +306,6 @@ func (i *skuPtrType) ToSkuPtrOutputWithContext(ctx context.Context) SkuPtrOutput
 	return pulumi.ToOutputWithContext(ctx, i).(SkuPtrOutput)
 }
 
-// The SKU (pricing tier) of the CDN profile.
 type SkuOutput struct{ *pulumi.OutputState }
 
 func (SkuOutput) ElementType() reflect.Type {
@@ -360,14 +325,13 @@ func (o SkuOutput) ToSkuPtrOutput() SkuPtrOutput {
 }
 
 func (o SkuOutput) ToSkuPtrOutputWithContext(ctx context.Context) SkuPtrOutput {
-	return o.ApplyT(func(v Sku) *Sku {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v Sku) *Sku {
 		return &v
 	}).(SkuPtrOutput)
 }
 
-// Name of the pricing tier
-func (o SkuOutput) Name() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v Sku) *string { return v.Name }).(pulumi.StringPtrOutput)
+func (o SkuOutput) Name() SkuNamePtrOutput {
+	return o.ApplyT(func(v Sku) *SkuName { return v.Name }).(SkuNamePtrOutput)
 }
 
 type SkuPtrOutput struct{ *pulumi.OutputState }
@@ -385,22 +349,25 @@ func (o SkuPtrOutput) ToSkuPtrOutputWithContext(ctx context.Context) SkuPtrOutpu
 }
 
 func (o SkuPtrOutput) Elem() SkuOutput {
-	return o.ApplyT(func(v *Sku) Sku { return *v }).(SkuOutput)
+	return o.ApplyT(func(v *Sku) Sku {
+		if v != nil {
+			return *v
+		}
+		var ret Sku
+		return ret
+	}).(SkuOutput)
 }
 
-// Name of the pricing tier
-func (o SkuPtrOutput) Name() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *Sku) *string {
+func (o SkuPtrOutput) Name() SkuNamePtrOutput {
+	return o.ApplyT(func(v *Sku) *SkuName {
 		if v == nil {
 			return nil
 		}
 		return v.Name
-	}).(pulumi.StringPtrOutput)
+	}).(SkuNamePtrOutput)
 }
 
-// The SKU (pricing tier) of the CDN profile.
 type SkuResponse struct {
-	// Name of the pricing tier
 	Name *string `pulumi:"name"`
 }
 
@@ -415,9 +382,7 @@ type SkuResponseInput interface {
 	ToSkuResponseOutputWithContext(context.Context) SkuResponseOutput
 }
 
-// The SKU (pricing tier) of the CDN profile.
 type SkuResponseArgs struct {
-	// Name of the pricing tier
 	Name pulumi.StringPtrInput `pulumi:"name"`
 }
 
@@ -474,7 +439,6 @@ func (i *skuResponsePtrType) ToSkuResponsePtrOutputWithContext(ctx context.Conte
 	return pulumi.ToOutputWithContext(ctx, i).(SkuResponsePtrOutput)
 }
 
-// The SKU (pricing tier) of the CDN profile.
 type SkuResponseOutput struct{ *pulumi.OutputState }
 
 func (SkuResponseOutput) ElementType() reflect.Type {
@@ -494,12 +458,11 @@ func (o SkuResponseOutput) ToSkuResponsePtrOutput() SkuResponsePtrOutput {
 }
 
 func (o SkuResponseOutput) ToSkuResponsePtrOutputWithContext(ctx context.Context) SkuResponsePtrOutput {
-	return o.ApplyT(func(v SkuResponse) *SkuResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v SkuResponse) *SkuResponse {
 		return &v
 	}).(SkuResponsePtrOutput)
 }
 
-// Name of the pricing tier
 func (o SkuResponseOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SkuResponse) *string { return v.Name }).(pulumi.StringPtrOutput)
 }
@@ -519,10 +482,15 @@ func (o SkuResponsePtrOutput) ToSkuResponsePtrOutputWithContext(ctx context.Cont
 }
 
 func (o SkuResponsePtrOutput) Elem() SkuResponseOutput {
-	return o.ApplyT(func(v *SkuResponse) SkuResponse { return *v }).(SkuResponseOutput)
+	return o.ApplyT(func(v *SkuResponse) SkuResponse {
+		if v != nil {
+			return *v
+		}
+		var ret SkuResponse
+		return ret
+	}).(SkuResponseOutput)
 }
 
-// Name of the pricing tier
 func (o SkuResponsePtrOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SkuResponse) *string {
 		if v == nil {

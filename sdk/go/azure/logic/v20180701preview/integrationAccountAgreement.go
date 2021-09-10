@@ -11,36 +11,22 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// The integration account agreement.
 type IntegrationAccountAgreement struct {
 	pulumi.CustomResourceState
 
-	// The agreement type.
-	AgreementType pulumi.StringOutput `pulumi:"agreementType"`
-	// The changed time.
-	ChangedTime pulumi.StringOutput `pulumi:"changedTime"`
-	// The agreement content.
-	Content AgreementContentResponseOutput `pulumi:"content"`
-	// The created time.
-	CreatedTime pulumi.StringOutput `pulumi:"createdTime"`
-	// The business identity of the guest partner.
+	AgreementType pulumi.StringOutput            `pulumi:"agreementType"`
+	ChangedTime   pulumi.StringOutput            `pulumi:"changedTime"`
+	Content       AgreementContentResponseOutput `pulumi:"content"`
+	CreatedTime   pulumi.StringOutput            `pulumi:"createdTime"`
 	GuestIdentity BusinessIdentityResponseOutput `pulumi:"guestIdentity"`
-	// The integration account partner that is set as guest partner for this agreement.
-	GuestPartner pulumi.StringOutput `pulumi:"guestPartner"`
-	// The business identity of the host partner.
-	HostIdentity BusinessIdentityResponseOutput `pulumi:"hostIdentity"`
-	// The integration account partner that is set as host partner for this agreement.
-	HostPartner pulumi.StringOutput `pulumi:"hostPartner"`
-	// The resource location.
-	Location pulumi.StringPtrOutput `pulumi:"location"`
-	// The metadata.
-	Metadata pulumi.AnyOutput `pulumi:"metadata"`
-	// Gets the resource name.
-	Name pulumi.StringOutput `pulumi:"name"`
-	// The resource tags.
-	Tags pulumi.StringMapOutput `pulumi:"tags"`
-	// Gets the resource type.
-	Type pulumi.StringOutput `pulumi:"type"`
+	GuestPartner  pulumi.StringOutput            `pulumi:"guestPartner"`
+	HostIdentity  BusinessIdentityResponseOutput `pulumi:"hostIdentity"`
+	HostPartner   pulumi.StringOutput            `pulumi:"hostPartner"`
+	Location      pulumi.StringPtrOutput         `pulumi:"location"`
+	Metadata      pulumi.AnyOutput               `pulumi:"metadata"`
+	Name          pulumi.StringOutput            `pulumi:"name"`
+	Tags          pulumi.StringMapOutput         `pulumi:"tags"`
+	Type          pulumi.StringOutput            `pulumi:"type"`
 }
 
 // NewIntegrationAccountAgreement registers a new resource with the given unique name, arguments, and options.
@@ -50,6 +36,9 @@ func NewIntegrationAccountAgreement(ctx *pulumi.Context,
 		return nil, errors.New("missing one or more required arguments")
 	}
 
+	if args.AgreementType == nil {
+		return nil, errors.New("invalid value for required argument 'AgreementType'")
+	}
 	if args.Content == nil {
 		return nil, errors.New("invalid value for required argument 'Content'")
 	}
@@ -133,58 +122,34 @@ func (IntegrationAccountAgreementState) ElementType() reflect.Type {
 }
 
 type integrationAccountAgreementArgs struct {
-	// The integration account agreement name.
-	AgreementName *string `pulumi:"agreementName"`
-	// The agreement type.
-	AgreementType string `pulumi:"agreementType"`
-	// The agreement content.
-	Content AgreementContent `pulumi:"content"`
-	// The business identity of the guest partner.
-	GuestIdentity BusinessIdentity `pulumi:"guestIdentity"`
-	// The integration account partner that is set as guest partner for this agreement.
-	GuestPartner string `pulumi:"guestPartner"`
-	// The business identity of the host partner.
-	HostIdentity BusinessIdentity `pulumi:"hostIdentity"`
-	// The integration account partner that is set as host partner for this agreement.
-	HostPartner string `pulumi:"hostPartner"`
-	// The integration account name.
-	IntegrationAccountName string `pulumi:"integrationAccountName"`
-	// The resource location.
-	Location *string `pulumi:"location"`
-	// The metadata.
-	Metadata interface{} `pulumi:"metadata"`
-	// The resource group name.
-	ResourceGroupName string `pulumi:"resourceGroupName"`
-	// The resource tags.
-	Tags map[string]string `pulumi:"tags"`
+	AgreementName          *string           `pulumi:"agreementName"`
+	AgreementType          AgreementType     `pulumi:"agreementType"`
+	Content                AgreementContent  `pulumi:"content"`
+	GuestIdentity          BusinessIdentity  `pulumi:"guestIdentity"`
+	GuestPartner           string            `pulumi:"guestPartner"`
+	HostIdentity           BusinessIdentity  `pulumi:"hostIdentity"`
+	HostPartner            string            `pulumi:"hostPartner"`
+	IntegrationAccountName string            `pulumi:"integrationAccountName"`
+	Location               *string           `pulumi:"location"`
+	Metadata               interface{}       `pulumi:"metadata"`
+	ResourceGroupName      string            `pulumi:"resourceGroupName"`
+	Tags                   map[string]string `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a IntegrationAccountAgreement resource.
 type IntegrationAccountAgreementArgs struct {
-	// The integration account agreement name.
-	AgreementName pulumi.StringPtrInput
-	// The agreement type.
-	AgreementType AgreementType
-	// The agreement content.
-	Content AgreementContentInput
-	// The business identity of the guest partner.
-	GuestIdentity BusinessIdentityInput
-	// The integration account partner that is set as guest partner for this agreement.
-	GuestPartner pulumi.StringInput
-	// The business identity of the host partner.
-	HostIdentity BusinessIdentityInput
-	// The integration account partner that is set as host partner for this agreement.
-	HostPartner pulumi.StringInput
-	// The integration account name.
+	AgreementName          pulumi.StringPtrInput
+	AgreementType          AgreementTypeInput
+	Content                AgreementContentInput
+	GuestIdentity          BusinessIdentityInput
+	GuestPartner           pulumi.StringInput
+	HostIdentity           BusinessIdentityInput
+	HostPartner            pulumi.StringInput
 	IntegrationAccountName pulumi.StringInput
-	// The resource location.
-	Location pulumi.StringPtrInput
-	// The metadata.
-	Metadata pulumi.Input
-	// The resource group name.
-	ResourceGroupName pulumi.StringInput
-	// The resource tags.
-	Tags pulumi.StringMapInput
+	Location               pulumi.StringPtrInput
+	Metadata               pulumi.Input
+	ResourceGroupName      pulumi.StringInput
+	Tags                   pulumi.StringMapInput
 }
 
 func (IntegrationAccountAgreementArgs) ElementType() reflect.Type {
@@ -210,9 +175,7 @@ func (i *IntegrationAccountAgreement) ToIntegrationAccountAgreementOutputWithCon
 	return pulumi.ToOutputWithContext(ctx, i).(IntegrationAccountAgreementOutput)
 }
 
-type IntegrationAccountAgreementOutput struct {
-	*pulumi.OutputState
-}
+type IntegrationAccountAgreementOutput struct{ *pulumi.OutputState }
 
 func (IntegrationAccountAgreementOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*IntegrationAccountAgreement)(nil))

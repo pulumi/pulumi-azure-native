@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.MachineLearningServices.V20200501Preview.Outputs
 {
 
+    /// <summary>
+    /// Advance configuration for AKS networking
+    /// </summary>
     [OutputType]
     public sealed class AksNetworkingConfigurationResponse
     {

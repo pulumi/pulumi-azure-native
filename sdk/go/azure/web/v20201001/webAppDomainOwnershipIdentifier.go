@@ -11,20 +11,14 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// A domain specific resource identifier.
 type WebAppDomainOwnershipIdentifier struct {
 	pulumi.CustomResourceState
 
-	// Kind of resource.
-	Kind pulumi.StringPtrOutput `pulumi:"kind"`
-	// Resource Name.
-	Name pulumi.StringOutput `pulumi:"name"`
-	// The system metadata relating to this resource.
+	Kind       pulumi.StringPtrOutput   `pulumi:"kind"`
+	Name       pulumi.StringOutput      `pulumi:"name"`
 	SystemData SystemDataResponseOutput `pulumi:"systemData"`
-	// Resource type.
-	Type pulumi.StringOutput `pulumi:"type"`
-	// String representation of the identity.
-	Value pulumi.StringPtrOutput `pulumi:"value"`
+	Type       pulumi.StringOutput      `pulumi:"type"`
+	Value      pulumi.StringPtrOutput   `pulumi:"value"`
 }
 
 // NewWebAppDomainOwnershipIdentifier registers a new resource with the given unique name, arguments, and options.
@@ -144,30 +138,20 @@ func (WebAppDomainOwnershipIdentifierState) ElementType() reflect.Type {
 }
 
 type webAppDomainOwnershipIdentifierArgs struct {
-	// Name of domain ownership identifier.
 	DomainOwnershipIdentifierName *string `pulumi:"domainOwnershipIdentifierName"`
-	// Kind of resource.
-	Kind *string `pulumi:"kind"`
-	// Name of the app.
-	Name string `pulumi:"name"`
-	// Name of the resource group to which the resource belongs.
-	ResourceGroupName string `pulumi:"resourceGroupName"`
-	// String representation of the identity.
-	Value *string `pulumi:"value"`
+	Kind                          *string `pulumi:"kind"`
+	Name                          string  `pulumi:"name"`
+	ResourceGroupName             string  `pulumi:"resourceGroupName"`
+	Value                         *string `pulumi:"value"`
 }
 
 // The set of arguments for constructing a WebAppDomainOwnershipIdentifier resource.
 type WebAppDomainOwnershipIdentifierArgs struct {
-	// Name of domain ownership identifier.
 	DomainOwnershipIdentifierName pulumi.StringPtrInput
-	// Kind of resource.
-	Kind pulumi.StringPtrInput
-	// Name of the app.
-	Name pulumi.StringInput
-	// Name of the resource group to which the resource belongs.
-	ResourceGroupName pulumi.StringInput
-	// String representation of the identity.
-	Value pulumi.StringPtrInput
+	Kind                          pulumi.StringPtrInput
+	Name                          pulumi.StringInput
+	ResourceGroupName             pulumi.StringInput
+	Value                         pulumi.StringPtrInput
 }
 
 func (WebAppDomainOwnershipIdentifierArgs) ElementType() reflect.Type {
@@ -193,9 +177,7 @@ func (i *WebAppDomainOwnershipIdentifier) ToWebAppDomainOwnershipIdentifierOutpu
 	return pulumi.ToOutputWithContext(ctx, i).(WebAppDomainOwnershipIdentifierOutput)
 }
 
-type WebAppDomainOwnershipIdentifierOutput struct {
-	*pulumi.OutputState
-}
+type WebAppDomainOwnershipIdentifierOutput struct{ *pulumi.OutputState }
 
 func (WebAppDomainOwnershipIdentifierOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*WebAppDomainOwnershipIdentifier)(nil))

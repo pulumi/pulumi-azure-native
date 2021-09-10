@@ -174,9 +174,7 @@ func (i *SqlResourceSqlRoleAssignment) ToSqlResourceSqlRoleAssignmentOutputWithC
 	return pulumi.ToOutputWithContext(ctx, i).(SqlResourceSqlRoleAssignmentOutput)
 }
 
-type SqlResourceSqlRoleAssignmentOutput struct {
-	*pulumi.OutputState
-}
+type SqlResourceSqlRoleAssignmentOutput struct{ *pulumi.OutputState }
 
 func (SqlResourceSqlRoleAssignmentOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*SqlResourceSqlRoleAssignment)(nil))

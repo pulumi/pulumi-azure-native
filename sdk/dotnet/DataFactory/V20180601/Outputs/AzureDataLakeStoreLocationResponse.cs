@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.DataFactory.V20180601.Outputs
 {
 
+    /// <summary>
+    /// The location of azure data lake store dataset.
+    /// </summary>
     [OutputType]
     public sealed class AzureDataLakeStoreLocationResponse
     {

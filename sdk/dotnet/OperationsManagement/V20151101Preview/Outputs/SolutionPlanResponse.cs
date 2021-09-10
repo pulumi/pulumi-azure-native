@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.OperationsManagement.V20151101Preview.Outputs
 {
 
+    /// <summary>
+    /// Plan for solution object supported by the OperationsManagement resource provider.
+    /// </summary>
     [OutputType]
     public sealed class SolutionPlanResponse
     {

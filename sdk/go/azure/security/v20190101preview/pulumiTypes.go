@@ -10,9 +10,7 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Links relevant to the assessment
 type AssessmentLinksResponse struct {
-	// Link to assessment in Azure Portal
 	AzurePortalUri string `pulumi:"azurePortalUri"`
 }
 
@@ -27,9 +25,7 @@ type AssessmentLinksResponseInput interface {
 	ToAssessmentLinksResponseOutputWithContext(context.Context) AssessmentLinksResponseOutput
 }
 
-// Links relevant to the assessment
 type AssessmentLinksResponseArgs struct {
-	// Link to assessment in Azure Portal
 	AzurePortalUri pulumi.StringInput `pulumi:"azurePortalUri"`
 }
 
@@ -86,7 +82,6 @@ func (i *assessmentLinksResponsePtrType) ToAssessmentLinksResponsePtrOutputWithC
 	return pulumi.ToOutputWithContext(ctx, i).(AssessmentLinksResponsePtrOutput)
 }
 
-// Links relevant to the assessment
 type AssessmentLinksResponseOutput struct{ *pulumi.OutputState }
 
 func (AssessmentLinksResponseOutput) ElementType() reflect.Type {
@@ -106,12 +101,11 @@ func (o AssessmentLinksResponseOutput) ToAssessmentLinksResponsePtrOutput() Asse
 }
 
 func (o AssessmentLinksResponseOutput) ToAssessmentLinksResponsePtrOutputWithContext(ctx context.Context) AssessmentLinksResponsePtrOutput {
-	return o.ApplyT(func(v AssessmentLinksResponse) *AssessmentLinksResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v AssessmentLinksResponse) *AssessmentLinksResponse {
 		return &v
 	}).(AssessmentLinksResponsePtrOutput)
 }
 
-// Link to assessment in Azure Portal
 func (o AssessmentLinksResponseOutput) AzurePortalUri() pulumi.StringOutput {
 	return o.ApplyT(func(v AssessmentLinksResponse) string { return v.AzurePortalUri }).(pulumi.StringOutput)
 }
@@ -131,10 +125,15 @@ func (o AssessmentLinksResponsePtrOutput) ToAssessmentLinksResponsePtrOutputWith
 }
 
 func (o AssessmentLinksResponsePtrOutput) Elem() AssessmentLinksResponseOutput {
-	return o.ApplyT(func(v *AssessmentLinksResponse) AssessmentLinksResponse { return *v }).(AssessmentLinksResponseOutput)
+	return o.ApplyT(func(v *AssessmentLinksResponse) AssessmentLinksResponse {
+		if v != nil {
+			return *v
+		}
+		var ret AssessmentLinksResponse
+		return ret
+	}).(AssessmentLinksResponseOutput)
 }
 
-// Link to assessment in Azure Portal
 func (o AssessmentLinksResponsePtrOutput) AzurePortalUri() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *AssessmentLinksResponse) *string {
 		if v == nil {
@@ -144,13 +143,9 @@ func (o AssessmentLinksResponsePtrOutput) AzurePortalUri() pulumi.StringPtrOutpu
 	}).(pulumi.StringPtrOutput)
 }
 
-// The result of the assessment
 type AssessmentStatus struct {
-	// Programmatic code for the cause of the assessment status
-	Cause *string `pulumi:"cause"`
-	// Programmatic code for the status of the assessment
-	Code string `pulumi:"code"`
-	// Human readable description of the assessment status
+	Cause       *string `pulumi:"cause"`
+	Code        string  `pulumi:"code"`
 	Description *string `pulumi:"description"`
 }
 
@@ -165,13 +160,9 @@ type AssessmentStatusInput interface {
 	ToAssessmentStatusOutputWithContext(context.Context) AssessmentStatusOutput
 }
 
-// The result of the assessment
 type AssessmentStatusArgs struct {
-	// Programmatic code for the cause of the assessment status
-	Cause pulumi.StringPtrInput `pulumi:"cause"`
-	// Programmatic code for the status of the assessment
-	Code pulumi.StringInput `pulumi:"code"`
-	// Human readable description of the assessment status
+	Cause       pulumi.StringPtrInput `pulumi:"cause"`
+	Code        pulumi.StringInput    `pulumi:"code"`
 	Description pulumi.StringPtrInput `pulumi:"description"`
 }
 
@@ -228,7 +219,6 @@ func (i *assessmentStatusPtrType) ToAssessmentStatusPtrOutputWithContext(ctx con
 	return pulumi.ToOutputWithContext(ctx, i).(AssessmentStatusPtrOutput)
 }
 
-// The result of the assessment
 type AssessmentStatusOutput struct{ *pulumi.OutputState }
 
 func (AssessmentStatusOutput) ElementType() reflect.Type {
@@ -248,22 +238,19 @@ func (o AssessmentStatusOutput) ToAssessmentStatusPtrOutput() AssessmentStatusPt
 }
 
 func (o AssessmentStatusOutput) ToAssessmentStatusPtrOutputWithContext(ctx context.Context) AssessmentStatusPtrOutput {
-	return o.ApplyT(func(v AssessmentStatus) *AssessmentStatus {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v AssessmentStatus) *AssessmentStatus {
 		return &v
 	}).(AssessmentStatusPtrOutput)
 }
 
-// Programmatic code for the cause of the assessment status
 func (o AssessmentStatusOutput) Cause() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AssessmentStatus) *string { return v.Cause }).(pulumi.StringPtrOutput)
 }
 
-// Programmatic code for the status of the assessment
 func (o AssessmentStatusOutput) Code() pulumi.StringOutput {
 	return o.ApplyT(func(v AssessmentStatus) string { return v.Code }).(pulumi.StringOutput)
 }
 
-// Human readable description of the assessment status
 func (o AssessmentStatusOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AssessmentStatus) *string { return v.Description }).(pulumi.StringPtrOutput)
 }
@@ -283,10 +270,15 @@ func (o AssessmentStatusPtrOutput) ToAssessmentStatusPtrOutputWithContext(ctx co
 }
 
 func (o AssessmentStatusPtrOutput) Elem() AssessmentStatusOutput {
-	return o.ApplyT(func(v *AssessmentStatus) AssessmentStatus { return *v }).(AssessmentStatusOutput)
+	return o.ApplyT(func(v *AssessmentStatus) AssessmentStatus {
+		if v != nil {
+			return *v
+		}
+		var ret AssessmentStatus
+		return ret
+	}).(AssessmentStatusOutput)
 }
 
-// Programmatic code for the cause of the assessment status
 func (o AssessmentStatusPtrOutput) Cause() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *AssessmentStatus) *string {
 		if v == nil {
@@ -296,7 +288,6 @@ func (o AssessmentStatusPtrOutput) Cause() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Programmatic code for the status of the assessment
 func (o AssessmentStatusPtrOutput) Code() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *AssessmentStatus) *string {
 		if v == nil {
@@ -306,7 +297,6 @@ func (o AssessmentStatusPtrOutput) Code() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Human readable description of the assessment status
 func (o AssessmentStatusPtrOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *AssessmentStatus) *string {
 		if v == nil {
@@ -316,13 +306,9 @@ func (o AssessmentStatusPtrOutput) Description() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The result of the assessment
 type AssessmentStatusResponse struct {
-	// Programmatic code for the cause of the assessment status
-	Cause *string `pulumi:"cause"`
-	// Programmatic code for the status of the assessment
-	Code string `pulumi:"code"`
-	// Human readable description of the assessment status
+	Cause       *string `pulumi:"cause"`
+	Code        string  `pulumi:"code"`
 	Description *string `pulumi:"description"`
 }
 
@@ -337,13 +323,9 @@ type AssessmentStatusResponseInput interface {
 	ToAssessmentStatusResponseOutputWithContext(context.Context) AssessmentStatusResponseOutput
 }
 
-// The result of the assessment
 type AssessmentStatusResponseArgs struct {
-	// Programmatic code for the cause of the assessment status
-	Cause pulumi.StringPtrInput `pulumi:"cause"`
-	// Programmatic code for the status of the assessment
-	Code pulumi.StringInput `pulumi:"code"`
-	// Human readable description of the assessment status
+	Cause       pulumi.StringPtrInput `pulumi:"cause"`
+	Code        pulumi.StringInput    `pulumi:"code"`
 	Description pulumi.StringPtrInput `pulumi:"description"`
 }
 
@@ -400,7 +382,6 @@ func (i *assessmentStatusResponsePtrType) ToAssessmentStatusResponsePtrOutputWit
 	return pulumi.ToOutputWithContext(ctx, i).(AssessmentStatusResponsePtrOutput)
 }
 
-// The result of the assessment
 type AssessmentStatusResponseOutput struct{ *pulumi.OutputState }
 
 func (AssessmentStatusResponseOutput) ElementType() reflect.Type {
@@ -420,22 +401,19 @@ func (o AssessmentStatusResponseOutput) ToAssessmentStatusResponsePtrOutput() As
 }
 
 func (o AssessmentStatusResponseOutput) ToAssessmentStatusResponsePtrOutputWithContext(ctx context.Context) AssessmentStatusResponsePtrOutput {
-	return o.ApplyT(func(v AssessmentStatusResponse) *AssessmentStatusResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v AssessmentStatusResponse) *AssessmentStatusResponse {
 		return &v
 	}).(AssessmentStatusResponsePtrOutput)
 }
 
-// Programmatic code for the cause of the assessment status
 func (o AssessmentStatusResponseOutput) Cause() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AssessmentStatusResponse) *string { return v.Cause }).(pulumi.StringPtrOutput)
 }
 
-// Programmatic code for the status of the assessment
 func (o AssessmentStatusResponseOutput) Code() pulumi.StringOutput {
 	return o.ApplyT(func(v AssessmentStatusResponse) string { return v.Code }).(pulumi.StringOutput)
 }
 
-// Human readable description of the assessment status
 func (o AssessmentStatusResponseOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AssessmentStatusResponse) *string { return v.Description }).(pulumi.StringPtrOutput)
 }
@@ -455,10 +433,15 @@ func (o AssessmentStatusResponsePtrOutput) ToAssessmentStatusResponsePtrOutputWi
 }
 
 func (o AssessmentStatusResponsePtrOutput) Elem() AssessmentStatusResponseOutput {
-	return o.ApplyT(func(v *AssessmentStatusResponse) AssessmentStatusResponse { return *v }).(AssessmentStatusResponseOutput)
+	return o.ApplyT(func(v *AssessmentStatusResponse) AssessmentStatusResponse {
+		if v != nil {
+			return *v
+		}
+		var ret AssessmentStatusResponse
+		return ret
+	}).(AssessmentStatusResponseOutput)
 }
 
-// Programmatic code for the cause of the assessment status
 func (o AssessmentStatusResponsePtrOutput) Cause() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *AssessmentStatusResponse) *string {
 		if v == nil {
@@ -468,7 +451,6 @@ func (o AssessmentStatusResponsePtrOutput) Cause() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Programmatic code for the status of the assessment
 func (o AssessmentStatusResponsePtrOutput) Code() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *AssessmentStatusResponse) *string {
 		if v == nil {
@@ -478,7 +460,6 @@ func (o AssessmentStatusResponsePtrOutput) Code() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Human readable description of the assessment status
 func (o AssessmentStatusResponsePtrOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *AssessmentStatusResponse) *string {
 		if v == nil {
@@ -488,14 +469,9 @@ func (o AssessmentStatusResponsePtrOutput) Description() pulumi.StringPtrOutput 
 	}).(pulumi.StringPtrOutput)
 }
 
-// The target Event Hub to which event data will be exported. To learn more about Security Center continuous export capabilities, visit https://aka.ms/ASCExportLearnMore
 type AutomationActionEventHub struct {
-	// The type of the action that will be triggered by the Automation
-	// Expected value is 'EventHub'.
-	ActionType string `pulumi:"actionType"`
-	// The target Event Hub connection string (it will not be included in any response).
-	ConnectionString *string `pulumi:"connectionString"`
-	// The target Event Hub Azure Resource ID.
+	ActionType         string  `pulumi:"actionType"`
+	ConnectionString   *string `pulumi:"connectionString"`
 	EventHubResourceId *string `pulumi:"eventHubResourceId"`
 }
 
@@ -510,14 +486,9 @@ type AutomationActionEventHubInput interface {
 	ToAutomationActionEventHubOutputWithContext(context.Context) AutomationActionEventHubOutput
 }
 
-// The target Event Hub to which event data will be exported. To learn more about Security Center continuous export capabilities, visit https://aka.ms/ASCExportLearnMore
 type AutomationActionEventHubArgs struct {
-	// The type of the action that will be triggered by the Automation
-	// Expected value is 'EventHub'.
-	ActionType pulumi.StringInput `pulumi:"actionType"`
-	// The target Event Hub connection string (it will not be included in any response).
-	ConnectionString pulumi.StringPtrInput `pulumi:"connectionString"`
-	// The target Event Hub Azure Resource ID.
+	ActionType         pulumi.StringInput    `pulumi:"actionType"`
+	ConnectionString   pulumi.StringPtrInput `pulumi:"connectionString"`
 	EventHubResourceId pulumi.StringPtrInput `pulumi:"eventHubResourceId"`
 }
 
@@ -533,7 +504,6 @@ func (i AutomationActionEventHubArgs) ToAutomationActionEventHubOutputWithContex
 	return pulumi.ToOutputWithContext(ctx, i).(AutomationActionEventHubOutput)
 }
 
-// The target Event Hub to which event data will be exported. To learn more about Security Center continuous export capabilities, visit https://aka.ms/ASCExportLearnMore
 type AutomationActionEventHubOutput struct{ *pulumi.OutputState }
 
 func (AutomationActionEventHubOutput) ElementType() reflect.Type {
@@ -548,33 +518,23 @@ func (o AutomationActionEventHubOutput) ToAutomationActionEventHubOutputWithCont
 	return o
 }
 
-// The type of the action that will be triggered by the Automation
-// Expected value is 'EventHub'.
 func (o AutomationActionEventHubOutput) ActionType() pulumi.StringOutput {
 	return o.ApplyT(func(v AutomationActionEventHub) string { return v.ActionType }).(pulumi.StringOutput)
 }
 
-// The target Event Hub connection string (it will not be included in any response).
 func (o AutomationActionEventHubOutput) ConnectionString() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AutomationActionEventHub) *string { return v.ConnectionString }).(pulumi.StringPtrOutput)
 }
 
-// The target Event Hub Azure Resource ID.
 func (o AutomationActionEventHubOutput) EventHubResourceId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AutomationActionEventHub) *string { return v.EventHubResourceId }).(pulumi.StringPtrOutput)
 }
 
-// The target Event Hub to which event data will be exported. To learn more about Security Center continuous export capabilities, visit https://aka.ms/ASCExportLearnMore
 type AutomationActionEventHubResponse struct {
-	// The type of the action that will be triggered by the Automation
-	// Expected value is 'EventHub'.
-	ActionType string `pulumi:"actionType"`
-	// The target Event Hub connection string (it will not be included in any response).
-	ConnectionString *string `pulumi:"connectionString"`
-	// The target Event Hub Azure Resource ID.
+	ActionType         string  `pulumi:"actionType"`
+	ConnectionString   *string `pulumi:"connectionString"`
 	EventHubResourceId *string `pulumi:"eventHubResourceId"`
-	// The target Event Hub SAS policy name.
-	SasPolicyName string `pulumi:"sasPolicyName"`
+	SasPolicyName      string  `pulumi:"sasPolicyName"`
 }
 
 // AutomationActionEventHubResponseInput is an input type that accepts AutomationActionEventHubResponseArgs and AutomationActionEventHubResponseOutput values.
@@ -588,17 +548,11 @@ type AutomationActionEventHubResponseInput interface {
 	ToAutomationActionEventHubResponseOutputWithContext(context.Context) AutomationActionEventHubResponseOutput
 }
 
-// The target Event Hub to which event data will be exported. To learn more about Security Center continuous export capabilities, visit https://aka.ms/ASCExportLearnMore
 type AutomationActionEventHubResponseArgs struct {
-	// The type of the action that will be triggered by the Automation
-	// Expected value is 'EventHub'.
-	ActionType pulumi.StringInput `pulumi:"actionType"`
-	// The target Event Hub connection string (it will not be included in any response).
-	ConnectionString pulumi.StringPtrInput `pulumi:"connectionString"`
-	// The target Event Hub Azure Resource ID.
+	ActionType         pulumi.StringInput    `pulumi:"actionType"`
+	ConnectionString   pulumi.StringPtrInput `pulumi:"connectionString"`
 	EventHubResourceId pulumi.StringPtrInput `pulumi:"eventHubResourceId"`
-	// The target Event Hub SAS policy name.
-	SasPolicyName pulumi.StringInput `pulumi:"sasPolicyName"`
+	SasPolicyName      pulumi.StringInput    `pulumi:"sasPolicyName"`
 }
 
 func (AutomationActionEventHubResponseArgs) ElementType() reflect.Type {
@@ -613,7 +567,6 @@ func (i AutomationActionEventHubResponseArgs) ToAutomationActionEventHubResponse
 	return pulumi.ToOutputWithContext(ctx, i).(AutomationActionEventHubResponseOutput)
 }
 
-// The target Event Hub to which event data will be exported. To learn more about Security Center continuous export capabilities, visit https://aka.ms/ASCExportLearnMore
 type AutomationActionEventHubResponseOutput struct{ *pulumi.OutputState }
 
 func (AutomationActionEventHubResponseOutput) ElementType() reflect.Type {
@@ -628,36 +581,26 @@ func (o AutomationActionEventHubResponseOutput) ToAutomationActionEventHubRespon
 	return o
 }
 
-// The type of the action that will be triggered by the Automation
-// Expected value is 'EventHub'.
 func (o AutomationActionEventHubResponseOutput) ActionType() pulumi.StringOutput {
 	return o.ApplyT(func(v AutomationActionEventHubResponse) string { return v.ActionType }).(pulumi.StringOutput)
 }
 
-// The target Event Hub connection string (it will not be included in any response).
 func (o AutomationActionEventHubResponseOutput) ConnectionString() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AutomationActionEventHubResponse) *string { return v.ConnectionString }).(pulumi.StringPtrOutput)
 }
 
-// The target Event Hub Azure Resource ID.
 func (o AutomationActionEventHubResponseOutput) EventHubResourceId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AutomationActionEventHubResponse) *string { return v.EventHubResourceId }).(pulumi.StringPtrOutput)
 }
 
-// The target Event Hub SAS policy name.
 func (o AutomationActionEventHubResponseOutput) SasPolicyName() pulumi.StringOutput {
 	return o.ApplyT(func(v AutomationActionEventHubResponse) string { return v.SasPolicyName }).(pulumi.StringOutput)
 }
 
-// The logic app action that should be triggered. To learn more about Security Center's Workflow Automation capabilities, visit https://aka.ms/ASCWorkflowAutomationLearnMore
 type AutomationActionLogicApp struct {
-	// The type of the action that will be triggered by the Automation
-	// Expected value is 'LogicApp'.
-	ActionType string `pulumi:"actionType"`
-	// The triggered Logic App Azure Resource ID. This can also reside on other subscriptions, given that you have permissions to trigger the Logic App
+	ActionType         string  `pulumi:"actionType"`
 	LogicAppResourceId *string `pulumi:"logicAppResourceId"`
-	// The Logic App trigger URI endpoint (it will not be included in any response).
-	Uri *string `pulumi:"uri"`
+	Uri                *string `pulumi:"uri"`
 }
 
 // AutomationActionLogicAppInput is an input type that accepts AutomationActionLogicAppArgs and AutomationActionLogicAppOutput values.
@@ -671,15 +614,10 @@ type AutomationActionLogicAppInput interface {
 	ToAutomationActionLogicAppOutputWithContext(context.Context) AutomationActionLogicAppOutput
 }
 
-// The logic app action that should be triggered. To learn more about Security Center's Workflow Automation capabilities, visit https://aka.ms/ASCWorkflowAutomationLearnMore
 type AutomationActionLogicAppArgs struct {
-	// The type of the action that will be triggered by the Automation
-	// Expected value is 'LogicApp'.
-	ActionType pulumi.StringInput `pulumi:"actionType"`
-	// The triggered Logic App Azure Resource ID. This can also reside on other subscriptions, given that you have permissions to trigger the Logic App
+	ActionType         pulumi.StringInput    `pulumi:"actionType"`
 	LogicAppResourceId pulumi.StringPtrInput `pulumi:"logicAppResourceId"`
-	// The Logic App trigger URI endpoint (it will not be included in any response).
-	Uri pulumi.StringPtrInput `pulumi:"uri"`
+	Uri                pulumi.StringPtrInput `pulumi:"uri"`
 }
 
 func (AutomationActionLogicAppArgs) ElementType() reflect.Type {
@@ -694,7 +632,6 @@ func (i AutomationActionLogicAppArgs) ToAutomationActionLogicAppOutputWithContex
 	return pulumi.ToOutputWithContext(ctx, i).(AutomationActionLogicAppOutput)
 }
 
-// The logic app action that should be triggered. To learn more about Security Center's Workflow Automation capabilities, visit https://aka.ms/ASCWorkflowAutomationLearnMore
 type AutomationActionLogicAppOutput struct{ *pulumi.OutputState }
 
 func (AutomationActionLogicAppOutput) ElementType() reflect.Type {
@@ -709,31 +646,22 @@ func (o AutomationActionLogicAppOutput) ToAutomationActionLogicAppOutputWithCont
 	return o
 }
 
-// The type of the action that will be triggered by the Automation
-// Expected value is 'LogicApp'.
 func (o AutomationActionLogicAppOutput) ActionType() pulumi.StringOutput {
 	return o.ApplyT(func(v AutomationActionLogicApp) string { return v.ActionType }).(pulumi.StringOutput)
 }
 
-// The triggered Logic App Azure Resource ID. This can also reside on other subscriptions, given that you have permissions to trigger the Logic App
 func (o AutomationActionLogicAppOutput) LogicAppResourceId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AutomationActionLogicApp) *string { return v.LogicAppResourceId }).(pulumi.StringPtrOutput)
 }
 
-// The Logic App trigger URI endpoint (it will not be included in any response).
 func (o AutomationActionLogicAppOutput) Uri() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AutomationActionLogicApp) *string { return v.Uri }).(pulumi.StringPtrOutput)
 }
 
-// The logic app action that should be triggered. To learn more about Security Center's Workflow Automation capabilities, visit https://aka.ms/ASCWorkflowAutomationLearnMore
 type AutomationActionLogicAppResponse struct {
-	// The type of the action that will be triggered by the Automation
-	// Expected value is 'LogicApp'.
-	ActionType string `pulumi:"actionType"`
-	// The triggered Logic App Azure Resource ID. This can also reside on other subscriptions, given that you have permissions to trigger the Logic App
+	ActionType         string  `pulumi:"actionType"`
 	LogicAppResourceId *string `pulumi:"logicAppResourceId"`
-	// The Logic App trigger URI endpoint (it will not be included in any response).
-	Uri *string `pulumi:"uri"`
+	Uri                *string `pulumi:"uri"`
 }
 
 // AutomationActionLogicAppResponseInput is an input type that accepts AutomationActionLogicAppResponseArgs and AutomationActionLogicAppResponseOutput values.
@@ -747,15 +675,10 @@ type AutomationActionLogicAppResponseInput interface {
 	ToAutomationActionLogicAppResponseOutputWithContext(context.Context) AutomationActionLogicAppResponseOutput
 }
 
-// The logic app action that should be triggered. To learn more about Security Center's Workflow Automation capabilities, visit https://aka.ms/ASCWorkflowAutomationLearnMore
 type AutomationActionLogicAppResponseArgs struct {
-	// The type of the action that will be triggered by the Automation
-	// Expected value is 'LogicApp'.
-	ActionType pulumi.StringInput `pulumi:"actionType"`
-	// The triggered Logic App Azure Resource ID. This can also reside on other subscriptions, given that you have permissions to trigger the Logic App
+	ActionType         pulumi.StringInput    `pulumi:"actionType"`
 	LogicAppResourceId pulumi.StringPtrInput `pulumi:"logicAppResourceId"`
-	// The Logic App trigger URI endpoint (it will not be included in any response).
-	Uri pulumi.StringPtrInput `pulumi:"uri"`
+	Uri                pulumi.StringPtrInput `pulumi:"uri"`
 }
 
 func (AutomationActionLogicAppResponseArgs) ElementType() reflect.Type {
@@ -770,7 +693,6 @@ func (i AutomationActionLogicAppResponseArgs) ToAutomationActionLogicAppResponse
 	return pulumi.ToOutputWithContext(ctx, i).(AutomationActionLogicAppResponseOutput)
 }
 
-// The logic app action that should be triggered. To learn more about Security Center's Workflow Automation capabilities, visit https://aka.ms/ASCWorkflowAutomationLearnMore
 type AutomationActionLogicAppResponseOutput struct{ *pulumi.OutputState }
 
 func (AutomationActionLogicAppResponseOutput) ElementType() reflect.Type {
@@ -785,28 +707,20 @@ func (o AutomationActionLogicAppResponseOutput) ToAutomationActionLogicAppRespon
 	return o
 }
 
-// The type of the action that will be triggered by the Automation
-// Expected value is 'LogicApp'.
 func (o AutomationActionLogicAppResponseOutput) ActionType() pulumi.StringOutput {
 	return o.ApplyT(func(v AutomationActionLogicAppResponse) string { return v.ActionType }).(pulumi.StringOutput)
 }
 
-// The triggered Logic App Azure Resource ID. This can also reside on other subscriptions, given that you have permissions to trigger the Logic App
 func (o AutomationActionLogicAppResponseOutput) LogicAppResourceId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AutomationActionLogicAppResponse) *string { return v.LogicAppResourceId }).(pulumi.StringPtrOutput)
 }
 
-// The Logic App trigger URI endpoint (it will not be included in any response).
 func (o AutomationActionLogicAppResponseOutput) Uri() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AutomationActionLogicAppResponse) *string { return v.Uri }).(pulumi.StringPtrOutput)
 }
 
-// The Log Analytics Workspace to which event data will be exported. Security alerts data will reside in the 'SecurityAlert' table and the assessments data will reside in the 'SecurityRecommendation' table (under the 'Security'/'SecurityCenterFree' solutions). Note that in order to view the data in the workspace, the Security Center Log Analytics free/standard solution needs to be enabled on that workspace. To learn more about Security Center continuous export capabilities, visit https://aka.ms/ASCExportLearnMore
 type AutomationActionWorkspace struct {
-	// The type of the action that will be triggered by the Automation
-	// Expected value is 'Workspace'.
-	ActionType string `pulumi:"actionType"`
-	// The fully qualified Log Analytics Workspace Azure Resource ID.
+	ActionType          string  `pulumi:"actionType"`
 	WorkspaceResourceId *string `pulumi:"workspaceResourceId"`
 }
 
@@ -821,12 +735,8 @@ type AutomationActionWorkspaceInput interface {
 	ToAutomationActionWorkspaceOutputWithContext(context.Context) AutomationActionWorkspaceOutput
 }
 
-// The Log Analytics Workspace to which event data will be exported. Security alerts data will reside in the 'SecurityAlert' table and the assessments data will reside in the 'SecurityRecommendation' table (under the 'Security'/'SecurityCenterFree' solutions). Note that in order to view the data in the workspace, the Security Center Log Analytics free/standard solution needs to be enabled on that workspace. To learn more about Security Center continuous export capabilities, visit https://aka.ms/ASCExportLearnMore
 type AutomationActionWorkspaceArgs struct {
-	// The type of the action that will be triggered by the Automation
-	// Expected value is 'Workspace'.
-	ActionType pulumi.StringInput `pulumi:"actionType"`
-	// The fully qualified Log Analytics Workspace Azure Resource ID.
+	ActionType          pulumi.StringInput    `pulumi:"actionType"`
 	WorkspaceResourceId pulumi.StringPtrInput `pulumi:"workspaceResourceId"`
 }
 
@@ -842,7 +752,6 @@ func (i AutomationActionWorkspaceArgs) ToAutomationActionWorkspaceOutputWithCont
 	return pulumi.ToOutputWithContext(ctx, i).(AutomationActionWorkspaceOutput)
 }
 
-// The Log Analytics Workspace to which event data will be exported. Security alerts data will reside in the 'SecurityAlert' table and the assessments data will reside in the 'SecurityRecommendation' table (under the 'Security'/'SecurityCenterFree' solutions). Note that in order to view the data in the workspace, the Security Center Log Analytics free/standard solution needs to be enabled on that workspace. To learn more about Security Center continuous export capabilities, visit https://aka.ms/ASCExportLearnMore
 type AutomationActionWorkspaceOutput struct{ *pulumi.OutputState }
 
 func (AutomationActionWorkspaceOutput) ElementType() reflect.Type {
@@ -857,23 +766,16 @@ func (o AutomationActionWorkspaceOutput) ToAutomationActionWorkspaceOutputWithCo
 	return o
 }
 
-// The type of the action that will be triggered by the Automation
-// Expected value is 'Workspace'.
 func (o AutomationActionWorkspaceOutput) ActionType() pulumi.StringOutput {
 	return o.ApplyT(func(v AutomationActionWorkspace) string { return v.ActionType }).(pulumi.StringOutput)
 }
 
-// The fully qualified Log Analytics Workspace Azure Resource ID.
 func (o AutomationActionWorkspaceOutput) WorkspaceResourceId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AutomationActionWorkspace) *string { return v.WorkspaceResourceId }).(pulumi.StringPtrOutput)
 }
 
-// The Log Analytics Workspace to which event data will be exported. Security alerts data will reside in the 'SecurityAlert' table and the assessments data will reside in the 'SecurityRecommendation' table (under the 'Security'/'SecurityCenterFree' solutions). Note that in order to view the data in the workspace, the Security Center Log Analytics free/standard solution needs to be enabled on that workspace. To learn more about Security Center continuous export capabilities, visit https://aka.ms/ASCExportLearnMore
 type AutomationActionWorkspaceResponse struct {
-	// The type of the action that will be triggered by the Automation
-	// Expected value is 'Workspace'.
-	ActionType string `pulumi:"actionType"`
-	// The fully qualified Log Analytics Workspace Azure Resource ID.
+	ActionType          string  `pulumi:"actionType"`
 	WorkspaceResourceId *string `pulumi:"workspaceResourceId"`
 }
 
@@ -888,12 +790,8 @@ type AutomationActionWorkspaceResponseInput interface {
 	ToAutomationActionWorkspaceResponseOutputWithContext(context.Context) AutomationActionWorkspaceResponseOutput
 }
 
-// The Log Analytics Workspace to which event data will be exported. Security alerts data will reside in the 'SecurityAlert' table and the assessments data will reside in the 'SecurityRecommendation' table (under the 'Security'/'SecurityCenterFree' solutions). Note that in order to view the data in the workspace, the Security Center Log Analytics free/standard solution needs to be enabled on that workspace. To learn more about Security Center continuous export capabilities, visit https://aka.ms/ASCExportLearnMore
 type AutomationActionWorkspaceResponseArgs struct {
-	// The type of the action that will be triggered by the Automation
-	// Expected value is 'Workspace'.
-	ActionType pulumi.StringInput `pulumi:"actionType"`
-	// The fully qualified Log Analytics Workspace Azure Resource ID.
+	ActionType          pulumi.StringInput    `pulumi:"actionType"`
 	WorkspaceResourceId pulumi.StringPtrInput `pulumi:"workspaceResourceId"`
 }
 
@@ -909,7 +807,6 @@ func (i AutomationActionWorkspaceResponseArgs) ToAutomationActionWorkspaceRespon
 	return pulumi.ToOutputWithContext(ctx, i).(AutomationActionWorkspaceResponseOutput)
 }
 
-// The Log Analytics Workspace to which event data will be exported. Security alerts data will reside in the 'SecurityAlert' table and the assessments data will reside in the 'SecurityRecommendation' table (under the 'Security'/'SecurityCenterFree' solutions). Note that in order to view the data in the workspace, the Security Center Log Analytics free/standard solution needs to be enabled on that workspace. To learn more about Security Center continuous export capabilities, visit https://aka.ms/ASCExportLearnMore
 type AutomationActionWorkspaceResponseOutput struct{ *pulumi.OutputState }
 
 func (AutomationActionWorkspaceResponseOutput) ElementType() reflect.Type {
@@ -924,18 +821,14 @@ func (o AutomationActionWorkspaceResponseOutput) ToAutomationActionWorkspaceResp
 	return o
 }
 
-// The type of the action that will be triggered by the Automation
-// Expected value is 'Workspace'.
 func (o AutomationActionWorkspaceResponseOutput) ActionType() pulumi.StringOutput {
 	return o.ApplyT(func(v AutomationActionWorkspaceResponse) string { return v.ActionType }).(pulumi.StringOutput)
 }
 
-// The fully qualified Log Analytics Workspace Azure Resource ID.
 func (o AutomationActionWorkspaceResponseOutput) WorkspaceResourceId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AutomationActionWorkspaceResponse) *string { return v.WorkspaceResourceId }).(pulumi.StringPtrOutput)
 }
 
-// A rule set which evaluates all its rules upon an event interception. Only when all the included rules in the rule set will be evaluated as 'true', will the event trigger the defined actions.
 type AutomationRuleSet struct {
 	Rules []AutomationTriggeringRule `pulumi:"rules"`
 }
@@ -951,7 +844,6 @@ type AutomationRuleSetInput interface {
 	ToAutomationRuleSetOutputWithContext(context.Context) AutomationRuleSetOutput
 }
 
-// A rule set which evaluates all its rules upon an event interception. Only when all the included rules in the rule set will be evaluated as 'true', will the event trigger the defined actions.
 type AutomationRuleSetArgs struct {
 	Rules AutomationTriggeringRuleArrayInput `pulumi:"rules"`
 }
@@ -993,7 +885,6 @@ func (i AutomationRuleSetArray) ToAutomationRuleSetArrayOutputWithContext(ctx co
 	return pulumi.ToOutputWithContext(ctx, i).(AutomationRuleSetArrayOutput)
 }
 
-// A rule set which evaluates all its rules upon an event interception. Only when all the included rules in the rule set will be evaluated as 'true', will the event trigger the defined actions.
 type AutomationRuleSetOutput struct{ *pulumi.OutputState }
 
 func (AutomationRuleSetOutput) ElementType() reflect.Type {
@@ -1032,7 +923,6 @@ func (o AutomationRuleSetArrayOutput) Index(i pulumi.IntInput) AutomationRuleSet
 	}).(AutomationRuleSetOutput)
 }
 
-// A rule set which evaluates all its rules upon an event interception. Only when all the included rules in the rule set will be evaluated as 'true', will the event trigger the defined actions.
 type AutomationRuleSetResponse struct {
 	Rules []AutomationTriggeringRuleResponse `pulumi:"rules"`
 }
@@ -1048,7 +938,6 @@ type AutomationRuleSetResponseInput interface {
 	ToAutomationRuleSetResponseOutputWithContext(context.Context) AutomationRuleSetResponseOutput
 }
 
-// A rule set which evaluates all its rules upon an event interception. Only when all the included rules in the rule set will be evaluated as 'true', will the event trigger the defined actions.
 type AutomationRuleSetResponseArgs struct {
 	Rules AutomationTriggeringRuleResponseArrayInput `pulumi:"rules"`
 }
@@ -1090,7 +979,6 @@ func (i AutomationRuleSetResponseArray) ToAutomationRuleSetResponseArrayOutputWi
 	return pulumi.ToOutputWithContext(ctx, i).(AutomationRuleSetResponseArrayOutput)
 }
 
-// A rule set which evaluates all its rules upon an event interception. Only when all the included rules in the rule set will be evaluated as 'true', will the event trigger the defined actions.
 type AutomationRuleSetResponseOutput struct{ *pulumi.OutputState }
 
 func (AutomationRuleSetResponseOutput) ElementType() reflect.Type {
@@ -1129,12 +1017,9 @@ func (o AutomationRuleSetResponseArrayOutput) Index(i pulumi.IntInput) Automatio
 	}).(AutomationRuleSetResponseOutput)
 }
 
-// A single automation scope.
 type AutomationScope struct {
-	// The resources scope description.
 	Description *string `pulumi:"description"`
-	// The resources scope path. Can be the subscription on which the automation is defined on or a resource group under that subscription (fully qualified Azure resource IDs).
-	ScopePath *string `pulumi:"scopePath"`
+	ScopePath   *string `pulumi:"scopePath"`
 }
 
 // AutomationScopeInput is an input type that accepts AutomationScopeArgs and AutomationScopeOutput values.
@@ -1148,12 +1033,9 @@ type AutomationScopeInput interface {
 	ToAutomationScopeOutputWithContext(context.Context) AutomationScopeOutput
 }
 
-// A single automation scope.
 type AutomationScopeArgs struct {
-	// The resources scope description.
 	Description pulumi.StringPtrInput `pulumi:"description"`
-	// The resources scope path. Can be the subscription on which the automation is defined on or a resource group under that subscription (fully qualified Azure resource IDs).
-	ScopePath pulumi.StringPtrInput `pulumi:"scopePath"`
+	ScopePath   pulumi.StringPtrInput `pulumi:"scopePath"`
 }
 
 func (AutomationScopeArgs) ElementType() reflect.Type {
@@ -1193,7 +1075,6 @@ func (i AutomationScopeArray) ToAutomationScopeArrayOutputWithContext(ctx contex
 	return pulumi.ToOutputWithContext(ctx, i).(AutomationScopeArrayOutput)
 }
 
-// A single automation scope.
 type AutomationScopeOutput struct{ *pulumi.OutputState }
 
 func (AutomationScopeOutput) ElementType() reflect.Type {
@@ -1208,12 +1089,10 @@ func (o AutomationScopeOutput) ToAutomationScopeOutputWithContext(ctx context.Co
 	return o
 }
 
-// The resources scope description.
 func (o AutomationScopeOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AutomationScope) *string { return v.Description }).(pulumi.StringPtrOutput)
 }
 
-// The resources scope path. Can be the subscription on which the automation is defined on or a resource group under that subscription (fully qualified Azure resource IDs).
 func (o AutomationScopeOutput) ScopePath() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AutomationScope) *string { return v.ScopePath }).(pulumi.StringPtrOutput)
 }
@@ -1238,12 +1117,9 @@ func (o AutomationScopeArrayOutput) Index(i pulumi.IntInput) AutomationScopeOutp
 	}).(AutomationScopeOutput)
 }
 
-// A single automation scope.
 type AutomationScopeResponse struct {
-	// The resources scope description.
 	Description *string `pulumi:"description"`
-	// The resources scope path. Can be the subscription on which the automation is defined on or a resource group under that subscription (fully qualified Azure resource IDs).
-	ScopePath *string `pulumi:"scopePath"`
+	ScopePath   *string `pulumi:"scopePath"`
 }
 
 // AutomationScopeResponseInput is an input type that accepts AutomationScopeResponseArgs and AutomationScopeResponseOutput values.
@@ -1257,12 +1133,9 @@ type AutomationScopeResponseInput interface {
 	ToAutomationScopeResponseOutputWithContext(context.Context) AutomationScopeResponseOutput
 }
 
-// A single automation scope.
 type AutomationScopeResponseArgs struct {
-	// The resources scope description.
 	Description pulumi.StringPtrInput `pulumi:"description"`
-	// The resources scope path. Can be the subscription on which the automation is defined on or a resource group under that subscription (fully qualified Azure resource IDs).
-	ScopePath pulumi.StringPtrInput `pulumi:"scopePath"`
+	ScopePath   pulumi.StringPtrInput `pulumi:"scopePath"`
 }
 
 func (AutomationScopeResponseArgs) ElementType() reflect.Type {
@@ -1302,7 +1175,6 @@ func (i AutomationScopeResponseArray) ToAutomationScopeResponseArrayOutputWithCo
 	return pulumi.ToOutputWithContext(ctx, i).(AutomationScopeResponseArrayOutput)
 }
 
-// A single automation scope.
 type AutomationScopeResponseOutput struct{ *pulumi.OutputState }
 
 func (AutomationScopeResponseOutput) ElementType() reflect.Type {
@@ -1317,12 +1189,10 @@ func (o AutomationScopeResponseOutput) ToAutomationScopeResponseOutputWithContex
 	return o
 }
 
-// The resources scope description.
 func (o AutomationScopeResponseOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AutomationScopeResponse) *string { return v.Description }).(pulumi.StringPtrOutput)
 }
 
-// The resources scope path. Can be the subscription on which the automation is defined on or a resource group under that subscription (fully qualified Azure resource IDs).
 func (o AutomationScopeResponseOutput) ScopePath() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AutomationScopeResponse) *string { return v.ScopePath }).(pulumi.StringPtrOutput)
 }
@@ -1347,12 +1217,9 @@ func (o AutomationScopeResponseArrayOutput) Index(i pulumi.IntInput) AutomationS
 	}).(AutomationScopeResponseOutput)
 }
 
-// The source event types which evaluate the security automation set of rules. For example - security alerts and security assessments. To learn more about the supported security events data models schemas - please visit https://aka.ms/ASCAutomationSchemas.
 type AutomationSource struct {
-	// A valid event source type.
-	EventSource *string `pulumi:"eventSource"`
-	// A set of rules which evaluate upon event interception. A logical disjunction is applied between defined rule sets (logical 'or').
-	RuleSets []AutomationRuleSet `pulumi:"ruleSets"`
+	EventSource *string             `pulumi:"eventSource"`
+	RuleSets    []AutomationRuleSet `pulumi:"ruleSets"`
 }
 
 // AutomationSourceInput is an input type that accepts AutomationSourceArgs and AutomationSourceOutput values.
@@ -1366,12 +1233,9 @@ type AutomationSourceInput interface {
 	ToAutomationSourceOutputWithContext(context.Context) AutomationSourceOutput
 }
 
-// The source event types which evaluate the security automation set of rules. For example - security alerts and security assessments. To learn more about the supported security events data models schemas - please visit https://aka.ms/ASCAutomationSchemas.
 type AutomationSourceArgs struct {
-	// A valid event source type.
-	EventSource pulumi.StringPtrInput `pulumi:"eventSource"`
-	// A set of rules which evaluate upon event interception. A logical disjunction is applied between defined rule sets (logical 'or').
-	RuleSets AutomationRuleSetArrayInput `pulumi:"ruleSets"`
+	EventSource pulumi.StringPtrInput       `pulumi:"eventSource"`
+	RuleSets    AutomationRuleSetArrayInput `pulumi:"ruleSets"`
 }
 
 func (AutomationSourceArgs) ElementType() reflect.Type {
@@ -1411,7 +1275,6 @@ func (i AutomationSourceArray) ToAutomationSourceArrayOutputWithContext(ctx cont
 	return pulumi.ToOutputWithContext(ctx, i).(AutomationSourceArrayOutput)
 }
 
-// The source event types which evaluate the security automation set of rules. For example - security alerts and security assessments. To learn more about the supported security events data models schemas - please visit https://aka.ms/ASCAutomationSchemas.
 type AutomationSourceOutput struct{ *pulumi.OutputState }
 
 func (AutomationSourceOutput) ElementType() reflect.Type {
@@ -1426,12 +1289,10 @@ func (o AutomationSourceOutput) ToAutomationSourceOutputWithContext(ctx context.
 	return o
 }
 
-// A valid event source type.
 func (o AutomationSourceOutput) EventSource() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AutomationSource) *string { return v.EventSource }).(pulumi.StringPtrOutput)
 }
 
-// A set of rules which evaluate upon event interception. A logical disjunction is applied between defined rule sets (logical 'or').
 func (o AutomationSourceOutput) RuleSets() AutomationRuleSetArrayOutput {
 	return o.ApplyT(func(v AutomationSource) []AutomationRuleSet { return v.RuleSets }).(AutomationRuleSetArrayOutput)
 }
@@ -1456,12 +1317,9 @@ func (o AutomationSourceArrayOutput) Index(i pulumi.IntInput) AutomationSourceOu
 	}).(AutomationSourceOutput)
 }
 
-// The source event types which evaluate the security automation set of rules. For example - security alerts and security assessments. To learn more about the supported security events data models schemas - please visit https://aka.ms/ASCAutomationSchemas.
 type AutomationSourceResponse struct {
-	// A valid event source type.
-	EventSource *string `pulumi:"eventSource"`
-	// A set of rules which evaluate upon event interception. A logical disjunction is applied between defined rule sets (logical 'or').
-	RuleSets []AutomationRuleSetResponse `pulumi:"ruleSets"`
+	EventSource *string                     `pulumi:"eventSource"`
+	RuleSets    []AutomationRuleSetResponse `pulumi:"ruleSets"`
 }
 
 // AutomationSourceResponseInput is an input type that accepts AutomationSourceResponseArgs and AutomationSourceResponseOutput values.
@@ -1475,12 +1333,9 @@ type AutomationSourceResponseInput interface {
 	ToAutomationSourceResponseOutputWithContext(context.Context) AutomationSourceResponseOutput
 }
 
-// The source event types which evaluate the security automation set of rules. For example - security alerts and security assessments. To learn more about the supported security events data models schemas - please visit https://aka.ms/ASCAutomationSchemas.
 type AutomationSourceResponseArgs struct {
-	// A valid event source type.
-	EventSource pulumi.StringPtrInput `pulumi:"eventSource"`
-	// A set of rules which evaluate upon event interception. A logical disjunction is applied between defined rule sets (logical 'or').
-	RuleSets AutomationRuleSetResponseArrayInput `pulumi:"ruleSets"`
+	EventSource pulumi.StringPtrInput               `pulumi:"eventSource"`
+	RuleSets    AutomationRuleSetResponseArrayInput `pulumi:"ruleSets"`
 }
 
 func (AutomationSourceResponseArgs) ElementType() reflect.Type {
@@ -1520,7 +1375,6 @@ func (i AutomationSourceResponseArray) ToAutomationSourceResponseArrayOutputWith
 	return pulumi.ToOutputWithContext(ctx, i).(AutomationSourceResponseArrayOutput)
 }
 
-// The source event types which evaluate the security automation set of rules. For example - security alerts and security assessments. To learn more about the supported security events data models schemas - please visit https://aka.ms/ASCAutomationSchemas.
 type AutomationSourceResponseOutput struct{ *pulumi.OutputState }
 
 func (AutomationSourceResponseOutput) ElementType() reflect.Type {
@@ -1535,12 +1389,10 @@ func (o AutomationSourceResponseOutput) ToAutomationSourceResponseOutputWithCont
 	return o
 }
 
-// A valid event source type.
 func (o AutomationSourceResponseOutput) EventSource() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AutomationSourceResponse) *string { return v.EventSource }).(pulumi.StringPtrOutput)
 }
 
-// A set of rules which evaluate upon event interception. A logical disjunction is applied between defined rule sets (logical 'or').
 func (o AutomationSourceResponseOutput) RuleSets() AutomationRuleSetResponseArrayOutput {
 	return o.ApplyT(func(v AutomationSourceResponse) []AutomationRuleSetResponse { return v.RuleSets }).(AutomationRuleSetResponseArrayOutput)
 }
@@ -1565,16 +1417,11 @@ func (o AutomationSourceResponseArrayOutput) Index(i pulumi.IntInput) Automation
 	}).(AutomationSourceResponseOutput)
 }
 
-// A rule which is evaluated upon event interception. The rule is configured by comparing a specific value from the event model to an expected value. This comparison is done by using one of the supported operators set.
 type AutomationTriggeringRule struct {
-	// The expected value.
 	ExpectedValue *string `pulumi:"expectedValue"`
-	// A valid comparer operator to use. A case-insensitive comparison will be applied for String PropertyType.
-	Operator *string `pulumi:"operator"`
-	// The JPath of the entity model property that should be checked.
+	Operator      *string `pulumi:"operator"`
 	PropertyJPath *string `pulumi:"propertyJPath"`
-	// The data type of the compared operands (string, integer, floating point number or a boolean [true/false]]
-	PropertyType *string `pulumi:"propertyType"`
+	PropertyType  *string `pulumi:"propertyType"`
 }
 
 // AutomationTriggeringRuleInput is an input type that accepts AutomationTriggeringRuleArgs and AutomationTriggeringRuleOutput values.
@@ -1588,16 +1435,11 @@ type AutomationTriggeringRuleInput interface {
 	ToAutomationTriggeringRuleOutputWithContext(context.Context) AutomationTriggeringRuleOutput
 }
 
-// A rule which is evaluated upon event interception. The rule is configured by comparing a specific value from the event model to an expected value. This comparison is done by using one of the supported operators set.
 type AutomationTriggeringRuleArgs struct {
-	// The expected value.
 	ExpectedValue pulumi.StringPtrInput `pulumi:"expectedValue"`
-	// A valid comparer operator to use. A case-insensitive comparison will be applied for String PropertyType.
-	Operator pulumi.StringPtrInput `pulumi:"operator"`
-	// The JPath of the entity model property that should be checked.
+	Operator      pulumi.StringPtrInput `pulumi:"operator"`
 	PropertyJPath pulumi.StringPtrInput `pulumi:"propertyJPath"`
-	// The data type of the compared operands (string, integer, floating point number or a boolean [true/false]]
-	PropertyType pulumi.StringPtrInput `pulumi:"propertyType"`
+	PropertyType  pulumi.StringPtrInput `pulumi:"propertyType"`
 }
 
 func (AutomationTriggeringRuleArgs) ElementType() reflect.Type {
@@ -1637,7 +1479,6 @@ func (i AutomationTriggeringRuleArray) ToAutomationTriggeringRuleArrayOutputWith
 	return pulumi.ToOutputWithContext(ctx, i).(AutomationTriggeringRuleArrayOutput)
 }
 
-// A rule which is evaluated upon event interception. The rule is configured by comparing a specific value from the event model to an expected value. This comparison is done by using one of the supported operators set.
 type AutomationTriggeringRuleOutput struct{ *pulumi.OutputState }
 
 func (AutomationTriggeringRuleOutput) ElementType() reflect.Type {
@@ -1652,22 +1493,18 @@ func (o AutomationTriggeringRuleOutput) ToAutomationTriggeringRuleOutputWithCont
 	return o
 }
 
-// The expected value.
 func (o AutomationTriggeringRuleOutput) ExpectedValue() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AutomationTriggeringRule) *string { return v.ExpectedValue }).(pulumi.StringPtrOutput)
 }
 
-// A valid comparer operator to use. A case-insensitive comparison will be applied for String PropertyType.
 func (o AutomationTriggeringRuleOutput) Operator() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AutomationTriggeringRule) *string { return v.Operator }).(pulumi.StringPtrOutput)
 }
 
-// The JPath of the entity model property that should be checked.
 func (o AutomationTriggeringRuleOutput) PropertyJPath() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AutomationTriggeringRule) *string { return v.PropertyJPath }).(pulumi.StringPtrOutput)
 }
 
-// The data type of the compared operands (string, integer, floating point number or a boolean [true/false]]
 func (o AutomationTriggeringRuleOutput) PropertyType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AutomationTriggeringRule) *string { return v.PropertyType }).(pulumi.StringPtrOutput)
 }
@@ -1692,16 +1529,11 @@ func (o AutomationTriggeringRuleArrayOutput) Index(i pulumi.IntInput) Automation
 	}).(AutomationTriggeringRuleOutput)
 }
 
-// A rule which is evaluated upon event interception. The rule is configured by comparing a specific value from the event model to an expected value. This comparison is done by using one of the supported operators set.
 type AutomationTriggeringRuleResponse struct {
-	// The expected value.
 	ExpectedValue *string `pulumi:"expectedValue"`
-	// A valid comparer operator to use. A case-insensitive comparison will be applied for String PropertyType.
-	Operator *string `pulumi:"operator"`
-	// The JPath of the entity model property that should be checked.
+	Operator      *string `pulumi:"operator"`
 	PropertyJPath *string `pulumi:"propertyJPath"`
-	// The data type of the compared operands (string, integer, floating point number or a boolean [true/false]]
-	PropertyType *string `pulumi:"propertyType"`
+	PropertyType  *string `pulumi:"propertyType"`
 }
 
 // AutomationTriggeringRuleResponseInput is an input type that accepts AutomationTriggeringRuleResponseArgs and AutomationTriggeringRuleResponseOutput values.
@@ -1715,16 +1547,11 @@ type AutomationTriggeringRuleResponseInput interface {
 	ToAutomationTriggeringRuleResponseOutputWithContext(context.Context) AutomationTriggeringRuleResponseOutput
 }
 
-// A rule which is evaluated upon event interception. The rule is configured by comparing a specific value from the event model to an expected value. This comparison is done by using one of the supported operators set.
 type AutomationTriggeringRuleResponseArgs struct {
-	// The expected value.
 	ExpectedValue pulumi.StringPtrInput `pulumi:"expectedValue"`
-	// A valid comparer operator to use. A case-insensitive comparison will be applied for String PropertyType.
-	Operator pulumi.StringPtrInput `pulumi:"operator"`
-	// The JPath of the entity model property that should be checked.
+	Operator      pulumi.StringPtrInput `pulumi:"operator"`
 	PropertyJPath pulumi.StringPtrInput `pulumi:"propertyJPath"`
-	// The data type of the compared operands (string, integer, floating point number or a boolean [true/false]]
-	PropertyType pulumi.StringPtrInput `pulumi:"propertyType"`
+	PropertyType  pulumi.StringPtrInput `pulumi:"propertyType"`
 }
 
 func (AutomationTriggeringRuleResponseArgs) ElementType() reflect.Type {
@@ -1764,7 +1591,6 @@ func (i AutomationTriggeringRuleResponseArray) ToAutomationTriggeringRuleRespons
 	return pulumi.ToOutputWithContext(ctx, i).(AutomationTriggeringRuleResponseArrayOutput)
 }
 
-// A rule which is evaluated upon event interception. The rule is configured by comparing a specific value from the event model to an expected value. This comparison is done by using one of the supported operators set.
 type AutomationTriggeringRuleResponseOutput struct{ *pulumi.OutputState }
 
 func (AutomationTriggeringRuleResponseOutput) ElementType() reflect.Type {
@@ -1779,22 +1605,18 @@ func (o AutomationTriggeringRuleResponseOutput) ToAutomationTriggeringRuleRespon
 	return o
 }
 
-// The expected value.
 func (o AutomationTriggeringRuleResponseOutput) ExpectedValue() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AutomationTriggeringRuleResponse) *string { return v.ExpectedValue }).(pulumi.StringPtrOutput)
 }
 
-// A valid comparer operator to use. A case-insensitive comparison will be applied for String PropertyType.
 func (o AutomationTriggeringRuleResponseOutput) Operator() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AutomationTriggeringRuleResponse) *string { return v.Operator }).(pulumi.StringPtrOutput)
 }
 
-// The JPath of the entity model property that should be checked.
 func (o AutomationTriggeringRuleResponseOutput) PropertyJPath() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AutomationTriggeringRuleResponse) *string { return v.PropertyJPath }).(pulumi.StringPtrOutput)
 }
 
-// The data type of the compared operands (string, integer, floating point number or a boolean [true/false]]
 func (o AutomationTriggeringRuleResponseOutput) PropertyType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AutomationTriggeringRuleResponse) *string { return v.PropertyType }).(pulumi.StringPtrOutput)
 }
@@ -1819,10 +1641,7 @@ func (o AutomationTriggeringRuleResponseArrayOutput) Index(i pulumi.IntInput) Au
 	}).(AutomationTriggeringRuleResponseOutput)
 }
 
-// Details of the Azure resource that was assessed
 type AzureResourceDetails struct {
-	// The platform where the assessed resource resides
-	// Expected value is 'Azure'.
 	Source string `pulumi:"source"`
 }
 
@@ -1837,10 +1656,7 @@ type AzureResourceDetailsInput interface {
 	ToAzureResourceDetailsOutputWithContext(context.Context) AzureResourceDetailsOutput
 }
 
-// Details of the Azure resource that was assessed
 type AzureResourceDetailsArgs struct {
-	// The platform where the assessed resource resides
-	// Expected value is 'Azure'.
 	Source pulumi.StringInput `pulumi:"source"`
 }
 
@@ -1856,7 +1672,6 @@ func (i AzureResourceDetailsArgs) ToAzureResourceDetailsOutputWithContext(ctx co
 	return pulumi.ToOutputWithContext(ctx, i).(AzureResourceDetailsOutput)
 }
 
-// Details of the Azure resource that was assessed
 type AzureResourceDetailsOutput struct{ *pulumi.OutputState }
 
 func (AzureResourceDetailsOutput) ElementType() reflect.Type {
@@ -1871,18 +1686,12 @@ func (o AzureResourceDetailsOutput) ToAzureResourceDetailsOutputWithContext(ctx 
 	return o
 }
 
-// The platform where the assessed resource resides
-// Expected value is 'Azure'.
 func (o AzureResourceDetailsOutput) Source() pulumi.StringOutput {
 	return o.ApplyT(func(v AzureResourceDetails) string { return v.Source }).(pulumi.StringOutput)
 }
 
-// Details of the Azure resource that was assessed
 type AzureResourceDetailsResponse struct {
-	// Azure resource Id of the assessed resource
-	Id string `pulumi:"id"`
-	// The platform where the assessed resource resides
-	// Expected value is 'Azure'.
+	Id     string `pulumi:"id"`
 	Source string `pulumi:"source"`
 }
 
@@ -1897,12 +1706,8 @@ type AzureResourceDetailsResponseInput interface {
 	ToAzureResourceDetailsResponseOutputWithContext(context.Context) AzureResourceDetailsResponseOutput
 }
 
-// Details of the Azure resource that was assessed
 type AzureResourceDetailsResponseArgs struct {
-	// Azure resource Id of the assessed resource
-	Id pulumi.StringInput `pulumi:"id"`
-	// The platform where the assessed resource resides
-	// Expected value is 'Azure'.
+	Id     pulumi.StringInput `pulumi:"id"`
 	Source pulumi.StringInput `pulumi:"source"`
 }
 
@@ -1918,7 +1723,6 @@ func (i AzureResourceDetailsResponseArgs) ToAzureResourceDetailsResponseOutputWi
 	return pulumi.ToOutputWithContext(ctx, i).(AzureResourceDetailsResponseOutput)
 }
 
-// Details of the Azure resource that was assessed
 type AzureResourceDetailsResponseOutput struct{ *pulumi.OutputState }
 
 func (AzureResourceDetailsResponseOutput) ElementType() reflect.Type {
@@ -1933,30 +1737,20 @@ func (o AzureResourceDetailsResponseOutput) ToAzureResourceDetailsResponseOutput
 	return o
 }
 
-// Azure resource Id of the assessed resource
 func (o AzureResourceDetailsResponseOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v AzureResourceDetailsResponse) string { return v.Id }).(pulumi.StringOutput)
 }
 
-// The platform where the assessed resource resides
-// Expected value is 'Azure'.
 func (o AzureResourceDetailsResponseOutput) Source() pulumi.StringOutput {
 	return o.ApplyT(func(v AzureResourceDetailsResponse) string { return v.Source }).(pulumi.StringOutput)
 }
 
-// Details of the On Premise resource that was assessed
 type OnPremiseResourceDetails struct {
-	// The name of the machine
-	MachineName string `pulumi:"machineName"`
-	// The platform where the assessed resource resides
-	// Expected value is 'OnPremise'.
-	Source string `pulumi:"source"`
-	// The oms agent Id installed on the machine
+	MachineName      string `pulumi:"machineName"`
+	Source           string `pulumi:"source"`
 	SourceComputerId string `pulumi:"sourceComputerId"`
-	// The unique Id of the machine
-	Vmuuid string `pulumi:"vmuuid"`
-	// Azure resource Id of the workspace the machine is attached to
-	WorkspaceId string `pulumi:"workspaceId"`
+	Vmuuid           string `pulumi:"vmuuid"`
+	WorkspaceId      string `pulumi:"workspaceId"`
 }
 
 // OnPremiseResourceDetailsInput is an input type that accepts OnPremiseResourceDetailsArgs and OnPremiseResourceDetailsOutput values.
@@ -1970,19 +1764,12 @@ type OnPremiseResourceDetailsInput interface {
 	ToOnPremiseResourceDetailsOutputWithContext(context.Context) OnPremiseResourceDetailsOutput
 }
 
-// Details of the On Premise resource that was assessed
 type OnPremiseResourceDetailsArgs struct {
-	// The name of the machine
-	MachineName pulumi.StringInput `pulumi:"machineName"`
-	// The platform where the assessed resource resides
-	// Expected value is 'OnPremise'.
-	Source pulumi.StringInput `pulumi:"source"`
-	// The oms agent Id installed on the machine
+	MachineName      pulumi.StringInput `pulumi:"machineName"`
+	Source           pulumi.StringInput `pulumi:"source"`
 	SourceComputerId pulumi.StringInput `pulumi:"sourceComputerId"`
-	// The unique Id of the machine
-	Vmuuid pulumi.StringInput `pulumi:"vmuuid"`
-	// Azure resource Id of the workspace the machine is attached to
-	WorkspaceId pulumi.StringInput `pulumi:"workspaceId"`
+	Vmuuid           pulumi.StringInput `pulumi:"vmuuid"`
+	WorkspaceId      pulumi.StringInput `pulumi:"workspaceId"`
 }
 
 func (OnPremiseResourceDetailsArgs) ElementType() reflect.Type {
@@ -1997,7 +1784,6 @@ func (i OnPremiseResourceDetailsArgs) ToOnPremiseResourceDetailsOutputWithContex
 	return pulumi.ToOutputWithContext(ctx, i).(OnPremiseResourceDetailsOutput)
 }
 
-// Details of the On Premise resource that was assessed
 type OnPremiseResourceDetailsOutput struct{ *pulumi.OutputState }
 
 func (OnPremiseResourceDetailsOutput) ElementType() reflect.Type {
@@ -2012,45 +1798,32 @@ func (o OnPremiseResourceDetailsOutput) ToOnPremiseResourceDetailsOutputWithCont
 	return o
 }
 
-// The name of the machine
 func (o OnPremiseResourceDetailsOutput) MachineName() pulumi.StringOutput {
 	return o.ApplyT(func(v OnPremiseResourceDetails) string { return v.MachineName }).(pulumi.StringOutput)
 }
 
-// The platform where the assessed resource resides
-// Expected value is 'OnPremise'.
 func (o OnPremiseResourceDetailsOutput) Source() pulumi.StringOutput {
 	return o.ApplyT(func(v OnPremiseResourceDetails) string { return v.Source }).(pulumi.StringOutput)
 }
 
-// The oms agent Id installed on the machine
 func (o OnPremiseResourceDetailsOutput) SourceComputerId() pulumi.StringOutput {
 	return o.ApplyT(func(v OnPremiseResourceDetails) string { return v.SourceComputerId }).(pulumi.StringOutput)
 }
 
-// The unique Id of the machine
 func (o OnPremiseResourceDetailsOutput) Vmuuid() pulumi.StringOutput {
 	return o.ApplyT(func(v OnPremiseResourceDetails) string { return v.Vmuuid }).(pulumi.StringOutput)
 }
 
-// Azure resource Id of the workspace the machine is attached to
 func (o OnPremiseResourceDetailsOutput) WorkspaceId() pulumi.StringOutput {
 	return o.ApplyT(func(v OnPremiseResourceDetails) string { return v.WorkspaceId }).(pulumi.StringOutput)
 }
 
-// Details of the On Premise resource that was assessed
 type OnPremiseResourceDetailsResponse struct {
-	// The name of the machine
-	MachineName string `pulumi:"machineName"`
-	// The platform where the assessed resource resides
-	// Expected value is 'OnPremise'.
-	Source string `pulumi:"source"`
-	// The oms agent Id installed on the machine
+	MachineName      string `pulumi:"machineName"`
+	Source           string `pulumi:"source"`
 	SourceComputerId string `pulumi:"sourceComputerId"`
-	// The unique Id of the machine
-	Vmuuid string `pulumi:"vmuuid"`
-	// Azure resource Id of the workspace the machine is attached to
-	WorkspaceId string `pulumi:"workspaceId"`
+	Vmuuid           string `pulumi:"vmuuid"`
+	WorkspaceId      string `pulumi:"workspaceId"`
 }
 
 // OnPremiseResourceDetailsResponseInput is an input type that accepts OnPremiseResourceDetailsResponseArgs and OnPremiseResourceDetailsResponseOutput values.
@@ -2064,19 +1837,12 @@ type OnPremiseResourceDetailsResponseInput interface {
 	ToOnPremiseResourceDetailsResponseOutputWithContext(context.Context) OnPremiseResourceDetailsResponseOutput
 }
 
-// Details of the On Premise resource that was assessed
 type OnPremiseResourceDetailsResponseArgs struct {
-	// The name of the machine
-	MachineName pulumi.StringInput `pulumi:"machineName"`
-	// The platform where the assessed resource resides
-	// Expected value is 'OnPremise'.
-	Source pulumi.StringInput `pulumi:"source"`
-	// The oms agent Id installed on the machine
+	MachineName      pulumi.StringInput `pulumi:"machineName"`
+	Source           pulumi.StringInput `pulumi:"source"`
 	SourceComputerId pulumi.StringInput `pulumi:"sourceComputerId"`
-	// The unique Id of the machine
-	Vmuuid pulumi.StringInput `pulumi:"vmuuid"`
-	// Azure resource Id of the workspace the machine is attached to
-	WorkspaceId pulumi.StringInput `pulumi:"workspaceId"`
+	Vmuuid           pulumi.StringInput `pulumi:"vmuuid"`
+	WorkspaceId      pulumi.StringInput `pulumi:"workspaceId"`
 }
 
 func (OnPremiseResourceDetailsResponseArgs) ElementType() reflect.Type {
@@ -2091,7 +1857,6 @@ func (i OnPremiseResourceDetailsResponseArgs) ToOnPremiseResourceDetailsResponse
 	return pulumi.ToOutputWithContext(ctx, i).(OnPremiseResourceDetailsResponseOutput)
 }
 
-// Details of the On Premise resource that was assessed
 type OnPremiseResourceDetailsResponseOutput struct{ *pulumi.OutputState }
 
 func (OnPremiseResourceDetailsResponseOutput) ElementType() reflect.Type {
@@ -2106,49 +1871,34 @@ func (o OnPremiseResourceDetailsResponseOutput) ToOnPremiseResourceDetailsRespon
 	return o
 }
 
-// The name of the machine
 func (o OnPremiseResourceDetailsResponseOutput) MachineName() pulumi.StringOutput {
 	return o.ApplyT(func(v OnPremiseResourceDetailsResponse) string { return v.MachineName }).(pulumi.StringOutput)
 }
 
-// The platform where the assessed resource resides
-// Expected value is 'OnPremise'.
 func (o OnPremiseResourceDetailsResponseOutput) Source() pulumi.StringOutput {
 	return o.ApplyT(func(v OnPremiseResourceDetailsResponse) string { return v.Source }).(pulumi.StringOutput)
 }
 
-// The oms agent Id installed on the machine
 func (o OnPremiseResourceDetailsResponseOutput) SourceComputerId() pulumi.StringOutput {
 	return o.ApplyT(func(v OnPremiseResourceDetailsResponse) string { return v.SourceComputerId }).(pulumi.StringOutput)
 }
 
-// The unique Id of the machine
 func (o OnPremiseResourceDetailsResponseOutput) Vmuuid() pulumi.StringOutput {
 	return o.ApplyT(func(v OnPremiseResourceDetailsResponse) string { return v.Vmuuid }).(pulumi.StringOutput)
 }
 
-// Azure resource Id of the workspace the machine is attached to
 func (o OnPremiseResourceDetailsResponseOutput) WorkspaceId() pulumi.StringOutput {
 	return o.ApplyT(func(v OnPremiseResourceDetailsResponse) string { return v.WorkspaceId }).(pulumi.StringOutput)
 }
 
-// Details of the On Premise Sql resource that was assessed
 type OnPremiseSqlResourceDetails struct {
-	// The Sql database name installed on the machine
-	DatabaseName string `pulumi:"databaseName"`
-	// The name of the machine
-	MachineName string `pulumi:"machineName"`
-	// The Sql server name installed on the machine
-	ServerName string `pulumi:"serverName"`
-	// The platform where the assessed resource resides
-	// Expected value is 'OnPremiseSql'.
-	Source string `pulumi:"source"`
-	// The oms agent Id installed on the machine
+	DatabaseName     string `pulumi:"databaseName"`
+	MachineName      string `pulumi:"machineName"`
+	ServerName       string `pulumi:"serverName"`
+	Source           string `pulumi:"source"`
 	SourceComputerId string `pulumi:"sourceComputerId"`
-	// The unique Id of the machine
-	Vmuuid string `pulumi:"vmuuid"`
-	// Azure resource Id of the workspace the machine is attached to
-	WorkspaceId string `pulumi:"workspaceId"`
+	Vmuuid           string `pulumi:"vmuuid"`
+	WorkspaceId      string `pulumi:"workspaceId"`
 }
 
 // OnPremiseSqlResourceDetailsInput is an input type that accepts OnPremiseSqlResourceDetailsArgs and OnPremiseSqlResourceDetailsOutput values.
@@ -2162,23 +1912,14 @@ type OnPremiseSqlResourceDetailsInput interface {
 	ToOnPremiseSqlResourceDetailsOutputWithContext(context.Context) OnPremiseSqlResourceDetailsOutput
 }
 
-// Details of the On Premise Sql resource that was assessed
 type OnPremiseSqlResourceDetailsArgs struct {
-	// The Sql database name installed on the machine
-	DatabaseName pulumi.StringInput `pulumi:"databaseName"`
-	// The name of the machine
-	MachineName pulumi.StringInput `pulumi:"machineName"`
-	// The Sql server name installed on the machine
-	ServerName pulumi.StringInput `pulumi:"serverName"`
-	// The platform where the assessed resource resides
-	// Expected value is 'OnPremiseSql'.
-	Source pulumi.StringInput `pulumi:"source"`
-	// The oms agent Id installed on the machine
+	DatabaseName     pulumi.StringInput `pulumi:"databaseName"`
+	MachineName      pulumi.StringInput `pulumi:"machineName"`
+	ServerName       pulumi.StringInput `pulumi:"serverName"`
+	Source           pulumi.StringInput `pulumi:"source"`
 	SourceComputerId pulumi.StringInput `pulumi:"sourceComputerId"`
-	// The unique Id of the machine
-	Vmuuid pulumi.StringInput `pulumi:"vmuuid"`
-	// Azure resource Id of the workspace the machine is attached to
-	WorkspaceId pulumi.StringInput `pulumi:"workspaceId"`
+	Vmuuid           pulumi.StringInput `pulumi:"vmuuid"`
+	WorkspaceId      pulumi.StringInput `pulumi:"workspaceId"`
 }
 
 func (OnPremiseSqlResourceDetailsArgs) ElementType() reflect.Type {
@@ -2193,7 +1934,6 @@ func (i OnPremiseSqlResourceDetailsArgs) ToOnPremiseSqlResourceDetailsOutputWith
 	return pulumi.ToOutputWithContext(ctx, i).(OnPremiseSqlResourceDetailsOutput)
 }
 
-// Details of the On Premise Sql resource that was assessed
 type OnPremiseSqlResourceDetailsOutput struct{ *pulumi.OutputState }
 
 func (OnPremiseSqlResourceDetailsOutput) ElementType() reflect.Type {
@@ -2208,59 +1948,42 @@ func (o OnPremiseSqlResourceDetailsOutput) ToOnPremiseSqlResourceDetailsOutputWi
 	return o
 }
 
-// The Sql database name installed on the machine
 func (o OnPremiseSqlResourceDetailsOutput) DatabaseName() pulumi.StringOutput {
 	return o.ApplyT(func(v OnPremiseSqlResourceDetails) string { return v.DatabaseName }).(pulumi.StringOutput)
 }
 
-// The name of the machine
 func (o OnPremiseSqlResourceDetailsOutput) MachineName() pulumi.StringOutput {
 	return o.ApplyT(func(v OnPremiseSqlResourceDetails) string { return v.MachineName }).(pulumi.StringOutput)
 }
 
-// The Sql server name installed on the machine
 func (o OnPremiseSqlResourceDetailsOutput) ServerName() pulumi.StringOutput {
 	return o.ApplyT(func(v OnPremiseSqlResourceDetails) string { return v.ServerName }).(pulumi.StringOutput)
 }
 
-// The platform where the assessed resource resides
-// Expected value is 'OnPremiseSql'.
 func (o OnPremiseSqlResourceDetailsOutput) Source() pulumi.StringOutput {
 	return o.ApplyT(func(v OnPremiseSqlResourceDetails) string { return v.Source }).(pulumi.StringOutput)
 }
 
-// The oms agent Id installed on the machine
 func (o OnPremiseSqlResourceDetailsOutput) SourceComputerId() pulumi.StringOutput {
 	return o.ApplyT(func(v OnPremiseSqlResourceDetails) string { return v.SourceComputerId }).(pulumi.StringOutput)
 }
 
-// The unique Id of the machine
 func (o OnPremiseSqlResourceDetailsOutput) Vmuuid() pulumi.StringOutput {
 	return o.ApplyT(func(v OnPremiseSqlResourceDetails) string { return v.Vmuuid }).(pulumi.StringOutput)
 }
 
-// Azure resource Id of the workspace the machine is attached to
 func (o OnPremiseSqlResourceDetailsOutput) WorkspaceId() pulumi.StringOutput {
 	return o.ApplyT(func(v OnPremiseSqlResourceDetails) string { return v.WorkspaceId }).(pulumi.StringOutput)
 }
 
-// Details of the On Premise Sql resource that was assessed
 type OnPremiseSqlResourceDetailsResponse struct {
-	// The Sql database name installed on the machine
-	DatabaseName string `pulumi:"databaseName"`
-	// The name of the machine
-	MachineName string `pulumi:"machineName"`
-	// The Sql server name installed on the machine
-	ServerName string `pulumi:"serverName"`
-	// The platform where the assessed resource resides
-	// Expected value is 'OnPremiseSql'.
-	Source string `pulumi:"source"`
-	// The oms agent Id installed on the machine
+	DatabaseName     string `pulumi:"databaseName"`
+	MachineName      string `pulumi:"machineName"`
+	ServerName       string `pulumi:"serverName"`
+	Source           string `pulumi:"source"`
 	SourceComputerId string `pulumi:"sourceComputerId"`
-	// The unique Id of the machine
-	Vmuuid string `pulumi:"vmuuid"`
-	// Azure resource Id of the workspace the machine is attached to
-	WorkspaceId string `pulumi:"workspaceId"`
+	Vmuuid           string `pulumi:"vmuuid"`
+	WorkspaceId      string `pulumi:"workspaceId"`
 }
 
 // OnPremiseSqlResourceDetailsResponseInput is an input type that accepts OnPremiseSqlResourceDetailsResponseArgs and OnPremiseSqlResourceDetailsResponseOutput values.
@@ -2274,23 +1997,14 @@ type OnPremiseSqlResourceDetailsResponseInput interface {
 	ToOnPremiseSqlResourceDetailsResponseOutputWithContext(context.Context) OnPremiseSqlResourceDetailsResponseOutput
 }
 
-// Details of the On Premise Sql resource that was assessed
 type OnPremiseSqlResourceDetailsResponseArgs struct {
-	// The Sql database name installed on the machine
-	DatabaseName pulumi.StringInput `pulumi:"databaseName"`
-	// The name of the machine
-	MachineName pulumi.StringInput `pulumi:"machineName"`
-	// The Sql server name installed on the machine
-	ServerName pulumi.StringInput `pulumi:"serverName"`
-	// The platform where the assessed resource resides
-	// Expected value is 'OnPremiseSql'.
-	Source pulumi.StringInput `pulumi:"source"`
-	// The oms agent Id installed on the machine
+	DatabaseName     pulumi.StringInput `pulumi:"databaseName"`
+	MachineName      pulumi.StringInput `pulumi:"machineName"`
+	ServerName       pulumi.StringInput `pulumi:"serverName"`
+	Source           pulumi.StringInput `pulumi:"source"`
 	SourceComputerId pulumi.StringInput `pulumi:"sourceComputerId"`
-	// The unique Id of the machine
-	Vmuuid pulumi.StringInput `pulumi:"vmuuid"`
-	// Azure resource Id of the workspace the machine is attached to
-	WorkspaceId pulumi.StringInput `pulumi:"workspaceId"`
+	Vmuuid           pulumi.StringInput `pulumi:"vmuuid"`
+	WorkspaceId      pulumi.StringInput `pulumi:"workspaceId"`
 }
 
 func (OnPremiseSqlResourceDetailsResponseArgs) ElementType() reflect.Type {
@@ -2305,7 +2019,6 @@ func (i OnPremiseSqlResourceDetailsResponseArgs) ToOnPremiseSqlResourceDetailsRe
 	return pulumi.ToOutputWithContext(ctx, i).(OnPremiseSqlResourceDetailsResponseOutput)
 }
 
-// Details of the On Premise Sql resource that was assessed
 type OnPremiseSqlResourceDetailsResponseOutput struct{ *pulumi.OutputState }
 
 func (OnPremiseSqlResourceDetailsResponseOutput) ElementType() reflect.Type {
@@ -2320,45 +2033,35 @@ func (o OnPremiseSqlResourceDetailsResponseOutput) ToOnPremiseSqlResourceDetails
 	return o
 }
 
-// The Sql database name installed on the machine
 func (o OnPremiseSqlResourceDetailsResponseOutput) DatabaseName() pulumi.StringOutput {
 	return o.ApplyT(func(v OnPremiseSqlResourceDetailsResponse) string { return v.DatabaseName }).(pulumi.StringOutput)
 }
 
-// The name of the machine
 func (o OnPremiseSqlResourceDetailsResponseOutput) MachineName() pulumi.StringOutput {
 	return o.ApplyT(func(v OnPremiseSqlResourceDetailsResponse) string { return v.MachineName }).(pulumi.StringOutput)
 }
 
-// The Sql server name installed on the machine
 func (o OnPremiseSqlResourceDetailsResponseOutput) ServerName() pulumi.StringOutput {
 	return o.ApplyT(func(v OnPremiseSqlResourceDetailsResponse) string { return v.ServerName }).(pulumi.StringOutput)
 }
 
-// The platform where the assessed resource resides
-// Expected value is 'OnPremiseSql'.
 func (o OnPremiseSqlResourceDetailsResponseOutput) Source() pulumi.StringOutput {
 	return o.ApplyT(func(v OnPremiseSqlResourceDetailsResponse) string { return v.Source }).(pulumi.StringOutput)
 }
 
-// The oms agent Id installed on the machine
 func (o OnPremiseSqlResourceDetailsResponseOutput) SourceComputerId() pulumi.StringOutput {
 	return o.ApplyT(func(v OnPremiseSqlResourceDetailsResponse) string { return v.SourceComputerId }).(pulumi.StringOutput)
 }
 
-// The unique Id of the machine
 func (o OnPremiseSqlResourceDetailsResponseOutput) Vmuuid() pulumi.StringOutput {
 	return o.ApplyT(func(v OnPremiseSqlResourceDetailsResponse) string { return v.Vmuuid }).(pulumi.StringOutput)
 }
 
-// Azure resource Id of the workspace the machine is attached to
 func (o OnPremiseSqlResourceDetailsResponseOutput) WorkspaceId() pulumi.StringOutput {
 	return o.ApplyT(func(v OnPremiseSqlResourceDetailsResponse) string { return v.WorkspaceId }).(pulumi.StringOutput)
 }
 
-// A more specific scope used to identify the alerts to suppress.
 type ScopeElement struct {
-	// The alert entity type to suppress by.
 	Field *string `pulumi:"field"`
 }
 
@@ -2373,9 +2076,7 @@ type ScopeElementInput interface {
 	ToScopeElementOutputWithContext(context.Context) ScopeElementOutput
 }
 
-// A more specific scope used to identify the alerts to suppress.
 type ScopeElementArgs struct {
-	// The alert entity type to suppress by.
 	Field pulumi.StringPtrInput `pulumi:"field"`
 }
 
@@ -2416,7 +2117,6 @@ func (i ScopeElementArray) ToScopeElementArrayOutputWithContext(ctx context.Cont
 	return pulumi.ToOutputWithContext(ctx, i).(ScopeElementArrayOutput)
 }
 
-// A more specific scope used to identify the alerts to suppress.
 type ScopeElementOutput struct{ *pulumi.OutputState }
 
 func (ScopeElementOutput) ElementType() reflect.Type {
@@ -2431,7 +2131,6 @@ func (o ScopeElementOutput) ToScopeElementOutputWithContext(ctx context.Context)
 	return o
 }
 
-// The alert entity type to suppress by.
 func (o ScopeElementOutput) Field() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ScopeElement) *string { return v.Field }).(pulumi.StringPtrOutput)
 }
@@ -2456,9 +2155,7 @@ func (o ScopeElementArrayOutput) Index(i pulumi.IntInput) ScopeElementOutput {
 	}).(ScopeElementOutput)
 }
 
-// A more specific scope used to identify the alerts to suppress.
 type ScopeElementResponse struct {
-	// The alert entity type to suppress by.
 	Field *string `pulumi:"field"`
 }
 
@@ -2473,9 +2170,7 @@ type ScopeElementResponseInput interface {
 	ToScopeElementResponseOutputWithContext(context.Context) ScopeElementResponseOutput
 }
 
-// A more specific scope used to identify the alerts to suppress.
 type ScopeElementResponseArgs struct {
-	// The alert entity type to suppress by.
 	Field pulumi.StringPtrInput `pulumi:"field"`
 }
 
@@ -2516,7 +2211,6 @@ func (i ScopeElementResponseArray) ToScopeElementResponseArrayOutputWithContext(
 	return pulumi.ToOutputWithContext(ctx, i).(ScopeElementResponseArrayOutput)
 }
 
-// A more specific scope used to identify the alerts to suppress.
 type ScopeElementResponseOutput struct{ *pulumi.OutputState }
 
 func (ScopeElementResponseOutput) ElementType() reflect.Type {
@@ -2531,7 +2225,6 @@ func (o ScopeElementResponseOutput) ToScopeElementResponseOutputWithContext(ctx 
 	return o
 }
 
-// The alert entity type to suppress by.
 func (o ScopeElementResponseOutput) Field() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ScopeElementResponse) *string { return v.Field }).(pulumi.StringPtrOutput)
 }
@@ -2557,7 +2250,6 @@ func (o ScopeElementResponseArrayOutput) Index(i pulumi.IntInput) ScopeElementRe
 }
 
 type SuppressionAlertsScope struct {
-	// All the conditions inside need to be true in order to suppress the alert
 	AllOf []ScopeElement `pulumi:"allOf"`
 }
 
@@ -2573,7 +2265,6 @@ type SuppressionAlertsScopeInput interface {
 }
 
 type SuppressionAlertsScopeArgs struct {
-	// All the conditions inside need to be true in order to suppress the alert
 	AllOf ScopeElementArrayInput `pulumi:"allOf"`
 }
 
@@ -2649,12 +2340,11 @@ func (o SuppressionAlertsScopeOutput) ToSuppressionAlertsScopePtrOutput() Suppre
 }
 
 func (o SuppressionAlertsScopeOutput) ToSuppressionAlertsScopePtrOutputWithContext(ctx context.Context) SuppressionAlertsScopePtrOutput {
-	return o.ApplyT(func(v SuppressionAlertsScope) *SuppressionAlertsScope {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v SuppressionAlertsScope) *SuppressionAlertsScope {
 		return &v
 	}).(SuppressionAlertsScopePtrOutput)
 }
 
-// All the conditions inside need to be true in order to suppress the alert
 func (o SuppressionAlertsScopeOutput) AllOf() ScopeElementArrayOutput {
 	return o.ApplyT(func(v SuppressionAlertsScope) []ScopeElement { return v.AllOf }).(ScopeElementArrayOutput)
 }
@@ -2674,10 +2364,15 @@ func (o SuppressionAlertsScopePtrOutput) ToSuppressionAlertsScopePtrOutputWithCo
 }
 
 func (o SuppressionAlertsScopePtrOutput) Elem() SuppressionAlertsScopeOutput {
-	return o.ApplyT(func(v *SuppressionAlertsScope) SuppressionAlertsScope { return *v }).(SuppressionAlertsScopeOutput)
+	return o.ApplyT(func(v *SuppressionAlertsScope) SuppressionAlertsScope {
+		if v != nil {
+			return *v
+		}
+		var ret SuppressionAlertsScope
+		return ret
+	}).(SuppressionAlertsScopeOutput)
 }
 
-// All the conditions inside need to be true in order to suppress the alert
 func (o SuppressionAlertsScopePtrOutput) AllOf() ScopeElementArrayOutput {
 	return o.ApplyT(func(v *SuppressionAlertsScope) []ScopeElement {
 		if v == nil {
@@ -2688,7 +2383,6 @@ func (o SuppressionAlertsScopePtrOutput) AllOf() ScopeElementArrayOutput {
 }
 
 type SuppressionAlertsScopeResponse struct {
-	// All the conditions inside need to be true in order to suppress the alert
 	AllOf []ScopeElementResponse `pulumi:"allOf"`
 }
 
@@ -2704,7 +2398,6 @@ type SuppressionAlertsScopeResponseInput interface {
 }
 
 type SuppressionAlertsScopeResponseArgs struct {
-	// All the conditions inside need to be true in order to suppress the alert
 	AllOf ScopeElementResponseArrayInput `pulumi:"allOf"`
 }
 
@@ -2780,12 +2473,11 @@ func (o SuppressionAlertsScopeResponseOutput) ToSuppressionAlertsScopeResponsePt
 }
 
 func (o SuppressionAlertsScopeResponseOutput) ToSuppressionAlertsScopeResponsePtrOutputWithContext(ctx context.Context) SuppressionAlertsScopeResponsePtrOutput {
-	return o.ApplyT(func(v SuppressionAlertsScopeResponse) *SuppressionAlertsScopeResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v SuppressionAlertsScopeResponse) *SuppressionAlertsScopeResponse {
 		return &v
 	}).(SuppressionAlertsScopeResponsePtrOutput)
 }
 
-// All the conditions inside need to be true in order to suppress the alert
 func (o SuppressionAlertsScopeResponseOutput) AllOf() ScopeElementResponseArrayOutput {
 	return o.ApplyT(func(v SuppressionAlertsScopeResponse) []ScopeElementResponse { return v.AllOf }).(ScopeElementResponseArrayOutput)
 }
@@ -2805,10 +2497,15 @@ func (o SuppressionAlertsScopeResponsePtrOutput) ToSuppressionAlertsScopeRespons
 }
 
 func (o SuppressionAlertsScopeResponsePtrOutput) Elem() SuppressionAlertsScopeResponseOutput {
-	return o.ApplyT(func(v *SuppressionAlertsScopeResponse) SuppressionAlertsScopeResponse { return *v }).(SuppressionAlertsScopeResponseOutput)
+	return o.ApplyT(func(v *SuppressionAlertsScopeResponse) SuppressionAlertsScopeResponse {
+		if v != nil {
+			return *v
+		}
+		var ret SuppressionAlertsScopeResponse
+		return ret
+	}).(SuppressionAlertsScopeResponseOutput)
 }
 
-// All the conditions inside need to be true in order to suppress the alert
 func (o SuppressionAlertsScopeResponsePtrOutput) AllOf() ScopeElementResponseArrayOutput {
 	return o.ApplyT(func(v *SuppressionAlertsScopeResponse) []ScopeElementResponse {
 		if v == nil {

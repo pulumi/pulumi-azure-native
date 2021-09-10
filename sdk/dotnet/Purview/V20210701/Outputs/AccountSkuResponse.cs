@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.Purview.V20210701.Outputs
 {
 
+    /// <summary>
+    /// The Sku
+    /// </summary>
     [OutputType]
     public sealed class AccountSkuResponse
     {

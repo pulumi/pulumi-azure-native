@@ -7,7 +7,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// The extended Info of the Data Box Edge/Gateway device.
 func GetDeviceExtendedInformation(ctx *pulumi.Context, args *GetDeviceExtendedInformationArgs, opts ...pulumi.InvokeOption) (*GetDeviceExtendedInformationResult, error) {
 	var rv GetDeviceExtendedInformationResult
 	err := ctx.Invoke("azure-native:databoxedge/v20190801:getDeviceExtendedInformation", args, &rv, opts...)
@@ -18,24 +17,16 @@ func GetDeviceExtendedInformation(ctx *pulumi.Context, args *GetDeviceExtendedIn
 }
 
 type GetDeviceExtendedInformationArgs struct {
-	// The device name.
-	DeviceName string `pulumi:"deviceName"`
-	// The resource group name.
+	DeviceName        string `pulumi:"deviceName"`
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 }
 
 // The extended Info of the Data Box Edge/Gateway device.
 type GetDeviceExtendedInformationResult struct {
-	// The public part of the encryption certificate. Client uses this to encrypt any secret.
-	EncryptionKey *string `pulumi:"encryptionKey"`
-	// The digital signature of encrypted certificate.
+	EncryptionKey           *string `pulumi:"encryptionKey"`
 	EncryptionKeyThumbprint *string `pulumi:"encryptionKeyThumbprint"`
-	// The path ID that uniquely identifies the object.
-	Id string `pulumi:"id"`
-	// The object name.
-	Name string `pulumi:"name"`
-	// The Resource ID of the Resource.
-	ResourceKey string `pulumi:"resourceKey"`
-	// The hierarchical type of the object.
-	Type string `pulumi:"type"`
+	Id                      string  `pulumi:"id"`
+	Name                    string  `pulumi:"name"`
+	ResourceKey             string  `pulumi:"resourceKey"`
+	Type                    string  `pulumi:"type"`
 }

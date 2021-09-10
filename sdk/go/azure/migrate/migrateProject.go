@@ -143,9 +143,7 @@ func (i *MigrateProject) ToMigrateProjectOutputWithContext(ctx context.Context) 
 	return pulumi.ToOutputWithContext(ctx, i).(MigrateProjectOutput)
 }
 
-type MigrateProjectOutput struct {
-	*pulumi.OutputState
-}
+type MigrateProjectOutput struct{ *pulumi.OutputState }
 
 func (MigrateProjectOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*MigrateProject)(nil))

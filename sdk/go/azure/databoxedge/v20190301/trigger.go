@@ -11,17 +11,12 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Trigger details.
-//
 // Deprecated: Please use one of the variants: FileEventTrigger, PeriodicTimerEventTrigger.
 type Trigger struct {
 	pulumi.CustomResourceState
 
-	// Trigger Kind.
 	Kind pulumi.StringOutput `pulumi:"kind"`
-	// The object name.
 	Name pulumi.StringOutput `pulumi:"name"`
-	// The hierarchical type of the object.
 	Type pulumi.StringOutput `pulumi:"type"`
 }
 
@@ -133,25 +128,17 @@ func (TriggerState) ElementType() reflect.Type {
 }
 
 type triggerArgs struct {
-	// Creates or updates a trigger
-	DeviceName string `pulumi:"deviceName"`
-	// Trigger Kind.
-	Kind string `pulumi:"kind"`
-	// The trigger name.
-	Name *string `pulumi:"name"`
-	// The resource group name.
-	ResourceGroupName string `pulumi:"resourceGroupName"`
+	DeviceName        string  `pulumi:"deviceName"`
+	Kind              string  `pulumi:"kind"`
+	Name              *string `pulumi:"name"`
+	ResourceGroupName string  `pulumi:"resourceGroupName"`
 }
 
 // The set of arguments for constructing a Trigger resource.
 type TriggerArgs struct {
-	// Creates or updates a trigger
-	DeviceName pulumi.StringInput
-	// Trigger Kind.
-	Kind pulumi.StringInput
-	// The trigger name.
-	Name pulumi.StringPtrInput
-	// The resource group name.
+	DeviceName        pulumi.StringInput
+	Kind              pulumi.StringInput
+	Name              pulumi.StringPtrInput
 	ResourceGroupName pulumi.StringInput
 }
 
@@ -178,9 +165,7 @@ func (i *Trigger) ToTriggerOutputWithContext(ctx context.Context) TriggerOutput 
 	return pulumi.ToOutputWithContext(ctx, i).(TriggerOutput)
 }
 
-type TriggerOutput struct {
-	*pulumi.OutputState
-}
+type TriggerOutput struct{ *pulumi.OutputState }
 
 func (TriggerOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*Trigger)(nil))

@@ -145,9 +145,7 @@ func (i *AdaptiveApplicationControl) ToAdaptiveApplicationControlOutputWithConte
 	return pulumi.ToOutputWithContext(ctx, i).(AdaptiveApplicationControlOutput)
 }
 
-type AdaptiveApplicationControlOutput struct {
-	*pulumi.OutputState
-}
+type AdaptiveApplicationControlOutput struct{ *pulumi.OutputState }
 
 func (AdaptiveApplicationControlOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*AdaptiveApplicationControl)(nil))

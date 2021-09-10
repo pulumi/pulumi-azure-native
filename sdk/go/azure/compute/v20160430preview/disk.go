@@ -11,34 +11,21 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Disk resource.
 type Disk struct {
 	pulumi.CustomResourceState
 
-	// the storage account type of the disk.
-	AccountType pulumi.StringPtrOutput `pulumi:"accountType"`
-	// Disk source information. CreationData information cannot be changed after the disk has been created.
-	CreationData CreationDataResponseOutput `pulumi:"creationData"`
-	// If creationData.createOption is Empty, this field is mandatory and it indicates the size of the VHD to create. If this field is present for updates or creation with other options, it indicates a resize. Resizes are only allowed if the disk is not attached to a running VM, and can only increase the disk's size.
-	DiskSizeGB pulumi.IntPtrOutput `pulumi:"diskSizeGB"`
-	// Encryption settings for disk or snapshot
+	AccountType        pulumi.StringPtrOutput              `pulumi:"accountType"`
+	CreationData       CreationDataResponseOutput          `pulumi:"creationData"`
+	DiskSizeGB         pulumi.IntPtrOutput                 `pulumi:"diskSizeGB"`
 	EncryptionSettings EncryptionSettingsResponsePtrOutput `pulumi:"encryptionSettings"`
-	// Resource location
-	Location pulumi.StringOutput `pulumi:"location"`
-	// Resource name
-	Name pulumi.StringOutput `pulumi:"name"`
-	// The Operating System type.
-	OsType pulumi.StringPtrOutput `pulumi:"osType"`
-	// A relative URI containing the VM id that has the disk attached.
-	OwnerId pulumi.StringOutput `pulumi:"ownerId"`
-	// The disk provisioning state.
-	ProvisioningState pulumi.StringOutput `pulumi:"provisioningState"`
-	// Resource tags
-	Tags pulumi.StringMapOutput `pulumi:"tags"`
-	// The time when the disk was created.
-	TimeCreated pulumi.StringOutput `pulumi:"timeCreated"`
-	// Resource type
-	Type pulumi.StringOutput `pulumi:"type"`
+	Location           pulumi.StringOutput                 `pulumi:"location"`
+	Name               pulumi.StringOutput                 `pulumi:"name"`
+	OsType             pulumi.StringPtrOutput              `pulumi:"osType"`
+	OwnerId            pulumi.StringOutput                 `pulumi:"ownerId"`
+	ProvisioningState  pulumi.StringOutput                 `pulumi:"provisioningState"`
+	Tags               pulumi.StringMapOutput              `pulumi:"tags"`
+	TimeCreated        pulumi.StringOutput                 `pulumi:"timeCreated"`
+	Type               pulumi.StringOutput                 `pulumi:"type"`
 }
 
 // NewDisk registers a new resource with the given unique name, arguments, and options.
@@ -170,46 +157,28 @@ func (DiskState) ElementType() reflect.Type {
 }
 
 type diskArgs struct {
-	// the storage account type of the disk.
-	AccountType *string `pulumi:"accountType"`
-	// Disk source information. CreationData information cannot be changed after the disk has been created.
-	CreationData CreationData `pulumi:"creationData"`
-	// The name of the managed disk that is being created. The name can't be changed after the disk is created. Supported characters for the name are a-z, A-Z, 0-9 and _. The maximum name length is 80 characters.
-	DiskName *string `pulumi:"diskName"`
-	// If creationData.createOption is Empty, this field is mandatory and it indicates the size of the VHD to create. If this field is present for updates or creation with other options, it indicates a resize. Resizes are only allowed if the disk is not attached to a running VM, and can only increase the disk's size.
-	DiskSizeGB *int `pulumi:"diskSizeGB"`
-	// Encryption settings for disk or snapshot
-	EncryptionSettings *EncryptionSettings `pulumi:"encryptionSettings"`
-	// Resource location
-	Location *string `pulumi:"location"`
-	// The Operating System type.
-	OsType *string `pulumi:"osType"`
-	// The name of the resource group.
-	ResourceGroupName string `pulumi:"resourceGroupName"`
-	// Resource tags
-	Tags map[string]string `pulumi:"tags"`
+	AccountType        *StorageAccountTypes  `pulumi:"accountType"`
+	CreationData       CreationData          `pulumi:"creationData"`
+	DiskName           *string               `pulumi:"diskName"`
+	DiskSizeGB         *int                  `pulumi:"diskSizeGB"`
+	EncryptionSettings *EncryptionSettings   `pulumi:"encryptionSettings"`
+	Location           *string               `pulumi:"location"`
+	OsType             *OperatingSystemTypes `pulumi:"osType"`
+	ResourceGroupName  string                `pulumi:"resourceGroupName"`
+	Tags               map[string]string     `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a Disk resource.
 type DiskArgs struct {
-	// the storage account type of the disk.
-	AccountType *StorageAccountTypes
-	// Disk source information. CreationData information cannot be changed after the disk has been created.
-	CreationData CreationDataInput
-	// The name of the managed disk that is being created. The name can't be changed after the disk is created. Supported characters for the name are a-z, A-Z, 0-9 and _. The maximum name length is 80 characters.
-	DiskName pulumi.StringPtrInput
-	// If creationData.createOption is Empty, this field is mandatory and it indicates the size of the VHD to create. If this field is present for updates or creation with other options, it indicates a resize. Resizes are only allowed if the disk is not attached to a running VM, and can only increase the disk's size.
-	DiskSizeGB pulumi.IntPtrInput
-	// Encryption settings for disk or snapshot
+	AccountType        StorageAccountTypesPtrInput
+	CreationData       CreationDataInput
+	DiskName           pulumi.StringPtrInput
+	DiskSizeGB         pulumi.IntPtrInput
 	EncryptionSettings EncryptionSettingsPtrInput
-	// Resource location
-	Location pulumi.StringPtrInput
-	// The Operating System type.
-	OsType *OperatingSystemTypes
-	// The name of the resource group.
-	ResourceGroupName pulumi.StringInput
-	// Resource tags
-	Tags pulumi.StringMapInput
+	Location           pulumi.StringPtrInput
+	OsType             OperatingSystemTypesPtrInput
+	ResourceGroupName  pulumi.StringInput
+	Tags               pulumi.StringMapInput
 }
 
 func (DiskArgs) ElementType() reflect.Type {
@@ -235,9 +204,7 @@ func (i *Disk) ToDiskOutputWithContext(ctx context.Context) DiskOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(DiskOutput)
 }
 
-type DiskOutput struct {
-	*pulumi.OutputState
-}
+type DiskOutput struct{ *pulumi.OutputState }
 
 func (DiskOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*Disk)(nil))

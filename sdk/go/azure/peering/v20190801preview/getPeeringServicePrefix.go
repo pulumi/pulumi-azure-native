@@ -7,7 +7,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// The peering service prefix class.
 func LookupPeeringServicePrefix(ctx *pulumi.Context, args *LookupPeeringServicePrefixArgs, opts ...pulumi.InvokeOption) (*LookupPeeringServicePrefixResult, error) {
 	var rv LookupPeeringServicePrefixResult
 	err := ctx.Invoke("azure-native:peering/v20190801preview:getPeeringServicePrefix", args, &rv, opts...)
@@ -18,28 +17,18 @@ func LookupPeeringServicePrefix(ctx *pulumi.Context, args *LookupPeeringServiceP
 }
 
 type LookupPeeringServicePrefixArgs struct {
-	// The peering service name.
 	PeeringServiceName string `pulumi:"peeringServiceName"`
-	// The prefix name.
-	PrefixName string `pulumi:"prefixName"`
-	// The resource group name.
-	ResourceGroupName string `pulumi:"resourceGroupName"`
+	PrefixName         string `pulumi:"prefixName"`
+	ResourceGroupName  string `pulumi:"resourceGroupName"`
 }
 
 // The peering service prefix class.
 type LookupPeeringServicePrefixResult struct {
-	// The ID of the resource.
-	Id string `pulumi:"id"`
-	// The prefix learned type
-	LearnedType *string `pulumi:"learnedType"`
-	// The name of the resource.
-	Name string `pulumi:"name"`
-	// Valid route prefix
-	Prefix *string `pulumi:"prefix"`
-	// The prefix validation state
+	Id                    string  `pulumi:"id"`
+	LearnedType           *string `pulumi:"learnedType"`
+	Name                  string  `pulumi:"name"`
+	Prefix                *string `pulumi:"prefix"`
 	PrefixValidationState *string `pulumi:"prefixValidationState"`
-	// The provisioning state of the resource.
-	ProvisioningState string `pulumi:"provisioningState"`
-	// The type of the resource.
-	Type string `pulumi:"type"`
+	ProvisioningState     string  `pulumi:"provisioningState"`
+	Type                  string  `pulumi:"type"`
 }

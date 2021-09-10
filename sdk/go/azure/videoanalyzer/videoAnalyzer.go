@@ -153,9 +153,7 @@ func (i *VideoAnalyzer) ToVideoAnalyzerOutputWithContext(ctx context.Context) Vi
 	return pulumi.ToOutputWithContext(ctx, i).(VideoAnalyzerOutput)
 }
 
-type VideoAnalyzerOutput struct {
-	*pulumi.OutputState
-}
+type VideoAnalyzerOutput struct{ *pulumi.OutputState }
 
 func (VideoAnalyzerOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*VideoAnalyzer)(nil))

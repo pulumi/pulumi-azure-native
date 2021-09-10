@@ -7,7 +7,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// The list of invoice section properties with create subscription permission.
 func ListBillingAccountInvoiceSectionsByCreateSubscriptionPermission(ctx *pulumi.Context, args *ListBillingAccountInvoiceSectionsByCreateSubscriptionPermissionArgs, opts ...pulumi.InvokeOption) (*ListBillingAccountInvoiceSectionsByCreateSubscriptionPermissionResult, error) {
 	var rv ListBillingAccountInvoiceSectionsByCreateSubscriptionPermissionResult
 	err := ctx.Invoke("azure-native:billing/v20191001preview:listBillingAccountInvoiceSectionsByCreateSubscriptionPermission", args, &rv, opts...)
@@ -18,14 +17,11 @@ func ListBillingAccountInvoiceSectionsByCreateSubscriptionPermission(ctx *pulumi
 }
 
 type ListBillingAccountInvoiceSectionsByCreateSubscriptionPermissionArgs struct {
-	// The ID that uniquely identifies a billing account.
 	BillingAccountName string `pulumi:"billingAccountName"`
 }
 
 // The list of invoice section properties with create subscription permission.
 type ListBillingAccountInvoiceSectionsByCreateSubscriptionPermissionResult struct {
-	// The link (url) to the next page of results.
-	NextLink string `pulumi:"nextLink"`
-	// The list of invoice section properties with create subscription permission.
-	Value []InvoiceSectionWithCreateSubPermissionResponse `pulumi:"value"`
+	NextLink string                                          `pulumi:"nextLink"`
+	Value    []InvoiceSectionWithCreateSubPermissionResponse `pulumi:"value"`
 }

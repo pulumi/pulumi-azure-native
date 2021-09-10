@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.MachineLearningCompute.Outputs
 {
 
+    /// <summary>
+    /// Properties of Azure Container Registry.
+    /// </summary>
     [OutputType]
     public sealed class ContainerRegistryPropertiesResponse
     {

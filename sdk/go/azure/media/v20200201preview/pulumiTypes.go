@@ -10,17 +10,11 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Asset sink.
 type MediaGraphAssetSink struct {
-	// Asset name.
-	AssetName string `pulumi:"assetName"`
-	// Sink inputs.
-	Inputs []string `pulumi:"inputs"`
-	// Sink name.
-	Name string `pulumi:"name"`
-	// The discriminator for derived types.
-	// Expected value is '#Microsoft.Media.MediaGraphAssetSink'.
-	OdataType string `pulumi:"odataType"`
+	AssetName string   `pulumi:"assetName"`
+	Inputs    []string `pulumi:"inputs"`
+	Name      string   `pulumi:"name"`
+	OdataType string   `pulumi:"odataType"`
 }
 
 // MediaGraphAssetSinkInput is an input type that accepts MediaGraphAssetSinkArgs and MediaGraphAssetSinkOutput values.
@@ -34,17 +28,11 @@ type MediaGraphAssetSinkInput interface {
 	ToMediaGraphAssetSinkOutputWithContext(context.Context) MediaGraphAssetSinkOutput
 }
 
-// Asset sink.
 type MediaGraphAssetSinkArgs struct {
-	// Asset name.
-	AssetName pulumi.StringInput `pulumi:"assetName"`
-	// Sink inputs.
-	Inputs pulumi.StringArrayInput `pulumi:"inputs"`
-	// Sink name.
-	Name pulumi.StringInput `pulumi:"name"`
-	// The discriminator for derived types.
-	// Expected value is '#Microsoft.Media.MediaGraphAssetSink'.
-	OdataType pulumi.StringInput `pulumi:"odataType"`
+	AssetName pulumi.StringInput      `pulumi:"assetName"`
+	Inputs    pulumi.StringArrayInput `pulumi:"inputs"`
+	Name      pulumi.StringInput      `pulumi:"name"`
+	OdataType pulumi.StringInput      `pulumi:"odataType"`
 }
 
 func (MediaGraphAssetSinkArgs) ElementType() reflect.Type {
@@ -84,7 +72,6 @@ func (i MediaGraphAssetSinkArray) ToMediaGraphAssetSinkArrayOutputWithContext(ct
 	return pulumi.ToOutputWithContext(ctx, i).(MediaGraphAssetSinkArrayOutput)
 }
 
-// Asset sink.
 type MediaGraphAssetSinkOutput struct{ *pulumi.OutputState }
 
 func (MediaGraphAssetSinkOutput) ElementType() reflect.Type {
@@ -99,23 +86,18 @@ func (o MediaGraphAssetSinkOutput) ToMediaGraphAssetSinkOutputWithContext(ctx co
 	return o
 }
 
-// Asset name.
 func (o MediaGraphAssetSinkOutput) AssetName() pulumi.StringOutput {
 	return o.ApplyT(func(v MediaGraphAssetSink) string { return v.AssetName }).(pulumi.StringOutput)
 }
 
-// Sink inputs.
 func (o MediaGraphAssetSinkOutput) Inputs() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v MediaGraphAssetSink) []string { return v.Inputs }).(pulumi.StringArrayOutput)
 }
 
-// Sink name.
 func (o MediaGraphAssetSinkOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v MediaGraphAssetSink) string { return v.Name }).(pulumi.StringOutput)
 }
 
-// The discriminator for derived types.
-// Expected value is '#Microsoft.Media.MediaGraphAssetSink'.
 func (o MediaGraphAssetSinkOutput) OdataType() pulumi.StringOutput {
 	return o.ApplyT(func(v MediaGraphAssetSink) string { return v.OdataType }).(pulumi.StringOutput)
 }
@@ -140,17 +122,11 @@ func (o MediaGraphAssetSinkArrayOutput) Index(i pulumi.IntInput) MediaGraphAsset
 	}).(MediaGraphAssetSinkOutput)
 }
 
-// Asset sink.
 type MediaGraphAssetSinkResponse struct {
-	// Asset name.
-	AssetName string `pulumi:"assetName"`
-	// Sink inputs.
-	Inputs []string `pulumi:"inputs"`
-	// Sink name.
-	Name string `pulumi:"name"`
-	// The discriminator for derived types.
-	// Expected value is '#Microsoft.Media.MediaGraphAssetSink'.
-	OdataType string `pulumi:"odataType"`
+	AssetName string   `pulumi:"assetName"`
+	Inputs    []string `pulumi:"inputs"`
+	Name      string   `pulumi:"name"`
+	OdataType string   `pulumi:"odataType"`
 }
 
 // MediaGraphAssetSinkResponseInput is an input type that accepts MediaGraphAssetSinkResponseArgs and MediaGraphAssetSinkResponseOutput values.
@@ -164,17 +140,11 @@ type MediaGraphAssetSinkResponseInput interface {
 	ToMediaGraphAssetSinkResponseOutputWithContext(context.Context) MediaGraphAssetSinkResponseOutput
 }
 
-// Asset sink.
 type MediaGraphAssetSinkResponseArgs struct {
-	// Asset name.
-	AssetName pulumi.StringInput `pulumi:"assetName"`
-	// Sink inputs.
-	Inputs pulumi.StringArrayInput `pulumi:"inputs"`
-	// Sink name.
-	Name pulumi.StringInput `pulumi:"name"`
-	// The discriminator for derived types.
-	// Expected value is '#Microsoft.Media.MediaGraphAssetSink'.
-	OdataType pulumi.StringInput `pulumi:"odataType"`
+	AssetName pulumi.StringInput      `pulumi:"assetName"`
+	Inputs    pulumi.StringArrayInput `pulumi:"inputs"`
+	Name      pulumi.StringInput      `pulumi:"name"`
+	OdataType pulumi.StringInput      `pulumi:"odataType"`
 }
 
 func (MediaGraphAssetSinkResponseArgs) ElementType() reflect.Type {
@@ -214,7 +184,6 @@ func (i MediaGraphAssetSinkResponseArray) ToMediaGraphAssetSinkResponseArrayOutp
 	return pulumi.ToOutputWithContext(ctx, i).(MediaGraphAssetSinkResponseArrayOutput)
 }
 
-// Asset sink.
 type MediaGraphAssetSinkResponseOutput struct{ *pulumi.OutputState }
 
 func (MediaGraphAssetSinkResponseOutput) ElementType() reflect.Type {
@@ -229,23 +198,18 @@ func (o MediaGraphAssetSinkResponseOutput) ToMediaGraphAssetSinkResponseOutputWi
 	return o
 }
 
-// Asset name.
 func (o MediaGraphAssetSinkResponseOutput) AssetName() pulumi.StringOutput {
 	return o.ApplyT(func(v MediaGraphAssetSinkResponse) string { return v.AssetName }).(pulumi.StringOutput)
 }
 
-// Sink inputs.
 func (o MediaGraphAssetSinkResponseOutput) Inputs() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v MediaGraphAssetSinkResponse) []string { return v.Inputs }).(pulumi.StringArrayOutput)
 }
 
-// Sink name.
 func (o MediaGraphAssetSinkResponseOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v MediaGraphAssetSinkResponse) string { return v.Name }).(pulumi.StringOutput)
 }
 
-// The discriminator for derived types.
-// Expected value is '#Microsoft.Media.MediaGraphAssetSink'.
 func (o MediaGraphAssetSinkResponseOutput) OdataType() pulumi.StringOutput {
 	return o.ApplyT(func(v MediaGraphAssetSinkResponse) string { return v.OdataType }).(pulumi.StringOutput)
 }
@@ -270,15 +234,10 @@ func (o MediaGraphAssetSinkResponseArrayOutput) Index(i pulumi.IntInput) MediaGr
 	}).(MediaGraphAssetSinkResponseOutput)
 }
 
-// An endpoint to connect to with no encryption in transit.
 type MediaGraphClearEndpoint struct {
-	// Polymorphic credentials to present to the endpoint.
 	Credentials *MediaGraphUsernamePasswordCredentials `pulumi:"credentials"`
-	// The discriminator for derived types.
-	// Expected value is '#Microsoft.Media.MediaGraphClearEndpoint'.
-	OdataType string `pulumi:"odataType"`
-	// Url for the endpoint.
-	Url string `pulumi:"url"`
+	OdataType   string                                 `pulumi:"odataType"`
+	Url         string                                 `pulumi:"url"`
 }
 
 // MediaGraphClearEndpointInput is an input type that accepts MediaGraphClearEndpointArgs and MediaGraphClearEndpointOutput values.
@@ -292,15 +251,10 @@ type MediaGraphClearEndpointInput interface {
 	ToMediaGraphClearEndpointOutputWithContext(context.Context) MediaGraphClearEndpointOutput
 }
 
-// An endpoint to connect to with no encryption in transit.
 type MediaGraphClearEndpointArgs struct {
-	// Polymorphic credentials to present to the endpoint.
 	Credentials MediaGraphUsernamePasswordCredentialsPtrInput `pulumi:"credentials"`
-	// The discriminator for derived types.
-	// Expected value is '#Microsoft.Media.MediaGraphClearEndpoint'.
-	OdataType pulumi.StringInput `pulumi:"odataType"`
-	// Url for the endpoint.
-	Url pulumi.StringInput `pulumi:"url"`
+	OdataType   pulumi.StringInput                            `pulumi:"odataType"`
+	Url         pulumi.StringInput                            `pulumi:"url"`
 }
 
 func (MediaGraphClearEndpointArgs) ElementType() reflect.Type {
@@ -315,7 +269,6 @@ func (i MediaGraphClearEndpointArgs) ToMediaGraphClearEndpointOutputWithContext(
 	return pulumi.ToOutputWithContext(ctx, i).(MediaGraphClearEndpointOutput)
 }
 
-// An endpoint to connect to with no encryption in transit.
 type MediaGraphClearEndpointOutput struct{ *pulumi.OutputState }
 
 func (MediaGraphClearEndpointOutput) ElementType() reflect.Type {
@@ -330,31 +283,22 @@ func (o MediaGraphClearEndpointOutput) ToMediaGraphClearEndpointOutputWithContex
 	return o
 }
 
-// Polymorphic credentials to present to the endpoint.
 func (o MediaGraphClearEndpointOutput) Credentials() MediaGraphUsernamePasswordCredentialsPtrOutput {
 	return o.ApplyT(func(v MediaGraphClearEndpoint) *MediaGraphUsernamePasswordCredentials { return v.Credentials }).(MediaGraphUsernamePasswordCredentialsPtrOutput)
 }
 
-// The discriminator for derived types.
-// Expected value is '#Microsoft.Media.MediaGraphClearEndpoint'.
 func (o MediaGraphClearEndpointOutput) OdataType() pulumi.StringOutput {
 	return o.ApplyT(func(v MediaGraphClearEndpoint) string { return v.OdataType }).(pulumi.StringOutput)
 }
 
-// Url for the endpoint.
 func (o MediaGraphClearEndpointOutput) Url() pulumi.StringOutput {
 	return o.ApplyT(func(v MediaGraphClearEndpoint) string { return v.Url }).(pulumi.StringOutput)
 }
 
-// An endpoint to connect to with no encryption in transit.
 type MediaGraphClearEndpointResponse struct {
-	// Polymorphic credentials to present to the endpoint.
 	Credentials *MediaGraphUsernamePasswordCredentialsResponse `pulumi:"credentials"`
-	// The discriminator for derived types.
-	// Expected value is '#Microsoft.Media.MediaGraphClearEndpoint'.
-	OdataType string `pulumi:"odataType"`
-	// Url for the endpoint.
-	Url string `pulumi:"url"`
+	OdataType   string                                         `pulumi:"odataType"`
+	Url         string                                         `pulumi:"url"`
 }
 
 // MediaGraphClearEndpointResponseInput is an input type that accepts MediaGraphClearEndpointResponseArgs and MediaGraphClearEndpointResponseOutput values.
@@ -368,15 +312,10 @@ type MediaGraphClearEndpointResponseInput interface {
 	ToMediaGraphClearEndpointResponseOutputWithContext(context.Context) MediaGraphClearEndpointResponseOutput
 }
 
-// An endpoint to connect to with no encryption in transit.
 type MediaGraphClearEndpointResponseArgs struct {
-	// Polymorphic credentials to present to the endpoint.
 	Credentials MediaGraphUsernamePasswordCredentialsResponsePtrInput `pulumi:"credentials"`
-	// The discriminator for derived types.
-	// Expected value is '#Microsoft.Media.MediaGraphClearEndpoint'.
-	OdataType pulumi.StringInput `pulumi:"odataType"`
-	// Url for the endpoint.
-	Url pulumi.StringInput `pulumi:"url"`
+	OdataType   pulumi.StringInput                                    `pulumi:"odataType"`
+	Url         pulumi.StringInput                                    `pulumi:"url"`
 }
 
 func (MediaGraphClearEndpointResponseArgs) ElementType() reflect.Type {
@@ -391,7 +330,6 @@ func (i MediaGraphClearEndpointResponseArgs) ToMediaGraphClearEndpointResponseOu
 	return pulumi.ToOutputWithContext(ctx, i).(MediaGraphClearEndpointResponseOutput)
 }
 
-// An endpoint to connect to with no encryption in transit.
 type MediaGraphClearEndpointResponseOutput struct{ *pulumi.OutputState }
 
 func (MediaGraphClearEndpointResponseOutput) ElementType() reflect.Type {
@@ -406,31 +344,23 @@ func (o MediaGraphClearEndpointResponseOutput) ToMediaGraphClearEndpointResponse
 	return o
 }
 
-// Polymorphic credentials to present to the endpoint.
 func (o MediaGraphClearEndpointResponseOutput) Credentials() MediaGraphUsernamePasswordCredentialsResponsePtrOutput {
 	return o.ApplyT(func(v MediaGraphClearEndpointResponse) *MediaGraphUsernamePasswordCredentialsResponse {
 		return v.Credentials
 	}).(MediaGraphUsernamePasswordCredentialsResponsePtrOutput)
 }
 
-// The discriminator for derived types.
-// Expected value is '#Microsoft.Media.MediaGraphClearEndpoint'.
 func (o MediaGraphClearEndpointResponseOutput) OdataType() pulumi.StringOutput {
 	return o.ApplyT(func(v MediaGraphClearEndpointResponse) string { return v.OdataType }).(pulumi.StringOutput)
 }
 
-// Url for the endpoint.
 func (o MediaGraphClearEndpointResponseOutput) Url() pulumi.StringOutput {
 	return o.ApplyT(func(v MediaGraphClearEndpointResponse) string { return v.Url }).(pulumi.StringOutput)
 }
 
-// A list of PEM formatted certificates.
 type MediaGraphPemCertificateList struct {
-	// PEM formatted public certificates, one per entry.
 	Certificates []string `pulumi:"certificates"`
-	// The discriminator for derived types.
-	// Expected value is '#Microsoft.Media.MediaGraphPemCertificateList'.
-	OdataType string `pulumi:"odataType"`
+	OdataType    string   `pulumi:"odataType"`
 }
 
 // MediaGraphPemCertificateListInput is an input type that accepts MediaGraphPemCertificateListArgs and MediaGraphPemCertificateListOutput values.
@@ -444,13 +374,9 @@ type MediaGraphPemCertificateListInput interface {
 	ToMediaGraphPemCertificateListOutputWithContext(context.Context) MediaGraphPemCertificateListOutput
 }
 
-// A list of PEM formatted certificates.
 type MediaGraphPemCertificateListArgs struct {
-	// PEM formatted public certificates, one per entry.
 	Certificates pulumi.StringArrayInput `pulumi:"certificates"`
-	// The discriminator for derived types.
-	// Expected value is '#Microsoft.Media.MediaGraphPemCertificateList'.
-	OdataType pulumi.StringInput `pulumi:"odataType"`
+	OdataType    pulumi.StringInput      `pulumi:"odataType"`
 }
 
 func (MediaGraphPemCertificateListArgs) ElementType() reflect.Type {
@@ -506,7 +432,6 @@ func (i *mediaGraphPemCertificateListPtrType) ToMediaGraphPemCertificateListPtrO
 	return pulumi.ToOutputWithContext(ctx, i).(MediaGraphPemCertificateListPtrOutput)
 }
 
-// A list of PEM formatted certificates.
 type MediaGraphPemCertificateListOutput struct{ *pulumi.OutputState }
 
 func (MediaGraphPemCertificateListOutput) ElementType() reflect.Type {
@@ -526,18 +451,15 @@ func (o MediaGraphPemCertificateListOutput) ToMediaGraphPemCertificateListPtrOut
 }
 
 func (o MediaGraphPemCertificateListOutput) ToMediaGraphPemCertificateListPtrOutputWithContext(ctx context.Context) MediaGraphPemCertificateListPtrOutput {
-	return o.ApplyT(func(v MediaGraphPemCertificateList) *MediaGraphPemCertificateList {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v MediaGraphPemCertificateList) *MediaGraphPemCertificateList {
 		return &v
 	}).(MediaGraphPemCertificateListPtrOutput)
 }
 
-// PEM formatted public certificates, one per entry.
 func (o MediaGraphPemCertificateListOutput) Certificates() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v MediaGraphPemCertificateList) []string { return v.Certificates }).(pulumi.StringArrayOutput)
 }
 
-// The discriminator for derived types.
-// Expected value is '#Microsoft.Media.MediaGraphPemCertificateList'.
 func (o MediaGraphPemCertificateListOutput) OdataType() pulumi.StringOutput {
 	return o.ApplyT(func(v MediaGraphPemCertificateList) string { return v.OdataType }).(pulumi.StringOutput)
 }
@@ -557,10 +479,15 @@ func (o MediaGraphPemCertificateListPtrOutput) ToMediaGraphPemCertificateListPtr
 }
 
 func (o MediaGraphPemCertificateListPtrOutput) Elem() MediaGraphPemCertificateListOutput {
-	return o.ApplyT(func(v *MediaGraphPemCertificateList) MediaGraphPemCertificateList { return *v }).(MediaGraphPemCertificateListOutput)
+	return o.ApplyT(func(v *MediaGraphPemCertificateList) MediaGraphPemCertificateList {
+		if v != nil {
+			return *v
+		}
+		var ret MediaGraphPemCertificateList
+		return ret
+	}).(MediaGraphPemCertificateListOutput)
 }
 
-// PEM formatted public certificates, one per entry.
 func (o MediaGraphPemCertificateListPtrOutput) Certificates() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *MediaGraphPemCertificateList) []string {
 		if v == nil {
@@ -570,8 +497,6 @@ func (o MediaGraphPemCertificateListPtrOutput) Certificates() pulumi.StringArray
 	}).(pulumi.StringArrayOutput)
 }
 
-// The discriminator for derived types.
-// Expected value is '#Microsoft.Media.MediaGraphPemCertificateList'.
 func (o MediaGraphPemCertificateListPtrOutput) OdataType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *MediaGraphPemCertificateList) *string {
 		if v == nil {
@@ -581,13 +506,9 @@ func (o MediaGraphPemCertificateListPtrOutput) OdataType() pulumi.StringPtrOutpu
 	}).(pulumi.StringPtrOutput)
 }
 
-// A list of PEM formatted certificates.
 type MediaGraphPemCertificateListResponse struct {
-	// PEM formatted public certificates, one per entry.
 	Certificates []string `pulumi:"certificates"`
-	// The discriminator for derived types.
-	// Expected value is '#Microsoft.Media.MediaGraphPemCertificateList'.
-	OdataType string `pulumi:"odataType"`
+	OdataType    string   `pulumi:"odataType"`
 }
 
 // MediaGraphPemCertificateListResponseInput is an input type that accepts MediaGraphPemCertificateListResponseArgs and MediaGraphPemCertificateListResponseOutput values.
@@ -601,13 +522,9 @@ type MediaGraphPemCertificateListResponseInput interface {
 	ToMediaGraphPemCertificateListResponseOutputWithContext(context.Context) MediaGraphPemCertificateListResponseOutput
 }
 
-// A list of PEM formatted certificates.
 type MediaGraphPemCertificateListResponseArgs struct {
-	// PEM formatted public certificates, one per entry.
 	Certificates pulumi.StringArrayInput `pulumi:"certificates"`
-	// The discriminator for derived types.
-	// Expected value is '#Microsoft.Media.MediaGraphPemCertificateList'.
-	OdataType pulumi.StringInput `pulumi:"odataType"`
+	OdataType    pulumi.StringInput      `pulumi:"odataType"`
 }
 
 func (MediaGraphPemCertificateListResponseArgs) ElementType() reflect.Type {
@@ -663,7 +580,6 @@ func (i *mediaGraphPemCertificateListResponsePtrType) ToMediaGraphPemCertificate
 	return pulumi.ToOutputWithContext(ctx, i).(MediaGraphPemCertificateListResponsePtrOutput)
 }
 
-// A list of PEM formatted certificates.
 type MediaGraphPemCertificateListResponseOutput struct{ *pulumi.OutputState }
 
 func (MediaGraphPemCertificateListResponseOutput) ElementType() reflect.Type {
@@ -683,18 +599,15 @@ func (o MediaGraphPemCertificateListResponseOutput) ToMediaGraphPemCertificateLi
 }
 
 func (o MediaGraphPemCertificateListResponseOutput) ToMediaGraphPemCertificateListResponsePtrOutputWithContext(ctx context.Context) MediaGraphPemCertificateListResponsePtrOutput {
-	return o.ApplyT(func(v MediaGraphPemCertificateListResponse) *MediaGraphPemCertificateListResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v MediaGraphPemCertificateListResponse) *MediaGraphPemCertificateListResponse {
 		return &v
 	}).(MediaGraphPemCertificateListResponsePtrOutput)
 }
 
-// PEM formatted public certificates, one per entry.
 func (o MediaGraphPemCertificateListResponseOutput) Certificates() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v MediaGraphPemCertificateListResponse) []string { return v.Certificates }).(pulumi.StringArrayOutput)
 }
 
-// The discriminator for derived types.
-// Expected value is '#Microsoft.Media.MediaGraphPemCertificateList'.
 func (o MediaGraphPemCertificateListResponseOutput) OdataType() pulumi.StringOutput {
 	return o.ApplyT(func(v MediaGraphPemCertificateListResponse) string { return v.OdataType }).(pulumi.StringOutput)
 }
@@ -714,10 +627,15 @@ func (o MediaGraphPemCertificateListResponsePtrOutput) ToMediaGraphPemCertificat
 }
 
 func (o MediaGraphPemCertificateListResponsePtrOutput) Elem() MediaGraphPemCertificateListResponseOutput {
-	return o.ApplyT(func(v *MediaGraphPemCertificateListResponse) MediaGraphPemCertificateListResponse { return *v }).(MediaGraphPemCertificateListResponseOutput)
+	return o.ApplyT(func(v *MediaGraphPemCertificateListResponse) MediaGraphPemCertificateListResponse {
+		if v != nil {
+			return *v
+		}
+		var ret MediaGraphPemCertificateListResponse
+		return ret
+	}).(MediaGraphPemCertificateListResponseOutput)
 }
 
-// PEM formatted public certificates, one per entry.
 func (o MediaGraphPemCertificateListResponsePtrOutput) Certificates() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *MediaGraphPemCertificateListResponse) []string {
 		if v == nil {
@@ -727,8 +645,6 @@ func (o MediaGraphPemCertificateListResponsePtrOutput) Certificates() pulumi.Str
 	}).(pulumi.StringArrayOutput)
 }
 
-// The discriminator for derived types.
-// Expected value is '#Microsoft.Media.MediaGraphPemCertificateList'.
 func (o MediaGraphPemCertificateListResponsePtrOutput) OdataType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *MediaGraphPemCertificateListResponse) *string {
 		if v == nil {
@@ -738,17 +654,11 @@ func (o MediaGraphPemCertificateListResponsePtrOutput) OdataType() pulumi.String
 	}).(pulumi.StringPtrOutput)
 }
 
-// RTSP source.
 type MediaGraphRtspSource struct {
-	// RTSP endpoint of the stream being connected to.
-	Endpoint interface{} `pulumi:"endpoint"`
-	// Source name.
-	Name string `pulumi:"name"`
-	// The discriminator for derived types.
-	// Expected value is '#Microsoft.Media.MediaGraphRtspSource'.
-	OdataType string `pulumi:"odataType"`
-	// Underlying RTSP transport. This can be used to enable or disable HTTP tunneling.
-	Transport string `pulumi:"transport"`
+	Endpoint  interface{} `pulumi:"endpoint"`
+	Name      string      `pulumi:"name"`
+	OdataType string      `pulumi:"odataType"`
+	Transport string      `pulumi:"transport"`
 }
 
 // MediaGraphRtspSourceInput is an input type that accepts MediaGraphRtspSourceArgs and MediaGraphRtspSourceOutput values.
@@ -762,16 +672,10 @@ type MediaGraphRtspSourceInput interface {
 	ToMediaGraphRtspSourceOutputWithContext(context.Context) MediaGraphRtspSourceOutput
 }
 
-// RTSP source.
 type MediaGraphRtspSourceArgs struct {
-	// RTSP endpoint of the stream being connected to.
-	Endpoint pulumi.Input `pulumi:"endpoint"`
-	// Source name.
-	Name pulumi.StringInput `pulumi:"name"`
-	// The discriminator for derived types.
-	// Expected value is '#Microsoft.Media.MediaGraphRtspSource'.
+	Endpoint  pulumi.Input       `pulumi:"endpoint"`
+	Name      pulumi.StringInput `pulumi:"name"`
 	OdataType pulumi.StringInput `pulumi:"odataType"`
-	// Underlying RTSP transport. This can be used to enable or disable HTTP tunneling.
 	Transport pulumi.StringInput `pulumi:"transport"`
 }
 
@@ -812,7 +716,6 @@ func (i MediaGraphRtspSourceArray) ToMediaGraphRtspSourceArrayOutputWithContext(
 	return pulumi.ToOutputWithContext(ctx, i).(MediaGraphRtspSourceArrayOutput)
 }
 
-// RTSP source.
 type MediaGraphRtspSourceOutput struct{ *pulumi.OutputState }
 
 func (MediaGraphRtspSourceOutput) ElementType() reflect.Type {
@@ -827,23 +730,18 @@ func (o MediaGraphRtspSourceOutput) ToMediaGraphRtspSourceOutputWithContext(ctx 
 	return o
 }
 
-// RTSP endpoint of the stream being connected to.
 func (o MediaGraphRtspSourceOutput) Endpoint() pulumi.AnyOutput {
 	return o.ApplyT(func(v MediaGraphRtspSource) interface{} { return v.Endpoint }).(pulumi.AnyOutput)
 }
 
-// Source name.
 func (o MediaGraphRtspSourceOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v MediaGraphRtspSource) string { return v.Name }).(pulumi.StringOutput)
 }
 
-// The discriminator for derived types.
-// Expected value is '#Microsoft.Media.MediaGraphRtspSource'.
 func (o MediaGraphRtspSourceOutput) OdataType() pulumi.StringOutput {
 	return o.ApplyT(func(v MediaGraphRtspSource) string { return v.OdataType }).(pulumi.StringOutput)
 }
 
-// Underlying RTSP transport. This can be used to enable or disable HTTP tunneling.
 func (o MediaGraphRtspSourceOutput) Transport() pulumi.StringOutput {
 	return o.ApplyT(func(v MediaGraphRtspSource) string { return v.Transport }).(pulumi.StringOutput)
 }
@@ -868,17 +766,11 @@ func (o MediaGraphRtspSourceArrayOutput) Index(i pulumi.IntInput) MediaGraphRtsp
 	}).(MediaGraphRtspSourceOutput)
 }
 
-// RTSP source.
 type MediaGraphRtspSourceResponse struct {
-	// RTSP endpoint of the stream being connected to.
-	Endpoint interface{} `pulumi:"endpoint"`
-	// Source name.
-	Name string `pulumi:"name"`
-	// The discriminator for derived types.
-	// Expected value is '#Microsoft.Media.MediaGraphRtspSource'.
-	OdataType string `pulumi:"odataType"`
-	// Underlying RTSP transport. This can be used to enable or disable HTTP tunneling.
-	Transport string `pulumi:"transport"`
+	Endpoint  interface{} `pulumi:"endpoint"`
+	Name      string      `pulumi:"name"`
+	OdataType string      `pulumi:"odataType"`
+	Transport string      `pulumi:"transport"`
 }
 
 // MediaGraphRtspSourceResponseInput is an input type that accepts MediaGraphRtspSourceResponseArgs and MediaGraphRtspSourceResponseOutput values.
@@ -892,16 +784,10 @@ type MediaGraphRtspSourceResponseInput interface {
 	ToMediaGraphRtspSourceResponseOutputWithContext(context.Context) MediaGraphRtspSourceResponseOutput
 }
 
-// RTSP source.
 type MediaGraphRtspSourceResponseArgs struct {
-	// RTSP endpoint of the stream being connected to.
-	Endpoint pulumi.Input `pulumi:"endpoint"`
-	// Source name.
-	Name pulumi.StringInput `pulumi:"name"`
-	// The discriminator for derived types.
-	// Expected value is '#Microsoft.Media.MediaGraphRtspSource'.
+	Endpoint  pulumi.Input       `pulumi:"endpoint"`
+	Name      pulumi.StringInput `pulumi:"name"`
 	OdataType pulumi.StringInput `pulumi:"odataType"`
-	// Underlying RTSP transport. This can be used to enable or disable HTTP tunneling.
 	Transport pulumi.StringInput `pulumi:"transport"`
 }
 
@@ -942,7 +828,6 @@ func (i MediaGraphRtspSourceResponseArray) ToMediaGraphRtspSourceResponseArrayOu
 	return pulumi.ToOutputWithContext(ctx, i).(MediaGraphRtspSourceResponseArrayOutput)
 }
 
-// RTSP source.
 type MediaGraphRtspSourceResponseOutput struct{ *pulumi.OutputState }
 
 func (MediaGraphRtspSourceResponseOutput) ElementType() reflect.Type {
@@ -957,23 +842,18 @@ func (o MediaGraphRtspSourceResponseOutput) ToMediaGraphRtspSourceResponseOutput
 	return o
 }
 
-// RTSP endpoint of the stream being connected to.
 func (o MediaGraphRtspSourceResponseOutput) Endpoint() pulumi.AnyOutput {
 	return o.ApplyT(func(v MediaGraphRtspSourceResponse) interface{} { return v.Endpoint }).(pulumi.AnyOutput)
 }
 
-// Source name.
 func (o MediaGraphRtspSourceResponseOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v MediaGraphRtspSourceResponse) string { return v.Name }).(pulumi.StringOutput)
 }
 
-// The discriminator for derived types.
-// Expected value is '#Microsoft.Media.MediaGraphRtspSource'.
 func (o MediaGraphRtspSourceResponseOutput) OdataType() pulumi.StringOutput {
 	return o.ApplyT(func(v MediaGraphRtspSourceResponse) string { return v.OdataType }).(pulumi.StringOutput)
 }
 
-// Underlying RTSP transport. This can be used to enable or disable HTTP tunneling.
 func (o MediaGraphRtspSourceResponseOutput) Transport() pulumi.StringOutput {
 	return o.ApplyT(func(v MediaGraphRtspSourceResponse) string { return v.Transport }).(pulumi.StringOutput)
 }
@@ -998,19 +878,12 @@ func (o MediaGraphRtspSourceResponseArrayOutput) Index(i pulumi.IntInput) MediaG
 	}).(MediaGraphRtspSourceResponseOutput)
 }
 
-// An endpoint which must be connected over TLS/SSL.
 type MediaGraphTlsEndpoint struct {
-	// Polymorphic credentials to present to the endpoint.
-	Credentials *MediaGraphUsernamePasswordCredentials `pulumi:"credentials"`
-	// The discriminator for derived types.
-	// Expected value is '#Microsoft.Media.MediaGraphTlsEndpoint'.
-	OdataType string `pulumi:"odataType"`
-	// What certificates should be trusted when authenticating a TLS connection. Null designates that Azure Media's source of trust should be used.
-	TrustedCertificates *MediaGraphPemCertificateList `pulumi:"trustedCertificates"`
-	// Url for the endpoint.
-	Url string `pulumi:"url"`
-	// Validation options to use when authenticating a TLS connection. By default, strict validation is used.
-	ValidationOptions *MediaGraphTlsValidationOptions `pulumi:"validationOptions"`
+	Credentials         *MediaGraphUsernamePasswordCredentials `pulumi:"credentials"`
+	OdataType           string                                 `pulumi:"odataType"`
+	TrustedCertificates *MediaGraphPemCertificateList          `pulumi:"trustedCertificates"`
+	Url                 string                                 `pulumi:"url"`
+	ValidationOptions   *MediaGraphTlsValidationOptions        `pulumi:"validationOptions"`
 }
 
 // MediaGraphTlsEndpointInput is an input type that accepts MediaGraphTlsEndpointArgs and MediaGraphTlsEndpointOutput values.
@@ -1024,19 +897,12 @@ type MediaGraphTlsEndpointInput interface {
 	ToMediaGraphTlsEndpointOutputWithContext(context.Context) MediaGraphTlsEndpointOutput
 }
 
-// An endpoint which must be connected over TLS/SSL.
 type MediaGraphTlsEndpointArgs struct {
-	// Polymorphic credentials to present to the endpoint.
-	Credentials MediaGraphUsernamePasswordCredentialsPtrInput `pulumi:"credentials"`
-	// The discriminator for derived types.
-	// Expected value is '#Microsoft.Media.MediaGraphTlsEndpoint'.
-	OdataType pulumi.StringInput `pulumi:"odataType"`
-	// What certificates should be trusted when authenticating a TLS connection. Null designates that Azure Media's source of trust should be used.
-	TrustedCertificates MediaGraphPemCertificateListPtrInput `pulumi:"trustedCertificates"`
-	// Url for the endpoint.
-	Url pulumi.StringInput `pulumi:"url"`
-	// Validation options to use when authenticating a TLS connection. By default, strict validation is used.
-	ValidationOptions MediaGraphTlsValidationOptionsPtrInput `pulumi:"validationOptions"`
+	Credentials         MediaGraphUsernamePasswordCredentialsPtrInput `pulumi:"credentials"`
+	OdataType           pulumi.StringInput                            `pulumi:"odataType"`
+	TrustedCertificates MediaGraphPemCertificateListPtrInput          `pulumi:"trustedCertificates"`
+	Url                 pulumi.StringInput                            `pulumi:"url"`
+	ValidationOptions   MediaGraphTlsValidationOptionsPtrInput        `pulumi:"validationOptions"`
 }
 
 func (MediaGraphTlsEndpointArgs) ElementType() reflect.Type {
@@ -1051,7 +917,6 @@ func (i MediaGraphTlsEndpointArgs) ToMediaGraphTlsEndpointOutputWithContext(ctx 
 	return pulumi.ToOutputWithContext(ctx, i).(MediaGraphTlsEndpointOutput)
 }
 
-// An endpoint which must be connected over TLS/SSL.
 type MediaGraphTlsEndpointOutput struct{ *pulumi.OutputState }
 
 func (MediaGraphTlsEndpointOutput) ElementType() reflect.Type {
@@ -1066,45 +931,32 @@ func (o MediaGraphTlsEndpointOutput) ToMediaGraphTlsEndpointOutputWithContext(ct
 	return o
 }
 
-// Polymorphic credentials to present to the endpoint.
 func (o MediaGraphTlsEndpointOutput) Credentials() MediaGraphUsernamePasswordCredentialsPtrOutput {
 	return o.ApplyT(func(v MediaGraphTlsEndpoint) *MediaGraphUsernamePasswordCredentials { return v.Credentials }).(MediaGraphUsernamePasswordCredentialsPtrOutput)
 }
 
-// The discriminator for derived types.
-// Expected value is '#Microsoft.Media.MediaGraphTlsEndpoint'.
 func (o MediaGraphTlsEndpointOutput) OdataType() pulumi.StringOutput {
 	return o.ApplyT(func(v MediaGraphTlsEndpoint) string { return v.OdataType }).(pulumi.StringOutput)
 }
 
-// What certificates should be trusted when authenticating a TLS connection. Null designates that Azure Media's source of trust should be used.
 func (o MediaGraphTlsEndpointOutput) TrustedCertificates() MediaGraphPemCertificateListPtrOutput {
 	return o.ApplyT(func(v MediaGraphTlsEndpoint) *MediaGraphPemCertificateList { return v.TrustedCertificates }).(MediaGraphPemCertificateListPtrOutput)
 }
 
-// Url for the endpoint.
 func (o MediaGraphTlsEndpointOutput) Url() pulumi.StringOutput {
 	return o.ApplyT(func(v MediaGraphTlsEndpoint) string { return v.Url }).(pulumi.StringOutput)
 }
 
-// Validation options to use when authenticating a TLS connection. By default, strict validation is used.
 func (o MediaGraphTlsEndpointOutput) ValidationOptions() MediaGraphTlsValidationOptionsPtrOutput {
 	return o.ApplyT(func(v MediaGraphTlsEndpoint) *MediaGraphTlsValidationOptions { return v.ValidationOptions }).(MediaGraphTlsValidationOptionsPtrOutput)
 }
 
-// An endpoint which must be connected over TLS/SSL.
 type MediaGraphTlsEndpointResponse struct {
-	// Polymorphic credentials to present to the endpoint.
-	Credentials *MediaGraphUsernamePasswordCredentialsResponse `pulumi:"credentials"`
-	// The discriminator for derived types.
-	// Expected value is '#Microsoft.Media.MediaGraphTlsEndpoint'.
-	OdataType string `pulumi:"odataType"`
-	// What certificates should be trusted when authenticating a TLS connection. Null designates that Azure Media's source of trust should be used.
-	TrustedCertificates *MediaGraphPemCertificateListResponse `pulumi:"trustedCertificates"`
-	// Url for the endpoint.
-	Url string `pulumi:"url"`
-	// Validation options to use when authenticating a TLS connection. By default, strict validation is used.
-	ValidationOptions *MediaGraphTlsValidationOptionsResponse `pulumi:"validationOptions"`
+	Credentials         *MediaGraphUsernamePasswordCredentialsResponse `pulumi:"credentials"`
+	OdataType           string                                         `pulumi:"odataType"`
+	TrustedCertificates *MediaGraphPemCertificateListResponse          `pulumi:"trustedCertificates"`
+	Url                 string                                         `pulumi:"url"`
+	ValidationOptions   *MediaGraphTlsValidationOptionsResponse        `pulumi:"validationOptions"`
 }
 
 // MediaGraphTlsEndpointResponseInput is an input type that accepts MediaGraphTlsEndpointResponseArgs and MediaGraphTlsEndpointResponseOutput values.
@@ -1118,19 +970,12 @@ type MediaGraphTlsEndpointResponseInput interface {
 	ToMediaGraphTlsEndpointResponseOutputWithContext(context.Context) MediaGraphTlsEndpointResponseOutput
 }
 
-// An endpoint which must be connected over TLS/SSL.
 type MediaGraphTlsEndpointResponseArgs struct {
-	// Polymorphic credentials to present to the endpoint.
-	Credentials MediaGraphUsernamePasswordCredentialsResponsePtrInput `pulumi:"credentials"`
-	// The discriminator for derived types.
-	// Expected value is '#Microsoft.Media.MediaGraphTlsEndpoint'.
-	OdataType pulumi.StringInput `pulumi:"odataType"`
-	// What certificates should be trusted when authenticating a TLS connection. Null designates that Azure Media's source of trust should be used.
-	TrustedCertificates MediaGraphPemCertificateListResponsePtrInput `pulumi:"trustedCertificates"`
-	// Url for the endpoint.
-	Url pulumi.StringInput `pulumi:"url"`
-	// Validation options to use when authenticating a TLS connection. By default, strict validation is used.
-	ValidationOptions MediaGraphTlsValidationOptionsResponsePtrInput `pulumi:"validationOptions"`
+	Credentials         MediaGraphUsernamePasswordCredentialsResponsePtrInput `pulumi:"credentials"`
+	OdataType           pulumi.StringInput                                    `pulumi:"odataType"`
+	TrustedCertificates MediaGraphPemCertificateListResponsePtrInput          `pulumi:"trustedCertificates"`
+	Url                 pulumi.StringInput                                    `pulumi:"url"`
+	ValidationOptions   MediaGraphTlsValidationOptionsResponsePtrInput        `pulumi:"validationOptions"`
 }
 
 func (MediaGraphTlsEndpointResponseArgs) ElementType() reflect.Type {
@@ -1145,7 +990,6 @@ func (i MediaGraphTlsEndpointResponseArgs) ToMediaGraphTlsEndpointResponseOutput
 	return pulumi.ToOutputWithContext(ctx, i).(MediaGraphTlsEndpointResponseOutput)
 }
 
-// An endpoint which must be connected over TLS/SSL.
 type MediaGraphTlsEndpointResponseOutput struct{ *pulumi.OutputState }
 
 func (MediaGraphTlsEndpointResponseOutput) ElementType() reflect.Type {
@@ -1160,43 +1004,34 @@ func (o MediaGraphTlsEndpointResponseOutput) ToMediaGraphTlsEndpointResponseOutp
 	return o
 }
 
-// Polymorphic credentials to present to the endpoint.
 func (o MediaGraphTlsEndpointResponseOutput) Credentials() MediaGraphUsernamePasswordCredentialsResponsePtrOutput {
 	return o.ApplyT(func(v MediaGraphTlsEndpointResponse) *MediaGraphUsernamePasswordCredentialsResponse {
 		return v.Credentials
 	}).(MediaGraphUsernamePasswordCredentialsResponsePtrOutput)
 }
 
-// The discriminator for derived types.
-// Expected value is '#Microsoft.Media.MediaGraphTlsEndpoint'.
 func (o MediaGraphTlsEndpointResponseOutput) OdataType() pulumi.StringOutput {
 	return o.ApplyT(func(v MediaGraphTlsEndpointResponse) string { return v.OdataType }).(pulumi.StringOutput)
 }
 
-// What certificates should be trusted when authenticating a TLS connection. Null designates that Azure Media's source of trust should be used.
 func (o MediaGraphTlsEndpointResponseOutput) TrustedCertificates() MediaGraphPemCertificateListResponsePtrOutput {
 	return o.ApplyT(func(v MediaGraphTlsEndpointResponse) *MediaGraphPemCertificateListResponse {
 		return v.TrustedCertificates
 	}).(MediaGraphPemCertificateListResponsePtrOutput)
 }
 
-// Url for the endpoint.
 func (o MediaGraphTlsEndpointResponseOutput) Url() pulumi.StringOutput {
 	return o.ApplyT(func(v MediaGraphTlsEndpointResponse) string { return v.Url }).(pulumi.StringOutput)
 }
 
-// Validation options to use when authenticating a TLS connection. By default, strict validation is used.
 func (o MediaGraphTlsEndpointResponseOutput) ValidationOptions() MediaGraphTlsValidationOptionsResponsePtrOutput {
 	return o.ApplyT(func(v MediaGraphTlsEndpointResponse) *MediaGraphTlsValidationOptionsResponse {
 		return v.ValidationOptions
 	}).(MediaGraphTlsValidationOptionsResponsePtrOutput)
 }
 
-// Options for controlling the authentication of TLS endpoints.
 type MediaGraphTlsValidationOptions struct {
-	// Ignore the host name (common name) during validation.
-	IgnoreHostname bool `pulumi:"ignoreHostname"`
-	// Ignore the integrity of the certificate chain at the current time.
+	IgnoreHostname  bool `pulumi:"ignoreHostname"`
 	IgnoreSignature bool `pulumi:"ignoreSignature"`
 }
 
@@ -1211,11 +1046,8 @@ type MediaGraphTlsValidationOptionsInput interface {
 	ToMediaGraphTlsValidationOptionsOutputWithContext(context.Context) MediaGraphTlsValidationOptionsOutput
 }
 
-// Options for controlling the authentication of TLS endpoints.
 type MediaGraphTlsValidationOptionsArgs struct {
-	// Ignore the host name (common name) during validation.
-	IgnoreHostname pulumi.BoolInput `pulumi:"ignoreHostname"`
-	// Ignore the integrity of the certificate chain at the current time.
+	IgnoreHostname  pulumi.BoolInput `pulumi:"ignoreHostname"`
 	IgnoreSignature pulumi.BoolInput `pulumi:"ignoreSignature"`
 }
 
@@ -1272,7 +1104,6 @@ func (i *mediaGraphTlsValidationOptionsPtrType) ToMediaGraphTlsValidationOptions
 	return pulumi.ToOutputWithContext(ctx, i).(MediaGraphTlsValidationOptionsPtrOutput)
 }
 
-// Options for controlling the authentication of TLS endpoints.
 type MediaGraphTlsValidationOptionsOutput struct{ *pulumi.OutputState }
 
 func (MediaGraphTlsValidationOptionsOutput) ElementType() reflect.Type {
@@ -1292,17 +1123,15 @@ func (o MediaGraphTlsValidationOptionsOutput) ToMediaGraphTlsValidationOptionsPt
 }
 
 func (o MediaGraphTlsValidationOptionsOutput) ToMediaGraphTlsValidationOptionsPtrOutputWithContext(ctx context.Context) MediaGraphTlsValidationOptionsPtrOutput {
-	return o.ApplyT(func(v MediaGraphTlsValidationOptions) *MediaGraphTlsValidationOptions {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v MediaGraphTlsValidationOptions) *MediaGraphTlsValidationOptions {
 		return &v
 	}).(MediaGraphTlsValidationOptionsPtrOutput)
 }
 
-// Ignore the host name (common name) during validation.
 func (o MediaGraphTlsValidationOptionsOutput) IgnoreHostname() pulumi.BoolOutput {
 	return o.ApplyT(func(v MediaGraphTlsValidationOptions) bool { return v.IgnoreHostname }).(pulumi.BoolOutput)
 }
 
-// Ignore the integrity of the certificate chain at the current time.
 func (o MediaGraphTlsValidationOptionsOutput) IgnoreSignature() pulumi.BoolOutput {
 	return o.ApplyT(func(v MediaGraphTlsValidationOptions) bool { return v.IgnoreSignature }).(pulumi.BoolOutput)
 }
@@ -1322,10 +1151,15 @@ func (o MediaGraphTlsValidationOptionsPtrOutput) ToMediaGraphTlsValidationOption
 }
 
 func (o MediaGraphTlsValidationOptionsPtrOutput) Elem() MediaGraphTlsValidationOptionsOutput {
-	return o.ApplyT(func(v *MediaGraphTlsValidationOptions) MediaGraphTlsValidationOptions { return *v }).(MediaGraphTlsValidationOptionsOutput)
+	return o.ApplyT(func(v *MediaGraphTlsValidationOptions) MediaGraphTlsValidationOptions {
+		if v != nil {
+			return *v
+		}
+		var ret MediaGraphTlsValidationOptions
+		return ret
+	}).(MediaGraphTlsValidationOptionsOutput)
 }
 
-// Ignore the host name (common name) during validation.
 func (o MediaGraphTlsValidationOptionsPtrOutput) IgnoreHostname() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *MediaGraphTlsValidationOptions) *bool {
 		if v == nil {
@@ -1335,7 +1169,6 @@ func (o MediaGraphTlsValidationOptionsPtrOutput) IgnoreHostname() pulumi.BoolPtr
 	}).(pulumi.BoolPtrOutput)
 }
 
-// Ignore the integrity of the certificate chain at the current time.
 func (o MediaGraphTlsValidationOptionsPtrOutput) IgnoreSignature() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *MediaGraphTlsValidationOptions) *bool {
 		if v == nil {
@@ -1345,11 +1178,8 @@ func (o MediaGraphTlsValidationOptionsPtrOutput) IgnoreSignature() pulumi.BoolPt
 	}).(pulumi.BoolPtrOutput)
 }
 
-// Options for controlling the authentication of TLS endpoints.
 type MediaGraphTlsValidationOptionsResponse struct {
-	// Ignore the host name (common name) during validation.
-	IgnoreHostname bool `pulumi:"ignoreHostname"`
-	// Ignore the integrity of the certificate chain at the current time.
+	IgnoreHostname  bool `pulumi:"ignoreHostname"`
 	IgnoreSignature bool `pulumi:"ignoreSignature"`
 }
 
@@ -1364,11 +1194,8 @@ type MediaGraphTlsValidationOptionsResponseInput interface {
 	ToMediaGraphTlsValidationOptionsResponseOutputWithContext(context.Context) MediaGraphTlsValidationOptionsResponseOutput
 }
 
-// Options for controlling the authentication of TLS endpoints.
 type MediaGraphTlsValidationOptionsResponseArgs struct {
-	// Ignore the host name (common name) during validation.
-	IgnoreHostname pulumi.BoolInput `pulumi:"ignoreHostname"`
-	// Ignore the integrity of the certificate chain at the current time.
+	IgnoreHostname  pulumi.BoolInput `pulumi:"ignoreHostname"`
 	IgnoreSignature pulumi.BoolInput `pulumi:"ignoreSignature"`
 }
 
@@ -1425,7 +1252,6 @@ func (i *mediaGraphTlsValidationOptionsResponsePtrType) ToMediaGraphTlsValidatio
 	return pulumi.ToOutputWithContext(ctx, i).(MediaGraphTlsValidationOptionsResponsePtrOutput)
 }
 
-// Options for controlling the authentication of TLS endpoints.
 type MediaGraphTlsValidationOptionsResponseOutput struct{ *pulumi.OutputState }
 
 func (MediaGraphTlsValidationOptionsResponseOutput) ElementType() reflect.Type {
@@ -1445,17 +1271,15 @@ func (o MediaGraphTlsValidationOptionsResponseOutput) ToMediaGraphTlsValidationO
 }
 
 func (o MediaGraphTlsValidationOptionsResponseOutput) ToMediaGraphTlsValidationOptionsResponsePtrOutputWithContext(ctx context.Context) MediaGraphTlsValidationOptionsResponsePtrOutput {
-	return o.ApplyT(func(v MediaGraphTlsValidationOptionsResponse) *MediaGraphTlsValidationOptionsResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v MediaGraphTlsValidationOptionsResponse) *MediaGraphTlsValidationOptionsResponse {
 		return &v
 	}).(MediaGraphTlsValidationOptionsResponsePtrOutput)
 }
 
-// Ignore the host name (common name) during validation.
 func (o MediaGraphTlsValidationOptionsResponseOutput) IgnoreHostname() pulumi.BoolOutput {
 	return o.ApplyT(func(v MediaGraphTlsValidationOptionsResponse) bool { return v.IgnoreHostname }).(pulumi.BoolOutput)
 }
 
-// Ignore the integrity of the certificate chain at the current time.
 func (o MediaGraphTlsValidationOptionsResponseOutput) IgnoreSignature() pulumi.BoolOutput {
 	return o.ApplyT(func(v MediaGraphTlsValidationOptionsResponse) bool { return v.IgnoreSignature }).(pulumi.BoolOutput)
 }
@@ -1475,10 +1299,15 @@ func (o MediaGraphTlsValidationOptionsResponsePtrOutput) ToMediaGraphTlsValidati
 }
 
 func (o MediaGraphTlsValidationOptionsResponsePtrOutput) Elem() MediaGraphTlsValidationOptionsResponseOutput {
-	return o.ApplyT(func(v *MediaGraphTlsValidationOptionsResponse) MediaGraphTlsValidationOptionsResponse { return *v }).(MediaGraphTlsValidationOptionsResponseOutput)
+	return o.ApplyT(func(v *MediaGraphTlsValidationOptionsResponse) MediaGraphTlsValidationOptionsResponse {
+		if v != nil {
+			return *v
+		}
+		var ret MediaGraphTlsValidationOptionsResponse
+		return ret
+	}).(MediaGraphTlsValidationOptionsResponseOutput)
 }
 
-// Ignore the host name (common name) during validation.
 func (o MediaGraphTlsValidationOptionsResponsePtrOutput) IgnoreHostname() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *MediaGraphTlsValidationOptionsResponse) *bool {
 		if v == nil {
@@ -1488,7 +1317,6 @@ func (o MediaGraphTlsValidationOptionsResponsePtrOutput) IgnoreHostname() pulumi
 	}).(pulumi.BoolPtrOutput)
 }
 
-// Ignore the integrity of the certificate chain at the current time.
 func (o MediaGraphTlsValidationOptionsResponsePtrOutput) IgnoreSignature() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *MediaGraphTlsValidationOptionsResponse) *bool {
 		if v == nil {
@@ -1498,15 +1326,10 @@ func (o MediaGraphTlsValidationOptionsResponsePtrOutput) IgnoreSignature() pulum
 	}).(pulumi.BoolPtrOutput)
 }
 
-// Username/password credential pair.
 type MediaGraphUsernamePasswordCredentials struct {
-	// The discriminator for derived types.
-	// Expected value is '#Microsoft.Media.MediaGraphUsernamePasswordCredentials'.
 	OdataType string `pulumi:"odataType"`
-	// Password for a username/password pair.
-	Password string `pulumi:"password"`
-	// Username for a username/password pair.
-	Username string `pulumi:"username"`
+	Password  string `pulumi:"password"`
+	Username  string `pulumi:"username"`
 }
 
 // MediaGraphUsernamePasswordCredentialsInput is an input type that accepts MediaGraphUsernamePasswordCredentialsArgs and MediaGraphUsernamePasswordCredentialsOutput values.
@@ -1520,15 +1343,10 @@ type MediaGraphUsernamePasswordCredentialsInput interface {
 	ToMediaGraphUsernamePasswordCredentialsOutputWithContext(context.Context) MediaGraphUsernamePasswordCredentialsOutput
 }
 
-// Username/password credential pair.
 type MediaGraphUsernamePasswordCredentialsArgs struct {
-	// The discriminator for derived types.
-	// Expected value is '#Microsoft.Media.MediaGraphUsernamePasswordCredentials'.
 	OdataType pulumi.StringInput `pulumi:"odataType"`
-	// Password for a username/password pair.
-	Password pulumi.StringInput `pulumi:"password"`
-	// Username for a username/password pair.
-	Username pulumi.StringInput `pulumi:"username"`
+	Password  pulumi.StringInput `pulumi:"password"`
+	Username  pulumi.StringInput `pulumi:"username"`
 }
 
 func (MediaGraphUsernamePasswordCredentialsArgs) ElementType() reflect.Type {
@@ -1584,7 +1402,6 @@ func (i *mediaGraphUsernamePasswordCredentialsPtrType) ToMediaGraphUsernamePassw
 	return pulumi.ToOutputWithContext(ctx, i).(MediaGraphUsernamePasswordCredentialsPtrOutput)
 }
 
-// Username/password credential pair.
 type MediaGraphUsernamePasswordCredentialsOutput struct{ *pulumi.OutputState }
 
 func (MediaGraphUsernamePasswordCredentialsOutput) ElementType() reflect.Type {
@@ -1604,23 +1421,19 @@ func (o MediaGraphUsernamePasswordCredentialsOutput) ToMediaGraphUsernamePasswor
 }
 
 func (o MediaGraphUsernamePasswordCredentialsOutput) ToMediaGraphUsernamePasswordCredentialsPtrOutputWithContext(ctx context.Context) MediaGraphUsernamePasswordCredentialsPtrOutput {
-	return o.ApplyT(func(v MediaGraphUsernamePasswordCredentials) *MediaGraphUsernamePasswordCredentials {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v MediaGraphUsernamePasswordCredentials) *MediaGraphUsernamePasswordCredentials {
 		return &v
 	}).(MediaGraphUsernamePasswordCredentialsPtrOutput)
 }
 
-// The discriminator for derived types.
-// Expected value is '#Microsoft.Media.MediaGraphUsernamePasswordCredentials'.
 func (o MediaGraphUsernamePasswordCredentialsOutput) OdataType() pulumi.StringOutput {
 	return o.ApplyT(func(v MediaGraphUsernamePasswordCredentials) string { return v.OdataType }).(pulumi.StringOutput)
 }
 
-// Password for a username/password pair.
 func (o MediaGraphUsernamePasswordCredentialsOutput) Password() pulumi.StringOutput {
 	return o.ApplyT(func(v MediaGraphUsernamePasswordCredentials) string { return v.Password }).(pulumi.StringOutput)
 }
 
-// Username for a username/password pair.
 func (o MediaGraphUsernamePasswordCredentialsOutput) Username() pulumi.StringOutput {
 	return o.ApplyT(func(v MediaGraphUsernamePasswordCredentials) string { return v.Username }).(pulumi.StringOutput)
 }
@@ -1640,11 +1453,15 @@ func (o MediaGraphUsernamePasswordCredentialsPtrOutput) ToMediaGraphUsernamePass
 }
 
 func (o MediaGraphUsernamePasswordCredentialsPtrOutput) Elem() MediaGraphUsernamePasswordCredentialsOutput {
-	return o.ApplyT(func(v *MediaGraphUsernamePasswordCredentials) MediaGraphUsernamePasswordCredentials { return *v }).(MediaGraphUsernamePasswordCredentialsOutput)
+	return o.ApplyT(func(v *MediaGraphUsernamePasswordCredentials) MediaGraphUsernamePasswordCredentials {
+		if v != nil {
+			return *v
+		}
+		var ret MediaGraphUsernamePasswordCredentials
+		return ret
+	}).(MediaGraphUsernamePasswordCredentialsOutput)
 }
 
-// The discriminator for derived types.
-// Expected value is '#Microsoft.Media.MediaGraphUsernamePasswordCredentials'.
 func (o MediaGraphUsernamePasswordCredentialsPtrOutput) OdataType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *MediaGraphUsernamePasswordCredentials) *string {
 		if v == nil {
@@ -1654,7 +1471,6 @@ func (o MediaGraphUsernamePasswordCredentialsPtrOutput) OdataType() pulumi.Strin
 	}).(pulumi.StringPtrOutput)
 }
 
-// Password for a username/password pair.
 func (o MediaGraphUsernamePasswordCredentialsPtrOutput) Password() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *MediaGraphUsernamePasswordCredentials) *string {
 		if v == nil {
@@ -1664,7 +1480,6 @@ func (o MediaGraphUsernamePasswordCredentialsPtrOutput) Password() pulumi.String
 	}).(pulumi.StringPtrOutput)
 }
 
-// Username for a username/password pair.
 func (o MediaGraphUsernamePasswordCredentialsPtrOutput) Username() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *MediaGraphUsernamePasswordCredentials) *string {
 		if v == nil {
@@ -1674,15 +1489,10 @@ func (o MediaGraphUsernamePasswordCredentialsPtrOutput) Username() pulumi.String
 	}).(pulumi.StringPtrOutput)
 }
 
-// Username/password credential pair.
 type MediaGraphUsernamePasswordCredentialsResponse struct {
-	// The discriminator for derived types.
-	// Expected value is '#Microsoft.Media.MediaGraphUsernamePasswordCredentials'.
 	OdataType string `pulumi:"odataType"`
-	// Password for a username/password pair.
-	Password string `pulumi:"password"`
-	// Username for a username/password pair.
-	Username string `pulumi:"username"`
+	Password  string `pulumi:"password"`
+	Username  string `pulumi:"username"`
 }
 
 // MediaGraphUsernamePasswordCredentialsResponseInput is an input type that accepts MediaGraphUsernamePasswordCredentialsResponseArgs and MediaGraphUsernamePasswordCredentialsResponseOutput values.
@@ -1696,15 +1506,10 @@ type MediaGraphUsernamePasswordCredentialsResponseInput interface {
 	ToMediaGraphUsernamePasswordCredentialsResponseOutputWithContext(context.Context) MediaGraphUsernamePasswordCredentialsResponseOutput
 }
 
-// Username/password credential pair.
 type MediaGraphUsernamePasswordCredentialsResponseArgs struct {
-	// The discriminator for derived types.
-	// Expected value is '#Microsoft.Media.MediaGraphUsernamePasswordCredentials'.
 	OdataType pulumi.StringInput `pulumi:"odataType"`
-	// Password for a username/password pair.
-	Password pulumi.StringInput `pulumi:"password"`
-	// Username for a username/password pair.
-	Username pulumi.StringInput `pulumi:"username"`
+	Password  pulumi.StringInput `pulumi:"password"`
+	Username  pulumi.StringInput `pulumi:"username"`
 }
 
 func (MediaGraphUsernamePasswordCredentialsResponseArgs) ElementType() reflect.Type {
@@ -1760,7 +1565,6 @@ func (i *mediaGraphUsernamePasswordCredentialsResponsePtrType) ToMediaGraphUsern
 	return pulumi.ToOutputWithContext(ctx, i).(MediaGraphUsernamePasswordCredentialsResponsePtrOutput)
 }
 
-// Username/password credential pair.
 type MediaGraphUsernamePasswordCredentialsResponseOutput struct{ *pulumi.OutputState }
 
 func (MediaGraphUsernamePasswordCredentialsResponseOutput) ElementType() reflect.Type {
@@ -1780,23 +1584,19 @@ func (o MediaGraphUsernamePasswordCredentialsResponseOutput) ToMediaGraphUsernam
 }
 
 func (o MediaGraphUsernamePasswordCredentialsResponseOutput) ToMediaGraphUsernamePasswordCredentialsResponsePtrOutputWithContext(ctx context.Context) MediaGraphUsernamePasswordCredentialsResponsePtrOutput {
-	return o.ApplyT(func(v MediaGraphUsernamePasswordCredentialsResponse) *MediaGraphUsernamePasswordCredentialsResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v MediaGraphUsernamePasswordCredentialsResponse) *MediaGraphUsernamePasswordCredentialsResponse {
 		return &v
 	}).(MediaGraphUsernamePasswordCredentialsResponsePtrOutput)
 }
 
-// The discriminator for derived types.
-// Expected value is '#Microsoft.Media.MediaGraphUsernamePasswordCredentials'.
 func (o MediaGraphUsernamePasswordCredentialsResponseOutput) OdataType() pulumi.StringOutput {
 	return o.ApplyT(func(v MediaGraphUsernamePasswordCredentialsResponse) string { return v.OdataType }).(pulumi.StringOutput)
 }
 
-// Password for a username/password pair.
 func (o MediaGraphUsernamePasswordCredentialsResponseOutput) Password() pulumi.StringOutput {
 	return o.ApplyT(func(v MediaGraphUsernamePasswordCredentialsResponse) string { return v.Password }).(pulumi.StringOutput)
 }
 
-// Username for a username/password pair.
 func (o MediaGraphUsernamePasswordCredentialsResponseOutput) Username() pulumi.StringOutput {
 	return o.ApplyT(func(v MediaGraphUsernamePasswordCredentialsResponse) string { return v.Username }).(pulumi.StringOutput)
 }
@@ -1817,12 +1617,14 @@ func (o MediaGraphUsernamePasswordCredentialsResponsePtrOutput) ToMediaGraphUser
 
 func (o MediaGraphUsernamePasswordCredentialsResponsePtrOutput) Elem() MediaGraphUsernamePasswordCredentialsResponseOutput {
 	return o.ApplyT(func(v *MediaGraphUsernamePasswordCredentialsResponse) MediaGraphUsernamePasswordCredentialsResponse {
-		return *v
+		if v != nil {
+			return *v
+		}
+		var ret MediaGraphUsernamePasswordCredentialsResponse
+		return ret
 	}).(MediaGraphUsernamePasswordCredentialsResponseOutput)
 }
 
-// The discriminator for derived types.
-// Expected value is '#Microsoft.Media.MediaGraphUsernamePasswordCredentials'.
 func (o MediaGraphUsernamePasswordCredentialsResponsePtrOutput) OdataType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *MediaGraphUsernamePasswordCredentialsResponse) *string {
 		if v == nil {
@@ -1832,7 +1634,6 @@ func (o MediaGraphUsernamePasswordCredentialsResponsePtrOutput) OdataType() pulu
 	}).(pulumi.StringPtrOutput)
 }
 
-// Password for a username/password pair.
 func (o MediaGraphUsernamePasswordCredentialsResponsePtrOutput) Password() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *MediaGraphUsernamePasswordCredentialsResponse) *string {
 		if v == nil {
@@ -1842,7 +1643,6 @@ func (o MediaGraphUsernamePasswordCredentialsResponsePtrOutput) Password() pulum
 	}).(pulumi.StringPtrOutput)
 }
 
-// Username for a username/password pair.
 func (o MediaGraphUsernamePasswordCredentialsResponsePtrOutput) Username() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *MediaGraphUsernamePasswordCredentialsResponse) *string {
 		if v == nil {

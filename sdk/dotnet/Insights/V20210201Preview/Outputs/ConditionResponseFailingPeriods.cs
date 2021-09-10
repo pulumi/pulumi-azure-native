@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.Insights.V20210201Preview.Outputs
 {
 
+    /// <summary>
+    /// The minimum number of violations required within the selected lookback time window required to raise an alert. Relevant only for rules of the kind LogAlert.
+    /// </summary>
     [OutputType]
     public sealed class ConditionResponseFailingPeriods
     {

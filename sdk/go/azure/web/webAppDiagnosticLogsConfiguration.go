@@ -212,9 +212,7 @@ func (i *WebAppDiagnosticLogsConfiguration) ToWebAppDiagnosticLogsConfigurationO
 	return pulumi.ToOutputWithContext(ctx, i).(WebAppDiagnosticLogsConfigurationOutput)
 }
 
-type WebAppDiagnosticLogsConfigurationOutput struct {
-	*pulumi.OutputState
-}
+type WebAppDiagnosticLogsConfigurationOutput struct{ *pulumi.OutputState }
 
 func (WebAppDiagnosticLogsConfigurationOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*WebAppDiagnosticLogsConfiguration)(nil))

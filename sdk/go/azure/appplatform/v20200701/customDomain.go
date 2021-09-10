@@ -11,16 +11,12 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Custom domain resource payload.
 type CustomDomain struct {
 	pulumi.CustomResourceState
 
-	// The name of the resource.
-	Name pulumi.StringOutput `pulumi:"name"`
-	// Properties of the custom domain resource.
+	Name       pulumi.StringOutput                  `pulumi:"name"`
 	Properties CustomDomainPropertiesResponseOutput `pulumi:"properties"`
-	// The type of the resource.
-	Type pulumi.StringOutput `pulumi:"type"`
+	Type       pulumi.StringOutput                  `pulumi:"type"`
 }
 
 // NewCustomDomain registers a new resource with the given unique name, arguments, and options.
@@ -101,30 +97,20 @@ func (CustomDomainState) ElementType() reflect.Type {
 }
 
 type customDomainArgs struct {
-	// The name of the App resource.
-	AppName string `pulumi:"appName"`
-	// The name of the custom domain resource.
-	DomainName *string `pulumi:"domainName"`
-	// Properties of the custom domain resource.
-	Properties *CustomDomainProperties `pulumi:"properties"`
-	// The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
-	ResourceGroupName string `pulumi:"resourceGroupName"`
-	// The name of the Service resource.
-	ServiceName string `pulumi:"serviceName"`
+	AppName           string                  `pulumi:"appName"`
+	DomainName        *string                 `pulumi:"domainName"`
+	Properties        *CustomDomainProperties `pulumi:"properties"`
+	ResourceGroupName string                  `pulumi:"resourceGroupName"`
+	ServiceName       string                  `pulumi:"serviceName"`
 }
 
 // The set of arguments for constructing a CustomDomain resource.
 type CustomDomainArgs struct {
-	// The name of the App resource.
-	AppName pulumi.StringInput
-	// The name of the custom domain resource.
-	DomainName pulumi.StringPtrInput
-	// Properties of the custom domain resource.
-	Properties CustomDomainPropertiesPtrInput
-	// The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
+	AppName           pulumi.StringInput
+	DomainName        pulumi.StringPtrInput
+	Properties        CustomDomainPropertiesPtrInput
 	ResourceGroupName pulumi.StringInput
-	// The name of the Service resource.
-	ServiceName pulumi.StringInput
+	ServiceName       pulumi.StringInput
 }
 
 func (CustomDomainArgs) ElementType() reflect.Type {
@@ -150,9 +136,7 @@ func (i *CustomDomain) ToCustomDomainOutputWithContext(ctx context.Context) Cust
 	return pulumi.ToOutputWithContext(ctx, i).(CustomDomainOutput)
 }
 
-type CustomDomainOutput struct {
-	*pulumi.OutputState
-}
+type CustomDomainOutput struct{ *pulumi.OutputState }
 
 func (CustomDomainOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*CustomDomain)(nil))

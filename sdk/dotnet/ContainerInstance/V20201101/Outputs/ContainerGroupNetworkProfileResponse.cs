@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.ContainerInstance.V20201101.Outputs
 {
 
+    /// <summary>
+    /// Container group network profile information.
+    /// </summary>
     [OutputType]
     public sealed class ContainerGroupNetworkProfileResponse
     {

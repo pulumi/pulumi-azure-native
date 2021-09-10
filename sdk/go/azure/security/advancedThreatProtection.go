@@ -125,9 +125,7 @@ func (i *AdvancedThreatProtection) ToAdvancedThreatProtectionOutputWithContext(c
 	return pulumi.ToOutputWithContext(ctx, i).(AdvancedThreatProtectionOutput)
 }
 
-type AdvancedThreatProtectionOutput struct {
-	*pulumi.OutputState
-}
+type AdvancedThreatProtectionOutput struct{ *pulumi.OutputState }
 
 func (AdvancedThreatProtectionOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*AdvancedThreatProtection)(nil))

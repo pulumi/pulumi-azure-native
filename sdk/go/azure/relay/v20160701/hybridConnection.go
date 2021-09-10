@@ -11,24 +11,16 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Description of HybridConnection Resource.
 type HybridConnection struct {
 	pulumi.CustomResourceState
 
-	// The time the HybridConnection was created.
-	CreatedAt pulumi.StringOutput `pulumi:"createdAt"`
-	// The number of listeners for this HybridConnection. min : 1 and max:25 supported
-	ListenerCount pulumi.IntOutput `pulumi:"listenerCount"`
-	// Resource name
-	Name pulumi.StringOutput `pulumi:"name"`
-	// true if client authorization is needed for this HybridConnection; otherwise, false.
-	RequiresClientAuthorization pulumi.BoolPtrOutput `pulumi:"requiresClientAuthorization"`
-	// Resource type
-	Type pulumi.StringOutput `pulumi:"type"`
-	// The time the namespace was updated.
-	UpdatedAt pulumi.StringOutput `pulumi:"updatedAt"`
-	// usermetadata is a placeholder to store user-defined string data for the HybridConnection endpoint.e.g. it can be used to store  descriptive data, such as list of teams and their contact information also user-defined configuration settings can be stored.
-	UserMetadata pulumi.StringPtrOutput `pulumi:"userMetadata"`
+	CreatedAt                   pulumi.StringOutput    `pulumi:"createdAt"`
+	ListenerCount               pulumi.IntOutput       `pulumi:"listenerCount"`
+	Name                        pulumi.StringOutput    `pulumi:"name"`
+	RequiresClientAuthorization pulumi.BoolPtrOutput   `pulumi:"requiresClientAuthorization"`
+	Type                        pulumi.StringOutput    `pulumi:"type"`
+	UpdatedAt                   pulumi.StringOutput    `pulumi:"updatedAt"`
+	UserMetadata                pulumi.StringPtrOutput `pulumi:"userMetadata"`
 }
 
 // NewHybridConnection registers a new resource with the given unique name, arguments, and options.
@@ -94,30 +86,20 @@ func (HybridConnectionState) ElementType() reflect.Type {
 }
 
 type hybridConnectionArgs struct {
-	// The hybrid connection name.
-	HybridConnectionName *string `pulumi:"hybridConnectionName"`
-	// The Namespace Name
-	NamespaceName string `pulumi:"namespaceName"`
-	// true if client authorization is needed for this HybridConnection; otherwise, false.
-	RequiresClientAuthorization *bool `pulumi:"requiresClientAuthorization"`
-	// Name of the Resource group within the Azure subscription.
-	ResourceGroupName string `pulumi:"resourceGroupName"`
-	// usermetadata is a placeholder to store user-defined string data for the HybridConnection endpoint.e.g. it can be used to store  descriptive data, such as list of teams and their contact information also user-defined configuration settings can be stored.
-	UserMetadata *string `pulumi:"userMetadata"`
+	HybridConnectionName        *string `pulumi:"hybridConnectionName"`
+	NamespaceName               string  `pulumi:"namespaceName"`
+	RequiresClientAuthorization *bool   `pulumi:"requiresClientAuthorization"`
+	ResourceGroupName           string  `pulumi:"resourceGroupName"`
+	UserMetadata                *string `pulumi:"userMetadata"`
 }
 
 // The set of arguments for constructing a HybridConnection resource.
 type HybridConnectionArgs struct {
-	// The hybrid connection name.
-	HybridConnectionName pulumi.StringPtrInput
-	// The Namespace Name
-	NamespaceName pulumi.StringInput
-	// true if client authorization is needed for this HybridConnection; otherwise, false.
+	HybridConnectionName        pulumi.StringPtrInput
+	NamespaceName               pulumi.StringInput
 	RequiresClientAuthorization pulumi.BoolPtrInput
-	// Name of the Resource group within the Azure subscription.
-	ResourceGroupName pulumi.StringInput
-	// usermetadata is a placeholder to store user-defined string data for the HybridConnection endpoint.e.g. it can be used to store  descriptive data, such as list of teams and their contact information also user-defined configuration settings can be stored.
-	UserMetadata pulumi.StringPtrInput
+	ResourceGroupName           pulumi.StringInput
+	UserMetadata                pulumi.StringPtrInput
 }
 
 func (HybridConnectionArgs) ElementType() reflect.Type {
@@ -143,9 +125,7 @@ func (i *HybridConnection) ToHybridConnectionOutputWithContext(ctx context.Conte
 	return pulumi.ToOutputWithContext(ctx, i).(HybridConnectionOutput)
 }
 
-type HybridConnectionOutput struct {
-	*pulumi.OutputState
-}
+type HybridConnectionOutput struct{ *pulumi.OutputState }
 
 func (HybridConnectionOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*HybridConnection)(nil))

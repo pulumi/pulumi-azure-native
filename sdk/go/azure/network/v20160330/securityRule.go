@@ -11,34 +11,21 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Network security rule
 type SecurityRule struct {
 	pulumi.CustomResourceState
 
-	// Gets or sets network traffic is allowed or denied. Possible values are 'Allow' and 'Deny'
-	Access pulumi.StringOutput `pulumi:"access"`
-	// Gets or sets a description for this rule. Restricted to 140 chars.
-	Description pulumi.StringPtrOutput `pulumi:"description"`
-	// Gets or sets destination address prefix. CIDR or source IP range. Asterisk '*' can also be used to match all source IPs. Default tags such as 'VirtualNetwork', 'AzureLoadBalancer' and 'Internet' can also be used.
-	DestinationAddressPrefix pulumi.StringOutput `pulumi:"destinationAddressPrefix"`
-	// Gets or sets Destination Port or Range. Integer or range between 0 and 65535. Asterisk '*' can also be used to match all ports.
-	DestinationPortRange pulumi.StringPtrOutput `pulumi:"destinationPortRange"`
-	// Gets or sets the direction of the rule.InBound or Outbound. The direction specifies if rule will be evaluated on incoming or outgoing traffic.
-	Direction pulumi.StringOutput `pulumi:"direction"`
-	// A unique read-only string that changes whenever the resource is updated
-	Etag pulumi.StringPtrOutput `pulumi:"etag"`
-	// Gets name of the resource that is unique within a resource group. This name can be used to access the resource
-	Name pulumi.StringPtrOutput `pulumi:"name"`
-	// Gets or sets the priority of the rule. The value can be between 100 and 4096. The priority number must be unique for each rule in the collection. The lower the priority number, the higher the priority of the rule.
-	Priority pulumi.IntPtrOutput `pulumi:"priority"`
-	// Gets or sets Network protocol this rule applies to. Can be Tcp, Udp or All(*).
-	Protocol pulumi.StringOutput `pulumi:"protocol"`
-	// Gets or sets Provisioning state of the PublicIP resource Updating/Deleting/Failed
-	ProvisioningState pulumi.StringPtrOutput `pulumi:"provisioningState"`
-	// Gets or sets source address prefix. CIDR or source IP range. Asterisk '*' can also be used to match all source IPs. Default tags such as 'VirtualNetwork', 'AzureLoadBalancer' and 'Internet' can also be used. If this is an ingress rule, specifies where network traffic originates from.
-	SourceAddressPrefix pulumi.StringOutput `pulumi:"sourceAddressPrefix"`
-	// Gets or sets Source Port or Range. Integer or range between 0 and 65535. Asterisk '*' can also be used to match all ports.
-	SourcePortRange pulumi.StringPtrOutput `pulumi:"sourcePortRange"`
+	Access                   pulumi.StringOutput    `pulumi:"access"`
+	Description              pulumi.StringPtrOutput `pulumi:"description"`
+	DestinationAddressPrefix pulumi.StringOutput    `pulumi:"destinationAddressPrefix"`
+	DestinationPortRange     pulumi.StringPtrOutput `pulumi:"destinationPortRange"`
+	Direction                pulumi.StringOutput    `pulumi:"direction"`
+	Etag                     pulumi.StringPtrOutput `pulumi:"etag"`
+	Name                     pulumi.StringPtrOutput `pulumi:"name"`
+	Priority                 pulumi.IntPtrOutput    `pulumi:"priority"`
+	Protocol                 pulumi.StringOutput    `pulumi:"protocol"`
+	ProvisioningState        pulumi.StringPtrOutput `pulumi:"provisioningState"`
+	SourceAddressPrefix      pulumi.StringOutput    `pulumi:"sourceAddressPrefix"`
+	SourcePortRange          pulumi.StringPtrOutput `pulumi:"sourcePortRange"`
 }
 
 // NewSecurityRule registers a new resource with the given unique name, arguments, and options.
@@ -335,74 +322,42 @@ func (SecurityRuleState) ElementType() reflect.Type {
 }
 
 type securityRuleArgs struct {
-	// Gets or sets network traffic is allowed or denied. Possible values are 'Allow' and 'Deny'
-	Access string `pulumi:"access"`
-	// Gets or sets a description for this rule. Restricted to 140 chars.
-	Description *string `pulumi:"description"`
-	// Gets or sets destination address prefix. CIDR or source IP range. Asterisk '*' can also be used to match all source IPs. Default tags such as 'VirtualNetwork', 'AzureLoadBalancer' and 'Internet' can also be used.
-	DestinationAddressPrefix string `pulumi:"destinationAddressPrefix"`
-	// Gets or sets Destination Port or Range. Integer or range between 0 and 65535. Asterisk '*' can also be used to match all ports.
-	DestinationPortRange *string `pulumi:"destinationPortRange"`
-	// Gets or sets the direction of the rule.InBound or Outbound. The direction specifies if rule will be evaluated on incoming or outgoing traffic.
-	Direction string `pulumi:"direction"`
-	// A unique read-only string that changes whenever the resource is updated
-	Etag *string `pulumi:"etag"`
-	// Resource Id
-	Id *string `pulumi:"id"`
-	// Gets name of the resource that is unique within a resource group. This name can be used to access the resource
-	Name *string `pulumi:"name"`
-	// The name of the network security group.
-	NetworkSecurityGroupName string `pulumi:"networkSecurityGroupName"`
-	// Gets or sets the priority of the rule. The value can be between 100 and 4096. The priority number must be unique for each rule in the collection. The lower the priority number, the higher the priority of the rule.
-	Priority *int `pulumi:"priority"`
-	// Gets or sets Network protocol this rule applies to. Can be Tcp, Udp or All(*).
-	Protocol string `pulumi:"protocol"`
-	// Gets or sets Provisioning state of the PublicIP resource Updating/Deleting/Failed
-	ProvisioningState *string `pulumi:"provisioningState"`
-	// The name of the resource group.
-	ResourceGroupName string `pulumi:"resourceGroupName"`
-	// The name of the security rule.
-	SecurityRuleName *string `pulumi:"securityRuleName"`
-	// Gets or sets source address prefix. CIDR or source IP range. Asterisk '*' can also be used to match all source IPs. Default tags such as 'VirtualNetwork', 'AzureLoadBalancer' and 'Internet' can also be used. If this is an ingress rule, specifies where network traffic originates from.
-	SourceAddressPrefix string `pulumi:"sourceAddressPrefix"`
-	// Gets or sets Source Port or Range. Integer or range between 0 and 65535. Asterisk '*' can also be used to match all ports.
-	SourcePortRange *string `pulumi:"sourcePortRange"`
+	Access                   string  `pulumi:"access"`
+	Description              *string `pulumi:"description"`
+	DestinationAddressPrefix string  `pulumi:"destinationAddressPrefix"`
+	DestinationPortRange     *string `pulumi:"destinationPortRange"`
+	Direction                string  `pulumi:"direction"`
+	Etag                     *string `pulumi:"etag"`
+	Id                       *string `pulumi:"id"`
+	Name                     *string `pulumi:"name"`
+	NetworkSecurityGroupName string  `pulumi:"networkSecurityGroupName"`
+	Priority                 *int    `pulumi:"priority"`
+	Protocol                 string  `pulumi:"protocol"`
+	ProvisioningState        *string `pulumi:"provisioningState"`
+	ResourceGroupName        string  `pulumi:"resourceGroupName"`
+	SecurityRuleName         *string `pulumi:"securityRuleName"`
+	SourceAddressPrefix      string  `pulumi:"sourceAddressPrefix"`
+	SourcePortRange          *string `pulumi:"sourcePortRange"`
 }
 
 // The set of arguments for constructing a SecurityRule resource.
 type SecurityRuleArgs struct {
-	// Gets or sets network traffic is allowed or denied. Possible values are 'Allow' and 'Deny'
-	Access pulumi.StringInput
-	// Gets or sets a description for this rule. Restricted to 140 chars.
-	Description pulumi.StringPtrInput
-	// Gets or sets destination address prefix. CIDR or source IP range. Asterisk '*' can also be used to match all source IPs. Default tags such as 'VirtualNetwork', 'AzureLoadBalancer' and 'Internet' can also be used.
+	Access                   pulumi.StringInput
+	Description              pulumi.StringPtrInput
 	DestinationAddressPrefix pulumi.StringInput
-	// Gets or sets Destination Port or Range. Integer or range between 0 and 65535. Asterisk '*' can also be used to match all ports.
-	DestinationPortRange pulumi.StringPtrInput
-	// Gets or sets the direction of the rule.InBound or Outbound. The direction specifies if rule will be evaluated on incoming or outgoing traffic.
-	Direction pulumi.StringInput
-	// A unique read-only string that changes whenever the resource is updated
-	Etag pulumi.StringPtrInput
-	// Resource Id
-	Id pulumi.StringPtrInput
-	// Gets name of the resource that is unique within a resource group. This name can be used to access the resource
-	Name pulumi.StringPtrInput
-	// The name of the network security group.
+	DestinationPortRange     pulumi.StringPtrInput
+	Direction                pulumi.StringInput
+	Etag                     pulumi.StringPtrInput
+	Id                       pulumi.StringPtrInput
+	Name                     pulumi.StringPtrInput
 	NetworkSecurityGroupName pulumi.StringInput
-	// Gets or sets the priority of the rule. The value can be between 100 and 4096. The priority number must be unique for each rule in the collection. The lower the priority number, the higher the priority of the rule.
-	Priority pulumi.IntPtrInput
-	// Gets or sets Network protocol this rule applies to. Can be Tcp, Udp or All(*).
-	Protocol pulumi.StringInput
-	// Gets or sets Provisioning state of the PublicIP resource Updating/Deleting/Failed
-	ProvisioningState pulumi.StringPtrInput
-	// The name of the resource group.
-	ResourceGroupName pulumi.StringInput
-	// The name of the security rule.
-	SecurityRuleName pulumi.StringPtrInput
-	// Gets or sets source address prefix. CIDR or source IP range. Asterisk '*' can also be used to match all source IPs. Default tags such as 'VirtualNetwork', 'AzureLoadBalancer' and 'Internet' can also be used. If this is an ingress rule, specifies where network traffic originates from.
-	SourceAddressPrefix pulumi.StringInput
-	// Gets or sets Source Port or Range. Integer or range between 0 and 65535. Asterisk '*' can also be used to match all ports.
-	SourcePortRange pulumi.StringPtrInput
+	Priority                 pulumi.IntPtrInput
+	Protocol                 pulumi.StringInput
+	ProvisioningState        pulumi.StringPtrInput
+	ResourceGroupName        pulumi.StringInput
+	SecurityRuleName         pulumi.StringPtrInput
+	SourceAddressPrefix      pulumi.StringInput
+	SourcePortRange          pulumi.StringPtrInput
 }
 
 func (SecurityRuleArgs) ElementType() reflect.Type {
@@ -428,9 +383,7 @@ func (i *SecurityRule) ToSecurityRuleOutputWithContext(ctx context.Context) Secu
 	return pulumi.ToOutputWithContext(ctx, i).(SecurityRuleOutput)
 }
 
-type SecurityRuleOutput struct {
-	*pulumi.OutputState
-}
+type SecurityRuleOutput struct{ *pulumi.OutputState }
 
 func (SecurityRuleOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*SecurityRule)(nil))

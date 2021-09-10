@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.DataFactory.V20180601.Outputs
 {
 
+    /// <summary>
+    /// Specify the name and value of custom metadata item.
+    /// </summary>
     [OutputType]
     public sealed class MetadataItemResponse
     {

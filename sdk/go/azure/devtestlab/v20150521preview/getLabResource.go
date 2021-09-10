@@ -7,7 +7,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// A lab.
 func LookupLabResource(ctx *pulumi.Context, args *LookupLabResourceArgs, opts ...pulumi.InvokeOption) (*LookupLabResourceResult, error) {
 	var rv LookupLabResourceResult
 	err := ctx.Invoke("azure-native:devtestlab/v20150521preview:getLabResource", args, &rv, opts...)
@@ -18,38 +17,23 @@ func LookupLabResource(ctx *pulumi.Context, args *LookupLabResourceArgs, opts ..
 }
 
 type LookupLabResourceArgs struct {
-	// The name of the lab.
-	Name string `pulumi:"name"`
-	// The name of the resource group.
+	Name              string `pulumi:"name"`
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 }
 
 // A lab.
 type LookupLabResourceResult struct {
-	// The artifact storage account of the lab.
-	ArtifactsStorageAccount *string `pulumi:"artifactsStorageAccount"`
-	// The creation date of the lab.
-	CreatedDate *string `pulumi:"createdDate"`
-	// The lab's default storage account.
-	DefaultStorageAccount *string `pulumi:"defaultStorageAccount"`
-	// The default virtual network identifier of the lab.
-	DefaultVirtualNetworkId *string `pulumi:"defaultVirtualNetworkId"`
-	// The identifier of the resource.
-	Id *string `pulumi:"id"`
-	// The type of the lab storage.
-	LabStorageType *string `pulumi:"labStorageType"`
-	// The location of the resource.
-	Location *string `pulumi:"location"`
-	// The name of the resource.
-	Name *string `pulumi:"name"`
-	// The provisioning status of the resource.
-	ProvisioningState *string `pulumi:"provisioningState"`
-	// The storage accounts of the lab.
-	StorageAccounts []string `pulumi:"storageAccounts"`
-	// The tags of the resource.
-	Tags map[string]string `pulumi:"tags"`
-	// The type of the resource.
-	Type *string `pulumi:"type"`
-	// The name of the key vault of the lab.
-	VaultName *string `pulumi:"vaultName"`
+	ArtifactsStorageAccount *string           `pulumi:"artifactsStorageAccount"`
+	CreatedDate             *string           `pulumi:"createdDate"`
+	DefaultStorageAccount   *string           `pulumi:"defaultStorageAccount"`
+	DefaultVirtualNetworkId *string           `pulumi:"defaultVirtualNetworkId"`
+	Id                      *string           `pulumi:"id"`
+	LabStorageType          *string           `pulumi:"labStorageType"`
+	Location                *string           `pulumi:"location"`
+	Name                    *string           `pulumi:"name"`
+	ProvisioningState       *string           `pulumi:"provisioningState"`
+	StorageAccounts         []string          `pulumi:"storageAccounts"`
+	Tags                    map[string]string `pulumi:"tags"`
+	Type                    *string           `pulumi:"type"`
+	VaultName               *string           `pulumi:"vaultName"`
 }

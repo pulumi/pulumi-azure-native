@@ -7,7 +7,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Defines the security configuration
 func LookupSecurityUserConfiguration(ctx *pulumi.Context, args *LookupSecurityUserConfigurationArgs, opts ...pulumi.InvokeOption) (*LookupSecurityUserConfigurationResult, error) {
 	var rv LookupSecurityUserConfigurationResult
 	err := ctx.Invoke("azure-native:network/v20210201preview:getSecurityUserConfiguration", args, &rv, opts...)
@@ -18,34 +17,21 @@ func LookupSecurityUserConfiguration(ctx *pulumi.Context, args *LookupSecurityUs
 }
 
 type LookupSecurityUserConfigurationArgs struct {
-	// The name of the network manager security Configuration.
-	ConfigurationName string `pulumi:"configurationName"`
-	// The name of the network manager.
+	ConfigurationName  string `pulumi:"configurationName"`
 	NetworkManagerName string `pulumi:"networkManagerName"`
-	// The name of the resource group.
-	ResourceGroupName string `pulumi:"resourceGroupName"`
+	ResourceGroupName  string `pulumi:"resourceGroupName"`
 }
 
 // Defines the security configuration
 type LookupSecurityUserConfigurationResult struct {
-	// Flag if need to delete existing network security groups.
-	DeleteExistingNSGs *string `pulumi:"deleteExistingNSGs"`
-	// A description of the security configuration.
-	Description *string `pulumi:"description"`
-	// A display name of the security configuration.
-	DisplayName *string `pulumi:"displayName"`
-	// A unique read-only string that changes whenever the resource is updated.
-	Etag string `pulumi:"etag"`
-	// Resource ID.
-	Id string `pulumi:"id"`
-	// Resource name.
-	Name string `pulumi:"name"`
-	// The provisioning state of the resource.
-	ProvisioningState string `pulumi:"provisioningState"`
-	// Security Type.
-	SecurityType *string `pulumi:"securityType"`
-	// The system metadata related to this resource.
-	SystemData SystemDataResponse `pulumi:"systemData"`
-	// Resource type.
-	Type string `pulumi:"type"`
+	DeleteExistingNSGs *string            `pulumi:"deleteExistingNSGs"`
+	Description        *string            `pulumi:"description"`
+	DisplayName        *string            `pulumi:"displayName"`
+	Etag               string             `pulumi:"etag"`
+	Id                 string             `pulumi:"id"`
+	Name               string             `pulumi:"name"`
+	ProvisioningState  string             `pulumi:"provisioningState"`
+	SecurityType       *string            `pulumi:"securityType"`
+	SystemData         SystemDataResponse `pulumi:"systemData"`
+	Type               string             `pulumi:"type"`
 }

@@ -11,36 +11,21 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// An elastic pool.
 type ElasticPool struct {
 	pulumi.CustomResourceState
 
-	// The creation date of the elastic pool (ISO8601 format).
-	CreationDate pulumi.StringOutput `pulumi:"creationDate"`
-	// Kind of elastic pool. This is metadata used for the Azure portal experience.
-	Kind pulumi.StringOutput `pulumi:"kind"`
-	// The license type to apply for this elastic pool.
-	LicenseType pulumi.StringPtrOutput `pulumi:"licenseType"`
-	// Resource location.
-	Location pulumi.StringOutput `pulumi:"location"`
-	// The storage limit for the database elastic pool in bytes.
-	MaxSizeBytes pulumi.Float64PtrOutput `pulumi:"maxSizeBytes"`
-	// Resource name.
-	Name pulumi.StringOutput `pulumi:"name"`
-	// The per database settings for the elastic pool.
+	CreationDate        pulumi.StringOutput                             `pulumi:"creationDate"`
+	Kind                pulumi.StringOutput                             `pulumi:"kind"`
+	LicenseType         pulumi.StringPtrOutput                          `pulumi:"licenseType"`
+	Location            pulumi.StringOutput                             `pulumi:"location"`
+	MaxSizeBytes        pulumi.Float64PtrOutput                         `pulumi:"maxSizeBytes"`
+	Name                pulumi.StringOutput                             `pulumi:"name"`
 	PerDatabaseSettings ElasticPoolPerDatabaseSettingsResponsePtrOutput `pulumi:"perDatabaseSettings"`
-	// The elastic pool SKU.
-	//
-	// The list of SKUs may vary by region and support offer. To determine the SKUs (including the SKU name, tier/edition, family, and capacity) that are available to your subscription in an Azure region, use the `Capabilities_ListByLocation` REST API or the following command:
-	Sku SkuResponsePtrOutput `pulumi:"sku"`
-	// The state of the elastic pool.
-	State pulumi.StringOutput `pulumi:"state"`
-	// Resource tags.
-	Tags pulumi.StringMapOutput `pulumi:"tags"`
-	// Resource type.
-	Type pulumi.StringOutput `pulumi:"type"`
-	// Whether or not this elastic pool is zone redundant, which means the replicas of this elastic pool will be spread across multiple availability zones.
-	ZoneRedundant pulumi.BoolPtrOutput `pulumi:"zoneRedundant"`
+	Sku                 SkuResponsePtrOutput                            `pulumi:"sku"`
+	State               pulumi.StringOutput                             `pulumi:"state"`
+	Tags                pulumi.StringMapOutput                          `pulumi:"tags"`
+	Type                pulumi.StringOutput                             `pulumi:"type"`
+	ZoneRedundant       pulumi.BoolPtrOutput                            `pulumi:"zoneRedundant"`
 }
 
 // NewElasticPool registers a new resource with the given unique name, arguments, and options.
@@ -130,54 +115,30 @@ func (ElasticPoolState) ElementType() reflect.Type {
 }
 
 type elasticPoolArgs struct {
-	// The name of the elastic pool.
-	ElasticPoolName *string `pulumi:"elasticPoolName"`
-	// The license type to apply for this elastic pool.
-	LicenseType *string `pulumi:"licenseType"`
-	// Resource location.
-	Location *string `pulumi:"location"`
-	// The storage limit for the database elastic pool in bytes.
-	MaxSizeBytes *float64 `pulumi:"maxSizeBytes"`
-	// The per database settings for the elastic pool.
+	ElasticPoolName     *string                         `pulumi:"elasticPoolName"`
+	LicenseType         *string                         `pulumi:"licenseType"`
+	Location            *string                         `pulumi:"location"`
+	MaxSizeBytes        *float64                        `pulumi:"maxSizeBytes"`
 	PerDatabaseSettings *ElasticPoolPerDatabaseSettings `pulumi:"perDatabaseSettings"`
-	// The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
-	ResourceGroupName string `pulumi:"resourceGroupName"`
-	// The name of the server.
-	ServerName string `pulumi:"serverName"`
-	// The elastic pool SKU.
-	//
-	// The list of SKUs may vary by region and support offer. To determine the SKUs (including the SKU name, tier/edition, family, and capacity) that are available to your subscription in an Azure region, use the `Capabilities_ListByLocation` REST API or the following command:
-	Sku *Sku `pulumi:"sku"`
-	// Resource tags.
-	Tags map[string]string `pulumi:"tags"`
-	// Whether or not this elastic pool is zone redundant, which means the replicas of this elastic pool will be spread across multiple availability zones.
-	ZoneRedundant *bool `pulumi:"zoneRedundant"`
+	ResourceGroupName   string                          `pulumi:"resourceGroupName"`
+	ServerName          string                          `pulumi:"serverName"`
+	Sku                 *Sku                            `pulumi:"sku"`
+	Tags                map[string]string               `pulumi:"tags"`
+	ZoneRedundant       *bool                           `pulumi:"zoneRedundant"`
 }
 
 // The set of arguments for constructing a ElasticPool resource.
 type ElasticPoolArgs struct {
-	// The name of the elastic pool.
-	ElasticPoolName pulumi.StringPtrInput
-	// The license type to apply for this elastic pool.
-	LicenseType pulumi.StringPtrInput
-	// Resource location.
-	Location pulumi.StringPtrInput
-	// The storage limit for the database elastic pool in bytes.
-	MaxSizeBytes pulumi.Float64PtrInput
-	// The per database settings for the elastic pool.
+	ElasticPoolName     pulumi.StringPtrInput
+	LicenseType         pulumi.StringPtrInput
+	Location            pulumi.StringPtrInput
+	MaxSizeBytes        pulumi.Float64PtrInput
 	PerDatabaseSettings ElasticPoolPerDatabaseSettingsPtrInput
-	// The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
-	ResourceGroupName pulumi.StringInput
-	// The name of the server.
-	ServerName pulumi.StringInput
-	// The elastic pool SKU.
-	//
-	// The list of SKUs may vary by region and support offer. To determine the SKUs (including the SKU name, tier/edition, family, and capacity) that are available to your subscription in an Azure region, use the `Capabilities_ListByLocation` REST API or the following command:
-	Sku SkuPtrInput
-	// Resource tags.
-	Tags pulumi.StringMapInput
-	// Whether or not this elastic pool is zone redundant, which means the replicas of this elastic pool will be spread across multiple availability zones.
-	ZoneRedundant pulumi.BoolPtrInput
+	ResourceGroupName   pulumi.StringInput
+	ServerName          pulumi.StringInput
+	Sku                 SkuPtrInput
+	Tags                pulumi.StringMapInput
+	ZoneRedundant       pulumi.BoolPtrInput
 }
 
 func (ElasticPoolArgs) ElementType() reflect.Type {
@@ -203,9 +164,7 @@ func (i *ElasticPool) ToElasticPoolOutputWithContext(ctx context.Context) Elasti
 	return pulumi.ToOutputWithContext(ctx, i).(ElasticPoolOutput)
 }
 
-type ElasticPoolOutput struct {
-	*pulumi.OutputState
-}
+type ElasticPoolOutput struct{ *pulumi.OutputState }
 
 func (ElasticPoolOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*ElasticPool)(nil))

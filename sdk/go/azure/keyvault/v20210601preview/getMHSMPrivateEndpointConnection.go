@@ -7,7 +7,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Private endpoint connection resource.
 func LookupMHSMPrivateEndpointConnection(ctx *pulumi.Context, args *LookupMHSMPrivateEndpointConnectionArgs, opts ...pulumi.InvokeOption) (*LookupMHSMPrivateEndpointConnectionResult, error) {
 	var rv LookupMHSMPrivateEndpointConnectionResult
 	err := ctx.Invoke("azure-native:keyvault/v20210601preview:getMHSMPrivateEndpointConnection", args, &rv, opts...)
@@ -18,36 +17,22 @@ func LookupMHSMPrivateEndpointConnection(ctx *pulumi.Context, args *LookupMHSMPr
 }
 
 type LookupMHSMPrivateEndpointConnectionArgs struct {
-	// Name of the managed HSM Pool
-	Name string `pulumi:"name"`
-	// Name of the private endpoint connection associated with the managed hsm pool.
+	Name                          string `pulumi:"name"`
 	PrivateEndpointConnectionName string `pulumi:"privateEndpointConnectionName"`
-	// Name of the resource group that contains the managed HSM pool.
-	ResourceGroupName string `pulumi:"resourceGroupName"`
+	ResourceGroupName             string `pulumi:"resourceGroupName"`
 }
 
 // Private endpoint connection resource.
 type LookupMHSMPrivateEndpointConnectionResult struct {
-	// Modified whenever there is a change in the state of private endpoint connection.
-	Etag *string `pulumi:"etag"`
-	// The Azure Resource Manager resource ID for the managed HSM Pool.
-	Id string `pulumi:"id"`
-	// The supported Azure location where the managed HSM Pool should be created.
-	Location *string `pulumi:"location"`
-	// The name of the managed HSM Pool.
-	Name string `pulumi:"name"`
-	// Properties of the private endpoint object.
-	PrivateEndpoint *MHSMPrivateEndpointResponse `pulumi:"privateEndpoint"`
-	// Approval state of the private link connection.
+	Etag                              *string                                        `pulumi:"etag"`
+	Id                                string                                         `pulumi:"id"`
+	Location                          *string                                        `pulumi:"location"`
+	Name                              string                                         `pulumi:"name"`
+	PrivateEndpoint                   *MHSMPrivateEndpointResponse                   `pulumi:"privateEndpoint"`
 	PrivateLinkServiceConnectionState *MHSMPrivateLinkServiceConnectionStateResponse `pulumi:"privateLinkServiceConnectionState"`
-	// Provisioning state of the private endpoint connection.
-	ProvisioningState string `pulumi:"provisioningState"`
-	// SKU details
-	Sku *ManagedHsmSkuResponse `pulumi:"sku"`
-	// Metadata pertaining to creation and last modification of the key vault resource.
-	SystemData SystemDataResponse `pulumi:"systemData"`
-	// Resource tags
-	Tags map[string]string `pulumi:"tags"`
-	// The resource type of the managed HSM Pool.
-	Type string `pulumi:"type"`
+	ProvisioningState                 string                                         `pulumi:"provisioningState"`
+	Sku                               *ManagedHsmSkuResponse                         `pulumi:"sku"`
+	SystemData                        SystemDataResponse                             `pulumi:"systemData"`
+	Tags                              map[string]string                              `pulumi:"tags"`
+	Type                              string                                         `pulumi:"type"`
 }

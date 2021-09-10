@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.RecoveryServices.V20210601.Outputs
 {
 
+    /// <summary>
+    /// Customer Managed Key details of the resource.
+    /// </summary>
     [OutputType]
     public sealed class VaultPropertiesResponseEncryption
     {

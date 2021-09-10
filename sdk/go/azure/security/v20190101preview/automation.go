@@ -11,32 +11,20 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// The security automation resource.
 type Automation struct {
 	pulumi.CustomResourceState
 
-	// A collection of the actions which are triggered if all the configured rules evaluations, within at least one rule set, are true.
-	Actions pulumi.ArrayOutput `pulumi:"actions"`
-	// The security automation description.
-	Description pulumi.StringPtrOutput `pulumi:"description"`
-	// Entity tag is used for comparing two or more entities from the same requested resource.
-	Etag pulumi.StringPtrOutput `pulumi:"etag"`
-	// Indicates whether the security automation is enabled.
-	IsEnabled pulumi.BoolPtrOutput `pulumi:"isEnabled"`
-	// Kind of the resource
-	Kind pulumi.StringPtrOutput `pulumi:"kind"`
-	// Location where the resource is stored
-	Location pulumi.StringPtrOutput `pulumi:"location"`
-	// Resource name
-	Name pulumi.StringOutput `pulumi:"name"`
-	// A collection of scopes on which the security automations logic is applied. Supported scopes are the subscription itself or a resource group under that subscription. The automation will only apply on defined scopes.
-	Scopes AutomationScopeResponseArrayOutput `pulumi:"scopes"`
-	// A collection of the source event types which evaluate the security automation set of rules.
-	Sources AutomationSourceResponseArrayOutput `pulumi:"sources"`
-	// A list of key value pairs that describe the resource.
-	Tags pulumi.StringMapOutput `pulumi:"tags"`
-	// Resource type
-	Type pulumi.StringOutput `pulumi:"type"`
+	Actions     pulumi.ArrayOutput                  `pulumi:"actions"`
+	Description pulumi.StringPtrOutput              `pulumi:"description"`
+	Etag        pulumi.StringPtrOutput              `pulumi:"etag"`
+	IsEnabled   pulumi.BoolPtrOutput                `pulumi:"isEnabled"`
+	Kind        pulumi.StringPtrOutput              `pulumi:"kind"`
+	Location    pulumi.StringPtrOutput              `pulumi:"location"`
+	Name        pulumi.StringOutput                 `pulumi:"name"`
+	Scopes      AutomationScopeResponseArrayOutput  `pulumi:"scopes"`
+	Sources     AutomationSourceResponseArrayOutput `pulumi:"sources"`
+	Tags        pulumi.StringMapOutput              `pulumi:"tags"`
+	Type        pulumi.StringOutput                 `pulumi:"type"`
 }
 
 // NewAutomation registers a new resource with the given unique name, arguments, and options.
@@ -93,54 +81,32 @@ func (AutomationState) ElementType() reflect.Type {
 }
 
 type automationArgs struct {
-	// A collection of the actions which are triggered if all the configured rules evaluations, within at least one rule set, are true.
-	Actions []interface{} `pulumi:"actions"`
-	// The security automation name.
-	AutomationName *string `pulumi:"automationName"`
-	// The security automation description.
-	Description *string `pulumi:"description"`
-	// Entity tag is used for comparing two or more entities from the same requested resource.
-	Etag *string `pulumi:"etag"`
-	// Indicates whether the security automation is enabled.
-	IsEnabled *bool `pulumi:"isEnabled"`
-	// Kind of the resource
-	Kind *string `pulumi:"kind"`
-	// Location where the resource is stored
-	Location *string `pulumi:"location"`
-	// The name of the resource group within the user's subscription. The name is case insensitive.
-	ResourceGroupName string `pulumi:"resourceGroupName"`
-	// A collection of scopes on which the security automations logic is applied. Supported scopes are the subscription itself or a resource group under that subscription. The automation will only apply on defined scopes.
-	Scopes []AutomationScope `pulumi:"scopes"`
-	// A collection of the source event types which evaluate the security automation set of rules.
-	Sources []AutomationSource `pulumi:"sources"`
-	// A list of key value pairs that describe the resource.
-	Tags map[string]string `pulumi:"tags"`
+	Actions           []interface{}      `pulumi:"actions"`
+	AutomationName    *string            `pulumi:"automationName"`
+	Description       *string            `pulumi:"description"`
+	Etag              *string            `pulumi:"etag"`
+	IsEnabled         *bool              `pulumi:"isEnabled"`
+	Kind              *string            `pulumi:"kind"`
+	Location          *string            `pulumi:"location"`
+	ResourceGroupName string             `pulumi:"resourceGroupName"`
+	Scopes            []AutomationScope  `pulumi:"scopes"`
+	Sources           []AutomationSource `pulumi:"sources"`
+	Tags              map[string]string  `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a Automation resource.
 type AutomationArgs struct {
-	// A collection of the actions which are triggered if all the configured rules evaluations, within at least one rule set, are true.
-	Actions pulumi.ArrayInput
-	// The security automation name.
-	AutomationName pulumi.StringPtrInput
-	// The security automation description.
-	Description pulumi.StringPtrInput
-	// Entity tag is used for comparing two or more entities from the same requested resource.
-	Etag pulumi.StringPtrInput
-	// Indicates whether the security automation is enabled.
-	IsEnabled pulumi.BoolPtrInput
-	// Kind of the resource
-	Kind pulumi.StringPtrInput
-	// Location where the resource is stored
-	Location pulumi.StringPtrInput
-	// The name of the resource group within the user's subscription. The name is case insensitive.
+	Actions           pulumi.ArrayInput
+	AutomationName    pulumi.StringPtrInput
+	Description       pulumi.StringPtrInput
+	Etag              pulumi.StringPtrInput
+	IsEnabled         pulumi.BoolPtrInput
+	Kind              pulumi.StringPtrInput
+	Location          pulumi.StringPtrInput
 	ResourceGroupName pulumi.StringInput
-	// A collection of scopes on which the security automations logic is applied. Supported scopes are the subscription itself or a resource group under that subscription. The automation will only apply on defined scopes.
-	Scopes AutomationScopeArrayInput
-	// A collection of the source event types which evaluate the security automation set of rules.
-	Sources AutomationSourceArrayInput
-	// A list of key value pairs that describe the resource.
-	Tags pulumi.StringMapInput
+	Scopes            AutomationScopeArrayInput
+	Sources           AutomationSourceArrayInput
+	Tags              pulumi.StringMapInput
 }
 
 func (AutomationArgs) ElementType() reflect.Type {
@@ -166,9 +132,7 @@ func (i *Automation) ToAutomationOutputWithContext(ctx context.Context) Automati
 	return pulumi.ToOutputWithContext(ctx, i).(AutomationOutput)
 }
 
-type AutomationOutput struct {
-	*pulumi.OutputState
-}
+type AutomationOutput struct{ *pulumi.OutputState }
 
 func (AutomationOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*Automation)(nil))

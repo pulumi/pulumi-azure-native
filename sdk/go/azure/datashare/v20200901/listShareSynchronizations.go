@@ -7,7 +7,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// List response for get ShareSynchronization.
 func ListShareSynchronizations(ctx *pulumi.Context, args *ListShareSynchronizationsArgs, opts ...pulumi.InvokeOption) (*ListShareSynchronizationsResult, error) {
 	var rv ListShareSynchronizationsResult
 	err := ctx.Invoke("azure-native:datashare/v20200901:listShareSynchronizations", args, &rv, opts...)
@@ -18,24 +17,16 @@ func ListShareSynchronizations(ctx *pulumi.Context, args *ListShareSynchronizati
 }
 
 type ListShareSynchronizationsArgs struct {
-	// The name of the share account.
-	AccountName string `pulumi:"accountName"`
-	// Filters the results using OData syntax.
-	Filter *string `pulumi:"filter"`
-	// Sorts the results using OData syntax.
-	Orderby *string `pulumi:"orderby"`
-	// The resource group name.
-	ResourceGroupName string `pulumi:"resourceGroupName"`
-	// The name of the share.
-	ShareName string `pulumi:"shareName"`
-	// Continuation token
-	SkipToken *string `pulumi:"skipToken"`
+	AccountName       string  `pulumi:"accountName"`
+	Filter            *string `pulumi:"filter"`
+	Orderby           *string `pulumi:"orderby"`
+	ResourceGroupName string  `pulumi:"resourceGroupName"`
+	ShareName         string  `pulumi:"shareName"`
+	SkipToken         *string `pulumi:"skipToken"`
 }
 
 // List response for get ShareSynchronization.
 type ListShareSynchronizationsResult struct {
-	// The Url of next result page.
-	NextLink *string `pulumi:"nextLink"`
-	// Collection of items of type DataTransferObjects.
-	Value []ShareSynchronizationResponse `pulumi:"value"`
+	NextLink *string                        `pulumi:"nextLink"`
+	Value    []ShareSynchronizationResponse `pulumi:"value"`
 }

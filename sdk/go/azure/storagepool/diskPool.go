@@ -182,9 +182,7 @@ func (i *DiskPool) ToDiskPoolOutputWithContext(ctx context.Context) DiskPoolOutp
 	return pulumi.ToOutputWithContext(ctx, i).(DiskPoolOutput)
 }
 
-type DiskPoolOutput struct {
-	*pulumi.OutputState
-}
+type DiskPoolOutput struct{ *pulumi.OutputState }
 
 func (DiskPoolOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*DiskPool)(nil))

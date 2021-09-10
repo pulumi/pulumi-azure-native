@@ -7,7 +7,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// The peering service prefix class.
 func LookupPrefix(ctx *pulumi.Context, args *LookupPrefixArgs, opts ...pulumi.InvokeOption) (*LookupPrefixResult, error) {
 	var rv LookupPrefixResult
 	err := ctx.Invoke("azure-native:peering/v20200101preview:getPrefix", args, &rv, opts...)
@@ -18,36 +17,22 @@ func LookupPrefix(ctx *pulumi.Context, args *LookupPrefixArgs, opts ...pulumi.In
 }
 
 type LookupPrefixArgs struct {
-	// The properties to be expanded.
-	Expand *string `pulumi:"expand"`
-	// The name of the peering service.
-	PeeringServiceName string `pulumi:"peeringServiceName"`
-	// The name of the prefix.
-	PrefixName string `pulumi:"prefixName"`
-	// The name of the resource group.
-	ResourceGroupName string `pulumi:"resourceGroupName"`
+	Expand             *string `pulumi:"expand"`
+	PeeringServiceName string  `pulumi:"peeringServiceName"`
+	PrefixName         string  `pulumi:"prefixName"`
+	ResourceGroupName  string  `pulumi:"resourceGroupName"`
 }
 
 // The peering service prefix class.
 type LookupPrefixResult struct {
-	// The error message for validation state
-	ErrorMessage string `pulumi:"errorMessage"`
-	// The list of events for peering service prefix
-	Events []PeeringServicePrefixEventResponse `pulumi:"events"`
-	// The ID of the resource.
-	Id string `pulumi:"id"`
-	// The prefix learned type
-	LearnedType string `pulumi:"learnedType"`
-	// The name of the resource.
-	Name string `pulumi:"name"`
-	// The peering service prefix key
-	PeeringServicePrefixKey *string `pulumi:"peeringServicePrefixKey"`
-	// The prefix from which your traffic originates.
-	Prefix *string `pulumi:"prefix"`
-	// The prefix validation state
-	PrefixValidationState string `pulumi:"prefixValidationState"`
-	// The provisioning state of the resource.
-	ProvisioningState string `pulumi:"provisioningState"`
-	// The type of the resource.
-	Type string `pulumi:"type"`
+	ErrorMessage            string                              `pulumi:"errorMessage"`
+	Events                  []PeeringServicePrefixEventResponse `pulumi:"events"`
+	Id                      string                              `pulumi:"id"`
+	LearnedType             string                              `pulumi:"learnedType"`
+	Name                    string                              `pulumi:"name"`
+	PeeringServicePrefixKey *string                             `pulumi:"peeringServicePrefixKey"`
+	Prefix                  *string                             `pulumi:"prefix"`
+	PrefixValidationState   string                              `pulumi:"prefixValidationState"`
+	ProvisioningState       string                              `pulumi:"provisioningState"`
+	Type                    string                              `pulumi:"type"`
 }

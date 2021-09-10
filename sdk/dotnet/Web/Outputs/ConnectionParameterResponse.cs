@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.Web.Outputs
 {
 
+    /// <summary>
+    /// Connection provider parameters
+    /// </summary>
     [OutputType]
     public sealed class ConnectionParameterResponse
     {

@@ -11,15 +11,11 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Single item in a List or Get VirtualNetworkRules operation
 type NamespaceVirtualNetworkRule struct {
 	pulumi.CustomResourceState
 
-	// Resource name
-	Name pulumi.StringOutput `pulumi:"name"`
-	// Resource type
-	Type pulumi.StringOutput `pulumi:"type"`
-	// Resource ID of Virtual Network Subnet
+	Name                   pulumi.StringOutput    `pulumi:"name"`
+	Type                   pulumi.StringOutput    `pulumi:"type"`
 	VirtualNetworkSubnetId pulumi.StringPtrOutput `pulumi:"virtualNetworkSubnetId"`
 }
 
@@ -80,25 +76,17 @@ func (NamespaceVirtualNetworkRuleState) ElementType() reflect.Type {
 }
 
 type namespaceVirtualNetworkRuleArgs struct {
-	// The namespace name
-	NamespaceName string `pulumi:"namespaceName"`
-	// Name of the Resource group within the Azure subscription.
-	ResourceGroupName string `pulumi:"resourceGroupName"`
-	// The Virtual Network Rule name.
+	NamespaceName          string  `pulumi:"namespaceName"`
+	ResourceGroupName      string  `pulumi:"resourceGroupName"`
 	VirtualNetworkRuleName *string `pulumi:"virtualNetworkRuleName"`
-	// Resource ID of Virtual Network Subnet
 	VirtualNetworkSubnetId *string `pulumi:"virtualNetworkSubnetId"`
 }
 
 // The set of arguments for constructing a NamespaceVirtualNetworkRule resource.
 type NamespaceVirtualNetworkRuleArgs struct {
-	// The namespace name
-	NamespaceName pulumi.StringInput
-	// Name of the Resource group within the Azure subscription.
-	ResourceGroupName pulumi.StringInput
-	// The Virtual Network Rule name.
+	NamespaceName          pulumi.StringInput
+	ResourceGroupName      pulumi.StringInput
 	VirtualNetworkRuleName pulumi.StringPtrInput
-	// Resource ID of Virtual Network Subnet
 	VirtualNetworkSubnetId pulumi.StringPtrInput
 }
 
@@ -125,9 +113,7 @@ func (i *NamespaceVirtualNetworkRule) ToNamespaceVirtualNetworkRuleOutputWithCon
 	return pulumi.ToOutputWithContext(ctx, i).(NamespaceVirtualNetworkRuleOutput)
 }
 
-type NamespaceVirtualNetworkRuleOutput struct {
-	*pulumi.OutputState
-}
+type NamespaceVirtualNetworkRuleOutput struct{ *pulumi.OutputState }
 
 func (NamespaceVirtualNetworkRuleOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*NamespaceVirtualNetworkRule)(nil))

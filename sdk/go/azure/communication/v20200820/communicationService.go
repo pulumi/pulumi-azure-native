@@ -11,32 +11,20 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// A class representing a CommunicationService resource.
 type CommunicationService struct {
 	pulumi.CustomResourceState
 
-	// The location where the communication service stores its data at rest.
-	DataLocation pulumi.StringOutput `pulumi:"dataLocation"`
-	// FQDN of the CommunicationService instance.
-	HostName pulumi.StringOutput `pulumi:"hostName"`
-	// The immutable resource Id of the communication service.
-	ImmutableResourceId pulumi.StringOutput `pulumi:"immutableResourceId"`
-	// The Azure location where the CommunicationService is running.
-	Location pulumi.StringPtrOutput `pulumi:"location"`
-	// The name of the resource
-	Name pulumi.StringOutput `pulumi:"name"`
-	// Resource ID of an Azure Notification Hub linked to this resource.
-	NotificationHubId pulumi.StringOutput `pulumi:"notificationHubId"`
-	// Provisioning state of the resource.
-	ProvisioningState pulumi.StringOutput `pulumi:"provisioningState"`
-	// Metadata pertaining to creation and last modification of the resource.
-	SystemData SystemDataResponseOutput `pulumi:"systemData"`
-	// Tags of the service which is a list of key value pairs that describe the resource.
-	Tags pulumi.StringMapOutput `pulumi:"tags"`
-	// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
-	Type pulumi.StringOutput `pulumi:"type"`
-	// Version of the CommunicationService resource. Probably you need the same or higher version of client SDKs.
-	Version pulumi.StringOutput `pulumi:"version"`
+	DataLocation        pulumi.StringOutput      `pulumi:"dataLocation"`
+	HostName            pulumi.StringOutput      `pulumi:"hostName"`
+	ImmutableResourceId pulumi.StringOutput      `pulumi:"immutableResourceId"`
+	Location            pulumi.StringPtrOutput   `pulumi:"location"`
+	Name                pulumi.StringOutput      `pulumi:"name"`
+	NotificationHubId   pulumi.StringOutput      `pulumi:"notificationHubId"`
+	ProvisioningState   pulumi.StringOutput      `pulumi:"provisioningState"`
+	SystemData          SystemDataResponseOutput `pulumi:"systemData"`
+	Tags                pulumi.StringMapOutput   `pulumi:"tags"`
+	Type                pulumi.StringOutput      `pulumi:"type"`
+	Version             pulumi.StringOutput      `pulumi:"version"`
 }
 
 // NewCommunicationService registers a new resource with the given unique name, arguments, and options.
@@ -102,30 +90,20 @@ func (CommunicationServiceState) ElementType() reflect.Type {
 }
 
 type communicationServiceArgs struct {
-	// The name of the CommunicationService resource.
-	CommunicationServiceName *string `pulumi:"communicationServiceName"`
-	// The location where the communication service stores its data at rest.
-	DataLocation string `pulumi:"dataLocation"`
-	// The Azure location where the CommunicationService is running.
-	Location *string `pulumi:"location"`
-	// The name of the resource group. The name is case insensitive.
-	ResourceGroupName string `pulumi:"resourceGroupName"`
-	// Tags of the service which is a list of key value pairs that describe the resource.
-	Tags map[string]string `pulumi:"tags"`
+	CommunicationServiceName *string           `pulumi:"communicationServiceName"`
+	DataLocation             string            `pulumi:"dataLocation"`
+	Location                 *string           `pulumi:"location"`
+	ResourceGroupName        string            `pulumi:"resourceGroupName"`
+	Tags                     map[string]string `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a CommunicationService resource.
 type CommunicationServiceArgs struct {
-	// The name of the CommunicationService resource.
 	CommunicationServiceName pulumi.StringPtrInput
-	// The location where the communication service stores its data at rest.
-	DataLocation pulumi.StringInput
-	// The Azure location where the CommunicationService is running.
-	Location pulumi.StringPtrInput
-	// The name of the resource group. The name is case insensitive.
-	ResourceGroupName pulumi.StringInput
-	// Tags of the service which is a list of key value pairs that describe the resource.
-	Tags pulumi.StringMapInput
+	DataLocation             pulumi.StringInput
+	Location                 pulumi.StringPtrInput
+	ResourceGroupName        pulumi.StringInput
+	Tags                     pulumi.StringMapInput
 }
 
 func (CommunicationServiceArgs) ElementType() reflect.Type {
@@ -151,9 +129,7 @@ func (i *CommunicationService) ToCommunicationServiceOutputWithContext(ctx conte
 	return pulumi.ToOutputWithContext(ctx, i).(CommunicationServiceOutput)
 }
 
-type CommunicationServiceOutput struct {
-	*pulumi.OutputState
-}
+type CommunicationServiceOutput struct{ *pulumi.OutputState }
 
 func (CommunicationServiceOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*CommunicationService)(nil))

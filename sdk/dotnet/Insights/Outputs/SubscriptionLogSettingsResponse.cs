@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.Insights.Outputs
 {
 
+    /// <summary>
+    /// Part of Subscription diagnostic setting. Specifies the settings for a particular log.
+    /// </summary>
     [OutputType]
     public sealed class SubscriptionLogSettingsResponse
     {

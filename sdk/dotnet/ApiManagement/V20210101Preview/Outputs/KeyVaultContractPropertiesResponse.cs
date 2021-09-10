@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.ApiManagement.V20210101Preview.Outputs
 {
 
+    /// <summary>
+    /// KeyVault contract details.
+    /// </summary>
     [OutputType]
     public sealed class KeyVaultContractPropertiesResponse
     {

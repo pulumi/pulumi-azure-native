@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.Security.V20200101.Outputs
 {
 
+    /// <summary>
+    /// Represents a path that is recommended to be allowed and its properties
+    /// </summary>
     [OutputType]
     public sealed class PathRecommendationResponse
     {

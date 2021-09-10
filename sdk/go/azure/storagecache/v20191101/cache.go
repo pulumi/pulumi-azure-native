@@ -11,32 +11,20 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// A Cache instance. Follows Azure Resource Manager standards: https://github.com/Azure/azure-resource-manager-rpc/blob/master/v1.0/resource-api-reference.md
 type Cache struct {
 	pulumi.CustomResourceState
 
-	// The size of this Cache, in GB.
-	CacheSizeGB pulumi.IntPtrOutput `pulumi:"cacheSizeGB"`
-	// Health of the Cache.
-	Health CacheHealthResponseOutput `pulumi:"health"`
-	// Region name string.
-	Location pulumi.StringPtrOutput `pulumi:"location"`
-	// Array of IP addresses that can be used by clients mounting this Cache.
-	MountAddresses pulumi.StringArrayOutput `pulumi:"mountAddresses"`
-	// Name of Cache.
-	Name pulumi.StringOutput `pulumi:"name"`
-	// ARM provisioning state, see https://github.com/Azure/azure-resource-manager-rpc/blob/master/v1.0/Addendum.md#provisioningstate-property
-	ProvisioningState pulumi.StringPtrOutput `pulumi:"provisioningState"`
-	// SKU for the Cache.
-	Sku CacheResponseSkuPtrOutput `pulumi:"sku"`
-	// Subnet used for the Cache.
-	Subnet pulumi.StringPtrOutput `pulumi:"subnet"`
-	// ARM tags as name/value pairs.
-	Tags pulumi.AnyOutput `pulumi:"tags"`
-	// Type of the Cache; Microsoft.StorageCache/Cache
-	Type pulumi.StringOutput `pulumi:"type"`
-	// Upgrade status of the Cache.
-	UpgradeStatus CacheUpgradeStatusResponsePtrOutput `pulumi:"upgradeStatus"`
+	CacheSizeGB       pulumi.IntPtrOutput                 `pulumi:"cacheSizeGB"`
+	Health            CacheHealthResponseOutput           `pulumi:"health"`
+	Location          pulumi.StringPtrOutput              `pulumi:"location"`
+	MountAddresses    pulumi.StringArrayOutput            `pulumi:"mountAddresses"`
+	Name              pulumi.StringOutput                 `pulumi:"name"`
+	ProvisioningState pulumi.StringPtrOutput              `pulumi:"provisioningState"`
+	Sku               CacheResponseSkuPtrOutput           `pulumi:"sku"`
+	Subnet            pulumi.StringPtrOutput              `pulumi:"subnet"`
+	Tags              pulumi.AnyOutput                    `pulumi:"tags"`
+	Type              pulumi.StringOutput                 `pulumi:"type"`
+	UpgradeStatus     CacheUpgradeStatusResponsePtrOutput `pulumi:"upgradeStatus"`
 }
 
 // NewCache registers a new resource with the given unique name, arguments, and options.
@@ -123,42 +111,26 @@ func (CacheState) ElementType() reflect.Type {
 }
 
 type cacheArgs struct {
-	// Name of Cache.
-	CacheName *string `pulumi:"cacheName"`
-	// The size of this Cache, in GB.
-	CacheSizeGB *int `pulumi:"cacheSizeGB"`
-	// Region name string.
-	Location *string `pulumi:"location"`
-	// ARM provisioning state, see https://github.com/Azure/azure-resource-manager-rpc/blob/master/v1.0/Addendum.md#provisioningstate-property
-	ProvisioningState *string `pulumi:"provisioningState"`
-	// Target resource group.
-	ResourceGroupName string `pulumi:"resourceGroupName"`
-	// SKU for the Cache.
-	Sku *CacheSku `pulumi:"sku"`
-	// Subnet used for the Cache.
-	Subnet *string `pulumi:"subnet"`
-	// ARM tags as name/value pairs.
-	Tags interface{} `pulumi:"tags"`
+	CacheName         *string     `pulumi:"cacheName"`
+	CacheSizeGB       *int        `pulumi:"cacheSizeGB"`
+	Location          *string     `pulumi:"location"`
+	ProvisioningState *string     `pulumi:"provisioningState"`
+	ResourceGroupName string      `pulumi:"resourceGroupName"`
+	Sku               *CacheSku   `pulumi:"sku"`
+	Subnet            *string     `pulumi:"subnet"`
+	Tags              interface{} `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a Cache resource.
 type CacheArgs struct {
-	// Name of Cache.
-	CacheName pulumi.StringPtrInput
-	// The size of this Cache, in GB.
-	CacheSizeGB pulumi.IntPtrInput
-	// Region name string.
-	Location pulumi.StringPtrInput
-	// ARM provisioning state, see https://github.com/Azure/azure-resource-manager-rpc/blob/master/v1.0/Addendum.md#provisioningstate-property
+	CacheName         pulumi.StringPtrInput
+	CacheSizeGB       pulumi.IntPtrInput
+	Location          pulumi.StringPtrInput
 	ProvisioningState pulumi.StringPtrInput
-	// Target resource group.
 	ResourceGroupName pulumi.StringInput
-	// SKU for the Cache.
-	Sku CacheSkuPtrInput
-	// Subnet used for the Cache.
-	Subnet pulumi.StringPtrInput
-	// ARM tags as name/value pairs.
-	Tags pulumi.Input
+	Sku               CacheSkuPtrInput
+	Subnet            pulumi.StringPtrInput
+	Tags              pulumi.Input
 }
 
 func (CacheArgs) ElementType() reflect.Type {
@@ -184,9 +156,7 @@ func (i *Cache) ToCacheOutputWithContext(ctx context.Context) CacheOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(CacheOutput)
 }
 
-type CacheOutput struct {
-	*pulumi.OutputState
-}
+type CacheOutput struct{ *pulumi.OutputState }
 
 func (CacheOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*Cache)(nil))

@@ -7,7 +7,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// A long term retention policy.
 func LookupLongTermRetentionPolicy(ctx *pulumi.Context, args *LookupLongTermRetentionPolicyArgs, opts ...pulumi.InvokeOption) (*LookupLongTermRetentionPolicyResult, error) {
 	var rv LookupLongTermRetentionPolicyResult
 	err := ctx.Invoke("azure-native:sql/v20200202preview:getLongTermRetentionPolicy", args, &rv, opts...)
@@ -18,30 +17,19 @@ func LookupLongTermRetentionPolicy(ctx *pulumi.Context, args *LookupLongTermRete
 }
 
 type LookupLongTermRetentionPolicyArgs struct {
-	// The name of the database.
-	DatabaseName string `pulumi:"databaseName"`
-	// The policy name. Should always be Default.
-	PolicyName string `pulumi:"policyName"`
-	// The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
+	DatabaseName      string `pulumi:"databaseName"`
+	PolicyName        string `pulumi:"policyName"`
 	ResourceGroupName string `pulumi:"resourceGroupName"`
-	// The name of the server.
-	ServerName string `pulumi:"serverName"`
+	ServerName        string `pulumi:"serverName"`
 }
 
 // A long term retention policy.
 type LookupLongTermRetentionPolicyResult struct {
-	// Resource ID.
-	Id string `pulumi:"id"`
-	// The monthly retention policy for an LTR backup in an ISO 8601 format.
+	Id               string  `pulumi:"id"`
 	MonthlyRetention *string `pulumi:"monthlyRetention"`
-	// Resource name.
-	Name string `pulumi:"name"`
-	// Resource type.
-	Type string `pulumi:"type"`
-	// The week of year to take the yearly backup in an ISO 8601 format.
-	WeekOfYear *int `pulumi:"weekOfYear"`
-	// The weekly retention policy for an LTR backup in an ISO 8601 format.
-	WeeklyRetention *string `pulumi:"weeklyRetention"`
-	// The yearly retention policy for an LTR backup in an ISO 8601 format.
-	YearlyRetention *string `pulumi:"yearlyRetention"`
+	Name             string  `pulumi:"name"`
+	Type             string  `pulumi:"type"`
+	WeekOfYear       *int    `pulumi:"weekOfYear"`
+	WeeklyRetention  *string `pulumi:"weeklyRetention"`
+	YearlyRetention  *string `pulumi:"yearlyRetention"`
 }

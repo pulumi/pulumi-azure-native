@@ -111,9 +111,7 @@ func (i *ConsoleWithLocation) ToConsoleWithLocationOutputWithContext(ctx context
 	return pulumi.ToOutputWithContext(ctx, i).(ConsoleWithLocationOutput)
 }
 
-type ConsoleWithLocationOutput struct {
-	*pulumi.OutputState
-}
+type ConsoleWithLocationOutput struct{ *pulumi.OutputState }
 
 func (ConsoleWithLocationOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*ConsoleWithLocation)(nil))

@@ -11,34 +11,21 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// An Azure Cosmos DB container.
 type DatabaseAccountSqlContainer struct {
 	pulumi.CustomResourceState
 
-	// The conflict resolution policy for the container.
 	ConflictResolutionPolicy ConflictResolutionPolicyResponsePtrOutput `pulumi:"conflictResolutionPolicy"`
-	// Default time to live
-	DefaultTtl pulumi.IntPtrOutput `pulumi:"defaultTtl"`
-	// A system generated property representing the resource etag required for optimistic concurrency control.
-	Etag pulumi.StringPtrOutput `pulumi:"etag"`
-	// The configuration of the indexing policy. By default, the indexing is automatic for all document paths within the container
-	IndexingPolicy IndexingPolicyResponsePtrOutput `pulumi:"indexingPolicy"`
-	// The location of the resource group to which the resource belongs.
-	Location pulumi.StringPtrOutput `pulumi:"location"`
-	// The name of the database account.
-	Name pulumi.StringOutput `pulumi:"name"`
-	// The configuration of the partition key to be used for partitioning data into multiple partitions
-	PartitionKey ContainerPartitionKeyResponsePtrOutput `pulumi:"partitionKey"`
-	// A system generated property. A unique identifier.
-	Rid pulumi.StringPtrOutput `pulumi:"rid"`
-	// Tags are a list of key-value pairs that describe the resource. These tags can be used in viewing and grouping this resource (across resource groups). A maximum of 15 tags can be provided for a resource. Each tag must have a key no greater than 128 characters and value no greater than 256 characters. For example, the default experience for a template type is set with "defaultExperience": "Cassandra". Current "defaultExperience" values also include "Table", "Graph", "DocumentDB", and "MongoDB".
-	Tags pulumi.StringMapOutput `pulumi:"tags"`
-	// A system generated property that denotes the last updated timestamp of the resource.
-	Ts pulumi.AnyOutput `pulumi:"ts"`
-	// The type of Azure resource.
-	Type pulumi.StringOutput `pulumi:"type"`
-	// The unique key policy configuration for specifying uniqueness constraints on documents in the collection in the Azure Cosmos DB service.
-	UniqueKeyPolicy UniqueKeyPolicyResponsePtrOutput `pulumi:"uniqueKeyPolicy"`
+	DefaultTtl               pulumi.IntPtrOutput                       `pulumi:"defaultTtl"`
+	Etag                     pulumi.StringPtrOutput                    `pulumi:"etag"`
+	IndexingPolicy           IndexingPolicyResponsePtrOutput           `pulumi:"indexingPolicy"`
+	Location                 pulumi.StringPtrOutput                    `pulumi:"location"`
+	Name                     pulumi.StringOutput                       `pulumi:"name"`
+	PartitionKey             ContainerPartitionKeyResponsePtrOutput    `pulumi:"partitionKey"`
+	Rid                      pulumi.StringPtrOutput                    `pulumi:"rid"`
+	Tags                     pulumi.StringMapOutput                    `pulumi:"tags"`
+	Ts                       pulumi.AnyOutput                          `pulumi:"ts"`
+	Type                     pulumi.StringOutput                       `pulumi:"type"`
+	UniqueKeyPolicy          UniqueKeyPolicyResponsePtrOutput          `pulumi:"uniqueKeyPolicy"`
 }
 
 // NewDatabaseAccountSqlContainer registers a new resource with the given unique name, arguments, and options.
@@ -215,33 +202,21 @@ func (DatabaseAccountSqlContainerState) ElementType() reflect.Type {
 }
 
 type databaseAccountSqlContainerArgs struct {
-	// Cosmos DB database account name.
-	AccountName string `pulumi:"accountName"`
-	// Cosmos DB container name.
-	ContainerName *string `pulumi:"containerName"`
-	// Cosmos DB database name.
-	DatabaseName string `pulumi:"databaseName"`
-	// A key-value pair of options to be applied for the request. This corresponds to the headers sent with the request.
-	Options map[string]string `pulumi:"options"`
-	// The standard JSON format of a container
-	Resource SqlContainerResource `pulumi:"resource"`
-	// Name of an Azure resource group.
-	ResourceGroupName string `pulumi:"resourceGroupName"`
+	AccountName       string               `pulumi:"accountName"`
+	ContainerName     *string              `pulumi:"containerName"`
+	DatabaseName      string               `pulumi:"databaseName"`
+	Options           map[string]string    `pulumi:"options"`
+	Resource          SqlContainerResource `pulumi:"resource"`
+	ResourceGroupName string               `pulumi:"resourceGroupName"`
 }
 
 // The set of arguments for constructing a DatabaseAccountSqlContainer resource.
 type DatabaseAccountSqlContainerArgs struct {
-	// Cosmos DB database account name.
-	AccountName pulumi.StringInput
-	// Cosmos DB container name.
-	ContainerName pulumi.StringPtrInput
-	// Cosmos DB database name.
-	DatabaseName pulumi.StringInput
-	// A key-value pair of options to be applied for the request. This corresponds to the headers sent with the request.
-	Options pulumi.StringMapInput
-	// The standard JSON format of a container
-	Resource SqlContainerResourceInput
-	// Name of an Azure resource group.
+	AccountName       pulumi.StringInput
+	ContainerName     pulumi.StringPtrInput
+	DatabaseName      pulumi.StringInput
+	Options           pulumi.StringMapInput
+	Resource          SqlContainerResourceInput
 	ResourceGroupName pulumi.StringInput
 }
 
@@ -268,9 +243,7 @@ func (i *DatabaseAccountSqlContainer) ToDatabaseAccountSqlContainerOutputWithCon
 	return pulumi.ToOutputWithContext(ctx, i).(DatabaseAccountSqlContainerOutput)
 }
 
-type DatabaseAccountSqlContainerOutput struct {
-	*pulumi.OutputState
-}
+type DatabaseAccountSqlContainerOutput struct{ *pulumi.OutputState }
 
 func (DatabaseAccountSqlContainerOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*DatabaseAccountSqlContainer)(nil))

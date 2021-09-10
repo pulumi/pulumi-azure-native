@@ -172,9 +172,7 @@ func (i *KustoPoolAttachedDatabaseConfiguration) ToKustoPoolAttachedDatabaseConf
 	return pulumi.ToOutputWithContext(ctx, i).(KustoPoolAttachedDatabaseConfigurationOutput)
 }
 
-type KustoPoolAttachedDatabaseConfigurationOutput struct {
-	*pulumi.OutputState
-}
+type KustoPoolAttachedDatabaseConfigurationOutput struct{ *pulumi.OutputState }
 
 func (KustoPoolAttachedDatabaseConfigurationOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*KustoPoolAttachedDatabaseConfiguration)(nil))

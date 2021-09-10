@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.Media.Outputs
 {
 
+    /// <summary>
+    /// Select video tracks from the input by specifying an attribute and an attribute filter.
+    /// </summary>
     [OutputType]
     public sealed class SelectVideoTrackByAttributeResponse
     {

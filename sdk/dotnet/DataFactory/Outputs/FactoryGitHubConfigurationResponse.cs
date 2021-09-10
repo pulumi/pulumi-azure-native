@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.DataFactory.Outputs
 {
 
+    /// <summary>
+    /// Factory's GitHub repo information.
+    /// </summary>
     [OutputType]
     public sealed class FactoryGitHubConfigurationResponse
     {

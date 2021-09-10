@@ -71,28 +71,50 @@ from . import outputs
 
 # Make subpackages available:
 if typing.TYPE_CHECKING:
-    import pulumi_azure_native.compute.v20150615 as v20150615
-    import pulumi_azure_native.compute.v20160330 as v20160330
-    import pulumi_azure_native.compute.v20160430preview as v20160430preview
-    import pulumi_azure_native.compute.v20170330 as v20170330
-    import pulumi_azure_native.compute.v20171201 as v20171201
-    import pulumi_azure_native.compute.v20180401 as v20180401
-    import pulumi_azure_native.compute.v20180601 as v20180601
-    import pulumi_azure_native.compute.v20180930 as v20180930
-    import pulumi_azure_native.compute.v20181001 as v20181001
-    import pulumi_azure_native.compute.v20190301 as v20190301
-    import pulumi_azure_native.compute.v20190701 as v20190701
-    import pulumi_azure_native.compute.v20191101 as v20191101
-    import pulumi_azure_native.compute.v20191201 as v20191201
-    import pulumi_azure_native.compute.v20200501 as v20200501
-    import pulumi_azure_native.compute.v20200601 as v20200601
-    import pulumi_azure_native.compute.v20200630 as v20200630
-    import pulumi_azure_native.compute.v20200930 as v20200930
-    import pulumi_azure_native.compute.v20201001preview as v20201001preview
-    import pulumi_azure_native.compute.v20201201 as v20201201
-    import pulumi_azure_native.compute.v20210301 as v20210301
-    import pulumi_azure_native.compute.v20210401 as v20210401
-    import pulumi_azure_native.compute.v20210701 as v20210701
+    import pulumi_azure_native.compute.v20150615 as __v20150615
+    v20150615 = __v20150615
+    import pulumi_azure_native.compute.v20160330 as __v20160330
+    v20160330 = __v20160330
+    import pulumi_azure_native.compute.v20160430preview as __v20160430preview
+    v20160430preview = __v20160430preview
+    import pulumi_azure_native.compute.v20170330 as __v20170330
+    v20170330 = __v20170330
+    import pulumi_azure_native.compute.v20171201 as __v20171201
+    v20171201 = __v20171201
+    import pulumi_azure_native.compute.v20180401 as __v20180401
+    v20180401 = __v20180401
+    import pulumi_azure_native.compute.v20180601 as __v20180601
+    v20180601 = __v20180601
+    import pulumi_azure_native.compute.v20180930 as __v20180930
+    v20180930 = __v20180930
+    import pulumi_azure_native.compute.v20181001 as __v20181001
+    v20181001 = __v20181001
+    import pulumi_azure_native.compute.v20190301 as __v20190301
+    v20190301 = __v20190301
+    import pulumi_azure_native.compute.v20190701 as __v20190701
+    v20190701 = __v20190701
+    import pulumi_azure_native.compute.v20191101 as __v20191101
+    v20191101 = __v20191101
+    import pulumi_azure_native.compute.v20191201 as __v20191201
+    v20191201 = __v20191201
+    import pulumi_azure_native.compute.v20200501 as __v20200501
+    v20200501 = __v20200501
+    import pulumi_azure_native.compute.v20200601 as __v20200601
+    v20200601 = __v20200601
+    import pulumi_azure_native.compute.v20200630 as __v20200630
+    v20200630 = __v20200630
+    import pulumi_azure_native.compute.v20200930 as __v20200930
+    v20200930 = __v20200930
+    import pulumi_azure_native.compute.v20201001preview as __v20201001preview
+    v20201001preview = __v20201001preview
+    import pulumi_azure_native.compute.v20201201 as __v20201201
+    v20201201 = __v20201201
+    import pulumi_azure_native.compute.v20210301 as __v20210301
+    v20210301 = __v20210301
+    import pulumi_azure_native.compute.v20210401 as __v20210401
+    v20210401 = __v20210401
+    import pulumi_azure_native.compute.v20210701 as __v20210701
+    v20210701 = __v20210701
 else:
     v20150615 = _utilities.lazy_import('pulumi_azure_native.compute.v20150615')
     v20160330 = _utilities.lazy_import('pulumi_azure_native.compute.v20160330')

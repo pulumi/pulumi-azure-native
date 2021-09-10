@@ -10,12 +10,9 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// The private link scope resource reference.
 type PrivateLinkScopedResourceResponse struct {
-	// The full resource Id of the private link scope resource.
 	ResourceId *string `pulumi:"resourceId"`
-	// The private link scope unique Identifier.
-	ScopeId *string `pulumi:"scopeId"`
+	ScopeId    *string `pulumi:"scopeId"`
 }
 
 // PrivateLinkScopedResourceResponseInput is an input type that accepts PrivateLinkScopedResourceResponseArgs and PrivateLinkScopedResourceResponseOutput values.
@@ -29,12 +26,9 @@ type PrivateLinkScopedResourceResponseInput interface {
 	ToPrivateLinkScopedResourceResponseOutputWithContext(context.Context) PrivateLinkScopedResourceResponseOutput
 }
 
-// The private link scope resource reference.
 type PrivateLinkScopedResourceResponseArgs struct {
-	// The full resource Id of the private link scope resource.
 	ResourceId pulumi.StringPtrInput `pulumi:"resourceId"`
-	// The private link scope unique Identifier.
-	ScopeId pulumi.StringPtrInput `pulumi:"scopeId"`
+	ScopeId    pulumi.StringPtrInput `pulumi:"scopeId"`
 }
 
 func (PrivateLinkScopedResourceResponseArgs) ElementType() reflect.Type {
@@ -74,7 +68,6 @@ func (i PrivateLinkScopedResourceResponseArray) ToPrivateLinkScopedResourceRespo
 	return pulumi.ToOutputWithContext(ctx, i).(PrivateLinkScopedResourceResponseArrayOutput)
 }
 
-// The private link scope resource reference.
 type PrivateLinkScopedResourceResponseOutput struct{ *pulumi.OutputState }
 
 func (PrivateLinkScopedResourceResponseOutput) ElementType() reflect.Type {
@@ -89,12 +82,10 @@ func (o PrivateLinkScopedResourceResponseOutput) ToPrivateLinkScopedResourceResp
 	return o
 }
 
-// The full resource Id of the private link scope resource.
 func (o PrivateLinkScopedResourceResponseOutput) ResourceId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v PrivateLinkScopedResourceResponse) *string { return v.ResourceId }).(pulumi.StringPtrOutput)
 }
 
-// The private link scope unique Identifier.
 func (o PrivateLinkScopedResourceResponseOutput) ScopeId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v PrivateLinkScopedResourceResponse) *string { return v.ScopeId }).(pulumi.StringPtrOutput)
 }

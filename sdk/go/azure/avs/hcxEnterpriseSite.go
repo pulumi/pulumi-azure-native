@@ -142,9 +142,7 @@ func (i *HcxEnterpriseSite) ToHcxEnterpriseSiteOutputWithContext(ctx context.Con
 	return pulumi.ToOutputWithContext(ctx, i).(HcxEnterpriseSiteOutput)
 }
 
-type HcxEnterpriseSiteOutput struct {
-	*pulumi.OutputState
-}
+type HcxEnterpriseSiteOutput struct{ *pulumi.OutputState }
 
 func (HcxEnterpriseSiteOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*HcxEnterpriseSite)(nil))

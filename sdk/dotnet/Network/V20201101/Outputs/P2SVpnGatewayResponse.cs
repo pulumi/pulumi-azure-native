@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.Network.V20201101.Outputs
 {
 
+    /// <summary>
+    /// P2SVpnGateway Resource.
+    /// </summary>
     [OutputType]
     public sealed class P2SVpnGatewayResponse
     {

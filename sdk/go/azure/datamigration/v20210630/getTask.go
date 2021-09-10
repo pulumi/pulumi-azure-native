@@ -7,7 +7,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// A task resource
 func LookupTask(ctx *pulumi.Context, args *LookupTaskArgs, opts ...pulumi.InvokeOption) (*LookupTaskResult, error) {
 	var rv LookupTaskResult
 	err := ctx.Invoke("azure-native:datamigration/v20210630:getTask", args, &rv, opts...)
@@ -18,30 +17,19 @@ func LookupTask(ctx *pulumi.Context, args *LookupTaskArgs, opts ...pulumi.Invoke
 }
 
 type LookupTaskArgs struct {
-	// Expand the response
-	Expand *string `pulumi:"expand"`
-	// Name of the resource group
-	GroupName string `pulumi:"groupName"`
-	// Name of the project
-	ProjectName string `pulumi:"projectName"`
-	// Name of the service
-	ServiceName string `pulumi:"serviceName"`
-	// Name of the Task
-	TaskName string `pulumi:"taskName"`
+	Expand      *string `pulumi:"expand"`
+	GroupName   string  `pulumi:"groupName"`
+	ProjectName string  `pulumi:"projectName"`
+	ServiceName string  `pulumi:"serviceName"`
+	TaskName    string  `pulumi:"taskName"`
 }
 
 // A task resource
 type LookupTaskResult struct {
-	// HTTP strong entity tag value. This is ignored if submitted.
-	Etag *string `pulumi:"etag"`
-	// Resource ID.
-	Id string `pulumi:"id"`
-	// Resource name.
-	Name string `pulumi:"name"`
-	// Custom task properties
-	Properties interface{} `pulumi:"properties"`
-	// Metadata pertaining to creation and last modification of the resource.
+	Etag       *string            `pulumi:"etag"`
+	Id         string             `pulumi:"id"`
+	Name       string             `pulumi:"name"`
+	Properties interface{}        `pulumi:"properties"`
 	SystemData SystemDataResponse `pulumi:"systemData"`
-	// Resource type.
-	Type string `pulumi:"type"`
+	Type       string             `pulumi:"type"`
 }

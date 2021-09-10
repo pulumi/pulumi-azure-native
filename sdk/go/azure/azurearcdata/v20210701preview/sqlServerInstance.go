@@ -11,22 +11,15 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// A SqlServerInstance.
 type SqlServerInstance struct {
 	pulumi.CustomResourceState
 
-	// The geo-location where the resource lives
-	Location pulumi.StringOutput `pulumi:"location"`
-	// The name of the resource
-	Name pulumi.StringOutput `pulumi:"name"`
-	// null
+	Location   pulumi.StringOutput                       `pulumi:"location"`
+	Name       pulumi.StringOutput                       `pulumi:"name"`
 	Properties SqlServerInstancePropertiesResponseOutput `pulumi:"properties"`
-	// Read only system data
-	SystemData SystemDataResponseOutput `pulumi:"systemData"`
-	// Resource tags.
-	Tags pulumi.StringMapOutput `pulumi:"tags"`
-	// The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
-	Type pulumi.StringOutput `pulumi:"type"`
+	SystemData SystemDataResponseOutput                  `pulumi:"systemData"`
+	Tags       pulumi.StringMapOutput                    `pulumi:"tags"`
+	Type       pulumi.StringOutput                       `pulumi:"type"`
 }
 
 // NewSqlServerInstance registers a new resource with the given unique name, arguments, and options.
@@ -95,30 +88,20 @@ func (SqlServerInstanceState) ElementType() reflect.Type {
 }
 
 type sqlServerInstanceArgs struct {
-	// The geo-location where the resource lives
-	Location *string `pulumi:"location"`
-	// null
-	Properties *SqlServerInstanceProperties `pulumi:"properties"`
-	// The name of the Azure resource group
-	ResourceGroupName string `pulumi:"resourceGroupName"`
-	// The name of SQL Server Instance
-	SqlServerInstanceName *string `pulumi:"sqlServerInstanceName"`
-	// Resource tags.
-	Tags map[string]string `pulumi:"tags"`
+	Location              *string                      `pulumi:"location"`
+	Properties            *SqlServerInstanceProperties `pulumi:"properties"`
+	ResourceGroupName     string                       `pulumi:"resourceGroupName"`
+	SqlServerInstanceName *string                      `pulumi:"sqlServerInstanceName"`
+	Tags                  map[string]string            `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a SqlServerInstance resource.
 type SqlServerInstanceArgs struct {
-	// The geo-location where the resource lives
-	Location pulumi.StringPtrInput
-	// null
-	Properties SqlServerInstancePropertiesPtrInput
-	// The name of the Azure resource group
-	ResourceGroupName pulumi.StringInput
-	// The name of SQL Server Instance
+	Location              pulumi.StringPtrInput
+	Properties            SqlServerInstancePropertiesPtrInput
+	ResourceGroupName     pulumi.StringInput
 	SqlServerInstanceName pulumi.StringPtrInput
-	// Resource tags.
-	Tags pulumi.StringMapInput
+	Tags                  pulumi.StringMapInput
 }
 
 func (SqlServerInstanceArgs) ElementType() reflect.Type {
@@ -144,9 +127,7 @@ func (i *SqlServerInstance) ToSqlServerInstanceOutputWithContext(ctx context.Con
 	return pulumi.ToOutputWithContext(ctx, i).(SqlServerInstanceOutput)
 }
 
-type SqlServerInstanceOutput struct {
-	*pulumi.OutputState
-}
+type SqlServerInstanceOutput struct{ *pulumi.OutputState }
 
 func (SqlServerInstanceOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*SqlServerInstance)(nil))

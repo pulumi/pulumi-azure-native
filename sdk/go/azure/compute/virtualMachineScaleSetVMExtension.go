@@ -217,9 +217,7 @@ func (i *VirtualMachineScaleSetVMExtension) ToVirtualMachineScaleSetVMExtensionO
 	return pulumi.ToOutputWithContext(ctx, i).(VirtualMachineScaleSetVMExtensionOutput)
 }
 
-type VirtualMachineScaleSetVMExtensionOutput struct {
-	*pulumi.OutputState
-}
+type VirtualMachineScaleSetVMExtensionOutput struct{ *pulumi.OutputState }
 
 func (VirtualMachineScaleSetVMExtensionOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*VirtualMachineScaleSetVMExtension)(nil))

@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.EdgeOrder.Outputs
 {
 
+    /// <summary>
+    /// Image for the product
+    /// </summary>
     [OutputType]
     public sealed class ImageInformationResponse
     {

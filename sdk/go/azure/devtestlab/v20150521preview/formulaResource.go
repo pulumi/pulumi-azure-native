@@ -11,32 +11,20 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// A formula.
 type FormulaResource struct {
 	pulumi.CustomResourceState
 
-	// The author of the formula.
-	Author pulumi.StringPtrOutput `pulumi:"author"`
-	// The creation date of the formula.
-	CreationDate pulumi.StringPtrOutput `pulumi:"creationDate"`
-	// The description of the formula.
-	Description pulumi.StringPtrOutput `pulumi:"description"`
-	// The content of the formula.
-	FormulaContent LabVirtualMachineResponsePtrOutput `pulumi:"formulaContent"`
-	// The location of the resource.
-	Location pulumi.StringPtrOutput `pulumi:"location"`
-	// The name of the resource.
-	Name pulumi.StringPtrOutput `pulumi:"name"`
-	// The OS type of the formula.
-	OsType pulumi.StringPtrOutput `pulumi:"osType"`
-	// The provisioning status of the resource.
-	ProvisioningState pulumi.StringPtrOutput `pulumi:"provisioningState"`
-	// The tags of the resource.
-	Tags pulumi.StringMapOutput `pulumi:"tags"`
-	// The type of the resource.
-	Type pulumi.StringPtrOutput `pulumi:"type"`
-	// Information about a VM from which a formula is to be created.
-	Vm FormulaPropertiesFromVmResponsePtrOutput `pulumi:"vm"`
+	Author            pulumi.StringPtrOutput                   `pulumi:"author"`
+	CreationDate      pulumi.StringPtrOutput                   `pulumi:"creationDate"`
+	Description       pulumi.StringPtrOutput                   `pulumi:"description"`
+	FormulaContent    LabVirtualMachineResponsePtrOutput       `pulumi:"formulaContent"`
+	Location          pulumi.StringPtrOutput                   `pulumi:"location"`
+	Name              pulumi.StringPtrOutput                   `pulumi:"name"`
+	OsType            pulumi.StringPtrOutput                   `pulumi:"osType"`
+	ProvisioningState pulumi.StringPtrOutput                   `pulumi:"provisioningState"`
+	Tags              pulumi.StringMapOutput                   `pulumi:"tags"`
+	Type              pulumi.StringPtrOutput                   `pulumi:"type"`
+	Vm                FormulaPropertiesFromVmResponsePtrOutput `pulumi:"vm"`
 }
 
 // NewFormulaResource registers a new resource with the given unique name, arguments, and options.
@@ -108,66 +96,38 @@ func (FormulaResourceState) ElementType() reflect.Type {
 }
 
 type formulaResourceArgs struct {
-	// The author of the formula.
-	Author *string `pulumi:"author"`
-	// The creation date of the formula.
-	CreationDate *string `pulumi:"creationDate"`
-	// The description of the formula.
-	Description *string `pulumi:"description"`
-	// The content of the formula.
-	FormulaContent *LabVirtualMachine `pulumi:"formulaContent"`
-	// The identifier of the resource.
-	Id *string `pulumi:"id"`
-	// The name of the lab.
-	LabName string `pulumi:"labName"`
-	// The location of the resource.
-	Location *string `pulumi:"location"`
-	// The name of the resource.
-	Name *string `pulumi:"name"`
-	// The OS type of the formula.
-	OsType *string `pulumi:"osType"`
-	// The provisioning status of the resource.
-	ProvisioningState *string `pulumi:"provisioningState"`
-	// The name of the resource group.
-	ResourceGroupName string `pulumi:"resourceGroupName"`
-	// The tags of the resource.
-	Tags map[string]string `pulumi:"tags"`
-	// The type of the resource.
-	Type *string `pulumi:"type"`
-	// Information about a VM from which a formula is to be created.
-	Vm *FormulaPropertiesFromVm `pulumi:"vm"`
+	Author            *string                  `pulumi:"author"`
+	CreationDate      *string                  `pulumi:"creationDate"`
+	Description       *string                  `pulumi:"description"`
+	FormulaContent    *LabVirtualMachine       `pulumi:"formulaContent"`
+	Id                *string                  `pulumi:"id"`
+	LabName           string                   `pulumi:"labName"`
+	Location          *string                  `pulumi:"location"`
+	Name              *string                  `pulumi:"name"`
+	OsType            *string                  `pulumi:"osType"`
+	ProvisioningState *string                  `pulumi:"provisioningState"`
+	ResourceGroupName string                   `pulumi:"resourceGroupName"`
+	Tags              map[string]string        `pulumi:"tags"`
+	Type              *string                  `pulumi:"type"`
+	Vm                *FormulaPropertiesFromVm `pulumi:"vm"`
 }
 
 // The set of arguments for constructing a FormulaResource resource.
 type FormulaResourceArgs struct {
-	// The author of the formula.
-	Author pulumi.StringPtrInput
-	// The creation date of the formula.
-	CreationDate pulumi.StringPtrInput
-	// The description of the formula.
-	Description pulumi.StringPtrInput
-	// The content of the formula.
-	FormulaContent LabVirtualMachinePtrInput
-	// The identifier of the resource.
-	Id pulumi.StringPtrInput
-	// The name of the lab.
-	LabName pulumi.StringInput
-	// The location of the resource.
-	Location pulumi.StringPtrInput
-	// The name of the resource.
-	Name pulumi.StringPtrInput
-	// The OS type of the formula.
-	OsType pulumi.StringPtrInput
-	// The provisioning status of the resource.
+	Author            pulumi.StringPtrInput
+	CreationDate      pulumi.StringPtrInput
+	Description       pulumi.StringPtrInput
+	FormulaContent    LabVirtualMachinePtrInput
+	Id                pulumi.StringPtrInput
+	LabName           pulumi.StringInput
+	Location          pulumi.StringPtrInput
+	Name              pulumi.StringPtrInput
+	OsType            pulumi.StringPtrInput
 	ProvisioningState pulumi.StringPtrInput
-	// The name of the resource group.
 	ResourceGroupName pulumi.StringInput
-	// The tags of the resource.
-	Tags pulumi.StringMapInput
-	// The type of the resource.
-	Type pulumi.StringPtrInput
-	// Information about a VM from which a formula is to be created.
-	Vm FormulaPropertiesFromVmPtrInput
+	Tags              pulumi.StringMapInput
+	Type              pulumi.StringPtrInput
+	Vm                FormulaPropertiesFromVmPtrInput
 }
 
 func (FormulaResourceArgs) ElementType() reflect.Type {
@@ -193,9 +153,7 @@ func (i *FormulaResource) ToFormulaResourceOutputWithContext(ctx context.Context
 	return pulumi.ToOutputWithContext(ctx, i).(FormulaResourceOutput)
 }
 
-type FormulaResourceOutput struct {
-	*pulumi.OutputState
-}
+type FormulaResourceOutput struct{ *pulumi.OutputState }
 
 func (FormulaResourceOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*FormulaResource)(nil))

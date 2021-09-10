@@ -146,9 +146,7 @@ func (i *AvailabilityGroupListener) ToAvailabilityGroupListenerOutputWithContext
 	return pulumi.ToOutputWithContext(ctx, i).(AvailabilityGroupListenerOutput)
 }
 
-type AvailabilityGroupListenerOutput struct {
-	*pulumi.OutputState
-}
+type AvailabilityGroupListenerOutput struct{ *pulumi.OutputState }
 
 func (AvailabilityGroupListenerOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*AvailabilityGroupListener)(nil))

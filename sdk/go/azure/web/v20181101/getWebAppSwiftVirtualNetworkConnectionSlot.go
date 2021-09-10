@@ -7,7 +7,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Swift Virtual Network Contract. This is used to enable the new Swift way of doing virtual network integration.
 func LookupWebAppSwiftVirtualNetworkConnectionSlot(ctx *pulumi.Context, args *LookupWebAppSwiftVirtualNetworkConnectionSlotArgs, opts ...pulumi.InvokeOption) (*LookupWebAppSwiftVirtualNetworkConnectionSlotResult, error) {
 	var rv LookupWebAppSwiftVirtualNetworkConnectionSlotResult
 	err := ctx.Invoke("azure-native:web/v20181101:getWebAppSwiftVirtualNetworkConnectionSlot", args, &rv, opts...)
@@ -18,26 +17,17 @@ func LookupWebAppSwiftVirtualNetworkConnectionSlot(ctx *pulumi.Context, args *Lo
 }
 
 type LookupWebAppSwiftVirtualNetworkConnectionSlotArgs struct {
-	// Name of the app.
-	Name string `pulumi:"name"`
-	// Name of the resource group to which the resource belongs.
+	Name              string `pulumi:"name"`
 	ResourceGroupName string `pulumi:"resourceGroupName"`
-	// Name of the deployment slot. If a slot is not specified, the API will get a gateway for the production slot's Virtual Network.
-	Slot string `pulumi:"slot"`
+	Slot              string `pulumi:"slot"`
 }
 
 // Swift Virtual Network Contract. This is used to enable the new Swift way of doing virtual network integration.
 type LookupWebAppSwiftVirtualNetworkConnectionSlotResult struct {
-	// Resource Id.
-	Id string `pulumi:"id"`
-	// Kind of resource.
-	Kind *string `pulumi:"kind"`
-	// Resource Name.
-	Name string `pulumi:"name"`
-	// The Virtual Network subnet's resource ID. This is the subnet that this Web App will join. This subnet must have a delegation to Microsoft.Web/serverFarms defined first.
+	Id               string  `pulumi:"id"`
+	Kind             *string `pulumi:"kind"`
+	Name             string  `pulumi:"name"`
 	SubnetResourceId *string `pulumi:"subnetResourceId"`
-	// A flag that specifies if the scale unit this Web App is on supports Swift integration.
-	SwiftSupported *bool `pulumi:"swiftSupported"`
-	// Resource type.
-	Type string `pulumi:"type"`
+	SwiftSupported   *bool   `pulumi:"swiftSupported"`
+	Type             string  `pulumi:"type"`
 }

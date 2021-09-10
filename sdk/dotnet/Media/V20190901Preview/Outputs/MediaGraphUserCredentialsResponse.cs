@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.Media.V20190901Preview.Outputs
 {
 
+    /// <summary>
+    /// Credentials to authenticate to Media Graph sources
+    /// </summary>
     [OutputType]
     public sealed class MediaGraphUserCredentialsResponse
     {

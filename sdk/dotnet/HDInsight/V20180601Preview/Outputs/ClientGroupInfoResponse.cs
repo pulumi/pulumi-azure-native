@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.HDInsight.V20180601Preview.Outputs
 {
 
+    /// <summary>
+    /// The information of AAD security group.
+    /// </summary>
     [OutputType]
     public sealed class ClientGroupInfoResponse
     {

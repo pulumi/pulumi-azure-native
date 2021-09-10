@@ -11,23 +11,16 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Virtual machine guest diagnostics settings resource.
 type GuestDiagnosticsSetting struct {
 	pulumi.CustomResourceState
 
-	// the array of data source object which are configured to collect and send data
-	DataSources DataSourceResponseArrayOutput `pulumi:"dataSources"`
-	// Resource location
-	Location pulumi.StringOutput `pulumi:"location"`
-	// Azure resource name
-	Name pulumi.StringOutput `pulumi:"name"`
-	// Operating system type for the configuration
-	OsType       pulumi.StringPtrOutput `pulumi:"osType"`
-	ProxySetting pulumi.StringPtrOutput `pulumi:"proxySetting"`
-	// Resource tags
-	Tags pulumi.StringMapOutput `pulumi:"tags"`
-	// Azure resource type
-	Type pulumi.StringOutput `pulumi:"type"`
+	DataSources  DataSourceResponseArrayOutput `pulumi:"dataSources"`
+	Location     pulumi.StringOutput           `pulumi:"location"`
+	Name         pulumi.StringOutput           `pulumi:"name"`
+	OsType       pulumi.StringPtrOutput        `pulumi:"osType"`
+	ProxySetting pulumi.StringPtrOutput        `pulumi:"proxySetting"`
+	Tags         pulumi.StringMapOutput        `pulumi:"tags"`
+	Type         pulumi.StringOutput           `pulumi:"type"`
 }
 
 // NewGuestDiagnosticsSetting registers a new resource with the given unique name, arguments, and options.
@@ -84,36 +77,24 @@ func (GuestDiagnosticsSettingState) ElementType() reflect.Type {
 }
 
 type guestDiagnosticsSettingArgs struct {
-	// the array of data source object which are configured to collect and send data
-	DataSources []DataSource `pulumi:"dataSources"`
-	// The name of the diagnostic setting.
-	DiagnosticSettingsName *string `pulumi:"diagnosticSettingsName"`
-	// Resource location
-	Location *string `pulumi:"location"`
-	// Operating system type for the configuration
-	OsType       *string `pulumi:"osType"`
-	ProxySetting *string `pulumi:"proxySetting"`
-	// The name of the resource group.
-	ResourceGroupName string `pulumi:"resourceGroupName"`
-	// Resource tags
-	Tags map[string]string `pulumi:"tags"`
+	DataSources            []DataSource      `pulumi:"dataSources"`
+	DiagnosticSettingsName *string           `pulumi:"diagnosticSettingsName"`
+	Location               *string           `pulumi:"location"`
+	OsType                 *string           `pulumi:"osType"`
+	ProxySetting           *string           `pulumi:"proxySetting"`
+	ResourceGroupName      string            `pulumi:"resourceGroupName"`
+	Tags                   map[string]string `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a GuestDiagnosticsSetting resource.
 type GuestDiagnosticsSettingArgs struct {
-	// the array of data source object which are configured to collect and send data
-	DataSources DataSourceArrayInput
-	// The name of the diagnostic setting.
+	DataSources            DataSourceArrayInput
 	DiagnosticSettingsName pulumi.StringPtrInput
-	// Resource location
-	Location pulumi.StringPtrInput
-	// Operating system type for the configuration
-	OsType       pulumi.StringPtrInput
-	ProxySetting pulumi.StringPtrInput
-	// The name of the resource group.
-	ResourceGroupName pulumi.StringInput
-	// Resource tags
-	Tags pulumi.StringMapInput
+	Location               pulumi.StringPtrInput
+	OsType                 pulumi.StringPtrInput
+	ProxySetting           pulumi.StringPtrInput
+	ResourceGroupName      pulumi.StringInput
+	Tags                   pulumi.StringMapInput
 }
 
 func (GuestDiagnosticsSettingArgs) ElementType() reflect.Type {
@@ -139,9 +120,7 @@ func (i *GuestDiagnosticsSetting) ToGuestDiagnosticsSettingOutputWithContext(ctx
 	return pulumi.ToOutputWithContext(ctx, i).(GuestDiagnosticsSettingOutput)
 }
 
-type GuestDiagnosticsSettingOutput struct {
-	*pulumi.OutputState
-}
+type GuestDiagnosticsSettingOutput struct{ *pulumi.OutputState }
 
 func (GuestDiagnosticsSettingOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*GuestDiagnosticsSetting)(nil))

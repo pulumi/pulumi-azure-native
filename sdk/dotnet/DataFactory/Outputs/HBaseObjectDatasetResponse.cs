@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.DataFactory.Outputs
 {
 
+    /// <summary>
+    /// HBase server dataset.
+    /// </summary>
     [OutputType]
     public sealed class HBaseObjectDatasetResponse
     {

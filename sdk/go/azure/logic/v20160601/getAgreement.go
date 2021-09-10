@@ -7,7 +7,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// The integration account agreement.
 func LookupAgreement(ctx *pulumi.Context, args *LookupAgreementArgs, opts ...pulumi.InvokeOption) (*LookupAgreementResult, error) {
 	var rv LookupAgreementResult
 	err := ctx.Invoke("azure-native:logic/v20160601:getAgreement", args, &rv, opts...)
@@ -18,42 +17,25 @@ func LookupAgreement(ctx *pulumi.Context, args *LookupAgreementArgs, opts ...pul
 }
 
 type LookupAgreementArgs struct {
-	// The integration account agreement name.
-	AgreementName string `pulumi:"agreementName"`
-	// The integration account name.
+	AgreementName          string `pulumi:"agreementName"`
 	IntegrationAccountName string `pulumi:"integrationAccountName"`
-	// The resource group name.
-	ResourceGroupName string `pulumi:"resourceGroupName"`
+	ResourceGroupName      string `pulumi:"resourceGroupName"`
 }
 
 // The integration account agreement.
 type LookupAgreementResult struct {
-	// The agreement type.
-	AgreementType string `pulumi:"agreementType"`
-	// The changed time.
-	ChangedTime string `pulumi:"changedTime"`
-	// The agreement content.
-	Content AgreementContentResponse `pulumi:"content"`
-	// The created time.
-	CreatedTime string `pulumi:"createdTime"`
-	// The business identity of the guest partner.
+	AgreementType string                   `pulumi:"agreementType"`
+	ChangedTime   string                   `pulumi:"changedTime"`
+	Content       AgreementContentResponse `pulumi:"content"`
+	CreatedTime   string                   `pulumi:"createdTime"`
 	GuestIdentity BusinessIdentityResponse `pulumi:"guestIdentity"`
-	// The integration account partner that is set as guest partner for this agreement.
-	GuestPartner string `pulumi:"guestPartner"`
-	// The business identity of the host partner.
-	HostIdentity BusinessIdentityResponse `pulumi:"hostIdentity"`
-	// The integration account partner that is set as host partner for this agreement.
-	HostPartner string `pulumi:"hostPartner"`
-	// The resource id.
-	Id string `pulumi:"id"`
-	// The resource location.
-	Location *string `pulumi:"location"`
-	// The metadata.
-	Metadata interface{} `pulumi:"metadata"`
-	// Gets the resource name.
-	Name string `pulumi:"name"`
-	// The resource tags.
-	Tags map[string]string `pulumi:"tags"`
-	// Gets the resource type.
-	Type string `pulumi:"type"`
+	GuestPartner  string                   `pulumi:"guestPartner"`
+	HostIdentity  BusinessIdentityResponse `pulumi:"hostIdentity"`
+	HostPartner   string                   `pulumi:"hostPartner"`
+	Id            string                   `pulumi:"id"`
+	Location      *string                  `pulumi:"location"`
+	Metadata      interface{}              `pulumi:"metadata"`
+	Name          string                   `pulumi:"name"`
+	Tags          map[string]string        `pulumi:"tags"`
+	Type          string                   `pulumi:"type"`
 }

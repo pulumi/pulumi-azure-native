@@ -11,30 +11,19 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Class representing a Traffic Manager profile.
 type Profile struct {
 	pulumi.CustomResourceState
 
-	// The DNS settings of the Traffic Manager profile.
-	DnsConfig DnsConfigResponsePtrOutput `pulumi:"dnsConfig"`
-	// The list of endpoints in the Traffic Manager profile.
-	Endpoints EndpointResponseArrayOutput `pulumi:"endpoints"`
-	// The Azure Region where the resource lives
-	Location pulumi.StringPtrOutput `pulumi:"location"`
-	// The endpoint monitoring settings of the Traffic Manager profile.
-	MonitorConfig MonitorConfigResponsePtrOutput `pulumi:"monitorConfig"`
-	// The name of the resource
-	Name pulumi.StringOutput `pulumi:"name"`
-	// The status of the Traffic Manager profile.
-	ProfileStatus pulumi.StringPtrOutput `pulumi:"profileStatus"`
-	// Resource tags.
-	Tags pulumi.StringMapOutput `pulumi:"tags"`
-	// The traffic routing method of the Traffic Manager profile.
-	TrafficRoutingMethod pulumi.StringPtrOutput `pulumi:"trafficRoutingMethod"`
-	// Indicates whether Traffic View is 'Enabled' or 'Disabled' for the Traffic Manager profile. Null, indicates 'Disabled'. Enabling this feature will increase the cost of the Traffic Manage profile.
-	TrafficViewEnrollmentStatus pulumi.StringPtrOutput `pulumi:"trafficViewEnrollmentStatus"`
-	// The type of the resource. Ex- Microsoft.Network/trafficManagerProfiles.
-	Type pulumi.StringOutput `pulumi:"type"`
+	DnsConfig                   DnsConfigResponsePtrOutput     `pulumi:"dnsConfig"`
+	Endpoints                   EndpointResponseArrayOutput    `pulumi:"endpoints"`
+	Location                    pulumi.StringPtrOutput         `pulumi:"location"`
+	MonitorConfig               MonitorConfigResponsePtrOutput `pulumi:"monitorConfig"`
+	Name                        pulumi.StringOutput            `pulumi:"name"`
+	ProfileStatus               pulumi.StringPtrOutput         `pulumi:"profileStatus"`
+	Tags                        pulumi.StringMapOutput         `pulumi:"tags"`
+	TrafficRoutingMethod        pulumi.StringPtrOutput         `pulumi:"trafficRoutingMethod"`
+	TrafficViewEnrollmentStatus pulumi.StringPtrOutput         `pulumi:"trafficViewEnrollmentStatus"`
+	Type                        pulumi.StringOutput            `pulumi:"type"`
 }
 
 // NewProfile registers a new resource with the given unique name, arguments, and options.
@@ -127,49 +116,29 @@ func (ProfileState) ElementType() reflect.Type {
 }
 
 type profileArgs struct {
-	// The DNS settings of the Traffic Manager profile.
-	DnsConfig *DnsConfig `pulumi:"dnsConfig"`
-	// The list of endpoints in the Traffic Manager profile.
-	Endpoints []EndpointType `pulumi:"endpoints"`
-	// The Azure Region where the resource lives
-	Location *string `pulumi:"location"`
-	// The endpoint monitoring settings of the Traffic Manager profile.
-	MonitorConfig *MonitorConfig `pulumi:"monitorConfig"`
-	// The name of the Traffic Manager profile.
-	ProfileName *string `pulumi:"profileName"`
-	// The status of the Traffic Manager profile.
-	ProfileStatus *string `pulumi:"profileStatus"`
-	// The name of the resource group containing the Traffic Manager profile.
-	ResourceGroupName string `pulumi:"resourceGroupName"`
-	// Resource tags.
-	Tags map[string]string `pulumi:"tags"`
-	// The traffic routing method of the Traffic Manager profile.
-	TrafficRoutingMethod *string `pulumi:"trafficRoutingMethod"`
-	// Indicates whether Traffic View is 'Enabled' or 'Disabled' for the Traffic Manager profile. Null, indicates 'Disabled'. Enabling this feature will increase the cost of the Traffic Manage profile.
-	TrafficViewEnrollmentStatus *string `pulumi:"trafficViewEnrollmentStatus"`
+	DnsConfig                   *DnsConfig        `pulumi:"dnsConfig"`
+	Endpoints                   []EndpointType    `pulumi:"endpoints"`
+	Location                    *string           `pulumi:"location"`
+	MonitorConfig               *MonitorConfig    `pulumi:"monitorConfig"`
+	ProfileName                 *string           `pulumi:"profileName"`
+	ProfileStatus               *string           `pulumi:"profileStatus"`
+	ResourceGroupName           string            `pulumi:"resourceGroupName"`
+	Tags                        map[string]string `pulumi:"tags"`
+	TrafficRoutingMethod        *string           `pulumi:"trafficRoutingMethod"`
+	TrafficViewEnrollmentStatus *string           `pulumi:"trafficViewEnrollmentStatus"`
 }
 
 // The set of arguments for constructing a Profile resource.
 type ProfileArgs struct {
-	// The DNS settings of the Traffic Manager profile.
-	DnsConfig DnsConfigPtrInput
-	// The list of endpoints in the Traffic Manager profile.
-	Endpoints EndpointTypeArrayInput
-	// The Azure Region where the resource lives
-	Location pulumi.StringPtrInput
-	// The endpoint monitoring settings of the Traffic Manager profile.
-	MonitorConfig MonitorConfigPtrInput
-	// The name of the Traffic Manager profile.
-	ProfileName pulumi.StringPtrInput
-	// The status of the Traffic Manager profile.
-	ProfileStatus pulumi.StringPtrInput
-	// The name of the resource group containing the Traffic Manager profile.
-	ResourceGroupName pulumi.StringInput
-	// Resource tags.
-	Tags pulumi.StringMapInput
-	// The traffic routing method of the Traffic Manager profile.
-	TrafficRoutingMethod pulumi.StringPtrInput
-	// Indicates whether Traffic View is 'Enabled' or 'Disabled' for the Traffic Manager profile. Null, indicates 'Disabled'. Enabling this feature will increase the cost of the Traffic Manage profile.
+	DnsConfig                   DnsConfigPtrInput
+	Endpoints                   EndpointTypeArrayInput
+	Location                    pulumi.StringPtrInput
+	MonitorConfig               MonitorConfigPtrInput
+	ProfileName                 pulumi.StringPtrInput
+	ProfileStatus               pulumi.StringPtrInput
+	ResourceGroupName           pulumi.StringInput
+	Tags                        pulumi.StringMapInput
+	TrafficRoutingMethod        pulumi.StringPtrInput
 	TrafficViewEnrollmentStatus pulumi.StringPtrInput
 }
 
@@ -196,9 +165,7 @@ func (i *Profile) ToProfileOutputWithContext(ctx context.Context) ProfileOutput 
 	return pulumi.ToOutputWithContext(ctx, i).(ProfileOutput)
 }
 
-type ProfileOutput struct {
-	*pulumi.OutputState
-}
+type ProfileOutput struct{ *pulumi.OutputState }
 
 func (ProfileOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*Profile)(nil))

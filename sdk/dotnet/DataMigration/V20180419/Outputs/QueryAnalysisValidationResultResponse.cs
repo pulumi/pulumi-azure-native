@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.DataMigration.V20180419.Outputs
 {
 
+    /// <summary>
+    /// Results for query analysis comparison between the source and target
+    /// </summary>
     [OutputType]
     public sealed class QueryAnalysisValidationResultResponse
     {

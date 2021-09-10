@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.Media.V20200501.Outputs
 {
 
+    /// <summary>
+    /// Describes the de-interlacing settings.
+    /// </summary>
     [OutputType]
     public sealed class DeinterlaceResponse
     {

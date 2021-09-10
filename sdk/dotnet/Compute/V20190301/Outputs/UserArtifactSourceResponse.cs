@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.Compute.V20190301.Outputs
 {
 
+    /// <summary>
+    /// The source image from which the Image Version is going to be created.
+    /// </summary>
     [OutputType]
     public sealed class UserArtifactSourceResponse
     {

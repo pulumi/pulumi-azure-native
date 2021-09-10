@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.StorageSync.V20200301.Outputs
 {
 
+    /// <summary>
+    /// Server endpoint recall error object
+    /// </summary>
     [OutputType]
     public sealed class ServerEndpointRecallErrorResponse
     {

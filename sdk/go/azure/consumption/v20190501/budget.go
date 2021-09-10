@@ -11,30 +11,19 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// A budget resource.
 type Budget struct {
 	pulumi.CustomResourceState
 
-	// The total amount of cost to track with the budget
-	Amount pulumi.Float64Output `pulumi:"amount"`
-	// The category of the budget, whether the budget tracks cost or usage.
-	Category pulumi.StringOutput `pulumi:"category"`
-	// The current amount of cost which is being tracked for a budget.
-	CurrentSpend CurrentSpendResponseOutput `pulumi:"currentSpend"`
-	// eTag of the resource. To handle concurrent update scenario, this field will be used to determine whether the user is updating the latest version or not.
-	ETag pulumi.StringPtrOutput `pulumi:"eTag"`
-	// May be used to filter budgets by user-specified dimensions and/or tags.
-	Filter FilterResponsePtrOutput `pulumi:"filter"`
-	// Resource name.
-	Name pulumi.StringOutput `pulumi:"name"`
-	// Dictionary of notifications associated with the budget. Budget can have up to five notifications.
-	Notifications NotificationResponseMapOutput `pulumi:"notifications"`
-	// The time covered by a budget. Tracking of the amount will be reset based on the time grain.
-	TimeGrain pulumi.StringOutput `pulumi:"timeGrain"`
-	// Has start and end date of the budget. The start date must be first of the month and should be less than the end date. Budget start date must be on or after June 1, 2017. Future start date should not be more than three months. Past start date should  be selected within the timegrain period. There are no restrictions on the end date.
-	TimePeriod BudgetTimePeriodResponseOutput `pulumi:"timePeriod"`
-	// Resource type.
-	Type pulumi.StringOutput `pulumi:"type"`
+	Amount        pulumi.Float64Output           `pulumi:"amount"`
+	Category      pulumi.StringOutput            `pulumi:"category"`
+	CurrentSpend  CurrentSpendResponseOutput     `pulumi:"currentSpend"`
+	ETag          pulumi.StringPtrOutput         `pulumi:"eTag"`
+	Filter        FilterResponsePtrOutput        `pulumi:"filter"`
+	Name          pulumi.StringOutput            `pulumi:"name"`
+	Notifications NotificationResponseMapOutput  `pulumi:"notifications"`
+	TimeGrain     pulumi.StringOutput            `pulumi:"timeGrain"`
+	TimePeriod    BudgetTimePeriodResponseOutput `pulumi:"timePeriod"`
+	Type          pulumi.StringOutput            `pulumi:"type"`
 }
 
 // NewBudget registers a new resource with the given unique name, arguments, and options.
@@ -145,46 +134,28 @@ func (BudgetState) ElementType() reflect.Type {
 }
 
 type budgetArgs struct {
-	// The total amount of cost to track with the budget
-	Amount float64 `pulumi:"amount"`
-	// Budget Name.
-	BudgetName *string `pulumi:"budgetName"`
-	// The category of the budget, whether the budget tracks cost or usage.
-	Category string `pulumi:"category"`
-	// eTag of the resource. To handle concurrent update scenario, this field will be used to determine whether the user is updating the latest version or not.
-	ETag *string `pulumi:"eTag"`
-	// May be used to filter budgets by user-specified dimensions and/or tags.
-	Filter *Filter `pulumi:"filter"`
-	// Dictionary of notifications associated with the budget. Budget can have up to five notifications.
+	Amount        float64                 `pulumi:"amount"`
+	BudgetName    *string                 `pulumi:"budgetName"`
+	Category      string                  `pulumi:"category"`
+	ETag          *string                 `pulumi:"eTag"`
+	Filter        *Filter                 `pulumi:"filter"`
 	Notifications map[string]Notification `pulumi:"notifications"`
-	// The scope associated with budget operations. This includes '/subscriptions/{subscriptionId}/' for subscription scope, '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}' for resourceGroup scope, '/providers/Microsoft.Billing/billingAccounts/{billingAccountId}' for Billing Account scope, '/providers/Microsoft.Billing/billingAccounts/{billingAccountId}/departments/{departmentId}' for Department scope, '/providers/Microsoft.Billing/billingAccounts/{billingAccountId}/enrollmentAccounts/{enrollmentAccountId}' for EnrollmentAccount scope, '/providers/Microsoft.Management/managementGroups/{managementGroupId}' for Management Group scope, '/providers/Microsoft.Billing/billingAccounts/{billingAccountId}/billingProfiles/{billingProfileId}' for billingProfile scope, 'providers/Microsoft.Billing/billingAccounts/{billingAccountId}/invoiceSections/{invoiceSectionId}' for invoiceSection scope.
-	Scope string `pulumi:"scope"`
-	// The time covered by a budget. Tracking of the amount will be reset based on the time grain.
-	TimeGrain string `pulumi:"timeGrain"`
-	// Has start and end date of the budget. The start date must be first of the month and should be less than the end date. Budget start date must be on or after June 1, 2017. Future start date should not be more than three months. Past start date should  be selected within the timegrain period. There are no restrictions on the end date.
-	TimePeriod BudgetTimePeriod `pulumi:"timePeriod"`
+	Scope         string                  `pulumi:"scope"`
+	TimeGrain     string                  `pulumi:"timeGrain"`
+	TimePeriod    BudgetTimePeriod        `pulumi:"timePeriod"`
 }
 
 // The set of arguments for constructing a Budget resource.
 type BudgetArgs struct {
-	// The total amount of cost to track with the budget
-	Amount pulumi.Float64Input
-	// Budget Name.
-	BudgetName pulumi.StringPtrInput
-	// The category of the budget, whether the budget tracks cost or usage.
-	Category pulumi.StringInput
-	// eTag of the resource. To handle concurrent update scenario, this field will be used to determine whether the user is updating the latest version or not.
-	ETag pulumi.StringPtrInput
-	// May be used to filter budgets by user-specified dimensions and/or tags.
-	Filter FilterPtrInput
-	// Dictionary of notifications associated with the budget. Budget can have up to five notifications.
+	Amount        pulumi.Float64Input
+	BudgetName    pulumi.StringPtrInput
+	Category      pulumi.StringInput
+	ETag          pulumi.StringPtrInput
+	Filter        FilterPtrInput
 	Notifications NotificationMapInput
-	// The scope associated with budget operations. This includes '/subscriptions/{subscriptionId}/' for subscription scope, '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}' for resourceGroup scope, '/providers/Microsoft.Billing/billingAccounts/{billingAccountId}' for Billing Account scope, '/providers/Microsoft.Billing/billingAccounts/{billingAccountId}/departments/{departmentId}' for Department scope, '/providers/Microsoft.Billing/billingAccounts/{billingAccountId}/enrollmentAccounts/{enrollmentAccountId}' for EnrollmentAccount scope, '/providers/Microsoft.Management/managementGroups/{managementGroupId}' for Management Group scope, '/providers/Microsoft.Billing/billingAccounts/{billingAccountId}/billingProfiles/{billingProfileId}' for billingProfile scope, 'providers/Microsoft.Billing/billingAccounts/{billingAccountId}/invoiceSections/{invoiceSectionId}' for invoiceSection scope.
-	Scope pulumi.StringInput
-	// The time covered by a budget. Tracking of the amount will be reset based on the time grain.
-	TimeGrain pulumi.StringInput
-	// Has start and end date of the budget. The start date must be first of the month and should be less than the end date. Budget start date must be on or after June 1, 2017. Future start date should not be more than three months. Past start date should  be selected within the timegrain period. There are no restrictions on the end date.
-	TimePeriod BudgetTimePeriodInput
+	Scope         pulumi.StringInput
+	TimeGrain     pulumi.StringInput
+	TimePeriod    BudgetTimePeriodInput
 }
 
 func (BudgetArgs) ElementType() reflect.Type {
@@ -210,9 +181,7 @@ func (i *Budget) ToBudgetOutputWithContext(ctx context.Context) BudgetOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(BudgetOutput)
 }
 
-type BudgetOutput struct {
-	*pulumi.OutputState
-}
+type BudgetOutput struct{ *pulumi.OutputState }
 
 func (BudgetOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*Budget)(nil))

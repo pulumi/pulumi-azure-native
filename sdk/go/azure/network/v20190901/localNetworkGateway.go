@@ -11,30 +11,19 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// A common class for general resource information.
 type LocalNetworkGateway struct {
 	pulumi.CustomResourceState
 
-	// Local network gateway's BGP speaker settings.
-	BgpSettings BgpSettingsResponsePtrOutput `pulumi:"bgpSettings"`
-	// A unique read-only string that changes whenever the resource is updated.
-	Etag pulumi.StringOutput `pulumi:"etag"`
-	// IP address of local network gateway.
-	GatewayIpAddress pulumi.StringPtrOutput `pulumi:"gatewayIpAddress"`
-	// Local network site address space.
+	BgpSettings              BgpSettingsResponsePtrOutput  `pulumi:"bgpSettings"`
+	Etag                     pulumi.StringOutput           `pulumi:"etag"`
+	GatewayIpAddress         pulumi.StringPtrOutput        `pulumi:"gatewayIpAddress"`
 	LocalNetworkAddressSpace AddressSpaceResponsePtrOutput `pulumi:"localNetworkAddressSpace"`
-	// Resource location.
-	Location pulumi.StringPtrOutput `pulumi:"location"`
-	// Resource name.
-	Name pulumi.StringOutput `pulumi:"name"`
-	// The provisioning state of the local network gateway resource.
-	ProvisioningState pulumi.StringOutput `pulumi:"provisioningState"`
-	// The resource GUID property of the local network gateway resource.
-	ResourceGuid pulumi.StringOutput `pulumi:"resourceGuid"`
-	// Resource tags.
-	Tags pulumi.StringMapOutput `pulumi:"tags"`
-	// Resource type.
-	Type pulumi.StringOutput `pulumi:"type"`
+	Location                 pulumi.StringPtrOutput        `pulumi:"location"`
+	Name                     pulumi.StringOutput           `pulumi:"name"`
+	ProvisioningState        pulumi.StringOutput           `pulumi:"provisioningState"`
+	ResourceGuid             pulumi.StringOutput           `pulumi:"resourceGuid"`
+	Tags                     pulumi.StringMapOutput        `pulumi:"tags"`
+	Type                     pulumi.StringOutput           `pulumi:"type"`
 }
 
 // NewLocalNetworkGateway registers a new resource with the given unique name, arguments, and options.
@@ -307,42 +296,26 @@ func (LocalNetworkGatewayState) ElementType() reflect.Type {
 }
 
 type localNetworkGatewayArgs struct {
-	// Local network gateway's BGP speaker settings.
-	BgpSettings *BgpSettings `pulumi:"bgpSettings"`
-	// IP address of local network gateway.
-	GatewayIpAddress *string `pulumi:"gatewayIpAddress"`
-	// Resource ID.
-	Id *string `pulumi:"id"`
-	// Local network site address space.
-	LocalNetworkAddressSpace *AddressSpace `pulumi:"localNetworkAddressSpace"`
-	// The name of the local network gateway.
-	LocalNetworkGatewayName *string `pulumi:"localNetworkGatewayName"`
-	// Resource location.
-	Location *string `pulumi:"location"`
-	// The name of the resource group.
-	ResourceGroupName string `pulumi:"resourceGroupName"`
-	// Resource tags.
-	Tags map[string]string `pulumi:"tags"`
+	BgpSettings              *BgpSettings      `pulumi:"bgpSettings"`
+	GatewayIpAddress         *string           `pulumi:"gatewayIpAddress"`
+	Id                       *string           `pulumi:"id"`
+	LocalNetworkAddressSpace *AddressSpace     `pulumi:"localNetworkAddressSpace"`
+	LocalNetworkGatewayName  *string           `pulumi:"localNetworkGatewayName"`
+	Location                 *string           `pulumi:"location"`
+	ResourceGroupName        string            `pulumi:"resourceGroupName"`
+	Tags                     map[string]string `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a LocalNetworkGateway resource.
 type LocalNetworkGatewayArgs struct {
-	// Local network gateway's BGP speaker settings.
-	BgpSettings BgpSettingsPtrInput
-	// IP address of local network gateway.
-	GatewayIpAddress pulumi.StringPtrInput
-	// Resource ID.
-	Id pulumi.StringPtrInput
-	// Local network site address space.
+	BgpSettings              BgpSettingsPtrInput
+	GatewayIpAddress         pulumi.StringPtrInput
+	Id                       pulumi.StringPtrInput
 	LocalNetworkAddressSpace AddressSpacePtrInput
-	// The name of the local network gateway.
-	LocalNetworkGatewayName pulumi.StringPtrInput
-	// Resource location.
-	Location pulumi.StringPtrInput
-	// The name of the resource group.
-	ResourceGroupName pulumi.StringInput
-	// Resource tags.
-	Tags pulumi.StringMapInput
+	LocalNetworkGatewayName  pulumi.StringPtrInput
+	Location                 pulumi.StringPtrInput
+	ResourceGroupName        pulumi.StringInput
+	Tags                     pulumi.StringMapInput
 }
 
 func (LocalNetworkGatewayArgs) ElementType() reflect.Type {
@@ -368,9 +341,7 @@ func (i *LocalNetworkGateway) ToLocalNetworkGatewayOutputWithContext(ctx context
 	return pulumi.ToOutputWithContext(ctx, i).(LocalNetworkGatewayOutput)
 }
 
-type LocalNetworkGatewayOutput struct {
-	*pulumi.OutputState
-}
+type LocalNetworkGatewayOutput struct{ *pulumi.OutputState }
 
 func (LocalNetworkGatewayOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*LocalNetworkGateway)(nil))

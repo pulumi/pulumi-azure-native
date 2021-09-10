@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.Sql.V20200801Preview.Outputs
 {
 
+    /// <summary>
+    /// Pairs of Managed Instances in the failover group.
+    /// </summary>
     [OutputType]
     public sealed class ManagedInstancePairInfoResponse
     {

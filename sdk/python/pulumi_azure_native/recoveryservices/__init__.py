@@ -46,26 +46,46 @@ from . import outputs
 
 # Make subpackages available:
 if typing.TYPE_CHECKING:
-    import pulumi_azure_native.recoveryservices.v20160601 as v20160601
-    import pulumi_azure_native.recoveryservices.v20160810 as v20160810
-    import pulumi_azure_native.recoveryservices.v20161201 as v20161201
-    import pulumi_azure_native.recoveryservices.v20170701 as v20170701
-    import pulumi_azure_native.recoveryservices.v20180110 as v20180110
-    import pulumi_azure_native.recoveryservices.v20180710 as v20180710
-    import pulumi_azure_native.recoveryservices.v20181220 as v20181220
-    import pulumi_azure_native.recoveryservices.v20190513 as v20190513
-    import pulumi_azure_native.recoveryservices.v20190615 as v20190615
-    import pulumi_azure_native.recoveryservices.v20200202 as v20200202
-    import pulumi_azure_native.recoveryservices.v20201001 as v20201001
-    import pulumi_azure_native.recoveryservices.v20201201 as v20201201
-    import pulumi_azure_native.recoveryservices.v20210101 as v20210101
-    import pulumi_azure_native.recoveryservices.v20210201 as v20210201
-    import pulumi_azure_native.recoveryservices.v20210201preview as v20210201preview
-    import pulumi_azure_native.recoveryservices.v20210210 as v20210210
-    import pulumi_azure_native.recoveryservices.v20210301 as v20210301
-    import pulumi_azure_native.recoveryservices.v20210401 as v20210401
-    import pulumi_azure_native.recoveryservices.v20210601 as v20210601
-    import pulumi_azure_native.recoveryservices.v20210701 as v20210701
+    import pulumi_azure_native.recoveryservices.v20160601 as __v20160601
+    v20160601 = __v20160601
+    import pulumi_azure_native.recoveryservices.v20160810 as __v20160810
+    v20160810 = __v20160810
+    import pulumi_azure_native.recoveryservices.v20161201 as __v20161201
+    v20161201 = __v20161201
+    import pulumi_azure_native.recoveryservices.v20170701 as __v20170701
+    v20170701 = __v20170701
+    import pulumi_azure_native.recoveryservices.v20180110 as __v20180110
+    v20180110 = __v20180110
+    import pulumi_azure_native.recoveryservices.v20180710 as __v20180710
+    v20180710 = __v20180710
+    import pulumi_azure_native.recoveryservices.v20181220 as __v20181220
+    v20181220 = __v20181220
+    import pulumi_azure_native.recoveryservices.v20190513 as __v20190513
+    v20190513 = __v20190513
+    import pulumi_azure_native.recoveryservices.v20190615 as __v20190615
+    v20190615 = __v20190615
+    import pulumi_azure_native.recoveryservices.v20200202 as __v20200202
+    v20200202 = __v20200202
+    import pulumi_azure_native.recoveryservices.v20201001 as __v20201001
+    v20201001 = __v20201001
+    import pulumi_azure_native.recoveryservices.v20201201 as __v20201201
+    v20201201 = __v20201201
+    import pulumi_azure_native.recoveryservices.v20210101 as __v20210101
+    v20210101 = __v20210101
+    import pulumi_azure_native.recoveryservices.v20210201 as __v20210201
+    v20210201 = __v20210201
+    import pulumi_azure_native.recoveryservices.v20210201preview as __v20210201preview
+    v20210201preview = __v20210201preview
+    import pulumi_azure_native.recoveryservices.v20210210 as __v20210210
+    v20210210 = __v20210210
+    import pulumi_azure_native.recoveryservices.v20210301 as __v20210301
+    v20210301 = __v20210301
+    import pulumi_azure_native.recoveryservices.v20210401 as __v20210401
+    v20210401 = __v20210401
+    import pulumi_azure_native.recoveryservices.v20210601 as __v20210601
+    v20210601 = __v20210601
+    import pulumi_azure_native.recoveryservices.v20210701 as __v20210701
+    v20210701 = __v20210701
 else:
     v20160601 = _utilities.lazy_import('pulumi_azure_native.recoveryservices.v20160601')
     v20160810 = _utilities.lazy_import('pulumi_azure_native.recoveryservices.v20160810')

@@ -7,7 +7,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// IoT Security solution configuration and resource information.
 func LookupIotSecuritySolution(ctx *pulumi.Context, args *LookupIotSecuritySolutionArgs, opts ...pulumi.InvokeOption) (*LookupIotSecuritySolutionResult, error) {
 	var rv LookupIotSecuritySolutionResult
 	err := ctx.Invoke("azure-native:security/v20190801:getIotSecuritySolution", args, &rv, opts...)
@@ -18,46 +17,27 @@ func LookupIotSecuritySolution(ctx *pulumi.Context, args *LookupIotSecuritySolut
 }
 
 type LookupIotSecuritySolutionArgs struct {
-	// The name of the resource group within the user's subscription. The name is case insensitive.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
-	// The name of the IoT Security solution.
-	SolutionName string `pulumi:"solutionName"`
+	SolutionName      string `pulumi:"solutionName"`
 }
 
 // IoT Security solution configuration and resource information.
 type LookupIotSecuritySolutionResult struct {
-	// List of additional workspaces
-	AdditionalWorkspaces []AdditionalWorkspacesPropertiesResponse `pulumi:"additionalWorkspaces"`
-	// List of resources that were automatically discovered as relevant to the security solution.
-	AutoDiscoveredResources []string `pulumi:"autoDiscoveredResources"`
-	// Disabled data sources. Disabling these data sources compromises the system.
-	DisabledDataSources []string `pulumi:"disabledDataSources"`
-	// Resource display name.
-	DisplayName string `pulumi:"displayName"`
-	// List of additional options for exporting to workspace data.
-	Export []string `pulumi:"export"`
-	// Resource Id
-	Id string `pulumi:"id"`
-	// IoT Hub resource IDs
-	IotHubs []string `pulumi:"iotHubs"`
-	// The resource location.
-	Location *string `pulumi:"location"`
-	// Resource name
-	Name string `pulumi:"name"`
-	// List of the configuration status for each recommendation type.
+	AdditionalWorkspaces         []AdditionalWorkspacesPropertiesResponse        `pulumi:"additionalWorkspaces"`
+	AutoDiscoveredResources      []string                                        `pulumi:"autoDiscoveredResources"`
+	DisabledDataSources          []string                                        `pulumi:"disabledDataSources"`
+	DisplayName                  string                                          `pulumi:"displayName"`
+	Export                       []string                                        `pulumi:"export"`
+	Id                           string                                          `pulumi:"id"`
+	IotHubs                      []string                                        `pulumi:"iotHubs"`
+	Location                     *string                                         `pulumi:"location"`
+	Name                         string                                          `pulumi:"name"`
 	RecommendationsConfiguration []RecommendationConfigurationPropertiesResponse `pulumi:"recommendationsConfiguration"`
-	// Status of the IoT Security solution.
-	Status *string `pulumi:"status"`
-	// Azure Resource Manager metadata containing createdBy and modifiedBy information.
-	SystemData SystemDataResponse `pulumi:"systemData"`
-	// Resource tags
-	Tags map[string]string `pulumi:"tags"`
-	// Resource type
-	Type string `pulumi:"type"`
-	// Unmasked IP address logging status
-	UnmaskedIpLoggingStatus *string `pulumi:"unmaskedIpLoggingStatus"`
-	// Properties of the IoT Security solution's user defined resources.
-	UserDefinedResources *UserDefinedResourcesPropertiesResponse `pulumi:"userDefinedResources"`
-	// Workspace resource ID
-	Workspace *string `pulumi:"workspace"`
+	Status                       *string                                         `pulumi:"status"`
+	SystemData                   SystemDataResponse                              `pulumi:"systemData"`
+	Tags                         map[string]string                               `pulumi:"tags"`
+	Type                         string                                          `pulumi:"type"`
+	UnmaskedIpLoggingStatus      *string                                         `pulumi:"unmaskedIpLoggingStatus"`
+	UserDefinedResources         *UserDefinedResourcesPropertiesResponse         `pulumi:"userDefinedResources"`
+	Workspace                    *string                                         `pulumi:"workspace"`
 }

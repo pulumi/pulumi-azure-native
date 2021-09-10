@@ -10,12 +10,9 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// SKU properties of the Azure AD B2C tenant. Learn more about Azure AD B2C billing at [aka.ms/b2cBilling](https://aka.ms/b2cBilling).
 type B2CResourceSKU struct {
-	// The name of the SKU for the tenant.
-	Name *string `pulumi:"name"`
-	// The tier of the tenant.
-	Tier *string `pulumi:"tier"`
+	Name *B2CResourceSKUName `pulumi:"name"`
+	Tier *B2CResourceSKUTier `pulumi:"tier"`
 }
 
 // B2CResourceSKUInput is an input type that accepts B2CResourceSKUArgs and B2CResourceSKUOutput values.
@@ -29,12 +26,9 @@ type B2CResourceSKUInput interface {
 	ToB2CResourceSKUOutputWithContext(context.Context) B2CResourceSKUOutput
 }
 
-// SKU properties of the Azure AD B2C tenant. Learn more about Azure AD B2C billing at [aka.ms/b2cBilling](https://aka.ms/b2cBilling).
 type B2CResourceSKUArgs struct {
-	// The name of the SKU for the tenant.
-	Name *B2CResourceSKUName `pulumi:"name"`
-	// The tier of the tenant.
-	Tier *B2CResourceSKUTier `pulumi:"tier"`
+	Name B2CResourceSKUNamePtrInput `pulumi:"name"`
+	Tier B2CResourceSKUTierPtrInput `pulumi:"tier"`
 }
 
 func (B2CResourceSKUArgs) ElementType() reflect.Type {
@@ -90,7 +84,6 @@ func (i *b2cresourceSKUPtrType) ToB2CResourceSKUPtrOutputWithContext(ctx context
 	return pulumi.ToOutputWithContext(ctx, i).(B2CResourceSKUPtrOutput)
 }
 
-// SKU properties of the Azure AD B2C tenant. Learn more about Azure AD B2C billing at [aka.ms/b2cBilling](https://aka.ms/b2cBilling).
 type B2CResourceSKUOutput struct{ *pulumi.OutputState }
 
 func (B2CResourceSKUOutput) ElementType() reflect.Type {
@@ -110,19 +103,17 @@ func (o B2CResourceSKUOutput) ToB2CResourceSKUPtrOutput() B2CResourceSKUPtrOutpu
 }
 
 func (o B2CResourceSKUOutput) ToB2CResourceSKUPtrOutputWithContext(ctx context.Context) B2CResourceSKUPtrOutput {
-	return o.ApplyT(func(v B2CResourceSKU) *B2CResourceSKU {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v B2CResourceSKU) *B2CResourceSKU {
 		return &v
 	}).(B2CResourceSKUPtrOutput)
 }
 
-// The name of the SKU for the tenant.
-func (o B2CResourceSKUOutput) Name() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v B2CResourceSKU) *string { return v.Name }).(pulumi.StringPtrOutput)
+func (o B2CResourceSKUOutput) Name() B2CResourceSKUNamePtrOutput {
+	return o.ApplyT(func(v B2CResourceSKU) *B2CResourceSKUName { return v.Name }).(B2CResourceSKUNamePtrOutput)
 }
 
-// The tier of the tenant.
-func (o B2CResourceSKUOutput) Tier() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v B2CResourceSKU) *string { return v.Tier }).(pulumi.StringPtrOutput)
+func (o B2CResourceSKUOutput) Tier() B2CResourceSKUTierPtrOutput {
+	return o.ApplyT(func(v B2CResourceSKU) *B2CResourceSKUTier { return v.Tier }).(B2CResourceSKUTierPtrOutput)
 }
 
 type B2CResourceSKUPtrOutput struct{ *pulumi.OutputState }
@@ -140,34 +131,35 @@ func (o B2CResourceSKUPtrOutput) ToB2CResourceSKUPtrOutputWithContext(ctx contex
 }
 
 func (o B2CResourceSKUPtrOutput) Elem() B2CResourceSKUOutput {
-	return o.ApplyT(func(v *B2CResourceSKU) B2CResourceSKU { return *v }).(B2CResourceSKUOutput)
+	return o.ApplyT(func(v *B2CResourceSKU) B2CResourceSKU {
+		if v != nil {
+			return *v
+		}
+		var ret B2CResourceSKU
+		return ret
+	}).(B2CResourceSKUOutput)
 }
 
-// The name of the SKU for the tenant.
-func (o B2CResourceSKUPtrOutput) Name() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *B2CResourceSKU) *string {
+func (o B2CResourceSKUPtrOutput) Name() B2CResourceSKUNamePtrOutput {
+	return o.ApplyT(func(v *B2CResourceSKU) *B2CResourceSKUName {
 		if v == nil {
 			return nil
 		}
 		return v.Name
-	}).(pulumi.StringPtrOutput)
+	}).(B2CResourceSKUNamePtrOutput)
 }
 
-// The tier of the tenant.
-func (o B2CResourceSKUPtrOutput) Tier() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *B2CResourceSKU) *string {
+func (o B2CResourceSKUPtrOutput) Tier() B2CResourceSKUTierPtrOutput {
+	return o.ApplyT(func(v *B2CResourceSKU) *B2CResourceSKUTier {
 		if v == nil {
 			return nil
 		}
 		return v.Tier
-	}).(pulumi.StringPtrOutput)
+	}).(B2CResourceSKUTierPtrOutput)
 }
 
-// SKU properties of the Azure AD B2C tenant. Learn more about Azure AD B2C billing at [aka.ms/b2cBilling](https://aka.ms/b2cBilling).
 type B2CResourceSKUResponse struct {
-	// The name of the SKU for the tenant.
 	Name *string `pulumi:"name"`
-	// The tier of the tenant.
 	Tier *string `pulumi:"tier"`
 }
 
@@ -182,11 +174,8 @@ type B2CResourceSKUResponseInput interface {
 	ToB2CResourceSKUResponseOutputWithContext(context.Context) B2CResourceSKUResponseOutput
 }
 
-// SKU properties of the Azure AD B2C tenant. Learn more about Azure AD B2C billing at [aka.ms/b2cBilling](https://aka.ms/b2cBilling).
 type B2CResourceSKUResponseArgs struct {
-	// The name of the SKU for the tenant.
 	Name pulumi.StringPtrInput `pulumi:"name"`
-	// The tier of the tenant.
 	Tier pulumi.StringPtrInput `pulumi:"tier"`
 }
 
@@ -243,7 +232,6 @@ func (i *b2cresourceSKUResponsePtrType) ToB2CResourceSKUResponsePtrOutputWithCon
 	return pulumi.ToOutputWithContext(ctx, i).(B2CResourceSKUResponsePtrOutput)
 }
 
-// SKU properties of the Azure AD B2C tenant. Learn more about Azure AD B2C billing at [aka.ms/b2cBilling](https://aka.ms/b2cBilling).
 type B2CResourceSKUResponseOutput struct{ *pulumi.OutputState }
 
 func (B2CResourceSKUResponseOutput) ElementType() reflect.Type {
@@ -263,17 +251,15 @@ func (o B2CResourceSKUResponseOutput) ToB2CResourceSKUResponsePtrOutput() B2CRes
 }
 
 func (o B2CResourceSKUResponseOutput) ToB2CResourceSKUResponsePtrOutputWithContext(ctx context.Context) B2CResourceSKUResponsePtrOutput {
-	return o.ApplyT(func(v B2CResourceSKUResponse) *B2CResourceSKUResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v B2CResourceSKUResponse) *B2CResourceSKUResponse {
 		return &v
 	}).(B2CResourceSKUResponsePtrOutput)
 }
 
-// The name of the SKU for the tenant.
 func (o B2CResourceSKUResponseOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v B2CResourceSKUResponse) *string { return v.Name }).(pulumi.StringPtrOutput)
 }
 
-// The tier of the tenant.
 func (o B2CResourceSKUResponseOutput) Tier() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v B2CResourceSKUResponse) *string { return v.Tier }).(pulumi.StringPtrOutput)
 }
@@ -293,10 +279,15 @@ func (o B2CResourceSKUResponsePtrOutput) ToB2CResourceSKUResponsePtrOutputWithCo
 }
 
 func (o B2CResourceSKUResponsePtrOutput) Elem() B2CResourceSKUResponseOutput {
-	return o.ApplyT(func(v *B2CResourceSKUResponse) B2CResourceSKUResponse { return *v }).(B2CResourceSKUResponseOutput)
+	return o.ApplyT(func(v *B2CResourceSKUResponse) B2CResourceSKUResponse {
+		if v != nil {
+			return *v
+		}
+		var ret B2CResourceSKUResponse
+		return ret
+	}).(B2CResourceSKUResponseOutput)
 }
 
-// The name of the SKU for the tenant.
 func (o B2CResourceSKUResponsePtrOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *B2CResourceSKUResponse) *string {
 		if v == nil {
@@ -306,7 +297,6 @@ func (o B2CResourceSKUResponsePtrOutput) Name() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The tier of the tenant.
 func (o B2CResourceSKUResponsePtrOutput) Tier() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *B2CResourceSKUResponse) *string {
 		if v == nil {
@@ -316,12 +306,9 @@ func (o B2CResourceSKUResponsePtrOutput) Tier() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The billing configuration for the tenant.
 type B2CTenantResourcePropertiesResponseBillingConfig struct {
-	// The type of billing. Will be MAU for all new customers. If 'Auths', it can be updated to 'MAU'. Cannot be changed if value is 'MAU'. Learn more about Azure AD B2C billing at [aka.ms/b2cBilling](https://aka.ms/b2cbilling).
-	BillingType *string `pulumi:"billingType"`
-	// The data from which the billing type took effect
-	EffectiveStartDateUtc string `pulumi:"effectiveStartDateUtc"`
+	BillingType           *string `pulumi:"billingType"`
+	EffectiveStartDateUtc string  `pulumi:"effectiveStartDateUtc"`
 }
 
 // B2CTenantResourcePropertiesResponseBillingConfigInput is an input type that accepts B2CTenantResourcePropertiesResponseBillingConfigArgs and B2CTenantResourcePropertiesResponseBillingConfigOutput values.
@@ -335,12 +322,9 @@ type B2CTenantResourcePropertiesResponseBillingConfigInput interface {
 	ToB2CTenantResourcePropertiesResponseBillingConfigOutputWithContext(context.Context) B2CTenantResourcePropertiesResponseBillingConfigOutput
 }
 
-// The billing configuration for the tenant.
 type B2CTenantResourcePropertiesResponseBillingConfigArgs struct {
-	// The type of billing. Will be MAU for all new customers. If 'Auths', it can be updated to 'MAU'. Cannot be changed if value is 'MAU'. Learn more about Azure AD B2C billing at [aka.ms/b2cBilling](https://aka.ms/b2cbilling).
-	BillingType pulumi.StringPtrInput `pulumi:"billingType"`
-	// The data from which the billing type took effect
-	EffectiveStartDateUtc pulumi.StringInput `pulumi:"effectiveStartDateUtc"`
+	BillingType           pulumi.StringPtrInput `pulumi:"billingType"`
+	EffectiveStartDateUtc pulumi.StringInput    `pulumi:"effectiveStartDateUtc"`
 }
 
 func (B2CTenantResourcePropertiesResponseBillingConfigArgs) ElementType() reflect.Type {
@@ -396,7 +380,6 @@ func (i *b2ctenantResourcePropertiesResponseBillingConfigPtrType) ToB2CTenantRes
 	return pulumi.ToOutputWithContext(ctx, i).(B2CTenantResourcePropertiesResponseBillingConfigPtrOutput)
 }
 
-// The billing configuration for the tenant.
 type B2CTenantResourcePropertiesResponseBillingConfigOutput struct{ *pulumi.OutputState }
 
 func (B2CTenantResourcePropertiesResponseBillingConfigOutput) ElementType() reflect.Type {
@@ -416,17 +399,15 @@ func (o B2CTenantResourcePropertiesResponseBillingConfigOutput) ToB2CTenantResou
 }
 
 func (o B2CTenantResourcePropertiesResponseBillingConfigOutput) ToB2CTenantResourcePropertiesResponseBillingConfigPtrOutputWithContext(ctx context.Context) B2CTenantResourcePropertiesResponseBillingConfigPtrOutput {
-	return o.ApplyT(func(v B2CTenantResourcePropertiesResponseBillingConfig) *B2CTenantResourcePropertiesResponseBillingConfig {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v B2CTenantResourcePropertiesResponseBillingConfig) *B2CTenantResourcePropertiesResponseBillingConfig {
 		return &v
 	}).(B2CTenantResourcePropertiesResponseBillingConfigPtrOutput)
 }
 
-// The type of billing. Will be MAU for all new customers. If 'Auths', it can be updated to 'MAU'. Cannot be changed if value is 'MAU'. Learn more about Azure AD B2C billing at [aka.ms/b2cBilling](https://aka.ms/b2cbilling).
 func (o B2CTenantResourcePropertiesResponseBillingConfigOutput) BillingType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v B2CTenantResourcePropertiesResponseBillingConfig) *string { return v.BillingType }).(pulumi.StringPtrOutput)
 }
 
-// The data from which the billing type took effect
 func (o B2CTenantResourcePropertiesResponseBillingConfigOutput) EffectiveStartDateUtc() pulumi.StringOutput {
 	return o.ApplyT(func(v B2CTenantResourcePropertiesResponseBillingConfig) string { return v.EffectiveStartDateUtc }).(pulumi.StringOutput)
 }
@@ -447,11 +428,14 @@ func (o B2CTenantResourcePropertiesResponseBillingConfigPtrOutput) ToB2CTenantRe
 
 func (o B2CTenantResourcePropertiesResponseBillingConfigPtrOutput) Elem() B2CTenantResourcePropertiesResponseBillingConfigOutput {
 	return o.ApplyT(func(v *B2CTenantResourcePropertiesResponseBillingConfig) B2CTenantResourcePropertiesResponseBillingConfig {
-		return *v
+		if v != nil {
+			return *v
+		}
+		var ret B2CTenantResourcePropertiesResponseBillingConfig
+		return ret
 	}).(B2CTenantResourcePropertiesResponseBillingConfigOutput)
 }
 
-// The type of billing. Will be MAU for all new customers. If 'Auths', it can be updated to 'MAU'. Cannot be changed if value is 'MAU'. Learn more about Azure AD B2C billing at [aka.ms/b2cBilling](https://aka.ms/b2cbilling).
 func (o B2CTenantResourcePropertiesResponseBillingConfigPtrOutput) BillingType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *B2CTenantResourcePropertiesResponseBillingConfig) *string {
 		if v == nil {
@@ -461,7 +445,6 @@ func (o B2CTenantResourcePropertiesResponseBillingConfigPtrOutput) BillingType()
 	}).(pulumi.StringPtrOutput)
 }
 
-// The data from which the billing type took effect
 func (o B2CTenantResourcePropertiesResponseBillingConfigPtrOutput) EffectiveStartDateUtc() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *B2CTenantResourcePropertiesResponseBillingConfig) *string {
 		if v == nil {
@@ -472,9 +455,7 @@ func (o B2CTenantResourcePropertiesResponseBillingConfigPtrOutput) EffectiveStar
 }
 
 type CreateTenantRequestBodyProperties struct {
-	// Country code of Azure tenant (e.g. 'US'). Refer to [aka.ms/B2CDataResidency](https://aka.ms/B2CDataResidency) to see valid country codes and corresponding data residency locations. If you do not see a country code in an valid data residency location, choose one from the list.
 	CountryCode *string `pulumi:"countryCode"`
-	// The display name of the B2C tenant.
 	DisplayName *string `pulumi:"displayName"`
 }
 
@@ -490,9 +471,7 @@ type CreateTenantRequestBodyPropertiesInput interface {
 }
 
 type CreateTenantRequestBodyPropertiesArgs struct {
-	// Country code of Azure tenant (e.g. 'US'). Refer to [aka.ms/B2CDataResidency](https://aka.ms/B2CDataResidency) to see valid country codes and corresponding data residency locations. If you do not see a country code in an valid data residency location, choose one from the list.
 	CountryCode pulumi.StringPtrInput `pulumi:"countryCode"`
-	// The display name of the B2C tenant.
 	DisplayName pulumi.StringPtrInput `pulumi:"displayName"`
 }
 
@@ -568,17 +547,15 @@ func (o CreateTenantRequestBodyPropertiesOutput) ToCreateTenantRequestBodyProper
 }
 
 func (o CreateTenantRequestBodyPropertiesOutput) ToCreateTenantRequestBodyPropertiesPtrOutputWithContext(ctx context.Context) CreateTenantRequestBodyPropertiesPtrOutput {
-	return o.ApplyT(func(v CreateTenantRequestBodyProperties) *CreateTenantRequestBodyProperties {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v CreateTenantRequestBodyProperties) *CreateTenantRequestBodyProperties {
 		return &v
 	}).(CreateTenantRequestBodyPropertiesPtrOutput)
 }
 
-// Country code of Azure tenant (e.g. 'US'). Refer to [aka.ms/B2CDataResidency](https://aka.ms/B2CDataResidency) to see valid country codes and corresponding data residency locations. If you do not see a country code in an valid data residency location, choose one from the list.
 func (o CreateTenantRequestBodyPropertiesOutput) CountryCode() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v CreateTenantRequestBodyProperties) *string { return v.CountryCode }).(pulumi.StringPtrOutput)
 }
 
-// The display name of the B2C tenant.
 func (o CreateTenantRequestBodyPropertiesOutput) DisplayName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v CreateTenantRequestBodyProperties) *string { return v.DisplayName }).(pulumi.StringPtrOutput)
 }
@@ -598,10 +575,15 @@ func (o CreateTenantRequestBodyPropertiesPtrOutput) ToCreateTenantRequestBodyPro
 }
 
 func (o CreateTenantRequestBodyPropertiesPtrOutput) Elem() CreateTenantRequestBodyPropertiesOutput {
-	return o.ApplyT(func(v *CreateTenantRequestBodyProperties) CreateTenantRequestBodyProperties { return *v }).(CreateTenantRequestBodyPropertiesOutput)
+	return o.ApplyT(func(v *CreateTenantRequestBodyProperties) CreateTenantRequestBodyProperties {
+		if v != nil {
+			return *v
+		}
+		var ret CreateTenantRequestBodyProperties
+		return ret
+	}).(CreateTenantRequestBodyPropertiesOutput)
 }
 
-// Country code of Azure tenant (e.g. 'US'). Refer to [aka.ms/B2CDataResidency](https://aka.ms/B2CDataResidency) to see valid country codes and corresponding data residency locations. If you do not see a country code in an valid data residency location, choose one from the list.
 func (o CreateTenantRequestBodyPropertiesPtrOutput) CountryCode() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *CreateTenantRequestBodyProperties) *string {
 		if v == nil {
@@ -611,7 +593,6 @@ func (o CreateTenantRequestBodyPropertiesPtrOutput) CountryCode() pulumi.StringP
 	}).(pulumi.StringPtrOutput)
 }
 
-// The display name of the B2C tenant.
 func (o CreateTenantRequestBodyPropertiesPtrOutput) DisplayName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *CreateTenantRequestBodyProperties) *string {
 		if v == nil {

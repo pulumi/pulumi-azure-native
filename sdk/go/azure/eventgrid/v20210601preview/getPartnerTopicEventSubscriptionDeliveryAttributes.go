@@ -7,7 +7,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Result of the Get delivery attributes operation.
 func GetPartnerTopicEventSubscriptionDeliveryAttributes(ctx *pulumi.Context, args *GetPartnerTopicEventSubscriptionDeliveryAttributesArgs, opts ...pulumi.InvokeOption) (*GetPartnerTopicEventSubscriptionDeliveryAttributesResult, error) {
 	var rv GetPartnerTopicEventSubscriptionDeliveryAttributesResult
 	err := ctx.Invoke("azure-native:eventgrid/v20210601preview:getPartnerTopicEventSubscriptionDeliveryAttributes", args, &rv, opts...)
@@ -18,16 +17,12 @@ func GetPartnerTopicEventSubscriptionDeliveryAttributes(ctx *pulumi.Context, arg
 }
 
 type GetPartnerTopicEventSubscriptionDeliveryAttributesArgs struct {
-	// Name of the event subscription to be created. Event subscription names must be between 3 and 100 characters in length and use alphanumeric letters only.
 	EventSubscriptionName string `pulumi:"eventSubscriptionName"`
-	// Name of the partner topic.
-	PartnerTopicName string `pulumi:"partnerTopicName"`
-	// The name of the resource group within the user's subscription.
-	ResourceGroupName string `pulumi:"resourceGroupName"`
+	PartnerTopicName      string `pulumi:"partnerTopicName"`
+	ResourceGroupName     string `pulumi:"resourceGroupName"`
 }
 
 // Result of the Get delivery attributes operation.
 type GetPartnerTopicEventSubscriptionDeliveryAttributesResult struct {
-	// A collection of DeliveryAttributeMapping
 	Value []interface{} `pulumi:"value"`
 }

@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.DataProtection.V20210701.Outputs
 {
 
+    /// <summary>
+    /// ResourceMoveDetails will be returned in response to GetResource call from ARM
+    /// </summary>
     [OutputType]
     public sealed class ResourceMoveDetailsResponse
     {

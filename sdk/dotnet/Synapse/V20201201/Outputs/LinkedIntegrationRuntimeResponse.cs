@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.Synapse.V20201201.Outputs
 {
 
+    /// <summary>
+    /// The linked integration runtime information.
+    /// </summary>
     [OutputType]
     public sealed class LinkedIntegrationRuntimeResponse
     {

@@ -7,7 +7,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Represents an instance of a orchestrator.
 func LookupDelegatedSubnetServiceDetails(ctx *pulumi.Context, args *LookupDelegatedSubnetServiceDetailsArgs, opts ...pulumi.InvokeOption) (*LookupDelegatedSubnetServiceDetailsResult, error) {
 	var rv LookupDelegatedSubnetServiceDetailsResult
 	err := ctx.Invoke("azure-native:delegatednetwork/v20210315:getDelegatedSubnetServiceDetails", args, &rv, opts...)
@@ -18,30 +17,19 @@ func LookupDelegatedSubnetServiceDetails(ctx *pulumi.Context, args *LookupDelega
 }
 
 type LookupDelegatedSubnetServiceDetailsArgs struct {
-	// The name of the resource group. The name is case insensitive.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
-	// The name of the resource. It must be a minimum of 3 characters, and a maximum of 63.
-	ResourceName string `pulumi:"resourceName"`
+	ResourceName      string `pulumi:"resourceName"`
 }
 
 // Represents an instance of a orchestrator.
 type LookupDelegatedSubnetServiceDetailsResult struct {
-	// Properties of the controller.
 	ControllerDetails *ControllerDetailsResponse `pulumi:"controllerDetails"`
-	// An identifier that represents the resource.
-	Id string `pulumi:"id"`
-	// Location of the resource.
-	Location *string `pulumi:"location"`
-	// The name of the resource.
-	Name string `pulumi:"name"`
-	// The current state of dnc delegated subnet resource.
-	ProvisioningState string `pulumi:"provisioningState"`
-	// Resource guid.
-	ResourceGuid string `pulumi:"resourceGuid"`
-	// subnet details
-	SubnetDetails *SubnetDetailsResponse `pulumi:"subnetDetails"`
-	// The resource tags.
-	Tags map[string]string `pulumi:"tags"`
-	// The type of resource.
-	Type string `pulumi:"type"`
+	Id                string                     `pulumi:"id"`
+	Location          *string                    `pulumi:"location"`
+	Name              string                     `pulumi:"name"`
+	ProvisioningState string                     `pulumi:"provisioningState"`
+	ResourceGuid      string                     `pulumi:"resourceGuid"`
+	SubnetDetails     *SubnetDetailsResponse     `pulumi:"subnetDetails"`
+	Tags              map[string]string          `pulumi:"tags"`
+	Type              string                     `pulumi:"type"`
 }

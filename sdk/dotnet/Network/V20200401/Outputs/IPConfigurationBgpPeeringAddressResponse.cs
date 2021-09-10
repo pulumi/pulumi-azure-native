@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.Network.V20200401.Outputs
 {
 
+    /// <summary>
+    /// Properties of IPConfigurationBgpPeeringAddress.
+    /// </summary>
     [OutputType]
     public sealed class IPConfigurationBgpPeeringAddressResponse
     {

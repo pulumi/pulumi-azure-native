@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.StorageCache.V20210501.Outputs
 {
 
+    /// <summary>
+    /// SKU for the Cache.
+    /// </summary>
     [OutputType]
     public sealed class CacheResponseSku
     {

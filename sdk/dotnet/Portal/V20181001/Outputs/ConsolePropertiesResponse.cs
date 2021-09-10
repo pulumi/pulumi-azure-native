@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.Portal.V20181001.Outputs
 {
 
+    /// <summary>
+    /// Cloud shell console properties.
+    /// </summary>
     [OutputType]
     public sealed class ConsolePropertiesResponse
     {

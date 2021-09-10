@@ -7,7 +7,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// The integration account session.
 func LookupIntegrationAccountSession(ctx *pulumi.Context, args *LookupIntegrationAccountSessionArgs, opts ...pulumi.InvokeOption) (*LookupIntegrationAccountSessionResult, error) {
 	var rv LookupIntegrationAccountSessionResult
 	err := ctx.Invoke("azure-native:logic/v20190501:getIntegrationAccountSession", args, &rv, opts...)
@@ -18,30 +17,19 @@ func LookupIntegrationAccountSession(ctx *pulumi.Context, args *LookupIntegratio
 }
 
 type LookupIntegrationAccountSessionArgs struct {
-	// The integration account name.
 	IntegrationAccountName string `pulumi:"integrationAccountName"`
-	// The resource group name.
-	ResourceGroupName string `pulumi:"resourceGroupName"`
-	// The integration account session name.
-	SessionName string `pulumi:"sessionName"`
+	ResourceGroupName      string `pulumi:"resourceGroupName"`
+	SessionName            string `pulumi:"sessionName"`
 }
 
 // The integration account session.
 type LookupIntegrationAccountSessionResult struct {
-	// The changed time.
-	ChangedTime string `pulumi:"changedTime"`
-	// The session content.
-	Content interface{} `pulumi:"content"`
-	// The created time.
-	CreatedTime string `pulumi:"createdTime"`
-	// The resource id.
-	Id string `pulumi:"id"`
-	// The resource location.
-	Location *string `pulumi:"location"`
-	// Gets the resource name.
-	Name string `pulumi:"name"`
-	// The resource tags.
-	Tags map[string]string `pulumi:"tags"`
-	// Gets the resource type.
-	Type string `pulumi:"type"`
+	ChangedTime string            `pulumi:"changedTime"`
+	Content     interface{}       `pulumi:"content"`
+	CreatedTime string            `pulumi:"createdTime"`
+	Id          string            `pulumi:"id"`
+	Location    *string           `pulumi:"location"`
+	Name        string            `pulumi:"name"`
+	Tags        map[string]string `pulumi:"tags"`
+	Type        string            `pulumi:"type"`
 }

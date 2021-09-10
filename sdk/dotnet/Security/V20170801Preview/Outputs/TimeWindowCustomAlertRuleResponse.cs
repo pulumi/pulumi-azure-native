@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.Security.V20170801Preview.Outputs
 {
 
+    /// <summary>
+    /// A custom alert rule that checks if the number of activities (depends on the custom alert type) in a time window is within the given range.
+    /// </summary>
     [OutputType]
     public sealed class TimeWindowCustomAlertRuleResponse
     {

@@ -162,9 +162,7 @@ func (i *StaticSiteUserProvidedFunctionAppForStaticSite) ToStaticSiteUserProvide
 	return pulumi.ToOutputWithContext(ctx, i).(StaticSiteUserProvidedFunctionAppForStaticSiteOutput)
 }
 
-type StaticSiteUserProvidedFunctionAppForStaticSiteOutput struct {
-	*pulumi.OutputState
-}
+type StaticSiteUserProvidedFunctionAppForStaticSiteOutput struct{ *pulumi.OutputState }
 
 func (StaticSiteUserProvidedFunctionAppForStaticSiteOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*StaticSiteUserProvidedFunctionAppForStaticSite)(nil))

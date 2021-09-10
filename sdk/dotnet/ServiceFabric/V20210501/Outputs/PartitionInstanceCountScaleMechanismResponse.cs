@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.ServiceFabric.V20210501.Outputs
 {
 
+    /// <summary>
+    /// Represents a scaling mechanism for adding or removing instances of stateless service partition.
+    /// </summary>
     [OutputType]
     public sealed class PartitionInstanceCountScaleMechanismResponse
     {

@@ -7,7 +7,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// ExpressRouteCircuit resource
 func LookupExpressRouteCircuit(ctx *pulumi.Context, args *LookupExpressRouteCircuitArgs, opts ...pulumi.InvokeOption) (*LookupExpressRouteCircuitResult, error) {
 	var rv LookupExpressRouteCircuitResult
 	err := ctx.Invoke("azure-native:network/v20160601:getExpressRouteCircuit", args, &rv, opts...)
@@ -18,46 +17,27 @@ func LookupExpressRouteCircuit(ctx *pulumi.Context, args *LookupExpressRouteCirc
 }
 
 type LookupExpressRouteCircuitArgs struct {
-	// The name of the circuit.
-	CircuitName string `pulumi:"circuitName"`
-	// The name of the resource group.
+	CircuitName       string `pulumi:"circuitName"`
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 }
 
 // ExpressRouteCircuit resource
 type LookupExpressRouteCircuitResult struct {
-	// allow classic operations
-	AllowClassicOperations *bool `pulumi:"allowClassicOperations"`
-	// Gets or sets list of authorizations
-	Authorizations []ExpressRouteCircuitAuthorizationResponse `pulumi:"authorizations"`
-	// Gets or sets CircuitProvisioningState state of the resource
-	CircuitProvisioningState *string `pulumi:"circuitProvisioningState"`
-	// Gets a unique read-only string that changes whenever the resource is updated
-	Etag *string `pulumi:"etag"`
-	// Gets or sets the GatewayManager Etag
-	GatewayManagerEtag *string `pulumi:"gatewayManagerEtag"`
-	// Resource Id
-	Id *string `pulumi:"id"`
-	// Resource location
-	Location *string `pulumi:"location"`
-	// Resource name
-	Name string `pulumi:"name"`
-	// Gets or sets list of peerings
-	Peerings []ExpressRouteCircuitPeeringResponse `pulumi:"peerings"`
-	// Gets provisioning state of the PublicIP resource Updating/Deleting/Failed
-	ProvisioningState *string `pulumi:"provisioningState"`
-	// Gets or sets ServiceKey
-	ServiceKey *string `pulumi:"serviceKey"`
-	// Gets or sets ServiceProviderNotes
-	ServiceProviderNotes *string `pulumi:"serviceProviderNotes"`
-	// Gets or sets ServiceProviderProperties
-	ServiceProviderProperties *ExpressRouteCircuitServiceProviderPropertiesResponse `pulumi:"serviceProviderProperties"`
-	// Gets or sets ServiceProviderProvisioningState state of the resource
-	ServiceProviderProvisioningState *string `pulumi:"serviceProviderProvisioningState"`
-	// Gets or sets sku
-	Sku *ExpressRouteCircuitSkuResponse `pulumi:"sku"`
-	// Resource tags
-	Tags map[string]string `pulumi:"tags"`
-	// Resource type
-	Type string `pulumi:"type"`
+	AllowClassicOperations           *bool                                                 `pulumi:"allowClassicOperations"`
+	Authorizations                   []ExpressRouteCircuitAuthorizationResponse            `pulumi:"authorizations"`
+	CircuitProvisioningState         *string                                               `pulumi:"circuitProvisioningState"`
+	Etag                             *string                                               `pulumi:"etag"`
+	GatewayManagerEtag               *string                                               `pulumi:"gatewayManagerEtag"`
+	Id                               *string                                               `pulumi:"id"`
+	Location                         *string                                               `pulumi:"location"`
+	Name                             string                                                `pulumi:"name"`
+	Peerings                         []ExpressRouteCircuitPeeringResponse                  `pulumi:"peerings"`
+	ProvisioningState                *string                                               `pulumi:"provisioningState"`
+	ServiceKey                       *string                                               `pulumi:"serviceKey"`
+	ServiceProviderNotes             *string                                               `pulumi:"serviceProviderNotes"`
+	ServiceProviderProperties        *ExpressRouteCircuitServiceProviderPropertiesResponse `pulumi:"serviceProviderProperties"`
+	ServiceProviderProvisioningState *string                                               `pulumi:"serviceProviderProvisioningState"`
+	Sku                              *ExpressRouteCircuitSkuResponse                       `pulumi:"sku"`
+	Tags                             map[string]string                                     `pulumi:"tags"`
+	Type                             string                                                `pulumi:"type"`
 }

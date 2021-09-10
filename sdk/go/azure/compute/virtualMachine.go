@@ -367,9 +367,7 @@ func (i *VirtualMachine) ToVirtualMachineOutputWithContext(ctx context.Context) 
 	return pulumi.ToOutputWithContext(ctx, i).(VirtualMachineOutput)
 }
 
-type VirtualMachineOutput struct {
-	*pulumi.OutputState
-}
+type VirtualMachineOutput struct{ *pulumi.OutputState }
 
 func (VirtualMachineOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*VirtualMachine)(nil))

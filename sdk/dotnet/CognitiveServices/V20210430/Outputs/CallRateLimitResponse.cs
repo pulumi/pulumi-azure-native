@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.CognitiveServices.V20210430.Outputs
 {
 
+    /// <summary>
+    /// The call rate limit Cognitive Services account.
+    /// </summary>
     [OutputType]
     public sealed class CallRateLimitResponse
     {

@@ -28,7 +28,7 @@ namespace Pulumi.AzureNative.Web.Inputs
         public Input<string>? Description { get; set; }
 
         [Input("headers")]
-        private InputMap<ImmutableArray<Input<string>>>? _headers;
+        private InputMap<ImmutableArray<string>>? _headers;
 
         /// <summary>
         /// IP restriction rule headers.
@@ -48,9 +48,9 @@ namespace Pulumi.AzureNative.Web.Inputs
         /// X-Azure-FDID and X-FD-HealthProbe.
         /// The matching logic is exact match.
         /// </summary>
-        public InputMap<ImmutableArray<Input<string>>> Headers
+        public InputMap<ImmutableArray<string>> Headers
         {
-            get => _headers ?? (_headers = new InputMap<ImmutableArray<Input<string>>>());
+            get => _headers ?? (_headers = new InputMap<ImmutableArray<string>>());
             set => _headers = value;
         }
 

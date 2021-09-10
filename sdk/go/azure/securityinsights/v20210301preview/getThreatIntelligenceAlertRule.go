@@ -7,7 +7,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Represents Threat Intelligence alert rule.
 func LookupThreatIntelligenceAlertRule(ctx *pulumi.Context, args *LookupThreatIntelligenceAlertRuleArgs, opts ...pulumi.InvokeOption) (*LookupThreatIntelligenceAlertRuleResult, error) {
 	var rv LookupThreatIntelligenceAlertRuleResult
 	err := ctx.Invoke("azure-native:securityinsights/v20210301preview:getThreatIntelligenceAlertRule", args, &rv, opts...)
@@ -18,43 +17,25 @@ func LookupThreatIntelligenceAlertRule(ctx *pulumi.Context, args *LookupThreatIn
 }
 
 type LookupThreatIntelligenceAlertRuleArgs struct {
-	// The namespace of workspaces resource provider- Microsoft.OperationalInsights.
 	OperationalInsightsResourceProvider string `pulumi:"operationalInsightsResourceProvider"`
-	// The name of the resource group. The name is case insensitive.
-	ResourceGroupName string `pulumi:"resourceGroupName"`
-	// Alert rule ID
-	RuleId string `pulumi:"ruleId"`
-	// The name of the workspace.
-	WorkspaceName string `pulumi:"workspaceName"`
+	ResourceGroupName                   string `pulumi:"resourceGroupName"`
+	RuleId                              string `pulumi:"ruleId"`
+	WorkspaceName                       string `pulumi:"workspaceName"`
 }
 
 // Represents Threat Intelligence alert rule.
 type LookupThreatIntelligenceAlertRuleResult struct {
-	// The Name of the alert rule template used to create this rule.
-	AlertRuleTemplateName string `pulumi:"alertRuleTemplateName"`
-	// The description of the alert rule.
-	Description string `pulumi:"description"`
-	// The display name for alerts created by this alert rule.
-	DisplayName string `pulumi:"displayName"`
-	// Determines whether this alert rule is enabled or disabled.
-	Enabled bool `pulumi:"enabled"`
-	// Etag of the azure resource
-	Etag *string `pulumi:"etag"`
-	// Azure resource Id
-	Id string `pulumi:"id"`
-	// The kind of the alert rule
-	// Expected value is 'ThreatIntelligence'.
-	Kind string `pulumi:"kind"`
-	// The last time that this alert has been modified.
-	LastModifiedUtc string `pulumi:"lastModifiedUtc"`
-	// Azure resource name
-	Name string `pulumi:"name"`
-	// The severity for alerts created by this alert rule.
-	Severity string `pulumi:"severity"`
-	// Azure Resource Manager metadata containing createdBy and modifiedBy information.
-	SystemData SystemDataResponse `pulumi:"systemData"`
-	// The tactics of the alert rule
-	Tactics []string `pulumi:"tactics"`
-	// Azure resource type
-	Type string `pulumi:"type"`
+	AlertRuleTemplateName string             `pulumi:"alertRuleTemplateName"`
+	Description           string             `pulumi:"description"`
+	DisplayName           string             `pulumi:"displayName"`
+	Enabled               bool               `pulumi:"enabled"`
+	Etag                  *string            `pulumi:"etag"`
+	Id                    string             `pulumi:"id"`
+	Kind                  string             `pulumi:"kind"`
+	LastModifiedUtc       string             `pulumi:"lastModifiedUtc"`
+	Name                  string             `pulumi:"name"`
+	Severity              string             `pulumi:"severity"`
+	SystemData            SystemDataResponse `pulumi:"systemData"`
+	Tactics               []string           `pulumi:"tactics"`
+	Type                  string             `pulumi:"type"`
 }

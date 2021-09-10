@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.Network.V20190901.Outputs
 {
 
+    /// <summary>
+    /// An traffic selector policy for a virtual network gateway connection.
+    /// </summary>
     [OutputType]
     public sealed class TrafficSelectorPolicyResponse
     {

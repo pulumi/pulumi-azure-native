@@ -7,7 +7,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// The prediction model status.
 func GetPredictionModelStatus(ctx *pulumi.Context, args *GetPredictionModelStatusArgs, opts ...pulumi.InvokeOption) (*GetPredictionModelStatusResult, error) {
 	var rv GetPredictionModelStatusResult
 	err := ctx.Invoke("azure-native:customerinsights/v20170426:getPredictionModelStatus", args, &rv, opts...)
@@ -18,36 +17,22 @@ func GetPredictionModelStatus(ctx *pulumi.Context, args *GetPredictionModelStatu
 }
 
 type GetPredictionModelStatusArgs struct {
-	// The name of the hub.
-	HubName string `pulumi:"hubName"`
-	// The name of the Prediction.
-	PredictionName string `pulumi:"predictionName"`
-	// The name of the resource group.
+	HubName           string `pulumi:"hubName"`
+	PredictionName    string `pulumi:"predictionName"`
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 }
 
 // The prediction model status.
 type GetPredictionModelStatusResult struct {
-	// The model status message.
-	Message string `pulumi:"message"`
-	// Version of the model.
-	ModelVersion string `pulumi:"modelVersion"`
-	// The prediction GUID ID.
-	PredictionGuidId string `pulumi:"predictionGuidId"`
-	// The prediction name.
-	PredictionName string `pulumi:"predictionName"`
-	// The signals used.
-	SignalsUsed int `pulumi:"signalsUsed"`
-	// Prediction model life cycle.  When prediction is in PendingModelConfirmation status, it is allowed to update the status to PendingFeaturing or Active through API.
-	Status string `pulumi:"status"`
-	// The hub name.
-	TenantId string `pulumi:"tenantId"`
-	// Count of the test set.
-	TestSetCount int `pulumi:"testSetCount"`
-	// The training accuracy.
-	TrainingAccuracy int `pulumi:"trainingAccuracy"`
-	// Count of the training set.
-	TrainingSetCount int `pulumi:"trainingSetCount"`
-	// Count of the validation set.
-	ValidationSetCount int `pulumi:"validationSetCount"`
+	Message            string `pulumi:"message"`
+	ModelVersion       string `pulumi:"modelVersion"`
+	PredictionGuidId   string `pulumi:"predictionGuidId"`
+	PredictionName     string `pulumi:"predictionName"`
+	SignalsUsed        int    `pulumi:"signalsUsed"`
+	Status             string `pulumi:"status"`
+	TenantId           string `pulumi:"tenantId"`
+	TestSetCount       int    `pulumi:"testSetCount"`
+	TrainingAccuracy   int    `pulumi:"trainingAccuracy"`
+	TrainingSetCount   int    `pulumi:"trainingSetCount"`
+	ValidationSetCount int    `pulumi:"validationSetCount"`
 }

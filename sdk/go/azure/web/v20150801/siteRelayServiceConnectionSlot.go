@@ -11,27 +11,21 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Class that represents a BizTalk Hybrid Connection
 type SiteRelayServiceConnectionSlot struct {
 	pulumi.CustomResourceState
 
-	BiztalkUri             pulumi.StringPtrOutput `pulumi:"biztalkUri"`
-	EntityConnectionString pulumi.StringPtrOutput `pulumi:"entityConnectionString"`
-	EntityName             pulumi.StringPtrOutput `pulumi:"entityName"`
-	Hostname               pulumi.StringPtrOutput `pulumi:"hostname"`
-	// Kind of resource
-	Kind pulumi.StringPtrOutput `pulumi:"kind"`
-	// Resource Location
-	Location pulumi.StringOutput `pulumi:"location"`
-	// Resource Name
+	BiztalkUri               pulumi.StringPtrOutput `pulumi:"biztalkUri"`
+	EntityConnectionString   pulumi.StringPtrOutput `pulumi:"entityConnectionString"`
+	EntityName               pulumi.StringPtrOutput `pulumi:"entityName"`
+	Hostname                 pulumi.StringPtrOutput `pulumi:"hostname"`
+	Kind                     pulumi.StringPtrOutput `pulumi:"kind"`
+	Location                 pulumi.StringOutput    `pulumi:"location"`
 	Name                     pulumi.StringPtrOutput `pulumi:"name"`
 	Port                     pulumi.IntPtrOutput    `pulumi:"port"`
 	ResourceConnectionString pulumi.StringPtrOutput `pulumi:"resourceConnectionString"`
 	ResourceType             pulumi.StringPtrOutput `pulumi:"resourceType"`
-	// Resource tags
-	Tags pulumi.StringMapOutput `pulumi:"tags"`
-	// Resource type
-	Type pulumi.StringPtrOutput `pulumi:"type"`
+	Tags                     pulumi.StringMapOutput `pulumi:"tags"`
+	Type                     pulumi.StringPtrOutput `pulumi:"type"`
 }
 
 // NewSiteRelayServiceConnectionSlot registers a new resource with the given unique name, arguments, and options.
@@ -160,56 +154,40 @@ func (SiteRelayServiceConnectionSlotState) ElementType() reflect.Type {
 }
 
 type siteRelayServiceConnectionSlotArgs struct {
-	BiztalkUri             *string `pulumi:"biztalkUri"`
-	EntityConnectionString *string `pulumi:"entityConnectionString"`
-	EntityName             *string `pulumi:"entityName"`
-	Hostname               *string `pulumi:"hostname"`
-	// Resource Id
-	Id *string `pulumi:"id"`
-	// Kind of resource
-	Kind *string `pulumi:"kind"`
-	// Resource Location
-	Location *string `pulumi:"location"`
-	// Resource Name
-	Name                     string  `pulumi:"name"`
-	Port                     *int    `pulumi:"port"`
-	ResourceConnectionString *string `pulumi:"resourceConnectionString"`
-	// The resource group name
-	ResourceGroupName string  `pulumi:"resourceGroupName"`
-	ResourceType      *string `pulumi:"resourceType"`
-	// The name of the slot for the web app.
-	Slot string `pulumi:"slot"`
-	// Resource tags
-	Tags map[string]string `pulumi:"tags"`
-	// Resource type
-	Type *string `pulumi:"type"`
+	BiztalkUri               *string           `pulumi:"biztalkUri"`
+	EntityConnectionString   *string           `pulumi:"entityConnectionString"`
+	EntityName               *string           `pulumi:"entityName"`
+	Hostname                 *string           `pulumi:"hostname"`
+	Id                       *string           `pulumi:"id"`
+	Kind                     *string           `pulumi:"kind"`
+	Location                 *string           `pulumi:"location"`
+	Name                     string            `pulumi:"name"`
+	Port                     *int              `pulumi:"port"`
+	ResourceConnectionString *string           `pulumi:"resourceConnectionString"`
+	ResourceGroupName        string            `pulumi:"resourceGroupName"`
+	ResourceType             *string           `pulumi:"resourceType"`
+	Slot                     string            `pulumi:"slot"`
+	Tags                     map[string]string `pulumi:"tags"`
+	Type                     *string           `pulumi:"type"`
 }
 
 // The set of arguments for constructing a SiteRelayServiceConnectionSlot resource.
 type SiteRelayServiceConnectionSlotArgs struct {
-	BiztalkUri             pulumi.StringPtrInput
-	EntityConnectionString pulumi.StringPtrInput
-	EntityName             pulumi.StringPtrInput
-	Hostname               pulumi.StringPtrInput
-	// Resource Id
-	Id pulumi.StringPtrInput
-	// Kind of resource
-	Kind pulumi.StringPtrInput
-	// Resource Location
-	Location pulumi.StringPtrInput
-	// Resource Name
+	BiztalkUri               pulumi.StringPtrInput
+	EntityConnectionString   pulumi.StringPtrInput
+	EntityName               pulumi.StringPtrInput
+	Hostname                 pulumi.StringPtrInput
+	Id                       pulumi.StringPtrInput
+	Kind                     pulumi.StringPtrInput
+	Location                 pulumi.StringPtrInput
 	Name                     pulumi.StringInput
 	Port                     pulumi.IntPtrInput
 	ResourceConnectionString pulumi.StringPtrInput
-	// The resource group name
-	ResourceGroupName pulumi.StringInput
-	ResourceType      pulumi.StringPtrInput
-	// The name of the slot for the web app.
-	Slot pulumi.StringInput
-	// Resource tags
-	Tags pulumi.StringMapInput
-	// Resource type
-	Type pulumi.StringPtrInput
+	ResourceGroupName        pulumi.StringInput
+	ResourceType             pulumi.StringPtrInput
+	Slot                     pulumi.StringInput
+	Tags                     pulumi.StringMapInput
+	Type                     pulumi.StringPtrInput
 }
 
 func (SiteRelayServiceConnectionSlotArgs) ElementType() reflect.Type {
@@ -235,9 +213,7 @@ func (i *SiteRelayServiceConnectionSlot) ToSiteRelayServiceConnectionSlotOutputW
 	return pulumi.ToOutputWithContext(ctx, i).(SiteRelayServiceConnectionSlotOutput)
 }
 
-type SiteRelayServiceConnectionSlotOutput struct {
-	*pulumi.OutputState
-}
+type SiteRelayServiceConnectionSlotOutput struct{ *pulumi.OutputState }
 
 func (SiteRelayServiceConnectionSlotOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*SiteRelayServiceConnectionSlot)(nil))

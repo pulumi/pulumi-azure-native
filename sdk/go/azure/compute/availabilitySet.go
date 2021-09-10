@@ -247,9 +247,7 @@ func (i *AvailabilitySet) ToAvailabilitySetOutputWithContext(ctx context.Context
 	return pulumi.ToOutputWithContext(ctx, i).(AvailabilitySetOutput)
 }
 
-type AvailabilitySetOutput struct {
-	*pulumi.OutputState
-}
+type AvailabilitySetOutput struct{ *pulumi.OutputState }
 
 func (AvailabilitySetOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*AvailabilitySet)(nil))

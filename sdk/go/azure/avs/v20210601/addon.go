@@ -11,16 +11,12 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// An addon resource
 type Addon struct {
 	pulumi.CustomResourceState
 
-	// Resource name.
-	Name pulumi.StringOutput `pulumi:"name"`
-	// The properties of an addon resource
-	Properties pulumi.AnyOutput `pulumi:"properties"`
-	// Resource type.
-	Type pulumi.StringOutput `pulumi:"type"`
+	Name       pulumi.StringOutput `pulumi:"name"`
+	Properties pulumi.AnyOutput    `pulumi:"properties"`
+	Type       pulumi.StringOutput `pulumi:"type"`
 }
 
 // NewAddon registers a new resource with the given unique name, arguments, and options.
@@ -92,25 +88,17 @@ func (AddonState) ElementType() reflect.Type {
 }
 
 type addonArgs struct {
-	// Name of the addon for the private cloud
-	AddonName *string `pulumi:"addonName"`
-	// The name of the private cloud.
-	PrivateCloudName string `pulumi:"privateCloudName"`
-	// The properties of an addon resource
-	Properties interface{} `pulumi:"properties"`
-	// The name of the resource group. The name is case insensitive.
-	ResourceGroupName string `pulumi:"resourceGroupName"`
+	AddonName         *string     `pulumi:"addonName"`
+	PrivateCloudName  string      `pulumi:"privateCloudName"`
+	Properties        interface{} `pulumi:"properties"`
+	ResourceGroupName string      `pulumi:"resourceGroupName"`
 }
 
 // The set of arguments for constructing a Addon resource.
 type AddonArgs struct {
-	// Name of the addon for the private cloud
-	AddonName pulumi.StringPtrInput
-	// The name of the private cloud.
-	PrivateCloudName pulumi.StringInput
-	// The properties of an addon resource
-	Properties pulumi.Input
-	// The name of the resource group. The name is case insensitive.
+	AddonName         pulumi.StringPtrInput
+	PrivateCloudName  pulumi.StringInput
+	Properties        pulumi.Input
 	ResourceGroupName pulumi.StringInput
 }
 
@@ -137,9 +125,7 @@ func (i *Addon) ToAddonOutputWithContext(ctx context.Context) AddonOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(AddonOutput)
 }
 
-type AddonOutput struct {
-	*pulumi.OutputState
-}
+type AddonOutput struct{ *pulumi.OutputState }
 
 func (AddonOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*Addon)(nil))

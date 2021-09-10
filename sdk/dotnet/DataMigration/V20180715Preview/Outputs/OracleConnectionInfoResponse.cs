@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.DataMigration.V20180715Preview.Outputs
 {
 
+    /// <summary>
+    /// Information for connecting to Oracle server
+    /// </summary>
     [OutputType]
     public sealed class OracleConnectionInfoResponse
     {

@@ -11,26 +11,17 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Create or update Restore Point collection parameters.
 type RestorePointCollection struct {
 	pulumi.CustomResourceState
 
-	// Resource location
-	Location pulumi.StringOutput `pulumi:"location"`
-	// Resource name
-	Name pulumi.StringOutput `pulumi:"name"`
-	// The provisioning state of the restore point collection.
-	ProvisioningState pulumi.StringOutput `pulumi:"provisioningState"`
-	// The unique id of the restore point collection.
-	RestorePointCollectionId pulumi.StringOutput `pulumi:"restorePointCollectionId"`
-	// A list containing all restore points created under this restore point collection.
-	RestorePoints RestorePointResponseArrayOutput `pulumi:"restorePoints"`
-	// The properties of the source resource that this restore point collection is created from.
-	Source RestorePointCollectionSourcePropertiesResponsePtrOutput `pulumi:"source"`
-	// Resource tags
-	Tags pulumi.StringMapOutput `pulumi:"tags"`
-	// Resource type
-	Type pulumi.StringOutput `pulumi:"type"`
+	Location                 pulumi.StringOutput                                     `pulumi:"location"`
+	Name                     pulumi.StringOutput                                     `pulumi:"name"`
+	ProvisioningState        pulumi.StringOutput                                     `pulumi:"provisioningState"`
+	RestorePointCollectionId pulumi.StringOutput                                     `pulumi:"restorePointCollectionId"`
+	RestorePoints            RestorePointResponseArrayOutput                         `pulumi:"restorePoints"`
+	Source                   RestorePointCollectionSourcePropertiesResponsePtrOutput `pulumi:"source"`
+	Tags                     pulumi.StringMapOutput                                  `pulumi:"tags"`
+	Type                     pulumi.StringOutput                                     `pulumi:"type"`
 }
 
 // NewRestorePointCollection registers a new resource with the given unique name, arguments, and options.
@@ -99,30 +90,20 @@ func (RestorePointCollectionState) ElementType() reflect.Type {
 }
 
 type restorePointCollectionArgs struct {
-	// Resource location
-	Location *string `pulumi:"location"`
-	// The name of the resource group.
-	ResourceGroupName string `pulumi:"resourceGroupName"`
-	// The name of the restore point collection.
-	RestorePointCollectionName *string `pulumi:"restorePointCollectionName"`
-	// The properties of the source resource that this restore point collection is created from.
-	Source *RestorePointCollectionSourceProperties `pulumi:"source"`
-	// Resource tags
-	Tags map[string]string `pulumi:"tags"`
+	Location                   *string                                 `pulumi:"location"`
+	ResourceGroupName          string                                  `pulumi:"resourceGroupName"`
+	RestorePointCollectionName *string                                 `pulumi:"restorePointCollectionName"`
+	Source                     *RestorePointCollectionSourceProperties `pulumi:"source"`
+	Tags                       map[string]string                       `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a RestorePointCollection resource.
 type RestorePointCollectionArgs struct {
-	// Resource location
-	Location pulumi.StringPtrInput
-	// The name of the resource group.
-	ResourceGroupName pulumi.StringInput
-	// The name of the restore point collection.
+	Location                   pulumi.StringPtrInput
+	ResourceGroupName          pulumi.StringInput
 	RestorePointCollectionName pulumi.StringPtrInput
-	// The properties of the source resource that this restore point collection is created from.
-	Source RestorePointCollectionSourcePropertiesPtrInput
-	// Resource tags
-	Tags pulumi.StringMapInput
+	Source                     RestorePointCollectionSourcePropertiesPtrInput
+	Tags                       pulumi.StringMapInput
 }
 
 func (RestorePointCollectionArgs) ElementType() reflect.Type {
@@ -148,9 +129,7 @@ func (i *RestorePointCollection) ToRestorePointCollectionOutputWithContext(ctx c
 	return pulumi.ToOutputWithContext(ctx, i).(RestorePointCollectionOutput)
 }
 
-type RestorePointCollectionOutput struct {
-	*pulumi.OutputState
-}
+type RestorePointCollectionOutput struct{ *pulumi.OutputState }
 
 func (RestorePointCollectionOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*RestorePointCollection)(nil))

@@ -7,7 +7,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Client or app secret used in IdentityProviders, Aad, OpenID or OAuth.
 func ListDelegationSettingSecrets(ctx *pulumi.Context, args *ListDelegationSettingSecretsArgs, opts ...pulumi.InvokeOption) (*ListDelegationSettingSecretsResult, error) {
 	var rv ListDelegationSettingSecretsResult
 	err := ctx.Invoke("azure-native:apimanagement/v20191201:listDelegationSettingSecrets", args, &rv, opts...)
@@ -18,14 +17,11 @@ func ListDelegationSettingSecrets(ctx *pulumi.Context, args *ListDelegationSetti
 }
 
 type ListDelegationSettingSecretsArgs struct {
-	// The name of the resource group.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
-	// The name of the API Management service.
-	ServiceName string `pulumi:"serviceName"`
+	ServiceName       string `pulumi:"serviceName"`
 }
 
 // Client or app secret used in IdentityProviders, Aad, OpenID or OAuth.
 type ListDelegationSettingSecretsResult struct {
-	// This is secret value of the validation key in portal settings.
 	ValidationKey *string `pulumi:"validationKey"`
 }

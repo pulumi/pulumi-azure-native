@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.ContainerRegistry.V20190501.Outputs
 {
 
+    /// <summary>
+    /// The status of an Azure resource at the time the operation was called.
+    /// </summary>
     [OutputType]
     public sealed class StatusResponse
     {

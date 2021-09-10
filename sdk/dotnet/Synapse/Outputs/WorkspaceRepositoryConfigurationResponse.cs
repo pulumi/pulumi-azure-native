@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.Synapse.Outputs
 {
 
+    /// <summary>
+    /// Git integration settings
+    /// </summary>
     [OutputType]
     public sealed class WorkspaceRepositoryConfigurationResponse
     {

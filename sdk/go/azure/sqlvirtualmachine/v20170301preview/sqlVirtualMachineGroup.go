@@ -11,32 +11,20 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// A SQL virtual machine group.
 type SqlVirtualMachineGroup struct {
 	pulumi.CustomResourceState
 
-	// Cluster type.
-	ClusterConfiguration pulumi.StringOutput `pulumi:"clusterConfiguration"`
-	// Type of cluster manager: Windows Server Failover Cluster (WSFC), implied by the scale type of the group and the OS type.
-	ClusterManagerType pulumi.StringOutput `pulumi:"clusterManagerType"`
-	// Resource location.
-	Location pulumi.StringOutput `pulumi:"location"`
-	// Resource name.
-	Name pulumi.StringOutput `pulumi:"name"`
-	// Provisioning state to track the async operation status.
-	ProvisioningState pulumi.StringOutput `pulumi:"provisioningState"`
-	// Scale type.
-	ScaleType pulumi.StringOutput `pulumi:"scaleType"`
-	// SQL image offer. Examples may include SQL2016-WS2016, SQL2017-WS2016.
-	SqlImageOffer pulumi.StringPtrOutput `pulumi:"sqlImageOffer"`
-	// SQL image sku.
-	SqlImageSku pulumi.StringPtrOutput `pulumi:"sqlImageSku"`
-	// Resource tags.
-	Tags pulumi.StringMapOutput `pulumi:"tags"`
-	// Resource type.
-	Type pulumi.StringOutput `pulumi:"type"`
-	// Cluster Active Directory domain profile.
-	WsfcDomainProfile WsfcDomainProfileResponsePtrOutput `pulumi:"wsfcDomainProfile"`
+	ClusterConfiguration pulumi.StringOutput                `pulumi:"clusterConfiguration"`
+	ClusterManagerType   pulumi.StringOutput                `pulumi:"clusterManagerType"`
+	Location             pulumi.StringOutput                `pulumi:"location"`
+	Name                 pulumi.StringOutput                `pulumi:"name"`
+	ProvisioningState    pulumi.StringOutput                `pulumi:"provisioningState"`
+	ScaleType            pulumi.StringOutput                `pulumi:"scaleType"`
+	SqlImageOffer        pulumi.StringPtrOutput             `pulumi:"sqlImageOffer"`
+	SqlImageSku          pulumi.StringPtrOutput             `pulumi:"sqlImageSku"`
+	Tags                 pulumi.StringMapOutput             `pulumi:"tags"`
+	Type                 pulumi.StringOutput                `pulumi:"type"`
+	WsfcDomainProfile    WsfcDomainProfileResponsePtrOutput `pulumi:"wsfcDomainProfile"`
 }
 
 // NewSqlVirtualMachineGroup registers a new resource with the given unique name, arguments, and options.
@@ -93,38 +81,24 @@ func (SqlVirtualMachineGroupState) ElementType() reflect.Type {
 }
 
 type sqlVirtualMachineGroupArgs struct {
-	// Resource location.
-	Location *string `pulumi:"location"`
-	// Name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
-	ResourceGroupName string `pulumi:"resourceGroupName"`
-	// SQL image offer. Examples may include SQL2016-WS2016, SQL2017-WS2016.
-	SqlImageOffer *string `pulumi:"sqlImageOffer"`
-	// SQL image sku.
-	SqlImageSku *string `pulumi:"sqlImageSku"`
-	// Name of the SQL virtual machine group.
-	SqlVirtualMachineGroupName *string `pulumi:"sqlVirtualMachineGroupName"`
-	// Resource tags.
-	Tags map[string]string `pulumi:"tags"`
-	// Cluster Active Directory domain profile.
-	WsfcDomainProfile *WsfcDomainProfile `pulumi:"wsfcDomainProfile"`
+	Location                   *string            `pulumi:"location"`
+	ResourceGroupName          string             `pulumi:"resourceGroupName"`
+	SqlImageOffer              *string            `pulumi:"sqlImageOffer"`
+	SqlImageSku                *string            `pulumi:"sqlImageSku"`
+	SqlVirtualMachineGroupName *string            `pulumi:"sqlVirtualMachineGroupName"`
+	Tags                       map[string]string  `pulumi:"tags"`
+	WsfcDomainProfile          *WsfcDomainProfile `pulumi:"wsfcDomainProfile"`
 }
 
 // The set of arguments for constructing a SqlVirtualMachineGroup resource.
 type SqlVirtualMachineGroupArgs struct {
-	// Resource location.
-	Location pulumi.StringPtrInput
-	// Name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
-	ResourceGroupName pulumi.StringInput
-	// SQL image offer. Examples may include SQL2016-WS2016, SQL2017-WS2016.
-	SqlImageOffer pulumi.StringPtrInput
-	// SQL image sku.
-	SqlImageSku pulumi.StringPtrInput
-	// Name of the SQL virtual machine group.
+	Location                   pulumi.StringPtrInput
+	ResourceGroupName          pulumi.StringInput
+	SqlImageOffer              pulumi.StringPtrInput
+	SqlImageSku                pulumi.StringPtrInput
 	SqlVirtualMachineGroupName pulumi.StringPtrInput
-	// Resource tags.
-	Tags pulumi.StringMapInput
-	// Cluster Active Directory domain profile.
-	WsfcDomainProfile WsfcDomainProfilePtrInput
+	Tags                       pulumi.StringMapInput
+	WsfcDomainProfile          WsfcDomainProfilePtrInput
 }
 
 func (SqlVirtualMachineGroupArgs) ElementType() reflect.Type {
@@ -150,9 +124,7 @@ func (i *SqlVirtualMachineGroup) ToSqlVirtualMachineGroupOutputWithContext(ctx c
 	return pulumi.ToOutputWithContext(ctx, i).(SqlVirtualMachineGroupOutput)
 }
 
-type SqlVirtualMachineGroupOutput struct {
-	*pulumi.OutputState
-}
+type SqlVirtualMachineGroupOutput struct{ *pulumi.OutputState }
 
 func (SqlVirtualMachineGroupOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*SqlVirtualMachineGroup)(nil))

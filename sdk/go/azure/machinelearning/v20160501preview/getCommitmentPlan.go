@@ -7,7 +7,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// An Azure ML commitment plan resource.
 func LookupCommitmentPlan(ctx *pulumi.Context, args *LookupCommitmentPlanArgs, opts ...pulumi.InvokeOption) (*LookupCommitmentPlanResult, error) {
 	var rv LookupCommitmentPlanResult
 	err := ctx.Invoke("azure-native:machinelearning/v20160501preview:getCommitmentPlan", args, &rv, opts...)
@@ -18,28 +17,18 @@ func LookupCommitmentPlan(ctx *pulumi.Context, args *LookupCommitmentPlanArgs, o
 }
 
 type LookupCommitmentPlanArgs struct {
-	// The Azure ML commitment plan name.
 	CommitmentPlanName string `pulumi:"commitmentPlanName"`
-	// The resource group name.
-	ResourceGroupName string `pulumi:"resourceGroupName"`
+	ResourceGroupName  string `pulumi:"resourceGroupName"`
 }
 
 // An Azure ML commitment plan resource.
 type LookupCommitmentPlanResult struct {
-	// An entity tag used to enforce optimistic concurrency.
-	Etag *string `pulumi:"etag"`
-	// Resource Id.
-	Id string `pulumi:"id"`
-	// Resource location.
-	Location string `pulumi:"location"`
-	// Resource name.
-	Name string `pulumi:"name"`
-	// The commitment plan properties.
+	Etag       *string                          `pulumi:"etag"`
+	Id         string                           `pulumi:"id"`
+	Location   string                           `pulumi:"location"`
+	Name       string                           `pulumi:"name"`
 	Properties CommitmentPlanPropertiesResponse `pulumi:"properties"`
-	// The commitment plan SKU.
-	Sku *ResourceSkuResponse `pulumi:"sku"`
-	// User-defined tags for the resource.
-	Tags map[string]string `pulumi:"tags"`
-	// Resource type.
-	Type string `pulumi:"type"`
+	Sku        *ResourceSkuResponse             `pulumi:"sku"`
+	Tags       map[string]string                `pulumi:"tags"`
+	Type       string                           `pulumi:"type"`
 }

@@ -7,7 +7,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// The base class for backup policy. Workload-specific backup policies are derived from this class.
 func LookupProtectionPolicy(ctx *pulumi.Context, args *LookupProtectionPolicyArgs, opts ...pulumi.InvokeOption) (*LookupProtectionPolicyResult, error) {
 	var rv LookupProtectionPolicyResult
 	err := ctx.Invoke("azure-native:recoveryservices/v20160601:getProtectionPolicy", args, &rv, opts...)
@@ -18,28 +17,18 @@ func LookupProtectionPolicy(ctx *pulumi.Context, args *LookupProtectionPolicyArg
 }
 
 type LookupProtectionPolicyArgs struct {
-	// The backup policy name used in this GET operation.
-	PolicyName string `pulumi:"policyName"`
-	// The name of the resource group associated with the Recovery Services vault.
+	PolicyName        string `pulumi:"policyName"`
 	ResourceGroupName string `pulumi:"resourceGroupName"`
-	// The name of the Recovery Services vault.
-	VaultName string `pulumi:"vaultName"`
+	VaultName         string `pulumi:"vaultName"`
 }
 
 // The base class for backup policy. Workload-specific backup policies are derived from this class.
 type LookupProtectionPolicyResult struct {
-	// Optional ETag.
-	ETag *string `pulumi:"eTag"`
-	// Resource ID represents the complete path to the resource.
-	Id *string `pulumi:"id"`
-	// Resource location.
-	Location *string `pulumi:"location"`
-	// Resource name associated with the resource.
-	Name *string `pulumi:"name"`
-	// The base class for a backup policy. Workload-specific backup policies are derived from this class.
-	Properties interface{} `pulumi:"properties"`
-	// Resource tags.
-	Tags map[string]string `pulumi:"tags"`
-	// Resource type represents the complete path of the form Namespace/ResourceType/ResourceType/...
-	Type *string `pulumi:"type"`
+	ETag       *string           `pulumi:"eTag"`
+	Id         *string           `pulumi:"id"`
+	Location   *string           `pulumi:"location"`
+	Name       *string           `pulumi:"name"`
+	Properties interface{}       `pulumi:"properties"`
+	Tags       map[string]string `pulumi:"tags"`
+	Type       *string           `pulumi:"type"`
 }

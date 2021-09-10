@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.HybridNetwork.V20210501.Outputs
 {
 
+    /// <summary>
+    /// The network function template.
+    /// </summary>
     [OutputType]
     public sealed class NetworkFunctionTemplateResponse
     {

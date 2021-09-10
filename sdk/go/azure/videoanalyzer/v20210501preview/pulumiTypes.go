@@ -10,14 +10,10 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Defines how the Video Analyzer account is (optionally) encrypted.
 type AccountEncryption struct {
-	// The Key Vault identity.
-	Identity *ResourceIdentity `pulumi:"identity"`
-	// The properties of the key used to encrypt the account.
+	Identity           *ResourceIdentity   `pulumi:"identity"`
 	KeyVaultProperties *KeyVaultProperties `pulumi:"keyVaultProperties"`
-	// The type of key used to encrypt the Account Key.
-	Type string `pulumi:"type"`
+	Type               string              `pulumi:"type"`
 }
 
 // AccountEncryptionInput is an input type that accepts AccountEncryptionArgs and AccountEncryptionOutput values.
@@ -31,14 +27,10 @@ type AccountEncryptionInput interface {
 	ToAccountEncryptionOutputWithContext(context.Context) AccountEncryptionOutput
 }
 
-// Defines how the Video Analyzer account is (optionally) encrypted.
 type AccountEncryptionArgs struct {
-	// The Key Vault identity.
-	Identity ResourceIdentityPtrInput `pulumi:"identity"`
-	// The properties of the key used to encrypt the account.
+	Identity           ResourceIdentityPtrInput   `pulumi:"identity"`
 	KeyVaultProperties KeyVaultPropertiesPtrInput `pulumi:"keyVaultProperties"`
-	// The type of key used to encrypt the Account Key.
-	Type pulumi.StringInput `pulumi:"type"`
+	Type               pulumi.StringInput         `pulumi:"type"`
 }
 
 func (AccountEncryptionArgs) ElementType() reflect.Type {
@@ -94,7 +86,6 @@ func (i *accountEncryptionPtrType) ToAccountEncryptionPtrOutputWithContext(ctx c
 	return pulumi.ToOutputWithContext(ctx, i).(AccountEncryptionPtrOutput)
 }
 
-// Defines how the Video Analyzer account is (optionally) encrypted.
 type AccountEncryptionOutput struct{ *pulumi.OutputState }
 
 func (AccountEncryptionOutput) ElementType() reflect.Type {
@@ -114,22 +105,19 @@ func (o AccountEncryptionOutput) ToAccountEncryptionPtrOutput() AccountEncryptio
 }
 
 func (o AccountEncryptionOutput) ToAccountEncryptionPtrOutputWithContext(ctx context.Context) AccountEncryptionPtrOutput {
-	return o.ApplyT(func(v AccountEncryption) *AccountEncryption {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v AccountEncryption) *AccountEncryption {
 		return &v
 	}).(AccountEncryptionPtrOutput)
 }
 
-// The Key Vault identity.
 func (o AccountEncryptionOutput) Identity() ResourceIdentityPtrOutput {
 	return o.ApplyT(func(v AccountEncryption) *ResourceIdentity { return v.Identity }).(ResourceIdentityPtrOutput)
 }
 
-// The properties of the key used to encrypt the account.
 func (o AccountEncryptionOutput) KeyVaultProperties() KeyVaultPropertiesPtrOutput {
 	return o.ApplyT(func(v AccountEncryption) *KeyVaultProperties { return v.KeyVaultProperties }).(KeyVaultPropertiesPtrOutput)
 }
 
-// The type of key used to encrypt the Account Key.
 func (o AccountEncryptionOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v AccountEncryption) string { return v.Type }).(pulumi.StringOutput)
 }
@@ -149,10 +137,15 @@ func (o AccountEncryptionPtrOutput) ToAccountEncryptionPtrOutputWithContext(ctx 
 }
 
 func (o AccountEncryptionPtrOutput) Elem() AccountEncryptionOutput {
-	return o.ApplyT(func(v *AccountEncryption) AccountEncryption { return *v }).(AccountEncryptionOutput)
+	return o.ApplyT(func(v *AccountEncryption) AccountEncryption {
+		if v != nil {
+			return *v
+		}
+		var ret AccountEncryption
+		return ret
+	}).(AccountEncryptionOutput)
 }
 
-// The Key Vault identity.
 func (o AccountEncryptionPtrOutput) Identity() ResourceIdentityPtrOutput {
 	return o.ApplyT(func(v *AccountEncryption) *ResourceIdentity {
 		if v == nil {
@@ -162,7 +155,6 @@ func (o AccountEncryptionPtrOutput) Identity() ResourceIdentityPtrOutput {
 	}).(ResourceIdentityPtrOutput)
 }
 
-// The properties of the key used to encrypt the account.
 func (o AccountEncryptionPtrOutput) KeyVaultProperties() KeyVaultPropertiesPtrOutput {
 	return o.ApplyT(func(v *AccountEncryption) *KeyVaultProperties {
 		if v == nil {
@@ -172,7 +164,6 @@ func (o AccountEncryptionPtrOutput) KeyVaultProperties() KeyVaultPropertiesPtrOu
 	}).(KeyVaultPropertiesPtrOutput)
 }
 
-// The type of key used to encrypt the Account Key.
 func (o AccountEncryptionPtrOutput) Type() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *AccountEncryption) *string {
 		if v == nil {
@@ -182,16 +173,11 @@ func (o AccountEncryptionPtrOutput) Type() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Defines how the Video Analyzer account is (optionally) encrypted.
 type AccountEncryptionResponse struct {
-	// The Key Vault identity.
-	Identity *ResourceIdentityResponse `pulumi:"identity"`
-	// The properties of the key used to encrypt the account.
+	Identity           *ResourceIdentityResponse   `pulumi:"identity"`
 	KeyVaultProperties *KeyVaultPropertiesResponse `pulumi:"keyVaultProperties"`
-	// The current status of the Key Vault mapping.
-	Status string `pulumi:"status"`
-	// The type of key used to encrypt the Account Key.
-	Type string `pulumi:"type"`
+	Status             string                      `pulumi:"status"`
+	Type               string                      `pulumi:"type"`
 }
 
 // AccountEncryptionResponseInput is an input type that accepts AccountEncryptionResponseArgs and AccountEncryptionResponseOutput values.
@@ -205,16 +191,11 @@ type AccountEncryptionResponseInput interface {
 	ToAccountEncryptionResponseOutputWithContext(context.Context) AccountEncryptionResponseOutput
 }
 
-// Defines how the Video Analyzer account is (optionally) encrypted.
 type AccountEncryptionResponseArgs struct {
-	// The Key Vault identity.
-	Identity ResourceIdentityResponsePtrInput `pulumi:"identity"`
-	// The properties of the key used to encrypt the account.
+	Identity           ResourceIdentityResponsePtrInput   `pulumi:"identity"`
 	KeyVaultProperties KeyVaultPropertiesResponsePtrInput `pulumi:"keyVaultProperties"`
-	// The current status of the Key Vault mapping.
-	Status pulumi.StringInput `pulumi:"status"`
-	// The type of key used to encrypt the Account Key.
-	Type pulumi.StringInput `pulumi:"type"`
+	Status             pulumi.StringInput                 `pulumi:"status"`
+	Type               pulumi.StringInput                 `pulumi:"type"`
 }
 
 func (AccountEncryptionResponseArgs) ElementType() reflect.Type {
@@ -270,7 +251,6 @@ func (i *accountEncryptionResponsePtrType) ToAccountEncryptionResponsePtrOutputW
 	return pulumi.ToOutputWithContext(ctx, i).(AccountEncryptionResponsePtrOutput)
 }
 
-// Defines how the Video Analyzer account is (optionally) encrypted.
 type AccountEncryptionResponseOutput struct{ *pulumi.OutputState }
 
 func (AccountEncryptionResponseOutput) ElementType() reflect.Type {
@@ -290,27 +270,23 @@ func (o AccountEncryptionResponseOutput) ToAccountEncryptionResponsePtrOutput() 
 }
 
 func (o AccountEncryptionResponseOutput) ToAccountEncryptionResponsePtrOutputWithContext(ctx context.Context) AccountEncryptionResponsePtrOutput {
-	return o.ApplyT(func(v AccountEncryptionResponse) *AccountEncryptionResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v AccountEncryptionResponse) *AccountEncryptionResponse {
 		return &v
 	}).(AccountEncryptionResponsePtrOutput)
 }
 
-// The Key Vault identity.
 func (o AccountEncryptionResponseOutput) Identity() ResourceIdentityResponsePtrOutput {
 	return o.ApplyT(func(v AccountEncryptionResponse) *ResourceIdentityResponse { return v.Identity }).(ResourceIdentityResponsePtrOutput)
 }
 
-// The properties of the key used to encrypt the account.
 func (o AccountEncryptionResponseOutput) KeyVaultProperties() KeyVaultPropertiesResponsePtrOutput {
 	return o.ApplyT(func(v AccountEncryptionResponse) *KeyVaultPropertiesResponse { return v.KeyVaultProperties }).(KeyVaultPropertiesResponsePtrOutput)
 }
 
-// The current status of the Key Vault mapping.
 func (o AccountEncryptionResponseOutput) Status() pulumi.StringOutput {
 	return o.ApplyT(func(v AccountEncryptionResponse) string { return v.Status }).(pulumi.StringOutput)
 }
 
-// The type of key used to encrypt the Account Key.
 func (o AccountEncryptionResponseOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v AccountEncryptionResponse) string { return v.Type }).(pulumi.StringOutput)
 }
@@ -330,10 +306,15 @@ func (o AccountEncryptionResponsePtrOutput) ToAccountEncryptionResponsePtrOutput
 }
 
 func (o AccountEncryptionResponsePtrOutput) Elem() AccountEncryptionResponseOutput {
-	return o.ApplyT(func(v *AccountEncryptionResponse) AccountEncryptionResponse { return *v }).(AccountEncryptionResponseOutput)
+	return o.ApplyT(func(v *AccountEncryptionResponse) AccountEncryptionResponse {
+		if v != nil {
+			return *v
+		}
+		var ret AccountEncryptionResponse
+		return ret
+	}).(AccountEncryptionResponseOutput)
 }
 
-// The Key Vault identity.
 func (o AccountEncryptionResponsePtrOutput) Identity() ResourceIdentityResponsePtrOutput {
 	return o.ApplyT(func(v *AccountEncryptionResponse) *ResourceIdentityResponse {
 		if v == nil {
@@ -343,7 +324,6 @@ func (o AccountEncryptionResponsePtrOutput) Identity() ResourceIdentityResponseP
 	}).(ResourceIdentityResponsePtrOutput)
 }
 
-// The properties of the key used to encrypt the account.
 func (o AccountEncryptionResponsePtrOutput) KeyVaultProperties() KeyVaultPropertiesResponsePtrOutput {
 	return o.ApplyT(func(v *AccountEncryptionResponse) *KeyVaultPropertiesResponse {
 		if v == nil {
@@ -353,7 +333,6 @@ func (o AccountEncryptionResponsePtrOutput) KeyVaultProperties() KeyVaultPropert
 	}).(KeyVaultPropertiesResponsePtrOutput)
 }
 
-// The current status of the Key Vault mapping.
 func (o AccountEncryptionResponsePtrOutput) Status() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *AccountEncryptionResponse) *string {
 		if v == nil {
@@ -363,7 +342,6 @@ func (o AccountEncryptionResponsePtrOutput) Status() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The type of key used to encrypt the Account Key.
 func (o AccountEncryptionResponsePtrOutput) Type() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *AccountEncryptionResponse) *string {
 		if v == nil {
@@ -373,19 +351,12 @@ func (o AccountEncryptionResponsePtrOutput) Type() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Required validation properties for tokens generated with Elliptical Curve algorithm.
 type EccTokenKey struct {
-	// Elliptical curve algorithm to be used: ES256, ES384 or ES512.
-	Alg string `pulumi:"alg"`
-	// JWT token key id. Validation keys are looked up based on the key id present on the JWT token header.
-	Kid string `pulumi:"kid"`
-	// The discriminator for derived types.
-	// Expected value is '#Microsoft.VideoAnalyzer.EccTokenKey'.
+	Alg  string `pulumi:"alg"`
+	Kid  string `pulumi:"kid"`
 	Type string `pulumi:"type"`
-	// X coordinate.
-	X string `pulumi:"x"`
-	// Y coordinate.
-	Y string `pulumi:"y"`
+	X    string `pulumi:"x"`
+	Y    string `pulumi:"y"`
 }
 
 // EccTokenKeyInput is an input type that accepts EccTokenKeyArgs and EccTokenKeyOutput values.
@@ -399,19 +370,12 @@ type EccTokenKeyInput interface {
 	ToEccTokenKeyOutputWithContext(context.Context) EccTokenKeyOutput
 }
 
-// Required validation properties for tokens generated with Elliptical Curve algorithm.
 type EccTokenKeyArgs struct {
-	// Elliptical curve algorithm to be used: ES256, ES384 or ES512.
-	Alg pulumi.StringInput `pulumi:"alg"`
-	// JWT token key id. Validation keys are looked up based on the key id present on the JWT token header.
-	Kid pulumi.StringInput `pulumi:"kid"`
-	// The discriminator for derived types.
-	// Expected value is '#Microsoft.VideoAnalyzer.EccTokenKey'.
+	Alg  pulumi.StringInput `pulumi:"alg"`
+	Kid  pulumi.StringInput `pulumi:"kid"`
 	Type pulumi.StringInput `pulumi:"type"`
-	// X coordinate.
-	X pulumi.StringInput `pulumi:"x"`
-	// Y coordinate.
-	Y pulumi.StringInput `pulumi:"y"`
+	X    pulumi.StringInput `pulumi:"x"`
+	Y    pulumi.StringInput `pulumi:"y"`
 }
 
 func (EccTokenKeyArgs) ElementType() reflect.Type {
@@ -426,7 +390,6 @@ func (i EccTokenKeyArgs) ToEccTokenKeyOutputWithContext(ctx context.Context) Ecc
 	return pulumi.ToOutputWithContext(ctx, i).(EccTokenKeyOutput)
 }
 
-// Required validation properties for tokens generated with Elliptical Curve algorithm.
 type EccTokenKeyOutput struct{ *pulumi.OutputState }
 
 func (EccTokenKeyOutput) ElementType() reflect.Type {
@@ -441,45 +404,32 @@ func (o EccTokenKeyOutput) ToEccTokenKeyOutputWithContext(ctx context.Context) E
 	return o
 }
 
-// Elliptical curve algorithm to be used: ES256, ES384 or ES512.
 func (o EccTokenKeyOutput) Alg() pulumi.StringOutput {
 	return o.ApplyT(func(v EccTokenKey) string { return v.Alg }).(pulumi.StringOutput)
 }
 
-// JWT token key id. Validation keys are looked up based on the key id present on the JWT token header.
 func (o EccTokenKeyOutput) Kid() pulumi.StringOutput {
 	return o.ApplyT(func(v EccTokenKey) string { return v.Kid }).(pulumi.StringOutput)
 }
 
-// The discriminator for derived types.
-// Expected value is '#Microsoft.VideoAnalyzer.EccTokenKey'.
 func (o EccTokenKeyOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v EccTokenKey) string { return v.Type }).(pulumi.StringOutput)
 }
 
-// X coordinate.
 func (o EccTokenKeyOutput) X() pulumi.StringOutput {
 	return o.ApplyT(func(v EccTokenKey) string { return v.X }).(pulumi.StringOutput)
 }
 
-// Y coordinate.
 func (o EccTokenKeyOutput) Y() pulumi.StringOutput {
 	return o.ApplyT(func(v EccTokenKey) string { return v.Y }).(pulumi.StringOutput)
 }
 
-// Required validation properties for tokens generated with Elliptical Curve algorithm.
 type EccTokenKeyResponse struct {
-	// Elliptical curve algorithm to be used: ES256, ES384 or ES512.
-	Alg string `pulumi:"alg"`
-	// JWT token key id. Validation keys are looked up based on the key id present on the JWT token header.
-	Kid string `pulumi:"kid"`
-	// The discriminator for derived types.
-	// Expected value is '#Microsoft.VideoAnalyzer.EccTokenKey'.
+	Alg  string `pulumi:"alg"`
+	Kid  string `pulumi:"kid"`
 	Type string `pulumi:"type"`
-	// X coordinate.
-	X string `pulumi:"x"`
-	// Y coordinate.
-	Y string `pulumi:"y"`
+	X    string `pulumi:"x"`
+	Y    string `pulumi:"y"`
 }
 
 // EccTokenKeyResponseInput is an input type that accepts EccTokenKeyResponseArgs and EccTokenKeyResponseOutput values.
@@ -493,19 +443,12 @@ type EccTokenKeyResponseInput interface {
 	ToEccTokenKeyResponseOutputWithContext(context.Context) EccTokenKeyResponseOutput
 }
 
-// Required validation properties for tokens generated with Elliptical Curve algorithm.
 type EccTokenKeyResponseArgs struct {
-	// Elliptical curve algorithm to be used: ES256, ES384 or ES512.
-	Alg pulumi.StringInput `pulumi:"alg"`
-	// JWT token key id. Validation keys are looked up based on the key id present on the JWT token header.
-	Kid pulumi.StringInput `pulumi:"kid"`
-	// The discriminator for derived types.
-	// Expected value is '#Microsoft.VideoAnalyzer.EccTokenKey'.
+	Alg  pulumi.StringInput `pulumi:"alg"`
+	Kid  pulumi.StringInput `pulumi:"kid"`
 	Type pulumi.StringInput `pulumi:"type"`
-	// X coordinate.
-	X pulumi.StringInput `pulumi:"x"`
-	// Y coordinate.
-	Y pulumi.StringInput `pulumi:"y"`
+	X    pulumi.StringInput `pulumi:"x"`
+	Y    pulumi.StringInput `pulumi:"y"`
 }
 
 func (EccTokenKeyResponseArgs) ElementType() reflect.Type {
@@ -520,7 +463,6 @@ func (i EccTokenKeyResponseArgs) ToEccTokenKeyResponseOutputWithContext(ctx cont
 	return pulumi.ToOutputWithContext(ctx, i).(EccTokenKeyResponseOutput)
 }
 
-// Required validation properties for tokens generated with Elliptical Curve algorithm.
 type EccTokenKeyResponseOutput struct{ *pulumi.OutputState }
 
 func (EccTokenKeyResponseOutput) ElementType() reflect.Type {
@@ -535,38 +477,29 @@ func (o EccTokenKeyResponseOutput) ToEccTokenKeyResponseOutputWithContext(ctx co
 	return o
 }
 
-// Elliptical curve algorithm to be used: ES256, ES384 or ES512.
 func (o EccTokenKeyResponseOutput) Alg() pulumi.StringOutput {
 	return o.ApplyT(func(v EccTokenKeyResponse) string { return v.Alg }).(pulumi.StringOutput)
 }
 
-// JWT token key id. Validation keys are looked up based on the key id present on the JWT token header.
 func (o EccTokenKeyResponseOutput) Kid() pulumi.StringOutput {
 	return o.ApplyT(func(v EccTokenKeyResponse) string { return v.Kid }).(pulumi.StringOutput)
 }
 
-// The discriminator for derived types.
-// Expected value is '#Microsoft.VideoAnalyzer.EccTokenKey'.
 func (o EccTokenKeyResponseOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v EccTokenKeyResponse) string { return v.Type }).(pulumi.StringOutput)
 }
 
-// X coordinate.
 func (o EccTokenKeyResponseOutput) X() pulumi.StringOutput {
 	return o.ApplyT(func(v EccTokenKeyResponse) string { return v.X }).(pulumi.StringOutput)
 }
 
-// Y coordinate.
 func (o EccTokenKeyResponseOutput) Y() pulumi.StringOutput {
 	return o.ApplyT(func(v EccTokenKeyResponse) string { return v.Y }).(pulumi.StringOutput)
 }
 
-// The endpoint details.
 type EndpointResponse struct {
-	// The URL of the endpoint.
 	EndpointUrl *string `pulumi:"endpointUrl"`
-	// The type of the endpoint.
-	Type string `pulumi:"type"`
+	Type        string  `pulumi:"type"`
 }
 
 // EndpointResponseInput is an input type that accepts EndpointResponseArgs and EndpointResponseOutput values.
@@ -580,12 +513,9 @@ type EndpointResponseInput interface {
 	ToEndpointResponseOutputWithContext(context.Context) EndpointResponseOutput
 }
 
-// The endpoint details.
 type EndpointResponseArgs struct {
-	// The URL of the endpoint.
 	EndpointUrl pulumi.StringPtrInput `pulumi:"endpointUrl"`
-	// The type of the endpoint.
-	Type pulumi.StringInput `pulumi:"type"`
+	Type        pulumi.StringInput    `pulumi:"type"`
 }
 
 func (EndpointResponseArgs) ElementType() reflect.Type {
@@ -625,7 +555,6 @@ func (i EndpointResponseArray) ToEndpointResponseArrayOutputWithContext(ctx cont
 	return pulumi.ToOutputWithContext(ctx, i).(EndpointResponseArrayOutput)
 }
 
-// The endpoint details.
 type EndpointResponseOutput struct{ *pulumi.OutputState }
 
 func (EndpointResponseOutput) ElementType() reflect.Type {
@@ -640,12 +569,10 @@ func (o EndpointResponseOutput) ToEndpointResponseOutputWithContext(ctx context.
 	return o
 }
 
-// The URL of the endpoint.
 func (o EndpointResponseOutput) EndpointUrl() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v EndpointResponse) *string { return v.EndpointUrl }).(pulumi.StringPtrOutput)
 }
 
-// The type of the endpoint.
 func (o EndpointResponseOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v EndpointResponse) string { return v.Type }).(pulumi.StringOutput)
 }
@@ -670,19 +597,12 @@ func (o EndpointResponseArrayOutput) Index(i pulumi.IntInput) EndpointResponseOu
 	}).(EndpointResponseOutput)
 }
 
-// Properties for access validation based on JSON Web Tokens (JWT).
 type JwtAuthentication struct {
-	// List of expected token audiences. Token audience is valid if it matches at least one of the given values.
-	Audiences []string `pulumi:"audiences"`
-	// List of additional token claims to be validated. Token must contains all claims and respective values for it to be valid.
-	Claims []TokenClaim `pulumi:"claims"`
-	// List of expected token issuers. Token issuer is valid if it matches at least one of the given values.
-	Issuers []string `pulumi:"issuers"`
-	// List of keys which can be used to validate access tokens. Having multiple keys allow for seamless key rotation of the token signing key. Token signature must match exactly one key.
-	Keys []interface{} `pulumi:"keys"`
-	// The discriminator for derived types.
-	// Expected value is '#Microsoft.VideoAnalyzer.JwtAuthentication'.
-	Type string `pulumi:"type"`
+	Audiences []string      `pulumi:"audiences"`
+	Claims    []TokenClaim  `pulumi:"claims"`
+	Issuers   []string      `pulumi:"issuers"`
+	Keys      []interface{} `pulumi:"keys"`
+	Type      string        `pulumi:"type"`
 }
 
 // JwtAuthenticationInput is an input type that accepts JwtAuthenticationArgs and JwtAuthenticationOutput values.
@@ -696,19 +616,12 @@ type JwtAuthenticationInput interface {
 	ToJwtAuthenticationOutputWithContext(context.Context) JwtAuthenticationOutput
 }
 
-// Properties for access validation based on JSON Web Tokens (JWT).
 type JwtAuthenticationArgs struct {
-	// List of expected token audiences. Token audience is valid if it matches at least one of the given values.
 	Audiences pulumi.StringArrayInput `pulumi:"audiences"`
-	// List of additional token claims to be validated. Token must contains all claims and respective values for it to be valid.
-	Claims TokenClaimArrayInput `pulumi:"claims"`
-	// List of expected token issuers. Token issuer is valid if it matches at least one of the given values.
-	Issuers pulumi.StringArrayInput `pulumi:"issuers"`
-	// List of keys which can be used to validate access tokens. Having multiple keys allow for seamless key rotation of the token signing key. Token signature must match exactly one key.
-	Keys pulumi.ArrayInput `pulumi:"keys"`
-	// The discriminator for derived types.
-	// Expected value is '#Microsoft.VideoAnalyzer.JwtAuthentication'.
-	Type pulumi.StringInput `pulumi:"type"`
+	Claims    TokenClaimArrayInput    `pulumi:"claims"`
+	Issuers   pulumi.StringArrayInput `pulumi:"issuers"`
+	Keys      pulumi.ArrayInput       `pulumi:"keys"`
+	Type      pulumi.StringInput      `pulumi:"type"`
 }
 
 func (JwtAuthenticationArgs) ElementType() reflect.Type {
@@ -764,7 +677,6 @@ func (i *jwtAuthenticationPtrType) ToJwtAuthenticationPtrOutputWithContext(ctx c
 	return pulumi.ToOutputWithContext(ctx, i).(JwtAuthenticationPtrOutput)
 }
 
-// Properties for access validation based on JSON Web Tokens (JWT).
 type JwtAuthenticationOutput struct{ *pulumi.OutputState }
 
 func (JwtAuthenticationOutput) ElementType() reflect.Type {
@@ -784,33 +696,27 @@ func (o JwtAuthenticationOutput) ToJwtAuthenticationPtrOutput() JwtAuthenticatio
 }
 
 func (o JwtAuthenticationOutput) ToJwtAuthenticationPtrOutputWithContext(ctx context.Context) JwtAuthenticationPtrOutput {
-	return o.ApplyT(func(v JwtAuthentication) *JwtAuthentication {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v JwtAuthentication) *JwtAuthentication {
 		return &v
 	}).(JwtAuthenticationPtrOutput)
 }
 
-// List of expected token audiences. Token audience is valid if it matches at least one of the given values.
 func (o JwtAuthenticationOutput) Audiences() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v JwtAuthentication) []string { return v.Audiences }).(pulumi.StringArrayOutput)
 }
 
-// List of additional token claims to be validated. Token must contains all claims and respective values for it to be valid.
 func (o JwtAuthenticationOutput) Claims() TokenClaimArrayOutput {
 	return o.ApplyT(func(v JwtAuthentication) []TokenClaim { return v.Claims }).(TokenClaimArrayOutput)
 }
 
-// List of expected token issuers. Token issuer is valid if it matches at least one of the given values.
 func (o JwtAuthenticationOutput) Issuers() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v JwtAuthentication) []string { return v.Issuers }).(pulumi.StringArrayOutput)
 }
 
-// List of keys which can be used to validate access tokens. Having multiple keys allow for seamless key rotation of the token signing key. Token signature must match exactly one key.
 func (o JwtAuthenticationOutput) Keys() pulumi.ArrayOutput {
 	return o.ApplyT(func(v JwtAuthentication) []interface{} { return v.Keys }).(pulumi.ArrayOutput)
 }
 
-// The discriminator for derived types.
-// Expected value is '#Microsoft.VideoAnalyzer.JwtAuthentication'.
 func (o JwtAuthenticationOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v JwtAuthentication) string { return v.Type }).(pulumi.StringOutput)
 }
@@ -830,10 +736,15 @@ func (o JwtAuthenticationPtrOutput) ToJwtAuthenticationPtrOutputWithContext(ctx 
 }
 
 func (o JwtAuthenticationPtrOutput) Elem() JwtAuthenticationOutput {
-	return o.ApplyT(func(v *JwtAuthentication) JwtAuthentication { return *v }).(JwtAuthenticationOutput)
+	return o.ApplyT(func(v *JwtAuthentication) JwtAuthentication {
+		if v != nil {
+			return *v
+		}
+		var ret JwtAuthentication
+		return ret
+	}).(JwtAuthenticationOutput)
 }
 
-// List of expected token audiences. Token audience is valid if it matches at least one of the given values.
 func (o JwtAuthenticationPtrOutput) Audiences() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *JwtAuthentication) []string {
 		if v == nil {
@@ -843,7 +754,6 @@ func (o JwtAuthenticationPtrOutput) Audiences() pulumi.StringArrayOutput {
 	}).(pulumi.StringArrayOutput)
 }
 
-// List of additional token claims to be validated. Token must contains all claims and respective values for it to be valid.
 func (o JwtAuthenticationPtrOutput) Claims() TokenClaimArrayOutput {
 	return o.ApplyT(func(v *JwtAuthentication) []TokenClaim {
 		if v == nil {
@@ -853,7 +763,6 @@ func (o JwtAuthenticationPtrOutput) Claims() TokenClaimArrayOutput {
 	}).(TokenClaimArrayOutput)
 }
 
-// List of expected token issuers. Token issuer is valid if it matches at least one of the given values.
 func (o JwtAuthenticationPtrOutput) Issuers() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *JwtAuthentication) []string {
 		if v == nil {
@@ -863,7 +772,6 @@ func (o JwtAuthenticationPtrOutput) Issuers() pulumi.StringArrayOutput {
 	}).(pulumi.StringArrayOutput)
 }
 
-// List of keys which can be used to validate access tokens. Having multiple keys allow for seamless key rotation of the token signing key. Token signature must match exactly one key.
 func (o JwtAuthenticationPtrOutput) Keys() pulumi.ArrayOutput {
 	return o.ApplyT(func(v *JwtAuthentication) []interface{} {
 		if v == nil {
@@ -873,8 +781,6 @@ func (o JwtAuthenticationPtrOutput) Keys() pulumi.ArrayOutput {
 	}).(pulumi.ArrayOutput)
 }
 
-// The discriminator for derived types.
-// Expected value is '#Microsoft.VideoAnalyzer.JwtAuthentication'.
 func (o JwtAuthenticationPtrOutput) Type() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *JwtAuthentication) *string {
 		if v == nil {
@@ -884,19 +790,12 @@ func (o JwtAuthenticationPtrOutput) Type() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Properties for access validation based on JSON Web Tokens (JWT).
 type JwtAuthenticationResponse struct {
-	// List of expected token audiences. Token audience is valid if it matches at least one of the given values.
-	Audiences []string `pulumi:"audiences"`
-	// List of additional token claims to be validated. Token must contains all claims and respective values for it to be valid.
-	Claims []TokenClaimResponse `pulumi:"claims"`
-	// List of expected token issuers. Token issuer is valid if it matches at least one of the given values.
-	Issuers []string `pulumi:"issuers"`
-	// List of keys which can be used to validate access tokens. Having multiple keys allow for seamless key rotation of the token signing key. Token signature must match exactly one key.
-	Keys []interface{} `pulumi:"keys"`
-	// The discriminator for derived types.
-	// Expected value is '#Microsoft.VideoAnalyzer.JwtAuthentication'.
-	Type string `pulumi:"type"`
+	Audiences []string             `pulumi:"audiences"`
+	Claims    []TokenClaimResponse `pulumi:"claims"`
+	Issuers   []string             `pulumi:"issuers"`
+	Keys      []interface{}        `pulumi:"keys"`
+	Type      string               `pulumi:"type"`
 }
 
 // JwtAuthenticationResponseInput is an input type that accepts JwtAuthenticationResponseArgs and JwtAuthenticationResponseOutput values.
@@ -910,19 +809,12 @@ type JwtAuthenticationResponseInput interface {
 	ToJwtAuthenticationResponseOutputWithContext(context.Context) JwtAuthenticationResponseOutput
 }
 
-// Properties for access validation based on JSON Web Tokens (JWT).
 type JwtAuthenticationResponseArgs struct {
-	// List of expected token audiences. Token audience is valid if it matches at least one of the given values.
-	Audiences pulumi.StringArrayInput `pulumi:"audiences"`
-	// List of additional token claims to be validated. Token must contains all claims and respective values for it to be valid.
-	Claims TokenClaimResponseArrayInput `pulumi:"claims"`
-	// List of expected token issuers. Token issuer is valid if it matches at least one of the given values.
-	Issuers pulumi.StringArrayInput `pulumi:"issuers"`
-	// List of keys which can be used to validate access tokens. Having multiple keys allow for seamless key rotation of the token signing key. Token signature must match exactly one key.
-	Keys pulumi.ArrayInput `pulumi:"keys"`
-	// The discriminator for derived types.
-	// Expected value is '#Microsoft.VideoAnalyzer.JwtAuthentication'.
-	Type pulumi.StringInput `pulumi:"type"`
+	Audiences pulumi.StringArrayInput      `pulumi:"audiences"`
+	Claims    TokenClaimResponseArrayInput `pulumi:"claims"`
+	Issuers   pulumi.StringArrayInput      `pulumi:"issuers"`
+	Keys      pulumi.ArrayInput            `pulumi:"keys"`
+	Type      pulumi.StringInput           `pulumi:"type"`
 }
 
 func (JwtAuthenticationResponseArgs) ElementType() reflect.Type {
@@ -978,7 +870,6 @@ func (i *jwtAuthenticationResponsePtrType) ToJwtAuthenticationResponsePtrOutputW
 	return pulumi.ToOutputWithContext(ctx, i).(JwtAuthenticationResponsePtrOutput)
 }
 
-// Properties for access validation based on JSON Web Tokens (JWT).
 type JwtAuthenticationResponseOutput struct{ *pulumi.OutputState }
 
 func (JwtAuthenticationResponseOutput) ElementType() reflect.Type {
@@ -998,33 +889,27 @@ func (o JwtAuthenticationResponseOutput) ToJwtAuthenticationResponsePtrOutput() 
 }
 
 func (o JwtAuthenticationResponseOutput) ToJwtAuthenticationResponsePtrOutputWithContext(ctx context.Context) JwtAuthenticationResponsePtrOutput {
-	return o.ApplyT(func(v JwtAuthenticationResponse) *JwtAuthenticationResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v JwtAuthenticationResponse) *JwtAuthenticationResponse {
 		return &v
 	}).(JwtAuthenticationResponsePtrOutput)
 }
 
-// List of expected token audiences. Token audience is valid if it matches at least one of the given values.
 func (o JwtAuthenticationResponseOutput) Audiences() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v JwtAuthenticationResponse) []string { return v.Audiences }).(pulumi.StringArrayOutput)
 }
 
-// List of additional token claims to be validated. Token must contains all claims and respective values for it to be valid.
 func (o JwtAuthenticationResponseOutput) Claims() TokenClaimResponseArrayOutput {
 	return o.ApplyT(func(v JwtAuthenticationResponse) []TokenClaimResponse { return v.Claims }).(TokenClaimResponseArrayOutput)
 }
 
-// List of expected token issuers. Token issuer is valid if it matches at least one of the given values.
 func (o JwtAuthenticationResponseOutput) Issuers() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v JwtAuthenticationResponse) []string { return v.Issuers }).(pulumi.StringArrayOutput)
 }
 
-// List of keys which can be used to validate access tokens. Having multiple keys allow for seamless key rotation of the token signing key. Token signature must match exactly one key.
 func (o JwtAuthenticationResponseOutput) Keys() pulumi.ArrayOutput {
 	return o.ApplyT(func(v JwtAuthenticationResponse) []interface{} { return v.Keys }).(pulumi.ArrayOutput)
 }
 
-// The discriminator for derived types.
-// Expected value is '#Microsoft.VideoAnalyzer.JwtAuthentication'.
 func (o JwtAuthenticationResponseOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v JwtAuthenticationResponse) string { return v.Type }).(pulumi.StringOutput)
 }
@@ -1044,10 +929,15 @@ func (o JwtAuthenticationResponsePtrOutput) ToJwtAuthenticationResponsePtrOutput
 }
 
 func (o JwtAuthenticationResponsePtrOutput) Elem() JwtAuthenticationResponseOutput {
-	return o.ApplyT(func(v *JwtAuthenticationResponse) JwtAuthenticationResponse { return *v }).(JwtAuthenticationResponseOutput)
+	return o.ApplyT(func(v *JwtAuthenticationResponse) JwtAuthenticationResponse {
+		if v != nil {
+			return *v
+		}
+		var ret JwtAuthenticationResponse
+		return ret
+	}).(JwtAuthenticationResponseOutput)
 }
 
-// List of expected token audiences. Token audience is valid if it matches at least one of the given values.
 func (o JwtAuthenticationResponsePtrOutput) Audiences() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *JwtAuthenticationResponse) []string {
 		if v == nil {
@@ -1057,7 +947,6 @@ func (o JwtAuthenticationResponsePtrOutput) Audiences() pulumi.StringArrayOutput
 	}).(pulumi.StringArrayOutput)
 }
 
-// List of additional token claims to be validated. Token must contains all claims and respective values for it to be valid.
 func (o JwtAuthenticationResponsePtrOutput) Claims() TokenClaimResponseArrayOutput {
 	return o.ApplyT(func(v *JwtAuthenticationResponse) []TokenClaimResponse {
 		if v == nil {
@@ -1067,7 +956,6 @@ func (o JwtAuthenticationResponsePtrOutput) Claims() TokenClaimResponseArrayOutp
 	}).(TokenClaimResponseArrayOutput)
 }
 
-// List of expected token issuers. Token issuer is valid if it matches at least one of the given values.
 func (o JwtAuthenticationResponsePtrOutput) Issuers() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *JwtAuthenticationResponse) []string {
 		if v == nil {
@@ -1077,7 +965,6 @@ func (o JwtAuthenticationResponsePtrOutput) Issuers() pulumi.StringArrayOutput {
 	}).(pulumi.StringArrayOutput)
 }
 
-// List of keys which can be used to validate access tokens. Having multiple keys allow for seamless key rotation of the token signing key. Token signature must match exactly one key.
 func (o JwtAuthenticationResponsePtrOutput) Keys() pulumi.ArrayOutput {
 	return o.ApplyT(func(v *JwtAuthenticationResponse) []interface{} {
 		if v == nil {
@@ -1087,8 +974,6 @@ func (o JwtAuthenticationResponsePtrOutput) Keys() pulumi.ArrayOutput {
 	}).(pulumi.ArrayOutput)
 }
 
-// The discriminator for derived types.
-// Expected value is '#Microsoft.VideoAnalyzer.JwtAuthentication'.
 func (o JwtAuthenticationResponsePtrOutput) Type() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *JwtAuthenticationResponse) *string {
 		if v == nil {
@@ -1098,9 +983,7 @@ func (o JwtAuthenticationResponsePtrOutput) Type() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The details for accessing the encryption keys in Key Vault.
 type KeyVaultProperties struct {
-	// The URL of the Key Vault key used to encrypt the account. The key may either be versioned (for example https://vault/keys/mykey/version1) or reference a key without a version (for example https://vault/keys/mykey).
 	KeyIdentifier string `pulumi:"keyIdentifier"`
 }
 
@@ -1115,9 +998,7 @@ type KeyVaultPropertiesInput interface {
 	ToKeyVaultPropertiesOutputWithContext(context.Context) KeyVaultPropertiesOutput
 }
 
-// The details for accessing the encryption keys in Key Vault.
 type KeyVaultPropertiesArgs struct {
-	// The URL of the Key Vault key used to encrypt the account. The key may either be versioned (for example https://vault/keys/mykey/version1) or reference a key without a version (for example https://vault/keys/mykey).
 	KeyIdentifier pulumi.StringInput `pulumi:"keyIdentifier"`
 }
 
@@ -1174,7 +1055,6 @@ func (i *keyVaultPropertiesPtrType) ToKeyVaultPropertiesPtrOutputWithContext(ctx
 	return pulumi.ToOutputWithContext(ctx, i).(KeyVaultPropertiesPtrOutput)
 }
 
-// The details for accessing the encryption keys in Key Vault.
 type KeyVaultPropertiesOutput struct{ *pulumi.OutputState }
 
 func (KeyVaultPropertiesOutput) ElementType() reflect.Type {
@@ -1194,12 +1074,11 @@ func (o KeyVaultPropertiesOutput) ToKeyVaultPropertiesPtrOutput() KeyVaultProper
 }
 
 func (o KeyVaultPropertiesOutput) ToKeyVaultPropertiesPtrOutputWithContext(ctx context.Context) KeyVaultPropertiesPtrOutput {
-	return o.ApplyT(func(v KeyVaultProperties) *KeyVaultProperties {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v KeyVaultProperties) *KeyVaultProperties {
 		return &v
 	}).(KeyVaultPropertiesPtrOutput)
 }
 
-// The URL of the Key Vault key used to encrypt the account. The key may either be versioned (for example https://vault/keys/mykey/version1) or reference a key without a version (for example https://vault/keys/mykey).
 func (o KeyVaultPropertiesOutput) KeyIdentifier() pulumi.StringOutput {
 	return o.ApplyT(func(v KeyVaultProperties) string { return v.KeyIdentifier }).(pulumi.StringOutput)
 }
@@ -1219,10 +1098,15 @@ func (o KeyVaultPropertiesPtrOutput) ToKeyVaultPropertiesPtrOutputWithContext(ct
 }
 
 func (o KeyVaultPropertiesPtrOutput) Elem() KeyVaultPropertiesOutput {
-	return o.ApplyT(func(v *KeyVaultProperties) KeyVaultProperties { return *v }).(KeyVaultPropertiesOutput)
+	return o.ApplyT(func(v *KeyVaultProperties) KeyVaultProperties {
+		if v != nil {
+			return *v
+		}
+		var ret KeyVaultProperties
+		return ret
+	}).(KeyVaultPropertiesOutput)
 }
 
-// The URL of the Key Vault key used to encrypt the account. The key may either be versioned (for example https://vault/keys/mykey/version1) or reference a key without a version (for example https://vault/keys/mykey).
 func (o KeyVaultPropertiesPtrOutput) KeyIdentifier() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *KeyVaultProperties) *string {
 		if v == nil {
@@ -1232,12 +1116,9 @@ func (o KeyVaultPropertiesPtrOutput) KeyIdentifier() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The details for accessing the encryption keys in Key Vault.
 type KeyVaultPropertiesResponse struct {
-	// The current key used to encrypt Video Analyzer account, including the key version.
 	CurrentKeyIdentifier string `pulumi:"currentKeyIdentifier"`
-	// The URL of the Key Vault key used to encrypt the account. The key may either be versioned (for example https://vault/keys/mykey/version1) or reference a key without a version (for example https://vault/keys/mykey).
-	KeyIdentifier string `pulumi:"keyIdentifier"`
+	KeyIdentifier        string `pulumi:"keyIdentifier"`
 }
 
 // KeyVaultPropertiesResponseInput is an input type that accepts KeyVaultPropertiesResponseArgs and KeyVaultPropertiesResponseOutput values.
@@ -1251,12 +1132,9 @@ type KeyVaultPropertiesResponseInput interface {
 	ToKeyVaultPropertiesResponseOutputWithContext(context.Context) KeyVaultPropertiesResponseOutput
 }
 
-// The details for accessing the encryption keys in Key Vault.
 type KeyVaultPropertiesResponseArgs struct {
-	// The current key used to encrypt Video Analyzer account, including the key version.
 	CurrentKeyIdentifier pulumi.StringInput `pulumi:"currentKeyIdentifier"`
-	// The URL of the Key Vault key used to encrypt the account. The key may either be versioned (for example https://vault/keys/mykey/version1) or reference a key without a version (for example https://vault/keys/mykey).
-	KeyIdentifier pulumi.StringInput `pulumi:"keyIdentifier"`
+	KeyIdentifier        pulumi.StringInput `pulumi:"keyIdentifier"`
 }
 
 func (KeyVaultPropertiesResponseArgs) ElementType() reflect.Type {
@@ -1312,7 +1190,6 @@ func (i *keyVaultPropertiesResponsePtrType) ToKeyVaultPropertiesResponsePtrOutpu
 	return pulumi.ToOutputWithContext(ctx, i).(KeyVaultPropertiesResponsePtrOutput)
 }
 
-// The details for accessing the encryption keys in Key Vault.
 type KeyVaultPropertiesResponseOutput struct{ *pulumi.OutputState }
 
 func (KeyVaultPropertiesResponseOutput) ElementType() reflect.Type {
@@ -1332,17 +1209,15 @@ func (o KeyVaultPropertiesResponseOutput) ToKeyVaultPropertiesResponsePtrOutput(
 }
 
 func (o KeyVaultPropertiesResponseOutput) ToKeyVaultPropertiesResponsePtrOutputWithContext(ctx context.Context) KeyVaultPropertiesResponsePtrOutput {
-	return o.ApplyT(func(v KeyVaultPropertiesResponse) *KeyVaultPropertiesResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v KeyVaultPropertiesResponse) *KeyVaultPropertiesResponse {
 		return &v
 	}).(KeyVaultPropertiesResponsePtrOutput)
 }
 
-// The current key used to encrypt Video Analyzer account, including the key version.
 func (o KeyVaultPropertiesResponseOutput) CurrentKeyIdentifier() pulumi.StringOutput {
 	return o.ApplyT(func(v KeyVaultPropertiesResponse) string { return v.CurrentKeyIdentifier }).(pulumi.StringOutput)
 }
 
-// The URL of the Key Vault key used to encrypt the account. The key may either be versioned (for example https://vault/keys/mykey/version1) or reference a key without a version (for example https://vault/keys/mykey).
 func (o KeyVaultPropertiesResponseOutput) KeyIdentifier() pulumi.StringOutput {
 	return o.ApplyT(func(v KeyVaultPropertiesResponse) string { return v.KeyIdentifier }).(pulumi.StringOutput)
 }
@@ -1362,10 +1237,15 @@ func (o KeyVaultPropertiesResponsePtrOutput) ToKeyVaultPropertiesResponsePtrOutp
 }
 
 func (o KeyVaultPropertiesResponsePtrOutput) Elem() KeyVaultPropertiesResponseOutput {
-	return o.ApplyT(func(v *KeyVaultPropertiesResponse) KeyVaultPropertiesResponse { return *v }).(KeyVaultPropertiesResponseOutput)
+	return o.ApplyT(func(v *KeyVaultPropertiesResponse) KeyVaultPropertiesResponse {
+		if v != nil {
+			return *v
+		}
+		var ret KeyVaultPropertiesResponse
+		return ret
+	}).(KeyVaultPropertiesResponseOutput)
 }
 
-// The current key used to encrypt Video Analyzer account, including the key version.
 func (o KeyVaultPropertiesResponsePtrOutput) CurrentKeyIdentifier() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *KeyVaultPropertiesResponse) *string {
 		if v == nil {
@@ -1375,7 +1255,6 @@ func (o KeyVaultPropertiesResponsePtrOutput) CurrentKeyIdentifier() pulumi.Strin
 	}).(pulumi.StringPtrOutput)
 }
 
-// The URL of the Key Vault key used to encrypt the account. The key may either be versioned (for example https://vault/keys/mykey/version1) or reference a key without a version (for example https://vault/keys/mykey).
 func (o KeyVaultPropertiesResponsePtrOutput) KeyIdentifier() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *KeyVaultPropertiesResponse) *string {
 		if v == nil {
@@ -1385,9 +1264,7 @@ func (o KeyVaultPropertiesResponsePtrOutput) KeyIdentifier() pulumi.StringPtrOut
 	}).(pulumi.StringPtrOutput)
 }
 
-// The user assigned managed identity to use when accessing a resource.
 type ResourceIdentity struct {
-	// The user assigned managed identity's resource identifier to use when accessing a resource.
 	UserAssignedIdentity string `pulumi:"userAssignedIdentity"`
 }
 
@@ -1402,9 +1279,7 @@ type ResourceIdentityInput interface {
 	ToResourceIdentityOutputWithContext(context.Context) ResourceIdentityOutput
 }
 
-// The user assigned managed identity to use when accessing a resource.
 type ResourceIdentityArgs struct {
-	// The user assigned managed identity's resource identifier to use when accessing a resource.
 	UserAssignedIdentity pulumi.StringInput `pulumi:"userAssignedIdentity"`
 }
 
@@ -1461,7 +1336,6 @@ func (i *resourceIdentityPtrType) ToResourceIdentityPtrOutputWithContext(ctx con
 	return pulumi.ToOutputWithContext(ctx, i).(ResourceIdentityPtrOutput)
 }
 
-// The user assigned managed identity to use when accessing a resource.
 type ResourceIdentityOutput struct{ *pulumi.OutputState }
 
 func (ResourceIdentityOutput) ElementType() reflect.Type {
@@ -1481,12 +1355,11 @@ func (o ResourceIdentityOutput) ToResourceIdentityPtrOutput() ResourceIdentityPt
 }
 
 func (o ResourceIdentityOutput) ToResourceIdentityPtrOutputWithContext(ctx context.Context) ResourceIdentityPtrOutput {
-	return o.ApplyT(func(v ResourceIdentity) *ResourceIdentity {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ResourceIdentity) *ResourceIdentity {
 		return &v
 	}).(ResourceIdentityPtrOutput)
 }
 
-// The user assigned managed identity's resource identifier to use when accessing a resource.
 func (o ResourceIdentityOutput) UserAssignedIdentity() pulumi.StringOutput {
 	return o.ApplyT(func(v ResourceIdentity) string { return v.UserAssignedIdentity }).(pulumi.StringOutput)
 }
@@ -1506,10 +1379,15 @@ func (o ResourceIdentityPtrOutput) ToResourceIdentityPtrOutputWithContext(ctx co
 }
 
 func (o ResourceIdentityPtrOutput) Elem() ResourceIdentityOutput {
-	return o.ApplyT(func(v *ResourceIdentity) ResourceIdentity { return *v }).(ResourceIdentityOutput)
+	return o.ApplyT(func(v *ResourceIdentity) ResourceIdentity {
+		if v != nil {
+			return *v
+		}
+		var ret ResourceIdentity
+		return ret
+	}).(ResourceIdentityOutput)
 }
 
-// The user assigned managed identity's resource identifier to use when accessing a resource.
 func (o ResourceIdentityPtrOutput) UserAssignedIdentity() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ResourceIdentity) *string {
 		if v == nil {
@@ -1519,9 +1397,7 @@ func (o ResourceIdentityPtrOutput) UserAssignedIdentity() pulumi.StringPtrOutput
 	}).(pulumi.StringPtrOutput)
 }
 
-// The user assigned managed identity to use when accessing a resource.
 type ResourceIdentityResponse struct {
-	// The user assigned managed identity's resource identifier to use when accessing a resource.
 	UserAssignedIdentity string `pulumi:"userAssignedIdentity"`
 }
 
@@ -1536,9 +1412,7 @@ type ResourceIdentityResponseInput interface {
 	ToResourceIdentityResponseOutputWithContext(context.Context) ResourceIdentityResponseOutput
 }
 
-// The user assigned managed identity to use when accessing a resource.
 type ResourceIdentityResponseArgs struct {
-	// The user assigned managed identity's resource identifier to use when accessing a resource.
 	UserAssignedIdentity pulumi.StringInput `pulumi:"userAssignedIdentity"`
 }
 
@@ -1595,7 +1469,6 @@ func (i *resourceIdentityResponsePtrType) ToResourceIdentityResponsePtrOutputWit
 	return pulumi.ToOutputWithContext(ctx, i).(ResourceIdentityResponsePtrOutput)
 }
 
-// The user assigned managed identity to use when accessing a resource.
 type ResourceIdentityResponseOutput struct{ *pulumi.OutputState }
 
 func (ResourceIdentityResponseOutput) ElementType() reflect.Type {
@@ -1615,12 +1488,11 @@ func (o ResourceIdentityResponseOutput) ToResourceIdentityResponsePtrOutput() Re
 }
 
 func (o ResourceIdentityResponseOutput) ToResourceIdentityResponsePtrOutputWithContext(ctx context.Context) ResourceIdentityResponsePtrOutput {
-	return o.ApplyT(func(v ResourceIdentityResponse) *ResourceIdentityResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ResourceIdentityResponse) *ResourceIdentityResponse {
 		return &v
 	}).(ResourceIdentityResponsePtrOutput)
 }
 
-// The user assigned managed identity's resource identifier to use when accessing a resource.
 func (o ResourceIdentityResponseOutput) UserAssignedIdentity() pulumi.StringOutput {
 	return o.ApplyT(func(v ResourceIdentityResponse) string { return v.UserAssignedIdentity }).(pulumi.StringOutput)
 }
@@ -1640,10 +1512,15 @@ func (o ResourceIdentityResponsePtrOutput) ToResourceIdentityResponsePtrOutputWi
 }
 
 func (o ResourceIdentityResponsePtrOutput) Elem() ResourceIdentityResponseOutput {
-	return o.ApplyT(func(v *ResourceIdentityResponse) ResourceIdentityResponse { return *v }).(ResourceIdentityResponseOutput)
+	return o.ApplyT(func(v *ResourceIdentityResponse) ResourceIdentityResponse {
+		if v != nil {
+			return *v
+		}
+		var ret ResourceIdentityResponse
+		return ret
+	}).(ResourceIdentityResponseOutput)
 }
 
-// The user assigned managed identity's resource identifier to use when accessing a resource.
 func (o ResourceIdentityResponsePtrOutput) UserAssignedIdentity() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ResourceIdentityResponse) *string {
 		if v == nil {
@@ -1653,18 +1530,11 @@ func (o ResourceIdentityResponsePtrOutput) UserAssignedIdentity() pulumi.StringP
 	}).(pulumi.StringPtrOutput)
 }
 
-// Required validation properties for tokens generated with RSA algorithm.
 type RsaTokenKey struct {
-	// RSA algorithm to be used: RS256, RS384 or RS512.
-	Alg string `pulumi:"alg"`
-	// RSA public key exponent.
-	E string `pulumi:"e"`
-	// JWT token key id. Validation keys are looked up based on the key id present on the JWT token header.
-	Kid string `pulumi:"kid"`
-	// RSA public key modulus.
-	N string `pulumi:"n"`
-	// The discriminator for derived types.
-	// Expected value is '#Microsoft.VideoAnalyzer.RsaTokenKey'.
+	Alg  string `pulumi:"alg"`
+	E    string `pulumi:"e"`
+	Kid  string `pulumi:"kid"`
+	N    string `pulumi:"n"`
 	Type string `pulumi:"type"`
 }
 
@@ -1679,18 +1549,11 @@ type RsaTokenKeyInput interface {
 	ToRsaTokenKeyOutputWithContext(context.Context) RsaTokenKeyOutput
 }
 
-// Required validation properties for tokens generated with RSA algorithm.
 type RsaTokenKeyArgs struct {
-	// RSA algorithm to be used: RS256, RS384 or RS512.
-	Alg pulumi.StringInput `pulumi:"alg"`
-	// RSA public key exponent.
-	E pulumi.StringInput `pulumi:"e"`
-	// JWT token key id. Validation keys are looked up based on the key id present on the JWT token header.
-	Kid pulumi.StringInput `pulumi:"kid"`
-	// RSA public key modulus.
-	N pulumi.StringInput `pulumi:"n"`
-	// The discriminator for derived types.
-	// Expected value is '#Microsoft.VideoAnalyzer.RsaTokenKey'.
+	Alg  pulumi.StringInput `pulumi:"alg"`
+	E    pulumi.StringInput `pulumi:"e"`
+	Kid  pulumi.StringInput `pulumi:"kid"`
+	N    pulumi.StringInput `pulumi:"n"`
 	Type pulumi.StringInput `pulumi:"type"`
 }
 
@@ -1706,7 +1569,6 @@ func (i RsaTokenKeyArgs) ToRsaTokenKeyOutputWithContext(ctx context.Context) Rsa
 	return pulumi.ToOutputWithContext(ctx, i).(RsaTokenKeyOutput)
 }
 
-// Required validation properties for tokens generated with RSA algorithm.
 type RsaTokenKeyOutput struct{ *pulumi.OutputState }
 
 func (RsaTokenKeyOutput) ElementType() reflect.Type {
@@ -1721,44 +1583,31 @@ func (o RsaTokenKeyOutput) ToRsaTokenKeyOutputWithContext(ctx context.Context) R
 	return o
 }
 
-// RSA algorithm to be used: RS256, RS384 or RS512.
 func (o RsaTokenKeyOutput) Alg() pulumi.StringOutput {
 	return o.ApplyT(func(v RsaTokenKey) string { return v.Alg }).(pulumi.StringOutput)
 }
 
-// RSA public key exponent.
 func (o RsaTokenKeyOutput) E() pulumi.StringOutput {
 	return o.ApplyT(func(v RsaTokenKey) string { return v.E }).(pulumi.StringOutput)
 }
 
-// JWT token key id. Validation keys are looked up based on the key id present on the JWT token header.
 func (o RsaTokenKeyOutput) Kid() pulumi.StringOutput {
 	return o.ApplyT(func(v RsaTokenKey) string { return v.Kid }).(pulumi.StringOutput)
 }
 
-// RSA public key modulus.
 func (o RsaTokenKeyOutput) N() pulumi.StringOutput {
 	return o.ApplyT(func(v RsaTokenKey) string { return v.N }).(pulumi.StringOutput)
 }
 
-// The discriminator for derived types.
-// Expected value is '#Microsoft.VideoAnalyzer.RsaTokenKey'.
 func (o RsaTokenKeyOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v RsaTokenKey) string { return v.Type }).(pulumi.StringOutput)
 }
 
-// Required validation properties for tokens generated with RSA algorithm.
 type RsaTokenKeyResponse struct {
-	// RSA algorithm to be used: RS256, RS384 or RS512.
-	Alg string `pulumi:"alg"`
-	// RSA public key exponent.
-	E string `pulumi:"e"`
-	// JWT token key id. Validation keys are looked up based on the key id present on the JWT token header.
-	Kid string `pulumi:"kid"`
-	// RSA public key modulus.
-	N string `pulumi:"n"`
-	// The discriminator for derived types.
-	// Expected value is '#Microsoft.VideoAnalyzer.RsaTokenKey'.
+	Alg  string `pulumi:"alg"`
+	E    string `pulumi:"e"`
+	Kid  string `pulumi:"kid"`
+	N    string `pulumi:"n"`
 	Type string `pulumi:"type"`
 }
 
@@ -1773,18 +1622,11 @@ type RsaTokenKeyResponseInput interface {
 	ToRsaTokenKeyResponseOutputWithContext(context.Context) RsaTokenKeyResponseOutput
 }
 
-// Required validation properties for tokens generated with RSA algorithm.
 type RsaTokenKeyResponseArgs struct {
-	// RSA algorithm to be used: RS256, RS384 or RS512.
-	Alg pulumi.StringInput `pulumi:"alg"`
-	// RSA public key exponent.
-	E pulumi.StringInput `pulumi:"e"`
-	// JWT token key id. Validation keys are looked up based on the key id present on the JWT token header.
-	Kid pulumi.StringInput `pulumi:"kid"`
-	// RSA public key modulus.
-	N pulumi.StringInput `pulumi:"n"`
-	// The discriminator for derived types.
-	// Expected value is '#Microsoft.VideoAnalyzer.RsaTokenKey'.
+	Alg  pulumi.StringInput `pulumi:"alg"`
+	E    pulumi.StringInput `pulumi:"e"`
+	Kid  pulumi.StringInput `pulumi:"kid"`
+	N    pulumi.StringInput `pulumi:"n"`
 	Type pulumi.StringInput `pulumi:"type"`
 }
 
@@ -1800,7 +1642,6 @@ func (i RsaTokenKeyResponseArgs) ToRsaTokenKeyResponseOutputWithContext(ctx cont
 	return pulumi.ToOutputWithContext(ctx, i).(RsaTokenKeyResponseOutput)
 }
 
-// Required validation properties for tokens generated with RSA algorithm.
 type RsaTokenKeyResponseOutput struct{ *pulumi.OutputState }
 
 func (RsaTokenKeyResponseOutput) ElementType() reflect.Type {
@@ -1815,37 +1656,28 @@ func (o RsaTokenKeyResponseOutput) ToRsaTokenKeyResponseOutputWithContext(ctx co
 	return o
 }
 
-// RSA algorithm to be used: RS256, RS384 or RS512.
 func (o RsaTokenKeyResponseOutput) Alg() pulumi.StringOutput {
 	return o.ApplyT(func(v RsaTokenKeyResponse) string { return v.Alg }).(pulumi.StringOutput)
 }
 
-// RSA public key exponent.
 func (o RsaTokenKeyResponseOutput) E() pulumi.StringOutput {
 	return o.ApplyT(func(v RsaTokenKeyResponse) string { return v.E }).(pulumi.StringOutput)
 }
 
-// JWT token key id. Validation keys are looked up based on the key id present on the JWT token header.
 func (o RsaTokenKeyResponseOutput) Kid() pulumi.StringOutput {
 	return o.ApplyT(func(v RsaTokenKeyResponse) string { return v.Kid }).(pulumi.StringOutput)
 }
 
-// RSA public key modulus.
 func (o RsaTokenKeyResponseOutput) N() pulumi.StringOutput {
 	return o.ApplyT(func(v RsaTokenKeyResponse) string { return v.N }).(pulumi.StringOutput)
 }
 
-// The discriminator for derived types.
-// Expected value is '#Microsoft.VideoAnalyzer.RsaTokenKey'.
 func (o RsaTokenKeyResponseOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v RsaTokenKeyResponse) string { return v.Type }).(pulumi.StringOutput)
 }
 
-// The details about the associated storage account.
 type StorageAccount struct {
-	// The ID of the storage account resource. Video Analyzer relies on tables, queues, and blobs. The primary storage account must be a Standard Storage account (either Microsoft.ClassicStorage or Microsoft.Storage).
-	Id *string `pulumi:"id"`
-	// A managed identity that Video Analyzer will use to access the storage account.
+	Id       *string           `pulumi:"id"`
 	Identity *ResourceIdentity `pulumi:"identity"`
 }
 
@@ -1860,11 +1692,8 @@ type StorageAccountInput interface {
 	ToStorageAccountOutputWithContext(context.Context) StorageAccountOutput
 }
 
-// The details about the associated storage account.
 type StorageAccountArgs struct {
-	// The ID of the storage account resource. Video Analyzer relies on tables, queues, and blobs. The primary storage account must be a Standard Storage account (either Microsoft.ClassicStorage or Microsoft.Storage).
-	Id pulumi.StringPtrInput `pulumi:"id"`
-	// A managed identity that Video Analyzer will use to access the storage account.
+	Id       pulumi.StringPtrInput    `pulumi:"id"`
 	Identity ResourceIdentityPtrInput `pulumi:"identity"`
 }
 
@@ -1905,7 +1734,6 @@ func (i StorageAccountArray) ToStorageAccountArrayOutputWithContext(ctx context.
 	return pulumi.ToOutputWithContext(ctx, i).(StorageAccountArrayOutput)
 }
 
-// The details about the associated storage account.
 type StorageAccountOutput struct{ *pulumi.OutputState }
 
 func (StorageAccountOutput) ElementType() reflect.Type {
@@ -1920,12 +1748,10 @@ func (o StorageAccountOutput) ToStorageAccountOutputWithContext(ctx context.Cont
 	return o
 }
 
-// The ID of the storage account resource. Video Analyzer relies on tables, queues, and blobs. The primary storage account must be a Standard Storage account (either Microsoft.ClassicStorage or Microsoft.Storage).
 func (o StorageAccountOutput) Id() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v StorageAccount) *string { return v.Id }).(pulumi.StringPtrOutput)
 }
 
-// A managed identity that Video Analyzer will use to access the storage account.
 func (o StorageAccountOutput) Identity() ResourceIdentityPtrOutput {
 	return o.ApplyT(func(v StorageAccount) *ResourceIdentity { return v.Identity }).(ResourceIdentityPtrOutput)
 }
@@ -1950,14 +1776,10 @@ func (o StorageAccountArrayOutput) Index(i pulumi.IntInput) StorageAccountOutput
 	}).(StorageAccountOutput)
 }
 
-// The details about the associated storage account.
 type StorageAccountResponse struct {
-	// The ID of the storage account resource. Video Analyzer relies on tables, queues, and blobs. The primary storage account must be a Standard Storage account (either Microsoft.ClassicStorage or Microsoft.Storage).
-	Id *string `pulumi:"id"`
-	// A managed identity that Video Analyzer will use to access the storage account.
+	Id       *string                   `pulumi:"id"`
 	Identity *ResourceIdentityResponse `pulumi:"identity"`
-	// The current status of the storage account mapping.
-	Status string `pulumi:"status"`
+	Status   string                    `pulumi:"status"`
 }
 
 // StorageAccountResponseInput is an input type that accepts StorageAccountResponseArgs and StorageAccountResponseOutput values.
@@ -1971,14 +1793,10 @@ type StorageAccountResponseInput interface {
 	ToStorageAccountResponseOutputWithContext(context.Context) StorageAccountResponseOutput
 }
 
-// The details about the associated storage account.
 type StorageAccountResponseArgs struct {
-	// The ID of the storage account resource. Video Analyzer relies on tables, queues, and blobs. The primary storage account must be a Standard Storage account (either Microsoft.ClassicStorage or Microsoft.Storage).
-	Id pulumi.StringPtrInput `pulumi:"id"`
-	// A managed identity that Video Analyzer will use to access the storage account.
+	Id       pulumi.StringPtrInput            `pulumi:"id"`
 	Identity ResourceIdentityResponsePtrInput `pulumi:"identity"`
-	// The current status of the storage account mapping.
-	Status pulumi.StringInput `pulumi:"status"`
+	Status   pulumi.StringInput               `pulumi:"status"`
 }
 
 func (StorageAccountResponseArgs) ElementType() reflect.Type {
@@ -2018,7 +1836,6 @@ func (i StorageAccountResponseArray) ToStorageAccountResponseArrayOutputWithCont
 	return pulumi.ToOutputWithContext(ctx, i).(StorageAccountResponseArrayOutput)
 }
 
-// The details about the associated storage account.
 type StorageAccountResponseOutput struct{ *pulumi.OutputState }
 
 func (StorageAccountResponseOutput) ElementType() reflect.Type {
@@ -2033,17 +1850,14 @@ func (o StorageAccountResponseOutput) ToStorageAccountResponseOutputWithContext(
 	return o
 }
 
-// The ID of the storage account resource. Video Analyzer relies on tables, queues, and blobs. The primary storage account must be a Standard Storage account (either Microsoft.ClassicStorage or Microsoft.Storage).
 func (o StorageAccountResponseOutput) Id() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v StorageAccountResponse) *string { return v.Id }).(pulumi.StringPtrOutput)
 }
 
-// A managed identity that Video Analyzer will use to access the storage account.
 func (o StorageAccountResponseOutput) Identity() ResourceIdentityResponsePtrOutput {
 	return o.ApplyT(func(v StorageAccountResponse) *ResourceIdentityResponse { return v.Identity }).(ResourceIdentityResponsePtrOutput)
 }
 
-// The current status of the storage account mapping.
 func (o StorageAccountResponseOutput) Status() pulumi.StringOutput {
 	return o.ApplyT(func(v StorageAccountResponse) string { return v.Status }).(pulumi.StringOutput)
 }
@@ -2068,19 +1882,12 @@ func (o StorageAccountResponseArrayOutput) Index(i pulumi.IntInput) StorageAccou
 	}).(StorageAccountResponseOutput)
 }
 
-// Metadata pertaining to creation and last modification of the resource.
 type SystemDataResponse struct {
-	// The timestamp of resource creation (UTC).
-	CreatedAt *string `pulumi:"createdAt"`
-	// The identity that created the resource.
-	CreatedBy *string `pulumi:"createdBy"`
-	// The type of identity that created the resource.
-	CreatedByType *string `pulumi:"createdByType"`
-	// The timestamp of resource last modification (UTC)
-	LastModifiedAt *string `pulumi:"lastModifiedAt"`
-	// The identity that last modified the resource.
-	LastModifiedBy *string `pulumi:"lastModifiedBy"`
-	// The type of identity that last modified the resource.
+	CreatedAt          *string `pulumi:"createdAt"`
+	CreatedBy          *string `pulumi:"createdBy"`
+	CreatedByType      *string `pulumi:"createdByType"`
+	LastModifiedAt     *string `pulumi:"lastModifiedAt"`
+	LastModifiedBy     *string `pulumi:"lastModifiedBy"`
 	LastModifiedByType *string `pulumi:"lastModifiedByType"`
 }
 
@@ -2095,19 +1902,12 @@ type SystemDataResponseInput interface {
 	ToSystemDataResponseOutputWithContext(context.Context) SystemDataResponseOutput
 }
 
-// Metadata pertaining to creation and last modification of the resource.
 type SystemDataResponseArgs struct {
-	// The timestamp of resource creation (UTC).
-	CreatedAt pulumi.StringPtrInput `pulumi:"createdAt"`
-	// The identity that created the resource.
-	CreatedBy pulumi.StringPtrInput `pulumi:"createdBy"`
-	// The type of identity that created the resource.
-	CreatedByType pulumi.StringPtrInput `pulumi:"createdByType"`
-	// The timestamp of resource last modification (UTC)
-	LastModifiedAt pulumi.StringPtrInput `pulumi:"lastModifiedAt"`
-	// The identity that last modified the resource.
-	LastModifiedBy pulumi.StringPtrInput `pulumi:"lastModifiedBy"`
-	// The type of identity that last modified the resource.
+	CreatedAt          pulumi.StringPtrInput `pulumi:"createdAt"`
+	CreatedBy          pulumi.StringPtrInput `pulumi:"createdBy"`
+	CreatedByType      pulumi.StringPtrInput `pulumi:"createdByType"`
+	LastModifiedAt     pulumi.StringPtrInput `pulumi:"lastModifiedAt"`
+	LastModifiedBy     pulumi.StringPtrInput `pulumi:"lastModifiedBy"`
 	LastModifiedByType pulumi.StringPtrInput `pulumi:"lastModifiedByType"`
 }
 
@@ -2164,7 +1964,6 @@ func (i *systemDataResponsePtrType) ToSystemDataResponsePtrOutputWithContext(ctx
 	return pulumi.ToOutputWithContext(ctx, i).(SystemDataResponsePtrOutput)
 }
 
-// Metadata pertaining to creation and last modification of the resource.
 type SystemDataResponseOutput struct{ *pulumi.OutputState }
 
 func (SystemDataResponseOutput) ElementType() reflect.Type {
@@ -2184,37 +1983,31 @@ func (o SystemDataResponseOutput) ToSystemDataResponsePtrOutput() SystemDataResp
 }
 
 func (o SystemDataResponseOutput) ToSystemDataResponsePtrOutputWithContext(ctx context.Context) SystemDataResponsePtrOutput {
-	return o.ApplyT(func(v SystemDataResponse) *SystemDataResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v SystemDataResponse) *SystemDataResponse {
 		return &v
 	}).(SystemDataResponsePtrOutput)
 }
 
-// The timestamp of resource creation (UTC).
 func (o SystemDataResponseOutput) CreatedAt() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SystemDataResponse) *string { return v.CreatedAt }).(pulumi.StringPtrOutput)
 }
 
-// The identity that created the resource.
 func (o SystemDataResponseOutput) CreatedBy() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SystemDataResponse) *string { return v.CreatedBy }).(pulumi.StringPtrOutput)
 }
 
-// The type of identity that created the resource.
 func (o SystemDataResponseOutput) CreatedByType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SystemDataResponse) *string { return v.CreatedByType }).(pulumi.StringPtrOutput)
 }
 
-// The timestamp of resource last modification (UTC)
 func (o SystemDataResponseOutput) LastModifiedAt() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SystemDataResponse) *string { return v.LastModifiedAt }).(pulumi.StringPtrOutput)
 }
 
-// The identity that last modified the resource.
 func (o SystemDataResponseOutput) LastModifiedBy() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SystemDataResponse) *string { return v.LastModifiedBy }).(pulumi.StringPtrOutput)
 }
 
-// The type of identity that last modified the resource.
 func (o SystemDataResponseOutput) LastModifiedByType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SystemDataResponse) *string { return v.LastModifiedByType }).(pulumi.StringPtrOutput)
 }
@@ -2234,10 +2027,15 @@ func (o SystemDataResponsePtrOutput) ToSystemDataResponsePtrOutputWithContext(ct
 }
 
 func (o SystemDataResponsePtrOutput) Elem() SystemDataResponseOutput {
-	return o.ApplyT(func(v *SystemDataResponse) SystemDataResponse { return *v }).(SystemDataResponseOutput)
+	return o.ApplyT(func(v *SystemDataResponse) SystemDataResponse {
+		if v != nil {
+			return *v
+		}
+		var ret SystemDataResponse
+		return ret
+	}).(SystemDataResponseOutput)
 }
 
-// The timestamp of resource creation (UTC).
 func (o SystemDataResponsePtrOutput) CreatedAt() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SystemDataResponse) *string {
 		if v == nil {
@@ -2247,7 +2045,6 @@ func (o SystemDataResponsePtrOutput) CreatedAt() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The identity that created the resource.
 func (o SystemDataResponsePtrOutput) CreatedBy() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SystemDataResponse) *string {
 		if v == nil {
@@ -2257,7 +2054,6 @@ func (o SystemDataResponsePtrOutput) CreatedBy() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The type of identity that created the resource.
 func (o SystemDataResponsePtrOutput) CreatedByType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SystemDataResponse) *string {
 		if v == nil {
@@ -2267,7 +2063,6 @@ func (o SystemDataResponsePtrOutput) CreatedByType() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The timestamp of resource last modification (UTC)
 func (o SystemDataResponsePtrOutput) LastModifiedAt() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SystemDataResponse) *string {
 		if v == nil {
@@ -2277,7 +2072,6 @@ func (o SystemDataResponsePtrOutput) LastModifiedAt() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The identity that last modified the resource.
 func (o SystemDataResponsePtrOutput) LastModifiedBy() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SystemDataResponse) *string {
 		if v == nil {
@@ -2287,7 +2081,6 @@ func (o SystemDataResponsePtrOutput) LastModifiedBy() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The type of identity that last modified the resource.
 func (o SystemDataResponsePtrOutput) LastModifiedByType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SystemDataResponse) *string {
 		if v == nil {
@@ -2297,11 +2090,8 @@ func (o SystemDataResponsePtrOutput) LastModifiedByType() pulumi.StringPtrOutput
 	}).(pulumi.StringPtrOutput)
 }
 
-// Properties for expected token claims.
 type TokenClaim struct {
-	// Name of the claim which must be present on the token.
-	Name string `pulumi:"name"`
-	// Expected value of the claim to be present on the token.
+	Name  string `pulumi:"name"`
 	Value string `pulumi:"value"`
 }
 
@@ -2316,11 +2106,8 @@ type TokenClaimInput interface {
 	ToTokenClaimOutputWithContext(context.Context) TokenClaimOutput
 }
 
-// Properties for expected token claims.
 type TokenClaimArgs struct {
-	// Name of the claim which must be present on the token.
-	Name pulumi.StringInput `pulumi:"name"`
-	// Expected value of the claim to be present on the token.
+	Name  pulumi.StringInput `pulumi:"name"`
 	Value pulumi.StringInput `pulumi:"value"`
 }
 
@@ -2361,7 +2148,6 @@ func (i TokenClaimArray) ToTokenClaimArrayOutputWithContext(ctx context.Context)
 	return pulumi.ToOutputWithContext(ctx, i).(TokenClaimArrayOutput)
 }
 
-// Properties for expected token claims.
 type TokenClaimOutput struct{ *pulumi.OutputState }
 
 func (TokenClaimOutput) ElementType() reflect.Type {
@@ -2376,12 +2162,10 @@ func (o TokenClaimOutput) ToTokenClaimOutputWithContext(ctx context.Context) Tok
 	return o
 }
 
-// Name of the claim which must be present on the token.
 func (o TokenClaimOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v TokenClaim) string { return v.Name }).(pulumi.StringOutput)
 }
 
-// Expected value of the claim to be present on the token.
 func (o TokenClaimOutput) Value() pulumi.StringOutput {
 	return o.ApplyT(func(v TokenClaim) string { return v.Value }).(pulumi.StringOutput)
 }
@@ -2406,11 +2190,8 @@ func (o TokenClaimArrayOutput) Index(i pulumi.IntInput) TokenClaimOutput {
 	}).(TokenClaimOutput)
 }
 
-// Properties for expected token claims.
 type TokenClaimResponse struct {
-	// Name of the claim which must be present on the token.
-	Name string `pulumi:"name"`
-	// Expected value of the claim to be present on the token.
+	Name  string `pulumi:"name"`
 	Value string `pulumi:"value"`
 }
 
@@ -2425,11 +2206,8 @@ type TokenClaimResponseInput interface {
 	ToTokenClaimResponseOutputWithContext(context.Context) TokenClaimResponseOutput
 }
 
-// Properties for expected token claims.
 type TokenClaimResponseArgs struct {
-	// Name of the claim which must be present on the token.
-	Name pulumi.StringInput `pulumi:"name"`
-	// Expected value of the claim to be present on the token.
+	Name  pulumi.StringInput `pulumi:"name"`
 	Value pulumi.StringInput `pulumi:"value"`
 }
 
@@ -2470,7 +2248,6 @@ func (i TokenClaimResponseArray) ToTokenClaimResponseArrayOutputWithContext(ctx 
 	return pulumi.ToOutputWithContext(ctx, i).(TokenClaimResponseArrayOutput)
 }
 
-// Properties for expected token claims.
 type TokenClaimResponseOutput struct{ *pulumi.OutputState }
 
 func (TokenClaimResponseOutput) ElementType() reflect.Type {
@@ -2485,12 +2262,10 @@ func (o TokenClaimResponseOutput) ToTokenClaimResponseOutputWithContext(ctx cont
 	return o
 }
 
-// Name of the claim which must be present on the token.
 func (o TokenClaimResponseOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v TokenClaimResponse) string { return v.Name }).(pulumi.StringOutput)
 }
 
-// Expected value of the claim to be present on the token.
 func (o TokenClaimResponseOutput) Value() pulumi.StringOutput {
 	return o.ApplyT(func(v TokenClaimResponse) string { return v.Value }).(pulumi.StringOutput)
 }
@@ -2515,11 +2290,8 @@ func (o TokenClaimResponseArrayOutput) Index(i pulumi.IntInput) TokenClaimRespon
 	}).(TokenClaimResponseOutput)
 }
 
-// The details of the user assigned managed identity used by the Video Analyzer resource.
 type UserAssignedManagedIdentityResponse struct {
-	// The client ID.
-	ClientId string `pulumi:"clientId"`
-	// The principal ID.
+	ClientId    string `pulumi:"clientId"`
 	PrincipalId string `pulumi:"principalId"`
 }
 
@@ -2534,11 +2306,8 @@ type UserAssignedManagedIdentityResponseInput interface {
 	ToUserAssignedManagedIdentityResponseOutputWithContext(context.Context) UserAssignedManagedIdentityResponseOutput
 }
 
-// The details of the user assigned managed identity used by the Video Analyzer resource.
 type UserAssignedManagedIdentityResponseArgs struct {
-	// The client ID.
-	ClientId pulumi.StringInput `pulumi:"clientId"`
-	// The principal ID.
+	ClientId    pulumi.StringInput `pulumi:"clientId"`
 	PrincipalId pulumi.StringInput `pulumi:"principalId"`
 }
 
@@ -2579,7 +2348,6 @@ func (i UserAssignedManagedIdentityResponseMap) ToUserAssignedManagedIdentityRes
 	return pulumi.ToOutputWithContext(ctx, i).(UserAssignedManagedIdentityResponseMapOutput)
 }
 
-// The details of the user assigned managed identity used by the Video Analyzer resource.
 type UserAssignedManagedIdentityResponseOutput struct{ *pulumi.OutputState }
 
 func (UserAssignedManagedIdentityResponseOutput) ElementType() reflect.Type {
@@ -2594,12 +2362,10 @@ func (o UserAssignedManagedIdentityResponseOutput) ToUserAssignedManagedIdentity
 	return o
 }
 
-// The client ID.
 func (o UserAssignedManagedIdentityResponseOutput) ClientId() pulumi.StringOutput {
 	return o.ApplyT(func(v UserAssignedManagedIdentityResponse) string { return v.ClientId }).(pulumi.StringOutput)
 }
 
-// The principal ID.
 func (o UserAssignedManagedIdentityResponseOutput) PrincipalId() pulumi.StringOutput {
 	return o.ApplyT(func(v UserAssignedManagedIdentityResponse) string { return v.PrincipalId }).(pulumi.StringOutput)
 }
@@ -2624,11 +2390,8 @@ func (o UserAssignedManagedIdentityResponseMapOutput) MapIndex(k pulumi.StringIn
 	}).(UserAssignedManagedIdentityResponseOutput)
 }
 
-// The managed identity for the Video Analyzer resource.
 type VideoAnalyzerIdentity struct {
-	// The identity type.
-	Type string `pulumi:"type"`
-	// The User Assigned Managed Identities.
+	Type                   string                 `pulumi:"type"`
 	UserAssignedIdentities map[string]interface{} `pulumi:"userAssignedIdentities"`
 }
 
@@ -2643,12 +2406,9 @@ type VideoAnalyzerIdentityInput interface {
 	ToVideoAnalyzerIdentityOutputWithContext(context.Context) VideoAnalyzerIdentityOutput
 }
 
-// The managed identity for the Video Analyzer resource.
 type VideoAnalyzerIdentityArgs struct {
-	// The identity type.
-	Type pulumi.StringInput `pulumi:"type"`
-	// The User Assigned Managed Identities.
-	UserAssignedIdentities pulumi.MapInput `pulumi:"userAssignedIdentities"`
+	Type                   pulumi.StringInput `pulumi:"type"`
+	UserAssignedIdentities pulumi.MapInput    `pulumi:"userAssignedIdentities"`
 }
 
 func (VideoAnalyzerIdentityArgs) ElementType() reflect.Type {
@@ -2704,7 +2464,6 @@ func (i *videoAnalyzerIdentityPtrType) ToVideoAnalyzerIdentityPtrOutputWithConte
 	return pulumi.ToOutputWithContext(ctx, i).(VideoAnalyzerIdentityPtrOutput)
 }
 
-// The managed identity for the Video Analyzer resource.
 type VideoAnalyzerIdentityOutput struct{ *pulumi.OutputState }
 
 func (VideoAnalyzerIdentityOutput) ElementType() reflect.Type {
@@ -2724,17 +2483,15 @@ func (o VideoAnalyzerIdentityOutput) ToVideoAnalyzerIdentityPtrOutput() VideoAna
 }
 
 func (o VideoAnalyzerIdentityOutput) ToVideoAnalyzerIdentityPtrOutputWithContext(ctx context.Context) VideoAnalyzerIdentityPtrOutput {
-	return o.ApplyT(func(v VideoAnalyzerIdentity) *VideoAnalyzerIdentity {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v VideoAnalyzerIdentity) *VideoAnalyzerIdentity {
 		return &v
 	}).(VideoAnalyzerIdentityPtrOutput)
 }
 
-// The identity type.
 func (o VideoAnalyzerIdentityOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v VideoAnalyzerIdentity) string { return v.Type }).(pulumi.StringOutput)
 }
 
-// The User Assigned Managed Identities.
 func (o VideoAnalyzerIdentityOutput) UserAssignedIdentities() pulumi.MapOutput {
 	return o.ApplyT(func(v VideoAnalyzerIdentity) map[string]interface{} { return v.UserAssignedIdentities }).(pulumi.MapOutput)
 }
@@ -2754,10 +2511,15 @@ func (o VideoAnalyzerIdentityPtrOutput) ToVideoAnalyzerIdentityPtrOutputWithCont
 }
 
 func (o VideoAnalyzerIdentityPtrOutput) Elem() VideoAnalyzerIdentityOutput {
-	return o.ApplyT(func(v *VideoAnalyzerIdentity) VideoAnalyzerIdentity { return *v }).(VideoAnalyzerIdentityOutput)
+	return o.ApplyT(func(v *VideoAnalyzerIdentity) VideoAnalyzerIdentity {
+		if v != nil {
+			return *v
+		}
+		var ret VideoAnalyzerIdentity
+		return ret
+	}).(VideoAnalyzerIdentityOutput)
 }
 
-// The identity type.
 func (o VideoAnalyzerIdentityPtrOutput) Type() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *VideoAnalyzerIdentity) *string {
 		if v == nil {
@@ -2767,7 +2529,6 @@ func (o VideoAnalyzerIdentityPtrOutput) Type() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The User Assigned Managed Identities.
 func (o VideoAnalyzerIdentityPtrOutput) UserAssignedIdentities() pulumi.MapOutput {
 	return o.ApplyT(func(v *VideoAnalyzerIdentity) map[string]interface{} {
 		if v == nil {
@@ -2777,11 +2538,8 @@ func (o VideoAnalyzerIdentityPtrOutput) UserAssignedIdentities() pulumi.MapOutpu
 	}).(pulumi.MapOutput)
 }
 
-// The managed identity for the Video Analyzer resource.
 type VideoAnalyzerIdentityResponse struct {
-	// The identity type.
-	Type string `pulumi:"type"`
-	// The User Assigned Managed Identities.
+	Type                   string                                         `pulumi:"type"`
 	UserAssignedIdentities map[string]UserAssignedManagedIdentityResponse `pulumi:"userAssignedIdentities"`
 }
 
@@ -2796,11 +2554,8 @@ type VideoAnalyzerIdentityResponseInput interface {
 	ToVideoAnalyzerIdentityResponseOutputWithContext(context.Context) VideoAnalyzerIdentityResponseOutput
 }
 
-// The managed identity for the Video Analyzer resource.
 type VideoAnalyzerIdentityResponseArgs struct {
-	// The identity type.
-	Type pulumi.StringInput `pulumi:"type"`
-	// The User Assigned Managed Identities.
+	Type                   pulumi.StringInput                          `pulumi:"type"`
 	UserAssignedIdentities UserAssignedManagedIdentityResponseMapInput `pulumi:"userAssignedIdentities"`
 }
 
@@ -2857,7 +2612,6 @@ func (i *videoAnalyzerIdentityResponsePtrType) ToVideoAnalyzerIdentityResponsePt
 	return pulumi.ToOutputWithContext(ctx, i).(VideoAnalyzerIdentityResponsePtrOutput)
 }
 
-// The managed identity for the Video Analyzer resource.
 type VideoAnalyzerIdentityResponseOutput struct{ *pulumi.OutputState }
 
 func (VideoAnalyzerIdentityResponseOutput) ElementType() reflect.Type {
@@ -2877,17 +2631,15 @@ func (o VideoAnalyzerIdentityResponseOutput) ToVideoAnalyzerIdentityResponsePtrO
 }
 
 func (o VideoAnalyzerIdentityResponseOutput) ToVideoAnalyzerIdentityResponsePtrOutputWithContext(ctx context.Context) VideoAnalyzerIdentityResponsePtrOutput {
-	return o.ApplyT(func(v VideoAnalyzerIdentityResponse) *VideoAnalyzerIdentityResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v VideoAnalyzerIdentityResponse) *VideoAnalyzerIdentityResponse {
 		return &v
 	}).(VideoAnalyzerIdentityResponsePtrOutput)
 }
 
-// The identity type.
 func (o VideoAnalyzerIdentityResponseOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v VideoAnalyzerIdentityResponse) string { return v.Type }).(pulumi.StringOutput)
 }
 
-// The User Assigned Managed Identities.
 func (o VideoAnalyzerIdentityResponseOutput) UserAssignedIdentities() UserAssignedManagedIdentityResponseMapOutput {
 	return o.ApplyT(func(v VideoAnalyzerIdentityResponse) map[string]UserAssignedManagedIdentityResponse {
 		return v.UserAssignedIdentities
@@ -2909,10 +2661,15 @@ func (o VideoAnalyzerIdentityResponsePtrOutput) ToVideoAnalyzerIdentityResponseP
 }
 
 func (o VideoAnalyzerIdentityResponsePtrOutput) Elem() VideoAnalyzerIdentityResponseOutput {
-	return o.ApplyT(func(v *VideoAnalyzerIdentityResponse) VideoAnalyzerIdentityResponse { return *v }).(VideoAnalyzerIdentityResponseOutput)
+	return o.ApplyT(func(v *VideoAnalyzerIdentityResponse) VideoAnalyzerIdentityResponse {
+		if v != nil {
+			return *v
+		}
+		var ret VideoAnalyzerIdentityResponse
+		return ret
+	}).(VideoAnalyzerIdentityResponseOutput)
 }
 
-// The identity type.
 func (o VideoAnalyzerIdentityResponsePtrOutput) Type() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *VideoAnalyzerIdentityResponse) *string {
 		if v == nil {
@@ -2922,7 +2679,6 @@ func (o VideoAnalyzerIdentityResponsePtrOutput) Type() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The User Assigned Managed Identities.
 func (o VideoAnalyzerIdentityResponsePtrOutput) UserAssignedIdentities() UserAssignedManagedIdentityResponseMapOutput {
 	return o.ApplyT(func(v *VideoAnalyzerIdentityResponse) map[string]UserAssignedManagedIdentityResponse {
 		if v == nil {
@@ -2932,13 +2688,9 @@ func (o VideoAnalyzerIdentityResponsePtrOutput) UserAssignedIdentities() UserAss
 	}).(UserAssignedManagedIdentityResponseMapOutput)
 }
 
-// Video flags contain information about the available video actions and its dynamic properties based on the current video state.
 type VideoFlagsResponse struct {
-	// Value indicating whether or not the video can be streamed. Only "archive" type videos can be streamed.
-	CanStream bool `pulumi:"canStream"`
-	// Value indicating whether or not there has ever been data recorded or uploaded into the video. Newly created videos have this value set to false.
-	HasData bool `pulumi:"hasData"`
-	// Value indicating whether or not the video is currently being referenced be an active live pipeline. The fact that is being referenced, doesn't necessarily indicate that data is being received. For example, video recording may be gated on events or camera may not be accessible at the time.
+	CanStream   bool `pulumi:"canStream"`
+	HasData     bool `pulumi:"hasData"`
 	IsRecording bool `pulumi:"isRecording"`
 }
 
@@ -2953,13 +2705,9 @@ type VideoFlagsResponseInput interface {
 	ToVideoFlagsResponseOutputWithContext(context.Context) VideoFlagsResponseOutput
 }
 
-// Video flags contain information about the available video actions and its dynamic properties based on the current video state.
 type VideoFlagsResponseArgs struct {
-	// Value indicating whether or not the video can be streamed. Only "archive" type videos can be streamed.
-	CanStream pulumi.BoolInput `pulumi:"canStream"`
-	// Value indicating whether or not there has ever been data recorded or uploaded into the video. Newly created videos have this value set to false.
-	HasData pulumi.BoolInput `pulumi:"hasData"`
-	// Value indicating whether or not the video is currently being referenced be an active live pipeline. The fact that is being referenced, doesn't necessarily indicate that data is being received. For example, video recording may be gated on events or camera may not be accessible at the time.
+	CanStream   pulumi.BoolInput `pulumi:"canStream"`
+	HasData     pulumi.BoolInput `pulumi:"hasData"`
 	IsRecording pulumi.BoolInput `pulumi:"isRecording"`
 }
 
@@ -3016,7 +2764,6 @@ func (i *videoFlagsResponsePtrType) ToVideoFlagsResponsePtrOutputWithContext(ctx
 	return pulumi.ToOutputWithContext(ctx, i).(VideoFlagsResponsePtrOutput)
 }
 
-// Video flags contain information about the available video actions and its dynamic properties based on the current video state.
 type VideoFlagsResponseOutput struct{ *pulumi.OutputState }
 
 func (VideoFlagsResponseOutput) ElementType() reflect.Type {
@@ -3036,22 +2783,19 @@ func (o VideoFlagsResponseOutput) ToVideoFlagsResponsePtrOutput() VideoFlagsResp
 }
 
 func (o VideoFlagsResponseOutput) ToVideoFlagsResponsePtrOutputWithContext(ctx context.Context) VideoFlagsResponsePtrOutput {
-	return o.ApplyT(func(v VideoFlagsResponse) *VideoFlagsResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v VideoFlagsResponse) *VideoFlagsResponse {
 		return &v
 	}).(VideoFlagsResponsePtrOutput)
 }
 
-// Value indicating whether or not the video can be streamed. Only "archive" type videos can be streamed.
 func (o VideoFlagsResponseOutput) CanStream() pulumi.BoolOutput {
 	return o.ApplyT(func(v VideoFlagsResponse) bool { return v.CanStream }).(pulumi.BoolOutput)
 }
 
-// Value indicating whether or not there has ever been data recorded or uploaded into the video. Newly created videos have this value set to false.
 func (o VideoFlagsResponseOutput) HasData() pulumi.BoolOutput {
 	return o.ApplyT(func(v VideoFlagsResponse) bool { return v.HasData }).(pulumi.BoolOutput)
 }
 
-// Value indicating whether or not the video is currently being referenced be an active live pipeline. The fact that is being referenced, doesn't necessarily indicate that data is being received. For example, video recording may be gated on events or camera may not be accessible at the time.
 func (o VideoFlagsResponseOutput) IsRecording() pulumi.BoolOutput {
 	return o.ApplyT(func(v VideoFlagsResponse) bool { return v.IsRecording }).(pulumi.BoolOutput)
 }
@@ -3071,10 +2815,15 @@ func (o VideoFlagsResponsePtrOutput) ToVideoFlagsResponsePtrOutputWithContext(ct
 }
 
 func (o VideoFlagsResponsePtrOutput) Elem() VideoFlagsResponseOutput {
-	return o.ApplyT(func(v *VideoFlagsResponse) VideoFlagsResponse { return *v }).(VideoFlagsResponseOutput)
+	return o.ApplyT(func(v *VideoFlagsResponse) VideoFlagsResponse {
+		if v != nil {
+			return *v
+		}
+		var ret VideoFlagsResponse
+		return ret
+	}).(VideoFlagsResponseOutput)
 }
 
-// Value indicating whether or not the video can be streamed. Only "archive" type videos can be streamed.
 func (o VideoFlagsResponsePtrOutput) CanStream() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *VideoFlagsResponse) *bool {
 		if v == nil {
@@ -3084,7 +2833,6 @@ func (o VideoFlagsResponsePtrOutput) CanStream() pulumi.BoolPtrOutput {
 	}).(pulumi.BoolPtrOutput)
 }
 
-// Value indicating whether or not there has ever been data recorded or uploaded into the video. Newly created videos have this value set to false.
 func (o VideoFlagsResponsePtrOutput) HasData() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *VideoFlagsResponse) *bool {
 		if v == nil {
@@ -3094,7 +2842,6 @@ func (o VideoFlagsResponsePtrOutput) HasData() pulumi.BoolPtrOutput {
 	}).(pulumi.BoolPtrOutput)
 }
 
-// Value indicating whether or not the video is currently being referenced be an active live pipeline. The fact that is being referenced, doesn't necessarily indicate that data is being received. For example, video recording may be gated on events or camera may not be accessible at the time.
 func (o VideoFlagsResponsePtrOutput) IsRecording() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *VideoFlagsResponse) *bool {
 		if v == nil {
@@ -3104,9 +2851,7 @@ func (o VideoFlagsResponsePtrOutput) IsRecording() pulumi.BoolPtrOutput {
 	}).(pulumi.BoolPtrOutput)
 }
 
-// Contains information about the video and audio content.
 type VideoMediaInfoResponse struct {
-	// Video segment length indicates the length of individual video files (segments) which are persisted to storage. Smaller segments provide lower archive playback latency but generate larger volume of storage transactions. Larger segments reduce the amount of storage transactions while increasing the archive playback latency. Value must be specified in ISO8601 duration format (i.e. "PT30S" equals 30 seconds) and can vary between 30 seconds to 5 minutes, in 30 seconds increments.
 	SegmentLength string `pulumi:"segmentLength"`
 }
 
@@ -3121,9 +2866,7 @@ type VideoMediaInfoResponseInput interface {
 	ToVideoMediaInfoResponseOutputWithContext(context.Context) VideoMediaInfoResponseOutput
 }
 
-// Contains information about the video and audio content.
 type VideoMediaInfoResponseArgs struct {
-	// Video segment length indicates the length of individual video files (segments) which are persisted to storage. Smaller segments provide lower archive playback latency but generate larger volume of storage transactions. Larger segments reduce the amount of storage transactions while increasing the archive playback latency. Value must be specified in ISO8601 duration format (i.e. "PT30S" equals 30 seconds) and can vary between 30 seconds to 5 minutes, in 30 seconds increments.
 	SegmentLength pulumi.StringInput `pulumi:"segmentLength"`
 }
 
@@ -3180,7 +2923,6 @@ func (i *videoMediaInfoResponsePtrType) ToVideoMediaInfoResponsePtrOutputWithCon
 	return pulumi.ToOutputWithContext(ctx, i).(VideoMediaInfoResponsePtrOutput)
 }
 
-// Contains information about the video and audio content.
 type VideoMediaInfoResponseOutput struct{ *pulumi.OutputState }
 
 func (VideoMediaInfoResponseOutput) ElementType() reflect.Type {
@@ -3200,12 +2942,11 @@ func (o VideoMediaInfoResponseOutput) ToVideoMediaInfoResponsePtrOutput() VideoM
 }
 
 func (o VideoMediaInfoResponseOutput) ToVideoMediaInfoResponsePtrOutputWithContext(ctx context.Context) VideoMediaInfoResponsePtrOutput {
-	return o.ApplyT(func(v VideoMediaInfoResponse) *VideoMediaInfoResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v VideoMediaInfoResponse) *VideoMediaInfoResponse {
 		return &v
 	}).(VideoMediaInfoResponsePtrOutput)
 }
 
-// Video segment length indicates the length of individual video files (segments) which are persisted to storage. Smaller segments provide lower archive playback latency but generate larger volume of storage transactions. Larger segments reduce the amount of storage transactions while increasing the archive playback latency. Value must be specified in ISO8601 duration format (i.e. "PT30S" equals 30 seconds) and can vary between 30 seconds to 5 minutes, in 30 seconds increments.
 func (o VideoMediaInfoResponseOutput) SegmentLength() pulumi.StringOutput {
 	return o.ApplyT(func(v VideoMediaInfoResponse) string { return v.SegmentLength }).(pulumi.StringOutput)
 }
@@ -3225,10 +2966,15 @@ func (o VideoMediaInfoResponsePtrOutput) ToVideoMediaInfoResponsePtrOutputWithCo
 }
 
 func (o VideoMediaInfoResponsePtrOutput) Elem() VideoMediaInfoResponseOutput {
-	return o.ApplyT(func(v *VideoMediaInfoResponse) VideoMediaInfoResponse { return *v }).(VideoMediaInfoResponseOutput)
+	return o.ApplyT(func(v *VideoMediaInfoResponse) VideoMediaInfoResponse {
+		if v != nil {
+			return *v
+		}
+		var ret VideoMediaInfoResponse
+		return ret
+	}).(VideoMediaInfoResponseOutput)
 }
 
-// Video segment length indicates the length of individual video files (segments) which are persisted to storage. Smaller segments provide lower archive playback latency but generate larger volume of storage transactions. Larger segments reduce the amount of storage transactions while increasing the archive playback latency. Value must be specified in ISO8601 duration format (i.e. "PT30S" equals 30 seconds) and can vary between 30 seconds to 5 minutes, in 30 seconds increments.
 func (o VideoMediaInfoResponsePtrOutput) SegmentLength() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *VideoMediaInfoResponse) *string {
 		if v == nil {
@@ -3238,15 +2984,7 @@ func (o VideoMediaInfoResponsePtrOutput) SegmentLength() pulumi.StringPtrOutput 
 	}).(pulumi.StringPtrOutput)
 }
 
-// Video streaming holds information about video streaming URLs.
 type VideoStreamingResponse struct {
-	// Video streaming base URL for the video archive. When present, archived video can be played through the Azure Video Analyzer player. Alternatively, this URL can be used with compatible DASH or HLS players by appending the following to the base URL:
-	//
-	//   - HLSv4:     /manifest(format=m3u8-aapl).m3u8
-	//   - HLS CMAF:  /manifest(format=m3u8-cmaf)
-	//   - DASH CMAF: /manifest(format=mpd-time-cmaf)
-	//
-	// Moreover, an ongoing video recording can be played in "live mode" with latencies which are approximately double of the chosen video segment length.
 	ArchiveBaseUrl *string `pulumi:"archiveBaseUrl"`
 }
 
@@ -3261,15 +2999,7 @@ type VideoStreamingResponseInput interface {
 	ToVideoStreamingResponseOutputWithContext(context.Context) VideoStreamingResponseOutput
 }
 
-// Video streaming holds information about video streaming URLs.
 type VideoStreamingResponseArgs struct {
-	// Video streaming base URL for the video archive. When present, archived video can be played through the Azure Video Analyzer player. Alternatively, this URL can be used with compatible DASH or HLS players by appending the following to the base URL:
-	//
-	//   - HLSv4:     /manifest(format=m3u8-aapl).m3u8
-	//   - HLS CMAF:  /manifest(format=m3u8-cmaf)
-	//   - DASH CMAF: /manifest(format=mpd-time-cmaf)
-	//
-	// Moreover, an ongoing video recording can be played in "live mode" with latencies which are approximately double of the chosen video segment length.
 	ArchiveBaseUrl pulumi.StringPtrInput `pulumi:"archiveBaseUrl"`
 }
 
@@ -3326,7 +3056,6 @@ func (i *videoStreamingResponsePtrType) ToVideoStreamingResponsePtrOutputWithCon
 	return pulumi.ToOutputWithContext(ctx, i).(VideoStreamingResponsePtrOutput)
 }
 
-// Video streaming holds information about video streaming URLs.
 type VideoStreamingResponseOutput struct{ *pulumi.OutputState }
 
 func (VideoStreamingResponseOutput) ElementType() reflect.Type {
@@ -3346,18 +3075,11 @@ func (o VideoStreamingResponseOutput) ToVideoStreamingResponsePtrOutput() VideoS
 }
 
 func (o VideoStreamingResponseOutput) ToVideoStreamingResponsePtrOutputWithContext(ctx context.Context) VideoStreamingResponsePtrOutput {
-	return o.ApplyT(func(v VideoStreamingResponse) *VideoStreamingResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v VideoStreamingResponse) *VideoStreamingResponse {
 		return &v
 	}).(VideoStreamingResponsePtrOutput)
 }
 
-// Video streaming base URL for the video archive. When present, archived video can be played through the Azure Video Analyzer player. Alternatively, this URL can be used with compatible DASH or HLS players by appending the following to the base URL:
-//
-//   - HLSv4:     /manifest(format=m3u8-aapl).m3u8
-//   - HLS CMAF:  /manifest(format=m3u8-cmaf)
-//   - DASH CMAF: /manifest(format=mpd-time-cmaf)
-//
-// Moreover, an ongoing video recording can be played in "live mode" with latencies which are approximately double of the chosen video segment length.
 func (o VideoStreamingResponseOutput) ArchiveBaseUrl() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v VideoStreamingResponse) *string { return v.ArchiveBaseUrl }).(pulumi.StringPtrOutput)
 }
@@ -3377,16 +3099,15 @@ func (o VideoStreamingResponsePtrOutput) ToVideoStreamingResponsePtrOutputWithCo
 }
 
 func (o VideoStreamingResponsePtrOutput) Elem() VideoStreamingResponseOutput {
-	return o.ApplyT(func(v *VideoStreamingResponse) VideoStreamingResponse { return *v }).(VideoStreamingResponseOutput)
+	return o.ApplyT(func(v *VideoStreamingResponse) VideoStreamingResponse {
+		if v != nil {
+			return *v
+		}
+		var ret VideoStreamingResponse
+		return ret
+	}).(VideoStreamingResponseOutput)
 }
 
-// Video streaming base URL for the video archive. When present, archived video can be played through the Azure Video Analyzer player. Alternatively, this URL can be used with compatible DASH or HLS players by appending the following to the base URL:
-//
-//   - HLSv4:     /manifest(format=m3u8-aapl).m3u8
-//   - HLS CMAF:  /manifest(format=m3u8-cmaf)
-//   - DASH CMAF: /manifest(format=mpd-time-cmaf)
-//
-// Moreover, an ongoing video recording can be played in "live mode" with latencies which are approximately double of the chosen video segment length.
 func (o VideoStreamingResponsePtrOutput) ArchiveBaseUrl() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *VideoStreamingResponse) *string {
 		if v == nil {

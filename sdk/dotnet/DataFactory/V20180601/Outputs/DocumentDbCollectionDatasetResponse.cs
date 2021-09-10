@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.DataFactory.V20180601.Outputs
 {
 
+    /// <summary>
+    /// Microsoft Azure Document Database Collection dataset.
+    /// </summary>
     [OutputType]
     public sealed class DocumentDbCollectionDatasetResponse
     {

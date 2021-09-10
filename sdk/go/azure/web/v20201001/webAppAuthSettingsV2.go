@@ -17,16 +17,12 @@ type WebAppAuthSettingsV2 struct {
 	GlobalValidation  GlobalValidationResponsePtrOutput  `pulumi:"globalValidation"`
 	HttpSettings      HttpSettingsResponsePtrOutput      `pulumi:"httpSettings"`
 	IdentityProviders IdentityProvidersResponsePtrOutput `pulumi:"identityProviders"`
-	// Kind of resource.
-	Kind  pulumi.StringPtrOutput `pulumi:"kind"`
-	Login LoginResponsePtrOutput `pulumi:"login"`
-	// Resource Name.
-	Name     pulumi.StringOutput           `pulumi:"name"`
-	Platform AuthPlatformResponsePtrOutput `pulumi:"platform"`
-	// The system metadata relating to this resource.
-	SystemData SystemDataResponseOutput `pulumi:"systemData"`
-	// Resource type.
-	Type pulumi.StringOutput `pulumi:"type"`
+	Kind              pulumi.StringPtrOutput             `pulumi:"kind"`
+	Login             LoginResponsePtrOutput             `pulumi:"login"`
+	Name              pulumi.StringOutput                `pulumi:"name"`
+	Platform          AuthPlatformResponsePtrOutput      `pulumi:"platform"`
+	SystemData        SystemDataResponseOutput           `pulumi:"systemData"`
+	Type              pulumi.StringOutput                `pulumi:"type"`
 }
 
 // NewWebAppAuthSettingsV2 registers a new resource with the given unique name, arguments, and options.
@@ -125,14 +121,11 @@ type webAppAuthSettingsV2Args struct {
 	GlobalValidation  *GlobalValidation  `pulumi:"globalValidation"`
 	HttpSettings      *HttpSettings      `pulumi:"httpSettings"`
 	IdentityProviders *IdentityProviders `pulumi:"identityProviders"`
-	// Kind of resource.
-	Kind  *string `pulumi:"kind"`
-	Login *Login  `pulumi:"login"`
-	// Name of web app.
-	Name     string        `pulumi:"name"`
-	Platform *AuthPlatform `pulumi:"platform"`
-	// Name of the resource group to which the resource belongs.
-	ResourceGroupName string `pulumi:"resourceGroupName"`
+	Kind              *string            `pulumi:"kind"`
+	Login             *Login             `pulumi:"login"`
+	Name              string             `pulumi:"name"`
+	Platform          *AuthPlatform      `pulumi:"platform"`
+	ResourceGroupName string             `pulumi:"resourceGroupName"`
 }
 
 // The set of arguments for constructing a WebAppAuthSettingsV2 resource.
@@ -140,13 +133,10 @@ type WebAppAuthSettingsV2Args struct {
 	GlobalValidation  GlobalValidationPtrInput
 	HttpSettings      HttpSettingsPtrInput
 	IdentityProviders IdentityProvidersPtrInput
-	// Kind of resource.
-	Kind  pulumi.StringPtrInput
-	Login LoginPtrInput
-	// Name of web app.
-	Name     pulumi.StringInput
-	Platform AuthPlatformPtrInput
-	// Name of the resource group to which the resource belongs.
+	Kind              pulumi.StringPtrInput
+	Login             LoginPtrInput
+	Name              pulumi.StringInput
+	Platform          AuthPlatformPtrInput
 	ResourceGroupName pulumi.StringInput
 }
 
@@ -173,9 +163,7 @@ func (i *WebAppAuthSettingsV2) ToWebAppAuthSettingsV2OutputWithContext(ctx conte
 	return pulumi.ToOutputWithContext(ctx, i).(WebAppAuthSettingsV2Output)
 }
 
-type WebAppAuthSettingsV2Output struct {
-	*pulumi.OutputState
-}
+type WebAppAuthSettingsV2Output struct{ *pulumi.OutputState }
 
 func (WebAppAuthSettingsV2Output) ElementType() reflect.Type {
 	return reflect.TypeOf((*WebAppAuthSettingsV2)(nil))

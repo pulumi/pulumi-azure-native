@@ -7,7 +7,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// The policy assignment.
 func LookupPolicyAssignment(ctx *pulumi.Context, args *LookupPolicyAssignmentArgs, opts ...pulumi.InvokeOption) (*LookupPolicyAssignmentResult, error) {
 	var rv LookupPolicyAssignmentResult
 	err := ctx.Invoke("azure-native:authorization/v20161201:getPolicyAssignment", args, &rv, opts...)
@@ -18,28 +17,18 @@ func LookupPolicyAssignment(ctx *pulumi.Context, args *LookupPolicyAssignmentArg
 }
 
 type LookupPolicyAssignmentArgs struct {
-	// The name of the policy assignment to get.
 	PolicyAssignmentName string `pulumi:"policyAssignmentName"`
-	// The scope of the policy assignment.
-	Scope string `pulumi:"scope"`
+	Scope                string `pulumi:"scope"`
 }
 
 // The policy assignment.
 type LookupPolicyAssignmentResult struct {
-	// This message will be part of response in case of policy violation.
-	Description *string `pulumi:"description"`
-	// The display name of the policy assignment.
-	DisplayName *string `pulumi:"displayName"`
-	// The ID of the policy assignment.
-	Id string `pulumi:"id"`
-	// The name of the policy assignment.
-	Name *string `pulumi:"name"`
-	// Required if a parameter is used in policy rule.
-	Parameters interface{} `pulumi:"parameters"`
-	// The ID of the policy definition.
-	PolicyDefinitionId *string `pulumi:"policyDefinitionId"`
-	// The scope for the policy assignment.
-	Scope *string `pulumi:"scope"`
-	// The type of the policy assignment.
-	Type *string `pulumi:"type"`
+	Description        *string     `pulumi:"description"`
+	DisplayName        *string     `pulumi:"displayName"`
+	Id                 string      `pulumi:"id"`
+	Name               *string     `pulumi:"name"`
+	Parameters         interface{} `pulumi:"parameters"`
+	PolicyDefinitionId *string     `pulumi:"policyDefinitionId"`
+	Scope              *string     `pulumi:"scope"`
+	Type               *string     `pulumi:"type"`
 }

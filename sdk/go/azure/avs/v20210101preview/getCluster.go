@@ -7,7 +7,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// A cluster resource
 func LookupCluster(ctx *pulumi.Context, args *LookupClusterArgs, opts ...pulumi.InvokeOption) (*LookupClusterResult, error) {
 	var rv LookupClusterResult
 	err := ctx.Invoke("azure-native:avs/v20210101preview:getCluster", args, &rv, opts...)
@@ -18,30 +17,19 @@ func LookupCluster(ctx *pulumi.Context, args *LookupClusterArgs, opts ...pulumi.
 }
 
 type LookupClusterArgs struct {
-	// Name of the cluster in the private cloud
-	ClusterName string `pulumi:"clusterName"`
-	// Name of the private cloud
-	PrivateCloudName string `pulumi:"privateCloudName"`
-	// The name of the resource group. The name is case insensitive.
+	ClusterName       string `pulumi:"clusterName"`
+	PrivateCloudName  string `pulumi:"privateCloudName"`
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 }
 
 // A cluster resource
 type LookupClusterResult struct {
-	// The identity
-	ClusterId int `pulumi:"clusterId"`
-	// The cluster size
-	ClusterSize *int `pulumi:"clusterSize"`
-	// The hosts
-	Hosts []string `pulumi:"hosts"`
-	// Resource ID.
-	Id string `pulumi:"id"`
-	// Resource name.
-	Name string `pulumi:"name"`
-	// The state of the cluster provisioning
-	ProvisioningState string `pulumi:"provisioningState"`
-	// The cluster SKU
-	Sku SkuResponse `pulumi:"sku"`
-	// Resource type.
-	Type string `pulumi:"type"`
+	ClusterId         int         `pulumi:"clusterId"`
+	ClusterSize       *int        `pulumi:"clusterSize"`
+	Hosts             []string    `pulumi:"hosts"`
+	Id                string      `pulumi:"id"`
+	Name              string      `pulumi:"name"`
+	ProvisioningState string      `pulumi:"provisioningState"`
+	Sku               SkuResponse `pulumi:"sku"`
+	Type              string      `pulumi:"type"`
 }

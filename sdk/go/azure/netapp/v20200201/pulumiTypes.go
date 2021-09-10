@@ -10,28 +10,17 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Active Directory
 type ActiveDirectory struct {
-	// Id of the Active Directory
-	ActiveDirectoryId *string `pulumi:"activeDirectoryId"`
-	// Users to be added to the Built-in Backup Operator active directory group. A list of unique usernames without domain specifier
-	BackupOperators []string `pulumi:"backupOperators"`
-	// Comma separated list of DNS server IP addresses (IPv4 only) for the Active Directory domain
-	Dns *string `pulumi:"dns"`
-	// Name of the Active Directory domain
-	Domain *string `pulumi:"domain"`
-	// The Organizational Unit (OU) within the Windows Active Directory
-	OrganizationalUnit *string `pulumi:"organizationalUnit"`
-	// Plain text password of Active Directory domain administrator
-	Password *string `pulumi:"password"`
-	// The Active Directory site the service will limit Domain Controller discovery to
-	Site *string `pulumi:"site"`
-	// NetBIOS name of the SMB server. This name will be registered as a computer account in the AD and used to mount volumes
-	SmbServerName *string `pulumi:"smbServerName"`
-	// Status of the Active Directory
-	Status *string `pulumi:"status"`
-	// Username of Active Directory domain administrator
-	Username *string `pulumi:"username"`
+	ActiveDirectoryId  *string  `pulumi:"activeDirectoryId"`
+	BackupOperators    []string `pulumi:"backupOperators"`
+	Dns                *string  `pulumi:"dns"`
+	Domain             *string  `pulumi:"domain"`
+	OrganizationalUnit *string  `pulumi:"organizationalUnit"`
+	Password           *string  `pulumi:"password"`
+	Site               *string  `pulumi:"site"`
+	SmbServerName      *string  `pulumi:"smbServerName"`
+	Status             *string  `pulumi:"status"`
+	Username           *string  `pulumi:"username"`
 }
 
 // ActiveDirectoryInput is an input type that accepts ActiveDirectoryArgs and ActiveDirectoryOutput values.
@@ -45,28 +34,17 @@ type ActiveDirectoryInput interface {
 	ToActiveDirectoryOutputWithContext(context.Context) ActiveDirectoryOutput
 }
 
-// Active Directory
 type ActiveDirectoryArgs struct {
-	// Id of the Active Directory
-	ActiveDirectoryId pulumi.StringPtrInput `pulumi:"activeDirectoryId"`
-	// Users to be added to the Built-in Backup Operator active directory group. A list of unique usernames without domain specifier
-	BackupOperators pulumi.StringArrayInput `pulumi:"backupOperators"`
-	// Comma separated list of DNS server IP addresses (IPv4 only) for the Active Directory domain
-	Dns pulumi.StringPtrInput `pulumi:"dns"`
-	// Name of the Active Directory domain
-	Domain pulumi.StringPtrInput `pulumi:"domain"`
-	// The Organizational Unit (OU) within the Windows Active Directory
-	OrganizationalUnit pulumi.StringPtrInput `pulumi:"organizationalUnit"`
-	// Plain text password of Active Directory domain administrator
-	Password pulumi.StringPtrInput `pulumi:"password"`
-	// The Active Directory site the service will limit Domain Controller discovery to
-	Site pulumi.StringPtrInput `pulumi:"site"`
-	// NetBIOS name of the SMB server. This name will be registered as a computer account in the AD and used to mount volumes
-	SmbServerName pulumi.StringPtrInput `pulumi:"smbServerName"`
-	// Status of the Active Directory
-	Status pulumi.StringPtrInput `pulumi:"status"`
-	// Username of Active Directory domain administrator
-	Username pulumi.StringPtrInput `pulumi:"username"`
+	ActiveDirectoryId  pulumi.StringPtrInput   `pulumi:"activeDirectoryId"`
+	BackupOperators    pulumi.StringArrayInput `pulumi:"backupOperators"`
+	Dns                pulumi.StringPtrInput   `pulumi:"dns"`
+	Domain             pulumi.StringPtrInput   `pulumi:"domain"`
+	OrganizationalUnit pulumi.StringPtrInput   `pulumi:"organizationalUnit"`
+	Password           pulumi.StringPtrInput   `pulumi:"password"`
+	Site               pulumi.StringPtrInput   `pulumi:"site"`
+	SmbServerName      pulumi.StringPtrInput   `pulumi:"smbServerName"`
+	Status             pulumi.StringPtrInput   `pulumi:"status"`
+	Username           pulumi.StringPtrInput   `pulumi:"username"`
 }
 
 func (ActiveDirectoryArgs) ElementType() reflect.Type {
@@ -106,7 +84,6 @@ func (i ActiveDirectoryArray) ToActiveDirectoryArrayOutputWithContext(ctx contex
 	return pulumi.ToOutputWithContext(ctx, i).(ActiveDirectoryArrayOutput)
 }
 
-// Active Directory
 type ActiveDirectoryOutput struct{ *pulumi.OutputState }
 
 func (ActiveDirectoryOutput) ElementType() reflect.Type {
@@ -121,52 +98,42 @@ func (o ActiveDirectoryOutput) ToActiveDirectoryOutputWithContext(ctx context.Co
 	return o
 }
 
-// Id of the Active Directory
 func (o ActiveDirectoryOutput) ActiveDirectoryId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ActiveDirectory) *string { return v.ActiveDirectoryId }).(pulumi.StringPtrOutput)
 }
 
-// Users to be added to the Built-in Backup Operator active directory group. A list of unique usernames without domain specifier
 func (o ActiveDirectoryOutput) BackupOperators() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v ActiveDirectory) []string { return v.BackupOperators }).(pulumi.StringArrayOutput)
 }
 
-// Comma separated list of DNS server IP addresses (IPv4 only) for the Active Directory domain
 func (o ActiveDirectoryOutput) Dns() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ActiveDirectory) *string { return v.Dns }).(pulumi.StringPtrOutput)
 }
 
-// Name of the Active Directory domain
 func (o ActiveDirectoryOutput) Domain() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ActiveDirectory) *string { return v.Domain }).(pulumi.StringPtrOutput)
 }
 
-// The Organizational Unit (OU) within the Windows Active Directory
 func (o ActiveDirectoryOutput) OrganizationalUnit() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ActiveDirectory) *string { return v.OrganizationalUnit }).(pulumi.StringPtrOutput)
 }
 
-// Plain text password of Active Directory domain administrator
 func (o ActiveDirectoryOutput) Password() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ActiveDirectory) *string { return v.Password }).(pulumi.StringPtrOutput)
 }
 
-// The Active Directory site the service will limit Domain Controller discovery to
 func (o ActiveDirectoryOutput) Site() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ActiveDirectory) *string { return v.Site }).(pulumi.StringPtrOutput)
 }
 
-// NetBIOS name of the SMB server. This name will be registered as a computer account in the AD and used to mount volumes
 func (o ActiveDirectoryOutput) SmbServerName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ActiveDirectory) *string { return v.SmbServerName }).(pulumi.StringPtrOutput)
 }
 
-// Status of the Active Directory
 func (o ActiveDirectoryOutput) Status() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ActiveDirectory) *string { return v.Status }).(pulumi.StringPtrOutput)
 }
 
-// Username of Active Directory domain administrator
 func (o ActiveDirectoryOutput) Username() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ActiveDirectory) *string { return v.Username }).(pulumi.StringPtrOutput)
 }
@@ -191,28 +158,17 @@ func (o ActiveDirectoryArrayOutput) Index(i pulumi.IntInput) ActiveDirectoryOutp
 	}).(ActiveDirectoryOutput)
 }
 
-// Active Directory
 type ActiveDirectoryResponse struct {
-	// Id of the Active Directory
-	ActiveDirectoryId *string `pulumi:"activeDirectoryId"`
-	// Users to be added to the Built-in Backup Operator active directory group. A list of unique usernames without domain specifier
-	BackupOperators []string `pulumi:"backupOperators"`
-	// Comma separated list of DNS server IP addresses (IPv4 only) for the Active Directory domain
-	Dns *string `pulumi:"dns"`
-	// Name of the Active Directory domain
-	Domain *string `pulumi:"domain"`
-	// The Organizational Unit (OU) within the Windows Active Directory
-	OrganizationalUnit *string `pulumi:"organizationalUnit"`
-	// Plain text password of Active Directory domain administrator
-	Password *string `pulumi:"password"`
-	// The Active Directory site the service will limit Domain Controller discovery to
-	Site *string `pulumi:"site"`
-	// NetBIOS name of the SMB server. This name will be registered as a computer account in the AD and used to mount volumes
-	SmbServerName *string `pulumi:"smbServerName"`
-	// Status of the Active Directory
-	Status *string `pulumi:"status"`
-	// Username of Active Directory domain administrator
-	Username *string `pulumi:"username"`
+	ActiveDirectoryId  *string  `pulumi:"activeDirectoryId"`
+	BackupOperators    []string `pulumi:"backupOperators"`
+	Dns                *string  `pulumi:"dns"`
+	Domain             *string  `pulumi:"domain"`
+	OrganizationalUnit *string  `pulumi:"organizationalUnit"`
+	Password           *string  `pulumi:"password"`
+	Site               *string  `pulumi:"site"`
+	SmbServerName      *string  `pulumi:"smbServerName"`
+	Status             *string  `pulumi:"status"`
+	Username           *string  `pulumi:"username"`
 }
 
 // ActiveDirectoryResponseInput is an input type that accepts ActiveDirectoryResponseArgs and ActiveDirectoryResponseOutput values.
@@ -226,28 +182,17 @@ type ActiveDirectoryResponseInput interface {
 	ToActiveDirectoryResponseOutputWithContext(context.Context) ActiveDirectoryResponseOutput
 }
 
-// Active Directory
 type ActiveDirectoryResponseArgs struct {
-	// Id of the Active Directory
-	ActiveDirectoryId pulumi.StringPtrInput `pulumi:"activeDirectoryId"`
-	// Users to be added to the Built-in Backup Operator active directory group. A list of unique usernames without domain specifier
-	BackupOperators pulumi.StringArrayInput `pulumi:"backupOperators"`
-	// Comma separated list of DNS server IP addresses (IPv4 only) for the Active Directory domain
-	Dns pulumi.StringPtrInput `pulumi:"dns"`
-	// Name of the Active Directory domain
-	Domain pulumi.StringPtrInput `pulumi:"domain"`
-	// The Organizational Unit (OU) within the Windows Active Directory
-	OrganizationalUnit pulumi.StringPtrInput `pulumi:"organizationalUnit"`
-	// Plain text password of Active Directory domain administrator
-	Password pulumi.StringPtrInput `pulumi:"password"`
-	// The Active Directory site the service will limit Domain Controller discovery to
-	Site pulumi.StringPtrInput `pulumi:"site"`
-	// NetBIOS name of the SMB server. This name will be registered as a computer account in the AD and used to mount volumes
-	SmbServerName pulumi.StringPtrInput `pulumi:"smbServerName"`
-	// Status of the Active Directory
-	Status pulumi.StringPtrInput `pulumi:"status"`
-	// Username of Active Directory domain administrator
-	Username pulumi.StringPtrInput `pulumi:"username"`
+	ActiveDirectoryId  pulumi.StringPtrInput   `pulumi:"activeDirectoryId"`
+	BackupOperators    pulumi.StringArrayInput `pulumi:"backupOperators"`
+	Dns                pulumi.StringPtrInput   `pulumi:"dns"`
+	Domain             pulumi.StringPtrInput   `pulumi:"domain"`
+	OrganizationalUnit pulumi.StringPtrInput   `pulumi:"organizationalUnit"`
+	Password           pulumi.StringPtrInput   `pulumi:"password"`
+	Site               pulumi.StringPtrInput   `pulumi:"site"`
+	SmbServerName      pulumi.StringPtrInput   `pulumi:"smbServerName"`
+	Status             pulumi.StringPtrInput   `pulumi:"status"`
+	Username           pulumi.StringPtrInput   `pulumi:"username"`
 }
 
 func (ActiveDirectoryResponseArgs) ElementType() reflect.Type {
@@ -287,7 +232,6 @@ func (i ActiveDirectoryResponseArray) ToActiveDirectoryResponseArrayOutputWithCo
 	return pulumi.ToOutputWithContext(ctx, i).(ActiveDirectoryResponseArrayOutput)
 }
 
-// Active Directory
 type ActiveDirectoryResponseOutput struct{ *pulumi.OutputState }
 
 func (ActiveDirectoryResponseOutput) ElementType() reflect.Type {
@@ -302,52 +246,42 @@ func (o ActiveDirectoryResponseOutput) ToActiveDirectoryResponseOutputWithContex
 	return o
 }
 
-// Id of the Active Directory
 func (o ActiveDirectoryResponseOutput) ActiveDirectoryId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ActiveDirectoryResponse) *string { return v.ActiveDirectoryId }).(pulumi.StringPtrOutput)
 }
 
-// Users to be added to the Built-in Backup Operator active directory group. A list of unique usernames without domain specifier
 func (o ActiveDirectoryResponseOutput) BackupOperators() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v ActiveDirectoryResponse) []string { return v.BackupOperators }).(pulumi.StringArrayOutput)
 }
 
-// Comma separated list of DNS server IP addresses (IPv4 only) for the Active Directory domain
 func (o ActiveDirectoryResponseOutput) Dns() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ActiveDirectoryResponse) *string { return v.Dns }).(pulumi.StringPtrOutput)
 }
 
-// Name of the Active Directory domain
 func (o ActiveDirectoryResponseOutput) Domain() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ActiveDirectoryResponse) *string { return v.Domain }).(pulumi.StringPtrOutput)
 }
 
-// The Organizational Unit (OU) within the Windows Active Directory
 func (o ActiveDirectoryResponseOutput) OrganizationalUnit() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ActiveDirectoryResponse) *string { return v.OrganizationalUnit }).(pulumi.StringPtrOutput)
 }
 
-// Plain text password of Active Directory domain administrator
 func (o ActiveDirectoryResponseOutput) Password() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ActiveDirectoryResponse) *string { return v.Password }).(pulumi.StringPtrOutput)
 }
 
-// The Active Directory site the service will limit Domain Controller discovery to
 func (o ActiveDirectoryResponseOutput) Site() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ActiveDirectoryResponse) *string { return v.Site }).(pulumi.StringPtrOutput)
 }
 
-// NetBIOS name of the SMB server. This name will be registered as a computer account in the AD and used to mount volumes
 func (o ActiveDirectoryResponseOutput) SmbServerName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ActiveDirectoryResponse) *string { return v.SmbServerName }).(pulumi.StringPtrOutput)
 }
 
-// Status of the Active Directory
 func (o ActiveDirectoryResponseOutput) Status() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ActiveDirectoryResponse) *string { return v.Status }).(pulumi.StringPtrOutput)
 }
 
-// Username of Active Directory domain administrator
 func (o ActiveDirectoryResponseOutput) Username() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ActiveDirectoryResponse) *string { return v.Username }).(pulumi.StringPtrOutput)
 }
@@ -372,22 +306,14 @@ func (o ActiveDirectoryResponseArrayOutput) Index(i pulumi.IntInput) ActiveDirec
 	}).(ActiveDirectoryResponseOutput)
 }
 
-// Volume Export Policy Rule
 type ExportPolicyRule struct {
-	// Client ingress specification as comma separated string with IPv4 CIDRs, IPv4 host addresses and host names
 	AllowedClients *string `pulumi:"allowedClients"`
-	// Allows CIFS protocol
-	Cifs *bool `pulumi:"cifs"`
-	// Allows NFSv3 protocol. Enable only for NFSv3 type volumes
-	Nfsv3 *bool `pulumi:"nfsv3"`
-	// Allows NFSv4.1 protocol. Enable only for NFSv4.1 type volumes
-	Nfsv41 *bool `pulumi:"nfsv41"`
-	// Order index
-	RuleIndex *int `pulumi:"ruleIndex"`
-	// Read only access
-	UnixReadOnly *bool `pulumi:"unixReadOnly"`
-	// Read and write access
-	UnixReadWrite *bool `pulumi:"unixReadWrite"`
+	Cifs           *bool   `pulumi:"cifs"`
+	Nfsv3          *bool   `pulumi:"nfsv3"`
+	Nfsv41         *bool   `pulumi:"nfsv41"`
+	RuleIndex      *int    `pulumi:"ruleIndex"`
+	UnixReadOnly   *bool   `pulumi:"unixReadOnly"`
+	UnixReadWrite  *bool   `pulumi:"unixReadWrite"`
 }
 
 // ExportPolicyRuleInput is an input type that accepts ExportPolicyRuleArgs and ExportPolicyRuleOutput values.
@@ -401,22 +327,14 @@ type ExportPolicyRuleInput interface {
 	ToExportPolicyRuleOutputWithContext(context.Context) ExportPolicyRuleOutput
 }
 
-// Volume Export Policy Rule
 type ExportPolicyRuleArgs struct {
-	// Client ingress specification as comma separated string with IPv4 CIDRs, IPv4 host addresses and host names
 	AllowedClients pulumi.StringPtrInput `pulumi:"allowedClients"`
-	// Allows CIFS protocol
-	Cifs pulumi.BoolPtrInput `pulumi:"cifs"`
-	// Allows NFSv3 protocol. Enable only for NFSv3 type volumes
-	Nfsv3 pulumi.BoolPtrInput `pulumi:"nfsv3"`
-	// Allows NFSv4.1 protocol. Enable only for NFSv4.1 type volumes
-	Nfsv41 pulumi.BoolPtrInput `pulumi:"nfsv41"`
-	// Order index
-	RuleIndex pulumi.IntPtrInput `pulumi:"ruleIndex"`
-	// Read only access
-	UnixReadOnly pulumi.BoolPtrInput `pulumi:"unixReadOnly"`
-	// Read and write access
-	UnixReadWrite pulumi.BoolPtrInput `pulumi:"unixReadWrite"`
+	Cifs           pulumi.BoolPtrInput   `pulumi:"cifs"`
+	Nfsv3          pulumi.BoolPtrInput   `pulumi:"nfsv3"`
+	Nfsv41         pulumi.BoolPtrInput   `pulumi:"nfsv41"`
+	RuleIndex      pulumi.IntPtrInput    `pulumi:"ruleIndex"`
+	UnixReadOnly   pulumi.BoolPtrInput   `pulumi:"unixReadOnly"`
+	UnixReadWrite  pulumi.BoolPtrInput   `pulumi:"unixReadWrite"`
 }
 
 func (ExportPolicyRuleArgs) ElementType() reflect.Type {
@@ -456,7 +374,6 @@ func (i ExportPolicyRuleArray) ToExportPolicyRuleArrayOutputWithContext(ctx cont
 	return pulumi.ToOutputWithContext(ctx, i).(ExportPolicyRuleArrayOutput)
 }
 
-// Volume Export Policy Rule
 type ExportPolicyRuleOutput struct{ *pulumi.OutputState }
 
 func (ExportPolicyRuleOutput) ElementType() reflect.Type {
@@ -471,37 +388,30 @@ func (o ExportPolicyRuleOutput) ToExportPolicyRuleOutputWithContext(ctx context.
 	return o
 }
 
-// Client ingress specification as comma separated string with IPv4 CIDRs, IPv4 host addresses and host names
 func (o ExportPolicyRuleOutput) AllowedClients() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ExportPolicyRule) *string { return v.AllowedClients }).(pulumi.StringPtrOutput)
 }
 
-// Allows CIFS protocol
 func (o ExportPolicyRuleOutput) Cifs() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v ExportPolicyRule) *bool { return v.Cifs }).(pulumi.BoolPtrOutput)
 }
 
-// Allows NFSv3 protocol. Enable only for NFSv3 type volumes
 func (o ExportPolicyRuleOutput) Nfsv3() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v ExportPolicyRule) *bool { return v.Nfsv3 }).(pulumi.BoolPtrOutput)
 }
 
-// Allows NFSv4.1 protocol. Enable only for NFSv4.1 type volumes
 func (o ExportPolicyRuleOutput) Nfsv41() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v ExportPolicyRule) *bool { return v.Nfsv41 }).(pulumi.BoolPtrOutput)
 }
 
-// Order index
 func (o ExportPolicyRuleOutput) RuleIndex() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v ExportPolicyRule) *int { return v.RuleIndex }).(pulumi.IntPtrOutput)
 }
 
-// Read only access
 func (o ExportPolicyRuleOutput) UnixReadOnly() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v ExportPolicyRule) *bool { return v.UnixReadOnly }).(pulumi.BoolPtrOutput)
 }
 
-// Read and write access
 func (o ExportPolicyRuleOutput) UnixReadWrite() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v ExportPolicyRule) *bool { return v.UnixReadWrite }).(pulumi.BoolPtrOutput)
 }
@@ -526,22 +436,14 @@ func (o ExportPolicyRuleArrayOutput) Index(i pulumi.IntInput) ExportPolicyRuleOu
 	}).(ExportPolicyRuleOutput)
 }
 
-// Volume Export Policy Rule
 type ExportPolicyRuleResponse struct {
-	// Client ingress specification as comma separated string with IPv4 CIDRs, IPv4 host addresses and host names
 	AllowedClients *string `pulumi:"allowedClients"`
-	// Allows CIFS protocol
-	Cifs *bool `pulumi:"cifs"`
-	// Allows NFSv3 protocol. Enable only for NFSv3 type volumes
-	Nfsv3 *bool `pulumi:"nfsv3"`
-	// Allows NFSv4.1 protocol. Enable only for NFSv4.1 type volumes
-	Nfsv41 *bool `pulumi:"nfsv41"`
-	// Order index
-	RuleIndex *int `pulumi:"ruleIndex"`
-	// Read only access
-	UnixReadOnly *bool `pulumi:"unixReadOnly"`
-	// Read and write access
-	UnixReadWrite *bool `pulumi:"unixReadWrite"`
+	Cifs           *bool   `pulumi:"cifs"`
+	Nfsv3          *bool   `pulumi:"nfsv3"`
+	Nfsv41         *bool   `pulumi:"nfsv41"`
+	RuleIndex      *int    `pulumi:"ruleIndex"`
+	UnixReadOnly   *bool   `pulumi:"unixReadOnly"`
+	UnixReadWrite  *bool   `pulumi:"unixReadWrite"`
 }
 
 // ExportPolicyRuleResponseInput is an input type that accepts ExportPolicyRuleResponseArgs and ExportPolicyRuleResponseOutput values.
@@ -555,22 +457,14 @@ type ExportPolicyRuleResponseInput interface {
 	ToExportPolicyRuleResponseOutputWithContext(context.Context) ExportPolicyRuleResponseOutput
 }
 
-// Volume Export Policy Rule
 type ExportPolicyRuleResponseArgs struct {
-	// Client ingress specification as comma separated string with IPv4 CIDRs, IPv4 host addresses and host names
 	AllowedClients pulumi.StringPtrInput `pulumi:"allowedClients"`
-	// Allows CIFS protocol
-	Cifs pulumi.BoolPtrInput `pulumi:"cifs"`
-	// Allows NFSv3 protocol. Enable only for NFSv3 type volumes
-	Nfsv3 pulumi.BoolPtrInput `pulumi:"nfsv3"`
-	// Allows NFSv4.1 protocol. Enable only for NFSv4.1 type volumes
-	Nfsv41 pulumi.BoolPtrInput `pulumi:"nfsv41"`
-	// Order index
-	RuleIndex pulumi.IntPtrInput `pulumi:"ruleIndex"`
-	// Read only access
-	UnixReadOnly pulumi.BoolPtrInput `pulumi:"unixReadOnly"`
-	// Read and write access
-	UnixReadWrite pulumi.BoolPtrInput `pulumi:"unixReadWrite"`
+	Cifs           pulumi.BoolPtrInput   `pulumi:"cifs"`
+	Nfsv3          pulumi.BoolPtrInput   `pulumi:"nfsv3"`
+	Nfsv41         pulumi.BoolPtrInput   `pulumi:"nfsv41"`
+	RuleIndex      pulumi.IntPtrInput    `pulumi:"ruleIndex"`
+	UnixReadOnly   pulumi.BoolPtrInput   `pulumi:"unixReadOnly"`
+	UnixReadWrite  pulumi.BoolPtrInput   `pulumi:"unixReadWrite"`
 }
 
 func (ExportPolicyRuleResponseArgs) ElementType() reflect.Type {
@@ -610,7 +504,6 @@ func (i ExportPolicyRuleResponseArray) ToExportPolicyRuleResponseArrayOutputWith
 	return pulumi.ToOutputWithContext(ctx, i).(ExportPolicyRuleResponseArrayOutput)
 }
 
-// Volume Export Policy Rule
 type ExportPolicyRuleResponseOutput struct{ *pulumi.OutputState }
 
 func (ExportPolicyRuleResponseOutput) ElementType() reflect.Type {
@@ -625,37 +518,30 @@ func (o ExportPolicyRuleResponseOutput) ToExportPolicyRuleResponseOutputWithCont
 	return o
 }
 
-// Client ingress specification as comma separated string with IPv4 CIDRs, IPv4 host addresses and host names
 func (o ExportPolicyRuleResponseOutput) AllowedClients() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ExportPolicyRuleResponse) *string { return v.AllowedClients }).(pulumi.StringPtrOutput)
 }
 
-// Allows CIFS protocol
 func (o ExportPolicyRuleResponseOutput) Cifs() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v ExportPolicyRuleResponse) *bool { return v.Cifs }).(pulumi.BoolPtrOutput)
 }
 
-// Allows NFSv3 protocol. Enable only for NFSv3 type volumes
 func (o ExportPolicyRuleResponseOutput) Nfsv3() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v ExportPolicyRuleResponse) *bool { return v.Nfsv3 }).(pulumi.BoolPtrOutput)
 }
 
-// Allows NFSv4.1 protocol. Enable only for NFSv4.1 type volumes
 func (o ExportPolicyRuleResponseOutput) Nfsv41() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v ExportPolicyRuleResponse) *bool { return v.Nfsv41 }).(pulumi.BoolPtrOutput)
 }
 
-// Order index
 func (o ExportPolicyRuleResponseOutput) RuleIndex() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v ExportPolicyRuleResponse) *int { return v.RuleIndex }).(pulumi.IntPtrOutput)
 }
 
-// Read only access
 func (o ExportPolicyRuleResponseOutput) UnixReadOnly() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v ExportPolicyRuleResponse) *bool { return v.UnixReadOnly }).(pulumi.BoolPtrOutput)
 }
 
-// Read and write access
 func (o ExportPolicyRuleResponseOutput) UnixReadWrite() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v ExportPolicyRuleResponse) *bool { return v.UnixReadWrite }).(pulumi.BoolPtrOutput)
 }
@@ -680,26 +566,16 @@ func (o ExportPolicyRuleResponseArrayOutput) Index(i pulumi.IntInput) ExportPoli
 	}).(ExportPolicyRuleResponseOutput)
 }
 
-// Mount target properties
 type MountTargetPropertiesResponse struct {
-	// The end of IPv4 address range to use when creating a new mount target
-	EndIp *string `pulumi:"endIp"`
-	// UUID v4 used to identify the MountTarget
-	FileSystemId string `pulumi:"fileSystemId"`
-	// The gateway of the IPv4 address range to use when creating a new mount target
-	Gateway *string `pulumi:"gateway"`
-	// The mount target's IPv4 address
-	IpAddress string `pulumi:"ipAddress"`
-	// UUID v4 used to identify the MountTarget
-	MountTargetId string `pulumi:"mountTargetId"`
-	// The netmask of the IPv4 address range to use when creating a new mount target
-	Netmask *string `pulumi:"netmask"`
-	// The SMB server's Fully Qualified Domain Name, FQDN
+	EndIp         *string `pulumi:"endIp"`
+	FileSystemId  string  `pulumi:"fileSystemId"`
+	Gateway       *string `pulumi:"gateway"`
+	IpAddress     string  `pulumi:"ipAddress"`
+	MountTargetId string  `pulumi:"mountTargetId"`
+	Netmask       *string `pulumi:"netmask"`
 	SmbServerFqdn *string `pulumi:"smbServerFqdn"`
-	// The start of IPv4 address range to use when creating a new mount target
-	StartIp *string `pulumi:"startIp"`
-	// The subnet
-	Subnet *string `pulumi:"subnet"`
+	StartIp       *string `pulumi:"startIp"`
+	Subnet        *string `pulumi:"subnet"`
 }
 
 // MountTargetPropertiesResponseInput is an input type that accepts MountTargetPropertiesResponseArgs and MountTargetPropertiesResponseOutput values.
@@ -713,26 +589,16 @@ type MountTargetPropertiesResponseInput interface {
 	ToMountTargetPropertiesResponseOutputWithContext(context.Context) MountTargetPropertiesResponseOutput
 }
 
-// Mount target properties
 type MountTargetPropertiesResponseArgs struct {
-	// The end of IPv4 address range to use when creating a new mount target
-	EndIp pulumi.StringPtrInput `pulumi:"endIp"`
-	// UUID v4 used to identify the MountTarget
-	FileSystemId pulumi.StringInput `pulumi:"fileSystemId"`
-	// The gateway of the IPv4 address range to use when creating a new mount target
-	Gateway pulumi.StringPtrInput `pulumi:"gateway"`
-	// The mount target's IPv4 address
-	IpAddress pulumi.StringInput `pulumi:"ipAddress"`
-	// UUID v4 used to identify the MountTarget
-	MountTargetId pulumi.StringInput `pulumi:"mountTargetId"`
-	// The netmask of the IPv4 address range to use when creating a new mount target
-	Netmask pulumi.StringPtrInput `pulumi:"netmask"`
-	// The SMB server's Fully Qualified Domain Name, FQDN
+	EndIp         pulumi.StringPtrInput `pulumi:"endIp"`
+	FileSystemId  pulumi.StringInput    `pulumi:"fileSystemId"`
+	Gateway       pulumi.StringPtrInput `pulumi:"gateway"`
+	IpAddress     pulumi.StringInput    `pulumi:"ipAddress"`
+	MountTargetId pulumi.StringInput    `pulumi:"mountTargetId"`
+	Netmask       pulumi.StringPtrInput `pulumi:"netmask"`
 	SmbServerFqdn pulumi.StringPtrInput `pulumi:"smbServerFqdn"`
-	// The start of IPv4 address range to use when creating a new mount target
-	StartIp pulumi.StringPtrInput `pulumi:"startIp"`
-	// The subnet
-	Subnet pulumi.StringPtrInput `pulumi:"subnet"`
+	StartIp       pulumi.StringPtrInput `pulumi:"startIp"`
+	Subnet        pulumi.StringPtrInput `pulumi:"subnet"`
 }
 
 func (MountTargetPropertiesResponseArgs) ElementType() reflect.Type {
@@ -772,7 +638,6 @@ func (i MountTargetPropertiesResponseArray) ToMountTargetPropertiesResponseArray
 	return pulumi.ToOutputWithContext(ctx, i).(MountTargetPropertiesResponseArrayOutput)
 }
 
-// Mount target properties
 type MountTargetPropertiesResponseOutput struct{ *pulumi.OutputState }
 
 func (MountTargetPropertiesResponseOutput) ElementType() reflect.Type {
@@ -787,47 +652,38 @@ func (o MountTargetPropertiesResponseOutput) ToMountTargetPropertiesResponseOutp
 	return o
 }
 
-// The end of IPv4 address range to use when creating a new mount target
 func (o MountTargetPropertiesResponseOutput) EndIp() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v MountTargetPropertiesResponse) *string { return v.EndIp }).(pulumi.StringPtrOutput)
 }
 
-// UUID v4 used to identify the MountTarget
 func (o MountTargetPropertiesResponseOutput) FileSystemId() pulumi.StringOutput {
 	return o.ApplyT(func(v MountTargetPropertiesResponse) string { return v.FileSystemId }).(pulumi.StringOutput)
 }
 
-// The gateway of the IPv4 address range to use when creating a new mount target
 func (o MountTargetPropertiesResponseOutput) Gateway() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v MountTargetPropertiesResponse) *string { return v.Gateway }).(pulumi.StringPtrOutput)
 }
 
-// The mount target's IPv4 address
 func (o MountTargetPropertiesResponseOutput) IpAddress() pulumi.StringOutput {
 	return o.ApplyT(func(v MountTargetPropertiesResponse) string { return v.IpAddress }).(pulumi.StringOutput)
 }
 
-// UUID v4 used to identify the MountTarget
 func (o MountTargetPropertiesResponseOutput) MountTargetId() pulumi.StringOutput {
 	return o.ApplyT(func(v MountTargetPropertiesResponse) string { return v.MountTargetId }).(pulumi.StringOutput)
 }
 
-// The netmask of the IPv4 address range to use when creating a new mount target
 func (o MountTargetPropertiesResponseOutput) Netmask() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v MountTargetPropertiesResponse) *string { return v.Netmask }).(pulumi.StringPtrOutput)
 }
 
-// The SMB server's Fully Qualified Domain Name, FQDN
 func (o MountTargetPropertiesResponseOutput) SmbServerFqdn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v MountTargetPropertiesResponse) *string { return v.SmbServerFqdn }).(pulumi.StringPtrOutput)
 }
 
-// The start of IPv4 address range to use when creating a new mount target
 func (o MountTargetPropertiesResponseOutput) StartIp() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v MountTargetPropertiesResponse) *string { return v.StartIp }).(pulumi.StringPtrOutput)
 }
 
-// The subnet
 func (o MountTargetPropertiesResponseOutput) Subnet() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v MountTargetPropertiesResponse) *string { return v.Subnet }).(pulumi.StringPtrOutput)
 }
@@ -852,18 +708,12 @@ func (o MountTargetPropertiesResponseArrayOutput) Index(i pulumi.IntInput) Mount
 	}).(MountTargetPropertiesResponseOutput)
 }
 
-// Replication properties
 type ReplicationObject struct {
-	// Indicates whether the local volume is the source or destination for the Volume Replication
-	EndpointType *string `pulumi:"endpointType"`
-	// The remote region for the other end of the Volume Replication.
-	RemoteVolumeRegion *string `pulumi:"remoteVolumeRegion"`
-	// The resource ID of the remote volume.
-	RemoteVolumeResourceId string `pulumi:"remoteVolumeResourceId"`
-	// Id
-	ReplicationId *string `pulumi:"replicationId"`
-	// Schedule
-	ReplicationSchedule string `pulumi:"replicationSchedule"`
+	EndpointType           *string `pulumi:"endpointType"`
+	RemoteVolumeRegion     *string `pulumi:"remoteVolumeRegion"`
+	RemoteVolumeResourceId string  `pulumi:"remoteVolumeResourceId"`
+	ReplicationId          *string `pulumi:"replicationId"`
+	ReplicationSchedule    string  `pulumi:"replicationSchedule"`
 }
 
 // ReplicationObjectInput is an input type that accepts ReplicationObjectArgs and ReplicationObjectOutput values.
@@ -877,18 +727,12 @@ type ReplicationObjectInput interface {
 	ToReplicationObjectOutputWithContext(context.Context) ReplicationObjectOutput
 }
 
-// Replication properties
 type ReplicationObjectArgs struct {
-	// Indicates whether the local volume is the source or destination for the Volume Replication
-	EndpointType pulumi.StringPtrInput `pulumi:"endpointType"`
-	// The remote region for the other end of the Volume Replication.
-	RemoteVolumeRegion pulumi.StringPtrInput `pulumi:"remoteVolumeRegion"`
-	// The resource ID of the remote volume.
-	RemoteVolumeResourceId pulumi.StringInput `pulumi:"remoteVolumeResourceId"`
-	// Id
-	ReplicationId pulumi.StringPtrInput `pulumi:"replicationId"`
-	// Schedule
-	ReplicationSchedule pulumi.StringInput `pulumi:"replicationSchedule"`
+	EndpointType           pulumi.StringPtrInput `pulumi:"endpointType"`
+	RemoteVolumeRegion     pulumi.StringPtrInput `pulumi:"remoteVolumeRegion"`
+	RemoteVolumeResourceId pulumi.StringInput    `pulumi:"remoteVolumeResourceId"`
+	ReplicationId          pulumi.StringPtrInput `pulumi:"replicationId"`
+	ReplicationSchedule    pulumi.StringInput    `pulumi:"replicationSchedule"`
 }
 
 func (ReplicationObjectArgs) ElementType() reflect.Type {
@@ -944,7 +788,6 @@ func (i *replicationObjectPtrType) ToReplicationObjectPtrOutputWithContext(ctx c
 	return pulumi.ToOutputWithContext(ctx, i).(ReplicationObjectPtrOutput)
 }
 
-// Replication properties
 type ReplicationObjectOutput struct{ *pulumi.OutputState }
 
 func (ReplicationObjectOutput) ElementType() reflect.Type {
@@ -964,32 +807,27 @@ func (o ReplicationObjectOutput) ToReplicationObjectPtrOutput() ReplicationObjec
 }
 
 func (o ReplicationObjectOutput) ToReplicationObjectPtrOutputWithContext(ctx context.Context) ReplicationObjectPtrOutput {
-	return o.ApplyT(func(v ReplicationObject) *ReplicationObject {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ReplicationObject) *ReplicationObject {
 		return &v
 	}).(ReplicationObjectPtrOutput)
 }
 
-// Indicates whether the local volume is the source or destination for the Volume Replication
 func (o ReplicationObjectOutput) EndpointType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ReplicationObject) *string { return v.EndpointType }).(pulumi.StringPtrOutput)
 }
 
-// The remote region for the other end of the Volume Replication.
 func (o ReplicationObjectOutput) RemoteVolumeRegion() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ReplicationObject) *string { return v.RemoteVolumeRegion }).(pulumi.StringPtrOutput)
 }
 
-// The resource ID of the remote volume.
 func (o ReplicationObjectOutput) RemoteVolumeResourceId() pulumi.StringOutput {
 	return o.ApplyT(func(v ReplicationObject) string { return v.RemoteVolumeResourceId }).(pulumi.StringOutput)
 }
 
-// Id
 func (o ReplicationObjectOutput) ReplicationId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ReplicationObject) *string { return v.ReplicationId }).(pulumi.StringPtrOutput)
 }
 
-// Schedule
 func (o ReplicationObjectOutput) ReplicationSchedule() pulumi.StringOutput {
 	return o.ApplyT(func(v ReplicationObject) string { return v.ReplicationSchedule }).(pulumi.StringOutput)
 }
@@ -1009,10 +847,15 @@ func (o ReplicationObjectPtrOutput) ToReplicationObjectPtrOutputWithContext(ctx 
 }
 
 func (o ReplicationObjectPtrOutput) Elem() ReplicationObjectOutput {
-	return o.ApplyT(func(v *ReplicationObject) ReplicationObject { return *v }).(ReplicationObjectOutput)
+	return o.ApplyT(func(v *ReplicationObject) ReplicationObject {
+		if v != nil {
+			return *v
+		}
+		var ret ReplicationObject
+		return ret
+	}).(ReplicationObjectOutput)
 }
 
-// Indicates whether the local volume is the source or destination for the Volume Replication
 func (o ReplicationObjectPtrOutput) EndpointType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ReplicationObject) *string {
 		if v == nil {
@@ -1022,7 +865,6 @@ func (o ReplicationObjectPtrOutput) EndpointType() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The remote region for the other end of the Volume Replication.
 func (o ReplicationObjectPtrOutput) RemoteVolumeRegion() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ReplicationObject) *string {
 		if v == nil {
@@ -1032,7 +874,6 @@ func (o ReplicationObjectPtrOutput) RemoteVolumeRegion() pulumi.StringPtrOutput 
 	}).(pulumi.StringPtrOutput)
 }
 
-// The resource ID of the remote volume.
 func (o ReplicationObjectPtrOutput) RemoteVolumeResourceId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ReplicationObject) *string {
 		if v == nil {
@@ -1042,7 +883,6 @@ func (o ReplicationObjectPtrOutput) RemoteVolumeResourceId() pulumi.StringPtrOut
 	}).(pulumi.StringPtrOutput)
 }
 
-// Id
 func (o ReplicationObjectPtrOutput) ReplicationId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ReplicationObject) *string {
 		if v == nil {
@@ -1052,7 +892,6 @@ func (o ReplicationObjectPtrOutput) ReplicationId() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Schedule
 func (o ReplicationObjectPtrOutput) ReplicationSchedule() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ReplicationObject) *string {
 		if v == nil {
@@ -1062,18 +901,12 @@ func (o ReplicationObjectPtrOutput) ReplicationSchedule() pulumi.StringPtrOutput
 	}).(pulumi.StringPtrOutput)
 }
 
-// Replication properties
 type ReplicationObjectResponse struct {
-	// Indicates whether the local volume is the source or destination for the Volume Replication
-	EndpointType *string `pulumi:"endpointType"`
-	// The remote region for the other end of the Volume Replication.
-	RemoteVolumeRegion *string `pulumi:"remoteVolumeRegion"`
-	// The resource ID of the remote volume.
-	RemoteVolumeResourceId string `pulumi:"remoteVolumeResourceId"`
-	// Id
-	ReplicationId *string `pulumi:"replicationId"`
-	// Schedule
-	ReplicationSchedule string `pulumi:"replicationSchedule"`
+	EndpointType           *string `pulumi:"endpointType"`
+	RemoteVolumeRegion     *string `pulumi:"remoteVolumeRegion"`
+	RemoteVolumeResourceId string  `pulumi:"remoteVolumeResourceId"`
+	ReplicationId          *string `pulumi:"replicationId"`
+	ReplicationSchedule    string  `pulumi:"replicationSchedule"`
 }
 
 // ReplicationObjectResponseInput is an input type that accepts ReplicationObjectResponseArgs and ReplicationObjectResponseOutput values.
@@ -1087,18 +920,12 @@ type ReplicationObjectResponseInput interface {
 	ToReplicationObjectResponseOutputWithContext(context.Context) ReplicationObjectResponseOutput
 }
 
-// Replication properties
 type ReplicationObjectResponseArgs struct {
-	// Indicates whether the local volume is the source or destination for the Volume Replication
-	EndpointType pulumi.StringPtrInput `pulumi:"endpointType"`
-	// The remote region for the other end of the Volume Replication.
-	RemoteVolumeRegion pulumi.StringPtrInput `pulumi:"remoteVolumeRegion"`
-	// The resource ID of the remote volume.
-	RemoteVolumeResourceId pulumi.StringInput `pulumi:"remoteVolumeResourceId"`
-	// Id
-	ReplicationId pulumi.StringPtrInput `pulumi:"replicationId"`
-	// Schedule
-	ReplicationSchedule pulumi.StringInput `pulumi:"replicationSchedule"`
+	EndpointType           pulumi.StringPtrInput `pulumi:"endpointType"`
+	RemoteVolumeRegion     pulumi.StringPtrInput `pulumi:"remoteVolumeRegion"`
+	RemoteVolumeResourceId pulumi.StringInput    `pulumi:"remoteVolumeResourceId"`
+	ReplicationId          pulumi.StringPtrInput `pulumi:"replicationId"`
+	ReplicationSchedule    pulumi.StringInput    `pulumi:"replicationSchedule"`
 }
 
 func (ReplicationObjectResponseArgs) ElementType() reflect.Type {
@@ -1154,7 +981,6 @@ func (i *replicationObjectResponsePtrType) ToReplicationObjectResponsePtrOutputW
 	return pulumi.ToOutputWithContext(ctx, i).(ReplicationObjectResponsePtrOutput)
 }
 
-// Replication properties
 type ReplicationObjectResponseOutput struct{ *pulumi.OutputState }
 
 func (ReplicationObjectResponseOutput) ElementType() reflect.Type {
@@ -1174,32 +1000,27 @@ func (o ReplicationObjectResponseOutput) ToReplicationObjectResponsePtrOutput() 
 }
 
 func (o ReplicationObjectResponseOutput) ToReplicationObjectResponsePtrOutputWithContext(ctx context.Context) ReplicationObjectResponsePtrOutput {
-	return o.ApplyT(func(v ReplicationObjectResponse) *ReplicationObjectResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ReplicationObjectResponse) *ReplicationObjectResponse {
 		return &v
 	}).(ReplicationObjectResponsePtrOutput)
 }
 
-// Indicates whether the local volume is the source or destination for the Volume Replication
 func (o ReplicationObjectResponseOutput) EndpointType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ReplicationObjectResponse) *string { return v.EndpointType }).(pulumi.StringPtrOutput)
 }
 
-// The remote region for the other end of the Volume Replication.
 func (o ReplicationObjectResponseOutput) RemoteVolumeRegion() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ReplicationObjectResponse) *string { return v.RemoteVolumeRegion }).(pulumi.StringPtrOutput)
 }
 
-// The resource ID of the remote volume.
 func (o ReplicationObjectResponseOutput) RemoteVolumeResourceId() pulumi.StringOutput {
 	return o.ApplyT(func(v ReplicationObjectResponse) string { return v.RemoteVolumeResourceId }).(pulumi.StringOutput)
 }
 
-// Id
 func (o ReplicationObjectResponseOutput) ReplicationId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ReplicationObjectResponse) *string { return v.ReplicationId }).(pulumi.StringPtrOutput)
 }
 
-// Schedule
 func (o ReplicationObjectResponseOutput) ReplicationSchedule() pulumi.StringOutput {
 	return o.ApplyT(func(v ReplicationObjectResponse) string { return v.ReplicationSchedule }).(pulumi.StringOutput)
 }
@@ -1219,10 +1040,15 @@ func (o ReplicationObjectResponsePtrOutput) ToReplicationObjectResponsePtrOutput
 }
 
 func (o ReplicationObjectResponsePtrOutput) Elem() ReplicationObjectResponseOutput {
-	return o.ApplyT(func(v *ReplicationObjectResponse) ReplicationObjectResponse { return *v }).(ReplicationObjectResponseOutput)
+	return o.ApplyT(func(v *ReplicationObjectResponse) ReplicationObjectResponse {
+		if v != nil {
+			return *v
+		}
+		var ret ReplicationObjectResponse
+		return ret
+	}).(ReplicationObjectResponseOutput)
 }
 
-// Indicates whether the local volume is the source or destination for the Volume Replication
 func (o ReplicationObjectResponsePtrOutput) EndpointType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ReplicationObjectResponse) *string {
 		if v == nil {
@@ -1232,7 +1058,6 @@ func (o ReplicationObjectResponsePtrOutput) EndpointType() pulumi.StringPtrOutpu
 	}).(pulumi.StringPtrOutput)
 }
 
-// The remote region for the other end of the Volume Replication.
 func (o ReplicationObjectResponsePtrOutput) RemoteVolumeRegion() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ReplicationObjectResponse) *string {
 		if v == nil {
@@ -1242,7 +1067,6 @@ func (o ReplicationObjectResponsePtrOutput) RemoteVolumeRegion() pulumi.StringPt
 	}).(pulumi.StringPtrOutput)
 }
 
-// The resource ID of the remote volume.
 func (o ReplicationObjectResponsePtrOutput) RemoteVolumeResourceId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ReplicationObjectResponse) *string {
 		if v == nil {
@@ -1252,7 +1076,6 @@ func (o ReplicationObjectResponsePtrOutput) RemoteVolumeResourceId() pulumi.Stri
 	}).(pulumi.StringPtrOutput)
 }
 
-// Id
 func (o ReplicationObjectResponsePtrOutput) ReplicationId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ReplicationObjectResponse) *string {
 		if v == nil {
@@ -1262,7 +1085,6 @@ func (o ReplicationObjectResponsePtrOutput) ReplicationId() pulumi.StringPtrOutp
 	}).(pulumi.StringPtrOutput)
 }
 
-// Schedule
 func (o ReplicationObjectResponsePtrOutput) ReplicationSchedule() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ReplicationObjectResponse) *string {
 		if v == nil {
@@ -1272,12 +1094,9 @@ func (o ReplicationObjectResponsePtrOutput) ReplicationSchedule() pulumi.StringP
 	}).(pulumi.StringPtrOutput)
 }
 
-// DataProtection type volumes include an object containing details of the replication
 type VolumePropertiesDataProtection struct {
-	// Replication properties
-	Replication *ReplicationObject `pulumi:"replication"`
-	// Snapshot properties.
-	Snapshot *VolumeSnapshotProperties `pulumi:"snapshot"`
+	Replication *ReplicationObject        `pulumi:"replication"`
+	Snapshot    *VolumeSnapshotProperties `pulumi:"snapshot"`
 }
 
 // VolumePropertiesDataProtectionInput is an input type that accepts VolumePropertiesDataProtectionArgs and VolumePropertiesDataProtectionOutput values.
@@ -1291,12 +1110,9 @@ type VolumePropertiesDataProtectionInput interface {
 	ToVolumePropertiesDataProtectionOutputWithContext(context.Context) VolumePropertiesDataProtectionOutput
 }
 
-// DataProtection type volumes include an object containing details of the replication
 type VolumePropertiesDataProtectionArgs struct {
-	// Replication properties
-	Replication ReplicationObjectPtrInput `pulumi:"replication"`
-	// Snapshot properties.
-	Snapshot VolumeSnapshotPropertiesPtrInput `pulumi:"snapshot"`
+	Replication ReplicationObjectPtrInput        `pulumi:"replication"`
+	Snapshot    VolumeSnapshotPropertiesPtrInput `pulumi:"snapshot"`
 }
 
 func (VolumePropertiesDataProtectionArgs) ElementType() reflect.Type {
@@ -1352,7 +1168,6 @@ func (i *volumePropertiesDataProtectionPtrType) ToVolumePropertiesDataProtection
 	return pulumi.ToOutputWithContext(ctx, i).(VolumePropertiesDataProtectionPtrOutput)
 }
 
-// DataProtection type volumes include an object containing details of the replication
 type VolumePropertiesDataProtectionOutput struct{ *pulumi.OutputState }
 
 func (VolumePropertiesDataProtectionOutput) ElementType() reflect.Type {
@@ -1372,17 +1187,15 @@ func (o VolumePropertiesDataProtectionOutput) ToVolumePropertiesDataProtectionPt
 }
 
 func (o VolumePropertiesDataProtectionOutput) ToVolumePropertiesDataProtectionPtrOutputWithContext(ctx context.Context) VolumePropertiesDataProtectionPtrOutput {
-	return o.ApplyT(func(v VolumePropertiesDataProtection) *VolumePropertiesDataProtection {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v VolumePropertiesDataProtection) *VolumePropertiesDataProtection {
 		return &v
 	}).(VolumePropertiesDataProtectionPtrOutput)
 }
 
-// Replication properties
 func (o VolumePropertiesDataProtectionOutput) Replication() ReplicationObjectPtrOutput {
 	return o.ApplyT(func(v VolumePropertiesDataProtection) *ReplicationObject { return v.Replication }).(ReplicationObjectPtrOutput)
 }
 
-// Snapshot properties.
 func (o VolumePropertiesDataProtectionOutput) Snapshot() VolumeSnapshotPropertiesPtrOutput {
 	return o.ApplyT(func(v VolumePropertiesDataProtection) *VolumeSnapshotProperties { return v.Snapshot }).(VolumeSnapshotPropertiesPtrOutput)
 }
@@ -1402,10 +1215,15 @@ func (o VolumePropertiesDataProtectionPtrOutput) ToVolumePropertiesDataProtectio
 }
 
 func (o VolumePropertiesDataProtectionPtrOutput) Elem() VolumePropertiesDataProtectionOutput {
-	return o.ApplyT(func(v *VolumePropertiesDataProtection) VolumePropertiesDataProtection { return *v }).(VolumePropertiesDataProtectionOutput)
+	return o.ApplyT(func(v *VolumePropertiesDataProtection) VolumePropertiesDataProtection {
+		if v != nil {
+			return *v
+		}
+		var ret VolumePropertiesDataProtection
+		return ret
+	}).(VolumePropertiesDataProtectionOutput)
 }
 
-// Replication properties
 func (o VolumePropertiesDataProtectionPtrOutput) Replication() ReplicationObjectPtrOutput {
 	return o.ApplyT(func(v *VolumePropertiesDataProtection) *ReplicationObject {
 		if v == nil {
@@ -1415,7 +1233,6 @@ func (o VolumePropertiesDataProtectionPtrOutput) Replication() ReplicationObject
 	}).(ReplicationObjectPtrOutput)
 }
 
-// Snapshot properties.
 func (o VolumePropertiesDataProtectionPtrOutput) Snapshot() VolumeSnapshotPropertiesPtrOutput {
 	return o.ApplyT(func(v *VolumePropertiesDataProtection) *VolumeSnapshotProperties {
 		if v == nil {
@@ -1425,9 +1242,7 @@ func (o VolumePropertiesDataProtectionPtrOutput) Snapshot() VolumeSnapshotProper
 	}).(VolumeSnapshotPropertiesPtrOutput)
 }
 
-// Set of export policy rules
 type VolumePropertiesExportPolicy struct {
-	// Export policy rule
 	Rules []ExportPolicyRule `pulumi:"rules"`
 }
 
@@ -1442,9 +1257,7 @@ type VolumePropertiesExportPolicyInput interface {
 	ToVolumePropertiesExportPolicyOutputWithContext(context.Context) VolumePropertiesExportPolicyOutput
 }
 
-// Set of export policy rules
 type VolumePropertiesExportPolicyArgs struct {
-	// Export policy rule
 	Rules ExportPolicyRuleArrayInput `pulumi:"rules"`
 }
 
@@ -1501,7 +1314,6 @@ func (i *volumePropertiesExportPolicyPtrType) ToVolumePropertiesExportPolicyPtrO
 	return pulumi.ToOutputWithContext(ctx, i).(VolumePropertiesExportPolicyPtrOutput)
 }
 
-// Set of export policy rules
 type VolumePropertiesExportPolicyOutput struct{ *pulumi.OutputState }
 
 func (VolumePropertiesExportPolicyOutput) ElementType() reflect.Type {
@@ -1521,12 +1333,11 @@ func (o VolumePropertiesExportPolicyOutput) ToVolumePropertiesExportPolicyPtrOut
 }
 
 func (o VolumePropertiesExportPolicyOutput) ToVolumePropertiesExportPolicyPtrOutputWithContext(ctx context.Context) VolumePropertiesExportPolicyPtrOutput {
-	return o.ApplyT(func(v VolumePropertiesExportPolicy) *VolumePropertiesExportPolicy {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v VolumePropertiesExportPolicy) *VolumePropertiesExportPolicy {
 		return &v
 	}).(VolumePropertiesExportPolicyPtrOutput)
 }
 
-// Export policy rule
 func (o VolumePropertiesExportPolicyOutput) Rules() ExportPolicyRuleArrayOutput {
 	return o.ApplyT(func(v VolumePropertiesExportPolicy) []ExportPolicyRule { return v.Rules }).(ExportPolicyRuleArrayOutput)
 }
@@ -1546,10 +1357,15 @@ func (o VolumePropertiesExportPolicyPtrOutput) ToVolumePropertiesExportPolicyPtr
 }
 
 func (o VolumePropertiesExportPolicyPtrOutput) Elem() VolumePropertiesExportPolicyOutput {
-	return o.ApplyT(func(v *VolumePropertiesExportPolicy) VolumePropertiesExportPolicy { return *v }).(VolumePropertiesExportPolicyOutput)
+	return o.ApplyT(func(v *VolumePropertiesExportPolicy) VolumePropertiesExportPolicy {
+		if v != nil {
+			return *v
+		}
+		var ret VolumePropertiesExportPolicy
+		return ret
+	}).(VolumePropertiesExportPolicyOutput)
 }
 
-// Export policy rule
 func (o VolumePropertiesExportPolicyPtrOutput) Rules() ExportPolicyRuleArrayOutput {
 	return o.ApplyT(func(v *VolumePropertiesExportPolicy) []ExportPolicyRule {
 		if v == nil {
@@ -1559,12 +1375,9 @@ func (o VolumePropertiesExportPolicyPtrOutput) Rules() ExportPolicyRuleArrayOutp
 	}).(ExportPolicyRuleArrayOutput)
 }
 
-// DataProtection type volumes include an object containing details of the replication
 type VolumePropertiesResponseDataProtection struct {
-	// Replication properties
-	Replication *ReplicationObjectResponse `pulumi:"replication"`
-	// Snapshot properties.
-	Snapshot *VolumeSnapshotPropertiesResponse `pulumi:"snapshot"`
+	Replication *ReplicationObjectResponse        `pulumi:"replication"`
+	Snapshot    *VolumeSnapshotPropertiesResponse `pulumi:"snapshot"`
 }
 
 // VolumePropertiesResponseDataProtectionInput is an input type that accepts VolumePropertiesResponseDataProtectionArgs and VolumePropertiesResponseDataProtectionOutput values.
@@ -1578,12 +1391,9 @@ type VolumePropertiesResponseDataProtectionInput interface {
 	ToVolumePropertiesResponseDataProtectionOutputWithContext(context.Context) VolumePropertiesResponseDataProtectionOutput
 }
 
-// DataProtection type volumes include an object containing details of the replication
 type VolumePropertiesResponseDataProtectionArgs struct {
-	// Replication properties
-	Replication ReplicationObjectResponsePtrInput `pulumi:"replication"`
-	// Snapshot properties.
-	Snapshot VolumeSnapshotPropertiesResponsePtrInput `pulumi:"snapshot"`
+	Replication ReplicationObjectResponsePtrInput        `pulumi:"replication"`
+	Snapshot    VolumeSnapshotPropertiesResponsePtrInput `pulumi:"snapshot"`
 }
 
 func (VolumePropertiesResponseDataProtectionArgs) ElementType() reflect.Type {
@@ -1639,7 +1449,6 @@ func (i *volumePropertiesResponseDataProtectionPtrType) ToVolumePropertiesRespon
 	return pulumi.ToOutputWithContext(ctx, i).(VolumePropertiesResponseDataProtectionPtrOutput)
 }
 
-// DataProtection type volumes include an object containing details of the replication
 type VolumePropertiesResponseDataProtectionOutput struct{ *pulumi.OutputState }
 
 func (VolumePropertiesResponseDataProtectionOutput) ElementType() reflect.Type {
@@ -1659,17 +1468,15 @@ func (o VolumePropertiesResponseDataProtectionOutput) ToVolumePropertiesResponse
 }
 
 func (o VolumePropertiesResponseDataProtectionOutput) ToVolumePropertiesResponseDataProtectionPtrOutputWithContext(ctx context.Context) VolumePropertiesResponseDataProtectionPtrOutput {
-	return o.ApplyT(func(v VolumePropertiesResponseDataProtection) *VolumePropertiesResponseDataProtection {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v VolumePropertiesResponseDataProtection) *VolumePropertiesResponseDataProtection {
 		return &v
 	}).(VolumePropertiesResponseDataProtectionPtrOutput)
 }
 
-// Replication properties
 func (o VolumePropertiesResponseDataProtectionOutput) Replication() ReplicationObjectResponsePtrOutput {
 	return o.ApplyT(func(v VolumePropertiesResponseDataProtection) *ReplicationObjectResponse { return v.Replication }).(ReplicationObjectResponsePtrOutput)
 }
 
-// Snapshot properties.
 func (o VolumePropertiesResponseDataProtectionOutput) Snapshot() VolumeSnapshotPropertiesResponsePtrOutput {
 	return o.ApplyT(func(v VolumePropertiesResponseDataProtection) *VolumeSnapshotPropertiesResponse { return v.Snapshot }).(VolumeSnapshotPropertiesResponsePtrOutput)
 }
@@ -1689,10 +1496,15 @@ func (o VolumePropertiesResponseDataProtectionPtrOutput) ToVolumePropertiesRespo
 }
 
 func (o VolumePropertiesResponseDataProtectionPtrOutput) Elem() VolumePropertiesResponseDataProtectionOutput {
-	return o.ApplyT(func(v *VolumePropertiesResponseDataProtection) VolumePropertiesResponseDataProtection { return *v }).(VolumePropertiesResponseDataProtectionOutput)
+	return o.ApplyT(func(v *VolumePropertiesResponseDataProtection) VolumePropertiesResponseDataProtection {
+		if v != nil {
+			return *v
+		}
+		var ret VolumePropertiesResponseDataProtection
+		return ret
+	}).(VolumePropertiesResponseDataProtectionOutput)
 }
 
-// Replication properties
 func (o VolumePropertiesResponseDataProtectionPtrOutput) Replication() ReplicationObjectResponsePtrOutput {
 	return o.ApplyT(func(v *VolumePropertiesResponseDataProtection) *ReplicationObjectResponse {
 		if v == nil {
@@ -1702,7 +1514,6 @@ func (o VolumePropertiesResponseDataProtectionPtrOutput) Replication() Replicati
 	}).(ReplicationObjectResponsePtrOutput)
 }
 
-// Snapshot properties.
 func (o VolumePropertiesResponseDataProtectionPtrOutput) Snapshot() VolumeSnapshotPropertiesResponsePtrOutput {
 	return o.ApplyT(func(v *VolumePropertiesResponseDataProtection) *VolumeSnapshotPropertiesResponse {
 		if v == nil {
@@ -1712,9 +1523,7 @@ func (o VolumePropertiesResponseDataProtectionPtrOutput) Snapshot() VolumeSnapsh
 	}).(VolumeSnapshotPropertiesResponsePtrOutput)
 }
 
-// Set of export policy rules
 type VolumePropertiesResponseExportPolicy struct {
-	// Export policy rule
 	Rules []ExportPolicyRuleResponse `pulumi:"rules"`
 }
 
@@ -1729,9 +1538,7 @@ type VolumePropertiesResponseExportPolicyInput interface {
 	ToVolumePropertiesResponseExportPolicyOutputWithContext(context.Context) VolumePropertiesResponseExportPolicyOutput
 }
 
-// Set of export policy rules
 type VolumePropertiesResponseExportPolicyArgs struct {
-	// Export policy rule
 	Rules ExportPolicyRuleResponseArrayInput `pulumi:"rules"`
 }
 
@@ -1788,7 +1595,6 @@ func (i *volumePropertiesResponseExportPolicyPtrType) ToVolumePropertiesResponse
 	return pulumi.ToOutputWithContext(ctx, i).(VolumePropertiesResponseExportPolicyPtrOutput)
 }
 
-// Set of export policy rules
 type VolumePropertiesResponseExportPolicyOutput struct{ *pulumi.OutputState }
 
 func (VolumePropertiesResponseExportPolicyOutput) ElementType() reflect.Type {
@@ -1808,12 +1614,11 @@ func (o VolumePropertiesResponseExportPolicyOutput) ToVolumePropertiesResponseEx
 }
 
 func (o VolumePropertiesResponseExportPolicyOutput) ToVolumePropertiesResponseExportPolicyPtrOutputWithContext(ctx context.Context) VolumePropertiesResponseExportPolicyPtrOutput {
-	return o.ApplyT(func(v VolumePropertiesResponseExportPolicy) *VolumePropertiesResponseExportPolicy {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v VolumePropertiesResponseExportPolicy) *VolumePropertiesResponseExportPolicy {
 		return &v
 	}).(VolumePropertiesResponseExportPolicyPtrOutput)
 }
 
-// Export policy rule
 func (o VolumePropertiesResponseExportPolicyOutput) Rules() ExportPolicyRuleResponseArrayOutput {
 	return o.ApplyT(func(v VolumePropertiesResponseExportPolicy) []ExportPolicyRuleResponse { return v.Rules }).(ExportPolicyRuleResponseArrayOutput)
 }
@@ -1833,10 +1638,15 @@ func (o VolumePropertiesResponseExportPolicyPtrOutput) ToVolumePropertiesRespons
 }
 
 func (o VolumePropertiesResponseExportPolicyPtrOutput) Elem() VolumePropertiesResponseExportPolicyOutput {
-	return o.ApplyT(func(v *VolumePropertiesResponseExportPolicy) VolumePropertiesResponseExportPolicy { return *v }).(VolumePropertiesResponseExportPolicyOutput)
+	return o.ApplyT(func(v *VolumePropertiesResponseExportPolicy) VolumePropertiesResponseExportPolicy {
+		if v != nil {
+			return *v
+		}
+		var ret VolumePropertiesResponseExportPolicy
+		return ret
+	}).(VolumePropertiesResponseExportPolicyOutput)
 }
 
-// Export policy rule
 func (o VolumePropertiesResponseExportPolicyPtrOutput) Rules() ExportPolicyRuleResponseArrayOutput {
 	return o.ApplyT(func(v *VolumePropertiesResponseExportPolicy) []ExportPolicyRuleResponse {
 		if v == nil {
@@ -1846,9 +1656,7 @@ func (o VolumePropertiesResponseExportPolicyPtrOutput) Rules() ExportPolicyRuleR
 	}).(ExportPolicyRuleResponseArrayOutput)
 }
 
-// Volume Snapshot Properties
 type VolumeSnapshotProperties struct {
-	// Snapshot Policy ResourceId
 	SnapshotPolicyId *string `pulumi:"snapshotPolicyId"`
 }
 
@@ -1863,9 +1671,7 @@ type VolumeSnapshotPropertiesInput interface {
 	ToVolumeSnapshotPropertiesOutputWithContext(context.Context) VolumeSnapshotPropertiesOutput
 }
 
-// Volume Snapshot Properties
 type VolumeSnapshotPropertiesArgs struct {
-	// Snapshot Policy ResourceId
 	SnapshotPolicyId pulumi.StringPtrInput `pulumi:"snapshotPolicyId"`
 }
 
@@ -1922,7 +1728,6 @@ func (i *volumeSnapshotPropertiesPtrType) ToVolumeSnapshotPropertiesPtrOutputWit
 	return pulumi.ToOutputWithContext(ctx, i).(VolumeSnapshotPropertiesPtrOutput)
 }
 
-// Volume Snapshot Properties
 type VolumeSnapshotPropertiesOutput struct{ *pulumi.OutputState }
 
 func (VolumeSnapshotPropertiesOutput) ElementType() reflect.Type {
@@ -1942,12 +1747,11 @@ func (o VolumeSnapshotPropertiesOutput) ToVolumeSnapshotPropertiesPtrOutput() Vo
 }
 
 func (o VolumeSnapshotPropertiesOutput) ToVolumeSnapshotPropertiesPtrOutputWithContext(ctx context.Context) VolumeSnapshotPropertiesPtrOutput {
-	return o.ApplyT(func(v VolumeSnapshotProperties) *VolumeSnapshotProperties {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v VolumeSnapshotProperties) *VolumeSnapshotProperties {
 		return &v
 	}).(VolumeSnapshotPropertiesPtrOutput)
 }
 
-// Snapshot Policy ResourceId
 func (o VolumeSnapshotPropertiesOutput) SnapshotPolicyId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v VolumeSnapshotProperties) *string { return v.SnapshotPolicyId }).(pulumi.StringPtrOutput)
 }
@@ -1967,10 +1771,15 @@ func (o VolumeSnapshotPropertiesPtrOutput) ToVolumeSnapshotPropertiesPtrOutputWi
 }
 
 func (o VolumeSnapshotPropertiesPtrOutput) Elem() VolumeSnapshotPropertiesOutput {
-	return o.ApplyT(func(v *VolumeSnapshotProperties) VolumeSnapshotProperties { return *v }).(VolumeSnapshotPropertiesOutput)
+	return o.ApplyT(func(v *VolumeSnapshotProperties) VolumeSnapshotProperties {
+		if v != nil {
+			return *v
+		}
+		var ret VolumeSnapshotProperties
+		return ret
+	}).(VolumeSnapshotPropertiesOutput)
 }
 
-// Snapshot Policy ResourceId
 func (o VolumeSnapshotPropertiesPtrOutput) SnapshotPolicyId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *VolumeSnapshotProperties) *string {
 		if v == nil {
@@ -1980,9 +1789,7 @@ func (o VolumeSnapshotPropertiesPtrOutput) SnapshotPolicyId() pulumi.StringPtrOu
 	}).(pulumi.StringPtrOutput)
 }
 
-// Volume Snapshot Properties
 type VolumeSnapshotPropertiesResponse struct {
-	// Snapshot Policy ResourceId
 	SnapshotPolicyId *string `pulumi:"snapshotPolicyId"`
 }
 
@@ -1997,9 +1804,7 @@ type VolumeSnapshotPropertiesResponseInput interface {
 	ToVolumeSnapshotPropertiesResponseOutputWithContext(context.Context) VolumeSnapshotPropertiesResponseOutput
 }
 
-// Volume Snapshot Properties
 type VolumeSnapshotPropertiesResponseArgs struct {
-	// Snapshot Policy ResourceId
 	SnapshotPolicyId pulumi.StringPtrInput `pulumi:"snapshotPolicyId"`
 }
 
@@ -2056,7 +1861,6 @@ func (i *volumeSnapshotPropertiesResponsePtrType) ToVolumeSnapshotPropertiesResp
 	return pulumi.ToOutputWithContext(ctx, i).(VolumeSnapshotPropertiesResponsePtrOutput)
 }
 
-// Volume Snapshot Properties
 type VolumeSnapshotPropertiesResponseOutput struct{ *pulumi.OutputState }
 
 func (VolumeSnapshotPropertiesResponseOutput) ElementType() reflect.Type {
@@ -2076,12 +1880,11 @@ func (o VolumeSnapshotPropertiesResponseOutput) ToVolumeSnapshotPropertiesRespon
 }
 
 func (o VolumeSnapshotPropertiesResponseOutput) ToVolumeSnapshotPropertiesResponsePtrOutputWithContext(ctx context.Context) VolumeSnapshotPropertiesResponsePtrOutput {
-	return o.ApplyT(func(v VolumeSnapshotPropertiesResponse) *VolumeSnapshotPropertiesResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v VolumeSnapshotPropertiesResponse) *VolumeSnapshotPropertiesResponse {
 		return &v
 	}).(VolumeSnapshotPropertiesResponsePtrOutput)
 }
 
-// Snapshot Policy ResourceId
 func (o VolumeSnapshotPropertiesResponseOutput) SnapshotPolicyId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v VolumeSnapshotPropertiesResponse) *string { return v.SnapshotPolicyId }).(pulumi.StringPtrOutput)
 }
@@ -2101,10 +1904,15 @@ func (o VolumeSnapshotPropertiesResponsePtrOutput) ToVolumeSnapshotPropertiesRes
 }
 
 func (o VolumeSnapshotPropertiesResponsePtrOutput) Elem() VolumeSnapshotPropertiesResponseOutput {
-	return o.ApplyT(func(v *VolumeSnapshotPropertiesResponse) VolumeSnapshotPropertiesResponse { return *v }).(VolumeSnapshotPropertiesResponseOutput)
+	return o.ApplyT(func(v *VolumeSnapshotPropertiesResponse) VolumeSnapshotPropertiesResponse {
+		if v != nil {
+			return *v
+		}
+		var ret VolumeSnapshotPropertiesResponse
+		return ret
+	}).(VolumeSnapshotPropertiesResponseOutput)
 }
 
-// Snapshot Policy ResourceId
 func (o VolumeSnapshotPropertiesResponsePtrOutput) SnapshotPolicyId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *VolumeSnapshotPropertiesResponse) *string {
 		if v == nil {

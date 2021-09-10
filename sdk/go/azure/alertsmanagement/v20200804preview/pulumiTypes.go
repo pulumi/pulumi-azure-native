@@ -10,11 +10,8 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// An alert action.
 type HealthAlertAction struct {
-	// the id of the action group to use.
-	ActionGroupId *string `pulumi:"actionGroupId"`
-	// The properties of a webhook object.
+	ActionGroupId     *string           `pulumi:"actionGroupId"`
 	WebHookProperties map[string]string `pulumi:"webHookProperties"`
 }
 
@@ -29,11 +26,8 @@ type HealthAlertActionInput interface {
 	ToHealthAlertActionOutputWithContext(context.Context) HealthAlertActionOutput
 }
 
-// An alert action.
 type HealthAlertActionArgs struct {
-	// the id of the action group to use.
-	ActionGroupId pulumi.StringPtrInput `pulumi:"actionGroupId"`
-	// The properties of a webhook object.
+	ActionGroupId     pulumi.StringPtrInput `pulumi:"actionGroupId"`
 	WebHookProperties pulumi.StringMapInput `pulumi:"webHookProperties"`
 }
 
@@ -74,7 +68,6 @@ func (i HealthAlertActionArray) ToHealthAlertActionArrayOutputWithContext(ctx co
 	return pulumi.ToOutputWithContext(ctx, i).(HealthAlertActionArrayOutput)
 }
 
-// An alert action.
 type HealthAlertActionOutput struct{ *pulumi.OutputState }
 
 func (HealthAlertActionOutput) ElementType() reflect.Type {
@@ -89,12 +82,10 @@ func (o HealthAlertActionOutput) ToHealthAlertActionOutputWithContext(ctx contex
 	return o
 }
 
-// the id of the action group to use.
 func (o HealthAlertActionOutput) ActionGroupId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v HealthAlertAction) *string { return v.ActionGroupId }).(pulumi.StringPtrOutput)
 }
 
-// The properties of a webhook object.
 func (o HealthAlertActionOutput) WebHookProperties() pulumi.StringMapOutput {
 	return o.ApplyT(func(v HealthAlertAction) map[string]string { return v.WebHookProperties }).(pulumi.StringMapOutput)
 }
@@ -119,11 +110,8 @@ func (o HealthAlertActionArrayOutput) Index(i pulumi.IntInput) HealthAlertAction
 	}).(HealthAlertActionOutput)
 }
 
-// An alert action.
 type HealthAlertActionResponse struct {
-	// the id of the action group to use.
-	ActionGroupId *string `pulumi:"actionGroupId"`
-	// The properties of a webhook object.
+	ActionGroupId     *string           `pulumi:"actionGroupId"`
 	WebHookProperties map[string]string `pulumi:"webHookProperties"`
 }
 
@@ -138,11 +126,8 @@ type HealthAlertActionResponseInput interface {
 	ToHealthAlertActionResponseOutputWithContext(context.Context) HealthAlertActionResponseOutput
 }
 
-// An alert action.
 type HealthAlertActionResponseArgs struct {
-	// the id of the action group to use.
-	ActionGroupId pulumi.StringPtrInput `pulumi:"actionGroupId"`
-	// The properties of a webhook object.
+	ActionGroupId     pulumi.StringPtrInput `pulumi:"actionGroupId"`
 	WebHookProperties pulumi.StringMapInput `pulumi:"webHookProperties"`
 }
 
@@ -183,7 +168,6 @@ func (i HealthAlertActionResponseArray) ToHealthAlertActionResponseArrayOutputWi
 	return pulumi.ToOutputWithContext(ctx, i).(HealthAlertActionResponseArrayOutput)
 }
 
-// An alert action.
 type HealthAlertActionResponseOutput struct{ *pulumi.OutputState }
 
 func (HealthAlertActionResponseOutput) ElementType() reflect.Type {
@@ -198,12 +182,10 @@ func (o HealthAlertActionResponseOutput) ToHealthAlertActionResponseOutputWithCo
 	return o
 }
 
-// the id of the action group to use.
 func (o HealthAlertActionResponseOutput) ActionGroupId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v HealthAlertActionResponse) *string { return v.ActionGroupId }).(pulumi.StringPtrOutput)
 }
 
-// The properties of a webhook object.
 func (o HealthAlertActionResponseOutput) WebHookProperties() pulumi.StringMapOutput {
 	return o.ApplyT(func(v HealthAlertActionResponse) map[string]string { return v.WebHookProperties }).(pulumi.StringMapOutput)
 }
@@ -228,9 +210,7 @@ func (o HealthAlertActionResponseArrayOutput) Index(i pulumi.IntInput) HealthAle
 	}).(HealthAlertActionResponseOutput)
 }
 
-// Specifies the resource health alert criteria for a single resource that has multiple metric criteria.
 type HealthAlertCriteria struct {
-	// The list of metric criteria for this 'all of' operation.
 	AllOf []VmGuestHealthAlertCriterion `pulumi:"allOf"`
 }
 
@@ -245,9 +225,7 @@ type HealthAlertCriteriaInput interface {
 	ToHealthAlertCriteriaOutputWithContext(context.Context) HealthAlertCriteriaOutput
 }
 
-// Specifies the resource health alert criteria for a single resource that has multiple metric criteria.
 type HealthAlertCriteriaArgs struct {
-	// The list of metric criteria for this 'all of' operation.
 	AllOf VmGuestHealthAlertCriterionArrayInput `pulumi:"allOf"`
 }
 
@@ -304,7 +282,6 @@ func (i *healthAlertCriteriaPtrType) ToHealthAlertCriteriaPtrOutputWithContext(c
 	return pulumi.ToOutputWithContext(ctx, i).(HealthAlertCriteriaPtrOutput)
 }
 
-// Specifies the resource health alert criteria for a single resource that has multiple metric criteria.
 type HealthAlertCriteriaOutput struct{ *pulumi.OutputState }
 
 func (HealthAlertCriteriaOutput) ElementType() reflect.Type {
@@ -324,12 +301,11 @@ func (o HealthAlertCriteriaOutput) ToHealthAlertCriteriaPtrOutput() HealthAlertC
 }
 
 func (o HealthAlertCriteriaOutput) ToHealthAlertCriteriaPtrOutputWithContext(ctx context.Context) HealthAlertCriteriaPtrOutput {
-	return o.ApplyT(func(v HealthAlertCriteria) *HealthAlertCriteria {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v HealthAlertCriteria) *HealthAlertCriteria {
 		return &v
 	}).(HealthAlertCriteriaPtrOutput)
 }
 
-// The list of metric criteria for this 'all of' operation.
 func (o HealthAlertCriteriaOutput) AllOf() VmGuestHealthAlertCriterionArrayOutput {
 	return o.ApplyT(func(v HealthAlertCriteria) []VmGuestHealthAlertCriterion { return v.AllOf }).(VmGuestHealthAlertCriterionArrayOutput)
 }
@@ -349,10 +325,15 @@ func (o HealthAlertCriteriaPtrOutput) ToHealthAlertCriteriaPtrOutputWithContext(
 }
 
 func (o HealthAlertCriteriaPtrOutput) Elem() HealthAlertCriteriaOutput {
-	return o.ApplyT(func(v *HealthAlertCriteria) HealthAlertCriteria { return *v }).(HealthAlertCriteriaOutput)
+	return o.ApplyT(func(v *HealthAlertCriteria) HealthAlertCriteria {
+		if v != nil {
+			return *v
+		}
+		var ret HealthAlertCriteria
+		return ret
+	}).(HealthAlertCriteriaOutput)
 }
 
-// The list of metric criteria for this 'all of' operation.
 func (o HealthAlertCriteriaPtrOutput) AllOf() VmGuestHealthAlertCriterionArrayOutput {
 	return o.ApplyT(func(v *HealthAlertCriteria) []VmGuestHealthAlertCriterion {
 		if v == nil {
@@ -362,9 +343,7 @@ func (o HealthAlertCriteriaPtrOutput) AllOf() VmGuestHealthAlertCriterionArrayOu
 	}).(VmGuestHealthAlertCriterionArrayOutput)
 }
 
-// Specifies the resource health alert criteria for a single resource that has multiple metric criteria.
 type HealthAlertCriteriaResponse struct {
-	// The list of metric criteria for this 'all of' operation.
 	AllOf []VmGuestHealthAlertCriterionResponse `pulumi:"allOf"`
 }
 
@@ -379,9 +358,7 @@ type HealthAlertCriteriaResponseInput interface {
 	ToHealthAlertCriteriaResponseOutputWithContext(context.Context) HealthAlertCriteriaResponseOutput
 }
 
-// Specifies the resource health alert criteria for a single resource that has multiple metric criteria.
 type HealthAlertCriteriaResponseArgs struct {
-	// The list of metric criteria for this 'all of' operation.
 	AllOf VmGuestHealthAlertCriterionResponseArrayInput `pulumi:"allOf"`
 }
 
@@ -438,7 +415,6 @@ func (i *healthAlertCriteriaResponsePtrType) ToHealthAlertCriteriaResponsePtrOut
 	return pulumi.ToOutputWithContext(ctx, i).(HealthAlertCriteriaResponsePtrOutput)
 }
 
-// Specifies the resource health alert criteria for a single resource that has multiple metric criteria.
 type HealthAlertCriteriaResponseOutput struct{ *pulumi.OutputState }
 
 func (HealthAlertCriteriaResponseOutput) ElementType() reflect.Type {
@@ -458,12 +434,11 @@ func (o HealthAlertCriteriaResponseOutput) ToHealthAlertCriteriaResponsePtrOutpu
 }
 
 func (o HealthAlertCriteriaResponseOutput) ToHealthAlertCriteriaResponsePtrOutputWithContext(ctx context.Context) HealthAlertCriteriaResponsePtrOutput {
-	return o.ApplyT(func(v HealthAlertCriteriaResponse) *HealthAlertCriteriaResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v HealthAlertCriteriaResponse) *HealthAlertCriteriaResponse {
 		return &v
 	}).(HealthAlertCriteriaResponsePtrOutput)
 }
 
-// The list of metric criteria for this 'all of' operation.
 func (o HealthAlertCriteriaResponseOutput) AllOf() VmGuestHealthAlertCriterionResponseArrayOutput {
 	return o.ApplyT(func(v HealthAlertCriteriaResponse) []VmGuestHealthAlertCriterionResponse { return v.AllOf }).(VmGuestHealthAlertCriterionResponseArrayOutput)
 }
@@ -483,10 +458,15 @@ func (o HealthAlertCriteriaResponsePtrOutput) ToHealthAlertCriteriaResponsePtrOu
 }
 
 func (o HealthAlertCriteriaResponsePtrOutput) Elem() HealthAlertCriteriaResponseOutput {
-	return o.ApplyT(func(v *HealthAlertCriteriaResponse) HealthAlertCriteriaResponse { return *v }).(HealthAlertCriteriaResponseOutput)
+	return o.ApplyT(func(v *HealthAlertCriteriaResponse) HealthAlertCriteriaResponse {
+		if v != nil {
+			return *v
+		}
+		var ret HealthAlertCriteriaResponse
+		return ret
+	}).(HealthAlertCriteriaResponseOutput)
 }
 
-// The list of metric criteria for this 'all of' operation.
 func (o HealthAlertCriteriaResponsePtrOutput) AllOf() VmGuestHealthAlertCriterionResponseArrayOutput {
 	return o.ApplyT(func(v *HealthAlertCriteriaResponse) []VmGuestHealthAlertCriterionResponse {
 		if v == nil {
@@ -496,12 +476,9 @@ func (o HealthAlertCriteriaResponsePtrOutput) AllOf() VmGuestHealthAlertCriterio
 	}).(VmGuestHealthAlertCriterionResponseArrayOutput)
 }
 
-// Specifies the health state to alert on and the corresponding severity
 type HealthState struct {
-	// Health state name
-	HealthStateName string `pulumi:"healthStateName"`
-	// Severity of alert fired
-	Severity float64 `pulumi:"severity"`
+	HealthStateName string  `pulumi:"healthStateName"`
+	Severity        float64 `pulumi:"severity"`
 }
 
 // HealthStateInput is an input type that accepts HealthStateArgs and HealthStateOutput values.
@@ -515,12 +492,9 @@ type HealthStateInput interface {
 	ToHealthStateOutputWithContext(context.Context) HealthStateOutput
 }
 
-// Specifies the health state to alert on and the corresponding severity
 type HealthStateArgs struct {
-	// Health state name
-	HealthStateName pulumi.StringInput `pulumi:"healthStateName"`
-	// Severity of alert fired
-	Severity pulumi.Float64Input `pulumi:"severity"`
+	HealthStateName pulumi.StringInput  `pulumi:"healthStateName"`
+	Severity        pulumi.Float64Input `pulumi:"severity"`
 }
 
 func (HealthStateArgs) ElementType() reflect.Type {
@@ -560,7 +534,6 @@ func (i HealthStateArray) ToHealthStateArrayOutputWithContext(ctx context.Contex
 	return pulumi.ToOutputWithContext(ctx, i).(HealthStateArrayOutput)
 }
 
-// Specifies the health state to alert on and the corresponding severity
 type HealthStateOutput struct{ *pulumi.OutputState }
 
 func (HealthStateOutput) ElementType() reflect.Type {
@@ -575,12 +548,10 @@ func (o HealthStateOutput) ToHealthStateOutputWithContext(ctx context.Context) H
 	return o
 }
 
-// Health state name
 func (o HealthStateOutput) HealthStateName() pulumi.StringOutput {
 	return o.ApplyT(func(v HealthState) string { return v.HealthStateName }).(pulumi.StringOutput)
 }
 
-// Severity of alert fired
 func (o HealthStateOutput) Severity() pulumi.Float64Output {
 	return o.ApplyT(func(v HealthState) float64 { return v.Severity }).(pulumi.Float64Output)
 }
@@ -605,12 +576,9 @@ func (o HealthStateArrayOutput) Index(i pulumi.IntInput) HealthStateOutput {
 	}).(HealthStateOutput)
 }
 
-// Specifies the health state to alert on and the corresponding severity
 type HealthStateResponse struct {
-	// Health state name
-	HealthStateName string `pulumi:"healthStateName"`
-	// Severity of alert fired
-	Severity float64 `pulumi:"severity"`
+	HealthStateName string  `pulumi:"healthStateName"`
+	Severity        float64 `pulumi:"severity"`
 }
 
 // HealthStateResponseInput is an input type that accepts HealthStateResponseArgs and HealthStateResponseOutput values.
@@ -624,12 +592,9 @@ type HealthStateResponseInput interface {
 	ToHealthStateResponseOutputWithContext(context.Context) HealthStateResponseOutput
 }
 
-// Specifies the health state to alert on and the corresponding severity
 type HealthStateResponseArgs struct {
-	// Health state name
-	HealthStateName pulumi.StringInput `pulumi:"healthStateName"`
-	// Severity of alert fired
-	Severity pulumi.Float64Input `pulumi:"severity"`
+	HealthStateName pulumi.StringInput  `pulumi:"healthStateName"`
+	Severity        pulumi.Float64Input `pulumi:"severity"`
 }
 
 func (HealthStateResponseArgs) ElementType() reflect.Type {
@@ -669,7 +634,6 @@ func (i HealthStateResponseArray) ToHealthStateResponseArrayOutputWithContext(ct
 	return pulumi.ToOutputWithContext(ctx, i).(HealthStateResponseArrayOutput)
 }
 
-// Specifies the health state to alert on and the corresponding severity
 type HealthStateResponseOutput struct{ *pulumi.OutputState }
 
 func (HealthStateResponseOutput) ElementType() reflect.Type {
@@ -684,12 +648,10 @@ func (o HealthStateResponseOutput) ToHealthStateResponseOutputWithContext(ctx co
 	return o
 }
 
-// Health state name
 func (o HealthStateResponseOutput) HealthStateName() pulumi.StringOutput {
 	return o.ApplyT(func(v HealthStateResponse) string { return v.HealthStateName }).(pulumi.StringOutput)
 }
 
-// Severity of alert fired
 func (o HealthStateResponseOutput) Severity() pulumi.Float64Output {
 	return o.ApplyT(func(v HealthStateResponse) float64 { return v.Severity }).(pulumi.Float64Output)
 }
@@ -714,17 +676,11 @@ func (o HealthStateResponseArrayOutput) Index(i pulumi.IntInput) HealthStateResp
 	}).(HealthStateResponseOutput)
 }
 
-// Specifies the health alert criteria to alert on.
 type VmGuestHealthAlertCriterion struct {
-	// Health states to alert on
 	HealthStates []HealthState `pulumi:"healthStates"`
-	// Names of health monitor on which to define alert
-	MonitorNames []string `pulumi:"monitorNames"`
-	// Names of health monitor type on which to define alert
-	MonitorTypes []string `pulumi:"monitorTypes"`
-	// specifies the type of the alert criterion.
-	// Expected value is 'GuestVmHealth'.
-	Namespace string `pulumi:"namespace"`
+	MonitorNames []string      `pulumi:"monitorNames"`
+	MonitorTypes []string      `pulumi:"monitorTypes"`
+	Namespace    string        `pulumi:"namespace"`
 }
 
 // VmGuestHealthAlertCriterionInput is an input type that accepts VmGuestHealthAlertCriterionArgs and VmGuestHealthAlertCriterionOutput values.
@@ -738,17 +694,11 @@ type VmGuestHealthAlertCriterionInput interface {
 	ToVmGuestHealthAlertCriterionOutputWithContext(context.Context) VmGuestHealthAlertCriterionOutput
 }
 
-// Specifies the health alert criteria to alert on.
 type VmGuestHealthAlertCriterionArgs struct {
-	// Health states to alert on
-	HealthStates HealthStateArrayInput `pulumi:"healthStates"`
-	// Names of health monitor on which to define alert
+	HealthStates HealthStateArrayInput   `pulumi:"healthStates"`
 	MonitorNames pulumi.StringArrayInput `pulumi:"monitorNames"`
-	// Names of health monitor type on which to define alert
 	MonitorTypes pulumi.StringArrayInput `pulumi:"monitorTypes"`
-	// specifies the type of the alert criterion.
-	// Expected value is 'GuestVmHealth'.
-	Namespace pulumi.StringInput `pulumi:"namespace"`
+	Namespace    pulumi.StringInput      `pulumi:"namespace"`
 }
 
 func (VmGuestHealthAlertCriterionArgs) ElementType() reflect.Type {
@@ -788,7 +738,6 @@ func (i VmGuestHealthAlertCriterionArray) ToVmGuestHealthAlertCriterionArrayOutp
 	return pulumi.ToOutputWithContext(ctx, i).(VmGuestHealthAlertCriterionArrayOutput)
 }
 
-// Specifies the health alert criteria to alert on.
 type VmGuestHealthAlertCriterionOutput struct{ *pulumi.OutputState }
 
 func (VmGuestHealthAlertCriterionOutput) ElementType() reflect.Type {
@@ -803,23 +752,18 @@ func (o VmGuestHealthAlertCriterionOutput) ToVmGuestHealthAlertCriterionOutputWi
 	return o
 }
 
-// Health states to alert on
 func (o VmGuestHealthAlertCriterionOutput) HealthStates() HealthStateArrayOutput {
 	return o.ApplyT(func(v VmGuestHealthAlertCriterion) []HealthState { return v.HealthStates }).(HealthStateArrayOutput)
 }
 
-// Names of health monitor on which to define alert
 func (o VmGuestHealthAlertCriterionOutput) MonitorNames() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v VmGuestHealthAlertCriterion) []string { return v.MonitorNames }).(pulumi.StringArrayOutput)
 }
 
-// Names of health monitor type on which to define alert
 func (o VmGuestHealthAlertCriterionOutput) MonitorTypes() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v VmGuestHealthAlertCriterion) []string { return v.MonitorTypes }).(pulumi.StringArrayOutput)
 }
 
-// specifies the type of the alert criterion.
-// Expected value is 'GuestVmHealth'.
 func (o VmGuestHealthAlertCriterionOutput) Namespace() pulumi.StringOutput {
 	return o.ApplyT(func(v VmGuestHealthAlertCriterion) string { return v.Namespace }).(pulumi.StringOutput)
 }
@@ -844,17 +788,11 @@ func (o VmGuestHealthAlertCriterionArrayOutput) Index(i pulumi.IntInput) VmGuest
 	}).(VmGuestHealthAlertCriterionOutput)
 }
 
-// Specifies the health alert criteria to alert on.
 type VmGuestHealthAlertCriterionResponse struct {
-	// Health states to alert on
 	HealthStates []HealthStateResponse `pulumi:"healthStates"`
-	// Names of health monitor on which to define alert
-	MonitorNames []string `pulumi:"monitorNames"`
-	// Names of health monitor type on which to define alert
-	MonitorTypes []string `pulumi:"monitorTypes"`
-	// specifies the type of the alert criterion.
-	// Expected value is 'GuestVmHealth'.
-	Namespace string `pulumi:"namespace"`
+	MonitorNames []string              `pulumi:"monitorNames"`
+	MonitorTypes []string              `pulumi:"monitorTypes"`
+	Namespace    string                `pulumi:"namespace"`
 }
 
 // VmGuestHealthAlertCriterionResponseInput is an input type that accepts VmGuestHealthAlertCriterionResponseArgs and VmGuestHealthAlertCriterionResponseOutput values.
@@ -868,17 +806,11 @@ type VmGuestHealthAlertCriterionResponseInput interface {
 	ToVmGuestHealthAlertCriterionResponseOutputWithContext(context.Context) VmGuestHealthAlertCriterionResponseOutput
 }
 
-// Specifies the health alert criteria to alert on.
 type VmGuestHealthAlertCriterionResponseArgs struct {
-	// Health states to alert on
 	HealthStates HealthStateResponseArrayInput `pulumi:"healthStates"`
-	// Names of health monitor on which to define alert
-	MonitorNames pulumi.StringArrayInput `pulumi:"monitorNames"`
-	// Names of health monitor type on which to define alert
-	MonitorTypes pulumi.StringArrayInput `pulumi:"monitorTypes"`
-	// specifies the type of the alert criterion.
-	// Expected value is 'GuestVmHealth'.
-	Namespace pulumi.StringInput `pulumi:"namespace"`
+	MonitorNames pulumi.StringArrayInput       `pulumi:"monitorNames"`
+	MonitorTypes pulumi.StringArrayInput       `pulumi:"monitorTypes"`
+	Namespace    pulumi.StringInput            `pulumi:"namespace"`
 }
 
 func (VmGuestHealthAlertCriterionResponseArgs) ElementType() reflect.Type {
@@ -918,7 +850,6 @@ func (i VmGuestHealthAlertCriterionResponseArray) ToVmGuestHealthAlertCriterionR
 	return pulumi.ToOutputWithContext(ctx, i).(VmGuestHealthAlertCriterionResponseArrayOutput)
 }
 
-// Specifies the health alert criteria to alert on.
 type VmGuestHealthAlertCriterionResponseOutput struct{ *pulumi.OutputState }
 
 func (VmGuestHealthAlertCriterionResponseOutput) ElementType() reflect.Type {
@@ -933,23 +864,18 @@ func (o VmGuestHealthAlertCriterionResponseOutput) ToVmGuestHealthAlertCriterion
 	return o
 }
 
-// Health states to alert on
 func (o VmGuestHealthAlertCriterionResponseOutput) HealthStates() HealthStateResponseArrayOutput {
 	return o.ApplyT(func(v VmGuestHealthAlertCriterionResponse) []HealthStateResponse { return v.HealthStates }).(HealthStateResponseArrayOutput)
 }
 
-// Names of health monitor on which to define alert
 func (o VmGuestHealthAlertCriterionResponseOutput) MonitorNames() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v VmGuestHealthAlertCriterionResponse) []string { return v.MonitorNames }).(pulumi.StringArrayOutput)
 }
 
-// Names of health monitor type on which to define alert
 func (o VmGuestHealthAlertCriterionResponseOutput) MonitorTypes() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v VmGuestHealthAlertCriterionResponse) []string { return v.MonitorTypes }).(pulumi.StringArrayOutput)
 }
 
-// specifies the type of the alert criterion.
-// Expected value is 'GuestVmHealth'.
 func (o VmGuestHealthAlertCriterionResponseOutput) Namespace() pulumi.StringOutput {
 	return o.ApplyT(func(v VmGuestHealthAlertCriterionResponse) string { return v.Namespace }).(pulumi.StringOutput)
 }

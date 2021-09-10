@@ -10,11 +10,8 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// A pointer to an Azure Action Group.
 type ActivityLogAlertActionGroup struct {
-	// The resourceId of the action group. This cannot be null or empty.
-	ActionGroupId string `pulumi:"actionGroupId"`
-	// the dictionary of custom properties to include with the post operation. These data are appended to the webhook payload.
+	ActionGroupId     string            `pulumi:"actionGroupId"`
 	WebhookProperties map[string]string `pulumi:"webhookProperties"`
 }
 
@@ -29,11 +26,8 @@ type ActivityLogAlertActionGroupInput interface {
 	ToActivityLogAlertActionGroupOutputWithContext(context.Context) ActivityLogAlertActionGroupOutput
 }
 
-// A pointer to an Azure Action Group.
 type ActivityLogAlertActionGroupArgs struct {
-	// The resourceId of the action group. This cannot be null or empty.
-	ActionGroupId pulumi.StringInput `pulumi:"actionGroupId"`
-	// the dictionary of custom properties to include with the post operation. These data are appended to the webhook payload.
+	ActionGroupId     pulumi.StringInput    `pulumi:"actionGroupId"`
 	WebhookProperties pulumi.StringMapInput `pulumi:"webhookProperties"`
 }
 
@@ -74,7 +68,6 @@ func (i ActivityLogAlertActionGroupArray) ToActivityLogAlertActionGroupArrayOutp
 	return pulumi.ToOutputWithContext(ctx, i).(ActivityLogAlertActionGroupArrayOutput)
 }
 
-// A pointer to an Azure Action Group.
 type ActivityLogAlertActionGroupOutput struct{ *pulumi.OutputState }
 
 func (ActivityLogAlertActionGroupOutput) ElementType() reflect.Type {
@@ -89,12 +82,10 @@ func (o ActivityLogAlertActionGroupOutput) ToActivityLogAlertActionGroupOutputWi
 	return o
 }
 
-// The resourceId of the action group. This cannot be null or empty.
 func (o ActivityLogAlertActionGroupOutput) ActionGroupId() pulumi.StringOutput {
 	return o.ApplyT(func(v ActivityLogAlertActionGroup) string { return v.ActionGroupId }).(pulumi.StringOutput)
 }
 
-// the dictionary of custom properties to include with the post operation. These data are appended to the webhook payload.
 func (o ActivityLogAlertActionGroupOutput) WebhookProperties() pulumi.StringMapOutput {
 	return o.ApplyT(func(v ActivityLogAlertActionGroup) map[string]string { return v.WebhookProperties }).(pulumi.StringMapOutput)
 }
@@ -119,11 +110,8 @@ func (o ActivityLogAlertActionGroupArrayOutput) Index(i pulumi.IntInput) Activit
 	}).(ActivityLogAlertActionGroupOutput)
 }
 
-// A pointer to an Azure Action Group.
 type ActivityLogAlertActionGroupResponse struct {
-	// The resourceId of the action group. This cannot be null or empty.
-	ActionGroupId string `pulumi:"actionGroupId"`
-	// the dictionary of custom properties to include with the post operation. These data are appended to the webhook payload.
+	ActionGroupId     string            `pulumi:"actionGroupId"`
 	WebhookProperties map[string]string `pulumi:"webhookProperties"`
 }
 
@@ -138,11 +126,8 @@ type ActivityLogAlertActionGroupResponseInput interface {
 	ToActivityLogAlertActionGroupResponseOutputWithContext(context.Context) ActivityLogAlertActionGroupResponseOutput
 }
 
-// A pointer to an Azure Action Group.
 type ActivityLogAlertActionGroupResponseArgs struct {
-	// The resourceId of the action group. This cannot be null or empty.
-	ActionGroupId pulumi.StringInput `pulumi:"actionGroupId"`
-	// the dictionary of custom properties to include with the post operation. These data are appended to the webhook payload.
+	ActionGroupId     pulumi.StringInput    `pulumi:"actionGroupId"`
 	WebhookProperties pulumi.StringMapInput `pulumi:"webhookProperties"`
 }
 
@@ -183,7 +168,6 @@ func (i ActivityLogAlertActionGroupResponseArray) ToActivityLogAlertActionGroupR
 	return pulumi.ToOutputWithContext(ctx, i).(ActivityLogAlertActionGroupResponseArrayOutput)
 }
 
-// A pointer to an Azure Action Group.
 type ActivityLogAlertActionGroupResponseOutput struct{ *pulumi.OutputState }
 
 func (ActivityLogAlertActionGroupResponseOutput) ElementType() reflect.Type {
@@ -198,12 +182,10 @@ func (o ActivityLogAlertActionGroupResponseOutput) ToActivityLogAlertActionGroup
 	return o
 }
 
-// The resourceId of the action group. This cannot be null or empty.
 func (o ActivityLogAlertActionGroupResponseOutput) ActionGroupId() pulumi.StringOutput {
 	return o.ApplyT(func(v ActivityLogAlertActionGroupResponse) string { return v.ActionGroupId }).(pulumi.StringOutput)
 }
 
-// the dictionary of custom properties to include with the post operation. These data are appended to the webhook payload.
 func (o ActivityLogAlertActionGroupResponseOutput) WebhookProperties() pulumi.StringMapOutput {
 	return o.ApplyT(func(v ActivityLogAlertActionGroupResponse) map[string]string { return v.WebhookProperties }).(pulumi.StringMapOutput)
 }
@@ -228,9 +210,7 @@ func (o ActivityLogAlertActionGroupResponseArrayOutput) Index(i pulumi.IntInput)
 	}).(ActivityLogAlertActionGroupResponseOutput)
 }
 
-// A list of activity log alert actions.
 type ActivityLogAlertActionList struct {
-	// The list of activity log alerts.
 	ActionGroups []ActivityLogAlertActionGroup `pulumi:"actionGroups"`
 }
 
@@ -245,9 +225,7 @@ type ActivityLogAlertActionListInput interface {
 	ToActivityLogAlertActionListOutputWithContext(context.Context) ActivityLogAlertActionListOutput
 }
 
-// A list of activity log alert actions.
 type ActivityLogAlertActionListArgs struct {
-	// The list of activity log alerts.
 	ActionGroups ActivityLogAlertActionGroupArrayInput `pulumi:"actionGroups"`
 }
 
@@ -304,7 +282,6 @@ func (i *activityLogAlertActionListPtrType) ToActivityLogAlertActionListPtrOutpu
 	return pulumi.ToOutputWithContext(ctx, i).(ActivityLogAlertActionListPtrOutput)
 }
 
-// A list of activity log alert actions.
 type ActivityLogAlertActionListOutput struct{ *pulumi.OutputState }
 
 func (ActivityLogAlertActionListOutput) ElementType() reflect.Type {
@@ -324,12 +301,11 @@ func (o ActivityLogAlertActionListOutput) ToActivityLogAlertActionListPtrOutput(
 }
 
 func (o ActivityLogAlertActionListOutput) ToActivityLogAlertActionListPtrOutputWithContext(ctx context.Context) ActivityLogAlertActionListPtrOutput {
-	return o.ApplyT(func(v ActivityLogAlertActionList) *ActivityLogAlertActionList {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ActivityLogAlertActionList) *ActivityLogAlertActionList {
 		return &v
 	}).(ActivityLogAlertActionListPtrOutput)
 }
 
-// The list of activity log alerts.
 func (o ActivityLogAlertActionListOutput) ActionGroups() ActivityLogAlertActionGroupArrayOutput {
 	return o.ApplyT(func(v ActivityLogAlertActionList) []ActivityLogAlertActionGroup { return v.ActionGroups }).(ActivityLogAlertActionGroupArrayOutput)
 }
@@ -349,10 +325,15 @@ func (o ActivityLogAlertActionListPtrOutput) ToActivityLogAlertActionListPtrOutp
 }
 
 func (o ActivityLogAlertActionListPtrOutput) Elem() ActivityLogAlertActionListOutput {
-	return o.ApplyT(func(v *ActivityLogAlertActionList) ActivityLogAlertActionList { return *v }).(ActivityLogAlertActionListOutput)
+	return o.ApplyT(func(v *ActivityLogAlertActionList) ActivityLogAlertActionList {
+		if v != nil {
+			return *v
+		}
+		var ret ActivityLogAlertActionList
+		return ret
+	}).(ActivityLogAlertActionListOutput)
 }
 
-// The list of activity log alerts.
 func (o ActivityLogAlertActionListPtrOutput) ActionGroups() ActivityLogAlertActionGroupArrayOutput {
 	return o.ApplyT(func(v *ActivityLogAlertActionList) []ActivityLogAlertActionGroup {
 		if v == nil {
@@ -362,9 +343,7 @@ func (o ActivityLogAlertActionListPtrOutput) ActionGroups() ActivityLogAlertActi
 	}).(ActivityLogAlertActionGroupArrayOutput)
 }
 
-// A list of activity log alert actions.
 type ActivityLogAlertActionListResponse struct {
-	// The list of activity log alerts.
 	ActionGroups []ActivityLogAlertActionGroupResponse `pulumi:"actionGroups"`
 }
 
@@ -379,9 +358,7 @@ type ActivityLogAlertActionListResponseInput interface {
 	ToActivityLogAlertActionListResponseOutputWithContext(context.Context) ActivityLogAlertActionListResponseOutput
 }
 
-// A list of activity log alert actions.
 type ActivityLogAlertActionListResponseArgs struct {
-	// The list of activity log alerts.
 	ActionGroups ActivityLogAlertActionGroupResponseArrayInput `pulumi:"actionGroups"`
 }
 
@@ -438,7 +415,6 @@ func (i *activityLogAlertActionListResponsePtrType) ToActivityLogAlertActionList
 	return pulumi.ToOutputWithContext(ctx, i).(ActivityLogAlertActionListResponsePtrOutput)
 }
 
-// A list of activity log alert actions.
 type ActivityLogAlertActionListResponseOutput struct{ *pulumi.OutputState }
 
 func (ActivityLogAlertActionListResponseOutput) ElementType() reflect.Type {
@@ -458,12 +434,11 @@ func (o ActivityLogAlertActionListResponseOutput) ToActivityLogAlertActionListRe
 }
 
 func (o ActivityLogAlertActionListResponseOutput) ToActivityLogAlertActionListResponsePtrOutputWithContext(ctx context.Context) ActivityLogAlertActionListResponsePtrOutput {
-	return o.ApplyT(func(v ActivityLogAlertActionListResponse) *ActivityLogAlertActionListResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ActivityLogAlertActionListResponse) *ActivityLogAlertActionListResponse {
 		return &v
 	}).(ActivityLogAlertActionListResponsePtrOutput)
 }
 
-// The list of activity log alerts.
 func (o ActivityLogAlertActionListResponseOutput) ActionGroups() ActivityLogAlertActionGroupResponseArrayOutput {
 	return o.ApplyT(func(v ActivityLogAlertActionListResponse) []ActivityLogAlertActionGroupResponse {
 		return v.ActionGroups
@@ -485,10 +460,15 @@ func (o ActivityLogAlertActionListResponsePtrOutput) ToActivityLogAlertActionLis
 }
 
 func (o ActivityLogAlertActionListResponsePtrOutput) Elem() ActivityLogAlertActionListResponseOutput {
-	return o.ApplyT(func(v *ActivityLogAlertActionListResponse) ActivityLogAlertActionListResponse { return *v }).(ActivityLogAlertActionListResponseOutput)
+	return o.ApplyT(func(v *ActivityLogAlertActionListResponse) ActivityLogAlertActionListResponse {
+		if v != nil {
+			return *v
+		}
+		var ret ActivityLogAlertActionListResponse
+		return ret
+	}).(ActivityLogAlertActionListResponseOutput)
 }
 
-// The list of activity log alerts.
 func (o ActivityLogAlertActionListResponsePtrOutput) ActionGroups() ActivityLogAlertActionGroupResponseArrayOutput {
 	return o.ApplyT(func(v *ActivityLogAlertActionListResponse) []ActivityLogAlertActionGroupResponse {
 		if v == nil {
@@ -498,9 +478,7 @@ func (o ActivityLogAlertActionListResponsePtrOutput) ActionGroups() ActivityLogA
 	}).(ActivityLogAlertActionGroupResponseArrayOutput)
 }
 
-// An Activity Log alert condition that is met when all its member conditions are met.
 type ActivityLogAlertAllOfCondition struct {
-	// The list of activity log alert conditions.
 	AllOf []ActivityLogAlertLeafCondition `pulumi:"allOf"`
 }
 
@@ -515,9 +493,7 @@ type ActivityLogAlertAllOfConditionInput interface {
 	ToActivityLogAlertAllOfConditionOutputWithContext(context.Context) ActivityLogAlertAllOfConditionOutput
 }
 
-// An Activity Log alert condition that is met when all its member conditions are met.
 type ActivityLogAlertAllOfConditionArgs struct {
-	// The list of activity log alert conditions.
 	AllOf ActivityLogAlertLeafConditionArrayInput `pulumi:"allOf"`
 }
 
@@ -574,7 +550,6 @@ func (i *activityLogAlertAllOfConditionPtrType) ToActivityLogAlertAllOfCondition
 	return pulumi.ToOutputWithContext(ctx, i).(ActivityLogAlertAllOfConditionPtrOutput)
 }
 
-// An Activity Log alert condition that is met when all its member conditions are met.
 type ActivityLogAlertAllOfConditionOutput struct{ *pulumi.OutputState }
 
 func (ActivityLogAlertAllOfConditionOutput) ElementType() reflect.Type {
@@ -594,12 +569,11 @@ func (o ActivityLogAlertAllOfConditionOutput) ToActivityLogAlertAllOfConditionPt
 }
 
 func (o ActivityLogAlertAllOfConditionOutput) ToActivityLogAlertAllOfConditionPtrOutputWithContext(ctx context.Context) ActivityLogAlertAllOfConditionPtrOutput {
-	return o.ApplyT(func(v ActivityLogAlertAllOfCondition) *ActivityLogAlertAllOfCondition {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ActivityLogAlertAllOfCondition) *ActivityLogAlertAllOfCondition {
 		return &v
 	}).(ActivityLogAlertAllOfConditionPtrOutput)
 }
 
-// The list of activity log alert conditions.
 func (o ActivityLogAlertAllOfConditionOutput) AllOf() ActivityLogAlertLeafConditionArrayOutput {
 	return o.ApplyT(func(v ActivityLogAlertAllOfCondition) []ActivityLogAlertLeafCondition { return v.AllOf }).(ActivityLogAlertLeafConditionArrayOutput)
 }
@@ -619,10 +593,15 @@ func (o ActivityLogAlertAllOfConditionPtrOutput) ToActivityLogAlertAllOfConditio
 }
 
 func (o ActivityLogAlertAllOfConditionPtrOutput) Elem() ActivityLogAlertAllOfConditionOutput {
-	return o.ApplyT(func(v *ActivityLogAlertAllOfCondition) ActivityLogAlertAllOfCondition { return *v }).(ActivityLogAlertAllOfConditionOutput)
+	return o.ApplyT(func(v *ActivityLogAlertAllOfCondition) ActivityLogAlertAllOfCondition {
+		if v != nil {
+			return *v
+		}
+		var ret ActivityLogAlertAllOfCondition
+		return ret
+	}).(ActivityLogAlertAllOfConditionOutput)
 }
 
-// The list of activity log alert conditions.
 func (o ActivityLogAlertAllOfConditionPtrOutput) AllOf() ActivityLogAlertLeafConditionArrayOutput {
 	return o.ApplyT(func(v *ActivityLogAlertAllOfCondition) []ActivityLogAlertLeafCondition {
 		if v == nil {
@@ -632,9 +611,7 @@ func (o ActivityLogAlertAllOfConditionPtrOutput) AllOf() ActivityLogAlertLeafCon
 	}).(ActivityLogAlertLeafConditionArrayOutput)
 }
 
-// An Activity Log alert condition that is met when all its member conditions are met.
 type ActivityLogAlertAllOfConditionResponse struct {
-	// The list of activity log alert conditions.
 	AllOf []ActivityLogAlertLeafConditionResponse `pulumi:"allOf"`
 }
 
@@ -649,9 +626,7 @@ type ActivityLogAlertAllOfConditionResponseInput interface {
 	ToActivityLogAlertAllOfConditionResponseOutputWithContext(context.Context) ActivityLogAlertAllOfConditionResponseOutput
 }
 
-// An Activity Log alert condition that is met when all its member conditions are met.
 type ActivityLogAlertAllOfConditionResponseArgs struct {
-	// The list of activity log alert conditions.
 	AllOf ActivityLogAlertLeafConditionResponseArrayInput `pulumi:"allOf"`
 }
 
@@ -708,7 +683,6 @@ func (i *activityLogAlertAllOfConditionResponsePtrType) ToActivityLogAlertAllOfC
 	return pulumi.ToOutputWithContext(ctx, i).(ActivityLogAlertAllOfConditionResponsePtrOutput)
 }
 
-// An Activity Log alert condition that is met when all its member conditions are met.
 type ActivityLogAlertAllOfConditionResponseOutput struct{ *pulumi.OutputState }
 
 func (ActivityLogAlertAllOfConditionResponseOutput) ElementType() reflect.Type {
@@ -728,12 +702,11 @@ func (o ActivityLogAlertAllOfConditionResponseOutput) ToActivityLogAlertAllOfCon
 }
 
 func (o ActivityLogAlertAllOfConditionResponseOutput) ToActivityLogAlertAllOfConditionResponsePtrOutputWithContext(ctx context.Context) ActivityLogAlertAllOfConditionResponsePtrOutput {
-	return o.ApplyT(func(v ActivityLogAlertAllOfConditionResponse) *ActivityLogAlertAllOfConditionResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ActivityLogAlertAllOfConditionResponse) *ActivityLogAlertAllOfConditionResponse {
 		return &v
 	}).(ActivityLogAlertAllOfConditionResponsePtrOutput)
 }
 
-// The list of activity log alert conditions.
 func (o ActivityLogAlertAllOfConditionResponseOutput) AllOf() ActivityLogAlertLeafConditionResponseArrayOutput {
 	return o.ApplyT(func(v ActivityLogAlertAllOfConditionResponse) []ActivityLogAlertLeafConditionResponse { return v.AllOf }).(ActivityLogAlertLeafConditionResponseArrayOutput)
 }
@@ -753,10 +726,15 @@ func (o ActivityLogAlertAllOfConditionResponsePtrOutput) ToActivityLogAlertAllOf
 }
 
 func (o ActivityLogAlertAllOfConditionResponsePtrOutput) Elem() ActivityLogAlertAllOfConditionResponseOutput {
-	return o.ApplyT(func(v *ActivityLogAlertAllOfConditionResponse) ActivityLogAlertAllOfConditionResponse { return *v }).(ActivityLogAlertAllOfConditionResponseOutput)
+	return o.ApplyT(func(v *ActivityLogAlertAllOfConditionResponse) ActivityLogAlertAllOfConditionResponse {
+		if v != nil {
+			return *v
+		}
+		var ret ActivityLogAlertAllOfConditionResponse
+		return ret
+	}).(ActivityLogAlertAllOfConditionResponseOutput)
 }
 
-// The list of activity log alert conditions.
 func (o ActivityLogAlertAllOfConditionResponsePtrOutput) AllOf() ActivityLogAlertLeafConditionResponseArrayOutput {
 	return o.ApplyT(func(v *ActivityLogAlertAllOfConditionResponse) []ActivityLogAlertLeafConditionResponse {
 		if v == nil {
@@ -766,12 +744,9 @@ func (o ActivityLogAlertAllOfConditionResponsePtrOutput) AllOf() ActivityLogAler
 	}).(ActivityLogAlertLeafConditionResponseArrayOutput)
 }
 
-// An Activity Log alert condition that is met by comparing an activity log field and value.
 type ActivityLogAlertLeafCondition struct {
-	// The field value will be compared to this value (case-insensitive) to determine if the condition is met.
 	Equals string `pulumi:"equals"`
-	// The name of the field that this condition will examine. The possible values for this field are (case-insensitive): 'resourceId', 'category', 'caller', 'level', 'operationName', 'resourceGroup', 'resourceProvider', 'status', 'subStatus', 'resourceType', or anything beginning with 'properties.'.
-	Field string `pulumi:"field"`
+	Field  string `pulumi:"field"`
 }
 
 // ActivityLogAlertLeafConditionInput is an input type that accepts ActivityLogAlertLeafConditionArgs and ActivityLogAlertLeafConditionOutput values.
@@ -785,12 +760,9 @@ type ActivityLogAlertLeafConditionInput interface {
 	ToActivityLogAlertLeafConditionOutputWithContext(context.Context) ActivityLogAlertLeafConditionOutput
 }
 
-// An Activity Log alert condition that is met by comparing an activity log field and value.
 type ActivityLogAlertLeafConditionArgs struct {
-	// The field value will be compared to this value (case-insensitive) to determine if the condition is met.
 	Equals pulumi.StringInput `pulumi:"equals"`
-	// The name of the field that this condition will examine. The possible values for this field are (case-insensitive): 'resourceId', 'category', 'caller', 'level', 'operationName', 'resourceGroup', 'resourceProvider', 'status', 'subStatus', 'resourceType', or anything beginning with 'properties.'.
-	Field pulumi.StringInput `pulumi:"field"`
+	Field  pulumi.StringInput `pulumi:"field"`
 }
 
 func (ActivityLogAlertLeafConditionArgs) ElementType() reflect.Type {
@@ -830,7 +802,6 @@ func (i ActivityLogAlertLeafConditionArray) ToActivityLogAlertLeafConditionArray
 	return pulumi.ToOutputWithContext(ctx, i).(ActivityLogAlertLeafConditionArrayOutput)
 }
 
-// An Activity Log alert condition that is met by comparing an activity log field and value.
 type ActivityLogAlertLeafConditionOutput struct{ *pulumi.OutputState }
 
 func (ActivityLogAlertLeafConditionOutput) ElementType() reflect.Type {
@@ -845,12 +816,10 @@ func (o ActivityLogAlertLeafConditionOutput) ToActivityLogAlertLeafConditionOutp
 	return o
 }
 
-// The field value will be compared to this value (case-insensitive) to determine if the condition is met.
 func (o ActivityLogAlertLeafConditionOutput) Equals() pulumi.StringOutput {
 	return o.ApplyT(func(v ActivityLogAlertLeafCondition) string { return v.Equals }).(pulumi.StringOutput)
 }
 
-// The name of the field that this condition will examine. The possible values for this field are (case-insensitive): 'resourceId', 'category', 'caller', 'level', 'operationName', 'resourceGroup', 'resourceProvider', 'status', 'subStatus', 'resourceType', or anything beginning with 'properties.'.
 func (o ActivityLogAlertLeafConditionOutput) Field() pulumi.StringOutput {
 	return o.ApplyT(func(v ActivityLogAlertLeafCondition) string { return v.Field }).(pulumi.StringOutput)
 }
@@ -875,12 +844,9 @@ func (o ActivityLogAlertLeafConditionArrayOutput) Index(i pulumi.IntInput) Activ
 	}).(ActivityLogAlertLeafConditionOutput)
 }
 
-// An Activity Log alert condition that is met by comparing an activity log field and value.
 type ActivityLogAlertLeafConditionResponse struct {
-	// The field value will be compared to this value (case-insensitive) to determine if the condition is met.
 	Equals string `pulumi:"equals"`
-	// The name of the field that this condition will examine. The possible values for this field are (case-insensitive): 'resourceId', 'category', 'caller', 'level', 'operationName', 'resourceGroup', 'resourceProvider', 'status', 'subStatus', 'resourceType', or anything beginning with 'properties.'.
-	Field string `pulumi:"field"`
+	Field  string `pulumi:"field"`
 }
 
 // ActivityLogAlertLeafConditionResponseInput is an input type that accepts ActivityLogAlertLeafConditionResponseArgs and ActivityLogAlertLeafConditionResponseOutput values.
@@ -894,12 +860,9 @@ type ActivityLogAlertLeafConditionResponseInput interface {
 	ToActivityLogAlertLeafConditionResponseOutputWithContext(context.Context) ActivityLogAlertLeafConditionResponseOutput
 }
 
-// An Activity Log alert condition that is met by comparing an activity log field and value.
 type ActivityLogAlertLeafConditionResponseArgs struct {
-	// The field value will be compared to this value (case-insensitive) to determine if the condition is met.
 	Equals pulumi.StringInput `pulumi:"equals"`
-	// The name of the field that this condition will examine. The possible values for this field are (case-insensitive): 'resourceId', 'category', 'caller', 'level', 'operationName', 'resourceGroup', 'resourceProvider', 'status', 'subStatus', 'resourceType', or anything beginning with 'properties.'.
-	Field pulumi.StringInput `pulumi:"field"`
+	Field  pulumi.StringInput `pulumi:"field"`
 }
 
 func (ActivityLogAlertLeafConditionResponseArgs) ElementType() reflect.Type {
@@ -939,7 +902,6 @@ func (i ActivityLogAlertLeafConditionResponseArray) ToActivityLogAlertLeafCondit
 	return pulumi.ToOutputWithContext(ctx, i).(ActivityLogAlertLeafConditionResponseArrayOutput)
 }
 
-// An Activity Log alert condition that is met by comparing an activity log field and value.
 type ActivityLogAlertLeafConditionResponseOutput struct{ *pulumi.OutputState }
 
 func (ActivityLogAlertLeafConditionResponseOutput) ElementType() reflect.Type {
@@ -954,12 +916,10 @@ func (o ActivityLogAlertLeafConditionResponseOutput) ToActivityLogAlertLeafCondi
 	return o
 }
 
-// The field value will be compared to this value (case-insensitive) to determine if the condition is met.
 func (o ActivityLogAlertLeafConditionResponseOutput) Equals() pulumi.StringOutput {
 	return o.ApplyT(func(v ActivityLogAlertLeafConditionResponse) string { return v.Equals }).(pulumi.StringOutput)
 }
 
-// The name of the field that this condition will examine. The possible values for this field are (case-insensitive): 'resourceId', 'category', 'caller', 'level', 'operationName', 'resourceGroup', 'resourceProvider', 'status', 'subStatus', 'resourceType', or anything beginning with 'properties.'.
 func (o ActivityLogAlertLeafConditionResponseOutput) Field() pulumi.StringOutput {
 	return o.ApplyT(func(v ActivityLogAlertLeafConditionResponse) string { return v.Field }).(pulumi.StringOutput)
 }
@@ -984,20 +944,13 @@ func (o ActivityLogAlertLeafConditionResponseArrayOutput) Index(i pulumi.IntInpu
 	}).(ActivityLogAlertLeafConditionResponseOutput)
 }
 
-// The Azure Automation Runbook notification receiver.
 type AutomationRunbookReceiver struct {
-	// The Azure automation account Id which holds this runbook and authenticate to Azure resource.
-	AutomationAccountId string `pulumi:"automationAccountId"`
-	// Indicates whether this instance is global runbook.
-	IsGlobalRunbook bool `pulumi:"isGlobalRunbook"`
-	// Indicates name of the webhook.
-	Name *string `pulumi:"name"`
-	// The name for this runbook.
-	RunbookName string `pulumi:"runbookName"`
-	// The URI where webhooks should be sent.
-	ServiceUri *string `pulumi:"serviceUri"`
-	// The resource id for webhook linked to this runbook.
-	WebhookResourceId string `pulumi:"webhookResourceId"`
+	AutomationAccountId string  `pulumi:"automationAccountId"`
+	IsGlobalRunbook     bool    `pulumi:"isGlobalRunbook"`
+	Name                *string `pulumi:"name"`
+	RunbookName         string  `pulumi:"runbookName"`
+	ServiceUri          *string `pulumi:"serviceUri"`
+	WebhookResourceId   string  `pulumi:"webhookResourceId"`
 }
 
 // AutomationRunbookReceiverInput is an input type that accepts AutomationRunbookReceiverArgs and AutomationRunbookReceiverOutput values.
@@ -1011,20 +964,13 @@ type AutomationRunbookReceiverInput interface {
 	ToAutomationRunbookReceiverOutputWithContext(context.Context) AutomationRunbookReceiverOutput
 }
 
-// The Azure Automation Runbook notification receiver.
 type AutomationRunbookReceiverArgs struct {
-	// The Azure automation account Id which holds this runbook and authenticate to Azure resource.
-	AutomationAccountId pulumi.StringInput `pulumi:"automationAccountId"`
-	// Indicates whether this instance is global runbook.
-	IsGlobalRunbook pulumi.BoolInput `pulumi:"isGlobalRunbook"`
-	// Indicates name of the webhook.
-	Name pulumi.StringPtrInput `pulumi:"name"`
-	// The name for this runbook.
-	RunbookName pulumi.StringInput `pulumi:"runbookName"`
-	// The URI where webhooks should be sent.
-	ServiceUri pulumi.StringPtrInput `pulumi:"serviceUri"`
-	// The resource id for webhook linked to this runbook.
-	WebhookResourceId pulumi.StringInput `pulumi:"webhookResourceId"`
+	AutomationAccountId pulumi.StringInput    `pulumi:"automationAccountId"`
+	IsGlobalRunbook     pulumi.BoolInput      `pulumi:"isGlobalRunbook"`
+	Name                pulumi.StringPtrInput `pulumi:"name"`
+	RunbookName         pulumi.StringInput    `pulumi:"runbookName"`
+	ServiceUri          pulumi.StringPtrInput `pulumi:"serviceUri"`
+	WebhookResourceId   pulumi.StringInput    `pulumi:"webhookResourceId"`
 }
 
 func (AutomationRunbookReceiverArgs) ElementType() reflect.Type {
@@ -1064,7 +1010,6 @@ func (i AutomationRunbookReceiverArray) ToAutomationRunbookReceiverArrayOutputWi
 	return pulumi.ToOutputWithContext(ctx, i).(AutomationRunbookReceiverArrayOutput)
 }
 
-// The Azure Automation Runbook notification receiver.
 type AutomationRunbookReceiverOutput struct{ *pulumi.OutputState }
 
 func (AutomationRunbookReceiverOutput) ElementType() reflect.Type {
@@ -1079,32 +1024,26 @@ func (o AutomationRunbookReceiverOutput) ToAutomationRunbookReceiverOutputWithCo
 	return o
 }
 
-// The Azure automation account Id which holds this runbook and authenticate to Azure resource.
 func (o AutomationRunbookReceiverOutput) AutomationAccountId() pulumi.StringOutput {
 	return o.ApplyT(func(v AutomationRunbookReceiver) string { return v.AutomationAccountId }).(pulumi.StringOutput)
 }
 
-// Indicates whether this instance is global runbook.
 func (o AutomationRunbookReceiverOutput) IsGlobalRunbook() pulumi.BoolOutput {
 	return o.ApplyT(func(v AutomationRunbookReceiver) bool { return v.IsGlobalRunbook }).(pulumi.BoolOutput)
 }
 
-// Indicates name of the webhook.
 func (o AutomationRunbookReceiverOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AutomationRunbookReceiver) *string { return v.Name }).(pulumi.StringPtrOutput)
 }
 
-// The name for this runbook.
 func (o AutomationRunbookReceiverOutput) RunbookName() pulumi.StringOutput {
 	return o.ApplyT(func(v AutomationRunbookReceiver) string { return v.RunbookName }).(pulumi.StringOutput)
 }
 
-// The URI where webhooks should be sent.
 func (o AutomationRunbookReceiverOutput) ServiceUri() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AutomationRunbookReceiver) *string { return v.ServiceUri }).(pulumi.StringPtrOutput)
 }
 
-// The resource id for webhook linked to this runbook.
 func (o AutomationRunbookReceiverOutput) WebhookResourceId() pulumi.StringOutput {
 	return o.ApplyT(func(v AutomationRunbookReceiver) string { return v.WebhookResourceId }).(pulumi.StringOutput)
 }
@@ -1129,20 +1068,13 @@ func (o AutomationRunbookReceiverArrayOutput) Index(i pulumi.IntInput) Automatio
 	}).(AutomationRunbookReceiverOutput)
 }
 
-// The Azure Automation Runbook notification receiver.
 type AutomationRunbookReceiverResponse struct {
-	// The Azure automation account Id which holds this runbook and authenticate to Azure resource.
-	AutomationAccountId string `pulumi:"automationAccountId"`
-	// Indicates whether this instance is global runbook.
-	IsGlobalRunbook bool `pulumi:"isGlobalRunbook"`
-	// Indicates name of the webhook.
-	Name *string `pulumi:"name"`
-	// The name for this runbook.
-	RunbookName string `pulumi:"runbookName"`
-	// The URI where webhooks should be sent.
-	ServiceUri *string `pulumi:"serviceUri"`
-	// The resource id for webhook linked to this runbook.
-	WebhookResourceId string `pulumi:"webhookResourceId"`
+	AutomationAccountId string  `pulumi:"automationAccountId"`
+	IsGlobalRunbook     bool    `pulumi:"isGlobalRunbook"`
+	Name                *string `pulumi:"name"`
+	RunbookName         string  `pulumi:"runbookName"`
+	ServiceUri          *string `pulumi:"serviceUri"`
+	WebhookResourceId   string  `pulumi:"webhookResourceId"`
 }
 
 // AutomationRunbookReceiverResponseInput is an input type that accepts AutomationRunbookReceiverResponseArgs and AutomationRunbookReceiverResponseOutput values.
@@ -1156,20 +1088,13 @@ type AutomationRunbookReceiverResponseInput interface {
 	ToAutomationRunbookReceiverResponseOutputWithContext(context.Context) AutomationRunbookReceiverResponseOutput
 }
 
-// The Azure Automation Runbook notification receiver.
 type AutomationRunbookReceiverResponseArgs struct {
-	// The Azure automation account Id which holds this runbook and authenticate to Azure resource.
-	AutomationAccountId pulumi.StringInput `pulumi:"automationAccountId"`
-	// Indicates whether this instance is global runbook.
-	IsGlobalRunbook pulumi.BoolInput `pulumi:"isGlobalRunbook"`
-	// Indicates name of the webhook.
-	Name pulumi.StringPtrInput `pulumi:"name"`
-	// The name for this runbook.
-	RunbookName pulumi.StringInput `pulumi:"runbookName"`
-	// The URI where webhooks should be sent.
-	ServiceUri pulumi.StringPtrInput `pulumi:"serviceUri"`
-	// The resource id for webhook linked to this runbook.
-	WebhookResourceId pulumi.StringInput `pulumi:"webhookResourceId"`
+	AutomationAccountId pulumi.StringInput    `pulumi:"automationAccountId"`
+	IsGlobalRunbook     pulumi.BoolInput      `pulumi:"isGlobalRunbook"`
+	Name                pulumi.StringPtrInput `pulumi:"name"`
+	RunbookName         pulumi.StringInput    `pulumi:"runbookName"`
+	ServiceUri          pulumi.StringPtrInput `pulumi:"serviceUri"`
+	WebhookResourceId   pulumi.StringInput    `pulumi:"webhookResourceId"`
 }
 
 func (AutomationRunbookReceiverResponseArgs) ElementType() reflect.Type {
@@ -1209,7 +1134,6 @@ func (i AutomationRunbookReceiverResponseArray) ToAutomationRunbookReceiverRespo
 	return pulumi.ToOutputWithContext(ctx, i).(AutomationRunbookReceiverResponseArrayOutput)
 }
 
-// The Azure Automation Runbook notification receiver.
 type AutomationRunbookReceiverResponseOutput struct{ *pulumi.OutputState }
 
 func (AutomationRunbookReceiverResponseOutput) ElementType() reflect.Type {
@@ -1224,32 +1148,26 @@ func (o AutomationRunbookReceiverResponseOutput) ToAutomationRunbookReceiverResp
 	return o
 }
 
-// The Azure automation account Id which holds this runbook and authenticate to Azure resource.
 func (o AutomationRunbookReceiverResponseOutput) AutomationAccountId() pulumi.StringOutput {
 	return o.ApplyT(func(v AutomationRunbookReceiverResponse) string { return v.AutomationAccountId }).(pulumi.StringOutput)
 }
 
-// Indicates whether this instance is global runbook.
 func (o AutomationRunbookReceiverResponseOutput) IsGlobalRunbook() pulumi.BoolOutput {
 	return o.ApplyT(func(v AutomationRunbookReceiverResponse) bool { return v.IsGlobalRunbook }).(pulumi.BoolOutput)
 }
 
-// Indicates name of the webhook.
 func (o AutomationRunbookReceiverResponseOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AutomationRunbookReceiverResponse) *string { return v.Name }).(pulumi.StringPtrOutput)
 }
 
-// The name for this runbook.
 func (o AutomationRunbookReceiverResponseOutput) RunbookName() pulumi.StringOutput {
 	return o.ApplyT(func(v AutomationRunbookReceiverResponse) string { return v.RunbookName }).(pulumi.StringOutput)
 }
 
-// The URI where webhooks should be sent.
 func (o AutomationRunbookReceiverResponseOutput) ServiceUri() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AutomationRunbookReceiverResponse) *string { return v.ServiceUri }).(pulumi.StringPtrOutput)
 }
 
-// The resource id for webhook linked to this runbook.
 func (o AutomationRunbookReceiverResponseOutput) WebhookResourceId() pulumi.StringOutput {
 	return o.ApplyT(func(v AutomationRunbookReceiverResponse) string { return v.WebhookResourceId }).(pulumi.StringOutput)
 }
@@ -1274,12 +1192,9 @@ func (o AutomationRunbookReceiverResponseArrayOutput) Index(i pulumi.IntInput) A
 	}).(AutomationRunbookReceiverResponseOutput)
 }
 
-// The Azure mobile App push notification receiver.
 type AzureAppPushReceiver struct {
-	// The email address registered for the Azure mobile app.
 	EmailAddress string `pulumi:"emailAddress"`
-	// The name of the Azure mobile app push receiver. Names must be unique across all receivers within an action group.
-	Name string `pulumi:"name"`
+	Name         string `pulumi:"name"`
 }
 
 // AzureAppPushReceiverInput is an input type that accepts AzureAppPushReceiverArgs and AzureAppPushReceiverOutput values.
@@ -1293,12 +1208,9 @@ type AzureAppPushReceiverInput interface {
 	ToAzureAppPushReceiverOutputWithContext(context.Context) AzureAppPushReceiverOutput
 }
 
-// The Azure mobile App push notification receiver.
 type AzureAppPushReceiverArgs struct {
-	// The email address registered for the Azure mobile app.
 	EmailAddress pulumi.StringInput `pulumi:"emailAddress"`
-	// The name of the Azure mobile app push receiver. Names must be unique across all receivers within an action group.
-	Name pulumi.StringInput `pulumi:"name"`
+	Name         pulumi.StringInput `pulumi:"name"`
 }
 
 func (AzureAppPushReceiverArgs) ElementType() reflect.Type {
@@ -1338,7 +1250,6 @@ func (i AzureAppPushReceiverArray) ToAzureAppPushReceiverArrayOutputWithContext(
 	return pulumi.ToOutputWithContext(ctx, i).(AzureAppPushReceiverArrayOutput)
 }
 
-// The Azure mobile App push notification receiver.
 type AzureAppPushReceiverOutput struct{ *pulumi.OutputState }
 
 func (AzureAppPushReceiverOutput) ElementType() reflect.Type {
@@ -1353,12 +1264,10 @@ func (o AzureAppPushReceiverOutput) ToAzureAppPushReceiverOutputWithContext(ctx 
 	return o
 }
 
-// The email address registered for the Azure mobile app.
 func (o AzureAppPushReceiverOutput) EmailAddress() pulumi.StringOutput {
 	return o.ApplyT(func(v AzureAppPushReceiver) string { return v.EmailAddress }).(pulumi.StringOutput)
 }
 
-// The name of the Azure mobile app push receiver. Names must be unique across all receivers within an action group.
 func (o AzureAppPushReceiverOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v AzureAppPushReceiver) string { return v.Name }).(pulumi.StringOutput)
 }
@@ -1383,12 +1292,9 @@ func (o AzureAppPushReceiverArrayOutput) Index(i pulumi.IntInput) AzureAppPushRe
 	}).(AzureAppPushReceiverOutput)
 }
 
-// The Azure mobile App push notification receiver.
 type AzureAppPushReceiverResponse struct {
-	// The email address registered for the Azure mobile app.
 	EmailAddress string `pulumi:"emailAddress"`
-	// The name of the Azure mobile app push receiver. Names must be unique across all receivers within an action group.
-	Name string `pulumi:"name"`
+	Name         string `pulumi:"name"`
 }
 
 // AzureAppPushReceiverResponseInput is an input type that accepts AzureAppPushReceiverResponseArgs and AzureAppPushReceiverResponseOutput values.
@@ -1402,12 +1308,9 @@ type AzureAppPushReceiverResponseInput interface {
 	ToAzureAppPushReceiverResponseOutputWithContext(context.Context) AzureAppPushReceiverResponseOutput
 }
 
-// The Azure mobile App push notification receiver.
 type AzureAppPushReceiverResponseArgs struct {
-	// The email address registered for the Azure mobile app.
 	EmailAddress pulumi.StringInput `pulumi:"emailAddress"`
-	// The name of the Azure mobile app push receiver. Names must be unique across all receivers within an action group.
-	Name pulumi.StringInput `pulumi:"name"`
+	Name         pulumi.StringInput `pulumi:"name"`
 }
 
 func (AzureAppPushReceiverResponseArgs) ElementType() reflect.Type {
@@ -1447,7 +1350,6 @@ func (i AzureAppPushReceiverResponseArray) ToAzureAppPushReceiverResponseArrayOu
 	return pulumi.ToOutputWithContext(ctx, i).(AzureAppPushReceiverResponseArrayOutput)
 }
 
-// The Azure mobile App push notification receiver.
 type AzureAppPushReceiverResponseOutput struct{ *pulumi.OutputState }
 
 func (AzureAppPushReceiverResponseOutput) ElementType() reflect.Type {
@@ -1462,12 +1364,10 @@ func (o AzureAppPushReceiverResponseOutput) ToAzureAppPushReceiverResponseOutput
 	return o
 }
 
-// The email address registered for the Azure mobile app.
 func (o AzureAppPushReceiverResponseOutput) EmailAddress() pulumi.StringOutput {
 	return o.ApplyT(func(v AzureAppPushReceiverResponse) string { return v.EmailAddress }).(pulumi.StringOutput)
 }
 
-// The name of the Azure mobile app push receiver. Names must be unique across all receivers within an action group.
 func (o AzureAppPushReceiverResponseOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v AzureAppPushReceiverResponse) string { return v.Name }).(pulumi.StringOutput)
 }
@@ -1492,12 +1392,9 @@ func (o AzureAppPushReceiverResponseArrayOutput) Index(i pulumi.IntInput) AzureA
 	}).(AzureAppPushReceiverResponseOutput)
 }
 
-// An email receiver.
 type EmailReceiver struct {
-	// The email address of this receiver.
 	EmailAddress string `pulumi:"emailAddress"`
-	// The name of the email receiver. Names must be unique across all receivers within an action group.
-	Name string `pulumi:"name"`
+	Name         string `pulumi:"name"`
 }
 
 // EmailReceiverInput is an input type that accepts EmailReceiverArgs and EmailReceiverOutput values.
@@ -1511,12 +1408,9 @@ type EmailReceiverInput interface {
 	ToEmailReceiverOutputWithContext(context.Context) EmailReceiverOutput
 }
 
-// An email receiver.
 type EmailReceiverArgs struct {
-	// The email address of this receiver.
 	EmailAddress pulumi.StringInput `pulumi:"emailAddress"`
-	// The name of the email receiver. Names must be unique across all receivers within an action group.
-	Name pulumi.StringInput `pulumi:"name"`
+	Name         pulumi.StringInput `pulumi:"name"`
 }
 
 func (EmailReceiverArgs) ElementType() reflect.Type {
@@ -1556,7 +1450,6 @@ func (i EmailReceiverArray) ToEmailReceiverArrayOutputWithContext(ctx context.Co
 	return pulumi.ToOutputWithContext(ctx, i).(EmailReceiverArrayOutput)
 }
 
-// An email receiver.
 type EmailReceiverOutput struct{ *pulumi.OutputState }
 
 func (EmailReceiverOutput) ElementType() reflect.Type {
@@ -1571,12 +1464,10 @@ func (o EmailReceiverOutput) ToEmailReceiverOutputWithContext(ctx context.Contex
 	return o
 }
 
-// The email address of this receiver.
 func (o EmailReceiverOutput) EmailAddress() pulumi.StringOutput {
 	return o.ApplyT(func(v EmailReceiver) string { return v.EmailAddress }).(pulumi.StringOutput)
 }
 
-// The name of the email receiver. Names must be unique across all receivers within an action group.
 func (o EmailReceiverOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v EmailReceiver) string { return v.Name }).(pulumi.StringOutput)
 }
@@ -1601,14 +1492,10 @@ func (o EmailReceiverArrayOutput) Index(i pulumi.IntInput) EmailReceiverOutput {
 	}).(EmailReceiverOutput)
 }
 
-// An email receiver.
 type EmailReceiverResponse struct {
-	// The email address of this receiver.
 	EmailAddress string `pulumi:"emailAddress"`
-	// The name of the email receiver. Names must be unique across all receivers within an action group.
-	Name string `pulumi:"name"`
-	// The receiver status of the e-mail.
-	Status string `pulumi:"status"`
+	Name         string `pulumi:"name"`
+	Status       string `pulumi:"status"`
 }
 
 // EmailReceiverResponseInput is an input type that accepts EmailReceiverResponseArgs and EmailReceiverResponseOutput values.
@@ -1622,14 +1509,10 @@ type EmailReceiverResponseInput interface {
 	ToEmailReceiverResponseOutputWithContext(context.Context) EmailReceiverResponseOutput
 }
 
-// An email receiver.
 type EmailReceiverResponseArgs struct {
-	// The email address of this receiver.
 	EmailAddress pulumi.StringInput `pulumi:"emailAddress"`
-	// The name of the email receiver. Names must be unique across all receivers within an action group.
-	Name pulumi.StringInput `pulumi:"name"`
-	// The receiver status of the e-mail.
-	Status pulumi.StringInput `pulumi:"status"`
+	Name         pulumi.StringInput `pulumi:"name"`
+	Status       pulumi.StringInput `pulumi:"status"`
 }
 
 func (EmailReceiverResponseArgs) ElementType() reflect.Type {
@@ -1669,7 +1552,6 @@ func (i EmailReceiverResponseArray) ToEmailReceiverResponseArrayOutputWithContex
 	return pulumi.ToOutputWithContext(ctx, i).(EmailReceiverResponseArrayOutput)
 }
 
-// An email receiver.
 type EmailReceiverResponseOutput struct{ *pulumi.OutputState }
 
 func (EmailReceiverResponseOutput) ElementType() reflect.Type {
@@ -1684,17 +1566,14 @@ func (o EmailReceiverResponseOutput) ToEmailReceiverResponseOutputWithContext(ct
 	return o
 }
 
-// The email address of this receiver.
 func (o EmailReceiverResponseOutput) EmailAddress() pulumi.StringOutput {
 	return o.ApplyT(func(v EmailReceiverResponse) string { return v.EmailAddress }).(pulumi.StringOutput)
 }
 
-// The name of the email receiver. Names must be unique across all receivers within an action group.
 func (o EmailReceiverResponseOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v EmailReceiverResponse) string { return v.Name }).(pulumi.StringOutput)
 }
 
-// The receiver status of the e-mail.
 func (o EmailReceiverResponseOutput) Status() pulumi.StringOutput {
 	return o.ApplyT(func(v EmailReceiverResponse) string { return v.Status }).(pulumi.StringOutput)
 }
@@ -1719,18 +1598,12 @@ func (o EmailReceiverResponseArrayOutput) Index(i pulumi.IntInput) EmailReceiver
 	}).(EmailReceiverResponseOutput)
 }
 
-// An Itsm receiver.
 type ItsmReceiver struct {
-	// Unique identification of ITSM connection among multiple defined in above workspace.
-	ConnectionId string `pulumi:"connectionId"`
-	// The name of the Itsm receiver. Names must be unique across all receivers within an action group.
-	Name string `pulumi:"name"`
-	// Region in which workspace resides. Supported values:'centralindia','japaneast','southeastasia','australiasoutheast','uksouth','westcentralus','canadacentral','eastus','westeurope'
-	Region string `pulumi:"region"`
-	// JSON blob for the configurations of the ITSM action. CreateMultipleWorkItems option will be part of this blob as well.
+	ConnectionId        string `pulumi:"connectionId"`
+	Name                string `pulumi:"name"`
+	Region              string `pulumi:"region"`
 	TicketConfiguration string `pulumi:"ticketConfiguration"`
-	// OMS LA instance identifier.
-	WorkspaceId string `pulumi:"workspaceId"`
+	WorkspaceId         string `pulumi:"workspaceId"`
 }
 
 // ItsmReceiverInput is an input type that accepts ItsmReceiverArgs and ItsmReceiverOutput values.
@@ -1744,18 +1617,12 @@ type ItsmReceiverInput interface {
 	ToItsmReceiverOutputWithContext(context.Context) ItsmReceiverOutput
 }
 
-// An Itsm receiver.
 type ItsmReceiverArgs struct {
-	// Unique identification of ITSM connection among multiple defined in above workspace.
-	ConnectionId pulumi.StringInput `pulumi:"connectionId"`
-	// The name of the Itsm receiver. Names must be unique across all receivers within an action group.
-	Name pulumi.StringInput `pulumi:"name"`
-	// Region in which workspace resides. Supported values:'centralindia','japaneast','southeastasia','australiasoutheast','uksouth','westcentralus','canadacentral','eastus','westeurope'
-	Region pulumi.StringInput `pulumi:"region"`
-	// JSON blob for the configurations of the ITSM action. CreateMultipleWorkItems option will be part of this blob as well.
+	ConnectionId        pulumi.StringInput `pulumi:"connectionId"`
+	Name                pulumi.StringInput `pulumi:"name"`
+	Region              pulumi.StringInput `pulumi:"region"`
 	TicketConfiguration pulumi.StringInput `pulumi:"ticketConfiguration"`
-	// OMS LA instance identifier.
-	WorkspaceId pulumi.StringInput `pulumi:"workspaceId"`
+	WorkspaceId         pulumi.StringInput `pulumi:"workspaceId"`
 }
 
 func (ItsmReceiverArgs) ElementType() reflect.Type {
@@ -1795,7 +1662,6 @@ func (i ItsmReceiverArray) ToItsmReceiverArrayOutputWithContext(ctx context.Cont
 	return pulumi.ToOutputWithContext(ctx, i).(ItsmReceiverArrayOutput)
 }
 
-// An Itsm receiver.
 type ItsmReceiverOutput struct{ *pulumi.OutputState }
 
 func (ItsmReceiverOutput) ElementType() reflect.Type {
@@ -1810,27 +1676,22 @@ func (o ItsmReceiverOutput) ToItsmReceiverOutputWithContext(ctx context.Context)
 	return o
 }
 
-// Unique identification of ITSM connection among multiple defined in above workspace.
 func (o ItsmReceiverOutput) ConnectionId() pulumi.StringOutput {
 	return o.ApplyT(func(v ItsmReceiver) string { return v.ConnectionId }).(pulumi.StringOutput)
 }
 
-// The name of the Itsm receiver. Names must be unique across all receivers within an action group.
 func (o ItsmReceiverOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v ItsmReceiver) string { return v.Name }).(pulumi.StringOutput)
 }
 
-// Region in which workspace resides. Supported values:'centralindia','japaneast','southeastasia','australiasoutheast','uksouth','westcentralus','canadacentral','eastus','westeurope'
 func (o ItsmReceiverOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v ItsmReceiver) string { return v.Region }).(pulumi.StringOutput)
 }
 
-// JSON blob for the configurations of the ITSM action. CreateMultipleWorkItems option will be part of this blob as well.
 func (o ItsmReceiverOutput) TicketConfiguration() pulumi.StringOutput {
 	return o.ApplyT(func(v ItsmReceiver) string { return v.TicketConfiguration }).(pulumi.StringOutput)
 }
 
-// OMS LA instance identifier.
 func (o ItsmReceiverOutput) WorkspaceId() pulumi.StringOutput {
 	return o.ApplyT(func(v ItsmReceiver) string { return v.WorkspaceId }).(pulumi.StringOutput)
 }
@@ -1855,18 +1716,12 @@ func (o ItsmReceiverArrayOutput) Index(i pulumi.IntInput) ItsmReceiverOutput {
 	}).(ItsmReceiverOutput)
 }
 
-// An Itsm receiver.
 type ItsmReceiverResponse struct {
-	// Unique identification of ITSM connection among multiple defined in above workspace.
-	ConnectionId string `pulumi:"connectionId"`
-	// The name of the Itsm receiver. Names must be unique across all receivers within an action group.
-	Name string `pulumi:"name"`
-	// Region in which workspace resides. Supported values:'centralindia','japaneast','southeastasia','australiasoutheast','uksouth','westcentralus','canadacentral','eastus','westeurope'
-	Region string `pulumi:"region"`
-	// JSON blob for the configurations of the ITSM action. CreateMultipleWorkItems option will be part of this blob as well.
+	ConnectionId        string `pulumi:"connectionId"`
+	Name                string `pulumi:"name"`
+	Region              string `pulumi:"region"`
 	TicketConfiguration string `pulumi:"ticketConfiguration"`
-	// OMS LA instance identifier.
-	WorkspaceId string `pulumi:"workspaceId"`
+	WorkspaceId         string `pulumi:"workspaceId"`
 }
 
 // ItsmReceiverResponseInput is an input type that accepts ItsmReceiverResponseArgs and ItsmReceiverResponseOutput values.
@@ -1880,18 +1735,12 @@ type ItsmReceiverResponseInput interface {
 	ToItsmReceiverResponseOutputWithContext(context.Context) ItsmReceiverResponseOutput
 }
 
-// An Itsm receiver.
 type ItsmReceiverResponseArgs struct {
-	// Unique identification of ITSM connection among multiple defined in above workspace.
-	ConnectionId pulumi.StringInput `pulumi:"connectionId"`
-	// The name of the Itsm receiver. Names must be unique across all receivers within an action group.
-	Name pulumi.StringInput `pulumi:"name"`
-	// Region in which workspace resides. Supported values:'centralindia','japaneast','southeastasia','australiasoutheast','uksouth','westcentralus','canadacentral','eastus','westeurope'
-	Region pulumi.StringInput `pulumi:"region"`
-	// JSON blob for the configurations of the ITSM action. CreateMultipleWorkItems option will be part of this blob as well.
+	ConnectionId        pulumi.StringInput `pulumi:"connectionId"`
+	Name                pulumi.StringInput `pulumi:"name"`
+	Region              pulumi.StringInput `pulumi:"region"`
 	TicketConfiguration pulumi.StringInput `pulumi:"ticketConfiguration"`
-	// OMS LA instance identifier.
-	WorkspaceId pulumi.StringInput `pulumi:"workspaceId"`
+	WorkspaceId         pulumi.StringInput `pulumi:"workspaceId"`
 }
 
 func (ItsmReceiverResponseArgs) ElementType() reflect.Type {
@@ -1931,7 +1780,6 @@ func (i ItsmReceiverResponseArray) ToItsmReceiverResponseArrayOutputWithContext(
 	return pulumi.ToOutputWithContext(ctx, i).(ItsmReceiverResponseArrayOutput)
 }
 
-// An Itsm receiver.
 type ItsmReceiverResponseOutput struct{ *pulumi.OutputState }
 
 func (ItsmReceiverResponseOutput) ElementType() reflect.Type {
@@ -1946,27 +1794,22 @@ func (o ItsmReceiverResponseOutput) ToItsmReceiverResponseOutputWithContext(ctx 
 	return o
 }
 
-// Unique identification of ITSM connection among multiple defined in above workspace.
 func (o ItsmReceiverResponseOutput) ConnectionId() pulumi.StringOutput {
 	return o.ApplyT(func(v ItsmReceiverResponse) string { return v.ConnectionId }).(pulumi.StringOutput)
 }
 
-// The name of the Itsm receiver. Names must be unique across all receivers within an action group.
 func (o ItsmReceiverResponseOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v ItsmReceiverResponse) string { return v.Name }).(pulumi.StringOutput)
 }
 
-// Region in which workspace resides. Supported values:'centralindia','japaneast','southeastasia','australiasoutheast','uksouth','westcentralus','canadacentral','eastus','westeurope'
 func (o ItsmReceiverResponseOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v ItsmReceiverResponse) string { return v.Region }).(pulumi.StringOutput)
 }
 
-// JSON blob for the configurations of the ITSM action. CreateMultipleWorkItems option will be part of this blob as well.
 func (o ItsmReceiverResponseOutput) TicketConfiguration() pulumi.StringOutput {
 	return o.ApplyT(func(v ItsmReceiverResponse) string { return v.TicketConfiguration }).(pulumi.StringOutput)
 }
 
-// OMS LA instance identifier.
 func (o ItsmReceiverResponseOutput) WorkspaceId() pulumi.StringOutput {
 	return o.ApplyT(func(v ItsmReceiverResponse) string { return v.WorkspaceId }).(pulumi.StringOutput)
 }
@@ -1991,13 +1834,9 @@ func (o ItsmReceiverResponseArrayOutput) Index(i pulumi.IntInput) ItsmReceiverRe
 	}).(ItsmReceiverResponseOutput)
 }
 
-// An SMS receiver.
 type SmsReceiver struct {
-	// The country code of the SMS receiver.
 	CountryCode string `pulumi:"countryCode"`
-	// The name of the SMS receiver. Names must be unique across all receivers within an action group.
-	Name string `pulumi:"name"`
-	// The phone number of the SMS receiver.
+	Name        string `pulumi:"name"`
 	PhoneNumber string `pulumi:"phoneNumber"`
 }
 
@@ -2012,13 +1851,9 @@ type SmsReceiverInput interface {
 	ToSmsReceiverOutputWithContext(context.Context) SmsReceiverOutput
 }
 
-// An SMS receiver.
 type SmsReceiverArgs struct {
-	// The country code of the SMS receiver.
 	CountryCode pulumi.StringInput `pulumi:"countryCode"`
-	// The name of the SMS receiver. Names must be unique across all receivers within an action group.
-	Name pulumi.StringInput `pulumi:"name"`
-	// The phone number of the SMS receiver.
+	Name        pulumi.StringInput `pulumi:"name"`
 	PhoneNumber pulumi.StringInput `pulumi:"phoneNumber"`
 }
 
@@ -2059,7 +1894,6 @@ func (i SmsReceiverArray) ToSmsReceiverArrayOutputWithContext(ctx context.Contex
 	return pulumi.ToOutputWithContext(ctx, i).(SmsReceiverArrayOutput)
 }
 
-// An SMS receiver.
 type SmsReceiverOutput struct{ *pulumi.OutputState }
 
 func (SmsReceiverOutput) ElementType() reflect.Type {
@@ -2074,17 +1908,14 @@ func (o SmsReceiverOutput) ToSmsReceiverOutputWithContext(ctx context.Context) S
 	return o
 }
 
-// The country code of the SMS receiver.
 func (o SmsReceiverOutput) CountryCode() pulumi.StringOutput {
 	return o.ApplyT(func(v SmsReceiver) string { return v.CountryCode }).(pulumi.StringOutput)
 }
 
-// The name of the SMS receiver. Names must be unique across all receivers within an action group.
 func (o SmsReceiverOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v SmsReceiver) string { return v.Name }).(pulumi.StringOutput)
 }
 
-// The phone number of the SMS receiver.
 func (o SmsReceiverOutput) PhoneNumber() pulumi.StringOutput {
 	return o.ApplyT(func(v SmsReceiver) string { return v.PhoneNumber }).(pulumi.StringOutput)
 }
@@ -2109,16 +1940,11 @@ func (o SmsReceiverArrayOutput) Index(i pulumi.IntInput) SmsReceiverOutput {
 	}).(SmsReceiverOutput)
 }
 
-// An SMS receiver.
 type SmsReceiverResponse struct {
-	// The country code of the SMS receiver.
 	CountryCode string `pulumi:"countryCode"`
-	// The name of the SMS receiver. Names must be unique across all receivers within an action group.
-	Name string `pulumi:"name"`
-	// The phone number of the SMS receiver.
+	Name        string `pulumi:"name"`
 	PhoneNumber string `pulumi:"phoneNumber"`
-	// The status of the receiver.
-	Status string `pulumi:"status"`
+	Status      string `pulumi:"status"`
 }
 
 // SmsReceiverResponseInput is an input type that accepts SmsReceiverResponseArgs and SmsReceiverResponseOutput values.
@@ -2132,16 +1958,11 @@ type SmsReceiverResponseInput interface {
 	ToSmsReceiverResponseOutputWithContext(context.Context) SmsReceiverResponseOutput
 }
 
-// An SMS receiver.
 type SmsReceiverResponseArgs struct {
-	// The country code of the SMS receiver.
 	CountryCode pulumi.StringInput `pulumi:"countryCode"`
-	// The name of the SMS receiver. Names must be unique across all receivers within an action group.
-	Name pulumi.StringInput `pulumi:"name"`
-	// The phone number of the SMS receiver.
+	Name        pulumi.StringInput `pulumi:"name"`
 	PhoneNumber pulumi.StringInput `pulumi:"phoneNumber"`
-	// The status of the receiver.
-	Status pulumi.StringInput `pulumi:"status"`
+	Status      pulumi.StringInput `pulumi:"status"`
 }
 
 func (SmsReceiverResponseArgs) ElementType() reflect.Type {
@@ -2181,7 +2002,6 @@ func (i SmsReceiverResponseArray) ToSmsReceiverResponseArrayOutputWithContext(ct
 	return pulumi.ToOutputWithContext(ctx, i).(SmsReceiverResponseArrayOutput)
 }
 
-// An SMS receiver.
 type SmsReceiverResponseOutput struct{ *pulumi.OutputState }
 
 func (SmsReceiverResponseOutput) ElementType() reflect.Type {
@@ -2196,22 +2016,18 @@ func (o SmsReceiverResponseOutput) ToSmsReceiverResponseOutputWithContext(ctx co
 	return o
 }
 
-// The country code of the SMS receiver.
 func (o SmsReceiverResponseOutput) CountryCode() pulumi.StringOutput {
 	return o.ApplyT(func(v SmsReceiverResponse) string { return v.CountryCode }).(pulumi.StringOutput)
 }
 
-// The name of the SMS receiver. Names must be unique across all receivers within an action group.
 func (o SmsReceiverResponseOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v SmsReceiverResponse) string { return v.Name }).(pulumi.StringOutput)
 }
 
-// The phone number of the SMS receiver.
 func (o SmsReceiverResponseOutput) PhoneNumber() pulumi.StringOutput {
 	return o.ApplyT(func(v SmsReceiverResponse) string { return v.PhoneNumber }).(pulumi.StringOutput)
 }
 
-// The status of the receiver.
 func (o SmsReceiverResponseOutput) Status() pulumi.StringOutput {
 	return o.ApplyT(func(v SmsReceiverResponse) string { return v.Status }).(pulumi.StringOutput)
 }
@@ -2236,11 +2052,8 @@ func (o SmsReceiverResponseArrayOutput) Index(i pulumi.IntInput) SmsReceiverResp
 	}).(SmsReceiverResponseOutput)
 }
 
-// A webhook receiver.
 type WebhookReceiver struct {
-	// The name of the webhook receiver. Names must be unique across all receivers within an action group.
-	Name string `pulumi:"name"`
-	// The URI where webhooks should be sent.
+	Name       string `pulumi:"name"`
 	ServiceUri string `pulumi:"serviceUri"`
 }
 
@@ -2255,11 +2068,8 @@ type WebhookReceiverInput interface {
 	ToWebhookReceiverOutputWithContext(context.Context) WebhookReceiverOutput
 }
 
-// A webhook receiver.
 type WebhookReceiverArgs struct {
-	// The name of the webhook receiver. Names must be unique across all receivers within an action group.
-	Name pulumi.StringInput `pulumi:"name"`
-	// The URI where webhooks should be sent.
+	Name       pulumi.StringInput `pulumi:"name"`
 	ServiceUri pulumi.StringInput `pulumi:"serviceUri"`
 }
 
@@ -2300,7 +2110,6 @@ func (i WebhookReceiverArray) ToWebhookReceiverArrayOutputWithContext(ctx contex
 	return pulumi.ToOutputWithContext(ctx, i).(WebhookReceiverArrayOutput)
 }
 
-// A webhook receiver.
 type WebhookReceiverOutput struct{ *pulumi.OutputState }
 
 func (WebhookReceiverOutput) ElementType() reflect.Type {
@@ -2315,12 +2124,10 @@ func (o WebhookReceiverOutput) ToWebhookReceiverOutputWithContext(ctx context.Co
 	return o
 }
 
-// The name of the webhook receiver. Names must be unique across all receivers within an action group.
 func (o WebhookReceiverOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v WebhookReceiver) string { return v.Name }).(pulumi.StringOutput)
 }
 
-// The URI where webhooks should be sent.
 func (o WebhookReceiverOutput) ServiceUri() pulumi.StringOutput {
 	return o.ApplyT(func(v WebhookReceiver) string { return v.ServiceUri }).(pulumi.StringOutput)
 }
@@ -2345,11 +2152,8 @@ func (o WebhookReceiverArrayOutput) Index(i pulumi.IntInput) WebhookReceiverOutp
 	}).(WebhookReceiverOutput)
 }
 
-// A webhook receiver.
 type WebhookReceiverResponse struct {
-	// The name of the webhook receiver. Names must be unique across all receivers within an action group.
-	Name string `pulumi:"name"`
-	// The URI where webhooks should be sent.
+	Name       string `pulumi:"name"`
 	ServiceUri string `pulumi:"serviceUri"`
 }
 
@@ -2364,11 +2168,8 @@ type WebhookReceiverResponseInput interface {
 	ToWebhookReceiverResponseOutputWithContext(context.Context) WebhookReceiverResponseOutput
 }
 
-// A webhook receiver.
 type WebhookReceiverResponseArgs struct {
-	// The name of the webhook receiver. Names must be unique across all receivers within an action group.
-	Name pulumi.StringInput `pulumi:"name"`
-	// The URI where webhooks should be sent.
+	Name       pulumi.StringInput `pulumi:"name"`
 	ServiceUri pulumi.StringInput `pulumi:"serviceUri"`
 }
 
@@ -2409,7 +2210,6 @@ func (i WebhookReceiverResponseArray) ToWebhookReceiverResponseArrayOutputWithCo
 	return pulumi.ToOutputWithContext(ctx, i).(WebhookReceiverResponseArrayOutput)
 }
 
-// A webhook receiver.
 type WebhookReceiverResponseOutput struct{ *pulumi.OutputState }
 
 func (WebhookReceiverResponseOutput) ElementType() reflect.Type {
@@ -2424,12 +2224,10 @@ func (o WebhookReceiverResponseOutput) ToWebhookReceiverResponseOutputWithContex
 	return o
 }
 
-// The name of the webhook receiver. Names must be unique across all receivers within an action group.
 func (o WebhookReceiverResponseOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v WebhookReceiverResponse) string { return v.Name }).(pulumi.StringOutput)
 }
 
-// The URI where webhooks should be sent.
 func (o WebhookReceiverResponseOutput) ServiceUri() pulumi.StringOutput {
 	return o.ApplyT(func(v WebhookReceiverResponse) string { return v.ServiceUri }).(pulumi.StringOutput)
 }

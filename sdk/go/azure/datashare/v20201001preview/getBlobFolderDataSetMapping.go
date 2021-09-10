@@ -7,7 +7,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// A Blob folder data set mapping.
 func LookupBlobFolderDataSetMapping(ctx *pulumi.Context, args *LookupBlobFolderDataSetMappingArgs, opts ...pulumi.InvokeOption) (*LookupBlobFolderDataSetMappingResult, error) {
 	var rv LookupBlobFolderDataSetMappingResult
 	err := ctx.Invoke("azure-native:datashare/v20201001preview:getBlobFolderDataSetMapping", args, &rv, opts...)
@@ -18,43 +17,25 @@ func LookupBlobFolderDataSetMapping(ctx *pulumi.Context, args *LookupBlobFolderD
 }
 
 type LookupBlobFolderDataSetMappingArgs struct {
-	// The name of the share account.
-	AccountName string `pulumi:"accountName"`
-	// The name of the dataSetMapping.
-	DataSetMappingName string `pulumi:"dataSetMappingName"`
-	// The resource group name.
-	ResourceGroupName string `pulumi:"resourceGroupName"`
-	// The name of the shareSubscription.
+	AccountName           string `pulumi:"accountName"`
+	DataSetMappingName    string `pulumi:"dataSetMappingName"`
+	ResourceGroupName     string `pulumi:"resourceGroupName"`
 	ShareSubscriptionName string `pulumi:"shareSubscriptionName"`
 }
 
 // A Blob folder data set mapping.
 type LookupBlobFolderDataSetMappingResult struct {
-	// Container that has the file path.
-	ContainerName string `pulumi:"containerName"`
-	// The id of the source data set.
-	DataSetId string `pulumi:"dataSetId"`
-	// Gets the status of the data set mapping.
-	DataSetMappingStatus string `pulumi:"dataSetMappingStatus"`
-	// The resource id of the azure resource
-	Id string `pulumi:"id"`
-	// Kind of data set mapping.
-	// Expected value is 'BlobFolder'.
-	Kind string `pulumi:"kind"`
-	// Name of the azure resource
-	Name string `pulumi:"name"`
-	// Prefix for blob folder
-	Prefix string `pulumi:"prefix"`
-	// Provisioning state of the data set mapping.
-	ProvisioningState string `pulumi:"provisioningState"`
-	// Resource group of storage account.
-	ResourceGroup string `pulumi:"resourceGroup"`
-	// Storage account name of the source data set.
-	StorageAccountName string `pulumi:"storageAccountName"`
-	// Subscription id of storage account.
-	SubscriptionId string `pulumi:"subscriptionId"`
-	// System Data of the Azure resource.
-	SystemData SystemDataResponse `pulumi:"systemData"`
-	// Type of the azure resource
-	Type string `pulumi:"type"`
+	ContainerName        string             `pulumi:"containerName"`
+	DataSetId            string             `pulumi:"dataSetId"`
+	DataSetMappingStatus string             `pulumi:"dataSetMappingStatus"`
+	Id                   string             `pulumi:"id"`
+	Kind                 string             `pulumi:"kind"`
+	Name                 string             `pulumi:"name"`
+	Prefix               string             `pulumi:"prefix"`
+	ProvisioningState    string             `pulumi:"provisioningState"`
+	ResourceGroup        string             `pulumi:"resourceGroup"`
+	StorageAccountName   string             `pulumi:"storageAccountName"`
+	SubscriptionId       string             `pulumi:"subscriptionId"`
+	SystemData           SystemDataResponse `pulumi:"systemData"`
+	Type                 string             `pulumi:"type"`
 }

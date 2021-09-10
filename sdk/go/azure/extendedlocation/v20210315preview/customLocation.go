@@ -11,34 +11,21 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Custom Locations definition.
 type CustomLocation struct {
 	pulumi.CustomResourceState
 
-	// This is optional input that contains the authentication that should be used to generate the namespace.
-	Authentication CustomLocationPropertiesResponseAuthenticationPtrOutput `pulumi:"authentication"`
-	// Contains the reference to the add-on that contains charts to deploy CRDs and operators.
-	ClusterExtensionIds pulumi.StringArrayOutput `pulumi:"clusterExtensionIds"`
-	// Display name for the Custom Locations location.
-	DisplayName pulumi.StringPtrOutput `pulumi:"displayName"`
-	// Connected Cluster or AKS Cluster. The Custom Locations RP will perform a checkAccess API for listAdminCredentials permissions.
-	HostResourceId pulumi.StringPtrOutput `pulumi:"hostResourceId"`
-	// Type of host the Custom Locations is referencing (Kubernetes, etc...).
-	HostType pulumi.StringPtrOutput `pulumi:"hostType"`
-	// The geo-location where the resource lives
-	Location pulumi.StringOutput `pulumi:"location"`
-	// The name of the resource
-	Name pulumi.StringOutput `pulumi:"name"`
-	// Kubernetes namespace that will be created on the specified cluster.
-	Namespace pulumi.StringPtrOutput `pulumi:"namespace"`
-	// Provisioning State for the Custom Location.
-	ProvisioningState pulumi.StringPtrOutput `pulumi:"provisioningState"`
-	// Metadata pertaining to creation and last modification of the resource
-	SystemData SystemDataResponseOutput `pulumi:"systemData"`
-	// Resource tags.
-	Tags pulumi.StringMapOutput `pulumi:"tags"`
-	// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
-	Type pulumi.StringOutput `pulumi:"type"`
+	Authentication      CustomLocationPropertiesResponseAuthenticationPtrOutput `pulumi:"authentication"`
+	ClusterExtensionIds pulumi.StringArrayOutput                                `pulumi:"clusterExtensionIds"`
+	DisplayName         pulumi.StringPtrOutput                                  `pulumi:"displayName"`
+	HostResourceId      pulumi.StringPtrOutput                                  `pulumi:"hostResourceId"`
+	HostType            pulumi.StringPtrOutput                                  `pulumi:"hostType"`
+	Location            pulumi.StringOutput                                     `pulumi:"location"`
+	Name                pulumi.StringOutput                                     `pulumi:"name"`
+	Namespace           pulumi.StringPtrOutput                                  `pulumi:"namespace"`
+	ProvisioningState   pulumi.StringPtrOutput                                  `pulumi:"provisioningState"`
+	SystemData          SystemDataResponseOutput                                `pulumi:"systemData"`
+	Tags                pulumi.StringMapOutput                                  `pulumi:"tags"`
+	Type                pulumi.StringOutput                                     `pulumi:"type"`
 }
 
 // NewCustomLocation registers a new resource with the given unique name, arguments, and options.
@@ -95,54 +82,32 @@ func (CustomLocationState) ElementType() reflect.Type {
 }
 
 type customLocationArgs struct {
-	// This is optional input that contains the authentication that should be used to generate the namespace.
-	Authentication *CustomLocationPropertiesAuthentication `pulumi:"authentication"`
-	// Contains the reference to the add-on that contains charts to deploy CRDs and operators.
-	ClusterExtensionIds []string `pulumi:"clusterExtensionIds"`
-	// Display name for the Custom Locations location.
-	DisplayName *string `pulumi:"displayName"`
-	// Connected Cluster or AKS Cluster. The Custom Locations RP will perform a checkAccess API for listAdminCredentials permissions.
-	HostResourceId *string `pulumi:"hostResourceId"`
-	// Type of host the Custom Locations is referencing (Kubernetes, etc...).
-	HostType *string `pulumi:"hostType"`
-	// The geo-location where the resource lives
-	Location *string `pulumi:"location"`
-	// Kubernetes namespace that will be created on the specified cluster.
-	Namespace *string `pulumi:"namespace"`
-	// Provisioning State for the Custom Location.
-	ProvisioningState *string `pulumi:"provisioningState"`
-	// The name of the resource group. The name is case insensitive.
-	ResourceGroupName string `pulumi:"resourceGroupName"`
-	// Custom Locations name.
-	ResourceName *string `pulumi:"resourceName"`
-	// Resource tags.
-	Tags map[string]string `pulumi:"tags"`
+	Authentication      *CustomLocationPropertiesAuthentication `pulumi:"authentication"`
+	ClusterExtensionIds []string                                `pulumi:"clusterExtensionIds"`
+	DisplayName         *string                                 `pulumi:"displayName"`
+	HostResourceId      *string                                 `pulumi:"hostResourceId"`
+	HostType            *string                                 `pulumi:"hostType"`
+	Location            *string                                 `pulumi:"location"`
+	Namespace           *string                                 `pulumi:"namespace"`
+	ProvisioningState   *string                                 `pulumi:"provisioningState"`
+	ResourceGroupName   string                                  `pulumi:"resourceGroupName"`
+	ResourceName        *string                                 `pulumi:"resourceName"`
+	Tags                map[string]string                       `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a CustomLocation resource.
 type CustomLocationArgs struct {
-	// This is optional input that contains the authentication that should be used to generate the namespace.
-	Authentication CustomLocationPropertiesAuthenticationPtrInput
-	// Contains the reference to the add-on that contains charts to deploy CRDs and operators.
+	Authentication      CustomLocationPropertiesAuthenticationPtrInput
 	ClusterExtensionIds pulumi.StringArrayInput
-	// Display name for the Custom Locations location.
-	DisplayName pulumi.StringPtrInput
-	// Connected Cluster or AKS Cluster. The Custom Locations RP will perform a checkAccess API for listAdminCredentials permissions.
-	HostResourceId pulumi.StringPtrInput
-	// Type of host the Custom Locations is referencing (Kubernetes, etc...).
-	HostType pulumi.StringPtrInput
-	// The geo-location where the resource lives
-	Location pulumi.StringPtrInput
-	// Kubernetes namespace that will be created on the specified cluster.
-	Namespace pulumi.StringPtrInput
-	// Provisioning State for the Custom Location.
-	ProvisioningState pulumi.StringPtrInput
-	// The name of the resource group. The name is case insensitive.
-	ResourceGroupName pulumi.StringInput
-	// Custom Locations name.
-	ResourceName pulumi.StringPtrInput
-	// Resource tags.
-	Tags pulumi.StringMapInput
+	DisplayName         pulumi.StringPtrInput
+	HostResourceId      pulumi.StringPtrInput
+	HostType            pulumi.StringPtrInput
+	Location            pulumi.StringPtrInput
+	Namespace           pulumi.StringPtrInput
+	ProvisioningState   pulumi.StringPtrInput
+	ResourceGroupName   pulumi.StringInput
+	ResourceName        pulumi.StringPtrInput
+	Tags                pulumi.StringMapInput
 }
 
 func (CustomLocationArgs) ElementType() reflect.Type {
@@ -168,9 +133,7 @@ func (i *CustomLocation) ToCustomLocationOutputWithContext(ctx context.Context) 
 	return pulumi.ToOutputWithContext(ctx, i).(CustomLocationOutput)
 }
 
-type CustomLocationOutput struct {
-	*pulumi.OutputState
-}
+type CustomLocationOutput struct{ *pulumi.OutputState }
 
 func (CustomLocationOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*CustomLocation)(nil))

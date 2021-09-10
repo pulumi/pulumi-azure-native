@@ -11,22 +11,15 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Network base rule.
-//
 // Deprecated: Please use one of the variants: DefaultUserRule, UserRule.
 type UserRule struct {
 	pulumi.CustomResourceState
 
-	// A unique read-only string that changes whenever the resource is updated.
-	Etag pulumi.StringOutput `pulumi:"etag"`
-	// Whether the rule is custom or default.
-	Kind pulumi.StringOutput `pulumi:"kind"`
-	// Resource name.
-	Name pulumi.StringOutput `pulumi:"name"`
-	// The system metadata related to this resource.
+	Etag       pulumi.StringOutput      `pulumi:"etag"`
+	Kind       pulumi.StringOutput      `pulumi:"kind"`
+	Name       pulumi.StringOutput      `pulumi:"name"`
 	SystemData SystemDataResponseOutput `pulumi:"systemData"`
-	// Resource type.
-	Type pulumi.StringOutput `pulumi:"type"`
+	Type       pulumi.StringOutput      `pulumi:"type"`
 }
 
 // NewUserRule registers a new resource with the given unique name, arguments, and options.
@@ -95,34 +88,22 @@ func (UserRuleState) ElementType() reflect.Type {
 }
 
 type userRuleArgs struct {
-	// The name of the network manager security Configuration.
-	ConfigurationName string `pulumi:"configurationName"`
-	// Whether the rule is custom or default.
-	Kind string `pulumi:"kind"`
-	// The name of the network manager.
-	NetworkManagerName string `pulumi:"networkManagerName"`
-	// The name of the resource group.
-	ResourceGroupName string `pulumi:"resourceGroupName"`
-	// The name of the network manager security Configuration rule collection.
-	RuleCollectionName string `pulumi:"ruleCollectionName"`
-	// The name of the rule.
-	RuleName *string `pulumi:"ruleName"`
+	ConfigurationName  string  `pulumi:"configurationName"`
+	Kind               string  `pulumi:"kind"`
+	NetworkManagerName string  `pulumi:"networkManagerName"`
+	ResourceGroupName  string  `pulumi:"resourceGroupName"`
+	RuleCollectionName string  `pulumi:"ruleCollectionName"`
+	RuleName           *string `pulumi:"ruleName"`
 }
 
 // The set of arguments for constructing a UserRule resource.
 type UserRuleArgs struct {
-	// The name of the network manager security Configuration.
-	ConfigurationName pulumi.StringInput
-	// Whether the rule is custom or default.
-	Kind pulumi.StringInput
-	// The name of the network manager.
+	ConfigurationName  pulumi.StringInput
+	Kind               pulumi.StringInput
 	NetworkManagerName pulumi.StringInput
-	// The name of the resource group.
-	ResourceGroupName pulumi.StringInput
-	// The name of the network manager security Configuration rule collection.
+	ResourceGroupName  pulumi.StringInput
 	RuleCollectionName pulumi.StringInput
-	// The name of the rule.
-	RuleName pulumi.StringPtrInput
+	RuleName           pulumi.StringPtrInput
 }
 
 func (UserRuleArgs) ElementType() reflect.Type {
@@ -148,9 +129,7 @@ func (i *UserRule) ToUserRuleOutputWithContext(ctx context.Context) UserRuleOutp
 	return pulumi.ToOutputWithContext(ctx, i).(UserRuleOutput)
 }
 
-type UserRuleOutput struct {
-	*pulumi.OutputState
-}
+type UserRuleOutput struct{ *pulumi.OutputState }
 
 func (UserRuleOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*UserRule)(nil))

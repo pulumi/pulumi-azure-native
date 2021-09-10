@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.SecurityInsights.V20190101Preview.Outputs
 {
 
+    /// <summary>
+    /// Common Data Service data type connection.
+    /// </summary>
     [OutputType]
     public sealed class Dynamics365DataConnectorDataTypesResponseDynamics365CdsActivities
     {

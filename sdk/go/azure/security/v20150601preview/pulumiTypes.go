@@ -10,11 +10,8 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Represents a summary of the alerts of the VM/server group
 type AppWhitelistingIssueSummaryResponse struct {
-	// An alert that VMs/servers within a group can have
-	Issue *string `pulumi:"issue"`
-	// The number of machines in the VM/server group that have this alert
+	Issue       *string  `pulumi:"issue"`
 	NumberOfVms *float64 `pulumi:"numberOfVms"`
 }
 
@@ -29,11 +26,8 @@ type AppWhitelistingIssueSummaryResponseInput interface {
 	ToAppWhitelistingIssueSummaryResponseOutputWithContext(context.Context) AppWhitelistingIssueSummaryResponseOutput
 }
 
-// Represents a summary of the alerts of the VM/server group
 type AppWhitelistingIssueSummaryResponseArgs struct {
-	// An alert that VMs/servers within a group can have
-	Issue pulumi.StringPtrInput `pulumi:"issue"`
-	// The number of machines in the VM/server group that have this alert
+	Issue       pulumi.StringPtrInput  `pulumi:"issue"`
 	NumberOfVms pulumi.Float64PtrInput `pulumi:"numberOfVms"`
 }
 
@@ -74,7 +68,6 @@ func (i AppWhitelistingIssueSummaryResponseArray) ToAppWhitelistingIssueSummaryR
 	return pulumi.ToOutputWithContext(ctx, i).(AppWhitelistingIssueSummaryResponseArrayOutput)
 }
 
-// Represents a summary of the alerts of the VM/server group
 type AppWhitelistingIssueSummaryResponseOutput struct{ *pulumi.OutputState }
 
 func (AppWhitelistingIssueSummaryResponseOutput) ElementType() reflect.Type {
@@ -89,12 +82,10 @@ func (o AppWhitelistingIssueSummaryResponseOutput) ToAppWhitelistingIssueSummary
 	return o
 }
 
-// An alert that VMs/servers within a group can have
 func (o AppWhitelistingIssueSummaryResponseOutput) Issue() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AppWhitelistingIssueSummaryResponse) *string { return v.Issue }).(pulumi.StringPtrOutput)
 }
 
-// The number of machines in the VM/server group that have this alert
 func (o AppWhitelistingIssueSummaryResponseOutput) NumberOfVms() pulumi.Float64PtrOutput {
 	return o.ApplyT(func(v AppWhitelistingIssueSummaryResponse) *float64 { return v.NumberOfVms }).(pulumi.Float64PtrOutput)
 }
@@ -120,12 +111,9 @@ func (o AppWhitelistingIssueSummaryResponseArrayOutput) Index(i pulumi.IntInput)
 }
 
 type JitNetworkAccessPolicyVirtualMachine struct {
-	// Resource ID of the virtual machine that is linked to this policy
-	Id string `pulumi:"id"`
-	// Port configurations for the virtual machine
-	Ports []JitNetworkAccessPortRule `pulumi:"ports"`
-	// Public IP address of the Azure Firewall that is linked to this policy, if applicable
-	PublicIpAddress *string `pulumi:"publicIpAddress"`
+	Id              string                     `pulumi:"id"`
+	Ports           []JitNetworkAccessPortRule `pulumi:"ports"`
+	PublicIpAddress *string                    `pulumi:"publicIpAddress"`
 }
 
 // JitNetworkAccessPolicyVirtualMachineInput is an input type that accepts JitNetworkAccessPolicyVirtualMachineArgs and JitNetworkAccessPolicyVirtualMachineOutput values.
@@ -140,12 +128,9 @@ type JitNetworkAccessPolicyVirtualMachineInput interface {
 }
 
 type JitNetworkAccessPolicyVirtualMachineArgs struct {
-	// Resource ID of the virtual machine that is linked to this policy
-	Id pulumi.StringInput `pulumi:"id"`
-	// Port configurations for the virtual machine
-	Ports JitNetworkAccessPortRuleArrayInput `pulumi:"ports"`
-	// Public IP address of the Azure Firewall that is linked to this policy, if applicable
-	PublicIpAddress pulumi.StringPtrInput `pulumi:"publicIpAddress"`
+	Id              pulumi.StringInput                 `pulumi:"id"`
+	Ports           JitNetworkAccessPortRuleArrayInput `pulumi:"ports"`
+	PublicIpAddress pulumi.StringPtrInput              `pulumi:"publicIpAddress"`
 }
 
 func (JitNetworkAccessPolicyVirtualMachineArgs) ElementType() reflect.Type {
@@ -199,17 +184,14 @@ func (o JitNetworkAccessPolicyVirtualMachineOutput) ToJitNetworkAccessPolicyVirt
 	return o
 }
 
-// Resource ID of the virtual machine that is linked to this policy
 func (o JitNetworkAccessPolicyVirtualMachineOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v JitNetworkAccessPolicyVirtualMachine) string { return v.Id }).(pulumi.StringOutput)
 }
 
-// Port configurations for the virtual machine
 func (o JitNetworkAccessPolicyVirtualMachineOutput) Ports() JitNetworkAccessPortRuleArrayOutput {
 	return o.ApplyT(func(v JitNetworkAccessPolicyVirtualMachine) []JitNetworkAccessPortRule { return v.Ports }).(JitNetworkAccessPortRuleArrayOutput)
 }
 
-// Public IP address of the Azure Firewall that is linked to this policy, if applicable
 func (o JitNetworkAccessPolicyVirtualMachineOutput) PublicIpAddress() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v JitNetworkAccessPolicyVirtualMachine) *string { return v.PublicIpAddress }).(pulumi.StringPtrOutput)
 }
@@ -235,12 +217,9 @@ func (o JitNetworkAccessPolicyVirtualMachineArrayOutput) Index(i pulumi.IntInput
 }
 
 type JitNetworkAccessPolicyVirtualMachineResponse struct {
-	// Resource ID of the virtual machine that is linked to this policy
-	Id string `pulumi:"id"`
-	// Port configurations for the virtual machine
-	Ports []JitNetworkAccessPortRuleResponse `pulumi:"ports"`
-	// Public IP address of the Azure Firewall that is linked to this policy, if applicable
-	PublicIpAddress *string `pulumi:"publicIpAddress"`
+	Id              string                             `pulumi:"id"`
+	Ports           []JitNetworkAccessPortRuleResponse `pulumi:"ports"`
+	PublicIpAddress *string                            `pulumi:"publicIpAddress"`
 }
 
 // JitNetworkAccessPolicyVirtualMachineResponseInput is an input type that accepts JitNetworkAccessPolicyVirtualMachineResponseArgs and JitNetworkAccessPolicyVirtualMachineResponseOutput values.
@@ -255,12 +234,9 @@ type JitNetworkAccessPolicyVirtualMachineResponseInput interface {
 }
 
 type JitNetworkAccessPolicyVirtualMachineResponseArgs struct {
-	// Resource ID of the virtual machine that is linked to this policy
-	Id pulumi.StringInput `pulumi:"id"`
-	// Port configurations for the virtual machine
-	Ports JitNetworkAccessPortRuleResponseArrayInput `pulumi:"ports"`
-	// Public IP address of the Azure Firewall that is linked to this policy, if applicable
-	PublicIpAddress pulumi.StringPtrInput `pulumi:"publicIpAddress"`
+	Id              pulumi.StringInput                         `pulumi:"id"`
+	Ports           JitNetworkAccessPortRuleResponseArrayInput `pulumi:"ports"`
+	PublicIpAddress pulumi.StringPtrInput                      `pulumi:"publicIpAddress"`
 }
 
 func (JitNetworkAccessPolicyVirtualMachineResponseArgs) ElementType() reflect.Type {
@@ -314,19 +290,16 @@ func (o JitNetworkAccessPolicyVirtualMachineResponseOutput) ToJitNetworkAccessPo
 	return o
 }
 
-// Resource ID of the virtual machine that is linked to this policy
 func (o JitNetworkAccessPolicyVirtualMachineResponseOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v JitNetworkAccessPolicyVirtualMachineResponse) string { return v.Id }).(pulumi.StringOutput)
 }
 
-// Port configurations for the virtual machine
 func (o JitNetworkAccessPolicyVirtualMachineResponseOutput) Ports() JitNetworkAccessPortRuleResponseArrayOutput {
 	return o.ApplyT(func(v JitNetworkAccessPolicyVirtualMachineResponse) []JitNetworkAccessPortRuleResponse {
 		return v.Ports
 	}).(JitNetworkAccessPortRuleResponseArrayOutput)
 }
 
-// Public IP address of the Azure Firewall that is linked to this policy, if applicable
 func (o JitNetworkAccessPolicyVirtualMachineResponseOutput) PublicIpAddress() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v JitNetworkAccessPolicyVirtualMachineResponse) *string { return v.PublicIpAddress }).(pulumi.StringPtrOutput)
 }
@@ -352,14 +325,11 @@ func (o JitNetworkAccessPolicyVirtualMachineResponseArrayOutput) Index(i pulumi.
 }
 
 type JitNetworkAccessPortRule struct {
-	// Mutually exclusive with the "allowedSourceAddressPrefixes" parameter. Should be an IP address or CIDR, for example "192.168.0.3" or "192.168.0.0/16".
-	AllowedSourceAddressPrefix *string `pulumi:"allowedSourceAddressPrefix"`
-	// Mutually exclusive with the "allowedSourceAddressPrefix" parameter.
+	AllowedSourceAddressPrefix   *string  `pulumi:"allowedSourceAddressPrefix"`
 	AllowedSourceAddressPrefixes []string `pulumi:"allowedSourceAddressPrefixes"`
-	// Maximum duration requests can be made for. In ISO 8601 duration format. Minimum 5 minutes, maximum 1 day
-	MaxRequestAccessDuration string `pulumi:"maxRequestAccessDuration"`
-	Number                   int    `pulumi:"number"`
-	Protocol                 string `pulumi:"protocol"`
+	MaxRequestAccessDuration     string   `pulumi:"maxRequestAccessDuration"`
+	Number                       int      `pulumi:"number"`
+	Protocol                     string   `pulumi:"protocol"`
 }
 
 // JitNetworkAccessPortRuleInput is an input type that accepts JitNetworkAccessPortRuleArgs and JitNetworkAccessPortRuleOutput values.
@@ -374,14 +344,11 @@ type JitNetworkAccessPortRuleInput interface {
 }
 
 type JitNetworkAccessPortRuleArgs struct {
-	// Mutually exclusive with the "allowedSourceAddressPrefixes" parameter. Should be an IP address or CIDR, for example "192.168.0.3" or "192.168.0.0/16".
-	AllowedSourceAddressPrefix pulumi.StringPtrInput `pulumi:"allowedSourceAddressPrefix"`
-	// Mutually exclusive with the "allowedSourceAddressPrefix" parameter.
+	AllowedSourceAddressPrefix   pulumi.StringPtrInput   `pulumi:"allowedSourceAddressPrefix"`
 	AllowedSourceAddressPrefixes pulumi.StringArrayInput `pulumi:"allowedSourceAddressPrefixes"`
-	// Maximum duration requests can be made for. In ISO 8601 duration format. Minimum 5 minutes, maximum 1 day
-	MaxRequestAccessDuration pulumi.StringInput `pulumi:"maxRequestAccessDuration"`
-	Number                   pulumi.IntInput    `pulumi:"number"`
-	Protocol                 pulumi.StringInput `pulumi:"protocol"`
+	MaxRequestAccessDuration     pulumi.StringInput      `pulumi:"maxRequestAccessDuration"`
+	Number                       pulumi.IntInput         `pulumi:"number"`
+	Protocol                     pulumi.StringInput      `pulumi:"protocol"`
 }
 
 func (JitNetworkAccessPortRuleArgs) ElementType() reflect.Type {
@@ -435,17 +402,14 @@ func (o JitNetworkAccessPortRuleOutput) ToJitNetworkAccessPortRuleOutputWithCont
 	return o
 }
 
-// Mutually exclusive with the "allowedSourceAddressPrefixes" parameter. Should be an IP address or CIDR, for example "192.168.0.3" or "192.168.0.0/16".
 func (o JitNetworkAccessPortRuleOutput) AllowedSourceAddressPrefix() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v JitNetworkAccessPortRule) *string { return v.AllowedSourceAddressPrefix }).(pulumi.StringPtrOutput)
 }
 
-// Mutually exclusive with the "allowedSourceAddressPrefix" parameter.
 func (o JitNetworkAccessPortRuleOutput) AllowedSourceAddressPrefixes() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v JitNetworkAccessPortRule) []string { return v.AllowedSourceAddressPrefixes }).(pulumi.StringArrayOutput)
 }
 
-// Maximum duration requests can be made for. In ISO 8601 duration format. Minimum 5 minutes, maximum 1 day
 func (o JitNetworkAccessPortRuleOutput) MaxRequestAccessDuration() pulumi.StringOutput {
 	return o.ApplyT(func(v JitNetworkAccessPortRule) string { return v.MaxRequestAccessDuration }).(pulumi.StringOutput)
 }
@@ -479,14 +443,11 @@ func (o JitNetworkAccessPortRuleArrayOutput) Index(i pulumi.IntInput) JitNetwork
 }
 
 type JitNetworkAccessPortRuleResponse struct {
-	// Mutually exclusive with the "allowedSourceAddressPrefixes" parameter. Should be an IP address or CIDR, for example "192.168.0.3" or "192.168.0.0/16".
-	AllowedSourceAddressPrefix *string `pulumi:"allowedSourceAddressPrefix"`
-	// Mutually exclusive with the "allowedSourceAddressPrefix" parameter.
+	AllowedSourceAddressPrefix   *string  `pulumi:"allowedSourceAddressPrefix"`
 	AllowedSourceAddressPrefixes []string `pulumi:"allowedSourceAddressPrefixes"`
-	// Maximum duration requests can be made for. In ISO 8601 duration format. Minimum 5 minutes, maximum 1 day
-	MaxRequestAccessDuration string `pulumi:"maxRequestAccessDuration"`
-	Number                   int    `pulumi:"number"`
-	Protocol                 string `pulumi:"protocol"`
+	MaxRequestAccessDuration     string   `pulumi:"maxRequestAccessDuration"`
+	Number                       int      `pulumi:"number"`
+	Protocol                     string   `pulumi:"protocol"`
 }
 
 // JitNetworkAccessPortRuleResponseInput is an input type that accepts JitNetworkAccessPortRuleResponseArgs and JitNetworkAccessPortRuleResponseOutput values.
@@ -501,14 +462,11 @@ type JitNetworkAccessPortRuleResponseInput interface {
 }
 
 type JitNetworkAccessPortRuleResponseArgs struct {
-	// Mutually exclusive with the "allowedSourceAddressPrefixes" parameter. Should be an IP address or CIDR, for example "192.168.0.3" or "192.168.0.0/16".
-	AllowedSourceAddressPrefix pulumi.StringPtrInput `pulumi:"allowedSourceAddressPrefix"`
-	// Mutually exclusive with the "allowedSourceAddressPrefix" parameter.
+	AllowedSourceAddressPrefix   pulumi.StringPtrInput   `pulumi:"allowedSourceAddressPrefix"`
 	AllowedSourceAddressPrefixes pulumi.StringArrayInput `pulumi:"allowedSourceAddressPrefixes"`
-	// Maximum duration requests can be made for. In ISO 8601 duration format. Minimum 5 minutes, maximum 1 day
-	MaxRequestAccessDuration pulumi.StringInput `pulumi:"maxRequestAccessDuration"`
-	Number                   pulumi.IntInput    `pulumi:"number"`
-	Protocol                 pulumi.StringInput `pulumi:"protocol"`
+	MaxRequestAccessDuration     pulumi.StringInput      `pulumi:"maxRequestAccessDuration"`
+	Number                       pulumi.IntInput         `pulumi:"number"`
+	Protocol                     pulumi.StringInput      `pulumi:"protocol"`
 }
 
 func (JitNetworkAccessPortRuleResponseArgs) ElementType() reflect.Type {
@@ -562,17 +520,14 @@ func (o JitNetworkAccessPortRuleResponseOutput) ToJitNetworkAccessPortRuleRespon
 	return o
 }
 
-// Mutually exclusive with the "allowedSourceAddressPrefixes" parameter. Should be an IP address or CIDR, for example "192.168.0.3" or "192.168.0.0/16".
 func (o JitNetworkAccessPortRuleResponseOutput) AllowedSourceAddressPrefix() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v JitNetworkAccessPortRuleResponse) *string { return v.AllowedSourceAddressPrefix }).(pulumi.StringPtrOutput)
 }
 
-// Mutually exclusive with the "allowedSourceAddressPrefix" parameter.
 func (o JitNetworkAccessPortRuleResponseOutput) AllowedSourceAddressPrefixes() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v JitNetworkAccessPortRuleResponse) []string { return v.AllowedSourceAddressPrefixes }).(pulumi.StringArrayOutput)
 }
 
-// Maximum duration requests can be made for. In ISO 8601 duration format. Minimum 5 minutes, maximum 1 day
 func (o JitNetworkAccessPortRuleResponseOutput) MaxRequestAccessDuration() pulumi.StringOutput {
 	return o.ApplyT(func(v JitNetworkAccessPortRuleResponse) string { return v.MaxRequestAccessDuration }).(pulumi.StringOutput)
 }
@@ -606,11 +561,8 @@ func (o JitNetworkAccessPortRuleResponseArrayOutput) Index(i pulumi.IntInput) Ji
 }
 
 type JitNetworkAccessRequest struct {
-	// The justification for making the initiate request
-	Justification *string `pulumi:"justification"`
-	// The identity of the person who made the request
-	Requestor string `pulumi:"requestor"`
-	// The start time of the request in UTC
+	Justification   *string                                 `pulumi:"justification"`
+	Requestor       string                                  `pulumi:"requestor"`
 	StartTimeUtc    string                                  `pulumi:"startTimeUtc"`
 	VirtualMachines []JitNetworkAccessRequestVirtualMachine `pulumi:"virtualMachines"`
 }
@@ -627,11 +579,8 @@ type JitNetworkAccessRequestInput interface {
 }
 
 type JitNetworkAccessRequestArgs struct {
-	// The justification for making the initiate request
-	Justification pulumi.StringPtrInput `pulumi:"justification"`
-	// The identity of the person who made the request
-	Requestor pulumi.StringInput `pulumi:"requestor"`
-	// The start time of the request in UTC
+	Justification   pulumi.StringPtrInput                           `pulumi:"justification"`
+	Requestor       pulumi.StringInput                              `pulumi:"requestor"`
 	StartTimeUtc    pulumi.StringInput                              `pulumi:"startTimeUtc"`
 	VirtualMachines JitNetworkAccessRequestVirtualMachineArrayInput `pulumi:"virtualMachines"`
 }
@@ -687,17 +636,14 @@ func (o JitNetworkAccessRequestOutput) ToJitNetworkAccessRequestOutputWithContex
 	return o
 }
 
-// The justification for making the initiate request
 func (o JitNetworkAccessRequestOutput) Justification() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v JitNetworkAccessRequest) *string { return v.Justification }).(pulumi.StringPtrOutput)
 }
 
-// The identity of the person who made the request
 func (o JitNetworkAccessRequestOutput) Requestor() pulumi.StringOutput {
 	return o.ApplyT(func(v JitNetworkAccessRequest) string { return v.Requestor }).(pulumi.StringOutput)
 }
 
-// The start time of the request in UTC
 func (o JitNetworkAccessRequestOutput) StartTimeUtc() pulumi.StringOutput {
 	return o.ApplyT(func(v JitNetworkAccessRequest) string { return v.StartTimeUtc }).(pulumi.StringOutput)
 }
@@ -727,19 +673,13 @@ func (o JitNetworkAccessRequestArrayOutput) Index(i pulumi.IntInput) JitNetworkA
 }
 
 type JitNetworkAccessRequestPort struct {
-	// Mutually exclusive with the "allowedSourceAddressPrefixes" parameter. Should be an IP address or CIDR, for example "192.168.0.3" or "192.168.0.0/16".
-	AllowedSourceAddressPrefix *string `pulumi:"allowedSourceAddressPrefix"`
-	// Mutually exclusive with the "allowedSourceAddressPrefix" parameter.
+	AllowedSourceAddressPrefix   *string  `pulumi:"allowedSourceAddressPrefix"`
 	AllowedSourceAddressPrefixes []string `pulumi:"allowedSourceAddressPrefixes"`
-	// The date & time at which the request ends in UTC
-	EndTimeUtc string `pulumi:"endTimeUtc"`
-	// The port which is mapped to this port's `number` in the Azure Firewall, if applicable
-	MappedPort *int `pulumi:"mappedPort"`
-	Number     int  `pulumi:"number"`
-	// The status of the port
-	Status string `pulumi:"status"`
-	// A description of why the `status` has its value
-	StatusReason string `pulumi:"statusReason"`
+	EndTimeUtc                   string   `pulumi:"endTimeUtc"`
+	MappedPort                   *int     `pulumi:"mappedPort"`
+	Number                       int      `pulumi:"number"`
+	Status                       string   `pulumi:"status"`
+	StatusReason                 string   `pulumi:"statusReason"`
 }
 
 // JitNetworkAccessRequestPortInput is an input type that accepts JitNetworkAccessRequestPortArgs and JitNetworkAccessRequestPortOutput values.
@@ -754,19 +694,13 @@ type JitNetworkAccessRequestPortInput interface {
 }
 
 type JitNetworkAccessRequestPortArgs struct {
-	// Mutually exclusive with the "allowedSourceAddressPrefixes" parameter. Should be an IP address or CIDR, for example "192.168.0.3" or "192.168.0.0/16".
-	AllowedSourceAddressPrefix pulumi.StringPtrInput `pulumi:"allowedSourceAddressPrefix"`
-	// Mutually exclusive with the "allowedSourceAddressPrefix" parameter.
+	AllowedSourceAddressPrefix   pulumi.StringPtrInput   `pulumi:"allowedSourceAddressPrefix"`
 	AllowedSourceAddressPrefixes pulumi.StringArrayInput `pulumi:"allowedSourceAddressPrefixes"`
-	// The date & time at which the request ends in UTC
-	EndTimeUtc pulumi.StringInput `pulumi:"endTimeUtc"`
-	// The port which is mapped to this port's `number` in the Azure Firewall, if applicable
-	MappedPort pulumi.IntPtrInput `pulumi:"mappedPort"`
-	Number     pulumi.IntInput    `pulumi:"number"`
-	// The status of the port
-	Status pulumi.StringInput `pulumi:"status"`
-	// A description of why the `status` has its value
-	StatusReason pulumi.StringInput `pulumi:"statusReason"`
+	EndTimeUtc                   pulumi.StringInput      `pulumi:"endTimeUtc"`
+	MappedPort                   pulumi.IntPtrInput      `pulumi:"mappedPort"`
+	Number                       pulumi.IntInput         `pulumi:"number"`
+	Status                       pulumi.StringInput      `pulumi:"status"`
+	StatusReason                 pulumi.StringInput      `pulumi:"statusReason"`
 }
 
 func (JitNetworkAccessRequestPortArgs) ElementType() reflect.Type {
@@ -820,22 +754,18 @@ func (o JitNetworkAccessRequestPortOutput) ToJitNetworkAccessRequestPortOutputWi
 	return o
 }
 
-// Mutually exclusive with the "allowedSourceAddressPrefixes" parameter. Should be an IP address or CIDR, for example "192.168.0.3" or "192.168.0.0/16".
 func (o JitNetworkAccessRequestPortOutput) AllowedSourceAddressPrefix() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v JitNetworkAccessRequestPort) *string { return v.AllowedSourceAddressPrefix }).(pulumi.StringPtrOutput)
 }
 
-// Mutually exclusive with the "allowedSourceAddressPrefix" parameter.
 func (o JitNetworkAccessRequestPortOutput) AllowedSourceAddressPrefixes() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v JitNetworkAccessRequestPort) []string { return v.AllowedSourceAddressPrefixes }).(pulumi.StringArrayOutput)
 }
 
-// The date & time at which the request ends in UTC
 func (o JitNetworkAccessRequestPortOutput) EndTimeUtc() pulumi.StringOutput {
 	return o.ApplyT(func(v JitNetworkAccessRequestPort) string { return v.EndTimeUtc }).(pulumi.StringOutput)
 }
 
-// The port which is mapped to this port's `number` in the Azure Firewall, if applicable
 func (o JitNetworkAccessRequestPortOutput) MappedPort() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v JitNetworkAccessRequestPort) *int { return v.MappedPort }).(pulumi.IntPtrOutput)
 }
@@ -844,12 +774,10 @@ func (o JitNetworkAccessRequestPortOutput) Number() pulumi.IntOutput {
 	return o.ApplyT(func(v JitNetworkAccessRequestPort) int { return v.Number }).(pulumi.IntOutput)
 }
 
-// The status of the port
 func (o JitNetworkAccessRequestPortOutput) Status() pulumi.StringOutput {
 	return o.ApplyT(func(v JitNetworkAccessRequestPort) string { return v.Status }).(pulumi.StringOutput)
 }
 
-// A description of why the `status` has its value
 func (o JitNetworkAccessRequestPortOutput) StatusReason() pulumi.StringOutput {
 	return o.ApplyT(func(v JitNetworkAccessRequestPort) string { return v.StatusReason }).(pulumi.StringOutput)
 }
@@ -875,19 +803,13 @@ func (o JitNetworkAccessRequestPortArrayOutput) Index(i pulumi.IntInput) JitNetw
 }
 
 type JitNetworkAccessRequestPortResponse struct {
-	// Mutually exclusive with the "allowedSourceAddressPrefixes" parameter. Should be an IP address or CIDR, for example "192.168.0.3" or "192.168.0.0/16".
-	AllowedSourceAddressPrefix *string `pulumi:"allowedSourceAddressPrefix"`
-	// Mutually exclusive with the "allowedSourceAddressPrefix" parameter.
+	AllowedSourceAddressPrefix   *string  `pulumi:"allowedSourceAddressPrefix"`
 	AllowedSourceAddressPrefixes []string `pulumi:"allowedSourceAddressPrefixes"`
-	// The date & time at which the request ends in UTC
-	EndTimeUtc string `pulumi:"endTimeUtc"`
-	// The port which is mapped to this port's `number` in the Azure Firewall, if applicable
-	MappedPort *int `pulumi:"mappedPort"`
-	Number     int  `pulumi:"number"`
-	// The status of the port
-	Status string `pulumi:"status"`
-	// A description of why the `status` has its value
-	StatusReason string `pulumi:"statusReason"`
+	EndTimeUtc                   string   `pulumi:"endTimeUtc"`
+	MappedPort                   *int     `pulumi:"mappedPort"`
+	Number                       int      `pulumi:"number"`
+	Status                       string   `pulumi:"status"`
+	StatusReason                 string   `pulumi:"statusReason"`
 }
 
 // JitNetworkAccessRequestPortResponseInput is an input type that accepts JitNetworkAccessRequestPortResponseArgs and JitNetworkAccessRequestPortResponseOutput values.
@@ -902,19 +824,13 @@ type JitNetworkAccessRequestPortResponseInput interface {
 }
 
 type JitNetworkAccessRequestPortResponseArgs struct {
-	// Mutually exclusive with the "allowedSourceAddressPrefixes" parameter. Should be an IP address or CIDR, for example "192.168.0.3" or "192.168.0.0/16".
-	AllowedSourceAddressPrefix pulumi.StringPtrInput `pulumi:"allowedSourceAddressPrefix"`
-	// Mutually exclusive with the "allowedSourceAddressPrefix" parameter.
+	AllowedSourceAddressPrefix   pulumi.StringPtrInput   `pulumi:"allowedSourceAddressPrefix"`
 	AllowedSourceAddressPrefixes pulumi.StringArrayInput `pulumi:"allowedSourceAddressPrefixes"`
-	// The date & time at which the request ends in UTC
-	EndTimeUtc pulumi.StringInput `pulumi:"endTimeUtc"`
-	// The port which is mapped to this port's `number` in the Azure Firewall, if applicable
-	MappedPort pulumi.IntPtrInput `pulumi:"mappedPort"`
-	Number     pulumi.IntInput    `pulumi:"number"`
-	// The status of the port
-	Status pulumi.StringInput `pulumi:"status"`
-	// A description of why the `status` has its value
-	StatusReason pulumi.StringInput `pulumi:"statusReason"`
+	EndTimeUtc                   pulumi.StringInput      `pulumi:"endTimeUtc"`
+	MappedPort                   pulumi.IntPtrInput      `pulumi:"mappedPort"`
+	Number                       pulumi.IntInput         `pulumi:"number"`
+	Status                       pulumi.StringInput      `pulumi:"status"`
+	StatusReason                 pulumi.StringInput      `pulumi:"statusReason"`
 }
 
 func (JitNetworkAccessRequestPortResponseArgs) ElementType() reflect.Type {
@@ -968,22 +884,18 @@ func (o JitNetworkAccessRequestPortResponseOutput) ToJitNetworkAccessRequestPort
 	return o
 }
 
-// Mutually exclusive with the "allowedSourceAddressPrefixes" parameter. Should be an IP address or CIDR, for example "192.168.0.3" or "192.168.0.0/16".
 func (o JitNetworkAccessRequestPortResponseOutput) AllowedSourceAddressPrefix() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v JitNetworkAccessRequestPortResponse) *string { return v.AllowedSourceAddressPrefix }).(pulumi.StringPtrOutput)
 }
 
-// Mutually exclusive with the "allowedSourceAddressPrefix" parameter.
 func (o JitNetworkAccessRequestPortResponseOutput) AllowedSourceAddressPrefixes() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v JitNetworkAccessRequestPortResponse) []string { return v.AllowedSourceAddressPrefixes }).(pulumi.StringArrayOutput)
 }
 
-// The date & time at which the request ends in UTC
 func (o JitNetworkAccessRequestPortResponseOutput) EndTimeUtc() pulumi.StringOutput {
 	return o.ApplyT(func(v JitNetworkAccessRequestPortResponse) string { return v.EndTimeUtc }).(pulumi.StringOutput)
 }
 
-// The port which is mapped to this port's `number` in the Azure Firewall, if applicable
 func (o JitNetworkAccessRequestPortResponseOutput) MappedPort() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v JitNetworkAccessRequestPortResponse) *int { return v.MappedPort }).(pulumi.IntPtrOutput)
 }
@@ -992,12 +904,10 @@ func (o JitNetworkAccessRequestPortResponseOutput) Number() pulumi.IntOutput {
 	return o.ApplyT(func(v JitNetworkAccessRequestPortResponse) int { return v.Number }).(pulumi.IntOutput)
 }
 
-// The status of the port
 func (o JitNetworkAccessRequestPortResponseOutput) Status() pulumi.StringOutput {
 	return o.ApplyT(func(v JitNetworkAccessRequestPortResponse) string { return v.Status }).(pulumi.StringOutput)
 }
 
-// A description of why the `status` has its value
 func (o JitNetworkAccessRequestPortResponseOutput) StatusReason() pulumi.StringOutput {
 	return o.ApplyT(func(v JitNetworkAccessRequestPortResponse) string { return v.StatusReason }).(pulumi.StringOutput)
 }
@@ -1023,11 +933,8 @@ func (o JitNetworkAccessRequestPortResponseArrayOutput) Index(i pulumi.IntInput)
 }
 
 type JitNetworkAccessRequestResponse struct {
-	// The justification for making the initiate request
-	Justification *string `pulumi:"justification"`
-	// The identity of the person who made the request
-	Requestor string `pulumi:"requestor"`
-	// The start time of the request in UTC
+	Justification   *string                                         `pulumi:"justification"`
+	Requestor       string                                          `pulumi:"requestor"`
 	StartTimeUtc    string                                          `pulumi:"startTimeUtc"`
 	VirtualMachines []JitNetworkAccessRequestVirtualMachineResponse `pulumi:"virtualMachines"`
 }
@@ -1044,11 +951,8 @@ type JitNetworkAccessRequestResponseInput interface {
 }
 
 type JitNetworkAccessRequestResponseArgs struct {
-	// The justification for making the initiate request
-	Justification pulumi.StringPtrInput `pulumi:"justification"`
-	// The identity of the person who made the request
-	Requestor pulumi.StringInput `pulumi:"requestor"`
-	// The start time of the request in UTC
+	Justification   pulumi.StringPtrInput                                   `pulumi:"justification"`
+	Requestor       pulumi.StringInput                                      `pulumi:"requestor"`
 	StartTimeUtc    pulumi.StringInput                                      `pulumi:"startTimeUtc"`
 	VirtualMachines JitNetworkAccessRequestVirtualMachineResponseArrayInput `pulumi:"virtualMachines"`
 }
@@ -1104,17 +1008,14 @@ func (o JitNetworkAccessRequestResponseOutput) ToJitNetworkAccessRequestResponse
 	return o
 }
 
-// The justification for making the initiate request
 func (o JitNetworkAccessRequestResponseOutput) Justification() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v JitNetworkAccessRequestResponse) *string { return v.Justification }).(pulumi.StringPtrOutput)
 }
 
-// The identity of the person who made the request
 func (o JitNetworkAccessRequestResponseOutput) Requestor() pulumi.StringOutput {
 	return o.ApplyT(func(v JitNetworkAccessRequestResponse) string { return v.Requestor }).(pulumi.StringOutput)
 }
 
-// The start time of the request in UTC
 func (o JitNetworkAccessRequestResponseOutput) StartTimeUtc() pulumi.StringOutput {
 	return o.ApplyT(func(v JitNetworkAccessRequestResponse) string { return v.StartTimeUtc }).(pulumi.StringOutput)
 }
@@ -1146,9 +1047,7 @@ func (o JitNetworkAccessRequestResponseArrayOutput) Index(i pulumi.IntInput) Jit
 }
 
 type JitNetworkAccessRequestVirtualMachine struct {
-	// Resource ID of the virtual machine that is linked to this policy
-	Id string `pulumi:"id"`
-	// The ports that were opened for the virtual machine
+	Id    string                        `pulumi:"id"`
 	Ports []JitNetworkAccessRequestPort `pulumi:"ports"`
 }
 
@@ -1164,9 +1063,7 @@ type JitNetworkAccessRequestVirtualMachineInput interface {
 }
 
 type JitNetworkAccessRequestVirtualMachineArgs struct {
-	// Resource ID of the virtual machine that is linked to this policy
-	Id pulumi.StringInput `pulumi:"id"`
-	// The ports that were opened for the virtual machine
+	Id    pulumi.StringInput                    `pulumi:"id"`
 	Ports JitNetworkAccessRequestPortArrayInput `pulumi:"ports"`
 }
 
@@ -1221,12 +1118,10 @@ func (o JitNetworkAccessRequestVirtualMachineOutput) ToJitNetworkAccessRequestVi
 	return o
 }
 
-// Resource ID of the virtual machine that is linked to this policy
 func (o JitNetworkAccessRequestVirtualMachineOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v JitNetworkAccessRequestVirtualMachine) string { return v.Id }).(pulumi.StringOutput)
 }
 
-// The ports that were opened for the virtual machine
 func (o JitNetworkAccessRequestVirtualMachineOutput) Ports() JitNetworkAccessRequestPortArrayOutput {
 	return o.ApplyT(func(v JitNetworkAccessRequestVirtualMachine) []JitNetworkAccessRequestPort { return v.Ports }).(JitNetworkAccessRequestPortArrayOutput)
 }
@@ -1252,9 +1147,7 @@ func (o JitNetworkAccessRequestVirtualMachineArrayOutput) Index(i pulumi.IntInpu
 }
 
 type JitNetworkAccessRequestVirtualMachineResponse struct {
-	// Resource ID of the virtual machine that is linked to this policy
-	Id string `pulumi:"id"`
-	// The ports that were opened for the virtual machine
+	Id    string                                `pulumi:"id"`
 	Ports []JitNetworkAccessRequestPortResponse `pulumi:"ports"`
 }
 
@@ -1270,9 +1163,7 @@ type JitNetworkAccessRequestVirtualMachineResponseInput interface {
 }
 
 type JitNetworkAccessRequestVirtualMachineResponseArgs struct {
-	// Resource ID of the virtual machine that is linked to this policy
-	Id pulumi.StringInput `pulumi:"id"`
-	// The ports that were opened for the virtual machine
+	Id    pulumi.StringInput                            `pulumi:"id"`
 	Ports JitNetworkAccessRequestPortResponseArrayInput `pulumi:"ports"`
 }
 
@@ -1327,12 +1218,10 @@ func (o JitNetworkAccessRequestVirtualMachineResponseOutput) ToJitNetworkAccessR
 	return o
 }
 
-// Resource ID of the virtual machine that is linked to this policy
 func (o JitNetworkAccessRequestVirtualMachineResponseOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v JitNetworkAccessRequestVirtualMachineResponse) string { return v.Id }).(pulumi.StringOutput)
 }
 
-// The ports that were opened for the virtual machine
 func (o JitNetworkAccessRequestVirtualMachineResponseOutput) Ports() JitNetworkAccessRequestPortResponseArrayOutput {
 	return o.ApplyT(func(v JitNetworkAccessRequestVirtualMachineResponse) []JitNetworkAccessRequestPortResponse {
 		return v.Ports
@@ -1359,24 +1248,16 @@ func (o JitNetworkAccessRequestVirtualMachineResponseArrayOutput) Index(i pulumi
 	}).(JitNetworkAccessRequestVirtualMachineResponseOutput)
 }
 
-// Represents a path that is recommended to be allowed and its properties
 type PathRecommendation struct {
-	// The recommendation action of the VM/server or rule
-	Action *string `pulumi:"action"`
-	// Whether the path is commonly run on the machine
-	Common *bool `pulumi:"common"`
-	// The configuration status of the VM/server group or machine or rule on the machine
-	ConfigurationStatus *string `pulumi:"configurationStatus"`
-	// The type of the file (for Linux files - Executable is used)
-	FileType *string `pulumi:"fileType"`
-	// The full path to whitelist
-	Path *string `pulumi:"path"`
-	// Represents the publisher information of a process/rule
-	PublisherInfo *PublisherInfo `pulumi:"publisherInfo"`
-	// The type of the rule to be allowed
-	Type      *string              `pulumi:"type"`
-	UserSids  []string             `pulumi:"userSids"`
-	Usernames []UserRecommendation `pulumi:"usernames"`
+	Action              *string              `pulumi:"action"`
+	Common              *bool                `pulumi:"common"`
+	ConfigurationStatus *string              `pulumi:"configurationStatus"`
+	FileType            *string              `pulumi:"fileType"`
+	Path                *string              `pulumi:"path"`
+	PublisherInfo       *PublisherInfo       `pulumi:"publisherInfo"`
+	Type                *string              `pulumi:"type"`
+	UserSids            []string             `pulumi:"userSids"`
+	Usernames           []UserRecommendation `pulumi:"usernames"`
 }
 
 // PathRecommendationInput is an input type that accepts PathRecommendationArgs and PathRecommendationOutput values.
@@ -1390,24 +1271,16 @@ type PathRecommendationInput interface {
 	ToPathRecommendationOutputWithContext(context.Context) PathRecommendationOutput
 }
 
-// Represents a path that is recommended to be allowed and its properties
 type PathRecommendationArgs struct {
-	// The recommendation action of the VM/server or rule
-	Action pulumi.StringPtrInput `pulumi:"action"`
-	// Whether the path is commonly run on the machine
-	Common pulumi.BoolPtrInput `pulumi:"common"`
-	// The configuration status of the VM/server group or machine or rule on the machine
-	ConfigurationStatus pulumi.StringPtrInput `pulumi:"configurationStatus"`
-	// The type of the file (for Linux files - Executable is used)
-	FileType pulumi.StringPtrInput `pulumi:"fileType"`
-	// The full path to whitelist
-	Path pulumi.StringPtrInput `pulumi:"path"`
-	// Represents the publisher information of a process/rule
-	PublisherInfo PublisherInfoPtrInput `pulumi:"publisherInfo"`
-	// The type of the rule to be allowed
-	Type      pulumi.StringPtrInput        `pulumi:"type"`
-	UserSids  pulumi.StringArrayInput      `pulumi:"userSids"`
-	Usernames UserRecommendationArrayInput `pulumi:"usernames"`
+	Action              pulumi.StringPtrInput        `pulumi:"action"`
+	Common              pulumi.BoolPtrInput          `pulumi:"common"`
+	ConfigurationStatus pulumi.StringPtrInput        `pulumi:"configurationStatus"`
+	FileType            pulumi.StringPtrInput        `pulumi:"fileType"`
+	Path                pulumi.StringPtrInput        `pulumi:"path"`
+	PublisherInfo       PublisherInfoPtrInput        `pulumi:"publisherInfo"`
+	Type                pulumi.StringPtrInput        `pulumi:"type"`
+	UserSids            pulumi.StringArrayInput      `pulumi:"userSids"`
+	Usernames           UserRecommendationArrayInput `pulumi:"usernames"`
 }
 
 func (PathRecommendationArgs) ElementType() reflect.Type {
@@ -1447,7 +1320,6 @@ func (i PathRecommendationArray) ToPathRecommendationArrayOutputWithContext(ctx 
 	return pulumi.ToOutputWithContext(ctx, i).(PathRecommendationArrayOutput)
 }
 
-// Represents a path that is recommended to be allowed and its properties
 type PathRecommendationOutput struct{ *pulumi.OutputState }
 
 func (PathRecommendationOutput) ElementType() reflect.Type {
@@ -1462,37 +1334,30 @@ func (o PathRecommendationOutput) ToPathRecommendationOutputWithContext(ctx cont
 	return o
 }
 
-// The recommendation action of the VM/server or rule
 func (o PathRecommendationOutput) Action() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v PathRecommendation) *string { return v.Action }).(pulumi.StringPtrOutput)
 }
 
-// Whether the path is commonly run on the machine
 func (o PathRecommendationOutput) Common() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v PathRecommendation) *bool { return v.Common }).(pulumi.BoolPtrOutput)
 }
 
-// The configuration status of the VM/server group or machine or rule on the machine
 func (o PathRecommendationOutput) ConfigurationStatus() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v PathRecommendation) *string { return v.ConfigurationStatus }).(pulumi.StringPtrOutput)
 }
 
-// The type of the file (for Linux files - Executable is used)
 func (o PathRecommendationOutput) FileType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v PathRecommendation) *string { return v.FileType }).(pulumi.StringPtrOutput)
 }
 
-// The full path to whitelist
 func (o PathRecommendationOutput) Path() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v PathRecommendation) *string { return v.Path }).(pulumi.StringPtrOutput)
 }
 
-// Represents the publisher information of a process/rule
 func (o PathRecommendationOutput) PublisherInfo() PublisherInfoPtrOutput {
 	return o.ApplyT(func(v PathRecommendation) *PublisherInfo { return v.PublisherInfo }).(PublisherInfoPtrOutput)
 }
 
-// The type of the rule to be allowed
 func (o PathRecommendationOutput) Type() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v PathRecommendation) *string { return v.Type }).(pulumi.StringPtrOutput)
 }
@@ -1525,24 +1390,16 @@ func (o PathRecommendationArrayOutput) Index(i pulumi.IntInput) PathRecommendati
 	}).(PathRecommendationOutput)
 }
 
-// Represents a path that is recommended to be allowed and its properties
 type PathRecommendationResponse struct {
-	// The recommendation action of the VM/server or rule
-	Action *string `pulumi:"action"`
-	// Whether the path is commonly run on the machine
-	Common *bool `pulumi:"common"`
-	// The configuration status of the VM/server group or machine or rule on the machine
-	ConfigurationStatus *string `pulumi:"configurationStatus"`
-	// The type of the file (for Linux files - Executable is used)
-	FileType *string `pulumi:"fileType"`
-	// The full path to whitelist
-	Path *string `pulumi:"path"`
-	// Represents the publisher information of a process/rule
-	PublisherInfo *PublisherInfoResponse `pulumi:"publisherInfo"`
-	// The type of the rule to be allowed
-	Type      *string                      `pulumi:"type"`
-	UserSids  []string                     `pulumi:"userSids"`
-	Usernames []UserRecommendationResponse `pulumi:"usernames"`
+	Action              *string                      `pulumi:"action"`
+	Common              *bool                        `pulumi:"common"`
+	ConfigurationStatus *string                      `pulumi:"configurationStatus"`
+	FileType            *string                      `pulumi:"fileType"`
+	Path                *string                      `pulumi:"path"`
+	PublisherInfo       *PublisherInfoResponse       `pulumi:"publisherInfo"`
+	Type                *string                      `pulumi:"type"`
+	UserSids            []string                     `pulumi:"userSids"`
+	Usernames           []UserRecommendationResponse `pulumi:"usernames"`
 }
 
 // PathRecommendationResponseInput is an input type that accepts PathRecommendationResponseArgs and PathRecommendationResponseOutput values.
@@ -1556,24 +1413,16 @@ type PathRecommendationResponseInput interface {
 	ToPathRecommendationResponseOutputWithContext(context.Context) PathRecommendationResponseOutput
 }
 
-// Represents a path that is recommended to be allowed and its properties
 type PathRecommendationResponseArgs struct {
-	// The recommendation action of the VM/server or rule
-	Action pulumi.StringPtrInput `pulumi:"action"`
-	// Whether the path is commonly run on the machine
-	Common pulumi.BoolPtrInput `pulumi:"common"`
-	// The configuration status of the VM/server group or machine or rule on the machine
-	ConfigurationStatus pulumi.StringPtrInput `pulumi:"configurationStatus"`
-	// The type of the file (for Linux files - Executable is used)
-	FileType pulumi.StringPtrInput `pulumi:"fileType"`
-	// The full path to whitelist
-	Path pulumi.StringPtrInput `pulumi:"path"`
-	// Represents the publisher information of a process/rule
-	PublisherInfo PublisherInfoResponsePtrInput `pulumi:"publisherInfo"`
-	// The type of the rule to be allowed
-	Type      pulumi.StringPtrInput                `pulumi:"type"`
-	UserSids  pulumi.StringArrayInput              `pulumi:"userSids"`
-	Usernames UserRecommendationResponseArrayInput `pulumi:"usernames"`
+	Action              pulumi.StringPtrInput                `pulumi:"action"`
+	Common              pulumi.BoolPtrInput                  `pulumi:"common"`
+	ConfigurationStatus pulumi.StringPtrInput                `pulumi:"configurationStatus"`
+	FileType            pulumi.StringPtrInput                `pulumi:"fileType"`
+	Path                pulumi.StringPtrInput                `pulumi:"path"`
+	PublisherInfo       PublisherInfoResponsePtrInput        `pulumi:"publisherInfo"`
+	Type                pulumi.StringPtrInput                `pulumi:"type"`
+	UserSids            pulumi.StringArrayInput              `pulumi:"userSids"`
+	Usernames           UserRecommendationResponseArrayInput `pulumi:"usernames"`
 }
 
 func (PathRecommendationResponseArgs) ElementType() reflect.Type {
@@ -1613,7 +1462,6 @@ func (i PathRecommendationResponseArray) ToPathRecommendationResponseArrayOutput
 	return pulumi.ToOutputWithContext(ctx, i).(PathRecommendationResponseArrayOutput)
 }
 
-// Represents a path that is recommended to be allowed and its properties
 type PathRecommendationResponseOutput struct{ *pulumi.OutputState }
 
 func (PathRecommendationResponseOutput) ElementType() reflect.Type {
@@ -1628,37 +1476,30 @@ func (o PathRecommendationResponseOutput) ToPathRecommendationResponseOutputWith
 	return o
 }
 
-// The recommendation action of the VM/server or rule
 func (o PathRecommendationResponseOutput) Action() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v PathRecommendationResponse) *string { return v.Action }).(pulumi.StringPtrOutput)
 }
 
-// Whether the path is commonly run on the machine
 func (o PathRecommendationResponseOutput) Common() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v PathRecommendationResponse) *bool { return v.Common }).(pulumi.BoolPtrOutput)
 }
 
-// The configuration status of the VM/server group or machine or rule on the machine
 func (o PathRecommendationResponseOutput) ConfigurationStatus() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v PathRecommendationResponse) *string { return v.ConfigurationStatus }).(pulumi.StringPtrOutput)
 }
 
-// The type of the file (for Linux files - Executable is used)
 func (o PathRecommendationResponseOutput) FileType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v PathRecommendationResponse) *string { return v.FileType }).(pulumi.StringPtrOutput)
 }
 
-// The full path to whitelist
 func (o PathRecommendationResponseOutput) Path() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v PathRecommendationResponse) *string { return v.Path }).(pulumi.StringPtrOutput)
 }
 
-// Represents the publisher information of a process/rule
 func (o PathRecommendationResponseOutput) PublisherInfo() PublisherInfoResponsePtrOutput {
 	return o.ApplyT(func(v PathRecommendationResponse) *PublisherInfoResponse { return v.PublisherInfo }).(PublisherInfoResponsePtrOutput)
 }
 
-// The type of the rule to be allowed
 func (o PathRecommendationResponseOutput) Type() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v PathRecommendationResponse) *string { return v.Type }).(pulumi.StringPtrOutput)
 }
@@ -1691,16 +1532,11 @@ func (o PathRecommendationResponseArrayOutput) Index(i pulumi.IntInput) PathReco
 	}).(PathRecommendationResponseOutput)
 }
 
-// The protection mode of the collection/file types. Exe/Msi/Script are used for Windows, Executable is used for Linux.
 type ProtectionMode struct {
-	// The application control policy enforcement/protection mode of the VM/server group
-	Exe *string `pulumi:"exe"`
-	// The application control policy enforcement/protection mode of the VM/server group
+	Exe        *string `pulumi:"exe"`
 	Executable *string `pulumi:"executable"`
-	// The application control policy enforcement/protection mode of the VM/server group
-	Msi *string `pulumi:"msi"`
-	// The application control policy enforcement/protection mode of the VM/server group
-	Script *string `pulumi:"script"`
+	Msi        *string `pulumi:"msi"`
+	Script     *string `pulumi:"script"`
 }
 
 // ProtectionModeInput is an input type that accepts ProtectionModeArgs and ProtectionModeOutput values.
@@ -1714,16 +1550,11 @@ type ProtectionModeInput interface {
 	ToProtectionModeOutputWithContext(context.Context) ProtectionModeOutput
 }
 
-// The protection mode of the collection/file types. Exe/Msi/Script are used for Windows, Executable is used for Linux.
 type ProtectionModeArgs struct {
-	// The application control policy enforcement/protection mode of the VM/server group
-	Exe pulumi.StringPtrInput `pulumi:"exe"`
-	// The application control policy enforcement/protection mode of the VM/server group
+	Exe        pulumi.StringPtrInput `pulumi:"exe"`
 	Executable pulumi.StringPtrInput `pulumi:"executable"`
-	// The application control policy enforcement/protection mode of the VM/server group
-	Msi pulumi.StringPtrInput `pulumi:"msi"`
-	// The application control policy enforcement/protection mode of the VM/server group
-	Script pulumi.StringPtrInput `pulumi:"script"`
+	Msi        pulumi.StringPtrInput `pulumi:"msi"`
+	Script     pulumi.StringPtrInput `pulumi:"script"`
 }
 
 func (ProtectionModeArgs) ElementType() reflect.Type {
@@ -1779,7 +1610,6 @@ func (i *protectionModePtrType) ToProtectionModePtrOutputWithContext(ctx context
 	return pulumi.ToOutputWithContext(ctx, i).(ProtectionModePtrOutput)
 }
 
-// The protection mode of the collection/file types. Exe/Msi/Script are used for Windows, Executable is used for Linux.
 type ProtectionModeOutput struct{ *pulumi.OutputState }
 
 func (ProtectionModeOutput) ElementType() reflect.Type {
@@ -1799,27 +1629,23 @@ func (o ProtectionModeOutput) ToProtectionModePtrOutput() ProtectionModePtrOutpu
 }
 
 func (o ProtectionModeOutput) ToProtectionModePtrOutputWithContext(ctx context.Context) ProtectionModePtrOutput {
-	return o.ApplyT(func(v ProtectionMode) *ProtectionMode {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ProtectionMode) *ProtectionMode {
 		return &v
 	}).(ProtectionModePtrOutput)
 }
 
-// The application control policy enforcement/protection mode of the VM/server group
 func (o ProtectionModeOutput) Exe() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ProtectionMode) *string { return v.Exe }).(pulumi.StringPtrOutput)
 }
 
-// The application control policy enforcement/protection mode of the VM/server group
 func (o ProtectionModeOutput) Executable() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ProtectionMode) *string { return v.Executable }).(pulumi.StringPtrOutput)
 }
 
-// The application control policy enforcement/protection mode of the VM/server group
 func (o ProtectionModeOutput) Msi() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ProtectionMode) *string { return v.Msi }).(pulumi.StringPtrOutput)
 }
 
-// The application control policy enforcement/protection mode of the VM/server group
 func (o ProtectionModeOutput) Script() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ProtectionMode) *string { return v.Script }).(pulumi.StringPtrOutput)
 }
@@ -1839,10 +1665,15 @@ func (o ProtectionModePtrOutput) ToProtectionModePtrOutputWithContext(ctx contex
 }
 
 func (o ProtectionModePtrOutput) Elem() ProtectionModeOutput {
-	return o.ApplyT(func(v *ProtectionMode) ProtectionMode { return *v }).(ProtectionModeOutput)
+	return o.ApplyT(func(v *ProtectionMode) ProtectionMode {
+		if v != nil {
+			return *v
+		}
+		var ret ProtectionMode
+		return ret
+	}).(ProtectionModeOutput)
 }
 
-// The application control policy enforcement/protection mode of the VM/server group
 func (o ProtectionModePtrOutput) Exe() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ProtectionMode) *string {
 		if v == nil {
@@ -1852,7 +1683,6 @@ func (o ProtectionModePtrOutput) Exe() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The application control policy enforcement/protection mode of the VM/server group
 func (o ProtectionModePtrOutput) Executable() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ProtectionMode) *string {
 		if v == nil {
@@ -1862,7 +1692,6 @@ func (o ProtectionModePtrOutput) Executable() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The application control policy enforcement/protection mode of the VM/server group
 func (o ProtectionModePtrOutput) Msi() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ProtectionMode) *string {
 		if v == nil {
@@ -1872,7 +1701,6 @@ func (o ProtectionModePtrOutput) Msi() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The application control policy enforcement/protection mode of the VM/server group
 func (o ProtectionModePtrOutput) Script() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ProtectionMode) *string {
 		if v == nil {
@@ -1882,16 +1710,11 @@ func (o ProtectionModePtrOutput) Script() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The protection mode of the collection/file types. Exe/Msi/Script are used for Windows, Executable is used for Linux.
 type ProtectionModeResponse struct {
-	// The application control policy enforcement/protection mode of the VM/server group
-	Exe *string `pulumi:"exe"`
-	// The application control policy enforcement/protection mode of the VM/server group
+	Exe        *string `pulumi:"exe"`
 	Executable *string `pulumi:"executable"`
-	// The application control policy enforcement/protection mode of the VM/server group
-	Msi *string `pulumi:"msi"`
-	// The application control policy enforcement/protection mode of the VM/server group
-	Script *string `pulumi:"script"`
+	Msi        *string `pulumi:"msi"`
+	Script     *string `pulumi:"script"`
 }
 
 // ProtectionModeResponseInput is an input type that accepts ProtectionModeResponseArgs and ProtectionModeResponseOutput values.
@@ -1905,16 +1728,11 @@ type ProtectionModeResponseInput interface {
 	ToProtectionModeResponseOutputWithContext(context.Context) ProtectionModeResponseOutput
 }
 
-// The protection mode of the collection/file types. Exe/Msi/Script are used for Windows, Executable is used for Linux.
 type ProtectionModeResponseArgs struct {
-	// The application control policy enforcement/protection mode of the VM/server group
-	Exe pulumi.StringPtrInput `pulumi:"exe"`
-	// The application control policy enforcement/protection mode of the VM/server group
+	Exe        pulumi.StringPtrInput `pulumi:"exe"`
 	Executable pulumi.StringPtrInput `pulumi:"executable"`
-	// The application control policy enforcement/protection mode of the VM/server group
-	Msi pulumi.StringPtrInput `pulumi:"msi"`
-	// The application control policy enforcement/protection mode of the VM/server group
-	Script pulumi.StringPtrInput `pulumi:"script"`
+	Msi        pulumi.StringPtrInput `pulumi:"msi"`
+	Script     pulumi.StringPtrInput `pulumi:"script"`
 }
 
 func (ProtectionModeResponseArgs) ElementType() reflect.Type {
@@ -1970,7 +1788,6 @@ func (i *protectionModeResponsePtrType) ToProtectionModeResponsePtrOutputWithCon
 	return pulumi.ToOutputWithContext(ctx, i).(ProtectionModeResponsePtrOutput)
 }
 
-// The protection mode of the collection/file types. Exe/Msi/Script are used for Windows, Executable is used for Linux.
 type ProtectionModeResponseOutput struct{ *pulumi.OutputState }
 
 func (ProtectionModeResponseOutput) ElementType() reflect.Type {
@@ -1990,27 +1807,23 @@ func (o ProtectionModeResponseOutput) ToProtectionModeResponsePtrOutput() Protec
 }
 
 func (o ProtectionModeResponseOutput) ToProtectionModeResponsePtrOutputWithContext(ctx context.Context) ProtectionModeResponsePtrOutput {
-	return o.ApplyT(func(v ProtectionModeResponse) *ProtectionModeResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ProtectionModeResponse) *ProtectionModeResponse {
 		return &v
 	}).(ProtectionModeResponsePtrOutput)
 }
 
-// The application control policy enforcement/protection mode of the VM/server group
 func (o ProtectionModeResponseOutput) Exe() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ProtectionModeResponse) *string { return v.Exe }).(pulumi.StringPtrOutput)
 }
 
-// The application control policy enforcement/protection mode of the VM/server group
 func (o ProtectionModeResponseOutput) Executable() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ProtectionModeResponse) *string { return v.Executable }).(pulumi.StringPtrOutput)
 }
 
-// The application control policy enforcement/protection mode of the VM/server group
 func (o ProtectionModeResponseOutput) Msi() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ProtectionModeResponse) *string { return v.Msi }).(pulumi.StringPtrOutput)
 }
 
-// The application control policy enforcement/protection mode of the VM/server group
 func (o ProtectionModeResponseOutput) Script() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ProtectionModeResponse) *string { return v.Script }).(pulumi.StringPtrOutput)
 }
@@ -2030,10 +1843,15 @@ func (o ProtectionModeResponsePtrOutput) ToProtectionModeResponsePtrOutputWithCo
 }
 
 func (o ProtectionModeResponsePtrOutput) Elem() ProtectionModeResponseOutput {
-	return o.ApplyT(func(v *ProtectionModeResponse) ProtectionModeResponse { return *v }).(ProtectionModeResponseOutput)
+	return o.ApplyT(func(v *ProtectionModeResponse) ProtectionModeResponse {
+		if v != nil {
+			return *v
+		}
+		var ret ProtectionModeResponse
+		return ret
+	}).(ProtectionModeResponseOutput)
 }
 
-// The application control policy enforcement/protection mode of the VM/server group
 func (o ProtectionModeResponsePtrOutput) Exe() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ProtectionModeResponse) *string {
 		if v == nil {
@@ -2043,7 +1861,6 @@ func (o ProtectionModeResponsePtrOutput) Exe() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The application control policy enforcement/protection mode of the VM/server group
 func (o ProtectionModeResponsePtrOutput) Executable() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ProtectionModeResponse) *string {
 		if v == nil {
@@ -2053,7 +1870,6 @@ func (o ProtectionModeResponsePtrOutput) Executable() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The application control policy enforcement/protection mode of the VM/server group
 func (o ProtectionModeResponsePtrOutput) Msi() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ProtectionModeResponse) *string {
 		if v == nil {
@@ -2063,7 +1879,6 @@ func (o ProtectionModeResponsePtrOutput) Msi() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The application control policy enforcement/protection mode of the VM/server group
 func (o ProtectionModeResponsePtrOutput) Script() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ProtectionModeResponse) *string {
 		if v == nil {
@@ -2073,16 +1888,11 @@ func (o ProtectionModeResponsePtrOutput) Script() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Represents the publisher information of a process/rule
 type PublisherInfo struct {
-	// The "OriginalName" field taken from the file's version resource
-	BinaryName *string `pulumi:"binaryName"`
-	// The product name taken from the file's version resource
-	ProductName *string `pulumi:"productName"`
-	// The Subject field of the x.509 certificate used to sign the code, using the following fields -  O = Organization, L = Locality, S = State or Province, and C = Country
+	BinaryName    *string `pulumi:"binaryName"`
+	ProductName   *string `pulumi:"productName"`
 	PublisherName *string `pulumi:"publisherName"`
-	// The binary file version taken from the file's version resource
-	Version *string `pulumi:"version"`
+	Version       *string `pulumi:"version"`
 }
 
 // PublisherInfoInput is an input type that accepts PublisherInfoArgs and PublisherInfoOutput values.
@@ -2096,16 +1906,11 @@ type PublisherInfoInput interface {
 	ToPublisherInfoOutputWithContext(context.Context) PublisherInfoOutput
 }
 
-// Represents the publisher information of a process/rule
 type PublisherInfoArgs struct {
-	// The "OriginalName" field taken from the file's version resource
-	BinaryName pulumi.StringPtrInput `pulumi:"binaryName"`
-	// The product name taken from the file's version resource
-	ProductName pulumi.StringPtrInput `pulumi:"productName"`
-	// The Subject field of the x.509 certificate used to sign the code, using the following fields -  O = Organization, L = Locality, S = State or Province, and C = Country
+	BinaryName    pulumi.StringPtrInput `pulumi:"binaryName"`
+	ProductName   pulumi.StringPtrInput `pulumi:"productName"`
 	PublisherName pulumi.StringPtrInput `pulumi:"publisherName"`
-	// The binary file version taken from the file's version resource
-	Version pulumi.StringPtrInput `pulumi:"version"`
+	Version       pulumi.StringPtrInput `pulumi:"version"`
 }
 
 func (PublisherInfoArgs) ElementType() reflect.Type {
@@ -2161,7 +1966,6 @@ func (i *publisherInfoPtrType) ToPublisherInfoPtrOutputWithContext(ctx context.C
 	return pulumi.ToOutputWithContext(ctx, i).(PublisherInfoPtrOutput)
 }
 
-// Represents the publisher information of a process/rule
 type PublisherInfoOutput struct{ *pulumi.OutputState }
 
 func (PublisherInfoOutput) ElementType() reflect.Type {
@@ -2181,27 +1985,23 @@ func (o PublisherInfoOutput) ToPublisherInfoPtrOutput() PublisherInfoPtrOutput {
 }
 
 func (o PublisherInfoOutput) ToPublisherInfoPtrOutputWithContext(ctx context.Context) PublisherInfoPtrOutput {
-	return o.ApplyT(func(v PublisherInfo) *PublisherInfo {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v PublisherInfo) *PublisherInfo {
 		return &v
 	}).(PublisherInfoPtrOutput)
 }
 
-// The "OriginalName" field taken from the file's version resource
 func (o PublisherInfoOutput) BinaryName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v PublisherInfo) *string { return v.BinaryName }).(pulumi.StringPtrOutput)
 }
 
-// The product name taken from the file's version resource
 func (o PublisherInfoOutput) ProductName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v PublisherInfo) *string { return v.ProductName }).(pulumi.StringPtrOutput)
 }
 
-// The Subject field of the x.509 certificate used to sign the code, using the following fields -  O = Organization, L = Locality, S = State or Province, and C = Country
 func (o PublisherInfoOutput) PublisherName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v PublisherInfo) *string { return v.PublisherName }).(pulumi.StringPtrOutput)
 }
 
-// The binary file version taken from the file's version resource
 func (o PublisherInfoOutput) Version() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v PublisherInfo) *string { return v.Version }).(pulumi.StringPtrOutput)
 }
@@ -2221,10 +2021,15 @@ func (o PublisherInfoPtrOutput) ToPublisherInfoPtrOutputWithContext(ctx context.
 }
 
 func (o PublisherInfoPtrOutput) Elem() PublisherInfoOutput {
-	return o.ApplyT(func(v *PublisherInfo) PublisherInfo { return *v }).(PublisherInfoOutput)
+	return o.ApplyT(func(v *PublisherInfo) PublisherInfo {
+		if v != nil {
+			return *v
+		}
+		var ret PublisherInfo
+		return ret
+	}).(PublisherInfoOutput)
 }
 
-// The "OriginalName" field taken from the file's version resource
 func (o PublisherInfoPtrOutput) BinaryName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *PublisherInfo) *string {
 		if v == nil {
@@ -2234,7 +2039,6 @@ func (o PublisherInfoPtrOutput) BinaryName() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The product name taken from the file's version resource
 func (o PublisherInfoPtrOutput) ProductName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *PublisherInfo) *string {
 		if v == nil {
@@ -2244,7 +2048,6 @@ func (o PublisherInfoPtrOutput) ProductName() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The Subject field of the x.509 certificate used to sign the code, using the following fields -  O = Organization, L = Locality, S = State or Province, and C = Country
 func (o PublisherInfoPtrOutput) PublisherName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *PublisherInfo) *string {
 		if v == nil {
@@ -2254,7 +2057,6 @@ func (o PublisherInfoPtrOutput) PublisherName() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The binary file version taken from the file's version resource
 func (o PublisherInfoPtrOutput) Version() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *PublisherInfo) *string {
 		if v == nil {
@@ -2264,16 +2066,11 @@ func (o PublisherInfoPtrOutput) Version() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Represents the publisher information of a process/rule
 type PublisherInfoResponse struct {
-	// The "OriginalName" field taken from the file's version resource
-	BinaryName *string `pulumi:"binaryName"`
-	// The product name taken from the file's version resource
-	ProductName *string `pulumi:"productName"`
-	// The Subject field of the x.509 certificate used to sign the code, using the following fields -  O = Organization, L = Locality, S = State or Province, and C = Country
+	BinaryName    *string `pulumi:"binaryName"`
+	ProductName   *string `pulumi:"productName"`
 	PublisherName *string `pulumi:"publisherName"`
-	// The binary file version taken from the file's version resource
-	Version *string `pulumi:"version"`
+	Version       *string `pulumi:"version"`
 }
 
 // PublisherInfoResponseInput is an input type that accepts PublisherInfoResponseArgs and PublisherInfoResponseOutput values.
@@ -2287,16 +2084,11 @@ type PublisherInfoResponseInput interface {
 	ToPublisherInfoResponseOutputWithContext(context.Context) PublisherInfoResponseOutput
 }
 
-// Represents the publisher information of a process/rule
 type PublisherInfoResponseArgs struct {
-	// The "OriginalName" field taken from the file's version resource
-	BinaryName pulumi.StringPtrInput `pulumi:"binaryName"`
-	// The product name taken from the file's version resource
-	ProductName pulumi.StringPtrInput `pulumi:"productName"`
-	// The Subject field of the x.509 certificate used to sign the code, using the following fields -  O = Organization, L = Locality, S = State or Province, and C = Country
+	BinaryName    pulumi.StringPtrInput `pulumi:"binaryName"`
+	ProductName   pulumi.StringPtrInput `pulumi:"productName"`
 	PublisherName pulumi.StringPtrInput `pulumi:"publisherName"`
-	// The binary file version taken from the file's version resource
-	Version pulumi.StringPtrInput `pulumi:"version"`
+	Version       pulumi.StringPtrInput `pulumi:"version"`
 }
 
 func (PublisherInfoResponseArgs) ElementType() reflect.Type {
@@ -2352,7 +2144,6 @@ func (i *publisherInfoResponsePtrType) ToPublisherInfoResponsePtrOutputWithConte
 	return pulumi.ToOutputWithContext(ctx, i).(PublisherInfoResponsePtrOutput)
 }
 
-// Represents the publisher information of a process/rule
 type PublisherInfoResponseOutput struct{ *pulumi.OutputState }
 
 func (PublisherInfoResponseOutput) ElementType() reflect.Type {
@@ -2372,27 +2163,23 @@ func (o PublisherInfoResponseOutput) ToPublisherInfoResponsePtrOutput() Publishe
 }
 
 func (o PublisherInfoResponseOutput) ToPublisherInfoResponsePtrOutputWithContext(ctx context.Context) PublisherInfoResponsePtrOutput {
-	return o.ApplyT(func(v PublisherInfoResponse) *PublisherInfoResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v PublisherInfoResponse) *PublisherInfoResponse {
 		return &v
 	}).(PublisherInfoResponsePtrOutput)
 }
 
-// The "OriginalName" field taken from the file's version resource
 func (o PublisherInfoResponseOutput) BinaryName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v PublisherInfoResponse) *string { return v.BinaryName }).(pulumi.StringPtrOutput)
 }
 
-// The product name taken from the file's version resource
 func (o PublisherInfoResponseOutput) ProductName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v PublisherInfoResponse) *string { return v.ProductName }).(pulumi.StringPtrOutput)
 }
 
-// The Subject field of the x.509 certificate used to sign the code, using the following fields -  O = Organization, L = Locality, S = State or Province, and C = Country
 func (o PublisherInfoResponseOutput) PublisherName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v PublisherInfoResponse) *string { return v.PublisherName }).(pulumi.StringPtrOutput)
 }
 
-// The binary file version taken from the file's version resource
 func (o PublisherInfoResponseOutput) Version() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v PublisherInfoResponse) *string { return v.Version }).(pulumi.StringPtrOutput)
 }
@@ -2412,10 +2199,15 @@ func (o PublisherInfoResponsePtrOutput) ToPublisherInfoResponsePtrOutputWithCont
 }
 
 func (o PublisherInfoResponsePtrOutput) Elem() PublisherInfoResponseOutput {
-	return o.ApplyT(func(v *PublisherInfoResponse) PublisherInfoResponse { return *v }).(PublisherInfoResponseOutput)
+	return o.ApplyT(func(v *PublisherInfoResponse) PublisherInfoResponse {
+		if v != nil {
+			return *v
+		}
+		var ret PublisherInfoResponse
+		return ret
+	}).(PublisherInfoResponseOutput)
 }
 
-// The "OriginalName" field taken from the file's version resource
 func (o PublisherInfoResponsePtrOutput) BinaryName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *PublisherInfoResponse) *string {
 		if v == nil {
@@ -2425,7 +2217,6 @@ func (o PublisherInfoResponsePtrOutput) BinaryName() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The product name taken from the file's version resource
 func (o PublisherInfoResponsePtrOutput) ProductName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *PublisherInfoResponse) *string {
 		if v == nil {
@@ -2435,7 +2226,6 @@ func (o PublisherInfoResponsePtrOutput) ProductName() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The Subject field of the x.509 certificate used to sign the code, using the following fields -  O = Organization, L = Locality, S = State or Province, and C = Country
 func (o PublisherInfoResponsePtrOutput) PublisherName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *PublisherInfoResponse) *string {
 		if v == nil {
@@ -2445,7 +2235,6 @@ func (o PublisherInfoResponsePtrOutput) PublisherName() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The binary file version taken from the file's version resource
 func (o PublisherInfoResponsePtrOutput) Version() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *PublisherInfoResponse) *string {
 		if v == nil {
@@ -2455,12 +2244,9 @@ func (o PublisherInfoResponsePtrOutput) Version() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Represents a user that is recommended to be allowed for a certain rule
 type UserRecommendation struct {
-	// The recommendation action of the VM/server or rule
 	RecommendationAction *string `pulumi:"recommendationAction"`
-	// Represents a user that is recommended to be allowed for a certain rule
-	Username *string `pulumi:"username"`
+	Username             *string `pulumi:"username"`
 }
 
 // UserRecommendationInput is an input type that accepts UserRecommendationArgs and UserRecommendationOutput values.
@@ -2474,12 +2260,9 @@ type UserRecommendationInput interface {
 	ToUserRecommendationOutputWithContext(context.Context) UserRecommendationOutput
 }
 
-// Represents a user that is recommended to be allowed for a certain rule
 type UserRecommendationArgs struct {
-	// The recommendation action of the VM/server or rule
 	RecommendationAction pulumi.StringPtrInput `pulumi:"recommendationAction"`
-	// Represents a user that is recommended to be allowed for a certain rule
-	Username pulumi.StringPtrInput `pulumi:"username"`
+	Username             pulumi.StringPtrInput `pulumi:"username"`
 }
 
 func (UserRecommendationArgs) ElementType() reflect.Type {
@@ -2519,7 +2302,6 @@ func (i UserRecommendationArray) ToUserRecommendationArrayOutputWithContext(ctx 
 	return pulumi.ToOutputWithContext(ctx, i).(UserRecommendationArrayOutput)
 }
 
-// Represents a user that is recommended to be allowed for a certain rule
 type UserRecommendationOutput struct{ *pulumi.OutputState }
 
 func (UserRecommendationOutput) ElementType() reflect.Type {
@@ -2534,12 +2316,10 @@ func (o UserRecommendationOutput) ToUserRecommendationOutputWithContext(ctx cont
 	return o
 }
 
-// The recommendation action of the VM/server or rule
 func (o UserRecommendationOutput) RecommendationAction() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v UserRecommendation) *string { return v.RecommendationAction }).(pulumi.StringPtrOutput)
 }
 
-// Represents a user that is recommended to be allowed for a certain rule
 func (o UserRecommendationOutput) Username() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v UserRecommendation) *string { return v.Username }).(pulumi.StringPtrOutput)
 }
@@ -2564,12 +2344,9 @@ func (o UserRecommendationArrayOutput) Index(i pulumi.IntInput) UserRecommendati
 	}).(UserRecommendationOutput)
 }
 
-// Represents a user that is recommended to be allowed for a certain rule
 type UserRecommendationResponse struct {
-	// The recommendation action of the VM/server or rule
 	RecommendationAction *string `pulumi:"recommendationAction"`
-	// Represents a user that is recommended to be allowed for a certain rule
-	Username *string `pulumi:"username"`
+	Username             *string `pulumi:"username"`
 }
 
 // UserRecommendationResponseInput is an input type that accepts UserRecommendationResponseArgs and UserRecommendationResponseOutput values.
@@ -2583,12 +2360,9 @@ type UserRecommendationResponseInput interface {
 	ToUserRecommendationResponseOutputWithContext(context.Context) UserRecommendationResponseOutput
 }
 
-// Represents a user that is recommended to be allowed for a certain rule
 type UserRecommendationResponseArgs struct {
-	// The recommendation action of the VM/server or rule
 	RecommendationAction pulumi.StringPtrInput `pulumi:"recommendationAction"`
-	// Represents a user that is recommended to be allowed for a certain rule
-	Username pulumi.StringPtrInput `pulumi:"username"`
+	Username             pulumi.StringPtrInput `pulumi:"username"`
 }
 
 func (UserRecommendationResponseArgs) ElementType() reflect.Type {
@@ -2628,7 +2402,6 @@ func (i UserRecommendationResponseArray) ToUserRecommendationResponseArrayOutput
 	return pulumi.ToOutputWithContext(ctx, i).(UserRecommendationResponseArrayOutput)
 }
 
-// Represents a user that is recommended to be allowed for a certain rule
 type UserRecommendationResponseOutput struct{ *pulumi.OutputState }
 
 func (UserRecommendationResponseOutput) ElementType() reflect.Type {
@@ -2643,12 +2416,10 @@ func (o UserRecommendationResponseOutput) ToUserRecommendationResponseOutputWith
 	return o
 }
 
-// The recommendation action of the VM/server or rule
 func (o UserRecommendationResponseOutput) RecommendationAction() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v UserRecommendationResponse) *string { return v.RecommendationAction }).(pulumi.StringPtrOutput)
 }
 
-// Represents a user that is recommended to be allowed for a certain rule
 func (o UserRecommendationResponseOutput) Username() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v UserRecommendationResponse) *string { return v.Username }).(pulumi.StringPtrOutput)
 }
@@ -2673,16 +2444,11 @@ func (o UserRecommendationResponseArrayOutput) Index(i pulumi.IntInput) UserReco
 	}).(UserRecommendationResponseOutput)
 }
 
-// Represents a machine that is part of a VM/server group
 type VmRecommendation struct {
-	// The configuration status of the VM/server group or machine or rule on the machine
-	ConfigurationStatus *string `pulumi:"configurationStatus"`
-	// The VM/server supportability of Enforce feature
-	EnforcementSupport *string `pulumi:"enforcementSupport"`
-	// The recommendation action of the VM/server or rule
+	ConfigurationStatus  *string `pulumi:"configurationStatus"`
+	EnforcementSupport   *string `pulumi:"enforcementSupport"`
 	RecommendationAction *string `pulumi:"recommendationAction"`
-	// The full azure resource id of the machine
-	ResourceId *string `pulumi:"resourceId"`
+	ResourceId           *string `pulumi:"resourceId"`
 }
 
 // VmRecommendationInput is an input type that accepts VmRecommendationArgs and VmRecommendationOutput values.
@@ -2696,16 +2462,11 @@ type VmRecommendationInput interface {
 	ToVmRecommendationOutputWithContext(context.Context) VmRecommendationOutput
 }
 
-// Represents a machine that is part of a VM/server group
 type VmRecommendationArgs struct {
-	// The configuration status of the VM/server group or machine or rule on the machine
-	ConfigurationStatus pulumi.StringPtrInput `pulumi:"configurationStatus"`
-	// The VM/server supportability of Enforce feature
-	EnforcementSupport pulumi.StringPtrInput `pulumi:"enforcementSupport"`
-	// The recommendation action of the VM/server or rule
+	ConfigurationStatus  pulumi.StringPtrInput `pulumi:"configurationStatus"`
+	EnforcementSupport   pulumi.StringPtrInput `pulumi:"enforcementSupport"`
 	RecommendationAction pulumi.StringPtrInput `pulumi:"recommendationAction"`
-	// The full azure resource id of the machine
-	ResourceId pulumi.StringPtrInput `pulumi:"resourceId"`
+	ResourceId           pulumi.StringPtrInput `pulumi:"resourceId"`
 }
 
 func (VmRecommendationArgs) ElementType() reflect.Type {
@@ -2745,7 +2506,6 @@ func (i VmRecommendationArray) ToVmRecommendationArrayOutputWithContext(ctx cont
 	return pulumi.ToOutputWithContext(ctx, i).(VmRecommendationArrayOutput)
 }
 
-// Represents a machine that is part of a VM/server group
 type VmRecommendationOutput struct{ *pulumi.OutputState }
 
 func (VmRecommendationOutput) ElementType() reflect.Type {
@@ -2760,22 +2520,18 @@ func (o VmRecommendationOutput) ToVmRecommendationOutputWithContext(ctx context.
 	return o
 }
 
-// The configuration status of the VM/server group or machine or rule on the machine
 func (o VmRecommendationOutput) ConfigurationStatus() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v VmRecommendation) *string { return v.ConfigurationStatus }).(pulumi.StringPtrOutput)
 }
 
-// The VM/server supportability of Enforce feature
 func (o VmRecommendationOutput) EnforcementSupport() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v VmRecommendation) *string { return v.EnforcementSupport }).(pulumi.StringPtrOutput)
 }
 
-// The recommendation action of the VM/server or rule
 func (o VmRecommendationOutput) RecommendationAction() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v VmRecommendation) *string { return v.RecommendationAction }).(pulumi.StringPtrOutput)
 }
 
-// The full azure resource id of the machine
 func (o VmRecommendationOutput) ResourceId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v VmRecommendation) *string { return v.ResourceId }).(pulumi.StringPtrOutput)
 }
@@ -2800,16 +2556,11 @@ func (o VmRecommendationArrayOutput) Index(i pulumi.IntInput) VmRecommendationOu
 	}).(VmRecommendationOutput)
 }
 
-// Represents a machine that is part of a VM/server group
 type VmRecommendationResponse struct {
-	// The configuration status of the VM/server group or machine or rule on the machine
-	ConfigurationStatus *string `pulumi:"configurationStatus"`
-	// The VM/server supportability of Enforce feature
-	EnforcementSupport *string `pulumi:"enforcementSupport"`
-	// The recommendation action of the VM/server or rule
+	ConfigurationStatus  *string `pulumi:"configurationStatus"`
+	EnforcementSupport   *string `pulumi:"enforcementSupport"`
 	RecommendationAction *string `pulumi:"recommendationAction"`
-	// The full azure resource id of the machine
-	ResourceId *string `pulumi:"resourceId"`
+	ResourceId           *string `pulumi:"resourceId"`
 }
 
 // VmRecommendationResponseInput is an input type that accepts VmRecommendationResponseArgs and VmRecommendationResponseOutput values.
@@ -2823,16 +2574,11 @@ type VmRecommendationResponseInput interface {
 	ToVmRecommendationResponseOutputWithContext(context.Context) VmRecommendationResponseOutput
 }
 
-// Represents a machine that is part of a VM/server group
 type VmRecommendationResponseArgs struct {
-	// The configuration status of the VM/server group or machine or rule on the machine
-	ConfigurationStatus pulumi.StringPtrInput `pulumi:"configurationStatus"`
-	// The VM/server supportability of Enforce feature
-	EnforcementSupport pulumi.StringPtrInput `pulumi:"enforcementSupport"`
-	// The recommendation action of the VM/server or rule
+	ConfigurationStatus  pulumi.StringPtrInput `pulumi:"configurationStatus"`
+	EnforcementSupport   pulumi.StringPtrInput `pulumi:"enforcementSupport"`
 	RecommendationAction pulumi.StringPtrInput `pulumi:"recommendationAction"`
-	// The full azure resource id of the machine
-	ResourceId pulumi.StringPtrInput `pulumi:"resourceId"`
+	ResourceId           pulumi.StringPtrInput `pulumi:"resourceId"`
 }
 
 func (VmRecommendationResponseArgs) ElementType() reflect.Type {
@@ -2872,7 +2618,6 @@ func (i VmRecommendationResponseArray) ToVmRecommendationResponseArrayOutputWith
 	return pulumi.ToOutputWithContext(ctx, i).(VmRecommendationResponseArrayOutput)
 }
 
-// Represents a machine that is part of a VM/server group
 type VmRecommendationResponseOutput struct{ *pulumi.OutputState }
 
 func (VmRecommendationResponseOutput) ElementType() reflect.Type {
@@ -2887,22 +2632,18 @@ func (o VmRecommendationResponseOutput) ToVmRecommendationResponseOutputWithCont
 	return o
 }
 
-// The configuration status of the VM/server group or machine or rule on the machine
 func (o VmRecommendationResponseOutput) ConfigurationStatus() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v VmRecommendationResponse) *string { return v.ConfigurationStatus }).(pulumi.StringPtrOutput)
 }
 
-// The VM/server supportability of Enforce feature
 func (o VmRecommendationResponseOutput) EnforcementSupport() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v VmRecommendationResponse) *string { return v.EnforcementSupport }).(pulumi.StringPtrOutput)
 }
 
-// The recommendation action of the VM/server or rule
 func (o VmRecommendationResponseOutput) RecommendationAction() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v VmRecommendationResponse) *string { return v.RecommendationAction }).(pulumi.StringPtrOutput)
 }
 
-// The full azure resource id of the machine
 func (o VmRecommendationResponseOutput) ResourceId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v VmRecommendationResponse) *string { return v.ResourceId }).(pulumi.StringPtrOutput)
 }

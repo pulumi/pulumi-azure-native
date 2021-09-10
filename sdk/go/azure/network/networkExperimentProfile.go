@@ -143,9 +143,7 @@ func (i *NetworkExperimentProfile) ToNetworkExperimentProfileOutputWithContext(c
 	return pulumi.ToOutputWithContext(ctx, i).(NetworkExperimentProfileOutput)
 }
 
-type NetworkExperimentProfileOutput struct {
-	*pulumi.OutputState
-}
+type NetworkExperimentProfileOutput struct{ *pulumi.OutputState }
 
 func (NetworkExperimentProfileOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*NetworkExperimentProfile)(nil))

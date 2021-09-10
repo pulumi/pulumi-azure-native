@@ -105,9 +105,7 @@ func (i *IngestionSetting) ToIngestionSettingOutputWithContext(ctx context.Conte
 	return pulumi.ToOutputWithContext(ctx, i).(IngestionSettingOutput)
 }
 
-type IngestionSettingOutput struct {
-	*pulumi.OutputState
-}
+type IngestionSettingOutput struct{ *pulumi.OutputState }
 
 func (IngestionSettingOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*IngestionSetting)(nil))

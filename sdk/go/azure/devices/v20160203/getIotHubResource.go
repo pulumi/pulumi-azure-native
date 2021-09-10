@@ -7,7 +7,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// The description of the IoT hub.
 func LookupIotHubResource(ctx *pulumi.Context, args *LookupIotHubResourceArgs, opts ...pulumi.InvokeOption) (*LookupIotHubResourceResult, error) {
 	var rv LookupIotHubResourceResult
 	err := ctx.Invoke("azure-native:devices/v20160203:getIotHubResource", args, &rv, opts...)
@@ -18,32 +17,20 @@ func LookupIotHubResource(ctx *pulumi.Context, args *LookupIotHubResourceArgs, o
 }
 
 type LookupIotHubResourceArgs struct {
-	// The name of the resource group that contains the IoT hub.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
-	// The name of the IoT hub.
-	ResourceName string `pulumi:"resourceName"`
+	ResourceName      string `pulumi:"resourceName"`
 }
 
 // The description of the IoT hub.
 type LookupIotHubResourceResult struct {
-	// The Etag field is *not* required. If it is provided in the response body, it must also be provided as a header per the normal ETag convention.
-	Etag *string `pulumi:"etag"`
-	// The resource identifier.
-	Id string `pulumi:"id"`
-	// The resource location.
-	Location string `pulumi:"location"`
-	// The resource name.
-	Name string `pulumi:"name"`
-	// The properties of an IoT hub.
-	Properties IotHubPropertiesResponse `pulumi:"properties"`
-	// The name of the resource group that contains the IoT hub. A resource group name uniquely identifies the resource group within the subscription.
-	Resourcegroup string `pulumi:"resourcegroup"`
-	// Information about the SKU of the IoT hub.
-	Sku IotHubSkuInfoResponse `pulumi:"sku"`
-	// The subscription identifier.
-	Subscriptionid string `pulumi:"subscriptionid"`
-	// The resource tags.
-	Tags map[string]string `pulumi:"tags"`
-	// The resource type.
-	Type string `pulumi:"type"`
+	Etag           *string                  `pulumi:"etag"`
+	Id             string                   `pulumi:"id"`
+	Location       string                   `pulumi:"location"`
+	Name           string                   `pulumi:"name"`
+	Properties     IotHubPropertiesResponse `pulumi:"properties"`
+	Resourcegroup  string                   `pulumi:"resourcegroup"`
+	Sku            IotHubSkuInfoResponse    `pulumi:"sku"`
+	Subscriptionid string                   `pulumi:"subscriptionid"`
+	Tags           map[string]string        `pulumi:"tags"`
+	Type           string                   `pulumi:"type"`
 }

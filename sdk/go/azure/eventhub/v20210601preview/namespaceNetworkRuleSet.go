@@ -11,26 +11,17 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Description of topic resource.
 type NamespaceNetworkRuleSet struct {
 	pulumi.CustomResourceState
 
-	// Default Action for Network Rule Set
-	DefaultAction pulumi.StringPtrOutput `pulumi:"defaultAction"`
-	// List of IpRules
-	IpRules NWRuleSetIpRulesResponseArrayOutput `pulumi:"ipRules"`
-	// Resource name.
-	Name pulumi.StringOutput `pulumi:"name"`
-	// This determines if traffic is allowed over public network. By default it is enabled.
-	PublicNetworkAccess pulumi.StringPtrOutput `pulumi:"publicNetworkAccess"`
-	// The system meta data relating to this resource.
-	SystemData SystemDataResponseOutput `pulumi:"systemData"`
-	// Value that indicates whether Trusted Service Access is Enabled or not.
-	TrustedServiceAccessEnabled pulumi.BoolPtrOutput `pulumi:"trustedServiceAccessEnabled"`
-	// Resource type.
-	Type pulumi.StringOutput `pulumi:"type"`
-	// List VirtualNetwork Rules
-	VirtualNetworkRules NWRuleSetVirtualNetworkRulesResponseArrayOutput `pulumi:"virtualNetworkRules"`
+	DefaultAction               pulumi.StringPtrOutput                          `pulumi:"defaultAction"`
+	IpRules                     NWRuleSetIpRulesResponseArrayOutput             `pulumi:"ipRules"`
+	Name                        pulumi.StringOutput                             `pulumi:"name"`
+	PublicNetworkAccess         pulumi.StringPtrOutput                          `pulumi:"publicNetworkAccess"`
+	SystemData                  SystemDataResponseOutput                        `pulumi:"systemData"`
+	TrustedServiceAccessEnabled pulumi.BoolPtrOutput                            `pulumi:"trustedServiceAccessEnabled"`
+	Type                        pulumi.StringOutput                             `pulumi:"type"`
+	VirtualNetworkRules         NWRuleSetVirtualNetworkRulesResponseArrayOutput `pulumi:"virtualNetworkRules"`
 }
 
 // NewNamespaceNetworkRuleSet registers a new resource with the given unique name, arguments, and options.
@@ -111,38 +102,24 @@ func (NamespaceNetworkRuleSetState) ElementType() reflect.Type {
 }
 
 type namespaceNetworkRuleSetArgs struct {
-	// Default Action for Network Rule Set
-	DefaultAction *string `pulumi:"defaultAction"`
-	// List of IpRules
-	IpRules []NWRuleSetIpRules `pulumi:"ipRules"`
-	// The Namespace name
-	NamespaceName string `pulumi:"namespaceName"`
-	// This determines if traffic is allowed over public network. By default it is enabled.
-	PublicNetworkAccess *string `pulumi:"publicNetworkAccess"`
-	// Name of the resource group within the azure subscription.
-	ResourceGroupName string `pulumi:"resourceGroupName"`
-	// Value that indicates whether Trusted Service Access is Enabled or not.
-	TrustedServiceAccessEnabled *bool `pulumi:"trustedServiceAccessEnabled"`
-	// List VirtualNetwork Rules
-	VirtualNetworkRules []NWRuleSetVirtualNetworkRules `pulumi:"virtualNetworkRules"`
+	DefaultAction               *string                        `pulumi:"defaultAction"`
+	IpRules                     []NWRuleSetIpRules             `pulumi:"ipRules"`
+	NamespaceName               string                         `pulumi:"namespaceName"`
+	PublicNetworkAccess         *string                        `pulumi:"publicNetworkAccess"`
+	ResourceGroupName           string                         `pulumi:"resourceGroupName"`
+	TrustedServiceAccessEnabled *bool                          `pulumi:"trustedServiceAccessEnabled"`
+	VirtualNetworkRules         []NWRuleSetVirtualNetworkRules `pulumi:"virtualNetworkRules"`
 }
 
 // The set of arguments for constructing a NamespaceNetworkRuleSet resource.
 type NamespaceNetworkRuleSetArgs struct {
-	// Default Action for Network Rule Set
-	DefaultAction pulumi.StringPtrInput
-	// List of IpRules
-	IpRules NWRuleSetIpRulesArrayInput
-	// The Namespace name
-	NamespaceName pulumi.StringInput
-	// This determines if traffic is allowed over public network. By default it is enabled.
-	PublicNetworkAccess pulumi.StringPtrInput
-	// Name of the resource group within the azure subscription.
-	ResourceGroupName pulumi.StringInput
-	// Value that indicates whether Trusted Service Access is Enabled or not.
+	DefaultAction               pulumi.StringPtrInput
+	IpRules                     NWRuleSetIpRulesArrayInput
+	NamespaceName               pulumi.StringInput
+	PublicNetworkAccess         pulumi.StringPtrInput
+	ResourceGroupName           pulumi.StringInput
 	TrustedServiceAccessEnabled pulumi.BoolPtrInput
-	// List VirtualNetwork Rules
-	VirtualNetworkRules NWRuleSetVirtualNetworkRulesArrayInput
+	VirtualNetworkRules         NWRuleSetVirtualNetworkRulesArrayInput
 }
 
 func (NamespaceNetworkRuleSetArgs) ElementType() reflect.Type {
@@ -168,9 +145,7 @@ func (i *NamespaceNetworkRuleSet) ToNamespaceNetworkRuleSetOutputWithContext(ctx
 	return pulumi.ToOutputWithContext(ctx, i).(NamespaceNetworkRuleSetOutput)
 }
 
-type NamespaceNetworkRuleSetOutput struct {
-	*pulumi.OutputState
-}
+type NamespaceNetworkRuleSetOutput struct{ *pulumi.OutputState }
 
 func (NamespaceNetworkRuleSetOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*NamespaceNetworkRuleSet)(nil))

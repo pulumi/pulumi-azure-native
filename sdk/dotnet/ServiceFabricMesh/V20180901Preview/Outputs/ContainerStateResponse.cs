@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.ServiceFabricMesh.V20180901Preview.Outputs
 {
 
+    /// <summary>
+    /// The container state.
+    /// </summary>
     [OutputType]
     public sealed class ContainerStateResponse
     {

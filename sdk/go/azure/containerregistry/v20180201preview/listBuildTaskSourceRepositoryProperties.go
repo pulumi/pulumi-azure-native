@@ -7,7 +7,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// The properties of the source code repository.
 func ListBuildTaskSourceRepositoryProperties(ctx *pulumi.Context, args *ListBuildTaskSourceRepositoryPropertiesArgs, opts ...pulumi.InvokeOption) (*ListBuildTaskSourceRepositoryPropertiesResult, error) {
 	var rv ListBuildTaskSourceRepositoryPropertiesResult
 	err := ctx.Invoke("azure-native:containerregistry/v20180201preview:listBuildTaskSourceRepositoryProperties", args, &rv, opts...)
@@ -18,22 +17,15 @@ func ListBuildTaskSourceRepositoryProperties(ctx *pulumi.Context, args *ListBuil
 }
 
 type ListBuildTaskSourceRepositoryPropertiesArgs struct {
-	// The name of the container registry build task.
-	BuildTaskName string `pulumi:"buildTaskName"`
-	// The name of the container registry.
-	RegistryName string `pulumi:"registryName"`
-	// The name of the resource group to which the container registry belongs.
+	BuildTaskName     string `pulumi:"buildTaskName"`
+	RegistryName      string `pulumi:"registryName"`
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 }
 
 // The properties of the source code repository.
 type ListBuildTaskSourceRepositoryPropertiesResult struct {
-	// The value of this property indicates whether the source control commit trigger is enabled or not.
-	IsCommitTriggerEnabled *bool `pulumi:"isCommitTriggerEnabled"`
-	// The full URL to the source code repository
-	RepositoryUrl string `pulumi:"repositoryUrl"`
-	// The authorization properties for accessing the source code repository.
+	IsCommitTriggerEnabled      *bool                          `pulumi:"isCommitTriggerEnabled"`
+	RepositoryUrl               string                         `pulumi:"repositoryUrl"`
 	SourceControlAuthProperties *SourceControlAuthInfoResponse `pulumi:"sourceControlAuthProperties"`
-	// The type of source control service.
-	SourceControlType string `pulumi:"sourceControlType"`
+	SourceControlType           string                         `pulumi:"sourceControlType"`
 }

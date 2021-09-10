@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.ServiceFabric.V20210501.Outputs
 {
 
+    /// <summary>
+    /// Describes a load balancing rule.
+    /// </summary>
     [OutputType]
     public sealed class LoadBalancingRuleResponse
     {

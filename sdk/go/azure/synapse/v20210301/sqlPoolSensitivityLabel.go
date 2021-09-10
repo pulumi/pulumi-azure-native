@@ -11,33 +11,21 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// A sensitivity label.
 type SqlPoolSensitivityLabel struct {
 	pulumi.CustomResourceState
 
-	// The column name.
-	ColumnName pulumi.StringOutput `pulumi:"columnName"`
-	// The information type.
-	InformationType pulumi.StringPtrOutput `pulumi:"informationType"`
-	// The information type ID.
+	ColumnName        pulumi.StringOutput    `pulumi:"columnName"`
+	InformationType   pulumi.StringPtrOutput `pulumi:"informationType"`
 	InformationTypeId pulumi.StringPtrOutput `pulumi:"informationTypeId"`
-	// Is sensitivity recommendation disabled. Applicable for recommended sensitivity label only. Specifies whether the sensitivity recommendation on this column is disabled (dismissed) or not.
-	IsDisabled pulumi.BoolOutput `pulumi:"isDisabled"`
-	// The label ID.
-	LabelId pulumi.StringPtrOutput `pulumi:"labelId"`
-	// The label name.
-	LabelName pulumi.StringPtrOutput `pulumi:"labelName"`
-	// managed by
-	ManagedBy pulumi.StringOutput `pulumi:"managedBy"`
-	// The name of the resource
-	Name pulumi.StringOutput    `pulumi:"name"`
-	Rank pulumi.StringPtrOutput `pulumi:"rank"`
-	// The schema name.
-	SchemaName pulumi.StringOutput `pulumi:"schemaName"`
-	// The table name.
-	TableName pulumi.StringOutput `pulumi:"tableName"`
-	// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
-	Type pulumi.StringOutput `pulumi:"type"`
+	IsDisabled        pulumi.BoolOutput      `pulumi:"isDisabled"`
+	LabelId           pulumi.StringPtrOutput `pulumi:"labelId"`
+	LabelName         pulumi.StringPtrOutput `pulumi:"labelName"`
+	ManagedBy         pulumi.StringOutput    `pulumi:"managedBy"`
+	Name              pulumi.StringOutput    `pulumi:"name"`
+	Rank              pulumi.StringPtrOutput `pulumi:"rank"`
+	SchemaName        pulumi.StringOutput    `pulumi:"schemaName"`
+	TableName         pulumi.StringOutput    `pulumi:"tableName"`
+	Type              pulumi.StringOutput    `pulumi:"type"`
 }
 
 // NewSqlPoolSensitivityLabel registers a new resource with the given unique name, arguments, and options.
@@ -145,56 +133,34 @@ func (SqlPoolSensitivityLabelState) ElementType() reflect.Type {
 }
 
 type sqlPoolSensitivityLabelArgs struct {
-	// The name of the column.
-	ColumnName string `pulumi:"columnName"`
-	// The information type.
-	InformationType *string `pulumi:"informationType"`
-	// The information type ID.
-	InformationTypeId *string `pulumi:"informationTypeId"`
-	// The label ID.
-	LabelId *string `pulumi:"labelId"`
-	// The label name.
-	LabelName *string `pulumi:"labelName"`
-	Rank      *string `pulumi:"rank"`
-	// The name of the resource group. The name is case insensitive.
-	ResourceGroupName string `pulumi:"resourceGroupName"`
-	// The name of the schema.
-	SchemaName string `pulumi:"schemaName"`
-	// The source of the sensitivity label.
-	SensitivityLabelSource *string `pulumi:"sensitivityLabelSource"`
-	// SQL pool name
-	SqlPoolName string `pulumi:"sqlPoolName"`
-	// The name of the table.
-	TableName string `pulumi:"tableName"`
-	// The name of the workspace
-	WorkspaceName string `pulumi:"workspaceName"`
+	ColumnName             string                `pulumi:"columnName"`
+	InformationType        *string               `pulumi:"informationType"`
+	InformationTypeId      *string               `pulumi:"informationTypeId"`
+	LabelId                *string               `pulumi:"labelId"`
+	LabelName              *string               `pulumi:"labelName"`
+	Rank                   *SensitivityLabelRank `pulumi:"rank"`
+	ResourceGroupName      string                `pulumi:"resourceGroupName"`
+	SchemaName             string                `pulumi:"schemaName"`
+	SensitivityLabelSource *string               `pulumi:"sensitivityLabelSource"`
+	SqlPoolName            string                `pulumi:"sqlPoolName"`
+	TableName              string                `pulumi:"tableName"`
+	WorkspaceName          string                `pulumi:"workspaceName"`
 }
 
 // The set of arguments for constructing a SqlPoolSensitivityLabel resource.
 type SqlPoolSensitivityLabelArgs struct {
-	// The name of the column.
-	ColumnName pulumi.StringInput
-	// The information type.
-	InformationType pulumi.StringPtrInput
-	// The information type ID.
-	InformationTypeId pulumi.StringPtrInput
-	// The label ID.
-	LabelId pulumi.StringPtrInput
-	// The label name.
-	LabelName pulumi.StringPtrInput
-	Rank      *SensitivityLabelRank
-	// The name of the resource group. The name is case insensitive.
-	ResourceGroupName pulumi.StringInput
-	// The name of the schema.
-	SchemaName pulumi.StringInput
-	// The source of the sensitivity label.
+	ColumnName             pulumi.StringInput
+	InformationType        pulumi.StringPtrInput
+	InformationTypeId      pulumi.StringPtrInput
+	LabelId                pulumi.StringPtrInput
+	LabelName              pulumi.StringPtrInput
+	Rank                   SensitivityLabelRankPtrInput
+	ResourceGroupName      pulumi.StringInput
+	SchemaName             pulumi.StringInput
 	SensitivityLabelSource pulumi.StringPtrInput
-	// SQL pool name
-	SqlPoolName pulumi.StringInput
-	// The name of the table.
-	TableName pulumi.StringInput
-	// The name of the workspace
-	WorkspaceName pulumi.StringInput
+	SqlPoolName            pulumi.StringInput
+	TableName              pulumi.StringInput
+	WorkspaceName          pulumi.StringInput
 }
 
 func (SqlPoolSensitivityLabelArgs) ElementType() reflect.Type {
@@ -220,9 +186,7 @@ func (i *SqlPoolSensitivityLabel) ToSqlPoolSensitivityLabelOutputWithContext(ctx
 	return pulumi.ToOutputWithContext(ctx, i).(SqlPoolSensitivityLabelOutput)
 }
 
-type SqlPoolSensitivityLabelOutput struct {
-	*pulumi.OutputState
-}
+type SqlPoolSensitivityLabelOutput struct{ *pulumi.OutputState }
 
 func (SqlPoolSensitivityLabelOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*SqlPoolSensitivityLabel)(nil))

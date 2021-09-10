@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.Network.Outputs
 {
 
+    /// <summary>
+    /// IPConfiguration in a network interface.
+    /// </summary>
     [OutputType]
     public sealed class NetworkInterfaceIPConfigurationResponse
     {

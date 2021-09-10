@@ -7,7 +7,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Describes a hybrid machine.
 func LookupMachine(ctx *pulumi.Context, args *LookupMachineArgs, opts ...pulumi.InvokeOption) (*LookupMachineResult, error) {
 	var rv LookupMachineResult
 	err := ctx.Invoke("azure-native:hybridcompute/v20191212:getMachine", args, &rv, opts...)
@@ -18,53 +17,31 @@ func LookupMachine(ctx *pulumi.Context, args *LookupMachineArgs, opts ...pulumi.
 }
 
 type LookupMachineArgs struct {
-	// The expand expression to apply on the operation.
-	Expand *string `pulumi:"expand"`
-	// The name of the hybrid machine.
-	Name string `pulumi:"name"`
-	// The name of the resource group.
-	ResourceGroupName string `pulumi:"resourceGroupName"`
+	Expand            *string `pulumi:"expand"`
+	Name              string  `pulumi:"name"`
+	ResourceGroupName string  `pulumi:"resourceGroupName"`
 }
 
 // Describes a hybrid machine.
 type LookupMachineResult struct {
-	// The hybrid machine agent full version.
-	AgentVersion string `pulumi:"agentVersion"`
-	// Public Key that the client provides to be used during initial resource onboarding
-	ClientPublicKey *string `pulumi:"clientPublicKey"`
-	// Specifies the hybrid machine display name.
-	DisplayName string `pulumi:"displayName"`
-	// Details about the error state.
-	ErrorDetails []ErrorDetailResponse `pulumi:"errorDetails"`
-	// Machine Extensions information
-	Extensions []MachineExtensionInstanceViewResponse `pulumi:"extensions"`
-	// Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
-	Id       string                   `pulumi:"id"`
-	Identity *MachineResponseIdentity `pulumi:"identity"`
-	// The time of the last status change.
-	LastStatusChange string `pulumi:"lastStatusChange"`
-	// The geo-location where the resource lives
-	Location string `pulumi:"location"`
-	// Metadata pertaining to the geographic location of the resource.
-	LocationData *LocationDataResponse `pulumi:"locationData"`
-	// Specifies the hybrid machine FQDN.
-	MachineFqdn string `pulumi:"machineFqdn"`
-	// The name of the resource
-	Name string `pulumi:"name"`
-	// The Operating System running on the hybrid machine.
-	OsName string `pulumi:"osName"`
-	// Specifies the operating system settings for the hybrid machine.
-	OsProfile *MachinePropertiesResponseOsProfile `pulumi:"osProfile"`
-	// The version of Operating System running on the hybrid machine.
-	OsVersion string `pulumi:"osVersion"`
-	// The provisioning state, which only appears in the response.
-	ProvisioningState string `pulumi:"provisioningState"`
-	// The status of the hybrid machine agent.
-	Status string `pulumi:"status"`
-	// Resource tags.
-	Tags map[string]string `pulumi:"tags"`
-	// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
-	Type string `pulumi:"type"`
-	// Specifies the hybrid machine unique ID.
-	VmId *string `pulumi:"vmId"`
+	AgentVersion      string                                 `pulumi:"agentVersion"`
+	ClientPublicKey   *string                                `pulumi:"clientPublicKey"`
+	DisplayName       string                                 `pulumi:"displayName"`
+	ErrorDetails      []ErrorDetailResponse                  `pulumi:"errorDetails"`
+	Extensions        []MachineExtensionInstanceViewResponse `pulumi:"extensions"`
+	Id                string                                 `pulumi:"id"`
+	Identity          *MachineResponseIdentity               `pulumi:"identity"`
+	LastStatusChange  string                                 `pulumi:"lastStatusChange"`
+	Location          string                                 `pulumi:"location"`
+	LocationData      *LocationDataResponse                  `pulumi:"locationData"`
+	MachineFqdn       string                                 `pulumi:"machineFqdn"`
+	Name              string                                 `pulumi:"name"`
+	OsName            string                                 `pulumi:"osName"`
+	OsProfile         *MachinePropertiesResponseOsProfile    `pulumi:"osProfile"`
+	OsVersion         string                                 `pulumi:"osVersion"`
+	ProvisioningState string                                 `pulumi:"provisioningState"`
+	Status            string                                 `pulumi:"status"`
+	Tags              map[string]string                      `pulumi:"tags"`
+	Type              string                                 `pulumi:"type"`
+	VmId              *string                                `pulumi:"vmId"`
 }

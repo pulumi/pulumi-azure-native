@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.BotService.Outputs
 {
 
+    /// <summary>
+    /// Email channel definition
+    /// </summary>
     [OutputType]
     public sealed class EmailChannelResponse
     {

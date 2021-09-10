@@ -11,16 +11,12 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Represents the serial port of the parent resource.
 type SerialPort struct {
 	pulumi.CustomResourceState
 
-	// Resource name
-	Name pulumi.StringOutput `pulumi:"name"`
-	// Specifies whether the port is enabled for a serial console connection.
+	Name  pulumi.StringOutput    `pulumi:"name"`
 	State pulumi.StringPtrOutput `pulumi:"state"`
-	// Resource type
-	Type pulumi.StringOutput `pulumi:"type"`
+	Type  pulumi.StringOutput    `pulumi:"type"`
 }
 
 // NewSerialPort registers a new resource with the given unique name, arguments, and options.
@@ -86,34 +82,22 @@ func (SerialPortState) ElementType() reflect.Type {
 }
 
 type serialPortArgs struct {
-	// The resource name, or subordinate path, for the parent of the serial port. For example: the name of the virtual machine.
-	ParentResource string `pulumi:"parentResource"`
-	// The resource type of the parent resource.  For example: 'virtualMachines' or 'virtualMachineScaleSets'
-	ParentResourceType string `pulumi:"parentResourceType"`
-	// The name of the resource group.
-	ResourceGroupName string `pulumi:"resourceGroupName"`
-	// The namespace of the resource provider.
-	ResourceProviderNamespace string `pulumi:"resourceProviderNamespace"`
-	// The name of the serial port to create.
-	SerialPort *string `pulumi:"serialPort"`
-	// Specifies whether the port is enabled for a serial console connection.
-	State *string `pulumi:"state"`
+	ParentResource            string               `pulumi:"parentResource"`
+	ParentResourceType        string               `pulumi:"parentResourceType"`
+	ResourceGroupName         string               `pulumi:"resourceGroupName"`
+	ResourceProviderNamespace string               `pulumi:"resourceProviderNamespace"`
+	SerialPort                *string              `pulumi:"serialPort"`
+	State                     *SerialPortStateEnum `pulumi:"state"`
 }
 
 // The set of arguments for constructing a SerialPort resource.
 type SerialPortArgs struct {
-	// The resource name, or subordinate path, for the parent of the serial port. For example: the name of the virtual machine.
-	ParentResource pulumi.StringInput
-	// The resource type of the parent resource.  For example: 'virtualMachines' or 'virtualMachineScaleSets'
-	ParentResourceType pulumi.StringInput
-	// The name of the resource group.
-	ResourceGroupName pulumi.StringInput
-	// The namespace of the resource provider.
+	ParentResource            pulumi.StringInput
+	ParentResourceType        pulumi.StringInput
+	ResourceGroupName         pulumi.StringInput
 	ResourceProviderNamespace pulumi.StringInput
-	// The name of the serial port to create.
-	SerialPort pulumi.StringPtrInput
-	// Specifies whether the port is enabled for a serial console connection.
-	State *SerialPortStateEnum
+	SerialPort                pulumi.StringPtrInput
+	State                     SerialPortStateEnumPtrInput
 }
 
 func (SerialPortArgs) ElementType() reflect.Type {
@@ -139,9 +123,7 @@ func (i *SerialPort) ToSerialPortOutputWithContext(ctx context.Context) SerialPo
 	return pulumi.ToOutputWithContext(ctx, i).(SerialPortOutput)
 }
 
-type SerialPortOutput struct {
-	*pulumi.OutputState
-}
+type SerialPortOutput struct{ *pulumi.OutputState }
 
 func (SerialPortOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*SerialPort)(nil))

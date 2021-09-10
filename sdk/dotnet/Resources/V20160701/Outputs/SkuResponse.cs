@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.Resources.V20160701.Outputs
 {
 
+    /// <summary>
+    /// Sku for the resource.
+    /// </summary>
     [OutputType]
     public sealed class SkuResponse
     {

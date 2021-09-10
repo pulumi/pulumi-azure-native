@@ -7,7 +7,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// A global reach connection resource
 func LookupGlobalReachConnection(ctx *pulumi.Context, args *LookupGlobalReachConnectionArgs, opts ...pulumi.InvokeOption) (*LookupGlobalReachConnectionResult, error) {
 	var rv LookupGlobalReachConnectionResult
 	err := ctx.Invoke("azure-native:avs/v20210601:getGlobalReachConnection", args, &rv, opts...)
@@ -18,30 +17,19 @@ func LookupGlobalReachConnection(ctx *pulumi.Context, args *LookupGlobalReachCon
 }
 
 type LookupGlobalReachConnectionArgs struct {
-	// Name of the global reach connection in the private cloud
 	GlobalReachConnectionName string `pulumi:"globalReachConnectionName"`
-	// Name of the private cloud
-	PrivateCloudName string `pulumi:"privateCloudName"`
-	// The name of the resource group. The name is case insensitive.
-	ResourceGroupName string `pulumi:"resourceGroupName"`
+	PrivateCloudName          string `pulumi:"privateCloudName"`
+	ResourceGroupName         string `pulumi:"resourceGroupName"`
 }
 
 // A global reach connection resource
 type LookupGlobalReachConnectionResult struct {
-	// The network used for global reach carved out from the original network block provided for the private cloud
-	AddressPrefix string `pulumi:"addressPrefix"`
-	// Authorization key from the peer express route used for the global reach connection
-	AuthorizationKey *string `pulumi:"authorizationKey"`
-	// The connection status of the global reach connection
-	CircuitConnectionStatus string `pulumi:"circuitConnectionStatus"`
-	// Resource ID.
-	Id string `pulumi:"id"`
-	// Resource name.
-	Name string `pulumi:"name"`
-	// Identifier of the ExpressRoute Circuit to peer with in the global reach connection
+	AddressPrefix           string  `pulumi:"addressPrefix"`
+	AuthorizationKey        *string `pulumi:"authorizationKey"`
+	CircuitConnectionStatus string  `pulumi:"circuitConnectionStatus"`
+	Id                      string  `pulumi:"id"`
+	Name                    string  `pulumi:"name"`
 	PeerExpressRouteCircuit *string `pulumi:"peerExpressRouteCircuit"`
-	// The state of the  ExpressRoute Circuit Authorization provisioning
-	ProvisioningState string `pulumi:"provisioningState"`
-	// Resource type.
-	Type string `pulumi:"type"`
+	ProvisioningState       string  `pulumi:"provisioningState"`
+	Type                    string  `pulumi:"type"`
 }

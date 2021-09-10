@@ -11,30 +11,19 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// The Managed Network Group resource
 type ManagedNetworkGroup struct {
 	pulumi.CustomResourceState
 
-	// A unique read-only string that changes whenever the resource is updated.
-	Etag pulumi.StringOutput `pulumi:"etag"`
-	// Responsibility role under which this Managed Network Group will be created
-	Kind pulumi.StringPtrOutput `pulumi:"kind"`
-	// The geo-location where the resource lives
-	Location pulumi.StringPtrOutput `pulumi:"location"`
-	// The collection of management groups covered by the Managed Network
-	ManagementGroups ResourceIdResponseArrayOutput `pulumi:"managementGroups"`
-	// The name of the resource
-	Name pulumi.StringOutput `pulumi:"name"`
-	// Provisioning state of the ManagedNetwork resource.
-	ProvisioningState pulumi.StringOutput `pulumi:"provisioningState"`
-	// The collection of  subnets covered by the Managed Network
-	Subnets ResourceIdResponseArrayOutput `pulumi:"subnets"`
-	// The collection of subscriptions covered by the Managed Network
-	Subscriptions ResourceIdResponseArrayOutput `pulumi:"subscriptions"`
-	// The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
-	Type pulumi.StringOutput `pulumi:"type"`
-	// The collection of virtual nets covered by the Managed Network
-	VirtualNetworks ResourceIdResponseArrayOutput `pulumi:"virtualNetworks"`
+	Etag              pulumi.StringOutput           `pulumi:"etag"`
+	Kind              pulumi.StringPtrOutput        `pulumi:"kind"`
+	Location          pulumi.StringPtrOutput        `pulumi:"location"`
+	ManagementGroups  ResourceIdResponseArrayOutput `pulumi:"managementGroups"`
+	Name              pulumi.StringOutput           `pulumi:"name"`
+	ProvisioningState pulumi.StringOutput           `pulumi:"provisioningState"`
+	Subnets           ResourceIdResponseArrayOutput `pulumi:"subnets"`
+	Subscriptions     ResourceIdResponseArrayOutput `pulumi:"subscriptions"`
+	Type              pulumi.StringOutput           `pulumi:"type"`
+	VirtualNetworks   ResourceIdResponseArrayOutput `pulumi:"virtualNetworks"`
 }
 
 // NewManagedNetworkGroup registers a new resource with the given unique name, arguments, and options.
@@ -94,46 +83,28 @@ func (ManagedNetworkGroupState) ElementType() reflect.Type {
 }
 
 type managedNetworkGroupArgs struct {
-	// Responsibility role under which this Managed Network Group will be created
-	Kind *string `pulumi:"kind"`
-	// The geo-location where the resource lives
-	Location *string `pulumi:"location"`
-	// The name of the Managed Network Group.
-	ManagedNetworkGroupName *string `pulumi:"managedNetworkGroupName"`
-	// The name of the Managed Network.
-	ManagedNetworkName string `pulumi:"managedNetworkName"`
-	// The collection of management groups covered by the Managed Network
-	ManagementGroups []ResourceId `pulumi:"managementGroups"`
-	// The name of the resource group.
-	ResourceGroupName string `pulumi:"resourceGroupName"`
-	// The collection of  subnets covered by the Managed Network
-	Subnets []ResourceId `pulumi:"subnets"`
-	// The collection of subscriptions covered by the Managed Network
-	Subscriptions []ResourceId `pulumi:"subscriptions"`
-	// The collection of virtual nets covered by the Managed Network
-	VirtualNetworks []ResourceId `pulumi:"virtualNetworks"`
+	Kind                    *string      `pulumi:"kind"`
+	Location                *string      `pulumi:"location"`
+	ManagedNetworkGroupName *string      `pulumi:"managedNetworkGroupName"`
+	ManagedNetworkName      string       `pulumi:"managedNetworkName"`
+	ManagementGroups        []ResourceId `pulumi:"managementGroups"`
+	ResourceGroupName       string       `pulumi:"resourceGroupName"`
+	Subnets                 []ResourceId `pulumi:"subnets"`
+	Subscriptions           []ResourceId `pulumi:"subscriptions"`
+	VirtualNetworks         []ResourceId `pulumi:"virtualNetworks"`
 }
 
 // The set of arguments for constructing a ManagedNetworkGroup resource.
 type ManagedNetworkGroupArgs struct {
-	// Responsibility role under which this Managed Network Group will be created
-	Kind pulumi.StringPtrInput
-	// The geo-location where the resource lives
-	Location pulumi.StringPtrInput
-	// The name of the Managed Network Group.
+	Kind                    pulumi.StringPtrInput
+	Location                pulumi.StringPtrInput
 	ManagedNetworkGroupName pulumi.StringPtrInput
-	// The name of the Managed Network.
-	ManagedNetworkName pulumi.StringInput
-	// The collection of management groups covered by the Managed Network
-	ManagementGroups ResourceIdArrayInput
-	// The name of the resource group.
-	ResourceGroupName pulumi.StringInput
-	// The collection of  subnets covered by the Managed Network
-	Subnets ResourceIdArrayInput
-	// The collection of subscriptions covered by the Managed Network
-	Subscriptions ResourceIdArrayInput
-	// The collection of virtual nets covered by the Managed Network
-	VirtualNetworks ResourceIdArrayInput
+	ManagedNetworkName      pulumi.StringInput
+	ManagementGroups        ResourceIdArrayInput
+	ResourceGroupName       pulumi.StringInput
+	Subnets                 ResourceIdArrayInput
+	Subscriptions           ResourceIdArrayInput
+	VirtualNetworks         ResourceIdArrayInput
 }
 
 func (ManagedNetworkGroupArgs) ElementType() reflect.Type {
@@ -159,9 +130,7 @@ func (i *ManagedNetworkGroup) ToManagedNetworkGroupOutputWithContext(ctx context
 	return pulumi.ToOutputWithContext(ctx, i).(ManagedNetworkGroupOutput)
 }
 
-type ManagedNetworkGroupOutput struct {
-	*pulumi.OutputState
-}
+type ManagedNetworkGroupOutput struct{ *pulumi.OutputState }
 
 func (ManagedNetworkGroupOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*ManagedNetworkGroup)(nil))

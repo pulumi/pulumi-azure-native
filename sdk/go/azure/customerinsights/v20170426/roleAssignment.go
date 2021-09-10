@@ -11,54 +11,31 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// The Role Assignment resource format.
 type RoleAssignment struct {
 	pulumi.CustomResourceState
 
-	// The name of the metadata object.
-	AssignmentName pulumi.StringOutput `pulumi:"assignmentName"`
-	// Widget types set for the assignment.
+	AssignmentName     pulumi.StringOutput                     `pulumi:"assignmentName"`
 	ConflationPolicies ResourceSetDescriptionResponsePtrOutput `pulumi:"conflationPolicies"`
-	// Connectors set for the assignment.
-	Connectors ResourceSetDescriptionResponsePtrOutput `pulumi:"connectors"`
-	// Localized description for the metadata.
-	Description pulumi.StringMapOutput `pulumi:"description"`
-	// Localized display names for the metadata.
-	DisplayName pulumi.StringMapOutput `pulumi:"displayName"`
-	// Interactions set for the assignment.
-	Interactions ResourceSetDescriptionResponsePtrOutput `pulumi:"interactions"`
-	// Kpis set for the assignment.
-	Kpis ResourceSetDescriptionResponsePtrOutput `pulumi:"kpis"`
-	// Links set for the assignment.
-	Links ResourceSetDescriptionResponsePtrOutput `pulumi:"links"`
-	// Resource name.
-	Name pulumi.StringOutput `pulumi:"name"`
-	// The principals being assigned to.
-	Principals AssignmentPrincipalResponseArrayOutput `pulumi:"principals"`
-	// Profiles set for the assignment.
-	Profiles ResourceSetDescriptionResponsePtrOutput `pulumi:"profiles"`
-	// Provisioning state.
-	ProvisioningState pulumi.StringOutput `pulumi:"provisioningState"`
-	// The Role assignments set for the relationship links.
-	RelationshipLinks ResourceSetDescriptionResponsePtrOutput `pulumi:"relationshipLinks"`
-	// The Role assignments set for the relationships.
-	Relationships ResourceSetDescriptionResponsePtrOutput `pulumi:"relationships"`
-	// Type of roles.
-	Role pulumi.StringOutput `pulumi:"role"`
-	// The Role assignments set for the assignment.
-	RoleAssignments ResourceSetDescriptionResponsePtrOutput `pulumi:"roleAssignments"`
-	// Sas Policies set for the assignment.
-	SasPolicies ResourceSetDescriptionResponsePtrOutput `pulumi:"sasPolicies"`
-	// The Role assignments set for the assignment.
-	Segments ResourceSetDescriptionResponsePtrOutput `pulumi:"segments"`
-	// The hub name.
-	TenantId pulumi.StringOutput `pulumi:"tenantId"`
-	// Resource type.
-	Type pulumi.StringOutput `pulumi:"type"`
-	// Views set for the assignment.
-	Views ResourceSetDescriptionResponsePtrOutput `pulumi:"views"`
-	// Widget types set for the assignment.
-	WidgetTypes ResourceSetDescriptionResponsePtrOutput `pulumi:"widgetTypes"`
+	Connectors         ResourceSetDescriptionResponsePtrOutput `pulumi:"connectors"`
+	Description        pulumi.StringMapOutput                  `pulumi:"description"`
+	DisplayName        pulumi.StringMapOutput                  `pulumi:"displayName"`
+	Interactions       ResourceSetDescriptionResponsePtrOutput `pulumi:"interactions"`
+	Kpis               ResourceSetDescriptionResponsePtrOutput `pulumi:"kpis"`
+	Links              ResourceSetDescriptionResponsePtrOutput `pulumi:"links"`
+	Name               pulumi.StringOutput                     `pulumi:"name"`
+	Principals         AssignmentPrincipalResponseArrayOutput  `pulumi:"principals"`
+	Profiles           ResourceSetDescriptionResponsePtrOutput `pulumi:"profiles"`
+	ProvisioningState  pulumi.StringOutput                     `pulumi:"provisioningState"`
+	RelationshipLinks  ResourceSetDescriptionResponsePtrOutput `pulumi:"relationshipLinks"`
+	Relationships      ResourceSetDescriptionResponsePtrOutput `pulumi:"relationships"`
+	Role               pulumi.StringOutput                     `pulumi:"role"`
+	RoleAssignments    ResourceSetDescriptionResponsePtrOutput `pulumi:"roleAssignments"`
+	SasPolicies        ResourceSetDescriptionResponsePtrOutput `pulumi:"sasPolicies"`
+	Segments           ResourceSetDescriptionResponsePtrOutput `pulumi:"segments"`
+	TenantId           pulumi.StringOutput                     `pulumi:"tenantId"`
+	Type               pulumi.StringOutput                     `pulumi:"type"`
+	Views              ResourceSetDescriptionResponsePtrOutput `pulumi:"views"`
+	WidgetTypes        ResourceSetDescriptionResponsePtrOutput `pulumi:"widgetTypes"`
 }
 
 // NewRoleAssignment registers a new resource with the given unique name, arguments, and options.
@@ -76,6 +53,9 @@ func NewRoleAssignment(ctx *pulumi.Context,
 	}
 	if args.ResourceGroupName == nil {
 		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
+	}
+	if args.Role == nil {
+		return nil, errors.New("invalid value for required argument 'Role'")
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
@@ -127,90 +107,50 @@ func (RoleAssignmentState) ElementType() reflect.Type {
 }
 
 type roleAssignmentArgs struct {
-	// The assignment name
-	AssignmentName *string `pulumi:"assignmentName"`
-	// Widget types set for the assignment.
+	AssignmentName     *string                 `pulumi:"assignmentName"`
 	ConflationPolicies *ResourceSetDescription `pulumi:"conflationPolicies"`
-	// Connectors set for the assignment.
-	Connectors *ResourceSetDescription `pulumi:"connectors"`
-	// Localized description for the metadata.
-	Description map[string]string `pulumi:"description"`
-	// Localized display names for the metadata.
-	DisplayName map[string]string `pulumi:"displayName"`
-	// The name of the hub.
-	HubName string `pulumi:"hubName"`
-	// Interactions set for the assignment.
-	Interactions *ResourceSetDescription `pulumi:"interactions"`
-	// Kpis set for the assignment.
-	Kpis *ResourceSetDescription `pulumi:"kpis"`
-	// Links set for the assignment.
-	Links *ResourceSetDescription `pulumi:"links"`
-	// The principals being assigned to.
-	Principals []AssignmentPrincipal `pulumi:"principals"`
-	// Profiles set for the assignment.
-	Profiles *ResourceSetDescription `pulumi:"profiles"`
-	// The Role assignments set for the relationship links.
-	RelationshipLinks *ResourceSetDescription `pulumi:"relationshipLinks"`
-	// The Role assignments set for the relationships.
-	Relationships *ResourceSetDescription `pulumi:"relationships"`
-	// The name of the resource group.
-	ResourceGroupName string `pulumi:"resourceGroupName"`
-	// Type of roles.
-	Role string `pulumi:"role"`
-	// The Role assignments set for the assignment.
-	RoleAssignments *ResourceSetDescription `pulumi:"roleAssignments"`
-	// Sas Policies set for the assignment.
-	SasPolicies *ResourceSetDescription `pulumi:"sasPolicies"`
-	// The Role assignments set for the assignment.
-	Segments *ResourceSetDescription `pulumi:"segments"`
-	// Views set for the assignment.
-	Views *ResourceSetDescription `pulumi:"views"`
-	// Widget types set for the assignment.
-	WidgetTypes *ResourceSetDescription `pulumi:"widgetTypes"`
+	Connectors         *ResourceSetDescription `pulumi:"connectors"`
+	Description        map[string]string       `pulumi:"description"`
+	DisplayName        map[string]string       `pulumi:"displayName"`
+	HubName            string                  `pulumi:"hubName"`
+	Interactions       *ResourceSetDescription `pulumi:"interactions"`
+	Kpis               *ResourceSetDescription `pulumi:"kpis"`
+	Links              *ResourceSetDescription `pulumi:"links"`
+	Principals         []AssignmentPrincipal   `pulumi:"principals"`
+	Profiles           *ResourceSetDescription `pulumi:"profiles"`
+	RelationshipLinks  *ResourceSetDescription `pulumi:"relationshipLinks"`
+	Relationships      *ResourceSetDescription `pulumi:"relationships"`
+	ResourceGroupName  string                  `pulumi:"resourceGroupName"`
+	Role               RoleTypes               `pulumi:"role"`
+	RoleAssignments    *ResourceSetDescription `pulumi:"roleAssignments"`
+	SasPolicies        *ResourceSetDescription `pulumi:"sasPolicies"`
+	Segments           *ResourceSetDescription `pulumi:"segments"`
+	Views              *ResourceSetDescription `pulumi:"views"`
+	WidgetTypes        *ResourceSetDescription `pulumi:"widgetTypes"`
 }
 
 // The set of arguments for constructing a RoleAssignment resource.
 type RoleAssignmentArgs struct {
-	// The assignment name
-	AssignmentName pulumi.StringPtrInput
-	// Widget types set for the assignment.
+	AssignmentName     pulumi.StringPtrInput
 	ConflationPolicies ResourceSetDescriptionPtrInput
-	// Connectors set for the assignment.
-	Connectors ResourceSetDescriptionPtrInput
-	// Localized description for the metadata.
-	Description pulumi.StringMapInput
-	// Localized display names for the metadata.
-	DisplayName pulumi.StringMapInput
-	// The name of the hub.
-	HubName pulumi.StringInput
-	// Interactions set for the assignment.
-	Interactions ResourceSetDescriptionPtrInput
-	// Kpis set for the assignment.
-	Kpis ResourceSetDescriptionPtrInput
-	// Links set for the assignment.
-	Links ResourceSetDescriptionPtrInput
-	// The principals being assigned to.
-	Principals AssignmentPrincipalArrayInput
-	// Profiles set for the assignment.
-	Profiles ResourceSetDescriptionPtrInput
-	// The Role assignments set for the relationship links.
-	RelationshipLinks ResourceSetDescriptionPtrInput
-	// The Role assignments set for the relationships.
-	Relationships ResourceSetDescriptionPtrInput
-	// The name of the resource group.
-	ResourceGroupName pulumi.StringInput
-	// Type of roles.
-	Role RoleTypes
-	// The Role assignments set for the assignment.
-	RoleAssignments ResourceSetDescriptionPtrInput
-	// Sas Policies set for the assignment.
-	SasPolicies ResourceSetDescriptionPtrInput
-	// The Role assignments set for the assignment.
-	Segments ResourceSetDescriptionPtrInput
-	// Views set for the assignment.
-	Views ResourceSetDescriptionPtrInput
-	// Widget types set for the assignment.
-	WidgetTypes ResourceSetDescriptionPtrInput
+	Connectors         ResourceSetDescriptionPtrInput
+	Description        pulumi.StringMapInput
+	DisplayName        pulumi.StringMapInput
+	HubName            pulumi.StringInput
+	Interactions       ResourceSetDescriptionPtrInput
+	Kpis               ResourceSetDescriptionPtrInput
+	Links              ResourceSetDescriptionPtrInput
+	Principals         AssignmentPrincipalArrayInput
+	Profiles           ResourceSetDescriptionPtrInput
+	RelationshipLinks  ResourceSetDescriptionPtrInput
+	Relationships      ResourceSetDescriptionPtrInput
+	ResourceGroupName  pulumi.StringInput
+	Role               RoleTypesInput
+	RoleAssignments    ResourceSetDescriptionPtrInput
+	SasPolicies        ResourceSetDescriptionPtrInput
+	Segments           ResourceSetDescriptionPtrInput
+	Views              ResourceSetDescriptionPtrInput
+	WidgetTypes        ResourceSetDescriptionPtrInput
 }
 
 func (RoleAssignmentArgs) ElementType() reflect.Type {
@@ -236,9 +176,7 @@ func (i *RoleAssignment) ToRoleAssignmentOutputWithContext(ctx context.Context) 
 	return pulumi.ToOutputWithContext(ctx, i).(RoleAssignmentOutput)
 }
 
-type RoleAssignmentOutput struct {
-	*pulumi.OutputState
-}
+type RoleAssignmentOutput struct{ *pulumi.OutputState }
 
 func (RoleAssignmentOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*RoleAssignment)(nil))

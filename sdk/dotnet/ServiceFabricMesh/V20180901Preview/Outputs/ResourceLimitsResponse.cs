@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.ServiceFabricMesh.V20180901Preview.Outputs
 {
 
+    /// <summary>
+    /// This type describes the resource limits for a given container. It describes the most amount of resources a container is allowed to use before being restarted.
+    /// </summary>
     [OutputType]
     public sealed class ResourceLimitsResponse
     {

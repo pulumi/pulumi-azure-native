@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.Datadog.V20210301.Outputs
 {
 
+    /// <summary>
+    /// The properties of a resource currently being monitored by the Datadog monitor resource.
+    /// </summary>
     [OutputType]
     public sealed class MonitoredResourceResponse
     {

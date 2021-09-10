@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.DataFactory.V20180601.Outputs
 {
 
+    /// <summary>
+    /// A copy activity QuickBooks server source.
+    /// </summary>
     [OutputType]
     public sealed class QuickBooksSourceResponse
     {

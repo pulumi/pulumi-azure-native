@@ -7,7 +7,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Description of the shared access key.
 func ListIotDpsResourceKeysForKeyName(ctx *pulumi.Context, args *ListIotDpsResourceKeysForKeyNameArgs, opts ...pulumi.InvokeOption) (*ListIotDpsResourceKeysForKeyNameResult, error) {
 	var rv ListIotDpsResourceKeysForKeyNameResult
 	err := ctx.Invoke("azure-native:devices/v20200901preview:listIotDpsResourceKeysForKeyName", args, &rv, opts...)
@@ -18,22 +17,15 @@ func ListIotDpsResourceKeysForKeyName(ctx *pulumi.Context, args *ListIotDpsResou
 }
 
 type ListIotDpsResourceKeysForKeyNameArgs struct {
-	// Logical key name to get key-values for.
-	KeyName string `pulumi:"keyName"`
-	// Name of the provisioning service.
+	KeyName                 string `pulumi:"keyName"`
 	ProvisioningServiceName string `pulumi:"provisioningServiceName"`
-	// The name of the resource group that contains the provisioning service.
-	ResourceGroupName string `pulumi:"resourceGroupName"`
+	ResourceGroupName       string `pulumi:"resourceGroupName"`
 }
 
 // Description of the shared access key.
 type ListIotDpsResourceKeysForKeyNameResult struct {
-	// Name of the key.
-	KeyName string `pulumi:"keyName"`
-	// Primary SAS key value.
-	PrimaryKey *string `pulumi:"primaryKey"`
-	// Rights that this key has.
-	Rights string `pulumi:"rights"`
-	// Secondary SAS key value.
+	KeyName      string  `pulumi:"keyName"`
+	PrimaryKey   *string `pulumi:"primaryKey"`
+	Rights       string  `pulumi:"rights"`
 	SecondaryKey *string `pulumi:"secondaryKey"`
 }

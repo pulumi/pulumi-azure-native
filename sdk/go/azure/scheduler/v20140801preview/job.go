@@ -14,12 +14,9 @@ import (
 type Job struct {
 	pulumi.CustomResourceState
 
-	// Gets the job resource name.
-	Name pulumi.StringOutput `pulumi:"name"`
-	// Gets or sets the job properties.
+	Name       pulumi.StringOutput         `pulumi:"name"`
 	Properties JobPropertiesResponseOutput `pulumi:"properties"`
-	// Gets the job resource type.
-	Type pulumi.StringOutput `pulumi:"type"`
+	Type       pulumi.StringOutput         `pulumi:"type"`
 }
 
 // NewJob registers a new resource with the given unique name, arguments, and options.
@@ -91,25 +88,17 @@ func (JobState) ElementType() reflect.Type {
 }
 
 type jobArgs struct {
-	// The job collection name.
-	JobCollectionName string `pulumi:"jobCollectionName"`
-	// The job name.
-	JobName *string `pulumi:"jobName"`
-	// Gets or sets the job properties.
-	Properties *JobProperties `pulumi:"properties"`
-	// The resource group name.
-	ResourceGroupName string `pulumi:"resourceGroupName"`
+	JobCollectionName string         `pulumi:"jobCollectionName"`
+	JobName           *string        `pulumi:"jobName"`
+	Properties        *JobProperties `pulumi:"properties"`
+	ResourceGroupName string         `pulumi:"resourceGroupName"`
 }
 
 // The set of arguments for constructing a Job resource.
 type JobArgs struct {
-	// The job collection name.
 	JobCollectionName pulumi.StringInput
-	// The job name.
-	JobName pulumi.StringPtrInput
-	// Gets or sets the job properties.
-	Properties JobPropertiesPtrInput
-	// The resource group name.
+	JobName           pulumi.StringPtrInput
+	Properties        JobPropertiesPtrInput
 	ResourceGroupName pulumi.StringInput
 }
 
@@ -136,9 +125,7 @@ func (i *Job) ToJobOutputWithContext(ctx context.Context) JobOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(JobOutput)
 }
 
-type JobOutput struct {
-	*pulumi.OutputState
-}
+type JobOutput struct{ *pulumi.OutputState }
 
 func (JobOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*Job)(nil))

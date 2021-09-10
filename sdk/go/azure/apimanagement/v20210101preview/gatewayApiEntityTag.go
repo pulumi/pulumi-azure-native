@@ -11,56 +11,32 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// API details.
 type GatewayApiEntityTag struct {
 	pulumi.CustomResourceState
 
-	// Describes the revision of the API. If no value is provided, default revision 1 is created
-	ApiRevision pulumi.StringPtrOutput `pulumi:"apiRevision"`
-	// Description of the API Revision.
-	ApiRevisionDescription pulumi.StringPtrOutput `pulumi:"apiRevisionDescription"`
-	// Type of API.
-	ApiType pulumi.StringPtrOutput `pulumi:"apiType"`
-	// Indicates the version identifier of the API if the API is versioned
-	ApiVersion pulumi.StringPtrOutput `pulumi:"apiVersion"`
-	// Description of the API Version.
-	ApiVersionDescription pulumi.StringPtrOutput `pulumi:"apiVersionDescription"`
-	// Version set details
-	ApiVersionSet ApiVersionSetContractDetailsResponsePtrOutput `pulumi:"apiVersionSet"`
-	// A resource identifier for the related ApiVersionSet.
-	ApiVersionSetId pulumi.StringPtrOutput `pulumi:"apiVersionSetId"`
-	// Collection of authentication settings included into this API.
-	AuthenticationSettings AuthenticationSettingsContractResponsePtrOutput `pulumi:"authenticationSettings"`
-	// Contact information for the API.
-	Contact ApiContactInformationResponsePtrOutput `pulumi:"contact"`
-	// Description of the API. May include HTML formatting tags.
-	Description pulumi.StringPtrOutput `pulumi:"description"`
-	// API name. Must be 1 to 300 characters long.
-	DisplayName pulumi.StringPtrOutput `pulumi:"displayName"`
-	// Indicates if API revision is current api revision.
-	IsCurrent pulumi.BoolPtrOutput `pulumi:"isCurrent"`
-	// Indicates if API revision is accessible via the gateway.
-	IsOnline pulumi.BoolOutput `pulumi:"isOnline"`
-	// License information for the API.
-	License ApiLicenseInformationResponsePtrOutput `pulumi:"license"`
-	// Resource name.
-	Name pulumi.StringOutput `pulumi:"name"`
-	// Relative URL uniquely identifying this API and all of its resource paths within the API Management service instance. It is appended to the API endpoint base URL specified during the service instance creation to form a public URL for this API.
-	Path pulumi.StringOutput `pulumi:"path"`
-	// Describes on which protocols the operations in this API can be invoked.
-	Protocols pulumi.StringArrayOutput `pulumi:"protocols"`
-	// Absolute URL of the backend service implementing this API. Cannot be more than 2000 characters long.
-	ServiceUrl pulumi.StringPtrOutput `pulumi:"serviceUrl"`
-	// API identifier of the source API.
-	SourceApiId pulumi.StringPtrOutput `pulumi:"sourceApiId"`
-	// Protocols over which API is made available.
+	ApiRevision                   pulumi.StringPtrOutput                                 `pulumi:"apiRevision"`
+	ApiRevisionDescription        pulumi.StringPtrOutput                                 `pulumi:"apiRevisionDescription"`
+	ApiType                       pulumi.StringPtrOutput                                 `pulumi:"apiType"`
+	ApiVersion                    pulumi.StringPtrOutput                                 `pulumi:"apiVersion"`
+	ApiVersionDescription         pulumi.StringPtrOutput                                 `pulumi:"apiVersionDescription"`
+	ApiVersionSet                 ApiVersionSetContractDetailsResponsePtrOutput          `pulumi:"apiVersionSet"`
+	ApiVersionSetId               pulumi.StringPtrOutput                                 `pulumi:"apiVersionSetId"`
+	AuthenticationSettings        AuthenticationSettingsContractResponsePtrOutput        `pulumi:"authenticationSettings"`
+	Contact                       ApiContactInformationResponsePtrOutput                 `pulumi:"contact"`
+	Description                   pulumi.StringPtrOutput                                 `pulumi:"description"`
+	DisplayName                   pulumi.StringPtrOutput                                 `pulumi:"displayName"`
+	IsCurrent                     pulumi.BoolPtrOutput                                   `pulumi:"isCurrent"`
+	IsOnline                      pulumi.BoolOutput                                      `pulumi:"isOnline"`
+	License                       ApiLicenseInformationResponsePtrOutput                 `pulumi:"license"`
+	Name                          pulumi.StringOutput                                    `pulumi:"name"`
+	Path                          pulumi.StringOutput                                    `pulumi:"path"`
+	Protocols                     pulumi.StringArrayOutput                               `pulumi:"protocols"`
+	ServiceUrl                    pulumi.StringPtrOutput                                 `pulumi:"serviceUrl"`
+	SourceApiId                   pulumi.StringPtrOutput                                 `pulumi:"sourceApiId"`
 	SubscriptionKeyParameterNames SubscriptionKeyParameterNamesContractResponsePtrOutput `pulumi:"subscriptionKeyParameterNames"`
-	// Specifies whether an API or Product subscription is required for accessing the API.
-	SubscriptionRequired pulumi.BoolPtrOutput `pulumi:"subscriptionRequired"`
-	//  A URL to the Terms of Service for the API. MUST be in the format of a URL.
-	TermsOfServiceUrl pulumi.StringPtrOutput `pulumi:"termsOfServiceUrl"`
-	// Resource type for API Management resource.
-	Type pulumi.StringOutput `pulumi:"type"`
+	SubscriptionRequired          pulumi.BoolPtrOutput                                   `pulumi:"subscriptionRequired"`
+	TermsOfServiceUrl             pulumi.StringPtrOutput                                 `pulumi:"termsOfServiceUrl"`
+	Type                          pulumi.StringOutput                                    `pulumi:"type"`
 }
 
 // NewGatewayApiEntityTag registers a new resource with the given unique name, arguments, and options.
@@ -147,30 +123,20 @@ func (GatewayApiEntityTagState) ElementType() reflect.Type {
 }
 
 type gatewayApiEntityTagArgs struct {
-	// API identifier. Must be unique in the current API Management service instance.
-	ApiId *string `pulumi:"apiId"`
-	// Gateway entity identifier. Must be unique in the current API Management service instance. Must not have value 'managed'
-	GatewayId string `pulumi:"gatewayId"`
-	// Provisioning state.
-	ProvisioningState *string `pulumi:"provisioningState"`
-	// The name of the resource group.
-	ResourceGroupName string `pulumi:"resourceGroupName"`
-	// The name of the API Management service.
-	ServiceName string `pulumi:"serviceName"`
+	ApiId             *string            `pulumi:"apiId"`
+	GatewayId         string             `pulumi:"gatewayId"`
+	ProvisioningState *ProvisioningState `pulumi:"provisioningState"`
+	ResourceGroupName string             `pulumi:"resourceGroupName"`
+	ServiceName       string             `pulumi:"serviceName"`
 }
 
 // The set of arguments for constructing a GatewayApiEntityTag resource.
 type GatewayApiEntityTagArgs struct {
-	// API identifier. Must be unique in the current API Management service instance.
-	ApiId pulumi.StringPtrInput
-	// Gateway entity identifier. Must be unique in the current API Management service instance. Must not have value 'managed'
-	GatewayId pulumi.StringInput
-	// Provisioning state.
-	ProvisioningState *ProvisioningState
-	// The name of the resource group.
+	ApiId             pulumi.StringPtrInput
+	GatewayId         pulumi.StringInput
+	ProvisioningState ProvisioningStatePtrInput
 	ResourceGroupName pulumi.StringInput
-	// The name of the API Management service.
-	ServiceName pulumi.StringInput
+	ServiceName       pulumi.StringInput
 }
 
 func (GatewayApiEntityTagArgs) ElementType() reflect.Type {
@@ -196,9 +162,7 @@ func (i *GatewayApiEntityTag) ToGatewayApiEntityTagOutputWithContext(ctx context
 	return pulumi.ToOutputWithContext(ctx, i).(GatewayApiEntityTagOutput)
 }
 
-type GatewayApiEntityTagOutput struct {
-	*pulumi.OutputState
-}
+type GatewayApiEntityTagOutput struct{ *pulumi.OutputState }
 
 func (GatewayApiEntityTagOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*GatewayApiEntityTag)(nil))

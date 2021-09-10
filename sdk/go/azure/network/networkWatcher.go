@@ -331,9 +331,7 @@ func (i *NetworkWatcher) ToNetworkWatcherOutputWithContext(ctx context.Context) 
 	return pulumi.ToOutputWithContext(ctx, i).(NetworkWatcherOutput)
 }
 
-type NetworkWatcherOutput struct {
-	*pulumi.OutputState
-}
+type NetworkWatcherOutput struct{ *pulumi.OutputState }
 
 func (NetworkWatcherOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*NetworkWatcher)(nil))

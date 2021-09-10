@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.Security.V20200101.Outputs
 {
 
+    /// <summary>
+    /// The protection mode of the collection/file types. Exe/Msi/Script are used for Windows, Executable is used for Linux.
+    /// </summary>
     [OutputType]
     public sealed class ProtectionModeResponse
     {

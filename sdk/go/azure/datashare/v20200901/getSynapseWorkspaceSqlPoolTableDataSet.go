@@ -7,7 +7,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// A Synapse Workspace Sql Pool Table data set.
 func LookupSynapseWorkspaceSqlPoolTableDataSet(ctx *pulumi.Context, args *LookupSynapseWorkspaceSqlPoolTableDataSetArgs, opts ...pulumi.InvokeOption) (*LookupSynapseWorkspaceSqlPoolTableDataSetResult, error) {
 	var rv LookupSynapseWorkspaceSqlPoolTableDataSetResult
 	err := ctx.Invoke("azure-native:datashare/v20200901:getSynapseWorkspaceSqlPoolTableDataSet", args, &rv, opts...)
@@ -18,31 +17,19 @@ func LookupSynapseWorkspaceSqlPoolTableDataSet(ctx *pulumi.Context, args *Lookup
 }
 
 type LookupSynapseWorkspaceSqlPoolTableDataSetArgs struct {
-	// The name of the share account.
-	AccountName string `pulumi:"accountName"`
-	// The name of the dataSet.
-	DataSetName string `pulumi:"dataSetName"`
-	// The resource group name.
+	AccountName       string `pulumi:"accountName"`
+	DataSetName       string `pulumi:"dataSetName"`
 	ResourceGroupName string `pulumi:"resourceGroupName"`
-	// The name of the share.
-	ShareName string `pulumi:"shareName"`
+	ShareName         string `pulumi:"shareName"`
 }
 
 // A Synapse Workspace Sql Pool Table data set.
 type LookupSynapseWorkspaceSqlPoolTableDataSetResult struct {
-	// Unique id for identifying a data set resource
-	DataSetId string `pulumi:"dataSetId"`
-	// The resource id of the azure resource
-	Id string `pulumi:"id"`
-	// Kind of data set.
-	// Expected value is 'SynapseWorkspaceSqlPoolTable'.
-	Kind string `pulumi:"kind"`
-	// Name of the azure resource
-	Name string `pulumi:"name"`
-	// Resource id of the Synapse Workspace SQL Pool Table
-	SynapseWorkspaceSqlPoolTableResourceId string `pulumi:"synapseWorkspaceSqlPoolTableResourceId"`
-	// System Data of the Azure resource.
-	SystemData SystemDataResponse `pulumi:"systemData"`
-	// Type of the azure resource
-	Type string `pulumi:"type"`
+	DataSetId                              string             `pulumi:"dataSetId"`
+	Id                                     string             `pulumi:"id"`
+	Kind                                   string             `pulumi:"kind"`
+	Name                                   string             `pulumi:"name"`
+	SynapseWorkspaceSqlPoolTableResourceId string             `pulumi:"synapseWorkspaceSqlPoolTableResourceId"`
+	SystemData                             SystemDataResponse `pulumi:"systemData"`
+	Type                                   string             `pulumi:"type"`
 }

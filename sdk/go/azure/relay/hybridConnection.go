@@ -144,9 +144,7 @@ func (i *HybridConnection) ToHybridConnectionOutputWithContext(ctx context.Conte
 	return pulumi.ToOutputWithContext(ctx, i).(HybridConnectionOutput)
 }
 
-type HybridConnectionOutput struct {
-	*pulumi.OutputState
-}
+type HybridConnectionOutput struct{ *pulumi.OutputState }
 
 func (HybridConnectionOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*HybridConnection)(nil))

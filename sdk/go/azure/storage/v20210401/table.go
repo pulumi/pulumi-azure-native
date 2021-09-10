@@ -11,16 +11,12 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Properties of the table, including Id, resource name, resource type.
 type Table struct {
 	pulumi.CustomResourceState
 
-	// The name of the resource
-	Name pulumi.StringOutput `pulumi:"name"`
-	// Table name under the specified account
+	Name      pulumi.StringOutput `pulumi:"name"`
 	TableName pulumi.StringOutput `pulumi:"tableName"`
-	// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
-	Type pulumi.StringOutput `pulumi:"type"`
+	Type      pulumi.StringOutput `pulumi:"type"`
 }
 
 // NewTable registers a new resource with the given unique name, arguments, and options.
@@ -104,22 +100,16 @@ func (TableState) ElementType() reflect.Type {
 }
 
 type tableArgs struct {
-	// The name of the storage account within the specified resource group. Storage account names must be between 3 and 24 characters in length and use numbers and lower-case letters only.
-	AccountName string `pulumi:"accountName"`
-	// The name of the resource group within the user's subscription. The name is case insensitive.
-	ResourceGroupName string `pulumi:"resourceGroupName"`
-	// A table name must be unique within a storage account and must be between 3 and 63 characters.The name must comprise of only alphanumeric characters and it cannot begin with a numeric character.
-	TableName *string `pulumi:"tableName"`
+	AccountName       string  `pulumi:"accountName"`
+	ResourceGroupName string  `pulumi:"resourceGroupName"`
+	TableName         *string `pulumi:"tableName"`
 }
 
 // The set of arguments for constructing a Table resource.
 type TableArgs struct {
-	// The name of the storage account within the specified resource group. Storage account names must be between 3 and 24 characters in length and use numbers and lower-case letters only.
-	AccountName pulumi.StringInput
-	// The name of the resource group within the user's subscription. The name is case insensitive.
+	AccountName       pulumi.StringInput
 	ResourceGroupName pulumi.StringInput
-	// A table name must be unique within a storage account and must be between 3 and 63 characters.The name must comprise of only alphanumeric characters and it cannot begin with a numeric character.
-	TableName pulumi.StringPtrInput
+	TableName         pulumi.StringPtrInput
 }
 
 func (TableArgs) ElementType() reflect.Type {
@@ -145,9 +135,7 @@ func (i *Table) ToTableOutputWithContext(ctx context.Context) TableOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(TableOutput)
 }
 
-type TableOutput struct {
-	*pulumi.OutputState
-}
+type TableOutput struct{ *pulumi.OutputState }
 
 func (TableOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*Table)(nil))

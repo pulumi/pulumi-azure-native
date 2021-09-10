@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.HanaOnAzure.Outputs
 {
 
+    /// <summary>
+    /// Specifies the hardware settings for the HANA instance.
+    /// </summary>
     [OutputType]
     public sealed class HardwareProfileResponse
     {

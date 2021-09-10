@@ -11,43 +11,25 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Represents Activity entity query.
 type ActivityCustomEntityQuery struct {
 	pulumi.CustomResourceState
 
-	// The entity query content to display in timeline
-	Content pulumi.StringPtrOutput `pulumi:"content"`
-	// The time the activity was created
-	CreatedTimeUtc pulumi.StringOutput `pulumi:"createdTimeUtc"`
-	// The entity query description
-	Description pulumi.StringPtrOutput `pulumi:"description"`
-	// Determines whether this activity is enabled or disabled.
-	Enabled pulumi.BoolPtrOutput `pulumi:"enabled"`
-	// The query applied only to entities matching to all filters
-	EntitiesFilter pulumi.StringArrayMapOutput `pulumi:"entitiesFilter"`
-	// Etag of the azure resource
-	Etag pulumi.StringPtrOutput `pulumi:"etag"`
-	// The type of the query's source entity
-	InputEntityType pulumi.StringPtrOutput `pulumi:"inputEntityType"`
-	// The kind of the entity query
-	// Expected value is 'Activity'.
-	Kind pulumi.StringOutput `pulumi:"kind"`
-	// The last time the activity was updated
-	LastModifiedTimeUtc pulumi.StringOutput `pulumi:"lastModifiedTimeUtc"`
-	// Azure resource name
-	Name pulumi.StringOutput `pulumi:"name"`
-	// The Activity query definitions
-	QueryDefinitions ActivityEntityQueriesPropertiesResponseQueryDefinitionsPtrOutput `pulumi:"queryDefinitions"`
-	// List of the fields of the source entity that are required to run the query
-	RequiredInputFieldsSets pulumi.StringArrayArrayOutput `pulumi:"requiredInputFieldsSets"`
-	// Azure Resource Manager metadata containing createdBy and modifiedBy information.
-	SystemData SystemDataResponseOutput `pulumi:"systemData"`
-	// The template id this activity was created from
-	TemplateName pulumi.StringPtrOutput `pulumi:"templateName"`
-	// The entity query title
-	Title pulumi.StringPtrOutput `pulumi:"title"`
-	// Azure resource type
-	Type pulumi.StringOutput `pulumi:"type"`
+	Content                 pulumi.StringPtrOutput                                           `pulumi:"content"`
+	CreatedTimeUtc          pulumi.StringOutput                                              `pulumi:"createdTimeUtc"`
+	Description             pulumi.StringPtrOutput                                           `pulumi:"description"`
+	Enabled                 pulumi.BoolPtrOutput                                             `pulumi:"enabled"`
+	EntitiesFilter          pulumi.StringArrayMapOutput                                      `pulumi:"entitiesFilter"`
+	Etag                    pulumi.StringPtrOutput                                           `pulumi:"etag"`
+	InputEntityType         pulumi.StringPtrOutput                                           `pulumi:"inputEntityType"`
+	Kind                    pulumi.StringOutput                                              `pulumi:"kind"`
+	LastModifiedTimeUtc     pulumi.StringOutput                                              `pulumi:"lastModifiedTimeUtc"`
+	Name                    pulumi.StringOutput                                              `pulumi:"name"`
+	QueryDefinitions        ActivityEntityQueriesPropertiesResponseQueryDefinitionsPtrOutput `pulumi:"queryDefinitions"`
+	RequiredInputFieldsSets pulumi.StringArrayArrayOutput                                    `pulumi:"requiredInputFieldsSets"`
+	SystemData              SystemDataResponseOutput                                         `pulumi:"systemData"`
+	TemplateName            pulumi.StringPtrOutput                                           `pulumi:"templateName"`
+	Title                   pulumi.StringPtrOutput                                           `pulumi:"title"`
+	Type                    pulumi.StringOutput                                              `pulumi:"type"`
 }
 
 // NewActivityCustomEntityQuery registers a new resource with the given unique name, arguments, and options.
@@ -114,72 +96,40 @@ func (ActivityCustomEntityQueryState) ElementType() reflect.Type {
 }
 
 type activityCustomEntityQueryArgs struct {
-	// The entity query content to display in timeline
-	Content *string `pulumi:"content"`
-	// The entity query description
-	Description *string `pulumi:"description"`
-	// Determines whether this activity is enabled or disabled.
-	Enabled *bool `pulumi:"enabled"`
-	// The query applied only to entities matching to all filters
-	EntitiesFilter map[string][]string `pulumi:"entitiesFilter"`
-	// entity query ID
-	EntityQueryId *string `pulumi:"entityQueryId"`
-	// Etag of the azure resource
-	Etag *string `pulumi:"etag"`
-	// The type of the query's source entity
-	InputEntityType *string `pulumi:"inputEntityType"`
-	// The kind of the entity query that supports put request.
-	// Expected value is 'Activity'.
-	Kind string `pulumi:"kind"`
-	// The namespace of workspaces resource provider- Microsoft.OperationalInsights.
-	OperationalInsightsResourceProvider string `pulumi:"operationalInsightsResourceProvider"`
-	// The Activity query definitions
-	QueryDefinitions *ActivityEntityQueriesPropertiesQueryDefinitions `pulumi:"queryDefinitions"`
-	// List of the fields of the source entity that are required to run the query
-	RequiredInputFieldsSets [][]string `pulumi:"requiredInputFieldsSets"`
-	// The name of the resource group. The name is case insensitive.
-	ResourceGroupName string `pulumi:"resourceGroupName"`
-	// The template id this activity was created from
-	TemplateName *string `pulumi:"templateName"`
-	// The entity query title
-	Title *string `pulumi:"title"`
-	// The name of the workspace.
-	WorkspaceName string `pulumi:"workspaceName"`
+	Content                             *string                                          `pulumi:"content"`
+	Description                         *string                                          `pulumi:"description"`
+	Enabled                             *bool                                            `pulumi:"enabled"`
+	EntitiesFilter                      map[string][]string                              `pulumi:"entitiesFilter"`
+	EntityQueryId                       *string                                          `pulumi:"entityQueryId"`
+	Etag                                *string                                          `pulumi:"etag"`
+	InputEntityType                     *string                                          `pulumi:"inputEntityType"`
+	Kind                                string                                           `pulumi:"kind"`
+	OperationalInsightsResourceProvider string                                           `pulumi:"operationalInsightsResourceProvider"`
+	QueryDefinitions                    *ActivityEntityQueriesPropertiesQueryDefinitions `pulumi:"queryDefinitions"`
+	RequiredInputFieldsSets             [][]string                                       `pulumi:"requiredInputFieldsSets"`
+	ResourceGroupName                   string                                           `pulumi:"resourceGroupName"`
+	TemplateName                        *string                                          `pulumi:"templateName"`
+	Title                               *string                                          `pulumi:"title"`
+	WorkspaceName                       string                                           `pulumi:"workspaceName"`
 }
 
 // The set of arguments for constructing a ActivityCustomEntityQuery resource.
 type ActivityCustomEntityQueryArgs struct {
-	// The entity query content to display in timeline
-	Content pulumi.StringPtrInput
-	// The entity query description
-	Description pulumi.StringPtrInput
-	// Determines whether this activity is enabled or disabled.
-	Enabled pulumi.BoolPtrInput
-	// The query applied only to entities matching to all filters
-	EntitiesFilter pulumi.StringArrayMapInput
-	// entity query ID
-	EntityQueryId pulumi.StringPtrInput
-	// Etag of the azure resource
-	Etag pulumi.StringPtrInput
-	// The type of the query's source entity
-	InputEntityType pulumi.StringPtrInput
-	// The kind of the entity query that supports put request.
-	// Expected value is 'Activity'.
-	Kind pulumi.StringInput
-	// The namespace of workspaces resource provider- Microsoft.OperationalInsights.
+	Content                             pulumi.StringPtrInput
+	Description                         pulumi.StringPtrInput
+	Enabled                             pulumi.BoolPtrInput
+	EntitiesFilter                      pulumi.StringArrayMapInput
+	EntityQueryId                       pulumi.StringPtrInput
+	Etag                                pulumi.StringPtrInput
+	InputEntityType                     pulumi.StringPtrInput
+	Kind                                pulumi.StringInput
 	OperationalInsightsResourceProvider pulumi.StringInput
-	// The Activity query definitions
-	QueryDefinitions ActivityEntityQueriesPropertiesQueryDefinitionsPtrInput
-	// List of the fields of the source entity that are required to run the query
-	RequiredInputFieldsSets pulumi.StringArrayArrayInput
-	// The name of the resource group. The name is case insensitive.
-	ResourceGroupName pulumi.StringInput
-	// The template id this activity was created from
-	TemplateName pulumi.StringPtrInput
-	// The entity query title
-	Title pulumi.StringPtrInput
-	// The name of the workspace.
-	WorkspaceName pulumi.StringInput
+	QueryDefinitions                    ActivityEntityQueriesPropertiesQueryDefinitionsPtrInput
+	RequiredInputFieldsSets             pulumi.StringArrayArrayInput
+	ResourceGroupName                   pulumi.StringInput
+	TemplateName                        pulumi.StringPtrInput
+	Title                               pulumi.StringPtrInput
+	WorkspaceName                       pulumi.StringInput
 }
 
 func (ActivityCustomEntityQueryArgs) ElementType() reflect.Type {
@@ -205,9 +155,7 @@ func (i *ActivityCustomEntityQuery) ToActivityCustomEntityQueryOutputWithContext
 	return pulumi.ToOutputWithContext(ctx, i).(ActivityCustomEntityQueryOutput)
 }
 
-type ActivityCustomEntityQueryOutput struct {
-	*pulumi.OutputState
-}
+type ActivityCustomEntityQueryOutput struct{ *pulumi.OutputState }
 
 func (ActivityCustomEntityQueryOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*ActivityCustomEntityQuery)(nil))

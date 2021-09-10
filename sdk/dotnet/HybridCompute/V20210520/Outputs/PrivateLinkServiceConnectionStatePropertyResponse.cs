@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.HybridCompute.V20210520.Outputs
 {
 
+    /// <summary>
+    /// State of the private endpoint connection.
+    /// </summary>
     [OutputType]
     public sealed class PrivateLinkServiceConnectionStatePropertyResponse
     {

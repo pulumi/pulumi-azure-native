@@ -7,7 +7,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Interface endpoint resource.
 func LookupInterfaceEndpoint(ctx *pulumi.Context, args *LookupInterfaceEndpointArgs, opts ...pulumi.InvokeOption) (*LookupInterfaceEndpointResult, error) {
 	var rv LookupInterfaceEndpointResult
 	err := ctx.Invoke("azure-native:network/v20181101:getInterfaceEndpoint", args, &rv, opts...)
@@ -18,38 +17,23 @@ func LookupInterfaceEndpoint(ctx *pulumi.Context, args *LookupInterfaceEndpointA
 }
 
 type LookupInterfaceEndpointArgs struct {
-	// Expands referenced resources.
-	Expand *string `pulumi:"expand"`
-	// The name of the interface endpoint.
-	InterfaceEndpointName string `pulumi:"interfaceEndpointName"`
-	// The name of the resource group.
-	ResourceGroupName string `pulumi:"resourceGroupName"`
+	Expand                *string `pulumi:"expand"`
+	InterfaceEndpointName string  `pulumi:"interfaceEndpointName"`
+	ResourceGroupName     string  `pulumi:"resourceGroupName"`
 }
 
 // Interface endpoint resource.
 type LookupInterfaceEndpointResult struct {
-	// A reference to the service being brought into the virtual network.
-	EndpointService *EndpointServiceResponse `pulumi:"endpointService"`
-	// Gets a unique read-only string that changes whenever the resource is updated.
-	Etag *string `pulumi:"etag"`
-	// A first-party service's FQDN that is mapped to the private IP allocated via this interface endpoint.
-	Fqdn *string `pulumi:"fqdn"`
-	// Resource ID.
-	Id *string `pulumi:"id"`
-	// Resource location.
-	Location *string `pulumi:"location"`
-	// Resource name.
-	Name string `pulumi:"name"`
-	// Gets an array of references to the network interfaces created for this interface endpoint.
+	EndpointService   *EndpointServiceResponse   `pulumi:"endpointService"`
+	Etag              *string                    `pulumi:"etag"`
+	Fqdn              *string                    `pulumi:"fqdn"`
+	Id                *string                    `pulumi:"id"`
+	Location          *string                    `pulumi:"location"`
+	Name              string                     `pulumi:"name"`
 	NetworkInterfaces []NetworkInterfaceResponse `pulumi:"networkInterfaces"`
-	// A read-only property that identifies who created this interface endpoint.
-	Owner string `pulumi:"owner"`
-	// The provisioning state of the interface endpoint. Possible values are: 'Updating', 'Deleting', and 'Failed'.
-	ProvisioningState string `pulumi:"provisioningState"`
-	// The ID of the subnet from which the private IP will be allocated.
-	Subnet *SubnetResponse `pulumi:"subnet"`
-	// Resource tags.
-	Tags map[string]string `pulumi:"tags"`
-	// Resource type.
-	Type string `pulumi:"type"`
+	Owner             string                     `pulumi:"owner"`
+	ProvisioningState string                     `pulumi:"provisioningState"`
+	Subnet            *SubnetResponse            `pulumi:"subnet"`
+	Tags              map[string]string          `pulumi:"tags"`
+	Type              string                     `pulumi:"type"`
 }

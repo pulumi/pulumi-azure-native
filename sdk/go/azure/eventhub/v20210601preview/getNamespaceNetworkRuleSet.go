@@ -7,7 +7,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Description of topic resource.
 func LookupNamespaceNetworkRuleSet(ctx *pulumi.Context, args *LookupNamespaceNetworkRuleSetArgs, opts ...pulumi.InvokeOption) (*LookupNamespaceNetworkRuleSetResult, error) {
 	var rv LookupNamespaceNetworkRuleSetResult
 	err := ctx.Invoke("azure-native:eventhub/v20210601preview:getNamespaceNetworkRuleSet", args, &rv, opts...)
@@ -18,30 +17,19 @@ func LookupNamespaceNetworkRuleSet(ctx *pulumi.Context, args *LookupNamespaceNet
 }
 
 type LookupNamespaceNetworkRuleSetArgs struct {
-	// The Namespace name
-	NamespaceName string `pulumi:"namespaceName"`
-	// Name of the resource group within the azure subscription.
+	NamespaceName     string `pulumi:"namespaceName"`
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 }
 
 // Description of topic resource.
 type LookupNamespaceNetworkRuleSetResult struct {
-	// Default Action for Network Rule Set
-	DefaultAction *string `pulumi:"defaultAction"`
-	// Resource ID.
-	Id string `pulumi:"id"`
-	// List of IpRules
-	IpRules []NWRuleSetIpRulesResponse `pulumi:"ipRules"`
-	// Resource name.
-	Name string `pulumi:"name"`
-	// This determines if traffic is allowed over public network. By default it is enabled.
-	PublicNetworkAccess *string `pulumi:"publicNetworkAccess"`
-	// The system meta data relating to this resource.
-	SystemData SystemDataResponse `pulumi:"systemData"`
-	// Value that indicates whether Trusted Service Access is Enabled or not.
-	TrustedServiceAccessEnabled *bool `pulumi:"trustedServiceAccessEnabled"`
-	// Resource type.
-	Type string `pulumi:"type"`
-	// List VirtualNetwork Rules
-	VirtualNetworkRules []NWRuleSetVirtualNetworkRulesResponse `pulumi:"virtualNetworkRules"`
+	DefaultAction               *string                                `pulumi:"defaultAction"`
+	Id                          string                                 `pulumi:"id"`
+	IpRules                     []NWRuleSetIpRulesResponse             `pulumi:"ipRules"`
+	Name                        string                                 `pulumi:"name"`
+	PublicNetworkAccess         *string                                `pulumi:"publicNetworkAccess"`
+	SystemData                  SystemDataResponse                     `pulumi:"systemData"`
+	TrustedServiceAccessEnabled *bool                                  `pulumi:"trustedServiceAccessEnabled"`
+	Type                        string                                 `pulumi:"type"`
+	VirtualNetworkRules         []NWRuleSetVirtualNetworkRulesResponse `pulumi:"virtualNetworkRules"`
 }

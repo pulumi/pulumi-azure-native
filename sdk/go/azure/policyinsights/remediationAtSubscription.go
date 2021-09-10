@@ -143,9 +143,7 @@ func (i *RemediationAtSubscription) ToRemediationAtSubscriptionOutputWithContext
 	return pulumi.ToOutputWithContext(ctx, i).(RemediationAtSubscriptionOutput)
 }
 
-type RemediationAtSubscriptionOutput struct {
-	*pulumi.OutputState
-}
+type RemediationAtSubscriptionOutput struct{ *pulumi.OutputState }
 
 func (RemediationAtSubscriptionOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*RemediationAtSubscription)(nil))

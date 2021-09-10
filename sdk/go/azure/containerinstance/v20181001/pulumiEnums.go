@@ -10,8 +10,7 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Specifies if the IP is exposed to the public internet or private VNET.
-type ContainerGroupIpAddressType pulumi.String
+type ContainerGroupIpAddressType string
 
 const (
 	ContainerGroupIpAddressTypePublic  = ContainerGroupIpAddressType("Public")
@@ -19,7 +18,23 @@ const (
 )
 
 func (ContainerGroupIpAddressType) ElementType() reflect.Type {
-	return reflect.TypeOf((*pulumi.String)(nil)).Elem()
+	return reflect.TypeOf((*ContainerGroupIpAddressType)(nil)).Elem()
+}
+
+func (e ContainerGroupIpAddressType) ToContainerGroupIpAddressTypeOutput() ContainerGroupIpAddressTypeOutput {
+	return pulumi.ToOutput(e).(ContainerGroupIpAddressTypeOutput)
+}
+
+func (e ContainerGroupIpAddressType) ToContainerGroupIpAddressTypeOutputWithContext(ctx context.Context) ContainerGroupIpAddressTypeOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(ContainerGroupIpAddressTypeOutput)
+}
+
+func (e ContainerGroupIpAddressType) ToContainerGroupIpAddressTypePtrOutput() ContainerGroupIpAddressTypePtrOutput {
+	return e.ToContainerGroupIpAddressTypePtrOutputWithContext(context.Background())
+}
+
+func (e ContainerGroupIpAddressType) ToContainerGroupIpAddressTypePtrOutputWithContext(ctx context.Context) ContainerGroupIpAddressTypePtrOutput {
+	return ContainerGroupIpAddressType(e).ToContainerGroupIpAddressTypeOutputWithContext(ctx).ToContainerGroupIpAddressTypePtrOutputWithContext(ctx)
 }
 
 func (e ContainerGroupIpAddressType) ToStringOutput() pulumi.StringOutput {
@@ -38,8 +53,128 @@ func (e ContainerGroupIpAddressType) ToStringPtrOutputWithContext(ctx context.Co
 	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
 }
 
-// The protocol associated with the port.
-type ContainerGroupNetworkProtocol pulumi.String
+type ContainerGroupIpAddressTypeOutput struct{ *pulumi.OutputState }
+
+func (ContainerGroupIpAddressTypeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ContainerGroupIpAddressType)(nil)).Elem()
+}
+
+func (o ContainerGroupIpAddressTypeOutput) ToContainerGroupIpAddressTypeOutput() ContainerGroupIpAddressTypeOutput {
+	return o
+}
+
+func (o ContainerGroupIpAddressTypeOutput) ToContainerGroupIpAddressTypeOutputWithContext(ctx context.Context) ContainerGroupIpAddressTypeOutput {
+	return o
+}
+
+func (o ContainerGroupIpAddressTypeOutput) ToContainerGroupIpAddressTypePtrOutput() ContainerGroupIpAddressTypePtrOutput {
+	return o.ToContainerGroupIpAddressTypePtrOutputWithContext(context.Background())
+}
+
+func (o ContainerGroupIpAddressTypeOutput) ToContainerGroupIpAddressTypePtrOutputWithContext(ctx context.Context) ContainerGroupIpAddressTypePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ContainerGroupIpAddressType) *ContainerGroupIpAddressType {
+		return &v
+	}).(ContainerGroupIpAddressTypePtrOutput)
+}
+
+func (o ContainerGroupIpAddressTypeOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o ContainerGroupIpAddressTypeOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e ContainerGroupIpAddressType) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o ContainerGroupIpAddressTypeOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o ContainerGroupIpAddressTypeOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e ContainerGroupIpAddressType) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type ContainerGroupIpAddressTypePtrOutput struct{ *pulumi.OutputState }
+
+func (ContainerGroupIpAddressTypePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ContainerGroupIpAddressType)(nil)).Elem()
+}
+
+func (o ContainerGroupIpAddressTypePtrOutput) ToContainerGroupIpAddressTypePtrOutput() ContainerGroupIpAddressTypePtrOutput {
+	return o
+}
+
+func (o ContainerGroupIpAddressTypePtrOutput) ToContainerGroupIpAddressTypePtrOutputWithContext(ctx context.Context) ContainerGroupIpAddressTypePtrOutput {
+	return o
+}
+
+func (o ContainerGroupIpAddressTypePtrOutput) Elem() ContainerGroupIpAddressTypeOutput {
+	return o.ApplyT(func(v *ContainerGroupIpAddressType) ContainerGroupIpAddressType {
+		if v != nil {
+			return *v
+		}
+		var ret ContainerGroupIpAddressType
+		return ret
+	}).(ContainerGroupIpAddressTypeOutput)
+}
+
+func (o ContainerGroupIpAddressTypePtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o ContainerGroupIpAddressTypePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *ContainerGroupIpAddressType) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// ContainerGroupIpAddressTypeInput is an input type that accepts ContainerGroupIpAddressTypeArgs and ContainerGroupIpAddressTypeOutput values.
+// You can construct a concrete instance of `ContainerGroupIpAddressTypeInput` via:
+//
+//          ContainerGroupIpAddressTypeArgs{...}
+type ContainerGroupIpAddressTypeInput interface {
+	pulumi.Input
+
+	ToContainerGroupIpAddressTypeOutput() ContainerGroupIpAddressTypeOutput
+	ToContainerGroupIpAddressTypeOutputWithContext(context.Context) ContainerGroupIpAddressTypeOutput
+}
+
+var containerGroupIpAddressTypePtrType = reflect.TypeOf((**ContainerGroupIpAddressType)(nil)).Elem()
+
+type ContainerGroupIpAddressTypePtrInput interface {
+	pulumi.Input
+
+	ToContainerGroupIpAddressTypePtrOutput() ContainerGroupIpAddressTypePtrOutput
+	ToContainerGroupIpAddressTypePtrOutputWithContext(context.Context) ContainerGroupIpAddressTypePtrOutput
+}
+
+type containerGroupIpAddressTypePtr string
+
+func ContainerGroupIpAddressTypePtr(v string) ContainerGroupIpAddressTypePtrInput {
+	return (*containerGroupIpAddressTypePtr)(&v)
+}
+
+func (*containerGroupIpAddressTypePtr) ElementType() reflect.Type {
+	return containerGroupIpAddressTypePtrType
+}
+
+func (in *containerGroupIpAddressTypePtr) ToContainerGroupIpAddressTypePtrOutput() ContainerGroupIpAddressTypePtrOutput {
+	return pulumi.ToOutput(in).(ContainerGroupIpAddressTypePtrOutput)
+}
+
+func (in *containerGroupIpAddressTypePtr) ToContainerGroupIpAddressTypePtrOutputWithContext(ctx context.Context) ContainerGroupIpAddressTypePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(ContainerGroupIpAddressTypePtrOutput)
+}
+
+type ContainerGroupNetworkProtocol string
 
 const (
 	ContainerGroupNetworkProtocolTCP = ContainerGroupNetworkProtocol("TCP")
@@ -47,7 +182,23 @@ const (
 )
 
 func (ContainerGroupNetworkProtocol) ElementType() reflect.Type {
-	return reflect.TypeOf((*pulumi.String)(nil)).Elem()
+	return reflect.TypeOf((*ContainerGroupNetworkProtocol)(nil)).Elem()
+}
+
+func (e ContainerGroupNetworkProtocol) ToContainerGroupNetworkProtocolOutput() ContainerGroupNetworkProtocolOutput {
+	return pulumi.ToOutput(e).(ContainerGroupNetworkProtocolOutput)
+}
+
+func (e ContainerGroupNetworkProtocol) ToContainerGroupNetworkProtocolOutputWithContext(ctx context.Context) ContainerGroupNetworkProtocolOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(ContainerGroupNetworkProtocolOutput)
+}
+
+func (e ContainerGroupNetworkProtocol) ToContainerGroupNetworkProtocolPtrOutput() ContainerGroupNetworkProtocolPtrOutput {
+	return e.ToContainerGroupNetworkProtocolPtrOutputWithContext(context.Background())
+}
+
+func (e ContainerGroupNetworkProtocol) ToContainerGroupNetworkProtocolPtrOutputWithContext(ctx context.Context) ContainerGroupNetworkProtocolPtrOutput {
+	return ContainerGroupNetworkProtocol(e).ToContainerGroupNetworkProtocolOutputWithContext(ctx).ToContainerGroupNetworkProtocolPtrOutputWithContext(ctx)
 }
 
 func (e ContainerGroupNetworkProtocol) ToStringOutput() pulumi.StringOutput {
@@ -66,11 +217,128 @@ func (e ContainerGroupNetworkProtocol) ToStringPtrOutputWithContext(ctx context.
 	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
 }
 
-// Restart policy for all containers within the container group.
-// - `Always` Always restart
-// - `OnFailure` Restart on failure
-// - `Never` Never restart
-type ContainerGroupRestartPolicy pulumi.String
+type ContainerGroupNetworkProtocolOutput struct{ *pulumi.OutputState }
+
+func (ContainerGroupNetworkProtocolOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ContainerGroupNetworkProtocol)(nil)).Elem()
+}
+
+func (o ContainerGroupNetworkProtocolOutput) ToContainerGroupNetworkProtocolOutput() ContainerGroupNetworkProtocolOutput {
+	return o
+}
+
+func (o ContainerGroupNetworkProtocolOutput) ToContainerGroupNetworkProtocolOutputWithContext(ctx context.Context) ContainerGroupNetworkProtocolOutput {
+	return o
+}
+
+func (o ContainerGroupNetworkProtocolOutput) ToContainerGroupNetworkProtocolPtrOutput() ContainerGroupNetworkProtocolPtrOutput {
+	return o.ToContainerGroupNetworkProtocolPtrOutputWithContext(context.Background())
+}
+
+func (o ContainerGroupNetworkProtocolOutput) ToContainerGroupNetworkProtocolPtrOutputWithContext(ctx context.Context) ContainerGroupNetworkProtocolPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ContainerGroupNetworkProtocol) *ContainerGroupNetworkProtocol {
+		return &v
+	}).(ContainerGroupNetworkProtocolPtrOutput)
+}
+
+func (o ContainerGroupNetworkProtocolOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o ContainerGroupNetworkProtocolOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e ContainerGroupNetworkProtocol) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o ContainerGroupNetworkProtocolOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o ContainerGroupNetworkProtocolOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e ContainerGroupNetworkProtocol) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type ContainerGroupNetworkProtocolPtrOutput struct{ *pulumi.OutputState }
+
+func (ContainerGroupNetworkProtocolPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ContainerGroupNetworkProtocol)(nil)).Elem()
+}
+
+func (o ContainerGroupNetworkProtocolPtrOutput) ToContainerGroupNetworkProtocolPtrOutput() ContainerGroupNetworkProtocolPtrOutput {
+	return o
+}
+
+func (o ContainerGroupNetworkProtocolPtrOutput) ToContainerGroupNetworkProtocolPtrOutputWithContext(ctx context.Context) ContainerGroupNetworkProtocolPtrOutput {
+	return o
+}
+
+func (o ContainerGroupNetworkProtocolPtrOutput) Elem() ContainerGroupNetworkProtocolOutput {
+	return o.ApplyT(func(v *ContainerGroupNetworkProtocol) ContainerGroupNetworkProtocol {
+		if v != nil {
+			return *v
+		}
+		var ret ContainerGroupNetworkProtocol
+		return ret
+	}).(ContainerGroupNetworkProtocolOutput)
+}
+
+func (o ContainerGroupNetworkProtocolPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o ContainerGroupNetworkProtocolPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *ContainerGroupNetworkProtocol) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// ContainerGroupNetworkProtocolInput is an input type that accepts ContainerGroupNetworkProtocolArgs and ContainerGroupNetworkProtocolOutput values.
+// You can construct a concrete instance of `ContainerGroupNetworkProtocolInput` via:
+//
+//          ContainerGroupNetworkProtocolArgs{...}
+type ContainerGroupNetworkProtocolInput interface {
+	pulumi.Input
+
+	ToContainerGroupNetworkProtocolOutput() ContainerGroupNetworkProtocolOutput
+	ToContainerGroupNetworkProtocolOutputWithContext(context.Context) ContainerGroupNetworkProtocolOutput
+}
+
+var containerGroupNetworkProtocolPtrType = reflect.TypeOf((**ContainerGroupNetworkProtocol)(nil)).Elem()
+
+type ContainerGroupNetworkProtocolPtrInput interface {
+	pulumi.Input
+
+	ToContainerGroupNetworkProtocolPtrOutput() ContainerGroupNetworkProtocolPtrOutput
+	ToContainerGroupNetworkProtocolPtrOutputWithContext(context.Context) ContainerGroupNetworkProtocolPtrOutput
+}
+
+type containerGroupNetworkProtocolPtr string
+
+func ContainerGroupNetworkProtocolPtr(v string) ContainerGroupNetworkProtocolPtrInput {
+	return (*containerGroupNetworkProtocolPtr)(&v)
+}
+
+func (*containerGroupNetworkProtocolPtr) ElementType() reflect.Type {
+	return containerGroupNetworkProtocolPtrType
+}
+
+func (in *containerGroupNetworkProtocolPtr) ToContainerGroupNetworkProtocolPtrOutput() ContainerGroupNetworkProtocolPtrOutput {
+	return pulumi.ToOutput(in).(ContainerGroupNetworkProtocolPtrOutput)
+}
+
+func (in *containerGroupNetworkProtocolPtr) ToContainerGroupNetworkProtocolPtrOutputWithContext(ctx context.Context) ContainerGroupNetworkProtocolPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(ContainerGroupNetworkProtocolPtrOutput)
+}
+
+type ContainerGroupRestartPolicy string
 
 const (
 	ContainerGroupRestartPolicyAlways    = ContainerGroupRestartPolicy("Always")
@@ -79,7 +347,23 @@ const (
 )
 
 func (ContainerGroupRestartPolicy) ElementType() reflect.Type {
-	return reflect.TypeOf((*pulumi.String)(nil)).Elem()
+	return reflect.TypeOf((*ContainerGroupRestartPolicy)(nil)).Elem()
+}
+
+func (e ContainerGroupRestartPolicy) ToContainerGroupRestartPolicyOutput() ContainerGroupRestartPolicyOutput {
+	return pulumi.ToOutput(e).(ContainerGroupRestartPolicyOutput)
+}
+
+func (e ContainerGroupRestartPolicy) ToContainerGroupRestartPolicyOutputWithContext(ctx context.Context) ContainerGroupRestartPolicyOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(ContainerGroupRestartPolicyOutput)
+}
+
+func (e ContainerGroupRestartPolicy) ToContainerGroupRestartPolicyPtrOutput() ContainerGroupRestartPolicyPtrOutput {
+	return e.ToContainerGroupRestartPolicyPtrOutputWithContext(context.Background())
+}
+
+func (e ContainerGroupRestartPolicy) ToContainerGroupRestartPolicyPtrOutputWithContext(ctx context.Context) ContainerGroupRestartPolicyPtrOutput {
+	return ContainerGroupRestartPolicy(e).ToContainerGroupRestartPolicyOutputWithContext(ctx).ToContainerGroupRestartPolicyPtrOutputWithContext(ctx)
 }
 
 func (e ContainerGroupRestartPolicy) ToStringOutput() pulumi.StringOutput {
@@ -98,8 +382,128 @@ func (e ContainerGroupRestartPolicy) ToStringPtrOutputWithContext(ctx context.Co
 	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
 }
 
-// The protocol associated with the port.
-type ContainerNetworkProtocol pulumi.String
+type ContainerGroupRestartPolicyOutput struct{ *pulumi.OutputState }
+
+func (ContainerGroupRestartPolicyOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ContainerGroupRestartPolicy)(nil)).Elem()
+}
+
+func (o ContainerGroupRestartPolicyOutput) ToContainerGroupRestartPolicyOutput() ContainerGroupRestartPolicyOutput {
+	return o
+}
+
+func (o ContainerGroupRestartPolicyOutput) ToContainerGroupRestartPolicyOutputWithContext(ctx context.Context) ContainerGroupRestartPolicyOutput {
+	return o
+}
+
+func (o ContainerGroupRestartPolicyOutput) ToContainerGroupRestartPolicyPtrOutput() ContainerGroupRestartPolicyPtrOutput {
+	return o.ToContainerGroupRestartPolicyPtrOutputWithContext(context.Background())
+}
+
+func (o ContainerGroupRestartPolicyOutput) ToContainerGroupRestartPolicyPtrOutputWithContext(ctx context.Context) ContainerGroupRestartPolicyPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ContainerGroupRestartPolicy) *ContainerGroupRestartPolicy {
+		return &v
+	}).(ContainerGroupRestartPolicyPtrOutput)
+}
+
+func (o ContainerGroupRestartPolicyOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o ContainerGroupRestartPolicyOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e ContainerGroupRestartPolicy) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o ContainerGroupRestartPolicyOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o ContainerGroupRestartPolicyOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e ContainerGroupRestartPolicy) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type ContainerGroupRestartPolicyPtrOutput struct{ *pulumi.OutputState }
+
+func (ContainerGroupRestartPolicyPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ContainerGroupRestartPolicy)(nil)).Elem()
+}
+
+func (o ContainerGroupRestartPolicyPtrOutput) ToContainerGroupRestartPolicyPtrOutput() ContainerGroupRestartPolicyPtrOutput {
+	return o
+}
+
+func (o ContainerGroupRestartPolicyPtrOutput) ToContainerGroupRestartPolicyPtrOutputWithContext(ctx context.Context) ContainerGroupRestartPolicyPtrOutput {
+	return o
+}
+
+func (o ContainerGroupRestartPolicyPtrOutput) Elem() ContainerGroupRestartPolicyOutput {
+	return o.ApplyT(func(v *ContainerGroupRestartPolicy) ContainerGroupRestartPolicy {
+		if v != nil {
+			return *v
+		}
+		var ret ContainerGroupRestartPolicy
+		return ret
+	}).(ContainerGroupRestartPolicyOutput)
+}
+
+func (o ContainerGroupRestartPolicyPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o ContainerGroupRestartPolicyPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *ContainerGroupRestartPolicy) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// ContainerGroupRestartPolicyInput is an input type that accepts ContainerGroupRestartPolicyArgs and ContainerGroupRestartPolicyOutput values.
+// You can construct a concrete instance of `ContainerGroupRestartPolicyInput` via:
+//
+//          ContainerGroupRestartPolicyArgs{...}
+type ContainerGroupRestartPolicyInput interface {
+	pulumi.Input
+
+	ToContainerGroupRestartPolicyOutput() ContainerGroupRestartPolicyOutput
+	ToContainerGroupRestartPolicyOutputWithContext(context.Context) ContainerGroupRestartPolicyOutput
+}
+
+var containerGroupRestartPolicyPtrType = reflect.TypeOf((**ContainerGroupRestartPolicy)(nil)).Elem()
+
+type ContainerGroupRestartPolicyPtrInput interface {
+	pulumi.Input
+
+	ToContainerGroupRestartPolicyPtrOutput() ContainerGroupRestartPolicyPtrOutput
+	ToContainerGroupRestartPolicyPtrOutputWithContext(context.Context) ContainerGroupRestartPolicyPtrOutput
+}
+
+type containerGroupRestartPolicyPtr string
+
+func ContainerGroupRestartPolicyPtr(v string) ContainerGroupRestartPolicyPtrInput {
+	return (*containerGroupRestartPolicyPtr)(&v)
+}
+
+func (*containerGroupRestartPolicyPtr) ElementType() reflect.Type {
+	return containerGroupRestartPolicyPtrType
+}
+
+func (in *containerGroupRestartPolicyPtr) ToContainerGroupRestartPolicyPtrOutput() ContainerGroupRestartPolicyPtrOutput {
+	return pulumi.ToOutput(in).(ContainerGroupRestartPolicyPtrOutput)
+}
+
+func (in *containerGroupRestartPolicyPtr) ToContainerGroupRestartPolicyPtrOutputWithContext(ctx context.Context) ContainerGroupRestartPolicyPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(ContainerGroupRestartPolicyPtrOutput)
+}
+
+type ContainerNetworkProtocol string
 
 const (
 	ContainerNetworkProtocolTCP = ContainerNetworkProtocol("TCP")
@@ -107,7 +511,23 @@ const (
 )
 
 func (ContainerNetworkProtocol) ElementType() reflect.Type {
-	return reflect.TypeOf((*pulumi.String)(nil)).Elem()
+	return reflect.TypeOf((*ContainerNetworkProtocol)(nil)).Elem()
+}
+
+func (e ContainerNetworkProtocol) ToContainerNetworkProtocolOutput() ContainerNetworkProtocolOutput {
+	return pulumi.ToOutput(e).(ContainerNetworkProtocolOutput)
+}
+
+func (e ContainerNetworkProtocol) ToContainerNetworkProtocolOutputWithContext(ctx context.Context) ContainerNetworkProtocolOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(ContainerNetworkProtocolOutput)
+}
+
+func (e ContainerNetworkProtocol) ToContainerNetworkProtocolPtrOutput() ContainerNetworkProtocolPtrOutput {
+	return e.ToContainerNetworkProtocolPtrOutputWithContext(context.Background())
+}
+
+func (e ContainerNetworkProtocol) ToContainerNetworkProtocolPtrOutputWithContext(ctx context.Context) ContainerNetworkProtocolPtrOutput {
+	return ContainerNetworkProtocol(e).ToContainerNetworkProtocolOutputWithContext(ctx).ToContainerNetworkProtocolPtrOutputWithContext(ctx)
 }
 
 func (e ContainerNetworkProtocol) ToStringOutput() pulumi.StringOutput {
@@ -126,8 +546,128 @@ func (e ContainerNetworkProtocol) ToStringPtrOutputWithContext(ctx context.Conte
 	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
 }
 
-// The SKU of the GPU resource.
-type GpuSku pulumi.String
+type ContainerNetworkProtocolOutput struct{ *pulumi.OutputState }
+
+func (ContainerNetworkProtocolOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ContainerNetworkProtocol)(nil)).Elem()
+}
+
+func (o ContainerNetworkProtocolOutput) ToContainerNetworkProtocolOutput() ContainerNetworkProtocolOutput {
+	return o
+}
+
+func (o ContainerNetworkProtocolOutput) ToContainerNetworkProtocolOutputWithContext(ctx context.Context) ContainerNetworkProtocolOutput {
+	return o
+}
+
+func (o ContainerNetworkProtocolOutput) ToContainerNetworkProtocolPtrOutput() ContainerNetworkProtocolPtrOutput {
+	return o.ToContainerNetworkProtocolPtrOutputWithContext(context.Background())
+}
+
+func (o ContainerNetworkProtocolOutput) ToContainerNetworkProtocolPtrOutputWithContext(ctx context.Context) ContainerNetworkProtocolPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ContainerNetworkProtocol) *ContainerNetworkProtocol {
+		return &v
+	}).(ContainerNetworkProtocolPtrOutput)
+}
+
+func (o ContainerNetworkProtocolOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o ContainerNetworkProtocolOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e ContainerNetworkProtocol) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o ContainerNetworkProtocolOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o ContainerNetworkProtocolOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e ContainerNetworkProtocol) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type ContainerNetworkProtocolPtrOutput struct{ *pulumi.OutputState }
+
+func (ContainerNetworkProtocolPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ContainerNetworkProtocol)(nil)).Elem()
+}
+
+func (o ContainerNetworkProtocolPtrOutput) ToContainerNetworkProtocolPtrOutput() ContainerNetworkProtocolPtrOutput {
+	return o
+}
+
+func (o ContainerNetworkProtocolPtrOutput) ToContainerNetworkProtocolPtrOutputWithContext(ctx context.Context) ContainerNetworkProtocolPtrOutput {
+	return o
+}
+
+func (o ContainerNetworkProtocolPtrOutput) Elem() ContainerNetworkProtocolOutput {
+	return o.ApplyT(func(v *ContainerNetworkProtocol) ContainerNetworkProtocol {
+		if v != nil {
+			return *v
+		}
+		var ret ContainerNetworkProtocol
+		return ret
+	}).(ContainerNetworkProtocolOutput)
+}
+
+func (o ContainerNetworkProtocolPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o ContainerNetworkProtocolPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *ContainerNetworkProtocol) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// ContainerNetworkProtocolInput is an input type that accepts ContainerNetworkProtocolArgs and ContainerNetworkProtocolOutput values.
+// You can construct a concrete instance of `ContainerNetworkProtocolInput` via:
+//
+//          ContainerNetworkProtocolArgs{...}
+type ContainerNetworkProtocolInput interface {
+	pulumi.Input
+
+	ToContainerNetworkProtocolOutput() ContainerNetworkProtocolOutput
+	ToContainerNetworkProtocolOutputWithContext(context.Context) ContainerNetworkProtocolOutput
+}
+
+var containerNetworkProtocolPtrType = reflect.TypeOf((**ContainerNetworkProtocol)(nil)).Elem()
+
+type ContainerNetworkProtocolPtrInput interface {
+	pulumi.Input
+
+	ToContainerNetworkProtocolPtrOutput() ContainerNetworkProtocolPtrOutput
+	ToContainerNetworkProtocolPtrOutputWithContext(context.Context) ContainerNetworkProtocolPtrOutput
+}
+
+type containerNetworkProtocolPtr string
+
+func ContainerNetworkProtocolPtr(v string) ContainerNetworkProtocolPtrInput {
+	return (*containerNetworkProtocolPtr)(&v)
+}
+
+func (*containerNetworkProtocolPtr) ElementType() reflect.Type {
+	return containerNetworkProtocolPtrType
+}
+
+func (in *containerNetworkProtocolPtr) ToContainerNetworkProtocolPtrOutput() ContainerNetworkProtocolPtrOutput {
+	return pulumi.ToOutput(in).(ContainerNetworkProtocolPtrOutput)
+}
+
+func (in *containerNetworkProtocolPtr) ToContainerNetworkProtocolPtrOutputWithContext(ctx context.Context) ContainerNetworkProtocolPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(ContainerNetworkProtocolPtrOutput)
+}
+
+type GpuSku string
 
 const (
 	GpuSkuK80  = GpuSku("K80")
@@ -136,7 +676,23 @@ const (
 )
 
 func (GpuSku) ElementType() reflect.Type {
-	return reflect.TypeOf((*pulumi.String)(nil)).Elem()
+	return reflect.TypeOf((*GpuSku)(nil)).Elem()
+}
+
+func (e GpuSku) ToGpuSkuOutput() GpuSkuOutput {
+	return pulumi.ToOutput(e).(GpuSkuOutput)
+}
+
+func (e GpuSku) ToGpuSkuOutputWithContext(ctx context.Context) GpuSkuOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(GpuSkuOutput)
+}
+
+func (e GpuSku) ToGpuSkuPtrOutput() GpuSkuPtrOutput {
+	return e.ToGpuSkuPtrOutputWithContext(context.Background())
+}
+
+func (e GpuSku) ToGpuSkuPtrOutputWithContext(ctx context.Context) GpuSkuPtrOutput {
+	return GpuSku(e).ToGpuSkuOutputWithContext(ctx).ToGpuSkuPtrOutputWithContext(ctx)
 }
 
 func (e GpuSku) ToStringOutput() pulumi.StringOutput {
@@ -155,8 +711,128 @@ func (e GpuSku) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringP
 	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
 }
 
-// The log type to be used.
-type LogAnalyticsLogType pulumi.String
+type GpuSkuOutput struct{ *pulumi.OutputState }
+
+func (GpuSkuOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GpuSku)(nil)).Elem()
+}
+
+func (o GpuSkuOutput) ToGpuSkuOutput() GpuSkuOutput {
+	return o
+}
+
+func (o GpuSkuOutput) ToGpuSkuOutputWithContext(ctx context.Context) GpuSkuOutput {
+	return o
+}
+
+func (o GpuSkuOutput) ToGpuSkuPtrOutput() GpuSkuPtrOutput {
+	return o.ToGpuSkuPtrOutputWithContext(context.Background())
+}
+
+func (o GpuSkuOutput) ToGpuSkuPtrOutputWithContext(ctx context.Context) GpuSkuPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v GpuSku) *GpuSku {
+		return &v
+	}).(GpuSkuPtrOutput)
+}
+
+func (o GpuSkuOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o GpuSkuOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e GpuSku) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o GpuSkuOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o GpuSkuOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e GpuSku) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type GpuSkuPtrOutput struct{ *pulumi.OutputState }
+
+func (GpuSkuPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**GpuSku)(nil)).Elem()
+}
+
+func (o GpuSkuPtrOutput) ToGpuSkuPtrOutput() GpuSkuPtrOutput {
+	return o
+}
+
+func (o GpuSkuPtrOutput) ToGpuSkuPtrOutputWithContext(ctx context.Context) GpuSkuPtrOutput {
+	return o
+}
+
+func (o GpuSkuPtrOutput) Elem() GpuSkuOutput {
+	return o.ApplyT(func(v *GpuSku) GpuSku {
+		if v != nil {
+			return *v
+		}
+		var ret GpuSku
+		return ret
+	}).(GpuSkuOutput)
+}
+
+func (o GpuSkuPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o GpuSkuPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *GpuSku) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// GpuSkuInput is an input type that accepts GpuSkuArgs and GpuSkuOutput values.
+// You can construct a concrete instance of `GpuSkuInput` via:
+//
+//          GpuSkuArgs{...}
+type GpuSkuInput interface {
+	pulumi.Input
+
+	ToGpuSkuOutput() GpuSkuOutput
+	ToGpuSkuOutputWithContext(context.Context) GpuSkuOutput
+}
+
+var gpuSkuPtrType = reflect.TypeOf((**GpuSku)(nil)).Elem()
+
+type GpuSkuPtrInput interface {
+	pulumi.Input
+
+	ToGpuSkuPtrOutput() GpuSkuPtrOutput
+	ToGpuSkuPtrOutputWithContext(context.Context) GpuSkuPtrOutput
+}
+
+type gpuSkuPtr string
+
+func GpuSkuPtr(v string) GpuSkuPtrInput {
+	return (*gpuSkuPtr)(&v)
+}
+
+func (*gpuSkuPtr) ElementType() reflect.Type {
+	return gpuSkuPtrType
+}
+
+func (in *gpuSkuPtr) ToGpuSkuPtrOutput() GpuSkuPtrOutput {
+	return pulumi.ToOutput(in).(GpuSkuPtrOutput)
+}
+
+func (in *gpuSkuPtr) ToGpuSkuPtrOutputWithContext(ctx context.Context) GpuSkuPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(GpuSkuPtrOutput)
+}
+
+type LogAnalyticsLogType string
 
 const (
 	LogAnalyticsLogTypeContainerInsights     = LogAnalyticsLogType("ContainerInsights")
@@ -164,7 +840,23 @@ const (
 )
 
 func (LogAnalyticsLogType) ElementType() reflect.Type {
-	return reflect.TypeOf((*pulumi.String)(nil)).Elem()
+	return reflect.TypeOf((*LogAnalyticsLogType)(nil)).Elem()
+}
+
+func (e LogAnalyticsLogType) ToLogAnalyticsLogTypeOutput() LogAnalyticsLogTypeOutput {
+	return pulumi.ToOutput(e).(LogAnalyticsLogTypeOutput)
+}
+
+func (e LogAnalyticsLogType) ToLogAnalyticsLogTypeOutputWithContext(ctx context.Context) LogAnalyticsLogTypeOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(LogAnalyticsLogTypeOutput)
+}
+
+func (e LogAnalyticsLogType) ToLogAnalyticsLogTypePtrOutput() LogAnalyticsLogTypePtrOutput {
+	return e.ToLogAnalyticsLogTypePtrOutputWithContext(context.Background())
+}
+
+func (e LogAnalyticsLogType) ToLogAnalyticsLogTypePtrOutputWithContext(ctx context.Context) LogAnalyticsLogTypePtrOutput {
+	return LogAnalyticsLogType(e).ToLogAnalyticsLogTypeOutputWithContext(ctx).ToLogAnalyticsLogTypePtrOutputWithContext(ctx)
 }
 
 func (e LogAnalyticsLogType) ToStringOutput() pulumi.StringOutput {
@@ -183,8 +875,128 @@ func (e LogAnalyticsLogType) ToStringPtrOutputWithContext(ctx context.Context) p
 	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
 }
 
-// The operating system type required by the containers in the container group.
-type OperatingSystemTypes pulumi.String
+type LogAnalyticsLogTypeOutput struct{ *pulumi.OutputState }
+
+func (LogAnalyticsLogTypeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*LogAnalyticsLogType)(nil)).Elem()
+}
+
+func (o LogAnalyticsLogTypeOutput) ToLogAnalyticsLogTypeOutput() LogAnalyticsLogTypeOutput {
+	return o
+}
+
+func (o LogAnalyticsLogTypeOutput) ToLogAnalyticsLogTypeOutputWithContext(ctx context.Context) LogAnalyticsLogTypeOutput {
+	return o
+}
+
+func (o LogAnalyticsLogTypeOutput) ToLogAnalyticsLogTypePtrOutput() LogAnalyticsLogTypePtrOutput {
+	return o.ToLogAnalyticsLogTypePtrOutputWithContext(context.Background())
+}
+
+func (o LogAnalyticsLogTypeOutput) ToLogAnalyticsLogTypePtrOutputWithContext(ctx context.Context) LogAnalyticsLogTypePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v LogAnalyticsLogType) *LogAnalyticsLogType {
+		return &v
+	}).(LogAnalyticsLogTypePtrOutput)
+}
+
+func (o LogAnalyticsLogTypeOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o LogAnalyticsLogTypeOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e LogAnalyticsLogType) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o LogAnalyticsLogTypeOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o LogAnalyticsLogTypeOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e LogAnalyticsLogType) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type LogAnalyticsLogTypePtrOutput struct{ *pulumi.OutputState }
+
+func (LogAnalyticsLogTypePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**LogAnalyticsLogType)(nil)).Elem()
+}
+
+func (o LogAnalyticsLogTypePtrOutput) ToLogAnalyticsLogTypePtrOutput() LogAnalyticsLogTypePtrOutput {
+	return o
+}
+
+func (o LogAnalyticsLogTypePtrOutput) ToLogAnalyticsLogTypePtrOutputWithContext(ctx context.Context) LogAnalyticsLogTypePtrOutput {
+	return o
+}
+
+func (o LogAnalyticsLogTypePtrOutput) Elem() LogAnalyticsLogTypeOutput {
+	return o.ApplyT(func(v *LogAnalyticsLogType) LogAnalyticsLogType {
+		if v != nil {
+			return *v
+		}
+		var ret LogAnalyticsLogType
+		return ret
+	}).(LogAnalyticsLogTypeOutput)
+}
+
+func (o LogAnalyticsLogTypePtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o LogAnalyticsLogTypePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *LogAnalyticsLogType) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// LogAnalyticsLogTypeInput is an input type that accepts LogAnalyticsLogTypeArgs and LogAnalyticsLogTypeOutput values.
+// You can construct a concrete instance of `LogAnalyticsLogTypeInput` via:
+//
+//          LogAnalyticsLogTypeArgs{...}
+type LogAnalyticsLogTypeInput interface {
+	pulumi.Input
+
+	ToLogAnalyticsLogTypeOutput() LogAnalyticsLogTypeOutput
+	ToLogAnalyticsLogTypeOutputWithContext(context.Context) LogAnalyticsLogTypeOutput
+}
+
+var logAnalyticsLogTypePtrType = reflect.TypeOf((**LogAnalyticsLogType)(nil)).Elem()
+
+type LogAnalyticsLogTypePtrInput interface {
+	pulumi.Input
+
+	ToLogAnalyticsLogTypePtrOutput() LogAnalyticsLogTypePtrOutput
+	ToLogAnalyticsLogTypePtrOutputWithContext(context.Context) LogAnalyticsLogTypePtrOutput
+}
+
+type logAnalyticsLogTypePtr string
+
+func LogAnalyticsLogTypePtr(v string) LogAnalyticsLogTypePtrInput {
+	return (*logAnalyticsLogTypePtr)(&v)
+}
+
+func (*logAnalyticsLogTypePtr) ElementType() reflect.Type {
+	return logAnalyticsLogTypePtrType
+}
+
+func (in *logAnalyticsLogTypePtr) ToLogAnalyticsLogTypePtrOutput() LogAnalyticsLogTypePtrOutput {
+	return pulumi.ToOutput(in).(LogAnalyticsLogTypePtrOutput)
+}
+
+func (in *logAnalyticsLogTypePtr) ToLogAnalyticsLogTypePtrOutputWithContext(ctx context.Context) LogAnalyticsLogTypePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(LogAnalyticsLogTypePtrOutput)
+}
+
+type OperatingSystemTypes string
 
 const (
 	OperatingSystemTypesWindows = OperatingSystemTypes("Windows")
@@ -192,7 +1004,23 @@ const (
 )
 
 func (OperatingSystemTypes) ElementType() reflect.Type {
-	return reflect.TypeOf((*pulumi.String)(nil)).Elem()
+	return reflect.TypeOf((*OperatingSystemTypes)(nil)).Elem()
+}
+
+func (e OperatingSystemTypes) ToOperatingSystemTypesOutput() OperatingSystemTypesOutput {
+	return pulumi.ToOutput(e).(OperatingSystemTypesOutput)
+}
+
+func (e OperatingSystemTypes) ToOperatingSystemTypesOutputWithContext(ctx context.Context) OperatingSystemTypesOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(OperatingSystemTypesOutput)
+}
+
+func (e OperatingSystemTypes) ToOperatingSystemTypesPtrOutput() OperatingSystemTypesPtrOutput {
+	return e.ToOperatingSystemTypesPtrOutputWithContext(context.Background())
+}
+
+func (e OperatingSystemTypes) ToOperatingSystemTypesPtrOutputWithContext(ctx context.Context) OperatingSystemTypesPtrOutput {
+	return OperatingSystemTypes(e).ToOperatingSystemTypesOutputWithContext(ctx).ToOperatingSystemTypesPtrOutputWithContext(ctx)
 }
 
 func (e OperatingSystemTypes) ToStringOutput() pulumi.StringOutput {
@@ -211,8 +1039,128 @@ func (e OperatingSystemTypes) ToStringPtrOutputWithContext(ctx context.Context) 
 	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
 }
 
-// The type of identity used for the container group. The type 'SystemAssigned, UserAssigned' includes both an implicitly created identity and a set of user assigned identities. The type 'None' will remove any identities from the container group.
-type ResourceIdentityType pulumi.String
+type OperatingSystemTypesOutput struct{ *pulumi.OutputState }
+
+func (OperatingSystemTypesOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*OperatingSystemTypes)(nil)).Elem()
+}
+
+func (o OperatingSystemTypesOutput) ToOperatingSystemTypesOutput() OperatingSystemTypesOutput {
+	return o
+}
+
+func (o OperatingSystemTypesOutput) ToOperatingSystemTypesOutputWithContext(ctx context.Context) OperatingSystemTypesOutput {
+	return o
+}
+
+func (o OperatingSystemTypesOutput) ToOperatingSystemTypesPtrOutput() OperatingSystemTypesPtrOutput {
+	return o.ToOperatingSystemTypesPtrOutputWithContext(context.Background())
+}
+
+func (o OperatingSystemTypesOutput) ToOperatingSystemTypesPtrOutputWithContext(ctx context.Context) OperatingSystemTypesPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v OperatingSystemTypes) *OperatingSystemTypes {
+		return &v
+	}).(OperatingSystemTypesPtrOutput)
+}
+
+func (o OperatingSystemTypesOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o OperatingSystemTypesOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e OperatingSystemTypes) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o OperatingSystemTypesOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o OperatingSystemTypesOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e OperatingSystemTypes) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type OperatingSystemTypesPtrOutput struct{ *pulumi.OutputState }
+
+func (OperatingSystemTypesPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**OperatingSystemTypes)(nil)).Elem()
+}
+
+func (o OperatingSystemTypesPtrOutput) ToOperatingSystemTypesPtrOutput() OperatingSystemTypesPtrOutput {
+	return o
+}
+
+func (o OperatingSystemTypesPtrOutput) ToOperatingSystemTypesPtrOutputWithContext(ctx context.Context) OperatingSystemTypesPtrOutput {
+	return o
+}
+
+func (o OperatingSystemTypesPtrOutput) Elem() OperatingSystemTypesOutput {
+	return o.ApplyT(func(v *OperatingSystemTypes) OperatingSystemTypes {
+		if v != nil {
+			return *v
+		}
+		var ret OperatingSystemTypes
+		return ret
+	}).(OperatingSystemTypesOutput)
+}
+
+func (o OperatingSystemTypesPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o OperatingSystemTypesPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *OperatingSystemTypes) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// OperatingSystemTypesInput is an input type that accepts OperatingSystemTypesArgs and OperatingSystemTypesOutput values.
+// You can construct a concrete instance of `OperatingSystemTypesInput` via:
+//
+//          OperatingSystemTypesArgs{...}
+type OperatingSystemTypesInput interface {
+	pulumi.Input
+
+	ToOperatingSystemTypesOutput() OperatingSystemTypesOutput
+	ToOperatingSystemTypesOutputWithContext(context.Context) OperatingSystemTypesOutput
+}
+
+var operatingSystemTypesPtrType = reflect.TypeOf((**OperatingSystemTypes)(nil)).Elem()
+
+type OperatingSystemTypesPtrInput interface {
+	pulumi.Input
+
+	ToOperatingSystemTypesPtrOutput() OperatingSystemTypesPtrOutput
+	ToOperatingSystemTypesPtrOutputWithContext(context.Context) OperatingSystemTypesPtrOutput
+}
+
+type operatingSystemTypesPtr string
+
+func OperatingSystemTypesPtr(v string) OperatingSystemTypesPtrInput {
+	return (*operatingSystemTypesPtr)(&v)
+}
+
+func (*operatingSystemTypesPtr) ElementType() reflect.Type {
+	return operatingSystemTypesPtrType
+}
+
+func (in *operatingSystemTypesPtr) ToOperatingSystemTypesPtrOutput() OperatingSystemTypesPtrOutput {
+	return pulumi.ToOutput(in).(OperatingSystemTypesPtrOutput)
+}
+
+func (in *operatingSystemTypesPtr) ToOperatingSystemTypesPtrOutputWithContext(ctx context.Context) OperatingSystemTypesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(OperatingSystemTypesPtrOutput)
+}
+
+type ResourceIdentityType string
 
 const (
 	ResourceIdentityTypeSystemAssigned               = ResourceIdentityType("SystemAssigned")
@@ -222,7 +1170,23 @@ const (
 )
 
 func (ResourceIdentityType) ElementType() reflect.Type {
-	return reflect.TypeOf((*pulumi.String)(nil)).Elem()
+	return reflect.TypeOf((*ResourceIdentityType)(nil)).Elem()
+}
+
+func (e ResourceIdentityType) ToResourceIdentityTypeOutput() ResourceIdentityTypeOutput {
+	return pulumi.ToOutput(e).(ResourceIdentityTypeOutput)
+}
+
+func (e ResourceIdentityType) ToResourceIdentityTypeOutputWithContext(ctx context.Context) ResourceIdentityTypeOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(ResourceIdentityTypeOutput)
+}
+
+func (e ResourceIdentityType) ToResourceIdentityTypePtrOutput() ResourceIdentityTypePtrOutput {
+	return e.ToResourceIdentityTypePtrOutputWithContext(context.Background())
+}
+
+func (e ResourceIdentityType) ToResourceIdentityTypePtrOutputWithContext(ctx context.Context) ResourceIdentityTypePtrOutput {
+	return ResourceIdentityType(e).ToResourceIdentityTypeOutputWithContext(ctx).ToResourceIdentityTypePtrOutputWithContext(ctx)
 }
 
 func (e ResourceIdentityType) ToStringOutput() pulumi.StringOutput {
@@ -239,4 +1203,144 @@ func (e ResourceIdentityType) ToStringPtrOutput() pulumi.StringPtrOutput {
 
 func (e ResourceIdentityType) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
 	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type ResourceIdentityTypeOutput struct{ *pulumi.OutputState }
+
+func (ResourceIdentityTypeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ResourceIdentityType)(nil)).Elem()
+}
+
+func (o ResourceIdentityTypeOutput) ToResourceIdentityTypeOutput() ResourceIdentityTypeOutput {
+	return o
+}
+
+func (o ResourceIdentityTypeOutput) ToResourceIdentityTypeOutputWithContext(ctx context.Context) ResourceIdentityTypeOutput {
+	return o
+}
+
+func (o ResourceIdentityTypeOutput) ToResourceIdentityTypePtrOutput() ResourceIdentityTypePtrOutput {
+	return o.ToResourceIdentityTypePtrOutputWithContext(context.Background())
+}
+
+func (o ResourceIdentityTypeOutput) ToResourceIdentityTypePtrOutputWithContext(ctx context.Context) ResourceIdentityTypePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ResourceIdentityType) *ResourceIdentityType {
+		return &v
+	}).(ResourceIdentityTypePtrOutput)
+}
+
+func (o ResourceIdentityTypeOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o ResourceIdentityTypeOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e ResourceIdentityType) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o ResourceIdentityTypeOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o ResourceIdentityTypeOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e ResourceIdentityType) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type ResourceIdentityTypePtrOutput struct{ *pulumi.OutputState }
+
+func (ResourceIdentityTypePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ResourceIdentityType)(nil)).Elem()
+}
+
+func (o ResourceIdentityTypePtrOutput) ToResourceIdentityTypePtrOutput() ResourceIdentityTypePtrOutput {
+	return o
+}
+
+func (o ResourceIdentityTypePtrOutput) ToResourceIdentityTypePtrOutputWithContext(ctx context.Context) ResourceIdentityTypePtrOutput {
+	return o
+}
+
+func (o ResourceIdentityTypePtrOutput) Elem() ResourceIdentityTypeOutput {
+	return o.ApplyT(func(v *ResourceIdentityType) ResourceIdentityType {
+		if v != nil {
+			return *v
+		}
+		var ret ResourceIdentityType
+		return ret
+	}).(ResourceIdentityTypeOutput)
+}
+
+func (o ResourceIdentityTypePtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o ResourceIdentityTypePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *ResourceIdentityType) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// ResourceIdentityTypeInput is an input type that accepts ResourceIdentityTypeArgs and ResourceIdentityTypeOutput values.
+// You can construct a concrete instance of `ResourceIdentityTypeInput` via:
+//
+//          ResourceIdentityTypeArgs{...}
+type ResourceIdentityTypeInput interface {
+	pulumi.Input
+
+	ToResourceIdentityTypeOutput() ResourceIdentityTypeOutput
+	ToResourceIdentityTypeOutputWithContext(context.Context) ResourceIdentityTypeOutput
+}
+
+var resourceIdentityTypePtrType = reflect.TypeOf((**ResourceIdentityType)(nil)).Elem()
+
+type ResourceIdentityTypePtrInput interface {
+	pulumi.Input
+
+	ToResourceIdentityTypePtrOutput() ResourceIdentityTypePtrOutput
+	ToResourceIdentityTypePtrOutputWithContext(context.Context) ResourceIdentityTypePtrOutput
+}
+
+type resourceIdentityTypePtr string
+
+func ResourceIdentityTypePtr(v string) ResourceIdentityTypePtrInput {
+	return (*resourceIdentityTypePtr)(&v)
+}
+
+func (*resourceIdentityTypePtr) ElementType() reflect.Type {
+	return resourceIdentityTypePtrType
+}
+
+func (in *resourceIdentityTypePtr) ToResourceIdentityTypePtrOutput() ResourceIdentityTypePtrOutput {
+	return pulumi.ToOutput(in).(ResourceIdentityTypePtrOutput)
+}
+
+func (in *resourceIdentityTypePtr) ToResourceIdentityTypePtrOutputWithContext(ctx context.Context) ResourceIdentityTypePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(ResourceIdentityTypePtrOutput)
+}
+
+func init() {
+	pulumi.RegisterOutputType(ContainerGroupIpAddressTypeOutput{})
+	pulumi.RegisterOutputType(ContainerGroupIpAddressTypePtrOutput{})
+	pulumi.RegisterOutputType(ContainerGroupNetworkProtocolOutput{})
+	pulumi.RegisterOutputType(ContainerGroupNetworkProtocolPtrOutput{})
+	pulumi.RegisterOutputType(ContainerGroupRestartPolicyOutput{})
+	pulumi.RegisterOutputType(ContainerGroupRestartPolicyPtrOutput{})
+	pulumi.RegisterOutputType(ContainerNetworkProtocolOutput{})
+	pulumi.RegisterOutputType(ContainerNetworkProtocolPtrOutput{})
+	pulumi.RegisterOutputType(GpuSkuOutput{})
+	pulumi.RegisterOutputType(GpuSkuPtrOutput{})
+	pulumi.RegisterOutputType(LogAnalyticsLogTypeOutput{})
+	pulumi.RegisterOutputType(LogAnalyticsLogTypePtrOutput{})
+	pulumi.RegisterOutputType(OperatingSystemTypesOutput{})
+	pulumi.RegisterOutputType(OperatingSystemTypesPtrOutput{})
+	pulumi.RegisterOutputType(ResourceIdentityTypeOutput{})
+	pulumi.RegisterOutputType(ResourceIdentityTypePtrOutput{})
 }

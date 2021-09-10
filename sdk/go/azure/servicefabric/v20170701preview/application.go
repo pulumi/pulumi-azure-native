@@ -11,34 +11,21 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// The application resource.
 type Application struct {
 	pulumi.CustomResourceState
 
-	// Azure resource location.
-	Location pulumi.StringPtrOutput `pulumi:"location"`
-	// The maximum number of nodes where Service Fabric will reserve capacity for this application. Note that this does not mean that the services of this application will be placed on all of those nodes. By default, the value of this property is zero and it means that the services can be placed on any node.
-	MaximumNodes pulumi.Float64PtrOutput `pulumi:"maximumNodes"`
-	// List of application capacity metric description.
-	Metrics ApplicationMetricDescriptionResponseArrayOutput `pulumi:"metrics"`
-	// The minimum number of nodes where Service Fabric will reserve capacity for this application. Note that this does not mean that the services of this application will be placed on all of those nodes. If this property is set to zero, no capacity will be reserved. The value of this property cannot be more than the value of the MaximumNodes property.
-	MinimumNodes pulumi.Float64PtrOutput `pulumi:"minimumNodes"`
-	// Azure resource name.
-	Name pulumi.StringOutput `pulumi:"name"`
-	// List of application parameters with overridden values from their default values specified in the application manifest.
-	Parameters pulumi.StringMapOutput `pulumi:"parameters"`
-	// The current deployment or provisioning state, which only appears in the response
-	ProvisioningState pulumi.StringOutput `pulumi:"provisioningState"`
-	// Remove the current application capacity settings.
-	RemoveApplicationCapacity pulumi.BoolPtrOutput `pulumi:"removeApplicationCapacity"`
-	// Azure resource type.
-	Type pulumi.StringOutput `pulumi:"type"`
-	// The application type name as defined in the application manifest.
-	TypeName pulumi.StringPtrOutput `pulumi:"typeName"`
-	// The version of the application type as defined in the application manifest.
-	TypeVersion pulumi.StringPtrOutput `pulumi:"typeVersion"`
-	// Describes the policy for a monitored application upgrade.
-	UpgradePolicy ApplicationUpgradePolicyResponsePtrOutput `pulumi:"upgradePolicy"`
+	Location                  pulumi.StringPtrOutput                          `pulumi:"location"`
+	MaximumNodes              pulumi.Float64PtrOutput                         `pulumi:"maximumNodes"`
+	Metrics                   ApplicationMetricDescriptionResponseArrayOutput `pulumi:"metrics"`
+	MinimumNodes              pulumi.Float64PtrOutput                         `pulumi:"minimumNodes"`
+	Name                      pulumi.StringOutput                             `pulumi:"name"`
+	Parameters                pulumi.StringMapOutput                          `pulumi:"parameters"`
+	ProvisioningState         pulumi.StringOutput                             `pulumi:"provisioningState"`
+	RemoveApplicationCapacity pulumi.BoolPtrOutput                            `pulumi:"removeApplicationCapacity"`
+	Type                      pulumi.StringOutput                             `pulumi:"type"`
+	TypeName                  pulumi.StringPtrOutput                          `pulumi:"typeName"`
+	TypeVersion               pulumi.StringPtrOutput                          `pulumi:"typeVersion"`
+	UpgradePolicy             ApplicationUpgradePolicyResponsePtrOutput       `pulumi:"upgradePolicy"`
 }
 
 // NewApplication registers a new resource with the given unique name, arguments, and options.
@@ -143,58 +130,34 @@ func (ApplicationState) ElementType() reflect.Type {
 }
 
 type applicationArgs struct {
-	// The name of the application resource.
-	ApplicationName *string `pulumi:"applicationName"`
-	// The name of the cluster resource.
-	ClusterName string `pulumi:"clusterName"`
-	// Azure resource location.
-	Location *string `pulumi:"location"`
-	// The maximum number of nodes where Service Fabric will reserve capacity for this application. Note that this does not mean that the services of this application will be placed on all of those nodes. By default, the value of this property is zero and it means that the services can be placed on any node.
-	MaximumNodes *float64 `pulumi:"maximumNodes"`
-	// List of application capacity metric description.
-	Metrics []ApplicationMetricDescription `pulumi:"metrics"`
-	// The minimum number of nodes where Service Fabric will reserve capacity for this application. Note that this does not mean that the services of this application will be placed on all of those nodes. If this property is set to zero, no capacity will be reserved. The value of this property cannot be more than the value of the MaximumNodes property.
-	MinimumNodes *float64 `pulumi:"minimumNodes"`
-	// List of application parameters with overridden values from their default values specified in the application manifest.
-	Parameters map[string]string `pulumi:"parameters"`
-	// Remove the current application capacity settings.
-	RemoveApplicationCapacity *bool `pulumi:"removeApplicationCapacity"`
-	// The name of the resource group.
-	ResourceGroupName string `pulumi:"resourceGroupName"`
-	// The application type name as defined in the application manifest.
-	TypeName *string `pulumi:"typeName"`
-	// The version of the application type as defined in the application manifest.
-	TypeVersion *string `pulumi:"typeVersion"`
-	// Describes the policy for a monitored application upgrade.
-	UpgradePolicy *ApplicationUpgradePolicy `pulumi:"upgradePolicy"`
+	ApplicationName           *string                        `pulumi:"applicationName"`
+	ClusterName               string                         `pulumi:"clusterName"`
+	Location                  *string                        `pulumi:"location"`
+	MaximumNodes              *float64                       `pulumi:"maximumNodes"`
+	Metrics                   []ApplicationMetricDescription `pulumi:"metrics"`
+	MinimumNodes              *float64                       `pulumi:"minimumNodes"`
+	Parameters                map[string]string              `pulumi:"parameters"`
+	RemoveApplicationCapacity *bool                          `pulumi:"removeApplicationCapacity"`
+	ResourceGroupName         string                         `pulumi:"resourceGroupName"`
+	TypeName                  *string                        `pulumi:"typeName"`
+	TypeVersion               *string                        `pulumi:"typeVersion"`
+	UpgradePolicy             *ApplicationUpgradePolicy      `pulumi:"upgradePolicy"`
 }
 
 // The set of arguments for constructing a Application resource.
 type ApplicationArgs struct {
-	// The name of the application resource.
-	ApplicationName pulumi.StringPtrInput
-	// The name of the cluster resource.
-	ClusterName pulumi.StringInput
-	// Azure resource location.
-	Location pulumi.StringPtrInput
-	// The maximum number of nodes where Service Fabric will reserve capacity for this application. Note that this does not mean that the services of this application will be placed on all of those nodes. By default, the value of this property is zero and it means that the services can be placed on any node.
-	MaximumNodes pulumi.Float64PtrInput
-	// List of application capacity metric description.
-	Metrics ApplicationMetricDescriptionArrayInput
-	// The minimum number of nodes where Service Fabric will reserve capacity for this application. Note that this does not mean that the services of this application will be placed on all of those nodes. If this property is set to zero, no capacity will be reserved. The value of this property cannot be more than the value of the MaximumNodes property.
-	MinimumNodes pulumi.Float64PtrInput
-	// List of application parameters with overridden values from their default values specified in the application manifest.
-	Parameters pulumi.StringMapInput
-	// Remove the current application capacity settings.
+	ApplicationName           pulumi.StringPtrInput
+	ClusterName               pulumi.StringInput
+	Location                  pulumi.StringPtrInput
+	MaximumNodes              pulumi.Float64PtrInput
+	Metrics                   ApplicationMetricDescriptionArrayInput
+	MinimumNodes              pulumi.Float64PtrInput
+	Parameters                pulumi.StringMapInput
 	RemoveApplicationCapacity pulumi.BoolPtrInput
-	// The name of the resource group.
-	ResourceGroupName pulumi.StringInput
-	// The application type name as defined in the application manifest.
-	TypeName pulumi.StringPtrInput
-	// The version of the application type as defined in the application manifest.
-	TypeVersion pulumi.StringPtrInput
-	// Describes the policy for a monitored application upgrade.
-	UpgradePolicy ApplicationUpgradePolicyPtrInput
+	ResourceGroupName         pulumi.StringInput
+	TypeName                  pulumi.StringPtrInput
+	TypeVersion               pulumi.StringPtrInput
+	UpgradePolicy             ApplicationUpgradePolicyPtrInput
 }
 
 func (ApplicationArgs) ElementType() reflect.Type {
@@ -220,9 +183,7 @@ func (i *Application) ToApplicationOutputWithContext(ctx context.Context) Applic
 	return pulumi.ToOutputWithContext(ctx, i).(ApplicationOutput)
 }
 
-type ApplicationOutput struct {
-	*pulumi.OutputState
-}
+type ApplicationOutput struct{ *pulumi.OutputState }
 
 func (ApplicationOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*Application)(nil))

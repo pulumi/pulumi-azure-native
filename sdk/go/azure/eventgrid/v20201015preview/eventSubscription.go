@@ -11,42 +11,23 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Event Subscription
 type EventSubscription struct {
 	pulumi.CustomResourceState
 
-	// The dead letter destination of the event subscription. Any event that cannot be delivered to its' destination is sent to the dead letter destination.
-	// Uses Azure Event Grid's identity to acquire the authentication tokens being used during delivery / dead-lettering.
-	DeadLetterDestination StorageBlobDeadLetterDestinationResponsePtrOutput `pulumi:"deadLetterDestination"`
-	// The dead letter destination of the event subscription. Any event that cannot be delivered to its' destination is sent to the dead letter destination.
-	// Uses the managed identity setup on the parent resource (namely, topic or domain) to acquire the authentication tokens being used during delivery / dead-lettering.
-	DeadLetterWithResourceIdentity DeadLetterWithResourceIdentityResponsePtrOutput `pulumi:"deadLetterWithResourceIdentity"`
-	// Information about the destination where events have to be delivered for the event subscription.
-	// Uses the managed identity setup on the parent resource (namely, topic or domain) to acquire the authentication tokens being used during delivery / dead-lettering.
-	DeliveryWithResourceIdentity DeliveryWithResourceIdentityResponsePtrOutput `pulumi:"deliveryWithResourceIdentity"`
-	// Information about the destination where events have to be delivered for the event subscription.
-	// Uses Azure Event Grid's identity to acquire the authentication tokens being used during delivery / dead-lettering.
-	Destination pulumi.AnyOutput `pulumi:"destination"`
-	// The event delivery schema for the event subscription.
-	EventDeliverySchema pulumi.StringPtrOutput `pulumi:"eventDeliverySchema"`
-	// Expiration time of the event subscription.
-	ExpirationTimeUtc pulumi.StringPtrOutput `pulumi:"expirationTimeUtc"`
-	// Information about the filter for the event subscription.
-	Filter EventSubscriptionFilterResponsePtrOutput `pulumi:"filter"`
-	// List of user defined labels.
-	Labels pulumi.StringArrayOutput `pulumi:"labels"`
-	// Name of the resource.
-	Name pulumi.StringOutput `pulumi:"name"`
-	// Provisioning state of the event subscription.
-	ProvisioningState pulumi.StringOutput `pulumi:"provisioningState"`
-	// The retry policy for events. This can be used to configure maximum number of delivery attempts and time to live for events.
-	RetryPolicy RetryPolicyResponsePtrOutput `pulumi:"retryPolicy"`
-	// The system metadata relating to Event Subscription resource.
-	SystemData SystemDataResponseOutput `pulumi:"systemData"`
-	// Name of the topic of the event subscription.
-	Topic pulumi.StringOutput `pulumi:"topic"`
-	// Type of the resource.
-	Type pulumi.StringOutput `pulumi:"type"`
+	DeadLetterDestination          StorageBlobDeadLetterDestinationResponsePtrOutput `pulumi:"deadLetterDestination"`
+	DeadLetterWithResourceIdentity DeadLetterWithResourceIdentityResponsePtrOutput   `pulumi:"deadLetterWithResourceIdentity"`
+	DeliveryWithResourceIdentity   DeliveryWithResourceIdentityResponsePtrOutput     `pulumi:"deliveryWithResourceIdentity"`
+	Destination                    pulumi.AnyOutput                                  `pulumi:"destination"`
+	EventDeliverySchema            pulumi.StringPtrOutput                            `pulumi:"eventDeliverySchema"`
+	ExpirationTimeUtc              pulumi.StringPtrOutput                            `pulumi:"expirationTimeUtc"`
+	Filter                         EventSubscriptionFilterResponsePtrOutput          `pulumi:"filter"`
+	Labels                         pulumi.StringArrayOutput                          `pulumi:"labels"`
+	Name                           pulumi.StringOutput                               `pulumi:"name"`
+	ProvisioningState              pulumi.StringOutput                               `pulumi:"provisioningState"`
+	RetryPolicy                    RetryPolicyResponsePtrOutput                      `pulumi:"retryPolicy"`
+	SystemData                     SystemDataResponseOutput                          `pulumi:"systemData"`
+	Topic                          pulumi.StringOutput                               `pulumi:"topic"`
+	Type                           pulumi.StringOutput                               `pulumi:"type"`
 }
 
 // NewEventSubscription registers a new resource with the given unique name, arguments, and options.
@@ -178,62 +159,32 @@ func (EventSubscriptionState) ElementType() reflect.Type {
 }
 
 type eventSubscriptionArgs struct {
-	// The dead letter destination of the event subscription. Any event that cannot be delivered to its' destination is sent to the dead letter destination.
-	// Uses Azure Event Grid's identity to acquire the authentication tokens being used during delivery / dead-lettering.
-	DeadLetterDestination *StorageBlobDeadLetterDestination `pulumi:"deadLetterDestination"`
-	// The dead letter destination of the event subscription. Any event that cannot be delivered to its' destination is sent to the dead letter destination.
-	// Uses the managed identity setup on the parent resource (namely, topic or domain) to acquire the authentication tokens being used during delivery / dead-lettering.
-	DeadLetterWithResourceIdentity *DeadLetterWithResourceIdentity `pulumi:"deadLetterWithResourceIdentity"`
-	// Information about the destination where events have to be delivered for the event subscription.
-	// Uses the managed identity setup on the parent resource (namely, topic or domain) to acquire the authentication tokens being used during delivery / dead-lettering.
-	DeliveryWithResourceIdentity *DeliveryWithResourceIdentity `pulumi:"deliveryWithResourceIdentity"`
-	// Information about the destination where events have to be delivered for the event subscription.
-	// Uses Azure Event Grid's identity to acquire the authentication tokens being used during delivery / dead-lettering.
-	Destination interface{} `pulumi:"destination"`
-	// The event delivery schema for the event subscription.
-	EventDeliverySchema *string `pulumi:"eventDeliverySchema"`
-	// Name of the event subscription. Event subscription names must be between 3 and 64 characters in length and should use alphanumeric letters only.
-	EventSubscriptionName *string `pulumi:"eventSubscriptionName"`
-	// Expiration time of the event subscription.
-	ExpirationTimeUtc *string `pulumi:"expirationTimeUtc"`
-	// Information about the filter for the event subscription.
-	Filter *EventSubscriptionFilter `pulumi:"filter"`
-	// List of user defined labels.
-	Labels []string `pulumi:"labels"`
-	// The retry policy for events. This can be used to configure maximum number of delivery attempts and time to live for events.
-	RetryPolicy *RetryPolicy `pulumi:"retryPolicy"`
-	// The identifier of the resource to which the event subscription needs to be created or updated. The scope can be a subscription, or a resource group, or a top level resource belonging to a resource provider namespace, or an EventGrid topic. For example, use '/subscriptions/{subscriptionId}/' for a subscription, '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}' for a resource group, and '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}' for a resource, and '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.EventGrid/topics/{topicName}' for an EventGrid topic.
-	Scope string `pulumi:"scope"`
+	DeadLetterDestination          *StorageBlobDeadLetterDestination `pulumi:"deadLetterDestination"`
+	DeadLetterWithResourceIdentity *DeadLetterWithResourceIdentity   `pulumi:"deadLetterWithResourceIdentity"`
+	DeliveryWithResourceIdentity   *DeliveryWithResourceIdentity     `pulumi:"deliveryWithResourceIdentity"`
+	Destination                    interface{}                       `pulumi:"destination"`
+	EventDeliverySchema            *string                           `pulumi:"eventDeliverySchema"`
+	EventSubscriptionName          *string                           `pulumi:"eventSubscriptionName"`
+	ExpirationTimeUtc              *string                           `pulumi:"expirationTimeUtc"`
+	Filter                         *EventSubscriptionFilter          `pulumi:"filter"`
+	Labels                         []string                          `pulumi:"labels"`
+	RetryPolicy                    *RetryPolicy                      `pulumi:"retryPolicy"`
+	Scope                          string                            `pulumi:"scope"`
 }
 
 // The set of arguments for constructing a EventSubscription resource.
 type EventSubscriptionArgs struct {
-	// The dead letter destination of the event subscription. Any event that cannot be delivered to its' destination is sent to the dead letter destination.
-	// Uses Azure Event Grid's identity to acquire the authentication tokens being used during delivery / dead-lettering.
-	DeadLetterDestination StorageBlobDeadLetterDestinationPtrInput
-	// The dead letter destination of the event subscription. Any event that cannot be delivered to its' destination is sent to the dead letter destination.
-	// Uses the managed identity setup on the parent resource (namely, topic or domain) to acquire the authentication tokens being used during delivery / dead-lettering.
+	DeadLetterDestination          StorageBlobDeadLetterDestinationPtrInput
 	DeadLetterWithResourceIdentity DeadLetterWithResourceIdentityPtrInput
-	// Information about the destination where events have to be delivered for the event subscription.
-	// Uses the managed identity setup on the parent resource (namely, topic or domain) to acquire the authentication tokens being used during delivery / dead-lettering.
-	DeliveryWithResourceIdentity DeliveryWithResourceIdentityPtrInput
-	// Information about the destination where events have to be delivered for the event subscription.
-	// Uses Azure Event Grid's identity to acquire the authentication tokens being used during delivery / dead-lettering.
-	Destination pulumi.Input
-	// The event delivery schema for the event subscription.
-	EventDeliverySchema pulumi.StringPtrInput
-	// Name of the event subscription. Event subscription names must be between 3 and 64 characters in length and should use alphanumeric letters only.
-	EventSubscriptionName pulumi.StringPtrInput
-	// Expiration time of the event subscription.
-	ExpirationTimeUtc pulumi.StringPtrInput
-	// Information about the filter for the event subscription.
-	Filter EventSubscriptionFilterPtrInput
-	// List of user defined labels.
-	Labels pulumi.StringArrayInput
-	// The retry policy for events. This can be used to configure maximum number of delivery attempts and time to live for events.
-	RetryPolicy RetryPolicyPtrInput
-	// The identifier of the resource to which the event subscription needs to be created or updated. The scope can be a subscription, or a resource group, or a top level resource belonging to a resource provider namespace, or an EventGrid topic. For example, use '/subscriptions/{subscriptionId}/' for a subscription, '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}' for a resource group, and '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}' for a resource, and '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.EventGrid/topics/{topicName}' for an EventGrid topic.
-	Scope pulumi.StringInput
+	DeliveryWithResourceIdentity   DeliveryWithResourceIdentityPtrInput
+	Destination                    pulumi.Input
+	EventDeliverySchema            pulumi.StringPtrInput
+	EventSubscriptionName          pulumi.StringPtrInput
+	ExpirationTimeUtc              pulumi.StringPtrInput
+	Filter                         EventSubscriptionFilterPtrInput
+	Labels                         pulumi.StringArrayInput
+	RetryPolicy                    RetryPolicyPtrInput
+	Scope                          pulumi.StringInput
 }
 
 func (EventSubscriptionArgs) ElementType() reflect.Type {
@@ -259,9 +210,7 @@ func (i *EventSubscription) ToEventSubscriptionOutputWithContext(ctx context.Con
 	return pulumi.ToOutputWithContext(ctx, i).(EventSubscriptionOutput)
 }
 
-type EventSubscriptionOutput struct {
-	*pulumi.OutputState
-}
+type EventSubscriptionOutput struct{ *pulumi.OutputState }
 
 func (EventSubscriptionOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*EventSubscription)(nil))

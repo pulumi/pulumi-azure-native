@@ -7,7 +7,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// A kusto database data set.
 func LookupKustoDatabaseDataSet(ctx *pulumi.Context, args *LookupKustoDatabaseDataSetArgs, opts ...pulumi.InvokeOption) (*LookupKustoDatabaseDataSetResult, error) {
 	var rv LookupKustoDatabaseDataSetResult
 	err := ctx.Invoke("azure-native:datashare/v20181101preview:getKustoDatabaseDataSet", args, &rv, opts...)
@@ -18,33 +17,20 @@ func LookupKustoDatabaseDataSet(ctx *pulumi.Context, args *LookupKustoDatabaseDa
 }
 
 type LookupKustoDatabaseDataSetArgs struct {
-	// The name of the share account.
-	AccountName string `pulumi:"accountName"`
-	// The name of the dataSet.
-	DataSetName string `pulumi:"dataSetName"`
-	// The resource group name.
+	AccountName       string `pulumi:"accountName"`
+	DataSetName       string `pulumi:"dataSetName"`
 	ResourceGroupName string `pulumi:"resourceGroupName"`
-	// The name of the share.
-	ShareName string `pulumi:"shareName"`
+	ShareName         string `pulumi:"shareName"`
 }
 
 // A kusto database data set.
 type LookupKustoDatabaseDataSetResult struct {
-	// Unique id for identifying a data set resource
-	DataSetId string `pulumi:"dataSetId"`
-	// The resource id of the azure resource
-	Id string `pulumi:"id"`
-	// Kind of data set.
-	// Expected value is 'KustoDatabase'.
-	Kind string `pulumi:"kind"`
-	// Resource id of the kusto database.
+	DataSetId               string `pulumi:"dataSetId"`
+	Id                      string `pulumi:"id"`
+	Kind                    string `pulumi:"kind"`
 	KustoDatabaseResourceId string `pulumi:"kustoDatabaseResourceId"`
-	// Location of the kusto cluster.
-	Location string `pulumi:"location"`
-	// Name of the azure resource
-	Name string `pulumi:"name"`
-	// Provisioning state of the kusto database data set.
-	ProvisioningState string `pulumi:"provisioningState"`
-	// Type of the azure resource
-	Type string `pulumi:"type"`
+	Location                string `pulumi:"location"`
+	Name                    string `pulumi:"name"`
+	ProvisioningState       string `pulumi:"provisioningState"`
+	Type                    string `pulumi:"type"`
 }

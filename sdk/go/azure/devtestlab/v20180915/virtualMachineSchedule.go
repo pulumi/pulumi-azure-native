@@ -11,40 +11,24 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// A schedule.
 type VirtualMachineSchedule struct {
 	pulumi.CustomResourceState
 
-	// The creation date of the schedule.
-	CreatedDate pulumi.StringOutput `pulumi:"createdDate"`
-	// If the schedule will occur once each day of the week, specify the daily recurrence.
-	DailyRecurrence DayDetailsResponsePtrOutput `pulumi:"dailyRecurrence"`
-	// If the schedule will occur multiple times a day, specify the hourly recurrence.
-	HourlyRecurrence HourDetailsResponsePtrOutput `pulumi:"hourlyRecurrence"`
-	// The location of the resource.
-	Location pulumi.StringPtrOutput `pulumi:"location"`
-	// The name of the resource.
-	Name pulumi.StringOutput `pulumi:"name"`
-	// Notification settings.
+	CreatedDate          pulumi.StringOutput                   `pulumi:"createdDate"`
+	DailyRecurrence      DayDetailsResponsePtrOutput           `pulumi:"dailyRecurrence"`
+	HourlyRecurrence     HourDetailsResponsePtrOutput          `pulumi:"hourlyRecurrence"`
+	Location             pulumi.StringPtrOutput                `pulumi:"location"`
+	Name                 pulumi.StringOutput                   `pulumi:"name"`
 	NotificationSettings NotificationSettingsResponsePtrOutput `pulumi:"notificationSettings"`
-	// The provisioning status of the resource.
-	ProvisioningState pulumi.StringOutput `pulumi:"provisioningState"`
-	// The status of the schedule (i.e. Enabled, Disabled)
-	Status pulumi.StringPtrOutput `pulumi:"status"`
-	// The tags of the resource.
-	Tags pulumi.StringMapOutput `pulumi:"tags"`
-	// The resource ID to which the schedule belongs
-	TargetResourceId pulumi.StringPtrOutput `pulumi:"targetResourceId"`
-	// The task type of the schedule (e.g. LabVmsShutdownTask, LabVmAutoStart).
-	TaskType pulumi.StringPtrOutput `pulumi:"taskType"`
-	// The time zone ID (e.g. Pacific Standard time).
-	TimeZoneId pulumi.StringPtrOutput `pulumi:"timeZoneId"`
-	// The type of the resource.
-	Type pulumi.StringOutput `pulumi:"type"`
-	// The unique immutable identifier of a resource (Guid).
-	UniqueIdentifier pulumi.StringOutput `pulumi:"uniqueIdentifier"`
-	// If the schedule will occur only some days of the week, specify the weekly recurrence.
-	WeeklyRecurrence WeekDetailsResponsePtrOutput `pulumi:"weeklyRecurrence"`
+	ProvisioningState    pulumi.StringOutput                   `pulumi:"provisioningState"`
+	Status               pulumi.StringPtrOutput                `pulumi:"status"`
+	Tags                 pulumi.StringMapOutput                `pulumi:"tags"`
+	TargetResourceId     pulumi.StringPtrOutput                `pulumi:"targetResourceId"`
+	TaskType             pulumi.StringPtrOutput                `pulumi:"taskType"`
+	TimeZoneId           pulumi.StringPtrOutput                `pulumi:"timeZoneId"`
+	Type                 pulumi.StringOutput                   `pulumi:"type"`
+	UniqueIdentifier     pulumi.StringOutput                   `pulumi:"uniqueIdentifier"`
+	WeeklyRecurrence     WeekDetailsResponsePtrOutput          `pulumi:"weeklyRecurrence"`
 }
 
 // NewVirtualMachineSchedule registers a new resource with the given unique name, arguments, and options.
@@ -116,66 +100,38 @@ func (VirtualMachineScheduleState) ElementType() reflect.Type {
 }
 
 type virtualMachineScheduleArgs struct {
-	// If the schedule will occur once each day of the week, specify the daily recurrence.
-	DailyRecurrence *DayDetails `pulumi:"dailyRecurrence"`
-	// If the schedule will occur multiple times a day, specify the hourly recurrence.
-	HourlyRecurrence *HourDetails `pulumi:"hourlyRecurrence"`
-	// The name of the lab.
-	LabName string `pulumi:"labName"`
-	// The location of the resource.
-	Location *string `pulumi:"location"`
-	// The name of the schedule.
-	Name *string `pulumi:"name"`
-	// Notification settings.
+	DailyRecurrence      *DayDetails           `pulumi:"dailyRecurrence"`
+	HourlyRecurrence     *HourDetails          `pulumi:"hourlyRecurrence"`
+	LabName              string                `pulumi:"labName"`
+	Location             *string               `pulumi:"location"`
+	Name                 *string               `pulumi:"name"`
 	NotificationSettings *NotificationSettings `pulumi:"notificationSettings"`
-	// The name of the resource group.
-	ResourceGroupName string `pulumi:"resourceGroupName"`
-	// The status of the schedule (i.e. Enabled, Disabled)
-	Status *string `pulumi:"status"`
-	// The tags of the resource.
-	Tags map[string]string `pulumi:"tags"`
-	// The resource ID to which the schedule belongs
-	TargetResourceId *string `pulumi:"targetResourceId"`
-	// The task type of the schedule (e.g. LabVmsShutdownTask, LabVmAutoStart).
-	TaskType *string `pulumi:"taskType"`
-	// The time zone ID (e.g. Pacific Standard time).
-	TimeZoneId *string `pulumi:"timeZoneId"`
-	// The name of the virtual machine.
-	VirtualMachineName string `pulumi:"virtualMachineName"`
-	// If the schedule will occur only some days of the week, specify the weekly recurrence.
-	WeeklyRecurrence *WeekDetails `pulumi:"weeklyRecurrence"`
+	ResourceGroupName    string                `pulumi:"resourceGroupName"`
+	Status               *string               `pulumi:"status"`
+	Tags                 map[string]string     `pulumi:"tags"`
+	TargetResourceId     *string               `pulumi:"targetResourceId"`
+	TaskType             *string               `pulumi:"taskType"`
+	TimeZoneId           *string               `pulumi:"timeZoneId"`
+	VirtualMachineName   string                `pulumi:"virtualMachineName"`
+	WeeklyRecurrence     *WeekDetails          `pulumi:"weeklyRecurrence"`
 }
 
 // The set of arguments for constructing a VirtualMachineSchedule resource.
 type VirtualMachineScheduleArgs struct {
-	// If the schedule will occur once each day of the week, specify the daily recurrence.
-	DailyRecurrence DayDetailsPtrInput
-	// If the schedule will occur multiple times a day, specify the hourly recurrence.
-	HourlyRecurrence HourDetailsPtrInput
-	// The name of the lab.
-	LabName pulumi.StringInput
-	// The location of the resource.
-	Location pulumi.StringPtrInput
-	// The name of the schedule.
-	Name pulumi.StringPtrInput
-	// Notification settings.
+	DailyRecurrence      DayDetailsPtrInput
+	HourlyRecurrence     HourDetailsPtrInput
+	LabName              pulumi.StringInput
+	Location             pulumi.StringPtrInput
+	Name                 pulumi.StringPtrInput
 	NotificationSettings NotificationSettingsPtrInput
-	// The name of the resource group.
-	ResourceGroupName pulumi.StringInput
-	// The status of the schedule (i.e. Enabled, Disabled)
-	Status pulumi.StringPtrInput
-	// The tags of the resource.
-	Tags pulumi.StringMapInput
-	// The resource ID to which the schedule belongs
-	TargetResourceId pulumi.StringPtrInput
-	// The task type of the schedule (e.g. LabVmsShutdownTask, LabVmAutoStart).
-	TaskType pulumi.StringPtrInput
-	// The time zone ID (e.g. Pacific Standard time).
-	TimeZoneId pulumi.StringPtrInput
-	// The name of the virtual machine.
-	VirtualMachineName pulumi.StringInput
-	// If the schedule will occur only some days of the week, specify the weekly recurrence.
-	WeeklyRecurrence WeekDetailsPtrInput
+	ResourceGroupName    pulumi.StringInput
+	Status               pulumi.StringPtrInput
+	Tags                 pulumi.StringMapInput
+	TargetResourceId     pulumi.StringPtrInput
+	TaskType             pulumi.StringPtrInput
+	TimeZoneId           pulumi.StringPtrInput
+	VirtualMachineName   pulumi.StringInput
+	WeeklyRecurrence     WeekDetailsPtrInput
 }
 
 func (VirtualMachineScheduleArgs) ElementType() reflect.Type {
@@ -201,9 +157,7 @@ func (i *VirtualMachineSchedule) ToVirtualMachineScheduleOutputWithContext(ctx c
 	return pulumi.ToOutputWithContext(ctx, i).(VirtualMachineScheduleOutput)
 }
 
-type VirtualMachineScheduleOutput struct {
-	*pulumi.OutputState
-}
+type VirtualMachineScheduleOutput struct{ *pulumi.OutputState }
 
 func (VirtualMachineScheduleOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*VirtualMachineSchedule)(nil))

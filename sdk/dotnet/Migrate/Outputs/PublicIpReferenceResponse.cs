@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.Migrate.Outputs
 {
 
+    /// <summary>
+    /// Defines reference to a public IP.
+    /// </summary>
     [OutputType]
     public sealed class PublicIpReferenceResponse
     {

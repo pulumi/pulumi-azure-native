@@ -143,9 +143,7 @@ func (i *FluidRelayServer) ToFluidRelayServerOutputWithContext(ctx context.Conte
 	return pulumi.ToOutputWithContext(ctx, i).(FluidRelayServerOutput)
 }
 
-type FluidRelayServerOutput struct {
-	*pulumi.OutputState
-}
+type FluidRelayServerOutput struct{ *pulumi.OutputState }
 
 func (FluidRelayServerOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*FluidRelayServer)(nil))

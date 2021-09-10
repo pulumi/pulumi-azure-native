@@ -142,9 +142,7 @@ func (i *DiagnosticLogger) ToDiagnosticLoggerOutputWithContext(ctx context.Conte
 	return pulumi.ToOutputWithContext(ctx, i).(DiagnosticLoggerOutput)
 }
 
-type DiagnosticLoggerOutput struct {
-	*pulumi.OutputState
-}
+type DiagnosticLoggerOutput struct{ *pulumi.OutputState }
 
 func (DiagnosticLoggerOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*DiagnosticLogger)(nil))

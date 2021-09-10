@@ -10,14 +10,10 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Defines how resources deployed by a blueprint assignment are locked.
 type AssignmentLockSettings struct {
-	// List of management operations that are excluded from blueprint locks. Up to 200 actions are permitted. If the lock mode is set to 'AllResourcesReadOnly', then the following actions are automatically appended to 'excludedActions': '*/read', 'Microsoft.Network/virtualNetworks/subnets/join/action' and 'Microsoft.Authorization/locks/delete'. If the lock mode is set to 'AllResourcesDoNotDelete', then the following actions are automatically appended to 'excludedActions': 'Microsoft.Authorization/locks/delete'. Duplicate actions will get removed.
-	ExcludedActions []string `pulumi:"excludedActions"`
-	// List of AAD principals excluded from blueprint locks. Up to 5 principals are permitted.
+	ExcludedActions    []string `pulumi:"excludedActions"`
 	ExcludedPrincipals []string `pulumi:"excludedPrincipals"`
-	// Lock mode.
-	Mode *string `pulumi:"mode"`
+	Mode               *string  `pulumi:"mode"`
 }
 
 // AssignmentLockSettingsInput is an input type that accepts AssignmentLockSettingsArgs and AssignmentLockSettingsOutput values.
@@ -31,14 +27,10 @@ type AssignmentLockSettingsInput interface {
 	ToAssignmentLockSettingsOutputWithContext(context.Context) AssignmentLockSettingsOutput
 }
 
-// Defines how resources deployed by a blueprint assignment are locked.
 type AssignmentLockSettingsArgs struct {
-	// List of management operations that are excluded from blueprint locks. Up to 200 actions are permitted. If the lock mode is set to 'AllResourcesReadOnly', then the following actions are automatically appended to 'excludedActions': '*/read', 'Microsoft.Network/virtualNetworks/subnets/join/action' and 'Microsoft.Authorization/locks/delete'. If the lock mode is set to 'AllResourcesDoNotDelete', then the following actions are automatically appended to 'excludedActions': 'Microsoft.Authorization/locks/delete'. Duplicate actions will get removed.
-	ExcludedActions pulumi.StringArrayInput `pulumi:"excludedActions"`
-	// List of AAD principals excluded from blueprint locks. Up to 5 principals are permitted.
+	ExcludedActions    pulumi.StringArrayInput `pulumi:"excludedActions"`
 	ExcludedPrincipals pulumi.StringArrayInput `pulumi:"excludedPrincipals"`
-	// Lock mode.
-	Mode pulumi.StringPtrInput `pulumi:"mode"`
+	Mode               pulumi.StringPtrInput   `pulumi:"mode"`
 }
 
 func (AssignmentLockSettingsArgs) ElementType() reflect.Type {
@@ -94,7 +86,6 @@ func (i *assignmentLockSettingsPtrType) ToAssignmentLockSettingsPtrOutputWithCon
 	return pulumi.ToOutputWithContext(ctx, i).(AssignmentLockSettingsPtrOutput)
 }
 
-// Defines how resources deployed by a blueprint assignment are locked.
 type AssignmentLockSettingsOutput struct{ *pulumi.OutputState }
 
 func (AssignmentLockSettingsOutput) ElementType() reflect.Type {
@@ -114,22 +105,19 @@ func (o AssignmentLockSettingsOutput) ToAssignmentLockSettingsPtrOutput() Assign
 }
 
 func (o AssignmentLockSettingsOutput) ToAssignmentLockSettingsPtrOutputWithContext(ctx context.Context) AssignmentLockSettingsPtrOutput {
-	return o.ApplyT(func(v AssignmentLockSettings) *AssignmentLockSettings {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v AssignmentLockSettings) *AssignmentLockSettings {
 		return &v
 	}).(AssignmentLockSettingsPtrOutput)
 }
 
-// List of management operations that are excluded from blueprint locks. Up to 200 actions are permitted. If the lock mode is set to 'AllResourcesReadOnly', then the following actions are automatically appended to 'excludedActions': '*/read', 'Microsoft.Network/virtualNetworks/subnets/join/action' and 'Microsoft.Authorization/locks/delete'. If the lock mode is set to 'AllResourcesDoNotDelete', then the following actions are automatically appended to 'excludedActions': 'Microsoft.Authorization/locks/delete'. Duplicate actions will get removed.
 func (o AssignmentLockSettingsOutput) ExcludedActions() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v AssignmentLockSettings) []string { return v.ExcludedActions }).(pulumi.StringArrayOutput)
 }
 
-// List of AAD principals excluded from blueprint locks. Up to 5 principals are permitted.
 func (o AssignmentLockSettingsOutput) ExcludedPrincipals() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v AssignmentLockSettings) []string { return v.ExcludedPrincipals }).(pulumi.StringArrayOutput)
 }
 
-// Lock mode.
 func (o AssignmentLockSettingsOutput) Mode() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AssignmentLockSettings) *string { return v.Mode }).(pulumi.StringPtrOutput)
 }
@@ -149,10 +137,15 @@ func (o AssignmentLockSettingsPtrOutput) ToAssignmentLockSettingsPtrOutputWithCo
 }
 
 func (o AssignmentLockSettingsPtrOutput) Elem() AssignmentLockSettingsOutput {
-	return o.ApplyT(func(v *AssignmentLockSettings) AssignmentLockSettings { return *v }).(AssignmentLockSettingsOutput)
+	return o.ApplyT(func(v *AssignmentLockSettings) AssignmentLockSettings {
+		if v != nil {
+			return *v
+		}
+		var ret AssignmentLockSettings
+		return ret
+	}).(AssignmentLockSettingsOutput)
 }
 
-// List of management operations that are excluded from blueprint locks. Up to 200 actions are permitted. If the lock mode is set to 'AllResourcesReadOnly', then the following actions are automatically appended to 'excludedActions': '*/read', 'Microsoft.Network/virtualNetworks/subnets/join/action' and 'Microsoft.Authorization/locks/delete'. If the lock mode is set to 'AllResourcesDoNotDelete', then the following actions are automatically appended to 'excludedActions': 'Microsoft.Authorization/locks/delete'. Duplicate actions will get removed.
 func (o AssignmentLockSettingsPtrOutput) ExcludedActions() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *AssignmentLockSettings) []string {
 		if v == nil {
@@ -162,7 +155,6 @@ func (o AssignmentLockSettingsPtrOutput) ExcludedActions() pulumi.StringArrayOut
 	}).(pulumi.StringArrayOutput)
 }
 
-// List of AAD principals excluded from blueprint locks. Up to 5 principals are permitted.
 func (o AssignmentLockSettingsPtrOutput) ExcludedPrincipals() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *AssignmentLockSettings) []string {
 		if v == nil {
@@ -172,7 +164,6 @@ func (o AssignmentLockSettingsPtrOutput) ExcludedPrincipals() pulumi.StringArray
 	}).(pulumi.StringArrayOutput)
 }
 
-// Lock mode.
 func (o AssignmentLockSettingsPtrOutput) Mode() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *AssignmentLockSettings) *string {
 		if v == nil {
@@ -182,14 +173,10 @@ func (o AssignmentLockSettingsPtrOutput) Mode() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Defines how resources deployed by a blueprint assignment are locked.
 type AssignmentLockSettingsResponse struct {
-	// List of management operations that are excluded from blueprint locks. Up to 200 actions are permitted. If the lock mode is set to 'AllResourcesReadOnly', then the following actions are automatically appended to 'excludedActions': '*/read', 'Microsoft.Network/virtualNetworks/subnets/join/action' and 'Microsoft.Authorization/locks/delete'. If the lock mode is set to 'AllResourcesDoNotDelete', then the following actions are automatically appended to 'excludedActions': 'Microsoft.Authorization/locks/delete'. Duplicate actions will get removed.
-	ExcludedActions []string `pulumi:"excludedActions"`
-	// List of AAD principals excluded from blueprint locks. Up to 5 principals are permitted.
+	ExcludedActions    []string `pulumi:"excludedActions"`
 	ExcludedPrincipals []string `pulumi:"excludedPrincipals"`
-	// Lock mode.
-	Mode *string `pulumi:"mode"`
+	Mode               *string  `pulumi:"mode"`
 }
 
 // AssignmentLockSettingsResponseInput is an input type that accepts AssignmentLockSettingsResponseArgs and AssignmentLockSettingsResponseOutput values.
@@ -203,14 +190,10 @@ type AssignmentLockSettingsResponseInput interface {
 	ToAssignmentLockSettingsResponseOutputWithContext(context.Context) AssignmentLockSettingsResponseOutput
 }
 
-// Defines how resources deployed by a blueprint assignment are locked.
 type AssignmentLockSettingsResponseArgs struct {
-	// List of management operations that are excluded from blueprint locks. Up to 200 actions are permitted. If the lock mode is set to 'AllResourcesReadOnly', then the following actions are automatically appended to 'excludedActions': '*/read', 'Microsoft.Network/virtualNetworks/subnets/join/action' and 'Microsoft.Authorization/locks/delete'. If the lock mode is set to 'AllResourcesDoNotDelete', then the following actions are automatically appended to 'excludedActions': 'Microsoft.Authorization/locks/delete'. Duplicate actions will get removed.
-	ExcludedActions pulumi.StringArrayInput `pulumi:"excludedActions"`
-	// List of AAD principals excluded from blueprint locks. Up to 5 principals are permitted.
+	ExcludedActions    pulumi.StringArrayInput `pulumi:"excludedActions"`
 	ExcludedPrincipals pulumi.StringArrayInput `pulumi:"excludedPrincipals"`
-	// Lock mode.
-	Mode pulumi.StringPtrInput `pulumi:"mode"`
+	Mode               pulumi.StringPtrInput   `pulumi:"mode"`
 }
 
 func (AssignmentLockSettingsResponseArgs) ElementType() reflect.Type {
@@ -266,7 +249,6 @@ func (i *assignmentLockSettingsResponsePtrType) ToAssignmentLockSettingsResponse
 	return pulumi.ToOutputWithContext(ctx, i).(AssignmentLockSettingsResponsePtrOutput)
 }
 
-// Defines how resources deployed by a blueprint assignment are locked.
 type AssignmentLockSettingsResponseOutput struct{ *pulumi.OutputState }
 
 func (AssignmentLockSettingsResponseOutput) ElementType() reflect.Type {
@@ -286,22 +268,19 @@ func (o AssignmentLockSettingsResponseOutput) ToAssignmentLockSettingsResponsePt
 }
 
 func (o AssignmentLockSettingsResponseOutput) ToAssignmentLockSettingsResponsePtrOutputWithContext(ctx context.Context) AssignmentLockSettingsResponsePtrOutput {
-	return o.ApplyT(func(v AssignmentLockSettingsResponse) *AssignmentLockSettingsResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v AssignmentLockSettingsResponse) *AssignmentLockSettingsResponse {
 		return &v
 	}).(AssignmentLockSettingsResponsePtrOutput)
 }
 
-// List of management operations that are excluded from blueprint locks. Up to 200 actions are permitted. If the lock mode is set to 'AllResourcesReadOnly', then the following actions are automatically appended to 'excludedActions': '*/read', 'Microsoft.Network/virtualNetworks/subnets/join/action' and 'Microsoft.Authorization/locks/delete'. If the lock mode is set to 'AllResourcesDoNotDelete', then the following actions are automatically appended to 'excludedActions': 'Microsoft.Authorization/locks/delete'. Duplicate actions will get removed.
 func (o AssignmentLockSettingsResponseOutput) ExcludedActions() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v AssignmentLockSettingsResponse) []string { return v.ExcludedActions }).(pulumi.StringArrayOutput)
 }
 
-// List of AAD principals excluded from blueprint locks. Up to 5 principals are permitted.
 func (o AssignmentLockSettingsResponseOutput) ExcludedPrincipals() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v AssignmentLockSettingsResponse) []string { return v.ExcludedPrincipals }).(pulumi.StringArrayOutput)
 }
 
-// Lock mode.
 func (o AssignmentLockSettingsResponseOutput) Mode() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AssignmentLockSettingsResponse) *string { return v.Mode }).(pulumi.StringPtrOutput)
 }
@@ -321,10 +300,15 @@ func (o AssignmentLockSettingsResponsePtrOutput) ToAssignmentLockSettingsRespons
 }
 
 func (o AssignmentLockSettingsResponsePtrOutput) Elem() AssignmentLockSettingsResponseOutput {
-	return o.ApplyT(func(v *AssignmentLockSettingsResponse) AssignmentLockSettingsResponse { return *v }).(AssignmentLockSettingsResponseOutput)
+	return o.ApplyT(func(v *AssignmentLockSettingsResponse) AssignmentLockSettingsResponse {
+		if v != nil {
+			return *v
+		}
+		var ret AssignmentLockSettingsResponse
+		return ret
+	}).(AssignmentLockSettingsResponseOutput)
 }
 
-// List of management operations that are excluded from blueprint locks. Up to 200 actions are permitted. If the lock mode is set to 'AllResourcesReadOnly', then the following actions are automatically appended to 'excludedActions': '*/read', 'Microsoft.Network/virtualNetworks/subnets/join/action' and 'Microsoft.Authorization/locks/delete'. If the lock mode is set to 'AllResourcesDoNotDelete', then the following actions are automatically appended to 'excludedActions': 'Microsoft.Authorization/locks/delete'. Duplicate actions will get removed.
 func (o AssignmentLockSettingsResponsePtrOutput) ExcludedActions() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *AssignmentLockSettingsResponse) []string {
 		if v == nil {
@@ -334,7 +318,6 @@ func (o AssignmentLockSettingsResponsePtrOutput) ExcludedActions() pulumi.String
 	}).(pulumi.StringArrayOutput)
 }
 
-// List of AAD principals excluded from blueprint locks. Up to 5 principals are permitted.
 func (o AssignmentLockSettingsResponsePtrOutput) ExcludedPrincipals() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *AssignmentLockSettingsResponse) []string {
 		if v == nil {
@@ -344,7 +327,6 @@ func (o AssignmentLockSettingsResponsePtrOutput) ExcludedPrincipals() pulumi.Str
 	}).(pulumi.StringArrayOutput)
 }
 
-// Lock mode.
 func (o AssignmentLockSettingsResponsePtrOutput) Mode() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *AssignmentLockSettingsResponse) *string {
 		if v == nil {
@@ -354,14 +336,10 @@ func (o AssignmentLockSettingsResponsePtrOutput) Mode() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The status of a blueprint assignment. This field is readonly.
 type AssignmentStatusResponse struct {
-	// Last modified time of this blueprint definition.
-	LastModified string `pulumi:"lastModified"`
-	// List of resources that were created by the blueprint assignment.
+	LastModified     string   `pulumi:"lastModified"`
 	ManagedResources []string `pulumi:"managedResources"`
-	// Creation time of this blueprint definition.
-	TimeCreated string `pulumi:"timeCreated"`
+	TimeCreated      string   `pulumi:"timeCreated"`
 }
 
 // AssignmentStatusResponseInput is an input type that accepts AssignmentStatusResponseArgs and AssignmentStatusResponseOutput values.
@@ -375,14 +353,10 @@ type AssignmentStatusResponseInput interface {
 	ToAssignmentStatusResponseOutputWithContext(context.Context) AssignmentStatusResponseOutput
 }
 
-// The status of a blueprint assignment. This field is readonly.
 type AssignmentStatusResponseArgs struct {
-	// Last modified time of this blueprint definition.
-	LastModified pulumi.StringInput `pulumi:"lastModified"`
-	// List of resources that were created by the blueprint assignment.
+	LastModified     pulumi.StringInput      `pulumi:"lastModified"`
 	ManagedResources pulumi.StringArrayInput `pulumi:"managedResources"`
-	// Creation time of this blueprint definition.
-	TimeCreated pulumi.StringInput `pulumi:"timeCreated"`
+	TimeCreated      pulumi.StringInput      `pulumi:"timeCreated"`
 }
 
 func (AssignmentStatusResponseArgs) ElementType() reflect.Type {
@@ -438,7 +412,6 @@ func (i *assignmentStatusResponsePtrType) ToAssignmentStatusResponsePtrOutputWit
 	return pulumi.ToOutputWithContext(ctx, i).(AssignmentStatusResponsePtrOutput)
 }
 
-// The status of a blueprint assignment. This field is readonly.
 type AssignmentStatusResponseOutput struct{ *pulumi.OutputState }
 
 func (AssignmentStatusResponseOutput) ElementType() reflect.Type {
@@ -458,22 +431,19 @@ func (o AssignmentStatusResponseOutput) ToAssignmentStatusResponsePtrOutput() As
 }
 
 func (o AssignmentStatusResponseOutput) ToAssignmentStatusResponsePtrOutputWithContext(ctx context.Context) AssignmentStatusResponsePtrOutput {
-	return o.ApplyT(func(v AssignmentStatusResponse) *AssignmentStatusResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v AssignmentStatusResponse) *AssignmentStatusResponse {
 		return &v
 	}).(AssignmentStatusResponsePtrOutput)
 }
 
-// Last modified time of this blueprint definition.
 func (o AssignmentStatusResponseOutput) LastModified() pulumi.StringOutput {
 	return o.ApplyT(func(v AssignmentStatusResponse) string { return v.LastModified }).(pulumi.StringOutput)
 }
 
-// List of resources that were created by the blueprint assignment.
 func (o AssignmentStatusResponseOutput) ManagedResources() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v AssignmentStatusResponse) []string { return v.ManagedResources }).(pulumi.StringArrayOutput)
 }
 
-// Creation time of this blueprint definition.
 func (o AssignmentStatusResponseOutput) TimeCreated() pulumi.StringOutput {
 	return o.ApplyT(func(v AssignmentStatusResponse) string { return v.TimeCreated }).(pulumi.StringOutput)
 }
@@ -493,10 +463,15 @@ func (o AssignmentStatusResponsePtrOutput) ToAssignmentStatusResponsePtrOutputWi
 }
 
 func (o AssignmentStatusResponsePtrOutput) Elem() AssignmentStatusResponseOutput {
-	return o.ApplyT(func(v *AssignmentStatusResponse) AssignmentStatusResponse { return *v }).(AssignmentStatusResponseOutput)
+	return o.ApplyT(func(v *AssignmentStatusResponse) AssignmentStatusResponse {
+		if v != nil {
+			return *v
+		}
+		var ret AssignmentStatusResponse
+		return ret
+	}).(AssignmentStatusResponseOutput)
 }
 
-// Last modified time of this blueprint definition.
 func (o AssignmentStatusResponsePtrOutput) LastModified() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *AssignmentStatusResponse) *string {
 		if v == nil {
@@ -506,7 +481,6 @@ func (o AssignmentStatusResponsePtrOutput) LastModified() pulumi.StringPtrOutput
 	}).(pulumi.StringPtrOutput)
 }
 
-// List of resources that were created by the blueprint assignment.
 func (o AssignmentStatusResponsePtrOutput) ManagedResources() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *AssignmentStatusResponse) []string {
 		if v == nil {
@@ -516,7 +490,6 @@ func (o AssignmentStatusResponsePtrOutput) ManagedResources() pulumi.StringArray
 	}).(pulumi.StringArrayOutput)
 }
 
-// Creation time of this blueprint definition.
 func (o AssignmentStatusResponsePtrOutput) TimeCreated() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *AssignmentStatusResponse) *string {
 		if v == nil {
@@ -526,12 +499,9 @@ func (o AssignmentStatusResponsePtrOutput) TimeCreated() pulumi.StringPtrOutput 
 	}).(pulumi.StringPtrOutput)
 }
 
-// The status of the blueprint. This field is readonly.
 type BlueprintStatusResponse struct {
-	// Last modified time of this blueprint definition.
 	LastModified string `pulumi:"lastModified"`
-	// Creation time of this blueprint definition.
-	TimeCreated string `pulumi:"timeCreated"`
+	TimeCreated  string `pulumi:"timeCreated"`
 }
 
 // BlueprintStatusResponseInput is an input type that accepts BlueprintStatusResponseArgs and BlueprintStatusResponseOutput values.
@@ -545,12 +515,9 @@ type BlueprintStatusResponseInput interface {
 	ToBlueprintStatusResponseOutputWithContext(context.Context) BlueprintStatusResponseOutput
 }
 
-// The status of the blueprint. This field is readonly.
 type BlueprintStatusResponseArgs struct {
-	// Last modified time of this blueprint definition.
 	LastModified pulumi.StringInput `pulumi:"lastModified"`
-	// Creation time of this blueprint definition.
-	TimeCreated pulumi.StringInput `pulumi:"timeCreated"`
+	TimeCreated  pulumi.StringInput `pulumi:"timeCreated"`
 }
 
 func (BlueprintStatusResponseArgs) ElementType() reflect.Type {
@@ -606,7 +573,6 @@ func (i *blueprintStatusResponsePtrType) ToBlueprintStatusResponsePtrOutputWithC
 	return pulumi.ToOutputWithContext(ctx, i).(BlueprintStatusResponsePtrOutput)
 }
 
-// The status of the blueprint. This field is readonly.
 type BlueprintStatusResponseOutput struct{ *pulumi.OutputState }
 
 func (BlueprintStatusResponseOutput) ElementType() reflect.Type {
@@ -626,17 +592,15 @@ func (o BlueprintStatusResponseOutput) ToBlueprintStatusResponsePtrOutput() Blue
 }
 
 func (o BlueprintStatusResponseOutput) ToBlueprintStatusResponsePtrOutputWithContext(ctx context.Context) BlueprintStatusResponsePtrOutput {
-	return o.ApplyT(func(v BlueprintStatusResponse) *BlueprintStatusResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v BlueprintStatusResponse) *BlueprintStatusResponse {
 		return &v
 	}).(BlueprintStatusResponsePtrOutput)
 }
 
-// Last modified time of this blueprint definition.
 func (o BlueprintStatusResponseOutput) LastModified() pulumi.StringOutput {
 	return o.ApplyT(func(v BlueprintStatusResponse) string { return v.LastModified }).(pulumi.StringOutput)
 }
 
-// Creation time of this blueprint definition.
 func (o BlueprintStatusResponseOutput) TimeCreated() pulumi.StringOutput {
 	return o.ApplyT(func(v BlueprintStatusResponse) string { return v.TimeCreated }).(pulumi.StringOutput)
 }
@@ -656,10 +620,15 @@ func (o BlueprintStatusResponsePtrOutput) ToBlueprintStatusResponsePtrOutputWith
 }
 
 func (o BlueprintStatusResponsePtrOutput) Elem() BlueprintStatusResponseOutput {
-	return o.ApplyT(func(v *BlueprintStatusResponse) BlueprintStatusResponse { return *v }).(BlueprintStatusResponseOutput)
+	return o.ApplyT(func(v *BlueprintStatusResponse) BlueprintStatusResponse {
+		if v != nil {
+			return *v
+		}
+		var ret BlueprintStatusResponse
+		return ret
+	}).(BlueprintStatusResponseOutput)
 }
 
-// Last modified time of this blueprint definition.
 func (o BlueprintStatusResponsePtrOutput) LastModified() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *BlueprintStatusResponse) *string {
 		if v == nil {
@@ -669,7 +638,6 @@ func (o BlueprintStatusResponsePtrOutput) LastModified() pulumi.StringPtrOutput 
 	}).(pulumi.StringPtrOutput)
 }
 
-// Creation time of this blueprint definition.
 func (o BlueprintStatusResponsePtrOutput) TimeCreated() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *BlueprintStatusResponse) *string {
 		if v == nil {
@@ -679,9 +647,7 @@ func (o BlueprintStatusResponsePtrOutput) TimeCreated() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Specifies the link to a Key Vault.
 type KeyVaultReference struct {
-	// Azure resource ID of the Key Vault.
 	Id string `pulumi:"id"`
 }
 
@@ -696,9 +662,7 @@ type KeyVaultReferenceInput interface {
 	ToKeyVaultReferenceOutputWithContext(context.Context) KeyVaultReferenceOutput
 }
 
-// Specifies the link to a Key Vault.
 type KeyVaultReferenceArgs struct {
-	// Azure resource ID of the Key Vault.
 	Id pulumi.StringInput `pulumi:"id"`
 }
 
@@ -755,7 +719,6 @@ func (i *keyVaultReferencePtrType) ToKeyVaultReferencePtrOutputWithContext(ctx c
 	return pulumi.ToOutputWithContext(ctx, i).(KeyVaultReferencePtrOutput)
 }
 
-// Specifies the link to a Key Vault.
 type KeyVaultReferenceOutput struct{ *pulumi.OutputState }
 
 func (KeyVaultReferenceOutput) ElementType() reflect.Type {
@@ -775,12 +738,11 @@ func (o KeyVaultReferenceOutput) ToKeyVaultReferencePtrOutput() KeyVaultReferenc
 }
 
 func (o KeyVaultReferenceOutput) ToKeyVaultReferencePtrOutputWithContext(ctx context.Context) KeyVaultReferencePtrOutput {
-	return o.ApplyT(func(v KeyVaultReference) *KeyVaultReference {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v KeyVaultReference) *KeyVaultReference {
 		return &v
 	}).(KeyVaultReferencePtrOutput)
 }
 
-// Azure resource ID of the Key Vault.
 func (o KeyVaultReferenceOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v KeyVaultReference) string { return v.Id }).(pulumi.StringOutput)
 }
@@ -800,10 +762,15 @@ func (o KeyVaultReferencePtrOutput) ToKeyVaultReferencePtrOutputWithContext(ctx 
 }
 
 func (o KeyVaultReferencePtrOutput) Elem() KeyVaultReferenceOutput {
-	return o.ApplyT(func(v *KeyVaultReference) KeyVaultReference { return *v }).(KeyVaultReferenceOutput)
+	return o.ApplyT(func(v *KeyVaultReference) KeyVaultReference {
+		if v != nil {
+			return *v
+		}
+		var ret KeyVaultReference
+		return ret
+	}).(KeyVaultReferenceOutput)
 }
 
-// Azure resource ID of the Key Vault.
 func (o KeyVaultReferencePtrOutput) Id() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *KeyVaultReference) *string {
 		if v == nil {
@@ -813,9 +780,7 @@ func (o KeyVaultReferencePtrOutput) Id() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Specifies the link to a Key Vault.
 type KeyVaultReferenceResponse struct {
-	// Azure resource ID of the Key Vault.
 	Id string `pulumi:"id"`
 }
 
@@ -830,9 +795,7 @@ type KeyVaultReferenceResponseInput interface {
 	ToKeyVaultReferenceResponseOutputWithContext(context.Context) KeyVaultReferenceResponseOutput
 }
 
-// Specifies the link to a Key Vault.
 type KeyVaultReferenceResponseArgs struct {
-	// Azure resource ID of the Key Vault.
 	Id pulumi.StringInput `pulumi:"id"`
 }
 
@@ -889,7 +852,6 @@ func (i *keyVaultReferenceResponsePtrType) ToKeyVaultReferenceResponsePtrOutputW
 	return pulumi.ToOutputWithContext(ctx, i).(KeyVaultReferenceResponsePtrOutput)
 }
 
-// Specifies the link to a Key Vault.
 type KeyVaultReferenceResponseOutput struct{ *pulumi.OutputState }
 
 func (KeyVaultReferenceResponseOutput) ElementType() reflect.Type {
@@ -909,12 +871,11 @@ func (o KeyVaultReferenceResponseOutput) ToKeyVaultReferenceResponsePtrOutput() 
 }
 
 func (o KeyVaultReferenceResponseOutput) ToKeyVaultReferenceResponsePtrOutputWithContext(ctx context.Context) KeyVaultReferenceResponsePtrOutput {
-	return o.ApplyT(func(v KeyVaultReferenceResponse) *KeyVaultReferenceResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v KeyVaultReferenceResponse) *KeyVaultReferenceResponse {
 		return &v
 	}).(KeyVaultReferenceResponsePtrOutput)
 }
 
-// Azure resource ID of the Key Vault.
 func (o KeyVaultReferenceResponseOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v KeyVaultReferenceResponse) string { return v.Id }).(pulumi.StringOutput)
 }
@@ -934,10 +895,15 @@ func (o KeyVaultReferenceResponsePtrOutput) ToKeyVaultReferenceResponsePtrOutput
 }
 
 func (o KeyVaultReferenceResponsePtrOutput) Elem() KeyVaultReferenceResponseOutput {
-	return o.ApplyT(func(v *KeyVaultReferenceResponse) KeyVaultReferenceResponse { return *v }).(KeyVaultReferenceResponseOutput)
+	return o.ApplyT(func(v *KeyVaultReferenceResponse) KeyVaultReferenceResponse {
+		if v != nil {
+			return *v
+		}
+		var ret KeyVaultReferenceResponse
+		return ret
+	}).(KeyVaultReferenceResponseOutput)
 }
 
-// Azure resource ID of the Key Vault.
 func (o KeyVaultReferenceResponsePtrOutput) Id() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *KeyVaultReferenceResponse) *string {
 		if v == nil {
@@ -947,15 +913,10 @@ func (o KeyVaultReferenceResponsePtrOutput) Id() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Managed identity generic object.
 type ManagedServiceIdentity struct {
-	// Azure Active Directory principal ID associated with this Identity.
-	PrincipalId *string `pulumi:"principalId"`
-	// ID of the Azure Active Directory.
-	TenantId *string `pulumi:"tenantId"`
-	// Type of the managed identity.
-	Type string `pulumi:"type"`
-	// The list of user-assigned managed identities associated with the resource. Key is the Azure resource Id of the managed identity.
+	PrincipalId            *string                         `pulumi:"principalId"`
+	TenantId               *string                         `pulumi:"tenantId"`
+	Type                   string                          `pulumi:"type"`
 	UserAssignedIdentities map[string]UserAssignedIdentity `pulumi:"userAssignedIdentities"`
 }
 
@@ -970,15 +931,10 @@ type ManagedServiceIdentityInput interface {
 	ToManagedServiceIdentityOutputWithContext(context.Context) ManagedServiceIdentityOutput
 }
 
-// Managed identity generic object.
 type ManagedServiceIdentityArgs struct {
-	// Azure Active Directory principal ID associated with this Identity.
-	PrincipalId pulumi.StringPtrInput `pulumi:"principalId"`
-	// ID of the Azure Active Directory.
-	TenantId pulumi.StringPtrInput `pulumi:"tenantId"`
-	// Type of the managed identity.
-	Type pulumi.StringInput `pulumi:"type"`
-	// The list of user-assigned managed identities associated with the resource. Key is the Azure resource Id of the managed identity.
+	PrincipalId            pulumi.StringPtrInput        `pulumi:"principalId"`
+	TenantId               pulumi.StringPtrInput        `pulumi:"tenantId"`
+	Type                   pulumi.StringInput           `pulumi:"type"`
 	UserAssignedIdentities UserAssignedIdentityMapInput `pulumi:"userAssignedIdentities"`
 }
 
@@ -1035,7 +991,6 @@ func (i *managedServiceIdentityPtrType) ToManagedServiceIdentityPtrOutputWithCon
 	return pulumi.ToOutputWithContext(ctx, i).(ManagedServiceIdentityPtrOutput)
 }
 
-// Managed identity generic object.
 type ManagedServiceIdentityOutput struct{ *pulumi.OutputState }
 
 func (ManagedServiceIdentityOutput) ElementType() reflect.Type {
@@ -1055,27 +1010,23 @@ func (o ManagedServiceIdentityOutput) ToManagedServiceIdentityPtrOutput() Manage
 }
 
 func (o ManagedServiceIdentityOutput) ToManagedServiceIdentityPtrOutputWithContext(ctx context.Context) ManagedServiceIdentityPtrOutput {
-	return o.ApplyT(func(v ManagedServiceIdentity) *ManagedServiceIdentity {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ManagedServiceIdentity) *ManagedServiceIdentity {
 		return &v
 	}).(ManagedServiceIdentityPtrOutput)
 }
 
-// Azure Active Directory principal ID associated with this Identity.
 func (o ManagedServiceIdentityOutput) PrincipalId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ManagedServiceIdentity) *string { return v.PrincipalId }).(pulumi.StringPtrOutput)
 }
 
-// ID of the Azure Active Directory.
 func (o ManagedServiceIdentityOutput) TenantId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ManagedServiceIdentity) *string { return v.TenantId }).(pulumi.StringPtrOutput)
 }
 
-// Type of the managed identity.
 func (o ManagedServiceIdentityOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v ManagedServiceIdentity) string { return v.Type }).(pulumi.StringOutput)
 }
 
-// The list of user-assigned managed identities associated with the resource. Key is the Azure resource Id of the managed identity.
 func (o ManagedServiceIdentityOutput) UserAssignedIdentities() UserAssignedIdentityMapOutput {
 	return o.ApplyT(func(v ManagedServiceIdentity) map[string]UserAssignedIdentity { return v.UserAssignedIdentities }).(UserAssignedIdentityMapOutput)
 }
@@ -1095,10 +1046,15 @@ func (o ManagedServiceIdentityPtrOutput) ToManagedServiceIdentityPtrOutputWithCo
 }
 
 func (o ManagedServiceIdentityPtrOutput) Elem() ManagedServiceIdentityOutput {
-	return o.ApplyT(func(v *ManagedServiceIdentity) ManagedServiceIdentity { return *v }).(ManagedServiceIdentityOutput)
+	return o.ApplyT(func(v *ManagedServiceIdentity) ManagedServiceIdentity {
+		if v != nil {
+			return *v
+		}
+		var ret ManagedServiceIdentity
+		return ret
+	}).(ManagedServiceIdentityOutput)
 }
 
-// Azure Active Directory principal ID associated with this Identity.
 func (o ManagedServiceIdentityPtrOutput) PrincipalId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ManagedServiceIdentity) *string {
 		if v == nil {
@@ -1108,7 +1064,6 @@ func (o ManagedServiceIdentityPtrOutput) PrincipalId() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// ID of the Azure Active Directory.
 func (o ManagedServiceIdentityPtrOutput) TenantId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ManagedServiceIdentity) *string {
 		if v == nil {
@@ -1118,7 +1073,6 @@ func (o ManagedServiceIdentityPtrOutput) TenantId() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Type of the managed identity.
 func (o ManagedServiceIdentityPtrOutput) Type() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ManagedServiceIdentity) *string {
 		if v == nil {
@@ -1128,7 +1082,6 @@ func (o ManagedServiceIdentityPtrOutput) Type() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The list of user-assigned managed identities associated with the resource. Key is the Azure resource Id of the managed identity.
 func (o ManagedServiceIdentityPtrOutput) UserAssignedIdentities() UserAssignedIdentityMapOutput {
 	return o.ApplyT(func(v *ManagedServiceIdentity) map[string]UserAssignedIdentity {
 		if v == nil {
@@ -1138,15 +1091,10 @@ func (o ManagedServiceIdentityPtrOutput) UserAssignedIdentities() UserAssignedId
 	}).(UserAssignedIdentityMapOutput)
 }
 
-// Managed identity generic object.
 type ManagedServiceIdentityResponse struct {
-	// Azure Active Directory principal ID associated with this Identity.
-	PrincipalId *string `pulumi:"principalId"`
-	// ID of the Azure Active Directory.
-	TenantId *string `pulumi:"tenantId"`
-	// Type of the managed identity.
-	Type string `pulumi:"type"`
-	// The list of user-assigned managed identities associated with the resource. Key is the Azure resource Id of the managed identity.
+	PrincipalId            *string                                 `pulumi:"principalId"`
+	TenantId               *string                                 `pulumi:"tenantId"`
+	Type                   string                                  `pulumi:"type"`
 	UserAssignedIdentities map[string]UserAssignedIdentityResponse `pulumi:"userAssignedIdentities"`
 }
 
@@ -1161,15 +1109,10 @@ type ManagedServiceIdentityResponseInput interface {
 	ToManagedServiceIdentityResponseOutputWithContext(context.Context) ManagedServiceIdentityResponseOutput
 }
 
-// Managed identity generic object.
 type ManagedServiceIdentityResponseArgs struct {
-	// Azure Active Directory principal ID associated with this Identity.
-	PrincipalId pulumi.StringPtrInput `pulumi:"principalId"`
-	// ID of the Azure Active Directory.
-	TenantId pulumi.StringPtrInput `pulumi:"tenantId"`
-	// Type of the managed identity.
-	Type pulumi.StringInput `pulumi:"type"`
-	// The list of user-assigned managed identities associated with the resource. Key is the Azure resource Id of the managed identity.
+	PrincipalId            pulumi.StringPtrInput                `pulumi:"principalId"`
+	TenantId               pulumi.StringPtrInput                `pulumi:"tenantId"`
+	Type                   pulumi.StringInput                   `pulumi:"type"`
 	UserAssignedIdentities UserAssignedIdentityResponseMapInput `pulumi:"userAssignedIdentities"`
 }
 
@@ -1226,7 +1169,6 @@ func (i *managedServiceIdentityResponsePtrType) ToManagedServiceIdentityResponse
 	return pulumi.ToOutputWithContext(ctx, i).(ManagedServiceIdentityResponsePtrOutput)
 }
 
-// Managed identity generic object.
 type ManagedServiceIdentityResponseOutput struct{ *pulumi.OutputState }
 
 func (ManagedServiceIdentityResponseOutput) ElementType() reflect.Type {
@@ -1246,27 +1188,23 @@ func (o ManagedServiceIdentityResponseOutput) ToManagedServiceIdentityResponsePt
 }
 
 func (o ManagedServiceIdentityResponseOutput) ToManagedServiceIdentityResponsePtrOutputWithContext(ctx context.Context) ManagedServiceIdentityResponsePtrOutput {
-	return o.ApplyT(func(v ManagedServiceIdentityResponse) *ManagedServiceIdentityResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ManagedServiceIdentityResponse) *ManagedServiceIdentityResponse {
 		return &v
 	}).(ManagedServiceIdentityResponsePtrOutput)
 }
 
-// Azure Active Directory principal ID associated with this Identity.
 func (o ManagedServiceIdentityResponseOutput) PrincipalId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ManagedServiceIdentityResponse) *string { return v.PrincipalId }).(pulumi.StringPtrOutput)
 }
 
-// ID of the Azure Active Directory.
 func (o ManagedServiceIdentityResponseOutput) TenantId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ManagedServiceIdentityResponse) *string { return v.TenantId }).(pulumi.StringPtrOutput)
 }
 
-// Type of the managed identity.
 func (o ManagedServiceIdentityResponseOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v ManagedServiceIdentityResponse) string { return v.Type }).(pulumi.StringOutput)
 }
 
-// The list of user-assigned managed identities associated with the resource. Key is the Azure resource Id of the managed identity.
 func (o ManagedServiceIdentityResponseOutput) UserAssignedIdentities() UserAssignedIdentityResponseMapOutput {
 	return o.ApplyT(func(v ManagedServiceIdentityResponse) map[string]UserAssignedIdentityResponse {
 		return v.UserAssignedIdentities
@@ -1288,10 +1226,15 @@ func (o ManagedServiceIdentityResponsePtrOutput) ToManagedServiceIdentityRespons
 }
 
 func (o ManagedServiceIdentityResponsePtrOutput) Elem() ManagedServiceIdentityResponseOutput {
-	return o.ApplyT(func(v *ManagedServiceIdentityResponse) ManagedServiceIdentityResponse { return *v }).(ManagedServiceIdentityResponseOutput)
+	return o.ApplyT(func(v *ManagedServiceIdentityResponse) ManagedServiceIdentityResponse {
+		if v != nil {
+			return *v
+		}
+		var ret ManagedServiceIdentityResponse
+		return ret
+	}).(ManagedServiceIdentityResponseOutput)
 }
 
-// Azure Active Directory principal ID associated with this Identity.
 func (o ManagedServiceIdentityResponsePtrOutput) PrincipalId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ManagedServiceIdentityResponse) *string {
 		if v == nil {
@@ -1301,7 +1244,6 @@ func (o ManagedServiceIdentityResponsePtrOutput) PrincipalId() pulumi.StringPtrO
 	}).(pulumi.StringPtrOutput)
 }
 
-// ID of the Azure Active Directory.
 func (o ManagedServiceIdentityResponsePtrOutput) TenantId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ManagedServiceIdentityResponse) *string {
 		if v == nil {
@@ -1311,7 +1253,6 @@ func (o ManagedServiceIdentityResponsePtrOutput) TenantId() pulumi.StringPtrOutp
 	}).(pulumi.StringPtrOutput)
 }
 
-// Type of the managed identity.
 func (o ManagedServiceIdentityResponsePtrOutput) Type() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ManagedServiceIdentityResponse) *string {
 		if v == nil {
@@ -1321,7 +1262,6 @@ func (o ManagedServiceIdentityResponsePtrOutput) Type() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The list of user-assigned managed identities associated with the resource. Key is the Azure resource Id of the managed identity.
 func (o ManagedServiceIdentityResponsePtrOutput) UserAssignedIdentities() UserAssignedIdentityResponseMapOutput {
 	return o.ApplyT(func(v *ManagedServiceIdentityResponse) map[string]UserAssignedIdentityResponse {
 		if v == nil {
@@ -1331,20 +1271,13 @@ func (o ManagedServiceIdentityResponsePtrOutput) UserAssignedIdentities() UserAs
 	}).(UserAssignedIdentityResponseMapOutput)
 }
 
-// Represent a parameter with constrains and metadata.
 type ParameterDefinition struct {
-	// Array of allowed values for this parameter.
 	AllowedValues []interface{} `pulumi:"allowedValues"`
-	// Default Value for this parameter.
-	DefaultValue interface{} `pulumi:"defaultValue"`
-	// Description of this parameter/resourceGroup.
-	Description *string `pulumi:"description"`
-	// DisplayName of this parameter/resourceGroup.
-	DisplayName *string `pulumi:"displayName"`
-	// StrongType for UI to render rich experience during blueprint assignment. Supported strong types are resourceType, principalId and location.
-	StrongType *string `pulumi:"strongType"`
-	// Allowed data types for Resource Manager template parameters.
-	Type string `pulumi:"type"`
+	DefaultValue  interface{}   `pulumi:"defaultValue"`
+	Description   *string       `pulumi:"description"`
+	DisplayName   *string       `pulumi:"displayName"`
+	StrongType    *string       `pulumi:"strongType"`
+	Type          string        `pulumi:"type"`
 }
 
 // ParameterDefinitionInput is an input type that accepts ParameterDefinitionArgs and ParameterDefinitionOutput values.
@@ -1358,20 +1291,13 @@ type ParameterDefinitionInput interface {
 	ToParameterDefinitionOutputWithContext(context.Context) ParameterDefinitionOutput
 }
 
-// Represent a parameter with constrains and metadata.
 type ParameterDefinitionArgs struct {
-	// Array of allowed values for this parameter.
-	AllowedValues pulumi.ArrayInput `pulumi:"allowedValues"`
-	// Default Value for this parameter.
-	DefaultValue pulumi.Input `pulumi:"defaultValue"`
-	// Description of this parameter/resourceGroup.
-	Description pulumi.StringPtrInput `pulumi:"description"`
-	// DisplayName of this parameter/resourceGroup.
-	DisplayName pulumi.StringPtrInput `pulumi:"displayName"`
-	// StrongType for UI to render rich experience during blueprint assignment. Supported strong types are resourceType, principalId and location.
-	StrongType pulumi.StringPtrInput `pulumi:"strongType"`
-	// Allowed data types for Resource Manager template parameters.
-	Type pulumi.StringInput `pulumi:"type"`
+	AllowedValues pulumi.ArrayInput     `pulumi:"allowedValues"`
+	DefaultValue  pulumi.Input          `pulumi:"defaultValue"`
+	Description   pulumi.StringPtrInput `pulumi:"description"`
+	DisplayName   pulumi.StringPtrInput `pulumi:"displayName"`
+	StrongType    pulumi.StringPtrInput `pulumi:"strongType"`
+	Type          pulumi.StringInput    `pulumi:"type"`
 }
 
 func (ParameterDefinitionArgs) ElementType() reflect.Type {
@@ -1411,7 +1337,6 @@ func (i ParameterDefinitionMap) ToParameterDefinitionMapOutputWithContext(ctx co
 	return pulumi.ToOutputWithContext(ctx, i).(ParameterDefinitionMapOutput)
 }
 
-// Represent a parameter with constrains and metadata.
 type ParameterDefinitionOutput struct{ *pulumi.OutputState }
 
 func (ParameterDefinitionOutput) ElementType() reflect.Type {
@@ -1426,32 +1351,26 @@ func (o ParameterDefinitionOutput) ToParameterDefinitionOutputWithContext(ctx co
 	return o
 }
 
-// Array of allowed values for this parameter.
 func (o ParameterDefinitionOutput) AllowedValues() pulumi.ArrayOutput {
 	return o.ApplyT(func(v ParameterDefinition) []interface{} { return v.AllowedValues }).(pulumi.ArrayOutput)
 }
 
-// Default Value for this parameter.
 func (o ParameterDefinitionOutput) DefaultValue() pulumi.AnyOutput {
 	return o.ApplyT(func(v ParameterDefinition) interface{} { return v.DefaultValue }).(pulumi.AnyOutput)
 }
 
-// Description of this parameter/resourceGroup.
 func (o ParameterDefinitionOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ParameterDefinition) *string { return v.Description }).(pulumi.StringPtrOutput)
 }
 
-// DisplayName of this parameter/resourceGroup.
 func (o ParameterDefinitionOutput) DisplayName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ParameterDefinition) *string { return v.DisplayName }).(pulumi.StringPtrOutput)
 }
 
-// StrongType for UI to render rich experience during blueprint assignment. Supported strong types are resourceType, principalId and location.
 func (o ParameterDefinitionOutput) StrongType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ParameterDefinition) *string { return v.StrongType }).(pulumi.StringPtrOutput)
 }
 
-// Allowed data types for Resource Manager template parameters.
 func (o ParameterDefinitionOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v ParameterDefinition) string { return v.Type }).(pulumi.StringOutput)
 }
@@ -1476,20 +1395,13 @@ func (o ParameterDefinitionMapOutput) MapIndex(k pulumi.StringInput) ParameterDe
 	}).(ParameterDefinitionOutput)
 }
 
-// Represent a parameter with constrains and metadata.
 type ParameterDefinitionResponse struct {
-	// Array of allowed values for this parameter.
 	AllowedValues []interface{} `pulumi:"allowedValues"`
-	// Default Value for this parameter.
-	DefaultValue interface{} `pulumi:"defaultValue"`
-	// Description of this parameter/resourceGroup.
-	Description *string `pulumi:"description"`
-	// DisplayName of this parameter/resourceGroup.
-	DisplayName *string `pulumi:"displayName"`
-	// StrongType for UI to render rich experience during blueprint assignment. Supported strong types are resourceType, principalId and location.
-	StrongType *string `pulumi:"strongType"`
-	// Allowed data types for Resource Manager template parameters.
-	Type string `pulumi:"type"`
+	DefaultValue  interface{}   `pulumi:"defaultValue"`
+	Description   *string       `pulumi:"description"`
+	DisplayName   *string       `pulumi:"displayName"`
+	StrongType    *string       `pulumi:"strongType"`
+	Type          string        `pulumi:"type"`
 }
 
 // ParameterDefinitionResponseInput is an input type that accepts ParameterDefinitionResponseArgs and ParameterDefinitionResponseOutput values.
@@ -1503,20 +1415,13 @@ type ParameterDefinitionResponseInput interface {
 	ToParameterDefinitionResponseOutputWithContext(context.Context) ParameterDefinitionResponseOutput
 }
 
-// Represent a parameter with constrains and metadata.
 type ParameterDefinitionResponseArgs struct {
-	// Array of allowed values for this parameter.
-	AllowedValues pulumi.ArrayInput `pulumi:"allowedValues"`
-	// Default Value for this parameter.
-	DefaultValue pulumi.Input `pulumi:"defaultValue"`
-	// Description of this parameter/resourceGroup.
-	Description pulumi.StringPtrInput `pulumi:"description"`
-	// DisplayName of this parameter/resourceGroup.
-	DisplayName pulumi.StringPtrInput `pulumi:"displayName"`
-	// StrongType for UI to render rich experience during blueprint assignment. Supported strong types are resourceType, principalId and location.
-	StrongType pulumi.StringPtrInput `pulumi:"strongType"`
-	// Allowed data types for Resource Manager template parameters.
-	Type pulumi.StringInput `pulumi:"type"`
+	AllowedValues pulumi.ArrayInput     `pulumi:"allowedValues"`
+	DefaultValue  pulumi.Input          `pulumi:"defaultValue"`
+	Description   pulumi.StringPtrInput `pulumi:"description"`
+	DisplayName   pulumi.StringPtrInput `pulumi:"displayName"`
+	StrongType    pulumi.StringPtrInput `pulumi:"strongType"`
+	Type          pulumi.StringInput    `pulumi:"type"`
 }
 
 func (ParameterDefinitionResponseArgs) ElementType() reflect.Type {
@@ -1556,7 +1461,6 @@ func (i ParameterDefinitionResponseMap) ToParameterDefinitionResponseMapOutputWi
 	return pulumi.ToOutputWithContext(ctx, i).(ParameterDefinitionResponseMapOutput)
 }
 
-// Represent a parameter with constrains and metadata.
 type ParameterDefinitionResponseOutput struct{ *pulumi.OutputState }
 
 func (ParameterDefinitionResponseOutput) ElementType() reflect.Type {
@@ -1571,32 +1475,26 @@ func (o ParameterDefinitionResponseOutput) ToParameterDefinitionResponseOutputWi
 	return o
 }
 
-// Array of allowed values for this parameter.
 func (o ParameterDefinitionResponseOutput) AllowedValues() pulumi.ArrayOutput {
 	return o.ApplyT(func(v ParameterDefinitionResponse) []interface{} { return v.AllowedValues }).(pulumi.ArrayOutput)
 }
 
-// Default Value for this parameter.
 func (o ParameterDefinitionResponseOutput) DefaultValue() pulumi.AnyOutput {
 	return o.ApplyT(func(v ParameterDefinitionResponse) interface{} { return v.DefaultValue }).(pulumi.AnyOutput)
 }
 
-// Description of this parameter/resourceGroup.
 func (o ParameterDefinitionResponseOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ParameterDefinitionResponse) *string { return v.Description }).(pulumi.StringPtrOutput)
 }
 
-// DisplayName of this parameter/resourceGroup.
 func (o ParameterDefinitionResponseOutput) DisplayName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ParameterDefinitionResponse) *string { return v.DisplayName }).(pulumi.StringPtrOutput)
 }
 
-// StrongType for UI to render rich experience during blueprint assignment. Supported strong types are resourceType, principalId and location.
 func (o ParameterDefinitionResponseOutput) StrongType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ParameterDefinitionResponse) *string { return v.StrongType }).(pulumi.StringPtrOutput)
 }
 
-// Allowed data types for Resource Manager template parameters.
 func (o ParameterDefinitionResponseOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v ParameterDefinitionResponse) string { return v.Type }).(pulumi.StringOutput)
 }
@@ -1621,12 +1519,9 @@ func (o ParameterDefinitionResponseMapOutput) MapIndex(k pulumi.StringInput) Par
 	}).(ParameterDefinitionResponseOutput)
 }
 
-// Value for the specified parameter. Can be either 'value' or 'reference' but not both.
 type ParameterValue struct {
-	// Parameter value as reference type.
 	Reference *SecretValueReference `pulumi:"reference"`
-	// Parameter value. Any valid JSON value is allowed including objects, arrays, strings, numbers and booleans.
-	Value interface{} `pulumi:"value"`
+	Value     interface{}           `pulumi:"value"`
 }
 
 // ParameterValueInput is an input type that accepts ParameterValueArgs and ParameterValueOutput values.
@@ -1640,12 +1535,9 @@ type ParameterValueInput interface {
 	ToParameterValueOutputWithContext(context.Context) ParameterValueOutput
 }
 
-// Value for the specified parameter. Can be either 'value' or 'reference' but not both.
 type ParameterValueArgs struct {
-	// Parameter value as reference type.
 	Reference SecretValueReferencePtrInput `pulumi:"reference"`
-	// Parameter value. Any valid JSON value is allowed including objects, arrays, strings, numbers and booleans.
-	Value pulumi.Input `pulumi:"value"`
+	Value     pulumi.Input                 `pulumi:"value"`
 }
 
 func (ParameterValueArgs) ElementType() reflect.Type {
@@ -1685,7 +1577,6 @@ func (i ParameterValueMap) ToParameterValueMapOutputWithContext(ctx context.Cont
 	return pulumi.ToOutputWithContext(ctx, i).(ParameterValueMapOutput)
 }
 
-// Value for the specified parameter. Can be either 'value' or 'reference' but not both.
 type ParameterValueOutput struct{ *pulumi.OutputState }
 
 func (ParameterValueOutput) ElementType() reflect.Type {
@@ -1700,12 +1591,10 @@ func (o ParameterValueOutput) ToParameterValueOutputWithContext(ctx context.Cont
 	return o
 }
 
-// Parameter value as reference type.
 func (o ParameterValueOutput) Reference() SecretValueReferencePtrOutput {
 	return o.ApplyT(func(v ParameterValue) *SecretValueReference { return v.Reference }).(SecretValueReferencePtrOutput)
 }
 
-// Parameter value. Any valid JSON value is allowed including objects, arrays, strings, numbers and booleans.
 func (o ParameterValueOutput) Value() pulumi.AnyOutput {
 	return o.ApplyT(func(v ParameterValue) interface{} { return v.Value }).(pulumi.AnyOutput)
 }
@@ -1730,12 +1619,9 @@ func (o ParameterValueMapOutput) MapIndex(k pulumi.StringInput) ParameterValueOu
 	}).(ParameterValueOutput)
 }
 
-// Value for the specified parameter. Can be either 'value' or 'reference' but not both.
 type ParameterValueResponse struct {
-	// Parameter value as reference type.
 	Reference *SecretValueReferenceResponse `pulumi:"reference"`
-	// Parameter value. Any valid JSON value is allowed including objects, arrays, strings, numbers and booleans.
-	Value interface{} `pulumi:"value"`
+	Value     interface{}                   `pulumi:"value"`
 }
 
 // ParameterValueResponseInput is an input type that accepts ParameterValueResponseArgs and ParameterValueResponseOutput values.
@@ -1749,12 +1635,9 @@ type ParameterValueResponseInput interface {
 	ToParameterValueResponseOutputWithContext(context.Context) ParameterValueResponseOutput
 }
 
-// Value for the specified parameter. Can be either 'value' or 'reference' but not both.
 type ParameterValueResponseArgs struct {
-	// Parameter value as reference type.
 	Reference SecretValueReferenceResponsePtrInput `pulumi:"reference"`
-	// Parameter value. Any valid JSON value is allowed including objects, arrays, strings, numbers and booleans.
-	Value pulumi.Input `pulumi:"value"`
+	Value     pulumi.Input                         `pulumi:"value"`
 }
 
 func (ParameterValueResponseArgs) ElementType() reflect.Type {
@@ -1794,7 +1677,6 @@ func (i ParameterValueResponseMap) ToParameterValueResponseMapOutputWithContext(
 	return pulumi.ToOutputWithContext(ctx, i).(ParameterValueResponseMapOutput)
 }
 
-// Value for the specified parameter. Can be either 'value' or 'reference' but not both.
 type ParameterValueResponseOutput struct{ *pulumi.OutputState }
 
 func (ParameterValueResponseOutput) ElementType() reflect.Type {
@@ -1809,12 +1691,10 @@ func (o ParameterValueResponseOutput) ToParameterValueResponseOutputWithContext(
 	return o
 }
 
-// Parameter value as reference type.
 func (o ParameterValueResponseOutput) Reference() SecretValueReferenceResponsePtrOutput {
 	return o.ApplyT(func(v ParameterValueResponse) *SecretValueReferenceResponse { return v.Reference }).(SecretValueReferenceResponsePtrOutput)
 }
 
-// Parameter value. Any valid JSON value is allowed including objects, arrays, strings, numbers and booleans.
 func (o ParameterValueResponseOutput) Value() pulumi.AnyOutput {
 	return o.ApplyT(func(v ParameterValueResponse) interface{} { return v.Value }).(pulumi.AnyOutput)
 }
@@ -1839,22 +1719,14 @@ func (o ParameterValueResponseMapOutput) MapIndex(k pulumi.StringInput) Paramete
 	}).(ParameterValueResponseOutput)
 }
 
-// Represents an Azure resource group in a blueprint definition.
 type ResourceGroupDefinition struct {
-	// Artifacts which need to be deployed before this resource group.
-	DependsOn []string `pulumi:"dependsOn"`
-	// Description of this parameter/resourceGroup.
-	Description *string `pulumi:"description"`
-	// DisplayName of this parameter/resourceGroup.
-	DisplayName *string `pulumi:"displayName"`
-	// Location of this resourceGroup. Leave empty if the resource group location will be specified during the blueprint assignment.
-	Location *string `pulumi:"location"`
-	// Name of this resourceGroup. Leave empty if the resource group name will be specified during the blueprint assignment.
-	Name *string `pulumi:"name"`
-	// StrongType for UI to render rich experience during blueprint assignment. Supported strong types are resourceType, principalId and location.
-	StrongType *string `pulumi:"strongType"`
-	// Tags to be assigned to this resource group.
-	Tags map[string]string `pulumi:"tags"`
+	DependsOn   []string          `pulumi:"dependsOn"`
+	Description *string           `pulumi:"description"`
+	DisplayName *string           `pulumi:"displayName"`
+	Location    *string           `pulumi:"location"`
+	Name        *string           `pulumi:"name"`
+	StrongType  *string           `pulumi:"strongType"`
+	Tags        map[string]string `pulumi:"tags"`
 }
 
 // ResourceGroupDefinitionInput is an input type that accepts ResourceGroupDefinitionArgs and ResourceGroupDefinitionOutput values.
@@ -1868,22 +1740,14 @@ type ResourceGroupDefinitionInput interface {
 	ToResourceGroupDefinitionOutputWithContext(context.Context) ResourceGroupDefinitionOutput
 }
 
-// Represents an Azure resource group in a blueprint definition.
 type ResourceGroupDefinitionArgs struct {
-	// Artifacts which need to be deployed before this resource group.
-	DependsOn pulumi.StringArrayInput `pulumi:"dependsOn"`
-	// Description of this parameter/resourceGroup.
-	Description pulumi.StringPtrInput `pulumi:"description"`
-	// DisplayName of this parameter/resourceGroup.
-	DisplayName pulumi.StringPtrInput `pulumi:"displayName"`
-	// Location of this resourceGroup. Leave empty if the resource group location will be specified during the blueprint assignment.
-	Location pulumi.StringPtrInput `pulumi:"location"`
-	// Name of this resourceGroup. Leave empty if the resource group name will be specified during the blueprint assignment.
-	Name pulumi.StringPtrInput `pulumi:"name"`
-	// StrongType for UI to render rich experience during blueprint assignment. Supported strong types are resourceType, principalId and location.
-	StrongType pulumi.StringPtrInput `pulumi:"strongType"`
-	// Tags to be assigned to this resource group.
-	Tags pulumi.StringMapInput `pulumi:"tags"`
+	DependsOn   pulumi.StringArrayInput `pulumi:"dependsOn"`
+	Description pulumi.StringPtrInput   `pulumi:"description"`
+	DisplayName pulumi.StringPtrInput   `pulumi:"displayName"`
+	Location    pulumi.StringPtrInput   `pulumi:"location"`
+	Name        pulumi.StringPtrInput   `pulumi:"name"`
+	StrongType  pulumi.StringPtrInput   `pulumi:"strongType"`
+	Tags        pulumi.StringMapInput   `pulumi:"tags"`
 }
 
 func (ResourceGroupDefinitionArgs) ElementType() reflect.Type {
@@ -1923,7 +1787,6 @@ func (i ResourceGroupDefinitionMap) ToResourceGroupDefinitionMapOutputWithContex
 	return pulumi.ToOutputWithContext(ctx, i).(ResourceGroupDefinitionMapOutput)
 }
 
-// Represents an Azure resource group in a blueprint definition.
 type ResourceGroupDefinitionOutput struct{ *pulumi.OutputState }
 
 func (ResourceGroupDefinitionOutput) ElementType() reflect.Type {
@@ -1938,37 +1801,30 @@ func (o ResourceGroupDefinitionOutput) ToResourceGroupDefinitionOutputWithContex
 	return o
 }
 
-// Artifacts which need to be deployed before this resource group.
 func (o ResourceGroupDefinitionOutput) DependsOn() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v ResourceGroupDefinition) []string { return v.DependsOn }).(pulumi.StringArrayOutput)
 }
 
-// Description of this parameter/resourceGroup.
 func (o ResourceGroupDefinitionOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ResourceGroupDefinition) *string { return v.Description }).(pulumi.StringPtrOutput)
 }
 
-// DisplayName of this parameter/resourceGroup.
 func (o ResourceGroupDefinitionOutput) DisplayName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ResourceGroupDefinition) *string { return v.DisplayName }).(pulumi.StringPtrOutput)
 }
 
-// Location of this resourceGroup. Leave empty if the resource group location will be specified during the blueprint assignment.
 func (o ResourceGroupDefinitionOutput) Location() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ResourceGroupDefinition) *string { return v.Location }).(pulumi.StringPtrOutput)
 }
 
-// Name of this resourceGroup. Leave empty if the resource group name will be specified during the blueprint assignment.
 func (o ResourceGroupDefinitionOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ResourceGroupDefinition) *string { return v.Name }).(pulumi.StringPtrOutput)
 }
 
-// StrongType for UI to render rich experience during blueprint assignment. Supported strong types are resourceType, principalId and location.
 func (o ResourceGroupDefinitionOutput) StrongType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ResourceGroupDefinition) *string { return v.StrongType }).(pulumi.StringPtrOutput)
 }
 
-// Tags to be assigned to this resource group.
 func (o ResourceGroupDefinitionOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v ResourceGroupDefinition) map[string]string { return v.Tags }).(pulumi.StringMapOutput)
 }
@@ -1993,22 +1849,14 @@ func (o ResourceGroupDefinitionMapOutput) MapIndex(k pulumi.StringInput) Resourc
 	}).(ResourceGroupDefinitionOutput)
 }
 
-// Represents an Azure resource group in a blueprint definition.
 type ResourceGroupDefinitionResponse struct {
-	// Artifacts which need to be deployed before this resource group.
-	DependsOn []string `pulumi:"dependsOn"`
-	// Description of this parameter/resourceGroup.
-	Description *string `pulumi:"description"`
-	// DisplayName of this parameter/resourceGroup.
-	DisplayName *string `pulumi:"displayName"`
-	// Location of this resourceGroup. Leave empty if the resource group location will be specified during the blueprint assignment.
-	Location *string `pulumi:"location"`
-	// Name of this resourceGroup. Leave empty if the resource group name will be specified during the blueprint assignment.
-	Name *string `pulumi:"name"`
-	// StrongType for UI to render rich experience during blueprint assignment. Supported strong types are resourceType, principalId and location.
-	StrongType *string `pulumi:"strongType"`
-	// Tags to be assigned to this resource group.
-	Tags map[string]string `pulumi:"tags"`
+	DependsOn   []string          `pulumi:"dependsOn"`
+	Description *string           `pulumi:"description"`
+	DisplayName *string           `pulumi:"displayName"`
+	Location    *string           `pulumi:"location"`
+	Name        *string           `pulumi:"name"`
+	StrongType  *string           `pulumi:"strongType"`
+	Tags        map[string]string `pulumi:"tags"`
 }
 
 // ResourceGroupDefinitionResponseInput is an input type that accepts ResourceGroupDefinitionResponseArgs and ResourceGroupDefinitionResponseOutput values.
@@ -2022,22 +1870,14 @@ type ResourceGroupDefinitionResponseInput interface {
 	ToResourceGroupDefinitionResponseOutputWithContext(context.Context) ResourceGroupDefinitionResponseOutput
 }
 
-// Represents an Azure resource group in a blueprint definition.
 type ResourceGroupDefinitionResponseArgs struct {
-	// Artifacts which need to be deployed before this resource group.
-	DependsOn pulumi.StringArrayInput `pulumi:"dependsOn"`
-	// Description of this parameter/resourceGroup.
-	Description pulumi.StringPtrInput `pulumi:"description"`
-	// DisplayName of this parameter/resourceGroup.
-	DisplayName pulumi.StringPtrInput `pulumi:"displayName"`
-	// Location of this resourceGroup. Leave empty if the resource group location will be specified during the blueprint assignment.
-	Location pulumi.StringPtrInput `pulumi:"location"`
-	// Name of this resourceGroup. Leave empty if the resource group name will be specified during the blueprint assignment.
-	Name pulumi.StringPtrInput `pulumi:"name"`
-	// StrongType for UI to render rich experience during blueprint assignment. Supported strong types are resourceType, principalId and location.
-	StrongType pulumi.StringPtrInput `pulumi:"strongType"`
-	// Tags to be assigned to this resource group.
-	Tags pulumi.StringMapInput `pulumi:"tags"`
+	DependsOn   pulumi.StringArrayInput `pulumi:"dependsOn"`
+	Description pulumi.StringPtrInput   `pulumi:"description"`
+	DisplayName pulumi.StringPtrInput   `pulumi:"displayName"`
+	Location    pulumi.StringPtrInput   `pulumi:"location"`
+	Name        pulumi.StringPtrInput   `pulumi:"name"`
+	StrongType  pulumi.StringPtrInput   `pulumi:"strongType"`
+	Tags        pulumi.StringMapInput   `pulumi:"tags"`
 }
 
 func (ResourceGroupDefinitionResponseArgs) ElementType() reflect.Type {
@@ -2077,7 +1917,6 @@ func (i ResourceGroupDefinitionResponseMap) ToResourceGroupDefinitionResponseMap
 	return pulumi.ToOutputWithContext(ctx, i).(ResourceGroupDefinitionResponseMapOutput)
 }
 
-// Represents an Azure resource group in a blueprint definition.
 type ResourceGroupDefinitionResponseOutput struct{ *pulumi.OutputState }
 
 func (ResourceGroupDefinitionResponseOutput) ElementType() reflect.Type {
@@ -2092,37 +1931,30 @@ func (o ResourceGroupDefinitionResponseOutput) ToResourceGroupDefinitionResponse
 	return o
 }
 
-// Artifacts which need to be deployed before this resource group.
 func (o ResourceGroupDefinitionResponseOutput) DependsOn() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v ResourceGroupDefinitionResponse) []string { return v.DependsOn }).(pulumi.StringArrayOutput)
 }
 
-// Description of this parameter/resourceGroup.
 func (o ResourceGroupDefinitionResponseOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ResourceGroupDefinitionResponse) *string { return v.Description }).(pulumi.StringPtrOutput)
 }
 
-// DisplayName of this parameter/resourceGroup.
 func (o ResourceGroupDefinitionResponseOutput) DisplayName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ResourceGroupDefinitionResponse) *string { return v.DisplayName }).(pulumi.StringPtrOutput)
 }
 
-// Location of this resourceGroup. Leave empty if the resource group location will be specified during the blueprint assignment.
 func (o ResourceGroupDefinitionResponseOutput) Location() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ResourceGroupDefinitionResponse) *string { return v.Location }).(pulumi.StringPtrOutput)
 }
 
-// Name of this resourceGroup. Leave empty if the resource group name will be specified during the blueprint assignment.
 func (o ResourceGroupDefinitionResponseOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ResourceGroupDefinitionResponse) *string { return v.Name }).(pulumi.StringPtrOutput)
 }
 
-// StrongType for UI to render rich experience during blueprint assignment. Supported strong types are resourceType, principalId and location.
 func (o ResourceGroupDefinitionResponseOutput) StrongType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ResourceGroupDefinitionResponse) *string { return v.StrongType }).(pulumi.StringPtrOutput)
 }
 
-// Tags to be assigned to this resource group.
 func (o ResourceGroupDefinitionResponseOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v ResourceGroupDefinitionResponse) map[string]string { return v.Tags }).(pulumi.StringMapOutput)
 }
@@ -2147,12 +1979,9 @@ func (o ResourceGroupDefinitionResponseMapOutput) MapIndex(k pulumi.StringInput)
 	}).(ResourceGroupDefinitionResponseOutput)
 }
 
-// Represents an Azure resource group.
 type ResourceGroupValue struct {
-	// Location of the resource group.
 	Location *string `pulumi:"location"`
-	// Name of the resource group.
-	Name *string `pulumi:"name"`
+	Name     *string `pulumi:"name"`
 }
 
 // ResourceGroupValueInput is an input type that accepts ResourceGroupValueArgs and ResourceGroupValueOutput values.
@@ -2166,12 +1995,9 @@ type ResourceGroupValueInput interface {
 	ToResourceGroupValueOutputWithContext(context.Context) ResourceGroupValueOutput
 }
 
-// Represents an Azure resource group.
 type ResourceGroupValueArgs struct {
-	// Location of the resource group.
 	Location pulumi.StringPtrInput `pulumi:"location"`
-	// Name of the resource group.
-	Name pulumi.StringPtrInput `pulumi:"name"`
+	Name     pulumi.StringPtrInput `pulumi:"name"`
 }
 
 func (ResourceGroupValueArgs) ElementType() reflect.Type {
@@ -2211,7 +2037,6 @@ func (i ResourceGroupValueMap) ToResourceGroupValueMapOutputWithContext(ctx cont
 	return pulumi.ToOutputWithContext(ctx, i).(ResourceGroupValueMapOutput)
 }
 
-// Represents an Azure resource group.
 type ResourceGroupValueOutput struct{ *pulumi.OutputState }
 
 func (ResourceGroupValueOutput) ElementType() reflect.Type {
@@ -2226,12 +2051,10 @@ func (o ResourceGroupValueOutput) ToResourceGroupValueOutputWithContext(ctx cont
 	return o
 }
 
-// Location of the resource group.
 func (o ResourceGroupValueOutput) Location() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ResourceGroupValue) *string { return v.Location }).(pulumi.StringPtrOutput)
 }
 
-// Name of the resource group.
 func (o ResourceGroupValueOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ResourceGroupValue) *string { return v.Name }).(pulumi.StringPtrOutput)
 }
@@ -2256,12 +2079,9 @@ func (o ResourceGroupValueMapOutput) MapIndex(k pulumi.StringInput) ResourceGrou
 	}).(ResourceGroupValueOutput)
 }
 
-// Represents an Azure resource group.
 type ResourceGroupValueResponse struct {
-	// Location of the resource group.
 	Location *string `pulumi:"location"`
-	// Name of the resource group.
-	Name *string `pulumi:"name"`
+	Name     *string `pulumi:"name"`
 }
 
 // ResourceGroupValueResponseInput is an input type that accepts ResourceGroupValueResponseArgs and ResourceGroupValueResponseOutput values.
@@ -2275,12 +2095,9 @@ type ResourceGroupValueResponseInput interface {
 	ToResourceGroupValueResponseOutputWithContext(context.Context) ResourceGroupValueResponseOutput
 }
 
-// Represents an Azure resource group.
 type ResourceGroupValueResponseArgs struct {
-	// Location of the resource group.
 	Location pulumi.StringPtrInput `pulumi:"location"`
-	// Name of the resource group.
-	Name pulumi.StringPtrInput `pulumi:"name"`
+	Name     pulumi.StringPtrInput `pulumi:"name"`
 }
 
 func (ResourceGroupValueResponseArgs) ElementType() reflect.Type {
@@ -2320,7 +2137,6 @@ func (i ResourceGroupValueResponseMap) ToResourceGroupValueResponseMapOutputWith
 	return pulumi.ToOutputWithContext(ctx, i).(ResourceGroupValueResponseMapOutput)
 }
 
-// Represents an Azure resource group.
 type ResourceGroupValueResponseOutput struct{ *pulumi.OutputState }
 
 func (ResourceGroupValueResponseOutput) ElementType() reflect.Type {
@@ -2335,12 +2151,10 @@ func (o ResourceGroupValueResponseOutput) ToResourceGroupValueResponseOutputWith
 	return o
 }
 
-// Location of the resource group.
 func (o ResourceGroupValueResponseOutput) Location() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ResourceGroupValueResponse) *string { return v.Location }).(pulumi.StringPtrOutput)
 }
 
-// Name of the resource group.
 func (o ResourceGroupValueResponseOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ResourceGroupValueResponse) *string { return v.Name }).(pulumi.StringPtrOutput)
 }
@@ -2365,14 +2179,10 @@ func (o ResourceGroupValueResponseMapOutput) MapIndex(k pulumi.StringInput) Reso
 	}).(ResourceGroupValueResponseOutput)
 }
 
-// Reference to a Key Vault secret.
 type SecretValueReference struct {
-	// Specifies the reference to a given Azure Key Vault.
-	KeyVault KeyVaultReference `pulumi:"keyVault"`
-	// Name of the secret.
-	SecretName string `pulumi:"secretName"`
-	// The version of the secret to use. If left blank, the latest version of the secret is used.
-	SecretVersion *string `pulumi:"secretVersion"`
+	KeyVault      KeyVaultReference `pulumi:"keyVault"`
+	SecretName    string            `pulumi:"secretName"`
+	SecretVersion *string           `pulumi:"secretVersion"`
 }
 
 // SecretValueReferenceInput is an input type that accepts SecretValueReferenceArgs and SecretValueReferenceOutput values.
@@ -2386,14 +2196,10 @@ type SecretValueReferenceInput interface {
 	ToSecretValueReferenceOutputWithContext(context.Context) SecretValueReferenceOutput
 }
 
-// Reference to a Key Vault secret.
 type SecretValueReferenceArgs struct {
-	// Specifies the reference to a given Azure Key Vault.
-	KeyVault KeyVaultReferenceInput `pulumi:"keyVault"`
-	// Name of the secret.
-	SecretName pulumi.StringInput `pulumi:"secretName"`
-	// The version of the secret to use. If left blank, the latest version of the secret is used.
-	SecretVersion pulumi.StringPtrInput `pulumi:"secretVersion"`
+	KeyVault      KeyVaultReferenceInput `pulumi:"keyVault"`
+	SecretName    pulumi.StringInput     `pulumi:"secretName"`
+	SecretVersion pulumi.StringPtrInput  `pulumi:"secretVersion"`
 }
 
 func (SecretValueReferenceArgs) ElementType() reflect.Type {
@@ -2449,7 +2255,6 @@ func (i *secretValueReferencePtrType) ToSecretValueReferencePtrOutputWithContext
 	return pulumi.ToOutputWithContext(ctx, i).(SecretValueReferencePtrOutput)
 }
 
-// Reference to a Key Vault secret.
 type SecretValueReferenceOutput struct{ *pulumi.OutputState }
 
 func (SecretValueReferenceOutput) ElementType() reflect.Type {
@@ -2469,22 +2274,19 @@ func (o SecretValueReferenceOutput) ToSecretValueReferencePtrOutput() SecretValu
 }
 
 func (o SecretValueReferenceOutput) ToSecretValueReferencePtrOutputWithContext(ctx context.Context) SecretValueReferencePtrOutput {
-	return o.ApplyT(func(v SecretValueReference) *SecretValueReference {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v SecretValueReference) *SecretValueReference {
 		return &v
 	}).(SecretValueReferencePtrOutput)
 }
 
-// Specifies the reference to a given Azure Key Vault.
 func (o SecretValueReferenceOutput) KeyVault() KeyVaultReferenceOutput {
 	return o.ApplyT(func(v SecretValueReference) KeyVaultReference { return v.KeyVault }).(KeyVaultReferenceOutput)
 }
 
-// Name of the secret.
 func (o SecretValueReferenceOutput) SecretName() pulumi.StringOutput {
 	return o.ApplyT(func(v SecretValueReference) string { return v.SecretName }).(pulumi.StringOutput)
 }
 
-// The version of the secret to use. If left blank, the latest version of the secret is used.
 func (o SecretValueReferenceOutput) SecretVersion() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SecretValueReference) *string { return v.SecretVersion }).(pulumi.StringPtrOutput)
 }
@@ -2504,10 +2306,15 @@ func (o SecretValueReferencePtrOutput) ToSecretValueReferencePtrOutputWithContex
 }
 
 func (o SecretValueReferencePtrOutput) Elem() SecretValueReferenceOutput {
-	return o.ApplyT(func(v *SecretValueReference) SecretValueReference { return *v }).(SecretValueReferenceOutput)
+	return o.ApplyT(func(v *SecretValueReference) SecretValueReference {
+		if v != nil {
+			return *v
+		}
+		var ret SecretValueReference
+		return ret
+	}).(SecretValueReferenceOutput)
 }
 
-// Specifies the reference to a given Azure Key Vault.
 func (o SecretValueReferencePtrOutput) KeyVault() KeyVaultReferencePtrOutput {
 	return o.ApplyT(func(v *SecretValueReference) *KeyVaultReference {
 		if v == nil {
@@ -2517,7 +2324,6 @@ func (o SecretValueReferencePtrOutput) KeyVault() KeyVaultReferencePtrOutput {
 	}).(KeyVaultReferencePtrOutput)
 }
 
-// Name of the secret.
 func (o SecretValueReferencePtrOutput) SecretName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SecretValueReference) *string {
 		if v == nil {
@@ -2527,7 +2333,6 @@ func (o SecretValueReferencePtrOutput) SecretName() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The version of the secret to use. If left blank, the latest version of the secret is used.
 func (o SecretValueReferencePtrOutput) SecretVersion() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SecretValueReference) *string {
 		if v == nil {
@@ -2537,14 +2342,10 @@ func (o SecretValueReferencePtrOutput) SecretVersion() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Reference to a Key Vault secret.
 type SecretValueReferenceResponse struct {
-	// Specifies the reference to a given Azure Key Vault.
-	KeyVault KeyVaultReferenceResponse `pulumi:"keyVault"`
-	// Name of the secret.
-	SecretName string `pulumi:"secretName"`
-	// The version of the secret to use. If left blank, the latest version of the secret is used.
-	SecretVersion *string `pulumi:"secretVersion"`
+	KeyVault      KeyVaultReferenceResponse `pulumi:"keyVault"`
+	SecretName    string                    `pulumi:"secretName"`
+	SecretVersion *string                   `pulumi:"secretVersion"`
 }
 
 // SecretValueReferenceResponseInput is an input type that accepts SecretValueReferenceResponseArgs and SecretValueReferenceResponseOutput values.
@@ -2558,14 +2359,10 @@ type SecretValueReferenceResponseInput interface {
 	ToSecretValueReferenceResponseOutputWithContext(context.Context) SecretValueReferenceResponseOutput
 }
 
-// Reference to a Key Vault secret.
 type SecretValueReferenceResponseArgs struct {
-	// Specifies the reference to a given Azure Key Vault.
-	KeyVault KeyVaultReferenceResponseInput `pulumi:"keyVault"`
-	// Name of the secret.
-	SecretName pulumi.StringInput `pulumi:"secretName"`
-	// The version of the secret to use. If left blank, the latest version of the secret is used.
-	SecretVersion pulumi.StringPtrInput `pulumi:"secretVersion"`
+	KeyVault      KeyVaultReferenceResponseInput `pulumi:"keyVault"`
+	SecretName    pulumi.StringInput             `pulumi:"secretName"`
+	SecretVersion pulumi.StringPtrInput          `pulumi:"secretVersion"`
 }
 
 func (SecretValueReferenceResponseArgs) ElementType() reflect.Type {
@@ -2621,7 +2418,6 @@ func (i *secretValueReferenceResponsePtrType) ToSecretValueReferenceResponsePtrO
 	return pulumi.ToOutputWithContext(ctx, i).(SecretValueReferenceResponsePtrOutput)
 }
 
-// Reference to a Key Vault secret.
 type SecretValueReferenceResponseOutput struct{ *pulumi.OutputState }
 
 func (SecretValueReferenceResponseOutput) ElementType() reflect.Type {
@@ -2641,22 +2437,19 @@ func (o SecretValueReferenceResponseOutput) ToSecretValueReferenceResponsePtrOut
 }
 
 func (o SecretValueReferenceResponseOutput) ToSecretValueReferenceResponsePtrOutputWithContext(ctx context.Context) SecretValueReferenceResponsePtrOutput {
-	return o.ApplyT(func(v SecretValueReferenceResponse) *SecretValueReferenceResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v SecretValueReferenceResponse) *SecretValueReferenceResponse {
 		return &v
 	}).(SecretValueReferenceResponsePtrOutput)
 }
 
-// Specifies the reference to a given Azure Key Vault.
 func (o SecretValueReferenceResponseOutput) KeyVault() KeyVaultReferenceResponseOutput {
 	return o.ApplyT(func(v SecretValueReferenceResponse) KeyVaultReferenceResponse { return v.KeyVault }).(KeyVaultReferenceResponseOutput)
 }
 
-// Name of the secret.
 func (o SecretValueReferenceResponseOutput) SecretName() pulumi.StringOutput {
 	return o.ApplyT(func(v SecretValueReferenceResponse) string { return v.SecretName }).(pulumi.StringOutput)
 }
 
-// The version of the secret to use. If left blank, the latest version of the secret is used.
 func (o SecretValueReferenceResponseOutput) SecretVersion() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SecretValueReferenceResponse) *string { return v.SecretVersion }).(pulumi.StringPtrOutput)
 }
@@ -2676,10 +2469,15 @@ func (o SecretValueReferenceResponsePtrOutput) ToSecretValueReferenceResponsePtr
 }
 
 func (o SecretValueReferenceResponsePtrOutput) Elem() SecretValueReferenceResponseOutput {
-	return o.ApplyT(func(v *SecretValueReferenceResponse) SecretValueReferenceResponse { return *v }).(SecretValueReferenceResponseOutput)
+	return o.ApplyT(func(v *SecretValueReferenceResponse) SecretValueReferenceResponse {
+		if v != nil {
+			return *v
+		}
+		var ret SecretValueReferenceResponse
+		return ret
+	}).(SecretValueReferenceResponseOutput)
 }
 
-// Specifies the reference to a given Azure Key Vault.
 func (o SecretValueReferenceResponsePtrOutput) KeyVault() KeyVaultReferenceResponsePtrOutput {
 	return o.ApplyT(func(v *SecretValueReferenceResponse) *KeyVaultReferenceResponse {
 		if v == nil {
@@ -2689,7 +2487,6 @@ func (o SecretValueReferenceResponsePtrOutput) KeyVault() KeyVaultReferenceRespo
 	}).(KeyVaultReferenceResponsePtrOutput)
 }
 
-// Name of the secret.
 func (o SecretValueReferenceResponsePtrOutput) SecretName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SecretValueReferenceResponse) *string {
 		if v == nil {
@@ -2699,7 +2496,6 @@ func (o SecretValueReferenceResponsePtrOutput) SecretName() pulumi.StringPtrOutp
 	}).(pulumi.StringPtrOutput)
 }
 
-// The version of the secret to use. If left blank, the latest version of the secret is used.
 func (o SecretValueReferenceResponsePtrOutput) SecretVersion() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SecretValueReferenceResponse) *string {
 		if v == nil {
@@ -2709,11 +2505,8 @@ func (o SecretValueReferenceResponsePtrOutput) SecretVersion() pulumi.StringPtrO
 	}).(pulumi.StringPtrOutput)
 }
 
-// User-assigned managed identity.
 type UserAssignedIdentity struct {
-	// Client App Id associated with this identity.
-	ClientId *string `pulumi:"clientId"`
-	// Azure Active Directory principal ID associated with this Identity.
+	ClientId    *string `pulumi:"clientId"`
 	PrincipalId *string `pulumi:"principalId"`
 }
 
@@ -2728,11 +2521,8 @@ type UserAssignedIdentityInput interface {
 	ToUserAssignedIdentityOutputWithContext(context.Context) UserAssignedIdentityOutput
 }
 
-// User-assigned managed identity.
 type UserAssignedIdentityArgs struct {
-	// Client App Id associated with this identity.
-	ClientId pulumi.StringPtrInput `pulumi:"clientId"`
-	// Azure Active Directory principal ID associated with this Identity.
+	ClientId    pulumi.StringPtrInput `pulumi:"clientId"`
 	PrincipalId pulumi.StringPtrInput `pulumi:"principalId"`
 }
 
@@ -2773,7 +2563,6 @@ func (i UserAssignedIdentityMap) ToUserAssignedIdentityMapOutputWithContext(ctx 
 	return pulumi.ToOutputWithContext(ctx, i).(UserAssignedIdentityMapOutput)
 }
 
-// User-assigned managed identity.
 type UserAssignedIdentityOutput struct{ *pulumi.OutputState }
 
 func (UserAssignedIdentityOutput) ElementType() reflect.Type {
@@ -2788,12 +2577,10 @@ func (o UserAssignedIdentityOutput) ToUserAssignedIdentityOutputWithContext(ctx 
 	return o
 }
 
-// Client App Id associated with this identity.
 func (o UserAssignedIdentityOutput) ClientId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v UserAssignedIdentity) *string { return v.ClientId }).(pulumi.StringPtrOutput)
 }
 
-// Azure Active Directory principal ID associated with this Identity.
 func (o UserAssignedIdentityOutput) PrincipalId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v UserAssignedIdentity) *string { return v.PrincipalId }).(pulumi.StringPtrOutput)
 }
@@ -2818,11 +2605,8 @@ func (o UserAssignedIdentityMapOutput) MapIndex(k pulumi.StringInput) UserAssign
 	}).(UserAssignedIdentityOutput)
 }
 
-// User-assigned managed identity.
 type UserAssignedIdentityResponse struct {
-	// Client App Id associated with this identity.
-	ClientId *string `pulumi:"clientId"`
-	// Azure Active Directory principal ID associated with this Identity.
+	ClientId    *string `pulumi:"clientId"`
 	PrincipalId *string `pulumi:"principalId"`
 }
 
@@ -2837,11 +2621,8 @@ type UserAssignedIdentityResponseInput interface {
 	ToUserAssignedIdentityResponseOutputWithContext(context.Context) UserAssignedIdentityResponseOutput
 }
 
-// User-assigned managed identity.
 type UserAssignedIdentityResponseArgs struct {
-	// Client App Id associated with this identity.
-	ClientId pulumi.StringPtrInput `pulumi:"clientId"`
-	// Azure Active Directory principal ID associated with this Identity.
+	ClientId    pulumi.StringPtrInput `pulumi:"clientId"`
 	PrincipalId pulumi.StringPtrInput `pulumi:"principalId"`
 }
 
@@ -2882,7 +2663,6 @@ func (i UserAssignedIdentityResponseMap) ToUserAssignedIdentityResponseMapOutput
 	return pulumi.ToOutputWithContext(ctx, i).(UserAssignedIdentityResponseMapOutput)
 }
 
-// User-assigned managed identity.
 type UserAssignedIdentityResponseOutput struct{ *pulumi.OutputState }
 
 func (UserAssignedIdentityResponseOutput) ElementType() reflect.Type {
@@ -2897,12 +2677,10 @@ func (o UserAssignedIdentityResponseOutput) ToUserAssignedIdentityResponseOutput
 	return o
 }
 
-// Client App Id associated with this identity.
 func (o UserAssignedIdentityResponseOutput) ClientId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v UserAssignedIdentityResponse) *string { return v.ClientId }).(pulumi.StringPtrOutput)
 }
 
-// Azure Active Directory principal ID associated with this Identity.
 func (o UserAssignedIdentityResponseOutput) PrincipalId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v UserAssignedIdentityResponse) *string { return v.PrincipalId }).(pulumi.StringPtrOutput)
 }

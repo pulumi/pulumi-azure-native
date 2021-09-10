@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.ContainerService.V20210801.Outputs
 {
 
+    /// <summary>
+    /// A private link resource
+    /// </summary>
     [OutputType]
     public sealed class PrivateLinkResourceResponse
     {

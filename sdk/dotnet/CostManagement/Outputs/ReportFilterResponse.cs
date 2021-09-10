@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.CostManagement.Outputs
 {
 
+    /// <summary>
+    /// The filter expression to be used in the report.
+    /// </summary>
     [OutputType]
     public sealed class ReportFilterResponse
     {

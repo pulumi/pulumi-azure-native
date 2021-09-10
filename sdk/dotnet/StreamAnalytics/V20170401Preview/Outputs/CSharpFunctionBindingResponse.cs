@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.StreamAnalytics.V20170401Preview.Outputs
 {
 
+    /// <summary>
+    /// The binding to a CSharp function.
+    /// </summary>
     [OutputType]
     public sealed class CSharpFunctionBindingResponse
     {

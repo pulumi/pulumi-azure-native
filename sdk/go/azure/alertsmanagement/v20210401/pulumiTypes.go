@@ -10,14 +10,10 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// The Action Groups information, used by the alert rule.
 type ActionGroupsInformation struct {
-	// An optional custom email subject to use in email notifications.
-	CustomEmailSubject *string `pulumi:"customEmailSubject"`
-	// An optional custom web-hook payload to use in web-hook notifications.
-	CustomWebhookPayload *string `pulumi:"customWebhookPayload"`
-	// The Action Group resource IDs.
-	GroupIds []string `pulumi:"groupIds"`
+	CustomEmailSubject   *string  `pulumi:"customEmailSubject"`
+	CustomWebhookPayload *string  `pulumi:"customWebhookPayload"`
+	GroupIds             []string `pulumi:"groupIds"`
 }
 
 // ActionGroupsInformationInput is an input type that accepts ActionGroupsInformationArgs and ActionGroupsInformationOutput values.
@@ -31,14 +27,10 @@ type ActionGroupsInformationInput interface {
 	ToActionGroupsInformationOutputWithContext(context.Context) ActionGroupsInformationOutput
 }
 
-// The Action Groups information, used by the alert rule.
 type ActionGroupsInformationArgs struct {
-	// An optional custom email subject to use in email notifications.
-	CustomEmailSubject pulumi.StringPtrInput `pulumi:"customEmailSubject"`
-	// An optional custom web-hook payload to use in web-hook notifications.
-	CustomWebhookPayload pulumi.StringPtrInput `pulumi:"customWebhookPayload"`
-	// The Action Group resource IDs.
-	GroupIds pulumi.StringArrayInput `pulumi:"groupIds"`
+	CustomEmailSubject   pulumi.StringPtrInput   `pulumi:"customEmailSubject"`
+	CustomWebhookPayload pulumi.StringPtrInput   `pulumi:"customWebhookPayload"`
+	GroupIds             pulumi.StringArrayInput `pulumi:"groupIds"`
 }
 
 func (ActionGroupsInformationArgs) ElementType() reflect.Type {
@@ -94,7 +86,6 @@ func (i *actionGroupsInformationPtrType) ToActionGroupsInformationPtrOutputWithC
 	return pulumi.ToOutputWithContext(ctx, i).(ActionGroupsInformationPtrOutput)
 }
 
-// The Action Groups information, used by the alert rule.
 type ActionGroupsInformationOutput struct{ *pulumi.OutputState }
 
 func (ActionGroupsInformationOutput) ElementType() reflect.Type {
@@ -114,22 +105,19 @@ func (o ActionGroupsInformationOutput) ToActionGroupsInformationPtrOutput() Acti
 }
 
 func (o ActionGroupsInformationOutput) ToActionGroupsInformationPtrOutputWithContext(ctx context.Context) ActionGroupsInformationPtrOutput {
-	return o.ApplyT(func(v ActionGroupsInformation) *ActionGroupsInformation {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ActionGroupsInformation) *ActionGroupsInformation {
 		return &v
 	}).(ActionGroupsInformationPtrOutput)
 }
 
-// An optional custom email subject to use in email notifications.
 func (o ActionGroupsInformationOutput) CustomEmailSubject() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ActionGroupsInformation) *string { return v.CustomEmailSubject }).(pulumi.StringPtrOutput)
 }
 
-// An optional custom web-hook payload to use in web-hook notifications.
 func (o ActionGroupsInformationOutput) CustomWebhookPayload() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ActionGroupsInformation) *string { return v.CustomWebhookPayload }).(pulumi.StringPtrOutput)
 }
 
-// The Action Group resource IDs.
 func (o ActionGroupsInformationOutput) GroupIds() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v ActionGroupsInformation) []string { return v.GroupIds }).(pulumi.StringArrayOutput)
 }
@@ -149,10 +137,15 @@ func (o ActionGroupsInformationPtrOutput) ToActionGroupsInformationPtrOutputWith
 }
 
 func (o ActionGroupsInformationPtrOutput) Elem() ActionGroupsInformationOutput {
-	return o.ApplyT(func(v *ActionGroupsInformation) ActionGroupsInformation { return *v }).(ActionGroupsInformationOutput)
+	return o.ApplyT(func(v *ActionGroupsInformation) ActionGroupsInformation {
+		if v != nil {
+			return *v
+		}
+		var ret ActionGroupsInformation
+		return ret
+	}).(ActionGroupsInformationOutput)
 }
 
-// An optional custom email subject to use in email notifications.
 func (o ActionGroupsInformationPtrOutput) CustomEmailSubject() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ActionGroupsInformation) *string {
 		if v == nil {
@@ -162,7 +155,6 @@ func (o ActionGroupsInformationPtrOutput) CustomEmailSubject() pulumi.StringPtrO
 	}).(pulumi.StringPtrOutput)
 }
 
-// An optional custom web-hook payload to use in web-hook notifications.
 func (o ActionGroupsInformationPtrOutput) CustomWebhookPayload() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ActionGroupsInformation) *string {
 		if v == nil {
@@ -172,7 +164,6 @@ func (o ActionGroupsInformationPtrOutput) CustomWebhookPayload() pulumi.StringPt
 	}).(pulumi.StringPtrOutput)
 }
 
-// The Action Group resource IDs.
 func (o ActionGroupsInformationPtrOutput) GroupIds() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *ActionGroupsInformation) []string {
 		if v == nil {
@@ -182,14 +173,10 @@ func (o ActionGroupsInformationPtrOutput) GroupIds() pulumi.StringArrayOutput {
 	}).(pulumi.StringArrayOutput)
 }
 
-// The Action Groups information, used by the alert rule.
 type ActionGroupsInformationResponse struct {
-	// An optional custom email subject to use in email notifications.
-	CustomEmailSubject *string `pulumi:"customEmailSubject"`
-	// An optional custom web-hook payload to use in web-hook notifications.
-	CustomWebhookPayload *string `pulumi:"customWebhookPayload"`
-	// The Action Group resource IDs.
-	GroupIds []string `pulumi:"groupIds"`
+	CustomEmailSubject   *string  `pulumi:"customEmailSubject"`
+	CustomWebhookPayload *string  `pulumi:"customWebhookPayload"`
+	GroupIds             []string `pulumi:"groupIds"`
 }
 
 // ActionGroupsInformationResponseInput is an input type that accepts ActionGroupsInformationResponseArgs and ActionGroupsInformationResponseOutput values.
@@ -203,14 +190,10 @@ type ActionGroupsInformationResponseInput interface {
 	ToActionGroupsInformationResponseOutputWithContext(context.Context) ActionGroupsInformationResponseOutput
 }
 
-// The Action Groups information, used by the alert rule.
 type ActionGroupsInformationResponseArgs struct {
-	// An optional custom email subject to use in email notifications.
-	CustomEmailSubject pulumi.StringPtrInput `pulumi:"customEmailSubject"`
-	// An optional custom web-hook payload to use in web-hook notifications.
-	CustomWebhookPayload pulumi.StringPtrInput `pulumi:"customWebhookPayload"`
-	// The Action Group resource IDs.
-	GroupIds pulumi.StringArrayInput `pulumi:"groupIds"`
+	CustomEmailSubject   pulumi.StringPtrInput   `pulumi:"customEmailSubject"`
+	CustomWebhookPayload pulumi.StringPtrInput   `pulumi:"customWebhookPayload"`
+	GroupIds             pulumi.StringArrayInput `pulumi:"groupIds"`
 }
 
 func (ActionGroupsInformationResponseArgs) ElementType() reflect.Type {
@@ -266,7 +249,6 @@ func (i *actionGroupsInformationResponsePtrType) ToActionGroupsInformationRespon
 	return pulumi.ToOutputWithContext(ctx, i).(ActionGroupsInformationResponsePtrOutput)
 }
 
-// The Action Groups information, used by the alert rule.
 type ActionGroupsInformationResponseOutput struct{ *pulumi.OutputState }
 
 func (ActionGroupsInformationResponseOutput) ElementType() reflect.Type {
@@ -286,22 +268,19 @@ func (o ActionGroupsInformationResponseOutput) ToActionGroupsInformationResponse
 }
 
 func (o ActionGroupsInformationResponseOutput) ToActionGroupsInformationResponsePtrOutputWithContext(ctx context.Context) ActionGroupsInformationResponsePtrOutput {
-	return o.ApplyT(func(v ActionGroupsInformationResponse) *ActionGroupsInformationResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ActionGroupsInformationResponse) *ActionGroupsInformationResponse {
 		return &v
 	}).(ActionGroupsInformationResponsePtrOutput)
 }
 
-// An optional custom email subject to use in email notifications.
 func (o ActionGroupsInformationResponseOutput) CustomEmailSubject() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ActionGroupsInformationResponse) *string { return v.CustomEmailSubject }).(pulumi.StringPtrOutput)
 }
 
-// An optional custom web-hook payload to use in web-hook notifications.
 func (o ActionGroupsInformationResponseOutput) CustomWebhookPayload() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ActionGroupsInformationResponse) *string { return v.CustomWebhookPayload }).(pulumi.StringPtrOutput)
 }
 
-// The Action Group resource IDs.
 func (o ActionGroupsInformationResponseOutput) GroupIds() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v ActionGroupsInformationResponse) []string { return v.GroupIds }).(pulumi.StringArrayOutput)
 }
@@ -321,10 +300,15 @@ func (o ActionGroupsInformationResponsePtrOutput) ToActionGroupsInformationRespo
 }
 
 func (o ActionGroupsInformationResponsePtrOutput) Elem() ActionGroupsInformationResponseOutput {
-	return o.ApplyT(func(v *ActionGroupsInformationResponse) ActionGroupsInformationResponse { return *v }).(ActionGroupsInformationResponseOutput)
+	return o.ApplyT(func(v *ActionGroupsInformationResponse) ActionGroupsInformationResponse {
+		if v != nil {
+			return *v
+		}
+		var ret ActionGroupsInformationResponse
+		return ret
+	}).(ActionGroupsInformationResponseOutput)
 }
 
-// An optional custom email subject to use in email notifications.
 func (o ActionGroupsInformationResponsePtrOutput) CustomEmailSubject() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ActionGroupsInformationResponse) *string {
 		if v == nil {
@@ -334,7 +318,6 @@ func (o ActionGroupsInformationResponsePtrOutput) CustomEmailSubject() pulumi.St
 	}).(pulumi.StringPtrOutput)
 }
 
-// An optional custom web-hook payload to use in web-hook notifications.
 func (o ActionGroupsInformationResponsePtrOutput) CustomWebhookPayload() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ActionGroupsInformationResponse) *string {
 		if v == nil {
@@ -344,7 +327,6 @@ func (o ActionGroupsInformationResponsePtrOutput) CustomWebhookPayload() pulumi.
 	}).(pulumi.StringPtrOutput)
 }
 
-// The Action Group resource IDs.
 func (o ActionGroupsInformationResponsePtrOutput) GroupIds() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *ActionGroupsInformationResponse) []string {
 		if v == nil {
@@ -354,11 +336,8 @@ func (o ActionGroupsInformationResponsePtrOutput) GroupIds() pulumi.StringArrayO
 	}).(pulumi.StringArrayOutput)
 }
 
-// The detector information. By default this is not populated, unless it's specified in expandDetector
 type Detector struct {
-	// The detector id.
-	Id string `pulumi:"id"`
-	// The detector's parameters.'
+	Id         string                 `pulumi:"id"`
 	Parameters map[string]interface{} `pulumi:"parameters"`
 }
 
@@ -373,12 +352,9 @@ type DetectorInput interface {
 	ToDetectorOutputWithContext(context.Context) DetectorOutput
 }
 
-// The detector information. By default this is not populated, unless it's specified in expandDetector
 type DetectorArgs struct {
-	// The detector id.
-	Id pulumi.StringInput `pulumi:"id"`
-	// The detector's parameters.'
-	Parameters pulumi.MapInput `pulumi:"parameters"`
+	Id         pulumi.StringInput `pulumi:"id"`
+	Parameters pulumi.MapInput    `pulumi:"parameters"`
 }
 
 func (DetectorArgs) ElementType() reflect.Type {
@@ -434,7 +410,6 @@ func (i *detectorPtrType) ToDetectorPtrOutputWithContext(ctx context.Context) De
 	return pulumi.ToOutputWithContext(ctx, i).(DetectorPtrOutput)
 }
 
-// The detector information. By default this is not populated, unless it's specified in expandDetector
 type DetectorOutput struct{ *pulumi.OutputState }
 
 func (DetectorOutput) ElementType() reflect.Type {
@@ -454,17 +429,15 @@ func (o DetectorOutput) ToDetectorPtrOutput() DetectorPtrOutput {
 }
 
 func (o DetectorOutput) ToDetectorPtrOutputWithContext(ctx context.Context) DetectorPtrOutput {
-	return o.ApplyT(func(v Detector) *Detector {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v Detector) *Detector {
 		return &v
 	}).(DetectorPtrOutput)
 }
 
-// The detector id.
 func (o DetectorOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v Detector) string { return v.Id }).(pulumi.StringOutput)
 }
 
-// The detector's parameters.'
 func (o DetectorOutput) Parameters() pulumi.MapOutput {
 	return o.ApplyT(func(v Detector) map[string]interface{} { return v.Parameters }).(pulumi.MapOutput)
 }
@@ -484,10 +457,15 @@ func (o DetectorPtrOutput) ToDetectorPtrOutputWithContext(ctx context.Context) D
 }
 
 func (o DetectorPtrOutput) Elem() DetectorOutput {
-	return o.ApplyT(func(v *Detector) Detector { return *v }).(DetectorOutput)
+	return o.ApplyT(func(v *Detector) Detector {
+		if v != nil {
+			return *v
+		}
+		var ret Detector
+		return ret
+	}).(DetectorOutput)
 }
 
-// The detector id.
 func (o DetectorPtrOutput) Id() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Detector) *string {
 		if v == nil {
@@ -497,7 +475,6 @@ func (o DetectorPtrOutput) Id() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The detector's parameters.'
 func (o DetectorPtrOutput) Parameters() pulumi.MapOutput {
 	return o.ApplyT(func(v *Detector) map[string]interface{} {
 		if v == nil {
@@ -507,18 +484,12 @@ func (o DetectorPtrOutput) Parameters() pulumi.MapOutput {
 	}).(pulumi.MapOutput)
 }
 
-// The detector parameter definition.
 type DetectorParameterDefinitionResponse struct {
-	// The detector parameter description.
 	Description *string `pulumi:"description"`
-	// The detector parameter display name.
 	DisplayName *string `pulumi:"displayName"`
-	// A value indicating whether this detector parameter is mandatory.
-	IsMandatory *bool `pulumi:"isMandatory"`
-	// The detector parameter name.
-	Name *string `pulumi:"name"`
-	// The detector parameter type.
-	Type *string `pulumi:"type"`
+	IsMandatory *bool   `pulumi:"isMandatory"`
+	Name        *string `pulumi:"name"`
+	Type        *string `pulumi:"type"`
 }
 
 // DetectorParameterDefinitionResponseInput is an input type that accepts DetectorParameterDefinitionResponseArgs and DetectorParameterDefinitionResponseOutput values.
@@ -532,18 +503,12 @@ type DetectorParameterDefinitionResponseInput interface {
 	ToDetectorParameterDefinitionResponseOutputWithContext(context.Context) DetectorParameterDefinitionResponseOutput
 }
 
-// The detector parameter definition.
 type DetectorParameterDefinitionResponseArgs struct {
-	// The detector parameter description.
 	Description pulumi.StringPtrInput `pulumi:"description"`
-	// The detector parameter display name.
 	DisplayName pulumi.StringPtrInput `pulumi:"displayName"`
-	// A value indicating whether this detector parameter is mandatory.
-	IsMandatory pulumi.BoolPtrInput `pulumi:"isMandatory"`
-	// The detector parameter name.
-	Name pulumi.StringPtrInput `pulumi:"name"`
-	// The detector parameter type.
-	Type pulumi.StringPtrInput `pulumi:"type"`
+	IsMandatory pulumi.BoolPtrInput   `pulumi:"isMandatory"`
+	Name        pulumi.StringPtrInput `pulumi:"name"`
+	Type        pulumi.StringPtrInput `pulumi:"type"`
 }
 
 func (DetectorParameterDefinitionResponseArgs) ElementType() reflect.Type {
@@ -583,7 +548,6 @@ func (i DetectorParameterDefinitionResponseArray) ToDetectorParameterDefinitionR
 	return pulumi.ToOutputWithContext(ctx, i).(DetectorParameterDefinitionResponseArrayOutput)
 }
 
-// The detector parameter definition.
 type DetectorParameterDefinitionResponseOutput struct{ *pulumi.OutputState }
 
 func (DetectorParameterDefinitionResponseOutput) ElementType() reflect.Type {
@@ -598,27 +562,22 @@ func (o DetectorParameterDefinitionResponseOutput) ToDetectorParameterDefinition
 	return o
 }
 
-// The detector parameter description.
 func (o DetectorParameterDefinitionResponseOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v DetectorParameterDefinitionResponse) *string { return v.Description }).(pulumi.StringPtrOutput)
 }
 
-// The detector parameter display name.
 func (o DetectorParameterDefinitionResponseOutput) DisplayName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v DetectorParameterDefinitionResponse) *string { return v.DisplayName }).(pulumi.StringPtrOutput)
 }
 
-// A value indicating whether this detector parameter is mandatory.
 func (o DetectorParameterDefinitionResponseOutput) IsMandatory() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v DetectorParameterDefinitionResponse) *bool { return v.IsMandatory }).(pulumi.BoolPtrOutput)
 }
 
-// The detector parameter name.
 func (o DetectorParameterDefinitionResponseOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v DetectorParameterDefinitionResponse) *string { return v.Name }).(pulumi.StringPtrOutput)
 }
 
-// The detector parameter type.
 func (o DetectorParameterDefinitionResponseOutput) Type() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v DetectorParameterDefinitionResponse) *string { return v.Type }).(pulumi.StringPtrOutput)
 }
@@ -643,24 +602,15 @@ func (o DetectorParameterDefinitionResponseArrayOutput) Index(i pulumi.IntInput)
 	}).(DetectorParameterDefinitionResponseOutput)
 }
 
-// The detector information. By default this is not populated, unless it's specified in expandDetector
 type DetectorResponse struct {
-	// The Smart Detector description.
-	Description string `pulumi:"description"`
-	// The detector id.
-	Id string `pulumi:"id"`
-	// The Smart Detector image path. By default this is not populated, unless it's specified in expandDetector
-	ImagePaths []string `pulumi:"imagePaths"`
-	// The Smart Detector name.
-	Name string `pulumi:"name"`
-	// The Smart Detector parameters definitions.'
-	ParameterDefinitions []DetectorParameterDefinitionResponse `pulumi:"parameterDefinitions"`
-	// The detector's parameters.'
-	Parameters map[string]interface{} `pulumi:"parameters"`
-	// The Smart Detector supported cadences.
-	SupportedCadences []int `pulumi:"supportedCadences"`
-	// The Smart Detector supported resource types.
-	SupportedResourceTypes []string `pulumi:"supportedResourceTypes"`
+	Description            string                                `pulumi:"description"`
+	Id                     string                                `pulumi:"id"`
+	ImagePaths             []string                              `pulumi:"imagePaths"`
+	Name                   string                                `pulumi:"name"`
+	ParameterDefinitions   []DetectorParameterDefinitionResponse `pulumi:"parameterDefinitions"`
+	Parameters             map[string]interface{}                `pulumi:"parameters"`
+	SupportedCadences      []int                                 `pulumi:"supportedCadences"`
+	SupportedResourceTypes []string                              `pulumi:"supportedResourceTypes"`
 }
 
 // DetectorResponseInput is an input type that accepts DetectorResponseArgs and DetectorResponseOutput values.
@@ -674,24 +624,15 @@ type DetectorResponseInput interface {
 	ToDetectorResponseOutputWithContext(context.Context) DetectorResponseOutput
 }
 
-// The detector information. By default this is not populated, unless it's specified in expandDetector
 type DetectorResponseArgs struct {
-	// The Smart Detector description.
-	Description pulumi.StringInput `pulumi:"description"`
-	// The detector id.
-	Id pulumi.StringInput `pulumi:"id"`
-	// The Smart Detector image path. By default this is not populated, unless it's specified in expandDetector
-	ImagePaths pulumi.StringArrayInput `pulumi:"imagePaths"`
-	// The Smart Detector name.
-	Name pulumi.StringInput `pulumi:"name"`
-	// The Smart Detector parameters definitions.'
-	ParameterDefinitions DetectorParameterDefinitionResponseArrayInput `pulumi:"parameterDefinitions"`
-	// The detector's parameters.'
-	Parameters pulumi.MapInput `pulumi:"parameters"`
-	// The Smart Detector supported cadences.
-	SupportedCadences pulumi.IntArrayInput `pulumi:"supportedCadences"`
-	// The Smart Detector supported resource types.
-	SupportedResourceTypes pulumi.StringArrayInput `pulumi:"supportedResourceTypes"`
+	Description            pulumi.StringInput                            `pulumi:"description"`
+	Id                     pulumi.StringInput                            `pulumi:"id"`
+	ImagePaths             pulumi.StringArrayInput                       `pulumi:"imagePaths"`
+	Name                   pulumi.StringInput                            `pulumi:"name"`
+	ParameterDefinitions   DetectorParameterDefinitionResponseArrayInput `pulumi:"parameterDefinitions"`
+	Parameters             pulumi.MapInput                               `pulumi:"parameters"`
+	SupportedCadences      pulumi.IntArrayInput                          `pulumi:"supportedCadences"`
+	SupportedResourceTypes pulumi.StringArrayInput                       `pulumi:"supportedResourceTypes"`
 }
 
 func (DetectorResponseArgs) ElementType() reflect.Type {
@@ -747,7 +688,6 @@ func (i *detectorResponsePtrType) ToDetectorResponsePtrOutputWithContext(ctx con
 	return pulumi.ToOutputWithContext(ctx, i).(DetectorResponsePtrOutput)
 }
 
-// The detector information. By default this is not populated, unless it's specified in expandDetector
 type DetectorResponseOutput struct{ *pulumi.OutputState }
 
 func (DetectorResponseOutput) ElementType() reflect.Type {
@@ -767,47 +707,39 @@ func (o DetectorResponseOutput) ToDetectorResponsePtrOutput() DetectorResponsePt
 }
 
 func (o DetectorResponseOutput) ToDetectorResponsePtrOutputWithContext(ctx context.Context) DetectorResponsePtrOutput {
-	return o.ApplyT(func(v DetectorResponse) *DetectorResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v DetectorResponse) *DetectorResponse {
 		return &v
 	}).(DetectorResponsePtrOutput)
 }
 
-// The Smart Detector description.
 func (o DetectorResponseOutput) Description() pulumi.StringOutput {
 	return o.ApplyT(func(v DetectorResponse) string { return v.Description }).(pulumi.StringOutput)
 }
 
-// The detector id.
 func (o DetectorResponseOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v DetectorResponse) string { return v.Id }).(pulumi.StringOutput)
 }
 
-// The Smart Detector image path. By default this is not populated, unless it's specified in expandDetector
 func (o DetectorResponseOutput) ImagePaths() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v DetectorResponse) []string { return v.ImagePaths }).(pulumi.StringArrayOutput)
 }
 
-// The Smart Detector name.
 func (o DetectorResponseOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v DetectorResponse) string { return v.Name }).(pulumi.StringOutput)
 }
 
-// The Smart Detector parameters definitions.'
 func (o DetectorResponseOutput) ParameterDefinitions() DetectorParameterDefinitionResponseArrayOutput {
 	return o.ApplyT(func(v DetectorResponse) []DetectorParameterDefinitionResponse { return v.ParameterDefinitions }).(DetectorParameterDefinitionResponseArrayOutput)
 }
 
-// The detector's parameters.'
 func (o DetectorResponseOutput) Parameters() pulumi.MapOutput {
 	return o.ApplyT(func(v DetectorResponse) map[string]interface{} { return v.Parameters }).(pulumi.MapOutput)
 }
 
-// The Smart Detector supported cadences.
 func (o DetectorResponseOutput) SupportedCadences() pulumi.IntArrayOutput {
 	return o.ApplyT(func(v DetectorResponse) []int { return v.SupportedCadences }).(pulumi.IntArrayOutput)
 }
 
-// The Smart Detector supported resource types.
 func (o DetectorResponseOutput) SupportedResourceTypes() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v DetectorResponse) []string { return v.SupportedResourceTypes }).(pulumi.StringArrayOutput)
 }
@@ -827,10 +759,15 @@ func (o DetectorResponsePtrOutput) ToDetectorResponsePtrOutputWithContext(ctx co
 }
 
 func (o DetectorResponsePtrOutput) Elem() DetectorResponseOutput {
-	return o.ApplyT(func(v *DetectorResponse) DetectorResponse { return *v }).(DetectorResponseOutput)
+	return o.ApplyT(func(v *DetectorResponse) DetectorResponse {
+		if v != nil {
+			return *v
+		}
+		var ret DetectorResponse
+		return ret
+	}).(DetectorResponseOutput)
 }
 
-// The Smart Detector description.
 func (o DetectorResponsePtrOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *DetectorResponse) *string {
 		if v == nil {
@@ -840,7 +777,6 @@ func (o DetectorResponsePtrOutput) Description() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The detector id.
 func (o DetectorResponsePtrOutput) Id() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *DetectorResponse) *string {
 		if v == nil {
@@ -850,7 +786,6 @@ func (o DetectorResponsePtrOutput) Id() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The Smart Detector image path. By default this is not populated, unless it's specified in expandDetector
 func (o DetectorResponsePtrOutput) ImagePaths() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *DetectorResponse) []string {
 		if v == nil {
@@ -860,7 +795,6 @@ func (o DetectorResponsePtrOutput) ImagePaths() pulumi.StringArrayOutput {
 	}).(pulumi.StringArrayOutput)
 }
 
-// The Smart Detector name.
 func (o DetectorResponsePtrOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *DetectorResponse) *string {
 		if v == nil {
@@ -870,7 +804,6 @@ func (o DetectorResponsePtrOutput) Name() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The Smart Detector parameters definitions.'
 func (o DetectorResponsePtrOutput) ParameterDefinitions() DetectorParameterDefinitionResponseArrayOutput {
 	return o.ApplyT(func(v *DetectorResponse) []DetectorParameterDefinitionResponse {
 		if v == nil {
@@ -880,7 +813,6 @@ func (o DetectorResponsePtrOutput) ParameterDefinitions() DetectorParameterDefin
 	}).(DetectorParameterDefinitionResponseArrayOutput)
 }
 
-// The detector's parameters.'
 func (o DetectorResponsePtrOutput) Parameters() pulumi.MapOutput {
 	return o.ApplyT(func(v *DetectorResponse) map[string]interface{} {
 		if v == nil {
@@ -890,7 +822,6 @@ func (o DetectorResponsePtrOutput) Parameters() pulumi.MapOutput {
 	}).(pulumi.MapOutput)
 }
 
-// The Smart Detector supported cadences.
 func (o DetectorResponsePtrOutput) SupportedCadences() pulumi.IntArrayOutput {
 	return o.ApplyT(func(v *DetectorResponse) []int {
 		if v == nil {
@@ -900,7 +831,6 @@ func (o DetectorResponsePtrOutput) SupportedCadences() pulumi.IntArrayOutput {
 	}).(pulumi.IntArrayOutput)
 }
 
-// The Smart Detector supported resource types.
 func (o DetectorResponsePtrOutput) SupportedResourceTypes() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *DetectorResponse) []string {
 		if v == nil {
@@ -910,9 +840,7 @@ func (o DetectorResponsePtrOutput) SupportedResourceTypes() pulumi.StringArrayOu
 	}).(pulumi.StringArrayOutput)
 }
 
-// Optional throttling information for the alert rule.
 type ThrottlingInformation struct {
-	// The required duration (in ISO8601 format) to wait before notifying on the alert rule again. The time granularity must be in minutes and minimum value is 0 minutes
 	Duration *string `pulumi:"duration"`
 }
 
@@ -927,9 +855,7 @@ type ThrottlingInformationInput interface {
 	ToThrottlingInformationOutputWithContext(context.Context) ThrottlingInformationOutput
 }
 
-// Optional throttling information for the alert rule.
 type ThrottlingInformationArgs struct {
-	// The required duration (in ISO8601 format) to wait before notifying on the alert rule again. The time granularity must be in minutes and minimum value is 0 minutes
 	Duration pulumi.StringPtrInput `pulumi:"duration"`
 }
 
@@ -986,7 +912,6 @@ func (i *throttlingInformationPtrType) ToThrottlingInformationPtrOutputWithConte
 	return pulumi.ToOutputWithContext(ctx, i).(ThrottlingInformationPtrOutput)
 }
 
-// Optional throttling information for the alert rule.
 type ThrottlingInformationOutput struct{ *pulumi.OutputState }
 
 func (ThrottlingInformationOutput) ElementType() reflect.Type {
@@ -1006,12 +931,11 @@ func (o ThrottlingInformationOutput) ToThrottlingInformationPtrOutput() Throttli
 }
 
 func (o ThrottlingInformationOutput) ToThrottlingInformationPtrOutputWithContext(ctx context.Context) ThrottlingInformationPtrOutput {
-	return o.ApplyT(func(v ThrottlingInformation) *ThrottlingInformation {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ThrottlingInformation) *ThrottlingInformation {
 		return &v
 	}).(ThrottlingInformationPtrOutput)
 }
 
-// The required duration (in ISO8601 format) to wait before notifying on the alert rule again. The time granularity must be in minutes and minimum value is 0 minutes
 func (o ThrottlingInformationOutput) Duration() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ThrottlingInformation) *string { return v.Duration }).(pulumi.StringPtrOutput)
 }
@@ -1031,10 +955,15 @@ func (o ThrottlingInformationPtrOutput) ToThrottlingInformationPtrOutputWithCont
 }
 
 func (o ThrottlingInformationPtrOutput) Elem() ThrottlingInformationOutput {
-	return o.ApplyT(func(v *ThrottlingInformation) ThrottlingInformation { return *v }).(ThrottlingInformationOutput)
+	return o.ApplyT(func(v *ThrottlingInformation) ThrottlingInformation {
+		if v != nil {
+			return *v
+		}
+		var ret ThrottlingInformation
+		return ret
+	}).(ThrottlingInformationOutput)
 }
 
-// The required duration (in ISO8601 format) to wait before notifying on the alert rule again. The time granularity must be in minutes and minimum value is 0 minutes
 func (o ThrottlingInformationPtrOutput) Duration() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ThrottlingInformation) *string {
 		if v == nil {
@@ -1044,9 +973,7 @@ func (o ThrottlingInformationPtrOutput) Duration() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Optional throttling information for the alert rule.
 type ThrottlingInformationResponse struct {
-	// The required duration (in ISO8601 format) to wait before notifying on the alert rule again. The time granularity must be in minutes and minimum value is 0 minutes
 	Duration *string `pulumi:"duration"`
 }
 
@@ -1061,9 +988,7 @@ type ThrottlingInformationResponseInput interface {
 	ToThrottlingInformationResponseOutputWithContext(context.Context) ThrottlingInformationResponseOutput
 }
 
-// Optional throttling information for the alert rule.
 type ThrottlingInformationResponseArgs struct {
-	// The required duration (in ISO8601 format) to wait before notifying on the alert rule again. The time granularity must be in minutes and minimum value is 0 minutes
 	Duration pulumi.StringPtrInput `pulumi:"duration"`
 }
 
@@ -1120,7 +1045,6 @@ func (i *throttlingInformationResponsePtrType) ToThrottlingInformationResponsePt
 	return pulumi.ToOutputWithContext(ctx, i).(ThrottlingInformationResponsePtrOutput)
 }
 
-// Optional throttling information for the alert rule.
 type ThrottlingInformationResponseOutput struct{ *pulumi.OutputState }
 
 func (ThrottlingInformationResponseOutput) ElementType() reflect.Type {
@@ -1140,12 +1064,11 @@ func (o ThrottlingInformationResponseOutput) ToThrottlingInformationResponsePtrO
 }
 
 func (o ThrottlingInformationResponseOutput) ToThrottlingInformationResponsePtrOutputWithContext(ctx context.Context) ThrottlingInformationResponsePtrOutput {
-	return o.ApplyT(func(v ThrottlingInformationResponse) *ThrottlingInformationResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ThrottlingInformationResponse) *ThrottlingInformationResponse {
 		return &v
 	}).(ThrottlingInformationResponsePtrOutput)
 }
 
-// The required duration (in ISO8601 format) to wait before notifying on the alert rule again. The time granularity must be in minutes and minimum value is 0 minutes
 func (o ThrottlingInformationResponseOutput) Duration() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ThrottlingInformationResponse) *string { return v.Duration }).(pulumi.StringPtrOutput)
 }
@@ -1165,10 +1088,15 @@ func (o ThrottlingInformationResponsePtrOutput) ToThrottlingInformationResponseP
 }
 
 func (o ThrottlingInformationResponsePtrOutput) Elem() ThrottlingInformationResponseOutput {
-	return o.ApplyT(func(v *ThrottlingInformationResponse) ThrottlingInformationResponse { return *v }).(ThrottlingInformationResponseOutput)
+	return o.ApplyT(func(v *ThrottlingInformationResponse) ThrottlingInformationResponse {
+		if v != nil {
+			return *v
+		}
+		var ret ThrottlingInformationResponse
+		return ret
+	}).(ThrottlingInformationResponseOutput)
 }
 
-// The required duration (in ISO8601 format) to wait before notifying on the alert rule again. The time granularity must be in minutes and minimum value is 0 minutes
 func (o ThrottlingInformationResponsePtrOutput) Duration() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ThrottlingInformationResponse) *string {
 		if v == nil {

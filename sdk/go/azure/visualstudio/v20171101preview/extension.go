@@ -11,22 +11,15 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// The response to an extension resource GET request.
 type Extension struct {
 	pulumi.CustomResourceState
 
-	// Resource location.
-	Location pulumi.StringPtrOutput `pulumi:"location"`
-	// Resource name.
-	Name pulumi.StringOutput `pulumi:"name"`
-	// The extension plan that was purchased.
-	Plan ExtensionResourcePlanResponsePtrOutput `pulumi:"plan"`
-	// Resource properties.
-	Properties pulumi.StringMapOutput `pulumi:"properties"`
-	// Resource tags.
-	Tags pulumi.StringMapOutput `pulumi:"tags"`
-	// Resource type.
-	Type pulumi.StringOutput `pulumi:"type"`
+	Location   pulumi.StringPtrOutput                 `pulumi:"location"`
+	Name       pulumi.StringOutput                    `pulumi:"name"`
+	Plan       ExtensionResourcePlanResponsePtrOutput `pulumi:"plan"`
+	Properties pulumi.StringMapOutput                 `pulumi:"properties"`
+	Tags       pulumi.StringMapOutput                 `pulumi:"tags"`
+	Type       pulumi.StringOutput                    `pulumi:"type"`
 }
 
 // NewExtension registers a new resource with the given unique name, arguments, and options.
@@ -92,38 +85,24 @@ func (ExtensionState) ElementType() reflect.Type {
 }
 
 type extensionArgs struct {
-	// The name of the Visual Studio Team Services account resource.
-	AccountResourceName string `pulumi:"accountResourceName"`
-	// The name of the extension.
-	ExtensionResourceName *string `pulumi:"extensionResourceName"`
-	// The Azure region of the Visual Studio account associated with this request (i.e 'southcentralus'.)
-	Location *string `pulumi:"location"`
-	// Extended information about the plan being purchased for this extension resource.
-	Plan *ExtensionResourcePlan `pulumi:"plan"`
-	// A dictionary of extended properties. This property is currently unused.
-	Properties map[string]string `pulumi:"properties"`
-	// Name of the resource group within the Azure subscription.
-	ResourceGroupName string `pulumi:"resourceGroupName"`
-	// A dictionary of user-defined tags to be stored with the extension resource.
-	Tags map[string]string `pulumi:"tags"`
+	AccountResourceName   string                 `pulumi:"accountResourceName"`
+	ExtensionResourceName *string                `pulumi:"extensionResourceName"`
+	Location              *string                `pulumi:"location"`
+	Plan                  *ExtensionResourcePlan `pulumi:"plan"`
+	Properties            map[string]string      `pulumi:"properties"`
+	ResourceGroupName     string                 `pulumi:"resourceGroupName"`
+	Tags                  map[string]string      `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a Extension resource.
 type ExtensionArgs struct {
-	// The name of the Visual Studio Team Services account resource.
-	AccountResourceName pulumi.StringInput
-	// The name of the extension.
+	AccountResourceName   pulumi.StringInput
 	ExtensionResourceName pulumi.StringPtrInput
-	// The Azure region of the Visual Studio account associated with this request (i.e 'southcentralus'.)
-	Location pulumi.StringPtrInput
-	// Extended information about the plan being purchased for this extension resource.
-	Plan ExtensionResourcePlanPtrInput
-	// A dictionary of extended properties. This property is currently unused.
-	Properties pulumi.StringMapInput
-	// Name of the resource group within the Azure subscription.
-	ResourceGroupName pulumi.StringInput
-	// A dictionary of user-defined tags to be stored with the extension resource.
-	Tags pulumi.StringMapInput
+	Location              pulumi.StringPtrInput
+	Plan                  ExtensionResourcePlanPtrInput
+	Properties            pulumi.StringMapInput
+	ResourceGroupName     pulumi.StringInput
+	Tags                  pulumi.StringMapInput
 }
 
 func (ExtensionArgs) ElementType() reflect.Type {
@@ -149,9 +128,7 @@ func (i *Extension) ToExtensionOutputWithContext(ctx context.Context) ExtensionO
 	return pulumi.ToOutputWithContext(ctx, i).(ExtensionOutput)
 }
 
-type ExtensionOutput struct {
-	*pulumi.OutputState
-}
+type ExtensionOutput struct{ *pulumi.OutputState }
 
 func (ExtensionOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*Extension)(nil))

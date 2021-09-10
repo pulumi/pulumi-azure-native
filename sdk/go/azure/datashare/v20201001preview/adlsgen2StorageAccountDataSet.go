@@ -11,27 +11,17 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// An ADLSGen2 storage account data set.
 type ADLSGen2StorageAccountDataSet struct {
 	pulumi.CustomResourceState
 
-	// Unique id for identifying a data set resource
-	DataSetId pulumi.StringOutput `pulumi:"dataSetId"`
-	// Kind of data set.
-	// Expected value is 'AdlsGen2StorageAccount'.
-	Kind pulumi.StringOutput `pulumi:"kind"`
-	// Location of the ADLSGen2 storage account.
-	Location pulumi.StringOutput `pulumi:"location"`
-	// Name of the azure resource
-	Name pulumi.StringOutput `pulumi:"name"`
-	// A list of ADLSGen2 storage account paths.
-	Paths ADLSGen2StorageAccountPathResponseArrayOutput `pulumi:"paths"`
-	// Resource id of the ADLSGen2 storage account.
-	StorageAccountResourceId pulumi.StringOutput `pulumi:"storageAccountResourceId"`
-	// System Data of the Azure resource.
-	SystemData SystemDataResponseOutput `pulumi:"systemData"`
-	// Type of the azure resource
-	Type pulumi.StringOutput `pulumi:"type"`
+	DataSetId                pulumi.StringOutput                           `pulumi:"dataSetId"`
+	Kind                     pulumi.StringOutput                           `pulumi:"kind"`
+	Location                 pulumi.StringOutput                           `pulumi:"location"`
+	Name                     pulumi.StringOutput                           `pulumi:"name"`
+	Paths                    ADLSGen2StorageAccountPathResponseArrayOutput `pulumi:"paths"`
+	StorageAccountResourceId pulumi.StringOutput                           `pulumi:"storageAccountResourceId"`
+	SystemData               SystemDataResponseOutput                      `pulumi:"systemData"`
+	Type                     pulumi.StringOutput                           `pulumi:"type"`
 }
 
 // NewADLSGen2StorageAccountDataSet registers a new resource with the given unique name, arguments, and options.
@@ -122,39 +112,23 @@ func (ADLSGen2StorageAccountDataSetState) ElementType() reflect.Type {
 }
 
 type adlsgen2StorageAccountDataSetArgs struct {
-	// The name of the share account.
-	AccountName string `pulumi:"accountName"`
-	// The name of the dataSet.
-	DataSetName *string `pulumi:"dataSetName"`
-	// Kind of data set.
-	// Expected value is 'AdlsGen2StorageAccount'.
-	Kind string `pulumi:"kind"`
-	// A list of ADLSGen2 storage account paths.
-	Paths []ADLSGen2StorageAccountPath `pulumi:"paths"`
-	// The resource group name.
-	ResourceGroupName string `pulumi:"resourceGroupName"`
-	// The name of the share to add the data set to.
-	ShareName string `pulumi:"shareName"`
-	// Resource id of the ADLSGen2 storage account.
-	StorageAccountResourceId string `pulumi:"storageAccountResourceId"`
+	AccountName              string                       `pulumi:"accountName"`
+	DataSetName              *string                      `pulumi:"dataSetName"`
+	Kind                     string                       `pulumi:"kind"`
+	Paths                    []ADLSGen2StorageAccountPath `pulumi:"paths"`
+	ResourceGroupName        string                       `pulumi:"resourceGroupName"`
+	ShareName                string                       `pulumi:"shareName"`
+	StorageAccountResourceId string                       `pulumi:"storageAccountResourceId"`
 }
 
 // The set of arguments for constructing a ADLSGen2StorageAccountDataSet resource.
 type ADLSGen2StorageAccountDataSetArgs struct {
-	// The name of the share account.
-	AccountName pulumi.StringInput
-	// The name of the dataSet.
-	DataSetName pulumi.StringPtrInput
-	// Kind of data set.
-	// Expected value is 'AdlsGen2StorageAccount'.
-	Kind pulumi.StringInput
-	// A list of ADLSGen2 storage account paths.
-	Paths ADLSGen2StorageAccountPathArrayInput
-	// The resource group name.
-	ResourceGroupName pulumi.StringInput
-	// The name of the share to add the data set to.
-	ShareName pulumi.StringInput
-	// Resource id of the ADLSGen2 storage account.
+	AccountName              pulumi.StringInput
+	DataSetName              pulumi.StringPtrInput
+	Kind                     pulumi.StringInput
+	Paths                    ADLSGen2StorageAccountPathArrayInput
+	ResourceGroupName        pulumi.StringInput
+	ShareName                pulumi.StringInput
 	StorageAccountResourceId pulumi.StringInput
 }
 
@@ -181,9 +155,7 @@ func (i *ADLSGen2StorageAccountDataSet) ToADLSGen2StorageAccountDataSetOutputWit
 	return pulumi.ToOutputWithContext(ctx, i).(ADLSGen2StorageAccountDataSetOutput)
 }
 
-type ADLSGen2StorageAccountDataSetOutput struct {
-	*pulumi.OutputState
-}
+type ADLSGen2StorageAccountDataSetOutput struct{ *pulumi.OutputState }
 
 func (ADLSGen2StorageAccountDataSetOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*ADLSGen2StorageAccountDataSet)(nil))

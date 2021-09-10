@@ -7,7 +7,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Namespace/NotificationHub Connection String
 func ListNamespaceKeys(ctx *pulumi.Context, args *ListNamespaceKeysArgs, opts ...pulumi.InvokeOption) (*ListNamespaceKeysResult, error) {
 	var rv ListNamespaceKeysResult
 	err := ctx.Invoke("azure-native:notificationhubs/v20140901:listNamespaceKeys", args, &rv, opts...)
@@ -18,18 +17,13 @@ func ListNamespaceKeys(ctx *pulumi.Context, args *ListNamespaceKeysArgs, opts ..
 }
 
 type ListNamespaceKeysArgs struct {
-	// The connection string of the namespace for the specified authorizationRule.
 	AuthorizationRuleName string `pulumi:"authorizationRuleName"`
-	// The namespace name.
-	NamespaceName string `pulumi:"namespaceName"`
-	// The name of the resource group.
-	ResourceGroupName string `pulumi:"resourceGroupName"`
+	NamespaceName         string `pulumi:"namespaceName"`
+	ResourceGroupName     string `pulumi:"resourceGroupName"`
 }
 
 // Namespace/NotificationHub Connection String
 type ListNamespaceKeysResult struct {
-	// Gets or sets the primaryConnectionString of the created Namespace AuthorizationRule.
-	PrimaryConnectionString *string `pulumi:"primaryConnectionString"`
-	// Gets or sets the secondaryConnectionString of the created Namespace AuthorizationRule
+	PrimaryConnectionString   *string `pulumi:"primaryConnectionString"`
 	SecondaryConnectionString *string `pulumi:"secondaryConnectionString"`
 }

@@ -7,7 +7,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Rule Collection Group resource.
 func LookupFirewallPolicyRuleCollectionGroup(ctx *pulumi.Context, args *LookupFirewallPolicyRuleCollectionGroupArgs, opts ...pulumi.InvokeOption) (*LookupFirewallPolicyRuleCollectionGroupResult, error) {
 	var rv LookupFirewallPolicyRuleCollectionGroupResult
 	err := ctx.Invoke("azure-native:network/v20200601:getFirewallPolicyRuleCollectionGroup", args, &rv, opts...)
@@ -18,28 +17,18 @@ func LookupFirewallPolicyRuleCollectionGroup(ctx *pulumi.Context, args *LookupFi
 }
 
 type LookupFirewallPolicyRuleCollectionGroupArgs struct {
-	// The name of the Firewall Policy.
-	FirewallPolicyName string `pulumi:"firewallPolicyName"`
-	// The name of the resource group.
-	ResourceGroupName string `pulumi:"resourceGroupName"`
-	// The name of the FirewallPolicyRuleCollectionGroup.
+	FirewallPolicyName      string `pulumi:"firewallPolicyName"`
+	ResourceGroupName       string `pulumi:"resourceGroupName"`
 	RuleCollectionGroupName string `pulumi:"ruleCollectionGroupName"`
 }
 
 // Rule Collection Group resource.
 type LookupFirewallPolicyRuleCollectionGroupResult struct {
-	// A unique read-only string that changes whenever the resource is updated.
-	Etag string `pulumi:"etag"`
-	// Resource ID.
-	Id *string `pulumi:"id"`
-	// The name of the resource that is unique within a resource group. This name can be used to access the resource.
-	Name *string `pulumi:"name"`
-	// Priority of the Firewall Policy Rule Collection Group resource.
-	Priority *int `pulumi:"priority"`
-	// The provisioning state of the firewall policy rule collection group resource.
-	ProvisioningState string `pulumi:"provisioningState"`
-	// Group of Firewall Policy rule collections.
-	RuleCollections []interface{} `pulumi:"ruleCollections"`
-	// Rule Group type.
-	Type string `pulumi:"type"`
+	Etag              string        `pulumi:"etag"`
+	Id                *string       `pulumi:"id"`
+	Name              *string       `pulumi:"name"`
+	Priority          *int          `pulumi:"priority"`
+	ProvisioningState string        `pulumi:"provisioningState"`
+	RuleCollections   []interface{} `pulumi:"ruleCollections"`
+	Type              string        `pulumi:"type"`
 }

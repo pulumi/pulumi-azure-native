@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.Network.V20201101.Outputs
 {
 
+    /// <summary>
+    /// Routing Configuration indicating the associated and propagated route tables for this connection.
+    /// </summary>
     [OutputType]
     public sealed class RoutingConfigurationResponse
     {

@@ -7,7 +7,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// A database geo backup policy.
 func LookupGeoBackupPolicy(ctx *pulumi.Context, args *LookupGeoBackupPolicyArgs, opts ...pulumi.InvokeOption) (*LookupGeoBackupPolicyResult, error) {
 	var rv LookupGeoBackupPolicyResult
 	err := ctx.Invoke("azure-native:sql/v20140401:getGeoBackupPolicy", args, &rv, opts...)
@@ -18,30 +17,19 @@ func LookupGeoBackupPolicy(ctx *pulumi.Context, args *LookupGeoBackupPolicyArgs,
 }
 
 type LookupGeoBackupPolicyArgs struct {
-	// The name of the database.
-	DatabaseName string `pulumi:"databaseName"`
-	// The name of the geo backup policy.
+	DatabaseName        string `pulumi:"databaseName"`
 	GeoBackupPolicyName string `pulumi:"geoBackupPolicyName"`
-	// The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
-	ResourceGroupName string `pulumi:"resourceGroupName"`
-	// The name of the server.
-	ServerName string `pulumi:"serverName"`
+	ResourceGroupName   string `pulumi:"resourceGroupName"`
+	ServerName          string `pulumi:"serverName"`
 }
 
 // A database geo backup policy.
 type LookupGeoBackupPolicyResult struct {
-	// Resource ID.
-	Id string `pulumi:"id"`
-	// Kind of geo backup policy.  This is metadata used for the Azure portal experience.
-	Kind string `pulumi:"kind"`
-	// Backup policy location.
-	Location string `pulumi:"location"`
-	// Resource name.
-	Name string `pulumi:"name"`
-	// The state of the geo backup policy.
-	State string `pulumi:"state"`
-	// The storage type of the geo backup policy.
+	Id          string `pulumi:"id"`
+	Kind        string `pulumi:"kind"`
+	Location    string `pulumi:"location"`
+	Name        string `pulumi:"name"`
+	State       string `pulumi:"state"`
 	StorageType string `pulumi:"storageType"`
-	// Resource type.
-	Type string `pulumi:"type"`
+	Type        string `pulumi:"type"`
 }

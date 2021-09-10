@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.StreamAnalytics.Outputs
 {
 
+    /// <summary>
+    /// Describes an Azure SQL database output data source.
+    /// </summary>
     [OutputType]
     public sealed class AzureSqlDatabaseOutputDataSourceResponse
     {

@@ -11,30 +11,19 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Value object for saved search results.
 type SavedSearch struct {
 	pulumi.CustomResourceState
 
-	// The category of the saved search. This helps the user to find a saved search faster.
-	Category pulumi.StringOutput `pulumi:"category"`
-	// Saved search display name.
-	DisplayName pulumi.StringOutput `pulumi:"displayName"`
-	// The ETag of the saved search.
-	Etag pulumi.StringPtrOutput `pulumi:"etag"`
-	// The function alias if query serves as a function.
-	FunctionAlias pulumi.StringPtrOutput `pulumi:"functionAlias"`
-	// The optional function parameters if query serves as a function. Value should be in the following format: 'param-name1:type1 = default_value1, param-name2:type2 = default_value2'. For more examples and proper syntax please refer to https://docs.microsoft.com/en-us/azure/kusto/query/functions/user-defined-functions.
-	FunctionParameters pulumi.StringPtrOutput `pulumi:"functionParameters"`
-	// The name of the resource
-	Name pulumi.StringOutput `pulumi:"name"`
-	// The query expression for the saved search.
-	Query pulumi.StringOutput `pulumi:"query"`
-	// The tags attached to the saved search.
-	Tags TagResponseArrayOutput `pulumi:"tags"`
-	// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
-	Type pulumi.StringOutput `pulumi:"type"`
-	// The version number of the query language. The current version is 2 and is the default.
-	Version pulumi.Float64PtrOutput `pulumi:"version"`
+	Category           pulumi.StringOutput     `pulumi:"category"`
+	DisplayName        pulumi.StringOutput     `pulumi:"displayName"`
+	Etag               pulumi.StringPtrOutput  `pulumi:"etag"`
+	FunctionAlias      pulumi.StringPtrOutput  `pulumi:"functionAlias"`
+	FunctionParameters pulumi.StringPtrOutput  `pulumi:"functionParameters"`
+	Name               pulumi.StringOutput     `pulumi:"name"`
+	Query              pulumi.StringOutput     `pulumi:"query"`
+	Tags               TagResponseArrayOutput  `pulumi:"tags"`
+	Type               pulumi.StringOutput     `pulumi:"type"`
+	Version            pulumi.Float64PtrOutput `pulumi:"version"`
 }
 
 // NewSavedSearch registers a new resource with the given unique name, arguments, and options.
@@ -115,54 +104,32 @@ func (SavedSearchState) ElementType() reflect.Type {
 }
 
 type savedSearchArgs struct {
-	// The category of the saved search. This helps the user to find a saved search faster.
-	Category string `pulumi:"category"`
-	// Saved search display name.
-	DisplayName string `pulumi:"displayName"`
-	// The ETag of the saved search.
-	Etag *string `pulumi:"etag"`
-	// The function alias if query serves as a function.
-	FunctionAlias *string `pulumi:"functionAlias"`
-	// The optional function parameters if query serves as a function. Value should be in the following format: 'param-name1:type1 = default_value1, param-name2:type2 = default_value2'. For more examples and proper syntax please refer to https://docs.microsoft.com/en-us/azure/kusto/query/functions/user-defined-functions.
-	FunctionParameters *string `pulumi:"functionParameters"`
-	// The query expression for the saved search.
-	Query string `pulumi:"query"`
-	// The name of the resource group. The name is case insensitive.
-	ResourceGroupName string `pulumi:"resourceGroupName"`
-	// The id of the saved search.
-	SavedSearchId *string `pulumi:"savedSearchId"`
-	// The tags attached to the saved search.
-	Tags []Tag `pulumi:"tags"`
-	// The version number of the query language. The current version is 2 and is the default.
-	Version *float64 `pulumi:"version"`
-	// The name of the workspace.
-	WorkspaceName string `pulumi:"workspaceName"`
+	Category           string   `pulumi:"category"`
+	DisplayName        string   `pulumi:"displayName"`
+	Etag               *string  `pulumi:"etag"`
+	FunctionAlias      *string  `pulumi:"functionAlias"`
+	FunctionParameters *string  `pulumi:"functionParameters"`
+	Query              string   `pulumi:"query"`
+	ResourceGroupName  string   `pulumi:"resourceGroupName"`
+	SavedSearchId      *string  `pulumi:"savedSearchId"`
+	Tags               []Tag    `pulumi:"tags"`
+	Version            *float64 `pulumi:"version"`
+	WorkspaceName      string   `pulumi:"workspaceName"`
 }
 
 // The set of arguments for constructing a SavedSearch resource.
 type SavedSearchArgs struct {
-	// The category of the saved search. This helps the user to find a saved search faster.
-	Category pulumi.StringInput
-	// Saved search display name.
-	DisplayName pulumi.StringInput
-	// The ETag of the saved search.
-	Etag pulumi.StringPtrInput
-	// The function alias if query serves as a function.
-	FunctionAlias pulumi.StringPtrInput
-	// The optional function parameters if query serves as a function. Value should be in the following format: 'param-name1:type1 = default_value1, param-name2:type2 = default_value2'. For more examples and proper syntax please refer to https://docs.microsoft.com/en-us/azure/kusto/query/functions/user-defined-functions.
+	Category           pulumi.StringInput
+	DisplayName        pulumi.StringInput
+	Etag               pulumi.StringPtrInput
+	FunctionAlias      pulumi.StringPtrInput
 	FunctionParameters pulumi.StringPtrInput
-	// The query expression for the saved search.
-	Query pulumi.StringInput
-	// The name of the resource group. The name is case insensitive.
-	ResourceGroupName pulumi.StringInput
-	// The id of the saved search.
-	SavedSearchId pulumi.StringPtrInput
-	// The tags attached to the saved search.
-	Tags TagArrayInput
-	// The version number of the query language. The current version is 2 and is the default.
-	Version pulumi.Float64PtrInput
-	// The name of the workspace.
-	WorkspaceName pulumi.StringInput
+	Query              pulumi.StringInput
+	ResourceGroupName  pulumi.StringInput
+	SavedSearchId      pulumi.StringPtrInput
+	Tags               TagArrayInput
+	Version            pulumi.Float64PtrInput
+	WorkspaceName      pulumi.StringInput
 }
 
 func (SavedSearchArgs) ElementType() reflect.Type {
@@ -188,9 +155,7 @@ func (i *SavedSearch) ToSavedSearchOutputWithContext(ctx context.Context) SavedS
 	return pulumi.ToOutputWithContext(ctx, i).(SavedSearchOutput)
 }
 
-type SavedSearchOutput struct {
-	*pulumi.OutputState
-}
+type SavedSearchOutput struct{ *pulumi.OutputState }
 
 func (SavedSearchOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*SavedSearch)(nil))

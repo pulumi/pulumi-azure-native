@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.Migrate.Outputs
 {
 
+    /// <summary>
+    /// Defines the SQL Server resource settings.
+    /// </summary>
     [OutputType]
     public sealed class SqlServerResourceSettingsResponse
     {

@@ -163,9 +163,7 @@ func (i *CapacityReservation) ToCapacityReservationOutputWithContext(ctx context
 	return pulumi.ToOutputWithContext(ctx, i).(CapacityReservationOutput)
 }
 
-type CapacityReservationOutput struct {
-	*pulumi.OutputState
-}
+type CapacityReservationOutput struct{ *pulumi.OutputState }
 
 func (CapacityReservationOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*CapacityReservation)(nil))

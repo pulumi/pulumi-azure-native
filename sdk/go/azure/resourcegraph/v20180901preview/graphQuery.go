@@ -11,28 +11,18 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Graph Query entity definition.
 type GraphQuery struct {
 	pulumi.CustomResourceState
 
-	// The description of a graph query.
-	Description pulumi.StringPtrOutput `pulumi:"description"`
-	// This will be used to handle Optimistic Concurrency. If not present, it will always overwrite the existing resource without checking conflict.
-	Etag pulumi.StringPtrOutput `pulumi:"etag"`
-	// The location of the resource
-	Location pulumi.StringPtrOutput `pulumi:"location"`
-	// Azure resource name. This is GUID value. The display name should be assigned within properties field.
-	Name pulumi.StringOutput `pulumi:"name"`
-	// KQL query that will be graph.
-	Query pulumi.StringOutput `pulumi:"query"`
-	// Enum indicating a type of graph query.
-	ResultKind pulumi.StringOutput `pulumi:"resultKind"`
-	// Resource tags
-	Tags pulumi.StringMapOutput `pulumi:"tags"`
-	// Date and time in UTC of the last modification that was made to this graph query definition.
-	TimeModified pulumi.StringOutput `pulumi:"timeModified"`
-	// Azure resource type
-	Type pulumi.StringOutput `pulumi:"type"`
+	Description  pulumi.StringPtrOutput `pulumi:"description"`
+	Etag         pulumi.StringPtrOutput `pulumi:"etag"`
+	Location     pulumi.StringPtrOutput `pulumi:"location"`
+	Name         pulumi.StringOutput    `pulumi:"name"`
+	Query        pulumi.StringOutput    `pulumi:"query"`
+	ResultKind   pulumi.StringOutput    `pulumi:"resultKind"`
+	Tags         pulumi.StringMapOutput `pulumi:"tags"`
+	TimeModified pulumi.StringOutput    `pulumi:"timeModified"`
+	Type         pulumi.StringOutput    `pulumi:"type"`
 }
 
 // NewGraphQuery registers a new resource with the given unique name, arguments, and options.
@@ -98,38 +88,24 @@ func (GraphQueryState) ElementType() reflect.Type {
 }
 
 type graphQueryArgs struct {
-	// The description of a graph query.
-	Description *string `pulumi:"description"`
-	// This will be used to handle Optimistic Concurrency. If not present, it will always overwrite the existing resource without checking conflict.
-	Etag *string `pulumi:"etag"`
-	// The location of the resource
-	Location *string `pulumi:"location"`
-	// KQL query that will be graph.
-	Query string `pulumi:"query"`
-	// The name of the resource group.
-	ResourceGroupName string `pulumi:"resourceGroupName"`
-	// The name of the Graph Query resource.
-	ResourceName *string `pulumi:"resourceName"`
-	// Resource tags
-	Tags map[string]string `pulumi:"tags"`
+	Description       *string           `pulumi:"description"`
+	Etag              *string           `pulumi:"etag"`
+	Location          *string           `pulumi:"location"`
+	Query             string            `pulumi:"query"`
+	ResourceGroupName string            `pulumi:"resourceGroupName"`
+	ResourceName      *string           `pulumi:"resourceName"`
+	Tags              map[string]string `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a GraphQuery resource.
 type GraphQueryArgs struct {
-	// The description of a graph query.
-	Description pulumi.StringPtrInput
-	// This will be used to handle Optimistic Concurrency. If not present, it will always overwrite the existing resource without checking conflict.
-	Etag pulumi.StringPtrInput
-	// The location of the resource
-	Location pulumi.StringPtrInput
-	// KQL query that will be graph.
-	Query pulumi.StringInput
-	// The name of the resource group.
+	Description       pulumi.StringPtrInput
+	Etag              pulumi.StringPtrInput
+	Location          pulumi.StringPtrInput
+	Query             pulumi.StringInput
 	ResourceGroupName pulumi.StringInput
-	// The name of the Graph Query resource.
-	ResourceName pulumi.StringPtrInput
-	// Resource tags
-	Tags pulumi.StringMapInput
+	ResourceName      pulumi.StringPtrInput
+	Tags              pulumi.StringMapInput
 }
 
 func (GraphQueryArgs) ElementType() reflect.Type {
@@ -155,9 +131,7 @@ func (i *GraphQuery) ToGraphQueryOutputWithContext(ctx context.Context) GraphQue
 	return pulumi.ToOutputWithContext(ctx, i).(GraphQueryOutput)
 }
 
-type GraphQueryOutput struct {
-	*pulumi.OutputState
-}
+type GraphQueryOutput struct{ *pulumi.OutputState }
 
 func (GraphQueryOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*GraphQuery)(nil))

@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.WebPubSub.V20210601Preview.Outputs
 {
 
+    /// <summary>
+    /// Diagnostic configuration of a Microsoft.SignalRService resource. Used together with Azure monitor DiagnosticSettings.
+    /// </summary>
     [OutputType]
     public sealed class DiagnosticConfigurationResponse
     {

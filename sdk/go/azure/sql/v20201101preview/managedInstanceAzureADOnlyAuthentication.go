@@ -11,16 +11,12 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Azure Active Directory only authentication.
 type ManagedInstanceAzureADOnlyAuthentication struct {
 	pulumi.CustomResourceState
 
-	// Azure Active Directory only Authentication enabled.
-	AzureADOnlyAuthentication pulumi.BoolOutput `pulumi:"azureADOnlyAuthentication"`
-	// Resource name.
-	Name pulumi.StringOutput `pulumi:"name"`
-	// Resource type.
-	Type pulumi.StringOutput `pulumi:"type"`
+	AzureADOnlyAuthentication pulumi.BoolOutput   `pulumi:"azureADOnlyAuthentication"`
+	Name                      pulumi.StringOutput `pulumi:"name"`
+	Type                      pulumi.StringOutput `pulumi:"type"`
 }
 
 // NewManagedInstanceAzureADOnlyAuthentication registers a new resource with the given unique name, arguments, and options.
@@ -101,26 +97,18 @@ func (ManagedInstanceAzureADOnlyAuthenticationState) ElementType() reflect.Type 
 }
 
 type managedInstanceAzureADOnlyAuthenticationArgs struct {
-	// The name of server azure active directory only authentication.
-	AuthenticationName *string `pulumi:"authenticationName"`
-	// Azure Active Directory only Authentication enabled.
-	AzureADOnlyAuthentication bool `pulumi:"azureADOnlyAuthentication"`
-	// The name of the managed instance.
-	ManagedInstanceName string `pulumi:"managedInstanceName"`
-	// The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
-	ResourceGroupName string `pulumi:"resourceGroupName"`
+	AuthenticationName        *string `pulumi:"authenticationName"`
+	AzureADOnlyAuthentication bool    `pulumi:"azureADOnlyAuthentication"`
+	ManagedInstanceName       string  `pulumi:"managedInstanceName"`
+	ResourceGroupName         string  `pulumi:"resourceGroupName"`
 }
 
 // The set of arguments for constructing a ManagedInstanceAzureADOnlyAuthentication resource.
 type ManagedInstanceAzureADOnlyAuthenticationArgs struct {
-	// The name of server azure active directory only authentication.
-	AuthenticationName pulumi.StringPtrInput
-	// Azure Active Directory only Authentication enabled.
+	AuthenticationName        pulumi.StringPtrInput
 	AzureADOnlyAuthentication pulumi.BoolInput
-	// The name of the managed instance.
-	ManagedInstanceName pulumi.StringInput
-	// The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
-	ResourceGroupName pulumi.StringInput
+	ManagedInstanceName       pulumi.StringInput
+	ResourceGroupName         pulumi.StringInput
 }
 
 func (ManagedInstanceAzureADOnlyAuthenticationArgs) ElementType() reflect.Type {
@@ -146,9 +134,7 @@ func (i *ManagedInstanceAzureADOnlyAuthentication) ToManagedInstanceAzureADOnlyA
 	return pulumi.ToOutputWithContext(ctx, i).(ManagedInstanceAzureADOnlyAuthenticationOutput)
 }
 
-type ManagedInstanceAzureADOnlyAuthenticationOutput struct {
-	*pulumi.OutputState
-}
+type ManagedInstanceAzureADOnlyAuthenticationOutput struct{ *pulumi.OutputState }
 
 func (ManagedInstanceAzureADOnlyAuthenticationOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*ManagedInstanceAzureADOnlyAuthentication)(nil))

@@ -7,7 +7,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// VpnSite Resource.
 func LookupVpnSite(ctx *pulumi.Context, args *LookupVpnSiteArgs, opts ...pulumi.InvokeOption) (*LookupVpnSiteResult, error) {
 	var rv LookupVpnSiteResult
 	err := ctx.Invoke("azure-native:network/v20190901:getVpnSite", args, &rv, opts...)
@@ -18,42 +17,25 @@ func LookupVpnSite(ctx *pulumi.Context, args *LookupVpnSiteArgs, opts ...pulumi.
 }
 
 type LookupVpnSiteArgs struct {
-	// The resource group name of the VpnSite.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
-	// The name of the VpnSite being retrieved.
-	VpnSiteName string `pulumi:"vpnSiteName"`
+	VpnSiteName       string `pulumi:"vpnSiteName"`
 }
 
 // VpnSite Resource.
 type LookupVpnSiteResult struct {
-	// The AddressSpace that contains an array of IP address ranges.
-	AddressSpace *AddressSpaceResponse `pulumi:"addressSpace"`
-	// The set of bgp properties.
-	BgpProperties *BgpSettingsResponse `pulumi:"bgpProperties"`
-	// The device properties.
-	DeviceProperties *DevicePropertiesResponse `pulumi:"deviceProperties"`
-	// A unique read-only string that changes whenever the resource is updated.
-	Etag string `pulumi:"etag"`
-	// Resource ID.
-	Id *string `pulumi:"id"`
-	// The ip-address for the vpn-site.
-	IpAddress *string `pulumi:"ipAddress"`
-	// IsSecuritySite flag.
-	IsSecuritySite *bool `pulumi:"isSecuritySite"`
-	// Resource location.
-	Location string `pulumi:"location"`
-	// Resource name.
-	Name string `pulumi:"name"`
-	// The provisioning state of the VPN site resource.
-	ProvisioningState string `pulumi:"provisioningState"`
-	// The key for vpn-site that can be used for connections.
-	SiteKey *string `pulumi:"siteKey"`
-	// Resource tags.
-	Tags map[string]string `pulumi:"tags"`
-	// Resource type.
-	Type string `pulumi:"type"`
-	// The VirtualWAN to which the vpnSite belongs.
-	VirtualWan *SubResourceResponse `pulumi:"virtualWan"`
-	// List of all vpn site links.
-	VpnSiteLinks []VpnSiteLinkResponse `pulumi:"vpnSiteLinks"`
+	AddressSpace      *AddressSpaceResponse     `pulumi:"addressSpace"`
+	BgpProperties     *BgpSettingsResponse      `pulumi:"bgpProperties"`
+	DeviceProperties  *DevicePropertiesResponse `pulumi:"deviceProperties"`
+	Etag              string                    `pulumi:"etag"`
+	Id                *string                   `pulumi:"id"`
+	IpAddress         *string                   `pulumi:"ipAddress"`
+	IsSecuritySite    *bool                     `pulumi:"isSecuritySite"`
+	Location          string                    `pulumi:"location"`
+	Name              string                    `pulumi:"name"`
+	ProvisioningState string                    `pulumi:"provisioningState"`
+	SiteKey           *string                   `pulumi:"siteKey"`
+	Tags              map[string]string         `pulumi:"tags"`
+	Type              string                    `pulumi:"type"`
+	VirtualWan        *SubResourceResponse      `pulumi:"virtualWan"`
+	VpnSiteLinks      []VpnSiteLinkResponse     `pulumi:"vpnSiteLinks"`
 }

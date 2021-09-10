@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.RecoveryServices.V20210701.Outputs
 {
 
+    /// <summary>
+    /// Azure VM (Mercury) workload-specific backup policy.
+    /// </summary>
     [OutputType]
     public sealed class GenericProtectionPolicyResponse
     {

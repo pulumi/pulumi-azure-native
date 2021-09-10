@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.ChangeAnalysis.Outputs
 {
 
+    /// <summary>
+    /// Settings of change notification configuration for a subscription.
+    /// </summary>
     [OutputType]
     public sealed class NotificationSettingsResponse
     {

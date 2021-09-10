@@ -11,30 +11,19 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Describes a DNS zone.
 type Zone struct {
 	pulumi.CustomResourceState
 
-	// The etag of the zone.
-	Etag pulumi.StringPtrOutput `pulumi:"etag"`
-	// The geo-location where the resource lives
-	Location pulumi.StringOutput `pulumi:"location"`
-	// The maximum number of record sets that can be created in this DNS zone.  This is a read-only property and any attempt to set this value will be ignored.
-	MaxNumberOfRecordSets pulumi.Float64Output `pulumi:"maxNumberOfRecordSets"`
-	// The maximum number of records per record set that can be created in this DNS zone.  This is a read-only property and any attempt to set this value will be ignored.
-	MaxNumberOfRecordsPerRecordSet pulumi.Float64Output `pulumi:"maxNumberOfRecordsPerRecordSet"`
-	// The name of the resource
-	Name pulumi.StringOutput `pulumi:"name"`
-	// The name servers for this DNS zone. This is a read-only property and any attempt to set this value will be ignored.
-	NameServers pulumi.StringArrayOutput `pulumi:"nameServers"`
-	// The current number of record sets in this DNS zone.  This is a read-only property and any attempt to set this value will be ignored.
-	NumberOfRecordSets pulumi.Float64Output `pulumi:"numberOfRecordSets"`
-	// Resource tags.
-	Tags pulumi.StringMapOutput `pulumi:"tags"`
-	// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
-	Type pulumi.StringOutput `pulumi:"type"`
-	// The type of this DNS zone (Public or Private).
-	ZoneType pulumi.StringPtrOutput `pulumi:"zoneType"`
+	Etag                           pulumi.StringPtrOutput   `pulumi:"etag"`
+	Location                       pulumi.StringOutput      `pulumi:"location"`
+	MaxNumberOfRecordSets          pulumi.Float64Output     `pulumi:"maxNumberOfRecordSets"`
+	MaxNumberOfRecordsPerRecordSet pulumi.Float64Output     `pulumi:"maxNumberOfRecordsPerRecordSet"`
+	Name                           pulumi.StringOutput      `pulumi:"name"`
+	NameServers                    pulumi.StringArrayOutput `pulumi:"nameServers"`
+	NumberOfRecordSets             pulumi.Float64Output     `pulumi:"numberOfRecordSets"`
+	Tags                           pulumi.StringMapOutput   `pulumi:"tags"`
+	Type                           pulumi.StringOutput      `pulumi:"type"`
+	ZoneType                       pulumi.StringPtrOutput   `pulumi:"zoneType"`
 }
 
 // NewZone registers a new resource with the given unique name, arguments, and options.
@@ -48,8 +37,7 @@ func NewZone(ctx *pulumi.Context,
 		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
 	}
 	if args.ZoneType == nil {
-		e := ZoneType("Public")
-		args.ZoneType = &e
+		args.ZoneType = ZoneType("Public")
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
@@ -125,34 +113,22 @@ func (ZoneState) ElementType() reflect.Type {
 }
 
 type zoneArgs struct {
-	// The etag of the zone.
-	Etag *string `pulumi:"etag"`
-	// The geo-location where the resource lives
-	Location *string `pulumi:"location"`
-	// The name of the resource group. The name is case insensitive.
-	ResourceGroupName string `pulumi:"resourceGroupName"`
-	// Resource tags.
-	Tags map[string]string `pulumi:"tags"`
-	// The name of the DNS zone (without a terminating dot).
-	ZoneName *string `pulumi:"zoneName"`
-	// The type of this DNS zone (Public or Private).
-	ZoneType *string `pulumi:"zoneType"`
+	Etag              *string           `pulumi:"etag"`
+	Location          *string           `pulumi:"location"`
+	ResourceGroupName string            `pulumi:"resourceGroupName"`
+	Tags              map[string]string `pulumi:"tags"`
+	ZoneName          *string           `pulumi:"zoneName"`
+	ZoneType          *ZoneType         `pulumi:"zoneType"`
 }
 
 // The set of arguments for constructing a Zone resource.
 type ZoneArgs struct {
-	// The etag of the zone.
-	Etag pulumi.StringPtrInput
-	// The geo-location where the resource lives
-	Location pulumi.StringPtrInput
-	// The name of the resource group. The name is case insensitive.
+	Etag              pulumi.StringPtrInput
+	Location          pulumi.StringPtrInput
 	ResourceGroupName pulumi.StringInput
-	// Resource tags.
-	Tags pulumi.StringMapInput
-	// The name of the DNS zone (without a terminating dot).
-	ZoneName pulumi.StringPtrInput
-	// The type of this DNS zone (Public or Private).
-	ZoneType *ZoneType
+	Tags              pulumi.StringMapInput
+	ZoneName          pulumi.StringPtrInput
+	ZoneType          ZoneTypePtrInput
 }
 
 func (ZoneArgs) ElementType() reflect.Type {
@@ -178,9 +154,7 @@ func (i *Zone) ToZoneOutputWithContext(ctx context.Context) ZoneOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(ZoneOutput)
 }
 
-type ZoneOutput struct {
-	*pulumi.OutputState
-}
+type ZoneOutput struct{ *pulumi.OutputState }
 
 func (ZoneOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*Zone)(nil))

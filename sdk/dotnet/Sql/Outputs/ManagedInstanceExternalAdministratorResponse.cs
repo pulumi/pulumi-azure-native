@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.Sql.Outputs
 {
 
+    /// <summary>
+    /// Properties of a active directory administrator.
+    /// </summary>
     [OutputType]
     public sealed class ManagedInstanceExternalAdministratorResponse
     {

@@ -76,14 +76,14 @@ namespace Pulumi.AzureNative.DataFactory.V20180601.Inputs
         public Input<string> Name { get; set; } = null!;
 
         [Input("packageConnectionManagers")]
-        private InputMap<ImmutableDictionary<string, Input<Inputs.SSISExecutionParameterArgs>>>? _packageConnectionManagers;
+        private InputMap<ImmutableDictionary<string, Inputs.SSISExecutionParameterArgs>>? _packageConnectionManagers;
 
         /// <summary>
         /// The package level connection managers to execute the SSIS package.
         /// </summary>
-        public InputMap<ImmutableDictionary<string, Input<Inputs.SSISExecutionParameterArgs>>> PackageConnectionManagers
+        public InputMap<ImmutableDictionary<string, Inputs.SSISExecutionParameterArgs>> PackageConnectionManagers
         {
-            get => _packageConnectionManagers ?? (_packageConnectionManagers = new InputMap<ImmutableDictionary<string, Input<Inputs.SSISExecutionParameterArgs>>>());
+            get => _packageConnectionManagers ?? (_packageConnectionManagers = new InputMap<ImmutableDictionary<string, Inputs.SSISExecutionParameterArgs>>());
             set => _packageConnectionManagers = value;
         }
 
@@ -112,14 +112,14 @@ namespace Pulumi.AzureNative.DataFactory.V20180601.Inputs
         public Input<Inputs.ActivityPolicyArgs>? Policy { get; set; }
 
         [Input("projectConnectionManagers")]
-        private InputMap<ImmutableDictionary<string, Input<Inputs.SSISExecutionParameterArgs>>>? _projectConnectionManagers;
+        private InputMap<ImmutableDictionary<string, Inputs.SSISExecutionParameterArgs>>? _projectConnectionManagers;
 
         /// <summary>
         /// The project level connection managers to execute the SSIS package.
         /// </summary>
-        public InputMap<ImmutableDictionary<string, Input<Inputs.SSISExecutionParameterArgs>>> ProjectConnectionManagers
+        public InputMap<ImmutableDictionary<string, Inputs.SSISExecutionParameterArgs>> ProjectConnectionManagers
         {
-            get => _projectConnectionManagers ?? (_projectConnectionManagers = new InputMap<ImmutableDictionary<string, Input<Inputs.SSISExecutionParameterArgs>>>());
+            get => _projectConnectionManagers ?? (_projectConnectionManagers = new InputMap<ImmutableDictionary<string, Inputs.SSISExecutionParameterArgs>>());
             set => _projectConnectionManagers = value;
         }
 

@@ -10,22 +10,14 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Schema for MSIX Package Application properties.
 type MsixPackageApplications struct {
-	// Package Application Id, found in appxmanifest.xml.
-	AppId *string `pulumi:"appId"`
-	// Used to activate Package Application. Consists of Package Name and ApplicationID. Found in appxmanifest.xml.
+	AppId          *string `pulumi:"appId"`
 	AppUserModelID *string `pulumi:"appUserModelID"`
-	// Description of Package Application.
-	Description *string `pulumi:"description"`
-	// User friendly name.
-	FriendlyName *string `pulumi:"friendlyName"`
-	// User friendly name.
-	IconImageName *string `pulumi:"iconImageName"`
-	// the icon a 64 bit string as a byte array.
-	RawIcon *string `pulumi:"rawIcon"`
-	// the icon a 64 bit string as a byte array.
-	RawPng *string `pulumi:"rawPng"`
+	Description    *string `pulumi:"description"`
+	FriendlyName   *string `pulumi:"friendlyName"`
+	IconImageName  *string `pulumi:"iconImageName"`
+	RawIcon        *string `pulumi:"rawIcon"`
+	RawPng         *string `pulumi:"rawPng"`
 }
 
 // MsixPackageApplicationsInput is an input type that accepts MsixPackageApplicationsArgs and MsixPackageApplicationsOutput values.
@@ -39,22 +31,14 @@ type MsixPackageApplicationsInput interface {
 	ToMsixPackageApplicationsOutputWithContext(context.Context) MsixPackageApplicationsOutput
 }
 
-// Schema for MSIX Package Application properties.
 type MsixPackageApplicationsArgs struct {
-	// Package Application Id, found in appxmanifest.xml.
-	AppId pulumi.StringPtrInput `pulumi:"appId"`
-	// Used to activate Package Application. Consists of Package Name and ApplicationID. Found in appxmanifest.xml.
+	AppId          pulumi.StringPtrInput `pulumi:"appId"`
 	AppUserModelID pulumi.StringPtrInput `pulumi:"appUserModelID"`
-	// Description of Package Application.
-	Description pulumi.StringPtrInput `pulumi:"description"`
-	// User friendly name.
-	FriendlyName pulumi.StringPtrInput `pulumi:"friendlyName"`
-	// User friendly name.
-	IconImageName pulumi.StringPtrInput `pulumi:"iconImageName"`
-	// the icon a 64 bit string as a byte array.
-	RawIcon pulumi.StringPtrInput `pulumi:"rawIcon"`
-	// the icon a 64 bit string as a byte array.
-	RawPng pulumi.StringPtrInput `pulumi:"rawPng"`
+	Description    pulumi.StringPtrInput `pulumi:"description"`
+	FriendlyName   pulumi.StringPtrInput `pulumi:"friendlyName"`
+	IconImageName  pulumi.StringPtrInput `pulumi:"iconImageName"`
+	RawIcon        pulumi.StringPtrInput `pulumi:"rawIcon"`
+	RawPng         pulumi.StringPtrInput `pulumi:"rawPng"`
 }
 
 func (MsixPackageApplicationsArgs) ElementType() reflect.Type {
@@ -94,7 +78,6 @@ func (i MsixPackageApplicationsArray) ToMsixPackageApplicationsArrayOutputWithCo
 	return pulumi.ToOutputWithContext(ctx, i).(MsixPackageApplicationsArrayOutput)
 }
 
-// Schema for MSIX Package Application properties.
 type MsixPackageApplicationsOutput struct{ *pulumi.OutputState }
 
 func (MsixPackageApplicationsOutput) ElementType() reflect.Type {
@@ -109,37 +92,30 @@ func (o MsixPackageApplicationsOutput) ToMsixPackageApplicationsOutputWithContex
 	return o
 }
 
-// Package Application Id, found in appxmanifest.xml.
 func (o MsixPackageApplicationsOutput) AppId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v MsixPackageApplications) *string { return v.AppId }).(pulumi.StringPtrOutput)
 }
 
-// Used to activate Package Application. Consists of Package Name and ApplicationID. Found in appxmanifest.xml.
 func (o MsixPackageApplicationsOutput) AppUserModelID() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v MsixPackageApplications) *string { return v.AppUserModelID }).(pulumi.StringPtrOutput)
 }
 
-// Description of Package Application.
 func (o MsixPackageApplicationsOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v MsixPackageApplications) *string { return v.Description }).(pulumi.StringPtrOutput)
 }
 
-// User friendly name.
 func (o MsixPackageApplicationsOutput) FriendlyName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v MsixPackageApplications) *string { return v.FriendlyName }).(pulumi.StringPtrOutput)
 }
 
-// User friendly name.
 func (o MsixPackageApplicationsOutput) IconImageName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v MsixPackageApplications) *string { return v.IconImageName }).(pulumi.StringPtrOutput)
 }
 
-// the icon a 64 bit string as a byte array.
 func (o MsixPackageApplicationsOutput) RawIcon() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v MsixPackageApplications) *string { return v.RawIcon }).(pulumi.StringPtrOutput)
 }
 
-// the icon a 64 bit string as a byte array.
 func (o MsixPackageApplicationsOutput) RawPng() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v MsixPackageApplications) *string { return v.RawPng }).(pulumi.StringPtrOutput)
 }
@@ -164,22 +140,14 @@ func (o MsixPackageApplicationsArrayOutput) Index(i pulumi.IntInput) MsixPackage
 	}).(MsixPackageApplicationsOutput)
 }
 
-// Schema for MSIX Package Application properties.
 type MsixPackageApplicationsResponse struct {
-	// Package Application Id, found in appxmanifest.xml.
-	AppId *string `pulumi:"appId"`
-	// Used to activate Package Application. Consists of Package Name and ApplicationID. Found in appxmanifest.xml.
+	AppId          *string `pulumi:"appId"`
 	AppUserModelID *string `pulumi:"appUserModelID"`
-	// Description of Package Application.
-	Description *string `pulumi:"description"`
-	// User friendly name.
-	FriendlyName *string `pulumi:"friendlyName"`
-	// User friendly name.
-	IconImageName *string `pulumi:"iconImageName"`
-	// the icon a 64 bit string as a byte array.
-	RawIcon *string `pulumi:"rawIcon"`
-	// the icon a 64 bit string as a byte array.
-	RawPng *string `pulumi:"rawPng"`
+	Description    *string `pulumi:"description"`
+	FriendlyName   *string `pulumi:"friendlyName"`
+	IconImageName  *string `pulumi:"iconImageName"`
+	RawIcon        *string `pulumi:"rawIcon"`
+	RawPng         *string `pulumi:"rawPng"`
 }
 
 // MsixPackageApplicationsResponseInput is an input type that accepts MsixPackageApplicationsResponseArgs and MsixPackageApplicationsResponseOutput values.
@@ -193,22 +161,14 @@ type MsixPackageApplicationsResponseInput interface {
 	ToMsixPackageApplicationsResponseOutputWithContext(context.Context) MsixPackageApplicationsResponseOutput
 }
 
-// Schema for MSIX Package Application properties.
 type MsixPackageApplicationsResponseArgs struct {
-	// Package Application Id, found in appxmanifest.xml.
-	AppId pulumi.StringPtrInput `pulumi:"appId"`
-	// Used to activate Package Application. Consists of Package Name and ApplicationID. Found in appxmanifest.xml.
+	AppId          pulumi.StringPtrInput `pulumi:"appId"`
 	AppUserModelID pulumi.StringPtrInput `pulumi:"appUserModelID"`
-	// Description of Package Application.
-	Description pulumi.StringPtrInput `pulumi:"description"`
-	// User friendly name.
-	FriendlyName pulumi.StringPtrInput `pulumi:"friendlyName"`
-	// User friendly name.
-	IconImageName pulumi.StringPtrInput `pulumi:"iconImageName"`
-	// the icon a 64 bit string as a byte array.
-	RawIcon pulumi.StringPtrInput `pulumi:"rawIcon"`
-	// the icon a 64 bit string as a byte array.
-	RawPng pulumi.StringPtrInput `pulumi:"rawPng"`
+	Description    pulumi.StringPtrInput `pulumi:"description"`
+	FriendlyName   pulumi.StringPtrInput `pulumi:"friendlyName"`
+	IconImageName  pulumi.StringPtrInput `pulumi:"iconImageName"`
+	RawIcon        pulumi.StringPtrInput `pulumi:"rawIcon"`
+	RawPng         pulumi.StringPtrInput `pulumi:"rawPng"`
 }
 
 func (MsixPackageApplicationsResponseArgs) ElementType() reflect.Type {
@@ -248,7 +208,6 @@ func (i MsixPackageApplicationsResponseArray) ToMsixPackageApplicationsResponseA
 	return pulumi.ToOutputWithContext(ctx, i).(MsixPackageApplicationsResponseArrayOutput)
 }
 
-// Schema for MSIX Package Application properties.
 type MsixPackageApplicationsResponseOutput struct{ *pulumi.OutputState }
 
 func (MsixPackageApplicationsResponseOutput) ElementType() reflect.Type {
@@ -263,37 +222,30 @@ func (o MsixPackageApplicationsResponseOutput) ToMsixPackageApplicationsResponse
 	return o
 }
 
-// Package Application Id, found in appxmanifest.xml.
 func (o MsixPackageApplicationsResponseOutput) AppId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v MsixPackageApplicationsResponse) *string { return v.AppId }).(pulumi.StringPtrOutput)
 }
 
-// Used to activate Package Application. Consists of Package Name and ApplicationID. Found in appxmanifest.xml.
 func (o MsixPackageApplicationsResponseOutput) AppUserModelID() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v MsixPackageApplicationsResponse) *string { return v.AppUserModelID }).(pulumi.StringPtrOutput)
 }
 
-// Description of Package Application.
 func (o MsixPackageApplicationsResponseOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v MsixPackageApplicationsResponse) *string { return v.Description }).(pulumi.StringPtrOutput)
 }
 
-// User friendly name.
 func (o MsixPackageApplicationsResponseOutput) FriendlyName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v MsixPackageApplicationsResponse) *string { return v.FriendlyName }).(pulumi.StringPtrOutput)
 }
 
-// User friendly name.
 func (o MsixPackageApplicationsResponseOutput) IconImageName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v MsixPackageApplicationsResponse) *string { return v.IconImageName }).(pulumi.StringPtrOutput)
 }
 
-// the icon a 64 bit string as a byte array.
 func (o MsixPackageApplicationsResponseOutput) RawIcon() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v MsixPackageApplicationsResponse) *string { return v.RawIcon }).(pulumi.StringPtrOutput)
 }
 
-// the icon a 64 bit string as a byte array.
 func (o MsixPackageApplicationsResponseOutput) RawPng() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v MsixPackageApplicationsResponse) *string { return v.RawPng }).(pulumi.StringPtrOutput)
 }
@@ -318,14 +270,10 @@ func (o MsixPackageApplicationsResponseArrayOutput) Index(i pulumi.IntInput) Msi
 	}).(MsixPackageApplicationsResponseOutput)
 }
 
-// Schema for MSIX Package Dependencies properties.
 type MsixPackageDependencies struct {
-	// Name of package dependency.
 	DependencyName *string `pulumi:"dependencyName"`
-	// Dependency version required.
-	MinVersion *string `pulumi:"minVersion"`
-	// Name of dependency publisher.
-	Publisher *string `pulumi:"publisher"`
+	MinVersion     *string `pulumi:"minVersion"`
+	Publisher      *string `pulumi:"publisher"`
 }
 
 // MsixPackageDependenciesInput is an input type that accepts MsixPackageDependenciesArgs and MsixPackageDependenciesOutput values.
@@ -339,14 +287,10 @@ type MsixPackageDependenciesInput interface {
 	ToMsixPackageDependenciesOutputWithContext(context.Context) MsixPackageDependenciesOutput
 }
 
-// Schema for MSIX Package Dependencies properties.
 type MsixPackageDependenciesArgs struct {
-	// Name of package dependency.
 	DependencyName pulumi.StringPtrInput `pulumi:"dependencyName"`
-	// Dependency version required.
-	MinVersion pulumi.StringPtrInput `pulumi:"minVersion"`
-	// Name of dependency publisher.
-	Publisher pulumi.StringPtrInput `pulumi:"publisher"`
+	MinVersion     pulumi.StringPtrInput `pulumi:"minVersion"`
+	Publisher      pulumi.StringPtrInput `pulumi:"publisher"`
 }
 
 func (MsixPackageDependenciesArgs) ElementType() reflect.Type {
@@ -386,7 +330,6 @@ func (i MsixPackageDependenciesArray) ToMsixPackageDependenciesArrayOutputWithCo
 	return pulumi.ToOutputWithContext(ctx, i).(MsixPackageDependenciesArrayOutput)
 }
 
-// Schema for MSIX Package Dependencies properties.
 type MsixPackageDependenciesOutput struct{ *pulumi.OutputState }
 
 func (MsixPackageDependenciesOutput) ElementType() reflect.Type {
@@ -401,17 +344,14 @@ func (o MsixPackageDependenciesOutput) ToMsixPackageDependenciesOutputWithContex
 	return o
 }
 
-// Name of package dependency.
 func (o MsixPackageDependenciesOutput) DependencyName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v MsixPackageDependencies) *string { return v.DependencyName }).(pulumi.StringPtrOutput)
 }
 
-// Dependency version required.
 func (o MsixPackageDependenciesOutput) MinVersion() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v MsixPackageDependencies) *string { return v.MinVersion }).(pulumi.StringPtrOutput)
 }
 
-// Name of dependency publisher.
 func (o MsixPackageDependenciesOutput) Publisher() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v MsixPackageDependencies) *string { return v.Publisher }).(pulumi.StringPtrOutput)
 }
@@ -436,14 +376,10 @@ func (o MsixPackageDependenciesArrayOutput) Index(i pulumi.IntInput) MsixPackage
 	}).(MsixPackageDependenciesOutput)
 }
 
-// Schema for MSIX Package Dependencies properties.
 type MsixPackageDependenciesResponse struct {
-	// Name of package dependency.
 	DependencyName *string `pulumi:"dependencyName"`
-	// Dependency version required.
-	MinVersion *string `pulumi:"minVersion"`
-	// Name of dependency publisher.
-	Publisher *string `pulumi:"publisher"`
+	MinVersion     *string `pulumi:"minVersion"`
+	Publisher      *string `pulumi:"publisher"`
 }
 
 // MsixPackageDependenciesResponseInput is an input type that accepts MsixPackageDependenciesResponseArgs and MsixPackageDependenciesResponseOutput values.
@@ -457,14 +393,10 @@ type MsixPackageDependenciesResponseInput interface {
 	ToMsixPackageDependenciesResponseOutputWithContext(context.Context) MsixPackageDependenciesResponseOutput
 }
 
-// Schema for MSIX Package Dependencies properties.
 type MsixPackageDependenciesResponseArgs struct {
-	// Name of package dependency.
 	DependencyName pulumi.StringPtrInput `pulumi:"dependencyName"`
-	// Dependency version required.
-	MinVersion pulumi.StringPtrInput `pulumi:"minVersion"`
-	// Name of dependency publisher.
-	Publisher pulumi.StringPtrInput `pulumi:"publisher"`
+	MinVersion     pulumi.StringPtrInput `pulumi:"minVersion"`
+	Publisher      pulumi.StringPtrInput `pulumi:"publisher"`
 }
 
 func (MsixPackageDependenciesResponseArgs) ElementType() reflect.Type {
@@ -504,7 +436,6 @@ func (i MsixPackageDependenciesResponseArray) ToMsixPackageDependenciesResponseA
 	return pulumi.ToOutputWithContext(ctx, i).(MsixPackageDependenciesResponseArrayOutput)
 }
 
-// Schema for MSIX Package Dependencies properties.
 type MsixPackageDependenciesResponseOutput struct{ *pulumi.OutputState }
 
 func (MsixPackageDependenciesResponseOutput) ElementType() reflect.Type {
@@ -519,17 +450,14 @@ func (o MsixPackageDependenciesResponseOutput) ToMsixPackageDependenciesResponse
 	return o
 }
 
-// Name of package dependency.
 func (o MsixPackageDependenciesResponseOutput) DependencyName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v MsixPackageDependenciesResponse) *string { return v.DependencyName }).(pulumi.StringPtrOutput)
 }
 
-// Dependency version required.
 func (o MsixPackageDependenciesResponseOutput) MinVersion() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v MsixPackageDependenciesResponse) *string { return v.MinVersion }).(pulumi.StringPtrOutput)
 }
 
-// Name of dependency publisher.
 func (o MsixPackageDependenciesResponseOutput) Publisher() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v MsixPackageDependenciesResponse) *string { return v.Publisher }).(pulumi.StringPtrOutput)
 }
@@ -554,14 +482,10 @@ func (o MsixPackageDependenciesResponseArrayOutput) Index(i pulumi.IntInput) Msi
 	}).(MsixPackageDependenciesResponseOutput)
 }
 
-// Represents a RegistrationInfo definition.
 type RegistrationInfo struct {
-	// Expiration time of registration token.
-	ExpirationTime *string `pulumi:"expirationTime"`
-	// The type of resetting the token.
+	ExpirationTime             *string `pulumi:"expirationTime"`
 	RegistrationTokenOperation *string `pulumi:"registrationTokenOperation"`
-	// The registration token base64 encoded string.
-	Token *string `pulumi:"token"`
+	Token                      *string `pulumi:"token"`
 }
 
 // RegistrationInfoInput is an input type that accepts RegistrationInfoArgs and RegistrationInfoOutput values.
@@ -575,14 +499,10 @@ type RegistrationInfoInput interface {
 	ToRegistrationInfoOutputWithContext(context.Context) RegistrationInfoOutput
 }
 
-// Represents a RegistrationInfo definition.
 type RegistrationInfoArgs struct {
-	// Expiration time of registration token.
-	ExpirationTime pulumi.StringPtrInput `pulumi:"expirationTime"`
-	// The type of resetting the token.
+	ExpirationTime             pulumi.StringPtrInput `pulumi:"expirationTime"`
 	RegistrationTokenOperation pulumi.StringPtrInput `pulumi:"registrationTokenOperation"`
-	// The registration token base64 encoded string.
-	Token pulumi.StringPtrInput `pulumi:"token"`
+	Token                      pulumi.StringPtrInput `pulumi:"token"`
 }
 
 func (RegistrationInfoArgs) ElementType() reflect.Type {
@@ -638,7 +558,6 @@ func (i *registrationInfoPtrType) ToRegistrationInfoPtrOutputWithContext(ctx con
 	return pulumi.ToOutputWithContext(ctx, i).(RegistrationInfoPtrOutput)
 }
 
-// Represents a RegistrationInfo definition.
 type RegistrationInfoOutput struct{ *pulumi.OutputState }
 
 func (RegistrationInfoOutput) ElementType() reflect.Type {
@@ -658,22 +577,19 @@ func (o RegistrationInfoOutput) ToRegistrationInfoPtrOutput() RegistrationInfoPt
 }
 
 func (o RegistrationInfoOutput) ToRegistrationInfoPtrOutputWithContext(ctx context.Context) RegistrationInfoPtrOutput {
-	return o.ApplyT(func(v RegistrationInfo) *RegistrationInfo {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v RegistrationInfo) *RegistrationInfo {
 		return &v
 	}).(RegistrationInfoPtrOutput)
 }
 
-// Expiration time of registration token.
 func (o RegistrationInfoOutput) ExpirationTime() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v RegistrationInfo) *string { return v.ExpirationTime }).(pulumi.StringPtrOutput)
 }
 
-// The type of resetting the token.
 func (o RegistrationInfoOutput) RegistrationTokenOperation() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v RegistrationInfo) *string { return v.RegistrationTokenOperation }).(pulumi.StringPtrOutput)
 }
 
-// The registration token base64 encoded string.
 func (o RegistrationInfoOutput) Token() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v RegistrationInfo) *string { return v.Token }).(pulumi.StringPtrOutput)
 }
@@ -693,10 +609,15 @@ func (o RegistrationInfoPtrOutput) ToRegistrationInfoPtrOutputWithContext(ctx co
 }
 
 func (o RegistrationInfoPtrOutput) Elem() RegistrationInfoOutput {
-	return o.ApplyT(func(v *RegistrationInfo) RegistrationInfo { return *v }).(RegistrationInfoOutput)
+	return o.ApplyT(func(v *RegistrationInfo) RegistrationInfo {
+		if v != nil {
+			return *v
+		}
+		var ret RegistrationInfo
+		return ret
+	}).(RegistrationInfoOutput)
 }
 
-// Expiration time of registration token.
 func (o RegistrationInfoPtrOutput) ExpirationTime() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *RegistrationInfo) *string {
 		if v == nil {
@@ -706,7 +627,6 @@ func (o RegistrationInfoPtrOutput) ExpirationTime() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The type of resetting the token.
 func (o RegistrationInfoPtrOutput) RegistrationTokenOperation() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *RegistrationInfo) *string {
 		if v == nil {
@@ -716,7 +636,6 @@ func (o RegistrationInfoPtrOutput) RegistrationTokenOperation() pulumi.StringPtr
 	}).(pulumi.StringPtrOutput)
 }
 
-// The registration token base64 encoded string.
 func (o RegistrationInfoPtrOutput) Token() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *RegistrationInfo) *string {
 		if v == nil {
@@ -726,14 +645,10 @@ func (o RegistrationInfoPtrOutput) Token() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Represents a RegistrationInfo definition.
 type RegistrationInfoResponse struct {
-	// Expiration time of registration token.
-	ExpirationTime *string `pulumi:"expirationTime"`
-	// The type of resetting the token.
+	ExpirationTime             *string `pulumi:"expirationTime"`
 	RegistrationTokenOperation *string `pulumi:"registrationTokenOperation"`
-	// The registration token base64 encoded string.
-	Token *string `pulumi:"token"`
+	Token                      *string `pulumi:"token"`
 }
 
 // RegistrationInfoResponseInput is an input type that accepts RegistrationInfoResponseArgs and RegistrationInfoResponseOutput values.
@@ -747,14 +662,10 @@ type RegistrationInfoResponseInput interface {
 	ToRegistrationInfoResponseOutputWithContext(context.Context) RegistrationInfoResponseOutput
 }
 
-// Represents a RegistrationInfo definition.
 type RegistrationInfoResponseArgs struct {
-	// Expiration time of registration token.
-	ExpirationTime pulumi.StringPtrInput `pulumi:"expirationTime"`
-	// The type of resetting the token.
+	ExpirationTime             pulumi.StringPtrInput `pulumi:"expirationTime"`
 	RegistrationTokenOperation pulumi.StringPtrInput `pulumi:"registrationTokenOperation"`
-	// The registration token base64 encoded string.
-	Token pulumi.StringPtrInput `pulumi:"token"`
+	Token                      pulumi.StringPtrInput `pulumi:"token"`
 }
 
 func (RegistrationInfoResponseArgs) ElementType() reflect.Type {
@@ -810,7 +721,6 @@ func (i *registrationInfoResponsePtrType) ToRegistrationInfoResponsePtrOutputWit
 	return pulumi.ToOutputWithContext(ctx, i).(RegistrationInfoResponsePtrOutput)
 }
 
-// Represents a RegistrationInfo definition.
 type RegistrationInfoResponseOutput struct{ *pulumi.OutputState }
 
 func (RegistrationInfoResponseOutput) ElementType() reflect.Type {
@@ -830,22 +740,19 @@ func (o RegistrationInfoResponseOutput) ToRegistrationInfoResponsePtrOutput() Re
 }
 
 func (o RegistrationInfoResponseOutput) ToRegistrationInfoResponsePtrOutputWithContext(ctx context.Context) RegistrationInfoResponsePtrOutput {
-	return o.ApplyT(func(v RegistrationInfoResponse) *RegistrationInfoResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v RegistrationInfoResponse) *RegistrationInfoResponse {
 		return &v
 	}).(RegistrationInfoResponsePtrOutput)
 }
 
-// Expiration time of registration token.
 func (o RegistrationInfoResponseOutput) ExpirationTime() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v RegistrationInfoResponse) *string { return v.ExpirationTime }).(pulumi.StringPtrOutput)
 }
 
-// The type of resetting the token.
 func (o RegistrationInfoResponseOutput) RegistrationTokenOperation() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v RegistrationInfoResponse) *string { return v.RegistrationTokenOperation }).(pulumi.StringPtrOutput)
 }
 
-// The registration token base64 encoded string.
 func (o RegistrationInfoResponseOutput) Token() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v RegistrationInfoResponse) *string { return v.Token }).(pulumi.StringPtrOutput)
 }
@@ -865,10 +772,15 @@ func (o RegistrationInfoResponsePtrOutput) ToRegistrationInfoResponsePtrOutputWi
 }
 
 func (o RegistrationInfoResponsePtrOutput) Elem() RegistrationInfoResponseOutput {
-	return o.ApplyT(func(v *RegistrationInfoResponse) RegistrationInfoResponse { return *v }).(RegistrationInfoResponseOutput)
+	return o.ApplyT(func(v *RegistrationInfoResponse) RegistrationInfoResponse {
+		if v != nil {
+			return *v
+		}
+		var ret RegistrationInfoResponse
+		return ret
+	}).(RegistrationInfoResponseOutput)
 }
 
-// Expiration time of registration token.
 func (o RegistrationInfoResponsePtrOutput) ExpirationTime() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *RegistrationInfoResponse) *string {
 		if v == nil {
@@ -878,7 +790,6 @@ func (o RegistrationInfoResponsePtrOutput) ExpirationTime() pulumi.StringPtrOutp
 	}).(pulumi.StringPtrOutput)
 }
 
-// The type of resetting the token.
 func (o RegistrationInfoResponsePtrOutput) RegistrationTokenOperation() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *RegistrationInfoResponse) *string {
 		if v == nil {
@@ -888,7 +799,6 @@ func (o RegistrationInfoResponsePtrOutput) RegistrationTokenOperation() pulumi.S
 	}).(pulumi.StringPtrOutput)
 }
 
-// The registration token base64 encoded string.
 func (o RegistrationInfoResponsePtrOutput) Token() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *RegistrationInfoResponse) *string {
 		if v == nil {

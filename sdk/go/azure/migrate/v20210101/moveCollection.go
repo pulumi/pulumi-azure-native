@@ -11,24 +11,16 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Define the move collection.
 type MoveCollection struct {
 	pulumi.CustomResourceState
 
-	// The etag of the resource.
-	Etag pulumi.StringOutput `pulumi:"etag"`
-	// Defines the MSI properties of the Move Collection.
-	Identity IdentityResponsePtrOutput `pulumi:"identity"`
-	// The geo-location where the resource lives.
-	Location pulumi.StringPtrOutput `pulumi:"location"`
-	// The name of the resource
-	Name pulumi.StringOutput `pulumi:"name"`
-	// Defines the move collection properties.
+	Etag       pulumi.StringOutput                    `pulumi:"etag"`
+	Identity   IdentityResponsePtrOutput              `pulumi:"identity"`
+	Location   pulumi.StringPtrOutput                 `pulumi:"location"`
+	Name       pulumi.StringOutput                    `pulumi:"name"`
 	Properties MoveCollectionPropertiesResponseOutput `pulumi:"properties"`
-	// Resource tags.
-	Tags pulumi.StringMapOutput `pulumi:"tags"`
-	// The type of the resource.
-	Type pulumi.StringOutput `pulumi:"type"`
+	Tags       pulumi.StringMapOutput                 `pulumi:"tags"`
+	Type       pulumi.StringOutput                    `pulumi:"type"`
 }
 
 // NewMoveCollection registers a new resource with the given unique name, arguments, and options.
@@ -91,34 +83,22 @@ func (MoveCollectionState) ElementType() reflect.Type {
 }
 
 type moveCollectionArgs struct {
-	// Defines the MSI properties of the Move Collection.
-	Identity *Identity `pulumi:"identity"`
-	// The geo-location where the resource lives.
-	Location *string `pulumi:"location"`
-	// The Move Collection Name.
-	MoveCollectionName *string `pulumi:"moveCollectionName"`
-	// Defines the move collection properties.
-	Properties *MoveCollectionProperties `pulumi:"properties"`
-	// The Resource Group Name.
-	ResourceGroupName string `pulumi:"resourceGroupName"`
-	// Resource tags.
-	Tags map[string]string `pulumi:"tags"`
+	Identity           *Identity                 `pulumi:"identity"`
+	Location           *string                   `pulumi:"location"`
+	MoveCollectionName *string                   `pulumi:"moveCollectionName"`
+	Properties         *MoveCollectionProperties `pulumi:"properties"`
+	ResourceGroupName  string                    `pulumi:"resourceGroupName"`
+	Tags               map[string]string         `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a MoveCollection resource.
 type MoveCollectionArgs struct {
-	// Defines the MSI properties of the Move Collection.
-	Identity IdentityPtrInput
-	// The geo-location where the resource lives.
-	Location pulumi.StringPtrInput
-	// The Move Collection Name.
+	Identity           IdentityPtrInput
+	Location           pulumi.StringPtrInput
 	MoveCollectionName pulumi.StringPtrInput
-	// Defines the move collection properties.
-	Properties MoveCollectionPropertiesPtrInput
-	// The Resource Group Name.
-	ResourceGroupName pulumi.StringInput
-	// Resource tags.
-	Tags pulumi.StringMapInput
+	Properties         MoveCollectionPropertiesPtrInput
+	ResourceGroupName  pulumi.StringInput
+	Tags               pulumi.StringMapInput
 }
 
 func (MoveCollectionArgs) ElementType() reflect.Type {
@@ -144,9 +124,7 @@ func (i *MoveCollection) ToMoveCollectionOutputWithContext(ctx context.Context) 
 	return pulumi.ToOutputWithContext(ctx, i).(MoveCollectionOutput)
 }
 
-type MoveCollectionOutput struct {
-	*pulumi.OutputState
-}
+type MoveCollectionOutput struct{ *pulumi.OutputState }
 
 func (MoveCollectionOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*MoveCollection)(nil))

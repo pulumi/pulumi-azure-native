@@ -11,20 +11,14 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// This type describes a secret resource.
 type Secret struct {
 	pulumi.CustomResourceState
 
-	// The geo-location where the resource lives
-	Location pulumi.StringOutput `pulumi:"location"`
-	// The name of the resource
-	Name pulumi.StringOutput `pulumi:"name"`
-	// Describes the properties of a secret resource.
+	Location   pulumi.StringOutput                    `pulumi:"location"`
+	Name       pulumi.StringOutput                    `pulumi:"name"`
 	Properties SecretResourcePropertiesResponseOutput `pulumi:"properties"`
-	// Resource tags.
-	Tags pulumi.StringMapOutput `pulumi:"tags"`
-	// The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
-	Type pulumi.StringOutput `pulumi:"type"`
+	Tags       pulumi.StringMapOutput                 `pulumi:"tags"`
+	Type       pulumi.StringOutput                    `pulumi:"type"`
 }
 
 // NewSecret registers a new resource with the given unique name, arguments, and options.
@@ -84,30 +78,20 @@ func (SecretState) ElementType() reflect.Type {
 }
 
 type secretArgs struct {
-	// The geo-location where the resource lives
-	Location *string `pulumi:"location"`
-	// Describes the properties of a secret resource.
-	Properties SecretResourceProperties `pulumi:"properties"`
-	// Azure resource group name
-	ResourceGroupName string `pulumi:"resourceGroupName"`
-	// The name of the secret resource.
-	SecretResourceName *string `pulumi:"secretResourceName"`
-	// Resource tags.
-	Tags map[string]string `pulumi:"tags"`
+	Location           *string                  `pulumi:"location"`
+	Properties         SecretResourceProperties `pulumi:"properties"`
+	ResourceGroupName  string                   `pulumi:"resourceGroupName"`
+	SecretResourceName *string                  `pulumi:"secretResourceName"`
+	Tags               map[string]string        `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a Secret resource.
 type SecretArgs struct {
-	// The geo-location where the resource lives
-	Location pulumi.StringPtrInput
-	// Describes the properties of a secret resource.
-	Properties SecretResourcePropertiesInput
-	// Azure resource group name
-	ResourceGroupName pulumi.StringInput
-	// The name of the secret resource.
+	Location           pulumi.StringPtrInput
+	Properties         SecretResourcePropertiesInput
+	ResourceGroupName  pulumi.StringInput
 	SecretResourceName pulumi.StringPtrInput
-	// Resource tags.
-	Tags pulumi.StringMapInput
+	Tags               pulumi.StringMapInput
 }
 
 func (SecretArgs) ElementType() reflect.Type {
@@ -133,9 +117,7 @@ func (i *Secret) ToSecretOutputWithContext(ctx context.Context) SecretOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(SecretOutput)
 }
 
-type SecretOutput struct {
-	*pulumi.OutputState
-}
+type SecretOutput struct{ *pulumi.OutputState }
 
 func (SecretOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*Secret)(nil))

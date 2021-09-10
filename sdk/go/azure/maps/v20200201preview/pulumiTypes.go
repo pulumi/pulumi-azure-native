@@ -10,9 +10,7 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Creator resource properties
 type CreatorPropertiesResponse struct {
-	// The state of the resource provisioning, terminal states: Succeeded, Failed, Canceled
 	ProvisioningState *string `pulumi:"provisioningState"`
 }
 
@@ -27,9 +25,7 @@ type CreatorPropertiesResponseInput interface {
 	ToCreatorPropertiesResponseOutputWithContext(context.Context) CreatorPropertiesResponseOutput
 }
 
-// Creator resource properties
 type CreatorPropertiesResponseArgs struct {
-	// The state of the resource provisioning, terminal states: Succeeded, Failed, Canceled
 	ProvisioningState pulumi.StringPtrInput `pulumi:"provisioningState"`
 }
 
@@ -86,7 +82,6 @@ func (i *creatorPropertiesResponsePtrType) ToCreatorPropertiesResponsePtrOutputW
 	return pulumi.ToOutputWithContext(ctx, i).(CreatorPropertiesResponsePtrOutput)
 }
 
-// Creator resource properties
 type CreatorPropertiesResponseOutput struct{ *pulumi.OutputState }
 
 func (CreatorPropertiesResponseOutput) ElementType() reflect.Type {
@@ -106,12 +101,11 @@ func (o CreatorPropertiesResponseOutput) ToCreatorPropertiesResponsePtrOutput() 
 }
 
 func (o CreatorPropertiesResponseOutput) ToCreatorPropertiesResponsePtrOutputWithContext(ctx context.Context) CreatorPropertiesResponsePtrOutput {
-	return o.ApplyT(func(v CreatorPropertiesResponse) *CreatorPropertiesResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v CreatorPropertiesResponse) *CreatorPropertiesResponse {
 		return &v
 	}).(CreatorPropertiesResponsePtrOutput)
 }
 
-// The state of the resource provisioning, terminal states: Succeeded, Failed, Canceled
 func (o CreatorPropertiesResponseOutput) ProvisioningState() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v CreatorPropertiesResponse) *string { return v.ProvisioningState }).(pulumi.StringPtrOutput)
 }
@@ -131,10 +125,15 @@ func (o CreatorPropertiesResponsePtrOutput) ToCreatorPropertiesResponsePtrOutput
 }
 
 func (o CreatorPropertiesResponsePtrOutput) Elem() CreatorPropertiesResponseOutput {
-	return o.ApplyT(func(v *CreatorPropertiesResponse) CreatorPropertiesResponse { return *v }).(CreatorPropertiesResponseOutput)
+	return o.ApplyT(func(v *CreatorPropertiesResponse) CreatorPropertiesResponse {
+		if v != nil {
+			return *v
+		}
+		var ret CreatorPropertiesResponse
+		return ret
+	}).(CreatorPropertiesResponseOutput)
 }
 
-// The state of the resource provisioning, terminal states: Succeeded, Failed, Canceled
 func (o CreatorPropertiesResponsePtrOutput) ProvisioningState() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *CreatorPropertiesResponse) *string {
 		if v == nil {
@@ -144,9 +143,7 @@ func (o CreatorPropertiesResponsePtrOutput) ProvisioningState() pulumi.StringPtr
 	}).(pulumi.StringPtrOutput)
 }
 
-// Additional Map account properties
 type MapsAccountPropertiesResponse struct {
-	// A unique identifier for the maps account
 	XMsClientId *string `pulumi:"xMsClientId"`
 }
 
@@ -161,9 +158,7 @@ type MapsAccountPropertiesResponseInput interface {
 	ToMapsAccountPropertiesResponseOutputWithContext(context.Context) MapsAccountPropertiesResponseOutput
 }
 
-// Additional Map account properties
 type MapsAccountPropertiesResponseArgs struct {
-	// A unique identifier for the maps account
 	XMsClientId pulumi.StringPtrInput `pulumi:"xMsClientId"`
 }
 
@@ -220,7 +215,6 @@ func (i *mapsAccountPropertiesResponsePtrType) ToMapsAccountPropertiesResponsePt
 	return pulumi.ToOutputWithContext(ctx, i).(MapsAccountPropertiesResponsePtrOutput)
 }
 
-// Additional Map account properties
 type MapsAccountPropertiesResponseOutput struct{ *pulumi.OutputState }
 
 func (MapsAccountPropertiesResponseOutput) ElementType() reflect.Type {
@@ -240,12 +234,11 @@ func (o MapsAccountPropertiesResponseOutput) ToMapsAccountPropertiesResponsePtrO
 }
 
 func (o MapsAccountPropertiesResponseOutput) ToMapsAccountPropertiesResponsePtrOutputWithContext(ctx context.Context) MapsAccountPropertiesResponsePtrOutput {
-	return o.ApplyT(func(v MapsAccountPropertiesResponse) *MapsAccountPropertiesResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v MapsAccountPropertiesResponse) *MapsAccountPropertiesResponse {
 		return &v
 	}).(MapsAccountPropertiesResponsePtrOutput)
 }
 
-// A unique identifier for the maps account
 func (o MapsAccountPropertiesResponseOutput) XMsClientId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v MapsAccountPropertiesResponse) *string { return v.XMsClientId }).(pulumi.StringPtrOutput)
 }
@@ -265,10 +258,15 @@ func (o MapsAccountPropertiesResponsePtrOutput) ToMapsAccountPropertiesResponseP
 }
 
 func (o MapsAccountPropertiesResponsePtrOutput) Elem() MapsAccountPropertiesResponseOutput {
-	return o.ApplyT(func(v *MapsAccountPropertiesResponse) MapsAccountPropertiesResponse { return *v }).(MapsAccountPropertiesResponseOutput)
+	return o.ApplyT(func(v *MapsAccountPropertiesResponse) MapsAccountPropertiesResponse {
+		if v != nil {
+			return *v
+		}
+		var ret MapsAccountPropertiesResponse
+		return ret
+	}).(MapsAccountPropertiesResponseOutput)
 }
 
-// A unique identifier for the maps account
 func (o MapsAccountPropertiesResponsePtrOutput) XMsClientId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *MapsAccountPropertiesResponse) *string {
 		if v == nil {
@@ -278,9 +276,7 @@ func (o MapsAccountPropertiesResponsePtrOutput) XMsClientId() pulumi.StringPtrOu
 	}).(pulumi.StringPtrOutput)
 }
 
-// Private Atlas resource properties
 type PrivateAtlasPropertiesResponse struct {
-	// The state of the resource provisioning, terminal states: Succeeded, Failed, Canceled
 	ProvisioningState *string `pulumi:"provisioningState"`
 }
 
@@ -295,9 +291,7 @@ type PrivateAtlasPropertiesResponseInput interface {
 	ToPrivateAtlasPropertiesResponseOutputWithContext(context.Context) PrivateAtlasPropertiesResponseOutput
 }
 
-// Private Atlas resource properties
 type PrivateAtlasPropertiesResponseArgs struct {
-	// The state of the resource provisioning, terminal states: Succeeded, Failed, Canceled
 	ProvisioningState pulumi.StringPtrInput `pulumi:"provisioningState"`
 }
 
@@ -354,7 +348,6 @@ func (i *privateAtlasPropertiesResponsePtrType) ToPrivateAtlasPropertiesResponse
 	return pulumi.ToOutputWithContext(ctx, i).(PrivateAtlasPropertiesResponsePtrOutput)
 }
 
-// Private Atlas resource properties
 type PrivateAtlasPropertiesResponseOutput struct{ *pulumi.OutputState }
 
 func (PrivateAtlasPropertiesResponseOutput) ElementType() reflect.Type {
@@ -374,12 +367,11 @@ func (o PrivateAtlasPropertiesResponseOutput) ToPrivateAtlasPropertiesResponsePt
 }
 
 func (o PrivateAtlasPropertiesResponseOutput) ToPrivateAtlasPropertiesResponsePtrOutputWithContext(ctx context.Context) PrivateAtlasPropertiesResponsePtrOutput {
-	return o.ApplyT(func(v PrivateAtlasPropertiesResponse) *PrivateAtlasPropertiesResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v PrivateAtlasPropertiesResponse) *PrivateAtlasPropertiesResponse {
 		return &v
 	}).(PrivateAtlasPropertiesResponsePtrOutput)
 }
 
-// The state of the resource provisioning, terminal states: Succeeded, Failed, Canceled
 func (o PrivateAtlasPropertiesResponseOutput) ProvisioningState() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v PrivateAtlasPropertiesResponse) *string { return v.ProvisioningState }).(pulumi.StringPtrOutput)
 }
@@ -399,10 +391,15 @@ func (o PrivateAtlasPropertiesResponsePtrOutput) ToPrivateAtlasPropertiesRespons
 }
 
 func (o PrivateAtlasPropertiesResponsePtrOutput) Elem() PrivateAtlasPropertiesResponseOutput {
-	return o.ApplyT(func(v *PrivateAtlasPropertiesResponse) PrivateAtlasPropertiesResponse { return *v }).(PrivateAtlasPropertiesResponseOutput)
+	return o.ApplyT(func(v *PrivateAtlasPropertiesResponse) PrivateAtlasPropertiesResponse {
+		if v != nil {
+			return *v
+		}
+		var ret PrivateAtlasPropertiesResponse
+		return ret
+	}).(PrivateAtlasPropertiesResponseOutput)
 }
 
-// The state of the resource provisioning, terminal states: Succeeded, Failed, Canceled
 func (o PrivateAtlasPropertiesResponsePtrOutput) ProvisioningState() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *PrivateAtlasPropertiesResponse) *string {
 		if v == nil {
@@ -412,9 +409,7 @@ func (o PrivateAtlasPropertiesResponsePtrOutput) ProvisioningState() pulumi.Stri
 	}).(pulumi.StringPtrOutput)
 }
 
-// The SKU of the Maps Account.
 type Sku struct {
-	// The name of the SKU, in standard format (such as S0).
 	Name string `pulumi:"name"`
 }
 
@@ -429,9 +424,7 @@ type SkuInput interface {
 	ToSkuOutputWithContext(context.Context) SkuOutput
 }
 
-// The SKU of the Maps Account.
 type SkuArgs struct {
-	// The name of the SKU, in standard format (such as S0).
 	Name pulumi.StringInput `pulumi:"name"`
 }
 
@@ -488,7 +481,6 @@ func (i *skuPtrType) ToSkuPtrOutputWithContext(ctx context.Context) SkuPtrOutput
 	return pulumi.ToOutputWithContext(ctx, i).(SkuPtrOutput)
 }
 
-// The SKU of the Maps Account.
 type SkuOutput struct{ *pulumi.OutputState }
 
 func (SkuOutput) ElementType() reflect.Type {
@@ -508,12 +500,11 @@ func (o SkuOutput) ToSkuPtrOutput() SkuPtrOutput {
 }
 
 func (o SkuOutput) ToSkuPtrOutputWithContext(ctx context.Context) SkuPtrOutput {
-	return o.ApplyT(func(v Sku) *Sku {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v Sku) *Sku {
 		return &v
 	}).(SkuPtrOutput)
 }
 
-// The name of the SKU, in standard format (such as S0).
 func (o SkuOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v Sku) string { return v.Name }).(pulumi.StringOutput)
 }
@@ -533,10 +524,15 @@ func (o SkuPtrOutput) ToSkuPtrOutputWithContext(ctx context.Context) SkuPtrOutpu
 }
 
 func (o SkuPtrOutput) Elem() SkuOutput {
-	return o.ApplyT(func(v *Sku) Sku { return *v }).(SkuOutput)
+	return o.ApplyT(func(v *Sku) Sku {
+		if v != nil {
+			return *v
+		}
+		var ret Sku
+		return ret
+	}).(SkuOutput)
 }
 
-// The name of the SKU, in standard format (such as S0).
 func (o SkuPtrOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Sku) *string {
 		if v == nil {
@@ -546,11 +542,8 @@ func (o SkuPtrOutput) Name() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The SKU of the Maps Account.
 type SkuResponse struct {
-	// The name of the SKU, in standard format (such as S0).
 	Name string `pulumi:"name"`
-	// Gets the sku tier. This is based on the SKU name.
 	Tier string `pulumi:"tier"`
 }
 
@@ -565,11 +558,8 @@ type SkuResponseInput interface {
 	ToSkuResponseOutputWithContext(context.Context) SkuResponseOutput
 }
 
-// The SKU of the Maps Account.
 type SkuResponseArgs struct {
-	// The name of the SKU, in standard format (such as S0).
 	Name pulumi.StringInput `pulumi:"name"`
-	// Gets the sku tier. This is based on the SKU name.
 	Tier pulumi.StringInput `pulumi:"tier"`
 }
 
@@ -626,7 +616,6 @@ func (i *skuResponsePtrType) ToSkuResponsePtrOutputWithContext(ctx context.Conte
 	return pulumi.ToOutputWithContext(ctx, i).(SkuResponsePtrOutput)
 }
 
-// The SKU of the Maps Account.
 type SkuResponseOutput struct{ *pulumi.OutputState }
 
 func (SkuResponseOutput) ElementType() reflect.Type {
@@ -646,17 +635,15 @@ func (o SkuResponseOutput) ToSkuResponsePtrOutput() SkuResponsePtrOutput {
 }
 
 func (o SkuResponseOutput) ToSkuResponsePtrOutputWithContext(ctx context.Context) SkuResponsePtrOutput {
-	return o.ApplyT(func(v SkuResponse) *SkuResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v SkuResponse) *SkuResponse {
 		return &v
 	}).(SkuResponsePtrOutput)
 }
 
-// The name of the SKU, in standard format (such as S0).
 func (o SkuResponseOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v SkuResponse) string { return v.Name }).(pulumi.StringOutput)
 }
 
-// Gets the sku tier. This is based on the SKU name.
 func (o SkuResponseOutput) Tier() pulumi.StringOutput {
 	return o.ApplyT(func(v SkuResponse) string { return v.Tier }).(pulumi.StringOutput)
 }
@@ -676,10 +663,15 @@ func (o SkuResponsePtrOutput) ToSkuResponsePtrOutputWithContext(ctx context.Cont
 }
 
 func (o SkuResponsePtrOutput) Elem() SkuResponseOutput {
-	return o.ApplyT(func(v *SkuResponse) SkuResponse { return *v }).(SkuResponseOutput)
+	return o.ApplyT(func(v *SkuResponse) SkuResponse {
+		if v != nil {
+			return *v
+		}
+		var ret SkuResponse
+		return ret
+	}).(SkuResponseOutput)
 }
 
-// The name of the SKU, in standard format (such as S0).
 func (o SkuResponsePtrOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SkuResponse) *string {
 		if v == nil {
@@ -689,7 +681,6 @@ func (o SkuResponsePtrOutput) Name() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Gets the sku tier. This is based on the SKU name.
 func (o SkuResponsePtrOutput) Tier() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SkuResponse) *string {
 		if v == nil {
@@ -699,19 +690,12 @@ func (o SkuResponsePtrOutput) Tier() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Metadata pertaining to creation and last modification of the resource.
 type SystemDataResponse struct {
-	// The timestamp of resource creation (UTC).
-	CreatedAt *string `pulumi:"createdAt"`
-	// The identity that created the resource.
-	CreatedBy *string `pulumi:"createdBy"`
-	// The type of identity that created the resource.
-	CreatedByType *string `pulumi:"createdByType"`
-	// The timestamp of resource last modification (UTC)
-	LastModifiedAt *string `pulumi:"lastModifiedAt"`
-	// The identity that last modified the resource.
-	LastModifiedBy *string `pulumi:"lastModifiedBy"`
-	// The type of identity that last modified the resource.
+	CreatedAt          *string `pulumi:"createdAt"`
+	CreatedBy          *string `pulumi:"createdBy"`
+	CreatedByType      *string `pulumi:"createdByType"`
+	LastModifiedAt     *string `pulumi:"lastModifiedAt"`
+	LastModifiedBy     *string `pulumi:"lastModifiedBy"`
 	LastModifiedByType *string `pulumi:"lastModifiedByType"`
 }
 
@@ -726,19 +710,12 @@ type SystemDataResponseInput interface {
 	ToSystemDataResponseOutputWithContext(context.Context) SystemDataResponseOutput
 }
 
-// Metadata pertaining to creation and last modification of the resource.
 type SystemDataResponseArgs struct {
-	// The timestamp of resource creation (UTC).
-	CreatedAt pulumi.StringPtrInput `pulumi:"createdAt"`
-	// The identity that created the resource.
-	CreatedBy pulumi.StringPtrInput `pulumi:"createdBy"`
-	// The type of identity that created the resource.
-	CreatedByType pulumi.StringPtrInput `pulumi:"createdByType"`
-	// The timestamp of resource last modification (UTC)
-	LastModifiedAt pulumi.StringPtrInput `pulumi:"lastModifiedAt"`
-	// The identity that last modified the resource.
-	LastModifiedBy pulumi.StringPtrInput `pulumi:"lastModifiedBy"`
-	// The type of identity that last modified the resource.
+	CreatedAt          pulumi.StringPtrInput `pulumi:"createdAt"`
+	CreatedBy          pulumi.StringPtrInput `pulumi:"createdBy"`
+	CreatedByType      pulumi.StringPtrInput `pulumi:"createdByType"`
+	LastModifiedAt     pulumi.StringPtrInput `pulumi:"lastModifiedAt"`
+	LastModifiedBy     pulumi.StringPtrInput `pulumi:"lastModifiedBy"`
 	LastModifiedByType pulumi.StringPtrInput `pulumi:"lastModifiedByType"`
 }
 
@@ -795,7 +772,6 @@ func (i *systemDataResponsePtrType) ToSystemDataResponsePtrOutputWithContext(ctx
 	return pulumi.ToOutputWithContext(ctx, i).(SystemDataResponsePtrOutput)
 }
 
-// Metadata pertaining to creation and last modification of the resource.
 type SystemDataResponseOutput struct{ *pulumi.OutputState }
 
 func (SystemDataResponseOutput) ElementType() reflect.Type {
@@ -815,37 +791,31 @@ func (o SystemDataResponseOutput) ToSystemDataResponsePtrOutput() SystemDataResp
 }
 
 func (o SystemDataResponseOutput) ToSystemDataResponsePtrOutputWithContext(ctx context.Context) SystemDataResponsePtrOutput {
-	return o.ApplyT(func(v SystemDataResponse) *SystemDataResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v SystemDataResponse) *SystemDataResponse {
 		return &v
 	}).(SystemDataResponsePtrOutput)
 }
 
-// The timestamp of resource creation (UTC).
 func (o SystemDataResponseOutput) CreatedAt() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SystemDataResponse) *string { return v.CreatedAt }).(pulumi.StringPtrOutput)
 }
 
-// The identity that created the resource.
 func (o SystemDataResponseOutput) CreatedBy() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SystemDataResponse) *string { return v.CreatedBy }).(pulumi.StringPtrOutput)
 }
 
-// The type of identity that created the resource.
 func (o SystemDataResponseOutput) CreatedByType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SystemDataResponse) *string { return v.CreatedByType }).(pulumi.StringPtrOutput)
 }
 
-// The timestamp of resource last modification (UTC)
 func (o SystemDataResponseOutput) LastModifiedAt() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SystemDataResponse) *string { return v.LastModifiedAt }).(pulumi.StringPtrOutput)
 }
 
-// The identity that last modified the resource.
 func (o SystemDataResponseOutput) LastModifiedBy() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SystemDataResponse) *string { return v.LastModifiedBy }).(pulumi.StringPtrOutput)
 }
 
-// The type of identity that last modified the resource.
 func (o SystemDataResponseOutput) LastModifiedByType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SystemDataResponse) *string { return v.LastModifiedByType }).(pulumi.StringPtrOutput)
 }
@@ -865,10 +835,15 @@ func (o SystemDataResponsePtrOutput) ToSystemDataResponsePtrOutputWithContext(ct
 }
 
 func (o SystemDataResponsePtrOutput) Elem() SystemDataResponseOutput {
-	return o.ApplyT(func(v *SystemDataResponse) SystemDataResponse { return *v }).(SystemDataResponseOutput)
+	return o.ApplyT(func(v *SystemDataResponse) SystemDataResponse {
+		if v != nil {
+			return *v
+		}
+		var ret SystemDataResponse
+		return ret
+	}).(SystemDataResponseOutput)
 }
 
-// The timestamp of resource creation (UTC).
 func (o SystemDataResponsePtrOutput) CreatedAt() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SystemDataResponse) *string {
 		if v == nil {
@@ -878,7 +853,6 @@ func (o SystemDataResponsePtrOutput) CreatedAt() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The identity that created the resource.
 func (o SystemDataResponsePtrOutput) CreatedBy() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SystemDataResponse) *string {
 		if v == nil {
@@ -888,7 +862,6 @@ func (o SystemDataResponsePtrOutput) CreatedBy() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The type of identity that created the resource.
 func (o SystemDataResponsePtrOutput) CreatedByType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SystemDataResponse) *string {
 		if v == nil {
@@ -898,7 +871,6 @@ func (o SystemDataResponsePtrOutput) CreatedByType() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The timestamp of resource last modification (UTC)
 func (o SystemDataResponsePtrOutput) LastModifiedAt() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SystemDataResponse) *string {
 		if v == nil {
@@ -908,7 +880,6 @@ func (o SystemDataResponsePtrOutput) LastModifiedAt() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The identity that last modified the resource.
 func (o SystemDataResponsePtrOutput) LastModifiedBy() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SystemDataResponse) *string {
 		if v == nil {
@@ -918,7 +889,6 @@ func (o SystemDataResponsePtrOutput) LastModifiedBy() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The type of identity that last modified the resource.
 func (o SystemDataResponsePtrOutput) LastModifiedByType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SystemDataResponse) *string {
 		if v == nil {

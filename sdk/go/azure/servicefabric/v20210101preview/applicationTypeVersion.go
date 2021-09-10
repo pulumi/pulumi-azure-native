@@ -11,24 +11,16 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// An application type version resource for the specified application type name resource.
 type ApplicationTypeVersion struct {
 	pulumi.CustomResourceState
 
-	// The URL to the application package
-	AppPackageUrl pulumi.StringOutput `pulumi:"appPackageUrl"`
-	// Resource location depends on the parent resource.
-	Location pulumi.StringPtrOutput `pulumi:"location"`
-	// Azure resource name.
-	Name pulumi.StringOutput `pulumi:"name"`
-	// The current deployment or provisioning state, which only appears in the response
-	ProvisioningState pulumi.StringOutput `pulumi:"provisioningState"`
-	// Metadata pertaining to creation and last modification of the resource.
-	SystemData SystemDataResponseOutput `pulumi:"systemData"`
-	// Azure resource tags.
-	Tags pulumi.StringMapOutput `pulumi:"tags"`
-	// Azure resource type.
-	Type pulumi.StringOutput `pulumi:"type"`
+	AppPackageUrl     pulumi.StringOutput      `pulumi:"appPackageUrl"`
+	Location          pulumi.StringPtrOutput   `pulumi:"location"`
+	Name              pulumi.StringOutput      `pulumi:"name"`
+	ProvisioningState pulumi.StringOutput      `pulumi:"provisioningState"`
+	SystemData        SystemDataResponseOutput `pulumi:"systemData"`
+	Tags              pulumi.StringMapOutput   `pulumi:"tags"`
+	Type              pulumi.StringOutput      `pulumi:"type"`
 }
 
 // NewApplicationTypeVersion registers a new resource with the given unique name, arguments, and options.
@@ -100,38 +92,24 @@ func (ApplicationTypeVersionState) ElementType() reflect.Type {
 }
 
 type applicationTypeVersionArgs struct {
-	// The URL to the application package
-	AppPackageUrl string `pulumi:"appPackageUrl"`
-	// The name of the application type name resource.
-	ApplicationTypeName string `pulumi:"applicationTypeName"`
-	// The name of the cluster resource.
-	ClusterName string `pulumi:"clusterName"`
-	// Resource location depends on the parent resource.
-	Location *string `pulumi:"location"`
-	// The name of the resource group.
-	ResourceGroupName string `pulumi:"resourceGroupName"`
-	// Azure resource tags.
-	Tags map[string]string `pulumi:"tags"`
-	// The application type version.
-	Version *string `pulumi:"version"`
+	AppPackageUrl       string            `pulumi:"appPackageUrl"`
+	ApplicationTypeName string            `pulumi:"applicationTypeName"`
+	ClusterName         string            `pulumi:"clusterName"`
+	Location            *string           `pulumi:"location"`
+	ResourceGroupName   string            `pulumi:"resourceGroupName"`
+	Tags                map[string]string `pulumi:"tags"`
+	Version             *string           `pulumi:"version"`
 }
 
 // The set of arguments for constructing a ApplicationTypeVersion resource.
 type ApplicationTypeVersionArgs struct {
-	// The URL to the application package
-	AppPackageUrl pulumi.StringInput
-	// The name of the application type name resource.
+	AppPackageUrl       pulumi.StringInput
 	ApplicationTypeName pulumi.StringInput
-	// The name of the cluster resource.
-	ClusterName pulumi.StringInput
-	// Resource location depends on the parent resource.
-	Location pulumi.StringPtrInput
-	// The name of the resource group.
-	ResourceGroupName pulumi.StringInput
-	// Azure resource tags.
-	Tags pulumi.StringMapInput
-	// The application type version.
-	Version pulumi.StringPtrInput
+	ClusterName         pulumi.StringInput
+	Location            pulumi.StringPtrInput
+	ResourceGroupName   pulumi.StringInput
+	Tags                pulumi.StringMapInput
+	Version             pulumi.StringPtrInput
 }
 
 func (ApplicationTypeVersionArgs) ElementType() reflect.Type {
@@ -157,9 +135,7 @@ func (i *ApplicationTypeVersion) ToApplicationTypeVersionOutputWithContext(ctx c
 	return pulumi.ToOutputWithContext(ctx, i).(ApplicationTypeVersionOutput)
 }
 
-type ApplicationTypeVersionOutput struct {
-	*pulumi.OutputState
-}
+type ApplicationTypeVersionOutput struct{ *pulumi.OutputState }
 
 func (ApplicationTypeVersionOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*ApplicationTypeVersion)(nil))

@@ -11,33 +11,20 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// The application resource.
 type Application struct {
 	pulumi.CustomResourceState
 
-	// Describes the managed identities for an Azure resource.
-	Identity ManagedIdentityResponsePtrOutput `pulumi:"identity"`
-	// Resource location depends on the parent resource.
-	Location pulumi.StringPtrOutput `pulumi:"location"`
-	// List of user assigned identities for the application, each mapped to a friendly name.
+	Identity          ManagedIdentityResponsePtrOutput                   `pulumi:"identity"`
+	Location          pulumi.StringPtrOutput                             `pulumi:"location"`
 	ManagedIdentities ApplicationUserAssignedIdentityResponseArrayOutput `pulumi:"managedIdentities"`
-	// Azure resource name.
-	Name pulumi.StringOutput `pulumi:"name"`
-	// List of application parameters with overridden values from their default values specified in the application manifest.
-	Parameters pulumi.StringMapOutput `pulumi:"parameters"`
-	// The current deployment or provisioning state, which only appears in the response
-	ProvisioningState pulumi.StringOutput `pulumi:"provisioningState"`
-	// Metadata pertaining to creation and last modification of the resource.
-	SystemData SystemDataResponseOutput `pulumi:"systemData"`
-	// Azure resource tags.
-	Tags pulumi.StringMapOutput `pulumi:"tags"`
-	// Azure resource type.
-	Type pulumi.StringOutput `pulumi:"type"`
-	// Describes the policy for a monitored application upgrade.
-	UpgradePolicy ApplicationUpgradePolicyResponsePtrOutput `pulumi:"upgradePolicy"`
-	// The version of the application type as defined in the application manifest.
-	// This name must be the full Arm Resource ID for the referenced application type version.
-	Version pulumi.StringPtrOutput `pulumi:"version"`
+	Name              pulumi.StringOutput                                `pulumi:"name"`
+	Parameters        pulumi.StringMapOutput                             `pulumi:"parameters"`
+	ProvisioningState pulumi.StringOutput                                `pulumi:"provisioningState"`
+	SystemData        SystemDataResponseOutput                           `pulumi:"systemData"`
+	Tags              pulumi.StringMapOutput                             `pulumi:"tags"`
+	Type              pulumi.StringOutput                                `pulumi:"type"`
+	UpgradePolicy     ApplicationUpgradePolicyResponsePtrOutput          `pulumi:"upgradePolicy"`
+	Version           pulumi.StringPtrOutput                             `pulumi:"version"`
 }
 
 // NewApplication registers a new resource with the given unique name, arguments, and options.
@@ -103,52 +90,30 @@ func (ApplicationState) ElementType() reflect.Type {
 }
 
 type applicationArgs struct {
-	// The name of the application resource.
-	ApplicationName *string `pulumi:"applicationName"`
-	// The name of the cluster resource.
-	ClusterName string `pulumi:"clusterName"`
-	// Describes the managed identities for an Azure resource.
-	Identity *ManagedIdentity `pulumi:"identity"`
-	// Resource location depends on the parent resource.
-	Location *string `pulumi:"location"`
-	// List of user assigned identities for the application, each mapped to a friendly name.
+	ApplicationName   *string                           `pulumi:"applicationName"`
+	ClusterName       string                            `pulumi:"clusterName"`
+	Identity          *ManagedIdentity                  `pulumi:"identity"`
+	Location          *string                           `pulumi:"location"`
 	ManagedIdentities []ApplicationUserAssignedIdentity `pulumi:"managedIdentities"`
-	// List of application parameters with overridden values from their default values specified in the application manifest.
-	Parameters map[string]string `pulumi:"parameters"`
-	// The name of the resource group.
-	ResourceGroupName string `pulumi:"resourceGroupName"`
-	// Azure resource tags.
-	Tags map[string]string `pulumi:"tags"`
-	// Describes the policy for a monitored application upgrade.
-	UpgradePolicy *ApplicationUpgradePolicy `pulumi:"upgradePolicy"`
-	// The version of the application type as defined in the application manifest.
-	// This name must be the full Arm Resource ID for the referenced application type version.
-	Version *string `pulumi:"version"`
+	Parameters        map[string]string                 `pulumi:"parameters"`
+	ResourceGroupName string                            `pulumi:"resourceGroupName"`
+	Tags              map[string]string                 `pulumi:"tags"`
+	UpgradePolicy     *ApplicationUpgradePolicy         `pulumi:"upgradePolicy"`
+	Version           *string                           `pulumi:"version"`
 }
 
 // The set of arguments for constructing a Application resource.
 type ApplicationArgs struct {
-	// The name of the application resource.
-	ApplicationName pulumi.StringPtrInput
-	// The name of the cluster resource.
-	ClusterName pulumi.StringInput
-	// Describes the managed identities for an Azure resource.
-	Identity ManagedIdentityPtrInput
-	// Resource location depends on the parent resource.
-	Location pulumi.StringPtrInput
-	// List of user assigned identities for the application, each mapped to a friendly name.
+	ApplicationName   pulumi.StringPtrInput
+	ClusterName       pulumi.StringInput
+	Identity          ManagedIdentityPtrInput
+	Location          pulumi.StringPtrInput
 	ManagedIdentities ApplicationUserAssignedIdentityArrayInput
-	// List of application parameters with overridden values from their default values specified in the application manifest.
-	Parameters pulumi.StringMapInput
-	// The name of the resource group.
+	Parameters        pulumi.StringMapInput
 	ResourceGroupName pulumi.StringInput
-	// Azure resource tags.
-	Tags pulumi.StringMapInput
-	// Describes the policy for a monitored application upgrade.
-	UpgradePolicy ApplicationUpgradePolicyPtrInput
-	// The version of the application type as defined in the application manifest.
-	// This name must be the full Arm Resource ID for the referenced application type version.
-	Version pulumi.StringPtrInput
+	Tags              pulumi.StringMapInput
+	UpgradePolicy     ApplicationUpgradePolicyPtrInput
+	Version           pulumi.StringPtrInput
 }
 
 func (ApplicationArgs) ElementType() reflect.Type {
@@ -174,9 +139,7 @@ func (i *Application) ToApplicationOutputWithContext(ctx context.Context) Applic
 	return pulumi.ToOutputWithContext(ctx, i).(ApplicationOutput)
 }
 
-type ApplicationOutput struct {
-	*pulumi.OutputState
-}
+type ApplicationOutput struct{ *pulumi.OutputState }
 
 func (ApplicationOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*Application)(nil))

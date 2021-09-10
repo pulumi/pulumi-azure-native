@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.ServiceFabric.V20210601.Outputs
 {
 
+    /// <summary>
+    /// Describes the notification target properties.
+    /// </summary>
     [OutputType]
     public sealed class NotificationTargetResponse
     {

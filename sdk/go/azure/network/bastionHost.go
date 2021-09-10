@@ -235,9 +235,7 @@ func (i *BastionHost) ToBastionHostOutputWithContext(ctx context.Context) Bastio
 	return pulumi.ToOutputWithContext(ctx, i).(BastionHostOutput)
 }
 
-type BastionHostOutput struct {
-	*pulumi.OutputState
-}
+type BastionHostOutput struct{ *pulumi.OutputState }
 
 func (BastionHostOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*BastionHost)(nil))

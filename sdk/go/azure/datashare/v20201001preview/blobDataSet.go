@@ -11,31 +11,19 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// An Azure storage blob data set.
 type BlobDataSet struct {
 	pulumi.CustomResourceState
 
-	// Container that has the file path.
-	ContainerName pulumi.StringOutput `pulumi:"containerName"`
-	// Unique id for identifying a data set resource
-	DataSetId pulumi.StringOutput `pulumi:"dataSetId"`
-	// File path within the source data set
-	FilePath pulumi.StringOutput `pulumi:"filePath"`
-	// Kind of data set.
-	// Expected value is 'Blob'.
-	Kind pulumi.StringOutput `pulumi:"kind"`
-	// Name of the azure resource
-	Name pulumi.StringOutput `pulumi:"name"`
-	// Resource group of storage account
-	ResourceGroup pulumi.StringOutput `pulumi:"resourceGroup"`
-	// Storage account name of the source data set
-	StorageAccountName pulumi.StringOutput `pulumi:"storageAccountName"`
-	// Subscription id of storage account
-	SubscriptionId pulumi.StringOutput `pulumi:"subscriptionId"`
-	// System Data of the Azure resource.
-	SystemData SystemDataResponseOutput `pulumi:"systemData"`
-	// Type of the azure resource
-	Type pulumi.StringOutput `pulumi:"type"`
+	ContainerName      pulumi.StringOutput      `pulumi:"containerName"`
+	DataSetId          pulumi.StringOutput      `pulumi:"dataSetId"`
+	FilePath           pulumi.StringOutput      `pulumi:"filePath"`
+	Kind               pulumi.StringOutput      `pulumi:"kind"`
+	Name               pulumi.StringOutput      `pulumi:"name"`
+	ResourceGroup      pulumi.StringOutput      `pulumi:"resourceGroup"`
+	StorageAccountName pulumi.StringOutput      `pulumi:"storageAccountName"`
+	SubscriptionId     pulumi.StringOutput      `pulumi:"subscriptionId"`
+	SystemData         SystemDataResponseOutput `pulumi:"systemData"`
+	Type               pulumi.StringOutput      `pulumi:"type"`
 }
 
 // NewBlobDataSet registers a new resource with the given unique name, arguments, and options.
@@ -135,52 +123,30 @@ func (BlobDataSetState) ElementType() reflect.Type {
 }
 
 type blobDataSetArgs struct {
-	// The name of the share account.
-	AccountName string `pulumi:"accountName"`
-	// Container that has the file path.
-	ContainerName string `pulumi:"containerName"`
-	// The name of the dataSet.
-	DataSetName *string `pulumi:"dataSetName"`
-	// File path within the source data set
-	FilePath string `pulumi:"filePath"`
-	// Kind of data set.
-	// Expected value is 'Blob'.
-	Kind string `pulumi:"kind"`
-	// Resource group of storage account
-	ResourceGroup string `pulumi:"resourceGroup"`
-	// The resource group name.
-	ResourceGroupName string `pulumi:"resourceGroupName"`
-	// The name of the share to add the data set to.
-	ShareName string `pulumi:"shareName"`
-	// Storage account name of the source data set
-	StorageAccountName string `pulumi:"storageAccountName"`
-	// Subscription id of storage account
-	SubscriptionId string `pulumi:"subscriptionId"`
+	AccountName        string  `pulumi:"accountName"`
+	ContainerName      string  `pulumi:"containerName"`
+	DataSetName        *string `pulumi:"dataSetName"`
+	FilePath           string  `pulumi:"filePath"`
+	Kind               string  `pulumi:"kind"`
+	ResourceGroup      string  `pulumi:"resourceGroup"`
+	ResourceGroupName  string  `pulumi:"resourceGroupName"`
+	ShareName          string  `pulumi:"shareName"`
+	StorageAccountName string  `pulumi:"storageAccountName"`
+	SubscriptionId     string  `pulumi:"subscriptionId"`
 }
 
 // The set of arguments for constructing a BlobDataSet resource.
 type BlobDataSetArgs struct {
-	// The name of the share account.
-	AccountName pulumi.StringInput
-	// Container that has the file path.
-	ContainerName pulumi.StringInput
-	// The name of the dataSet.
-	DataSetName pulumi.StringPtrInput
-	// File path within the source data set
-	FilePath pulumi.StringInput
-	// Kind of data set.
-	// Expected value is 'Blob'.
-	Kind pulumi.StringInput
-	// Resource group of storage account
-	ResourceGroup pulumi.StringInput
-	// The resource group name.
-	ResourceGroupName pulumi.StringInput
-	// The name of the share to add the data set to.
-	ShareName pulumi.StringInput
-	// Storage account name of the source data set
+	AccountName        pulumi.StringInput
+	ContainerName      pulumi.StringInput
+	DataSetName        pulumi.StringPtrInput
+	FilePath           pulumi.StringInput
+	Kind               pulumi.StringInput
+	ResourceGroup      pulumi.StringInput
+	ResourceGroupName  pulumi.StringInput
+	ShareName          pulumi.StringInput
 	StorageAccountName pulumi.StringInput
-	// Subscription id of storage account
-	SubscriptionId pulumi.StringInput
+	SubscriptionId     pulumi.StringInput
 }
 
 func (BlobDataSetArgs) ElementType() reflect.Type {
@@ -206,9 +172,7 @@ func (i *BlobDataSet) ToBlobDataSetOutputWithContext(ctx context.Context) BlobDa
 	return pulumi.ToOutputWithContext(ctx, i).(BlobDataSetOutput)
 }
 
-type BlobDataSetOutput struct {
-	*pulumi.OutputState
-}
+type BlobDataSetOutput struct{ *pulumi.OutputState }
 
 func (BlobDataSetOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*BlobDataSet)(nil))

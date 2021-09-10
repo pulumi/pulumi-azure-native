@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.AppPlatform.Outputs
 {
 
+    /// <summary>
+    /// Certificate resource payload.
+    /// </summary>
     [OutputType]
     public sealed class CertificatePropertiesResponse
     {

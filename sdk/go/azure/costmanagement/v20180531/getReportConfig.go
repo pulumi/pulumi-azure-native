@@ -7,7 +7,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// A report config resource.
 func LookupReportConfig(ctx *pulumi.Context, args *LookupReportConfigArgs, opts ...pulumi.InvokeOption) (*LookupReportConfigResult, error) {
 	var rv LookupReportConfigResult
 	err := ctx.Invoke("azure-native:costmanagement/v20180531:getReportConfig", args, &rv, opts...)
@@ -18,26 +17,17 @@ func LookupReportConfig(ctx *pulumi.Context, args *LookupReportConfigArgs, opts 
 }
 
 type LookupReportConfigArgs struct {
-	// Report Config Name.
 	ReportConfigName string `pulumi:"reportConfigName"`
 }
 
 // A report config resource.
 type LookupReportConfigResult struct {
-	// Has definition for the report config.
-	Definition ReportConfigDefinitionResponse `pulumi:"definition"`
-	// Has delivery information for the report config.
+	Definition   ReportConfigDefinitionResponse   `pulumi:"definition"`
 	DeliveryInfo ReportConfigDeliveryInfoResponse `pulumi:"deliveryInfo"`
-	// The format of the report being delivered.
-	Format *string `pulumi:"format"`
-	// Resource Id.
-	Id string `pulumi:"id"`
-	// Resource name.
-	Name string `pulumi:"name"`
-	// Has schedule information for the report config.
-	Schedule *ReportConfigScheduleResponse `pulumi:"schedule"`
-	// Resource tags.
-	Tags map[string]string `pulumi:"tags"`
-	// Resource type.
-	Type string `pulumi:"type"`
+	Format       *string                          `pulumi:"format"`
+	Id           string                           `pulumi:"id"`
+	Name         string                           `pulumi:"name"`
+	Schedule     *ReportConfigScheduleResponse    `pulumi:"schedule"`
+	Tags         map[string]string                `pulumi:"tags"`
+	Type         string                           `pulumi:"type"`
 }

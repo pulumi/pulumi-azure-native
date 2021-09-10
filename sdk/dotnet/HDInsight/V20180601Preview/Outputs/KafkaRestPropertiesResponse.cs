@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.HDInsight.V20180601Preview.Outputs
 {
 
+    /// <summary>
+    /// The kafka rest proxy configuration which contains AAD security group information.
+    /// </summary>
     [OutputType]
     public sealed class KafkaRestPropertiesResponse
     {

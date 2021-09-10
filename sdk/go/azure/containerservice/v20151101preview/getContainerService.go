@@ -7,7 +7,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Container service
 func LookupContainerService(ctx *pulumi.Context, args *LookupContainerServiceArgs, opts ...pulumi.InvokeOption) (*LookupContainerServiceResult, error) {
 	var rv LookupContainerServiceResult
 	err := ctx.Invoke("azure-native:containerservice/v20151101preview:getContainerService", args, &rv, opts...)
@@ -18,36 +17,22 @@ func LookupContainerService(ctx *pulumi.Context, args *LookupContainerServiceArg
 }
 
 type LookupContainerServiceArgs struct {
-	// The name of the container service within the given subscription and resource group.
 	ContainerServiceName string `pulumi:"containerServiceName"`
-	// The name of the resource group.
-	ResourceGroupName string `pulumi:"resourceGroupName"`
+	ResourceGroupName    string `pulumi:"resourceGroupName"`
 }
 
 // Container service
 type LookupContainerServiceResult struct {
-	// Properties of agent pools
-	AgentPoolProfiles []ContainerServiceAgentPoolProfileResponse `pulumi:"agentPoolProfiles"`
-	// Properties for Diagnostic Agent
-	DiagnosticsProfile *ContainerServiceDiagnosticsProfileResponse `pulumi:"diagnosticsProfile"`
-	// Resource Id
-	Id string `pulumi:"id"`
-	// Properties for Linux VMs
-	LinuxProfile ContainerServiceLinuxProfileResponse `pulumi:"linuxProfile"`
-	// Resource location
-	Location string `pulumi:"location"`
-	// Properties of master agents
-	MasterProfile ContainerServiceMasterProfileResponse `pulumi:"masterProfile"`
-	// Resource name
-	Name string `pulumi:"name"`
-	// Properties of orchestrator
+	AgentPoolProfiles   []ContainerServiceAgentPoolProfileResponse   `pulumi:"agentPoolProfiles"`
+	DiagnosticsProfile  *ContainerServiceDiagnosticsProfileResponse  `pulumi:"diagnosticsProfile"`
+	Id                  string                                       `pulumi:"id"`
+	LinuxProfile        ContainerServiceLinuxProfileResponse         `pulumi:"linuxProfile"`
+	Location            string                                       `pulumi:"location"`
+	MasterProfile       ContainerServiceMasterProfileResponse        `pulumi:"masterProfile"`
+	Name                string                                       `pulumi:"name"`
 	OrchestratorProfile *ContainerServiceOrchestratorProfileResponse `pulumi:"orchestratorProfile"`
-	// Gets the provisioning state, which only appears in the response.
-	ProvisioningState string `pulumi:"provisioningState"`
-	// Resource tags
-	Tags map[string]string `pulumi:"tags"`
-	// Resource type
-	Type string `pulumi:"type"`
-	// Properties of Windows VMs
-	WindowsProfile *ContainerServiceWindowsProfileResponse `pulumi:"windowsProfile"`
+	ProvisioningState   string                                       `pulumi:"provisioningState"`
+	Tags                map[string]string                            `pulumi:"tags"`
+	Type                string                                       `pulumi:"type"`
+	WindowsProfile      *ContainerServiceWindowsProfileResponse      `pulumi:"windowsProfile"`
 }

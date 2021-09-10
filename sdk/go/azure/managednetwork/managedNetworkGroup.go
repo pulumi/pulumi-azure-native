@@ -160,9 +160,7 @@ func (i *ManagedNetworkGroup) ToManagedNetworkGroupOutputWithContext(ctx context
 	return pulumi.ToOutputWithContext(ctx, i).(ManagedNetworkGroupOutput)
 }
 
-type ManagedNetworkGroupOutput struct {
-	*pulumi.OutputState
-}
+type ManagedNetworkGroupOutput struct{ *pulumi.OutputState }
 
 func (ManagedNetworkGroupOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*ManagedNetworkGroup)(nil))

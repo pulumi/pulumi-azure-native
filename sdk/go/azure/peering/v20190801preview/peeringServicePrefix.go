@@ -11,22 +11,15 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// The peering service prefix class.
 type PeeringServicePrefix struct {
 	pulumi.CustomResourceState
 
-	// The prefix learned type
-	LearnedType pulumi.StringPtrOutput `pulumi:"learnedType"`
-	// The name of the resource.
-	Name pulumi.StringOutput `pulumi:"name"`
-	// Valid route prefix
-	Prefix pulumi.StringPtrOutput `pulumi:"prefix"`
-	// The prefix validation state
+	LearnedType           pulumi.StringPtrOutput `pulumi:"learnedType"`
+	Name                  pulumi.StringOutput    `pulumi:"name"`
+	Prefix                pulumi.StringPtrOutput `pulumi:"prefix"`
 	PrefixValidationState pulumi.StringPtrOutput `pulumi:"prefixValidationState"`
-	// The provisioning state of the resource.
-	ProvisioningState pulumi.StringOutput `pulumi:"provisioningState"`
-	// The type of the resource.
-	Type pulumi.StringOutput `pulumi:"type"`
+	ProvisioningState     pulumi.StringOutput    `pulumi:"provisioningState"`
+	Type                  pulumi.StringOutput    `pulumi:"type"`
 }
 
 // NewPeeringServicePrefix registers a new resource with the given unique name, arguments, and options.
@@ -122,34 +115,22 @@ func (PeeringServicePrefixState) ElementType() reflect.Type {
 }
 
 type peeringServicePrefixArgs struct {
-	// The prefix learned type
-	LearnedType *string `pulumi:"learnedType"`
-	// The peering service name.
-	PeeringServiceName string `pulumi:"peeringServiceName"`
-	// Valid route prefix
-	Prefix *string `pulumi:"prefix"`
-	// The prefix name
-	PrefixName *string `pulumi:"prefixName"`
-	// The prefix validation state
+	LearnedType           *string `pulumi:"learnedType"`
+	PeeringServiceName    string  `pulumi:"peeringServiceName"`
+	Prefix                *string `pulumi:"prefix"`
+	PrefixName            *string `pulumi:"prefixName"`
 	PrefixValidationState *string `pulumi:"prefixValidationState"`
-	// The resource group name.
-	ResourceGroupName string `pulumi:"resourceGroupName"`
+	ResourceGroupName     string  `pulumi:"resourceGroupName"`
 }
 
 // The set of arguments for constructing a PeeringServicePrefix resource.
 type PeeringServicePrefixArgs struct {
-	// The prefix learned type
-	LearnedType pulumi.StringPtrInput
-	// The peering service name.
-	PeeringServiceName pulumi.StringInput
-	// Valid route prefix
-	Prefix pulumi.StringPtrInput
-	// The prefix name
-	PrefixName pulumi.StringPtrInput
-	// The prefix validation state
+	LearnedType           pulumi.StringPtrInput
+	PeeringServiceName    pulumi.StringInput
+	Prefix                pulumi.StringPtrInput
+	PrefixName            pulumi.StringPtrInput
 	PrefixValidationState pulumi.StringPtrInput
-	// The resource group name.
-	ResourceGroupName pulumi.StringInput
+	ResourceGroupName     pulumi.StringInput
 }
 
 func (PeeringServicePrefixArgs) ElementType() reflect.Type {
@@ -175,9 +156,7 @@ func (i *PeeringServicePrefix) ToPeeringServicePrefixOutputWithContext(ctx conte
 	return pulumi.ToOutputWithContext(ctx, i).(PeeringServicePrefixOutput)
 }
 
-type PeeringServicePrefixOutput struct {
-	*pulumi.OutputState
-}
+type PeeringServicePrefixOutput struct{ *pulumi.OutputState }
 
 func (PeeringServicePrefixOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*PeeringServicePrefix)(nil))

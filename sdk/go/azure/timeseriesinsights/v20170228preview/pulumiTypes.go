@@ -10,12 +10,9 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// A key property for the reference data set. A reference data set can have multiple key properties.
 type ReferenceDataSetKeyProperty struct {
-	// The name of the key property.
-	Name *string `pulumi:"name"`
-	// The type of the key property.
-	Type *string `pulumi:"type"`
+	Name *string                       `pulumi:"name"`
+	Type *ReferenceDataKeyPropertyType `pulumi:"type"`
 }
 
 // ReferenceDataSetKeyPropertyInput is an input type that accepts ReferenceDataSetKeyPropertyArgs and ReferenceDataSetKeyPropertyOutput values.
@@ -29,12 +26,9 @@ type ReferenceDataSetKeyPropertyInput interface {
 	ToReferenceDataSetKeyPropertyOutputWithContext(context.Context) ReferenceDataSetKeyPropertyOutput
 }
 
-// A key property for the reference data set. A reference data set can have multiple key properties.
 type ReferenceDataSetKeyPropertyArgs struct {
-	// The name of the key property.
-	Name pulumi.StringPtrInput `pulumi:"name"`
-	// The type of the key property.
-	Type *ReferenceDataKeyPropertyType `pulumi:"type"`
+	Name pulumi.StringPtrInput                `pulumi:"name"`
+	Type ReferenceDataKeyPropertyTypePtrInput `pulumi:"type"`
 }
 
 func (ReferenceDataSetKeyPropertyArgs) ElementType() reflect.Type {
@@ -74,7 +68,6 @@ func (i ReferenceDataSetKeyPropertyArray) ToReferenceDataSetKeyPropertyArrayOutp
 	return pulumi.ToOutputWithContext(ctx, i).(ReferenceDataSetKeyPropertyArrayOutput)
 }
 
-// A key property for the reference data set. A reference data set can have multiple key properties.
 type ReferenceDataSetKeyPropertyOutput struct{ *pulumi.OutputState }
 
 func (ReferenceDataSetKeyPropertyOutput) ElementType() reflect.Type {
@@ -89,14 +82,12 @@ func (o ReferenceDataSetKeyPropertyOutput) ToReferenceDataSetKeyPropertyOutputWi
 	return o
 }
 
-// The name of the key property.
 func (o ReferenceDataSetKeyPropertyOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ReferenceDataSetKeyProperty) *string { return v.Name }).(pulumi.StringPtrOutput)
 }
 
-// The type of the key property.
-func (o ReferenceDataSetKeyPropertyOutput) Type() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v ReferenceDataSetKeyProperty) *string { return v.Type }).(pulumi.StringPtrOutput)
+func (o ReferenceDataSetKeyPropertyOutput) Type() ReferenceDataKeyPropertyTypePtrOutput {
+	return o.ApplyT(func(v ReferenceDataSetKeyProperty) *ReferenceDataKeyPropertyType { return v.Type }).(ReferenceDataKeyPropertyTypePtrOutput)
 }
 
 type ReferenceDataSetKeyPropertyArrayOutput struct{ *pulumi.OutputState }
@@ -119,11 +110,8 @@ func (o ReferenceDataSetKeyPropertyArrayOutput) Index(i pulumi.IntInput) Referen
 	}).(ReferenceDataSetKeyPropertyOutput)
 }
 
-// A key property for the reference data set. A reference data set can have multiple key properties.
 type ReferenceDataSetKeyPropertyResponse struct {
-	// The name of the key property.
 	Name *string `pulumi:"name"`
-	// The type of the key property.
 	Type *string `pulumi:"type"`
 }
 
@@ -138,11 +126,8 @@ type ReferenceDataSetKeyPropertyResponseInput interface {
 	ToReferenceDataSetKeyPropertyResponseOutputWithContext(context.Context) ReferenceDataSetKeyPropertyResponseOutput
 }
 
-// A key property for the reference data set. A reference data set can have multiple key properties.
 type ReferenceDataSetKeyPropertyResponseArgs struct {
-	// The name of the key property.
 	Name pulumi.StringPtrInput `pulumi:"name"`
-	// The type of the key property.
 	Type pulumi.StringPtrInput `pulumi:"type"`
 }
 
@@ -183,7 +168,6 @@ func (i ReferenceDataSetKeyPropertyResponseArray) ToReferenceDataSetKeyPropertyR
 	return pulumi.ToOutputWithContext(ctx, i).(ReferenceDataSetKeyPropertyResponseArrayOutput)
 }
 
-// A key property for the reference data set. A reference data set can have multiple key properties.
 type ReferenceDataSetKeyPropertyResponseOutput struct{ *pulumi.OutputState }
 
 func (ReferenceDataSetKeyPropertyResponseOutput) ElementType() reflect.Type {
@@ -198,12 +182,10 @@ func (o ReferenceDataSetKeyPropertyResponseOutput) ToReferenceDataSetKeyProperty
 	return o
 }
 
-// The name of the key property.
 func (o ReferenceDataSetKeyPropertyResponseOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ReferenceDataSetKeyPropertyResponse) *string { return v.Name }).(pulumi.StringPtrOutput)
 }
 
-// The type of the key property.
 func (o ReferenceDataSetKeyPropertyResponseOutput) Type() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ReferenceDataSetKeyPropertyResponse) *string { return v.Type }).(pulumi.StringPtrOutput)
 }
@@ -228,12 +210,9 @@ func (o ReferenceDataSetKeyPropertyResponseArrayOutput) Index(i pulumi.IntInput)
 	}).(ReferenceDataSetKeyPropertyResponseOutput)
 }
 
-// The sku determines the capacity of the environment, the SLA (in queries-per-minute and total capacity), and the billing rate.
 type Sku struct {
-	// The capacity of the sku. This value can be changed to support scale out of environments after they have been created.
-	Capacity int `pulumi:"capacity"`
-	// The name of this SKU.
-	Name string `pulumi:"name"`
+	Capacity int     `pulumi:"capacity"`
+	Name     SkuName `pulumi:"name"`
 }
 
 // SkuInput is an input type that accepts SkuArgs and SkuOutput values.
@@ -247,12 +226,9 @@ type SkuInput interface {
 	ToSkuOutputWithContext(context.Context) SkuOutput
 }
 
-// The sku determines the capacity of the environment, the SLA (in queries-per-minute and total capacity), and the billing rate.
 type SkuArgs struct {
-	// The capacity of the sku. This value can be changed to support scale out of environments after they have been created.
 	Capacity pulumi.IntInput `pulumi:"capacity"`
-	// The name of this SKU.
-	Name SkuName `pulumi:"name"`
+	Name     SkuNameInput    `pulumi:"name"`
 }
 
 func (SkuArgs) ElementType() reflect.Type {
@@ -308,7 +284,6 @@ func (i *skuPtrType) ToSkuPtrOutputWithContext(ctx context.Context) SkuPtrOutput
 	return pulumi.ToOutputWithContext(ctx, i).(SkuPtrOutput)
 }
 
-// The sku determines the capacity of the environment, the SLA (in queries-per-minute and total capacity), and the billing rate.
 type SkuOutput struct{ *pulumi.OutputState }
 
 func (SkuOutput) ElementType() reflect.Type {
@@ -328,19 +303,17 @@ func (o SkuOutput) ToSkuPtrOutput() SkuPtrOutput {
 }
 
 func (o SkuOutput) ToSkuPtrOutputWithContext(ctx context.Context) SkuPtrOutput {
-	return o.ApplyT(func(v Sku) *Sku {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v Sku) *Sku {
 		return &v
 	}).(SkuPtrOutput)
 }
 
-// The capacity of the sku. This value can be changed to support scale out of environments after they have been created.
 func (o SkuOutput) Capacity() pulumi.IntOutput {
 	return o.ApplyT(func(v Sku) int { return v.Capacity }).(pulumi.IntOutput)
 }
 
-// The name of this SKU.
-func (o SkuOutput) Name() pulumi.StringOutput {
-	return o.ApplyT(func(v Sku) string { return v.Name }).(pulumi.StringOutput)
+func (o SkuOutput) Name() SkuNameOutput {
+	return o.ApplyT(func(v Sku) SkuName { return v.Name }).(SkuNameOutput)
 }
 
 type SkuPtrOutput struct{ *pulumi.OutputState }
@@ -358,10 +331,15 @@ func (o SkuPtrOutput) ToSkuPtrOutputWithContext(ctx context.Context) SkuPtrOutpu
 }
 
 func (o SkuPtrOutput) Elem() SkuOutput {
-	return o.ApplyT(func(v *Sku) Sku { return *v }).(SkuOutput)
+	return o.ApplyT(func(v *Sku) Sku {
+		if v != nil {
+			return *v
+		}
+		var ret Sku
+		return ret
+	}).(SkuOutput)
 }
 
-// The capacity of the sku. This value can be changed to support scale out of environments after they have been created.
 func (o SkuPtrOutput) Capacity() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *Sku) *int {
 		if v == nil {
@@ -371,22 +349,18 @@ func (o SkuPtrOutput) Capacity() pulumi.IntPtrOutput {
 	}).(pulumi.IntPtrOutput)
 }
 
-// The name of this SKU.
-func (o SkuPtrOutput) Name() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *Sku) *string {
+func (o SkuPtrOutput) Name() SkuNamePtrOutput {
+	return o.ApplyT(func(v *Sku) *SkuName {
 		if v == nil {
 			return nil
 		}
 		return &v.Name
-	}).(pulumi.StringPtrOutput)
+	}).(SkuNamePtrOutput)
 }
 
-// The sku determines the capacity of the environment, the SLA (in queries-per-minute and total capacity), and the billing rate.
 type SkuResponse struct {
-	// The capacity of the sku. This value can be changed to support scale out of environments after they have been created.
-	Capacity int `pulumi:"capacity"`
-	// The name of this SKU.
-	Name string `pulumi:"name"`
+	Capacity int    `pulumi:"capacity"`
+	Name     string `pulumi:"name"`
 }
 
 // SkuResponseInput is an input type that accepts SkuResponseArgs and SkuResponseOutput values.
@@ -400,12 +374,9 @@ type SkuResponseInput interface {
 	ToSkuResponseOutputWithContext(context.Context) SkuResponseOutput
 }
 
-// The sku determines the capacity of the environment, the SLA (in queries-per-minute and total capacity), and the billing rate.
 type SkuResponseArgs struct {
-	// The capacity of the sku. This value can be changed to support scale out of environments after they have been created.
-	Capacity pulumi.IntInput `pulumi:"capacity"`
-	// The name of this SKU.
-	Name pulumi.StringInput `pulumi:"name"`
+	Capacity pulumi.IntInput    `pulumi:"capacity"`
+	Name     pulumi.StringInput `pulumi:"name"`
 }
 
 func (SkuResponseArgs) ElementType() reflect.Type {
@@ -461,7 +432,6 @@ func (i *skuResponsePtrType) ToSkuResponsePtrOutputWithContext(ctx context.Conte
 	return pulumi.ToOutputWithContext(ctx, i).(SkuResponsePtrOutput)
 }
 
-// The sku determines the capacity of the environment, the SLA (in queries-per-minute and total capacity), and the billing rate.
 type SkuResponseOutput struct{ *pulumi.OutputState }
 
 func (SkuResponseOutput) ElementType() reflect.Type {
@@ -481,17 +451,15 @@ func (o SkuResponseOutput) ToSkuResponsePtrOutput() SkuResponsePtrOutput {
 }
 
 func (o SkuResponseOutput) ToSkuResponsePtrOutputWithContext(ctx context.Context) SkuResponsePtrOutput {
-	return o.ApplyT(func(v SkuResponse) *SkuResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v SkuResponse) *SkuResponse {
 		return &v
 	}).(SkuResponsePtrOutput)
 }
 
-// The capacity of the sku. This value can be changed to support scale out of environments after they have been created.
 func (o SkuResponseOutput) Capacity() pulumi.IntOutput {
 	return o.ApplyT(func(v SkuResponse) int { return v.Capacity }).(pulumi.IntOutput)
 }
 
-// The name of this SKU.
 func (o SkuResponseOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v SkuResponse) string { return v.Name }).(pulumi.StringOutput)
 }
@@ -511,10 +479,15 @@ func (o SkuResponsePtrOutput) ToSkuResponsePtrOutputWithContext(ctx context.Cont
 }
 
 func (o SkuResponsePtrOutput) Elem() SkuResponseOutput {
-	return o.ApplyT(func(v *SkuResponse) SkuResponse { return *v }).(SkuResponseOutput)
+	return o.ApplyT(func(v *SkuResponse) SkuResponse {
+		if v != nil {
+			return *v
+		}
+		var ret SkuResponse
+		return ret
+	}).(SkuResponseOutput)
 }
 
-// The capacity of the sku. This value can be changed to support scale out of environments after they have been created.
 func (o SkuResponsePtrOutput) Capacity() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *SkuResponse) *int {
 		if v == nil {
@@ -524,7 +497,6 @@ func (o SkuResponsePtrOutput) Capacity() pulumi.IntPtrOutput {
 	}).(pulumi.IntPtrOutput)
 }
 
-// The name of this SKU.
 func (o SkuResponsePtrOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SkuResponse) *string {
 		if v == nil {

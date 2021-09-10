@@ -7,7 +7,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Migration item.
 func LookupReplicationMigrationItem(ctx *pulumi.Context, args *LookupReplicationMigrationItemArgs, opts ...pulumi.InvokeOption) (*LookupReplicationMigrationItemResult, error) {
 	var rv LookupReplicationMigrationItemResult
 	err := ctx.Invoke("azure-native:recoveryservices/v20210701:getReplicationMigrationItem", args, &rv, opts...)
@@ -18,28 +17,18 @@ func LookupReplicationMigrationItem(ctx *pulumi.Context, args *LookupReplication
 }
 
 type LookupReplicationMigrationItemArgs struct {
-	// Fabric unique name.
-	FabricName string `pulumi:"fabricName"`
-	// Migration item name.
-	MigrationItemName string `pulumi:"migrationItemName"`
-	// Protection container name.
+	FabricName              string `pulumi:"fabricName"`
+	MigrationItemName       string `pulumi:"migrationItemName"`
 	ProtectionContainerName string `pulumi:"protectionContainerName"`
-	// The name of the resource group where the recovery services vault is present.
-	ResourceGroupName string `pulumi:"resourceGroupName"`
-	// The name of the recovery services vault.
-	ResourceName string `pulumi:"resourceName"`
+	ResourceGroupName       string `pulumi:"resourceGroupName"`
+	ResourceName            string `pulumi:"resourceName"`
 }
 
 // Migration item.
 type LookupReplicationMigrationItemResult struct {
-	// Resource Id
-	Id string `pulumi:"id"`
-	// Resource Location
-	Location *string `pulumi:"location"`
-	// Resource Name
-	Name string `pulumi:"name"`
-	// The migration item properties.
+	Id         string                          `pulumi:"id"`
+	Location   *string                         `pulumi:"location"`
+	Name       string                          `pulumi:"name"`
 	Properties MigrationItemPropertiesResponse `pulumi:"properties"`
-	// Resource Type
-	Type string `pulumi:"type"`
+	Type       string                          `pulumi:"type"`
 }

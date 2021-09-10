@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.Search.V20210401Preview.Outputs
 {
 
+    /// <summary>
+    /// Defines the options for how the data plane API of a Search service authenticates requests. This cannot be set if 'disableLocalAuth' is set to true.
+    /// </summary>
     [OutputType]
     public sealed class DataPlaneAuthOptionsResponse
     {

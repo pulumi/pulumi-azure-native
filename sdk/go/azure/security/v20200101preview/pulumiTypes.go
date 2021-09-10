@@ -10,15 +10,10 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// AWS cloud account connector based assume role, the role enables delegating access to your AWS resources. The role is composed of role Amazon Resource Name (ARN) and external ID. For more details, refer to <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_create_for-user.html">Creating a Role to Delegate Permissions to an IAM User (write only)</a>
 type AwAssumeRoleAuthenticationDetailsProperties struct {
-	// Connect to your cloud account, for AWS use either account credentials or role-based authentication. For GCP use account organization credentials.
-	// Expected value is 'awsAssumeRole'.
 	AuthenticationType string `pulumi:"authenticationType"`
-	// Assumed role ID is an identifier that you can use to create temporary security credentials.
-	AwsAssumeRoleArn string `pulumi:"awsAssumeRoleArn"`
-	// A unique identifier that is required when you assume a role in another account.
-	AwsExternalId string `pulumi:"awsExternalId"`
+	AwsAssumeRoleArn   string `pulumi:"awsAssumeRoleArn"`
+	AwsExternalId      string `pulumi:"awsExternalId"`
 }
 
 // AwAssumeRoleAuthenticationDetailsPropertiesInput is an input type that accepts AwAssumeRoleAuthenticationDetailsPropertiesArgs and AwAssumeRoleAuthenticationDetailsPropertiesOutput values.
@@ -32,15 +27,10 @@ type AwAssumeRoleAuthenticationDetailsPropertiesInput interface {
 	ToAwAssumeRoleAuthenticationDetailsPropertiesOutputWithContext(context.Context) AwAssumeRoleAuthenticationDetailsPropertiesOutput
 }
 
-// AWS cloud account connector based assume role, the role enables delegating access to your AWS resources. The role is composed of role Amazon Resource Name (ARN) and external ID. For more details, refer to <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_create_for-user.html">Creating a Role to Delegate Permissions to an IAM User (write only)</a>
 type AwAssumeRoleAuthenticationDetailsPropertiesArgs struct {
-	// Connect to your cloud account, for AWS use either account credentials or role-based authentication. For GCP use account organization credentials.
-	// Expected value is 'awsAssumeRole'.
 	AuthenticationType pulumi.StringInput `pulumi:"authenticationType"`
-	// Assumed role ID is an identifier that you can use to create temporary security credentials.
-	AwsAssumeRoleArn pulumi.StringInput `pulumi:"awsAssumeRoleArn"`
-	// A unique identifier that is required when you assume a role in another account.
-	AwsExternalId pulumi.StringInput `pulumi:"awsExternalId"`
+	AwsAssumeRoleArn   pulumi.StringInput `pulumi:"awsAssumeRoleArn"`
+	AwsExternalId      pulumi.StringInput `pulumi:"awsExternalId"`
 }
 
 func (AwAssumeRoleAuthenticationDetailsPropertiesArgs) ElementType() reflect.Type {
@@ -55,7 +45,6 @@ func (i AwAssumeRoleAuthenticationDetailsPropertiesArgs) ToAwAssumeRoleAuthentic
 	return pulumi.ToOutputWithContext(ctx, i).(AwAssumeRoleAuthenticationDetailsPropertiesOutput)
 }
 
-// AWS cloud account connector based assume role, the role enables delegating access to your AWS resources. The role is composed of role Amazon Resource Name (ARN) and external ID. For more details, refer to <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_create_for-user.html">Creating a Role to Delegate Permissions to an IAM User (write only)</a>
 type AwAssumeRoleAuthenticationDetailsPropertiesOutput struct{ *pulumi.OutputState }
 
 func (AwAssumeRoleAuthenticationDetailsPropertiesOutput) ElementType() reflect.Type {
@@ -70,37 +59,25 @@ func (o AwAssumeRoleAuthenticationDetailsPropertiesOutput) ToAwAssumeRoleAuthent
 	return o
 }
 
-// Connect to your cloud account, for AWS use either account credentials or role-based authentication. For GCP use account organization credentials.
-// Expected value is 'awsAssumeRole'.
 func (o AwAssumeRoleAuthenticationDetailsPropertiesOutput) AuthenticationType() pulumi.StringOutput {
 	return o.ApplyT(func(v AwAssumeRoleAuthenticationDetailsProperties) string { return v.AuthenticationType }).(pulumi.StringOutput)
 }
 
-// Assumed role ID is an identifier that you can use to create temporary security credentials.
 func (o AwAssumeRoleAuthenticationDetailsPropertiesOutput) AwsAssumeRoleArn() pulumi.StringOutput {
 	return o.ApplyT(func(v AwAssumeRoleAuthenticationDetailsProperties) string { return v.AwsAssumeRoleArn }).(pulumi.StringOutput)
 }
 
-// A unique identifier that is required when you assume a role in another account.
 func (o AwAssumeRoleAuthenticationDetailsPropertiesOutput) AwsExternalId() pulumi.StringOutput {
 	return o.ApplyT(func(v AwAssumeRoleAuthenticationDetailsProperties) string { return v.AwsExternalId }).(pulumi.StringOutput)
 }
 
-// AWS cloud account connector based assume role, the role enables delegating access to your AWS resources. The role is composed of role Amazon Resource Name (ARN) and external ID. For more details, refer to <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_create_for-user.html">Creating a Role to Delegate Permissions to an IAM User (write only)</a>
 type AwAssumeRoleAuthenticationDetailsPropertiesResponse struct {
-	// The ID of the cloud account
-	AccountId string `pulumi:"accountId"`
-	// State of the multi-cloud connector
-	AuthenticationProvisioningState string `pulumi:"authenticationProvisioningState"`
-	// Connect to your cloud account, for AWS use either account credentials or role-based authentication. For GCP use account organization credentials.
-	// Expected value is 'awsAssumeRole'.
-	AuthenticationType string `pulumi:"authenticationType"`
-	// Assumed role ID is an identifier that you can use to create temporary security credentials.
-	AwsAssumeRoleArn string `pulumi:"awsAssumeRoleArn"`
-	// A unique identifier that is required when you assume a role in another account.
-	AwsExternalId string `pulumi:"awsExternalId"`
-	// The permissions detected in the cloud account.
-	GrantedPermissions []string `pulumi:"grantedPermissions"`
+	AccountId                       string   `pulumi:"accountId"`
+	AuthenticationProvisioningState string   `pulumi:"authenticationProvisioningState"`
+	AuthenticationType              string   `pulumi:"authenticationType"`
+	AwsAssumeRoleArn                string   `pulumi:"awsAssumeRoleArn"`
+	AwsExternalId                   string   `pulumi:"awsExternalId"`
+	GrantedPermissions              []string `pulumi:"grantedPermissions"`
 }
 
 // AwAssumeRoleAuthenticationDetailsPropertiesResponseInput is an input type that accepts AwAssumeRoleAuthenticationDetailsPropertiesResponseArgs and AwAssumeRoleAuthenticationDetailsPropertiesResponseOutput values.
@@ -114,21 +91,13 @@ type AwAssumeRoleAuthenticationDetailsPropertiesResponseInput interface {
 	ToAwAssumeRoleAuthenticationDetailsPropertiesResponseOutputWithContext(context.Context) AwAssumeRoleAuthenticationDetailsPropertiesResponseOutput
 }
 
-// AWS cloud account connector based assume role, the role enables delegating access to your AWS resources. The role is composed of role Amazon Resource Name (ARN) and external ID. For more details, refer to <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_create_for-user.html">Creating a Role to Delegate Permissions to an IAM User (write only)</a>
 type AwAssumeRoleAuthenticationDetailsPropertiesResponseArgs struct {
-	// The ID of the cloud account
-	AccountId pulumi.StringInput `pulumi:"accountId"`
-	// State of the multi-cloud connector
-	AuthenticationProvisioningState pulumi.StringInput `pulumi:"authenticationProvisioningState"`
-	// Connect to your cloud account, for AWS use either account credentials or role-based authentication. For GCP use account organization credentials.
-	// Expected value is 'awsAssumeRole'.
-	AuthenticationType pulumi.StringInput `pulumi:"authenticationType"`
-	// Assumed role ID is an identifier that you can use to create temporary security credentials.
-	AwsAssumeRoleArn pulumi.StringInput `pulumi:"awsAssumeRoleArn"`
-	// A unique identifier that is required when you assume a role in another account.
-	AwsExternalId pulumi.StringInput `pulumi:"awsExternalId"`
-	// The permissions detected in the cloud account.
-	GrantedPermissions pulumi.StringArrayInput `pulumi:"grantedPermissions"`
+	AccountId                       pulumi.StringInput      `pulumi:"accountId"`
+	AuthenticationProvisioningState pulumi.StringInput      `pulumi:"authenticationProvisioningState"`
+	AuthenticationType              pulumi.StringInput      `pulumi:"authenticationType"`
+	AwsAssumeRoleArn                pulumi.StringInput      `pulumi:"awsAssumeRoleArn"`
+	AwsExternalId                   pulumi.StringInput      `pulumi:"awsExternalId"`
+	GrantedPermissions              pulumi.StringArrayInput `pulumi:"grantedPermissions"`
 }
 
 func (AwAssumeRoleAuthenticationDetailsPropertiesResponseArgs) ElementType() reflect.Type {
@@ -143,7 +112,6 @@ func (i AwAssumeRoleAuthenticationDetailsPropertiesResponseArgs) ToAwAssumeRoleA
 	return pulumi.ToOutputWithContext(ctx, i).(AwAssumeRoleAuthenticationDetailsPropertiesResponseOutput)
 }
 
-// AWS cloud account connector based assume role, the role enables delegating access to your AWS resources. The role is composed of role Amazon Resource Name (ARN) and external ID. For more details, refer to <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_create_for-user.html">Creating a Role to Delegate Permissions to an IAM User (write only)</a>
 type AwAssumeRoleAuthenticationDetailsPropertiesResponseOutput struct{ *pulumi.OutputState }
 
 func (AwAssumeRoleAuthenticationDetailsPropertiesResponseOutput) ElementType() reflect.Type {
@@ -158,47 +126,35 @@ func (o AwAssumeRoleAuthenticationDetailsPropertiesResponseOutput) ToAwAssumeRol
 	return o
 }
 
-// The ID of the cloud account
 func (o AwAssumeRoleAuthenticationDetailsPropertiesResponseOutput) AccountId() pulumi.StringOutput {
 	return o.ApplyT(func(v AwAssumeRoleAuthenticationDetailsPropertiesResponse) string { return v.AccountId }).(pulumi.StringOutput)
 }
 
-// State of the multi-cloud connector
 func (o AwAssumeRoleAuthenticationDetailsPropertiesResponseOutput) AuthenticationProvisioningState() pulumi.StringOutput {
 	return o.ApplyT(func(v AwAssumeRoleAuthenticationDetailsPropertiesResponse) string {
 		return v.AuthenticationProvisioningState
 	}).(pulumi.StringOutput)
 }
 
-// Connect to your cloud account, for AWS use either account credentials or role-based authentication. For GCP use account organization credentials.
-// Expected value is 'awsAssumeRole'.
 func (o AwAssumeRoleAuthenticationDetailsPropertiesResponseOutput) AuthenticationType() pulumi.StringOutput {
 	return o.ApplyT(func(v AwAssumeRoleAuthenticationDetailsPropertiesResponse) string { return v.AuthenticationType }).(pulumi.StringOutput)
 }
 
-// Assumed role ID is an identifier that you can use to create temporary security credentials.
 func (o AwAssumeRoleAuthenticationDetailsPropertiesResponseOutput) AwsAssumeRoleArn() pulumi.StringOutput {
 	return o.ApplyT(func(v AwAssumeRoleAuthenticationDetailsPropertiesResponse) string { return v.AwsAssumeRoleArn }).(pulumi.StringOutput)
 }
 
-// A unique identifier that is required when you assume a role in another account.
 func (o AwAssumeRoleAuthenticationDetailsPropertiesResponseOutput) AwsExternalId() pulumi.StringOutput {
 	return o.ApplyT(func(v AwAssumeRoleAuthenticationDetailsPropertiesResponse) string { return v.AwsExternalId }).(pulumi.StringOutput)
 }
 
-// The permissions detected in the cloud account.
 func (o AwAssumeRoleAuthenticationDetailsPropertiesResponseOutput) GrantedPermissions() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v AwAssumeRoleAuthenticationDetailsPropertiesResponse) []string { return v.GrantedPermissions }).(pulumi.StringArrayOutput)
 }
 
-// AWS cloud account connector based credentials, the credentials is composed of access key ID and secret key, for more details, refer to <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/id_users_create.html">Creating an IAM User in Your AWS Account (write only)</a>
 type AwsCredsAuthenticationDetailsProperties struct {
-	// Connect to your cloud account, for AWS use either account credentials or role-based authentication. For GCP use account organization credentials.
-	// Expected value is 'awsCreds'.
 	AuthenticationType string `pulumi:"authenticationType"`
-	// Public key element of the AWS credential object (write only)
-	AwsAccessKeyId string `pulumi:"awsAccessKeyId"`
-	// Secret key element of the AWS credential object (write only)
+	AwsAccessKeyId     string `pulumi:"awsAccessKeyId"`
 	AwsSecretAccessKey string `pulumi:"awsSecretAccessKey"`
 }
 
@@ -213,14 +169,9 @@ type AwsCredsAuthenticationDetailsPropertiesInput interface {
 	ToAwsCredsAuthenticationDetailsPropertiesOutputWithContext(context.Context) AwsCredsAuthenticationDetailsPropertiesOutput
 }
 
-// AWS cloud account connector based credentials, the credentials is composed of access key ID and secret key, for more details, refer to <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/id_users_create.html">Creating an IAM User in Your AWS Account (write only)</a>
 type AwsCredsAuthenticationDetailsPropertiesArgs struct {
-	// Connect to your cloud account, for AWS use either account credentials or role-based authentication. For GCP use account organization credentials.
-	// Expected value is 'awsCreds'.
 	AuthenticationType pulumi.StringInput `pulumi:"authenticationType"`
-	// Public key element of the AWS credential object (write only)
-	AwsAccessKeyId pulumi.StringInput `pulumi:"awsAccessKeyId"`
-	// Secret key element of the AWS credential object (write only)
+	AwsAccessKeyId     pulumi.StringInput `pulumi:"awsAccessKeyId"`
 	AwsSecretAccessKey pulumi.StringInput `pulumi:"awsSecretAccessKey"`
 }
 
@@ -236,7 +187,6 @@ func (i AwsCredsAuthenticationDetailsPropertiesArgs) ToAwsCredsAuthenticationDet
 	return pulumi.ToOutputWithContext(ctx, i).(AwsCredsAuthenticationDetailsPropertiesOutput)
 }
 
-// AWS cloud account connector based credentials, the credentials is composed of access key ID and secret key, for more details, refer to <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/id_users_create.html">Creating an IAM User in Your AWS Account (write only)</a>
 type AwsCredsAuthenticationDetailsPropertiesOutput struct{ *pulumi.OutputState }
 
 func (AwsCredsAuthenticationDetailsPropertiesOutput) ElementType() reflect.Type {
@@ -251,37 +201,25 @@ func (o AwsCredsAuthenticationDetailsPropertiesOutput) ToAwsCredsAuthenticationD
 	return o
 }
 
-// Connect to your cloud account, for AWS use either account credentials or role-based authentication. For GCP use account organization credentials.
-// Expected value is 'awsCreds'.
 func (o AwsCredsAuthenticationDetailsPropertiesOutput) AuthenticationType() pulumi.StringOutput {
 	return o.ApplyT(func(v AwsCredsAuthenticationDetailsProperties) string { return v.AuthenticationType }).(pulumi.StringOutput)
 }
 
-// Public key element of the AWS credential object (write only)
 func (o AwsCredsAuthenticationDetailsPropertiesOutput) AwsAccessKeyId() pulumi.StringOutput {
 	return o.ApplyT(func(v AwsCredsAuthenticationDetailsProperties) string { return v.AwsAccessKeyId }).(pulumi.StringOutput)
 }
 
-// Secret key element of the AWS credential object (write only)
 func (o AwsCredsAuthenticationDetailsPropertiesOutput) AwsSecretAccessKey() pulumi.StringOutput {
 	return o.ApplyT(func(v AwsCredsAuthenticationDetailsProperties) string { return v.AwsSecretAccessKey }).(pulumi.StringOutput)
 }
 
-// AWS cloud account connector based credentials, the credentials is composed of access key ID and secret key, for more details, refer to <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/id_users_create.html">Creating an IAM User in Your AWS Account (write only)</a>
 type AwsCredsAuthenticationDetailsPropertiesResponse struct {
-	// The ID of the cloud account
-	AccountId string `pulumi:"accountId"`
-	// State of the multi-cloud connector
-	AuthenticationProvisioningState string `pulumi:"authenticationProvisioningState"`
-	// Connect to your cloud account, for AWS use either account credentials or role-based authentication. For GCP use account organization credentials.
-	// Expected value is 'awsCreds'.
-	AuthenticationType string `pulumi:"authenticationType"`
-	// Public key element of the AWS credential object (write only)
-	AwsAccessKeyId string `pulumi:"awsAccessKeyId"`
-	// Secret key element of the AWS credential object (write only)
-	AwsSecretAccessKey string `pulumi:"awsSecretAccessKey"`
-	// The permissions detected in the cloud account.
-	GrantedPermissions []string `pulumi:"grantedPermissions"`
+	AccountId                       string   `pulumi:"accountId"`
+	AuthenticationProvisioningState string   `pulumi:"authenticationProvisioningState"`
+	AuthenticationType              string   `pulumi:"authenticationType"`
+	AwsAccessKeyId                  string   `pulumi:"awsAccessKeyId"`
+	AwsSecretAccessKey              string   `pulumi:"awsSecretAccessKey"`
+	GrantedPermissions              []string `pulumi:"grantedPermissions"`
 }
 
 // AwsCredsAuthenticationDetailsPropertiesResponseInput is an input type that accepts AwsCredsAuthenticationDetailsPropertiesResponseArgs and AwsCredsAuthenticationDetailsPropertiesResponseOutput values.
@@ -295,21 +233,13 @@ type AwsCredsAuthenticationDetailsPropertiesResponseInput interface {
 	ToAwsCredsAuthenticationDetailsPropertiesResponseOutputWithContext(context.Context) AwsCredsAuthenticationDetailsPropertiesResponseOutput
 }
 
-// AWS cloud account connector based credentials, the credentials is composed of access key ID and secret key, for more details, refer to <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/id_users_create.html">Creating an IAM User in Your AWS Account (write only)</a>
 type AwsCredsAuthenticationDetailsPropertiesResponseArgs struct {
-	// The ID of the cloud account
-	AccountId pulumi.StringInput `pulumi:"accountId"`
-	// State of the multi-cloud connector
-	AuthenticationProvisioningState pulumi.StringInput `pulumi:"authenticationProvisioningState"`
-	// Connect to your cloud account, for AWS use either account credentials or role-based authentication. For GCP use account organization credentials.
-	// Expected value is 'awsCreds'.
-	AuthenticationType pulumi.StringInput `pulumi:"authenticationType"`
-	// Public key element of the AWS credential object (write only)
-	AwsAccessKeyId pulumi.StringInput `pulumi:"awsAccessKeyId"`
-	// Secret key element of the AWS credential object (write only)
-	AwsSecretAccessKey pulumi.StringInput `pulumi:"awsSecretAccessKey"`
-	// The permissions detected in the cloud account.
-	GrantedPermissions pulumi.StringArrayInput `pulumi:"grantedPermissions"`
+	AccountId                       pulumi.StringInput      `pulumi:"accountId"`
+	AuthenticationProvisioningState pulumi.StringInput      `pulumi:"authenticationProvisioningState"`
+	AuthenticationType              pulumi.StringInput      `pulumi:"authenticationType"`
+	AwsAccessKeyId                  pulumi.StringInput      `pulumi:"awsAccessKeyId"`
+	AwsSecretAccessKey              pulumi.StringInput      `pulumi:"awsSecretAccessKey"`
+	GrantedPermissions              pulumi.StringArrayInput `pulumi:"grantedPermissions"`
 }
 
 func (AwsCredsAuthenticationDetailsPropertiesResponseArgs) ElementType() reflect.Type {
@@ -324,7 +254,6 @@ func (i AwsCredsAuthenticationDetailsPropertiesResponseArgs) ToAwsCredsAuthentic
 	return pulumi.ToOutputWithContext(ctx, i).(AwsCredsAuthenticationDetailsPropertiesResponseOutput)
 }
 
-// AWS cloud account connector based credentials, the credentials is composed of access key ID and secret key, for more details, refer to <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/id_users_create.html">Creating an IAM User in Your AWS Account (write only)</a>
 type AwsCredsAuthenticationDetailsPropertiesResponseOutput struct{ *pulumi.OutputState }
 
 func (AwsCredsAuthenticationDetailsPropertiesResponseOutput) ElementType() reflect.Type {
@@ -339,66 +268,45 @@ func (o AwsCredsAuthenticationDetailsPropertiesResponseOutput) ToAwsCredsAuthent
 	return o
 }
 
-// The ID of the cloud account
 func (o AwsCredsAuthenticationDetailsPropertiesResponseOutput) AccountId() pulumi.StringOutput {
 	return o.ApplyT(func(v AwsCredsAuthenticationDetailsPropertiesResponse) string { return v.AccountId }).(pulumi.StringOutput)
 }
 
-// State of the multi-cloud connector
 func (o AwsCredsAuthenticationDetailsPropertiesResponseOutput) AuthenticationProvisioningState() pulumi.StringOutput {
 	return o.ApplyT(func(v AwsCredsAuthenticationDetailsPropertiesResponse) string {
 		return v.AuthenticationProvisioningState
 	}).(pulumi.StringOutput)
 }
 
-// Connect to your cloud account, for AWS use either account credentials or role-based authentication. For GCP use account organization credentials.
-// Expected value is 'awsCreds'.
 func (o AwsCredsAuthenticationDetailsPropertiesResponseOutput) AuthenticationType() pulumi.StringOutput {
 	return o.ApplyT(func(v AwsCredsAuthenticationDetailsPropertiesResponse) string { return v.AuthenticationType }).(pulumi.StringOutput)
 }
 
-// Public key element of the AWS credential object (write only)
 func (o AwsCredsAuthenticationDetailsPropertiesResponseOutput) AwsAccessKeyId() pulumi.StringOutput {
 	return o.ApplyT(func(v AwsCredsAuthenticationDetailsPropertiesResponse) string { return v.AwsAccessKeyId }).(pulumi.StringOutput)
 }
 
-// Secret key element of the AWS credential object (write only)
 func (o AwsCredsAuthenticationDetailsPropertiesResponseOutput) AwsSecretAccessKey() pulumi.StringOutput {
 	return o.ApplyT(func(v AwsCredsAuthenticationDetailsPropertiesResponse) string { return v.AwsSecretAccessKey }).(pulumi.StringOutput)
 }
 
-// The permissions detected in the cloud account.
 func (o AwsCredsAuthenticationDetailsPropertiesResponseOutput) GrantedPermissions() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v AwsCredsAuthenticationDetailsPropertiesResponse) []string { return v.GrantedPermissions }).(pulumi.StringArrayOutput)
 }
 
-// GCP cloud account connector based service to service credentials, the credentials are composed of the organization ID and a JSON API key (write only)
 type GcpCredentialsDetailsProperties struct {
-	// Auth provider x509 certificate URL field of the API key (write only)
 	AuthProviderX509CertUrl string `pulumi:"authProviderX509CertUrl"`
-	// Auth URI field of the API key (write only)
-	AuthUri string `pulumi:"authUri"`
-	// Connect to your cloud account, for AWS use either account credentials or role-based authentication. For GCP use account organization credentials.
-	// Expected value is 'gcpCredentials'.
-	AuthenticationType string `pulumi:"authenticationType"`
-	// Client email field of the API key (write only)
-	ClientEmail string `pulumi:"clientEmail"`
-	// Client ID field of the API key (write only)
-	ClientId string `pulumi:"clientId"`
-	// Client x509 certificate URL field of the API key (write only)
-	ClientX509CertUrl string `pulumi:"clientX509CertUrl"`
-	// The organization ID of the GCP cloud account
-	OrganizationId string `pulumi:"organizationId"`
-	// Private key field of the API key (write only)
-	PrivateKey string `pulumi:"privateKey"`
-	// Private key ID field of the API key (write only)
-	PrivateKeyId string `pulumi:"privateKeyId"`
-	// Project ID field of the API key (write only)
-	ProjectId string `pulumi:"projectId"`
-	// Token URI field of the API key (write only)
-	TokenUri string `pulumi:"tokenUri"`
-	// Type field of the API key (write only)
-	Type string `pulumi:"type"`
+	AuthUri                 string `pulumi:"authUri"`
+	AuthenticationType      string `pulumi:"authenticationType"`
+	ClientEmail             string `pulumi:"clientEmail"`
+	ClientId                string `pulumi:"clientId"`
+	ClientX509CertUrl       string `pulumi:"clientX509CertUrl"`
+	OrganizationId          string `pulumi:"organizationId"`
+	PrivateKey              string `pulumi:"privateKey"`
+	PrivateKeyId            string `pulumi:"privateKeyId"`
+	ProjectId               string `pulumi:"projectId"`
+	TokenUri                string `pulumi:"tokenUri"`
+	Type                    string `pulumi:"type"`
 }
 
 // GcpCredentialsDetailsPropertiesInput is an input type that accepts GcpCredentialsDetailsPropertiesArgs and GcpCredentialsDetailsPropertiesOutput values.
@@ -412,33 +320,19 @@ type GcpCredentialsDetailsPropertiesInput interface {
 	ToGcpCredentialsDetailsPropertiesOutputWithContext(context.Context) GcpCredentialsDetailsPropertiesOutput
 }
 
-// GCP cloud account connector based service to service credentials, the credentials are composed of the organization ID and a JSON API key (write only)
 type GcpCredentialsDetailsPropertiesArgs struct {
-	// Auth provider x509 certificate URL field of the API key (write only)
 	AuthProviderX509CertUrl pulumi.StringInput `pulumi:"authProviderX509CertUrl"`
-	// Auth URI field of the API key (write only)
-	AuthUri pulumi.StringInput `pulumi:"authUri"`
-	// Connect to your cloud account, for AWS use either account credentials or role-based authentication. For GCP use account organization credentials.
-	// Expected value is 'gcpCredentials'.
-	AuthenticationType pulumi.StringInput `pulumi:"authenticationType"`
-	// Client email field of the API key (write only)
-	ClientEmail pulumi.StringInput `pulumi:"clientEmail"`
-	// Client ID field of the API key (write only)
-	ClientId pulumi.StringInput `pulumi:"clientId"`
-	// Client x509 certificate URL field of the API key (write only)
-	ClientX509CertUrl pulumi.StringInput `pulumi:"clientX509CertUrl"`
-	// The organization ID of the GCP cloud account
-	OrganizationId pulumi.StringInput `pulumi:"organizationId"`
-	// Private key field of the API key (write only)
-	PrivateKey pulumi.StringInput `pulumi:"privateKey"`
-	// Private key ID field of the API key (write only)
-	PrivateKeyId pulumi.StringInput `pulumi:"privateKeyId"`
-	// Project ID field of the API key (write only)
-	ProjectId pulumi.StringInput `pulumi:"projectId"`
-	// Token URI field of the API key (write only)
-	TokenUri pulumi.StringInput `pulumi:"tokenUri"`
-	// Type field of the API key (write only)
-	Type pulumi.StringInput `pulumi:"type"`
+	AuthUri                 pulumi.StringInput `pulumi:"authUri"`
+	AuthenticationType      pulumi.StringInput `pulumi:"authenticationType"`
+	ClientEmail             pulumi.StringInput `pulumi:"clientEmail"`
+	ClientId                pulumi.StringInput `pulumi:"clientId"`
+	ClientX509CertUrl       pulumi.StringInput `pulumi:"clientX509CertUrl"`
+	OrganizationId          pulumi.StringInput `pulumi:"organizationId"`
+	PrivateKey              pulumi.StringInput `pulumi:"privateKey"`
+	PrivateKeyId            pulumi.StringInput `pulumi:"privateKeyId"`
+	ProjectId               pulumi.StringInput `pulumi:"projectId"`
+	TokenUri                pulumi.StringInput `pulumi:"tokenUri"`
+	Type                    pulumi.StringInput `pulumi:"type"`
 }
 
 func (GcpCredentialsDetailsPropertiesArgs) ElementType() reflect.Type {
@@ -453,7 +347,6 @@ func (i GcpCredentialsDetailsPropertiesArgs) ToGcpCredentialsDetailsPropertiesOu
 	return pulumi.ToOutputWithContext(ctx, i).(GcpCredentialsDetailsPropertiesOutput)
 }
 
-// GCP cloud account connector based service to service credentials, the credentials are composed of the organization ID and a JSON API key (write only)
 type GcpCredentialsDetailsPropertiesOutput struct{ *pulumi.OutputState }
 
 func (GcpCredentialsDetailsPropertiesOutput) ElementType() reflect.Type {
@@ -468,98 +361,69 @@ func (o GcpCredentialsDetailsPropertiesOutput) ToGcpCredentialsDetailsProperties
 	return o
 }
 
-// Auth provider x509 certificate URL field of the API key (write only)
 func (o GcpCredentialsDetailsPropertiesOutput) AuthProviderX509CertUrl() pulumi.StringOutput {
 	return o.ApplyT(func(v GcpCredentialsDetailsProperties) string { return v.AuthProviderX509CertUrl }).(pulumi.StringOutput)
 }
 
-// Auth URI field of the API key (write only)
 func (o GcpCredentialsDetailsPropertiesOutput) AuthUri() pulumi.StringOutput {
 	return o.ApplyT(func(v GcpCredentialsDetailsProperties) string { return v.AuthUri }).(pulumi.StringOutput)
 }
 
-// Connect to your cloud account, for AWS use either account credentials or role-based authentication. For GCP use account organization credentials.
-// Expected value is 'gcpCredentials'.
 func (o GcpCredentialsDetailsPropertiesOutput) AuthenticationType() pulumi.StringOutput {
 	return o.ApplyT(func(v GcpCredentialsDetailsProperties) string { return v.AuthenticationType }).(pulumi.StringOutput)
 }
 
-// Client email field of the API key (write only)
 func (o GcpCredentialsDetailsPropertiesOutput) ClientEmail() pulumi.StringOutput {
 	return o.ApplyT(func(v GcpCredentialsDetailsProperties) string { return v.ClientEmail }).(pulumi.StringOutput)
 }
 
-// Client ID field of the API key (write only)
 func (o GcpCredentialsDetailsPropertiesOutput) ClientId() pulumi.StringOutput {
 	return o.ApplyT(func(v GcpCredentialsDetailsProperties) string { return v.ClientId }).(pulumi.StringOutput)
 }
 
-// Client x509 certificate URL field of the API key (write only)
 func (o GcpCredentialsDetailsPropertiesOutput) ClientX509CertUrl() pulumi.StringOutput {
 	return o.ApplyT(func(v GcpCredentialsDetailsProperties) string { return v.ClientX509CertUrl }).(pulumi.StringOutput)
 }
 
-// The organization ID of the GCP cloud account
 func (o GcpCredentialsDetailsPropertiesOutput) OrganizationId() pulumi.StringOutput {
 	return o.ApplyT(func(v GcpCredentialsDetailsProperties) string { return v.OrganizationId }).(pulumi.StringOutput)
 }
 
-// Private key field of the API key (write only)
 func (o GcpCredentialsDetailsPropertiesOutput) PrivateKey() pulumi.StringOutput {
 	return o.ApplyT(func(v GcpCredentialsDetailsProperties) string { return v.PrivateKey }).(pulumi.StringOutput)
 }
 
-// Private key ID field of the API key (write only)
 func (o GcpCredentialsDetailsPropertiesOutput) PrivateKeyId() pulumi.StringOutput {
 	return o.ApplyT(func(v GcpCredentialsDetailsProperties) string { return v.PrivateKeyId }).(pulumi.StringOutput)
 }
 
-// Project ID field of the API key (write only)
 func (o GcpCredentialsDetailsPropertiesOutput) ProjectId() pulumi.StringOutput {
 	return o.ApplyT(func(v GcpCredentialsDetailsProperties) string { return v.ProjectId }).(pulumi.StringOutput)
 }
 
-// Token URI field of the API key (write only)
 func (o GcpCredentialsDetailsPropertiesOutput) TokenUri() pulumi.StringOutput {
 	return o.ApplyT(func(v GcpCredentialsDetailsProperties) string { return v.TokenUri }).(pulumi.StringOutput)
 }
 
-// Type field of the API key (write only)
 func (o GcpCredentialsDetailsPropertiesOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v GcpCredentialsDetailsProperties) string { return v.Type }).(pulumi.StringOutput)
 }
 
-// GCP cloud account connector based service to service credentials, the credentials are composed of the organization ID and a JSON API key (write only)
 type GcpCredentialsDetailsPropertiesResponse struct {
-	// Auth provider x509 certificate URL field of the API key (write only)
-	AuthProviderX509CertUrl string `pulumi:"authProviderX509CertUrl"`
-	// Auth URI field of the API key (write only)
-	AuthUri string `pulumi:"authUri"`
-	// State of the multi-cloud connector
-	AuthenticationProvisioningState string `pulumi:"authenticationProvisioningState"`
-	// Connect to your cloud account, for AWS use either account credentials or role-based authentication. For GCP use account organization credentials.
-	// Expected value is 'gcpCredentials'.
-	AuthenticationType string `pulumi:"authenticationType"`
-	// Client email field of the API key (write only)
-	ClientEmail string `pulumi:"clientEmail"`
-	// Client ID field of the API key (write only)
-	ClientId string `pulumi:"clientId"`
-	// Client x509 certificate URL field of the API key (write only)
-	ClientX509CertUrl string `pulumi:"clientX509CertUrl"`
-	// The permissions detected in the cloud account.
-	GrantedPermissions []string `pulumi:"grantedPermissions"`
-	// The organization ID of the GCP cloud account
-	OrganizationId string `pulumi:"organizationId"`
-	// Private key field of the API key (write only)
-	PrivateKey string `pulumi:"privateKey"`
-	// Private key ID field of the API key (write only)
-	PrivateKeyId string `pulumi:"privateKeyId"`
-	// Project ID field of the API key (write only)
-	ProjectId string `pulumi:"projectId"`
-	// Token URI field of the API key (write only)
-	TokenUri string `pulumi:"tokenUri"`
-	// Type field of the API key (write only)
-	Type string `pulumi:"type"`
+	AuthProviderX509CertUrl         string   `pulumi:"authProviderX509CertUrl"`
+	AuthUri                         string   `pulumi:"authUri"`
+	AuthenticationProvisioningState string   `pulumi:"authenticationProvisioningState"`
+	AuthenticationType              string   `pulumi:"authenticationType"`
+	ClientEmail                     string   `pulumi:"clientEmail"`
+	ClientId                        string   `pulumi:"clientId"`
+	ClientX509CertUrl               string   `pulumi:"clientX509CertUrl"`
+	GrantedPermissions              []string `pulumi:"grantedPermissions"`
+	OrganizationId                  string   `pulumi:"organizationId"`
+	PrivateKey                      string   `pulumi:"privateKey"`
+	PrivateKeyId                    string   `pulumi:"privateKeyId"`
+	ProjectId                       string   `pulumi:"projectId"`
+	TokenUri                        string   `pulumi:"tokenUri"`
+	Type                            string   `pulumi:"type"`
 }
 
 // GcpCredentialsDetailsPropertiesResponseInput is an input type that accepts GcpCredentialsDetailsPropertiesResponseArgs and GcpCredentialsDetailsPropertiesResponseOutput values.
@@ -573,37 +437,21 @@ type GcpCredentialsDetailsPropertiesResponseInput interface {
 	ToGcpCredentialsDetailsPropertiesResponseOutputWithContext(context.Context) GcpCredentialsDetailsPropertiesResponseOutput
 }
 
-// GCP cloud account connector based service to service credentials, the credentials are composed of the organization ID and a JSON API key (write only)
 type GcpCredentialsDetailsPropertiesResponseArgs struct {
-	// Auth provider x509 certificate URL field of the API key (write only)
-	AuthProviderX509CertUrl pulumi.StringInput `pulumi:"authProviderX509CertUrl"`
-	// Auth URI field of the API key (write only)
-	AuthUri pulumi.StringInput `pulumi:"authUri"`
-	// State of the multi-cloud connector
-	AuthenticationProvisioningState pulumi.StringInput `pulumi:"authenticationProvisioningState"`
-	// Connect to your cloud account, for AWS use either account credentials or role-based authentication. For GCP use account organization credentials.
-	// Expected value is 'gcpCredentials'.
-	AuthenticationType pulumi.StringInput `pulumi:"authenticationType"`
-	// Client email field of the API key (write only)
-	ClientEmail pulumi.StringInput `pulumi:"clientEmail"`
-	// Client ID field of the API key (write only)
-	ClientId pulumi.StringInput `pulumi:"clientId"`
-	// Client x509 certificate URL field of the API key (write only)
-	ClientX509CertUrl pulumi.StringInput `pulumi:"clientX509CertUrl"`
-	// The permissions detected in the cloud account.
-	GrantedPermissions pulumi.StringArrayInput `pulumi:"grantedPermissions"`
-	// The organization ID of the GCP cloud account
-	OrganizationId pulumi.StringInput `pulumi:"organizationId"`
-	// Private key field of the API key (write only)
-	PrivateKey pulumi.StringInput `pulumi:"privateKey"`
-	// Private key ID field of the API key (write only)
-	PrivateKeyId pulumi.StringInput `pulumi:"privateKeyId"`
-	// Project ID field of the API key (write only)
-	ProjectId pulumi.StringInput `pulumi:"projectId"`
-	// Token URI field of the API key (write only)
-	TokenUri pulumi.StringInput `pulumi:"tokenUri"`
-	// Type field of the API key (write only)
-	Type pulumi.StringInput `pulumi:"type"`
+	AuthProviderX509CertUrl         pulumi.StringInput      `pulumi:"authProviderX509CertUrl"`
+	AuthUri                         pulumi.StringInput      `pulumi:"authUri"`
+	AuthenticationProvisioningState pulumi.StringInput      `pulumi:"authenticationProvisioningState"`
+	AuthenticationType              pulumi.StringInput      `pulumi:"authenticationType"`
+	ClientEmail                     pulumi.StringInput      `pulumi:"clientEmail"`
+	ClientId                        pulumi.StringInput      `pulumi:"clientId"`
+	ClientX509CertUrl               pulumi.StringInput      `pulumi:"clientX509CertUrl"`
+	GrantedPermissions              pulumi.StringArrayInput `pulumi:"grantedPermissions"`
+	OrganizationId                  pulumi.StringInput      `pulumi:"organizationId"`
+	PrivateKey                      pulumi.StringInput      `pulumi:"privateKey"`
+	PrivateKeyId                    pulumi.StringInput      `pulumi:"privateKeyId"`
+	ProjectId                       pulumi.StringInput      `pulumi:"projectId"`
+	TokenUri                        pulumi.StringInput      `pulumi:"tokenUri"`
+	Type                            pulumi.StringInput      `pulumi:"type"`
 }
 
 func (GcpCredentialsDetailsPropertiesResponseArgs) ElementType() reflect.Type {
@@ -618,7 +466,6 @@ func (i GcpCredentialsDetailsPropertiesResponseArgs) ToGcpCredentialsDetailsProp
 	return pulumi.ToOutputWithContext(ctx, i).(GcpCredentialsDetailsPropertiesResponseOutput)
 }
 
-// GCP cloud account connector based service to service credentials, the credentials are composed of the organization ID and a JSON API key (write only)
 type GcpCredentialsDetailsPropertiesResponseOutput struct{ *pulumi.OutputState }
 
 func (GcpCredentialsDetailsPropertiesResponseOutput) ElementType() reflect.Type {
@@ -633,89 +480,68 @@ func (o GcpCredentialsDetailsPropertiesResponseOutput) ToGcpCredentialsDetailsPr
 	return o
 }
 
-// Auth provider x509 certificate URL field of the API key (write only)
 func (o GcpCredentialsDetailsPropertiesResponseOutput) AuthProviderX509CertUrl() pulumi.StringOutput {
 	return o.ApplyT(func(v GcpCredentialsDetailsPropertiesResponse) string { return v.AuthProviderX509CertUrl }).(pulumi.StringOutput)
 }
 
-// Auth URI field of the API key (write only)
 func (o GcpCredentialsDetailsPropertiesResponseOutput) AuthUri() pulumi.StringOutput {
 	return o.ApplyT(func(v GcpCredentialsDetailsPropertiesResponse) string { return v.AuthUri }).(pulumi.StringOutput)
 }
 
-// State of the multi-cloud connector
 func (o GcpCredentialsDetailsPropertiesResponseOutput) AuthenticationProvisioningState() pulumi.StringOutput {
 	return o.ApplyT(func(v GcpCredentialsDetailsPropertiesResponse) string { return v.AuthenticationProvisioningState }).(pulumi.StringOutput)
 }
 
-// Connect to your cloud account, for AWS use either account credentials or role-based authentication. For GCP use account organization credentials.
-// Expected value is 'gcpCredentials'.
 func (o GcpCredentialsDetailsPropertiesResponseOutput) AuthenticationType() pulumi.StringOutput {
 	return o.ApplyT(func(v GcpCredentialsDetailsPropertiesResponse) string { return v.AuthenticationType }).(pulumi.StringOutput)
 }
 
-// Client email field of the API key (write only)
 func (o GcpCredentialsDetailsPropertiesResponseOutput) ClientEmail() pulumi.StringOutput {
 	return o.ApplyT(func(v GcpCredentialsDetailsPropertiesResponse) string { return v.ClientEmail }).(pulumi.StringOutput)
 }
 
-// Client ID field of the API key (write only)
 func (o GcpCredentialsDetailsPropertiesResponseOutput) ClientId() pulumi.StringOutput {
 	return o.ApplyT(func(v GcpCredentialsDetailsPropertiesResponse) string { return v.ClientId }).(pulumi.StringOutput)
 }
 
-// Client x509 certificate URL field of the API key (write only)
 func (o GcpCredentialsDetailsPropertiesResponseOutput) ClientX509CertUrl() pulumi.StringOutput {
 	return o.ApplyT(func(v GcpCredentialsDetailsPropertiesResponse) string { return v.ClientX509CertUrl }).(pulumi.StringOutput)
 }
 
-// The permissions detected in the cloud account.
 func (o GcpCredentialsDetailsPropertiesResponseOutput) GrantedPermissions() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v GcpCredentialsDetailsPropertiesResponse) []string { return v.GrantedPermissions }).(pulumi.StringArrayOutput)
 }
 
-// The organization ID of the GCP cloud account
 func (o GcpCredentialsDetailsPropertiesResponseOutput) OrganizationId() pulumi.StringOutput {
 	return o.ApplyT(func(v GcpCredentialsDetailsPropertiesResponse) string { return v.OrganizationId }).(pulumi.StringOutput)
 }
 
-// Private key field of the API key (write only)
 func (o GcpCredentialsDetailsPropertiesResponseOutput) PrivateKey() pulumi.StringOutput {
 	return o.ApplyT(func(v GcpCredentialsDetailsPropertiesResponse) string { return v.PrivateKey }).(pulumi.StringOutput)
 }
 
-// Private key ID field of the API key (write only)
 func (o GcpCredentialsDetailsPropertiesResponseOutput) PrivateKeyId() pulumi.StringOutput {
 	return o.ApplyT(func(v GcpCredentialsDetailsPropertiesResponse) string { return v.PrivateKeyId }).(pulumi.StringOutput)
 }
 
-// Project ID field of the API key (write only)
 func (o GcpCredentialsDetailsPropertiesResponseOutput) ProjectId() pulumi.StringOutput {
 	return o.ApplyT(func(v GcpCredentialsDetailsPropertiesResponse) string { return v.ProjectId }).(pulumi.StringOutput)
 }
 
-// Token URI field of the API key (write only)
 func (o GcpCredentialsDetailsPropertiesResponseOutput) TokenUri() pulumi.StringOutput {
 	return o.ApplyT(func(v GcpCredentialsDetailsPropertiesResponse) string { return v.TokenUri }).(pulumi.StringOutput)
 }
 
-// Type field of the API key (write only)
 func (o GcpCredentialsDetailsPropertiesResponseOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v GcpCredentialsDetailsPropertiesResponse) string { return v.Type }).(pulumi.StringOutput)
 }
 
-// Settings for hybrid compute management
 type HybridComputeSettingsProperties struct {
-	// Whether or not to automatically install Azure Arc (hybrid compute) agents on machines
-	AutoProvision string `pulumi:"autoProvision"`
-	// For a non-Azure machine that is not connected directly to the internet, specify a proxy server that the non-Azure machine can use.
-	ProxyServer *ProxyServerProperties `pulumi:"proxyServer"`
-	// The location where the metadata of machines will be stored
-	Region *string `pulumi:"region"`
-	// The name of the resource group where Arc (Hybrid Compute) connectors are connected.
-	ResourceGroupName *string `pulumi:"resourceGroupName"`
-	// An object to access resources that are secured by an Azure AD tenant.
-	ServicePrincipal *ServicePrincipalProperties `pulumi:"servicePrincipal"`
+	AutoProvision     string                      `pulumi:"autoProvision"`
+	ProxyServer       *ProxyServerProperties      `pulumi:"proxyServer"`
+	Region            *string                     `pulumi:"region"`
+	ResourceGroupName *string                     `pulumi:"resourceGroupName"`
+	ServicePrincipal  *ServicePrincipalProperties `pulumi:"servicePrincipal"`
 }
 
 // HybridComputeSettingsPropertiesInput is an input type that accepts HybridComputeSettingsPropertiesArgs and HybridComputeSettingsPropertiesOutput values.
@@ -729,18 +555,12 @@ type HybridComputeSettingsPropertiesInput interface {
 	ToHybridComputeSettingsPropertiesOutputWithContext(context.Context) HybridComputeSettingsPropertiesOutput
 }
 
-// Settings for hybrid compute management
 type HybridComputeSettingsPropertiesArgs struct {
-	// Whether or not to automatically install Azure Arc (hybrid compute) agents on machines
-	AutoProvision pulumi.StringInput `pulumi:"autoProvision"`
-	// For a non-Azure machine that is not connected directly to the internet, specify a proxy server that the non-Azure machine can use.
-	ProxyServer ProxyServerPropertiesPtrInput `pulumi:"proxyServer"`
-	// The location where the metadata of machines will be stored
-	Region pulumi.StringPtrInput `pulumi:"region"`
-	// The name of the resource group where Arc (Hybrid Compute) connectors are connected.
-	ResourceGroupName pulumi.StringPtrInput `pulumi:"resourceGroupName"`
-	// An object to access resources that are secured by an Azure AD tenant.
-	ServicePrincipal ServicePrincipalPropertiesPtrInput `pulumi:"servicePrincipal"`
+	AutoProvision     pulumi.StringInput                 `pulumi:"autoProvision"`
+	ProxyServer       ProxyServerPropertiesPtrInput      `pulumi:"proxyServer"`
+	Region            pulumi.StringPtrInput              `pulumi:"region"`
+	ResourceGroupName pulumi.StringPtrInput              `pulumi:"resourceGroupName"`
+	ServicePrincipal  ServicePrincipalPropertiesPtrInput `pulumi:"servicePrincipal"`
 }
 
 func (HybridComputeSettingsPropertiesArgs) ElementType() reflect.Type {
@@ -796,7 +616,6 @@ func (i *hybridComputeSettingsPropertiesPtrType) ToHybridComputeSettingsProperti
 	return pulumi.ToOutputWithContext(ctx, i).(HybridComputeSettingsPropertiesPtrOutput)
 }
 
-// Settings for hybrid compute management
 type HybridComputeSettingsPropertiesOutput struct{ *pulumi.OutputState }
 
 func (HybridComputeSettingsPropertiesOutput) ElementType() reflect.Type {
@@ -816,32 +635,27 @@ func (o HybridComputeSettingsPropertiesOutput) ToHybridComputeSettingsProperties
 }
 
 func (o HybridComputeSettingsPropertiesOutput) ToHybridComputeSettingsPropertiesPtrOutputWithContext(ctx context.Context) HybridComputeSettingsPropertiesPtrOutput {
-	return o.ApplyT(func(v HybridComputeSettingsProperties) *HybridComputeSettingsProperties {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v HybridComputeSettingsProperties) *HybridComputeSettingsProperties {
 		return &v
 	}).(HybridComputeSettingsPropertiesPtrOutput)
 }
 
-// Whether or not to automatically install Azure Arc (hybrid compute) agents on machines
 func (o HybridComputeSettingsPropertiesOutput) AutoProvision() pulumi.StringOutput {
 	return o.ApplyT(func(v HybridComputeSettingsProperties) string { return v.AutoProvision }).(pulumi.StringOutput)
 }
 
-// For a non-Azure machine that is not connected directly to the internet, specify a proxy server that the non-Azure machine can use.
 func (o HybridComputeSettingsPropertiesOutput) ProxyServer() ProxyServerPropertiesPtrOutput {
 	return o.ApplyT(func(v HybridComputeSettingsProperties) *ProxyServerProperties { return v.ProxyServer }).(ProxyServerPropertiesPtrOutput)
 }
 
-// The location where the metadata of machines will be stored
 func (o HybridComputeSettingsPropertiesOutput) Region() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v HybridComputeSettingsProperties) *string { return v.Region }).(pulumi.StringPtrOutput)
 }
 
-// The name of the resource group where Arc (Hybrid Compute) connectors are connected.
 func (o HybridComputeSettingsPropertiesOutput) ResourceGroupName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v HybridComputeSettingsProperties) *string { return v.ResourceGroupName }).(pulumi.StringPtrOutput)
 }
 
-// An object to access resources that are secured by an Azure AD tenant.
 func (o HybridComputeSettingsPropertiesOutput) ServicePrincipal() ServicePrincipalPropertiesPtrOutput {
 	return o.ApplyT(func(v HybridComputeSettingsProperties) *ServicePrincipalProperties { return v.ServicePrincipal }).(ServicePrincipalPropertiesPtrOutput)
 }
@@ -861,10 +675,15 @@ func (o HybridComputeSettingsPropertiesPtrOutput) ToHybridComputeSettingsPropert
 }
 
 func (o HybridComputeSettingsPropertiesPtrOutput) Elem() HybridComputeSettingsPropertiesOutput {
-	return o.ApplyT(func(v *HybridComputeSettingsProperties) HybridComputeSettingsProperties { return *v }).(HybridComputeSettingsPropertiesOutput)
+	return o.ApplyT(func(v *HybridComputeSettingsProperties) HybridComputeSettingsProperties {
+		if v != nil {
+			return *v
+		}
+		var ret HybridComputeSettingsProperties
+		return ret
+	}).(HybridComputeSettingsPropertiesOutput)
 }
 
-// Whether or not to automatically install Azure Arc (hybrid compute) agents on machines
 func (o HybridComputeSettingsPropertiesPtrOutput) AutoProvision() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *HybridComputeSettingsProperties) *string {
 		if v == nil {
@@ -874,7 +693,6 @@ func (o HybridComputeSettingsPropertiesPtrOutput) AutoProvision() pulumi.StringP
 	}).(pulumi.StringPtrOutput)
 }
 
-// For a non-Azure machine that is not connected directly to the internet, specify a proxy server that the non-Azure machine can use.
 func (o HybridComputeSettingsPropertiesPtrOutput) ProxyServer() ProxyServerPropertiesPtrOutput {
 	return o.ApplyT(func(v *HybridComputeSettingsProperties) *ProxyServerProperties {
 		if v == nil {
@@ -884,7 +702,6 @@ func (o HybridComputeSettingsPropertiesPtrOutput) ProxyServer() ProxyServerPrope
 	}).(ProxyServerPropertiesPtrOutput)
 }
 
-// The location where the metadata of machines will be stored
 func (o HybridComputeSettingsPropertiesPtrOutput) Region() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *HybridComputeSettingsProperties) *string {
 		if v == nil {
@@ -894,7 +711,6 @@ func (o HybridComputeSettingsPropertiesPtrOutput) Region() pulumi.StringPtrOutpu
 	}).(pulumi.StringPtrOutput)
 }
 
-// The name of the resource group where Arc (Hybrid Compute) connectors are connected.
 func (o HybridComputeSettingsPropertiesPtrOutput) ResourceGroupName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *HybridComputeSettingsProperties) *string {
 		if v == nil {
@@ -904,7 +720,6 @@ func (o HybridComputeSettingsPropertiesPtrOutput) ResourceGroupName() pulumi.Str
 	}).(pulumi.StringPtrOutput)
 }
 
-// An object to access resources that are secured by an Azure AD tenant.
 func (o HybridComputeSettingsPropertiesPtrOutput) ServicePrincipal() ServicePrincipalPropertiesPtrOutput {
 	return o.ApplyT(func(v *HybridComputeSettingsProperties) *ServicePrincipalProperties {
 		if v == nil {
@@ -914,20 +729,13 @@ func (o HybridComputeSettingsPropertiesPtrOutput) ServicePrincipal() ServicePrin
 	}).(ServicePrincipalPropertiesPtrOutput)
 }
 
-// Settings for hybrid compute management
 type HybridComputeSettingsPropertiesResponse struct {
-	// Whether or not to automatically install Azure Arc (hybrid compute) agents on machines
-	AutoProvision string `pulumi:"autoProvision"`
-	// State of the service principal and its secret
-	HybridComputeProvisioningState string `pulumi:"hybridComputeProvisioningState"`
-	// For a non-Azure machine that is not connected directly to the internet, specify a proxy server that the non-Azure machine can use.
-	ProxyServer *ProxyServerPropertiesResponse `pulumi:"proxyServer"`
-	// The location where the metadata of machines will be stored
-	Region *string `pulumi:"region"`
-	// The name of the resource group where Arc (Hybrid Compute) connectors are connected.
-	ResourceGroupName *string `pulumi:"resourceGroupName"`
-	// An object to access resources that are secured by an Azure AD tenant.
-	ServicePrincipal *ServicePrincipalPropertiesResponse `pulumi:"servicePrincipal"`
+	AutoProvision                  string                              `pulumi:"autoProvision"`
+	HybridComputeProvisioningState string                              `pulumi:"hybridComputeProvisioningState"`
+	ProxyServer                    *ProxyServerPropertiesResponse      `pulumi:"proxyServer"`
+	Region                         *string                             `pulumi:"region"`
+	ResourceGroupName              *string                             `pulumi:"resourceGroupName"`
+	ServicePrincipal               *ServicePrincipalPropertiesResponse `pulumi:"servicePrincipal"`
 }
 
 // HybridComputeSettingsPropertiesResponseInput is an input type that accepts HybridComputeSettingsPropertiesResponseArgs and HybridComputeSettingsPropertiesResponseOutput values.
@@ -941,20 +749,13 @@ type HybridComputeSettingsPropertiesResponseInput interface {
 	ToHybridComputeSettingsPropertiesResponseOutputWithContext(context.Context) HybridComputeSettingsPropertiesResponseOutput
 }
 
-// Settings for hybrid compute management
 type HybridComputeSettingsPropertiesResponseArgs struct {
-	// Whether or not to automatically install Azure Arc (hybrid compute) agents on machines
-	AutoProvision pulumi.StringInput `pulumi:"autoProvision"`
-	// State of the service principal and its secret
-	HybridComputeProvisioningState pulumi.StringInput `pulumi:"hybridComputeProvisioningState"`
-	// For a non-Azure machine that is not connected directly to the internet, specify a proxy server that the non-Azure machine can use.
-	ProxyServer ProxyServerPropertiesResponsePtrInput `pulumi:"proxyServer"`
-	// The location where the metadata of machines will be stored
-	Region pulumi.StringPtrInput `pulumi:"region"`
-	// The name of the resource group where Arc (Hybrid Compute) connectors are connected.
-	ResourceGroupName pulumi.StringPtrInput `pulumi:"resourceGroupName"`
-	// An object to access resources that are secured by an Azure AD tenant.
-	ServicePrincipal ServicePrincipalPropertiesResponsePtrInput `pulumi:"servicePrincipal"`
+	AutoProvision                  pulumi.StringInput                         `pulumi:"autoProvision"`
+	HybridComputeProvisioningState pulumi.StringInput                         `pulumi:"hybridComputeProvisioningState"`
+	ProxyServer                    ProxyServerPropertiesResponsePtrInput      `pulumi:"proxyServer"`
+	Region                         pulumi.StringPtrInput                      `pulumi:"region"`
+	ResourceGroupName              pulumi.StringPtrInput                      `pulumi:"resourceGroupName"`
+	ServicePrincipal               ServicePrincipalPropertiesResponsePtrInput `pulumi:"servicePrincipal"`
 }
 
 func (HybridComputeSettingsPropertiesResponseArgs) ElementType() reflect.Type {
@@ -1010,7 +811,6 @@ func (i *hybridComputeSettingsPropertiesResponsePtrType) ToHybridComputeSettings
 	return pulumi.ToOutputWithContext(ctx, i).(HybridComputeSettingsPropertiesResponsePtrOutput)
 }
 
-// Settings for hybrid compute management
 type HybridComputeSettingsPropertiesResponseOutput struct{ *pulumi.OutputState }
 
 func (HybridComputeSettingsPropertiesResponseOutput) ElementType() reflect.Type {
@@ -1030,37 +830,31 @@ func (o HybridComputeSettingsPropertiesResponseOutput) ToHybridComputeSettingsPr
 }
 
 func (o HybridComputeSettingsPropertiesResponseOutput) ToHybridComputeSettingsPropertiesResponsePtrOutputWithContext(ctx context.Context) HybridComputeSettingsPropertiesResponsePtrOutput {
-	return o.ApplyT(func(v HybridComputeSettingsPropertiesResponse) *HybridComputeSettingsPropertiesResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v HybridComputeSettingsPropertiesResponse) *HybridComputeSettingsPropertiesResponse {
 		return &v
 	}).(HybridComputeSettingsPropertiesResponsePtrOutput)
 }
 
-// Whether or not to automatically install Azure Arc (hybrid compute) agents on machines
 func (o HybridComputeSettingsPropertiesResponseOutput) AutoProvision() pulumi.StringOutput {
 	return o.ApplyT(func(v HybridComputeSettingsPropertiesResponse) string { return v.AutoProvision }).(pulumi.StringOutput)
 }
 
-// State of the service principal and its secret
 func (o HybridComputeSettingsPropertiesResponseOutput) HybridComputeProvisioningState() pulumi.StringOutput {
 	return o.ApplyT(func(v HybridComputeSettingsPropertiesResponse) string { return v.HybridComputeProvisioningState }).(pulumi.StringOutput)
 }
 
-// For a non-Azure machine that is not connected directly to the internet, specify a proxy server that the non-Azure machine can use.
 func (o HybridComputeSettingsPropertiesResponseOutput) ProxyServer() ProxyServerPropertiesResponsePtrOutput {
 	return o.ApplyT(func(v HybridComputeSettingsPropertiesResponse) *ProxyServerPropertiesResponse { return v.ProxyServer }).(ProxyServerPropertiesResponsePtrOutput)
 }
 
-// The location where the metadata of machines will be stored
 func (o HybridComputeSettingsPropertiesResponseOutput) Region() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v HybridComputeSettingsPropertiesResponse) *string { return v.Region }).(pulumi.StringPtrOutput)
 }
 
-// The name of the resource group where Arc (Hybrid Compute) connectors are connected.
 func (o HybridComputeSettingsPropertiesResponseOutput) ResourceGroupName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v HybridComputeSettingsPropertiesResponse) *string { return v.ResourceGroupName }).(pulumi.StringPtrOutput)
 }
 
-// An object to access resources that are secured by an Azure AD tenant.
 func (o HybridComputeSettingsPropertiesResponseOutput) ServicePrincipal() ServicePrincipalPropertiesResponsePtrOutput {
 	return o.ApplyT(func(v HybridComputeSettingsPropertiesResponse) *ServicePrincipalPropertiesResponse {
 		return v.ServicePrincipal
@@ -1082,10 +876,15 @@ func (o HybridComputeSettingsPropertiesResponsePtrOutput) ToHybridComputeSetting
 }
 
 func (o HybridComputeSettingsPropertiesResponsePtrOutput) Elem() HybridComputeSettingsPropertiesResponseOutput {
-	return o.ApplyT(func(v *HybridComputeSettingsPropertiesResponse) HybridComputeSettingsPropertiesResponse { return *v }).(HybridComputeSettingsPropertiesResponseOutput)
+	return o.ApplyT(func(v *HybridComputeSettingsPropertiesResponse) HybridComputeSettingsPropertiesResponse {
+		if v != nil {
+			return *v
+		}
+		var ret HybridComputeSettingsPropertiesResponse
+		return ret
+	}).(HybridComputeSettingsPropertiesResponseOutput)
 }
 
-// Whether or not to automatically install Azure Arc (hybrid compute) agents on machines
 func (o HybridComputeSettingsPropertiesResponsePtrOutput) AutoProvision() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *HybridComputeSettingsPropertiesResponse) *string {
 		if v == nil {
@@ -1095,7 +894,6 @@ func (o HybridComputeSettingsPropertiesResponsePtrOutput) AutoProvision() pulumi
 	}).(pulumi.StringPtrOutput)
 }
 
-// State of the service principal and its secret
 func (o HybridComputeSettingsPropertiesResponsePtrOutput) HybridComputeProvisioningState() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *HybridComputeSettingsPropertiesResponse) *string {
 		if v == nil {
@@ -1105,7 +903,6 @@ func (o HybridComputeSettingsPropertiesResponsePtrOutput) HybridComputeProvision
 	}).(pulumi.StringPtrOutput)
 }
 
-// For a non-Azure machine that is not connected directly to the internet, specify a proxy server that the non-Azure machine can use.
 func (o HybridComputeSettingsPropertiesResponsePtrOutput) ProxyServer() ProxyServerPropertiesResponsePtrOutput {
 	return o.ApplyT(func(v *HybridComputeSettingsPropertiesResponse) *ProxyServerPropertiesResponse {
 		if v == nil {
@@ -1115,7 +912,6 @@ func (o HybridComputeSettingsPropertiesResponsePtrOutput) ProxyServer() ProxySer
 	}).(ProxyServerPropertiesResponsePtrOutput)
 }
 
-// The location where the metadata of machines will be stored
 func (o HybridComputeSettingsPropertiesResponsePtrOutput) Region() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *HybridComputeSettingsPropertiesResponse) *string {
 		if v == nil {
@@ -1125,7 +921,6 @@ func (o HybridComputeSettingsPropertiesResponsePtrOutput) Region() pulumi.String
 	}).(pulumi.StringPtrOutput)
 }
 
-// The name of the resource group where Arc (Hybrid Compute) connectors are connected.
 func (o HybridComputeSettingsPropertiesResponsePtrOutput) ResourceGroupName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *HybridComputeSettingsPropertiesResponse) *string {
 		if v == nil {
@@ -1135,7 +930,6 @@ func (o HybridComputeSettingsPropertiesResponsePtrOutput) ResourceGroupName() pu
 	}).(pulumi.StringPtrOutput)
 }
 
-// An object to access resources that are secured by an Azure AD tenant.
 func (o HybridComputeSettingsPropertiesResponsePtrOutput) ServicePrincipal() ServicePrincipalPropertiesResponsePtrOutput {
 	return o.ApplyT(func(v *HybridComputeSettingsPropertiesResponse) *ServicePrincipalPropertiesResponse {
 		if v == nil {
@@ -1145,11 +939,8 @@ func (o HybridComputeSettingsPropertiesResponsePtrOutput) ServicePrincipal() Ser
 	}).(ServicePrincipalPropertiesResponsePtrOutput)
 }
 
-// For a non-Azure machine that is not connected directly to the internet, specify a proxy server that the non-Azure machine can use.
 type ProxyServerProperties struct {
-	// Proxy server IP
-	Ip *string `pulumi:"ip"`
-	// Proxy server port
+	Ip   *string `pulumi:"ip"`
 	Port *string `pulumi:"port"`
 }
 
@@ -1164,11 +955,8 @@ type ProxyServerPropertiesInput interface {
 	ToProxyServerPropertiesOutputWithContext(context.Context) ProxyServerPropertiesOutput
 }
 
-// For a non-Azure machine that is not connected directly to the internet, specify a proxy server that the non-Azure machine can use.
 type ProxyServerPropertiesArgs struct {
-	// Proxy server IP
-	Ip pulumi.StringPtrInput `pulumi:"ip"`
-	// Proxy server port
+	Ip   pulumi.StringPtrInput `pulumi:"ip"`
 	Port pulumi.StringPtrInput `pulumi:"port"`
 }
 
@@ -1225,7 +1013,6 @@ func (i *proxyServerPropertiesPtrType) ToProxyServerPropertiesPtrOutputWithConte
 	return pulumi.ToOutputWithContext(ctx, i).(ProxyServerPropertiesPtrOutput)
 }
 
-// For a non-Azure machine that is not connected directly to the internet, specify a proxy server that the non-Azure machine can use.
 type ProxyServerPropertiesOutput struct{ *pulumi.OutputState }
 
 func (ProxyServerPropertiesOutput) ElementType() reflect.Type {
@@ -1245,17 +1032,15 @@ func (o ProxyServerPropertiesOutput) ToProxyServerPropertiesPtrOutput() ProxySer
 }
 
 func (o ProxyServerPropertiesOutput) ToProxyServerPropertiesPtrOutputWithContext(ctx context.Context) ProxyServerPropertiesPtrOutput {
-	return o.ApplyT(func(v ProxyServerProperties) *ProxyServerProperties {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ProxyServerProperties) *ProxyServerProperties {
 		return &v
 	}).(ProxyServerPropertiesPtrOutput)
 }
 
-// Proxy server IP
 func (o ProxyServerPropertiesOutput) Ip() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ProxyServerProperties) *string { return v.Ip }).(pulumi.StringPtrOutput)
 }
 
-// Proxy server port
 func (o ProxyServerPropertiesOutput) Port() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ProxyServerProperties) *string { return v.Port }).(pulumi.StringPtrOutput)
 }
@@ -1275,10 +1060,15 @@ func (o ProxyServerPropertiesPtrOutput) ToProxyServerPropertiesPtrOutputWithCont
 }
 
 func (o ProxyServerPropertiesPtrOutput) Elem() ProxyServerPropertiesOutput {
-	return o.ApplyT(func(v *ProxyServerProperties) ProxyServerProperties { return *v }).(ProxyServerPropertiesOutput)
+	return o.ApplyT(func(v *ProxyServerProperties) ProxyServerProperties {
+		if v != nil {
+			return *v
+		}
+		var ret ProxyServerProperties
+		return ret
+	}).(ProxyServerPropertiesOutput)
 }
 
-// Proxy server IP
 func (o ProxyServerPropertiesPtrOutput) Ip() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ProxyServerProperties) *string {
 		if v == nil {
@@ -1288,7 +1078,6 @@ func (o ProxyServerPropertiesPtrOutput) Ip() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Proxy server port
 func (o ProxyServerPropertiesPtrOutput) Port() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ProxyServerProperties) *string {
 		if v == nil {
@@ -1298,11 +1087,8 @@ func (o ProxyServerPropertiesPtrOutput) Port() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// For a non-Azure machine that is not connected directly to the internet, specify a proxy server that the non-Azure machine can use.
 type ProxyServerPropertiesResponse struct {
-	// Proxy server IP
-	Ip *string `pulumi:"ip"`
-	// Proxy server port
+	Ip   *string `pulumi:"ip"`
 	Port *string `pulumi:"port"`
 }
 
@@ -1317,11 +1103,8 @@ type ProxyServerPropertiesResponseInput interface {
 	ToProxyServerPropertiesResponseOutputWithContext(context.Context) ProxyServerPropertiesResponseOutput
 }
 
-// For a non-Azure machine that is not connected directly to the internet, specify a proxy server that the non-Azure machine can use.
 type ProxyServerPropertiesResponseArgs struct {
-	// Proxy server IP
-	Ip pulumi.StringPtrInput `pulumi:"ip"`
-	// Proxy server port
+	Ip   pulumi.StringPtrInput `pulumi:"ip"`
 	Port pulumi.StringPtrInput `pulumi:"port"`
 }
 
@@ -1378,7 +1161,6 @@ func (i *proxyServerPropertiesResponsePtrType) ToProxyServerPropertiesResponsePt
 	return pulumi.ToOutputWithContext(ctx, i).(ProxyServerPropertiesResponsePtrOutput)
 }
 
-// For a non-Azure machine that is not connected directly to the internet, specify a proxy server that the non-Azure machine can use.
 type ProxyServerPropertiesResponseOutput struct{ *pulumi.OutputState }
 
 func (ProxyServerPropertiesResponseOutput) ElementType() reflect.Type {
@@ -1398,17 +1180,15 @@ func (o ProxyServerPropertiesResponseOutput) ToProxyServerPropertiesResponsePtrO
 }
 
 func (o ProxyServerPropertiesResponseOutput) ToProxyServerPropertiesResponsePtrOutputWithContext(ctx context.Context) ProxyServerPropertiesResponsePtrOutput {
-	return o.ApplyT(func(v ProxyServerPropertiesResponse) *ProxyServerPropertiesResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ProxyServerPropertiesResponse) *ProxyServerPropertiesResponse {
 		return &v
 	}).(ProxyServerPropertiesResponsePtrOutput)
 }
 
-// Proxy server IP
 func (o ProxyServerPropertiesResponseOutput) Ip() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ProxyServerPropertiesResponse) *string { return v.Ip }).(pulumi.StringPtrOutput)
 }
 
-// Proxy server port
 func (o ProxyServerPropertiesResponseOutput) Port() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ProxyServerPropertiesResponse) *string { return v.Port }).(pulumi.StringPtrOutput)
 }
@@ -1428,10 +1208,15 @@ func (o ProxyServerPropertiesResponsePtrOutput) ToProxyServerPropertiesResponseP
 }
 
 func (o ProxyServerPropertiesResponsePtrOutput) Elem() ProxyServerPropertiesResponseOutput {
-	return o.ApplyT(func(v *ProxyServerPropertiesResponse) ProxyServerPropertiesResponse { return *v }).(ProxyServerPropertiesResponseOutput)
+	return o.ApplyT(func(v *ProxyServerPropertiesResponse) ProxyServerPropertiesResponse {
+		if v != nil {
+			return *v
+		}
+		var ret ProxyServerPropertiesResponse
+		return ret
+	}).(ProxyServerPropertiesResponseOutput)
 }
 
-// Proxy server IP
 func (o ProxyServerPropertiesResponsePtrOutput) Ip() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ProxyServerPropertiesResponse) *string {
 		if v == nil {
@@ -1441,7 +1226,6 @@ func (o ProxyServerPropertiesResponsePtrOutput) Ip() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Proxy server port
 func (o ProxyServerPropertiesResponsePtrOutput) Port() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ProxyServerPropertiesResponse) *string {
 		if v == nil {
@@ -1451,12 +1235,9 @@ func (o ProxyServerPropertiesResponsePtrOutput) Port() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Defines whether to send email notifications about new security alerts
 type SecurityContactPropertiesAlertNotifications struct {
-	// Defines the minimal alert severity which will be sent as email notifications
 	MinimalSeverity *string `pulumi:"minimalSeverity"`
-	// Defines if email notifications will be sent about new security alerts
-	State *string `pulumi:"state"`
+	State           *string `pulumi:"state"`
 }
 
 // SecurityContactPropertiesAlertNotificationsInput is an input type that accepts SecurityContactPropertiesAlertNotificationsArgs and SecurityContactPropertiesAlertNotificationsOutput values.
@@ -1470,12 +1251,9 @@ type SecurityContactPropertiesAlertNotificationsInput interface {
 	ToSecurityContactPropertiesAlertNotificationsOutputWithContext(context.Context) SecurityContactPropertiesAlertNotificationsOutput
 }
 
-// Defines whether to send email notifications about new security alerts
 type SecurityContactPropertiesAlertNotificationsArgs struct {
-	// Defines the minimal alert severity which will be sent as email notifications
 	MinimalSeverity pulumi.StringPtrInput `pulumi:"minimalSeverity"`
-	// Defines if email notifications will be sent about new security alerts
-	State pulumi.StringPtrInput `pulumi:"state"`
+	State           pulumi.StringPtrInput `pulumi:"state"`
 }
 
 func (SecurityContactPropertiesAlertNotificationsArgs) ElementType() reflect.Type {
@@ -1531,7 +1309,6 @@ func (i *securityContactPropertiesAlertNotificationsPtrType) ToSecurityContactPr
 	return pulumi.ToOutputWithContext(ctx, i).(SecurityContactPropertiesAlertNotificationsPtrOutput)
 }
 
-// Defines whether to send email notifications about new security alerts
 type SecurityContactPropertiesAlertNotificationsOutput struct{ *pulumi.OutputState }
 
 func (SecurityContactPropertiesAlertNotificationsOutput) ElementType() reflect.Type {
@@ -1551,17 +1328,15 @@ func (o SecurityContactPropertiesAlertNotificationsOutput) ToSecurityContactProp
 }
 
 func (o SecurityContactPropertiesAlertNotificationsOutput) ToSecurityContactPropertiesAlertNotificationsPtrOutputWithContext(ctx context.Context) SecurityContactPropertiesAlertNotificationsPtrOutput {
-	return o.ApplyT(func(v SecurityContactPropertiesAlertNotifications) *SecurityContactPropertiesAlertNotifications {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v SecurityContactPropertiesAlertNotifications) *SecurityContactPropertiesAlertNotifications {
 		return &v
 	}).(SecurityContactPropertiesAlertNotificationsPtrOutput)
 }
 
-// Defines the minimal alert severity which will be sent as email notifications
 func (o SecurityContactPropertiesAlertNotificationsOutput) MinimalSeverity() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SecurityContactPropertiesAlertNotifications) *string { return v.MinimalSeverity }).(pulumi.StringPtrOutput)
 }
 
-// Defines if email notifications will be sent about new security alerts
 func (o SecurityContactPropertiesAlertNotificationsOutput) State() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SecurityContactPropertiesAlertNotifications) *string { return v.State }).(pulumi.StringPtrOutput)
 }
@@ -1582,11 +1357,14 @@ func (o SecurityContactPropertiesAlertNotificationsPtrOutput) ToSecurityContactP
 
 func (o SecurityContactPropertiesAlertNotificationsPtrOutput) Elem() SecurityContactPropertiesAlertNotificationsOutput {
 	return o.ApplyT(func(v *SecurityContactPropertiesAlertNotifications) SecurityContactPropertiesAlertNotifications {
-		return *v
+		if v != nil {
+			return *v
+		}
+		var ret SecurityContactPropertiesAlertNotifications
+		return ret
 	}).(SecurityContactPropertiesAlertNotificationsOutput)
 }
 
-// Defines the minimal alert severity which will be sent as email notifications
 func (o SecurityContactPropertiesAlertNotificationsPtrOutput) MinimalSeverity() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SecurityContactPropertiesAlertNotifications) *string {
 		if v == nil {
@@ -1596,7 +1374,6 @@ func (o SecurityContactPropertiesAlertNotificationsPtrOutput) MinimalSeverity() 
 	}).(pulumi.StringPtrOutput)
 }
 
-// Defines if email notifications will be sent about new security alerts
 func (o SecurityContactPropertiesAlertNotificationsPtrOutput) State() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SecurityContactPropertiesAlertNotifications) *string {
 		if v == nil {
@@ -1606,12 +1383,9 @@ func (o SecurityContactPropertiesAlertNotificationsPtrOutput) State() pulumi.Str
 	}).(pulumi.StringPtrOutput)
 }
 
-// Defines whether to send email notifications from Azure Security Center to persons with specific RBAC roles on the subscription.
 type SecurityContactPropertiesNotificationsByRole struct {
-	// Defines which RBAC roles will get email notifications from Azure Security Center. List of allowed RBAC roles:
 	Roles []string `pulumi:"roles"`
-	// Defines whether to send email notifications from Azure Security Center to persons with specific RBAC roles on the subscription.
-	State *string `pulumi:"state"`
+	State *string  `pulumi:"state"`
 }
 
 // SecurityContactPropertiesNotificationsByRoleInput is an input type that accepts SecurityContactPropertiesNotificationsByRoleArgs and SecurityContactPropertiesNotificationsByRoleOutput values.
@@ -1625,12 +1399,9 @@ type SecurityContactPropertiesNotificationsByRoleInput interface {
 	ToSecurityContactPropertiesNotificationsByRoleOutputWithContext(context.Context) SecurityContactPropertiesNotificationsByRoleOutput
 }
 
-// Defines whether to send email notifications from Azure Security Center to persons with specific RBAC roles on the subscription.
 type SecurityContactPropertiesNotificationsByRoleArgs struct {
-	// Defines which RBAC roles will get email notifications from Azure Security Center. List of allowed RBAC roles:
 	Roles pulumi.StringArrayInput `pulumi:"roles"`
-	// Defines whether to send email notifications from Azure Security Center to persons with specific RBAC roles on the subscription.
-	State pulumi.StringPtrInput `pulumi:"state"`
+	State pulumi.StringPtrInput   `pulumi:"state"`
 }
 
 func (SecurityContactPropertiesNotificationsByRoleArgs) ElementType() reflect.Type {
@@ -1686,7 +1457,6 @@ func (i *securityContactPropertiesNotificationsByRolePtrType) ToSecurityContactP
 	return pulumi.ToOutputWithContext(ctx, i).(SecurityContactPropertiesNotificationsByRolePtrOutput)
 }
 
-// Defines whether to send email notifications from Azure Security Center to persons with specific RBAC roles on the subscription.
 type SecurityContactPropertiesNotificationsByRoleOutput struct{ *pulumi.OutputState }
 
 func (SecurityContactPropertiesNotificationsByRoleOutput) ElementType() reflect.Type {
@@ -1706,17 +1476,15 @@ func (o SecurityContactPropertiesNotificationsByRoleOutput) ToSecurityContactPro
 }
 
 func (o SecurityContactPropertiesNotificationsByRoleOutput) ToSecurityContactPropertiesNotificationsByRolePtrOutputWithContext(ctx context.Context) SecurityContactPropertiesNotificationsByRolePtrOutput {
-	return o.ApplyT(func(v SecurityContactPropertiesNotificationsByRole) *SecurityContactPropertiesNotificationsByRole {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v SecurityContactPropertiesNotificationsByRole) *SecurityContactPropertiesNotificationsByRole {
 		return &v
 	}).(SecurityContactPropertiesNotificationsByRolePtrOutput)
 }
 
-// Defines which RBAC roles will get email notifications from Azure Security Center. List of allowed RBAC roles:
 func (o SecurityContactPropertiesNotificationsByRoleOutput) Roles() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v SecurityContactPropertiesNotificationsByRole) []string { return v.Roles }).(pulumi.StringArrayOutput)
 }
 
-// Defines whether to send email notifications from Azure Security Center to persons with specific RBAC roles on the subscription.
 func (o SecurityContactPropertiesNotificationsByRoleOutput) State() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SecurityContactPropertiesNotificationsByRole) *string { return v.State }).(pulumi.StringPtrOutput)
 }
@@ -1737,11 +1505,14 @@ func (o SecurityContactPropertiesNotificationsByRolePtrOutput) ToSecurityContact
 
 func (o SecurityContactPropertiesNotificationsByRolePtrOutput) Elem() SecurityContactPropertiesNotificationsByRoleOutput {
 	return o.ApplyT(func(v *SecurityContactPropertiesNotificationsByRole) SecurityContactPropertiesNotificationsByRole {
-		return *v
+		if v != nil {
+			return *v
+		}
+		var ret SecurityContactPropertiesNotificationsByRole
+		return ret
 	}).(SecurityContactPropertiesNotificationsByRoleOutput)
 }
 
-// Defines which RBAC roles will get email notifications from Azure Security Center. List of allowed RBAC roles:
 func (o SecurityContactPropertiesNotificationsByRolePtrOutput) Roles() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *SecurityContactPropertiesNotificationsByRole) []string {
 		if v == nil {
@@ -1751,7 +1522,6 @@ func (o SecurityContactPropertiesNotificationsByRolePtrOutput) Roles() pulumi.St
 	}).(pulumi.StringArrayOutput)
 }
 
-// Defines whether to send email notifications from Azure Security Center to persons with specific RBAC roles on the subscription.
 func (o SecurityContactPropertiesNotificationsByRolePtrOutput) State() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SecurityContactPropertiesNotificationsByRole) *string {
 		if v == nil {
@@ -1761,12 +1531,9 @@ func (o SecurityContactPropertiesNotificationsByRolePtrOutput) State() pulumi.St
 	}).(pulumi.StringPtrOutput)
 }
 
-// Defines whether to send email notifications about new security alerts
 type SecurityContactPropertiesResponseAlertNotifications struct {
-	// Defines the minimal alert severity which will be sent as email notifications
 	MinimalSeverity *string `pulumi:"minimalSeverity"`
-	// Defines if email notifications will be sent about new security alerts
-	State *string `pulumi:"state"`
+	State           *string `pulumi:"state"`
 }
 
 // SecurityContactPropertiesResponseAlertNotificationsInput is an input type that accepts SecurityContactPropertiesResponseAlertNotificationsArgs and SecurityContactPropertiesResponseAlertNotificationsOutput values.
@@ -1780,12 +1547,9 @@ type SecurityContactPropertiesResponseAlertNotificationsInput interface {
 	ToSecurityContactPropertiesResponseAlertNotificationsOutputWithContext(context.Context) SecurityContactPropertiesResponseAlertNotificationsOutput
 }
 
-// Defines whether to send email notifications about new security alerts
 type SecurityContactPropertiesResponseAlertNotificationsArgs struct {
-	// Defines the minimal alert severity which will be sent as email notifications
 	MinimalSeverity pulumi.StringPtrInput `pulumi:"minimalSeverity"`
-	// Defines if email notifications will be sent about new security alerts
-	State pulumi.StringPtrInput `pulumi:"state"`
+	State           pulumi.StringPtrInput `pulumi:"state"`
 }
 
 func (SecurityContactPropertiesResponseAlertNotificationsArgs) ElementType() reflect.Type {
@@ -1841,7 +1605,6 @@ func (i *securityContactPropertiesResponseAlertNotificationsPtrType) ToSecurityC
 	return pulumi.ToOutputWithContext(ctx, i).(SecurityContactPropertiesResponseAlertNotificationsPtrOutput)
 }
 
-// Defines whether to send email notifications about new security alerts
 type SecurityContactPropertiesResponseAlertNotificationsOutput struct{ *pulumi.OutputState }
 
 func (SecurityContactPropertiesResponseAlertNotificationsOutput) ElementType() reflect.Type {
@@ -1861,17 +1624,15 @@ func (o SecurityContactPropertiesResponseAlertNotificationsOutput) ToSecurityCon
 }
 
 func (o SecurityContactPropertiesResponseAlertNotificationsOutput) ToSecurityContactPropertiesResponseAlertNotificationsPtrOutputWithContext(ctx context.Context) SecurityContactPropertiesResponseAlertNotificationsPtrOutput {
-	return o.ApplyT(func(v SecurityContactPropertiesResponseAlertNotifications) *SecurityContactPropertiesResponseAlertNotifications {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v SecurityContactPropertiesResponseAlertNotifications) *SecurityContactPropertiesResponseAlertNotifications {
 		return &v
 	}).(SecurityContactPropertiesResponseAlertNotificationsPtrOutput)
 }
 
-// Defines the minimal alert severity which will be sent as email notifications
 func (o SecurityContactPropertiesResponseAlertNotificationsOutput) MinimalSeverity() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SecurityContactPropertiesResponseAlertNotifications) *string { return v.MinimalSeverity }).(pulumi.StringPtrOutput)
 }
 
-// Defines if email notifications will be sent about new security alerts
 func (o SecurityContactPropertiesResponseAlertNotificationsOutput) State() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SecurityContactPropertiesResponseAlertNotifications) *string { return v.State }).(pulumi.StringPtrOutput)
 }
@@ -1892,11 +1653,14 @@ func (o SecurityContactPropertiesResponseAlertNotificationsPtrOutput) ToSecurity
 
 func (o SecurityContactPropertiesResponseAlertNotificationsPtrOutput) Elem() SecurityContactPropertiesResponseAlertNotificationsOutput {
 	return o.ApplyT(func(v *SecurityContactPropertiesResponseAlertNotifications) SecurityContactPropertiesResponseAlertNotifications {
-		return *v
+		if v != nil {
+			return *v
+		}
+		var ret SecurityContactPropertiesResponseAlertNotifications
+		return ret
 	}).(SecurityContactPropertiesResponseAlertNotificationsOutput)
 }
 
-// Defines the minimal alert severity which will be sent as email notifications
 func (o SecurityContactPropertiesResponseAlertNotificationsPtrOutput) MinimalSeverity() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SecurityContactPropertiesResponseAlertNotifications) *string {
 		if v == nil {
@@ -1906,7 +1670,6 @@ func (o SecurityContactPropertiesResponseAlertNotificationsPtrOutput) MinimalSev
 	}).(pulumi.StringPtrOutput)
 }
 
-// Defines if email notifications will be sent about new security alerts
 func (o SecurityContactPropertiesResponseAlertNotificationsPtrOutput) State() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SecurityContactPropertiesResponseAlertNotifications) *string {
 		if v == nil {
@@ -1916,12 +1679,9 @@ func (o SecurityContactPropertiesResponseAlertNotificationsPtrOutput) State() pu
 	}).(pulumi.StringPtrOutput)
 }
 
-// Defines whether to send email notifications from Azure Security Center to persons with specific RBAC roles on the subscription.
 type SecurityContactPropertiesResponseNotificationsByRole struct {
-	// Defines which RBAC roles will get email notifications from Azure Security Center. List of allowed RBAC roles:
 	Roles []string `pulumi:"roles"`
-	// Defines whether to send email notifications from Azure Security Center to persons with specific RBAC roles on the subscription.
-	State *string `pulumi:"state"`
+	State *string  `pulumi:"state"`
 }
 
 // SecurityContactPropertiesResponseNotificationsByRoleInput is an input type that accepts SecurityContactPropertiesResponseNotificationsByRoleArgs and SecurityContactPropertiesResponseNotificationsByRoleOutput values.
@@ -1935,12 +1695,9 @@ type SecurityContactPropertiesResponseNotificationsByRoleInput interface {
 	ToSecurityContactPropertiesResponseNotificationsByRoleOutputWithContext(context.Context) SecurityContactPropertiesResponseNotificationsByRoleOutput
 }
 
-// Defines whether to send email notifications from Azure Security Center to persons with specific RBAC roles on the subscription.
 type SecurityContactPropertiesResponseNotificationsByRoleArgs struct {
-	// Defines which RBAC roles will get email notifications from Azure Security Center. List of allowed RBAC roles:
 	Roles pulumi.StringArrayInput `pulumi:"roles"`
-	// Defines whether to send email notifications from Azure Security Center to persons with specific RBAC roles on the subscription.
-	State pulumi.StringPtrInput `pulumi:"state"`
+	State pulumi.StringPtrInput   `pulumi:"state"`
 }
 
 func (SecurityContactPropertiesResponseNotificationsByRoleArgs) ElementType() reflect.Type {
@@ -1996,7 +1753,6 @@ func (i *securityContactPropertiesResponseNotificationsByRolePtrType) ToSecurity
 	return pulumi.ToOutputWithContext(ctx, i).(SecurityContactPropertiesResponseNotificationsByRolePtrOutput)
 }
 
-// Defines whether to send email notifications from Azure Security Center to persons with specific RBAC roles on the subscription.
 type SecurityContactPropertiesResponseNotificationsByRoleOutput struct{ *pulumi.OutputState }
 
 func (SecurityContactPropertiesResponseNotificationsByRoleOutput) ElementType() reflect.Type {
@@ -2016,17 +1772,15 @@ func (o SecurityContactPropertiesResponseNotificationsByRoleOutput) ToSecurityCo
 }
 
 func (o SecurityContactPropertiesResponseNotificationsByRoleOutput) ToSecurityContactPropertiesResponseNotificationsByRolePtrOutputWithContext(ctx context.Context) SecurityContactPropertiesResponseNotificationsByRolePtrOutput {
-	return o.ApplyT(func(v SecurityContactPropertiesResponseNotificationsByRole) *SecurityContactPropertiesResponseNotificationsByRole {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v SecurityContactPropertiesResponseNotificationsByRole) *SecurityContactPropertiesResponseNotificationsByRole {
 		return &v
 	}).(SecurityContactPropertiesResponseNotificationsByRolePtrOutput)
 }
 
-// Defines which RBAC roles will get email notifications from Azure Security Center. List of allowed RBAC roles:
 func (o SecurityContactPropertiesResponseNotificationsByRoleOutput) Roles() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v SecurityContactPropertiesResponseNotificationsByRole) []string { return v.Roles }).(pulumi.StringArrayOutput)
 }
 
-// Defines whether to send email notifications from Azure Security Center to persons with specific RBAC roles on the subscription.
 func (o SecurityContactPropertiesResponseNotificationsByRoleOutput) State() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SecurityContactPropertiesResponseNotificationsByRole) *string { return v.State }).(pulumi.StringPtrOutput)
 }
@@ -2047,11 +1801,14 @@ func (o SecurityContactPropertiesResponseNotificationsByRolePtrOutput) ToSecurit
 
 func (o SecurityContactPropertiesResponseNotificationsByRolePtrOutput) Elem() SecurityContactPropertiesResponseNotificationsByRoleOutput {
 	return o.ApplyT(func(v *SecurityContactPropertiesResponseNotificationsByRole) SecurityContactPropertiesResponseNotificationsByRole {
-		return *v
+		if v != nil {
+			return *v
+		}
+		var ret SecurityContactPropertiesResponseNotificationsByRole
+		return ret
 	}).(SecurityContactPropertiesResponseNotificationsByRoleOutput)
 }
 
-// Defines which RBAC roles will get email notifications from Azure Security Center. List of allowed RBAC roles:
 func (o SecurityContactPropertiesResponseNotificationsByRolePtrOutput) Roles() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *SecurityContactPropertiesResponseNotificationsByRole) []string {
 		if v == nil {
@@ -2061,7 +1818,6 @@ func (o SecurityContactPropertiesResponseNotificationsByRolePtrOutput) Roles() p
 	}).(pulumi.StringArrayOutput)
 }
 
-// Defines whether to send email notifications from Azure Security Center to persons with specific RBAC roles on the subscription.
 func (o SecurityContactPropertiesResponseNotificationsByRolePtrOutput) State() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SecurityContactPropertiesResponseNotificationsByRole) *string {
 		if v == nil {
@@ -2071,12 +1827,9 @@ func (o SecurityContactPropertiesResponseNotificationsByRolePtrOutput) State() p
 	}).(pulumi.StringPtrOutput)
 }
 
-// Details of the service principal.
 type ServicePrincipalProperties struct {
-	// Application ID of service principal.
 	ApplicationId *string `pulumi:"applicationId"`
-	// A secret string that the application uses to prove its identity, also can be referred to as application password (write only).
-	Secret *string `pulumi:"secret"`
+	Secret        *string `pulumi:"secret"`
 }
 
 // ServicePrincipalPropertiesInput is an input type that accepts ServicePrincipalPropertiesArgs and ServicePrincipalPropertiesOutput values.
@@ -2090,12 +1843,9 @@ type ServicePrincipalPropertiesInput interface {
 	ToServicePrincipalPropertiesOutputWithContext(context.Context) ServicePrincipalPropertiesOutput
 }
 
-// Details of the service principal.
 type ServicePrincipalPropertiesArgs struct {
-	// Application ID of service principal.
 	ApplicationId pulumi.StringPtrInput `pulumi:"applicationId"`
-	// A secret string that the application uses to prove its identity, also can be referred to as application password (write only).
-	Secret pulumi.StringPtrInput `pulumi:"secret"`
+	Secret        pulumi.StringPtrInput `pulumi:"secret"`
 }
 
 func (ServicePrincipalPropertiesArgs) ElementType() reflect.Type {
@@ -2151,7 +1901,6 @@ func (i *servicePrincipalPropertiesPtrType) ToServicePrincipalPropertiesPtrOutpu
 	return pulumi.ToOutputWithContext(ctx, i).(ServicePrincipalPropertiesPtrOutput)
 }
 
-// Details of the service principal.
 type ServicePrincipalPropertiesOutput struct{ *pulumi.OutputState }
 
 func (ServicePrincipalPropertiesOutput) ElementType() reflect.Type {
@@ -2171,17 +1920,15 @@ func (o ServicePrincipalPropertiesOutput) ToServicePrincipalPropertiesPtrOutput(
 }
 
 func (o ServicePrincipalPropertiesOutput) ToServicePrincipalPropertiesPtrOutputWithContext(ctx context.Context) ServicePrincipalPropertiesPtrOutput {
-	return o.ApplyT(func(v ServicePrincipalProperties) *ServicePrincipalProperties {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ServicePrincipalProperties) *ServicePrincipalProperties {
 		return &v
 	}).(ServicePrincipalPropertiesPtrOutput)
 }
 
-// Application ID of service principal.
 func (o ServicePrincipalPropertiesOutput) ApplicationId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ServicePrincipalProperties) *string { return v.ApplicationId }).(pulumi.StringPtrOutput)
 }
 
-// A secret string that the application uses to prove its identity, also can be referred to as application password (write only).
 func (o ServicePrincipalPropertiesOutput) Secret() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ServicePrincipalProperties) *string { return v.Secret }).(pulumi.StringPtrOutput)
 }
@@ -2201,10 +1948,15 @@ func (o ServicePrincipalPropertiesPtrOutput) ToServicePrincipalPropertiesPtrOutp
 }
 
 func (o ServicePrincipalPropertiesPtrOutput) Elem() ServicePrincipalPropertiesOutput {
-	return o.ApplyT(func(v *ServicePrincipalProperties) ServicePrincipalProperties { return *v }).(ServicePrincipalPropertiesOutput)
+	return o.ApplyT(func(v *ServicePrincipalProperties) ServicePrincipalProperties {
+		if v != nil {
+			return *v
+		}
+		var ret ServicePrincipalProperties
+		return ret
+	}).(ServicePrincipalPropertiesOutput)
 }
 
-// Application ID of service principal.
 func (o ServicePrincipalPropertiesPtrOutput) ApplicationId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ServicePrincipalProperties) *string {
 		if v == nil {
@@ -2214,7 +1966,6 @@ func (o ServicePrincipalPropertiesPtrOutput) ApplicationId() pulumi.StringPtrOut
 	}).(pulumi.StringPtrOutput)
 }
 
-// A secret string that the application uses to prove its identity, also can be referred to as application password (write only).
 func (o ServicePrincipalPropertiesPtrOutput) Secret() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ServicePrincipalProperties) *string {
 		if v == nil {
@@ -2224,12 +1975,9 @@ func (o ServicePrincipalPropertiesPtrOutput) Secret() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Details of the service principal.
 type ServicePrincipalPropertiesResponse struct {
-	// Application ID of service principal.
 	ApplicationId *string `pulumi:"applicationId"`
-	// A secret string that the application uses to prove its identity, also can be referred to as application password (write only).
-	Secret *string `pulumi:"secret"`
+	Secret        *string `pulumi:"secret"`
 }
 
 // ServicePrincipalPropertiesResponseInput is an input type that accepts ServicePrincipalPropertiesResponseArgs and ServicePrincipalPropertiesResponseOutput values.
@@ -2243,12 +1991,9 @@ type ServicePrincipalPropertiesResponseInput interface {
 	ToServicePrincipalPropertiesResponseOutputWithContext(context.Context) ServicePrincipalPropertiesResponseOutput
 }
 
-// Details of the service principal.
 type ServicePrincipalPropertiesResponseArgs struct {
-	// Application ID of service principal.
 	ApplicationId pulumi.StringPtrInput `pulumi:"applicationId"`
-	// A secret string that the application uses to prove its identity, also can be referred to as application password (write only).
-	Secret pulumi.StringPtrInput `pulumi:"secret"`
+	Secret        pulumi.StringPtrInput `pulumi:"secret"`
 }
 
 func (ServicePrincipalPropertiesResponseArgs) ElementType() reflect.Type {
@@ -2304,7 +2049,6 @@ func (i *servicePrincipalPropertiesResponsePtrType) ToServicePrincipalProperties
 	return pulumi.ToOutputWithContext(ctx, i).(ServicePrincipalPropertiesResponsePtrOutput)
 }
 
-// Details of the service principal.
 type ServicePrincipalPropertiesResponseOutput struct{ *pulumi.OutputState }
 
 func (ServicePrincipalPropertiesResponseOutput) ElementType() reflect.Type {
@@ -2324,17 +2068,15 @@ func (o ServicePrincipalPropertiesResponseOutput) ToServicePrincipalPropertiesRe
 }
 
 func (o ServicePrincipalPropertiesResponseOutput) ToServicePrincipalPropertiesResponsePtrOutputWithContext(ctx context.Context) ServicePrincipalPropertiesResponsePtrOutput {
-	return o.ApplyT(func(v ServicePrincipalPropertiesResponse) *ServicePrincipalPropertiesResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ServicePrincipalPropertiesResponse) *ServicePrincipalPropertiesResponse {
 		return &v
 	}).(ServicePrincipalPropertiesResponsePtrOutput)
 }
 
-// Application ID of service principal.
 func (o ServicePrincipalPropertiesResponseOutput) ApplicationId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ServicePrincipalPropertiesResponse) *string { return v.ApplicationId }).(pulumi.StringPtrOutput)
 }
 
-// A secret string that the application uses to prove its identity, also can be referred to as application password (write only).
 func (o ServicePrincipalPropertiesResponseOutput) Secret() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ServicePrincipalPropertiesResponse) *string { return v.Secret }).(pulumi.StringPtrOutput)
 }
@@ -2354,10 +2096,15 @@ func (o ServicePrincipalPropertiesResponsePtrOutput) ToServicePrincipalPropertie
 }
 
 func (o ServicePrincipalPropertiesResponsePtrOutput) Elem() ServicePrincipalPropertiesResponseOutput {
-	return o.ApplyT(func(v *ServicePrincipalPropertiesResponse) ServicePrincipalPropertiesResponse { return *v }).(ServicePrincipalPropertiesResponseOutput)
+	return o.ApplyT(func(v *ServicePrincipalPropertiesResponse) ServicePrincipalPropertiesResponse {
+		if v != nil {
+			return *v
+		}
+		var ret ServicePrincipalPropertiesResponse
+		return ret
+	}).(ServicePrincipalPropertiesResponseOutput)
 }
 
-// Application ID of service principal.
 func (o ServicePrincipalPropertiesResponsePtrOutput) ApplicationId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ServicePrincipalPropertiesResponse) *string {
 		if v == nil {
@@ -2367,7 +2114,6 @@ func (o ServicePrincipalPropertiesResponsePtrOutput) ApplicationId() pulumi.Stri
 	}).(pulumi.StringPtrOutput)
 }
 
-// A secret string that the application uses to prove its identity, also can be referred to as application password (write only).
 func (o ServicePrincipalPropertiesResponsePtrOutput) Secret() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ServicePrincipalPropertiesResponse) *string {
 		if v == nil {

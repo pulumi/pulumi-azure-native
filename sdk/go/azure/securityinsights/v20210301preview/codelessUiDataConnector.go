@@ -11,23 +11,15 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Represents Codeless UI data connector.
 type CodelessUiDataConnector struct {
 	pulumi.CustomResourceState
 
-	// Config to describe the instructions blade
 	ConnectorUiConfig CodelessUiConnectorConfigPropertiesResponsePtrOutput `pulumi:"connectorUiConfig"`
-	// Etag of the azure resource
-	Etag pulumi.StringPtrOutput `pulumi:"etag"`
-	// The kind of the data connector
-	// Expected value is 'GenericUI'.
-	Kind pulumi.StringOutput `pulumi:"kind"`
-	// Azure resource name
-	Name pulumi.StringOutput `pulumi:"name"`
-	// Azure Resource Manager metadata containing createdBy and modifiedBy information.
-	SystemData SystemDataResponseOutput `pulumi:"systemData"`
-	// Azure resource type
-	Type pulumi.StringOutput `pulumi:"type"`
+	Etag              pulumi.StringPtrOutput                               `pulumi:"etag"`
+	Kind              pulumi.StringOutput                                  `pulumi:"kind"`
+	Name              pulumi.StringOutput                                  `pulumi:"name"`
+	SystemData        SystemDataResponseOutput                             `pulumi:"systemData"`
+	Type              pulumi.StringOutput                                  `pulumi:"type"`
 }
 
 // NewCodelessUiDataConnector registers a new resource with the given unique name, arguments, and options.
@@ -106,40 +98,24 @@ func (CodelessUiDataConnectorState) ElementType() reflect.Type {
 }
 
 type codelessUiDataConnectorArgs struct {
-	// Config to describe the instructions blade
-	ConnectorUiConfig *CodelessUiConnectorConfigProperties `pulumi:"connectorUiConfig"`
-	// Connector ID
-	DataConnectorId *string `pulumi:"dataConnectorId"`
-	// Etag of the azure resource
-	Etag *string `pulumi:"etag"`
-	// The kind of the data connector
-	// Expected value is 'GenericUI'.
-	Kind string `pulumi:"kind"`
-	// The namespace of workspaces resource provider- Microsoft.OperationalInsights.
-	OperationalInsightsResourceProvider string `pulumi:"operationalInsightsResourceProvider"`
-	// The name of the resource group. The name is case insensitive.
-	ResourceGroupName string `pulumi:"resourceGroupName"`
-	// The name of the workspace.
-	WorkspaceName string `pulumi:"workspaceName"`
+	ConnectorUiConfig                   *CodelessUiConnectorConfigProperties `pulumi:"connectorUiConfig"`
+	DataConnectorId                     *string                              `pulumi:"dataConnectorId"`
+	Etag                                *string                              `pulumi:"etag"`
+	Kind                                string                               `pulumi:"kind"`
+	OperationalInsightsResourceProvider string                               `pulumi:"operationalInsightsResourceProvider"`
+	ResourceGroupName                   string                               `pulumi:"resourceGroupName"`
+	WorkspaceName                       string                               `pulumi:"workspaceName"`
 }
 
 // The set of arguments for constructing a CodelessUiDataConnector resource.
 type CodelessUiDataConnectorArgs struct {
-	// Config to describe the instructions blade
-	ConnectorUiConfig CodelessUiConnectorConfigPropertiesPtrInput
-	// Connector ID
-	DataConnectorId pulumi.StringPtrInput
-	// Etag of the azure resource
-	Etag pulumi.StringPtrInput
-	// The kind of the data connector
-	// Expected value is 'GenericUI'.
-	Kind pulumi.StringInput
-	// The namespace of workspaces resource provider- Microsoft.OperationalInsights.
+	ConnectorUiConfig                   CodelessUiConnectorConfigPropertiesPtrInput
+	DataConnectorId                     pulumi.StringPtrInput
+	Etag                                pulumi.StringPtrInput
+	Kind                                pulumi.StringInput
 	OperationalInsightsResourceProvider pulumi.StringInput
-	// The name of the resource group. The name is case insensitive.
-	ResourceGroupName pulumi.StringInput
-	// The name of the workspace.
-	WorkspaceName pulumi.StringInput
+	ResourceGroupName                   pulumi.StringInput
+	WorkspaceName                       pulumi.StringInput
 }
 
 func (CodelessUiDataConnectorArgs) ElementType() reflect.Type {
@@ -165,9 +141,7 @@ func (i *CodelessUiDataConnector) ToCodelessUiDataConnectorOutputWithContext(ctx
 	return pulumi.ToOutputWithContext(ctx, i).(CodelessUiDataConnectorOutput)
 }
 
-type CodelessUiDataConnectorOutput struct {
-	*pulumi.OutputState
-}
+type CodelessUiDataConnectorOutput struct{ *pulumi.OutputState }
 
 func (CodelessUiDataConnectorOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*CodelessUiDataConnector)(nil))

@@ -17,41 +17,24 @@ func LookupIntegrationAccountAgreement(ctx *pulumi.Context, args *LookupIntegrat
 }
 
 type LookupIntegrationAccountAgreementArgs struct {
-	// The integration account agreement name.
-	AgreementName string `pulumi:"agreementName"`
-	// The integration account name.
+	AgreementName          string `pulumi:"agreementName"`
 	IntegrationAccountName string `pulumi:"integrationAccountName"`
-	// The resource group name.
-	ResourceGroupName string `pulumi:"resourceGroupName"`
+	ResourceGroupName      string `pulumi:"resourceGroupName"`
 }
 
 type LookupIntegrationAccountAgreementResult struct {
-	// The agreement type.
-	AgreementType *string `pulumi:"agreementType"`
-	// The changed time.
-	ChangedTime string `pulumi:"changedTime"`
-	// The agreement content.
-	Content *AgreementContentResponse `pulumi:"content"`
-	// The created time.
-	CreatedTime string `pulumi:"createdTime"`
-	// The guest identity.
+	AgreementType *string                   `pulumi:"agreementType"`
+	ChangedTime   string                    `pulumi:"changedTime"`
+	Content       *AgreementContentResponse `pulumi:"content"`
+	CreatedTime   string                    `pulumi:"createdTime"`
 	GuestIdentity *BusinessIdentityResponse `pulumi:"guestIdentity"`
-	// The guest partner.
-	GuestPartner *string `pulumi:"guestPartner"`
-	// The host identity.
-	HostIdentity *BusinessIdentityResponse `pulumi:"hostIdentity"`
-	// The host partner.
-	HostPartner *string `pulumi:"hostPartner"`
-	// The resource id.
-	Id *string `pulumi:"id"`
-	// The resource location.
-	Location *string `pulumi:"location"`
-	// The metadata.
-	Metadata interface{} `pulumi:"metadata"`
-	// The resource name.
-	Name *string `pulumi:"name"`
-	// The resource tags.
-	Tags map[string]string `pulumi:"tags"`
-	// The resource type.
-	Type *string `pulumi:"type"`
+	GuestPartner  *string                   `pulumi:"guestPartner"`
+	HostIdentity  *BusinessIdentityResponse `pulumi:"hostIdentity"`
+	HostPartner   *string                   `pulumi:"hostPartner"`
+	Id            *string                   `pulumi:"id"`
+	Location      *string                   `pulumi:"location"`
+	Metadata      interface{}               `pulumi:"metadata"`
+	Name          *string                   `pulumi:"name"`
+	Tags          map[string]string         `pulumi:"tags"`
+	Type          *string                   `pulumi:"type"`
 }

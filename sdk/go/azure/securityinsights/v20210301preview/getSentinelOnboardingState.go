@@ -7,7 +7,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Sentinel onboarding state
 func LookupSentinelOnboardingState(ctx *pulumi.Context, args *LookupSentinelOnboardingStateArgs, opts ...pulumi.InvokeOption) (*LookupSentinelOnboardingStateResult, error) {
 	var rv LookupSentinelOnboardingStateResult
 	err := ctx.Invoke("azure-native:securityinsights/v20210301preview:getSentinelOnboardingState", args, &rv, opts...)
@@ -18,28 +17,18 @@ func LookupSentinelOnboardingState(ctx *pulumi.Context, args *LookupSentinelOnbo
 }
 
 type LookupSentinelOnboardingStateArgs struct {
-	// The namespace of workspaces resource provider- Microsoft.OperationalInsights.
 	OperationalInsightsResourceProvider string `pulumi:"operationalInsightsResourceProvider"`
-	// The name of the resource group. The name is case insensitive.
-	ResourceGroupName string `pulumi:"resourceGroupName"`
-	// The Sentinel onboarding state name. Supports - default
-	SentinelOnboardingStateName string `pulumi:"sentinelOnboardingStateName"`
-	// The name of the workspace.
-	WorkspaceName string `pulumi:"workspaceName"`
+	ResourceGroupName                   string `pulumi:"resourceGroupName"`
+	SentinelOnboardingStateName         string `pulumi:"sentinelOnboardingStateName"`
+	WorkspaceName                       string `pulumi:"workspaceName"`
 }
 
 // Sentinel onboarding state
 type LookupSentinelOnboardingStateResult struct {
-	// Flag that indicates the status of the CMK setting
-	CustomerManagedKey *bool `pulumi:"customerManagedKey"`
-	// Etag of the azure resource
-	Etag *string `pulumi:"etag"`
-	// Azure resource Id
-	Id string `pulumi:"id"`
-	// Azure resource name
-	Name string `pulumi:"name"`
-	// Azure Resource Manager metadata containing createdBy and modifiedBy information.
-	SystemData SystemDataResponse `pulumi:"systemData"`
-	// Azure resource type
-	Type string `pulumi:"type"`
+	CustomerManagedKey *bool              `pulumi:"customerManagedKey"`
+	Etag               *string            `pulumi:"etag"`
+	Id                 string             `pulumi:"id"`
+	Name               string             `pulumi:"name"`
+	SystemData         SystemDataResponse `pulumi:"systemData"`
+	Type               string             `pulumi:"type"`
 }

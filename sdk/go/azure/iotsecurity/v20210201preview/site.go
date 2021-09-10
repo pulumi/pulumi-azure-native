@@ -11,20 +11,14 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// IoT site model
 type Site struct {
 	pulumi.CustomResourceState
 
-	// Display name of the IoT site
-	DisplayName pulumi.StringOutput `pulumi:"displayName"`
-	// The name of the resource
-	Name pulumi.StringOutput `pulumi:"name"`
-	// Azure Resource Manager metadata containing createdBy and modifiedBy information.
-	SystemData SystemDataResponseOutput `pulumi:"systemData"`
-	// Tags of the IoT site
-	Tags pulumi.StringMapOutput `pulumi:"tags"`
-	// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
-	Type pulumi.StringOutput `pulumi:"type"`
+	DisplayName pulumi.StringOutput      `pulumi:"displayName"`
+	Name        pulumi.StringOutput      `pulumi:"name"`
+	SystemData  SystemDataResponseOutput `pulumi:"systemData"`
+	Tags        pulumi.StringMapOutput   `pulumi:"tags"`
+	Type        pulumi.StringOutput      `pulumi:"type"`
 }
 
 // NewSite registers a new resource with the given unique name, arguments, and options.
@@ -90,22 +84,16 @@ func (SiteState) ElementType() reflect.Type {
 }
 
 type siteArgs struct {
-	// Display name of the IoT site
-	DisplayName string `pulumi:"displayName"`
-	// Scope of the query (IoT Hub, /providers/Microsoft.Devices/iotHubs/myHub)
-	Scope string `pulumi:"scope"`
-	// Tags of the IoT site
-	Tags map[string]string `pulumi:"tags"`
+	DisplayName string            `pulumi:"displayName"`
+	Scope       string            `pulumi:"scope"`
+	Tags        map[string]string `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a Site resource.
 type SiteArgs struct {
-	// Display name of the IoT site
 	DisplayName pulumi.StringInput
-	// Scope of the query (IoT Hub, /providers/Microsoft.Devices/iotHubs/myHub)
-	Scope pulumi.StringInput
-	// Tags of the IoT site
-	Tags pulumi.StringMapInput
+	Scope       pulumi.StringInput
+	Tags        pulumi.StringMapInput
 }
 
 func (SiteArgs) ElementType() reflect.Type {
@@ -131,9 +119,7 @@ func (i *Site) ToSiteOutputWithContext(ctx context.Context) SiteOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(SiteOutput)
 }
 
-type SiteOutput struct {
-	*pulumi.OutputState
-}
+type SiteOutput struct{ *pulumi.OutputState }
 
 func (SiteOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*Site)(nil))

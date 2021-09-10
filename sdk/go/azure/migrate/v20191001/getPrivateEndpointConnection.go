@@ -7,7 +7,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// A private endpoint connection for a project.
 func LookupPrivateEndpointConnection(ctx *pulumi.Context, args *LookupPrivateEndpointConnectionArgs, opts ...pulumi.InvokeOption) (*LookupPrivateEndpointConnectionResult, error) {
 	var rv LookupPrivateEndpointConnectionResult
 	err := ctx.Invoke("azure-native:migrate/v20191001:getPrivateEndpointConnection", args, &rv, opts...)
@@ -18,24 +17,16 @@ func LookupPrivateEndpointConnection(ctx *pulumi.Context, args *LookupPrivateEnd
 }
 
 type LookupPrivateEndpointConnectionArgs struct {
-	// Unique name of a private endpoint connection within a project.
 	PrivateEndpointConnectionName string `pulumi:"privateEndpointConnectionName"`
-	// Name of the Azure Migrate project.
-	ProjectName string `pulumi:"projectName"`
-	// Name of the Azure Resource Group that project is part of.
-	ResourceGroupName string `pulumi:"resourceGroupName"`
+	ProjectName                   string `pulumi:"projectName"`
+	ResourceGroupName             string `pulumi:"resourceGroupName"`
 }
 
 // A private endpoint connection for a project.
 type LookupPrivateEndpointConnectionResult struct {
-	// For optimistic concurrency control.
-	ETag *string `pulumi:"eTag"`
-	// Path reference to this private endpoint endpoint connection. /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Migrate/assessmentProjects/{projectName}/privateEndpointConnections/{privateEndpointConnectionName}
-	Id string `pulumi:"id"`
-	// Name of the private endpoint endpoint connection.
-	Name string `pulumi:"name"`
-	// Properties of the private endpoint endpoint connection.
+	ETag       *string                                     `pulumi:"eTag"`
+	Id         string                                      `pulumi:"id"`
+	Name       string                                      `pulumi:"name"`
 	Properties PrivateEndpointConnectionPropertiesResponse `pulumi:"properties"`
-	// Type of the object = [Microsoft.Migrate/assessmentProjects/privateEndpointConnections].
-	Type string `pulumi:"type"`
+	Type       string                                      `pulumi:"type"`
 }

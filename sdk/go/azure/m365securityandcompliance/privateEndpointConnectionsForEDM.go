@@ -135,9 +135,7 @@ func (i *PrivateEndpointConnectionsForEDM) ToPrivateEndpointConnectionsForEDMOut
 	return pulumi.ToOutputWithContext(ctx, i).(PrivateEndpointConnectionsForEDMOutput)
 }
 
-type PrivateEndpointConnectionsForEDMOutput struct {
-	*pulumi.OutputState
-}
+type PrivateEndpointConnectionsForEDMOutput struct{ *pulumi.OutputState }
 
 func (PrivateEndpointConnectionsForEDMOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*PrivateEndpointConnectionsForEDM)(nil))

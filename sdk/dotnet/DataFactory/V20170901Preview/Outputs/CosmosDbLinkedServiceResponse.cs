@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.DataFactory.V20170901Preview.Outputs
 {
 
+    /// <summary>
+    /// Microsoft Azure Cosmos Database (CosmosDB) linked service.
+    /// </summary>
     [OutputType]
     public sealed class CosmosDbLinkedServiceResponse
     {

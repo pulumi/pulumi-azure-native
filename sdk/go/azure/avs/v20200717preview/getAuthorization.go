@@ -7,7 +7,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// ExpressRoute Circuit Authorization
 func LookupAuthorization(ctx *pulumi.Context, args *LookupAuthorizationArgs, opts ...pulumi.InvokeOption) (*LookupAuthorizationResult, error) {
 	var rv LookupAuthorizationResult
 	err := ctx.Invoke("azure-native:avs/v20200717preview:getAuthorization", args, &rv, opts...)
@@ -18,26 +17,17 @@ func LookupAuthorization(ctx *pulumi.Context, args *LookupAuthorizationArgs, opt
 }
 
 type LookupAuthorizationArgs struct {
-	// Name of the ExpressRoute Circuit Authorization in the private cloud
 	AuthorizationName string `pulumi:"authorizationName"`
-	// Name of the private cloud
-	PrivateCloudName string `pulumi:"privateCloudName"`
-	// The name of the resource group. The name is case insensitive.
+	PrivateCloudName  string `pulumi:"privateCloudName"`
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 }
 
 // ExpressRoute Circuit Authorization
 type LookupAuthorizationResult struct {
-	// The ID of the ExpressRoute Circuit Authorization
-	ExpressRouteAuthorizationId string `pulumi:"expressRouteAuthorizationId"`
-	// The key of the ExpressRoute Circuit Authorization
+	ExpressRouteAuthorizationId  string `pulumi:"expressRouteAuthorizationId"`
 	ExpressRouteAuthorizationKey string `pulumi:"expressRouteAuthorizationKey"`
-	// Resource ID.
-	Id string `pulumi:"id"`
-	// Resource name.
-	Name string `pulumi:"name"`
-	// The state of the  ExpressRoute Circuit Authorization provisioning
-	ProvisioningState string `pulumi:"provisioningState"`
-	// Resource type.
-	Type string `pulumi:"type"`
+	Id                           string `pulumi:"id"`
+	Name                         string `pulumi:"name"`
+	ProvisioningState            string `pulumi:"provisioningState"`
+	Type                         string `pulumi:"type"`
 }

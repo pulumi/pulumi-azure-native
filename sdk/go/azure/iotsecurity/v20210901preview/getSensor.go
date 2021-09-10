@@ -7,7 +7,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// IoT sensor model
 func LookupSensor(ctx *pulumi.Context, args *LookupSensorArgs, opts ...pulumi.InvokeOption) (*LookupSensorResult, error) {
 	var rv LookupSensorResult
 	err := ctx.Invoke("azure-native:iotsecurity/v20210901preview:getSensor", args, &rv, opts...)
@@ -18,40 +17,24 @@ func LookupSensor(ctx *pulumi.Context, args *LookupSensorArgs, opts ...pulumi.In
 }
 
 type LookupSensorArgs struct {
-	// Scope of the query (IoT Hub, /providers/Microsoft.Devices/iotHubs/myHub)
-	Scope string `pulumi:"scope"`
-	// Name of the IoT sensor
+	Scope      string `pulumi:"scope"`
 	SensorName string `pulumi:"sensorName"`
 }
 
 // IoT sensor model
 type LookupSensorResult struct {
-	// Last connectivity time of the IoT sensor
-	ConnectivityTime string `pulumi:"connectivityTime"`
-	// Dynamic mode status of the IoT sensor
-	DynamicLearning bool `pulumi:"dynamicLearning"`
-	// Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
-	Id string `pulumi:"id"`
-	// Learning mode status of the IoT sensor
-	LearningMode bool `pulumi:"learningMode"`
-	// The name of the resource
-	Name string `pulumi:"name"`
-	// Status of the IoT sensor
-	SensorStatus string `pulumi:"sensorStatus"`
-	// Type of sensor
-	SensorType *string `pulumi:"sensorType"`
-	// Version of the IoT sensor
-	SensorVersion string `pulumi:"sensorVersion"`
-	// Azure Resource Manager metadata containing createdBy and modifiedBy information.
-	SystemData SystemDataResponse `pulumi:"systemData"`
-	// TI Automatic mode status of the IoT sensor
-	TiAutomaticUpdates *bool `pulumi:"tiAutomaticUpdates"`
-	// TI Status of the IoT sensor
-	TiStatus string `pulumi:"tiStatus"`
-	// TI Version of the IoT sensor
-	TiVersion string `pulumi:"tiVersion"`
-	// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
-	Type string `pulumi:"type"`
-	// Zone of the IoT sensor
-	Zone *string `pulumi:"zone"`
+	ConnectivityTime   string             `pulumi:"connectivityTime"`
+	DynamicLearning    bool               `pulumi:"dynamicLearning"`
+	Id                 string             `pulumi:"id"`
+	LearningMode       bool               `pulumi:"learningMode"`
+	Name               string             `pulumi:"name"`
+	SensorStatus       string             `pulumi:"sensorStatus"`
+	SensorType         *string            `pulumi:"sensorType"`
+	SensorVersion      string             `pulumi:"sensorVersion"`
+	SystemData         SystemDataResponse `pulumi:"systemData"`
+	TiAutomaticUpdates *bool              `pulumi:"tiAutomaticUpdates"`
+	TiStatus           string             `pulumi:"tiStatus"`
+	TiVersion          string             `pulumi:"tiVersion"`
+	Type               string             `pulumi:"type"`
+	Zone               *string            `pulumi:"zone"`
 }

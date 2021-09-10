@@ -10,12 +10,9 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Access Control List (ACL) for an iSCSI Target; defines LUN masking policy
 type Acl struct {
-	// iSCSI initiator IQN (iSCSI Qualified Name); example: "iqn.2005-03.org.iscsi:client".
-	InitiatorIqn string `pulumi:"initiatorIqn"`
-	// List of LUN names mapped to the ACL.
-	MappedLuns []string `pulumi:"mappedLuns"`
+	InitiatorIqn string   `pulumi:"initiatorIqn"`
+	MappedLuns   []string `pulumi:"mappedLuns"`
 }
 
 // AclInput is an input type that accepts AclArgs and AclOutput values.
@@ -29,12 +26,9 @@ type AclInput interface {
 	ToAclOutputWithContext(context.Context) AclOutput
 }
 
-// Access Control List (ACL) for an iSCSI Target; defines LUN masking policy
 type AclArgs struct {
-	// iSCSI initiator IQN (iSCSI Qualified Name); example: "iqn.2005-03.org.iscsi:client".
-	InitiatorIqn pulumi.StringInput `pulumi:"initiatorIqn"`
-	// List of LUN names mapped to the ACL.
-	MappedLuns pulumi.StringArrayInput `pulumi:"mappedLuns"`
+	InitiatorIqn pulumi.StringInput      `pulumi:"initiatorIqn"`
+	MappedLuns   pulumi.StringArrayInput `pulumi:"mappedLuns"`
 }
 
 func (AclArgs) ElementType() reflect.Type {
@@ -74,7 +68,6 @@ func (i AclArray) ToAclArrayOutputWithContext(ctx context.Context) AclArrayOutpu
 	return pulumi.ToOutputWithContext(ctx, i).(AclArrayOutput)
 }
 
-// Access Control List (ACL) for an iSCSI Target; defines LUN masking policy
 type AclOutput struct{ *pulumi.OutputState }
 
 func (AclOutput) ElementType() reflect.Type {
@@ -89,12 +82,10 @@ func (o AclOutput) ToAclOutputWithContext(ctx context.Context) AclOutput {
 	return o
 }
 
-// iSCSI initiator IQN (iSCSI Qualified Name); example: "iqn.2005-03.org.iscsi:client".
 func (o AclOutput) InitiatorIqn() pulumi.StringOutput {
 	return o.ApplyT(func(v Acl) string { return v.InitiatorIqn }).(pulumi.StringOutput)
 }
 
-// List of LUN names mapped to the ACL.
 func (o AclOutput) MappedLuns() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v Acl) []string { return v.MappedLuns }).(pulumi.StringArrayOutput)
 }
@@ -119,12 +110,9 @@ func (o AclArrayOutput) Index(i pulumi.IntInput) AclOutput {
 	}).(AclOutput)
 }
 
-// Access Control List (ACL) for an iSCSI Target; defines LUN masking policy
 type AclResponse struct {
-	// iSCSI initiator IQN (iSCSI Qualified Name); example: "iqn.2005-03.org.iscsi:client".
-	InitiatorIqn string `pulumi:"initiatorIqn"`
-	// List of LUN names mapped to the ACL.
-	MappedLuns []string `pulumi:"mappedLuns"`
+	InitiatorIqn string   `pulumi:"initiatorIqn"`
+	MappedLuns   []string `pulumi:"mappedLuns"`
 }
 
 // AclResponseInput is an input type that accepts AclResponseArgs and AclResponseOutput values.
@@ -138,12 +126,9 @@ type AclResponseInput interface {
 	ToAclResponseOutputWithContext(context.Context) AclResponseOutput
 }
 
-// Access Control List (ACL) for an iSCSI Target; defines LUN masking policy
 type AclResponseArgs struct {
-	// iSCSI initiator IQN (iSCSI Qualified Name); example: "iqn.2005-03.org.iscsi:client".
-	InitiatorIqn pulumi.StringInput `pulumi:"initiatorIqn"`
-	// List of LUN names mapped to the ACL.
-	MappedLuns pulumi.StringArrayInput `pulumi:"mappedLuns"`
+	InitiatorIqn pulumi.StringInput      `pulumi:"initiatorIqn"`
+	MappedLuns   pulumi.StringArrayInput `pulumi:"mappedLuns"`
 }
 
 func (AclResponseArgs) ElementType() reflect.Type {
@@ -183,7 +168,6 @@ func (i AclResponseArray) ToAclResponseArrayOutputWithContext(ctx context.Contex
 	return pulumi.ToOutputWithContext(ctx, i).(AclResponseArrayOutput)
 }
 
-// Access Control List (ACL) for an iSCSI Target; defines LUN masking policy
 type AclResponseOutput struct{ *pulumi.OutputState }
 
 func (AclResponseOutput) ElementType() reflect.Type {
@@ -198,12 +182,10 @@ func (o AclResponseOutput) ToAclResponseOutputWithContext(ctx context.Context) A
 	return o
 }
 
-// iSCSI initiator IQN (iSCSI Qualified Name); example: "iqn.2005-03.org.iscsi:client".
 func (o AclResponseOutput) InitiatorIqn() pulumi.StringOutput {
 	return o.ApplyT(func(v AclResponse) string { return v.InitiatorIqn }).(pulumi.StringOutput)
 }
 
-// List of LUN names mapped to the ACL.
 func (o AclResponseOutput) MappedLuns() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v AclResponse) []string { return v.MappedLuns }).(pulumi.StringArrayOutput)
 }
@@ -228,9 +210,7 @@ func (o AclResponseArrayOutput) Index(i pulumi.IntInput) AclResponseOutput {
 	}).(AclResponseOutput)
 }
 
-// Azure Managed Disk to attach to the Disk Pool.
 type Disk struct {
-	// Unique Azure Resource ID of the Managed Disk.
 	Id string `pulumi:"id"`
 }
 
@@ -245,9 +225,7 @@ type DiskInput interface {
 	ToDiskOutputWithContext(context.Context) DiskOutput
 }
 
-// Azure Managed Disk to attach to the Disk Pool.
 type DiskArgs struct {
-	// Unique Azure Resource ID of the Managed Disk.
 	Id pulumi.StringInput `pulumi:"id"`
 }
 
@@ -288,7 +266,6 @@ func (i DiskArray) ToDiskArrayOutputWithContext(ctx context.Context) DiskArrayOu
 	return pulumi.ToOutputWithContext(ctx, i).(DiskArrayOutput)
 }
 
-// Azure Managed Disk to attach to the Disk Pool.
 type DiskOutput struct{ *pulumi.OutputState }
 
 func (DiskOutput) ElementType() reflect.Type {
@@ -303,7 +280,6 @@ func (o DiskOutput) ToDiskOutputWithContext(ctx context.Context) DiskOutput {
 	return o
 }
 
-// Unique Azure Resource ID of the Managed Disk.
 func (o DiskOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v Disk) string { return v.Id }).(pulumi.StringOutput)
 }
@@ -328,9 +304,7 @@ func (o DiskArrayOutput) Index(i pulumi.IntInput) DiskOutput {
 	}).(DiskOutput)
 }
 
-// Azure Managed Disk to attach to the Disk Pool.
 type DiskResponse struct {
-	// Unique Azure Resource ID of the Managed Disk.
 	Id string `pulumi:"id"`
 }
 
@@ -345,9 +319,7 @@ type DiskResponseInput interface {
 	ToDiskResponseOutputWithContext(context.Context) DiskResponseOutput
 }
 
-// Azure Managed Disk to attach to the Disk Pool.
 type DiskResponseArgs struct {
-	// Unique Azure Resource ID of the Managed Disk.
 	Id pulumi.StringInput `pulumi:"id"`
 }
 
@@ -388,7 +360,6 @@ func (i DiskResponseArray) ToDiskResponseArrayOutputWithContext(ctx context.Cont
 	return pulumi.ToOutputWithContext(ctx, i).(DiskResponseArrayOutput)
 }
 
-// Azure Managed Disk to attach to the Disk Pool.
 type DiskResponseOutput struct{ *pulumi.OutputState }
 
 func (DiskResponseOutput) ElementType() reflect.Type {
@@ -403,7 +374,6 @@ func (o DiskResponseOutput) ToDiskResponseOutputWithContext(ctx context.Context)
 	return o
 }
 
-// Unique Azure Resource ID of the Managed Disk.
 func (o DiskResponseOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v DiskResponse) string { return v.Id }).(pulumi.StringOutput)
 }
@@ -428,12 +398,9 @@ func (o DiskResponseArrayOutput) Index(i pulumi.IntInput) DiskResponseOutput {
 	}).(DiskResponseOutput)
 }
 
-// LUN to expose the Azure Managed Disk.
 type IscsiLun struct {
-	// Azure Resource ID of the Managed Disk.
 	ManagedDiskAzureResourceId string `pulumi:"managedDiskAzureResourceId"`
-	// User defined name for iSCSI LUN; example: "lun0"
-	Name string `pulumi:"name"`
+	Name                       string `pulumi:"name"`
 }
 
 // IscsiLunInput is an input type that accepts IscsiLunArgs and IscsiLunOutput values.
@@ -447,12 +414,9 @@ type IscsiLunInput interface {
 	ToIscsiLunOutputWithContext(context.Context) IscsiLunOutput
 }
 
-// LUN to expose the Azure Managed Disk.
 type IscsiLunArgs struct {
-	// Azure Resource ID of the Managed Disk.
 	ManagedDiskAzureResourceId pulumi.StringInput `pulumi:"managedDiskAzureResourceId"`
-	// User defined name for iSCSI LUN; example: "lun0"
-	Name pulumi.StringInput `pulumi:"name"`
+	Name                       pulumi.StringInput `pulumi:"name"`
 }
 
 func (IscsiLunArgs) ElementType() reflect.Type {
@@ -492,7 +456,6 @@ func (i IscsiLunArray) ToIscsiLunArrayOutputWithContext(ctx context.Context) Isc
 	return pulumi.ToOutputWithContext(ctx, i).(IscsiLunArrayOutput)
 }
 
-// LUN to expose the Azure Managed Disk.
 type IscsiLunOutput struct{ *pulumi.OutputState }
 
 func (IscsiLunOutput) ElementType() reflect.Type {
@@ -507,12 +470,10 @@ func (o IscsiLunOutput) ToIscsiLunOutputWithContext(ctx context.Context) IscsiLu
 	return o
 }
 
-// Azure Resource ID of the Managed Disk.
 func (o IscsiLunOutput) ManagedDiskAzureResourceId() pulumi.StringOutput {
 	return o.ApplyT(func(v IscsiLun) string { return v.ManagedDiskAzureResourceId }).(pulumi.StringOutput)
 }
 
-// User defined name for iSCSI LUN; example: "lun0"
 func (o IscsiLunOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v IscsiLun) string { return v.Name }).(pulumi.StringOutput)
 }
@@ -537,14 +498,10 @@ func (o IscsiLunArrayOutput) Index(i pulumi.IntInput) IscsiLunOutput {
 	}).(IscsiLunOutput)
 }
 
-// LUN to expose the Azure Managed Disk.
 type IscsiLunResponse struct {
-	// Specifies the Logical Unit Number of the iSCSI LUN.
-	Lun int `pulumi:"lun"`
-	// Azure Resource ID of the Managed Disk.
+	Lun                        int    `pulumi:"lun"`
 	ManagedDiskAzureResourceId string `pulumi:"managedDiskAzureResourceId"`
-	// User defined name for iSCSI LUN; example: "lun0"
-	Name string `pulumi:"name"`
+	Name                       string `pulumi:"name"`
 }
 
 // IscsiLunResponseInput is an input type that accepts IscsiLunResponseArgs and IscsiLunResponseOutput values.
@@ -558,14 +515,10 @@ type IscsiLunResponseInput interface {
 	ToIscsiLunResponseOutputWithContext(context.Context) IscsiLunResponseOutput
 }
 
-// LUN to expose the Azure Managed Disk.
 type IscsiLunResponseArgs struct {
-	// Specifies the Logical Unit Number of the iSCSI LUN.
-	Lun pulumi.IntInput `pulumi:"lun"`
-	// Azure Resource ID of the Managed Disk.
+	Lun                        pulumi.IntInput    `pulumi:"lun"`
 	ManagedDiskAzureResourceId pulumi.StringInput `pulumi:"managedDiskAzureResourceId"`
-	// User defined name for iSCSI LUN; example: "lun0"
-	Name pulumi.StringInput `pulumi:"name"`
+	Name                       pulumi.StringInput `pulumi:"name"`
 }
 
 func (IscsiLunResponseArgs) ElementType() reflect.Type {
@@ -605,7 +558,6 @@ func (i IscsiLunResponseArray) ToIscsiLunResponseArrayOutputWithContext(ctx cont
 	return pulumi.ToOutputWithContext(ctx, i).(IscsiLunResponseArrayOutput)
 }
 
-// LUN to expose the Azure Managed Disk.
 type IscsiLunResponseOutput struct{ *pulumi.OutputState }
 
 func (IscsiLunResponseOutput) ElementType() reflect.Type {
@@ -620,17 +572,14 @@ func (o IscsiLunResponseOutput) ToIscsiLunResponseOutputWithContext(ctx context.
 	return o
 }
 
-// Specifies the Logical Unit Number of the iSCSI LUN.
 func (o IscsiLunResponseOutput) Lun() pulumi.IntOutput {
 	return o.ApplyT(func(v IscsiLunResponse) int { return v.Lun }).(pulumi.IntOutput)
 }
 
-// Azure Resource ID of the Managed Disk.
 func (o IscsiLunResponseOutput) ManagedDiskAzureResourceId() pulumi.StringOutput {
 	return o.ApplyT(func(v IscsiLunResponse) string { return v.ManagedDiskAzureResourceId }).(pulumi.StringOutput)
 }
 
-// User defined name for iSCSI LUN; example: "lun0"
 func (o IscsiLunResponseOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v IscsiLunResponse) string { return v.Name }).(pulumi.StringOutput)
 }
@@ -655,11 +604,8 @@ func (o IscsiLunResponseArrayOutput) Index(i pulumi.IntInput) IscsiLunResponseOu
 	}).(IscsiLunResponseOutput)
 }
 
-// Sku for ARM resource
 type Sku struct {
-	// Sku name
-	Name string `pulumi:"name"`
-	// Sku tier
+	Name string  `pulumi:"name"`
 	Tier *string `pulumi:"tier"`
 }
 
@@ -674,11 +620,8 @@ type SkuInput interface {
 	ToSkuOutputWithContext(context.Context) SkuOutput
 }
 
-// Sku for ARM resource
 type SkuArgs struct {
-	// Sku name
-	Name pulumi.StringInput `pulumi:"name"`
-	// Sku tier
+	Name pulumi.StringInput    `pulumi:"name"`
 	Tier pulumi.StringPtrInput `pulumi:"tier"`
 }
 
@@ -735,7 +678,6 @@ func (i *skuPtrType) ToSkuPtrOutputWithContext(ctx context.Context) SkuPtrOutput
 	return pulumi.ToOutputWithContext(ctx, i).(SkuPtrOutput)
 }
 
-// Sku for ARM resource
 type SkuOutput struct{ *pulumi.OutputState }
 
 func (SkuOutput) ElementType() reflect.Type {
@@ -755,17 +697,15 @@ func (o SkuOutput) ToSkuPtrOutput() SkuPtrOutput {
 }
 
 func (o SkuOutput) ToSkuPtrOutputWithContext(ctx context.Context) SkuPtrOutput {
-	return o.ApplyT(func(v Sku) *Sku {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v Sku) *Sku {
 		return &v
 	}).(SkuPtrOutput)
 }
 
-// Sku name
 func (o SkuOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v Sku) string { return v.Name }).(pulumi.StringOutput)
 }
 
-// Sku tier
 func (o SkuOutput) Tier() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v Sku) *string { return v.Tier }).(pulumi.StringPtrOutput)
 }
@@ -785,10 +725,15 @@ func (o SkuPtrOutput) ToSkuPtrOutputWithContext(ctx context.Context) SkuPtrOutpu
 }
 
 func (o SkuPtrOutput) Elem() SkuOutput {
-	return o.ApplyT(func(v *Sku) Sku { return *v }).(SkuOutput)
+	return o.ApplyT(func(v *Sku) Sku {
+		if v != nil {
+			return *v
+		}
+		var ret Sku
+		return ret
+	}).(SkuOutput)
 }
 
-// Sku name
 func (o SkuPtrOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Sku) *string {
 		if v == nil {
@@ -798,7 +743,6 @@ func (o SkuPtrOutput) Name() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Sku tier
 func (o SkuPtrOutput) Tier() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Sku) *string {
 		if v == nil {
@@ -808,19 +752,12 @@ func (o SkuPtrOutput) Tier() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Metadata pertaining to creation and last modification of the resource.
 type SystemMetadataResponse struct {
-	// The timestamp of resource creation (UTC).
-	CreatedAt *string `pulumi:"createdAt"`
-	// The identity that created the resource.
-	CreatedBy *string `pulumi:"createdBy"`
-	// The type of identity that created the resource.
-	CreatedByType *string `pulumi:"createdByType"`
-	// The type of identity that last modified the resource.
-	LastModifiedAt *string `pulumi:"lastModifiedAt"`
-	// The identity that last modified the resource.
-	LastModifiedBy *string `pulumi:"lastModifiedBy"`
-	// The type of identity that last modified the resource.
+	CreatedAt          *string `pulumi:"createdAt"`
+	CreatedBy          *string `pulumi:"createdBy"`
+	CreatedByType      *string `pulumi:"createdByType"`
+	LastModifiedAt     *string `pulumi:"lastModifiedAt"`
+	LastModifiedBy     *string `pulumi:"lastModifiedBy"`
 	LastModifiedByType *string `pulumi:"lastModifiedByType"`
 }
 
@@ -835,19 +772,12 @@ type SystemMetadataResponseInput interface {
 	ToSystemMetadataResponseOutputWithContext(context.Context) SystemMetadataResponseOutput
 }
 
-// Metadata pertaining to creation and last modification of the resource.
 type SystemMetadataResponseArgs struct {
-	// The timestamp of resource creation (UTC).
-	CreatedAt pulumi.StringPtrInput `pulumi:"createdAt"`
-	// The identity that created the resource.
-	CreatedBy pulumi.StringPtrInput `pulumi:"createdBy"`
-	// The type of identity that created the resource.
-	CreatedByType pulumi.StringPtrInput `pulumi:"createdByType"`
-	// The type of identity that last modified the resource.
-	LastModifiedAt pulumi.StringPtrInput `pulumi:"lastModifiedAt"`
-	// The identity that last modified the resource.
-	LastModifiedBy pulumi.StringPtrInput `pulumi:"lastModifiedBy"`
-	// The type of identity that last modified the resource.
+	CreatedAt          pulumi.StringPtrInput `pulumi:"createdAt"`
+	CreatedBy          pulumi.StringPtrInput `pulumi:"createdBy"`
+	CreatedByType      pulumi.StringPtrInput `pulumi:"createdByType"`
+	LastModifiedAt     pulumi.StringPtrInput `pulumi:"lastModifiedAt"`
+	LastModifiedBy     pulumi.StringPtrInput `pulumi:"lastModifiedBy"`
 	LastModifiedByType pulumi.StringPtrInput `pulumi:"lastModifiedByType"`
 }
 
@@ -904,7 +834,6 @@ func (i *systemMetadataResponsePtrType) ToSystemMetadataResponsePtrOutputWithCon
 	return pulumi.ToOutputWithContext(ctx, i).(SystemMetadataResponsePtrOutput)
 }
 
-// Metadata pertaining to creation and last modification of the resource.
 type SystemMetadataResponseOutput struct{ *pulumi.OutputState }
 
 func (SystemMetadataResponseOutput) ElementType() reflect.Type {
@@ -924,37 +853,31 @@ func (o SystemMetadataResponseOutput) ToSystemMetadataResponsePtrOutput() System
 }
 
 func (o SystemMetadataResponseOutput) ToSystemMetadataResponsePtrOutputWithContext(ctx context.Context) SystemMetadataResponsePtrOutput {
-	return o.ApplyT(func(v SystemMetadataResponse) *SystemMetadataResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v SystemMetadataResponse) *SystemMetadataResponse {
 		return &v
 	}).(SystemMetadataResponsePtrOutput)
 }
 
-// The timestamp of resource creation (UTC).
 func (o SystemMetadataResponseOutput) CreatedAt() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SystemMetadataResponse) *string { return v.CreatedAt }).(pulumi.StringPtrOutput)
 }
 
-// The identity that created the resource.
 func (o SystemMetadataResponseOutput) CreatedBy() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SystemMetadataResponse) *string { return v.CreatedBy }).(pulumi.StringPtrOutput)
 }
 
-// The type of identity that created the resource.
 func (o SystemMetadataResponseOutput) CreatedByType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SystemMetadataResponse) *string { return v.CreatedByType }).(pulumi.StringPtrOutput)
 }
 
-// The type of identity that last modified the resource.
 func (o SystemMetadataResponseOutput) LastModifiedAt() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SystemMetadataResponse) *string { return v.LastModifiedAt }).(pulumi.StringPtrOutput)
 }
 
-// The identity that last modified the resource.
 func (o SystemMetadataResponseOutput) LastModifiedBy() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SystemMetadataResponse) *string { return v.LastModifiedBy }).(pulumi.StringPtrOutput)
 }
 
-// The type of identity that last modified the resource.
 func (o SystemMetadataResponseOutput) LastModifiedByType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SystemMetadataResponse) *string { return v.LastModifiedByType }).(pulumi.StringPtrOutput)
 }
@@ -974,10 +897,15 @@ func (o SystemMetadataResponsePtrOutput) ToSystemMetadataResponsePtrOutputWithCo
 }
 
 func (o SystemMetadataResponsePtrOutput) Elem() SystemMetadataResponseOutput {
-	return o.ApplyT(func(v *SystemMetadataResponse) SystemMetadataResponse { return *v }).(SystemMetadataResponseOutput)
+	return o.ApplyT(func(v *SystemMetadataResponse) SystemMetadataResponse {
+		if v != nil {
+			return *v
+		}
+		var ret SystemMetadataResponse
+		return ret
+	}).(SystemMetadataResponseOutput)
 }
 
-// The timestamp of resource creation (UTC).
 func (o SystemMetadataResponsePtrOutput) CreatedAt() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SystemMetadataResponse) *string {
 		if v == nil {
@@ -987,7 +915,6 @@ func (o SystemMetadataResponsePtrOutput) CreatedAt() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The identity that created the resource.
 func (o SystemMetadataResponsePtrOutput) CreatedBy() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SystemMetadataResponse) *string {
 		if v == nil {
@@ -997,7 +924,6 @@ func (o SystemMetadataResponsePtrOutput) CreatedBy() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The type of identity that created the resource.
 func (o SystemMetadataResponsePtrOutput) CreatedByType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SystemMetadataResponse) *string {
 		if v == nil {
@@ -1007,7 +933,6 @@ func (o SystemMetadataResponsePtrOutput) CreatedByType() pulumi.StringPtrOutput 
 	}).(pulumi.StringPtrOutput)
 }
 
-// The type of identity that last modified the resource.
 func (o SystemMetadataResponsePtrOutput) LastModifiedAt() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SystemMetadataResponse) *string {
 		if v == nil {
@@ -1017,7 +942,6 @@ func (o SystemMetadataResponsePtrOutput) LastModifiedAt() pulumi.StringPtrOutput
 	}).(pulumi.StringPtrOutput)
 }
 
-// The identity that last modified the resource.
 func (o SystemMetadataResponsePtrOutput) LastModifiedBy() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SystemMetadataResponse) *string {
 		if v == nil {
@@ -1027,7 +951,6 @@ func (o SystemMetadataResponsePtrOutput) LastModifiedBy() pulumi.StringPtrOutput
 	}).(pulumi.StringPtrOutput)
 }
 
-// The type of identity that last modified the resource.
 func (o SystemMetadataResponsePtrOutput) LastModifiedByType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SystemMetadataResponse) *string {
 		if v == nil {

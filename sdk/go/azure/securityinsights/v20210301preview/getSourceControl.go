@@ -7,7 +7,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Represents a SourceControl in Azure Security Insights.
 func LookupSourceControl(ctx *pulumi.Context, args *LookupSourceControlArgs, opts ...pulumi.InvokeOption) (*LookupSourceControlResult, error) {
 	var rv LookupSourceControlResult
 	err := ctx.Invoke("azure-native:securityinsights/v20210301preview:getSourceControl", args, &rv, opts...)
@@ -18,38 +17,23 @@ func LookupSourceControl(ctx *pulumi.Context, args *LookupSourceControlArgs, opt
 }
 
 type LookupSourceControlArgs struct {
-	// The namespace of workspaces resource provider- Microsoft.OperationalInsights.
 	OperationalInsightsResourceProvider string `pulumi:"operationalInsightsResourceProvider"`
-	// The name of the resource group. The name is case insensitive.
-	ResourceGroupName string `pulumi:"resourceGroupName"`
-	// Source control Id
-	SourceControlId string `pulumi:"sourceControlId"`
-	// The name of the workspace.
-	WorkspaceName string `pulumi:"workspaceName"`
+	ResourceGroupName                   string `pulumi:"resourceGroupName"`
+	SourceControlId                     string `pulumi:"sourceControlId"`
+	WorkspaceName                       string `pulumi:"workspaceName"`
 }
 
 // Represents a SourceControl in Azure Security Insights.
 type LookupSourceControlResult struct {
-	// Array of source control content types.
-	ContentTypes []string `pulumi:"contentTypes"`
-	// A description of the source control
-	Description *string `pulumi:"description"`
-	// The display name of the source control
-	DisplayName string `pulumi:"displayName"`
-	// Etag of the azure resource
-	Etag *string `pulumi:"etag"`
-	// Azure resource Id
-	Id string `pulumi:"id"`
-	// Azure resource name
-	Name string `pulumi:"name"`
-	// The repository type of the source control
-	RepoType string `pulumi:"repoType"`
-	// Repository metadata.
-	Repository RepositoryResponse `pulumi:"repository"`
-	// The id (a Guid) of the source control
-	SourceControlId *string `pulumi:"sourceControlId"`
-	// Azure Resource Manager metadata containing createdBy and modifiedBy information.
-	SystemData SystemDataResponse `pulumi:"systemData"`
-	// Azure resource type
-	Type string `pulumi:"type"`
+	ContentTypes    []string           `pulumi:"contentTypes"`
+	Description     *string            `pulumi:"description"`
+	DisplayName     string             `pulumi:"displayName"`
+	Etag            *string            `pulumi:"etag"`
+	Id              string             `pulumi:"id"`
+	Name            string             `pulumi:"name"`
+	RepoType        string             `pulumi:"repoType"`
+	Repository      RepositoryResponse `pulumi:"repository"`
+	SourceControlId *string            `pulumi:"sourceControlId"`
+	SystemData      SystemDataResponse `pulumi:"systemData"`
+	Type            string             `pulumi:"type"`
 }

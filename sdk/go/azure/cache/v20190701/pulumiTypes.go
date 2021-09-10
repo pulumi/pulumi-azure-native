@@ -10,11 +10,8 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Redis cache access keys.
 type RedisAccessKeysResponse struct {
-	// The current primary key that clients can use to authenticate with Redis cache.
-	PrimaryKey string `pulumi:"primaryKey"`
-	// The current secondary key that clients can use to authenticate with Redis cache.
+	PrimaryKey   string `pulumi:"primaryKey"`
 	SecondaryKey string `pulumi:"secondaryKey"`
 }
 
@@ -29,11 +26,8 @@ type RedisAccessKeysResponseInput interface {
 	ToRedisAccessKeysResponseOutputWithContext(context.Context) RedisAccessKeysResponseOutput
 }
 
-// Redis cache access keys.
 type RedisAccessKeysResponseArgs struct {
-	// The current primary key that clients can use to authenticate with Redis cache.
-	PrimaryKey pulumi.StringInput `pulumi:"primaryKey"`
-	// The current secondary key that clients can use to authenticate with Redis cache.
+	PrimaryKey   pulumi.StringInput `pulumi:"primaryKey"`
 	SecondaryKey pulumi.StringInput `pulumi:"secondaryKey"`
 }
 
@@ -90,7 +84,6 @@ func (i *redisAccessKeysResponsePtrType) ToRedisAccessKeysResponsePtrOutputWithC
 	return pulumi.ToOutputWithContext(ctx, i).(RedisAccessKeysResponsePtrOutput)
 }
 
-// Redis cache access keys.
 type RedisAccessKeysResponseOutput struct{ *pulumi.OutputState }
 
 func (RedisAccessKeysResponseOutput) ElementType() reflect.Type {
@@ -110,17 +103,15 @@ func (o RedisAccessKeysResponseOutput) ToRedisAccessKeysResponsePtrOutput() Redi
 }
 
 func (o RedisAccessKeysResponseOutput) ToRedisAccessKeysResponsePtrOutputWithContext(ctx context.Context) RedisAccessKeysResponsePtrOutput {
-	return o.ApplyT(func(v RedisAccessKeysResponse) *RedisAccessKeysResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v RedisAccessKeysResponse) *RedisAccessKeysResponse {
 		return &v
 	}).(RedisAccessKeysResponsePtrOutput)
 }
 
-// The current primary key that clients can use to authenticate with Redis cache.
 func (o RedisAccessKeysResponseOutput) PrimaryKey() pulumi.StringOutput {
 	return o.ApplyT(func(v RedisAccessKeysResponse) string { return v.PrimaryKey }).(pulumi.StringOutput)
 }
 
-// The current secondary key that clients can use to authenticate with Redis cache.
 func (o RedisAccessKeysResponseOutput) SecondaryKey() pulumi.StringOutput {
 	return o.ApplyT(func(v RedisAccessKeysResponse) string { return v.SecondaryKey }).(pulumi.StringOutput)
 }
@@ -140,10 +131,15 @@ func (o RedisAccessKeysResponsePtrOutput) ToRedisAccessKeysResponsePtrOutputWith
 }
 
 func (o RedisAccessKeysResponsePtrOutput) Elem() RedisAccessKeysResponseOutput {
-	return o.ApplyT(func(v *RedisAccessKeysResponse) RedisAccessKeysResponse { return *v }).(RedisAccessKeysResponseOutput)
+	return o.ApplyT(func(v *RedisAccessKeysResponse) RedisAccessKeysResponse {
+		if v != nil {
+			return *v
+		}
+		var ret RedisAccessKeysResponse
+		return ret
+	}).(RedisAccessKeysResponseOutput)
 }
 
-// The current primary key that clients can use to authenticate with Redis cache.
 func (o RedisAccessKeysResponsePtrOutput) PrimaryKey() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *RedisAccessKeysResponse) *string {
 		if v == nil {
@@ -153,7 +149,6 @@ func (o RedisAccessKeysResponsePtrOutput) PrimaryKey() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The current secondary key that clients can use to authenticate with Redis cache.
 func (o RedisAccessKeysResponsePtrOutput) SecondaryKey() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *RedisAccessKeysResponse) *string {
 		if v == nil {
@@ -163,18 +158,12 @@ func (o RedisAccessKeysResponsePtrOutput) SecondaryKey() pulumi.StringPtrOutput 
 	}).(pulumi.StringPtrOutput)
 }
 
-// Details of single instance of redis.
 type RedisInstanceDetailsResponse struct {
-	// Specifies whether the instance is a master node.
-	IsMaster bool `pulumi:"isMaster"`
-	// If enableNonSslPort is true, provides Redis instance Non-SSL port.
-	NonSslPort int `pulumi:"nonSslPort"`
-	// If clustering is enabled, the Shard ID of Redis Instance
-	ShardId int `pulumi:"shardId"`
-	// Redis instance SSL port.
-	SslPort int `pulumi:"sslPort"`
-	// If the Cache uses availability zones, specifies availability zone where this instance is located.
-	Zone string `pulumi:"zone"`
+	IsMaster   bool   `pulumi:"isMaster"`
+	NonSslPort int    `pulumi:"nonSslPort"`
+	ShardId    int    `pulumi:"shardId"`
+	SslPort    int    `pulumi:"sslPort"`
+	Zone       string `pulumi:"zone"`
 }
 
 // RedisInstanceDetailsResponseInput is an input type that accepts RedisInstanceDetailsResponseArgs and RedisInstanceDetailsResponseOutput values.
@@ -188,18 +177,12 @@ type RedisInstanceDetailsResponseInput interface {
 	ToRedisInstanceDetailsResponseOutputWithContext(context.Context) RedisInstanceDetailsResponseOutput
 }
 
-// Details of single instance of redis.
 type RedisInstanceDetailsResponseArgs struct {
-	// Specifies whether the instance is a master node.
-	IsMaster pulumi.BoolInput `pulumi:"isMaster"`
-	// If enableNonSslPort is true, provides Redis instance Non-SSL port.
-	NonSslPort pulumi.IntInput `pulumi:"nonSslPort"`
-	// If clustering is enabled, the Shard ID of Redis Instance
-	ShardId pulumi.IntInput `pulumi:"shardId"`
-	// Redis instance SSL port.
-	SslPort pulumi.IntInput `pulumi:"sslPort"`
-	// If the Cache uses availability zones, specifies availability zone where this instance is located.
-	Zone pulumi.StringInput `pulumi:"zone"`
+	IsMaster   pulumi.BoolInput   `pulumi:"isMaster"`
+	NonSslPort pulumi.IntInput    `pulumi:"nonSslPort"`
+	ShardId    pulumi.IntInput    `pulumi:"shardId"`
+	SslPort    pulumi.IntInput    `pulumi:"sslPort"`
+	Zone       pulumi.StringInput `pulumi:"zone"`
 }
 
 func (RedisInstanceDetailsResponseArgs) ElementType() reflect.Type {
@@ -239,7 +222,6 @@ func (i RedisInstanceDetailsResponseArray) ToRedisInstanceDetailsResponseArrayOu
 	return pulumi.ToOutputWithContext(ctx, i).(RedisInstanceDetailsResponseArrayOutput)
 }
 
-// Details of single instance of redis.
 type RedisInstanceDetailsResponseOutput struct{ *pulumi.OutputState }
 
 func (RedisInstanceDetailsResponseOutput) ElementType() reflect.Type {
@@ -254,27 +236,22 @@ func (o RedisInstanceDetailsResponseOutput) ToRedisInstanceDetailsResponseOutput
 	return o
 }
 
-// Specifies whether the instance is a master node.
 func (o RedisInstanceDetailsResponseOutput) IsMaster() pulumi.BoolOutput {
 	return o.ApplyT(func(v RedisInstanceDetailsResponse) bool { return v.IsMaster }).(pulumi.BoolOutput)
 }
 
-// If enableNonSslPort is true, provides Redis instance Non-SSL port.
 func (o RedisInstanceDetailsResponseOutput) NonSslPort() pulumi.IntOutput {
 	return o.ApplyT(func(v RedisInstanceDetailsResponse) int { return v.NonSslPort }).(pulumi.IntOutput)
 }
 
-// If clustering is enabled, the Shard ID of Redis Instance
 func (o RedisInstanceDetailsResponseOutput) ShardId() pulumi.IntOutput {
 	return o.ApplyT(func(v RedisInstanceDetailsResponse) int { return v.ShardId }).(pulumi.IntOutput)
 }
 
-// Redis instance SSL port.
 func (o RedisInstanceDetailsResponseOutput) SslPort() pulumi.IntOutput {
 	return o.ApplyT(func(v RedisInstanceDetailsResponse) int { return v.SslPort }).(pulumi.IntOutput)
 }
 
-// If the Cache uses availability zones, specifies availability zone where this instance is located.
 func (o RedisInstanceDetailsResponseOutput) Zone() pulumi.StringOutput {
 	return o.ApplyT(func(v RedisInstanceDetailsResponse) string { return v.Zone }).(pulumi.StringOutput)
 }
@@ -299,9 +276,7 @@ func (o RedisInstanceDetailsResponseArrayOutput) Index(i pulumi.IntInput) RedisI
 	}).(RedisInstanceDetailsResponseOutput)
 }
 
-// Linked server Id
 type RedisLinkedServerResponse struct {
-	// Linked server Id.
 	Id string `pulumi:"id"`
 }
 
@@ -316,9 +291,7 @@ type RedisLinkedServerResponseInput interface {
 	ToRedisLinkedServerResponseOutputWithContext(context.Context) RedisLinkedServerResponseOutput
 }
 
-// Linked server Id
 type RedisLinkedServerResponseArgs struct {
-	// Linked server Id.
 	Id pulumi.StringInput `pulumi:"id"`
 }
 
@@ -359,7 +332,6 @@ func (i RedisLinkedServerResponseArray) ToRedisLinkedServerResponseArrayOutputWi
 	return pulumi.ToOutputWithContext(ctx, i).(RedisLinkedServerResponseArrayOutput)
 }
 
-// Linked server Id
 type RedisLinkedServerResponseOutput struct{ *pulumi.OutputState }
 
 func (RedisLinkedServerResponseOutput) ElementType() reflect.Type {
@@ -374,7 +346,6 @@ func (o RedisLinkedServerResponseOutput) ToRedisLinkedServerResponseOutputWithCo
 	return o
 }
 
-// Linked server Id.
 func (o RedisLinkedServerResponseOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v RedisLinkedServerResponse) string { return v.Id }).(pulumi.StringOutput)
 }
@@ -399,14 +370,10 @@ func (o RedisLinkedServerResponseArrayOutput) Index(i pulumi.IntInput) RedisLink
 	}).(RedisLinkedServerResponseOutput)
 }
 
-// Patch schedule entry for a Premium Redis Cache.
 type ScheduleEntry struct {
-	// Day of the week when a cache can be patched.
-	DayOfWeek string `pulumi:"dayOfWeek"`
-	// ISO8601 timespan specifying how much time cache patching can take.
-	MaintenanceWindow *string `pulumi:"maintenanceWindow"`
-	// Start hour after which cache patching can start.
-	StartHourUtc int `pulumi:"startHourUtc"`
+	DayOfWeek         DayOfWeek `pulumi:"dayOfWeek"`
+	MaintenanceWindow *string   `pulumi:"maintenanceWindow"`
+	StartHourUtc      int       `pulumi:"startHourUtc"`
 }
 
 // ScheduleEntryInput is an input type that accepts ScheduleEntryArgs and ScheduleEntryOutput values.
@@ -420,14 +387,10 @@ type ScheduleEntryInput interface {
 	ToScheduleEntryOutputWithContext(context.Context) ScheduleEntryOutput
 }
 
-// Patch schedule entry for a Premium Redis Cache.
 type ScheduleEntryArgs struct {
-	// Day of the week when a cache can be patched.
-	DayOfWeek DayOfWeek `pulumi:"dayOfWeek"`
-	// ISO8601 timespan specifying how much time cache patching can take.
+	DayOfWeek         DayOfWeekInput        `pulumi:"dayOfWeek"`
 	MaintenanceWindow pulumi.StringPtrInput `pulumi:"maintenanceWindow"`
-	// Start hour after which cache patching can start.
-	StartHourUtc pulumi.IntInput `pulumi:"startHourUtc"`
+	StartHourUtc      pulumi.IntInput       `pulumi:"startHourUtc"`
 }
 
 func (ScheduleEntryArgs) ElementType() reflect.Type {
@@ -467,7 +430,6 @@ func (i ScheduleEntryArray) ToScheduleEntryArrayOutputWithContext(ctx context.Co
 	return pulumi.ToOutputWithContext(ctx, i).(ScheduleEntryArrayOutput)
 }
 
-// Patch schedule entry for a Premium Redis Cache.
 type ScheduleEntryOutput struct{ *pulumi.OutputState }
 
 func (ScheduleEntryOutput) ElementType() reflect.Type {
@@ -482,17 +444,14 @@ func (o ScheduleEntryOutput) ToScheduleEntryOutputWithContext(ctx context.Contex
 	return o
 }
 
-// Day of the week when a cache can be patched.
-func (o ScheduleEntryOutput) DayOfWeek() pulumi.StringOutput {
-	return o.ApplyT(func(v ScheduleEntry) string { return v.DayOfWeek }).(pulumi.StringOutput)
+func (o ScheduleEntryOutput) DayOfWeek() DayOfWeekOutput {
+	return o.ApplyT(func(v ScheduleEntry) DayOfWeek { return v.DayOfWeek }).(DayOfWeekOutput)
 }
 
-// ISO8601 timespan specifying how much time cache patching can take.
 func (o ScheduleEntryOutput) MaintenanceWindow() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ScheduleEntry) *string { return v.MaintenanceWindow }).(pulumi.StringPtrOutput)
 }
 
-// Start hour after which cache patching can start.
 func (o ScheduleEntryOutput) StartHourUtc() pulumi.IntOutput {
 	return o.ApplyT(func(v ScheduleEntry) int { return v.StartHourUtc }).(pulumi.IntOutput)
 }
@@ -517,14 +476,10 @@ func (o ScheduleEntryArrayOutput) Index(i pulumi.IntInput) ScheduleEntryOutput {
 	}).(ScheduleEntryOutput)
 }
 
-// Patch schedule entry for a Premium Redis Cache.
 type ScheduleEntryResponse struct {
-	// Day of the week when a cache can be patched.
-	DayOfWeek string `pulumi:"dayOfWeek"`
-	// ISO8601 timespan specifying how much time cache patching can take.
+	DayOfWeek         string  `pulumi:"dayOfWeek"`
 	MaintenanceWindow *string `pulumi:"maintenanceWindow"`
-	// Start hour after which cache patching can start.
-	StartHourUtc int `pulumi:"startHourUtc"`
+	StartHourUtc      int     `pulumi:"startHourUtc"`
 }
 
 // ScheduleEntryResponseInput is an input type that accepts ScheduleEntryResponseArgs and ScheduleEntryResponseOutput values.
@@ -538,14 +493,10 @@ type ScheduleEntryResponseInput interface {
 	ToScheduleEntryResponseOutputWithContext(context.Context) ScheduleEntryResponseOutput
 }
 
-// Patch schedule entry for a Premium Redis Cache.
 type ScheduleEntryResponseArgs struct {
-	// Day of the week when a cache can be patched.
-	DayOfWeek pulumi.StringInput `pulumi:"dayOfWeek"`
-	// ISO8601 timespan specifying how much time cache patching can take.
+	DayOfWeek         pulumi.StringInput    `pulumi:"dayOfWeek"`
 	MaintenanceWindow pulumi.StringPtrInput `pulumi:"maintenanceWindow"`
-	// Start hour after which cache patching can start.
-	StartHourUtc pulumi.IntInput `pulumi:"startHourUtc"`
+	StartHourUtc      pulumi.IntInput       `pulumi:"startHourUtc"`
 }
 
 func (ScheduleEntryResponseArgs) ElementType() reflect.Type {
@@ -585,7 +536,6 @@ func (i ScheduleEntryResponseArray) ToScheduleEntryResponseArrayOutputWithContex
 	return pulumi.ToOutputWithContext(ctx, i).(ScheduleEntryResponseArrayOutput)
 }
 
-// Patch schedule entry for a Premium Redis Cache.
 type ScheduleEntryResponseOutput struct{ *pulumi.OutputState }
 
 func (ScheduleEntryResponseOutput) ElementType() reflect.Type {
@@ -600,17 +550,14 @@ func (o ScheduleEntryResponseOutput) ToScheduleEntryResponseOutputWithContext(ct
 	return o
 }
 
-// Day of the week when a cache can be patched.
 func (o ScheduleEntryResponseOutput) DayOfWeek() pulumi.StringOutput {
 	return o.ApplyT(func(v ScheduleEntryResponse) string { return v.DayOfWeek }).(pulumi.StringOutput)
 }
 
-// ISO8601 timespan specifying how much time cache patching can take.
 func (o ScheduleEntryResponseOutput) MaintenanceWindow() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ScheduleEntryResponse) *string { return v.MaintenanceWindow }).(pulumi.StringPtrOutput)
 }
 
-// Start hour after which cache patching can start.
 func (o ScheduleEntryResponseOutput) StartHourUtc() pulumi.IntOutput {
 	return o.ApplyT(func(v ScheduleEntryResponse) int { return v.StartHourUtc }).(pulumi.IntOutput)
 }
@@ -635,14 +582,10 @@ func (o ScheduleEntryResponseArrayOutput) Index(i pulumi.IntInput) ScheduleEntry
 	}).(ScheduleEntryResponseOutput)
 }
 
-// SKU parameters supplied to the create Redis operation.
 type Sku struct {
-	// The size of the Redis cache to deploy. Valid values: for C (Basic/Standard) family (0, 1, 2, 3, 4, 5, 6), for P (Premium) family (1, 2, 3, 4, 5).
-	Capacity int `pulumi:"capacity"`
-	// The SKU family to use. Valid values: (C, P). (C = Basic/Standard, P = Premium).
-	Family string `pulumi:"family"`
-	// The type of Redis cache to deploy. Valid values: (Basic, Standard, Premium)
-	Name string `pulumi:"name"`
+	Capacity int    `pulumi:"capacity"`
+	Family   string `pulumi:"family"`
+	Name     string `pulumi:"name"`
 }
 
 // SkuInput is an input type that accepts SkuArgs and SkuOutput values.
@@ -656,14 +599,10 @@ type SkuInput interface {
 	ToSkuOutputWithContext(context.Context) SkuOutput
 }
 
-// SKU parameters supplied to the create Redis operation.
 type SkuArgs struct {
-	// The size of the Redis cache to deploy. Valid values: for C (Basic/Standard) family (0, 1, 2, 3, 4, 5, 6), for P (Premium) family (1, 2, 3, 4, 5).
-	Capacity pulumi.IntInput `pulumi:"capacity"`
-	// The SKU family to use. Valid values: (C, P). (C = Basic/Standard, P = Premium).
-	Family pulumi.StringInput `pulumi:"family"`
-	// The type of Redis cache to deploy. Valid values: (Basic, Standard, Premium)
-	Name pulumi.StringInput `pulumi:"name"`
+	Capacity pulumi.IntInput    `pulumi:"capacity"`
+	Family   pulumi.StringInput `pulumi:"family"`
+	Name     pulumi.StringInput `pulumi:"name"`
 }
 
 func (SkuArgs) ElementType() reflect.Type {
@@ -719,7 +658,6 @@ func (i *skuPtrType) ToSkuPtrOutputWithContext(ctx context.Context) SkuPtrOutput
 	return pulumi.ToOutputWithContext(ctx, i).(SkuPtrOutput)
 }
 
-// SKU parameters supplied to the create Redis operation.
 type SkuOutput struct{ *pulumi.OutputState }
 
 func (SkuOutput) ElementType() reflect.Type {
@@ -739,22 +677,19 @@ func (o SkuOutput) ToSkuPtrOutput() SkuPtrOutput {
 }
 
 func (o SkuOutput) ToSkuPtrOutputWithContext(ctx context.Context) SkuPtrOutput {
-	return o.ApplyT(func(v Sku) *Sku {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v Sku) *Sku {
 		return &v
 	}).(SkuPtrOutput)
 }
 
-// The size of the Redis cache to deploy. Valid values: for C (Basic/Standard) family (0, 1, 2, 3, 4, 5, 6), for P (Premium) family (1, 2, 3, 4, 5).
 func (o SkuOutput) Capacity() pulumi.IntOutput {
 	return o.ApplyT(func(v Sku) int { return v.Capacity }).(pulumi.IntOutput)
 }
 
-// The SKU family to use. Valid values: (C, P). (C = Basic/Standard, P = Premium).
 func (o SkuOutput) Family() pulumi.StringOutput {
 	return o.ApplyT(func(v Sku) string { return v.Family }).(pulumi.StringOutput)
 }
 
-// The type of Redis cache to deploy. Valid values: (Basic, Standard, Premium)
 func (o SkuOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v Sku) string { return v.Name }).(pulumi.StringOutput)
 }
@@ -774,10 +709,15 @@ func (o SkuPtrOutput) ToSkuPtrOutputWithContext(ctx context.Context) SkuPtrOutpu
 }
 
 func (o SkuPtrOutput) Elem() SkuOutput {
-	return o.ApplyT(func(v *Sku) Sku { return *v }).(SkuOutput)
+	return o.ApplyT(func(v *Sku) Sku {
+		if v != nil {
+			return *v
+		}
+		var ret Sku
+		return ret
+	}).(SkuOutput)
 }
 
-// The size of the Redis cache to deploy. Valid values: for C (Basic/Standard) family (0, 1, 2, 3, 4, 5, 6), for P (Premium) family (1, 2, 3, 4, 5).
 func (o SkuPtrOutput) Capacity() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *Sku) *int {
 		if v == nil {
@@ -787,7 +727,6 @@ func (o SkuPtrOutput) Capacity() pulumi.IntPtrOutput {
 	}).(pulumi.IntPtrOutput)
 }
 
-// The SKU family to use. Valid values: (C, P). (C = Basic/Standard, P = Premium).
 func (o SkuPtrOutput) Family() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Sku) *string {
 		if v == nil {
@@ -797,7 +736,6 @@ func (o SkuPtrOutput) Family() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The type of Redis cache to deploy. Valid values: (Basic, Standard, Premium)
 func (o SkuPtrOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Sku) *string {
 		if v == nil {
@@ -807,14 +745,10 @@ func (o SkuPtrOutput) Name() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// SKU parameters supplied to the create Redis operation.
 type SkuResponse struct {
-	// The size of the Redis cache to deploy. Valid values: for C (Basic/Standard) family (0, 1, 2, 3, 4, 5, 6), for P (Premium) family (1, 2, 3, 4, 5).
-	Capacity int `pulumi:"capacity"`
-	// The SKU family to use. Valid values: (C, P). (C = Basic/Standard, P = Premium).
-	Family string `pulumi:"family"`
-	// The type of Redis cache to deploy. Valid values: (Basic, Standard, Premium)
-	Name string `pulumi:"name"`
+	Capacity int    `pulumi:"capacity"`
+	Family   string `pulumi:"family"`
+	Name     string `pulumi:"name"`
 }
 
 // SkuResponseInput is an input type that accepts SkuResponseArgs and SkuResponseOutput values.
@@ -828,14 +762,10 @@ type SkuResponseInput interface {
 	ToSkuResponseOutputWithContext(context.Context) SkuResponseOutput
 }
 
-// SKU parameters supplied to the create Redis operation.
 type SkuResponseArgs struct {
-	// The size of the Redis cache to deploy. Valid values: for C (Basic/Standard) family (0, 1, 2, 3, 4, 5, 6), for P (Premium) family (1, 2, 3, 4, 5).
-	Capacity pulumi.IntInput `pulumi:"capacity"`
-	// The SKU family to use. Valid values: (C, P). (C = Basic/Standard, P = Premium).
-	Family pulumi.StringInput `pulumi:"family"`
-	// The type of Redis cache to deploy. Valid values: (Basic, Standard, Premium)
-	Name pulumi.StringInput `pulumi:"name"`
+	Capacity pulumi.IntInput    `pulumi:"capacity"`
+	Family   pulumi.StringInput `pulumi:"family"`
+	Name     pulumi.StringInput `pulumi:"name"`
 }
 
 func (SkuResponseArgs) ElementType() reflect.Type {
@@ -891,7 +821,6 @@ func (i *skuResponsePtrType) ToSkuResponsePtrOutputWithContext(ctx context.Conte
 	return pulumi.ToOutputWithContext(ctx, i).(SkuResponsePtrOutput)
 }
 
-// SKU parameters supplied to the create Redis operation.
 type SkuResponseOutput struct{ *pulumi.OutputState }
 
 func (SkuResponseOutput) ElementType() reflect.Type {
@@ -911,22 +840,19 @@ func (o SkuResponseOutput) ToSkuResponsePtrOutput() SkuResponsePtrOutput {
 }
 
 func (o SkuResponseOutput) ToSkuResponsePtrOutputWithContext(ctx context.Context) SkuResponsePtrOutput {
-	return o.ApplyT(func(v SkuResponse) *SkuResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v SkuResponse) *SkuResponse {
 		return &v
 	}).(SkuResponsePtrOutput)
 }
 
-// The size of the Redis cache to deploy. Valid values: for C (Basic/Standard) family (0, 1, 2, 3, 4, 5, 6), for P (Premium) family (1, 2, 3, 4, 5).
 func (o SkuResponseOutput) Capacity() pulumi.IntOutput {
 	return o.ApplyT(func(v SkuResponse) int { return v.Capacity }).(pulumi.IntOutput)
 }
 
-// The SKU family to use. Valid values: (C, P). (C = Basic/Standard, P = Premium).
 func (o SkuResponseOutput) Family() pulumi.StringOutput {
 	return o.ApplyT(func(v SkuResponse) string { return v.Family }).(pulumi.StringOutput)
 }
 
-// The type of Redis cache to deploy. Valid values: (Basic, Standard, Premium)
 func (o SkuResponseOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v SkuResponse) string { return v.Name }).(pulumi.StringOutput)
 }
@@ -946,10 +872,15 @@ func (o SkuResponsePtrOutput) ToSkuResponsePtrOutputWithContext(ctx context.Cont
 }
 
 func (o SkuResponsePtrOutput) Elem() SkuResponseOutput {
-	return o.ApplyT(func(v *SkuResponse) SkuResponse { return *v }).(SkuResponseOutput)
+	return o.ApplyT(func(v *SkuResponse) SkuResponse {
+		if v != nil {
+			return *v
+		}
+		var ret SkuResponse
+		return ret
+	}).(SkuResponseOutput)
 }
 
-// The size of the Redis cache to deploy. Valid values: for C (Basic/Standard) family (0, 1, 2, 3, 4, 5, 6), for P (Premium) family (1, 2, 3, 4, 5).
 func (o SkuResponsePtrOutput) Capacity() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *SkuResponse) *int {
 		if v == nil {
@@ -959,7 +890,6 @@ func (o SkuResponsePtrOutput) Capacity() pulumi.IntPtrOutput {
 	}).(pulumi.IntPtrOutput)
 }
 
-// The SKU family to use. Valid values: (C, P). (C = Basic/Standard, P = Premium).
 func (o SkuResponsePtrOutput) Family() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SkuResponse) *string {
 		if v == nil {
@@ -969,7 +899,6 @@ func (o SkuResponsePtrOutput) Family() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The type of Redis cache to deploy. Valid values: (Basic, Standard, Premium)
 func (o SkuResponsePtrOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SkuResponse) *string {
 		if v == nil {

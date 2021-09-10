@@ -7,7 +7,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// A Cache instance. Follows Azure Resource Manager standards: https://github.com/Azure/azure-resource-manager-rpc/blob/master/v1.0/resource-api-reference.md
 func LookupCache(ctx *pulumi.Context, args *LookupCacheArgs, opts ...pulumi.InvokeOption) (*LookupCacheResult, error) {
 	var rv LookupCacheResult
 	err := ctx.Invoke("azure-native:storagecache/v20200301:getCache", args, &rv, opts...)
@@ -18,46 +17,27 @@ func LookupCache(ctx *pulumi.Context, args *LookupCacheArgs, opts ...pulumi.Invo
 }
 
 type LookupCacheArgs struct {
-	// Name of Cache. Length of name must be not greater than 80 and chars must be in list of [-0-9a-zA-Z_] char class.
-	CacheName string `pulumi:"cacheName"`
-	// Target resource group.
+	CacheName         string `pulumi:"cacheName"`
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 }
 
 // A Cache instance. Follows Azure Resource Manager standards: https://github.com/Azure/azure-resource-manager-rpc/blob/master/v1.0/resource-api-reference.md
 type LookupCacheResult struct {
-	// The size of this Cache, in GB.
-	CacheSizeGB *int `pulumi:"cacheSizeGB"`
-	// Specifies encryption settings of the cache.
+	CacheSizeGB        *int                             `pulumi:"cacheSizeGB"`
 	EncryptionSettings *CacheEncryptionSettingsResponse `pulumi:"encryptionSettings"`
-	// Health of the Cache.
-	Health CacheHealthResponse `pulumi:"health"`
-	// Resource ID of the Cache.
-	Id string `pulumi:"id"`
-	// The identity of the cache, if configured.
-	Identity *CacheIdentityResponse `pulumi:"identity"`
-	// Region name string.
-	Location *string `pulumi:"location"`
-	// Array of IP addresses that can be used by clients mounting this Cache.
-	MountAddresses []string `pulumi:"mountAddresses"`
-	// Name of Cache.
-	Name string `pulumi:"name"`
-	// Specifies network settings of the cache.
-	NetworkSettings *CacheNetworkSettingsResponse `pulumi:"networkSettings"`
-	// ARM provisioning state, see https://github.com/Azure/azure-resource-manager-rpc/blob/master/v1.0/Addendum.md#provisioningstate-property
-	ProvisioningState *string `pulumi:"provisioningState"`
-	// Specifies security settings of the cache.
-	SecuritySettings *CacheSecuritySettingsResponse `pulumi:"securitySettings"`
-	// SKU for the Cache.
-	Sku *CacheResponseSku `pulumi:"sku"`
-	// Subnet used for the Cache.
-	Subnet *string `pulumi:"subnet"`
-	// The system meta data relating to this resource.
-	SystemData SystemDataResponse `pulumi:"systemData"`
-	// ARM tags as name/value pairs.
-	Tags interface{} `pulumi:"tags"`
-	// Type of the Cache; Microsoft.StorageCache/Cache
-	Type string `pulumi:"type"`
-	// Upgrade status of the Cache.
-	UpgradeStatus *CacheUpgradeStatusResponse `pulumi:"upgradeStatus"`
+	Health             CacheHealthResponse              `pulumi:"health"`
+	Id                 string                           `pulumi:"id"`
+	Identity           *CacheIdentityResponse           `pulumi:"identity"`
+	Location           *string                          `pulumi:"location"`
+	MountAddresses     []string                         `pulumi:"mountAddresses"`
+	Name               string                           `pulumi:"name"`
+	NetworkSettings    *CacheNetworkSettingsResponse    `pulumi:"networkSettings"`
+	ProvisioningState  *string                          `pulumi:"provisioningState"`
+	SecuritySettings   *CacheSecuritySettingsResponse   `pulumi:"securitySettings"`
+	Sku                *CacheResponseSku                `pulumi:"sku"`
+	Subnet             *string                          `pulumi:"subnet"`
+	SystemData         SystemDataResponse               `pulumi:"systemData"`
+	Tags               interface{}                      `pulumi:"tags"`
+	Type               string                           `pulumi:"type"`
+	UpgradeStatus      *CacheUpgradeStatusResponse      `pulumi:"upgradeStatus"`
 }

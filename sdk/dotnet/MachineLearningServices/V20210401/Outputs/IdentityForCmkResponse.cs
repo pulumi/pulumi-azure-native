@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.MachineLearningServices.V20210401.Outputs
 {
 
+    /// <summary>
+    /// Identity that will be used to access key vault for encryption at rest
+    /// </summary>
     [OutputType]
     public sealed class IdentityForCmkResponse
     {

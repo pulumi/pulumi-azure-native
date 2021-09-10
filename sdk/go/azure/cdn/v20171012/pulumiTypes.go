@@ -10,15 +10,11 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Defines the parameters for the cache expiration action.
 type CacheExpirationActionParameters struct {
-	// Caching behavior for the requests that include query strings.
-	CacheBehavior string `pulumi:"cacheBehavior"`
-	// The duration for which the content needs to be cached. Allowed format is [d.]hh:mm:ss
+	CacheBehavior string  `pulumi:"cacheBehavior"`
 	CacheDuration *string `pulumi:"cacheDuration"`
-	// The level at which the content needs to be cached.
-	CacheType string `pulumi:"cacheType"`
-	OdataType string `pulumi:"odataType"`
+	CacheType     string  `pulumi:"cacheType"`
+	OdataType     string  `pulumi:"odataType"`
 }
 
 // CacheExpirationActionParametersInput is an input type that accepts CacheExpirationActionParametersArgs and CacheExpirationActionParametersOutput values.
@@ -32,15 +28,11 @@ type CacheExpirationActionParametersInput interface {
 	ToCacheExpirationActionParametersOutputWithContext(context.Context) CacheExpirationActionParametersOutput
 }
 
-// Defines the parameters for the cache expiration action.
 type CacheExpirationActionParametersArgs struct {
-	// Caching behavior for the requests that include query strings.
-	CacheBehavior pulumi.StringInput `pulumi:"cacheBehavior"`
-	// The duration for which the content needs to be cached. Allowed format is [d.]hh:mm:ss
+	CacheBehavior pulumi.StringInput    `pulumi:"cacheBehavior"`
 	CacheDuration pulumi.StringPtrInput `pulumi:"cacheDuration"`
-	// The level at which the content needs to be cached.
-	CacheType pulumi.StringInput `pulumi:"cacheType"`
-	OdataType pulumi.StringInput `pulumi:"odataType"`
+	CacheType     pulumi.StringInput    `pulumi:"cacheType"`
+	OdataType     pulumi.StringInput    `pulumi:"odataType"`
 }
 
 func (CacheExpirationActionParametersArgs) ElementType() reflect.Type {
@@ -55,7 +47,6 @@ func (i CacheExpirationActionParametersArgs) ToCacheExpirationActionParametersOu
 	return pulumi.ToOutputWithContext(ctx, i).(CacheExpirationActionParametersOutput)
 }
 
-// Defines the parameters for the cache expiration action.
 type CacheExpirationActionParametersOutput struct{ *pulumi.OutputState }
 
 func (CacheExpirationActionParametersOutput) ElementType() reflect.Type {
@@ -70,17 +61,14 @@ func (o CacheExpirationActionParametersOutput) ToCacheExpirationActionParameters
 	return o
 }
 
-// Caching behavior for the requests that include query strings.
 func (o CacheExpirationActionParametersOutput) CacheBehavior() pulumi.StringOutput {
 	return o.ApplyT(func(v CacheExpirationActionParameters) string { return v.CacheBehavior }).(pulumi.StringOutput)
 }
 
-// The duration for which the content needs to be cached. Allowed format is [d.]hh:mm:ss
 func (o CacheExpirationActionParametersOutput) CacheDuration() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v CacheExpirationActionParameters) *string { return v.CacheDuration }).(pulumi.StringPtrOutput)
 }
 
-// The level at which the content needs to be cached.
 func (o CacheExpirationActionParametersOutput) CacheType() pulumi.StringOutput {
 	return o.ApplyT(func(v CacheExpirationActionParameters) string { return v.CacheType }).(pulumi.StringOutput)
 }
@@ -89,15 +77,11 @@ func (o CacheExpirationActionParametersOutput) OdataType() pulumi.StringOutput {
 	return o.ApplyT(func(v CacheExpirationActionParameters) string { return v.OdataType }).(pulumi.StringOutput)
 }
 
-// Defines the parameters for the cache expiration action.
 type CacheExpirationActionParametersResponse struct {
-	// Caching behavior for the requests that include query strings.
-	CacheBehavior string `pulumi:"cacheBehavior"`
-	// The duration for which the content needs to be cached. Allowed format is [d.]hh:mm:ss
+	CacheBehavior string  `pulumi:"cacheBehavior"`
 	CacheDuration *string `pulumi:"cacheDuration"`
-	// The level at which the content needs to be cached.
-	CacheType string `pulumi:"cacheType"`
-	OdataType string `pulumi:"odataType"`
+	CacheType     string  `pulumi:"cacheType"`
+	OdataType     string  `pulumi:"odataType"`
 }
 
 // CacheExpirationActionParametersResponseInput is an input type that accepts CacheExpirationActionParametersResponseArgs and CacheExpirationActionParametersResponseOutput values.
@@ -111,15 +95,11 @@ type CacheExpirationActionParametersResponseInput interface {
 	ToCacheExpirationActionParametersResponseOutputWithContext(context.Context) CacheExpirationActionParametersResponseOutput
 }
 
-// Defines the parameters for the cache expiration action.
 type CacheExpirationActionParametersResponseArgs struct {
-	// Caching behavior for the requests that include query strings.
-	CacheBehavior pulumi.StringInput `pulumi:"cacheBehavior"`
-	// The duration for which the content needs to be cached. Allowed format is [d.]hh:mm:ss
+	CacheBehavior pulumi.StringInput    `pulumi:"cacheBehavior"`
 	CacheDuration pulumi.StringPtrInput `pulumi:"cacheDuration"`
-	// The level at which the content needs to be cached.
-	CacheType pulumi.StringInput `pulumi:"cacheType"`
-	OdataType pulumi.StringInput `pulumi:"odataType"`
+	CacheType     pulumi.StringInput    `pulumi:"cacheType"`
+	OdataType     pulumi.StringInput    `pulumi:"odataType"`
 }
 
 func (CacheExpirationActionParametersResponseArgs) ElementType() reflect.Type {
@@ -134,7 +114,6 @@ func (i CacheExpirationActionParametersResponseArgs) ToCacheExpirationActionPara
 	return pulumi.ToOutputWithContext(ctx, i).(CacheExpirationActionParametersResponseOutput)
 }
 
-// Defines the parameters for the cache expiration action.
 type CacheExpirationActionParametersResponseOutput struct{ *pulumi.OutputState }
 
 func (CacheExpirationActionParametersResponseOutput) ElementType() reflect.Type {
@@ -149,17 +128,14 @@ func (o CacheExpirationActionParametersResponseOutput) ToCacheExpirationActionPa
 	return o
 }
 
-// Caching behavior for the requests that include query strings.
 func (o CacheExpirationActionParametersResponseOutput) CacheBehavior() pulumi.StringOutput {
 	return o.ApplyT(func(v CacheExpirationActionParametersResponse) string { return v.CacheBehavior }).(pulumi.StringOutput)
 }
 
-// The duration for which the content needs to be cached. Allowed format is [d.]hh:mm:ss
 func (o CacheExpirationActionParametersResponseOutput) CacheDuration() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v CacheExpirationActionParametersResponse) *string { return v.CacheDuration }).(pulumi.StringPtrOutput)
 }
 
-// The level at which the content needs to be cached.
 func (o CacheExpirationActionParametersResponseOutput) CacheType() pulumi.StringOutput {
 	return o.ApplyT(func(v CacheExpirationActionParametersResponse) string { return v.CacheType }).(pulumi.StringOutput)
 }
@@ -168,16 +144,11 @@ func (o CacheExpirationActionParametersResponseOutput) OdataType() pulumi.String
 	return o.ApplyT(func(v CacheExpirationActionParametersResponse) string { return v.OdataType }).(pulumi.StringOutput)
 }
 
-// The main origin of CDN content which is added when creating a CDN endpoint.
 type DeepCreatedOrigin struct {
-	// The address of the origin. It can be a domain name, IPv4 address, or IPv6 address.
-	HostName string `pulumi:"hostName"`
-	// The value of the HTTP port. Must be between 1 and 65535
-	HttpPort *int `pulumi:"httpPort"`
-	// The value of the HTTPS port. Must be between 1 and 65535
-	HttpsPort *int `pulumi:"httpsPort"`
-	// Origin name
-	Name string `pulumi:"name"`
+	HostName  string `pulumi:"hostName"`
+	HttpPort  *int   `pulumi:"httpPort"`
+	HttpsPort *int   `pulumi:"httpsPort"`
+	Name      string `pulumi:"name"`
 }
 
 // DeepCreatedOriginInput is an input type that accepts DeepCreatedOriginArgs and DeepCreatedOriginOutput values.
@@ -191,16 +162,11 @@ type DeepCreatedOriginInput interface {
 	ToDeepCreatedOriginOutputWithContext(context.Context) DeepCreatedOriginOutput
 }
 
-// The main origin of CDN content which is added when creating a CDN endpoint.
 type DeepCreatedOriginArgs struct {
-	// The address of the origin. It can be a domain name, IPv4 address, or IPv6 address.
-	HostName pulumi.StringInput `pulumi:"hostName"`
-	// The value of the HTTP port. Must be between 1 and 65535
-	HttpPort pulumi.IntPtrInput `pulumi:"httpPort"`
-	// The value of the HTTPS port. Must be between 1 and 65535
+	HostName  pulumi.StringInput `pulumi:"hostName"`
+	HttpPort  pulumi.IntPtrInput `pulumi:"httpPort"`
 	HttpsPort pulumi.IntPtrInput `pulumi:"httpsPort"`
-	// Origin name
-	Name pulumi.StringInput `pulumi:"name"`
+	Name      pulumi.StringInput `pulumi:"name"`
 }
 
 func (DeepCreatedOriginArgs) ElementType() reflect.Type {
@@ -240,7 +206,6 @@ func (i DeepCreatedOriginArray) ToDeepCreatedOriginArrayOutputWithContext(ctx co
 	return pulumi.ToOutputWithContext(ctx, i).(DeepCreatedOriginArrayOutput)
 }
 
-// The main origin of CDN content which is added when creating a CDN endpoint.
 type DeepCreatedOriginOutput struct{ *pulumi.OutputState }
 
 func (DeepCreatedOriginOutput) ElementType() reflect.Type {
@@ -255,22 +220,18 @@ func (o DeepCreatedOriginOutput) ToDeepCreatedOriginOutputWithContext(ctx contex
 	return o
 }
 
-// The address of the origin. It can be a domain name, IPv4 address, or IPv6 address.
 func (o DeepCreatedOriginOutput) HostName() pulumi.StringOutput {
 	return o.ApplyT(func(v DeepCreatedOrigin) string { return v.HostName }).(pulumi.StringOutput)
 }
 
-// The value of the HTTP port. Must be between 1 and 65535
 func (o DeepCreatedOriginOutput) HttpPort() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v DeepCreatedOrigin) *int { return v.HttpPort }).(pulumi.IntPtrOutput)
 }
 
-// The value of the HTTPS port. Must be between 1 and 65535
 func (o DeepCreatedOriginOutput) HttpsPort() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v DeepCreatedOrigin) *int { return v.HttpsPort }).(pulumi.IntPtrOutput)
 }
 
-// Origin name
 func (o DeepCreatedOriginOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v DeepCreatedOrigin) string { return v.Name }).(pulumi.StringOutput)
 }
@@ -295,16 +256,11 @@ func (o DeepCreatedOriginArrayOutput) Index(i pulumi.IntInput) DeepCreatedOrigin
 	}).(DeepCreatedOriginOutput)
 }
 
-// The main origin of CDN content which is added when creating a CDN endpoint.
 type DeepCreatedOriginResponse struct {
-	// The address of the origin. It can be a domain name, IPv4 address, or IPv6 address.
-	HostName string `pulumi:"hostName"`
-	// The value of the HTTP port. Must be between 1 and 65535
-	HttpPort *int `pulumi:"httpPort"`
-	// The value of the HTTPS port. Must be between 1 and 65535
-	HttpsPort *int `pulumi:"httpsPort"`
-	// Origin name
-	Name string `pulumi:"name"`
+	HostName  string `pulumi:"hostName"`
+	HttpPort  *int   `pulumi:"httpPort"`
+	HttpsPort *int   `pulumi:"httpsPort"`
+	Name      string `pulumi:"name"`
 }
 
 // DeepCreatedOriginResponseInput is an input type that accepts DeepCreatedOriginResponseArgs and DeepCreatedOriginResponseOutput values.
@@ -318,16 +274,11 @@ type DeepCreatedOriginResponseInput interface {
 	ToDeepCreatedOriginResponseOutputWithContext(context.Context) DeepCreatedOriginResponseOutput
 }
 
-// The main origin of CDN content which is added when creating a CDN endpoint.
 type DeepCreatedOriginResponseArgs struct {
-	// The address of the origin. It can be a domain name, IPv4 address, or IPv6 address.
-	HostName pulumi.StringInput `pulumi:"hostName"`
-	// The value of the HTTP port. Must be between 1 and 65535
-	HttpPort pulumi.IntPtrInput `pulumi:"httpPort"`
-	// The value of the HTTPS port. Must be between 1 and 65535
+	HostName  pulumi.StringInput `pulumi:"hostName"`
+	HttpPort  pulumi.IntPtrInput `pulumi:"httpPort"`
 	HttpsPort pulumi.IntPtrInput `pulumi:"httpsPort"`
-	// Origin name
-	Name pulumi.StringInput `pulumi:"name"`
+	Name      pulumi.StringInput `pulumi:"name"`
 }
 
 func (DeepCreatedOriginResponseArgs) ElementType() reflect.Type {
@@ -367,7 +318,6 @@ func (i DeepCreatedOriginResponseArray) ToDeepCreatedOriginResponseArrayOutputWi
 	return pulumi.ToOutputWithContext(ctx, i).(DeepCreatedOriginResponseArrayOutput)
 }
 
-// The main origin of CDN content which is added when creating a CDN endpoint.
 type DeepCreatedOriginResponseOutput struct{ *pulumi.OutputState }
 
 func (DeepCreatedOriginResponseOutput) ElementType() reflect.Type {
@@ -382,22 +332,18 @@ func (o DeepCreatedOriginResponseOutput) ToDeepCreatedOriginResponseOutputWithCo
 	return o
 }
 
-// The address of the origin. It can be a domain name, IPv4 address, or IPv6 address.
 func (o DeepCreatedOriginResponseOutput) HostName() pulumi.StringOutput {
 	return o.ApplyT(func(v DeepCreatedOriginResponse) string { return v.HostName }).(pulumi.StringOutput)
 }
 
-// The value of the HTTP port. Must be between 1 and 65535
 func (o DeepCreatedOriginResponseOutput) HttpPort() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v DeepCreatedOriginResponse) *int { return v.HttpPort }).(pulumi.IntPtrOutput)
 }
 
-// The value of the HTTPS port. Must be between 1 and 65535
 func (o DeepCreatedOriginResponseOutput) HttpsPort() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v DeepCreatedOriginResponse) *int { return v.HttpsPort }).(pulumi.IntPtrOutput)
 }
 
-// Origin name
 func (o DeepCreatedOriginResponseOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v DeepCreatedOriginResponse) string { return v.Name }).(pulumi.StringOutput)
 }
@@ -422,14 +368,10 @@ func (o DeepCreatedOriginResponseArrayOutput) Index(i pulumi.IntInput) DeepCreat
 	}).(DeepCreatedOriginResponseOutput)
 }
 
-// A rule that specifies a set of actions and conditions
 type DeliveryRule struct {
-	// A list of actions that are executed when all the conditions of a rule are satisfied.
-	Actions []DeliveryRuleCacheExpirationAction `pulumi:"actions"`
-	// A list of conditions that must be matched for the actions to be executed
-	Conditions []interface{} `pulumi:"conditions"`
-	// The order in which the rules are applied for the endpoint. Possible values {0,1,2,3,………}. A rule with a lesser order will be applied before a rule with a greater order. Rule with order 0 is a special rule. It does not require any condition and actions listed in it will always be applied.
-	Order int `pulumi:"order"`
+	Actions    []DeliveryRuleCacheExpirationAction `pulumi:"actions"`
+	Conditions []interface{}                       `pulumi:"conditions"`
+	Order      int                                 `pulumi:"order"`
 }
 
 // DeliveryRuleInput is an input type that accepts DeliveryRuleArgs and DeliveryRuleOutput values.
@@ -443,14 +385,10 @@ type DeliveryRuleInput interface {
 	ToDeliveryRuleOutputWithContext(context.Context) DeliveryRuleOutput
 }
 
-// A rule that specifies a set of actions and conditions
 type DeliveryRuleArgs struct {
-	// A list of actions that are executed when all the conditions of a rule are satisfied.
-	Actions DeliveryRuleCacheExpirationActionArrayInput `pulumi:"actions"`
-	// A list of conditions that must be matched for the actions to be executed
-	Conditions pulumi.ArrayInput `pulumi:"conditions"`
-	// The order in which the rules are applied for the endpoint. Possible values {0,1,2,3,………}. A rule with a lesser order will be applied before a rule with a greater order. Rule with order 0 is a special rule. It does not require any condition and actions listed in it will always be applied.
-	Order pulumi.IntInput `pulumi:"order"`
+	Actions    DeliveryRuleCacheExpirationActionArrayInput `pulumi:"actions"`
+	Conditions pulumi.ArrayInput                           `pulumi:"conditions"`
+	Order      pulumi.IntInput                             `pulumi:"order"`
 }
 
 func (DeliveryRuleArgs) ElementType() reflect.Type {
@@ -490,7 +428,6 @@ func (i DeliveryRuleArray) ToDeliveryRuleArrayOutputWithContext(ctx context.Cont
 	return pulumi.ToOutputWithContext(ctx, i).(DeliveryRuleArrayOutput)
 }
 
-// A rule that specifies a set of actions and conditions
 type DeliveryRuleOutput struct{ *pulumi.OutputState }
 
 func (DeliveryRuleOutput) ElementType() reflect.Type {
@@ -505,17 +442,14 @@ func (o DeliveryRuleOutput) ToDeliveryRuleOutputWithContext(ctx context.Context)
 	return o
 }
 
-// A list of actions that are executed when all the conditions of a rule are satisfied.
 func (o DeliveryRuleOutput) Actions() DeliveryRuleCacheExpirationActionArrayOutput {
 	return o.ApplyT(func(v DeliveryRule) []DeliveryRuleCacheExpirationAction { return v.Actions }).(DeliveryRuleCacheExpirationActionArrayOutput)
 }
 
-// A list of conditions that must be matched for the actions to be executed
 func (o DeliveryRuleOutput) Conditions() pulumi.ArrayOutput {
 	return o.ApplyT(func(v DeliveryRule) []interface{} { return v.Conditions }).(pulumi.ArrayOutput)
 }
 
-// The order in which the rules are applied for the endpoint. Possible values {0,1,2,3,………}. A rule with a lesser order will be applied before a rule with a greater order. Rule with order 0 is a special rule. It does not require any condition and actions listed in it will always be applied.
 func (o DeliveryRuleOutput) Order() pulumi.IntOutput {
 	return o.ApplyT(func(v DeliveryRule) int { return v.Order }).(pulumi.IntOutput)
 }
@@ -540,12 +474,8 @@ func (o DeliveryRuleArrayOutput) Index(i pulumi.IntInput) DeliveryRuleOutput {
 	}).(DeliveryRuleOutput)
 }
 
-// Defines the cache expiration action for the delivery rule.
 type DeliveryRuleCacheExpirationAction struct {
-	// The name of the action for the delivery rule.
-	// Expected value is 'CacheExpiration'.
-	Name string `pulumi:"name"`
-	// Defines the parameters for the action.
+	Name       string                          `pulumi:"name"`
 	Parameters CacheExpirationActionParameters `pulumi:"parameters"`
 }
 
@@ -560,12 +490,8 @@ type DeliveryRuleCacheExpirationActionInput interface {
 	ToDeliveryRuleCacheExpirationActionOutputWithContext(context.Context) DeliveryRuleCacheExpirationActionOutput
 }
 
-// Defines the cache expiration action for the delivery rule.
 type DeliveryRuleCacheExpirationActionArgs struct {
-	// The name of the action for the delivery rule.
-	// Expected value is 'CacheExpiration'.
-	Name pulumi.StringInput `pulumi:"name"`
-	// Defines the parameters for the action.
+	Name       pulumi.StringInput                   `pulumi:"name"`
 	Parameters CacheExpirationActionParametersInput `pulumi:"parameters"`
 }
 
@@ -606,7 +532,6 @@ func (i DeliveryRuleCacheExpirationActionArray) ToDeliveryRuleCacheExpirationAct
 	return pulumi.ToOutputWithContext(ctx, i).(DeliveryRuleCacheExpirationActionArrayOutput)
 }
 
-// Defines the cache expiration action for the delivery rule.
 type DeliveryRuleCacheExpirationActionOutput struct{ *pulumi.OutputState }
 
 func (DeliveryRuleCacheExpirationActionOutput) ElementType() reflect.Type {
@@ -621,13 +546,10 @@ func (o DeliveryRuleCacheExpirationActionOutput) ToDeliveryRuleCacheExpirationAc
 	return o
 }
 
-// The name of the action for the delivery rule.
-// Expected value is 'CacheExpiration'.
 func (o DeliveryRuleCacheExpirationActionOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v DeliveryRuleCacheExpirationAction) string { return v.Name }).(pulumi.StringOutput)
 }
 
-// Defines the parameters for the action.
 func (o DeliveryRuleCacheExpirationActionOutput) Parameters() CacheExpirationActionParametersOutput {
 	return o.ApplyT(func(v DeliveryRuleCacheExpirationAction) CacheExpirationActionParameters { return v.Parameters }).(CacheExpirationActionParametersOutput)
 }
@@ -652,12 +574,8 @@ func (o DeliveryRuleCacheExpirationActionArrayOutput) Index(i pulumi.IntInput) D
 	}).(DeliveryRuleCacheExpirationActionOutput)
 }
 
-// Defines the cache expiration action for the delivery rule.
 type DeliveryRuleCacheExpirationActionResponse struct {
-	// The name of the action for the delivery rule.
-	// Expected value is 'CacheExpiration'.
-	Name string `pulumi:"name"`
-	// Defines the parameters for the action.
+	Name       string                                  `pulumi:"name"`
 	Parameters CacheExpirationActionParametersResponse `pulumi:"parameters"`
 }
 
@@ -672,12 +590,8 @@ type DeliveryRuleCacheExpirationActionResponseInput interface {
 	ToDeliveryRuleCacheExpirationActionResponseOutputWithContext(context.Context) DeliveryRuleCacheExpirationActionResponseOutput
 }
 
-// Defines the cache expiration action for the delivery rule.
 type DeliveryRuleCacheExpirationActionResponseArgs struct {
-	// The name of the action for the delivery rule.
-	// Expected value is 'CacheExpiration'.
-	Name pulumi.StringInput `pulumi:"name"`
-	// Defines the parameters for the action.
+	Name       pulumi.StringInput                           `pulumi:"name"`
 	Parameters CacheExpirationActionParametersResponseInput `pulumi:"parameters"`
 }
 
@@ -718,7 +632,6 @@ func (i DeliveryRuleCacheExpirationActionResponseArray) ToDeliveryRuleCacheExpir
 	return pulumi.ToOutputWithContext(ctx, i).(DeliveryRuleCacheExpirationActionResponseArrayOutput)
 }
 
-// Defines the cache expiration action for the delivery rule.
 type DeliveryRuleCacheExpirationActionResponseOutput struct{ *pulumi.OutputState }
 
 func (DeliveryRuleCacheExpirationActionResponseOutput) ElementType() reflect.Type {
@@ -733,13 +646,10 @@ func (o DeliveryRuleCacheExpirationActionResponseOutput) ToDeliveryRuleCacheExpi
 	return o
 }
 
-// The name of the action for the delivery rule.
-// Expected value is 'CacheExpiration'.
 func (o DeliveryRuleCacheExpirationActionResponseOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v DeliveryRuleCacheExpirationActionResponse) string { return v.Name }).(pulumi.StringOutput)
 }
 
-// Defines the parameters for the action.
 func (o DeliveryRuleCacheExpirationActionResponseOutput) Parameters() CacheExpirationActionParametersResponseOutput {
 	return o.ApplyT(func(v DeliveryRuleCacheExpirationActionResponse) CacheExpirationActionParametersResponse {
 		return v.Parameters
@@ -766,14 +676,10 @@ func (o DeliveryRuleCacheExpirationActionResponseArrayOutput) Index(i pulumi.Int
 	}).(DeliveryRuleCacheExpirationActionResponseOutput)
 }
 
-// A rule that specifies a set of actions and conditions
 type DeliveryRuleResponse struct {
-	// A list of actions that are executed when all the conditions of a rule are satisfied.
-	Actions []DeliveryRuleCacheExpirationActionResponse `pulumi:"actions"`
-	// A list of conditions that must be matched for the actions to be executed
-	Conditions []interface{} `pulumi:"conditions"`
-	// The order in which the rules are applied for the endpoint. Possible values {0,1,2,3,………}. A rule with a lesser order will be applied before a rule with a greater order. Rule with order 0 is a special rule. It does not require any condition and actions listed in it will always be applied.
-	Order int `pulumi:"order"`
+	Actions    []DeliveryRuleCacheExpirationActionResponse `pulumi:"actions"`
+	Conditions []interface{}                               `pulumi:"conditions"`
+	Order      int                                         `pulumi:"order"`
 }
 
 // DeliveryRuleResponseInput is an input type that accepts DeliveryRuleResponseArgs and DeliveryRuleResponseOutput values.
@@ -787,14 +693,10 @@ type DeliveryRuleResponseInput interface {
 	ToDeliveryRuleResponseOutputWithContext(context.Context) DeliveryRuleResponseOutput
 }
 
-// A rule that specifies a set of actions and conditions
 type DeliveryRuleResponseArgs struct {
-	// A list of actions that are executed when all the conditions of a rule are satisfied.
-	Actions DeliveryRuleCacheExpirationActionResponseArrayInput `pulumi:"actions"`
-	// A list of conditions that must be matched for the actions to be executed
-	Conditions pulumi.ArrayInput `pulumi:"conditions"`
-	// The order in which the rules are applied for the endpoint. Possible values {0,1,2,3,………}. A rule with a lesser order will be applied before a rule with a greater order. Rule with order 0 is a special rule. It does not require any condition and actions listed in it will always be applied.
-	Order pulumi.IntInput `pulumi:"order"`
+	Actions    DeliveryRuleCacheExpirationActionResponseArrayInput `pulumi:"actions"`
+	Conditions pulumi.ArrayInput                                   `pulumi:"conditions"`
+	Order      pulumi.IntInput                                     `pulumi:"order"`
 }
 
 func (DeliveryRuleResponseArgs) ElementType() reflect.Type {
@@ -834,7 +736,6 @@ func (i DeliveryRuleResponseArray) ToDeliveryRuleResponseArrayOutputWithContext(
 	return pulumi.ToOutputWithContext(ctx, i).(DeliveryRuleResponseArrayOutput)
 }
 
-// A rule that specifies a set of actions and conditions
 type DeliveryRuleResponseOutput struct{ *pulumi.OutputState }
 
 func (DeliveryRuleResponseOutput) ElementType() reflect.Type {
@@ -849,17 +750,14 @@ func (o DeliveryRuleResponseOutput) ToDeliveryRuleResponseOutputWithContext(ctx 
 	return o
 }
 
-// A list of actions that are executed when all the conditions of a rule are satisfied.
 func (o DeliveryRuleResponseOutput) Actions() DeliveryRuleCacheExpirationActionResponseArrayOutput {
 	return o.ApplyT(func(v DeliveryRuleResponse) []DeliveryRuleCacheExpirationActionResponse { return v.Actions }).(DeliveryRuleCacheExpirationActionResponseArrayOutput)
 }
 
-// A list of conditions that must be matched for the actions to be executed
 func (o DeliveryRuleResponseOutput) Conditions() pulumi.ArrayOutput {
 	return o.ApplyT(func(v DeliveryRuleResponse) []interface{} { return v.Conditions }).(pulumi.ArrayOutput)
 }
 
-// The order in which the rules are applied for the endpoint. Possible values {0,1,2,3,………}. A rule with a lesser order will be applied before a rule with a greater order. Rule with order 0 is a special rule. It does not require any condition and actions listed in it will always be applied.
 func (o DeliveryRuleResponseOutput) Order() pulumi.IntOutput {
 	return o.ApplyT(func(v DeliveryRuleResponse) int { return v.Order }).(pulumi.IntOutput)
 }
@@ -884,12 +782,8 @@ func (o DeliveryRuleResponseArrayOutput) Index(i pulumi.IntInput) DeliveryRuleRe
 	}).(DeliveryRuleResponseOutput)
 }
 
-// Defines the URL file extension condition for the delivery rule.
 type DeliveryRuleUrlFileExtensionCondition struct {
-	// The name of the condition for the delivery rule.
-	// Expected value is 'UrlFileExtension'.
-	Name string `pulumi:"name"`
-	// Defines the parameters for the condition.
+	Name       string                              `pulumi:"name"`
 	Parameters UrlFileExtensionConditionParameters `pulumi:"parameters"`
 }
 
@@ -904,12 +798,8 @@ type DeliveryRuleUrlFileExtensionConditionInput interface {
 	ToDeliveryRuleUrlFileExtensionConditionOutputWithContext(context.Context) DeliveryRuleUrlFileExtensionConditionOutput
 }
 
-// Defines the URL file extension condition for the delivery rule.
 type DeliveryRuleUrlFileExtensionConditionArgs struct {
-	// The name of the condition for the delivery rule.
-	// Expected value is 'UrlFileExtension'.
-	Name pulumi.StringInput `pulumi:"name"`
-	// Defines the parameters for the condition.
+	Name       pulumi.StringInput                       `pulumi:"name"`
 	Parameters UrlFileExtensionConditionParametersInput `pulumi:"parameters"`
 }
 
@@ -925,7 +815,6 @@ func (i DeliveryRuleUrlFileExtensionConditionArgs) ToDeliveryRuleUrlFileExtensio
 	return pulumi.ToOutputWithContext(ctx, i).(DeliveryRuleUrlFileExtensionConditionOutput)
 }
 
-// Defines the URL file extension condition for the delivery rule.
 type DeliveryRuleUrlFileExtensionConditionOutput struct{ *pulumi.OutputState }
 
 func (DeliveryRuleUrlFileExtensionConditionOutput) ElementType() reflect.Type {
@@ -940,23 +829,16 @@ func (o DeliveryRuleUrlFileExtensionConditionOutput) ToDeliveryRuleUrlFileExtens
 	return o
 }
 
-// The name of the condition for the delivery rule.
-// Expected value is 'UrlFileExtension'.
 func (o DeliveryRuleUrlFileExtensionConditionOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v DeliveryRuleUrlFileExtensionCondition) string { return v.Name }).(pulumi.StringOutput)
 }
 
-// Defines the parameters for the condition.
 func (o DeliveryRuleUrlFileExtensionConditionOutput) Parameters() UrlFileExtensionConditionParametersOutput {
 	return o.ApplyT(func(v DeliveryRuleUrlFileExtensionCondition) UrlFileExtensionConditionParameters { return v.Parameters }).(UrlFileExtensionConditionParametersOutput)
 }
 
-// Defines the URL file extension condition for the delivery rule.
 type DeliveryRuleUrlFileExtensionConditionResponse struct {
-	// The name of the condition for the delivery rule.
-	// Expected value is 'UrlFileExtension'.
-	Name string `pulumi:"name"`
-	// Defines the parameters for the condition.
+	Name       string                                      `pulumi:"name"`
 	Parameters UrlFileExtensionConditionParametersResponse `pulumi:"parameters"`
 }
 
@@ -971,12 +853,8 @@ type DeliveryRuleUrlFileExtensionConditionResponseInput interface {
 	ToDeliveryRuleUrlFileExtensionConditionResponseOutputWithContext(context.Context) DeliveryRuleUrlFileExtensionConditionResponseOutput
 }
 
-// Defines the URL file extension condition for the delivery rule.
 type DeliveryRuleUrlFileExtensionConditionResponseArgs struct {
-	// The name of the condition for the delivery rule.
-	// Expected value is 'UrlFileExtension'.
-	Name pulumi.StringInput `pulumi:"name"`
-	// Defines the parameters for the condition.
+	Name       pulumi.StringInput                               `pulumi:"name"`
 	Parameters UrlFileExtensionConditionParametersResponseInput `pulumi:"parameters"`
 }
 
@@ -992,7 +870,6 @@ func (i DeliveryRuleUrlFileExtensionConditionResponseArgs) ToDeliveryRuleUrlFile
 	return pulumi.ToOutputWithContext(ctx, i).(DeliveryRuleUrlFileExtensionConditionResponseOutput)
 }
 
-// Defines the URL file extension condition for the delivery rule.
 type DeliveryRuleUrlFileExtensionConditionResponseOutput struct{ *pulumi.OutputState }
 
 func (DeliveryRuleUrlFileExtensionConditionResponseOutput) ElementType() reflect.Type {
@@ -1007,25 +884,18 @@ func (o DeliveryRuleUrlFileExtensionConditionResponseOutput) ToDeliveryRuleUrlFi
 	return o
 }
 
-// The name of the condition for the delivery rule.
-// Expected value is 'UrlFileExtension'.
 func (o DeliveryRuleUrlFileExtensionConditionResponseOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v DeliveryRuleUrlFileExtensionConditionResponse) string { return v.Name }).(pulumi.StringOutput)
 }
 
-// Defines the parameters for the condition.
 func (o DeliveryRuleUrlFileExtensionConditionResponseOutput) Parameters() UrlFileExtensionConditionParametersResponseOutput {
 	return o.ApplyT(func(v DeliveryRuleUrlFileExtensionConditionResponse) UrlFileExtensionConditionParametersResponse {
 		return v.Parameters
 	}).(UrlFileExtensionConditionParametersResponseOutput)
 }
 
-// Defines the URL path condition for the delivery rule.
 type DeliveryRuleUrlPathCondition struct {
-	// The name of the condition for the delivery rule.
-	// Expected value is 'UrlPath'.
-	Name string `pulumi:"name"`
-	// Defines the parameters for the condition.
+	Name       string                     `pulumi:"name"`
 	Parameters UrlPathConditionParameters `pulumi:"parameters"`
 }
 
@@ -1040,12 +910,8 @@ type DeliveryRuleUrlPathConditionInput interface {
 	ToDeliveryRuleUrlPathConditionOutputWithContext(context.Context) DeliveryRuleUrlPathConditionOutput
 }
 
-// Defines the URL path condition for the delivery rule.
 type DeliveryRuleUrlPathConditionArgs struct {
-	// The name of the condition for the delivery rule.
-	// Expected value is 'UrlPath'.
-	Name pulumi.StringInput `pulumi:"name"`
-	// Defines the parameters for the condition.
+	Name       pulumi.StringInput              `pulumi:"name"`
 	Parameters UrlPathConditionParametersInput `pulumi:"parameters"`
 }
 
@@ -1061,7 +927,6 @@ func (i DeliveryRuleUrlPathConditionArgs) ToDeliveryRuleUrlPathConditionOutputWi
 	return pulumi.ToOutputWithContext(ctx, i).(DeliveryRuleUrlPathConditionOutput)
 }
 
-// Defines the URL path condition for the delivery rule.
 type DeliveryRuleUrlPathConditionOutput struct{ *pulumi.OutputState }
 
 func (DeliveryRuleUrlPathConditionOutput) ElementType() reflect.Type {
@@ -1076,23 +941,16 @@ func (o DeliveryRuleUrlPathConditionOutput) ToDeliveryRuleUrlPathConditionOutput
 	return o
 }
 
-// The name of the condition for the delivery rule.
-// Expected value is 'UrlPath'.
 func (o DeliveryRuleUrlPathConditionOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v DeliveryRuleUrlPathCondition) string { return v.Name }).(pulumi.StringOutput)
 }
 
-// Defines the parameters for the condition.
 func (o DeliveryRuleUrlPathConditionOutput) Parameters() UrlPathConditionParametersOutput {
 	return o.ApplyT(func(v DeliveryRuleUrlPathCondition) UrlPathConditionParameters { return v.Parameters }).(UrlPathConditionParametersOutput)
 }
 
-// Defines the URL path condition for the delivery rule.
 type DeliveryRuleUrlPathConditionResponse struct {
-	// The name of the condition for the delivery rule.
-	// Expected value is 'UrlPath'.
-	Name string `pulumi:"name"`
-	// Defines the parameters for the condition.
+	Name       string                             `pulumi:"name"`
 	Parameters UrlPathConditionParametersResponse `pulumi:"parameters"`
 }
 
@@ -1107,12 +965,8 @@ type DeliveryRuleUrlPathConditionResponseInput interface {
 	ToDeliveryRuleUrlPathConditionResponseOutputWithContext(context.Context) DeliveryRuleUrlPathConditionResponseOutput
 }
 
-// Defines the URL path condition for the delivery rule.
 type DeliveryRuleUrlPathConditionResponseArgs struct {
-	// The name of the condition for the delivery rule.
-	// Expected value is 'UrlPath'.
-	Name pulumi.StringInput `pulumi:"name"`
-	// Defines the parameters for the condition.
+	Name       pulumi.StringInput                      `pulumi:"name"`
 	Parameters UrlPathConditionParametersResponseInput `pulumi:"parameters"`
 }
 
@@ -1128,7 +982,6 @@ func (i DeliveryRuleUrlPathConditionResponseArgs) ToDeliveryRuleUrlPathCondition
 	return pulumi.ToOutputWithContext(ctx, i).(DeliveryRuleUrlPathConditionResponseOutput)
 }
 
-// Defines the URL path condition for the delivery rule.
 type DeliveryRuleUrlPathConditionResponseOutput struct{ *pulumi.OutputState }
 
 func (DeliveryRuleUrlPathConditionResponseOutput) ElementType() reflect.Type {
@@ -1143,23 +996,17 @@ func (o DeliveryRuleUrlPathConditionResponseOutput) ToDeliveryRuleUrlPathConditi
 	return o
 }
 
-// The name of the condition for the delivery rule.
-// Expected value is 'UrlPath'.
 func (o DeliveryRuleUrlPathConditionResponseOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v DeliveryRuleUrlPathConditionResponse) string { return v.Name }).(pulumi.StringOutput)
 }
 
-// Defines the parameters for the condition.
 func (o DeliveryRuleUrlPathConditionResponseOutput) Parameters() UrlPathConditionParametersResponseOutput {
 	return o.ApplyT(func(v DeliveryRuleUrlPathConditionResponse) UrlPathConditionParametersResponse { return v.Parameters }).(UrlPathConditionParametersResponseOutput)
 }
 
-// A policy that specifies the delivery rules to be used for an endpoint.
 type EndpointPropertiesUpdateParametersDeliveryPolicy struct {
-	// User-friendly description of the policy.
-	Description *string `pulumi:"description"`
-	// A list of the delivery rules.
-	Rules []DeliveryRule `pulumi:"rules"`
+	Description *string        `pulumi:"description"`
+	Rules       []DeliveryRule `pulumi:"rules"`
 }
 
 // EndpointPropertiesUpdateParametersDeliveryPolicyInput is an input type that accepts EndpointPropertiesUpdateParametersDeliveryPolicyArgs and EndpointPropertiesUpdateParametersDeliveryPolicyOutput values.
@@ -1173,12 +1020,9 @@ type EndpointPropertiesUpdateParametersDeliveryPolicyInput interface {
 	ToEndpointPropertiesUpdateParametersDeliveryPolicyOutputWithContext(context.Context) EndpointPropertiesUpdateParametersDeliveryPolicyOutput
 }
 
-// A policy that specifies the delivery rules to be used for an endpoint.
 type EndpointPropertiesUpdateParametersDeliveryPolicyArgs struct {
-	// User-friendly description of the policy.
-	Description pulumi.StringPtrInput `pulumi:"description"`
-	// A list of the delivery rules.
-	Rules DeliveryRuleArrayInput `pulumi:"rules"`
+	Description pulumi.StringPtrInput  `pulumi:"description"`
+	Rules       DeliveryRuleArrayInput `pulumi:"rules"`
 }
 
 func (EndpointPropertiesUpdateParametersDeliveryPolicyArgs) ElementType() reflect.Type {
@@ -1234,7 +1078,6 @@ func (i *endpointPropertiesUpdateParametersDeliveryPolicyPtrType) ToEndpointProp
 	return pulumi.ToOutputWithContext(ctx, i).(EndpointPropertiesUpdateParametersDeliveryPolicyPtrOutput)
 }
 
-// A policy that specifies the delivery rules to be used for an endpoint.
 type EndpointPropertiesUpdateParametersDeliveryPolicyOutput struct{ *pulumi.OutputState }
 
 func (EndpointPropertiesUpdateParametersDeliveryPolicyOutput) ElementType() reflect.Type {
@@ -1254,17 +1097,15 @@ func (o EndpointPropertiesUpdateParametersDeliveryPolicyOutput) ToEndpointProper
 }
 
 func (o EndpointPropertiesUpdateParametersDeliveryPolicyOutput) ToEndpointPropertiesUpdateParametersDeliveryPolicyPtrOutputWithContext(ctx context.Context) EndpointPropertiesUpdateParametersDeliveryPolicyPtrOutput {
-	return o.ApplyT(func(v EndpointPropertiesUpdateParametersDeliveryPolicy) *EndpointPropertiesUpdateParametersDeliveryPolicy {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v EndpointPropertiesUpdateParametersDeliveryPolicy) *EndpointPropertiesUpdateParametersDeliveryPolicy {
 		return &v
 	}).(EndpointPropertiesUpdateParametersDeliveryPolicyPtrOutput)
 }
 
-// User-friendly description of the policy.
 func (o EndpointPropertiesUpdateParametersDeliveryPolicyOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v EndpointPropertiesUpdateParametersDeliveryPolicy) *string { return v.Description }).(pulumi.StringPtrOutput)
 }
 
-// A list of the delivery rules.
 func (o EndpointPropertiesUpdateParametersDeliveryPolicyOutput) Rules() DeliveryRuleArrayOutput {
 	return o.ApplyT(func(v EndpointPropertiesUpdateParametersDeliveryPolicy) []DeliveryRule { return v.Rules }).(DeliveryRuleArrayOutput)
 }
@@ -1285,11 +1126,14 @@ func (o EndpointPropertiesUpdateParametersDeliveryPolicyPtrOutput) ToEndpointPro
 
 func (o EndpointPropertiesUpdateParametersDeliveryPolicyPtrOutput) Elem() EndpointPropertiesUpdateParametersDeliveryPolicyOutput {
 	return o.ApplyT(func(v *EndpointPropertiesUpdateParametersDeliveryPolicy) EndpointPropertiesUpdateParametersDeliveryPolicy {
-		return *v
+		if v != nil {
+			return *v
+		}
+		var ret EndpointPropertiesUpdateParametersDeliveryPolicy
+		return ret
 	}).(EndpointPropertiesUpdateParametersDeliveryPolicyOutput)
 }
 
-// User-friendly description of the policy.
 func (o EndpointPropertiesUpdateParametersDeliveryPolicyPtrOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *EndpointPropertiesUpdateParametersDeliveryPolicy) *string {
 		if v == nil {
@@ -1299,7 +1143,6 @@ func (o EndpointPropertiesUpdateParametersDeliveryPolicyPtrOutput) Description()
 	}).(pulumi.StringPtrOutput)
 }
 
-// A list of the delivery rules.
 func (o EndpointPropertiesUpdateParametersDeliveryPolicyPtrOutput) Rules() DeliveryRuleArrayOutput {
 	return o.ApplyT(func(v *EndpointPropertiesUpdateParametersDeliveryPolicy) []DeliveryRule {
 		if v == nil {
@@ -1309,12 +1152,9 @@ func (o EndpointPropertiesUpdateParametersDeliveryPolicyPtrOutput) Rules() Deliv
 	}).(DeliveryRuleArrayOutput)
 }
 
-// A policy that specifies the delivery rules to be used for an endpoint.
 type EndpointPropertiesUpdateParametersResponseDeliveryPolicy struct {
-	// User-friendly description of the policy.
-	Description *string `pulumi:"description"`
-	// A list of the delivery rules.
-	Rules []DeliveryRuleResponse `pulumi:"rules"`
+	Description *string                `pulumi:"description"`
+	Rules       []DeliveryRuleResponse `pulumi:"rules"`
 }
 
 // EndpointPropertiesUpdateParametersResponseDeliveryPolicyInput is an input type that accepts EndpointPropertiesUpdateParametersResponseDeliveryPolicyArgs and EndpointPropertiesUpdateParametersResponseDeliveryPolicyOutput values.
@@ -1328,12 +1168,9 @@ type EndpointPropertiesUpdateParametersResponseDeliveryPolicyInput interface {
 	ToEndpointPropertiesUpdateParametersResponseDeliveryPolicyOutputWithContext(context.Context) EndpointPropertiesUpdateParametersResponseDeliveryPolicyOutput
 }
 
-// A policy that specifies the delivery rules to be used for an endpoint.
 type EndpointPropertiesUpdateParametersResponseDeliveryPolicyArgs struct {
-	// User-friendly description of the policy.
-	Description pulumi.StringPtrInput `pulumi:"description"`
-	// A list of the delivery rules.
-	Rules DeliveryRuleResponseArrayInput `pulumi:"rules"`
+	Description pulumi.StringPtrInput          `pulumi:"description"`
+	Rules       DeliveryRuleResponseArrayInput `pulumi:"rules"`
 }
 
 func (EndpointPropertiesUpdateParametersResponseDeliveryPolicyArgs) ElementType() reflect.Type {
@@ -1389,7 +1226,6 @@ func (i *endpointPropertiesUpdateParametersResponseDeliveryPolicyPtrType) ToEndp
 	return pulumi.ToOutputWithContext(ctx, i).(EndpointPropertiesUpdateParametersResponseDeliveryPolicyPtrOutput)
 }
 
-// A policy that specifies the delivery rules to be used for an endpoint.
 type EndpointPropertiesUpdateParametersResponseDeliveryPolicyOutput struct{ *pulumi.OutputState }
 
 func (EndpointPropertiesUpdateParametersResponseDeliveryPolicyOutput) ElementType() reflect.Type {
@@ -1409,17 +1245,15 @@ func (o EndpointPropertiesUpdateParametersResponseDeliveryPolicyOutput) ToEndpoi
 }
 
 func (o EndpointPropertiesUpdateParametersResponseDeliveryPolicyOutput) ToEndpointPropertiesUpdateParametersResponseDeliveryPolicyPtrOutputWithContext(ctx context.Context) EndpointPropertiesUpdateParametersResponseDeliveryPolicyPtrOutput {
-	return o.ApplyT(func(v EndpointPropertiesUpdateParametersResponseDeliveryPolicy) *EndpointPropertiesUpdateParametersResponseDeliveryPolicy {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v EndpointPropertiesUpdateParametersResponseDeliveryPolicy) *EndpointPropertiesUpdateParametersResponseDeliveryPolicy {
 		return &v
 	}).(EndpointPropertiesUpdateParametersResponseDeliveryPolicyPtrOutput)
 }
 
-// User-friendly description of the policy.
 func (o EndpointPropertiesUpdateParametersResponseDeliveryPolicyOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v EndpointPropertiesUpdateParametersResponseDeliveryPolicy) *string { return v.Description }).(pulumi.StringPtrOutput)
 }
 
-// A list of the delivery rules.
 func (o EndpointPropertiesUpdateParametersResponseDeliveryPolicyOutput) Rules() DeliveryRuleResponseArrayOutput {
 	return o.ApplyT(func(v EndpointPropertiesUpdateParametersResponseDeliveryPolicy) []DeliveryRuleResponse {
 		return v.Rules
@@ -1442,11 +1276,14 @@ func (o EndpointPropertiesUpdateParametersResponseDeliveryPolicyPtrOutput) ToEnd
 
 func (o EndpointPropertiesUpdateParametersResponseDeliveryPolicyPtrOutput) Elem() EndpointPropertiesUpdateParametersResponseDeliveryPolicyOutput {
 	return o.ApplyT(func(v *EndpointPropertiesUpdateParametersResponseDeliveryPolicy) EndpointPropertiesUpdateParametersResponseDeliveryPolicy {
-		return *v
+		if v != nil {
+			return *v
+		}
+		var ret EndpointPropertiesUpdateParametersResponseDeliveryPolicy
+		return ret
 	}).(EndpointPropertiesUpdateParametersResponseDeliveryPolicyOutput)
 }
 
-// User-friendly description of the policy.
 func (o EndpointPropertiesUpdateParametersResponseDeliveryPolicyPtrOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *EndpointPropertiesUpdateParametersResponseDeliveryPolicy) *string {
 		if v == nil {
@@ -1456,7 +1293,6 @@ func (o EndpointPropertiesUpdateParametersResponseDeliveryPolicyPtrOutput) Descr
 	}).(pulumi.StringPtrOutput)
 }
 
-// A list of the delivery rules.
 func (o EndpointPropertiesUpdateParametersResponseDeliveryPolicyPtrOutput) Rules() DeliveryRuleResponseArrayOutput {
 	return o.ApplyT(func(v *EndpointPropertiesUpdateParametersResponseDeliveryPolicy) []DeliveryRuleResponse {
 		if v == nil {
@@ -1466,14 +1302,10 @@ func (o EndpointPropertiesUpdateParametersResponseDeliveryPolicyPtrOutput) Rules
 	}).(DeliveryRuleResponseArrayOutput)
 }
 
-// Rules defining user's geo access within a CDN endpoint.
 type GeoFilter struct {
-	// Action of the geo filter, i.e. allow or block access.
-	Action string `pulumi:"action"`
-	// Two letter country codes defining user country access in a geo filter, e.g. AU, MX, US.
-	CountryCodes []string `pulumi:"countryCodes"`
-	// Relative path applicable to geo filter. (e.g. '/mypictures', '/mypicture/kitty.jpg', and etc.)
-	RelativePath string `pulumi:"relativePath"`
+	Action       GeoFilterActions `pulumi:"action"`
+	CountryCodes []string         `pulumi:"countryCodes"`
+	RelativePath string           `pulumi:"relativePath"`
 }
 
 // GeoFilterInput is an input type that accepts GeoFilterArgs and GeoFilterOutput values.
@@ -1487,14 +1319,10 @@ type GeoFilterInput interface {
 	ToGeoFilterOutputWithContext(context.Context) GeoFilterOutput
 }
 
-// Rules defining user's geo access within a CDN endpoint.
 type GeoFilterArgs struct {
-	// Action of the geo filter, i.e. allow or block access.
-	Action GeoFilterActions `pulumi:"action"`
-	// Two letter country codes defining user country access in a geo filter, e.g. AU, MX, US.
+	Action       GeoFilterActionsInput   `pulumi:"action"`
 	CountryCodes pulumi.StringArrayInput `pulumi:"countryCodes"`
-	// Relative path applicable to geo filter. (e.g. '/mypictures', '/mypicture/kitty.jpg', and etc.)
-	RelativePath pulumi.StringInput `pulumi:"relativePath"`
+	RelativePath pulumi.StringInput      `pulumi:"relativePath"`
 }
 
 func (GeoFilterArgs) ElementType() reflect.Type {
@@ -1534,7 +1362,6 @@ func (i GeoFilterArray) ToGeoFilterArrayOutputWithContext(ctx context.Context) G
 	return pulumi.ToOutputWithContext(ctx, i).(GeoFilterArrayOutput)
 }
 
-// Rules defining user's geo access within a CDN endpoint.
 type GeoFilterOutput struct{ *pulumi.OutputState }
 
 func (GeoFilterOutput) ElementType() reflect.Type {
@@ -1549,17 +1376,14 @@ func (o GeoFilterOutput) ToGeoFilterOutputWithContext(ctx context.Context) GeoFi
 	return o
 }
 
-// Action of the geo filter, i.e. allow or block access.
-func (o GeoFilterOutput) Action() pulumi.StringOutput {
-	return o.ApplyT(func(v GeoFilter) string { return v.Action }).(pulumi.StringOutput)
+func (o GeoFilterOutput) Action() GeoFilterActionsOutput {
+	return o.ApplyT(func(v GeoFilter) GeoFilterActions { return v.Action }).(GeoFilterActionsOutput)
 }
 
-// Two letter country codes defining user country access in a geo filter, e.g. AU, MX, US.
 func (o GeoFilterOutput) CountryCodes() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v GeoFilter) []string { return v.CountryCodes }).(pulumi.StringArrayOutput)
 }
 
-// Relative path applicable to geo filter. (e.g. '/mypictures', '/mypicture/kitty.jpg', and etc.)
 func (o GeoFilterOutput) RelativePath() pulumi.StringOutput {
 	return o.ApplyT(func(v GeoFilter) string { return v.RelativePath }).(pulumi.StringOutput)
 }
@@ -1584,14 +1408,10 @@ func (o GeoFilterArrayOutput) Index(i pulumi.IntInput) GeoFilterOutput {
 	}).(GeoFilterOutput)
 }
 
-// Rules defining user's geo access within a CDN endpoint.
 type GeoFilterResponse struct {
-	// Action of the geo filter, i.e. allow or block access.
-	Action string `pulumi:"action"`
-	// Two letter country codes defining user country access in a geo filter, e.g. AU, MX, US.
+	Action       string   `pulumi:"action"`
 	CountryCodes []string `pulumi:"countryCodes"`
-	// Relative path applicable to geo filter. (e.g. '/mypictures', '/mypicture/kitty.jpg', and etc.)
-	RelativePath string `pulumi:"relativePath"`
+	RelativePath string   `pulumi:"relativePath"`
 }
 
 // GeoFilterResponseInput is an input type that accepts GeoFilterResponseArgs and GeoFilterResponseOutput values.
@@ -1605,14 +1425,10 @@ type GeoFilterResponseInput interface {
 	ToGeoFilterResponseOutputWithContext(context.Context) GeoFilterResponseOutput
 }
 
-// Rules defining user's geo access within a CDN endpoint.
 type GeoFilterResponseArgs struct {
-	// Action of the geo filter, i.e. allow or block access.
-	Action pulumi.StringInput `pulumi:"action"`
-	// Two letter country codes defining user country access in a geo filter, e.g. AU, MX, US.
+	Action       pulumi.StringInput      `pulumi:"action"`
 	CountryCodes pulumi.StringArrayInput `pulumi:"countryCodes"`
-	// Relative path applicable to geo filter. (e.g. '/mypictures', '/mypicture/kitty.jpg', and etc.)
-	RelativePath pulumi.StringInput `pulumi:"relativePath"`
+	RelativePath pulumi.StringInput      `pulumi:"relativePath"`
 }
 
 func (GeoFilterResponseArgs) ElementType() reflect.Type {
@@ -1652,7 +1468,6 @@ func (i GeoFilterResponseArray) ToGeoFilterResponseArrayOutputWithContext(ctx co
 	return pulumi.ToOutputWithContext(ctx, i).(GeoFilterResponseArrayOutput)
 }
 
-// Rules defining user's geo access within a CDN endpoint.
 type GeoFilterResponseOutput struct{ *pulumi.OutputState }
 
 func (GeoFilterResponseOutput) ElementType() reflect.Type {
@@ -1667,17 +1482,14 @@ func (o GeoFilterResponseOutput) ToGeoFilterResponseOutputWithContext(ctx contex
 	return o
 }
 
-// Action of the geo filter, i.e. allow or block access.
 func (o GeoFilterResponseOutput) Action() pulumi.StringOutput {
 	return o.ApplyT(func(v GeoFilterResponse) string { return v.Action }).(pulumi.StringOutput)
 }
 
-// Two letter country codes defining user country access in a geo filter, e.g. AU, MX, US.
 func (o GeoFilterResponseOutput) CountryCodes() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v GeoFilterResponse) []string { return v.CountryCodes }).(pulumi.StringArrayOutput)
 }
 
-// Relative path applicable to geo filter. (e.g. '/mypictures', '/mypicture/kitty.jpg', and etc.)
 func (o GeoFilterResponseOutput) RelativePath() pulumi.StringOutput {
 	return o.ApplyT(func(v GeoFilterResponse) string { return v.RelativePath }).(pulumi.StringOutput)
 }
@@ -1702,9 +1514,7 @@ func (o GeoFilterResponseArrayOutput) Index(i pulumi.IntInput) GeoFilterResponse
 	}).(GeoFilterResponseOutput)
 }
 
-// The pricing tier (defines a CDN provider, feature list and rate) of the CDN profile.
 type Sku struct {
-	// Name of the pricing tier.
 	Name *string `pulumi:"name"`
 }
 
@@ -1719,9 +1529,7 @@ type SkuInput interface {
 	ToSkuOutputWithContext(context.Context) SkuOutput
 }
 
-// The pricing tier (defines a CDN provider, feature list and rate) of the CDN profile.
 type SkuArgs struct {
-	// Name of the pricing tier.
 	Name pulumi.StringPtrInput `pulumi:"name"`
 }
 
@@ -1778,7 +1586,6 @@ func (i *skuPtrType) ToSkuPtrOutputWithContext(ctx context.Context) SkuPtrOutput
 	return pulumi.ToOutputWithContext(ctx, i).(SkuPtrOutput)
 }
 
-// The pricing tier (defines a CDN provider, feature list and rate) of the CDN profile.
 type SkuOutput struct{ *pulumi.OutputState }
 
 func (SkuOutput) ElementType() reflect.Type {
@@ -1798,12 +1605,11 @@ func (o SkuOutput) ToSkuPtrOutput() SkuPtrOutput {
 }
 
 func (o SkuOutput) ToSkuPtrOutputWithContext(ctx context.Context) SkuPtrOutput {
-	return o.ApplyT(func(v Sku) *Sku {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v Sku) *Sku {
 		return &v
 	}).(SkuPtrOutput)
 }
 
-// Name of the pricing tier.
 func (o SkuOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v Sku) *string { return v.Name }).(pulumi.StringPtrOutput)
 }
@@ -1823,10 +1629,15 @@ func (o SkuPtrOutput) ToSkuPtrOutputWithContext(ctx context.Context) SkuPtrOutpu
 }
 
 func (o SkuPtrOutput) Elem() SkuOutput {
-	return o.ApplyT(func(v *Sku) Sku { return *v }).(SkuOutput)
+	return o.ApplyT(func(v *Sku) Sku {
+		if v != nil {
+			return *v
+		}
+		var ret Sku
+		return ret
+	}).(SkuOutput)
 }
 
-// Name of the pricing tier.
 func (o SkuPtrOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Sku) *string {
 		if v == nil {
@@ -1836,9 +1647,7 @@ func (o SkuPtrOutput) Name() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The pricing tier (defines a CDN provider, feature list and rate) of the CDN profile.
 type SkuResponse struct {
-	// Name of the pricing tier.
 	Name *string `pulumi:"name"`
 }
 
@@ -1853,9 +1662,7 @@ type SkuResponseInput interface {
 	ToSkuResponseOutputWithContext(context.Context) SkuResponseOutput
 }
 
-// The pricing tier (defines a CDN provider, feature list and rate) of the CDN profile.
 type SkuResponseArgs struct {
-	// Name of the pricing tier.
 	Name pulumi.StringPtrInput `pulumi:"name"`
 }
 
@@ -1912,7 +1719,6 @@ func (i *skuResponsePtrType) ToSkuResponsePtrOutputWithContext(ctx context.Conte
 	return pulumi.ToOutputWithContext(ctx, i).(SkuResponsePtrOutput)
 }
 
-// The pricing tier (defines a CDN provider, feature list and rate) of the CDN profile.
 type SkuResponseOutput struct{ *pulumi.OutputState }
 
 func (SkuResponseOutput) ElementType() reflect.Type {
@@ -1932,12 +1738,11 @@ func (o SkuResponseOutput) ToSkuResponsePtrOutput() SkuResponsePtrOutput {
 }
 
 func (o SkuResponseOutput) ToSkuResponsePtrOutputWithContext(ctx context.Context) SkuResponsePtrOutput {
-	return o.ApplyT(func(v SkuResponse) *SkuResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v SkuResponse) *SkuResponse {
 		return &v
 	}).(SkuResponsePtrOutput)
 }
 
-// Name of the pricing tier.
 func (o SkuResponseOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SkuResponse) *string { return v.Name }).(pulumi.StringPtrOutput)
 }
@@ -1957,10 +1762,15 @@ func (o SkuResponsePtrOutput) ToSkuResponsePtrOutputWithContext(ctx context.Cont
 }
 
 func (o SkuResponsePtrOutput) Elem() SkuResponseOutput {
-	return o.ApplyT(func(v *SkuResponse) SkuResponse { return *v }).(SkuResponseOutput)
+	return o.ApplyT(func(v *SkuResponse) SkuResponse {
+		if v != nil {
+			return *v
+		}
+		var ret SkuResponse
+		return ret
+	}).(SkuResponseOutput)
 }
 
-// Name of the pricing tier.
 func (o SkuResponsePtrOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SkuResponse) *string {
 		if v == nil {
@@ -1970,9 +1780,7 @@ func (o SkuResponsePtrOutput) Name() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Defines the parameters for the URL file extension condition.
 type UrlFileExtensionConditionParameters struct {
-	// A list of extensions for the condition of the delivery rule.
 	Extensions []string `pulumi:"extensions"`
 	OdataType  string   `pulumi:"odataType"`
 }
@@ -1988,9 +1796,7 @@ type UrlFileExtensionConditionParametersInput interface {
 	ToUrlFileExtensionConditionParametersOutputWithContext(context.Context) UrlFileExtensionConditionParametersOutput
 }
 
-// Defines the parameters for the URL file extension condition.
 type UrlFileExtensionConditionParametersArgs struct {
-	// A list of extensions for the condition of the delivery rule.
 	Extensions pulumi.StringArrayInput `pulumi:"extensions"`
 	OdataType  pulumi.StringInput      `pulumi:"odataType"`
 }
@@ -2007,7 +1813,6 @@ func (i UrlFileExtensionConditionParametersArgs) ToUrlFileExtensionConditionPara
 	return pulumi.ToOutputWithContext(ctx, i).(UrlFileExtensionConditionParametersOutput)
 }
 
-// Defines the parameters for the URL file extension condition.
 type UrlFileExtensionConditionParametersOutput struct{ *pulumi.OutputState }
 
 func (UrlFileExtensionConditionParametersOutput) ElementType() reflect.Type {
@@ -2022,7 +1827,6 @@ func (o UrlFileExtensionConditionParametersOutput) ToUrlFileExtensionConditionPa
 	return o
 }
 
-// A list of extensions for the condition of the delivery rule.
 func (o UrlFileExtensionConditionParametersOutput) Extensions() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v UrlFileExtensionConditionParameters) []string { return v.Extensions }).(pulumi.StringArrayOutput)
 }
@@ -2031,9 +1835,7 @@ func (o UrlFileExtensionConditionParametersOutput) OdataType() pulumi.StringOutp
 	return o.ApplyT(func(v UrlFileExtensionConditionParameters) string { return v.OdataType }).(pulumi.StringOutput)
 }
 
-// Defines the parameters for the URL file extension condition.
 type UrlFileExtensionConditionParametersResponse struct {
-	// A list of extensions for the condition of the delivery rule.
 	Extensions []string `pulumi:"extensions"`
 	OdataType  string   `pulumi:"odataType"`
 }
@@ -2049,9 +1851,7 @@ type UrlFileExtensionConditionParametersResponseInput interface {
 	ToUrlFileExtensionConditionParametersResponseOutputWithContext(context.Context) UrlFileExtensionConditionParametersResponseOutput
 }
 
-// Defines the parameters for the URL file extension condition.
 type UrlFileExtensionConditionParametersResponseArgs struct {
-	// A list of extensions for the condition of the delivery rule.
 	Extensions pulumi.StringArrayInput `pulumi:"extensions"`
 	OdataType  pulumi.StringInput      `pulumi:"odataType"`
 }
@@ -2068,7 +1868,6 @@ func (i UrlFileExtensionConditionParametersResponseArgs) ToUrlFileExtensionCondi
 	return pulumi.ToOutputWithContext(ctx, i).(UrlFileExtensionConditionParametersResponseOutput)
 }
 
-// Defines the parameters for the URL file extension condition.
 type UrlFileExtensionConditionParametersResponseOutput struct{ *pulumi.OutputState }
 
 func (UrlFileExtensionConditionParametersResponseOutput) ElementType() reflect.Type {
@@ -2083,7 +1882,6 @@ func (o UrlFileExtensionConditionParametersResponseOutput) ToUrlFileExtensionCon
 	return o
 }
 
-// A list of extensions for the condition of the delivery rule.
 func (o UrlFileExtensionConditionParametersResponseOutput) Extensions() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v UrlFileExtensionConditionParametersResponse) []string { return v.Extensions }).(pulumi.StringArrayOutput)
 }
@@ -2092,13 +1890,10 @@ func (o UrlFileExtensionConditionParametersResponseOutput) OdataType() pulumi.St
 	return o.ApplyT(func(v UrlFileExtensionConditionParametersResponse) string { return v.OdataType }).(pulumi.StringOutput)
 }
 
-// Defines the parameters for the URL path condition.
 type UrlPathConditionParameters struct {
-	// The match type for the condition of the delivery rule
 	MatchType string `pulumi:"matchType"`
 	OdataType string `pulumi:"odataType"`
-	// A URL path for the condition of the delivery rule
-	Path string `pulumi:"path"`
+	Path      string `pulumi:"path"`
 }
 
 // UrlPathConditionParametersInput is an input type that accepts UrlPathConditionParametersArgs and UrlPathConditionParametersOutput values.
@@ -2112,13 +1907,10 @@ type UrlPathConditionParametersInput interface {
 	ToUrlPathConditionParametersOutputWithContext(context.Context) UrlPathConditionParametersOutput
 }
 
-// Defines the parameters for the URL path condition.
 type UrlPathConditionParametersArgs struct {
-	// The match type for the condition of the delivery rule
 	MatchType pulumi.StringInput `pulumi:"matchType"`
 	OdataType pulumi.StringInput `pulumi:"odataType"`
-	// A URL path for the condition of the delivery rule
-	Path pulumi.StringInput `pulumi:"path"`
+	Path      pulumi.StringInput `pulumi:"path"`
 }
 
 func (UrlPathConditionParametersArgs) ElementType() reflect.Type {
@@ -2133,7 +1925,6 @@ func (i UrlPathConditionParametersArgs) ToUrlPathConditionParametersOutputWithCo
 	return pulumi.ToOutputWithContext(ctx, i).(UrlPathConditionParametersOutput)
 }
 
-// Defines the parameters for the URL path condition.
 type UrlPathConditionParametersOutput struct{ *pulumi.OutputState }
 
 func (UrlPathConditionParametersOutput) ElementType() reflect.Type {
@@ -2148,7 +1939,6 @@ func (o UrlPathConditionParametersOutput) ToUrlPathConditionParametersOutputWith
 	return o
 }
 
-// The match type for the condition of the delivery rule
 func (o UrlPathConditionParametersOutput) MatchType() pulumi.StringOutput {
 	return o.ApplyT(func(v UrlPathConditionParameters) string { return v.MatchType }).(pulumi.StringOutput)
 }
@@ -2157,18 +1947,14 @@ func (o UrlPathConditionParametersOutput) OdataType() pulumi.StringOutput {
 	return o.ApplyT(func(v UrlPathConditionParameters) string { return v.OdataType }).(pulumi.StringOutput)
 }
 
-// A URL path for the condition of the delivery rule
 func (o UrlPathConditionParametersOutput) Path() pulumi.StringOutput {
 	return o.ApplyT(func(v UrlPathConditionParameters) string { return v.Path }).(pulumi.StringOutput)
 }
 
-// Defines the parameters for the URL path condition.
 type UrlPathConditionParametersResponse struct {
-	// The match type for the condition of the delivery rule
 	MatchType string `pulumi:"matchType"`
 	OdataType string `pulumi:"odataType"`
-	// A URL path for the condition of the delivery rule
-	Path string `pulumi:"path"`
+	Path      string `pulumi:"path"`
 }
 
 // UrlPathConditionParametersResponseInput is an input type that accepts UrlPathConditionParametersResponseArgs and UrlPathConditionParametersResponseOutput values.
@@ -2182,13 +1968,10 @@ type UrlPathConditionParametersResponseInput interface {
 	ToUrlPathConditionParametersResponseOutputWithContext(context.Context) UrlPathConditionParametersResponseOutput
 }
 
-// Defines the parameters for the URL path condition.
 type UrlPathConditionParametersResponseArgs struct {
-	// The match type for the condition of the delivery rule
 	MatchType pulumi.StringInput `pulumi:"matchType"`
 	OdataType pulumi.StringInput `pulumi:"odataType"`
-	// A URL path for the condition of the delivery rule
-	Path pulumi.StringInput `pulumi:"path"`
+	Path      pulumi.StringInput `pulumi:"path"`
 }
 
 func (UrlPathConditionParametersResponseArgs) ElementType() reflect.Type {
@@ -2203,7 +1986,6 @@ func (i UrlPathConditionParametersResponseArgs) ToUrlPathConditionParametersResp
 	return pulumi.ToOutputWithContext(ctx, i).(UrlPathConditionParametersResponseOutput)
 }
 
-// Defines the parameters for the URL path condition.
 type UrlPathConditionParametersResponseOutput struct{ *pulumi.OutputState }
 
 func (UrlPathConditionParametersResponseOutput) ElementType() reflect.Type {
@@ -2218,7 +2000,6 @@ func (o UrlPathConditionParametersResponseOutput) ToUrlPathConditionParametersRe
 	return o
 }
 
-// The match type for the condition of the delivery rule
 func (o UrlPathConditionParametersResponseOutput) MatchType() pulumi.StringOutput {
 	return o.ApplyT(func(v UrlPathConditionParametersResponse) string { return v.MatchType }).(pulumi.StringOutput)
 }
@@ -2227,7 +2008,6 @@ func (o UrlPathConditionParametersResponseOutput) OdataType() pulumi.StringOutpu
 	return o.ApplyT(func(v UrlPathConditionParametersResponse) string { return v.OdataType }).(pulumi.StringOutput)
 }
 
-// A URL path for the condition of the delivery rule
 func (o UrlPathConditionParametersResponseOutput) Path() pulumi.StringOutput {
 	return o.ApplyT(func(v UrlPathConditionParametersResponse) string { return v.Path }).(pulumi.StringOutput)
 }

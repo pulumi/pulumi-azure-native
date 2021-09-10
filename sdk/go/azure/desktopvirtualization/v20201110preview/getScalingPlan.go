@@ -7,7 +7,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Represents a scaling plan definition.
 func LookupScalingPlan(ctx *pulumi.Context, args *LookupScalingPlanArgs, opts ...pulumi.InvokeOption) (*LookupScalingPlanResult, error) {
 	var rv LookupScalingPlanResult
 	err := ctx.Invoke("azure-native:desktopvirtualization/v20201110preview:getScalingPlan", args, &rv, opts...)
@@ -18,36 +17,22 @@ func LookupScalingPlan(ctx *pulumi.Context, args *LookupScalingPlanArgs, opts ..
 }
 
 type LookupScalingPlanArgs struct {
-	// The name of the resource group. The name is case insensitive.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
-	// The name of the scaling plan.
-	ScalingPlanName string `pulumi:"scalingPlanName"`
+	ScalingPlanName   string `pulumi:"scalingPlanName"`
 }
 
 // Represents a scaling plan definition.
 type LookupScalingPlanResult struct {
-	// Description of scaling plan.
-	Description *string `pulumi:"description"`
-	// Exclusion tag for scaling plan.
-	ExclusionTag *string `pulumi:"exclusionTag"`
-	// User friendly name of scaling plan.
-	FriendlyName *string `pulumi:"friendlyName"`
-	// List of ScalingHostPoolReference definitions.
+	Description        *string                            `pulumi:"description"`
+	ExclusionTag       *string                            `pulumi:"exclusionTag"`
+	FriendlyName       *string                            `pulumi:"friendlyName"`
 	HostPoolReferences []ScalingHostPoolReferenceResponse `pulumi:"hostPoolReferences"`
-	// HostPool type for scaling plan.
-	HostPoolType *string `pulumi:"hostPoolType"`
-	// Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
-	Id string `pulumi:"id"`
-	// The geo-location where the resource lives
-	Location string `pulumi:"location"`
-	// The name of the resource
-	Name string `pulumi:"name"`
-	// List of ScalingSchedule definitions.
-	Schedules []ScalingScheduleResponse `pulumi:"schedules"`
-	// Resource tags.
-	Tags map[string]string `pulumi:"tags"`
-	// Timezone of the scaling plan.
-	TimeZone *string `pulumi:"timeZone"`
-	// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
-	Type string `pulumi:"type"`
+	HostPoolType       *string                            `pulumi:"hostPoolType"`
+	Id                 string                             `pulumi:"id"`
+	Location           string                             `pulumi:"location"`
+	Name               string                             `pulumi:"name"`
+	Schedules          []ScalingScheduleResponse          `pulumi:"schedules"`
+	Tags               map[string]string                  `pulumi:"tags"`
+	TimeZone           *string                            `pulumi:"timeZone"`
+	Type               string                             `pulumi:"type"`
 }

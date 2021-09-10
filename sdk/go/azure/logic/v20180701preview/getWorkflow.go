@@ -7,7 +7,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// The workflow type.
 func LookupWorkflow(ctx *pulumi.Context, args *LookupWorkflowArgs, opts ...pulumi.InvokeOption) (*LookupWorkflowResult, error) {
 	var rv LookupWorkflowResult
 	err := ctx.Invoke("azure-native:logic/v20180701preview:getWorkflow", args, &rv, opts...)
@@ -18,42 +17,25 @@ func LookupWorkflow(ctx *pulumi.Context, args *LookupWorkflowArgs, opts ...pulum
 }
 
 type LookupWorkflowArgs struct {
-	// The resource group name.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
-	// The workflow name.
-	WorkflowName string `pulumi:"workflowName"`
+	WorkflowName      string `pulumi:"workflowName"`
 }
 
 // The workflow type.
 type LookupWorkflowResult struct {
-	// Gets the access endpoint.
-	AccessEndpoint string `pulumi:"accessEndpoint"`
-	// Gets the changed time.
-	ChangedTime string `pulumi:"changedTime"`
-	// Gets the created time.
-	CreatedTime string `pulumi:"createdTime"`
-	// The definition. See [Schema reference for Workflow Definition Language in Azure Logic Apps](https://aka.ms/logic-apps-workflow-definition-language).
-	Definition interface{} `pulumi:"definition"`
-	// The resource id.
-	Id string `pulumi:"id"`
-	// The integration account.
-	IntegrationAccount *ResourceReferenceResponse `pulumi:"integrationAccount"`
-	// The resource location.
-	Location *string `pulumi:"location"`
-	// Gets the resource name.
-	Name string `pulumi:"name"`
-	// The parameters.
-	Parameters map[string]WorkflowParameterResponse `pulumi:"parameters"`
-	// Gets the provisioning state.
-	ProvisioningState string `pulumi:"provisioningState"`
-	// The sku.
-	Sku *SkuResponse `pulumi:"sku"`
-	// The state.
-	State *string `pulumi:"state"`
-	// The resource tags.
-	Tags map[string]string `pulumi:"tags"`
-	// Gets the resource type.
-	Type string `pulumi:"type"`
-	// Gets the version.
-	Version string `pulumi:"version"`
+	AccessEndpoint     string                               `pulumi:"accessEndpoint"`
+	ChangedTime        string                               `pulumi:"changedTime"`
+	CreatedTime        string                               `pulumi:"createdTime"`
+	Definition         interface{}                          `pulumi:"definition"`
+	Id                 string                               `pulumi:"id"`
+	IntegrationAccount *ResourceReferenceResponse           `pulumi:"integrationAccount"`
+	Location           *string                              `pulumi:"location"`
+	Name               string                               `pulumi:"name"`
+	Parameters         map[string]WorkflowParameterResponse `pulumi:"parameters"`
+	ProvisioningState  string                               `pulumi:"provisioningState"`
+	Sku                *SkuResponse                         `pulumi:"sku"`
+	State              *string                              `pulumi:"state"`
+	Tags               map[string]string                    `pulumi:"tags"`
+	Type               string                               `pulumi:"type"`
+	Version            string                               `pulumi:"version"`
 }

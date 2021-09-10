@@ -7,7 +7,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Class of response for listContentKeys action
 func ListStreamingLocatorContentKeys(ctx *pulumi.Context, args *ListStreamingLocatorContentKeysArgs, opts ...pulumi.InvokeOption) (*ListStreamingLocatorContentKeysResult, error) {
 	var rv ListStreamingLocatorContentKeysResult
 	err := ctx.Invoke("azure-native:media/v20210601:listStreamingLocatorContentKeys", args, &rv, opts...)
@@ -18,16 +17,12 @@ func ListStreamingLocatorContentKeys(ctx *pulumi.Context, args *ListStreamingLoc
 }
 
 type ListStreamingLocatorContentKeysArgs struct {
-	// The Media Services account name.
-	AccountName string `pulumi:"accountName"`
-	// The name of the resource group within the Azure subscription.
-	ResourceGroupName string `pulumi:"resourceGroupName"`
-	// The Streaming Locator name.
+	AccountName          string `pulumi:"accountName"`
+	ResourceGroupName    string `pulumi:"resourceGroupName"`
 	StreamingLocatorName string `pulumi:"streamingLocatorName"`
 }
 
 // Class of response for listContentKeys action
 type ListStreamingLocatorContentKeysResult struct {
-	// ContentKeys used by current Streaming Locator
 	ContentKeys []StreamingLocatorContentKeyResponse `pulumi:"contentKeys"`
 }

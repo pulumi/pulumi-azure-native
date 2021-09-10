@@ -7,7 +7,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Organization resource.
 func LookupOrganization(ctx *pulumi.Context, args *LookupOrganizationArgs, opts ...pulumi.InvokeOption) (*LookupOrganizationResult, error) {
 	var rv LookupOrganizationResult
 	err := ctx.Invoke("azure-native:confluent/v20200301:getOrganization", args, &rv, opts...)
@@ -18,34 +17,21 @@ func LookupOrganization(ctx *pulumi.Context, args *LookupOrganizationArgs, opts 
 }
 
 type LookupOrganizationArgs struct {
-	// Organization resource name
-	OrganizationName string `pulumi:"organizationName"`
-	// Resource group name
+	OrganizationName  string `pulumi:"organizationName"`
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 }
 
 // Organization resource.
 type LookupOrganizationResult struct {
-	// The creation time of the resource.
-	CreatedTime string `pulumi:"createdTime"`
-	// The ARM id of the resource.
-	Id string `pulumi:"id"`
-	// Location of Organization resource
-	Location *string `pulumi:"location"`
-	// The name of the resource.
-	Name string `pulumi:"name"`
-	// Confluent offer detail
-	OfferDetail *OrganizationResourcePropertiesResponseOfferDetail `pulumi:"offerDetail"`
-	// Id of the Confluent organization.
-	OrganizationId string `pulumi:"organizationId"`
-	// Provision states for confluent RP
-	ProvisioningState string `pulumi:"provisioningState"`
-	// SSO url for the Confluent organization.
-	SsoUrl string `pulumi:"ssoUrl"`
-	// Organization resource tags
-	Tags map[string]string `pulumi:"tags"`
-	// The type of the resource.
-	Type string `pulumi:"type"`
-	// Subscriber detail
-	UserDetail *OrganizationResourcePropertiesResponseUserDetail `pulumi:"userDetail"`
+	CreatedTime       string                                             `pulumi:"createdTime"`
+	Id                string                                             `pulumi:"id"`
+	Location          *string                                            `pulumi:"location"`
+	Name              string                                             `pulumi:"name"`
+	OfferDetail       *OrganizationResourcePropertiesResponseOfferDetail `pulumi:"offerDetail"`
+	OrganizationId    string                                             `pulumi:"organizationId"`
+	ProvisioningState string                                             `pulumi:"provisioningState"`
+	SsoUrl            string                                             `pulumi:"ssoUrl"`
+	Tags              map[string]string                                  `pulumi:"tags"`
+	Type              string                                             `pulumi:"type"`
+	UserDetail        *OrganizationResourcePropertiesResponseUserDetail  `pulumi:"userDetail"`
 }

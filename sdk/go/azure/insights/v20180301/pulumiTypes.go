@@ -10,20 +10,13 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// The Azure Automation Runbook notification receiver.
 type AutomationRunbookReceiver struct {
-	// The Azure automation account Id which holds this runbook and authenticate to Azure resource.
-	AutomationAccountId string `pulumi:"automationAccountId"`
-	// Indicates whether this instance is global runbook.
-	IsGlobalRunbook bool `pulumi:"isGlobalRunbook"`
-	// Indicates name of the webhook.
-	Name *string `pulumi:"name"`
-	// The name for this runbook.
-	RunbookName string `pulumi:"runbookName"`
-	// The URI where webhooks should be sent.
-	ServiceUri *string `pulumi:"serviceUri"`
-	// The resource id for webhook linked to this runbook.
-	WebhookResourceId string `pulumi:"webhookResourceId"`
+	AutomationAccountId string  `pulumi:"automationAccountId"`
+	IsGlobalRunbook     bool    `pulumi:"isGlobalRunbook"`
+	Name                *string `pulumi:"name"`
+	RunbookName         string  `pulumi:"runbookName"`
+	ServiceUri          *string `pulumi:"serviceUri"`
+	WebhookResourceId   string  `pulumi:"webhookResourceId"`
 }
 
 // AutomationRunbookReceiverInput is an input type that accepts AutomationRunbookReceiverArgs and AutomationRunbookReceiverOutput values.
@@ -37,20 +30,13 @@ type AutomationRunbookReceiverInput interface {
 	ToAutomationRunbookReceiverOutputWithContext(context.Context) AutomationRunbookReceiverOutput
 }
 
-// The Azure Automation Runbook notification receiver.
 type AutomationRunbookReceiverArgs struct {
-	// The Azure automation account Id which holds this runbook and authenticate to Azure resource.
-	AutomationAccountId pulumi.StringInput `pulumi:"automationAccountId"`
-	// Indicates whether this instance is global runbook.
-	IsGlobalRunbook pulumi.BoolInput `pulumi:"isGlobalRunbook"`
-	// Indicates name of the webhook.
-	Name pulumi.StringPtrInput `pulumi:"name"`
-	// The name for this runbook.
-	RunbookName pulumi.StringInput `pulumi:"runbookName"`
-	// The URI where webhooks should be sent.
-	ServiceUri pulumi.StringPtrInput `pulumi:"serviceUri"`
-	// The resource id for webhook linked to this runbook.
-	WebhookResourceId pulumi.StringInput `pulumi:"webhookResourceId"`
+	AutomationAccountId pulumi.StringInput    `pulumi:"automationAccountId"`
+	IsGlobalRunbook     pulumi.BoolInput      `pulumi:"isGlobalRunbook"`
+	Name                pulumi.StringPtrInput `pulumi:"name"`
+	RunbookName         pulumi.StringInput    `pulumi:"runbookName"`
+	ServiceUri          pulumi.StringPtrInput `pulumi:"serviceUri"`
+	WebhookResourceId   pulumi.StringInput    `pulumi:"webhookResourceId"`
 }
 
 func (AutomationRunbookReceiverArgs) ElementType() reflect.Type {
@@ -90,7 +76,6 @@ func (i AutomationRunbookReceiverArray) ToAutomationRunbookReceiverArrayOutputWi
 	return pulumi.ToOutputWithContext(ctx, i).(AutomationRunbookReceiverArrayOutput)
 }
 
-// The Azure Automation Runbook notification receiver.
 type AutomationRunbookReceiverOutput struct{ *pulumi.OutputState }
 
 func (AutomationRunbookReceiverOutput) ElementType() reflect.Type {
@@ -105,32 +90,26 @@ func (o AutomationRunbookReceiverOutput) ToAutomationRunbookReceiverOutputWithCo
 	return o
 }
 
-// The Azure automation account Id which holds this runbook and authenticate to Azure resource.
 func (o AutomationRunbookReceiverOutput) AutomationAccountId() pulumi.StringOutput {
 	return o.ApplyT(func(v AutomationRunbookReceiver) string { return v.AutomationAccountId }).(pulumi.StringOutput)
 }
 
-// Indicates whether this instance is global runbook.
 func (o AutomationRunbookReceiverOutput) IsGlobalRunbook() pulumi.BoolOutput {
 	return o.ApplyT(func(v AutomationRunbookReceiver) bool { return v.IsGlobalRunbook }).(pulumi.BoolOutput)
 }
 
-// Indicates name of the webhook.
 func (o AutomationRunbookReceiverOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AutomationRunbookReceiver) *string { return v.Name }).(pulumi.StringPtrOutput)
 }
 
-// The name for this runbook.
 func (o AutomationRunbookReceiverOutput) RunbookName() pulumi.StringOutput {
 	return o.ApplyT(func(v AutomationRunbookReceiver) string { return v.RunbookName }).(pulumi.StringOutput)
 }
 
-// The URI where webhooks should be sent.
 func (o AutomationRunbookReceiverOutput) ServiceUri() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AutomationRunbookReceiver) *string { return v.ServiceUri }).(pulumi.StringPtrOutput)
 }
 
-// The resource id for webhook linked to this runbook.
 func (o AutomationRunbookReceiverOutput) WebhookResourceId() pulumi.StringOutput {
 	return o.ApplyT(func(v AutomationRunbookReceiver) string { return v.WebhookResourceId }).(pulumi.StringOutput)
 }
@@ -155,20 +134,13 @@ func (o AutomationRunbookReceiverArrayOutput) Index(i pulumi.IntInput) Automatio
 	}).(AutomationRunbookReceiverOutput)
 }
 
-// The Azure Automation Runbook notification receiver.
 type AutomationRunbookReceiverResponse struct {
-	// The Azure automation account Id which holds this runbook and authenticate to Azure resource.
-	AutomationAccountId string `pulumi:"automationAccountId"`
-	// Indicates whether this instance is global runbook.
-	IsGlobalRunbook bool `pulumi:"isGlobalRunbook"`
-	// Indicates name of the webhook.
-	Name *string `pulumi:"name"`
-	// The name for this runbook.
-	RunbookName string `pulumi:"runbookName"`
-	// The URI where webhooks should be sent.
-	ServiceUri *string `pulumi:"serviceUri"`
-	// The resource id for webhook linked to this runbook.
-	WebhookResourceId string `pulumi:"webhookResourceId"`
+	AutomationAccountId string  `pulumi:"automationAccountId"`
+	IsGlobalRunbook     bool    `pulumi:"isGlobalRunbook"`
+	Name                *string `pulumi:"name"`
+	RunbookName         string  `pulumi:"runbookName"`
+	ServiceUri          *string `pulumi:"serviceUri"`
+	WebhookResourceId   string  `pulumi:"webhookResourceId"`
 }
 
 // AutomationRunbookReceiverResponseInput is an input type that accepts AutomationRunbookReceiverResponseArgs and AutomationRunbookReceiverResponseOutput values.
@@ -182,20 +154,13 @@ type AutomationRunbookReceiverResponseInput interface {
 	ToAutomationRunbookReceiverResponseOutputWithContext(context.Context) AutomationRunbookReceiverResponseOutput
 }
 
-// The Azure Automation Runbook notification receiver.
 type AutomationRunbookReceiverResponseArgs struct {
-	// The Azure automation account Id which holds this runbook and authenticate to Azure resource.
-	AutomationAccountId pulumi.StringInput `pulumi:"automationAccountId"`
-	// Indicates whether this instance is global runbook.
-	IsGlobalRunbook pulumi.BoolInput `pulumi:"isGlobalRunbook"`
-	// Indicates name of the webhook.
-	Name pulumi.StringPtrInput `pulumi:"name"`
-	// The name for this runbook.
-	RunbookName pulumi.StringInput `pulumi:"runbookName"`
-	// The URI where webhooks should be sent.
-	ServiceUri pulumi.StringPtrInput `pulumi:"serviceUri"`
-	// The resource id for webhook linked to this runbook.
-	WebhookResourceId pulumi.StringInput `pulumi:"webhookResourceId"`
+	AutomationAccountId pulumi.StringInput    `pulumi:"automationAccountId"`
+	IsGlobalRunbook     pulumi.BoolInput      `pulumi:"isGlobalRunbook"`
+	Name                pulumi.StringPtrInput `pulumi:"name"`
+	RunbookName         pulumi.StringInput    `pulumi:"runbookName"`
+	ServiceUri          pulumi.StringPtrInput `pulumi:"serviceUri"`
+	WebhookResourceId   pulumi.StringInput    `pulumi:"webhookResourceId"`
 }
 
 func (AutomationRunbookReceiverResponseArgs) ElementType() reflect.Type {
@@ -235,7 +200,6 @@ func (i AutomationRunbookReceiverResponseArray) ToAutomationRunbookReceiverRespo
 	return pulumi.ToOutputWithContext(ctx, i).(AutomationRunbookReceiverResponseArrayOutput)
 }
 
-// The Azure Automation Runbook notification receiver.
 type AutomationRunbookReceiverResponseOutput struct{ *pulumi.OutputState }
 
 func (AutomationRunbookReceiverResponseOutput) ElementType() reflect.Type {
@@ -250,32 +214,26 @@ func (o AutomationRunbookReceiverResponseOutput) ToAutomationRunbookReceiverResp
 	return o
 }
 
-// The Azure automation account Id which holds this runbook and authenticate to Azure resource.
 func (o AutomationRunbookReceiverResponseOutput) AutomationAccountId() pulumi.StringOutput {
 	return o.ApplyT(func(v AutomationRunbookReceiverResponse) string { return v.AutomationAccountId }).(pulumi.StringOutput)
 }
 
-// Indicates whether this instance is global runbook.
 func (o AutomationRunbookReceiverResponseOutput) IsGlobalRunbook() pulumi.BoolOutput {
 	return o.ApplyT(func(v AutomationRunbookReceiverResponse) bool { return v.IsGlobalRunbook }).(pulumi.BoolOutput)
 }
 
-// Indicates name of the webhook.
 func (o AutomationRunbookReceiverResponseOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AutomationRunbookReceiverResponse) *string { return v.Name }).(pulumi.StringPtrOutput)
 }
 
-// The name for this runbook.
 func (o AutomationRunbookReceiverResponseOutput) RunbookName() pulumi.StringOutput {
 	return o.ApplyT(func(v AutomationRunbookReceiverResponse) string { return v.RunbookName }).(pulumi.StringOutput)
 }
 
-// The URI where webhooks should be sent.
 func (o AutomationRunbookReceiverResponseOutput) ServiceUri() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AutomationRunbookReceiverResponse) *string { return v.ServiceUri }).(pulumi.StringPtrOutput)
 }
 
-// The resource id for webhook linked to this runbook.
 func (o AutomationRunbookReceiverResponseOutput) WebhookResourceId() pulumi.StringOutput {
 	return o.ApplyT(func(v AutomationRunbookReceiverResponse) string { return v.WebhookResourceId }).(pulumi.StringOutput)
 }
@@ -300,12 +258,9 @@ func (o AutomationRunbookReceiverResponseArrayOutput) Index(i pulumi.IntInput) A
 	}).(AutomationRunbookReceiverResponseOutput)
 }
 
-// The Azure mobile App push notification receiver.
 type AzureAppPushReceiver struct {
-	// The email address registered for the Azure mobile app.
 	EmailAddress string `pulumi:"emailAddress"`
-	// The name of the Azure mobile app push receiver. Names must be unique across all receivers within an action group.
-	Name string `pulumi:"name"`
+	Name         string `pulumi:"name"`
 }
 
 // AzureAppPushReceiverInput is an input type that accepts AzureAppPushReceiverArgs and AzureAppPushReceiverOutput values.
@@ -319,12 +274,9 @@ type AzureAppPushReceiverInput interface {
 	ToAzureAppPushReceiverOutputWithContext(context.Context) AzureAppPushReceiverOutput
 }
 
-// The Azure mobile App push notification receiver.
 type AzureAppPushReceiverArgs struct {
-	// The email address registered for the Azure mobile app.
 	EmailAddress pulumi.StringInput `pulumi:"emailAddress"`
-	// The name of the Azure mobile app push receiver. Names must be unique across all receivers within an action group.
-	Name pulumi.StringInput `pulumi:"name"`
+	Name         pulumi.StringInput `pulumi:"name"`
 }
 
 func (AzureAppPushReceiverArgs) ElementType() reflect.Type {
@@ -364,7 +316,6 @@ func (i AzureAppPushReceiverArray) ToAzureAppPushReceiverArrayOutputWithContext(
 	return pulumi.ToOutputWithContext(ctx, i).(AzureAppPushReceiverArrayOutput)
 }
 
-// The Azure mobile App push notification receiver.
 type AzureAppPushReceiverOutput struct{ *pulumi.OutputState }
 
 func (AzureAppPushReceiverOutput) ElementType() reflect.Type {
@@ -379,12 +330,10 @@ func (o AzureAppPushReceiverOutput) ToAzureAppPushReceiverOutputWithContext(ctx 
 	return o
 }
 
-// The email address registered for the Azure mobile app.
 func (o AzureAppPushReceiverOutput) EmailAddress() pulumi.StringOutput {
 	return o.ApplyT(func(v AzureAppPushReceiver) string { return v.EmailAddress }).(pulumi.StringOutput)
 }
 
-// The name of the Azure mobile app push receiver. Names must be unique across all receivers within an action group.
 func (o AzureAppPushReceiverOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v AzureAppPushReceiver) string { return v.Name }).(pulumi.StringOutput)
 }
@@ -409,12 +358,9 @@ func (o AzureAppPushReceiverArrayOutput) Index(i pulumi.IntInput) AzureAppPushRe
 	}).(AzureAppPushReceiverOutput)
 }
 
-// The Azure mobile App push notification receiver.
 type AzureAppPushReceiverResponse struct {
-	// The email address registered for the Azure mobile app.
 	EmailAddress string `pulumi:"emailAddress"`
-	// The name of the Azure mobile app push receiver. Names must be unique across all receivers within an action group.
-	Name string `pulumi:"name"`
+	Name         string `pulumi:"name"`
 }
 
 // AzureAppPushReceiverResponseInput is an input type that accepts AzureAppPushReceiverResponseArgs and AzureAppPushReceiverResponseOutput values.
@@ -428,12 +374,9 @@ type AzureAppPushReceiverResponseInput interface {
 	ToAzureAppPushReceiverResponseOutputWithContext(context.Context) AzureAppPushReceiverResponseOutput
 }
 
-// The Azure mobile App push notification receiver.
 type AzureAppPushReceiverResponseArgs struct {
-	// The email address registered for the Azure mobile app.
 	EmailAddress pulumi.StringInput `pulumi:"emailAddress"`
-	// The name of the Azure mobile app push receiver. Names must be unique across all receivers within an action group.
-	Name pulumi.StringInput `pulumi:"name"`
+	Name         pulumi.StringInput `pulumi:"name"`
 }
 
 func (AzureAppPushReceiverResponseArgs) ElementType() reflect.Type {
@@ -473,7 +416,6 @@ func (i AzureAppPushReceiverResponseArray) ToAzureAppPushReceiverResponseArrayOu
 	return pulumi.ToOutputWithContext(ctx, i).(AzureAppPushReceiverResponseArrayOutput)
 }
 
-// The Azure mobile App push notification receiver.
 type AzureAppPushReceiverResponseOutput struct{ *pulumi.OutputState }
 
 func (AzureAppPushReceiverResponseOutput) ElementType() reflect.Type {
@@ -488,12 +430,10 @@ func (o AzureAppPushReceiverResponseOutput) ToAzureAppPushReceiverResponseOutput
 	return o
 }
 
-// The email address registered for the Azure mobile app.
 func (o AzureAppPushReceiverResponseOutput) EmailAddress() pulumi.StringOutput {
 	return o.ApplyT(func(v AzureAppPushReceiverResponse) string { return v.EmailAddress }).(pulumi.StringOutput)
 }
 
-// The name of the Azure mobile app push receiver. Names must be unique across all receivers within an action group.
 func (o AzureAppPushReceiverResponseOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v AzureAppPushReceiverResponse) string { return v.Name }).(pulumi.StringOutput)
 }
@@ -518,16 +458,11 @@ func (o AzureAppPushReceiverResponseArrayOutput) Index(i pulumi.IntInput) AzureA
 	}).(AzureAppPushReceiverResponseOutput)
 }
 
-// An azure function receiver.
 type AzureFunctionReceiver struct {
-	// The azure resource id of the function app.
 	FunctionAppResourceId string `pulumi:"functionAppResourceId"`
-	// The function name in the function app.
-	FunctionName string `pulumi:"functionName"`
-	// The http trigger url where http request sent to.
-	HttpTriggerUrl string `pulumi:"httpTriggerUrl"`
-	// The name of the azure function receiver. Names must be unique across all receivers within an action group.
-	Name string `pulumi:"name"`
+	FunctionName          string `pulumi:"functionName"`
+	HttpTriggerUrl        string `pulumi:"httpTriggerUrl"`
+	Name                  string `pulumi:"name"`
 }
 
 // AzureFunctionReceiverInput is an input type that accepts AzureFunctionReceiverArgs and AzureFunctionReceiverOutput values.
@@ -541,16 +476,11 @@ type AzureFunctionReceiverInput interface {
 	ToAzureFunctionReceiverOutputWithContext(context.Context) AzureFunctionReceiverOutput
 }
 
-// An azure function receiver.
 type AzureFunctionReceiverArgs struct {
-	// The azure resource id of the function app.
 	FunctionAppResourceId pulumi.StringInput `pulumi:"functionAppResourceId"`
-	// The function name in the function app.
-	FunctionName pulumi.StringInput `pulumi:"functionName"`
-	// The http trigger url where http request sent to.
-	HttpTriggerUrl pulumi.StringInput `pulumi:"httpTriggerUrl"`
-	// The name of the azure function receiver. Names must be unique across all receivers within an action group.
-	Name pulumi.StringInput `pulumi:"name"`
+	FunctionName          pulumi.StringInput `pulumi:"functionName"`
+	HttpTriggerUrl        pulumi.StringInput `pulumi:"httpTriggerUrl"`
+	Name                  pulumi.StringInput `pulumi:"name"`
 }
 
 func (AzureFunctionReceiverArgs) ElementType() reflect.Type {
@@ -590,7 +520,6 @@ func (i AzureFunctionReceiverArray) ToAzureFunctionReceiverArrayOutputWithContex
 	return pulumi.ToOutputWithContext(ctx, i).(AzureFunctionReceiverArrayOutput)
 }
 
-// An azure function receiver.
 type AzureFunctionReceiverOutput struct{ *pulumi.OutputState }
 
 func (AzureFunctionReceiverOutput) ElementType() reflect.Type {
@@ -605,22 +534,18 @@ func (o AzureFunctionReceiverOutput) ToAzureFunctionReceiverOutputWithContext(ct
 	return o
 }
 
-// The azure resource id of the function app.
 func (o AzureFunctionReceiverOutput) FunctionAppResourceId() pulumi.StringOutput {
 	return o.ApplyT(func(v AzureFunctionReceiver) string { return v.FunctionAppResourceId }).(pulumi.StringOutput)
 }
 
-// The function name in the function app.
 func (o AzureFunctionReceiverOutput) FunctionName() pulumi.StringOutput {
 	return o.ApplyT(func(v AzureFunctionReceiver) string { return v.FunctionName }).(pulumi.StringOutput)
 }
 
-// The http trigger url where http request sent to.
 func (o AzureFunctionReceiverOutput) HttpTriggerUrl() pulumi.StringOutput {
 	return o.ApplyT(func(v AzureFunctionReceiver) string { return v.HttpTriggerUrl }).(pulumi.StringOutput)
 }
 
-// The name of the azure function receiver. Names must be unique across all receivers within an action group.
 func (o AzureFunctionReceiverOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v AzureFunctionReceiver) string { return v.Name }).(pulumi.StringOutput)
 }
@@ -645,16 +570,11 @@ func (o AzureFunctionReceiverArrayOutput) Index(i pulumi.IntInput) AzureFunction
 	}).(AzureFunctionReceiverOutput)
 }
 
-// An azure function receiver.
 type AzureFunctionReceiverResponse struct {
-	// The azure resource id of the function app.
 	FunctionAppResourceId string `pulumi:"functionAppResourceId"`
-	// The function name in the function app.
-	FunctionName string `pulumi:"functionName"`
-	// The http trigger url where http request sent to.
-	HttpTriggerUrl string `pulumi:"httpTriggerUrl"`
-	// The name of the azure function receiver. Names must be unique across all receivers within an action group.
-	Name string `pulumi:"name"`
+	FunctionName          string `pulumi:"functionName"`
+	HttpTriggerUrl        string `pulumi:"httpTriggerUrl"`
+	Name                  string `pulumi:"name"`
 }
 
 // AzureFunctionReceiverResponseInput is an input type that accepts AzureFunctionReceiverResponseArgs and AzureFunctionReceiverResponseOutput values.
@@ -668,16 +588,11 @@ type AzureFunctionReceiverResponseInput interface {
 	ToAzureFunctionReceiverResponseOutputWithContext(context.Context) AzureFunctionReceiverResponseOutput
 }
 
-// An azure function receiver.
 type AzureFunctionReceiverResponseArgs struct {
-	// The azure resource id of the function app.
 	FunctionAppResourceId pulumi.StringInput `pulumi:"functionAppResourceId"`
-	// The function name in the function app.
-	FunctionName pulumi.StringInput `pulumi:"functionName"`
-	// The http trigger url where http request sent to.
-	HttpTriggerUrl pulumi.StringInput `pulumi:"httpTriggerUrl"`
-	// The name of the azure function receiver. Names must be unique across all receivers within an action group.
-	Name pulumi.StringInput `pulumi:"name"`
+	FunctionName          pulumi.StringInput `pulumi:"functionName"`
+	HttpTriggerUrl        pulumi.StringInput `pulumi:"httpTriggerUrl"`
+	Name                  pulumi.StringInput `pulumi:"name"`
 }
 
 func (AzureFunctionReceiverResponseArgs) ElementType() reflect.Type {
@@ -717,7 +632,6 @@ func (i AzureFunctionReceiverResponseArray) ToAzureFunctionReceiverResponseArray
 	return pulumi.ToOutputWithContext(ctx, i).(AzureFunctionReceiverResponseArrayOutput)
 }
 
-// An azure function receiver.
 type AzureFunctionReceiverResponseOutput struct{ *pulumi.OutputState }
 
 func (AzureFunctionReceiverResponseOutput) ElementType() reflect.Type {
@@ -732,22 +646,18 @@ func (o AzureFunctionReceiverResponseOutput) ToAzureFunctionReceiverResponseOutp
 	return o
 }
 
-// The azure resource id of the function app.
 func (o AzureFunctionReceiverResponseOutput) FunctionAppResourceId() pulumi.StringOutput {
 	return o.ApplyT(func(v AzureFunctionReceiverResponse) string { return v.FunctionAppResourceId }).(pulumi.StringOutput)
 }
 
-// The function name in the function app.
 func (o AzureFunctionReceiverResponseOutput) FunctionName() pulumi.StringOutput {
 	return o.ApplyT(func(v AzureFunctionReceiverResponse) string { return v.FunctionName }).(pulumi.StringOutput)
 }
 
-// The http trigger url where http request sent to.
 func (o AzureFunctionReceiverResponseOutput) HttpTriggerUrl() pulumi.StringOutput {
 	return o.ApplyT(func(v AzureFunctionReceiverResponse) string { return v.HttpTriggerUrl }).(pulumi.StringOutput)
 }
 
-// The name of the azure function receiver. Names must be unique across all receivers within an action group.
 func (o AzureFunctionReceiverResponseOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v AzureFunctionReceiverResponse) string { return v.Name }).(pulumi.StringOutput)
 }
@@ -772,31 +682,18 @@ func (o AzureFunctionReceiverResponseArrayOutput) Index(i pulumi.IntInput) Azure
 	}).(AzureFunctionReceiverResponseOutput)
 }
 
-// Criterion for dynamic threshold.
 type DynamicMetricCriteria struct {
-	// The extent of deviation required to trigger an alert. This will affect how tight the threshold is to the metric series pattern.
-	AlertSensitivity string `pulumi:"alertSensitivity"`
-	// Specifies the type of threshold criteria
-	// Expected value is 'DynamicThresholdCriterion'.
-	CriterionType string `pulumi:"criterionType"`
-	// List of dimension conditions.
-	Dimensions []MetricDimension `pulumi:"dimensions"`
-	// The minimum number of violations required within the selected lookback time window required to raise an alert.
-	FailingPeriods DynamicThresholdFailingPeriods `pulumi:"failingPeriods"`
-	// Use this option to set the date from which to start learning the metric historical data and calculate the dynamic thresholds (in ISO8601 format)
-	IgnoreDataBefore *string `pulumi:"ignoreDataBefore"`
-	// Name of the metric.
-	MetricName string `pulumi:"metricName"`
-	// Namespace of the metric.
-	MetricNamespace *string `pulumi:"metricNamespace"`
-	// Name of the criteria.
-	Name string `pulumi:"name"`
-	// The operator used to compare the metric value against the threshold.
-	Operator string `pulumi:"operator"`
-	// Allows creating an alert rule on a custom metric that isn't yet emitted, by causing the metric validation to be skipped.
-	SkipMetricValidation *bool `pulumi:"skipMetricValidation"`
-	// the criteria time aggregation types.
-	TimeAggregation string `pulumi:"timeAggregation"`
+	AlertSensitivity     string                         `pulumi:"alertSensitivity"`
+	CriterionType        string                         `pulumi:"criterionType"`
+	Dimensions           []MetricDimension              `pulumi:"dimensions"`
+	FailingPeriods       DynamicThresholdFailingPeriods `pulumi:"failingPeriods"`
+	IgnoreDataBefore     *string                        `pulumi:"ignoreDataBefore"`
+	MetricName           string                         `pulumi:"metricName"`
+	MetricNamespace      *string                        `pulumi:"metricNamespace"`
+	Name                 string                         `pulumi:"name"`
+	Operator             string                         `pulumi:"operator"`
+	SkipMetricValidation *bool                          `pulumi:"skipMetricValidation"`
+	TimeAggregation      string                         `pulumi:"timeAggregation"`
 }
 
 // DynamicMetricCriteriaInput is an input type that accepts DynamicMetricCriteriaArgs and DynamicMetricCriteriaOutput values.
@@ -810,31 +707,18 @@ type DynamicMetricCriteriaInput interface {
 	ToDynamicMetricCriteriaOutputWithContext(context.Context) DynamicMetricCriteriaOutput
 }
 
-// Criterion for dynamic threshold.
 type DynamicMetricCriteriaArgs struct {
-	// The extent of deviation required to trigger an alert. This will affect how tight the threshold is to the metric series pattern.
-	AlertSensitivity pulumi.StringInput `pulumi:"alertSensitivity"`
-	// Specifies the type of threshold criteria
-	// Expected value is 'DynamicThresholdCriterion'.
-	CriterionType pulumi.StringInput `pulumi:"criterionType"`
-	// List of dimension conditions.
-	Dimensions MetricDimensionArrayInput `pulumi:"dimensions"`
-	// The minimum number of violations required within the selected lookback time window required to raise an alert.
-	FailingPeriods DynamicThresholdFailingPeriodsInput `pulumi:"failingPeriods"`
-	// Use this option to set the date from which to start learning the metric historical data and calculate the dynamic thresholds (in ISO8601 format)
-	IgnoreDataBefore pulumi.StringPtrInput `pulumi:"ignoreDataBefore"`
-	// Name of the metric.
-	MetricName pulumi.StringInput `pulumi:"metricName"`
-	// Namespace of the metric.
-	MetricNamespace pulumi.StringPtrInput `pulumi:"metricNamespace"`
-	// Name of the criteria.
-	Name pulumi.StringInput `pulumi:"name"`
-	// The operator used to compare the metric value against the threshold.
-	Operator pulumi.StringInput `pulumi:"operator"`
-	// Allows creating an alert rule on a custom metric that isn't yet emitted, by causing the metric validation to be skipped.
-	SkipMetricValidation pulumi.BoolPtrInput `pulumi:"skipMetricValidation"`
-	// the criteria time aggregation types.
-	TimeAggregation pulumi.StringInput `pulumi:"timeAggregation"`
+	AlertSensitivity     pulumi.StringInput                  `pulumi:"alertSensitivity"`
+	CriterionType        pulumi.StringInput                  `pulumi:"criterionType"`
+	Dimensions           MetricDimensionArrayInput           `pulumi:"dimensions"`
+	FailingPeriods       DynamicThresholdFailingPeriodsInput `pulumi:"failingPeriods"`
+	IgnoreDataBefore     pulumi.StringPtrInput               `pulumi:"ignoreDataBefore"`
+	MetricName           pulumi.StringInput                  `pulumi:"metricName"`
+	MetricNamespace      pulumi.StringPtrInput               `pulumi:"metricNamespace"`
+	Name                 pulumi.StringInput                  `pulumi:"name"`
+	Operator             pulumi.StringInput                  `pulumi:"operator"`
+	SkipMetricValidation pulumi.BoolPtrInput                 `pulumi:"skipMetricValidation"`
+	TimeAggregation      pulumi.StringInput                  `pulumi:"timeAggregation"`
 }
 
 func (DynamicMetricCriteriaArgs) ElementType() reflect.Type {
@@ -849,7 +733,6 @@ func (i DynamicMetricCriteriaArgs) ToDynamicMetricCriteriaOutputWithContext(ctx 
 	return pulumi.ToOutputWithContext(ctx, i).(DynamicMetricCriteriaOutput)
 }
 
-// Criterion for dynamic threshold.
 type DynamicMetricCriteriaOutput struct{ *pulumi.OutputState }
 
 func (DynamicMetricCriteriaOutput) ElementType() reflect.Type {
@@ -864,87 +747,62 @@ func (o DynamicMetricCriteriaOutput) ToDynamicMetricCriteriaOutputWithContext(ct
 	return o
 }
 
-// The extent of deviation required to trigger an alert. This will affect how tight the threshold is to the metric series pattern.
 func (o DynamicMetricCriteriaOutput) AlertSensitivity() pulumi.StringOutput {
 	return o.ApplyT(func(v DynamicMetricCriteria) string { return v.AlertSensitivity }).(pulumi.StringOutput)
 }
 
-// Specifies the type of threshold criteria
-// Expected value is 'DynamicThresholdCriterion'.
 func (o DynamicMetricCriteriaOutput) CriterionType() pulumi.StringOutput {
 	return o.ApplyT(func(v DynamicMetricCriteria) string { return v.CriterionType }).(pulumi.StringOutput)
 }
 
-// List of dimension conditions.
 func (o DynamicMetricCriteriaOutput) Dimensions() MetricDimensionArrayOutput {
 	return o.ApplyT(func(v DynamicMetricCriteria) []MetricDimension { return v.Dimensions }).(MetricDimensionArrayOutput)
 }
 
-// The minimum number of violations required within the selected lookback time window required to raise an alert.
 func (o DynamicMetricCriteriaOutput) FailingPeriods() DynamicThresholdFailingPeriodsOutput {
 	return o.ApplyT(func(v DynamicMetricCriteria) DynamicThresholdFailingPeriods { return v.FailingPeriods }).(DynamicThresholdFailingPeriodsOutput)
 }
 
-// Use this option to set the date from which to start learning the metric historical data and calculate the dynamic thresholds (in ISO8601 format)
 func (o DynamicMetricCriteriaOutput) IgnoreDataBefore() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v DynamicMetricCriteria) *string { return v.IgnoreDataBefore }).(pulumi.StringPtrOutput)
 }
 
-// Name of the metric.
 func (o DynamicMetricCriteriaOutput) MetricName() pulumi.StringOutput {
 	return o.ApplyT(func(v DynamicMetricCriteria) string { return v.MetricName }).(pulumi.StringOutput)
 }
 
-// Namespace of the metric.
 func (o DynamicMetricCriteriaOutput) MetricNamespace() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v DynamicMetricCriteria) *string { return v.MetricNamespace }).(pulumi.StringPtrOutput)
 }
 
-// Name of the criteria.
 func (o DynamicMetricCriteriaOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v DynamicMetricCriteria) string { return v.Name }).(pulumi.StringOutput)
 }
 
-// The operator used to compare the metric value against the threshold.
 func (o DynamicMetricCriteriaOutput) Operator() pulumi.StringOutput {
 	return o.ApplyT(func(v DynamicMetricCriteria) string { return v.Operator }).(pulumi.StringOutput)
 }
 
-// Allows creating an alert rule on a custom metric that isn't yet emitted, by causing the metric validation to be skipped.
 func (o DynamicMetricCriteriaOutput) SkipMetricValidation() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v DynamicMetricCriteria) *bool { return v.SkipMetricValidation }).(pulumi.BoolPtrOutput)
 }
 
-// the criteria time aggregation types.
 func (o DynamicMetricCriteriaOutput) TimeAggregation() pulumi.StringOutput {
 	return o.ApplyT(func(v DynamicMetricCriteria) string { return v.TimeAggregation }).(pulumi.StringOutput)
 }
 
-// Criterion for dynamic threshold.
 type DynamicMetricCriteriaResponse struct {
-	// The extent of deviation required to trigger an alert. This will affect how tight the threshold is to the metric series pattern.
-	AlertSensitivity string `pulumi:"alertSensitivity"`
-	// Specifies the type of threshold criteria
-	// Expected value is 'DynamicThresholdCriterion'.
-	CriterionType string `pulumi:"criterionType"`
-	// List of dimension conditions.
-	Dimensions []MetricDimensionResponse `pulumi:"dimensions"`
-	// The minimum number of violations required within the selected lookback time window required to raise an alert.
-	FailingPeriods DynamicThresholdFailingPeriodsResponse `pulumi:"failingPeriods"`
-	// Use this option to set the date from which to start learning the metric historical data and calculate the dynamic thresholds (in ISO8601 format)
-	IgnoreDataBefore *string `pulumi:"ignoreDataBefore"`
-	// Name of the metric.
-	MetricName string `pulumi:"metricName"`
-	// Namespace of the metric.
-	MetricNamespace *string `pulumi:"metricNamespace"`
-	// Name of the criteria.
-	Name string `pulumi:"name"`
-	// The operator used to compare the metric value against the threshold.
-	Operator string `pulumi:"operator"`
-	// Allows creating an alert rule on a custom metric that isn't yet emitted, by causing the metric validation to be skipped.
-	SkipMetricValidation *bool `pulumi:"skipMetricValidation"`
-	// the criteria time aggregation types.
-	TimeAggregation string `pulumi:"timeAggregation"`
+	AlertSensitivity     string                                 `pulumi:"alertSensitivity"`
+	CriterionType        string                                 `pulumi:"criterionType"`
+	Dimensions           []MetricDimensionResponse              `pulumi:"dimensions"`
+	FailingPeriods       DynamicThresholdFailingPeriodsResponse `pulumi:"failingPeriods"`
+	IgnoreDataBefore     *string                                `pulumi:"ignoreDataBefore"`
+	MetricName           string                                 `pulumi:"metricName"`
+	MetricNamespace      *string                                `pulumi:"metricNamespace"`
+	Name                 string                                 `pulumi:"name"`
+	Operator             string                                 `pulumi:"operator"`
+	SkipMetricValidation *bool                                  `pulumi:"skipMetricValidation"`
+	TimeAggregation      string                                 `pulumi:"timeAggregation"`
 }
 
 // DynamicMetricCriteriaResponseInput is an input type that accepts DynamicMetricCriteriaResponseArgs and DynamicMetricCriteriaResponseOutput values.
@@ -958,31 +816,18 @@ type DynamicMetricCriteriaResponseInput interface {
 	ToDynamicMetricCriteriaResponseOutputWithContext(context.Context) DynamicMetricCriteriaResponseOutput
 }
 
-// Criterion for dynamic threshold.
 type DynamicMetricCriteriaResponseArgs struct {
-	// The extent of deviation required to trigger an alert. This will affect how tight the threshold is to the metric series pattern.
-	AlertSensitivity pulumi.StringInput `pulumi:"alertSensitivity"`
-	// Specifies the type of threshold criteria
-	// Expected value is 'DynamicThresholdCriterion'.
-	CriterionType pulumi.StringInput `pulumi:"criterionType"`
-	// List of dimension conditions.
-	Dimensions MetricDimensionResponseArrayInput `pulumi:"dimensions"`
-	// The minimum number of violations required within the selected lookback time window required to raise an alert.
-	FailingPeriods DynamicThresholdFailingPeriodsResponseInput `pulumi:"failingPeriods"`
-	// Use this option to set the date from which to start learning the metric historical data and calculate the dynamic thresholds (in ISO8601 format)
-	IgnoreDataBefore pulumi.StringPtrInput `pulumi:"ignoreDataBefore"`
-	// Name of the metric.
-	MetricName pulumi.StringInput `pulumi:"metricName"`
-	// Namespace of the metric.
-	MetricNamespace pulumi.StringPtrInput `pulumi:"metricNamespace"`
-	// Name of the criteria.
-	Name pulumi.StringInput `pulumi:"name"`
-	// The operator used to compare the metric value against the threshold.
-	Operator pulumi.StringInput `pulumi:"operator"`
-	// Allows creating an alert rule on a custom metric that isn't yet emitted, by causing the metric validation to be skipped.
-	SkipMetricValidation pulumi.BoolPtrInput `pulumi:"skipMetricValidation"`
-	// the criteria time aggregation types.
-	TimeAggregation pulumi.StringInput `pulumi:"timeAggregation"`
+	AlertSensitivity     pulumi.StringInput                          `pulumi:"alertSensitivity"`
+	CriterionType        pulumi.StringInput                          `pulumi:"criterionType"`
+	Dimensions           MetricDimensionResponseArrayInput           `pulumi:"dimensions"`
+	FailingPeriods       DynamicThresholdFailingPeriodsResponseInput `pulumi:"failingPeriods"`
+	IgnoreDataBefore     pulumi.StringPtrInput                       `pulumi:"ignoreDataBefore"`
+	MetricName           pulumi.StringInput                          `pulumi:"metricName"`
+	MetricNamespace      pulumi.StringPtrInput                       `pulumi:"metricNamespace"`
+	Name                 pulumi.StringInput                          `pulumi:"name"`
+	Operator             pulumi.StringInput                          `pulumi:"operator"`
+	SkipMetricValidation pulumi.BoolPtrInput                         `pulumi:"skipMetricValidation"`
+	TimeAggregation      pulumi.StringInput                          `pulumi:"timeAggregation"`
 }
 
 func (DynamicMetricCriteriaResponseArgs) ElementType() reflect.Type {
@@ -997,7 +842,6 @@ func (i DynamicMetricCriteriaResponseArgs) ToDynamicMetricCriteriaResponseOutput
 	return pulumi.ToOutputWithContext(ctx, i).(DynamicMetricCriteriaResponseOutput)
 }
 
-// Criterion for dynamic threshold.
 type DynamicMetricCriteriaResponseOutput struct{ *pulumi.OutputState }
 
 func (DynamicMetricCriteriaResponseOutput) ElementType() reflect.Type {
@@ -1012,67 +856,52 @@ func (o DynamicMetricCriteriaResponseOutput) ToDynamicMetricCriteriaResponseOutp
 	return o
 }
 
-// The extent of deviation required to trigger an alert. This will affect how tight the threshold is to the metric series pattern.
 func (o DynamicMetricCriteriaResponseOutput) AlertSensitivity() pulumi.StringOutput {
 	return o.ApplyT(func(v DynamicMetricCriteriaResponse) string { return v.AlertSensitivity }).(pulumi.StringOutput)
 }
 
-// Specifies the type of threshold criteria
-// Expected value is 'DynamicThresholdCriterion'.
 func (o DynamicMetricCriteriaResponseOutput) CriterionType() pulumi.StringOutput {
 	return o.ApplyT(func(v DynamicMetricCriteriaResponse) string { return v.CriterionType }).(pulumi.StringOutput)
 }
 
-// List of dimension conditions.
 func (o DynamicMetricCriteriaResponseOutput) Dimensions() MetricDimensionResponseArrayOutput {
 	return o.ApplyT(func(v DynamicMetricCriteriaResponse) []MetricDimensionResponse { return v.Dimensions }).(MetricDimensionResponseArrayOutput)
 }
 
-// The minimum number of violations required within the selected lookback time window required to raise an alert.
 func (o DynamicMetricCriteriaResponseOutput) FailingPeriods() DynamicThresholdFailingPeriodsResponseOutput {
 	return o.ApplyT(func(v DynamicMetricCriteriaResponse) DynamicThresholdFailingPeriodsResponse { return v.FailingPeriods }).(DynamicThresholdFailingPeriodsResponseOutput)
 }
 
-// Use this option to set the date from which to start learning the metric historical data and calculate the dynamic thresholds (in ISO8601 format)
 func (o DynamicMetricCriteriaResponseOutput) IgnoreDataBefore() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v DynamicMetricCriteriaResponse) *string { return v.IgnoreDataBefore }).(pulumi.StringPtrOutput)
 }
 
-// Name of the metric.
 func (o DynamicMetricCriteriaResponseOutput) MetricName() pulumi.StringOutput {
 	return o.ApplyT(func(v DynamicMetricCriteriaResponse) string { return v.MetricName }).(pulumi.StringOutput)
 }
 
-// Namespace of the metric.
 func (o DynamicMetricCriteriaResponseOutput) MetricNamespace() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v DynamicMetricCriteriaResponse) *string { return v.MetricNamespace }).(pulumi.StringPtrOutput)
 }
 
-// Name of the criteria.
 func (o DynamicMetricCriteriaResponseOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v DynamicMetricCriteriaResponse) string { return v.Name }).(pulumi.StringOutput)
 }
 
-// The operator used to compare the metric value against the threshold.
 func (o DynamicMetricCriteriaResponseOutput) Operator() pulumi.StringOutput {
 	return o.ApplyT(func(v DynamicMetricCriteriaResponse) string { return v.Operator }).(pulumi.StringOutput)
 }
 
-// Allows creating an alert rule on a custom metric that isn't yet emitted, by causing the metric validation to be skipped.
 func (o DynamicMetricCriteriaResponseOutput) SkipMetricValidation() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v DynamicMetricCriteriaResponse) *bool { return v.SkipMetricValidation }).(pulumi.BoolPtrOutput)
 }
 
-// the criteria time aggregation types.
 func (o DynamicMetricCriteriaResponseOutput) TimeAggregation() pulumi.StringOutput {
 	return o.ApplyT(func(v DynamicMetricCriteriaResponse) string { return v.TimeAggregation }).(pulumi.StringOutput)
 }
 
-// The minimum number of violations required within the selected lookback time window required to raise an alert.
 type DynamicThresholdFailingPeriods struct {
-	// The number of violations to trigger an alert. Should be smaller or equal to numberOfEvaluationPeriods.
-	MinFailingPeriodsToAlert float64 `pulumi:"minFailingPeriodsToAlert"`
-	// The number of aggregated lookback points. The lookback time window is calculated based on the aggregation granularity (windowSize) and the selected number of aggregated points.
+	MinFailingPeriodsToAlert  float64 `pulumi:"minFailingPeriodsToAlert"`
 	NumberOfEvaluationPeriods float64 `pulumi:"numberOfEvaluationPeriods"`
 }
 
@@ -1087,11 +916,8 @@ type DynamicThresholdFailingPeriodsInput interface {
 	ToDynamicThresholdFailingPeriodsOutputWithContext(context.Context) DynamicThresholdFailingPeriodsOutput
 }
 
-// The minimum number of violations required within the selected lookback time window required to raise an alert.
 type DynamicThresholdFailingPeriodsArgs struct {
-	// The number of violations to trigger an alert. Should be smaller or equal to numberOfEvaluationPeriods.
-	MinFailingPeriodsToAlert pulumi.Float64Input `pulumi:"minFailingPeriodsToAlert"`
-	// The number of aggregated lookback points. The lookback time window is calculated based on the aggregation granularity (windowSize) and the selected number of aggregated points.
+	MinFailingPeriodsToAlert  pulumi.Float64Input `pulumi:"minFailingPeriodsToAlert"`
 	NumberOfEvaluationPeriods pulumi.Float64Input `pulumi:"numberOfEvaluationPeriods"`
 }
 
@@ -1107,7 +933,6 @@ func (i DynamicThresholdFailingPeriodsArgs) ToDynamicThresholdFailingPeriodsOutp
 	return pulumi.ToOutputWithContext(ctx, i).(DynamicThresholdFailingPeriodsOutput)
 }
 
-// The minimum number of violations required within the selected lookback time window required to raise an alert.
 type DynamicThresholdFailingPeriodsOutput struct{ *pulumi.OutputState }
 
 func (DynamicThresholdFailingPeriodsOutput) ElementType() reflect.Type {
@@ -1122,21 +947,16 @@ func (o DynamicThresholdFailingPeriodsOutput) ToDynamicThresholdFailingPeriodsOu
 	return o
 }
 
-// The number of violations to trigger an alert. Should be smaller or equal to numberOfEvaluationPeriods.
 func (o DynamicThresholdFailingPeriodsOutput) MinFailingPeriodsToAlert() pulumi.Float64Output {
 	return o.ApplyT(func(v DynamicThresholdFailingPeriods) float64 { return v.MinFailingPeriodsToAlert }).(pulumi.Float64Output)
 }
 
-// The number of aggregated lookback points. The lookback time window is calculated based on the aggregation granularity (windowSize) and the selected number of aggregated points.
 func (o DynamicThresholdFailingPeriodsOutput) NumberOfEvaluationPeriods() pulumi.Float64Output {
 	return o.ApplyT(func(v DynamicThresholdFailingPeriods) float64 { return v.NumberOfEvaluationPeriods }).(pulumi.Float64Output)
 }
 
-// The minimum number of violations required within the selected lookback time window required to raise an alert.
 type DynamicThresholdFailingPeriodsResponse struct {
-	// The number of violations to trigger an alert. Should be smaller or equal to numberOfEvaluationPeriods.
-	MinFailingPeriodsToAlert float64 `pulumi:"minFailingPeriodsToAlert"`
-	// The number of aggregated lookback points. The lookback time window is calculated based on the aggregation granularity (windowSize) and the selected number of aggregated points.
+	MinFailingPeriodsToAlert  float64 `pulumi:"minFailingPeriodsToAlert"`
 	NumberOfEvaluationPeriods float64 `pulumi:"numberOfEvaluationPeriods"`
 }
 
@@ -1151,11 +971,8 @@ type DynamicThresholdFailingPeriodsResponseInput interface {
 	ToDynamicThresholdFailingPeriodsResponseOutputWithContext(context.Context) DynamicThresholdFailingPeriodsResponseOutput
 }
 
-// The minimum number of violations required within the selected lookback time window required to raise an alert.
 type DynamicThresholdFailingPeriodsResponseArgs struct {
-	// The number of violations to trigger an alert. Should be smaller or equal to numberOfEvaluationPeriods.
-	MinFailingPeriodsToAlert pulumi.Float64Input `pulumi:"minFailingPeriodsToAlert"`
-	// The number of aggregated lookback points. The lookback time window is calculated based on the aggregation granularity (windowSize) and the selected number of aggregated points.
+	MinFailingPeriodsToAlert  pulumi.Float64Input `pulumi:"minFailingPeriodsToAlert"`
 	NumberOfEvaluationPeriods pulumi.Float64Input `pulumi:"numberOfEvaluationPeriods"`
 }
 
@@ -1171,7 +988,6 @@ func (i DynamicThresholdFailingPeriodsResponseArgs) ToDynamicThresholdFailingPer
 	return pulumi.ToOutputWithContext(ctx, i).(DynamicThresholdFailingPeriodsResponseOutput)
 }
 
-// The minimum number of violations required within the selected lookback time window required to raise an alert.
 type DynamicThresholdFailingPeriodsResponseOutput struct{ *pulumi.OutputState }
 
 func (DynamicThresholdFailingPeriodsResponseOutput) ElementType() reflect.Type {
@@ -1186,22 +1002,17 @@ func (o DynamicThresholdFailingPeriodsResponseOutput) ToDynamicThresholdFailingP
 	return o
 }
 
-// The number of violations to trigger an alert. Should be smaller or equal to numberOfEvaluationPeriods.
 func (o DynamicThresholdFailingPeriodsResponseOutput) MinFailingPeriodsToAlert() pulumi.Float64Output {
 	return o.ApplyT(func(v DynamicThresholdFailingPeriodsResponse) float64 { return v.MinFailingPeriodsToAlert }).(pulumi.Float64Output)
 }
 
-// The number of aggregated lookback points. The lookback time window is calculated based on the aggregation granularity (windowSize) and the selected number of aggregated points.
 func (o DynamicThresholdFailingPeriodsResponseOutput) NumberOfEvaluationPeriods() pulumi.Float64Output {
 	return o.ApplyT(func(v DynamicThresholdFailingPeriodsResponse) float64 { return v.NumberOfEvaluationPeriods }).(pulumi.Float64Output)
 }
 
-// An email receiver.
 type EmailReceiver struct {
-	// The email address of this receiver.
 	EmailAddress string `pulumi:"emailAddress"`
-	// The name of the email receiver. Names must be unique across all receivers within an action group.
-	Name string `pulumi:"name"`
+	Name         string `pulumi:"name"`
 }
 
 // EmailReceiverInput is an input type that accepts EmailReceiverArgs and EmailReceiverOutput values.
@@ -1215,12 +1026,9 @@ type EmailReceiverInput interface {
 	ToEmailReceiverOutputWithContext(context.Context) EmailReceiverOutput
 }
 
-// An email receiver.
 type EmailReceiverArgs struct {
-	// The email address of this receiver.
 	EmailAddress pulumi.StringInput `pulumi:"emailAddress"`
-	// The name of the email receiver. Names must be unique across all receivers within an action group.
-	Name pulumi.StringInput `pulumi:"name"`
+	Name         pulumi.StringInput `pulumi:"name"`
 }
 
 func (EmailReceiverArgs) ElementType() reflect.Type {
@@ -1260,7 +1068,6 @@ func (i EmailReceiverArray) ToEmailReceiverArrayOutputWithContext(ctx context.Co
 	return pulumi.ToOutputWithContext(ctx, i).(EmailReceiverArrayOutput)
 }
 
-// An email receiver.
 type EmailReceiverOutput struct{ *pulumi.OutputState }
 
 func (EmailReceiverOutput) ElementType() reflect.Type {
@@ -1275,12 +1082,10 @@ func (o EmailReceiverOutput) ToEmailReceiverOutputWithContext(ctx context.Contex
 	return o
 }
 
-// The email address of this receiver.
 func (o EmailReceiverOutput) EmailAddress() pulumi.StringOutput {
 	return o.ApplyT(func(v EmailReceiver) string { return v.EmailAddress }).(pulumi.StringOutput)
 }
 
-// The name of the email receiver. Names must be unique across all receivers within an action group.
 func (o EmailReceiverOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v EmailReceiver) string { return v.Name }).(pulumi.StringOutput)
 }
@@ -1305,14 +1110,10 @@ func (o EmailReceiverArrayOutput) Index(i pulumi.IntInput) EmailReceiverOutput {
 	}).(EmailReceiverOutput)
 }
 
-// An email receiver.
 type EmailReceiverResponse struct {
-	// The email address of this receiver.
 	EmailAddress string `pulumi:"emailAddress"`
-	// The name of the email receiver. Names must be unique across all receivers within an action group.
-	Name string `pulumi:"name"`
-	// The receiver status of the e-mail.
-	Status string `pulumi:"status"`
+	Name         string `pulumi:"name"`
+	Status       string `pulumi:"status"`
 }
 
 // EmailReceiverResponseInput is an input type that accepts EmailReceiverResponseArgs and EmailReceiverResponseOutput values.
@@ -1326,14 +1127,10 @@ type EmailReceiverResponseInput interface {
 	ToEmailReceiverResponseOutputWithContext(context.Context) EmailReceiverResponseOutput
 }
 
-// An email receiver.
 type EmailReceiverResponseArgs struct {
-	// The email address of this receiver.
 	EmailAddress pulumi.StringInput `pulumi:"emailAddress"`
-	// The name of the email receiver. Names must be unique across all receivers within an action group.
-	Name pulumi.StringInput `pulumi:"name"`
-	// The receiver status of the e-mail.
-	Status pulumi.StringInput `pulumi:"status"`
+	Name         pulumi.StringInput `pulumi:"name"`
+	Status       pulumi.StringInput `pulumi:"status"`
 }
 
 func (EmailReceiverResponseArgs) ElementType() reflect.Type {
@@ -1373,7 +1170,6 @@ func (i EmailReceiverResponseArray) ToEmailReceiverResponseArrayOutputWithContex
 	return pulumi.ToOutputWithContext(ctx, i).(EmailReceiverResponseArrayOutput)
 }
 
-// An email receiver.
 type EmailReceiverResponseOutput struct{ *pulumi.OutputState }
 
 func (EmailReceiverResponseOutput) ElementType() reflect.Type {
@@ -1388,17 +1184,14 @@ func (o EmailReceiverResponseOutput) ToEmailReceiverResponseOutputWithContext(ct
 	return o
 }
 
-// The email address of this receiver.
 func (o EmailReceiverResponseOutput) EmailAddress() pulumi.StringOutput {
 	return o.ApplyT(func(v EmailReceiverResponse) string { return v.EmailAddress }).(pulumi.StringOutput)
 }
 
-// The name of the email receiver. Names must be unique across all receivers within an action group.
 func (o EmailReceiverResponseOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v EmailReceiverResponse) string { return v.Name }).(pulumi.StringOutput)
 }
 
-// The receiver status of the e-mail.
 func (o EmailReceiverResponseOutput) Status() pulumi.StringOutput {
 	return o.ApplyT(func(v EmailReceiverResponse) string { return v.Status }).(pulumi.StringOutput)
 }
@@ -1423,18 +1216,12 @@ func (o EmailReceiverResponseArrayOutput) Index(i pulumi.IntInput) EmailReceiver
 	}).(EmailReceiverResponseOutput)
 }
 
-// An Itsm receiver.
 type ItsmReceiver struct {
-	// Unique identification of ITSM connection among multiple defined in above workspace.
-	ConnectionId string `pulumi:"connectionId"`
-	// The name of the Itsm receiver. Names must be unique across all receivers within an action group.
-	Name string `pulumi:"name"`
-	// Region in which workspace resides. Supported values:'centralindia','japaneast','southeastasia','australiasoutheast','uksouth','westcentralus','canadacentral','eastus','westeurope'
-	Region string `pulumi:"region"`
-	// JSON blob for the configurations of the ITSM action. CreateMultipleWorkItems option will be part of this blob as well.
+	ConnectionId        string `pulumi:"connectionId"`
+	Name                string `pulumi:"name"`
+	Region              string `pulumi:"region"`
 	TicketConfiguration string `pulumi:"ticketConfiguration"`
-	// OMS LA instance identifier.
-	WorkspaceId string `pulumi:"workspaceId"`
+	WorkspaceId         string `pulumi:"workspaceId"`
 }
 
 // ItsmReceiverInput is an input type that accepts ItsmReceiverArgs and ItsmReceiverOutput values.
@@ -1448,18 +1235,12 @@ type ItsmReceiverInput interface {
 	ToItsmReceiverOutputWithContext(context.Context) ItsmReceiverOutput
 }
 
-// An Itsm receiver.
 type ItsmReceiverArgs struct {
-	// Unique identification of ITSM connection among multiple defined in above workspace.
-	ConnectionId pulumi.StringInput `pulumi:"connectionId"`
-	// The name of the Itsm receiver. Names must be unique across all receivers within an action group.
-	Name pulumi.StringInput `pulumi:"name"`
-	// Region in which workspace resides. Supported values:'centralindia','japaneast','southeastasia','australiasoutheast','uksouth','westcentralus','canadacentral','eastus','westeurope'
-	Region pulumi.StringInput `pulumi:"region"`
-	// JSON blob for the configurations of the ITSM action. CreateMultipleWorkItems option will be part of this blob as well.
+	ConnectionId        pulumi.StringInput `pulumi:"connectionId"`
+	Name                pulumi.StringInput `pulumi:"name"`
+	Region              pulumi.StringInput `pulumi:"region"`
 	TicketConfiguration pulumi.StringInput `pulumi:"ticketConfiguration"`
-	// OMS LA instance identifier.
-	WorkspaceId pulumi.StringInput `pulumi:"workspaceId"`
+	WorkspaceId         pulumi.StringInput `pulumi:"workspaceId"`
 }
 
 func (ItsmReceiverArgs) ElementType() reflect.Type {
@@ -1499,7 +1280,6 @@ func (i ItsmReceiverArray) ToItsmReceiverArrayOutputWithContext(ctx context.Cont
 	return pulumi.ToOutputWithContext(ctx, i).(ItsmReceiverArrayOutput)
 }
 
-// An Itsm receiver.
 type ItsmReceiverOutput struct{ *pulumi.OutputState }
 
 func (ItsmReceiverOutput) ElementType() reflect.Type {
@@ -1514,27 +1294,22 @@ func (o ItsmReceiverOutput) ToItsmReceiverOutputWithContext(ctx context.Context)
 	return o
 }
 
-// Unique identification of ITSM connection among multiple defined in above workspace.
 func (o ItsmReceiverOutput) ConnectionId() pulumi.StringOutput {
 	return o.ApplyT(func(v ItsmReceiver) string { return v.ConnectionId }).(pulumi.StringOutput)
 }
 
-// The name of the Itsm receiver. Names must be unique across all receivers within an action group.
 func (o ItsmReceiverOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v ItsmReceiver) string { return v.Name }).(pulumi.StringOutput)
 }
 
-// Region in which workspace resides. Supported values:'centralindia','japaneast','southeastasia','australiasoutheast','uksouth','westcentralus','canadacentral','eastus','westeurope'
 func (o ItsmReceiverOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v ItsmReceiver) string { return v.Region }).(pulumi.StringOutput)
 }
 
-// JSON blob for the configurations of the ITSM action. CreateMultipleWorkItems option will be part of this blob as well.
 func (o ItsmReceiverOutput) TicketConfiguration() pulumi.StringOutput {
 	return o.ApplyT(func(v ItsmReceiver) string { return v.TicketConfiguration }).(pulumi.StringOutput)
 }
 
-// OMS LA instance identifier.
 func (o ItsmReceiverOutput) WorkspaceId() pulumi.StringOutput {
 	return o.ApplyT(func(v ItsmReceiver) string { return v.WorkspaceId }).(pulumi.StringOutput)
 }
@@ -1559,18 +1334,12 @@ func (o ItsmReceiverArrayOutput) Index(i pulumi.IntInput) ItsmReceiverOutput {
 	}).(ItsmReceiverOutput)
 }
 
-// An Itsm receiver.
 type ItsmReceiverResponse struct {
-	// Unique identification of ITSM connection among multiple defined in above workspace.
-	ConnectionId string `pulumi:"connectionId"`
-	// The name of the Itsm receiver. Names must be unique across all receivers within an action group.
-	Name string `pulumi:"name"`
-	// Region in which workspace resides. Supported values:'centralindia','japaneast','southeastasia','australiasoutheast','uksouth','westcentralus','canadacentral','eastus','westeurope'
-	Region string `pulumi:"region"`
-	// JSON blob for the configurations of the ITSM action. CreateMultipleWorkItems option will be part of this blob as well.
+	ConnectionId        string `pulumi:"connectionId"`
+	Name                string `pulumi:"name"`
+	Region              string `pulumi:"region"`
 	TicketConfiguration string `pulumi:"ticketConfiguration"`
-	// OMS LA instance identifier.
-	WorkspaceId string `pulumi:"workspaceId"`
+	WorkspaceId         string `pulumi:"workspaceId"`
 }
 
 // ItsmReceiverResponseInput is an input type that accepts ItsmReceiverResponseArgs and ItsmReceiverResponseOutput values.
@@ -1584,18 +1353,12 @@ type ItsmReceiverResponseInput interface {
 	ToItsmReceiverResponseOutputWithContext(context.Context) ItsmReceiverResponseOutput
 }
 
-// An Itsm receiver.
 type ItsmReceiverResponseArgs struct {
-	// Unique identification of ITSM connection among multiple defined in above workspace.
-	ConnectionId pulumi.StringInput `pulumi:"connectionId"`
-	// The name of the Itsm receiver. Names must be unique across all receivers within an action group.
-	Name pulumi.StringInput `pulumi:"name"`
-	// Region in which workspace resides. Supported values:'centralindia','japaneast','southeastasia','australiasoutheast','uksouth','westcentralus','canadacentral','eastus','westeurope'
-	Region pulumi.StringInput `pulumi:"region"`
-	// JSON blob for the configurations of the ITSM action. CreateMultipleWorkItems option will be part of this blob as well.
+	ConnectionId        pulumi.StringInput `pulumi:"connectionId"`
+	Name                pulumi.StringInput `pulumi:"name"`
+	Region              pulumi.StringInput `pulumi:"region"`
 	TicketConfiguration pulumi.StringInput `pulumi:"ticketConfiguration"`
-	// OMS LA instance identifier.
-	WorkspaceId pulumi.StringInput `pulumi:"workspaceId"`
+	WorkspaceId         pulumi.StringInput `pulumi:"workspaceId"`
 }
 
 func (ItsmReceiverResponseArgs) ElementType() reflect.Type {
@@ -1635,7 +1398,6 @@ func (i ItsmReceiverResponseArray) ToItsmReceiverResponseArrayOutputWithContext(
 	return pulumi.ToOutputWithContext(ctx, i).(ItsmReceiverResponseArrayOutput)
 }
 
-// An Itsm receiver.
 type ItsmReceiverResponseOutput struct{ *pulumi.OutputState }
 
 func (ItsmReceiverResponseOutput) ElementType() reflect.Type {
@@ -1650,27 +1412,22 @@ func (o ItsmReceiverResponseOutput) ToItsmReceiverResponseOutputWithContext(ctx 
 	return o
 }
 
-// Unique identification of ITSM connection among multiple defined in above workspace.
 func (o ItsmReceiverResponseOutput) ConnectionId() pulumi.StringOutput {
 	return o.ApplyT(func(v ItsmReceiverResponse) string { return v.ConnectionId }).(pulumi.StringOutput)
 }
 
-// The name of the Itsm receiver. Names must be unique across all receivers within an action group.
 func (o ItsmReceiverResponseOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v ItsmReceiverResponse) string { return v.Name }).(pulumi.StringOutput)
 }
 
-// Region in which workspace resides. Supported values:'centralindia','japaneast','southeastasia','australiasoutheast','uksouth','westcentralus','canadacentral','eastus','westeurope'
 func (o ItsmReceiverResponseOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v ItsmReceiverResponse) string { return v.Region }).(pulumi.StringOutput)
 }
 
-// JSON blob for the configurations of the ITSM action. CreateMultipleWorkItems option will be part of this blob as well.
 func (o ItsmReceiverResponseOutput) TicketConfiguration() pulumi.StringOutput {
 	return o.ApplyT(func(v ItsmReceiverResponse) string { return v.TicketConfiguration }).(pulumi.StringOutput)
 }
 
-// OMS LA instance identifier.
 func (o ItsmReceiverResponseOutput) WorkspaceId() pulumi.StringOutput {
 	return o.ApplyT(func(v ItsmReceiverResponse) string { return v.WorkspaceId }).(pulumi.StringOutput)
 }
@@ -1695,14 +1452,10 @@ func (o ItsmReceiverResponseArrayOutput) Index(i pulumi.IntInput) ItsmReceiverRe
 	}).(ItsmReceiverResponseOutput)
 }
 
-// A logic app receiver.
 type LogicAppReceiver struct {
-	// The callback url where http request sent to.
 	CallbackUrl string `pulumi:"callbackUrl"`
-	// The name of the logic app receiver. Names must be unique across all receivers within an action group.
-	Name string `pulumi:"name"`
-	// The azure resource id of the logic app receiver.
-	ResourceId string `pulumi:"resourceId"`
+	Name        string `pulumi:"name"`
+	ResourceId  string `pulumi:"resourceId"`
 }
 
 // LogicAppReceiverInput is an input type that accepts LogicAppReceiverArgs and LogicAppReceiverOutput values.
@@ -1716,14 +1469,10 @@ type LogicAppReceiverInput interface {
 	ToLogicAppReceiverOutputWithContext(context.Context) LogicAppReceiverOutput
 }
 
-// A logic app receiver.
 type LogicAppReceiverArgs struct {
-	// The callback url where http request sent to.
 	CallbackUrl pulumi.StringInput `pulumi:"callbackUrl"`
-	// The name of the logic app receiver. Names must be unique across all receivers within an action group.
-	Name pulumi.StringInput `pulumi:"name"`
-	// The azure resource id of the logic app receiver.
-	ResourceId pulumi.StringInput `pulumi:"resourceId"`
+	Name        pulumi.StringInput `pulumi:"name"`
+	ResourceId  pulumi.StringInput `pulumi:"resourceId"`
 }
 
 func (LogicAppReceiverArgs) ElementType() reflect.Type {
@@ -1763,7 +1512,6 @@ func (i LogicAppReceiverArray) ToLogicAppReceiverArrayOutputWithContext(ctx cont
 	return pulumi.ToOutputWithContext(ctx, i).(LogicAppReceiverArrayOutput)
 }
 
-// A logic app receiver.
 type LogicAppReceiverOutput struct{ *pulumi.OutputState }
 
 func (LogicAppReceiverOutput) ElementType() reflect.Type {
@@ -1778,17 +1526,14 @@ func (o LogicAppReceiverOutput) ToLogicAppReceiverOutputWithContext(ctx context.
 	return o
 }
 
-// The callback url where http request sent to.
 func (o LogicAppReceiverOutput) CallbackUrl() pulumi.StringOutput {
 	return o.ApplyT(func(v LogicAppReceiver) string { return v.CallbackUrl }).(pulumi.StringOutput)
 }
 
-// The name of the logic app receiver. Names must be unique across all receivers within an action group.
 func (o LogicAppReceiverOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v LogicAppReceiver) string { return v.Name }).(pulumi.StringOutput)
 }
 
-// The azure resource id of the logic app receiver.
 func (o LogicAppReceiverOutput) ResourceId() pulumi.StringOutput {
 	return o.ApplyT(func(v LogicAppReceiver) string { return v.ResourceId }).(pulumi.StringOutput)
 }
@@ -1813,14 +1558,10 @@ func (o LogicAppReceiverArrayOutput) Index(i pulumi.IntInput) LogicAppReceiverOu
 	}).(LogicAppReceiverOutput)
 }
 
-// A logic app receiver.
 type LogicAppReceiverResponse struct {
-	// The callback url where http request sent to.
 	CallbackUrl string `pulumi:"callbackUrl"`
-	// The name of the logic app receiver. Names must be unique across all receivers within an action group.
-	Name string `pulumi:"name"`
-	// The azure resource id of the logic app receiver.
-	ResourceId string `pulumi:"resourceId"`
+	Name        string `pulumi:"name"`
+	ResourceId  string `pulumi:"resourceId"`
 }
 
 // LogicAppReceiverResponseInput is an input type that accepts LogicAppReceiverResponseArgs and LogicAppReceiverResponseOutput values.
@@ -1834,14 +1575,10 @@ type LogicAppReceiverResponseInput interface {
 	ToLogicAppReceiverResponseOutputWithContext(context.Context) LogicAppReceiverResponseOutput
 }
 
-// A logic app receiver.
 type LogicAppReceiverResponseArgs struct {
-	// The callback url where http request sent to.
 	CallbackUrl pulumi.StringInput `pulumi:"callbackUrl"`
-	// The name of the logic app receiver. Names must be unique across all receivers within an action group.
-	Name pulumi.StringInput `pulumi:"name"`
-	// The azure resource id of the logic app receiver.
-	ResourceId pulumi.StringInput `pulumi:"resourceId"`
+	Name        pulumi.StringInput `pulumi:"name"`
+	ResourceId  pulumi.StringInput `pulumi:"resourceId"`
 }
 
 func (LogicAppReceiverResponseArgs) ElementType() reflect.Type {
@@ -1881,7 +1618,6 @@ func (i LogicAppReceiverResponseArray) ToLogicAppReceiverResponseArrayOutputWith
 	return pulumi.ToOutputWithContext(ctx, i).(LogicAppReceiverResponseArrayOutput)
 }
 
-// A logic app receiver.
 type LogicAppReceiverResponseOutput struct{ *pulumi.OutputState }
 
 func (LogicAppReceiverResponseOutput) ElementType() reflect.Type {
@@ -1896,17 +1632,14 @@ func (o LogicAppReceiverResponseOutput) ToLogicAppReceiverResponseOutputWithCont
 	return o
 }
 
-// The callback url where http request sent to.
 func (o LogicAppReceiverResponseOutput) CallbackUrl() pulumi.StringOutput {
 	return o.ApplyT(func(v LogicAppReceiverResponse) string { return v.CallbackUrl }).(pulumi.StringOutput)
 }
 
-// The name of the logic app receiver. Names must be unique across all receivers within an action group.
 func (o LogicAppReceiverResponseOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v LogicAppReceiverResponse) string { return v.Name }).(pulumi.StringOutput)
 }
 
-// The azure resource id of the logic app receiver.
 func (o LogicAppReceiverResponseOutput) ResourceId() pulumi.StringOutput {
 	return o.ApplyT(func(v LogicAppReceiverResponse) string { return v.ResourceId }).(pulumi.StringOutput)
 }
@@ -1931,11 +1664,8 @@ func (o LogicAppReceiverResponseArrayOutput) Index(i pulumi.IntInput) LogicAppRe
 	}).(LogicAppReceiverResponseOutput)
 }
 
-// An alert action.
 type MetricAlertAction struct {
-	// the id of the action group to use.
-	ActionGroupId *string `pulumi:"actionGroupId"`
-	// This field allows specifying custom properties, which would be appended to the alert payload sent as input to the webhook.
+	ActionGroupId     *string           `pulumi:"actionGroupId"`
 	WebHookProperties map[string]string `pulumi:"webHookProperties"`
 }
 
@@ -1950,11 +1680,8 @@ type MetricAlertActionInput interface {
 	ToMetricAlertActionOutputWithContext(context.Context) MetricAlertActionOutput
 }
 
-// An alert action.
 type MetricAlertActionArgs struct {
-	// the id of the action group to use.
-	ActionGroupId pulumi.StringPtrInput `pulumi:"actionGroupId"`
-	// This field allows specifying custom properties, which would be appended to the alert payload sent as input to the webhook.
+	ActionGroupId     pulumi.StringPtrInput `pulumi:"actionGroupId"`
 	WebHookProperties pulumi.StringMapInput `pulumi:"webHookProperties"`
 }
 
@@ -1995,7 +1722,6 @@ func (i MetricAlertActionArray) ToMetricAlertActionArrayOutputWithContext(ctx co
 	return pulumi.ToOutputWithContext(ctx, i).(MetricAlertActionArrayOutput)
 }
 
-// An alert action.
 type MetricAlertActionOutput struct{ *pulumi.OutputState }
 
 func (MetricAlertActionOutput) ElementType() reflect.Type {
@@ -2010,12 +1736,10 @@ func (o MetricAlertActionOutput) ToMetricAlertActionOutputWithContext(ctx contex
 	return o
 }
 
-// the id of the action group to use.
 func (o MetricAlertActionOutput) ActionGroupId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v MetricAlertAction) *string { return v.ActionGroupId }).(pulumi.StringPtrOutput)
 }
 
-// This field allows specifying custom properties, which would be appended to the alert payload sent as input to the webhook.
 func (o MetricAlertActionOutput) WebHookProperties() pulumi.StringMapOutput {
 	return o.ApplyT(func(v MetricAlertAction) map[string]string { return v.WebHookProperties }).(pulumi.StringMapOutput)
 }
@@ -2040,11 +1764,8 @@ func (o MetricAlertActionArrayOutput) Index(i pulumi.IntInput) MetricAlertAction
 	}).(MetricAlertActionOutput)
 }
 
-// An alert action.
 type MetricAlertActionResponse struct {
-	// the id of the action group to use.
-	ActionGroupId *string `pulumi:"actionGroupId"`
-	// This field allows specifying custom properties, which would be appended to the alert payload sent as input to the webhook.
+	ActionGroupId     *string           `pulumi:"actionGroupId"`
 	WebHookProperties map[string]string `pulumi:"webHookProperties"`
 }
 
@@ -2059,11 +1780,8 @@ type MetricAlertActionResponseInput interface {
 	ToMetricAlertActionResponseOutputWithContext(context.Context) MetricAlertActionResponseOutput
 }
 
-// An alert action.
 type MetricAlertActionResponseArgs struct {
-	// the id of the action group to use.
-	ActionGroupId pulumi.StringPtrInput `pulumi:"actionGroupId"`
-	// This field allows specifying custom properties, which would be appended to the alert payload sent as input to the webhook.
+	ActionGroupId     pulumi.StringPtrInput `pulumi:"actionGroupId"`
 	WebHookProperties pulumi.StringMapInput `pulumi:"webHookProperties"`
 }
 
@@ -2104,7 +1822,6 @@ func (i MetricAlertActionResponseArray) ToMetricAlertActionResponseArrayOutputWi
 	return pulumi.ToOutputWithContext(ctx, i).(MetricAlertActionResponseArrayOutput)
 }
 
-// An alert action.
 type MetricAlertActionResponseOutput struct{ *pulumi.OutputState }
 
 func (MetricAlertActionResponseOutput) ElementType() reflect.Type {
@@ -2119,12 +1836,10 @@ func (o MetricAlertActionResponseOutput) ToMetricAlertActionResponseOutputWithCo
 	return o
 }
 
-// the id of the action group to use.
 func (o MetricAlertActionResponseOutput) ActionGroupId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v MetricAlertActionResponse) *string { return v.ActionGroupId }).(pulumi.StringPtrOutput)
 }
 
-// This field allows specifying custom properties, which would be appended to the alert payload sent as input to the webhook.
 func (o MetricAlertActionResponseOutput) WebHookProperties() pulumi.StringMapOutput {
 	return o.ApplyT(func(v MetricAlertActionResponse) map[string]string { return v.WebHookProperties }).(pulumi.StringMapOutput)
 }
@@ -2149,13 +1864,9 @@ func (o MetricAlertActionResponseArrayOutput) Index(i pulumi.IntInput) MetricAle
 	}).(MetricAlertActionResponseOutput)
 }
 
-// Specifies the metric alert criteria for multiple resource that has multiple metric criteria.
 type MetricAlertMultipleResourceMultipleMetricCriteria struct {
-	// the list of multiple metric criteria for this 'all of' operation.
-	AllOf []interface{} `pulumi:"allOf"`
-	// specifies the type of the alert criteria.
-	// Expected value is 'Microsoft.Azure.Monitor.MultipleResourceMultipleMetricCriteria'.
-	OdataType string `pulumi:"odataType"`
+	AllOf     []interface{} `pulumi:"allOf"`
+	OdataType string        `pulumi:"odataType"`
 }
 
 // MetricAlertMultipleResourceMultipleMetricCriteriaInput is an input type that accepts MetricAlertMultipleResourceMultipleMetricCriteriaArgs and MetricAlertMultipleResourceMultipleMetricCriteriaOutput values.
@@ -2169,12 +1880,8 @@ type MetricAlertMultipleResourceMultipleMetricCriteriaInput interface {
 	ToMetricAlertMultipleResourceMultipleMetricCriteriaOutputWithContext(context.Context) MetricAlertMultipleResourceMultipleMetricCriteriaOutput
 }
 
-// Specifies the metric alert criteria for multiple resource that has multiple metric criteria.
 type MetricAlertMultipleResourceMultipleMetricCriteriaArgs struct {
-	// the list of multiple metric criteria for this 'all of' operation.
-	AllOf pulumi.ArrayInput `pulumi:"allOf"`
-	// specifies the type of the alert criteria.
-	// Expected value is 'Microsoft.Azure.Monitor.MultipleResourceMultipleMetricCriteria'.
+	AllOf     pulumi.ArrayInput  `pulumi:"allOf"`
 	OdataType pulumi.StringInput `pulumi:"odataType"`
 }
 
@@ -2190,7 +1897,6 @@ func (i MetricAlertMultipleResourceMultipleMetricCriteriaArgs) ToMetricAlertMult
 	return pulumi.ToOutputWithContext(ctx, i).(MetricAlertMultipleResourceMultipleMetricCriteriaOutput)
 }
 
-// Specifies the metric alert criteria for multiple resource that has multiple metric criteria.
 type MetricAlertMultipleResourceMultipleMetricCriteriaOutput struct{ *pulumi.OutputState }
 
 func (MetricAlertMultipleResourceMultipleMetricCriteriaOutput) ElementType() reflect.Type {
@@ -2205,24 +1911,17 @@ func (o MetricAlertMultipleResourceMultipleMetricCriteriaOutput) ToMetricAlertMu
 	return o
 }
 
-// the list of multiple metric criteria for this 'all of' operation.
 func (o MetricAlertMultipleResourceMultipleMetricCriteriaOutput) AllOf() pulumi.ArrayOutput {
 	return o.ApplyT(func(v MetricAlertMultipleResourceMultipleMetricCriteria) []interface{} { return v.AllOf }).(pulumi.ArrayOutput)
 }
 
-// specifies the type of the alert criteria.
-// Expected value is 'Microsoft.Azure.Monitor.MultipleResourceMultipleMetricCriteria'.
 func (o MetricAlertMultipleResourceMultipleMetricCriteriaOutput) OdataType() pulumi.StringOutput {
 	return o.ApplyT(func(v MetricAlertMultipleResourceMultipleMetricCriteria) string { return v.OdataType }).(pulumi.StringOutput)
 }
 
-// Specifies the metric alert criteria for multiple resource that has multiple metric criteria.
 type MetricAlertMultipleResourceMultipleMetricCriteriaResponse struct {
-	// the list of multiple metric criteria for this 'all of' operation.
-	AllOf []interface{} `pulumi:"allOf"`
-	// specifies the type of the alert criteria.
-	// Expected value is 'Microsoft.Azure.Monitor.MultipleResourceMultipleMetricCriteria'.
-	OdataType string `pulumi:"odataType"`
+	AllOf     []interface{} `pulumi:"allOf"`
+	OdataType string        `pulumi:"odataType"`
 }
 
 // MetricAlertMultipleResourceMultipleMetricCriteriaResponseInput is an input type that accepts MetricAlertMultipleResourceMultipleMetricCriteriaResponseArgs and MetricAlertMultipleResourceMultipleMetricCriteriaResponseOutput values.
@@ -2236,12 +1935,8 @@ type MetricAlertMultipleResourceMultipleMetricCriteriaResponseInput interface {
 	ToMetricAlertMultipleResourceMultipleMetricCriteriaResponseOutputWithContext(context.Context) MetricAlertMultipleResourceMultipleMetricCriteriaResponseOutput
 }
 
-// Specifies the metric alert criteria for multiple resource that has multiple metric criteria.
 type MetricAlertMultipleResourceMultipleMetricCriteriaResponseArgs struct {
-	// the list of multiple metric criteria for this 'all of' operation.
-	AllOf pulumi.ArrayInput `pulumi:"allOf"`
-	// specifies the type of the alert criteria.
-	// Expected value is 'Microsoft.Azure.Monitor.MultipleResourceMultipleMetricCriteria'.
+	AllOf     pulumi.ArrayInput  `pulumi:"allOf"`
 	OdataType pulumi.StringInput `pulumi:"odataType"`
 }
 
@@ -2257,7 +1952,6 @@ func (i MetricAlertMultipleResourceMultipleMetricCriteriaResponseArgs) ToMetricA
 	return pulumi.ToOutputWithContext(ctx, i).(MetricAlertMultipleResourceMultipleMetricCriteriaResponseOutput)
 }
 
-// Specifies the metric alert criteria for multiple resource that has multiple metric criteria.
 type MetricAlertMultipleResourceMultipleMetricCriteriaResponseOutput struct{ *pulumi.OutputState }
 
 func (MetricAlertMultipleResourceMultipleMetricCriteriaResponseOutput) ElementType() reflect.Type {
@@ -2272,24 +1966,17 @@ func (o MetricAlertMultipleResourceMultipleMetricCriteriaResponseOutput) ToMetri
 	return o
 }
 
-// the list of multiple metric criteria for this 'all of' operation.
 func (o MetricAlertMultipleResourceMultipleMetricCriteriaResponseOutput) AllOf() pulumi.ArrayOutput {
 	return o.ApplyT(func(v MetricAlertMultipleResourceMultipleMetricCriteriaResponse) []interface{} { return v.AllOf }).(pulumi.ArrayOutput)
 }
 
-// specifies the type of the alert criteria.
-// Expected value is 'Microsoft.Azure.Monitor.MultipleResourceMultipleMetricCriteria'.
 func (o MetricAlertMultipleResourceMultipleMetricCriteriaResponseOutput) OdataType() pulumi.StringOutput {
 	return o.ApplyT(func(v MetricAlertMultipleResourceMultipleMetricCriteriaResponse) string { return v.OdataType }).(pulumi.StringOutput)
 }
 
-// Specifies the metric alert criteria for a single resource that has multiple metric criteria.
 type MetricAlertSingleResourceMultipleMetricCriteria struct {
-	// The list of metric criteria for this 'all of' operation.
-	AllOf []MetricCriteria `pulumi:"allOf"`
-	// specifies the type of the alert criteria.
-	// Expected value is 'Microsoft.Azure.Monitor.SingleResourceMultipleMetricCriteria'.
-	OdataType string `pulumi:"odataType"`
+	AllOf     []MetricCriteria `pulumi:"allOf"`
+	OdataType string           `pulumi:"odataType"`
 }
 
 // MetricAlertSingleResourceMultipleMetricCriteriaInput is an input type that accepts MetricAlertSingleResourceMultipleMetricCriteriaArgs and MetricAlertSingleResourceMultipleMetricCriteriaOutput values.
@@ -2303,13 +1990,9 @@ type MetricAlertSingleResourceMultipleMetricCriteriaInput interface {
 	ToMetricAlertSingleResourceMultipleMetricCriteriaOutputWithContext(context.Context) MetricAlertSingleResourceMultipleMetricCriteriaOutput
 }
 
-// Specifies the metric alert criteria for a single resource that has multiple metric criteria.
 type MetricAlertSingleResourceMultipleMetricCriteriaArgs struct {
-	// The list of metric criteria for this 'all of' operation.
-	AllOf MetricCriteriaArrayInput `pulumi:"allOf"`
-	// specifies the type of the alert criteria.
-	// Expected value is 'Microsoft.Azure.Monitor.SingleResourceMultipleMetricCriteria'.
-	OdataType pulumi.StringInput `pulumi:"odataType"`
+	AllOf     MetricCriteriaArrayInput `pulumi:"allOf"`
+	OdataType pulumi.StringInput       `pulumi:"odataType"`
 }
 
 func (MetricAlertSingleResourceMultipleMetricCriteriaArgs) ElementType() reflect.Type {
@@ -2324,7 +2007,6 @@ func (i MetricAlertSingleResourceMultipleMetricCriteriaArgs) ToMetricAlertSingle
 	return pulumi.ToOutputWithContext(ctx, i).(MetricAlertSingleResourceMultipleMetricCriteriaOutput)
 }
 
-// Specifies the metric alert criteria for a single resource that has multiple metric criteria.
 type MetricAlertSingleResourceMultipleMetricCriteriaOutput struct{ *pulumi.OutputState }
 
 func (MetricAlertSingleResourceMultipleMetricCriteriaOutput) ElementType() reflect.Type {
@@ -2339,24 +2021,17 @@ func (o MetricAlertSingleResourceMultipleMetricCriteriaOutput) ToMetricAlertSing
 	return o
 }
 
-// The list of metric criteria for this 'all of' operation.
 func (o MetricAlertSingleResourceMultipleMetricCriteriaOutput) AllOf() MetricCriteriaArrayOutput {
 	return o.ApplyT(func(v MetricAlertSingleResourceMultipleMetricCriteria) []MetricCriteria { return v.AllOf }).(MetricCriteriaArrayOutput)
 }
 
-// specifies the type of the alert criteria.
-// Expected value is 'Microsoft.Azure.Monitor.SingleResourceMultipleMetricCriteria'.
 func (o MetricAlertSingleResourceMultipleMetricCriteriaOutput) OdataType() pulumi.StringOutput {
 	return o.ApplyT(func(v MetricAlertSingleResourceMultipleMetricCriteria) string { return v.OdataType }).(pulumi.StringOutput)
 }
 
-// Specifies the metric alert criteria for a single resource that has multiple metric criteria.
 type MetricAlertSingleResourceMultipleMetricCriteriaResponse struct {
-	// The list of metric criteria for this 'all of' operation.
-	AllOf []MetricCriteriaResponse `pulumi:"allOf"`
-	// specifies the type of the alert criteria.
-	// Expected value is 'Microsoft.Azure.Monitor.SingleResourceMultipleMetricCriteria'.
-	OdataType string `pulumi:"odataType"`
+	AllOf     []MetricCriteriaResponse `pulumi:"allOf"`
+	OdataType string                   `pulumi:"odataType"`
 }
 
 // MetricAlertSingleResourceMultipleMetricCriteriaResponseInput is an input type that accepts MetricAlertSingleResourceMultipleMetricCriteriaResponseArgs and MetricAlertSingleResourceMultipleMetricCriteriaResponseOutput values.
@@ -2370,13 +2045,9 @@ type MetricAlertSingleResourceMultipleMetricCriteriaResponseInput interface {
 	ToMetricAlertSingleResourceMultipleMetricCriteriaResponseOutputWithContext(context.Context) MetricAlertSingleResourceMultipleMetricCriteriaResponseOutput
 }
 
-// Specifies the metric alert criteria for a single resource that has multiple metric criteria.
 type MetricAlertSingleResourceMultipleMetricCriteriaResponseArgs struct {
-	// The list of metric criteria for this 'all of' operation.
-	AllOf MetricCriteriaResponseArrayInput `pulumi:"allOf"`
-	// specifies the type of the alert criteria.
-	// Expected value is 'Microsoft.Azure.Monitor.SingleResourceMultipleMetricCriteria'.
-	OdataType pulumi.StringInput `pulumi:"odataType"`
+	AllOf     MetricCriteriaResponseArrayInput `pulumi:"allOf"`
+	OdataType pulumi.StringInput               `pulumi:"odataType"`
 }
 
 func (MetricAlertSingleResourceMultipleMetricCriteriaResponseArgs) ElementType() reflect.Type {
@@ -2391,7 +2062,6 @@ func (i MetricAlertSingleResourceMultipleMetricCriteriaResponseArgs) ToMetricAle
 	return pulumi.ToOutputWithContext(ctx, i).(MetricAlertSingleResourceMultipleMetricCriteriaResponseOutput)
 }
 
-// Specifies the metric alert criteria for a single resource that has multiple metric criteria.
 type MetricAlertSingleResourceMultipleMetricCriteriaResponseOutput struct{ *pulumi.OutputState }
 
 func (MetricAlertSingleResourceMultipleMetricCriteriaResponseOutput) ElementType() reflect.Type {
@@ -2406,40 +2076,26 @@ func (o MetricAlertSingleResourceMultipleMetricCriteriaResponseOutput) ToMetricA
 	return o
 }
 
-// The list of metric criteria for this 'all of' operation.
 func (o MetricAlertSingleResourceMultipleMetricCriteriaResponseOutput) AllOf() MetricCriteriaResponseArrayOutput {
 	return o.ApplyT(func(v MetricAlertSingleResourceMultipleMetricCriteriaResponse) []MetricCriteriaResponse {
 		return v.AllOf
 	}).(MetricCriteriaResponseArrayOutput)
 }
 
-// specifies the type of the alert criteria.
-// Expected value is 'Microsoft.Azure.Monitor.SingleResourceMultipleMetricCriteria'.
 func (o MetricAlertSingleResourceMultipleMetricCriteriaResponseOutput) OdataType() pulumi.StringOutput {
 	return o.ApplyT(func(v MetricAlertSingleResourceMultipleMetricCriteriaResponse) string { return v.OdataType }).(pulumi.StringOutput)
 }
 
-// Criterion to filter metrics.
 type MetricCriteria struct {
-	// Specifies the type of threshold criteria
-	// Expected value is 'StaticThresholdCriterion'.
-	CriterionType string `pulumi:"criterionType"`
-	// List of dimension conditions.
-	Dimensions []MetricDimension `pulumi:"dimensions"`
-	// Name of the metric.
-	MetricName string `pulumi:"metricName"`
-	// Namespace of the metric.
-	MetricNamespace *string `pulumi:"metricNamespace"`
-	// Name of the criteria.
-	Name string `pulumi:"name"`
-	// the criteria operator.
-	Operator string `pulumi:"operator"`
-	// Allows creating an alert rule on a custom metric that isn't yet emitted, by causing the metric validation to be skipped.
-	SkipMetricValidation *bool `pulumi:"skipMetricValidation"`
-	// the criteria threshold value that activates the alert.
-	Threshold float64 `pulumi:"threshold"`
-	// the criteria time aggregation types.
-	TimeAggregation string `pulumi:"timeAggregation"`
+	CriterionType        string            `pulumi:"criterionType"`
+	Dimensions           []MetricDimension `pulumi:"dimensions"`
+	MetricName           string            `pulumi:"metricName"`
+	MetricNamespace      *string           `pulumi:"metricNamespace"`
+	Name                 string            `pulumi:"name"`
+	Operator             string            `pulumi:"operator"`
+	SkipMetricValidation *bool             `pulumi:"skipMetricValidation"`
+	Threshold            float64           `pulumi:"threshold"`
+	TimeAggregation      string            `pulumi:"timeAggregation"`
 }
 
 // MetricCriteriaInput is an input type that accepts MetricCriteriaArgs and MetricCriteriaOutput values.
@@ -2453,27 +2109,16 @@ type MetricCriteriaInput interface {
 	ToMetricCriteriaOutputWithContext(context.Context) MetricCriteriaOutput
 }
 
-// Criterion to filter metrics.
 type MetricCriteriaArgs struct {
-	// Specifies the type of threshold criteria
-	// Expected value is 'StaticThresholdCriterion'.
-	CriterionType pulumi.StringInput `pulumi:"criterionType"`
-	// List of dimension conditions.
-	Dimensions MetricDimensionArrayInput `pulumi:"dimensions"`
-	// Name of the metric.
-	MetricName pulumi.StringInput `pulumi:"metricName"`
-	// Namespace of the metric.
-	MetricNamespace pulumi.StringPtrInput `pulumi:"metricNamespace"`
-	// Name of the criteria.
-	Name pulumi.StringInput `pulumi:"name"`
-	// the criteria operator.
-	Operator pulumi.StringInput `pulumi:"operator"`
-	// Allows creating an alert rule on a custom metric that isn't yet emitted, by causing the metric validation to be skipped.
-	SkipMetricValidation pulumi.BoolPtrInput `pulumi:"skipMetricValidation"`
-	// the criteria threshold value that activates the alert.
-	Threshold pulumi.Float64Input `pulumi:"threshold"`
-	// the criteria time aggregation types.
-	TimeAggregation pulumi.StringInput `pulumi:"timeAggregation"`
+	CriterionType        pulumi.StringInput        `pulumi:"criterionType"`
+	Dimensions           MetricDimensionArrayInput `pulumi:"dimensions"`
+	MetricName           pulumi.StringInput        `pulumi:"metricName"`
+	MetricNamespace      pulumi.StringPtrInput     `pulumi:"metricNamespace"`
+	Name                 pulumi.StringInput        `pulumi:"name"`
+	Operator             pulumi.StringInput        `pulumi:"operator"`
+	SkipMetricValidation pulumi.BoolPtrInput       `pulumi:"skipMetricValidation"`
+	Threshold            pulumi.Float64Input       `pulumi:"threshold"`
+	TimeAggregation      pulumi.StringInput        `pulumi:"timeAggregation"`
 }
 
 func (MetricCriteriaArgs) ElementType() reflect.Type {
@@ -2513,7 +2158,6 @@ func (i MetricCriteriaArray) ToMetricCriteriaArrayOutputWithContext(ctx context.
 	return pulumi.ToOutputWithContext(ctx, i).(MetricCriteriaArrayOutput)
 }
 
-// Criterion to filter metrics.
 type MetricCriteriaOutput struct{ *pulumi.OutputState }
 
 func (MetricCriteriaOutput) ElementType() reflect.Type {
@@ -2528,48 +2172,38 @@ func (o MetricCriteriaOutput) ToMetricCriteriaOutputWithContext(ctx context.Cont
 	return o
 }
 
-// Specifies the type of threshold criteria
-// Expected value is 'StaticThresholdCriterion'.
 func (o MetricCriteriaOutput) CriterionType() pulumi.StringOutput {
 	return o.ApplyT(func(v MetricCriteria) string { return v.CriterionType }).(pulumi.StringOutput)
 }
 
-// List of dimension conditions.
 func (o MetricCriteriaOutput) Dimensions() MetricDimensionArrayOutput {
 	return o.ApplyT(func(v MetricCriteria) []MetricDimension { return v.Dimensions }).(MetricDimensionArrayOutput)
 }
 
-// Name of the metric.
 func (o MetricCriteriaOutput) MetricName() pulumi.StringOutput {
 	return o.ApplyT(func(v MetricCriteria) string { return v.MetricName }).(pulumi.StringOutput)
 }
 
-// Namespace of the metric.
 func (o MetricCriteriaOutput) MetricNamespace() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v MetricCriteria) *string { return v.MetricNamespace }).(pulumi.StringPtrOutput)
 }
 
-// Name of the criteria.
 func (o MetricCriteriaOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v MetricCriteria) string { return v.Name }).(pulumi.StringOutput)
 }
 
-// the criteria operator.
 func (o MetricCriteriaOutput) Operator() pulumi.StringOutput {
 	return o.ApplyT(func(v MetricCriteria) string { return v.Operator }).(pulumi.StringOutput)
 }
 
-// Allows creating an alert rule on a custom metric that isn't yet emitted, by causing the metric validation to be skipped.
 func (o MetricCriteriaOutput) SkipMetricValidation() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v MetricCriteria) *bool { return v.SkipMetricValidation }).(pulumi.BoolPtrOutput)
 }
 
-// the criteria threshold value that activates the alert.
 func (o MetricCriteriaOutput) Threshold() pulumi.Float64Output {
 	return o.ApplyT(func(v MetricCriteria) float64 { return v.Threshold }).(pulumi.Float64Output)
 }
 
-// the criteria time aggregation types.
 func (o MetricCriteriaOutput) TimeAggregation() pulumi.StringOutput {
 	return o.ApplyT(func(v MetricCriteria) string { return v.TimeAggregation }).(pulumi.StringOutput)
 }
@@ -2594,27 +2228,16 @@ func (o MetricCriteriaArrayOutput) Index(i pulumi.IntInput) MetricCriteriaOutput
 	}).(MetricCriteriaOutput)
 }
 
-// Criterion to filter metrics.
 type MetricCriteriaResponse struct {
-	// Specifies the type of threshold criteria
-	// Expected value is 'StaticThresholdCriterion'.
-	CriterionType string `pulumi:"criterionType"`
-	// List of dimension conditions.
-	Dimensions []MetricDimensionResponse `pulumi:"dimensions"`
-	// Name of the metric.
-	MetricName string `pulumi:"metricName"`
-	// Namespace of the metric.
-	MetricNamespace *string `pulumi:"metricNamespace"`
-	// Name of the criteria.
-	Name string `pulumi:"name"`
-	// the criteria operator.
-	Operator string `pulumi:"operator"`
-	// Allows creating an alert rule on a custom metric that isn't yet emitted, by causing the metric validation to be skipped.
-	SkipMetricValidation *bool `pulumi:"skipMetricValidation"`
-	// the criteria threshold value that activates the alert.
-	Threshold float64 `pulumi:"threshold"`
-	// the criteria time aggregation types.
-	TimeAggregation string `pulumi:"timeAggregation"`
+	CriterionType        string                    `pulumi:"criterionType"`
+	Dimensions           []MetricDimensionResponse `pulumi:"dimensions"`
+	MetricName           string                    `pulumi:"metricName"`
+	MetricNamespace      *string                   `pulumi:"metricNamespace"`
+	Name                 string                    `pulumi:"name"`
+	Operator             string                    `pulumi:"operator"`
+	SkipMetricValidation *bool                     `pulumi:"skipMetricValidation"`
+	Threshold            float64                   `pulumi:"threshold"`
+	TimeAggregation      string                    `pulumi:"timeAggregation"`
 }
 
 // MetricCriteriaResponseInput is an input type that accepts MetricCriteriaResponseArgs and MetricCriteriaResponseOutput values.
@@ -2628,27 +2251,16 @@ type MetricCriteriaResponseInput interface {
 	ToMetricCriteriaResponseOutputWithContext(context.Context) MetricCriteriaResponseOutput
 }
 
-// Criterion to filter metrics.
 type MetricCriteriaResponseArgs struct {
-	// Specifies the type of threshold criteria
-	// Expected value is 'StaticThresholdCriterion'.
-	CriterionType pulumi.StringInput `pulumi:"criterionType"`
-	// List of dimension conditions.
-	Dimensions MetricDimensionResponseArrayInput `pulumi:"dimensions"`
-	// Name of the metric.
-	MetricName pulumi.StringInput `pulumi:"metricName"`
-	// Namespace of the metric.
-	MetricNamespace pulumi.StringPtrInput `pulumi:"metricNamespace"`
-	// Name of the criteria.
-	Name pulumi.StringInput `pulumi:"name"`
-	// the criteria operator.
-	Operator pulumi.StringInput `pulumi:"operator"`
-	// Allows creating an alert rule on a custom metric that isn't yet emitted, by causing the metric validation to be skipped.
-	SkipMetricValidation pulumi.BoolPtrInput `pulumi:"skipMetricValidation"`
-	// the criteria threshold value that activates the alert.
-	Threshold pulumi.Float64Input `pulumi:"threshold"`
-	// the criteria time aggregation types.
-	TimeAggregation pulumi.StringInput `pulumi:"timeAggregation"`
+	CriterionType        pulumi.StringInput                `pulumi:"criterionType"`
+	Dimensions           MetricDimensionResponseArrayInput `pulumi:"dimensions"`
+	MetricName           pulumi.StringInput                `pulumi:"metricName"`
+	MetricNamespace      pulumi.StringPtrInput             `pulumi:"metricNamespace"`
+	Name                 pulumi.StringInput                `pulumi:"name"`
+	Operator             pulumi.StringInput                `pulumi:"operator"`
+	SkipMetricValidation pulumi.BoolPtrInput               `pulumi:"skipMetricValidation"`
+	Threshold            pulumi.Float64Input               `pulumi:"threshold"`
+	TimeAggregation      pulumi.StringInput                `pulumi:"timeAggregation"`
 }
 
 func (MetricCriteriaResponseArgs) ElementType() reflect.Type {
@@ -2688,7 +2300,6 @@ func (i MetricCriteriaResponseArray) ToMetricCriteriaResponseArrayOutputWithCont
 	return pulumi.ToOutputWithContext(ctx, i).(MetricCriteriaResponseArrayOutput)
 }
 
-// Criterion to filter metrics.
 type MetricCriteriaResponseOutput struct{ *pulumi.OutputState }
 
 func (MetricCriteriaResponseOutput) ElementType() reflect.Type {
@@ -2703,48 +2314,38 @@ func (o MetricCriteriaResponseOutput) ToMetricCriteriaResponseOutputWithContext(
 	return o
 }
 
-// Specifies the type of threshold criteria
-// Expected value is 'StaticThresholdCriterion'.
 func (o MetricCriteriaResponseOutput) CriterionType() pulumi.StringOutput {
 	return o.ApplyT(func(v MetricCriteriaResponse) string { return v.CriterionType }).(pulumi.StringOutput)
 }
 
-// List of dimension conditions.
 func (o MetricCriteriaResponseOutput) Dimensions() MetricDimensionResponseArrayOutput {
 	return o.ApplyT(func(v MetricCriteriaResponse) []MetricDimensionResponse { return v.Dimensions }).(MetricDimensionResponseArrayOutput)
 }
 
-// Name of the metric.
 func (o MetricCriteriaResponseOutput) MetricName() pulumi.StringOutput {
 	return o.ApplyT(func(v MetricCriteriaResponse) string { return v.MetricName }).(pulumi.StringOutput)
 }
 
-// Namespace of the metric.
 func (o MetricCriteriaResponseOutput) MetricNamespace() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v MetricCriteriaResponse) *string { return v.MetricNamespace }).(pulumi.StringPtrOutput)
 }
 
-// Name of the criteria.
 func (o MetricCriteriaResponseOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v MetricCriteriaResponse) string { return v.Name }).(pulumi.StringOutput)
 }
 
-// the criteria operator.
 func (o MetricCriteriaResponseOutput) Operator() pulumi.StringOutput {
 	return o.ApplyT(func(v MetricCriteriaResponse) string { return v.Operator }).(pulumi.StringOutput)
 }
 
-// Allows creating an alert rule on a custom metric that isn't yet emitted, by causing the metric validation to be skipped.
 func (o MetricCriteriaResponseOutput) SkipMetricValidation() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v MetricCriteriaResponse) *bool { return v.SkipMetricValidation }).(pulumi.BoolPtrOutput)
 }
 
-// the criteria threshold value that activates the alert.
 func (o MetricCriteriaResponseOutput) Threshold() pulumi.Float64Output {
 	return o.ApplyT(func(v MetricCriteriaResponse) float64 { return v.Threshold }).(pulumi.Float64Output)
 }
 
-// the criteria time aggregation types.
 func (o MetricCriteriaResponseOutput) TimeAggregation() pulumi.StringOutput {
 	return o.ApplyT(func(v MetricCriteriaResponse) string { return v.TimeAggregation }).(pulumi.StringOutput)
 }
@@ -2769,14 +2370,10 @@ func (o MetricCriteriaResponseArrayOutput) Index(i pulumi.IntInput) MetricCriter
 	}).(MetricCriteriaResponseOutput)
 }
 
-// Specifies a metric dimension.
 type MetricDimension struct {
-	// Name of the dimension.
-	Name string `pulumi:"name"`
-	// the dimension operator. Only 'Include' and 'Exclude' are supported
-	Operator string `pulumi:"operator"`
-	// list of dimension values.
-	Values []string `pulumi:"values"`
+	Name     string   `pulumi:"name"`
+	Operator string   `pulumi:"operator"`
+	Values   []string `pulumi:"values"`
 }
 
 // MetricDimensionInput is an input type that accepts MetricDimensionArgs and MetricDimensionOutput values.
@@ -2790,14 +2387,10 @@ type MetricDimensionInput interface {
 	ToMetricDimensionOutputWithContext(context.Context) MetricDimensionOutput
 }
 
-// Specifies a metric dimension.
 type MetricDimensionArgs struct {
-	// Name of the dimension.
-	Name pulumi.StringInput `pulumi:"name"`
-	// the dimension operator. Only 'Include' and 'Exclude' are supported
-	Operator pulumi.StringInput `pulumi:"operator"`
-	// list of dimension values.
-	Values pulumi.StringArrayInput `pulumi:"values"`
+	Name     pulumi.StringInput      `pulumi:"name"`
+	Operator pulumi.StringInput      `pulumi:"operator"`
+	Values   pulumi.StringArrayInput `pulumi:"values"`
 }
 
 func (MetricDimensionArgs) ElementType() reflect.Type {
@@ -2837,7 +2430,6 @@ func (i MetricDimensionArray) ToMetricDimensionArrayOutputWithContext(ctx contex
 	return pulumi.ToOutputWithContext(ctx, i).(MetricDimensionArrayOutput)
 }
 
-// Specifies a metric dimension.
 type MetricDimensionOutput struct{ *pulumi.OutputState }
 
 func (MetricDimensionOutput) ElementType() reflect.Type {
@@ -2852,17 +2444,14 @@ func (o MetricDimensionOutput) ToMetricDimensionOutputWithContext(ctx context.Co
 	return o
 }
 
-// Name of the dimension.
 func (o MetricDimensionOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v MetricDimension) string { return v.Name }).(pulumi.StringOutput)
 }
 
-// the dimension operator. Only 'Include' and 'Exclude' are supported
 func (o MetricDimensionOutput) Operator() pulumi.StringOutput {
 	return o.ApplyT(func(v MetricDimension) string { return v.Operator }).(pulumi.StringOutput)
 }
 
-// list of dimension values.
 func (o MetricDimensionOutput) Values() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v MetricDimension) []string { return v.Values }).(pulumi.StringArrayOutput)
 }
@@ -2887,14 +2476,10 @@ func (o MetricDimensionArrayOutput) Index(i pulumi.IntInput) MetricDimensionOutp
 	}).(MetricDimensionOutput)
 }
 
-// Specifies a metric dimension.
 type MetricDimensionResponse struct {
-	// Name of the dimension.
-	Name string `pulumi:"name"`
-	// the dimension operator. Only 'Include' and 'Exclude' are supported
-	Operator string `pulumi:"operator"`
-	// list of dimension values.
-	Values []string `pulumi:"values"`
+	Name     string   `pulumi:"name"`
+	Operator string   `pulumi:"operator"`
+	Values   []string `pulumi:"values"`
 }
 
 // MetricDimensionResponseInput is an input type that accepts MetricDimensionResponseArgs and MetricDimensionResponseOutput values.
@@ -2908,14 +2493,10 @@ type MetricDimensionResponseInput interface {
 	ToMetricDimensionResponseOutputWithContext(context.Context) MetricDimensionResponseOutput
 }
 
-// Specifies a metric dimension.
 type MetricDimensionResponseArgs struct {
-	// Name of the dimension.
-	Name pulumi.StringInput `pulumi:"name"`
-	// the dimension operator. Only 'Include' and 'Exclude' are supported
-	Operator pulumi.StringInput `pulumi:"operator"`
-	// list of dimension values.
-	Values pulumi.StringArrayInput `pulumi:"values"`
+	Name     pulumi.StringInput      `pulumi:"name"`
+	Operator pulumi.StringInput      `pulumi:"operator"`
+	Values   pulumi.StringArrayInput `pulumi:"values"`
 }
 
 func (MetricDimensionResponseArgs) ElementType() reflect.Type {
@@ -2955,7 +2536,6 @@ func (i MetricDimensionResponseArray) ToMetricDimensionResponseArrayOutputWithCo
 	return pulumi.ToOutputWithContext(ctx, i).(MetricDimensionResponseArrayOutput)
 }
 
-// Specifies a metric dimension.
 type MetricDimensionResponseOutput struct{ *pulumi.OutputState }
 
 func (MetricDimensionResponseOutput) ElementType() reflect.Type {
@@ -2970,17 +2550,14 @@ func (o MetricDimensionResponseOutput) ToMetricDimensionResponseOutputWithContex
 	return o
 }
 
-// Name of the dimension.
 func (o MetricDimensionResponseOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v MetricDimensionResponse) string { return v.Name }).(pulumi.StringOutput)
 }
 
-// the dimension operator. Only 'Include' and 'Exclude' are supported
 func (o MetricDimensionResponseOutput) Operator() pulumi.StringOutput {
 	return o.ApplyT(func(v MetricDimensionResponse) string { return v.Operator }).(pulumi.StringOutput)
 }
 
-// list of dimension values.
 func (o MetricDimensionResponseOutput) Values() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v MetricDimensionResponse) []string { return v.Values }).(pulumi.StringArrayOutput)
 }
@@ -3005,13 +2582,9 @@ func (o MetricDimensionResponseArrayOutput) Index(i pulumi.IntInput) MetricDimen
 	}).(MetricDimensionResponseOutput)
 }
 
-// An SMS receiver.
 type SmsReceiver struct {
-	// The country code of the SMS receiver.
 	CountryCode string `pulumi:"countryCode"`
-	// The name of the SMS receiver. Names must be unique across all receivers within an action group.
-	Name string `pulumi:"name"`
-	// The phone number of the SMS receiver.
+	Name        string `pulumi:"name"`
 	PhoneNumber string `pulumi:"phoneNumber"`
 }
 
@@ -3026,13 +2599,9 @@ type SmsReceiverInput interface {
 	ToSmsReceiverOutputWithContext(context.Context) SmsReceiverOutput
 }
 
-// An SMS receiver.
 type SmsReceiverArgs struct {
-	// The country code of the SMS receiver.
 	CountryCode pulumi.StringInput `pulumi:"countryCode"`
-	// The name of the SMS receiver. Names must be unique across all receivers within an action group.
-	Name pulumi.StringInput `pulumi:"name"`
-	// The phone number of the SMS receiver.
+	Name        pulumi.StringInput `pulumi:"name"`
 	PhoneNumber pulumi.StringInput `pulumi:"phoneNumber"`
 }
 
@@ -3073,7 +2642,6 @@ func (i SmsReceiverArray) ToSmsReceiverArrayOutputWithContext(ctx context.Contex
 	return pulumi.ToOutputWithContext(ctx, i).(SmsReceiverArrayOutput)
 }
 
-// An SMS receiver.
 type SmsReceiverOutput struct{ *pulumi.OutputState }
 
 func (SmsReceiverOutput) ElementType() reflect.Type {
@@ -3088,17 +2656,14 @@ func (o SmsReceiverOutput) ToSmsReceiverOutputWithContext(ctx context.Context) S
 	return o
 }
 
-// The country code of the SMS receiver.
 func (o SmsReceiverOutput) CountryCode() pulumi.StringOutput {
 	return o.ApplyT(func(v SmsReceiver) string { return v.CountryCode }).(pulumi.StringOutput)
 }
 
-// The name of the SMS receiver. Names must be unique across all receivers within an action group.
 func (o SmsReceiverOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v SmsReceiver) string { return v.Name }).(pulumi.StringOutput)
 }
 
-// The phone number of the SMS receiver.
 func (o SmsReceiverOutput) PhoneNumber() pulumi.StringOutput {
 	return o.ApplyT(func(v SmsReceiver) string { return v.PhoneNumber }).(pulumi.StringOutput)
 }
@@ -3123,16 +2688,11 @@ func (o SmsReceiverArrayOutput) Index(i pulumi.IntInput) SmsReceiverOutput {
 	}).(SmsReceiverOutput)
 }
 
-// An SMS receiver.
 type SmsReceiverResponse struct {
-	// The country code of the SMS receiver.
 	CountryCode string `pulumi:"countryCode"`
-	// The name of the SMS receiver. Names must be unique across all receivers within an action group.
-	Name string `pulumi:"name"`
-	// The phone number of the SMS receiver.
+	Name        string `pulumi:"name"`
 	PhoneNumber string `pulumi:"phoneNumber"`
-	// The status of the receiver.
-	Status string `pulumi:"status"`
+	Status      string `pulumi:"status"`
 }
 
 // SmsReceiverResponseInput is an input type that accepts SmsReceiverResponseArgs and SmsReceiverResponseOutput values.
@@ -3146,16 +2706,11 @@ type SmsReceiverResponseInput interface {
 	ToSmsReceiverResponseOutputWithContext(context.Context) SmsReceiverResponseOutput
 }
 
-// An SMS receiver.
 type SmsReceiverResponseArgs struct {
-	// The country code of the SMS receiver.
 	CountryCode pulumi.StringInput `pulumi:"countryCode"`
-	// The name of the SMS receiver. Names must be unique across all receivers within an action group.
-	Name pulumi.StringInput `pulumi:"name"`
-	// The phone number of the SMS receiver.
+	Name        pulumi.StringInput `pulumi:"name"`
 	PhoneNumber pulumi.StringInput `pulumi:"phoneNumber"`
-	// The status of the receiver.
-	Status pulumi.StringInput `pulumi:"status"`
+	Status      pulumi.StringInput `pulumi:"status"`
 }
 
 func (SmsReceiverResponseArgs) ElementType() reflect.Type {
@@ -3195,7 +2750,6 @@ func (i SmsReceiverResponseArray) ToSmsReceiverResponseArrayOutputWithContext(ct
 	return pulumi.ToOutputWithContext(ctx, i).(SmsReceiverResponseArrayOutput)
 }
 
-// An SMS receiver.
 type SmsReceiverResponseOutput struct{ *pulumi.OutputState }
 
 func (SmsReceiverResponseOutput) ElementType() reflect.Type {
@@ -3210,22 +2764,18 @@ func (o SmsReceiverResponseOutput) ToSmsReceiverResponseOutputWithContext(ctx co
 	return o
 }
 
-// The country code of the SMS receiver.
 func (o SmsReceiverResponseOutput) CountryCode() pulumi.StringOutput {
 	return o.ApplyT(func(v SmsReceiverResponse) string { return v.CountryCode }).(pulumi.StringOutput)
 }
 
-// The name of the SMS receiver. Names must be unique across all receivers within an action group.
 func (o SmsReceiverResponseOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v SmsReceiverResponse) string { return v.Name }).(pulumi.StringOutput)
 }
 
-// The phone number of the SMS receiver.
 func (o SmsReceiverResponseOutput) PhoneNumber() pulumi.StringOutput {
 	return o.ApplyT(func(v SmsReceiverResponse) string { return v.PhoneNumber }).(pulumi.StringOutput)
 }
 
-// The status of the receiver.
 func (o SmsReceiverResponseOutput) Status() pulumi.StringOutput {
 	return o.ApplyT(func(v SmsReceiverResponse) string { return v.Status }).(pulumi.StringOutput)
 }
@@ -3250,13 +2800,9 @@ func (o SmsReceiverResponseArrayOutput) Index(i pulumi.IntInput) SmsReceiverResp
 	}).(SmsReceiverResponseOutput)
 }
 
-// A voice receiver.
 type VoiceReceiver struct {
-	// The country code of the voice receiver.
 	CountryCode string `pulumi:"countryCode"`
-	// The name of the voice receiver. Names must be unique across all receivers within an action group.
-	Name string `pulumi:"name"`
-	// The phone number of the voice receiver.
+	Name        string `pulumi:"name"`
 	PhoneNumber string `pulumi:"phoneNumber"`
 }
 
@@ -3271,13 +2817,9 @@ type VoiceReceiverInput interface {
 	ToVoiceReceiverOutputWithContext(context.Context) VoiceReceiverOutput
 }
 
-// A voice receiver.
 type VoiceReceiverArgs struct {
-	// The country code of the voice receiver.
 	CountryCode pulumi.StringInput `pulumi:"countryCode"`
-	// The name of the voice receiver. Names must be unique across all receivers within an action group.
-	Name pulumi.StringInput `pulumi:"name"`
-	// The phone number of the voice receiver.
+	Name        pulumi.StringInput `pulumi:"name"`
 	PhoneNumber pulumi.StringInput `pulumi:"phoneNumber"`
 }
 
@@ -3318,7 +2860,6 @@ func (i VoiceReceiverArray) ToVoiceReceiverArrayOutputWithContext(ctx context.Co
 	return pulumi.ToOutputWithContext(ctx, i).(VoiceReceiverArrayOutput)
 }
 
-// A voice receiver.
 type VoiceReceiverOutput struct{ *pulumi.OutputState }
 
 func (VoiceReceiverOutput) ElementType() reflect.Type {
@@ -3333,17 +2874,14 @@ func (o VoiceReceiverOutput) ToVoiceReceiverOutputWithContext(ctx context.Contex
 	return o
 }
 
-// The country code of the voice receiver.
 func (o VoiceReceiverOutput) CountryCode() pulumi.StringOutput {
 	return o.ApplyT(func(v VoiceReceiver) string { return v.CountryCode }).(pulumi.StringOutput)
 }
 
-// The name of the voice receiver. Names must be unique across all receivers within an action group.
 func (o VoiceReceiverOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v VoiceReceiver) string { return v.Name }).(pulumi.StringOutput)
 }
 
-// The phone number of the voice receiver.
 func (o VoiceReceiverOutput) PhoneNumber() pulumi.StringOutput {
 	return o.ApplyT(func(v VoiceReceiver) string { return v.PhoneNumber }).(pulumi.StringOutput)
 }
@@ -3368,13 +2906,9 @@ func (o VoiceReceiverArrayOutput) Index(i pulumi.IntInput) VoiceReceiverOutput {
 	}).(VoiceReceiverOutput)
 }
 
-// A voice receiver.
 type VoiceReceiverResponse struct {
-	// The country code of the voice receiver.
 	CountryCode string `pulumi:"countryCode"`
-	// The name of the voice receiver. Names must be unique across all receivers within an action group.
-	Name string `pulumi:"name"`
-	// The phone number of the voice receiver.
+	Name        string `pulumi:"name"`
 	PhoneNumber string `pulumi:"phoneNumber"`
 }
 
@@ -3389,13 +2923,9 @@ type VoiceReceiverResponseInput interface {
 	ToVoiceReceiverResponseOutputWithContext(context.Context) VoiceReceiverResponseOutput
 }
 
-// A voice receiver.
 type VoiceReceiverResponseArgs struct {
-	// The country code of the voice receiver.
 	CountryCode pulumi.StringInput `pulumi:"countryCode"`
-	// The name of the voice receiver. Names must be unique across all receivers within an action group.
-	Name pulumi.StringInput `pulumi:"name"`
-	// The phone number of the voice receiver.
+	Name        pulumi.StringInput `pulumi:"name"`
 	PhoneNumber pulumi.StringInput `pulumi:"phoneNumber"`
 }
 
@@ -3436,7 +2966,6 @@ func (i VoiceReceiverResponseArray) ToVoiceReceiverResponseArrayOutputWithContex
 	return pulumi.ToOutputWithContext(ctx, i).(VoiceReceiverResponseArrayOutput)
 }
 
-// A voice receiver.
 type VoiceReceiverResponseOutput struct{ *pulumi.OutputState }
 
 func (VoiceReceiverResponseOutput) ElementType() reflect.Type {
@@ -3451,17 +2980,14 @@ func (o VoiceReceiverResponseOutput) ToVoiceReceiverResponseOutputWithContext(ct
 	return o
 }
 
-// The country code of the voice receiver.
 func (o VoiceReceiverResponseOutput) CountryCode() pulumi.StringOutput {
 	return o.ApplyT(func(v VoiceReceiverResponse) string { return v.CountryCode }).(pulumi.StringOutput)
 }
 
-// The name of the voice receiver. Names must be unique across all receivers within an action group.
 func (o VoiceReceiverResponseOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v VoiceReceiverResponse) string { return v.Name }).(pulumi.StringOutput)
 }
 
-// The phone number of the voice receiver.
 func (o VoiceReceiverResponseOutput) PhoneNumber() pulumi.StringOutput {
 	return o.ApplyT(func(v VoiceReceiverResponse) string { return v.PhoneNumber }).(pulumi.StringOutput)
 }
@@ -3486,11 +3012,8 @@ func (o VoiceReceiverResponseArrayOutput) Index(i pulumi.IntInput) VoiceReceiver
 	}).(VoiceReceiverResponseOutput)
 }
 
-// A webhook receiver.
 type WebhookReceiver struct {
-	// The name of the webhook receiver. Names must be unique across all receivers within an action group.
-	Name string `pulumi:"name"`
-	// The URI where webhooks should be sent.
+	Name       string `pulumi:"name"`
 	ServiceUri string `pulumi:"serviceUri"`
 }
 
@@ -3505,11 +3028,8 @@ type WebhookReceiverInput interface {
 	ToWebhookReceiverOutputWithContext(context.Context) WebhookReceiverOutput
 }
 
-// A webhook receiver.
 type WebhookReceiverArgs struct {
-	// The name of the webhook receiver. Names must be unique across all receivers within an action group.
-	Name pulumi.StringInput `pulumi:"name"`
-	// The URI where webhooks should be sent.
+	Name       pulumi.StringInput `pulumi:"name"`
 	ServiceUri pulumi.StringInput `pulumi:"serviceUri"`
 }
 
@@ -3550,7 +3070,6 @@ func (i WebhookReceiverArray) ToWebhookReceiverArrayOutputWithContext(ctx contex
 	return pulumi.ToOutputWithContext(ctx, i).(WebhookReceiverArrayOutput)
 }
 
-// A webhook receiver.
 type WebhookReceiverOutput struct{ *pulumi.OutputState }
 
 func (WebhookReceiverOutput) ElementType() reflect.Type {
@@ -3565,12 +3084,10 @@ func (o WebhookReceiverOutput) ToWebhookReceiverOutputWithContext(ctx context.Co
 	return o
 }
 
-// The name of the webhook receiver. Names must be unique across all receivers within an action group.
 func (o WebhookReceiverOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v WebhookReceiver) string { return v.Name }).(pulumi.StringOutput)
 }
 
-// The URI where webhooks should be sent.
 func (o WebhookReceiverOutput) ServiceUri() pulumi.StringOutput {
 	return o.ApplyT(func(v WebhookReceiver) string { return v.ServiceUri }).(pulumi.StringOutput)
 }
@@ -3595,11 +3112,8 @@ func (o WebhookReceiverArrayOutput) Index(i pulumi.IntInput) WebhookReceiverOutp
 	}).(WebhookReceiverOutput)
 }
 
-// A webhook receiver.
 type WebhookReceiverResponse struct {
-	// The name of the webhook receiver. Names must be unique across all receivers within an action group.
-	Name string `pulumi:"name"`
-	// The URI where webhooks should be sent.
+	Name       string `pulumi:"name"`
 	ServiceUri string `pulumi:"serviceUri"`
 }
 
@@ -3614,11 +3128,8 @@ type WebhookReceiverResponseInput interface {
 	ToWebhookReceiverResponseOutputWithContext(context.Context) WebhookReceiverResponseOutput
 }
 
-// A webhook receiver.
 type WebhookReceiverResponseArgs struct {
-	// The name of the webhook receiver. Names must be unique across all receivers within an action group.
-	Name pulumi.StringInput `pulumi:"name"`
-	// The URI where webhooks should be sent.
+	Name       pulumi.StringInput `pulumi:"name"`
 	ServiceUri pulumi.StringInput `pulumi:"serviceUri"`
 }
 
@@ -3659,7 +3170,6 @@ func (i WebhookReceiverResponseArray) ToWebhookReceiverResponseArrayOutputWithCo
 	return pulumi.ToOutputWithContext(ctx, i).(WebhookReceiverResponseArrayOutput)
 }
 
-// A webhook receiver.
 type WebhookReceiverResponseOutput struct{ *pulumi.OutputState }
 
 func (WebhookReceiverResponseOutput) ElementType() reflect.Type {
@@ -3674,12 +3184,10 @@ func (o WebhookReceiverResponseOutput) ToWebhookReceiverResponseOutputWithContex
 	return o
 }
 
-// The name of the webhook receiver. Names must be unique across all receivers within an action group.
 func (o WebhookReceiverResponseOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v WebhookReceiverResponse) string { return v.Name }).(pulumi.StringOutput)
 }
 
-// The URI where webhooks should be sent.
 func (o WebhookReceiverResponseOutput) ServiceUri() pulumi.StringOutput {
 	return o.ApplyT(func(v WebhookReceiverResponse) string { return v.ServiceUri }).(pulumi.StringOutput)
 }
@@ -3704,17 +3212,11 @@ func (o WebhookReceiverResponseArrayOutput) Index(i pulumi.IntInput) WebhookRece
 	}).(WebhookReceiverResponseOutput)
 }
 
-// Specifies the metric alert rule criteria for a web test resource.
 type WebtestLocationAvailabilityCriteria struct {
-	// The Application Insights resource Id.
-	ComponentId string `pulumi:"componentId"`
-	// The number of failed locations.
+	ComponentId         string  `pulumi:"componentId"`
 	FailedLocationCount float64 `pulumi:"failedLocationCount"`
-	// specifies the type of the alert criteria.
-	// Expected value is 'Microsoft.Azure.Monitor.WebtestLocationAvailabilityCriteria'.
-	OdataType string `pulumi:"odataType"`
-	// The Application Insights web test Id.
-	WebTestId string `pulumi:"webTestId"`
+	OdataType           string  `pulumi:"odataType"`
+	WebTestId           string  `pulumi:"webTestId"`
 }
 
 // WebtestLocationAvailabilityCriteriaInput is an input type that accepts WebtestLocationAvailabilityCriteriaArgs and WebtestLocationAvailabilityCriteriaOutput values.
@@ -3728,17 +3230,11 @@ type WebtestLocationAvailabilityCriteriaInput interface {
 	ToWebtestLocationAvailabilityCriteriaOutputWithContext(context.Context) WebtestLocationAvailabilityCriteriaOutput
 }
 
-// Specifies the metric alert rule criteria for a web test resource.
 type WebtestLocationAvailabilityCriteriaArgs struct {
-	// The Application Insights resource Id.
-	ComponentId pulumi.StringInput `pulumi:"componentId"`
-	// The number of failed locations.
+	ComponentId         pulumi.StringInput  `pulumi:"componentId"`
 	FailedLocationCount pulumi.Float64Input `pulumi:"failedLocationCount"`
-	// specifies the type of the alert criteria.
-	// Expected value is 'Microsoft.Azure.Monitor.WebtestLocationAvailabilityCriteria'.
-	OdataType pulumi.StringInput `pulumi:"odataType"`
-	// The Application Insights web test Id.
-	WebTestId pulumi.StringInput `pulumi:"webTestId"`
+	OdataType           pulumi.StringInput  `pulumi:"odataType"`
+	WebTestId           pulumi.StringInput  `pulumi:"webTestId"`
 }
 
 func (WebtestLocationAvailabilityCriteriaArgs) ElementType() reflect.Type {
@@ -3753,7 +3249,6 @@ func (i WebtestLocationAvailabilityCriteriaArgs) ToWebtestLocationAvailabilityCr
 	return pulumi.ToOutputWithContext(ctx, i).(WebtestLocationAvailabilityCriteriaOutput)
 }
 
-// Specifies the metric alert rule criteria for a web test resource.
 type WebtestLocationAvailabilityCriteriaOutput struct{ *pulumi.OutputState }
 
 func (WebtestLocationAvailabilityCriteriaOutput) ElementType() reflect.Type {
@@ -3768,38 +3263,27 @@ func (o WebtestLocationAvailabilityCriteriaOutput) ToWebtestLocationAvailability
 	return o
 }
 
-// The Application Insights resource Id.
 func (o WebtestLocationAvailabilityCriteriaOutput) ComponentId() pulumi.StringOutput {
 	return o.ApplyT(func(v WebtestLocationAvailabilityCriteria) string { return v.ComponentId }).(pulumi.StringOutput)
 }
 
-// The number of failed locations.
 func (o WebtestLocationAvailabilityCriteriaOutput) FailedLocationCount() pulumi.Float64Output {
 	return o.ApplyT(func(v WebtestLocationAvailabilityCriteria) float64 { return v.FailedLocationCount }).(pulumi.Float64Output)
 }
 
-// specifies the type of the alert criteria.
-// Expected value is 'Microsoft.Azure.Monitor.WebtestLocationAvailabilityCriteria'.
 func (o WebtestLocationAvailabilityCriteriaOutput) OdataType() pulumi.StringOutput {
 	return o.ApplyT(func(v WebtestLocationAvailabilityCriteria) string { return v.OdataType }).(pulumi.StringOutput)
 }
 
-// The Application Insights web test Id.
 func (o WebtestLocationAvailabilityCriteriaOutput) WebTestId() pulumi.StringOutput {
 	return o.ApplyT(func(v WebtestLocationAvailabilityCriteria) string { return v.WebTestId }).(pulumi.StringOutput)
 }
 
-// Specifies the metric alert rule criteria for a web test resource.
 type WebtestLocationAvailabilityCriteriaResponse struct {
-	// The Application Insights resource Id.
-	ComponentId string `pulumi:"componentId"`
-	// The number of failed locations.
+	ComponentId         string  `pulumi:"componentId"`
 	FailedLocationCount float64 `pulumi:"failedLocationCount"`
-	// specifies the type of the alert criteria.
-	// Expected value is 'Microsoft.Azure.Monitor.WebtestLocationAvailabilityCriteria'.
-	OdataType string `pulumi:"odataType"`
-	// The Application Insights web test Id.
-	WebTestId string `pulumi:"webTestId"`
+	OdataType           string  `pulumi:"odataType"`
+	WebTestId           string  `pulumi:"webTestId"`
 }
 
 // WebtestLocationAvailabilityCriteriaResponseInput is an input type that accepts WebtestLocationAvailabilityCriteriaResponseArgs and WebtestLocationAvailabilityCriteriaResponseOutput values.
@@ -3813,17 +3297,11 @@ type WebtestLocationAvailabilityCriteriaResponseInput interface {
 	ToWebtestLocationAvailabilityCriteriaResponseOutputWithContext(context.Context) WebtestLocationAvailabilityCriteriaResponseOutput
 }
 
-// Specifies the metric alert rule criteria for a web test resource.
 type WebtestLocationAvailabilityCriteriaResponseArgs struct {
-	// The Application Insights resource Id.
-	ComponentId pulumi.StringInput `pulumi:"componentId"`
-	// The number of failed locations.
+	ComponentId         pulumi.StringInput  `pulumi:"componentId"`
 	FailedLocationCount pulumi.Float64Input `pulumi:"failedLocationCount"`
-	// specifies the type of the alert criteria.
-	// Expected value is 'Microsoft.Azure.Monitor.WebtestLocationAvailabilityCriteria'.
-	OdataType pulumi.StringInput `pulumi:"odataType"`
-	// The Application Insights web test Id.
-	WebTestId pulumi.StringInput `pulumi:"webTestId"`
+	OdataType           pulumi.StringInput  `pulumi:"odataType"`
+	WebTestId           pulumi.StringInput  `pulumi:"webTestId"`
 }
 
 func (WebtestLocationAvailabilityCriteriaResponseArgs) ElementType() reflect.Type {
@@ -3838,7 +3316,6 @@ func (i WebtestLocationAvailabilityCriteriaResponseArgs) ToWebtestLocationAvaila
 	return pulumi.ToOutputWithContext(ctx, i).(WebtestLocationAvailabilityCriteriaResponseOutput)
 }
 
-// Specifies the metric alert rule criteria for a web test resource.
 type WebtestLocationAvailabilityCriteriaResponseOutput struct{ *pulumi.OutputState }
 
 func (WebtestLocationAvailabilityCriteriaResponseOutput) ElementType() reflect.Type {
@@ -3853,23 +3330,18 @@ func (o WebtestLocationAvailabilityCriteriaResponseOutput) ToWebtestLocationAvai
 	return o
 }
 
-// The Application Insights resource Id.
 func (o WebtestLocationAvailabilityCriteriaResponseOutput) ComponentId() pulumi.StringOutput {
 	return o.ApplyT(func(v WebtestLocationAvailabilityCriteriaResponse) string { return v.ComponentId }).(pulumi.StringOutput)
 }
 
-// The number of failed locations.
 func (o WebtestLocationAvailabilityCriteriaResponseOutput) FailedLocationCount() pulumi.Float64Output {
 	return o.ApplyT(func(v WebtestLocationAvailabilityCriteriaResponse) float64 { return v.FailedLocationCount }).(pulumi.Float64Output)
 }
 
-// specifies the type of the alert criteria.
-// Expected value is 'Microsoft.Azure.Monitor.WebtestLocationAvailabilityCriteria'.
 func (o WebtestLocationAvailabilityCriteriaResponseOutput) OdataType() pulumi.StringOutput {
 	return o.ApplyT(func(v WebtestLocationAvailabilityCriteriaResponse) string { return v.OdataType }).(pulumi.StringOutput)
 }
 
-// The Application Insights web test Id.
 func (o WebtestLocationAvailabilityCriteriaResponseOutput) WebTestId() pulumi.StringOutput {
 	return o.ApplyT(func(v WebtestLocationAvailabilityCriteriaResponse) string { return v.WebTestId }).(pulumi.StringOutput)
 }

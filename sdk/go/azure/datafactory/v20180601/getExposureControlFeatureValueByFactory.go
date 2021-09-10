@@ -7,7 +7,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// The exposure control response.
 func GetExposureControlFeatureValueByFactory(ctx *pulumi.Context, args *GetExposureControlFeatureValueByFactoryArgs, opts ...pulumi.InvokeOption) (*GetExposureControlFeatureValueByFactoryResult, error) {
 	var rv GetExposureControlFeatureValueByFactoryResult
 	err := ctx.Invoke("azure-native:datafactory/v20180601:getExposureControlFeatureValueByFactory", args, &rv, opts...)
@@ -18,20 +17,14 @@ func GetExposureControlFeatureValueByFactory(ctx *pulumi.Context, args *GetExpos
 }
 
 type GetExposureControlFeatureValueByFactoryArgs struct {
-	// The factory name.
-	FactoryName string `pulumi:"factoryName"`
-	// The feature name.
-	FeatureName *string `pulumi:"featureName"`
-	// The feature type.
-	FeatureType *string `pulumi:"featureType"`
-	// The resource group name.
-	ResourceGroupName string `pulumi:"resourceGroupName"`
+	FactoryName       string  `pulumi:"factoryName"`
+	FeatureName       *string `pulumi:"featureName"`
+	FeatureType       *string `pulumi:"featureType"`
+	ResourceGroupName string  `pulumi:"resourceGroupName"`
 }
 
 // The exposure control response.
 type GetExposureControlFeatureValueByFactoryResult struct {
-	// The feature name.
 	FeatureName string `pulumi:"featureName"`
-	// The feature value.
-	Value string `pulumi:"value"`
+	Value       string `pulumi:"value"`
 }

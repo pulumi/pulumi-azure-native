@@ -7,7 +7,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// The Advanced Threat Protection resource.
 func LookupAdvancedThreatProtection(ctx *pulumi.Context, args *LookupAdvancedThreatProtectionArgs, opts ...pulumi.InvokeOption) (*LookupAdvancedThreatProtectionResult, error) {
 	var rv LookupAdvancedThreatProtectionResult
 	err := ctx.Invoke("azure-native:security/v20170801preview:getAdvancedThreatProtection", args, &rv, opts...)
@@ -18,20 +17,14 @@ func LookupAdvancedThreatProtection(ctx *pulumi.Context, args *LookupAdvancedThr
 }
 
 type LookupAdvancedThreatProtectionArgs struct {
-	// The identifier of the resource.
-	ResourceId string `pulumi:"resourceId"`
-	// Advanced Threat Protection setting name.
+	ResourceId  string `pulumi:"resourceId"`
 	SettingName string `pulumi:"settingName"`
 }
 
 // The Advanced Threat Protection resource.
 type LookupAdvancedThreatProtectionResult struct {
-	// Resource Id
-	Id string `pulumi:"id"`
-	// Indicates whether Advanced Threat Protection is enabled.
-	IsEnabled *bool `pulumi:"isEnabled"`
-	// Resource name
-	Name string `pulumi:"name"`
-	// Resource type
-	Type string `pulumi:"type"`
+	Id        string `pulumi:"id"`
+	IsEnabled *bool  `pulumi:"isEnabled"`
+	Name      string `pulumi:"name"`
+	Type      string `pulumi:"type"`
 }

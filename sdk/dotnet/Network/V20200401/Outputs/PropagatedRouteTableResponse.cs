@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.Network.V20200401.Outputs
 {
 
+    /// <summary>
+    /// The list of RouteTables to advertise the routes to.
+    /// </summary>
     [OutputType]
     public sealed class PropagatedRouteTableResponse
     {

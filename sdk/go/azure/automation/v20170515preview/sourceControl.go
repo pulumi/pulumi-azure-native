@@ -11,32 +11,20 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Definition of the source control.
 type SourceControl struct {
 	pulumi.CustomResourceState
 
-	// The auto sync of the source control. Default is false.
-	AutoSync pulumi.BoolPtrOutput `pulumi:"autoSync"`
-	// The repo branch of the source control. Include branch as empty string for VsoTfvc.
-	Branch pulumi.StringPtrOutput `pulumi:"branch"`
-	// The creation time.
-	CreationTime pulumi.StringPtrOutput `pulumi:"creationTime"`
-	// The description.
-	Description pulumi.StringPtrOutput `pulumi:"description"`
-	// The folder path of the source control.
-	FolderPath pulumi.StringPtrOutput `pulumi:"folderPath"`
-	// The last modified time.
+	AutoSync         pulumi.BoolPtrOutput   `pulumi:"autoSync"`
+	Branch           pulumi.StringPtrOutput `pulumi:"branch"`
+	CreationTime     pulumi.StringPtrOutput `pulumi:"creationTime"`
+	Description      pulumi.StringPtrOutput `pulumi:"description"`
+	FolderPath       pulumi.StringPtrOutput `pulumi:"folderPath"`
 	LastModifiedTime pulumi.StringPtrOutput `pulumi:"lastModifiedTime"`
-	// The name of the resource
-	Name pulumi.StringOutput `pulumi:"name"`
-	// The auto publish of the source control. Default is true.
-	PublishRunbook pulumi.BoolPtrOutput `pulumi:"publishRunbook"`
-	// The repo url of the source control.
-	RepoUrl pulumi.StringPtrOutput `pulumi:"repoUrl"`
-	// The source type. Must be one of VsoGit, VsoTfvc, GitHub.
-	SourceType pulumi.StringPtrOutput `pulumi:"sourceType"`
-	// The type of the resource.
-	Type pulumi.StringOutput `pulumi:"type"`
+	Name             pulumi.StringOutput    `pulumi:"name"`
+	PublishRunbook   pulumi.BoolPtrOutput   `pulumi:"publishRunbook"`
+	RepoUrl          pulumi.StringPtrOutput `pulumi:"repoUrl"`
+	SourceType       pulumi.StringPtrOutput `pulumi:"sourceType"`
+	Type             pulumi.StringOutput    `pulumi:"type"`
 }
 
 // NewSourceControl registers a new resource with the given unique name, arguments, and options.
@@ -108,54 +96,32 @@ func (SourceControlState) ElementType() reflect.Type {
 }
 
 type sourceControlArgs struct {
-	// The auto async of the source control. Default is false.
-	AutoSync *bool `pulumi:"autoSync"`
-	// The name of the automation account.
-	AutomationAccountName string `pulumi:"automationAccountName"`
-	// The repo branch of the source control. Include branch as empty string for VsoTfvc.
-	Branch *string `pulumi:"branch"`
-	// The user description of the source control.
-	Description *string `pulumi:"description"`
-	// The folder path of the source control. Path must be relative.
-	FolderPath *string `pulumi:"folderPath"`
-	// The auto publish of the source control. Default is true.
-	PublishRunbook *bool `pulumi:"publishRunbook"`
-	// The repo url of the source control.
-	RepoUrl *string `pulumi:"repoUrl"`
-	// Name of an Azure Resource group.
-	ResourceGroupName string `pulumi:"resourceGroupName"`
-	// The authorization token for the repo of the source control.
-	SecurityToken *SourceControlSecurityTokenProperties `pulumi:"securityToken"`
-	// The source control name.
-	SourceControlName *string `pulumi:"sourceControlName"`
-	// The source type. Must be one of VsoGit, VsoTfvc, GitHub, case sensitive.
-	SourceType *string `pulumi:"sourceType"`
+	AutoSync              *bool                                 `pulumi:"autoSync"`
+	AutomationAccountName string                                `pulumi:"automationAccountName"`
+	Branch                *string                               `pulumi:"branch"`
+	Description           *string                               `pulumi:"description"`
+	FolderPath            *string                               `pulumi:"folderPath"`
+	PublishRunbook        *bool                                 `pulumi:"publishRunbook"`
+	RepoUrl               *string                               `pulumi:"repoUrl"`
+	ResourceGroupName     string                                `pulumi:"resourceGroupName"`
+	SecurityToken         *SourceControlSecurityTokenProperties `pulumi:"securityToken"`
+	SourceControlName     *string                               `pulumi:"sourceControlName"`
+	SourceType            *string                               `pulumi:"sourceType"`
 }
 
 // The set of arguments for constructing a SourceControl resource.
 type SourceControlArgs struct {
-	// The auto async of the source control. Default is false.
-	AutoSync pulumi.BoolPtrInput
-	// The name of the automation account.
+	AutoSync              pulumi.BoolPtrInput
 	AutomationAccountName pulumi.StringInput
-	// The repo branch of the source control. Include branch as empty string for VsoTfvc.
-	Branch pulumi.StringPtrInput
-	// The user description of the source control.
-	Description pulumi.StringPtrInput
-	// The folder path of the source control. Path must be relative.
-	FolderPath pulumi.StringPtrInput
-	// The auto publish of the source control. Default is true.
-	PublishRunbook pulumi.BoolPtrInput
-	// The repo url of the source control.
-	RepoUrl pulumi.StringPtrInput
-	// Name of an Azure Resource group.
-	ResourceGroupName pulumi.StringInput
-	// The authorization token for the repo of the source control.
-	SecurityToken SourceControlSecurityTokenPropertiesPtrInput
-	// The source control name.
-	SourceControlName pulumi.StringPtrInput
-	// The source type. Must be one of VsoGit, VsoTfvc, GitHub, case sensitive.
-	SourceType pulumi.StringPtrInput
+	Branch                pulumi.StringPtrInput
+	Description           pulumi.StringPtrInput
+	FolderPath            pulumi.StringPtrInput
+	PublishRunbook        pulumi.BoolPtrInput
+	RepoUrl               pulumi.StringPtrInput
+	ResourceGroupName     pulumi.StringInput
+	SecurityToken         SourceControlSecurityTokenPropertiesPtrInput
+	SourceControlName     pulumi.StringPtrInput
+	SourceType            pulumi.StringPtrInput
 }
 
 func (SourceControlArgs) ElementType() reflect.Type {
@@ -181,9 +147,7 @@ func (i *SourceControl) ToSourceControlOutputWithContext(ctx context.Context) So
 	return pulumi.ToOutputWithContext(ctx, i).(SourceControlOutput)
 }
 
-type SourceControlOutput struct {
-	*pulumi.OutputState
-}
+type SourceControlOutput struct{ *pulumi.OutputState }
 
 func (SourceControlOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*SourceControl)(nil))

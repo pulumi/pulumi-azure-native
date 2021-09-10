@@ -160,9 +160,7 @@ func (i *KeyValue) ToKeyValueOutputWithContext(ctx context.Context) KeyValueOutp
 	return pulumi.ToOutputWithContext(ctx, i).(KeyValueOutput)
 }
 
-type KeyValueOutput struct {
-	*pulumi.OutputState
-}
+type KeyValueOutput struct{ *pulumi.OutputState }
 
 func (KeyValueOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*KeyValue)(nil))

@@ -166,9 +166,7 @@ func (i *Replication) ToReplicationOutputWithContext(ctx context.Context) Replic
 	return pulumi.ToOutputWithContext(ctx, i).(ReplicationOutput)
 }
 
-type ReplicationOutput struct {
-	*pulumi.OutputState
-}
+type ReplicationOutput struct{ *pulumi.OutputState }
 
 func (ReplicationOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*Replication)(nil))

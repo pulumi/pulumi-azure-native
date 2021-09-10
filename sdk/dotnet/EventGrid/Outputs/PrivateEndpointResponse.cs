@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.EventGrid.Outputs
 {
 
+    /// <summary>
+    /// PrivateEndpoint information.
+    /// </summary>
     [OutputType]
     public sealed class PrivateEndpointResponse
     {

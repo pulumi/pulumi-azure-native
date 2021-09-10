@@ -7,7 +7,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// The access keys for the storage account.
 func ListStorageAccountKeys(ctx *pulumi.Context, args *ListStorageAccountKeysArgs, opts ...pulumi.InvokeOption) (*ListStorageAccountKeysResult, error) {
 	var rv ListStorageAccountKeysResult
 	err := ctx.Invoke("azure-native:storage/v20150501preview:listStorageAccountKeys", args, &rv, opts...)
@@ -18,16 +17,12 @@ func ListStorageAccountKeys(ctx *pulumi.Context, args *ListStorageAccountKeysArg
 }
 
 type ListStorageAccountKeysArgs struct {
-	// The name of the storage account.
-	AccountName string `pulumi:"accountName"`
-	// The name of the resource group.
+	AccountName       string `pulumi:"accountName"`
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 }
 
 // The access keys for the storage account.
 type ListStorageAccountKeysResult struct {
-	// Gets the value of key 1.
 	Key1 *string `pulumi:"key1"`
-	// Gets the value of key 2.
 	Key2 *string `pulumi:"key2"`
 }

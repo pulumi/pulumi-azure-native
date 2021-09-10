@@ -11,34 +11,21 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Cloud Endpoint object.
 type CloudEndpoint struct {
 	pulumi.CustomResourceState
 
-	// Backup Enabled
-	BackupEnabled pulumi.BoolOutput `pulumi:"backupEnabled"`
-	// Friendly Name
-	FriendlyName pulumi.StringPtrOutput `pulumi:"friendlyName"`
-	// CloudEndpoint lastWorkflowId
-	LastWorkflowId pulumi.StringPtrOutput `pulumi:"lastWorkflowId"`
-	// The name of the resource.
-	Name pulumi.StringOutput `pulumi:"name"`
-	// Partnership Id
-	PartnershipId pulumi.StringPtrOutput `pulumi:"partnershipId"`
-	// CloudEndpoint Provisioning State
-	ProvisioningState pulumi.StringPtrOutput `pulumi:"provisioningState"`
-	// Storage Account name.
-	StorageAccount pulumi.StringPtrOutput `pulumi:"storageAccount"`
-	// Storage Account access key.
-	StorageAccountKey pulumi.StringPtrOutput `pulumi:"storageAccountKey"`
-	// Storage Account Resource Id
+	BackupEnabled            pulumi.BoolOutput      `pulumi:"backupEnabled"`
+	FriendlyName             pulumi.StringPtrOutput `pulumi:"friendlyName"`
+	LastWorkflowId           pulumi.StringPtrOutput `pulumi:"lastWorkflowId"`
+	Name                     pulumi.StringOutput    `pulumi:"name"`
+	PartnershipId            pulumi.StringPtrOutput `pulumi:"partnershipId"`
+	ProvisioningState        pulumi.StringPtrOutput `pulumi:"provisioningState"`
+	StorageAccount           pulumi.StringPtrOutput `pulumi:"storageAccount"`
+	StorageAccountKey        pulumi.StringPtrOutput `pulumi:"storageAccountKey"`
 	StorageAccountResourceId pulumi.StringPtrOutput `pulumi:"storageAccountResourceId"`
-	// Storage Account Share name
-	StorageAccountShareName pulumi.StringPtrOutput `pulumi:"storageAccountShareName"`
-	// Storage Account Tenant Id
-	StorageAccountTenantId pulumi.StringPtrOutput `pulumi:"storageAccountTenantId"`
-	// The type of the resource
-	Type pulumi.StringOutput `pulumi:"type"`
+	StorageAccountShareName  pulumi.StringPtrOutput `pulumi:"storageAccountShareName"`
+	StorageAccountTenantId   pulumi.StringPtrOutput `pulumi:"storageAccountTenantId"`
+	Type                     pulumi.StringOutput    `pulumi:"type"`
 }
 
 // NewCloudEndpoint registers a new resource with the given unique name, arguments, and options.
@@ -155,62 +142,36 @@ func (CloudEndpointState) ElementType() reflect.Type {
 }
 
 type cloudEndpointArgs struct {
-	// Name of Cloud Endpoint object.
-	CloudEndpointName *string `pulumi:"cloudEndpointName"`
-	// Friendly Name
-	FriendlyName *string `pulumi:"friendlyName"`
-	// CloudEndpoint lastWorkflowId
-	LastWorkflowId *string `pulumi:"lastWorkflowId"`
-	// Partnership Id
-	PartnershipId *string `pulumi:"partnershipId"`
-	// CloudEndpoint Provisioning State
-	ProvisioningState *string `pulumi:"provisioningState"`
-	// The name of the resource group within the user's subscription. The name is case insensitive.
-	ResourceGroupName string `pulumi:"resourceGroupName"`
-	// Storage Account name.
-	StorageAccount *string `pulumi:"storageAccount"`
-	// Storage Account access key.
-	StorageAccountKey *string `pulumi:"storageAccountKey"`
-	// Storage Account Resource Id
+	CloudEndpointName        *string `pulumi:"cloudEndpointName"`
+	FriendlyName             *string `pulumi:"friendlyName"`
+	LastWorkflowId           *string `pulumi:"lastWorkflowId"`
+	PartnershipId            *string `pulumi:"partnershipId"`
+	ProvisioningState        *string `pulumi:"provisioningState"`
+	ResourceGroupName        string  `pulumi:"resourceGroupName"`
+	StorageAccount           *string `pulumi:"storageAccount"`
+	StorageAccountKey        *string `pulumi:"storageAccountKey"`
 	StorageAccountResourceId *string `pulumi:"storageAccountResourceId"`
-	// Storage Account Share name
-	StorageAccountShareName *string `pulumi:"storageAccountShareName"`
-	// Storage Account Tenant Id
-	StorageAccountTenantId *string `pulumi:"storageAccountTenantId"`
-	// Name of Storage Sync Service resource.
-	StorageSyncServiceName string `pulumi:"storageSyncServiceName"`
-	// Name of Sync Group resource.
-	SyncGroupName string `pulumi:"syncGroupName"`
+	StorageAccountShareName  *string `pulumi:"storageAccountShareName"`
+	StorageAccountTenantId   *string `pulumi:"storageAccountTenantId"`
+	StorageSyncServiceName   string  `pulumi:"storageSyncServiceName"`
+	SyncGroupName            string  `pulumi:"syncGroupName"`
 }
 
 // The set of arguments for constructing a CloudEndpoint resource.
 type CloudEndpointArgs struct {
-	// Name of Cloud Endpoint object.
-	CloudEndpointName pulumi.StringPtrInput
-	// Friendly Name
-	FriendlyName pulumi.StringPtrInput
-	// CloudEndpoint lastWorkflowId
-	LastWorkflowId pulumi.StringPtrInput
-	// Partnership Id
-	PartnershipId pulumi.StringPtrInput
-	// CloudEndpoint Provisioning State
-	ProvisioningState pulumi.StringPtrInput
-	// The name of the resource group within the user's subscription. The name is case insensitive.
-	ResourceGroupName pulumi.StringInput
-	// Storage Account name.
-	StorageAccount pulumi.StringPtrInput
-	// Storage Account access key.
-	StorageAccountKey pulumi.StringPtrInput
-	// Storage Account Resource Id
+	CloudEndpointName        pulumi.StringPtrInput
+	FriendlyName             pulumi.StringPtrInput
+	LastWorkflowId           pulumi.StringPtrInput
+	PartnershipId            pulumi.StringPtrInput
+	ProvisioningState        pulumi.StringPtrInput
+	ResourceGroupName        pulumi.StringInput
+	StorageAccount           pulumi.StringPtrInput
+	StorageAccountKey        pulumi.StringPtrInput
 	StorageAccountResourceId pulumi.StringPtrInput
-	// Storage Account Share name
-	StorageAccountShareName pulumi.StringPtrInput
-	// Storage Account Tenant Id
-	StorageAccountTenantId pulumi.StringPtrInput
-	// Name of Storage Sync Service resource.
-	StorageSyncServiceName pulumi.StringInput
-	// Name of Sync Group resource.
-	SyncGroupName pulumi.StringInput
+	StorageAccountShareName  pulumi.StringPtrInput
+	StorageAccountTenantId   pulumi.StringPtrInput
+	StorageSyncServiceName   pulumi.StringInput
+	SyncGroupName            pulumi.StringInput
 }
 
 func (CloudEndpointArgs) ElementType() reflect.Type {
@@ -236,9 +197,7 @@ func (i *CloudEndpoint) ToCloudEndpointOutputWithContext(ctx context.Context) Cl
 	return pulumi.ToOutputWithContext(ctx, i).(CloudEndpointOutput)
 }
 
-type CloudEndpointOutput struct {
-	*pulumi.OutputState
-}
+type CloudEndpointOutput struct{ *pulumi.OutputState }
 
 func (CloudEndpointOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*CloudEndpoint)(nil))

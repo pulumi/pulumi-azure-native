@@ -7,7 +7,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// The integration runtime authentication keys.
 func ListIntegrationRuntimeAuthKey(ctx *pulumi.Context, args *ListIntegrationRuntimeAuthKeyArgs, opts ...pulumi.InvokeOption) (*ListIntegrationRuntimeAuthKeyResult, error) {
 	var rv ListIntegrationRuntimeAuthKeyResult
 	err := ctx.Invoke("azure-native:synapse/v20201201:listIntegrationRuntimeAuthKey", args, &rv, opts...)
@@ -18,18 +17,13 @@ func ListIntegrationRuntimeAuthKey(ctx *pulumi.Context, args *ListIntegrationRun
 }
 
 type ListIntegrationRuntimeAuthKeyArgs struct {
-	// Integration runtime name
 	IntegrationRuntimeName string `pulumi:"integrationRuntimeName"`
-	// The name of the resource group. The name is case insensitive.
-	ResourceGroupName string `pulumi:"resourceGroupName"`
-	// The name of the workspace.
-	WorkspaceName string `pulumi:"workspaceName"`
+	ResourceGroupName      string `pulumi:"resourceGroupName"`
+	WorkspaceName          string `pulumi:"workspaceName"`
 }
 
 // The integration runtime authentication keys.
 type ListIntegrationRuntimeAuthKeyResult struct {
-	// The primary integration runtime authentication key.
 	AuthKey1 *string `pulumi:"authKey1"`
-	// The secondary integration runtime authentication key.
 	AuthKey2 *string `pulumi:"authKey2"`
 }

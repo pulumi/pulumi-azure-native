@@ -7,7 +7,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Represents a blueprint assignment.
 func LookupAssignment(ctx *pulumi.Context, args *LookupAssignmentArgs, opts ...pulumi.InvokeOption) (*LookupAssignmentResult, error) {
 	var rv LookupAssignmentResult
 	err := ctx.Invoke("azure-native:blueprint/v20181101preview:getAssignment", args, &rv, opts...)
@@ -18,40 +17,24 @@ func LookupAssignment(ctx *pulumi.Context, args *LookupAssignmentArgs, opts ...p
 }
 
 type LookupAssignmentArgs struct {
-	// Name of the blueprint assignment.
 	AssignmentName string `pulumi:"assignmentName"`
-	// The scope of the resource. Valid scopes are: management group (format: '/providers/Microsoft.Management/managementGroups/{managementGroup}'), subscription (format: '/subscriptions/{subscriptionId}').
-	ResourceScope string `pulumi:"resourceScope"`
+	ResourceScope  string `pulumi:"resourceScope"`
 }
 
 // Represents a blueprint assignment.
 type LookupAssignmentResult struct {
-	// ID of the published version of a blueprint definition.
-	BlueprintId *string `pulumi:"blueprintId"`
-	// Multi-line explain this resource.
-	Description *string `pulumi:"description"`
-	// One-liner string explain this resource.
-	DisplayName *string `pulumi:"displayName"`
-	// String Id used to locate any resource on Azure.
-	Id string `pulumi:"id"`
-	// Managed identity for this blueprint assignment.
-	Identity ManagedServiceIdentityResponse `pulumi:"identity"`
-	// The location of this blueprint assignment.
-	Location string `pulumi:"location"`
-	// Defines how resources deployed by a blueprint assignment are locked.
-	Locks *AssignmentLockSettingsResponse `pulumi:"locks"`
-	// Name of this resource.
-	Name string `pulumi:"name"`
-	// Blueprint assignment parameter values.
-	Parameters map[string]ParameterValueResponse `pulumi:"parameters"`
-	// State of the blueprint assignment.
-	ProvisioningState string `pulumi:"provisioningState"`
-	// Names and locations of resource group placeholders.
-	ResourceGroups map[string]ResourceGroupValueResponse `pulumi:"resourceGroups"`
-	// The target subscription scope of the blueprint assignment (format: '/subscriptions/{subscriptionId}'). For management group level assignments, the property is required.
-	Scope *string `pulumi:"scope"`
-	// Status of blueprint assignment. This field is readonly.
-	Status AssignmentStatusResponse `pulumi:"status"`
-	// Type of this resource.
-	Type string `pulumi:"type"`
+	BlueprintId       *string                               `pulumi:"blueprintId"`
+	Description       *string                               `pulumi:"description"`
+	DisplayName       *string                               `pulumi:"displayName"`
+	Id                string                                `pulumi:"id"`
+	Identity          ManagedServiceIdentityResponse        `pulumi:"identity"`
+	Location          string                                `pulumi:"location"`
+	Locks             *AssignmentLockSettingsResponse       `pulumi:"locks"`
+	Name              string                                `pulumi:"name"`
+	Parameters        map[string]ParameterValueResponse     `pulumi:"parameters"`
+	ProvisioningState string                                `pulumi:"provisioningState"`
+	ResourceGroups    map[string]ResourceGroupValueResponse `pulumi:"resourceGroups"`
+	Scope             *string                               `pulumi:"scope"`
+	Status            AssignmentStatusResponse              `pulumi:"status"`
+	Type              string                                `pulumi:"type"`
 }

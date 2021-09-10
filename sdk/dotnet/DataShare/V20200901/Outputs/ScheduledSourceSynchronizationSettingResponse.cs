@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.DataShare.V20200901.Outputs
 {
 
+    /// <summary>
+    /// A type of synchronization setting based on schedule
+    /// </summary>
     [OutputType]
     public sealed class ScheduledSourceSynchronizationSettingResponse
     {

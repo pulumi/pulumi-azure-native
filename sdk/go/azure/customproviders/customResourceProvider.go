@@ -145,9 +145,7 @@ func (i *CustomResourceProvider) ToCustomResourceProviderOutputWithContext(ctx c
 	return pulumi.ToOutputWithContext(ctx, i).(CustomResourceProviderOutput)
 }
 
-type CustomResourceProviderOutput struct {
-	*pulumi.OutputState
-}
+type CustomResourceProviderOutput struct{ *pulumi.OutputState }
 
 func (CustomResourceProviderOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*CustomResourceProvider)(nil))

@@ -142,14 +142,14 @@ namespace Pulumi.AzureNative.Insights
         }
 
         [Input("localized")]
-        private InputMap<ImmutableArray<Input<Inputs.WorkbookTemplateLocalizedGalleryArgs>>>? _localized;
+        private InputMap<ImmutableArray<Inputs.WorkbookTemplateLocalizedGalleryArgs>>? _localized;
 
         /// <summary>
         /// Key value pair of localized gallery. Each key is the locale code of languages supported by the Azure portal.
         /// </summary>
-        public InputMap<ImmutableArray<Input<Inputs.WorkbookTemplateLocalizedGalleryArgs>>> Localized
+        public InputMap<ImmutableArray<Inputs.WorkbookTemplateLocalizedGalleryArgs>> Localized
         {
-            get => _localized ?? (_localized = new InputMap<ImmutableArray<Input<Inputs.WorkbookTemplateLocalizedGalleryArgs>>>());
+            get => _localized ?? (_localized = new InputMap<ImmutableArray<Inputs.WorkbookTemplateLocalizedGalleryArgs>>());
             set => _localized = value;
         }
 

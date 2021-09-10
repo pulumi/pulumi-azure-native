@@ -7,7 +7,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Result of AmlCompute Nodes
 func ListComputeNodes(ctx *pulumi.Context, args *ListComputeNodesArgs, opts ...pulumi.InvokeOption) (*ListComputeNodesResult, error) {
 	var rv ListComputeNodesResult
 	err := ctx.Invoke("azure-native:machinelearningservices/v20210701:listComputeNodes", args, &rv, opts...)
@@ -18,18 +17,13 @@ func ListComputeNodes(ctx *pulumi.Context, args *ListComputeNodesArgs, opts ...p
 }
 
 type ListComputeNodesArgs struct {
-	// Name of the Azure Machine Learning compute.
-	ComputeName string `pulumi:"computeName"`
-	// The name of the resource group. The name is case insensitive.
+	ComputeName       string `pulumi:"computeName"`
 	ResourceGroupName string `pulumi:"resourceGroupName"`
-	// Name of Azure Machine Learning workspace.
-	WorkspaceName string `pulumi:"workspaceName"`
+	WorkspaceName     string `pulumi:"workspaceName"`
 }
 
 // Result of AmlCompute Nodes
 type ListComputeNodesResult struct {
-	// The continuation token.
-	NextLink string `pulumi:"nextLink"`
-	// The collection of returned AmlCompute nodes details.
-	Nodes []AmlComputeNodeInformationResponse `pulumi:"nodes"`
+	NextLink string                              `pulumi:"nextLink"`
+	Nodes    []AmlComputeNodeInformationResponse `pulumi:"nodes"`
 }

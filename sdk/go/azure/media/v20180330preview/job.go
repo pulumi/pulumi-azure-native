@@ -11,28 +11,18 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// A Job resource type. The progress and state can be obtained by polling a Job or subscribing to events using EventGrid.
 type Job struct {
 	pulumi.CustomResourceState
 
-	// The UTC date and time when the Job was created, in 'YYYY-MM-DDThh:mm:ssZ' format.
-	Created pulumi.StringOutput `pulumi:"created"`
-	// Optional customer supplied description of the Job.
-	Description pulumi.StringPtrOutput `pulumi:"description"`
-	// The inputs for the Job.
-	Input pulumi.AnyOutput `pulumi:"input"`
-	// The UTC date and time when the Job was last updated, in 'YYYY-MM-DDThh:mm:ssZ' format.
-	LastModified pulumi.StringOutput `pulumi:"lastModified"`
-	// The name of the resource.
-	Name pulumi.StringOutput `pulumi:"name"`
-	// The outputs for the Job.
-	Outputs JobOutputAssetResponseArrayOutput `pulumi:"outputs"`
-	// Priority with which the job should be processed. Higher priority jobs are processed before lower priority jobs. If not set, the default is normal.
-	Priority pulumi.StringPtrOutput `pulumi:"priority"`
-	// The current state of the job.
-	State pulumi.StringOutput `pulumi:"state"`
-	// The type of the resource.
-	Type pulumi.StringOutput `pulumi:"type"`
+	Created      pulumi.StringOutput               `pulumi:"created"`
+	Description  pulumi.StringPtrOutput            `pulumi:"description"`
+	Input        pulumi.AnyOutput                  `pulumi:"input"`
+	LastModified pulumi.StringOutput               `pulumi:"lastModified"`
+	Name         pulumi.StringOutput               `pulumi:"name"`
+	Outputs      JobOutputAssetResponseArrayOutput `pulumi:"outputs"`
+	Priority     pulumi.StringPtrOutput            `pulumi:"priority"`
+	State        pulumi.StringOutput               `pulumi:"state"`
+	Type         pulumi.StringOutput               `pulumi:"type"`
 }
 
 // NewJob registers a new resource with the given unique name, arguments, and options.
@@ -125,42 +115,26 @@ func (JobState) ElementType() reflect.Type {
 }
 
 type jobArgs struct {
-	// The Media Services account name.
-	AccountName string `pulumi:"accountName"`
-	// Optional customer supplied description of the Job.
-	Description *string `pulumi:"description"`
-	// The inputs for the Job.
-	Input interface{} `pulumi:"input"`
-	// The Job name.
-	JobName *string `pulumi:"jobName"`
-	// The outputs for the Job.
-	Outputs []JobOutputAsset `pulumi:"outputs"`
-	// Priority with which the job should be processed. Higher priority jobs are processed before lower priority jobs. If not set, the default is normal.
-	Priority *string `pulumi:"priority"`
-	// The name of the resource group within the Azure subscription.
-	ResourceGroupName string `pulumi:"resourceGroupName"`
-	// The Transform name.
-	TransformName string `pulumi:"transformName"`
+	AccountName       string           `pulumi:"accountName"`
+	Description       *string          `pulumi:"description"`
+	Input             interface{}      `pulumi:"input"`
+	JobName           *string          `pulumi:"jobName"`
+	Outputs           []JobOutputAsset `pulumi:"outputs"`
+	Priority          *string          `pulumi:"priority"`
+	ResourceGroupName string           `pulumi:"resourceGroupName"`
+	TransformName     string           `pulumi:"transformName"`
 }
 
 // The set of arguments for constructing a Job resource.
 type JobArgs struct {
-	// The Media Services account name.
-	AccountName pulumi.StringInput
-	// Optional customer supplied description of the Job.
-	Description pulumi.StringPtrInput
-	// The inputs for the Job.
-	Input pulumi.Input
-	// The Job name.
-	JobName pulumi.StringPtrInput
-	// The outputs for the Job.
-	Outputs JobOutputAssetArrayInput
-	// Priority with which the job should be processed. Higher priority jobs are processed before lower priority jobs. If not set, the default is normal.
-	Priority pulumi.StringPtrInput
-	// The name of the resource group within the Azure subscription.
+	AccountName       pulumi.StringInput
+	Description       pulumi.StringPtrInput
+	Input             pulumi.Input
+	JobName           pulumi.StringPtrInput
+	Outputs           JobOutputAssetArrayInput
+	Priority          pulumi.StringPtrInput
 	ResourceGroupName pulumi.StringInput
-	// The Transform name.
-	TransformName pulumi.StringInput
+	TransformName     pulumi.StringInput
 }
 
 func (JobArgs) ElementType() reflect.Type {
@@ -186,9 +160,7 @@ func (i *Job) ToJobOutputWithContext(ctx context.Context) JobOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(JobOutput)
 }
 
-type JobOutput struct {
-	*pulumi.OutputState
-}
+type JobOutput struct{ *pulumi.OutputState }
 
 func (JobOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*Job)(nil))

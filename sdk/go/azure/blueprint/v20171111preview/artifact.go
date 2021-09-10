@@ -11,17 +11,12 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Represents a Blueprint artifact.
-//
 // Deprecated: Please use one of the variants: PolicyAssignmentArtifact, RoleAssignmentArtifact, TemplateArtifact.
 type Artifact struct {
 	pulumi.CustomResourceState
 
-	// Specifies the kind of Blueprint artifact.
 	Kind pulumi.StringOutput `pulumi:"kind"`
-	// Name of this resource.
 	Name pulumi.StringOutput `pulumi:"name"`
-	// Type of this resource.
 	Type pulumi.StringOutput `pulumi:"type"`
 }
 
@@ -79,25 +74,17 @@ func (ArtifactState) ElementType() reflect.Type {
 }
 
 type artifactArgs struct {
-	// name of the artifact.
-	ArtifactName *string `pulumi:"artifactName"`
-	// name of the blueprint.
-	BlueprintName string `pulumi:"blueprintName"`
-	// Specifies the kind of Blueprint artifact.
-	Kind string `pulumi:"kind"`
-	// ManagementGroup where blueprint stores.
-	ManagementGroupName string `pulumi:"managementGroupName"`
+	ArtifactName        *string `pulumi:"artifactName"`
+	BlueprintName       string  `pulumi:"blueprintName"`
+	Kind                string  `pulumi:"kind"`
+	ManagementGroupName string  `pulumi:"managementGroupName"`
 }
 
 // The set of arguments for constructing a Artifact resource.
 type ArtifactArgs struct {
-	// name of the artifact.
-	ArtifactName pulumi.StringPtrInput
-	// name of the blueprint.
-	BlueprintName pulumi.StringInput
-	// Specifies the kind of Blueprint artifact.
-	Kind pulumi.StringInput
-	// ManagementGroup where blueprint stores.
+	ArtifactName        pulumi.StringPtrInput
+	BlueprintName       pulumi.StringInput
+	Kind                pulumi.StringInput
 	ManagementGroupName pulumi.StringInput
 }
 
@@ -124,9 +111,7 @@ func (i *Artifact) ToArtifactOutputWithContext(ctx context.Context) ArtifactOutp
 	return pulumi.ToOutputWithContext(ctx, i).(ArtifactOutput)
 }
 
-type ArtifactOutput struct {
-	*pulumi.OutputState
-}
+type ArtifactOutput struct{ *pulumi.OutputState }
 
 func (ArtifactOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*Artifact)(nil))

@@ -7,7 +7,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// The top level Linked service resource container.
 func LookupLinkedService(ctx *pulumi.Context, args *LookupLinkedServiceArgs, opts ...pulumi.InvokeOption) (*LookupLinkedServiceResult, error) {
 	var rv LookupLinkedServiceResult
 	err := ctx.Invoke("azure-native:operationalinsights/v20200301preview:getLinkedService", args, &rv, opts...)
@@ -18,28 +17,18 @@ func LookupLinkedService(ctx *pulumi.Context, args *LookupLinkedServiceArgs, opt
 }
 
 type LookupLinkedServiceArgs struct {
-	// Name of the linked service.
 	LinkedServiceName string `pulumi:"linkedServiceName"`
-	// The name of the resource group. The name is case insensitive.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
-	// The name of the workspace.
-	WorkspaceName string `pulumi:"workspaceName"`
+	WorkspaceName     string `pulumi:"workspaceName"`
 }
 
 // The top level Linked service resource container.
 type LookupLinkedServiceResult struct {
-	// Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
-	Id string `pulumi:"id"`
-	// The name of the resource
-	Name string `pulumi:"name"`
-	// The provisioning state of the linked service.
-	ProvisioningState *string `pulumi:"provisioningState"`
-	// The resource id of the resource that will be linked to the workspace. This should be used for linking resources which require read access
-	ResourceId *string `pulumi:"resourceId"`
-	// Resource tags.
-	Tags map[string]string `pulumi:"tags"`
-	// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
-	Type string `pulumi:"type"`
-	// The resource id of the resource that will be linked to the workspace. This should be used for linking resources which require write access
-	WriteAccessResourceId *string `pulumi:"writeAccessResourceId"`
+	Id                    string            `pulumi:"id"`
+	Name                  string            `pulumi:"name"`
+	ProvisioningState     *string           `pulumi:"provisioningState"`
+	ResourceId            *string           `pulumi:"resourceId"`
+	Tags                  map[string]string `pulumi:"tags"`
+	Type                  string            `pulumi:"type"`
+	WriteAccessResourceId *string           `pulumi:"writeAccessResourceId"`
 }

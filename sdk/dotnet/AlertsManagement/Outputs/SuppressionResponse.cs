@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.AlertsManagement.Outputs
 {
 
+    /// <summary>
+    /// Action rule with suppression configuration
+    /// </summary>
     [OutputType]
     public sealed class SuppressionResponse
     {

@@ -10,8 +10,7 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// The network traffic is allowed or denied.
-type Access pulumi.String
+type Access string
 
 const (
 	AccessAllow = Access("allow")
@@ -19,7 +18,23 @@ const (
 )
 
 func (Access) ElementType() reflect.Type {
-	return reflect.TypeOf((*pulumi.String)(nil)).Elem()
+	return reflect.TypeOf((*Access)(nil)).Elem()
+}
+
+func (e Access) ToAccessOutput() AccessOutput {
+	return pulumi.ToOutput(e).(AccessOutput)
+}
+
+func (e Access) ToAccessOutputWithContext(ctx context.Context) AccessOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(AccessOutput)
+}
+
+func (e Access) ToAccessPtrOutput() AccessPtrOutput {
+	return e.ToAccessPtrOutputWithContext(context.Background())
+}
+
+func (e Access) ToAccessPtrOutputWithContext(ctx context.Context) AccessPtrOutput {
+	return Access(e).ToAccessOutputWithContext(ctx).ToAccessPtrOutputWithContext(ctx)
 }
 
 func (e Access) ToStringOutput() pulumi.StringOutput {
@@ -38,8 +53,128 @@ func (e Access) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringP
 	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
 }
 
-// Indicates when new cluster runtime version upgrades will be applied after they are released. By default is Wave0. Only applies when **clusterUpgradeMode** is set to 'Automatic'.
-type ClusterUpgradeCadence pulumi.String
+type AccessOutput struct{ *pulumi.OutputState }
+
+func (AccessOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*Access)(nil)).Elem()
+}
+
+func (o AccessOutput) ToAccessOutput() AccessOutput {
+	return o
+}
+
+func (o AccessOutput) ToAccessOutputWithContext(ctx context.Context) AccessOutput {
+	return o
+}
+
+func (o AccessOutput) ToAccessPtrOutput() AccessPtrOutput {
+	return o.ToAccessPtrOutputWithContext(context.Background())
+}
+
+func (o AccessOutput) ToAccessPtrOutputWithContext(ctx context.Context) AccessPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v Access) *Access {
+		return &v
+	}).(AccessPtrOutput)
+}
+
+func (o AccessOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o AccessOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e Access) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o AccessOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o AccessOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e Access) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type AccessPtrOutput struct{ *pulumi.OutputState }
+
+func (AccessPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**Access)(nil)).Elem()
+}
+
+func (o AccessPtrOutput) ToAccessPtrOutput() AccessPtrOutput {
+	return o
+}
+
+func (o AccessPtrOutput) ToAccessPtrOutputWithContext(ctx context.Context) AccessPtrOutput {
+	return o
+}
+
+func (o AccessPtrOutput) Elem() AccessOutput {
+	return o.ApplyT(func(v *Access) Access {
+		if v != nil {
+			return *v
+		}
+		var ret Access
+		return ret
+	}).(AccessOutput)
+}
+
+func (o AccessPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o AccessPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *Access) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// AccessInput is an input type that accepts AccessArgs and AccessOutput values.
+// You can construct a concrete instance of `AccessInput` via:
+//
+//          AccessArgs{...}
+type AccessInput interface {
+	pulumi.Input
+
+	ToAccessOutput() AccessOutput
+	ToAccessOutputWithContext(context.Context) AccessOutput
+}
+
+var accessPtrType = reflect.TypeOf((**Access)(nil)).Elem()
+
+type AccessPtrInput interface {
+	pulumi.Input
+
+	ToAccessPtrOutput() AccessPtrOutput
+	ToAccessPtrOutputWithContext(context.Context) AccessPtrOutput
+}
+
+type accessPtr string
+
+func AccessPtr(v string) AccessPtrInput {
+	return (*accessPtr)(&v)
+}
+
+func (*accessPtr) ElementType() reflect.Type {
+	return accessPtrType
+}
+
+func (in *accessPtr) ToAccessPtrOutput() AccessPtrOutput {
+	return pulumi.ToOutput(in).(AccessPtrOutput)
+}
+
+func (in *accessPtr) ToAccessPtrOutputWithContext(ctx context.Context) AccessPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(AccessPtrOutput)
+}
+
+type ClusterUpgradeCadence string
 
 const (
 	// Cluster upgrade starts immediately after a new version is rolled out. Recommended for Test/Dev clusters.
@@ -51,7 +186,23 @@ const (
 )
 
 func (ClusterUpgradeCadence) ElementType() reflect.Type {
-	return reflect.TypeOf((*pulumi.String)(nil)).Elem()
+	return reflect.TypeOf((*ClusterUpgradeCadence)(nil)).Elem()
+}
+
+func (e ClusterUpgradeCadence) ToClusterUpgradeCadenceOutput() ClusterUpgradeCadenceOutput {
+	return pulumi.ToOutput(e).(ClusterUpgradeCadenceOutput)
+}
+
+func (e ClusterUpgradeCadence) ToClusterUpgradeCadenceOutputWithContext(ctx context.Context) ClusterUpgradeCadenceOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(ClusterUpgradeCadenceOutput)
+}
+
+func (e ClusterUpgradeCadence) ToClusterUpgradeCadencePtrOutput() ClusterUpgradeCadencePtrOutput {
+	return e.ToClusterUpgradeCadencePtrOutputWithContext(context.Background())
+}
+
+func (e ClusterUpgradeCadence) ToClusterUpgradeCadencePtrOutputWithContext(ctx context.Context) ClusterUpgradeCadencePtrOutput {
+	return ClusterUpgradeCadence(e).ToClusterUpgradeCadenceOutputWithContext(ctx).ToClusterUpgradeCadencePtrOutputWithContext(ctx)
 }
 
 func (e ClusterUpgradeCadence) ToStringOutput() pulumi.StringOutput {
@@ -70,8 +221,128 @@ func (e ClusterUpgradeCadence) ToStringPtrOutputWithContext(ctx context.Context)
 	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
 }
 
-// The upgrade mode of the cluster when new Service Fabric runtime version is available.
-type ClusterUpgradeMode pulumi.String
+type ClusterUpgradeCadenceOutput struct{ *pulumi.OutputState }
+
+func (ClusterUpgradeCadenceOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ClusterUpgradeCadence)(nil)).Elem()
+}
+
+func (o ClusterUpgradeCadenceOutput) ToClusterUpgradeCadenceOutput() ClusterUpgradeCadenceOutput {
+	return o
+}
+
+func (o ClusterUpgradeCadenceOutput) ToClusterUpgradeCadenceOutputWithContext(ctx context.Context) ClusterUpgradeCadenceOutput {
+	return o
+}
+
+func (o ClusterUpgradeCadenceOutput) ToClusterUpgradeCadencePtrOutput() ClusterUpgradeCadencePtrOutput {
+	return o.ToClusterUpgradeCadencePtrOutputWithContext(context.Background())
+}
+
+func (o ClusterUpgradeCadenceOutput) ToClusterUpgradeCadencePtrOutputWithContext(ctx context.Context) ClusterUpgradeCadencePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ClusterUpgradeCadence) *ClusterUpgradeCadence {
+		return &v
+	}).(ClusterUpgradeCadencePtrOutput)
+}
+
+func (o ClusterUpgradeCadenceOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o ClusterUpgradeCadenceOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e ClusterUpgradeCadence) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o ClusterUpgradeCadenceOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o ClusterUpgradeCadenceOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e ClusterUpgradeCadence) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type ClusterUpgradeCadencePtrOutput struct{ *pulumi.OutputState }
+
+func (ClusterUpgradeCadencePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ClusterUpgradeCadence)(nil)).Elem()
+}
+
+func (o ClusterUpgradeCadencePtrOutput) ToClusterUpgradeCadencePtrOutput() ClusterUpgradeCadencePtrOutput {
+	return o
+}
+
+func (o ClusterUpgradeCadencePtrOutput) ToClusterUpgradeCadencePtrOutputWithContext(ctx context.Context) ClusterUpgradeCadencePtrOutput {
+	return o
+}
+
+func (o ClusterUpgradeCadencePtrOutput) Elem() ClusterUpgradeCadenceOutput {
+	return o.ApplyT(func(v *ClusterUpgradeCadence) ClusterUpgradeCadence {
+		if v != nil {
+			return *v
+		}
+		var ret ClusterUpgradeCadence
+		return ret
+	}).(ClusterUpgradeCadenceOutput)
+}
+
+func (o ClusterUpgradeCadencePtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o ClusterUpgradeCadencePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *ClusterUpgradeCadence) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// ClusterUpgradeCadenceInput is an input type that accepts ClusterUpgradeCadenceArgs and ClusterUpgradeCadenceOutput values.
+// You can construct a concrete instance of `ClusterUpgradeCadenceInput` via:
+//
+//          ClusterUpgradeCadenceArgs{...}
+type ClusterUpgradeCadenceInput interface {
+	pulumi.Input
+
+	ToClusterUpgradeCadenceOutput() ClusterUpgradeCadenceOutput
+	ToClusterUpgradeCadenceOutputWithContext(context.Context) ClusterUpgradeCadenceOutput
+}
+
+var clusterUpgradeCadencePtrType = reflect.TypeOf((**ClusterUpgradeCadence)(nil)).Elem()
+
+type ClusterUpgradeCadencePtrInput interface {
+	pulumi.Input
+
+	ToClusterUpgradeCadencePtrOutput() ClusterUpgradeCadencePtrOutput
+	ToClusterUpgradeCadencePtrOutputWithContext(context.Context) ClusterUpgradeCadencePtrOutput
+}
+
+type clusterUpgradeCadencePtr string
+
+func ClusterUpgradeCadencePtr(v string) ClusterUpgradeCadencePtrInput {
+	return (*clusterUpgradeCadencePtr)(&v)
+}
+
+func (*clusterUpgradeCadencePtr) ElementType() reflect.Type {
+	return clusterUpgradeCadencePtrType
+}
+
+func (in *clusterUpgradeCadencePtr) ToClusterUpgradeCadencePtrOutput() ClusterUpgradeCadencePtrOutput {
+	return pulumi.ToOutput(in).(ClusterUpgradeCadencePtrOutput)
+}
+
+func (in *clusterUpgradeCadencePtr) ToClusterUpgradeCadencePtrOutputWithContext(ctx context.Context) ClusterUpgradeCadencePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(ClusterUpgradeCadencePtrOutput)
+}
+
+type ClusterUpgradeMode string
 
 const (
 	// The cluster will be automatically upgraded to the latest Service Fabric runtime version, **clusterUpgradeCadence** will determine when the upgrade starts after the new version becomes available.
@@ -81,7 +352,23 @@ const (
 )
 
 func (ClusterUpgradeMode) ElementType() reflect.Type {
-	return reflect.TypeOf((*pulumi.String)(nil)).Elem()
+	return reflect.TypeOf((*ClusterUpgradeMode)(nil)).Elem()
+}
+
+func (e ClusterUpgradeMode) ToClusterUpgradeModeOutput() ClusterUpgradeModeOutput {
+	return pulumi.ToOutput(e).(ClusterUpgradeModeOutput)
+}
+
+func (e ClusterUpgradeMode) ToClusterUpgradeModeOutputWithContext(ctx context.Context) ClusterUpgradeModeOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(ClusterUpgradeModeOutput)
+}
+
+func (e ClusterUpgradeMode) ToClusterUpgradeModePtrOutput() ClusterUpgradeModePtrOutput {
+	return e.ToClusterUpgradeModePtrOutputWithContext(context.Background())
+}
+
+func (e ClusterUpgradeMode) ToClusterUpgradeModePtrOutputWithContext(ctx context.Context) ClusterUpgradeModePtrOutput {
+	return ClusterUpgradeMode(e).ToClusterUpgradeModeOutputWithContext(ctx).ToClusterUpgradeModePtrOutputWithContext(ctx)
 }
 
 func (e ClusterUpgradeMode) ToStringOutput() pulumi.StringOutput {
@@ -100,8 +387,128 @@ func (e ClusterUpgradeMode) ToStringPtrOutputWithContext(ctx context.Context) pu
 	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
 }
 
-// Network security rule direction.
-type Direction pulumi.String
+type ClusterUpgradeModeOutput struct{ *pulumi.OutputState }
+
+func (ClusterUpgradeModeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ClusterUpgradeMode)(nil)).Elem()
+}
+
+func (o ClusterUpgradeModeOutput) ToClusterUpgradeModeOutput() ClusterUpgradeModeOutput {
+	return o
+}
+
+func (o ClusterUpgradeModeOutput) ToClusterUpgradeModeOutputWithContext(ctx context.Context) ClusterUpgradeModeOutput {
+	return o
+}
+
+func (o ClusterUpgradeModeOutput) ToClusterUpgradeModePtrOutput() ClusterUpgradeModePtrOutput {
+	return o.ToClusterUpgradeModePtrOutputWithContext(context.Background())
+}
+
+func (o ClusterUpgradeModeOutput) ToClusterUpgradeModePtrOutputWithContext(ctx context.Context) ClusterUpgradeModePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ClusterUpgradeMode) *ClusterUpgradeMode {
+		return &v
+	}).(ClusterUpgradeModePtrOutput)
+}
+
+func (o ClusterUpgradeModeOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o ClusterUpgradeModeOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e ClusterUpgradeMode) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o ClusterUpgradeModeOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o ClusterUpgradeModeOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e ClusterUpgradeMode) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type ClusterUpgradeModePtrOutput struct{ *pulumi.OutputState }
+
+func (ClusterUpgradeModePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ClusterUpgradeMode)(nil)).Elem()
+}
+
+func (o ClusterUpgradeModePtrOutput) ToClusterUpgradeModePtrOutput() ClusterUpgradeModePtrOutput {
+	return o
+}
+
+func (o ClusterUpgradeModePtrOutput) ToClusterUpgradeModePtrOutputWithContext(ctx context.Context) ClusterUpgradeModePtrOutput {
+	return o
+}
+
+func (o ClusterUpgradeModePtrOutput) Elem() ClusterUpgradeModeOutput {
+	return o.ApplyT(func(v *ClusterUpgradeMode) ClusterUpgradeMode {
+		if v != nil {
+			return *v
+		}
+		var ret ClusterUpgradeMode
+		return ret
+	}).(ClusterUpgradeModeOutput)
+}
+
+func (o ClusterUpgradeModePtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o ClusterUpgradeModePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *ClusterUpgradeMode) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// ClusterUpgradeModeInput is an input type that accepts ClusterUpgradeModeArgs and ClusterUpgradeModeOutput values.
+// You can construct a concrete instance of `ClusterUpgradeModeInput` via:
+//
+//          ClusterUpgradeModeArgs{...}
+type ClusterUpgradeModeInput interface {
+	pulumi.Input
+
+	ToClusterUpgradeModeOutput() ClusterUpgradeModeOutput
+	ToClusterUpgradeModeOutputWithContext(context.Context) ClusterUpgradeModeOutput
+}
+
+var clusterUpgradeModePtrType = reflect.TypeOf((**ClusterUpgradeMode)(nil)).Elem()
+
+type ClusterUpgradeModePtrInput interface {
+	pulumi.Input
+
+	ToClusterUpgradeModePtrOutput() ClusterUpgradeModePtrOutput
+	ToClusterUpgradeModePtrOutputWithContext(context.Context) ClusterUpgradeModePtrOutput
+}
+
+type clusterUpgradeModePtr string
+
+func ClusterUpgradeModePtr(v string) ClusterUpgradeModePtrInput {
+	return (*clusterUpgradeModePtr)(&v)
+}
+
+func (*clusterUpgradeModePtr) ElementType() reflect.Type {
+	return clusterUpgradeModePtrType
+}
+
+func (in *clusterUpgradeModePtr) ToClusterUpgradeModePtrOutput() ClusterUpgradeModePtrOutput {
+	return pulumi.ToOutput(in).(ClusterUpgradeModePtrOutput)
+}
+
+func (in *clusterUpgradeModePtr) ToClusterUpgradeModePtrOutputWithContext(ctx context.Context) ClusterUpgradeModePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(ClusterUpgradeModePtrOutput)
+}
+
+type Direction string
 
 const (
 	DirectionInbound  = Direction("inbound")
@@ -109,7 +516,23 @@ const (
 )
 
 func (Direction) ElementType() reflect.Type {
-	return reflect.TypeOf((*pulumi.String)(nil)).Elem()
+	return reflect.TypeOf((*Direction)(nil)).Elem()
+}
+
+func (e Direction) ToDirectionOutput() DirectionOutput {
+	return pulumi.ToOutput(e).(DirectionOutput)
+}
+
+func (e Direction) ToDirectionOutputWithContext(ctx context.Context) DirectionOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(DirectionOutput)
+}
+
+func (e Direction) ToDirectionPtrOutput() DirectionPtrOutput {
+	return e.ToDirectionPtrOutputWithContext(context.Background())
+}
+
+func (e Direction) ToDirectionPtrOutputWithContext(ctx context.Context) DirectionPtrOutput {
+	return Direction(e).ToDirectionOutputWithContext(ctx).ToDirectionPtrOutputWithContext(ctx)
 }
 
 func (e Direction) ToStringOutput() pulumi.StringOutput {
@@ -128,8 +551,128 @@ func (e Direction) ToStringPtrOutputWithContext(ctx context.Context) pulumi.Stri
 	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
 }
 
-// Managed data disk type. IOPS and throughput are given by the disk size, to see more information go to https://docs.microsoft.com/en-us/azure/virtual-machines/disks-types.
-type DiskType pulumi.String
+type DirectionOutput struct{ *pulumi.OutputState }
+
+func (DirectionOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*Direction)(nil)).Elem()
+}
+
+func (o DirectionOutput) ToDirectionOutput() DirectionOutput {
+	return o
+}
+
+func (o DirectionOutput) ToDirectionOutputWithContext(ctx context.Context) DirectionOutput {
+	return o
+}
+
+func (o DirectionOutput) ToDirectionPtrOutput() DirectionPtrOutput {
+	return o.ToDirectionPtrOutputWithContext(context.Background())
+}
+
+func (o DirectionOutput) ToDirectionPtrOutputWithContext(ctx context.Context) DirectionPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v Direction) *Direction {
+		return &v
+	}).(DirectionPtrOutput)
+}
+
+func (o DirectionOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o DirectionOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e Direction) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o DirectionOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o DirectionOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e Direction) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type DirectionPtrOutput struct{ *pulumi.OutputState }
+
+func (DirectionPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**Direction)(nil)).Elem()
+}
+
+func (o DirectionPtrOutput) ToDirectionPtrOutput() DirectionPtrOutput {
+	return o
+}
+
+func (o DirectionPtrOutput) ToDirectionPtrOutputWithContext(ctx context.Context) DirectionPtrOutput {
+	return o
+}
+
+func (o DirectionPtrOutput) Elem() DirectionOutput {
+	return o.ApplyT(func(v *Direction) Direction {
+		if v != nil {
+			return *v
+		}
+		var ret Direction
+		return ret
+	}).(DirectionOutput)
+}
+
+func (o DirectionPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o DirectionPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *Direction) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// DirectionInput is an input type that accepts DirectionArgs and DirectionOutput values.
+// You can construct a concrete instance of `DirectionInput` via:
+//
+//          DirectionArgs{...}
+type DirectionInput interface {
+	pulumi.Input
+
+	ToDirectionOutput() DirectionOutput
+	ToDirectionOutputWithContext(context.Context) DirectionOutput
+}
+
+var directionPtrType = reflect.TypeOf((**Direction)(nil)).Elem()
+
+type DirectionPtrInput interface {
+	pulumi.Input
+
+	ToDirectionPtrOutput() DirectionPtrOutput
+	ToDirectionPtrOutputWithContext(context.Context) DirectionPtrOutput
+}
+
+type directionPtr string
+
+func DirectionPtr(v string) DirectionPtrInput {
+	return (*directionPtr)(&v)
+}
+
+func (*directionPtr) ElementType() reflect.Type {
+	return directionPtrType
+}
+
+func (in *directionPtr) ToDirectionPtrOutput() DirectionPtrOutput {
+	return pulumi.ToOutput(in).(DirectionPtrOutput)
+}
+
+func (in *directionPtr) ToDirectionPtrOutputWithContext(ctx context.Context) DirectionPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(DirectionPtrOutput)
+}
+
+type DiskType string
 
 const (
 	// Standard HDD locally redundant storage. Best for backup, non-critical, and infrequent access.
@@ -141,7 +684,23 @@ const (
 )
 
 func (DiskType) ElementType() reflect.Type {
-	return reflect.TypeOf((*pulumi.String)(nil)).Elem()
+	return reflect.TypeOf((*DiskType)(nil)).Elem()
+}
+
+func (e DiskType) ToDiskTypeOutput() DiskTypeOutput {
+	return pulumi.ToOutput(e).(DiskTypeOutput)
+}
+
+func (e DiskType) ToDiskTypeOutputWithContext(ctx context.Context) DiskTypeOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(DiskTypeOutput)
+}
+
+func (e DiskType) ToDiskTypePtrOutput() DiskTypePtrOutput {
+	return e.ToDiskTypePtrOutputWithContext(context.Background())
+}
+
+func (e DiskType) ToDiskTypePtrOutputWithContext(ctx context.Context) DiskTypePtrOutput {
+	return DiskType(e).ToDiskTypeOutputWithContext(ctx).ToDiskTypePtrOutputWithContext(ctx)
 }
 
 func (e DiskType) ToStringOutput() pulumi.StringOutput {
@@ -160,8 +719,128 @@ func (e DiskType) ToStringPtrOutputWithContext(ctx context.Context) pulumi.Strin
 	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
 }
 
-// The compensating action to perform when a Monitored upgrade encounters monitoring policy or health policy violations. Invalid indicates the failure action is invalid. Rollback specifies that the upgrade will start rolling back automatically. Manual indicates that the upgrade will switch to UnmonitoredManual upgrade mode.
-type FailureAction pulumi.String
+type DiskTypeOutput struct{ *pulumi.OutputState }
+
+func (DiskTypeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DiskType)(nil)).Elem()
+}
+
+func (o DiskTypeOutput) ToDiskTypeOutput() DiskTypeOutput {
+	return o
+}
+
+func (o DiskTypeOutput) ToDiskTypeOutputWithContext(ctx context.Context) DiskTypeOutput {
+	return o
+}
+
+func (o DiskTypeOutput) ToDiskTypePtrOutput() DiskTypePtrOutput {
+	return o.ToDiskTypePtrOutputWithContext(context.Background())
+}
+
+func (o DiskTypeOutput) ToDiskTypePtrOutputWithContext(ctx context.Context) DiskTypePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v DiskType) *DiskType {
+		return &v
+	}).(DiskTypePtrOutput)
+}
+
+func (o DiskTypeOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o DiskTypeOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e DiskType) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o DiskTypeOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o DiskTypeOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e DiskType) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type DiskTypePtrOutput struct{ *pulumi.OutputState }
+
+func (DiskTypePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**DiskType)(nil)).Elem()
+}
+
+func (o DiskTypePtrOutput) ToDiskTypePtrOutput() DiskTypePtrOutput {
+	return o
+}
+
+func (o DiskTypePtrOutput) ToDiskTypePtrOutputWithContext(ctx context.Context) DiskTypePtrOutput {
+	return o
+}
+
+func (o DiskTypePtrOutput) Elem() DiskTypeOutput {
+	return o.ApplyT(func(v *DiskType) DiskType {
+		if v != nil {
+			return *v
+		}
+		var ret DiskType
+		return ret
+	}).(DiskTypeOutput)
+}
+
+func (o DiskTypePtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o DiskTypePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *DiskType) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// DiskTypeInput is an input type that accepts DiskTypeArgs and DiskTypeOutput values.
+// You can construct a concrete instance of `DiskTypeInput` via:
+//
+//          DiskTypeArgs{...}
+type DiskTypeInput interface {
+	pulumi.Input
+
+	ToDiskTypeOutput() DiskTypeOutput
+	ToDiskTypeOutputWithContext(context.Context) DiskTypeOutput
+}
+
+var diskTypePtrType = reflect.TypeOf((**DiskType)(nil)).Elem()
+
+type DiskTypePtrInput interface {
+	pulumi.Input
+
+	ToDiskTypePtrOutput() DiskTypePtrOutput
+	ToDiskTypePtrOutputWithContext(context.Context) DiskTypePtrOutput
+}
+
+type diskTypePtr string
+
+func DiskTypePtr(v string) DiskTypePtrInput {
+	return (*diskTypePtr)(&v)
+}
+
+func (*diskTypePtr) ElementType() reflect.Type {
+	return diskTypePtrType
+}
+
+func (in *diskTypePtr) ToDiskTypePtrOutput() DiskTypePtrOutput {
+	return pulumi.ToOutput(in).(DiskTypePtrOutput)
+}
+
+func (in *diskTypePtr) ToDiskTypePtrOutputWithContext(ctx context.Context) DiskTypePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(DiskTypePtrOutput)
+}
+
+type FailureAction string
 
 const (
 	// Indicates that a rollback of the upgrade will be performed by Service Fabric if the upgrade fails.
@@ -171,7 +850,23 @@ const (
 )
 
 func (FailureAction) ElementType() reflect.Type {
-	return reflect.TypeOf((*pulumi.String)(nil)).Elem()
+	return reflect.TypeOf((*FailureAction)(nil)).Elem()
+}
+
+func (e FailureAction) ToFailureActionOutput() FailureActionOutput {
+	return pulumi.ToOutput(e).(FailureActionOutput)
+}
+
+func (e FailureAction) ToFailureActionOutputWithContext(ctx context.Context) FailureActionOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(FailureActionOutput)
+}
+
+func (e FailureAction) ToFailureActionPtrOutput() FailureActionPtrOutput {
+	return e.ToFailureActionPtrOutputWithContext(context.Background())
+}
+
+func (e FailureAction) ToFailureActionPtrOutputWithContext(ctx context.Context) FailureActionPtrOutput {
+	return FailureAction(e).ToFailureActionOutputWithContext(ctx).ToFailureActionPtrOutputWithContext(ctx)
 }
 
 func (e FailureAction) ToStringOutput() pulumi.StringOutput {
@@ -190,8 +885,128 @@ func (e FailureAction) ToStringPtrOutputWithContext(ctx context.Context) pulumi.
 	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
 }
 
-// The type of managed identity for the resource.
-type ManagedIdentityType pulumi.String
+type FailureActionOutput struct{ *pulumi.OutputState }
+
+func (FailureActionOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*FailureAction)(nil)).Elem()
+}
+
+func (o FailureActionOutput) ToFailureActionOutput() FailureActionOutput {
+	return o
+}
+
+func (o FailureActionOutput) ToFailureActionOutputWithContext(ctx context.Context) FailureActionOutput {
+	return o
+}
+
+func (o FailureActionOutput) ToFailureActionPtrOutput() FailureActionPtrOutput {
+	return o.ToFailureActionPtrOutputWithContext(context.Background())
+}
+
+func (o FailureActionOutput) ToFailureActionPtrOutputWithContext(ctx context.Context) FailureActionPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v FailureAction) *FailureAction {
+		return &v
+	}).(FailureActionPtrOutput)
+}
+
+func (o FailureActionOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o FailureActionOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e FailureAction) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o FailureActionOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o FailureActionOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e FailureAction) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type FailureActionPtrOutput struct{ *pulumi.OutputState }
+
+func (FailureActionPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**FailureAction)(nil)).Elem()
+}
+
+func (o FailureActionPtrOutput) ToFailureActionPtrOutput() FailureActionPtrOutput {
+	return o
+}
+
+func (o FailureActionPtrOutput) ToFailureActionPtrOutputWithContext(ctx context.Context) FailureActionPtrOutput {
+	return o
+}
+
+func (o FailureActionPtrOutput) Elem() FailureActionOutput {
+	return o.ApplyT(func(v *FailureAction) FailureAction {
+		if v != nil {
+			return *v
+		}
+		var ret FailureAction
+		return ret
+	}).(FailureActionOutput)
+}
+
+func (o FailureActionPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o FailureActionPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *FailureAction) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// FailureActionInput is an input type that accepts FailureActionArgs and FailureActionOutput values.
+// You can construct a concrete instance of `FailureActionInput` via:
+//
+//          FailureActionArgs{...}
+type FailureActionInput interface {
+	pulumi.Input
+
+	ToFailureActionOutput() FailureActionOutput
+	ToFailureActionOutputWithContext(context.Context) FailureActionOutput
+}
+
+var failureActionPtrType = reflect.TypeOf((**FailureAction)(nil)).Elem()
+
+type FailureActionPtrInput interface {
+	pulumi.Input
+
+	ToFailureActionPtrOutput() FailureActionPtrOutput
+	ToFailureActionPtrOutputWithContext(context.Context) FailureActionPtrOutput
+}
+
+type failureActionPtr string
+
+func FailureActionPtr(v string) FailureActionPtrInput {
+	return (*failureActionPtr)(&v)
+}
+
+func (*failureActionPtr) ElementType() reflect.Type {
+	return failureActionPtrType
+}
+
+func (in *failureActionPtr) ToFailureActionPtrOutput() FailureActionPtrOutput {
+	return pulumi.ToOutput(in).(FailureActionPtrOutput)
+}
+
+func (in *failureActionPtr) ToFailureActionPtrOutputWithContext(ctx context.Context) FailureActionPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(FailureActionPtrOutput)
+}
+
+type ManagedIdentityType string
 
 const (
 	// Indicates that no identity is associated with the resource.
@@ -205,7 +1020,23 @@ const (
 )
 
 func (ManagedIdentityType) ElementType() reflect.Type {
-	return reflect.TypeOf((*pulumi.String)(nil)).Elem()
+	return reflect.TypeOf((*ManagedIdentityType)(nil)).Elem()
+}
+
+func (e ManagedIdentityType) ToManagedIdentityTypeOutput() ManagedIdentityTypeOutput {
+	return pulumi.ToOutput(e).(ManagedIdentityTypeOutput)
+}
+
+func (e ManagedIdentityType) ToManagedIdentityTypeOutputWithContext(ctx context.Context) ManagedIdentityTypeOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(ManagedIdentityTypeOutput)
+}
+
+func (e ManagedIdentityType) ToManagedIdentityTypePtrOutput() ManagedIdentityTypePtrOutput {
+	return e.ToManagedIdentityTypePtrOutputWithContext(context.Background())
+}
+
+func (e ManagedIdentityType) ToManagedIdentityTypePtrOutputWithContext(ctx context.Context) ManagedIdentityTypePtrOutput {
+	return ManagedIdentityType(e).ToManagedIdentityTypeOutputWithContext(ctx).ToManagedIdentityTypePtrOutputWithContext(ctx)
 }
 
 func (e ManagedIdentityType) ToStringOutput() pulumi.StringOutput {
@@ -224,8 +1055,128 @@ func (e ManagedIdentityType) ToStringPtrOutputWithContext(ctx context.Context) p
 	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
 }
 
-// Specifies the move cost for the service.
-type MoveCost pulumi.String
+type ManagedIdentityTypeOutput struct{ *pulumi.OutputState }
+
+func (ManagedIdentityTypeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ManagedIdentityType)(nil)).Elem()
+}
+
+func (o ManagedIdentityTypeOutput) ToManagedIdentityTypeOutput() ManagedIdentityTypeOutput {
+	return o
+}
+
+func (o ManagedIdentityTypeOutput) ToManagedIdentityTypeOutputWithContext(ctx context.Context) ManagedIdentityTypeOutput {
+	return o
+}
+
+func (o ManagedIdentityTypeOutput) ToManagedIdentityTypePtrOutput() ManagedIdentityTypePtrOutput {
+	return o.ToManagedIdentityTypePtrOutputWithContext(context.Background())
+}
+
+func (o ManagedIdentityTypeOutput) ToManagedIdentityTypePtrOutputWithContext(ctx context.Context) ManagedIdentityTypePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ManagedIdentityType) *ManagedIdentityType {
+		return &v
+	}).(ManagedIdentityTypePtrOutput)
+}
+
+func (o ManagedIdentityTypeOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o ManagedIdentityTypeOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e ManagedIdentityType) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o ManagedIdentityTypeOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o ManagedIdentityTypeOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e ManagedIdentityType) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type ManagedIdentityTypePtrOutput struct{ *pulumi.OutputState }
+
+func (ManagedIdentityTypePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ManagedIdentityType)(nil)).Elem()
+}
+
+func (o ManagedIdentityTypePtrOutput) ToManagedIdentityTypePtrOutput() ManagedIdentityTypePtrOutput {
+	return o
+}
+
+func (o ManagedIdentityTypePtrOutput) ToManagedIdentityTypePtrOutputWithContext(ctx context.Context) ManagedIdentityTypePtrOutput {
+	return o
+}
+
+func (o ManagedIdentityTypePtrOutput) Elem() ManagedIdentityTypeOutput {
+	return o.ApplyT(func(v *ManagedIdentityType) ManagedIdentityType {
+		if v != nil {
+			return *v
+		}
+		var ret ManagedIdentityType
+		return ret
+	}).(ManagedIdentityTypeOutput)
+}
+
+func (o ManagedIdentityTypePtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o ManagedIdentityTypePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *ManagedIdentityType) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// ManagedIdentityTypeInput is an input type that accepts ManagedIdentityTypeArgs and ManagedIdentityTypeOutput values.
+// You can construct a concrete instance of `ManagedIdentityTypeInput` via:
+//
+//          ManagedIdentityTypeArgs{...}
+type ManagedIdentityTypeInput interface {
+	pulumi.Input
+
+	ToManagedIdentityTypeOutput() ManagedIdentityTypeOutput
+	ToManagedIdentityTypeOutputWithContext(context.Context) ManagedIdentityTypeOutput
+}
+
+var managedIdentityTypePtrType = reflect.TypeOf((**ManagedIdentityType)(nil)).Elem()
+
+type ManagedIdentityTypePtrInput interface {
+	pulumi.Input
+
+	ToManagedIdentityTypePtrOutput() ManagedIdentityTypePtrOutput
+	ToManagedIdentityTypePtrOutputWithContext(context.Context) ManagedIdentityTypePtrOutput
+}
+
+type managedIdentityTypePtr string
+
+func ManagedIdentityTypePtr(v string) ManagedIdentityTypePtrInput {
+	return (*managedIdentityTypePtr)(&v)
+}
+
+func (*managedIdentityTypePtr) ElementType() reflect.Type {
+	return managedIdentityTypePtrType
+}
+
+func (in *managedIdentityTypePtr) ToManagedIdentityTypePtrOutput() ManagedIdentityTypePtrOutput {
+	return pulumi.ToOutput(in).(ManagedIdentityTypePtrOutput)
+}
+
+func (in *managedIdentityTypePtr) ToManagedIdentityTypePtrOutputWithContext(ctx context.Context) ManagedIdentityTypePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(ManagedIdentityTypePtrOutput)
+}
+
+type MoveCost string
 
 const (
 	// Zero move cost. This value is zero.
@@ -239,7 +1190,23 @@ const (
 )
 
 func (MoveCost) ElementType() reflect.Type {
-	return reflect.TypeOf((*pulumi.String)(nil)).Elem()
+	return reflect.TypeOf((*MoveCost)(nil)).Elem()
+}
+
+func (e MoveCost) ToMoveCostOutput() MoveCostOutput {
+	return pulumi.ToOutput(e).(MoveCostOutput)
+}
+
+func (e MoveCost) ToMoveCostOutputWithContext(ctx context.Context) MoveCostOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(MoveCostOutput)
+}
+
+func (e MoveCost) ToMoveCostPtrOutput() MoveCostPtrOutput {
+	return e.ToMoveCostPtrOutputWithContext(context.Background())
+}
+
+func (e MoveCost) ToMoveCostPtrOutputWithContext(ctx context.Context) MoveCostPtrOutput {
+	return MoveCost(e).ToMoveCostOutputWithContext(ctx).ToMoveCostPtrOutputWithContext(ctx)
 }
 
 func (e MoveCost) ToStringOutput() pulumi.StringOutput {
@@ -258,8 +1225,128 @@ func (e MoveCost) ToStringPtrOutputWithContext(ctx context.Context) pulumi.Strin
 	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
 }
 
-// Network protocol this rule applies to.
-type NsgProtocol pulumi.String
+type MoveCostOutput struct{ *pulumi.OutputState }
+
+func (MoveCostOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*MoveCost)(nil)).Elem()
+}
+
+func (o MoveCostOutput) ToMoveCostOutput() MoveCostOutput {
+	return o
+}
+
+func (o MoveCostOutput) ToMoveCostOutputWithContext(ctx context.Context) MoveCostOutput {
+	return o
+}
+
+func (o MoveCostOutput) ToMoveCostPtrOutput() MoveCostPtrOutput {
+	return o.ToMoveCostPtrOutputWithContext(context.Background())
+}
+
+func (o MoveCostOutput) ToMoveCostPtrOutputWithContext(ctx context.Context) MoveCostPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v MoveCost) *MoveCost {
+		return &v
+	}).(MoveCostPtrOutput)
+}
+
+func (o MoveCostOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o MoveCostOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e MoveCost) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o MoveCostOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o MoveCostOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e MoveCost) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type MoveCostPtrOutput struct{ *pulumi.OutputState }
+
+func (MoveCostPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**MoveCost)(nil)).Elem()
+}
+
+func (o MoveCostPtrOutput) ToMoveCostPtrOutput() MoveCostPtrOutput {
+	return o
+}
+
+func (o MoveCostPtrOutput) ToMoveCostPtrOutputWithContext(ctx context.Context) MoveCostPtrOutput {
+	return o
+}
+
+func (o MoveCostPtrOutput) Elem() MoveCostOutput {
+	return o.ApplyT(func(v *MoveCost) MoveCost {
+		if v != nil {
+			return *v
+		}
+		var ret MoveCost
+		return ret
+	}).(MoveCostOutput)
+}
+
+func (o MoveCostPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o MoveCostPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *MoveCost) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// MoveCostInput is an input type that accepts MoveCostArgs and MoveCostOutput values.
+// You can construct a concrete instance of `MoveCostInput` via:
+//
+//          MoveCostArgs{...}
+type MoveCostInput interface {
+	pulumi.Input
+
+	ToMoveCostOutput() MoveCostOutput
+	ToMoveCostOutputWithContext(context.Context) MoveCostOutput
+}
+
+var moveCostPtrType = reflect.TypeOf((**MoveCost)(nil)).Elem()
+
+type MoveCostPtrInput interface {
+	pulumi.Input
+
+	ToMoveCostPtrOutput() MoveCostPtrOutput
+	ToMoveCostPtrOutputWithContext(context.Context) MoveCostPtrOutput
+}
+
+type moveCostPtr string
+
+func MoveCostPtr(v string) MoveCostPtrInput {
+	return (*moveCostPtr)(&v)
+}
+
+func (*moveCostPtr) ElementType() reflect.Type {
+	return moveCostPtrType
+}
+
+func (in *moveCostPtr) ToMoveCostPtrOutput() MoveCostPtrOutput {
+	return pulumi.ToOutput(in).(MoveCostPtrOutput)
+}
+
+func (in *moveCostPtr) ToMoveCostPtrOutputWithContext(ctx context.Context) MoveCostPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(MoveCostPtrOutput)
+}
+
+type NsgProtocol string
 
 const (
 	NsgProtocolHttp  = NsgProtocol("http")
@@ -272,7 +1359,23 @@ const (
 )
 
 func (NsgProtocol) ElementType() reflect.Type {
-	return reflect.TypeOf((*pulumi.String)(nil)).Elem()
+	return reflect.TypeOf((*NsgProtocol)(nil)).Elem()
+}
+
+func (e NsgProtocol) ToNsgProtocolOutput() NsgProtocolOutput {
+	return pulumi.ToOutput(e).(NsgProtocolOutput)
+}
+
+func (e NsgProtocol) ToNsgProtocolOutputWithContext(ctx context.Context) NsgProtocolOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(NsgProtocolOutput)
+}
+
+func (e NsgProtocol) ToNsgProtocolPtrOutput() NsgProtocolPtrOutput {
+	return e.ToNsgProtocolPtrOutputWithContext(context.Background())
+}
+
+func (e NsgProtocol) ToNsgProtocolPtrOutputWithContext(ctx context.Context) NsgProtocolPtrOutput {
+	return NsgProtocol(e).ToNsgProtocolOutputWithContext(ctx).ToNsgProtocolPtrOutputWithContext(ctx)
 }
 
 func (e NsgProtocol) ToStringOutput() pulumi.StringOutput {
@@ -291,8 +1394,128 @@ func (e NsgProtocol) ToStringPtrOutputWithContext(ctx context.Context) pulumi.St
 	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
 }
 
-// Specifies how the service is partitioned.
-type PartitionScheme pulumi.String
+type NsgProtocolOutput struct{ *pulumi.OutputState }
+
+func (NsgProtocolOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*NsgProtocol)(nil)).Elem()
+}
+
+func (o NsgProtocolOutput) ToNsgProtocolOutput() NsgProtocolOutput {
+	return o
+}
+
+func (o NsgProtocolOutput) ToNsgProtocolOutputWithContext(ctx context.Context) NsgProtocolOutput {
+	return o
+}
+
+func (o NsgProtocolOutput) ToNsgProtocolPtrOutput() NsgProtocolPtrOutput {
+	return o.ToNsgProtocolPtrOutputWithContext(context.Background())
+}
+
+func (o NsgProtocolOutput) ToNsgProtocolPtrOutputWithContext(ctx context.Context) NsgProtocolPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v NsgProtocol) *NsgProtocol {
+		return &v
+	}).(NsgProtocolPtrOutput)
+}
+
+func (o NsgProtocolOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o NsgProtocolOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e NsgProtocol) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o NsgProtocolOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o NsgProtocolOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e NsgProtocol) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type NsgProtocolPtrOutput struct{ *pulumi.OutputState }
+
+func (NsgProtocolPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**NsgProtocol)(nil)).Elem()
+}
+
+func (o NsgProtocolPtrOutput) ToNsgProtocolPtrOutput() NsgProtocolPtrOutput {
+	return o
+}
+
+func (o NsgProtocolPtrOutput) ToNsgProtocolPtrOutputWithContext(ctx context.Context) NsgProtocolPtrOutput {
+	return o
+}
+
+func (o NsgProtocolPtrOutput) Elem() NsgProtocolOutput {
+	return o.ApplyT(func(v *NsgProtocol) NsgProtocol {
+		if v != nil {
+			return *v
+		}
+		var ret NsgProtocol
+		return ret
+	}).(NsgProtocolOutput)
+}
+
+func (o NsgProtocolPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o NsgProtocolPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *NsgProtocol) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// NsgProtocolInput is an input type that accepts NsgProtocolArgs and NsgProtocolOutput values.
+// You can construct a concrete instance of `NsgProtocolInput` via:
+//
+//          NsgProtocolArgs{...}
+type NsgProtocolInput interface {
+	pulumi.Input
+
+	ToNsgProtocolOutput() NsgProtocolOutput
+	ToNsgProtocolOutputWithContext(context.Context) NsgProtocolOutput
+}
+
+var nsgProtocolPtrType = reflect.TypeOf((**NsgProtocol)(nil)).Elem()
+
+type NsgProtocolPtrInput interface {
+	pulumi.Input
+
+	ToNsgProtocolPtrOutput() NsgProtocolPtrOutput
+	ToNsgProtocolPtrOutputWithContext(context.Context) NsgProtocolPtrOutput
+}
+
+type nsgProtocolPtr string
+
+func NsgProtocolPtr(v string) NsgProtocolPtrInput {
+	return (*nsgProtocolPtr)(&v)
+}
+
+func (*nsgProtocolPtr) ElementType() reflect.Type {
+	return nsgProtocolPtrType
+}
+
+func (in *nsgProtocolPtr) ToNsgProtocolPtrOutput() NsgProtocolPtrOutput {
+	return pulumi.ToOutput(in).(NsgProtocolPtrOutput)
+}
+
+func (in *nsgProtocolPtr) ToNsgProtocolPtrOutputWithContext(ctx context.Context) NsgProtocolPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(NsgProtocolPtrOutput)
+}
+
+type PartitionScheme string
 
 const (
 	// Indicates that the partition is based on string names, and is a SingletonPartitionScheme object, The value is 0.
@@ -304,7 +1527,23 @@ const (
 )
 
 func (PartitionScheme) ElementType() reflect.Type {
-	return reflect.TypeOf((*pulumi.String)(nil)).Elem()
+	return reflect.TypeOf((*PartitionScheme)(nil)).Elem()
+}
+
+func (e PartitionScheme) ToPartitionSchemeOutput() PartitionSchemeOutput {
+	return pulumi.ToOutput(e).(PartitionSchemeOutput)
+}
+
+func (e PartitionScheme) ToPartitionSchemeOutputWithContext(ctx context.Context) PartitionSchemeOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(PartitionSchemeOutput)
+}
+
+func (e PartitionScheme) ToPartitionSchemePtrOutput() PartitionSchemePtrOutput {
+	return e.ToPartitionSchemePtrOutputWithContext(context.Background())
+}
+
+func (e PartitionScheme) ToPartitionSchemePtrOutputWithContext(ctx context.Context) PartitionSchemePtrOutput {
+	return PartitionScheme(e).ToPartitionSchemeOutputWithContext(ctx).ToPartitionSchemePtrOutputWithContext(ctx)
 }
 
 func (e PartitionScheme) ToStringOutput() pulumi.StringOutput {
@@ -323,8 +1562,128 @@ func (e PartitionScheme) ToStringPtrOutputWithContext(ctx context.Context) pulum
 	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
 }
 
-// the reference to the load balancer probe used by the load balancing rule.
-type ProbeProtocol pulumi.String
+type PartitionSchemeOutput struct{ *pulumi.OutputState }
+
+func (PartitionSchemeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*PartitionScheme)(nil)).Elem()
+}
+
+func (o PartitionSchemeOutput) ToPartitionSchemeOutput() PartitionSchemeOutput {
+	return o
+}
+
+func (o PartitionSchemeOutput) ToPartitionSchemeOutputWithContext(ctx context.Context) PartitionSchemeOutput {
+	return o
+}
+
+func (o PartitionSchemeOutput) ToPartitionSchemePtrOutput() PartitionSchemePtrOutput {
+	return o.ToPartitionSchemePtrOutputWithContext(context.Background())
+}
+
+func (o PartitionSchemeOutput) ToPartitionSchemePtrOutputWithContext(ctx context.Context) PartitionSchemePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v PartitionScheme) *PartitionScheme {
+		return &v
+	}).(PartitionSchemePtrOutput)
+}
+
+func (o PartitionSchemeOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o PartitionSchemeOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e PartitionScheme) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o PartitionSchemeOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o PartitionSchemeOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e PartitionScheme) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type PartitionSchemePtrOutput struct{ *pulumi.OutputState }
+
+func (PartitionSchemePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**PartitionScheme)(nil)).Elem()
+}
+
+func (o PartitionSchemePtrOutput) ToPartitionSchemePtrOutput() PartitionSchemePtrOutput {
+	return o
+}
+
+func (o PartitionSchemePtrOutput) ToPartitionSchemePtrOutputWithContext(ctx context.Context) PartitionSchemePtrOutput {
+	return o
+}
+
+func (o PartitionSchemePtrOutput) Elem() PartitionSchemeOutput {
+	return o.ApplyT(func(v *PartitionScheme) PartitionScheme {
+		if v != nil {
+			return *v
+		}
+		var ret PartitionScheme
+		return ret
+	}).(PartitionSchemeOutput)
+}
+
+func (o PartitionSchemePtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o PartitionSchemePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *PartitionScheme) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// PartitionSchemeInput is an input type that accepts PartitionSchemeArgs and PartitionSchemeOutput values.
+// You can construct a concrete instance of `PartitionSchemeInput` via:
+//
+//          PartitionSchemeArgs{...}
+type PartitionSchemeInput interface {
+	pulumi.Input
+
+	ToPartitionSchemeOutput() PartitionSchemeOutput
+	ToPartitionSchemeOutputWithContext(context.Context) PartitionSchemeOutput
+}
+
+var partitionSchemePtrType = reflect.TypeOf((**PartitionScheme)(nil)).Elem()
+
+type PartitionSchemePtrInput interface {
+	pulumi.Input
+
+	ToPartitionSchemePtrOutput() PartitionSchemePtrOutput
+	ToPartitionSchemePtrOutputWithContext(context.Context) PartitionSchemePtrOutput
+}
+
+type partitionSchemePtr string
+
+func PartitionSchemePtr(v string) PartitionSchemePtrInput {
+	return (*partitionSchemePtr)(&v)
+}
+
+func (*partitionSchemePtr) ElementType() reflect.Type {
+	return partitionSchemePtrType
+}
+
+func (in *partitionSchemePtr) ToPartitionSchemePtrOutput() PartitionSchemePtrOutput {
+	return pulumi.ToOutput(in).(PartitionSchemePtrOutput)
+}
+
+func (in *partitionSchemePtr) ToPartitionSchemePtrOutputWithContext(ctx context.Context) PartitionSchemePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(PartitionSchemePtrOutput)
+}
+
+type ProbeProtocol string
 
 const (
 	ProbeProtocolTcp   = ProbeProtocol("tcp")
@@ -333,7 +1692,23 @@ const (
 )
 
 func (ProbeProtocol) ElementType() reflect.Type {
-	return reflect.TypeOf((*pulumi.String)(nil)).Elem()
+	return reflect.TypeOf((*ProbeProtocol)(nil)).Elem()
+}
+
+func (e ProbeProtocol) ToProbeProtocolOutput() ProbeProtocolOutput {
+	return pulumi.ToOutput(e).(ProbeProtocolOutput)
+}
+
+func (e ProbeProtocol) ToProbeProtocolOutputWithContext(ctx context.Context) ProbeProtocolOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(ProbeProtocolOutput)
+}
+
+func (e ProbeProtocol) ToProbeProtocolPtrOutput() ProbeProtocolPtrOutput {
+	return e.ToProbeProtocolPtrOutputWithContext(context.Background())
+}
+
+func (e ProbeProtocol) ToProbeProtocolPtrOutputWithContext(ctx context.Context) ProbeProtocolPtrOutput {
+	return ProbeProtocol(e).ToProbeProtocolOutputWithContext(ctx).ToProbeProtocolPtrOutputWithContext(ctx)
 }
 
 func (e ProbeProtocol) ToStringOutput() pulumi.StringOutput {
@@ -352,8 +1727,128 @@ func (e ProbeProtocol) ToStringPtrOutputWithContext(ctx context.Context) pulumi.
 	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
 }
 
-// The reference to the transport protocol used by the load balancing rule.
-type Protocol pulumi.String
+type ProbeProtocolOutput struct{ *pulumi.OutputState }
+
+func (ProbeProtocolOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ProbeProtocol)(nil)).Elem()
+}
+
+func (o ProbeProtocolOutput) ToProbeProtocolOutput() ProbeProtocolOutput {
+	return o
+}
+
+func (o ProbeProtocolOutput) ToProbeProtocolOutputWithContext(ctx context.Context) ProbeProtocolOutput {
+	return o
+}
+
+func (o ProbeProtocolOutput) ToProbeProtocolPtrOutput() ProbeProtocolPtrOutput {
+	return o.ToProbeProtocolPtrOutputWithContext(context.Background())
+}
+
+func (o ProbeProtocolOutput) ToProbeProtocolPtrOutputWithContext(ctx context.Context) ProbeProtocolPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ProbeProtocol) *ProbeProtocol {
+		return &v
+	}).(ProbeProtocolPtrOutput)
+}
+
+func (o ProbeProtocolOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o ProbeProtocolOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e ProbeProtocol) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o ProbeProtocolOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o ProbeProtocolOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e ProbeProtocol) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type ProbeProtocolPtrOutput struct{ *pulumi.OutputState }
+
+func (ProbeProtocolPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ProbeProtocol)(nil)).Elem()
+}
+
+func (o ProbeProtocolPtrOutput) ToProbeProtocolPtrOutput() ProbeProtocolPtrOutput {
+	return o
+}
+
+func (o ProbeProtocolPtrOutput) ToProbeProtocolPtrOutputWithContext(ctx context.Context) ProbeProtocolPtrOutput {
+	return o
+}
+
+func (o ProbeProtocolPtrOutput) Elem() ProbeProtocolOutput {
+	return o.ApplyT(func(v *ProbeProtocol) ProbeProtocol {
+		if v != nil {
+			return *v
+		}
+		var ret ProbeProtocol
+		return ret
+	}).(ProbeProtocolOutput)
+}
+
+func (o ProbeProtocolPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o ProbeProtocolPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *ProbeProtocol) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// ProbeProtocolInput is an input type that accepts ProbeProtocolArgs and ProbeProtocolOutput values.
+// You can construct a concrete instance of `ProbeProtocolInput` via:
+//
+//          ProbeProtocolArgs{...}
+type ProbeProtocolInput interface {
+	pulumi.Input
+
+	ToProbeProtocolOutput() ProbeProtocolOutput
+	ToProbeProtocolOutputWithContext(context.Context) ProbeProtocolOutput
+}
+
+var probeProtocolPtrType = reflect.TypeOf((**ProbeProtocol)(nil)).Elem()
+
+type ProbeProtocolPtrInput interface {
+	pulumi.Input
+
+	ToProbeProtocolPtrOutput() ProbeProtocolPtrOutput
+	ToProbeProtocolPtrOutputWithContext(context.Context) ProbeProtocolPtrOutput
+}
+
+type probeProtocolPtr string
+
+func ProbeProtocolPtr(v string) ProbeProtocolPtrInput {
+	return (*probeProtocolPtr)(&v)
+}
+
+func (*probeProtocolPtr) ElementType() reflect.Type {
+	return probeProtocolPtrType
+}
+
+func (in *probeProtocolPtr) ToProbeProtocolPtrOutput() ProbeProtocolPtrOutput {
+	return pulumi.ToOutput(in).(ProbeProtocolPtrOutput)
+}
+
+func (in *probeProtocolPtr) ToProbeProtocolPtrOutputWithContext(ctx context.Context) ProbeProtocolPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(ProbeProtocolPtrOutput)
+}
+
+type Protocol string
 
 const (
 	ProtocolTcp = Protocol("tcp")
@@ -361,7 +1856,23 @@ const (
 )
 
 func (Protocol) ElementType() reflect.Type {
-	return reflect.TypeOf((*pulumi.String)(nil)).Elem()
+	return reflect.TypeOf((*Protocol)(nil)).Elem()
+}
+
+func (e Protocol) ToProtocolOutput() ProtocolOutput {
+	return pulumi.ToOutput(e).(ProtocolOutput)
+}
+
+func (e Protocol) ToProtocolOutputWithContext(ctx context.Context) ProtocolOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(ProtocolOutput)
+}
+
+func (e Protocol) ToProtocolPtrOutput() ProtocolPtrOutput {
+	return e.ToProtocolPtrOutputWithContext(context.Background())
+}
+
+func (e Protocol) ToProtocolPtrOutputWithContext(ctx context.Context) ProtocolPtrOutput {
+	return Protocol(e).ToProtocolOutputWithContext(ctx).ToProtocolPtrOutputWithContext(ctx)
 }
 
 func (e Protocol) ToStringOutput() pulumi.StringOutput {
@@ -380,8 +1891,128 @@ func (e Protocol) ToStringPtrOutputWithContext(ctx context.Context) pulumi.Strin
 	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
 }
 
-// The mode used to monitor health during a rolling upgrade. The values are Monitored, and UnmonitoredAuto.
-type RollingUpgradeMode pulumi.String
+type ProtocolOutput struct{ *pulumi.OutputState }
+
+func (ProtocolOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*Protocol)(nil)).Elem()
+}
+
+func (o ProtocolOutput) ToProtocolOutput() ProtocolOutput {
+	return o
+}
+
+func (o ProtocolOutput) ToProtocolOutputWithContext(ctx context.Context) ProtocolOutput {
+	return o
+}
+
+func (o ProtocolOutput) ToProtocolPtrOutput() ProtocolPtrOutput {
+	return o.ToProtocolPtrOutputWithContext(context.Background())
+}
+
+func (o ProtocolOutput) ToProtocolPtrOutputWithContext(ctx context.Context) ProtocolPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v Protocol) *Protocol {
+		return &v
+	}).(ProtocolPtrOutput)
+}
+
+func (o ProtocolOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o ProtocolOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e Protocol) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o ProtocolOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o ProtocolOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e Protocol) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type ProtocolPtrOutput struct{ *pulumi.OutputState }
+
+func (ProtocolPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**Protocol)(nil)).Elem()
+}
+
+func (o ProtocolPtrOutput) ToProtocolPtrOutput() ProtocolPtrOutput {
+	return o
+}
+
+func (o ProtocolPtrOutput) ToProtocolPtrOutputWithContext(ctx context.Context) ProtocolPtrOutput {
+	return o
+}
+
+func (o ProtocolPtrOutput) Elem() ProtocolOutput {
+	return o.ApplyT(func(v *Protocol) Protocol {
+		if v != nil {
+			return *v
+		}
+		var ret Protocol
+		return ret
+	}).(ProtocolOutput)
+}
+
+func (o ProtocolPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o ProtocolPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *Protocol) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// ProtocolInput is an input type that accepts ProtocolArgs and ProtocolOutput values.
+// You can construct a concrete instance of `ProtocolInput` via:
+//
+//          ProtocolArgs{...}
+type ProtocolInput interface {
+	pulumi.Input
+
+	ToProtocolOutput() ProtocolOutput
+	ToProtocolOutputWithContext(context.Context) ProtocolOutput
+}
+
+var protocolPtrType = reflect.TypeOf((**Protocol)(nil)).Elem()
+
+type ProtocolPtrInput interface {
+	pulumi.Input
+
+	ToProtocolPtrOutput() ProtocolPtrOutput
+	ToProtocolPtrOutputWithContext(context.Context) ProtocolPtrOutput
+}
+
+type protocolPtr string
+
+func ProtocolPtr(v string) ProtocolPtrInput {
+	return (*protocolPtr)(&v)
+}
+
+func (*protocolPtr) ElementType() reflect.Type {
+	return protocolPtrType
+}
+
+func (in *protocolPtr) ToProtocolPtrOutput() ProtocolPtrOutput {
+	return pulumi.ToOutput(in).(ProtocolPtrOutput)
+}
+
+func (in *protocolPtr) ToProtocolPtrOutputWithContext(ctx context.Context) ProtocolPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(ProtocolPtrOutput)
+}
+
+type RollingUpgradeMode string
 
 const (
 	// The upgrade will stop after completing each upgrade domain and automatically monitor health before proceeding. The value is 0.
@@ -391,7 +2022,23 @@ const (
 )
 
 func (RollingUpgradeMode) ElementType() reflect.Type {
-	return reflect.TypeOf((*pulumi.String)(nil)).Elem()
+	return reflect.TypeOf((*RollingUpgradeMode)(nil)).Elem()
+}
+
+func (e RollingUpgradeMode) ToRollingUpgradeModeOutput() RollingUpgradeModeOutput {
+	return pulumi.ToOutput(e).(RollingUpgradeModeOutput)
+}
+
+func (e RollingUpgradeMode) ToRollingUpgradeModeOutputWithContext(ctx context.Context) RollingUpgradeModeOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(RollingUpgradeModeOutput)
+}
+
+func (e RollingUpgradeMode) ToRollingUpgradeModePtrOutput() RollingUpgradeModePtrOutput {
+	return e.ToRollingUpgradeModePtrOutputWithContext(context.Background())
+}
+
+func (e RollingUpgradeMode) ToRollingUpgradeModePtrOutputWithContext(ctx context.Context) RollingUpgradeModePtrOutput {
+	return RollingUpgradeMode(e).ToRollingUpgradeModeOutputWithContext(ctx).ToRollingUpgradeModePtrOutputWithContext(ctx)
 }
 
 func (e RollingUpgradeMode) ToStringOutput() pulumi.StringOutput {
@@ -410,8 +2057,128 @@ func (e RollingUpgradeMode) ToStringPtrOutputWithContext(ctx context.Context) pu
 	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
 }
 
-// The ServiceCorrelationScheme which describes the relationship between this service and the service specified via ServiceName.
-type ServiceCorrelationScheme pulumi.String
+type RollingUpgradeModeOutput struct{ *pulumi.OutputState }
+
+func (RollingUpgradeModeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*RollingUpgradeMode)(nil)).Elem()
+}
+
+func (o RollingUpgradeModeOutput) ToRollingUpgradeModeOutput() RollingUpgradeModeOutput {
+	return o
+}
+
+func (o RollingUpgradeModeOutput) ToRollingUpgradeModeOutputWithContext(ctx context.Context) RollingUpgradeModeOutput {
+	return o
+}
+
+func (o RollingUpgradeModeOutput) ToRollingUpgradeModePtrOutput() RollingUpgradeModePtrOutput {
+	return o.ToRollingUpgradeModePtrOutputWithContext(context.Background())
+}
+
+func (o RollingUpgradeModeOutput) ToRollingUpgradeModePtrOutputWithContext(ctx context.Context) RollingUpgradeModePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v RollingUpgradeMode) *RollingUpgradeMode {
+		return &v
+	}).(RollingUpgradeModePtrOutput)
+}
+
+func (o RollingUpgradeModeOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o RollingUpgradeModeOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e RollingUpgradeMode) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o RollingUpgradeModeOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o RollingUpgradeModeOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e RollingUpgradeMode) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type RollingUpgradeModePtrOutput struct{ *pulumi.OutputState }
+
+func (RollingUpgradeModePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**RollingUpgradeMode)(nil)).Elem()
+}
+
+func (o RollingUpgradeModePtrOutput) ToRollingUpgradeModePtrOutput() RollingUpgradeModePtrOutput {
+	return o
+}
+
+func (o RollingUpgradeModePtrOutput) ToRollingUpgradeModePtrOutputWithContext(ctx context.Context) RollingUpgradeModePtrOutput {
+	return o
+}
+
+func (o RollingUpgradeModePtrOutput) Elem() RollingUpgradeModeOutput {
+	return o.ApplyT(func(v *RollingUpgradeMode) RollingUpgradeMode {
+		if v != nil {
+			return *v
+		}
+		var ret RollingUpgradeMode
+		return ret
+	}).(RollingUpgradeModeOutput)
+}
+
+func (o RollingUpgradeModePtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o RollingUpgradeModePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *RollingUpgradeMode) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// RollingUpgradeModeInput is an input type that accepts RollingUpgradeModeArgs and RollingUpgradeModeOutput values.
+// You can construct a concrete instance of `RollingUpgradeModeInput` via:
+//
+//          RollingUpgradeModeArgs{...}
+type RollingUpgradeModeInput interface {
+	pulumi.Input
+
+	ToRollingUpgradeModeOutput() RollingUpgradeModeOutput
+	ToRollingUpgradeModeOutputWithContext(context.Context) RollingUpgradeModeOutput
+}
+
+var rollingUpgradeModePtrType = reflect.TypeOf((**RollingUpgradeMode)(nil)).Elem()
+
+type RollingUpgradeModePtrInput interface {
+	pulumi.Input
+
+	ToRollingUpgradeModePtrOutput() RollingUpgradeModePtrOutput
+	ToRollingUpgradeModePtrOutputWithContext(context.Context) RollingUpgradeModePtrOutput
+}
+
+type rollingUpgradeModePtr string
+
+func RollingUpgradeModePtr(v string) RollingUpgradeModePtrInput {
+	return (*rollingUpgradeModePtr)(&v)
+}
+
+func (*rollingUpgradeModePtr) ElementType() reflect.Type {
+	return rollingUpgradeModePtrType
+}
+
+func (in *rollingUpgradeModePtr) ToRollingUpgradeModePtrOutput() RollingUpgradeModePtrOutput {
+	return pulumi.ToOutput(in).(RollingUpgradeModePtrOutput)
+}
+
+func (in *rollingUpgradeModePtr) ToRollingUpgradeModePtrOutputWithContext(ctx context.Context) RollingUpgradeModePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(RollingUpgradeModePtrOutput)
+}
+
+type ServiceCorrelationScheme string
 
 const (
 	// Aligned affinity ensures that the primaries of the partitions of the affinitized services are collocated on the same nodes. This is the default and is the same as selecting the Affinity scheme. The value is 0.
@@ -421,7 +2188,23 @@ const (
 )
 
 func (ServiceCorrelationScheme) ElementType() reflect.Type {
-	return reflect.TypeOf((*pulumi.String)(nil)).Elem()
+	return reflect.TypeOf((*ServiceCorrelationScheme)(nil)).Elem()
+}
+
+func (e ServiceCorrelationScheme) ToServiceCorrelationSchemeOutput() ServiceCorrelationSchemeOutput {
+	return pulumi.ToOutput(e).(ServiceCorrelationSchemeOutput)
+}
+
+func (e ServiceCorrelationScheme) ToServiceCorrelationSchemeOutputWithContext(ctx context.Context) ServiceCorrelationSchemeOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(ServiceCorrelationSchemeOutput)
+}
+
+func (e ServiceCorrelationScheme) ToServiceCorrelationSchemePtrOutput() ServiceCorrelationSchemePtrOutput {
+	return e.ToServiceCorrelationSchemePtrOutputWithContext(context.Background())
+}
+
+func (e ServiceCorrelationScheme) ToServiceCorrelationSchemePtrOutputWithContext(ctx context.Context) ServiceCorrelationSchemePtrOutput {
+	return ServiceCorrelationScheme(e).ToServiceCorrelationSchemeOutputWithContext(ctx).ToServiceCorrelationSchemePtrOutputWithContext(ctx)
 }
 
 func (e ServiceCorrelationScheme) ToStringOutput() pulumi.StringOutput {
@@ -440,8 +2223,128 @@ func (e ServiceCorrelationScheme) ToStringPtrOutputWithContext(ctx context.Conte
 	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
 }
 
-// The kind of service (Stateless or Stateful).
-type ServiceKind pulumi.String
+type ServiceCorrelationSchemeOutput struct{ *pulumi.OutputState }
+
+func (ServiceCorrelationSchemeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ServiceCorrelationScheme)(nil)).Elem()
+}
+
+func (o ServiceCorrelationSchemeOutput) ToServiceCorrelationSchemeOutput() ServiceCorrelationSchemeOutput {
+	return o
+}
+
+func (o ServiceCorrelationSchemeOutput) ToServiceCorrelationSchemeOutputWithContext(ctx context.Context) ServiceCorrelationSchemeOutput {
+	return o
+}
+
+func (o ServiceCorrelationSchemeOutput) ToServiceCorrelationSchemePtrOutput() ServiceCorrelationSchemePtrOutput {
+	return o.ToServiceCorrelationSchemePtrOutputWithContext(context.Background())
+}
+
+func (o ServiceCorrelationSchemeOutput) ToServiceCorrelationSchemePtrOutputWithContext(ctx context.Context) ServiceCorrelationSchemePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ServiceCorrelationScheme) *ServiceCorrelationScheme {
+		return &v
+	}).(ServiceCorrelationSchemePtrOutput)
+}
+
+func (o ServiceCorrelationSchemeOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o ServiceCorrelationSchemeOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e ServiceCorrelationScheme) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o ServiceCorrelationSchemeOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o ServiceCorrelationSchemeOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e ServiceCorrelationScheme) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type ServiceCorrelationSchemePtrOutput struct{ *pulumi.OutputState }
+
+func (ServiceCorrelationSchemePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ServiceCorrelationScheme)(nil)).Elem()
+}
+
+func (o ServiceCorrelationSchemePtrOutput) ToServiceCorrelationSchemePtrOutput() ServiceCorrelationSchemePtrOutput {
+	return o
+}
+
+func (o ServiceCorrelationSchemePtrOutput) ToServiceCorrelationSchemePtrOutputWithContext(ctx context.Context) ServiceCorrelationSchemePtrOutput {
+	return o
+}
+
+func (o ServiceCorrelationSchemePtrOutput) Elem() ServiceCorrelationSchemeOutput {
+	return o.ApplyT(func(v *ServiceCorrelationScheme) ServiceCorrelationScheme {
+		if v != nil {
+			return *v
+		}
+		var ret ServiceCorrelationScheme
+		return ret
+	}).(ServiceCorrelationSchemeOutput)
+}
+
+func (o ServiceCorrelationSchemePtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o ServiceCorrelationSchemePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *ServiceCorrelationScheme) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// ServiceCorrelationSchemeInput is an input type that accepts ServiceCorrelationSchemeArgs and ServiceCorrelationSchemeOutput values.
+// You can construct a concrete instance of `ServiceCorrelationSchemeInput` via:
+//
+//          ServiceCorrelationSchemeArgs{...}
+type ServiceCorrelationSchemeInput interface {
+	pulumi.Input
+
+	ToServiceCorrelationSchemeOutput() ServiceCorrelationSchemeOutput
+	ToServiceCorrelationSchemeOutputWithContext(context.Context) ServiceCorrelationSchemeOutput
+}
+
+var serviceCorrelationSchemePtrType = reflect.TypeOf((**ServiceCorrelationScheme)(nil)).Elem()
+
+type ServiceCorrelationSchemePtrInput interface {
+	pulumi.Input
+
+	ToServiceCorrelationSchemePtrOutput() ServiceCorrelationSchemePtrOutput
+	ToServiceCorrelationSchemePtrOutputWithContext(context.Context) ServiceCorrelationSchemePtrOutput
+}
+
+type serviceCorrelationSchemePtr string
+
+func ServiceCorrelationSchemePtr(v string) ServiceCorrelationSchemePtrInput {
+	return (*serviceCorrelationSchemePtr)(&v)
+}
+
+func (*serviceCorrelationSchemePtr) ElementType() reflect.Type {
+	return serviceCorrelationSchemePtrType
+}
+
+func (in *serviceCorrelationSchemePtr) ToServiceCorrelationSchemePtrOutput() ServiceCorrelationSchemePtrOutput {
+	return pulumi.ToOutput(in).(ServiceCorrelationSchemePtrOutput)
+}
+
+func (in *serviceCorrelationSchemePtr) ToServiceCorrelationSchemePtrOutputWithContext(ctx context.Context) ServiceCorrelationSchemePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(ServiceCorrelationSchemePtrOutput)
+}
+
+type ServiceKind string
 
 const (
 	// Does not use Service Fabric to make its state highly available or reliable. The value is 0.
@@ -451,7 +2354,23 @@ const (
 )
 
 func (ServiceKind) ElementType() reflect.Type {
-	return reflect.TypeOf((*pulumi.String)(nil)).Elem()
+	return reflect.TypeOf((*ServiceKind)(nil)).Elem()
+}
+
+func (e ServiceKind) ToServiceKindOutput() ServiceKindOutput {
+	return pulumi.ToOutput(e).(ServiceKindOutput)
+}
+
+func (e ServiceKind) ToServiceKindOutputWithContext(ctx context.Context) ServiceKindOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(ServiceKindOutput)
+}
+
+func (e ServiceKind) ToServiceKindPtrOutput() ServiceKindPtrOutput {
+	return e.ToServiceKindPtrOutputWithContext(context.Background())
+}
+
+func (e ServiceKind) ToServiceKindPtrOutputWithContext(ctx context.Context) ServiceKindPtrOutput {
+	return ServiceKind(e).ToServiceKindOutputWithContext(ctx).ToServiceKindPtrOutputWithContext(ctx)
 }
 
 func (e ServiceKind) ToStringOutput() pulumi.StringOutput {
@@ -470,8 +2389,128 @@ func (e ServiceKind) ToStringPtrOutputWithContext(ctx context.Context) pulumi.St
 	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
 }
 
-// The service load metric relative weight, compared to other metrics configured for this service, as a number.
-type ServiceLoadMetricWeight pulumi.String
+type ServiceKindOutput struct{ *pulumi.OutputState }
+
+func (ServiceKindOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ServiceKind)(nil)).Elem()
+}
+
+func (o ServiceKindOutput) ToServiceKindOutput() ServiceKindOutput {
+	return o
+}
+
+func (o ServiceKindOutput) ToServiceKindOutputWithContext(ctx context.Context) ServiceKindOutput {
+	return o
+}
+
+func (o ServiceKindOutput) ToServiceKindPtrOutput() ServiceKindPtrOutput {
+	return o.ToServiceKindPtrOutputWithContext(context.Background())
+}
+
+func (o ServiceKindOutput) ToServiceKindPtrOutputWithContext(ctx context.Context) ServiceKindPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ServiceKind) *ServiceKind {
+		return &v
+	}).(ServiceKindPtrOutput)
+}
+
+func (o ServiceKindOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o ServiceKindOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e ServiceKind) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o ServiceKindOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o ServiceKindOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e ServiceKind) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type ServiceKindPtrOutput struct{ *pulumi.OutputState }
+
+func (ServiceKindPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ServiceKind)(nil)).Elem()
+}
+
+func (o ServiceKindPtrOutput) ToServiceKindPtrOutput() ServiceKindPtrOutput {
+	return o
+}
+
+func (o ServiceKindPtrOutput) ToServiceKindPtrOutputWithContext(ctx context.Context) ServiceKindPtrOutput {
+	return o
+}
+
+func (o ServiceKindPtrOutput) Elem() ServiceKindOutput {
+	return o.ApplyT(func(v *ServiceKind) ServiceKind {
+		if v != nil {
+			return *v
+		}
+		var ret ServiceKind
+		return ret
+	}).(ServiceKindOutput)
+}
+
+func (o ServiceKindPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o ServiceKindPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *ServiceKind) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// ServiceKindInput is an input type that accepts ServiceKindArgs and ServiceKindOutput values.
+// You can construct a concrete instance of `ServiceKindInput` via:
+//
+//          ServiceKindArgs{...}
+type ServiceKindInput interface {
+	pulumi.Input
+
+	ToServiceKindOutput() ServiceKindOutput
+	ToServiceKindOutputWithContext(context.Context) ServiceKindOutput
+}
+
+var serviceKindPtrType = reflect.TypeOf((**ServiceKind)(nil)).Elem()
+
+type ServiceKindPtrInput interface {
+	pulumi.Input
+
+	ToServiceKindPtrOutput() ServiceKindPtrOutput
+	ToServiceKindPtrOutputWithContext(context.Context) ServiceKindPtrOutput
+}
+
+type serviceKindPtr string
+
+func ServiceKindPtr(v string) ServiceKindPtrInput {
+	return (*serviceKindPtr)(&v)
+}
+
+func (*serviceKindPtr) ElementType() reflect.Type {
+	return serviceKindPtrType
+}
+
+func (in *serviceKindPtr) ToServiceKindPtrOutput() ServiceKindPtrOutput {
+	return pulumi.ToOutput(in).(ServiceKindPtrOutput)
+}
+
+func (in *serviceKindPtr) ToServiceKindPtrOutputWithContext(ctx context.Context) ServiceKindPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(ServiceKindPtrOutput)
+}
+
+type ServiceLoadMetricWeight string
 
 const (
 	// Disables resource balancing for this metric. This value is zero.
@@ -485,7 +2524,23 @@ const (
 )
 
 func (ServiceLoadMetricWeight) ElementType() reflect.Type {
-	return reflect.TypeOf((*pulumi.String)(nil)).Elem()
+	return reflect.TypeOf((*ServiceLoadMetricWeight)(nil)).Elem()
+}
+
+func (e ServiceLoadMetricWeight) ToServiceLoadMetricWeightOutput() ServiceLoadMetricWeightOutput {
+	return pulumi.ToOutput(e).(ServiceLoadMetricWeightOutput)
+}
+
+func (e ServiceLoadMetricWeight) ToServiceLoadMetricWeightOutputWithContext(ctx context.Context) ServiceLoadMetricWeightOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(ServiceLoadMetricWeightOutput)
+}
+
+func (e ServiceLoadMetricWeight) ToServiceLoadMetricWeightPtrOutput() ServiceLoadMetricWeightPtrOutput {
+	return e.ToServiceLoadMetricWeightPtrOutputWithContext(context.Background())
+}
+
+func (e ServiceLoadMetricWeight) ToServiceLoadMetricWeightPtrOutputWithContext(ctx context.Context) ServiceLoadMetricWeightPtrOutput {
+	return ServiceLoadMetricWeight(e).ToServiceLoadMetricWeightOutputWithContext(ctx).ToServiceLoadMetricWeightPtrOutputWithContext(ctx)
 }
 
 func (e ServiceLoadMetricWeight) ToStringOutput() pulumi.StringOutput {
@@ -504,8 +2559,128 @@ func (e ServiceLoadMetricWeight) ToStringPtrOutputWithContext(ctx context.Contex
 	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
 }
 
-// The activation Mode of the service package
-type ServicePackageActivationMode pulumi.String
+type ServiceLoadMetricWeightOutput struct{ *pulumi.OutputState }
+
+func (ServiceLoadMetricWeightOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ServiceLoadMetricWeight)(nil)).Elem()
+}
+
+func (o ServiceLoadMetricWeightOutput) ToServiceLoadMetricWeightOutput() ServiceLoadMetricWeightOutput {
+	return o
+}
+
+func (o ServiceLoadMetricWeightOutput) ToServiceLoadMetricWeightOutputWithContext(ctx context.Context) ServiceLoadMetricWeightOutput {
+	return o
+}
+
+func (o ServiceLoadMetricWeightOutput) ToServiceLoadMetricWeightPtrOutput() ServiceLoadMetricWeightPtrOutput {
+	return o.ToServiceLoadMetricWeightPtrOutputWithContext(context.Background())
+}
+
+func (o ServiceLoadMetricWeightOutput) ToServiceLoadMetricWeightPtrOutputWithContext(ctx context.Context) ServiceLoadMetricWeightPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ServiceLoadMetricWeight) *ServiceLoadMetricWeight {
+		return &v
+	}).(ServiceLoadMetricWeightPtrOutput)
+}
+
+func (o ServiceLoadMetricWeightOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o ServiceLoadMetricWeightOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e ServiceLoadMetricWeight) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o ServiceLoadMetricWeightOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o ServiceLoadMetricWeightOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e ServiceLoadMetricWeight) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type ServiceLoadMetricWeightPtrOutput struct{ *pulumi.OutputState }
+
+func (ServiceLoadMetricWeightPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ServiceLoadMetricWeight)(nil)).Elem()
+}
+
+func (o ServiceLoadMetricWeightPtrOutput) ToServiceLoadMetricWeightPtrOutput() ServiceLoadMetricWeightPtrOutput {
+	return o
+}
+
+func (o ServiceLoadMetricWeightPtrOutput) ToServiceLoadMetricWeightPtrOutputWithContext(ctx context.Context) ServiceLoadMetricWeightPtrOutput {
+	return o
+}
+
+func (o ServiceLoadMetricWeightPtrOutput) Elem() ServiceLoadMetricWeightOutput {
+	return o.ApplyT(func(v *ServiceLoadMetricWeight) ServiceLoadMetricWeight {
+		if v != nil {
+			return *v
+		}
+		var ret ServiceLoadMetricWeight
+		return ret
+	}).(ServiceLoadMetricWeightOutput)
+}
+
+func (o ServiceLoadMetricWeightPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o ServiceLoadMetricWeightPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *ServiceLoadMetricWeight) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// ServiceLoadMetricWeightInput is an input type that accepts ServiceLoadMetricWeightArgs and ServiceLoadMetricWeightOutput values.
+// You can construct a concrete instance of `ServiceLoadMetricWeightInput` via:
+//
+//          ServiceLoadMetricWeightArgs{...}
+type ServiceLoadMetricWeightInput interface {
+	pulumi.Input
+
+	ToServiceLoadMetricWeightOutput() ServiceLoadMetricWeightOutput
+	ToServiceLoadMetricWeightOutputWithContext(context.Context) ServiceLoadMetricWeightOutput
+}
+
+var serviceLoadMetricWeightPtrType = reflect.TypeOf((**ServiceLoadMetricWeight)(nil)).Elem()
+
+type ServiceLoadMetricWeightPtrInput interface {
+	pulumi.Input
+
+	ToServiceLoadMetricWeightPtrOutput() ServiceLoadMetricWeightPtrOutput
+	ToServiceLoadMetricWeightPtrOutputWithContext(context.Context) ServiceLoadMetricWeightPtrOutput
+}
+
+type serviceLoadMetricWeightPtr string
+
+func ServiceLoadMetricWeightPtr(v string) ServiceLoadMetricWeightPtrInput {
+	return (*serviceLoadMetricWeightPtr)(&v)
+}
+
+func (*serviceLoadMetricWeightPtr) ElementType() reflect.Type {
+	return serviceLoadMetricWeightPtrType
+}
+
+func (in *serviceLoadMetricWeightPtr) ToServiceLoadMetricWeightPtrOutput() ServiceLoadMetricWeightPtrOutput {
+	return pulumi.ToOutput(in).(ServiceLoadMetricWeightPtrOutput)
+}
+
+func (in *serviceLoadMetricWeightPtr) ToServiceLoadMetricWeightPtrOutputWithContext(ctx context.Context) ServiceLoadMetricWeightPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(ServiceLoadMetricWeightPtrOutput)
+}
+
+type ServicePackageActivationMode string
 
 const (
 	// Indicates the application package activation mode will use shared process.
@@ -515,7 +2690,23 @@ const (
 )
 
 func (ServicePackageActivationMode) ElementType() reflect.Type {
-	return reflect.TypeOf((*pulumi.String)(nil)).Elem()
+	return reflect.TypeOf((*ServicePackageActivationMode)(nil)).Elem()
+}
+
+func (e ServicePackageActivationMode) ToServicePackageActivationModeOutput() ServicePackageActivationModeOutput {
+	return pulumi.ToOutput(e).(ServicePackageActivationModeOutput)
+}
+
+func (e ServicePackageActivationMode) ToServicePackageActivationModeOutputWithContext(ctx context.Context) ServicePackageActivationModeOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(ServicePackageActivationModeOutput)
+}
+
+func (e ServicePackageActivationMode) ToServicePackageActivationModePtrOutput() ServicePackageActivationModePtrOutput {
+	return e.ToServicePackageActivationModePtrOutputWithContext(context.Background())
+}
+
+func (e ServicePackageActivationMode) ToServicePackageActivationModePtrOutputWithContext(ctx context.Context) ServicePackageActivationModePtrOutput {
+	return ServicePackageActivationMode(e).ToServicePackageActivationModeOutputWithContext(ctx).ToServicePackageActivationModePtrOutputWithContext(ctx)
 }
 
 func (e ServicePackageActivationMode) ToStringOutput() pulumi.StringOutput {
@@ -534,8 +2725,128 @@ func (e ServicePackageActivationMode) ToStringPtrOutputWithContext(ctx context.C
 	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
 }
 
-// The type of placement policy for a service fabric service. Following are the possible values.
-type ServicePlacementPolicyType pulumi.String
+type ServicePackageActivationModeOutput struct{ *pulumi.OutputState }
+
+func (ServicePackageActivationModeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ServicePackageActivationMode)(nil)).Elem()
+}
+
+func (o ServicePackageActivationModeOutput) ToServicePackageActivationModeOutput() ServicePackageActivationModeOutput {
+	return o
+}
+
+func (o ServicePackageActivationModeOutput) ToServicePackageActivationModeOutputWithContext(ctx context.Context) ServicePackageActivationModeOutput {
+	return o
+}
+
+func (o ServicePackageActivationModeOutput) ToServicePackageActivationModePtrOutput() ServicePackageActivationModePtrOutput {
+	return o.ToServicePackageActivationModePtrOutputWithContext(context.Background())
+}
+
+func (o ServicePackageActivationModeOutput) ToServicePackageActivationModePtrOutputWithContext(ctx context.Context) ServicePackageActivationModePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ServicePackageActivationMode) *ServicePackageActivationMode {
+		return &v
+	}).(ServicePackageActivationModePtrOutput)
+}
+
+func (o ServicePackageActivationModeOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o ServicePackageActivationModeOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e ServicePackageActivationMode) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o ServicePackageActivationModeOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o ServicePackageActivationModeOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e ServicePackageActivationMode) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type ServicePackageActivationModePtrOutput struct{ *pulumi.OutputState }
+
+func (ServicePackageActivationModePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ServicePackageActivationMode)(nil)).Elem()
+}
+
+func (o ServicePackageActivationModePtrOutput) ToServicePackageActivationModePtrOutput() ServicePackageActivationModePtrOutput {
+	return o
+}
+
+func (o ServicePackageActivationModePtrOutput) ToServicePackageActivationModePtrOutputWithContext(ctx context.Context) ServicePackageActivationModePtrOutput {
+	return o
+}
+
+func (o ServicePackageActivationModePtrOutput) Elem() ServicePackageActivationModeOutput {
+	return o.ApplyT(func(v *ServicePackageActivationMode) ServicePackageActivationMode {
+		if v != nil {
+			return *v
+		}
+		var ret ServicePackageActivationMode
+		return ret
+	}).(ServicePackageActivationModeOutput)
+}
+
+func (o ServicePackageActivationModePtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o ServicePackageActivationModePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *ServicePackageActivationMode) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// ServicePackageActivationModeInput is an input type that accepts ServicePackageActivationModeArgs and ServicePackageActivationModeOutput values.
+// You can construct a concrete instance of `ServicePackageActivationModeInput` via:
+//
+//          ServicePackageActivationModeArgs{...}
+type ServicePackageActivationModeInput interface {
+	pulumi.Input
+
+	ToServicePackageActivationModeOutput() ServicePackageActivationModeOutput
+	ToServicePackageActivationModeOutputWithContext(context.Context) ServicePackageActivationModeOutput
+}
+
+var servicePackageActivationModePtrType = reflect.TypeOf((**ServicePackageActivationMode)(nil)).Elem()
+
+type ServicePackageActivationModePtrInput interface {
+	pulumi.Input
+
+	ToServicePackageActivationModePtrOutput() ServicePackageActivationModePtrOutput
+	ToServicePackageActivationModePtrOutputWithContext(context.Context) ServicePackageActivationModePtrOutput
+}
+
+type servicePackageActivationModePtr string
+
+func ServicePackageActivationModePtr(v string) ServicePackageActivationModePtrInput {
+	return (*servicePackageActivationModePtr)(&v)
+}
+
+func (*servicePackageActivationModePtr) ElementType() reflect.Type {
+	return servicePackageActivationModePtrType
+}
+
+func (in *servicePackageActivationModePtr) ToServicePackageActivationModePtrOutput() ServicePackageActivationModePtrOutput {
+	return pulumi.ToOutput(in).(ServicePackageActivationModePtrOutput)
+}
+
+func (in *servicePackageActivationModePtr) ToServicePackageActivationModePtrOutputWithContext(ctx context.Context) ServicePackageActivationModePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(ServicePackageActivationModePtrOutput)
+}
+
+type ServicePlacementPolicyType string
 
 const (
 	// Indicates that the ServicePlacementPolicyDescription is of type ServicePlacementInvalidDomainPolicyDescription, which indicates that a particular fault or upgrade domain cannot be used for placement of this service. The value is 0.
@@ -551,7 +2862,23 @@ const (
 )
 
 func (ServicePlacementPolicyType) ElementType() reflect.Type {
-	return reflect.TypeOf((*pulumi.String)(nil)).Elem()
+	return reflect.TypeOf((*ServicePlacementPolicyType)(nil)).Elem()
+}
+
+func (e ServicePlacementPolicyType) ToServicePlacementPolicyTypeOutput() ServicePlacementPolicyTypeOutput {
+	return pulumi.ToOutput(e).(ServicePlacementPolicyTypeOutput)
+}
+
+func (e ServicePlacementPolicyType) ToServicePlacementPolicyTypeOutputWithContext(ctx context.Context) ServicePlacementPolicyTypeOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(ServicePlacementPolicyTypeOutput)
+}
+
+func (e ServicePlacementPolicyType) ToServicePlacementPolicyTypePtrOutput() ServicePlacementPolicyTypePtrOutput {
+	return e.ToServicePlacementPolicyTypePtrOutputWithContext(context.Background())
+}
+
+func (e ServicePlacementPolicyType) ToServicePlacementPolicyTypePtrOutputWithContext(ctx context.Context) ServicePlacementPolicyTypePtrOutput {
+	return ServicePlacementPolicyType(e).ToServicePlacementPolicyTypeOutputWithContext(ctx).ToServicePlacementPolicyTypePtrOutputWithContext(ctx)
 }
 
 func (e ServicePlacementPolicyType) ToStringOutput() pulumi.StringOutput {
@@ -570,8 +2897,128 @@ func (e ServicePlacementPolicyType) ToStringPtrOutputWithContext(ctx context.Con
 	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
 }
 
-// Specifies the mechanism associated with this scaling policy.
-type ServiceScalingMechanismKind pulumi.String
+type ServicePlacementPolicyTypeOutput struct{ *pulumi.OutputState }
+
+func (ServicePlacementPolicyTypeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ServicePlacementPolicyType)(nil)).Elem()
+}
+
+func (o ServicePlacementPolicyTypeOutput) ToServicePlacementPolicyTypeOutput() ServicePlacementPolicyTypeOutput {
+	return o
+}
+
+func (o ServicePlacementPolicyTypeOutput) ToServicePlacementPolicyTypeOutputWithContext(ctx context.Context) ServicePlacementPolicyTypeOutput {
+	return o
+}
+
+func (o ServicePlacementPolicyTypeOutput) ToServicePlacementPolicyTypePtrOutput() ServicePlacementPolicyTypePtrOutput {
+	return o.ToServicePlacementPolicyTypePtrOutputWithContext(context.Background())
+}
+
+func (o ServicePlacementPolicyTypeOutput) ToServicePlacementPolicyTypePtrOutputWithContext(ctx context.Context) ServicePlacementPolicyTypePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ServicePlacementPolicyType) *ServicePlacementPolicyType {
+		return &v
+	}).(ServicePlacementPolicyTypePtrOutput)
+}
+
+func (o ServicePlacementPolicyTypeOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o ServicePlacementPolicyTypeOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e ServicePlacementPolicyType) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o ServicePlacementPolicyTypeOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o ServicePlacementPolicyTypeOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e ServicePlacementPolicyType) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type ServicePlacementPolicyTypePtrOutput struct{ *pulumi.OutputState }
+
+func (ServicePlacementPolicyTypePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ServicePlacementPolicyType)(nil)).Elem()
+}
+
+func (o ServicePlacementPolicyTypePtrOutput) ToServicePlacementPolicyTypePtrOutput() ServicePlacementPolicyTypePtrOutput {
+	return o
+}
+
+func (o ServicePlacementPolicyTypePtrOutput) ToServicePlacementPolicyTypePtrOutputWithContext(ctx context.Context) ServicePlacementPolicyTypePtrOutput {
+	return o
+}
+
+func (o ServicePlacementPolicyTypePtrOutput) Elem() ServicePlacementPolicyTypeOutput {
+	return o.ApplyT(func(v *ServicePlacementPolicyType) ServicePlacementPolicyType {
+		if v != nil {
+			return *v
+		}
+		var ret ServicePlacementPolicyType
+		return ret
+	}).(ServicePlacementPolicyTypeOutput)
+}
+
+func (o ServicePlacementPolicyTypePtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o ServicePlacementPolicyTypePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *ServicePlacementPolicyType) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// ServicePlacementPolicyTypeInput is an input type that accepts ServicePlacementPolicyTypeArgs and ServicePlacementPolicyTypeOutput values.
+// You can construct a concrete instance of `ServicePlacementPolicyTypeInput` via:
+//
+//          ServicePlacementPolicyTypeArgs{...}
+type ServicePlacementPolicyTypeInput interface {
+	pulumi.Input
+
+	ToServicePlacementPolicyTypeOutput() ServicePlacementPolicyTypeOutput
+	ToServicePlacementPolicyTypeOutputWithContext(context.Context) ServicePlacementPolicyTypeOutput
+}
+
+var servicePlacementPolicyTypePtrType = reflect.TypeOf((**ServicePlacementPolicyType)(nil)).Elem()
+
+type ServicePlacementPolicyTypePtrInput interface {
+	pulumi.Input
+
+	ToServicePlacementPolicyTypePtrOutput() ServicePlacementPolicyTypePtrOutput
+	ToServicePlacementPolicyTypePtrOutputWithContext(context.Context) ServicePlacementPolicyTypePtrOutput
+}
+
+type servicePlacementPolicyTypePtr string
+
+func ServicePlacementPolicyTypePtr(v string) ServicePlacementPolicyTypePtrInput {
+	return (*servicePlacementPolicyTypePtr)(&v)
+}
+
+func (*servicePlacementPolicyTypePtr) ElementType() reflect.Type {
+	return servicePlacementPolicyTypePtrType
+}
+
+func (in *servicePlacementPolicyTypePtr) ToServicePlacementPolicyTypePtrOutput() ServicePlacementPolicyTypePtrOutput {
+	return pulumi.ToOutput(in).(ServicePlacementPolicyTypePtrOutput)
+}
+
+func (in *servicePlacementPolicyTypePtr) ToServicePlacementPolicyTypePtrOutputWithContext(ctx context.Context) ServicePlacementPolicyTypePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(ServicePlacementPolicyTypePtrOutput)
+}
+
+type ServiceScalingMechanismKind string
 
 const (
 	// Represents a scaling mechanism for adding or removing instances of stateless service partition. The value is 0.
@@ -581,7 +3028,23 @@ const (
 )
 
 func (ServiceScalingMechanismKind) ElementType() reflect.Type {
-	return reflect.TypeOf((*pulumi.String)(nil)).Elem()
+	return reflect.TypeOf((*ServiceScalingMechanismKind)(nil)).Elem()
+}
+
+func (e ServiceScalingMechanismKind) ToServiceScalingMechanismKindOutput() ServiceScalingMechanismKindOutput {
+	return pulumi.ToOutput(e).(ServiceScalingMechanismKindOutput)
+}
+
+func (e ServiceScalingMechanismKind) ToServiceScalingMechanismKindOutputWithContext(ctx context.Context) ServiceScalingMechanismKindOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(ServiceScalingMechanismKindOutput)
+}
+
+func (e ServiceScalingMechanismKind) ToServiceScalingMechanismKindPtrOutput() ServiceScalingMechanismKindPtrOutput {
+	return e.ToServiceScalingMechanismKindPtrOutputWithContext(context.Background())
+}
+
+func (e ServiceScalingMechanismKind) ToServiceScalingMechanismKindPtrOutputWithContext(ctx context.Context) ServiceScalingMechanismKindPtrOutput {
+	return ServiceScalingMechanismKind(e).ToServiceScalingMechanismKindOutputWithContext(ctx).ToServiceScalingMechanismKindPtrOutputWithContext(ctx)
 }
 
 func (e ServiceScalingMechanismKind) ToStringOutput() pulumi.StringOutput {
@@ -600,8 +3063,128 @@ func (e ServiceScalingMechanismKind) ToStringPtrOutputWithContext(ctx context.Co
 	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
 }
 
-// Specifies the trigger associated with this scaling policy.
-type ServiceScalingTriggerKind pulumi.String
+type ServiceScalingMechanismKindOutput struct{ *pulumi.OutputState }
+
+func (ServiceScalingMechanismKindOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ServiceScalingMechanismKind)(nil)).Elem()
+}
+
+func (o ServiceScalingMechanismKindOutput) ToServiceScalingMechanismKindOutput() ServiceScalingMechanismKindOutput {
+	return o
+}
+
+func (o ServiceScalingMechanismKindOutput) ToServiceScalingMechanismKindOutputWithContext(ctx context.Context) ServiceScalingMechanismKindOutput {
+	return o
+}
+
+func (o ServiceScalingMechanismKindOutput) ToServiceScalingMechanismKindPtrOutput() ServiceScalingMechanismKindPtrOutput {
+	return o.ToServiceScalingMechanismKindPtrOutputWithContext(context.Background())
+}
+
+func (o ServiceScalingMechanismKindOutput) ToServiceScalingMechanismKindPtrOutputWithContext(ctx context.Context) ServiceScalingMechanismKindPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ServiceScalingMechanismKind) *ServiceScalingMechanismKind {
+		return &v
+	}).(ServiceScalingMechanismKindPtrOutput)
+}
+
+func (o ServiceScalingMechanismKindOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o ServiceScalingMechanismKindOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e ServiceScalingMechanismKind) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o ServiceScalingMechanismKindOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o ServiceScalingMechanismKindOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e ServiceScalingMechanismKind) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type ServiceScalingMechanismKindPtrOutput struct{ *pulumi.OutputState }
+
+func (ServiceScalingMechanismKindPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ServiceScalingMechanismKind)(nil)).Elem()
+}
+
+func (o ServiceScalingMechanismKindPtrOutput) ToServiceScalingMechanismKindPtrOutput() ServiceScalingMechanismKindPtrOutput {
+	return o
+}
+
+func (o ServiceScalingMechanismKindPtrOutput) ToServiceScalingMechanismKindPtrOutputWithContext(ctx context.Context) ServiceScalingMechanismKindPtrOutput {
+	return o
+}
+
+func (o ServiceScalingMechanismKindPtrOutput) Elem() ServiceScalingMechanismKindOutput {
+	return o.ApplyT(func(v *ServiceScalingMechanismKind) ServiceScalingMechanismKind {
+		if v != nil {
+			return *v
+		}
+		var ret ServiceScalingMechanismKind
+		return ret
+	}).(ServiceScalingMechanismKindOutput)
+}
+
+func (o ServiceScalingMechanismKindPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o ServiceScalingMechanismKindPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *ServiceScalingMechanismKind) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// ServiceScalingMechanismKindInput is an input type that accepts ServiceScalingMechanismKindArgs and ServiceScalingMechanismKindOutput values.
+// You can construct a concrete instance of `ServiceScalingMechanismKindInput` via:
+//
+//          ServiceScalingMechanismKindArgs{...}
+type ServiceScalingMechanismKindInput interface {
+	pulumi.Input
+
+	ToServiceScalingMechanismKindOutput() ServiceScalingMechanismKindOutput
+	ToServiceScalingMechanismKindOutputWithContext(context.Context) ServiceScalingMechanismKindOutput
+}
+
+var serviceScalingMechanismKindPtrType = reflect.TypeOf((**ServiceScalingMechanismKind)(nil)).Elem()
+
+type ServiceScalingMechanismKindPtrInput interface {
+	pulumi.Input
+
+	ToServiceScalingMechanismKindPtrOutput() ServiceScalingMechanismKindPtrOutput
+	ToServiceScalingMechanismKindPtrOutputWithContext(context.Context) ServiceScalingMechanismKindPtrOutput
+}
+
+type serviceScalingMechanismKindPtr string
+
+func ServiceScalingMechanismKindPtr(v string) ServiceScalingMechanismKindPtrInput {
+	return (*serviceScalingMechanismKindPtr)(&v)
+}
+
+func (*serviceScalingMechanismKindPtr) ElementType() reflect.Type {
+	return serviceScalingMechanismKindPtrType
+}
+
+func (in *serviceScalingMechanismKindPtr) ToServiceScalingMechanismKindPtrOutput() ServiceScalingMechanismKindPtrOutput {
+	return pulumi.ToOutput(in).(ServiceScalingMechanismKindPtrOutput)
+}
+
+func (in *serviceScalingMechanismKindPtr) ToServiceScalingMechanismKindPtrOutputWithContext(ctx context.Context) ServiceScalingMechanismKindPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(ServiceScalingMechanismKindPtrOutput)
+}
+
+type ServiceScalingTriggerKind string
 
 const (
 	// Represents a scaling trigger related to an average load of a metric/resource of a partition. The value is 0.
@@ -611,7 +3194,23 @@ const (
 )
 
 func (ServiceScalingTriggerKind) ElementType() reflect.Type {
-	return reflect.TypeOf((*pulumi.String)(nil)).Elem()
+	return reflect.TypeOf((*ServiceScalingTriggerKind)(nil)).Elem()
+}
+
+func (e ServiceScalingTriggerKind) ToServiceScalingTriggerKindOutput() ServiceScalingTriggerKindOutput {
+	return pulumi.ToOutput(e).(ServiceScalingTriggerKindOutput)
+}
+
+func (e ServiceScalingTriggerKind) ToServiceScalingTriggerKindOutputWithContext(ctx context.Context) ServiceScalingTriggerKindOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(ServiceScalingTriggerKindOutput)
+}
+
+func (e ServiceScalingTriggerKind) ToServiceScalingTriggerKindPtrOutput() ServiceScalingTriggerKindPtrOutput {
+	return e.ToServiceScalingTriggerKindPtrOutputWithContext(context.Background())
+}
+
+func (e ServiceScalingTriggerKind) ToServiceScalingTriggerKindPtrOutputWithContext(ctx context.Context) ServiceScalingTriggerKindPtrOutput {
+	return ServiceScalingTriggerKind(e).ToServiceScalingTriggerKindOutputWithContext(ctx).ToServiceScalingTriggerKindPtrOutputWithContext(ctx)
 }
 
 func (e ServiceScalingTriggerKind) ToStringOutput() pulumi.StringOutput {
@@ -630,8 +3229,128 @@ func (e ServiceScalingTriggerKind) ToStringPtrOutputWithContext(ctx context.Cont
 	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
 }
 
-// Sku Name.
-type SkuName pulumi.String
+type ServiceScalingTriggerKindOutput struct{ *pulumi.OutputState }
+
+func (ServiceScalingTriggerKindOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ServiceScalingTriggerKind)(nil)).Elem()
+}
+
+func (o ServiceScalingTriggerKindOutput) ToServiceScalingTriggerKindOutput() ServiceScalingTriggerKindOutput {
+	return o
+}
+
+func (o ServiceScalingTriggerKindOutput) ToServiceScalingTriggerKindOutputWithContext(ctx context.Context) ServiceScalingTriggerKindOutput {
+	return o
+}
+
+func (o ServiceScalingTriggerKindOutput) ToServiceScalingTriggerKindPtrOutput() ServiceScalingTriggerKindPtrOutput {
+	return o.ToServiceScalingTriggerKindPtrOutputWithContext(context.Background())
+}
+
+func (o ServiceScalingTriggerKindOutput) ToServiceScalingTriggerKindPtrOutputWithContext(ctx context.Context) ServiceScalingTriggerKindPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ServiceScalingTriggerKind) *ServiceScalingTriggerKind {
+		return &v
+	}).(ServiceScalingTriggerKindPtrOutput)
+}
+
+func (o ServiceScalingTriggerKindOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o ServiceScalingTriggerKindOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e ServiceScalingTriggerKind) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o ServiceScalingTriggerKindOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o ServiceScalingTriggerKindOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e ServiceScalingTriggerKind) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type ServiceScalingTriggerKindPtrOutput struct{ *pulumi.OutputState }
+
+func (ServiceScalingTriggerKindPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ServiceScalingTriggerKind)(nil)).Elem()
+}
+
+func (o ServiceScalingTriggerKindPtrOutput) ToServiceScalingTriggerKindPtrOutput() ServiceScalingTriggerKindPtrOutput {
+	return o
+}
+
+func (o ServiceScalingTriggerKindPtrOutput) ToServiceScalingTriggerKindPtrOutputWithContext(ctx context.Context) ServiceScalingTriggerKindPtrOutput {
+	return o
+}
+
+func (o ServiceScalingTriggerKindPtrOutput) Elem() ServiceScalingTriggerKindOutput {
+	return o.ApplyT(func(v *ServiceScalingTriggerKind) ServiceScalingTriggerKind {
+		if v != nil {
+			return *v
+		}
+		var ret ServiceScalingTriggerKind
+		return ret
+	}).(ServiceScalingTriggerKindOutput)
+}
+
+func (o ServiceScalingTriggerKindPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o ServiceScalingTriggerKindPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *ServiceScalingTriggerKind) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// ServiceScalingTriggerKindInput is an input type that accepts ServiceScalingTriggerKindArgs and ServiceScalingTriggerKindOutput values.
+// You can construct a concrete instance of `ServiceScalingTriggerKindInput` via:
+//
+//          ServiceScalingTriggerKindArgs{...}
+type ServiceScalingTriggerKindInput interface {
+	pulumi.Input
+
+	ToServiceScalingTriggerKindOutput() ServiceScalingTriggerKindOutput
+	ToServiceScalingTriggerKindOutputWithContext(context.Context) ServiceScalingTriggerKindOutput
+}
+
+var serviceScalingTriggerKindPtrType = reflect.TypeOf((**ServiceScalingTriggerKind)(nil)).Elem()
+
+type ServiceScalingTriggerKindPtrInput interface {
+	pulumi.Input
+
+	ToServiceScalingTriggerKindPtrOutput() ServiceScalingTriggerKindPtrOutput
+	ToServiceScalingTriggerKindPtrOutputWithContext(context.Context) ServiceScalingTriggerKindPtrOutput
+}
+
+type serviceScalingTriggerKindPtr string
+
+func ServiceScalingTriggerKindPtr(v string) ServiceScalingTriggerKindPtrInput {
+	return (*serviceScalingTriggerKindPtr)(&v)
+}
+
+func (*serviceScalingTriggerKindPtr) ElementType() reflect.Type {
+	return serviceScalingTriggerKindPtrType
+}
+
+func (in *serviceScalingTriggerKindPtr) ToServiceScalingTriggerKindPtrOutput() ServiceScalingTriggerKindPtrOutput {
+	return pulumi.ToOutput(in).(ServiceScalingTriggerKindPtrOutput)
+}
+
+func (in *serviceScalingTriggerKindPtr) ToServiceScalingTriggerKindPtrOutputWithContext(ctx context.Context) ServiceScalingTriggerKindPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(ServiceScalingTriggerKindPtrOutput)
+}
+
+type SkuName string
 
 const (
 	// Basic requires a minimum of 3 nodes and allows only 1 node type.
@@ -641,7 +3360,23 @@ const (
 )
 
 func (SkuName) ElementType() reflect.Type {
-	return reflect.TypeOf((*pulumi.String)(nil)).Elem()
+	return reflect.TypeOf((*SkuName)(nil)).Elem()
+}
+
+func (e SkuName) ToSkuNameOutput() SkuNameOutput {
+	return pulumi.ToOutput(e).(SkuNameOutput)
+}
+
+func (e SkuName) ToSkuNameOutputWithContext(ctx context.Context) SkuNameOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(SkuNameOutput)
+}
+
+func (e SkuName) ToSkuNamePtrOutput() SkuNamePtrOutput {
+	return e.ToSkuNamePtrOutputWithContext(context.Background())
+}
+
+func (e SkuName) ToSkuNamePtrOutputWithContext(ctx context.Context) SkuNamePtrOutput {
+	return SkuName(e).ToSkuNameOutputWithContext(ctx).ToSkuNamePtrOutputWithContext(ctx)
 }
 
 func (e SkuName) ToStringOutput() pulumi.StringOutput {
@@ -658,4 +3393,170 @@ func (e SkuName) ToStringPtrOutput() pulumi.StringPtrOutput {
 
 func (e SkuName) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
 	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type SkuNameOutput struct{ *pulumi.OutputState }
+
+func (SkuNameOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*SkuName)(nil)).Elem()
+}
+
+func (o SkuNameOutput) ToSkuNameOutput() SkuNameOutput {
+	return o
+}
+
+func (o SkuNameOutput) ToSkuNameOutputWithContext(ctx context.Context) SkuNameOutput {
+	return o
+}
+
+func (o SkuNameOutput) ToSkuNamePtrOutput() SkuNamePtrOutput {
+	return o.ToSkuNamePtrOutputWithContext(context.Background())
+}
+
+func (o SkuNameOutput) ToSkuNamePtrOutputWithContext(ctx context.Context) SkuNamePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v SkuName) *SkuName {
+		return &v
+	}).(SkuNamePtrOutput)
+}
+
+func (o SkuNameOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o SkuNameOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e SkuName) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o SkuNameOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o SkuNameOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e SkuName) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type SkuNamePtrOutput struct{ *pulumi.OutputState }
+
+func (SkuNamePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**SkuName)(nil)).Elem()
+}
+
+func (o SkuNamePtrOutput) ToSkuNamePtrOutput() SkuNamePtrOutput {
+	return o
+}
+
+func (o SkuNamePtrOutput) ToSkuNamePtrOutputWithContext(ctx context.Context) SkuNamePtrOutput {
+	return o
+}
+
+func (o SkuNamePtrOutput) Elem() SkuNameOutput {
+	return o.ApplyT(func(v *SkuName) SkuName {
+		if v != nil {
+			return *v
+		}
+		var ret SkuName
+		return ret
+	}).(SkuNameOutput)
+}
+
+func (o SkuNamePtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o SkuNamePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *SkuName) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// SkuNameInput is an input type that accepts SkuNameArgs and SkuNameOutput values.
+// You can construct a concrete instance of `SkuNameInput` via:
+//
+//          SkuNameArgs{...}
+type SkuNameInput interface {
+	pulumi.Input
+
+	ToSkuNameOutput() SkuNameOutput
+	ToSkuNameOutputWithContext(context.Context) SkuNameOutput
+}
+
+var skuNamePtrType = reflect.TypeOf((**SkuName)(nil)).Elem()
+
+type SkuNamePtrInput interface {
+	pulumi.Input
+
+	ToSkuNamePtrOutput() SkuNamePtrOutput
+	ToSkuNamePtrOutputWithContext(context.Context) SkuNamePtrOutput
+}
+
+type skuNamePtr string
+
+func SkuNamePtr(v string) SkuNamePtrInput {
+	return (*skuNamePtr)(&v)
+}
+
+func (*skuNamePtr) ElementType() reflect.Type {
+	return skuNamePtrType
+}
+
+func (in *skuNamePtr) ToSkuNamePtrOutput() SkuNamePtrOutput {
+	return pulumi.ToOutput(in).(SkuNamePtrOutput)
+}
+
+func (in *skuNamePtr) ToSkuNamePtrOutputWithContext(ctx context.Context) SkuNamePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(SkuNamePtrOutput)
+}
+
+func init() {
+	pulumi.RegisterOutputType(AccessOutput{})
+	pulumi.RegisterOutputType(AccessPtrOutput{})
+	pulumi.RegisterOutputType(ClusterUpgradeCadenceOutput{})
+	pulumi.RegisterOutputType(ClusterUpgradeCadencePtrOutput{})
+	pulumi.RegisterOutputType(ClusterUpgradeModeOutput{})
+	pulumi.RegisterOutputType(ClusterUpgradeModePtrOutput{})
+	pulumi.RegisterOutputType(DirectionOutput{})
+	pulumi.RegisterOutputType(DirectionPtrOutput{})
+	pulumi.RegisterOutputType(DiskTypeOutput{})
+	pulumi.RegisterOutputType(DiskTypePtrOutput{})
+	pulumi.RegisterOutputType(FailureActionOutput{})
+	pulumi.RegisterOutputType(FailureActionPtrOutput{})
+	pulumi.RegisterOutputType(ManagedIdentityTypeOutput{})
+	pulumi.RegisterOutputType(ManagedIdentityTypePtrOutput{})
+	pulumi.RegisterOutputType(MoveCostOutput{})
+	pulumi.RegisterOutputType(MoveCostPtrOutput{})
+	pulumi.RegisterOutputType(NsgProtocolOutput{})
+	pulumi.RegisterOutputType(NsgProtocolPtrOutput{})
+	pulumi.RegisterOutputType(PartitionSchemeOutput{})
+	pulumi.RegisterOutputType(PartitionSchemePtrOutput{})
+	pulumi.RegisterOutputType(ProbeProtocolOutput{})
+	pulumi.RegisterOutputType(ProbeProtocolPtrOutput{})
+	pulumi.RegisterOutputType(ProtocolOutput{})
+	pulumi.RegisterOutputType(ProtocolPtrOutput{})
+	pulumi.RegisterOutputType(RollingUpgradeModeOutput{})
+	pulumi.RegisterOutputType(RollingUpgradeModePtrOutput{})
+	pulumi.RegisterOutputType(ServiceCorrelationSchemeOutput{})
+	pulumi.RegisterOutputType(ServiceCorrelationSchemePtrOutput{})
+	pulumi.RegisterOutputType(ServiceKindOutput{})
+	pulumi.RegisterOutputType(ServiceKindPtrOutput{})
+	pulumi.RegisterOutputType(ServiceLoadMetricWeightOutput{})
+	pulumi.RegisterOutputType(ServiceLoadMetricWeightPtrOutput{})
+	pulumi.RegisterOutputType(ServicePackageActivationModeOutput{})
+	pulumi.RegisterOutputType(ServicePackageActivationModePtrOutput{})
+	pulumi.RegisterOutputType(ServicePlacementPolicyTypeOutput{})
+	pulumi.RegisterOutputType(ServicePlacementPolicyTypePtrOutput{})
+	pulumi.RegisterOutputType(ServiceScalingMechanismKindOutput{})
+	pulumi.RegisterOutputType(ServiceScalingMechanismKindPtrOutput{})
+	pulumi.RegisterOutputType(ServiceScalingTriggerKindOutput{})
+	pulumi.RegisterOutputType(ServiceScalingTriggerKindPtrOutput{})
+	pulumi.RegisterOutputType(SkuNameOutput{})
+	pulumi.RegisterOutputType(SkuNamePtrOutput{})
 }

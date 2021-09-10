@@ -10,51 +10,28 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Azure File Share workload-specific backup item.
 type AzureFileshareProtectedItem struct {
-	// Type of backup management for the backed up item.
-	BackupManagementType *string `pulumi:"backupManagementType"`
-	// Name of the backup set the backup item belongs to
-	BackupSetName *string `pulumi:"backupSetName"`
-	// Unique name of container
-	ContainerName *string `pulumi:"containerName"`
-	// Create mode to indicate recovery of existing soft deleted data source or creation of new data source.
-	CreateMode *string `pulumi:"createMode"`
-	// Time for deferred deletion in UTC
-	DeferredDeleteTimeInUTC *string `pulumi:"deferredDeleteTimeInUTC"`
-	// Time remaining before the DS marked for deferred delete is permanently deleted
-	DeferredDeleteTimeRemaining *string `pulumi:"deferredDeleteTimeRemaining"`
-	// Additional information with this backup item.
-	ExtendedInfo *AzureFileshareProtectedItemExtendedInfo `pulumi:"extendedInfo"`
-	// Friendly name of the fileshare represented by this backup item.
-	FriendlyName *string `pulumi:"friendlyName"`
-	// Flag to identify whether the deferred deleted DS is to be purged soon
-	IsDeferredDeleteScheduleUpcoming *bool `pulumi:"isDeferredDeleteScheduleUpcoming"`
-	// Flag to identify that deferred deleted DS is to be moved into Pause state
-	IsRehydrate *bool `pulumi:"isRehydrate"`
-	// Flag to identify whether the DS is scheduled for deferred delete
-	IsScheduledForDeferredDelete *bool `pulumi:"isScheduledForDeferredDelete"`
-	// Health details of different KPIs
-	KpisHealths map[string]KPIResourceHealthDetails `pulumi:"kpisHealths"`
-	// Last backup operation status. Possible values: Healthy, Unhealthy.
-	LastBackupStatus *string `pulumi:"lastBackupStatus"`
-	// Timestamp of the last backup operation on this backup item.
-	LastBackupTime *string `pulumi:"lastBackupTime"`
-	// Timestamp when the last (latest) backup copy was created for this backup item.
-	LastRecoveryPoint *string `pulumi:"lastRecoveryPoint"`
-	// ID of the backup policy with which this item is backed up.
-	PolicyId *string `pulumi:"policyId"`
-	// backup item type.
-	// Expected value is 'AzureFileShareProtectedItem'.
-	ProtectedItemType string `pulumi:"protectedItemType"`
-	// Backup state of this backup item.
-	ProtectionState *string `pulumi:"protectionState"`
-	// Backup status of this backup item.
-	ProtectionStatus *string `pulumi:"protectionStatus"`
-	// ARM ID of the resource to be backed up.
-	SourceResourceId *string `pulumi:"sourceResourceId"`
-	// Type of workload this item represents.
-	WorkloadType *string `pulumi:"workloadType"`
+	BackupManagementType             *string                                  `pulumi:"backupManagementType"`
+	BackupSetName                    *string                                  `pulumi:"backupSetName"`
+	ContainerName                    *string                                  `pulumi:"containerName"`
+	CreateMode                       *string                                  `pulumi:"createMode"`
+	DeferredDeleteTimeInUTC          *string                                  `pulumi:"deferredDeleteTimeInUTC"`
+	DeferredDeleteTimeRemaining      *string                                  `pulumi:"deferredDeleteTimeRemaining"`
+	ExtendedInfo                     *AzureFileshareProtectedItemExtendedInfo `pulumi:"extendedInfo"`
+	FriendlyName                     *string                                  `pulumi:"friendlyName"`
+	IsDeferredDeleteScheduleUpcoming *bool                                    `pulumi:"isDeferredDeleteScheduleUpcoming"`
+	IsRehydrate                      *bool                                    `pulumi:"isRehydrate"`
+	IsScheduledForDeferredDelete     *bool                                    `pulumi:"isScheduledForDeferredDelete"`
+	KpisHealths                      map[string]KPIResourceHealthDetails      `pulumi:"kpisHealths"`
+	LastBackupStatus                 *string                                  `pulumi:"lastBackupStatus"`
+	LastBackupTime                   *string                                  `pulumi:"lastBackupTime"`
+	LastRecoveryPoint                *string                                  `pulumi:"lastRecoveryPoint"`
+	PolicyId                         *string                                  `pulumi:"policyId"`
+	ProtectedItemType                string                                   `pulumi:"protectedItemType"`
+	ProtectionState                  *string                                  `pulumi:"protectionState"`
+	ProtectionStatus                 *string                                  `pulumi:"protectionStatus"`
+	SourceResourceId                 *string                                  `pulumi:"sourceResourceId"`
+	WorkloadType                     *string                                  `pulumi:"workloadType"`
 }
 
 // AzureFileshareProtectedItemInput is an input type that accepts AzureFileshareProtectedItemArgs and AzureFileshareProtectedItemOutput values.
@@ -68,51 +45,28 @@ type AzureFileshareProtectedItemInput interface {
 	ToAzureFileshareProtectedItemOutputWithContext(context.Context) AzureFileshareProtectedItemOutput
 }
 
-// Azure File Share workload-specific backup item.
 type AzureFileshareProtectedItemArgs struct {
-	// Type of backup management for the backed up item.
-	BackupManagementType pulumi.StringPtrInput `pulumi:"backupManagementType"`
-	// Name of the backup set the backup item belongs to
-	BackupSetName pulumi.StringPtrInput `pulumi:"backupSetName"`
-	// Unique name of container
-	ContainerName pulumi.StringPtrInput `pulumi:"containerName"`
-	// Create mode to indicate recovery of existing soft deleted data source or creation of new data source.
-	CreateMode pulumi.StringPtrInput `pulumi:"createMode"`
-	// Time for deferred deletion in UTC
-	DeferredDeleteTimeInUTC pulumi.StringPtrInput `pulumi:"deferredDeleteTimeInUTC"`
-	// Time remaining before the DS marked for deferred delete is permanently deleted
-	DeferredDeleteTimeRemaining pulumi.StringPtrInput `pulumi:"deferredDeleteTimeRemaining"`
-	// Additional information with this backup item.
-	ExtendedInfo AzureFileshareProtectedItemExtendedInfoPtrInput `pulumi:"extendedInfo"`
-	// Friendly name of the fileshare represented by this backup item.
-	FriendlyName pulumi.StringPtrInput `pulumi:"friendlyName"`
-	// Flag to identify whether the deferred deleted DS is to be purged soon
-	IsDeferredDeleteScheduleUpcoming pulumi.BoolPtrInput `pulumi:"isDeferredDeleteScheduleUpcoming"`
-	// Flag to identify that deferred deleted DS is to be moved into Pause state
-	IsRehydrate pulumi.BoolPtrInput `pulumi:"isRehydrate"`
-	// Flag to identify whether the DS is scheduled for deferred delete
-	IsScheduledForDeferredDelete pulumi.BoolPtrInput `pulumi:"isScheduledForDeferredDelete"`
-	// Health details of different KPIs
-	KpisHealths KPIResourceHealthDetailsMapInput `pulumi:"kpisHealths"`
-	// Last backup operation status. Possible values: Healthy, Unhealthy.
-	LastBackupStatus pulumi.StringPtrInput `pulumi:"lastBackupStatus"`
-	// Timestamp of the last backup operation on this backup item.
-	LastBackupTime pulumi.StringPtrInput `pulumi:"lastBackupTime"`
-	// Timestamp when the last (latest) backup copy was created for this backup item.
-	LastRecoveryPoint pulumi.StringPtrInput `pulumi:"lastRecoveryPoint"`
-	// ID of the backup policy with which this item is backed up.
-	PolicyId pulumi.StringPtrInput `pulumi:"policyId"`
-	// backup item type.
-	// Expected value is 'AzureFileShareProtectedItem'.
-	ProtectedItemType pulumi.StringInput `pulumi:"protectedItemType"`
-	// Backup state of this backup item.
-	ProtectionState pulumi.StringPtrInput `pulumi:"protectionState"`
-	// Backup status of this backup item.
-	ProtectionStatus pulumi.StringPtrInput `pulumi:"protectionStatus"`
-	// ARM ID of the resource to be backed up.
-	SourceResourceId pulumi.StringPtrInput `pulumi:"sourceResourceId"`
-	// Type of workload this item represents.
-	WorkloadType pulumi.StringPtrInput `pulumi:"workloadType"`
+	BackupManagementType             pulumi.StringPtrInput                           `pulumi:"backupManagementType"`
+	BackupSetName                    pulumi.StringPtrInput                           `pulumi:"backupSetName"`
+	ContainerName                    pulumi.StringPtrInput                           `pulumi:"containerName"`
+	CreateMode                       pulumi.StringPtrInput                           `pulumi:"createMode"`
+	DeferredDeleteTimeInUTC          pulumi.StringPtrInput                           `pulumi:"deferredDeleteTimeInUTC"`
+	DeferredDeleteTimeRemaining      pulumi.StringPtrInput                           `pulumi:"deferredDeleteTimeRemaining"`
+	ExtendedInfo                     AzureFileshareProtectedItemExtendedInfoPtrInput `pulumi:"extendedInfo"`
+	FriendlyName                     pulumi.StringPtrInput                           `pulumi:"friendlyName"`
+	IsDeferredDeleteScheduleUpcoming pulumi.BoolPtrInput                             `pulumi:"isDeferredDeleteScheduleUpcoming"`
+	IsRehydrate                      pulumi.BoolPtrInput                             `pulumi:"isRehydrate"`
+	IsScheduledForDeferredDelete     pulumi.BoolPtrInput                             `pulumi:"isScheduledForDeferredDelete"`
+	KpisHealths                      KPIResourceHealthDetailsMapInput                `pulumi:"kpisHealths"`
+	LastBackupStatus                 pulumi.StringPtrInput                           `pulumi:"lastBackupStatus"`
+	LastBackupTime                   pulumi.StringPtrInput                           `pulumi:"lastBackupTime"`
+	LastRecoveryPoint                pulumi.StringPtrInput                           `pulumi:"lastRecoveryPoint"`
+	PolicyId                         pulumi.StringPtrInput                           `pulumi:"policyId"`
+	ProtectedItemType                pulumi.StringInput                              `pulumi:"protectedItemType"`
+	ProtectionState                  pulumi.StringPtrInput                           `pulumi:"protectionState"`
+	ProtectionStatus                 pulumi.StringPtrInput                           `pulumi:"protectionStatus"`
+	SourceResourceId                 pulumi.StringPtrInput                           `pulumi:"sourceResourceId"`
+	WorkloadType                     pulumi.StringPtrInput                           `pulumi:"workloadType"`
 }
 
 func (AzureFileshareProtectedItemArgs) ElementType() reflect.Type {
@@ -127,7 +81,6 @@ func (i AzureFileshareProtectedItemArgs) ToAzureFileshareProtectedItemOutputWith
 	return pulumi.ToOutputWithContext(ctx, i).(AzureFileshareProtectedItemOutput)
 }
 
-// Azure File Share workload-specific backup item.
 type AzureFileshareProtectedItemOutput struct{ *pulumi.OutputState }
 
 func (AzureFileshareProtectedItemOutput) ElementType() reflect.Type {
@@ -142,120 +95,94 @@ func (o AzureFileshareProtectedItemOutput) ToAzureFileshareProtectedItemOutputWi
 	return o
 }
 
-// Type of backup management for the backed up item.
 func (o AzureFileshareProtectedItemOutput) BackupManagementType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AzureFileshareProtectedItem) *string { return v.BackupManagementType }).(pulumi.StringPtrOutput)
 }
 
-// Name of the backup set the backup item belongs to
 func (o AzureFileshareProtectedItemOutput) BackupSetName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AzureFileshareProtectedItem) *string { return v.BackupSetName }).(pulumi.StringPtrOutput)
 }
 
-// Unique name of container
 func (o AzureFileshareProtectedItemOutput) ContainerName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AzureFileshareProtectedItem) *string { return v.ContainerName }).(pulumi.StringPtrOutput)
 }
 
-// Create mode to indicate recovery of existing soft deleted data source or creation of new data source.
 func (o AzureFileshareProtectedItemOutput) CreateMode() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AzureFileshareProtectedItem) *string { return v.CreateMode }).(pulumi.StringPtrOutput)
 }
 
-// Time for deferred deletion in UTC
 func (o AzureFileshareProtectedItemOutput) DeferredDeleteTimeInUTC() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AzureFileshareProtectedItem) *string { return v.DeferredDeleteTimeInUTC }).(pulumi.StringPtrOutput)
 }
 
-// Time remaining before the DS marked for deferred delete is permanently deleted
 func (o AzureFileshareProtectedItemOutput) DeferredDeleteTimeRemaining() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AzureFileshareProtectedItem) *string { return v.DeferredDeleteTimeRemaining }).(pulumi.StringPtrOutput)
 }
 
-// Additional information with this backup item.
 func (o AzureFileshareProtectedItemOutput) ExtendedInfo() AzureFileshareProtectedItemExtendedInfoPtrOutput {
 	return o.ApplyT(func(v AzureFileshareProtectedItem) *AzureFileshareProtectedItemExtendedInfo { return v.ExtendedInfo }).(AzureFileshareProtectedItemExtendedInfoPtrOutput)
 }
 
-// Friendly name of the fileshare represented by this backup item.
 func (o AzureFileshareProtectedItemOutput) FriendlyName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AzureFileshareProtectedItem) *string { return v.FriendlyName }).(pulumi.StringPtrOutput)
 }
 
-// Flag to identify whether the deferred deleted DS is to be purged soon
 func (o AzureFileshareProtectedItemOutput) IsDeferredDeleteScheduleUpcoming() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v AzureFileshareProtectedItem) *bool { return v.IsDeferredDeleteScheduleUpcoming }).(pulumi.BoolPtrOutput)
 }
 
-// Flag to identify that deferred deleted DS is to be moved into Pause state
 func (o AzureFileshareProtectedItemOutput) IsRehydrate() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v AzureFileshareProtectedItem) *bool { return v.IsRehydrate }).(pulumi.BoolPtrOutput)
 }
 
-// Flag to identify whether the DS is scheduled for deferred delete
 func (o AzureFileshareProtectedItemOutput) IsScheduledForDeferredDelete() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v AzureFileshareProtectedItem) *bool { return v.IsScheduledForDeferredDelete }).(pulumi.BoolPtrOutput)
 }
 
-// Health details of different KPIs
 func (o AzureFileshareProtectedItemOutput) KpisHealths() KPIResourceHealthDetailsMapOutput {
 	return o.ApplyT(func(v AzureFileshareProtectedItem) map[string]KPIResourceHealthDetails { return v.KpisHealths }).(KPIResourceHealthDetailsMapOutput)
 }
 
-// Last backup operation status. Possible values: Healthy, Unhealthy.
 func (o AzureFileshareProtectedItemOutput) LastBackupStatus() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AzureFileshareProtectedItem) *string { return v.LastBackupStatus }).(pulumi.StringPtrOutput)
 }
 
-// Timestamp of the last backup operation on this backup item.
 func (o AzureFileshareProtectedItemOutput) LastBackupTime() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AzureFileshareProtectedItem) *string { return v.LastBackupTime }).(pulumi.StringPtrOutput)
 }
 
-// Timestamp when the last (latest) backup copy was created for this backup item.
 func (o AzureFileshareProtectedItemOutput) LastRecoveryPoint() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AzureFileshareProtectedItem) *string { return v.LastRecoveryPoint }).(pulumi.StringPtrOutput)
 }
 
-// ID of the backup policy with which this item is backed up.
 func (o AzureFileshareProtectedItemOutput) PolicyId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AzureFileshareProtectedItem) *string { return v.PolicyId }).(pulumi.StringPtrOutput)
 }
 
-// backup item type.
-// Expected value is 'AzureFileShareProtectedItem'.
 func (o AzureFileshareProtectedItemOutput) ProtectedItemType() pulumi.StringOutput {
 	return o.ApplyT(func(v AzureFileshareProtectedItem) string { return v.ProtectedItemType }).(pulumi.StringOutput)
 }
 
-// Backup state of this backup item.
 func (o AzureFileshareProtectedItemOutput) ProtectionState() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AzureFileshareProtectedItem) *string { return v.ProtectionState }).(pulumi.StringPtrOutput)
 }
 
-// Backup status of this backup item.
 func (o AzureFileshareProtectedItemOutput) ProtectionStatus() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AzureFileshareProtectedItem) *string { return v.ProtectionStatus }).(pulumi.StringPtrOutput)
 }
 
-// ARM ID of the resource to be backed up.
 func (o AzureFileshareProtectedItemOutput) SourceResourceId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AzureFileshareProtectedItem) *string { return v.SourceResourceId }).(pulumi.StringPtrOutput)
 }
 
-// Type of workload this item represents.
 func (o AzureFileshareProtectedItemOutput) WorkloadType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AzureFileshareProtectedItem) *string { return v.WorkloadType }).(pulumi.StringPtrOutput)
 }
 
-// Additional information about Azure File Share backup item.
 type AzureFileshareProtectedItemExtendedInfo struct {
-	// The oldest backup copy available for this item in the service.
 	OldestRecoveryPoint *string `pulumi:"oldestRecoveryPoint"`
-	// Indicates consistency of policy object and policy applied to this backup item.
-	PolicyState *string `pulumi:"policyState"`
-	// Number of available backup copies associated with this backup item.
-	RecoveryPointCount *int `pulumi:"recoveryPointCount"`
+	PolicyState         *string `pulumi:"policyState"`
+	RecoveryPointCount  *int    `pulumi:"recoveryPointCount"`
 }
 
 // AzureFileshareProtectedItemExtendedInfoInput is an input type that accepts AzureFileshareProtectedItemExtendedInfoArgs and AzureFileshareProtectedItemExtendedInfoOutput values.
@@ -269,14 +196,10 @@ type AzureFileshareProtectedItemExtendedInfoInput interface {
 	ToAzureFileshareProtectedItemExtendedInfoOutputWithContext(context.Context) AzureFileshareProtectedItemExtendedInfoOutput
 }
 
-// Additional information about Azure File Share backup item.
 type AzureFileshareProtectedItemExtendedInfoArgs struct {
-	// The oldest backup copy available for this item in the service.
 	OldestRecoveryPoint pulumi.StringPtrInput `pulumi:"oldestRecoveryPoint"`
-	// Indicates consistency of policy object and policy applied to this backup item.
-	PolicyState pulumi.StringPtrInput `pulumi:"policyState"`
-	// Number of available backup copies associated with this backup item.
-	RecoveryPointCount pulumi.IntPtrInput `pulumi:"recoveryPointCount"`
+	PolicyState         pulumi.StringPtrInput `pulumi:"policyState"`
+	RecoveryPointCount  pulumi.IntPtrInput    `pulumi:"recoveryPointCount"`
 }
 
 func (AzureFileshareProtectedItemExtendedInfoArgs) ElementType() reflect.Type {
@@ -332,7 +255,6 @@ func (i *azureFileshareProtectedItemExtendedInfoPtrType) ToAzureFileshareProtect
 	return pulumi.ToOutputWithContext(ctx, i).(AzureFileshareProtectedItemExtendedInfoPtrOutput)
 }
 
-// Additional information about Azure File Share backup item.
 type AzureFileshareProtectedItemExtendedInfoOutput struct{ *pulumi.OutputState }
 
 func (AzureFileshareProtectedItemExtendedInfoOutput) ElementType() reflect.Type {
@@ -352,22 +274,19 @@ func (o AzureFileshareProtectedItemExtendedInfoOutput) ToAzureFileshareProtected
 }
 
 func (o AzureFileshareProtectedItemExtendedInfoOutput) ToAzureFileshareProtectedItemExtendedInfoPtrOutputWithContext(ctx context.Context) AzureFileshareProtectedItemExtendedInfoPtrOutput {
-	return o.ApplyT(func(v AzureFileshareProtectedItemExtendedInfo) *AzureFileshareProtectedItemExtendedInfo {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v AzureFileshareProtectedItemExtendedInfo) *AzureFileshareProtectedItemExtendedInfo {
 		return &v
 	}).(AzureFileshareProtectedItemExtendedInfoPtrOutput)
 }
 
-// The oldest backup copy available for this item in the service.
 func (o AzureFileshareProtectedItemExtendedInfoOutput) OldestRecoveryPoint() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AzureFileshareProtectedItemExtendedInfo) *string { return v.OldestRecoveryPoint }).(pulumi.StringPtrOutput)
 }
 
-// Indicates consistency of policy object and policy applied to this backup item.
 func (o AzureFileshareProtectedItemExtendedInfoOutput) PolicyState() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AzureFileshareProtectedItemExtendedInfo) *string { return v.PolicyState }).(pulumi.StringPtrOutput)
 }
 
-// Number of available backup copies associated with this backup item.
 func (o AzureFileshareProtectedItemExtendedInfoOutput) RecoveryPointCount() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v AzureFileshareProtectedItemExtendedInfo) *int { return v.RecoveryPointCount }).(pulumi.IntPtrOutput)
 }
@@ -387,10 +306,15 @@ func (o AzureFileshareProtectedItemExtendedInfoPtrOutput) ToAzureFileshareProtec
 }
 
 func (o AzureFileshareProtectedItemExtendedInfoPtrOutput) Elem() AzureFileshareProtectedItemExtendedInfoOutput {
-	return o.ApplyT(func(v *AzureFileshareProtectedItemExtendedInfo) AzureFileshareProtectedItemExtendedInfo { return *v }).(AzureFileshareProtectedItemExtendedInfoOutput)
+	return o.ApplyT(func(v *AzureFileshareProtectedItemExtendedInfo) AzureFileshareProtectedItemExtendedInfo {
+		if v != nil {
+			return *v
+		}
+		var ret AzureFileshareProtectedItemExtendedInfo
+		return ret
+	}).(AzureFileshareProtectedItemExtendedInfoOutput)
 }
 
-// The oldest backup copy available for this item in the service.
 func (o AzureFileshareProtectedItemExtendedInfoPtrOutput) OldestRecoveryPoint() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *AzureFileshareProtectedItemExtendedInfo) *string {
 		if v == nil {
@@ -400,7 +324,6 @@ func (o AzureFileshareProtectedItemExtendedInfoPtrOutput) OldestRecoveryPoint() 
 	}).(pulumi.StringPtrOutput)
 }
 
-// Indicates consistency of policy object and policy applied to this backup item.
 func (o AzureFileshareProtectedItemExtendedInfoPtrOutput) PolicyState() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *AzureFileshareProtectedItemExtendedInfo) *string {
 		if v == nil {
@@ -410,7 +333,6 @@ func (o AzureFileshareProtectedItemExtendedInfoPtrOutput) PolicyState() pulumi.S
 	}).(pulumi.StringPtrOutput)
 }
 
-// Number of available backup copies associated with this backup item.
 func (o AzureFileshareProtectedItemExtendedInfoPtrOutput) RecoveryPointCount() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *AzureFileshareProtectedItemExtendedInfo) *int {
 		if v == nil {
@@ -420,18 +342,12 @@ func (o AzureFileshareProtectedItemExtendedInfoPtrOutput) RecoveryPointCount() p
 	}).(pulumi.IntPtrOutput)
 }
 
-// Additional information about Azure File Share backup item.
 type AzureFileshareProtectedItemExtendedInfoResponse struct {
-	// The oldest backup copy available for this item in the service.
-	OldestRecoveryPoint *string `pulumi:"oldestRecoveryPoint"`
-	// Indicates consistency of policy object and policy applied to this backup item.
-	PolicyState *string `pulumi:"policyState"`
-	// Number of available backup copies associated with this backup item.
-	RecoveryPointCount *int `pulumi:"recoveryPointCount"`
-	// Indicates the state of this resource. Possible values are from enum ResourceState {Invalid, Active, SoftDeleted, Deleted}
-	ResourceState string `pulumi:"resourceState"`
-	// The resource state sync time for this backup item.
-	ResourceStateSyncTime string `pulumi:"resourceStateSyncTime"`
+	OldestRecoveryPoint   *string `pulumi:"oldestRecoveryPoint"`
+	PolicyState           *string `pulumi:"policyState"`
+	RecoveryPointCount    *int    `pulumi:"recoveryPointCount"`
+	ResourceState         string  `pulumi:"resourceState"`
+	ResourceStateSyncTime string  `pulumi:"resourceStateSyncTime"`
 }
 
 // AzureFileshareProtectedItemExtendedInfoResponseInput is an input type that accepts AzureFileshareProtectedItemExtendedInfoResponseArgs and AzureFileshareProtectedItemExtendedInfoResponseOutput values.
@@ -445,18 +361,12 @@ type AzureFileshareProtectedItemExtendedInfoResponseInput interface {
 	ToAzureFileshareProtectedItemExtendedInfoResponseOutputWithContext(context.Context) AzureFileshareProtectedItemExtendedInfoResponseOutput
 }
 
-// Additional information about Azure File Share backup item.
 type AzureFileshareProtectedItemExtendedInfoResponseArgs struct {
-	// The oldest backup copy available for this item in the service.
-	OldestRecoveryPoint pulumi.StringPtrInput `pulumi:"oldestRecoveryPoint"`
-	// Indicates consistency of policy object and policy applied to this backup item.
-	PolicyState pulumi.StringPtrInput `pulumi:"policyState"`
-	// Number of available backup copies associated with this backup item.
-	RecoveryPointCount pulumi.IntPtrInput `pulumi:"recoveryPointCount"`
-	// Indicates the state of this resource. Possible values are from enum ResourceState {Invalid, Active, SoftDeleted, Deleted}
-	ResourceState pulumi.StringInput `pulumi:"resourceState"`
-	// The resource state sync time for this backup item.
-	ResourceStateSyncTime pulumi.StringInput `pulumi:"resourceStateSyncTime"`
+	OldestRecoveryPoint   pulumi.StringPtrInput `pulumi:"oldestRecoveryPoint"`
+	PolicyState           pulumi.StringPtrInput `pulumi:"policyState"`
+	RecoveryPointCount    pulumi.IntPtrInput    `pulumi:"recoveryPointCount"`
+	ResourceState         pulumi.StringInput    `pulumi:"resourceState"`
+	ResourceStateSyncTime pulumi.StringInput    `pulumi:"resourceStateSyncTime"`
 }
 
 func (AzureFileshareProtectedItemExtendedInfoResponseArgs) ElementType() reflect.Type {
@@ -512,7 +422,6 @@ func (i *azureFileshareProtectedItemExtendedInfoResponsePtrType) ToAzureFileshar
 	return pulumi.ToOutputWithContext(ctx, i).(AzureFileshareProtectedItemExtendedInfoResponsePtrOutput)
 }
 
-// Additional information about Azure File Share backup item.
 type AzureFileshareProtectedItemExtendedInfoResponseOutput struct{ *pulumi.OutputState }
 
 func (AzureFileshareProtectedItemExtendedInfoResponseOutput) ElementType() reflect.Type {
@@ -532,32 +441,27 @@ func (o AzureFileshareProtectedItemExtendedInfoResponseOutput) ToAzureFileshareP
 }
 
 func (o AzureFileshareProtectedItemExtendedInfoResponseOutput) ToAzureFileshareProtectedItemExtendedInfoResponsePtrOutputWithContext(ctx context.Context) AzureFileshareProtectedItemExtendedInfoResponsePtrOutput {
-	return o.ApplyT(func(v AzureFileshareProtectedItemExtendedInfoResponse) *AzureFileshareProtectedItemExtendedInfoResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v AzureFileshareProtectedItemExtendedInfoResponse) *AzureFileshareProtectedItemExtendedInfoResponse {
 		return &v
 	}).(AzureFileshareProtectedItemExtendedInfoResponsePtrOutput)
 }
 
-// The oldest backup copy available for this item in the service.
 func (o AzureFileshareProtectedItemExtendedInfoResponseOutput) OldestRecoveryPoint() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AzureFileshareProtectedItemExtendedInfoResponse) *string { return v.OldestRecoveryPoint }).(pulumi.StringPtrOutput)
 }
 
-// Indicates consistency of policy object and policy applied to this backup item.
 func (o AzureFileshareProtectedItemExtendedInfoResponseOutput) PolicyState() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AzureFileshareProtectedItemExtendedInfoResponse) *string { return v.PolicyState }).(pulumi.StringPtrOutput)
 }
 
-// Number of available backup copies associated with this backup item.
 func (o AzureFileshareProtectedItemExtendedInfoResponseOutput) RecoveryPointCount() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v AzureFileshareProtectedItemExtendedInfoResponse) *int { return v.RecoveryPointCount }).(pulumi.IntPtrOutput)
 }
 
-// Indicates the state of this resource. Possible values are from enum ResourceState {Invalid, Active, SoftDeleted, Deleted}
 func (o AzureFileshareProtectedItemExtendedInfoResponseOutput) ResourceState() pulumi.StringOutput {
 	return o.ApplyT(func(v AzureFileshareProtectedItemExtendedInfoResponse) string { return v.ResourceState }).(pulumi.StringOutput)
 }
 
-// The resource state sync time for this backup item.
 func (o AzureFileshareProtectedItemExtendedInfoResponseOutput) ResourceStateSyncTime() pulumi.StringOutput {
 	return o.ApplyT(func(v AzureFileshareProtectedItemExtendedInfoResponse) string { return v.ResourceStateSyncTime }).(pulumi.StringOutput)
 }
@@ -578,11 +482,14 @@ func (o AzureFileshareProtectedItemExtendedInfoResponsePtrOutput) ToAzureFilesha
 
 func (o AzureFileshareProtectedItemExtendedInfoResponsePtrOutput) Elem() AzureFileshareProtectedItemExtendedInfoResponseOutput {
 	return o.ApplyT(func(v *AzureFileshareProtectedItemExtendedInfoResponse) AzureFileshareProtectedItemExtendedInfoResponse {
-		return *v
+		if v != nil {
+			return *v
+		}
+		var ret AzureFileshareProtectedItemExtendedInfoResponse
+		return ret
 	}).(AzureFileshareProtectedItemExtendedInfoResponseOutput)
 }
 
-// The oldest backup copy available for this item in the service.
 func (o AzureFileshareProtectedItemExtendedInfoResponsePtrOutput) OldestRecoveryPoint() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *AzureFileshareProtectedItemExtendedInfoResponse) *string {
 		if v == nil {
@@ -592,7 +499,6 @@ func (o AzureFileshareProtectedItemExtendedInfoResponsePtrOutput) OldestRecovery
 	}).(pulumi.StringPtrOutput)
 }
 
-// Indicates consistency of policy object and policy applied to this backup item.
 func (o AzureFileshareProtectedItemExtendedInfoResponsePtrOutput) PolicyState() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *AzureFileshareProtectedItemExtendedInfoResponse) *string {
 		if v == nil {
@@ -602,7 +508,6 @@ func (o AzureFileshareProtectedItemExtendedInfoResponsePtrOutput) PolicyState() 
 	}).(pulumi.StringPtrOutput)
 }
 
-// Number of available backup copies associated with this backup item.
 func (o AzureFileshareProtectedItemExtendedInfoResponsePtrOutput) RecoveryPointCount() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *AzureFileshareProtectedItemExtendedInfoResponse) *int {
 		if v == nil {
@@ -612,7 +517,6 @@ func (o AzureFileshareProtectedItemExtendedInfoResponsePtrOutput) RecoveryPointC
 	}).(pulumi.IntPtrOutput)
 }
 
-// Indicates the state of this resource. Possible values are from enum ResourceState {Invalid, Active, SoftDeleted, Deleted}
 func (o AzureFileshareProtectedItemExtendedInfoResponsePtrOutput) ResourceState() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *AzureFileshareProtectedItemExtendedInfoResponse) *string {
 		if v == nil {
@@ -622,7 +526,6 @@ func (o AzureFileshareProtectedItemExtendedInfoResponsePtrOutput) ResourceState(
 	}).(pulumi.StringPtrOutput)
 }
 
-// The resource state sync time for this backup item.
 func (o AzureFileshareProtectedItemExtendedInfoResponsePtrOutput) ResourceStateSyncTime() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *AzureFileshareProtectedItemExtendedInfoResponse) *string {
 		if v == nil {
@@ -632,51 +535,28 @@ func (o AzureFileshareProtectedItemExtendedInfoResponsePtrOutput) ResourceStateS
 	}).(pulumi.StringPtrOutput)
 }
 
-// Azure File Share workload-specific backup item.
 type AzureFileshareProtectedItemResponse struct {
-	// Type of backup management for the backed up item.
-	BackupManagementType *string `pulumi:"backupManagementType"`
-	// Name of the backup set the backup item belongs to
-	BackupSetName *string `pulumi:"backupSetName"`
-	// Unique name of container
-	ContainerName *string `pulumi:"containerName"`
-	// Create mode to indicate recovery of existing soft deleted data source or creation of new data source.
-	CreateMode *string `pulumi:"createMode"`
-	// Time for deferred deletion in UTC
-	DeferredDeleteTimeInUTC *string `pulumi:"deferredDeleteTimeInUTC"`
-	// Time remaining before the DS marked for deferred delete is permanently deleted
-	DeferredDeleteTimeRemaining *string `pulumi:"deferredDeleteTimeRemaining"`
-	// Additional information with this backup item.
-	ExtendedInfo *AzureFileshareProtectedItemExtendedInfoResponse `pulumi:"extendedInfo"`
-	// Friendly name of the fileshare represented by this backup item.
-	FriendlyName *string `pulumi:"friendlyName"`
-	// Flag to identify whether the deferred deleted DS is to be purged soon
-	IsDeferredDeleteScheduleUpcoming *bool `pulumi:"isDeferredDeleteScheduleUpcoming"`
-	// Flag to identify that deferred deleted DS is to be moved into Pause state
-	IsRehydrate *bool `pulumi:"isRehydrate"`
-	// Flag to identify whether the DS is scheduled for deferred delete
-	IsScheduledForDeferredDelete *bool `pulumi:"isScheduledForDeferredDelete"`
-	// Health details of different KPIs
-	KpisHealths map[string]KPIResourceHealthDetailsResponse `pulumi:"kpisHealths"`
-	// Last backup operation status. Possible values: Healthy, Unhealthy.
-	LastBackupStatus *string `pulumi:"lastBackupStatus"`
-	// Timestamp of the last backup operation on this backup item.
-	LastBackupTime *string `pulumi:"lastBackupTime"`
-	// Timestamp when the last (latest) backup copy was created for this backup item.
-	LastRecoveryPoint *string `pulumi:"lastRecoveryPoint"`
-	// ID of the backup policy with which this item is backed up.
-	PolicyId *string `pulumi:"policyId"`
-	// backup item type.
-	// Expected value is 'AzureFileShareProtectedItem'.
-	ProtectedItemType string `pulumi:"protectedItemType"`
-	// Backup state of this backup item.
-	ProtectionState *string `pulumi:"protectionState"`
-	// Backup status of this backup item.
-	ProtectionStatus *string `pulumi:"protectionStatus"`
-	// ARM ID of the resource to be backed up.
-	SourceResourceId *string `pulumi:"sourceResourceId"`
-	// Type of workload this item represents.
-	WorkloadType *string `pulumi:"workloadType"`
+	BackupManagementType             *string                                          `pulumi:"backupManagementType"`
+	BackupSetName                    *string                                          `pulumi:"backupSetName"`
+	ContainerName                    *string                                          `pulumi:"containerName"`
+	CreateMode                       *string                                          `pulumi:"createMode"`
+	DeferredDeleteTimeInUTC          *string                                          `pulumi:"deferredDeleteTimeInUTC"`
+	DeferredDeleteTimeRemaining      *string                                          `pulumi:"deferredDeleteTimeRemaining"`
+	ExtendedInfo                     *AzureFileshareProtectedItemExtendedInfoResponse `pulumi:"extendedInfo"`
+	FriendlyName                     *string                                          `pulumi:"friendlyName"`
+	IsDeferredDeleteScheduleUpcoming *bool                                            `pulumi:"isDeferredDeleteScheduleUpcoming"`
+	IsRehydrate                      *bool                                            `pulumi:"isRehydrate"`
+	IsScheduledForDeferredDelete     *bool                                            `pulumi:"isScheduledForDeferredDelete"`
+	KpisHealths                      map[string]KPIResourceHealthDetailsResponse      `pulumi:"kpisHealths"`
+	LastBackupStatus                 *string                                          `pulumi:"lastBackupStatus"`
+	LastBackupTime                   *string                                          `pulumi:"lastBackupTime"`
+	LastRecoveryPoint                *string                                          `pulumi:"lastRecoveryPoint"`
+	PolicyId                         *string                                          `pulumi:"policyId"`
+	ProtectedItemType                string                                           `pulumi:"protectedItemType"`
+	ProtectionState                  *string                                          `pulumi:"protectionState"`
+	ProtectionStatus                 *string                                          `pulumi:"protectionStatus"`
+	SourceResourceId                 *string                                          `pulumi:"sourceResourceId"`
+	WorkloadType                     *string                                          `pulumi:"workloadType"`
 }
 
 // AzureFileshareProtectedItemResponseInput is an input type that accepts AzureFileshareProtectedItemResponseArgs and AzureFileshareProtectedItemResponseOutput values.
@@ -690,51 +570,28 @@ type AzureFileshareProtectedItemResponseInput interface {
 	ToAzureFileshareProtectedItemResponseOutputWithContext(context.Context) AzureFileshareProtectedItemResponseOutput
 }
 
-// Azure File Share workload-specific backup item.
 type AzureFileshareProtectedItemResponseArgs struct {
-	// Type of backup management for the backed up item.
-	BackupManagementType pulumi.StringPtrInput `pulumi:"backupManagementType"`
-	// Name of the backup set the backup item belongs to
-	BackupSetName pulumi.StringPtrInput `pulumi:"backupSetName"`
-	// Unique name of container
-	ContainerName pulumi.StringPtrInput `pulumi:"containerName"`
-	// Create mode to indicate recovery of existing soft deleted data source or creation of new data source.
-	CreateMode pulumi.StringPtrInput `pulumi:"createMode"`
-	// Time for deferred deletion in UTC
-	DeferredDeleteTimeInUTC pulumi.StringPtrInput `pulumi:"deferredDeleteTimeInUTC"`
-	// Time remaining before the DS marked for deferred delete is permanently deleted
-	DeferredDeleteTimeRemaining pulumi.StringPtrInput `pulumi:"deferredDeleteTimeRemaining"`
-	// Additional information with this backup item.
-	ExtendedInfo AzureFileshareProtectedItemExtendedInfoResponsePtrInput `pulumi:"extendedInfo"`
-	// Friendly name of the fileshare represented by this backup item.
-	FriendlyName pulumi.StringPtrInput `pulumi:"friendlyName"`
-	// Flag to identify whether the deferred deleted DS is to be purged soon
-	IsDeferredDeleteScheduleUpcoming pulumi.BoolPtrInput `pulumi:"isDeferredDeleteScheduleUpcoming"`
-	// Flag to identify that deferred deleted DS is to be moved into Pause state
-	IsRehydrate pulumi.BoolPtrInput `pulumi:"isRehydrate"`
-	// Flag to identify whether the DS is scheduled for deferred delete
-	IsScheduledForDeferredDelete pulumi.BoolPtrInput `pulumi:"isScheduledForDeferredDelete"`
-	// Health details of different KPIs
-	KpisHealths KPIResourceHealthDetailsResponseMapInput `pulumi:"kpisHealths"`
-	// Last backup operation status. Possible values: Healthy, Unhealthy.
-	LastBackupStatus pulumi.StringPtrInput `pulumi:"lastBackupStatus"`
-	// Timestamp of the last backup operation on this backup item.
-	LastBackupTime pulumi.StringPtrInput `pulumi:"lastBackupTime"`
-	// Timestamp when the last (latest) backup copy was created for this backup item.
-	LastRecoveryPoint pulumi.StringPtrInput `pulumi:"lastRecoveryPoint"`
-	// ID of the backup policy with which this item is backed up.
-	PolicyId pulumi.StringPtrInput `pulumi:"policyId"`
-	// backup item type.
-	// Expected value is 'AzureFileShareProtectedItem'.
-	ProtectedItemType pulumi.StringInput `pulumi:"protectedItemType"`
-	// Backup state of this backup item.
-	ProtectionState pulumi.StringPtrInput `pulumi:"protectionState"`
-	// Backup status of this backup item.
-	ProtectionStatus pulumi.StringPtrInput `pulumi:"protectionStatus"`
-	// ARM ID of the resource to be backed up.
-	SourceResourceId pulumi.StringPtrInput `pulumi:"sourceResourceId"`
-	// Type of workload this item represents.
-	WorkloadType pulumi.StringPtrInput `pulumi:"workloadType"`
+	BackupManagementType             pulumi.StringPtrInput                                   `pulumi:"backupManagementType"`
+	BackupSetName                    pulumi.StringPtrInput                                   `pulumi:"backupSetName"`
+	ContainerName                    pulumi.StringPtrInput                                   `pulumi:"containerName"`
+	CreateMode                       pulumi.StringPtrInput                                   `pulumi:"createMode"`
+	DeferredDeleteTimeInUTC          pulumi.StringPtrInput                                   `pulumi:"deferredDeleteTimeInUTC"`
+	DeferredDeleteTimeRemaining      pulumi.StringPtrInput                                   `pulumi:"deferredDeleteTimeRemaining"`
+	ExtendedInfo                     AzureFileshareProtectedItemExtendedInfoResponsePtrInput `pulumi:"extendedInfo"`
+	FriendlyName                     pulumi.StringPtrInput                                   `pulumi:"friendlyName"`
+	IsDeferredDeleteScheduleUpcoming pulumi.BoolPtrInput                                     `pulumi:"isDeferredDeleteScheduleUpcoming"`
+	IsRehydrate                      pulumi.BoolPtrInput                                     `pulumi:"isRehydrate"`
+	IsScheduledForDeferredDelete     pulumi.BoolPtrInput                                     `pulumi:"isScheduledForDeferredDelete"`
+	KpisHealths                      KPIResourceHealthDetailsResponseMapInput                `pulumi:"kpisHealths"`
+	LastBackupStatus                 pulumi.StringPtrInput                                   `pulumi:"lastBackupStatus"`
+	LastBackupTime                   pulumi.StringPtrInput                                   `pulumi:"lastBackupTime"`
+	LastRecoveryPoint                pulumi.StringPtrInput                                   `pulumi:"lastRecoveryPoint"`
+	PolicyId                         pulumi.StringPtrInput                                   `pulumi:"policyId"`
+	ProtectedItemType                pulumi.StringInput                                      `pulumi:"protectedItemType"`
+	ProtectionState                  pulumi.StringPtrInput                                   `pulumi:"protectionState"`
+	ProtectionStatus                 pulumi.StringPtrInput                                   `pulumi:"protectionStatus"`
+	SourceResourceId                 pulumi.StringPtrInput                                   `pulumi:"sourceResourceId"`
+	WorkloadType                     pulumi.StringPtrInput                                   `pulumi:"workloadType"`
 }
 
 func (AzureFileshareProtectedItemResponseArgs) ElementType() reflect.Type {
@@ -749,7 +606,6 @@ func (i AzureFileshareProtectedItemResponseArgs) ToAzureFileshareProtectedItemRe
 	return pulumi.ToOutputWithContext(ctx, i).(AzureFileshareProtectedItemResponseOutput)
 }
 
-// Azure File Share workload-specific backup item.
 type AzureFileshareProtectedItemResponseOutput struct{ *pulumi.OutputState }
 
 func (AzureFileshareProtectedItemResponseOutput) ElementType() reflect.Type {
@@ -764,169 +620,120 @@ func (o AzureFileshareProtectedItemResponseOutput) ToAzureFileshareProtectedItem
 	return o
 }
 
-// Type of backup management for the backed up item.
 func (o AzureFileshareProtectedItemResponseOutput) BackupManagementType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AzureFileshareProtectedItemResponse) *string { return v.BackupManagementType }).(pulumi.StringPtrOutput)
 }
 
-// Name of the backup set the backup item belongs to
 func (o AzureFileshareProtectedItemResponseOutput) BackupSetName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AzureFileshareProtectedItemResponse) *string { return v.BackupSetName }).(pulumi.StringPtrOutput)
 }
 
-// Unique name of container
 func (o AzureFileshareProtectedItemResponseOutput) ContainerName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AzureFileshareProtectedItemResponse) *string { return v.ContainerName }).(pulumi.StringPtrOutput)
 }
 
-// Create mode to indicate recovery of existing soft deleted data source or creation of new data source.
 func (o AzureFileshareProtectedItemResponseOutput) CreateMode() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AzureFileshareProtectedItemResponse) *string { return v.CreateMode }).(pulumi.StringPtrOutput)
 }
 
-// Time for deferred deletion in UTC
 func (o AzureFileshareProtectedItemResponseOutput) DeferredDeleteTimeInUTC() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AzureFileshareProtectedItemResponse) *string { return v.DeferredDeleteTimeInUTC }).(pulumi.StringPtrOutput)
 }
 
-// Time remaining before the DS marked for deferred delete is permanently deleted
 func (o AzureFileshareProtectedItemResponseOutput) DeferredDeleteTimeRemaining() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AzureFileshareProtectedItemResponse) *string { return v.DeferredDeleteTimeRemaining }).(pulumi.StringPtrOutput)
 }
 
-// Additional information with this backup item.
 func (o AzureFileshareProtectedItemResponseOutput) ExtendedInfo() AzureFileshareProtectedItemExtendedInfoResponsePtrOutput {
 	return o.ApplyT(func(v AzureFileshareProtectedItemResponse) *AzureFileshareProtectedItemExtendedInfoResponse {
 		return v.ExtendedInfo
 	}).(AzureFileshareProtectedItemExtendedInfoResponsePtrOutput)
 }
 
-// Friendly name of the fileshare represented by this backup item.
 func (o AzureFileshareProtectedItemResponseOutput) FriendlyName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AzureFileshareProtectedItemResponse) *string { return v.FriendlyName }).(pulumi.StringPtrOutput)
 }
 
-// Flag to identify whether the deferred deleted DS is to be purged soon
 func (o AzureFileshareProtectedItemResponseOutput) IsDeferredDeleteScheduleUpcoming() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v AzureFileshareProtectedItemResponse) *bool { return v.IsDeferredDeleteScheduleUpcoming }).(pulumi.BoolPtrOutput)
 }
 
-// Flag to identify that deferred deleted DS is to be moved into Pause state
 func (o AzureFileshareProtectedItemResponseOutput) IsRehydrate() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v AzureFileshareProtectedItemResponse) *bool { return v.IsRehydrate }).(pulumi.BoolPtrOutput)
 }
 
-// Flag to identify whether the DS is scheduled for deferred delete
 func (o AzureFileshareProtectedItemResponseOutput) IsScheduledForDeferredDelete() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v AzureFileshareProtectedItemResponse) *bool { return v.IsScheduledForDeferredDelete }).(pulumi.BoolPtrOutput)
 }
 
-// Health details of different KPIs
 func (o AzureFileshareProtectedItemResponseOutput) KpisHealths() KPIResourceHealthDetailsResponseMapOutput {
 	return o.ApplyT(func(v AzureFileshareProtectedItemResponse) map[string]KPIResourceHealthDetailsResponse {
 		return v.KpisHealths
 	}).(KPIResourceHealthDetailsResponseMapOutput)
 }
 
-// Last backup operation status. Possible values: Healthy, Unhealthy.
 func (o AzureFileshareProtectedItemResponseOutput) LastBackupStatus() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AzureFileshareProtectedItemResponse) *string { return v.LastBackupStatus }).(pulumi.StringPtrOutput)
 }
 
-// Timestamp of the last backup operation on this backup item.
 func (o AzureFileshareProtectedItemResponseOutput) LastBackupTime() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AzureFileshareProtectedItemResponse) *string { return v.LastBackupTime }).(pulumi.StringPtrOutput)
 }
 
-// Timestamp when the last (latest) backup copy was created for this backup item.
 func (o AzureFileshareProtectedItemResponseOutput) LastRecoveryPoint() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AzureFileshareProtectedItemResponse) *string { return v.LastRecoveryPoint }).(pulumi.StringPtrOutput)
 }
 
-// ID of the backup policy with which this item is backed up.
 func (o AzureFileshareProtectedItemResponseOutput) PolicyId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AzureFileshareProtectedItemResponse) *string { return v.PolicyId }).(pulumi.StringPtrOutput)
 }
 
-// backup item type.
-// Expected value is 'AzureFileShareProtectedItem'.
 func (o AzureFileshareProtectedItemResponseOutput) ProtectedItemType() pulumi.StringOutput {
 	return o.ApplyT(func(v AzureFileshareProtectedItemResponse) string { return v.ProtectedItemType }).(pulumi.StringOutput)
 }
 
-// Backup state of this backup item.
 func (o AzureFileshareProtectedItemResponseOutput) ProtectionState() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AzureFileshareProtectedItemResponse) *string { return v.ProtectionState }).(pulumi.StringPtrOutput)
 }
 
-// Backup status of this backup item.
 func (o AzureFileshareProtectedItemResponseOutput) ProtectionStatus() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AzureFileshareProtectedItemResponse) *string { return v.ProtectionStatus }).(pulumi.StringPtrOutput)
 }
 
-// ARM ID of the resource to be backed up.
 func (o AzureFileshareProtectedItemResponseOutput) SourceResourceId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AzureFileshareProtectedItemResponse) *string { return v.SourceResourceId }).(pulumi.StringPtrOutput)
 }
 
-// Type of workload this item represents.
 func (o AzureFileshareProtectedItemResponseOutput) WorkloadType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AzureFileshareProtectedItemResponse) *string { return v.WorkloadType }).(pulumi.StringPtrOutput)
 }
 
-// IaaS VM workload-specific backup item representing the Classic Compute VM.
 type AzureIaaSClassicComputeVMProtectedItem struct {
-	// Type of backup management for the backed up item.
-	BackupManagementType *string `pulumi:"backupManagementType"`
-	// Name of the backup set the backup item belongs to
-	BackupSetName *string `pulumi:"backupSetName"`
-	// Unique name of container
-	ContainerName *string `pulumi:"containerName"`
-	// Create mode to indicate recovery of existing soft deleted data source or creation of new data source.
-	CreateMode *string `pulumi:"createMode"`
-	// Time for deferred deletion in UTC
-	DeferredDeleteTimeInUTC *string `pulumi:"deferredDeleteTimeInUTC"`
-	// Time remaining before the DS marked for deferred delete is permanently deleted
-	DeferredDeleteTimeRemaining *string `pulumi:"deferredDeleteTimeRemaining"`
-	// Additional information for this backup item.
-	ExtendedInfo *AzureIaaSVMProtectedItemExtendedInfo `pulumi:"extendedInfo"`
-	// Extended Properties for Azure IaasVM Backup.
-	ExtendedProperties *ExtendedProperties `pulumi:"extendedProperties"`
-	// Friendly name of the VM represented by this backup item.
-	FriendlyName *string `pulumi:"friendlyName"`
-	// Health status of protected item.
-	HealthStatus *string `pulumi:"healthStatus"`
-	// Flag to identify whether the deferred deleted DS is to be purged soon
-	IsDeferredDeleteScheduleUpcoming *bool `pulumi:"isDeferredDeleteScheduleUpcoming"`
-	// Flag to identify that deferred deleted DS is to be moved into Pause state
-	IsRehydrate *bool `pulumi:"isRehydrate"`
-	// Flag to identify whether the DS is scheduled for deferred delete
-	IsScheduledForDeferredDelete *bool `pulumi:"isScheduledForDeferredDelete"`
-	// Health details of different KPIs
-	KpisHealths map[string]KPIResourceHealthDetails `pulumi:"kpisHealths"`
-	// Last backup operation status.
-	LastBackupStatus *string `pulumi:"lastBackupStatus"`
-	// Timestamp of the last backup operation on this backup item.
-	LastBackupTime *string `pulumi:"lastBackupTime"`
-	// Timestamp when the last (latest) backup copy was created for this backup item.
-	LastRecoveryPoint *string `pulumi:"lastRecoveryPoint"`
-	// ID of the backup policy with which this item is backed up.
-	PolicyId *string `pulumi:"policyId"`
-	// Data ID of the protected item.
-	ProtectedItemDataId *string `pulumi:"protectedItemDataId"`
-	// backup item type.
-	// Expected value is 'Microsoft.ClassicCompute/virtualMachines'.
-	ProtectedItemType string `pulumi:"protectedItemType"`
-	// Backup state of this backup item.
-	ProtectionState *string `pulumi:"protectionState"`
-	// Backup status of this backup item.
-	ProtectionStatus *string `pulumi:"protectionStatus"`
-	// ARM ID of the resource to be backed up.
-	SourceResourceId *string `pulumi:"sourceResourceId"`
-	// Fully qualified ARM ID of the virtual machine represented by this item.
-	VirtualMachineId *string `pulumi:"virtualMachineId"`
-	// Type of workload this item represents.
-	WorkloadType *string `pulumi:"workloadType"`
+	BackupManagementType             *string                               `pulumi:"backupManagementType"`
+	BackupSetName                    *string                               `pulumi:"backupSetName"`
+	ContainerName                    *string                               `pulumi:"containerName"`
+	CreateMode                       *string                               `pulumi:"createMode"`
+	DeferredDeleteTimeInUTC          *string                               `pulumi:"deferredDeleteTimeInUTC"`
+	DeferredDeleteTimeRemaining      *string                               `pulumi:"deferredDeleteTimeRemaining"`
+	ExtendedInfo                     *AzureIaaSVMProtectedItemExtendedInfo `pulumi:"extendedInfo"`
+	ExtendedProperties               *ExtendedProperties                   `pulumi:"extendedProperties"`
+	FriendlyName                     *string                               `pulumi:"friendlyName"`
+	HealthStatus                     *string                               `pulumi:"healthStatus"`
+	IsDeferredDeleteScheduleUpcoming *bool                                 `pulumi:"isDeferredDeleteScheduleUpcoming"`
+	IsRehydrate                      *bool                                 `pulumi:"isRehydrate"`
+	IsScheduledForDeferredDelete     *bool                                 `pulumi:"isScheduledForDeferredDelete"`
+	KpisHealths                      map[string]KPIResourceHealthDetails   `pulumi:"kpisHealths"`
+	LastBackupStatus                 *string                               `pulumi:"lastBackupStatus"`
+	LastBackupTime                   *string                               `pulumi:"lastBackupTime"`
+	LastRecoveryPoint                *string                               `pulumi:"lastRecoveryPoint"`
+	PolicyId                         *string                               `pulumi:"policyId"`
+	ProtectedItemDataId              *string                               `pulumi:"protectedItemDataId"`
+	ProtectedItemType                string                                `pulumi:"protectedItemType"`
+	ProtectionState                  *string                               `pulumi:"protectionState"`
+	ProtectionStatus                 *string                               `pulumi:"protectionStatus"`
+	SourceResourceId                 *string                               `pulumi:"sourceResourceId"`
+	VirtualMachineId                 *string                               `pulumi:"virtualMachineId"`
+	WorkloadType                     *string                               `pulumi:"workloadType"`
 }
 
 // AzureIaaSClassicComputeVMProtectedItemInput is an input type that accepts AzureIaaSClassicComputeVMProtectedItemArgs and AzureIaaSClassicComputeVMProtectedItemOutput values.
@@ -940,59 +747,32 @@ type AzureIaaSClassicComputeVMProtectedItemInput interface {
 	ToAzureIaaSClassicComputeVMProtectedItemOutputWithContext(context.Context) AzureIaaSClassicComputeVMProtectedItemOutput
 }
 
-// IaaS VM workload-specific backup item representing the Classic Compute VM.
 type AzureIaaSClassicComputeVMProtectedItemArgs struct {
-	// Type of backup management for the backed up item.
-	BackupManagementType pulumi.StringPtrInput `pulumi:"backupManagementType"`
-	// Name of the backup set the backup item belongs to
-	BackupSetName pulumi.StringPtrInput `pulumi:"backupSetName"`
-	// Unique name of container
-	ContainerName pulumi.StringPtrInput `pulumi:"containerName"`
-	// Create mode to indicate recovery of existing soft deleted data source or creation of new data source.
-	CreateMode pulumi.StringPtrInput `pulumi:"createMode"`
-	// Time for deferred deletion in UTC
-	DeferredDeleteTimeInUTC pulumi.StringPtrInput `pulumi:"deferredDeleteTimeInUTC"`
-	// Time remaining before the DS marked for deferred delete is permanently deleted
-	DeferredDeleteTimeRemaining pulumi.StringPtrInput `pulumi:"deferredDeleteTimeRemaining"`
-	// Additional information for this backup item.
-	ExtendedInfo AzureIaaSVMProtectedItemExtendedInfoPtrInput `pulumi:"extendedInfo"`
-	// Extended Properties for Azure IaasVM Backup.
-	ExtendedProperties ExtendedPropertiesPtrInput `pulumi:"extendedProperties"`
-	// Friendly name of the VM represented by this backup item.
-	FriendlyName pulumi.StringPtrInput `pulumi:"friendlyName"`
-	// Health status of protected item.
-	HealthStatus pulumi.StringPtrInput `pulumi:"healthStatus"`
-	// Flag to identify whether the deferred deleted DS is to be purged soon
-	IsDeferredDeleteScheduleUpcoming pulumi.BoolPtrInput `pulumi:"isDeferredDeleteScheduleUpcoming"`
-	// Flag to identify that deferred deleted DS is to be moved into Pause state
-	IsRehydrate pulumi.BoolPtrInput `pulumi:"isRehydrate"`
-	// Flag to identify whether the DS is scheduled for deferred delete
-	IsScheduledForDeferredDelete pulumi.BoolPtrInput `pulumi:"isScheduledForDeferredDelete"`
-	// Health details of different KPIs
-	KpisHealths KPIResourceHealthDetailsMapInput `pulumi:"kpisHealths"`
-	// Last backup operation status.
-	LastBackupStatus pulumi.StringPtrInput `pulumi:"lastBackupStatus"`
-	// Timestamp of the last backup operation on this backup item.
-	LastBackupTime pulumi.StringPtrInput `pulumi:"lastBackupTime"`
-	// Timestamp when the last (latest) backup copy was created for this backup item.
-	LastRecoveryPoint pulumi.StringPtrInput `pulumi:"lastRecoveryPoint"`
-	// ID of the backup policy with which this item is backed up.
-	PolicyId pulumi.StringPtrInput `pulumi:"policyId"`
-	// Data ID of the protected item.
-	ProtectedItemDataId pulumi.StringPtrInput `pulumi:"protectedItemDataId"`
-	// backup item type.
-	// Expected value is 'Microsoft.ClassicCompute/virtualMachines'.
-	ProtectedItemType pulumi.StringInput `pulumi:"protectedItemType"`
-	// Backup state of this backup item.
-	ProtectionState pulumi.StringPtrInput `pulumi:"protectionState"`
-	// Backup status of this backup item.
-	ProtectionStatus pulumi.StringPtrInput `pulumi:"protectionStatus"`
-	// ARM ID of the resource to be backed up.
-	SourceResourceId pulumi.StringPtrInput `pulumi:"sourceResourceId"`
-	// Fully qualified ARM ID of the virtual machine represented by this item.
-	VirtualMachineId pulumi.StringPtrInput `pulumi:"virtualMachineId"`
-	// Type of workload this item represents.
-	WorkloadType pulumi.StringPtrInput `pulumi:"workloadType"`
+	BackupManagementType             pulumi.StringPtrInput                        `pulumi:"backupManagementType"`
+	BackupSetName                    pulumi.StringPtrInput                        `pulumi:"backupSetName"`
+	ContainerName                    pulumi.StringPtrInput                        `pulumi:"containerName"`
+	CreateMode                       pulumi.StringPtrInput                        `pulumi:"createMode"`
+	DeferredDeleteTimeInUTC          pulumi.StringPtrInput                        `pulumi:"deferredDeleteTimeInUTC"`
+	DeferredDeleteTimeRemaining      pulumi.StringPtrInput                        `pulumi:"deferredDeleteTimeRemaining"`
+	ExtendedInfo                     AzureIaaSVMProtectedItemExtendedInfoPtrInput `pulumi:"extendedInfo"`
+	ExtendedProperties               ExtendedPropertiesPtrInput                   `pulumi:"extendedProperties"`
+	FriendlyName                     pulumi.StringPtrInput                        `pulumi:"friendlyName"`
+	HealthStatus                     pulumi.StringPtrInput                        `pulumi:"healthStatus"`
+	IsDeferredDeleteScheduleUpcoming pulumi.BoolPtrInput                          `pulumi:"isDeferredDeleteScheduleUpcoming"`
+	IsRehydrate                      pulumi.BoolPtrInput                          `pulumi:"isRehydrate"`
+	IsScheduledForDeferredDelete     pulumi.BoolPtrInput                          `pulumi:"isScheduledForDeferredDelete"`
+	KpisHealths                      KPIResourceHealthDetailsMapInput             `pulumi:"kpisHealths"`
+	LastBackupStatus                 pulumi.StringPtrInput                        `pulumi:"lastBackupStatus"`
+	LastBackupTime                   pulumi.StringPtrInput                        `pulumi:"lastBackupTime"`
+	LastRecoveryPoint                pulumi.StringPtrInput                        `pulumi:"lastRecoveryPoint"`
+	PolicyId                         pulumi.StringPtrInput                        `pulumi:"policyId"`
+	ProtectedItemDataId              pulumi.StringPtrInput                        `pulumi:"protectedItemDataId"`
+	ProtectedItemType                pulumi.StringInput                           `pulumi:"protectedItemType"`
+	ProtectionState                  pulumi.StringPtrInput                        `pulumi:"protectionState"`
+	ProtectionStatus                 pulumi.StringPtrInput                        `pulumi:"protectionStatus"`
+	SourceResourceId                 pulumi.StringPtrInput                        `pulumi:"sourceResourceId"`
+	VirtualMachineId                 pulumi.StringPtrInput                        `pulumi:"virtualMachineId"`
+	WorkloadType                     pulumi.StringPtrInput                        `pulumi:"workloadType"`
 }
 
 func (AzureIaaSClassicComputeVMProtectedItemArgs) ElementType() reflect.Type {
@@ -1007,7 +787,6 @@ func (i AzureIaaSClassicComputeVMProtectedItemArgs) ToAzureIaaSClassicComputeVMP
 	return pulumi.ToOutputWithContext(ctx, i).(AzureIaaSClassicComputeVMProtectedItemOutput)
 }
 
-// IaaS VM workload-specific backup item representing the Classic Compute VM.
 type AzureIaaSClassicComputeVMProtectedItemOutput struct{ *pulumi.OutputState }
 
 func (AzureIaaSClassicComputeVMProtectedItemOutput) ElementType() reflect.Type {
@@ -1022,191 +801,137 @@ func (o AzureIaaSClassicComputeVMProtectedItemOutput) ToAzureIaaSClassicComputeV
 	return o
 }
 
-// Type of backup management for the backed up item.
 func (o AzureIaaSClassicComputeVMProtectedItemOutput) BackupManagementType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AzureIaaSClassicComputeVMProtectedItem) *string { return v.BackupManagementType }).(pulumi.StringPtrOutput)
 }
 
-// Name of the backup set the backup item belongs to
 func (o AzureIaaSClassicComputeVMProtectedItemOutput) BackupSetName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AzureIaaSClassicComputeVMProtectedItem) *string { return v.BackupSetName }).(pulumi.StringPtrOutput)
 }
 
-// Unique name of container
 func (o AzureIaaSClassicComputeVMProtectedItemOutput) ContainerName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AzureIaaSClassicComputeVMProtectedItem) *string { return v.ContainerName }).(pulumi.StringPtrOutput)
 }
 
-// Create mode to indicate recovery of existing soft deleted data source or creation of new data source.
 func (o AzureIaaSClassicComputeVMProtectedItemOutput) CreateMode() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AzureIaaSClassicComputeVMProtectedItem) *string { return v.CreateMode }).(pulumi.StringPtrOutput)
 }
 
-// Time for deferred deletion in UTC
 func (o AzureIaaSClassicComputeVMProtectedItemOutput) DeferredDeleteTimeInUTC() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AzureIaaSClassicComputeVMProtectedItem) *string { return v.DeferredDeleteTimeInUTC }).(pulumi.StringPtrOutput)
 }
 
-// Time remaining before the DS marked for deferred delete is permanently deleted
 func (o AzureIaaSClassicComputeVMProtectedItemOutput) DeferredDeleteTimeRemaining() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AzureIaaSClassicComputeVMProtectedItem) *string { return v.DeferredDeleteTimeRemaining }).(pulumi.StringPtrOutput)
 }
 
-// Additional information for this backup item.
 func (o AzureIaaSClassicComputeVMProtectedItemOutput) ExtendedInfo() AzureIaaSVMProtectedItemExtendedInfoPtrOutput {
 	return o.ApplyT(func(v AzureIaaSClassicComputeVMProtectedItem) *AzureIaaSVMProtectedItemExtendedInfo {
 		return v.ExtendedInfo
 	}).(AzureIaaSVMProtectedItemExtendedInfoPtrOutput)
 }
 
-// Extended Properties for Azure IaasVM Backup.
 func (o AzureIaaSClassicComputeVMProtectedItemOutput) ExtendedProperties() ExtendedPropertiesPtrOutput {
 	return o.ApplyT(func(v AzureIaaSClassicComputeVMProtectedItem) *ExtendedProperties { return v.ExtendedProperties }).(ExtendedPropertiesPtrOutput)
 }
 
-// Friendly name of the VM represented by this backup item.
 func (o AzureIaaSClassicComputeVMProtectedItemOutput) FriendlyName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AzureIaaSClassicComputeVMProtectedItem) *string { return v.FriendlyName }).(pulumi.StringPtrOutput)
 }
 
-// Health status of protected item.
 func (o AzureIaaSClassicComputeVMProtectedItemOutput) HealthStatus() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AzureIaaSClassicComputeVMProtectedItem) *string { return v.HealthStatus }).(pulumi.StringPtrOutput)
 }
 
-// Flag to identify whether the deferred deleted DS is to be purged soon
 func (o AzureIaaSClassicComputeVMProtectedItemOutput) IsDeferredDeleteScheduleUpcoming() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v AzureIaaSClassicComputeVMProtectedItem) *bool { return v.IsDeferredDeleteScheduleUpcoming }).(pulumi.BoolPtrOutput)
 }
 
-// Flag to identify that deferred deleted DS is to be moved into Pause state
 func (o AzureIaaSClassicComputeVMProtectedItemOutput) IsRehydrate() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v AzureIaaSClassicComputeVMProtectedItem) *bool { return v.IsRehydrate }).(pulumi.BoolPtrOutput)
 }
 
-// Flag to identify whether the DS is scheduled for deferred delete
 func (o AzureIaaSClassicComputeVMProtectedItemOutput) IsScheduledForDeferredDelete() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v AzureIaaSClassicComputeVMProtectedItem) *bool { return v.IsScheduledForDeferredDelete }).(pulumi.BoolPtrOutput)
 }
 
-// Health details of different KPIs
 func (o AzureIaaSClassicComputeVMProtectedItemOutput) KpisHealths() KPIResourceHealthDetailsMapOutput {
 	return o.ApplyT(func(v AzureIaaSClassicComputeVMProtectedItem) map[string]KPIResourceHealthDetails {
 		return v.KpisHealths
 	}).(KPIResourceHealthDetailsMapOutput)
 }
 
-// Last backup operation status.
 func (o AzureIaaSClassicComputeVMProtectedItemOutput) LastBackupStatus() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AzureIaaSClassicComputeVMProtectedItem) *string { return v.LastBackupStatus }).(pulumi.StringPtrOutput)
 }
 
-// Timestamp of the last backup operation on this backup item.
 func (o AzureIaaSClassicComputeVMProtectedItemOutput) LastBackupTime() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AzureIaaSClassicComputeVMProtectedItem) *string { return v.LastBackupTime }).(pulumi.StringPtrOutput)
 }
 
-// Timestamp when the last (latest) backup copy was created for this backup item.
 func (o AzureIaaSClassicComputeVMProtectedItemOutput) LastRecoveryPoint() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AzureIaaSClassicComputeVMProtectedItem) *string { return v.LastRecoveryPoint }).(pulumi.StringPtrOutput)
 }
 
-// ID of the backup policy with which this item is backed up.
 func (o AzureIaaSClassicComputeVMProtectedItemOutput) PolicyId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AzureIaaSClassicComputeVMProtectedItem) *string { return v.PolicyId }).(pulumi.StringPtrOutput)
 }
 
-// Data ID of the protected item.
 func (o AzureIaaSClassicComputeVMProtectedItemOutput) ProtectedItemDataId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AzureIaaSClassicComputeVMProtectedItem) *string { return v.ProtectedItemDataId }).(pulumi.StringPtrOutput)
 }
 
-// backup item type.
-// Expected value is 'Microsoft.ClassicCompute/virtualMachines'.
 func (o AzureIaaSClassicComputeVMProtectedItemOutput) ProtectedItemType() pulumi.StringOutput {
 	return o.ApplyT(func(v AzureIaaSClassicComputeVMProtectedItem) string { return v.ProtectedItemType }).(pulumi.StringOutput)
 }
 
-// Backup state of this backup item.
 func (o AzureIaaSClassicComputeVMProtectedItemOutput) ProtectionState() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AzureIaaSClassicComputeVMProtectedItem) *string { return v.ProtectionState }).(pulumi.StringPtrOutput)
 }
 
-// Backup status of this backup item.
 func (o AzureIaaSClassicComputeVMProtectedItemOutput) ProtectionStatus() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AzureIaaSClassicComputeVMProtectedItem) *string { return v.ProtectionStatus }).(pulumi.StringPtrOutput)
 }
 
-// ARM ID of the resource to be backed up.
 func (o AzureIaaSClassicComputeVMProtectedItemOutput) SourceResourceId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AzureIaaSClassicComputeVMProtectedItem) *string { return v.SourceResourceId }).(pulumi.StringPtrOutput)
 }
 
-// Fully qualified ARM ID of the virtual machine represented by this item.
 func (o AzureIaaSClassicComputeVMProtectedItemOutput) VirtualMachineId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AzureIaaSClassicComputeVMProtectedItem) *string { return v.VirtualMachineId }).(pulumi.StringPtrOutput)
 }
 
-// Type of workload this item represents.
 func (o AzureIaaSClassicComputeVMProtectedItemOutput) WorkloadType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AzureIaaSClassicComputeVMProtectedItem) *string { return v.WorkloadType }).(pulumi.StringPtrOutput)
 }
 
-// IaaS VM workload-specific backup item representing the Classic Compute VM.
 type AzureIaaSClassicComputeVMProtectedItemResponse struct {
-	// Type of backup management for the backed up item.
-	BackupManagementType *string `pulumi:"backupManagementType"`
-	// Name of the backup set the backup item belongs to
-	BackupSetName *string `pulumi:"backupSetName"`
-	// Unique name of container
-	ContainerName *string `pulumi:"containerName"`
-	// Create mode to indicate recovery of existing soft deleted data source or creation of new data source.
-	CreateMode *string `pulumi:"createMode"`
-	// Time for deferred deletion in UTC
-	DeferredDeleteTimeInUTC *string `pulumi:"deferredDeleteTimeInUTC"`
-	// Time remaining before the DS marked for deferred delete is permanently deleted
-	DeferredDeleteTimeRemaining *string `pulumi:"deferredDeleteTimeRemaining"`
-	// Additional information for this backup item.
-	ExtendedInfo *AzureIaaSVMProtectedItemExtendedInfoResponse `pulumi:"extendedInfo"`
-	// Extended Properties for Azure IaasVM Backup.
-	ExtendedProperties *ExtendedPropertiesResponse `pulumi:"extendedProperties"`
-	// Friendly name of the VM represented by this backup item.
-	FriendlyName *string `pulumi:"friendlyName"`
-	// Health details on this backup item.
-	HealthDetails []AzureIaaSVMHealthDetailsResponse `pulumi:"healthDetails"`
-	// Health status of protected item.
-	HealthStatus *string `pulumi:"healthStatus"`
-	// Flag to identify whether the deferred deleted DS is to be purged soon
-	IsDeferredDeleteScheduleUpcoming *bool `pulumi:"isDeferredDeleteScheduleUpcoming"`
-	// Flag to identify that deferred deleted DS is to be moved into Pause state
-	IsRehydrate *bool `pulumi:"isRehydrate"`
-	// Flag to identify whether the DS is scheduled for deferred delete
-	IsScheduledForDeferredDelete *bool `pulumi:"isScheduledForDeferredDelete"`
-	// Health details of different KPIs
-	KpisHealths map[string]KPIResourceHealthDetailsResponse `pulumi:"kpisHealths"`
-	// Last backup operation status.
-	LastBackupStatus *string `pulumi:"lastBackupStatus"`
-	// Timestamp of the last backup operation on this backup item.
-	LastBackupTime *string `pulumi:"lastBackupTime"`
-	// Timestamp when the last (latest) backup copy was created for this backup item.
-	LastRecoveryPoint *string `pulumi:"lastRecoveryPoint"`
-	// ID of the backup policy with which this item is backed up.
-	PolicyId *string `pulumi:"policyId"`
-	// Data ID of the protected item.
-	ProtectedItemDataId *string `pulumi:"protectedItemDataId"`
-	// backup item type.
-	// Expected value is 'Microsoft.ClassicCompute/virtualMachines'.
-	ProtectedItemType string `pulumi:"protectedItemType"`
-	// Backup state of this backup item.
-	ProtectionState *string `pulumi:"protectionState"`
-	// Backup status of this backup item.
-	ProtectionStatus *string `pulumi:"protectionStatus"`
-	// ARM ID of the resource to be backed up.
-	SourceResourceId *string `pulumi:"sourceResourceId"`
-	// Fully qualified ARM ID of the virtual machine represented by this item.
-	VirtualMachineId *string `pulumi:"virtualMachineId"`
-	// Type of workload this item represents.
-	WorkloadType *string `pulumi:"workloadType"`
+	BackupManagementType             *string                                       `pulumi:"backupManagementType"`
+	BackupSetName                    *string                                       `pulumi:"backupSetName"`
+	ContainerName                    *string                                       `pulumi:"containerName"`
+	CreateMode                       *string                                       `pulumi:"createMode"`
+	DeferredDeleteTimeInUTC          *string                                       `pulumi:"deferredDeleteTimeInUTC"`
+	DeferredDeleteTimeRemaining      *string                                       `pulumi:"deferredDeleteTimeRemaining"`
+	ExtendedInfo                     *AzureIaaSVMProtectedItemExtendedInfoResponse `pulumi:"extendedInfo"`
+	ExtendedProperties               *ExtendedPropertiesResponse                   `pulumi:"extendedProperties"`
+	FriendlyName                     *string                                       `pulumi:"friendlyName"`
+	HealthDetails                    []AzureIaaSVMHealthDetailsResponse            `pulumi:"healthDetails"`
+	HealthStatus                     *string                                       `pulumi:"healthStatus"`
+	IsDeferredDeleteScheduleUpcoming *bool                                         `pulumi:"isDeferredDeleteScheduleUpcoming"`
+	IsRehydrate                      *bool                                         `pulumi:"isRehydrate"`
+	IsScheduledForDeferredDelete     *bool                                         `pulumi:"isScheduledForDeferredDelete"`
+	KpisHealths                      map[string]KPIResourceHealthDetailsResponse   `pulumi:"kpisHealths"`
+	LastBackupStatus                 *string                                       `pulumi:"lastBackupStatus"`
+	LastBackupTime                   *string                                       `pulumi:"lastBackupTime"`
+	LastRecoveryPoint                *string                                       `pulumi:"lastRecoveryPoint"`
+	PolicyId                         *string                                       `pulumi:"policyId"`
+	ProtectedItemDataId              *string                                       `pulumi:"protectedItemDataId"`
+	ProtectedItemType                string                                        `pulumi:"protectedItemType"`
+	ProtectionState                  *string                                       `pulumi:"protectionState"`
+	ProtectionStatus                 *string                                       `pulumi:"protectionStatus"`
+	SourceResourceId                 *string                                       `pulumi:"sourceResourceId"`
+	VirtualMachineId                 *string                                       `pulumi:"virtualMachineId"`
+	WorkloadType                     *string                                       `pulumi:"workloadType"`
 }
 
 // AzureIaaSClassicComputeVMProtectedItemResponseInput is an input type that accepts AzureIaaSClassicComputeVMProtectedItemResponseArgs and AzureIaaSClassicComputeVMProtectedItemResponseOutput values.
@@ -1220,61 +945,33 @@ type AzureIaaSClassicComputeVMProtectedItemResponseInput interface {
 	ToAzureIaaSClassicComputeVMProtectedItemResponseOutputWithContext(context.Context) AzureIaaSClassicComputeVMProtectedItemResponseOutput
 }
 
-// IaaS VM workload-specific backup item representing the Classic Compute VM.
 type AzureIaaSClassicComputeVMProtectedItemResponseArgs struct {
-	// Type of backup management for the backed up item.
-	BackupManagementType pulumi.StringPtrInput `pulumi:"backupManagementType"`
-	// Name of the backup set the backup item belongs to
-	BackupSetName pulumi.StringPtrInput `pulumi:"backupSetName"`
-	// Unique name of container
-	ContainerName pulumi.StringPtrInput `pulumi:"containerName"`
-	// Create mode to indicate recovery of existing soft deleted data source or creation of new data source.
-	CreateMode pulumi.StringPtrInput `pulumi:"createMode"`
-	// Time for deferred deletion in UTC
-	DeferredDeleteTimeInUTC pulumi.StringPtrInput `pulumi:"deferredDeleteTimeInUTC"`
-	// Time remaining before the DS marked for deferred delete is permanently deleted
-	DeferredDeleteTimeRemaining pulumi.StringPtrInput `pulumi:"deferredDeleteTimeRemaining"`
-	// Additional information for this backup item.
-	ExtendedInfo AzureIaaSVMProtectedItemExtendedInfoResponsePtrInput `pulumi:"extendedInfo"`
-	// Extended Properties for Azure IaasVM Backup.
-	ExtendedProperties ExtendedPropertiesResponsePtrInput `pulumi:"extendedProperties"`
-	// Friendly name of the VM represented by this backup item.
-	FriendlyName pulumi.StringPtrInput `pulumi:"friendlyName"`
-	// Health details on this backup item.
-	HealthDetails AzureIaaSVMHealthDetailsResponseArrayInput `pulumi:"healthDetails"`
-	// Health status of protected item.
-	HealthStatus pulumi.StringPtrInput `pulumi:"healthStatus"`
-	// Flag to identify whether the deferred deleted DS is to be purged soon
-	IsDeferredDeleteScheduleUpcoming pulumi.BoolPtrInput `pulumi:"isDeferredDeleteScheduleUpcoming"`
-	// Flag to identify that deferred deleted DS is to be moved into Pause state
-	IsRehydrate pulumi.BoolPtrInput `pulumi:"isRehydrate"`
-	// Flag to identify whether the DS is scheduled for deferred delete
-	IsScheduledForDeferredDelete pulumi.BoolPtrInput `pulumi:"isScheduledForDeferredDelete"`
-	// Health details of different KPIs
-	KpisHealths KPIResourceHealthDetailsResponseMapInput `pulumi:"kpisHealths"`
-	// Last backup operation status.
-	LastBackupStatus pulumi.StringPtrInput `pulumi:"lastBackupStatus"`
-	// Timestamp of the last backup operation on this backup item.
-	LastBackupTime pulumi.StringPtrInput `pulumi:"lastBackupTime"`
-	// Timestamp when the last (latest) backup copy was created for this backup item.
-	LastRecoveryPoint pulumi.StringPtrInput `pulumi:"lastRecoveryPoint"`
-	// ID of the backup policy with which this item is backed up.
-	PolicyId pulumi.StringPtrInput `pulumi:"policyId"`
-	// Data ID of the protected item.
-	ProtectedItemDataId pulumi.StringPtrInput `pulumi:"protectedItemDataId"`
-	// backup item type.
-	// Expected value is 'Microsoft.ClassicCompute/virtualMachines'.
-	ProtectedItemType pulumi.StringInput `pulumi:"protectedItemType"`
-	// Backup state of this backup item.
-	ProtectionState pulumi.StringPtrInput `pulumi:"protectionState"`
-	// Backup status of this backup item.
-	ProtectionStatus pulumi.StringPtrInput `pulumi:"protectionStatus"`
-	// ARM ID of the resource to be backed up.
-	SourceResourceId pulumi.StringPtrInput `pulumi:"sourceResourceId"`
-	// Fully qualified ARM ID of the virtual machine represented by this item.
-	VirtualMachineId pulumi.StringPtrInput `pulumi:"virtualMachineId"`
-	// Type of workload this item represents.
-	WorkloadType pulumi.StringPtrInput `pulumi:"workloadType"`
+	BackupManagementType             pulumi.StringPtrInput                                `pulumi:"backupManagementType"`
+	BackupSetName                    pulumi.StringPtrInput                                `pulumi:"backupSetName"`
+	ContainerName                    pulumi.StringPtrInput                                `pulumi:"containerName"`
+	CreateMode                       pulumi.StringPtrInput                                `pulumi:"createMode"`
+	DeferredDeleteTimeInUTC          pulumi.StringPtrInput                                `pulumi:"deferredDeleteTimeInUTC"`
+	DeferredDeleteTimeRemaining      pulumi.StringPtrInput                                `pulumi:"deferredDeleteTimeRemaining"`
+	ExtendedInfo                     AzureIaaSVMProtectedItemExtendedInfoResponsePtrInput `pulumi:"extendedInfo"`
+	ExtendedProperties               ExtendedPropertiesResponsePtrInput                   `pulumi:"extendedProperties"`
+	FriendlyName                     pulumi.StringPtrInput                                `pulumi:"friendlyName"`
+	HealthDetails                    AzureIaaSVMHealthDetailsResponseArrayInput           `pulumi:"healthDetails"`
+	HealthStatus                     pulumi.StringPtrInput                                `pulumi:"healthStatus"`
+	IsDeferredDeleteScheduleUpcoming pulumi.BoolPtrInput                                  `pulumi:"isDeferredDeleteScheduleUpcoming"`
+	IsRehydrate                      pulumi.BoolPtrInput                                  `pulumi:"isRehydrate"`
+	IsScheduledForDeferredDelete     pulumi.BoolPtrInput                                  `pulumi:"isScheduledForDeferredDelete"`
+	KpisHealths                      KPIResourceHealthDetailsResponseMapInput             `pulumi:"kpisHealths"`
+	LastBackupStatus                 pulumi.StringPtrInput                                `pulumi:"lastBackupStatus"`
+	LastBackupTime                   pulumi.StringPtrInput                                `pulumi:"lastBackupTime"`
+	LastRecoveryPoint                pulumi.StringPtrInput                                `pulumi:"lastRecoveryPoint"`
+	PolicyId                         pulumi.StringPtrInput                                `pulumi:"policyId"`
+	ProtectedItemDataId              pulumi.StringPtrInput                                `pulumi:"protectedItemDataId"`
+	ProtectedItemType                pulumi.StringInput                                   `pulumi:"protectedItemType"`
+	ProtectionState                  pulumi.StringPtrInput                                `pulumi:"protectionState"`
+	ProtectionStatus                 pulumi.StringPtrInput                                `pulumi:"protectionStatus"`
+	SourceResourceId                 pulumi.StringPtrInput                                `pulumi:"sourceResourceId"`
+	VirtualMachineId                 pulumi.StringPtrInput                                `pulumi:"virtualMachineId"`
+	WorkloadType                     pulumi.StringPtrInput                                `pulumi:"workloadType"`
 }
 
 func (AzureIaaSClassicComputeVMProtectedItemResponseArgs) ElementType() reflect.Type {
@@ -1289,7 +986,6 @@ func (i AzureIaaSClassicComputeVMProtectedItemResponseArgs) ToAzureIaaSClassicCo
 	return pulumi.ToOutputWithContext(ctx, i).(AzureIaaSClassicComputeVMProtectedItemResponseOutput)
 }
 
-// IaaS VM workload-specific backup item representing the Classic Compute VM.
 type AzureIaaSClassicComputeVMProtectedItemResponseOutput struct{ *pulumi.OutputState }
 
 func (AzureIaaSClassicComputeVMProtectedItemResponseOutput) ElementType() reflect.Type {
@@ -1304,200 +1000,146 @@ func (o AzureIaaSClassicComputeVMProtectedItemResponseOutput) ToAzureIaaSClassic
 	return o
 }
 
-// Type of backup management for the backed up item.
 func (o AzureIaaSClassicComputeVMProtectedItemResponseOutput) BackupManagementType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AzureIaaSClassicComputeVMProtectedItemResponse) *string { return v.BackupManagementType }).(pulumi.StringPtrOutput)
 }
 
-// Name of the backup set the backup item belongs to
 func (o AzureIaaSClassicComputeVMProtectedItemResponseOutput) BackupSetName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AzureIaaSClassicComputeVMProtectedItemResponse) *string { return v.BackupSetName }).(pulumi.StringPtrOutput)
 }
 
-// Unique name of container
 func (o AzureIaaSClassicComputeVMProtectedItemResponseOutput) ContainerName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AzureIaaSClassicComputeVMProtectedItemResponse) *string { return v.ContainerName }).(pulumi.StringPtrOutput)
 }
 
-// Create mode to indicate recovery of existing soft deleted data source or creation of new data source.
 func (o AzureIaaSClassicComputeVMProtectedItemResponseOutput) CreateMode() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AzureIaaSClassicComputeVMProtectedItemResponse) *string { return v.CreateMode }).(pulumi.StringPtrOutput)
 }
 
-// Time for deferred deletion in UTC
 func (o AzureIaaSClassicComputeVMProtectedItemResponseOutput) DeferredDeleteTimeInUTC() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AzureIaaSClassicComputeVMProtectedItemResponse) *string { return v.DeferredDeleteTimeInUTC }).(pulumi.StringPtrOutput)
 }
 
-// Time remaining before the DS marked for deferred delete is permanently deleted
 func (o AzureIaaSClassicComputeVMProtectedItemResponseOutput) DeferredDeleteTimeRemaining() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AzureIaaSClassicComputeVMProtectedItemResponse) *string { return v.DeferredDeleteTimeRemaining }).(pulumi.StringPtrOutput)
 }
 
-// Additional information for this backup item.
 func (o AzureIaaSClassicComputeVMProtectedItemResponseOutput) ExtendedInfo() AzureIaaSVMProtectedItemExtendedInfoResponsePtrOutput {
 	return o.ApplyT(func(v AzureIaaSClassicComputeVMProtectedItemResponse) *AzureIaaSVMProtectedItemExtendedInfoResponse {
 		return v.ExtendedInfo
 	}).(AzureIaaSVMProtectedItemExtendedInfoResponsePtrOutput)
 }
 
-// Extended Properties for Azure IaasVM Backup.
 func (o AzureIaaSClassicComputeVMProtectedItemResponseOutput) ExtendedProperties() ExtendedPropertiesResponsePtrOutput {
 	return o.ApplyT(func(v AzureIaaSClassicComputeVMProtectedItemResponse) *ExtendedPropertiesResponse {
 		return v.ExtendedProperties
 	}).(ExtendedPropertiesResponsePtrOutput)
 }
 
-// Friendly name of the VM represented by this backup item.
 func (o AzureIaaSClassicComputeVMProtectedItemResponseOutput) FriendlyName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AzureIaaSClassicComputeVMProtectedItemResponse) *string { return v.FriendlyName }).(pulumi.StringPtrOutput)
 }
 
-// Health details on this backup item.
 func (o AzureIaaSClassicComputeVMProtectedItemResponseOutput) HealthDetails() AzureIaaSVMHealthDetailsResponseArrayOutput {
 	return o.ApplyT(func(v AzureIaaSClassicComputeVMProtectedItemResponse) []AzureIaaSVMHealthDetailsResponse {
 		return v.HealthDetails
 	}).(AzureIaaSVMHealthDetailsResponseArrayOutput)
 }
 
-// Health status of protected item.
 func (o AzureIaaSClassicComputeVMProtectedItemResponseOutput) HealthStatus() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AzureIaaSClassicComputeVMProtectedItemResponse) *string { return v.HealthStatus }).(pulumi.StringPtrOutput)
 }
 
-// Flag to identify whether the deferred deleted DS is to be purged soon
 func (o AzureIaaSClassicComputeVMProtectedItemResponseOutput) IsDeferredDeleteScheduleUpcoming() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v AzureIaaSClassicComputeVMProtectedItemResponse) *bool {
 		return v.IsDeferredDeleteScheduleUpcoming
 	}).(pulumi.BoolPtrOutput)
 }
 
-// Flag to identify that deferred deleted DS is to be moved into Pause state
 func (o AzureIaaSClassicComputeVMProtectedItemResponseOutput) IsRehydrate() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v AzureIaaSClassicComputeVMProtectedItemResponse) *bool { return v.IsRehydrate }).(pulumi.BoolPtrOutput)
 }
 
-// Flag to identify whether the DS is scheduled for deferred delete
 func (o AzureIaaSClassicComputeVMProtectedItemResponseOutput) IsScheduledForDeferredDelete() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v AzureIaaSClassicComputeVMProtectedItemResponse) *bool { return v.IsScheduledForDeferredDelete }).(pulumi.BoolPtrOutput)
 }
 
-// Health details of different KPIs
 func (o AzureIaaSClassicComputeVMProtectedItemResponseOutput) KpisHealths() KPIResourceHealthDetailsResponseMapOutput {
 	return o.ApplyT(func(v AzureIaaSClassicComputeVMProtectedItemResponse) map[string]KPIResourceHealthDetailsResponse {
 		return v.KpisHealths
 	}).(KPIResourceHealthDetailsResponseMapOutput)
 }
 
-// Last backup operation status.
 func (o AzureIaaSClassicComputeVMProtectedItemResponseOutput) LastBackupStatus() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AzureIaaSClassicComputeVMProtectedItemResponse) *string { return v.LastBackupStatus }).(pulumi.StringPtrOutput)
 }
 
-// Timestamp of the last backup operation on this backup item.
 func (o AzureIaaSClassicComputeVMProtectedItemResponseOutput) LastBackupTime() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AzureIaaSClassicComputeVMProtectedItemResponse) *string { return v.LastBackupTime }).(pulumi.StringPtrOutput)
 }
 
-// Timestamp when the last (latest) backup copy was created for this backup item.
 func (o AzureIaaSClassicComputeVMProtectedItemResponseOutput) LastRecoveryPoint() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AzureIaaSClassicComputeVMProtectedItemResponse) *string { return v.LastRecoveryPoint }).(pulumi.StringPtrOutput)
 }
 
-// ID of the backup policy with which this item is backed up.
 func (o AzureIaaSClassicComputeVMProtectedItemResponseOutput) PolicyId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AzureIaaSClassicComputeVMProtectedItemResponse) *string { return v.PolicyId }).(pulumi.StringPtrOutput)
 }
 
-// Data ID of the protected item.
 func (o AzureIaaSClassicComputeVMProtectedItemResponseOutput) ProtectedItemDataId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AzureIaaSClassicComputeVMProtectedItemResponse) *string { return v.ProtectedItemDataId }).(pulumi.StringPtrOutput)
 }
 
-// backup item type.
-// Expected value is 'Microsoft.ClassicCompute/virtualMachines'.
 func (o AzureIaaSClassicComputeVMProtectedItemResponseOutput) ProtectedItemType() pulumi.StringOutput {
 	return o.ApplyT(func(v AzureIaaSClassicComputeVMProtectedItemResponse) string { return v.ProtectedItemType }).(pulumi.StringOutput)
 }
 
-// Backup state of this backup item.
 func (o AzureIaaSClassicComputeVMProtectedItemResponseOutput) ProtectionState() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AzureIaaSClassicComputeVMProtectedItemResponse) *string { return v.ProtectionState }).(pulumi.StringPtrOutput)
 }
 
-// Backup status of this backup item.
 func (o AzureIaaSClassicComputeVMProtectedItemResponseOutput) ProtectionStatus() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AzureIaaSClassicComputeVMProtectedItemResponse) *string { return v.ProtectionStatus }).(pulumi.StringPtrOutput)
 }
 
-// ARM ID of the resource to be backed up.
 func (o AzureIaaSClassicComputeVMProtectedItemResponseOutput) SourceResourceId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AzureIaaSClassicComputeVMProtectedItemResponse) *string { return v.SourceResourceId }).(pulumi.StringPtrOutput)
 }
 
-// Fully qualified ARM ID of the virtual machine represented by this item.
 func (o AzureIaaSClassicComputeVMProtectedItemResponseOutput) VirtualMachineId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AzureIaaSClassicComputeVMProtectedItemResponse) *string { return v.VirtualMachineId }).(pulumi.StringPtrOutput)
 }
 
-// Type of workload this item represents.
 func (o AzureIaaSClassicComputeVMProtectedItemResponseOutput) WorkloadType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AzureIaaSClassicComputeVMProtectedItemResponse) *string { return v.WorkloadType }).(pulumi.StringPtrOutput)
 }
 
-// IaaS VM workload-specific backup item representing the Azure Resource Manager VM.
 type AzureIaaSComputeVMProtectedItem struct {
-	// Type of backup management for the backed up item.
-	BackupManagementType *string `pulumi:"backupManagementType"`
-	// Name of the backup set the backup item belongs to
-	BackupSetName *string `pulumi:"backupSetName"`
-	// Unique name of container
-	ContainerName *string `pulumi:"containerName"`
-	// Create mode to indicate recovery of existing soft deleted data source or creation of new data source.
-	CreateMode *string `pulumi:"createMode"`
-	// Time for deferred deletion in UTC
-	DeferredDeleteTimeInUTC *string `pulumi:"deferredDeleteTimeInUTC"`
-	// Time remaining before the DS marked for deferred delete is permanently deleted
-	DeferredDeleteTimeRemaining *string `pulumi:"deferredDeleteTimeRemaining"`
-	// Additional information for this backup item.
-	ExtendedInfo *AzureIaaSVMProtectedItemExtendedInfo `pulumi:"extendedInfo"`
-	// Extended Properties for Azure IaasVM Backup.
-	ExtendedProperties *ExtendedProperties `pulumi:"extendedProperties"`
-	// Friendly name of the VM represented by this backup item.
-	FriendlyName *string `pulumi:"friendlyName"`
-	// Health status of protected item.
-	HealthStatus *string `pulumi:"healthStatus"`
-	// Flag to identify whether the deferred deleted DS is to be purged soon
-	IsDeferredDeleteScheduleUpcoming *bool `pulumi:"isDeferredDeleteScheduleUpcoming"`
-	// Flag to identify that deferred deleted DS is to be moved into Pause state
-	IsRehydrate *bool `pulumi:"isRehydrate"`
-	// Flag to identify whether the DS is scheduled for deferred delete
-	IsScheduledForDeferredDelete *bool `pulumi:"isScheduledForDeferredDelete"`
-	// Health details of different KPIs
-	KpisHealths map[string]KPIResourceHealthDetails `pulumi:"kpisHealths"`
-	// Last backup operation status.
-	LastBackupStatus *string `pulumi:"lastBackupStatus"`
-	// Timestamp of the last backup operation on this backup item.
-	LastBackupTime *string `pulumi:"lastBackupTime"`
-	// Timestamp when the last (latest) backup copy was created for this backup item.
-	LastRecoveryPoint *string `pulumi:"lastRecoveryPoint"`
-	// ID of the backup policy with which this item is backed up.
-	PolicyId *string `pulumi:"policyId"`
-	// Data ID of the protected item.
-	ProtectedItemDataId *string `pulumi:"protectedItemDataId"`
-	// backup item type.
-	// Expected value is 'Microsoft.Compute/virtualMachines'.
-	ProtectedItemType string `pulumi:"protectedItemType"`
-	// Backup state of this backup item.
-	ProtectionState *string `pulumi:"protectionState"`
-	// Backup status of this backup item.
-	ProtectionStatus *string `pulumi:"protectionStatus"`
-	// ARM ID of the resource to be backed up.
-	SourceResourceId *string `pulumi:"sourceResourceId"`
-	// Fully qualified ARM ID of the virtual machine represented by this item.
-	VirtualMachineId *string `pulumi:"virtualMachineId"`
-	// Type of workload this item represents.
-	WorkloadType *string `pulumi:"workloadType"`
+	BackupManagementType             *string                               `pulumi:"backupManagementType"`
+	BackupSetName                    *string                               `pulumi:"backupSetName"`
+	ContainerName                    *string                               `pulumi:"containerName"`
+	CreateMode                       *string                               `pulumi:"createMode"`
+	DeferredDeleteTimeInUTC          *string                               `pulumi:"deferredDeleteTimeInUTC"`
+	DeferredDeleteTimeRemaining      *string                               `pulumi:"deferredDeleteTimeRemaining"`
+	ExtendedInfo                     *AzureIaaSVMProtectedItemExtendedInfo `pulumi:"extendedInfo"`
+	ExtendedProperties               *ExtendedProperties                   `pulumi:"extendedProperties"`
+	FriendlyName                     *string                               `pulumi:"friendlyName"`
+	HealthStatus                     *string                               `pulumi:"healthStatus"`
+	IsDeferredDeleteScheduleUpcoming *bool                                 `pulumi:"isDeferredDeleteScheduleUpcoming"`
+	IsRehydrate                      *bool                                 `pulumi:"isRehydrate"`
+	IsScheduledForDeferredDelete     *bool                                 `pulumi:"isScheduledForDeferredDelete"`
+	KpisHealths                      map[string]KPIResourceHealthDetails   `pulumi:"kpisHealths"`
+	LastBackupStatus                 *string                               `pulumi:"lastBackupStatus"`
+	LastBackupTime                   *string                               `pulumi:"lastBackupTime"`
+	LastRecoveryPoint                *string                               `pulumi:"lastRecoveryPoint"`
+	PolicyId                         *string                               `pulumi:"policyId"`
+	ProtectedItemDataId              *string                               `pulumi:"protectedItemDataId"`
+	ProtectedItemType                string                                `pulumi:"protectedItemType"`
+	ProtectionState                  *string                               `pulumi:"protectionState"`
+	ProtectionStatus                 *string                               `pulumi:"protectionStatus"`
+	SourceResourceId                 *string                               `pulumi:"sourceResourceId"`
+	VirtualMachineId                 *string                               `pulumi:"virtualMachineId"`
+	WorkloadType                     *string                               `pulumi:"workloadType"`
 }
 
 // AzureIaaSComputeVMProtectedItemInput is an input type that accepts AzureIaaSComputeVMProtectedItemArgs and AzureIaaSComputeVMProtectedItemOutput values.
@@ -1511,59 +1153,32 @@ type AzureIaaSComputeVMProtectedItemInput interface {
 	ToAzureIaaSComputeVMProtectedItemOutputWithContext(context.Context) AzureIaaSComputeVMProtectedItemOutput
 }
 
-// IaaS VM workload-specific backup item representing the Azure Resource Manager VM.
 type AzureIaaSComputeVMProtectedItemArgs struct {
-	// Type of backup management for the backed up item.
-	BackupManagementType pulumi.StringPtrInput `pulumi:"backupManagementType"`
-	// Name of the backup set the backup item belongs to
-	BackupSetName pulumi.StringPtrInput `pulumi:"backupSetName"`
-	// Unique name of container
-	ContainerName pulumi.StringPtrInput `pulumi:"containerName"`
-	// Create mode to indicate recovery of existing soft deleted data source or creation of new data source.
-	CreateMode pulumi.StringPtrInput `pulumi:"createMode"`
-	// Time for deferred deletion in UTC
-	DeferredDeleteTimeInUTC pulumi.StringPtrInput `pulumi:"deferredDeleteTimeInUTC"`
-	// Time remaining before the DS marked for deferred delete is permanently deleted
-	DeferredDeleteTimeRemaining pulumi.StringPtrInput `pulumi:"deferredDeleteTimeRemaining"`
-	// Additional information for this backup item.
-	ExtendedInfo AzureIaaSVMProtectedItemExtendedInfoPtrInput `pulumi:"extendedInfo"`
-	// Extended Properties for Azure IaasVM Backup.
-	ExtendedProperties ExtendedPropertiesPtrInput `pulumi:"extendedProperties"`
-	// Friendly name of the VM represented by this backup item.
-	FriendlyName pulumi.StringPtrInput `pulumi:"friendlyName"`
-	// Health status of protected item.
-	HealthStatus pulumi.StringPtrInput `pulumi:"healthStatus"`
-	// Flag to identify whether the deferred deleted DS is to be purged soon
-	IsDeferredDeleteScheduleUpcoming pulumi.BoolPtrInput `pulumi:"isDeferredDeleteScheduleUpcoming"`
-	// Flag to identify that deferred deleted DS is to be moved into Pause state
-	IsRehydrate pulumi.BoolPtrInput `pulumi:"isRehydrate"`
-	// Flag to identify whether the DS is scheduled for deferred delete
-	IsScheduledForDeferredDelete pulumi.BoolPtrInput `pulumi:"isScheduledForDeferredDelete"`
-	// Health details of different KPIs
-	KpisHealths KPIResourceHealthDetailsMapInput `pulumi:"kpisHealths"`
-	// Last backup operation status.
-	LastBackupStatus pulumi.StringPtrInput `pulumi:"lastBackupStatus"`
-	// Timestamp of the last backup operation on this backup item.
-	LastBackupTime pulumi.StringPtrInput `pulumi:"lastBackupTime"`
-	// Timestamp when the last (latest) backup copy was created for this backup item.
-	LastRecoveryPoint pulumi.StringPtrInput `pulumi:"lastRecoveryPoint"`
-	// ID of the backup policy with which this item is backed up.
-	PolicyId pulumi.StringPtrInput `pulumi:"policyId"`
-	// Data ID of the protected item.
-	ProtectedItemDataId pulumi.StringPtrInput `pulumi:"protectedItemDataId"`
-	// backup item type.
-	// Expected value is 'Microsoft.Compute/virtualMachines'.
-	ProtectedItemType pulumi.StringInput `pulumi:"protectedItemType"`
-	// Backup state of this backup item.
-	ProtectionState pulumi.StringPtrInput `pulumi:"protectionState"`
-	// Backup status of this backup item.
-	ProtectionStatus pulumi.StringPtrInput `pulumi:"protectionStatus"`
-	// ARM ID of the resource to be backed up.
-	SourceResourceId pulumi.StringPtrInput `pulumi:"sourceResourceId"`
-	// Fully qualified ARM ID of the virtual machine represented by this item.
-	VirtualMachineId pulumi.StringPtrInput `pulumi:"virtualMachineId"`
-	// Type of workload this item represents.
-	WorkloadType pulumi.StringPtrInput `pulumi:"workloadType"`
+	BackupManagementType             pulumi.StringPtrInput                        `pulumi:"backupManagementType"`
+	BackupSetName                    pulumi.StringPtrInput                        `pulumi:"backupSetName"`
+	ContainerName                    pulumi.StringPtrInput                        `pulumi:"containerName"`
+	CreateMode                       pulumi.StringPtrInput                        `pulumi:"createMode"`
+	DeferredDeleteTimeInUTC          pulumi.StringPtrInput                        `pulumi:"deferredDeleteTimeInUTC"`
+	DeferredDeleteTimeRemaining      pulumi.StringPtrInput                        `pulumi:"deferredDeleteTimeRemaining"`
+	ExtendedInfo                     AzureIaaSVMProtectedItemExtendedInfoPtrInput `pulumi:"extendedInfo"`
+	ExtendedProperties               ExtendedPropertiesPtrInput                   `pulumi:"extendedProperties"`
+	FriendlyName                     pulumi.StringPtrInput                        `pulumi:"friendlyName"`
+	HealthStatus                     pulumi.StringPtrInput                        `pulumi:"healthStatus"`
+	IsDeferredDeleteScheduleUpcoming pulumi.BoolPtrInput                          `pulumi:"isDeferredDeleteScheduleUpcoming"`
+	IsRehydrate                      pulumi.BoolPtrInput                          `pulumi:"isRehydrate"`
+	IsScheduledForDeferredDelete     pulumi.BoolPtrInput                          `pulumi:"isScheduledForDeferredDelete"`
+	KpisHealths                      KPIResourceHealthDetailsMapInput             `pulumi:"kpisHealths"`
+	LastBackupStatus                 pulumi.StringPtrInput                        `pulumi:"lastBackupStatus"`
+	LastBackupTime                   pulumi.StringPtrInput                        `pulumi:"lastBackupTime"`
+	LastRecoveryPoint                pulumi.StringPtrInput                        `pulumi:"lastRecoveryPoint"`
+	PolicyId                         pulumi.StringPtrInput                        `pulumi:"policyId"`
+	ProtectedItemDataId              pulumi.StringPtrInput                        `pulumi:"protectedItemDataId"`
+	ProtectedItemType                pulumi.StringInput                           `pulumi:"protectedItemType"`
+	ProtectionState                  pulumi.StringPtrInput                        `pulumi:"protectionState"`
+	ProtectionStatus                 pulumi.StringPtrInput                        `pulumi:"protectionStatus"`
+	SourceResourceId                 pulumi.StringPtrInput                        `pulumi:"sourceResourceId"`
+	VirtualMachineId                 pulumi.StringPtrInput                        `pulumi:"virtualMachineId"`
+	WorkloadType                     pulumi.StringPtrInput                        `pulumi:"workloadType"`
 }
 
 func (AzureIaaSComputeVMProtectedItemArgs) ElementType() reflect.Type {
@@ -1578,7 +1193,6 @@ func (i AzureIaaSComputeVMProtectedItemArgs) ToAzureIaaSComputeVMProtectedItemOu
 	return pulumi.ToOutputWithContext(ctx, i).(AzureIaaSComputeVMProtectedItemOutput)
 }
 
-// IaaS VM workload-specific backup item representing the Azure Resource Manager VM.
 type AzureIaaSComputeVMProtectedItemOutput struct{ *pulumi.OutputState }
 
 func (AzureIaaSComputeVMProtectedItemOutput) ElementType() reflect.Type {
@@ -1593,187 +1207,133 @@ func (o AzureIaaSComputeVMProtectedItemOutput) ToAzureIaaSComputeVMProtectedItem
 	return o
 }
 
-// Type of backup management for the backed up item.
 func (o AzureIaaSComputeVMProtectedItemOutput) BackupManagementType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AzureIaaSComputeVMProtectedItem) *string { return v.BackupManagementType }).(pulumi.StringPtrOutput)
 }
 
-// Name of the backup set the backup item belongs to
 func (o AzureIaaSComputeVMProtectedItemOutput) BackupSetName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AzureIaaSComputeVMProtectedItem) *string { return v.BackupSetName }).(pulumi.StringPtrOutput)
 }
 
-// Unique name of container
 func (o AzureIaaSComputeVMProtectedItemOutput) ContainerName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AzureIaaSComputeVMProtectedItem) *string { return v.ContainerName }).(pulumi.StringPtrOutput)
 }
 
-// Create mode to indicate recovery of existing soft deleted data source or creation of new data source.
 func (o AzureIaaSComputeVMProtectedItemOutput) CreateMode() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AzureIaaSComputeVMProtectedItem) *string { return v.CreateMode }).(pulumi.StringPtrOutput)
 }
 
-// Time for deferred deletion in UTC
 func (o AzureIaaSComputeVMProtectedItemOutput) DeferredDeleteTimeInUTC() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AzureIaaSComputeVMProtectedItem) *string { return v.DeferredDeleteTimeInUTC }).(pulumi.StringPtrOutput)
 }
 
-// Time remaining before the DS marked for deferred delete is permanently deleted
 func (o AzureIaaSComputeVMProtectedItemOutput) DeferredDeleteTimeRemaining() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AzureIaaSComputeVMProtectedItem) *string { return v.DeferredDeleteTimeRemaining }).(pulumi.StringPtrOutput)
 }
 
-// Additional information for this backup item.
 func (o AzureIaaSComputeVMProtectedItemOutput) ExtendedInfo() AzureIaaSVMProtectedItemExtendedInfoPtrOutput {
 	return o.ApplyT(func(v AzureIaaSComputeVMProtectedItem) *AzureIaaSVMProtectedItemExtendedInfo { return v.ExtendedInfo }).(AzureIaaSVMProtectedItemExtendedInfoPtrOutput)
 }
 
-// Extended Properties for Azure IaasVM Backup.
 func (o AzureIaaSComputeVMProtectedItemOutput) ExtendedProperties() ExtendedPropertiesPtrOutput {
 	return o.ApplyT(func(v AzureIaaSComputeVMProtectedItem) *ExtendedProperties { return v.ExtendedProperties }).(ExtendedPropertiesPtrOutput)
 }
 
-// Friendly name of the VM represented by this backup item.
 func (o AzureIaaSComputeVMProtectedItemOutput) FriendlyName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AzureIaaSComputeVMProtectedItem) *string { return v.FriendlyName }).(pulumi.StringPtrOutput)
 }
 
-// Health status of protected item.
 func (o AzureIaaSComputeVMProtectedItemOutput) HealthStatus() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AzureIaaSComputeVMProtectedItem) *string { return v.HealthStatus }).(pulumi.StringPtrOutput)
 }
 
-// Flag to identify whether the deferred deleted DS is to be purged soon
 func (o AzureIaaSComputeVMProtectedItemOutput) IsDeferredDeleteScheduleUpcoming() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v AzureIaaSComputeVMProtectedItem) *bool { return v.IsDeferredDeleteScheduleUpcoming }).(pulumi.BoolPtrOutput)
 }
 
-// Flag to identify that deferred deleted DS is to be moved into Pause state
 func (o AzureIaaSComputeVMProtectedItemOutput) IsRehydrate() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v AzureIaaSComputeVMProtectedItem) *bool { return v.IsRehydrate }).(pulumi.BoolPtrOutput)
 }
 
-// Flag to identify whether the DS is scheduled for deferred delete
 func (o AzureIaaSComputeVMProtectedItemOutput) IsScheduledForDeferredDelete() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v AzureIaaSComputeVMProtectedItem) *bool { return v.IsScheduledForDeferredDelete }).(pulumi.BoolPtrOutput)
 }
 
-// Health details of different KPIs
 func (o AzureIaaSComputeVMProtectedItemOutput) KpisHealths() KPIResourceHealthDetailsMapOutput {
 	return o.ApplyT(func(v AzureIaaSComputeVMProtectedItem) map[string]KPIResourceHealthDetails { return v.KpisHealths }).(KPIResourceHealthDetailsMapOutput)
 }
 
-// Last backup operation status.
 func (o AzureIaaSComputeVMProtectedItemOutput) LastBackupStatus() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AzureIaaSComputeVMProtectedItem) *string { return v.LastBackupStatus }).(pulumi.StringPtrOutput)
 }
 
-// Timestamp of the last backup operation on this backup item.
 func (o AzureIaaSComputeVMProtectedItemOutput) LastBackupTime() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AzureIaaSComputeVMProtectedItem) *string { return v.LastBackupTime }).(pulumi.StringPtrOutput)
 }
 
-// Timestamp when the last (latest) backup copy was created for this backup item.
 func (o AzureIaaSComputeVMProtectedItemOutput) LastRecoveryPoint() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AzureIaaSComputeVMProtectedItem) *string { return v.LastRecoveryPoint }).(pulumi.StringPtrOutput)
 }
 
-// ID of the backup policy with which this item is backed up.
 func (o AzureIaaSComputeVMProtectedItemOutput) PolicyId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AzureIaaSComputeVMProtectedItem) *string { return v.PolicyId }).(pulumi.StringPtrOutput)
 }
 
-// Data ID of the protected item.
 func (o AzureIaaSComputeVMProtectedItemOutput) ProtectedItemDataId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AzureIaaSComputeVMProtectedItem) *string { return v.ProtectedItemDataId }).(pulumi.StringPtrOutput)
 }
 
-// backup item type.
-// Expected value is 'Microsoft.Compute/virtualMachines'.
 func (o AzureIaaSComputeVMProtectedItemOutput) ProtectedItemType() pulumi.StringOutput {
 	return o.ApplyT(func(v AzureIaaSComputeVMProtectedItem) string { return v.ProtectedItemType }).(pulumi.StringOutput)
 }
 
-// Backup state of this backup item.
 func (o AzureIaaSComputeVMProtectedItemOutput) ProtectionState() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AzureIaaSComputeVMProtectedItem) *string { return v.ProtectionState }).(pulumi.StringPtrOutput)
 }
 
-// Backup status of this backup item.
 func (o AzureIaaSComputeVMProtectedItemOutput) ProtectionStatus() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AzureIaaSComputeVMProtectedItem) *string { return v.ProtectionStatus }).(pulumi.StringPtrOutput)
 }
 
-// ARM ID of the resource to be backed up.
 func (o AzureIaaSComputeVMProtectedItemOutput) SourceResourceId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AzureIaaSComputeVMProtectedItem) *string { return v.SourceResourceId }).(pulumi.StringPtrOutput)
 }
 
-// Fully qualified ARM ID of the virtual machine represented by this item.
 func (o AzureIaaSComputeVMProtectedItemOutput) VirtualMachineId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AzureIaaSComputeVMProtectedItem) *string { return v.VirtualMachineId }).(pulumi.StringPtrOutput)
 }
 
-// Type of workload this item represents.
 func (o AzureIaaSComputeVMProtectedItemOutput) WorkloadType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AzureIaaSComputeVMProtectedItem) *string { return v.WorkloadType }).(pulumi.StringPtrOutput)
 }
 
-// IaaS VM workload-specific backup item representing the Azure Resource Manager VM.
 type AzureIaaSComputeVMProtectedItemResponse struct {
-	// Type of backup management for the backed up item.
-	BackupManagementType *string `pulumi:"backupManagementType"`
-	// Name of the backup set the backup item belongs to
-	BackupSetName *string `pulumi:"backupSetName"`
-	// Unique name of container
-	ContainerName *string `pulumi:"containerName"`
-	// Create mode to indicate recovery of existing soft deleted data source or creation of new data source.
-	CreateMode *string `pulumi:"createMode"`
-	// Time for deferred deletion in UTC
-	DeferredDeleteTimeInUTC *string `pulumi:"deferredDeleteTimeInUTC"`
-	// Time remaining before the DS marked for deferred delete is permanently deleted
-	DeferredDeleteTimeRemaining *string `pulumi:"deferredDeleteTimeRemaining"`
-	// Additional information for this backup item.
-	ExtendedInfo *AzureIaaSVMProtectedItemExtendedInfoResponse `pulumi:"extendedInfo"`
-	// Extended Properties for Azure IaasVM Backup.
-	ExtendedProperties *ExtendedPropertiesResponse `pulumi:"extendedProperties"`
-	// Friendly name of the VM represented by this backup item.
-	FriendlyName *string `pulumi:"friendlyName"`
-	// Health details on this backup item.
-	HealthDetails []AzureIaaSVMHealthDetailsResponse `pulumi:"healthDetails"`
-	// Health status of protected item.
-	HealthStatus *string `pulumi:"healthStatus"`
-	// Flag to identify whether the deferred deleted DS is to be purged soon
-	IsDeferredDeleteScheduleUpcoming *bool `pulumi:"isDeferredDeleteScheduleUpcoming"`
-	// Flag to identify that deferred deleted DS is to be moved into Pause state
-	IsRehydrate *bool `pulumi:"isRehydrate"`
-	// Flag to identify whether the DS is scheduled for deferred delete
-	IsScheduledForDeferredDelete *bool `pulumi:"isScheduledForDeferredDelete"`
-	// Health details of different KPIs
-	KpisHealths map[string]KPIResourceHealthDetailsResponse `pulumi:"kpisHealths"`
-	// Last backup operation status.
-	LastBackupStatus *string `pulumi:"lastBackupStatus"`
-	// Timestamp of the last backup operation on this backup item.
-	LastBackupTime *string `pulumi:"lastBackupTime"`
-	// Timestamp when the last (latest) backup copy was created for this backup item.
-	LastRecoveryPoint *string `pulumi:"lastRecoveryPoint"`
-	// ID of the backup policy with which this item is backed up.
-	PolicyId *string `pulumi:"policyId"`
-	// Data ID of the protected item.
-	ProtectedItemDataId *string `pulumi:"protectedItemDataId"`
-	// backup item type.
-	// Expected value is 'Microsoft.Compute/virtualMachines'.
-	ProtectedItemType string `pulumi:"protectedItemType"`
-	// Backup state of this backup item.
-	ProtectionState *string `pulumi:"protectionState"`
-	// Backup status of this backup item.
-	ProtectionStatus *string `pulumi:"protectionStatus"`
-	// ARM ID of the resource to be backed up.
-	SourceResourceId *string `pulumi:"sourceResourceId"`
-	// Fully qualified ARM ID of the virtual machine represented by this item.
-	VirtualMachineId *string `pulumi:"virtualMachineId"`
-	// Type of workload this item represents.
-	WorkloadType *string `pulumi:"workloadType"`
+	BackupManagementType             *string                                       `pulumi:"backupManagementType"`
+	BackupSetName                    *string                                       `pulumi:"backupSetName"`
+	ContainerName                    *string                                       `pulumi:"containerName"`
+	CreateMode                       *string                                       `pulumi:"createMode"`
+	DeferredDeleteTimeInUTC          *string                                       `pulumi:"deferredDeleteTimeInUTC"`
+	DeferredDeleteTimeRemaining      *string                                       `pulumi:"deferredDeleteTimeRemaining"`
+	ExtendedInfo                     *AzureIaaSVMProtectedItemExtendedInfoResponse `pulumi:"extendedInfo"`
+	ExtendedProperties               *ExtendedPropertiesResponse                   `pulumi:"extendedProperties"`
+	FriendlyName                     *string                                       `pulumi:"friendlyName"`
+	HealthDetails                    []AzureIaaSVMHealthDetailsResponse            `pulumi:"healthDetails"`
+	HealthStatus                     *string                                       `pulumi:"healthStatus"`
+	IsDeferredDeleteScheduleUpcoming *bool                                         `pulumi:"isDeferredDeleteScheduleUpcoming"`
+	IsRehydrate                      *bool                                         `pulumi:"isRehydrate"`
+	IsScheduledForDeferredDelete     *bool                                         `pulumi:"isScheduledForDeferredDelete"`
+	KpisHealths                      map[string]KPIResourceHealthDetailsResponse   `pulumi:"kpisHealths"`
+	LastBackupStatus                 *string                                       `pulumi:"lastBackupStatus"`
+	LastBackupTime                   *string                                       `pulumi:"lastBackupTime"`
+	LastRecoveryPoint                *string                                       `pulumi:"lastRecoveryPoint"`
+	PolicyId                         *string                                       `pulumi:"policyId"`
+	ProtectedItemDataId              *string                                       `pulumi:"protectedItemDataId"`
+	ProtectedItemType                string                                        `pulumi:"protectedItemType"`
+	ProtectionState                  *string                                       `pulumi:"protectionState"`
+	ProtectionStatus                 *string                                       `pulumi:"protectionStatus"`
+	SourceResourceId                 *string                                       `pulumi:"sourceResourceId"`
+	VirtualMachineId                 *string                                       `pulumi:"virtualMachineId"`
+	WorkloadType                     *string                                       `pulumi:"workloadType"`
 }
 
 // AzureIaaSComputeVMProtectedItemResponseInput is an input type that accepts AzureIaaSComputeVMProtectedItemResponseArgs and AzureIaaSComputeVMProtectedItemResponseOutput values.
@@ -1787,61 +1347,33 @@ type AzureIaaSComputeVMProtectedItemResponseInput interface {
 	ToAzureIaaSComputeVMProtectedItemResponseOutputWithContext(context.Context) AzureIaaSComputeVMProtectedItemResponseOutput
 }
 
-// IaaS VM workload-specific backup item representing the Azure Resource Manager VM.
 type AzureIaaSComputeVMProtectedItemResponseArgs struct {
-	// Type of backup management for the backed up item.
-	BackupManagementType pulumi.StringPtrInput `pulumi:"backupManagementType"`
-	// Name of the backup set the backup item belongs to
-	BackupSetName pulumi.StringPtrInput `pulumi:"backupSetName"`
-	// Unique name of container
-	ContainerName pulumi.StringPtrInput `pulumi:"containerName"`
-	// Create mode to indicate recovery of existing soft deleted data source or creation of new data source.
-	CreateMode pulumi.StringPtrInput `pulumi:"createMode"`
-	// Time for deferred deletion in UTC
-	DeferredDeleteTimeInUTC pulumi.StringPtrInput `pulumi:"deferredDeleteTimeInUTC"`
-	// Time remaining before the DS marked for deferred delete is permanently deleted
-	DeferredDeleteTimeRemaining pulumi.StringPtrInput `pulumi:"deferredDeleteTimeRemaining"`
-	// Additional information for this backup item.
-	ExtendedInfo AzureIaaSVMProtectedItemExtendedInfoResponsePtrInput `pulumi:"extendedInfo"`
-	// Extended Properties for Azure IaasVM Backup.
-	ExtendedProperties ExtendedPropertiesResponsePtrInput `pulumi:"extendedProperties"`
-	// Friendly name of the VM represented by this backup item.
-	FriendlyName pulumi.StringPtrInput `pulumi:"friendlyName"`
-	// Health details on this backup item.
-	HealthDetails AzureIaaSVMHealthDetailsResponseArrayInput `pulumi:"healthDetails"`
-	// Health status of protected item.
-	HealthStatus pulumi.StringPtrInput `pulumi:"healthStatus"`
-	// Flag to identify whether the deferred deleted DS is to be purged soon
-	IsDeferredDeleteScheduleUpcoming pulumi.BoolPtrInput `pulumi:"isDeferredDeleteScheduleUpcoming"`
-	// Flag to identify that deferred deleted DS is to be moved into Pause state
-	IsRehydrate pulumi.BoolPtrInput `pulumi:"isRehydrate"`
-	// Flag to identify whether the DS is scheduled for deferred delete
-	IsScheduledForDeferredDelete pulumi.BoolPtrInput `pulumi:"isScheduledForDeferredDelete"`
-	// Health details of different KPIs
-	KpisHealths KPIResourceHealthDetailsResponseMapInput `pulumi:"kpisHealths"`
-	// Last backup operation status.
-	LastBackupStatus pulumi.StringPtrInput `pulumi:"lastBackupStatus"`
-	// Timestamp of the last backup operation on this backup item.
-	LastBackupTime pulumi.StringPtrInput `pulumi:"lastBackupTime"`
-	// Timestamp when the last (latest) backup copy was created for this backup item.
-	LastRecoveryPoint pulumi.StringPtrInput `pulumi:"lastRecoveryPoint"`
-	// ID of the backup policy with which this item is backed up.
-	PolicyId pulumi.StringPtrInput `pulumi:"policyId"`
-	// Data ID of the protected item.
-	ProtectedItemDataId pulumi.StringPtrInput `pulumi:"protectedItemDataId"`
-	// backup item type.
-	// Expected value is 'Microsoft.Compute/virtualMachines'.
-	ProtectedItemType pulumi.StringInput `pulumi:"protectedItemType"`
-	// Backup state of this backup item.
-	ProtectionState pulumi.StringPtrInput `pulumi:"protectionState"`
-	// Backup status of this backup item.
-	ProtectionStatus pulumi.StringPtrInput `pulumi:"protectionStatus"`
-	// ARM ID of the resource to be backed up.
-	SourceResourceId pulumi.StringPtrInput `pulumi:"sourceResourceId"`
-	// Fully qualified ARM ID of the virtual machine represented by this item.
-	VirtualMachineId pulumi.StringPtrInput `pulumi:"virtualMachineId"`
-	// Type of workload this item represents.
-	WorkloadType pulumi.StringPtrInput `pulumi:"workloadType"`
+	BackupManagementType             pulumi.StringPtrInput                                `pulumi:"backupManagementType"`
+	BackupSetName                    pulumi.StringPtrInput                                `pulumi:"backupSetName"`
+	ContainerName                    pulumi.StringPtrInput                                `pulumi:"containerName"`
+	CreateMode                       pulumi.StringPtrInput                                `pulumi:"createMode"`
+	DeferredDeleteTimeInUTC          pulumi.StringPtrInput                                `pulumi:"deferredDeleteTimeInUTC"`
+	DeferredDeleteTimeRemaining      pulumi.StringPtrInput                                `pulumi:"deferredDeleteTimeRemaining"`
+	ExtendedInfo                     AzureIaaSVMProtectedItemExtendedInfoResponsePtrInput `pulumi:"extendedInfo"`
+	ExtendedProperties               ExtendedPropertiesResponsePtrInput                   `pulumi:"extendedProperties"`
+	FriendlyName                     pulumi.StringPtrInput                                `pulumi:"friendlyName"`
+	HealthDetails                    AzureIaaSVMHealthDetailsResponseArrayInput           `pulumi:"healthDetails"`
+	HealthStatus                     pulumi.StringPtrInput                                `pulumi:"healthStatus"`
+	IsDeferredDeleteScheduleUpcoming pulumi.BoolPtrInput                                  `pulumi:"isDeferredDeleteScheduleUpcoming"`
+	IsRehydrate                      pulumi.BoolPtrInput                                  `pulumi:"isRehydrate"`
+	IsScheduledForDeferredDelete     pulumi.BoolPtrInput                                  `pulumi:"isScheduledForDeferredDelete"`
+	KpisHealths                      KPIResourceHealthDetailsResponseMapInput             `pulumi:"kpisHealths"`
+	LastBackupStatus                 pulumi.StringPtrInput                                `pulumi:"lastBackupStatus"`
+	LastBackupTime                   pulumi.StringPtrInput                                `pulumi:"lastBackupTime"`
+	LastRecoveryPoint                pulumi.StringPtrInput                                `pulumi:"lastRecoveryPoint"`
+	PolicyId                         pulumi.StringPtrInput                                `pulumi:"policyId"`
+	ProtectedItemDataId              pulumi.StringPtrInput                                `pulumi:"protectedItemDataId"`
+	ProtectedItemType                pulumi.StringInput                                   `pulumi:"protectedItemType"`
+	ProtectionState                  pulumi.StringPtrInput                                `pulumi:"protectionState"`
+	ProtectionStatus                 pulumi.StringPtrInput                                `pulumi:"protectionStatus"`
+	SourceResourceId                 pulumi.StringPtrInput                                `pulumi:"sourceResourceId"`
+	VirtualMachineId                 pulumi.StringPtrInput                                `pulumi:"virtualMachineId"`
+	WorkloadType                     pulumi.StringPtrInput                                `pulumi:"workloadType"`
 }
 
 func (AzureIaaSComputeVMProtectedItemResponseArgs) ElementType() reflect.Type {
@@ -1856,7 +1388,6 @@ func (i AzureIaaSComputeVMProtectedItemResponseArgs) ToAzureIaaSComputeVMProtect
 	return pulumi.ToOutputWithContext(ctx, i).(AzureIaaSComputeVMProtectedItemResponseOutput)
 }
 
-// IaaS VM workload-specific backup item representing the Azure Resource Manager VM.
 type AzureIaaSComputeVMProtectedItemResponseOutput struct{ *pulumi.OutputState }
 
 func (AzureIaaSComputeVMProtectedItemResponseOutput) ElementType() reflect.Type {
@@ -1871,155 +1402,123 @@ func (o AzureIaaSComputeVMProtectedItemResponseOutput) ToAzureIaaSComputeVMProte
 	return o
 }
 
-// Type of backup management for the backed up item.
 func (o AzureIaaSComputeVMProtectedItemResponseOutput) BackupManagementType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AzureIaaSComputeVMProtectedItemResponse) *string { return v.BackupManagementType }).(pulumi.StringPtrOutput)
 }
 
-// Name of the backup set the backup item belongs to
 func (o AzureIaaSComputeVMProtectedItemResponseOutput) BackupSetName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AzureIaaSComputeVMProtectedItemResponse) *string { return v.BackupSetName }).(pulumi.StringPtrOutput)
 }
 
-// Unique name of container
 func (o AzureIaaSComputeVMProtectedItemResponseOutput) ContainerName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AzureIaaSComputeVMProtectedItemResponse) *string { return v.ContainerName }).(pulumi.StringPtrOutput)
 }
 
-// Create mode to indicate recovery of existing soft deleted data source or creation of new data source.
 func (o AzureIaaSComputeVMProtectedItemResponseOutput) CreateMode() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AzureIaaSComputeVMProtectedItemResponse) *string { return v.CreateMode }).(pulumi.StringPtrOutput)
 }
 
-// Time for deferred deletion in UTC
 func (o AzureIaaSComputeVMProtectedItemResponseOutput) DeferredDeleteTimeInUTC() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AzureIaaSComputeVMProtectedItemResponse) *string { return v.DeferredDeleteTimeInUTC }).(pulumi.StringPtrOutput)
 }
 
-// Time remaining before the DS marked for deferred delete is permanently deleted
 func (o AzureIaaSComputeVMProtectedItemResponseOutput) DeferredDeleteTimeRemaining() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AzureIaaSComputeVMProtectedItemResponse) *string { return v.DeferredDeleteTimeRemaining }).(pulumi.StringPtrOutput)
 }
 
-// Additional information for this backup item.
 func (o AzureIaaSComputeVMProtectedItemResponseOutput) ExtendedInfo() AzureIaaSVMProtectedItemExtendedInfoResponsePtrOutput {
 	return o.ApplyT(func(v AzureIaaSComputeVMProtectedItemResponse) *AzureIaaSVMProtectedItemExtendedInfoResponse {
 		return v.ExtendedInfo
 	}).(AzureIaaSVMProtectedItemExtendedInfoResponsePtrOutput)
 }
 
-// Extended Properties for Azure IaasVM Backup.
 func (o AzureIaaSComputeVMProtectedItemResponseOutput) ExtendedProperties() ExtendedPropertiesResponsePtrOutput {
 	return o.ApplyT(func(v AzureIaaSComputeVMProtectedItemResponse) *ExtendedPropertiesResponse {
 		return v.ExtendedProperties
 	}).(ExtendedPropertiesResponsePtrOutput)
 }
 
-// Friendly name of the VM represented by this backup item.
 func (o AzureIaaSComputeVMProtectedItemResponseOutput) FriendlyName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AzureIaaSComputeVMProtectedItemResponse) *string { return v.FriendlyName }).(pulumi.StringPtrOutput)
 }
 
-// Health details on this backup item.
 func (o AzureIaaSComputeVMProtectedItemResponseOutput) HealthDetails() AzureIaaSVMHealthDetailsResponseArrayOutput {
 	return o.ApplyT(func(v AzureIaaSComputeVMProtectedItemResponse) []AzureIaaSVMHealthDetailsResponse {
 		return v.HealthDetails
 	}).(AzureIaaSVMHealthDetailsResponseArrayOutput)
 }
 
-// Health status of protected item.
 func (o AzureIaaSComputeVMProtectedItemResponseOutput) HealthStatus() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AzureIaaSComputeVMProtectedItemResponse) *string { return v.HealthStatus }).(pulumi.StringPtrOutput)
 }
 
-// Flag to identify whether the deferred deleted DS is to be purged soon
 func (o AzureIaaSComputeVMProtectedItemResponseOutput) IsDeferredDeleteScheduleUpcoming() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v AzureIaaSComputeVMProtectedItemResponse) *bool { return v.IsDeferredDeleteScheduleUpcoming }).(pulumi.BoolPtrOutput)
 }
 
-// Flag to identify that deferred deleted DS is to be moved into Pause state
 func (o AzureIaaSComputeVMProtectedItemResponseOutput) IsRehydrate() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v AzureIaaSComputeVMProtectedItemResponse) *bool { return v.IsRehydrate }).(pulumi.BoolPtrOutput)
 }
 
-// Flag to identify whether the DS is scheduled for deferred delete
 func (o AzureIaaSComputeVMProtectedItemResponseOutput) IsScheduledForDeferredDelete() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v AzureIaaSComputeVMProtectedItemResponse) *bool { return v.IsScheduledForDeferredDelete }).(pulumi.BoolPtrOutput)
 }
 
-// Health details of different KPIs
 func (o AzureIaaSComputeVMProtectedItemResponseOutput) KpisHealths() KPIResourceHealthDetailsResponseMapOutput {
 	return o.ApplyT(func(v AzureIaaSComputeVMProtectedItemResponse) map[string]KPIResourceHealthDetailsResponse {
 		return v.KpisHealths
 	}).(KPIResourceHealthDetailsResponseMapOutput)
 }
 
-// Last backup operation status.
 func (o AzureIaaSComputeVMProtectedItemResponseOutput) LastBackupStatus() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AzureIaaSComputeVMProtectedItemResponse) *string { return v.LastBackupStatus }).(pulumi.StringPtrOutput)
 }
 
-// Timestamp of the last backup operation on this backup item.
 func (o AzureIaaSComputeVMProtectedItemResponseOutput) LastBackupTime() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AzureIaaSComputeVMProtectedItemResponse) *string { return v.LastBackupTime }).(pulumi.StringPtrOutput)
 }
 
-// Timestamp when the last (latest) backup copy was created for this backup item.
 func (o AzureIaaSComputeVMProtectedItemResponseOutput) LastRecoveryPoint() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AzureIaaSComputeVMProtectedItemResponse) *string { return v.LastRecoveryPoint }).(pulumi.StringPtrOutput)
 }
 
-// ID of the backup policy with which this item is backed up.
 func (o AzureIaaSComputeVMProtectedItemResponseOutput) PolicyId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AzureIaaSComputeVMProtectedItemResponse) *string { return v.PolicyId }).(pulumi.StringPtrOutput)
 }
 
-// Data ID of the protected item.
 func (o AzureIaaSComputeVMProtectedItemResponseOutput) ProtectedItemDataId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AzureIaaSComputeVMProtectedItemResponse) *string { return v.ProtectedItemDataId }).(pulumi.StringPtrOutput)
 }
 
-// backup item type.
-// Expected value is 'Microsoft.Compute/virtualMachines'.
 func (o AzureIaaSComputeVMProtectedItemResponseOutput) ProtectedItemType() pulumi.StringOutput {
 	return o.ApplyT(func(v AzureIaaSComputeVMProtectedItemResponse) string { return v.ProtectedItemType }).(pulumi.StringOutput)
 }
 
-// Backup state of this backup item.
 func (o AzureIaaSComputeVMProtectedItemResponseOutput) ProtectionState() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AzureIaaSComputeVMProtectedItemResponse) *string { return v.ProtectionState }).(pulumi.StringPtrOutput)
 }
 
-// Backup status of this backup item.
 func (o AzureIaaSComputeVMProtectedItemResponseOutput) ProtectionStatus() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AzureIaaSComputeVMProtectedItemResponse) *string { return v.ProtectionStatus }).(pulumi.StringPtrOutput)
 }
 
-// ARM ID of the resource to be backed up.
 func (o AzureIaaSComputeVMProtectedItemResponseOutput) SourceResourceId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AzureIaaSComputeVMProtectedItemResponse) *string { return v.SourceResourceId }).(pulumi.StringPtrOutput)
 }
 
-// Fully qualified ARM ID of the virtual machine represented by this item.
 func (o AzureIaaSComputeVMProtectedItemResponseOutput) VirtualMachineId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AzureIaaSComputeVMProtectedItemResponse) *string { return v.VirtualMachineId }).(pulumi.StringPtrOutput)
 }
 
-// Type of workload this item represents.
 func (o AzureIaaSComputeVMProtectedItemResponseOutput) WorkloadType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AzureIaaSComputeVMProtectedItemResponse) *string { return v.WorkloadType }).(pulumi.StringPtrOutput)
 }
 
-// Azure IaaS VM workload-specific Health Details.
 type AzureIaaSVMHealthDetailsResponse struct {
-	// Health Code
-	Code int `pulumi:"code"`
-	// Health Message
-	Message string `pulumi:"message"`
-	// Health Recommended Actions
+	Code            int      `pulumi:"code"`
+	Message         string   `pulumi:"message"`
 	Recommendations []string `pulumi:"recommendations"`
-	// Health Title
-	Title string `pulumi:"title"`
+	Title           string   `pulumi:"title"`
 }
 
 // AzureIaaSVMHealthDetailsResponseInput is an input type that accepts AzureIaaSVMHealthDetailsResponseArgs and AzureIaaSVMHealthDetailsResponseOutput values.
@@ -2033,16 +1532,11 @@ type AzureIaaSVMHealthDetailsResponseInput interface {
 	ToAzureIaaSVMHealthDetailsResponseOutputWithContext(context.Context) AzureIaaSVMHealthDetailsResponseOutput
 }
 
-// Azure IaaS VM workload-specific Health Details.
 type AzureIaaSVMHealthDetailsResponseArgs struct {
-	// Health Code
-	Code pulumi.IntInput `pulumi:"code"`
-	// Health Message
-	Message pulumi.StringInput `pulumi:"message"`
-	// Health Recommended Actions
+	Code            pulumi.IntInput         `pulumi:"code"`
+	Message         pulumi.StringInput      `pulumi:"message"`
 	Recommendations pulumi.StringArrayInput `pulumi:"recommendations"`
-	// Health Title
-	Title pulumi.StringInput `pulumi:"title"`
+	Title           pulumi.StringInput      `pulumi:"title"`
 }
 
 func (AzureIaaSVMHealthDetailsResponseArgs) ElementType() reflect.Type {
@@ -2082,7 +1576,6 @@ func (i AzureIaaSVMHealthDetailsResponseArray) ToAzureIaaSVMHealthDetailsRespons
 	return pulumi.ToOutputWithContext(ctx, i).(AzureIaaSVMHealthDetailsResponseArrayOutput)
 }
 
-// Azure IaaS VM workload-specific Health Details.
 type AzureIaaSVMHealthDetailsResponseOutput struct{ *pulumi.OutputState }
 
 func (AzureIaaSVMHealthDetailsResponseOutput) ElementType() reflect.Type {
@@ -2097,22 +1590,18 @@ func (o AzureIaaSVMHealthDetailsResponseOutput) ToAzureIaaSVMHealthDetailsRespon
 	return o
 }
 
-// Health Code
 func (o AzureIaaSVMHealthDetailsResponseOutput) Code() pulumi.IntOutput {
 	return o.ApplyT(func(v AzureIaaSVMHealthDetailsResponse) int { return v.Code }).(pulumi.IntOutput)
 }
 
-// Health Message
 func (o AzureIaaSVMHealthDetailsResponseOutput) Message() pulumi.StringOutput {
 	return o.ApplyT(func(v AzureIaaSVMHealthDetailsResponse) string { return v.Message }).(pulumi.StringOutput)
 }
 
-// Health Recommended Actions
 func (o AzureIaaSVMHealthDetailsResponseOutput) Recommendations() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v AzureIaaSVMHealthDetailsResponse) []string { return v.Recommendations }).(pulumi.StringArrayOutput)
 }
 
-// Health Title
 func (o AzureIaaSVMHealthDetailsResponseOutput) Title() pulumi.StringOutput {
 	return o.ApplyT(func(v AzureIaaSVMHealthDetailsResponse) string { return v.Title }).(pulumi.StringOutput)
 }
@@ -2137,59 +1626,32 @@ func (o AzureIaaSVMHealthDetailsResponseArrayOutput) Index(i pulumi.IntInput) Az
 	}).(AzureIaaSVMHealthDetailsResponseOutput)
 }
 
-// IaaS VM workload-specific backup item.
 type AzureIaaSVMProtectedItem struct {
-	// Type of backup management for the backed up item.
-	BackupManagementType *string `pulumi:"backupManagementType"`
-	// Name of the backup set the backup item belongs to
-	BackupSetName *string `pulumi:"backupSetName"`
-	// Unique name of container
-	ContainerName *string `pulumi:"containerName"`
-	// Create mode to indicate recovery of existing soft deleted data source or creation of new data source.
-	CreateMode *string `pulumi:"createMode"`
-	// Time for deferred deletion in UTC
-	DeferredDeleteTimeInUTC *string `pulumi:"deferredDeleteTimeInUTC"`
-	// Time remaining before the DS marked for deferred delete is permanently deleted
-	DeferredDeleteTimeRemaining *string `pulumi:"deferredDeleteTimeRemaining"`
-	// Additional information for this backup item.
-	ExtendedInfo *AzureIaaSVMProtectedItemExtendedInfo `pulumi:"extendedInfo"`
-	// Extended Properties for Azure IaasVM Backup.
-	ExtendedProperties *ExtendedProperties `pulumi:"extendedProperties"`
-	// Friendly name of the VM represented by this backup item.
-	FriendlyName *string `pulumi:"friendlyName"`
-	// Health status of protected item.
-	HealthStatus *string `pulumi:"healthStatus"`
-	// Flag to identify whether the deferred deleted DS is to be purged soon
-	IsDeferredDeleteScheduleUpcoming *bool `pulumi:"isDeferredDeleteScheduleUpcoming"`
-	// Flag to identify that deferred deleted DS is to be moved into Pause state
-	IsRehydrate *bool `pulumi:"isRehydrate"`
-	// Flag to identify whether the DS is scheduled for deferred delete
-	IsScheduledForDeferredDelete *bool `pulumi:"isScheduledForDeferredDelete"`
-	// Health details of different KPIs
-	KpisHealths map[string]KPIResourceHealthDetails `pulumi:"kpisHealths"`
-	// Last backup operation status.
-	LastBackupStatus *string `pulumi:"lastBackupStatus"`
-	// Timestamp of the last backup operation on this backup item.
-	LastBackupTime *string `pulumi:"lastBackupTime"`
-	// Timestamp when the last (latest) backup copy was created for this backup item.
-	LastRecoveryPoint *string `pulumi:"lastRecoveryPoint"`
-	// ID of the backup policy with which this item is backed up.
-	PolicyId *string `pulumi:"policyId"`
-	// Data ID of the protected item.
-	ProtectedItemDataId *string `pulumi:"protectedItemDataId"`
-	// backup item type.
-	// Expected value is 'AzureIaaSVMProtectedItem'.
-	ProtectedItemType string `pulumi:"protectedItemType"`
-	// Backup state of this backup item.
-	ProtectionState *string `pulumi:"protectionState"`
-	// Backup status of this backup item.
-	ProtectionStatus *string `pulumi:"protectionStatus"`
-	// ARM ID of the resource to be backed up.
-	SourceResourceId *string `pulumi:"sourceResourceId"`
-	// Fully qualified ARM ID of the virtual machine represented by this item.
-	VirtualMachineId *string `pulumi:"virtualMachineId"`
-	// Type of workload this item represents.
-	WorkloadType *string `pulumi:"workloadType"`
+	BackupManagementType             *string                               `pulumi:"backupManagementType"`
+	BackupSetName                    *string                               `pulumi:"backupSetName"`
+	ContainerName                    *string                               `pulumi:"containerName"`
+	CreateMode                       *string                               `pulumi:"createMode"`
+	DeferredDeleteTimeInUTC          *string                               `pulumi:"deferredDeleteTimeInUTC"`
+	DeferredDeleteTimeRemaining      *string                               `pulumi:"deferredDeleteTimeRemaining"`
+	ExtendedInfo                     *AzureIaaSVMProtectedItemExtendedInfo `pulumi:"extendedInfo"`
+	ExtendedProperties               *ExtendedProperties                   `pulumi:"extendedProperties"`
+	FriendlyName                     *string                               `pulumi:"friendlyName"`
+	HealthStatus                     *string                               `pulumi:"healthStatus"`
+	IsDeferredDeleteScheduleUpcoming *bool                                 `pulumi:"isDeferredDeleteScheduleUpcoming"`
+	IsRehydrate                      *bool                                 `pulumi:"isRehydrate"`
+	IsScheduledForDeferredDelete     *bool                                 `pulumi:"isScheduledForDeferredDelete"`
+	KpisHealths                      map[string]KPIResourceHealthDetails   `pulumi:"kpisHealths"`
+	LastBackupStatus                 *string                               `pulumi:"lastBackupStatus"`
+	LastBackupTime                   *string                               `pulumi:"lastBackupTime"`
+	LastRecoveryPoint                *string                               `pulumi:"lastRecoveryPoint"`
+	PolicyId                         *string                               `pulumi:"policyId"`
+	ProtectedItemDataId              *string                               `pulumi:"protectedItemDataId"`
+	ProtectedItemType                string                                `pulumi:"protectedItemType"`
+	ProtectionState                  *string                               `pulumi:"protectionState"`
+	ProtectionStatus                 *string                               `pulumi:"protectionStatus"`
+	SourceResourceId                 *string                               `pulumi:"sourceResourceId"`
+	VirtualMachineId                 *string                               `pulumi:"virtualMachineId"`
+	WorkloadType                     *string                               `pulumi:"workloadType"`
 }
 
 // AzureIaaSVMProtectedItemInput is an input type that accepts AzureIaaSVMProtectedItemArgs and AzureIaaSVMProtectedItemOutput values.
@@ -2203,59 +1665,32 @@ type AzureIaaSVMProtectedItemInput interface {
 	ToAzureIaaSVMProtectedItemOutputWithContext(context.Context) AzureIaaSVMProtectedItemOutput
 }
 
-// IaaS VM workload-specific backup item.
 type AzureIaaSVMProtectedItemArgs struct {
-	// Type of backup management for the backed up item.
-	BackupManagementType pulumi.StringPtrInput `pulumi:"backupManagementType"`
-	// Name of the backup set the backup item belongs to
-	BackupSetName pulumi.StringPtrInput `pulumi:"backupSetName"`
-	// Unique name of container
-	ContainerName pulumi.StringPtrInput `pulumi:"containerName"`
-	// Create mode to indicate recovery of existing soft deleted data source or creation of new data source.
-	CreateMode pulumi.StringPtrInput `pulumi:"createMode"`
-	// Time for deferred deletion in UTC
-	DeferredDeleteTimeInUTC pulumi.StringPtrInput `pulumi:"deferredDeleteTimeInUTC"`
-	// Time remaining before the DS marked for deferred delete is permanently deleted
-	DeferredDeleteTimeRemaining pulumi.StringPtrInput `pulumi:"deferredDeleteTimeRemaining"`
-	// Additional information for this backup item.
-	ExtendedInfo AzureIaaSVMProtectedItemExtendedInfoPtrInput `pulumi:"extendedInfo"`
-	// Extended Properties for Azure IaasVM Backup.
-	ExtendedProperties ExtendedPropertiesPtrInput `pulumi:"extendedProperties"`
-	// Friendly name of the VM represented by this backup item.
-	FriendlyName pulumi.StringPtrInput `pulumi:"friendlyName"`
-	// Health status of protected item.
-	HealthStatus pulumi.StringPtrInput `pulumi:"healthStatus"`
-	// Flag to identify whether the deferred deleted DS is to be purged soon
-	IsDeferredDeleteScheduleUpcoming pulumi.BoolPtrInput `pulumi:"isDeferredDeleteScheduleUpcoming"`
-	// Flag to identify that deferred deleted DS is to be moved into Pause state
-	IsRehydrate pulumi.BoolPtrInput `pulumi:"isRehydrate"`
-	// Flag to identify whether the DS is scheduled for deferred delete
-	IsScheduledForDeferredDelete pulumi.BoolPtrInput `pulumi:"isScheduledForDeferredDelete"`
-	// Health details of different KPIs
-	KpisHealths KPIResourceHealthDetailsMapInput `pulumi:"kpisHealths"`
-	// Last backup operation status.
-	LastBackupStatus pulumi.StringPtrInput `pulumi:"lastBackupStatus"`
-	// Timestamp of the last backup operation on this backup item.
-	LastBackupTime pulumi.StringPtrInput `pulumi:"lastBackupTime"`
-	// Timestamp when the last (latest) backup copy was created for this backup item.
-	LastRecoveryPoint pulumi.StringPtrInput `pulumi:"lastRecoveryPoint"`
-	// ID of the backup policy with which this item is backed up.
-	PolicyId pulumi.StringPtrInput `pulumi:"policyId"`
-	// Data ID of the protected item.
-	ProtectedItemDataId pulumi.StringPtrInput `pulumi:"protectedItemDataId"`
-	// backup item type.
-	// Expected value is 'AzureIaaSVMProtectedItem'.
-	ProtectedItemType pulumi.StringInput `pulumi:"protectedItemType"`
-	// Backup state of this backup item.
-	ProtectionState pulumi.StringPtrInput `pulumi:"protectionState"`
-	// Backup status of this backup item.
-	ProtectionStatus pulumi.StringPtrInput `pulumi:"protectionStatus"`
-	// ARM ID of the resource to be backed up.
-	SourceResourceId pulumi.StringPtrInput `pulumi:"sourceResourceId"`
-	// Fully qualified ARM ID of the virtual machine represented by this item.
-	VirtualMachineId pulumi.StringPtrInput `pulumi:"virtualMachineId"`
-	// Type of workload this item represents.
-	WorkloadType pulumi.StringPtrInput `pulumi:"workloadType"`
+	BackupManagementType             pulumi.StringPtrInput                        `pulumi:"backupManagementType"`
+	BackupSetName                    pulumi.StringPtrInput                        `pulumi:"backupSetName"`
+	ContainerName                    pulumi.StringPtrInput                        `pulumi:"containerName"`
+	CreateMode                       pulumi.StringPtrInput                        `pulumi:"createMode"`
+	DeferredDeleteTimeInUTC          pulumi.StringPtrInput                        `pulumi:"deferredDeleteTimeInUTC"`
+	DeferredDeleteTimeRemaining      pulumi.StringPtrInput                        `pulumi:"deferredDeleteTimeRemaining"`
+	ExtendedInfo                     AzureIaaSVMProtectedItemExtendedInfoPtrInput `pulumi:"extendedInfo"`
+	ExtendedProperties               ExtendedPropertiesPtrInput                   `pulumi:"extendedProperties"`
+	FriendlyName                     pulumi.StringPtrInput                        `pulumi:"friendlyName"`
+	HealthStatus                     pulumi.StringPtrInput                        `pulumi:"healthStatus"`
+	IsDeferredDeleteScheduleUpcoming pulumi.BoolPtrInput                          `pulumi:"isDeferredDeleteScheduleUpcoming"`
+	IsRehydrate                      pulumi.BoolPtrInput                          `pulumi:"isRehydrate"`
+	IsScheduledForDeferredDelete     pulumi.BoolPtrInput                          `pulumi:"isScheduledForDeferredDelete"`
+	KpisHealths                      KPIResourceHealthDetailsMapInput             `pulumi:"kpisHealths"`
+	LastBackupStatus                 pulumi.StringPtrInput                        `pulumi:"lastBackupStatus"`
+	LastBackupTime                   pulumi.StringPtrInput                        `pulumi:"lastBackupTime"`
+	LastRecoveryPoint                pulumi.StringPtrInput                        `pulumi:"lastRecoveryPoint"`
+	PolicyId                         pulumi.StringPtrInput                        `pulumi:"policyId"`
+	ProtectedItemDataId              pulumi.StringPtrInput                        `pulumi:"protectedItemDataId"`
+	ProtectedItemType                pulumi.StringInput                           `pulumi:"protectedItemType"`
+	ProtectionState                  pulumi.StringPtrInput                        `pulumi:"protectionState"`
+	ProtectionStatus                 pulumi.StringPtrInput                        `pulumi:"protectionStatus"`
+	SourceResourceId                 pulumi.StringPtrInput                        `pulumi:"sourceResourceId"`
+	VirtualMachineId                 pulumi.StringPtrInput                        `pulumi:"virtualMachineId"`
+	WorkloadType                     pulumi.StringPtrInput                        `pulumi:"workloadType"`
 }
 
 func (AzureIaaSVMProtectedItemArgs) ElementType() reflect.Type {
@@ -2270,7 +1705,6 @@ func (i AzureIaaSVMProtectedItemArgs) ToAzureIaaSVMProtectedItemOutputWithContex
 	return pulumi.ToOutputWithContext(ctx, i).(AzureIaaSVMProtectedItemOutput)
 }
 
-// IaaS VM workload-specific backup item.
 type AzureIaaSVMProtectedItemOutput struct{ *pulumi.OutputState }
 
 func (AzureIaaSVMProtectedItemOutput) ElementType() reflect.Type {
@@ -2285,140 +1719,110 @@ func (o AzureIaaSVMProtectedItemOutput) ToAzureIaaSVMProtectedItemOutputWithCont
 	return o
 }
 
-// Type of backup management for the backed up item.
 func (o AzureIaaSVMProtectedItemOutput) BackupManagementType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AzureIaaSVMProtectedItem) *string { return v.BackupManagementType }).(pulumi.StringPtrOutput)
 }
 
-// Name of the backup set the backup item belongs to
 func (o AzureIaaSVMProtectedItemOutput) BackupSetName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AzureIaaSVMProtectedItem) *string { return v.BackupSetName }).(pulumi.StringPtrOutput)
 }
 
-// Unique name of container
 func (o AzureIaaSVMProtectedItemOutput) ContainerName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AzureIaaSVMProtectedItem) *string { return v.ContainerName }).(pulumi.StringPtrOutput)
 }
 
-// Create mode to indicate recovery of existing soft deleted data source or creation of new data source.
 func (o AzureIaaSVMProtectedItemOutput) CreateMode() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AzureIaaSVMProtectedItem) *string { return v.CreateMode }).(pulumi.StringPtrOutput)
 }
 
-// Time for deferred deletion in UTC
 func (o AzureIaaSVMProtectedItemOutput) DeferredDeleteTimeInUTC() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AzureIaaSVMProtectedItem) *string { return v.DeferredDeleteTimeInUTC }).(pulumi.StringPtrOutput)
 }
 
-// Time remaining before the DS marked for deferred delete is permanently deleted
 func (o AzureIaaSVMProtectedItemOutput) DeferredDeleteTimeRemaining() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AzureIaaSVMProtectedItem) *string { return v.DeferredDeleteTimeRemaining }).(pulumi.StringPtrOutput)
 }
 
-// Additional information for this backup item.
 func (o AzureIaaSVMProtectedItemOutput) ExtendedInfo() AzureIaaSVMProtectedItemExtendedInfoPtrOutput {
 	return o.ApplyT(func(v AzureIaaSVMProtectedItem) *AzureIaaSVMProtectedItemExtendedInfo { return v.ExtendedInfo }).(AzureIaaSVMProtectedItemExtendedInfoPtrOutput)
 }
 
-// Extended Properties for Azure IaasVM Backup.
 func (o AzureIaaSVMProtectedItemOutput) ExtendedProperties() ExtendedPropertiesPtrOutput {
 	return o.ApplyT(func(v AzureIaaSVMProtectedItem) *ExtendedProperties { return v.ExtendedProperties }).(ExtendedPropertiesPtrOutput)
 }
 
-// Friendly name of the VM represented by this backup item.
 func (o AzureIaaSVMProtectedItemOutput) FriendlyName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AzureIaaSVMProtectedItem) *string { return v.FriendlyName }).(pulumi.StringPtrOutput)
 }
 
-// Health status of protected item.
 func (o AzureIaaSVMProtectedItemOutput) HealthStatus() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AzureIaaSVMProtectedItem) *string { return v.HealthStatus }).(pulumi.StringPtrOutput)
 }
 
-// Flag to identify whether the deferred deleted DS is to be purged soon
 func (o AzureIaaSVMProtectedItemOutput) IsDeferredDeleteScheduleUpcoming() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v AzureIaaSVMProtectedItem) *bool { return v.IsDeferredDeleteScheduleUpcoming }).(pulumi.BoolPtrOutput)
 }
 
-// Flag to identify that deferred deleted DS is to be moved into Pause state
 func (o AzureIaaSVMProtectedItemOutput) IsRehydrate() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v AzureIaaSVMProtectedItem) *bool { return v.IsRehydrate }).(pulumi.BoolPtrOutput)
 }
 
-// Flag to identify whether the DS is scheduled for deferred delete
 func (o AzureIaaSVMProtectedItemOutput) IsScheduledForDeferredDelete() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v AzureIaaSVMProtectedItem) *bool { return v.IsScheduledForDeferredDelete }).(pulumi.BoolPtrOutput)
 }
 
-// Health details of different KPIs
 func (o AzureIaaSVMProtectedItemOutput) KpisHealths() KPIResourceHealthDetailsMapOutput {
 	return o.ApplyT(func(v AzureIaaSVMProtectedItem) map[string]KPIResourceHealthDetails { return v.KpisHealths }).(KPIResourceHealthDetailsMapOutput)
 }
 
-// Last backup operation status.
 func (o AzureIaaSVMProtectedItemOutput) LastBackupStatus() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AzureIaaSVMProtectedItem) *string { return v.LastBackupStatus }).(pulumi.StringPtrOutput)
 }
 
-// Timestamp of the last backup operation on this backup item.
 func (o AzureIaaSVMProtectedItemOutput) LastBackupTime() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AzureIaaSVMProtectedItem) *string { return v.LastBackupTime }).(pulumi.StringPtrOutput)
 }
 
-// Timestamp when the last (latest) backup copy was created for this backup item.
 func (o AzureIaaSVMProtectedItemOutput) LastRecoveryPoint() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AzureIaaSVMProtectedItem) *string { return v.LastRecoveryPoint }).(pulumi.StringPtrOutput)
 }
 
-// ID of the backup policy with which this item is backed up.
 func (o AzureIaaSVMProtectedItemOutput) PolicyId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AzureIaaSVMProtectedItem) *string { return v.PolicyId }).(pulumi.StringPtrOutput)
 }
 
-// Data ID of the protected item.
 func (o AzureIaaSVMProtectedItemOutput) ProtectedItemDataId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AzureIaaSVMProtectedItem) *string { return v.ProtectedItemDataId }).(pulumi.StringPtrOutput)
 }
 
-// backup item type.
-// Expected value is 'AzureIaaSVMProtectedItem'.
 func (o AzureIaaSVMProtectedItemOutput) ProtectedItemType() pulumi.StringOutput {
 	return o.ApplyT(func(v AzureIaaSVMProtectedItem) string { return v.ProtectedItemType }).(pulumi.StringOutput)
 }
 
-// Backup state of this backup item.
 func (o AzureIaaSVMProtectedItemOutput) ProtectionState() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AzureIaaSVMProtectedItem) *string { return v.ProtectionState }).(pulumi.StringPtrOutput)
 }
 
-// Backup status of this backup item.
 func (o AzureIaaSVMProtectedItemOutput) ProtectionStatus() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AzureIaaSVMProtectedItem) *string { return v.ProtectionStatus }).(pulumi.StringPtrOutput)
 }
 
-// ARM ID of the resource to be backed up.
 func (o AzureIaaSVMProtectedItemOutput) SourceResourceId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AzureIaaSVMProtectedItem) *string { return v.SourceResourceId }).(pulumi.StringPtrOutput)
 }
 
-// Fully qualified ARM ID of the virtual machine represented by this item.
 func (o AzureIaaSVMProtectedItemOutput) VirtualMachineId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AzureIaaSVMProtectedItem) *string { return v.VirtualMachineId }).(pulumi.StringPtrOutput)
 }
 
-// Type of workload this item represents.
 func (o AzureIaaSVMProtectedItemOutput) WorkloadType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AzureIaaSVMProtectedItem) *string { return v.WorkloadType }).(pulumi.StringPtrOutput)
 }
 
-// Additional information on Azure IaaS VM specific backup item.
 type AzureIaaSVMProtectedItemExtendedInfo struct {
-	// The oldest backup copy available for this backup item.
 	OldestRecoveryPoint *string `pulumi:"oldestRecoveryPoint"`
-	// Specifies if backup policy associated with the backup item is inconsistent.
-	PolicyInconsistent *bool `pulumi:"policyInconsistent"`
-	// Number of backup copies available for this backup item.
-	RecoveryPointCount *int `pulumi:"recoveryPointCount"`
+	PolicyInconsistent  *bool   `pulumi:"policyInconsistent"`
+	RecoveryPointCount  *int    `pulumi:"recoveryPointCount"`
 }
 
 // AzureIaaSVMProtectedItemExtendedInfoInput is an input type that accepts AzureIaaSVMProtectedItemExtendedInfoArgs and AzureIaaSVMProtectedItemExtendedInfoOutput values.
@@ -2432,14 +1836,10 @@ type AzureIaaSVMProtectedItemExtendedInfoInput interface {
 	ToAzureIaaSVMProtectedItemExtendedInfoOutputWithContext(context.Context) AzureIaaSVMProtectedItemExtendedInfoOutput
 }
 
-// Additional information on Azure IaaS VM specific backup item.
 type AzureIaaSVMProtectedItemExtendedInfoArgs struct {
-	// The oldest backup copy available for this backup item.
 	OldestRecoveryPoint pulumi.StringPtrInput `pulumi:"oldestRecoveryPoint"`
-	// Specifies if backup policy associated with the backup item is inconsistent.
-	PolicyInconsistent pulumi.BoolPtrInput `pulumi:"policyInconsistent"`
-	// Number of backup copies available for this backup item.
-	RecoveryPointCount pulumi.IntPtrInput `pulumi:"recoveryPointCount"`
+	PolicyInconsistent  pulumi.BoolPtrInput   `pulumi:"policyInconsistent"`
+	RecoveryPointCount  pulumi.IntPtrInput    `pulumi:"recoveryPointCount"`
 }
 
 func (AzureIaaSVMProtectedItemExtendedInfoArgs) ElementType() reflect.Type {
@@ -2495,7 +1895,6 @@ func (i *azureIaaSVMProtectedItemExtendedInfoPtrType) ToAzureIaaSVMProtectedItem
 	return pulumi.ToOutputWithContext(ctx, i).(AzureIaaSVMProtectedItemExtendedInfoPtrOutput)
 }
 
-// Additional information on Azure IaaS VM specific backup item.
 type AzureIaaSVMProtectedItemExtendedInfoOutput struct{ *pulumi.OutputState }
 
 func (AzureIaaSVMProtectedItemExtendedInfoOutput) ElementType() reflect.Type {
@@ -2515,22 +1914,19 @@ func (o AzureIaaSVMProtectedItemExtendedInfoOutput) ToAzureIaaSVMProtectedItemEx
 }
 
 func (o AzureIaaSVMProtectedItemExtendedInfoOutput) ToAzureIaaSVMProtectedItemExtendedInfoPtrOutputWithContext(ctx context.Context) AzureIaaSVMProtectedItemExtendedInfoPtrOutput {
-	return o.ApplyT(func(v AzureIaaSVMProtectedItemExtendedInfo) *AzureIaaSVMProtectedItemExtendedInfo {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v AzureIaaSVMProtectedItemExtendedInfo) *AzureIaaSVMProtectedItemExtendedInfo {
 		return &v
 	}).(AzureIaaSVMProtectedItemExtendedInfoPtrOutput)
 }
 
-// The oldest backup copy available for this backup item.
 func (o AzureIaaSVMProtectedItemExtendedInfoOutput) OldestRecoveryPoint() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AzureIaaSVMProtectedItemExtendedInfo) *string { return v.OldestRecoveryPoint }).(pulumi.StringPtrOutput)
 }
 
-// Specifies if backup policy associated with the backup item is inconsistent.
 func (o AzureIaaSVMProtectedItemExtendedInfoOutput) PolicyInconsistent() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v AzureIaaSVMProtectedItemExtendedInfo) *bool { return v.PolicyInconsistent }).(pulumi.BoolPtrOutput)
 }
 
-// Number of backup copies available for this backup item.
 func (o AzureIaaSVMProtectedItemExtendedInfoOutput) RecoveryPointCount() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v AzureIaaSVMProtectedItemExtendedInfo) *int { return v.RecoveryPointCount }).(pulumi.IntPtrOutput)
 }
@@ -2550,10 +1946,15 @@ func (o AzureIaaSVMProtectedItemExtendedInfoPtrOutput) ToAzureIaaSVMProtectedIte
 }
 
 func (o AzureIaaSVMProtectedItemExtendedInfoPtrOutput) Elem() AzureIaaSVMProtectedItemExtendedInfoOutput {
-	return o.ApplyT(func(v *AzureIaaSVMProtectedItemExtendedInfo) AzureIaaSVMProtectedItemExtendedInfo { return *v }).(AzureIaaSVMProtectedItemExtendedInfoOutput)
+	return o.ApplyT(func(v *AzureIaaSVMProtectedItemExtendedInfo) AzureIaaSVMProtectedItemExtendedInfo {
+		if v != nil {
+			return *v
+		}
+		var ret AzureIaaSVMProtectedItemExtendedInfo
+		return ret
+	}).(AzureIaaSVMProtectedItemExtendedInfoOutput)
 }
 
-// The oldest backup copy available for this backup item.
 func (o AzureIaaSVMProtectedItemExtendedInfoPtrOutput) OldestRecoveryPoint() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *AzureIaaSVMProtectedItemExtendedInfo) *string {
 		if v == nil {
@@ -2563,7 +1964,6 @@ func (o AzureIaaSVMProtectedItemExtendedInfoPtrOutput) OldestRecoveryPoint() pul
 	}).(pulumi.StringPtrOutput)
 }
 
-// Specifies if backup policy associated with the backup item is inconsistent.
 func (o AzureIaaSVMProtectedItemExtendedInfoPtrOutput) PolicyInconsistent() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *AzureIaaSVMProtectedItemExtendedInfo) *bool {
 		if v == nil {
@@ -2573,7 +1973,6 @@ func (o AzureIaaSVMProtectedItemExtendedInfoPtrOutput) PolicyInconsistent() pulu
 	}).(pulumi.BoolPtrOutput)
 }
 
-// Number of backup copies available for this backup item.
 func (o AzureIaaSVMProtectedItemExtendedInfoPtrOutput) RecoveryPointCount() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *AzureIaaSVMProtectedItemExtendedInfo) *int {
 		if v == nil {
@@ -2583,14 +1982,10 @@ func (o AzureIaaSVMProtectedItemExtendedInfoPtrOutput) RecoveryPointCount() pulu
 	}).(pulumi.IntPtrOutput)
 }
 
-// Additional information on Azure IaaS VM specific backup item.
 type AzureIaaSVMProtectedItemExtendedInfoResponse struct {
-	// The oldest backup copy available for this backup item.
 	OldestRecoveryPoint *string `pulumi:"oldestRecoveryPoint"`
-	// Specifies if backup policy associated with the backup item is inconsistent.
-	PolicyInconsistent *bool `pulumi:"policyInconsistent"`
-	// Number of backup copies available for this backup item.
-	RecoveryPointCount *int `pulumi:"recoveryPointCount"`
+	PolicyInconsistent  *bool   `pulumi:"policyInconsistent"`
+	RecoveryPointCount  *int    `pulumi:"recoveryPointCount"`
 }
 
 // AzureIaaSVMProtectedItemExtendedInfoResponseInput is an input type that accepts AzureIaaSVMProtectedItemExtendedInfoResponseArgs and AzureIaaSVMProtectedItemExtendedInfoResponseOutput values.
@@ -2604,14 +1999,10 @@ type AzureIaaSVMProtectedItemExtendedInfoResponseInput interface {
 	ToAzureIaaSVMProtectedItemExtendedInfoResponseOutputWithContext(context.Context) AzureIaaSVMProtectedItemExtendedInfoResponseOutput
 }
 
-// Additional information on Azure IaaS VM specific backup item.
 type AzureIaaSVMProtectedItemExtendedInfoResponseArgs struct {
-	// The oldest backup copy available for this backup item.
 	OldestRecoveryPoint pulumi.StringPtrInput `pulumi:"oldestRecoveryPoint"`
-	// Specifies if backup policy associated with the backup item is inconsistent.
-	PolicyInconsistent pulumi.BoolPtrInput `pulumi:"policyInconsistent"`
-	// Number of backup copies available for this backup item.
-	RecoveryPointCount pulumi.IntPtrInput `pulumi:"recoveryPointCount"`
+	PolicyInconsistent  pulumi.BoolPtrInput   `pulumi:"policyInconsistent"`
+	RecoveryPointCount  pulumi.IntPtrInput    `pulumi:"recoveryPointCount"`
 }
 
 func (AzureIaaSVMProtectedItemExtendedInfoResponseArgs) ElementType() reflect.Type {
@@ -2667,7 +2058,6 @@ func (i *azureIaaSVMProtectedItemExtendedInfoResponsePtrType) ToAzureIaaSVMProte
 	return pulumi.ToOutputWithContext(ctx, i).(AzureIaaSVMProtectedItemExtendedInfoResponsePtrOutput)
 }
 
-// Additional information on Azure IaaS VM specific backup item.
 type AzureIaaSVMProtectedItemExtendedInfoResponseOutput struct{ *pulumi.OutputState }
 
 func (AzureIaaSVMProtectedItemExtendedInfoResponseOutput) ElementType() reflect.Type {
@@ -2687,22 +2077,19 @@ func (o AzureIaaSVMProtectedItemExtendedInfoResponseOutput) ToAzureIaaSVMProtect
 }
 
 func (o AzureIaaSVMProtectedItemExtendedInfoResponseOutput) ToAzureIaaSVMProtectedItemExtendedInfoResponsePtrOutputWithContext(ctx context.Context) AzureIaaSVMProtectedItemExtendedInfoResponsePtrOutput {
-	return o.ApplyT(func(v AzureIaaSVMProtectedItemExtendedInfoResponse) *AzureIaaSVMProtectedItemExtendedInfoResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v AzureIaaSVMProtectedItemExtendedInfoResponse) *AzureIaaSVMProtectedItemExtendedInfoResponse {
 		return &v
 	}).(AzureIaaSVMProtectedItemExtendedInfoResponsePtrOutput)
 }
 
-// The oldest backup copy available for this backup item.
 func (o AzureIaaSVMProtectedItemExtendedInfoResponseOutput) OldestRecoveryPoint() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AzureIaaSVMProtectedItemExtendedInfoResponse) *string { return v.OldestRecoveryPoint }).(pulumi.StringPtrOutput)
 }
 
-// Specifies if backup policy associated with the backup item is inconsistent.
 func (o AzureIaaSVMProtectedItemExtendedInfoResponseOutput) PolicyInconsistent() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v AzureIaaSVMProtectedItemExtendedInfoResponse) *bool { return v.PolicyInconsistent }).(pulumi.BoolPtrOutput)
 }
 
-// Number of backup copies available for this backup item.
 func (o AzureIaaSVMProtectedItemExtendedInfoResponseOutput) RecoveryPointCount() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v AzureIaaSVMProtectedItemExtendedInfoResponse) *int { return v.RecoveryPointCount }).(pulumi.IntPtrOutput)
 }
@@ -2723,11 +2110,14 @@ func (o AzureIaaSVMProtectedItemExtendedInfoResponsePtrOutput) ToAzureIaaSVMProt
 
 func (o AzureIaaSVMProtectedItemExtendedInfoResponsePtrOutput) Elem() AzureIaaSVMProtectedItemExtendedInfoResponseOutput {
 	return o.ApplyT(func(v *AzureIaaSVMProtectedItemExtendedInfoResponse) AzureIaaSVMProtectedItemExtendedInfoResponse {
-		return *v
+		if v != nil {
+			return *v
+		}
+		var ret AzureIaaSVMProtectedItemExtendedInfoResponse
+		return ret
 	}).(AzureIaaSVMProtectedItemExtendedInfoResponseOutput)
 }
 
-// The oldest backup copy available for this backup item.
 func (o AzureIaaSVMProtectedItemExtendedInfoResponsePtrOutput) OldestRecoveryPoint() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *AzureIaaSVMProtectedItemExtendedInfoResponse) *string {
 		if v == nil {
@@ -2737,7 +2127,6 @@ func (o AzureIaaSVMProtectedItemExtendedInfoResponsePtrOutput) OldestRecoveryPoi
 	}).(pulumi.StringPtrOutput)
 }
 
-// Specifies if backup policy associated with the backup item is inconsistent.
 func (o AzureIaaSVMProtectedItemExtendedInfoResponsePtrOutput) PolicyInconsistent() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *AzureIaaSVMProtectedItemExtendedInfoResponse) *bool {
 		if v == nil {
@@ -2747,7 +2136,6 @@ func (o AzureIaaSVMProtectedItemExtendedInfoResponsePtrOutput) PolicyInconsisten
 	}).(pulumi.BoolPtrOutput)
 }
 
-// Number of backup copies available for this backup item.
 func (o AzureIaaSVMProtectedItemExtendedInfoResponsePtrOutput) RecoveryPointCount() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *AzureIaaSVMProtectedItemExtendedInfoResponse) *int {
 		if v == nil {
@@ -2757,61 +2145,33 @@ func (o AzureIaaSVMProtectedItemExtendedInfoResponsePtrOutput) RecoveryPointCoun
 	}).(pulumi.IntPtrOutput)
 }
 
-// IaaS VM workload-specific backup item.
 type AzureIaaSVMProtectedItemResponse struct {
-	// Type of backup management for the backed up item.
-	BackupManagementType *string `pulumi:"backupManagementType"`
-	// Name of the backup set the backup item belongs to
-	BackupSetName *string `pulumi:"backupSetName"`
-	// Unique name of container
-	ContainerName *string `pulumi:"containerName"`
-	// Create mode to indicate recovery of existing soft deleted data source or creation of new data source.
-	CreateMode *string `pulumi:"createMode"`
-	// Time for deferred deletion in UTC
-	DeferredDeleteTimeInUTC *string `pulumi:"deferredDeleteTimeInUTC"`
-	// Time remaining before the DS marked for deferred delete is permanently deleted
-	DeferredDeleteTimeRemaining *string `pulumi:"deferredDeleteTimeRemaining"`
-	// Additional information for this backup item.
-	ExtendedInfo *AzureIaaSVMProtectedItemExtendedInfoResponse `pulumi:"extendedInfo"`
-	// Extended Properties for Azure IaasVM Backup.
-	ExtendedProperties *ExtendedPropertiesResponse `pulumi:"extendedProperties"`
-	// Friendly name of the VM represented by this backup item.
-	FriendlyName *string `pulumi:"friendlyName"`
-	// Health details on this backup item.
-	HealthDetails []AzureIaaSVMHealthDetailsResponse `pulumi:"healthDetails"`
-	// Health status of protected item.
-	HealthStatus *string `pulumi:"healthStatus"`
-	// Flag to identify whether the deferred deleted DS is to be purged soon
-	IsDeferredDeleteScheduleUpcoming *bool `pulumi:"isDeferredDeleteScheduleUpcoming"`
-	// Flag to identify that deferred deleted DS is to be moved into Pause state
-	IsRehydrate *bool `pulumi:"isRehydrate"`
-	// Flag to identify whether the DS is scheduled for deferred delete
-	IsScheduledForDeferredDelete *bool `pulumi:"isScheduledForDeferredDelete"`
-	// Health details of different KPIs
-	KpisHealths map[string]KPIResourceHealthDetailsResponse `pulumi:"kpisHealths"`
-	// Last backup operation status.
-	LastBackupStatus *string `pulumi:"lastBackupStatus"`
-	// Timestamp of the last backup operation on this backup item.
-	LastBackupTime *string `pulumi:"lastBackupTime"`
-	// Timestamp when the last (latest) backup copy was created for this backup item.
-	LastRecoveryPoint *string `pulumi:"lastRecoveryPoint"`
-	// ID of the backup policy with which this item is backed up.
-	PolicyId *string `pulumi:"policyId"`
-	// Data ID of the protected item.
-	ProtectedItemDataId *string `pulumi:"protectedItemDataId"`
-	// backup item type.
-	// Expected value is 'AzureIaaSVMProtectedItem'.
-	ProtectedItemType string `pulumi:"protectedItemType"`
-	// Backup state of this backup item.
-	ProtectionState *string `pulumi:"protectionState"`
-	// Backup status of this backup item.
-	ProtectionStatus *string `pulumi:"protectionStatus"`
-	// ARM ID of the resource to be backed up.
-	SourceResourceId *string `pulumi:"sourceResourceId"`
-	// Fully qualified ARM ID of the virtual machine represented by this item.
-	VirtualMachineId *string `pulumi:"virtualMachineId"`
-	// Type of workload this item represents.
-	WorkloadType *string `pulumi:"workloadType"`
+	BackupManagementType             *string                                       `pulumi:"backupManagementType"`
+	BackupSetName                    *string                                       `pulumi:"backupSetName"`
+	ContainerName                    *string                                       `pulumi:"containerName"`
+	CreateMode                       *string                                       `pulumi:"createMode"`
+	DeferredDeleteTimeInUTC          *string                                       `pulumi:"deferredDeleteTimeInUTC"`
+	DeferredDeleteTimeRemaining      *string                                       `pulumi:"deferredDeleteTimeRemaining"`
+	ExtendedInfo                     *AzureIaaSVMProtectedItemExtendedInfoResponse `pulumi:"extendedInfo"`
+	ExtendedProperties               *ExtendedPropertiesResponse                   `pulumi:"extendedProperties"`
+	FriendlyName                     *string                                       `pulumi:"friendlyName"`
+	HealthDetails                    []AzureIaaSVMHealthDetailsResponse            `pulumi:"healthDetails"`
+	HealthStatus                     *string                                       `pulumi:"healthStatus"`
+	IsDeferredDeleteScheduleUpcoming *bool                                         `pulumi:"isDeferredDeleteScheduleUpcoming"`
+	IsRehydrate                      *bool                                         `pulumi:"isRehydrate"`
+	IsScheduledForDeferredDelete     *bool                                         `pulumi:"isScheduledForDeferredDelete"`
+	KpisHealths                      map[string]KPIResourceHealthDetailsResponse   `pulumi:"kpisHealths"`
+	LastBackupStatus                 *string                                       `pulumi:"lastBackupStatus"`
+	LastBackupTime                   *string                                       `pulumi:"lastBackupTime"`
+	LastRecoveryPoint                *string                                       `pulumi:"lastRecoveryPoint"`
+	PolicyId                         *string                                       `pulumi:"policyId"`
+	ProtectedItemDataId              *string                                       `pulumi:"protectedItemDataId"`
+	ProtectedItemType                string                                        `pulumi:"protectedItemType"`
+	ProtectionState                  *string                                       `pulumi:"protectionState"`
+	ProtectionStatus                 *string                                       `pulumi:"protectionStatus"`
+	SourceResourceId                 *string                                       `pulumi:"sourceResourceId"`
+	VirtualMachineId                 *string                                       `pulumi:"virtualMachineId"`
+	WorkloadType                     *string                                       `pulumi:"workloadType"`
 }
 
 // AzureIaaSVMProtectedItemResponseInput is an input type that accepts AzureIaaSVMProtectedItemResponseArgs and AzureIaaSVMProtectedItemResponseOutput values.
@@ -2825,61 +2185,33 @@ type AzureIaaSVMProtectedItemResponseInput interface {
 	ToAzureIaaSVMProtectedItemResponseOutputWithContext(context.Context) AzureIaaSVMProtectedItemResponseOutput
 }
 
-// IaaS VM workload-specific backup item.
 type AzureIaaSVMProtectedItemResponseArgs struct {
-	// Type of backup management for the backed up item.
-	BackupManagementType pulumi.StringPtrInput `pulumi:"backupManagementType"`
-	// Name of the backup set the backup item belongs to
-	BackupSetName pulumi.StringPtrInput `pulumi:"backupSetName"`
-	// Unique name of container
-	ContainerName pulumi.StringPtrInput `pulumi:"containerName"`
-	// Create mode to indicate recovery of existing soft deleted data source or creation of new data source.
-	CreateMode pulumi.StringPtrInput `pulumi:"createMode"`
-	// Time for deferred deletion in UTC
-	DeferredDeleteTimeInUTC pulumi.StringPtrInput `pulumi:"deferredDeleteTimeInUTC"`
-	// Time remaining before the DS marked for deferred delete is permanently deleted
-	DeferredDeleteTimeRemaining pulumi.StringPtrInput `pulumi:"deferredDeleteTimeRemaining"`
-	// Additional information for this backup item.
-	ExtendedInfo AzureIaaSVMProtectedItemExtendedInfoResponsePtrInput `pulumi:"extendedInfo"`
-	// Extended Properties for Azure IaasVM Backup.
-	ExtendedProperties ExtendedPropertiesResponsePtrInput `pulumi:"extendedProperties"`
-	// Friendly name of the VM represented by this backup item.
-	FriendlyName pulumi.StringPtrInput `pulumi:"friendlyName"`
-	// Health details on this backup item.
-	HealthDetails AzureIaaSVMHealthDetailsResponseArrayInput `pulumi:"healthDetails"`
-	// Health status of protected item.
-	HealthStatus pulumi.StringPtrInput `pulumi:"healthStatus"`
-	// Flag to identify whether the deferred deleted DS is to be purged soon
-	IsDeferredDeleteScheduleUpcoming pulumi.BoolPtrInput `pulumi:"isDeferredDeleteScheduleUpcoming"`
-	// Flag to identify that deferred deleted DS is to be moved into Pause state
-	IsRehydrate pulumi.BoolPtrInput `pulumi:"isRehydrate"`
-	// Flag to identify whether the DS is scheduled for deferred delete
-	IsScheduledForDeferredDelete pulumi.BoolPtrInput `pulumi:"isScheduledForDeferredDelete"`
-	// Health details of different KPIs
-	KpisHealths KPIResourceHealthDetailsResponseMapInput `pulumi:"kpisHealths"`
-	// Last backup operation status.
-	LastBackupStatus pulumi.StringPtrInput `pulumi:"lastBackupStatus"`
-	// Timestamp of the last backup operation on this backup item.
-	LastBackupTime pulumi.StringPtrInput `pulumi:"lastBackupTime"`
-	// Timestamp when the last (latest) backup copy was created for this backup item.
-	LastRecoveryPoint pulumi.StringPtrInput `pulumi:"lastRecoveryPoint"`
-	// ID of the backup policy with which this item is backed up.
-	PolicyId pulumi.StringPtrInput `pulumi:"policyId"`
-	// Data ID of the protected item.
-	ProtectedItemDataId pulumi.StringPtrInput `pulumi:"protectedItemDataId"`
-	// backup item type.
-	// Expected value is 'AzureIaaSVMProtectedItem'.
-	ProtectedItemType pulumi.StringInput `pulumi:"protectedItemType"`
-	// Backup state of this backup item.
-	ProtectionState pulumi.StringPtrInput `pulumi:"protectionState"`
-	// Backup status of this backup item.
-	ProtectionStatus pulumi.StringPtrInput `pulumi:"protectionStatus"`
-	// ARM ID of the resource to be backed up.
-	SourceResourceId pulumi.StringPtrInput `pulumi:"sourceResourceId"`
-	// Fully qualified ARM ID of the virtual machine represented by this item.
-	VirtualMachineId pulumi.StringPtrInput `pulumi:"virtualMachineId"`
-	// Type of workload this item represents.
-	WorkloadType pulumi.StringPtrInput `pulumi:"workloadType"`
+	BackupManagementType             pulumi.StringPtrInput                                `pulumi:"backupManagementType"`
+	BackupSetName                    pulumi.StringPtrInput                                `pulumi:"backupSetName"`
+	ContainerName                    pulumi.StringPtrInput                                `pulumi:"containerName"`
+	CreateMode                       pulumi.StringPtrInput                                `pulumi:"createMode"`
+	DeferredDeleteTimeInUTC          pulumi.StringPtrInput                                `pulumi:"deferredDeleteTimeInUTC"`
+	DeferredDeleteTimeRemaining      pulumi.StringPtrInput                                `pulumi:"deferredDeleteTimeRemaining"`
+	ExtendedInfo                     AzureIaaSVMProtectedItemExtendedInfoResponsePtrInput `pulumi:"extendedInfo"`
+	ExtendedProperties               ExtendedPropertiesResponsePtrInput                   `pulumi:"extendedProperties"`
+	FriendlyName                     pulumi.StringPtrInput                                `pulumi:"friendlyName"`
+	HealthDetails                    AzureIaaSVMHealthDetailsResponseArrayInput           `pulumi:"healthDetails"`
+	HealthStatus                     pulumi.StringPtrInput                                `pulumi:"healthStatus"`
+	IsDeferredDeleteScheduleUpcoming pulumi.BoolPtrInput                                  `pulumi:"isDeferredDeleteScheduleUpcoming"`
+	IsRehydrate                      pulumi.BoolPtrInput                                  `pulumi:"isRehydrate"`
+	IsScheduledForDeferredDelete     pulumi.BoolPtrInput                                  `pulumi:"isScheduledForDeferredDelete"`
+	KpisHealths                      KPIResourceHealthDetailsResponseMapInput             `pulumi:"kpisHealths"`
+	LastBackupStatus                 pulumi.StringPtrInput                                `pulumi:"lastBackupStatus"`
+	LastBackupTime                   pulumi.StringPtrInput                                `pulumi:"lastBackupTime"`
+	LastRecoveryPoint                pulumi.StringPtrInput                                `pulumi:"lastRecoveryPoint"`
+	PolicyId                         pulumi.StringPtrInput                                `pulumi:"policyId"`
+	ProtectedItemDataId              pulumi.StringPtrInput                                `pulumi:"protectedItemDataId"`
+	ProtectedItemType                pulumi.StringInput                                   `pulumi:"protectedItemType"`
+	ProtectionState                  pulumi.StringPtrInput                                `pulumi:"protectionState"`
+	ProtectionStatus                 pulumi.StringPtrInput                                `pulumi:"protectionStatus"`
+	SourceResourceId                 pulumi.StringPtrInput                                `pulumi:"sourceResourceId"`
+	VirtualMachineId                 pulumi.StringPtrInput                                `pulumi:"virtualMachineId"`
+	WorkloadType                     pulumi.StringPtrInput                                `pulumi:"workloadType"`
 }
 
 func (AzureIaaSVMProtectedItemResponseArgs) ElementType() reflect.Type {
@@ -2894,7 +2226,6 @@ func (i AzureIaaSVMProtectedItemResponseArgs) ToAzureIaaSVMProtectedItemResponse
 	return pulumi.ToOutputWithContext(ctx, i).(AzureIaaSVMProtectedItemResponseOutput)
 }
 
-// IaaS VM workload-specific backup item.
 type AzureIaaSVMProtectedItemResponseOutput struct{ *pulumi.OutputState }
 
 func (AzureIaaSVMProtectedItemResponseOutput) ElementType() reflect.Type {
@@ -2909,178 +2240,132 @@ func (o AzureIaaSVMProtectedItemResponseOutput) ToAzureIaaSVMProtectedItemRespon
 	return o
 }
 
-// Type of backup management for the backed up item.
 func (o AzureIaaSVMProtectedItemResponseOutput) BackupManagementType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AzureIaaSVMProtectedItemResponse) *string { return v.BackupManagementType }).(pulumi.StringPtrOutput)
 }
 
-// Name of the backup set the backup item belongs to
 func (o AzureIaaSVMProtectedItemResponseOutput) BackupSetName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AzureIaaSVMProtectedItemResponse) *string { return v.BackupSetName }).(pulumi.StringPtrOutput)
 }
 
-// Unique name of container
 func (o AzureIaaSVMProtectedItemResponseOutput) ContainerName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AzureIaaSVMProtectedItemResponse) *string { return v.ContainerName }).(pulumi.StringPtrOutput)
 }
 
-// Create mode to indicate recovery of existing soft deleted data source or creation of new data source.
 func (o AzureIaaSVMProtectedItemResponseOutput) CreateMode() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AzureIaaSVMProtectedItemResponse) *string { return v.CreateMode }).(pulumi.StringPtrOutput)
 }
 
-// Time for deferred deletion in UTC
 func (o AzureIaaSVMProtectedItemResponseOutput) DeferredDeleteTimeInUTC() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AzureIaaSVMProtectedItemResponse) *string { return v.DeferredDeleteTimeInUTC }).(pulumi.StringPtrOutput)
 }
 
-// Time remaining before the DS marked for deferred delete is permanently deleted
 func (o AzureIaaSVMProtectedItemResponseOutput) DeferredDeleteTimeRemaining() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AzureIaaSVMProtectedItemResponse) *string { return v.DeferredDeleteTimeRemaining }).(pulumi.StringPtrOutput)
 }
 
-// Additional information for this backup item.
 func (o AzureIaaSVMProtectedItemResponseOutput) ExtendedInfo() AzureIaaSVMProtectedItemExtendedInfoResponsePtrOutput {
 	return o.ApplyT(func(v AzureIaaSVMProtectedItemResponse) *AzureIaaSVMProtectedItemExtendedInfoResponse {
 		return v.ExtendedInfo
 	}).(AzureIaaSVMProtectedItemExtendedInfoResponsePtrOutput)
 }
 
-// Extended Properties for Azure IaasVM Backup.
 func (o AzureIaaSVMProtectedItemResponseOutput) ExtendedProperties() ExtendedPropertiesResponsePtrOutput {
 	return o.ApplyT(func(v AzureIaaSVMProtectedItemResponse) *ExtendedPropertiesResponse { return v.ExtendedProperties }).(ExtendedPropertiesResponsePtrOutput)
 }
 
-// Friendly name of the VM represented by this backup item.
 func (o AzureIaaSVMProtectedItemResponseOutput) FriendlyName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AzureIaaSVMProtectedItemResponse) *string { return v.FriendlyName }).(pulumi.StringPtrOutput)
 }
 
-// Health details on this backup item.
 func (o AzureIaaSVMProtectedItemResponseOutput) HealthDetails() AzureIaaSVMHealthDetailsResponseArrayOutput {
 	return o.ApplyT(func(v AzureIaaSVMProtectedItemResponse) []AzureIaaSVMHealthDetailsResponse { return v.HealthDetails }).(AzureIaaSVMHealthDetailsResponseArrayOutput)
 }
 
-// Health status of protected item.
 func (o AzureIaaSVMProtectedItemResponseOutput) HealthStatus() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AzureIaaSVMProtectedItemResponse) *string { return v.HealthStatus }).(pulumi.StringPtrOutput)
 }
 
-// Flag to identify whether the deferred deleted DS is to be purged soon
 func (o AzureIaaSVMProtectedItemResponseOutput) IsDeferredDeleteScheduleUpcoming() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v AzureIaaSVMProtectedItemResponse) *bool { return v.IsDeferredDeleteScheduleUpcoming }).(pulumi.BoolPtrOutput)
 }
 
-// Flag to identify that deferred deleted DS is to be moved into Pause state
 func (o AzureIaaSVMProtectedItemResponseOutput) IsRehydrate() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v AzureIaaSVMProtectedItemResponse) *bool { return v.IsRehydrate }).(pulumi.BoolPtrOutput)
 }
 
-// Flag to identify whether the DS is scheduled for deferred delete
 func (o AzureIaaSVMProtectedItemResponseOutput) IsScheduledForDeferredDelete() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v AzureIaaSVMProtectedItemResponse) *bool { return v.IsScheduledForDeferredDelete }).(pulumi.BoolPtrOutput)
 }
 
-// Health details of different KPIs
 func (o AzureIaaSVMProtectedItemResponseOutput) KpisHealths() KPIResourceHealthDetailsResponseMapOutput {
 	return o.ApplyT(func(v AzureIaaSVMProtectedItemResponse) map[string]KPIResourceHealthDetailsResponse {
 		return v.KpisHealths
 	}).(KPIResourceHealthDetailsResponseMapOutput)
 }
 
-// Last backup operation status.
 func (o AzureIaaSVMProtectedItemResponseOutput) LastBackupStatus() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AzureIaaSVMProtectedItemResponse) *string { return v.LastBackupStatus }).(pulumi.StringPtrOutput)
 }
 
-// Timestamp of the last backup operation on this backup item.
 func (o AzureIaaSVMProtectedItemResponseOutput) LastBackupTime() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AzureIaaSVMProtectedItemResponse) *string { return v.LastBackupTime }).(pulumi.StringPtrOutput)
 }
 
-// Timestamp when the last (latest) backup copy was created for this backup item.
 func (o AzureIaaSVMProtectedItemResponseOutput) LastRecoveryPoint() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AzureIaaSVMProtectedItemResponse) *string { return v.LastRecoveryPoint }).(pulumi.StringPtrOutput)
 }
 
-// ID of the backup policy with which this item is backed up.
 func (o AzureIaaSVMProtectedItemResponseOutput) PolicyId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AzureIaaSVMProtectedItemResponse) *string { return v.PolicyId }).(pulumi.StringPtrOutput)
 }
 
-// Data ID of the protected item.
 func (o AzureIaaSVMProtectedItemResponseOutput) ProtectedItemDataId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AzureIaaSVMProtectedItemResponse) *string { return v.ProtectedItemDataId }).(pulumi.StringPtrOutput)
 }
 
-// backup item type.
-// Expected value is 'AzureIaaSVMProtectedItem'.
 func (o AzureIaaSVMProtectedItemResponseOutput) ProtectedItemType() pulumi.StringOutput {
 	return o.ApplyT(func(v AzureIaaSVMProtectedItemResponse) string { return v.ProtectedItemType }).(pulumi.StringOutput)
 }
 
-// Backup state of this backup item.
 func (o AzureIaaSVMProtectedItemResponseOutput) ProtectionState() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AzureIaaSVMProtectedItemResponse) *string { return v.ProtectionState }).(pulumi.StringPtrOutput)
 }
 
-// Backup status of this backup item.
 func (o AzureIaaSVMProtectedItemResponseOutput) ProtectionStatus() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AzureIaaSVMProtectedItemResponse) *string { return v.ProtectionStatus }).(pulumi.StringPtrOutput)
 }
 
-// ARM ID of the resource to be backed up.
 func (o AzureIaaSVMProtectedItemResponseOutput) SourceResourceId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AzureIaaSVMProtectedItemResponse) *string { return v.SourceResourceId }).(pulumi.StringPtrOutput)
 }
 
-// Fully qualified ARM ID of the virtual machine represented by this item.
 func (o AzureIaaSVMProtectedItemResponseOutput) VirtualMachineId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AzureIaaSVMProtectedItemResponse) *string { return v.VirtualMachineId }).(pulumi.StringPtrOutput)
 }
 
-// Type of workload this item represents.
 func (o AzureIaaSVMProtectedItemResponseOutput) WorkloadType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AzureIaaSVMProtectedItemResponse) *string { return v.WorkloadType }).(pulumi.StringPtrOutput)
 }
 
-// Azure SQL workload-specific backup item.
 type AzureSqlProtectedItem struct {
-	// Type of backup management for the backed up item.
-	BackupManagementType *string `pulumi:"backupManagementType"`
-	// Name of the backup set the backup item belongs to
-	BackupSetName *string `pulumi:"backupSetName"`
-	// Unique name of container
-	ContainerName *string `pulumi:"containerName"`
-	// Create mode to indicate recovery of existing soft deleted data source or creation of new data source.
-	CreateMode *string `pulumi:"createMode"`
-	// Time for deferred deletion in UTC
-	DeferredDeleteTimeInUTC *string `pulumi:"deferredDeleteTimeInUTC"`
-	// Time remaining before the DS marked for deferred delete is permanently deleted
-	DeferredDeleteTimeRemaining *string `pulumi:"deferredDeleteTimeRemaining"`
-	// Additional information for this backup item.
-	ExtendedInfo *AzureSqlProtectedItemExtendedInfo `pulumi:"extendedInfo"`
-	// Flag to identify whether the deferred deleted DS is to be purged soon
-	IsDeferredDeleteScheduleUpcoming *bool `pulumi:"isDeferredDeleteScheduleUpcoming"`
-	// Flag to identify that deferred deleted DS is to be moved into Pause state
-	IsRehydrate *bool `pulumi:"isRehydrate"`
-	// Flag to identify whether the DS is scheduled for deferred delete
-	IsScheduledForDeferredDelete *bool `pulumi:"isScheduledForDeferredDelete"`
-	// Timestamp when the last (latest) backup copy was created for this backup item.
-	LastRecoveryPoint *string `pulumi:"lastRecoveryPoint"`
-	// ID of the backup policy with which this item is backed up.
-	PolicyId *string `pulumi:"policyId"`
-	// Internal ID of a backup item. Used by Azure SQL Backup engine to contact Recovery Services.
-	ProtectedItemDataId *string `pulumi:"protectedItemDataId"`
-	// backup item type.
-	// Expected value is 'Microsoft.Sql/servers/databases'.
-	ProtectedItemType string `pulumi:"protectedItemType"`
-	// Backup state of the backed up item.
-	ProtectionState *string `pulumi:"protectionState"`
-	// ARM ID of the resource to be backed up.
-	SourceResourceId *string `pulumi:"sourceResourceId"`
-	// Type of workload this item represents.
-	WorkloadType *string `pulumi:"workloadType"`
+	BackupManagementType             *string                            `pulumi:"backupManagementType"`
+	BackupSetName                    *string                            `pulumi:"backupSetName"`
+	ContainerName                    *string                            `pulumi:"containerName"`
+	CreateMode                       *string                            `pulumi:"createMode"`
+	DeferredDeleteTimeInUTC          *string                            `pulumi:"deferredDeleteTimeInUTC"`
+	DeferredDeleteTimeRemaining      *string                            `pulumi:"deferredDeleteTimeRemaining"`
+	ExtendedInfo                     *AzureSqlProtectedItemExtendedInfo `pulumi:"extendedInfo"`
+	IsDeferredDeleteScheduleUpcoming *bool                              `pulumi:"isDeferredDeleteScheduleUpcoming"`
+	IsRehydrate                      *bool                              `pulumi:"isRehydrate"`
+	IsScheduledForDeferredDelete     *bool                              `pulumi:"isScheduledForDeferredDelete"`
+	LastRecoveryPoint                *string                            `pulumi:"lastRecoveryPoint"`
+	PolicyId                         *string                            `pulumi:"policyId"`
+	ProtectedItemDataId              *string                            `pulumi:"protectedItemDataId"`
+	ProtectedItemType                string                             `pulumi:"protectedItemType"`
+	ProtectionState                  *string                            `pulumi:"protectionState"`
+	SourceResourceId                 *string                            `pulumi:"sourceResourceId"`
+	WorkloadType                     *string                            `pulumi:"workloadType"`
 }
 
 // AzureSqlProtectedItemInput is an input type that accepts AzureSqlProtectedItemArgs and AzureSqlProtectedItemOutput values.
@@ -3094,43 +2379,24 @@ type AzureSqlProtectedItemInput interface {
 	ToAzureSqlProtectedItemOutputWithContext(context.Context) AzureSqlProtectedItemOutput
 }
 
-// Azure SQL workload-specific backup item.
 type AzureSqlProtectedItemArgs struct {
-	// Type of backup management for the backed up item.
-	BackupManagementType pulumi.StringPtrInput `pulumi:"backupManagementType"`
-	// Name of the backup set the backup item belongs to
-	BackupSetName pulumi.StringPtrInput `pulumi:"backupSetName"`
-	// Unique name of container
-	ContainerName pulumi.StringPtrInput `pulumi:"containerName"`
-	// Create mode to indicate recovery of existing soft deleted data source or creation of new data source.
-	CreateMode pulumi.StringPtrInput `pulumi:"createMode"`
-	// Time for deferred deletion in UTC
-	DeferredDeleteTimeInUTC pulumi.StringPtrInput `pulumi:"deferredDeleteTimeInUTC"`
-	// Time remaining before the DS marked for deferred delete is permanently deleted
-	DeferredDeleteTimeRemaining pulumi.StringPtrInput `pulumi:"deferredDeleteTimeRemaining"`
-	// Additional information for this backup item.
-	ExtendedInfo AzureSqlProtectedItemExtendedInfoPtrInput `pulumi:"extendedInfo"`
-	// Flag to identify whether the deferred deleted DS is to be purged soon
-	IsDeferredDeleteScheduleUpcoming pulumi.BoolPtrInput `pulumi:"isDeferredDeleteScheduleUpcoming"`
-	// Flag to identify that deferred deleted DS is to be moved into Pause state
-	IsRehydrate pulumi.BoolPtrInput `pulumi:"isRehydrate"`
-	// Flag to identify whether the DS is scheduled for deferred delete
-	IsScheduledForDeferredDelete pulumi.BoolPtrInput `pulumi:"isScheduledForDeferredDelete"`
-	// Timestamp when the last (latest) backup copy was created for this backup item.
-	LastRecoveryPoint pulumi.StringPtrInput `pulumi:"lastRecoveryPoint"`
-	// ID of the backup policy with which this item is backed up.
-	PolicyId pulumi.StringPtrInput `pulumi:"policyId"`
-	// Internal ID of a backup item. Used by Azure SQL Backup engine to contact Recovery Services.
-	ProtectedItemDataId pulumi.StringPtrInput `pulumi:"protectedItemDataId"`
-	// backup item type.
-	// Expected value is 'Microsoft.Sql/servers/databases'.
-	ProtectedItemType pulumi.StringInput `pulumi:"protectedItemType"`
-	// Backup state of the backed up item.
-	ProtectionState pulumi.StringPtrInput `pulumi:"protectionState"`
-	// ARM ID of the resource to be backed up.
-	SourceResourceId pulumi.StringPtrInput `pulumi:"sourceResourceId"`
-	// Type of workload this item represents.
-	WorkloadType pulumi.StringPtrInput `pulumi:"workloadType"`
+	BackupManagementType             pulumi.StringPtrInput                     `pulumi:"backupManagementType"`
+	BackupSetName                    pulumi.StringPtrInput                     `pulumi:"backupSetName"`
+	ContainerName                    pulumi.StringPtrInput                     `pulumi:"containerName"`
+	CreateMode                       pulumi.StringPtrInput                     `pulumi:"createMode"`
+	DeferredDeleteTimeInUTC          pulumi.StringPtrInput                     `pulumi:"deferredDeleteTimeInUTC"`
+	DeferredDeleteTimeRemaining      pulumi.StringPtrInput                     `pulumi:"deferredDeleteTimeRemaining"`
+	ExtendedInfo                     AzureSqlProtectedItemExtendedInfoPtrInput `pulumi:"extendedInfo"`
+	IsDeferredDeleteScheduleUpcoming pulumi.BoolPtrInput                       `pulumi:"isDeferredDeleteScheduleUpcoming"`
+	IsRehydrate                      pulumi.BoolPtrInput                       `pulumi:"isRehydrate"`
+	IsScheduledForDeferredDelete     pulumi.BoolPtrInput                       `pulumi:"isScheduledForDeferredDelete"`
+	LastRecoveryPoint                pulumi.StringPtrInput                     `pulumi:"lastRecoveryPoint"`
+	PolicyId                         pulumi.StringPtrInput                     `pulumi:"policyId"`
+	ProtectedItemDataId              pulumi.StringPtrInput                     `pulumi:"protectedItemDataId"`
+	ProtectedItemType                pulumi.StringInput                        `pulumi:"protectedItemType"`
+	ProtectionState                  pulumi.StringPtrInput                     `pulumi:"protectionState"`
+	SourceResourceId                 pulumi.StringPtrInput                     `pulumi:"sourceResourceId"`
+	WorkloadType                     pulumi.StringPtrInput                     `pulumi:"workloadType"`
 }
 
 func (AzureSqlProtectedItemArgs) ElementType() reflect.Type {
@@ -3145,7 +2411,6 @@ func (i AzureSqlProtectedItemArgs) ToAzureSqlProtectedItemOutputWithContext(ctx 
 	return pulumi.ToOutputWithContext(ctx, i).(AzureSqlProtectedItemOutput)
 }
 
-// Azure SQL workload-specific backup item.
 type AzureSqlProtectedItemOutput struct{ *pulumi.OutputState }
 
 func (AzureSqlProtectedItemOutput) ElementType() reflect.Type {
@@ -3160,100 +2425,78 @@ func (o AzureSqlProtectedItemOutput) ToAzureSqlProtectedItemOutputWithContext(ct
 	return o
 }
 
-// Type of backup management for the backed up item.
 func (o AzureSqlProtectedItemOutput) BackupManagementType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AzureSqlProtectedItem) *string { return v.BackupManagementType }).(pulumi.StringPtrOutput)
 }
 
-// Name of the backup set the backup item belongs to
 func (o AzureSqlProtectedItemOutput) BackupSetName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AzureSqlProtectedItem) *string { return v.BackupSetName }).(pulumi.StringPtrOutput)
 }
 
-// Unique name of container
 func (o AzureSqlProtectedItemOutput) ContainerName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AzureSqlProtectedItem) *string { return v.ContainerName }).(pulumi.StringPtrOutput)
 }
 
-// Create mode to indicate recovery of existing soft deleted data source or creation of new data source.
 func (o AzureSqlProtectedItemOutput) CreateMode() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AzureSqlProtectedItem) *string { return v.CreateMode }).(pulumi.StringPtrOutput)
 }
 
-// Time for deferred deletion in UTC
 func (o AzureSqlProtectedItemOutput) DeferredDeleteTimeInUTC() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AzureSqlProtectedItem) *string { return v.DeferredDeleteTimeInUTC }).(pulumi.StringPtrOutput)
 }
 
-// Time remaining before the DS marked for deferred delete is permanently deleted
 func (o AzureSqlProtectedItemOutput) DeferredDeleteTimeRemaining() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AzureSqlProtectedItem) *string { return v.DeferredDeleteTimeRemaining }).(pulumi.StringPtrOutput)
 }
 
-// Additional information for this backup item.
 func (o AzureSqlProtectedItemOutput) ExtendedInfo() AzureSqlProtectedItemExtendedInfoPtrOutput {
 	return o.ApplyT(func(v AzureSqlProtectedItem) *AzureSqlProtectedItemExtendedInfo { return v.ExtendedInfo }).(AzureSqlProtectedItemExtendedInfoPtrOutput)
 }
 
-// Flag to identify whether the deferred deleted DS is to be purged soon
 func (o AzureSqlProtectedItemOutput) IsDeferredDeleteScheduleUpcoming() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v AzureSqlProtectedItem) *bool { return v.IsDeferredDeleteScheduleUpcoming }).(pulumi.BoolPtrOutput)
 }
 
-// Flag to identify that deferred deleted DS is to be moved into Pause state
 func (o AzureSqlProtectedItemOutput) IsRehydrate() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v AzureSqlProtectedItem) *bool { return v.IsRehydrate }).(pulumi.BoolPtrOutput)
 }
 
-// Flag to identify whether the DS is scheduled for deferred delete
 func (o AzureSqlProtectedItemOutput) IsScheduledForDeferredDelete() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v AzureSqlProtectedItem) *bool { return v.IsScheduledForDeferredDelete }).(pulumi.BoolPtrOutput)
 }
 
-// Timestamp when the last (latest) backup copy was created for this backup item.
 func (o AzureSqlProtectedItemOutput) LastRecoveryPoint() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AzureSqlProtectedItem) *string { return v.LastRecoveryPoint }).(pulumi.StringPtrOutput)
 }
 
-// ID of the backup policy with which this item is backed up.
 func (o AzureSqlProtectedItemOutput) PolicyId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AzureSqlProtectedItem) *string { return v.PolicyId }).(pulumi.StringPtrOutput)
 }
 
-// Internal ID of a backup item. Used by Azure SQL Backup engine to contact Recovery Services.
 func (o AzureSqlProtectedItemOutput) ProtectedItemDataId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AzureSqlProtectedItem) *string { return v.ProtectedItemDataId }).(pulumi.StringPtrOutput)
 }
 
-// backup item type.
-// Expected value is 'Microsoft.Sql/servers/databases'.
 func (o AzureSqlProtectedItemOutput) ProtectedItemType() pulumi.StringOutput {
 	return o.ApplyT(func(v AzureSqlProtectedItem) string { return v.ProtectedItemType }).(pulumi.StringOutput)
 }
 
-// Backup state of the backed up item.
 func (o AzureSqlProtectedItemOutput) ProtectionState() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AzureSqlProtectedItem) *string { return v.ProtectionState }).(pulumi.StringPtrOutput)
 }
 
-// ARM ID of the resource to be backed up.
 func (o AzureSqlProtectedItemOutput) SourceResourceId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AzureSqlProtectedItem) *string { return v.SourceResourceId }).(pulumi.StringPtrOutput)
 }
 
-// Type of workload this item represents.
 func (o AzureSqlProtectedItemOutput) WorkloadType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AzureSqlProtectedItem) *string { return v.WorkloadType }).(pulumi.StringPtrOutput)
 }
 
-// Additional information on Azure Sql specific protected item.
 type AzureSqlProtectedItemExtendedInfo struct {
-	// The oldest backup copy available for this item in the service.
 	OldestRecoveryPoint *string `pulumi:"oldestRecoveryPoint"`
-	// State of the backup policy associated with this backup item.
-	PolicyState *string `pulumi:"policyState"`
-	// Number of available backup copies associated with this backup item.
-	RecoveryPointCount *int `pulumi:"recoveryPointCount"`
+	PolicyState         *string `pulumi:"policyState"`
+	RecoveryPointCount  *int    `pulumi:"recoveryPointCount"`
 }
 
 // AzureSqlProtectedItemExtendedInfoInput is an input type that accepts AzureSqlProtectedItemExtendedInfoArgs and AzureSqlProtectedItemExtendedInfoOutput values.
@@ -3267,14 +2510,10 @@ type AzureSqlProtectedItemExtendedInfoInput interface {
 	ToAzureSqlProtectedItemExtendedInfoOutputWithContext(context.Context) AzureSqlProtectedItemExtendedInfoOutput
 }
 
-// Additional information on Azure Sql specific protected item.
 type AzureSqlProtectedItemExtendedInfoArgs struct {
-	// The oldest backup copy available for this item in the service.
 	OldestRecoveryPoint pulumi.StringPtrInput `pulumi:"oldestRecoveryPoint"`
-	// State of the backup policy associated with this backup item.
-	PolicyState pulumi.StringPtrInput `pulumi:"policyState"`
-	// Number of available backup copies associated with this backup item.
-	RecoveryPointCount pulumi.IntPtrInput `pulumi:"recoveryPointCount"`
+	PolicyState         pulumi.StringPtrInput `pulumi:"policyState"`
+	RecoveryPointCount  pulumi.IntPtrInput    `pulumi:"recoveryPointCount"`
 }
 
 func (AzureSqlProtectedItemExtendedInfoArgs) ElementType() reflect.Type {
@@ -3330,7 +2569,6 @@ func (i *azureSqlProtectedItemExtendedInfoPtrType) ToAzureSqlProtectedItemExtend
 	return pulumi.ToOutputWithContext(ctx, i).(AzureSqlProtectedItemExtendedInfoPtrOutput)
 }
 
-// Additional information on Azure Sql specific protected item.
 type AzureSqlProtectedItemExtendedInfoOutput struct{ *pulumi.OutputState }
 
 func (AzureSqlProtectedItemExtendedInfoOutput) ElementType() reflect.Type {
@@ -3350,22 +2588,19 @@ func (o AzureSqlProtectedItemExtendedInfoOutput) ToAzureSqlProtectedItemExtended
 }
 
 func (o AzureSqlProtectedItemExtendedInfoOutput) ToAzureSqlProtectedItemExtendedInfoPtrOutputWithContext(ctx context.Context) AzureSqlProtectedItemExtendedInfoPtrOutput {
-	return o.ApplyT(func(v AzureSqlProtectedItemExtendedInfo) *AzureSqlProtectedItemExtendedInfo {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v AzureSqlProtectedItemExtendedInfo) *AzureSqlProtectedItemExtendedInfo {
 		return &v
 	}).(AzureSqlProtectedItemExtendedInfoPtrOutput)
 }
 
-// The oldest backup copy available for this item in the service.
 func (o AzureSqlProtectedItemExtendedInfoOutput) OldestRecoveryPoint() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AzureSqlProtectedItemExtendedInfo) *string { return v.OldestRecoveryPoint }).(pulumi.StringPtrOutput)
 }
 
-// State of the backup policy associated with this backup item.
 func (o AzureSqlProtectedItemExtendedInfoOutput) PolicyState() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AzureSqlProtectedItemExtendedInfo) *string { return v.PolicyState }).(pulumi.StringPtrOutput)
 }
 
-// Number of available backup copies associated with this backup item.
 func (o AzureSqlProtectedItemExtendedInfoOutput) RecoveryPointCount() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v AzureSqlProtectedItemExtendedInfo) *int { return v.RecoveryPointCount }).(pulumi.IntPtrOutput)
 }
@@ -3385,10 +2620,15 @@ func (o AzureSqlProtectedItemExtendedInfoPtrOutput) ToAzureSqlProtectedItemExten
 }
 
 func (o AzureSqlProtectedItemExtendedInfoPtrOutput) Elem() AzureSqlProtectedItemExtendedInfoOutput {
-	return o.ApplyT(func(v *AzureSqlProtectedItemExtendedInfo) AzureSqlProtectedItemExtendedInfo { return *v }).(AzureSqlProtectedItemExtendedInfoOutput)
+	return o.ApplyT(func(v *AzureSqlProtectedItemExtendedInfo) AzureSqlProtectedItemExtendedInfo {
+		if v != nil {
+			return *v
+		}
+		var ret AzureSqlProtectedItemExtendedInfo
+		return ret
+	}).(AzureSqlProtectedItemExtendedInfoOutput)
 }
 
-// The oldest backup copy available for this item in the service.
 func (o AzureSqlProtectedItemExtendedInfoPtrOutput) OldestRecoveryPoint() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *AzureSqlProtectedItemExtendedInfo) *string {
 		if v == nil {
@@ -3398,7 +2638,6 @@ func (o AzureSqlProtectedItemExtendedInfoPtrOutput) OldestRecoveryPoint() pulumi
 	}).(pulumi.StringPtrOutput)
 }
 
-// State of the backup policy associated with this backup item.
 func (o AzureSqlProtectedItemExtendedInfoPtrOutput) PolicyState() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *AzureSqlProtectedItemExtendedInfo) *string {
 		if v == nil {
@@ -3408,7 +2647,6 @@ func (o AzureSqlProtectedItemExtendedInfoPtrOutput) PolicyState() pulumi.StringP
 	}).(pulumi.StringPtrOutput)
 }
 
-// Number of available backup copies associated with this backup item.
 func (o AzureSqlProtectedItemExtendedInfoPtrOutput) RecoveryPointCount() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *AzureSqlProtectedItemExtendedInfo) *int {
 		if v == nil {
@@ -3418,14 +2656,10 @@ func (o AzureSqlProtectedItemExtendedInfoPtrOutput) RecoveryPointCount() pulumi.
 	}).(pulumi.IntPtrOutput)
 }
 
-// Additional information on Azure Sql specific protected item.
 type AzureSqlProtectedItemExtendedInfoResponse struct {
-	// The oldest backup copy available for this item in the service.
 	OldestRecoveryPoint *string `pulumi:"oldestRecoveryPoint"`
-	// State of the backup policy associated with this backup item.
-	PolicyState *string `pulumi:"policyState"`
-	// Number of available backup copies associated with this backup item.
-	RecoveryPointCount *int `pulumi:"recoveryPointCount"`
+	PolicyState         *string `pulumi:"policyState"`
+	RecoveryPointCount  *int    `pulumi:"recoveryPointCount"`
 }
 
 // AzureSqlProtectedItemExtendedInfoResponseInput is an input type that accepts AzureSqlProtectedItemExtendedInfoResponseArgs and AzureSqlProtectedItemExtendedInfoResponseOutput values.
@@ -3439,14 +2673,10 @@ type AzureSqlProtectedItemExtendedInfoResponseInput interface {
 	ToAzureSqlProtectedItemExtendedInfoResponseOutputWithContext(context.Context) AzureSqlProtectedItemExtendedInfoResponseOutput
 }
 
-// Additional information on Azure Sql specific protected item.
 type AzureSqlProtectedItemExtendedInfoResponseArgs struct {
-	// The oldest backup copy available for this item in the service.
 	OldestRecoveryPoint pulumi.StringPtrInput `pulumi:"oldestRecoveryPoint"`
-	// State of the backup policy associated with this backup item.
-	PolicyState pulumi.StringPtrInput `pulumi:"policyState"`
-	// Number of available backup copies associated with this backup item.
-	RecoveryPointCount pulumi.IntPtrInput `pulumi:"recoveryPointCount"`
+	PolicyState         pulumi.StringPtrInput `pulumi:"policyState"`
+	RecoveryPointCount  pulumi.IntPtrInput    `pulumi:"recoveryPointCount"`
 }
 
 func (AzureSqlProtectedItemExtendedInfoResponseArgs) ElementType() reflect.Type {
@@ -3502,7 +2732,6 @@ func (i *azureSqlProtectedItemExtendedInfoResponsePtrType) ToAzureSqlProtectedIt
 	return pulumi.ToOutputWithContext(ctx, i).(AzureSqlProtectedItemExtendedInfoResponsePtrOutput)
 }
 
-// Additional information on Azure Sql specific protected item.
 type AzureSqlProtectedItemExtendedInfoResponseOutput struct{ *pulumi.OutputState }
 
 func (AzureSqlProtectedItemExtendedInfoResponseOutput) ElementType() reflect.Type {
@@ -3522,22 +2751,19 @@ func (o AzureSqlProtectedItemExtendedInfoResponseOutput) ToAzureSqlProtectedItem
 }
 
 func (o AzureSqlProtectedItemExtendedInfoResponseOutput) ToAzureSqlProtectedItemExtendedInfoResponsePtrOutputWithContext(ctx context.Context) AzureSqlProtectedItemExtendedInfoResponsePtrOutput {
-	return o.ApplyT(func(v AzureSqlProtectedItemExtendedInfoResponse) *AzureSqlProtectedItemExtendedInfoResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v AzureSqlProtectedItemExtendedInfoResponse) *AzureSqlProtectedItemExtendedInfoResponse {
 		return &v
 	}).(AzureSqlProtectedItemExtendedInfoResponsePtrOutput)
 }
 
-// The oldest backup copy available for this item in the service.
 func (o AzureSqlProtectedItemExtendedInfoResponseOutput) OldestRecoveryPoint() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AzureSqlProtectedItemExtendedInfoResponse) *string { return v.OldestRecoveryPoint }).(pulumi.StringPtrOutput)
 }
 
-// State of the backup policy associated with this backup item.
 func (o AzureSqlProtectedItemExtendedInfoResponseOutput) PolicyState() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AzureSqlProtectedItemExtendedInfoResponse) *string { return v.PolicyState }).(pulumi.StringPtrOutput)
 }
 
-// Number of available backup copies associated with this backup item.
 func (o AzureSqlProtectedItemExtendedInfoResponseOutput) RecoveryPointCount() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v AzureSqlProtectedItemExtendedInfoResponse) *int { return v.RecoveryPointCount }).(pulumi.IntPtrOutput)
 }
@@ -3558,11 +2784,14 @@ func (o AzureSqlProtectedItemExtendedInfoResponsePtrOutput) ToAzureSqlProtectedI
 
 func (o AzureSqlProtectedItemExtendedInfoResponsePtrOutput) Elem() AzureSqlProtectedItemExtendedInfoResponseOutput {
 	return o.ApplyT(func(v *AzureSqlProtectedItemExtendedInfoResponse) AzureSqlProtectedItemExtendedInfoResponse {
-		return *v
+		if v != nil {
+			return *v
+		}
+		var ret AzureSqlProtectedItemExtendedInfoResponse
+		return ret
 	}).(AzureSqlProtectedItemExtendedInfoResponseOutput)
 }
 
-// The oldest backup copy available for this item in the service.
 func (o AzureSqlProtectedItemExtendedInfoResponsePtrOutput) OldestRecoveryPoint() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *AzureSqlProtectedItemExtendedInfoResponse) *string {
 		if v == nil {
@@ -3572,7 +2801,6 @@ func (o AzureSqlProtectedItemExtendedInfoResponsePtrOutput) OldestRecoveryPoint(
 	}).(pulumi.StringPtrOutput)
 }
 
-// State of the backup policy associated with this backup item.
 func (o AzureSqlProtectedItemExtendedInfoResponsePtrOutput) PolicyState() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *AzureSqlProtectedItemExtendedInfoResponse) *string {
 		if v == nil {
@@ -3582,7 +2810,6 @@ func (o AzureSqlProtectedItemExtendedInfoResponsePtrOutput) PolicyState() pulumi
 	}).(pulumi.StringPtrOutput)
 }
 
-// Number of available backup copies associated with this backup item.
 func (o AzureSqlProtectedItemExtendedInfoResponsePtrOutput) RecoveryPointCount() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *AzureSqlProtectedItemExtendedInfoResponse) *int {
 		if v == nil {
@@ -3592,43 +2819,24 @@ func (o AzureSqlProtectedItemExtendedInfoResponsePtrOutput) RecoveryPointCount()
 	}).(pulumi.IntPtrOutput)
 }
 
-// Azure SQL workload-specific backup item.
 type AzureSqlProtectedItemResponse struct {
-	// Type of backup management for the backed up item.
-	BackupManagementType *string `pulumi:"backupManagementType"`
-	// Name of the backup set the backup item belongs to
-	BackupSetName *string `pulumi:"backupSetName"`
-	// Unique name of container
-	ContainerName *string `pulumi:"containerName"`
-	// Create mode to indicate recovery of existing soft deleted data source or creation of new data source.
-	CreateMode *string `pulumi:"createMode"`
-	// Time for deferred deletion in UTC
-	DeferredDeleteTimeInUTC *string `pulumi:"deferredDeleteTimeInUTC"`
-	// Time remaining before the DS marked for deferred delete is permanently deleted
-	DeferredDeleteTimeRemaining *string `pulumi:"deferredDeleteTimeRemaining"`
-	// Additional information for this backup item.
-	ExtendedInfo *AzureSqlProtectedItemExtendedInfoResponse `pulumi:"extendedInfo"`
-	// Flag to identify whether the deferred deleted DS is to be purged soon
-	IsDeferredDeleteScheduleUpcoming *bool `pulumi:"isDeferredDeleteScheduleUpcoming"`
-	// Flag to identify that deferred deleted DS is to be moved into Pause state
-	IsRehydrate *bool `pulumi:"isRehydrate"`
-	// Flag to identify whether the DS is scheduled for deferred delete
-	IsScheduledForDeferredDelete *bool `pulumi:"isScheduledForDeferredDelete"`
-	// Timestamp when the last (latest) backup copy was created for this backup item.
-	LastRecoveryPoint *string `pulumi:"lastRecoveryPoint"`
-	// ID of the backup policy with which this item is backed up.
-	PolicyId *string `pulumi:"policyId"`
-	// Internal ID of a backup item. Used by Azure SQL Backup engine to contact Recovery Services.
-	ProtectedItemDataId *string `pulumi:"protectedItemDataId"`
-	// backup item type.
-	// Expected value is 'Microsoft.Sql/servers/databases'.
-	ProtectedItemType string `pulumi:"protectedItemType"`
-	// Backup state of the backed up item.
-	ProtectionState *string `pulumi:"protectionState"`
-	// ARM ID of the resource to be backed up.
-	SourceResourceId *string `pulumi:"sourceResourceId"`
-	// Type of workload this item represents.
-	WorkloadType *string `pulumi:"workloadType"`
+	BackupManagementType             *string                                    `pulumi:"backupManagementType"`
+	BackupSetName                    *string                                    `pulumi:"backupSetName"`
+	ContainerName                    *string                                    `pulumi:"containerName"`
+	CreateMode                       *string                                    `pulumi:"createMode"`
+	DeferredDeleteTimeInUTC          *string                                    `pulumi:"deferredDeleteTimeInUTC"`
+	DeferredDeleteTimeRemaining      *string                                    `pulumi:"deferredDeleteTimeRemaining"`
+	ExtendedInfo                     *AzureSqlProtectedItemExtendedInfoResponse `pulumi:"extendedInfo"`
+	IsDeferredDeleteScheduleUpcoming *bool                                      `pulumi:"isDeferredDeleteScheduleUpcoming"`
+	IsRehydrate                      *bool                                      `pulumi:"isRehydrate"`
+	IsScheduledForDeferredDelete     *bool                                      `pulumi:"isScheduledForDeferredDelete"`
+	LastRecoveryPoint                *string                                    `pulumi:"lastRecoveryPoint"`
+	PolicyId                         *string                                    `pulumi:"policyId"`
+	ProtectedItemDataId              *string                                    `pulumi:"protectedItemDataId"`
+	ProtectedItemType                string                                     `pulumi:"protectedItemType"`
+	ProtectionState                  *string                                    `pulumi:"protectionState"`
+	SourceResourceId                 *string                                    `pulumi:"sourceResourceId"`
+	WorkloadType                     *string                                    `pulumi:"workloadType"`
 }
 
 // AzureSqlProtectedItemResponseInput is an input type that accepts AzureSqlProtectedItemResponseArgs and AzureSqlProtectedItemResponseOutput values.
@@ -3642,43 +2850,24 @@ type AzureSqlProtectedItemResponseInput interface {
 	ToAzureSqlProtectedItemResponseOutputWithContext(context.Context) AzureSqlProtectedItemResponseOutput
 }
 
-// Azure SQL workload-specific backup item.
 type AzureSqlProtectedItemResponseArgs struct {
-	// Type of backup management for the backed up item.
-	BackupManagementType pulumi.StringPtrInput `pulumi:"backupManagementType"`
-	// Name of the backup set the backup item belongs to
-	BackupSetName pulumi.StringPtrInput `pulumi:"backupSetName"`
-	// Unique name of container
-	ContainerName pulumi.StringPtrInput `pulumi:"containerName"`
-	// Create mode to indicate recovery of existing soft deleted data source or creation of new data source.
-	CreateMode pulumi.StringPtrInput `pulumi:"createMode"`
-	// Time for deferred deletion in UTC
-	DeferredDeleteTimeInUTC pulumi.StringPtrInput `pulumi:"deferredDeleteTimeInUTC"`
-	// Time remaining before the DS marked for deferred delete is permanently deleted
-	DeferredDeleteTimeRemaining pulumi.StringPtrInput `pulumi:"deferredDeleteTimeRemaining"`
-	// Additional information for this backup item.
-	ExtendedInfo AzureSqlProtectedItemExtendedInfoResponsePtrInput `pulumi:"extendedInfo"`
-	// Flag to identify whether the deferred deleted DS is to be purged soon
-	IsDeferredDeleteScheduleUpcoming pulumi.BoolPtrInput `pulumi:"isDeferredDeleteScheduleUpcoming"`
-	// Flag to identify that deferred deleted DS is to be moved into Pause state
-	IsRehydrate pulumi.BoolPtrInput `pulumi:"isRehydrate"`
-	// Flag to identify whether the DS is scheduled for deferred delete
-	IsScheduledForDeferredDelete pulumi.BoolPtrInput `pulumi:"isScheduledForDeferredDelete"`
-	// Timestamp when the last (latest) backup copy was created for this backup item.
-	LastRecoveryPoint pulumi.StringPtrInput `pulumi:"lastRecoveryPoint"`
-	// ID of the backup policy with which this item is backed up.
-	PolicyId pulumi.StringPtrInput `pulumi:"policyId"`
-	// Internal ID of a backup item. Used by Azure SQL Backup engine to contact Recovery Services.
-	ProtectedItemDataId pulumi.StringPtrInput `pulumi:"protectedItemDataId"`
-	// backup item type.
-	// Expected value is 'Microsoft.Sql/servers/databases'.
-	ProtectedItemType pulumi.StringInput `pulumi:"protectedItemType"`
-	// Backup state of the backed up item.
-	ProtectionState pulumi.StringPtrInput `pulumi:"protectionState"`
-	// ARM ID of the resource to be backed up.
-	SourceResourceId pulumi.StringPtrInput `pulumi:"sourceResourceId"`
-	// Type of workload this item represents.
-	WorkloadType pulumi.StringPtrInput `pulumi:"workloadType"`
+	BackupManagementType             pulumi.StringPtrInput                             `pulumi:"backupManagementType"`
+	BackupSetName                    pulumi.StringPtrInput                             `pulumi:"backupSetName"`
+	ContainerName                    pulumi.StringPtrInput                             `pulumi:"containerName"`
+	CreateMode                       pulumi.StringPtrInput                             `pulumi:"createMode"`
+	DeferredDeleteTimeInUTC          pulumi.StringPtrInput                             `pulumi:"deferredDeleteTimeInUTC"`
+	DeferredDeleteTimeRemaining      pulumi.StringPtrInput                             `pulumi:"deferredDeleteTimeRemaining"`
+	ExtendedInfo                     AzureSqlProtectedItemExtendedInfoResponsePtrInput `pulumi:"extendedInfo"`
+	IsDeferredDeleteScheduleUpcoming pulumi.BoolPtrInput                               `pulumi:"isDeferredDeleteScheduleUpcoming"`
+	IsRehydrate                      pulumi.BoolPtrInput                               `pulumi:"isRehydrate"`
+	IsScheduledForDeferredDelete     pulumi.BoolPtrInput                               `pulumi:"isScheduledForDeferredDelete"`
+	LastRecoveryPoint                pulumi.StringPtrInput                             `pulumi:"lastRecoveryPoint"`
+	PolicyId                         pulumi.StringPtrInput                             `pulumi:"policyId"`
+	ProtectedItemDataId              pulumi.StringPtrInput                             `pulumi:"protectedItemDataId"`
+	ProtectedItemType                pulumi.StringInput                                `pulumi:"protectedItemType"`
+	ProtectionState                  pulumi.StringPtrInput                             `pulumi:"protectionState"`
+	SourceResourceId                 pulumi.StringPtrInput                             `pulumi:"sourceResourceId"`
+	WorkloadType                     pulumi.StringPtrInput                             `pulumi:"workloadType"`
 }
 
 func (AzureSqlProtectedItemResponseArgs) ElementType() reflect.Type {
@@ -3693,7 +2882,6 @@ func (i AzureSqlProtectedItemResponseArgs) ToAzureSqlProtectedItemResponseOutput
 	return pulumi.ToOutputWithContext(ctx, i).(AzureSqlProtectedItemResponseOutput)
 }
 
-// Azure SQL workload-specific backup item.
 type AzureSqlProtectedItemResponseOutput struct{ *pulumi.OutputState }
 
 func (AzureSqlProtectedItemResponseOutput) ElementType() reflect.Type {
@@ -3708,149 +2896,103 @@ func (o AzureSqlProtectedItemResponseOutput) ToAzureSqlProtectedItemResponseOutp
 	return o
 }
 
-// Type of backup management for the backed up item.
 func (o AzureSqlProtectedItemResponseOutput) BackupManagementType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AzureSqlProtectedItemResponse) *string { return v.BackupManagementType }).(pulumi.StringPtrOutput)
 }
 
-// Name of the backup set the backup item belongs to
 func (o AzureSqlProtectedItemResponseOutput) BackupSetName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AzureSqlProtectedItemResponse) *string { return v.BackupSetName }).(pulumi.StringPtrOutput)
 }
 
-// Unique name of container
 func (o AzureSqlProtectedItemResponseOutput) ContainerName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AzureSqlProtectedItemResponse) *string { return v.ContainerName }).(pulumi.StringPtrOutput)
 }
 
-// Create mode to indicate recovery of existing soft deleted data source or creation of new data source.
 func (o AzureSqlProtectedItemResponseOutput) CreateMode() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AzureSqlProtectedItemResponse) *string { return v.CreateMode }).(pulumi.StringPtrOutput)
 }
 
-// Time for deferred deletion in UTC
 func (o AzureSqlProtectedItemResponseOutput) DeferredDeleteTimeInUTC() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AzureSqlProtectedItemResponse) *string { return v.DeferredDeleteTimeInUTC }).(pulumi.StringPtrOutput)
 }
 
-// Time remaining before the DS marked for deferred delete is permanently deleted
 func (o AzureSqlProtectedItemResponseOutput) DeferredDeleteTimeRemaining() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AzureSqlProtectedItemResponse) *string { return v.DeferredDeleteTimeRemaining }).(pulumi.StringPtrOutput)
 }
 
-// Additional information for this backup item.
 func (o AzureSqlProtectedItemResponseOutput) ExtendedInfo() AzureSqlProtectedItemExtendedInfoResponsePtrOutput {
 	return o.ApplyT(func(v AzureSqlProtectedItemResponse) *AzureSqlProtectedItemExtendedInfoResponse {
 		return v.ExtendedInfo
 	}).(AzureSqlProtectedItemExtendedInfoResponsePtrOutput)
 }
 
-// Flag to identify whether the deferred deleted DS is to be purged soon
 func (o AzureSqlProtectedItemResponseOutput) IsDeferredDeleteScheduleUpcoming() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v AzureSqlProtectedItemResponse) *bool { return v.IsDeferredDeleteScheduleUpcoming }).(pulumi.BoolPtrOutput)
 }
 
-// Flag to identify that deferred deleted DS is to be moved into Pause state
 func (o AzureSqlProtectedItemResponseOutput) IsRehydrate() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v AzureSqlProtectedItemResponse) *bool { return v.IsRehydrate }).(pulumi.BoolPtrOutput)
 }
 
-// Flag to identify whether the DS is scheduled for deferred delete
 func (o AzureSqlProtectedItemResponseOutput) IsScheduledForDeferredDelete() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v AzureSqlProtectedItemResponse) *bool { return v.IsScheduledForDeferredDelete }).(pulumi.BoolPtrOutput)
 }
 
-// Timestamp when the last (latest) backup copy was created for this backup item.
 func (o AzureSqlProtectedItemResponseOutput) LastRecoveryPoint() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AzureSqlProtectedItemResponse) *string { return v.LastRecoveryPoint }).(pulumi.StringPtrOutput)
 }
 
-// ID of the backup policy with which this item is backed up.
 func (o AzureSqlProtectedItemResponseOutput) PolicyId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AzureSqlProtectedItemResponse) *string { return v.PolicyId }).(pulumi.StringPtrOutput)
 }
 
-// Internal ID of a backup item. Used by Azure SQL Backup engine to contact Recovery Services.
 func (o AzureSqlProtectedItemResponseOutput) ProtectedItemDataId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AzureSqlProtectedItemResponse) *string { return v.ProtectedItemDataId }).(pulumi.StringPtrOutput)
 }
 
-// backup item type.
-// Expected value is 'Microsoft.Sql/servers/databases'.
 func (o AzureSqlProtectedItemResponseOutput) ProtectedItemType() pulumi.StringOutput {
 	return o.ApplyT(func(v AzureSqlProtectedItemResponse) string { return v.ProtectedItemType }).(pulumi.StringOutput)
 }
 
-// Backup state of the backed up item.
 func (o AzureSqlProtectedItemResponseOutput) ProtectionState() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AzureSqlProtectedItemResponse) *string { return v.ProtectionState }).(pulumi.StringPtrOutput)
 }
 
-// ARM ID of the resource to be backed up.
 func (o AzureSqlProtectedItemResponseOutput) SourceResourceId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AzureSqlProtectedItemResponse) *string { return v.SourceResourceId }).(pulumi.StringPtrOutput)
 }
 
-// Type of workload this item represents.
 func (o AzureSqlProtectedItemResponseOutput) WorkloadType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AzureSqlProtectedItemResponse) *string { return v.WorkloadType }).(pulumi.StringPtrOutput)
 }
 
-// Azure VM workload-specific protected item.
 type AzureVmWorkloadProtectedItem struct {
-	// Type of backup management for the backed up item.
-	BackupManagementType *string `pulumi:"backupManagementType"`
-	// Name of the backup set the backup item belongs to
-	BackupSetName *string `pulumi:"backupSetName"`
-	// Unique name of container
-	ContainerName *string `pulumi:"containerName"`
-	// Create mode to indicate recovery of existing soft deleted data source or creation of new data source.
-	CreateMode *string `pulumi:"createMode"`
-	// Time for deferred deletion in UTC
-	DeferredDeleteTimeInUTC *string `pulumi:"deferredDeleteTimeInUTC"`
-	// Time remaining before the DS marked for deferred delete is permanently deleted
-	DeferredDeleteTimeRemaining *string `pulumi:"deferredDeleteTimeRemaining"`
-	// Additional information for this backup item.
-	ExtendedInfo *AzureVmWorkloadProtectedItemExtendedInfo `pulumi:"extendedInfo"`
-	// Friendly name of the DB represented by this backup item.
-	FriendlyName *string `pulumi:"friendlyName"`
-	// Flag to identify whether the deferred deleted DS is to be purged soon
-	IsDeferredDeleteScheduleUpcoming *bool `pulumi:"isDeferredDeleteScheduleUpcoming"`
-	// Flag to identify that deferred deleted DS is to be moved into Pause state
-	IsRehydrate *bool `pulumi:"isRehydrate"`
-	// Flag to identify whether the DS is scheduled for deferred delete
-	IsScheduledForDeferredDelete *bool `pulumi:"isScheduledForDeferredDelete"`
-	// Health details of different KPIs
-	KpisHealths map[string]KPIResourceHealthDetails `pulumi:"kpisHealths"`
-	// Last backup operation status. Possible values: Healthy, Unhealthy.
-	LastBackupStatus *string `pulumi:"lastBackupStatus"`
-	// Timestamp of the last backup operation on this backup item.
-	LastBackupTime *string `pulumi:"lastBackupTime"`
-	// Timestamp when the last (latest) backup copy was created for this backup item.
-	LastRecoveryPoint *string `pulumi:"lastRecoveryPoint"`
-	// Parent name of the DB such as Instance or Availability Group.
-	ParentName *string `pulumi:"parentName"`
-	// Parent type of protected item, example: for a DB, standalone server or distributed
-	ParentType *string `pulumi:"parentType"`
-	// ID of the backup policy with which this item is backed up.
-	PolicyId *string `pulumi:"policyId"`
-	// Data ID of the protected item.
-	ProtectedItemDataSourceId *string `pulumi:"protectedItemDataSourceId"`
-	// Health status of the backup item, evaluated based on last heartbeat received
-	ProtectedItemHealthStatus *string `pulumi:"protectedItemHealthStatus"`
-	// backup item type.
-	// Expected value is 'AzureVmWorkloadProtectedItem'.
-	ProtectedItemType string `pulumi:"protectedItemType"`
-	// Backup state of this backup item.
-	ProtectionState *string `pulumi:"protectionState"`
-	// Backup status of this backup item.
-	ProtectionStatus *string `pulumi:"protectionStatus"`
-	// Host/Cluster Name for instance or AG
-	ServerName *string `pulumi:"serverName"`
-	// ARM ID of the resource to be backed up.
-	SourceResourceId *string `pulumi:"sourceResourceId"`
-	// Type of workload this item represents.
-	WorkloadType *string `pulumi:"workloadType"`
+	BackupManagementType             *string                                   `pulumi:"backupManagementType"`
+	BackupSetName                    *string                                   `pulumi:"backupSetName"`
+	ContainerName                    *string                                   `pulumi:"containerName"`
+	CreateMode                       *string                                   `pulumi:"createMode"`
+	DeferredDeleteTimeInUTC          *string                                   `pulumi:"deferredDeleteTimeInUTC"`
+	DeferredDeleteTimeRemaining      *string                                   `pulumi:"deferredDeleteTimeRemaining"`
+	ExtendedInfo                     *AzureVmWorkloadProtectedItemExtendedInfo `pulumi:"extendedInfo"`
+	FriendlyName                     *string                                   `pulumi:"friendlyName"`
+	IsDeferredDeleteScheduleUpcoming *bool                                     `pulumi:"isDeferredDeleteScheduleUpcoming"`
+	IsRehydrate                      *bool                                     `pulumi:"isRehydrate"`
+	IsScheduledForDeferredDelete     *bool                                     `pulumi:"isScheduledForDeferredDelete"`
+	KpisHealths                      map[string]KPIResourceHealthDetails       `pulumi:"kpisHealths"`
+	LastBackupStatus                 *string                                   `pulumi:"lastBackupStatus"`
+	LastBackupTime                   *string                                   `pulumi:"lastBackupTime"`
+	LastRecoveryPoint                *string                                   `pulumi:"lastRecoveryPoint"`
+	ParentName                       *string                                   `pulumi:"parentName"`
+	ParentType                       *string                                   `pulumi:"parentType"`
+	PolicyId                         *string                                   `pulumi:"policyId"`
+	ProtectedItemDataSourceId        *string                                   `pulumi:"protectedItemDataSourceId"`
+	ProtectedItemHealthStatus        *string                                   `pulumi:"protectedItemHealthStatus"`
+	ProtectedItemType                string                                    `pulumi:"protectedItemType"`
+	ProtectionState                  *string                                   `pulumi:"protectionState"`
+	ProtectionStatus                 *string                                   `pulumi:"protectionStatus"`
+	ServerName                       *string                                   `pulumi:"serverName"`
+	SourceResourceId                 *string                                   `pulumi:"sourceResourceId"`
+	WorkloadType                     *string                                   `pulumi:"workloadType"`
 }
 
 // AzureVmWorkloadProtectedItemInput is an input type that accepts AzureVmWorkloadProtectedItemArgs and AzureVmWorkloadProtectedItemOutput values.
@@ -3864,61 +3006,33 @@ type AzureVmWorkloadProtectedItemInput interface {
 	ToAzureVmWorkloadProtectedItemOutputWithContext(context.Context) AzureVmWorkloadProtectedItemOutput
 }
 
-// Azure VM workload-specific protected item.
 type AzureVmWorkloadProtectedItemArgs struct {
-	// Type of backup management for the backed up item.
-	BackupManagementType pulumi.StringPtrInput `pulumi:"backupManagementType"`
-	// Name of the backup set the backup item belongs to
-	BackupSetName pulumi.StringPtrInput `pulumi:"backupSetName"`
-	// Unique name of container
-	ContainerName pulumi.StringPtrInput `pulumi:"containerName"`
-	// Create mode to indicate recovery of existing soft deleted data source or creation of new data source.
-	CreateMode pulumi.StringPtrInput `pulumi:"createMode"`
-	// Time for deferred deletion in UTC
-	DeferredDeleteTimeInUTC pulumi.StringPtrInput `pulumi:"deferredDeleteTimeInUTC"`
-	// Time remaining before the DS marked for deferred delete is permanently deleted
-	DeferredDeleteTimeRemaining pulumi.StringPtrInput `pulumi:"deferredDeleteTimeRemaining"`
-	// Additional information for this backup item.
-	ExtendedInfo AzureVmWorkloadProtectedItemExtendedInfoPtrInput `pulumi:"extendedInfo"`
-	// Friendly name of the DB represented by this backup item.
-	FriendlyName pulumi.StringPtrInput `pulumi:"friendlyName"`
-	// Flag to identify whether the deferred deleted DS is to be purged soon
-	IsDeferredDeleteScheduleUpcoming pulumi.BoolPtrInput `pulumi:"isDeferredDeleteScheduleUpcoming"`
-	// Flag to identify that deferred deleted DS is to be moved into Pause state
-	IsRehydrate pulumi.BoolPtrInput `pulumi:"isRehydrate"`
-	// Flag to identify whether the DS is scheduled for deferred delete
-	IsScheduledForDeferredDelete pulumi.BoolPtrInput `pulumi:"isScheduledForDeferredDelete"`
-	// Health details of different KPIs
-	KpisHealths KPIResourceHealthDetailsMapInput `pulumi:"kpisHealths"`
-	// Last backup operation status. Possible values: Healthy, Unhealthy.
-	LastBackupStatus pulumi.StringPtrInput `pulumi:"lastBackupStatus"`
-	// Timestamp of the last backup operation on this backup item.
-	LastBackupTime pulumi.StringPtrInput `pulumi:"lastBackupTime"`
-	// Timestamp when the last (latest) backup copy was created for this backup item.
-	LastRecoveryPoint pulumi.StringPtrInput `pulumi:"lastRecoveryPoint"`
-	// Parent name of the DB such as Instance or Availability Group.
-	ParentName pulumi.StringPtrInput `pulumi:"parentName"`
-	// Parent type of protected item, example: for a DB, standalone server or distributed
-	ParentType pulumi.StringPtrInput `pulumi:"parentType"`
-	// ID of the backup policy with which this item is backed up.
-	PolicyId pulumi.StringPtrInput `pulumi:"policyId"`
-	// Data ID of the protected item.
-	ProtectedItemDataSourceId pulumi.StringPtrInput `pulumi:"protectedItemDataSourceId"`
-	// Health status of the backup item, evaluated based on last heartbeat received
-	ProtectedItemHealthStatus pulumi.StringPtrInput `pulumi:"protectedItemHealthStatus"`
-	// backup item type.
-	// Expected value is 'AzureVmWorkloadProtectedItem'.
-	ProtectedItemType pulumi.StringInput `pulumi:"protectedItemType"`
-	// Backup state of this backup item.
-	ProtectionState pulumi.StringPtrInput `pulumi:"protectionState"`
-	// Backup status of this backup item.
-	ProtectionStatus pulumi.StringPtrInput `pulumi:"protectionStatus"`
-	// Host/Cluster Name for instance or AG
-	ServerName pulumi.StringPtrInput `pulumi:"serverName"`
-	// ARM ID of the resource to be backed up.
-	SourceResourceId pulumi.StringPtrInput `pulumi:"sourceResourceId"`
-	// Type of workload this item represents.
-	WorkloadType pulumi.StringPtrInput `pulumi:"workloadType"`
+	BackupManagementType             pulumi.StringPtrInput                            `pulumi:"backupManagementType"`
+	BackupSetName                    pulumi.StringPtrInput                            `pulumi:"backupSetName"`
+	ContainerName                    pulumi.StringPtrInput                            `pulumi:"containerName"`
+	CreateMode                       pulumi.StringPtrInput                            `pulumi:"createMode"`
+	DeferredDeleteTimeInUTC          pulumi.StringPtrInput                            `pulumi:"deferredDeleteTimeInUTC"`
+	DeferredDeleteTimeRemaining      pulumi.StringPtrInput                            `pulumi:"deferredDeleteTimeRemaining"`
+	ExtendedInfo                     AzureVmWorkloadProtectedItemExtendedInfoPtrInput `pulumi:"extendedInfo"`
+	FriendlyName                     pulumi.StringPtrInput                            `pulumi:"friendlyName"`
+	IsDeferredDeleteScheduleUpcoming pulumi.BoolPtrInput                              `pulumi:"isDeferredDeleteScheduleUpcoming"`
+	IsRehydrate                      pulumi.BoolPtrInput                              `pulumi:"isRehydrate"`
+	IsScheduledForDeferredDelete     pulumi.BoolPtrInput                              `pulumi:"isScheduledForDeferredDelete"`
+	KpisHealths                      KPIResourceHealthDetailsMapInput                 `pulumi:"kpisHealths"`
+	LastBackupStatus                 pulumi.StringPtrInput                            `pulumi:"lastBackupStatus"`
+	LastBackupTime                   pulumi.StringPtrInput                            `pulumi:"lastBackupTime"`
+	LastRecoveryPoint                pulumi.StringPtrInput                            `pulumi:"lastRecoveryPoint"`
+	ParentName                       pulumi.StringPtrInput                            `pulumi:"parentName"`
+	ParentType                       pulumi.StringPtrInput                            `pulumi:"parentType"`
+	PolicyId                         pulumi.StringPtrInput                            `pulumi:"policyId"`
+	ProtectedItemDataSourceId        pulumi.StringPtrInput                            `pulumi:"protectedItemDataSourceId"`
+	ProtectedItemHealthStatus        pulumi.StringPtrInput                            `pulumi:"protectedItemHealthStatus"`
+	ProtectedItemType                pulumi.StringInput                               `pulumi:"protectedItemType"`
+	ProtectionState                  pulumi.StringPtrInput                            `pulumi:"protectionState"`
+	ProtectionStatus                 pulumi.StringPtrInput                            `pulumi:"protectionStatus"`
+	ServerName                       pulumi.StringPtrInput                            `pulumi:"serverName"`
+	SourceResourceId                 pulumi.StringPtrInput                            `pulumi:"sourceResourceId"`
+	WorkloadType                     pulumi.StringPtrInput                            `pulumi:"workloadType"`
 }
 
 func (AzureVmWorkloadProtectedItemArgs) ElementType() reflect.Type {
@@ -3933,7 +3047,6 @@ func (i AzureVmWorkloadProtectedItemArgs) ToAzureVmWorkloadProtectedItemOutputWi
 	return pulumi.ToOutputWithContext(ctx, i).(AzureVmWorkloadProtectedItemOutput)
 }
 
-// Azure VM workload-specific protected item.
 type AzureVmWorkloadProtectedItemOutput struct{ *pulumi.OutputState }
 
 func (AzureVmWorkloadProtectedItemOutput) ElementType() reflect.Type {
@@ -3948,145 +3061,114 @@ func (o AzureVmWorkloadProtectedItemOutput) ToAzureVmWorkloadProtectedItemOutput
 	return o
 }
 
-// Type of backup management for the backed up item.
 func (o AzureVmWorkloadProtectedItemOutput) BackupManagementType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AzureVmWorkloadProtectedItem) *string { return v.BackupManagementType }).(pulumi.StringPtrOutput)
 }
 
-// Name of the backup set the backup item belongs to
 func (o AzureVmWorkloadProtectedItemOutput) BackupSetName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AzureVmWorkloadProtectedItem) *string { return v.BackupSetName }).(pulumi.StringPtrOutput)
 }
 
-// Unique name of container
 func (o AzureVmWorkloadProtectedItemOutput) ContainerName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AzureVmWorkloadProtectedItem) *string { return v.ContainerName }).(pulumi.StringPtrOutput)
 }
 
-// Create mode to indicate recovery of existing soft deleted data source or creation of new data source.
 func (o AzureVmWorkloadProtectedItemOutput) CreateMode() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AzureVmWorkloadProtectedItem) *string { return v.CreateMode }).(pulumi.StringPtrOutput)
 }
 
-// Time for deferred deletion in UTC
 func (o AzureVmWorkloadProtectedItemOutput) DeferredDeleteTimeInUTC() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AzureVmWorkloadProtectedItem) *string { return v.DeferredDeleteTimeInUTC }).(pulumi.StringPtrOutput)
 }
 
-// Time remaining before the DS marked for deferred delete is permanently deleted
 func (o AzureVmWorkloadProtectedItemOutput) DeferredDeleteTimeRemaining() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AzureVmWorkloadProtectedItem) *string { return v.DeferredDeleteTimeRemaining }).(pulumi.StringPtrOutput)
 }
 
-// Additional information for this backup item.
 func (o AzureVmWorkloadProtectedItemOutput) ExtendedInfo() AzureVmWorkloadProtectedItemExtendedInfoPtrOutput {
 	return o.ApplyT(func(v AzureVmWorkloadProtectedItem) *AzureVmWorkloadProtectedItemExtendedInfo { return v.ExtendedInfo }).(AzureVmWorkloadProtectedItemExtendedInfoPtrOutput)
 }
 
-// Friendly name of the DB represented by this backup item.
 func (o AzureVmWorkloadProtectedItemOutput) FriendlyName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AzureVmWorkloadProtectedItem) *string { return v.FriendlyName }).(pulumi.StringPtrOutput)
 }
 
-// Flag to identify whether the deferred deleted DS is to be purged soon
 func (o AzureVmWorkloadProtectedItemOutput) IsDeferredDeleteScheduleUpcoming() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v AzureVmWorkloadProtectedItem) *bool { return v.IsDeferredDeleteScheduleUpcoming }).(pulumi.BoolPtrOutput)
 }
 
-// Flag to identify that deferred deleted DS is to be moved into Pause state
 func (o AzureVmWorkloadProtectedItemOutput) IsRehydrate() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v AzureVmWorkloadProtectedItem) *bool { return v.IsRehydrate }).(pulumi.BoolPtrOutput)
 }
 
-// Flag to identify whether the DS is scheduled for deferred delete
 func (o AzureVmWorkloadProtectedItemOutput) IsScheduledForDeferredDelete() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v AzureVmWorkloadProtectedItem) *bool { return v.IsScheduledForDeferredDelete }).(pulumi.BoolPtrOutput)
 }
 
-// Health details of different KPIs
 func (o AzureVmWorkloadProtectedItemOutput) KpisHealths() KPIResourceHealthDetailsMapOutput {
 	return o.ApplyT(func(v AzureVmWorkloadProtectedItem) map[string]KPIResourceHealthDetails { return v.KpisHealths }).(KPIResourceHealthDetailsMapOutput)
 }
 
-// Last backup operation status. Possible values: Healthy, Unhealthy.
 func (o AzureVmWorkloadProtectedItemOutput) LastBackupStatus() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AzureVmWorkloadProtectedItem) *string { return v.LastBackupStatus }).(pulumi.StringPtrOutput)
 }
 
-// Timestamp of the last backup operation on this backup item.
 func (o AzureVmWorkloadProtectedItemOutput) LastBackupTime() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AzureVmWorkloadProtectedItem) *string { return v.LastBackupTime }).(pulumi.StringPtrOutput)
 }
 
-// Timestamp when the last (latest) backup copy was created for this backup item.
 func (o AzureVmWorkloadProtectedItemOutput) LastRecoveryPoint() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AzureVmWorkloadProtectedItem) *string { return v.LastRecoveryPoint }).(pulumi.StringPtrOutput)
 }
 
-// Parent name of the DB such as Instance or Availability Group.
 func (o AzureVmWorkloadProtectedItemOutput) ParentName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AzureVmWorkloadProtectedItem) *string { return v.ParentName }).(pulumi.StringPtrOutput)
 }
 
-// Parent type of protected item, example: for a DB, standalone server or distributed
 func (o AzureVmWorkloadProtectedItemOutput) ParentType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AzureVmWorkloadProtectedItem) *string { return v.ParentType }).(pulumi.StringPtrOutput)
 }
 
-// ID of the backup policy with which this item is backed up.
 func (o AzureVmWorkloadProtectedItemOutput) PolicyId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AzureVmWorkloadProtectedItem) *string { return v.PolicyId }).(pulumi.StringPtrOutput)
 }
 
-// Data ID of the protected item.
 func (o AzureVmWorkloadProtectedItemOutput) ProtectedItemDataSourceId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AzureVmWorkloadProtectedItem) *string { return v.ProtectedItemDataSourceId }).(pulumi.StringPtrOutput)
 }
 
-// Health status of the backup item, evaluated based on last heartbeat received
 func (o AzureVmWorkloadProtectedItemOutput) ProtectedItemHealthStatus() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AzureVmWorkloadProtectedItem) *string { return v.ProtectedItemHealthStatus }).(pulumi.StringPtrOutput)
 }
 
-// backup item type.
-// Expected value is 'AzureVmWorkloadProtectedItem'.
 func (o AzureVmWorkloadProtectedItemOutput) ProtectedItemType() pulumi.StringOutput {
 	return o.ApplyT(func(v AzureVmWorkloadProtectedItem) string { return v.ProtectedItemType }).(pulumi.StringOutput)
 }
 
-// Backup state of this backup item.
 func (o AzureVmWorkloadProtectedItemOutput) ProtectionState() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AzureVmWorkloadProtectedItem) *string { return v.ProtectionState }).(pulumi.StringPtrOutput)
 }
 
-// Backup status of this backup item.
 func (o AzureVmWorkloadProtectedItemOutput) ProtectionStatus() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AzureVmWorkloadProtectedItem) *string { return v.ProtectionStatus }).(pulumi.StringPtrOutput)
 }
 
-// Host/Cluster Name for instance or AG
 func (o AzureVmWorkloadProtectedItemOutput) ServerName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AzureVmWorkloadProtectedItem) *string { return v.ServerName }).(pulumi.StringPtrOutput)
 }
 
-// ARM ID of the resource to be backed up.
 func (o AzureVmWorkloadProtectedItemOutput) SourceResourceId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AzureVmWorkloadProtectedItem) *string { return v.SourceResourceId }).(pulumi.StringPtrOutput)
 }
 
-// Type of workload this item represents.
 func (o AzureVmWorkloadProtectedItemOutput) WorkloadType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AzureVmWorkloadProtectedItem) *string { return v.WorkloadType }).(pulumi.StringPtrOutput)
 }
 
-// Additional information on Azure Workload for SQL specific backup item.
 type AzureVmWorkloadProtectedItemExtendedInfo struct {
-	// The oldest backup copy available for this backup item.
 	OldestRecoveryPoint *string `pulumi:"oldestRecoveryPoint"`
-	// Indicates consistency of policy object and policy applied to this backup item.
-	PolicyState *string `pulumi:"policyState"`
-	// Number of backup copies available for this backup item.
-	RecoveryPointCount *int `pulumi:"recoveryPointCount"`
+	PolicyState         *string `pulumi:"policyState"`
+	RecoveryPointCount  *int    `pulumi:"recoveryPointCount"`
 }
 
 // AzureVmWorkloadProtectedItemExtendedInfoInput is an input type that accepts AzureVmWorkloadProtectedItemExtendedInfoArgs and AzureVmWorkloadProtectedItemExtendedInfoOutput values.
@@ -4100,14 +3182,10 @@ type AzureVmWorkloadProtectedItemExtendedInfoInput interface {
 	ToAzureVmWorkloadProtectedItemExtendedInfoOutputWithContext(context.Context) AzureVmWorkloadProtectedItemExtendedInfoOutput
 }
 
-// Additional information on Azure Workload for SQL specific backup item.
 type AzureVmWorkloadProtectedItemExtendedInfoArgs struct {
-	// The oldest backup copy available for this backup item.
 	OldestRecoveryPoint pulumi.StringPtrInput `pulumi:"oldestRecoveryPoint"`
-	// Indicates consistency of policy object and policy applied to this backup item.
-	PolicyState pulumi.StringPtrInput `pulumi:"policyState"`
-	// Number of backup copies available for this backup item.
-	RecoveryPointCount pulumi.IntPtrInput `pulumi:"recoveryPointCount"`
+	PolicyState         pulumi.StringPtrInput `pulumi:"policyState"`
+	RecoveryPointCount  pulumi.IntPtrInput    `pulumi:"recoveryPointCount"`
 }
 
 func (AzureVmWorkloadProtectedItemExtendedInfoArgs) ElementType() reflect.Type {
@@ -4163,7 +3241,6 @@ func (i *azureVmWorkloadProtectedItemExtendedInfoPtrType) ToAzureVmWorkloadProte
 	return pulumi.ToOutputWithContext(ctx, i).(AzureVmWorkloadProtectedItemExtendedInfoPtrOutput)
 }
 
-// Additional information on Azure Workload for SQL specific backup item.
 type AzureVmWorkloadProtectedItemExtendedInfoOutput struct{ *pulumi.OutputState }
 
 func (AzureVmWorkloadProtectedItemExtendedInfoOutput) ElementType() reflect.Type {
@@ -4183,22 +3260,19 @@ func (o AzureVmWorkloadProtectedItemExtendedInfoOutput) ToAzureVmWorkloadProtect
 }
 
 func (o AzureVmWorkloadProtectedItemExtendedInfoOutput) ToAzureVmWorkloadProtectedItemExtendedInfoPtrOutputWithContext(ctx context.Context) AzureVmWorkloadProtectedItemExtendedInfoPtrOutput {
-	return o.ApplyT(func(v AzureVmWorkloadProtectedItemExtendedInfo) *AzureVmWorkloadProtectedItemExtendedInfo {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v AzureVmWorkloadProtectedItemExtendedInfo) *AzureVmWorkloadProtectedItemExtendedInfo {
 		return &v
 	}).(AzureVmWorkloadProtectedItemExtendedInfoPtrOutput)
 }
 
-// The oldest backup copy available for this backup item.
 func (o AzureVmWorkloadProtectedItemExtendedInfoOutput) OldestRecoveryPoint() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AzureVmWorkloadProtectedItemExtendedInfo) *string { return v.OldestRecoveryPoint }).(pulumi.StringPtrOutput)
 }
 
-// Indicates consistency of policy object and policy applied to this backup item.
 func (o AzureVmWorkloadProtectedItemExtendedInfoOutput) PolicyState() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AzureVmWorkloadProtectedItemExtendedInfo) *string { return v.PolicyState }).(pulumi.StringPtrOutput)
 }
 
-// Number of backup copies available for this backup item.
 func (o AzureVmWorkloadProtectedItemExtendedInfoOutput) RecoveryPointCount() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v AzureVmWorkloadProtectedItemExtendedInfo) *int { return v.RecoveryPointCount }).(pulumi.IntPtrOutput)
 }
@@ -4218,10 +3292,15 @@ func (o AzureVmWorkloadProtectedItemExtendedInfoPtrOutput) ToAzureVmWorkloadProt
 }
 
 func (o AzureVmWorkloadProtectedItemExtendedInfoPtrOutput) Elem() AzureVmWorkloadProtectedItemExtendedInfoOutput {
-	return o.ApplyT(func(v *AzureVmWorkloadProtectedItemExtendedInfo) AzureVmWorkloadProtectedItemExtendedInfo { return *v }).(AzureVmWorkloadProtectedItemExtendedInfoOutput)
+	return o.ApplyT(func(v *AzureVmWorkloadProtectedItemExtendedInfo) AzureVmWorkloadProtectedItemExtendedInfo {
+		if v != nil {
+			return *v
+		}
+		var ret AzureVmWorkloadProtectedItemExtendedInfo
+		return ret
+	}).(AzureVmWorkloadProtectedItemExtendedInfoOutput)
 }
 
-// The oldest backup copy available for this backup item.
 func (o AzureVmWorkloadProtectedItemExtendedInfoPtrOutput) OldestRecoveryPoint() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *AzureVmWorkloadProtectedItemExtendedInfo) *string {
 		if v == nil {
@@ -4231,7 +3310,6 @@ func (o AzureVmWorkloadProtectedItemExtendedInfoPtrOutput) OldestRecoveryPoint()
 	}).(pulumi.StringPtrOutput)
 }
 
-// Indicates consistency of policy object and policy applied to this backup item.
 func (o AzureVmWorkloadProtectedItemExtendedInfoPtrOutput) PolicyState() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *AzureVmWorkloadProtectedItemExtendedInfo) *string {
 		if v == nil {
@@ -4241,7 +3319,6 @@ func (o AzureVmWorkloadProtectedItemExtendedInfoPtrOutput) PolicyState() pulumi.
 	}).(pulumi.StringPtrOutput)
 }
 
-// Number of backup copies available for this backup item.
 func (o AzureVmWorkloadProtectedItemExtendedInfoPtrOutput) RecoveryPointCount() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *AzureVmWorkloadProtectedItemExtendedInfo) *int {
 		if v == nil {
@@ -4251,14 +3328,10 @@ func (o AzureVmWorkloadProtectedItemExtendedInfoPtrOutput) RecoveryPointCount() 
 	}).(pulumi.IntPtrOutput)
 }
 
-// Additional information on Azure Workload for SQL specific backup item.
 type AzureVmWorkloadProtectedItemExtendedInfoResponse struct {
-	// The oldest backup copy available for this backup item.
 	OldestRecoveryPoint *string `pulumi:"oldestRecoveryPoint"`
-	// Indicates consistency of policy object and policy applied to this backup item.
-	PolicyState *string `pulumi:"policyState"`
-	// Number of backup copies available for this backup item.
-	RecoveryPointCount *int `pulumi:"recoveryPointCount"`
+	PolicyState         *string `pulumi:"policyState"`
+	RecoveryPointCount  *int    `pulumi:"recoveryPointCount"`
 }
 
 // AzureVmWorkloadProtectedItemExtendedInfoResponseInput is an input type that accepts AzureVmWorkloadProtectedItemExtendedInfoResponseArgs and AzureVmWorkloadProtectedItemExtendedInfoResponseOutput values.
@@ -4272,14 +3345,10 @@ type AzureVmWorkloadProtectedItemExtendedInfoResponseInput interface {
 	ToAzureVmWorkloadProtectedItemExtendedInfoResponseOutputWithContext(context.Context) AzureVmWorkloadProtectedItemExtendedInfoResponseOutput
 }
 
-// Additional information on Azure Workload for SQL specific backup item.
 type AzureVmWorkloadProtectedItemExtendedInfoResponseArgs struct {
-	// The oldest backup copy available for this backup item.
 	OldestRecoveryPoint pulumi.StringPtrInput `pulumi:"oldestRecoveryPoint"`
-	// Indicates consistency of policy object and policy applied to this backup item.
-	PolicyState pulumi.StringPtrInput `pulumi:"policyState"`
-	// Number of backup copies available for this backup item.
-	RecoveryPointCount pulumi.IntPtrInput `pulumi:"recoveryPointCount"`
+	PolicyState         pulumi.StringPtrInput `pulumi:"policyState"`
+	RecoveryPointCount  pulumi.IntPtrInput    `pulumi:"recoveryPointCount"`
 }
 
 func (AzureVmWorkloadProtectedItemExtendedInfoResponseArgs) ElementType() reflect.Type {
@@ -4335,7 +3404,6 @@ func (i *azureVmWorkloadProtectedItemExtendedInfoResponsePtrType) ToAzureVmWorkl
 	return pulumi.ToOutputWithContext(ctx, i).(AzureVmWorkloadProtectedItemExtendedInfoResponsePtrOutput)
 }
 
-// Additional information on Azure Workload for SQL specific backup item.
 type AzureVmWorkloadProtectedItemExtendedInfoResponseOutput struct{ *pulumi.OutputState }
 
 func (AzureVmWorkloadProtectedItemExtendedInfoResponseOutput) ElementType() reflect.Type {
@@ -4355,22 +3423,19 @@ func (o AzureVmWorkloadProtectedItemExtendedInfoResponseOutput) ToAzureVmWorkloa
 }
 
 func (o AzureVmWorkloadProtectedItemExtendedInfoResponseOutput) ToAzureVmWorkloadProtectedItemExtendedInfoResponsePtrOutputWithContext(ctx context.Context) AzureVmWorkloadProtectedItemExtendedInfoResponsePtrOutput {
-	return o.ApplyT(func(v AzureVmWorkloadProtectedItemExtendedInfoResponse) *AzureVmWorkloadProtectedItemExtendedInfoResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v AzureVmWorkloadProtectedItemExtendedInfoResponse) *AzureVmWorkloadProtectedItemExtendedInfoResponse {
 		return &v
 	}).(AzureVmWorkloadProtectedItemExtendedInfoResponsePtrOutput)
 }
 
-// The oldest backup copy available for this backup item.
 func (o AzureVmWorkloadProtectedItemExtendedInfoResponseOutput) OldestRecoveryPoint() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AzureVmWorkloadProtectedItemExtendedInfoResponse) *string { return v.OldestRecoveryPoint }).(pulumi.StringPtrOutput)
 }
 
-// Indicates consistency of policy object and policy applied to this backup item.
 func (o AzureVmWorkloadProtectedItemExtendedInfoResponseOutput) PolicyState() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AzureVmWorkloadProtectedItemExtendedInfoResponse) *string { return v.PolicyState }).(pulumi.StringPtrOutput)
 }
 
-// Number of backup copies available for this backup item.
 func (o AzureVmWorkloadProtectedItemExtendedInfoResponseOutput) RecoveryPointCount() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v AzureVmWorkloadProtectedItemExtendedInfoResponse) *int { return v.RecoveryPointCount }).(pulumi.IntPtrOutput)
 }
@@ -4391,11 +3456,14 @@ func (o AzureVmWorkloadProtectedItemExtendedInfoResponsePtrOutput) ToAzureVmWork
 
 func (o AzureVmWorkloadProtectedItemExtendedInfoResponsePtrOutput) Elem() AzureVmWorkloadProtectedItemExtendedInfoResponseOutput {
 	return o.ApplyT(func(v *AzureVmWorkloadProtectedItemExtendedInfoResponse) AzureVmWorkloadProtectedItemExtendedInfoResponse {
-		return *v
+		if v != nil {
+			return *v
+		}
+		var ret AzureVmWorkloadProtectedItemExtendedInfoResponse
+		return ret
 	}).(AzureVmWorkloadProtectedItemExtendedInfoResponseOutput)
 }
 
-// The oldest backup copy available for this backup item.
 func (o AzureVmWorkloadProtectedItemExtendedInfoResponsePtrOutput) OldestRecoveryPoint() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *AzureVmWorkloadProtectedItemExtendedInfoResponse) *string {
 		if v == nil {
@@ -4405,7 +3473,6 @@ func (o AzureVmWorkloadProtectedItemExtendedInfoResponsePtrOutput) OldestRecover
 	}).(pulumi.StringPtrOutput)
 }
 
-// Indicates consistency of policy object and policy applied to this backup item.
 func (o AzureVmWorkloadProtectedItemExtendedInfoResponsePtrOutput) PolicyState() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *AzureVmWorkloadProtectedItemExtendedInfoResponse) *string {
 		if v == nil {
@@ -4415,7 +3482,6 @@ func (o AzureVmWorkloadProtectedItemExtendedInfoResponsePtrOutput) PolicyState()
 	}).(pulumi.StringPtrOutput)
 }
 
-// Number of backup copies available for this backup item.
 func (o AzureVmWorkloadProtectedItemExtendedInfoResponsePtrOutput) RecoveryPointCount() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *AzureVmWorkloadProtectedItemExtendedInfoResponse) *int {
 		if v == nil {
@@ -4425,63 +3491,34 @@ func (o AzureVmWorkloadProtectedItemExtendedInfoResponsePtrOutput) RecoveryPoint
 	}).(pulumi.IntPtrOutput)
 }
 
-// Azure VM workload-specific protected item.
 type AzureVmWorkloadProtectedItemResponse struct {
-	// Type of backup management for the backed up item.
-	BackupManagementType *string `pulumi:"backupManagementType"`
-	// Name of the backup set the backup item belongs to
-	BackupSetName *string `pulumi:"backupSetName"`
-	// Unique name of container
-	ContainerName *string `pulumi:"containerName"`
-	// Create mode to indicate recovery of existing soft deleted data source or creation of new data source.
-	CreateMode *string `pulumi:"createMode"`
-	// Time for deferred deletion in UTC
-	DeferredDeleteTimeInUTC *string `pulumi:"deferredDeleteTimeInUTC"`
-	// Time remaining before the DS marked for deferred delete is permanently deleted
-	DeferredDeleteTimeRemaining *string `pulumi:"deferredDeleteTimeRemaining"`
-	// Additional information for this backup item.
-	ExtendedInfo *AzureVmWorkloadProtectedItemExtendedInfoResponse `pulumi:"extendedInfo"`
-	// Friendly name of the DB represented by this backup item.
-	FriendlyName *string `pulumi:"friendlyName"`
-	// Flag to identify whether the deferred deleted DS is to be purged soon
-	IsDeferredDeleteScheduleUpcoming *bool `pulumi:"isDeferredDeleteScheduleUpcoming"`
-	// Flag to identify that deferred deleted DS is to be moved into Pause state
-	IsRehydrate *bool `pulumi:"isRehydrate"`
-	// Flag to identify whether the DS is scheduled for deferred delete
-	IsScheduledForDeferredDelete *bool `pulumi:"isScheduledForDeferredDelete"`
-	// Health details of different KPIs
-	KpisHealths map[string]KPIResourceHealthDetailsResponse `pulumi:"kpisHealths"`
-	// Error details in last backup
-	LastBackupErrorDetail *ErrorDetailResponse `pulumi:"lastBackupErrorDetail"`
-	// Last backup operation status. Possible values: Healthy, Unhealthy.
-	LastBackupStatus *string `pulumi:"lastBackupStatus"`
-	// Timestamp of the last backup operation on this backup item.
-	LastBackupTime *string `pulumi:"lastBackupTime"`
-	// Timestamp when the last (latest) backup copy was created for this backup item.
-	LastRecoveryPoint *string `pulumi:"lastRecoveryPoint"`
-	// Parent name of the DB such as Instance or Availability Group.
-	ParentName *string `pulumi:"parentName"`
-	// Parent type of protected item, example: for a DB, standalone server or distributed
-	ParentType *string `pulumi:"parentType"`
-	// ID of the backup policy with which this item is backed up.
-	PolicyId *string `pulumi:"policyId"`
-	// Data ID of the protected item.
-	ProtectedItemDataSourceId *string `pulumi:"protectedItemDataSourceId"`
-	// Health status of the backup item, evaluated based on last heartbeat received
-	ProtectedItemHealthStatus *string `pulumi:"protectedItemHealthStatus"`
-	// backup item type.
-	// Expected value is 'AzureVmWorkloadProtectedItem'.
-	ProtectedItemType string `pulumi:"protectedItemType"`
-	// Backup state of this backup item.
-	ProtectionState *string `pulumi:"protectionState"`
-	// Backup status of this backup item.
-	ProtectionStatus *string `pulumi:"protectionStatus"`
-	// Host/Cluster Name for instance or AG
-	ServerName *string `pulumi:"serverName"`
-	// ARM ID of the resource to be backed up.
-	SourceResourceId *string `pulumi:"sourceResourceId"`
-	// Type of workload this item represents.
-	WorkloadType *string `pulumi:"workloadType"`
+	BackupManagementType             *string                                           `pulumi:"backupManagementType"`
+	BackupSetName                    *string                                           `pulumi:"backupSetName"`
+	ContainerName                    *string                                           `pulumi:"containerName"`
+	CreateMode                       *string                                           `pulumi:"createMode"`
+	DeferredDeleteTimeInUTC          *string                                           `pulumi:"deferredDeleteTimeInUTC"`
+	DeferredDeleteTimeRemaining      *string                                           `pulumi:"deferredDeleteTimeRemaining"`
+	ExtendedInfo                     *AzureVmWorkloadProtectedItemExtendedInfoResponse `pulumi:"extendedInfo"`
+	FriendlyName                     *string                                           `pulumi:"friendlyName"`
+	IsDeferredDeleteScheduleUpcoming *bool                                             `pulumi:"isDeferredDeleteScheduleUpcoming"`
+	IsRehydrate                      *bool                                             `pulumi:"isRehydrate"`
+	IsScheduledForDeferredDelete     *bool                                             `pulumi:"isScheduledForDeferredDelete"`
+	KpisHealths                      map[string]KPIResourceHealthDetailsResponse       `pulumi:"kpisHealths"`
+	LastBackupErrorDetail            *ErrorDetailResponse                              `pulumi:"lastBackupErrorDetail"`
+	LastBackupStatus                 *string                                           `pulumi:"lastBackupStatus"`
+	LastBackupTime                   *string                                           `pulumi:"lastBackupTime"`
+	LastRecoveryPoint                *string                                           `pulumi:"lastRecoveryPoint"`
+	ParentName                       *string                                           `pulumi:"parentName"`
+	ParentType                       *string                                           `pulumi:"parentType"`
+	PolicyId                         *string                                           `pulumi:"policyId"`
+	ProtectedItemDataSourceId        *string                                           `pulumi:"protectedItemDataSourceId"`
+	ProtectedItemHealthStatus        *string                                           `pulumi:"protectedItemHealthStatus"`
+	ProtectedItemType                string                                            `pulumi:"protectedItemType"`
+	ProtectionState                  *string                                           `pulumi:"protectionState"`
+	ProtectionStatus                 *string                                           `pulumi:"protectionStatus"`
+	ServerName                       *string                                           `pulumi:"serverName"`
+	SourceResourceId                 *string                                           `pulumi:"sourceResourceId"`
+	WorkloadType                     *string                                           `pulumi:"workloadType"`
 }
 
 // AzureVmWorkloadProtectedItemResponseInput is an input type that accepts AzureVmWorkloadProtectedItemResponseArgs and AzureVmWorkloadProtectedItemResponseOutput values.
@@ -4495,63 +3532,34 @@ type AzureVmWorkloadProtectedItemResponseInput interface {
 	ToAzureVmWorkloadProtectedItemResponseOutputWithContext(context.Context) AzureVmWorkloadProtectedItemResponseOutput
 }
 
-// Azure VM workload-specific protected item.
 type AzureVmWorkloadProtectedItemResponseArgs struct {
-	// Type of backup management for the backed up item.
-	BackupManagementType pulumi.StringPtrInput `pulumi:"backupManagementType"`
-	// Name of the backup set the backup item belongs to
-	BackupSetName pulumi.StringPtrInput `pulumi:"backupSetName"`
-	// Unique name of container
-	ContainerName pulumi.StringPtrInput `pulumi:"containerName"`
-	// Create mode to indicate recovery of existing soft deleted data source or creation of new data source.
-	CreateMode pulumi.StringPtrInput `pulumi:"createMode"`
-	// Time for deferred deletion in UTC
-	DeferredDeleteTimeInUTC pulumi.StringPtrInput `pulumi:"deferredDeleteTimeInUTC"`
-	// Time remaining before the DS marked for deferred delete is permanently deleted
-	DeferredDeleteTimeRemaining pulumi.StringPtrInput `pulumi:"deferredDeleteTimeRemaining"`
-	// Additional information for this backup item.
-	ExtendedInfo AzureVmWorkloadProtectedItemExtendedInfoResponsePtrInput `pulumi:"extendedInfo"`
-	// Friendly name of the DB represented by this backup item.
-	FriendlyName pulumi.StringPtrInput `pulumi:"friendlyName"`
-	// Flag to identify whether the deferred deleted DS is to be purged soon
-	IsDeferredDeleteScheduleUpcoming pulumi.BoolPtrInput `pulumi:"isDeferredDeleteScheduleUpcoming"`
-	// Flag to identify that deferred deleted DS is to be moved into Pause state
-	IsRehydrate pulumi.BoolPtrInput `pulumi:"isRehydrate"`
-	// Flag to identify whether the DS is scheduled for deferred delete
-	IsScheduledForDeferredDelete pulumi.BoolPtrInput `pulumi:"isScheduledForDeferredDelete"`
-	// Health details of different KPIs
-	KpisHealths KPIResourceHealthDetailsResponseMapInput `pulumi:"kpisHealths"`
-	// Error details in last backup
-	LastBackupErrorDetail ErrorDetailResponsePtrInput `pulumi:"lastBackupErrorDetail"`
-	// Last backup operation status. Possible values: Healthy, Unhealthy.
-	LastBackupStatus pulumi.StringPtrInput `pulumi:"lastBackupStatus"`
-	// Timestamp of the last backup operation on this backup item.
-	LastBackupTime pulumi.StringPtrInput `pulumi:"lastBackupTime"`
-	// Timestamp when the last (latest) backup copy was created for this backup item.
-	LastRecoveryPoint pulumi.StringPtrInput `pulumi:"lastRecoveryPoint"`
-	// Parent name of the DB such as Instance or Availability Group.
-	ParentName pulumi.StringPtrInput `pulumi:"parentName"`
-	// Parent type of protected item, example: for a DB, standalone server or distributed
-	ParentType pulumi.StringPtrInput `pulumi:"parentType"`
-	// ID of the backup policy with which this item is backed up.
-	PolicyId pulumi.StringPtrInput `pulumi:"policyId"`
-	// Data ID of the protected item.
-	ProtectedItemDataSourceId pulumi.StringPtrInput `pulumi:"protectedItemDataSourceId"`
-	// Health status of the backup item, evaluated based on last heartbeat received
-	ProtectedItemHealthStatus pulumi.StringPtrInput `pulumi:"protectedItemHealthStatus"`
-	// backup item type.
-	// Expected value is 'AzureVmWorkloadProtectedItem'.
-	ProtectedItemType pulumi.StringInput `pulumi:"protectedItemType"`
-	// Backup state of this backup item.
-	ProtectionState pulumi.StringPtrInput `pulumi:"protectionState"`
-	// Backup status of this backup item.
-	ProtectionStatus pulumi.StringPtrInput `pulumi:"protectionStatus"`
-	// Host/Cluster Name for instance or AG
-	ServerName pulumi.StringPtrInput `pulumi:"serverName"`
-	// ARM ID of the resource to be backed up.
-	SourceResourceId pulumi.StringPtrInput `pulumi:"sourceResourceId"`
-	// Type of workload this item represents.
-	WorkloadType pulumi.StringPtrInput `pulumi:"workloadType"`
+	BackupManagementType             pulumi.StringPtrInput                                    `pulumi:"backupManagementType"`
+	BackupSetName                    pulumi.StringPtrInput                                    `pulumi:"backupSetName"`
+	ContainerName                    pulumi.StringPtrInput                                    `pulumi:"containerName"`
+	CreateMode                       pulumi.StringPtrInput                                    `pulumi:"createMode"`
+	DeferredDeleteTimeInUTC          pulumi.StringPtrInput                                    `pulumi:"deferredDeleteTimeInUTC"`
+	DeferredDeleteTimeRemaining      pulumi.StringPtrInput                                    `pulumi:"deferredDeleteTimeRemaining"`
+	ExtendedInfo                     AzureVmWorkloadProtectedItemExtendedInfoResponsePtrInput `pulumi:"extendedInfo"`
+	FriendlyName                     pulumi.StringPtrInput                                    `pulumi:"friendlyName"`
+	IsDeferredDeleteScheduleUpcoming pulumi.BoolPtrInput                                      `pulumi:"isDeferredDeleteScheduleUpcoming"`
+	IsRehydrate                      pulumi.BoolPtrInput                                      `pulumi:"isRehydrate"`
+	IsScheduledForDeferredDelete     pulumi.BoolPtrInput                                      `pulumi:"isScheduledForDeferredDelete"`
+	KpisHealths                      KPIResourceHealthDetailsResponseMapInput                 `pulumi:"kpisHealths"`
+	LastBackupErrorDetail            ErrorDetailResponsePtrInput                              `pulumi:"lastBackupErrorDetail"`
+	LastBackupStatus                 pulumi.StringPtrInput                                    `pulumi:"lastBackupStatus"`
+	LastBackupTime                   pulumi.StringPtrInput                                    `pulumi:"lastBackupTime"`
+	LastRecoveryPoint                pulumi.StringPtrInput                                    `pulumi:"lastRecoveryPoint"`
+	ParentName                       pulumi.StringPtrInput                                    `pulumi:"parentName"`
+	ParentType                       pulumi.StringPtrInput                                    `pulumi:"parentType"`
+	PolicyId                         pulumi.StringPtrInput                                    `pulumi:"policyId"`
+	ProtectedItemDataSourceId        pulumi.StringPtrInput                                    `pulumi:"protectedItemDataSourceId"`
+	ProtectedItemHealthStatus        pulumi.StringPtrInput                                    `pulumi:"protectedItemHealthStatus"`
+	ProtectedItemType                pulumi.StringInput                                       `pulumi:"protectedItemType"`
+	ProtectionState                  pulumi.StringPtrInput                                    `pulumi:"protectionState"`
+	ProtectionStatus                 pulumi.StringPtrInput                                    `pulumi:"protectionStatus"`
+	ServerName                       pulumi.StringPtrInput                                    `pulumi:"serverName"`
+	SourceResourceId                 pulumi.StringPtrInput                                    `pulumi:"sourceResourceId"`
+	WorkloadType                     pulumi.StringPtrInput                                    `pulumi:"workloadType"`
 }
 
 func (AzureVmWorkloadProtectedItemResponseArgs) ElementType() reflect.Type {
@@ -4566,7 +3574,6 @@ func (i AzureVmWorkloadProtectedItemResponseArgs) ToAzureVmWorkloadProtectedItem
 	return pulumi.ToOutputWithContext(ctx, i).(AzureVmWorkloadProtectedItemResponseOutput)
 }
 
-// Azure VM workload-specific protected item.
 type AzureVmWorkloadProtectedItemResponseOutput struct{ *pulumi.OutputState }
 
 func (AzureVmWorkloadProtectedItemResponseOutput) ElementType() reflect.Type {
@@ -4581,201 +3588,145 @@ func (o AzureVmWorkloadProtectedItemResponseOutput) ToAzureVmWorkloadProtectedIt
 	return o
 }
 
-// Type of backup management for the backed up item.
 func (o AzureVmWorkloadProtectedItemResponseOutput) BackupManagementType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AzureVmWorkloadProtectedItemResponse) *string { return v.BackupManagementType }).(pulumi.StringPtrOutput)
 }
 
-// Name of the backup set the backup item belongs to
 func (o AzureVmWorkloadProtectedItemResponseOutput) BackupSetName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AzureVmWorkloadProtectedItemResponse) *string { return v.BackupSetName }).(pulumi.StringPtrOutput)
 }
 
-// Unique name of container
 func (o AzureVmWorkloadProtectedItemResponseOutput) ContainerName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AzureVmWorkloadProtectedItemResponse) *string { return v.ContainerName }).(pulumi.StringPtrOutput)
 }
 
-// Create mode to indicate recovery of existing soft deleted data source or creation of new data source.
 func (o AzureVmWorkloadProtectedItemResponseOutput) CreateMode() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AzureVmWorkloadProtectedItemResponse) *string { return v.CreateMode }).(pulumi.StringPtrOutput)
 }
 
-// Time for deferred deletion in UTC
 func (o AzureVmWorkloadProtectedItemResponseOutput) DeferredDeleteTimeInUTC() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AzureVmWorkloadProtectedItemResponse) *string { return v.DeferredDeleteTimeInUTC }).(pulumi.StringPtrOutput)
 }
 
-// Time remaining before the DS marked for deferred delete is permanently deleted
 func (o AzureVmWorkloadProtectedItemResponseOutput) DeferredDeleteTimeRemaining() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AzureVmWorkloadProtectedItemResponse) *string { return v.DeferredDeleteTimeRemaining }).(pulumi.StringPtrOutput)
 }
 
-// Additional information for this backup item.
 func (o AzureVmWorkloadProtectedItemResponseOutput) ExtendedInfo() AzureVmWorkloadProtectedItemExtendedInfoResponsePtrOutput {
 	return o.ApplyT(func(v AzureVmWorkloadProtectedItemResponse) *AzureVmWorkloadProtectedItemExtendedInfoResponse {
 		return v.ExtendedInfo
 	}).(AzureVmWorkloadProtectedItemExtendedInfoResponsePtrOutput)
 }
 
-// Friendly name of the DB represented by this backup item.
 func (o AzureVmWorkloadProtectedItemResponseOutput) FriendlyName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AzureVmWorkloadProtectedItemResponse) *string { return v.FriendlyName }).(pulumi.StringPtrOutput)
 }
 
-// Flag to identify whether the deferred deleted DS is to be purged soon
 func (o AzureVmWorkloadProtectedItemResponseOutput) IsDeferredDeleteScheduleUpcoming() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v AzureVmWorkloadProtectedItemResponse) *bool { return v.IsDeferredDeleteScheduleUpcoming }).(pulumi.BoolPtrOutput)
 }
 
-// Flag to identify that deferred deleted DS is to be moved into Pause state
 func (o AzureVmWorkloadProtectedItemResponseOutput) IsRehydrate() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v AzureVmWorkloadProtectedItemResponse) *bool { return v.IsRehydrate }).(pulumi.BoolPtrOutput)
 }
 
-// Flag to identify whether the DS is scheduled for deferred delete
 func (o AzureVmWorkloadProtectedItemResponseOutput) IsScheduledForDeferredDelete() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v AzureVmWorkloadProtectedItemResponse) *bool { return v.IsScheduledForDeferredDelete }).(pulumi.BoolPtrOutput)
 }
 
-// Health details of different KPIs
 func (o AzureVmWorkloadProtectedItemResponseOutput) KpisHealths() KPIResourceHealthDetailsResponseMapOutput {
 	return o.ApplyT(func(v AzureVmWorkloadProtectedItemResponse) map[string]KPIResourceHealthDetailsResponse {
 		return v.KpisHealths
 	}).(KPIResourceHealthDetailsResponseMapOutput)
 }
 
-// Error details in last backup
 func (o AzureVmWorkloadProtectedItemResponseOutput) LastBackupErrorDetail() ErrorDetailResponsePtrOutput {
 	return o.ApplyT(func(v AzureVmWorkloadProtectedItemResponse) *ErrorDetailResponse { return v.LastBackupErrorDetail }).(ErrorDetailResponsePtrOutput)
 }
 
-// Last backup operation status. Possible values: Healthy, Unhealthy.
 func (o AzureVmWorkloadProtectedItemResponseOutput) LastBackupStatus() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AzureVmWorkloadProtectedItemResponse) *string { return v.LastBackupStatus }).(pulumi.StringPtrOutput)
 }
 
-// Timestamp of the last backup operation on this backup item.
 func (o AzureVmWorkloadProtectedItemResponseOutput) LastBackupTime() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AzureVmWorkloadProtectedItemResponse) *string { return v.LastBackupTime }).(pulumi.StringPtrOutput)
 }
 
-// Timestamp when the last (latest) backup copy was created for this backup item.
 func (o AzureVmWorkloadProtectedItemResponseOutput) LastRecoveryPoint() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AzureVmWorkloadProtectedItemResponse) *string { return v.LastRecoveryPoint }).(pulumi.StringPtrOutput)
 }
 
-// Parent name of the DB such as Instance or Availability Group.
 func (o AzureVmWorkloadProtectedItemResponseOutput) ParentName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AzureVmWorkloadProtectedItemResponse) *string { return v.ParentName }).(pulumi.StringPtrOutput)
 }
 
-// Parent type of protected item, example: for a DB, standalone server or distributed
 func (o AzureVmWorkloadProtectedItemResponseOutput) ParentType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AzureVmWorkloadProtectedItemResponse) *string { return v.ParentType }).(pulumi.StringPtrOutput)
 }
 
-// ID of the backup policy with which this item is backed up.
 func (o AzureVmWorkloadProtectedItemResponseOutput) PolicyId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AzureVmWorkloadProtectedItemResponse) *string { return v.PolicyId }).(pulumi.StringPtrOutput)
 }
 
-// Data ID of the protected item.
 func (o AzureVmWorkloadProtectedItemResponseOutput) ProtectedItemDataSourceId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AzureVmWorkloadProtectedItemResponse) *string { return v.ProtectedItemDataSourceId }).(pulumi.StringPtrOutput)
 }
 
-// Health status of the backup item, evaluated based on last heartbeat received
 func (o AzureVmWorkloadProtectedItemResponseOutput) ProtectedItemHealthStatus() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AzureVmWorkloadProtectedItemResponse) *string { return v.ProtectedItemHealthStatus }).(pulumi.StringPtrOutput)
 }
 
-// backup item type.
-// Expected value is 'AzureVmWorkloadProtectedItem'.
 func (o AzureVmWorkloadProtectedItemResponseOutput) ProtectedItemType() pulumi.StringOutput {
 	return o.ApplyT(func(v AzureVmWorkloadProtectedItemResponse) string { return v.ProtectedItemType }).(pulumi.StringOutput)
 }
 
-// Backup state of this backup item.
 func (o AzureVmWorkloadProtectedItemResponseOutput) ProtectionState() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AzureVmWorkloadProtectedItemResponse) *string { return v.ProtectionState }).(pulumi.StringPtrOutput)
 }
 
-// Backup status of this backup item.
 func (o AzureVmWorkloadProtectedItemResponseOutput) ProtectionStatus() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AzureVmWorkloadProtectedItemResponse) *string { return v.ProtectionStatus }).(pulumi.StringPtrOutput)
 }
 
-// Host/Cluster Name for instance or AG
 func (o AzureVmWorkloadProtectedItemResponseOutput) ServerName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AzureVmWorkloadProtectedItemResponse) *string { return v.ServerName }).(pulumi.StringPtrOutput)
 }
 
-// ARM ID of the resource to be backed up.
 func (o AzureVmWorkloadProtectedItemResponseOutput) SourceResourceId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AzureVmWorkloadProtectedItemResponse) *string { return v.SourceResourceId }).(pulumi.StringPtrOutput)
 }
 
-// Type of workload this item represents.
 func (o AzureVmWorkloadProtectedItemResponseOutput) WorkloadType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AzureVmWorkloadProtectedItemResponse) *string { return v.WorkloadType }).(pulumi.StringPtrOutput)
 }
 
-// Azure VM workload-specific protected item representing SAP ASE Database.
 type AzureVmWorkloadSAPAseDatabaseProtectedItem struct {
-	// Type of backup management for the backed up item.
-	BackupManagementType *string `pulumi:"backupManagementType"`
-	// Name of the backup set the backup item belongs to
-	BackupSetName *string `pulumi:"backupSetName"`
-	// Unique name of container
-	ContainerName *string `pulumi:"containerName"`
-	// Create mode to indicate recovery of existing soft deleted data source or creation of new data source.
-	CreateMode *string `pulumi:"createMode"`
-	// Time for deferred deletion in UTC
-	DeferredDeleteTimeInUTC *string `pulumi:"deferredDeleteTimeInUTC"`
-	// Time remaining before the DS marked for deferred delete is permanently deleted
-	DeferredDeleteTimeRemaining *string `pulumi:"deferredDeleteTimeRemaining"`
-	// Additional information for this backup item.
-	ExtendedInfo *AzureVmWorkloadProtectedItemExtendedInfo `pulumi:"extendedInfo"`
-	// Friendly name of the DB represented by this backup item.
-	FriendlyName *string `pulumi:"friendlyName"`
-	// Flag to identify whether the deferred deleted DS is to be purged soon
-	IsDeferredDeleteScheduleUpcoming *bool `pulumi:"isDeferredDeleteScheduleUpcoming"`
-	// Flag to identify that deferred deleted DS is to be moved into Pause state
-	IsRehydrate *bool `pulumi:"isRehydrate"`
-	// Flag to identify whether the DS is scheduled for deferred delete
-	IsScheduledForDeferredDelete *bool `pulumi:"isScheduledForDeferredDelete"`
-	// Health details of different KPIs
-	KpisHealths map[string]KPIResourceHealthDetails `pulumi:"kpisHealths"`
-	// Last backup operation status. Possible values: Healthy, Unhealthy.
-	LastBackupStatus *string `pulumi:"lastBackupStatus"`
-	// Timestamp of the last backup operation on this backup item.
-	LastBackupTime *string `pulumi:"lastBackupTime"`
-	// Timestamp when the last (latest) backup copy was created for this backup item.
-	LastRecoveryPoint *string `pulumi:"lastRecoveryPoint"`
-	// Parent name of the DB such as Instance or Availability Group.
-	ParentName *string `pulumi:"parentName"`
-	// Parent type of protected item, example: for a DB, standalone server or distributed
-	ParentType *string `pulumi:"parentType"`
-	// ID of the backup policy with which this item is backed up.
-	PolicyId *string `pulumi:"policyId"`
-	// Data ID of the protected item.
-	ProtectedItemDataSourceId *string `pulumi:"protectedItemDataSourceId"`
-	// Health status of the backup item, evaluated based on last heartbeat received
-	ProtectedItemHealthStatus *string `pulumi:"protectedItemHealthStatus"`
-	// backup item type.
-	// Expected value is 'AzureVmWorkloadSAPAseDatabase'.
-	ProtectedItemType string `pulumi:"protectedItemType"`
-	// Backup state of this backup item.
-	ProtectionState *string `pulumi:"protectionState"`
-	// Backup status of this backup item.
-	ProtectionStatus *string `pulumi:"protectionStatus"`
-	// Host/Cluster Name for instance or AG
-	ServerName *string `pulumi:"serverName"`
-	// ARM ID of the resource to be backed up.
-	SourceResourceId *string `pulumi:"sourceResourceId"`
-	// Type of workload this item represents.
-	WorkloadType *string `pulumi:"workloadType"`
+	BackupManagementType             *string                                   `pulumi:"backupManagementType"`
+	BackupSetName                    *string                                   `pulumi:"backupSetName"`
+	ContainerName                    *string                                   `pulumi:"containerName"`
+	CreateMode                       *string                                   `pulumi:"createMode"`
+	DeferredDeleteTimeInUTC          *string                                   `pulumi:"deferredDeleteTimeInUTC"`
+	DeferredDeleteTimeRemaining      *string                                   `pulumi:"deferredDeleteTimeRemaining"`
+	ExtendedInfo                     *AzureVmWorkloadProtectedItemExtendedInfo `pulumi:"extendedInfo"`
+	FriendlyName                     *string                                   `pulumi:"friendlyName"`
+	IsDeferredDeleteScheduleUpcoming *bool                                     `pulumi:"isDeferredDeleteScheduleUpcoming"`
+	IsRehydrate                      *bool                                     `pulumi:"isRehydrate"`
+	IsScheduledForDeferredDelete     *bool                                     `pulumi:"isScheduledForDeferredDelete"`
+	KpisHealths                      map[string]KPIResourceHealthDetails       `pulumi:"kpisHealths"`
+	LastBackupStatus                 *string                                   `pulumi:"lastBackupStatus"`
+	LastBackupTime                   *string                                   `pulumi:"lastBackupTime"`
+	LastRecoveryPoint                *string                                   `pulumi:"lastRecoveryPoint"`
+	ParentName                       *string                                   `pulumi:"parentName"`
+	ParentType                       *string                                   `pulumi:"parentType"`
+	PolicyId                         *string                                   `pulumi:"policyId"`
+	ProtectedItemDataSourceId        *string                                   `pulumi:"protectedItemDataSourceId"`
+	ProtectedItemHealthStatus        *string                                   `pulumi:"protectedItemHealthStatus"`
+	ProtectedItemType                string                                    `pulumi:"protectedItemType"`
+	ProtectionState                  *string                                   `pulumi:"protectionState"`
+	ProtectionStatus                 *string                                   `pulumi:"protectionStatus"`
+	ServerName                       *string                                   `pulumi:"serverName"`
+	SourceResourceId                 *string                                   `pulumi:"sourceResourceId"`
+	WorkloadType                     *string                                   `pulumi:"workloadType"`
 }
 
 // AzureVmWorkloadSAPAseDatabaseProtectedItemInput is an input type that accepts AzureVmWorkloadSAPAseDatabaseProtectedItemArgs and AzureVmWorkloadSAPAseDatabaseProtectedItemOutput values.
@@ -4789,61 +3740,33 @@ type AzureVmWorkloadSAPAseDatabaseProtectedItemInput interface {
 	ToAzureVmWorkloadSAPAseDatabaseProtectedItemOutputWithContext(context.Context) AzureVmWorkloadSAPAseDatabaseProtectedItemOutput
 }
 
-// Azure VM workload-specific protected item representing SAP ASE Database.
 type AzureVmWorkloadSAPAseDatabaseProtectedItemArgs struct {
-	// Type of backup management for the backed up item.
-	BackupManagementType pulumi.StringPtrInput `pulumi:"backupManagementType"`
-	// Name of the backup set the backup item belongs to
-	BackupSetName pulumi.StringPtrInput `pulumi:"backupSetName"`
-	// Unique name of container
-	ContainerName pulumi.StringPtrInput `pulumi:"containerName"`
-	// Create mode to indicate recovery of existing soft deleted data source or creation of new data source.
-	CreateMode pulumi.StringPtrInput `pulumi:"createMode"`
-	// Time for deferred deletion in UTC
-	DeferredDeleteTimeInUTC pulumi.StringPtrInput `pulumi:"deferredDeleteTimeInUTC"`
-	// Time remaining before the DS marked for deferred delete is permanently deleted
-	DeferredDeleteTimeRemaining pulumi.StringPtrInput `pulumi:"deferredDeleteTimeRemaining"`
-	// Additional information for this backup item.
-	ExtendedInfo AzureVmWorkloadProtectedItemExtendedInfoPtrInput `pulumi:"extendedInfo"`
-	// Friendly name of the DB represented by this backup item.
-	FriendlyName pulumi.StringPtrInput `pulumi:"friendlyName"`
-	// Flag to identify whether the deferred deleted DS is to be purged soon
-	IsDeferredDeleteScheduleUpcoming pulumi.BoolPtrInput `pulumi:"isDeferredDeleteScheduleUpcoming"`
-	// Flag to identify that deferred deleted DS is to be moved into Pause state
-	IsRehydrate pulumi.BoolPtrInput `pulumi:"isRehydrate"`
-	// Flag to identify whether the DS is scheduled for deferred delete
-	IsScheduledForDeferredDelete pulumi.BoolPtrInput `pulumi:"isScheduledForDeferredDelete"`
-	// Health details of different KPIs
-	KpisHealths KPIResourceHealthDetailsMapInput `pulumi:"kpisHealths"`
-	// Last backup operation status. Possible values: Healthy, Unhealthy.
-	LastBackupStatus pulumi.StringPtrInput `pulumi:"lastBackupStatus"`
-	// Timestamp of the last backup operation on this backup item.
-	LastBackupTime pulumi.StringPtrInput `pulumi:"lastBackupTime"`
-	// Timestamp when the last (latest) backup copy was created for this backup item.
-	LastRecoveryPoint pulumi.StringPtrInput `pulumi:"lastRecoveryPoint"`
-	// Parent name of the DB such as Instance or Availability Group.
-	ParentName pulumi.StringPtrInput `pulumi:"parentName"`
-	// Parent type of protected item, example: for a DB, standalone server or distributed
-	ParentType pulumi.StringPtrInput `pulumi:"parentType"`
-	// ID of the backup policy with which this item is backed up.
-	PolicyId pulumi.StringPtrInput `pulumi:"policyId"`
-	// Data ID of the protected item.
-	ProtectedItemDataSourceId pulumi.StringPtrInput `pulumi:"protectedItemDataSourceId"`
-	// Health status of the backup item, evaluated based on last heartbeat received
-	ProtectedItemHealthStatus pulumi.StringPtrInput `pulumi:"protectedItemHealthStatus"`
-	// backup item type.
-	// Expected value is 'AzureVmWorkloadSAPAseDatabase'.
-	ProtectedItemType pulumi.StringInput `pulumi:"protectedItemType"`
-	// Backup state of this backup item.
-	ProtectionState pulumi.StringPtrInput `pulumi:"protectionState"`
-	// Backup status of this backup item.
-	ProtectionStatus pulumi.StringPtrInput `pulumi:"protectionStatus"`
-	// Host/Cluster Name for instance or AG
-	ServerName pulumi.StringPtrInput `pulumi:"serverName"`
-	// ARM ID of the resource to be backed up.
-	SourceResourceId pulumi.StringPtrInput `pulumi:"sourceResourceId"`
-	// Type of workload this item represents.
-	WorkloadType pulumi.StringPtrInput `pulumi:"workloadType"`
+	BackupManagementType             pulumi.StringPtrInput                            `pulumi:"backupManagementType"`
+	BackupSetName                    pulumi.StringPtrInput                            `pulumi:"backupSetName"`
+	ContainerName                    pulumi.StringPtrInput                            `pulumi:"containerName"`
+	CreateMode                       pulumi.StringPtrInput                            `pulumi:"createMode"`
+	DeferredDeleteTimeInUTC          pulumi.StringPtrInput                            `pulumi:"deferredDeleteTimeInUTC"`
+	DeferredDeleteTimeRemaining      pulumi.StringPtrInput                            `pulumi:"deferredDeleteTimeRemaining"`
+	ExtendedInfo                     AzureVmWorkloadProtectedItemExtendedInfoPtrInput `pulumi:"extendedInfo"`
+	FriendlyName                     pulumi.StringPtrInput                            `pulumi:"friendlyName"`
+	IsDeferredDeleteScheduleUpcoming pulumi.BoolPtrInput                              `pulumi:"isDeferredDeleteScheduleUpcoming"`
+	IsRehydrate                      pulumi.BoolPtrInput                              `pulumi:"isRehydrate"`
+	IsScheduledForDeferredDelete     pulumi.BoolPtrInput                              `pulumi:"isScheduledForDeferredDelete"`
+	KpisHealths                      KPIResourceHealthDetailsMapInput                 `pulumi:"kpisHealths"`
+	LastBackupStatus                 pulumi.StringPtrInput                            `pulumi:"lastBackupStatus"`
+	LastBackupTime                   pulumi.StringPtrInput                            `pulumi:"lastBackupTime"`
+	LastRecoveryPoint                pulumi.StringPtrInput                            `pulumi:"lastRecoveryPoint"`
+	ParentName                       pulumi.StringPtrInput                            `pulumi:"parentName"`
+	ParentType                       pulumi.StringPtrInput                            `pulumi:"parentType"`
+	PolicyId                         pulumi.StringPtrInput                            `pulumi:"policyId"`
+	ProtectedItemDataSourceId        pulumi.StringPtrInput                            `pulumi:"protectedItemDataSourceId"`
+	ProtectedItemHealthStatus        pulumi.StringPtrInput                            `pulumi:"protectedItemHealthStatus"`
+	ProtectedItemType                pulumi.StringInput                               `pulumi:"protectedItemType"`
+	ProtectionState                  pulumi.StringPtrInput                            `pulumi:"protectionState"`
+	ProtectionStatus                 pulumi.StringPtrInput                            `pulumi:"protectionStatus"`
+	ServerName                       pulumi.StringPtrInput                            `pulumi:"serverName"`
+	SourceResourceId                 pulumi.StringPtrInput                            `pulumi:"sourceResourceId"`
+	WorkloadType                     pulumi.StringPtrInput                            `pulumi:"workloadType"`
 }
 
 func (AzureVmWorkloadSAPAseDatabaseProtectedItemArgs) ElementType() reflect.Type {
@@ -4858,7 +3781,6 @@ func (i AzureVmWorkloadSAPAseDatabaseProtectedItemArgs) ToAzureVmWorkloadSAPAseD
 	return pulumi.ToOutputWithContext(ctx, i).(AzureVmWorkloadSAPAseDatabaseProtectedItemOutput)
 }
 
-// Azure VM workload-specific protected item representing SAP ASE Database.
 type AzureVmWorkloadSAPAseDatabaseProtectedItemOutput struct{ *pulumi.OutputState }
 
 func (AzureVmWorkloadSAPAseDatabaseProtectedItemOutput) ElementType() reflect.Type {
@@ -4873,198 +3795,142 @@ func (o AzureVmWorkloadSAPAseDatabaseProtectedItemOutput) ToAzureVmWorkloadSAPAs
 	return o
 }
 
-// Type of backup management for the backed up item.
 func (o AzureVmWorkloadSAPAseDatabaseProtectedItemOutput) BackupManagementType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AzureVmWorkloadSAPAseDatabaseProtectedItem) *string { return v.BackupManagementType }).(pulumi.StringPtrOutput)
 }
 
-// Name of the backup set the backup item belongs to
 func (o AzureVmWorkloadSAPAseDatabaseProtectedItemOutput) BackupSetName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AzureVmWorkloadSAPAseDatabaseProtectedItem) *string { return v.BackupSetName }).(pulumi.StringPtrOutput)
 }
 
-// Unique name of container
 func (o AzureVmWorkloadSAPAseDatabaseProtectedItemOutput) ContainerName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AzureVmWorkloadSAPAseDatabaseProtectedItem) *string { return v.ContainerName }).(pulumi.StringPtrOutput)
 }
 
-// Create mode to indicate recovery of existing soft deleted data source or creation of new data source.
 func (o AzureVmWorkloadSAPAseDatabaseProtectedItemOutput) CreateMode() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AzureVmWorkloadSAPAseDatabaseProtectedItem) *string { return v.CreateMode }).(pulumi.StringPtrOutput)
 }
 
-// Time for deferred deletion in UTC
 func (o AzureVmWorkloadSAPAseDatabaseProtectedItemOutput) DeferredDeleteTimeInUTC() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AzureVmWorkloadSAPAseDatabaseProtectedItem) *string { return v.DeferredDeleteTimeInUTC }).(pulumi.StringPtrOutput)
 }
 
-// Time remaining before the DS marked for deferred delete is permanently deleted
 func (o AzureVmWorkloadSAPAseDatabaseProtectedItemOutput) DeferredDeleteTimeRemaining() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AzureVmWorkloadSAPAseDatabaseProtectedItem) *string { return v.DeferredDeleteTimeRemaining }).(pulumi.StringPtrOutput)
 }
 
-// Additional information for this backup item.
 func (o AzureVmWorkloadSAPAseDatabaseProtectedItemOutput) ExtendedInfo() AzureVmWorkloadProtectedItemExtendedInfoPtrOutput {
 	return o.ApplyT(func(v AzureVmWorkloadSAPAseDatabaseProtectedItem) *AzureVmWorkloadProtectedItemExtendedInfo {
 		return v.ExtendedInfo
 	}).(AzureVmWorkloadProtectedItemExtendedInfoPtrOutput)
 }
 
-// Friendly name of the DB represented by this backup item.
 func (o AzureVmWorkloadSAPAseDatabaseProtectedItemOutput) FriendlyName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AzureVmWorkloadSAPAseDatabaseProtectedItem) *string { return v.FriendlyName }).(pulumi.StringPtrOutput)
 }
 
-// Flag to identify whether the deferred deleted DS is to be purged soon
 func (o AzureVmWorkloadSAPAseDatabaseProtectedItemOutput) IsDeferredDeleteScheduleUpcoming() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v AzureVmWorkloadSAPAseDatabaseProtectedItem) *bool { return v.IsDeferredDeleteScheduleUpcoming }).(pulumi.BoolPtrOutput)
 }
 
-// Flag to identify that deferred deleted DS is to be moved into Pause state
 func (o AzureVmWorkloadSAPAseDatabaseProtectedItemOutput) IsRehydrate() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v AzureVmWorkloadSAPAseDatabaseProtectedItem) *bool { return v.IsRehydrate }).(pulumi.BoolPtrOutput)
 }
 
-// Flag to identify whether the DS is scheduled for deferred delete
 func (o AzureVmWorkloadSAPAseDatabaseProtectedItemOutput) IsScheduledForDeferredDelete() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v AzureVmWorkloadSAPAseDatabaseProtectedItem) *bool { return v.IsScheduledForDeferredDelete }).(pulumi.BoolPtrOutput)
 }
 
-// Health details of different KPIs
 func (o AzureVmWorkloadSAPAseDatabaseProtectedItemOutput) KpisHealths() KPIResourceHealthDetailsMapOutput {
 	return o.ApplyT(func(v AzureVmWorkloadSAPAseDatabaseProtectedItem) map[string]KPIResourceHealthDetails {
 		return v.KpisHealths
 	}).(KPIResourceHealthDetailsMapOutput)
 }
 
-// Last backup operation status. Possible values: Healthy, Unhealthy.
 func (o AzureVmWorkloadSAPAseDatabaseProtectedItemOutput) LastBackupStatus() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AzureVmWorkloadSAPAseDatabaseProtectedItem) *string { return v.LastBackupStatus }).(pulumi.StringPtrOutput)
 }
 
-// Timestamp of the last backup operation on this backup item.
 func (o AzureVmWorkloadSAPAseDatabaseProtectedItemOutput) LastBackupTime() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AzureVmWorkloadSAPAseDatabaseProtectedItem) *string { return v.LastBackupTime }).(pulumi.StringPtrOutput)
 }
 
-// Timestamp when the last (latest) backup copy was created for this backup item.
 func (o AzureVmWorkloadSAPAseDatabaseProtectedItemOutput) LastRecoveryPoint() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AzureVmWorkloadSAPAseDatabaseProtectedItem) *string { return v.LastRecoveryPoint }).(pulumi.StringPtrOutput)
 }
 
-// Parent name of the DB such as Instance or Availability Group.
 func (o AzureVmWorkloadSAPAseDatabaseProtectedItemOutput) ParentName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AzureVmWorkloadSAPAseDatabaseProtectedItem) *string { return v.ParentName }).(pulumi.StringPtrOutput)
 }
 
-// Parent type of protected item, example: for a DB, standalone server or distributed
 func (o AzureVmWorkloadSAPAseDatabaseProtectedItemOutput) ParentType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AzureVmWorkloadSAPAseDatabaseProtectedItem) *string { return v.ParentType }).(pulumi.StringPtrOutput)
 }
 
-// ID of the backup policy with which this item is backed up.
 func (o AzureVmWorkloadSAPAseDatabaseProtectedItemOutput) PolicyId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AzureVmWorkloadSAPAseDatabaseProtectedItem) *string { return v.PolicyId }).(pulumi.StringPtrOutput)
 }
 
-// Data ID of the protected item.
 func (o AzureVmWorkloadSAPAseDatabaseProtectedItemOutput) ProtectedItemDataSourceId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AzureVmWorkloadSAPAseDatabaseProtectedItem) *string { return v.ProtectedItemDataSourceId }).(pulumi.StringPtrOutput)
 }
 
-// Health status of the backup item, evaluated based on last heartbeat received
 func (o AzureVmWorkloadSAPAseDatabaseProtectedItemOutput) ProtectedItemHealthStatus() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AzureVmWorkloadSAPAseDatabaseProtectedItem) *string { return v.ProtectedItemHealthStatus }).(pulumi.StringPtrOutput)
 }
 
-// backup item type.
-// Expected value is 'AzureVmWorkloadSAPAseDatabase'.
 func (o AzureVmWorkloadSAPAseDatabaseProtectedItemOutput) ProtectedItemType() pulumi.StringOutput {
 	return o.ApplyT(func(v AzureVmWorkloadSAPAseDatabaseProtectedItem) string { return v.ProtectedItemType }).(pulumi.StringOutput)
 }
 
-// Backup state of this backup item.
 func (o AzureVmWorkloadSAPAseDatabaseProtectedItemOutput) ProtectionState() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AzureVmWorkloadSAPAseDatabaseProtectedItem) *string { return v.ProtectionState }).(pulumi.StringPtrOutput)
 }
 
-// Backup status of this backup item.
 func (o AzureVmWorkloadSAPAseDatabaseProtectedItemOutput) ProtectionStatus() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AzureVmWorkloadSAPAseDatabaseProtectedItem) *string { return v.ProtectionStatus }).(pulumi.StringPtrOutput)
 }
 
-// Host/Cluster Name for instance or AG
 func (o AzureVmWorkloadSAPAseDatabaseProtectedItemOutput) ServerName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AzureVmWorkloadSAPAseDatabaseProtectedItem) *string { return v.ServerName }).(pulumi.StringPtrOutput)
 }
 
-// ARM ID of the resource to be backed up.
 func (o AzureVmWorkloadSAPAseDatabaseProtectedItemOutput) SourceResourceId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AzureVmWorkloadSAPAseDatabaseProtectedItem) *string { return v.SourceResourceId }).(pulumi.StringPtrOutput)
 }
 
-// Type of workload this item represents.
 func (o AzureVmWorkloadSAPAseDatabaseProtectedItemOutput) WorkloadType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AzureVmWorkloadSAPAseDatabaseProtectedItem) *string { return v.WorkloadType }).(pulumi.StringPtrOutput)
 }
 
-// Azure VM workload-specific protected item representing SAP ASE Database.
 type AzureVmWorkloadSAPAseDatabaseProtectedItemResponse struct {
-	// Type of backup management for the backed up item.
-	BackupManagementType *string `pulumi:"backupManagementType"`
-	// Name of the backup set the backup item belongs to
-	BackupSetName *string `pulumi:"backupSetName"`
-	// Unique name of container
-	ContainerName *string `pulumi:"containerName"`
-	// Create mode to indicate recovery of existing soft deleted data source or creation of new data source.
-	CreateMode *string `pulumi:"createMode"`
-	// Time for deferred deletion in UTC
-	DeferredDeleteTimeInUTC *string `pulumi:"deferredDeleteTimeInUTC"`
-	// Time remaining before the DS marked for deferred delete is permanently deleted
-	DeferredDeleteTimeRemaining *string `pulumi:"deferredDeleteTimeRemaining"`
-	// Additional information for this backup item.
-	ExtendedInfo *AzureVmWorkloadProtectedItemExtendedInfoResponse `pulumi:"extendedInfo"`
-	// Friendly name of the DB represented by this backup item.
-	FriendlyName *string `pulumi:"friendlyName"`
-	// Flag to identify whether the deferred deleted DS is to be purged soon
-	IsDeferredDeleteScheduleUpcoming *bool `pulumi:"isDeferredDeleteScheduleUpcoming"`
-	// Flag to identify that deferred deleted DS is to be moved into Pause state
-	IsRehydrate *bool `pulumi:"isRehydrate"`
-	// Flag to identify whether the DS is scheduled for deferred delete
-	IsScheduledForDeferredDelete *bool `pulumi:"isScheduledForDeferredDelete"`
-	// Health details of different KPIs
-	KpisHealths map[string]KPIResourceHealthDetailsResponse `pulumi:"kpisHealths"`
-	// Error details in last backup
-	LastBackupErrorDetail *ErrorDetailResponse `pulumi:"lastBackupErrorDetail"`
-	// Last backup operation status. Possible values: Healthy, Unhealthy.
-	LastBackupStatus *string `pulumi:"lastBackupStatus"`
-	// Timestamp of the last backup operation on this backup item.
-	LastBackupTime *string `pulumi:"lastBackupTime"`
-	// Timestamp when the last (latest) backup copy was created for this backup item.
-	LastRecoveryPoint *string `pulumi:"lastRecoveryPoint"`
-	// Parent name of the DB such as Instance or Availability Group.
-	ParentName *string `pulumi:"parentName"`
-	// Parent type of protected item, example: for a DB, standalone server or distributed
-	ParentType *string `pulumi:"parentType"`
-	// ID of the backup policy with which this item is backed up.
-	PolicyId *string `pulumi:"policyId"`
-	// Data ID of the protected item.
-	ProtectedItemDataSourceId *string `pulumi:"protectedItemDataSourceId"`
-	// Health status of the backup item, evaluated based on last heartbeat received
-	ProtectedItemHealthStatus *string `pulumi:"protectedItemHealthStatus"`
-	// backup item type.
-	// Expected value is 'AzureVmWorkloadSAPAseDatabase'.
-	ProtectedItemType string `pulumi:"protectedItemType"`
-	// Backup state of this backup item.
-	ProtectionState *string `pulumi:"protectionState"`
-	// Backup status of this backup item.
-	ProtectionStatus *string `pulumi:"protectionStatus"`
-	// Host/Cluster Name for instance or AG
-	ServerName *string `pulumi:"serverName"`
-	// ARM ID of the resource to be backed up.
-	SourceResourceId *string `pulumi:"sourceResourceId"`
-	// Type of workload this item represents.
-	WorkloadType *string `pulumi:"workloadType"`
+	BackupManagementType             *string                                           `pulumi:"backupManagementType"`
+	BackupSetName                    *string                                           `pulumi:"backupSetName"`
+	ContainerName                    *string                                           `pulumi:"containerName"`
+	CreateMode                       *string                                           `pulumi:"createMode"`
+	DeferredDeleteTimeInUTC          *string                                           `pulumi:"deferredDeleteTimeInUTC"`
+	DeferredDeleteTimeRemaining      *string                                           `pulumi:"deferredDeleteTimeRemaining"`
+	ExtendedInfo                     *AzureVmWorkloadProtectedItemExtendedInfoResponse `pulumi:"extendedInfo"`
+	FriendlyName                     *string                                           `pulumi:"friendlyName"`
+	IsDeferredDeleteScheduleUpcoming *bool                                             `pulumi:"isDeferredDeleteScheduleUpcoming"`
+	IsRehydrate                      *bool                                             `pulumi:"isRehydrate"`
+	IsScheduledForDeferredDelete     *bool                                             `pulumi:"isScheduledForDeferredDelete"`
+	KpisHealths                      map[string]KPIResourceHealthDetailsResponse       `pulumi:"kpisHealths"`
+	LastBackupErrorDetail            *ErrorDetailResponse                              `pulumi:"lastBackupErrorDetail"`
+	LastBackupStatus                 *string                                           `pulumi:"lastBackupStatus"`
+	LastBackupTime                   *string                                           `pulumi:"lastBackupTime"`
+	LastRecoveryPoint                *string                                           `pulumi:"lastRecoveryPoint"`
+	ParentName                       *string                                           `pulumi:"parentName"`
+	ParentType                       *string                                           `pulumi:"parentType"`
+	PolicyId                         *string                                           `pulumi:"policyId"`
+	ProtectedItemDataSourceId        *string                                           `pulumi:"protectedItemDataSourceId"`
+	ProtectedItemHealthStatus        *string                                           `pulumi:"protectedItemHealthStatus"`
+	ProtectedItemType                string                                            `pulumi:"protectedItemType"`
+	ProtectionState                  *string                                           `pulumi:"protectionState"`
+	ProtectionStatus                 *string                                           `pulumi:"protectionStatus"`
+	ServerName                       *string                                           `pulumi:"serverName"`
+	SourceResourceId                 *string                                           `pulumi:"sourceResourceId"`
+	WorkloadType                     *string                                           `pulumi:"workloadType"`
 }
 
 // AzureVmWorkloadSAPAseDatabaseProtectedItemResponseInput is an input type that accepts AzureVmWorkloadSAPAseDatabaseProtectedItemResponseArgs and AzureVmWorkloadSAPAseDatabaseProtectedItemResponseOutput values.
@@ -5078,63 +3944,34 @@ type AzureVmWorkloadSAPAseDatabaseProtectedItemResponseInput interface {
 	ToAzureVmWorkloadSAPAseDatabaseProtectedItemResponseOutputWithContext(context.Context) AzureVmWorkloadSAPAseDatabaseProtectedItemResponseOutput
 }
 
-// Azure VM workload-specific protected item representing SAP ASE Database.
 type AzureVmWorkloadSAPAseDatabaseProtectedItemResponseArgs struct {
-	// Type of backup management for the backed up item.
-	BackupManagementType pulumi.StringPtrInput `pulumi:"backupManagementType"`
-	// Name of the backup set the backup item belongs to
-	BackupSetName pulumi.StringPtrInput `pulumi:"backupSetName"`
-	// Unique name of container
-	ContainerName pulumi.StringPtrInput `pulumi:"containerName"`
-	// Create mode to indicate recovery of existing soft deleted data source or creation of new data source.
-	CreateMode pulumi.StringPtrInput `pulumi:"createMode"`
-	// Time for deferred deletion in UTC
-	DeferredDeleteTimeInUTC pulumi.StringPtrInput `pulumi:"deferredDeleteTimeInUTC"`
-	// Time remaining before the DS marked for deferred delete is permanently deleted
-	DeferredDeleteTimeRemaining pulumi.StringPtrInput `pulumi:"deferredDeleteTimeRemaining"`
-	// Additional information for this backup item.
-	ExtendedInfo AzureVmWorkloadProtectedItemExtendedInfoResponsePtrInput `pulumi:"extendedInfo"`
-	// Friendly name of the DB represented by this backup item.
-	FriendlyName pulumi.StringPtrInput `pulumi:"friendlyName"`
-	// Flag to identify whether the deferred deleted DS is to be purged soon
-	IsDeferredDeleteScheduleUpcoming pulumi.BoolPtrInput `pulumi:"isDeferredDeleteScheduleUpcoming"`
-	// Flag to identify that deferred deleted DS is to be moved into Pause state
-	IsRehydrate pulumi.BoolPtrInput `pulumi:"isRehydrate"`
-	// Flag to identify whether the DS is scheduled for deferred delete
-	IsScheduledForDeferredDelete pulumi.BoolPtrInput `pulumi:"isScheduledForDeferredDelete"`
-	// Health details of different KPIs
-	KpisHealths KPIResourceHealthDetailsResponseMapInput `pulumi:"kpisHealths"`
-	// Error details in last backup
-	LastBackupErrorDetail ErrorDetailResponsePtrInput `pulumi:"lastBackupErrorDetail"`
-	// Last backup operation status. Possible values: Healthy, Unhealthy.
-	LastBackupStatus pulumi.StringPtrInput `pulumi:"lastBackupStatus"`
-	// Timestamp of the last backup operation on this backup item.
-	LastBackupTime pulumi.StringPtrInput `pulumi:"lastBackupTime"`
-	// Timestamp when the last (latest) backup copy was created for this backup item.
-	LastRecoveryPoint pulumi.StringPtrInput `pulumi:"lastRecoveryPoint"`
-	// Parent name of the DB such as Instance or Availability Group.
-	ParentName pulumi.StringPtrInput `pulumi:"parentName"`
-	// Parent type of protected item, example: for a DB, standalone server or distributed
-	ParentType pulumi.StringPtrInput `pulumi:"parentType"`
-	// ID of the backup policy with which this item is backed up.
-	PolicyId pulumi.StringPtrInput `pulumi:"policyId"`
-	// Data ID of the protected item.
-	ProtectedItemDataSourceId pulumi.StringPtrInput `pulumi:"protectedItemDataSourceId"`
-	// Health status of the backup item, evaluated based on last heartbeat received
-	ProtectedItemHealthStatus pulumi.StringPtrInput `pulumi:"protectedItemHealthStatus"`
-	// backup item type.
-	// Expected value is 'AzureVmWorkloadSAPAseDatabase'.
-	ProtectedItemType pulumi.StringInput `pulumi:"protectedItemType"`
-	// Backup state of this backup item.
-	ProtectionState pulumi.StringPtrInput `pulumi:"protectionState"`
-	// Backup status of this backup item.
-	ProtectionStatus pulumi.StringPtrInput `pulumi:"protectionStatus"`
-	// Host/Cluster Name for instance or AG
-	ServerName pulumi.StringPtrInput `pulumi:"serverName"`
-	// ARM ID of the resource to be backed up.
-	SourceResourceId pulumi.StringPtrInput `pulumi:"sourceResourceId"`
-	// Type of workload this item represents.
-	WorkloadType pulumi.StringPtrInput `pulumi:"workloadType"`
+	BackupManagementType             pulumi.StringPtrInput                                    `pulumi:"backupManagementType"`
+	BackupSetName                    pulumi.StringPtrInput                                    `pulumi:"backupSetName"`
+	ContainerName                    pulumi.StringPtrInput                                    `pulumi:"containerName"`
+	CreateMode                       pulumi.StringPtrInput                                    `pulumi:"createMode"`
+	DeferredDeleteTimeInUTC          pulumi.StringPtrInput                                    `pulumi:"deferredDeleteTimeInUTC"`
+	DeferredDeleteTimeRemaining      pulumi.StringPtrInput                                    `pulumi:"deferredDeleteTimeRemaining"`
+	ExtendedInfo                     AzureVmWorkloadProtectedItemExtendedInfoResponsePtrInput `pulumi:"extendedInfo"`
+	FriendlyName                     pulumi.StringPtrInput                                    `pulumi:"friendlyName"`
+	IsDeferredDeleteScheduleUpcoming pulumi.BoolPtrInput                                      `pulumi:"isDeferredDeleteScheduleUpcoming"`
+	IsRehydrate                      pulumi.BoolPtrInput                                      `pulumi:"isRehydrate"`
+	IsScheduledForDeferredDelete     pulumi.BoolPtrInput                                      `pulumi:"isScheduledForDeferredDelete"`
+	KpisHealths                      KPIResourceHealthDetailsResponseMapInput                 `pulumi:"kpisHealths"`
+	LastBackupErrorDetail            ErrorDetailResponsePtrInput                              `pulumi:"lastBackupErrorDetail"`
+	LastBackupStatus                 pulumi.StringPtrInput                                    `pulumi:"lastBackupStatus"`
+	LastBackupTime                   pulumi.StringPtrInput                                    `pulumi:"lastBackupTime"`
+	LastRecoveryPoint                pulumi.StringPtrInput                                    `pulumi:"lastRecoveryPoint"`
+	ParentName                       pulumi.StringPtrInput                                    `pulumi:"parentName"`
+	ParentType                       pulumi.StringPtrInput                                    `pulumi:"parentType"`
+	PolicyId                         pulumi.StringPtrInput                                    `pulumi:"policyId"`
+	ProtectedItemDataSourceId        pulumi.StringPtrInput                                    `pulumi:"protectedItemDataSourceId"`
+	ProtectedItemHealthStatus        pulumi.StringPtrInput                                    `pulumi:"protectedItemHealthStatus"`
+	ProtectedItemType                pulumi.StringInput                                       `pulumi:"protectedItemType"`
+	ProtectionState                  pulumi.StringPtrInput                                    `pulumi:"protectionState"`
+	ProtectionStatus                 pulumi.StringPtrInput                                    `pulumi:"protectionStatus"`
+	ServerName                       pulumi.StringPtrInput                                    `pulumi:"serverName"`
+	SourceResourceId                 pulumi.StringPtrInput                                    `pulumi:"sourceResourceId"`
+	WorkloadType                     pulumi.StringPtrInput                                    `pulumi:"workloadType"`
 }
 
 func (AzureVmWorkloadSAPAseDatabaseProtectedItemResponseArgs) ElementType() reflect.Type {
@@ -5149,7 +3986,6 @@ func (i AzureVmWorkloadSAPAseDatabaseProtectedItemResponseArgs) ToAzureVmWorkloa
 	return pulumi.ToOutputWithContext(ctx, i).(AzureVmWorkloadSAPAseDatabaseProtectedItemResponseOutput)
 }
 
-// Azure VM workload-specific protected item representing SAP ASE Database.
 type AzureVmWorkloadSAPAseDatabaseProtectedItemResponseOutput struct{ *pulumi.OutputState }
 
 func (AzureVmWorkloadSAPAseDatabaseProtectedItemResponseOutput) ElementType() reflect.Type {
@@ -5164,209 +4000,153 @@ func (o AzureVmWorkloadSAPAseDatabaseProtectedItemResponseOutput) ToAzureVmWorkl
 	return o
 }
 
-// Type of backup management for the backed up item.
 func (o AzureVmWorkloadSAPAseDatabaseProtectedItemResponseOutput) BackupManagementType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AzureVmWorkloadSAPAseDatabaseProtectedItemResponse) *string { return v.BackupManagementType }).(pulumi.StringPtrOutput)
 }
 
-// Name of the backup set the backup item belongs to
 func (o AzureVmWorkloadSAPAseDatabaseProtectedItemResponseOutput) BackupSetName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AzureVmWorkloadSAPAseDatabaseProtectedItemResponse) *string { return v.BackupSetName }).(pulumi.StringPtrOutput)
 }
 
-// Unique name of container
 func (o AzureVmWorkloadSAPAseDatabaseProtectedItemResponseOutput) ContainerName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AzureVmWorkloadSAPAseDatabaseProtectedItemResponse) *string { return v.ContainerName }).(pulumi.StringPtrOutput)
 }
 
-// Create mode to indicate recovery of existing soft deleted data source or creation of new data source.
 func (o AzureVmWorkloadSAPAseDatabaseProtectedItemResponseOutput) CreateMode() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AzureVmWorkloadSAPAseDatabaseProtectedItemResponse) *string { return v.CreateMode }).(pulumi.StringPtrOutput)
 }
 
-// Time for deferred deletion in UTC
 func (o AzureVmWorkloadSAPAseDatabaseProtectedItemResponseOutput) DeferredDeleteTimeInUTC() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AzureVmWorkloadSAPAseDatabaseProtectedItemResponse) *string { return v.DeferredDeleteTimeInUTC }).(pulumi.StringPtrOutput)
 }
 
-// Time remaining before the DS marked for deferred delete is permanently deleted
 func (o AzureVmWorkloadSAPAseDatabaseProtectedItemResponseOutput) DeferredDeleteTimeRemaining() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AzureVmWorkloadSAPAseDatabaseProtectedItemResponse) *string {
 		return v.DeferredDeleteTimeRemaining
 	}).(pulumi.StringPtrOutput)
 }
 
-// Additional information for this backup item.
 func (o AzureVmWorkloadSAPAseDatabaseProtectedItemResponseOutput) ExtendedInfo() AzureVmWorkloadProtectedItemExtendedInfoResponsePtrOutput {
 	return o.ApplyT(func(v AzureVmWorkloadSAPAseDatabaseProtectedItemResponse) *AzureVmWorkloadProtectedItemExtendedInfoResponse {
 		return v.ExtendedInfo
 	}).(AzureVmWorkloadProtectedItemExtendedInfoResponsePtrOutput)
 }
 
-// Friendly name of the DB represented by this backup item.
 func (o AzureVmWorkloadSAPAseDatabaseProtectedItemResponseOutput) FriendlyName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AzureVmWorkloadSAPAseDatabaseProtectedItemResponse) *string { return v.FriendlyName }).(pulumi.StringPtrOutput)
 }
 
-// Flag to identify whether the deferred deleted DS is to be purged soon
 func (o AzureVmWorkloadSAPAseDatabaseProtectedItemResponseOutput) IsDeferredDeleteScheduleUpcoming() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v AzureVmWorkloadSAPAseDatabaseProtectedItemResponse) *bool {
 		return v.IsDeferredDeleteScheduleUpcoming
 	}).(pulumi.BoolPtrOutput)
 }
 
-// Flag to identify that deferred deleted DS is to be moved into Pause state
 func (o AzureVmWorkloadSAPAseDatabaseProtectedItemResponseOutput) IsRehydrate() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v AzureVmWorkloadSAPAseDatabaseProtectedItemResponse) *bool { return v.IsRehydrate }).(pulumi.BoolPtrOutput)
 }
 
-// Flag to identify whether the DS is scheduled for deferred delete
 func (o AzureVmWorkloadSAPAseDatabaseProtectedItemResponseOutput) IsScheduledForDeferredDelete() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v AzureVmWorkloadSAPAseDatabaseProtectedItemResponse) *bool {
 		return v.IsScheduledForDeferredDelete
 	}).(pulumi.BoolPtrOutput)
 }
 
-// Health details of different KPIs
 func (o AzureVmWorkloadSAPAseDatabaseProtectedItemResponseOutput) KpisHealths() KPIResourceHealthDetailsResponseMapOutput {
 	return o.ApplyT(func(v AzureVmWorkloadSAPAseDatabaseProtectedItemResponse) map[string]KPIResourceHealthDetailsResponse {
 		return v.KpisHealths
 	}).(KPIResourceHealthDetailsResponseMapOutput)
 }
 
-// Error details in last backup
 func (o AzureVmWorkloadSAPAseDatabaseProtectedItemResponseOutput) LastBackupErrorDetail() ErrorDetailResponsePtrOutput {
 	return o.ApplyT(func(v AzureVmWorkloadSAPAseDatabaseProtectedItemResponse) *ErrorDetailResponse {
 		return v.LastBackupErrorDetail
 	}).(ErrorDetailResponsePtrOutput)
 }
 
-// Last backup operation status. Possible values: Healthy, Unhealthy.
 func (o AzureVmWorkloadSAPAseDatabaseProtectedItemResponseOutput) LastBackupStatus() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AzureVmWorkloadSAPAseDatabaseProtectedItemResponse) *string { return v.LastBackupStatus }).(pulumi.StringPtrOutput)
 }
 
-// Timestamp of the last backup operation on this backup item.
 func (o AzureVmWorkloadSAPAseDatabaseProtectedItemResponseOutput) LastBackupTime() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AzureVmWorkloadSAPAseDatabaseProtectedItemResponse) *string { return v.LastBackupTime }).(pulumi.StringPtrOutput)
 }
 
-// Timestamp when the last (latest) backup copy was created for this backup item.
 func (o AzureVmWorkloadSAPAseDatabaseProtectedItemResponseOutput) LastRecoveryPoint() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AzureVmWorkloadSAPAseDatabaseProtectedItemResponse) *string { return v.LastRecoveryPoint }).(pulumi.StringPtrOutput)
 }
 
-// Parent name of the DB such as Instance or Availability Group.
 func (o AzureVmWorkloadSAPAseDatabaseProtectedItemResponseOutput) ParentName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AzureVmWorkloadSAPAseDatabaseProtectedItemResponse) *string { return v.ParentName }).(pulumi.StringPtrOutput)
 }
 
-// Parent type of protected item, example: for a DB, standalone server or distributed
 func (o AzureVmWorkloadSAPAseDatabaseProtectedItemResponseOutput) ParentType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AzureVmWorkloadSAPAseDatabaseProtectedItemResponse) *string { return v.ParentType }).(pulumi.StringPtrOutput)
 }
 
-// ID of the backup policy with which this item is backed up.
 func (o AzureVmWorkloadSAPAseDatabaseProtectedItemResponseOutput) PolicyId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AzureVmWorkloadSAPAseDatabaseProtectedItemResponse) *string { return v.PolicyId }).(pulumi.StringPtrOutput)
 }
 
-// Data ID of the protected item.
 func (o AzureVmWorkloadSAPAseDatabaseProtectedItemResponseOutput) ProtectedItemDataSourceId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AzureVmWorkloadSAPAseDatabaseProtectedItemResponse) *string { return v.ProtectedItemDataSourceId }).(pulumi.StringPtrOutput)
 }
 
-// Health status of the backup item, evaluated based on last heartbeat received
 func (o AzureVmWorkloadSAPAseDatabaseProtectedItemResponseOutput) ProtectedItemHealthStatus() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AzureVmWorkloadSAPAseDatabaseProtectedItemResponse) *string { return v.ProtectedItemHealthStatus }).(pulumi.StringPtrOutput)
 }
 
-// backup item type.
-// Expected value is 'AzureVmWorkloadSAPAseDatabase'.
 func (o AzureVmWorkloadSAPAseDatabaseProtectedItemResponseOutput) ProtectedItemType() pulumi.StringOutput {
 	return o.ApplyT(func(v AzureVmWorkloadSAPAseDatabaseProtectedItemResponse) string { return v.ProtectedItemType }).(pulumi.StringOutput)
 }
 
-// Backup state of this backup item.
 func (o AzureVmWorkloadSAPAseDatabaseProtectedItemResponseOutput) ProtectionState() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AzureVmWorkloadSAPAseDatabaseProtectedItemResponse) *string { return v.ProtectionState }).(pulumi.StringPtrOutput)
 }
 
-// Backup status of this backup item.
 func (o AzureVmWorkloadSAPAseDatabaseProtectedItemResponseOutput) ProtectionStatus() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AzureVmWorkloadSAPAseDatabaseProtectedItemResponse) *string { return v.ProtectionStatus }).(pulumi.StringPtrOutput)
 }
 
-// Host/Cluster Name for instance or AG
 func (o AzureVmWorkloadSAPAseDatabaseProtectedItemResponseOutput) ServerName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AzureVmWorkloadSAPAseDatabaseProtectedItemResponse) *string { return v.ServerName }).(pulumi.StringPtrOutput)
 }
 
-// ARM ID of the resource to be backed up.
 func (o AzureVmWorkloadSAPAseDatabaseProtectedItemResponseOutput) SourceResourceId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AzureVmWorkloadSAPAseDatabaseProtectedItemResponse) *string { return v.SourceResourceId }).(pulumi.StringPtrOutput)
 }
 
-// Type of workload this item represents.
 func (o AzureVmWorkloadSAPAseDatabaseProtectedItemResponseOutput) WorkloadType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AzureVmWorkloadSAPAseDatabaseProtectedItemResponse) *string { return v.WorkloadType }).(pulumi.StringPtrOutput)
 }
 
-// Azure VM workload-specific protected item representing SAP HANA Database.
 type AzureVmWorkloadSAPHanaDatabaseProtectedItem struct {
-	// Type of backup management for the backed up item.
-	BackupManagementType *string `pulumi:"backupManagementType"`
-	// Name of the backup set the backup item belongs to
-	BackupSetName *string `pulumi:"backupSetName"`
-	// Unique name of container
-	ContainerName *string `pulumi:"containerName"`
-	// Create mode to indicate recovery of existing soft deleted data source or creation of new data source.
-	CreateMode *string `pulumi:"createMode"`
-	// Time for deferred deletion in UTC
-	DeferredDeleteTimeInUTC *string `pulumi:"deferredDeleteTimeInUTC"`
-	// Time remaining before the DS marked for deferred delete is permanently deleted
-	DeferredDeleteTimeRemaining *string `pulumi:"deferredDeleteTimeRemaining"`
-	// Additional information for this backup item.
-	ExtendedInfo *AzureVmWorkloadProtectedItemExtendedInfo `pulumi:"extendedInfo"`
-	// Friendly name of the DB represented by this backup item.
-	FriendlyName *string `pulumi:"friendlyName"`
-	// Flag to identify whether the deferred deleted DS is to be purged soon
-	IsDeferredDeleteScheduleUpcoming *bool `pulumi:"isDeferredDeleteScheduleUpcoming"`
-	// Flag to identify that deferred deleted DS is to be moved into Pause state
-	IsRehydrate *bool `pulumi:"isRehydrate"`
-	// Flag to identify whether the DS is scheduled for deferred delete
-	IsScheduledForDeferredDelete *bool `pulumi:"isScheduledForDeferredDelete"`
-	// Health details of different KPIs
-	KpisHealths map[string]KPIResourceHealthDetails `pulumi:"kpisHealths"`
-	// Last backup operation status. Possible values: Healthy, Unhealthy.
-	LastBackupStatus *string `pulumi:"lastBackupStatus"`
-	// Timestamp of the last backup operation on this backup item.
-	LastBackupTime *string `pulumi:"lastBackupTime"`
-	// Timestamp when the last (latest) backup copy was created for this backup item.
-	LastRecoveryPoint *string `pulumi:"lastRecoveryPoint"`
-	// Parent name of the DB such as Instance or Availability Group.
-	ParentName *string `pulumi:"parentName"`
-	// Parent type of protected item, example: for a DB, standalone server or distributed
-	ParentType *string `pulumi:"parentType"`
-	// ID of the backup policy with which this item is backed up.
-	PolicyId *string `pulumi:"policyId"`
-	// Data ID of the protected item.
-	ProtectedItemDataSourceId *string `pulumi:"protectedItemDataSourceId"`
-	// Health status of the backup item, evaluated based on last heartbeat received
-	ProtectedItemHealthStatus *string `pulumi:"protectedItemHealthStatus"`
-	// backup item type.
-	// Expected value is 'AzureVmWorkloadSAPHanaDatabase'.
-	ProtectedItemType string `pulumi:"protectedItemType"`
-	// Backup state of this backup item.
-	ProtectionState *string `pulumi:"protectionState"`
-	// Backup status of this backup item.
-	ProtectionStatus *string `pulumi:"protectionStatus"`
-	// Host/Cluster Name for instance or AG
-	ServerName *string `pulumi:"serverName"`
-	// ARM ID of the resource to be backed up.
-	SourceResourceId *string `pulumi:"sourceResourceId"`
-	// Type of workload this item represents.
-	WorkloadType *string `pulumi:"workloadType"`
+	BackupManagementType             *string                                   `pulumi:"backupManagementType"`
+	BackupSetName                    *string                                   `pulumi:"backupSetName"`
+	ContainerName                    *string                                   `pulumi:"containerName"`
+	CreateMode                       *string                                   `pulumi:"createMode"`
+	DeferredDeleteTimeInUTC          *string                                   `pulumi:"deferredDeleteTimeInUTC"`
+	DeferredDeleteTimeRemaining      *string                                   `pulumi:"deferredDeleteTimeRemaining"`
+	ExtendedInfo                     *AzureVmWorkloadProtectedItemExtendedInfo `pulumi:"extendedInfo"`
+	FriendlyName                     *string                                   `pulumi:"friendlyName"`
+	IsDeferredDeleteScheduleUpcoming *bool                                     `pulumi:"isDeferredDeleteScheduleUpcoming"`
+	IsRehydrate                      *bool                                     `pulumi:"isRehydrate"`
+	IsScheduledForDeferredDelete     *bool                                     `pulumi:"isScheduledForDeferredDelete"`
+	KpisHealths                      map[string]KPIResourceHealthDetails       `pulumi:"kpisHealths"`
+	LastBackupStatus                 *string                                   `pulumi:"lastBackupStatus"`
+	LastBackupTime                   *string                                   `pulumi:"lastBackupTime"`
+	LastRecoveryPoint                *string                                   `pulumi:"lastRecoveryPoint"`
+	ParentName                       *string                                   `pulumi:"parentName"`
+	ParentType                       *string                                   `pulumi:"parentType"`
+	PolicyId                         *string                                   `pulumi:"policyId"`
+	ProtectedItemDataSourceId        *string                                   `pulumi:"protectedItemDataSourceId"`
+	ProtectedItemHealthStatus        *string                                   `pulumi:"protectedItemHealthStatus"`
+	ProtectedItemType                string                                    `pulumi:"protectedItemType"`
+	ProtectionState                  *string                                   `pulumi:"protectionState"`
+	ProtectionStatus                 *string                                   `pulumi:"protectionStatus"`
+	ServerName                       *string                                   `pulumi:"serverName"`
+	SourceResourceId                 *string                                   `pulumi:"sourceResourceId"`
+	WorkloadType                     *string                                   `pulumi:"workloadType"`
 }
 
 // AzureVmWorkloadSAPHanaDatabaseProtectedItemInput is an input type that accepts AzureVmWorkloadSAPHanaDatabaseProtectedItemArgs and AzureVmWorkloadSAPHanaDatabaseProtectedItemOutput values.
@@ -5380,61 +4160,33 @@ type AzureVmWorkloadSAPHanaDatabaseProtectedItemInput interface {
 	ToAzureVmWorkloadSAPHanaDatabaseProtectedItemOutputWithContext(context.Context) AzureVmWorkloadSAPHanaDatabaseProtectedItemOutput
 }
 
-// Azure VM workload-specific protected item representing SAP HANA Database.
 type AzureVmWorkloadSAPHanaDatabaseProtectedItemArgs struct {
-	// Type of backup management for the backed up item.
-	BackupManagementType pulumi.StringPtrInput `pulumi:"backupManagementType"`
-	// Name of the backup set the backup item belongs to
-	BackupSetName pulumi.StringPtrInput `pulumi:"backupSetName"`
-	// Unique name of container
-	ContainerName pulumi.StringPtrInput `pulumi:"containerName"`
-	// Create mode to indicate recovery of existing soft deleted data source or creation of new data source.
-	CreateMode pulumi.StringPtrInput `pulumi:"createMode"`
-	// Time for deferred deletion in UTC
-	DeferredDeleteTimeInUTC pulumi.StringPtrInput `pulumi:"deferredDeleteTimeInUTC"`
-	// Time remaining before the DS marked for deferred delete is permanently deleted
-	DeferredDeleteTimeRemaining pulumi.StringPtrInput `pulumi:"deferredDeleteTimeRemaining"`
-	// Additional information for this backup item.
-	ExtendedInfo AzureVmWorkloadProtectedItemExtendedInfoPtrInput `pulumi:"extendedInfo"`
-	// Friendly name of the DB represented by this backup item.
-	FriendlyName pulumi.StringPtrInput `pulumi:"friendlyName"`
-	// Flag to identify whether the deferred deleted DS is to be purged soon
-	IsDeferredDeleteScheduleUpcoming pulumi.BoolPtrInput `pulumi:"isDeferredDeleteScheduleUpcoming"`
-	// Flag to identify that deferred deleted DS is to be moved into Pause state
-	IsRehydrate pulumi.BoolPtrInput `pulumi:"isRehydrate"`
-	// Flag to identify whether the DS is scheduled for deferred delete
-	IsScheduledForDeferredDelete pulumi.BoolPtrInput `pulumi:"isScheduledForDeferredDelete"`
-	// Health details of different KPIs
-	KpisHealths KPIResourceHealthDetailsMapInput `pulumi:"kpisHealths"`
-	// Last backup operation status. Possible values: Healthy, Unhealthy.
-	LastBackupStatus pulumi.StringPtrInput `pulumi:"lastBackupStatus"`
-	// Timestamp of the last backup operation on this backup item.
-	LastBackupTime pulumi.StringPtrInput `pulumi:"lastBackupTime"`
-	// Timestamp when the last (latest) backup copy was created for this backup item.
-	LastRecoveryPoint pulumi.StringPtrInput `pulumi:"lastRecoveryPoint"`
-	// Parent name of the DB such as Instance or Availability Group.
-	ParentName pulumi.StringPtrInput `pulumi:"parentName"`
-	// Parent type of protected item, example: for a DB, standalone server or distributed
-	ParentType pulumi.StringPtrInput `pulumi:"parentType"`
-	// ID of the backup policy with which this item is backed up.
-	PolicyId pulumi.StringPtrInput `pulumi:"policyId"`
-	// Data ID of the protected item.
-	ProtectedItemDataSourceId pulumi.StringPtrInput `pulumi:"protectedItemDataSourceId"`
-	// Health status of the backup item, evaluated based on last heartbeat received
-	ProtectedItemHealthStatus pulumi.StringPtrInput `pulumi:"protectedItemHealthStatus"`
-	// backup item type.
-	// Expected value is 'AzureVmWorkloadSAPHanaDatabase'.
-	ProtectedItemType pulumi.StringInput `pulumi:"protectedItemType"`
-	// Backup state of this backup item.
-	ProtectionState pulumi.StringPtrInput `pulumi:"protectionState"`
-	// Backup status of this backup item.
-	ProtectionStatus pulumi.StringPtrInput `pulumi:"protectionStatus"`
-	// Host/Cluster Name for instance or AG
-	ServerName pulumi.StringPtrInput `pulumi:"serverName"`
-	// ARM ID of the resource to be backed up.
-	SourceResourceId pulumi.StringPtrInput `pulumi:"sourceResourceId"`
-	// Type of workload this item represents.
-	WorkloadType pulumi.StringPtrInput `pulumi:"workloadType"`
+	BackupManagementType             pulumi.StringPtrInput                            `pulumi:"backupManagementType"`
+	BackupSetName                    pulumi.StringPtrInput                            `pulumi:"backupSetName"`
+	ContainerName                    pulumi.StringPtrInput                            `pulumi:"containerName"`
+	CreateMode                       pulumi.StringPtrInput                            `pulumi:"createMode"`
+	DeferredDeleteTimeInUTC          pulumi.StringPtrInput                            `pulumi:"deferredDeleteTimeInUTC"`
+	DeferredDeleteTimeRemaining      pulumi.StringPtrInput                            `pulumi:"deferredDeleteTimeRemaining"`
+	ExtendedInfo                     AzureVmWorkloadProtectedItemExtendedInfoPtrInput `pulumi:"extendedInfo"`
+	FriendlyName                     pulumi.StringPtrInput                            `pulumi:"friendlyName"`
+	IsDeferredDeleteScheduleUpcoming pulumi.BoolPtrInput                              `pulumi:"isDeferredDeleteScheduleUpcoming"`
+	IsRehydrate                      pulumi.BoolPtrInput                              `pulumi:"isRehydrate"`
+	IsScheduledForDeferredDelete     pulumi.BoolPtrInput                              `pulumi:"isScheduledForDeferredDelete"`
+	KpisHealths                      KPIResourceHealthDetailsMapInput                 `pulumi:"kpisHealths"`
+	LastBackupStatus                 pulumi.StringPtrInput                            `pulumi:"lastBackupStatus"`
+	LastBackupTime                   pulumi.StringPtrInput                            `pulumi:"lastBackupTime"`
+	LastRecoveryPoint                pulumi.StringPtrInput                            `pulumi:"lastRecoveryPoint"`
+	ParentName                       pulumi.StringPtrInput                            `pulumi:"parentName"`
+	ParentType                       pulumi.StringPtrInput                            `pulumi:"parentType"`
+	PolicyId                         pulumi.StringPtrInput                            `pulumi:"policyId"`
+	ProtectedItemDataSourceId        pulumi.StringPtrInput                            `pulumi:"protectedItemDataSourceId"`
+	ProtectedItemHealthStatus        pulumi.StringPtrInput                            `pulumi:"protectedItemHealthStatus"`
+	ProtectedItemType                pulumi.StringInput                               `pulumi:"protectedItemType"`
+	ProtectionState                  pulumi.StringPtrInput                            `pulumi:"protectionState"`
+	ProtectionStatus                 pulumi.StringPtrInput                            `pulumi:"protectionStatus"`
+	ServerName                       pulumi.StringPtrInput                            `pulumi:"serverName"`
+	SourceResourceId                 pulumi.StringPtrInput                            `pulumi:"sourceResourceId"`
+	WorkloadType                     pulumi.StringPtrInput                            `pulumi:"workloadType"`
 }
 
 func (AzureVmWorkloadSAPHanaDatabaseProtectedItemArgs) ElementType() reflect.Type {
@@ -5449,7 +4201,6 @@ func (i AzureVmWorkloadSAPHanaDatabaseProtectedItemArgs) ToAzureVmWorkloadSAPHan
 	return pulumi.ToOutputWithContext(ctx, i).(AzureVmWorkloadSAPHanaDatabaseProtectedItemOutput)
 }
 
-// Azure VM workload-specific protected item representing SAP HANA Database.
 type AzureVmWorkloadSAPHanaDatabaseProtectedItemOutput struct{ *pulumi.OutputState }
 
 func (AzureVmWorkloadSAPHanaDatabaseProtectedItemOutput) ElementType() reflect.Type {
@@ -5464,198 +4215,142 @@ func (o AzureVmWorkloadSAPHanaDatabaseProtectedItemOutput) ToAzureVmWorkloadSAPH
 	return o
 }
 
-// Type of backup management for the backed up item.
 func (o AzureVmWorkloadSAPHanaDatabaseProtectedItemOutput) BackupManagementType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AzureVmWorkloadSAPHanaDatabaseProtectedItem) *string { return v.BackupManagementType }).(pulumi.StringPtrOutput)
 }
 
-// Name of the backup set the backup item belongs to
 func (o AzureVmWorkloadSAPHanaDatabaseProtectedItemOutput) BackupSetName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AzureVmWorkloadSAPHanaDatabaseProtectedItem) *string { return v.BackupSetName }).(pulumi.StringPtrOutput)
 }
 
-// Unique name of container
 func (o AzureVmWorkloadSAPHanaDatabaseProtectedItemOutput) ContainerName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AzureVmWorkloadSAPHanaDatabaseProtectedItem) *string { return v.ContainerName }).(pulumi.StringPtrOutput)
 }
 
-// Create mode to indicate recovery of existing soft deleted data source or creation of new data source.
 func (o AzureVmWorkloadSAPHanaDatabaseProtectedItemOutput) CreateMode() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AzureVmWorkloadSAPHanaDatabaseProtectedItem) *string { return v.CreateMode }).(pulumi.StringPtrOutput)
 }
 
-// Time for deferred deletion in UTC
 func (o AzureVmWorkloadSAPHanaDatabaseProtectedItemOutput) DeferredDeleteTimeInUTC() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AzureVmWorkloadSAPHanaDatabaseProtectedItem) *string { return v.DeferredDeleteTimeInUTC }).(pulumi.StringPtrOutput)
 }
 
-// Time remaining before the DS marked for deferred delete is permanently deleted
 func (o AzureVmWorkloadSAPHanaDatabaseProtectedItemOutput) DeferredDeleteTimeRemaining() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AzureVmWorkloadSAPHanaDatabaseProtectedItem) *string { return v.DeferredDeleteTimeRemaining }).(pulumi.StringPtrOutput)
 }
 
-// Additional information for this backup item.
 func (o AzureVmWorkloadSAPHanaDatabaseProtectedItemOutput) ExtendedInfo() AzureVmWorkloadProtectedItemExtendedInfoPtrOutput {
 	return o.ApplyT(func(v AzureVmWorkloadSAPHanaDatabaseProtectedItem) *AzureVmWorkloadProtectedItemExtendedInfo {
 		return v.ExtendedInfo
 	}).(AzureVmWorkloadProtectedItemExtendedInfoPtrOutput)
 }
 
-// Friendly name of the DB represented by this backup item.
 func (o AzureVmWorkloadSAPHanaDatabaseProtectedItemOutput) FriendlyName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AzureVmWorkloadSAPHanaDatabaseProtectedItem) *string { return v.FriendlyName }).(pulumi.StringPtrOutput)
 }
 
-// Flag to identify whether the deferred deleted DS is to be purged soon
 func (o AzureVmWorkloadSAPHanaDatabaseProtectedItemOutput) IsDeferredDeleteScheduleUpcoming() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v AzureVmWorkloadSAPHanaDatabaseProtectedItem) *bool { return v.IsDeferredDeleteScheduleUpcoming }).(pulumi.BoolPtrOutput)
 }
 
-// Flag to identify that deferred deleted DS is to be moved into Pause state
 func (o AzureVmWorkloadSAPHanaDatabaseProtectedItemOutput) IsRehydrate() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v AzureVmWorkloadSAPHanaDatabaseProtectedItem) *bool { return v.IsRehydrate }).(pulumi.BoolPtrOutput)
 }
 
-// Flag to identify whether the DS is scheduled for deferred delete
 func (o AzureVmWorkloadSAPHanaDatabaseProtectedItemOutput) IsScheduledForDeferredDelete() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v AzureVmWorkloadSAPHanaDatabaseProtectedItem) *bool { return v.IsScheduledForDeferredDelete }).(pulumi.BoolPtrOutput)
 }
 
-// Health details of different KPIs
 func (o AzureVmWorkloadSAPHanaDatabaseProtectedItemOutput) KpisHealths() KPIResourceHealthDetailsMapOutput {
 	return o.ApplyT(func(v AzureVmWorkloadSAPHanaDatabaseProtectedItem) map[string]KPIResourceHealthDetails {
 		return v.KpisHealths
 	}).(KPIResourceHealthDetailsMapOutput)
 }
 
-// Last backup operation status. Possible values: Healthy, Unhealthy.
 func (o AzureVmWorkloadSAPHanaDatabaseProtectedItemOutput) LastBackupStatus() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AzureVmWorkloadSAPHanaDatabaseProtectedItem) *string { return v.LastBackupStatus }).(pulumi.StringPtrOutput)
 }
 
-// Timestamp of the last backup operation on this backup item.
 func (o AzureVmWorkloadSAPHanaDatabaseProtectedItemOutput) LastBackupTime() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AzureVmWorkloadSAPHanaDatabaseProtectedItem) *string { return v.LastBackupTime }).(pulumi.StringPtrOutput)
 }
 
-// Timestamp when the last (latest) backup copy was created for this backup item.
 func (o AzureVmWorkloadSAPHanaDatabaseProtectedItemOutput) LastRecoveryPoint() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AzureVmWorkloadSAPHanaDatabaseProtectedItem) *string { return v.LastRecoveryPoint }).(pulumi.StringPtrOutput)
 }
 
-// Parent name of the DB such as Instance or Availability Group.
 func (o AzureVmWorkloadSAPHanaDatabaseProtectedItemOutput) ParentName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AzureVmWorkloadSAPHanaDatabaseProtectedItem) *string { return v.ParentName }).(pulumi.StringPtrOutput)
 }
 
-// Parent type of protected item, example: for a DB, standalone server or distributed
 func (o AzureVmWorkloadSAPHanaDatabaseProtectedItemOutput) ParentType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AzureVmWorkloadSAPHanaDatabaseProtectedItem) *string { return v.ParentType }).(pulumi.StringPtrOutput)
 }
 
-// ID of the backup policy with which this item is backed up.
 func (o AzureVmWorkloadSAPHanaDatabaseProtectedItemOutput) PolicyId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AzureVmWorkloadSAPHanaDatabaseProtectedItem) *string { return v.PolicyId }).(pulumi.StringPtrOutput)
 }
 
-// Data ID of the protected item.
 func (o AzureVmWorkloadSAPHanaDatabaseProtectedItemOutput) ProtectedItemDataSourceId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AzureVmWorkloadSAPHanaDatabaseProtectedItem) *string { return v.ProtectedItemDataSourceId }).(pulumi.StringPtrOutput)
 }
 
-// Health status of the backup item, evaluated based on last heartbeat received
 func (o AzureVmWorkloadSAPHanaDatabaseProtectedItemOutput) ProtectedItemHealthStatus() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AzureVmWorkloadSAPHanaDatabaseProtectedItem) *string { return v.ProtectedItemHealthStatus }).(pulumi.StringPtrOutput)
 }
 
-// backup item type.
-// Expected value is 'AzureVmWorkloadSAPHanaDatabase'.
 func (o AzureVmWorkloadSAPHanaDatabaseProtectedItemOutput) ProtectedItemType() pulumi.StringOutput {
 	return o.ApplyT(func(v AzureVmWorkloadSAPHanaDatabaseProtectedItem) string { return v.ProtectedItemType }).(pulumi.StringOutput)
 }
 
-// Backup state of this backup item.
 func (o AzureVmWorkloadSAPHanaDatabaseProtectedItemOutput) ProtectionState() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AzureVmWorkloadSAPHanaDatabaseProtectedItem) *string { return v.ProtectionState }).(pulumi.StringPtrOutput)
 }
 
-// Backup status of this backup item.
 func (o AzureVmWorkloadSAPHanaDatabaseProtectedItemOutput) ProtectionStatus() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AzureVmWorkloadSAPHanaDatabaseProtectedItem) *string { return v.ProtectionStatus }).(pulumi.StringPtrOutput)
 }
 
-// Host/Cluster Name for instance or AG
 func (o AzureVmWorkloadSAPHanaDatabaseProtectedItemOutput) ServerName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AzureVmWorkloadSAPHanaDatabaseProtectedItem) *string { return v.ServerName }).(pulumi.StringPtrOutput)
 }
 
-// ARM ID of the resource to be backed up.
 func (o AzureVmWorkloadSAPHanaDatabaseProtectedItemOutput) SourceResourceId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AzureVmWorkloadSAPHanaDatabaseProtectedItem) *string { return v.SourceResourceId }).(pulumi.StringPtrOutput)
 }
 
-// Type of workload this item represents.
 func (o AzureVmWorkloadSAPHanaDatabaseProtectedItemOutput) WorkloadType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AzureVmWorkloadSAPHanaDatabaseProtectedItem) *string { return v.WorkloadType }).(pulumi.StringPtrOutput)
 }
 
-// Azure VM workload-specific protected item representing SAP HANA Database.
 type AzureVmWorkloadSAPHanaDatabaseProtectedItemResponse struct {
-	// Type of backup management for the backed up item.
-	BackupManagementType *string `pulumi:"backupManagementType"`
-	// Name of the backup set the backup item belongs to
-	BackupSetName *string `pulumi:"backupSetName"`
-	// Unique name of container
-	ContainerName *string `pulumi:"containerName"`
-	// Create mode to indicate recovery of existing soft deleted data source or creation of new data source.
-	CreateMode *string `pulumi:"createMode"`
-	// Time for deferred deletion in UTC
-	DeferredDeleteTimeInUTC *string `pulumi:"deferredDeleteTimeInUTC"`
-	// Time remaining before the DS marked for deferred delete is permanently deleted
-	DeferredDeleteTimeRemaining *string `pulumi:"deferredDeleteTimeRemaining"`
-	// Additional information for this backup item.
-	ExtendedInfo *AzureVmWorkloadProtectedItemExtendedInfoResponse `pulumi:"extendedInfo"`
-	// Friendly name of the DB represented by this backup item.
-	FriendlyName *string `pulumi:"friendlyName"`
-	// Flag to identify whether the deferred deleted DS is to be purged soon
-	IsDeferredDeleteScheduleUpcoming *bool `pulumi:"isDeferredDeleteScheduleUpcoming"`
-	// Flag to identify that deferred deleted DS is to be moved into Pause state
-	IsRehydrate *bool `pulumi:"isRehydrate"`
-	// Flag to identify whether the DS is scheduled for deferred delete
-	IsScheduledForDeferredDelete *bool `pulumi:"isScheduledForDeferredDelete"`
-	// Health details of different KPIs
-	KpisHealths map[string]KPIResourceHealthDetailsResponse `pulumi:"kpisHealths"`
-	// Error details in last backup
-	LastBackupErrorDetail *ErrorDetailResponse `pulumi:"lastBackupErrorDetail"`
-	// Last backup operation status. Possible values: Healthy, Unhealthy.
-	LastBackupStatus *string `pulumi:"lastBackupStatus"`
-	// Timestamp of the last backup operation on this backup item.
-	LastBackupTime *string `pulumi:"lastBackupTime"`
-	// Timestamp when the last (latest) backup copy was created for this backup item.
-	LastRecoveryPoint *string `pulumi:"lastRecoveryPoint"`
-	// Parent name of the DB such as Instance or Availability Group.
-	ParentName *string `pulumi:"parentName"`
-	// Parent type of protected item, example: for a DB, standalone server or distributed
-	ParentType *string `pulumi:"parentType"`
-	// ID of the backup policy with which this item is backed up.
-	PolicyId *string `pulumi:"policyId"`
-	// Data ID of the protected item.
-	ProtectedItemDataSourceId *string `pulumi:"protectedItemDataSourceId"`
-	// Health status of the backup item, evaluated based on last heartbeat received
-	ProtectedItemHealthStatus *string `pulumi:"protectedItemHealthStatus"`
-	// backup item type.
-	// Expected value is 'AzureVmWorkloadSAPHanaDatabase'.
-	ProtectedItemType string `pulumi:"protectedItemType"`
-	// Backup state of this backup item.
-	ProtectionState *string `pulumi:"protectionState"`
-	// Backup status of this backup item.
-	ProtectionStatus *string `pulumi:"protectionStatus"`
-	// Host/Cluster Name for instance or AG
-	ServerName *string `pulumi:"serverName"`
-	// ARM ID of the resource to be backed up.
-	SourceResourceId *string `pulumi:"sourceResourceId"`
-	// Type of workload this item represents.
-	WorkloadType *string `pulumi:"workloadType"`
+	BackupManagementType             *string                                           `pulumi:"backupManagementType"`
+	BackupSetName                    *string                                           `pulumi:"backupSetName"`
+	ContainerName                    *string                                           `pulumi:"containerName"`
+	CreateMode                       *string                                           `pulumi:"createMode"`
+	DeferredDeleteTimeInUTC          *string                                           `pulumi:"deferredDeleteTimeInUTC"`
+	DeferredDeleteTimeRemaining      *string                                           `pulumi:"deferredDeleteTimeRemaining"`
+	ExtendedInfo                     *AzureVmWorkloadProtectedItemExtendedInfoResponse `pulumi:"extendedInfo"`
+	FriendlyName                     *string                                           `pulumi:"friendlyName"`
+	IsDeferredDeleteScheduleUpcoming *bool                                             `pulumi:"isDeferredDeleteScheduleUpcoming"`
+	IsRehydrate                      *bool                                             `pulumi:"isRehydrate"`
+	IsScheduledForDeferredDelete     *bool                                             `pulumi:"isScheduledForDeferredDelete"`
+	KpisHealths                      map[string]KPIResourceHealthDetailsResponse       `pulumi:"kpisHealths"`
+	LastBackupErrorDetail            *ErrorDetailResponse                              `pulumi:"lastBackupErrorDetail"`
+	LastBackupStatus                 *string                                           `pulumi:"lastBackupStatus"`
+	LastBackupTime                   *string                                           `pulumi:"lastBackupTime"`
+	LastRecoveryPoint                *string                                           `pulumi:"lastRecoveryPoint"`
+	ParentName                       *string                                           `pulumi:"parentName"`
+	ParentType                       *string                                           `pulumi:"parentType"`
+	PolicyId                         *string                                           `pulumi:"policyId"`
+	ProtectedItemDataSourceId        *string                                           `pulumi:"protectedItemDataSourceId"`
+	ProtectedItemHealthStatus        *string                                           `pulumi:"protectedItemHealthStatus"`
+	ProtectedItemType                string                                            `pulumi:"protectedItemType"`
+	ProtectionState                  *string                                           `pulumi:"protectionState"`
+	ProtectionStatus                 *string                                           `pulumi:"protectionStatus"`
+	ServerName                       *string                                           `pulumi:"serverName"`
+	SourceResourceId                 *string                                           `pulumi:"sourceResourceId"`
+	WorkloadType                     *string                                           `pulumi:"workloadType"`
 }
 
 // AzureVmWorkloadSAPHanaDatabaseProtectedItemResponseInput is an input type that accepts AzureVmWorkloadSAPHanaDatabaseProtectedItemResponseArgs and AzureVmWorkloadSAPHanaDatabaseProtectedItemResponseOutput values.
@@ -5669,63 +4364,34 @@ type AzureVmWorkloadSAPHanaDatabaseProtectedItemResponseInput interface {
 	ToAzureVmWorkloadSAPHanaDatabaseProtectedItemResponseOutputWithContext(context.Context) AzureVmWorkloadSAPHanaDatabaseProtectedItemResponseOutput
 }
 
-// Azure VM workload-specific protected item representing SAP HANA Database.
 type AzureVmWorkloadSAPHanaDatabaseProtectedItemResponseArgs struct {
-	// Type of backup management for the backed up item.
-	BackupManagementType pulumi.StringPtrInput `pulumi:"backupManagementType"`
-	// Name of the backup set the backup item belongs to
-	BackupSetName pulumi.StringPtrInput `pulumi:"backupSetName"`
-	// Unique name of container
-	ContainerName pulumi.StringPtrInput `pulumi:"containerName"`
-	// Create mode to indicate recovery of existing soft deleted data source or creation of new data source.
-	CreateMode pulumi.StringPtrInput `pulumi:"createMode"`
-	// Time for deferred deletion in UTC
-	DeferredDeleteTimeInUTC pulumi.StringPtrInput `pulumi:"deferredDeleteTimeInUTC"`
-	// Time remaining before the DS marked for deferred delete is permanently deleted
-	DeferredDeleteTimeRemaining pulumi.StringPtrInput `pulumi:"deferredDeleteTimeRemaining"`
-	// Additional information for this backup item.
-	ExtendedInfo AzureVmWorkloadProtectedItemExtendedInfoResponsePtrInput `pulumi:"extendedInfo"`
-	// Friendly name of the DB represented by this backup item.
-	FriendlyName pulumi.StringPtrInput `pulumi:"friendlyName"`
-	// Flag to identify whether the deferred deleted DS is to be purged soon
-	IsDeferredDeleteScheduleUpcoming pulumi.BoolPtrInput `pulumi:"isDeferredDeleteScheduleUpcoming"`
-	// Flag to identify that deferred deleted DS is to be moved into Pause state
-	IsRehydrate pulumi.BoolPtrInput `pulumi:"isRehydrate"`
-	// Flag to identify whether the DS is scheduled for deferred delete
-	IsScheduledForDeferredDelete pulumi.BoolPtrInput `pulumi:"isScheduledForDeferredDelete"`
-	// Health details of different KPIs
-	KpisHealths KPIResourceHealthDetailsResponseMapInput `pulumi:"kpisHealths"`
-	// Error details in last backup
-	LastBackupErrorDetail ErrorDetailResponsePtrInput `pulumi:"lastBackupErrorDetail"`
-	// Last backup operation status. Possible values: Healthy, Unhealthy.
-	LastBackupStatus pulumi.StringPtrInput `pulumi:"lastBackupStatus"`
-	// Timestamp of the last backup operation on this backup item.
-	LastBackupTime pulumi.StringPtrInput `pulumi:"lastBackupTime"`
-	// Timestamp when the last (latest) backup copy was created for this backup item.
-	LastRecoveryPoint pulumi.StringPtrInput `pulumi:"lastRecoveryPoint"`
-	// Parent name of the DB such as Instance or Availability Group.
-	ParentName pulumi.StringPtrInput `pulumi:"parentName"`
-	// Parent type of protected item, example: for a DB, standalone server or distributed
-	ParentType pulumi.StringPtrInput `pulumi:"parentType"`
-	// ID of the backup policy with which this item is backed up.
-	PolicyId pulumi.StringPtrInput `pulumi:"policyId"`
-	// Data ID of the protected item.
-	ProtectedItemDataSourceId pulumi.StringPtrInput `pulumi:"protectedItemDataSourceId"`
-	// Health status of the backup item, evaluated based on last heartbeat received
-	ProtectedItemHealthStatus pulumi.StringPtrInput `pulumi:"protectedItemHealthStatus"`
-	// backup item type.
-	// Expected value is 'AzureVmWorkloadSAPHanaDatabase'.
-	ProtectedItemType pulumi.StringInput `pulumi:"protectedItemType"`
-	// Backup state of this backup item.
-	ProtectionState pulumi.StringPtrInput `pulumi:"protectionState"`
-	// Backup status of this backup item.
-	ProtectionStatus pulumi.StringPtrInput `pulumi:"protectionStatus"`
-	// Host/Cluster Name for instance or AG
-	ServerName pulumi.StringPtrInput `pulumi:"serverName"`
-	// ARM ID of the resource to be backed up.
-	SourceResourceId pulumi.StringPtrInput `pulumi:"sourceResourceId"`
-	// Type of workload this item represents.
-	WorkloadType pulumi.StringPtrInput `pulumi:"workloadType"`
+	BackupManagementType             pulumi.StringPtrInput                                    `pulumi:"backupManagementType"`
+	BackupSetName                    pulumi.StringPtrInput                                    `pulumi:"backupSetName"`
+	ContainerName                    pulumi.StringPtrInput                                    `pulumi:"containerName"`
+	CreateMode                       pulumi.StringPtrInput                                    `pulumi:"createMode"`
+	DeferredDeleteTimeInUTC          pulumi.StringPtrInput                                    `pulumi:"deferredDeleteTimeInUTC"`
+	DeferredDeleteTimeRemaining      pulumi.StringPtrInput                                    `pulumi:"deferredDeleteTimeRemaining"`
+	ExtendedInfo                     AzureVmWorkloadProtectedItemExtendedInfoResponsePtrInput `pulumi:"extendedInfo"`
+	FriendlyName                     pulumi.StringPtrInput                                    `pulumi:"friendlyName"`
+	IsDeferredDeleteScheduleUpcoming pulumi.BoolPtrInput                                      `pulumi:"isDeferredDeleteScheduleUpcoming"`
+	IsRehydrate                      pulumi.BoolPtrInput                                      `pulumi:"isRehydrate"`
+	IsScheduledForDeferredDelete     pulumi.BoolPtrInput                                      `pulumi:"isScheduledForDeferredDelete"`
+	KpisHealths                      KPIResourceHealthDetailsResponseMapInput                 `pulumi:"kpisHealths"`
+	LastBackupErrorDetail            ErrorDetailResponsePtrInput                              `pulumi:"lastBackupErrorDetail"`
+	LastBackupStatus                 pulumi.StringPtrInput                                    `pulumi:"lastBackupStatus"`
+	LastBackupTime                   pulumi.StringPtrInput                                    `pulumi:"lastBackupTime"`
+	LastRecoveryPoint                pulumi.StringPtrInput                                    `pulumi:"lastRecoveryPoint"`
+	ParentName                       pulumi.StringPtrInput                                    `pulumi:"parentName"`
+	ParentType                       pulumi.StringPtrInput                                    `pulumi:"parentType"`
+	PolicyId                         pulumi.StringPtrInput                                    `pulumi:"policyId"`
+	ProtectedItemDataSourceId        pulumi.StringPtrInput                                    `pulumi:"protectedItemDataSourceId"`
+	ProtectedItemHealthStatus        pulumi.StringPtrInput                                    `pulumi:"protectedItemHealthStatus"`
+	ProtectedItemType                pulumi.StringInput                                       `pulumi:"protectedItemType"`
+	ProtectionState                  pulumi.StringPtrInput                                    `pulumi:"protectionState"`
+	ProtectionStatus                 pulumi.StringPtrInput                                    `pulumi:"protectionStatus"`
+	ServerName                       pulumi.StringPtrInput                                    `pulumi:"serverName"`
+	SourceResourceId                 pulumi.StringPtrInput                                    `pulumi:"sourceResourceId"`
+	WorkloadType                     pulumi.StringPtrInput                                    `pulumi:"workloadType"`
 }
 
 func (AzureVmWorkloadSAPHanaDatabaseProtectedItemResponseArgs) ElementType() reflect.Type {
@@ -5740,7 +4406,6 @@ func (i AzureVmWorkloadSAPHanaDatabaseProtectedItemResponseArgs) ToAzureVmWorklo
 	return pulumi.ToOutputWithContext(ctx, i).(AzureVmWorkloadSAPHanaDatabaseProtectedItemResponseOutput)
 }
 
-// Azure VM workload-specific protected item representing SAP HANA Database.
 type AzureVmWorkloadSAPHanaDatabaseProtectedItemResponseOutput struct{ *pulumi.OutputState }
 
 func (AzureVmWorkloadSAPHanaDatabaseProtectedItemResponseOutput) ElementType() reflect.Type {
@@ -5755,213 +4420,157 @@ func (o AzureVmWorkloadSAPHanaDatabaseProtectedItemResponseOutput) ToAzureVmWork
 	return o
 }
 
-// Type of backup management for the backed up item.
 func (o AzureVmWorkloadSAPHanaDatabaseProtectedItemResponseOutput) BackupManagementType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AzureVmWorkloadSAPHanaDatabaseProtectedItemResponse) *string { return v.BackupManagementType }).(pulumi.StringPtrOutput)
 }
 
-// Name of the backup set the backup item belongs to
 func (o AzureVmWorkloadSAPHanaDatabaseProtectedItemResponseOutput) BackupSetName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AzureVmWorkloadSAPHanaDatabaseProtectedItemResponse) *string { return v.BackupSetName }).(pulumi.StringPtrOutput)
 }
 
-// Unique name of container
 func (o AzureVmWorkloadSAPHanaDatabaseProtectedItemResponseOutput) ContainerName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AzureVmWorkloadSAPHanaDatabaseProtectedItemResponse) *string { return v.ContainerName }).(pulumi.StringPtrOutput)
 }
 
-// Create mode to indicate recovery of existing soft deleted data source or creation of new data source.
 func (o AzureVmWorkloadSAPHanaDatabaseProtectedItemResponseOutput) CreateMode() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AzureVmWorkloadSAPHanaDatabaseProtectedItemResponse) *string { return v.CreateMode }).(pulumi.StringPtrOutput)
 }
 
-// Time for deferred deletion in UTC
 func (o AzureVmWorkloadSAPHanaDatabaseProtectedItemResponseOutput) DeferredDeleteTimeInUTC() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AzureVmWorkloadSAPHanaDatabaseProtectedItemResponse) *string { return v.DeferredDeleteTimeInUTC }).(pulumi.StringPtrOutput)
 }
 
-// Time remaining before the DS marked for deferred delete is permanently deleted
 func (o AzureVmWorkloadSAPHanaDatabaseProtectedItemResponseOutput) DeferredDeleteTimeRemaining() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AzureVmWorkloadSAPHanaDatabaseProtectedItemResponse) *string {
 		return v.DeferredDeleteTimeRemaining
 	}).(pulumi.StringPtrOutput)
 }
 
-// Additional information for this backup item.
 func (o AzureVmWorkloadSAPHanaDatabaseProtectedItemResponseOutput) ExtendedInfo() AzureVmWorkloadProtectedItemExtendedInfoResponsePtrOutput {
 	return o.ApplyT(func(v AzureVmWorkloadSAPHanaDatabaseProtectedItemResponse) *AzureVmWorkloadProtectedItemExtendedInfoResponse {
 		return v.ExtendedInfo
 	}).(AzureVmWorkloadProtectedItemExtendedInfoResponsePtrOutput)
 }
 
-// Friendly name of the DB represented by this backup item.
 func (o AzureVmWorkloadSAPHanaDatabaseProtectedItemResponseOutput) FriendlyName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AzureVmWorkloadSAPHanaDatabaseProtectedItemResponse) *string { return v.FriendlyName }).(pulumi.StringPtrOutput)
 }
 
-// Flag to identify whether the deferred deleted DS is to be purged soon
 func (o AzureVmWorkloadSAPHanaDatabaseProtectedItemResponseOutput) IsDeferredDeleteScheduleUpcoming() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v AzureVmWorkloadSAPHanaDatabaseProtectedItemResponse) *bool {
 		return v.IsDeferredDeleteScheduleUpcoming
 	}).(pulumi.BoolPtrOutput)
 }
 
-// Flag to identify that deferred deleted DS is to be moved into Pause state
 func (o AzureVmWorkloadSAPHanaDatabaseProtectedItemResponseOutput) IsRehydrate() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v AzureVmWorkloadSAPHanaDatabaseProtectedItemResponse) *bool { return v.IsRehydrate }).(pulumi.BoolPtrOutput)
 }
 
-// Flag to identify whether the DS is scheduled for deferred delete
 func (o AzureVmWorkloadSAPHanaDatabaseProtectedItemResponseOutput) IsScheduledForDeferredDelete() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v AzureVmWorkloadSAPHanaDatabaseProtectedItemResponse) *bool {
 		return v.IsScheduledForDeferredDelete
 	}).(pulumi.BoolPtrOutput)
 }
 
-// Health details of different KPIs
 func (o AzureVmWorkloadSAPHanaDatabaseProtectedItemResponseOutput) KpisHealths() KPIResourceHealthDetailsResponseMapOutput {
 	return o.ApplyT(func(v AzureVmWorkloadSAPHanaDatabaseProtectedItemResponse) map[string]KPIResourceHealthDetailsResponse {
 		return v.KpisHealths
 	}).(KPIResourceHealthDetailsResponseMapOutput)
 }
 
-// Error details in last backup
 func (o AzureVmWorkloadSAPHanaDatabaseProtectedItemResponseOutput) LastBackupErrorDetail() ErrorDetailResponsePtrOutput {
 	return o.ApplyT(func(v AzureVmWorkloadSAPHanaDatabaseProtectedItemResponse) *ErrorDetailResponse {
 		return v.LastBackupErrorDetail
 	}).(ErrorDetailResponsePtrOutput)
 }
 
-// Last backup operation status. Possible values: Healthy, Unhealthy.
 func (o AzureVmWorkloadSAPHanaDatabaseProtectedItemResponseOutput) LastBackupStatus() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AzureVmWorkloadSAPHanaDatabaseProtectedItemResponse) *string { return v.LastBackupStatus }).(pulumi.StringPtrOutput)
 }
 
-// Timestamp of the last backup operation on this backup item.
 func (o AzureVmWorkloadSAPHanaDatabaseProtectedItemResponseOutput) LastBackupTime() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AzureVmWorkloadSAPHanaDatabaseProtectedItemResponse) *string { return v.LastBackupTime }).(pulumi.StringPtrOutput)
 }
 
-// Timestamp when the last (latest) backup copy was created for this backup item.
 func (o AzureVmWorkloadSAPHanaDatabaseProtectedItemResponseOutput) LastRecoveryPoint() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AzureVmWorkloadSAPHanaDatabaseProtectedItemResponse) *string { return v.LastRecoveryPoint }).(pulumi.StringPtrOutput)
 }
 
-// Parent name of the DB such as Instance or Availability Group.
 func (o AzureVmWorkloadSAPHanaDatabaseProtectedItemResponseOutput) ParentName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AzureVmWorkloadSAPHanaDatabaseProtectedItemResponse) *string { return v.ParentName }).(pulumi.StringPtrOutput)
 }
 
-// Parent type of protected item, example: for a DB, standalone server or distributed
 func (o AzureVmWorkloadSAPHanaDatabaseProtectedItemResponseOutput) ParentType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AzureVmWorkloadSAPHanaDatabaseProtectedItemResponse) *string { return v.ParentType }).(pulumi.StringPtrOutput)
 }
 
-// ID of the backup policy with which this item is backed up.
 func (o AzureVmWorkloadSAPHanaDatabaseProtectedItemResponseOutput) PolicyId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AzureVmWorkloadSAPHanaDatabaseProtectedItemResponse) *string { return v.PolicyId }).(pulumi.StringPtrOutput)
 }
 
-// Data ID of the protected item.
 func (o AzureVmWorkloadSAPHanaDatabaseProtectedItemResponseOutput) ProtectedItemDataSourceId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AzureVmWorkloadSAPHanaDatabaseProtectedItemResponse) *string {
 		return v.ProtectedItemDataSourceId
 	}).(pulumi.StringPtrOutput)
 }
 
-// Health status of the backup item, evaluated based on last heartbeat received
 func (o AzureVmWorkloadSAPHanaDatabaseProtectedItemResponseOutput) ProtectedItemHealthStatus() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AzureVmWorkloadSAPHanaDatabaseProtectedItemResponse) *string {
 		return v.ProtectedItemHealthStatus
 	}).(pulumi.StringPtrOutput)
 }
 
-// backup item type.
-// Expected value is 'AzureVmWorkloadSAPHanaDatabase'.
 func (o AzureVmWorkloadSAPHanaDatabaseProtectedItemResponseOutput) ProtectedItemType() pulumi.StringOutput {
 	return o.ApplyT(func(v AzureVmWorkloadSAPHanaDatabaseProtectedItemResponse) string { return v.ProtectedItemType }).(pulumi.StringOutput)
 }
 
-// Backup state of this backup item.
 func (o AzureVmWorkloadSAPHanaDatabaseProtectedItemResponseOutput) ProtectionState() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AzureVmWorkloadSAPHanaDatabaseProtectedItemResponse) *string { return v.ProtectionState }).(pulumi.StringPtrOutput)
 }
 
-// Backup status of this backup item.
 func (o AzureVmWorkloadSAPHanaDatabaseProtectedItemResponseOutput) ProtectionStatus() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AzureVmWorkloadSAPHanaDatabaseProtectedItemResponse) *string { return v.ProtectionStatus }).(pulumi.StringPtrOutput)
 }
 
-// Host/Cluster Name for instance or AG
 func (o AzureVmWorkloadSAPHanaDatabaseProtectedItemResponseOutput) ServerName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AzureVmWorkloadSAPHanaDatabaseProtectedItemResponse) *string { return v.ServerName }).(pulumi.StringPtrOutput)
 }
 
-// ARM ID of the resource to be backed up.
 func (o AzureVmWorkloadSAPHanaDatabaseProtectedItemResponseOutput) SourceResourceId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AzureVmWorkloadSAPHanaDatabaseProtectedItemResponse) *string { return v.SourceResourceId }).(pulumi.StringPtrOutput)
 }
 
-// Type of workload this item represents.
 func (o AzureVmWorkloadSAPHanaDatabaseProtectedItemResponseOutput) WorkloadType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AzureVmWorkloadSAPHanaDatabaseProtectedItemResponse) *string { return v.WorkloadType }).(pulumi.StringPtrOutput)
 }
 
-// Azure VM workload-specific protected item representing SQL Database.
 type AzureVmWorkloadSQLDatabaseProtectedItem struct {
-	// Type of backup management for the backed up item.
-	BackupManagementType *string `pulumi:"backupManagementType"`
-	// Name of the backup set the backup item belongs to
-	BackupSetName *string `pulumi:"backupSetName"`
-	// Unique name of container
-	ContainerName *string `pulumi:"containerName"`
-	// Create mode to indicate recovery of existing soft deleted data source or creation of new data source.
-	CreateMode *string `pulumi:"createMode"`
-	// Time for deferred deletion in UTC
-	DeferredDeleteTimeInUTC *string `pulumi:"deferredDeleteTimeInUTC"`
-	// Time remaining before the DS marked for deferred delete is permanently deleted
-	DeferredDeleteTimeRemaining *string `pulumi:"deferredDeleteTimeRemaining"`
-	// Additional information for this backup item.
-	ExtendedInfo *AzureVmWorkloadProtectedItemExtendedInfo `pulumi:"extendedInfo"`
-	// Friendly name of the DB represented by this backup item.
-	FriendlyName *string `pulumi:"friendlyName"`
-	// Flag to identify whether the deferred deleted DS is to be purged soon
-	IsDeferredDeleteScheduleUpcoming *bool `pulumi:"isDeferredDeleteScheduleUpcoming"`
-	// Flag to identify that deferred deleted DS is to be moved into Pause state
-	IsRehydrate *bool `pulumi:"isRehydrate"`
-	// Flag to identify whether the DS is scheduled for deferred delete
-	IsScheduledForDeferredDelete *bool `pulumi:"isScheduledForDeferredDelete"`
-	// Health details of different KPIs
-	KpisHealths map[string]KPIResourceHealthDetails `pulumi:"kpisHealths"`
-	// Last backup operation status. Possible values: Healthy, Unhealthy.
-	LastBackupStatus *string `pulumi:"lastBackupStatus"`
-	// Timestamp of the last backup operation on this backup item.
-	LastBackupTime *string `pulumi:"lastBackupTime"`
-	// Timestamp when the last (latest) backup copy was created for this backup item.
-	LastRecoveryPoint *string `pulumi:"lastRecoveryPoint"`
-	// Parent name of the DB such as Instance or Availability Group.
-	ParentName *string `pulumi:"parentName"`
-	// Parent type of protected item, example: for a DB, standalone server or distributed
-	ParentType *string `pulumi:"parentType"`
-	// ID of the backup policy with which this item is backed up.
-	PolicyId *string `pulumi:"policyId"`
-	// Data ID of the protected item.
-	ProtectedItemDataSourceId *string `pulumi:"protectedItemDataSourceId"`
-	// Health status of the backup item, evaluated based on last heartbeat received
-	ProtectedItemHealthStatus *string `pulumi:"protectedItemHealthStatus"`
-	// backup item type.
-	// Expected value is 'AzureVmWorkloadSQLDatabase'.
-	ProtectedItemType string `pulumi:"protectedItemType"`
-	// Backup state of this backup item.
-	ProtectionState *string `pulumi:"protectionState"`
-	// Backup status of this backup item.
-	ProtectionStatus *string `pulumi:"protectionStatus"`
-	// Host/Cluster Name for instance or AG
-	ServerName *string `pulumi:"serverName"`
-	// ARM ID of the resource to be backed up.
-	SourceResourceId *string `pulumi:"sourceResourceId"`
-	// Type of workload this item represents.
-	WorkloadType *string `pulumi:"workloadType"`
+	BackupManagementType             *string                                   `pulumi:"backupManagementType"`
+	BackupSetName                    *string                                   `pulumi:"backupSetName"`
+	ContainerName                    *string                                   `pulumi:"containerName"`
+	CreateMode                       *string                                   `pulumi:"createMode"`
+	DeferredDeleteTimeInUTC          *string                                   `pulumi:"deferredDeleteTimeInUTC"`
+	DeferredDeleteTimeRemaining      *string                                   `pulumi:"deferredDeleteTimeRemaining"`
+	ExtendedInfo                     *AzureVmWorkloadProtectedItemExtendedInfo `pulumi:"extendedInfo"`
+	FriendlyName                     *string                                   `pulumi:"friendlyName"`
+	IsDeferredDeleteScheduleUpcoming *bool                                     `pulumi:"isDeferredDeleteScheduleUpcoming"`
+	IsRehydrate                      *bool                                     `pulumi:"isRehydrate"`
+	IsScheduledForDeferredDelete     *bool                                     `pulumi:"isScheduledForDeferredDelete"`
+	KpisHealths                      map[string]KPIResourceHealthDetails       `pulumi:"kpisHealths"`
+	LastBackupStatus                 *string                                   `pulumi:"lastBackupStatus"`
+	LastBackupTime                   *string                                   `pulumi:"lastBackupTime"`
+	LastRecoveryPoint                *string                                   `pulumi:"lastRecoveryPoint"`
+	ParentName                       *string                                   `pulumi:"parentName"`
+	ParentType                       *string                                   `pulumi:"parentType"`
+	PolicyId                         *string                                   `pulumi:"policyId"`
+	ProtectedItemDataSourceId        *string                                   `pulumi:"protectedItemDataSourceId"`
+	ProtectedItemHealthStatus        *string                                   `pulumi:"protectedItemHealthStatus"`
+	ProtectedItemType                string                                    `pulumi:"protectedItemType"`
+	ProtectionState                  *string                                   `pulumi:"protectionState"`
+	ProtectionStatus                 *string                                   `pulumi:"protectionStatus"`
+	ServerName                       *string                                   `pulumi:"serverName"`
+	SourceResourceId                 *string                                   `pulumi:"sourceResourceId"`
+	WorkloadType                     *string                                   `pulumi:"workloadType"`
 }
 
 // AzureVmWorkloadSQLDatabaseProtectedItemInput is an input type that accepts AzureVmWorkloadSQLDatabaseProtectedItemArgs and AzureVmWorkloadSQLDatabaseProtectedItemOutput values.
@@ -5975,61 +4584,33 @@ type AzureVmWorkloadSQLDatabaseProtectedItemInput interface {
 	ToAzureVmWorkloadSQLDatabaseProtectedItemOutputWithContext(context.Context) AzureVmWorkloadSQLDatabaseProtectedItemOutput
 }
 
-// Azure VM workload-specific protected item representing SQL Database.
 type AzureVmWorkloadSQLDatabaseProtectedItemArgs struct {
-	// Type of backup management for the backed up item.
-	BackupManagementType pulumi.StringPtrInput `pulumi:"backupManagementType"`
-	// Name of the backup set the backup item belongs to
-	BackupSetName pulumi.StringPtrInput `pulumi:"backupSetName"`
-	// Unique name of container
-	ContainerName pulumi.StringPtrInput `pulumi:"containerName"`
-	// Create mode to indicate recovery of existing soft deleted data source or creation of new data source.
-	CreateMode pulumi.StringPtrInput `pulumi:"createMode"`
-	// Time for deferred deletion in UTC
-	DeferredDeleteTimeInUTC pulumi.StringPtrInput `pulumi:"deferredDeleteTimeInUTC"`
-	// Time remaining before the DS marked for deferred delete is permanently deleted
-	DeferredDeleteTimeRemaining pulumi.StringPtrInput `pulumi:"deferredDeleteTimeRemaining"`
-	// Additional information for this backup item.
-	ExtendedInfo AzureVmWorkloadProtectedItemExtendedInfoPtrInput `pulumi:"extendedInfo"`
-	// Friendly name of the DB represented by this backup item.
-	FriendlyName pulumi.StringPtrInput `pulumi:"friendlyName"`
-	// Flag to identify whether the deferred deleted DS is to be purged soon
-	IsDeferredDeleteScheduleUpcoming pulumi.BoolPtrInput `pulumi:"isDeferredDeleteScheduleUpcoming"`
-	// Flag to identify that deferred deleted DS is to be moved into Pause state
-	IsRehydrate pulumi.BoolPtrInput `pulumi:"isRehydrate"`
-	// Flag to identify whether the DS is scheduled for deferred delete
-	IsScheduledForDeferredDelete pulumi.BoolPtrInput `pulumi:"isScheduledForDeferredDelete"`
-	// Health details of different KPIs
-	KpisHealths KPIResourceHealthDetailsMapInput `pulumi:"kpisHealths"`
-	// Last backup operation status. Possible values: Healthy, Unhealthy.
-	LastBackupStatus pulumi.StringPtrInput `pulumi:"lastBackupStatus"`
-	// Timestamp of the last backup operation on this backup item.
-	LastBackupTime pulumi.StringPtrInput `pulumi:"lastBackupTime"`
-	// Timestamp when the last (latest) backup copy was created for this backup item.
-	LastRecoveryPoint pulumi.StringPtrInput `pulumi:"lastRecoveryPoint"`
-	// Parent name of the DB such as Instance or Availability Group.
-	ParentName pulumi.StringPtrInput `pulumi:"parentName"`
-	// Parent type of protected item, example: for a DB, standalone server or distributed
-	ParentType pulumi.StringPtrInput `pulumi:"parentType"`
-	// ID of the backup policy with which this item is backed up.
-	PolicyId pulumi.StringPtrInput `pulumi:"policyId"`
-	// Data ID of the protected item.
-	ProtectedItemDataSourceId pulumi.StringPtrInput `pulumi:"protectedItemDataSourceId"`
-	// Health status of the backup item, evaluated based on last heartbeat received
-	ProtectedItemHealthStatus pulumi.StringPtrInput `pulumi:"protectedItemHealthStatus"`
-	// backup item type.
-	// Expected value is 'AzureVmWorkloadSQLDatabase'.
-	ProtectedItemType pulumi.StringInput `pulumi:"protectedItemType"`
-	// Backup state of this backup item.
-	ProtectionState pulumi.StringPtrInput `pulumi:"protectionState"`
-	// Backup status of this backup item.
-	ProtectionStatus pulumi.StringPtrInput `pulumi:"protectionStatus"`
-	// Host/Cluster Name for instance or AG
-	ServerName pulumi.StringPtrInput `pulumi:"serverName"`
-	// ARM ID of the resource to be backed up.
-	SourceResourceId pulumi.StringPtrInput `pulumi:"sourceResourceId"`
-	// Type of workload this item represents.
-	WorkloadType pulumi.StringPtrInput `pulumi:"workloadType"`
+	BackupManagementType             pulumi.StringPtrInput                            `pulumi:"backupManagementType"`
+	BackupSetName                    pulumi.StringPtrInput                            `pulumi:"backupSetName"`
+	ContainerName                    pulumi.StringPtrInput                            `pulumi:"containerName"`
+	CreateMode                       pulumi.StringPtrInput                            `pulumi:"createMode"`
+	DeferredDeleteTimeInUTC          pulumi.StringPtrInput                            `pulumi:"deferredDeleteTimeInUTC"`
+	DeferredDeleteTimeRemaining      pulumi.StringPtrInput                            `pulumi:"deferredDeleteTimeRemaining"`
+	ExtendedInfo                     AzureVmWorkloadProtectedItemExtendedInfoPtrInput `pulumi:"extendedInfo"`
+	FriendlyName                     pulumi.StringPtrInput                            `pulumi:"friendlyName"`
+	IsDeferredDeleteScheduleUpcoming pulumi.BoolPtrInput                              `pulumi:"isDeferredDeleteScheduleUpcoming"`
+	IsRehydrate                      pulumi.BoolPtrInput                              `pulumi:"isRehydrate"`
+	IsScheduledForDeferredDelete     pulumi.BoolPtrInput                              `pulumi:"isScheduledForDeferredDelete"`
+	KpisHealths                      KPIResourceHealthDetailsMapInput                 `pulumi:"kpisHealths"`
+	LastBackupStatus                 pulumi.StringPtrInput                            `pulumi:"lastBackupStatus"`
+	LastBackupTime                   pulumi.StringPtrInput                            `pulumi:"lastBackupTime"`
+	LastRecoveryPoint                pulumi.StringPtrInput                            `pulumi:"lastRecoveryPoint"`
+	ParentName                       pulumi.StringPtrInput                            `pulumi:"parentName"`
+	ParentType                       pulumi.StringPtrInput                            `pulumi:"parentType"`
+	PolicyId                         pulumi.StringPtrInput                            `pulumi:"policyId"`
+	ProtectedItemDataSourceId        pulumi.StringPtrInput                            `pulumi:"protectedItemDataSourceId"`
+	ProtectedItemHealthStatus        pulumi.StringPtrInput                            `pulumi:"protectedItemHealthStatus"`
+	ProtectedItemType                pulumi.StringInput                               `pulumi:"protectedItemType"`
+	ProtectionState                  pulumi.StringPtrInput                            `pulumi:"protectionState"`
+	ProtectionStatus                 pulumi.StringPtrInput                            `pulumi:"protectionStatus"`
+	ServerName                       pulumi.StringPtrInput                            `pulumi:"serverName"`
+	SourceResourceId                 pulumi.StringPtrInput                            `pulumi:"sourceResourceId"`
+	WorkloadType                     pulumi.StringPtrInput                            `pulumi:"workloadType"`
 }
 
 func (AzureVmWorkloadSQLDatabaseProtectedItemArgs) ElementType() reflect.Type {
@@ -6044,7 +4625,6 @@ func (i AzureVmWorkloadSQLDatabaseProtectedItemArgs) ToAzureVmWorkloadSQLDatabas
 	return pulumi.ToOutputWithContext(ctx, i).(AzureVmWorkloadSQLDatabaseProtectedItemOutput)
 }
 
-// Azure VM workload-specific protected item representing SQL Database.
 type AzureVmWorkloadSQLDatabaseProtectedItemOutput struct{ *pulumi.OutputState }
 
 func (AzureVmWorkloadSQLDatabaseProtectedItemOutput) ElementType() reflect.Type {
@@ -6059,198 +4639,142 @@ func (o AzureVmWorkloadSQLDatabaseProtectedItemOutput) ToAzureVmWorkloadSQLDatab
 	return o
 }
 
-// Type of backup management for the backed up item.
 func (o AzureVmWorkloadSQLDatabaseProtectedItemOutput) BackupManagementType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AzureVmWorkloadSQLDatabaseProtectedItem) *string { return v.BackupManagementType }).(pulumi.StringPtrOutput)
 }
 
-// Name of the backup set the backup item belongs to
 func (o AzureVmWorkloadSQLDatabaseProtectedItemOutput) BackupSetName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AzureVmWorkloadSQLDatabaseProtectedItem) *string { return v.BackupSetName }).(pulumi.StringPtrOutput)
 }
 
-// Unique name of container
 func (o AzureVmWorkloadSQLDatabaseProtectedItemOutput) ContainerName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AzureVmWorkloadSQLDatabaseProtectedItem) *string { return v.ContainerName }).(pulumi.StringPtrOutput)
 }
 
-// Create mode to indicate recovery of existing soft deleted data source or creation of new data source.
 func (o AzureVmWorkloadSQLDatabaseProtectedItemOutput) CreateMode() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AzureVmWorkloadSQLDatabaseProtectedItem) *string { return v.CreateMode }).(pulumi.StringPtrOutput)
 }
 
-// Time for deferred deletion in UTC
 func (o AzureVmWorkloadSQLDatabaseProtectedItemOutput) DeferredDeleteTimeInUTC() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AzureVmWorkloadSQLDatabaseProtectedItem) *string { return v.DeferredDeleteTimeInUTC }).(pulumi.StringPtrOutput)
 }
 
-// Time remaining before the DS marked for deferred delete is permanently deleted
 func (o AzureVmWorkloadSQLDatabaseProtectedItemOutput) DeferredDeleteTimeRemaining() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AzureVmWorkloadSQLDatabaseProtectedItem) *string { return v.DeferredDeleteTimeRemaining }).(pulumi.StringPtrOutput)
 }
 
-// Additional information for this backup item.
 func (o AzureVmWorkloadSQLDatabaseProtectedItemOutput) ExtendedInfo() AzureVmWorkloadProtectedItemExtendedInfoPtrOutput {
 	return o.ApplyT(func(v AzureVmWorkloadSQLDatabaseProtectedItem) *AzureVmWorkloadProtectedItemExtendedInfo {
 		return v.ExtendedInfo
 	}).(AzureVmWorkloadProtectedItemExtendedInfoPtrOutput)
 }
 
-// Friendly name of the DB represented by this backup item.
 func (o AzureVmWorkloadSQLDatabaseProtectedItemOutput) FriendlyName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AzureVmWorkloadSQLDatabaseProtectedItem) *string { return v.FriendlyName }).(pulumi.StringPtrOutput)
 }
 
-// Flag to identify whether the deferred deleted DS is to be purged soon
 func (o AzureVmWorkloadSQLDatabaseProtectedItemOutput) IsDeferredDeleteScheduleUpcoming() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v AzureVmWorkloadSQLDatabaseProtectedItem) *bool { return v.IsDeferredDeleteScheduleUpcoming }).(pulumi.BoolPtrOutput)
 }
 
-// Flag to identify that deferred deleted DS is to be moved into Pause state
 func (o AzureVmWorkloadSQLDatabaseProtectedItemOutput) IsRehydrate() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v AzureVmWorkloadSQLDatabaseProtectedItem) *bool { return v.IsRehydrate }).(pulumi.BoolPtrOutput)
 }
 
-// Flag to identify whether the DS is scheduled for deferred delete
 func (o AzureVmWorkloadSQLDatabaseProtectedItemOutput) IsScheduledForDeferredDelete() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v AzureVmWorkloadSQLDatabaseProtectedItem) *bool { return v.IsScheduledForDeferredDelete }).(pulumi.BoolPtrOutput)
 }
 
-// Health details of different KPIs
 func (o AzureVmWorkloadSQLDatabaseProtectedItemOutput) KpisHealths() KPIResourceHealthDetailsMapOutput {
 	return o.ApplyT(func(v AzureVmWorkloadSQLDatabaseProtectedItem) map[string]KPIResourceHealthDetails {
 		return v.KpisHealths
 	}).(KPIResourceHealthDetailsMapOutput)
 }
 
-// Last backup operation status. Possible values: Healthy, Unhealthy.
 func (o AzureVmWorkloadSQLDatabaseProtectedItemOutput) LastBackupStatus() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AzureVmWorkloadSQLDatabaseProtectedItem) *string { return v.LastBackupStatus }).(pulumi.StringPtrOutput)
 }
 
-// Timestamp of the last backup operation on this backup item.
 func (o AzureVmWorkloadSQLDatabaseProtectedItemOutput) LastBackupTime() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AzureVmWorkloadSQLDatabaseProtectedItem) *string { return v.LastBackupTime }).(pulumi.StringPtrOutput)
 }
 
-// Timestamp when the last (latest) backup copy was created for this backup item.
 func (o AzureVmWorkloadSQLDatabaseProtectedItemOutput) LastRecoveryPoint() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AzureVmWorkloadSQLDatabaseProtectedItem) *string { return v.LastRecoveryPoint }).(pulumi.StringPtrOutput)
 }
 
-// Parent name of the DB such as Instance or Availability Group.
 func (o AzureVmWorkloadSQLDatabaseProtectedItemOutput) ParentName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AzureVmWorkloadSQLDatabaseProtectedItem) *string { return v.ParentName }).(pulumi.StringPtrOutput)
 }
 
-// Parent type of protected item, example: for a DB, standalone server or distributed
 func (o AzureVmWorkloadSQLDatabaseProtectedItemOutput) ParentType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AzureVmWorkloadSQLDatabaseProtectedItem) *string { return v.ParentType }).(pulumi.StringPtrOutput)
 }
 
-// ID of the backup policy with which this item is backed up.
 func (o AzureVmWorkloadSQLDatabaseProtectedItemOutput) PolicyId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AzureVmWorkloadSQLDatabaseProtectedItem) *string { return v.PolicyId }).(pulumi.StringPtrOutput)
 }
 
-// Data ID of the protected item.
 func (o AzureVmWorkloadSQLDatabaseProtectedItemOutput) ProtectedItemDataSourceId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AzureVmWorkloadSQLDatabaseProtectedItem) *string { return v.ProtectedItemDataSourceId }).(pulumi.StringPtrOutput)
 }
 
-// Health status of the backup item, evaluated based on last heartbeat received
 func (o AzureVmWorkloadSQLDatabaseProtectedItemOutput) ProtectedItemHealthStatus() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AzureVmWorkloadSQLDatabaseProtectedItem) *string { return v.ProtectedItemHealthStatus }).(pulumi.StringPtrOutput)
 }
 
-// backup item type.
-// Expected value is 'AzureVmWorkloadSQLDatabase'.
 func (o AzureVmWorkloadSQLDatabaseProtectedItemOutput) ProtectedItemType() pulumi.StringOutput {
 	return o.ApplyT(func(v AzureVmWorkloadSQLDatabaseProtectedItem) string { return v.ProtectedItemType }).(pulumi.StringOutput)
 }
 
-// Backup state of this backup item.
 func (o AzureVmWorkloadSQLDatabaseProtectedItemOutput) ProtectionState() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AzureVmWorkloadSQLDatabaseProtectedItem) *string { return v.ProtectionState }).(pulumi.StringPtrOutput)
 }
 
-// Backup status of this backup item.
 func (o AzureVmWorkloadSQLDatabaseProtectedItemOutput) ProtectionStatus() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AzureVmWorkloadSQLDatabaseProtectedItem) *string { return v.ProtectionStatus }).(pulumi.StringPtrOutput)
 }
 
-// Host/Cluster Name for instance or AG
 func (o AzureVmWorkloadSQLDatabaseProtectedItemOutput) ServerName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AzureVmWorkloadSQLDatabaseProtectedItem) *string { return v.ServerName }).(pulumi.StringPtrOutput)
 }
 
-// ARM ID of the resource to be backed up.
 func (o AzureVmWorkloadSQLDatabaseProtectedItemOutput) SourceResourceId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AzureVmWorkloadSQLDatabaseProtectedItem) *string { return v.SourceResourceId }).(pulumi.StringPtrOutput)
 }
 
-// Type of workload this item represents.
 func (o AzureVmWorkloadSQLDatabaseProtectedItemOutput) WorkloadType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AzureVmWorkloadSQLDatabaseProtectedItem) *string { return v.WorkloadType }).(pulumi.StringPtrOutput)
 }
 
-// Azure VM workload-specific protected item representing SQL Database.
 type AzureVmWorkloadSQLDatabaseProtectedItemResponse struct {
-	// Type of backup management for the backed up item.
-	BackupManagementType *string `pulumi:"backupManagementType"`
-	// Name of the backup set the backup item belongs to
-	BackupSetName *string `pulumi:"backupSetName"`
-	// Unique name of container
-	ContainerName *string `pulumi:"containerName"`
-	// Create mode to indicate recovery of existing soft deleted data source or creation of new data source.
-	CreateMode *string `pulumi:"createMode"`
-	// Time for deferred deletion in UTC
-	DeferredDeleteTimeInUTC *string `pulumi:"deferredDeleteTimeInUTC"`
-	// Time remaining before the DS marked for deferred delete is permanently deleted
-	DeferredDeleteTimeRemaining *string `pulumi:"deferredDeleteTimeRemaining"`
-	// Additional information for this backup item.
-	ExtendedInfo *AzureVmWorkloadProtectedItemExtendedInfoResponse `pulumi:"extendedInfo"`
-	// Friendly name of the DB represented by this backup item.
-	FriendlyName *string `pulumi:"friendlyName"`
-	// Flag to identify whether the deferred deleted DS is to be purged soon
-	IsDeferredDeleteScheduleUpcoming *bool `pulumi:"isDeferredDeleteScheduleUpcoming"`
-	// Flag to identify that deferred deleted DS is to be moved into Pause state
-	IsRehydrate *bool `pulumi:"isRehydrate"`
-	// Flag to identify whether the DS is scheduled for deferred delete
-	IsScheduledForDeferredDelete *bool `pulumi:"isScheduledForDeferredDelete"`
-	// Health details of different KPIs
-	KpisHealths map[string]KPIResourceHealthDetailsResponse `pulumi:"kpisHealths"`
-	// Error details in last backup
-	LastBackupErrorDetail *ErrorDetailResponse `pulumi:"lastBackupErrorDetail"`
-	// Last backup operation status. Possible values: Healthy, Unhealthy.
-	LastBackupStatus *string `pulumi:"lastBackupStatus"`
-	// Timestamp of the last backup operation on this backup item.
-	LastBackupTime *string `pulumi:"lastBackupTime"`
-	// Timestamp when the last (latest) backup copy was created for this backup item.
-	LastRecoveryPoint *string `pulumi:"lastRecoveryPoint"`
-	// Parent name of the DB such as Instance or Availability Group.
-	ParentName *string `pulumi:"parentName"`
-	// Parent type of protected item, example: for a DB, standalone server or distributed
-	ParentType *string `pulumi:"parentType"`
-	// ID of the backup policy with which this item is backed up.
-	PolicyId *string `pulumi:"policyId"`
-	// Data ID of the protected item.
-	ProtectedItemDataSourceId *string `pulumi:"protectedItemDataSourceId"`
-	// Health status of the backup item, evaluated based on last heartbeat received
-	ProtectedItemHealthStatus *string `pulumi:"protectedItemHealthStatus"`
-	// backup item type.
-	// Expected value is 'AzureVmWorkloadSQLDatabase'.
-	ProtectedItemType string `pulumi:"protectedItemType"`
-	// Backup state of this backup item.
-	ProtectionState *string `pulumi:"protectionState"`
-	// Backup status of this backup item.
-	ProtectionStatus *string `pulumi:"protectionStatus"`
-	// Host/Cluster Name for instance or AG
-	ServerName *string `pulumi:"serverName"`
-	// ARM ID of the resource to be backed up.
-	SourceResourceId *string `pulumi:"sourceResourceId"`
-	// Type of workload this item represents.
-	WorkloadType *string `pulumi:"workloadType"`
+	BackupManagementType             *string                                           `pulumi:"backupManagementType"`
+	BackupSetName                    *string                                           `pulumi:"backupSetName"`
+	ContainerName                    *string                                           `pulumi:"containerName"`
+	CreateMode                       *string                                           `pulumi:"createMode"`
+	DeferredDeleteTimeInUTC          *string                                           `pulumi:"deferredDeleteTimeInUTC"`
+	DeferredDeleteTimeRemaining      *string                                           `pulumi:"deferredDeleteTimeRemaining"`
+	ExtendedInfo                     *AzureVmWorkloadProtectedItemExtendedInfoResponse `pulumi:"extendedInfo"`
+	FriendlyName                     *string                                           `pulumi:"friendlyName"`
+	IsDeferredDeleteScheduleUpcoming *bool                                             `pulumi:"isDeferredDeleteScheduleUpcoming"`
+	IsRehydrate                      *bool                                             `pulumi:"isRehydrate"`
+	IsScheduledForDeferredDelete     *bool                                             `pulumi:"isScheduledForDeferredDelete"`
+	KpisHealths                      map[string]KPIResourceHealthDetailsResponse       `pulumi:"kpisHealths"`
+	LastBackupErrorDetail            *ErrorDetailResponse                              `pulumi:"lastBackupErrorDetail"`
+	LastBackupStatus                 *string                                           `pulumi:"lastBackupStatus"`
+	LastBackupTime                   *string                                           `pulumi:"lastBackupTime"`
+	LastRecoveryPoint                *string                                           `pulumi:"lastRecoveryPoint"`
+	ParentName                       *string                                           `pulumi:"parentName"`
+	ParentType                       *string                                           `pulumi:"parentType"`
+	PolicyId                         *string                                           `pulumi:"policyId"`
+	ProtectedItemDataSourceId        *string                                           `pulumi:"protectedItemDataSourceId"`
+	ProtectedItemHealthStatus        *string                                           `pulumi:"protectedItemHealthStatus"`
+	ProtectedItemType                string                                            `pulumi:"protectedItemType"`
+	ProtectionState                  *string                                           `pulumi:"protectionState"`
+	ProtectionStatus                 *string                                           `pulumi:"protectionStatus"`
+	ServerName                       *string                                           `pulumi:"serverName"`
+	SourceResourceId                 *string                                           `pulumi:"sourceResourceId"`
+	WorkloadType                     *string                                           `pulumi:"workloadType"`
 }
 
 // AzureVmWorkloadSQLDatabaseProtectedItemResponseInput is an input type that accepts AzureVmWorkloadSQLDatabaseProtectedItemResponseArgs and AzureVmWorkloadSQLDatabaseProtectedItemResponseOutput values.
@@ -6264,63 +4788,34 @@ type AzureVmWorkloadSQLDatabaseProtectedItemResponseInput interface {
 	ToAzureVmWorkloadSQLDatabaseProtectedItemResponseOutputWithContext(context.Context) AzureVmWorkloadSQLDatabaseProtectedItemResponseOutput
 }
 
-// Azure VM workload-specific protected item representing SQL Database.
 type AzureVmWorkloadSQLDatabaseProtectedItemResponseArgs struct {
-	// Type of backup management for the backed up item.
-	BackupManagementType pulumi.StringPtrInput `pulumi:"backupManagementType"`
-	// Name of the backup set the backup item belongs to
-	BackupSetName pulumi.StringPtrInput `pulumi:"backupSetName"`
-	// Unique name of container
-	ContainerName pulumi.StringPtrInput `pulumi:"containerName"`
-	// Create mode to indicate recovery of existing soft deleted data source or creation of new data source.
-	CreateMode pulumi.StringPtrInput `pulumi:"createMode"`
-	// Time for deferred deletion in UTC
-	DeferredDeleteTimeInUTC pulumi.StringPtrInput `pulumi:"deferredDeleteTimeInUTC"`
-	// Time remaining before the DS marked for deferred delete is permanently deleted
-	DeferredDeleteTimeRemaining pulumi.StringPtrInput `pulumi:"deferredDeleteTimeRemaining"`
-	// Additional information for this backup item.
-	ExtendedInfo AzureVmWorkloadProtectedItemExtendedInfoResponsePtrInput `pulumi:"extendedInfo"`
-	// Friendly name of the DB represented by this backup item.
-	FriendlyName pulumi.StringPtrInput `pulumi:"friendlyName"`
-	// Flag to identify whether the deferred deleted DS is to be purged soon
-	IsDeferredDeleteScheduleUpcoming pulumi.BoolPtrInput `pulumi:"isDeferredDeleteScheduleUpcoming"`
-	// Flag to identify that deferred deleted DS is to be moved into Pause state
-	IsRehydrate pulumi.BoolPtrInput `pulumi:"isRehydrate"`
-	// Flag to identify whether the DS is scheduled for deferred delete
-	IsScheduledForDeferredDelete pulumi.BoolPtrInput `pulumi:"isScheduledForDeferredDelete"`
-	// Health details of different KPIs
-	KpisHealths KPIResourceHealthDetailsResponseMapInput `pulumi:"kpisHealths"`
-	// Error details in last backup
-	LastBackupErrorDetail ErrorDetailResponsePtrInput `pulumi:"lastBackupErrorDetail"`
-	// Last backup operation status. Possible values: Healthy, Unhealthy.
-	LastBackupStatus pulumi.StringPtrInput `pulumi:"lastBackupStatus"`
-	// Timestamp of the last backup operation on this backup item.
-	LastBackupTime pulumi.StringPtrInput `pulumi:"lastBackupTime"`
-	// Timestamp when the last (latest) backup copy was created for this backup item.
-	LastRecoveryPoint pulumi.StringPtrInput `pulumi:"lastRecoveryPoint"`
-	// Parent name of the DB such as Instance or Availability Group.
-	ParentName pulumi.StringPtrInput `pulumi:"parentName"`
-	// Parent type of protected item, example: for a DB, standalone server or distributed
-	ParentType pulumi.StringPtrInput `pulumi:"parentType"`
-	// ID of the backup policy with which this item is backed up.
-	PolicyId pulumi.StringPtrInput `pulumi:"policyId"`
-	// Data ID of the protected item.
-	ProtectedItemDataSourceId pulumi.StringPtrInput `pulumi:"protectedItemDataSourceId"`
-	// Health status of the backup item, evaluated based on last heartbeat received
-	ProtectedItemHealthStatus pulumi.StringPtrInput `pulumi:"protectedItemHealthStatus"`
-	// backup item type.
-	// Expected value is 'AzureVmWorkloadSQLDatabase'.
-	ProtectedItemType pulumi.StringInput `pulumi:"protectedItemType"`
-	// Backup state of this backup item.
-	ProtectionState pulumi.StringPtrInput `pulumi:"protectionState"`
-	// Backup status of this backup item.
-	ProtectionStatus pulumi.StringPtrInput `pulumi:"protectionStatus"`
-	// Host/Cluster Name for instance or AG
-	ServerName pulumi.StringPtrInput `pulumi:"serverName"`
-	// ARM ID of the resource to be backed up.
-	SourceResourceId pulumi.StringPtrInput `pulumi:"sourceResourceId"`
-	// Type of workload this item represents.
-	WorkloadType pulumi.StringPtrInput `pulumi:"workloadType"`
+	BackupManagementType             pulumi.StringPtrInput                                    `pulumi:"backupManagementType"`
+	BackupSetName                    pulumi.StringPtrInput                                    `pulumi:"backupSetName"`
+	ContainerName                    pulumi.StringPtrInput                                    `pulumi:"containerName"`
+	CreateMode                       pulumi.StringPtrInput                                    `pulumi:"createMode"`
+	DeferredDeleteTimeInUTC          pulumi.StringPtrInput                                    `pulumi:"deferredDeleteTimeInUTC"`
+	DeferredDeleteTimeRemaining      pulumi.StringPtrInput                                    `pulumi:"deferredDeleteTimeRemaining"`
+	ExtendedInfo                     AzureVmWorkloadProtectedItemExtendedInfoResponsePtrInput `pulumi:"extendedInfo"`
+	FriendlyName                     pulumi.StringPtrInput                                    `pulumi:"friendlyName"`
+	IsDeferredDeleteScheduleUpcoming pulumi.BoolPtrInput                                      `pulumi:"isDeferredDeleteScheduleUpcoming"`
+	IsRehydrate                      pulumi.BoolPtrInput                                      `pulumi:"isRehydrate"`
+	IsScheduledForDeferredDelete     pulumi.BoolPtrInput                                      `pulumi:"isScheduledForDeferredDelete"`
+	KpisHealths                      KPIResourceHealthDetailsResponseMapInput                 `pulumi:"kpisHealths"`
+	LastBackupErrorDetail            ErrorDetailResponsePtrInput                              `pulumi:"lastBackupErrorDetail"`
+	LastBackupStatus                 pulumi.StringPtrInput                                    `pulumi:"lastBackupStatus"`
+	LastBackupTime                   pulumi.StringPtrInput                                    `pulumi:"lastBackupTime"`
+	LastRecoveryPoint                pulumi.StringPtrInput                                    `pulumi:"lastRecoveryPoint"`
+	ParentName                       pulumi.StringPtrInput                                    `pulumi:"parentName"`
+	ParentType                       pulumi.StringPtrInput                                    `pulumi:"parentType"`
+	PolicyId                         pulumi.StringPtrInput                                    `pulumi:"policyId"`
+	ProtectedItemDataSourceId        pulumi.StringPtrInput                                    `pulumi:"protectedItemDataSourceId"`
+	ProtectedItemHealthStatus        pulumi.StringPtrInput                                    `pulumi:"protectedItemHealthStatus"`
+	ProtectedItemType                pulumi.StringInput                                       `pulumi:"protectedItemType"`
+	ProtectionState                  pulumi.StringPtrInput                                    `pulumi:"protectionState"`
+	ProtectionStatus                 pulumi.StringPtrInput                                    `pulumi:"protectionStatus"`
+	ServerName                       pulumi.StringPtrInput                                    `pulumi:"serverName"`
+	SourceResourceId                 pulumi.StringPtrInput                                    `pulumi:"sourceResourceId"`
+	WorkloadType                     pulumi.StringPtrInput                                    `pulumi:"workloadType"`
 }
 
 func (AzureVmWorkloadSQLDatabaseProtectedItemResponseArgs) ElementType() reflect.Type {
@@ -6335,7 +4830,6 @@ func (i AzureVmWorkloadSQLDatabaseProtectedItemResponseArgs) ToAzureVmWorkloadSQ
 	return pulumi.ToOutputWithContext(ctx, i).(AzureVmWorkloadSQLDatabaseProtectedItemResponseOutput)
 }
 
-// Azure VM workload-specific protected item representing SQL Database.
 type AzureVmWorkloadSQLDatabaseProtectedItemResponseOutput struct{ *pulumi.OutputState }
 
 func (AzureVmWorkloadSQLDatabaseProtectedItemResponseOutput) ElementType() reflect.Type {
@@ -6350,189 +4844,141 @@ func (o AzureVmWorkloadSQLDatabaseProtectedItemResponseOutput) ToAzureVmWorkload
 	return o
 }
 
-// Type of backup management for the backed up item.
 func (o AzureVmWorkloadSQLDatabaseProtectedItemResponseOutput) BackupManagementType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AzureVmWorkloadSQLDatabaseProtectedItemResponse) *string { return v.BackupManagementType }).(pulumi.StringPtrOutput)
 }
 
-// Name of the backup set the backup item belongs to
 func (o AzureVmWorkloadSQLDatabaseProtectedItemResponseOutput) BackupSetName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AzureVmWorkloadSQLDatabaseProtectedItemResponse) *string { return v.BackupSetName }).(pulumi.StringPtrOutput)
 }
 
-// Unique name of container
 func (o AzureVmWorkloadSQLDatabaseProtectedItemResponseOutput) ContainerName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AzureVmWorkloadSQLDatabaseProtectedItemResponse) *string { return v.ContainerName }).(pulumi.StringPtrOutput)
 }
 
-// Create mode to indicate recovery of existing soft deleted data source or creation of new data source.
 func (o AzureVmWorkloadSQLDatabaseProtectedItemResponseOutput) CreateMode() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AzureVmWorkloadSQLDatabaseProtectedItemResponse) *string { return v.CreateMode }).(pulumi.StringPtrOutput)
 }
 
-// Time for deferred deletion in UTC
 func (o AzureVmWorkloadSQLDatabaseProtectedItemResponseOutput) DeferredDeleteTimeInUTC() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AzureVmWorkloadSQLDatabaseProtectedItemResponse) *string { return v.DeferredDeleteTimeInUTC }).(pulumi.StringPtrOutput)
 }
 
-// Time remaining before the DS marked for deferred delete is permanently deleted
 func (o AzureVmWorkloadSQLDatabaseProtectedItemResponseOutput) DeferredDeleteTimeRemaining() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AzureVmWorkloadSQLDatabaseProtectedItemResponse) *string { return v.DeferredDeleteTimeRemaining }).(pulumi.StringPtrOutput)
 }
 
-// Additional information for this backup item.
 func (o AzureVmWorkloadSQLDatabaseProtectedItemResponseOutput) ExtendedInfo() AzureVmWorkloadProtectedItemExtendedInfoResponsePtrOutput {
 	return o.ApplyT(func(v AzureVmWorkloadSQLDatabaseProtectedItemResponse) *AzureVmWorkloadProtectedItemExtendedInfoResponse {
 		return v.ExtendedInfo
 	}).(AzureVmWorkloadProtectedItemExtendedInfoResponsePtrOutput)
 }
 
-// Friendly name of the DB represented by this backup item.
 func (o AzureVmWorkloadSQLDatabaseProtectedItemResponseOutput) FriendlyName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AzureVmWorkloadSQLDatabaseProtectedItemResponse) *string { return v.FriendlyName }).(pulumi.StringPtrOutput)
 }
 
-// Flag to identify whether the deferred deleted DS is to be purged soon
 func (o AzureVmWorkloadSQLDatabaseProtectedItemResponseOutput) IsDeferredDeleteScheduleUpcoming() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v AzureVmWorkloadSQLDatabaseProtectedItemResponse) *bool {
 		return v.IsDeferredDeleteScheduleUpcoming
 	}).(pulumi.BoolPtrOutput)
 }
 
-// Flag to identify that deferred deleted DS is to be moved into Pause state
 func (o AzureVmWorkloadSQLDatabaseProtectedItemResponseOutput) IsRehydrate() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v AzureVmWorkloadSQLDatabaseProtectedItemResponse) *bool { return v.IsRehydrate }).(pulumi.BoolPtrOutput)
 }
 
-// Flag to identify whether the DS is scheduled for deferred delete
 func (o AzureVmWorkloadSQLDatabaseProtectedItemResponseOutput) IsScheduledForDeferredDelete() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v AzureVmWorkloadSQLDatabaseProtectedItemResponse) *bool { return v.IsScheduledForDeferredDelete }).(pulumi.BoolPtrOutput)
 }
 
-// Health details of different KPIs
 func (o AzureVmWorkloadSQLDatabaseProtectedItemResponseOutput) KpisHealths() KPIResourceHealthDetailsResponseMapOutput {
 	return o.ApplyT(func(v AzureVmWorkloadSQLDatabaseProtectedItemResponse) map[string]KPIResourceHealthDetailsResponse {
 		return v.KpisHealths
 	}).(KPIResourceHealthDetailsResponseMapOutput)
 }
 
-// Error details in last backup
 func (o AzureVmWorkloadSQLDatabaseProtectedItemResponseOutput) LastBackupErrorDetail() ErrorDetailResponsePtrOutput {
 	return o.ApplyT(func(v AzureVmWorkloadSQLDatabaseProtectedItemResponse) *ErrorDetailResponse {
 		return v.LastBackupErrorDetail
 	}).(ErrorDetailResponsePtrOutput)
 }
 
-// Last backup operation status. Possible values: Healthy, Unhealthy.
 func (o AzureVmWorkloadSQLDatabaseProtectedItemResponseOutput) LastBackupStatus() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AzureVmWorkloadSQLDatabaseProtectedItemResponse) *string { return v.LastBackupStatus }).(pulumi.StringPtrOutput)
 }
 
-// Timestamp of the last backup operation on this backup item.
 func (o AzureVmWorkloadSQLDatabaseProtectedItemResponseOutput) LastBackupTime() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AzureVmWorkloadSQLDatabaseProtectedItemResponse) *string { return v.LastBackupTime }).(pulumi.StringPtrOutput)
 }
 
-// Timestamp when the last (latest) backup copy was created for this backup item.
 func (o AzureVmWorkloadSQLDatabaseProtectedItemResponseOutput) LastRecoveryPoint() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AzureVmWorkloadSQLDatabaseProtectedItemResponse) *string { return v.LastRecoveryPoint }).(pulumi.StringPtrOutput)
 }
 
-// Parent name of the DB such as Instance or Availability Group.
 func (o AzureVmWorkloadSQLDatabaseProtectedItemResponseOutput) ParentName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AzureVmWorkloadSQLDatabaseProtectedItemResponse) *string { return v.ParentName }).(pulumi.StringPtrOutput)
 }
 
-// Parent type of protected item, example: for a DB, standalone server or distributed
 func (o AzureVmWorkloadSQLDatabaseProtectedItemResponseOutput) ParentType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AzureVmWorkloadSQLDatabaseProtectedItemResponse) *string { return v.ParentType }).(pulumi.StringPtrOutput)
 }
 
-// ID of the backup policy with which this item is backed up.
 func (o AzureVmWorkloadSQLDatabaseProtectedItemResponseOutput) PolicyId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AzureVmWorkloadSQLDatabaseProtectedItemResponse) *string { return v.PolicyId }).(pulumi.StringPtrOutput)
 }
 
-// Data ID of the protected item.
 func (o AzureVmWorkloadSQLDatabaseProtectedItemResponseOutput) ProtectedItemDataSourceId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AzureVmWorkloadSQLDatabaseProtectedItemResponse) *string { return v.ProtectedItemDataSourceId }).(pulumi.StringPtrOutput)
 }
 
-// Health status of the backup item, evaluated based on last heartbeat received
 func (o AzureVmWorkloadSQLDatabaseProtectedItemResponseOutput) ProtectedItemHealthStatus() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AzureVmWorkloadSQLDatabaseProtectedItemResponse) *string { return v.ProtectedItemHealthStatus }).(pulumi.StringPtrOutput)
 }
 
-// backup item type.
-// Expected value is 'AzureVmWorkloadSQLDatabase'.
 func (o AzureVmWorkloadSQLDatabaseProtectedItemResponseOutput) ProtectedItemType() pulumi.StringOutput {
 	return o.ApplyT(func(v AzureVmWorkloadSQLDatabaseProtectedItemResponse) string { return v.ProtectedItemType }).(pulumi.StringOutput)
 }
 
-// Backup state of this backup item.
 func (o AzureVmWorkloadSQLDatabaseProtectedItemResponseOutput) ProtectionState() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AzureVmWorkloadSQLDatabaseProtectedItemResponse) *string { return v.ProtectionState }).(pulumi.StringPtrOutput)
 }
 
-// Backup status of this backup item.
 func (o AzureVmWorkloadSQLDatabaseProtectedItemResponseOutput) ProtectionStatus() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AzureVmWorkloadSQLDatabaseProtectedItemResponse) *string { return v.ProtectionStatus }).(pulumi.StringPtrOutput)
 }
 
-// Host/Cluster Name for instance or AG
 func (o AzureVmWorkloadSQLDatabaseProtectedItemResponseOutput) ServerName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AzureVmWorkloadSQLDatabaseProtectedItemResponse) *string { return v.ServerName }).(pulumi.StringPtrOutput)
 }
 
-// ARM ID of the resource to be backed up.
 func (o AzureVmWorkloadSQLDatabaseProtectedItemResponseOutput) SourceResourceId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AzureVmWorkloadSQLDatabaseProtectedItemResponse) *string { return v.SourceResourceId }).(pulumi.StringPtrOutput)
 }
 
-// Type of workload this item represents.
 func (o AzureVmWorkloadSQLDatabaseProtectedItemResponseOutput) WorkloadType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AzureVmWorkloadSQLDatabaseProtectedItemResponse) *string { return v.WorkloadType }).(pulumi.StringPtrOutput)
 }
 
-// Additional information on Backup engine specific backup item.
 type DPMProtectedItem struct {
-	// Backup Management server protecting this backup item
-	BackupEngineName *string `pulumi:"backupEngineName"`
-	// Type of backup management for the backed up item.
-	BackupManagementType *string `pulumi:"backupManagementType"`
-	// Name of the backup set the backup item belongs to
-	BackupSetName *string `pulumi:"backupSetName"`
-	// Unique name of container
-	ContainerName *string `pulumi:"containerName"`
-	// Create mode to indicate recovery of existing soft deleted data source or creation of new data source.
-	CreateMode *string `pulumi:"createMode"`
-	// Time for deferred deletion in UTC
-	DeferredDeleteTimeInUTC *string `pulumi:"deferredDeleteTimeInUTC"`
-	// Time remaining before the DS marked for deferred delete is permanently deleted
-	DeferredDeleteTimeRemaining *string `pulumi:"deferredDeleteTimeRemaining"`
-	// Extended info of the backup item.
-	ExtendedInfo *DPMProtectedItemExtendedInfo `pulumi:"extendedInfo"`
-	// Friendly name of the managed item
-	FriendlyName *string `pulumi:"friendlyName"`
-	// Flag to identify whether the deferred deleted DS is to be purged soon
-	IsDeferredDeleteScheduleUpcoming *bool `pulumi:"isDeferredDeleteScheduleUpcoming"`
-	// Flag to identify that deferred deleted DS is to be moved into Pause state
-	IsRehydrate *bool `pulumi:"isRehydrate"`
-	// Flag to identify whether the DS is scheduled for deferred delete
-	IsScheduledForDeferredDelete *bool `pulumi:"isScheduledForDeferredDelete"`
-	// Timestamp when the last (latest) backup copy was created for this backup item.
-	LastRecoveryPoint *string `pulumi:"lastRecoveryPoint"`
-	// ID of the backup policy with which this item is backed up.
-	PolicyId *string `pulumi:"policyId"`
-	// backup item type.
-	// Expected value is 'DPMProtectedItem'.
-	ProtectedItemType string `pulumi:"protectedItemType"`
-	// Protection state of the backup engine
-	ProtectionState *string `pulumi:"protectionState"`
-	// ARM ID of the resource to be backed up.
-	SourceResourceId *string `pulumi:"sourceResourceId"`
-	// Type of workload this item represents.
-	WorkloadType *string `pulumi:"workloadType"`
+	BackupEngineName                 *string                       `pulumi:"backupEngineName"`
+	BackupManagementType             *string                       `pulumi:"backupManagementType"`
+	BackupSetName                    *string                       `pulumi:"backupSetName"`
+	ContainerName                    *string                       `pulumi:"containerName"`
+	CreateMode                       *string                       `pulumi:"createMode"`
+	DeferredDeleteTimeInUTC          *string                       `pulumi:"deferredDeleteTimeInUTC"`
+	DeferredDeleteTimeRemaining      *string                       `pulumi:"deferredDeleteTimeRemaining"`
+	ExtendedInfo                     *DPMProtectedItemExtendedInfo `pulumi:"extendedInfo"`
+	FriendlyName                     *string                       `pulumi:"friendlyName"`
+	IsDeferredDeleteScheduleUpcoming *bool                         `pulumi:"isDeferredDeleteScheduleUpcoming"`
+	IsRehydrate                      *bool                         `pulumi:"isRehydrate"`
+	IsScheduledForDeferredDelete     *bool                         `pulumi:"isScheduledForDeferredDelete"`
+	LastRecoveryPoint                *string                       `pulumi:"lastRecoveryPoint"`
+	PolicyId                         *string                       `pulumi:"policyId"`
+	ProtectedItemType                string                        `pulumi:"protectedItemType"`
+	ProtectionState                  *string                       `pulumi:"protectionState"`
+	SourceResourceId                 *string                       `pulumi:"sourceResourceId"`
+	WorkloadType                     *string                       `pulumi:"workloadType"`
 }
 
 // DPMProtectedItemInput is an input type that accepts DPMProtectedItemArgs and DPMProtectedItemOutput values.
@@ -6546,45 +4992,25 @@ type DPMProtectedItemInput interface {
 	ToDPMProtectedItemOutputWithContext(context.Context) DPMProtectedItemOutput
 }
 
-// Additional information on Backup engine specific backup item.
 type DPMProtectedItemArgs struct {
-	// Backup Management server protecting this backup item
-	BackupEngineName pulumi.StringPtrInput `pulumi:"backupEngineName"`
-	// Type of backup management for the backed up item.
-	BackupManagementType pulumi.StringPtrInput `pulumi:"backupManagementType"`
-	// Name of the backup set the backup item belongs to
-	BackupSetName pulumi.StringPtrInput `pulumi:"backupSetName"`
-	// Unique name of container
-	ContainerName pulumi.StringPtrInput `pulumi:"containerName"`
-	// Create mode to indicate recovery of existing soft deleted data source or creation of new data source.
-	CreateMode pulumi.StringPtrInput `pulumi:"createMode"`
-	// Time for deferred deletion in UTC
-	DeferredDeleteTimeInUTC pulumi.StringPtrInput `pulumi:"deferredDeleteTimeInUTC"`
-	// Time remaining before the DS marked for deferred delete is permanently deleted
-	DeferredDeleteTimeRemaining pulumi.StringPtrInput `pulumi:"deferredDeleteTimeRemaining"`
-	// Extended info of the backup item.
-	ExtendedInfo DPMProtectedItemExtendedInfoPtrInput `pulumi:"extendedInfo"`
-	// Friendly name of the managed item
-	FriendlyName pulumi.StringPtrInput `pulumi:"friendlyName"`
-	// Flag to identify whether the deferred deleted DS is to be purged soon
-	IsDeferredDeleteScheduleUpcoming pulumi.BoolPtrInput `pulumi:"isDeferredDeleteScheduleUpcoming"`
-	// Flag to identify that deferred deleted DS is to be moved into Pause state
-	IsRehydrate pulumi.BoolPtrInput `pulumi:"isRehydrate"`
-	// Flag to identify whether the DS is scheduled for deferred delete
-	IsScheduledForDeferredDelete pulumi.BoolPtrInput `pulumi:"isScheduledForDeferredDelete"`
-	// Timestamp when the last (latest) backup copy was created for this backup item.
-	LastRecoveryPoint pulumi.StringPtrInput `pulumi:"lastRecoveryPoint"`
-	// ID of the backup policy with which this item is backed up.
-	PolicyId pulumi.StringPtrInput `pulumi:"policyId"`
-	// backup item type.
-	// Expected value is 'DPMProtectedItem'.
-	ProtectedItemType pulumi.StringInput `pulumi:"protectedItemType"`
-	// Protection state of the backup engine
-	ProtectionState pulumi.StringPtrInput `pulumi:"protectionState"`
-	// ARM ID of the resource to be backed up.
-	SourceResourceId pulumi.StringPtrInput `pulumi:"sourceResourceId"`
-	// Type of workload this item represents.
-	WorkloadType pulumi.StringPtrInput `pulumi:"workloadType"`
+	BackupEngineName                 pulumi.StringPtrInput                `pulumi:"backupEngineName"`
+	BackupManagementType             pulumi.StringPtrInput                `pulumi:"backupManagementType"`
+	BackupSetName                    pulumi.StringPtrInput                `pulumi:"backupSetName"`
+	ContainerName                    pulumi.StringPtrInput                `pulumi:"containerName"`
+	CreateMode                       pulumi.StringPtrInput                `pulumi:"createMode"`
+	DeferredDeleteTimeInUTC          pulumi.StringPtrInput                `pulumi:"deferredDeleteTimeInUTC"`
+	DeferredDeleteTimeRemaining      pulumi.StringPtrInput                `pulumi:"deferredDeleteTimeRemaining"`
+	ExtendedInfo                     DPMProtectedItemExtendedInfoPtrInput `pulumi:"extendedInfo"`
+	FriendlyName                     pulumi.StringPtrInput                `pulumi:"friendlyName"`
+	IsDeferredDeleteScheduleUpcoming pulumi.BoolPtrInput                  `pulumi:"isDeferredDeleteScheduleUpcoming"`
+	IsRehydrate                      pulumi.BoolPtrInput                  `pulumi:"isRehydrate"`
+	IsScheduledForDeferredDelete     pulumi.BoolPtrInput                  `pulumi:"isScheduledForDeferredDelete"`
+	LastRecoveryPoint                pulumi.StringPtrInput                `pulumi:"lastRecoveryPoint"`
+	PolicyId                         pulumi.StringPtrInput                `pulumi:"policyId"`
+	ProtectedItemType                pulumi.StringInput                   `pulumi:"protectedItemType"`
+	ProtectionState                  pulumi.StringPtrInput                `pulumi:"protectionState"`
+	SourceResourceId                 pulumi.StringPtrInput                `pulumi:"sourceResourceId"`
+	WorkloadType                     pulumi.StringPtrInput                `pulumi:"workloadType"`
 }
 
 func (DPMProtectedItemArgs) ElementType() reflect.Type {
@@ -6599,7 +5025,6 @@ func (i DPMProtectedItemArgs) ToDPMProtectedItemOutputWithContext(ctx context.Co
 	return pulumi.ToOutputWithContext(ctx, i).(DPMProtectedItemOutput)
 }
 
-// Additional information on Backup engine specific backup item.
 type DPMProtectedItemOutput struct{ *pulumi.OutputState }
 
 func (DPMProtectedItemOutput) ElementType() reflect.Type {
@@ -6614,127 +5039,93 @@ func (o DPMProtectedItemOutput) ToDPMProtectedItemOutputWithContext(ctx context.
 	return o
 }
 
-// Backup Management server protecting this backup item
 func (o DPMProtectedItemOutput) BackupEngineName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v DPMProtectedItem) *string { return v.BackupEngineName }).(pulumi.StringPtrOutput)
 }
 
-// Type of backup management for the backed up item.
 func (o DPMProtectedItemOutput) BackupManagementType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v DPMProtectedItem) *string { return v.BackupManagementType }).(pulumi.StringPtrOutput)
 }
 
-// Name of the backup set the backup item belongs to
 func (o DPMProtectedItemOutput) BackupSetName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v DPMProtectedItem) *string { return v.BackupSetName }).(pulumi.StringPtrOutput)
 }
 
-// Unique name of container
 func (o DPMProtectedItemOutput) ContainerName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v DPMProtectedItem) *string { return v.ContainerName }).(pulumi.StringPtrOutput)
 }
 
-// Create mode to indicate recovery of existing soft deleted data source or creation of new data source.
 func (o DPMProtectedItemOutput) CreateMode() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v DPMProtectedItem) *string { return v.CreateMode }).(pulumi.StringPtrOutput)
 }
 
-// Time for deferred deletion in UTC
 func (o DPMProtectedItemOutput) DeferredDeleteTimeInUTC() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v DPMProtectedItem) *string { return v.DeferredDeleteTimeInUTC }).(pulumi.StringPtrOutput)
 }
 
-// Time remaining before the DS marked for deferred delete is permanently deleted
 func (o DPMProtectedItemOutput) DeferredDeleteTimeRemaining() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v DPMProtectedItem) *string { return v.DeferredDeleteTimeRemaining }).(pulumi.StringPtrOutput)
 }
 
-// Extended info of the backup item.
 func (o DPMProtectedItemOutput) ExtendedInfo() DPMProtectedItemExtendedInfoPtrOutput {
 	return o.ApplyT(func(v DPMProtectedItem) *DPMProtectedItemExtendedInfo { return v.ExtendedInfo }).(DPMProtectedItemExtendedInfoPtrOutput)
 }
 
-// Friendly name of the managed item
 func (o DPMProtectedItemOutput) FriendlyName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v DPMProtectedItem) *string { return v.FriendlyName }).(pulumi.StringPtrOutput)
 }
 
-// Flag to identify whether the deferred deleted DS is to be purged soon
 func (o DPMProtectedItemOutput) IsDeferredDeleteScheduleUpcoming() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v DPMProtectedItem) *bool { return v.IsDeferredDeleteScheduleUpcoming }).(pulumi.BoolPtrOutput)
 }
 
-// Flag to identify that deferred deleted DS is to be moved into Pause state
 func (o DPMProtectedItemOutput) IsRehydrate() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v DPMProtectedItem) *bool { return v.IsRehydrate }).(pulumi.BoolPtrOutput)
 }
 
-// Flag to identify whether the DS is scheduled for deferred delete
 func (o DPMProtectedItemOutput) IsScheduledForDeferredDelete() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v DPMProtectedItem) *bool { return v.IsScheduledForDeferredDelete }).(pulumi.BoolPtrOutput)
 }
 
-// Timestamp when the last (latest) backup copy was created for this backup item.
 func (o DPMProtectedItemOutput) LastRecoveryPoint() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v DPMProtectedItem) *string { return v.LastRecoveryPoint }).(pulumi.StringPtrOutput)
 }
 
-// ID of the backup policy with which this item is backed up.
 func (o DPMProtectedItemOutput) PolicyId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v DPMProtectedItem) *string { return v.PolicyId }).(pulumi.StringPtrOutput)
 }
 
-// backup item type.
-// Expected value is 'DPMProtectedItem'.
 func (o DPMProtectedItemOutput) ProtectedItemType() pulumi.StringOutput {
 	return o.ApplyT(func(v DPMProtectedItem) string { return v.ProtectedItemType }).(pulumi.StringOutput)
 }
 
-// Protection state of the backup engine
 func (o DPMProtectedItemOutput) ProtectionState() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v DPMProtectedItem) *string { return v.ProtectionState }).(pulumi.StringPtrOutput)
 }
 
-// ARM ID of the resource to be backed up.
 func (o DPMProtectedItemOutput) SourceResourceId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v DPMProtectedItem) *string { return v.SourceResourceId }).(pulumi.StringPtrOutput)
 }
 
-// Type of workload this item represents.
 func (o DPMProtectedItemOutput) WorkloadType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v DPMProtectedItem) *string { return v.WorkloadType }).(pulumi.StringPtrOutput)
 }
 
-// Additional information of DPM Protected item.
 type DPMProtectedItemExtendedInfo struct {
-	// Used Disk storage in bytes.
-	DiskStorageUsedInBytes *string `pulumi:"diskStorageUsedInBytes"`
-	// To check if backup item is collocated.
-	IsCollocated *bool `pulumi:"isCollocated"`
-	// To check if backup item is cloud protected.
-	IsPresentOnCloud *bool `pulumi:"isPresentOnCloud"`
-	// Last backup status information on backup item.
-	LastBackupStatus *string `pulumi:"lastBackupStatus"`
-	// Last refresh time on backup item.
-	LastRefreshedAt *string `pulumi:"lastRefreshedAt"`
-	// Oldest cloud recovery point time.
-	OldestRecoveryPoint *string `pulumi:"oldestRecoveryPoint"`
-	// latest disk recovery point time.
-	OnPremiseLatestRecoveryPoint *string `pulumi:"onPremiseLatestRecoveryPoint"`
-	// Oldest disk recovery point time.
-	OnPremiseOldestRecoveryPoint *string `pulumi:"onPremiseOldestRecoveryPoint"`
-	// disk recovery point count.
-	OnPremiseRecoveryPointCount *int `pulumi:"onPremiseRecoveryPointCount"`
-	// Attribute to provide information on various DBs.
-	ProtectableObjectLoadPath map[string]string `pulumi:"protectableObjectLoadPath"`
-	// To check if backup item is disk protected.
-	Protected *bool `pulumi:"protected"`
-	// Protection group name of the backup item.
-	ProtectionGroupName *string `pulumi:"protectionGroupName"`
-	// cloud recovery point count.
-	RecoveryPointCount *int `pulumi:"recoveryPointCount"`
-	// total Disk storage in bytes.
-	TotalDiskStorageSizeInBytes *string `pulumi:"totalDiskStorageSizeInBytes"`
+	DiskStorageUsedInBytes       *string           `pulumi:"diskStorageUsedInBytes"`
+	IsCollocated                 *bool             `pulumi:"isCollocated"`
+	IsPresentOnCloud             *bool             `pulumi:"isPresentOnCloud"`
+	LastBackupStatus             *string           `pulumi:"lastBackupStatus"`
+	LastRefreshedAt              *string           `pulumi:"lastRefreshedAt"`
+	OldestRecoveryPoint          *string           `pulumi:"oldestRecoveryPoint"`
+	OnPremiseLatestRecoveryPoint *string           `pulumi:"onPremiseLatestRecoveryPoint"`
+	OnPremiseOldestRecoveryPoint *string           `pulumi:"onPremiseOldestRecoveryPoint"`
+	OnPremiseRecoveryPointCount  *int              `pulumi:"onPremiseRecoveryPointCount"`
+	ProtectableObjectLoadPath    map[string]string `pulumi:"protectableObjectLoadPath"`
+	Protected                    *bool             `pulumi:"protected"`
+	ProtectionGroupName          *string           `pulumi:"protectionGroupName"`
+	RecoveryPointCount           *int              `pulumi:"recoveryPointCount"`
+	TotalDiskStorageSizeInBytes  *string           `pulumi:"totalDiskStorageSizeInBytes"`
 }
 
 // DPMProtectedItemExtendedInfoInput is an input type that accepts DPMProtectedItemExtendedInfoArgs and DPMProtectedItemExtendedInfoOutput values.
@@ -6748,36 +5139,21 @@ type DPMProtectedItemExtendedInfoInput interface {
 	ToDPMProtectedItemExtendedInfoOutputWithContext(context.Context) DPMProtectedItemExtendedInfoOutput
 }
 
-// Additional information of DPM Protected item.
 type DPMProtectedItemExtendedInfoArgs struct {
-	// Used Disk storage in bytes.
-	DiskStorageUsedInBytes pulumi.StringPtrInput `pulumi:"diskStorageUsedInBytes"`
-	// To check if backup item is collocated.
-	IsCollocated pulumi.BoolPtrInput `pulumi:"isCollocated"`
-	// To check if backup item is cloud protected.
-	IsPresentOnCloud pulumi.BoolPtrInput `pulumi:"isPresentOnCloud"`
-	// Last backup status information on backup item.
-	LastBackupStatus pulumi.StringPtrInput `pulumi:"lastBackupStatus"`
-	// Last refresh time on backup item.
-	LastRefreshedAt pulumi.StringPtrInput `pulumi:"lastRefreshedAt"`
-	// Oldest cloud recovery point time.
-	OldestRecoveryPoint pulumi.StringPtrInput `pulumi:"oldestRecoveryPoint"`
-	// latest disk recovery point time.
+	DiskStorageUsedInBytes       pulumi.StringPtrInput `pulumi:"diskStorageUsedInBytes"`
+	IsCollocated                 pulumi.BoolPtrInput   `pulumi:"isCollocated"`
+	IsPresentOnCloud             pulumi.BoolPtrInput   `pulumi:"isPresentOnCloud"`
+	LastBackupStatus             pulumi.StringPtrInput `pulumi:"lastBackupStatus"`
+	LastRefreshedAt              pulumi.StringPtrInput `pulumi:"lastRefreshedAt"`
+	OldestRecoveryPoint          pulumi.StringPtrInput `pulumi:"oldestRecoveryPoint"`
 	OnPremiseLatestRecoveryPoint pulumi.StringPtrInput `pulumi:"onPremiseLatestRecoveryPoint"`
-	// Oldest disk recovery point time.
 	OnPremiseOldestRecoveryPoint pulumi.StringPtrInput `pulumi:"onPremiseOldestRecoveryPoint"`
-	// disk recovery point count.
-	OnPremiseRecoveryPointCount pulumi.IntPtrInput `pulumi:"onPremiseRecoveryPointCount"`
-	// Attribute to provide information on various DBs.
-	ProtectableObjectLoadPath pulumi.StringMapInput `pulumi:"protectableObjectLoadPath"`
-	// To check if backup item is disk protected.
-	Protected pulumi.BoolPtrInput `pulumi:"protected"`
-	// Protection group name of the backup item.
-	ProtectionGroupName pulumi.StringPtrInput `pulumi:"protectionGroupName"`
-	// cloud recovery point count.
-	RecoveryPointCount pulumi.IntPtrInput `pulumi:"recoveryPointCount"`
-	// total Disk storage in bytes.
-	TotalDiskStorageSizeInBytes pulumi.StringPtrInput `pulumi:"totalDiskStorageSizeInBytes"`
+	OnPremiseRecoveryPointCount  pulumi.IntPtrInput    `pulumi:"onPremiseRecoveryPointCount"`
+	ProtectableObjectLoadPath    pulumi.StringMapInput `pulumi:"protectableObjectLoadPath"`
+	Protected                    pulumi.BoolPtrInput   `pulumi:"protected"`
+	ProtectionGroupName          pulumi.StringPtrInput `pulumi:"protectionGroupName"`
+	RecoveryPointCount           pulumi.IntPtrInput    `pulumi:"recoveryPointCount"`
+	TotalDiskStorageSizeInBytes  pulumi.StringPtrInput `pulumi:"totalDiskStorageSizeInBytes"`
 }
 
 func (DPMProtectedItemExtendedInfoArgs) ElementType() reflect.Type {
@@ -6833,7 +5209,6 @@ func (i *dpmprotectedItemExtendedInfoPtrType) ToDPMProtectedItemExtendedInfoPtrO
 	return pulumi.ToOutputWithContext(ctx, i).(DPMProtectedItemExtendedInfoPtrOutput)
 }
 
-// Additional information of DPM Protected item.
 type DPMProtectedItemExtendedInfoOutput struct{ *pulumi.OutputState }
 
 func (DPMProtectedItemExtendedInfoOutput) ElementType() reflect.Type {
@@ -6853,77 +5228,63 @@ func (o DPMProtectedItemExtendedInfoOutput) ToDPMProtectedItemExtendedInfoPtrOut
 }
 
 func (o DPMProtectedItemExtendedInfoOutput) ToDPMProtectedItemExtendedInfoPtrOutputWithContext(ctx context.Context) DPMProtectedItemExtendedInfoPtrOutput {
-	return o.ApplyT(func(v DPMProtectedItemExtendedInfo) *DPMProtectedItemExtendedInfo {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v DPMProtectedItemExtendedInfo) *DPMProtectedItemExtendedInfo {
 		return &v
 	}).(DPMProtectedItemExtendedInfoPtrOutput)
 }
 
-// Used Disk storage in bytes.
 func (o DPMProtectedItemExtendedInfoOutput) DiskStorageUsedInBytes() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v DPMProtectedItemExtendedInfo) *string { return v.DiskStorageUsedInBytes }).(pulumi.StringPtrOutput)
 }
 
-// To check if backup item is collocated.
 func (o DPMProtectedItemExtendedInfoOutput) IsCollocated() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v DPMProtectedItemExtendedInfo) *bool { return v.IsCollocated }).(pulumi.BoolPtrOutput)
 }
 
-// To check if backup item is cloud protected.
 func (o DPMProtectedItemExtendedInfoOutput) IsPresentOnCloud() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v DPMProtectedItemExtendedInfo) *bool { return v.IsPresentOnCloud }).(pulumi.BoolPtrOutput)
 }
 
-// Last backup status information on backup item.
 func (o DPMProtectedItemExtendedInfoOutput) LastBackupStatus() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v DPMProtectedItemExtendedInfo) *string { return v.LastBackupStatus }).(pulumi.StringPtrOutput)
 }
 
-// Last refresh time on backup item.
 func (o DPMProtectedItemExtendedInfoOutput) LastRefreshedAt() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v DPMProtectedItemExtendedInfo) *string { return v.LastRefreshedAt }).(pulumi.StringPtrOutput)
 }
 
-// Oldest cloud recovery point time.
 func (o DPMProtectedItemExtendedInfoOutput) OldestRecoveryPoint() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v DPMProtectedItemExtendedInfo) *string { return v.OldestRecoveryPoint }).(pulumi.StringPtrOutput)
 }
 
-// latest disk recovery point time.
 func (o DPMProtectedItemExtendedInfoOutput) OnPremiseLatestRecoveryPoint() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v DPMProtectedItemExtendedInfo) *string { return v.OnPremiseLatestRecoveryPoint }).(pulumi.StringPtrOutput)
 }
 
-// Oldest disk recovery point time.
 func (o DPMProtectedItemExtendedInfoOutput) OnPremiseOldestRecoveryPoint() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v DPMProtectedItemExtendedInfo) *string { return v.OnPremiseOldestRecoveryPoint }).(pulumi.StringPtrOutput)
 }
 
-// disk recovery point count.
 func (o DPMProtectedItemExtendedInfoOutput) OnPremiseRecoveryPointCount() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v DPMProtectedItemExtendedInfo) *int { return v.OnPremiseRecoveryPointCount }).(pulumi.IntPtrOutput)
 }
 
-// Attribute to provide information on various DBs.
 func (o DPMProtectedItemExtendedInfoOutput) ProtectableObjectLoadPath() pulumi.StringMapOutput {
 	return o.ApplyT(func(v DPMProtectedItemExtendedInfo) map[string]string { return v.ProtectableObjectLoadPath }).(pulumi.StringMapOutput)
 }
 
-// To check if backup item is disk protected.
 func (o DPMProtectedItemExtendedInfoOutput) Protected() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v DPMProtectedItemExtendedInfo) *bool { return v.Protected }).(pulumi.BoolPtrOutput)
 }
 
-// Protection group name of the backup item.
 func (o DPMProtectedItemExtendedInfoOutput) ProtectionGroupName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v DPMProtectedItemExtendedInfo) *string { return v.ProtectionGroupName }).(pulumi.StringPtrOutput)
 }
 
-// cloud recovery point count.
 func (o DPMProtectedItemExtendedInfoOutput) RecoveryPointCount() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v DPMProtectedItemExtendedInfo) *int { return v.RecoveryPointCount }).(pulumi.IntPtrOutput)
 }
 
-// total Disk storage in bytes.
 func (o DPMProtectedItemExtendedInfoOutput) TotalDiskStorageSizeInBytes() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v DPMProtectedItemExtendedInfo) *string { return v.TotalDiskStorageSizeInBytes }).(pulumi.StringPtrOutput)
 }
@@ -6943,10 +5304,15 @@ func (o DPMProtectedItemExtendedInfoPtrOutput) ToDPMProtectedItemExtendedInfoPtr
 }
 
 func (o DPMProtectedItemExtendedInfoPtrOutput) Elem() DPMProtectedItemExtendedInfoOutput {
-	return o.ApplyT(func(v *DPMProtectedItemExtendedInfo) DPMProtectedItemExtendedInfo { return *v }).(DPMProtectedItemExtendedInfoOutput)
+	return o.ApplyT(func(v *DPMProtectedItemExtendedInfo) DPMProtectedItemExtendedInfo {
+		if v != nil {
+			return *v
+		}
+		var ret DPMProtectedItemExtendedInfo
+		return ret
+	}).(DPMProtectedItemExtendedInfoOutput)
 }
 
-// Used Disk storage in bytes.
 func (o DPMProtectedItemExtendedInfoPtrOutput) DiskStorageUsedInBytes() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *DPMProtectedItemExtendedInfo) *string {
 		if v == nil {
@@ -6956,7 +5322,6 @@ func (o DPMProtectedItemExtendedInfoPtrOutput) DiskStorageUsedInBytes() pulumi.S
 	}).(pulumi.StringPtrOutput)
 }
 
-// To check if backup item is collocated.
 func (o DPMProtectedItemExtendedInfoPtrOutput) IsCollocated() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *DPMProtectedItemExtendedInfo) *bool {
 		if v == nil {
@@ -6966,7 +5331,6 @@ func (o DPMProtectedItemExtendedInfoPtrOutput) IsCollocated() pulumi.BoolPtrOutp
 	}).(pulumi.BoolPtrOutput)
 }
 
-// To check if backup item is cloud protected.
 func (o DPMProtectedItemExtendedInfoPtrOutput) IsPresentOnCloud() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *DPMProtectedItemExtendedInfo) *bool {
 		if v == nil {
@@ -6976,7 +5340,6 @@ func (o DPMProtectedItemExtendedInfoPtrOutput) IsPresentOnCloud() pulumi.BoolPtr
 	}).(pulumi.BoolPtrOutput)
 }
 
-// Last backup status information on backup item.
 func (o DPMProtectedItemExtendedInfoPtrOutput) LastBackupStatus() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *DPMProtectedItemExtendedInfo) *string {
 		if v == nil {
@@ -6986,7 +5349,6 @@ func (o DPMProtectedItemExtendedInfoPtrOutput) LastBackupStatus() pulumi.StringP
 	}).(pulumi.StringPtrOutput)
 }
 
-// Last refresh time on backup item.
 func (o DPMProtectedItemExtendedInfoPtrOutput) LastRefreshedAt() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *DPMProtectedItemExtendedInfo) *string {
 		if v == nil {
@@ -6996,7 +5358,6 @@ func (o DPMProtectedItemExtendedInfoPtrOutput) LastRefreshedAt() pulumi.StringPt
 	}).(pulumi.StringPtrOutput)
 }
 
-// Oldest cloud recovery point time.
 func (o DPMProtectedItemExtendedInfoPtrOutput) OldestRecoveryPoint() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *DPMProtectedItemExtendedInfo) *string {
 		if v == nil {
@@ -7006,7 +5367,6 @@ func (o DPMProtectedItemExtendedInfoPtrOutput) OldestRecoveryPoint() pulumi.Stri
 	}).(pulumi.StringPtrOutput)
 }
 
-// latest disk recovery point time.
 func (o DPMProtectedItemExtendedInfoPtrOutput) OnPremiseLatestRecoveryPoint() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *DPMProtectedItemExtendedInfo) *string {
 		if v == nil {
@@ -7016,7 +5376,6 @@ func (o DPMProtectedItemExtendedInfoPtrOutput) OnPremiseLatestRecoveryPoint() pu
 	}).(pulumi.StringPtrOutput)
 }
 
-// Oldest disk recovery point time.
 func (o DPMProtectedItemExtendedInfoPtrOutput) OnPremiseOldestRecoveryPoint() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *DPMProtectedItemExtendedInfo) *string {
 		if v == nil {
@@ -7026,7 +5385,6 @@ func (o DPMProtectedItemExtendedInfoPtrOutput) OnPremiseOldestRecoveryPoint() pu
 	}).(pulumi.StringPtrOutput)
 }
 
-// disk recovery point count.
 func (o DPMProtectedItemExtendedInfoPtrOutput) OnPremiseRecoveryPointCount() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *DPMProtectedItemExtendedInfo) *int {
 		if v == nil {
@@ -7036,7 +5394,6 @@ func (o DPMProtectedItemExtendedInfoPtrOutput) OnPremiseRecoveryPointCount() pul
 	}).(pulumi.IntPtrOutput)
 }
 
-// Attribute to provide information on various DBs.
 func (o DPMProtectedItemExtendedInfoPtrOutput) ProtectableObjectLoadPath() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *DPMProtectedItemExtendedInfo) map[string]string {
 		if v == nil {
@@ -7046,7 +5403,6 @@ func (o DPMProtectedItemExtendedInfoPtrOutput) ProtectableObjectLoadPath() pulum
 	}).(pulumi.StringMapOutput)
 }
 
-// To check if backup item is disk protected.
 func (o DPMProtectedItemExtendedInfoPtrOutput) Protected() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *DPMProtectedItemExtendedInfo) *bool {
 		if v == nil {
@@ -7056,7 +5412,6 @@ func (o DPMProtectedItemExtendedInfoPtrOutput) Protected() pulumi.BoolPtrOutput 
 	}).(pulumi.BoolPtrOutput)
 }
 
-// Protection group name of the backup item.
 func (o DPMProtectedItemExtendedInfoPtrOutput) ProtectionGroupName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *DPMProtectedItemExtendedInfo) *string {
 		if v == nil {
@@ -7066,7 +5421,6 @@ func (o DPMProtectedItemExtendedInfoPtrOutput) ProtectionGroupName() pulumi.Stri
 	}).(pulumi.StringPtrOutput)
 }
 
-// cloud recovery point count.
 func (o DPMProtectedItemExtendedInfoPtrOutput) RecoveryPointCount() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *DPMProtectedItemExtendedInfo) *int {
 		if v == nil {
@@ -7076,7 +5430,6 @@ func (o DPMProtectedItemExtendedInfoPtrOutput) RecoveryPointCount() pulumi.IntPt
 	}).(pulumi.IntPtrOutput)
 }
 
-// total Disk storage in bytes.
 func (o DPMProtectedItemExtendedInfoPtrOutput) TotalDiskStorageSizeInBytes() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *DPMProtectedItemExtendedInfo) *string {
 		if v == nil {
@@ -7086,36 +5439,21 @@ func (o DPMProtectedItemExtendedInfoPtrOutput) TotalDiskStorageSizeInBytes() pul
 	}).(pulumi.StringPtrOutput)
 }
 
-// Additional information of DPM Protected item.
 type DPMProtectedItemExtendedInfoResponse struct {
-	// Used Disk storage in bytes.
-	DiskStorageUsedInBytes *string `pulumi:"diskStorageUsedInBytes"`
-	// To check if backup item is collocated.
-	IsCollocated *bool `pulumi:"isCollocated"`
-	// To check if backup item is cloud protected.
-	IsPresentOnCloud *bool `pulumi:"isPresentOnCloud"`
-	// Last backup status information on backup item.
-	LastBackupStatus *string `pulumi:"lastBackupStatus"`
-	// Last refresh time on backup item.
-	LastRefreshedAt *string `pulumi:"lastRefreshedAt"`
-	// Oldest cloud recovery point time.
-	OldestRecoveryPoint *string `pulumi:"oldestRecoveryPoint"`
-	// latest disk recovery point time.
-	OnPremiseLatestRecoveryPoint *string `pulumi:"onPremiseLatestRecoveryPoint"`
-	// Oldest disk recovery point time.
-	OnPremiseOldestRecoveryPoint *string `pulumi:"onPremiseOldestRecoveryPoint"`
-	// disk recovery point count.
-	OnPremiseRecoveryPointCount *int `pulumi:"onPremiseRecoveryPointCount"`
-	// Attribute to provide information on various DBs.
-	ProtectableObjectLoadPath map[string]string `pulumi:"protectableObjectLoadPath"`
-	// To check if backup item is disk protected.
-	Protected *bool `pulumi:"protected"`
-	// Protection group name of the backup item.
-	ProtectionGroupName *string `pulumi:"protectionGroupName"`
-	// cloud recovery point count.
-	RecoveryPointCount *int `pulumi:"recoveryPointCount"`
-	// total Disk storage in bytes.
-	TotalDiskStorageSizeInBytes *string `pulumi:"totalDiskStorageSizeInBytes"`
+	DiskStorageUsedInBytes       *string           `pulumi:"diskStorageUsedInBytes"`
+	IsCollocated                 *bool             `pulumi:"isCollocated"`
+	IsPresentOnCloud             *bool             `pulumi:"isPresentOnCloud"`
+	LastBackupStatus             *string           `pulumi:"lastBackupStatus"`
+	LastRefreshedAt              *string           `pulumi:"lastRefreshedAt"`
+	OldestRecoveryPoint          *string           `pulumi:"oldestRecoveryPoint"`
+	OnPremiseLatestRecoveryPoint *string           `pulumi:"onPremiseLatestRecoveryPoint"`
+	OnPremiseOldestRecoveryPoint *string           `pulumi:"onPremiseOldestRecoveryPoint"`
+	OnPremiseRecoveryPointCount  *int              `pulumi:"onPremiseRecoveryPointCount"`
+	ProtectableObjectLoadPath    map[string]string `pulumi:"protectableObjectLoadPath"`
+	Protected                    *bool             `pulumi:"protected"`
+	ProtectionGroupName          *string           `pulumi:"protectionGroupName"`
+	RecoveryPointCount           *int              `pulumi:"recoveryPointCount"`
+	TotalDiskStorageSizeInBytes  *string           `pulumi:"totalDiskStorageSizeInBytes"`
 }
 
 // DPMProtectedItemExtendedInfoResponseInput is an input type that accepts DPMProtectedItemExtendedInfoResponseArgs and DPMProtectedItemExtendedInfoResponseOutput values.
@@ -7129,36 +5467,21 @@ type DPMProtectedItemExtendedInfoResponseInput interface {
 	ToDPMProtectedItemExtendedInfoResponseOutputWithContext(context.Context) DPMProtectedItemExtendedInfoResponseOutput
 }
 
-// Additional information of DPM Protected item.
 type DPMProtectedItemExtendedInfoResponseArgs struct {
-	// Used Disk storage in bytes.
-	DiskStorageUsedInBytes pulumi.StringPtrInput `pulumi:"diskStorageUsedInBytes"`
-	// To check if backup item is collocated.
-	IsCollocated pulumi.BoolPtrInput `pulumi:"isCollocated"`
-	// To check if backup item is cloud protected.
-	IsPresentOnCloud pulumi.BoolPtrInput `pulumi:"isPresentOnCloud"`
-	// Last backup status information on backup item.
-	LastBackupStatus pulumi.StringPtrInput `pulumi:"lastBackupStatus"`
-	// Last refresh time on backup item.
-	LastRefreshedAt pulumi.StringPtrInput `pulumi:"lastRefreshedAt"`
-	// Oldest cloud recovery point time.
-	OldestRecoveryPoint pulumi.StringPtrInput `pulumi:"oldestRecoveryPoint"`
-	// latest disk recovery point time.
+	DiskStorageUsedInBytes       pulumi.StringPtrInput `pulumi:"diskStorageUsedInBytes"`
+	IsCollocated                 pulumi.BoolPtrInput   `pulumi:"isCollocated"`
+	IsPresentOnCloud             pulumi.BoolPtrInput   `pulumi:"isPresentOnCloud"`
+	LastBackupStatus             pulumi.StringPtrInput `pulumi:"lastBackupStatus"`
+	LastRefreshedAt              pulumi.StringPtrInput `pulumi:"lastRefreshedAt"`
+	OldestRecoveryPoint          pulumi.StringPtrInput `pulumi:"oldestRecoveryPoint"`
 	OnPremiseLatestRecoveryPoint pulumi.StringPtrInput `pulumi:"onPremiseLatestRecoveryPoint"`
-	// Oldest disk recovery point time.
 	OnPremiseOldestRecoveryPoint pulumi.StringPtrInput `pulumi:"onPremiseOldestRecoveryPoint"`
-	// disk recovery point count.
-	OnPremiseRecoveryPointCount pulumi.IntPtrInput `pulumi:"onPremiseRecoveryPointCount"`
-	// Attribute to provide information on various DBs.
-	ProtectableObjectLoadPath pulumi.StringMapInput `pulumi:"protectableObjectLoadPath"`
-	// To check if backup item is disk protected.
-	Protected pulumi.BoolPtrInput `pulumi:"protected"`
-	// Protection group name of the backup item.
-	ProtectionGroupName pulumi.StringPtrInput `pulumi:"protectionGroupName"`
-	// cloud recovery point count.
-	RecoveryPointCount pulumi.IntPtrInput `pulumi:"recoveryPointCount"`
-	// total Disk storage in bytes.
-	TotalDiskStorageSizeInBytes pulumi.StringPtrInput `pulumi:"totalDiskStorageSizeInBytes"`
+	OnPremiseRecoveryPointCount  pulumi.IntPtrInput    `pulumi:"onPremiseRecoveryPointCount"`
+	ProtectableObjectLoadPath    pulumi.StringMapInput `pulumi:"protectableObjectLoadPath"`
+	Protected                    pulumi.BoolPtrInput   `pulumi:"protected"`
+	ProtectionGroupName          pulumi.StringPtrInput `pulumi:"protectionGroupName"`
+	RecoveryPointCount           pulumi.IntPtrInput    `pulumi:"recoveryPointCount"`
+	TotalDiskStorageSizeInBytes  pulumi.StringPtrInput `pulumi:"totalDiskStorageSizeInBytes"`
 }
 
 func (DPMProtectedItemExtendedInfoResponseArgs) ElementType() reflect.Type {
@@ -7214,7 +5537,6 @@ func (i *dpmprotectedItemExtendedInfoResponsePtrType) ToDPMProtectedItemExtended
 	return pulumi.ToOutputWithContext(ctx, i).(DPMProtectedItemExtendedInfoResponsePtrOutput)
 }
 
-// Additional information of DPM Protected item.
 type DPMProtectedItemExtendedInfoResponseOutput struct{ *pulumi.OutputState }
 
 func (DPMProtectedItemExtendedInfoResponseOutput) ElementType() reflect.Type {
@@ -7234,77 +5556,63 @@ func (o DPMProtectedItemExtendedInfoResponseOutput) ToDPMProtectedItemExtendedIn
 }
 
 func (o DPMProtectedItemExtendedInfoResponseOutput) ToDPMProtectedItemExtendedInfoResponsePtrOutputWithContext(ctx context.Context) DPMProtectedItemExtendedInfoResponsePtrOutput {
-	return o.ApplyT(func(v DPMProtectedItemExtendedInfoResponse) *DPMProtectedItemExtendedInfoResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v DPMProtectedItemExtendedInfoResponse) *DPMProtectedItemExtendedInfoResponse {
 		return &v
 	}).(DPMProtectedItemExtendedInfoResponsePtrOutput)
 }
 
-// Used Disk storage in bytes.
 func (o DPMProtectedItemExtendedInfoResponseOutput) DiskStorageUsedInBytes() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v DPMProtectedItemExtendedInfoResponse) *string { return v.DiskStorageUsedInBytes }).(pulumi.StringPtrOutput)
 }
 
-// To check if backup item is collocated.
 func (o DPMProtectedItemExtendedInfoResponseOutput) IsCollocated() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v DPMProtectedItemExtendedInfoResponse) *bool { return v.IsCollocated }).(pulumi.BoolPtrOutput)
 }
 
-// To check if backup item is cloud protected.
 func (o DPMProtectedItemExtendedInfoResponseOutput) IsPresentOnCloud() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v DPMProtectedItemExtendedInfoResponse) *bool { return v.IsPresentOnCloud }).(pulumi.BoolPtrOutput)
 }
 
-// Last backup status information on backup item.
 func (o DPMProtectedItemExtendedInfoResponseOutput) LastBackupStatus() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v DPMProtectedItemExtendedInfoResponse) *string { return v.LastBackupStatus }).(pulumi.StringPtrOutput)
 }
 
-// Last refresh time on backup item.
 func (o DPMProtectedItemExtendedInfoResponseOutput) LastRefreshedAt() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v DPMProtectedItemExtendedInfoResponse) *string { return v.LastRefreshedAt }).(pulumi.StringPtrOutput)
 }
 
-// Oldest cloud recovery point time.
 func (o DPMProtectedItemExtendedInfoResponseOutput) OldestRecoveryPoint() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v DPMProtectedItemExtendedInfoResponse) *string { return v.OldestRecoveryPoint }).(pulumi.StringPtrOutput)
 }
 
-// latest disk recovery point time.
 func (o DPMProtectedItemExtendedInfoResponseOutput) OnPremiseLatestRecoveryPoint() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v DPMProtectedItemExtendedInfoResponse) *string { return v.OnPremiseLatestRecoveryPoint }).(pulumi.StringPtrOutput)
 }
 
-// Oldest disk recovery point time.
 func (o DPMProtectedItemExtendedInfoResponseOutput) OnPremiseOldestRecoveryPoint() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v DPMProtectedItemExtendedInfoResponse) *string { return v.OnPremiseOldestRecoveryPoint }).(pulumi.StringPtrOutput)
 }
 
-// disk recovery point count.
 func (o DPMProtectedItemExtendedInfoResponseOutput) OnPremiseRecoveryPointCount() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v DPMProtectedItemExtendedInfoResponse) *int { return v.OnPremiseRecoveryPointCount }).(pulumi.IntPtrOutput)
 }
 
-// Attribute to provide information on various DBs.
 func (o DPMProtectedItemExtendedInfoResponseOutput) ProtectableObjectLoadPath() pulumi.StringMapOutput {
 	return o.ApplyT(func(v DPMProtectedItemExtendedInfoResponse) map[string]string { return v.ProtectableObjectLoadPath }).(pulumi.StringMapOutput)
 }
 
-// To check if backup item is disk protected.
 func (o DPMProtectedItemExtendedInfoResponseOutput) Protected() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v DPMProtectedItemExtendedInfoResponse) *bool { return v.Protected }).(pulumi.BoolPtrOutput)
 }
 
-// Protection group name of the backup item.
 func (o DPMProtectedItemExtendedInfoResponseOutput) ProtectionGroupName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v DPMProtectedItemExtendedInfoResponse) *string { return v.ProtectionGroupName }).(pulumi.StringPtrOutput)
 }
 
-// cloud recovery point count.
 func (o DPMProtectedItemExtendedInfoResponseOutput) RecoveryPointCount() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v DPMProtectedItemExtendedInfoResponse) *int { return v.RecoveryPointCount }).(pulumi.IntPtrOutput)
 }
 
-// total Disk storage in bytes.
 func (o DPMProtectedItemExtendedInfoResponseOutput) TotalDiskStorageSizeInBytes() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v DPMProtectedItemExtendedInfoResponse) *string { return v.TotalDiskStorageSizeInBytes }).(pulumi.StringPtrOutput)
 }
@@ -7324,10 +5632,15 @@ func (o DPMProtectedItemExtendedInfoResponsePtrOutput) ToDPMProtectedItemExtende
 }
 
 func (o DPMProtectedItemExtendedInfoResponsePtrOutput) Elem() DPMProtectedItemExtendedInfoResponseOutput {
-	return o.ApplyT(func(v *DPMProtectedItemExtendedInfoResponse) DPMProtectedItemExtendedInfoResponse { return *v }).(DPMProtectedItemExtendedInfoResponseOutput)
+	return o.ApplyT(func(v *DPMProtectedItemExtendedInfoResponse) DPMProtectedItemExtendedInfoResponse {
+		if v != nil {
+			return *v
+		}
+		var ret DPMProtectedItemExtendedInfoResponse
+		return ret
+	}).(DPMProtectedItemExtendedInfoResponseOutput)
 }
 
-// Used Disk storage in bytes.
 func (o DPMProtectedItemExtendedInfoResponsePtrOutput) DiskStorageUsedInBytes() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *DPMProtectedItemExtendedInfoResponse) *string {
 		if v == nil {
@@ -7337,7 +5650,6 @@ func (o DPMProtectedItemExtendedInfoResponsePtrOutput) DiskStorageUsedInBytes() 
 	}).(pulumi.StringPtrOutput)
 }
 
-// To check if backup item is collocated.
 func (o DPMProtectedItemExtendedInfoResponsePtrOutput) IsCollocated() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *DPMProtectedItemExtendedInfoResponse) *bool {
 		if v == nil {
@@ -7347,7 +5659,6 @@ func (o DPMProtectedItemExtendedInfoResponsePtrOutput) IsCollocated() pulumi.Boo
 	}).(pulumi.BoolPtrOutput)
 }
 
-// To check if backup item is cloud protected.
 func (o DPMProtectedItemExtendedInfoResponsePtrOutput) IsPresentOnCloud() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *DPMProtectedItemExtendedInfoResponse) *bool {
 		if v == nil {
@@ -7357,7 +5668,6 @@ func (o DPMProtectedItemExtendedInfoResponsePtrOutput) IsPresentOnCloud() pulumi
 	}).(pulumi.BoolPtrOutput)
 }
 
-// Last backup status information on backup item.
 func (o DPMProtectedItemExtendedInfoResponsePtrOutput) LastBackupStatus() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *DPMProtectedItemExtendedInfoResponse) *string {
 		if v == nil {
@@ -7367,7 +5677,6 @@ func (o DPMProtectedItemExtendedInfoResponsePtrOutput) LastBackupStatus() pulumi
 	}).(pulumi.StringPtrOutput)
 }
 
-// Last refresh time on backup item.
 func (o DPMProtectedItemExtendedInfoResponsePtrOutput) LastRefreshedAt() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *DPMProtectedItemExtendedInfoResponse) *string {
 		if v == nil {
@@ -7377,7 +5686,6 @@ func (o DPMProtectedItemExtendedInfoResponsePtrOutput) LastRefreshedAt() pulumi.
 	}).(pulumi.StringPtrOutput)
 }
 
-// Oldest cloud recovery point time.
 func (o DPMProtectedItemExtendedInfoResponsePtrOutput) OldestRecoveryPoint() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *DPMProtectedItemExtendedInfoResponse) *string {
 		if v == nil {
@@ -7387,7 +5695,6 @@ func (o DPMProtectedItemExtendedInfoResponsePtrOutput) OldestRecoveryPoint() pul
 	}).(pulumi.StringPtrOutput)
 }
 
-// latest disk recovery point time.
 func (o DPMProtectedItemExtendedInfoResponsePtrOutput) OnPremiseLatestRecoveryPoint() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *DPMProtectedItemExtendedInfoResponse) *string {
 		if v == nil {
@@ -7397,7 +5704,6 @@ func (o DPMProtectedItemExtendedInfoResponsePtrOutput) OnPremiseLatestRecoveryPo
 	}).(pulumi.StringPtrOutput)
 }
 
-// Oldest disk recovery point time.
 func (o DPMProtectedItemExtendedInfoResponsePtrOutput) OnPremiseOldestRecoveryPoint() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *DPMProtectedItemExtendedInfoResponse) *string {
 		if v == nil {
@@ -7407,7 +5713,6 @@ func (o DPMProtectedItemExtendedInfoResponsePtrOutput) OnPremiseOldestRecoveryPo
 	}).(pulumi.StringPtrOutput)
 }
 
-// disk recovery point count.
 func (o DPMProtectedItemExtendedInfoResponsePtrOutput) OnPremiseRecoveryPointCount() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *DPMProtectedItemExtendedInfoResponse) *int {
 		if v == nil {
@@ -7417,7 +5722,6 @@ func (o DPMProtectedItemExtendedInfoResponsePtrOutput) OnPremiseRecoveryPointCou
 	}).(pulumi.IntPtrOutput)
 }
 
-// Attribute to provide information on various DBs.
 func (o DPMProtectedItemExtendedInfoResponsePtrOutput) ProtectableObjectLoadPath() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *DPMProtectedItemExtendedInfoResponse) map[string]string {
 		if v == nil {
@@ -7427,7 +5731,6 @@ func (o DPMProtectedItemExtendedInfoResponsePtrOutput) ProtectableObjectLoadPath
 	}).(pulumi.StringMapOutput)
 }
 
-// To check if backup item is disk protected.
 func (o DPMProtectedItemExtendedInfoResponsePtrOutput) Protected() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *DPMProtectedItemExtendedInfoResponse) *bool {
 		if v == nil {
@@ -7437,7 +5740,6 @@ func (o DPMProtectedItemExtendedInfoResponsePtrOutput) Protected() pulumi.BoolPt
 	}).(pulumi.BoolPtrOutput)
 }
 
-// Protection group name of the backup item.
 func (o DPMProtectedItemExtendedInfoResponsePtrOutput) ProtectionGroupName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *DPMProtectedItemExtendedInfoResponse) *string {
 		if v == nil {
@@ -7447,7 +5749,6 @@ func (o DPMProtectedItemExtendedInfoResponsePtrOutput) ProtectionGroupName() pul
 	}).(pulumi.StringPtrOutput)
 }
 
-// cloud recovery point count.
 func (o DPMProtectedItemExtendedInfoResponsePtrOutput) RecoveryPointCount() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *DPMProtectedItemExtendedInfoResponse) *int {
 		if v == nil {
@@ -7457,7 +5758,6 @@ func (o DPMProtectedItemExtendedInfoResponsePtrOutput) RecoveryPointCount() pulu
 	}).(pulumi.IntPtrOutput)
 }
 
-// total Disk storage in bytes.
 func (o DPMProtectedItemExtendedInfoResponsePtrOutput) TotalDiskStorageSizeInBytes() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *DPMProtectedItemExtendedInfoResponse) *string {
 		if v == nil {
@@ -7467,45 +5767,25 @@ func (o DPMProtectedItemExtendedInfoResponsePtrOutput) TotalDiskStorageSizeInByt
 	}).(pulumi.StringPtrOutput)
 }
 
-// Additional information on Backup engine specific backup item.
 type DPMProtectedItemResponse struct {
-	// Backup Management server protecting this backup item
-	BackupEngineName *string `pulumi:"backupEngineName"`
-	// Type of backup management for the backed up item.
-	BackupManagementType *string `pulumi:"backupManagementType"`
-	// Name of the backup set the backup item belongs to
-	BackupSetName *string `pulumi:"backupSetName"`
-	// Unique name of container
-	ContainerName *string `pulumi:"containerName"`
-	// Create mode to indicate recovery of existing soft deleted data source or creation of new data source.
-	CreateMode *string `pulumi:"createMode"`
-	// Time for deferred deletion in UTC
-	DeferredDeleteTimeInUTC *string `pulumi:"deferredDeleteTimeInUTC"`
-	// Time remaining before the DS marked for deferred delete is permanently deleted
-	DeferredDeleteTimeRemaining *string `pulumi:"deferredDeleteTimeRemaining"`
-	// Extended info of the backup item.
-	ExtendedInfo *DPMProtectedItemExtendedInfoResponse `pulumi:"extendedInfo"`
-	// Friendly name of the managed item
-	FriendlyName *string `pulumi:"friendlyName"`
-	// Flag to identify whether the deferred deleted DS is to be purged soon
-	IsDeferredDeleteScheduleUpcoming *bool `pulumi:"isDeferredDeleteScheduleUpcoming"`
-	// Flag to identify that deferred deleted DS is to be moved into Pause state
-	IsRehydrate *bool `pulumi:"isRehydrate"`
-	// Flag to identify whether the DS is scheduled for deferred delete
-	IsScheduledForDeferredDelete *bool `pulumi:"isScheduledForDeferredDelete"`
-	// Timestamp when the last (latest) backup copy was created for this backup item.
-	LastRecoveryPoint *string `pulumi:"lastRecoveryPoint"`
-	// ID of the backup policy with which this item is backed up.
-	PolicyId *string `pulumi:"policyId"`
-	// backup item type.
-	// Expected value is 'DPMProtectedItem'.
-	ProtectedItemType string `pulumi:"protectedItemType"`
-	// Protection state of the backup engine
-	ProtectionState *string `pulumi:"protectionState"`
-	// ARM ID of the resource to be backed up.
-	SourceResourceId *string `pulumi:"sourceResourceId"`
-	// Type of workload this item represents.
-	WorkloadType *string `pulumi:"workloadType"`
+	BackupEngineName                 *string                               `pulumi:"backupEngineName"`
+	BackupManagementType             *string                               `pulumi:"backupManagementType"`
+	BackupSetName                    *string                               `pulumi:"backupSetName"`
+	ContainerName                    *string                               `pulumi:"containerName"`
+	CreateMode                       *string                               `pulumi:"createMode"`
+	DeferredDeleteTimeInUTC          *string                               `pulumi:"deferredDeleteTimeInUTC"`
+	DeferredDeleteTimeRemaining      *string                               `pulumi:"deferredDeleteTimeRemaining"`
+	ExtendedInfo                     *DPMProtectedItemExtendedInfoResponse `pulumi:"extendedInfo"`
+	FriendlyName                     *string                               `pulumi:"friendlyName"`
+	IsDeferredDeleteScheduleUpcoming *bool                                 `pulumi:"isDeferredDeleteScheduleUpcoming"`
+	IsRehydrate                      *bool                                 `pulumi:"isRehydrate"`
+	IsScheduledForDeferredDelete     *bool                                 `pulumi:"isScheduledForDeferredDelete"`
+	LastRecoveryPoint                *string                               `pulumi:"lastRecoveryPoint"`
+	PolicyId                         *string                               `pulumi:"policyId"`
+	ProtectedItemType                string                                `pulumi:"protectedItemType"`
+	ProtectionState                  *string                               `pulumi:"protectionState"`
+	SourceResourceId                 *string                               `pulumi:"sourceResourceId"`
+	WorkloadType                     *string                               `pulumi:"workloadType"`
 }
 
 // DPMProtectedItemResponseInput is an input type that accepts DPMProtectedItemResponseArgs and DPMProtectedItemResponseOutput values.
@@ -7519,45 +5799,25 @@ type DPMProtectedItemResponseInput interface {
 	ToDPMProtectedItemResponseOutputWithContext(context.Context) DPMProtectedItemResponseOutput
 }
 
-// Additional information on Backup engine specific backup item.
 type DPMProtectedItemResponseArgs struct {
-	// Backup Management server protecting this backup item
-	BackupEngineName pulumi.StringPtrInput `pulumi:"backupEngineName"`
-	// Type of backup management for the backed up item.
-	BackupManagementType pulumi.StringPtrInput `pulumi:"backupManagementType"`
-	// Name of the backup set the backup item belongs to
-	BackupSetName pulumi.StringPtrInput `pulumi:"backupSetName"`
-	// Unique name of container
-	ContainerName pulumi.StringPtrInput `pulumi:"containerName"`
-	// Create mode to indicate recovery of existing soft deleted data source or creation of new data source.
-	CreateMode pulumi.StringPtrInput `pulumi:"createMode"`
-	// Time for deferred deletion in UTC
-	DeferredDeleteTimeInUTC pulumi.StringPtrInput `pulumi:"deferredDeleteTimeInUTC"`
-	// Time remaining before the DS marked for deferred delete is permanently deleted
-	DeferredDeleteTimeRemaining pulumi.StringPtrInput `pulumi:"deferredDeleteTimeRemaining"`
-	// Extended info of the backup item.
-	ExtendedInfo DPMProtectedItemExtendedInfoResponsePtrInput `pulumi:"extendedInfo"`
-	// Friendly name of the managed item
-	FriendlyName pulumi.StringPtrInput `pulumi:"friendlyName"`
-	// Flag to identify whether the deferred deleted DS is to be purged soon
-	IsDeferredDeleteScheduleUpcoming pulumi.BoolPtrInput `pulumi:"isDeferredDeleteScheduleUpcoming"`
-	// Flag to identify that deferred deleted DS is to be moved into Pause state
-	IsRehydrate pulumi.BoolPtrInput `pulumi:"isRehydrate"`
-	// Flag to identify whether the DS is scheduled for deferred delete
-	IsScheduledForDeferredDelete pulumi.BoolPtrInput `pulumi:"isScheduledForDeferredDelete"`
-	// Timestamp when the last (latest) backup copy was created for this backup item.
-	LastRecoveryPoint pulumi.StringPtrInput `pulumi:"lastRecoveryPoint"`
-	// ID of the backup policy with which this item is backed up.
-	PolicyId pulumi.StringPtrInput `pulumi:"policyId"`
-	// backup item type.
-	// Expected value is 'DPMProtectedItem'.
-	ProtectedItemType pulumi.StringInput `pulumi:"protectedItemType"`
-	// Protection state of the backup engine
-	ProtectionState pulumi.StringPtrInput `pulumi:"protectionState"`
-	// ARM ID of the resource to be backed up.
-	SourceResourceId pulumi.StringPtrInput `pulumi:"sourceResourceId"`
-	// Type of workload this item represents.
-	WorkloadType pulumi.StringPtrInput `pulumi:"workloadType"`
+	BackupEngineName                 pulumi.StringPtrInput                        `pulumi:"backupEngineName"`
+	BackupManagementType             pulumi.StringPtrInput                        `pulumi:"backupManagementType"`
+	BackupSetName                    pulumi.StringPtrInput                        `pulumi:"backupSetName"`
+	ContainerName                    pulumi.StringPtrInput                        `pulumi:"containerName"`
+	CreateMode                       pulumi.StringPtrInput                        `pulumi:"createMode"`
+	DeferredDeleteTimeInUTC          pulumi.StringPtrInput                        `pulumi:"deferredDeleteTimeInUTC"`
+	DeferredDeleteTimeRemaining      pulumi.StringPtrInput                        `pulumi:"deferredDeleteTimeRemaining"`
+	ExtendedInfo                     DPMProtectedItemExtendedInfoResponsePtrInput `pulumi:"extendedInfo"`
+	FriendlyName                     pulumi.StringPtrInput                        `pulumi:"friendlyName"`
+	IsDeferredDeleteScheduleUpcoming pulumi.BoolPtrInput                          `pulumi:"isDeferredDeleteScheduleUpcoming"`
+	IsRehydrate                      pulumi.BoolPtrInput                          `pulumi:"isRehydrate"`
+	IsScheduledForDeferredDelete     pulumi.BoolPtrInput                          `pulumi:"isScheduledForDeferredDelete"`
+	LastRecoveryPoint                pulumi.StringPtrInput                        `pulumi:"lastRecoveryPoint"`
+	PolicyId                         pulumi.StringPtrInput                        `pulumi:"policyId"`
+	ProtectedItemType                pulumi.StringInput                           `pulumi:"protectedItemType"`
+	ProtectionState                  pulumi.StringPtrInput                        `pulumi:"protectionState"`
+	SourceResourceId                 pulumi.StringPtrInput                        `pulumi:"sourceResourceId"`
+	WorkloadType                     pulumi.StringPtrInput                        `pulumi:"workloadType"`
 }
 
 func (DPMProtectedItemResponseArgs) ElementType() reflect.Type {
@@ -7572,7 +5832,6 @@ func (i DPMProtectedItemResponseArgs) ToDPMProtectedItemResponseOutputWithContex
 	return pulumi.ToOutputWithContext(ctx, i).(DPMProtectedItemResponseOutput)
 }
 
-// Additional information on Backup engine specific backup item.
 type DPMProtectedItemResponseOutput struct{ *pulumi.OutputState }
 
 func (DPMProtectedItemResponseOutput) ElementType() reflect.Type {
@@ -7587,101 +5846,80 @@ func (o DPMProtectedItemResponseOutput) ToDPMProtectedItemResponseOutputWithCont
 	return o
 }
 
-// Backup Management server protecting this backup item
 func (o DPMProtectedItemResponseOutput) BackupEngineName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v DPMProtectedItemResponse) *string { return v.BackupEngineName }).(pulumi.StringPtrOutput)
 }
 
-// Type of backup management for the backed up item.
 func (o DPMProtectedItemResponseOutput) BackupManagementType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v DPMProtectedItemResponse) *string { return v.BackupManagementType }).(pulumi.StringPtrOutput)
 }
 
-// Name of the backup set the backup item belongs to
 func (o DPMProtectedItemResponseOutput) BackupSetName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v DPMProtectedItemResponse) *string { return v.BackupSetName }).(pulumi.StringPtrOutput)
 }
 
-// Unique name of container
 func (o DPMProtectedItemResponseOutput) ContainerName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v DPMProtectedItemResponse) *string { return v.ContainerName }).(pulumi.StringPtrOutput)
 }
 
-// Create mode to indicate recovery of existing soft deleted data source or creation of new data source.
 func (o DPMProtectedItemResponseOutput) CreateMode() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v DPMProtectedItemResponse) *string { return v.CreateMode }).(pulumi.StringPtrOutput)
 }
 
-// Time for deferred deletion in UTC
 func (o DPMProtectedItemResponseOutput) DeferredDeleteTimeInUTC() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v DPMProtectedItemResponse) *string { return v.DeferredDeleteTimeInUTC }).(pulumi.StringPtrOutput)
 }
 
-// Time remaining before the DS marked for deferred delete is permanently deleted
 func (o DPMProtectedItemResponseOutput) DeferredDeleteTimeRemaining() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v DPMProtectedItemResponse) *string { return v.DeferredDeleteTimeRemaining }).(pulumi.StringPtrOutput)
 }
 
-// Extended info of the backup item.
 func (o DPMProtectedItemResponseOutput) ExtendedInfo() DPMProtectedItemExtendedInfoResponsePtrOutput {
 	return o.ApplyT(func(v DPMProtectedItemResponse) *DPMProtectedItemExtendedInfoResponse { return v.ExtendedInfo }).(DPMProtectedItemExtendedInfoResponsePtrOutput)
 }
 
-// Friendly name of the managed item
 func (o DPMProtectedItemResponseOutput) FriendlyName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v DPMProtectedItemResponse) *string { return v.FriendlyName }).(pulumi.StringPtrOutput)
 }
 
-// Flag to identify whether the deferred deleted DS is to be purged soon
 func (o DPMProtectedItemResponseOutput) IsDeferredDeleteScheduleUpcoming() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v DPMProtectedItemResponse) *bool { return v.IsDeferredDeleteScheduleUpcoming }).(pulumi.BoolPtrOutput)
 }
 
-// Flag to identify that deferred deleted DS is to be moved into Pause state
 func (o DPMProtectedItemResponseOutput) IsRehydrate() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v DPMProtectedItemResponse) *bool { return v.IsRehydrate }).(pulumi.BoolPtrOutput)
 }
 
-// Flag to identify whether the DS is scheduled for deferred delete
 func (o DPMProtectedItemResponseOutput) IsScheduledForDeferredDelete() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v DPMProtectedItemResponse) *bool { return v.IsScheduledForDeferredDelete }).(pulumi.BoolPtrOutput)
 }
 
-// Timestamp when the last (latest) backup copy was created for this backup item.
 func (o DPMProtectedItemResponseOutput) LastRecoveryPoint() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v DPMProtectedItemResponse) *string { return v.LastRecoveryPoint }).(pulumi.StringPtrOutput)
 }
 
-// ID of the backup policy with which this item is backed up.
 func (o DPMProtectedItemResponseOutput) PolicyId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v DPMProtectedItemResponse) *string { return v.PolicyId }).(pulumi.StringPtrOutput)
 }
 
-// backup item type.
-// Expected value is 'DPMProtectedItem'.
 func (o DPMProtectedItemResponseOutput) ProtectedItemType() pulumi.StringOutput {
 	return o.ApplyT(func(v DPMProtectedItemResponse) string { return v.ProtectedItemType }).(pulumi.StringOutput)
 }
 
-// Protection state of the backup engine
 func (o DPMProtectedItemResponseOutput) ProtectionState() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v DPMProtectedItemResponse) *string { return v.ProtectionState }).(pulumi.StringPtrOutput)
 }
 
-// ARM ID of the resource to be backed up.
 func (o DPMProtectedItemResponseOutput) SourceResourceId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v DPMProtectedItemResponse) *string { return v.SourceResourceId }).(pulumi.StringPtrOutput)
 }
 
-// Type of workload this item represents.
 func (o DPMProtectedItemResponseOutput) WorkloadType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v DPMProtectedItemResponse) *string { return v.WorkloadType }).(pulumi.StringPtrOutput)
 }
 
 type DiskExclusionProperties struct {
-	// List of Disks' Logical Unit Numbers (LUN) to be used for VM Protection.
-	DiskLunList []int `pulumi:"diskLunList"`
-	// Flag to indicate whether DiskLunList is to be included/ excluded from backup.
+	DiskLunList     []int `pulumi:"diskLunList"`
 	IsInclusionList *bool `pulumi:"isInclusionList"`
 }
 
@@ -7697,10 +5935,8 @@ type DiskExclusionPropertiesInput interface {
 }
 
 type DiskExclusionPropertiesArgs struct {
-	// List of Disks' Logical Unit Numbers (LUN) to be used for VM Protection.
-	DiskLunList pulumi.IntArrayInput `pulumi:"diskLunList"`
-	// Flag to indicate whether DiskLunList is to be included/ excluded from backup.
-	IsInclusionList pulumi.BoolPtrInput `pulumi:"isInclusionList"`
+	DiskLunList     pulumi.IntArrayInput `pulumi:"diskLunList"`
+	IsInclusionList pulumi.BoolPtrInput  `pulumi:"isInclusionList"`
 }
 
 func (DiskExclusionPropertiesArgs) ElementType() reflect.Type {
@@ -7775,17 +6011,15 @@ func (o DiskExclusionPropertiesOutput) ToDiskExclusionPropertiesPtrOutput() Disk
 }
 
 func (o DiskExclusionPropertiesOutput) ToDiskExclusionPropertiesPtrOutputWithContext(ctx context.Context) DiskExclusionPropertiesPtrOutput {
-	return o.ApplyT(func(v DiskExclusionProperties) *DiskExclusionProperties {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v DiskExclusionProperties) *DiskExclusionProperties {
 		return &v
 	}).(DiskExclusionPropertiesPtrOutput)
 }
 
-// List of Disks' Logical Unit Numbers (LUN) to be used for VM Protection.
 func (o DiskExclusionPropertiesOutput) DiskLunList() pulumi.IntArrayOutput {
 	return o.ApplyT(func(v DiskExclusionProperties) []int { return v.DiskLunList }).(pulumi.IntArrayOutput)
 }
 
-// Flag to indicate whether DiskLunList is to be included/ excluded from backup.
 func (o DiskExclusionPropertiesOutput) IsInclusionList() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v DiskExclusionProperties) *bool { return v.IsInclusionList }).(pulumi.BoolPtrOutput)
 }
@@ -7805,10 +6039,15 @@ func (o DiskExclusionPropertiesPtrOutput) ToDiskExclusionPropertiesPtrOutputWith
 }
 
 func (o DiskExclusionPropertiesPtrOutput) Elem() DiskExclusionPropertiesOutput {
-	return o.ApplyT(func(v *DiskExclusionProperties) DiskExclusionProperties { return *v }).(DiskExclusionPropertiesOutput)
+	return o.ApplyT(func(v *DiskExclusionProperties) DiskExclusionProperties {
+		if v != nil {
+			return *v
+		}
+		var ret DiskExclusionProperties
+		return ret
+	}).(DiskExclusionPropertiesOutput)
 }
 
-// List of Disks' Logical Unit Numbers (LUN) to be used for VM Protection.
 func (o DiskExclusionPropertiesPtrOutput) DiskLunList() pulumi.IntArrayOutput {
 	return o.ApplyT(func(v *DiskExclusionProperties) []int {
 		if v == nil {
@@ -7818,7 +6057,6 @@ func (o DiskExclusionPropertiesPtrOutput) DiskLunList() pulumi.IntArrayOutput {
 	}).(pulumi.IntArrayOutput)
 }
 
-// Flag to indicate whether DiskLunList is to be included/ excluded from backup.
 func (o DiskExclusionPropertiesPtrOutput) IsInclusionList() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *DiskExclusionProperties) *bool {
 		if v == nil {
@@ -7829,9 +6067,7 @@ func (o DiskExclusionPropertiesPtrOutput) IsInclusionList() pulumi.BoolPtrOutput
 }
 
 type DiskExclusionPropertiesResponse struct {
-	// List of Disks' Logical Unit Numbers (LUN) to be used for VM Protection.
-	DiskLunList []int `pulumi:"diskLunList"`
-	// Flag to indicate whether DiskLunList is to be included/ excluded from backup.
+	DiskLunList     []int `pulumi:"diskLunList"`
 	IsInclusionList *bool `pulumi:"isInclusionList"`
 }
 
@@ -7847,10 +6083,8 @@ type DiskExclusionPropertiesResponseInput interface {
 }
 
 type DiskExclusionPropertiesResponseArgs struct {
-	// List of Disks' Logical Unit Numbers (LUN) to be used for VM Protection.
-	DiskLunList pulumi.IntArrayInput `pulumi:"diskLunList"`
-	// Flag to indicate whether DiskLunList is to be included/ excluded from backup.
-	IsInclusionList pulumi.BoolPtrInput `pulumi:"isInclusionList"`
+	DiskLunList     pulumi.IntArrayInput `pulumi:"diskLunList"`
+	IsInclusionList pulumi.BoolPtrInput  `pulumi:"isInclusionList"`
 }
 
 func (DiskExclusionPropertiesResponseArgs) ElementType() reflect.Type {
@@ -7925,17 +6159,15 @@ func (o DiskExclusionPropertiesResponseOutput) ToDiskExclusionPropertiesResponse
 }
 
 func (o DiskExclusionPropertiesResponseOutput) ToDiskExclusionPropertiesResponsePtrOutputWithContext(ctx context.Context) DiskExclusionPropertiesResponsePtrOutput {
-	return o.ApplyT(func(v DiskExclusionPropertiesResponse) *DiskExclusionPropertiesResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v DiskExclusionPropertiesResponse) *DiskExclusionPropertiesResponse {
 		return &v
 	}).(DiskExclusionPropertiesResponsePtrOutput)
 }
 
-// List of Disks' Logical Unit Numbers (LUN) to be used for VM Protection.
 func (o DiskExclusionPropertiesResponseOutput) DiskLunList() pulumi.IntArrayOutput {
 	return o.ApplyT(func(v DiskExclusionPropertiesResponse) []int { return v.DiskLunList }).(pulumi.IntArrayOutput)
 }
 
-// Flag to indicate whether DiskLunList is to be included/ excluded from backup.
 func (o DiskExclusionPropertiesResponseOutput) IsInclusionList() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v DiskExclusionPropertiesResponse) *bool { return v.IsInclusionList }).(pulumi.BoolPtrOutput)
 }
@@ -7955,10 +6187,15 @@ func (o DiskExclusionPropertiesResponsePtrOutput) ToDiskExclusionPropertiesRespo
 }
 
 func (o DiskExclusionPropertiesResponsePtrOutput) Elem() DiskExclusionPropertiesResponseOutput {
-	return o.ApplyT(func(v *DiskExclusionPropertiesResponse) DiskExclusionPropertiesResponse { return *v }).(DiskExclusionPropertiesResponseOutput)
+	return o.ApplyT(func(v *DiskExclusionPropertiesResponse) DiskExclusionPropertiesResponse {
+		if v != nil {
+			return *v
+		}
+		var ret DiskExclusionPropertiesResponse
+		return ret
+	}).(DiskExclusionPropertiesResponseOutput)
 }
 
-// List of Disks' Logical Unit Numbers (LUN) to be used for VM Protection.
 func (o DiskExclusionPropertiesResponsePtrOutput) DiskLunList() pulumi.IntArrayOutput {
 	return o.ApplyT(func(v *DiskExclusionPropertiesResponse) []int {
 		if v == nil {
@@ -7968,7 +6205,6 @@ func (o DiskExclusionPropertiesResponsePtrOutput) DiskLunList() pulumi.IntArrayO
 	}).(pulumi.IntArrayOutput)
 }
 
-// Flag to indicate whether DiskLunList is to be included/ excluded from backup.
 func (o DiskExclusionPropertiesResponsePtrOutput) IsInclusionList() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *DiskExclusionPropertiesResponse) *bool {
 		if v == nil {
@@ -7978,13 +6214,9 @@ func (o DiskExclusionPropertiesResponsePtrOutput) IsInclusionList() pulumi.BoolP
 	}).(pulumi.BoolPtrOutput)
 }
 
-// Error Detail class which encapsulates Code, Message and Recommendations.
 type ErrorDetailResponse struct {
-	// Error code.
-	Code string `pulumi:"code"`
-	// Error Message related to the Code.
-	Message string `pulumi:"message"`
-	// List of recommendation strings.
+	Code            string   `pulumi:"code"`
+	Message         string   `pulumi:"message"`
 	Recommendations []string `pulumi:"recommendations"`
 }
 
@@ -7999,13 +6231,9 @@ type ErrorDetailResponseInput interface {
 	ToErrorDetailResponseOutputWithContext(context.Context) ErrorDetailResponseOutput
 }
 
-// Error Detail class which encapsulates Code, Message and Recommendations.
 type ErrorDetailResponseArgs struct {
-	// Error code.
-	Code pulumi.StringInput `pulumi:"code"`
-	// Error Message related to the Code.
-	Message pulumi.StringInput `pulumi:"message"`
-	// List of recommendation strings.
+	Code            pulumi.StringInput      `pulumi:"code"`
+	Message         pulumi.StringInput      `pulumi:"message"`
 	Recommendations pulumi.StringArrayInput `pulumi:"recommendations"`
 }
 
@@ -8062,7 +6290,6 @@ func (i *errorDetailResponsePtrType) ToErrorDetailResponsePtrOutputWithContext(c
 	return pulumi.ToOutputWithContext(ctx, i).(ErrorDetailResponsePtrOutput)
 }
 
-// Error Detail class which encapsulates Code, Message and Recommendations.
 type ErrorDetailResponseOutput struct{ *pulumi.OutputState }
 
 func (ErrorDetailResponseOutput) ElementType() reflect.Type {
@@ -8082,22 +6309,19 @@ func (o ErrorDetailResponseOutput) ToErrorDetailResponsePtrOutput() ErrorDetailR
 }
 
 func (o ErrorDetailResponseOutput) ToErrorDetailResponsePtrOutputWithContext(ctx context.Context) ErrorDetailResponsePtrOutput {
-	return o.ApplyT(func(v ErrorDetailResponse) *ErrorDetailResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ErrorDetailResponse) *ErrorDetailResponse {
 		return &v
 	}).(ErrorDetailResponsePtrOutput)
 }
 
-// Error code.
 func (o ErrorDetailResponseOutput) Code() pulumi.StringOutput {
 	return o.ApplyT(func(v ErrorDetailResponse) string { return v.Code }).(pulumi.StringOutput)
 }
 
-// Error Message related to the Code.
 func (o ErrorDetailResponseOutput) Message() pulumi.StringOutput {
 	return o.ApplyT(func(v ErrorDetailResponse) string { return v.Message }).(pulumi.StringOutput)
 }
 
-// List of recommendation strings.
 func (o ErrorDetailResponseOutput) Recommendations() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v ErrorDetailResponse) []string { return v.Recommendations }).(pulumi.StringArrayOutput)
 }
@@ -8117,10 +6341,15 @@ func (o ErrorDetailResponsePtrOutput) ToErrorDetailResponsePtrOutputWithContext(
 }
 
 func (o ErrorDetailResponsePtrOutput) Elem() ErrorDetailResponseOutput {
-	return o.ApplyT(func(v *ErrorDetailResponse) ErrorDetailResponse { return *v }).(ErrorDetailResponseOutput)
+	return o.ApplyT(func(v *ErrorDetailResponse) ErrorDetailResponse {
+		if v != nil {
+			return *v
+		}
+		var ret ErrorDetailResponse
+		return ret
+	}).(ErrorDetailResponseOutput)
 }
 
-// Error code.
 func (o ErrorDetailResponsePtrOutput) Code() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ErrorDetailResponse) *string {
 		if v == nil {
@@ -8130,7 +6359,6 @@ func (o ErrorDetailResponsePtrOutput) Code() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Error Message related to the Code.
 func (o ErrorDetailResponsePtrOutput) Message() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ErrorDetailResponse) *string {
 		if v == nil {
@@ -8140,7 +6368,6 @@ func (o ErrorDetailResponsePtrOutput) Message() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// List of recommendation strings.
 func (o ErrorDetailResponsePtrOutput) Recommendations() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *ErrorDetailResponse) []string {
 		if v == nil {
@@ -8150,9 +6377,7 @@ func (o ErrorDetailResponsePtrOutput) Recommendations() pulumi.StringArrayOutput
 	}).(pulumi.StringArrayOutput)
 }
 
-// Extended Properties for Azure IaasVM Backup.
 type ExtendedProperties struct {
-	// Extended Properties for Disk Exclusion.
 	DiskExclusionProperties *DiskExclusionProperties `pulumi:"diskExclusionProperties"`
 }
 
@@ -8167,9 +6392,7 @@ type ExtendedPropertiesInput interface {
 	ToExtendedPropertiesOutputWithContext(context.Context) ExtendedPropertiesOutput
 }
 
-// Extended Properties for Azure IaasVM Backup.
 type ExtendedPropertiesArgs struct {
-	// Extended Properties for Disk Exclusion.
 	DiskExclusionProperties DiskExclusionPropertiesPtrInput `pulumi:"diskExclusionProperties"`
 }
 
@@ -8226,7 +6449,6 @@ func (i *extendedPropertiesPtrType) ToExtendedPropertiesPtrOutputWithContext(ctx
 	return pulumi.ToOutputWithContext(ctx, i).(ExtendedPropertiesPtrOutput)
 }
 
-// Extended Properties for Azure IaasVM Backup.
 type ExtendedPropertiesOutput struct{ *pulumi.OutputState }
 
 func (ExtendedPropertiesOutput) ElementType() reflect.Type {
@@ -8246,12 +6468,11 @@ func (o ExtendedPropertiesOutput) ToExtendedPropertiesPtrOutput() ExtendedProper
 }
 
 func (o ExtendedPropertiesOutput) ToExtendedPropertiesPtrOutputWithContext(ctx context.Context) ExtendedPropertiesPtrOutput {
-	return o.ApplyT(func(v ExtendedProperties) *ExtendedProperties {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ExtendedProperties) *ExtendedProperties {
 		return &v
 	}).(ExtendedPropertiesPtrOutput)
 }
 
-// Extended Properties for Disk Exclusion.
 func (o ExtendedPropertiesOutput) DiskExclusionProperties() DiskExclusionPropertiesPtrOutput {
 	return o.ApplyT(func(v ExtendedProperties) *DiskExclusionProperties { return v.DiskExclusionProperties }).(DiskExclusionPropertiesPtrOutput)
 }
@@ -8271,10 +6492,15 @@ func (o ExtendedPropertiesPtrOutput) ToExtendedPropertiesPtrOutputWithContext(ct
 }
 
 func (o ExtendedPropertiesPtrOutput) Elem() ExtendedPropertiesOutput {
-	return o.ApplyT(func(v *ExtendedProperties) ExtendedProperties { return *v }).(ExtendedPropertiesOutput)
+	return o.ApplyT(func(v *ExtendedProperties) ExtendedProperties {
+		if v != nil {
+			return *v
+		}
+		var ret ExtendedProperties
+		return ret
+	}).(ExtendedPropertiesOutput)
 }
 
-// Extended Properties for Disk Exclusion.
 func (o ExtendedPropertiesPtrOutput) DiskExclusionProperties() DiskExclusionPropertiesPtrOutput {
 	return o.ApplyT(func(v *ExtendedProperties) *DiskExclusionProperties {
 		if v == nil {
@@ -8284,9 +6510,7 @@ func (o ExtendedPropertiesPtrOutput) DiskExclusionProperties() DiskExclusionProp
 	}).(DiskExclusionPropertiesPtrOutput)
 }
 
-// Extended Properties for Azure IaasVM Backup.
 type ExtendedPropertiesResponse struct {
-	// Extended Properties for Disk Exclusion.
 	DiskExclusionProperties *DiskExclusionPropertiesResponse `pulumi:"diskExclusionProperties"`
 }
 
@@ -8301,9 +6525,7 @@ type ExtendedPropertiesResponseInput interface {
 	ToExtendedPropertiesResponseOutputWithContext(context.Context) ExtendedPropertiesResponseOutput
 }
 
-// Extended Properties for Azure IaasVM Backup.
 type ExtendedPropertiesResponseArgs struct {
-	// Extended Properties for Disk Exclusion.
 	DiskExclusionProperties DiskExclusionPropertiesResponsePtrInput `pulumi:"diskExclusionProperties"`
 }
 
@@ -8360,7 +6582,6 @@ func (i *extendedPropertiesResponsePtrType) ToExtendedPropertiesResponsePtrOutpu
 	return pulumi.ToOutputWithContext(ctx, i).(ExtendedPropertiesResponsePtrOutput)
 }
 
-// Extended Properties for Azure IaasVM Backup.
 type ExtendedPropertiesResponseOutput struct{ *pulumi.OutputState }
 
 func (ExtendedPropertiesResponseOutput) ElementType() reflect.Type {
@@ -8380,12 +6601,11 @@ func (o ExtendedPropertiesResponseOutput) ToExtendedPropertiesResponsePtrOutput(
 }
 
 func (o ExtendedPropertiesResponseOutput) ToExtendedPropertiesResponsePtrOutputWithContext(ctx context.Context) ExtendedPropertiesResponsePtrOutput {
-	return o.ApplyT(func(v ExtendedPropertiesResponse) *ExtendedPropertiesResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ExtendedPropertiesResponse) *ExtendedPropertiesResponse {
 		return &v
 	}).(ExtendedPropertiesResponsePtrOutput)
 }
 
-// Extended Properties for Disk Exclusion.
 func (o ExtendedPropertiesResponseOutput) DiskExclusionProperties() DiskExclusionPropertiesResponsePtrOutput {
 	return o.ApplyT(func(v ExtendedPropertiesResponse) *DiskExclusionPropertiesResponse { return v.DiskExclusionProperties }).(DiskExclusionPropertiesResponsePtrOutput)
 }
@@ -8405,10 +6625,15 @@ func (o ExtendedPropertiesResponsePtrOutput) ToExtendedPropertiesResponsePtrOutp
 }
 
 func (o ExtendedPropertiesResponsePtrOutput) Elem() ExtendedPropertiesResponseOutput {
-	return o.ApplyT(func(v *ExtendedPropertiesResponse) ExtendedPropertiesResponse { return *v }).(ExtendedPropertiesResponseOutput)
+	return o.ApplyT(func(v *ExtendedPropertiesResponse) ExtendedPropertiesResponse {
+		if v != nil {
+			return *v
+		}
+		var ret ExtendedPropertiesResponse
+		return ret
+	}).(ExtendedPropertiesResponseOutput)
 }
 
-// Extended Properties for Disk Exclusion.
 func (o ExtendedPropertiesResponsePtrOutput) DiskExclusionProperties() DiskExclusionPropertiesResponsePtrOutput {
 	return o.ApplyT(func(v *ExtendedPropertiesResponse) *DiskExclusionPropertiesResponse {
 		if v == nil {
@@ -8418,49 +6643,27 @@ func (o ExtendedPropertiesResponsePtrOutput) DiskExclusionProperties() DiskExclu
 	}).(DiskExclusionPropertiesResponsePtrOutput)
 }
 
-// Base class for backup items.
 type GenericProtectedItem struct {
-	// Type of backup management for the backed up item.
-	BackupManagementType *string `pulumi:"backupManagementType"`
-	// Name of the backup set the backup item belongs to
-	BackupSetName *string `pulumi:"backupSetName"`
-	// Unique name of container
-	ContainerName *string `pulumi:"containerName"`
-	// Create mode to indicate recovery of existing soft deleted data source or creation of new data source.
-	CreateMode *string `pulumi:"createMode"`
-	// Time for deferred deletion in UTC
-	DeferredDeleteTimeInUTC *string `pulumi:"deferredDeleteTimeInUTC"`
-	// Time remaining before the DS marked for deferred delete is permanently deleted
-	DeferredDeleteTimeRemaining *string `pulumi:"deferredDeleteTimeRemaining"`
-	// Name of this backup item's fabric.
-	FabricName *string `pulumi:"fabricName"`
-	// Friendly name of the container.
-	FriendlyName *string `pulumi:"friendlyName"`
-	// Flag to identify whether the deferred deleted DS is to be purged soon
-	IsDeferredDeleteScheduleUpcoming *bool `pulumi:"isDeferredDeleteScheduleUpcoming"`
-	// Flag to identify that deferred deleted DS is to be moved into Pause state
-	IsRehydrate *bool `pulumi:"isRehydrate"`
-	// Flag to identify whether the DS is scheduled for deferred delete
-	IsScheduledForDeferredDelete *bool `pulumi:"isScheduledForDeferredDelete"`
-	// Timestamp when the last (latest) backup copy was created for this backup item.
-	LastRecoveryPoint *string `pulumi:"lastRecoveryPoint"`
-	// ID of the backup policy with which this item is backed up.
-	PolicyId *string `pulumi:"policyId"`
-	// Indicates consistency of policy object and policy applied to this backup item.
-	PolicyState *string `pulumi:"policyState"`
-	// Data Plane Service ID of the protected item.
-	ProtectedItemId *float64 `pulumi:"protectedItemId"`
-	// backup item type.
-	// Expected value is 'GenericProtectedItem'.
-	ProtectedItemType string `pulumi:"protectedItemType"`
-	// Backup state of this backup item.
-	ProtectionState *string `pulumi:"protectionState"`
-	// Loosely coupled (type, value) associations (example - parent of a protected item)
-	SourceAssociations map[string]string `pulumi:"sourceAssociations"`
-	// ARM ID of the resource to be backed up.
-	SourceResourceId *string `pulumi:"sourceResourceId"`
-	// Type of workload this item represents.
-	WorkloadType *string `pulumi:"workloadType"`
+	BackupManagementType             *string           `pulumi:"backupManagementType"`
+	BackupSetName                    *string           `pulumi:"backupSetName"`
+	ContainerName                    *string           `pulumi:"containerName"`
+	CreateMode                       *string           `pulumi:"createMode"`
+	DeferredDeleteTimeInUTC          *string           `pulumi:"deferredDeleteTimeInUTC"`
+	DeferredDeleteTimeRemaining      *string           `pulumi:"deferredDeleteTimeRemaining"`
+	FabricName                       *string           `pulumi:"fabricName"`
+	FriendlyName                     *string           `pulumi:"friendlyName"`
+	IsDeferredDeleteScheduleUpcoming *bool             `pulumi:"isDeferredDeleteScheduleUpcoming"`
+	IsRehydrate                      *bool             `pulumi:"isRehydrate"`
+	IsScheduledForDeferredDelete     *bool             `pulumi:"isScheduledForDeferredDelete"`
+	LastRecoveryPoint                *string           `pulumi:"lastRecoveryPoint"`
+	PolicyId                         *string           `pulumi:"policyId"`
+	PolicyState                      *string           `pulumi:"policyState"`
+	ProtectedItemId                  *float64          `pulumi:"protectedItemId"`
+	ProtectedItemType                string            `pulumi:"protectedItemType"`
+	ProtectionState                  *string           `pulumi:"protectionState"`
+	SourceAssociations               map[string]string `pulumi:"sourceAssociations"`
+	SourceResourceId                 *string           `pulumi:"sourceResourceId"`
+	WorkloadType                     *string           `pulumi:"workloadType"`
 }
 
 // GenericProtectedItemInput is an input type that accepts GenericProtectedItemArgs and GenericProtectedItemOutput values.
@@ -8474,49 +6677,27 @@ type GenericProtectedItemInput interface {
 	ToGenericProtectedItemOutputWithContext(context.Context) GenericProtectedItemOutput
 }
 
-// Base class for backup items.
 type GenericProtectedItemArgs struct {
-	// Type of backup management for the backed up item.
-	BackupManagementType pulumi.StringPtrInput `pulumi:"backupManagementType"`
-	// Name of the backup set the backup item belongs to
-	BackupSetName pulumi.StringPtrInput `pulumi:"backupSetName"`
-	// Unique name of container
-	ContainerName pulumi.StringPtrInput `pulumi:"containerName"`
-	// Create mode to indicate recovery of existing soft deleted data source or creation of new data source.
-	CreateMode pulumi.StringPtrInput `pulumi:"createMode"`
-	// Time for deferred deletion in UTC
-	DeferredDeleteTimeInUTC pulumi.StringPtrInput `pulumi:"deferredDeleteTimeInUTC"`
-	// Time remaining before the DS marked for deferred delete is permanently deleted
-	DeferredDeleteTimeRemaining pulumi.StringPtrInput `pulumi:"deferredDeleteTimeRemaining"`
-	// Name of this backup item's fabric.
-	FabricName pulumi.StringPtrInput `pulumi:"fabricName"`
-	// Friendly name of the container.
-	FriendlyName pulumi.StringPtrInput `pulumi:"friendlyName"`
-	// Flag to identify whether the deferred deleted DS is to be purged soon
-	IsDeferredDeleteScheduleUpcoming pulumi.BoolPtrInput `pulumi:"isDeferredDeleteScheduleUpcoming"`
-	// Flag to identify that deferred deleted DS is to be moved into Pause state
-	IsRehydrate pulumi.BoolPtrInput `pulumi:"isRehydrate"`
-	// Flag to identify whether the DS is scheduled for deferred delete
-	IsScheduledForDeferredDelete pulumi.BoolPtrInput `pulumi:"isScheduledForDeferredDelete"`
-	// Timestamp when the last (latest) backup copy was created for this backup item.
-	LastRecoveryPoint pulumi.StringPtrInput `pulumi:"lastRecoveryPoint"`
-	// ID of the backup policy with which this item is backed up.
-	PolicyId pulumi.StringPtrInput `pulumi:"policyId"`
-	// Indicates consistency of policy object and policy applied to this backup item.
-	PolicyState pulumi.StringPtrInput `pulumi:"policyState"`
-	// Data Plane Service ID of the protected item.
-	ProtectedItemId pulumi.Float64PtrInput `pulumi:"protectedItemId"`
-	// backup item type.
-	// Expected value is 'GenericProtectedItem'.
-	ProtectedItemType pulumi.StringInput `pulumi:"protectedItemType"`
-	// Backup state of this backup item.
-	ProtectionState pulumi.StringPtrInput `pulumi:"protectionState"`
-	// Loosely coupled (type, value) associations (example - parent of a protected item)
-	SourceAssociations pulumi.StringMapInput `pulumi:"sourceAssociations"`
-	// ARM ID of the resource to be backed up.
-	SourceResourceId pulumi.StringPtrInput `pulumi:"sourceResourceId"`
-	// Type of workload this item represents.
-	WorkloadType pulumi.StringPtrInput `pulumi:"workloadType"`
+	BackupManagementType             pulumi.StringPtrInput  `pulumi:"backupManagementType"`
+	BackupSetName                    pulumi.StringPtrInput  `pulumi:"backupSetName"`
+	ContainerName                    pulumi.StringPtrInput  `pulumi:"containerName"`
+	CreateMode                       pulumi.StringPtrInput  `pulumi:"createMode"`
+	DeferredDeleteTimeInUTC          pulumi.StringPtrInput  `pulumi:"deferredDeleteTimeInUTC"`
+	DeferredDeleteTimeRemaining      pulumi.StringPtrInput  `pulumi:"deferredDeleteTimeRemaining"`
+	FabricName                       pulumi.StringPtrInput  `pulumi:"fabricName"`
+	FriendlyName                     pulumi.StringPtrInput  `pulumi:"friendlyName"`
+	IsDeferredDeleteScheduleUpcoming pulumi.BoolPtrInput    `pulumi:"isDeferredDeleteScheduleUpcoming"`
+	IsRehydrate                      pulumi.BoolPtrInput    `pulumi:"isRehydrate"`
+	IsScheduledForDeferredDelete     pulumi.BoolPtrInput    `pulumi:"isScheduledForDeferredDelete"`
+	LastRecoveryPoint                pulumi.StringPtrInput  `pulumi:"lastRecoveryPoint"`
+	PolicyId                         pulumi.StringPtrInput  `pulumi:"policyId"`
+	PolicyState                      pulumi.StringPtrInput  `pulumi:"policyState"`
+	ProtectedItemId                  pulumi.Float64PtrInput `pulumi:"protectedItemId"`
+	ProtectedItemType                pulumi.StringInput     `pulumi:"protectedItemType"`
+	ProtectionState                  pulumi.StringPtrInput  `pulumi:"protectionState"`
+	SourceAssociations               pulumi.StringMapInput  `pulumi:"sourceAssociations"`
+	SourceResourceId                 pulumi.StringPtrInput  `pulumi:"sourceResourceId"`
+	WorkloadType                     pulumi.StringPtrInput  `pulumi:"workloadType"`
 }
 
 func (GenericProtectedItemArgs) ElementType() reflect.Type {
@@ -8531,7 +6712,6 @@ func (i GenericProtectedItemArgs) ToGenericProtectedItemOutputWithContext(ctx co
 	return pulumi.ToOutputWithContext(ctx, i).(GenericProtectedItemOutput)
 }
 
-// Base class for backup items.
 type GenericProtectedItemOutput struct{ *pulumi.OutputState }
 
 func (GenericProtectedItemOutput) ElementType() reflect.Type {
@@ -8546,150 +6726,107 @@ func (o GenericProtectedItemOutput) ToGenericProtectedItemOutputWithContext(ctx 
 	return o
 }
 
-// Type of backup management for the backed up item.
 func (o GenericProtectedItemOutput) BackupManagementType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v GenericProtectedItem) *string { return v.BackupManagementType }).(pulumi.StringPtrOutput)
 }
 
-// Name of the backup set the backup item belongs to
 func (o GenericProtectedItemOutput) BackupSetName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v GenericProtectedItem) *string { return v.BackupSetName }).(pulumi.StringPtrOutput)
 }
 
-// Unique name of container
 func (o GenericProtectedItemOutput) ContainerName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v GenericProtectedItem) *string { return v.ContainerName }).(pulumi.StringPtrOutput)
 }
 
-// Create mode to indicate recovery of existing soft deleted data source or creation of new data source.
 func (o GenericProtectedItemOutput) CreateMode() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v GenericProtectedItem) *string { return v.CreateMode }).(pulumi.StringPtrOutput)
 }
 
-// Time for deferred deletion in UTC
 func (o GenericProtectedItemOutput) DeferredDeleteTimeInUTC() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v GenericProtectedItem) *string { return v.DeferredDeleteTimeInUTC }).(pulumi.StringPtrOutput)
 }
 
-// Time remaining before the DS marked for deferred delete is permanently deleted
 func (o GenericProtectedItemOutput) DeferredDeleteTimeRemaining() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v GenericProtectedItem) *string { return v.DeferredDeleteTimeRemaining }).(pulumi.StringPtrOutput)
 }
 
-// Name of this backup item's fabric.
 func (o GenericProtectedItemOutput) FabricName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v GenericProtectedItem) *string { return v.FabricName }).(pulumi.StringPtrOutput)
 }
 
-// Friendly name of the container.
 func (o GenericProtectedItemOutput) FriendlyName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v GenericProtectedItem) *string { return v.FriendlyName }).(pulumi.StringPtrOutput)
 }
 
-// Flag to identify whether the deferred deleted DS is to be purged soon
 func (o GenericProtectedItemOutput) IsDeferredDeleteScheduleUpcoming() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v GenericProtectedItem) *bool { return v.IsDeferredDeleteScheduleUpcoming }).(pulumi.BoolPtrOutput)
 }
 
-// Flag to identify that deferred deleted DS is to be moved into Pause state
 func (o GenericProtectedItemOutput) IsRehydrate() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v GenericProtectedItem) *bool { return v.IsRehydrate }).(pulumi.BoolPtrOutput)
 }
 
-// Flag to identify whether the DS is scheduled for deferred delete
 func (o GenericProtectedItemOutput) IsScheduledForDeferredDelete() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v GenericProtectedItem) *bool { return v.IsScheduledForDeferredDelete }).(pulumi.BoolPtrOutput)
 }
 
-// Timestamp when the last (latest) backup copy was created for this backup item.
 func (o GenericProtectedItemOutput) LastRecoveryPoint() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v GenericProtectedItem) *string { return v.LastRecoveryPoint }).(pulumi.StringPtrOutput)
 }
 
-// ID of the backup policy with which this item is backed up.
 func (o GenericProtectedItemOutput) PolicyId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v GenericProtectedItem) *string { return v.PolicyId }).(pulumi.StringPtrOutput)
 }
 
-// Indicates consistency of policy object and policy applied to this backup item.
 func (o GenericProtectedItemOutput) PolicyState() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v GenericProtectedItem) *string { return v.PolicyState }).(pulumi.StringPtrOutput)
 }
 
-// Data Plane Service ID of the protected item.
 func (o GenericProtectedItemOutput) ProtectedItemId() pulumi.Float64PtrOutput {
 	return o.ApplyT(func(v GenericProtectedItem) *float64 { return v.ProtectedItemId }).(pulumi.Float64PtrOutput)
 }
 
-// backup item type.
-// Expected value is 'GenericProtectedItem'.
 func (o GenericProtectedItemOutput) ProtectedItemType() pulumi.StringOutput {
 	return o.ApplyT(func(v GenericProtectedItem) string { return v.ProtectedItemType }).(pulumi.StringOutput)
 }
 
-// Backup state of this backup item.
 func (o GenericProtectedItemOutput) ProtectionState() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v GenericProtectedItem) *string { return v.ProtectionState }).(pulumi.StringPtrOutput)
 }
 
-// Loosely coupled (type, value) associations (example - parent of a protected item)
 func (o GenericProtectedItemOutput) SourceAssociations() pulumi.StringMapOutput {
 	return o.ApplyT(func(v GenericProtectedItem) map[string]string { return v.SourceAssociations }).(pulumi.StringMapOutput)
 }
 
-// ARM ID of the resource to be backed up.
 func (o GenericProtectedItemOutput) SourceResourceId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v GenericProtectedItem) *string { return v.SourceResourceId }).(pulumi.StringPtrOutput)
 }
 
-// Type of workload this item represents.
 func (o GenericProtectedItemOutput) WorkloadType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v GenericProtectedItem) *string { return v.WorkloadType }).(pulumi.StringPtrOutput)
 }
 
-// Base class for backup items.
 type GenericProtectedItemResponse struct {
-	// Type of backup management for the backed up item.
-	BackupManagementType *string `pulumi:"backupManagementType"`
-	// Name of the backup set the backup item belongs to
-	BackupSetName *string `pulumi:"backupSetName"`
-	// Unique name of container
-	ContainerName *string `pulumi:"containerName"`
-	// Create mode to indicate recovery of existing soft deleted data source or creation of new data source.
-	CreateMode *string `pulumi:"createMode"`
-	// Time for deferred deletion in UTC
-	DeferredDeleteTimeInUTC *string `pulumi:"deferredDeleteTimeInUTC"`
-	// Time remaining before the DS marked for deferred delete is permanently deleted
-	DeferredDeleteTimeRemaining *string `pulumi:"deferredDeleteTimeRemaining"`
-	// Name of this backup item's fabric.
-	FabricName *string `pulumi:"fabricName"`
-	// Friendly name of the container.
-	FriendlyName *string `pulumi:"friendlyName"`
-	// Flag to identify whether the deferred deleted DS is to be purged soon
-	IsDeferredDeleteScheduleUpcoming *bool `pulumi:"isDeferredDeleteScheduleUpcoming"`
-	// Flag to identify that deferred deleted DS is to be moved into Pause state
-	IsRehydrate *bool `pulumi:"isRehydrate"`
-	// Flag to identify whether the DS is scheduled for deferred delete
-	IsScheduledForDeferredDelete *bool `pulumi:"isScheduledForDeferredDelete"`
-	// Timestamp when the last (latest) backup copy was created for this backup item.
-	LastRecoveryPoint *string `pulumi:"lastRecoveryPoint"`
-	// ID of the backup policy with which this item is backed up.
-	PolicyId *string `pulumi:"policyId"`
-	// Indicates consistency of policy object and policy applied to this backup item.
-	PolicyState *string `pulumi:"policyState"`
-	// Data Plane Service ID of the protected item.
-	ProtectedItemId *float64 `pulumi:"protectedItemId"`
-	// backup item type.
-	// Expected value is 'GenericProtectedItem'.
-	ProtectedItemType string `pulumi:"protectedItemType"`
-	// Backup state of this backup item.
-	ProtectionState *string `pulumi:"protectionState"`
-	// Loosely coupled (type, value) associations (example - parent of a protected item)
-	SourceAssociations map[string]string `pulumi:"sourceAssociations"`
-	// ARM ID of the resource to be backed up.
-	SourceResourceId *string `pulumi:"sourceResourceId"`
-	// Type of workload this item represents.
-	WorkloadType *string `pulumi:"workloadType"`
+	BackupManagementType             *string           `pulumi:"backupManagementType"`
+	BackupSetName                    *string           `pulumi:"backupSetName"`
+	ContainerName                    *string           `pulumi:"containerName"`
+	CreateMode                       *string           `pulumi:"createMode"`
+	DeferredDeleteTimeInUTC          *string           `pulumi:"deferredDeleteTimeInUTC"`
+	DeferredDeleteTimeRemaining      *string           `pulumi:"deferredDeleteTimeRemaining"`
+	FabricName                       *string           `pulumi:"fabricName"`
+	FriendlyName                     *string           `pulumi:"friendlyName"`
+	IsDeferredDeleteScheduleUpcoming *bool             `pulumi:"isDeferredDeleteScheduleUpcoming"`
+	IsRehydrate                      *bool             `pulumi:"isRehydrate"`
+	IsScheduledForDeferredDelete     *bool             `pulumi:"isScheduledForDeferredDelete"`
+	LastRecoveryPoint                *string           `pulumi:"lastRecoveryPoint"`
+	PolicyId                         *string           `pulumi:"policyId"`
+	PolicyState                      *string           `pulumi:"policyState"`
+	ProtectedItemId                  *float64          `pulumi:"protectedItemId"`
+	ProtectedItemType                string            `pulumi:"protectedItemType"`
+	ProtectionState                  *string           `pulumi:"protectionState"`
+	SourceAssociations               map[string]string `pulumi:"sourceAssociations"`
+	SourceResourceId                 *string           `pulumi:"sourceResourceId"`
+	WorkloadType                     *string           `pulumi:"workloadType"`
 }
 
 // GenericProtectedItemResponseInput is an input type that accepts GenericProtectedItemResponseArgs and GenericProtectedItemResponseOutput values.
@@ -8703,49 +6840,27 @@ type GenericProtectedItemResponseInput interface {
 	ToGenericProtectedItemResponseOutputWithContext(context.Context) GenericProtectedItemResponseOutput
 }
 
-// Base class for backup items.
 type GenericProtectedItemResponseArgs struct {
-	// Type of backup management for the backed up item.
-	BackupManagementType pulumi.StringPtrInput `pulumi:"backupManagementType"`
-	// Name of the backup set the backup item belongs to
-	BackupSetName pulumi.StringPtrInput `pulumi:"backupSetName"`
-	// Unique name of container
-	ContainerName pulumi.StringPtrInput `pulumi:"containerName"`
-	// Create mode to indicate recovery of existing soft deleted data source or creation of new data source.
-	CreateMode pulumi.StringPtrInput `pulumi:"createMode"`
-	// Time for deferred deletion in UTC
-	DeferredDeleteTimeInUTC pulumi.StringPtrInput `pulumi:"deferredDeleteTimeInUTC"`
-	// Time remaining before the DS marked for deferred delete is permanently deleted
-	DeferredDeleteTimeRemaining pulumi.StringPtrInput `pulumi:"deferredDeleteTimeRemaining"`
-	// Name of this backup item's fabric.
-	FabricName pulumi.StringPtrInput `pulumi:"fabricName"`
-	// Friendly name of the container.
-	FriendlyName pulumi.StringPtrInput `pulumi:"friendlyName"`
-	// Flag to identify whether the deferred deleted DS is to be purged soon
-	IsDeferredDeleteScheduleUpcoming pulumi.BoolPtrInput `pulumi:"isDeferredDeleteScheduleUpcoming"`
-	// Flag to identify that deferred deleted DS is to be moved into Pause state
-	IsRehydrate pulumi.BoolPtrInput `pulumi:"isRehydrate"`
-	// Flag to identify whether the DS is scheduled for deferred delete
-	IsScheduledForDeferredDelete pulumi.BoolPtrInput `pulumi:"isScheduledForDeferredDelete"`
-	// Timestamp when the last (latest) backup copy was created for this backup item.
-	LastRecoveryPoint pulumi.StringPtrInput `pulumi:"lastRecoveryPoint"`
-	// ID of the backup policy with which this item is backed up.
-	PolicyId pulumi.StringPtrInput `pulumi:"policyId"`
-	// Indicates consistency of policy object and policy applied to this backup item.
-	PolicyState pulumi.StringPtrInput `pulumi:"policyState"`
-	// Data Plane Service ID of the protected item.
-	ProtectedItemId pulumi.Float64PtrInput `pulumi:"protectedItemId"`
-	// backup item type.
-	// Expected value is 'GenericProtectedItem'.
-	ProtectedItemType pulumi.StringInput `pulumi:"protectedItemType"`
-	// Backup state of this backup item.
-	ProtectionState pulumi.StringPtrInput `pulumi:"protectionState"`
-	// Loosely coupled (type, value) associations (example - parent of a protected item)
-	SourceAssociations pulumi.StringMapInput `pulumi:"sourceAssociations"`
-	// ARM ID of the resource to be backed up.
-	SourceResourceId pulumi.StringPtrInput `pulumi:"sourceResourceId"`
-	// Type of workload this item represents.
-	WorkloadType pulumi.StringPtrInput `pulumi:"workloadType"`
+	BackupManagementType             pulumi.StringPtrInput  `pulumi:"backupManagementType"`
+	BackupSetName                    pulumi.StringPtrInput  `pulumi:"backupSetName"`
+	ContainerName                    pulumi.StringPtrInput  `pulumi:"containerName"`
+	CreateMode                       pulumi.StringPtrInput  `pulumi:"createMode"`
+	DeferredDeleteTimeInUTC          pulumi.StringPtrInput  `pulumi:"deferredDeleteTimeInUTC"`
+	DeferredDeleteTimeRemaining      pulumi.StringPtrInput  `pulumi:"deferredDeleteTimeRemaining"`
+	FabricName                       pulumi.StringPtrInput  `pulumi:"fabricName"`
+	FriendlyName                     pulumi.StringPtrInput  `pulumi:"friendlyName"`
+	IsDeferredDeleteScheduleUpcoming pulumi.BoolPtrInput    `pulumi:"isDeferredDeleteScheduleUpcoming"`
+	IsRehydrate                      pulumi.BoolPtrInput    `pulumi:"isRehydrate"`
+	IsScheduledForDeferredDelete     pulumi.BoolPtrInput    `pulumi:"isScheduledForDeferredDelete"`
+	LastRecoveryPoint                pulumi.StringPtrInput  `pulumi:"lastRecoveryPoint"`
+	PolicyId                         pulumi.StringPtrInput  `pulumi:"policyId"`
+	PolicyState                      pulumi.StringPtrInput  `pulumi:"policyState"`
+	ProtectedItemId                  pulumi.Float64PtrInput `pulumi:"protectedItemId"`
+	ProtectedItemType                pulumi.StringInput     `pulumi:"protectedItemType"`
+	ProtectionState                  pulumi.StringPtrInput  `pulumi:"protectionState"`
+	SourceAssociations               pulumi.StringMapInput  `pulumi:"sourceAssociations"`
+	SourceResourceId                 pulumi.StringPtrInput  `pulumi:"sourceResourceId"`
+	WorkloadType                     pulumi.StringPtrInput  `pulumi:"workloadType"`
 }
 
 func (GenericProtectedItemResponseArgs) ElementType() reflect.Type {
@@ -8760,7 +6875,6 @@ func (i GenericProtectedItemResponseArgs) ToGenericProtectedItemResponseOutputWi
 	return pulumi.ToOutputWithContext(ctx, i).(GenericProtectedItemResponseOutput)
 }
 
-// Base class for backup items.
 type GenericProtectedItemResponseOutput struct{ *pulumi.OutputState }
 
 func (GenericProtectedItemResponseOutput) ElementType() reflect.Type {
@@ -8775,110 +6889,87 @@ func (o GenericProtectedItemResponseOutput) ToGenericProtectedItemResponseOutput
 	return o
 }
 
-// Type of backup management for the backed up item.
 func (o GenericProtectedItemResponseOutput) BackupManagementType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v GenericProtectedItemResponse) *string { return v.BackupManagementType }).(pulumi.StringPtrOutput)
 }
 
-// Name of the backup set the backup item belongs to
 func (o GenericProtectedItemResponseOutput) BackupSetName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v GenericProtectedItemResponse) *string { return v.BackupSetName }).(pulumi.StringPtrOutput)
 }
 
-// Unique name of container
 func (o GenericProtectedItemResponseOutput) ContainerName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v GenericProtectedItemResponse) *string { return v.ContainerName }).(pulumi.StringPtrOutput)
 }
 
-// Create mode to indicate recovery of existing soft deleted data source or creation of new data source.
 func (o GenericProtectedItemResponseOutput) CreateMode() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v GenericProtectedItemResponse) *string { return v.CreateMode }).(pulumi.StringPtrOutput)
 }
 
-// Time for deferred deletion in UTC
 func (o GenericProtectedItemResponseOutput) DeferredDeleteTimeInUTC() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v GenericProtectedItemResponse) *string { return v.DeferredDeleteTimeInUTC }).(pulumi.StringPtrOutput)
 }
 
-// Time remaining before the DS marked for deferred delete is permanently deleted
 func (o GenericProtectedItemResponseOutput) DeferredDeleteTimeRemaining() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v GenericProtectedItemResponse) *string { return v.DeferredDeleteTimeRemaining }).(pulumi.StringPtrOutput)
 }
 
-// Name of this backup item's fabric.
 func (o GenericProtectedItemResponseOutput) FabricName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v GenericProtectedItemResponse) *string { return v.FabricName }).(pulumi.StringPtrOutput)
 }
 
-// Friendly name of the container.
 func (o GenericProtectedItemResponseOutput) FriendlyName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v GenericProtectedItemResponse) *string { return v.FriendlyName }).(pulumi.StringPtrOutput)
 }
 
-// Flag to identify whether the deferred deleted DS is to be purged soon
 func (o GenericProtectedItemResponseOutput) IsDeferredDeleteScheduleUpcoming() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v GenericProtectedItemResponse) *bool { return v.IsDeferredDeleteScheduleUpcoming }).(pulumi.BoolPtrOutput)
 }
 
-// Flag to identify that deferred deleted DS is to be moved into Pause state
 func (o GenericProtectedItemResponseOutput) IsRehydrate() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v GenericProtectedItemResponse) *bool { return v.IsRehydrate }).(pulumi.BoolPtrOutput)
 }
 
-// Flag to identify whether the DS is scheduled for deferred delete
 func (o GenericProtectedItemResponseOutput) IsScheduledForDeferredDelete() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v GenericProtectedItemResponse) *bool { return v.IsScheduledForDeferredDelete }).(pulumi.BoolPtrOutput)
 }
 
-// Timestamp when the last (latest) backup copy was created for this backup item.
 func (o GenericProtectedItemResponseOutput) LastRecoveryPoint() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v GenericProtectedItemResponse) *string { return v.LastRecoveryPoint }).(pulumi.StringPtrOutput)
 }
 
-// ID of the backup policy with which this item is backed up.
 func (o GenericProtectedItemResponseOutput) PolicyId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v GenericProtectedItemResponse) *string { return v.PolicyId }).(pulumi.StringPtrOutput)
 }
 
-// Indicates consistency of policy object and policy applied to this backup item.
 func (o GenericProtectedItemResponseOutput) PolicyState() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v GenericProtectedItemResponse) *string { return v.PolicyState }).(pulumi.StringPtrOutput)
 }
 
-// Data Plane Service ID of the protected item.
 func (o GenericProtectedItemResponseOutput) ProtectedItemId() pulumi.Float64PtrOutput {
 	return o.ApplyT(func(v GenericProtectedItemResponse) *float64 { return v.ProtectedItemId }).(pulumi.Float64PtrOutput)
 }
 
-// backup item type.
-// Expected value is 'GenericProtectedItem'.
 func (o GenericProtectedItemResponseOutput) ProtectedItemType() pulumi.StringOutput {
 	return o.ApplyT(func(v GenericProtectedItemResponse) string { return v.ProtectedItemType }).(pulumi.StringOutput)
 }
 
-// Backup state of this backup item.
 func (o GenericProtectedItemResponseOutput) ProtectionState() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v GenericProtectedItemResponse) *string { return v.ProtectionState }).(pulumi.StringPtrOutput)
 }
 
-// Loosely coupled (type, value) associations (example - parent of a protected item)
 func (o GenericProtectedItemResponseOutput) SourceAssociations() pulumi.StringMapOutput {
 	return o.ApplyT(func(v GenericProtectedItemResponse) map[string]string { return v.SourceAssociations }).(pulumi.StringMapOutput)
 }
 
-// ARM ID of the resource to be backed up.
 func (o GenericProtectedItemResponseOutput) SourceResourceId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v GenericProtectedItemResponse) *string { return v.SourceResourceId }).(pulumi.StringPtrOutput)
 }
 
-// Type of workload this item represents.
 func (o GenericProtectedItemResponseOutput) WorkloadType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v GenericProtectedItemResponse) *string { return v.WorkloadType }).(pulumi.StringPtrOutput)
 }
 
-// KPI Resource Health Details
 type KPIResourceHealthDetails struct {
-	// Resource Health Status
 	ResourceHealthStatus *string `pulumi:"resourceHealthStatus"`
 }
 
@@ -8893,9 +6984,7 @@ type KPIResourceHealthDetailsInput interface {
 	ToKPIResourceHealthDetailsOutputWithContext(context.Context) KPIResourceHealthDetailsOutput
 }
 
-// KPI Resource Health Details
 type KPIResourceHealthDetailsArgs struct {
-	// Resource Health Status
 	ResourceHealthStatus pulumi.StringPtrInput `pulumi:"resourceHealthStatus"`
 }
 
@@ -8936,7 +7025,6 @@ func (i KPIResourceHealthDetailsMap) ToKPIResourceHealthDetailsMapOutputWithCont
 	return pulumi.ToOutputWithContext(ctx, i).(KPIResourceHealthDetailsMapOutput)
 }
 
-// KPI Resource Health Details
 type KPIResourceHealthDetailsOutput struct{ *pulumi.OutputState }
 
 func (KPIResourceHealthDetailsOutput) ElementType() reflect.Type {
@@ -8951,7 +7039,6 @@ func (o KPIResourceHealthDetailsOutput) ToKPIResourceHealthDetailsOutputWithCont
 	return o
 }
 
-// Resource Health Status
 func (o KPIResourceHealthDetailsOutput) ResourceHealthStatus() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v KPIResourceHealthDetails) *string { return v.ResourceHealthStatus }).(pulumi.StringPtrOutput)
 }
@@ -8976,12 +7063,9 @@ func (o KPIResourceHealthDetailsMapOutput) MapIndex(k pulumi.StringInput) KPIRes
 	}).(KPIResourceHealthDetailsOutput)
 }
 
-// KPI Resource Health Details
 type KPIResourceHealthDetailsResponse struct {
-	// Resource Health Status
 	ResourceHealthDetails []ResourceHealthDetailsResponse `pulumi:"resourceHealthDetails"`
-	// Resource Health Status
-	ResourceHealthStatus *string `pulumi:"resourceHealthStatus"`
+	ResourceHealthStatus  *string                         `pulumi:"resourceHealthStatus"`
 }
 
 // KPIResourceHealthDetailsResponseInput is an input type that accepts KPIResourceHealthDetailsResponseArgs and KPIResourceHealthDetailsResponseOutput values.
@@ -8995,12 +7079,9 @@ type KPIResourceHealthDetailsResponseInput interface {
 	ToKPIResourceHealthDetailsResponseOutputWithContext(context.Context) KPIResourceHealthDetailsResponseOutput
 }
 
-// KPI Resource Health Details
 type KPIResourceHealthDetailsResponseArgs struct {
-	// Resource Health Status
 	ResourceHealthDetails ResourceHealthDetailsResponseArrayInput `pulumi:"resourceHealthDetails"`
-	// Resource Health Status
-	ResourceHealthStatus pulumi.StringPtrInput `pulumi:"resourceHealthStatus"`
+	ResourceHealthStatus  pulumi.StringPtrInput                   `pulumi:"resourceHealthStatus"`
 }
 
 func (KPIResourceHealthDetailsResponseArgs) ElementType() reflect.Type {
@@ -9040,7 +7121,6 @@ func (i KPIResourceHealthDetailsResponseMap) ToKPIResourceHealthDetailsResponseM
 	return pulumi.ToOutputWithContext(ctx, i).(KPIResourceHealthDetailsResponseMapOutput)
 }
 
-// KPI Resource Health Details
 type KPIResourceHealthDetailsResponseOutput struct{ *pulumi.OutputState }
 
 func (KPIResourceHealthDetailsResponseOutput) ElementType() reflect.Type {
@@ -9055,14 +7135,12 @@ func (o KPIResourceHealthDetailsResponseOutput) ToKPIResourceHealthDetailsRespon
 	return o
 }
 
-// Resource Health Status
 func (o KPIResourceHealthDetailsResponseOutput) ResourceHealthDetails() ResourceHealthDetailsResponseArrayOutput {
 	return o.ApplyT(func(v KPIResourceHealthDetailsResponse) []ResourceHealthDetailsResponse {
 		return v.ResourceHealthDetails
 	}).(ResourceHealthDetailsResponseArrayOutput)
 }
 
-// Resource Health Status
 func (o KPIResourceHealthDetailsResponseOutput) ResourceHealthStatus() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v KPIResourceHealthDetailsResponse) *string { return v.ResourceHealthStatus }).(pulumi.StringPtrOutput)
 }
@@ -9087,51 +7165,28 @@ func (o KPIResourceHealthDetailsResponseMapOutput) MapIndex(k pulumi.StringInput
 	}).(KPIResourceHealthDetailsResponseOutput)
 }
 
-// MAB workload-specific backup item.
 type MabFileFolderProtectedItem struct {
-	// Type of backup management for the backed up item.
-	BackupManagementType *string `pulumi:"backupManagementType"`
-	// Name of the backup set the backup item belongs to
-	BackupSetName *string `pulumi:"backupSetName"`
-	// Name of the computer associated with this backup item.
-	ComputerName *string `pulumi:"computerName"`
-	// Unique name of container
-	ContainerName *string `pulumi:"containerName"`
-	// Create mode to indicate recovery of existing soft deleted data source or creation of new data source.
-	CreateMode *string `pulumi:"createMode"`
-	// Sync time for deferred deletion in UTC
-	DeferredDeleteSyncTimeInUTC *float64 `pulumi:"deferredDeleteSyncTimeInUTC"`
-	// Time for deferred deletion in UTC
-	DeferredDeleteTimeInUTC *string `pulumi:"deferredDeleteTimeInUTC"`
-	// Time remaining before the DS marked for deferred delete is permanently deleted
-	DeferredDeleteTimeRemaining *string `pulumi:"deferredDeleteTimeRemaining"`
-	// Additional information with this backup item.
-	ExtendedInfo *MabFileFolderProtectedItemExtendedInfo `pulumi:"extendedInfo"`
-	// Friendly name of this backup item.
-	FriendlyName *string `pulumi:"friendlyName"`
-	// Flag to identify whether the deferred deleted DS is to be purged soon
-	IsDeferredDeleteScheduleUpcoming *bool `pulumi:"isDeferredDeleteScheduleUpcoming"`
-	// Flag to identify that deferred deleted DS is to be moved into Pause state
-	IsRehydrate *bool `pulumi:"isRehydrate"`
-	// Flag to identify whether the DS is scheduled for deferred delete
-	IsScheduledForDeferredDelete *bool `pulumi:"isScheduledForDeferredDelete"`
-	// Status of last backup operation.
-	LastBackupStatus *string `pulumi:"lastBackupStatus"`
-	// Timestamp of the last backup operation on this backup item.
-	LastBackupTime *string `pulumi:"lastBackupTime"`
-	// Timestamp when the last (latest) backup copy was created for this backup item.
-	LastRecoveryPoint *string `pulumi:"lastRecoveryPoint"`
-	// ID of the backup policy with which this item is backed up.
-	PolicyId *string `pulumi:"policyId"`
-	// backup item type.
-	// Expected value is 'MabFileFolderProtectedItem'.
-	ProtectedItemType string `pulumi:"protectedItemType"`
-	// Protected, ProtectionStopped, IRPending or ProtectionError
-	ProtectionState *string `pulumi:"protectionState"`
-	// ARM ID of the resource to be backed up.
-	SourceResourceId *string `pulumi:"sourceResourceId"`
-	// Type of workload this item represents.
-	WorkloadType *string `pulumi:"workloadType"`
+	BackupManagementType             *string                                 `pulumi:"backupManagementType"`
+	BackupSetName                    *string                                 `pulumi:"backupSetName"`
+	ComputerName                     *string                                 `pulumi:"computerName"`
+	ContainerName                    *string                                 `pulumi:"containerName"`
+	CreateMode                       *string                                 `pulumi:"createMode"`
+	DeferredDeleteSyncTimeInUTC      *float64                                `pulumi:"deferredDeleteSyncTimeInUTC"`
+	DeferredDeleteTimeInUTC          *string                                 `pulumi:"deferredDeleteTimeInUTC"`
+	DeferredDeleteTimeRemaining      *string                                 `pulumi:"deferredDeleteTimeRemaining"`
+	ExtendedInfo                     *MabFileFolderProtectedItemExtendedInfo `pulumi:"extendedInfo"`
+	FriendlyName                     *string                                 `pulumi:"friendlyName"`
+	IsDeferredDeleteScheduleUpcoming *bool                                   `pulumi:"isDeferredDeleteScheduleUpcoming"`
+	IsRehydrate                      *bool                                   `pulumi:"isRehydrate"`
+	IsScheduledForDeferredDelete     *bool                                   `pulumi:"isScheduledForDeferredDelete"`
+	LastBackupStatus                 *string                                 `pulumi:"lastBackupStatus"`
+	LastBackupTime                   *string                                 `pulumi:"lastBackupTime"`
+	LastRecoveryPoint                *string                                 `pulumi:"lastRecoveryPoint"`
+	PolicyId                         *string                                 `pulumi:"policyId"`
+	ProtectedItemType                string                                  `pulumi:"protectedItemType"`
+	ProtectionState                  *string                                 `pulumi:"protectionState"`
+	SourceResourceId                 *string                                 `pulumi:"sourceResourceId"`
+	WorkloadType                     *string                                 `pulumi:"workloadType"`
 }
 
 // MabFileFolderProtectedItemInput is an input type that accepts MabFileFolderProtectedItemArgs and MabFileFolderProtectedItemOutput values.
@@ -9145,51 +7200,28 @@ type MabFileFolderProtectedItemInput interface {
 	ToMabFileFolderProtectedItemOutputWithContext(context.Context) MabFileFolderProtectedItemOutput
 }
 
-// MAB workload-specific backup item.
 type MabFileFolderProtectedItemArgs struct {
-	// Type of backup management for the backed up item.
-	BackupManagementType pulumi.StringPtrInput `pulumi:"backupManagementType"`
-	// Name of the backup set the backup item belongs to
-	BackupSetName pulumi.StringPtrInput `pulumi:"backupSetName"`
-	// Name of the computer associated with this backup item.
-	ComputerName pulumi.StringPtrInput `pulumi:"computerName"`
-	// Unique name of container
-	ContainerName pulumi.StringPtrInput `pulumi:"containerName"`
-	// Create mode to indicate recovery of existing soft deleted data source or creation of new data source.
-	CreateMode pulumi.StringPtrInput `pulumi:"createMode"`
-	// Sync time for deferred deletion in UTC
-	DeferredDeleteSyncTimeInUTC pulumi.Float64PtrInput `pulumi:"deferredDeleteSyncTimeInUTC"`
-	// Time for deferred deletion in UTC
-	DeferredDeleteTimeInUTC pulumi.StringPtrInput `pulumi:"deferredDeleteTimeInUTC"`
-	// Time remaining before the DS marked for deferred delete is permanently deleted
-	DeferredDeleteTimeRemaining pulumi.StringPtrInput `pulumi:"deferredDeleteTimeRemaining"`
-	// Additional information with this backup item.
-	ExtendedInfo MabFileFolderProtectedItemExtendedInfoPtrInput `pulumi:"extendedInfo"`
-	// Friendly name of this backup item.
-	FriendlyName pulumi.StringPtrInput `pulumi:"friendlyName"`
-	// Flag to identify whether the deferred deleted DS is to be purged soon
-	IsDeferredDeleteScheduleUpcoming pulumi.BoolPtrInput `pulumi:"isDeferredDeleteScheduleUpcoming"`
-	// Flag to identify that deferred deleted DS is to be moved into Pause state
-	IsRehydrate pulumi.BoolPtrInput `pulumi:"isRehydrate"`
-	// Flag to identify whether the DS is scheduled for deferred delete
-	IsScheduledForDeferredDelete pulumi.BoolPtrInput `pulumi:"isScheduledForDeferredDelete"`
-	// Status of last backup operation.
-	LastBackupStatus pulumi.StringPtrInput `pulumi:"lastBackupStatus"`
-	// Timestamp of the last backup operation on this backup item.
-	LastBackupTime pulumi.StringPtrInput `pulumi:"lastBackupTime"`
-	// Timestamp when the last (latest) backup copy was created for this backup item.
-	LastRecoveryPoint pulumi.StringPtrInput `pulumi:"lastRecoveryPoint"`
-	// ID of the backup policy with which this item is backed up.
-	PolicyId pulumi.StringPtrInput `pulumi:"policyId"`
-	// backup item type.
-	// Expected value is 'MabFileFolderProtectedItem'.
-	ProtectedItemType pulumi.StringInput `pulumi:"protectedItemType"`
-	// Protected, ProtectionStopped, IRPending or ProtectionError
-	ProtectionState pulumi.StringPtrInput `pulumi:"protectionState"`
-	// ARM ID of the resource to be backed up.
-	SourceResourceId pulumi.StringPtrInput `pulumi:"sourceResourceId"`
-	// Type of workload this item represents.
-	WorkloadType pulumi.StringPtrInput `pulumi:"workloadType"`
+	BackupManagementType             pulumi.StringPtrInput                          `pulumi:"backupManagementType"`
+	BackupSetName                    pulumi.StringPtrInput                          `pulumi:"backupSetName"`
+	ComputerName                     pulumi.StringPtrInput                          `pulumi:"computerName"`
+	ContainerName                    pulumi.StringPtrInput                          `pulumi:"containerName"`
+	CreateMode                       pulumi.StringPtrInput                          `pulumi:"createMode"`
+	DeferredDeleteSyncTimeInUTC      pulumi.Float64PtrInput                         `pulumi:"deferredDeleteSyncTimeInUTC"`
+	DeferredDeleteTimeInUTC          pulumi.StringPtrInput                          `pulumi:"deferredDeleteTimeInUTC"`
+	DeferredDeleteTimeRemaining      pulumi.StringPtrInput                          `pulumi:"deferredDeleteTimeRemaining"`
+	ExtendedInfo                     MabFileFolderProtectedItemExtendedInfoPtrInput `pulumi:"extendedInfo"`
+	FriendlyName                     pulumi.StringPtrInput                          `pulumi:"friendlyName"`
+	IsDeferredDeleteScheduleUpcoming pulumi.BoolPtrInput                            `pulumi:"isDeferredDeleteScheduleUpcoming"`
+	IsRehydrate                      pulumi.BoolPtrInput                            `pulumi:"isRehydrate"`
+	IsScheduledForDeferredDelete     pulumi.BoolPtrInput                            `pulumi:"isScheduledForDeferredDelete"`
+	LastBackupStatus                 pulumi.StringPtrInput                          `pulumi:"lastBackupStatus"`
+	LastBackupTime                   pulumi.StringPtrInput                          `pulumi:"lastBackupTime"`
+	LastRecoveryPoint                pulumi.StringPtrInput                          `pulumi:"lastRecoveryPoint"`
+	PolicyId                         pulumi.StringPtrInput                          `pulumi:"policyId"`
+	ProtectedItemType                pulumi.StringInput                             `pulumi:"protectedItemType"`
+	ProtectionState                  pulumi.StringPtrInput                          `pulumi:"protectionState"`
+	SourceResourceId                 pulumi.StringPtrInput                          `pulumi:"sourceResourceId"`
+	WorkloadType                     pulumi.StringPtrInput                          `pulumi:"workloadType"`
 }
 
 func (MabFileFolderProtectedItemArgs) ElementType() reflect.Type {
@@ -9204,7 +7236,6 @@ func (i MabFileFolderProtectedItemArgs) ToMabFileFolderProtectedItemOutputWithCo
 	return pulumi.ToOutputWithContext(ctx, i).(MabFileFolderProtectedItemOutput)
 }
 
-// MAB workload-specific backup item.
 type MabFileFolderProtectedItemOutput struct{ *pulumi.OutputState }
 
 func (MabFileFolderProtectedItemOutput) ElementType() reflect.Type {
@@ -9219,120 +7250,94 @@ func (o MabFileFolderProtectedItemOutput) ToMabFileFolderProtectedItemOutputWith
 	return o
 }
 
-// Type of backup management for the backed up item.
 func (o MabFileFolderProtectedItemOutput) BackupManagementType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v MabFileFolderProtectedItem) *string { return v.BackupManagementType }).(pulumi.StringPtrOutput)
 }
 
-// Name of the backup set the backup item belongs to
 func (o MabFileFolderProtectedItemOutput) BackupSetName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v MabFileFolderProtectedItem) *string { return v.BackupSetName }).(pulumi.StringPtrOutput)
 }
 
-// Name of the computer associated with this backup item.
 func (o MabFileFolderProtectedItemOutput) ComputerName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v MabFileFolderProtectedItem) *string { return v.ComputerName }).(pulumi.StringPtrOutput)
 }
 
-// Unique name of container
 func (o MabFileFolderProtectedItemOutput) ContainerName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v MabFileFolderProtectedItem) *string { return v.ContainerName }).(pulumi.StringPtrOutput)
 }
 
-// Create mode to indicate recovery of existing soft deleted data source or creation of new data source.
 func (o MabFileFolderProtectedItemOutput) CreateMode() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v MabFileFolderProtectedItem) *string { return v.CreateMode }).(pulumi.StringPtrOutput)
 }
 
-// Sync time for deferred deletion in UTC
 func (o MabFileFolderProtectedItemOutput) DeferredDeleteSyncTimeInUTC() pulumi.Float64PtrOutput {
 	return o.ApplyT(func(v MabFileFolderProtectedItem) *float64 { return v.DeferredDeleteSyncTimeInUTC }).(pulumi.Float64PtrOutput)
 }
 
-// Time for deferred deletion in UTC
 func (o MabFileFolderProtectedItemOutput) DeferredDeleteTimeInUTC() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v MabFileFolderProtectedItem) *string { return v.DeferredDeleteTimeInUTC }).(pulumi.StringPtrOutput)
 }
 
-// Time remaining before the DS marked for deferred delete is permanently deleted
 func (o MabFileFolderProtectedItemOutput) DeferredDeleteTimeRemaining() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v MabFileFolderProtectedItem) *string { return v.DeferredDeleteTimeRemaining }).(pulumi.StringPtrOutput)
 }
 
-// Additional information with this backup item.
 func (o MabFileFolderProtectedItemOutput) ExtendedInfo() MabFileFolderProtectedItemExtendedInfoPtrOutput {
 	return o.ApplyT(func(v MabFileFolderProtectedItem) *MabFileFolderProtectedItemExtendedInfo { return v.ExtendedInfo }).(MabFileFolderProtectedItemExtendedInfoPtrOutput)
 }
 
-// Friendly name of this backup item.
 func (o MabFileFolderProtectedItemOutput) FriendlyName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v MabFileFolderProtectedItem) *string { return v.FriendlyName }).(pulumi.StringPtrOutput)
 }
 
-// Flag to identify whether the deferred deleted DS is to be purged soon
 func (o MabFileFolderProtectedItemOutput) IsDeferredDeleteScheduleUpcoming() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v MabFileFolderProtectedItem) *bool { return v.IsDeferredDeleteScheduleUpcoming }).(pulumi.BoolPtrOutput)
 }
 
-// Flag to identify that deferred deleted DS is to be moved into Pause state
 func (o MabFileFolderProtectedItemOutput) IsRehydrate() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v MabFileFolderProtectedItem) *bool { return v.IsRehydrate }).(pulumi.BoolPtrOutput)
 }
 
-// Flag to identify whether the DS is scheduled for deferred delete
 func (o MabFileFolderProtectedItemOutput) IsScheduledForDeferredDelete() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v MabFileFolderProtectedItem) *bool { return v.IsScheduledForDeferredDelete }).(pulumi.BoolPtrOutput)
 }
 
-// Status of last backup operation.
 func (o MabFileFolderProtectedItemOutput) LastBackupStatus() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v MabFileFolderProtectedItem) *string { return v.LastBackupStatus }).(pulumi.StringPtrOutput)
 }
 
-// Timestamp of the last backup operation on this backup item.
 func (o MabFileFolderProtectedItemOutput) LastBackupTime() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v MabFileFolderProtectedItem) *string { return v.LastBackupTime }).(pulumi.StringPtrOutput)
 }
 
-// Timestamp when the last (latest) backup copy was created for this backup item.
 func (o MabFileFolderProtectedItemOutput) LastRecoveryPoint() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v MabFileFolderProtectedItem) *string { return v.LastRecoveryPoint }).(pulumi.StringPtrOutput)
 }
 
-// ID of the backup policy with which this item is backed up.
 func (o MabFileFolderProtectedItemOutput) PolicyId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v MabFileFolderProtectedItem) *string { return v.PolicyId }).(pulumi.StringPtrOutput)
 }
 
-// backup item type.
-// Expected value is 'MabFileFolderProtectedItem'.
 func (o MabFileFolderProtectedItemOutput) ProtectedItemType() pulumi.StringOutput {
 	return o.ApplyT(func(v MabFileFolderProtectedItem) string { return v.ProtectedItemType }).(pulumi.StringOutput)
 }
 
-// Protected, ProtectionStopped, IRPending or ProtectionError
 func (o MabFileFolderProtectedItemOutput) ProtectionState() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v MabFileFolderProtectedItem) *string { return v.ProtectionState }).(pulumi.StringPtrOutput)
 }
 
-// ARM ID of the resource to be backed up.
 func (o MabFileFolderProtectedItemOutput) SourceResourceId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v MabFileFolderProtectedItem) *string { return v.SourceResourceId }).(pulumi.StringPtrOutput)
 }
 
-// Type of workload this item represents.
 func (o MabFileFolderProtectedItemOutput) WorkloadType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v MabFileFolderProtectedItem) *string { return v.WorkloadType }).(pulumi.StringPtrOutput)
 }
 
-// Additional information on the backed up item.
 type MabFileFolderProtectedItemExtendedInfo struct {
-	// Last time when the agent data synced to service.
-	LastRefreshedAt *string `pulumi:"lastRefreshedAt"`
-	// The oldest backup copy available.
+	LastRefreshedAt     *string `pulumi:"lastRefreshedAt"`
 	OldestRecoveryPoint *string `pulumi:"oldestRecoveryPoint"`
-	// Number of backup copies associated with the backup item.
-	RecoveryPointCount *int `pulumi:"recoveryPointCount"`
+	RecoveryPointCount  *int    `pulumi:"recoveryPointCount"`
 }
 
 // MabFileFolderProtectedItemExtendedInfoInput is an input type that accepts MabFileFolderProtectedItemExtendedInfoArgs and MabFileFolderProtectedItemExtendedInfoOutput values.
@@ -9346,14 +7351,10 @@ type MabFileFolderProtectedItemExtendedInfoInput interface {
 	ToMabFileFolderProtectedItemExtendedInfoOutputWithContext(context.Context) MabFileFolderProtectedItemExtendedInfoOutput
 }
 
-// Additional information on the backed up item.
 type MabFileFolderProtectedItemExtendedInfoArgs struct {
-	// Last time when the agent data synced to service.
-	LastRefreshedAt pulumi.StringPtrInput `pulumi:"lastRefreshedAt"`
-	// The oldest backup copy available.
+	LastRefreshedAt     pulumi.StringPtrInput `pulumi:"lastRefreshedAt"`
 	OldestRecoveryPoint pulumi.StringPtrInput `pulumi:"oldestRecoveryPoint"`
-	// Number of backup copies associated with the backup item.
-	RecoveryPointCount pulumi.IntPtrInput `pulumi:"recoveryPointCount"`
+	RecoveryPointCount  pulumi.IntPtrInput    `pulumi:"recoveryPointCount"`
 }
 
 func (MabFileFolderProtectedItemExtendedInfoArgs) ElementType() reflect.Type {
@@ -9409,7 +7410,6 @@ func (i *mabFileFolderProtectedItemExtendedInfoPtrType) ToMabFileFolderProtected
 	return pulumi.ToOutputWithContext(ctx, i).(MabFileFolderProtectedItemExtendedInfoPtrOutput)
 }
 
-// Additional information on the backed up item.
 type MabFileFolderProtectedItemExtendedInfoOutput struct{ *pulumi.OutputState }
 
 func (MabFileFolderProtectedItemExtendedInfoOutput) ElementType() reflect.Type {
@@ -9429,22 +7429,19 @@ func (o MabFileFolderProtectedItemExtendedInfoOutput) ToMabFileFolderProtectedIt
 }
 
 func (o MabFileFolderProtectedItemExtendedInfoOutput) ToMabFileFolderProtectedItemExtendedInfoPtrOutputWithContext(ctx context.Context) MabFileFolderProtectedItemExtendedInfoPtrOutput {
-	return o.ApplyT(func(v MabFileFolderProtectedItemExtendedInfo) *MabFileFolderProtectedItemExtendedInfo {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v MabFileFolderProtectedItemExtendedInfo) *MabFileFolderProtectedItemExtendedInfo {
 		return &v
 	}).(MabFileFolderProtectedItemExtendedInfoPtrOutput)
 }
 
-// Last time when the agent data synced to service.
 func (o MabFileFolderProtectedItemExtendedInfoOutput) LastRefreshedAt() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v MabFileFolderProtectedItemExtendedInfo) *string { return v.LastRefreshedAt }).(pulumi.StringPtrOutput)
 }
 
-// The oldest backup copy available.
 func (o MabFileFolderProtectedItemExtendedInfoOutput) OldestRecoveryPoint() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v MabFileFolderProtectedItemExtendedInfo) *string { return v.OldestRecoveryPoint }).(pulumi.StringPtrOutput)
 }
 
-// Number of backup copies associated with the backup item.
 func (o MabFileFolderProtectedItemExtendedInfoOutput) RecoveryPointCount() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v MabFileFolderProtectedItemExtendedInfo) *int { return v.RecoveryPointCount }).(pulumi.IntPtrOutput)
 }
@@ -9464,10 +7461,15 @@ func (o MabFileFolderProtectedItemExtendedInfoPtrOutput) ToMabFileFolderProtecte
 }
 
 func (o MabFileFolderProtectedItemExtendedInfoPtrOutput) Elem() MabFileFolderProtectedItemExtendedInfoOutput {
-	return o.ApplyT(func(v *MabFileFolderProtectedItemExtendedInfo) MabFileFolderProtectedItemExtendedInfo { return *v }).(MabFileFolderProtectedItemExtendedInfoOutput)
+	return o.ApplyT(func(v *MabFileFolderProtectedItemExtendedInfo) MabFileFolderProtectedItemExtendedInfo {
+		if v != nil {
+			return *v
+		}
+		var ret MabFileFolderProtectedItemExtendedInfo
+		return ret
+	}).(MabFileFolderProtectedItemExtendedInfoOutput)
 }
 
-// Last time when the agent data synced to service.
 func (o MabFileFolderProtectedItemExtendedInfoPtrOutput) LastRefreshedAt() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *MabFileFolderProtectedItemExtendedInfo) *string {
 		if v == nil {
@@ -9477,7 +7479,6 @@ func (o MabFileFolderProtectedItemExtendedInfoPtrOutput) LastRefreshedAt() pulum
 	}).(pulumi.StringPtrOutput)
 }
 
-// The oldest backup copy available.
 func (o MabFileFolderProtectedItemExtendedInfoPtrOutput) OldestRecoveryPoint() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *MabFileFolderProtectedItemExtendedInfo) *string {
 		if v == nil {
@@ -9487,7 +7488,6 @@ func (o MabFileFolderProtectedItemExtendedInfoPtrOutput) OldestRecoveryPoint() p
 	}).(pulumi.StringPtrOutput)
 }
 
-// Number of backup copies associated with the backup item.
 func (o MabFileFolderProtectedItemExtendedInfoPtrOutput) RecoveryPointCount() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *MabFileFolderProtectedItemExtendedInfo) *int {
 		if v == nil {
@@ -9497,14 +7497,10 @@ func (o MabFileFolderProtectedItemExtendedInfoPtrOutput) RecoveryPointCount() pu
 	}).(pulumi.IntPtrOutput)
 }
 
-// Additional information on the backed up item.
 type MabFileFolderProtectedItemExtendedInfoResponse struct {
-	// Last time when the agent data synced to service.
-	LastRefreshedAt *string `pulumi:"lastRefreshedAt"`
-	// The oldest backup copy available.
+	LastRefreshedAt     *string `pulumi:"lastRefreshedAt"`
 	OldestRecoveryPoint *string `pulumi:"oldestRecoveryPoint"`
-	// Number of backup copies associated with the backup item.
-	RecoveryPointCount *int `pulumi:"recoveryPointCount"`
+	RecoveryPointCount  *int    `pulumi:"recoveryPointCount"`
 }
 
 // MabFileFolderProtectedItemExtendedInfoResponseInput is an input type that accepts MabFileFolderProtectedItemExtendedInfoResponseArgs and MabFileFolderProtectedItemExtendedInfoResponseOutput values.
@@ -9518,14 +7514,10 @@ type MabFileFolderProtectedItemExtendedInfoResponseInput interface {
 	ToMabFileFolderProtectedItemExtendedInfoResponseOutputWithContext(context.Context) MabFileFolderProtectedItemExtendedInfoResponseOutput
 }
 
-// Additional information on the backed up item.
 type MabFileFolderProtectedItemExtendedInfoResponseArgs struct {
-	// Last time when the agent data synced to service.
-	LastRefreshedAt pulumi.StringPtrInput `pulumi:"lastRefreshedAt"`
-	// The oldest backup copy available.
+	LastRefreshedAt     pulumi.StringPtrInput `pulumi:"lastRefreshedAt"`
 	OldestRecoveryPoint pulumi.StringPtrInput `pulumi:"oldestRecoveryPoint"`
-	// Number of backup copies associated with the backup item.
-	RecoveryPointCount pulumi.IntPtrInput `pulumi:"recoveryPointCount"`
+	RecoveryPointCount  pulumi.IntPtrInput    `pulumi:"recoveryPointCount"`
 }
 
 func (MabFileFolderProtectedItemExtendedInfoResponseArgs) ElementType() reflect.Type {
@@ -9581,7 +7573,6 @@ func (i *mabFileFolderProtectedItemExtendedInfoResponsePtrType) ToMabFileFolderP
 	return pulumi.ToOutputWithContext(ctx, i).(MabFileFolderProtectedItemExtendedInfoResponsePtrOutput)
 }
 
-// Additional information on the backed up item.
 type MabFileFolderProtectedItemExtendedInfoResponseOutput struct{ *pulumi.OutputState }
 
 func (MabFileFolderProtectedItemExtendedInfoResponseOutput) ElementType() reflect.Type {
@@ -9601,22 +7592,19 @@ func (o MabFileFolderProtectedItemExtendedInfoResponseOutput) ToMabFileFolderPro
 }
 
 func (o MabFileFolderProtectedItemExtendedInfoResponseOutput) ToMabFileFolderProtectedItemExtendedInfoResponsePtrOutputWithContext(ctx context.Context) MabFileFolderProtectedItemExtendedInfoResponsePtrOutput {
-	return o.ApplyT(func(v MabFileFolderProtectedItemExtendedInfoResponse) *MabFileFolderProtectedItemExtendedInfoResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v MabFileFolderProtectedItemExtendedInfoResponse) *MabFileFolderProtectedItemExtendedInfoResponse {
 		return &v
 	}).(MabFileFolderProtectedItemExtendedInfoResponsePtrOutput)
 }
 
-// Last time when the agent data synced to service.
 func (o MabFileFolderProtectedItemExtendedInfoResponseOutput) LastRefreshedAt() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v MabFileFolderProtectedItemExtendedInfoResponse) *string { return v.LastRefreshedAt }).(pulumi.StringPtrOutput)
 }
 
-// The oldest backup copy available.
 func (o MabFileFolderProtectedItemExtendedInfoResponseOutput) OldestRecoveryPoint() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v MabFileFolderProtectedItemExtendedInfoResponse) *string { return v.OldestRecoveryPoint }).(pulumi.StringPtrOutput)
 }
 
-// Number of backup copies associated with the backup item.
 func (o MabFileFolderProtectedItemExtendedInfoResponseOutput) RecoveryPointCount() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v MabFileFolderProtectedItemExtendedInfoResponse) *int { return v.RecoveryPointCount }).(pulumi.IntPtrOutput)
 }
@@ -9637,11 +7625,14 @@ func (o MabFileFolderProtectedItemExtendedInfoResponsePtrOutput) ToMabFileFolder
 
 func (o MabFileFolderProtectedItemExtendedInfoResponsePtrOutput) Elem() MabFileFolderProtectedItemExtendedInfoResponseOutput {
 	return o.ApplyT(func(v *MabFileFolderProtectedItemExtendedInfoResponse) MabFileFolderProtectedItemExtendedInfoResponse {
-		return *v
+		if v != nil {
+			return *v
+		}
+		var ret MabFileFolderProtectedItemExtendedInfoResponse
+		return ret
 	}).(MabFileFolderProtectedItemExtendedInfoResponseOutput)
 }
 
-// Last time when the agent data synced to service.
 func (o MabFileFolderProtectedItemExtendedInfoResponsePtrOutput) LastRefreshedAt() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *MabFileFolderProtectedItemExtendedInfoResponse) *string {
 		if v == nil {
@@ -9651,7 +7642,6 @@ func (o MabFileFolderProtectedItemExtendedInfoResponsePtrOutput) LastRefreshedAt
 	}).(pulumi.StringPtrOutput)
 }
 
-// The oldest backup copy available.
 func (o MabFileFolderProtectedItemExtendedInfoResponsePtrOutput) OldestRecoveryPoint() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *MabFileFolderProtectedItemExtendedInfoResponse) *string {
 		if v == nil {
@@ -9661,7 +7651,6 @@ func (o MabFileFolderProtectedItemExtendedInfoResponsePtrOutput) OldestRecoveryP
 	}).(pulumi.StringPtrOutput)
 }
 
-// Number of backup copies associated with the backup item.
 func (o MabFileFolderProtectedItemExtendedInfoResponsePtrOutput) RecoveryPointCount() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *MabFileFolderProtectedItemExtendedInfoResponse) *int {
 		if v == nil {
@@ -9671,51 +7660,28 @@ func (o MabFileFolderProtectedItemExtendedInfoResponsePtrOutput) RecoveryPointCo
 	}).(pulumi.IntPtrOutput)
 }
 
-// MAB workload-specific backup item.
 type MabFileFolderProtectedItemResponse struct {
-	// Type of backup management for the backed up item.
-	BackupManagementType *string `pulumi:"backupManagementType"`
-	// Name of the backup set the backup item belongs to
-	BackupSetName *string `pulumi:"backupSetName"`
-	// Name of the computer associated with this backup item.
-	ComputerName *string `pulumi:"computerName"`
-	// Unique name of container
-	ContainerName *string `pulumi:"containerName"`
-	// Create mode to indicate recovery of existing soft deleted data source or creation of new data source.
-	CreateMode *string `pulumi:"createMode"`
-	// Sync time for deferred deletion in UTC
-	DeferredDeleteSyncTimeInUTC *float64 `pulumi:"deferredDeleteSyncTimeInUTC"`
-	// Time for deferred deletion in UTC
-	DeferredDeleteTimeInUTC *string `pulumi:"deferredDeleteTimeInUTC"`
-	// Time remaining before the DS marked for deferred delete is permanently deleted
-	DeferredDeleteTimeRemaining *string `pulumi:"deferredDeleteTimeRemaining"`
-	// Additional information with this backup item.
-	ExtendedInfo *MabFileFolderProtectedItemExtendedInfoResponse `pulumi:"extendedInfo"`
-	// Friendly name of this backup item.
-	FriendlyName *string `pulumi:"friendlyName"`
-	// Flag to identify whether the deferred deleted DS is to be purged soon
-	IsDeferredDeleteScheduleUpcoming *bool `pulumi:"isDeferredDeleteScheduleUpcoming"`
-	// Flag to identify that deferred deleted DS is to be moved into Pause state
-	IsRehydrate *bool `pulumi:"isRehydrate"`
-	// Flag to identify whether the DS is scheduled for deferred delete
-	IsScheduledForDeferredDelete *bool `pulumi:"isScheduledForDeferredDelete"`
-	// Status of last backup operation.
-	LastBackupStatus *string `pulumi:"lastBackupStatus"`
-	// Timestamp of the last backup operation on this backup item.
-	LastBackupTime *string `pulumi:"lastBackupTime"`
-	// Timestamp when the last (latest) backup copy was created for this backup item.
-	LastRecoveryPoint *string `pulumi:"lastRecoveryPoint"`
-	// ID of the backup policy with which this item is backed up.
-	PolicyId *string `pulumi:"policyId"`
-	// backup item type.
-	// Expected value is 'MabFileFolderProtectedItem'.
-	ProtectedItemType string `pulumi:"protectedItemType"`
-	// Protected, ProtectionStopped, IRPending or ProtectionError
-	ProtectionState *string `pulumi:"protectionState"`
-	// ARM ID of the resource to be backed up.
-	SourceResourceId *string `pulumi:"sourceResourceId"`
-	// Type of workload this item represents.
-	WorkloadType *string `pulumi:"workloadType"`
+	BackupManagementType             *string                                         `pulumi:"backupManagementType"`
+	BackupSetName                    *string                                         `pulumi:"backupSetName"`
+	ComputerName                     *string                                         `pulumi:"computerName"`
+	ContainerName                    *string                                         `pulumi:"containerName"`
+	CreateMode                       *string                                         `pulumi:"createMode"`
+	DeferredDeleteSyncTimeInUTC      *float64                                        `pulumi:"deferredDeleteSyncTimeInUTC"`
+	DeferredDeleteTimeInUTC          *string                                         `pulumi:"deferredDeleteTimeInUTC"`
+	DeferredDeleteTimeRemaining      *string                                         `pulumi:"deferredDeleteTimeRemaining"`
+	ExtendedInfo                     *MabFileFolderProtectedItemExtendedInfoResponse `pulumi:"extendedInfo"`
+	FriendlyName                     *string                                         `pulumi:"friendlyName"`
+	IsDeferredDeleteScheduleUpcoming *bool                                           `pulumi:"isDeferredDeleteScheduleUpcoming"`
+	IsRehydrate                      *bool                                           `pulumi:"isRehydrate"`
+	IsScheduledForDeferredDelete     *bool                                           `pulumi:"isScheduledForDeferredDelete"`
+	LastBackupStatus                 *string                                         `pulumi:"lastBackupStatus"`
+	LastBackupTime                   *string                                         `pulumi:"lastBackupTime"`
+	LastRecoveryPoint                *string                                         `pulumi:"lastRecoveryPoint"`
+	PolicyId                         *string                                         `pulumi:"policyId"`
+	ProtectedItemType                string                                          `pulumi:"protectedItemType"`
+	ProtectionState                  *string                                         `pulumi:"protectionState"`
+	SourceResourceId                 *string                                         `pulumi:"sourceResourceId"`
+	WorkloadType                     *string                                         `pulumi:"workloadType"`
 }
 
 // MabFileFolderProtectedItemResponseInput is an input type that accepts MabFileFolderProtectedItemResponseArgs and MabFileFolderProtectedItemResponseOutput values.
@@ -9729,51 +7695,28 @@ type MabFileFolderProtectedItemResponseInput interface {
 	ToMabFileFolderProtectedItemResponseOutputWithContext(context.Context) MabFileFolderProtectedItemResponseOutput
 }
 
-// MAB workload-specific backup item.
 type MabFileFolderProtectedItemResponseArgs struct {
-	// Type of backup management for the backed up item.
-	BackupManagementType pulumi.StringPtrInput `pulumi:"backupManagementType"`
-	// Name of the backup set the backup item belongs to
-	BackupSetName pulumi.StringPtrInput `pulumi:"backupSetName"`
-	// Name of the computer associated with this backup item.
-	ComputerName pulumi.StringPtrInput `pulumi:"computerName"`
-	// Unique name of container
-	ContainerName pulumi.StringPtrInput `pulumi:"containerName"`
-	// Create mode to indicate recovery of existing soft deleted data source or creation of new data source.
-	CreateMode pulumi.StringPtrInput `pulumi:"createMode"`
-	// Sync time for deferred deletion in UTC
-	DeferredDeleteSyncTimeInUTC pulumi.Float64PtrInput `pulumi:"deferredDeleteSyncTimeInUTC"`
-	// Time for deferred deletion in UTC
-	DeferredDeleteTimeInUTC pulumi.StringPtrInput `pulumi:"deferredDeleteTimeInUTC"`
-	// Time remaining before the DS marked for deferred delete is permanently deleted
-	DeferredDeleteTimeRemaining pulumi.StringPtrInput `pulumi:"deferredDeleteTimeRemaining"`
-	// Additional information with this backup item.
-	ExtendedInfo MabFileFolderProtectedItemExtendedInfoResponsePtrInput `pulumi:"extendedInfo"`
-	// Friendly name of this backup item.
-	FriendlyName pulumi.StringPtrInput `pulumi:"friendlyName"`
-	// Flag to identify whether the deferred deleted DS is to be purged soon
-	IsDeferredDeleteScheduleUpcoming pulumi.BoolPtrInput `pulumi:"isDeferredDeleteScheduleUpcoming"`
-	// Flag to identify that deferred deleted DS is to be moved into Pause state
-	IsRehydrate pulumi.BoolPtrInput `pulumi:"isRehydrate"`
-	// Flag to identify whether the DS is scheduled for deferred delete
-	IsScheduledForDeferredDelete pulumi.BoolPtrInput `pulumi:"isScheduledForDeferredDelete"`
-	// Status of last backup operation.
-	LastBackupStatus pulumi.StringPtrInput `pulumi:"lastBackupStatus"`
-	// Timestamp of the last backup operation on this backup item.
-	LastBackupTime pulumi.StringPtrInput `pulumi:"lastBackupTime"`
-	// Timestamp when the last (latest) backup copy was created for this backup item.
-	LastRecoveryPoint pulumi.StringPtrInput `pulumi:"lastRecoveryPoint"`
-	// ID of the backup policy with which this item is backed up.
-	PolicyId pulumi.StringPtrInput `pulumi:"policyId"`
-	// backup item type.
-	// Expected value is 'MabFileFolderProtectedItem'.
-	ProtectedItemType pulumi.StringInput `pulumi:"protectedItemType"`
-	// Protected, ProtectionStopped, IRPending or ProtectionError
-	ProtectionState pulumi.StringPtrInput `pulumi:"protectionState"`
-	// ARM ID of the resource to be backed up.
-	SourceResourceId pulumi.StringPtrInput `pulumi:"sourceResourceId"`
-	// Type of workload this item represents.
-	WorkloadType pulumi.StringPtrInput `pulumi:"workloadType"`
+	BackupManagementType             pulumi.StringPtrInput                                  `pulumi:"backupManagementType"`
+	BackupSetName                    pulumi.StringPtrInput                                  `pulumi:"backupSetName"`
+	ComputerName                     pulumi.StringPtrInput                                  `pulumi:"computerName"`
+	ContainerName                    pulumi.StringPtrInput                                  `pulumi:"containerName"`
+	CreateMode                       pulumi.StringPtrInput                                  `pulumi:"createMode"`
+	DeferredDeleteSyncTimeInUTC      pulumi.Float64PtrInput                                 `pulumi:"deferredDeleteSyncTimeInUTC"`
+	DeferredDeleteTimeInUTC          pulumi.StringPtrInput                                  `pulumi:"deferredDeleteTimeInUTC"`
+	DeferredDeleteTimeRemaining      pulumi.StringPtrInput                                  `pulumi:"deferredDeleteTimeRemaining"`
+	ExtendedInfo                     MabFileFolderProtectedItemExtendedInfoResponsePtrInput `pulumi:"extendedInfo"`
+	FriendlyName                     pulumi.StringPtrInput                                  `pulumi:"friendlyName"`
+	IsDeferredDeleteScheduleUpcoming pulumi.BoolPtrInput                                    `pulumi:"isDeferredDeleteScheduleUpcoming"`
+	IsRehydrate                      pulumi.BoolPtrInput                                    `pulumi:"isRehydrate"`
+	IsScheduledForDeferredDelete     pulumi.BoolPtrInput                                    `pulumi:"isScheduledForDeferredDelete"`
+	LastBackupStatus                 pulumi.StringPtrInput                                  `pulumi:"lastBackupStatus"`
+	LastBackupTime                   pulumi.StringPtrInput                                  `pulumi:"lastBackupTime"`
+	LastRecoveryPoint                pulumi.StringPtrInput                                  `pulumi:"lastRecoveryPoint"`
+	PolicyId                         pulumi.StringPtrInput                                  `pulumi:"policyId"`
+	ProtectedItemType                pulumi.StringInput                                     `pulumi:"protectedItemType"`
+	ProtectionState                  pulumi.StringPtrInput                                  `pulumi:"protectionState"`
+	SourceResourceId                 pulumi.StringPtrInput                                  `pulumi:"sourceResourceId"`
+	WorkloadType                     pulumi.StringPtrInput                                  `pulumi:"workloadType"`
 }
 
 func (MabFileFolderProtectedItemResponseArgs) ElementType() reflect.Type {
@@ -9788,7 +7731,6 @@ func (i MabFileFolderProtectedItemResponseArgs) ToMabFileFolderProtectedItemResp
 	return pulumi.ToOutputWithContext(ctx, i).(MabFileFolderProtectedItemResponseOutput)
 }
 
-// MAB workload-specific backup item.
 type MabFileFolderProtectedItemResponseOutput struct{ *pulumi.OutputState }
 
 func (MabFileFolderProtectedItemResponseOutput) ElementType() reflect.Type {
@@ -9803,124 +7745,97 @@ func (o MabFileFolderProtectedItemResponseOutput) ToMabFileFolderProtectedItemRe
 	return o
 }
 
-// Type of backup management for the backed up item.
 func (o MabFileFolderProtectedItemResponseOutput) BackupManagementType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v MabFileFolderProtectedItemResponse) *string { return v.BackupManagementType }).(pulumi.StringPtrOutput)
 }
 
-// Name of the backup set the backup item belongs to
 func (o MabFileFolderProtectedItemResponseOutput) BackupSetName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v MabFileFolderProtectedItemResponse) *string { return v.BackupSetName }).(pulumi.StringPtrOutput)
 }
 
-// Name of the computer associated with this backup item.
 func (o MabFileFolderProtectedItemResponseOutput) ComputerName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v MabFileFolderProtectedItemResponse) *string { return v.ComputerName }).(pulumi.StringPtrOutput)
 }
 
-// Unique name of container
 func (o MabFileFolderProtectedItemResponseOutput) ContainerName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v MabFileFolderProtectedItemResponse) *string { return v.ContainerName }).(pulumi.StringPtrOutput)
 }
 
-// Create mode to indicate recovery of existing soft deleted data source or creation of new data source.
 func (o MabFileFolderProtectedItemResponseOutput) CreateMode() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v MabFileFolderProtectedItemResponse) *string { return v.CreateMode }).(pulumi.StringPtrOutput)
 }
 
-// Sync time for deferred deletion in UTC
 func (o MabFileFolderProtectedItemResponseOutput) DeferredDeleteSyncTimeInUTC() pulumi.Float64PtrOutput {
 	return o.ApplyT(func(v MabFileFolderProtectedItemResponse) *float64 { return v.DeferredDeleteSyncTimeInUTC }).(pulumi.Float64PtrOutput)
 }
 
-// Time for deferred deletion in UTC
 func (o MabFileFolderProtectedItemResponseOutput) DeferredDeleteTimeInUTC() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v MabFileFolderProtectedItemResponse) *string { return v.DeferredDeleteTimeInUTC }).(pulumi.StringPtrOutput)
 }
 
-// Time remaining before the DS marked for deferred delete is permanently deleted
 func (o MabFileFolderProtectedItemResponseOutput) DeferredDeleteTimeRemaining() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v MabFileFolderProtectedItemResponse) *string { return v.DeferredDeleteTimeRemaining }).(pulumi.StringPtrOutput)
 }
 
-// Additional information with this backup item.
 func (o MabFileFolderProtectedItemResponseOutput) ExtendedInfo() MabFileFolderProtectedItemExtendedInfoResponsePtrOutput {
 	return o.ApplyT(func(v MabFileFolderProtectedItemResponse) *MabFileFolderProtectedItemExtendedInfoResponse {
 		return v.ExtendedInfo
 	}).(MabFileFolderProtectedItemExtendedInfoResponsePtrOutput)
 }
 
-// Friendly name of this backup item.
 func (o MabFileFolderProtectedItemResponseOutput) FriendlyName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v MabFileFolderProtectedItemResponse) *string { return v.FriendlyName }).(pulumi.StringPtrOutput)
 }
 
-// Flag to identify whether the deferred deleted DS is to be purged soon
 func (o MabFileFolderProtectedItemResponseOutput) IsDeferredDeleteScheduleUpcoming() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v MabFileFolderProtectedItemResponse) *bool { return v.IsDeferredDeleteScheduleUpcoming }).(pulumi.BoolPtrOutput)
 }
 
-// Flag to identify that deferred deleted DS is to be moved into Pause state
 func (o MabFileFolderProtectedItemResponseOutput) IsRehydrate() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v MabFileFolderProtectedItemResponse) *bool { return v.IsRehydrate }).(pulumi.BoolPtrOutput)
 }
 
-// Flag to identify whether the DS is scheduled for deferred delete
 func (o MabFileFolderProtectedItemResponseOutput) IsScheduledForDeferredDelete() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v MabFileFolderProtectedItemResponse) *bool { return v.IsScheduledForDeferredDelete }).(pulumi.BoolPtrOutput)
 }
 
-// Status of last backup operation.
 func (o MabFileFolderProtectedItemResponseOutput) LastBackupStatus() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v MabFileFolderProtectedItemResponse) *string { return v.LastBackupStatus }).(pulumi.StringPtrOutput)
 }
 
-// Timestamp of the last backup operation on this backup item.
 func (o MabFileFolderProtectedItemResponseOutput) LastBackupTime() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v MabFileFolderProtectedItemResponse) *string { return v.LastBackupTime }).(pulumi.StringPtrOutput)
 }
 
-// Timestamp when the last (latest) backup copy was created for this backup item.
 func (o MabFileFolderProtectedItemResponseOutput) LastRecoveryPoint() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v MabFileFolderProtectedItemResponse) *string { return v.LastRecoveryPoint }).(pulumi.StringPtrOutput)
 }
 
-// ID of the backup policy with which this item is backed up.
 func (o MabFileFolderProtectedItemResponseOutput) PolicyId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v MabFileFolderProtectedItemResponse) *string { return v.PolicyId }).(pulumi.StringPtrOutput)
 }
 
-// backup item type.
-// Expected value is 'MabFileFolderProtectedItem'.
 func (o MabFileFolderProtectedItemResponseOutput) ProtectedItemType() pulumi.StringOutput {
 	return o.ApplyT(func(v MabFileFolderProtectedItemResponse) string { return v.ProtectedItemType }).(pulumi.StringOutput)
 }
 
-// Protected, ProtectionStopped, IRPending or ProtectionError
 func (o MabFileFolderProtectedItemResponseOutput) ProtectionState() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v MabFileFolderProtectedItemResponse) *string { return v.ProtectionState }).(pulumi.StringPtrOutput)
 }
 
-// ARM ID of the resource to be backed up.
 func (o MabFileFolderProtectedItemResponseOutput) SourceResourceId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v MabFileFolderProtectedItemResponse) *string { return v.SourceResourceId }).(pulumi.StringPtrOutput)
 }
 
-// Type of workload this item represents.
 func (o MabFileFolderProtectedItemResponseOutput) WorkloadType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v MabFileFolderProtectedItemResponse) *string { return v.WorkloadType }).(pulumi.StringPtrOutput)
 }
 
-// Health Details for backup items.
 type ResourceHealthDetailsResponse struct {
-	// Health Code
-	Code int `pulumi:"code"`
-	// Health Message
-	Message string `pulumi:"message"`
-	// Health Recommended Actions
+	Code            int      `pulumi:"code"`
+	Message         string   `pulumi:"message"`
 	Recommendations []string `pulumi:"recommendations"`
-	// Health Title
-	Title string `pulumi:"title"`
+	Title           string   `pulumi:"title"`
 }
 
 // ResourceHealthDetailsResponseInput is an input type that accepts ResourceHealthDetailsResponseArgs and ResourceHealthDetailsResponseOutput values.
@@ -9934,16 +7849,11 @@ type ResourceHealthDetailsResponseInput interface {
 	ToResourceHealthDetailsResponseOutputWithContext(context.Context) ResourceHealthDetailsResponseOutput
 }
 
-// Health Details for backup items.
 type ResourceHealthDetailsResponseArgs struct {
-	// Health Code
-	Code pulumi.IntInput `pulumi:"code"`
-	// Health Message
-	Message pulumi.StringInput `pulumi:"message"`
-	// Health Recommended Actions
+	Code            pulumi.IntInput         `pulumi:"code"`
+	Message         pulumi.StringInput      `pulumi:"message"`
 	Recommendations pulumi.StringArrayInput `pulumi:"recommendations"`
-	// Health Title
-	Title pulumi.StringInput `pulumi:"title"`
+	Title           pulumi.StringInput      `pulumi:"title"`
 }
 
 func (ResourceHealthDetailsResponseArgs) ElementType() reflect.Type {
@@ -9983,7 +7893,6 @@ func (i ResourceHealthDetailsResponseArray) ToResourceHealthDetailsResponseArray
 	return pulumi.ToOutputWithContext(ctx, i).(ResourceHealthDetailsResponseArrayOutput)
 }
 
-// Health Details for backup items.
 type ResourceHealthDetailsResponseOutput struct{ *pulumi.OutputState }
 
 func (ResourceHealthDetailsResponseOutput) ElementType() reflect.Type {
@@ -9998,22 +7907,18 @@ func (o ResourceHealthDetailsResponseOutput) ToResourceHealthDetailsResponseOutp
 	return o
 }
 
-// Health Code
 func (o ResourceHealthDetailsResponseOutput) Code() pulumi.IntOutput {
 	return o.ApplyT(func(v ResourceHealthDetailsResponse) int { return v.Code }).(pulumi.IntOutput)
 }
 
-// Health Message
 func (o ResourceHealthDetailsResponseOutput) Message() pulumi.StringOutput {
 	return o.ApplyT(func(v ResourceHealthDetailsResponse) string { return v.Message }).(pulumi.StringOutput)
 }
 
-// Health Recommended Actions
 func (o ResourceHealthDetailsResponseOutput) Recommendations() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v ResourceHealthDetailsResponse) []string { return v.Recommendations }).(pulumi.StringArrayOutput)
 }
 
-// Health Title
 func (o ResourceHealthDetailsResponseOutput) Title() pulumi.StringOutput {
 	return o.ApplyT(func(v ResourceHealthDetailsResponse) string { return v.Title }).(pulumi.StringOutput)
 }

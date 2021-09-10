@@ -10,15 +10,30 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Type of authorization.
-type AuthorizationType pulumi.String
+type AuthorizationType string
 
 const (
 	AuthorizationTypePersonalAccessToken = AuthorizationType("personalAccessToken")
 )
 
 func (AuthorizationType) ElementType() reflect.Type {
-	return reflect.TypeOf((*pulumi.String)(nil)).Elem()
+	return reflect.TypeOf((*AuthorizationType)(nil)).Elem()
+}
+
+func (e AuthorizationType) ToAuthorizationTypeOutput() AuthorizationTypeOutput {
+	return pulumi.ToOutput(e).(AuthorizationTypeOutput)
+}
+
+func (e AuthorizationType) ToAuthorizationTypeOutputWithContext(ctx context.Context) AuthorizationTypeOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(AuthorizationTypeOutput)
+}
+
+func (e AuthorizationType) ToAuthorizationTypePtrOutput() AuthorizationTypePtrOutput {
+	return e.ToAuthorizationTypePtrOutputWithContext(context.Background())
+}
+
+func (e AuthorizationType) ToAuthorizationTypePtrOutputWithContext(ctx context.Context) AuthorizationTypePtrOutput {
+	return AuthorizationType(e).ToAuthorizationTypeOutputWithContext(ctx).ToAuthorizationTypePtrOutputWithContext(ctx)
 }
 
 func (e AuthorizationType) ToStringOutput() pulumi.StringOutput {
@@ -37,8 +52,128 @@ func (e AuthorizationType) ToStringPtrOutputWithContext(ctx context.Context) pul
 	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
 }
 
-// Type of code repository.
-type CodeRepositoryType pulumi.String
+type AuthorizationTypeOutput struct{ *pulumi.OutputState }
+
+func (AuthorizationTypeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AuthorizationType)(nil)).Elem()
+}
+
+func (o AuthorizationTypeOutput) ToAuthorizationTypeOutput() AuthorizationTypeOutput {
+	return o
+}
+
+func (o AuthorizationTypeOutput) ToAuthorizationTypeOutputWithContext(ctx context.Context) AuthorizationTypeOutput {
+	return o
+}
+
+func (o AuthorizationTypeOutput) ToAuthorizationTypePtrOutput() AuthorizationTypePtrOutput {
+	return o.ToAuthorizationTypePtrOutputWithContext(context.Background())
+}
+
+func (o AuthorizationTypeOutput) ToAuthorizationTypePtrOutputWithContext(ctx context.Context) AuthorizationTypePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v AuthorizationType) *AuthorizationType {
+		return &v
+	}).(AuthorizationTypePtrOutput)
+}
+
+func (o AuthorizationTypeOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o AuthorizationTypeOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e AuthorizationType) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o AuthorizationTypeOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o AuthorizationTypeOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e AuthorizationType) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type AuthorizationTypePtrOutput struct{ *pulumi.OutputState }
+
+func (AuthorizationTypePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**AuthorizationType)(nil)).Elem()
+}
+
+func (o AuthorizationTypePtrOutput) ToAuthorizationTypePtrOutput() AuthorizationTypePtrOutput {
+	return o
+}
+
+func (o AuthorizationTypePtrOutput) ToAuthorizationTypePtrOutputWithContext(ctx context.Context) AuthorizationTypePtrOutput {
+	return o
+}
+
+func (o AuthorizationTypePtrOutput) Elem() AuthorizationTypeOutput {
+	return o.ApplyT(func(v *AuthorizationType) AuthorizationType {
+		if v != nil {
+			return *v
+		}
+		var ret AuthorizationType
+		return ret
+	}).(AuthorizationTypeOutput)
+}
+
+func (o AuthorizationTypePtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o AuthorizationTypePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *AuthorizationType) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// AuthorizationTypeInput is an input type that accepts AuthorizationTypeArgs and AuthorizationTypeOutput values.
+// You can construct a concrete instance of `AuthorizationTypeInput` via:
+//
+//          AuthorizationTypeArgs{...}
+type AuthorizationTypeInput interface {
+	pulumi.Input
+
+	ToAuthorizationTypeOutput() AuthorizationTypeOutput
+	ToAuthorizationTypeOutputWithContext(context.Context) AuthorizationTypeOutput
+}
+
+var authorizationTypePtrType = reflect.TypeOf((**AuthorizationType)(nil)).Elem()
+
+type AuthorizationTypePtrInput interface {
+	pulumi.Input
+
+	ToAuthorizationTypePtrOutput() AuthorizationTypePtrOutput
+	ToAuthorizationTypePtrOutputWithContext(context.Context) AuthorizationTypePtrOutput
+}
+
+type authorizationTypePtr string
+
+func AuthorizationTypePtr(v string) AuthorizationTypePtrInput {
+	return (*authorizationTypePtr)(&v)
+}
+
+func (*authorizationTypePtr) ElementType() reflect.Type {
+	return authorizationTypePtrType
+}
+
+func (in *authorizationTypePtr) ToAuthorizationTypePtrOutput() AuthorizationTypePtrOutput {
+	return pulumi.ToOutput(in).(AuthorizationTypePtrOutput)
+}
+
+func (in *authorizationTypePtr) ToAuthorizationTypePtrOutputWithContext(ctx context.Context) AuthorizationTypePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(AuthorizationTypePtrOutput)
+}
+
+type CodeRepositoryType string
 
 const (
 	CodeRepositoryTypeGitHub  = CodeRepositoryType("gitHub")
@@ -46,7 +181,23 @@ const (
 )
 
 func (CodeRepositoryType) ElementType() reflect.Type {
-	return reflect.TypeOf((*pulumi.String)(nil)).Elem()
+	return reflect.TypeOf((*CodeRepositoryType)(nil)).Elem()
+}
+
+func (e CodeRepositoryType) ToCodeRepositoryTypeOutput() CodeRepositoryTypeOutput {
+	return pulumi.ToOutput(e).(CodeRepositoryTypeOutput)
+}
+
+func (e CodeRepositoryType) ToCodeRepositoryTypeOutputWithContext(ctx context.Context) CodeRepositoryTypeOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(CodeRepositoryTypeOutput)
+}
+
+func (e CodeRepositoryType) ToCodeRepositoryTypePtrOutput() CodeRepositoryTypePtrOutput {
+	return e.ToCodeRepositoryTypePtrOutputWithContext(context.Background())
+}
+
+func (e CodeRepositoryType) ToCodeRepositoryTypePtrOutputWithContext(ctx context.Context) CodeRepositoryTypePtrOutput {
+	return CodeRepositoryType(e).ToCodeRepositoryTypeOutputWithContext(ctx).ToCodeRepositoryTypePtrOutputWithContext(ctx)
 }
 
 func (e CodeRepositoryType) ToStringOutput() pulumi.StringOutput {
@@ -65,8 +216,128 @@ func (e CodeRepositoryType) ToStringPtrOutputWithContext(ctx context.Context) pu
 	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
 }
 
-// Specifies which CI/CD provider to use. Valid options are 'azurePipeline', 'githubWorkflow'.
-type PipelineTypeEnum pulumi.String
+type CodeRepositoryTypeOutput struct{ *pulumi.OutputState }
+
+func (CodeRepositoryTypeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*CodeRepositoryType)(nil)).Elem()
+}
+
+func (o CodeRepositoryTypeOutput) ToCodeRepositoryTypeOutput() CodeRepositoryTypeOutput {
+	return o
+}
+
+func (o CodeRepositoryTypeOutput) ToCodeRepositoryTypeOutputWithContext(ctx context.Context) CodeRepositoryTypeOutput {
+	return o
+}
+
+func (o CodeRepositoryTypeOutput) ToCodeRepositoryTypePtrOutput() CodeRepositoryTypePtrOutput {
+	return o.ToCodeRepositoryTypePtrOutputWithContext(context.Background())
+}
+
+func (o CodeRepositoryTypeOutput) ToCodeRepositoryTypePtrOutputWithContext(ctx context.Context) CodeRepositoryTypePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v CodeRepositoryType) *CodeRepositoryType {
+		return &v
+	}).(CodeRepositoryTypePtrOutput)
+}
+
+func (o CodeRepositoryTypeOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o CodeRepositoryTypeOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e CodeRepositoryType) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o CodeRepositoryTypeOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o CodeRepositoryTypeOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e CodeRepositoryType) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type CodeRepositoryTypePtrOutput struct{ *pulumi.OutputState }
+
+func (CodeRepositoryTypePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**CodeRepositoryType)(nil)).Elem()
+}
+
+func (o CodeRepositoryTypePtrOutput) ToCodeRepositoryTypePtrOutput() CodeRepositoryTypePtrOutput {
+	return o
+}
+
+func (o CodeRepositoryTypePtrOutput) ToCodeRepositoryTypePtrOutputWithContext(ctx context.Context) CodeRepositoryTypePtrOutput {
+	return o
+}
+
+func (o CodeRepositoryTypePtrOutput) Elem() CodeRepositoryTypeOutput {
+	return o.ApplyT(func(v *CodeRepositoryType) CodeRepositoryType {
+		if v != nil {
+			return *v
+		}
+		var ret CodeRepositoryType
+		return ret
+	}).(CodeRepositoryTypeOutput)
+}
+
+func (o CodeRepositoryTypePtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o CodeRepositoryTypePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *CodeRepositoryType) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// CodeRepositoryTypeInput is an input type that accepts CodeRepositoryTypeArgs and CodeRepositoryTypeOutput values.
+// You can construct a concrete instance of `CodeRepositoryTypeInput` via:
+//
+//          CodeRepositoryTypeArgs{...}
+type CodeRepositoryTypeInput interface {
+	pulumi.Input
+
+	ToCodeRepositoryTypeOutput() CodeRepositoryTypeOutput
+	ToCodeRepositoryTypeOutputWithContext(context.Context) CodeRepositoryTypeOutput
+}
+
+var codeRepositoryTypePtrType = reflect.TypeOf((**CodeRepositoryType)(nil)).Elem()
+
+type CodeRepositoryTypePtrInput interface {
+	pulumi.Input
+
+	ToCodeRepositoryTypePtrOutput() CodeRepositoryTypePtrOutput
+	ToCodeRepositoryTypePtrOutputWithContext(context.Context) CodeRepositoryTypePtrOutput
+}
+
+type codeRepositoryTypePtr string
+
+func CodeRepositoryTypePtr(v string) CodeRepositoryTypePtrInput {
+	return (*codeRepositoryTypePtr)(&v)
+}
+
+func (*codeRepositoryTypePtr) ElementType() reflect.Type {
+	return codeRepositoryTypePtrType
+}
+
+func (in *codeRepositoryTypePtr) ToCodeRepositoryTypePtrOutput() CodeRepositoryTypePtrOutput {
+	return pulumi.ToOutput(in).(CodeRepositoryTypePtrOutput)
+}
+
+func (in *codeRepositoryTypePtr) ToCodeRepositoryTypePtrOutputWithContext(ctx context.Context) CodeRepositoryTypePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(CodeRepositoryTypePtrOutput)
+}
+
+type PipelineTypeEnum string
 
 const (
 	PipelineTypeEnumGithubWorkflow = PipelineTypeEnum("githubWorkflow")
@@ -74,7 +345,23 @@ const (
 )
 
 func (PipelineTypeEnum) ElementType() reflect.Type {
-	return reflect.TypeOf((*pulumi.String)(nil)).Elem()
+	return reflect.TypeOf((*PipelineTypeEnum)(nil)).Elem()
+}
+
+func (e PipelineTypeEnum) ToPipelineTypeEnumOutput() PipelineTypeEnumOutput {
+	return pulumi.ToOutput(e).(PipelineTypeEnumOutput)
+}
+
+func (e PipelineTypeEnum) ToPipelineTypeEnumOutputWithContext(ctx context.Context) PipelineTypeEnumOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(PipelineTypeEnumOutput)
+}
+
+func (e PipelineTypeEnum) ToPipelineTypeEnumPtrOutput() PipelineTypeEnumPtrOutput {
+	return e.ToPipelineTypeEnumPtrOutputWithContext(context.Background())
+}
+
+func (e PipelineTypeEnum) ToPipelineTypeEnumPtrOutputWithContext(ctx context.Context) PipelineTypeEnumPtrOutput {
+	return PipelineTypeEnum(e).ToPipelineTypeEnumOutputWithContext(ctx).ToPipelineTypeEnumPtrOutputWithContext(ctx)
 }
 
 func (e PipelineTypeEnum) ToStringOutput() pulumi.StringOutput {
@@ -91,4 +378,134 @@ func (e PipelineTypeEnum) ToStringPtrOutput() pulumi.StringPtrOutput {
 
 func (e PipelineTypeEnum) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
 	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type PipelineTypeEnumOutput struct{ *pulumi.OutputState }
+
+func (PipelineTypeEnumOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*PipelineTypeEnum)(nil)).Elem()
+}
+
+func (o PipelineTypeEnumOutput) ToPipelineTypeEnumOutput() PipelineTypeEnumOutput {
+	return o
+}
+
+func (o PipelineTypeEnumOutput) ToPipelineTypeEnumOutputWithContext(ctx context.Context) PipelineTypeEnumOutput {
+	return o
+}
+
+func (o PipelineTypeEnumOutput) ToPipelineTypeEnumPtrOutput() PipelineTypeEnumPtrOutput {
+	return o.ToPipelineTypeEnumPtrOutputWithContext(context.Background())
+}
+
+func (o PipelineTypeEnumOutput) ToPipelineTypeEnumPtrOutputWithContext(ctx context.Context) PipelineTypeEnumPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v PipelineTypeEnum) *PipelineTypeEnum {
+		return &v
+	}).(PipelineTypeEnumPtrOutput)
+}
+
+func (o PipelineTypeEnumOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o PipelineTypeEnumOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e PipelineTypeEnum) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o PipelineTypeEnumOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o PipelineTypeEnumOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e PipelineTypeEnum) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type PipelineTypeEnumPtrOutput struct{ *pulumi.OutputState }
+
+func (PipelineTypeEnumPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**PipelineTypeEnum)(nil)).Elem()
+}
+
+func (o PipelineTypeEnumPtrOutput) ToPipelineTypeEnumPtrOutput() PipelineTypeEnumPtrOutput {
+	return o
+}
+
+func (o PipelineTypeEnumPtrOutput) ToPipelineTypeEnumPtrOutputWithContext(ctx context.Context) PipelineTypeEnumPtrOutput {
+	return o
+}
+
+func (o PipelineTypeEnumPtrOutput) Elem() PipelineTypeEnumOutput {
+	return o.ApplyT(func(v *PipelineTypeEnum) PipelineTypeEnum {
+		if v != nil {
+			return *v
+		}
+		var ret PipelineTypeEnum
+		return ret
+	}).(PipelineTypeEnumOutput)
+}
+
+func (o PipelineTypeEnumPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o PipelineTypeEnumPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *PipelineTypeEnum) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// PipelineTypeEnumInput is an input type that accepts PipelineTypeEnumArgs and PipelineTypeEnumOutput values.
+// You can construct a concrete instance of `PipelineTypeEnumInput` via:
+//
+//          PipelineTypeEnumArgs{...}
+type PipelineTypeEnumInput interface {
+	pulumi.Input
+
+	ToPipelineTypeEnumOutput() PipelineTypeEnumOutput
+	ToPipelineTypeEnumOutputWithContext(context.Context) PipelineTypeEnumOutput
+}
+
+var pipelineTypeEnumPtrType = reflect.TypeOf((**PipelineTypeEnum)(nil)).Elem()
+
+type PipelineTypeEnumPtrInput interface {
+	pulumi.Input
+
+	ToPipelineTypeEnumPtrOutput() PipelineTypeEnumPtrOutput
+	ToPipelineTypeEnumPtrOutputWithContext(context.Context) PipelineTypeEnumPtrOutput
+}
+
+type pipelineTypeEnumPtr string
+
+func PipelineTypeEnumPtr(v string) PipelineTypeEnumPtrInput {
+	return (*pipelineTypeEnumPtr)(&v)
+}
+
+func (*pipelineTypeEnumPtr) ElementType() reflect.Type {
+	return pipelineTypeEnumPtrType
+}
+
+func (in *pipelineTypeEnumPtr) ToPipelineTypeEnumPtrOutput() PipelineTypeEnumPtrOutput {
+	return pulumi.ToOutput(in).(PipelineTypeEnumPtrOutput)
+}
+
+func (in *pipelineTypeEnumPtr) ToPipelineTypeEnumPtrOutputWithContext(ctx context.Context) PipelineTypeEnumPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(PipelineTypeEnumPtrOutput)
+}
+
+func init() {
+	pulumi.RegisterOutputType(AuthorizationTypeOutput{})
+	pulumi.RegisterOutputType(AuthorizationTypePtrOutput{})
+	pulumi.RegisterOutputType(CodeRepositoryTypeOutput{})
+	pulumi.RegisterOutputType(CodeRepositoryTypePtrOutput{})
+	pulumi.RegisterOutputType(PipelineTypeEnumOutput{})
+	pulumi.RegisterOutputType(PipelineTypeEnumPtrOutput{})
 }

@@ -7,7 +7,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Response of a list VM Host Update Operation.
 func ListSubAccountVMHosts(ctx *pulumi.Context, args *ListSubAccountVMHostsArgs, opts ...pulumi.InvokeOption) (*ListSubAccountVMHostsResult, error) {
 	var rv ListSubAccountVMHostsResult
 	err := ctx.Invoke("azure-native:logz/v20201001preview:listSubAccountVMHosts", args, &rv, opts...)
@@ -18,18 +17,13 @@ func ListSubAccountVMHosts(ctx *pulumi.Context, args *ListSubAccountVMHostsArgs,
 }
 
 type ListSubAccountVMHostsArgs struct {
-	// Monitor resource name
-	MonitorName string `pulumi:"monitorName"`
-	// The name of the resource group. The name is case insensitive.
+	MonitorName       string `pulumi:"monitorName"`
 	ResourceGroupName string `pulumi:"resourceGroupName"`
-	// Sub Account resource name
-	SubAccountName string `pulumi:"subAccountName"`
+	SubAccountName    string `pulumi:"subAccountName"`
 }
 
 // Response of a list VM Host Update Operation.
 type ListSubAccountVMHostsResult struct {
-	// Link to the next set of results, if any.
-	NextLink *string `pulumi:"nextLink"`
-	// Response of a list vm host update operation.
-	Value []VMResourcesResponse `pulumi:"value"`
+	NextLink *string               `pulumi:"nextLink"`
+	Value    []VMResourcesResponse `pulumi:"value"`
 }

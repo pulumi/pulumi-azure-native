@@ -7,7 +7,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Settings with single toggle.
 func LookupAnomalies(ctx *pulumi.Context, args *LookupAnomaliesArgs, opts ...pulumi.InvokeOption) (*LookupAnomaliesResult, error) {
 	var rv LookupAnomaliesResult
 	err := ctx.Invoke("azure-native:securityinsights/v20190101preview:getAnomalies", args, &rv, opts...)
@@ -18,28 +17,18 @@ func LookupAnomalies(ctx *pulumi.Context, args *LookupAnomaliesArgs, opts ...pul
 }
 
 type LookupAnomaliesArgs struct {
-	// The namespace of workspaces resource provider- Microsoft.OperationalInsights.
 	OperationalInsightsResourceProvider string `pulumi:"operationalInsightsResourceProvider"`
-	// The name of the resource group within the user's subscription. The name is case insensitive.
-	ResourceGroupName string `pulumi:"resourceGroupName"`
-	// The setting name. Supports - Anomalies, EyesOn, EntityAnalytics, Ueba
-	SettingsName string `pulumi:"settingsName"`
-	// The name of the workspace.
-	WorkspaceName string `pulumi:"workspaceName"`
+	ResourceGroupName                   string `pulumi:"resourceGroupName"`
+	SettingsName                        string `pulumi:"settingsName"`
+	WorkspaceName                       string `pulumi:"workspaceName"`
 }
 
 // Settings with single toggle.
 type LookupAnomaliesResult struct {
-	// Etag of the azure resource
-	Etag *string `pulumi:"etag"`
-	// Azure resource Id
-	Id string `pulumi:"id"`
-	// Determines whether the setting is enable or disabled.
-	IsEnabled bool `pulumi:"isEnabled"`
-	// Expected value is 'Anomalies'.
-	Kind string `pulumi:"kind"`
-	// Azure resource name
-	Name string `pulumi:"name"`
-	// Azure resource type
-	Type string `pulumi:"type"`
+	Etag      *string `pulumi:"etag"`
+	Id        string  `pulumi:"id"`
+	IsEnabled bool    `pulumi:"isEnabled"`
+	Kind      string  `pulumi:"kind"`
+	Name      string  `pulumi:"name"`
+	Type      string  `pulumi:"type"`
 }

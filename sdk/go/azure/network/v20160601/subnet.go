@@ -11,26 +11,17 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Subnet in a VirtualNetwork resource
 type Subnet struct {
 	pulumi.CustomResourceState
 
-	// Gets or sets Address prefix for the subnet.
-	AddressPrefix pulumi.StringPtrOutput `pulumi:"addressPrefix"`
-	// A unique read-only string that changes whenever the resource is updated
-	Etag pulumi.StringPtrOutput `pulumi:"etag"`
-	// Gets array of references to the network interface IP configurations using subnet
-	IpConfigurations IPConfigurationResponseArrayOutput `pulumi:"ipConfigurations"`
-	// Gets or sets the name of the resource that is unique within a resource group. This name can be used to access the resource
-	Name pulumi.StringPtrOutput `pulumi:"name"`
-	// Gets or sets the reference of the NetworkSecurityGroup resource
-	NetworkSecurityGroup NetworkSecurityGroupResponsePtrOutput `pulumi:"networkSecurityGroup"`
-	// Gets provisioning state of the resource
-	ProvisioningState pulumi.StringPtrOutput `pulumi:"provisioningState"`
-	// Gets array of references to the external resources using subnet
+	AddressPrefix           pulumi.StringPtrOutput                    `pulumi:"addressPrefix"`
+	Etag                    pulumi.StringPtrOutput                    `pulumi:"etag"`
+	IpConfigurations        IPConfigurationResponseArrayOutput        `pulumi:"ipConfigurations"`
+	Name                    pulumi.StringPtrOutput                    `pulumi:"name"`
+	NetworkSecurityGroup    NetworkSecurityGroupResponsePtrOutput     `pulumi:"networkSecurityGroup"`
+	ProvisioningState       pulumi.StringPtrOutput                    `pulumi:"provisioningState"`
 	ResourceNavigationLinks ResourceNavigationLinkResponseArrayOutput `pulumi:"resourceNavigationLinks"`
-	// Gets or sets the reference of the RouteTable resource
-	RouteTable RouteTableResponsePtrOutput `pulumi:"routeTable"`
+	RouteTable              RouteTableResponsePtrOutput               `pulumi:"routeTable"`
 }
 
 // NewSubnet registers a new resource with the given unique name, arguments, and options.
@@ -312,54 +303,32 @@ func (SubnetState) ElementType() reflect.Type {
 }
 
 type subnetArgs struct {
-	// Gets or sets Address prefix for the subnet.
-	AddressPrefix *string `pulumi:"addressPrefix"`
-	// A unique read-only string that changes whenever the resource is updated
-	Etag *string `pulumi:"etag"`
-	// Resource Id
-	Id *string `pulumi:"id"`
-	// Gets or sets the name of the resource that is unique within a resource group. This name can be used to access the resource
-	Name *string `pulumi:"name"`
-	// Gets or sets the reference of the NetworkSecurityGroup resource
-	NetworkSecurityGroup *NetworkSecurityGroupType `pulumi:"networkSecurityGroup"`
-	// Gets provisioning state of the resource
-	ProvisioningState *string `pulumi:"provisioningState"`
-	// The name of the resource group.
-	ResourceGroupName string `pulumi:"resourceGroupName"`
-	// Gets array of references to the external resources using subnet
-	ResourceNavigationLinks []ResourceNavigationLink `pulumi:"resourceNavigationLinks"`
-	// Gets or sets the reference of the RouteTable resource
-	RouteTable *RouteTableType `pulumi:"routeTable"`
-	// The name of the subnet.
-	SubnetName *string `pulumi:"subnetName"`
-	// The name of the virtual network.
-	VirtualNetworkName string `pulumi:"virtualNetworkName"`
+	AddressPrefix           *string                   `pulumi:"addressPrefix"`
+	Etag                    *string                   `pulumi:"etag"`
+	Id                      *string                   `pulumi:"id"`
+	Name                    *string                   `pulumi:"name"`
+	NetworkSecurityGroup    *NetworkSecurityGroupType `pulumi:"networkSecurityGroup"`
+	ProvisioningState       *string                   `pulumi:"provisioningState"`
+	ResourceGroupName       string                    `pulumi:"resourceGroupName"`
+	ResourceNavigationLinks []ResourceNavigationLink  `pulumi:"resourceNavigationLinks"`
+	RouteTable              *RouteTableType           `pulumi:"routeTable"`
+	SubnetName              *string                   `pulumi:"subnetName"`
+	VirtualNetworkName      string                    `pulumi:"virtualNetworkName"`
 }
 
 // The set of arguments for constructing a Subnet resource.
 type SubnetArgs struct {
-	// Gets or sets Address prefix for the subnet.
-	AddressPrefix pulumi.StringPtrInput
-	// A unique read-only string that changes whenever the resource is updated
-	Etag pulumi.StringPtrInput
-	// Resource Id
-	Id pulumi.StringPtrInput
-	// Gets or sets the name of the resource that is unique within a resource group. This name can be used to access the resource
-	Name pulumi.StringPtrInput
-	// Gets or sets the reference of the NetworkSecurityGroup resource
-	NetworkSecurityGroup NetworkSecurityGroupTypePtrInput
-	// Gets provisioning state of the resource
-	ProvisioningState pulumi.StringPtrInput
-	// The name of the resource group.
-	ResourceGroupName pulumi.StringInput
-	// Gets array of references to the external resources using subnet
+	AddressPrefix           pulumi.StringPtrInput
+	Etag                    pulumi.StringPtrInput
+	Id                      pulumi.StringPtrInput
+	Name                    pulumi.StringPtrInput
+	NetworkSecurityGroup    NetworkSecurityGroupTypePtrInput
+	ProvisioningState       pulumi.StringPtrInput
+	ResourceGroupName       pulumi.StringInput
 	ResourceNavigationLinks ResourceNavigationLinkArrayInput
-	// Gets or sets the reference of the RouteTable resource
-	RouteTable RouteTableTypePtrInput
-	// The name of the subnet.
-	SubnetName pulumi.StringPtrInput
-	// The name of the virtual network.
-	VirtualNetworkName pulumi.StringInput
+	RouteTable              RouteTableTypePtrInput
+	SubnetName              pulumi.StringPtrInput
+	VirtualNetworkName      pulumi.StringInput
 }
 
 func (SubnetArgs) ElementType() reflect.Type {
@@ -385,9 +354,7 @@ func (i *Subnet) ToSubnetOutputWithContext(ctx context.Context) SubnetOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(SubnetOutput)
 }
 
-type SubnetOutput struct {
-	*pulumi.OutputState
-}
+type SubnetOutput struct{ *pulumi.OutputState }
 
 func (SubnetOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*Subnet)(nil))

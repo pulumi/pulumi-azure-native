@@ -7,7 +7,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Response to get user settings
 func LookupUserSettings(ctx *pulumi.Context, args *LookupUserSettingsArgs, opts ...pulumi.InvokeOption) (*LookupUserSettingsResult, error) {
 	var rv LookupUserSettingsResult
 	err := ctx.Invoke("azure-native:portal/v20181001:getUserSettings", args, &rv, opts...)
@@ -18,12 +17,10 @@ func LookupUserSettings(ctx *pulumi.Context, args *LookupUserSettingsArgs, opts 
 }
 
 type LookupUserSettingsArgs struct {
-	// The name of the user settings
 	UserSettingsName string `pulumi:"userSettingsName"`
 }
 
 // Response to get user settings
 type LookupUserSettingsResult struct {
-	// The cloud shell user settings properties.
 	Properties UserPropertiesResponse `pulumi:"properties"`
 }

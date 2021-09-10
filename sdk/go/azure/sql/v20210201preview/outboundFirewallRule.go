@@ -11,16 +11,12 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// An Azure SQL DB Server Outbound Firewall Rule.
 type OutboundFirewallRule struct {
 	pulumi.CustomResourceState
 
-	// Resource name.
-	Name pulumi.StringOutput `pulumi:"name"`
-	// The state of the outbound rule.
+	Name              pulumi.StringOutput `pulumi:"name"`
 	ProvisioningState pulumi.StringOutput `pulumi:"provisioningState"`
-	// Resource type.
-	Type pulumi.StringOutput `pulumi:"type"`
+	Type              pulumi.StringOutput `pulumi:"type"`
 }
 
 // NewOutboundFirewallRule registers a new resource with the given unique name, arguments, and options.
@@ -80,20 +76,16 @@ func (OutboundFirewallRuleState) ElementType() reflect.Type {
 }
 
 type outboundFirewallRuleArgs struct {
-	OutboundRuleFqdn *string `pulumi:"outboundRuleFqdn"`
-	// The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
-	ResourceGroupName string `pulumi:"resourceGroupName"`
-	// The name of the server.
-	ServerName string `pulumi:"serverName"`
+	OutboundRuleFqdn  *string `pulumi:"outboundRuleFqdn"`
+	ResourceGroupName string  `pulumi:"resourceGroupName"`
+	ServerName        string  `pulumi:"serverName"`
 }
 
 // The set of arguments for constructing a OutboundFirewallRule resource.
 type OutboundFirewallRuleArgs struct {
-	OutboundRuleFqdn pulumi.StringPtrInput
-	// The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
+	OutboundRuleFqdn  pulumi.StringPtrInput
 	ResourceGroupName pulumi.StringInput
-	// The name of the server.
-	ServerName pulumi.StringInput
+	ServerName        pulumi.StringInput
 }
 
 func (OutboundFirewallRuleArgs) ElementType() reflect.Type {
@@ -119,9 +111,7 @@ func (i *OutboundFirewallRule) ToOutboundFirewallRuleOutputWithContext(ctx conte
 	return pulumi.ToOutputWithContext(ctx, i).(OutboundFirewallRuleOutput)
 }
 
-type OutboundFirewallRuleOutput struct {
-	*pulumi.OutputState
-}
+type OutboundFirewallRuleOutput struct{ *pulumi.OutputState }
 
 func (OutboundFirewallRuleOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*OutboundFirewallRule)(nil))

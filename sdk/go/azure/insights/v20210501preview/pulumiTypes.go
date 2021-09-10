@@ -10,15 +10,10 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Part of MultiTenantDiagnosticSettings. Specifies the settings for a particular log.
 type LogSettings struct {
-	// Name of a Diagnostic Log category for a resource type this setting is applied to. To obtain the list of Diagnostic Log categories for a resource, first perform a GET diagnostic settings operation.
-	Category *string `pulumi:"category"`
-	// Name of a Diagnostic Log category group for a resource type this setting is applied to. To obtain the list of Diagnostic Log categories for a resource, first perform a GET diagnostic settings operation.
-	CategoryGroup *string `pulumi:"categoryGroup"`
-	// a value indicating whether this log is enabled.
-	Enabled bool `pulumi:"enabled"`
-	// the retention policy for this log.
+	Category        *string          `pulumi:"category"`
+	CategoryGroup   *string          `pulumi:"categoryGroup"`
+	Enabled         bool             `pulumi:"enabled"`
 	RetentionPolicy *RetentionPolicy `pulumi:"retentionPolicy"`
 }
 
@@ -33,15 +28,10 @@ type LogSettingsInput interface {
 	ToLogSettingsOutputWithContext(context.Context) LogSettingsOutput
 }
 
-// Part of MultiTenantDiagnosticSettings. Specifies the settings for a particular log.
 type LogSettingsArgs struct {
-	// Name of a Diagnostic Log category for a resource type this setting is applied to. To obtain the list of Diagnostic Log categories for a resource, first perform a GET diagnostic settings operation.
-	Category pulumi.StringPtrInput `pulumi:"category"`
-	// Name of a Diagnostic Log category group for a resource type this setting is applied to. To obtain the list of Diagnostic Log categories for a resource, first perform a GET diagnostic settings operation.
-	CategoryGroup pulumi.StringPtrInput `pulumi:"categoryGroup"`
-	// a value indicating whether this log is enabled.
-	Enabled pulumi.BoolInput `pulumi:"enabled"`
-	// the retention policy for this log.
+	Category        pulumi.StringPtrInput   `pulumi:"category"`
+	CategoryGroup   pulumi.StringPtrInput   `pulumi:"categoryGroup"`
+	Enabled         pulumi.BoolInput        `pulumi:"enabled"`
 	RetentionPolicy RetentionPolicyPtrInput `pulumi:"retentionPolicy"`
 }
 
@@ -82,7 +72,6 @@ func (i LogSettingsArray) ToLogSettingsArrayOutputWithContext(ctx context.Contex
 	return pulumi.ToOutputWithContext(ctx, i).(LogSettingsArrayOutput)
 }
 
-// Part of MultiTenantDiagnosticSettings. Specifies the settings for a particular log.
 type LogSettingsOutput struct{ *pulumi.OutputState }
 
 func (LogSettingsOutput) ElementType() reflect.Type {
@@ -97,22 +86,18 @@ func (o LogSettingsOutput) ToLogSettingsOutputWithContext(ctx context.Context) L
 	return o
 }
 
-// Name of a Diagnostic Log category for a resource type this setting is applied to. To obtain the list of Diagnostic Log categories for a resource, first perform a GET diagnostic settings operation.
 func (o LogSettingsOutput) Category() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LogSettings) *string { return v.Category }).(pulumi.StringPtrOutput)
 }
 
-// Name of a Diagnostic Log category group for a resource type this setting is applied to. To obtain the list of Diagnostic Log categories for a resource, first perform a GET diagnostic settings operation.
 func (o LogSettingsOutput) CategoryGroup() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LogSettings) *string { return v.CategoryGroup }).(pulumi.StringPtrOutput)
 }
 
-// a value indicating whether this log is enabled.
 func (o LogSettingsOutput) Enabled() pulumi.BoolOutput {
 	return o.ApplyT(func(v LogSettings) bool { return v.Enabled }).(pulumi.BoolOutput)
 }
 
-// the retention policy for this log.
 func (o LogSettingsOutput) RetentionPolicy() RetentionPolicyPtrOutput {
 	return o.ApplyT(func(v LogSettings) *RetentionPolicy { return v.RetentionPolicy }).(RetentionPolicyPtrOutput)
 }
@@ -137,15 +122,10 @@ func (o LogSettingsArrayOutput) Index(i pulumi.IntInput) LogSettingsOutput {
 	}).(LogSettingsOutput)
 }
 
-// Part of MultiTenantDiagnosticSettings. Specifies the settings for a particular log.
 type LogSettingsResponse struct {
-	// Name of a Diagnostic Log category for a resource type this setting is applied to. To obtain the list of Diagnostic Log categories for a resource, first perform a GET diagnostic settings operation.
-	Category *string `pulumi:"category"`
-	// Name of a Diagnostic Log category group for a resource type this setting is applied to. To obtain the list of Diagnostic Log categories for a resource, first perform a GET diagnostic settings operation.
-	CategoryGroup *string `pulumi:"categoryGroup"`
-	// a value indicating whether this log is enabled.
-	Enabled bool `pulumi:"enabled"`
-	// the retention policy for this log.
+	Category        *string                  `pulumi:"category"`
+	CategoryGroup   *string                  `pulumi:"categoryGroup"`
+	Enabled         bool                     `pulumi:"enabled"`
 	RetentionPolicy *RetentionPolicyResponse `pulumi:"retentionPolicy"`
 }
 
@@ -160,15 +140,10 @@ type LogSettingsResponseInput interface {
 	ToLogSettingsResponseOutputWithContext(context.Context) LogSettingsResponseOutput
 }
 
-// Part of MultiTenantDiagnosticSettings. Specifies the settings for a particular log.
 type LogSettingsResponseArgs struct {
-	// Name of a Diagnostic Log category for a resource type this setting is applied to. To obtain the list of Diagnostic Log categories for a resource, first perform a GET diagnostic settings operation.
-	Category pulumi.StringPtrInput `pulumi:"category"`
-	// Name of a Diagnostic Log category group for a resource type this setting is applied to. To obtain the list of Diagnostic Log categories for a resource, first perform a GET diagnostic settings operation.
-	CategoryGroup pulumi.StringPtrInput `pulumi:"categoryGroup"`
-	// a value indicating whether this log is enabled.
-	Enabled pulumi.BoolInput `pulumi:"enabled"`
-	// the retention policy for this log.
+	Category        pulumi.StringPtrInput           `pulumi:"category"`
+	CategoryGroup   pulumi.StringPtrInput           `pulumi:"categoryGroup"`
+	Enabled         pulumi.BoolInput                `pulumi:"enabled"`
 	RetentionPolicy RetentionPolicyResponsePtrInput `pulumi:"retentionPolicy"`
 }
 
@@ -209,7 +184,6 @@ func (i LogSettingsResponseArray) ToLogSettingsResponseArrayOutputWithContext(ct
 	return pulumi.ToOutputWithContext(ctx, i).(LogSettingsResponseArrayOutput)
 }
 
-// Part of MultiTenantDiagnosticSettings. Specifies the settings for a particular log.
 type LogSettingsResponseOutput struct{ *pulumi.OutputState }
 
 func (LogSettingsResponseOutput) ElementType() reflect.Type {
@@ -224,22 +198,18 @@ func (o LogSettingsResponseOutput) ToLogSettingsResponseOutputWithContext(ctx co
 	return o
 }
 
-// Name of a Diagnostic Log category for a resource type this setting is applied to. To obtain the list of Diagnostic Log categories for a resource, first perform a GET diagnostic settings operation.
 func (o LogSettingsResponseOutput) Category() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LogSettingsResponse) *string { return v.Category }).(pulumi.StringPtrOutput)
 }
 
-// Name of a Diagnostic Log category group for a resource type this setting is applied to. To obtain the list of Diagnostic Log categories for a resource, first perform a GET diagnostic settings operation.
 func (o LogSettingsResponseOutput) CategoryGroup() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LogSettingsResponse) *string { return v.CategoryGroup }).(pulumi.StringPtrOutput)
 }
 
-// a value indicating whether this log is enabled.
 func (o LogSettingsResponseOutput) Enabled() pulumi.BoolOutput {
 	return o.ApplyT(func(v LogSettingsResponse) bool { return v.Enabled }).(pulumi.BoolOutput)
 }
 
-// the retention policy for this log.
 func (o LogSettingsResponseOutput) RetentionPolicy() RetentionPolicyResponsePtrOutput {
 	return o.ApplyT(func(v LogSettingsResponse) *RetentionPolicyResponse { return v.RetentionPolicy }).(RetentionPolicyResponsePtrOutput)
 }
@@ -264,14 +234,10 @@ func (o LogSettingsResponseArrayOutput) Index(i pulumi.IntInput) LogSettingsResp
 	}).(LogSettingsResponseOutput)
 }
 
-// Part of Management Group diagnostic setting. Specifies the settings for a particular log.
 type ManagementGroupLogSettings struct {
-	// Name of a Management Group Diagnostic Log category for a resource type this setting is applied to.
-	Category *string `pulumi:"category"`
-	// Name of a Management Group Diagnostic Log category group for a resource type this setting is applied to.
+	Category      *string `pulumi:"category"`
 	CategoryGroup *string `pulumi:"categoryGroup"`
-	// a value indicating whether this log is enabled.
-	Enabled bool `pulumi:"enabled"`
+	Enabled       bool    `pulumi:"enabled"`
 }
 
 // ManagementGroupLogSettingsInput is an input type that accepts ManagementGroupLogSettingsArgs and ManagementGroupLogSettingsOutput values.
@@ -285,14 +251,10 @@ type ManagementGroupLogSettingsInput interface {
 	ToManagementGroupLogSettingsOutputWithContext(context.Context) ManagementGroupLogSettingsOutput
 }
 
-// Part of Management Group diagnostic setting. Specifies the settings for a particular log.
 type ManagementGroupLogSettingsArgs struct {
-	// Name of a Management Group Diagnostic Log category for a resource type this setting is applied to.
-	Category pulumi.StringPtrInput `pulumi:"category"`
-	// Name of a Management Group Diagnostic Log category group for a resource type this setting is applied to.
+	Category      pulumi.StringPtrInput `pulumi:"category"`
 	CategoryGroup pulumi.StringPtrInput `pulumi:"categoryGroup"`
-	// a value indicating whether this log is enabled.
-	Enabled pulumi.BoolInput `pulumi:"enabled"`
+	Enabled       pulumi.BoolInput      `pulumi:"enabled"`
 }
 
 func (ManagementGroupLogSettingsArgs) ElementType() reflect.Type {
@@ -332,7 +294,6 @@ func (i ManagementGroupLogSettingsArray) ToManagementGroupLogSettingsArrayOutput
 	return pulumi.ToOutputWithContext(ctx, i).(ManagementGroupLogSettingsArrayOutput)
 }
 
-// Part of Management Group diagnostic setting. Specifies the settings for a particular log.
 type ManagementGroupLogSettingsOutput struct{ *pulumi.OutputState }
 
 func (ManagementGroupLogSettingsOutput) ElementType() reflect.Type {
@@ -347,17 +308,14 @@ func (o ManagementGroupLogSettingsOutput) ToManagementGroupLogSettingsOutputWith
 	return o
 }
 
-// Name of a Management Group Diagnostic Log category for a resource type this setting is applied to.
 func (o ManagementGroupLogSettingsOutput) Category() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ManagementGroupLogSettings) *string { return v.Category }).(pulumi.StringPtrOutput)
 }
 
-// Name of a Management Group Diagnostic Log category group for a resource type this setting is applied to.
 func (o ManagementGroupLogSettingsOutput) CategoryGroup() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ManagementGroupLogSettings) *string { return v.CategoryGroup }).(pulumi.StringPtrOutput)
 }
 
-// a value indicating whether this log is enabled.
 func (o ManagementGroupLogSettingsOutput) Enabled() pulumi.BoolOutput {
 	return o.ApplyT(func(v ManagementGroupLogSettings) bool { return v.Enabled }).(pulumi.BoolOutput)
 }
@@ -382,14 +340,10 @@ func (o ManagementGroupLogSettingsArrayOutput) Index(i pulumi.IntInput) Manageme
 	}).(ManagementGroupLogSettingsOutput)
 }
 
-// Part of Management Group diagnostic setting. Specifies the settings for a particular log.
 type ManagementGroupLogSettingsResponse struct {
-	// Name of a Management Group Diagnostic Log category for a resource type this setting is applied to.
-	Category *string `pulumi:"category"`
-	// Name of a Management Group Diagnostic Log category group for a resource type this setting is applied to.
+	Category      *string `pulumi:"category"`
 	CategoryGroup *string `pulumi:"categoryGroup"`
-	// a value indicating whether this log is enabled.
-	Enabled bool `pulumi:"enabled"`
+	Enabled       bool    `pulumi:"enabled"`
 }
 
 // ManagementGroupLogSettingsResponseInput is an input type that accepts ManagementGroupLogSettingsResponseArgs and ManagementGroupLogSettingsResponseOutput values.
@@ -403,14 +357,10 @@ type ManagementGroupLogSettingsResponseInput interface {
 	ToManagementGroupLogSettingsResponseOutputWithContext(context.Context) ManagementGroupLogSettingsResponseOutput
 }
 
-// Part of Management Group diagnostic setting. Specifies the settings for a particular log.
 type ManagementGroupLogSettingsResponseArgs struct {
-	// Name of a Management Group Diagnostic Log category for a resource type this setting is applied to.
-	Category pulumi.StringPtrInput `pulumi:"category"`
-	// Name of a Management Group Diagnostic Log category group for a resource type this setting is applied to.
+	Category      pulumi.StringPtrInput `pulumi:"category"`
 	CategoryGroup pulumi.StringPtrInput `pulumi:"categoryGroup"`
-	// a value indicating whether this log is enabled.
-	Enabled pulumi.BoolInput `pulumi:"enabled"`
+	Enabled       pulumi.BoolInput      `pulumi:"enabled"`
 }
 
 func (ManagementGroupLogSettingsResponseArgs) ElementType() reflect.Type {
@@ -450,7 +400,6 @@ func (i ManagementGroupLogSettingsResponseArray) ToManagementGroupLogSettingsRes
 	return pulumi.ToOutputWithContext(ctx, i).(ManagementGroupLogSettingsResponseArrayOutput)
 }
 
-// Part of Management Group diagnostic setting. Specifies the settings for a particular log.
 type ManagementGroupLogSettingsResponseOutput struct{ *pulumi.OutputState }
 
 func (ManagementGroupLogSettingsResponseOutput) ElementType() reflect.Type {
@@ -465,17 +414,14 @@ func (o ManagementGroupLogSettingsResponseOutput) ToManagementGroupLogSettingsRe
 	return o
 }
 
-// Name of a Management Group Diagnostic Log category for a resource type this setting is applied to.
 func (o ManagementGroupLogSettingsResponseOutput) Category() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ManagementGroupLogSettingsResponse) *string { return v.Category }).(pulumi.StringPtrOutput)
 }
 
-// Name of a Management Group Diagnostic Log category group for a resource type this setting is applied to.
 func (o ManagementGroupLogSettingsResponseOutput) CategoryGroup() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ManagementGroupLogSettingsResponse) *string { return v.CategoryGroup }).(pulumi.StringPtrOutput)
 }
 
-// a value indicating whether this log is enabled.
 func (o ManagementGroupLogSettingsResponseOutput) Enabled() pulumi.BoolOutput {
 	return o.ApplyT(func(v ManagementGroupLogSettingsResponse) bool { return v.Enabled }).(pulumi.BoolOutput)
 }
@@ -500,16 +446,11 @@ func (o ManagementGroupLogSettingsResponseArrayOutput) Index(i pulumi.IntInput) 
 	}).(ManagementGroupLogSettingsResponseOutput)
 }
 
-// Part of MultiTenantDiagnosticSettings. Specifies the settings for a particular metric.
 type MetricSettings struct {
-	// Name of a Diagnostic Metric category for a resource type this setting is applied to. To obtain the list of Diagnostic metric categories for a resource, first perform a GET diagnostic settings operation.
-	Category *string `pulumi:"category"`
-	// a value indicating whether this category is enabled.
-	Enabled bool `pulumi:"enabled"`
-	// the retention policy for this category.
+	Category        *string          `pulumi:"category"`
+	Enabled         bool             `pulumi:"enabled"`
 	RetentionPolicy *RetentionPolicy `pulumi:"retentionPolicy"`
-	// the timegrain of the metric in ISO8601 format.
-	TimeGrain *string `pulumi:"timeGrain"`
+	TimeGrain       *string          `pulumi:"timeGrain"`
 }
 
 // MetricSettingsInput is an input type that accepts MetricSettingsArgs and MetricSettingsOutput values.
@@ -523,16 +464,11 @@ type MetricSettingsInput interface {
 	ToMetricSettingsOutputWithContext(context.Context) MetricSettingsOutput
 }
 
-// Part of MultiTenantDiagnosticSettings. Specifies the settings for a particular metric.
 type MetricSettingsArgs struct {
-	// Name of a Diagnostic Metric category for a resource type this setting is applied to. To obtain the list of Diagnostic metric categories for a resource, first perform a GET diagnostic settings operation.
-	Category pulumi.StringPtrInput `pulumi:"category"`
-	// a value indicating whether this category is enabled.
-	Enabled pulumi.BoolInput `pulumi:"enabled"`
-	// the retention policy for this category.
+	Category        pulumi.StringPtrInput   `pulumi:"category"`
+	Enabled         pulumi.BoolInput        `pulumi:"enabled"`
 	RetentionPolicy RetentionPolicyPtrInput `pulumi:"retentionPolicy"`
-	// the timegrain of the metric in ISO8601 format.
-	TimeGrain pulumi.StringPtrInput `pulumi:"timeGrain"`
+	TimeGrain       pulumi.StringPtrInput   `pulumi:"timeGrain"`
 }
 
 func (MetricSettingsArgs) ElementType() reflect.Type {
@@ -572,7 +508,6 @@ func (i MetricSettingsArray) ToMetricSettingsArrayOutputWithContext(ctx context.
 	return pulumi.ToOutputWithContext(ctx, i).(MetricSettingsArrayOutput)
 }
 
-// Part of MultiTenantDiagnosticSettings. Specifies the settings for a particular metric.
 type MetricSettingsOutput struct{ *pulumi.OutputState }
 
 func (MetricSettingsOutput) ElementType() reflect.Type {
@@ -587,22 +522,18 @@ func (o MetricSettingsOutput) ToMetricSettingsOutputWithContext(ctx context.Cont
 	return o
 }
 
-// Name of a Diagnostic Metric category for a resource type this setting is applied to. To obtain the list of Diagnostic metric categories for a resource, first perform a GET diagnostic settings operation.
 func (o MetricSettingsOutput) Category() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v MetricSettings) *string { return v.Category }).(pulumi.StringPtrOutput)
 }
 
-// a value indicating whether this category is enabled.
 func (o MetricSettingsOutput) Enabled() pulumi.BoolOutput {
 	return o.ApplyT(func(v MetricSettings) bool { return v.Enabled }).(pulumi.BoolOutput)
 }
 
-// the retention policy for this category.
 func (o MetricSettingsOutput) RetentionPolicy() RetentionPolicyPtrOutput {
 	return o.ApplyT(func(v MetricSettings) *RetentionPolicy { return v.RetentionPolicy }).(RetentionPolicyPtrOutput)
 }
 
-// the timegrain of the metric in ISO8601 format.
 func (o MetricSettingsOutput) TimeGrain() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v MetricSettings) *string { return v.TimeGrain }).(pulumi.StringPtrOutput)
 }
@@ -627,16 +558,11 @@ func (o MetricSettingsArrayOutput) Index(i pulumi.IntInput) MetricSettingsOutput
 	}).(MetricSettingsOutput)
 }
 
-// Part of MultiTenantDiagnosticSettings. Specifies the settings for a particular metric.
 type MetricSettingsResponse struct {
-	// Name of a Diagnostic Metric category for a resource type this setting is applied to. To obtain the list of Diagnostic metric categories for a resource, first perform a GET diagnostic settings operation.
-	Category *string `pulumi:"category"`
-	// a value indicating whether this category is enabled.
-	Enabled bool `pulumi:"enabled"`
-	// the retention policy for this category.
+	Category        *string                  `pulumi:"category"`
+	Enabled         bool                     `pulumi:"enabled"`
 	RetentionPolicy *RetentionPolicyResponse `pulumi:"retentionPolicy"`
-	// the timegrain of the metric in ISO8601 format.
-	TimeGrain *string `pulumi:"timeGrain"`
+	TimeGrain       *string                  `pulumi:"timeGrain"`
 }
 
 // MetricSettingsResponseInput is an input type that accepts MetricSettingsResponseArgs and MetricSettingsResponseOutput values.
@@ -650,16 +576,11 @@ type MetricSettingsResponseInput interface {
 	ToMetricSettingsResponseOutputWithContext(context.Context) MetricSettingsResponseOutput
 }
 
-// Part of MultiTenantDiagnosticSettings. Specifies the settings for a particular metric.
 type MetricSettingsResponseArgs struct {
-	// Name of a Diagnostic Metric category for a resource type this setting is applied to. To obtain the list of Diagnostic metric categories for a resource, first perform a GET diagnostic settings operation.
-	Category pulumi.StringPtrInput `pulumi:"category"`
-	// a value indicating whether this category is enabled.
-	Enabled pulumi.BoolInput `pulumi:"enabled"`
-	// the retention policy for this category.
+	Category        pulumi.StringPtrInput           `pulumi:"category"`
+	Enabled         pulumi.BoolInput                `pulumi:"enabled"`
 	RetentionPolicy RetentionPolicyResponsePtrInput `pulumi:"retentionPolicy"`
-	// the timegrain of the metric in ISO8601 format.
-	TimeGrain pulumi.StringPtrInput `pulumi:"timeGrain"`
+	TimeGrain       pulumi.StringPtrInput           `pulumi:"timeGrain"`
 }
 
 func (MetricSettingsResponseArgs) ElementType() reflect.Type {
@@ -699,7 +620,6 @@ func (i MetricSettingsResponseArray) ToMetricSettingsResponseArrayOutputWithCont
 	return pulumi.ToOutputWithContext(ctx, i).(MetricSettingsResponseArrayOutput)
 }
 
-// Part of MultiTenantDiagnosticSettings. Specifies the settings for a particular metric.
 type MetricSettingsResponseOutput struct{ *pulumi.OutputState }
 
 func (MetricSettingsResponseOutput) ElementType() reflect.Type {
@@ -714,22 +634,18 @@ func (o MetricSettingsResponseOutput) ToMetricSettingsResponseOutputWithContext(
 	return o
 }
 
-// Name of a Diagnostic Metric category for a resource type this setting is applied to. To obtain the list of Diagnostic metric categories for a resource, first perform a GET diagnostic settings operation.
 func (o MetricSettingsResponseOutput) Category() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v MetricSettingsResponse) *string { return v.Category }).(pulumi.StringPtrOutput)
 }
 
-// a value indicating whether this category is enabled.
 func (o MetricSettingsResponseOutput) Enabled() pulumi.BoolOutput {
 	return o.ApplyT(func(v MetricSettingsResponse) bool { return v.Enabled }).(pulumi.BoolOutput)
 }
 
-// the retention policy for this category.
 func (o MetricSettingsResponseOutput) RetentionPolicy() RetentionPolicyResponsePtrOutput {
 	return o.ApplyT(func(v MetricSettingsResponse) *RetentionPolicyResponse { return v.RetentionPolicy }).(RetentionPolicyResponsePtrOutput)
 }
 
-// the timegrain of the metric in ISO8601 format.
 func (o MetricSettingsResponseOutput) TimeGrain() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v MetricSettingsResponse) *string { return v.TimeGrain }).(pulumi.StringPtrOutput)
 }
@@ -754,11 +670,8 @@ func (o MetricSettingsResponseArrayOutput) Index(i pulumi.IntInput) MetricSettin
 	}).(MetricSettingsResponseOutput)
 }
 
-// Specifies the retention policy for the log.
 type RetentionPolicy struct {
-	// the number of days for the retention in days. A value of 0 will retain the events indefinitely.
-	Days int `pulumi:"days"`
-	// a value indicating whether the retention policy is enabled.
+	Days    int  `pulumi:"days"`
 	Enabled bool `pulumi:"enabled"`
 }
 
@@ -773,11 +686,8 @@ type RetentionPolicyInput interface {
 	ToRetentionPolicyOutputWithContext(context.Context) RetentionPolicyOutput
 }
 
-// Specifies the retention policy for the log.
 type RetentionPolicyArgs struct {
-	// the number of days for the retention in days. A value of 0 will retain the events indefinitely.
-	Days pulumi.IntInput `pulumi:"days"`
-	// a value indicating whether the retention policy is enabled.
+	Days    pulumi.IntInput  `pulumi:"days"`
 	Enabled pulumi.BoolInput `pulumi:"enabled"`
 }
 
@@ -834,7 +744,6 @@ func (i *retentionPolicyPtrType) ToRetentionPolicyPtrOutputWithContext(ctx conte
 	return pulumi.ToOutputWithContext(ctx, i).(RetentionPolicyPtrOutput)
 }
 
-// Specifies the retention policy for the log.
 type RetentionPolicyOutput struct{ *pulumi.OutputState }
 
 func (RetentionPolicyOutput) ElementType() reflect.Type {
@@ -854,17 +763,15 @@ func (o RetentionPolicyOutput) ToRetentionPolicyPtrOutput() RetentionPolicyPtrOu
 }
 
 func (o RetentionPolicyOutput) ToRetentionPolicyPtrOutputWithContext(ctx context.Context) RetentionPolicyPtrOutput {
-	return o.ApplyT(func(v RetentionPolicy) *RetentionPolicy {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v RetentionPolicy) *RetentionPolicy {
 		return &v
 	}).(RetentionPolicyPtrOutput)
 }
 
-// the number of days for the retention in days. A value of 0 will retain the events indefinitely.
 func (o RetentionPolicyOutput) Days() pulumi.IntOutput {
 	return o.ApplyT(func(v RetentionPolicy) int { return v.Days }).(pulumi.IntOutput)
 }
 
-// a value indicating whether the retention policy is enabled.
 func (o RetentionPolicyOutput) Enabled() pulumi.BoolOutput {
 	return o.ApplyT(func(v RetentionPolicy) bool { return v.Enabled }).(pulumi.BoolOutput)
 }
@@ -884,10 +791,15 @@ func (o RetentionPolicyPtrOutput) ToRetentionPolicyPtrOutputWithContext(ctx cont
 }
 
 func (o RetentionPolicyPtrOutput) Elem() RetentionPolicyOutput {
-	return o.ApplyT(func(v *RetentionPolicy) RetentionPolicy { return *v }).(RetentionPolicyOutput)
+	return o.ApplyT(func(v *RetentionPolicy) RetentionPolicy {
+		if v != nil {
+			return *v
+		}
+		var ret RetentionPolicy
+		return ret
+	}).(RetentionPolicyOutput)
 }
 
-// the number of days for the retention in days. A value of 0 will retain the events indefinitely.
 func (o RetentionPolicyPtrOutput) Days() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *RetentionPolicy) *int {
 		if v == nil {
@@ -897,7 +809,6 @@ func (o RetentionPolicyPtrOutput) Days() pulumi.IntPtrOutput {
 	}).(pulumi.IntPtrOutput)
 }
 
-// a value indicating whether the retention policy is enabled.
 func (o RetentionPolicyPtrOutput) Enabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *RetentionPolicy) *bool {
 		if v == nil {
@@ -907,11 +818,8 @@ func (o RetentionPolicyPtrOutput) Enabled() pulumi.BoolPtrOutput {
 	}).(pulumi.BoolPtrOutput)
 }
 
-// Specifies the retention policy for the log.
 type RetentionPolicyResponse struct {
-	// the number of days for the retention in days. A value of 0 will retain the events indefinitely.
-	Days int `pulumi:"days"`
-	// a value indicating whether the retention policy is enabled.
+	Days    int  `pulumi:"days"`
 	Enabled bool `pulumi:"enabled"`
 }
 
@@ -926,11 +834,8 @@ type RetentionPolicyResponseInput interface {
 	ToRetentionPolicyResponseOutputWithContext(context.Context) RetentionPolicyResponseOutput
 }
 
-// Specifies the retention policy for the log.
 type RetentionPolicyResponseArgs struct {
-	// the number of days for the retention in days. A value of 0 will retain the events indefinitely.
-	Days pulumi.IntInput `pulumi:"days"`
-	// a value indicating whether the retention policy is enabled.
+	Days    pulumi.IntInput  `pulumi:"days"`
 	Enabled pulumi.BoolInput `pulumi:"enabled"`
 }
 
@@ -987,7 +892,6 @@ func (i *retentionPolicyResponsePtrType) ToRetentionPolicyResponsePtrOutputWithC
 	return pulumi.ToOutputWithContext(ctx, i).(RetentionPolicyResponsePtrOutput)
 }
 
-// Specifies the retention policy for the log.
 type RetentionPolicyResponseOutput struct{ *pulumi.OutputState }
 
 func (RetentionPolicyResponseOutput) ElementType() reflect.Type {
@@ -1007,17 +911,15 @@ func (o RetentionPolicyResponseOutput) ToRetentionPolicyResponsePtrOutput() Rete
 }
 
 func (o RetentionPolicyResponseOutput) ToRetentionPolicyResponsePtrOutputWithContext(ctx context.Context) RetentionPolicyResponsePtrOutput {
-	return o.ApplyT(func(v RetentionPolicyResponse) *RetentionPolicyResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v RetentionPolicyResponse) *RetentionPolicyResponse {
 		return &v
 	}).(RetentionPolicyResponsePtrOutput)
 }
 
-// the number of days for the retention in days. A value of 0 will retain the events indefinitely.
 func (o RetentionPolicyResponseOutput) Days() pulumi.IntOutput {
 	return o.ApplyT(func(v RetentionPolicyResponse) int { return v.Days }).(pulumi.IntOutput)
 }
 
-// a value indicating whether the retention policy is enabled.
 func (o RetentionPolicyResponseOutput) Enabled() pulumi.BoolOutput {
 	return o.ApplyT(func(v RetentionPolicyResponse) bool { return v.Enabled }).(pulumi.BoolOutput)
 }
@@ -1037,10 +939,15 @@ func (o RetentionPolicyResponsePtrOutput) ToRetentionPolicyResponsePtrOutputWith
 }
 
 func (o RetentionPolicyResponsePtrOutput) Elem() RetentionPolicyResponseOutput {
-	return o.ApplyT(func(v *RetentionPolicyResponse) RetentionPolicyResponse { return *v }).(RetentionPolicyResponseOutput)
+	return o.ApplyT(func(v *RetentionPolicyResponse) RetentionPolicyResponse {
+		if v != nil {
+			return *v
+		}
+		var ret RetentionPolicyResponse
+		return ret
+	}).(RetentionPolicyResponseOutput)
 }
 
-// the number of days for the retention in days. A value of 0 will retain the events indefinitely.
 func (o RetentionPolicyResponsePtrOutput) Days() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *RetentionPolicyResponse) *int {
 		if v == nil {
@@ -1050,7 +957,6 @@ func (o RetentionPolicyResponsePtrOutput) Days() pulumi.IntPtrOutput {
 	}).(pulumi.IntPtrOutput)
 }
 
-// a value indicating whether the retention policy is enabled.
 func (o RetentionPolicyResponsePtrOutput) Enabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *RetentionPolicyResponse) *bool {
 		if v == nil {
@@ -1060,14 +966,10 @@ func (o RetentionPolicyResponsePtrOutput) Enabled() pulumi.BoolPtrOutput {
 	}).(pulumi.BoolPtrOutput)
 }
 
-// Part of Subscription diagnostic setting. Specifies the settings for a particular log.
 type SubscriptionLogSettings struct {
-	// Name of a Subscription Diagnostic Log category for a resource type this setting is applied to.
-	Category *string `pulumi:"category"`
-	// Name of a Subscription Diagnostic Log category group for a resource type this setting is applied to.
+	Category      *string `pulumi:"category"`
 	CategoryGroup *string `pulumi:"categoryGroup"`
-	// a value indicating whether this log is enabled.
-	Enabled bool `pulumi:"enabled"`
+	Enabled       bool    `pulumi:"enabled"`
 }
 
 // SubscriptionLogSettingsInput is an input type that accepts SubscriptionLogSettingsArgs and SubscriptionLogSettingsOutput values.
@@ -1081,14 +983,10 @@ type SubscriptionLogSettingsInput interface {
 	ToSubscriptionLogSettingsOutputWithContext(context.Context) SubscriptionLogSettingsOutput
 }
 
-// Part of Subscription diagnostic setting. Specifies the settings for a particular log.
 type SubscriptionLogSettingsArgs struct {
-	// Name of a Subscription Diagnostic Log category for a resource type this setting is applied to.
-	Category pulumi.StringPtrInput `pulumi:"category"`
-	// Name of a Subscription Diagnostic Log category group for a resource type this setting is applied to.
+	Category      pulumi.StringPtrInput `pulumi:"category"`
 	CategoryGroup pulumi.StringPtrInput `pulumi:"categoryGroup"`
-	// a value indicating whether this log is enabled.
-	Enabled pulumi.BoolInput `pulumi:"enabled"`
+	Enabled       pulumi.BoolInput      `pulumi:"enabled"`
 }
 
 func (SubscriptionLogSettingsArgs) ElementType() reflect.Type {
@@ -1128,7 +1026,6 @@ func (i SubscriptionLogSettingsArray) ToSubscriptionLogSettingsArrayOutputWithCo
 	return pulumi.ToOutputWithContext(ctx, i).(SubscriptionLogSettingsArrayOutput)
 }
 
-// Part of Subscription diagnostic setting. Specifies the settings for a particular log.
 type SubscriptionLogSettingsOutput struct{ *pulumi.OutputState }
 
 func (SubscriptionLogSettingsOutput) ElementType() reflect.Type {
@@ -1143,17 +1040,14 @@ func (o SubscriptionLogSettingsOutput) ToSubscriptionLogSettingsOutputWithContex
 	return o
 }
 
-// Name of a Subscription Diagnostic Log category for a resource type this setting is applied to.
 func (o SubscriptionLogSettingsOutput) Category() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SubscriptionLogSettings) *string { return v.Category }).(pulumi.StringPtrOutput)
 }
 
-// Name of a Subscription Diagnostic Log category group for a resource type this setting is applied to.
 func (o SubscriptionLogSettingsOutput) CategoryGroup() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SubscriptionLogSettings) *string { return v.CategoryGroup }).(pulumi.StringPtrOutput)
 }
 
-// a value indicating whether this log is enabled.
 func (o SubscriptionLogSettingsOutput) Enabled() pulumi.BoolOutput {
 	return o.ApplyT(func(v SubscriptionLogSettings) bool { return v.Enabled }).(pulumi.BoolOutput)
 }
@@ -1178,14 +1072,10 @@ func (o SubscriptionLogSettingsArrayOutput) Index(i pulumi.IntInput) Subscriptio
 	}).(SubscriptionLogSettingsOutput)
 }
 
-// Part of Subscription diagnostic setting. Specifies the settings for a particular log.
 type SubscriptionLogSettingsResponse struct {
-	// Name of a Subscription Diagnostic Log category for a resource type this setting is applied to.
-	Category *string `pulumi:"category"`
-	// Name of a Subscription Diagnostic Log category group for a resource type this setting is applied to.
+	Category      *string `pulumi:"category"`
 	CategoryGroup *string `pulumi:"categoryGroup"`
-	// a value indicating whether this log is enabled.
-	Enabled bool `pulumi:"enabled"`
+	Enabled       bool    `pulumi:"enabled"`
 }
 
 // SubscriptionLogSettingsResponseInput is an input type that accepts SubscriptionLogSettingsResponseArgs and SubscriptionLogSettingsResponseOutput values.
@@ -1199,14 +1089,10 @@ type SubscriptionLogSettingsResponseInput interface {
 	ToSubscriptionLogSettingsResponseOutputWithContext(context.Context) SubscriptionLogSettingsResponseOutput
 }
 
-// Part of Subscription diagnostic setting. Specifies the settings for a particular log.
 type SubscriptionLogSettingsResponseArgs struct {
-	// Name of a Subscription Diagnostic Log category for a resource type this setting is applied to.
-	Category pulumi.StringPtrInput `pulumi:"category"`
-	// Name of a Subscription Diagnostic Log category group for a resource type this setting is applied to.
+	Category      pulumi.StringPtrInput `pulumi:"category"`
 	CategoryGroup pulumi.StringPtrInput `pulumi:"categoryGroup"`
-	// a value indicating whether this log is enabled.
-	Enabled pulumi.BoolInput `pulumi:"enabled"`
+	Enabled       pulumi.BoolInput      `pulumi:"enabled"`
 }
 
 func (SubscriptionLogSettingsResponseArgs) ElementType() reflect.Type {
@@ -1246,7 +1132,6 @@ func (i SubscriptionLogSettingsResponseArray) ToSubscriptionLogSettingsResponseA
 	return pulumi.ToOutputWithContext(ctx, i).(SubscriptionLogSettingsResponseArrayOutput)
 }
 
-// Part of Subscription diagnostic setting. Specifies the settings for a particular log.
 type SubscriptionLogSettingsResponseOutput struct{ *pulumi.OutputState }
 
 func (SubscriptionLogSettingsResponseOutput) ElementType() reflect.Type {
@@ -1261,17 +1146,14 @@ func (o SubscriptionLogSettingsResponseOutput) ToSubscriptionLogSettingsResponse
 	return o
 }
 
-// Name of a Subscription Diagnostic Log category for a resource type this setting is applied to.
 func (o SubscriptionLogSettingsResponseOutput) Category() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SubscriptionLogSettingsResponse) *string { return v.Category }).(pulumi.StringPtrOutput)
 }
 
-// Name of a Subscription Diagnostic Log category group for a resource type this setting is applied to.
 func (o SubscriptionLogSettingsResponseOutput) CategoryGroup() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SubscriptionLogSettingsResponse) *string { return v.CategoryGroup }).(pulumi.StringPtrOutput)
 }
 
-// a value indicating whether this log is enabled.
 func (o SubscriptionLogSettingsResponseOutput) Enabled() pulumi.BoolOutput {
 	return o.ApplyT(func(v SubscriptionLogSettingsResponse) bool { return v.Enabled }).(pulumi.BoolOutput)
 }
@@ -1296,19 +1178,12 @@ func (o SubscriptionLogSettingsResponseArrayOutput) Index(i pulumi.IntInput) Sub
 	}).(SubscriptionLogSettingsResponseOutput)
 }
 
-// Metadata pertaining to creation and last modification of the resource.
 type SystemDataResponse struct {
-	// The timestamp of resource creation (UTC).
-	CreatedAt *string `pulumi:"createdAt"`
-	// The identity that created the resource.
-	CreatedBy *string `pulumi:"createdBy"`
-	// The type of identity that created the resource.
-	CreatedByType *string `pulumi:"createdByType"`
-	// The timestamp of resource last modification (UTC)
-	LastModifiedAt *string `pulumi:"lastModifiedAt"`
-	// The identity that last modified the resource.
-	LastModifiedBy *string `pulumi:"lastModifiedBy"`
-	// The type of identity that last modified the resource.
+	CreatedAt          *string `pulumi:"createdAt"`
+	CreatedBy          *string `pulumi:"createdBy"`
+	CreatedByType      *string `pulumi:"createdByType"`
+	LastModifiedAt     *string `pulumi:"lastModifiedAt"`
+	LastModifiedBy     *string `pulumi:"lastModifiedBy"`
 	LastModifiedByType *string `pulumi:"lastModifiedByType"`
 }
 
@@ -1323,19 +1198,12 @@ type SystemDataResponseInput interface {
 	ToSystemDataResponseOutputWithContext(context.Context) SystemDataResponseOutput
 }
 
-// Metadata pertaining to creation and last modification of the resource.
 type SystemDataResponseArgs struct {
-	// The timestamp of resource creation (UTC).
-	CreatedAt pulumi.StringPtrInput `pulumi:"createdAt"`
-	// The identity that created the resource.
-	CreatedBy pulumi.StringPtrInput `pulumi:"createdBy"`
-	// The type of identity that created the resource.
-	CreatedByType pulumi.StringPtrInput `pulumi:"createdByType"`
-	// The timestamp of resource last modification (UTC)
-	LastModifiedAt pulumi.StringPtrInput `pulumi:"lastModifiedAt"`
-	// The identity that last modified the resource.
-	LastModifiedBy pulumi.StringPtrInput `pulumi:"lastModifiedBy"`
-	// The type of identity that last modified the resource.
+	CreatedAt          pulumi.StringPtrInput `pulumi:"createdAt"`
+	CreatedBy          pulumi.StringPtrInput `pulumi:"createdBy"`
+	CreatedByType      pulumi.StringPtrInput `pulumi:"createdByType"`
+	LastModifiedAt     pulumi.StringPtrInput `pulumi:"lastModifiedAt"`
+	LastModifiedBy     pulumi.StringPtrInput `pulumi:"lastModifiedBy"`
 	LastModifiedByType pulumi.StringPtrInput `pulumi:"lastModifiedByType"`
 }
 
@@ -1392,7 +1260,6 @@ func (i *systemDataResponsePtrType) ToSystemDataResponsePtrOutputWithContext(ctx
 	return pulumi.ToOutputWithContext(ctx, i).(SystemDataResponsePtrOutput)
 }
 
-// Metadata pertaining to creation and last modification of the resource.
 type SystemDataResponseOutput struct{ *pulumi.OutputState }
 
 func (SystemDataResponseOutput) ElementType() reflect.Type {
@@ -1412,37 +1279,31 @@ func (o SystemDataResponseOutput) ToSystemDataResponsePtrOutput() SystemDataResp
 }
 
 func (o SystemDataResponseOutput) ToSystemDataResponsePtrOutputWithContext(ctx context.Context) SystemDataResponsePtrOutput {
-	return o.ApplyT(func(v SystemDataResponse) *SystemDataResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v SystemDataResponse) *SystemDataResponse {
 		return &v
 	}).(SystemDataResponsePtrOutput)
 }
 
-// The timestamp of resource creation (UTC).
 func (o SystemDataResponseOutput) CreatedAt() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SystemDataResponse) *string { return v.CreatedAt }).(pulumi.StringPtrOutput)
 }
 
-// The identity that created the resource.
 func (o SystemDataResponseOutput) CreatedBy() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SystemDataResponse) *string { return v.CreatedBy }).(pulumi.StringPtrOutput)
 }
 
-// The type of identity that created the resource.
 func (o SystemDataResponseOutput) CreatedByType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SystemDataResponse) *string { return v.CreatedByType }).(pulumi.StringPtrOutput)
 }
 
-// The timestamp of resource last modification (UTC)
 func (o SystemDataResponseOutput) LastModifiedAt() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SystemDataResponse) *string { return v.LastModifiedAt }).(pulumi.StringPtrOutput)
 }
 
-// The identity that last modified the resource.
 func (o SystemDataResponseOutput) LastModifiedBy() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SystemDataResponse) *string { return v.LastModifiedBy }).(pulumi.StringPtrOutput)
 }
 
-// The type of identity that last modified the resource.
 func (o SystemDataResponseOutput) LastModifiedByType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SystemDataResponse) *string { return v.LastModifiedByType }).(pulumi.StringPtrOutput)
 }
@@ -1462,10 +1323,15 @@ func (o SystemDataResponsePtrOutput) ToSystemDataResponsePtrOutputWithContext(ct
 }
 
 func (o SystemDataResponsePtrOutput) Elem() SystemDataResponseOutput {
-	return o.ApplyT(func(v *SystemDataResponse) SystemDataResponse { return *v }).(SystemDataResponseOutput)
+	return o.ApplyT(func(v *SystemDataResponse) SystemDataResponse {
+		if v != nil {
+			return *v
+		}
+		var ret SystemDataResponse
+		return ret
+	}).(SystemDataResponseOutput)
 }
 
-// The timestamp of resource creation (UTC).
 func (o SystemDataResponsePtrOutput) CreatedAt() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SystemDataResponse) *string {
 		if v == nil {
@@ -1475,7 +1341,6 @@ func (o SystemDataResponsePtrOutput) CreatedAt() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The identity that created the resource.
 func (o SystemDataResponsePtrOutput) CreatedBy() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SystemDataResponse) *string {
 		if v == nil {
@@ -1485,7 +1350,6 @@ func (o SystemDataResponsePtrOutput) CreatedBy() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The type of identity that created the resource.
 func (o SystemDataResponsePtrOutput) CreatedByType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SystemDataResponse) *string {
 		if v == nil {
@@ -1495,7 +1359,6 @@ func (o SystemDataResponsePtrOutput) CreatedByType() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The timestamp of resource last modification (UTC)
 func (o SystemDataResponsePtrOutput) LastModifiedAt() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SystemDataResponse) *string {
 		if v == nil {
@@ -1505,7 +1368,6 @@ func (o SystemDataResponsePtrOutput) LastModifiedAt() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The identity that last modified the resource.
 func (o SystemDataResponsePtrOutput) LastModifiedBy() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SystemDataResponse) *string {
 		if v == nil {
@@ -1515,7 +1377,6 @@ func (o SystemDataResponsePtrOutput) LastModifiedBy() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The type of identity that last modified the resource.
 func (o SystemDataResponsePtrOutput) LastModifiedByType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SystemDataResponse) *string {
 		if v == nil {

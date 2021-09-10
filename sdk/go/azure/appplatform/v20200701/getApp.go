@@ -7,7 +7,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// App resource payload
 func LookupApp(ctx *pulumi.Context, args *LookupAppArgs, opts ...pulumi.InvokeOption) (*LookupAppResult, error) {
 	var rv LookupAppResult
 	err := ctx.Invoke("azure-native:appplatform/v20200701:getApp", args, &rv, opts...)
@@ -18,28 +17,18 @@ func LookupApp(ctx *pulumi.Context, args *LookupAppArgs, opts ...pulumi.InvokeOp
 }
 
 type LookupAppArgs struct {
-	// The name of the App resource.
-	AppName string `pulumi:"appName"`
-	// The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
-	ResourceGroupName string `pulumi:"resourceGroupName"`
-	// The name of the Service resource.
-	ServiceName string `pulumi:"serviceName"`
-	// Indicates whether sync status
-	SyncStatus *string `pulumi:"syncStatus"`
+	AppName           string  `pulumi:"appName"`
+	ResourceGroupName string  `pulumi:"resourceGroupName"`
+	ServiceName       string  `pulumi:"serviceName"`
+	SyncStatus        *string `pulumi:"syncStatus"`
 }
 
 // App resource payload
 type LookupAppResult struct {
-	// Fully qualified resource Id for the resource.
-	Id string `pulumi:"id"`
-	// The Managed Identity type of the app resource
-	Identity *ManagedIdentityPropertiesResponse `pulumi:"identity"`
-	// The GEO location of the application, always the same with its parent resource
-	Location *string `pulumi:"location"`
-	// The name of the resource.
-	Name string `pulumi:"name"`
-	// Properties of the App resource
-	Properties AppResourcePropertiesResponse `pulumi:"properties"`
-	// The type of the resource.
-	Type string `pulumi:"type"`
+	Id         string                             `pulumi:"id"`
+	Identity   *ManagedIdentityPropertiesResponse `pulumi:"identity"`
+	Location   *string                            `pulumi:"location"`
+	Name       string                             `pulumi:"name"`
+	Properties AppResourcePropertiesResponse      `pulumi:"properties"`
+	Type       string                             `pulumi:"type"`
 }

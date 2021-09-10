@@ -10,14 +10,10 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Represents a RegistrationInfo definition.
 type RegistrationInfo struct {
-	// Expiration time of registration token.
-	ExpirationTime *string `pulumi:"expirationTime"`
-	// The type of resetting the token.
+	ExpirationTime             *string `pulumi:"expirationTime"`
 	RegistrationTokenOperation *string `pulumi:"registrationTokenOperation"`
-	// The registration token base64 encoded string.
-	Token *string `pulumi:"token"`
+	Token                      *string `pulumi:"token"`
 }
 
 // RegistrationInfoInput is an input type that accepts RegistrationInfoArgs and RegistrationInfoOutput values.
@@ -31,14 +27,10 @@ type RegistrationInfoInput interface {
 	ToRegistrationInfoOutputWithContext(context.Context) RegistrationInfoOutput
 }
 
-// Represents a RegistrationInfo definition.
 type RegistrationInfoArgs struct {
-	// Expiration time of registration token.
-	ExpirationTime pulumi.StringPtrInput `pulumi:"expirationTime"`
-	// The type of resetting the token.
+	ExpirationTime             pulumi.StringPtrInput `pulumi:"expirationTime"`
 	RegistrationTokenOperation pulumi.StringPtrInput `pulumi:"registrationTokenOperation"`
-	// The registration token base64 encoded string.
-	Token pulumi.StringPtrInput `pulumi:"token"`
+	Token                      pulumi.StringPtrInput `pulumi:"token"`
 }
 
 func (RegistrationInfoArgs) ElementType() reflect.Type {
@@ -94,7 +86,6 @@ func (i *registrationInfoPtrType) ToRegistrationInfoPtrOutputWithContext(ctx con
 	return pulumi.ToOutputWithContext(ctx, i).(RegistrationInfoPtrOutput)
 }
 
-// Represents a RegistrationInfo definition.
 type RegistrationInfoOutput struct{ *pulumi.OutputState }
 
 func (RegistrationInfoOutput) ElementType() reflect.Type {
@@ -114,22 +105,19 @@ func (o RegistrationInfoOutput) ToRegistrationInfoPtrOutput() RegistrationInfoPt
 }
 
 func (o RegistrationInfoOutput) ToRegistrationInfoPtrOutputWithContext(ctx context.Context) RegistrationInfoPtrOutput {
-	return o.ApplyT(func(v RegistrationInfo) *RegistrationInfo {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v RegistrationInfo) *RegistrationInfo {
 		return &v
 	}).(RegistrationInfoPtrOutput)
 }
 
-// Expiration time of registration token.
 func (o RegistrationInfoOutput) ExpirationTime() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v RegistrationInfo) *string { return v.ExpirationTime }).(pulumi.StringPtrOutput)
 }
 
-// The type of resetting the token.
 func (o RegistrationInfoOutput) RegistrationTokenOperation() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v RegistrationInfo) *string { return v.RegistrationTokenOperation }).(pulumi.StringPtrOutput)
 }
 
-// The registration token base64 encoded string.
 func (o RegistrationInfoOutput) Token() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v RegistrationInfo) *string { return v.Token }).(pulumi.StringPtrOutput)
 }
@@ -149,10 +137,15 @@ func (o RegistrationInfoPtrOutput) ToRegistrationInfoPtrOutputWithContext(ctx co
 }
 
 func (o RegistrationInfoPtrOutput) Elem() RegistrationInfoOutput {
-	return o.ApplyT(func(v *RegistrationInfo) RegistrationInfo { return *v }).(RegistrationInfoOutput)
+	return o.ApplyT(func(v *RegistrationInfo) RegistrationInfo {
+		if v != nil {
+			return *v
+		}
+		var ret RegistrationInfo
+		return ret
+	}).(RegistrationInfoOutput)
 }
 
-// Expiration time of registration token.
 func (o RegistrationInfoPtrOutput) ExpirationTime() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *RegistrationInfo) *string {
 		if v == nil {
@@ -162,7 +155,6 @@ func (o RegistrationInfoPtrOutput) ExpirationTime() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The type of resetting the token.
 func (o RegistrationInfoPtrOutput) RegistrationTokenOperation() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *RegistrationInfo) *string {
 		if v == nil {
@@ -172,7 +164,6 @@ func (o RegistrationInfoPtrOutput) RegistrationTokenOperation() pulumi.StringPtr
 	}).(pulumi.StringPtrOutput)
 }
 
-// The registration token base64 encoded string.
 func (o RegistrationInfoPtrOutput) Token() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *RegistrationInfo) *string {
 		if v == nil {
@@ -182,14 +173,10 @@ func (o RegistrationInfoPtrOutput) Token() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Represents a RegistrationInfo definition.
 type RegistrationInfoResponse struct {
-	// Expiration time of registration token.
-	ExpirationTime *string `pulumi:"expirationTime"`
-	// The type of resetting the token.
+	ExpirationTime             *string `pulumi:"expirationTime"`
 	RegistrationTokenOperation *string `pulumi:"registrationTokenOperation"`
-	// The registration token base64 encoded string.
-	Token *string `pulumi:"token"`
+	Token                      *string `pulumi:"token"`
 }
 
 // RegistrationInfoResponseInput is an input type that accepts RegistrationInfoResponseArgs and RegistrationInfoResponseOutput values.
@@ -203,14 +190,10 @@ type RegistrationInfoResponseInput interface {
 	ToRegistrationInfoResponseOutputWithContext(context.Context) RegistrationInfoResponseOutput
 }
 
-// Represents a RegistrationInfo definition.
 type RegistrationInfoResponseArgs struct {
-	// Expiration time of registration token.
-	ExpirationTime pulumi.StringPtrInput `pulumi:"expirationTime"`
-	// The type of resetting the token.
+	ExpirationTime             pulumi.StringPtrInput `pulumi:"expirationTime"`
 	RegistrationTokenOperation pulumi.StringPtrInput `pulumi:"registrationTokenOperation"`
-	// The registration token base64 encoded string.
-	Token pulumi.StringPtrInput `pulumi:"token"`
+	Token                      pulumi.StringPtrInput `pulumi:"token"`
 }
 
 func (RegistrationInfoResponseArgs) ElementType() reflect.Type {
@@ -266,7 +249,6 @@ func (i *registrationInfoResponsePtrType) ToRegistrationInfoResponsePtrOutputWit
 	return pulumi.ToOutputWithContext(ctx, i).(RegistrationInfoResponsePtrOutput)
 }
 
-// Represents a RegistrationInfo definition.
 type RegistrationInfoResponseOutput struct{ *pulumi.OutputState }
 
 func (RegistrationInfoResponseOutput) ElementType() reflect.Type {
@@ -286,22 +268,19 @@ func (o RegistrationInfoResponseOutput) ToRegistrationInfoResponsePtrOutput() Re
 }
 
 func (o RegistrationInfoResponseOutput) ToRegistrationInfoResponsePtrOutputWithContext(ctx context.Context) RegistrationInfoResponsePtrOutput {
-	return o.ApplyT(func(v RegistrationInfoResponse) *RegistrationInfoResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v RegistrationInfoResponse) *RegistrationInfoResponse {
 		return &v
 	}).(RegistrationInfoResponsePtrOutput)
 }
 
-// Expiration time of registration token.
 func (o RegistrationInfoResponseOutput) ExpirationTime() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v RegistrationInfoResponse) *string { return v.ExpirationTime }).(pulumi.StringPtrOutput)
 }
 
-// The type of resetting the token.
 func (o RegistrationInfoResponseOutput) RegistrationTokenOperation() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v RegistrationInfoResponse) *string { return v.RegistrationTokenOperation }).(pulumi.StringPtrOutput)
 }
 
-// The registration token base64 encoded string.
 func (o RegistrationInfoResponseOutput) Token() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v RegistrationInfoResponse) *string { return v.Token }).(pulumi.StringPtrOutput)
 }
@@ -321,10 +300,15 @@ func (o RegistrationInfoResponsePtrOutput) ToRegistrationInfoResponsePtrOutputWi
 }
 
 func (o RegistrationInfoResponsePtrOutput) Elem() RegistrationInfoResponseOutput {
-	return o.ApplyT(func(v *RegistrationInfoResponse) RegistrationInfoResponse { return *v }).(RegistrationInfoResponseOutput)
+	return o.ApplyT(func(v *RegistrationInfoResponse) RegistrationInfoResponse {
+		if v != nil {
+			return *v
+		}
+		var ret RegistrationInfoResponse
+		return ret
+	}).(RegistrationInfoResponseOutput)
 }
 
-// Expiration time of registration token.
 func (o RegistrationInfoResponsePtrOutput) ExpirationTime() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *RegistrationInfoResponse) *string {
 		if v == nil {
@@ -334,7 +318,6 @@ func (o RegistrationInfoResponsePtrOutput) ExpirationTime() pulumi.StringPtrOutp
 	}).(pulumi.StringPtrOutput)
 }
 
-// The type of resetting the token.
 func (o RegistrationInfoResponsePtrOutput) RegistrationTokenOperation() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *RegistrationInfoResponse) *string {
 		if v == nil {
@@ -344,7 +327,6 @@ func (o RegistrationInfoResponsePtrOutput) RegistrationTokenOperation() pulumi.S
 	}).(pulumi.StringPtrOutput)
 }
 
-// The registration token base64 encoded string.
 func (o RegistrationInfoResponsePtrOutput) Token() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *RegistrationInfoResponse) *string {
 		if v == nil {

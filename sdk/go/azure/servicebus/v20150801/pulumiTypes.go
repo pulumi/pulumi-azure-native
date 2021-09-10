@@ -10,18 +10,12 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Message Count Details.
 type MessageCountDetailsResponse struct {
-	// Number of active messages in the queue, topic, or subscription.
-	ActiveMessageCount float64 `pulumi:"activeMessageCount"`
-	// Number of messages that are dead lettered.
-	DeadLetterMessageCount float64 `pulumi:"deadLetterMessageCount"`
-	// Number of scheduled messages.
-	ScheduledMessageCount float64 `pulumi:"scheduledMessageCount"`
-	// Number of messages transferred into dead letters.
+	ActiveMessageCount             float64 `pulumi:"activeMessageCount"`
+	DeadLetterMessageCount         float64 `pulumi:"deadLetterMessageCount"`
+	ScheduledMessageCount          float64 `pulumi:"scheduledMessageCount"`
 	TransferDeadLetterMessageCount float64 `pulumi:"transferDeadLetterMessageCount"`
-	// Number of messages transferred to another queue, topic, or subscription.
-	TransferMessageCount float64 `pulumi:"transferMessageCount"`
+	TransferMessageCount           float64 `pulumi:"transferMessageCount"`
 }
 
 // MessageCountDetailsResponseInput is an input type that accepts MessageCountDetailsResponseArgs and MessageCountDetailsResponseOutput values.
@@ -35,18 +29,12 @@ type MessageCountDetailsResponseInput interface {
 	ToMessageCountDetailsResponseOutputWithContext(context.Context) MessageCountDetailsResponseOutput
 }
 
-// Message Count Details.
 type MessageCountDetailsResponseArgs struct {
-	// Number of active messages in the queue, topic, or subscription.
-	ActiveMessageCount pulumi.Float64Input `pulumi:"activeMessageCount"`
-	// Number of messages that are dead lettered.
-	DeadLetterMessageCount pulumi.Float64Input `pulumi:"deadLetterMessageCount"`
-	// Number of scheduled messages.
-	ScheduledMessageCount pulumi.Float64Input `pulumi:"scheduledMessageCount"`
-	// Number of messages transferred into dead letters.
+	ActiveMessageCount             pulumi.Float64Input `pulumi:"activeMessageCount"`
+	DeadLetterMessageCount         pulumi.Float64Input `pulumi:"deadLetterMessageCount"`
+	ScheduledMessageCount          pulumi.Float64Input `pulumi:"scheduledMessageCount"`
 	TransferDeadLetterMessageCount pulumi.Float64Input `pulumi:"transferDeadLetterMessageCount"`
-	// Number of messages transferred to another queue, topic, or subscription.
-	TransferMessageCount pulumi.Float64Input `pulumi:"transferMessageCount"`
+	TransferMessageCount           pulumi.Float64Input `pulumi:"transferMessageCount"`
 }
 
 func (MessageCountDetailsResponseArgs) ElementType() reflect.Type {
@@ -102,7 +90,6 @@ func (i *messageCountDetailsResponsePtrType) ToMessageCountDetailsResponsePtrOut
 	return pulumi.ToOutputWithContext(ctx, i).(MessageCountDetailsResponsePtrOutput)
 }
 
-// Message Count Details.
 type MessageCountDetailsResponseOutput struct{ *pulumi.OutputState }
 
 func (MessageCountDetailsResponseOutput) ElementType() reflect.Type {
@@ -122,32 +109,27 @@ func (o MessageCountDetailsResponseOutput) ToMessageCountDetailsResponsePtrOutpu
 }
 
 func (o MessageCountDetailsResponseOutput) ToMessageCountDetailsResponsePtrOutputWithContext(ctx context.Context) MessageCountDetailsResponsePtrOutput {
-	return o.ApplyT(func(v MessageCountDetailsResponse) *MessageCountDetailsResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v MessageCountDetailsResponse) *MessageCountDetailsResponse {
 		return &v
 	}).(MessageCountDetailsResponsePtrOutput)
 }
 
-// Number of active messages in the queue, topic, or subscription.
 func (o MessageCountDetailsResponseOutput) ActiveMessageCount() pulumi.Float64Output {
 	return o.ApplyT(func(v MessageCountDetailsResponse) float64 { return v.ActiveMessageCount }).(pulumi.Float64Output)
 }
 
-// Number of messages that are dead lettered.
 func (o MessageCountDetailsResponseOutput) DeadLetterMessageCount() pulumi.Float64Output {
 	return o.ApplyT(func(v MessageCountDetailsResponse) float64 { return v.DeadLetterMessageCount }).(pulumi.Float64Output)
 }
 
-// Number of scheduled messages.
 func (o MessageCountDetailsResponseOutput) ScheduledMessageCount() pulumi.Float64Output {
 	return o.ApplyT(func(v MessageCountDetailsResponse) float64 { return v.ScheduledMessageCount }).(pulumi.Float64Output)
 }
 
-// Number of messages transferred into dead letters.
 func (o MessageCountDetailsResponseOutput) TransferDeadLetterMessageCount() pulumi.Float64Output {
 	return o.ApplyT(func(v MessageCountDetailsResponse) float64 { return v.TransferDeadLetterMessageCount }).(pulumi.Float64Output)
 }
 
-// Number of messages transferred to another queue, topic, or subscription.
 func (o MessageCountDetailsResponseOutput) TransferMessageCount() pulumi.Float64Output {
 	return o.ApplyT(func(v MessageCountDetailsResponse) float64 { return v.TransferMessageCount }).(pulumi.Float64Output)
 }
@@ -167,10 +149,15 @@ func (o MessageCountDetailsResponsePtrOutput) ToMessageCountDetailsResponsePtrOu
 }
 
 func (o MessageCountDetailsResponsePtrOutput) Elem() MessageCountDetailsResponseOutput {
-	return o.ApplyT(func(v *MessageCountDetailsResponse) MessageCountDetailsResponse { return *v }).(MessageCountDetailsResponseOutput)
+	return o.ApplyT(func(v *MessageCountDetailsResponse) MessageCountDetailsResponse {
+		if v != nil {
+			return *v
+		}
+		var ret MessageCountDetailsResponse
+		return ret
+	}).(MessageCountDetailsResponseOutput)
 }
 
-// Number of active messages in the queue, topic, or subscription.
 func (o MessageCountDetailsResponsePtrOutput) ActiveMessageCount() pulumi.Float64PtrOutput {
 	return o.ApplyT(func(v *MessageCountDetailsResponse) *float64 {
 		if v == nil {
@@ -180,7 +167,6 @@ func (o MessageCountDetailsResponsePtrOutput) ActiveMessageCount() pulumi.Float6
 	}).(pulumi.Float64PtrOutput)
 }
 
-// Number of messages that are dead lettered.
 func (o MessageCountDetailsResponsePtrOutput) DeadLetterMessageCount() pulumi.Float64PtrOutput {
 	return o.ApplyT(func(v *MessageCountDetailsResponse) *float64 {
 		if v == nil {
@@ -190,7 +176,6 @@ func (o MessageCountDetailsResponsePtrOutput) DeadLetterMessageCount() pulumi.Fl
 	}).(pulumi.Float64PtrOutput)
 }
 
-// Number of scheduled messages.
 func (o MessageCountDetailsResponsePtrOutput) ScheduledMessageCount() pulumi.Float64PtrOutput {
 	return o.ApplyT(func(v *MessageCountDetailsResponse) *float64 {
 		if v == nil {
@@ -200,7 +185,6 @@ func (o MessageCountDetailsResponsePtrOutput) ScheduledMessageCount() pulumi.Flo
 	}).(pulumi.Float64PtrOutput)
 }
 
-// Number of messages transferred into dead letters.
 func (o MessageCountDetailsResponsePtrOutput) TransferDeadLetterMessageCount() pulumi.Float64PtrOutput {
 	return o.ApplyT(func(v *MessageCountDetailsResponse) *float64 {
 		if v == nil {
@@ -210,7 +194,6 @@ func (o MessageCountDetailsResponsePtrOutput) TransferDeadLetterMessageCount() p
 	}).(pulumi.Float64PtrOutput)
 }
 
-// Number of messages transferred to another queue, topic, or subscription.
 func (o MessageCountDetailsResponsePtrOutput) TransferMessageCount() pulumi.Float64PtrOutput {
 	return o.ApplyT(func(v *MessageCountDetailsResponse) *float64 {
 		if v == nil {
@@ -220,14 +203,10 @@ func (o MessageCountDetailsResponsePtrOutput) TransferMessageCount() pulumi.Floa
 	}).(pulumi.Float64PtrOutput)
 }
 
-// SKU of the namespace.
 type Sku struct {
-	// The specified messaging units for the tier.
-	Capacity *int `pulumi:"capacity"`
-	// Name of this SKU.
-	Name *string `pulumi:"name"`
-	// The billing tier of this particular SKU.
-	Tier string `pulumi:"tier"`
+	Capacity *int    `pulumi:"capacity"`
+	Name     *string `pulumi:"name"`
+	Tier     string  `pulumi:"tier"`
 }
 
 // SkuInput is an input type that accepts SkuArgs and SkuOutput values.
@@ -241,14 +220,10 @@ type SkuInput interface {
 	ToSkuOutputWithContext(context.Context) SkuOutput
 }
 
-// SKU of the namespace.
 type SkuArgs struct {
-	// The specified messaging units for the tier.
-	Capacity pulumi.IntPtrInput `pulumi:"capacity"`
-	// Name of this SKU.
-	Name pulumi.StringPtrInput `pulumi:"name"`
-	// The billing tier of this particular SKU.
-	Tier pulumi.StringInput `pulumi:"tier"`
+	Capacity pulumi.IntPtrInput    `pulumi:"capacity"`
+	Name     pulumi.StringPtrInput `pulumi:"name"`
+	Tier     pulumi.StringInput    `pulumi:"tier"`
 }
 
 func (SkuArgs) ElementType() reflect.Type {
@@ -304,7 +279,6 @@ func (i *skuPtrType) ToSkuPtrOutputWithContext(ctx context.Context) SkuPtrOutput
 	return pulumi.ToOutputWithContext(ctx, i).(SkuPtrOutput)
 }
 
-// SKU of the namespace.
 type SkuOutput struct{ *pulumi.OutputState }
 
 func (SkuOutput) ElementType() reflect.Type {
@@ -324,22 +298,19 @@ func (o SkuOutput) ToSkuPtrOutput() SkuPtrOutput {
 }
 
 func (o SkuOutput) ToSkuPtrOutputWithContext(ctx context.Context) SkuPtrOutput {
-	return o.ApplyT(func(v Sku) *Sku {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v Sku) *Sku {
 		return &v
 	}).(SkuPtrOutput)
 }
 
-// The specified messaging units for the tier.
 func (o SkuOutput) Capacity() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v Sku) *int { return v.Capacity }).(pulumi.IntPtrOutput)
 }
 
-// Name of this SKU.
 func (o SkuOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v Sku) *string { return v.Name }).(pulumi.StringPtrOutput)
 }
 
-// The billing tier of this particular SKU.
 func (o SkuOutput) Tier() pulumi.StringOutput {
 	return o.ApplyT(func(v Sku) string { return v.Tier }).(pulumi.StringOutput)
 }
@@ -359,10 +330,15 @@ func (o SkuPtrOutput) ToSkuPtrOutputWithContext(ctx context.Context) SkuPtrOutpu
 }
 
 func (o SkuPtrOutput) Elem() SkuOutput {
-	return o.ApplyT(func(v *Sku) Sku { return *v }).(SkuOutput)
+	return o.ApplyT(func(v *Sku) Sku {
+		if v != nil {
+			return *v
+		}
+		var ret Sku
+		return ret
+	}).(SkuOutput)
 }
 
-// The specified messaging units for the tier.
 func (o SkuPtrOutput) Capacity() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *Sku) *int {
 		if v == nil {
@@ -372,7 +348,6 @@ func (o SkuPtrOutput) Capacity() pulumi.IntPtrOutput {
 	}).(pulumi.IntPtrOutput)
 }
 
-// Name of this SKU.
 func (o SkuPtrOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Sku) *string {
 		if v == nil {
@@ -382,7 +357,6 @@ func (o SkuPtrOutput) Name() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The billing tier of this particular SKU.
 func (o SkuPtrOutput) Tier() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Sku) *string {
 		if v == nil {
@@ -392,14 +366,10 @@ func (o SkuPtrOutput) Tier() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// SKU of the namespace.
 type SkuResponse struct {
-	// The specified messaging units for the tier.
-	Capacity *int `pulumi:"capacity"`
-	// Name of this SKU.
-	Name *string `pulumi:"name"`
-	// The billing tier of this particular SKU.
-	Tier string `pulumi:"tier"`
+	Capacity *int    `pulumi:"capacity"`
+	Name     *string `pulumi:"name"`
+	Tier     string  `pulumi:"tier"`
 }
 
 // SkuResponseInput is an input type that accepts SkuResponseArgs and SkuResponseOutput values.
@@ -413,14 +383,10 @@ type SkuResponseInput interface {
 	ToSkuResponseOutputWithContext(context.Context) SkuResponseOutput
 }
 
-// SKU of the namespace.
 type SkuResponseArgs struct {
-	// The specified messaging units for the tier.
-	Capacity pulumi.IntPtrInput `pulumi:"capacity"`
-	// Name of this SKU.
-	Name pulumi.StringPtrInput `pulumi:"name"`
-	// The billing tier of this particular SKU.
-	Tier pulumi.StringInput `pulumi:"tier"`
+	Capacity pulumi.IntPtrInput    `pulumi:"capacity"`
+	Name     pulumi.StringPtrInput `pulumi:"name"`
+	Tier     pulumi.StringInput    `pulumi:"tier"`
 }
 
 func (SkuResponseArgs) ElementType() reflect.Type {
@@ -476,7 +442,6 @@ func (i *skuResponsePtrType) ToSkuResponsePtrOutputWithContext(ctx context.Conte
 	return pulumi.ToOutputWithContext(ctx, i).(SkuResponsePtrOutput)
 }
 
-// SKU of the namespace.
 type SkuResponseOutput struct{ *pulumi.OutputState }
 
 func (SkuResponseOutput) ElementType() reflect.Type {
@@ -496,22 +461,19 @@ func (o SkuResponseOutput) ToSkuResponsePtrOutput() SkuResponsePtrOutput {
 }
 
 func (o SkuResponseOutput) ToSkuResponsePtrOutputWithContext(ctx context.Context) SkuResponsePtrOutput {
-	return o.ApplyT(func(v SkuResponse) *SkuResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v SkuResponse) *SkuResponse {
 		return &v
 	}).(SkuResponsePtrOutput)
 }
 
-// The specified messaging units for the tier.
 func (o SkuResponseOutput) Capacity() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v SkuResponse) *int { return v.Capacity }).(pulumi.IntPtrOutput)
 }
 
-// Name of this SKU.
 func (o SkuResponseOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SkuResponse) *string { return v.Name }).(pulumi.StringPtrOutput)
 }
 
-// The billing tier of this particular SKU.
 func (o SkuResponseOutput) Tier() pulumi.StringOutput {
 	return o.ApplyT(func(v SkuResponse) string { return v.Tier }).(pulumi.StringOutput)
 }
@@ -531,10 +493,15 @@ func (o SkuResponsePtrOutput) ToSkuResponsePtrOutputWithContext(ctx context.Cont
 }
 
 func (o SkuResponsePtrOutput) Elem() SkuResponseOutput {
-	return o.ApplyT(func(v *SkuResponse) SkuResponse { return *v }).(SkuResponseOutput)
+	return o.ApplyT(func(v *SkuResponse) SkuResponse {
+		if v != nil {
+			return *v
+		}
+		var ret SkuResponse
+		return ret
+	}).(SkuResponseOutput)
 }
 
-// The specified messaging units for the tier.
 func (o SkuResponsePtrOutput) Capacity() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *SkuResponse) *int {
 		if v == nil {
@@ -544,7 +511,6 @@ func (o SkuResponsePtrOutput) Capacity() pulumi.IntPtrOutput {
 	}).(pulumi.IntPtrOutput)
 }
 
-// Name of this SKU.
 func (o SkuResponsePtrOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SkuResponse) *string {
 		if v == nil {
@@ -554,7 +520,6 @@ func (o SkuResponsePtrOutput) Name() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The billing tier of this particular SKU.
 func (o SkuResponsePtrOutput) Tier() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SkuResponse) *string {
 		if v == nil {

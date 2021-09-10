@@ -7,7 +7,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Blueprint artifact that applies a Policy assignment.
 func LookupPolicyAssignmentArtifact(ctx *pulumi.Context, args *LookupPolicyAssignmentArtifactArgs, opts ...pulumi.InvokeOption) (*LookupPolicyAssignmentArtifactResult, error) {
 	var rv LookupPolicyAssignmentArtifactResult
 	err := ctx.Invoke("azure-native:blueprint/v20181101preview:getPolicyAssignmentArtifact", args, &rv, opts...)
@@ -18,35 +17,21 @@ func LookupPolicyAssignmentArtifact(ctx *pulumi.Context, args *LookupPolicyAssig
 }
 
 type LookupPolicyAssignmentArtifactArgs struct {
-	// Name of the blueprint artifact.
-	ArtifactName string `pulumi:"artifactName"`
-	// Name of the blueprint definition.
+	ArtifactName  string `pulumi:"artifactName"`
 	BlueprintName string `pulumi:"blueprintName"`
-	// The scope of the resource. Valid scopes are: management group (format: '/providers/Microsoft.Management/managementGroups/{managementGroup}'), subscription (format: '/subscriptions/{subscriptionId}').
 	ResourceScope string `pulumi:"resourceScope"`
 }
 
 // Blueprint artifact that applies a Policy assignment.
 type LookupPolicyAssignmentArtifactResult struct {
-	// Artifacts which need to be deployed before the specified artifact.
-	DependsOn []string `pulumi:"dependsOn"`
-	// Multi-line explain this resource.
-	Description *string `pulumi:"description"`
-	// One-liner string explain this resource.
-	DisplayName *string `pulumi:"displayName"`
-	// String Id used to locate any resource on Azure.
-	Id string `pulumi:"id"`
-	// Specifies the kind of blueprint artifact.
-	// Expected value is 'policyAssignment'.
-	Kind string `pulumi:"kind"`
-	// Name of this resource.
-	Name string `pulumi:"name"`
-	// Parameter values for the policy definition.
-	Parameters map[string]ParameterValueResponse `pulumi:"parameters"`
-	// Azure resource ID of the policy definition.
-	PolicyDefinitionId string `pulumi:"policyDefinitionId"`
-	// Name of the resource group placeholder to which the policy will be assigned.
-	ResourceGroup *string `pulumi:"resourceGroup"`
-	// Type of this resource.
-	Type string `pulumi:"type"`
+	DependsOn          []string                          `pulumi:"dependsOn"`
+	Description        *string                           `pulumi:"description"`
+	DisplayName        *string                           `pulumi:"displayName"`
+	Id                 string                            `pulumi:"id"`
+	Kind               string                            `pulumi:"kind"`
+	Name               string                            `pulumi:"name"`
+	Parameters         map[string]ParameterValueResponse `pulumi:"parameters"`
+	PolicyDefinitionId string                            `pulumi:"policyDefinitionId"`
+	ResourceGroup      *string                           `pulumi:"resourceGroup"`
+	Type               string                            `pulumi:"type"`
 }

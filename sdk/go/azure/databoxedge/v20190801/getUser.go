@@ -7,7 +7,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Represents a user who has access to one or more shares on the Data Box Edge/Gateway device.
 func LookupUser(ctx *pulumi.Context, args *LookupUserArgs, opts ...pulumi.InvokeOption) (*LookupUserResult, error) {
 	var rv LookupUserResult
 	err := ctx.Invoke("azure-native:databoxedge/v20190801:getUser", args, &rv, opts...)
@@ -18,26 +17,17 @@ func LookupUser(ctx *pulumi.Context, args *LookupUserArgs, opts ...pulumi.Invoke
 }
 
 type LookupUserArgs struct {
-	// The device name.
-	DeviceName string `pulumi:"deviceName"`
-	// The user name.
-	Name string `pulumi:"name"`
-	// The resource group name.
+	DeviceName        string `pulumi:"deviceName"`
+	Name              string `pulumi:"name"`
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 }
 
 // Represents a user who has access to one or more shares on the Data Box Edge/Gateway device.
 type LookupUserResult struct {
-	// The password details.
 	EncryptedPassword *AsymmetricEncryptedSecretResponse `pulumi:"encryptedPassword"`
-	// The path ID that uniquely identifies the object.
-	Id string `pulumi:"id"`
-	// The object name.
-	Name string `pulumi:"name"`
-	// List of shares that the user has rights on. This field should not be specified during user creation.
-	ShareAccessRights []ShareAccessRightResponse `pulumi:"shareAccessRights"`
-	// The hierarchical type of the object.
-	Type string `pulumi:"type"`
-	// Type of the user.
-	UserType string `pulumi:"userType"`
+	Id                string                             `pulumi:"id"`
+	Name              string                             `pulumi:"name"`
+	ShareAccessRights []ShareAccessRightResponse         `pulumi:"shareAccessRights"`
+	Type              string                             `pulumi:"type"`
+	UserType          string                             `pulumi:"userType"`
 }

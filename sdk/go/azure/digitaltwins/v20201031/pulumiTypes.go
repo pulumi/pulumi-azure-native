@@ -10,19 +10,12 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Properties related to EventGrid.
 type EventGrid struct {
-	// EventGrid secondary accesskey. Will be obfuscated during read.
-	AccessKey1 string `pulumi:"accessKey1"`
-	// EventGrid secondary accesskey. Will be obfuscated during read.
-	AccessKey2 *string `pulumi:"accessKey2"`
-	// Dead letter storage secret. Will be obfuscated during read.
+	AccessKey1       string  `pulumi:"accessKey1"`
+	AccessKey2       *string `pulumi:"accessKey2"`
 	DeadLetterSecret *string `pulumi:"deadLetterSecret"`
-	// The type of Digital Twins endpoint
-	// Expected value is 'EventGrid'.
-	EndpointType string `pulumi:"endpointType"`
-	// EventGrid Topic Endpoint
-	TopicEndpoint string `pulumi:"topicEndpoint"`
+	EndpointType     string  `pulumi:"endpointType"`
+	TopicEndpoint    string  `pulumi:"topicEndpoint"`
 }
 
 // EventGridInput is an input type that accepts EventGridArgs and EventGridOutput values.
@@ -36,19 +29,12 @@ type EventGridInput interface {
 	ToEventGridOutputWithContext(context.Context) EventGridOutput
 }
 
-// Properties related to EventGrid.
 type EventGridArgs struct {
-	// EventGrid secondary accesskey. Will be obfuscated during read.
-	AccessKey1 pulumi.StringInput `pulumi:"accessKey1"`
-	// EventGrid secondary accesskey. Will be obfuscated during read.
-	AccessKey2 pulumi.StringPtrInput `pulumi:"accessKey2"`
-	// Dead letter storage secret. Will be obfuscated during read.
+	AccessKey1       pulumi.StringInput    `pulumi:"accessKey1"`
+	AccessKey2       pulumi.StringPtrInput `pulumi:"accessKey2"`
 	DeadLetterSecret pulumi.StringPtrInput `pulumi:"deadLetterSecret"`
-	// The type of Digital Twins endpoint
-	// Expected value is 'EventGrid'.
-	EndpointType pulumi.StringInput `pulumi:"endpointType"`
-	// EventGrid Topic Endpoint
-	TopicEndpoint pulumi.StringInput `pulumi:"topicEndpoint"`
+	EndpointType     pulumi.StringInput    `pulumi:"endpointType"`
+	TopicEndpoint    pulumi.StringInput    `pulumi:"topicEndpoint"`
 }
 
 func (EventGridArgs) ElementType() reflect.Type {
@@ -63,7 +49,6 @@ func (i EventGridArgs) ToEventGridOutputWithContext(ctx context.Context) EventGr
 	return pulumi.ToOutputWithContext(ctx, i).(EventGridOutput)
 }
 
-// Properties related to EventGrid.
 type EventGridOutput struct{ *pulumi.OutputState }
 
 func (EventGridOutput) ElementType() reflect.Type {
@@ -78,49 +63,34 @@ func (o EventGridOutput) ToEventGridOutputWithContext(ctx context.Context) Event
 	return o
 }
 
-// EventGrid secondary accesskey. Will be obfuscated during read.
 func (o EventGridOutput) AccessKey1() pulumi.StringOutput {
 	return o.ApplyT(func(v EventGrid) string { return v.AccessKey1 }).(pulumi.StringOutput)
 }
 
-// EventGrid secondary accesskey. Will be obfuscated during read.
 func (o EventGridOutput) AccessKey2() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v EventGrid) *string { return v.AccessKey2 }).(pulumi.StringPtrOutput)
 }
 
-// Dead letter storage secret. Will be obfuscated during read.
 func (o EventGridOutput) DeadLetterSecret() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v EventGrid) *string { return v.DeadLetterSecret }).(pulumi.StringPtrOutput)
 }
 
-// The type of Digital Twins endpoint
-// Expected value is 'EventGrid'.
 func (o EventGridOutput) EndpointType() pulumi.StringOutput {
 	return o.ApplyT(func(v EventGrid) string { return v.EndpointType }).(pulumi.StringOutput)
 }
 
-// EventGrid Topic Endpoint
 func (o EventGridOutput) TopicEndpoint() pulumi.StringOutput {
 	return o.ApplyT(func(v EventGrid) string { return v.TopicEndpoint }).(pulumi.StringOutput)
 }
 
-// Properties related to EventGrid.
 type EventGridResponse struct {
-	// EventGrid secondary accesskey. Will be obfuscated during read.
-	AccessKey1 string `pulumi:"accessKey1"`
-	// EventGrid secondary accesskey. Will be obfuscated during read.
-	AccessKey2 *string `pulumi:"accessKey2"`
-	// Time when the Endpoint was added to DigitalTwinsInstance.
-	CreatedTime string `pulumi:"createdTime"`
-	// Dead letter storage secret. Will be obfuscated during read.
-	DeadLetterSecret *string `pulumi:"deadLetterSecret"`
-	// The type of Digital Twins endpoint
-	// Expected value is 'EventGrid'.
-	EndpointType string `pulumi:"endpointType"`
-	// The provisioning state.
-	ProvisioningState string `pulumi:"provisioningState"`
-	// EventGrid Topic Endpoint
-	TopicEndpoint string `pulumi:"topicEndpoint"`
+	AccessKey1        string  `pulumi:"accessKey1"`
+	AccessKey2        *string `pulumi:"accessKey2"`
+	CreatedTime       string  `pulumi:"createdTime"`
+	DeadLetterSecret  *string `pulumi:"deadLetterSecret"`
+	EndpointType      string  `pulumi:"endpointType"`
+	ProvisioningState string  `pulumi:"provisioningState"`
+	TopicEndpoint     string  `pulumi:"topicEndpoint"`
 }
 
 // EventGridResponseInput is an input type that accepts EventGridResponseArgs and EventGridResponseOutput values.
@@ -134,23 +104,14 @@ type EventGridResponseInput interface {
 	ToEventGridResponseOutputWithContext(context.Context) EventGridResponseOutput
 }
 
-// Properties related to EventGrid.
 type EventGridResponseArgs struct {
-	// EventGrid secondary accesskey. Will be obfuscated during read.
-	AccessKey1 pulumi.StringInput `pulumi:"accessKey1"`
-	// EventGrid secondary accesskey. Will be obfuscated during read.
-	AccessKey2 pulumi.StringPtrInput `pulumi:"accessKey2"`
-	// Time when the Endpoint was added to DigitalTwinsInstance.
-	CreatedTime pulumi.StringInput `pulumi:"createdTime"`
-	// Dead letter storage secret. Will be obfuscated during read.
-	DeadLetterSecret pulumi.StringPtrInput `pulumi:"deadLetterSecret"`
-	// The type of Digital Twins endpoint
-	// Expected value is 'EventGrid'.
-	EndpointType pulumi.StringInput `pulumi:"endpointType"`
-	// The provisioning state.
-	ProvisioningState pulumi.StringInput `pulumi:"provisioningState"`
-	// EventGrid Topic Endpoint
-	TopicEndpoint pulumi.StringInput `pulumi:"topicEndpoint"`
+	AccessKey1        pulumi.StringInput    `pulumi:"accessKey1"`
+	AccessKey2        pulumi.StringPtrInput `pulumi:"accessKey2"`
+	CreatedTime       pulumi.StringInput    `pulumi:"createdTime"`
+	DeadLetterSecret  pulumi.StringPtrInput `pulumi:"deadLetterSecret"`
+	EndpointType      pulumi.StringInput    `pulumi:"endpointType"`
+	ProvisioningState pulumi.StringInput    `pulumi:"provisioningState"`
+	TopicEndpoint     pulumi.StringInput    `pulumi:"topicEndpoint"`
 }
 
 func (EventGridResponseArgs) ElementType() reflect.Type {
@@ -165,7 +126,6 @@ func (i EventGridResponseArgs) ToEventGridResponseOutputWithContext(ctx context.
 	return pulumi.ToOutputWithContext(ctx, i).(EventGridResponseOutput)
 }
 
-// Properties related to EventGrid.
 type EventGridResponseOutput struct{ *pulumi.OutputState }
 
 func (EventGridResponseOutput) ElementType() reflect.Type {
@@ -180,53 +140,39 @@ func (o EventGridResponseOutput) ToEventGridResponseOutputWithContext(ctx contex
 	return o
 }
 
-// EventGrid secondary accesskey. Will be obfuscated during read.
 func (o EventGridResponseOutput) AccessKey1() pulumi.StringOutput {
 	return o.ApplyT(func(v EventGridResponse) string { return v.AccessKey1 }).(pulumi.StringOutput)
 }
 
-// EventGrid secondary accesskey. Will be obfuscated during read.
 func (o EventGridResponseOutput) AccessKey2() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v EventGridResponse) *string { return v.AccessKey2 }).(pulumi.StringPtrOutput)
 }
 
-// Time when the Endpoint was added to DigitalTwinsInstance.
 func (o EventGridResponseOutput) CreatedTime() pulumi.StringOutput {
 	return o.ApplyT(func(v EventGridResponse) string { return v.CreatedTime }).(pulumi.StringOutput)
 }
 
-// Dead letter storage secret. Will be obfuscated during read.
 func (o EventGridResponseOutput) DeadLetterSecret() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v EventGridResponse) *string { return v.DeadLetterSecret }).(pulumi.StringPtrOutput)
 }
 
-// The type of Digital Twins endpoint
-// Expected value is 'EventGrid'.
 func (o EventGridResponseOutput) EndpointType() pulumi.StringOutput {
 	return o.ApplyT(func(v EventGridResponse) string { return v.EndpointType }).(pulumi.StringOutput)
 }
 
-// The provisioning state.
 func (o EventGridResponseOutput) ProvisioningState() pulumi.StringOutput {
 	return o.ApplyT(func(v EventGridResponse) string { return v.ProvisioningState }).(pulumi.StringOutput)
 }
 
-// EventGrid Topic Endpoint
 func (o EventGridResponseOutput) TopicEndpoint() pulumi.StringOutput {
 	return o.ApplyT(func(v EventGridResponse) string { return v.TopicEndpoint }).(pulumi.StringOutput)
 }
 
-// Properties related to EventHub.
 type EventHub struct {
-	// PrimaryConnectionString of the endpoint. Will be obfuscated during read.
-	ConnectionStringPrimaryKey string `pulumi:"connectionStringPrimaryKey"`
-	// SecondaryConnectionString of the endpoint. Will be obfuscated during read.
+	ConnectionStringPrimaryKey   string  `pulumi:"connectionStringPrimaryKey"`
 	ConnectionStringSecondaryKey *string `pulumi:"connectionStringSecondaryKey"`
-	// Dead letter storage secret. Will be obfuscated during read.
-	DeadLetterSecret *string `pulumi:"deadLetterSecret"`
-	// The type of Digital Twins endpoint
-	// Expected value is 'EventHub'.
-	EndpointType string `pulumi:"endpointType"`
+	DeadLetterSecret             *string `pulumi:"deadLetterSecret"`
+	EndpointType                 string  `pulumi:"endpointType"`
 }
 
 // EventHubInput is an input type that accepts EventHubArgs and EventHubOutput values.
@@ -240,17 +186,11 @@ type EventHubInput interface {
 	ToEventHubOutputWithContext(context.Context) EventHubOutput
 }
 
-// Properties related to EventHub.
 type EventHubArgs struct {
-	// PrimaryConnectionString of the endpoint. Will be obfuscated during read.
-	ConnectionStringPrimaryKey pulumi.StringInput `pulumi:"connectionStringPrimaryKey"`
-	// SecondaryConnectionString of the endpoint. Will be obfuscated during read.
+	ConnectionStringPrimaryKey   pulumi.StringInput    `pulumi:"connectionStringPrimaryKey"`
 	ConnectionStringSecondaryKey pulumi.StringPtrInput `pulumi:"connectionStringSecondaryKey"`
-	// Dead letter storage secret. Will be obfuscated during read.
-	DeadLetterSecret pulumi.StringPtrInput `pulumi:"deadLetterSecret"`
-	// The type of Digital Twins endpoint
-	// Expected value is 'EventHub'.
-	EndpointType pulumi.StringInput `pulumi:"endpointType"`
+	DeadLetterSecret             pulumi.StringPtrInput `pulumi:"deadLetterSecret"`
+	EndpointType                 pulumi.StringInput    `pulumi:"endpointType"`
 }
 
 func (EventHubArgs) ElementType() reflect.Type {
@@ -265,7 +205,6 @@ func (i EventHubArgs) ToEventHubOutputWithContext(ctx context.Context) EventHubO
 	return pulumi.ToOutputWithContext(ctx, i).(EventHubOutput)
 }
 
-// Properties related to EventHub.
 type EventHubOutput struct{ *pulumi.OutputState }
 
 func (EventHubOutput) ElementType() reflect.Type {
@@ -280,42 +219,29 @@ func (o EventHubOutput) ToEventHubOutputWithContext(ctx context.Context) EventHu
 	return o
 }
 
-// PrimaryConnectionString of the endpoint. Will be obfuscated during read.
 func (o EventHubOutput) ConnectionStringPrimaryKey() pulumi.StringOutput {
 	return o.ApplyT(func(v EventHub) string { return v.ConnectionStringPrimaryKey }).(pulumi.StringOutput)
 }
 
-// SecondaryConnectionString of the endpoint. Will be obfuscated during read.
 func (o EventHubOutput) ConnectionStringSecondaryKey() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v EventHub) *string { return v.ConnectionStringSecondaryKey }).(pulumi.StringPtrOutput)
 }
 
-// Dead letter storage secret. Will be obfuscated during read.
 func (o EventHubOutput) DeadLetterSecret() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v EventHub) *string { return v.DeadLetterSecret }).(pulumi.StringPtrOutput)
 }
 
-// The type of Digital Twins endpoint
-// Expected value is 'EventHub'.
 func (o EventHubOutput) EndpointType() pulumi.StringOutput {
 	return o.ApplyT(func(v EventHub) string { return v.EndpointType }).(pulumi.StringOutput)
 }
 
-// Properties related to EventHub.
 type EventHubResponse struct {
-	// PrimaryConnectionString of the endpoint. Will be obfuscated during read.
-	ConnectionStringPrimaryKey string `pulumi:"connectionStringPrimaryKey"`
-	// SecondaryConnectionString of the endpoint. Will be obfuscated during read.
+	ConnectionStringPrimaryKey   string  `pulumi:"connectionStringPrimaryKey"`
 	ConnectionStringSecondaryKey *string `pulumi:"connectionStringSecondaryKey"`
-	// Time when the Endpoint was added to DigitalTwinsInstance.
-	CreatedTime string `pulumi:"createdTime"`
-	// Dead letter storage secret. Will be obfuscated during read.
-	DeadLetterSecret *string `pulumi:"deadLetterSecret"`
-	// The type of Digital Twins endpoint
-	// Expected value is 'EventHub'.
-	EndpointType string `pulumi:"endpointType"`
-	// The provisioning state.
-	ProvisioningState string `pulumi:"provisioningState"`
+	CreatedTime                  string  `pulumi:"createdTime"`
+	DeadLetterSecret             *string `pulumi:"deadLetterSecret"`
+	EndpointType                 string  `pulumi:"endpointType"`
+	ProvisioningState            string  `pulumi:"provisioningState"`
 }
 
 // EventHubResponseInput is an input type that accepts EventHubResponseArgs and EventHubResponseOutput values.
@@ -329,21 +255,13 @@ type EventHubResponseInput interface {
 	ToEventHubResponseOutputWithContext(context.Context) EventHubResponseOutput
 }
 
-// Properties related to EventHub.
 type EventHubResponseArgs struct {
-	// PrimaryConnectionString of the endpoint. Will be obfuscated during read.
-	ConnectionStringPrimaryKey pulumi.StringInput `pulumi:"connectionStringPrimaryKey"`
-	// SecondaryConnectionString of the endpoint. Will be obfuscated during read.
+	ConnectionStringPrimaryKey   pulumi.StringInput    `pulumi:"connectionStringPrimaryKey"`
 	ConnectionStringSecondaryKey pulumi.StringPtrInput `pulumi:"connectionStringSecondaryKey"`
-	// Time when the Endpoint was added to DigitalTwinsInstance.
-	CreatedTime pulumi.StringInput `pulumi:"createdTime"`
-	// Dead letter storage secret. Will be obfuscated during read.
-	DeadLetterSecret pulumi.StringPtrInput `pulumi:"deadLetterSecret"`
-	// The type of Digital Twins endpoint
-	// Expected value is 'EventHub'.
-	EndpointType pulumi.StringInput `pulumi:"endpointType"`
-	// The provisioning state.
-	ProvisioningState pulumi.StringInput `pulumi:"provisioningState"`
+	CreatedTime                  pulumi.StringInput    `pulumi:"createdTime"`
+	DeadLetterSecret             pulumi.StringPtrInput `pulumi:"deadLetterSecret"`
+	EndpointType                 pulumi.StringInput    `pulumi:"endpointType"`
+	ProvisioningState            pulumi.StringInput    `pulumi:"provisioningState"`
 }
 
 func (EventHubResponseArgs) ElementType() reflect.Type {
@@ -358,7 +276,6 @@ func (i EventHubResponseArgs) ToEventHubResponseOutputWithContext(ctx context.Co
 	return pulumi.ToOutputWithContext(ctx, i).(EventHubResponseOutput)
 }
 
-// Properties related to EventHub.
 type EventHubResponseOutput struct{ *pulumi.OutputState }
 
 func (EventHubResponseOutput) ElementType() reflect.Type {
@@ -373,47 +290,34 @@ func (o EventHubResponseOutput) ToEventHubResponseOutputWithContext(ctx context.
 	return o
 }
 
-// PrimaryConnectionString of the endpoint. Will be obfuscated during read.
 func (o EventHubResponseOutput) ConnectionStringPrimaryKey() pulumi.StringOutput {
 	return o.ApplyT(func(v EventHubResponse) string { return v.ConnectionStringPrimaryKey }).(pulumi.StringOutput)
 }
 
-// SecondaryConnectionString of the endpoint. Will be obfuscated during read.
 func (o EventHubResponseOutput) ConnectionStringSecondaryKey() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v EventHubResponse) *string { return v.ConnectionStringSecondaryKey }).(pulumi.StringPtrOutput)
 }
 
-// Time when the Endpoint was added to DigitalTwinsInstance.
 func (o EventHubResponseOutput) CreatedTime() pulumi.StringOutput {
 	return o.ApplyT(func(v EventHubResponse) string { return v.CreatedTime }).(pulumi.StringOutput)
 }
 
-// Dead letter storage secret. Will be obfuscated during read.
 func (o EventHubResponseOutput) DeadLetterSecret() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v EventHubResponse) *string { return v.DeadLetterSecret }).(pulumi.StringPtrOutput)
 }
 
-// The type of Digital Twins endpoint
-// Expected value is 'EventHub'.
 func (o EventHubResponseOutput) EndpointType() pulumi.StringOutput {
 	return o.ApplyT(func(v EventHubResponse) string { return v.EndpointType }).(pulumi.StringOutput)
 }
 
-// The provisioning state.
 func (o EventHubResponseOutput) ProvisioningState() pulumi.StringOutput {
 	return o.ApplyT(func(v EventHubResponse) string { return v.ProvisioningState }).(pulumi.StringOutput)
 }
 
-// Properties related to ServiceBus.
 type ServiceBus struct {
-	// Dead letter storage secret. Will be obfuscated during read.
-	DeadLetterSecret *string `pulumi:"deadLetterSecret"`
-	// The type of Digital Twins endpoint
-	// Expected value is 'ServiceBus'.
-	EndpointType string `pulumi:"endpointType"`
-	// PrimaryConnectionString of the endpoint. Will be obfuscated during read.
-	PrimaryConnectionString string `pulumi:"primaryConnectionString"`
-	// SecondaryConnectionString of the endpoint. Will be obfuscated during read.
+	DeadLetterSecret          *string `pulumi:"deadLetterSecret"`
+	EndpointType              string  `pulumi:"endpointType"`
+	PrimaryConnectionString   string  `pulumi:"primaryConnectionString"`
 	SecondaryConnectionString *string `pulumi:"secondaryConnectionString"`
 }
 
@@ -428,16 +332,10 @@ type ServiceBusInput interface {
 	ToServiceBusOutputWithContext(context.Context) ServiceBusOutput
 }
 
-// Properties related to ServiceBus.
 type ServiceBusArgs struct {
-	// Dead letter storage secret. Will be obfuscated during read.
-	DeadLetterSecret pulumi.StringPtrInput `pulumi:"deadLetterSecret"`
-	// The type of Digital Twins endpoint
-	// Expected value is 'ServiceBus'.
-	EndpointType pulumi.StringInput `pulumi:"endpointType"`
-	// PrimaryConnectionString of the endpoint. Will be obfuscated during read.
-	PrimaryConnectionString pulumi.StringInput `pulumi:"primaryConnectionString"`
-	// SecondaryConnectionString of the endpoint. Will be obfuscated during read.
+	DeadLetterSecret          pulumi.StringPtrInput `pulumi:"deadLetterSecret"`
+	EndpointType              pulumi.StringInput    `pulumi:"endpointType"`
+	PrimaryConnectionString   pulumi.StringInput    `pulumi:"primaryConnectionString"`
 	SecondaryConnectionString pulumi.StringPtrInput `pulumi:"secondaryConnectionString"`
 }
 
@@ -453,7 +351,6 @@ func (i ServiceBusArgs) ToServiceBusOutputWithContext(ctx context.Context) Servi
 	return pulumi.ToOutputWithContext(ctx, i).(ServiceBusOutput)
 }
 
-// Properties related to ServiceBus.
 type ServiceBusOutput struct{ *pulumi.OutputState }
 
 func (ServiceBusOutput) ElementType() reflect.Type {
@@ -468,41 +365,28 @@ func (o ServiceBusOutput) ToServiceBusOutputWithContext(ctx context.Context) Ser
 	return o
 }
 
-// Dead letter storage secret. Will be obfuscated during read.
 func (o ServiceBusOutput) DeadLetterSecret() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ServiceBus) *string { return v.DeadLetterSecret }).(pulumi.StringPtrOutput)
 }
 
-// The type of Digital Twins endpoint
-// Expected value is 'ServiceBus'.
 func (o ServiceBusOutput) EndpointType() pulumi.StringOutput {
 	return o.ApplyT(func(v ServiceBus) string { return v.EndpointType }).(pulumi.StringOutput)
 }
 
-// PrimaryConnectionString of the endpoint. Will be obfuscated during read.
 func (o ServiceBusOutput) PrimaryConnectionString() pulumi.StringOutput {
 	return o.ApplyT(func(v ServiceBus) string { return v.PrimaryConnectionString }).(pulumi.StringOutput)
 }
 
-// SecondaryConnectionString of the endpoint. Will be obfuscated during read.
 func (o ServiceBusOutput) SecondaryConnectionString() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ServiceBus) *string { return v.SecondaryConnectionString }).(pulumi.StringPtrOutput)
 }
 
-// Properties related to ServiceBus.
 type ServiceBusResponse struct {
-	// Time when the Endpoint was added to DigitalTwinsInstance.
-	CreatedTime string `pulumi:"createdTime"`
-	// Dead letter storage secret. Will be obfuscated during read.
-	DeadLetterSecret *string `pulumi:"deadLetterSecret"`
-	// The type of Digital Twins endpoint
-	// Expected value is 'ServiceBus'.
-	EndpointType string `pulumi:"endpointType"`
-	// PrimaryConnectionString of the endpoint. Will be obfuscated during read.
-	PrimaryConnectionString string `pulumi:"primaryConnectionString"`
-	// The provisioning state.
-	ProvisioningState string `pulumi:"provisioningState"`
-	// SecondaryConnectionString of the endpoint. Will be obfuscated during read.
+	CreatedTime               string  `pulumi:"createdTime"`
+	DeadLetterSecret          *string `pulumi:"deadLetterSecret"`
+	EndpointType              string  `pulumi:"endpointType"`
+	PrimaryConnectionString   string  `pulumi:"primaryConnectionString"`
+	ProvisioningState         string  `pulumi:"provisioningState"`
 	SecondaryConnectionString *string `pulumi:"secondaryConnectionString"`
 }
 
@@ -517,20 +401,12 @@ type ServiceBusResponseInput interface {
 	ToServiceBusResponseOutputWithContext(context.Context) ServiceBusResponseOutput
 }
 
-// Properties related to ServiceBus.
 type ServiceBusResponseArgs struct {
-	// Time when the Endpoint was added to DigitalTwinsInstance.
-	CreatedTime pulumi.StringInput `pulumi:"createdTime"`
-	// Dead letter storage secret. Will be obfuscated during read.
-	DeadLetterSecret pulumi.StringPtrInput `pulumi:"deadLetterSecret"`
-	// The type of Digital Twins endpoint
-	// Expected value is 'ServiceBus'.
-	EndpointType pulumi.StringInput `pulumi:"endpointType"`
-	// PrimaryConnectionString of the endpoint. Will be obfuscated during read.
-	PrimaryConnectionString pulumi.StringInput `pulumi:"primaryConnectionString"`
-	// The provisioning state.
-	ProvisioningState pulumi.StringInput `pulumi:"provisioningState"`
-	// SecondaryConnectionString of the endpoint. Will be obfuscated during read.
+	CreatedTime               pulumi.StringInput    `pulumi:"createdTime"`
+	DeadLetterSecret          pulumi.StringPtrInput `pulumi:"deadLetterSecret"`
+	EndpointType              pulumi.StringInput    `pulumi:"endpointType"`
+	PrimaryConnectionString   pulumi.StringInput    `pulumi:"primaryConnectionString"`
+	ProvisioningState         pulumi.StringInput    `pulumi:"provisioningState"`
 	SecondaryConnectionString pulumi.StringPtrInput `pulumi:"secondaryConnectionString"`
 }
 
@@ -546,7 +422,6 @@ func (i ServiceBusResponseArgs) ToServiceBusResponseOutputWithContext(ctx contex
 	return pulumi.ToOutputWithContext(ctx, i).(ServiceBusResponseOutput)
 }
 
-// Properties related to ServiceBus.
 type ServiceBusResponseOutput struct{ *pulumi.OutputState }
 
 func (ServiceBusResponseOutput) ElementType() reflect.Type {
@@ -561,33 +436,26 @@ func (o ServiceBusResponseOutput) ToServiceBusResponseOutputWithContext(ctx cont
 	return o
 }
 
-// Time when the Endpoint was added to DigitalTwinsInstance.
 func (o ServiceBusResponseOutput) CreatedTime() pulumi.StringOutput {
 	return o.ApplyT(func(v ServiceBusResponse) string { return v.CreatedTime }).(pulumi.StringOutput)
 }
 
-// Dead letter storage secret. Will be obfuscated during read.
 func (o ServiceBusResponseOutput) DeadLetterSecret() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ServiceBusResponse) *string { return v.DeadLetterSecret }).(pulumi.StringPtrOutput)
 }
 
-// The type of Digital Twins endpoint
-// Expected value is 'ServiceBus'.
 func (o ServiceBusResponseOutput) EndpointType() pulumi.StringOutput {
 	return o.ApplyT(func(v ServiceBusResponse) string { return v.EndpointType }).(pulumi.StringOutput)
 }
 
-// PrimaryConnectionString of the endpoint. Will be obfuscated during read.
 func (o ServiceBusResponseOutput) PrimaryConnectionString() pulumi.StringOutput {
 	return o.ApplyT(func(v ServiceBusResponse) string { return v.PrimaryConnectionString }).(pulumi.StringOutput)
 }
 
-// The provisioning state.
 func (o ServiceBusResponseOutput) ProvisioningState() pulumi.StringOutput {
 	return o.ApplyT(func(v ServiceBusResponse) string { return v.ProvisioningState }).(pulumi.StringOutput)
 }
 
-// SecondaryConnectionString of the endpoint. Will be obfuscated during read.
 func (o ServiceBusResponseOutput) SecondaryConnectionString() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ServiceBusResponse) *string { return v.SecondaryConnectionString }).(pulumi.StringPtrOutput)
 }

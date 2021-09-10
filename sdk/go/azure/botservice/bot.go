@@ -173,9 +173,7 @@ func (i *Bot) ToBotOutputWithContext(ctx context.Context) BotOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(BotOutput)
 }
 
-type BotOutput struct {
-	*pulumi.OutputState
-}
+type BotOutput struct{ *pulumi.OutputState }
 
 func (BotOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*Bot)(nil))

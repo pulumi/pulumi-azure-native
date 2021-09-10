@@ -7,7 +7,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// The IoT Central application.
 func LookupApp(ctx *pulumi.Context, args *LookupAppArgs, opts ...pulumi.InvokeOption) (*LookupAppResult, error) {
 	var rv LookupAppResult
 	err := ctx.Invoke("azure-native:iotcentral/v20180901:getApp", args, &rv, opts...)
@@ -18,32 +17,20 @@ func LookupApp(ctx *pulumi.Context, args *LookupAppArgs, opts ...pulumi.InvokeOp
 }
 
 type LookupAppArgs struct {
-	// The name of the resource group that contains the IoT Central application.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
-	// The ARM resource name of the IoT Central application.
-	ResourceName string `pulumi:"resourceName"`
+	ResourceName      string `pulumi:"resourceName"`
 }
 
 // The IoT Central application.
 type LookupAppResult struct {
-	// The ID of the application.
-	ApplicationId string `pulumi:"applicationId"`
-	// The display name of the application.
-	DisplayName *string `pulumi:"displayName"`
-	// The ARM resource identifier.
-	Id string `pulumi:"id"`
-	// The resource location.
-	Location string `pulumi:"location"`
-	// The ARM resource name.
-	Name string `pulumi:"name"`
-	// A valid instance SKU.
-	Sku AppSkuInfoResponse `pulumi:"sku"`
-	// The subdomain of the application.
-	Subdomain *string `pulumi:"subdomain"`
-	// The resource tags.
-	Tags map[string]string `pulumi:"tags"`
-	// The ID of the application template, which is a blueprint that defines the characteristics and behaviors of an application. Optional; if not specified, defaults to a blank blueprint and allows the application to be defined from scratch.
-	Template *string `pulumi:"template"`
-	// The resource type.
-	Type string `pulumi:"type"`
+	ApplicationId string             `pulumi:"applicationId"`
+	DisplayName   *string            `pulumi:"displayName"`
+	Id            string             `pulumi:"id"`
+	Location      string             `pulumi:"location"`
+	Name          string             `pulumi:"name"`
+	Sku           AppSkuInfoResponse `pulumi:"sku"`
+	Subdomain     *string            `pulumi:"subdomain"`
+	Tags          map[string]string  `pulumi:"tags"`
+	Template      *string            `pulumi:"template"`
+	Type          string             `pulumi:"type"`
 }

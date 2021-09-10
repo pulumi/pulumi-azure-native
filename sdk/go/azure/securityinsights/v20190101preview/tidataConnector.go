@@ -11,24 +11,16 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Data connector to pull threat intelligence data from TIP products.
 type TIDataConnector struct {
 	pulumi.CustomResourceState
 
-	// The available data types for the connector.
-	DataTypes TIDataConnectorDataTypesResponseOutput `pulumi:"dataTypes"`
-	// Etag of the azure resource
-	Etag pulumi.StringPtrOutput `pulumi:"etag"`
-	// Expected value is 'ThreatIntelligence'.
-	Kind pulumi.StringOutput `pulumi:"kind"`
-	// Azure resource name
-	Name pulumi.StringOutput `pulumi:"name"`
-	// The tenant id to connect to, and get the data from.
-	TenantId pulumi.StringOutput `pulumi:"tenantId"`
-	// The lookback period for the feed to be imported.
-	TipLookbackPeriod pulumi.StringPtrOutput `pulumi:"tipLookbackPeriod"`
-	// Azure resource type
-	Type pulumi.StringOutput `pulumi:"type"`
+	DataTypes         TIDataConnectorDataTypesResponseOutput `pulumi:"dataTypes"`
+	Etag              pulumi.StringPtrOutput                 `pulumi:"etag"`
+	Kind              pulumi.StringOutput                    `pulumi:"kind"`
+	Name              pulumi.StringOutput                    `pulumi:"name"`
+	TenantId          pulumi.StringOutput                    `pulumi:"tenantId"`
+	TipLookbackPeriod pulumi.StringPtrOutput                 `pulumi:"tipLookbackPeriod"`
+	Type              pulumi.StringOutput                    `pulumi:"type"`
 }
 
 // NewTIDataConnector registers a new resource with the given unique name, arguments, and options.
@@ -113,46 +105,28 @@ func (TIDataConnectorState) ElementType() reflect.Type {
 }
 
 type tidataConnectorArgs struct {
-	// Connector ID
-	DataConnectorId *string `pulumi:"dataConnectorId"`
-	// The available data types for the connector.
-	DataTypes TIDataConnectorDataTypes `pulumi:"dataTypes"`
-	// Etag of the azure resource
-	Etag *string `pulumi:"etag"`
-	// Expected value is 'ThreatIntelligence'.
-	Kind string `pulumi:"kind"`
-	// The namespace of workspaces resource provider- Microsoft.OperationalInsights.
-	OperationalInsightsResourceProvider string `pulumi:"operationalInsightsResourceProvider"`
-	// The name of the resource group within the user's subscription. The name is case insensitive.
-	ResourceGroupName string `pulumi:"resourceGroupName"`
-	// The tenant id to connect to, and get the data from.
-	TenantId string `pulumi:"tenantId"`
-	// The lookback period for the feed to be imported.
-	TipLookbackPeriod *string `pulumi:"tipLookbackPeriod"`
-	// The name of the workspace.
-	WorkspaceName string `pulumi:"workspaceName"`
+	DataConnectorId                     *string                  `pulumi:"dataConnectorId"`
+	DataTypes                           TIDataConnectorDataTypes `pulumi:"dataTypes"`
+	Etag                                *string                  `pulumi:"etag"`
+	Kind                                string                   `pulumi:"kind"`
+	OperationalInsightsResourceProvider string                   `pulumi:"operationalInsightsResourceProvider"`
+	ResourceGroupName                   string                   `pulumi:"resourceGroupName"`
+	TenantId                            string                   `pulumi:"tenantId"`
+	TipLookbackPeriod                   *string                  `pulumi:"tipLookbackPeriod"`
+	WorkspaceName                       string                   `pulumi:"workspaceName"`
 }
 
 // The set of arguments for constructing a TIDataConnector resource.
 type TIDataConnectorArgs struct {
-	// Connector ID
-	DataConnectorId pulumi.StringPtrInput
-	// The available data types for the connector.
-	DataTypes TIDataConnectorDataTypesInput
-	// Etag of the azure resource
-	Etag pulumi.StringPtrInput
-	// Expected value is 'ThreatIntelligence'.
-	Kind pulumi.StringInput
-	// The namespace of workspaces resource provider- Microsoft.OperationalInsights.
+	DataConnectorId                     pulumi.StringPtrInput
+	DataTypes                           TIDataConnectorDataTypesInput
+	Etag                                pulumi.StringPtrInput
+	Kind                                pulumi.StringInput
 	OperationalInsightsResourceProvider pulumi.StringInput
-	// The name of the resource group within the user's subscription. The name is case insensitive.
-	ResourceGroupName pulumi.StringInput
-	// The tenant id to connect to, and get the data from.
-	TenantId pulumi.StringInput
-	// The lookback period for the feed to be imported.
-	TipLookbackPeriod pulumi.StringPtrInput
-	// The name of the workspace.
-	WorkspaceName pulumi.StringInput
+	ResourceGroupName                   pulumi.StringInput
+	TenantId                            pulumi.StringInput
+	TipLookbackPeriod                   pulumi.StringPtrInput
+	WorkspaceName                       pulumi.StringInput
 }
 
 func (TIDataConnectorArgs) ElementType() reflect.Type {
@@ -178,9 +152,7 @@ func (i *TIDataConnector) ToTIDataConnectorOutputWithContext(ctx context.Context
 	return pulumi.ToOutputWithContext(ctx, i).(TIDataConnectorOutput)
 }
 
-type TIDataConnectorOutput struct {
-	*pulumi.OutputState
-}
+type TIDataConnectorOutput struct{ *pulumi.OutputState }
 
 func (TIDataConnectorOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*TIDataConnector)(nil))

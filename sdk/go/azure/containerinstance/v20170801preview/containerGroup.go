@@ -11,34 +11,21 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// A container group.
 type ContainerGroup struct {
 	pulumi.CustomResourceState
 
-	// The containers within the container group.
-	Containers ContainerResponseArrayOutput `pulumi:"containers"`
-	// The image registry credentials by which the container group is created from.
+	Containers               ContainerResponseArrayOutput               `pulumi:"containers"`
 	ImageRegistryCredentials ImageRegistryCredentialResponseArrayOutput `pulumi:"imageRegistryCredentials"`
-	// The IP address type of the container group.
-	IpAddress IpAddressResponsePtrOutput `pulumi:"ipAddress"`
-	// The resource location.
-	Location pulumi.StringOutput `pulumi:"location"`
-	// The resource name.
-	Name pulumi.StringOutput `pulumi:"name"`
-	// The operating system type required by the containers in the container group.
-	OsType pulumi.StringOutput `pulumi:"osType"`
-	// The provisioning state of the container group. This only appears in the response.
-	ProvisioningState pulumi.StringOutput `pulumi:"provisioningState"`
-	// Restart policy for all containers within the container group. Currently the only available option is `always`.
-	RestartPolicy pulumi.StringPtrOutput `pulumi:"restartPolicy"`
-	// The current state of the container group. This is only valid for the response.
-	State pulumi.StringOutput `pulumi:"state"`
-	// The resource tags.
-	Tags pulumi.StringMapOutput `pulumi:"tags"`
-	// The resource type.
-	Type pulumi.StringOutput `pulumi:"type"`
-	// The list of volumes that can be mounted by containers in this container group.
-	Volumes VolumeResponseArrayOutput `pulumi:"volumes"`
+	IpAddress                IpAddressResponsePtrOutput                 `pulumi:"ipAddress"`
+	Location                 pulumi.StringOutput                        `pulumi:"location"`
+	Name                     pulumi.StringOutput                        `pulumi:"name"`
+	OsType                   pulumi.StringOutput                        `pulumi:"osType"`
+	ProvisioningState        pulumi.StringOutput                        `pulumi:"provisioningState"`
+	RestartPolicy            pulumi.StringPtrOutput                     `pulumi:"restartPolicy"`
+	State                    pulumi.StringOutput                        `pulumi:"state"`
+	Tags                     pulumi.StringMapOutput                     `pulumi:"tags"`
+	Type                     pulumi.StringOutput                        `pulumi:"type"`
+	Volumes                  VolumeResponseArrayOutput                  `pulumi:"volumes"`
 }
 
 // NewContainerGroup registers a new resource with the given unique name, arguments, and options.
@@ -161,50 +148,30 @@ func (ContainerGroupState) ElementType() reflect.Type {
 }
 
 type containerGroupArgs struct {
-	// The name of the container group to be created or updated.
-	ContainerGroupName *string `pulumi:"containerGroupName"`
-	// The containers within the container group.
-	Containers []Container `pulumi:"containers"`
-	// The image registry credentials by which the container group is created from.
+	ContainerGroupName       *string                   `pulumi:"containerGroupName"`
+	Containers               []Container               `pulumi:"containers"`
 	ImageRegistryCredentials []ImageRegistryCredential `pulumi:"imageRegistryCredentials"`
-	// The IP address type of the container group.
-	IpAddress *IpAddress `pulumi:"ipAddress"`
-	// The resource location.
-	Location *string `pulumi:"location"`
-	// The operating system type required by the containers in the container group.
-	OsType string `pulumi:"osType"`
-	// The name of the resource group to contain the container group to be created or updated.
-	ResourceGroupName string `pulumi:"resourceGroupName"`
-	// Restart policy for all containers within the container group. Currently the only available option is `always`.
-	RestartPolicy *string `pulumi:"restartPolicy"`
-	// The resource tags.
-	Tags map[string]string `pulumi:"tags"`
-	// The list of volumes that can be mounted by containers in this container group.
-	Volumes []Volume `pulumi:"volumes"`
+	IpAddress                *IpAddress                `pulumi:"ipAddress"`
+	Location                 *string                   `pulumi:"location"`
+	OsType                   string                    `pulumi:"osType"`
+	ResourceGroupName        string                    `pulumi:"resourceGroupName"`
+	RestartPolicy            *string                   `pulumi:"restartPolicy"`
+	Tags                     map[string]string         `pulumi:"tags"`
+	Volumes                  []Volume                  `pulumi:"volumes"`
 }
 
 // The set of arguments for constructing a ContainerGroup resource.
 type ContainerGroupArgs struct {
-	// The name of the container group to be created or updated.
-	ContainerGroupName pulumi.StringPtrInput
-	// The containers within the container group.
-	Containers ContainerArrayInput
-	// The image registry credentials by which the container group is created from.
+	ContainerGroupName       pulumi.StringPtrInput
+	Containers               ContainerArrayInput
 	ImageRegistryCredentials ImageRegistryCredentialArrayInput
-	// The IP address type of the container group.
-	IpAddress IpAddressPtrInput
-	// The resource location.
-	Location pulumi.StringPtrInput
-	// The operating system type required by the containers in the container group.
-	OsType pulumi.StringInput
-	// The name of the resource group to contain the container group to be created or updated.
-	ResourceGroupName pulumi.StringInput
-	// Restart policy for all containers within the container group. Currently the only available option is `always`.
-	RestartPolicy pulumi.StringPtrInput
-	// The resource tags.
-	Tags pulumi.StringMapInput
-	// The list of volumes that can be mounted by containers in this container group.
-	Volumes VolumeArrayInput
+	IpAddress                IpAddressPtrInput
+	Location                 pulumi.StringPtrInput
+	OsType                   pulumi.StringInput
+	ResourceGroupName        pulumi.StringInput
+	RestartPolicy            pulumi.StringPtrInput
+	Tags                     pulumi.StringMapInput
+	Volumes                  VolumeArrayInput
 }
 
 func (ContainerGroupArgs) ElementType() reflect.Type {
@@ -230,9 +197,7 @@ func (i *ContainerGroup) ToContainerGroupOutputWithContext(ctx context.Context) 
 	return pulumi.ToOutputWithContext(ctx, i).(ContainerGroupOutput)
 }
 
-type ContainerGroupOutput struct {
-	*pulumi.OutputState
-}
+type ContainerGroupOutput struct{ *pulumi.OutputState }
 
 func (ContainerGroupOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*ContainerGroup)(nil))

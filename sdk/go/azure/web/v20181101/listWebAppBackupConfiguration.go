@@ -7,7 +7,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Description of a backup which will be performed.
 func ListWebAppBackupConfiguration(ctx *pulumi.Context, args *ListWebAppBackupConfigurationArgs, opts ...pulumi.InvokeOption) (*ListWebAppBackupConfigurationResult, error) {
 	var rv ListWebAppBackupConfigurationResult
 	err := ctx.Invoke("azure-native:web/v20181101:listWebAppBackupConfiguration", args, &rv, opts...)
@@ -18,30 +17,19 @@ func ListWebAppBackupConfiguration(ctx *pulumi.Context, args *ListWebAppBackupCo
 }
 
 type ListWebAppBackupConfigurationArgs struct {
-	// Name of the app.
-	Name string `pulumi:"name"`
-	// Name of the resource group to which the resource belongs.
+	Name              string `pulumi:"name"`
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 }
 
 // Description of a backup which will be performed.
 type ListWebAppBackupConfigurationResult struct {
-	// Name of the backup.
-	BackupName *string `pulumi:"backupName"`
-	// Schedule for the backup if it is executed periodically.
-	BackupSchedule *BackupScheduleResponse `pulumi:"backupSchedule"`
-	// Databases included in the backup.
-	Databases []DatabaseBackupSettingResponse `pulumi:"databases"`
-	// True if the backup schedule is enabled (must be included in that case), false if the backup schedule should be disabled.
-	Enabled *bool `pulumi:"enabled"`
-	// Resource Id.
-	Id string `pulumi:"id"`
-	// Kind of resource.
-	Kind *string `pulumi:"kind"`
-	// Resource Name.
-	Name string `pulumi:"name"`
-	// SAS URL to the container.
-	StorageAccountUrl string `pulumi:"storageAccountUrl"`
-	// Resource type.
-	Type string `pulumi:"type"`
+	BackupName        *string                         `pulumi:"backupName"`
+	BackupSchedule    *BackupScheduleResponse         `pulumi:"backupSchedule"`
+	Databases         []DatabaseBackupSettingResponse `pulumi:"databases"`
+	Enabled           *bool                           `pulumi:"enabled"`
+	Id                string                          `pulumi:"id"`
+	Kind              *string                         `pulumi:"kind"`
+	Name              string                          `pulumi:"name"`
+	StorageAccountUrl string                          `pulumi:"storageAccountUrl"`
+	Type              string                          `pulumi:"type"`
 }

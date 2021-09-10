@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.Insights.V20180301.Outputs
 {
 
+    /// <summary>
+    /// The minimum number of violations required within the selected lookback time window required to raise an alert.
+    /// </summary>
     [OutputType]
     public sealed class DynamicThresholdFailingPeriodsResponse
     {

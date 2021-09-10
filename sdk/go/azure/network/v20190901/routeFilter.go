@@ -11,28 +11,18 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Route Filter Resource.
 type RouteFilter struct {
 	pulumi.CustomResourceState
 
-	// A unique read-only string that changes whenever the resource is updated.
-	Etag pulumi.StringOutput `pulumi:"etag"`
-	// A collection of references to express route circuit ipv6 peerings.
-	Ipv6Peerings ExpressRouteCircuitPeeringResponseArrayOutput `pulumi:"ipv6Peerings"`
-	// Resource location.
-	Location pulumi.StringOutput `pulumi:"location"`
-	// Resource name.
-	Name pulumi.StringOutput `pulumi:"name"`
-	// A collection of references to express route circuit peerings.
-	Peerings ExpressRouteCircuitPeeringResponseArrayOutput `pulumi:"peerings"`
-	// The provisioning state of the route filter resource.
-	ProvisioningState pulumi.StringOutput `pulumi:"provisioningState"`
-	// Collection of RouteFilterRules contained within a route filter.
-	Rules RouteFilterRuleResponseArrayOutput `pulumi:"rules"`
-	// Resource tags.
-	Tags pulumi.StringMapOutput `pulumi:"tags"`
-	// Resource type.
-	Type pulumi.StringOutput `pulumi:"type"`
+	Etag              pulumi.StringOutput                           `pulumi:"etag"`
+	Ipv6Peerings      ExpressRouteCircuitPeeringResponseArrayOutput `pulumi:"ipv6Peerings"`
+	Location          pulumi.StringOutput                           `pulumi:"location"`
+	Name              pulumi.StringOutput                           `pulumi:"name"`
+	Peerings          ExpressRouteCircuitPeeringResponseArrayOutput `pulumi:"peerings"`
+	ProvisioningState pulumi.StringOutput                           `pulumi:"provisioningState"`
+	Rules             RouteFilterRuleResponseArrayOutput            `pulumi:"rules"`
+	Tags              pulumi.StringMapOutput                        `pulumi:"tags"`
+	Type              pulumi.StringOutput                           `pulumi:"type"`
 }
 
 // NewRouteFilter registers a new resource with the given unique name, arguments, and options.
@@ -281,34 +271,22 @@ func (RouteFilterState) ElementType() reflect.Type {
 }
 
 type routeFilterArgs struct {
-	// Resource ID.
-	Id *string `pulumi:"id"`
-	// Resource location.
-	Location *string `pulumi:"location"`
-	// The name of the resource group.
-	ResourceGroupName string `pulumi:"resourceGroupName"`
-	// The name of the route filter.
-	RouteFilterName *string `pulumi:"routeFilterName"`
-	// Collection of RouteFilterRules contained within a route filter.
-	Rules []RouteFilterRuleType `pulumi:"rules"`
-	// Resource tags.
-	Tags map[string]string `pulumi:"tags"`
+	Id                *string               `pulumi:"id"`
+	Location          *string               `pulumi:"location"`
+	ResourceGroupName string                `pulumi:"resourceGroupName"`
+	RouteFilterName   *string               `pulumi:"routeFilterName"`
+	Rules             []RouteFilterRuleType `pulumi:"rules"`
+	Tags              map[string]string     `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a RouteFilter resource.
 type RouteFilterArgs struct {
-	// Resource ID.
-	Id pulumi.StringPtrInput
-	// Resource location.
-	Location pulumi.StringPtrInput
-	// The name of the resource group.
+	Id                pulumi.StringPtrInput
+	Location          pulumi.StringPtrInput
 	ResourceGroupName pulumi.StringInput
-	// The name of the route filter.
-	RouteFilterName pulumi.StringPtrInput
-	// Collection of RouteFilterRules contained within a route filter.
-	Rules RouteFilterRuleTypeArrayInput
-	// Resource tags.
-	Tags pulumi.StringMapInput
+	RouteFilterName   pulumi.StringPtrInput
+	Rules             RouteFilterRuleTypeArrayInput
+	Tags              pulumi.StringMapInput
 }
 
 func (RouteFilterArgs) ElementType() reflect.Type {
@@ -334,9 +312,7 @@ func (i *RouteFilter) ToRouteFilterOutputWithContext(ctx context.Context) RouteF
 	return pulumi.ToOutputWithContext(ctx, i).(RouteFilterOutput)
 }
 
-type RouteFilterOutput struct {
-	*pulumi.OutputState
-}
+type RouteFilterOutput struct{ *pulumi.OutputState }
 
 func (RouteFilterOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*RouteFilter)(nil))

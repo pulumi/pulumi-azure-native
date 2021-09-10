@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.ConfidentialLedger.V20210513Preview.Outputs
 {
 
+    /// <summary>
+    /// AAD based security principal with associated Ledger RoleName
+    /// </summary>
     [OutputType]
     public sealed class AADBasedSecurityPrincipalResponse
     {

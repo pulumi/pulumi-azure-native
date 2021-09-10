@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.Cdn.V20150601.Outputs
 {
 
+    /// <summary>
+    /// Deep created origins within a CDN endpoint.
+    /// </summary>
     [OutputType]
     public sealed class DeepCreatedOriginResponse
     {

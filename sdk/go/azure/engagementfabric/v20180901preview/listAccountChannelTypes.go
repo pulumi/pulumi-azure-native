@@ -7,7 +7,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// List of the EngagementFabric channel descriptions
 func ListAccountChannelTypes(ctx *pulumi.Context, args *ListAccountChannelTypesArgs, opts ...pulumi.InvokeOption) (*ListAccountChannelTypesResult, error) {
 	var rv ListAccountChannelTypesResult
 	err := ctx.Invoke("azure-native:engagementfabric/v20180901preview:listAccountChannelTypes", args, &rv, opts...)
@@ -18,14 +17,11 @@ func ListAccountChannelTypes(ctx *pulumi.Context, args *ListAccountChannelTypesA
 }
 
 type ListAccountChannelTypesArgs struct {
-	// Account Name
-	AccountName string `pulumi:"accountName"`
-	// Resource Group Name
+	AccountName       string `pulumi:"accountName"`
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 }
 
 // List of the EngagementFabric channel descriptions
 type ListAccountChannelTypesResult struct {
-	// Channel descriptions
 	Value []ChannelTypeDescriptionResponse `pulumi:"value"`
 }

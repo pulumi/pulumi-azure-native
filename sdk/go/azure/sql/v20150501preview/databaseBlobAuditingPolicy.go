@@ -11,28 +11,18 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// A database blob auditing policy.
 type DatabaseBlobAuditingPolicy struct {
 	pulumi.CustomResourceState
 
-	// Specifies the Actions and Actions-Groups to audit.
-	AuditActionsAndGroups pulumi.StringArrayOutput `pulumi:"auditActionsAndGroups"`
-	// Specifies whether storageAccountAccessKey value is the storage’s secondary key.
-	IsStorageSecondaryKeyInUse pulumi.BoolPtrOutput `pulumi:"isStorageSecondaryKeyInUse"`
-	// Resource kind.
-	Kind pulumi.StringOutput `pulumi:"kind"`
-	// Resource name.
-	Name pulumi.StringOutput `pulumi:"name"`
-	// Specifies the number of days to keep in the audit logs.
-	RetentionDays pulumi.IntPtrOutput `pulumi:"retentionDays"`
-	// Specifies the state of the policy. If state is Enabled, storageEndpoint and storageAccountAccessKey are required.
-	State pulumi.StringOutput `pulumi:"state"`
-	// Specifies the blob storage subscription Id.
-	StorageAccountSubscriptionId pulumi.StringPtrOutput `pulumi:"storageAccountSubscriptionId"`
-	// Specifies the blob storage endpoint (e.g. https://MyAccount.blob.core.windows.net). If state is Enabled, storageEndpoint is required.
-	StorageEndpoint pulumi.StringPtrOutput `pulumi:"storageEndpoint"`
-	// Resource type.
-	Type pulumi.StringOutput `pulumi:"type"`
+	AuditActionsAndGroups        pulumi.StringArrayOutput `pulumi:"auditActionsAndGroups"`
+	IsStorageSecondaryKeyInUse   pulumi.BoolPtrOutput     `pulumi:"isStorageSecondaryKeyInUse"`
+	Kind                         pulumi.StringOutput      `pulumi:"kind"`
+	Name                         pulumi.StringOutput      `pulumi:"name"`
+	RetentionDays                pulumi.IntPtrOutput      `pulumi:"retentionDays"`
+	State                        pulumi.StringOutput      `pulumi:"state"`
+	StorageAccountSubscriptionId pulumi.StringPtrOutput   `pulumi:"storageAccountSubscriptionId"`
+	StorageEndpoint              pulumi.StringPtrOutput   `pulumi:"storageEndpoint"`
+	Type                         pulumi.StringOutput      `pulumi:"type"`
 }
 
 // NewDatabaseBlobAuditingPolicy registers a new resource with the given unique name, arguments, and options.
@@ -50,6 +40,9 @@ func NewDatabaseBlobAuditingPolicy(ctx *pulumi.Context,
 	}
 	if args.ServerName == nil {
 		return nil, errors.New("invalid value for required argument 'ServerName'")
+	}
+	if args.State == nil {
+		return nil, errors.New("invalid value for required argument 'State'")
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
@@ -125,54 +118,32 @@ func (DatabaseBlobAuditingPolicyState) ElementType() reflect.Type {
 }
 
 type databaseBlobAuditingPolicyArgs struct {
-	// Specifies the Actions and Actions-Groups to audit.
-	AuditActionsAndGroups []string `pulumi:"auditActionsAndGroups"`
-	// The name of the blob auditing policy.
-	BlobAuditingPolicyName *string `pulumi:"blobAuditingPolicyName"`
-	// The name of the database for which the blob auditing policy will be defined.
-	DatabaseName string `pulumi:"databaseName"`
-	// Specifies whether storageAccountAccessKey value is the storage’s secondary key.
-	IsStorageSecondaryKeyInUse *bool `pulumi:"isStorageSecondaryKeyInUse"`
-	// The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
-	ResourceGroupName string `pulumi:"resourceGroupName"`
-	// Specifies the number of days to keep in the audit logs.
-	RetentionDays *int `pulumi:"retentionDays"`
-	// The name of the server.
-	ServerName string `pulumi:"serverName"`
-	// Specifies the state of the policy. If state is Enabled, storageEndpoint and storageAccountAccessKey are required.
-	State string `pulumi:"state"`
-	// Specifies the identifier key of the auditing storage account. If state is Enabled, storageAccountAccessKey is required.
-	StorageAccountAccessKey *string `pulumi:"storageAccountAccessKey"`
-	// Specifies the blob storage subscription Id.
-	StorageAccountSubscriptionId *string `pulumi:"storageAccountSubscriptionId"`
-	// Specifies the blob storage endpoint (e.g. https://MyAccount.blob.core.windows.net). If state is Enabled, storageEndpoint is required.
-	StorageEndpoint *string `pulumi:"storageEndpoint"`
+	AuditActionsAndGroups        []string                `pulumi:"auditActionsAndGroups"`
+	BlobAuditingPolicyName       *string                 `pulumi:"blobAuditingPolicyName"`
+	DatabaseName                 string                  `pulumi:"databaseName"`
+	IsStorageSecondaryKeyInUse   *bool                   `pulumi:"isStorageSecondaryKeyInUse"`
+	ResourceGroupName            string                  `pulumi:"resourceGroupName"`
+	RetentionDays                *int                    `pulumi:"retentionDays"`
+	ServerName                   string                  `pulumi:"serverName"`
+	State                        BlobAuditingPolicyState `pulumi:"state"`
+	StorageAccountAccessKey      *string                 `pulumi:"storageAccountAccessKey"`
+	StorageAccountSubscriptionId *string                 `pulumi:"storageAccountSubscriptionId"`
+	StorageEndpoint              *string                 `pulumi:"storageEndpoint"`
 }
 
 // The set of arguments for constructing a DatabaseBlobAuditingPolicy resource.
 type DatabaseBlobAuditingPolicyArgs struct {
-	// Specifies the Actions and Actions-Groups to audit.
-	AuditActionsAndGroups pulumi.StringArrayInput
-	// The name of the blob auditing policy.
-	BlobAuditingPolicyName pulumi.StringPtrInput
-	// The name of the database for which the blob auditing policy will be defined.
-	DatabaseName pulumi.StringInput
-	// Specifies whether storageAccountAccessKey value is the storage’s secondary key.
-	IsStorageSecondaryKeyInUse pulumi.BoolPtrInput
-	// The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
-	ResourceGroupName pulumi.StringInput
-	// Specifies the number of days to keep in the audit logs.
-	RetentionDays pulumi.IntPtrInput
-	// The name of the server.
-	ServerName pulumi.StringInput
-	// Specifies the state of the policy. If state is Enabled, storageEndpoint and storageAccountAccessKey are required.
-	State BlobAuditingPolicyState
-	// Specifies the identifier key of the auditing storage account. If state is Enabled, storageAccountAccessKey is required.
-	StorageAccountAccessKey pulumi.StringPtrInput
-	// Specifies the blob storage subscription Id.
+	AuditActionsAndGroups        pulumi.StringArrayInput
+	BlobAuditingPolicyName       pulumi.StringPtrInput
+	DatabaseName                 pulumi.StringInput
+	IsStorageSecondaryKeyInUse   pulumi.BoolPtrInput
+	ResourceGroupName            pulumi.StringInput
+	RetentionDays                pulumi.IntPtrInput
+	ServerName                   pulumi.StringInput
+	State                        BlobAuditingPolicyStateInput
+	StorageAccountAccessKey      pulumi.StringPtrInput
 	StorageAccountSubscriptionId pulumi.StringPtrInput
-	// Specifies the blob storage endpoint (e.g. https://MyAccount.blob.core.windows.net). If state is Enabled, storageEndpoint is required.
-	StorageEndpoint pulumi.StringPtrInput
+	StorageEndpoint              pulumi.StringPtrInput
 }
 
 func (DatabaseBlobAuditingPolicyArgs) ElementType() reflect.Type {
@@ -198,9 +169,7 @@ func (i *DatabaseBlobAuditingPolicy) ToDatabaseBlobAuditingPolicyOutputWithConte
 	return pulumi.ToOutputWithContext(ctx, i).(DatabaseBlobAuditingPolicyOutput)
 }
 
-type DatabaseBlobAuditingPolicyOutput struct {
-	*pulumi.OutputState
-}
+type DatabaseBlobAuditingPolicyOutput struct{ *pulumi.OutputState }
 
 func (DatabaseBlobAuditingPolicyOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*DatabaseBlobAuditingPolicy)(nil))

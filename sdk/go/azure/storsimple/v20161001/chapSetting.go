@@ -11,16 +11,12 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Challenge-Handshake Authentication Protocol (CHAP) setting
 type ChapSetting struct {
 	pulumi.CustomResourceState
 
-	// The name.
-	Name pulumi.StringOutput `pulumi:"name"`
-	// The chap password.
+	Name     pulumi.StringOutput                     `pulumi:"name"`
 	Password AsymmetricEncryptedSecretResponseOutput `pulumi:"password"`
-	// The type.
-	Type pulumi.StringOutput `pulumi:"type"`
+	Type     pulumi.StringOutput                     `pulumi:"type"`
 }
 
 // NewChapSetting registers a new resource with the given unique name, arguments, and options.
@@ -80,29 +76,19 @@ func (ChapSettingState) ElementType() reflect.Type {
 }
 
 type chapSettingArgs struct {
-	// The chap user name.
-	ChapUserName *string `pulumi:"chapUserName"`
-	// The device name.
-	DeviceName string `pulumi:"deviceName"`
-	// The manager name
-	ManagerName string `pulumi:"managerName"`
-	// The chap password.
-	Password AsymmetricEncryptedSecret `pulumi:"password"`
-	// The resource group name
-	ResourceGroupName string `pulumi:"resourceGroupName"`
+	ChapUserName      *string                   `pulumi:"chapUserName"`
+	DeviceName        string                    `pulumi:"deviceName"`
+	ManagerName       string                    `pulumi:"managerName"`
+	Password          AsymmetricEncryptedSecret `pulumi:"password"`
+	ResourceGroupName string                    `pulumi:"resourceGroupName"`
 }
 
 // The set of arguments for constructing a ChapSetting resource.
 type ChapSettingArgs struct {
-	// The chap user name.
-	ChapUserName pulumi.StringPtrInput
-	// The device name.
-	DeviceName pulumi.StringInput
-	// The manager name
-	ManagerName pulumi.StringInput
-	// The chap password.
-	Password AsymmetricEncryptedSecretInput
-	// The resource group name
+	ChapUserName      pulumi.StringPtrInput
+	DeviceName        pulumi.StringInput
+	ManagerName       pulumi.StringInput
+	Password          AsymmetricEncryptedSecretInput
 	ResourceGroupName pulumi.StringInput
 }
 
@@ -129,9 +115,7 @@ func (i *ChapSetting) ToChapSettingOutputWithContext(ctx context.Context) ChapSe
 	return pulumi.ToOutputWithContext(ctx, i).(ChapSettingOutput)
 }
 
-type ChapSettingOutput struct {
-	*pulumi.OutputState
-}
+type ChapSettingOutput struct{ *pulumi.OutputState }
 
 func (ChapSettingOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*ChapSetting)(nil))

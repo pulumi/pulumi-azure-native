@@ -11,20 +11,14 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// The resource representation of a rollout step.
 type Step struct {
 	pulumi.CustomResourceState
 
-	// The geo-location where the resource lives
-	Location pulumi.StringOutput `pulumi:"location"`
-	// The name of the resource
-	Name pulumi.StringOutput `pulumi:"name"`
-	// The properties that define the step.
+	Location   pulumi.StringOutput              `pulumi:"location"`
+	Name       pulumi.StringOutput              `pulumi:"name"`
 	Properties WaitStepPropertiesResponseOutput `pulumi:"properties"`
-	// Resource tags.
-	Tags pulumi.StringMapOutput `pulumi:"tags"`
-	// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
-	Type pulumi.StringOutput `pulumi:"type"`
+	Tags       pulumi.StringMapOutput           `pulumi:"tags"`
+	Type       pulumi.StringOutput              `pulumi:"type"`
 }
 
 // NewStep registers a new resource with the given unique name, arguments, and options.
@@ -90,30 +84,20 @@ func (StepState) ElementType() reflect.Type {
 }
 
 type stepArgs struct {
-	// The geo-location where the resource lives
-	Location *string `pulumi:"location"`
-	// The properties that define the step.
-	Properties WaitStepProperties `pulumi:"properties"`
-	// The name of the resource group. The name is case insensitive.
-	ResourceGroupName string `pulumi:"resourceGroupName"`
-	// The name of the deployment step.
-	StepName *string `pulumi:"stepName"`
-	// Resource tags.
-	Tags map[string]string `pulumi:"tags"`
+	Location          *string            `pulumi:"location"`
+	Properties        WaitStepProperties `pulumi:"properties"`
+	ResourceGroupName string             `pulumi:"resourceGroupName"`
+	StepName          *string            `pulumi:"stepName"`
+	Tags              map[string]string  `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a Step resource.
 type StepArgs struct {
-	// The geo-location where the resource lives
-	Location pulumi.StringPtrInput
-	// The properties that define the step.
-	Properties WaitStepPropertiesInput
-	// The name of the resource group. The name is case insensitive.
+	Location          pulumi.StringPtrInput
+	Properties        WaitStepPropertiesInput
 	ResourceGroupName pulumi.StringInput
-	// The name of the deployment step.
-	StepName pulumi.StringPtrInput
-	// Resource tags.
-	Tags pulumi.StringMapInput
+	StepName          pulumi.StringPtrInput
+	Tags              pulumi.StringMapInput
 }
 
 func (StepArgs) ElementType() reflect.Type {
@@ -139,9 +123,7 @@ func (i *Step) ToStepOutputWithContext(ctx context.Context) StepOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(StepOutput)
 }
 
-type StepOutput struct {
-	*pulumi.OutputState
-}
+type StepOutput struct{ *pulumi.OutputState }
 
 func (StepOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*Step)(nil))

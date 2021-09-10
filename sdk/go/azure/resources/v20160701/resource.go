@@ -11,30 +11,19 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Resource information.
 type Resource struct {
 	pulumi.CustomResourceState
 
-	// The identity of the resource.
-	Identity IdentityResponsePtrOutput `pulumi:"identity"`
-	// The kind of the resource.
-	Kind pulumi.StringPtrOutput `pulumi:"kind"`
-	// Resource location
-	Location pulumi.StringPtrOutput `pulumi:"location"`
-	// Id of the resource that manages this resource.
-	ManagedBy pulumi.StringPtrOutput `pulumi:"managedBy"`
-	// Resource name
-	Name pulumi.StringOutput `pulumi:"name"`
-	// The plan of the resource.
-	Plan PlanResponsePtrOutput `pulumi:"plan"`
-	// The resource properties.
-	Properties pulumi.AnyOutput `pulumi:"properties"`
-	// The sku of the resource.
-	Sku SkuResponsePtrOutput `pulumi:"sku"`
-	// Resource tags
-	Tags pulumi.StringMapOutput `pulumi:"tags"`
-	// Resource type
-	Type pulumi.StringOutput `pulumi:"type"`
+	Identity   IdentityResponsePtrOutput `pulumi:"identity"`
+	Kind       pulumi.StringPtrOutput    `pulumi:"kind"`
+	Location   pulumi.StringPtrOutput    `pulumi:"location"`
+	ManagedBy  pulumi.StringPtrOutput    `pulumi:"managedBy"`
+	Name       pulumi.StringOutput       `pulumi:"name"`
+	Plan       PlanResponsePtrOutput     `pulumi:"plan"`
+	Properties pulumi.AnyOutput          `pulumi:"properties"`
+	Sku        SkuResponsePtrOutput      `pulumi:"sku"`
+	Tags       pulumi.StringMapOutput    `pulumi:"tags"`
+	Type       pulumi.StringOutput       `pulumi:"type"`
 }
 
 // NewResource registers a new resource with the given unique name, arguments, and options.
@@ -202,62 +191,36 @@ func (ResourceState) ElementType() reflect.Type {
 }
 
 type resourceArgs struct {
-	// The identity of the resource.
-	Identity *Identity `pulumi:"identity"`
-	// The kind of the resource.
-	Kind *string `pulumi:"kind"`
-	// Resource location
-	Location *string `pulumi:"location"`
-	// Id of the resource that manages this resource.
-	ManagedBy *string `pulumi:"managedBy"`
-	// Resource identity.
-	ParentResourcePath string `pulumi:"parentResourcePath"`
-	// The plan of the resource.
-	Plan *Plan `pulumi:"plan"`
-	// The resource properties.
-	Properties interface{} `pulumi:"properties"`
-	// The name of the resource group. The name is case insensitive.
-	ResourceGroupName string `pulumi:"resourceGroupName"`
-	// Resource identity.
-	ResourceName *string `pulumi:"resourceName"`
-	// Resource identity.
-	ResourceProviderNamespace string `pulumi:"resourceProviderNamespace"`
-	// Resource identity.
-	ResourceType string `pulumi:"resourceType"`
-	// The sku of the resource.
-	Sku *Sku `pulumi:"sku"`
-	// Resource tags
-	Tags map[string]string `pulumi:"tags"`
+	Identity                  *Identity         `pulumi:"identity"`
+	Kind                      *string           `pulumi:"kind"`
+	Location                  *string           `pulumi:"location"`
+	ManagedBy                 *string           `pulumi:"managedBy"`
+	ParentResourcePath        string            `pulumi:"parentResourcePath"`
+	Plan                      *Plan             `pulumi:"plan"`
+	Properties                interface{}       `pulumi:"properties"`
+	ResourceGroupName         string            `pulumi:"resourceGroupName"`
+	ResourceName              *string           `pulumi:"resourceName"`
+	ResourceProviderNamespace string            `pulumi:"resourceProviderNamespace"`
+	ResourceType              string            `pulumi:"resourceType"`
+	Sku                       *Sku              `pulumi:"sku"`
+	Tags                      map[string]string `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a Resource resource.
 type ResourceArgs struct {
-	// The identity of the resource.
-	Identity IdentityPtrInput
-	// The kind of the resource.
-	Kind pulumi.StringPtrInput
-	// Resource location
-	Location pulumi.StringPtrInput
-	// Id of the resource that manages this resource.
-	ManagedBy pulumi.StringPtrInput
-	// Resource identity.
-	ParentResourcePath pulumi.StringInput
-	// The plan of the resource.
-	Plan PlanPtrInput
-	// The resource properties.
-	Properties pulumi.Input
-	// The name of the resource group. The name is case insensitive.
-	ResourceGroupName pulumi.StringInput
-	// Resource identity.
-	ResourceName pulumi.StringPtrInput
-	// Resource identity.
+	Identity                  IdentityPtrInput
+	Kind                      pulumi.StringPtrInput
+	Location                  pulumi.StringPtrInput
+	ManagedBy                 pulumi.StringPtrInput
+	ParentResourcePath        pulumi.StringInput
+	Plan                      PlanPtrInput
+	Properties                pulumi.Input
+	ResourceGroupName         pulumi.StringInput
+	ResourceName              pulumi.StringPtrInput
 	ResourceProviderNamespace pulumi.StringInput
-	// Resource identity.
-	ResourceType pulumi.StringInput
-	// The sku of the resource.
-	Sku SkuPtrInput
-	// Resource tags
-	Tags pulumi.StringMapInput
+	ResourceType              pulumi.StringInput
+	Sku                       SkuPtrInput
+	Tags                      pulumi.StringMapInput
 }
 
 func (ResourceArgs) ElementType() reflect.Type {
@@ -283,9 +246,7 @@ func (i *Resource) ToResourceOutputWithContext(ctx context.Context) ResourceOutp
 	return pulumi.ToOutputWithContext(ctx, i).(ResourceOutput)
 }
 
-type ResourceOutput struct {
-	*pulumi.OutputState
-}
+type ResourceOutput struct{ *pulumi.OutputState }
 
 func (ResourceOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*Resource)(nil))

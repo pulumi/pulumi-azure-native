@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.StorageCache.V20210501.Outputs
 {
 
+    /// <summary>
+    /// Rule to place restrictions on portions of the cache namespace being presented to clients.
+    /// </summary>
     [OutputType]
     public sealed class NfsAccessRuleResponse
     {

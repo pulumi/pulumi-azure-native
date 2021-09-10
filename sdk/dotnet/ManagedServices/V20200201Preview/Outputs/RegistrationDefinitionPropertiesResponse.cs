@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.ManagedServices.V20200201Preview.Outputs
 {
 
+    /// <summary>
+    /// The properties of a registration definition.
+    /// </summary>
     [OutputType]
     public sealed class RegistrationDefinitionPropertiesResponse
     {

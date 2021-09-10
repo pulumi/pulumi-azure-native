@@ -10,22 +10,14 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// The shipping address of the customer.
 type Address struct {
-	// The address line1.
-	AddressLine1 string `pulumi:"addressLine1"`
-	// The address line2.
+	AddressLine1 string  `pulumi:"addressLine1"`
 	AddressLine2 *string `pulumi:"addressLine2"`
-	// The address line3.
 	AddressLine3 *string `pulumi:"addressLine3"`
-	// The city name.
-	City string `pulumi:"city"`
-	// The country name.
-	Country string `pulumi:"country"`
-	// The postal code.
-	PostalCode string `pulumi:"postalCode"`
-	// The state name.
-	State string `pulumi:"state"`
+	City         string  `pulumi:"city"`
+	Country      string  `pulumi:"country"`
+	PostalCode   string  `pulumi:"postalCode"`
+	State        string  `pulumi:"state"`
 }
 
 // AddressInput is an input type that accepts AddressArgs and AddressOutput values.
@@ -39,22 +31,14 @@ type AddressInput interface {
 	ToAddressOutputWithContext(context.Context) AddressOutput
 }
 
-// The shipping address of the customer.
 type AddressArgs struct {
-	// The address line1.
-	AddressLine1 pulumi.StringInput `pulumi:"addressLine1"`
-	// The address line2.
+	AddressLine1 pulumi.StringInput    `pulumi:"addressLine1"`
 	AddressLine2 pulumi.StringPtrInput `pulumi:"addressLine2"`
-	// The address line3.
 	AddressLine3 pulumi.StringPtrInput `pulumi:"addressLine3"`
-	// The city name.
-	City pulumi.StringInput `pulumi:"city"`
-	// The country name.
-	Country pulumi.StringInput `pulumi:"country"`
-	// The postal code.
-	PostalCode pulumi.StringInput `pulumi:"postalCode"`
-	// The state name.
-	State pulumi.StringInput `pulumi:"state"`
+	City         pulumi.StringInput    `pulumi:"city"`
+	Country      pulumi.StringInput    `pulumi:"country"`
+	PostalCode   pulumi.StringInput    `pulumi:"postalCode"`
+	State        pulumi.StringInput    `pulumi:"state"`
 }
 
 func (AddressArgs) ElementType() reflect.Type {
@@ -110,7 +94,6 @@ func (i *addressPtrType) ToAddressPtrOutputWithContext(ctx context.Context) Addr
 	return pulumi.ToOutputWithContext(ctx, i).(AddressPtrOutput)
 }
 
-// The shipping address of the customer.
 type AddressOutput struct{ *pulumi.OutputState }
 
 func (AddressOutput) ElementType() reflect.Type {
@@ -130,42 +113,35 @@ func (o AddressOutput) ToAddressPtrOutput() AddressPtrOutput {
 }
 
 func (o AddressOutput) ToAddressPtrOutputWithContext(ctx context.Context) AddressPtrOutput {
-	return o.ApplyT(func(v Address) *Address {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v Address) *Address {
 		return &v
 	}).(AddressPtrOutput)
 }
 
-// The address line1.
 func (o AddressOutput) AddressLine1() pulumi.StringOutput {
 	return o.ApplyT(func(v Address) string { return v.AddressLine1 }).(pulumi.StringOutput)
 }
 
-// The address line2.
 func (o AddressOutput) AddressLine2() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v Address) *string { return v.AddressLine2 }).(pulumi.StringPtrOutput)
 }
 
-// The address line3.
 func (o AddressOutput) AddressLine3() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v Address) *string { return v.AddressLine3 }).(pulumi.StringPtrOutput)
 }
 
-// The city name.
 func (o AddressOutput) City() pulumi.StringOutput {
 	return o.ApplyT(func(v Address) string { return v.City }).(pulumi.StringOutput)
 }
 
-// The country name.
 func (o AddressOutput) Country() pulumi.StringOutput {
 	return o.ApplyT(func(v Address) string { return v.Country }).(pulumi.StringOutput)
 }
 
-// The postal code.
 func (o AddressOutput) PostalCode() pulumi.StringOutput {
 	return o.ApplyT(func(v Address) string { return v.PostalCode }).(pulumi.StringOutput)
 }
 
-// The state name.
 func (o AddressOutput) State() pulumi.StringOutput {
 	return o.ApplyT(func(v Address) string { return v.State }).(pulumi.StringOutput)
 }
@@ -185,10 +161,15 @@ func (o AddressPtrOutput) ToAddressPtrOutputWithContext(ctx context.Context) Add
 }
 
 func (o AddressPtrOutput) Elem() AddressOutput {
-	return o.ApplyT(func(v *Address) Address { return *v }).(AddressOutput)
+	return o.ApplyT(func(v *Address) Address {
+		if v != nil {
+			return *v
+		}
+		var ret Address
+		return ret
+	}).(AddressOutput)
 }
 
-// The address line1.
 func (o AddressPtrOutput) AddressLine1() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Address) *string {
 		if v == nil {
@@ -198,7 +179,6 @@ func (o AddressPtrOutput) AddressLine1() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The address line2.
 func (o AddressPtrOutput) AddressLine2() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Address) *string {
 		if v == nil {
@@ -208,7 +188,6 @@ func (o AddressPtrOutput) AddressLine2() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The address line3.
 func (o AddressPtrOutput) AddressLine3() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Address) *string {
 		if v == nil {
@@ -218,7 +197,6 @@ func (o AddressPtrOutput) AddressLine3() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The city name.
 func (o AddressPtrOutput) City() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Address) *string {
 		if v == nil {
@@ -228,7 +206,6 @@ func (o AddressPtrOutput) City() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The country name.
 func (o AddressPtrOutput) Country() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Address) *string {
 		if v == nil {
@@ -238,7 +215,6 @@ func (o AddressPtrOutput) Country() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The postal code.
 func (o AddressPtrOutput) PostalCode() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Address) *string {
 		if v == nil {
@@ -248,7 +224,6 @@ func (o AddressPtrOutput) PostalCode() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The state name.
 func (o AddressPtrOutput) State() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Address) *string {
 		if v == nil {
@@ -258,22 +233,14 @@ func (o AddressPtrOutput) State() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The shipping address of the customer.
 type AddressResponse struct {
-	// The address line1.
-	AddressLine1 string `pulumi:"addressLine1"`
-	// The address line2.
+	AddressLine1 string  `pulumi:"addressLine1"`
 	AddressLine2 *string `pulumi:"addressLine2"`
-	// The address line3.
 	AddressLine3 *string `pulumi:"addressLine3"`
-	// The city name.
-	City string `pulumi:"city"`
-	// The country name.
-	Country string `pulumi:"country"`
-	// The postal code.
-	PostalCode string `pulumi:"postalCode"`
-	// The state name.
-	State string `pulumi:"state"`
+	City         string  `pulumi:"city"`
+	Country      string  `pulumi:"country"`
+	PostalCode   string  `pulumi:"postalCode"`
+	State        string  `pulumi:"state"`
 }
 
 // AddressResponseInput is an input type that accepts AddressResponseArgs and AddressResponseOutput values.
@@ -287,22 +254,14 @@ type AddressResponseInput interface {
 	ToAddressResponseOutputWithContext(context.Context) AddressResponseOutput
 }
 
-// The shipping address of the customer.
 type AddressResponseArgs struct {
-	// The address line1.
-	AddressLine1 pulumi.StringInput `pulumi:"addressLine1"`
-	// The address line2.
+	AddressLine1 pulumi.StringInput    `pulumi:"addressLine1"`
 	AddressLine2 pulumi.StringPtrInput `pulumi:"addressLine2"`
-	// The address line3.
 	AddressLine3 pulumi.StringPtrInput `pulumi:"addressLine3"`
-	// The city name.
-	City pulumi.StringInput `pulumi:"city"`
-	// The country name.
-	Country pulumi.StringInput `pulumi:"country"`
-	// The postal code.
-	PostalCode pulumi.StringInput `pulumi:"postalCode"`
-	// The state name.
-	State pulumi.StringInput `pulumi:"state"`
+	City         pulumi.StringInput    `pulumi:"city"`
+	Country      pulumi.StringInput    `pulumi:"country"`
+	PostalCode   pulumi.StringInput    `pulumi:"postalCode"`
+	State        pulumi.StringInput    `pulumi:"state"`
 }
 
 func (AddressResponseArgs) ElementType() reflect.Type {
@@ -358,7 +317,6 @@ func (i *addressResponsePtrType) ToAddressResponsePtrOutputWithContext(ctx conte
 	return pulumi.ToOutputWithContext(ctx, i).(AddressResponsePtrOutput)
 }
 
-// The shipping address of the customer.
 type AddressResponseOutput struct{ *pulumi.OutputState }
 
 func (AddressResponseOutput) ElementType() reflect.Type {
@@ -378,42 +336,35 @@ func (o AddressResponseOutput) ToAddressResponsePtrOutput() AddressResponsePtrOu
 }
 
 func (o AddressResponseOutput) ToAddressResponsePtrOutputWithContext(ctx context.Context) AddressResponsePtrOutput {
-	return o.ApplyT(func(v AddressResponse) *AddressResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v AddressResponse) *AddressResponse {
 		return &v
 	}).(AddressResponsePtrOutput)
 }
 
-// The address line1.
 func (o AddressResponseOutput) AddressLine1() pulumi.StringOutput {
 	return o.ApplyT(func(v AddressResponse) string { return v.AddressLine1 }).(pulumi.StringOutput)
 }
 
-// The address line2.
 func (o AddressResponseOutput) AddressLine2() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AddressResponse) *string { return v.AddressLine2 }).(pulumi.StringPtrOutput)
 }
 
-// The address line3.
 func (o AddressResponseOutput) AddressLine3() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AddressResponse) *string { return v.AddressLine3 }).(pulumi.StringPtrOutput)
 }
 
-// The city name.
 func (o AddressResponseOutput) City() pulumi.StringOutput {
 	return o.ApplyT(func(v AddressResponse) string { return v.City }).(pulumi.StringOutput)
 }
 
-// The country name.
 func (o AddressResponseOutput) Country() pulumi.StringOutput {
 	return o.ApplyT(func(v AddressResponse) string { return v.Country }).(pulumi.StringOutput)
 }
 
-// The postal code.
 func (o AddressResponseOutput) PostalCode() pulumi.StringOutput {
 	return o.ApplyT(func(v AddressResponse) string { return v.PostalCode }).(pulumi.StringOutput)
 }
 
-// The state name.
 func (o AddressResponseOutput) State() pulumi.StringOutput {
 	return o.ApplyT(func(v AddressResponse) string { return v.State }).(pulumi.StringOutput)
 }
@@ -433,10 +384,15 @@ func (o AddressResponsePtrOutput) ToAddressResponsePtrOutputWithContext(ctx cont
 }
 
 func (o AddressResponsePtrOutput) Elem() AddressResponseOutput {
-	return o.ApplyT(func(v *AddressResponse) AddressResponse { return *v }).(AddressResponseOutput)
+	return o.ApplyT(func(v *AddressResponse) AddressResponse {
+		if v != nil {
+			return *v
+		}
+		var ret AddressResponse
+		return ret
+	}).(AddressResponseOutput)
 }
 
-// The address line1.
 func (o AddressResponsePtrOutput) AddressLine1() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *AddressResponse) *string {
 		if v == nil {
@@ -446,7 +402,6 @@ func (o AddressResponsePtrOutput) AddressLine1() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The address line2.
 func (o AddressResponsePtrOutput) AddressLine2() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *AddressResponse) *string {
 		if v == nil {
@@ -456,7 +411,6 @@ func (o AddressResponsePtrOutput) AddressLine2() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The address line3.
 func (o AddressResponsePtrOutput) AddressLine3() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *AddressResponse) *string {
 		if v == nil {
@@ -466,7 +420,6 @@ func (o AddressResponsePtrOutput) AddressLine3() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The city name.
 func (o AddressResponsePtrOutput) City() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *AddressResponse) *string {
 		if v == nil {
@@ -476,7 +429,6 @@ func (o AddressResponsePtrOutput) City() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The country name.
 func (o AddressResponsePtrOutput) Country() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *AddressResponse) *string {
 		if v == nil {
@@ -486,7 +438,6 @@ func (o AddressResponsePtrOutput) Country() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The postal code.
 func (o AddressResponsePtrOutput) PostalCode() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *AddressResponse) *string {
 		if v == nil {
@@ -496,7 +447,6 @@ func (o AddressResponsePtrOutput) PostalCode() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The state name.
 func (o AddressResponsePtrOutput) State() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *AddressResponse) *string {
 		if v == nil {
@@ -506,14 +456,10 @@ func (o AddressResponsePtrOutput) State() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Represent the secrets intended for encryption with asymmetric key pair.
 type AsymmetricEncryptedSecret struct {
-	// The algorithm used to encrypt "Value".
-	EncryptionAlgorithm string `pulumi:"encryptionAlgorithm"`
-	// Thumbprint certificate used to encrypt \"Value\". If the value is unencrypted, it will be null.
+	EncryptionAlgorithm      string  `pulumi:"encryptionAlgorithm"`
 	EncryptionCertThumbprint *string `pulumi:"encryptionCertThumbprint"`
-	// The value of the secret.
-	Value string `pulumi:"value"`
+	Value                    string  `pulumi:"value"`
 }
 
 // AsymmetricEncryptedSecretInput is an input type that accepts AsymmetricEncryptedSecretArgs and AsymmetricEncryptedSecretOutput values.
@@ -527,14 +473,10 @@ type AsymmetricEncryptedSecretInput interface {
 	ToAsymmetricEncryptedSecretOutputWithContext(context.Context) AsymmetricEncryptedSecretOutput
 }
 
-// Represent the secrets intended for encryption with asymmetric key pair.
 type AsymmetricEncryptedSecretArgs struct {
-	// The algorithm used to encrypt "Value".
-	EncryptionAlgorithm pulumi.StringInput `pulumi:"encryptionAlgorithm"`
-	// Thumbprint certificate used to encrypt \"Value\". If the value is unencrypted, it will be null.
+	EncryptionAlgorithm      pulumi.StringInput    `pulumi:"encryptionAlgorithm"`
 	EncryptionCertThumbprint pulumi.StringPtrInput `pulumi:"encryptionCertThumbprint"`
-	// The value of the secret.
-	Value pulumi.StringInput `pulumi:"value"`
+	Value                    pulumi.StringInput    `pulumi:"value"`
 }
 
 func (AsymmetricEncryptedSecretArgs) ElementType() reflect.Type {
@@ -590,7 +532,6 @@ func (i *asymmetricEncryptedSecretPtrType) ToAsymmetricEncryptedSecretPtrOutputW
 	return pulumi.ToOutputWithContext(ctx, i).(AsymmetricEncryptedSecretPtrOutput)
 }
 
-// Represent the secrets intended for encryption with asymmetric key pair.
 type AsymmetricEncryptedSecretOutput struct{ *pulumi.OutputState }
 
 func (AsymmetricEncryptedSecretOutput) ElementType() reflect.Type {
@@ -610,22 +551,19 @@ func (o AsymmetricEncryptedSecretOutput) ToAsymmetricEncryptedSecretPtrOutput() 
 }
 
 func (o AsymmetricEncryptedSecretOutput) ToAsymmetricEncryptedSecretPtrOutputWithContext(ctx context.Context) AsymmetricEncryptedSecretPtrOutput {
-	return o.ApplyT(func(v AsymmetricEncryptedSecret) *AsymmetricEncryptedSecret {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v AsymmetricEncryptedSecret) *AsymmetricEncryptedSecret {
 		return &v
 	}).(AsymmetricEncryptedSecretPtrOutput)
 }
 
-// The algorithm used to encrypt "Value".
 func (o AsymmetricEncryptedSecretOutput) EncryptionAlgorithm() pulumi.StringOutput {
 	return o.ApplyT(func(v AsymmetricEncryptedSecret) string { return v.EncryptionAlgorithm }).(pulumi.StringOutput)
 }
 
-// Thumbprint certificate used to encrypt \"Value\". If the value is unencrypted, it will be null.
 func (o AsymmetricEncryptedSecretOutput) EncryptionCertThumbprint() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AsymmetricEncryptedSecret) *string { return v.EncryptionCertThumbprint }).(pulumi.StringPtrOutput)
 }
 
-// The value of the secret.
 func (o AsymmetricEncryptedSecretOutput) Value() pulumi.StringOutput {
 	return o.ApplyT(func(v AsymmetricEncryptedSecret) string { return v.Value }).(pulumi.StringOutput)
 }
@@ -645,10 +583,15 @@ func (o AsymmetricEncryptedSecretPtrOutput) ToAsymmetricEncryptedSecretPtrOutput
 }
 
 func (o AsymmetricEncryptedSecretPtrOutput) Elem() AsymmetricEncryptedSecretOutput {
-	return o.ApplyT(func(v *AsymmetricEncryptedSecret) AsymmetricEncryptedSecret { return *v }).(AsymmetricEncryptedSecretOutput)
+	return o.ApplyT(func(v *AsymmetricEncryptedSecret) AsymmetricEncryptedSecret {
+		if v != nil {
+			return *v
+		}
+		var ret AsymmetricEncryptedSecret
+		return ret
+	}).(AsymmetricEncryptedSecretOutput)
 }
 
-// The algorithm used to encrypt "Value".
 func (o AsymmetricEncryptedSecretPtrOutput) EncryptionAlgorithm() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *AsymmetricEncryptedSecret) *string {
 		if v == nil {
@@ -658,7 +601,6 @@ func (o AsymmetricEncryptedSecretPtrOutput) EncryptionAlgorithm() pulumi.StringP
 	}).(pulumi.StringPtrOutput)
 }
 
-// Thumbprint certificate used to encrypt \"Value\". If the value is unencrypted, it will be null.
 func (o AsymmetricEncryptedSecretPtrOutput) EncryptionCertThumbprint() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *AsymmetricEncryptedSecret) *string {
 		if v == nil {
@@ -668,7 +610,6 @@ func (o AsymmetricEncryptedSecretPtrOutput) EncryptionCertThumbprint() pulumi.St
 	}).(pulumi.StringPtrOutput)
 }
 
-// The value of the secret.
 func (o AsymmetricEncryptedSecretPtrOutput) Value() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *AsymmetricEncryptedSecret) *string {
 		if v == nil {
@@ -678,14 +619,10 @@ func (o AsymmetricEncryptedSecretPtrOutput) Value() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Represent the secrets intended for encryption with asymmetric key pair.
 type AsymmetricEncryptedSecretResponse struct {
-	// The algorithm used to encrypt "Value".
-	EncryptionAlgorithm string `pulumi:"encryptionAlgorithm"`
-	// Thumbprint certificate used to encrypt \"Value\". If the value is unencrypted, it will be null.
+	EncryptionAlgorithm      string  `pulumi:"encryptionAlgorithm"`
 	EncryptionCertThumbprint *string `pulumi:"encryptionCertThumbprint"`
-	// The value of the secret.
-	Value string `pulumi:"value"`
+	Value                    string  `pulumi:"value"`
 }
 
 // AsymmetricEncryptedSecretResponseInput is an input type that accepts AsymmetricEncryptedSecretResponseArgs and AsymmetricEncryptedSecretResponseOutput values.
@@ -699,14 +636,10 @@ type AsymmetricEncryptedSecretResponseInput interface {
 	ToAsymmetricEncryptedSecretResponseOutputWithContext(context.Context) AsymmetricEncryptedSecretResponseOutput
 }
 
-// Represent the secrets intended for encryption with asymmetric key pair.
 type AsymmetricEncryptedSecretResponseArgs struct {
-	// The algorithm used to encrypt "Value".
-	EncryptionAlgorithm pulumi.StringInput `pulumi:"encryptionAlgorithm"`
-	// Thumbprint certificate used to encrypt \"Value\". If the value is unencrypted, it will be null.
+	EncryptionAlgorithm      pulumi.StringInput    `pulumi:"encryptionAlgorithm"`
 	EncryptionCertThumbprint pulumi.StringPtrInput `pulumi:"encryptionCertThumbprint"`
-	// The value of the secret.
-	Value pulumi.StringInput `pulumi:"value"`
+	Value                    pulumi.StringInput    `pulumi:"value"`
 }
 
 func (AsymmetricEncryptedSecretResponseArgs) ElementType() reflect.Type {
@@ -762,7 +695,6 @@ func (i *asymmetricEncryptedSecretResponsePtrType) ToAsymmetricEncryptedSecretRe
 	return pulumi.ToOutputWithContext(ctx, i).(AsymmetricEncryptedSecretResponsePtrOutput)
 }
 
-// Represent the secrets intended for encryption with asymmetric key pair.
 type AsymmetricEncryptedSecretResponseOutput struct{ *pulumi.OutputState }
 
 func (AsymmetricEncryptedSecretResponseOutput) ElementType() reflect.Type {
@@ -782,22 +714,19 @@ func (o AsymmetricEncryptedSecretResponseOutput) ToAsymmetricEncryptedSecretResp
 }
 
 func (o AsymmetricEncryptedSecretResponseOutput) ToAsymmetricEncryptedSecretResponsePtrOutputWithContext(ctx context.Context) AsymmetricEncryptedSecretResponsePtrOutput {
-	return o.ApplyT(func(v AsymmetricEncryptedSecretResponse) *AsymmetricEncryptedSecretResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v AsymmetricEncryptedSecretResponse) *AsymmetricEncryptedSecretResponse {
 		return &v
 	}).(AsymmetricEncryptedSecretResponsePtrOutput)
 }
 
-// The algorithm used to encrypt "Value".
 func (o AsymmetricEncryptedSecretResponseOutput) EncryptionAlgorithm() pulumi.StringOutput {
 	return o.ApplyT(func(v AsymmetricEncryptedSecretResponse) string { return v.EncryptionAlgorithm }).(pulumi.StringOutput)
 }
 
-// Thumbprint certificate used to encrypt \"Value\". If the value is unencrypted, it will be null.
 func (o AsymmetricEncryptedSecretResponseOutput) EncryptionCertThumbprint() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AsymmetricEncryptedSecretResponse) *string { return v.EncryptionCertThumbprint }).(pulumi.StringPtrOutput)
 }
 
-// The value of the secret.
 func (o AsymmetricEncryptedSecretResponseOutput) Value() pulumi.StringOutput {
 	return o.ApplyT(func(v AsymmetricEncryptedSecretResponse) string { return v.Value }).(pulumi.StringOutput)
 }
@@ -817,10 +746,15 @@ func (o AsymmetricEncryptedSecretResponsePtrOutput) ToAsymmetricEncryptedSecretR
 }
 
 func (o AsymmetricEncryptedSecretResponsePtrOutput) Elem() AsymmetricEncryptedSecretResponseOutput {
-	return o.ApplyT(func(v *AsymmetricEncryptedSecretResponse) AsymmetricEncryptedSecretResponse { return *v }).(AsymmetricEncryptedSecretResponseOutput)
+	return o.ApplyT(func(v *AsymmetricEncryptedSecretResponse) AsymmetricEncryptedSecretResponse {
+		if v != nil {
+			return *v
+		}
+		var ret AsymmetricEncryptedSecretResponse
+		return ret
+	}).(AsymmetricEncryptedSecretResponseOutput)
 }
 
-// The algorithm used to encrypt "Value".
 func (o AsymmetricEncryptedSecretResponsePtrOutput) EncryptionAlgorithm() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *AsymmetricEncryptedSecretResponse) *string {
 		if v == nil {
@@ -830,7 +764,6 @@ func (o AsymmetricEncryptedSecretResponsePtrOutput) EncryptionAlgorithm() pulumi
 	}).(pulumi.StringPtrOutput)
 }
 
-// Thumbprint certificate used to encrypt \"Value\". If the value is unencrypted, it will be null.
 func (o AsymmetricEncryptedSecretResponsePtrOutput) EncryptionCertThumbprint() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *AsymmetricEncryptedSecretResponse) *string {
 		if v == nil {
@@ -840,7 +773,6 @@ func (o AsymmetricEncryptedSecretResponsePtrOutput) EncryptionCertThumbprint() p
 	}).(pulumi.StringPtrOutput)
 }
 
-// The value of the secret.
 func (o AsymmetricEncryptedSecretResponsePtrOutput) Value() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *AsymmetricEncryptedSecretResponse) *string {
 		if v == nil {
@@ -850,9 +782,7 @@ func (o AsymmetricEncryptedSecretResponsePtrOutput) Value() pulumi.StringPtrOutp
 	}).(pulumi.StringPtrOutput)
 }
 
-// Authentication mechanism for IoT devices.
 type Authentication struct {
-	// Symmetric key for authentication.
 	SymmetricKey *SymmetricKey `pulumi:"symmetricKey"`
 }
 
@@ -867,9 +797,7 @@ type AuthenticationInput interface {
 	ToAuthenticationOutputWithContext(context.Context) AuthenticationOutput
 }
 
-// Authentication mechanism for IoT devices.
 type AuthenticationArgs struct {
-	// Symmetric key for authentication.
 	SymmetricKey SymmetricKeyPtrInput `pulumi:"symmetricKey"`
 }
 
@@ -926,7 +854,6 @@ func (i *authenticationPtrType) ToAuthenticationPtrOutputWithContext(ctx context
 	return pulumi.ToOutputWithContext(ctx, i).(AuthenticationPtrOutput)
 }
 
-// Authentication mechanism for IoT devices.
 type AuthenticationOutput struct{ *pulumi.OutputState }
 
 func (AuthenticationOutput) ElementType() reflect.Type {
@@ -946,12 +873,11 @@ func (o AuthenticationOutput) ToAuthenticationPtrOutput() AuthenticationPtrOutpu
 }
 
 func (o AuthenticationOutput) ToAuthenticationPtrOutputWithContext(ctx context.Context) AuthenticationPtrOutput {
-	return o.ApplyT(func(v Authentication) *Authentication {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v Authentication) *Authentication {
 		return &v
 	}).(AuthenticationPtrOutput)
 }
 
-// Symmetric key for authentication.
 func (o AuthenticationOutput) SymmetricKey() SymmetricKeyPtrOutput {
 	return o.ApplyT(func(v Authentication) *SymmetricKey { return v.SymmetricKey }).(SymmetricKeyPtrOutput)
 }
@@ -971,10 +897,15 @@ func (o AuthenticationPtrOutput) ToAuthenticationPtrOutputWithContext(ctx contex
 }
 
 func (o AuthenticationPtrOutput) Elem() AuthenticationOutput {
-	return o.ApplyT(func(v *Authentication) Authentication { return *v }).(AuthenticationOutput)
+	return o.ApplyT(func(v *Authentication) Authentication {
+		if v != nil {
+			return *v
+		}
+		var ret Authentication
+		return ret
+	}).(AuthenticationOutput)
 }
 
-// Symmetric key for authentication.
 func (o AuthenticationPtrOutput) SymmetricKey() SymmetricKeyPtrOutput {
 	return o.ApplyT(func(v *Authentication) *SymmetricKey {
 		if v == nil {
@@ -984,9 +915,7 @@ func (o AuthenticationPtrOutput) SymmetricKey() SymmetricKeyPtrOutput {
 	}).(SymmetricKeyPtrOutput)
 }
 
-// Authentication mechanism for IoT devices.
 type AuthenticationResponse struct {
-	// Symmetric key for authentication.
 	SymmetricKey *SymmetricKeyResponse `pulumi:"symmetricKey"`
 }
 
@@ -1001,9 +930,7 @@ type AuthenticationResponseInput interface {
 	ToAuthenticationResponseOutputWithContext(context.Context) AuthenticationResponseOutput
 }
 
-// Authentication mechanism for IoT devices.
 type AuthenticationResponseArgs struct {
-	// Symmetric key for authentication.
 	SymmetricKey SymmetricKeyResponsePtrInput `pulumi:"symmetricKey"`
 }
 
@@ -1060,7 +987,6 @@ func (i *authenticationResponsePtrType) ToAuthenticationResponsePtrOutputWithCon
 	return pulumi.ToOutputWithContext(ctx, i).(AuthenticationResponsePtrOutput)
 }
 
-// Authentication mechanism for IoT devices.
 type AuthenticationResponseOutput struct{ *pulumi.OutputState }
 
 func (AuthenticationResponseOutput) ElementType() reflect.Type {
@@ -1080,12 +1006,11 @@ func (o AuthenticationResponseOutput) ToAuthenticationResponsePtrOutput() Authen
 }
 
 func (o AuthenticationResponseOutput) ToAuthenticationResponsePtrOutputWithContext(ctx context.Context) AuthenticationResponsePtrOutput {
-	return o.ApplyT(func(v AuthenticationResponse) *AuthenticationResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v AuthenticationResponse) *AuthenticationResponse {
 		return &v
 	}).(AuthenticationResponsePtrOutput)
 }
 
-// Symmetric key for authentication.
 func (o AuthenticationResponseOutput) SymmetricKey() SymmetricKeyResponsePtrOutput {
 	return o.ApplyT(func(v AuthenticationResponse) *SymmetricKeyResponse { return v.SymmetricKey }).(SymmetricKeyResponsePtrOutput)
 }
@@ -1105,10 +1030,15 @@ func (o AuthenticationResponsePtrOutput) ToAuthenticationResponsePtrOutputWithCo
 }
 
 func (o AuthenticationResponsePtrOutput) Elem() AuthenticationResponseOutput {
-	return o.ApplyT(func(v *AuthenticationResponse) AuthenticationResponse { return *v }).(AuthenticationResponseOutput)
+	return o.ApplyT(func(v *AuthenticationResponse) AuthenticationResponse {
+		if v != nil {
+			return *v
+		}
+		var ret AuthenticationResponse
+		return ret
+	}).(AuthenticationResponseOutput)
 }
 
-// Symmetric key for authentication.
 func (o AuthenticationResponsePtrOutput) SymmetricKey() SymmetricKeyResponsePtrOutput {
 	return o.ApplyT(func(v *AuthenticationResponse) *SymmetricKeyResponse {
 		if v == nil {
@@ -1118,13 +1048,9 @@ func (o AuthenticationResponsePtrOutput) SymmetricKey() SymmetricKeyResponsePtrO
 	}).(SymmetricKeyResponsePtrOutput)
 }
 
-// Azure container mapping of the endpoint.
 type AzureContainerInfo struct {
-	// Container name (Based on the data format specified, this represents the name of Azure Files/Page blob/Block blob).
-	ContainerName string `pulumi:"containerName"`
-	// Storage format used for the file represented by the share.
-	DataFormat string `pulumi:"dataFormat"`
-	// ID of the storage account credential used to access storage.
+	ContainerName              string `pulumi:"containerName"`
+	DataFormat                 string `pulumi:"dataFormat"`
 	StorageAccountCredentialId string `pulumi:"storageAccountCredentialId"`
 }
 
@@ -1139,13 +1065,9 @@ type AzureContainerInfoInput interface {
 	ToAzureContainerInfoOutputWithContext(context.Context) AzureContainerInfoOutput
 }
 
-// Azure container mapping of the endpoint.
 type AzureContainerInfoArgs struct {
-	// Container name (Based on the data format specified, this represents the name of Azure Files/Page blob/Block blob).
-	ContainerName pulumi.StringInput `pulumi:"containerName"`
-	// Storage format used for the file represented by the share.
-	DataFormat pulumi.StringInput `pulumi:"dataFormat"`
-	// ID of the storage account credential used to access storage.
+	ContainerName              pulumi.StringInput `pulumi:"containerName"`
+	DataFormat                 pulumi.StringInput `pulumi:"dataFormat"`
 	StorageAccountCredentialId pulumi.StringInput `pulumi:"storageAccountCredentialId"`
 }
 
@@ -1202,7 +1124,6 @@ func (i *azureContainerInfoPtrType) ToAzureContainerInfoPtrOutputWithContext(ctx
 	return pulumi.ToOutputWithContext(ctx, i).(AzureContainerInfoPtrOutput)
 }
 
-// Azure container mapping of the endpoint.
 type AzureContainerInfoOutput struct{ *pulumi.OutputState }
 
 func (AzureContainerInfoOutput) ElementType() reflect.Type {
@@ -1222,22 +1143,19 @@ func (o AzureContainerInfoOutput) ToAzureContainerInfoPtrOutput() AzureContainer
 }
 
 func (o AzureContainerInfoOutput) ToAzureContainerInfoPtrOutputWithContext(ctx context.Context) AzureContainerInfoPtrOutput {
-	return o.ApplyT(func(v AzureContainerInfo) *AzureContainerInfo {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v AzureContainerInfo) *AzureContainerInfo {
 		return &v
 	}).(AzureContainerInfoPtrOutput)
 }
 
-// Container name (Based on the data format specified, this represents the name of Azure Files/Page blob/Block blob).
 func (o AzureContainerInfoOutput) ContainerName() pulumi.StringOutput {
 	return o.ApplyT(func(v AzureContainerInfo) string { return v.ContainerName }).(pulumi.StringOutput)
 }
 
-// Storage format used for the file represented by the share.
 func (o AzureContainerInfoOutput) DataFormat() pulumi.StringOutput {
 	return o.ApplyT(func(v AzureContainerInfo) string { return v.DataFormat }).(pulumi.StringOutput)
 }
 
-// ID of the storage account credential used to access storage.
 func (o AzureContainerInfoOutput) StorageAccountCredentialId() pulumi.StringOutput {
 	return o.ApplyT(func(v AzureContainerInfo) string { return v.StorageAccountCredentialId }).(pulumi.StringOutput)
 }
@@ -1257,10 +1175,15 @@ func (o AzureContainerInfoPtrOutput) ToAzureContainerInfoPtrOutputWithContext(ct
 }
 
 func (o AzureContainerInfoPtrOutput) Elem() AzureContainerInfoOutput {
-	return o.ApplyT(func(v *AzureContainerInfo) AzureContainerInfo { return *v }).(AzureContainerInfoOutput)
+	return o.ApplyT(func(v *AzureContainerInfo) AzureContainerInfo {
+		if v != nil {
+			return *v
+		}
+		var ret AzureContainerInfo
+		return ret
+	}).(AzureContainerInfoOutput)
 }
 
-// Container name (Based on the data format specified, this represents the name of Azure Files/Page blob/Block blob).
 func (o AzureContainerInfoPtrOutput) ContainerName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *AzureContainerInfo) *string {
 		if v == nil {
@@ -1270,7 +1193,6 @@ func (o AzureContainerInfoPtrOutput) ContainerName() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Storage format used for the file represented by the share.
 func (o AzureContainerInfoPtrOutput) DataFormat() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *AzureContainerInfo) *string {
 		if v == nil {
@@ -1280,7 +1202,6 @@ func (o AzureContainerInfoPtrOutput) DataFormat() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// ID of the storage account credential used to access storage.
 func (o AzureContainerInfoPtrOutput) StorageAccountCredentialId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *AzureContainerInfo) *string {
 		if v == nil {
@@ -1290,13 +1211,9 @@ func (o AzureContainerInfoPtrOutput) StorageAccountCredentialId() pulumi.StringP
 	}).(pulumi.StringPtrOutput)
 }
 
-// Azure container mapping of the endpoint.
 type AzureContainerInfoResponse struct {
-	// Container name (Based on the data format specified, this represents the name of Azure Files/Page blob/Block blob).
-	ContainerName string `pulumi:"containerName"`
-	// Storage format used for the file represented by the share.
-	DataFormat string `pulumi:"dataFormat"`
-	// ID of the storage account credential used to access storage.
+	ContainerName              string `pulumi:"containerName"`
+	DataFormat                 string `pulumi:"dataFormat"`
 	StorageAccountCredentialId string `pulumi:"storageAccountCredentialId"`
 }
 
@@ -1311,13 +1228,9 @@ type AzureContainerInfoResponseInput interface {
 	ToAzureContainerInfoResponseOutputWithContext(context.Context) AzureContainerInfoResponseOutput
 }
 
-// Azure container mapping of the endpoint.
 type AzureContainerInfoResponseArgs struct {
-	// Container name (Based on the data format specified, this represents the name of Azure Files/Page blob/Block blob).
-	ContainerName pulumi.StringInput `pulumi:"containerName"`
-	// Storage format used for the file represented by the share.
-	DataFormat pulumi.StringInput `pulumi:"dataFormat"`
-	// ID of the storage account credential used to access storage.
+	ContainerName              pulumi.StringInput `pulumi:"containerName"`
+	DataFormat                 pulumi.StringInput `pulumi:"dataFormat"`
 	StorageAccountCredentialId pulumi.StringInput `pulumi:"storageAccountCredentialId"`
 }
 
@@ -1374,7 +1287,6 @@ func (i *azureContainerInfoResponsePtrType) ToAzureContainerInfoResponsePtrOutpu
 	return pulumi.ToOutputWithContext(ctx, i).(AzureContainerInfoResponsePtrOutput)
 }
 
-// Azure container mapping of the endpoint.
 type AzureContainerInfoResponseOutput struct{ *pulumi.OutputState }
 
 func (AzureContainerInfoResponseOutput) ElementType() reflect.Type {
@@ -1394,22 +1306,19 @@ func (o AzureContainerInfoResponseOutput) ToAzureContainerInfoResponsePtrOutput(
 }
 
 func (o AzureContainerInfoResponseOutput) ToAzureContainerInfoResponsePtrOutputWithContext(ctx context.Context) AzureContainerInfoResponsePtrOutput {
-	return o.ApplyT(func(v AzureContainerInfoResponse) *AzureContainerInfoResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v AzureContainerInfoResponse) *AzureContainerInfoResponse {
 		return &v
 	}).(AzureContainerInfoResponsePtrOutput)
 }
 
-// Container name (Based on the data format specified, this represents the name of Azure Files/Page blob/Block blob).
 func (o AzureContainerInfoResponseOutput) ContainerName() pulumi.StringOutput {
 	return o.ApplyT(func(v AzureContainerInfoResponse) string { return v.ContainerName }).(pulumi.StringOutput)
 }
 
-// Storage format used for the file represented by the share.
 func (o AzureContainerInfoResponseOutput) DataFormat() pulumi.StringOutput {
 	return o.ApplyT(func(v AzureContainerInfoResponse) string { return v.DataFormat }).(pulumi.StringOutput)
 }
 
-// ID of the storage account credential used to access storage.
 func (o AzureContainerInfoResponseOutput) StorageAccountCredentialId() pulumi.StringOutput {
 	return o.ApplyT(func(v AzureContainerInfoResponse) string { return v.StorageAccountCredentialId }).(pulumi.StringOutput)
 }
@@ -1429,10 +1338,15 @@ func (o AzureContainerInfoResponsePtrOutput) ToAzureContainerInfoResponsePtrOutp
 }
 
 func (o AzureContainerInfoResponsePtrOutput) Elem() AzureContainerInfoResponseOutput {
-	return o.ApplyT(func(v *AzureContainerInfoResponse) AzureContainerInfoResponse { return *v }).(AzureContainerInfoResponseOutput)
+	return o.ApplyT(func(v *AzureContainerInfoResponse) AzureContainerInfoResponse {
+		if v != nil {
+			return *v
+		}
+		var ret AzureContainerInfoResponse
+		return ret
+	}).(AzureContainerInfoResponseOutput)
 }
 
-// Container name (Based on the data format specified, this represents the name of Azure Files/Page blob/Block blob).
 func (o AzureContainerInfoResponsePtrOutput) ContainerName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *AzureContainerInfoResponse) *string {
 		if v == nil {
@@ -1442,7 +1356,6 @@ func (o AzureContainerInfoResponsePtrOutput) ContainerName() pulumi.StringPtrOut
 	}).(pulumi.StringPtrOutput)
 }
 
-// Storage format used for the file represented by the share.
 func (o AzureContainerInfoResponsePtrOutput) DataFormat() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *AzureContainerInfoResponse) *string {
 		if v == nil {
@@ -1452,7 +1365,6 @@ func (o AzureContainerInfoResponsePtrOutput) DataFormat() pulumi.StringPtrOutput
 	}).(pulumi.StringPtrOutput)
 }
 
-// ID of the storage account credential used to access storage.
 func (o AzureContainerInfoResponsePtrOutput) StorageAccountCredentialId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *AzureContainerInfoResponse) *string {
 		if v == nil {
@@ -1462,12 +1374,9 @@ func (o AzureContainerInfoResponsePtrOutput) StorageAccountCredentialId() pulumi
 	}).(pulumi.StringPtrOutput)
 }
 
-// The mapping between a particular client IP and the type of access client has on the NFS share.
 type ClientAccessRight struct {
-	// Type of access to be allowed for the client.
 	AccessPermission string `pulumi:"accessPermission"`
-	// IP of the client.
-	Client string `pulumi:"client"`
+	Client           string `pulumi:"client"`
 }
 
 // ClientAccessRightInput is an input type that accepts ClientAccessRightArgs and ClientAccessRightOutput values.
@@ -1481,12 +1390,9 @@ type ClientAccessRightInput interface {
 	ToClientAccessRightOutputWithContext(context.Context) ClientAccessRightOutput
 }
 
-// The mapping between a particular client IP and the type of access client has on the NFS share.
 type ClientAccessRightArgs struct {
-	// Type of access to be allowed for the client.
 	AccessPermission pulumi.StringInput `pulumi:"accessPermission"`
-	// IP of the client.
-	Client pulumi.StringInput `pulumi:"client"`
+	Client           pulumi.StringInput `pulumi:"client"`
 }
 
 func (ClientAccessRightArgs) ElementType() reflect.Type {
@@ -1526,7 +1432,6 @@ func (i ClientAccessRightArray) ToClientAccessRightArrayOutputWithContext(ctx co
 	return pulumi.ToOutputWithContext(ctx, i).(ClientAccessRightArrayOutput)
 }
 
-// The mapping between a particular client IP and the type of access client has on the NFS share.
 type ClientAccessRightOutput struct{ *pulumi.OutputState }
 
 func (ClientAccessRightOutput) ElementType() reflect.Type {
@@ -1541,12 +1446,10 @@ func (o ClientAccessRightOutput) ToClientAccessRightOutputWithContext(ctx contex
 	return o
 }
 
-// Type of access to be allowed for the client.
 func (o ClientAccessRightOutput) AccessPermission() pulumi.StringOutput {
 	return o.ApplyT(func(v ClientAccessRight) string { return v.AccessPermission }).(pulumi.StringOutput)
 }
 
-// IP of the client.
 func (o ClientAccessRightOutput) Client() pulumi.StringOutput {
 	return o.ApplyT(func(v ClientAccessRight) string { return v.Client }).(pulumi.StringOutput)
 }
@@ -1571,12 +1474,9 @@ func (o ClientAccessRightArrayOutput) Index(i pulumi.IntInput) ClientAccessRight
 	}).(ClientAccessRightOutput)
 }
 
-// The mapping between a particular client IP and the type of access client has on the NFS share.
 type ClientAccessRightResponse struct {
-	// Type of access to be allowed for the client.
 	AccessPermission string `pulumi:"accessPermission"`
-	// IP of the client.
-	Client string `pulumi:"client"`
+	Client           string `pulumi:"client"`
 }
 
 // ClientAccessRightResponseInput is an input type that accepts ClientAccessRightResponseArgs and ClientAccessRightResponseOutput values.
@@ -1590,12 +1490,9 @@ type ClientAccessRightResponseInput interface {
 	ToClientAccessRightResponseOutputWithContext(context.Context) ClientAccessRightResponseOutput
 }
 
-// The mapping between a particular client IP and the type of access client has on the NFS share.
 type ClientAccessRightResponseArgs struct {
-	// Type of access to be allowed for the client.
 	AccessPermission pulumi.StringInput `pulumi:"accessPermission"`
-	// IP of the client.
-	Client pulumi.StringInput `pulumi:"client"`
+	Client           pulumi.StringInput `pulumi:"client"`
 }
 
 func (ClientAccessRightResponseArgs) ElementType() reflect.Type {
@@ -1635,7 +1532,6 @@ func (i ClientAccessRightResponseArray) ToClientAccessRightResponseArrayOutputWi
 	return pulumi.ToOutputWithContext(ctx, i).(ClientAccessRightResponseArrayOutput)
 }
 
-// The mapping between a particular client IP and the type of access client has on the NFS share.
 type ClientAccessRightResponseOutput struct{ *pulumi.OutputState }
 
 func (ClientAccessRightResponseOutput) ElementType() reflect.Type {
@@ -1650,12 +1546,10 @@ func (o ClientAccessRightResponseOutput) ToClientAccessRightResponseOutputWithCo
 	return o
 }
 
-// Type of access to be allowed for the client.
 func (o ClientAccessRightResponseOutput) AccessPermission() pulumi.StringOutput {
 	return o.ApplyT(func(v ClientAccessRightResponse) string { return v.AccessPermission }).(pulumi.StringOutput)
 }
 
-// IP of the client.
 func (o ClientAccessRightResponseOutput) Client() pulumi.StringOutput {
 	return o.ApplyT(func(v ClientAccessRightResponse) string { return v.Client }).(pulumi.StringOutput)
 }
@@ -1680,16 +1574,11 @@ func (o ClientAccessRightResponseArrayOutput) Index(i pulumi.IntInput) ClientAcc
 	}).(ClientAccessRightResponseOutput)
 }
 
-// Contains all the contact details of the customer.
 type ContactDetails struct {
-	// The name of the company.
-	CompanyName string `pulumi:"companyName"`
-	// The contact person name.
-	ContactPerson string `pulumi:"contactPerson"`
-	// The email list.
-	EmailList []string `pulumi:"emailList"`
-	// The phone number.
-	Phone string `pulumi:"phone"`
+	CompanyName   string   `pulumi:"companyName"`
+	ContactPerson string   `pulumi:"contactPerson"`
+	EmailList     []string `pulumi:"emailList"`
+	Phone         string   `pulumi:"phone"`
 }
 
 // ContactDetailsInput is an input type that accepts ContactDetailsArgs and ContactDetailsOutput values.
@@ -1703,16 +1592,11 @@ type ContactDetailsInput interface {
 	ToContactDetailsOutputWithContext(context.Context) ContactDetailsOutput
 }
 
-// Contains all the contact details of the customer.
 type ContactDetailsArgs struct {
-	// The name of the company.
-	CompanyName pulumi.StringInput `pulumi:"companyName"`
-	// The contact person name.
-	ContactPerson pulumi.StringInput `pulumi:"contactPerson"`
-	// The email list.
-	EmailList pulumi.StringArrayInput `pulumi:"emailList"`
-	// The phone number.
-	Phone pulumi.StringInput `pulumi:"phone"`
+	CompanyName   pulumi.StringInput      `pulumi:"companyName"`
+	ContactPerson pulumi.StringInput      `pulumi:"contactPerson"`
+	EmailList     pulumi.StringArrayInput `pulumi:"emailList"`
+	Phone         pulumi.StringInput      `pulumi:"phone"`
 }
 
 func (ContactDetailsArgs) ElementType() reflect.Type {
@@ -1768,7 +1652,6 @@ func (i *contactDetailsPtrType) ToContactDetailsPtrOutputWithContext(ctx context
 	return pulumi.ToOutputWithContext(ctx, i).(ContactDetailsPtrOutput)
 }
 
-// Contains all the contact details of the customer.
 type ContactDetailsOutput struct{ *pulumi.OutputState }
 
 func (ContactDetailsOutput) ElementType() reflect.Type {
@@ -1788,27 +1671,23 @@ func (o ContactDetailsOutput) ToContactDetailsPtrOutput() ContactDetailsPtrOutpu
 }
 
 func (o ContactDetailsOutput) ToContactDetailsPtrOutputWithContext(ctx context.Context) ContactDetailsPtrOutput {
-	return o.ApplyT(func(v ContactDetails) *ContactDetails {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ContactDetails) *ContactDetails {
 		return &v
 	}).(ContactDetailsPtrOutput)
 }
 
-// The name of the company.
 func (o ContactDetailsOutput) CompanyName() pulumi.StringOutput {
 	return o.ApplyT(func(v ContactDetails) string { return v.CompanyName }).(pulumi.StringOutput)
 }
 
-// The contact person name.
 func (o ContactDetailsOutput) ContactPerson() pulumi.StringOutput {
 	return o.ApplyT(func(v ContactDetails) string { return v.ContactPerson }).(pulumi.StringOutput)
 }
 
-// The email list.
 func (o ContactDetailsOutput) EmailList() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v ContactDetails) []string { return v.EmailList }).(pulumi.StringArrayOutput)
 }
 
-// The phone number.
 func (o ContactDetailsOutput) Phone() pulumi.StringOutput {
 	return o.ApplyT(func(v ContactDetails) string { return v.Phone }).(pulumi.StringOutput)
 }
@@ -1828,10 +1707,15 @@ func (o ContactDetailsPtrOutput) ToContactDetailsPtrOutputWithContext(ctx contex
 }
 
 func (o ContactDetailsPtrOutput) Elem() ContactDetailsOutput {
-	return o.ApplyT(func(v *ContactDetails) ContactDetails { return *v }).(ContactDetailsOutput)
+	return o.ApplyT(func(v *ContactDetails) ContactDetails {
+		if v != nil {
+			return *v
+		}
+		var ret ContactDetails
+		return ret
+	}).(ContactDetailsOutput)
 }
 
-// The name of the company.
 func (o ContactDetailsPtrOutput) CompanyName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ContactDetails) *string {
 		if v == nil {
@@ -1841,7 +1725,6 @@ func (o ContactDetailsPtrOutput) CompanyName() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The contact person name.
 func (o ContactDetailsPtrOutput) ContactPerson() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ContactDetails) *string {
 		if v == nil {
@@ -1851,7 +1734,6 @@ func (o ContactDetailsPtrOutput) ContactPerson() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The email list.
 func (o ContactDetailsPtrOutput) EmailList() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *ContactDetails) []string {
 		if v == nil {
@@ -1861,7 +1743,6 @@ func (o ContactDetailsPtrOutput) EmailList() pulumi.StringArrayOutput {
 	}).(pulumi.StringArrayOutput)
 }
 
-// The phone number.
 func (o ContactDetailsPtrOutput) Phone() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ContactDetails) *string {
 		if v == nil {
@@ -1871,16 +1752,11 @@ func (o ContactDetailsPtrOutput) Phone() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Contains all the contact details of the customer.
 type ContactDetailsResponse struct {
-	// The name of the company.
-	CompanyName string `pulumi:"companyName"`
-	// The contact person name.
-	ContactPerson string `pulumi:"contactPerson"`
-	// The email list.
-	EmailList []string `pulumi:"emailList"`
-	// The phone number.
-	Phone string `pulumi:"phone"`
+	CompanyName   string   `pulumi:"companyName"`
+	ContactPerson string   `pulumi:"contactPerson"`
+	EmailList     []string `pulumi:"emailList"`
+	Phone         string   `pulumi:"phone"`
 }
 
 // ContactDetailsResponseInput is an input type that accepts ContactDetailsResponseArgs and ContactDetailsResponseOutput values.
@@ -1894,16 +1770,11 @@ type ContactDetailsResponseInput interface {
 	ToContactDetailsResponseOutputWithContext(context.Context) ContactDetailsResponseOutput
 }
 
-// Contains all the contact details of the customer.
 type ContactDetailsResponseArgs struct {
-	// The name of the company.
-	CompanyName pulumi.StringInput `pulumi:"companyName"`
-	// The contact person name.
-	ContactPerson pulumi.StringInput `pulumi:"contactPerson"`
-	// The email list.
-	EmailList pulumi.StringArrayInput `pulumi:"emailList"`
-	// The phone number.
-	Phone pulumi.StringInput `pulumi:"phone"`
+	CompanyName   pulumi.StringInput      `pulumi:"companyName"`
+	ContactPerson pulumi.StringInput      `pulumi:"contactPerson"`
+	EmailList     pulumi.StringArrayInput `pulumi:"emailList"`
+	Phone         pulumi.StringInput      `pulumi:"phone"`
 }
 
 func (ContactDetailsResponseArgs) ElementType() reflect.Type {
@@ -1959,7 +1830,6 @@ func (i *contactDetailsResponsePtrType) ToContactDetailsResponsePtrOutputWithCon
 	return pulumi.ToOutputWithContext(ctx, i).(ContactDetailsResponsePtrOutput)
 }
 
-// Contains all the contact details of the customer.
 type ContactDetailsResponseOutput struct{ *pulumi.OutputState }
 
 func (ContactDetailsResponseOutput) ElementType() reflect.Type {
@@ -1979,27 +1849,23 @@ func (o ContactDetailsResponseOutput) ToContactDetailsResponsePtrOutput() Contac
 }
 
 func (o ContactDetailsResponseOutput) ToContactDetailsResponsePtrOutputWithContext(ctx context.Context) ContactDetailsResponsePtrOutput {
-	return o.ApplyT(func(v ContactDetailsResponse) *ContactDetailsResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ContactDetailsResponse) *ContactDetailsResponse {
 		return &v
 	}).(ContactDetailsResponsePtrOutput)
 }
 
-// The name of the company.
 func (o ContactDetailsResponseOutput) CompanyName() pulumi.StringOutput {
 	return o.ApplyT(func(v ContactDetailsResponse) string { return v.CompanyName }).(pulumi.StringOutput)
 }
 
-// The contact person name.
 func (o ContactDetailsResponseOutput) ContactPerson() pulumi.StringOutput {
 	return o.ApplyT(func(v ContactDetailsResponse) string { return v.ContactPerson }).(pulumi.StringOutput)
 }
 
-// The email list.
 func (o ContactDetailsResponseOutput) EmailList() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v ContactDetailsResponse) []string { return v.EmailList }).(pulumi.StringArrayOutput)
 }
 
-// The phone number.
 func (o ContactDetailsResponseOutput) Phone() pulumi.StringOutput {
 	return o.ApplyT(func(v ContactDetailsResponse) string { return v.Phone }).(pulumi.StringOutput)
 }
@@ -2019,10 +1885,15 @@ func (o ContactDetailsResponsePtrOutput) ToContactDetailsResponsePtrOutputWithCo
 }
 
 func (o ContactDetailsResponsePtrOutput) Elem() ContactDetailsResponseOutput {
-	return o.ApplyT(func(v *ContactDetailsResponse) ContactDetailsResponse { return *v }).(ContactDetailsResponseOutput)
+	return o.ApplyT(func(v *ContactDetailsResponse) ContactDetailsResponse {
+		if v != nil {
+			return *v
+		}
+		var ret ContactDetailsResponse
+		return ret
+	}).(ContactDetailsResponseOutput)
 }
 
-// The name of the company.
 func (o ContactDetailsResponsePtrOutput) CompanyName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ContactDetailsResponse) *string {
 		if v == nil {
@@ -2032,7 +1903,6 @@ func (o ContactDetailsResponsePtrOutput) CompanyName() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The contact person name.
 func (o ContactDetailsResponsePtrOutput) ContactPerson() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ContactDetailsResponse) *string {
 		if v == nil {
@@ -2042,7 +1912,6 @@ func (o ContactDetailsResponsePtrOutput) ContactPerson() pulumi.StringPtrOutput 
 	}).(pulumi.StringPtrOutput)
 }
 
-// The email list.
 func (o ContactDetailsResponsePtrOutput) EmailList() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *ContactDetailsResponse) []string {
 		if v == nil {
@@ -2052,7 +1921,6 @@ func (o ContactDetailsResponsePtrOutput) EmailList() pulumi.StringArrayOutput {
 	}).(pulumi.StringArrayOutput)
 }
 
-// The phone number.
 func (o ContactDetailsResponsePtrOutput) Phone() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ContactDetailsResponse) *string {
 		if v == nil {
@@ -2062,9 +1930,7 @@ func (o ContactDetailsResponsePtrOutput) Phone() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// File source details.
 type FileSourceInfo struct {
-	// File share ID.
 	ShareId string `pulumi:"shareId"`
 }
 
@@ -2079,9 +1945,7 @@ type FileSourceInfoInput interface {
 	ToFileSourceInfoOutputWithContext(context.Context) FileSourceInfoOutput
 }
 
-// File source details.
 type FileSourceInfoArgs struct {
-	// File share ID.
 	ShareId pulumi.StringInput `pulumi:"shareId"`
 }
 
@@ -2138,7 +2002,6 @@ func (i *fileSourceInfoPtrType) ToFileSourceInfoPtrOutputWithContext(ctx context
 	return pulumi.ToOutputWithContext(ctx, i).(FileSourceInfoPtrOutput)
 }
 
-// File source details.
 type FileSourceInfoOutput struct{ *pulumi.OutputState }
 
 func (FileSourceInfoOutput) ElementType() reflect.Type {
@@ -2158,12 +2021,11 @@ func (o FileSourceInfoOutput) ToFileSourceInfoPtrOutput() FileSourceInfoPtrOutpu
 }
 
 func (o FileSourceInfoOutput) ToFileSourceInfoPtrOutputWithContext(ctx context.Context) FileSourceInfoPtrOutput {
-	return o.ApplyT(func(v FileSourceInfo) *FileSourceInfo {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v FileSourceInfo) *FileSourceInfo {
 		return &v
 	}).(FileSourceInfoPtrOutput)
 }
 
-// File share ID.
 func (o FileSourceInfoOutput) ShareId() pulumi.StringOutput {
 	return o.ApplyT(func(v FileSourceInfo) string { return v.ShareId }).(pulumi.StringOutput)
 }
@@ -2183,10 +2045,15 @@ func (o FileSourceInfoPtrOutput) ToFileSourceInfoPtrOutputWithContext(ctx contex
 }
 
 func (o FileSourceInfoPtrOutput) Elem() FileSourceInfoOutput {
-	return o.ApplyT(func(v *FileSourceInfo) FileSourceInfo { return *v }).(FileSourceInfoOutput)
+	return o.ApplyT(func(v *FileSourceInfo) FileSourceInfo {
+		if v != nil {
+			return *v
+		}
+		var ret FileSourceInfo
+		return ret
+	}).(FileSourceInfoOutput)
 }
 
-// File share ID.
 func (o FileSourceInfoPtrOutput) ShareId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *FileSourceInfo) *string {
 		if v == nil {
@@ -2196,9 +2063,7 @@ func (o FileSourceInfoPtrOutput) ShareId() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// File source details.
 type FileSourceInfoResponse struct {
-	// File share ID.
 	ShareId string `pulumi:"shareId"`
 }
 
@@ -2213,9 +2078,7 @@ type FileSourceInfoResponseInput interface {
 	ToFileSourceInfoResponseOutputWithContext(context.Context) FileSourceInfoResponseOutput
 }
 
-// File source details.
 type FileSourceInfoResponseArgs struct {
-	// File share ID.
 	ShareId pulumi.StringInput `pulumi:"shareId"`
 }
 
@@ -2272,7 +2135,6 @@ func (i *fileSourceInfoResponsePtrType) ToFileSourceInfoResponsePtrOutputWithCon
 	return pulumi.ToOutputWithContext(ctx, i).(FileSourceInfoResponsePtrOutput)
 }
 
-// File source details.
 type FileSourceInfoResponseOutput struct{ *pulumi.OutputState }
 
 func (FileSourceInfoResponseOutput) ElementType() reflect.Type {
@@ -2292,12 +2154,11 @@ func (o FileSourceInfoResponseOutput) ToFileSourceInfoResponsePtrOutput() FileSo
 }
 
 func (o FileSourceInfoResponseOutput) ToFileSourceInfoResponsePtrOutputWithContext(ctx context.Context) FileSourceInfoResponsePtrOutput {
-	return o.ApplyT(func(v FileSourceInfoResponse) *FileSourceInfoResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v FileSourceInfoResponse) *FileSourceInfoResponse {
 		return &v
 	}).(FileSourceInfoResponsePtrOutput)
 }
 
-// File share ID.
 func (o FileSourceInfoResponseOutput) ShareId() pulumi.StringOutput {
 	return o.ApplyT(func(v FileSourceInfoResponse) string { return v.ShareId }).(pulumi.StringOutput)
 }
@@ -2317,10 +2178,15 @@ func (o FileSourceInfoResponsePtrOutput) ToFileSourceInfoResponsePtrOutputWithCo
 }
 
 func (o FileSourceInfoResponsePtrOutput) Elem() FileSourceInfoResponseOutput {
-	return o.ApplyT(func(v *FileSourceInfoResponse) FileSourceInfoResponse { return *v }).(FileSourceInfoResponseOutput)
+	return o.ApplyT(func(v *FileSourceInfoResponse) FileSourceInfoResponse {
+		if v != nil {
+			return *v
+		}
+		var ret FileSourceInfoResponse
+		return ret
+	}).(FileSourceInfoResponseOutput)
 }
 
-// File share ID.
 func (o FileSourceInfoResponsePtrOutput) ShareId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *FileSourceInfoResponse) *string {
 		if v == nil {
@@ -2330,14 +2196,10 @@ func (o FileSourceInfoResponsePtrOutput) ShareId() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Image repository credential.
 type ImageRepositoryCredential struct {
-	// Image repository url (e.g.: mcr.microsoft.com).
-	ImageRepositoryUrl string `pulumi:"imageRepositoryUrl"`
-	// Repository user password.
-	Password *AsymmetricEncryptedSecret `pulumi:"password"`
-	// Repository user name.
-	UserName string `pulumi:"userName"`
+	ImageRepositoryUrl string                     `pulumi:"imageRepositoryUrl"`
+	Password           *AsymmetricEncryptedSecret `pulumi:"password"`
+	UserName           string                     `pulumi:"userName"`
 }
 
 // ImageRepositoryCredentialInput is an input type that accepts ImageRepositoryCredentialArgs and ImageRepositoryCredentialOutput values.
@@ -2351,14 +2213,10 @@ type ImageRepositoryCredentialInput interface {
 	ToImageRepositoryCredentialOutputWithContext(context.Context) ImageRepositoryCredentialOutput
 }
 
-// Image repository credential.
 type ImageRepositoryCredentialArgs struct {
-	// Image repository url (e.g.: mcr.microsoft.com).
-	ImageRepositoryUrl pulumi.StringInput `pulumi:"imageRepositoryUrl"`
-	// Repository user password.
-	Password AsymmetricEncryptedSecretPtrInput `pulumi:"password"`
-	// Repository user name.
-	UserName pulumi.StringInput `pulumi:"userName"`
+	ImageRepositoryUrl pulumi.StringInput                `pulumi:"imageRepositoryUrl"`
+	Password           AsymmetricEncryptedSecretPtrInput `pulumi:"password"`
+	UserName           pulumi.StringInput                `pulumi:"userName"`
 }
 
 func (ImageRepositoryCredentialArgs) ElementType() reflect.Type {
@@ -2414,7 +2272,6 @@ func (i *imageRepositoryCredentialPtrType) ToImageRepositoryCredentialPtrOutputW
 	return pulumi.ToOutputWithContext(ctx, i).(ImageRepositoryCredentialPtrOutput)
 }
 
-// Image repository credential.
 type ImageRepositoryCredentialOutput struct{ *pulumi.OutputState }
 
 func (ImageRepositoryCredentialOutput) ElementType() reflect.Type {
@@ -2434,22 +2291,19 @@ func (o ImageRepositoryCredentialOutput) ToImageRepositoryCredentialPtrOutput() 
 }
 
 func (o ImageRepositoryCredentialOutput) ToImageRepositoryCredentialPtrOutputWithContext(ctx context.Context) ImageRepositoryCredentialPtrOutput {
-	return o.ApplyT(func(v ImageRepositoryCredential) *ImageRepositoryCredential {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ImageRepositoryCredential) *ImageRepositoryCredential {
 		return &v
 	}).(ImageRepositoryCredentialPtrOutput)
 }
 
-// Image repository url (e.g.: mcr.microsoft.com).
 func (o ImageRepositoryCredentialOutput) ImageRepositoryUrl() pulumi.StringOutput {
 	return o.ApplyT(func(v ImageRepositoryCredential) string { return v.ImageRepositoryUrl }).(pulumi.StringOutput)
 }
 
-// Repository user password.
 func (o ImageRepositoryCredentialOutput) Password() AsymmetricEncryptedSecretPtrOutput {
 	return o.ApplyT(func(v ImageRepositoryCredential) *AsymmetricEncryptedSecret { return v.Password }).(AsymmetricEncryptedSecretPtrOutput)
 }
 
-// Repository user name.
 func (o ImageRepositoryCredentialOutput) UserName() pulumi.StringOutput {
 	return o.ApplyT(func(v ImageRepositoryCredential) string { return v.UserName }).(pulumi.StringOutput)
 }
@@ -2469,10 +2323,15 @@ func (o ImageRepositoryCredentialPtrOutput) ToImageRepositoryCredentialPtrOutput
 }
 
 func (o ImageRepositoryCredentialPtrOutput) Elem() ImageRepositoryCredentialOutput {
-	return o.ApplyT(func(v *ImageRepositoryCredential) ImageRepositoryCredential { return *v }).(ImageRepositoryCredentialOutput)
+	return o.ApplyT(func(v *ImageRepositoryCredential) ImageRepositoryCredential {
+		if v != nil {
+			return *v
+		}
+		var ret ImageRepositoryCredential
+		return ret
+	}).(ImageRepositoryCredentialOutput)
 }
 
-// Image repository url (e.g.: mcr.microsoft.com).
 func (o ImageRepositoryCredentialPtrOutput) ImageRepositoryUrl() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ImageRepositoryCredential) *string {
 		if v == nil {
@@ -2482,7 +2341,6 @@ func (o ImageRepositoryCredentialPtrOutput) ImageRepositoryUrl() pulumi.StringPt
 	}).(pulumi.StringPtrOutput)
 }
 
-// Repository user password.
 func (o ImageRepositoryCredentialPtrOutput) Password() AsymmetricEncryptedSecretPtrOutput {
 	return o.ApplyT(func(v *ImageRepositoryCredential) *AsymmetricEncryptedSecret {
 		if v == nil {
@@ -2492,7 +2350,6 @@ func (o ImageRepositoryCredentialPtrOutput) Password() AsymmetricEncryptedSecret
 	}).(AsymmetricEncryptedSecretPtrOutput)
 }
 
-// Repository user name.
 func (o ImageRepositoryCredentialPtrOutput) UserName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ImageRepositoryCredential) *string {
 		if v == nil {
@@ -2502,14 +2359,10 @@ func (o ImageRepositoryCredentialPtrOutput) UserName() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Image repository credential.
 type ImageRepositoryCredentialResponse struct {
-	// Image repository url (e.g.: mcr.microsoft.com).
-	ImageRepositoryUrl string `pulumi:"imageRepositoryUrl"`
-	// Repository user password.
-	Password *AsymmetricEncryptedSecretResponse `pulumi:"password"`
-	// Repository user name.
-	UserName string `pulumi:"userName"`
+	ImageRepositoryUrl string                             `pulumi:"imageRepositoryUrl"`
+	Password           *AsymmetricEncryptedSecretResponse `pulumi:"password"`
+	UserName           string                             `pulumi:"userName"`
 }
 
 // ImageRepositoryCredentialResponseInput is an input type that accepts ImageRepositoryCredentialResponseArgs and ImageRepositoryCredentialResponseOutput values.
@@ -2523,14 +2376,10 @@ type ImageRepositoryCredentialResponseInput interface {
 	ToImageRepositoryCredentialResponseOutputWithContext(context.Context) ImageRepositoryCredentialResponseOutput
 }
 
-// Image repository credential.
 type ImageRepositoryCredentialResponseArgs struct {
-	// Image repository url (e.g.: mcr.microsoft.com).
-	ImageRepositoryUrl pulumi.StringInput `pulumi:"imageRepositoryUrl"`
-	// Repository user password.
-	Password AsymmetricEncryptedSecretResponsePtrInput `pulumi:"password"`
-	// Repository user name.
-	UserName pulumi.StringInput `pulumi:"userName"`
+	ImageRepositoryUrl pulumi.StringInput                        `pulumi:"imageRepositoryUrl"`
+	Password           AsymmetricEncryptedSecretResponsePtrInput `pulumi:"password"`
+	UserName           pulumi.StringInput                        `pulumi:"userName"`
 }
 
 func (ImageRepositoryCredentialResponseArgs) ElementType() reflect.Type {
@@ -2586,7 +2435,6 @@ func (i *imageRepositoryCredentialResponsePtrType) ToImageRepositoryCredentialRe
 	return pulumi.ToOutputWithContext(ctx, i).(ImageRepositoryCredentialResponsePtrOutput)
 }
 
-// Image repository credential.
 type ImageRepositoryCredentialResponseOutput struct{ *pulumi.OutputState }
 
 func (ImageRepositoryCredentialResponseOutput) ElementType() reflect.Type {
@@ -2606,22 +2454,19 @@ func (o ImageRepositoryCredentialResponseOutput) ToImageRepositoryCredentialResp
 }
 
 func (o ImageRepositoryCredentialResponseOutput) ToImageRepositoryCredentialResponsePtrOutputWithContext(ctx context.Context) ImageRepositoryCredentialResponsePtrOutput {
-	return o.ApplyT(func(v ImageRepositoryCredentialResponse) *ImageRepositoryCredentialResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ImageRepositoryCredentialResponse) *ImageRepositoryCredentialResponse {
 		return &v
 	}).(ImageRepositoryCredentialResponsePtrOutput)
 }
 
-// Image repository url (e.g.: mcr.microsoft.com).
 func (o ImageRepositoryCredentialResponseOutput) ImageRepositoryUrl() pulumi.StringOutput {
 	return o.ApplyT(func(v ImageRepositoryCredentialResponse) string { return v.ImageRepositoryUrl }).(pulumi.StringOutput)
 }
 
-// Repository user password.
 func (o ImageRepositoryCredentialResponseOutput) Password() AsymmetricEncryptedSecretResponsePtrOutput {
 	return o.ApplyT(func(v ImageRepositoryCredentialResponse) *AsymmetricEncryptedSecretResponse { return v.Password }).(AsymmetricEncryptedSecretResponsePtrOutput)
 }
 
-// Repository user name.
 func (o ImageRepositoryCredentialResponseOutput) UserName() pulumi.StringOutput {
 	return o.ApplyT(func(v ImageRepositoryCredentialResponse) string { return v.UserName }).(pulumi.StringOutput)
 }
@@ -2641,10 +2486,15 @@ func (o ImageRepositoryCredentialResponsePtrOutput) ToImageRepositoryCredentialR
 }
 
 func (o ImageRepositoryCredentialResponsePtrOutput) Elem() ImageRepositoryCredentialResponseOutput {
-	return o.ApplyT(func(v *ImageRepositoryCredentialResponse) ImageRepositoryCredentialResponse { return *v }).(ImageRepositoryCredentialResponseOutput)
+	return o.ApplyT(func(v *ImageRepositoryCredentialResponse) ImageRepositoryCredentialResponse {
+		if v != nil {
+			return *v
+		}
+		var ret ImageRepositoryCredentialResponse
+		return ret
+	}).(ImageRepositoryCredentialResponseOutput)
 }
 
-// Image repository url (e.g.: mcr.microsoft.com).
 func (o ImageRepositoryCredentialResponsePtrOutput) ImageRepositoryUrl() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ImageRepositoryCredentialResponse) *string {
 		if v == nil {
@@ -2654,7 +2504,6 @@ func (o ImageRepositoryCredentialResponsePtrOutput) ImageRepositoryUrl() pulumi.
 	}).(pulumi.StringPtrOutput)
 }
 
-// Repository user password.
 func (o ImageRepositoryCredentialResponsePtrOutput) Password() AsymmetricEncryptedSecretResponsePtrOutput {
 	return o.ApplyT(func(v *ImageRepositoryCredentialResponse) *AsymmetricEncryptedSecretResponse {
 		if v == nil {
@@ -2664,7 +2513,6 @@ func (o ImageRepositoryCredentialResponsePtrOutput) Password() AsymmetricEncrypt
 	}).(AsymmetricEncryptedSecretResponsePtrOutput)
 }
 
-// Repository user name.
 func (o ImageRepositoryCredentialResponsePtrOutput) UserName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ImageRepositoryCredentialResponse) *string {
 		if v == nil {
@@ -2674,16 +2522,11 @@ func (o ImageRepositoryCredentialResponsePtrOutput) UserName() pulumi.StringPtrO
 	}).(pulumi.StringPtrOutput)
 }
 
-// Metadata of IoT device/IoT Edge device to be configured.
 type IoTDeviceInfo struct {
-	// Encrypted IoT device/IoT edge device connection string.
 	Authentication *Authentication `pulumi:"authentication"`
-	// ID of the IoT device/edge device.
-	DeviceId string `pulumi:"deviceId"`
-	// Host name for the IoT hub associated to the device.
-	IoTHostHub string `pulumi:"ioTHostHub"`
-	// Id for the IoT hub associated to the device.
-	IoTHostHubId *string `pulumi:"ioTHostHubId"`
+	DeviceId       string          `pulumi:"deviceId"`
+	IoTHostHub     string          `pulumi:"ioTHostHub"`
+	IoTHostHubId   *string         `pulumi:"ioTHostHubId"`
 }
 
 // IoTDeviceInfoInput is an input type that accepts IoTDeviceInfoArgs and IoTDeviceInfoOutput values.
@@ -2697,16 +2540,11 @@ type IoTDeviceInfoInput interface {
 	ToIoTDeviceInfoOutputWithContext(context.Context) IoTDeviceInfoOutput
 }
 
-// Metadata of IoT device/IoT Edge device to be configured.
 type IoTDeviceInfoArgs struct {
-	// Encrypted IoT device/IoT edge device connection string.
 	Authentication AuthenticationPtrInput `pulumi:"authentication"`
-	// ID of the IoT device/edge device.
-	DeviceId pulumi.StringInput `pulumi:"deviceId"`
-	// Host name for the IoT hub associated to the device.
-	IoTHostHub pulumi.StringInput `pulumi:"ioTHostHub"`
-	// Id for the IoT hub associated to the device.
-	IoTHostHubId pulumi.StringPtrInput `pulumi:"ioTHostHubId"`
+	DeviceId       pulumi.StringInput     `pulumi:"deviceId"`
+	IoTHostHub     pulumi.StringInput     `pulumi:"ioTHostHub"`
+	IoTHostHubId   pulumi.StringPtrInput  `pulumi:"ioTHostHubId"`
 }
 
 func (IoTDeviceInfoArgs) ElementType() reflect.Type {
@@ -2762,7 +2600,6 @@ func (i *ioTDeviceInfoPtrType) ToIoTDeviceInfoPtrOutputWithContext(ctx context.C
 	return pulumi.ToOutputWithContext(ctx, i).(IoTDeviceInfoPtrOutput)
 }
 
-// Metadata of IoT device/IoT Edge device to be configured.
 type IoTDeviceInfoOutput struct{ *pulumi.OutputState }
 
 func (IoTDeviceInfoOutput) ElementType() reflect.Type {
@@ -2782,27 +2619,23 @@ func (o IoTDeviceInfoOutput) ToIoTDeviceInfoPtrOutput() IoTDeviceInfoPtrOutput {
 }
 
 func (o IoTDeviceInfoOutput) ToIoTDeviceInfoPtrOutputWithContext(ctx context.Context) IoTDeviceInfoPtrOutput {
-	return o.ApplyT(func(v IoTDeviceInfo) *IoTDeviceInfo {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v IoTDeviceInfo) *IoTDeviceInfo {
 		return &v
 	}).(IoTDeviceInfoPtrOutput)
 }
 
-// Encrypted IoT device/IoT edge device connection string.
 func (o IoTDeviceInfoOutput) Authentication() AuthenticationPtrOutput {
 	return o.ApplyT(func(v IoTDeviceInfo) *Authentication { return v.Authentication }).(AuthenticationPtrOutput)
 }
 
-// ID of the IoT device/edge device.
 func (o IoTDeviceInfoOutput) DeviceId() pulumi.StringOutput {
 	return o.ApplyT(func(v IoTDeviceInfo) string { return v.DeviceId }).(pulumi.StringOutput)
 }
 
-// Host name for the IoT hub associated to the device.
 func (o IoTDeviceInfoOutput) IoTHostHub() pulumi.StringOutput {
 	return o.ApplyT(func(v IoTDeviceInfo) string { return v.IoTHostHub }).(pulumi.StringOutput)
 }
 
-// Id for the IoT hub associated to the device.
 func (o IoTDeviceInfoOutput) IoTHostHubId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v IoTDeviceInfo) *string { return v.IoTHostHubId }).(pulumi.StringPtrOutput)
 }
@@ -2822,10 +2655,15 @@ func (o IoTDeviceInfoPtrOutput) ToIoTDeviceInfoPtrOutputWithContext(ctx context.
 }
 
 func (o IoTDeviceInfoPtrOutput) Elem() IoTDeviceInfoOutput {
-	return o.ApplyT(func(v *IoTDeviceInfo) IoTDeviceInfo { return *v }).(IoTDeviceInfoOutput)
+	return o.ApplyT(func(v *IoTDeviceInfo) IoTDeviceInfo {
+		if v != nil {
+			return *v
+		}
+		var ret IoTDeviceInfo
+		return ret
+	}).(IoTDeviceInfoOutput)
 }
 
-// Encrypted IoT device/IoT edge device connection string.
 func (o IoTDeviceInfoPtrOutput) Authentication() AuthenticationPtrOutput {
 	return o.ApplyT(func(v *IoTDeviceInfo) *Authentication {
 		if v == nil {
@@ -2835,7 +2673,6 @@ func (o IoTDeviceInfoPtrOutput) Authentication() AuthenticationPtrOutput {
 	}).(AuthenticationPtrOutput)
 }
 
-// ID of the IoT device/edge device.
 func (o IoTDeviceInfoPtrOutput) DeviceId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *IoTDeviceInfo) *string {
 		if v == nil {
@@ -2845,7 +2682,6 @@ func (o IoTDeviceInfoPtrOutput) DeviceId() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Host name for the IoT hub associated to the device.
 func (o IoTDeviceInfoPtrOutput) IoTHostHub() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *IoTDeviceInfo) *string {
 		if v == nil {
@@ -2855,7 +2691,6 @@ func (o IoTDeviceInfoPtrOutput) IoTHostHub() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Id for the IoT hub associated to the device.
 func (o IoTDeviceInfoPtrOutput) IoTHostHubId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *IoTDeviceInfo) *string {
 		if v == nil {
@@ -2865,16 +2700,11 @@ func (o IoTDeviceInfoPtrOutput) IoTHostHubId() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Metadata of IoT device/IoT Edge device to be configured.
 type IoTDeviceInfoResponse struct {
-	// Encrypted IoT device/IoT edge device connection string.
 	Authentication *AuthenticationResponse `pulumi:"authentication"`
-	// ID of the IoT device/edge device.
-	DeviceId string `pulumi:"deviceId"`
-	// Host name for the IoT hub associated to the device.
-	IoTHostHub string `pulumi:"ioTHostHub"`
-	// Id for the IoT hub associated to the device.
-	IoTHostHubId *string `pulumi:"ioTHostHubId"`
+	DeviceId       string                  `pulumi:"deviceId"`
+	IoTHostHub     string                  `pulumi:"ioTHostHub"`
+	IoTHostHubId   *string                 `pulumi:"ioTHostHubId"`
 }
 
 // IoTDeviceInfoResponseInput is an input type that accepts IoTDeviceInfoResponseArgs and IoTDeviceInfoResponseOutput values.
@@ -2888,16 +2718,11 @@ type IoTDeviceInfoResponseInput interface {
 	ToIoTDeviceInfoResponseOutputWithContext(context.Context) IoTDeviceInfoResponseOutput
 }
 
-// Metadata of IoT device/IoT Edge device to be configured.
 type IoTDeviceInfoResponseArgs struct {
-	// Encrypted IoT device/IoT edge device connection string.
 	Authentication AuthenticationResponsePtrInput `pulumi:"authentication"`
-	// ID of the IoT device/edge device.
-	DeviceId pulumi.StringInput `pulumi:"deviceId"`
-	// Host name for the IoT hub associated to the device.
-	IoTHostHub pulumi.StringInput `pulumi:"ioTHostHub"`
-	// Id for the IoT hub associated to the device.
-	IoTHostHubId pulumi.StringPtrInput `pulumi:"ioTHostHubId"`
+	DeviceId       pulumi.StringInput             `pulumi:"deviceId"`
+	IoTHostHub     pulumi.StringInput             `pulumi:"ioTHostHub"`
+	IoTHostHubId   pulumi.StringPtrInput          `pulumi:"ioTHostHubId"`
 }
 
 func (IoTDeviceInfoResponseArgs) ElementType() reflect.Type {
@@ -2953,7 +2778,6 @@ func (i *ioTDeviceInfoResponsePtrType) ToIoTDeviceInfoResponsePtrOutputWithConte
 	return pulumi.ToOutputWithContext(ctx, i).(IoTDeviceInfoResponsePtrOutput)
 }
 
-// Metadata of IoT device/IoT Edge device to be configured.
 type IoTDeviceInfoResponseOutput struct{ *pulumi.OutputState }
 
 func (IoTDeviceInfoResponseOutput) ElementType() reflect.Type {
@@ -2973,27 +2797,23 @@ func (o IoTDeviceInfoResponseOutput) ToIoTDeviceInfoResponsePtrOutput() IoTDevic
 }
 
 func (o IoTDeviceInfoResponseOutput) ToIoTDeviceInfoResponsePtrOutputWithContext(ctx context.Context) IoTDeviceInfoResponsePtrOutput {
-	return o.ApplyT(func(v IoTDeviceInfoResponse) *IoTDeviceInfoResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v IoTDeviceInfoResponse) *IoTDeviceInfoResponse {
 		return &v
 	}).(IoTDeviceInfoResponsePtrOutput)
 }
 
-// Encrypted IoT device/IoT edge device connection string.
 func (o IoTDeviceInfoResponseOutput) Authentication() AuthenticationResponsePtrOutput {
 	return o.ApplyT(func(v IoTDeviceInfoResponse) *AuthenticationResponse { return v.Authentication }).(AuthenticationResponsePtrOutput)
 }
 
-// ID of the IoT device/edge device.
 func (o IoTDeviceInfoResponseOutput) DeviceId() pulumi.StringOutput {
 	return o.ApplyT(func(v IoTDeviceInfoResponse) string { return v.DeviceId }).(pulumi.StringOutput)
 }
 
-// Host name for the IoT hub associated to the device.
 func (o IoTDeviceInfoResponseOutput) IoTHostHub() pulumi.StringOutput {
 	return o.ApplyT(func(v IoTDeviceInfoResponse) string { return v.IoTHostHub }).(pulumi.StringOutput)
 }
 
-// Id for the IoT hub associated to the device.
 func (o IoTDeviceInfoResponseOutput) IoTHostHubId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v IoTDeviceInfoResponse) *string { return v.IoTHostHubId }).(pulumi.StringPtrOutput)
 }
@@ -3013,10 +2833,15 @@ func (o IoTDeviceInfoResponsePtrOutput) ToIoTDeviceInfoResponsePtrOutputWithCont
 }
 
 func (o IoTDeviceInfoResponsePtrOutput) Elem() IoTDeviceInfoResponseOutput {
-	return o.ApplyT(func(v *IoTDeviceInfoResponse) IoTDeviceInfoResponse { return *v }).(IoTDeviceInfoResponseOutput)
+	return o.ApplyT(func(v *IoTDeviceInfoResponse) IoTDeviceInfoResponse {
+		if v != nil {
+			return *v
+		}
+		var ret IoTDeviceInfoResponse
+		return ret
+	}).(IoTDeviceInfoResponseOutput)
 }
 
-// Encrypted IoT device/IoT edge device connection string.
 func (o IoTDeviceInfoResponsePtrOutput) Authentication() AuthenticationResponsePtrOutput {
 	return o.ApplyT(func(v *IoTDeviceInfoResponse) *AuthenticationResponse {
 		if v == nil {
@@ -3026,7 +2851,6 @@ func (o IoTDeviceInfoResponsePtrOutput) Authentication() AuthenticationResponseP
 	}).(AuthenticationResponsePtrOutput)
 }
 
-// ID of the IoT device/edge device.
 func (o IoTDeviceInfoResponsePtrOutput) DeviceId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *IoTDeviceInfoResponse) *string {
 		if v == nil {
@@ -3036,7 +2860,6 @@ func (o IoTDeviceInfoResponsePtrOutput) DeviceId() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Host name for the IoT hub associated to the device.
 func (o IoTDeviceInfoResponsePtrOutput) IoTHostHub() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *IoTDeviceInfoResponse) *string {
 		if v == nil {
@@ -3046,7 +2869,6 @@ func (o IoTDeviceInfoResponsePtrOutput) IoTHostHub() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Id for the IoT hub associated to the device.
 func (o IoTDeviceInfoResponsePtrOutput) IoTHostHubId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *IoTDeviceInfoResponse) *string {
 		if v == nil {
@@ -3056,14 +2878,10 @@ func (o IoTDeviceInfoResponsePtrOutput) IoTHostHubId() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// IoT edge agent details is optional, this will be used for download system Agent module while bootstrapping IoT Role if specified.
 type IoTEdgeAgentInfo struct {
-	// Name of the IoT edge agent image.
-	ImageName string `pulumi:"imageName"`
-	// Image repository details.
+	ImageName       string                     `pulumi:"imageName"`
 	ImageRepository *ImageRepositoryCredential `pulumi:"imageRepository"`
-	// Image Tag.
-	Tag string `pulumi:"tag"`
+	Tag             string                     `pulumi:"tag"`
 }
 
 // IoTEdgeAgentInfoInput is an input type that accepts IoTEdgeAgentInfoArgs and IoTEdgeAgentInfoOutput values.
@@ -3077,14 +2895,10 @@ type IoTEdgeAgentInfoInput interface {
 	ToIoTEdgeAgentInfoOutputWithContext(context.Context) IoTEdgeAgentInfoOutput
 }
 
-// IoT edge agent details is optional, this will be used for download system Agent module while bootstrapping IoT Role if specified.
 type IoTEdgeAgentInfoArgs struct {
-	// Name of the IoT edge agent image.
-	ImageName pulumi.StringInput `pulumi:"imageName"`
-	// Image repository details.
+	ImageName       pulumi.StringInput                `pulumi:"imageName"`
 	ImageRepository ImageRepositoryCredentialPtrInput `pulumi:"imageRepository"`
-	// Image Tag.
-	Tag pulumi.StringInput `pulumi:"tag"`
+	Tag             pulumi.StringInput                `pulumi:"tag"`
 }
 
 func (IoTEdgeAgentInfoArgs) ElementType() reflect.Type {
@@ -3140,7 +2954,6 @@ func (i *ioTEdgeAgentInfoPtrType) ToIoTEdgeAgentInfoPtrOutputWithContext(ctx con
 	return pulumi.ToOutputWithContext(ctx, i).(IoTEdgeAgentInfoPtrOutput)
 }
 
-// IoT edge agent details is optional, this will be used for download system Agent module while bootstrapping IoT Role if specified.
 type IoTEdgeAgentInfoOutput struct{ *pulumi.OutputState }
 
 func (IoTEdgeAgentInfoOutput) ElementType() reflect.Type {
@@ -3160,22 +2973,19 @@ func (o IoTEdgeAgentInfoOutput) ToIoTEdgeAgentInfoPtrOutput() IoTEdgeAgentInfoPt
 }
 
 func (o IoTEdgeAgentInfoOutput) ToIoTEdgeAgentInfoPtrOutputWithContext(ctx context.Context) IoTEdgeAgentInfoPtrOutput {
-	return o.ApplyT(func(v IoTEdgeAgentInfo) *IoTEdgeAgentInfo {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v IoTEdgeAgentInfo) *IoTEdgeAgentInfo {
 		return &v
 	}).(IoTEdgeAgentInfoPtrOutput)
 }
 
-// Name of the IoT edge agent image.
 func (o IoTEdgeAgentInfoOutput) ImageName() pulumi.StringOutput {
 	return o.ApplyT(func(v IoTEdgeAgentInfo) string { return v.ImageName }).(pulumi.StringOutput)
 }
 
-// Image repository details.
 func (o IoTEdgeAgentInfoOutput) ImageRepository() ImageRepositoryCredentialPtrOutput {
 	return o.ApplyT(func(v IoTEdgeAgentInfo) *ImageRepositoryCredential { return v.ImageRepository }).(ImageRepositoryCredentialPtrOutput)
 }
 
-// Image Tag.
 func (o IoTEdgeAgentInfoOutput) Tag() pulumi.StringOutput {
 	return o.ApplyT(func(v IoTEdgeAgentInfo) string { return v.Tag }).(pulumi.StringOutput)
 }
@@ -3195,10 +3005,15 @@ func (o IoTEdgeAgentInfoPtrOutput) ToIoTEdgeAgentInfoPtrOutputWithContext(ctx co
 }
 
 func (o IoTEdgeAgentInfoPtrOutput) Elem() IoTEdgeAgentInfoOutput {
-	return o.ApplyT(func(v *IoTEdgeAgentInfo) IoTEdgeAgentInfo { return *v }).(IoTEdgeAgentInfoOutput)
+	return o.ApplyT(func(v *IoTEdgeAgentInfo) IoTEdgeAgentInfo {
+		if v != nil {
+			return *v
+		}
+		var ret IoTEdgeAgentInfo
+		return ret
+	}).(IoTEdgeAgentInfoOutput)
 }
 
-// Name of the IoT edge agent image.
 func (o IoTEdgeAgentInfoPtrOutput) ImageName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *IoTEdgeAgentInfo) *string {
 		if v == nil {
@@ -3208,7 +3023,6 @@ func (o IoTEdgeAgentInfoPtrOutput) ImageName() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Image repository details.
 func (o IoTEdgeAgentInfoPtrOutput) ImageRepository() ImageRepositoryCredentialPtrOutput {
 	return o.ApplyT(func(v *IoTEdgeAgentInfo) *ImageRepositoryCredential {
 		if v == nil {
@@ -3218,7 +3032,6 @@ func (o IoTEdgeAgentInfoPtrOutput) ImageRepository() ImageRepositoryCredentialPt
 	}).(ImageRepositoryCredentialPtrOutput)
 }
 
-// Image Tag.
 func (o IoTEdgeAgentInfoPtrOutput) Tag() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *IoTEdgeAgentInfo) *string {
 		if v == nil {
@@ -3228,14 +3041,10 @@ func (o IoTEdgeAgentInfoPtrOutput) Tag() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// IoT edge agent details is optional, this will be used for download system Agent module while bootstrapping IoT Role if specified.
 type IoTEdgeAgentInfoResponse struct {
-	// Name of the IoT edge agent image.
-	ImageName string `pulumi:"imageName"`
-	// Image repository details.
+	ImageName       string                             `pulumi:"imageName"`
 	ImageRepository *ImageRepositoryCredentialResponse `pulumi:"imageRepository"`
-	// Image Tag.
-	Tag string `pulumi:"tag"`
+	Tag             string                             `pulumi:"tag"`
 }
 
 // IoTEdgeAgentInfoResponseInput is an input type that accepts IoTEdgeAgentInfoResponseArgs and IoTEdgeAgentInfoResponseOutput values.
@@ -3249,14 +3058,10 @@ type IoTEdgeAgentInfoResponseInput interface {
 	ToIoTEdgeAgentInfoResponseOutputWithContext(context.Context) IoTEdgeAgentInfoResponseOutput
 }
 
-// IoT edge agent details is optional, this will be used for download system Agent module while bootstrapping IoT Role if specified.
 type IoTEdgeAgentInfoResponseArgs struct {
-	// Name of the IoT edge agent image.
-	ImageName pulumi.StringInput `pulumi:"imageName"`
-	// Image repository details.
+	ImageName       pulumi.StringInput                        `pulumi:"imageName"`
 	ImageRepository ImageRepositoryCredentialResponsePtrInput `pulumi:"imageRepository"`
-	// Image Tag.
-	Tag pulumi.StringInput `pulumi:"tag"`
+	Tag             pulumi.StringInput                        `pulumi:"tag"`
 }
 
 func (IoTEdgeAgentInfoResponseArgs) ElementType() reflect.Type {
@@ -3312,7 +3117,6 @@ func (i *ioTEdgeAgentInfoResponsePtrType) ToIoTEdgeAgentInfoResponsePtrOutputWit
 	return pulumi.ToOutputWithContext(ctx, i).(IoTEdgeAgentInfoResponsePtrOutput)
 }
 
-// IoT edge agent details is optional, this will be used for download system Agent module while bootstrapping IoT Role if specified.
 type IoTEdgeAgentInfoResponseOutput struct{ *pulumi.OutputState }
 
 func (IoTEdgeAgentInfoResponseOutput) ElementType() reflect.Type {
@@ -3332,22 +3136,19 @@ func (o IoTEdgeAgentInfoResponseOutput) ToIoTEdgeAgentInfoResponsePtrOutput() Io
 }
 
 func (o IoTEdgeAgentInfoResponseOutput) ToIoTEdgeAgentInfoResponsePtrOutputWithContext(ctx context.Context) IoTEdgeAgentInfoResponsePtrOutput {
-	return o.ApplyT(func(v IoTEdgeAgentInfoResponse) *IoTEdgeAgentInfoResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v IoTEdgeAgentInfoResponse) *IoTEdgeAgentInfoResponse {
 		return &v
 	}).(IoTEdgeAgentInfoResponsePtrOutput)
 }
 
-// Name of the IoT edge agent image.
 func (o IoTEdgeAgentInfoResponseOutput) ImageName() pulumi.StringOutput {
 	return o.ApplyT(func(v IoTEdgeAgentInfoResponse) string { return v.ImageName }).(pulumi.StringOutput)
 }
 
-// Image repository details.
 func (o IoTEdgeAgentInfoResponseOutput) ImageRepository() ImageRepositoryCredentialResponsePtrOutput {
 	return o.ApplyT(func(v IoTEdgeAgentInfoResponse) *ImageRepositoryCredentialResponse { return v.ImageRepository }).(ImageRepositoryCredentialResponsePtrOutput)
 }
 
-// Image Tag.
 func (o IoTEdgeAgentInfoResponseOutput) Tag() pulumi.StringOutput {
 	return o.ApplyT(func(v IoTEdgeAgentInfoResponse) string { return v.Tag }).(pulumi.StringOutput)
 }
@@ -3367,10 +3168,15 @@ func (o IoTEdgeAgentInfoResponsePtrOutput) ToIoTEdgeAgentInfoResponsePtrOutputWi
 }
 
 func (o IoTEdgeAgentInfoResponsePtrOutput) Elem() IoTEdgeAgentInfoResponseOutput {
-	return o.ApplyT(func(v *IoTEdgeAgentInfoResponse) IoTEdgeAgentInfoResponse { return *v }).(IoTEdgeAgentInfoResponseOutput)
+	return o.ApplyT(func(v *IoTEdgeAgentInfoResponse) IoTEdgeAgentInfoResponse {
+		if v != nil {
+			return *v
+		}
+		var ret IoTEdgeAgentInfoResponse
+		return ret
+	}).(IoTEdgeAgentInfoResponseOutput)
 }
 
-// Name of the IoT edge agent image.
 func (o IoTEdgeAgentInfoResponsePtrOutput) ImageName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *IoTEdgeAgentInfoResponse) *string {
 		if v == nil {
@@ -3380,7 +3186,6 @@ func (o IoTEdgeAgentInfoResponsePtrOutput) ImageName() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Image repository details.
 func (o IoTEdgeAgentInfoResponsePtrOutput) ImageRepository() ImageRepositoryCredentialResponsePtrOutput {
 	return o.ApplyT(func(v *IoTEdgeAgentInfoResponse) *ImageRepositoryCredentialResponse {
 		if v == nil {
@@ -3390,7 +3195,6 @@ func (o IoTEdgeAgentInfoResponsePtrOutput) ImageRepository() ImageRepositoryCred
 	}).(ImageRepositoryCredentialResponsePtrOutput)
 }
 
-// Image Tag.
 func (o IoTEdgeAgentInfoResponsePtrOutput) Tag() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *IoTEdgeAgentInfoResponse) *string {
 		if v == nil {
@@ -3400,9 +3204,7 @@ func (o IoTEdgeAgentInfoResponsePtrOutput) Tag() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The share mount point.
 type MountPointMap struct {
-	// ID of the share mounted to the role VM.
 	ShareId string `pulumi:"shareId"`
 }
 
@@ -3417,9 +3219,7 @@ type MountPointMapInput interface {
 	ToMountPointMapOutputWithContext(context.Context) MountPointMapOutput
 }
 
-// The share mount point.
 type MountPointMapArgs struct {
-	// ID of the share mounted to the role VM.
 	ShareId pulumi.StringInput `pulumi:"shareId"`
 }
 
@@ -3460,7 +3260,6 @@ func (i MountPointMapArray) ToMountPointMapArrayOutputWithContext(ctx context.Co
 	return pulumi.ToOutputWithContext(ctx, i).(MountPointMapArrayOutput)
 }
 
-// The share mount point.
 type MountPointMapOutput struct{ *pulumi.OutputState }
 
 func (MountPointMapOutput) ElementType() reflect.Type {
@@ -3475,7 +3274,6 @@ func (o MountPointMapOutput) ToMountPointMapOutputWithContext(ctx context.Contex
 	return o
 }
 
-// ID of the share mounted to the role VM.
 func (o MountPointMapOutput) ShareId() pulumi.StringOutput {
 	return o.ApplyT(func(v MountPointMap) string { return v.ShareId }).(pulumi.StringOutput)
 }
@@ -3500,18 +3298,12 @@ func (o MountPointMapArrayOutput) Index(i pulumi.IntInput) MountPointMapOutput {
 	}).(MountPointMapOutput)
 }
 
-// The share mount point.
 type MountPointMapResponse struct {
-	// Mount point for the share.
 	MountPoint string `pulumi:"mountPoint"`
-	// Mounting type.
-	MountType string `pulumi:"mountType"`
-	// ID of the role to which share is mounted.
-	RoleId string `pulumi:"roleId"`
-	// Role type.
-	RoleType string `pulumi:"roleType"`
-	// ID of the share mounted to the role VM.
-	ShareId string `pulumi:"shareId"`
+	MountType  string `pulumi:"mountType"`
+	RoleId     string `pulumi:"roleId"`
+	RoleType   string `pulumi:"roleType"`
+	ShareId    string `pulumi:"shareId"`
 }
 
 // MountPointMapResponseInput is an input type that accepts MountPointMapResponseArgs and MountPointMapResponseOutput values.
@@ -3525,18 +3317,12 @@ type MountPointMapResponseInput interface {
 	ToMountPointMapResponseOutputWithContext(context.Context) MountPointMapResponseOutput
 }
 
-// The share mount point.
 type MountPointMapResponseArgs struct {
-	// Mount point for the share.
 	MountPoint pulumi.StringInput `pulumi:"mountPoint"`
-	// Mounting type.
-	MountType pulumi.StringInput `pulumi:"mountType"`
-	// ID of the role to which share is mounted.
-	RoleId pulumi.StringInput `pulumi:"roleId"`
-	// Role type.
-	RoleType pulumi.StringInput `pulumi:"roleType"`
-	// ID of the share mounted to the role VM.
-	ShareId pulumi.StringInput `pulumi:"shareId"`
+	MountType  pulumi.StringInput `pulumi:"mountType"`
+	RoleId     pulumi.StringInput `pulumi:"roleId"`
+	RoleType   pulumi.StringInput `pulumi:"roleType"`
+	ShareId    pulumi.StringInput `pulumi:"shareId"`
 }
 
 func (MountPointMapResponseArgs) ElementType() reflect.Type {
@@ -3576,7 +3362,6 @@ func (i MountPointMapResponseArray) ToMountPointMapResponseArrayOutputWithContex
 	return pulumi.ToOutputWithContext(ctx, i).(MountPointMapResponseArrayOutput)
 }
 
-// The share mount point.
 type MountPointMapResponseOutput struct{ *pulumi.OutputState }
 
 func (MountPointMapResponseOutput) ElementType() reflect.Type {
@@ -3591,27 +3376,22 @@ func (o MountPointMapResponseOutput) ToMountPointMapResponseOutputWithContext(ct
 	return o
 }
 
-// Mount point for the share.
 func (o MountPointMapResponseOutput) MountPoint() pulumi.StringOutput {
 	return o.ApplyT(func(v MountPointMapResponse) string { return v.MountPoint }).(pulumi.StringOutput)
 }
 
-// Mounting type.
 func (o MountPointMapResponseOutput) MountType() pulumi.StringOutput {
 	return o.ApplyT(func(v MountPointMapResponse) string { return v.MountType }).(pulumi.StringOutput)
 }
 
-// ID of the role to which share is mounted.
 func (o MountPointMapResponseOutput) RoleId() pulumi.StringOutput {
 	return o.ApplyT(func(v MountPointMapResponse) string { return v.RoleId }).(pulumi.StringOutput)
 }
 
-// Role type.
 func (o MountPointMapResponseOutput) RoleType() pulumi.StringOutput {
 	return o.ApplyT(func(v MountPointMapResponse) string { return v.RoleType }).(pulumi.StringOutput)
 }
 
-// ID of the share mounted to the role VM.
 func (o MountPointMapResponseOutput) ShareId() pulumi.StringOutput {
 	return o.ApplyT(func(v MountPointMapResponse) string { return v.ShareId }).(pulumi.StringOutput)
 }
@@ -3636,12 +3416,9 @@ func (o MountPointMapResponseArrayOutput) Index(i pulumi.IntInput) MountPointMap
 	}).(MountPointMapResponseOutput)
 }
 
-// Represents a single status change.
 type OrderStatus struct {
-	// Comments related to this status change.
 	Comments *string `pulumi:"comments"`
-	// Status of the order as per the allowed status types.
-	Status string `pulumi:"status"`
+	Status   string  `pulumi:"status"`
 }
 
 // OrderStatusInput is an input type that accepts OrderStatusArgs and OrderStatusOutput values.
@@ -3655,12 +3432,9 @@ type OrderStatusInput interface {
 	ToOrderStatusOutputWithContext(context.Context) OrderStatusOutput
 }
 
-// Represents a single status change.
 type OrderStatusArgs struct {
-	// Comments related to this status change.
 	Comments pulumi.StringPtrInput `pulumi:"comments"`
-	// Status of the order as per the allowed status types.
-	Status pulumi.StringInput `pulumi:"status"`
+	Status   pulumi.StringInput    `pulumi:"status"`
 }
 
 func (OrderStatusArgs) ElementType() reflect.Type {
@@ -3716,7 +3490,6 @@ func (i *orderStatusPtrType) ToOrderStatusPtrOutputWithContext(ctx context.Conte
 	return pulumi.ToOutputWithContext(ctx, i).(OrderStatusPtrOutput)
 }
 
-// Represents a single status change.
 type OrderStatusOutput struct{ *pulumi.OutputState }
 
 func (OrderStatusOutput) ElementType() reflect.Type {
@@ -3736,17 +3509,15 @@ func (o OrderStatusOutput) ToOrderStatusPtrOutput() OrderStatusPtrOutput {
 }
 
 func (o OrderStatusOutput) ToOrderStatusPtrOutputWithContext(ctx context.Context) OrderStatusPtrOutput {
-	return o.ApplyT(func(v OrderStatus) *OrderStatus {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v OrderStatus) *OrderStatus {
 		return &v
 	}).(OrderStatusPtrOutput)
 }
 
-// Comments related to this status change.
 func (o OrderStatusOutput) Comments() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v OrderStatus) *string { return v.Comments }).(pulumi.StringPtrOutput)
 }
 
-// Status of the order as per the allowed status types.
 func (o OrderStatusOutput) Status() pulumi.StringOutput {
 	return o.ApplyT(func(v OrderStatus) string { return v.Status }).(pulumi.StringOutput)
 }
@@ -3766,10 +3537,15 @@ func (o OrderStatusPtrOutput) ToOrderStatusPtrOutputWithContext(ctx context.Cont
 }
 
 func (o OrderStatusPtrOutput) Elem() OrderStatusOutput {
-	return o.ApplyT(func(v *OrderStatus) OrderStatus { return *v }).(OrderStatusOutput)
+	return o.ApplyT(func(v *OrderStatus) OrderStatus {
+		if v != nil {
+			return *v
+		}
+		var ret OrderStatus
+		return ret
+	}).(OrderStatusOutput)
 }
 
-// Comments related to this status change.
 func (o OrderStatusPtrOutput) Comments() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *OrderStatus) *string {
 		if v == nil {
@@ -3779,7 +3555,6 @@ func (o OrderStatusPtrOutput) Comments() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Status of the order as per the allowed status types.
 func (o OrderStatusPtrOutput) Status() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *OrderStatus) *string {
 		if v == nil {
@@ -3789,17 +3564,11 @@ func (o OrderStatusPtrOutput) Status() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Represents a single status change.
 type OrderStatusResponse struct {
-	// Dictionary to hold generic information which is not stored
-	// by the already existing properties
 	AdditionalOrderDetails map[string]string `pulumi:"additionalOrderDetails"`
-	// Comments related to this status change.
-	Comments *string `pulumi:"comments"`
-	// Status of the order as per the allowed status types.
-	Status string `pulumi:"status"`
-	// Time of status update.
-	UpdateDateTime string `pulumi:"updateDateTime"`
+	Comments               *string           `pulumi:"comments"`
+	Status                 string            `pulumi:"status"`
+	UpdateDateTime         string            `pulumi:"updateDateTime"`
 }
 
 // OrderStatusResponseInput is an input type that accepts OrderStatusResponseArgs and OrderStatusResponseOutput values.
@@ -3813,17 +3582,11 @@ type OrderStatusResponseInput interface {
 	ToOrderStatusResponseOutputWithContext(context.Context) OrderStatusResponseOutput
 }
 
-// Represents a single status change.
 type OrderStatusResponseArgs struct {
-	// Dictionary to hold generic information which is not stored
-	// by the already existing properties
 	AdditionalOrderDetails pulumi.StringMapInput `pulumi:"additionalOrderDetails"`
-	// Comments related to this status change.
-	Comments pulumi.StringPtrInput `pulumi:"comments"`
-	// Status of the order as per the allowed status types.
-	Status pulumi.StringInput `pulumi:"status"`
-	// Time of status update.
-	UpdateDateTime pulumi.StringInput `pulumi:"updateDateTime"`
+	Comments               pulumi.StringPtrInput `pulumi:"comments"`
+	Status                 pulumi.StringInput    `pulumi:"status"`
+	UpdateDateTime         pulumi.StringInput    `pulumi:"updateDateTime"`
 }
 
 func (OrderStatusResponseArgs) ElementType() reflect.Type {
@@ -3904,7 +3667,6 @@ func (i OrderStatusResponseArray) ToOrderStatusResponseArrayOutputWithContext(ct
 	return pulumi.ToOutputWithContext(ctx, i).(OrderStatusResponseArrayOutput)
 }
 
-// Represents a single status change.
 type OrderStatusResponseOutput struct{ *pulumi.OutputState }
 
 func (OrderStatusResponseOutput) ElementType() reflect.Type {
@@ -3924,28 +3686,23 @@ func (o OrderStatusResponseOutput) ToOrderStatusResponsePtrOutput() OrderStatusR
 }
 
 func (o OrderStatusResponseOutput) ToOrderStatusResponsePtrOutputWithContext(ctx context.Context) OrderStatusResponsePtrOutput {
-	return o.ApplyT(func(v OrderStatusResponse) *OrderStatusResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v OrderStatusResponse) *OrderStatusResponse {
 		return &v
 	}).(OrderStatusResponsePtrOutput)
 }
 
-// Dictionary to hold generic information which is not stored
-// by the already existing properties
 func (o OrderStatusResponseOutput) AdditionalOrderDetails() pulumi.StringMapOutput {
 	return o.ApplyT(func(v OrderStatusResponse) map[string]string { return v.AdditionalOrderDetails }).(pulumi.StringMapOutput)
 }
 
-// Comments related to this status change.
 func (o OrderStatusResponseOutput) Comments() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v OrderStatusResponse) *string { return v.Comments }).(pulumi.StringPtrOutput)
 }
 
-// Status of the order as per the allowed status types.
 func (o OrderStatusResponseOutput) Status() pulumi.StringOutput {
 	return o.ApplyT(func(v OrderStatusResponse) string { return v.Status }).(pulumi.StringOutput)
 }
 
-// Time of status update.
 func (o OrderStatusResponseOutput) UpdateDateTime() pulumi.StringOutput {
 	return o.ApplyT(func(v OrderStatusResponse) string { return v.UpdateDateTime }).(pulumi.StringOutput)
 }
@@ -3965,11 +3722,15 @@ func (o OrderStatusResponsePtrOutput) ToOrderStatusResponsePtrOutputWithContext(
 }
 
 func (o OrderStatusResponsePtrOutput) Elem() OrderStatusResponseOutput {
-	return o.ApplyT(func(v *OrderStatusResponse) OrderStatusResponse { return *v }).(OrderStatusResponseOutput)
+	return o.ApplyT(func(v *OrderStatusResponse) OrderStatusResponse {
+		if v != nil {
+			return *v
+		}
+		var ret OrderStatusResponse
+		return ret
+	}).(OrderStatusResponseOutput)
 }
 
-// Dictionary to hold generic information which is not stored
-// by the already existing properties
 func (o OrderStatusResponsePtrOutput) AdditionalOrderDetails() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *OrderStatusResponse) map[string]string {
 		if v == nil {
@@ -3979,7 +3740,6 @@ func (o OrderStatusResponsePtrOutput) AdditionalOrderDetails() pulumi.StringMapO
 	}).(pulumi.StringMapOutput)
 }
 
-// Comments related to this status change.
 func (o OrderStatusResponsePtrOutput) Comments() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *OrderStatusResponse) *string {
 		if v == nil {
@@ -3989,7 +3749,6 @@ func (o OrderStatusResponsePtrOutput) Comments() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Status of the order as per the allowed status types.
 func (o OrderStatusResponsePtrOutput) Status() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *OrderStatusResponse) *string {
 		if v == nil {
@@ -3999,7 +3758,6 @@ func (o OrderStatusResponsePtrOutput) Status() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Time of status update.
 func (o OrderStatusResponsePtrOutput) UpdateDateTime() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *OrderStatusResponse) *string {
 		if v == nil {
@@ -4029,14 +3787,10 @@ func (o OrderStatusResponseArrayOutput) Index(i pulumi.IntInput) OrderStatusResp
 	}).(OrderStatusResponseOutput)
 }
 
-// Periodic timer event source.
 type PeriodicTimerSourceInfo struct {
-	// Periodic frequency at which timer event needs to be raised. Supports daily, hourly, minutes, and seconds.
-	Schedule string `pulumi:"schedule"`
-	// The time of the day that results in a valid trigger. Schedule is computed with reference to the time specified upto seconds. If timezone is not specified the time will considered to be in device timezone. The value will always be returned as UTC time.
-	StartTime string `pulumi:"startTime"`
-	// Topic where periodic events are published to IoT device.
-	Topic *string `pulumi:"topic"`
+	Schedule  string  `pulumi:"schedule"`
+	StartTime string  `pulumi:"startTime"`
+	Topic     *string `pulumi:"topic"`
 }
 
 // PeriodicTimerSourceInfoInput is an input type that accepts PeriodicTimerSourceInfoArgs and PeriodicTimerSourceInfoOutput values.
@@ -4050,14 +3804,10 @@ type PeriodicTimerSourceInfoInput interface {
 	ToPeriodicTimerSourceInfoOutputWithContext(context.Context) PeriodicTimerSourceInfoOutput
 }
 
-// Periodic timer event source.
 type PeriodicTimerSourceInfoArgs struct {
-	// Periodic frequency at which timer event needs to be raised. Supports daily, hourly, minutes, and seconds.
-	Schedule pulumi.StringInput `pulumi:"schedule"`
-	// The time of the day that results in a valid trigger. Schedule is computed with reference to the time specified upto seconds. If timezone is not specified the time will considered to be in device timezone. The value will always be returned as UTC time.
-	StartTime pulumi.StringInput `pulumi:"startTime"`
-	// Topic where periodic events are published to IoT device.
-	Topic pulumi.StringPtrInput `pulumi:"topic"`
+	Schedule  pulumi.StringInput    `pulumi:"schedule"`
+	StartTime pulumi.StringInput    `pulumi:"startTime"`
+	Topic     pulumi.StringPtrInput `pulumi:"topic"`
 }
 
 func (PeriodicTimerSourceInfoArgs) ElementType() reflect.Type {
@@ -4113,7 +3863,6 @@ func (i *periodicTimerSourceInfoPtrType) ToPeriodicTimerSourceInfoPtrOutputWithC
 	return pulumi.ToOutputWithContext(ctx, i).(PeriodicTimerSourceInfoPtrOutput)
 }
 
-// Periodic timer event source.
 type PeriodicTimerSourceInfoOutput struct{ *pulumi.OutputState }
 
 func (PeriodicTimerSourceInfoOutput) ElementType() reflect.Type {
@@ -4133,22 +3882,19 @@ func (o PeriodicTimerSourceInfoOutput) ToPeriodicTimerSourceInfoPtrOutput() Peri
 }
 
 func (o PeriodicTimerSourceInfoOutput) ToPeriodicTimerSourceInfoPtrOutputWithContext(ctx context.Context) PeriodicTimerSourceInfoPtrOutput {
-	return o.ApplyT(func(v PeriodicTimerSourceInfo) *PeriodicTimerSourceInfo {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v PeriodicTimerSourceInfo) *PeriodicTimerSourceInfo {
 		return &v
 	}).(PeriodicTimerSourceInfoPtrOutput)
 }
 
-// Periodic frequency at which timer event needs to be raised. Supports daily, hourly, minutes, and seconds.
 func (o PeriodicTimerSourceInfoOutput) Schedule() pulumi.StringOutput {
 	return o.ApplyT(func(v PeriodicTimerSourceInfo) string { return v.Schedule }).(pulumi.StringOutput)
 }
 
-// The time of the day that results in a valid trigger. Schedule is computed with reference to the time specified upto seconds. If timezone is not specified the time will considered to be in device timezone. The value will always be returned as UTC time.
 func (o PeriodicTimerSourceInfoOutput) StartTime() pulumi.StringOutput {
 	return o.ApplyT(func(v PeriodicTimerSourceInfo) string { return v.StartTime }).(pulumi.StringOutput)
 }
 
-// Topic where periodic events are published to IoT device.
 func (o PeriodicTimerSourceInfoOutput) Topic() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v PeriodicTimerSourceInfo) *string { return v.Topic }).(pulumi.StringPtrOutput)
 }
@@ -4168,10 +3914,15 @@ func (o PeriodicTimerSourceInfoPtrOutput) ToPeriodicTimerSourceInfoPtrOutputWith
 }
 
 func (o PeriodicTimerSourceInfoPtrOutput) Elem() PeriodicTimerSourceInfoOutput {
-	return o.ApplyT(func(v *PeriodicTimerSourceInfo) PeriodicTimerSourceInfo { return *v }).(PeriodicTimerSourceInfoOutput)
+	return o.ApplyT(func(v *PeriodicTimerSourceInfo) PeriodicTimerSourceInfo {
+		if v != nil {
+			return *v
+		}
+		var ret PeriodicTimerSourceInfo
+		return ret
+	}).(PeriodicTimerSourceInfoOutput)
 }
 
-// Periodic frequency at which timer event needs to be raised. Supports daily, hourly, minutes, and seconds.
 func (o PeriodicTimerSourceInfoPtrOutput) Schedule() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *PeriodicTimerSourceInfo) *string {
 		if v == nil {
@@ -4181,7 +3932,6 @@ func (o PeriodicTimerSourceInfoPtrOutput) Schedule() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The time of the day that results in a valid trigger. Schedule is computed with reference to the time specified upto seconds. If timezone is not specified the time will considered to be in device timezone. The value will always be returned as UTC time.
 func (o PeriodicTimerSourceInfoPtrOutput) StartTime() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *PeriodicTimerSourceInfo) *string {
 		if v == nil {
@@ -4191,7 +3941,6 @@ func (o PeriodicTimerSourceInfoPtrOutput) StartTime() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Topic where periodic events are published to IoT device.
 func (o PeriodicTimerSourceInfoPtrOutput) Topic() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *PeriodicTimerSourceInfo) *string {
 		if v == nil {
@@ -4201,14 +3950,10 @@ func (o PeriodicTimerSourceInfoPtrOutput) Topic() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Periodic timer event source.
 type PeriodicTimerSourceInfoResponse struct {
-	// Periodic frequency at which timer event needs to be raised. Supports daily, hourly, minutes, and seconds.
-	Schedule string `pulumi:"schedule"`
-	// The time of the day that results in a valid trigger. Schedule is computed with reference to the time specified upto seconds. If timezone is not specified the time will considered to be in device timezone. The value will always be returned as UTC time.
-	StartTime string `pulumi:"startTime"`
-	// Topic where periodic events are published to IoT device.
-	Topic *string `pulumi:"topic"`
+	Schedule  string  `pulumi:"schedule"`
+	StartTime string  `pulumi:"startTime"`
+	Topic     *string `pulumi:"topic"`
 }
 
 // PeriodicTimerSourceInfoResponseInput is an input type that accepts PeriodicTimerSourceInfoResponseArgs and PeriodicTimerSourceInfoResponseOutput values.
@@ -4222,14 +3967,10 @@ type PeriodicTimerSourceInfoResponseInput interface {
 	ToPeriodicTimerSourceInfoResponseOutputWithContext(context.Context) PeriodicTimerSourceInfoResponseOutput
 }
 
-// Periodic timer event source.
 type PeriodicTimerSourceInfoResponseArgs struct {
-	// Periodic frequency at which timer event needs to be raised. Supports daily, hourly, minutes, and seconds.
-	Schedule pulumi.StringInput `pulumi:"schedule"`
-	// The time of the day that results in a valid trigger. Schedule is computed with reference to the time specified upto seconds. If timezone is not specified the time will considered to be in device timezone. The value will always be returned as UTC time.
-	StartTime pulumi.StringInput `pulumi:"startTime"`
-	// Topic where periodic events are published to IoT device.
-	Topic pulumi.StringPtrInput `pulumi:"topic"`
+	Schedule  pulumi.StringInput    `pulumi:"schedule"`
+	StartTime pulumi.StringInput    `pulumi:"startTime"`
+	Topic     pulumi.StringPtrInput `pulumi:"topic"`
 }
 
 func (PeriodicTimerSourceInfoResponseArgs) ElementType() reflect.Type {
@@ -4285,7 +4026,6 @@ func (i *periodicTimerSourceInfoResponsePtrType) ToPeriodicTimerSourceInfoRespon
 	return pulumi.ToOutputWithContext(ctx, i).(PeriodicTimerSourceInfoResponsePtrOutput)
 }
 
-// Periodic timer event source.
 type PeriodicTimerSourceInfoResponseOutput struct{ *pulumi.OutputState }
 
 func (PeriodicTimerSourceInfoResponseOutput) ElementType() reflect.Type {
@@ -4305,22 +4045,19 @@ func (o PeriodicTimerSourceInfoResponseOutput) ToPeriodicTimerSourceInfoResponse
 }
 
 func (o PeriodicTimerSourceInfoResponseOutput) ToPeriodicTimerSourceInfoResponsePtrOutputWithContext(ctx context.Context) PeriodicTimerSourceInfoResponsePtrOutput {
-	return o.ApplyT(func(v PeriodicTimerSourceInfoResponse) *PeriodicTimerSourceInfoResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v PeriodicTimerSourceInfoResponse) *PeriodicTimerSourceInfoResponse {
 		return &v
 	}).(PeriodicTimerSourceInfoResponsePtrOutput)
 }
 
-// Periodic frequency at which timer event needs to be raised. Supports daily, hourly, minutes, and seconds.
 func (o PeriodicTimerSourceInfoResponseOutput) Schedule() pulumi.StringOutput {
 	return o.ApplyT(func(v PeriodicTimerSourceInfoResponse) string { return v.Schedule }).(pulumi.StringOutput)
 }
 
-// The time of the day that results in a valid trigger. Schedule is computed with reference to the time specified upto seconds. If timezone is not specified the time will considered to be in device timezone. The value will always be returned as UTC time.
 func (o PeriodicTimerSourceInfoResponseOutput) StartTime() pulumi.StringOutput {
 	return o.ApplyT(func(v PeriodicTimerSourceInfoResponse) string { return v.StartTime }).(pulumi.StringOutput)
 }
 
-// Topic where periodic events are published to IoT device.
 func (o PeriodicTimerSourceInfoResponseOutput) Topic() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v PeriodicTimerSourceInfoResponse) *string { return v.Topic }).(pulumi.StringPtrOutput)
 }
@@ -4340,10 +4077,15 @@ func (o PeriodicTimerSourceInfoResponsePtrOutput) ToPeriodicTimerSourceInfoRespo
 }
 
 func (o PeriodicTimerSourceInfoResponsePtrOutput) Elem() PeriodicTimerSourceInfoResponseOutput {
-	return o.ApplyT(func(v *PeriodicTimerSourceInfoResponse) PeriodicTimerSourceInfoResponse { return *v }).(PeriodicTimerSourceInfoResponseOutput)
+	return o.ApplyT(func(v *PeriodicTimerSourceInfoResponse) PeriodicTimerSourceInfoResponse {
+		if v != nil {
+			return *v
+		}
+		var ret PeriodicTimerSourceInfoResponse
+		return ret
+	}).(PeriodicTimerSourceInfoResponseOutput)
 }
 
-// Periodic frequency at which timer event needs to be raised. Supports daily, hourly, minutes, and seconds.
 func (o PeriodicTimerSourceInfoResponsePtrOutput) Schedule() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *PeriodicTimerSourceInfoResponse) *string {
 		if v == nil {
@@ -4353,7 +4095,6 @@ func (o PeriodicTimerSourceInfoResponsePtrOutput) Schedule() pulumi.StringPtrOut
 	}).(pulumi.StringPtrOutput)
 }
 
-// The time of the day that results in a valid trigger. Schedule is computed with reference to the time specified upto seconds. If timezone is not specified the time will considered to be in device timezone. The value will always be returned as UTC time.
 func (o PeriodicTimerSourceInfoResponsePtrOutput) StartTime() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *PeriodicTimerSourceInfoResponse) *string {
 		if v == nil {
@@ -4363,7 +4104,6 @@ func (o PeriodicTimerSourceInfoResponsePtrOutput) StartTime() pulumi.StringPtrOu
 	}).(pulumi.StringPtrOutput)
 }
 
-// Topic where periodic events are published to IoT device.
 func (o PeriodicTimerSourceInfoResponsePtrOutput) Topic() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *PeriodicTimerSourceInfoResponse) *string {
 		if v == nil {
@@ -4373,16 +4113,11 @@ func (o PeriodicTimerSourceInfoResponsePtrOutput) Topic() pulumi.StringPtrOutput
 	}).(pulumi.StringPtrOutput)
 }
 
-// Fields for tracking refresh job on the share or container.
 type RefreshDetails struct {
-	// Indicates the relative path of the error xml for the last refresh job on this particular share or container, if any. This could be a failed job or a successful job.
-	ErrorManifestFile *string `pulumi:"errorManifestFile"`
-	// If a refresh job is currently in progress on this share or container, this field indicates the ARM resource ID of that job. The field is empty if no job is in progress.
-	InProgressRefreshJobId *string `pulumi:"inProgressRefreshJobId"`
-	// Indicates the completed time for the last refresh job on this particular share or container, if any.This could be a failed job or a successful job.
+	ErrorManifestFile                *string `pulumi:"errorManifestFile"`
+	InProgressRefreshJobId           *string `pulumi:"inProgressRefreshJobId"`
 	LastCompletedRefreshJobTimeInUTC *string `pulumi:"lastCompletedRefreshJobTimeInUTC"`
-	// Indicates the id of the last refresh job on this particular share or container,if any. This could be a failed job or a successful job.
-	LastJob *string `pulumi:"lastJob"`
+	LastJob                          *string `pulumi:"lastJob"`
 }
 
 // RefreshDetailsInput is an input type that accepts RefreshDetailsArgs and RefreshDetailsOutput values.
@@ -4396,16 +4131,11 @@ type RefreshDetailsInput interface {
 	ToRefreshDetailsOutputWithContext(context.Context) RefreshDetailsOutput
 }
 
-// Fields for tracking refresh job on the share or container.
 type RefreshDetailsArgs struct {
-	// Indicates the relative path of the error xml for the last refresh job on this particular share or container, if any. This could be a failed job or a successful job.
-	ErrorManifestFile pulumi.StringPtrInput `pulumi:"errorManifestFile"`
-	// If a refresh job is currently in progress on this share or container, this field indicates the ARM resource ID of that job. The field is empty if no job is in progress.
-	InProgressRefreshJobId pulumi.StringPtrInput `pulumi:"inProgressRefreshJobId"`
-	// Indicates the completed time for the last refresh job on this particular share or container, if any.This could be a failed job or a successful job.
+	ErrorManifestFile                pulumi.StringPtrInput `pulumi:"errorManifestFile"`
+	InProgressRefreshJobId           pulumi.StringPtrInput `pulumi:"inProgressRefreshJobId"`
 	LastCompletedRefreshJobTimeInUTC pulumi.StringPtrInput `pulumi:"lastCompletedRefreshJobTimeInUTC"`
-	// Indicates the id of the last refresh job on this particular share or container,if any. This could be a failed job or a successful job.
-	LastJob pulumi.StringPtrInput `pulumi:"lastJob"`
+	LastJob                          pulumi.StringPtrInput `pulumi:"lastJob"`
 }
 
 func (RefreshDetailsArgs) ElementType() reflect.Type {
@@ -4461,7 +4191,6 @@ func (i *refreshDetailsPtrType) ToRefreshDetailsPtrOutputWithContext(ctx context
 	return pulumi.ToOutputWithContext(ctx, i).(RefreshDetailsPtrOutput)
 }
 
-// Fields for tracking refresh job on the share or container.
 type RefreshDetailsOutput struct{ *pulumi.OutputState }
 
 func (RefreshDetailsOutput) ElementType() reflect.Type {
@@ -4481,27 +4210,23 @@ func (o RefreshDetailsOutput) ToRefreshDetailsPtrOutput() RefreshDetailsPtrOutpu
 }
 
 func (o RefreshDetailsOutput) ToRefreshDetailsPtrOutputWithContext(ctx context.Context) RefreshDetailsPtrOutput {
-	return o.ApplyT(func(v RefreshDetails) *RefreshDetails {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v RefreshDetails) *RefreshDetails {
 		return &v
 	}).(RefreshDetailsPtrOutput)
 }
 
-// Indicates the relative path of the error xml for the last refresh job on this particular share or container, if any. This could be a failed job or a successful job.
 func (o RefreshDetailsOutput) ErrorManifestFile() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v RefreshDetails) *string { return v.ErrorManifestFile }).(pulumi.StringPtrOutput)
 }
 
-// If a refresh job is currently in progress on this share or container, this field indicates the ARM resource ID of that job. The field is empty if no job is in progress.
 func (o RefreshDetailsOutput) InProgressRefreshJobId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v RefreshDetails) *string { return v.InProgressRefreshJobId }).(pulumi.StringPtrOutput)
 }
 
-// Indicates the completed time for the last refresh job on this particular share or container, if any.This could be a failed job or a successful job.
 func (o RefreshDetailsOutput) LastCompletedRefreshJobTimeInUTC() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v RefreshDetails) *string { return v.LastCompletedRefreshJobTimeInUTC }).(pulumi.StringPtrOutput)
 }
 
-// Indicates the id of the last refresh job on this particular share or container,if any. This could be a failed job or a successful job.
 func (o RefreshDetailsOutput) LastJob() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v RefreshDetails) *string { return v.LastJob }).(pulumi.StringPtrOutput)
 }
@@ -4521,10 +4246,15 @@ func (o RefreshDetailsPtrOutput) ToRefreshDetailsPtrOutputWithContext(ctx contex
 }
 
 func (o RefreshDetailsPtrOutput) Elem() RefreshDetailsOutput {
-	return o.ApplyT(func(v *RefreshDetails) RefreshDetails { return *v }).(RefreshDetailsOutput)
+	return o.ApplyT(func(v *RefreshDetails) RefreshDetails {
+		if v != nil {
+			return *v
+		}
+		var ret RefreshDetails
+		return ret
+	}).(RefreshDetailsOutput)
 }
 
-// Indicates the relative path of the error xml for the last refresh job on this particular share or container, if any. This could be a failed job or a successful job.
 func (o RefreshDetailsPtrOutput) ErrorManifestFile() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *RefreshDetails) *string {
 		if v == nil {
@@ -4534,7 +4264,6 @@ func (o RefreshDetailsPtrOutput) ErrorManifestFile() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// If a refresh job is currently in progress on this share or container, this field indicates the ARM resource ID of that job. The field is empty if no job is in progress.
 func (o RefreshDetailsPtrOutput) InProgressRefreshJobId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *RefreshDetails) *string {
 		if v == nil {
@@ -4544,7 +4273,6 @@ func (o RefreshDetailsPtrOutput) InProgressRefreshJobId() pulumi.StringPtrOutput
 	}).(pulumi.StringPtrOutput)
 }
 
-// Indicates the completed time for the last refresh job on this particular share or container, if any.This could be a failed job or a successful job.
 func (o RefreshDetailsPtrOutput) LastCompletedRefreshJobTimeInUTC() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *RefreshDetails) *string {
 		if v == nil {
@@ -4554,7 +4282,6 @@ func (o RefreshDetailsPtrOutput) LastCompletedRefreshJobTimeInUTC() pulumi.Strin
 	}).(pulumi.StringPtrOutput)
 }
 
-// Indicates the id of the last refresh job on this particular share or container,if any. This could be a failed job or a successful job.
 func (o RefreshDetailsPtrOutput) LastJob() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *RefreshDetails) *string {
 		if v == nil {
@@ -4564,16 +4291,11 @@ func (o RefreshDetailsPtrOutput) LastJob() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Fields for tracking refresh job on the share or container.
 type RefreshDetailsResponse struct {
-	// Indicates the relative path of the error xml for the last refresh job on this particular share or container, if any. This could be a failed job or a successful job.
-	ErrorManifestFile *string `pulumi:"errorManifestFile"`
-	// If a refresh job is currently in progress on this share or container, this field indicates the ARM resource ID of that job. The field is empty if no job is in progress.
-	InProgressRefreshJobId *string `pulumi:"inProgressRefreshJobId"`
-	// Indicates the completed time for the last refresh job on this particular share or container, if any.This could be a failed job or a successful job.
+	ErrorManifestFile                *string `pulumi:"errorManifestFile"`
+	InProgressRefreshJobId           *string `pulumi:"inProgressRefreshJobId"`
 	LastCompletedRefreshJobTimeInUTC *string `pulumi:"lastCompletedRefreshJobTimeInUTC"`
-	// Indicates the id of the last refresh job on this particular share or container,if any. This could be a failed job or a successful job.
-	LastJob *string `pulumi:"lastJob"`
+	LastJob                          *string `pulumi:"lastJob"`
 }
 
 // RefreshDetailsResponseInput is an input type that accepts RefreshDetailsResponseArgs and RefreshDetailsResponseOutput values.
@@ -4587,16 +4309,11 @@ type RefreshDetailsResponseInput interface {
 	ToRefreshDetailsResponseOutputWithContext(context.Context) RefreshDetailsResponseOutput
 }
 
-// Fields for tracking refresh job on the share or container.
 type RefreshDetailsResponseArgs struct {
-	// Indicates the relative path of the error xml for the last refresh job on this particular share or container, if any. This could be a failed job or a successful job.
-	ErrorManifestFile pulumi.StringPtrInput `pulumi:"errorManifestFile"`
-	// If a refresh job is currently in progress on this share or container, this field indicates the ARM resource ID of that job. The field is empty if no job is in progress.
-	InProgressRefreshJobId pulumi.StringPtrInput `pulumi:"inProgressRefreshJobId"`
-	// Indicates the completed time for the last refresh job on this particular share or container, if any.This could be a failed job or a successful job.
+	ErrorManifestFile                pulumi.StringPtrInput `pulumi:"errorManifestFile"`
+	InProgressRefreshJobId           pulumi.StringPtrInput `pulumi:"inProgressRefreshJobId"`
 	LastCompletedRefreshJobTimeInUTC pulumi.StringPtrInput `pulumi:"lastCompletedRefreshJobTimeInUTC"`
-	// Indicates the id of the last refresh job on this particular share or container,if any. This could be a failed job or a successful job.
-	LastJob pulumi.StringPtrInput `pulumi:"lastJob"`
+	LastJob                          pulumi.StringPtrInput `pulumi:"lastJob"`
 }
 
 func (RefreshDetailsResponseArgs) ElementType() reflect.Type {
@@ -4652,7 +4369,6 @@ func (i *refreshDetailsResponsePtrType) ToRefreshDetailsResponsePtrOutputWithCon
 	return pulumi.ToOutputWithContext(ctx, i).(RefreshDetailsResponsePtrOutput)
 }
 
-// Fields for tracking refresh job on the share or container.
 type RefreshDetailsResponseOutput struct{ *pulumi.OutputState }
 
 func (RefreshDetailsResponseOutput) ElementType() reflect.Type {
@@ -4672,27 +4388,23 @@ func (o RefreshDetailsResponseOutput) ToRefreshDetailsResponsePtrOutput() Refres
 }
 
 func (o RefreshDetailsResponseOutput) ToRefreshDetailsResponsePtrOutputWithContext(ctx context.Context) RefreshDetailsResponsePtrOutput {
-	return o.ApplyT(func(v RefreshDetailsResponse) *RefreshDetailsResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v RefreshDetailsResponse) *RefreshDetailsResponse {
 		return &v
 	}).(RefreshDetailsResponsePtrOutput)
 }
 
-// Indicates the relative path of the error xml for the last refresh job on this particular share or container, if any. This could be a failed job or a successful job.
 func (o RefreshDetailsResponseOutput) ErrorManifestFile() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v RefreshDetailsResponse) *string { return v.ErrorManifestFile }).(pulumi.StringPtrOutput)
 }
 
-// If a refresh job is currently in progress on this share or container, this field indicates the ARM resource ID of that job. The field is empty if no job is in progress.
 func (o RefreshDetailsResponseOutput) InProgressRefreshJobId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v RefreshDetailsResponse) *string { return v.InProgressRefreshJobId }).(pulumi.StringPtrOutput)
 }
 
-// Indicates the completed time for the last refresh job on this particular share or container, if any.This could be a failed job or a successful job.
 func (o RefreshDetailsResponseOutput) LastCompletedRefreshJobTimeInUTC() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v RefreshDetailsResponse) *string { return v.LastCompletedRefreshJobTimeInUTC }).(pulumi.StringPtrOutput)
 }
 
-// Indicates the id of the last refresh job on this particular share or container,if any. This could be a failed job or a successful job.
 func (o RefreshDetailsResponseOutput) LastJob() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v RefreshDetailsResponse) *string { return v.LastJob }).(pulumi.StringPtrOutput)
 }
@@ -4712,10 +4424,15 @@ func (o RefreshDetailsResponsePtrOutput) ToRefreshDetailsResponsePtrOutputWithCo
 }
 
 func (o RefreshDetailsResponsePtrOutput) Elem() RefreshDetailsResponseOutput {
-	return o.ApplyT(func(v *RefreshDetailsResponse) RefreshDetailsResponse { return *v }).(RefreshDetailsResponseOutput)
+	return o.ApplyT(func(v *RefreshDetailsResponse) RefreshDetailsResponse {
+		if v != nil {
+			return *v
+		}
+		var ret RefreshDetailsResponse
+		return ret
+	}).(RefreshDetailsResponseOutput)
 }
 
-// Indicates the relative path of the error xml for the last refresh job on this particular share or container, if any. This could be a failed job or a successful job.
 func (o RefreshDetailsResponsePtrOutput) ErrorManifestFile() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *RefreshDetailsResponse) *string {
 		if v == nil {
@@ -4725,7 +4442,6 @@ func (o RefreshDetailsResponsePtrOutput) ErrorManifestFile() pulumi.StringPtrOut
 	}).(pulumi.StringPtrOutput)
 }
 
-// If a refresh job is currently in progress on this share or container, this field indicates the ARM resource ID of that job. The field is empty if no job is in progress.
 func (o RefreshDetailsResponsePtrOutput) InProgressRefreshJobId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *RefreshDetailsResponse) *string {
 		if v == nil {
@@ -4735,7 +4451,6 @@ func (o RefreshDetailsResponsePtrOutput) InProgressRefreshJobId() pulumi.StringP
 	}).(pulumi.StringPtrOutput)
 }
 
-// Indicates the completed time for the last refresh job on this particular share or container, if any.This could be a failed job or a successful job.
 func (o RefreshDetailsResponsePtrOutput) LastCompletedRefreshJobTimeInUTC() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *RefreshDetailsResponse) *string {
 		if v == nil {
@@ -4745,7 +4460,6 @@ func (o RefreshDetailsResponsePtrOutput) LastCompletedRefreshJobTimeInUTC() pulu
 	}).(pulumi.StringPtrOutput)
 }
 
-// Indicates the id of the last refresh job on this particular share or container,if any. This could be a failed job or a successful job.
 func (o RefreshDetailsResponsePtrOutput) LastJob() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *RefreshDetailsResponse) *string {
 		if v == nil {
@@ -4755,9 +4469,7 @@ func (o RefreshDetailsResponsePtrOutput) LastJob() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Compute role against which events will be raised.
 type RoleSinkInfo struct {
-	// Compute role ID.
 	RoleId string `pulumi:"roleId"`
 }
 
@@ -4772,9 +4484,7 @@ type RoleSinkInfoInput interface {
 	ToRoleSinkInfoOutputWithContext(context.Context) RoleSinkInfoOutput
 }
 
-// Compute role against which events will be raised.
 type RoleSinkInfoArgs struct {
-	// Compute role ID.
 	RoleId pulumi.StringInput `pulumi:"roleId"`
 }
 
@@ -4831,7 +4541,6 @@ func (i *roleSinkInfoPtrType) ToRoleSinkInfoPtrOutputWithContext(ctx context.Con
 	return pulumi.ToOutputWithContext(ctx, i).(RoleSinkInfoPtrOutput)
 }
 
-// Compute role against which events will be raised.
 type RoleSinkInfoOutput struct{ *pulumi.OutputState }
 
 func (RoleSinkInfoOutput) ElementType() reflect.Type {
@@ -4851,12 +4560,11 @@ func (o RoleSinkInfoOutput) ToRoleSinkInfoPtrOutput() RoleSinkInfoPtrOutput {
 }
 
 func (o RoleSinkInfoOutput) ToRoleSinkInfoPtrOutputWithContext(ctx context.Context) RoleSinkInfoPtrOutput {
-	return o.ApplyT(func(v RoleSinkInfo) *RoleSinkInfo {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v RoleSinkInfo) *RoleSinkInfo {
 		return &v
 	}).(RoleSinkInfoPtrOutput)
 }
 
-// Compute role ID.
 func (o RoleSinkInfoOutput) RoleId() pulumi.StringOutput {
 	return o.ApplyT(func(v RoleSinkInfo) string { return v.RoleId }).(pulumi.StringOutput)
 }
@@ -4876,10 +4584,15 @@ func (o RoleSinkInfoPtrOutput) ToRoleSinkInfoPtrOutputWithContext(ctx context.Co
 }
 
 func (o RoleSinkInfoPtrOutput) Elem() RoleSinkInfoOutput {
-	return o.ApplyT(func(v *RoleSinkInfo) RoleSinkInfo { return *v }).(RoleSinkInfoOutput)
+	return o.ApplyT(func(v *RoleSinkInfo) RoleSinkInfo {
+		if v != nil {
+			return *v
+		}
+		var ret RoleSinkInfo
+		return ret
+	}).(RoleSinkInfoOutput)
 }
 
-// Compute role ID.
 func (o RoleSinkInfoPtrOutput) RoleId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *RoleSinkInfo) *string {
 		if v == nil {
@@ -4889,9 +4602,7 @@ func (o RoleSinkInfoPtrOutput) RoleId() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Compute role against which events will be raised.
 type RoleSinkInfoResponse struct {
-	// Compute role ID.
 	RoleId string `pulumi:"roleId"`
 }
 
@@ -4906,9 +4617,7 @@ type RoleSinkInfoResponseInput interface {
 	ToRoleSinkInfoResponseOutputWithContext(context.Context) RoleSinkInfoResponseOutput
 }
 
-// Compute role against which events will be raised.
 type RoleSinkInfoResponseArgs struct {
-	// Compute role ID.
 	RoleId pulumi.StringInput `pulumi:"roleId"`
 }
 
@@ -4965,7 +4674,6 @@ func (i *roleSinkInfoResponsePtrType) ToRoleSinkInfoResponsePtrOutputWithContext
 	return pulumi.ToOutputWithContext(ctx, i).(RoleSinkInfoResponsePtrOutput)
 }
 
-// Compute role against which events will be raised.
 type RoleSinkInfoResponseOutput struct{ *pulumi.OutputState }
 
 func (RoleSinkInfoResponseOutput) ElementType() reflect.Type {
@@ -4985,12 +4693,11 @@ func (o RoleSinkInfoResponseOutput) ToRoleSinkInfoResponsePtrOutput() RoleSinkIn
 }
 
 func (o RoleSinkInfoResponseOutput) ToRoleSinkInfoResponsePtrOutputWithContext(ctx context.Context) RoleSinkInfoResponsePtrOutput {
-	return o.ApplyT(func(v RoleSinkInfoResponse) *RoleSinkInfoResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v RoleSinkInfoResponse) *RoleSinkInfoResponse {
 		return &v
 	}).(RoleSinkInfoResponsePtrOutput)
 }
 
-// Compute role ID.
 func (o RoleSinkInfoResponseOutput) RoleId() pulumi.StringOutput {
 	return o.ApplyT(func(v RoleSinkInfoResponse) string { return v.RoleId }).(pulumi.StringOutput)
 }
@@ -5010,10 +4717,15 @@ func (o RoleSinkInfoResponsePtrOutput) ToRoleSinkInfoResponsePtrOutputWithContex
 }
 
 func (o RoleSinkInfoResponsePtrOutput) Elem() RoleSinkInfoResponseOutput {
-	return o.ApplyT(func(v *RoleSinkInfoResponse) RoleSinkInfoResponse { return *v }).(RoleSinkInfoResponseOutput)
+	return o.ApplyT(func(v *RoleSinkInfoResponse) RoleSinkInfoResponse {
+		if v != nil {
+			return *v
+		}
+		var ret RoleSinkInfoResponse
+		return ret
+	}).(RoleSinkInfoResponseOutput)
 }
 
-// Compute role ID.
 func (o RoleSinkInfoResponsePtrOutput) RoleId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *RoleSinkInfoResponse) *string {
 		if v == nil {
@@ -5023,12 +4735,9 @@ func (o RoleSinkInfoResponsePtrOutput) RoleId() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Specifies the mapping between this particular user and the type of access he has on shares on this device.
 type ShareAccessRightResponse struct {
-	// Type of access to be allowed on the share for this user.
 	AccessType string `pulumi:"accessType"`
-	// The share ID.
-	ShareId string `pulumi:"shareId"`
+	ShareId    string `pulumi:"shareId"`
 }
 
 // ShareAccessRightResponseInput is an input type that accepts ShareAccessRightResponseArgs and ShareAccessRightResponseOutput values.
@@ -5042,12 +4751,9 @@ type ShareAccessRightResponseInput interface {
 	ToShareAccessRightResponseOutputWithContext(context.Context) ShareAccessRightResponseOutput
 }
 
-// Specifies the mapping between this particular user and the type of access he has on shares on this device.
 type ShareAccessRightResponseArgs struct {
-	// Type of access to be allowed on the share for this user.
 	AccessType pulumi.StringInput `pulumi:"accessType"`
-	// The share ID.
-	ShareId pulumi.StringInput `pulumi:"shareId"`
+	ShareId    pulumi.StringInput `pulumi:"shareId"`
 }
 
 func (ShareAccessRightResponseArgs) ElementType() reflect.Type {
@@ -5087,7 +4793,6 @@ func (i ShareAccessRightResponseArray) ToShareAccessRightResponseArrayOutputWith
 	return pulumi.ToOutputWithContext(ctx, i).(ShareAccessRightResponseArrayOutput)
 }
 
-// Specifies the mapping between this particular user and the type of access he has on shares on this device.
 type ShareAccessRightResponseOutput struct{ *pulumi.OutputState }
 
 func (ShareAccessRightResponseOutput) ElementType() reflect.Type {
@@ -5102,12 +4807,10 @@ func (o ShareAccessRightResponseOutput) ToShareAccessRightResponseOutputWithCont
 	return o
 }
 
-// Type of access to be allowed on the share for this user.
 func (o ShareAccessRightResponseOutput) AccessType() pulumi.StringOutput {
 	return o.ApplyT(func(v ShareAccessRightResponse) string { return v.AccessType }).(pulumi.StringOutput)
 }
 
-// The share ID.
 func (o ShareAccessRightResponseOutput) ShareId() pulumi.StringOutput {
 	return o.ApplyT(func(v ShareAccessRightResponse) string { return v.ShareId }).(pulumi.StringOutput)
 }
@@ -5132,11 +4835,8 @@ func (o ShareAccessRightResponseArrayOutput) Index(i pulumi.IntInput) ShareAcces
 	}).(ShareAccessRightResponseOutput)
 }
 
-// The SKU type.
 type Sku struct {
-	// SKU name.
 	Name *string `pulumi:"name"`
-	// The SKU tier. This is based on the SKU name.
 	Tier *string `pulumi:"tier"`
 }
 
@@ -5151,11 +4851,8 @@ type SkuInput interface {
 	ToSkuOutputWithContext(context.Context) SkuOutput
 }
 
-// The SKU type.
 type SkuArgs struct {
-	// SKU name.
 	Name pulumi.StringPtrInput `pulumi:"name"`
-	// The SKU tier. This is based on the SKU name.
 	Tier pulumi.StringPtrInput `pulumi:"tier"`
 }
 
@@ -5212,7 +4909,6 @@ func (i *skuPtrType) ToSkuPtrOutputWithContext(ctx context.Context) SkuPtrOutput
 	return pulumi.ToOutputWithContext(ctx, i).(SkuPtrOutput)
 }
 
-// The SKU type.
 type SkuOutput struct{ *pulumi.OutputState }
 
 func (SkuOutput) ElementType() reflect.Type {
@@ -5232,17 +4928,15 @@ func (o SkuOutput) ToSkuPtrOutput() SkuPtrOutput {
 }
 
 func (o SkuOutput) ToSkuPtrOutputWithContext(ctx context.Context) SkuPtrOutput {
-	return o.ApplyT(func(v Sku) *Sku {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v Sku) *Sku {
 		return &v
 	}).(SkuPtrOutput)
 }
 
-// SKU name.
 func (o SkuOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v Sku) *string { return v.Name }).(pulumi.StringPtrOutput)
 }
 
-// The SKU tier. This is based on the SKU name.
 func (o SkuOutput) Tier() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v Sku) *string { return v.Tier }).(pulumi.StringPtrOutput)
 }
@@ -5262,10 +4956,15 @@ func (o SkuPtrOutput) ToSkuPtrOutputWithContext(ctx context.Context) SkuPtrOutpu
 }
 
 func (o SkuPtrOutput) Elem() SkuOutput {
-	return o.ApplyT(func(v *Sku) Sku { return *v }).(SkuOutput)
+	return o.ApplyT(func(v *Sku) Sku {
+		if v != nil {
+			return *v
+		}
+		var ret Sku
+		return ret
+	}).(SkuOutput)
 }
 
-// SKU name.
 func (o SkuPtrOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Sku) *string {
 		if v == nil {
@@ -5275,7 +4974,6 @@ func (o SkuPtrOutput) Name() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The SKU tier. This is based on the SKU name.
 func (o SkuPtrOutput) Tier() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Sku) *string {
 		if v == nil {
@@ -5285,11 +4983,8 @@ func (o SkuPtrOutput) Tier() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The SKU type.
 type SkuResponse struct {
-	// SKU name.
 	Name *string `pulumi:"name"`
-	// The SKU tier. This is based on the SKU name.
 	Tier *string `pulumi:"tier"`
 }
 
@@ -5304,11 +4999,8 @@ type SkuResponseInput interface {
 	ToSkuResponseOutputWithContext(context.Context) SkuResponseOutput
 }
 
-// The SKU type.
 type SkuResponseArgs struct {
-	// SKU name.
 	Name pulumi.StringPtrInput `pulumi:"name"`
-	// The SKU tier. This is based on the SKU name.
 	Tier pulumi.StringPtrInput `pulumi:"tier"`
 }
 
@@ -5365,7 +5057,6 @@ func (i *skuResponsePtrType) ToSkuResponsePtrOutputWithContext(ctx context.Conte
 	return pulumi.ToOutputWithContext(ctx, i).(SkuResponsePtrOutput)
 }
 
-// The SKU type.
 type SkuResponseOutput struct{ *pulumi.OutputState }
 
 func (SkuResponseOutput) ElementType() reflect.Type {
@@ -5385,17 +5076,15 @@ func (o SkuResponseOutput) ToSkuResponsePtrOutput() SkuResponsePtrOutput {
 }
 
 func (o SkuResponseOutput) ToSkuResponsePtrOutputWithContext(ctx context.Context) SkuResponsePtrOutput {
-	return o.ApplyT(func(v SkuResponse) *SkuResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v SkuResponse) *SkuResponse {
 		return &v
 	}).(SkuResponsePtrOutput)
 }
 
-// SKU name.
 func (o SkuResponseOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SkuResponse) *string { return v.Name }).(pulumi.StringPtrOutput)
 }
 
-// The SKU tier. This is based on the SKU name.
 func (o SkuResponseOutput) Tier() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SkuResponse) *string { return v.Tier }).(pulumi.StringPtrOutput)
 }
@@ -5415,10 +5104,15 @@ func (o SkuResponsePtrOutput) ToSkuResponsePtrOutputWithContext(ctx context.Cont
 }
 
 func (o SkuResponsePtrOutput) Elem() SkuResponseOutput {
-	return o.ApplyT(func(v *SkuResponse) SkuResponse { return *v }).(SkuResponseOutput)
+	return o.ApplyT(func(v *SkuResponse) SkuResponse {
+		if v != nil {
+			return *v
+		}
+		var ret SkuResponse
+		return ret
+	}).(SkuResponseOutput)
 }
 
-// SKU name.
 func (o SkuResponsePtrOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SkuResponse) *string {
 		if v == nil {
@@ -5428,7 +5122,6 @@ func (o SkuResponsePtrOutput) Name() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The SKU tier. This is based on the SKU name.
 func (o SkuResponsePtrOutput) Tier() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SkuResponse) *string {
 		if v == nil {
@@ -5438,9 +5131,7 @@ func (o SkuResponsePtrOutput) Tier() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Symmetric key for authentication.
 type SymmetricKey struct {
-	// Connection string based on the symmetric key.
 	ConnectionString *AsymmetricEncryptedSecret `pulumi:"connectionString"`
 }
 
@@ -5455,9 +5146,7 @@ type SymmetricKeyInput interface {
 	ToSymmetricKeyOutputWithContext(context.Context) SymmetricKeyOutput
 }
 
-// Symmetric key for authentication.
 type SymmetricKeyArgs struct {
-	// Connection string based on the symmetric key.
 	ConnectionString AsymmetricEncryptedSecretPtrInput `pulumi:"connectionString"`
 }
 
@@ -5514,7 +5203,6 @@ func (i *symmetricKeyPtrType) ToSymmetricKeyPtrOutputWithContext(ctx context.Con
 	return pulumi.ToOutputWithContext(ctx, i).(SymmetricKeyPtrOutput)
 }
 
-// Symmetric key for authentication.
 type SymmetricKeyOutput struct{ *pulumi.OutputState }
 
 func (SymmetricKeyOutput) ElementType() reflect.Type {
@@ -5534,12 +5222,11 @@ func (o SymmetricKeyOutput) ToSymmetricKeyPtrOutput() SymmetricKeyPtrOutput {
 }
 
 func (o SymmetricKeyOutput) ToSymmetricKeyPtrOutputWithContext(ctx context.Context) SymmetricKeyPtrOutput {
-	return o.ApplyT(func(v SymmetricKey) *SymmetricKey {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v SymmetricKey) *SymmetricKey {
 		return &v
 	}).(SymmetricKeyPtrOutput)
 }
 
-// Connection string based on the symmetric key.
 func (o SymmetricKeyOutput) ConnectionString() AsymmetricEncryptedSecretPtrOutput {
 	return o.ApplyT(func(v SymmetricKey) *AsymmetricEncryptedSecret { return v.ConnectionString }).(AsymmetricEncryptedSecretPtrOutput)
 }
@@ -5559,10 +5246,15 @@ func (o SymmetricKeyPtrOutput) ToSymmetricKeyPtrOutputWithContext(ctx context.Co
 }
 
 func (o SymmetricKeyPtrOutput) Elem() SymmetricKeyOutput {
-	return o.ApplyT(func(v *SymmetricKey) SymmetricKey { return *v }).(SymmetricKeyOutput)
+	return o.ApplyT(func(v *SymmetricKey) SymmetricKey {
+		if v != nil {
+			return *v
+		}
+		var ret SymmetricKey
+		return ret
+	}).(SymmetricKeyOutput)
 }
 
-// Connection string based on the symmetric key.
 func (o SymmetricKeyPtrOutput) ConnectionString() AsymmetricEncryptedSecretPtrOutput {
 	return o.ApplyT(func(v *SymmetricKey) *AsymmetricEncryptedSecret {
 		if v == nil {
@@ -5572,9 +5264,7 @@ func (o SymmetricKeyPtrOutput) ConnectionString() AsymmetricEncryptedSecretPtrOu
 	}).(AsymmetricEncryptedSecretPtrOutput)
 }
 
-// Symmetric key for authentication.
 type SymmetricKeyResponse struct {
-	// Connection string based on the symmetric key.
 	ConnectionString *AsymmetricEncryptedSecretResponse `pulumi:"connectionString"`
 }
 
@@ -5589,9 +5279,7 @@ type SymmetricKeyResponseInput interface {
 	ToSymmetricKeyResponseOutputWithContext(context.Context) SymmetricKeyResponseOutput
 }
 
-// Symmetric key for authentication.
 type SymmetricKeyResponseArgs struct {
-	// Connection string based on the symmetric key.
 	ConnectionString AsymmetricEncryptedSecretResponsePtrInput `pulumi:"connectionString"`
 }
 
@@ -5648,7 +5336,6 @@ func (i *symmetricKeyResponsePtrType) ToSymmetricKeyResponsePtrOutputWithContext
 	return pulumi.ToOutputWithContext(ctx, i).(SymmetricKeyResponsePtrOutput)
 }
 
-// Symmetric key for authentication.
 type SymmetricKeyResponseOutput struct{ *pulumi.OutputState }
 
 func (SymmetricKeyResponseOutput) ElementType() reflect.Type {
@@ -5668,12 +5355,11 @@ func (o SymmetricKeyResponseOutput) ToSymmetricKeyResponsePtrOutput() SymmetricK
 }
 
 func (o SymmetricKeyResponseOutput) ToSymmetricKeyResponsePtrOutputWithContext(ctx context.Context) SymmetricKeyResponsePtrOutput {
-	return o.ApplyT(func(v SymmetricKeyResponse) *SymmetricKeyResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v SymmetricKeyResponse) *SymmetricKeyResponse {
 		return &v
 	}).(SymmetricKeyResponsePtrOutput)
 }
 
-// Connection string based on the symmetric key.
 func (o SymmetricKeyResponseOutput) ConnectionString() AsymmetricEncryptedSecretResponsePtrOutput {
 	return o.ApplyT(func(v SymmetricKeyResponse) *AsymmetricEncryptedSecretResponse { return v.ConnectionString }).(AsymmetricEncryptedSecretResponsePtrOutput)
 }
@@ -5693,10 +5379,15 @@ func (o SymmetricKeyResponsePtrOutput) ToSymmetricKeyResponsePtrOutputWithContex
 }
 
 func (o SymmetricKeyResponsePtrOutput) Elem() SymmetricKeyResponseOutput {
-	return o.ApplyT(func(v *SymmetricKeyResponse) SymmetricKeyResponse { return *v }).(SymmetricKeyResponseOutput)
+	return o.ApplyT(func(v *SymmetricKeyResponse) SymmetricKeyResponse {
+		if v != nil {
+			return *v
+		}
+		var ret SymmetricKeyResponse
+		return ret
+	}).(SymmetricKeyResponseOutput)
 }
 
-// Connection string based on the symmetric key.
 func (o SymmetricKeyResponsePtrOutput) ConnectionString() AsymmetricEncryptedSecretResponsePtrOutput {
 	return o.ApplyT(func(v *SymmetricKeyResponse) *AsymmetricEncryptedSecretResponse {
 		if v == nil {
@@ -5706,16 +5397,11 @@ func (o SymmetricKeyResponsePtrOutput) ConnectionString() AsymmetricEncryptedSec
 	}).(AsymmetricEncryptedSecretResponsePtrOutput)
 }
 
-// Tracking courier information.
 type TrackingInfoResponse struct {
-	// Name of the carrier used in the delivery.
-	CarrierName *string `pulumi:"carrierName"`
-	// Serial number of the device being tracked.
+	CarrierName  *string `pulumi:"carrierName"`
 	SerialNumber *string `pulumi:"serialNumber"`
-	// Tracking ID of the shipment.
-	TrackingId *string `pulumi:"trackingId"`
-	// Tracking URL of the shipment.
-	TrackingUrl *string `pulumi:"trackingUrl"`
+	TrackingId   *string `pulumi:"trackingId"`
+	TrackingUrl  *string `pulumi:"trackingUrl"`
 }
 
 // TrackingInfoResponseInput is an input type that accepts TrackingInfoResponseArgs and TrackingInfoResponseOutput values.
@@ -5729,16 +5415,11 @@ type TrackingInfoResponseInput interface {
 	ToTrackingInfoResponseOutputWithContext(context.Context) TrackingInfoResponseOutput
 }
 
-// Tracking courier information.
 type TrackingInfoResponseArgs struct {
-	// Name of the carrier used in the delivery.
-	CarrierName pulumi.StringPtrInput `pulumi:"carrierName"`
-	// Serial number of the device being tracked.
+	CarrierName  pulumi.StringPtrInput `pulumi:"carrierName"`
 	SerialNumber pulumi.StringPtrInput `pulumi:"serialNumber"`
-	// Tracking ID of the shipment.
-	TrackingId pulumi.StringPtrInput `pulumi:"trackingId"`
-	// Tracking URL of the shipment.
-	TrackingUrl pulumi.StringPtrInput `pulumi:"trackingUrl"`
+	TrackingId   pulumi.StringPtrInput `pulumi:"trackingId"`
+	TrackingUrl  pulumi.StringPtrInput `pulumi:"trackingUrl"`
 }
 
 func (TrackingInfoResponseArgs) ElementType() reflect.Type {
@@ -5778,7 +5459,6 @@ func (i TrackingInfoResponseArray) ToTrackingInfoResponseArrayOutputWithContext(
 	return pulumi.ToOutputWithContext(ctx, i).(TrackingInfoResponseArrayOutput)
 }
 
-// Tracking courier information.
 type TrackingInfoResponseOutput struct{ *pulumi.OutputState }
 
 func (TrackingInfoResponseOutput) ElementType() reflect.Type {
@@ -5793,22 +5473,18 @@ func (o TrackingInfoResponseOutput) ToTrackingInfoResponseOutputWithContext(ctx 
 	return o
 }
 
-// Name of the carrier used in the delivery.
 func (o TrackingInfoResponseOutput) CarrierName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v TrackingInfoResponse) *string { return v.CarrierName }).(pulumi.StringPtrOutput)
 }
 
-// Serial number of the device being tracked.
 func (o TrackingInfoResponseOutput) SerialNumber() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v TrackingInfoResponse) *string { return v.SerialNumber }).(pulumi.StringPtrOutput)
 }
 
-// Tracking ID of the shipment.
 func (o TrackingInfoResponseOutput) TrackingId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v TrackingInfoResponse) *string { return v.TrackingId }).(pulumi.StringPtrOutput)
 }
 
-// Tracking URL of the shipment.
 func (o TrackingInfoResponseOutput) TrackingUrl() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v TrackingInfoResponse) *string { return v.TrackingUrl }).(pulumi.StringPtrOutput)
 }
@@ -5833,12 +5509,9 @@ func (o TrackingInfoResponseArrayOutput) Index(i pulumi.IntInput) TrackingInfoRe
 	}).(TrackingInfoResponseOutput)
 }
 
-// The mapping between a particular user and the access type on the SMB share.
 type UserAccessRight struct {
-	// Type of access to be allowed for the user.
 	AccessType string `pulumi:"accessType"`
-	// User ID (already existing in the device).
-	UserId string `pulumi:"userId"`
+	UserId     string `pulumi:"userId"`
 }
 
 // UserAccessRightInput is an input type that accepts UserAccessRightArgs and UserAccessRightOutput values.
@@ -5852,12 +5525,9 @@ type UserAccessRightInput interface {
 	ToUserAccessRightOutputWithContext(context.Context) UserAccessRightOutput
 }
 
-// The mapping between a particular user and the access type on the SMB share.
 type UserAccessRightArgs struct {
-	// Type of access to be allowed for the user.
 	AccessType pulumi.StringInput `pulumi:"accessType"`
-	// User ID (already existing in the device).
-	UserId pulumi.StringInput `pulumi:"userId"`
+	UserId     pulumi.StringInput `pulumi:"userId"`
 }
 
 func (UserAccessRightArgs) ElementType() reflect.Type {
@@ -5897,7 +5567,6 @@ func (i UserAccessRightArray) ToUserAccessRightArrayOutputWithContext(ctx contex
 	return pulumi.ToOutputWithContext(ctx, i).(UserAccessRightArrayOutput)
 }
 
-// The mapping between a particular user and the access type on the SMB share.
 type UserAccessRightOutput struct{ *pulumi.OutputState }
 
 func (UserAccessRightOutput) ElementType() reflect.Type {
@@ -5912,12 +5581,10 @@ func (o UserAccessRightOutput) ToUserAccessRightOutputWithContext(ctx context.Co
 	return o
 }
 
-// Type of access to be allowed for the user.
 func (o UserAccessRightOutput) AccessType() pulumi.StringOutput {
 	return o.ApplyT(func(v UserAccessRight) string { return v.AccessType }).(pulumi.StringOutput)
 }
 
-// User ID (already existing in the device).
 func (o UserAccessRightOutput) UserId() pulumi.StringOutput {
 	return o.ApplyT(func(v UserAccessRight) string { return v.UserId }).(pulumi.StringOutput)
 }
@@ -5942,12 +5609,9 @@ func (o UserAccessRightArrayOutput) Index(i pulumi.IntInput) UserAccessRightOutp
 	}).(UserAccessRightOutput)
 }
 
-// The mapping between a particular user and the access type on the SMB share.
 type UserAccessRightResponse struct {
-	// Type of access to be allowed for the user.
 	AccessType string `pulumi:"accessType"`
-	// User ID (already existing in the device).
-	UserId string `pulumi:"userId"`
+	UserId     string `pulumi:"userId"`
 }
 
 // UserAccessRightResponseInput is an input type that accepts UserAccessRightResponseArgs and UserAccessRightResponseOutput values.
@@ -5961,12 +5625,9 @@ type UserAccessRightResponseInput interface {
 	ToUserAccessRightResponseOutputWithContext(context.Context) UserAccessRightResponseOutput
 }
 
-// The mapping between a particular user and the access type on the SMB share.
 type UserAccessRightResponseArgs struct {
-	// Type of access to be allowed for the user.
 	AccessType pulumi.StringInput `pulumi:"accessType"`
-	// User ID (already existing in the device).
-	UserId pulumi.StringInput `pulumi:"userId"`
+	UserId     pulumi.StringInput `pulumi:"userId"`
 }
 
 func (UserAccessRightResponseArgs) ElementType() reflect.Type {
@@ -6006,7 +5667,6 @@ func (i UserAccessRightResponseArray) ToUserAccessRightResponseArrayOutputWithCo
 	return pulumi.ToOutputWithContext(ctx, i).(UserAccessRightResponseArrayOutput)
 }
 
-// The mapping between a particular user and the access type on the SMB share.
 type UserAccessRightResponseOutput struct{ *pulumi.OutputState }
 
 func (UserAccessRightResponseOutput) ElementType() reflect.Type {
@@ -6021,12 +5681,10 @@ func (o UserAccessRightResponseOutput) ToUserAccessRightResponseOutputWithContex
 	return o
 }
 
-// Type of access to be allowed for the user.
 func (o UserAccessRightResponseOutput) AccessType() pulumi.StringOutput {
 	return o.ApplyT(func(v UserAccessRightResponse) string { return v.AccessType }).(pulumi.StringOutput)
 }
 
-// User ID (already existing in the device).
 func (o UserAccessRightResponseOutput) UserId() pulumi.StringOutput {
 	return o.ApplyT(func(v UserAccessRightResponse) string { return v.UserId }).(pulumi.StringOutput)
 }

@@ -10,20 +10,13 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Address information for domain registration.
 type Address struct {
-	// First line of an Address.
-	Address1 string `pulumi:"address1"`
-	// The second line of the Address. Optional.
-	Address2 *string `pulumi:"address2"`
-	// The city for the address.
-	City string `pulumi:"city"`
-	// The country for the address.
-	Country string `pulumi:"country"`
-	// The postal code for the address.
-	PostalCode string `pulumi:"postalCode"`
-	// The state or province for the address.
-	State string `pulumi:"state"`
+	Address1   string  `pulumi:"address1"`
+	Address2   *string `pulumi:"address2"`
+	City       string  `pulumi:"city"`
+	Country    string  `pulumi:"country"`
+	PostalCode string  `pulumi:"postalCode"`
+	State      string  `pulumi:"state"`
 }
 
 // AddressInput is an input type that accepts AddressArgs and AddressOutput values.
@@ -37,20 +30,13 @@ type AddressInput interface {
 	ToAddressOutputWithContext(context.Context) AddressOutput
 }
 
-// Address information for domain registration.
 type AddressArgs struct {
-	// First line of an Address.
-	Address1 pulumi.StringInput `pulumi:"address1"`
-	// The second line of the Address. Optional.
-	Address2 pulumi.StringPtrInput `pulumi:"address2"`
-	// The city for the address.
-	City pulumi.StringInput `pulumi:"city"`
-	// The country for the address.
-	Country pulumi.StringInput `pulumi:"country"`
-	// The postal code for the address.
-	PostalCode pulumi.StringInput `pulumi:"postalCode"`
-	// The state or province for the address.
-	State pulumi.StringInput `pulumi:"state"`
+	Address1   pulumi.StringInput    `pulumi:"address1"`
+	Address2   pulumi.StringPtrInput `pulumi:"address2"`
+	City       pulumi.StringInput    `pulumi:"city"`
+	Country    pulumi.StringInput    `pulumi:"country"`
+	PostalCode pulumi.StringInput    `pulumi:"postalCode"`
+	State      pulumi.StringInput    `pulumi:"state"`
 }
 
 func (AddressArgs) ElementType() reflect.Type {
@@ -106,7 +92,6 @@ func (i *addressPtrType) ToAddressPtrOutputWithContext(ctx context.Context) Addr
 	return pulumi.ToOutputWithContext(ctx, i).(AddressPtrOutput)
 }
 
-// Address information for domain registration.
 type AddressOutput struct{ *pulumi.OutputState }
 
 func (AddressOutput) ElementType() reflect.Type {
@@ -126,37 +111,31 @@ func (o AddressOutput) ToAddressPtrOutput() AddressPtrOutput {
 }
 
 func (o AddressOutput) ToAddressPtrOutputWithContext(ctx context.Context) AddressPtrOutput {
-	return o.ApplyT(func(v Address) *Address {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v Address) *Address {
 		return &v
 	}).(AddressPtrOutput)
 }
 
-// First line of an Address.
 func (o AddressOutput) Address1() pulumi.StringOutput {
 	return o.ApplyT(func(v Address) string { return v.Address1 }).(pulumi.StringOutput)
 }
 
-// The second line of the Address. Optional.
 func (o AddressOutput) Address2() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v Address) *string { return v.Address2 }).(pulumi.StringPtrOutput)
 }
 
-// The city for the address.
 func (o AddressOutput) City() pulumi.StringOutput {
 	return o.ApplyT(func(v Address) string { return v.City }).(pulumi.StringOutput)
 }
 
-// The country for the address.
 func (o AddressOutput) Country() pulumi.StringOutput {
 	return o.ApplyT(func(v Address) string { return v.Country }).(pulumi.StringOutput)
 }
 
-// The postal code for the address.
 func (o AddressOutput) PostalCode() pulumi.StringOutput {
 	return o.ApplyT(func(v Address) string { return v.PostalCode }).(pulumi.StringOutput)
 }
 
-// The state or province for the address.
 func (o AddressOutput) State() pulumi.StringOutput {
 	return o.ApplyT(func(v Address) string { return v.State }).(pulumi.StringOutput)
 }
@@ -176,10 +155,15 @@ func (o AddressPtrOutput) ToAddressPtrOutputWithContext(ctx context.Context) Add
 }
 
 func (o AddressPtrOutput) Elem() AddressOutput {
-	return o.ApplyT(func(v *Address) Address { return *v }).(AddressOutput)
+	return o.ApplyT(func(v *Address) Address {
+		if v != nil {
+			return *v
+		}
+		var ret Address
+		return ret
+	}).(AddressOutput)
 }
 
-// First line of an Address.
 func (o AddressPtrOutput) Address1() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Address) *string {
 		if v == nil {
@@ -189,7 +173,6 @@ func (o AddressPtrOutput) Address1() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The second line of the Address. Optional.
 func (o AddressPtrOutput) Address2() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Address) *string {
 		if v == nil {
@@ -199,7 +182,6 @@ func (o AddressPtrOutput) Address2() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The city for the address.
 func (o AddressPtrOutput) City() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Address) *string {
 		if v == nil {
@@ -209,7 +191,6 @@ func (o AddressPtrOutput) City() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The country for the address.
 func (o AddressPtrOutput) Country() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Address) *string {
 		if v == nil {
@@ -219,7 +200,6 @@ func (o AddressPtrOutput) Country() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The postal code for the address.
 func (o AddressPtrOutput) PostalCode() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Address) *string {
 		if v == nil {
@@ -229,7 +209,6 @@ func (o AddressPtrOutput) PostalCode() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The state or province for the address.
 func (o AddressPtrOutput) State() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Address) *string {
 		if v == nil {
@@ -239,20 +218,13 @@ func (o AddressPtrOutput) State() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Address information for domain registration.
 type AddressResponse struct {
-	// First line of an Address.
-	Address1 string `pulumi:"address1"`
-	// The second line of the Address. Optional.
-	Address2 *string `pulumi:"address2"`
-	// The city for the address.
-	City string `pulumi:"city"`
-	// The country for the address.
-	Country string `pulumi:"country"`
-	// The postal code for the address.
-	PostalCode string `pulumi:"postalCode"`
-	// The state or province for the address.
-	State string `pulumi:"state"`
+	Address1   string  `pulumi:"address1"`
+	Address2   *string `pulumi:"address2"`
+	City       string  `pulumi:"city"`
+	Country    string  `pulumi:"country"`
+	PostalCode string  `pulumi:"postalCode"`
+	State      string  `pulumi:"state"`
 }
 
 // AddressResponseInput is an input type that accepts AddressResponseArgs and AddressResponseOutput values.
@@ -266,20 +238,13 @@ type AddressResponseInput interface {
 	ToAddressResponseOutputWithContext(context.Context) AddressResponseOutput
 }
 
-// Address information for domain registration.
 type AddressResponseArgs struct {
-	// First line of an Address.
-	Address1 pulumi.StringInput `pulumi:"address1"`
-	// The second line of the Address. Optional.
-	Address2 pulumi.StringPtrInput `pulumi:"address2"`
-	// The city for the address.
-	City pulumi.StringInput `pulumi:"city"`
-	// The country for the address.
-	Country pulumi.StringInput `pulumi:"country"`
-	// The postal code for the address.
-	PostalCode pulumi.StringInput `pulumi:"postalCode"`
-	// The state or province for the address.
-	State pulumi.StringInput `pulumi:"state"`
+	Address1   pulumi.StringInput    `pulumi:"address1"`
+	Address2   pulumi.StringPtrInput `pulumi:"address2"`
+	City       pulumi.StringInput    `pulumi:"city"`
+	Country    pulumi.StringInput    `pulumi:"country"`
+	PostalCode pulumi.StringInput    `pulumi:"postalCode"`
+	State      pulumi.StringInput    `pulumi:"state"`
 }
 
 func (AddressResponseArgs) ElementType() reflect.Type {
@@ -335,7 +300,6 @@ func (i *addressResponsePtrType) ToAddressResponsePtrOutputWithContext(ctx conte
 	return pulumi.ToOutputWithContext(ctx, i).(AddressResponsePtrOutput)
 }
 
-// Address information for domain registration.
 type AddressResponseOutput struct{ *pulumi.OutputState }
 
 func (AddressResponseOutput) ElementType() reflect.Type {
@@ -355,37 +319,31 @@ func (o AddressResponseOutput) ToAddressResponsePtrOutput() AddressResponsePtrOu
 }
 
 func (o AddressResponseOutput) ToAddressResponsePtrOutputWithContext(ctx context.Context) AddressResponsePtrOutput {
-	return o.ApplyT(func(v AddressResponse) *AddressResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v AddressResponse) *AddressResponse {
 		return &v
 	}).(AddressResponsePtrOutput)
 }
 
-// First line of an Address.
 func (o AddressResponseOutput) Address1() pulumi.StringOutput {
 	return o.ApplyT(func(v AddressResponse) string { return v.Address1 }).(pulumi.StringOutput)
 }
 
-// The second line of the Address. Optional.
 func (o AddressResponseOutput) Address2() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AddressResponse) *string { return v.Address2 }).(pulumi.StringPtrOutput)
 }
 
-// The city for the address.
 func (o AddressResponseOutput) City() pulumi.StringOutput {
 	return o.ApplyT(func(v AddressResponse) string { return v.City }).(pulumi.StringOutput)
 }
 
-// The country for the address.
 func (o AddressResponseOutput) Country() pulumi.StringOutput {
 	return o.ApplyT(func(v AddressResponse) string { return v.Country }).(pulumi.StringOutput)
 }
 
-// The postal code for the address.
 func (o AddressResponseOutput) PostalCode() pulumi.StringOutput {
 	return o.ApplyT(func(v AddressResponse) string { return v.PostalCode }).(pulumi.StringOutput)
 }
 
-// The state or province for the address.
 func (o AddressResponseOutput) State() pulumi.StringOutput {
 	return o.ApplyT(func(v AddressResponse) string { return v.State }).(pulumi.StringOutput)
 }
@@ -405,10 +363,15 @@ func (o AddressResponsePtrOutput) ToAddressResponsePtrOutputWithContext(ctx cont
 }
 
 func (o AddressResponsePtrOutput) Elem() AddressResponseOutput {
-	return o.ApplyT(func(v *AddressResponse) AddressResponse { return *v }).(AddressResponseOutput)
+	return o.ApplyT(func(v *AddressResponse) AddressResponse {
+		if v != nil {
+			return *v
+		}
+		var ret AddressResponse
+		return ret
+	}).(AddressResponseOutput)
 }
 
-// First line of an Address.
 func (o AddressResponsePtrOutput) Address1() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *AddressResponse) *string {
 		if v == nil {
@@ -418,7 +381,6 @@ func (o AddressResponsePtrOutput) Address1() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The second line of the Address. Optional.
 func (o AddressResponsePtrOutput) Address2() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *AddressResponse) *string {
 		if v == nil {
@@ -428,7 +390,6 @@ func (o AddressResponsePtrOutput) Address2() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The city for the address.
 func (o AddressResponsePtrOutput) City() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *AddressResponse) *string {
 		if v == nil {
@@ -438,7 +399,6 @@ func (o AddressResponsePtrOutput) City() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The country for the address.
 func (o AddressResponsePtrOutput) Country() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *AddressResponse) *string {
 		if v == nil {
@@ -448,7 +408,6 @@ func (o AddressResponsePtrOutput) Country() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The postal code for the address.
 func (o AddressResponsePtrOutput) PostalCode() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *AddressResponse) *string {
 		if v == nil {
@@ -458,7 +417,6 @@ func (o AddressResponsePtrOutput) PostalCode() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The state or province for the address.
 func (o AddressResponsePtrOutput) State() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *AddressResponse) *string {
 		if v == nil {
@@ -468,27 +426,16 @@ func (o AddressResponsePtrOutput) State() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Contact information for domain registration. If 'Domain Privacy' option is not selected then the contact information is made publicly available through the Whois
-// directories as per ICANN requirements.
 type Contact struct {
-	// Mailing address.
 	AddressMailing *Address `pulumi:"addressMailing"`
-	// Email address.
-	Email string `pulumi:"email"`
-	// Fax number.
-	Fax *string `pulumi:"fax"`
-	// Job title.
-	JobTitle *string `pulumi:"jobTitle"`
-	// First name.
-	NameFirst string `pulumi:"nameFirst"`
-	// Last name.
-	NameLast string `pulumi:"nameLast"`
-	// Middle name.
-	NameMiddle *string `pulumi:"nameMiddle"`
-	// Organization contact belongs to.
-	Organization *string `pulumi:"organization"`
-	// Phone number.
-	Phone string `pulumi:"phone"`
+	Email          string   `pulumi:"email"`
+	Fax            *string  `pulumi:"fax"`
+	JobTitle       *string  `pulumi:"jobTitle"`
+	NameFirst      string   `pulumi:"nameFirst"`
+	NameLast       string   `pulumi:"nameLast"`
+	NameMiddle     *string  `pulumi:"nameMiddle"`
+	Organization   *string  `pulumi:"organization"`
+	Phone          string   `pulumi:"phone"`
 }
 
 // ContactInput is an input type that accepts ContactArgs and ContactOutput values.
@@ -502,27 +449,16 @@ type ContactInput interface {
 	ToContactOutputWithContext(context.Context) ContactOutput
 }
 
-// Contact information for domain registration. If 'Domain Privacy' option is not selected then the contact information is made publicly available through the Whois
-// directories as per ICANN requirements.
 type ContactArgs struct {
-	// Mailing address.
-	AddressMailing AddressPtrInput `pulumi:"addressMailing"`
-	// Email address.
-	Email pulumi.StringInput `pulumi:"email"`
-	// Fax number.
-	Fax pulumi.StringPtrInput `pulumi:"fax"`
-	// Job title.
-	JobTitle pulumi.StringPtrInput `pulumi:"jobTitle"`
-	// First name.
-	NameFirst pulumi.StringInput `pulumi:"nameFirst"`
-	// Last name.
-	NameLast pulumi.StringInput `pulumi:"nameLast"`
-	// Middle name.
-	NameMiddle pulumi.StringPtrInput `pulumi:"nameMiddle"`
-	// Organization contact belongs to.
-	Organization pulumi.StringPtrInput `pulumi:"organization"`
-	// Phone number.
-	Phone pulumi.StringInput `pulumi:"phone"`
+	AddressMailing AddressPtrInput       `pulumi:"addressMailing"`
+	Email          pulumi.StringInput    `pulumi:"email"`
+	Fax            pulumi.StringPtrInput `pulumi:"fax"`
+	JobTitle       pulumi.StringPtrInput `pulumi:"jobTitle"`
+	NameFirst      pulumi.StringInput    `pulumi:"nameFirst"`
+	NameLast       pulumi.StringInput    `pulumi:"nameLast"`
+	NameMiddle     pulumi.StringPtrInput `pulumi:"nameMiddle"`
+	Organization   pulumi.StringPtrInput `pulumi:"organization"`
+	Phone          pulumi.StringInput    `pulumi:"phone"`
 }
 
 func (ContactArgs) ElementType() reflect.Type {
@@ -578,8 +514,6 @@ func (i *contactPtrType) ToContactPtrOutputWithContext(ctx context.Context) Cont
 	return pulumi.ToOutputWithContext(ctx, i).(ContactPtrOutput)
 }
 
-// Contact information for domain registration. If 'Domain Privacy' option is not selected then the contact information is made publicly available through the Whois
-// directories as per ICANN requirements.
 type ContactOutput struct{ *pulumi.OutputState }
 
 func (ContactOutput) ElementType() reflect.Type {
@@ -599,52 +533,43 @@ func (o ContactOutput) ToContactPtrOutput() ContactPtrOutput {
 }
 
 func (o ContactOutput) ToContactPtrOutputWithContext(ctx context.Context) ContactPtrOutput {
-	return o.ApplyT(func(v Contact) *Contact {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v Contact) *Contact {
 		return &v
 	}).(ContactPtrOutput)
 }
 
-// Mailing address.
 func (o ContactOutput) AddressMailing() AddressPtrOutput {
 	return o.ApplyT(func(v Contact) *Address { return v.AddressMailing }).(AddressPtrOutput)
 }
 
-// Email address.
 func (o ContactOutput) Email() pulumi.StringOutput {
 	return o.ApplyT(func(v Contact) string { return v.Email }).(pulumi.StringOutput)
 }
 
-// Fax number.
 func (o ContactOutput) Fax() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v Contact) *string { return v.Fax }).(pulumi.StringPtrOutput)
 }
 
-// Job title.
 func (o ContactOutput) JobTitle() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v Contact) *string { return v.JobTitle }).(pulumi.StringPtrOutput)
 }
 
-// First name.
 func (o ContactOutput) NameFirst() pulumi.StringOutput {
 	return o.ApplyT(func(v Contact) string { return v.NameFirst }).(pulumi.StringOutput)
 }
 
-// Last name.
 func (o ContactOutput) NameLast() pulumi.StringOutput {
 	return o.ApplyT(func(v Contact) string { return v.NameLast }).(pulumi.StringOutput)
 }
 
-// Middle name.
 func (o ContactOutput) NameMiddle() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v Contact) *string { return v.NameMiddle }).(pulumi.StringPtrOutput)
 }
 
-// Organization contact belongs to.
 func (o ContactOutput) Organization() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v Contact) *string { return v.Organization }).(pulumi.StringPtrOutput)
 }
 
-// Phone number.
 func (o ContactOutput) Phone() pulumi.StringOutput {
 	return o.ApplyT(func(v Contact) string { return v.Phone }).(pulumi.StringOutput)
 }
@@ -664,10 +589,15 @@ func (o ContactPtrOutput) ToContactPtrOutputWithContext(ctx context.Context) Con
 }
 
 func (o ContactPtrOutput) Elem() ContactOutput {
-	return o.ApplyT(func(v *Contact) Contact { return *v }).(ContactOutput)
+	return o.ApplyT(func(v *Contact) Contact {
+		if v != nil {
+			return *v
+		}
+		var ret Contact
+		return ret
+	}).(ContactOutput)
 }
 
-// Mailing address.
 func (o ContactPtrOutput) AddressMailing() AddressPtrOutput {
 	return o.ApplyT(func(v *Contact) *Address {
 		if v == nil {
@@ -677,7 +607,6 @@ func (o ContactPtrOutput) AddressMailing() AddressPtrOutput {
 	}).(AddressPtrOutput)
 }
 
-// Email address.
 func (o ContactPtrOutput) Email() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Contact) *string {
 		if v == nil {
@@ -687,7 +616,6 @@ func (o ContactPtrOutput) Email() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Fax number.
 func (o ContactPtrOutput) Fax() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Contact) *string {
 		if v == nil {
@@ -697,7 +625,6 @@ func (o ContactPtrOutput) Fax() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Job title.
 func (o ContactPtrOutput) JobTitle() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Contact) *string {
 		if v == nil {
@@ -707,7 +634,6 @@ func (o ContactPtrOutput) JobTitle() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// First name.
 func (o ContactPtrOutput) NameFirst() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Contact) *string {
 		if v == nil {
@@ -717,7 +643,6 @@ func (o ContactPtrOutput) NameFirst() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Last name.
 func (o ContactPtrOutput) NameLast() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Contact) *string {
 		if v == nil {
@@ -727,7 +652,6 @@ func (o ContactPtrOutput) NameLast() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Middle name.
 func (o ContactPtrOutput) NameMiddle() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Contact) *string {
 		if v == nil {
@@ -737,7 +661,6 @@ func (o ContactPtrOutput) NameMiddle() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Organization contact belongs to.
 func (o ContactPtrOutput) Organization() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Contact) *string {
 		if v == nil {
@@ -747,7 +670,6 @@ func (o ContactPtrOutput) Organization() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Phone number.
 func (o ContactPtrOutput) Phone() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Contact) *string {
 		if v == nil {
@@ -757,27 +679,16 @@ func (o ContactPtrOutput) Phone() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Contact information for domain registration. If 'Domain Privacy' option is not selected then the contact information is made publicly available through the Whois
-// directories as per ICANN requirements.
 type ContactResponse struct {
-	// Mailing address.
 	AddressMailing *AddressResponse `pulumi:"addressMailing"`
-	// Email address.
-	Email string `pulumi:"email"`
-	// Fax number.
-	Fax *string `pulumi:"fax"`
-	// Job title.
-	JobTitle *string `pulumi:"jobTitle"`
-	// First name.
-	NameFirst string `pulumi:"nameFirst"`
-	// Last name.
-	NameLast string `pulumi:"nameLast"`
-	// Middle name.
-	NameMiddle *string `pulumi:"nameMiddle"`
-	// Organization contact belongs to.
-	Organization *string `pulumi:"organization"`
-	// Phone number.
-	Phone string `pulumi:"phone"`
+	Email          string           `pulumi:"email"`
+	Fax            *string          `pulumi:"fax"`
+	JobTitle       *string          `pulumi:"jobTitle"`
+	NameFirst      string           `pulumi:"nameFirst"`
+	NameLast       string           `pulumi:"nameLast"`
+	NameMiddle     *string          `pulumi:"nameMiddle"`
+	Organization   *string          `pulumi:"organization"`
+	Phone          string           `pulumi:"phone"`
 }
 
 // ContactResponseInput is an input type that accepts ContactResponseArgs and ContactResponseOutput values.
@@ -791,27 +702,16 @@ type ContactResponseInput interface {
 	ToContactResponseOutputWithContext(context.Context) ContactResponseOutput
 }
 
-// Contact information for domain registration. If 'Domain Privacy' option is not selected then the contact information is made publicly available through the Whois
-// directories as per ICANN requirements.
 type ContactResponseArgs struct {
-	// Mailing address.
 	AddressMailing AddressResponsePtrInput `pulumi:"addressMailing"`
-	// Email address.
-	Email pulumi.StringInput `pulumi:"email"`
-	// Fax number.
-	Fax pulumi.StringPtrInput `pulumi:"fax"`
-	// Job title.
-	JobTitle pulumi.StringPtrInput `pulumi:"jobTitle"`
-	// First name.
-	NameFirst pulumi.StringInput `pulumi:"nameFirst"`
-	// Last name.
-	NameLast pulumi.StringInput `pulumi:"nameLast"`
-	// Middle name.
-	NameMiddle pulumi.StringPtrInput `pulumi:"nameMiddle"`
-	// Organization contact belongs to.
-	Organization pulumi.StringPtrInput `pulumi:"organization"`
-	// Phone number.
-	Phone pulumi.StringInput `pulumi:"phone"`
+	Email          pulumi.StringInput      `pulumi:"email"`
+	Fax            pulumi.StringPtrInput   `pulumi:"fax"`
+	JobTitle       pulumi.StringPtrInput   `pulumi:"jobTitle"`
+	NameFirst      pulumi.StringInput      `pulumi:"nameFirst"`
+	NameLast       pulumi.StringInput      `pulumi:"nameLast"`
+	NameMiddle     pulumi.StringPtrInput   `pulumi:"nameMiddle"`
+	Organization   pulumi.StringPtrInput   `pulumi:"organization"`
+	Phone          pulumi.StringInput      `pulumi:"phone"`
 }
 
 func (ContactResponseArgs) ElementType() reflect.Type {
@@ -826,8 +726,6 @@ func (i ContactResponseArgs) ToContactResponseOutputWithContext(ctx context.Cont
 	return pulumi.ToOutputWithContext(ctx, i).(ContactResponseOutput)
 }
 
-// Contact information for domain registration. If 'Domain Privacy' option is not selected then the contact information is made publicly available through the Whois
-// directories as per ICANN requirements.
 type ContactResponseOutput struct{ *pulumi.OutputState }
 
 func (ContactResponseOutput) ElementType() reflect.Type {
@@ -842,58 +740,45 @@ func (o ContactResponseOutput) ToContactResponseOutputWithContext(ctx context.Co
 	return o
 }
 
-// Mailing address.
 func (o ContactResponseOutput) AddressMailing() AddressResponsePtrOutput {
 	return o.ApplyT(func(v ContactResponse) *AddressResponse { return v.AddressMailing }).(AddressResponsePtrOutput)
 }
 
-// Email address.
 func (o ContactResponseOutput) Email() pulumi.StringOutput {
 	return o.ApplyT(func(v ContactResponse) string { return v.Email }).(pulumi.StringOutput)
 }
 
-// Fax number.
 func (o ContactResponseOutput) Fax() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ContactResponse) *string { return v.Fax }).(pulumi.StringPtrOutput)
 }
 
-// Job title.
 func (o ContactResponseOutput) JobTitle() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ContactResponse) *string { return v.JobTitle }).(pulumi.StringPtrOutput)
 }
 
-// First name.
 func (o ContactResponseOutput) NameFirst() pulumi.StringOutput {
 	return o.ApplyT(func(v ContactResponse) string { return v.NameFirst }).(pulumi.StringOutput)
 }
 
-// Last name.
 func (o ContactResponseOutput) NameLast() pulumi.StringOutput {
 	return o.ApplyT(func(v ContactResponse) string { return v.NameLast }).(pulumi.StringOutput)
 }
 
-// Middle name.
 func (o ContactResponseOutput) NameMiddle() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ContactResponse) *string { return v.NameMiddle }).(pulumi.StringPtrOutput)
 }
 
-// Organization contact belongs to.
 func (o ContactResponseOutput) Organization() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ContactResponse) *string { return v.Organization }).(pulumi.StringPtrOutput)
 }
 
-// Phone number.
 func (o ContactResponseOutput) Phone() pulumi.StringOutput {
 	return o.ApplyT(func(v ContactResponse) string { return v.Phone }).(pulumi.StringOutput)
 }
 
-// Domain purchase consent object, representing acceptance of applicable legal agreements.
 type DomainPurchaseConsent struct {
-	// Timestamp when the agreements were accepted.
-	AgreedAt *string `pulumi:"agreedAt"`
-	// Client IP address.
-	AgreedBy *string `pulumi:"agreedBy"`
-	// List of applicable legal agreement keys. This list can be retrieved using ListLegalAgreements API under <code>TopLevelDomain</code> resource.
+	AgreedAt      *string  `pulumi:"agreedAt"`
+	AgreedBy      *string  `pulumi:"agreedBy"`
 	AgreementKeys []string `pulumi:"agreementKeys"`
 }
 
@@ -908,13 +793,9 @@ type DomainPurchaseConsentInput interface {
 	ToDomainPurchaseConsentOutputWithContext(context.Context) DomainPurchaseConsentOutput
 }
 
-// Domain purchase consent object, representing acceptance of applicable legal agreements.
 type DomainPurchaseConsentArgs struct {
-	// Timestamp when the agreements were accepted.
-	AgreedAt pulumi.StringPtrInput `pulumi:"agreedAt"`
-	// Client IP address.
-	AgreedBy pulumi.StringPtrInput `pulumi:"agreedBy"`
-	// List of applicable legal agreement keys. This list can be retrieved using ListLegalAgreements API under <code>TopLevelDomain</code> resource.
+	AgreedAt      pulumi.StringPtrInput   `pulumi:"agreedAt"`
+	AgreedBy      pulumi.StringPtrInput   `pulumi:"agreedBy"`
 	AgreementKeys pulumi.StringArrayInput `pulumi:"agreementKeys"`
 }
 
@@ -971,7 +852,6 @@ func (i *domainPurchaseConsentPtrType) ToDomainPurchaseConsentPtrOutputWithConte
 	return pulumi.ToOutputWithContext(ctx, i).(DomainPurchaseConsentPtrOutput)
 }
 
-// Domain purchase consent object, representing acceptance of applicable legal agreements.
 type DomainPurchaseConsentOutput struct{ *pulumi.OutputState }
 
 func (DomainPurchaseConsentOutput) ElementType() reflect.Type {
@@ -991,22 +871,19 @@ func (o DomainPurchaseConsentOutput) ToDomainPurchaseConsentPtrOutput() DomainPu
 }
 
 func (o DomainPurchaseConsentOutput) ToDomainPurchaseConsentPtrOutputWithContext(ctx context.Context) DomainPurchaseConsentPtrOutput {
-	return o.ApplyT(func(v DomainPurchaseConsent) *DomainPurchaseConsent {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v DomainPurchaseConsent) *DomainPurchaseConsent {
 		return &v
 	}).(DomainPurchaseConsentPtrOutput)
 }
 
-// Timestamp when the agreements were accepted.
 func (o DomainPurchaseConsentOutput) AgreedAt() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v DomainPurchaseConsent) *string { return v.AgreedAt }).(pulumi.StringPtrOutput)
 }
 
-// Client IP address.
 func (o DomainPurchaseConsentOutput) AgreedBy() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v DomainPurchaseConsent) *string { return v.AgreedBy }).(pulumi.StringPtrOutput)
 }
 
-// List of applicable legal agreement keys. This list can be retrieved using ListLegalAgreements API under <code>TopLevelDomain</code> resource.
 func (o DomainPurchaseConsentOutput) AgreementKeys() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v DomainPurchaseConsent) []string { return v.AgreementKeys }).(pulumi.StringArrayOutput)
 }
@@ -1026,10 +903,15 @@ func (o DomainPurchaseConsentPtrOutput) ToDomainPurchaseConsentPtrOutputWithCont
 }
 
 func (o DomainPurchaseConsentPtrOutput) Elem() DomainPurchaseConsentOutput {
-	return o.ApplyT(func(v *DomainPurchaseConsent) DomainPurchaseConsent { return *v }).(DomainPurchaseConsentOutput)
+	return o.ApplyT(func(v *DomainPurchaseConsent) DomainPurchaseConsent {
+		if v != nil {
+			return *v
+		}
+		var ret DomainPurchaseConsent
+		return ret
+	}).(DomainPurchaseConsentOutput)
 }
 
-// Timestamp when the agreements were accepted.
 func (o DomainPurchaseConsentPtrOutput) AgreedAt() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *DomainPurchaseConsent) *string {
 		if v == nil {
@@ -1039,7 +921,6 @@ func (o DomainPurchaseConsentPtrOutput) AgreedAt() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Client IP address.
 func (o DomainPurchaseConsentPtrOutput) AgreedBy() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *DomainPurchaseConsent) *string {
 		if v == nil {
@@ -1049,7 +930,6 @@ func (o DomainPurchaseConsentPtrOutput) AgreedBy() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// List of applicable legal agreement keys. This list can be retrieved using ListLegalAgreements API under <code>TopLevelDomain</code> resource.
 func (o DomainPurchaseConsentPtrOutput) AgreementKeys() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *DomainPurchaseConsent) []string {
 		if v == nil {
@@ -1059,13 +939,9 @@ func (o DomainPurchaseConsentPtrOutput) AgreementKeys() pulumi.StringArrayOutput
 	}).(pulumi.StringArrayOutput)
 }
 
-// Domain purchase consent object, representing acceptance of applicable legal agreements.
 type DomainPurchaseConsentResponse struct {
-	// Timestamp when the agreements were accepted.
-	AgreedAt *string `pulumi:"agreedAt"`
-	// Client IP address.
-	AgreedBy *string `pulumi:"agreedBy"`
-	// List of applicable legal agreement keys. This list can be retrieved using ListLegalAgreements API under <code>TopLevelDomain</code> resource.
+	AgreedAt      *string  `pulumi:"agreedAt"`
+	AgreedBy      *string  `pulumi:"agreedBy"`
 	AgreementKeys []string `pulumi:"agreementKeys"`
 }
 
@@ -1080,13 +956,9 @@ type DomainPurchaseConsentResponseInput interface {
 	ToDomainPurchaseConsentResponseOutputWithContext(context.Context) DomainPurchaseConsentResponseOutput
 }
 
-// Domain purchase consent object, representing acceptance of applicable legal agreements.
 type DomainPurchaseConsentResponseArgs struct {
-	// Timestamp when the agreements were accepted.
-	AgreedAt pulumi.StringPtrInput `pulumi:"agreedAt"`
-	// Client IP address.
-	AgreedBy pulumi.StringPtrInput `pulumi:"agreedBy"`
-	// List of applicable legal agreement keys. This list can be retrieved using ListLegalAgreements API under <code>TopLevelDomain</code> resource.
+	AgreedAt      pulumi.StringPtrInput   `pulumi:"agreedAt"`
+	AgreedBy      pulumi.StringPtrInput   `pulumi:"agreedBy"`
 	AgreementKeys pulumi.StringArrayInput `pulumi:"agreementKeys"`
 }
 
@@ -1102,7 +974,6 @@ func (i DomainPurchaseConsentResponseArgs) ToDomainPurchaseConsentResponseOutput
 	return pulumi.ToOutputWithContext(ctx, i).(DomainPurchaseConsentResponseOutput)
 }
 
-// Domain purchase consent object, representing acceptance of applicable legal agreements.
 type DomainPurchaseConsentResponseOutput struct{ *pulumi.OutputState }
 
 func (DomainPurchaseConsentResponseOutput) ElementType() reflect.Type {
@@ -1117,35 +988,25 @@ func (o DomainPurchaseConsentResponseOutput) ToDomainPurchaseConsentResponseOutp
 	return o
 }
 
-// Timestamp when the agreements were accepted.
 func (o DomainPurchaseConsentResponseOutput) AgreedAt() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v DomainPurchaseConsentResponse) *string { return v.AgreedAt }).(pulumi.StringPtrOutput)
 }
 
-// Client IP address.
 func (o DomainPurchaseConsentResponseOutput) AgreedBy() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v DomainPurchaseConsentResponse) *string { return v.AgreedBy }).(pulumi.StringPtrOutput)
 }
 
-// List of applicable legal agreement keys. This list can be retrieved using ListLegalAgreements API under <code>TopLevelDomain</code> resource.
 func (o DomainPurchaseConsentResponseOutput) AgreementKeys() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v DomainPurchaseConsentResponse) []string { return v.AgreementKeys }).(pulumi.StringArrayOutput)
 }
 
-// Details of a hostname derived from a domain.
 type HostNameResponse struct {
-	// Name of the Azure resource the hostname is assigned to. If it is assigned to a Traffic Manager then it will be the Traffic Manager name otherwise it will be the app name.
-	AzureResourceName *string `pulumi:"azureResourceName"`
-	// Type of the Azure resource the hostname is assigned to.
-	AzureResourceType *string `pulumi:"azureResourceType"`
-	// Type of the DNS record.
-	CustomHostNameDnsRecordType *string `pulumi:"customHostNameDnsRecordType"`
-	// Type of the hostname.
-	HostNameType *string `pulumi:"hostNameType"`
-	// Name of the hostname.
-	Name *string `pulumi:"name"`
-	// List of apps the hostname is assigned to. This list will have more than one app only if the hostname is pointing to a Traffic Manager.
-	SiteNames []string `pulumi:"siteNames"`
+	AzureResourceName           *string  `pulumi:"azureResourceName"`
+	AzureResourceType           *string  `pulumi:"azureResourceType"`
+	CustomHostNameDnsRecordType *string  `pulumi:"customHostNameDnsRecordType"`
+	HostNameType                *string  `pulumi:"hostNameType"`
+	Name                        *string  `pulumi:"name"`
+	SiteNames                   []string `pulumi:"siteNames"`
 }
 
 // HostNameResponseInput is an input type that accepts HostNameResponseArgs and HostNameResponseOutput values.
@@ -1159,20 +1020,13 @@ type HostNameResponseInput interface {
 	ToHostNameResponseOutputWithContext(context.Context) HostNameResponseOutput
 }
 
-// Details of a hostname derived from a domain.
 type HostNameResponseArgs struct {
-	// Name of the Azure resource the hostname is assigned to. If it is assigned to a Traffic Manager then it will be the Traffic Manager name otherwise it will be the app name.
-	AzureResourceName pulumi.StringPtrInput `pulumi:"azureResourceName"`
-	// Type of the Azure resource the hostname is assigned to.
-	AzureResourceType pulumi.StringPtrInput `pulumi:"azureResourceType"`
-	// Type of the DNS record.
-	CustomHostNameDnsRecordType pulumi.StringPtrInput `pulumi:"customHostNameDnsRecordType"`
-	// Type of the hostname.
-	HostNameType pulumi.StringPtrInput `pulumi:"hostNameType"`
-	// Name of the hostname.
-	Name pulumi.StringPtrInput `pulumi:"name"`
-	// List of apps the hostname is assigned to. This list will have more than one app only if the hostname is pointing to a Traffic Manager.
-	SiteNames pulumi.StringArrayInput `pulumi:"siteNames"`
+	AzureResourceName           pulumi.StringPtrInput   `pulumi:"azureResourceName"`
+	AzureResourceType           pulumi.StringPtrInput   `pulumi:"azureResourceType"`
+	CustomHostNameDnsRecordType pulumi.StringPtrInput   `pulumi:"customHostNameDnsRecordType"`
+	HostNameType                pulumi.StringPtrInput   `pulumi:"hostNameType"`
+	Name                        pulumi.StringPtrInput   `pulumi:"name"`
+	SiteNames                   pulumi.StringArrayInput `pulumi:"siteNames"`
 }
 
 func (HostNameResponseArgs) ElementType() reflect.Type {
@@ -1212,7 +1066,6 @@ func (i HostNameResponseArray) ToHostNameResponseArrayOutputWithContext(ctx cont
 	return pulumi.ToOutputWithContext(ctx, i).(HostNameResponseArrayOutput)
 }
 
-// Details of a hostname derived from a domain.
 type HostNameResponseOutput struct{ *pulumi.OutputState }
 
 func (HostNameResponseOutput) ElementType() reflect.Type {
@@ -1227,32 +1080,26 @@ func (o HostNameResponseOutput) ToHostNameResponseOutputWithContext(ctx context.
 	return o
 }
 
-// Name of the Azure resource the hostname is assigned to. If it is assigned to a Traffic Manager then it will be the Traffic Manager name otherwise it will be the app name.
 func (o HostNameResponseOutput) AzureResourceName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v HostNameResponse) *string { return v.AzureResourceName }).(pulumi.StringPtrOutput)
 }
 
-// Type of the Azure resource the hostname is assigned to.
 func (o HostNameResponseOutput) AzureResourceType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v HostNameResponse) *string { return v.AzureResourceType }).(pulumi.StringPtrOutput)
 }
 
-// Type of the DNS record.
 func (o HostNameResponseOutput) CustomHostNameDnsRecordType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v HostNameResponse) *string { return v.CustomHostNameDnsRecordType }).(pulumi.StringPtrOutput)
 }
 
-// Type of the hostname.
 func (o HostNameResponseOutput) HostNameType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v HostNameResponse) *string { return v.HostNameType }).(pulumi.StringPtrOutput)
 }
 
-// Name of the hostname.
 func (o HostNameResponseOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v HostNameResponse) *string { return v.Name }).(pulumi.StringPtrOutput)
 }
 
-// List of apps the hostname is assigned to. This list will have more than one app only if the hostname is pointing to a Traffic Manager.
 func (o HostNameResponseOutput) SiteNames() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v HostNameResponse) []string { return v.SiteNames }).(pulumi.StringArrayOutput)
 }
@@ -1277,9 +1124,7 @@ func (o HostNameResponseArrayOutput) Index(i pulumi.IntInput) HostNameResponseOu
 	}).(HostNameResponseOutput)
 }
 
-// Identifies an object.
 type NameIdentifierResponse struct {
-	// Name of the object.
 	Name *string `pulumi:"name"`
 }
 
@@ -1294,9 +1139,7 @@ type NameIdentifierResponseInput interface {
 	ToNameIdentifierResponseOutputWithContext(context.Context) NameIdentifierResponseOutput
 }
 
-// Identifies an object.
 type NameIdentifierResponseArgs struct {
-	// Name of the object.
 	Name pulumi.StringPtrInput `pulumi:"name"`
 }
 
@@ -1337,7 +1180,6 @@ func (i NameIdentifierResponseArray) ToNameIdentifierResponseArrayOutputWithCont
 	return pulumi.ToOutputWithContext(ctx, i).(NameIdentifierResponseArrayOutput)
 }
 
-// Identifies an object.
 type NameIdentifierResponseOutput struct{ *pulumi.OutputState }
 
 func (NameIdentifierResponseOutput) ElementType() reflect.Type {
@@ -1352,7 +1194,6 @@ func (o NameIdentifierResponseOutput) ToNameIdentifierResponseOutputWithContext(
 	return o
 }
 
-// Name of the object.
 func (o NameIdentifierResponseOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v NameIdentifierResponse) *string { return v.Name }).(pulumi.StringPtrOutput)
 }
@@ -1377,19 +1218,12 @@ func (o NameIdentifierResponseArrayOutput) Index(i pulumi.IntInput) NameIdentifi
 	}).(NameIdentifierResponseOutput)
 }
 
-// Metadata pertaining to creation and last modification of the resource.
 type SystemDataResponse struct {
-	// The timestamp of resource creation (UTC).
-	CreatedAt *string `pulumi:"createdAt"`
-	// The identity that created the resource.
-	CreatedBy *string `pulumi:"createdBy"`
-	// The type of identity that created the resource.
-	CreatedByType *string `pulumi:"createdByType"`
-	// The timestamp of resource last modification (UTC)
-	LastModifiedAt *string `pulumi:"lastModifiedAt"`
-	// The identity that last modified the resource.
-	LastModifiedBy *string `pulumi:"lastModifiedBy"`
-	// The type of identity that last modified the resource.
+	CreatedAt          *string `pulumi:"createdAt"`
+	CreatedBy          *string `pulumi:"createdBy"`
+	CreatedByType      *string `pulumi:"createdByType"`
+	LastModifiedAt     *string `pulumi:"lastModifiedAt"`
+	LastModifiedBy     *string `pulumi:"lastModifiedBy"`
 	LastModifiedByType *string `pulumi:"lastModifiedByType"`
 }
 
@@ -1404,19 +1238,12 @@ type SystemDataResponseInput interface {
 	ToSystemDataResponseOutputWithContext(context.Context) SystemDataResponseOutput
 }
 
-// Metadata pertaining to creation and last modification of the resource.
 type SystemDataResponseArgs struct {
-	// The timestamp of resource creation (UTC).
-	CreatedAt pulumi.StringPtrInput `pulumi:"createdAt"`
-	// The identity that created the resource.
-	CreatedBy pulumi.StringPtrInput `pulumi:"createdBy"`
-	// The type of identity that created the resource.
-	CreatedByType pulumi.StringPtrInput `pulumi:"createdByType"`
-	// The timestamp of resource last modification (UTC)
-	LastModifiedAt pulumi.StringPtrInput `pulumi:"lastModifiedAt"`
-	// The identity that last modified the resource.
-	LastModifiedBy pulumi.StringPtrInput `pulumi:"lastModifiedBy"`
-	// The type of identity that last modified the resource.
+	CreatedAt          pulumi.StringPtrInput `pulumi:"createdAt"`
+	CreatedBy          pulumi.StringPtrInput `pulumi:"createdBy"`
+	CreatedByType      pulumi.StringPtrInput `pulumi:"createdByType"`
+	LastModifiedAt     pulumi.StringPtrInput `pulumi:"lastModifiedAt"`
+	LastModifiedBy     pulumi.StringPtrInput `pulumi:"lastModifiedBy"`
 	LastModifiedByType pulumi.StringPtrInput `pulumi:"lastModifiedByType"`
 }
 
@@ -1473,7 +1300,6 @@ func (i *systemDataResponsePtrType) ToSystemDataResponsePtrOutputWithContext(ctx
 	return pulumi.ToOutputWithContext(ctx, i).(SystemDataResponsePtrOutput)
 }
 
-// Metadata pertaining to creation and last modification of the resource.
 type SystemDataResponseOutput struct{ *pulumi.OutputState }
 
 func (SystemDataResponseOutput) ElementType() reflect.Type {
@@ -1493,37 +1319,31 @@ func (o SystemDataResponseOutput) ToSystemDataResponsePtrOutput() SystemDataResp
 }
 
 func (o SystemDataResponseOutput) ToSystemDataResponsePtrOutputWithContext(ctx context.Context) SystemDataResponsePtrOutput {
-	return o.ApplyT(func(v SystemDataResponse) *SystemDataResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v SystemDataResponse) *SystemDataResponse {
 		return &v
 	}).(SystemDataResponsePtrOutput)
 }
 
-// The timestamp of resource creation (UTC).
 func (o SystemDataResponseOutput) CreatedAt() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SystemDataResponse) *string { return v.CreatedAt }).(pulumi.StringPtrOutput)
 }
 
-// The identity that created the resource.
 func (o SystemDataResponseOutput) CreatedBy() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SystemDataResponse) *string { return v.CreatedBy }).(pulumi.StringPtrOutput)
 }
 
-// The type of identity that created the resource.
 func (o SystemDataResponseOutput) CreatedByType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SystemDataResponse) *string { return v.CreatedByType }).(pulumi.StringPtrOutput)
 }
 
-// The timestamp of resource last modification (UTC)
 func (o SystemDataResponseOutput) LastModifiedAt() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SystemDataResponse) *string { return v.LastModifiedAt }).(pulumi.StringPtrOutput)
 }
 
-// The identity that last modified the resource.
 func (o SystemDataResponseOutput) LastModifiedBy() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SystemDataResponse) *string { return v.LastModifiedBy }).(pulumi.StringPtrOutput)
 }
 
-// The type of identity that last modified the resource.
 func (o SystemDataResponseOutput) LastModifiedByType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SystemDataResponse) *string { return v.LastModifiedByType }).(pulumi.StringPtrOutput)
 }
@@ -1543,10 +1363,15 @@ func (o SystemDataResponsePtrOutput) ToSystemDataResponsePtrOutputWithContext(ct
 }
 
 func (o SystemDataResponsePtrOutput) Elem() SystemDataResponseOutput {
-	return o.ApplyT(func(v *SystemDataResponse) SystemDataResponse { return *v }).(SystemDataResponseOutput)
+	return o.ApplyT(func(v *SystemDataResponse) SystemDataResponse {
+		if v != nil {
+			return *v
+		}
+		var ret SystemDataResponse
+		return ret
+	}).(SystemDataResponseOutput)
 }
 
-// The timestamp of resource creation (UTC).
 func (o SystemDataResponsePtrOutput) CreatedAt() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SystemDataResponse) *string {
 		if v == nil {
@@ -1556,7 +1381,6 @@ func (o SystemDataResponsePtrOutput) CreatedAt() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The identity that created the resource.
 func (o SystemDataResponsePtrOutput) CreatedBy() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SystemDataResponse) *string {
 		if v == nil {
@@ -1566,7 +1390,6 @@ func (o SystemDataResponsePtrOutput) CreatedBy() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The type of identity that created the resource.
 func (o SystemDataResponsePtrOutput) CreatedByType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SystemDataResponse) *string {
 		if v == nil {
@@ -1576,7 +1399,6 @@ func (o SystemDataResponsePtrOutput) CreatedByType() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The timestamp of resource last modification (UTC)
 func (o SystemDataResponsePtrOutput) LastModifiedAt() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SystemDataResponse) *string {
 		if v == nil {
@@ -1586,7 +1408,6 @@ func (o SystemDataResponsePtrOutput) LastModifiedAt() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The identity that last modified the resource.
 func (o SystemDataResponsePtrOutput) LastModifiedBy() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SystemDataResponse) *string {
 		if v == nil {
@@ -1596,7 +1417,6 @@ func (o SystemDataResponsePtrOutput) LastModifiedBy() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The type of identity that last modified the resource.
 func (o SystemDataResponsePtrOutput) LastModifiedByType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SystemDataResponse) *string {
 		if v == nil {
@@ -1606,16 +1426,11 @@ func (o SystemDataResponsePtrOutput) LastModifiedByType() pulumi.StringPtrOutput
 	}).(pulumi.StringPtrOutput)
 }
 
-// Legal agreement for a top level domain.
 type TldLegalAgreementResponse struct {
-	// Unique identifier for the agreement.
-	AgreementKey string `pulumi:"agreementKey"`
-	// Agreement details.
-	Content string `pulumi:"content"`
-	// Agreement title.
-	Title string `pulumi:"title"`
-	// URL where a copy of the agreement details is hosted.
-	Url *string `pulumi:"url"`
+	AgreementKey string  `pulumi:"agreementKey"`
+	Content      string  `pulumi:"content"`
+	Title        string  `pulumi:"title"`
+	Url          *string `pulumi:"url"`
 }
 
 // TldLegalAgreementResponseInput is an input type that accepts TldLegalAgreementResponseArgs and TldLegalAgreementResponseOutput values.
@@ -1629,16 +1444,11 @@ type TldLegalAgreementResponseInput interface {
 	ToTldLegalAgreementResponseOutputWithContext(context.Context) TldLegalAgreementResponseOutput
 }
 
-// Legal agreement for a top level domain.
 type TldLegalAgreementResponseArgs struct {
-	// Unique identifier for the agreement.
-	AgreementKey pulumi.StringInput `pulumi:"agreementKey"`
-	// Agreement details.
-	Content pulumi.StringInput `pulumi:"content"`
-	// Agreement title.
-	Title pulumi.StringInput `pulumi:"title"`
-	// URL where a copy of the agreement details is hosted.
-	Url pulumi.StringPtrInput `pulumi:"url"`
+	AgreementKey pulumi.StringInput    `pulumi:"agreementKey"`
+	Content      pulumi.StringInput    `pulumi:"content"`
+	Title        pulumi.StringInput    `pulumi:"title"`
+	Url          pulumi.StringPtrInput `pulumi:"url"`
 }
 
 func (TldLegalAgreementResponseArgs) ElementType() reflect.Type {
@@ -1678,7 +1488,6 @@ func (i TldLegalAgreementResponseArray) ToTldLegalAgreementResponseArrayOutputWi
 	return pulumi.ToOutputWithContext(ctx, i).(TldLegalAgreementResponseArrayOutput)
 }
 
-// Legal agreement for a top level domain.
 type TldLegalAgreementResponseOutput struct{ *pulumi.OutputState }
 
 func (TldLegalAgreementResponseOutput) ElementType() reflect.Type {
@@ -1693,22 +1502,18 @@ func (o TldLegalAgreementResponseOutput) ToTldLegalAgreementResponseOutputWithCo
 	return o
 }
 
-// Unique identifier for the agreement.
 func (o TldLegalAgreementResponseOutput) AgreementKey() pulumi.StringOutput {
 	return o.ApplyT(func(v TldLegalAgreementResponse) string { return v.AgreementKey }).(pulumi.StringOutput)
 }
 
-// Agreement details.
 func (o TldLegalAgreementResponseOutput) Content() pulumi.StringOutput {
 	return o.ApplyT(func(v TldLegalAgreementResponse) string { return v.Content }).(pulumi.StringOutput)
 }
 
-// Agreement title.
 func (o TldLegalAgreementResponseOutput) Title() pulumi.StringOutput {
 	return o.ApplyT(func(v TldLegalAgreementResponse) string { return v.Title }).(pulumi.StringOutput)
 }
 
-// URL where a copy of the agreement details is hosted.
 func (o TldLegalAgreementResponseOutput) Url() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v TldLegalAgreementResponse) *string { return v.Url }).(pulumi.StringPtrOutput)
 }

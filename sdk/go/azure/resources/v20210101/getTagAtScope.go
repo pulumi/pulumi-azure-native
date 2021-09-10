@@ -7,7 +7,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Wrapper resource for tags API requests and responses.
 func LookupTagAtScope(ctx *pulumi.Context, args *LookupTagAtScopeArgs, opts ...pulumi.InvokeOption) (*LookupTagAtScopeResult, error) {
 	var rv LookupTagAtScopeResult
 	err := ctx.Invoke("azure-native:resources/v20210101:getTagAtScope", args, &rv, opts...)
@@ -18,18 +17,13 @@ func LookupTagAtScope(ctx *pulumi.Context, args *LookupTagAtScopeArgs, opts ...p
 }
 
 type LookupTagAtScopeArgs struct {
-	// The resource scope.
 	Scope string `pulumi:"scope"`
 }
 
 // Wrapper resource for tags API requests and responses.
 type LookupTagAtScopeResult struct {
-	// The ID of the tags wrapper resource.
-	Id string `pulumi:"id"`
-	// The name of the tags wrapper resource.
-	Name string `pulumi:"name"`
-	// The set of tags.
+	Id         string       `pulumi:"id"`
+	Name       string       `pulumi:"name"`
 	Properties TagsResponse `pulumi:"properties"`
-	// The type of the tags wrapper resource.
-	Type string `pulumi:"type"`
+	Type       string       `pulumi:"type"`
 }

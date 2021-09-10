@@ -10,11 +10,8 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// The properties for a Media Services REST API endpoint.
 type ApiEndpointResponse struct {
-	// The Media Services REST endpoint.
-	Endpoint *string `pulumi:"endpoint"`
-	// The version of Media Services REST API.
+	Endpoint     *string `pulumi:"endpoint"`
 	MajorVersion *string `pulumi:"majorVersion"`
 }
 
@@ -29,11 +26,8 @@ type ApiEndpointResponseInput interface {
 	ToApiEndpointResponseOutputWithContext(context.Context) ApiEndpointResponseOutput
 }
 
-// The properties for a Media Services REST API endpoint.
 type ApiEndpointResponseArgs struct {
-	// The Media Services REST endpoint.
-	Endpoint pulumi.StringPtrInput `pulumi:"endpoint"`
-	// The version of Media Services REST API.
+	Endpoint     pulumi.StringPtrInput `pulumi:"endpoint"`
 	MajorVersion pulumi.StringPtrInput `pulumi:"majorVersion"`
 }
 
@@ -74,7 +68,6 @@ func (i ApiEndpointResponseArray) ToApiEndpointResponseArrayOutputWithContext(ct
 	return pulumi.ToOutputWithContext(ctx, i).(ApiEndpointResponseArrayOutput)
 }
 
-// The properties for a Media Services REST API endpoint.
 type ApiEndpointResponseOutput struct{ *pulumi.OutputState }
 
 func (ApiEndpointResponseOutput) ElementType() reflect.Type {
@@ -89,12 +82,10 @@ func (o ApiEndpointResponseOutput) ToApiEndpointResponseOutputWithContext(ctx co
 	return o
 }
 
-// The Media Services REST endpoint.
 func (o ApiEndpointResponseOutput) Endpoint() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ApiEndpointResponse) *string { return v.Endpoint }).(pulumi.StringPtrOutput)
 }
 
-// The version of Media Services REST API.
 func (o ApiEndpointResponseOutput) MajorVersion() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ApiEndpointResponse) *string { return v.MajorVersion }).(pulumi.StringPtrOutput)
 }
@@ -119,12 +110,9 @@ func (o ApiEndpointResponseArrayOutput) Index(i pulumi.IntInput) ApiEndpointResp
 	}).(ApiEndpointResponseOutput)
 }
 
-// The properties of a storage account associated with this resource.
 type StorageAccount struct {
-	// The id of the storage account resource. Media Services relies on tables and queues as well as blobs, so the primary storage account must be a Standard Storage account (either Microsoft.ClassicStorage or Microsoft.Storage). Blob only storage accounts can be added as secondary storage accounts (isPrimary false).
-	Id string `pulumi:"id"`
-	// Is this storage account resource the primary storage account for the Media Service resource. Blob only storage must set this to false.
-	IsPrimary bool `pulumi:"isPrimary"`
+	Id        string `pulumi:"id"`
+	IsPrimary bool   `pulumi:"isPrimary"`
 }
 
 // StorageAccountInput is an input type that accepts StorageAccountArgs and StorageAccountOutput values.
@@ -138,12 +126,9 @@ type StorageAccountInput interface {
 	ToStorageAccountOutputWithContext(context.Context) StorageAccountOutput
 }
 
-// The properties of a storage account associated with this resource.
 type StorageAccountArgs struct {
-	// The id of the storage account resource. Media Services relies on tables and queues as well as blobs, so the primary storage account must be a Standard Storage account (either Microsoft.ClassicStorage or Microsoft.Storage). Blob only storage accounts can be added as secondary storage accounts (isPrimary false).
-	Id pulumi.StringInput `pulumi:"id"`
-	// Is this storage account resource the primary storage account for the Media Service resource. Blob only storage must set this to false.
-	IsPrimary pulumi.BoolInput `pulumi:"isPrimary"`
+	Id        pulumi.StringInput `pulumi:"id"`
+	IsPrimary pulumi.BoolInput   `pulumi:"isPrimary"`
 }
 
 func (StorageAccountArgs) ElementType() reflect.Type {
@@ -183,7 +168,6 @@ func (i StorageAccountArray) ToStorageAccountArrayOutputWithContext(ctx context.
 	return pulumi.ToOutputWithContext(ctx, i).(StorageAccountArrayOutput)
 }
 
-// The properties of a storage account associated with this resource.
 type StorageAccountOutput struct{ *pulumi.OutputState }
 
 func (StorageAccountOutput) ElementType() reflect.Type {
@@ -198,12 +182,10 @@ func (o StorageAccountOutput) ToStorageAccountOutputWithContext(ctx context.Cont
 	return o
 }
 
-// The id of the storage account resource. Media Services relies on tables and queues as well as blobs, so the primary storage account must be a Standard Storage account (either Microsoft.ClassicStorage or Microsoft.Storage). Blob only storage accounts can be added as secondary storage accounts (isPrimary false).
 func (o StorageAccountOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v StorageAccount) string { return v.Id }).(pulumi.StringOutput)
 }
 
-// Is this storage account resource the primary storage account for the Media Service resource. Blob only storage must set this to false.
 func (o StorageAccountOutput) IsPrimary() pulumi.BoolOutput {
 	return o.ApplyT(func(v StorageAccount) bool { return v.IsPrimary }).(pulumi.BoolOutput)
 }
@@ -228,12 +210,9 @@ func (o StorageAccountArrayOutput) Index(i pulumi.IntInput) StorageAccountOutput
 	}).(StorageAccountOutput)
 }
 
-// The properties of a storage account associated with this resource.
 type StorageAccountResponse struct {
-	// The id of the storage account resource. Media Services relies on tables and queues as well as blobs, so the primary storage account must be a Standard Storage account (either Microsoft.ClassicStorage or Microsoft.Storage). Blob only storage accounts can be added as secondary storage accounts (isPrimary false).
-	Id string `pulumi:"id"`
-	// Is this storage account resource the primary storage account for the Media Service resource. Blob only storage must set this to false.
-	IsPrimary bool `pulumi:"isPrimary"`
+	Id        string `pulumi:"id"`
+	IsPrimary bool   `pulumi:"isPrimary"`
 }
 
 // StorageAccountResponseInput is an input type that accepts StorageAccountResponseArgs and StorageAccountResponseOutput values.
@@ -247,12 +226,9 @@ type StorageAccountResponseInput interface {
 	ToStorageAccountResponseOutputWithContext(context.Context) StorageAccountResponseOutput
 }
 
-// The properties of a storage account associated with this resource.
 type StorageAccountResponseArgs struct {
-	// The id of the storage account resource. Media Services relies on tables and queues as well as blobs, so the primary storage account must be a Standard Storage account (either Microsoft.ClassicStorage or Microsoft.Storage). Blob only storage accounts can be added as secondary storage accounts (isPrimary false).
-	Id pulumi.StringInput `pulumi:"id"`
-	// Is this storage account resource the primary storage account for the Media Service resource. Blob only storage must set this to false.
-	IsPrimary pulumi.BoolInput `pulumi:"isPrimary"`
+	Id        pulumi.StringInput `pulumi:"id"`
+	IsPrimary pulumi.BoolInput   `pulumi:"isPrimary"`
 }
 
 func (StorageAccountResponseArgs) ElementType() reflect.Type {
@@ -292,7 +268,6 @@ func (i StorageAccountResponseArray) ToStorageAccountResponseArrayOutputWithCont
 	return pulumi.ToOutputWithContext(ctx, i).(StorageAccountResponseArrayOutput)
 }
 
-// The properties of a storage account associated with this resource.
 type StorageAccountResponseOutput struct{ *pulumi.OutputState }
 
 func (StorageAccountResponseOutput) ElementType() reflect.Type {
@@ -307,12 +282,10 @@ func (o StorageAccountResponseOutput) ToStorageAccountResponseOutputWithContext(
 	return o
 }
 
-// The id of the storage account resource. Media Services relies on tables and queues as well as blobs, so the primary storage account must be a Standard Storage account (either Microsoft.ClassicStorage or Microsoft.Storage). Blob only storage accounts can be added as secondary storage accounts (isPrimary false).
 func (o StorageAccountResponseOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v StorageAccountResponse) string { return v.Id }).(pulumi.StringOutput)
 }
 
-// Is this storage account resource the primary storage account for the Media Service resource. Blob only storage must set this to false.
 func (o StorageAccountResponseOutput) IsPrimary() pulumi.BoolOutput {
 	return o.ApplyT(func(v StorageAccountResponse) bool { return v.IsPrimary }).(pulumi.BoolOutput)
 }

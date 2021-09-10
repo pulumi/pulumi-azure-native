@@ -234,9 +234,7 @@ func (i *MSIXPackage) ToMSIXPackageOutputWithContext(ctx context.Context) MSIXPa
 	return pulumi.ToOutputWithContext(ctx, i).(MSIXPackageOutput)
 }
 
-type MSIXPackageOutput struct {
-	*pulumi.OutputState
-}
+type MSIXPackageOutput struct{ *pulumi.OutputState }
 
 func (MSIXPackageOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*MSIXPackage)(nil))

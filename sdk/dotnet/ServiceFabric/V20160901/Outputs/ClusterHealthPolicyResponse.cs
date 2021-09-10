@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.ServiceFabric.V20160901.Outputs
 {
 
+    /// <summary>
+    /// Defines a health policy used to evaluate the health of the cluster or of a cluster node.
+    /// </summary>
     [OutputType]
     public sealed class ClusterHealthPolicyResponse
     {

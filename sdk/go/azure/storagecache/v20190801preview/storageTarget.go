@@ -11,26 +11,17 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// A storage system being cached by a Cache.
 type StorageTarget struct {
 	pulumi.CustomResourceState
 
-	// Properties when clfs target.
-	Clfs ClfsTargetResponsePtrOutput `pulumi:"clfs"`
-	// List of cache namespace to target namespace associations.
-	Junctions NamespaceJunctionResponseArrayOutput `pulumi:"junctions"`
-	// A fully qualified URL.
-	Name pulumi.StringOutput `pulumi:"name"`
-	// Properties when nfs3 target.
-	Nfs3 Nfs3TargetResponsePtrOutput `pulumi:"nfs3"`
-	// ARM provisioning state, see https://github.com/Azure/azure-resource-manager-rpc/blob/master/v1.0/Addendum.md#provisioningstate-property
-	ProvisioningState pulumi.StringPtrOutput `pulumi:"provisioningState"`
-	// Type for storage target.
-	TargetType pulumi.StringPtrOutput `pulumi:"targetType"`
-	// Type for the storage target; Microsoft.StorageCache/Cache/StorageTarget
-	Type pulumi.StringOutput `pulumi:"type"`
-	// Properties when unknown target.
-	Unknown UnknownTargetResponsePtrOutput `pulumi:"unknown"`
+	Clfs              ClfsTargetResponsePtrOutput          `pulumi:"clfs"`
+	Junctions         NamespaceJunctionResponseArrayOutput `pulumi:"junctions"`
+	Name              pulumi.StringOutput                  `pulumi:"name"`
+	Nfs3              Nfs3TargetResponsePtrOutput          `pulumi:"nfs3"`
+	ProvisioningState pulumi.StringPtrOutput               `pulumi:"provisioningState"`
+	TargetType        pulumi.StringPtrOutput               `pulumi:"targetType"`
+	Type              pulumi.StringOutput                  `pulumi:"type"`
+	Unknown           UnknownTargetResponsePtrOutput       `pulumi:"unknown"`
 }
 
 // NewStorageTarget registers a new resource with the given unique name, arguments, and options.
@@ -120,46 +111,28 @@ func (StorageTargetState) ElementType() reflect.Type {
 }
 
 type storageTargetArgs struct {
-	// Name of cache.
-	CacheName string `pulumi:"cacheName"`
-	// Properties when clfs target.
-	Clfs *ClfsTarget `pulumi:"clfs"`
-	// List of cache namespace to target namespace associations.
-	Junctions []NamespaceJunction `pulumi:"junctions"`
-	// Properties when nfs3 target.
-	Nfs3 *Nfs3Target `pulumi:"nfs3"`
-	// ARM provisioning state, see https://github.com/Azure/azure-resource-manager-rpc/blob/master/v1.0/Addendum.md#provisioningstate-property
-	ProvisioningState *string `pulumi:"provisioningState"`
-	// Target resource group.
-	ResourceGroupName string `pulumi:"resourceGroupName"`
-	// Name of storage target.
-	StorageTargetName *string `pulumi:"storageTargetName"`
-	// Type for storage target.
-	TargetType *string `pulumi:"targetType"`
-	// Properties when unknown target.
-	Unknown *UnknownTarget `pulumi:"unknown"`
+	CacheName         string              `pulumi:"cacheName"`
+	Clfs              *ClfsTarget         `pulumi:"clfs"`
+	Junctions         []NamespaceJunction `pulumi:"junctions"`
+	Nfs3              *Nfs3Target         `pulumi:"nfs3"`
+	ProvisioningState *string             `pulumi:"provisioningState"`
+	ResourceGroupName string              `pulumi:"resourceGroupName"`
+	StorageTargetName *string             `pulumi:"storageTargetName"`
+	TargetType        *string             `pulumi:"targetType"`
+	Unknown           *UnknownTarget      `pulumi:"unknown"`
 }
 
 // The set of arguments for constructing a StorageTarget resource.
 type StorageTargetArgs struct {
-	// Name of cache.
-	CacheName pulumi.StringInput
-	// Properties when clfs target.
-	Clfs ClfsTargetPtrInput
-	// List of cache namespace to target namespace associations.
-	Junctions NamespaceJunctionArrayInput
-	// Properties when nfs3 target.
-	Nfs3 Nfs3TargetPtrInput
-	// ARM provisioning state, see https://github.com/Azure/azure-resource-manager-rpc/blob/master/v1.0/Addendum.md#provisioningstate-property
+	CacheName         pulumi.StringInput
+	Clfs              ClfsTargetPtrInput
+	Junctions         NamespaceJunctionArrayInput
+	Nfs3              Nfs3TargetPtrInput
 	ProvisioningState pulumi.StringPtrInput
-	// Target resource group.
 	ResourceGroupName pulumi.StringInput
-	// Name of storage target.
 	StorageTargetName pulumi.StringPtrInput
-	// Type for storage target.
-	TargetType pulumi.StringPtrInput
-	// Properties when unknown target.
-	Unknown UnknownTargetPtrInput
+	TargetType        pulumi.StringPtrInput
+	Unknown           UnknownTargetPtrInput
 }
 
 func (StorageTargetArgs) ElementType() reflect.Type {
@@ -185,9 +158,7 @@ func (i *StorageTarget) ToStorageTargetOutputWithContext(ctx context.Context) St
 	return pulumi.ToOutputWithContext(ctx, i).(StorageTargetOutput)
 }
 
-type StorageTargetOutput struct {
-	*pulumi.OutputState
-}
+type StorageTargetOutput struct{ *pulumi.OutputState }
 
 func (StorageTargetOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*StorageTarget)(nil))

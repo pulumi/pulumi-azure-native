@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.Migrate.V20191001Preview.Outputs
 {
 
+    /// <summary>
+    /// Gets or sets the virtual machine resource settings.
+    /// </summary>
     [OutputType]
     public sealed class VirtualMachineResourceSettingsResponse
     {

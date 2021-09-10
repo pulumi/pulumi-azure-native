@@ -157,9 +157,7 @@ func (i *LogProfile) ToLogProfileOutputWithContext(ctx context.Context) LogProfi
 	return pulumi.ToOutputWithContext(ctx, i).(LogProfileOutput)
 }
 
-type LogProfileOutput struct {
-	*pulumi.OutputState
-}
+type LogProfileOutput struct{ *pulumi.OutputState }
 
 func (LogProfileOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*LogProfile)(nil))

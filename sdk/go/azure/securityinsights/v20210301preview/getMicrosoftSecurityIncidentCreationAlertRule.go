@@ -7,7 +7,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Represents MicrosoftSecurityIncidentCreation rule.
 func LookupMicrosoftSecurityIncidentCreationAlertRule(ctx *pulumi.Context, args *LookupMicrosoftSecurityIncidentCreationAlertRuleArgs, opts ...pulumi.InvokeOption) (*LookupMicrosoftSecurityIncidentCreationAlertRuleResult, error) {
 	var rv LookupMicrosoftSecurityIncidentCreationAlertRuleResult
 	err := ctx.Invoke("azure-native:securityinsights/v20210301preview:getMicrosoftSecurityIncidentCreationAlertRule", args, &rv, opts...)
@@ -18,47 +17,27 @@ func LookupMicrosoftSecurityIncidentCreationAlertRule(ctx *pulumi.Context, args 
 }
 
 type LookupMicrosoftSecurityIncidentCreationAlertRuleArgs struct {
-	// The namespace of workspaces resource provider- Microsoft.OperationalInsights.
 	OperationalInsightsResourceProvider string `pulumi:"operationalInsightsResourceProvider"`
-	// The name of the resource group. The name is case insensitive.
-	ResourceGroupName string `pulumi:"resourceGroupName"`
-	// Alert rule ID
-	RuleId string `pulumi:"ruleId"`
-	// The name of the workspace.
-	WorkspaceName string `pulumi:"workspaceName"`
+	ResourceGroupName                   string `pulumi:"resourceGroupName"`
+	RuleId                              string `pulumi:"ruleId"`
+	WorkspaceName                       string `pulumi:"workspaceName"`
 }
 
 // Represents MicrosoftSecurityIncidentCreation rule.
 type LookupMicrosoftSecurityIncidentCreationAlertRuleResult struct {
-	// The Name of the alert rule template used to create this rule.
-	AlertRuleTemplateName *string `pulumi:"alertRuleTemplateName"`
-	// The description of the alert rule.
-	Description *string `pulumi:"description"`
-	// The display name for alerts created by this alert rule.
-	DisplayName string `pulumi:"displayName"`
-	// the alerts' displayNames on which the cases will not be generated
-	DisplayNamesExcludeFilter []string `pulumi:"displayNamesExcludeFilter"`
-	// the alerts' displayNames on which the cases will be generated
-	DisplayNamesFilter []string `pulumi:"displayNamesFilter"`
-	// Determines whether this alert rule is enabled or disabled.
-	Enabled bool `pulumi:"enabled"`
-	// Etag of the azure resource
-	Etag *string `pulumi:"etag"`
-	// Azure resource Id
-	Id string `pulumi:"id"`
-	// The kind of the alert rule
-	// Expected value is 'MicrosoftSecurityIncidentCreation'.
-	Kind string `pulumi:"kind"`
-	// The last time that this alert has been modified.
-	LastModifiedUtc string `pulumi:"lastModifiedUtc"`
-	// Azure resource name
-	Name string `pulumi:"name"`
-	// The alerts' productName on which the cases will be generated
-	ProductFilter string `pulumi:"productFilter"`
-	// the alerts' severities on which the cases will be generated
-	SeveritiesFilter []string `pulumi:"severitiesFilter"`
-	// Azure Resource Manager metadata containing createdBy and modifiedBy information.
-	SystemData SystemDataResponse `pulumi:"systemData"`
-	// Azure resource type
-	Type string `pulumi:"type"`
+	AlertRuleTemplateName     *string            `pulumi:"alertRuleTemplateName"`
+	Description               *string            `pulumi:"description"`
+	DisplayName               string             `pulumi:"displayName"`
+	DisplayNamesExcludeFilter []string           `pulumi:"displayNamesExcludeFilter"`
+	DisplayNamesFilter        []string           `pulumi:"displayNamesFilter"`
+	Enabled                   bool               `pulumi:"enabled"`
+	Etag                      *string            `pulumi:"etag"`
+	Id                        string             `pulumi:"id"`
+	Kind                      string             `pulumi:"kind"`
+	LastModifiedUtc           string             `pulumi:"lastModifiedUtc"`
+	Name                      string             `pulumi:"name"`
+	ProductFilter             string             `pulumi:"productFilter"`
+	SeveritiesFilter          []string           `pulumi:"severitiesFilter"`
+	SystemData                SystemDataResponse `pulumi:"systemData"`
+	Type                      string             `pulumi:"type"`
 }

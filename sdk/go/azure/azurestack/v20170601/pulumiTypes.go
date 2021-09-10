@@ -10,16 +10,11 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Product compatibility
 type CompatibilityResponse struct {
-	// Full error message if any compatibility issues are found
-	Description *string `pulumi:"description"`
-	// Tells if product is compatible with current device
-	IsCompatible *bool `pulumi:"isCompatible"`
-	// List of all issues found
-	Issues []string `pulumi:"issues"`
-	// Short error message if any compatibility issues are found
-	Message *string `pulumi:"message"`
+	Description  *string  `pulumi:"description"`
+	IsCompatible *bool    `pulumi:"isCompatible"`
+	Issues       []string `pulumi:"issues"`
+	Message      *string  `pulumi:"message"`
 }
 
 // CompatibilityResponseInput is an input type that accepts CompatibilityResponseArgs and CompatibilityResponseOutput values.
@@ -33,16 +28,11 @@ type CompatibilityResponseInput interface {
 	ToCompatibilityResponseOutputWithContext(context.Context) CompatibilityResponseOutput
 }
 
-// Product compatibility
 type CompatibilityResponseArgs struct {
-	// Full error message if any compatibility issues are found
-	Description pulumi.StringPtrInput `pulumi:"description"`
-	// Tells if product is compatible with current device
-	IsCompatible pulumi.BoolPtrInput `pulumi:"isCompatible"`
-	// List of all issues found
-	Issues pulumi.StringArrayInput `pulumi:"issues"`
-	// Short error message if any compatibility issues are found
-	Message pulumi.StringPtrInput `pulumi:"message"`
+	Description  pulumi.StringPtrInput   `pulumi:"description"`
+	IsCompatible pulumi.BoolPtrInput     `pulumi:"isCompatible"`
+	Issues       pulumi.StringArrayInput `pulumi:"issues"`
+	Message      pulumi.StringPtrInput   `pulumi:"message"`
 }
 
 func (CompatibilityResponseArgs) ElementType() reflect.Type {
@@ -98,7 +88,6 @@ func (i *compatibilityResponsePtrType) ToCompatibilityResponsePtrOutputWithConte
 	return pulumi.ToOutputWithContext(ctx, i).(CompatibilityResponsePtrOutput)
 }
 
-// Product compatibility
 type CompatibilityResponseOutput struct{ *pulumi.OutputState }
 
 func (CompatibilityResponseOutput) ElementType() reflect.Type {
@@ -118,27 +107,23 @@ func (o CompatibilityResponseOutput) ToCompatibilityResponsePtrOutput() Compatib
 }
 
 func (o CompatibilityResponseOutput) ToCompatibilityResponsePtrOutputWithContext(ctx context.Context) CompatibilityResponsePtrOutput {
-	return o.ApplyT(func(v CompatibilityResponse) *CompatibilityResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v CompatibilityResponse) *CompatibilityResponse {
 		return &v
 	}).(CompatibilityResponsePtrOutput)
 }
 
-// Full error message if any compatibility issues are found
 func (o CompatibilityResponseOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v CompatibilityResponse) *string { return v.Description }).(pulumi.StringPtrOutput)
 }
 
-// Tells if product is compatible with current device
 func (o CompatibilityResponseOutput) IsCompatible() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v CompatibilityResponse) *bool { return v.IsCompatible }).(pulumi.BoolPtrOutput)
 }
 
-// List of all issues found
 func (o CompatibilityResponseOutput) Issues() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v CompatibilityResponse) []string { return v.Issues }).(pulumi.StringArrayOutput)
 }
 
-// Short error message if any compatibility issues are found
 func (o CompatibilityResponseOutput) Message() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v CompatibilityResponse) *string { return v.Message }).(pulumi.StringPtrOutput)
 }
@@ -158,10 +143,15 @@ func (o CompatibilityResponsePtrOutput) ToCompatibilityResponsePtrOutputWithCont
 }
 
 func (o CompatibilityResponsePtrOutput) Elem() CompatibilityResponseOutput {
-	return o.ApplyT(func(v *CompatibilityResponse) CompatibilityResponse { return *v }).(CompatibilityResponseOutput)
+	return o.ApplyT(func(v *CompatibilityResponse) CompatibilityResponse {
+		if v != nil {
+			return *v
+		}
+		var ret CompatibilityResponse
+		return ret
+	}).(CompatibilityResponseOutput)
 }
 
-// Full error message if any compatibility issues are found
 func (o CompatibilityResponsePtrOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *CompatibilityResponse) *string {
 		if v == nil {
@@ -171,7 +161,6 @@ func (o CompatibilityResponsePtrOutput) Description() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Tells if product is compatible with current device
 func (o CompatibilityResponsePtrOutput) IsCompatible() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *CompatibilityResponse) *bool {
 		if v == nil {
@@ -181,7 +170,6 @@ func (o CompatibilityResponsePtrOutput) IsCompatible() pulumi.BoolPtrOutput {
 	}).(pulumi.BoolPtrOutput)
 }
 
-// List of all issues found
 func (o CompatibilityResponsePtrOutput) Issues() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *CompatibilityResponse) []string {
 		if v == nil {
@@ -191,7 +179,6 @@ func (o CompatibilityResponsePtrOutput) Issues() pulumi.StringArrayOutput {
 	}).(pulumi.StringArrayOutput)
 }
 
-// Short error message if any compatibility issues are found
 func (o CompatibilityResponsePtrOutput) Message() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *CompatibilityResponse) *string {
 		if v == nil {
@@ -201,11 +188,8 @@ func (o CompatibilityResponsePtrOutput) Message() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Data disk image.
 type DataDiskImageResponse struct {
-	// The LUN.
-	Lun int `pulumi:"lun"`
-	// SAS key for source blob.
+	Lun              int    `pulumi:"lun"`
 	SourceBlobSasUri string `pulumi:"sourceBlobSasUri"`
 }
 
@@ -220,11 +204,8 @@ type DataDiskImageResponseInput interface {
 	ToDataDiskImageResponseOutputWithContext(context.Context) DataDiskImageResponseOutput
 }
 
-// Data disk image.
 type DataDiskImageResponseArgs struct {
-	// The LUN.
-	Lun pulumi.IntInput `pulumi:"lun"`
-	// SAS key for source blob.
+	Lun              pulumi.IntInput    `pulumi:"lun"`
 	SourceBlobSasUri pulumi.StringInput `pulumi:"sourceBlobSasUri"`
 }
 
@@ -265,7 +246,6 @@ func (i DataDiskImageResponseArray) ToDataDiskImageResponseArrayOutputWithContex
 	return pulumi.ToOutputWithContext(ctx, i).(DataDiskImageResponseArrayOutput)
 }
 
-// Data disk image.
 type DataDiskImageResponseOutput struct{ *pulumi.OutputState }
 
 func (DataDiskImageResponseOutput) ElementType() reflect.Type {
@@ -280,12 +260,10 @@ func (o DataDiskImageResponseOutput) ToDataDiskImageResponseOutputWithContext(ct
 	return o
 }
 
-// The LUN.
 func (o DataDiskImageResponseOutput) Lun() pulumi.IntOutput {
 	return o.ApplyT(func(v DataDiskImageResponse) int { return v.Lun }).(pulumi.IntOutput)
 }
 
-// SAS key for source blob.
 func (o DataDiskImageResponseOutput) SourceBlobSasUri() pulumi.StringOutput {
 	return o.ApplyT(func(v DataDiskImageResponse) string { return v.SourceBlobSasUri }).(pulumi.StringOutput)
 }
@@ -310,18 +288,12 @@ func (o DataDiskImageResponseArrayOutput) Index(i pulumi.IntInput) DataDiskImage
 	}).(DataDiskImageResponseOutput)
 }
 
-// Links to product icons.
 type IconUrisResponse struct {
-	// URI to hero icon.
-	Hero *string `pulumi:"hero"`
-	// URI to large icon.
-	Large *string `pulumi:"large"`
-	// URI to medium icon.
+	Hero   *string `pulumi:"hero"`
+	Large  *string `pulumi:"large"`
 	Medium *string `pulumi:"medium"`
-	// URI to small icon.
-	Small *string `pulumi:"small"`
-	// URI to wide icon.
-	Wide *string `pulumi:"wide"`
+	Small  *string `pulumi:"small"`
+	Wide   *string `pulumi:"wide"`
 }
 
 // IconUrisResponseInput is an input type that accepts IconUrisResponseArgs and IconUrisResponseOutput values.
@@ -335,18 +307,12 @@ type IconUrisResponseInput interface {
 	ToIconUrisResponseOutputWithContext(context.Context) IconUrisResponseOutput
 }
 
-// Links to product icons.
 type IconUrisResponseArgs struct {
-	// URI to hero icon.
-	Hero pulumi.StringPtrInput `pulumi:"hero"`
-	// URI to large icon.
-	Large pulumi.StringPtrInput `pulumi:"large"`
-	// URI to medium icon.
+	Hero   pulumi.StringPtrInput `pulumi:"hero"`
+	Large  pulumi.StringPtrInput `pulumi:"large"`
 	Medium pulumi.StringPtrInput `pulumi:"medium"`
-	// URI to small icon.
-	Small pulumi.StringPtrInput `pulumi:"small"`
-	// URI to wide icon.
-	Wide pulumi.StringPtrInput `pulumi:"wide"`
+	Small  pulumi.StringPtrInput `pulumi:"small"`
+	Wide   pulumi.StringPtrInput `pulumi:"wide"`
 }
 
 func (IconUrisResponseArgs) ElementType() reflect.Type {
@@ -402,7 +368,6 @@ func (i *iconUrisResponsePtrType) ToIconUrisResponsePtrOutputWithContext(ctx con
 	return pulumi.ToOutputWithContext(ctx, i).(IconUrisResponsePtrOutput)
 }
 
-// Links to product icons.
 type IconUrisResponseOutput struct{ *pulumi.OutputState }
 
 func (IconUrisResponseOutput) ElementType() reflect.Type {
@@ -422,32 +387,27 @@ func (o IconUrisResponseOutput) ToIconUrisResponsePtrOutput() IconUrisResponsePt
 }
 
 func (o IconUrisResponseOutput) ToIconUrisResponsePtrOutputWithContext(ctx context.Context) IconUrisResponsePtrOutput {
-	return o.ApplyT(func(v IconUrisResponse) *IconUrisResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v IconUrisResponse) *IconUrisResponse {
 		return &v
 	}).(IconUrisResponsePtrOutput)
 }
 
-// URI to hero icon.
 func (o IconUrisResponseOutput) Hero() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v IconUrisResponse) *string { return v.Hero }).(pulumi.StringPtrOutput)
 }
 
-// URI to large icon.
 func (o IconUrisResponseOutput) Large() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v IconUrisResponse) *string { return v.Large }).(pulumi.StringPtrOutput)
 }
 
-// URI to medium icon.
 func (o IconUrisResponseOutput) Medium() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v IconUrisResponse) *string { return v.Medium }).(pulumi.StringPtrOutput)
 }
 
-// URI to small icon.
 func (o IconUrisResponseOutput) Small() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v IconUrisResponse) *string { return v.Small }).(pulumi.StringPtrOutput)
 }
 
-// URI to wide icon.
 func (o IconUrisResponseOutput) Wide() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v IconUrisResponse) *string { return v.Wide }).(pulumi.StringPtrOutput)
 }
@@ -467,10 +427,15 @@ func (o IconUrisResponsePtrOutput) ToIconUrisResponsePtrOutputWithContext(ctx co
 }
 
 func (o IconUrisResponsePtrOutput) Elem() IconUrisResponseOutput {
-	return o.ApplyT(func(v *IconUrisResponse) IconUrisResponse { return *v }).(IconUrisResponseOutput)
+	return o.ApplyT(func(v *IconUrisResponse) IconUrisResponse {
+		if v != nil {
+			return *v
+		}
+		var ret IconUrisResponse
+		return ret
+	}).(IconUrisResponseOutput)
 }
 
-// URI to hero icon.
 func (o IconUrisResponsePtrOutput) Hero() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *IconUrisResponse) *string {
 		if v == nil {
@@ -480,7 +445,6 @@ func (o IconUrisResponsePtrOutput) Hero() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// URI to large icon.
 func (o IconUrisResponsePtrOutput) Large() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *IconUrisResponse) *string {
 		if v == nil {
@@ -490,7 +454,6 @@ func (o IconUrisResponsePtrOutput) Large() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// URI to medium icon.
 func (o IconUrisResponsePtrOutput) Medium() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *IconUrisResponse) *string {
 		if v == nil {
@@ -500,7 +463,6 @@ func (o IconUrisResponsePtrOutput) Medium() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// URI to small icon.
 func (o IconUrisResponsePtrOutput) Small() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *IconUrisResponse) *string {
 		if v == nil {
@@ -510,7 +472,6 @@ func (o IconUrisResponsePtrOutput) Small() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// URI to wide icon.
 func (o IconUrisResponsePtrOutput) Wide() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *IconUrisResponse) *string {
 		if v == nil {
@@ -520,11 +481,8 @@ func (o IconUrisResponsePtrOutput) Wide() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// OS disk image.
 type OsDiskImageResponse struct {
-	// OS operating system type.
-	OperatingSystem string `pulumi:"operatingSystem"`
-	// SAS key for source blob.
+	OperatingSystem  string `pulumi:"operatingSystem"`
 	SourceBlobSasUri string `pulumi:"sourceBlobSasUri"`
 }
 
@@ -539,11 +497,8 @@ type OsDiskImageResponseInput interface {
 	ToOsDiskImageResponseOutputWithContext(context.Context) OsDiskImageResponseOutput
 }
 
-// OS disk image.
 type OsDiskImageResponseArgs struct {
-	// OS operating system type.
-	OperatingSystem pulumi.StringInput `pulumi:"operatingSystem"`
-	// SAS key for source blob.
+	OperatingSystem  pulumi.StringInput `pulumi:"operatingSystem"`
 	SourceBlobSasUri pulumi.StringInput `pulumi:"sourceBlobSasUri"`
 }
 
@@ -559,7 +514,6 @@ func (i OsDiskImageResponseArgs) ToOsDiskImageResponseOutputWithContext(ctx cont
 	return pulumi.ToOutputWithContext(ctx, i).(OsDiskImageResponseOutput)
 }
 
-// OS disk image.
 type OsDiskImageResponseOutput struct{ *pulumi.OutputState }
 
 func (OsDiskImageResponseOutput) ElementType() reflect.Type {
@@ -574,22 +528,17 @@ func (o OsDiskImageResponseOutput) ToOsDiskImageResponseOutputWithContext(ctx co
 	return o
 }
 
-// OS operating system type.
 func (o OsDiskImageResponseOutput) OperatingSystem() pulumi.StringOutput {
 	return o.ApplyT(func(v OsDiskImageResponse) string { return v.OperatingSystem }).(pulumi.StringOutput)
 }
 
-// SAS key for source blob.
 func (o OsDiskImageResponseOutput) SourceBlobSasUri() pulumi.StringOutput {
 	return o.ApplyT(func(v OsDiskImageResponse) string { return v.SourceBlobSasUri }).(pulumi.StringOutput)
 }
 
-// Link with additional information about a product.
 type ProductLinkResponse struct {
-	// The description of the link.
 	DisplayName *string `pulumi:"displayName"`
-	// The URI corresponding to the link.
-	Uri *string `pulumi:"uri"`
+	Uri         *string `pulumi:"uri"`
 }
 
 // ProductLinkResponseInput is an input type that accepts ProductLinkResponseArgs and ProductLinkResponseOutput values.
@@ -603,12 +552,9 @@ type ProductLinkResponseInput interface {
 	ToProductLinkResponseOutputWithContext(context.Context) ProductLinkResponseOutput
 }
 
-// Link with additional information about a product.
 type ProductLinkResponseArgs struct {
-	// The description of the link.
 	DisplayName pulumi.StringPtrInput `pulumi:"displayName"`
-	// The URI corresponding to the link.
-	Uri pulumi.StringPtrInput `pulumi:"uri"`
+	Uri         pulumi.StringPtrInput `pulumi:"uri"`
 }
 
 func (ProductLinkResponseArgs) ElementType() reflect.Type {
@@ -648,7 +594,6 @@ func (i ProductLinkResponseArray) ToProductLinkResponseArrayOutputWithContext(ct
 	return pulumi.ToOutputWithContext(ctx, i).(ProductLinkResponseArrayOutput)
 }
 
-// Link with additional information about a product.
 type ProductLinkResponseOutput struct{ *pulumi.OutputState }
 
 func (ProductLinkResponseOutput) ElementType() reflect.Type {
@@ -663,12 +608,10 @@ func (o ProductLinkResponseOutput) ToProductLinkResponseOutputWithContext(ctx co
 	return o
 }
 
-// The description of the link.
 func (o ProductLinkResponseOutput) DisplayName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ProductLinkResponse) *string { return v.DisplayName }).(pulumi.StringPtrOutput)
 }
 
-// The URI corresponding to the link.
 func (o ProductLinkResponseOutput) Uri() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ProductLinkResponse) *string { return v.Uri }).(pulumi.StringPtrOutput)
 }
@@ -693,9 +636,7 @@ func (o ProductLinkResponseArrayOutput) Index(i pulumi.IntInput) ProductLinkResp
 	}).(ProductLinkResponseOutput)
 }
 
-// Additional properties of the product
 type ProductPropertiesResponse struct {
-	// The version.
 	Version *string `pulumi:"version"`
 }
 
@@ -710,9 +651,7 @@ type ProductPropertiesResponseInput interface {
 	ToProductPropertiesResponseOutputWithContext(context.Context) ProductPropertiesResponseOutput
 }
 
-// Additional properties of the product
 type ProductPropertiesResponseArgs struct {
-	// The version.
 	Version pulumi.StringPtrInput `pulumi:"version"`
 }
 
@@ -769,7 +708,6 @@ func (i *productPropertiesResponsePtrType) ToProductPropertiesResponsePtrOutputW
 	return pulumi.ToOutputWithContext(ctx, i).(ProductPropertiesResponsePtrOutput)
 }
 
-// Additional properties of the product
 type ProductPropertiesResponseOutput struct{ *pulumi.OutputState }
 
 func (ProductPropertiesResponseOutput) ElementType() reflect.Type {
@@ -789,12 +727,11 @@ func (o ProductPropertiesResponseOutput) ToProductPropertiesResponsePtrOutput() 
 }
 
 func (o ProductPropertiesResponseOutput) ToProductPropertiesResponsePtrOutputWithContext(ctx context.Context) ProductPropertiesResponsePtrOutput {
-	return o.ApplyT(func(v ProductPropertiesResponse) *ProductPropertiesResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ProductPropertiesResponse) *ProductPropertiesResponse {
 		return &v
 	}).(ProductPropertiesResponsePtrOutput)
 }
 
-// The version.
 func (o ProductPropertiesResponseOutput) Version() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ProductPropertiesResponse) *string { return v.Version }).(pulumi.StringPtrOutput)
 }
@@ -814,10 +751,15 @@ func (o ProductPropertiesResponsePtrOutput) ToProductPropertiesResponsePtrOutput
 }
 
 func (o ProductPropertiesResponsePtrOutput) Elem() ProductPropertiesResponseOutput {
-	return o.ApplyT(func(v *ProductPropertiesResponse) ProductPropertiesResponse { return *v }).(ProductPropertiesResponseOutput)
+	return o.ApplyT(func(v *ProductPropertiesResponse) ProductPropertiesResponse {
+		if v != nil {
+			return *v
+		}
+		var ret ProductPropertiesResponse
+		return ret
+	}).(ProductPropertiesResponseOutput)
 }
 
-// The version.
 func (o ProductPropertiesResponsePtrOutput) Version() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ProductPropertiesResponse) *string {
 		if v == nil {
@@ -827,52 +769,29 @@ func (o ProductPropertiesResponsePtrOutput) Version() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Product information.
 type ProductResponse struct {
-	// The part number used for billing purposes.
-	BillingPartNumber *string `pulumi:"billingPartNumber"`
-	// Product compatibility with current device.
-	Compatibility *CompatibilityResponse `pulumi:"compatibility"`
-	// The description of the product.
-	Description *string `pulumi:"description"`
-	// The display name of the product.
-	DisplayName *string `pulumi:"displayName"`
-	// The entity tag used for optimistic concurrency when modifying the resource.
-	Etag *string `pulumi:"etag"`
-	// The identifier of the gallery item corresponding to the product.
-	GalleryItemIdentity *string `pulumi:"galleryItemIdentity"`
-	// Additional links available for this product.
-	IconUris *IconUrisResponse `pulumi:"iconUris"`
-	// ID of the resource.
-	Id string `pulumi:"id"`
-	// The legal terms.
-	LegalTerms *string `pulumi:"legalTerms"`
-	// Additional links available for this product.
-	Links []ProductLinkResponse `pulumi:"links"`
-	// Name of the resource.
-	Name string `pulumi:"name"`
-	// The offer representing the product.
-	Offer *string `pulumi:"offer"`
-	// The version of the product offer.
-	OfferVersion *string `pulumi:"offerVersion"`
-	// The length of product content.
-	PayloadLength *float64 `pulumi:"payloadLength"`
-	// The privacy policy.
-	PrivacyPolicy *string `pulumi:"privacyPolicy"`
-	// The kind of the product (virtualMachine or virtualMachineExtension)
-	ProductKind *string `pulumi:"productKind"`
-	// Additional properties for the product.
-	ProductProperties *ProductPropertiesResponse `pulumi:"productProperties"`
-	// The user-friendly name of the product publisher.
-	PublisherDisplayName *string `pulumi:"publisherDisplayName"`
-	// Publisher identifier.
-	PublisherIdentifier *string `pulumi:"publisherIdentifier"`
-	// The product SKU.
-	Sku *string `pulumi:"sku"`
-	// Type of Resource.
-	Type string `pulumi:"type"`
-	// The type of the Virtual Machine Extension.
-	VmExtensionType *string `pulumi:"vmExtensionType"`
+	BillingPartNumber    *string                    `pulumi:"billingPartNumber"`
+	Compatibility        *CompatibilityResponse     `pulumi:"compatibility"`
+	Description          *string                    `pulumi:"description"`
+	DisplayName          *string                    `pulumi:"displayName"`
+	Etag                 *string                    `pulumi:"etag"`
+	GalleryItemIdentity  *string                    `pulumi:"galleryItemIdentity"`
+	IconUris             *IconUrisResponse          `pulumi:"iconUris"`
+	Id                   string                     `pulumi:"id"`
+	LegalTerms           *string                    `pulumi:"legalTerms"`
+	Links                []ProductLinkResponse      `pulumi:"links"`
+	Name                 string                     `pulumi:"name"`
+	Offer                *string                    `pulumi:"offer"`
+	OfferVersion         *string                    `pulumi:"offerVersion"`
+	PayloadLength        *float64                   `pulumi:"payloadLength"`
+	PrivacyPolicy        *string                    `pulumi:"privacyPolicy"`
+	ProductKind          *string                    `pulumi:"productKind"`
+	ProductProperties    *ProductPropertiesResponse `pulumi:"productProperties"`
+	PublisherDisplayName *string                    `pulumi:"publisherDisplayName"`
+	PublisherIdentifier  *string                    `pulumi:"publisherIdentifier"`
+	Sku                  *string                    `pulumi:"sku"`
+	Type                 string                     `pulumi:"type"`
+	VmExtensionType      *string                    `pulumi:"vmExtensionType"`
 }
 
 // ProductResponseInput is an input type that accepts ProductResponseArgs and ProductResponseOutput values.
@@ -886,52 +805,29 @@ type ProductResponseInput interface {
 	ToProductResponseOutputWithContext(context.Context) ProductResponseOutput
 }
 
-// Product information.
 type ProductResponseArgs struct {
-	// The part number used for billing purposes.
-	BillingPartNumber pulumi.StringPtrInput `pulumi:"billingPartNumber"`
-	// Product compatibility with current device.
-	Compatibility CompatibilityResponsePtrInput `pulumi:"compatibility"`
-	// The description of the product.
-	Description pulumi.StringPtrInput `pulumi:"description"`
-	// The display name of the product.
-	DisplayName pulumi.StringPtrInput `pulumi:"displayName"`
-	// The entity tag used for optimistic concurrency when modifying the resource.
-	Etag pulumi.StringPtrInput `pulumi:"etag"`
-	// The identifier of the gallery item corresponding to the product.
-	GalleryItemIdentity pulumi.StringPtrInput `pulumi:"galleryItemIdentity"`
-	// Additional links available for this product.
-	IconUris IconUrisResponsePtrInput `pulumi:"iconUris"`
-	// ID of the resource.
-	Id pulumi.StringInput `pulumi:"id"`
-	// The legal terms.
-	LegalTerms pulumi.StringPtrInput `pulumi:"legalTerms"`
-	// Additional links available for this product.
-	Links ProductLinkResponseArrayInput `pulumi:"links"`
-	// Name of the resource.
-	Name pulumi.StringInput `pulumi:"name"`
-	// The offer representing the product.
-	Offer pulumi.StringPtrInput `pulumi:"offer"`
-	// The version of the product offer.
-	OfferVersion pulumi.StringPtrInput `pulumi:"offerVersion"`
-	// The length of product content.
-	PayloadLength pulumi.Float64PtrInput `pulumi:"payloadLength"`
-	// The privacy policy.
-	PrivacyPolicy pulumi.StringPtrInput `pulumi:"privacyPolicy"`
-	// The kind of the product (virtualMachine or virtualMachineExtension)
-	ProductKind pulumi.StringPtrInput `pulumi:"productKind"`
-	// Additional properties for the product.
-	ProductProperties ProductPropertiesResponsePtrInput `pulumi:"productProperties"`
-	// The user-friendly name of the product publisher.
-	PublisherDisplayName pulumi.StringPtrInput `pulumi:"publisherDisplayName"`
-	// Publisher identifier.
-	PublisherIdentifier pulumi.StringPtrInput `pulumi:"publisherIdentifier"`
-	// The product SKU.
-	Sku pulumi.StringPtrInput `pulumi:"sku"`
-	// Type of Resource.
-	Type pulumi.StringInput `pulumi:"type"`
-	// The type of the Virtual Machine Extension.
-	VmExtensionType pulumi.StringPtrInput `pulumi:"vmExtensionType"`
+	BillingPartNumber    pulumi.StringPtrInput             `pulumi:"billingPartNumber"`
+	Compatibility        CompatibilityResponsePtrInput     `pulumi:"compatibility"`
+	Description          pulumi.StringPtrInput             `pulumi:"description"`
+	DisplayName          pulumi.StringPtrInput             `pulumi:"displayName"`
+	Etag                 pulumi.StringPtrInput             `pulumi:"etag"`
+	GalleryItemIdentity  pulumi.StringPtrInput             `pulumi:"galleryItemIdentity"`
+	IconUris             IconUrisResponsePtrInput          `pulumi:"iconUris"`
+	Id                   pulumi.StringInput                `pulumi:"id"`
+	LegalTerms           pulumi.StringPtrInput             `pulumi:"legalTerms"`
+	Links                ProductLinkResponseArrayInput     `pulumi:"links"`
+	Name                 pulumi.StringInput                `pulumi:"name"`
+	Offer                pulumi.StringPtrInput             `pulumi:"offer"`
+	OfferVersion         pulumi.StringPtrInput             `pulumi:"offerVersion"`
+	PayloadLength        pulumi.Float64PtrInput            `pulumi:"payloadLength"`
+	PrivacyPolicy        pulumi.StringPtrInput             `pulumi:"privacyPolicy"`
+	ProductKind          pulumi.StringPtrInput             `pulumi:"productKind"`
+	ProductProperties    ProductPropertiesResponsePtrInput `pulumi:"productProperties"`
+	PublisherDisplayName pulumi.StringPtrInput             `pulumi:"publisherDisplayName"`
+	PublisherIdentifier  pulumi.StringPtrInput             `pulumi:"publisherIdentifier"`
+	Sku                  pulumi.StringPtrInput             `pulumi:"sku"`
+	Type                 pulumi.StringInput                `pulumi:"type"`
+	VmExtensionType      pulumi.StringPtrInput             `pulumi:"vmExtensionType"`
 }
 
 func (ProductResponseArgs) ElementType() reflect.Type {
@@ -971,7 +867,6 @@ func (i ProductResponseArray) ToProductResponseArrayOutputWithContext(ctx contex
 	return pulumi.ToOutputWithContext(ctx, i).(ProductResponseArrayOutput)
 }
 
-// Product information.
 type ProductResponseOutput struct{ *pulumi.OutputState }
 
 func (ProductResponseOutput) ElementType() reflect.Type {
@@ -986,112 +881,90 @@ func (o ProductResponseOutput) ToProductResponseOutputWithContext(ctx context.Co
 	return o
 }
 
-// The part number used for billing purposes.
 func (o ProductResponseOutput) BillingPartNumber() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ProductResponse) *string { return v.BillingPartNumber }).(pulumi.StringPtrOutput)
 }
 
-// Product compatibility with current device.
 func (o ProductResponseOutput) Compatibility() CompatibilityResponsePtrOutput {
 	return o.ApplyT(func(v ProductResponse) *CompatibilityResponse { return v.Compatibility }).(CompatibilityResponsePtrOutput)
 }
 
-// The description of the product.
 func (o ProductResponseOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ProductResponse) *string { return v.Description }).(pulumi.StringPtrOutput)
 }
 
-// The display name of the product.
 func (o ProductResponseOutput) DisplayName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ProductResponse) *string { return v.DisplayName }).(pulumi.StringPtrOutput)
 }
 
-// The entity tag used for optimistic concurrency when modifying the resource.
 func (o ProductResponseOutput) Etag() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ProductResponse) *string { return v.Etag }).(pulumi.StringPtrOutput)
 }
 
-// The identifier of the gallery item corresponding to the product.
 func (o ProductResponseOutput) GalleryItemIdentity() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ProductResponse) *string { return v.GalleryItemIdentity }).(pulumi.StringPtrOutput)
 }
 
-// Additional links available for this product.
 func (o ProductResponseOutput) IconUris() IconUrisResponsePtrOutput {
 	return o.ApplyT(func(v ProductResponse) *IconUrisResponse { return v.IconUris }).(IconUrisResponsePtrOutput)
 }
 
-// ID of the resource.
 func (o ProductResponseOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v ProductResponse) string { return v.Id }).(pulumi.StringOutput)
 }
 
-// The legal terms.
 func (o ProductResponseOutput) LegalTerms() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ProductResponse) *string { return v.LegalTerms }).(pulumi.StringPtrOutput)
 }
 
-// Additional links available for this product.
 func (o ProductResponseOutput) Links() ProductLinkResponseArrayOutput {
 	return o.ApplyT(func(v ProductResponse) []ProductLinkResponse { return v.Links }).(ProductLinkResponseArrayOutput)
 }
 
-// Name of the resource.
 func (o ProductResponseOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v ProductResponse) string { return v.Name }).(pulumi.StringOutput)
 }
 
-// The offer representing the product.
 func (o ProductResponseOutput) Offer() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ProductResponse) *string { return v.Offer }).(pulumi.StringPtrOutput)
 }
 
-// The version of the product offer.
 func (o ProductResponseOutput) OfferVersion() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ProductResponse) *string { return v.OfferVersion }).(pulumi.StringPtrOutput)
 }
 
-// The length of product content.
 func (o ProductResponseOutput) PayloadLength() pulumi.Float64PtrOutput {
 	return o.ApplyT(func(v ProductResponse) *float64 { return v.PayloadLength }).(pulumi.Float64PtrOutput)
 }
 
-// The privacy policy.
 func (o ProductResponseOutput) PrivacyPolicy() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ProductResponse) *string { return v.PrivacyPolicy }).(pulumi.StringPtrOutput)
 }
 
-// The kind of the product (virtualMachine or virtualMachineExtension)
 func (o ProductResponseOutput) ProductKind() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ProductResponse) *string { return v.ProductKind }).(pulumi.StringPtrOutput)
 }
 
-// Additional properties for the product.
 func (o ProductResponseOutput) ProductProperties() ProductPropertiesResponsePtrOutput {
 	return o.ApplyT(func(v ProductResponse) *ProductPropertiesResponse { return v.ProductProperties }).(ProductPropertiesResponsePtrOutput)
 }
 
-// The user-friendly name of the product publisher.
 func (o ProductResponseOutput) PublisherDisplayName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ProductResponse) *string { return v.PublisherDisplayName }).(pulumi.StringPtrOutput)
 }
 
-// Publisher identifier.
 func (o ProductResponseOutput) PublisherIdentifier() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ProductResponse) *string { return v.PublisherIdentifier }).(pulumi.StringPtrOutput)
 }
 
-// The product SKU.
 func (o ProductResponseOutput) Sku() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ProductResponse) *string { return v.Sku }).(pulumi.StringPtrOutput)
 }
 
-// Type of Resource.
 func (o ProductResponseOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v ProductResponse) string { return v.Type }).(pulumi.StringOutput)
 }
 
-// The type of the Virtual Machine Extension.
 func (o ProductResponseOutput) VmExtensionType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ProductResponse) *string { return v.VmExtensionType }).(pulumi.StringPtrOutput)
 }

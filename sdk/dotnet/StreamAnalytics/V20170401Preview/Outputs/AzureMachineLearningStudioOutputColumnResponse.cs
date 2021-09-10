@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.StreamAnalytics.V20170401Preview.Outputs
 {
 
+    /// <summary>
+    /// Describes an output column for the Azure Machine Learning Studio endpoint.
+    /// </summary>
     [OutputType]
     public sealed class AzureMachineLearningStudioOutputColumnResponse
     {

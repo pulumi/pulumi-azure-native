@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.DataFactory.Outputs
 {
 
+    /// <summary>
+    /// Couchbase server linked service.
+    /// </summary>
     [OutputType]
     public sealed class CouchbaseLinkedServiceResponse
     {

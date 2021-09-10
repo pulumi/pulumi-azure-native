@@ -11,28 +11,18 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// The extended info of the manager.
 type ManagerExtendedInfo struct {
 	pulumi.CustomResourceState
 
-	// Represents the encryption algorithm used to encrypt the other keys. None - if EncryptionKey is saved in plain text format. AlgorithmName - if encryption is used
-	Algorithm pulumi.StringOutput `pulumi:"algorithm"`
-	// Represents the CEK of the resource
-	EncryptionKey pulumi.StringPtrOutput `pulumi:"encryptionKey"`
-	// Represents the Cert thumbprint that was used to encrypt the CEK
-	EncryptionKeyThumbprint pulumi.StringPtrOutput `pulumi:"encryptionKeyThumbprint"`
-	// ETag of the Resource
-	Etag pulumi.StringPtrOutput `pulumi:"etag"`
-	// Represents the CIK of the resource
-	IntegrityKey pulumi.StringOutput `pulumi:"integrityKey"`
-	// The name.
-	Name pulumi.StringOutput `pulumi:"name"`
-	// Represents the portal thumbprint which can be used optionally to encrypt the entire data before storing it.
+	Algorithm                   pulumi.StringOutput    `pulumi:"algorithm"`
+	EncryptionKey               pulumi.StringPtrOutput `pulumi:"encryptionKey"`
+	EncryptionKeyThumbprint     pulumi.StringPtrOutput `pulumi:"encryptionKeyThumbprint"`
+	Etag                        pulumi.StringPtrOutput `pulumi:"etag"`
+	IntegrityKey                pulumi.StringOutput    `pulumi:"integrityKey"`
+	Name                        pulumi.StringOutput    `pulumi:"name"`
 	PortalCertificateThumbprint pulumi.StringPtrOutput `pulumi:"portalCertificateThumbprint"`
-	// The type.
-	Type pulumi.StringOutput `pulumi:"type"`
-	// Represents the version of the ExtendedInfo object being persisted
-	Version pulumi.StringPtrOutput `pulumi:"version"`
+	Type                        pulumi.StringOutput    `pulumi:"type"`
+	Version                     pulumi.StringPtrOutput `pulumi:"version"`
 }
 
 // NewManagerExtendedInfo registers a new resource with the given unique name, arguments, and options.
@@ -104,46 +94,28 @@ func (ManagerExtendedInfoState) ElementType() reflect.Type {
 }
 
 type managerExtendedInfoArgs struct {
-	// Represents the encryption algorithm used to encrypt the other keys. None - if EncryptionKey is saved in plain text format. AlgorithmName - if encryption is used
-	Algorithm string `pulumi:"algorithm"`
-	// Represents the CEK of the resource
-	EncryptionKey *string `pulumi:"encryptionKey"`
-	// Represents the Cert thumbprint that was used to encrypt the CEK
-	EncryptionKeyThumbprint *string `pulumi:"encryptionKeyThumbprint"`
-	// ETag of the Resource
-	Etag *string `pulumi:"etag"`
-	// Represents the CIK of the resource
-	IntegrityKey string `pulumi:"integrityKey"`
-	// The manager name
-	ManagerName string `pulumi:"managerName"`
-	// Represents the portal thumbprint which can be used optionally to encrypt the entire data before storing it.
+	Algorithm                   string  `pulumi:"algorithm"`
+	EncryptionKey               *string `pulumi:"encryptionKey"`
+	EncryptionKeyThumbprint     *string `pulumi:"encryptionKeyThumbprint"`
+	Etag                        *string `pulumi:"etag"`
+	IntegrityKey                string  `pulumi:"integrityKey"`
+	ManagerName                 string  `pulumi:"managerName"`
 	PortalCertificateThumbprint *string `pulumi:"portalCertificateThumbprint"`
-	// The resource group name
-	ResourceGroupName string `pulumi:"resourceGroupName"`
-	// Represents the version of the ExtendedInfo object being persisted
-	Version *string `pulumi:"version"`
+	ResourceGroupName           string  `pulumi:"resourceGroupName"`
+	Version                     *string `pulumi:"version"`
 }
 
 // The set of arguments for constructing a ManagerExtendedInfo resource.
 type ManagerExtendedInfoArgs struct {
-	// Represents the encryption algorithm used to encrypt the other keys. None - if EncryptionKey is saved in plain text format. AlgorithmName - if encryption is used
-	Algorithm pulumi.StringInput
-	// Represents the CEK of the resource
-	EncryptionKey pulumi.StringPtrInput
-	// Represents the Cert thumbprint that was used to encrypt the CEK
-	EncryptionKeyThumbprint pulumi.StringPtrInput
-	// ETag of the Resource
-	Etag pulumi.StringPtrInput
-	// Represents the CIK of the resource
-	IntegrityKey pulumi.StringInput
-	// The manager name
-	ManagerName pulumi.StringInput
-	// Represents the portal thumbprint which can be used optionally to encrypt the entire data before storing it.
+	Algorithm                   pulumi.StringInput
+	EncryptionKey               pulumi.StringPtrInput
+	EncryptionKeyThumbprint     pulumi.StringPtrInput
+	Etag                        pulumi.StringPtrInput
+	IntegrityKey                pulumi.StringInput
+	ManagerName                 pulumi.StringInput
 	PortalCertificateThumbprint pulumi.StringPtrInput
-	// The resource group name
-	ResourceGroupName pulumi.StringInput
-	// Represents the version of the ExtendedInfo object being persisted
-	Version pulumi.StringPtrInput
+	ResourceGroupName           pulumi.StringInput
+	Version                     pulumi.StringPtrInput
 }
 
 func (ManagerExtendedInfoArgs) ElementType() reflect.Type {
@@ -169,9 +141,7 @@ func (i *ManagerExtendedInfo) ToManagerExtendedInfoOutputWithContext(ctx context
 	return pulumi.ToOutputWithContext(ctx, i).(ManagerExtendedInfoOutput)
 }
 
-type ManagerExtendedInfoOutput struct {
-	*pulumi.OutputState
-}
+type ManagerExtendedInfoOutput struct{ *pulumi.OutputState }
 
 func (ManagerExtendedInfoOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*ManagerExtendedInfo)(nil))

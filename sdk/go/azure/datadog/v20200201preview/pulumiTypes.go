@@ -11,14 +11,10 @@ import (
 )
 
 type DatadogApiKeyResponse struct {
-	// The time of creation of the API key.
-	Created *string `pulumi:"created"`
-	// The user that created the API key.
+	Created   *string `pulumi:"created"`
 	CreatedBy *string `pulumi:"createdBy"`
-	// The value of the API key.
-	Key string `pulumi:"key"`
-	// The name of the API key.
-	Name *string `pulumi:"name"`
+	Key       string  `pulumi:"key"`
+	Name      *string `pulumi:"name"`
 }
 
 // DatadogApiKeyResponseInput is an input type that accepts DatadogApiKeyResponseArgs and DatadogApiKeyResponseOutput values.
@@ -33,14 +29,10 @@ type DatadogApiKeyResponseInput interface {
 }
 
 type DatadogApiKeyResponseArgs struct {
-	// The time of creation of the API key.
-	Created pulumi.StringPtrInput `pulumi:"created"`
-	// The user that created the API key.
+	Created   pulumi.StringPtrInput `pulumi:"created"`
 	CreatedBy pulumi.StringPtrInput `pulumi:"createdBy"`
-	// The value of the API key.
-	Key pulumi.StringInput `pulumi:"key"`
-	// The name of the API key.
-	Name pulumi.StringPtrInput `pulumi:"name"`
+	Key       pulumi.StringInput    `pulumi:"key"`
+	Name      pulumi.StringPtrInput `pulumi:"name"`
 }
 
 func (DatadogApiKeyResponseArgs) ElementType() reflect.Type {
@@ -94,22 +86,18 @@ func (o DatadogApiKeyResponseOutput) ToDatadogApiKeyResponseOutputWithContext(ct
 	return o
 }
 
-// The time of creation of the API key.
 func (o DatadogApiKeyResponseOutput) Created() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v DatadogApiKeyResponse) *string { return v.Created }).(pulumi.StringPtrOutput)
 }
 
-// The user that created the API key.
 func (o DatadogApiKeyResponseOutput) CreatedBy() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v DatadogApiKeyResponse) *string { return v.CreatedBy }).(pulumi.StringPtrOutput)
 }
 
-// The value of the API key.
 func (o DatadogApiKeyResponseOutput) Key() pulumi.StringOutput {
 	return o.ApplyT(func(v DatadogApiKeyResponse) string { return v.Key }).(pulumi.StringOutput)
 }
 
-// The name of the API key.
 func (o DatadogApiKeyResponseOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v DatadogApiKeyResponse) *string { return v.Name }).(pulumi.StringPtrOutput)
 }
@@ -135,7 +123,6 @@ func (o DatadogApiKeyResponseArrayOutput) Index(i pulumi.IntInput) DatadogApiKey
 }
 
 type DatadogHostMetadataResponse struct {
-	// The agent version.
 	AgentVersion  *string                       `pulumi:"agentVersion"`
 	InstallMethod *DatadogInstallMethodResponse `pulumi:"installMethod"`
 	LogsAgent     *DatadogLogsAgentResponse     `pulumi:"logsAgent"`
@@ -153,7 +140,6 @@ type DatadogHostMetadataResponseInput interface {
 }
 
 type DatadogHostMetadataResponseArgs struct {
-	// The agent version.
 	AgentVersion  pulumi.StringPtrInput                `pulumi:"agentVersion"`
 	InstallMethod DatadogInstallMethodResponsePtrInput `pulumi:"installMethod"`
 	LogsAgent     DatadogLogsAgentResponsePtrInput     `pulumi:"logsAgent"`
@@ -231,12 +217,11 @@ func (o DatadogHostMetadataResponseOutput) ToDatadogHostMetadataResponsePtrOutpu
 }
 
 func (o DatadogHostMetadataResponseOutput) ToDatadogHostMetadataResponsePtrOutputWithContext(ctx context.Context) DatadogHostMetadataResponsePtrOutput {
-	return o.ApplyT(func(v DatadogHostMetadataResponse) *DatadogHostMetadataResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v DatadogHostMetadataResponse) *DatadogHostMetadataResponse {
 		return &v
 	}).(DatadogHostMetadataResponsePtrOutput)
 }
 
-// The agent version.
 func (o DatadogHostMetadataResponseOutput) AgentVersion() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v DatadogHostMetadataResponse) *string { return v.AgentVersion }).(pulumi.StringPtrOutput)
 }
@@ -264,10 +249,15 @@ func (o DatadogHostMetadataResponsePtrOutput) ToDatadogHostMetadataResponsePtrOu
 }
 
 func (o DatadogHostMetadataResponsePtrOutput) Elem() DatadogHostMetadataResponseOutput {
-	return o.ApplyT(func(v *DatadogHostMetadataResponse) DatadogHostMetadataResponse { return *v }).(DatadogHostMetadataResponseOutput)
+	return o.ApplyT(func(v *DatadogHostMetadataResponse) DatadogHostMetadataResponse {
+		if v != nil {
+			return *v
+		}
+		var ret DatadogHostMetadataResponse
+		return ret
+	}).(DatadogHostMetadataResponseOutput)
 }
 
-// The agent version.
 func (o DatadogHostMetadataResponsePtrOutput) AgentVersion() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *DatadogHostMetadataResponse) *string {
 		if v == nil {
@@ -296,13 +286,10 @@ func (o DatadogHostMetadataResponsePtrOutput) LogsAgent() DatadogLogsAgentRespon
 }
 
 type DatadogHostResponse struct {
-	// The aliases for the host.
-	Aliases []string `pulumi:"aliases"`
-	// The Datadog integrations reporting metrics for the host.
-	Apps []string                     `pulumi:"apps"`
-	Meta *DatadogHostMetadataResponse `pulumi:"meta"`
-	// The name of the host.
-	Name *string `pulumi:"name"`
+	Aliases []string                     `pulumi:"aliases"`
+	Apps    []string                     `pulumi:"apps"`
+	Meta    *DatadogHostMetadataResponse `pulumi:"meta"`
+	Name    *string                      `pulumi:"name"`
 }
 
 // DatadogHostResponseInput is an input type that accepts DatadogHostResponseArgs and DatadogHostResponseOutput values.
@@ -317,13 +304,10 @@ type DatadogHostResponseInput interface {
 }
 
 type DatadogHostResponseArgs struct {
-	// The aliases for the host.
-	Aliases pulumi.StringArrayInput `pulumi:"aliases"`
-	// The Datadog integrations reporting metrics for the host.
-	Apps pulumi.StringArrayInput             `pulumi:"apps"`
-	Meta DatadogHostMetadataResponsePtrInput `pulumi:"meta"`
-	// The name of the host.
-	Name pulumi.StringPtrInput `pulumi:"name"`
+	Aliases pulumi.StringArrayInput             `pulumi:"aliases"`
+	Apps    pulumi.StringArrayInput             `pulumi:"apps"`
+	Meta    DatadogHostMetadataResponsePtrInput `pulumi:"meta"`
+	Name    pulumi.StringPtrInput               `pulumi:"name"`
 }
 
 func (DatadogHostResponseArgs) ElementType() reflect.Type {
@@ -377,12 +361,10 @@ func (o DatadogHostResponseOutput) ToDatadogHostResponseOutputWithContext(ctx co
 	return o
 }
 
-// The aliases for the host.
 func (o DatadogHostResponseOutput) Aliases() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v DatadogHostResponse) []string { return v.Aliases }).(pulumi.StringArrayOutput)
 }
 
-// The Datadog integrations reporting metrics for the host.
 func (o DatadogHostResponseOutput) Apps() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v DatadogHostResponse) []string { return v.Apps }).(pulumi.StringArrayOutput)
 }
@@ -391,7 +373,6 @@ func (o DatadogHostResponseOutput) Meta() DatadogHostMetadataResponsePtrOutput {
 	return o.ApplyT(func(v DatadogHostResponse) *DatadogHostMetadataResponse { return v.Meta }).(DatadogHostMetadataResponsePtrOutput)
 }
 
-// The name of the host.
 func (o DatadogHostResponseOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v DatadogHostResponse) *string { return v.Name }).(pulumi.StringPtrOutput)
 }
@@ -417,12 +398,9 @@ func (o DatadogHostResponseArrayOutput) Index(i pulumi.IntInput) DatadogHostResp
 }
 
 type DatadogInstallMethodResponse struct {
-	// The installer version.
 	InstallerVersion *string `pulumi:"installerVersion"`
-	// The tool.
-	Tool *string `pulumi:"tool"`
-	// The tool version.
-	ToolVersion *string `pulumi:"toolVersion"`
+	Tool             *string `pulumi:"tool"`
+	ToolVersion      *string `pulumi:"toolVersion"`
 }
 
 // DatadogInstallMethodResponseInput is an input type that accepts DatadogInstallMethodResponseArgs and DatadogInstallMethodResponseOutput values.
@@ -437,12 +415,9 @@ type DatadogInstallMethodResponseInput interface {
 }
 
 type DatadogInstallMethodResponseArgs struct {
-	// The installer version.
 	InstallerVersion pulumi.StringPtrInput `pulumi:"installerVersion"`
-	// The tool.
-	Tool pulumi.StringPtrInput `pulumi:"tool"`
-	// The tool version.
-	ToolVersion pulumi.StringPtrInput `pulumi:"toolVersion"`
+	Tool             pulumi.StringPtrInput `pulumi:"tool"`
+	ToolVersion      pulumi.StringPtrInput `pulumi:"toolVersion"`
 }
 
 func (DatadogInstallMethodResponseArgs) ElementType() reflect.Type {
@@ -517,22 +492,19 @@ func (o DatadogInstallMethodResponseOutput) ToDatadogInstallMethodResponsePtrOut
 }
 
 func (o DatadogInstallMethodResponseOutput) ToDatadogInstallMethodResponsePtrOutputWithContext(ctx context.Context) DatadogInstallMethodResponsePtrOutput {
-	return o.ApplyT(func(v DatadogInstallMethodResponse) *DatadogInstallMethodResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v DatadogInstallMethodResponse) *DatadogInstallMethodResponse {
 		return &v
 	}).(DatadogInstallMethodResponsePtrOutput)
 }
 
-// The installer version.
 func (o DatadogInstallMethodResponseOutput) InstallerVersion() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v DatadogInstallMethodResponse) *string { return v.InstallerVersion }).(pulumi.StringPtrOutput)
 }
 
-// The tool.
 func (o DatadogInstallMethodResponseOutput) Tool() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v DatadogInstallMethodResponse) *string { return v.Tool }).(pulumi.StringPtrOutput)
 }
 
-// The tool version.
 func (o DatadogInstallMethodResponseOutput) ToolVersion() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v DatadogInstallMethodResponse) *string { return v.ToolVersion }).(pulumi.StringPtrOutput)
 }
@@ -552,10 +524,15 @@ func (o DatadogInstallMethodResponsePtrOutput) ToDatadogInstallMethodResponsePtr
 }
 
 func (o DatadogInstallMethodResponsePtrOutput) Elem() DatadogInstallMethodResponseOutput {
-	return o.ApplyT(func(v *DatadogInstallMethodResponse) DatadogInstallMethodResponse { return *v }).(DatadogInstallMethodResponseOutput)
+	return o.ApplyT(func(v *DatadogInstallMethodResponse) DatadogInstallMethodResponse {
+		if v != nil {
+			return *v
+		}
+		var ret DatadogInstallMethodResponse
+		return ret
+	}).(DatadogInstallMethodResponseOutput)
 }
 
-// The installer version.
 func (o DatadogInstallMethodResponsePtrOutput) InstallerVersion() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *DatadogInstallMethodResponse) *string {
 		if v == nil {
@@ -565,7 +542,6 @@ func (o DatadogInstallMethodResponsePtrOutput) InstallerVersion() pulumi.StringP
 	}).(pulumi.StringPtrOutput)
 }
 
-// The tool.
 func (o DatadogInstallMethodResponsePtrOutput) Tool() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *DatadogInstallMethodResponse) *string {
 		if v == nil {
@@ -575,7 +551,6 @@ func (o DatadogInstallMethodResponsePtrOutput) Tool() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The tool version.
 func (o DatadogInstallMethodResponsePtrOutput) ToolVersion() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *DatadogInstallMethodResponse) *string {
 		if v == nil {
@@ -586,7 +561,6 @@ func (o DatadogInstallMethodResponsePtrOutput) ToolVersion() pulumi.StringPtrOut
 }
 
 type DatadogLogsAgentResponse struct {
-	// The transport.
 	Transport *string `pulumi:"transport"`
 }
 
@@ -602,7 +576,6 @@ type DatadogLogsAgentResponseInput interface {
 }
 
 type DatadogLogsAgentResponseArgs struct {
-	// The transport.
 	Transport pulumi.StringPtrInput `pulumi:"transport"`
 }
 
@@ -678,12 +651,11 @@ func (o DatadogLogsAgentResponseOutput) ToDatadogLogsAgentResponsePtrOutput() Da
 }
 
 func (o DatadogLogsAgentResponseOutput) ToDatadogLogsAgentResponsePtrOutputWithContext(ctx context.Context) DatadogLogsAgentResponsePtrOutput {
-	return o.ApplyT(func(v DatadogLogsAgentResponse) *DatadogLogsAgentResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v DatadogLogsAgentResponse) *DatadogLogsAgentResponse {
 		return &v
 	}).(DatadogLogsAgentResponsePtrOutput)
 }
 
-// The transport.
 func (o DatadogLogsAgentResponseOutput) Transport() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v DatadogLogsAgentResponse) *string { return v.Transport }).(pulumi.StringPtrOutput)
 }
@@ -703,10 +675,15 @@ func (o DatadogLogsAgentResponsePtrOutput) ToDatadogLogsAgentResponsePtrOutputWi
 }
 
 func (o DatadogLogsAgentResponsePtrOutput) Elem() DatadogLogsAgentResponseOutput {
-	return o.ApplyT(func(v *DatadogLogsAgentResponse) DatadogLogsAgentResponse { return *v }).(DatadogLogsAgentResponseOutput)
+	return o.ApplyT(func(v *DatadogLogsAgentResponse) DatadogLogsAgentResponse {
+		if v != nil {
+			return *v
+		}
+		var ret DatadogLogsAgentResponse
+		return ret
+	}).(DatadogLogsAgentResponseOutput)
 }
 
-// The transport.
 func (o DatadogLogsAgentResponsePtrOutput) Transport() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *DatadogLogsAgentResponse) *string {
 		if v == nil {
@@ -716,20 +693,13 @@ func (o DatadogLogsAgentResponsePtrOutput) Transport() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Datadog organization properties
 type DatadogOrganizationProperties struct {
-	// Api key associated to the Datadog organization.
-	ApiKey *string `pulumi:"apiKey"`
-	// Application key associated to the Datadog organization.
-	ApplicationKey *string `pulumi:"applicationKey"`
-	// The Id of the Enterprise App used for Single sign on.
+	ApiKey          *string `pulumi:"apiKey"`
+	ApplicationKey  *string `pulumi:"applicationKey"`
 	EnterpriseAppId *string `pulumi:"enterpriseAppId"`
-	// The auth code used to linking to an existing datadog organization.
 	LinkingAuthCode *string `pulumi:"linkingAuthCode"`
-	// The client_id from an existing in exchange for an auth token to link organization.
 	LinkingClientId *string `pulumi:"linkingClientId"`
-	// The redirect uri for linking.
-	RedirectUri *string `pulumi:"redirectUri"`
+	RedirectUri     *string `pulumi:"redirectUri"`
 }
 
 // DatadogOrganizationPropertiesInput is an input type that accepts DatadogOrganizationPropertiesArgs and DatadogOrganizationPropertiesOutput values.
@@ -743,20 +713,13 @@ type DatadogOrganizationPropertiesInput interface {
 	ToDatadogOrganizationPropertiesOutputWithContext(context.Context) DatadogOrganizationPropertiesOutput
 }
 
-// Datadog organization properties
 type DatadogOrganizationPropertiesArgs struct {
-	// Api key associated to the Datadog organization.
-	ApiKey pulumi.StringPtrInput `pulumi:"apiKey"`
-	// Application key associated to the Datadog organization.
-	ApplicationKey pulumi.StringPtrInput `pulumi:"applicationKey"`
-	// The Id of the Enterprise App used for Single sign on.
+	ApiKey          pulumi.StringPtrInput `pulumi:"apiKey"`
+	ApplicationKey  pulumi.StringPtrInput `pulumi:"applicationKey"`
 	EnterpriseAppId pulumi.StringPtrInput `pulumi:"enterpriseAppId"`
-	// The auth code used to linking to an existing datadog organization.
 	LinkingAuthCode pulumi.StringPtrInput `pulumi:"linkingAuthCode"`
-	// The client_id from an existing in exchange for an auth token to link organization.
 	LinkingClientId pulumi.StringPtrInput `pulumi:"linkingClientId"`
-	// The redirect uri for linking.
-	RedirectUri pulumi.StringPtrInput `pulumi:"redirectUri"`
+	RedirectUri     pulumi.StringPtrInput `pulumi:"redirectUri"`
 }
 
 func (DatadogOrganizationPropertiesArgs) ElementType() reflect.Type {
@@ -812,7 +775,6 @@ func (i *datadogOrganizationPropertiesPtrType) ToDatadogOrganizationPropertiesPt
 	return pulumi.ToOutputWithContext(ctx, i).(DatadogOrganizationPropertiesPtrOutput)
 }
 
-// Datadog organization properties
 type DatadogOrganizationPropertiesOutput struct{ *pulumi.OutputState }
 
 func (DatadogOrganizationPropertiesOutput) ElementType() reflect.Type {
@@ -832,37 +794,31 @@ func (o DatadogOrganizationPropertiesOutput) ToDatadogOrganizationPropertiesPtrO
 }
 
 func (o DatadogOrganizationPropertiesOutput) ToDatadogOrganizationPropertiesPtrOutputWithContext(ctx context.Context) DatadogOrganizationPropertiesPtrOutput {
-	return o.ApplyT(func(v DatadogOrganizationProperties) *DatadogOrganizationProperties {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v DatadogOrganizationProperties) *DatadogOrganizationProperties {
 		return &v
 	}).(DatadogOrganizationPropertiesPtrOutput)
 }
 
-// Api key associated to the Datadog organization.
 func (o DatadogOrganizationPropertiesOutput) ApiKey() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v DatadogOrganizationProperties) *string { return v.ApiKey }).(pulumi.StringPtrOutput)
 }
 
-// Application key associated to the Datadog organization.
 func (o DatadogOrganizationPropertiesOutput) ApplicationKey() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v DatadogOrganizationProperties) *string { return v.ApplicationKey }).(pulumi.StringPtrOutput)
 }
 
-// The Id of the Enterprise App used for Single sign on.
 func (o DatadogOrganizationPropertiesOutput) EnterpriseAppId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v DatadogOrganizationProperties) *string { return v.EnterpriseAppId }).(pulumi.StringPtrOutput)
 }
 
-// The auth code used to linking to an existing datadog organization.
 func (o DatadogOrganizationPropertiesOutput) LinkingAuthCode() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v DatadogOrganizationProperties) *string { return v.LinkingAuthCode }).(pulumi.StringPtrOutput)
 }
 
-// The client_id from an existing in exchange for an auth token to link organization.
 func (o DatadogOrganizationPropertiesOutput) LinkingClientId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v DatadogOrganizationProperties) *string { return v.LinkingClientId }).(pulumi.StringPtrOutput)
 }
 
-// The redirect uri for linking.
 func (o DatadogOrganizationPropertiesOutput) RedirectUri() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v DatadogOrganizationProperties) *string { return v.RedirectUri }).(pulumi.StringPtrOutput)
 }
@@ -882,10 +838,15 @@ func (o DatadogOrganizationPropertiesPtrOutput) ToDatadogOrganizationPropertiesP
 }
 
 func (o DatadogOrganizationPropertiesPtrOutput) Elem() DatadogOrganizationPropertiesOutput {
-	return o.ApplyT(func(v *DatadogOrganizationProperties) DatadogOrganizationProperties { return *v }).(DatadogOrganizationPropertiesOutput)
+	return o.ApplyT(func(v *DatadogOrganizationProperties) DatadogOrganizationProperties {
+		if v != nil {
+			return *v
+		}
+		var ret DatadogOrganizationProperties
+		return ret
+	}).(DatadogOrganizationPropertiesOutput)
 }
 
-// Api key associated to the Datadog organization.
 func (o DatadogOrganizationPropertiesPtrOutput) ApiKey() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *DatadogOrganizationProperties) *string {
 		if v == nil {
@@ -895,7 +856,6 @@ func (o DatadogOrganizationPropertiesPtrOutput) ApiKey() pulumi.StringPtrOutput 
 	}).(pulumi.StringPtrOutput)
 }
 
-// Application key associated to the Datadog organization.
 func (o DatadogOrganizationPropertiesPtrOutput) ApplicationKey() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *DatadogOrganizationProperties) *string {
 		if v == nil {
@@ -905,7 +865,6 @@ func (o DatadogOrganizationPropertiesPtrOutput) ApplicationKey() pulumi.StringPt
 	}).(pulumi.StringPtrOutput)
 }
 
-// The Id of the Enterprise App used for Single sign on.
 func (o DatadogOrganizationPropertiesPtrOutput) EnterpriseAppId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *DatadogOrganizationProperties) *string {
 		if v == nil {
@@ -915,7 +874,6 @@ func (o DatadogOrganizationPropertiesPtrOutput) EnterpriseAppId() pulumi.StringP
 	}).(pulumi.StringPtrOutput)
 }
 
-// The auth code used to linking to an existing datadog organization.
 func (o DatadogOrganizationPropertiesPtrOutput) LinkingAuthCode() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *DatadogOrganizationProperties) *string {
 		if v == nil {
@@ -925,7 +883,6 @@ func (o DatadogOrganizationPropertiesPtrOutput) LinkingAuthCode() pulumi.StringP
 	}).(pulumi.StringPtrOutput)
 }
 
-// The client_id from an existing in exchange for an auth token to link organization.
 func (o DatadogOrganizationPropertiesPtrOutput) LinkingClientId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *DatadogOrganizationProperties) *string {
 		if v == nil {
@@ -935,7 +892,6 @@ func (o DatadogOrganizationPropertiesPtrOutput) LinkingClientId() pulumi.StringP
 	}).(pulumi.StringPtrOutput)
 }
 
-// The redirect uri for linking.
 func (o DatadogOrganizationPropertiesPtrOutput) RedirectUri() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *DatadogOrganizationProperties) *string {
 		if v == nil {
@@ -945,11 +901,8 @@ func (o DatadogOrganizationPropertiesPtrOutput) RedirectUri() pulumi.StringPtrOu
 	}).(pulumi.StringPtrOutput)
 }
 
-// Datadog organization properties
 type DatadogOrganizationPropertiesResponse struct {
-	// Id of the Datadog organization.
-	Id string `pulumi:"id"`
-	// Name of the Datadog organization.
+	Id   string `pulumi:"id"`
 	Name string `pulumi:"name"`
 }
 
@@ -964,11 +917,8 @@ type DatadogOrganizationPropertiesResponseInput interface {
 	ToDatadogOrganizationPropertiesResponseOutputWithContext(context.Context) DatadogOrganizationPropertiesResponseOutput
 }
 
-// Datadog organization properties
 type DatadogOrganizationPropertiesResponseArgs struct {
-	// Id of the Datadog organization.
-	Id pulumi.StringInput `pulumi:"id"`
-	// Name of the Datadog organization.
+	Id   pulumi.StringInput `pulumi:"id"`
 	Name pulumi.StringInput `pulumi:"name"`
 }
 
@@ -1025,7 +975,6 @@ func (i *datadogOrganizationPropertiesResponsePtrType) ToDatadogOrganizationProp
 	return pulumi.ToOutputWithContext(ctx, i).(DatadogOrganizationPropertiesResponsePtrOutput)
 }
 
-// Datadog organization properties
 type DatadogOrganizationPropertiesResponseOutput struct{ *pulumi.OutputState }
 
 func (DatadogOrganizationPropertiesResponseOutput) ElementType() reflect.Type {
@@ -1045,17 +994,15 @@ func (o DatadogOrganizationPropertiesResponseOutput) ToDatadogOrganizationProper
 }
 
 func (o DatadogOrganizationPropertiesResponseOutput) ToDatadogOrganizationPropertiesResponsePtrOutputWithContext(ctx context.Context) DatadogOrganizationPropertiesResponsePtrOutput {
-	return o.ApplyT(func(v DatadogOrganizationPropertiesResponse) *DatadogOrganizationPropertiesResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v DatadogOrganizationPropertiesResponse) *DatadogOrganizationPropertiesResponse {
 		return &v
 	}).(DatadogOrganizationPropertiesResponsePtrOutput)
 }
 
-// Id of the Datadog organization.
 func (o DatadogOrganizationPropertiesResponseOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v DatadogOrganizationPropertiesResponse) string { return v.Id }).(pulumi.StringOutput)
 }
 
-// Name of the Datadog organization.
 func (o DatadogOrganizationPropertiesResponseOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v DatadogOrganizationPropertiesResponse) string { return v.Name }).(pulumi.StringOutput)
 }
@@ -1075,10 +1022,15 @@ func (o DatadogOrganizationPropertiesResponsePtrOutput) ToDatadogOrganizationPro
 }
 
 func (o DatadogOrganizationPropertiesResponsePtrOutput) Elem() DatadogOrganizationPropertiesResponseOutput {
-	return o.ApplyT(func(v *DatadogOrganizationPropertiesResponse) DatadogOrganizationPropertiesResponse { return *v }).(DatadogOrganizationPropertiesResponseOutput)
+	return o.ApplyT(func(v *DatadogOrganizationPropertiesResponse) DatadogOrganizationPropertiesResponse {
+		if v != nil {
+			return *v
+		}
+		var ret DatadogOrganizationPropertiesResponse
+		return ret
+	}).(DatadogOrganizationPropertiesResponseOutput)
 }
 
-// Id of the Datadog organization.
 func (o DatadogOrganizationPropertiesResponsePtrOutput) Id() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *DatadogOrganizationPropertiesResponse) *string {
 		if v == nil {
@@ -1088,7 +1040,6 @@ func (o DatadogOrganizationPropertiesResponsePtrOutput) Id() pulumi.StringPtrOut
 	}).(pulumi.StringPtrOutput)
 }
 
-// Name of the Datadog organization.
 func (o DatadogOrganizationPropertiesResponsePtrOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *DatadogOrganizationPropertiesResponse) *string {
 		if v == nil {
@@ -1099,7 +1050,6 @@ func (o DatadogOrganizationPropertiesResponsePtrOutput) Name() pulumi.StringPtrO
 }
 
 type IdentityProperties struct {
-	// Identity type
 	Type *string `pulumi:"type"`
 }
 
@@ -1115,7 +1065,6 @@ type IdentityPropertiesInput interface {
 }
 
 type IdentityPropertiesArgs struct {
-	// Identity type
 	Type pulumi.StringPtrInput `pulumi:"type"`
 }
 
@@ -1191,12 +1140,11 @@ func (o IdentityPropertiesOutput) ToIdentityPropertiesPtrOutput() IdentityProper
 }
 
 func (o IdentityPropertiesOutput) ToIdentityPropertiesPtrOutputWithContext(ctx context.Context) IdentityPropertiesPtrOutput {
-	return o.ApplyT(func(v IdentityProperties) *IdentityProperties {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v IdentityProperties) *IdentityProperties {
 		return &v
 	}).(IdentityPropertiesPtrOutput)
 }
 
-// Identity type
 func (o IdentityPropertiesOutput) Type() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v IdentityProperties) *string { return v.Type }).(pulumi.StringPtrOutput)
 }
@@ -1216,10 +1164,15 @@ func (o IdentityPropertiesPtrOutput) ToIdentityPropertiesPtrOutputWithContext(ct
 }
 
 func (o IdentityPropertiesPtrOutput) Elem() IdentityPropertiesOutput {
-	return o.ApplyT(func(v *IdentityProperties) IdentityProperties { return *v }).(IdentityPropertiesOutput)
+	return o.ApplyT(func(v *IdentityProperties) IdentityProperties {
+		if v != nil {
+			return *v
+		}
+		var ret IdentityProperties
+		return ret
+	}).(IdentityPropertiesOutput)
 }
 
-// Identity type
 func (o IdentityPropertiesPtrOutput) Type() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *IdentityProperties) *string {
 		if v == nil {
@@ -1230,12 +1183,9 @@ func (o IdentityPropertiesPtrOutput) Type() pulumi.StringPtrOutput {
 }
 
 type IdentityPropertiesResponse struct {
-	// The identity ID.
-	PrincipalId string `pulumi:"principalId"`
-	// The tenant ID of resource.
-	TenantId string `pulumi:"tenantId"`
-	// Identity type
-	Type *string `pulumi:"type"`
+	PrincipalId string  `pulumi:"principalId"`
+	TenantId    string  `pulumi:"tenantId"`
+	Type        *string `pulumi:"type"`
 }
 
 // IdentityPropertiesResponseInput is an input type that accepts IdentityPropertiesResponseArgs and IdentityPropertiesResponseOutput values.
@@ -1250,12 +1200,9 @@ type IdentityPropertiesResponseInput interface {
 }
 
 type IdentityPropertiesResponseArgs struct {
-	// The identity ID.
-	PrincipalId pulumi.StringInput `pulumi:"principalId"`
-	// The tenant ID of resource.
-	TenantId pulumi.StringInput `pulumi:"tenantId"`
-	// Identity type
-	Type pulumi.StringPtrInput `pulumi:"type"`
+	PrincipalId pulumi.StringInput    `pulumi:"principalId"`
+	TenantId    pulumi.StringInput    `pulumi:"tenantId"`
+	Type        pulumi.StringPtrInput `pulumi:"type"`
 }
 
 func (IdentityPropertiesResponseArgs) ElementType() reflect.Type {
@@ -1330,22 +1277,19 @@ func (o IdentityPropertiesResponseOutput) ToIdentityPropertiesResponsePtrOutput(
 }
 
 func (o IdentityPropertiesResponseOutput) ToIdentityPropertiesResponsePtrOutputWithContext(ctx context.Context) IdentityPropertiesResponsePtrOutput {
-	return o.ApplyT(func(v IdentityPropertiesResponse) *IdentityPropertiesResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v IdentityPropertiesResponse) *IdentityPropertiesResponse {
 		return &v
 	}).(IdentityPropertiesResponsePtrOutput)
 }
 
-// The identity ID.
 func (o IdentityPropertiesResponseOutput) PrincipalId() pulumi.StringOutput {
 	return o.ApplyT(func(v IdentityPropertiesResponse) string { return v.PrincipalId }).(pulumi.StringOutput)
 }
 
-// The tenant ID of resource.
 func (o IdentityPropertiesResponseOutput) TenantId() pulumi.StringOutput {
 	return o.ApplyT(func(v IdentityPropertiesResponse) string { return v.TenantId }).(pulumi.StringOutput)
 }
 
-// Identity type
 func (o IdentityPropertiesResponseOutput) Type() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v IdentityPropertiesResponse) *string { return v.Type }).(pulumi.StringPtrOutput)
 }
@@ -1365,10 +1309,15 @@ func (o IdentityPropertiesResponsePtrOutput) ToIdentityPropertiesResponsePtrOutp
 }
 
 func (o IdentityPropertiesResponsePtrOutput) Elem() IdentityPropertiesResponseOutput {
-	return o.ApplyT(func(v *IdentityPropertiesResponse) IdentityPropertiesResponse { return *v }).(IdentityPropertiesResponseOutput)
+	return o.ApplyT(func(v *IdentityPropertiesResponse) IdentityPropertiesResponse {
+		if v != nil {
+			return *v
+		}
+		var ret IdentityPropertiesResponse
+		return ret
+	}).(IdentityPropertiesResponseOutput)
 }
 
-// The identity ID.
 func (o IdentityPropertiesResponsePtrOutput) PrincipalId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *IdentityPropertiesResponse) *string {
 		if v == nil {
@@ -1378,7 +1327,6 @@ func (o IdentityPropertiesResponsePtrOutput) PrincipalId() pulumi.StringPtrOutpu
 	}).(pulumi.StringPtrOutput)
 }
 
-// The tenant ID of resource.
 func (o IdentityPropertiesResponsePtrOutput) TenantId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *IdentityPropertiesResponse) *string {
 		if v == nil {
@@ -1388,7 +1336,6 @@ func (o IdentityPropertiesResponsePtrOutput) TenantId() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Identity type
 func (o IdentityPropertiesResponsePtrOutput) Type() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *IdentityPropertiesResponse) *string {
 		if v == nil {
@@ -1398,9 +1345,7 @@ func (o IdentityPropertiesResponsePtrOutput) Type() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The definition of a linked resource.
 type LinkedResourceResponse struct {
-	// The ARM id of the linked resource.
 	Id *string `pulumi:"id"`
 }
 
@@ -1415,9 +1360,7 @@ type LinkedResourceResponseInput interface {
 	ToLinkedResourceResponseOutputWithContext(context.Context) LinkedResourceResponseOutput
 }
 
-// The definition of a linked resource.
 type LinkedResourceResponseArgs struct {
-	// The ARM id of the linked resource.
 	Id pulumi.StringPtrInput `pulumi:"id"`
 }
 
@@ -1458,7 +1401,6 @@ func (i LinkedResourceResponseArray) ToLinkedResourceResponseArrayOutputWithCont
 	return pulumi.ToOutputWithContext(ctx, i).(LinkedResourceResponseArrayOutput)
 }
 
-// The definition of a linked resource.
 type LinkedResourceResponseOutput struct{ *pulumi.OutputState }
 
 func (LinkedResourceResponseOutput) ElementType() reflect.Type {
@@ -1473,7 +1415,6 @@ func (o LinkedResourceResponseOutput) ToLinkedResourceResponseOutputWithContext(
 	return o
 }
 
-// The ARM id of the linked resource.
 func (o LinkedResourceResponseOutput) Id() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LinkedResourceResponse) *string { return v.Id }).(pulumi.StringPtrOutput)
 }
@@ -1498,14 +1439,10 @@ func (o LinkedResourceResponseArrayOutput) Index(i pulumi.IntInput) LinkedResour
 	}).(LinkedResourceResponseOutput)
 }
 
-// Properties specific to the monitor resource.
 type MonitorProperties struct {
-	// Datadog organization properties
 	DatadogOrganizationProperties *DatadogOrganizationProperties `pulumi:"datadogOrganizationProperties"`
-	// Flag specifying if the resource monitoring is enabled or disabled.
-	MonitoringStatus *string `pulumi:"monitoringStatus"`
-	// User info
-	UserInfo *UserInfo `pulumi:"userInfo"`
+	MonitoringStatus              *string                        `pulumi:"monitoringStatus"`
+	UserInfo                      *UserInfo                      `pulumi:"userInfo"`
 }
 
 // MonitorPropertiesInput is an input type that accepts MonitorPropertiesArgs and MonitorPropertiesOutput values.
@@ -1519,14 +1456,10 @@ type MonitorPropertiesInput interface {
 	ToMonitorPropertiesOutputWithContext(context.Context) MonitorPropertiesOutput
 }
 
-// Properties specific to the monitor resource.
 type MonitorPropertiesArgs struct {
-	// Datadog organization properties
 	DatadogOrganizationProperties DatadogOrganizationPropertiesPtrInput `pulumi:"datadogOrganizationProperties"`
-	// Flag specifying if the resource monitoring is enabled or disabled.
-	MonitoringStatus pulumi.StringPtrInput `pulumi:"monitoringStatus"`
-	// User info
-	UserInfo UserInfoPtrInput `pulumi:"userInfo"`
+	MonitoringStatus              pulumi.StringPtrInput                 `pulumi:"monitoringStatus"`
+	UserInfo                      UserInfoPtrInput                      `pulumi:"userInfo"`
 }
 
 func (MonitorPropertiesArgs) ElementType() reflect.Type {
@@ -1582,7 +1515,6 @@ func (i *monitorPropertiesPtrType) ToMonitorPropertiesPtrOutputWithContext(ctx c
 	return pulumi.ToOutputWithContext(ctx, i).(MonitorPropertiesPtrOutput)
 }
 
-// Properties specific to the monitor resource.
 type MonitorPropertiesOutput struct{ *pulumi.OutputState }
 
 func (MonitorPropertiesOutput) ElementType() reflect.Type {
@@ -1602,22 +1534,19 @@ func (o MonitorPropertiesOutput) ToMonitorPropertiesPtrOutput() MonitorPropertie
 }
 
 func (o MonitorPropertiesOutput) ToMonitorPropertiesPtrOutputWithContext(ctx context.Context) MonitorPropertiesPtrOutput {
-	return o.ApplyT(func(v MonitorProperties) *MonitorProperties {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v MonitorProperties) *MonitorProperties {
 		return &v
 	}).(MonitorPropertiesPtrOutput)
 }
 
-// Datadog organization properties
 func (o MonitorPropertiesOutput) DatadogOrganizationProperties() DatadogOrganizationPropertiesPtrOutput {
 	return o.ApplyT(func(v MonitorProperties) *DatadogOrganizationProperties { return v.DatadogOrganizationProperties }).(DatadogOrganizationPropertiesPtrOutput)
 }
 
-// Flag specifying if the resource monitoring is enabled or disabled.
 func (o MonitorPropertiesOutput) MonitoringStatus() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v MonitorProperties) *string { return v.MonitoringStatus }).(pulumi.StringPtrOutput)
 }
 
-// User info
 func (o MonitorPropertiesOutput) UserInfo() UserInfoPtrOutput {
 	return o.ApplyT(func(v MonitorProperties) *UserInfo { return v.UserInfo }).(UserInfoPtrOutput)
 }
@@ -1637,10 +1566,15 @@ func (o MonitorPropertiesPtrOutput) ToMonitorPropertiesPtrOutputWithContext(ctx 
 }
 
 func (o MonitorPropertiesPtrOutput) Elem() MonitorPropertiesOutput {
-	return o.ApplyT(func(v *MonitorProperties) MonitorProperties { return *v }).(MonitorPropertiesOutput)
+	return o.ApplyT(func(v *MonitorProperties) MonitorProperties {
+		if v != nil {
+			return *v
+		}
+		var ret MonitorProperties
+		return ret
+	}).(MonitorPropertiesOutput)
 }
 
-// Datadog organization properties
 func (o MonitorPropertiesPtrOutput) DatadogOrganizationProperties() DatadogOrganizationPropertiesPtrOutput {
 	return o.ApplyT(func(v *MonitorProperties) *DatadogOrganizationProperties {
 		if v == nil {
@@ -1650,7 +1584,6 @@ func (o MonitorPropertiesPtrOutput) DatadogOrganizationProperties() DatadogOrgan
 	}).(DatadogOrganizationPropertiesPtrOutput)
 }
 
-// Flag specifying if the resource monitoring is enabled or disabled.
 func (o MonitorPropertiesPtrOutput) MonitoringStatus() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *MonitorProperties) *string {
 		if v == nil {
@@ -1660,7 +1593,6 @@ func (o MonitorPropertiesPtrOutput) MonitoringStatus() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// User info
 func (o MonitorPropertiesPtrOutput) UserInfo() UserInfoPtrOutput {
 	return o.ApplyT(func(v *MonitorProperties) *UserInfo {
 		if v == nil {
@@ -1670,20 +1602,14 @@ func (o MonitorPropertiesPtrOutput) UserInfo() UserInfoPtrOutput {
 	}).(UserInfoPtrOutput)
 }
 
-// Properties specific to the monitor resource.
 type MonitorPropertiesResponse struct {
-	// Datadog organization properties
 	DatadogOrganizationProperties *DatadogOrganizationPropertiesResponse `pulumi:"datadogOrganizationProperties"`
 	LiftrResourceCategory         string                                 `pulumi:"liftrResourceCategory"`
-	// The priority of the resource.
-	LiftrResourcePreference int `pulumi:"liftrResourcePreference"`
-	// Flag specifying the Marketplace Subscription Status of the resource. If payment is not made in time, the resource will go in Suspended state.
-	MarketplaceSubscriptionStatus string `pulumi:"marketplaceSubscriptionStatus"`
-	// Flag specifying if the resource monitoring is enabled or disabled.
-	MonitoringStatus  *string `pulumi:"monitoringStatus"`
-	ProvisioningState string  `pulumi:"provisioningState"`
-	// User info
-	UserInfo *UserInfoResponse `pulumi:"userInfo"`
+	LiftrResourcePreference       int                                    `pulumi:"liftrResourcePreference"`
+	MarketplaceSubscriptionStatus string                                 `pulumi:"marketplaceSubscriptionStatus"`
+	MonitoringStatus              *string                                `pulumi:"monitoringStatus"`
+	ProvisioningState             string                                 `pulumi:"provisioningState"`
+	UserInfo                      *UserInfoResponse                      `pulumi:"userInfo"`
 }
 
 // MonitorPropertiesResponseInput is an input type that accepts MonitorPropertiesResponseArgs and MonitorPropertiesResponseOutput values.
@@ -1697,20 +1623,14 @@ type MonitorPropertiesResponseInput interface {
 	ToMonitorPropertiesResponseOutputWithContext(context.Context) MonitorPropertiesResponseOutput
 }
 
-// Properties specific to the monitor resource.
 type MonitorPropertiesResponseArgs struct {
-	// Datadog organization properties
 	DatadogOrganizationProperties DatadogOrganizationPropertiesResponsePtrInput `pulumi:"datadogOrganizationProperties"`
 	LiftrResourceCategory         pulumi.StringInput                            `pulumi:"liftrResourceCategory"`
-	// The priority of the resource.
-	LiftrResourcePreference pulumi.IntInput `pulumi:"liftrResourcePreference"`
-	// Flag specifying the Marketplace Subscription Status of the resource. If payment is not made in time, the resource will go in Suspended state.
-	MarketplaceSubscriptionStatus pulumi.StringInput `pulumi:"marketplaceSubscriptionStatus"`
-	// Flag specifying if the resource monitoring is enabled or disabled.
-	MonitoringStatus  pulumi.StringPtrInput `pulumi:"monitoringStatus"`
-	ProvisioningState pulumi.StringInput    `pulumi:"provisioningState"`
-	// User info
-	UserInfo UserInfoResponsePtrInput `pulumi:"userInfo"`
+	LiftrResourcePreference       pulumi.IntInput                               `pulumi:"liftrResourcePreference"`
+	MarketplaceSubscriptionStatus pulumi.StringInput                            `pulumi:"marketplaceSubscriptionStatus"`
+	MonitoringStatus              pulumi.StringPtrInput                         `pulumi:"monitoringStatus"`
+	ProvisioningState             pulumi.StringInput                            `pulumi:"provisioningState"`
+	UserInfo                      UserInfoResponsePtrInput                      `pulumi:"userInfo"`
 }
 
 func (MonitorPropertiesResponseArgs) ElementType() reflect.Type {
@@ -1766,7 +1686,6 @@ func (i *monitorPropertiesResponsePtrType) ToMonitorPropertiesResponsePtrOutputW
 	return pulumi.ToOutputWithContext(ctx, i).(MonitorPropertiesResponsePtrOutput)
 }
 
-// Properties specific to the monitor resource.
 type MonitorPropertiesResponseOutput struct{ *pulumi.OutputState }
 
 func (MonitorPropertiesResponseOutput) ElementType() reflect.Type {
@@ -1786,12 +1705,11 @@ func (o MonitorPropertiesResponseOutput) ToMonitorPropertiesResponsePtrOutput() 
 }
 
 func (o MonitorPropertiesResponseOutput) ToMonitorPropertiesResponsePtrOutputWithContext(ctx context.Context) MonitorPropertiesResponsePtrOutput {
-	return o.ApplyT(func(v MonitorPropertiesResponse) *MonitorPropertiesResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v MonitorPropertiesResponse) *MonitorPropertiesResponse {
 		return &v
 	}).(MonitorPropertiesResponsePtrOutput)
 }
 
-// Datadog organization properties
 func (o MonitorPropertiesResponseOutput) DatadogOrganizationProperties() DatadogOrganizationPropertiesResponsePtrOutput {
 	return o.ApplyT(func(v MonitorPropertiesResponse) *DatadogOrganizationPropertiesResponse {
 		return v.DatadogOrganizationProperties
@@ -1802,17 +1720,14 @@ func (o MonitorPropertiesResponseOutput) LiftrResourceCategory() pulumi.StringOu
 	return o.ApplyT(func(v MonitorPropertiesResponse) string { return v.LiftrResourceCategory }).(pulumi.StringOutput)
 }
 
-// The priority of the resource.
 func (o MonitorPropertiesResponseOutput) LiftrResourcePreference() pulumi.IntOutput {
 	return o.ApplyT(func(v MonitorPropertiesResponse) int { return v.LiftrResourcePreference }).(pulumi.IntOutput)
 }
 
-// Flag specifying the Marketplace Subscription Status of the resource. If payment is not made in time, the resource will go in Suspended state.
 func (o MonitorPropertiesResponseOutput) MarketplaceSubscriptionStatus() pulumi.StringOutput {
 	return o.ApplyT(func(v MonitorPropertiesResponse) string { return v.MarketplaceSubscriptionStatus }).(pulumi.StringOutput)
 }
 
-// Flag specifying if the resource monitoring is enabled or disabled.
 func (o MonitorPropertiesResponseOutput) MonitoringStatus() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v MonitorPropertiesResponse) *string { return v.MonitoringStatus }).(pulumi.StringPtrOutput)
 }
@@ -1821,7 +1736,6 @@ func (o MonitorPropertiesResponseOutput) ProvisioningState() pulumi.StringOutput
 	return o.ApplyT(func(v MonitorPropertiesResponse) string { return v.ProvisioningState }).(pulumi.StringOutput)
 }
 
-// User info
 func (o MonitorPropertiesResponseOutput) UserInfo() UserInfoResponsePtrOutput {
 	return o.ApplyT(func(v MonitorPropertiesResponse) *UserInfoResponse { return v.UserInfo }).(UserInfoResponsePtrOutput)
 }
@@ -1841,10 +1755,15 @@ func (o MonitorPropertiesResponsePtrOutput) ToMonitorPropertiesResponsePtrOutput
 }
 
 func (o MonitorPropertiesResponsePtrOutput) Elem() MonitorPropertiesResponseOutput {
-	return o.ApplyT(func(v *MonitorPropertiesResponse) MonitorPropertiesResponse { return *v }).(MonitorPropertiesResponseOutput)
+	return o.ApplyT(func(v *MonitorPropertiesResponse) MonitorPropertiesResponse {
+		if v != nil {
+			return *v
+		}
+		var ret MonitorPropertiesResponse
+		return ret
+	}).(MonitorPropertiesResponseOutput)
 }
 
-// Datadog organization properties
 func (o MonitorPropertiesResponsePtrOutput) DatadogOrganizationProperties() DatadogOrganizationPropertiesResponsePtrOutput {
 	return o.ApplyT(func(v *MonitorPropertiesResponse) *DatadogOrganizationPropertiesResponse {
 		if v == nil {
@@ -1863,7 +1782,6 @@ func (o MonitorPropertiesResponsePtrOutput) LiftrResourceCategory() pulumi.Strin
 	}).(pulumi.StringPtrOutput)
 }
 
-// The priority of the resource.
 func (o MonitorPropertiesResponsePtrOutput) LiftrResourcePreference() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *MonitorPropertiesResponse) *int {
 		if v == nil {
@@ -1873,7 +1791,6 @@ func (o MonitorPropertiesResponsePtrOutput) LiftrResourcePreference() pulumi.Int
 	}).(pulumi.IntPtrOutput)
 }
 
-// Flag specifying the Marketplace Subscription Status of the resource. If payment is not made in time, the resource will go in Suspended state.
 func (o MonitorPropertiesResponsePtrOutput) MarketplaceSubscriptionStatus() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *MonitorPropertiesResponse) *string {
 		if v == nil {
@@ -1883,7 +1800,6 @@ func (o MonitorPropertiesResponsePtrOutput) MarketplaceSubscriptionStatus() pulu
 	}).(pulumi.StringPtrOutput)
 }
 
-// Flag specifying if the resource monitoring is enabled or disabled.
 func (o MonitorPropertiesResponsePtrOutput) MonitoringStatus() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *MonitorPropertiesResponse) *string {
 		if v == nil {
@@ -1902,7 +1818,6 @@ func (o MonitorPropertiesResponsePtrOutput) ProvisioningState() pulumi.StringPtr
 	}).(pulumi.StringPtrOutput)
 }
 
-// User info
 func (o MonitorPropertiesResponsePtrOutput) UserInfo() UserInfoResponsePtrOutput {
 	return o.ApplyT(func(v *MonitorPropertiesResponse) *UserInfoResponse {
 		if v == nil {
@@ -1912,18 +1827,12 @@ func (o MonitorPropertiesResponsePtrOutput) UserInfo() UserInfoResponsePtrOutput
 	}).(UserInfoResponsePtrOutput)
 }
 
-// The properties of a resource currently being monitored by the Datadog monitor resource.
 type MonitoredResourceResponse struct {
-	// The ARM id of the resource.
-	Id *string `pulumi:"id"`
-	// Reason for why the resource is sending logs (or why it is not sending).
-	ReasonForLogsStatus *string `pulumi:"reasonForLogsStatus"`
-	// Reason for why the resource is sending metrics (or why it is not sending).
+	Id                     *string `pulumi:"id"`
+	ReasonForLogsStatus    *string `pulumi:"reasonForLogsStatus"`
 	ReasonForMetricsStatus *string `pulumi:"reasonForMetricsStatus"`
-	// Flag indicating if resource is sending logs to Datadog.
-	SendingLogs *bool `pulumi:"sendingLogs"`
-	// Flag indicating if resource is sending metrics to Datadog.
-	SendingMetrics *bool `pulumi:"sendingMetrics"`
+	SendingLogs            *bool   `pulumi:"sendingLogs"`
+	SendingMetrics         *bool   `pulumi:"sendingMetrics"`
 }
 
 // MonitoredResourceResponseInput is an input type that accepts MonitoredResourceResponseArgs and MonitoredResourceResponseOutput values.
@@ -1937,18 +1846,12 @@ type MonitoredResourceResponseInput interface {
 	ToMonitoredResourceResponseOutputWithContext(context.Context) MonitoredResourceResponseOutput
 }
 
-// The properties of a resource currently being monitored by the Datadog monitor resource.
 type MonitoredResourceResponseArgs struct {
-	// The ARM id of the resource.
-	Id pulumi.StringPtrInput `pulumi:"id"`
-	// Reason for why the resource is sending logs (or why it is not sending).
-	ReasonForLogsStatus pulumi.StringPtrInput `pulumi:"reasonForLogsStatus"`
-	// Reason for why the resource is sending metrics (or why it is not sending).
+	Id                     pulumi.StringPtrInput `pulumi:"id"`
+	ReasonForLogsStatus    pulumi.StringPtrInput `pulumi:"reasonForLogsStatus"`
 	ReasonForMetricsStatus pulumi.StringPtrInput `pulumi:"reasonForMetricsStatus"`
-	// Flag indicating if resource is sending logs to Datadog.
-	SendingLogs pulumi.BoolPtrInput `pulumi:"sendingLogs"`
-	// Flag indicating if resource is sending metrics to Datadog.
-	SendingMetrics pulumi.BoolPtrInput `pulumi:"sendingMetrics"`
+	SendingLogs            pulumi.BoolPtrInput   `pulumi:"sendingLogs"`
+	SendingMetrics         pulumi.BoolPtrInput   `pulumi:"sendingMetrics"`
 }
 
 func (MonitoredResourceResponseArgs) ElementType() reflect.Type {
@@ -1988,7 +1891,6 @@ func (i MonitoredResourceResponseArray) ToMonitoredResourceResponseArrayOutputWi
 	return pulumi.ToOutputWithContext(ctx, i).(MonitoredResourceResponseArrayOutput)
 }
 
-// The properties of a resource currently being monitored by the Datadog monitor resource.
 type MonitoredResourceResponseOutput struct{ *pulumi.OutputState }
 
 func (MonitoredResourceResponseOutput) ElementType() reflect.Type {
@@ -2003,27 +1905,22 @@ func (o MonitoredResourceResponseOutput) ToMonitoredResourceResponseOutputWithCo
 	return o
 }
 
-// The ARM id of the resource.
 func (o MonitoredResourceResponseOutput) Id() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v MonitoredResourceResponse) *string { return v.Id }).(pulumi.StringPtrOutput)
 }
 
-// Reason for why the resource is sending logs (or why it is not sending).
 func (o MonitoredResourceResponseOutput) ReasonForLogsStatus() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v MonitoredResourceResponse) *string { return v.ReasonForLogsStatus }).(pulumi.StringPtrOutput)
 }
 
-// Reason for why the resource is sending metrics (or why it is not sending).
 func (o MonitoredResourceResponseOutput) ReasonForMetricsStatus() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v MonitoredResourceResponse) *string { return v.ReasonForMetricsStatus }).(pulumi.StringPtrOutput)
 }
 
-// Flag indicating if resource is sending logs to Datadog.
 func (o MonitoredResourceResponseOutput) SendingLogs() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v MonitoredResourceResponse) *bool { return v.SendingLogs }).(pulumi.BoolPtrOutput)
 }
 
-// Flag indicating if resource is sending metrics to Datadog.
 func (o MonitoredResourceResponseOutput) SendingMetrics() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v MonitoredResourceResponse) *bool { return v.SendingMetrics }).(pulumi.BoolPtrOutput)
 }
@@ -2049,7 +1946,6 @@ func (o MonitoredResourceResponseArrayOutput) Index(i pulumi.IntInput) Monitored
 }
 
 type ResourceSku struct {
-	// Name of the SKU.
 	Name string `pulumi:"name"`
 }
 
@@ -2065,7 +1961,6 @@ type ResourceSkuInput interface {
 }
 
 type ResourceSkuArgs struct {
-	// Name of the SKU.
 	Name pulumi.StringInput `pulumi:"name"`
 }
 
@@ -2141,12 +2036,11 @@ func (o ResourceSkuOutput) ToResourceSkuPtrOutput() ResourceSkuPtrOutput {
 }
 
 func (o ResourceSkuOutput) ToResourceSkuPtrOutputWithContext(ctx context.Context) ResourceSkuPtrOutput {
-	return o.ApplyT(func(v ResourceSku) *ResourceSku {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ResourceSku) *ResourceSku {
 		return &v
 	}).(ResourceSkuPtrOutput)
 }
 
-// Name of the SKU.
 func (o ResourceSkuOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v ResourceSku) string { return v.Name }).(pulumi.StringOutput)
 }
@@ -2166,10 +2060,15 @@ func (o ResourceSkuPtrOutput) ToResourceSkuPtrOutputWithContext(ctx context.Cont
 }
 
 func (o ResourceSkuPtrOutput) Elem() ResourceSkuOutput {
-	return o.ApplyT(func(v *ResourceSku) ResourceSku { return *v }).(ResourceSkuOutput)
+	return o.ApplyT(func(v *ResourceSku) ResourceSku {
+		if v != nil {
+			return *v
+		}
+		var ret ResourceSku
+		return ret
+	}).(ResourceSkuOutput)
 }
 
-// Name of the SKU.
 func (o ResourceSkuPtrOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ResourceSku) *string {
 		if v == nil {
@@ -2180,7 +2079,6 @@ func (o ResourceSkuPtrOutput) Name() pulumi.StringPtrOutput {
 }
 
 type ResourceSkuResponse struct {
-	// Name of the SKU.
 	Name string `pulumi:"name"`
 }
 
@@ -2196,7 +2094,6 @@ type ResourceSkuResponseInput interface {
 }
 
 type ResourceSkuResponseArgs struct {
-	// Name of the SKU.
 	Name pulumi.StringInput `pulumi:"name"`
 }
 
@@ -2272,12 +2169,11 @@ func (o ResourceSkuResponseOutput) ToResourceSkuResponsePtrOutput() ResourceSkuR
 }
 
 func (o ResourceSkuResponseOutput) ToResourceSkuResponsePtrOutputWithContext(ctx context.Context) ResourceSkuResponsePtrOutput {
-	return o.ApplyT(func(v ResourceSkuResponse) *ResourceSkuResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ResourceSkuResponse) *ResourceSkuResponse {
 		return &v
 	}).(ResourceSkuResponsePtrOutput)
 }
 
-// Name of the SKU.
 func (o ResourceSkuResponseOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v ResourceSkuResponse) string { return v.Name }).(pulumi.StringOutput)
 }
@@ -2297,10 +2193,15 @@ func (o ResourceSkuResponsePtrOutput) ToResourceSkuResponsePtrOutputWithContext(
 }
 
 func (o ResourceSkuResponsePtrOutput) Elem() ResourceSkuResponseOutput {
-	return o.ApplyT(func(v *ResourceSkuResponse) ResourceSkuResponse { return *v }).(ResourceSkuResponseOutput)
+	return o.ApplyT(func(v *ResourceSkuResponse) ResourceSkuResponse {
+		if v != nil {
+			return *v
+		}
+		var ret ResourceSkuResponse
+		return ret
+	}).(ResourceSkuResponseOutput)
 }
 
-// Name of the SKU.
 func (o ResourceSkuResponsePtrOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ResourceSkuResponse) *string {
 		if v == nil {
@@ -2310,14 +2211,10 @@ func (o ResourceSkuResponsePtrOutput) Name() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// User info
 type UserInfo struct {
-	// Email of the user used by Datadog for contacting them if needed
 	EmailAddress *string `pulumi:"emailAddress"`
-	// Name of the user
-	Name *string `pulumi:"name"`
-	// Phone number of the user used by Datadog for contacting them if needed
-	PhoneNumber *string `pulumi:"phoneNumber"`
+	Name         *string `pulumi:"name"`
+	PhoneNumber  *string `pulumi:"phoneNumber"`
 }
 
 // UserInfoInput is an input type that accepts UserInfoArgs and UserInfoOutput values.
@@ -2331,14 +2228,10 @@ type UserInfoInput interface {
 	ToUserInfoOutputWithContext(context.Context) UserInfoOutput
 }
 
-// User info
 type UserInfoArgs struct {
-	// Email of the user used by Datadog for contacting them if needed
 	EmailAddress pulumi.StringPtrInput `pulumi:"emailAddress"`
-	// Name of the user
-	Name pulumi.StringPtrInput `pulumi:"name"`
-	// Phone number of the user used by Datadog for contacting them if needed
-	PhoneNumber pulumi.StringPtrInput `pulumi:"phoneNumber"`
+	Name         pulumi.StringPtrInput `pulumi:"name"`
+	PhoneNumber  pulumi.StringPtrInput `pulumi:"phoneNumber"`
 }
 
 func (UserInfoArgs) ElementType() reflect.Type {
@@ -2394,7 +2287,6 @@ func (i *userInfoPtrType) ToUserInfoPtrOutputWithContext(ctx context.Context) Us
 	return pulumi.ToOutputWithContext(ctx, i).(UserInfoPtrOutput)
 }
 
-// User info
 type UserInfoOutput struct{ *pulumi.OutputState }
 
 func (UserInfoOutput) ElementType() reflect.Type {
@@ -2414,22 +2306,19 @@ func (o UserInfoOutput) ToUserInfoPtrOutput() UserInfoPtrOutput {
 }
 
 func (o UserInfoOutput) ToUserInfoPtrOutputWithContext(ctx context.Context) UserInfoPtrOutput {
-	return o.ApplyT(func(v UserInfo) *UserInfo {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v UserInfo) *UserInfo {
 		return &v
 	}).(UserInfoPtrOutput)
 }
 
-// Email of the user used by Datadog for contacting them if needed
 func (o UserInfoOutput) EmailAddress() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v UserInfo) *string { return v.EmailAddress }).(pulumi.StringPtrOutput)
 }
 
-// Name of the user
 func (o UserInfoOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v UserInfo) *string { return v.Name }).(pulumi.StringPtrOutput)
 }
 
-// Phone number of the user used by Datadog for contacting them if needed
 func (o UserInfoOutput) PhoneNumber() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v UserInfo) *string { return v.PhoneNumber }).(pulumi.StringPtrOutput)
 }
@@ -2449,10 +2338,15 @@ func (o UserInfoPtrOutput) ToUserInfoPtrOutputWithContext(ctx context.Context) U
 }
 
 func (o UserInfoPtrOutput) Elem() UserInfoOutput {
-	return o.ApplyT(func(v *UserInfo) UserInfo { return *v }).(UserInfoOutput)
+	return o.ApplyT(func(v *UserInfo) UserInfo {
+		if v != nil {
+			return *v
+		}
+		var ret UserInfo
+		return ret
+	}).(UserInfoOutput)
 }
 
-// Email of the user used by Datadog for contacting them if needed
 func (o UserInfoPtrOutput) EmailAddress() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *UserInfo) *string {
 		if v == nil {
@@ -2462,7 +2356,6 @@ func (o UserInfoPtrOutput) EmailAddress() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Name of the user
 func (o UserInfoPtrOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *UserInfo) *string {
 		if v == nil {
@@ -2472,7 +2365,6 @@ func (o UserInfoPtrOutput) Name() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Phone number of the user used by Datadog for contacting them if needed
 func (o UserInfoPtrOutput) PhoneNumber() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *UserInfo) *string {
 		if v == nil {
@@ -2482,14 +2374,10 @@ func (o UserInfoPtrOutput) PhoneNumber() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// User info
 type UserInfoResponse struct {
-	// Email of the user used by Datadog for contacting them if needed
 	EmailAddress *string `pulumi:"emailAddress"`
-	// Name of the user
-	Name *string `pulumi:"name"`
-	// Phone number of the user used by Datadog for contacting them if needed
-	PhoneNumber *string `pulumi:"phoneNumber"`
+	Name         *string `pulumi:"name"`
+	PhoneNumber  *string `pulumi:"phoneNumber"`
 }
 
 // UserInfoResponseInput is an input type that accepts UserInfoResponseArgs and UserInfoResponseOutput values.
@@ -2503,14 +2391,10 @@ type UserInfoResponseInput interface {
 	ToUserInfoResponseOutputWithContext(context.Context) UserInfoResponseOutput
 }
 
-// User info
 type UserInfoResponseArgs struct {
-	// Email of the user used by Datadog for contacting them if needed
 	EmailAddress pulumi.StringPtrInput `pulumi:"emailAddress"`
-	// Name of the user
-	Name pulumi.StringPtrInput `pulumi:"name"`
-	// Phone number of the user used by Datadog for contacting them if needed
-	PhoneNumber pulumi.StringPtrInput `pulumi:"phoneNumber"`
+	Name         pulumi.StringPtrInput `pulumi:"name"`
+	PhoneNumber  pulumi.StringPtrInput `pulumi:"phoneNumber"`
 }
 
 func (UserInfoResponseArgs) ElementType() reflect.Type {
@@ -2566,7 +2450,6 @@ func (i *userInfoResponsePtrType) ToUserInfoResponsePtrOutputWithContext(ctx con
 	return pulumi.ToOutputWithContext(ctx, i).(UserInfoResponsePtrOutput)
 }
 
-// User info
 type UserInfoResponseOutput struct{ *pulumi.OutputState }
 
 func (UserInfoResponseOutput) ElementType() reflect.Type {
@@ -2586,22 +2469,19 @@ func (o UserInfoResponseOutput) ToUserInfoResponsePtrOutput() UserInfoResponsePt
 }
 
 func (o UserInfoResponseOutput) ToUserInfoResponsePtrOutputWithContext(ctx context.Context) UserInfoResponsePtrOutput {
-	return o.ApplyT(func(v UserInfoResponse) *UserInfoResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v UserInfoResponse) *UserInfoResponse {
 		return &v
 	}).(UserInfoResponsePtrOutput)
 }
 
-// Email of the user used by Datadog for contacting them if needed
 func (o UserInfoResponseOutput) EmailAddress() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v UserInfoResponse) *string { return v.EmailAddress }).(pulumi.StringPtrOutput)
 }
 
-// Name of the user
 func (o UserInfoResponseOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v UserInfoResponse) *string { return v.Name }).(pulumi.StringPtrOutput)
 }
 
-// Phone number of the user used by Datadog for contacting them if needed
 func (o UserInfoResponseOutput) PhoneNumber() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v UserInfoResponse) *string { return v.PhoneNumber }).(pulumi.StringPtrOutput)
 }
@@ -2621,10 +2501,15 @@ func (o UserInfoResponsePtrOutput) ToUserInfoResponsePtrOutputWithContext(ctx co
 }
 
 func (o UserInfoResponsePtrOutput) Elem() UserInfoResponseOutput {
-	return o.ApplyT(func(v *UserInfoResponse) UserInfoResponse { return *v }).(UserInfoResponseOutput)
+	return o.ApplyT(func(v *UserInfoResponse) UserInfoResponse {
+		if v != nil {
+			return *v
+		}
+		var ret UserInfoResponse
+		return ret
+	}).(UserInfoResponseOutput)
 }
 
-// Email of the user used by Datadog for contacting them if needed
 func (o UserInfoResponsePtrOutput) EmailAddress() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *UserInfoResponse) *string {
 		if v == nil {
@@ -2634,7 +2519,6 @@ func (o UserInfoResponsePtrOutput) EmailAddress() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Name of the user
 func (o UserInfoResponsePtrOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *UserInfoResponse) *string {
 		if v == nil {
@@ -2644,7 +2528,6 @@ func (o UserInfoResponsePtrOutput) Name() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Phone number of the user used by Datadog for contacting them if needed
 func (o UserInfoResponsePtrOutput) PhoneNumber() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *UserInfoResponse) *string {
 		if v == nil {

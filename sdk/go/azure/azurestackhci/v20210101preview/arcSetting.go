@@ -11,34 +11,21 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// ArcSetting details.
 type ArcSetting struct {
 	pulumi.CustomResourceState
 
-	// Aggregate state of Arc agent across the nodes in this HCI cluster.
-	AggregateState pulumi.StringOutput `pulumi:"aggregateState"`
-	// The resource group that hosts the Arc agents, ie. Hybrid Compute Machine resources.
-	ArcInstanceResourceGroup pulumi.StringOutput `pulumi:"arcInstanceResourceGroup"`
-	// The timestamp of resource creation (UTC).
-	CreatedAt pulumi.StringPtrOutput `pulumi:"createdAt"`
-	// The identity that created the resource.
-	CreatedBy pulumi.StringPtrOutput `pulumi:"createdBy"`
-	// The type of identity that created the resource.
-	CreatedByType pulumi.StringPtrOutput `pulumi:"createdByType"`
-	// The timestamp of resource last modification (UTC)
-	LastModifiedAt pulumi.StringPtrOutput `pulumi:"lastModifiedAt"`
-	// The identity that last modified the resource.
-	LastModifiedBy pulumi.StringPtrOutput `pulumi:"lastModifiedBy"`
-	// The type of identity that last modified the resource.
-	LastModifiedByType pulumi.StringPtrOutput `pulumi:"lastModifiedByType"`
-	// The name of the resource
-	Name pulumi.StringOutput `pulumi:"name"`
-	// State of Arc agent in each of the nodes.
-	PerNodeDetails PerNodeStateResponseArrayOutput `pulumi:"perNodeDetails"`
-	// Provisioning state of the ArcSetting proxy resource.
-	ProvisioningState pulumi.StringOutput `pulumi:"provisioningState"`
-	// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
-	Type pulumi.StringOutput `pulumi:"type"`
+	AggregateState           pulumi.StringOutput             `pulumi:"aggregateState"`
+	ArcInstanceResourceGroup pulumi.StringOutput             `pulumi:"arcInstanceResourceGroup"`
+	CreatedAt                pulumi.StringPtrOutput          `pulumi:"createdAt"`
+	CreatedBy                pulumi.StringPtrOutput          `pulumi:"createdBy"`
+	CreatedByType            pulumi.StringPtrOutput          `pulumi:"createdByType"`
+	LastModifiedAt           pulumi.StringPtrOutput          `pulumi:"lastModifiedAt"`
+	LastModifiedBy           pulumi.StringPtrOutput          `pulumi:"lastModifiedBy"`
+	LastModifiedByType       pulumi.StringPtrOutput          `pulumi:"lastModifiedByType"`
+	Name                     pulumi.StringOutput             `pulumi:"name"`
+	PerNodeDetails           PerNodeStateResponseArrayOutput `pulumi:"perNodeDetails"`
+	ProvisioningState        pulumi.StringOutput             `pulumi:"provisioningState"`
+	Type                     pulumi.StringOutput             `pulumi:"type"`
 }
 
 // NewArcSetting registers a new resource with the given unique name, arguments, and options.
@@ -104,46 +91,28 @@ func (ArcSettingState) ElementType() reflect.Type {
 }
 
 type arcSettingArgs struct {
-	// The name of the proxy resource holding details of HCI ArcSetting information.
-	ArcSettingName *string `pulumi:"arcSettingName"`
-	// The name of the cluster.
-	ClusterName string `pulumi:"clusterName"`
-	// The timestamp of resource creation (UTC).
-	CreatedAt *string `pulumi:"createdAt"`
-	// The identity that created the resource.
-	CreatedBy *string `pulumi:"createdBy"`
-	// The type of identity that created the resource.
-	CreatedByType *string `pulumi:"createdByType"`
-	// The timestamp of resource last modification (UTC)
-	LastModifiedAt *string `pulumi:"lastModifiedAt"`
-	// The identity that last modified the resource.
-	LastModifiedBy *string `pulumi:"lastModifiedBy"`
-	// The type of identity that last modified the resource.
+	ArcSettingName     *string `pulumi:"arcSettingName"`
+	ClusterName        string  `pulumi:"clusterName"`
+	CreatedAt          *string `pulumi:"createdAt"`
+	CreatedBy          *string `pulumi:"createdBy"`
+	CreatedByType      *string `pulumi:"createdByType"`
+	LastModifiedAt     *string `pulumi:"lastModifiedAt"`
+	LastModifiedBy     *string `pulumi:"lastModifiedBy"`
 	LastModifiedByType *string `pulumi:"lastModifiedByType"`
-	// The name of the resource group. The name is case insensitive.
-	ResourceGroupName string `pulumi:"resourceGroupName"`
+	ResourceGroupName  string  `pulumi:"resourceGroupName"`
 }
 
 // The set of arguments for constructing a ArcSetting resource.
 type ArcSettingArgs struct {
-	// The name of the proxy resource holding details of HCI ArcSetting information.
-	ArcSettingName pulumi.StringPtrInput
-	// The name of the cluster.
-	ClusterName pulumi.StringInput
-	// The timestamp of resource creation (UTC).
-	CreatedAt pulumi.StringPtrInput
-	// The identity that created the resource.
-	CreatedBy pulumi.StringPtrInput
-	// The type of identity that created the resource.
-	CreatedByType pulumi.StringPtrInput
-	// The timestamp of resource last modification (UTC)
-	LastModifiedAt pulumi.StringPtrInput
-	// The identity that last modified the resource.
-	LastModifiedBy pulumi.StringPtrInput
-	// The type of identity that last modified the resource.
+	ArcSettingName     pulumi.StringPtrInput
+	ClusterName        pulumi.StringInput
+	CreatedAt          pulumi.StringPtrInput
+	CreatedBy          pulumi.StringPtrInput
+	CreatedByType      pulumi.StringPtrInput
+	LastModifiedAt     pulumi.StringPtrInput
+	LastModifiedBy     pulumi.StringPtrInput
 	LastModifiedByType pulumi.StringPtrInput
-	// The name of the resource group. The name is case insensitive.
-	ResourceGroupName pulumi.StringInput
+	ResourceGroupName  pulumi.StringInput
 }
 
 func (ArcSettingArgs) ElementType() reflect.Type {
@@ -169,9 +138,7 @@ func (i *ArcSetting) ToArcSettingOutputWithContext(ctx context.Context) ArcSetti
 	return pulumi.ToOutputWithContext(ctx, i).(ArcSettingOutput)
 }
 
-type ArcSettingOutput struct {
-	*pulumi.OutputState
-}
+type ArcSettingOutput struct{ *pulumi.OutputState }
 
 func (ArcSettingOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*ArcSetting)(nil))

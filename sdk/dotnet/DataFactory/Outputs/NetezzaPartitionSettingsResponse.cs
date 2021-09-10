@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.DataFactory.Outputs
 {
 
+    /// <summary>
+    /// The settings that will be leveraged for Netezza source partitioning.
+    /// </summary>
     [OutputType]
     public sealed class NetezzaPartitionSettingsResponse
     {

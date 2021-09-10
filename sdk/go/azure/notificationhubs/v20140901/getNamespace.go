@@ -7,7 +7,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Description of a Namespace resource.
 func LookupNamespace(ctx *pulumi.Context, args *LookupNamespaceArgs, opts ...pulumi.InvokeOption) (*LookupNamespaceResult, error) {
 	var rv LookupNamespaceResult
 	err := ctx.Invoke("azure-native:notificationhubs/v20140901:getNamespace", args, &rv, opts...)
@@ -18,24 +17,16 @@ func LookupNamespace(ctx *pulumi.Context, args *LookupNamespaceArgs, opts ...pul
 }
 
 type LookupNamespaceArgs struct {
-	// The namespace name.
-	NamespaceName string `pulumi:"namespaceName"`
-	// The name of the resource group.
+	NamespaceName     string `pulumi:"namespaceName"`
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 }
 
 // Description of a Namespace resource.
 type LookupNamespaceResult struct {
-	// Gets or sets the id of the created Namespace.
-	Id *string `pulumi:"id"`
-	// Gets or sets datacenter location of the Namespace.
-	Location *string `pulumi:"location"`
-	// Gets or sets name of the Namespace.
-	Name *string `pulumi:"name"`
-	// Gets or sets properties of the Namespace.
+	Id         *string                     `pulumi:"id"`
+	Location   *string                     `pulumi:"location"`
+	Name       *string                     `pulumi:"name"`
 	Properties NamespacePropertiesResponse `pulumi:"properties"`
-	// Gets or sets tags of the Namespace.
-	Tags map[string]string `pulumi:"tags"`
-	// Gets or sets resource type of the Namespace.
-	Type *string `pulumi:"type"`
+	Tags       map[string]string           `pulumi:"tags"`
+	Type       *string                     `pulumi:"type"`
 }

@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.KubernetesConfiguration.V20210501Preview.Outputs
 {
 
+    /// <summary>
+    /// Specifies that the scope of the extension is Namespace
+    /// </summary>
     [OutputType]
     public sealed class ScopeNamespaceResponse
     {

@@ -7,7 +7,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Response for list of user's role for Logz.io account.
 func ListMonitorUserRoles(ctx *pulumi.Context, args *ListMonitorUserRolesArgs, opts ...pulumi.InvokeOption) (*ListMonitorUserRolesResult, error) {
 	var rv ListMonitorUserRolesResult
 	err := ctx.Invoke("azure-native:logz/v20201001:listMonitorUserRoles", args, &rv, opts...)
@@ -18,18 +17,13 @@ func ListMonitorUserRoles(ctx *pulumi.Context, args *ListMonitorUserRolesArgs, o
 }
 
 type ListMonitorUserRolesArgs struct {
-	// Email of the user used by Logz for contacting them if needed
-	EmailAddress *string `pulumi:"emailAddress"`
-	// Monitor resource name
-	MonitorName string `pulumi:"monitorName"`
-	// The name of the resource group. The name is case insensitive.
-	ResourceGroupName string `pulumi:"resourceGroupName"`
+	EmailAddress      *string `pulumi:"emailAddress"`
+	MonitorName       string  `pulumi:"monitorName"`
+	ResourceGroupName string  `pulumi:"resourceGroupName"`
 }
 
 // Response for list of user's role for Logz.io account.
 type ListMonitorUserRolesResult struct {
-	// Link to the next set of results, if any.
-	NextLink *string `pulumi:"nextLink"`
-	// List of user roles for Logz.io account.
-	Value []UserRoleResponseResponse `pulumi:"value"`
+	NextLink *string                    `pulumi:"nextLink"`
+	Value    []UserRoleResponseResponse `pulumi:"value"`
 }

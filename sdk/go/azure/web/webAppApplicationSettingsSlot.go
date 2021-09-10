@@ -201,9 +201,7 @@ func (i *WebAppApplicationSettingsSlot) ToWebAppApplicationSettingsSlotOutputWit
 	return pulumi.ToOutputWithContext(ctx, i).(WebAppApplicationSettingsSlotOutput)
 }
 
-type WebAppApplicationSettingsSlotOutput struct {
-	*pulumi.OutputState
-}
+type WebAppApplicationSettingsSlotOutput struct{ *pulumi.OutputState }
 
 func (WebAppApplicationSettingsSlotOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*WebAppApplicationSettingsSlot)(nil))

@@ -11,90 +11,48 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// App Service Environment ARM resource.
 type AppServiceEnvironment struct {
 	pulumi.CustomResourceState
 
-	// List of comma separated strings describing which VM sizes are allowed for front-ends.
-	AllowedMultiSizes pulumi.StringOutput `pulumi:"allowedMultiSizes"`
-	// List of comma separated strings describing which VM sizes are allowed for workers.
-	AllowedWorkerSizes pulumi.StringOutput `pulumi:"allowedWorkerSizes"`
-	// API Management Account associated with the App Service Environment.
-	ApiManagementAccountId pulumi.StringPtrOutput `pulumi:"apiManagementAccountId"`
-	// Custom settings for changing the behavior of the App Service Environment.
-	ClusterSettings NameValuePairResponseArrayOutput `pulumi:"clusterSettings"`
-	// Edition of the metadata database for the App Service Environment, e.g. "Standard".
-	DatabaseEdition pulumi.StringOutput `pulumi:"databaseEdition"`
-	// Service objective of the metadata database for the App Service Environment, e.g. "S0".
-	DatabaseServiceObjective pulumi.StringOutput `pulumi:"databaseServiceObjective"`
-	// Default Scale Factor for FrontEnds.
-	DefaultFrontEndScaleFactor pulumi.IntOutput `pulumi:"defaultFrontEndScaleFactor"`
-	// DNS suffix of the App Service Environment.
-	DnsSuffix pulumi.StringPtrOutput `pulumi:"dnsSuffix"`
-	// True/false indicating whether the App Service Environment is suspended. The environment can be suspended e.g. when the management endpoint is no longer available
-	// (most likely because NSG blocked the incoming traffic).
-	DynamicCacheEnabled pulumi.BoolPtrOutput `pulumi:"dynamicCacheEnabled"`
-	// Current total, used, and available worker capacities.
-	EnvironmentCapacities StampCapacityResponseArrayOutput `pulumi:"environmentCapacities"`
-	// True/false indicating whether the App Service Environment is healthy.
-	EnvironmentIsHealthy pulumi.BoolOutput `pulumi:"environmentIsHealthy"`
-	// Detailed message about with results of the last check of the App Service Environment.
-	EnvironmentStatus pulumi.StringOutput `pulumi:"environmentStatus"`
-	// Scale factor for front-ends.
-	FrontEndScaleFactor pulumi.IntPtrOutput `pulumi:"frontEndScaleFactor"`
-	// Specifies which endpoints to serve internally in the Virtual Network for the App Service Environment.
-	InternalLoadBalancingMode pulumi.StringPtrOutput `pulumi:"internalLoadBalancingMode"`
-	// Number of IP SSL addresses reserved for the App Service Environment.
-	IpsslAddressCount pulumi.IntPtrOutput `pulumi:"ipsslAddressCount"`
-	// Kind of resource.
-	Kind pulumi.StringPtrOutput `pulumi:"kind"`
-	// Last deployment action on the App Service Environment.
-	LastAction pulumi.StringOutput `pulumi:"lastAction"`
-	// Result of the last deployment action on the App Service Environment.
-	LastActionResult pulumi.StringOutput `pulumi:"lastActionResult"`
-	// Resource Location.
-	Location pulumi.StringOutput `pulumi:"location"`
-	// Maximum number of VMs in the App Service Environment.
-	MaximumNumberOfMachines pulumi.IntOutput `pulumi:"maximumNumberOfMachines"`
-	// Number of front-end instances.
-	MultiRoleCount pulumi.IntPtrOutput `pulumi:"multiRoleCount"`
-	// Front-end VM size, e.g. "Medium", "Large".
-	MultiSize pulumi.StringPtrOutput `pulumi:"multiSize"`
-	// Resource Name.
-	Name pulumi.StringOutput `pulumi:"name"`
-	// Access control list for controlling traffic to the App Service Environment.
-	NetworkAccessControlList NetworkAccessControlEntryResponseArrayOutput `pulumi:"networkAccessControlList"`
-	// Provisioning state of the App Service Environment.
-	ProvisioningState pulumi.StringOutput `pulumi:"provisioningState"`
-	// Resource group of the App Service Environment.
-	ResourceGroup pulumi.StringOutput `pulumi:"resourceGroup"`
-	// Current status of the App Service Environment.
-	Status pulumi.StringOutput `pulumi:"status"`
-	// Subscription of the App Service Environment.
-	SubscriptionId pulumi.StringOutput `pulumi:"subscriptionId"`
-	// <code>true</code> if the App Service Environment is suspended; otherwise, <code>false</code>. The environment can be suspended, e.g. when the management endpoint is no longer available
-	//  (most likely because NSG blocked the incoming traffic).
-	Suspended pulumi.BoolPtrOutput `pulumi:"suspended"`
-	// Resource tags.
-	Tags pulumi.StringMapOutput `pulumi:"tags"`
-	// Resource type.
-	Type pulumi.StringOutput `pulumi:"type"`
-	// Number of upgrade domains of the App Service Environment.
-	UpgradeDomains pulumi.IntOutput `pulumi:"upgradeDomains"`
-	// User added ip ranges to whitelist on ASE db
-	UserWhitelistedIpRanges pulumi.StringArrayOutput `pulumi:"userWhitelistedIpRanges"`
-	// Description of IP SSL mapping for the App Service Environment.
-	VipMappings VirtualIPMappingResponseArrayOutput `pulumi:"vipMappings"`
-	// Description of the Virtual Network.
-	VirtualNetwork VirtualNetworkProfileResponseOutput `pulumi:"virtualNetwork"`
-	// Name of the Virtual Network for the App Service Environment.
-	VnetName pulumi.StringPtrOutput `pulumi:"vnetName"`
-	// Resource group of the Virtual Network.
-	VnetResourceGroupName pulumi.StringPtrOutput `pulumi:"vnetResourceGroupName"`
-	// Subnet of the Virtual Network.
-	VnetSubnetName pulumi.StringPtrOutput `pulumi:"vnetSubnetName"`
-	// Description of worker pools with worker size IDs, VM sizes, and number of workers in each pool.
-	WorkerPools WorkerPoolResponseArrayOutput `pulumi:"workerPools"`
+	AllowedMultiSizes          pulumi.StringOutput                          `pulumi:"allowedMultiSizes"`
+	AllowedWorkerSizes         pulumi.StringOutput                          `pulumi:"allowedWorkerSizes"`
+	ApiManagementAccountId     pulumi.StringPtrOutput                       `pulumi:"apiManagementAccountId"`
+	ClusterSettings            NameValuePairResponseArrayOutput             `pulumi:"clusterSettings"`
+	DatabaseEdition            pulumi.StringOutput                          `pulumi:"databaseEdition"`
+	DatabaseServiceObjective   pulumi.StringOutput                          `pulumi:"databaseServiceObjective"`
+	DefaultFrontEndScaleFactor pulumi.IntOutput                             `pulumi:"defaultFrontEndScaleFactor"`
+	DnsSuffix                  pulumi.StringPtrOutput                       `pulumi:"dnsSuffix"`
+	DynamicCacheEnabled        pulumi.BoolPtrOutput                         `pulumi:"dynamicCacheEnabled"`
+	EnvironmentCapacities      StampCapacityResponseArrayOutput             `pulumi:"environmentCapacities"`
+	EnvironmentIsHealthy       pulumi.BoolOutput                            `pulumi:"environmentIsHealthy"`
+	EnvironmentStatus          pulumi.StringOutput                          `pulumi:"environmentStatus"`
+	FrontEndScaleFactor        pulumi.IntPtrOutput                          `pulumi:"frontEndScaleFactor"`
+	InternalLoadBalancingMode  pulumi.StringPtrOutput                       `pulumi:"internalLoadBalancingMode"`
+	IpsslAddressCount          pulumi.IntPtrOutput                          `pulumi:"ipsslAddressCount"`
+	Kind                       pulumi.StringPtrOutput                       `pulumi:"kind"`
+	LastAction                 pulumi.StringOutput                          `pulumi:"lastAction"`
+	LastActionResult           pulumi.StringOutput                          `pulumi:"lastActionResult"`
+	Location                   pulumi.StringOutput                          `pulumi:"location"`
+	MaximumNumberOfMachines    pulumi.IntOutput                             `pulumi:"maximumNumberOfMachines"`
+	MultiRoleCount             pulumi.IntPtrOutput                          `pulumi:"multiRoleCount"`
+	MultiSize                  pulumi.StringPtrOutput                       `pulumi:"multiSize"`
+	Name                       pulumi.StringOutput                          `pulumi:"name"`
+	NetworkAccessControlList   NetworkAccessControlEntryResponseArrayOutput `pulumi:"networkAccessControlList"`
+	ProvisioningState          pulumi.StringOutput                          `pulumi:"provisioningState"`
+	ResourceGroup              pulumi.StringOutput                          `pulumi:"resourceGroup"`
+	Status                     pulumi.StringOutput                          `pulumi:"status"`
+	SubscriptionId             pulumi.StringOutput                          `pulumi:"subscriptionId"`
+	Suspended                  pulumi.BoolPtrOutput                         `pulumi:"suspended"`
+	Tags                       pulumi.StringMapOutput                       `pulumi:"tags"`
+	Type                       pulumi.StringOutput                          `pulumi:"type"`
+	UpgradeDomains             pulumi.IntOutput                             `pulumi:"upgradeDomains"`
+	UserWhitelistedIpRanges    pulumi.StringArrayOutput                     `pulumi:"userWhitelistedIpRanges"`
+	VipMappings                VirtualIPMappingResponseArrayOutput          `pulumi:"vipMappings"`
+	VirtualNetwork             VirtualNetworkProfileResponseOutput          `pulumi:"virtualNetwork"`
+	VnetName                   pulumi.StringPtrOutput                       `pulumi:"vnetName"`
+	VnetResourceGroupName      pulumi.StringPtrOutput                       `pulumi:"vnetResourceGroupName"`
+	VnetSubnetName             pulumi.StringPtrOutput                       `pulumi:"vnetSubnetName"`
+	WorkerPools                WorkerPoolResponseArrayOutput                `pulumi:"workerPools"`
 }
 
 // NewAppServiceEnvironment registers a new resource with the given unique name, arguments, and options.
@@ -217,102 +175,54 @@ func (AppServiceEnvironmentState) ElementType() reflect.Type {
 }
 
 type appServiceEnvironmentArgs struct {
-	// API Management Account associated with the App Service Environment.
-	ApiManagementAccountId *string `pulumi:"apiManagementAccountId"`
-	// Custom settings for changing the behavior of the App Service Environment.
-	ClusterSettings []NameValuePair `pulumi:"clusterSettings"`
-	// DNS suffix of the App Service Environment.
-	DnsSuffix *string `pulumi:"dnsSuffix"`
-	// True/false indicating whether the App Service Environment is suspended. The environment can be suspended e.g. when the management endpoint is no longer available
-	// (most likely because NSG blocked the incoming traffic).
-	DynamicCacheEnabled *bool `pulumi:"dynamicCacheEnabled"`
-	// Scale factor for front-ends.
-	FrontEndScaleFactor *int `pulumi:"frontEndScaleFactor"`
-	// Specifies which endpoints to serve internally in the Virtual Network for the App Service Environment.
-	InternalLoadBalancingMode *string `pulumi:"internalLoadBalancingMode"`
-	// Number of IP SSL addresses reserved for the App Service Environment.
-	IpsslAddressCount *int `pulumi:"ipsslAddressCount"`
-	// Kind of resource.
-	Kind *string `pulumi:"kind"`
-	// Resource Location.
-	Location *string `pulumi:"location"`
-	// Number of front-end instances.
-	MultiRoleCount *int `pulumi:"multiRoleCount"`
-	// Front-end VM size, e.g. "Medium", "Large".
-	MultiSize *string `pulumi:"multiSize"`
-	// Name of the App Service Environment.
-	Name *string `pulumi:"name"`
-	// Access control list for controlling traffic to the App Service Environment.
-	NetworkAccessControlList []NetworkAccessControlEntry `pulumi:"networkAccessControlList"`
-	// Name of the resource group to which the resource belongs.
-	ResourceGroupName string `pulumi:"resourceGroupName"`
-	// <code>true</code> if the App Service Environment is suspended; otherwise, <code>false</code>. The environment can be suspended, e.g. when the management endpoint is no longer available
-	//  (most likely because NSG blocked the incoming traffic).
-	Suspended *bool `pulumi:"suspended"`
-	// Resource tags.
-	Tags map[string]string `pulumi:"tags"`
-	// User added ip ranges to whitelist on ASE db
-	UserWhitelistedIpRanges []string `pulumi:"userWhitelistedIpRanges"`
-	// Description of the Virtual Network.
-	VirtualNetwork VirtualNetworkProfile `pulumi:"virtualNetwork"`
-	// Name of the Virtual Network for the App Service Environment.
-	VnetName *string `pulumi:"vnetName"`
-	// Resource group of the Virtual Network.
-	VnetResourceGroupName *string `pulumi:"vnetResourceGroupName"`
-	// Subnet of the Virtual Network.
-	VnetSubnetName *string `pulumi:"vnetSubnetName"`
-	// Description of worker pools with worker size IDs, VM sizes, and number of workers in each pool.
-	WorkerPools []WorkerPool `pulumi:"workerPools"`
+	ApiManagementAccountId    *string                     `pulumi:"apiManagementAccountId"`
+	ClusterSettings           []NameValuePair             `pulumi:"clusterSettings"`
+	DnsSuffix                 *string                     `pulumi:"dnsSuffix"`
+	DynamicCacheEnabled       *bool                       `pulumi:"dynamicCacheEnabled"`
+	FrontEndScaleFactor       *int                        `pulumi:"frontEndScaleFactor"`
+	InternalLoadBalancingMode *InternalLoadBalancingMode  `pulumi:"internalLoadBalancingMode"`
+	IpsslAddressCount         *int                        `pulumi:"ipsslAddressCount"`
+	Kind                      *string                     `pulumi:"kind"`
+	Location                  *string                     `pulumi:"location"`
+	MultiRoleCount            *int                        `pulumi:"multiRoleCount"`
+	MultiSize                 *string                     `pulumi:"multiSize"`
+	Name                      *string                     `pulumi:"name"`
+	NetworkAccessControlList  []NetworkAccessControlEntry `pulumi:"networkAccessControlList"`
+	ResourceGroupName         string                      `pulumi:"resourceGroupName"`
+	Suspended                 *bool                       `pulumi:"suspended"`
+	Tags                      map[string]string           `pulumi:"tags"`
+	UserWhitelistedIpRanges   []string                    `pulumi:"userWhitelistedIpRanges"`
+	VirtualNetwork            VirtualNetworkProfile       `pulumi:"virtualNetwork"`
+	VnetName                  *string                     `pulumi:"vnetName"`
+	VnetResourceGroupName     *string                     `pulumi:"vnetResourceGroupName"`
+	VnetSubnetName            *string                     `pulumi:"vnetSubnetName"`
+	WorkerPools               []WorkerPool                `pulumi:"workerPools"`
 }
 
 // The set of arguments for constructing a AppServiceEnvironment resource.
 type AppServiceEnvironmentArgs struct {
-	// API Management Account associated with the App Service Environment.
-	ApiManagementAccountId pulumi.StringPtrInput
-	// Custom settings for changing the behavior of the App Service Environment.
-	ClusterSettings NameValuePairArrayInput
-	// DNS suffix of the App Service Environment.
-	DnsSuffix pulumi.StringPtrInput
-	// True/false indicating whether the App Service Environment is suspended. The environment can be suspended e.g. when the management endpoint is no longer available
-	// (most likely because NSG blocked the incoming traffic).
-	DynamicCacheEnabled pulumi.BoolPtrInput
-	// Scale factor for front-ends.
-	FrontEndScaleFactor pulumi.IntPtrInput
-	// Specifies which endpoints to serve internally in the Virtual Network for the App Service Environment.
-	InternalLoadBalancingMode *InternalLoadBalancingMode
-	// Number of IP SSL addresses reserved for the App Service Environment.
-	IpsslAddressCount pulumi.IntPtrInput
-	// Kind of resource.
-	Kind pulumi.StringPtrInput
-	// Resource Location.
-	Location pulumi.StringPtrInput
-	// Number of front-end instances.
-	MultiRoleCount pulumi.IntPtrInput
-	// Front-end VM size, e.g. "Medium", "Large".
-	MultiSize pulumi.StringPtrInput
-	// Name of the App Service Environment.
-	Name pulumi.StringPtrInput
-	// Access control list for controlling traffic to the App Service Environment.
-	NetworkAccessControlList NetworkAccessControlEntryArrayInput
-	// Name of the resource group to which the resource belongs.
-	ResourceGroupName pulumi.StringInput
-	// <code>true</code> if the App Service Environment is suspended; otherwise, <code>false</code>. The environment can be suspended, e.g. when the management endpoint is no longer available
-	//  (most likely because NSG blocked the incoming traffic).
-	Suspended pulumi.BoolPtrInput
-	// Resource tags.
-	Tags pulumi.StringMapInput
-	// User added ip ranges to whitelist on ASE db
-	UserWhitelistedIpRanges pulumi.StringArrayInput
-	// Description of the Virtual Network.
-	VirtualNetwork VirtualNetworkProfileInput
-	// Name of the Virtual Network for the App Service Environment.
-	VnetName pulumi.StringPtrInput
-	// Resource group of the Virtual Network.
-	VnetResourceGroupName pulumi.StringPtrInput
-	// Subnet of the Virtual Network.
-	VnetSubnetName pulumi.StringPtrInput
-	// Description of worker pools with worker size IDs, VM sizes, and number of workers in each pool.
-	WorkerPools WorkerPoolArrayInput
+	ApiManagementAccountId    pulumi.StringPtrInput
+	ClusterSettings           NameValuePairArrayInput
+	DnsSuffix                 pulumi.StringPtrInput
+	DynamicCacheEnabled       pulumi.BoolPtrInput
+	FrontEndScaleFactor       pulumi.IntPtrInput
+	InternalLoadBalancingMode InternalLoadBalancingModePtrInput
+	IpsslAddressCount         pulumi.IntPtrInput
+	Kind                      pulumi.StringPtrInput
+	Location                  pulumi.StringPtrInput
+	MultiRoleCount            pulumi.IntPtrInput
+	MultiSize                 pulumi.StringPtrInput
+	Name                      pulumi.StringPtrInput
+	NetworkAccessControlList  NetworkAccessControlEntryArrayInput
+	ResourceGroupName         pulumi.StringInput
+	Suspended                 pulumi.BoolPtrInput
+	Tags                      pulumi.StringMapInput
+	UserWhitelistedIpRanges   pulumi.StringArrayInput
+	VirtualNetwork            VirtualNetworkProfileInput
+	VnetName                  pulumi.StringPtrInput
+	VnetResourceGroupName     pulumi.StringPtrInput
+	VnetSubnetName            pulumi.StringPtrInput
+	WorkerPools               WorkerPoolArrayInput
 }
 
 func (AppServiceEnvironmentArgs) ElementType() reflect.Type {
@@ -338,9 +248,7 @@ func (i *AppServiceEnvironment) ToAppServiceEnvironmentOutputWithContext(ctx con
 	return pulumi.ToOutputWithContext(ctx, i).(AppServiceEnvironmentOutput)
 }
 
-type AppServiceEnvironmentOutput struct {
-	*pulumi.OutputState
-}
+type AppServiceEnvironmentOutput struct{ *pulumi.OutputState }
 
 func (AppServiceEnvironmentOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*AppServiceEnvironment)(nil))

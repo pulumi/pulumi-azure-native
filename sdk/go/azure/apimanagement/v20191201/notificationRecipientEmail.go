@@ -11,16 +11,12 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Recipient Email details.
 type NotificationRecipientEmail struct {
 	pulumi.CustomResourceState
 
-	// User Email subscribed to notification.
 	Email pulumi.StringPtrOutput `pulumi:"email"`
-	// Resource name.
-	Name pulumi.StringOutput `pulumi:"name"`
-	// Resource type for API Management resource.
-	Type pulumi.StringOutput `pulumi:"type"`
+	Name  pulumi.StringOutput    `pulumi:"name"`
+	Type  pulumi.StringOutput    `pulumi:"type"`
 }
 
 // NewNotificationRecipientEmail registers a new resource with the given unique name, arguments, and options.
@@ -131,26 +127,18 @@ func (NotificationRecipientEmailState) ElementType() reflect.Type {
 }
 
 type notificationRecipientEmailArgs struct {
-	// Email identifier.
-	Email *string `pulumi:"email"`
-	// Notification Name Identifier.
-	NotificationName string `pulumi:"notificationName"`
-	// The name of the resource group.
-	ResourceGroupName string `pulumi:"resourceGroupName"`
-	// The name of the API Management service.
-	ServiceName string `pulumi:"serviceName"`
+	Email             *string `pulumi:"email"`
+	NotificationName  string  `pulumi:"notificationName"`
+	ResourceGroupName string  `pulumi:"resourceGroupName"`
+	ServiceName       string  `pulumi:"serviceName"`
 }
 
 // The set of arguments for constructing a NotificationRecipientEmail resource.
 type NotificationRecipientEmailArgs struct {
-	// Email identifier.
-	Email pulumi.StringPtrInput
-	// Notification Name Identifier.
-	NotificationName pulumi.StringInput
-	// The name of the resource group.
+	Email             pulumi.StringPtrInput
+	NotificationName  pulumi.StringInput
 	ResourceGroupName pulumi.StringInput
-	// The name of the API Management service.
-	ServiceName pulumi.StringInput
+	ServiceName       pulumi.StringInput
 }
 
 func (NotificationRecipientEmailArgs) ElementType() reflect.Type {
@@ -176,9 +164,7 @@ func (i *NotificationRecipientEmail) ToNotificationRecipientEmailOutputWithConte
 	return pulumi.ToOutputWithContext(ctx, i).(NotificationRecipientEmailOutput)
 }
 
-type NotificationRecipientEmailOutput struct {
-	*pulumi.OutputState
-}
+type NotificationRecipientEmailOutput struct{ *pulumi.OutputState }
 
 func (NotificationRecipientEmailOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*NotificationRecipientEmail)(nil))

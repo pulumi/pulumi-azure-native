@@ -11,46 +11,27 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// An Application Insights workbook definition.
 type Workbook struct {
 	pulumi.CustomResourceState
 
-	// Workbook category, as defined by the user at creation time.
-	Category pulumi.StringOutput `pulumi:"category"`
-	// The description of the workbook.
-	Description pulumi.StringPtrOutput `pulumi:"description"`
-	// The user-defined name (display name) of the workbook.
-	DisplayName pulumi.StringOutput `pulumi:"displayName"`
-	// Resource etag
-	Etag pulumi.StringMapOutput `pulumi:"etag"`
-	// Identity used for BYOS
-	Identity WorkbookManagedIdentityResponsePtrOutput `pulumi:"identity"`
-	// The kind of workbook. Choices are user and shared.
-	Kind pulumi.StringPtrOutput `pulumi:"kind"`
-	// Resource location
-	Location pulumi.StringPtrOutput `pulumi:"location"`
-	// Azure resource name
-	Name pulumi.StringPtrOutput `pulumi:"name"`
-	// The unique revision id for this workbook definition
-	Revision pulumi.StringPtrOutput `pulumi:"revision"`
-	// Configuration of this particular workbook. Configuration data is a string containing valid JSON
-	SerializedData pulumi.StringOutput `pulumi:"serializedData"`
-	// ResourceId for a source resource.
-	SourceId pulumi.StringPtrOutput `pulumi:"sourceId"`
-	// BYOS Storage Account URI
-	StorageUri pulumi.StringPtrOutput `pulumi:"storageUri"`
-	// Metadata pertaining to creation and last modification of the resource.
-	SystemData SystemDataResponseOutput `pulumi:"systemData"`
-	// Resource tags
-	Tags pulumi.StringMapOutput `pulumi:"tags"`
-	// Date and time in UTC of the last modification that was made to this workbook definition.
-	TimeModified pulumi.StringOutput `pulumi:"timeModified"`
-	// Azure resource type
-	Type pulumi.StringPtrOutput `pulumi:"type"`
-	// Unique user id of the specific user that owns this workbook.
-	UserId pulumi.StringOutput `pulumi:"userId"`
-	// Workbook version
-	Version pulumi.StringPtrOutput `pulumi:"version"`
+	Category       pulumi.StringOutput                      `pulumi:"category"`
+	Description    pulumi.StringPtrOutput                   `pulumi:"description"`
+	DisplayName    pulumi.StringOutput                      `pulumi:"displayName"`
+	Etag           pulumi.StringMapOutput                   `pulumi:"etag"`
+	Identity       WorkbookManagedIdentityResponsePtrOutput `pulumi:"identity"`
+	Kind           pulumi.StringPtrOutput                   `pulumi:"kind"`
+	Location       pulumi.StringPtrOutput                   `pulumi:"location"`
+	Name           pulumi.StringPtrOutput                   `pulumi:"name"`
+	Revision       pulumi.StringPtrOutput                   `pulumi:"revision"`
+	SerializedData pulumi.StringOutput                      `pulumi:"serializedData"`
+	SourceId       pulumi.StringPtrOutput                   `pulumi:"sourceId"`
+	StorageUri     pulumi.StringPtrOutput                   `pulumi:"storageUri"`
+	SystemData     SystemDataResponseOutput                 `pulumi:"systemData"`
+	Tags           pulumi.StringMapOutput                   `pulumi:"tags"`
+	TimeModified   pulumi.StringOutput                      `pulumi:"timeModified"`
+	Type           pulumi.StringPtrOutput                   `pulumi:"type"`
+	UserId         pulumi.StringOutput                      `pulumi:"userId"`
+	Version        pulumi.StringPtrOutput                   `pulumi:"version"`
 }
 
 // NewWorkbook registers a new resource with the given unique name, arguments, and options.
@@ -134,82 +115,46 @@ func (WorkbookState) ElementType() reflect.Type {
 }
 
 type workbookArgs struct {
-	// Workbook category, as defined by the user at creation time.
-	Category string `pulumi:"category"`
-	// The description of the workbook.
-	Description *string `pulumi:"description"`
-	// The user-defined name (display name) of the workbook.
-	DisplayName string `pulumi:"displayName"`
-	// Resource etag
-	Etag map[string]string `pulumi:"etag"`
-	// Azure resource Id
-	Id *string `pulumi:"id"`
-	// Identity used for BYOS
-	Identity *WorkbookManagedIdentity `pulumi:"identity"`
-	// The kind of workbook. Choices are user and shared.
-	Kind *string `pulumi:"kind"`
-	// Resource location
-	Location *string `pulumi:"location"`
-	// Azure resource name
-	Name *string `pulumi:"name"`
-	// The name of the resource group. The name is case insensitive.
-	ResourceGroupName string `pulumi:"resourceGroupName"`
-	// The name of the Application Insights component resource.
-	ResourceName *string `pulumi:"resourceName"`
-	// The unique revision id for this workbook definition
-	Revision *string `pulumi:"revision"`
-	// Configuration of this particular workbook. Configuration data is a string containing valid JSON
-	SerializedData string `pulumi:"serializedData"`
-	// ResourceId for a source resource.
-	SourceId *string `pulumi:"sourceId"`
-	// BYOS Storage Account URI
-	StorageUri *string `pulumi:"storageUri"`
-	// Resource tags
-	Tags map[string]string `pulumi:"tags"`
-	// Azure resource type
-	Type *string `pulumi:"type"`
-	// Workbook version
-	Version *string `pulumi:"version"`
+	Category          string                   `pulumi:"category"`
+	Description       *string                  `pulumi:"description"`
+	DisplayName       string                   `pulumi:"displayName"`
+	Etag              map[string]string        `pulumi:"etag"`
+	Id                *string                  `pulumi:"id"`
+	Identity          *WorkbookManagedIdentity `pulumi:"identity"`
+	Kind              *string                  `pulumi:"kind"`
+	Location          *string                  `pulumi:"location"`
+	Name              *string                  `pulumi:"name"`
+	ResourceGroupName string                   `pulumi:"resourceGroupName"`
+	ResourceName      *string                  `pulumi:"resourceName"`
+	Revision          *string                  `pulumi:"revision"`
+	SerializedData    string                   `pulumi:"serializedData"`
+	SourceId          *string                  `pulumi:"sourceId"`
+	StorageUri        *string                  `pulumi:"storageUri"`
+	Tags              map[string]string        `pulumi:"tags"`
+	Type              *string                  `pulumi:"type"`
+	Version           *string                  `pulumi:"version"`
 }
 
 // The set of arguments for constructing a Workbook resource.
 type WorkbookArgs struct {
-	// Workbook category, as defined by the user at creation time.
-	Category pulumi.StringInput
-	// The description of the workbook.
-	Description pulumi.StringPtrInput
-	// The user-defined name (display name) of the workbook.
-	DisplayName pulumi.StringInput
-	// Resource etag
-	Etag pulumi.StringMapInput
-	// Azure resource Id
-	Id pulumi.StringPtrInput
-	// Identity used for BYOS
-	Identity WorkbookManagedIdentityPtrInput
-	// The kind of workbook. Choices are user and shared.
-	Kind pulumi.StringPtrInput
-	// Resource location
-	Location pulumi.StringPtrInput
-	// Azure resource name
-	Name pulumi.StringPtrInput
-	// The name of the resource group. The name is case insensitive.
+	Category          pulumi.StringInput
+	Description       pulumi.StringPtrInput
+	DisplayName       pulumi.StringInput
+	Etag              pulumi.StringMapInput
+	Id                pulumi.StringPtrInput
+	Identity          WorkbookManagedIdentityPtrInput
+	Kind              pulumi.StringPtrInput
+	Location          pulumi.StringPtrInput
+	Name              pulumi.StringPtrInput
 	ResourceGroupName pulumi.StringInput
-	// The name of the Application Insights component resource.
-	ResourceName pulumi.StringPtrInput
-	// The unique revision id for this workbook definition
-	Revision pulumi.StringPtrInput
-	// Configuration of this particular workbook. Configuration data is a string containing valid JSON
-	SerializedData pulumi.StringInput
-	// ResourceId for a source resource.
-	SourceId pulumi.StringPtrInput
-	// BYOS Storage Account URI
-	StorageUri pulumi.StringPtrInput
-	// Resource tags
-	Tags pulumi.StringMapInput
-	// Azure resource type
-	Type pulumi.StringPtrInput
-	// Workbook version
-	Version pulumi.StringPtrInput
+	ResourceName      pulumi.StringPtrInput
+	Revision          pulumi.StringPtrInput
+	SerializedData    pulumi.StringInput
+	SourceId          pulumi.StringPtrInput
+	StorageUri        pulumi.StringPtrInput
+	Tags              pulumi.StringMapInput
+	Type              pulumi.StringPtrInput
+	Version           pulumi.StringPtrInput
 }
 
 func (WorkbookArgs) ElementType() reflect.Type {
@@ -235,9 +180,7 @@ func (i *Workbook) ToWorkbookOutputWithContext(ctx context.Context) WorkbookOutp
 	return pulumi.ToOutputWithContext(ctx, i).(WorkbookOutput)
 }
 
-type WorkbookOutput struct {
-	*pulumi.OutputState
-}
+type WorkbookOutput struct{ *pulumi.OutputState }
 
 func (WorkbookOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*Workbook)(nil))

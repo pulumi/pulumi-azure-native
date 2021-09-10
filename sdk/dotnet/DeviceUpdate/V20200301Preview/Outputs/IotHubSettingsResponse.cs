@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.DeviceUpdate.V20200301Preview.Outputs
 {
 
+    /// <summary>
+    /// Device Update account integration with IoT Hub settings.
+    /// </summary>
     [OutputType]
     public sealed class IotHubSettingsResponse
     {

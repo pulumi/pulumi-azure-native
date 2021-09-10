@@ -11,33 +11,21 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// ObjectAnchorsAccount Response.
 type ObjectAnchorsAccount struct {
 	pulumi.CustomResourceState
 
-	// Correspond domain name of certain Spatial Anchors Account
-	AccountDomain pulumi.StringOutput `pulumi:"accountDomain"`
-	// unique id of certain account.
-	AccountId pulumi.StringOutput                           `pulumi:"accountId"`
-	Identity  ObjectAnchorsAccountResponseIdentityPtrOutput `pulumi:"identity"`
-	// The kind of account, if supported
-	Kind SkuResponsePtrOutput `pulumi:"kind"`
-	// The geo-location where the resource lives
-	Location pulumi.StringOutput `pulumi:"location"`
-	// The name of the resource
-	Name pulumi.StringOutput `pulumi:"name"`
-	// The plan associated with this account
-	Plan IdentityResponsePtrOutput `pulumi:"plan"`
-	// The sku associated with this account
-	Sku SkuResponsePtrOutput `pulumi:"sku"`
-	// The name of the storage account associated with this accountId
-	StorageAccountName pulumi.StringPtrOutput `pulumi:"storageAccountName"`
-	// The system metadata related to an object anchors account.
-	SystemData SystemDataResponseOutput `pulumi:"systemData"`
-	// Resource tags.
-	Tags pulumi.StringMapOutput `pulumi:"tags"`
-	// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
-	Type pulumi.StringOutput `pulumi:"type"`
+	AccountDomain      pulumi.StringOutput                           `pulumi:"accountDomain"`
+	AccountId          pulumi.StringOutput                           `pulumi:"accountId"`
+	Identity           ObjectAnchorsAccountResponseIdentityPtrOutput `pulumi:"identity"`
+	Kind               SkuResponsePtrOutput                          `pulumi:"kind"`
+	Location           pulumi.StringOutput                           `pulumi:"location"`
+	Name               pulumi.StringOutput                           `pulumi:"name"`
+	Plan               IdentityResponsePtrOutput                     `pulumi:"plan"`
+	Sku                SkuResponsePtrOutput                          `pulumi:"sku"`
+	StorageAccountName pulumi.StringPtrOutput                        `pulumi:"storageAccountName"`
+	SystemData         SystemDataResponseOutput                      `pulumi:"systemData"`
+	Tags               pulumi.StringMapOutput                        `pulumi:"tags"`
+	Type               pulumi.StringOutput                           `pulumi:"type"`
 }
 
 // NewObjectAnchorsAccount registers a new resource with the given unique name, arguments, and options.
@@ -94,44 +82,28 @@ func (ObjectAnchorsAccountState) ElementType() reflect.Type {
 }
 
 type objectAnchorsAccountArgs struct {
-	// Name of an Mixed Reality Account.
-	AccountName *string                       `pulumi:"accountName"`
-	Identity    *ObjectAnchorsAccountIdentity `pulumi:"identity"`
-	// The kind of account, if supported
-	Kind *Sku `pulumi:"kind"`
-	// The geo-location where the resource lives
-	Location *string `pulumi:"location"`
-	// The plan associated with this account
-	Plan *Identity `pulumi:"plan"`
-	// Name of an Azure resource group.
-	ResourceGroupName string `pulumi:"resourceGroupName"`
-	// The sku associated with this account
-	Sku *Sku `pulumi:"sku"`
-	// The name of the storage account associated with this accountId
-	StorageAccountName *string `pulumi:"storageAccountName"`
-	// Resource tags.
-	Tags map[string]string `pulumi:"tags"`
+	AccountName        *string                       `pulumi:"accountName"`
+	Identity           *ObjectAnchorsAccountIdentity `pulumi:"identity"`
+	Kind               *Sku                          `pulumi:"kind"`
+	Location           *string                       `pulumi:"location"`
+	Plan               *Identity                     `pulumi:"plan"`
+	ResourceGroupName  string                        `pulumi:"resourceGroupName"`
+	Sku                *Sku                          `pulumi:"sku"`
+	StorageAccountName *string                       `pulumi:"storageAccountName"`
+	Tags               map[string]string             `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a ObjectAnchorsAccount resource.
 type ObjectAnchorsAccountArgs struct {
-	// Name of an Mixed Reality Account.
-	AccountName pulumi.StringPtrInput
-	Identity    ObjectAnchorsAccountIdentityPtrInput
-	// The kind of account, if supported
-	Kind SkuPtrInput
-	// The geo-location where the resource lives
-	Location pulumi.StringPtrInput
-	// The plan associated with this account
-	Plan IdentityPtrInput
-	// Name of an Azure resource group.
-	ResourceGroupName pulumi.StringInput
-	// The sku associated with this account
-	Sku SkuPtrInput
-	// The name of the storage account associated with this accountId
+	AccountName        pulumi.StringPtrInput
+	Identity           ObjectAnchorsAccountIdentityPtrInput
+	Kind               SkuPtrInput
+	Location           pulumi.StringPtrInput
+	Plan               IdentityPtrInput
+	ResourceGroupName  pulumi.StringInput
+	Sku                SkuPtrInput
 	StorageAccountName pulumi.StringPtrInput
-	// Resource tags.
-	Tags pulumi.StringMapInput
+	Tags               pulumi.StringMapInput
 }
 
 func (ObjectAnchorsAccountArgs) ElementType() reflect.Type {
@@ -157,9 +129,7 @@ func (i *ObjectAnchorsAccount) ToObjectAnchorsAccountOutputWithContext(ctx conte
 	return pulumi.ToOutputWithContext(ctx, i).(ObjectAnchorsAccountOutput)
 }
 
-type ObjectAnchorsAccountOutput struct {
-	*pulumi.OutputState
-}
+type ObjectAnchorsAccountOutput struct{ *pulumi.OutputState }
 
 func (ObjectAnchorsAccountOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*ObjectAnchorsAccount)(nil))

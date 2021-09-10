@@ -7,7 +7,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// An Azure resource which represents access to a suite of Maps REST APIs.
 func LookupAccount(ctx *pulumi.Context, args *LookupAccountArgs, opts ...pulumi.InvokeOption) (*LookupAccountResult, error) {
 	var rv LookupAccountResult
 	err := ctx.Invoke("azure-native:maps/v20210201:getAccount", args, &rv, opts...)
@@ -18,30 +17,19 @@ func LookupAccount(ctx *pulumi.Context, args *LookupAccountArgs, opts ...pulumi.
 }
 
 type LookupAccountArgs struct {
-	// The name of the Maps Account.
-	AccountName string `pulumi:"accountName"`
-	// The name of the resource group. The name is case insensitive.
+	AccountName       string `pulumi:"accountName"`
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 }
 
 // An Azure resource which represents access to a suite of Maps REST APIs.
 type LookupAccountResult struct {
-	// Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
-	Id string `pulumi:"id"`
-	// Get or Set Kind property.
-	Kind *string `pulumi:"kind"`
-	// The geo-location where the resource lives
-	Location string `pulumi:"location"`
-	// The name of the resource
-	Name string `pulumi:"name"`
-	// The map account properties.
+	Id         string                        `pulumi:"id"`
+	Kind       *string                       `pulumi:"kind"`
+	Location   string                        `pulumi:"location"`
+	Name       string                        `pulumi:"name"`
 	Properties MapsAccountPropertiesResponse `pulumi:"properties"`
-	// The SKU of this account.
-	Sku SkuResponse `pulumi:"sku"`
-	// The system meta data relating to this resource.
-	SystemData SystemDataResponse `pulumi:"systemData"`
-	// Resource tags.
-	Tags map[string]string `pulumi:"tags"`
-	// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
-	Type string `pulumi:"type"`
+	Sku        SkuResponse                   `pulumi:"sku"`
+	SystemData SystemDataResponse            `pulumi:"systemData"`
+	Tags       map[string]string             `pulumi:"tags"`
+	Type       string                        `pulumi:"type"`
 }

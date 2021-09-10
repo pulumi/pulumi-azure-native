@@ -7,7 +7,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// The result of a request to list events for a webhook.
 func ListWebhookEvents(ctx *pulumi.Context, args *ListWebhookEventsArgs, opts ...pulumi.InvokeOption) (*ListWebhookEventsResult, error) {
 	var rv ListWebhookEventsResult
 	err := ctx.Invoke("azure-native:containerregistry/v20171001:listWebhookEvents", args, &rv, opts...)
@@ -18,18 +17,13 @@ func ListWebhookEvents(ctx *pulumi.Context, args *ListWebhookEventsArgs, opts ..
 }
 
 type ListWebhookEventsArgs struct {
-	// The name of the container registry.
-	RegistryName string `pulumi:"registryName"`
-	// The name of the resource group to which the container registry belongs.
+	RegistryName      string `pulumi:"registryName"`
 	ResourceGroupName string `pulumi:"resourceGroupName"`
-	// The name of the webhook.
-	WebhookName string `pulumi:"webhookName"`
+	WebhookName       string `pulumi:"webhookName"`
 }
 
 // The result of a request to list events for a webhook.
 type ListWebhookEventsResult struct {
-	// The URI that can be used to request the next list of events.
-	NextLink *string `pulumi:"nextLink"`
-	// The list of events. Since this list may be incomplete, the nextLink field should be used to request the next list of events.
-	Value []EventResponse `pulumi:"value"`
+	NextLink *string         `pulumi:"nextLink"`
+	Value    []EventResponse `pulumi:"value"`
 }

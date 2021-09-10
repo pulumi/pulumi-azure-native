@@ -10,17 +10,11 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// The database project summary class.
 type DatabaseProjectSummaryResponse struct {
-	// Gets or sets the extended summary.
-	ExtendedSummary map[string]string `pulumi:"extendedSummary"`
-	// Gets the Instance type.
-	// Expected value is 'Databases'.
-	InstanceType string `pulumi:"instanceType"`
-	// Gets or sets the time when summary was last refreshed.
-	LastSummaryRefreshedTime *string `pulumi:"lastSummaryRefreshedTime"`
-	// Gets or sets the state of refresh summary.
-	RefreshSummaryState *string `pulumi:"refreshSummaryState"`
+	ExtendedSummary          map[string]string `pulumi:"extendedSummary"`
+	InstanceType             string            `pulumi:"instanceType"`
+	LastSummaryRefreshedTime *string           `pulumi:"lastSummaryRefreshedTime"`
+	RefreshSummaryState      *string           `pulumi:"refreshSummaryState"`
 }
 
 // DatabaseProjectSummaryResponseInput is an input type that accepts DatabaseProjectSummaryResponseArgs and DatabaseProjectSummaryResponseOutput values.
@@ -34,17 +28,11 @@ type DatabaseProjectSummaryResponseInput interface {
 	ToDatabaseProjectSummaryResponseOutputWithContext(context.Context) DatabaseProjectSummaryResponseOutput
 }
 
-// The database project summary class.
 type DatabaseProjectSummaryResponseArgs struct {
-	// Gets or sets the extended summary.
-	ExtendedSummary pulumi.StringMapInput `pulumi:"extendedSummary"`
-	// Gets the Instance type.
-	// Expected value is 'Databases'.
-	InstanceType pulumi.StringInput `pulumi:"instanceType"`
-	// Gets or sets the time when summary was last refreshed.
+	ExtendedSummary          pulumi.StringMapInput `pulumi:"extendedSummary"`
+	InstanceType             pulumi.StringInput    `pulumi:"instanceType"`
 	LastSummaryRefreshedTime pulumi.StringPtrInput `pulumi:"lastSummaryRefreshedTime"`
-	// Gets or sets the state of refresh summary.
-	RefreshSummaryState pulumi.StringPtrInput `pulumi:"refreshSummaryState"`
+	RefreshSummaryState      pulumi.StringPtrInput `pulumi:"refreshSummaryState"`
 }
 
 func (DatabaseProjectSummaryResponseArgs) ElementType() reflect.Type {
@@ -59,7 +47,6 @@ func (i DatabaseProjectSummaryResponseArgs) ToDatabaseProjectSummaryResponseOutp
 	return pulumi.ToOutputWithContext(ctx, i).(DatabaseProjectSummaryResponseOutput)
 }
 
-// The database project summary class.
 type DatabaseProjectSummaryResponseOutput struct{ *pulumi.OutputState }
 
 func (DatabaseProjectSummaryResponseOutput) ElementType() reflect.Type {
@@ -74,38 +61,27 @@ func (o DatabaseProjectSummaryResponseOutput) ToDatabaseProjectSummaryResponseOu
 	return o
 }
 
-// Gets or sets the extended summary.
 func (o DatabaseProjectSummaryResponseOutput) ExtendedSummary() pulumi.StringMapOutput {
 	return o.ApplyT(func(v DatabaseProjectSummaryResponse) map[string]string { return v.ExtendedSummary }).(pulumi.StringMapOutput)
 }
 
-// Gets the Instance type.
-// Expected value is 'Databases'.
 func (o DatabaseProjectSummaryResponseOutput) InstanceType() pulumi.StringOutput {
 	return o.ApplyT(func(v DatabaseProjectSummaryResponse) string { return v.InstanceType }).(pulumi.StringOutput)
 }
 
-// Gets or sets the time when summary was last refreshed.
 func (o DatabaseProjectSummaryResponseOutput) LastSummaryRefreshedTime() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v DatabaseProjectSummaryResponse) *string { return v.LastSummaryRefreshedTime }).(pulumi.StringPtrOutput)
 }
 
-// Gets or sets the state of refresh summary.
 func (o DatabaseProjectSummaryResponseOutput) RefreshSummaryState() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v DatabaseProjectSummaryResponse) *string { return v.RefreshSummaryState }).(pulumi.StringPtrOutput)
 }
 
-// Class representing the databases solution summary.
 type DatabasesSolutionSummaryResponse struct {
-	// Gets or sets the count of database instances assessed.
-	DatabaseInstancesAssessedCount *int `pulumi:"databaseInstancesAssessedCount"`
-	// Gets or sets the count of databases assessed.
-	DatabasesAssessedCount *int `pulumi:"databasesAssessedCount"`
-	// Gets the Instance type.
-	// Expected value is 'Databases'.
-	InstanceType string `pulumi:"instanceType"`
-	// Gets or sets the count of databases ready for migration.
-	MigrationReadyCount *int `pulumi:"migrationReadyCount"`
+	DatabaseInstancesAssessedCount *int   `pulumi:"databaseInstancesAssessedCount"`
+	DatabasesAssessedCount         *int   `pulumi:"databasesAssessedCount"`
+	InstanceType                   string `pulumi:"instanceType"`
+	MigrationReadyCount            *int   `pulumi:"migrationReadyCount"`
 }
 
 // DatabasesSolutionSummaryResponseInput is an input type that accepts DatabasesSolutionSummaryResponseArgs and DatabasesSolutionSummaryResponseOutput values.
@@ -119,17 +95,11 @@ type DatabasesSolutionSummaryResponseInput interface {
 	ToDatabasesSolutionSummaryResponseOutputWithContext(context.Context) DatabasesSolutionSummaryResponseOutput
 }
 
-// Class representing the databases solution summary.
 type DatabasesSolutionSummaryResponseArgs struct {
-	// Gets or sets the count of database instances assessed.
 	DatabaseInstancesAssessedCount pulumi.IntPtrInput `pulumi:"databaseInstancesAssessedCount"`
-	// Gets or sets the count of databases assessed.
-	DatabasesAssessedCount pulumi.IntPtrInput `pulumi:"databasesAssessedCount"`
-	// Gets the Instance type.
-	// Expected value is 'Databases'.
-	InstanceType pulumi.StringInput `pulumi:"instanceType"`
-	// Gets or sets the count of databases ready for migration.
-	MigrationReadyCount pulumi.IntPtrInput `pulumi:"migrationReadyCount"`
+	DatabasesAssessedCount         pulumi.IntPtrInput `pulumi:"databasesAssessedCount"`
+	InstanceType                   pulumi.StringInput `pulumi:"instanceType"`
+	MigrationReadyCount            pulumi.IntPtrInput `pulumi:"migrationReadyCount"`
 }
 
 func (DatabasesSolutionSummaryResponseArgs) ElementType() reflect.Type {
@@ -144,7 +114,6 @@ func (i DatabasesSolutionSummaryResponseArgs) ToDatabasesSolutionSummaryResponse
 	return pulumi.ToOutputWithContext(ctx, i).(DatabasesSolutionSummaryResponseOutput)
 }
 
-// Class representing the databases solution summary.
 type DatabasesSolutionSummaryResponseOutput struct{ *pulumi.OutputState }
 
 func (DatabasesSolutionSummaryResponseOutput) ElementType() reflect.Type {
@@ -159,33 +128,25 @@ func (o DatabasesSolutionSummaryResponseOutput) ToDatabasesSolutionSummaryRespon
 	return o
 }
 
-// Gets or sets the count of database instances assessed.
 func (o DatabasesSolutionSummaryResponseOutput) DatabaseInstancesAssessedCount() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v DatabasesSolutionSummaryResponse) *int { return v.DatabaseInstancesAssessedCount }).(pulumi.IntPtrOutput)
 }
 
-// Gets or sets the count of databases assessed.
 func (o DatabasesSolutionSummaryResponseOutput) DatabasesAssessedCount() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v DatabasesSolutionSummaryResponse) *int { return v.DatabasesAssessedCount }).(pulumi.IntPtrOutput)
 }
 
-// Gets the Instance type.
-// Expected value is 'Databases'.
 func (o DatabasesSolutionSummaryResponseOutput) InstanceType() pulumi.StringOutput {
 	return o.ApplyT(func(v DatabasesSolutionSummaryResponse) string { return v.InstanceType }).(pulumi.StringOutput)
 }
 
-// Gets or sets the count of databases ready for migration.
 func (o DatabasesSolutionSummaryResponseOutput) MigrationReadyCount() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v DatabasesSolutionSummaryResponse) *int { return v.MigrationReadyCount }).(pulumi.IntPtrOutput)
 }
 
-// Class for migrate project properties.
 type MigrateProjectProperties struct {
-	// Provisioning state of the migrate project.
-	ProvisioningState *string `pulumi:"provisioningState"`
-	// Gets or sets the list of tools registered with the migrate project.
-	RegisteredTools []string `pulumi:"registeredTools"`
+	ProvisioningState *string  `pulumi:"provisioningState"`
+	RegisteredTools   []string `pulumi:"registeredTools"`
 }
 
 // MigrateProjectPropertiesInput is an input type that accepts MigrateProjectPropertiesArgs and MigrateProjectPropertiesOutput values.
@@ -199,12 +160,9 @@ type MigrateProjectPropertiesInput interface {
 	ToMigrateProjectPropertiesOutputWithContext(context.Context) MigrateProjectPropertiesOutput
 }
 
-// Class for migrate project properties.
 type MigrateProjectPropertiesArgs struct {
-	// Provisioning state of the migrate project.
-	ProvisioningState pulumi.StringPtrInput `pulumi:"provisioningState"`
-	// Gets or sets the list of tools registered with the migrate project.
-	RegisteredTools pulumi.StringArrayInput `pulumi:"registeredTools"`
+	ProvisioningState pulumi.StringPtrInput   `pulumi:"provisioningState"`
+	RegisteredTools   pulumi.StringArrayInput `pulumi:"registeredTools"`
 }
 
 func (MigrateProjectPropertiesArgs) ElementType() reflect.Type {
@@ -260,7 +218,6 @@ func (i *migrateProjectPropertiesPtrType) ToMigrateProjectPropertiesPtrOutputWit
 	return pulumi.ToOutputWithContext(ctx, i).(MigrateProjectPropertiesPtrOutput)
 }
 
-// Class for migrate project properties.
 type MigrateProjectPropertiesOutput struct{ *pulumi.OutputState }
 
 func (MigrateProjectPropertiesOutput) ElementType() reflect.Type {
@@ -280,17 +237,15 @@ func (o MigrateProjectPropertiesOutput) ToMigrateProjectPropertiesPtrOutput() Mi
 }
 
 func (o MigrateProjectPropertiesOutput) ToMigrateProjectPropertiesPtrOutputWithContext(ctx context.Context) MigrateProjectPropertiesPtrOutput {
-	return o.ApplyT(func(v MigrateProjectProperties) *MigrateProjectProperties {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v MigrateProjectProperties) *MigrateProjectProperties {
 		return &v
 	}).(MigrateProjectPropertiesPtrOutput)
 }
 
-// Provisioning state of the migrate project.
 func (o MigrateProjectPropertiesOutput) ProvisioningState() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v MigrateProjectProperties) *string { return v.ProvisioningState }).(pulumi.StringPtrOutput)
 }
 
-// Gets or sets the list of tools registered with the migrate project.
 func (o MigrateProjectPropertiesOutput) RegisteredTools() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v MigrateProjectProperties) []string { return v.RegisteredTools }).(pulumi.StringArrayOutput)
 }
@@ -310,10 +265,15 @@ func (o MigrateProjectPropertiesPtrOutput) ToMigrateProjectPropertiesPtrOutputWi
 }
 
 func (o MigrateProjectPropertiesPtrOutput) Elem() MigrateProjectPropertiesOutput {
-	return o.ApplyT(func(v *MigrateProjectProperties) MigrateProjectProperties { return *v }).(MigrateProjectPropertiesOutput)
+	return o.ApplyT(func(v *MigrateProjectProperties) MigrateProjectProperties {
+		if v != nil {
+			return *v
+		}
+		var ret MigrateProjectProperties
+		return ret
+	}).(MigrateProjectPropertiesOutput)
 }
 
-// Provisioning state of the migrate project.
 func (o MigrateProjectPropertiesPtrOutput) ProvisioningState() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *MigrateProjectProperties) *string {
 		if v == nil {
@@ -323,7 +283,6 @@ func (o MigrateProjectPropertiesPtrOutput) ProvisioningState() pulumi.StringPtrO
 	}).(pulumi.StringPtrOutput)
 }
 
-// Gets or sets the list of tools registered with the migrate project.
 func (o MigrateProjectPropertiesPtrOutput) RegisteredTools() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *MigrateProjectProperties) []string {
 		if v == nil {
@@ -333,18 +292,12 @@ func (o MigrateProjectPropertiesPtrOutput) RegisteredTools() pulumi.StringArrayO
 	}).(pulumi.StringArrayOutput)
 }
 
-// Class for migrate project properties.
 type MigrateProjectPropertiesResponse struct {
-	// Gets the last time the project summary was refreshed.
-	LastSummaryRefreshedTime string `pulumi:"lastSummaryRefreshedTime"`
-	// Provisioning state of the migrate project.
-	ProvisioningState *string `pulumi:"provisioningState"`
-	// Gets the refresh summary state.
-	RefreshSummaryState string `pulumi:"refreshSummaryState"`
-	// Gets or sets the list of tools registered with the migrate project.
-	RegisteredTools []string `pulumi:"registeredTools"`
-	// Gets the summary of the migrate project.
-	Summary map[string]interface{} `pulumi:"summary"`
+	LastSummaryRefreshedTime string                 `pulumi:"lastSummaryRefreshedTime"`
+	ProvisioningState        *string                `pulumi:"provisioningState"`
+	RefreshSummaryState      string                 `pulumi:"refreshSummaryState"`
+	RegisteredTools          []string               `pulumi:"registeredTools"`
+	Summary                  map[string]interface{} `pulumi:"summary"`
 }
 
 // MigrateProjectPropertiesResponseInput is an input type that accepts MigrateProjectPropertiesResponseArgs and MigrateProjectPropertiesResponseOutput values.
@@ -358,18 +311,12 @@ type MigrateProjectPropertiesResponseInput interface {
 	ToMigrateProjectPropertiesResponseOutputWithContext(context.Context) MigrateProjectPropertiesResponseOutput
 }
 
-// Class for migrate project properties.
 type MigrateProjectPropertiesResponseArgs struct {
-	// Gets the last time the project summary was refreshed.
-	LastSummaryRefreshedTime pulumi.StringInput `pulumi:"lastSummaryRefreshedTime"`
-	// Provisioning state of the migrate project.
-	ProvisioningState pulumi.StringPtrInput `pulumi:"provisioningState"`
-	// Gets the refresh summary state.
-	RefreshSummaryState pulumi.StringInput `pulumi:"refreshSummaryState"`
-	// Gets or sets the list of tools registered with the migrate project.
-	RegisteredTools pulumi.StringArrayInput `pulumi:"registeredTools"`
-	// Gets the summary of the migrate project.
-	Summary pulumi.MapInput `pulumi:"summary"`
+	LastSummaryRefreshedTime pulumi.StringInput      `pulumi:"lastSummaryRefreshedTime"`
+	ProvisioningState        pulumi.StringPtrInput   `pulumi:"provisioningState"`
+	RefreshSummaryState      pulumi.StringInput      `pulumi:"refreshSummaryState"`
+	RegisteredTools          pulumi.StringArrayInput `pulumi:"registeredTools"`
+	Summary                  pulumi.MapInput         `pulumi:"summary"`
 }
 
 func (MigrateProjectPropertiesResponseArgs) ElementType() reflect.Type {
@@ -425,7 +372,6 @@ func (i *migrateProjectPropertiesResponsePtrType) ToMigrateProjectPropertiesResp
 	return pulumi.ToOutputWithContext(ctx, i).(MigrateProjectPropertiesResponsePtrOutput)
 }
 
-// Class for migrate project properties.
 type MigrateProjectPropertiesResponseOutput struct{ *pulumi.OutputState }
 
 func (MigrateProjectPropertiesResponseOutput) ElementType() reflect.Type {
@@ -445,32 +391,27 @@ func (o MigrateProjectPropertiesResponseOutput) ToMigrateProjectPropertiesRespon
 }
 
 func (o MigrateProjectPropertiesResponseOutput) ToMigrateProjectPropertiesResponsePtrOutputWithContext(ctx context.Context) MigrateProjectPropertiesResponsePtrOutput {
-	return o.ApplyT(func(v MigrateProjectPropertiesResponse) *MigrateProjectPropertiesResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v MigrateProjectPropertiesResponse) *MigrateProjectPropertiesResponse {
 		return &v
 	}).(MigrateProjectPropertiesResponsePtrOutput)
 }
 
-// Gets the last time the project summary was refreshed.
 func (o MigrateProjectPropertiesResponseOutput) LastSummaryRefreshedTime() pulumi.StringOutput {
 	return o.ApplyT(func(v MigrateProjectPropertiesResponse) string { return v.LastSummaryRefreshedTime }).(pulumi.StringOutput)
 }
 
-// Provisioning state of the migrate project.
 func (o MigrateProjectPropertiesResponseOutput) ProvisioningState() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v MigrateProjectPropertiesResponse) *string { return v.ProvisioningState }).(pulumi.StringPtrOutput)
 }
 
-// Gets the refresh summary state.
 func (o MigrateProjectPropertiesResponseOutput) RefreshSummaryState() pulumi.StringOutput {
 	return o.ApplyT(func(v MigrateProjectPropertiesResponse) string { return v.RefreshSummaryState }).(pulumi.StringOutput)
 }
 
-// Gets or sets the list of tools registered with the migrate project.
 func (o MigrateProjectPropertiesResponseOutput) RegisteredTools() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v MigrateProjectPropertiesResponse) []string { return v.RegisteredTools }).(pulumi.StringArrayOutput)
 }
 
-// Gets the summary of the migrate project.
 func (o MigrateProjectPropertiesResponseOutput) Summary() pulumi.MapOutput {
 	return o.ApplyT(func(v MigrateProjectPropertiesResponse) map[string]interface{} { return v.Summary }).(pulumi.MapOutput)
 }
@@ -490,10 +431,15 @@ func (o MigrateProjectPropertiesResponsePtrOutput) ToMigrateProjectPropertiesRes
 }
 
 func (o MigrateProjectPropertiesResponsePtrOutput) Elem() MigrateProjectPropertiesResponseOutput {
-	return o.ApplyT(func(v *MigrateProjectPropertiesResponse) MigrateProjectPropertiesResponse { return *v }).(MigrateProjectPropertiesResponseOutput)
+	return o.ApplyT(func(v *MigrateProjectPropertiesResponse) MigrateProjectPropertiesResponse {
+		if v != nil {
+			return *v
+		}
+		var ret MigrateProjectPropertiesResponse
+		return ret
+	}).(MigrateProjectPropertiesResponseOutput)
 }
 
-// Gets the last time the project summary was refreshed.
 func (o MigrateProjectPropertiesResponsePtrOutput) LastSummaryRefreshedTime() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *MigrateProjectPropertiesResponse) *string {
 		if v == nil {
@@ -503,7 +449,6 @@ func (o MigrateProjectPropertiesResponsePtrOutput) LastSummaryRefreshedTime() pu
 	}).(pulumi.StringPtrOutput)
 }
 
-// Provisioning state of the migrate project.
 func (o MigrateProjectPropertiesResponsePtrOutput) ProvisioningState() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *MigrateProjectPropertiesResponse) *string {
 		if v == nil {
@@ -513,7 +458,6 @@ func (o MigrateProjectPropertiesResponsePtrOutput) ProvisioningState() pulumi.St
 	}).(pulumi.StringPtrOutput)
 }
 
-// Gets the refresh summary state.
 func (o MigrateProjectPropertiesResponsePtrOutput) RefreshSummaryState() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *MigrateProjectPropertiesResponse) *string {
 		if v == nil {
@@ -523,7 +467,6 @@ func (o MigrateProjectPropertiesResponsePtrOutput) RefreshSummaryState() pulumi.
 	}).(pulumi.StringPtrOutput)
 }
 
-// Gets or sets the list of tools registered with the migrate project.
 func (o MigrateProjectPropertiesResponsePtrOutput) RegisteredTools() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *MigrateProjectPropertiesResponse) []string {
 		if v == nil {
@@ -533,7 +476,6 @@ func (o MigrateProjectPropertiesResponsePtrOutput) RegisteredTools() pulumi.Stri
 	}).(pulumi.StringArrayOutput)
 }
 
-// Gets the summary of the migrate project.
 func (o MigrateProjectPropertiesResponsePtrOutput) Summary() pulumi.MapOutput {
 	return o.ApplyT(func(v *MigrateProjectPropertiesResponse) map[string]interface{} {
 		if v == nil {
@@ -543,7 +485,6 @@ func (o MigrateProjectPropertiesResponsePtrOutput) Summary() pulumi.MapOutput {
 	}).(pulumi.MapOutput)
 }
 
-// Gets or sets the tags.
 type MigrateProjectResponseTags struct {
 	AdditionalProperties *string `pulumi:"additionalProperties"`
 }
@@ -559,7 +500,6 @@ type MigrateProjectResponseTagsInput interface {
 	ToMigrateProjectResponseTagsOutputWithContext(context.Context) MigrateProjectResponseTagsOutput
 }
 
-// Gets or sets the tags.
 type MigrateProjectResponseTagsArgs struct {
 	AdditionalProperties pulumi.StringPtrInput `pulumi:"additionalProperties"`
 }
@@ -617,7 +557,6 @@ func (i *migrateProjectResponseTagsPtrType) ToMigrateProjectResponseTagsPtrOutpu
 	return pulumi.ToOutputWithContext(ctx, i).(MigrateProjectResponseTagsPtrOutput)
 }
 
-// Gets or sets the tags.
 type MigrateProjectResponseTagsOutput struct{ *pulumi.OutputState }
 
 func (MigrateProjectResponseTagsOutput) ElementType() reflect.Type {
@@ -637,10 +576,11 @@ func (o MigrateProjectResponseTagsOutput) ToMigrateProjectResponseTagsPtrOutput(
 }
 
 func (o MigrateProjectResponseTagsOutput) ToMigrateProjectResponseTagsPtrOutputWithContext(ctx context.Context) MigrateProjectResponseTagsPtrOutput {
-	return o.ApplyT(func(v MigrateProjectResponseTags) *MigrateProjectResponseTags {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v MigrateProjectResponseTags) *MigrateProjectResponseTags {
 		return &v
 	}).(MigrateProjectResponseTagsPtrOutput)
 }
+
 func (o MigrateProjectResponseTagsOutput) AdditionalProperties() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v MigrateProjectResponseTags) *string { return v.AdditionalProperties }).(pulumi.StringPtrOutput)
 }
@@ -660,7 +600,13 @@ func (o MigrateProjectResponseTagsPtrOutput) ToMigrateProjectResponseTagsPtrOutp
 }
 
 func (o MigrateProjectResponseTagsPtrOutput) Elem() MigrateProjectResponseTagsOutput {
-	return o.ApplyT(func(v *MigrateProjectResponseTags) MigrateProjectResponseTags { return *v }).(MigrateProjectResponseTagsOutput)
+	return o.ApplyT(func(v *MigrateProjectResponseTags) MigrateProjectResponseTags {
+		if v != nil {
+			return *v
+		}
+		var ret MigrateProjectResponseTags
+		return ret
+	}).(MigrateProjectResponseTagsOutput)
 }
 
 func (o MigrateProjectResponseTagsPtrOutput) AdditionalProperties() pulumi.StringPtrOutput {
@@ -672,7 +618,6 @@ func (o MigrateProjectResponseTagsPtrOutput) AdditionalProperties() pulumi.Strin
 	}).(pulumi.StringPtrOutput)
 }
 
-// Gets or sets the tags.
 type MigrateProjectTags struct {
 	AdditionalProperties *string `pulumi:"additionalProperties"`
 }
@@ -688,7 +633,6 @@ type MigrateProjectTagsInput interface {
 	ToMigrateProjectTagsOutputWithContext(context.Context) MigrateProjectTagsOutput
 }
 
-// Gets or sets the tags.
 type MigrateProjectTagsArgs struct {
 	AdditionalProperties pulumi.StringPtrInput `pulumi:"additionalProperties"`
 }
@@ -746,7 +690,6 @@ func (i *migrateProjectTagsPtrType) ToMigrateProjectTagsPtrOutputWithContext(ctx
 	return pulumi.ToOutputWithContext(ctx, i).(MigrateProjectTagsPtrOutput)
 }
 
-// Gets or sets the tags.
 type MigrateProjectTagsOutput struct{ *pulumi.OutputState }
 
 func (MigrateProjectTagsOutput) ElementType() reflect.Type {
@@ -766,10 +709,11 @@ func (o MigrateProjectTagsOutput) ToMigrateProjectTagsPtrOutput() MigrateProject
 }
 
 func (o MigrateProjectTagsOutput) ToMigrateProjectTagsPtrOutputWithContext(ctx context.Context) MigrateProjectTagsPtrOutput {
-	return o.ApplyT(func(v MigrateProjectTags) *MigrateProjectTags {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v MigrateProjectTags) *MigrateProjectTags {
 		return &v
 	}).(MigrateProjectTagsPtrOutput)
 }
+
 func (o MigrateProjectTagsOutput) AdditionalProperties() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v MigrateProjectTags) *string { return v.AdditionalProperties }).(pulumi.StringPtrOutput)
 }
@@ -789,7 +733,13 @@ func (o MigrateProjectTagsPtrOutput) ToMigrateProjectTagsPtrOutputWithContext(ct
 }
 
 func (o MigrateProjectTagsPtrOutput) Elem() MigrateProjectTagsOutput {
-	return o.ApplyT(func(v *MigrateProjectTags) MigrateProjectTags { return *v }).(MigrateProjectTagsOutput)
+	return o.ApplyT(func(v *MigrateProjectTags) MigrateProjectTags {
+		if v != nil {
+			return *v
+		}
+		var ret MigrateProjectTags
+		return ret
+	}).(MigrateProjectTagsOutput)
 }
 
 func (o MigrateProjectTagsPtrOutput) AdditionalProperties() pulumi.StringPtrOutput {
@@ -801,27 +751,16 @@ func (o MigrateProjectTagsPtrOutput) AdditionalProperties() pulumi.StringPtrOutp
 	}).(pulumi.StringPtrOutput)
 }
 
-// Class representing the servers project summary.
 type ServersProjectSummaryResponse struct {
-	// Gets or sets the count of entities assessed.
-	AssessedCount *int `pulumi:"assessedCount"`
-	// Gets or sets the count of entities discovered.
-	DiscoveredCount *int `pulumi:"discoveredCount"`
-	// Gets or sets the extended summary.
-	ExtendedSummary map[string]string `pulumi:"extendedSummary"`
-	// Gets the Instance type.
-	// Expected value is 'Servers'.
-	InstanceType string `pulumi:"instanceType"`
-	// Gets or sets the time when summary was last refreshed.
-	LastSummaryRefreshedTime *string `pulumi:"lastSummaryRefreshedTime"`
-	// Gets or sets the count of entities migrated.
-	MigratedCount *int `pulumi:"migratedCount"`
-	// Gets or sets the state of refresh summary.
-	RefreshSummaryState *string `pulumi:"refreshSummaryState"`
-	// Gets or sets the count of entities being replicated.
-	ReplicatingCount *int `pulumi:"replicatingCount"`
-	// Gets or sets the count of entities test migrated.
-	TestMigratedCount *int `pulumi:"testMigratedCount"`
+	AssessedCount            *int              `pulumi:"assessedCount"`
+	DiscoveredCount          *int              `pulumi:"discoveredCount"`
+	ExtendedSummary          map[string]string `pulumi:"extendedSummary"`
+	InstanceType             string            `pulumi:"instanceType"`
+	LastSummaryRefreshedTime *string           `pulumi:"lastSummaryRefreshedTime"`
+	MigratedCount            *int              `pulumi:"migratedCount"`
+	RefreshSummaryState      *string           `pulumi:"refreshSummaryState"`
+	ReplicatingCount         *int              `pulumi:"replicatingCount"`
+	TestMigratedCount        *int              `pulumi:"testMigratedCount"`
 }
 
 // ServersProjectSummaryResponseInput is an input type that accepts ServersProjectSummaryResponseArgs and ServersProjectSummaryResponseOutput values.
@@ -835,27 +774,16 @@ type ServersProjectSummaryResponseInput interface {
 	ToServersProjectSummaryResponseOutputWithContext(context.Context) ServersProjectSummaryResponseOutput
 }
 
-// Class representing the servers project summary.
 type ServersProjectSummaryResponseArgs struct {
-	// Gets or sets the count of entities assessed.
-	AssessedCount pulumi.IntPtrInput `pulumi:"assessedCount"`
-	// Gets or sets the count of entities discovered.
-	DiscoveredCount pulumi.IntPtrInput `pulumi:"discoveredCount"`
-	// Gets or sets the extended summary.
-	ExtendedSummary pulumi.StringMapInput `pulumi:"extendedSummary"`
-	// Gets the Instance type.
-	// Expected value is 'Servers'.
-	InstanceType pulumi.StringInput `pulumi:"instanceType"`
-	// Gets or sets the time when summary was last refreshed.
+	AssessedCount            pulumi.IntPtrInput    `pulumi:"assessedCount"`
+	DiscoveredCount          pulumi.IntPtrInput    `pulumi:"discoveredCount"`
+	ExtendedSummary          pulumi.StringMapInput `pulumi:"extendedSummary"`
+	InstanceType             pulumi.StringInput    `pulumi:"instanceType"`
 	LastSummaryRefreshedTime pulumi.StringPtrInput `pulumi:"lastSummaryRefreshedTime"`
-	// Gets or sets the count of entities migrated.
-	MigratedCount pulumi.IntPtrInput `pulumi:"migratedCount"`
-	// Gets or sets the state of refresh summary.
-	RefreshSummaryState pulumi.StringPtrInput `pulumi:"refreshSummaryState"`
-	// Gets or sets the count of entities being replicated.
-	ReplicatingCount pulumi.IntPtrInput `pulumi:"replicatingCount"`
-	// Gets or sets the count of entities test migrated.
-	TestMigratedCount pulumi.IntPtrInput `pulumi:"testMigratedCount"`
+	MigratedCount            pulumi.IntPtrInput    `pulumi:"migratedCount"`
+	RefreshSummaryState      pulumi.StringPtrInput `pulumi:"refreshSummaryState"`
+	ReplicatingCount         pulumi.IntPtrInput    `pulumi:"replicatingCount"`
+	TestMigratedCount        pulumi.IntPtrInput    `pulumi:"testMigratedCount"`
 }
 
 func (ServersProjectSummaryResponseArgs) ElementType() reflect.Type {
@@ -870,7 +798,6 @@ func (i ServersProjectSummaryResponseArgs) ToServersProjectSummaryResponseOutput
 	return pulumi.ToOutputWithContext(ctx, i).(ServersProjectSummaryResponseOutput)
 }
 
-// Class representing the servers project summary.
 type ServersProjectSummaryResponseOutput struct{ *pulumi.OutputState }
 
 func (ServersProjectSummaryResponseOutput) ElementType() reflect.Type {
@@ -885,67 +812,49 @@ func (o ServersProjectSummaryResponseOutput) ToServersProjectSummaryResponseOutp
 	return o
 }
 
-// Gets or sets the count of entities assessed.
 func (o ServersProjectSummaryResponseOutput) AssessedCount() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v ServersProjectSummaryResponse) *int { return v.AssessedCount }).(pulumi.IntPtrOutput)
 }
 
-// Gets or sets the count of entities discovered.
 func (o ServersProjectSummaryResponseOutput) DiscoveredCount() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v ServersProjectSummaryResponse) *int { return v.DiscoveredCount }).(pulumi.IntPtrOutput)
 }
 
-// Gets or sets the extended summary.
 func (o ServersProjectSummaryResponseOutput) ExtendedSummary() pulumi.StringMapOutput {
 	return o.ApplyT(func(v ServersProjectSummaryResponse) map[string]string { return v.ExtendedSummary }).(pulumi.StringMapOutput)
 }
 
-// Gets the Instance type.
-// Expected value is 'Servers'.
 func (o ServersProjectSummaryResponseOutput) InstanceType() pulumi.StringOutput {
 	return o.ApplyT(func(v ServersProjectSummaryResponse) string { return v.InstanceType }).(pulumi.StringOutput)
 }
 
-// Gets or sets the time when summary was last refreshed.
 func (o ServersProjectSummaryResponseOutput) LastSummaryRefreshedTime() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ServersProjectSummaryResponse) *string { return v.LastSummaryRefreshedTime }).(pulumi.StringPtrOutput)
 }
 
-// Gets or sets the count of entities migrated.
 func (o ServersProjectSummaryResponseOutput) MigratedCount() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v ServersProjectSummaryResponse) *int { return v.MigratedCount }).(pulumi.IntPtrOutput)
 }
 
-// Gets or sets the state of refresh summary.
 func (o ServersProjectSummaryResponseOutput) RefreshSummaryState() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ServersProjectSummaryResponse) *string { return v.RefreshSummaryState }).(pulumi.StringPtrOutput)
 }
 
-// Gets or sets the count of entities being replicated.
 func (o ServersProjectSummaryResponseOutput) ReplicatingCount() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v ServersProjectSummaryResponse) *int { return v.ReplicatingCount }).(pulumi.IntPtrOutput)
 }
 
-// Gets or sets the count of entities test migrated.
 func (o ServersProjectSummaryResponseOutput) TestMigratedCount() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v ServersProjectSummaryResponse) *int { return v.TestMigratedCount }).(pulumi.IntPtrOutput)
 }
 
-// Class representing the servers solution summary.
 type ServersSolutionSummaryResponse struct {
-	// Gets or sets the count of servers assessed.
-	AssessedCount *int `pulumi:"assessedCount"`
-	// Gets or sets the count of servers discovered.
-	DiscoveredCount *int `pulumi:"discoveredCount"`
-	// Gets the Instance type.
-	// Expected value is 'Servers'.
-	InstanceType string `pulumi:"instanceType"`
-	// Gets or sets the count of servers migrated.
-	MigratedCount *int `pulumi:"migratedCount"`
-	// Gets or sets the count of servers being replicated.
-	ReplicatingCount *int `pulumi:"replicatingCount"`
-	// Gets or sets the count of servers test migrated.
-	TestMigratedCount *int `pulumi:"testMigratedCount"`
+	AssessedCount     *int   `pulumi:"assessedCount"`
+	DiscoveredCount   *int   `pulumi:"discoveredCount"`
+	InstanceType      string `pulumi:"instanceType"`
+	MigratedCount     *int   `pulumi:"migratedCount"`
+	ReplicatingCount  *int   `pulumi:"replicatingCount"`
+	TestMigratedCount *int   `pulumi:"testMigratedCount"`
 }
 
 // ServersSolutionSummaryResponseInput is an input type that accepts ServersSolutionSummaryResponseArgs and ServersSolutionSummaryResponseOutput values.
@@ -959,20 +868,12 @@ type ServersSolutionSummaryResponseInput interface {
 	ToServersSolutionSummaryResponseOutputWithContext(context.Context) ServersSolutionSummaryResponseOutput
 }
 
-// Class representing the servers solution summary.
 type ServersSolutionSummaryResponseArgs struct {
-	// Gets or sets the count of servers assessed.
-	AssessedCount pulumi.IntPtrInput `pulumi:"assessedCount"`
-	// Gets or sets the count of servers discovered.
-	DiscoveredCount pulumi.IntPtrInput `pulumi:"discoveredCount"`
-	// Gets the Instance type.
-	// Expected value is 'Servers'.
-	InstanceType pulumi.StringInput `pulumi:"instanceType"`
-	// Gets or sets the count of servers migrated.
-	MigratedCount pulumi.IntPtrInput `pulumi:"migratedCount"`
-	// Gets or sets the count of servers being replicated.
-	ReplicatingCount pulumi.IntPtrInput `pulumi:"replicatingCount"`
-	// Gets or sets the count of servers test migrated.
+	AssessedCount     pulumi.IntPtrInput `pulumi:"assessedCount"`
+	DiscoveredCount   pulumi.IntPtrInput `pulumi:"discoveredCount"`
+	InstanceType      pulumi.StringInput `pulumi:"instanceType"`
+	MigratedCount     pulumi.IntPtrInput `pulumi:"migratedCount"`
+	ReplicatingCount  pulumi.IntPtrInput `pulumi:"replicatingCount"`
 	TestMigratedCount pulumi.IntPtrInput `pulumi:"testMigratedCount"`
 }
 
@@ -988,7 +889,6 @@ func (i ServersSolutionSummaryResponseArgs) ToServersSolutionSummaryResponseOutp
 	return pulumi.ToOutputWithContext(ctx, i).(ServersSolutionSummaryResponseOutput)
 }
 
-// Class representing the servers solution summary.
 type ServersSolutionSummaryResponseOutput struct{ *pulumi.OutputState }
 
 func (ServersSolutionSummaryResponseOutput) ElementType() reflect.Type {
@@ -1003,45 +903,34 @@ func (o ServersSolutionSummaryResponseOutput) ToServersSolutionSummaryResponseOu
 	return o
 }
 
-// Gets or sets the count of servers assessed.
 func (o ServersSolutionSummaryResponseOutput) AssessedCount() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v ServersSolutionSummaryResponse) *int { return v.AssessedCount }).(pulumi.IntPtrOutput)
 }
 
-// Gets or sets the count of servers discovered.
 func (o ServersSolutionSummaryResponseOutput) DiscoveredCount() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v ServersSolutionSummaryResponse) *int { return v.DiscoveredCount }).(pulumi.IntPtrOutput)
 }
 
-// Gets the Instance type.
-// Expected value is 'Servers'.
 func (o ServersSolutionSummaryResponseOutput) InstanceType() pulumi.StringOutput {
 	return o.ApplyT(func(v ServersSolutionSummaryResponse) string { return v.InstanceType }).(pulumi.StringOutput)
 }
 
-// Gets or sets the count of servers migrated.
 func (o ServersSolutionSummaryResponseOutput) MigratedCount() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v ServersSolutionSummaryResponse) *int { return v.MigratedCount }).(pulumi.IntPtrOutput)
 }
 
-// Gets or sets the count of servers being replicated.
 func (o ServersSolutionSummaryResponseOutput) ReplicatingCount() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v ServersSolutionSummaryResponse) *int { return v.ReplicatingCount }).(pulumi.IntPtrOutput)
 }
 
-// Gets or sets the count of servers test migrated.
 func (o ServersSolutionSummaryResponseOutput) TestMigratedCount() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v ServersSolutionSummaryResponse) *int { return v.TestMigratedCount }).(pulumi.IntPtrOutput)
 }
 
-// Class representing the details of the solution.
 type SolutionDetails struct {
-	// Gets or sets the count of assessments reported by the solution.
-	AssessmentCount *int `pulumi:"assessmentCount"`
-	// Gets or sets the extended details reported by the solution.
+	AssessmentCount *int              `pulumi:"assessmentCount"`
 	ExtendedDetails map[string]string `pulumi:"extendedDetails"`
-	// Gets or sets the count of groups reported by the solution.
-	GroupCount *int `pulumi:"groupCount"`
+	GroupCount      *int              `pulumi:"groupCount"`
 }
 
 // SolutionDetailsInput is an input type that accepts SolutionDetailsArgs and SolutionDetailsOutput values.
@@ -1055,14 +944,10 @@ type SolutionDetailsInput interface {
 	ToSolutionDetailsOutputWithContext(context.Context) SolutionDetailsOutput
 }
 
-// Class representing the details of the solution.
 type SolutionDetailsArgs struct {
-	// Gets or sets the count of assessments reported by the solution.
-	AssessmentCount pulumi.IntPtrInput `pulumi:"assessmentCount"`
-	// Gets or sets the extended details reported by the solution.
+	AssessmentCount pulumi.IntPtrInput    `pulumi:"assessmentCount"`
 	ExtendedDetails pulumi.StringMapInput `pulumi:"extendedDetails"`
-	// Gets or sets the count of groups reported by the solution.
-	GroupCount pulumi.IntPtrInput `pulumi:"groupCount"`
+	GroupCount      pulumi.IntPtrInput    `pulumi:"groupCount"`
 }
 
 func (SolutionDetailsArgs) ElementType() reflect.Type {
@@ -1118,7 +1003,6 @@ func (i *solutionDetailsPtrType) ToSolutionDetailsPtrOutputWithContext(ctx conte
 	return pulumi.ToOutputWithContext(ctx, i).(SolutionDetailsPtrOutput)
 }
 
-// Class representing the details of the solution.
 type SolutionDetailsOutput struct{ *pulumi.OutputState }
 
 func (SolutionDetailsOutput) ElementType() reflect.Type {
@@ -1138,22 +1022,19 @@ func (o SolutionDetailsOutput) ToSolutionDetailsPtrOutput() SolutionDetailsPtrOu
 }
 
 func (o SolutionDetailsOutput) ToSolutionDetailsPtrOutputWithContext(ctx context.Context) SolutionDetailsPtrOutput {
-	return o.ApplyT(func(v SolutionDetails) *SolutionDetails {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v SolutionDetails) *SolutionDetails {
 		return &v
 	}).(SolutionDetailsPtrOutput)
 }
 
-// Gets or sets the count of assessments reported by the solution.
 func (o SolutionDetailsOutput) AssessmentCount() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v SolutionDetails) *int { return v.AssessmentCount }).(pulumi.IntPtrOutput)
 }
 
-// Gets or sets the extended details reported by the solution.
 func (o SolutionDetailsOutput) ExtendedDetails() pulumi.StringMapOutput {
 	return o.ApplyT(func(v SolutionDetails) map[string]string { return v.ExtendedDetails }).(pulumi.StringMapOutput)
 }
 
-// Gets or sets the count of groups reported by the solution.
 func (o SolutionDetailsOutput) GroupCount() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v SolutionDetails) *int { return v.GroupCount }).(pulumi.IntPtrOutput)
 }
@@ -1173,10 +1054,15 @@ func (o SolutionDetailsPtrOutput) ToSolutionDetailsPtrOutputWithContext(ctx cont
 }
 
 func (o SolutionDetailsPtrOutput) Elem() SolutionDetailsOutput {
-	return o.ApplyT(func(v *SolutionDetails) SolutionDetails { return *v }).(SolutionDetailsOutput)
+	return o.ApplyT(func(v *SolutionDetails) SolutionDetails {
+		if v != nil {
+			return *v
+		}
+		var ret SolutionDetails
+		return ret
+	}).(SolutionDetailsOutput)
 }
 
-// Gets or sets the count of assessments reported by the solution.
 func (o SolutionDetailsPtrOutput) AssessmentCount() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *SolutionDetails) *int {
 		if v == nil {
@@ -1186,7 +1072,6 @@ func (o SolutionDetailsPtrOutput) AssessmentCount() pulumi.IntPtrOutput {
 	}).(pulumi.IntPtrOutput)
 }
 
-// Gets or sets the extended details reported by the solution.
 func (o SolutionDetailsPtrOutput) ExtendedDetails() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *SolutionDetails) map[string]string {
 		if v == nil {
@@ -1196,7 +1081,6 @@ func (o SolutionDetailsPtrOutput) ExtendedDetails() pulumi.StringMapOutput {
 	}).(pulumi.StringMapOutput)
 }
 
-// Gets or sets the count of groups reported by the solution.
 func (o SolutionDetailsPtrOutput) GroupCount() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *SolutionDetails) *int {
 		if v == nil {
@@ -1206,14 +1090,10 @@ func (o SolutionDetailsPtrOutput) GroupCount() pulumi.IntPtrOutput {
 	}).(pulumi.IntPtrOutput)
 }
 
-// Class representing the details of the solution.
 type SolutionDetailsResponse struct {
-	// Gets or sets the count of assessments reported by the solution.
-	AssessmentCount *int `pulumi:"assessmentCount"`
-	// Gets or sets the extended details reported by the solution.
+	AssessmentCount *int              `pulumi:"assessmentCount"`
 	ExtendedDetails map[string]string `pulumi:"extendedDetails"`
-	// Gets or sets the count of groups reported by the solution.
-	GroupCount *int `pulumi:"groupCount"`
+	GroupCount      *int              `pulumi:"groupCount"`
 }
 
 // SolutionDetailsResponseInput is an input type that accepts SolutionDetailsResponseArgs and SolutionDetailsResponseOutput values.
@@ -1227,14 +1107,10 @@ type SolutionDetailsResponseInput interface {
 	ToSolutionDetailsResponseOutputWithContext(context.Context) SolutionDetailsResponseOutput
 }
 
-// Class representing the details of the solution.
 type SolutionDetailsResponseArgs struct {
-	// Gets or sets the count of assessments reported by the solution.
-	AssessmentCount pulumi.IntPtrInput `pulumi:"assessmentCount"`
-	// Gets or sets the extended details reported by the solution.
+	AssessmentCount pulumi.IntPtrInput    `pulumi:"assessmentCount"`
 	ExtendedDetails pulumi.StringMapInput `pulumi:"extendedDetails"`
-	// Gets or sets the count of groups reported by the solution.
-	GroupCount pulumi.IntPtrInput `pulumi:"groupCount"`
+	GroupCount      pulumi.IntPtrInput    `pulumi:"groupCount"`
 }
 
 func (SolutionDetailsResponseArgs) ElementType() reflect.Type {
@@ -1290,7 +1166,6 @@ func (i *solutionDetailsResponsePtrType) ToSolutionDetailsResponsePtrOutputWithC
 	return pulumi.ToOutputWithContext(ctx, i).(SolutionDetailsResponsePtrOutput)
 }
 
-// Class representing the details of the solution.
 type SolutionDetailsResponseOutput struct{ *pulumi.OutputState }
 
 func (SolutionDetailsResponseOutput) ElementType() reflect.Type {
@@ -1310,22 +1185,19 @@ func (o SolutionDetailsResponseOutput) ToSolutionDetailsResponsePtrOutput() Solu
 }
 
 func (o SolutionDetailsResponseOutput) ToSolutionDetailsResponsePtrOutputWithContext(ctx context.Context) SolutionDetailsResponsePtrOutput {
-	return o.ApplyT(func(v SolutionDetailsResponse) *SolutionDetailsResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v SolutionDetailsResponse) *SolutionDetailsResponse {
 		return &v
 	}).(SolutionDetailsResponsePtrOutput)
 }
 
-// Gets or sets the count of assessments reported by the solution.
 func (o SolutionDetailsResponseOutput) AssessmentCount() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v SolutionDetailsResponse) *int { return v.AssessmentCount }).(pulumi.IntPtrOutput)
 }
 
-// Gets or sets the extended details reported by the solution.
 func (o SolutionDetailsResponseOutput) ExtendedDetails() pulumi.StringMapOutput {
 	return o.ApplyT(func(v SolutionDetailsResponse) map[string]string { return v.ExtendedDetails }).(pulumi.StringMapOutput)
 }
 
-// Gets or sets the count of groups reported by the solution.
 func (o SolutionDetailsResponseOutput) GroupCount() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v SolutionDetailsResponse) *int { return v.GroupCount }).(pulumi.IntPtrOutput)
 }
@@ -1345,10 +1217,15 @@ func (o SolutionDetailsResponsePtrOutput) ToSolutionDetailsResponsePtrOutputWith
 }
 
 func (o SolutionDetailsResponsePtrOutput) Elem() SolutionDetailsResponseOutput {
-	return o.ApplyT(func(v *SolutionDetailsResponse) SolutionDetailsResponse { return *v }).(SolutionDetailsResponseOutput)
+	return o.ApplyT(func(v *SolutionDetailsResponse) SolutionDetailsResponse {
+		if v != nil {
+			return *v
+		}
+		var ret SolutionDetailsResponse
+		return ret
+	}).(SolutionDetailsResponseOutput)
 }
 
-// Gets or sets the count of assessments reported by the solution.
 func (o SolutionDetailsResponsePtrOutput) AssessmentCount() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *SolutionDetailsResponse) *int {
 		if v == nil {
@@ -1358,7 +1235,6 @@ func (o SolutionDetailsResponsePtrOutput) AssessmentCount() pulumi.IntPtrOutput 
 	}).(pulumi.IntPtrOutput)
 }
 
-// Gets or sets the extended details reported by the solution.
 func (o SolutionDetailsResponsePtrOutput) ExtendedDetails() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *SolutionDetailsResponse) map[string]string {
 		if v == nil {
@@ -1368,7 +1244,6 @@ func (o SolutionDetailsResponsePtrOutput) ExtendedDetails() pulumi.StringMapOutp
 	}).(pulumi.StringMapOutput)
 }
 
-// Gets or sets the count of groups reported by the solution.
 func (o SolutionDetailsResponsePtrOutput) GroupCount() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *SolutionDetailsResponse) *int {
 		if v == nil {
@@ -1378,20 +1253,13 @@ func (o SolutionDetailsResponsePtrOutput) GroupCount() pulumi.IntPtrOutput {
 	}).(pulumi.IntPtrOutput)
 }
 
-// Class for solution properties.
 type SolutionProperties struct {
-	// Gets or sets the cleanup state of the solution.
-	CleanupState *string `pulumi:"cleanupState"`
-	// Gets or sets the details of the solution.
-	Details *SolutionDetails `pulumi:"details"`
-	// Gets or sets the goal of the solution.
-	Goal *string `pulumi:"goal"`
-	// Gets or sets the purpose of the solution.
-	Purpose *string `pulumi:"purpose"`
-	// Gets or sets the current status of the solution.
-	Status *string `pulumi:"status"`
-	// Gets or sets the tool being used in the solution.
-	Tool *string `pulumi:"tool"`
+	CleanupState *string          `pulumi:"cleanupState"`
+	Details      *SolutionDetails `pulumi:"details"`
+	Goal         *string          `pulumi:"goal"`
+	Purpose      *string          `pulumi:"purpose"`
+	Status       *string          `pulumi:"status"`
+	Tool         *string          `pulumi:"tool"`
 }
 
 // SolutionPropertiesInput is an input type that accepts SolutionPropertiesArgs and SolutionPropertiesOutput values.
@@ -1405,20 +1273,13 @@ type SolutionPropertiesInput interface {
 	ToSolutionPropertiesOutputWithContext(context.Context) SolutionPropertiesOutput
 }
 
-// Class for solution properties.
 type SolutionPropertiesArgs struct {
-	// Gets or sets the cleanup state of the solution.
-	CleanupState pulumi.StringPtrInput `pulumi:"cleanupState"`
-	// Gets or sets the details of the solution.
-	Details SolutionDetailsPtrInput `pulumi:"details"`
-	// Gets or sets the goal of the solution.
-	Goal pulumi.StringPtrInput `pulumi:"goal"`
-	// Gets or sets the purpose of the solution.
-	Purpose pulumi.StringPtrInput `pulumi:"purpose"`
-	// Gets or sets the current status of the solution.
-	Status pulumi.StringPtrInput `pulumi:"status"`
-	// Gets or sets the tool being used in the solution.
-	Tool pulumi.StringPtrInput `pulumi:"tool"`
+	CleanupState pulumi.StringPtrInput   `pulumi:"cleanupState"`
+	Details      SolutionDetailsPtrInput `pulumi:"details"`
+	Goal         pulumi.StringPtrInput   `pulumi:"goal"`
+	Purpose      pulumi.StringPtrInput   `pulumi:"purpose"`
+	Status       pulumi.StringPtrInput   `pulumi:"status"`
+	Tool         pulumi.StringPtrInput   `pulumi:"tool"`
 }
 
 func (SolutionPropertiesArgs) ElementType() reflect.Type {
@@ -1474,7 +1335,6 @@ func (i *solutionPropertiesPtrType) ToSolutionPropertiesPtrOutputWithContext(ctx
 	return pulumi.ToOutputWithContext(ctx, i).(SolutionPropertiesPtrOutput)
 }
 
-// Class for solution properties.
 type SolutionPropertiesOutput struct{ *pulumi.OutputState }
 
 func (SolutionPropertiesOutput) ElementType() reflect.Type {
@@ -1494,37 +1354,31 @@ func (o SolutionPropertiesOutput) ToSolutionPropertiesPtrOutput() SolutionProper
 }
 
 func (o SolutionPropertiesOutput) ToSolutionPropertiesPtrOutputWithContext(ctx context.Context) SolutionPropertiesPtrOutput {
-	return o.ApplyT(func(v SolutionProperties) *SolutionProperties {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v SolutionProperties) *SolutionProperties {
 		return &v
 	}).(SolutionPropertiesPtrOutput)
 }
 
-// Gets or sets the cleanup state of the solution.
 func (o SolutionPropertiesOutput) CleanupState() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SolutionProperties) *string { return v.CleanupState }).(pulumi.StringPtrOutput)
 }
 
-// Gets or sets the details of the solution.
 func (o SolutionPropertiesOutput) Details() SolutionDetailsPtrOutput {
 	return o.ApplyT(func(v SolutionProperties) *SolutionDetails { return v.Details }).(SolutionDetailsPtrOutput)
 }
 
-// Gets or sets the goal of the solution.
 func (o SolutionPropertiesOutput) Goal() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SolutionProperties) *string { return v.Goal }).(pulumi.StringPtrOutput)
 }
 
-// Gets or sets the purpose of the solution.
 func (o SolutionPropertiesOutput) Purpose() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SolutionProperties) *string { return v.Purpose }).(pulumi.StringPtrOutput)
 }
 
-// Gets or sets the current status of the solution.
 func (o SolutionPropertiesOutput) Status() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SolutionProperties) *string { return v.Status }).(pulumi.StringPtrOutput)
 }
 
-// Gets or sets the tool being used in the solution.
 func (o SolutionPropertiesOutput) Tool() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SolutionProperties) *string { return v.Tool }).(pulumi.StringPtrOutput)
 }
@@ -1544,10 +1398,15 @@ func (o SolutionPropertiesPtrOutput) ToSolutionPropertiesPtrOutputWithContext(ct
 }
 
 func (o SolutionPropertiesPtrOutput) Elem() SolutionPropertiesOutput {
-	return o.ApplyT(func(v *SolutionProperties) SolutionProperties { return *v }).(SolutionPropertiesOutput)
+	return o.ApplyT(func(v *SolutionProperties) SolutionProperties {
+		if v != nil {
+			return *v
+		}
+		var ret SolutionProperties
+		return ret
+	}).(SolutionPropertiesOutput)
 }
 
-// Gets or sets the cleanup state of the solution.
 func (o SolutionPropertiesPtrOutput) CleanupState() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SolutionProperties) *string {
 		if v == nil {
@@ -1557,7 +1416,6 @@ func (o SolutionPropertiesPtrOutput) CleanupState() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Gets or sets the details of the solution.
 func (o SolutionPropertiesPtrOutput) Details() SolutionDetailsPtrOutput {
 	return o.ApplyT(func(v *SolutionProperties) *SolutionDetails {
 		if v == nil {
@@ -1567,7 +1425,6 @@ func (o SolutionPropertiesPtrOutput) Details() SolutionDetailsPtrOutput {
 	}).(SolutionDetailsPtrOutput)
 }
 
-// Gets or sets the goal of the solution.
 func (o SolutionPropertiesPtrOutput) Goal() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SolutionProperties) *string {
 		if v == nil {
@@ -1577,7 +1434,6 @@ func (o SolutionPropertiesPtrOutput) Goal() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Gets or sets the purpose of the solution.
 func (o SolutionPropertiesPtrOutput) Purpose() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SolutionProperties) *string {
 		if v == nil {
@@ -1587,7 +1443,6 @@ func (o SolutionPropertiesPtrOutput) Purpose() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Gets or sets the current status of the solution.
 func (o SolutionPropertiesPtrOutput) Status() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SolutionProperties) *string {
 		if v == nil {
@@ -1597,7 +1452,6 @@ func (o SolutionPropertiesPtrOutput) Status() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Gets or sets the tool being used in the solution.
 func (o SolutionPropertiesPtrOutput) Tool() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SolutionProperties) *string {
 		if v == nil {
@@ -1607,22 +1461,14 @@ func (o SolutionPropertiesPtrOutput) Tool() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Class for solution properties.
 type SolutionPropertiesResponse struct {
-	// Gets or sets the cleanup state of the solution.
-	CleanupState *string `pulumi:"cleanupState"`
-	// Gets or sets the details of the solution.
-	Details *SolutionDetailsResponse `pulumi:"details"`
-	// Gets or sets the goal of the solution.
-	Goal *string `pulumi:"goal"`
-	// Gets or sets the purpose of the solution.
-	Purpose *string `pulumi:"purpose"`
-	// Gets or sets the current status of the solution.
-	Status *string `pulumi:"status"`
-	// Gets or sets the summary of the solution.
-	Summary interface{} `pulumi:"summary"`
-	// Gets or sets the tool being used in the solution.
-	Tool *string `pulumi:"tool"`
+	CleanupState *string                  `pulumi:"cleanupState"`
+	Details      *SolutionDetailsResponse `pulumi:"details"`
+	Goal         *string                  `pulumi:"goal"`
+	Purpose      *string                  `pulumi:"purpose"`
+	Status       *string                  `pulumi:"status"`
+	Summary      interface{}              `pulumi:"summary"`
+	Tool         *string                  `pulumi:"tool"`
 }
 
 // SolutionPropertiesResponseInput is an input type that accepts SolutionPropertiesResponseArgs and SolutionPropertiesResponseOutput values.
@@ -1636,22 +1482,14 @@ type SolutionPropertiesResponseInput interface {
 	ToSolutionPropertiesResponseOutputWithContext(context.Context) SolutionPropertiesResponseOutput
 }
 
-// Class for solution properties.
 type SolutionPropertiesResponseArgs struct {
-	// Gets or sets the cleanup state of the solution.
-	CleanupState pulumi.StringPtrInput `pulumi:"cleanupState"`
-	// Gets or sets the details of the solution.
-	Details SolutionDetailsResponsePtrInput `pulumi:"details"`
-	// Gets or sets the goal of the solution.
-	Goal pulumi.StringPtrInput `pulumi:"goal"`
-	// Gets or sets the purpose of the solution.
-	Purpose pulumi.StringPtrInput `pulumi:"purpose"`
-	// Gets or sets the current status of the solution.
-	Status pulumi.StringPtrInput `pulumi:"status"`
-	// Gets or sets the summary of the solution.
-	Summary pulumi.Input `pulumi:"summary"`
-	// Gets or sets the tool being used in the solution.
-	Tool pulumi.StringPtrInput `pulumi:"tool"`
+	CleanupState pulumi.StringPtrInput           `pulumi:"cleanupState"`
+	Details      SolutionDetailsResponsePtrInput `pulumi:"details"`
+	Goal         pulumi.StringPtrInput           `pulumi:"goal"`
+	Purpose      pulumi.StringPtrInput           `pulumi:"purpose"`
+	Status       pulumi.StringPtrInput           `pulumi:"status"`
+	Summary      pulumi.Input                    `pulumi:"summary"`
+	Tool         pulumi.StringPtrInput           `pulumi:"tool"`
 }
 
 func (SolutionPropertiesResponseArgs) ElementType() reflect.Type {
@@ -1707,7 +1545,6 @@ func (i *solutionPropertiesResponsePtrType) ToSolutionPropertiesResponsePtrOutpu
 	return pulumi.ToOutputWithContext(ctx, i).(SolutionPropertiesResponsePtrOutput)
 }
 
-// Class for solution properties.
 type SolutionPropertiesResponseOutput struct{ *pulumi.OutputState }
 
 func (SolutionPropertiesResponseOutput) ElementType() reflect.Type {
@@ -1727,42 +1564,35 @@ func (o SolutionPropertiesResponseOutput) ToSolutionPropertiesResponsePtrOutput(
 }
 
 func (o SolutionPropertiesResponseOutput) ToSolutionPropertiesResponsePtrOutputWithContext(ctx context.Context) SolutionPropertiesResponsePtrOutput {
-	return o.ApplyT(func(v SolutionPropertiesResponse) *SolutionPropertiesResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v SolutionPropertiesResponse) *SolutionPropertiesResponse {
 		return &v
 	}).(SolutionPropertiesResponsePtrOutput)
 }
 
-// Gets or sets the cleanup state of the solution.
 func (o SolutionPropertiesResponseOutput) CleanupState() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SolutionPropertiesResponse) *string { return v.CleanupState }).(pulumi.StringPtrOutput)
 }
 
-// Gets or sets the details of the solution.
 func (o SolutionPropertiesResponseOutput) Details() SolutionDetailsResponsePtrOutput {
 	return o.ApplyT(func(v SolutionPropertiesResponse) *SolutionDetailsResponse { return v.Details }).(SolutionDetailsResponsePtrOutput)
 }
 
-// Gets or sets the goal of the solution.
 func (o SolutionPropertiesResponseOutput) Goal() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SolutionPropertiesResponse) *string { return v.Goal }).(pulumi.StringPtrOutput)
 }
 
-// Gets or sets the purpose of the solution.
 func (o SolutionPropertiesResponseOutput) Purpose() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SolutionPropertiesResponse) *string { return v.Purpose }).(pulumi.StringPtrOutput)
 }
 
-// Gets or sets the current status of the solution.
 func (o SolutionPropertiesResponseOutput) Status() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SolutionPropertiesResponse) *string { return v.Status }).(pulumi.StringPtrOutput)
 }
 
-// Gets or sets the summary of the solution.
 func (o SolutionPropertiesResponseOutput) Summary() pulumi.AnyOutput {
 	return o.ApplyT(func(v SolutionPropertiesResponse) interface{} { return v.Summary }).(pulumi.AnyOutput)
 }
 
-// Gets or sets the tool being used in the solution.
 func (o SolutionPropertiesResponseOutput) Tool() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SolutionPropertiesResponse) *string { return v.Tool }).(pulumi.StringPtrOutput)
 }
@@ -1782,10 +1612,15 @@ func (o SolutionPropertiesResponsePtrOutput) ToSolutionPropertiesResponsePtrOutp
 }
 
 func (o SolutionPropertiesResponsePtrOutput) Elem() SolutionPropertiesResponseOutput {
-	return o.ApplyT(func(v *SolutionPropertiesResponse) SolutionPropertiesResponse { return *v }).(SolutionPropertiesResponseOutput)
+	return o.ApplyT(func(v *SolutionPropertiesResponse) SolutionPropertiesResponse {
+		if v != nil {
+			return *v
+		}
+		var ret SolutionPropertiesResponse
+		return ret
+	}).(SolutionPropertiesResponseOutput)
 }
 
-// Gets or sets the cleanup state of the solution.
 func (o SolutionPropertiesResponsePtrOutput) CleanupState() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SolutionPropertiesResponse) *string {
 		if v == nil {
@@ -1795,7 +1630,6 @@ func (o SolutionPropertiesResponsePtrOutput) CleanupState() pulumi.StringPtrOutp
 	}).(pulumi.StringPtrOutput)
 }
 
-// Gets or sets the details of the solution.
 func (o SolutionPropertiesResponsePtrOutput) Details() SolutionDetailsResponsePtrOutput {
 	return o.ApplyT(func(v *SolutionPropertiesResponse) *SolutionDetailsResponse {
 		if v == nil {
@@ -1805,7 +1639,6 @@ func (o SolutionPropertiesResponsePtrOutput) Details() SolutionDetailsResponsePt
 	}).(SolutionDetailsResponsePtrOutput)
 }
 
-// Gets or sets the goal of the solution.
 func (o SolutionPropertiesResponsePtrOutput) Goal() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SolutionPropertiesResponse) *string {
 		if v == nil {
@@ -1815,7 +1648,6 @@ func (o SolutionPropertiesResponsePtrOutput) Goal() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Gets or sets the purpose of the solution.
 func (o SolutionPropertiesResponsePtrOutput) Purpose() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SolutionPropertiesResponse) *string {
 		if v == nil {
@@ -1825,7 +1657,6 @@ func (o SolutionPropertiesResponsePtrOutput) Purpose() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Gets or sets the current status of the solution.
 func (o SolutionPropertiesResponsePtrOutput) Status() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SolutionPropertiesResponse) *string {
 		if v == nil {
@@ -1835,7 +1666,6 @@ func (o SolutionPropertiesResponsePtrOutput) Status() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Gets or sets the summary of the solution.
 func (o SolutionPropertiesResponsePtrOutput) Summary() pulumi.AnyOutput {
 	return o.ApplyT(func(v *SolutionPropertiesResponse) interface{} {
 		if v == nil {
@@ -1845,7 +1675,6 @@ func (o SolutionPropertiesResponsePtrOutput) Summary() pulumi.AnyOutput {
 	}).(pulumi.AnyOutput)
 }
 
-// Gets or sets the tool being used in the solution.
 func (o SolutionPropertiesResponsePtrOutput) Tool() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SolutionPropertiesResponse) *string {
 		if v == nil {

@@ -7,7 +7,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Device Update instance details.
 func LookupInstance(ctx *pulumi.Context, args *LookupInstanceArgs, opts ...pulumi.InvokeOption) (*LookupInstanceResult, error) {
 	var rv LookupInstanceResult
 	err := ctx.Invoke("azure-native:deviceupdate/v20200301preview:getInstance", args, &rv, opts...)
@@ -18,34 +17,21 @@ func LookupInstance(ctx *pulumi.Context, args *LookupInstanceArgs, opts ...pulum
 }
 
 type LookupInstanceArgs struct {
-	// Account name.
-	AccountName string `pulumi:"accountName"`
-	// Instance name.
-	InstanceName string `pulumi:"instanceName"`
-	// The resource group name.
+	AccountName       string `pulumi:"accountName"`
+	InstanceName      string `pulumi:"instanceName"`
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 }
 
 // Device Update instance details.
 type LookupInstanceResult struct {
-	// Parent Device Update Account name which Instance belongs to.
-	AccountName string `pulumi:"accountName"`
-	// Enables or Disables the diagnostic logs collection
-	EnableDiagnostics *bool `pulumi:"enableDiagnostics"`
-	// Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
-	Id string `pulumi:"id"`
-	// List of IoT Hubs associated with the account.
-	IotHubs []IotHubSettingsResponse `pulumi:"iotHubs"`
-	// The geo-location where the resource lives
-	Location string `pulumi:"location"`
-	// The name of the resource
-	Name string `pulumi:"name"`
-	// Provisioning state.
-	ProvisioningState string `pulumi:"provisioningState"`
-	// Metadata pertaining to creation and last modification of the resource.
-	SystemData SystemDataResponse `pulumi:"systemData"`
-	// Resource tags.
-	Tags map[string]string `pulumi:"tags"`
-	// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
-	Type string `pulumi:"type"`
+	AccountName       string                   `pulumi:"accountName"`
+	EnableDiagnostics *bool                    `pulumi:"enableDiagnostics"`
+	Id                string                   `pulumi:"id"`
+	IotHubs           []IotHubSettingsResponse `pulumi:"iotHubs"`
+	Location          string                   `pulumi:"location"`
+	Name              string                   `pulumi:"name"`
+	ProvisioningState string                   `pulumi:"provisioningState"`
+	SystemData        SystemDataResponse       `pulumi:"systemData"`
+	Tags              map[string]string        `pulumi:"tags"`
+	Type              string                   `pulumi:"type"`
 }

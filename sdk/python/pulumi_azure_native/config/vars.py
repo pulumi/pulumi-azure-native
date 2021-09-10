@@ -8,77 +8,90 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
-__all__ = [
-    'auxiliary_tenant_ids',
-    'client_certificate_password',
-    'client_certificate_path',
-    'client_id',
-    'client_secret',
-    'disable_pulumi_partner_id',
-    'environment',
-    'msi_endpoint',
-    'partner_id',
-    'subscription_id',
-    'tenant_id',
-    'use_msi',
-]
+import types
 
 __config__ = pulumi.Config('azure-native')
 
-auxiliary_tenant_ids = __config__.get('auxiliaryTenantIds')
 
-client_certificate_password = __config__.get('clientCertificatePassword')
-"""
-The password associated with the Client Certificate. For use when authenticating as a Service Principal using a Client Certificate
-"""
+class _ExportableConfig(types.ModuleType):
+    @property
+    def auxiliary_tenant_ids(self) -> Optional[str]:
+        return __config__.get('auxiliaryTenantIds')
 
-client_certificate_path = __config__.get('clientCertificatePath')
-"""
-The path to the Client Certificate associated with the Service Principal for use when authenticating as a Service Principal using a Client Certificate.
-"""
+    @property
+    def client_certificate_password(self) -> Optional[str]:
+        """
+        The password associated with the Client Certificate. For use when authenticating as a Service Principal using a Client Certificate
+        """
+        return __config__.get('clientCertificatePassword')
 
-client_id = __config__.get('clientId')
-"""
-The Client ID which should be used.
-"""
+    @property
+    def client_certificate_path(self) -> Optional[str]:
+        """
+        The path to the Client Certificate associated with the Service Principal for use when authenticating as a Service Principal using a Client Certificate.
+        """
+        return __config__.get('clientCertificatePath')
 
-client_secret = __config__.get('clientSecret')
-"""
-The Client Secret which should be used. For use When authenticating as a Service Principal using a Client Secret.
-"""
+    @property
+    def client_id(self) -> Optional[str]:
+        """
+        The Client ID which should be used.
+        """
+        return __config__.get('clientId')
 
-disable_pulumi_partner_id = __config__.get('disablePulumiPartnerId')
-"""
-This will disable the Pulumi Partner ID which is used if a custom `partnerId` isn't specified.
-"""
+    @property
+    def client_secret(self) -> Optional[str]:
+        """
+        The Client Secret which should be used. For use When authenticating as a Service Principal using a Client Secret.
+        """
+        return __config__.get('clientSecret')
 
-environment = __config__.get('environment')
-"""
-The Cloud Environment which should be used. Possible values are public, usgovernment, german, and china. Defaults to public.
-"""
+    @property
+    def disable_pulumi_partner_id(self) -> Optional[bool]:
+        """
+        This will disable the Pulumi Partner ID which is used if a custom `partnerId` isn't specified.
+        """
+        return __config__.get_bool('disablePulumiPartnerId')
 
-msi_endpoint = __config__.get('msiEndpoint')
-"""
-The path to a custom endpoint for Managed Service Identity - in most circumstances this should be detected automatically. 
-"""
+    @property
+    def environment(self) -> Optional[str]:
+        """
+        The Cloud Environment which should be used. Possible values are public, usgovernment, german, and china. Defaults to public.
+        """
+        return __config__.get('environment')
 
-partner_id = __config__.get('partnerId')
-"""
-A GUID/UUID that is registered with Microsoft to facilitate partner resource usage attribution.
-"""
+    @property
+    def msi_endpoint(self) -> Optional[str]:
+        """
+        The path to a custom endpoint for Managed Service Identity - in most circumstances this should be detected automatically. 
+        """
+        return __config__.get('msiEndpoint')
 
-subscription_id = __config__.get('subscriptionId')
-"""
-The Subscription ID which should be used.
-"""
+    @property
+    def partner_id(self) -> Optional[str]:
+        """
+        A GUID/UUID that is registered with Microsoft to facilitate partner resource usage attribution.
+        """
+        return __config__.get('partnerId')
 
-tenant_id = __config__.get('tenantId')
-"""
-The Tenant ID which should be used.
-"""
+    @property
+    def subscription_id(self) -> Optional[str]:
+        """
+        The Subscription ID which should be used.
+        """
+        return __config__.get('subscriptionId')
 
-use_msi = __config__.get('useMsi')
-"""
-Allowed Managed Service Identity be used for Authentication.
-"""
+    @property
+    def tenant_id(self) -> Optional[str]:
+        """
+        The Tenant ID which should be used.
+        """
+        return __config__.get('tenantId')
+
+    @property
+    def use_msi(self) -> Optional[bool]:
+        """
+        Allowed Managed Service Identity be used for Authentication.
+        """
+        return __config__.get_bool('useMsi')
 

@@ -43,6 +43,9 @@ func NewPrivateLinkServicesForEDMUpload(ctx *pulumi.Context,
 		return nil, errors.New("missing one or more required arguments")
 	}
 
+	if args.Kind == nil {
+		return nil, errors.New("invalid value for required argument 'Kind'")
+	}
 	if args.ResourceGroupName == nil {
 		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
 	}
@@ -95,7 +98,7 @@ type privateLinkServicesForEDMUploadArgs struct {
 	// Setting indicating whether the service has a managed identity associated with it.
 	Identity *ServicesResourceIdentity `pulumi:"identity"`
 	// The kind of the service.
-	Kind string `pulumi:"kind"`
+	Kind Kind `pulumi:"kind"`
 	// The resource location.
 	Location *string `pulumi:"location"`
 	// The common properties of a service.
@@ -115,7 +118,7 @@ type PrivateLinkServicesForEDMUploadArgs struct {
 	// Setting indicating whether the service has a managed identity associated with it.
 	Identity ServicesResourceIdentityPtrInput
 	// The kind of the service.
-	Kind Kind
+	Kind KindInput
 	// The resource location.
 	Location pulumi.StringPtrInput
 	// The common properties of a service.
@@ -151,9 +154,7 @@ func (i *PrivateLinkServicesForEDMUpload) ToPrivateLinkServicesForEDMUploadOutpu
 	return pulumi.ToOutputWithContext(ctx, i).(PrivateLinkServicesForEDMUploadOutput)
 }
 
-type PrivateLinkServicesForEDMUploadOutput struct {
-	*pulumi.OutputState
-}
+type PrivateLinkServicesForEDMUploadOutput struct{ *pulumi.OutputState }
 
 func (PrivateLinkServicesForEDMUploadOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*PrivateLinkServicesForEDMUpload)(nil))

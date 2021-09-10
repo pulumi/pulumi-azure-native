@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.DataMigration.Outputs
 {
 
+    /// <summary>
+    /// File share information with Path, Username, and Password.
+    /// </summary>
     [OutputType]
     public sealed class FileShareResponse
     {

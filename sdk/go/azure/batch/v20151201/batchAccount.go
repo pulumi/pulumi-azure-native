@@ -11,30 +11,19 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Contains information about an Azure Batch account.
 type BatchAccount struct {
 	pulumi.CustomResourceState
 
-	// The endpoint used by this account to interact with the Batch services.
-	AccountEndpoint pulumi.StringOutput `pulumi:"accountEndpoint"`
-	// The active job and job schedule quota for this Batch account.
-	ActiveJobAndJobScheduleQuota pulumi.IntOutput `pulumi:"activeJobAndJobScheduleQuota"`
-	// The properties and status of any auto storage account associated with the account.
-	AutoStorage AutoStoragePropertiesResponsePtrOutput `pulumi:"autoStorage"`
-	// The core quota for this Batch account.
-	CoreQuota pulumi.IntOutput `pulumi:"coreQuota"`
-	// The location of the resource
-	Location pulumi.StringPtrOutput `pulumi:"location"`
-	// The name of the resource
-	Name pulumi.StringOutput `pulumi:"name"`
-	// The pool quota for this Batch account.
-	PoolQuota pulumi.IntOutput `pulumi:"poolQuota"`
-	// The provisioned state of the resource
-	ProvisioningState pulumi.StringPtrOutput `pulumi:"provisioningState"`
-	// The tags of the resource
-	Tags pulumi.StringMapOutput `pulumi:"tags"`
-	// The type of the resource
-	Type pulumi.StringOutput `pulumi:"type"`
+	AccountEndpoint              pulumi.StringOutput                    `pulumi:"accountEndpoint"`
+	ActiveJobAndJobScheduleQuota pulumi.IntOutput                       `pulumi:"activeJobAndJobScheduleQuota"`
+	AutoStorage                  AutoStoragePropertiesResponsePtrOutput `pulumi:"autoStorage"`
+	CoreQuota                    pulumi.IntOutput                       `pulumi:"coreQuota"`
+	Location                     pulumi.StringPtrOutput                 `pulumi:"location"`
+	Name                         pulumi.StringOutput                    `pulumi:"name"`
+	PoolQuota                    pulumi.IntOutput                       `pulumi:"poolQuota"`
+	ProvisioningState            pulumi.StringPtrOutput                 `pulumi:"provisioningState"`
+	Tags                         pulumi.StringMapOutput                 `pulumi:"tags"`
+	Type                         pulumi.StringOutput                    `pulumi:"type"`
 }
 
 // NewBatchAccount registers a new resource with the given unique name, arguments, and options.
@@ -157,30 +146,20 @@ func (BatchAccountState) ElementType() reflect.Type {
 }
 
 type batchAccountArgs struct {
-	// A name for the Batch account which must be unique within the region. Batch account names must be between 3 and 24 characters in length and must use only numbers and lowercase letters. This name is used as part of the DNS name that is used to access the Batch service in the region in which the account is created. For example: http://accountname.region.batch.azure.com/.
-	AccountName *string `pulumi:"accountName"`
-	// The properties related to auto storage account.
-	AutoStorage *AutoStorageBaseProperties `pulumi:"autoStorage"`
-	// The region in which to create the account.
-	Location *string `pulumi:"location"`
-	// The name of the resource group that contains the new Batch account.
-	ResourceGroupName string `pulumi:"resourceGroupName"`
-	// The user specified tags associated with the account.
-	Tags map[string]string `pulumi:"tags"`
+	AccountName       *string                    `pulumi:"accountName"`
+	AutoStorage       *AutoStorageBaseProperties `pulumi:"autoStorage"`
+	Location          *string                    `pulumi:"location"`
+	ResourceGroupName string                     `pulumi:"resourceGroupName"`
+	Tags              map[string]string          `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a BatchAccount resource.
 type BatchAccountArgs struct {
-	// A name for the Batch account which must be unique within the region. Batch account names must be between 3 and 24 characters in length and must use only numbers and lowercase letters. This name is used as part of the DNS name that is used to access the Batch service in the region in which the account is created. For example: http://accountname.region.batch.azure.com/.
-	AccountName pulumi.StringPtrInput
-	// The properties related to auto storage account.
-	AutoStorage AutoStorageBasePropertiesPtrInput
-	// The region in which to create the account.
-	Location pulumi.StringPtrInput
-	// The name of the resource group that contains the new Batch account.
+	AccountName       pulumi.StringPtrInput
+	AutoStorage       AutoStorageBasePropertiesPtrInput
+	Location          pulumi.StringPtrInput
 	ResourceGroupName pulumi.StringInput
-	// The user specified tags associated with the account.
-	Tags pulumi.StringMapInput
+	Tags              pulumi.StringMapInput
 }
 
 func (BatchAccountArgs) ElementType() reflect.Type {
@@ -206,9 +185,7 @@ func (i *BatchAccount) ToBatchAccountOutputWithContext(ctx context.Context) Batc
 	return pulumi.ToOutputWithContext(ctx, i).(BatchAccountOutput)
 }
 
-type BatchAccountOutput struct {
-	*pulumi.OutputState
-}
+type BatchAccountOutput struct{ *pulumi.OutputState }
 
 func (BatchAccountOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*BatchAccount)(nil))

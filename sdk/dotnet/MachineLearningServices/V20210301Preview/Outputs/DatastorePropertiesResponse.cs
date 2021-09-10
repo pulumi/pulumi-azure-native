@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.MachineLearningServices.V20210301Preview.Outputs
 {
 
+    /// <summary>
+    /// Datastore definition.
+    /// </summary>
     [OutputType]
     public sealed class DatastorePropertiesResponse
     {

@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.Kusto.V20210827.Outputs
 {
 
+    /// <summary>
+    /// Represents an accepted audience trusted by the cluster.
+    /// </summary>
     [OutputType]
     public sealed class AcceptedAudiencesResponse
     {

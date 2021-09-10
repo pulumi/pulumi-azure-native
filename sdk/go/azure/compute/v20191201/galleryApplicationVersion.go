@@ -11,24 +11,16 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Specifies information about the gallery Application Version that you want to create or update.
 type GalleryApplicationVersion struct {
 	pulumi.CustomResourceState
 
-	// Resource location
-	Location pulumi.StringOutput `pulumi:"location"`
-	// Resource name
-	Name pulumi.StringOutput `pulumi:"name"`
-	// The provisioning state, which only appears in the response.
-	ProvisioningState pulumi.StringOutput `pulumi:"provisioningState"`
-	// The publishing profile of a gallery image version.
+	Location          pulumi.StringOutput                                      `pulumi:"location"`
+	Name              pulumi.StringOutput                                      `pulumi:"name"`
+	ProvisioningState pulumi.StringOutput                                      `pulumi:"provisioningState"`
 	PublishingProfile GalleryApplicationVersionPublishingProfileResponseOutput `pulumi:"publishingProfile"`
-	// This is the replication status of the gallery Image Version.
-	ReplicationStatus ReplicationStatusResponseOutput `pulumi:"replicationStatus"`
-	// Resource tags
-	Tags pulumi.StringMapOutput `pulumi:"tags"`
-	// Resource type
-	Type pulumi.StringOutput `pulumi:"type"`
+	ReplicationStatus ReplicationStatusResponseOutput                          `pulumi:"replicationStatus"`
+	Tags              pulumi.StringMapOutput                                   `pulumi:"tags"`
+	Type              pulumi.StringOutput                                      `pulumi:"type"`
 }
 
 // NewGalleryApplicationVersion registers a new resource with the given unique name, arguments, and options.
@@ -118,38 +110,24 @@ func (GalleryApplicationVersionState) ElementType() reflect.Type {
 }
 
 type galleryApplicationVersionArgs struct {
-	// The name of the gallery Application Definition in which the Application Version is to be created.
-	GalleryApplicationName string `pulumi:"galleryApplicationName"`
-	// The name of the gallery Application Version to be created. Needs to follow semantic version name pattern: The allowed characters are digit and period. Digits must be within the range of a 32-bit integer. Format: <MajorVersion>.<MinorVersion>.<Patch>
-	GalleryApplicationVersionName *string `pulumi:"galleryApplicationVersionName"`
-	// The name of the Shared Application Gallery in which the Application Definition resides.
-	GalleryName string `pulumi:"galleryName"`
-	// Resource location
-	Location *string `pulumi:"location"`
-	// The publishing profile of a gallery image version.
-	PublishingProfile GalleryApplicationVersionPublishingProfile `pulumi:"publishingProfile"`
-	// The name of the resource group.
-	ResourceGroupName string `pulumi:"resourceGroupName"`
-	// Resource tags
-	Tags map[string]string `pulumi:"tags"`
+	GalleryApplicationName        string                                     `pulumi:"galleryApplicationName"`
+	GalleryApplicationVersionName *string                                    `pulumi:"galleryApplicationVersionName"`
+	GalleryName                   string                                     `pulumi:"galleryName"`
+	Location                      *string                                    `pulumi:"location"`
+	PublishingProfile             GalleryApplicationVersionPublishingProfile `pulumi:"publishingProfile"`
+	ResourceGroupName             string                                     `pulumi:"resourceGroupName"`
+	Tags                          map[string]string                          `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a GalleryApplicationVersion resource.
 type GalleryApplicationVersionArgs struct {
-	// The name of the gallery Application Definition in which the Application Version is to be created.
-	GalleryApplicationName pulumi.StringInput
-	// The name of the gallery Application Version to be created. Needs to follow semantic version name pattern: The allowed characters are digit and period. Digits must be within the range of a 32-bit integer. Format: <MajorVersion>.<MinorVersion>.<Patch>
+	GalleryApplicationName        pulumi.StringInput
 	GalleryApplicationVersionName pulumi.StringPtrInput
-	// The name of the Shared Application Gallery in which the Application Definition resides.
-	GalleryName pulumi.StringInput
-	// Resource location
-	Location pulumi.StringPtrInput
-	// The publishing profile of a gallery image version.
-	PublishingProfile GalleryApplicationVersionPublishingProfileInput
-	// The name of the resource group.
-	ResourceGroupName pulumi.StringInput
-	// Resource tags
-	Tags pulumi.StringMapInput
+	GalleryName                   pulumi.StringInput
+	Location                      pulumi.StringPtrInput
+	PublishingProfile             GalleryApplicationVersionPublishingProfileInput
+	ResourceGroupName             pulumi.StringInput
+	Tags                          pulumi.StringMapInput
 }
 
 func (GalleryApplicationVersionArgs) ElementType() reflect.Type {
@@ -175,9 +153,7 @@ func (i *GalleryApplicationVersion) ToGalleryApplicationVersionOutputWithContext
 	return pulumi.ToOutputWithContext(ctx, i).(GalleryApplicationVersionOutput)
 }
 
-type GalleryApplicationVersionOutput struct {
-	*pulumi.OutputState
-}
+type GalleryApplicationVersionOutput struct{ *pulumi.OutputState }
 
 func (GalleryApplicationVersionOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*GalleryApplicationVersion)(nil))

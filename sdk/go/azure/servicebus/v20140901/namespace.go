@@ -11,34 +11,21 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Description of a namespace resource.
 type Namespace struct {
 	pulumi.CustomResourceState
 
-	// Indicates whether to create an ACS namespace.
-	CreateACSNamespace pulumi.BoolPtrOutput `pulumi:"createACSNamespace"`
-	// The time the namespace was created.
-	CreatedAt pulumi.StringOutput `pulumi:"createdAt"`
-	// Specifies whether this instance is enabled.
-	Enabled pulumi.BoolPtrOutput `pulumi:"enabled"`
-	// Resource location.
-	Location pulumi.StringOutput `pulumi:"location"`
-	// Resource name
-	Name pulumi.StringOutput `pulumi:"name"`
-	// Provisioning state of the namespace.
-	ProvisioningState pulumi.StringOutput `pulumi:"provisioningState"`
-	// Endpoint you can use to perform Service Bus operations.
-	ServiceBusEndpoint pulumi.StringOutput `pulumi:"serviceBusEndpoint"`
-	// SKU of the namespace.
-	Sku SkuResponsePtrOutput `pulumi:"sku"`
-	// State of the namespace.
-	Status pulumi.StringPtrOutput `pulumi:"status"`
-	// Resource tags
-	Tags pulumi.StringMapOutput `pulumi:"tags"`
-	// Resource type
-	Type pulumi.StringOutput `pulumi:"type"`
-	// The time the namespace was updated.
-	UpdatedAt pulumi.StringOutput `pulumi:"updatedAt"`
+	CreateACSNamespace pulumi.BoolPtrOutput   `pulumi:"createACSNamespace"`
+	CreatedAt          pulumi.StringOutput    `pulumi:"createdAt"`
+	Enabled            pulumi.BoolPtrOutput   `pulumi:"enabled"`
+	Location           pulumi.StringOutput    `pulumi:"location"`
+	Name               pulumi.StringOutput    `pulumi:"name"`
+	ProvisioningState  pulumi.StringOutput    `pulumi:"provisioningState"`
+	ServiceBusEndpoint pulumi.StringOutput    `pulumi:"serviceBusEndpoint"`
+	Sku                SkuResponsePtrOutput   `pulumi:"sku"`
+	Status             pulumi.StringPtrOutput `pulumi:"status"`
+	Tags               pulumi.StringMapOutput `pulumi:"tags"`
+	Type               pulumi.StringOutput    `pulumi:"type"`
+	UpdatedAt          pulumi.StringOutput    `pulumi:"updatedAt"`
 }
 
 // NewNamespace registers a new resource with the given unique name, arguments, and options.
@@ -125,42 +112,26 @@ func (NamespaceState) ElementType() reflect.Type {
 }
 
 type namespaceArgs struct {
-	// Indicates whether to create an ACS namespace.
-	CreateACSNamespace *bool `pulumi:"createACSNamespace"`
-	// Specifies whether this instance is enabled.
-	Enabled *bool `pulumi:"enabled"`
-	// Namespace location.
-	Location *string `pulumi:"location"`
-	// The namespace name.
-	NamespaceName *string `pulumi:"namespaceName"`
-	// Name of the Resource group within the Azure subscription.
-	ResourceGroupName string `pulumi:"resourceGroupName"`
-	// SKU of the namespace.
-	Sku *Sku `pulumi:"sku"`
-	// State of the namespace.
-	Status *string `pulumi:"status"`
-	// Namespace tags.
-	Tags map[string]string `pulumi:"tags"`
+	CreateACSNamespace *bool               `pulumi:"createACSNamespace"`
+	Enabled            *bool               `pulumi:"enabled"`
+	Location           *string             `pulumi:"location"`
+	NamespaceName      *string             `pulumi:"namespaceName"`
+	ResourceGroupName  string              `pulumi:"resourceGroupName"`
+	Sku                *Sku                `pulumi:"sku"`
+	Status             *NamespaceStateEnum `pulumi:"status"`
+	Tags               map[string]string   `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a Namespace resource.
 type NamespaceArgs struct {
-	// Indicates whether to create an ACS namespace.
 	CreateACSNamespace pulumi.BoolPtrInput
-	// Specifies whether this instance is enabled.
-	Enabled pulumi.BoolPtrInput
-	// Namespace location.
-	Location pulumi.StringPtrInput
-	// The namespace name.
-	NamespaceName pulumi.StringPtrInput
-	// Name of the Resource group within the Azure subscription.
-	ResourceGroupName pulumi.StringInput
-	// SKU of the namespace.
-	Sku SkuPtrInput
-	// State of the namespace.
-	Status *NamespaceStateEnum
-	// Namespace tags.
-	Tags pulumi.StringMapInput
+	Enabled            pulumi.BoolPtrInput
+	Location           pulumi.StringPtrInput
+	NamespaceName      pulumi.StringPtrInput
+	ResourceGroupName  pulumi.StringInput
+	Sku                SkuPtrInput
+	Status             NamespaceStateEnumPtrInput
+	Tags               pulumi.StringMapInput
 }
 
 func (NamespaceArgs) ElementType() reflect.Type {
@@ -186,9 +157,7 @@ func (i *Namespace) ToNamespaceOutputWithContext(ctx context.Context) NamespaceO
 	return pulumi.ToOutputWithContext(ctx, i).(NamespaceOutput)
 }
 
-type NamespaceOutput struct {
-	*pulumi.OutputState
-}
+type NamespaceOutput struct{ *pulumi.OutputState }
 
 func (NamespaceOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*Namespace)(nil))

@@ -7,7 +7,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Private dns zone group resource.
 func LookupPrivateDnsZoneGroup(ctx *pulumi.Context, args *LookupPrivateDnsZoneGroupArgs, opts ...pulumi.InvokeOption) (*LookupPrivateDnsZoneGroupResult, error) {
 	var rv LookupPrivateDnsZoneGroupResult
 	err := ctx.Invoke("azure-native:network/v20200501:getPrivateDnsZoneGroup", args, &rv, opts...)
@@ -18,24 +17,16 @@ func LookupPrivateDnsZoneGroup(ctx *pulumi.Context, args *LookupPrivateDnsZoneGr
 }
 
 type LookupPrivateDnsZoneGroupArgs struct {
-	// The name of the private dns zone group.
 	PrivateDnsZoneGroupName string `pulumi:"privateDnsZoneGroupName"`
-	// The name of the private endpoint.
-	PrivateEndpointName string `pulumi:"privateEndpointName"`
-	// The name of the resource group.
-	ResourceGroupName string `pulumi:"resourceGroupName"`
+	PrivateEndpointName     string `pulumi:"privateEndpointName"`
+	ResourceGroupName       string `pulumi:"resourceGroupName"`
 }
 
 // Private dns zone group resource.
 type LookupPrivateDnsZoneGroupResult struct {
-	// A unique read-only string that changes whenever the resource is updated.
-	Etag string `pulumi:"etag"`
-	// Resource ID.
-	Id *string `pulumi:"id"`
-	// Name of the resource that is unique within a resource group. This name can be used to access the resource.
-	Name *string `pulumi:"name"`
-	// A collection of private dns zone configurations of the private dns zone group.
+	Etag                  string                         `pulumi:"etag"`
+	Id                    *string                        `pulumi:"id"`
+	Name                  *string                        `pulumi:"name"`
 	PrivateDnsZoneConfigs []PrivateDnsZoneConfigResponse `pulumi:"privateDnsZoneConfigs"`
-	// The provisioning state of the private dns zone group resource.
-	ProvisioningState string `pulumi:"provisioningState"`
+	ProvisioningState     string                         `pulumi:"provisioningState"`
 }

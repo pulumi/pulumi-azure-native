@@ -11,57 +11,30 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// An Azure SQL managed instance.
 type ManagedInstance struct {
 	pulumi.CustomResourceState
 
-	// Administrator username for the managed instance. Can only be specified when the managed instance is being created (and is required for creation).
-	AdministratorLogin pulumi.StringPtrOutput `pulumi:"administratorLogin"`
-	// Collation of the managed instance.
-	Collation pulumi.StringPtrOutput `pulumi:"collation"`
-	// The Dns Zone that the managed instance is in.
-	DnsZone pulumi.StringOutput `pulumi:"dnsZone"`
-	// The fully qualified domain name of the managed instance.
-	FullyQualifiedDomainName pulumi.StringOutput `pulumi:"fullyQualifiedDomainName"`
-	// The Azure Active Directory identity of the managed instance.
-	Identity ResourceIdentityResponsePtrOutput `pulumi:"identity"`
-	// The Id of the instance pool this managed server belongs to.
-	InstancePoolId pulumi.StringPtrOutput `pulumi:"instancePoolId"`
-	// The license type. Possible values are 'LicenseIncluded' (regular price inclusive of a new SQL license) and 'BasePrice' (discounted AHB price for bringing your own SQL licenses).
-	LicenseType pulumi.StringPtrOutput `pulumi:"licenseType"`
-	// Resource location.
-	Location pulumi.StringOutput `pulumi:"location"`
-	// Specifies maintenance configuration id to apply to this managed instance.
-	MaintenanceConfigurationId pulumi.StringPtrOutput `pulumi:"maintenanceConfigurationId"`
-	// Minimal TLS version. Allowed values: 'None', '1.0', '1.1', '1.2'
-	MinimalTlsVersion pulumi.StringPtrOutput `pulumi:"minimalTlsVersion"`
-	// Resource name.
-	Name pulumi.StringOutput `pulumi:"name"`
-	// Connection type used for connecting to the instance.
-	ProxyOverride pulumi.StringPtrOutput `pulumi:"proxyOverride"`
-	// Whether or not the public data endpoint is enabled.
-	PublicDataEndpointEnabled pulumi.BoolPtrOutput `pulumi:"publicDataEndpointEnabled"`
-	// Managed instance SKU. Allowed values for sku.name: GP_Gen4, GP_Gen5, BC_Gen4, BC_Gen5
-	Sku SkuResponsePtrOutput `pulumi:"sku"`
-	// The state of the managed instance.
-	State pulumi.StringOutput `pulumi:"state"`
-	// Storage size in GB. Minimum value: 32. Maximum value: 8192. Increments of 32 GB allowed only.
-	StorageSizeInGB pulumi.IntPtrOutput `pulumi:"storageSizeInGB"`
-	// Subnet resource ID for the managed instance.
-	SubnetId pulumi.StringPtrOutput `pulumi:"subnetId"`
-	// Resource tags.
-	Tags pulumi.StringMapOutput `pulumi:"tags"`
-	// Id of the timezone. Allowed values are timezones supported by Windows.
-	// Windows keeps details on supported timezones, including the id, in registry under
-	// KEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows NT\CurrentVersion\Time Zones.
-	// You can get those registry values via SQL Server by querying SELECT name AS timezone_id FROM sys.time_zone_info.
-	// List of Ids can also be obtained by executing [System.TimeZoneInfo]::GetSystemTimeZones() in PowerShell.
-	// An example of valid timezone id is "Pacific Standard Time" or "W. Europe Standard Time".
-	TimezoneId pulumi.StringPtrOutput `pulumi:"timezoneId"`
-	// Resource type.
-	Type pulumi.StringOutput `pulumi:"type"`
-	// The number of vCores. Allowed values: 8, 16, 24, 32, 40, 64, 80.
-	VCores pulumi.IntPtrOutput `pulumi:"vCores"`
+	AdministratorLogin         pulumi.StringPtrOutput            `pulumi:"administratorLogin"`
+	Collation                  pulumi.StringPtrOutput            `pulumi:"collation"`
+	DnsZone                    pulumi.StringOutput               `pulumi:"dnsZone"`
+	FullyQualifiedDomainName   pulumi.StringOutput               `pulumi:"fullyQualifiedDomainName"`
+	Identity                   ResourceIdentityResponsePtrOutput `pulumi:"identity"`
+	InstancePoolId             pulumi.StringPtrOutput            `pulumi:"instancePoolId"`
+	LicenseType                pulumi.StringPtrOutput            `pulumi:"licenseType"`
+	Location                   pulumi.StringOutput               `pulumi:"location"`
+	MaintenanceConfigurationId pulumi.StringPtrOutput            `pulumi:"maintenanceConfigurationId"`
+	MinimalTlsVersion          pulumi.StringPtrOutput            `pulumi:"minimalTlsVersion"`
+	Name                       pulumi.StringOutput               `pulumi:"name"`
+	ProxyOverride              pulumi.StringPtrOutput            `pulumi:"proxyOverride"`
+	PublicDataEndpointEnabled  pulumi.BoolPtrOutput              `pulumi:"publicDataEndpointEnabled"`
+	Sku                        SkuResponsePtrOutput              `pulumi:"sku"`
+	State                      pulumi.StringOutput               `pulumi:"state"`
+	StorageSizeInGB            pulumi.IntPtrOutput               `pulumi:"storageSizeInGB"`
+	SubnetId                   pulumi.StringPtrOutput            `pulumi:"subnetId"`
+	Tags                       pulumi.StringMapOutput            `pulumi:"tags"`
+	TimezoneId                 pulumi.StringPtrOutput            `pulumi:"timezoneId"`
+	Type                       pulumi.StringOutput               `pulumi:"type"`
+	VCores                     pulumi.IntPtrOutput               `pulumi:"vCores"`
 }
 
 // NewManagedInstance registers a new resource with the given unique name, arguments, and options.
@@ -148,120 +121,56 @@ func (ManagedInstanceState) ElementType() reflect.Type {
 }
 
 type managedInstanceArgs struct {
-	// Administrator username for the managed instance. Can only be specified when the managed instance is being created (and is required for creation).
-	AdministratorLogin *string `pulumi:"administratorLogin"`
-	// The administrator login password (required for managed instance creation).
-	AdministratorLoginPassword *string `pulumi:"administratorLoginPassword"`
-	// Collation of the managed instance.
-	Collation *string `pulumi:"collation"`
-	// The resource id of another managed instance whose DNS zone this managed instance will share after creation.
-	DnsZonePartner *string `pulumi:"dnsZonePartner"`
-	// The Azure Active Directory identity of the managed instance.
-	Identity *ResourceIdentity `pulumi:"identity"`
-	// The Id of the instance pool this managed server belongs to.
-	InstancePoolId *string `pulumi:"instancePoolId"`
-	// The license type. Possible values are 'LicenseIncluded' (regular price inclusive of a new SQL license) and 'BasePrice' (discounted AHB price for bringing your own SQL licenses).
-	LicenseType *string `pulumi:"licenseType"`
-	// Resource location.
-	Location *string `pulumi:"location"`
-	// Specifies maintenance configuration id to apply to this managed instance.
-	MaintenanceConfigurationId *string `pulumi:"maintenanceConfigurationId"`
-	// Specifies the mode of database creation.
-	//
-	// Default: Regular instance creation.
-	//
-	// Restore: Creates an instance by restoring a set of backups to specific point in time. RestorePointInTime and SourceManagedInstanceId must be specified.
-	ManagedInstanceCreateMode *string `pulumi:"managedInstanceCreateMode"`
-	// The name of the managed instance.
-	ManagedInstanceName *string `pulumi:"managedInstanceName"`
-	// Minimal TLS version. Allowed values: 'None', '1.0', '1.1', '1.2'
-	MinimalTlsVersion *string `pulumi:"minimalTlsVersion"`
-	// Connection type used for connecting to the instance.
-	ProxyOverride *string `pulumi:"proxyOverride"`
-	// Whether or not the public data endpoint is enabled.
-	PublicDataEndpointEnabled *bool `pulumi:"publicDataEndpointEnabled"`
-	// The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
-	ResourceGroupName string `pulumi:"resourceGroupName"`
-	// Specifies the point in time (ISO8601 format) of the source database that will be restored to create the new database.
-	RestorePointInTime *string `pulumi:"restorePointInTime"`
-	// Managed instance SKU. Allowed values for sku.name: GP_Gen4, GP_Gen5, BC_Gen4, BC_Gen5
-	Sku *Sku `pulumi:"sku"`
-	// The resource identifier of the source managed instance associated with create operation of this instance.
-	SourceManagedInstanceId *string `pulumi:"sourceManagedInstanceId"`
-	// Storage size in GB. Minimum value: 32. Maximum value: 8192. Increments of 32 GB allowed only.
-	StorageSizeInGB *int `pulumi:"storageSizeInGB"`
-	// Subnet resource ID for the managed instance.
-	SubnetId *string `pulumi:"subnetId"`
-	// Resource tags.
-	Tags map[string]string `pulumi:"tags"`
-	// Id of the timezone. Allowed values are timezones supported by Windows.
-	// Windows keeps details on supported timezones, including the id, in registry under
-	// KEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows NT\CurrentVersion\Time Zones.
-	// You can get those registry values via SQL Server by querying SELECT name AS timezone_id FROM sys.time_zone_info.
-	// List of Ids can also be obtained by executing [System.TimeZoneInfo]::GetSystemTimeZones() in PowerShell.
-	// An example of valid timezone id is "Pacific Standard Time" or "W. Europe Standard Time".
-	TimezoneId *string `pulumi:"timezoneId"`
-	// The number of vCores. Allowed values: 8, 16, 24, 32, 40, 64, 80.
-	VCores *int `pulumi:"vCores"`
+	AdministratorLogin         *string           `pulumi:"administratorLogin"`
+	AdministratorLoginPassword *string           `pulumi:"administratorLoginPassword"`
+	Collation                  *string           `pulumi:"collation"`
+	DnsZonePartner             *string           `pulumi:"dnsZonePartner"`
+	Identity                   *ResourceIdentity `pulumi:"identity"`
+	InstancePoolId             *string           `pulumi:"instancePoolId"`
+	LicenseType                *string           `pulumi:"licenseType"`
+	Location                   *string           `pulumi:"location"`
+	MaintenanceConfigurationId *string           `pulumi:"maintenanceConfigurationId"`
+	ManagedInstanceCreateMode  *string           `pulumi:"managedInstanceCreateMode"`
+	ManagedInstanceName        *string           `pulumi:"managedInstanceName"`
+	MinimalTlsVersion          *string           `pulumi:"minimalTlsVersion"`
+	ProxyOverride              *string           `pulumi:"proxyOverride"`
+	PublicDataEndpointEnabled  *bool             `pulumi:"publicDataEndpointEnabled"`
+	ResourceGroupName          string            `pulumi:"resourceGroupName"`
+	RestorePointInTime         *string           `pulumi:"restorePointInTime"`
+	Sku                        *Sku              `pulumi:"sku"`
+	SourceManagedInstanceId    *string           `pulumi:"sourceManagedInstanceId"`
+	StorageSizeInGB            *int              `pulumi:"storageSizeInGB"`
+	SubnetId                   *string           `pulumi:"subnetId"`
+	Tags                       map[string]string `pulumi:"tags"`
+	TimezoneId                 *string           `pulumi:"timezoneId"`
+	VCores                     *int              `pulumi:"vCores"`
 }
 
 // The set of arguments for constructing a ManagedInstance resource.
 type ManagedInstanceArgs struct {
-	// Administrator username for the managed instance. Can only be specified when the managed instance is being created (and is required for creation).
-	AdministratorLogin pulumi.StringPtrInput
-	// The administrator login password (required for managed instance creation).
+	AdministratorLogin         pulumi.StringPtrInput
 	AdministratorLoginPassword pulumi.StringPtrInput
-	// Collation of the managed instance.
-	Collation pulumi.StringPtrInput
-	// The resource id of another managed instance whose DNS zone this managed instance will share after creation.
-	DnsZonePartner pulumi.StringPtrInput
-	// The Azure Active Directory identity of the managed instance.
-	Identity ResourceIdentityPtrInput
-	// The Id of the instance pool this managed server belongs to.
-	InstancePoolId pulumi.StringPtrInput
-	// The license type. Possible values are 'LicenseIncluded' (regular price inclusive of a new SQL license) and 'BasePrice' (discounted AHB price for bringing your own SQL licenses).
-	LicenseType pulumi.StringPtrInput
-	// Resource location.
-	Location pulumi.StringPtrInput
-	// Specifies maintenance configuration id to apply to this managed instance.
+	Collation                  pulumi.StringPtrInput
+	DnsZonePartner             pulumi.StringPtrInput
+	Identity                   ResourceIdentityPtrInput
+	InstancePoolId             pulumi.StringPtrInput
+	LicenseType                pulumi.StringPtrInput
+	Location                   pulumi.StringPtrInput
 	MaintenanceConfigurationId pulumi.StringPtrInput
-	// Specifies the mode of database creation.
-	//
-	// Default: Regular instance creation.
-	//
-	// Restore: Creates an instance by restoring a set of backups to specific point in time. RestorePointInTime and SourceManagedInstanceId must be specified.
-	ManagedInstanceCreateMode pulumi.StringPtrInput
-	// The name of the managed instance.
-	ManagedInstanceName pulumi.StringPtrInput
-	// Minimal TLS version. Allowed values: 'None', '1.0', '1.1', '1.2'
-	MinimalTlsVersion pulumi.StringPtrInput
-	// Connection type used for connecting to the instance.
-	ProxyOverride pulumi.StringPtrInput
-	// Whether or not the public data endpoint is enabled.
-	PublicDataEndpointEnabled pulumi.BoolPtrInput
-	// The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
-	ResourceGroupName pulumi.StringInput
-	// Specifies the point in time (ISO8601 format) of the source database that will be restored to create the new database.
-	RestorePointInTime pulumi.StringPtrInput
-	// Managed instance SKU. Allowed values for sku.name: GP_Gen4, GP_Gen5, BC_Gen4, BC_Gen5
-	Sku SkuPtrInput
-	// The resource identifier of the source managed instance associated with create operation of this instance.
-	SourceManagedInstanceId pulumi.StringPtrInput
-	// Storage size in GB. Minimum value: 32. Maximum value: 8192. Increments of 32 GB allowed only.
-	StorageSizeInGB pulumi.IntPtrInput
-	// Subnet resource ID for the managed instance.
-	SubnetId pulumi.StringPtrInput
-	// Resource tags.
-	Tags pulumi.StringMapInput
-	// Id of the timezone. Allowed values are timezones supported by Windows.
-	// Windows keeps details on supported timezones, including the id, in registry under
-	// KEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows NT\CurrentVersion\Time Zones.
-	// You can get those registry values via SQL Server by querying SELECT name AS timezone_id FROM sys.time_zone_info.
-	// List of Ids can also be obtained by executing [System.TimeZoneInfo]::GetSystemTimeZones() in PowerShell.
-	// An example of valid timezone id is "Pacific Standard Time" or "W. Europe Standard Time".
-	TimezoneId pulumi.StringPtrInput
-	// The number of vCores. Allowed values: 8, 16, 24, 32, 40, 64, 80.
-	VCores pulumi.IntPtrInput
+	ManagedInstanceCreateMode  pulumi.StringPtrInput
+	ManagedInstanceName        pulumi.StringPtrInput
+	MinimalTlsVersion          pulumi.StringPtrInput
+	ProxyOverride              pulumi.StringPtrInput
+	PublicDataEndpointEnabled  pulumi.BoolPtrInput
+	ResourceGroupName          pulumi.StringInput
+	RestorePointInTime         pulumi.StringPtrInput
+	Sku                        SkuPtrInput
+	SourceManagedInstanceId    pulumi.StringPtrInput
+	StorageSizeInGB            pulumi.IntPtrInput
+	SubnetId                   pulumi.StringPtrInput
+	Tags                       pulumi.StringMapInput
+	TimezoneId                 pulumi.StringPtrInput
+	VCores                     pulumi.IntPtrInput
 }
 
 func (ManagedInstanceArgs) ElementType() reflect.Type {
@@ -287,9 +196,7 @@ func (i *ManagedInstance) ToManagedInstanceOutputWithContext(ctx context.Context
 	return pulumi.ToOutputWithContext(ctx, i).(ManagedInstanceOutput)
 }
 
-type ManagedInstanceOutput struct {
-	*pulumi.OutputState
-}
+type ManagedInstanceOutput struct{ *pulumi.OutputState }
 
 func (ManagedInstanceOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*ManagedInstance)(nil))

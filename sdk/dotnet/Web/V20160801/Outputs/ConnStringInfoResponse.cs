@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.Web.V20160801.Outputs
 {
 
+    /// <summary>
+    /// Database connection string information.
+    /// </summary>
     [OutputType]
     public sealed class ConnStringInfoResponse
     {

@@ -7,7 +7,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// A host name binding object
 func LookupSiteHostNameBindingSlot(ctx *pulumi.Context, args *LookupSiteHostNameBindingSlotArgs, opts ...pulumi.InvokeOption) (*LookupSiteHostNameBindingSlotResult, error) {
 	var rv LookupSiteHostNameBindingSlotResult
 	err := ctx.Invoke("azure-native:web/v20150801:getSiteHostNameBindingSlot", args, &rv, opts...)
@@ -18,40 +17,24 @@ func LookupSiteHostNameBindingSlot(ctx *pulumi.Context, args *LookupSiteHostName
 }
 
 type LookupSiteHostNameBindingSlotArgs struct {
-	// Name of host
-	HostName string `pulumi:"hostName"`
-	// Name of web app
-	Name string `pulumi:"name"`
-	// Name of resource group
+	HostName          string `pulumi:"hostName"`
+	Name              string `pulumi:"name"`
 	ResourceGroupName string `pulumi:"resourceGroupName"`
-	// Name of web app slot. If not specified then will default to production slot.
-	Slot string `pulumi:"slot"`
+	Slot              string `pulumi:"slot"`
 }
 
 // A host name binding object
 type LookupSiteHostNameBindingSlotResult struct {
-	// Azure resource name
-	AzureResourceName *string `pulumi:"azureResourceName"`
-	// Azure resource type
-	AzureResourceType *string `pulumi:"azureResourceType"`
-	// Custom DNS record type
-	CustomHostNameDnsRecordType *string `pulumi:"customHostNameDnsRecordType"`
-	// Fully qualified ARM domain resource URI
-	DomainId *string `pulumi:"domainId"`
-	// Host name type
-	HostNameType *string `pulumi:"hostNameType"`
-	// Resource Id
-	Id *string `pulumi:"id"`
-	// Kind of resource
-	Kind *string `pulumi:"kind"`
-	// Resource Location
-	Location string `pulumi:"location"`
-	// Resource Name
-	Name *string `pulumi:"name"`
-	// Web app name
-	SiteName *string `pulumi:"siteName"`
-	// Resource tags
-	Tags map[string]string `pulumi:"tags"`
-	// Resource type
-	Type *string `pulumi:"type"`
+	AzureResourceName           *string           `pulumi:"azureResourceName"`
+	AzureResourceType           *string           `pulumi:"azureResourceType"`
+	CustomHostNameDnsRecordType *string           `pulumi:"customHostNameDnsRecordType"`
+	DomainId                    *string           `pulumi:"domainId"`
+	HostNameType                *string           `pulumi:"hostNameType"`
+	Id                          *string           `pulumi:"id"`
+	Kind                        *string           `pulumi:"kind"`
+	Location                    string            `pulumi:"location"`
+	Name                        *string           `pulumi:"name"`
+	SiteName                    *string           `pulumi:"siteName"`
+	Tags                        map[string]string `pulumi:"tags"`
+	Type                        *string           `pulumi:"type"`
 }

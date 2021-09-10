@@ -7,7 +7,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// The integration account map.
 func LookupIntegrationAccountMap(ctx *pulumi.Context, args *LookupIntegrationAccountMapArgs, opts ...pulumi.InvokeOption) (*LookupIntegrationAccountMapResult, error) {
 	var rv LookupIntegrationAccountMapResult
 	err := ctx.Invoke("azure-native:logic/v20180701preview:getIntegrationAccountMap", args, &rv, opts...)
@@ -18,40 +17,24 @@ func LookupIntegrationAccountMap(ctx *pulumi.Context, args *LookupIntegrationAcc
 }
 
 type LookupIntegrationAccountMapArgs struct {
-	// The integration account name.
 	IntegrationAccountName string `pulumi:"integrationAccountName"`
-	// The integration account map name.
-	MapName string `pulumi:"mapName"`
-	// The resource group name.
-	ResourceGroupName string `pulumi:"resourceGroupName"`
+	MapName                string `pulumi:"mapName"`
+	ResourceGroupName      string `pulumi:"resourceGroupName"`
 }
 
 // The integration account map.
 type LookupIntegrationAccountMapResult struct {
-	// The changed time.
-	ChangedTime string `pulumi:"changedTime"`
-	// The content.
-	Content *string `pulumi:"content"`
-	// The content link.
-	ContentLink ContentLinkResponse `pulumi:"contentLink"`
-	// The content type.
-	ContentType *string `pulumi:"contentType"`
-	// The created time.
-	CreatedTime string `pulumi:"createdTime"`
-	// The resource id.
-	Id string `pulumi:"id"`
-	// The resource location.
-	Location *string `pulumi:"location"`
-	// The map type.
-	MapType string `pulumi:"mapType"`
-	// The metadata.
-	Metadata interface{} `pulumi:"metadata"`
-	// Gets the resource name.
-	Name string `pulumi:"name"`
-	// The parameters schema of integration account map.
+	ChangedTime      string                                                   `pulumi:"changedTime"`
+	Content          *string                                                  `pulumi:"content"`
+	ContentLink      ContentLinkResponse                                      `pulumi:"contentLink"`
+	ContentType      *string                                                  `pulumi:"contentType"`
+	CreatedTime      string                                                   `pulumi:"createdTime"`
+	Id               string                                                   `pulumi:"id"`
+	Location         *string                                                  `pulumi:"location"`
+	MapType          string                                                   `pulumi:"mapType"`
+	Metadata         interface{}                                              `pulumi:"metadata"`
+	Name             string                                                   `pulumi:"name"`
 	ParametersSchema *IntegrationAccountMapPropertiesResponseParametersSchema `pulumi:"parametersSchema"`
-	// The resource tags.
-	Tags map[string]string `pulumi:"tags"`
-	// Gets the resource type.
-	Type string `pulumi:"type"`
+	Tags             map[string]string                                        `pulumi:"tags"`
+	Type             string                                                   `pulumi:"type"`
 }

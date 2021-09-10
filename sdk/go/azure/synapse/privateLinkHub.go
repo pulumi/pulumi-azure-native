@@ -169,9 +169,7 @@ func (i *PrivateLinkHub) ToPrivateLinkHubOutputWithContext(ctx context.Context) 
 	return pulumi.ToOutputWithContext(ctx, i).(PrivateLinkHubOutput)
 }
 
-type PrivateLinkHubOutput struct {
-	*pulumi.OutputState
-}
+type PrivateLinkHubOutput struct{ *pulumi.OutputState }
 
 func (PrivateLinkHubOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*PrivateLinkHub)(nil))

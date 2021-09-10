@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.Aad.Outputs
 {
 
+    /// <summary>
+    /// Forest Trust Setting
+    /// </summary>
     [OutputType]
     public sealed class ForestTrustResponse
     {

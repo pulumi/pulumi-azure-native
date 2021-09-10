@@ -17,41 +17,24 @@ func GetRecoveryPointAccessToken(ctx *pulumi.Context, args *GetRecoveryPointAcce
 }
 
 type GetRecoveryPointAccessTokenArgs struct {
-	// Name of the container.
-	ContainerName string `pulumi:"containerName"`
-	// Optional ETag.
-	ETag *string `pulumi:"eTag"`
-	// Fabric name associated with the container.
-	FabricName string `pulumi:"fabricName"`
-	// Resource location.
-	Location *string `pulumi:"location"`
-	// AADPropertiesResource properties
-	Properties *AADProperties `pulumi:"properties"`
-	// Name of the Protected Item.
-	ProtectedItemName string `pulumi:"protectedItemName"`
-	// Recovery Point Id
-	RecoveryPointId string `pulumi:"recoveryPointId"`
-	// The name of the resource group where the recovery services vault is present.
-	ResourceGroupName string `pulumi:"resourceGroupName"`
-	// Resource tags.
-	Tags map[string]string `pulumi:"tags"`
-	// The name of the recovery services vault.
-	VaultName string `pulumi:"vaultName"`
+	ContainerName     string            `pulumi:"containerName"`
+	ETag              *string           `pulumi:"eTag"`
+	FabricName        string            `pulumi:"fabricName"`
+	Location          *string           `pulumi:"location"`
+	Properties        *AADProperties    `pulumi:"properties"`
+	ProtectedItemName string            `pulumi:"protectedItemName"`
+	RecoveryPointId   string            `pulumi:"recoveryPointId"`
+	ResourceGroupName string            `pulumi:"resourceGroupName"`
+	Tags              map[string]string `pulumi:"tags"`
+	VaultName         string            `pulumi:"vaultName"`
 }
 
 type GetRecoveryPointAccessTokenResult struct {
-	// Optional ETag.
-	ETag *string `pulumi:"eTag"`
-	// Resource Id represents the complete path to the resource.
-	Id string `pulumi:"id"`
-	// Resource location.
-	Location *string `pulumi:"location"`
-	// Resource name associated with the resource.
-	Name string `pulumi:"name"`
-	// CrrAccessTokenResource properties
+	ETag       *string                        `pulumi:"eTag"`
+	Id         string                         `pulumi:"id"`
+	Location   *string                        `pulumi:"location"`
+	Name       string                         `pulumi:"name"`
 	Properties WorkloadCrrAccessTokenResponse `pulumi:"properties"`
-	// Resource tags.
-	Tags map[string]string `pulumi:"tags"`
-	// Resource type represents the complete path of the form Namespace/ResourceType/ResourceType/...
-	Type string `pulumi:"type"`
+	Tags       map[string]string              `pulumi:"tags"`
+	Type       string                         `pulumi:"type"`
 }

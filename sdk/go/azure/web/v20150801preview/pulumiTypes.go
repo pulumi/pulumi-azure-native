@@ -10,44 +10,25 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// API Management
 type ApiEntity struct {
-	// API definition Url - url where the swagger can be downloaded from
-	ApiDefinitionUrl *string `pulumi:"apiDefinitionUrl"`
-	// Backend service definition
-	BackendService *BackendServiceDefinition `pulumi:"backendService"`
-	// Capabilities
-	Capabilities []string `pulumi:"capabilities"`
-	// Timestamp of last connection change.
-	ChangedTime *string `pulumi:"changedTime"`
-	// Connection parameters
+	ApiDefinitionUrl     *string                        `pulumi:"apiDefinitionUrl"`
+	BackendService       *BackendServiceDefinition      `pulumi:"backendService"`
+	Capabilities         []string                       `pulumi:"capabilities"`
+	ChangedTime          *string                        `pulumi:"changedTime"`
 	ConnectionParameters map[string]ConnectionParameter `pulumi:"connectionParameters"`
-	// Timestamp of the connection creation
-	CreatedTime *string `pulumi:"createdTime"`
-	// the URL path of this API when exposed via APIM
-	GeneralInformation *GeneralApiInformation `pulumi:"generalInformation"`
-	// Resource Id
-	Id *string `pulumi:"id"`
-	// Kind of resource
-	Kind *string `pulumi:"kind"`
-	// Resource Location
-	Location string `pulumi:"location"`
-	// Free form object for the data caller wants to store
-	Metadata interface{} `pulumi:"metadata"`
-	// Resource Name
-	Name *string `pulumi:"name"`
-	// the URL path of this API when exposed via APIM
-	Path *string `pulumi:"path"`
-	// API policies
-	Policies *ApiPolicies `pulumi:"policies"`
-	// Protocols supported by the front end - http/https
-	Protocols []string `pulumi:"protocols"`
-	// Read only property returning the runtime endpoints where the API can be called
-	RuntimeUrls []string `pulumi:"runtimeUrls"`
-	// Resource tags
-	Tags map[string]string `pulumi:"tags"`
-	// Resource type
-	Type *string `pulumi:"type"`
+	CreatedTime          *string                        `pulumi:"createdTime"`
+	GeneralInformation   *GeneralApiInformation         `pulumi:"generalInformation"`
+	Id                   *string                        `pulumi:"id"`
+	Kind                 *string                        `pulumi:"kind"`
+	Location             string                         `pulumi:"location"`
+	Metadata             interface{}                    `pulumi:"metadata"`
+	Name                 *string                        `pulumi:"name"`
+	Path                 *string                        `pulumi:"path"`
+	Policies             *ApiPolicies                   `pulumi:"policies"`
+	Protocols            []string                       `pulumi:"protocols"`
+	RuntimeUrls          []string                       `pulumi:"runtimeUrls"`
+	Tags                 map[string]string              `pulumi:"tags"`
+	Type                 *string                        `pulumi:"type"`
 }
 
 // ApiEntityInput is an input type that accepts ApiEntityArgs and ApiEntityOutput values.
@@ -61,44 +42,25 @@ type ApiEntityInput interface {
 	ToApiEntityOutputWithContext(context.Context) ApiEntityOutput
 }
 
-// API Management
 type ApiEntityArgs struct {
-	// API definition Url - url where the swagger can be downloaded from
-	ApiDefinitionUrl pulumi.StringPtrInput `pulumi:"apiDefinitionUrl"`
-	// Backend service definition
-	BackendService BackendServiceDefinitionPtrInput `pulumi:"backendService"`
-	// Capabilities
-	Capabilities pulumi.StringArrayInput `pulumi:"capabilities"`
-	// Timestamp of last connection change.
-	ChangedTime pulumi.StringPtrInput `pulumi:"changedTime"`
-	// Connection parameters
-	ConnectionParameters ConnectionParameterMapInput `pulumi:"connectionParameters"`
-	// Timestamp of the connection creation
-	CreatedTime pulumi.StringPtrInput `pulumi:"createdTime"`
-	// the URL path of this API when exposed via APIM
-	GeneralInformation GeneralApiInformationPtrInput `pulumi:"generalInformation"`
-	// Resource Id
-	Id pulumi.StringPtrInput `pulumi:"id"`
-	// Kind of resource
-	Kind pulumi.StringPtrInput `pulumi:"kind"`
-	// Resource Location
-	Location pulumi.StringInput `pulumi:"location"`
-	// Free form object for the data caller wants to store
-	Metadata pulumi.Input `pulumi:"metadata"`
-	// Resource Name
-	Name pulumi.StringPtrInput `pulumi:"name"`
-	// the URL path of this API when exposed via APIM
-	Path pulumi.StringPtrInput `pulumi:"path"`
-	// API policies
-	Policies ApiPoliciesPtrInput `pulumi:"policies"`
-	// Protocols supported by the front end - http/https
-	Protocols pulumi.StringArrayInput `pulumi:"protocols"`
-	// Read only property returning the runtime endpoints where the API can be called
-	RuntimeUrls pulumi.StringArrayInput `pulumi:"runtimeUrls"`
-	// Resource tags
-	Tags pulumi.StringMapInput `pulumi:"tags"`
-	// Resource type
-	Type pulumi.StringPtrInput `pulumi:"type"`
+	ApiDefinitionUrl     pulumi.StringPtrInput            `pulumi:"apiDefinitionUrl"`
+	BackendService       BackendServiceDefinitionPtrInput `pulumi:"backendService"`
+	Capabilities         pulumi.StringArrayInput          `pulumi:"capabilities"`
+	ChangedTime          pulumi.StringPtrInput            `pulumi:"changedTime"`
+	ConnectionParameters ConnectionParameterMapInput      `pulumi:"connectionParameters"`
+	CreatedTime          pulumi.StringPtrInput            `pulumi:"createdTime"`
+	GeneralInformation   GeneralApiInformationPtrInput    `pulumi:"generalInformation"`
+	Id                   pulumi.StringPtrInput            `pulumi:"id"`
+	Kind                 pulumi.StringPtrInput            `pulumi:"kind"`
+	Location             pulumi.StringInput               `pulumi:"location"`
+	Metadata             pulumi.Input                     `pulumi:"metadata"`
+	Name                 pulumi.StringPtrInput            `pulumi:"name"`
+	Path                 pulumi.StringPtrInput            `pulumi:"path"`
+	Policies             ApiPoliciesPtrInput              `pulumi:"policies"`
+	Protocols            pulumi.StringArrayInput          `pulumi:"protocols"`
+	RuntimeUrls          pulumi.StringArrayInput          `pulumi:"runtimeUrls"`
+	Tags                 pulumi.StringMapInput            `pulumi:"tags"`
+	Type                 pulumi.StringPtrInput            `pulumi:"type"`
 }
 
 func (ApiEntityArgs) ElementType() reflect.Type {
@@ -154,7 +116,6 @@ func (i *apiEntityPtrType) ToApiEntityPtrOutputWithContext(ctx context.Context) 
 	return pulumi.ToOutputWithContext(ctx, i).(ApiEntityPtrOutput)
 }
 
-// API Management
 type ApiEntityOutput struct{ *pulumi.OutputState }
 
 func (ApiEntityOutput) ElementType() reflect.Type {
@@ -174,97 +135,79 @@ func (o ApiEntityOutput) ToApiEntityPtrOutput() ApiEntityPtrOutput {
 }
 
 func (o ApiEntityOutput) ToApiEntityPtrOutputWithContext(ctx context.Context) ApiEntityPtrOutput {
-	return o.ApplyT(func(v ApiEntity) *ApiEntity {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ApiEntity) *ApiEntity {
 		return &v
 	}).(ApiEntityPtrOutput)
 }
 
-// API definition Url - url where the swagger can be downloaded from
 func (o ApiEntityOutput) ApiDefinitionUrl() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ApiEntity) *string { return v.ApiDefinitionUrl }).(pulumi.StringPtrOutput)
 }
 
-// Backend service definition
 func (o ApiEntityOutput) BackendService() BackendServiceDefinitionPtrOutput {
 	return o.ApplyT(func(v ApiEntity) *BackendServiceDefinition { return v.BackendService }).(BackendServiceDefinitionPtrOutput)
 }
 
-// Capabilities
 func (o ApiEntityOutput) Capabilities() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v ApiEntity) []string { return v.Capabilities }).(pulumi.StringArrayOutput)
 }
 
-// Timestamp of last connection change.
 func (o ApiEntityOutput) ChangedTime() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ApiEntity) *string { return v.ChangedTime }).(pulumi.StringPtrOutput)
 }
 
-// Connection parameters
 func (o ApiEntityOutput) ConnectionParameters() ConnectionParameterMapOutput {
 	return o.ApplyT(func(v ApiEntity) map[string]ConnectionParameter { return v.ConnectionParameters }).(ConnectionParameterMapOutput)
 }
 
-// Timestamp of the connection creation
 func (o ApiEntityOutput) CreatedTime() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ApiEntity) *string { return v.CreatedTime }).(pulumi.StringPtrOutput)
 }
 
-// the URL path of this API when exposed via APIM
 func (o ApiEntityOutput) GeneralInformation() GeneralApiInformationPtrOutput {
 	return o.ApplyT(func(v ApiEntity) *GeneralApiInformation { return v.GeneralInformation }).(GeneralApiInformationPtrOutput)
 }
 
-// Resource Id
 func (o ApiEntityOutput) Id() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ApiEntity) *string { return v.Id }).(pulumi.StringPtrOutput)
 }
 
-// Kind of resource
 func (o ApiEntityOutput) Kind() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ApiEntity) *string { return v.Kind }).(pulumi.StringPtrOutput)
 }
 
-// Resource Location
 func (o ApiEntityOutput) Location() pulumi.StringOutput {
 	return o.ApplyT(func(v ApiEntity) string { return v.Location }).(pulumi.StringOutput)
 }
 
-// Free form object for the data caller wants to store
 func (o ApiEntityOutput) Metadata() pulumi.AnyOutput {
 	return o.ApplyT(func(v ApiEntity) interface{} { return v.Metadata }).(pulumi.AnyOutput)
 }
 
-// Resource Name
 func (o ApiEntityOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ApiEntity) *string { return v.Name }).(pulumi.StringPtrOutput)
 }
 
-// the URL path of this API when exposed via APIM
 func (o ApiEntityOutput) Path() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ApiEntity) *string { return v.Path }).(pulumi.StringPtrOutput)
 }
 
-// API policies
 func (o ApiEntityOutput) Policies() ApiPoliciesPtrOutput {
 	return o.ApplyT(func(v ApiEntity) *ApiPolicies { return v.Policies }).(ApiPoliciesPtrOutput)
 }
 
-// Protocols supported by the front end - http/https
 func (o ApiEntityOutput) Protocols() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v ApiEntity) []string { return v.Protocols }).(pulumi.StringArrayOutput)
 }
 
-// Read only property returning the runtime endpoints where the API can be called
 func (o ApiEntityOutput) RuntimeUrls() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v ApiEntity) []string { return v.RuntimeUrls }).(pulumi.StringArrayOutput)
 }
 
-// Resource tags
 func (o ApiEntityOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v ApiEntity) map[string]string { return v.Tags }).(pulumi.StringMapOutput)
 }
 
-// Resource type
 func (o ApiEntityOutput) Type() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ApiEntity) *string { return v.Type }).(pulumi.StringPtrOutput)
 }
@@ -284,10 +227,15 @@ func (o ApiEntityPtrOutput) ToApiEntityPtrOutputWithContext(ctx context.Context)
 }
 
 func (o ApiEntityPtrOutput) Elem() ApiEntityOutput {
-	return o.ApplyT(func(v *ApiEntity) ApiEntity { return *v }).(ApiEntityOutput)
+	return o.ApplyT(func(v *ApiEntity) ApiEntity {
+		if v != nil {
+			return *v
+		}
+		var ret ApiEntity
+		return ret
+	}).(ApiEntityOutput)
 }
 
-// API definition Url - url where the swagger can be downloaded from
 func (o ApiEntityPtrOutput) ApiDefinitionUrl() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ApiEntity) *string {
 		if v == nil {
@@ -297,7 +245,6 @@ func (o ApiEntityPtrOutput) ApiDefinitionUrl() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Backend service definition
 func (o ApiEntityPtrOutput) BackendService() BackendServiceDefinitionPtrOutput {
 	return o.ApplyT(func(v *ApiEntity) *BackendServiceDefinition {
 		if v == nil {
@@ -307,7 +254,6 @@ func (o ApiEntityPtrOutput) BackendService() BackendServiceDefinitionPtrOutput {
 	}).(BackendServiceDefinitionPtrOutput)
 }
 
-// Capabilities
 func (o ApiEntityPtrOutput) Capabilities() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *ApiEntity) []string {
 		if v == nil {
@@ -317,7 +263,6 @@ func (o ApiEntityPtrOutput) Capabilities() pulumi.StringArrayOutput {
 	}).(pulumi.StringArrayOutput)
 }
 
-// Timestamp of last connection change.
 func (o ApiEntityPtrOutput) ChangedTime() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ApiEntity) *string {
 		if v == nil {
@@ -327,7 +272,6 @@ func (o ApiEntityPtrOutput) ChangedTime() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Connection parameters
 func (o ApiEntityPtrOutput) ConnectionParameters() ConnectionParameterMapOutput {
 	return o.ApplyT(func(v *ApiEntity) map[string]ConnectionParameter {
 		if v == nil {
@@ -337,7 +281,6 @@ func (o ApiEntityPtrOutput) ConnectionParameters() ConnectionParameterMapOutput 
 	}).(ConnectionParameterMapOutput)
 }
 
-// Timestamp of the connection creation
 func (o ApiEntityPtrOutput) CreatedTime() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ApiEntity) *string {
 		if v == nil {
@@ -347,7 +290,6 @@ func (o ApiEntityPtrOutput) CreatedTime() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// the URL path of this API when exposed via APIM
 func (o ApiEntityPtrOutput) GeneralInformation() GeneralApiInformationPtrOutput {
 	return o.ApplyT(func(v *ApiEntity) *GeneralApiInformation {
 		if v == nil {
@@ -357,7 +299,6 @@ func (o ApiEntityPtrOutput) GeneralInformation() GeneralApiInformationPtrOutput 
 	}).(GeneralApiInformationPtrOutput)
 }
 
-// Resource Id
 func (o ApiEntityPtrOutput) Id() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ApiEntity) *string {
 		if v == nil {
@@ -367,7 +308,6 @@ func (o ApiEntityPtrOutput) Id() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Kind of resource
 func (o ApiEntityPtrOutput) Kind() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ApiEntity) *string {
 		if v == nil {
@@ -377,7 +317,6 @@ func (o ApiEntityPtrOutput) Kind() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Resource Location
 func (o ApiEntityPtrOutput) Location() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ApiEntity) *string {
 		if v == nil {
@@ -387,7 +326,6 @@ func (o ApiEntityPtrOutput) Location() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Free form object for the data caller wants to store
 func (o ApiEntityPtrOutput) Metadata() pulumi.AnyOutput {
 	return o.ApplyT(func(v *ApiEntity) interface{} {
 		if v == nil {
@@ -397,7 +335,6 @@ func (o ApiEntityPtrOutput) Metadata() pulumi.AnyOutput {
 	}).(pulumi.AnyOutput)
 }
 
-// Resource Name
 func (o ApiEntityPtrOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ApiEntity) *string {
 		if v == nil {
@@ -407,7 +344,6 @@ func (o ApiEntityPtrOutput) Name() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// the URL path of this API when exposed via APIM
 func (o ApiEntityPtrOutput) Path() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ApiEntity) *string {
 		if v == nil {
@@ -417,7 +353,6 @@ func (o ApiEntityPtrOutput) Path() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// API policies
 func (o ApiEntityPtrOutput) Policies() ApiPoliciesPtrOutput {
 	return o.ApplyT(func(v *ApiEntity) *ApiPolicies {
 		if v == nil {
@@ -427,7 +362,6 @@ func (o ApiEntityPtrOutput) Policies() ApiPoliciesPtrOutput {
 	}).(ApiPoliciesPtrOutput)
 }
 
-// Protocols supported by the front end - http/https
 func (o ApiEntityPtrOutput) Protocols() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *ApiEntity) []string {
 		if v == nil {
@@ -437,7 +371,6 @@ func (o ApiEntityPtrOutput) Protocols() pulumi.StringArrayOutput {
 	}).(pulumi.StringArrayOutput)
 }
 
-// Read only property returning the runtime endpoints where the API can be called
 func (o ApiEntityPtrOutput) RuntimeUrls() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *ApiEntity) []string {
 		if v == nil {
@@ -447,7 +380,6 @@ func (o ApiEntityPtrOutput) RuntimeUrls() pulumi.StringArrayOutput {
 	}).(pulumi.StringArrayOutput)
 }
 
-// Resource tags
 func (o ApiEntityPtrOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *ApiEntity) map[string]string {
 		if v == nil {
@@ -457,7 +389,6 @@ func (o ApiEntityPtrOutput) Tags() pulumi.StringMapOutput {
 	}).(pulumi.StringMapOutput)
 }
 
-// Resource type
 func (o ApiEntityPtrOutput) Type() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ApiEntity) *string {
 		if v == nil {
@@ -467,44 +398,25 @@ func (o ApiEntityPtrOutput) Type() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// API Management
 type ApiEntityResponse struct {
-	// API definition Url - url where the swagger can be downloaded from
-	ApiDefinitionUrl *string `pulumi:"apiDefinitionUrl"`
-	// Backend service definition
-	BackendService *BackendServiceDefinitionResponse `pulumi:"backendService"`
-	// Capabilities
-	Capabilities []string `pulumi:"capabilities"`
-	// Timestamp of last connection change.
-	ChangedTime *string `pulumi:"changedTime"`
-	// Connection parameters
+	ApiDefinitionUrl     *string                                `pulumi:"apiDefinitionUrl"`
+	BackendService       *BackendServiceDefinitionResponse      `pulumi:"backendService"`
+	Capabilities         []string                               `pulumi:"capabilities"`
+	ChangedTime          *string                                `pulumi:"changedTime"`
 	ConnectionParameters map[string]ConnectionParameterResponse `pulumi:"connectionParameters"`
-	// Timestamp of the connection creation
-	CreatedTime *string `pulumi:"createdTime"`
-	// the URL path of this API when exposed via APIM
-	GeneralInformation *GeneralApiInformationResponse `pulumi:"generalInformation"`
-	// Resource Id
-	Id *string `pulumi:"id"`
-	// Kind of resource
-	Kind *string `pulumi:"kind"`
-	// Resource Location
-	Location string `pulumi:"location"`
-	// Free form object for the data caller wants to store
-	Metadata interface{} `pulumi:"metadata"`
-	// Resource Name
-	Name *string `pulumi:"name"`
-	// the URL path of this API when exposed via APIM
-	Path *string `pulumi:"path"`
-	// API policies
-	Policies *ApiPoliciesResponse `pulumi:"policies"`
-	// Protocols supported by the front end - http/https
-	Protocols []string `pulumi:"protocols"`
-	// Read only property returning the runtime endpoints where the API can be called
-	RuntimeUrls []string `pulumi:"runtimeUrls"`
-	// Resource tags
-	Tags map[string]string `pulumi:"tags"`
-	// Resource type
-	Type *string `pulumi:"type"`
+	CreatedTime          *string                                `pulumi:"createdTime"`
+	GeneralInformation   *GeneralApiInformationResponse         `pulumi:"generalInformation"`
+	Id                   *string                                `pulumi:"id"`
+	Kind                 *string                                `pulumi:"kind"`
+	Location             string                                 `pulumi:"location"`
+	Metadata             interface{}                            `pulumi:"metadata"`
+	Name                 *string                                `pulumi:"name"`
+	Path                 *string                                `pulumi:"path"`
+	Policies             *ApiPoliciesResponse                   `pulumi:"policies"`
+	Protocols            []string                               `pulumi:"protocols"`
+	RuntimeUrls          []string                               `pulumi:"runtimeUrls"`
+	Tags                 map[string]string                      `pulumi:"tags"`
+	Type                 *string                                `pulumi:"type"`
 }
 
 // ApiEntityResponseInput is an input type that accepts ApiEntityResponseArgs and ApiEntityResponseOutput values.
@@ -518,44 +430,25 @@ type ApiEntityResponseInput interface {
 	ToApiEntityResponseOutputWithContext(context.Context) ApiEntityResponseOutput
 }
 
-// API Management
 type ApiEntityResponseArgs struct {
-	// API definition Url - url where the swagger can be downloaded from
-	ApiDefinitionUrl pulumi.StringPtrInput `pulumi:"apiDefinitionUrl"`
-	// Backend service definition
-	BackendService BackendServiceDefinitionResponsePtrInput `pulumi:"backendService"`
-	// Capabilities
-	Capabilities pulumi.StringArrayInput `pulumi:"capabilities"`
-	// Timestamp of last connection change.
-	ChangedTime pulumi.StringPtrInput `pulumi:"changedTime"`
-	// Connection parameters
-	ConnectionParameters ConnectionParameterResponseMapInput `pulumi:"connectionParameters"`
-	// Timestamp of the connection creation
-	CreatedTime pulumi.StringPtrInput `pulumi:"createdTime"`
-	// the URL path of this API when exposed via APIM
-	GeneralInformation GeneralApiInformationResponsePtrInput `pulumi:"generalInformation"`
-	// Resource Id
-	Id pulumi.StringPtrInput `pulumi:"id"`
-	// Kind of resource
-	Kind pulumi.StringPtrInput `pulumi:"kind"`
-	// Resource Location
-	Location pulumi.StringInput `pulumi:"location"`
-	// Free form object for the data caller wants to store
-	Metadata pulumi.Input `pulumi:"metadata"`
-	// Resource Name
-	Name pulumi.StringPtrInput `pulumi:"name"`
-	// the URL path of this API when exposed via APIM
-	Path pulumi.StringPtrInput `pulumi:"path"`
-	// API policies
-	Policies ApiPoliciesResponsePtrInput `pulumi:"policies"`
-	// Protocols supported by the front end - http/https
-	Protocols pulumi.StringArrayInput `pulumi:"protocols"`
-	// Read only property returning the runtime endpoints where the API can be called
-	RuntimeUrls pulumi.StringArrayInput `pulumi:"runtimeUrls"`
-	// Resource tags
-	Tags pulumi.StringMapInput `pulumi:"tags"`
-	// Resource type
-	Type pulumi.StringPtrInput `pulumi:"type"`
+	ApiDefinitionUrl     pulumi.StringPtrInput                    `pulumi:"apiDefinitionUrl"`
+	BackendService       BackendServiceDefinitionResponsePtrInput `pulumi:"backendService"`
+	Capabilities         pulumi.StringArrayInput                  `pulumi:"capabilities"`
+	ChangedTime          pulumi.StringPtrInput                    `pulumi:"changedTime"`
+	ConnectionParameters ConnectionParameterResponseMapInput      `pulumi:"connectionParameters"`
+	CreatedTime          pulumi.StringPtrInput                    `pulumi:"createdTime"`
+	GeneralInformation   GeneralApiInformationResponsePtrInput    `pulumi:"generalInformation"`
+	Id                   pulumi.StringPtrInput                    `pulumi:"id"`
+	Kind                 pulumi.StringPtrInput                    `pulumi:"kind"`
+	Location             pulumi.StringInput                       `pulumi:"location"`
+	Metadata             pulumi.Input                             `pulumi:"metadata"`
+	Name                 pulumi.StringPtrInput                    `pulumi:"name"`
+	Path                 pulumi.StringPtrInput                    `pulumi:"path"`
+	Policies             ApiPoliciesResponsePtrInput              `pulumi:"policies"`
+	Protocols            pulumi.StringArrayInput                  `pulumi:"protocols"`
+	RuntimeUrls          pulumi.StringArrayInput                  `pulumi:"runtimeUrls"`
+	Tags                 pulumi.StringMapInput                    `pulumi:"tags"`
+	Type                 pulumi.StringPtrInput                    `pulumi:"type"`
 }
 
 func (ApiEntityResponseArgs) ElementType() reflect.Type {
@@ -611,7 +504,6 @@ func (i *apiEntityResponsePtrType) ToApiEntityResponsePtrOutputWithContext(ctx c
 	return pulumi.ToOutputWithContext(ctx, i).(ApiEntityResponsePtrOutput)
 }
 
-// API Management
 type ApiEntityResponseOutput struct{ *pulumi.OutputState }
 
 func (ApiEntityResponseOutput) ElementType() reflect.Type {
@@ -631,97 +523,79 @@ func (o ApiEntityResponseOutput) ToApiEntityResponsePtrOutput() ApiEntityRespons
 }
 
 func (o ApiEntityResponseOutput) ToApiEntityResponsePtrOutputWithContext(ctx context.Context) ApiEntityResponsePtrOutput {
-	return o.ApplyT(func(v ApiEntityResponse) *ApiEntityResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ApiEntityResponse) *ApiEntityResponse {
 		return &v
 	}).(ApiEntityResponsePtrOutput)
 }
 
-// API definition Url - url where the swagger can be downloaded from
 func (o ApiEntityResponseOutput) ApiDefinitionUrl() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ApiEntityResponse) *string { return v.ApiDefinitionUrl }).(pulumi.StringPtrOutput)
 }
 
-// Backend service definition
 func (o ApiEntityResponseOutput) BackendService() BackendServiceDefinitionResponsePtrOutput {
 	return o.ApplyT(func(v ApiEntityResponse) *BackendServiceDefinitionResponse { return v.BackendService }).(BackendServiceDefinitionResponsePtrOutput)
 }
 
-// Capabilities
 func (o ApiEntityResponseOutput) Capabilities() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v ApiEntityResponse) []string { return v.Capabilities }).(pulumi.StringArrayOutput)
 }
 
-// Timestamp of last connection change.
 func (o ApiEntityResponseOutput) ChangedTime() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ApiEntityResponse) *string { return v.ChangedTime }).(pulumi.StringPtrOutput)
 }
 
-// Connection parameters
 func (o ApiEntityResponseOutput) ConnectionParameters() ConnectionParameterResponseMapOutput {
 	return o.ApplyT(func(v ApiEntityResponse) map[string]ConnectionParameterResponse { return v.ConnectionParameters }).(ConnectionParameterResponseMapOutput)
 }
 
-// Timestamp of the connection creation
 func (o ApiEntityResponseOutput) CreatedTime() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ApiEntityResponse) *string { return v.CreatedTime }).(pulumi.StringPtrOutput)
 }
 
-// the URL path of this API when exposed via APIM
 func (o ApiEntityResponseOutput) GeneralInformation() GeneralApiInformationResponsePtrOutput {
 	return o.ApplyT(func(v ApiEntityResponse) *GeneralApiInformationResponse { return v.GeneralInformation }).(GeneralApiInformationResponsePtrOutput)
 }
 
-// Resource Id
 func (o ApiEntityResponseOutput) Id() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ApiEntityResponse) *string { return v.Id }).(pulumi.StringPtrOutput)
 }
 
-// Kind of resource
 func (o ApiEntityResponseOutput) Kind() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ApiEntityResponse) *string { return v.Kind }).(pulumi.StringPtrOutput)
 }
 
-// Resource Location
 func (o ApiEntityResponseOutput) Location() pulumi.StringOutput {
 	return o.ApplyT(func(v ApiEntityResponse) string { return v.Location }).(pulumi.StringOutput)
 }
 
-// Free form object for the data caller wants to store
 func (o ApiEntityResponseOutput) Metadata() pulumi.AnyOutput {
 	return o.ApplyT(func(v ApiEntityResponse) interface{} { return v.Metadata }).(pulumi.AnyOutput)
 }
 
-// Resource Name
 func (o ApiEntityResponseOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ApiEntityResponse) *string { return v.Name }).(pulumi.StringPtrOutput)
 }
 
-// the URL path of this API when exposed via APIM
 func (o ApiEntityResponseOutput) Path() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ApiEntityResponse) *string { return v.Path }).(pulumi.StringPtrOutput)
 }
 
-// API policies
 func (o ApiEntityResponseOutput) Policies() ApiPoliciesResponsePtrOutput {
 	return o.ApplyT(func(v ApiEntityResponse) *ApiPoliciesResponse { return v.Policies }).(ApiPoliciesResponsePtrOutput)
 }
 
-// Protocols supported by the front end - http/https
 func (o ApiEntityResponseOutput) Protocols() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v ApiEntityResponse) []string { return v.Protocols }).(pulumi.StringArrayOutput)
 }
 
-// Read only property returning the runtime endpoints where the API can be called
 func (o ApiEntityResponseOutput) RuntimeUrls() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v ApiEntityResponse) []string { return v.RuntimeUrls }).(pulumi.StringArrayOutput)
 }
 
-// Resource tags
 func (o ApiEntityResponseOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v ApiEntityResponse) map[string]string { return v.Tags }).(pulumi.StringMapOutput)
 }
 
-// Resource type
 func (o ApiEntityResponseOutput) Type() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ApiEntityResponse) *string { return v.Type }).(pulumi.StringPtrOutput)
 }
@@ -741,10 +615,15 @@ func (o ApiEntityResponsePtrOutput) ToApiEntityResponsePtrOutputWithContext(ctx 
 }
 
 func (o ApiEntityResponsePtrOutput) Elem() ApiEntityResponseOutput {
-	return o.ApplyT(func(v *ApiEntityResponse) ApiEntityResponse { return *v }).(ApiEntityResponseOutput)
+	return o.ApplyT(func(v *ApiEntityResponse) ApiEntityResponse {
+		if v != nil {
+			return *v
+		}
+		var ret ApiEntityResponse
+		return ret
+	}).(ApiEntityResponseOutput)
 }
 
-// API definition Url - url where the swagger can be downloaded from
 func (o ApiEntityResponsePtrOutput) ApiDefinitionUrl() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ApiEntityResponse) *string {
 		if v == nil {
@@ -754,7 +633,6 @@ func (o ApiEntityResponsePtrOutput) ApiDefinitionUrl() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Backend service definition
 func (o ApiEntityResponsePtrOutput) BackendService() BackendServiceDefinitionResponsePtrOutput {
 	return o.ApplyT(func(v *ApiEntityResponse) *BackendServiceDefinitionResponse {
 		if v == nil {
@@ -764,7 +642,6 @@ func (o ApiEntityResponsePtrOutput) BackendService() BackendServiceDefinitionRes
 	}).(BackendServiceDefinitionResponsePtrOutput)
 }
 
-// Capabilities
 func (o ApiEntityResponsePtrOutput) Capabilities() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *ApiEntityResponse) []string {
 		if v == nil {
@@ -774,7 +651,6 @@ func (o ApiEntityResponsePtrOutput) Capabilities() pulumi.StringArrayOutput {
 	}).(pulumi.StringArrayOutput)
 }
 
-// Timestamp of last connection change.
 func (o ApiEntityResponsePtrOutput) ChangedTime() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ApiEntityResponse) *string {
 		if v == nil {
@@ -784,7 +660,6 @@ func (o ApiEntityResponsePtrOutput) ChangedTime() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Connection parameters
 func (o ApiEntityResponsePtrOutput) ConnectionParameters() ConnectionParameterResponseMapOutput {
 	return o.ApplyT(func(v *ApiEntityResponse) map[string]ConnectionParameterResponse {
 		if v == nil {
@@ -794,7 +669,6 @@ func (o ApiEntityResponsePtrOutput) ConnectionParameters() ConnectionParameterRe
 	}).(ConnectionParameterResponseMapOutput)
 }
 
-// Timestamp of the connection creation
 func (o ApiEntityResponsePtrOutput) CreatedTime() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ApiEntityResponse) *string {
 		if v == nil {
@@ -804,7 +678,6 @@ func (o ApiEntityResponsePtrOutput) CreatedTime() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// the URL path of this API when exposed via APIM
 func (o ApiEntityResponsePtrOutput) GeneralInformation() GeneralApiInformationResponsePtrOutput {
 	return o.ApplyT(func(v *ApiEntityResponse) *GeneralApiInformationResponse {
 		if v == nil {
@@ -814,7 +687,6 @@ func (o ApiEntityResponsePtrOutput) GeneralInformation() GeneralApiInformationRe
 	}).(GeneralApiInformationResponsePtrOutput)
 }
 
-// Resource Id
 func (o ApiEntityResponsePtrOutput) Id() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ApiEntityResponse) *string {
 		if v == nil {
@@ -824,7 +696,6 @@ func (o ApiEntityResponsePtrOutput) Id() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Kind of resource
 func (o ApiEntityResponsePtrOutput) Kind() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ApiEntityResponse) *string {
 		if v == nil {
@@ -834,7 +705,6 @@ func (o ApiEntityResponsePtrOutput) Kind() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Resource Location
 func (o ApiEntityResponsePtrOutput) Location() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ApiEntityResponse) *string {
 		if v == nil {
@@ -844,7 +714,6 @@ func (o ApiEntityResponsePtrOutput) Location() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Free form object for the data caller wants to store
 func (o ApiEntityResponsePtrOutput) Metadata() pulumi.AnyOutput {
 	return o.ApplyT(func(v *ApiEntityResponse) interface{} {
 		if v == nil {
@@ -854,7 +723,6 @@ func (o ApiEntityResponsePtrOutput) Metadata() pulumi.AnyOutput {
 	}).(pulumi.AnyOutput)
 }
 
-// Resource Name
 func (o ApiEntityResponsePtrOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ApiEntityResponse) *string {
 		if v == nil {
@@ -864,7 +732,6 @@ func (o ApiEntityResponsePtrOutput) Name() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// the URL path of this API when exposed via APIM
 func (o ApiEntityResponsePtrOutput) Path() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ApiEntityResponse) *string {
 		if v == nil {
@@ -874,7 +741,6 @@ func (o ApiEntityResponsePtrOutput) Path() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// API policies
 func (o ApiEntityResponsePtrOutput) Policies() ApiPoliciesResponsePtrOutput {
 	return o.ApplyT(func(v *ApiEntityResponse) *ApiPoliciesResponse {
 		if v == nil {
@@ -884,7 +750,6 @@ func (o ApiEntityResponsePtrOutput) Policies() ApiPoliciesResponsePtrOutput {
 	}).(ApiPoliciesResponsePtrOutput)
 }
 
-// Protocols supported by the front end - http/https
 func (o ApiEntityResponsePtrOutput) Protocols() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *ApiEntityResponse) []string {
 		if v == nil {
@@ -894,7 +759,6 @@ func (o ApiEntityResponsePtrOutput) Protocols() pulumi.StringArrayOutput {
 	}).(pulumi.StringArrayOutput)
 }
 
-// Read only property returning the runtime endpoints where the API can be called
 func (o ApiEntityResponsePtrOutput) RuntimeUrls() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *ApiEntityResponse) []string {
 		if v == nil {
@@ -904,7 +768,6 @@ func (o ApiEntityResponsePtrOutput) RuntimeUrls() pulumi.StringArrayOutput {
 	}).(pulumi.StringArrayOutput)
 }
 
-// Resource tags
 func (o ApiEntityResponsePtrOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *ApiEntityResponse) map[string]string {
 		if v == nil {
@@ -914,7 +777,6 @@ func (o ApiEntityResponsePtrOutput) Tags() pulumi.StringMapOutput {
 	}).(pulumi.StringMapOutput)
 }
 
-// Resource type
 func (o ApiEntityResponsePtrOutput) Type() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ApiEntityResponse) *string {
 		if v == nil {
@@ -924,22 +786,14 @@ func (o ApiEntityResponsePtrOutput) Type() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// OAuth settings for the connection provider
 type ApiOAuthSettings struct {
-	// Resource provider client id
-	ClientId *string `pulumi:"clientId"`
-	// Client Secret needed for OAuth
-	ClientSecret *string `pulumi:"clientSecret"`
-	// OAuth parameters key is the name of parameter
+	ClientId         *string                              `pulumi:"clientId"`
+	ClientSecret     *string                              `pulumi:"clientSecret"`
 	CustomParameters map[string]ApiOAuthSettingsParameter `pulumi:"customParameters"`
-	// Identity provider
-	IdentityProvider *string `pulumi:"identityProvider"`
-	// Read only properties for this oauth setting.
-	Properties interface{} `pulumi:"properties"`
-	// Url
-	RedirectUrl *string `pulumi:"redirectUrl"`
-	// OAuth scopes
-	Scopes []string `pulumi:"scopes"`
+	IdentityProvider *string                              `pulumi:"identityProvider"`
+	Properties       interface{}                          `pulumi:"properties"`
+	RedirectUrl      *string                              `pulumi:"redirectUrl"`
+	Scopes           []string                             `pulumi:"scopes"`
 }
 
 // ApiOAuthSettingsInput is an input type that accepts ApiOAuthSettingsArgs and ApiOAuthSettingsOutput values.
@@ -953,22 +807,14 @@ type ApiOAuthSettingsInput interface {
 	ToApiOAuthSettingsOutputWithContext(context.Context) ApiOAuthSettingsOutput
 }
 
-// OAuth settings for the connection provider
 type ApiOAuthSettingsArgs struct {
-	// Resource provider client id
-	ClientId pulumi.StringPtrInput `pulumi:"clientId"`
-	// Client Secret needed for OAuth
-	ClientSecret pulumi.StringPtrInput `pulumi:"clientSecret"`
-	// OAuth parameters key is the name of parameter
+	ClientId         pulumi.StringPtrInput             `pulumi:"clientId"`
+	ClientSecret     pulumi.StringPtrInput             `pulumi:"clientSecret"`
 	CustomParameters ApiOAuthSettingsParameterMapInput `pulumi:"customParameters"`
-	// Identity provider
-	IdentityProvider pulumi.StringPtrInput `pulumi:"identityProvider"`
-	// Read only properties for this oauth setting.
-	Properties pulumi.Input `pulumi:"properties"`
-	// Url
-	RedirectUrl pulumi.StringPtrInput `pulumi:"redirectUrl"`
-	// OAuth scopes
-	Scopes pulumi.StringArrayInput `pulumi:"scopes"`
+	IdentityProvider pulumi.StringPtrInput             `pulumi:"identityProvider"`
+	Properties       pulumi.Input                      `pulumi:"properties"`
+	RedirectUrl      pulumi.StringPtrInput             `pulumi:"redirectUrl"`
+	Scopes           pulumi.StringArrayInput           `pulumi:"scopes"`
 }
 
 func (ApiOAuthSettingsArgs) ElementType() reflect.Type {
@@ -1024,7 +870,6 @@ func (i *apiOAuthSettingsPtrType) ToApiOAuthSettingsPtrOutputWithContext(ctx con
 	return pulumi.ToOutputWithContext(ctx, i).(ApiOAuthSettingsPtrOutput)
 }
 
-// OAuth settings for the connection provider
 type ApiOAuthSettingsOutput struct{ *pulumi.OutputState }
 
 func (ApiOAuthSettingsOutput) ElementType() reflect.Type {
@@ -1044,42 +889,35 @@ func (o ApiOAuthSettingsOutput) ToApiOAuthSettingsPtrOutput() ApiOAuthSettingsPt
 }
 
 func (o ApiOAuthSettingsOutput) ToApiOAuthSettingsPtrOutputWithContext(ctx context.Context) ApiOAuthSettingsPtrOutput {
-	return o.ApplyT(func(v ApiOAuthSettings) *ApiOAuthSettings {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ApiOAuthSettings) *ApiOAuthSettings {
 		return &v
 	}).(ApiOAuthSettingsPtrOutput)
 }
 
-// Resource provider client id
 func (o ApiOAuthSettingsOutput) ClientId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ApiOAuthSettings) *string { return v.ClientId }).(pulumi.StringPtrOutput)
 }
 
-// Client Secret needed for OAuth
 func (o ApiOAuthSettingsOutput) ClientSecret() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ApiOAuthSettings) *string { return v.ClientSecret }).(pulumi.StringPtrOutput)
 }
 
-// OAuth parameters key is the name of parameter
 func (o ApiOAuthSettingsOutput) CustomParameters() ApiOAuthSettingsParameterMapOutput {
 	return o.ApplyT(func(v ApiOAuthSettings) map[string]ApiOAuthSettingsParameter { return v.CustomParameters }).(ApiOAuthSettingsParameterMapOutput)
 }
 
-// Identity provider
 func (o ApiOAuthSettingsOutput) IdentityProvider() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ApiOAuthSettings) *string { return v.IdentityProvider }).(pulumi.StringPtrOutput)
 }
 
-// Read only properties for this oauth setting.
 func (o ApiOAuthSettingsOutput) Properties() pulumi.AnyOutput {
 	return o.ApplyT(func(v ApiOAuthSettings) interface{} { return v.Properties }).(pulumi.AnyOutput)
 }
 
-// Url
 func (o ApiOAuthSettingsOutput) RedirectUrl() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ApiOAuthSettings) *string { return v.RedirectUrl }).(pulumi.StringPtrOutput)
 }
 
-// OAuth scopes
 func (o ApiOAuthSettingsOutput) Scopes() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v ApiOAuthSettings) []string { return v.Scopes }).(pulumi.StringArrayOutput)
 }
@@ -1099,10 +937,15 @@ func (o ApiOAuthSettingsPtrOutput) ToApiOAuthSettingsPtrOutputWithContext(ctx co
 }
 
 func (o ApiOAuthSettingsPtrOutput) Elem() ApiOAuthSettingsOutput {
-	return o.ApplyT(func(v *ApiOAuthSettings) ApiOAuthSettings { return *v }).(ApiOAuthSettingsOutput)
+	return o.ApplyT(func(v *ApiOAuthSettings) ApiOAuthSettings {
+		if v != nil {
+			return *v
+		}
+		var ret ApiOAuthSettings
+		return ret
+	}).(ApiOAuthSettingsOutput)
 }
 
-// Resource provider client id
 func (o ApiOAuthSettingsPtrOutput) ClientId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ApiOAuthSettings) *string {
 		if v == nil {
@@ -1112,7 +955,6 @@ func (o ApiOAuthSettingsPtrOutput) ClientId() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Client Secret needed for OAuth
 func (o ApiOAuthSettingsPtrOutput) ClientSecret() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ApiOAuthSettings) *string {
 		if v == nil {
@@ -1122,7 +964,6 @@ func (o ApiOAuthSettingsPtrOutput) ClientSecret() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// OAuth parameters key is the name of parameter
 func (o ApiOAuthSettingsPtrOutput) CustomParameters() ApiOAuthSettingsParameterMapOutput {
 	return o.ApplyT(func(v *ApiOAuthSettings) map[string]ApiOAuthSettingsParameter {
 		if v == nil {
@@ -1132,7 +973,6 @@ func (o ApiOAuthSettingsPtrOutput) CustomParameters() ApiOAuthSettingsParameterM
 	}).(ApiOAuthSettingsParameterMapOutput)
 }
 
-// Identity provider
 func (o ApiOAuthSettingsPtrOutput) IdentityProvider() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ApiOAuthSettings) *string {
 		if v == nil {
@@ -1142,7 +982,6 @@ func (o ApiOAuthSettingsPtrOutput) IdentityProvider() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Read only properties for this oauth setting.
 func (o ApiOAuthSettingsPtrOutput) Properties() pulumi.AnyOutput {
 	return o.ApplyT(func(v *ApiOAuthSettings) interface{} {
 		if v == nil {
@@ -1152,7 +991,6 @@ func (o ApiOAuthSettingsPtrOutput) Properties() pulumi.AnyOutput {
 	}).(pulumi.AnyOutput)
 }
 
-// Url
 func (o ApiOAuthSettingsPtrOutput) RedirectUrl() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ApiOAuthSettings) *string {
 		if v == nil {
@@ -1162,7 +1000,6 @@ func (o ApiOAuthSettingsPtrOutput) RedirectUrl() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// OAuth scopes
 func (o ApiOAuthSettingsPtrOutput) Scopes() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *ApiOAuthSettings) []string {
 		if v == nil {
@@ -1172,14 +1009,10 @@ func (o ApiOAuthSettingsPtrOutput) Scopes() pulumi.StringArrayOutput {
 	}).(pulumi.StringArrayOutput)
 }
 
-// OAuth Settings Parameter
 type ApiOAuthSettingsParameter struct {
-	// Read only: Options available to this parameter
-	Options interface{} `pulumi:"options"`
-	// UI definitions per culture as caller can specify the culture
+	Options      interface{} `pulumi:"options"`
 	UiDefinition interface{} `pulumi:"uiDefinition"`
-	// Value
-	Value *string `pulumi:"value"`
+	Value        *string     `pulumi:"value"`
 }
 
 // ApiOAuthSettingsParameterInput is an input type that accepts ApiOAuthSettingsParameterArgs and ApiOAuthSettingsParameterOutput values.
@@ -1193,14 +1026,10 @@ type ApiOAuthSettingsParameterInput interface {
 	ToApiOAuthSettingsParameterOutputWithContext(context.Context) ApiOAuthSettingsParameterOutput
 }
 
-// OAuth Settings Parameter
 type ApiOAuthSettingsParameterArgs struct {
-	// Read only: Options available to this parameter
-	Options pulumi.Input `pulumi:"options"`
-	// UI definitions per culture as caller can specify the culture
-	UiDefinition pulumi.Input `pulumi:"uiDefinition"`
-	// Value
-	Value pulumi.StringPtrInput `pulumi:"value"`
+	Options      pulumi.Input          `pulumi:"options"`
+	UiDefinition pulumi.Input          `pulumi:"uiDefinition"`
+	Value        pulumi.StringPtrInput `pulumi:"value"`
 }
 
 func (ApiOAuthSettingsParameterArgs) ElementType() reflect.Type {
@@ -1240,7 +1069,6 @@ func (i ApiOAuthSettingsParameterMap) ToApiOAuthSettingsParameterMapOutputWithCo
 	return pulumi.ToOutputWithContext(ctx, i).(ApiOAuthSettingsParameterMapOutput)
 }
 
-// OAuth Settings Parameter
 type ApiOAuthSettingsParameterOutput struct{ *pulumi.OutputState }
 
 func (ApiOAuthSettingsParameterOutput) ElementType() reflect.Type {
@@ -1255,17 +1083,14 @@ func (o ApiOAuthSettingsParameterOutput) ToApiOAuthSettingsParameterOutputWithCo
 	return o
 }
 
-// Read only: Options available to this parameter
 func (o ApiOAuthSettingsParameterOutput) Options() pulumi.AnyOutput {
 	return o.ApplyT(func(v ApiOAuthSettingsParameter) interface{} { return v.Options }).(pulumi.AnyOutput)
 }
 
-// UI definitions per culture as caller can specify the culture
 func (o ApiOAuthSettingsParameterOutput) UiDefinition() pulumi.AnyOutput {
 	return o.ApplyT(func(v ApiOAuthSettingsParameter) interface{} { return v.UiDefinition }).(pulumi.AnyOutput)
 }
 
-// Value
 func (o ApiOAuthSettingsParameterOutput) Value() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ApiOAuthSettingsParameter) *string { return v.Value }).(pulumi.StringPtrOutput)
 }
@@ -1290,14 +1115,10 @@ func (o ApiOAuthSettingsParameterMapOutput) MapIndex(k pulumi.StringInput) ApiOA
 	}).(ApiOAuthSettingsParameterOutput)
 }
 
-// OAuth Settings Parameter
 type ApiOAuthSettingsParameterResponse struct {
-	// Read only: Options available to this parameter
-	Options interface{} `pulumi:"options"`
-	// UI definitions per culture as caller can specify the culture
+	Options      interface{} `pulumi:"options"`
 	UiDefinition interface{} `pulumi:"uiDefinition"`
-	// Value
-	Value *string `pulumi:"value"`
+	Value        *string     `pulumi:"value"`
 }
 
 // ApiOAuthSettingsParameterResponseInput is an input type that accepts ApiOAuthSettingsParameterResponseArgs and ApiOAuthSettingsParameterResponseOutput values.
@@ -1311,14 +1132,10 @@ type ApiOAuthSettingsParameterResponseInput interface {
 	ToApiOAuthSettingsParameterResponseOutputWithContext(context.Context) ApiOAuthSettingsParameterResponseOutput
 }
 
-// OAuth Settings Parameter
 type ApiOAuthSettingsParameterResponseArgs struct {
-	// Read only: Options available to this parameter
-	Options pulumi.Input `pulumi:"options"`
-	// UI definitions per culture as caller can specify the culture
-	UiDefinition pulumi.Input `pulumi:"uiDefinition"`
-	// Value
-	Value pulumi.StringPtrInput `pulumi:"value"`
+	Options      pulumi.Input          `pulumi:"options"`
+	UiDefinition pulumi.Input          `pulumi:"uiDefinition"`
+	Value        pulumi.StringPtrInput `pulumi:"value"`
 }
 
 func (ApiOAuthSettingsParameterResponseArgs) ElementType() reflect.Type {
@@ -1358,7 +1175,6 @@ func (i ApiOAuthSettingsParameterResponseMap) ToApiOAuthSettingsParameterRespons
 	return pulumi.ToOutputWithContext(ctx, i).(ApiOAuthSettingsParameterResponseMapOutput)
 }
 
-// OAuth Settings Parameter
 type ApiOAuthSettingsParameterResponseOutput struct{ *pulumi.OutputState }
 
 func (ApiOAuthSettingsParameterResponseOutput) ElementType() reflect.Type {
@@ -1373,17 +1189,14 @@ func (o ApiOAuthSettingsParameterResponseOutput) ToApiOAuthSettingsParameterResp
 	return o
 }
 
-// Read only: Options available to this parameter
 func (o ApiOAuthSettingsParameterResponseOutput) Options() pulumi.AnyOutput {
 	return o.ApplyT(func(v ApiOAuthSettingsParameterResponse) interface{} { return v.Options }).(pulumi.AnyOutput)
 }
 
-// UI definitions per culture as caller can specify the culture
 func (o ApiOAuthSettingsParameterResponseOutput) UiDefinition() pulumi.AnyOutput {
 	return o.ApplyT(func(v ApiOAuthSettingsParameterResponse) interface{} { return v.UiDefinition }).(pulumi.AnyOutput)
 }
 
-// Value
 func (o ApiOAuthSettingsParameterResponseOutput) Value() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ApiOAuthSettingsParameterResponse) *string { return v.Value }).(pulumi.StringPtrOutput)
 }
@@ -1408,22 +1221,14 @@ func (o ApiOAuthSettingsParameterResponseMapOutput) MapIndex(k pulumi.StringInpu
 	}).(ApiOAuthSettingsParameterResponseOutput)
 }
 
-// OAuth settings for the connection provider
 type ApiOAuthSettingsResponse struct {
-	// Resource provider client id
-	ClientId *string `pulumi:"clientId"`
-	// Client Secret needed for OAuth
-	ClientSecret *string `pulumi:"clientSecret"`
-	// OAuth parameters key is the name of parameter
+	ClientId         *string                                      `pulumi:"clientId"`
+	ClientSecret     *string                                      `pulumi:"clientSecret"`
 	CustomParameters map[string]ApiOAuthSettingsParameterResponse `pulumi:"customParameters"`
-	// Identity provider
-	IdentityProvider *string `pulumi:"identityProvider"`
-	// Read only properties for this oauth setting.
-	Properties interface{} `pulumi:"properties"`
-	// Url
-	RedirectUrl *string `pulumi:"redirectUrl"`
-	// OAuth scopes
-	Scopes []string `pulumi:"scopes"`
+	IdentityProvider *string                                      `pulumi:"identityProvider"`
+	Properties       interface{}                                  `pulumi:"properties"`
+	RedirectUrl      *string                                      `pulumi:"redirectUrl"`
+	Scopes           []string                                     `pulumi:"scopes"`
 }
 
 // ApiOAuthSettingsResponseInput is an input type that accepts ApiOAuthSettingsResponseArgs and ApiOAuthSettingsResponseOutput values.
@@ -1437,22 +1242,14 @@ type ApiOAuthSettingsResponseInput interface {
 	ToApiOAuthSettingsResponseOutputWithContext(context.Context) ApiOAuthSettingsResponseOutput
 }
 
-// OAuth settings for the connection provider
 type ApiOAuthSettingsResponseArgs struct {
-	// Resource provider client id
-	ClientId pulumi.StringPtrInput `pulumi:"clientId"`
-	// Client Secret needed for OAuth
-	ClientSecret pulumi.StringPtrInput `pulumi:"clientSecret"`
-	// OAuth parameters key is the name of parameter
+	ClientId         pulumi.StringPtrInput                     `pulumi:"clientId"`
+	ClientSecret     pulumi.StringPtrInput                     `pulumi:"clientSecret"`
 	CustomParameters ApiOAuthSettingsParameterResponseMapInput `pulumi:"customParameters"`
-	// Identity provider
-	IdentityProvider pulumi.StringPtrInput `pulumi:"identityProvider"`
-	// Read only properties for this oauth setting.
-	Properties pulumi.Input `pulumi:"properties"`
-	// Url
-	RedirectUrl pulumi.StringPtrInput `pulumi:"redirectUrl"`
-	// OAuth scopes
-	Scopes pulumi.StringArrayInput `pulumi:"scopes"`
+	IdentityProvider pulumi.StringPtrInput                     `pulumi:"identityProvider"`
+	Properties       pulumi.Input                              `pulumi:"properties"`
+	RedirectUrl      pulumi.StringPtrInput                     `pulumi:"redirectUrl"`
+	Scopes           pulumi.StringArrayInput                   `pulumi:"scopes"`
 }
 
 func (ApiOAuthSettingsResponseArgs) ElementType() reflect.Type {
@@ -1508,7 +1305,6 @@ func (i *apiOAuthSettingsResponsePtrType) ToApiOAuthSettingsResponsePtrOutputWit
 	return pulumi.ToOutputWithContext(ctx, i).(ApiOAuthSettingsResponsePtrOutput)
 }
 
-// OAuth settings for the connection provider
 type ApiOAuthSettingsResponseOutput struct{ *pulumi.OutputState }
 
 func (ApiOAuthSettingsResponseOutput) ElementType() reflect.Type {
@@ -1528,44 +1324,37 @@ func (o ApiOAuthSettingsResponseOutput) ToApiOAuthSettingsResponsePtrOutput() Ap
 }
 
 func (o ApiOAuthSettingsResponseOutput) ToApiOAuthSettingsResponsePtrOutputWithContext(ctx context.Context) ApiOAuthSettingsResponsePtrOutput {
-	return o.ApplyT(func(v ApiOAuthSettingsResponse) *ApiOAuthSettingsResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ApiOAuthSettingsResponse) *ApiOAuthSettingsResponse {
 		return &v
 	}).(ApiOAuthSettingsResponsePtrOutput)
 }
 
-// Resource provider client id
 func (o ApiOAuthSettingsResponseOutput) ClientId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ApiOAuthSettingsResponse) *string { return v.ClientId }).(pulumi.StringPtrOutput)
 }
 
-// Client Secret needed for OAuth
 func (o ApiOAuthSettingsResponseOutput) ClientSecret() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ApiOAuthSettingsResponse) *string { return v.ClientSecret }).(pulumi.StringPtrOutput)
 }
 
-// OAuth parameters key is the name of parameter
 func (o ApiOAuthSettingsResponseOutput) CustomParameters() ApiOAuthSettingsParameterResponseMapOutput {
 	return o.ApplyT(func(v ApiOAuthSettingsResponse) map[string]ApiOAuthSettingsParameterResponse {
 		return v.CustomParameters
 	}).(ApiOAuthSettingsParameterResponseMapOutput)
 }
 
-// Identity provider
 func (o ApiOAuthSettingsResponseOutput) IdentityProvider() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ApiOAuthSettingsResponse) *string { return v.IdentityProvider }).(pulumi.StringPtrOutput)
 }
 
-// Read only properties for this oauth setting.
 func (o ApiOAuthSettingsResponseOutput) Properties() pulumi.AnyOutput {
 	return o.ApplyT(func(v ApiOAuthSettingsResponse) interface{} { return v.Properties }).(pulumi.AnyOutput)
 }
 
-// Url
 func (o ApiOAuthSettingsResponseOutput) RedirectUrl() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ApiOAuthSettingsResponse) *string { return v.RedirectUrl }).(pulumi.StringPtrOutput)
 }
 
-// OAuth scopes
 func (o ApiOAuthSettingsResponseOutput) Scopes() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v ApiOAuthSettingsResponse) []string { return v.Scopes }).(pulumi.StringArrayOutput)
 }
@@ -1585,10 +1374,15 @@ func (o ApiOAuthSettingsResponsePtrOutput) ToApiOAuthSettingsResponsePtrOutputWi
 }
 
 func (o ApiOAuthSettingsResponsePtrOutput) Elem() ApiOAuthSettingsResponseOutput {
-	return o.ApplyT(func(v *ApiOAuthSettingsResponse) ApiOAuthSettingsResponse { return *v }).(ApiOAuthSettingsResponseOutput)
+	return o.ApplyT(func(v *ApiOAuthSettingsResponse) ApiOAuthSettingsResponse {
+		if v != nil {
+			return *v
+		}
+		var ret ApiOAuthSettingsResponse
+		return ret
+	}).(ApiOAuthSettingsResponseOutput)
 }
 
-// Resource provider client id
 func (o ApiOAuthSettingsResponsePtrOutput) ClientId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ApiOAuthSettingsResponse) *string {
 		if v == nil {
@@ -1598,7 +1392,6 @@ func (o ApiOAuthSettingsResponsePtrOutput) ClientId() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Client Secret needed for OAuth
 func (o ApiOAuthSettingsResponsePtrOutput) ClientSecret() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ApiOAuthSettingsResponse) *string {
 		if v == nil {
@@ -1608,7 +1401,6 @@ func (o ApiOAuthSettingsResponsePtrOutput) ClientSecret() pulumi.StringPtrOutput
 	}).(pulumi.StringPtrOutput)
 }
 
-// OAuth parameters key is the name of parameter
 func (o ApiOAuthSettingsResponsePtrOutput) CustomParameters() ApiOAuthSettingsParameterResponseMapOutput {
 	return o.ApplyT(func(v *ApiOAuthSettingsResponse) map[string]ApiOAuthSettingsParameterResponse {
 		if v == nil {
@@ -1618,7 +1410,6 @@ func (o ApiOAuthSettingsResponsePtrOutput) CustomParameters() ApiOAuthSettingsPa
 	}).(ApiOAuthSettingsParameterResponseMapOutput)
 }
 
-// Identity provider
 func (o ApiOAuthSettingsResponsePtrOutput) IdentityProvider() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ApiOAuthSettingsResponse) *string {
 		if v == nil {
@@ -1628,7 +1419,6 @@ func (o ApiOAuthSettingsResponsePtrOutput) IdentityProvider() pulumi.StringPtrOu
 	}).(pulumi.StringPtrOutput)
 }
 
-// Read only properties for this oauth setting.
 func (o ApiOAuthSettingsResponsePtrOutput) Properties() pulumi.AnyOutput {
 	return o.ApplyT(func(v *ApiOAuthSettingsResponse) interface{} {
 		if v == nil {
@@ -1638,7 +1428,6 @@ func (o ApiOAuthSettingsResponsePtrOutput) Properties() pulumi.AnyOutput {
 	}).(pulumi.AnyOutput)
 }
 
-// Url
 func (o ApiOAuthSettingsResponsePtrOutput) RedirectUrl() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ApiOAuthSettingsResponse) *string {
 		if v == nil {
@@ -1648,7 +1437,6 @@ func (o ApiOAuthSettingsResponsePtrOutput) RedirectUrl() pulumi.StringPtrOutput 
 	}).(pulumi.StringPtrOutput)
 }
 
-// OAuth scopes
 func (o ApiOAuthSettingsResponsePtrOutput) Scopes() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *ApiOAuthSettingsResponse) []string {
 		if v == nil {
@@ -1658,22 +1446,14 @@ func (o ApiOAuthSettingsResponsePtrOutput) Scopes() pulumi.StringArrayOutput {
 	}).(pulumi.StringArrayOutput)
 }
 
-// API policies
 type ApiPolicies struct {
-	// Content of xml policy
-	Content *string `pulumi:"content"`
-	// Resource Id
-	Id *string `pulumi:"id"`
-	// Kind of resource
-	Kind *string `pulumi:"kind"`
-	// Resource Location
-	Location string `pulumi:"location"`
-	// Resource Name
-	Name *string `pulumi:"name"`
-	// Resource tags
-	Tags map[string]string `pulumi:"tags"`
-	// Resource type
-	Type *string `pulumi:"type"`
+	Content  *string           `pulumi:"content"`
+	Id       *string           `pulumi:"id"`
+	Kind     *string           `pulumi:"kind"`
+	Location string            `pulumi:"location"`
+	Name     *string           `pulumi:"name"`
+	Tags     map[string]string `pulumi:"tags"`
+	Type     *string           `pulumi:"type"`
 }
 
 // ApiPoliciesInput is an input type that accepts ApiPoliciesArgs and ApiPoliciesOutput values.
@@ -1687,22 +1467,14 @@ type ApiPoliciesInput interface {
 	ToApiPoliciesOutputWithContext(context.Context) ApiPoliciesOutput
 }
 
-// API policies
 type ApiPoliciesArgs struct {
-	// Content of xml policy
-	Content pulumi.StringPtrInput `pulumi:"content"`
-	// Resource Id
-	Id pulumi.StringPtrInput `pulumi:"id"`
-	// Kind of resource
-	Kind pulumi.StringPtrInput `pulumi:"kind"`
-	// Resource Location
-	Location pulumi.StringInput `pulumi:"location"`
-	// Resource Name
-	Name pulumi.StringPtrInput `pulumi:"name"`
-	// Resource tags
-	Tags pulumi.StringMapInput `pulumi:"tags"`
-	// Resource type
-	Type pulumi.StringPtrInput `pulumi:"type"`
+	Content  pulumi.StringPtrInput `pulumi:"content"`
+	Id       pulumi.StringPtrInput `pulumi:"id"`
+	Kind     pulumi.StringPtrInput `pulumi:"kind"`
+	Location pulumi.StringInput    `pulumi:"location"`
+	Name     pulumi.StringPtrInput `pulumi:"name"`
+	Tags     pulumi.StringMapInput `pulumi:"tags"`
+	Type     pulumi.StringPtrInput `pulumi:"type"`
 }
 
 func (ApiPoliciesArgs) ElementType() reflect.Type {
@@ -1758,7 +1530,6 @@ func (i *apiPoliciesPtrType) ToApiPoliciesPtrOutputWithContext(ctx context.Conte
 	return pulumi.ToOutputWithContext(ctx, i).(ApiPoliciesPtrOutput)
 }
 
-// API policies
 type ApiPoliciesOutput struct{ *pulumi.OutputState }
 
 func (ApiPoliciesOutput) ElementType() reflect.Type {
@@ -1778,42 +1549,35 @@ func (o ApiPoliciesOutput) ToApiPoliciesPtrOutput() ApiPoliciesPtrOutput {
 }
 
 func (o ApiPoliciesOutput) ToApiPoliciesPtrOutputWithContext(ctx context.Context) ApiPoliciesPtrOutput {
-	return o.ApplyT(func(v ApiPolicies) *ApiPolicies {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ApiPolicies) *ApiPolicies {
 		return &v
 	}).(ApiPoliciesPtrOutput)
 }
 
-// Content of xml policy
 func (o ApiPoliciesOutput) Content() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ApiPolicies) *string { return v.Content }).(pulumi.StringPtrOutput)
 }
 
-// Resource Id
 func (o ApiPoliciesOutput) Id() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ApiPolicies) *string { return v.Id }).(pulumi.StringPtrOutput)
 }
 
-// Kind of resource
 func (o ApiPoliciesOutput) Kind() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ApiPolicies) *string { return v.Kind }).(pulumi.StringPtrOutput)
 }
 
-// Resource Location
 func (o ApiPoliciesOutput) Location() pulumi.StringOutput {
 	return o.ApplyT(func(v ApiPolicies) string { return v.Location }).(pulumi.StringOutput)
 }
 
-// Resource Name
 func (o ApiPoliciesOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ApiPolicies) *string { return v.Name }).(pulumi.StringPtrOutput)
 }
 
-// Resource tags
 func (o ApiPoliciesOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v ApiPolicies) map[string]string { return v.Tags }).(pulumi.StringMapOutput)
 }
 
-// Resource type
 func (o ApiPoliciesOutput) Type() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ApiPolicies) *string { return v.Type }).(pulumi.StringPtrOutput)
 }
@@ -1833,10 +1597,15 @@ func (o ApiPoliciesPtrOutput) ToApiPoliciesPtrOutputWithContext(ctx context.Cont
 }
 
 func (o ApiPoliciesPtrOutput) Elem() ApiPoliciesOutput {
-	return o.ApplyT(func(v *ApiPolicies) ApiPolicies { return *v }).(ApiPoliciesOutput)
+	return o.ApplyT(func(v *ApiPolicies) ApiPolicies {
+		if v != nil {
+			return *v
+		}
+		var ret ApiPolicies
+		return ret
+	}).(ApiPoliciesOutput)
 }
 
-// Content of xml policy
 func (o ApiPoliciesPtrOutput) Content() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ApiPolicies) *string {
 		if v == nil {
@@ -1846,7 +1615,6 @@ func (o ApiPoliciesPtrOutput) Content() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Resource Id
 func (o ApiPoliciesPtrOutput) Id() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ApiPolicies) *string {
 		if v == nil {
@@ -1856,7 +1624,6 @@ func (o ApiPoliciesPtrOutput) Id() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Kind of resource
 func (o ApiPoliciesPtrOutput) Kind() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ApiPolicies) *string {
 		if v == nil {
@@ -1866,7 +1633,6 @@ func (o ApiPoliciesPtrOutput) Kind() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Resource Location
 func (o ApiPoliciesPtrOutput) Location() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ApiPolicies) *string {
 		if v == nil {
@@ -1876,7 +1642,6 @@ func (o ApiPoliciesPtrOutput) Location() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Resource Name
 func (o ApiPoliciesPtrOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ApiPolicies) *string {
 		if v == nil {
@@ -1886,7 +1651,6 @@ func (o ApiPoliciesPtrOutput) Name() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Resource tags
 func (o ApiPoliciesPtrOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *ApiPolicies) map[string]string {
 		if v == nil {
@@ -1896,7 +1660,6 @@ func (o ApiPoliciesPtrOutput) Tags() pulumi.StringMapOutput {
 	}).(pulumi.StringMapOutput)
 }
 
-// Resource type
 func (o ApiPoliciesPtrOutput) Type() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ApiPolicies) *string {
 		if v == nil {
@@ -1906,22 +1669,14 @@ func (o ApiPoliciesPtrOutput) Type() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// API policies
 type ApiPoliciesResponse struct {
-	// Content of xml policy
-	Content *string `pulumi:"content"`
-	// Resource Id
-	Id *string `pulumi:"id"`
-	// Kind of resource
-	Kind *string `pulumi:"kind"`
-	// Resource Location
-	Location string `pulumi:"location"`
-	// Resource Name
-	Name *string `pulumi:"name"`
-	// Resource tags
-	Tags map[string]string `pulumi:"tags"`
-	// Resource type
-	Type *string `pulumi:"type"`
+	Content  *string           `pulumi:"content"`
+	Id       *string           `pulumi:"id"`
+	Kind     *string           `pulumi:"kind"`
+	Location string            `pulumi:"location"`
+	Name     *string           `pulumi:"name"`
+	Tags     map[string]string `pulumi:"tags"`
+	Type     *string           `pulumi:"type"`
 }
 
 // ApiPoliciesResponseInput is an input type that accepts ApiPoliciesResponseArgs and ApiPoliciesResponseOutput values.
@@ -1935,22 +1690,14 @@ type ApiPoliciesResponseInput interface {
 	ToApiPoliciesResponseOutputWithContext(context.Context) ApiPoliciesResponseOutput
 }
 
-// API policies
 type ApiPoliciesResponseArgs struct {
-	// Content of xml policy
-	Content pulumi.StringPtrInput `pulumi:"content"`
-	// Resource Id
-	Id pulumi.StringPtrInput `pulumi:"id"`
-	// Kind of resource
-	Kind pulumi.StringPtrInput `pulumi:"kind"`
-	// Resource Location
-	Location pulumi.StringInput `pulumi:"location"`
-	// Resource Name
-	Name pulumi.StringPtrInput `pulumi:"name"`
-	// Resource tags
-	Tags pulumi.StringMapInput `pulumi:"tags"`
-	// Resource type
-	Type pulumi.StringPtrInput `pulumi:"type"`
+	Content  pulumi.StringPtrInput `pulumi:"content"`
+	Id       pulumi.StringPtrInput `pulumi:"id"`
+	Kind     pulumi.StringPtrInput `pulumi:"kind"`
+	Location pulumi.StringInput    `pulumi:"location"`
+	Name     pulumi.StringPtrInput `pulumi:"name"`
+	Tags     pulumi.StringMapInput `pulumi:"tags"`
+	Type     pulumi.StringPtrInput `pulumi:"type"`
 }
 
 func (ApiPoliciesResponseArgs) ElementType() reflect.Type {
@@ -2006,7 +1753,6 @@ func (i *apiPoliciesResponsePtrType) ToApiPoliciesResponsePtrOutputWithContext(c
 	return pulumi.ToOutputWithContext(ctx, i).(ApiPoliciesResponsePtrOutput)
 }
 
-// API policies
 type ApiPoliciesResponseOutput struct{ *pulumi.OutputState }
 
 func (ApiPoliciesResponseOutput) ElementType() reflect.Type {
@@ -2026,42 +1772,35 @@ func (o ApiPoliciesResponseOutput) ToApiPoliciesResponsePtrOutput() ApiPoliciesR
 }
 
 func (o ApiPoliciesResponseOutput) ToApiPoliciesResponsePtrOutputWithContext(ctx context.Context) ApiPoliciesResponsePtrOutput {
-	return o.ApplyT(func(v ApiPoliciesResponse) *ApiPoliciesResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ApiPoliciesResponse) *ApiPoliciesResponse {
 		return &v
 	}).(ApiPoliciesResponsePtrOutput)
 }
 
-// Content of xml policy
 func (o ApiPoliciesResponseOutput) Content() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ApiPoliciesResponse) *string { return v.Content }).(pulumi.StringPtrOutput)
 }
 
-// Resource Id
 func (o ApiPoliciesResponseOutput) Id() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ApiPoliciesResponse) *string { return v.Id }).(pulumi.StringPtrOutput)
 }
 
-// Kind of resource
 func (o ApiPoliciesResponseOutput) Kind() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ApiPoliciesResponse) *string { return v.Kind }).(pulumi.StringPtrOutput)
 }
 
-// Resource Location
 func (o ApiPoliciesResponseOutput) Location() pulumi.StringOutput {
 	return o.ApplyT(func(v ApiPoliciesResponse) string { return v.Location }).(pulumi.StringOutput)
 }
 
-// Resource Name
 func (o ApiPoliciesResponseOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ApiPoliciesResponse) *string { return v.Name }).(pulumi.StringPtrOutput)
 }
 
-// Resource tags
 func (o ApiPoliciesResponseOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v ApiPoliciesResponse) map[string]string { return v.Tags }).(pulumi.StringMapOutput)
 }
 
-// Resource type
 func (o ApiPoliciesResponseOutput) Type() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ApiPoliciesResponse) *string { return v.Type }).(pulumi.StringPtrOutput)
 }
@@ -2081,10 +1820,15 @@ func (o ApiPoliciesResponsePtrOutput) ToApiPoliciesResponsePtrOutputWithContext(
 }
 
 func (o ApiPoliciesResponsePtrOutput) Elem() ApiPoliciesResponseOutput {
-	return o.ApplyT(func(v *ApiPoliciesResponse) ApiPoliciesResponse { return *v }).(ApiPoliciesResponseOutput)
+	return o.ApplyT(func(v *ApiPoliciesResponse) ApiPoliciesResponse {
+		if v != nil {
+			return *v
+		}
+		var ret ApiPoliciesResponse
+		return ret
+	}).(ApiPoliciesResponseOutput)
 }
 
-// Content of xml policy
 func (o ApiPoliciesResponsePtrOutput) Content() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ApiPoliciesResponse) *string {
 		if v == nil {
@@ -2094,7 +1838,6 @@ func (o ApiPoliciesResponsePtrOutput) Content() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Resource Id
 func (o ApiPoliciesResponsePtrOutput) Id() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ApiPoliciesResponse) *string {
 		if v == nil {
@@ -2104,7 +1847,6 @@ func (o ApiPoliciesResponsePtrOutput) Id() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Kind of resource
 func (o ApiPoliciesResponsePtrOutput) Kind() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ApiPoliciesResponse) *string {
 		if v == nil {
@@ -2114,7 +1856,6 @@ func (o ApiPoliciesResponsePtrOutput) Kind() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Resource Location
 func (o ApiPoliciesResponsePtrOutput) Location() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ApiPoliciesResponse) *string {
 		if v == nil {
@@ -2124,7 +1865,6 @@ func (o ApiPoliciesResponsePtrOutput) Location() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Resource Name
 func (o ApiPoliciesResponsePtrOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ApiPoliciesResponse) *string {
 		if v == nil {
@@ -2134,7 +1874,6 @@ func (o ApiPoliciesResponsePtrOutput) Name() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Resource tags
 func (o ApiPoliciesResponsePtrOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *ApiPoliciesResponse) map[string]string {
 		if v == nil {
@@ -2144,7 +1883,6 @@ func (o ApiPoliciesResponsePtrOutput) Tags() pulumi.StringMapOutput {
 	}).(pulumi.StringMapOutput)
 }
 
-// Resource type
 func (o ApiPoliciesResponsePtrOutput) Type() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ApiPoliciesResponse) *string {
 		if v == nil {
@@ -2154,18 +1892,12 @@ func (o ApiPoliciesResponsePtrOutput) Type() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The plan object in an ARM, represents a marketplace plan
 type ArmPlan struct {
-	// The name
-	Name *string `pulumi:"name"`
-	// The product
-	Product *string `pulumi:"product"`
-	// The promotion code
+	Name          *string `pulumi:"name"`
+	Product       *string `pulumi:"product"`
 	PromotionCode *string `pulumi:"promotionCode"`
-	// The publisher
-	Publisher *string `pulumi:"publisher"`
-	// Version of product
-	Version *string `pulumi:"version"`
+	Publisher     *string `pulumi:"publisher"`
+	Version       *string `pulumi:"version"`
 }
 
 // ArmPlanInput is an input type that accepts ArmPlanArgs and ArmPlanOutput values.
@@ -2179,18 +1911,12 @@ type ArmPlanInput interface {
 	ToArmPlanOutputWithContext(context.Context) ArmPlanOutput
 }
 
-// The plan object in an ARM, represents a marketplace plan
 type ArmPlanArgs struct {
-	// The name
-	Name pulumi.StringPtrInput `pulumi:"name"`
-	// The product
-	Product pulumi.StringPtrInput `pulumi:"product"`
-	// The promotion code
+	Name          pulumi.StringPtrInput `pulumi:"name"`
+	Product       pulumi.StringPtrInput `pulumi:"product"`
 	PromotionCode pulumi.StringPtrInput `pulumi:"promotionCode"`
-	// The publisher
-	Publisher pulumi.StringPtrInput `pulumi:"publisher"`
-	// Version of product
-	Version pulumi.StringPtrInput `pulumi:"version"`
+	Publisher     pulumi.StringPtrInput `pulumi:"publisher"`
+	Version       pulumi.StringPtrInput `pulumi:"version"`
 }
 
 func (ArmPlanArgs) ElementType() reflect.Type {
@@ -2246,7 +1972,6 @@ func (i *armPlanPtrType) ToArmPlanPtrOutputWithContext(ctx context.Context) ArmP
 	return pulumi.ToOutputWithContext(ctx, i).(ArmPlanPtrOutput)
 }
 
-// The plan object in an ARM, represents a marketplace plan
 type ArmPlanOutput struct{ *pulumi.OutputState }
 
 func (ArmPlanOutput) ElementType() reflect.Type {
@@ -2266,32 +1991,27 @@ func (o ArmPlanOutput) ToArmPlanPtrOutput() ArmPlanPtrOutput {
 }
 
 func (o ArmPlanOutput) ToArmPlanPtrOutputWithContext(ctx context.Context) ArmPlanPtrOutput {
-	return o.ApplyT(func(v ArmPlan) *ArmPlan {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ArmPlan) *ArmPlan {
 		return &v
 	}).(ArmPlanPtrOutput)
 }
 
-// The name
 func (o ArmPlanOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ArmPlan) *string { return v.Name }).(pulumi.StringPtrOutput)
 }
 
-// The product
 func (o ArmPlanOutput) Product() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ArmPlan) *string { return v.Product }).(pulumi.StringPtrOutput)
 }
 
-// The promotion code
 func (o ArmPlanOutput) PromotionCode() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ArmPlan) *string { return v.PromotionCode }).(pulumi.StringPtrOutput)
 }
 
-// The publisher
 func (o ArmPlanOutput) Publisher() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ArmPlan) *string { return v.Publisher }).(pulumi.StringPtrOutput)
 }
 
-// Version of product
 func (o ArmPlanOutput) Version() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ArmPlan) *string { return v.Version }).(pulumi.StringPtrOutput)
 }
@@ -2311,10 +2031,15 @@ func (o ArmPlanPtrOutput) ToArmPlanPtrOutputWithContext(ctx context.Context) Arm
 }
 
 func (o ArmPlanPtrOutput) Elem() ArmPlanOutput {
-	return o.ApplyT(func(v *ArmPlan) ArmPlan { return *v }).(ArmPlanOutput)
+	return o.ApplyT(func(v *ArmPlan) ArmPlan {
+		if v != nil {
+			return *v
+		}
+		var ret ArmPlan
+		return ret
+	}).(ArmPlanOutput)
 }
 
-// The name
 func (o ArmPlanPtrOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ArmPlan) *string {
 		if v == nil {
@@ -2324,7 +2049,6 @@ func (o ArmPlanPtrOutput) Name() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The product
 func (o ArmPlanPtrOutput) Product() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ArmPlan) *string {
 		if v == nil {
@@ -2334,7 +2058,6 @@ func (o ArmPlanPtrOutput) Product() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The promotion code
 func (o ArmPlanPtrOutput) PromotionCode() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ArmPlan) *string {
 		if v == nil {
@@ -2344,7 +2067,6 @@ func (o ArmPlanPtrOutput) PromotionCode() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The publisher
 func (o ArmPlanPtrOutput) Publisher() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ArmPlan) *string {
 		if v == nil {
@@ -2354,7 +2076,6 @@ func (o ArmPlanPtrOutput) Publisher() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Version of product
 func (o ArmPlanPtrOutput) Version() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ArmPlan) *string {
 		if v == nil {
@@ -2364,18 +2085,12 @@ func (o ArmPlanPtrOutput) Version() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The plan object in an ARM, represents a marketplace plan
 type ArmPlanResponse struct {
-	// The name
-	Name *string `pulumi:"name"`
-	// The product
-	Product *string `pulumi:"product"`
-	// The promotion code
+	Name          *string `pulumi:"name"`
+	Product       *string `pulumi:"product"`
 	PromotionCode *string `pulumi:"promotionCode"`
-	// The publisher
-	Publisher *string `pulumi:"publisher"`
-	// Version of product
-	Version *string `pulumi:"version"`
+	Publisher     *string `pulumi:"publisher"`
+	Version       *string `pulumi:"version"`
 }
 
 // ArmPlanResponseInput is an input type that accepts ArmPlanResponseArgs and ArmPlanResponseOutput values.
@@ -2389,18 +2104,12 @@ type ArmPlanResponseInput interface {
 	ToArmPlanResponseOutputWithContext(context.Context) ArmPlanResponseOutput
 }
 
-// The plan object in an ARM, represents a marketplace plan
 type ArmPlanResponseArgs struct {
-	// The name
-	Name pulumi.StringPtrInput `pulumi:"name"`
-	// The product
-	Product pulumi.StringPtrInput `pulumi:"product"`
-	// The promotion code
+	Name          pulumi.StringPtrInput `pulumi:"name"`
+	Product       pulumi.StringPtrInput `pulumi:"product"`
 	PromotionCode pulumi.StringPtrInput `pulumi:"promotionCode"`
-	// The publisher
-	Publisher pulumi.StringPtrInput `pulumi:"publisher"`
-	// Version of product
-	Version pulumi.StringPtrInput `pulumi:"version"`
+	Publisher     pulumi.StringPtrInput `pulumi:"publisher"`
+	Version       pulumi.StringPtrInput `pulumi:"version"`
 }
 
 func (ArmPlanResponseArgs) ElementType() reflect.Type {
@@ -2456,7 +2165,6 @@ func (i *armPlanResponsePtrType) ToArmPlanResponsePtrOutputWithContext(ctx conte
 	return pulumi.ToOutputWithContext(ctx, i).(ArmPlanResponsePtrOutput)
 }
 
-// The plan object in an ARM, represents a marketplace plan
 type ArmPlanResponseOutput struct{ *pulumi.OutputState }
 
 func (ArmPlanResponseOutput) ElementType() reflect.Type {
@@ -2476,32 +2184,27 @@ func (o ArmPlanResponseOutput) ToArmPlanResponsePtrOutput() ArmPlanResponsePtrOu
 }
 
 func (o ArmPlanResponseOutput) ToArmPlanResponsePtrOutputWithContext(ctx context.Context) ArmPlanResponsePtrOutput {
-	return o.ApplyT(func(v ArmPlanResponse) *ArmPlanResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ArmPlanResponse) *ArmPlanResponse {
 		return &v
 	}).(ArmPlanResponsePtrOutput)
 }
 
-// The name
 func (o ArmPlanResponseOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ArmPlanResponse) *string { return v.Name }).(pulumi.StringPtrOutput)
 }
 
-// The product
 func (o ArmPlanResponseOutput) Product() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ArmPlanResponse) *string { return v.Product }).(pulumi.StringPtrOutput)
 }
 
-// The promotion code
 func (o ArmPlanResponseOutput) PromotionCode() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ArmPlanResponse) *string { return v.PromotionCode }).(pulumi.StringPtrOutput)
 }
 
-// The publisher
 func (o ArmPlanResponseOutput) Publisher() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ArmPlanResponse) *string { return v.Publisher }).(pulumi.StringPtrOutput)
 }
 
-// Version of product
 func (o ArmPlanResponseOutput) Version() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ArmPlanResponse) *string { return v.Version }).(pulumi.StringPtrOutput)
 }
@@ -2521,10 +2224,15 @@ func (o ArmPlanResponsePtrOutput) ToArmPlanResponsePtrOutputWithContext(ctx cont
 }
 
 func (o ArmPlanResponsePtrOutput) Elem() ArmPlanResponseOutput {
-	return o.ApplyT(func(v *ArmPlanResponse) ArmPlanResponse { return *v }).(ArmPlanResponseOutput)
+	return o.ApplyT(func(v *ArmPlanResponse) ArmPlanResponse {
+		if v != nil {
+			return *v
+		}
+		var ret ArmPlanResponse
+		return ret
+	}).(ArmPlanResponseOutput)
 }
 
-// The name
 func (o ArmPlanResponsePtrOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ArmPlanResponse) *string {
 		if v == nil {
@@ -2534,7 +2242,6 @@ func (o ArmPlanResponsePtrOutput) Name() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The product
 func (o ArmPlanResponsePtrOutput) Product() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ArmPlanResponse) *string {
 		if v == nil {
@@ -2544,7 +2251,6 @@ func (o ArmPlanResponsePtrOutput) Product() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The promotion code
 func (o ArmPlanResponsePtrOutput) PromotionCode() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ArmPlanResponse) *string {
 		if v == nil {
@@ -2554,7 +2260,6 @@ func (o ArmPlanResponsePtrOutput) PromotionCode() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The publisher
 func (o ArmPlanResponsePtrOutput) Publisher() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ArmPlanResponse) *string {
 		if v == nil {
@@ -2564,7 +2269,6 @@ func (o ArmPlanResponsePtrOutput) Publisher() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Version of product
 func (o ArmPlanResponsePtrOutput) Version() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ArmPlanResponse) *string {
 		if v == nil {
@@ -2574,24 +2278,15 @@ func (o ArmPlanResponsePtrOutput) Version() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// API definitions with backend urls
 type BackendServiceDefinition struct {
-	// Service Urls per Hosting environment
 	HostingEnvironmentServiceUrls []HostingEnvironmentServiceDescriptions `pulumi:"hostingEnvironmentServiceUrls"`
-	// Resource Id
-	Id *string `pulumi:"id"`
-	// Kind of resource
-	Kind *string `pulumi:"kind"`
-	// Resource Location
-	Location string `pulumi:"location"`
-	// Resource Name
-	Name *string `pulumi:"name"`
-	// Url from which the swagger payload will be fetched
-	ServiceUrl *string `pulumi:"serviceUrl"`
-	// Resource tags
-	Tags map[string]string `pulumi:"tags"`
-	// Resource type
-	Type *string `pulumi:"type"`
+	Id                            *string                                 `pulumi:"id"`
+	Kind                          *string                                 `pulumi:"kind"`
+	Location                      string                                  `pulumi:"location"`
+	Name                          *string                                 `pulumi:"name"`
+	ServiceUrl                    *string                                 `pulumi:"serviceUrl"`
+	Tags                          map[string]string                       `pulumi:"tags"`
+	Type                          *string                                 `pulumi:"type"`
 }
 
 // BackendServiceDefinitionInput is an input type that accepts BackendServiceDefinitionArgs and BackendServiceDefinitionOutput values.
@@ -2605,24 +2300,15 @@ type BackendServiceDefinitionInput interface {
 	ToBackendServiceDefinitionOutputWithContext(context.Context) BackendServiceDefinitionOutput
 }
 
-// API definitions with backend urls
 type BackendServiceDefinitionArgs struct {
-	// Service Urls per Hosting environment
 	HostingEnvironmentServiceUrls HostingEnvironmentServiceDescriptionsArrayInput `pulumi:"hostingEnvironmentServiceUrls"`
-	// Resource Id
-	Id pulumi.StringPtrInput `pulumi:"id"`
-	// Kind of resource
-	Kind pulumi.StringPtrInput `pulumi:"kind"`
-	// Resource Location
-	Location pulumi.StringInput `pulumi:"location"`
-	// Resource Name
-	Name pulumi.StringPtrInput `pulumi:"name"`
-	// Url from which the swagger payload will be fetched
-	ServiceUrl pulumi.StringPtrInput `pulumi:"serviceUrl"`
-	// Resource tags
-	Tags pulumi.StringMapInput `pulumi:"tags"`
-	// Resource type
-	Type pulumi.StringPtrInput `pulumi:"type"`
+	Id                            pulumi.StringPtrInput                           `pulumi:"id"`
+	Kind                          pulumi.StringPtrInput                           `pulumi:"kind"`
+	Location                      pulumi.StringInput                              `pulumi:"location"`
+	Name                          pulumi.StringPtrInput                           `pulumi:"name"`
+	ServiceUrl                    pulumi.StringPtrInput                           `pulumi:"serviceUrl"`
+	Tags                          pulumi.StringMapInput                           `pulumi:"tags"`
+	Type                          pulumi.StringPtrInput                           `pulumi:"type"`
 }
 
 func (BackendServiceDefinitionArgs) ElementType() reflect.Type {
@@ -2678,7 +2364,6 @@ func (i *backendServiceDefinitionPtrType) ToBackendServiceDefinitionPtrOutputWit
 	return pulumi.ToOutputWithContext(ctx, i).(BackendServiceDefinitionPtrOutput)
 }
 
-// API definitions with backend urls
 type BackendServiceDefinitionOutput struct{ *pulumi.OutputState }
 
 func (BackendServiceDefinitionOutput) ElementType() reflect.Type {
@@ -2698,49 +2383,41 @@ func (o BackendServiceDefinitionOutput) ToBackendServiceDefinitionPtrOutput() Ba
 }
 
 func (o BackendServiceDefinitionOutput) ToBackendServiceDefinitionPtrOutputWithContext(ctx context.Context) BackendServiceDefinitionPtrOutput {
-	return o.ApplyT(func(v BackendServiceDefinition) *BackendServiceDefinition {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v BackendServiceDefinition) *BackendServiceDefinition {
 		return &v
 	}).(BackendServiceDefinitionPtrOutput)
 }
 
-// Service Urls per Hosting environment
 func (o BackendServiceDefinitionOutput) HostingEnvironmentServiceUrls() HostingEnvironmentServiceDescriptionsArrayOutput {
 	return o.ApplyT(func(v BackendServiceDefinition) []HostingEnvironmentServiceDescriptions {
 		return v.HostingEnvironmentServiceUrls
 	}).(HostingEnvironmentServiceDescriptionsArrayOutput)
 }
 
-// Resource Id
 func (o BackendServiceDefinitionOutput) Id() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v BackendServiceDefinition) *string { return v.Id }).(pulumi.StringPtrOutput)
 }
 
-// Kind of resource
 func (o BackendServiceDefinitionOutput) Kind() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v BackendServiceDefinition) *string { return v.Kind }).(pulumi.StringPtrOutput)
 }
 
-// Resource Location
 func (o BackendServiceDefinitionOutput) Location() pulumi.StringOutput {
 	return o.ApplyT(func(v BackendServiceDefinition) string { return v.Location }).(pulumi.StringOutput)
 }
 
-// Resource Name
 func (o BackendServiceDefinitionOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v BackendServiceDefinition) *string { return v.Name }).(pulumi.StringPtrOutput)
 }
 
-// Url from which the swagger payload will be fetched
 func (o BackendServiceDefinitionOutput) ServiceUrl() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v BackendServiceDefinition) *string { return v.ServiceUrl }).(pulumi.StringPtrOutput)
 }
 
-// Resource tags
 func (o BackendServiceDefinitionOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v BackendServiceDefinition) map[string]string { return v.Tags }).(pulumi.StringMapOutput)
 }
 
-// Resource type
 func (o BackendServiceDefinitionOutput) Type() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v BackendServiceDefinition) *string { return v.Type }).(pulumi.StringPtrOutput)
 }
@@ -2760,10 +2437,15 @@ func (o BackendServiceDefinitionPtrOutput) ToBackendServiceDefinitionPtrOutputWi
 }
 
 func (o BackendServiceDefinitionPtrOutput) Elem() BackendServiceDefinitionOutput {
-	return o.ApplyT(func(v *BackendServiceDefinition) BackendServiceDefinition { return *v }).(BackendServiceDefinitionOutput)
+	return o.ApplyT(func(v *BackendServiceDefinition) BackendServiceDefinition {
+		if v != nil {
+			return *v
+		}
+		var ret BackendServiceDefinition
+		return ret
+	}).(BackendServiceDefinitionOutput)
 }
 
-// Service Urls per Hosting environment
 func (o BackendServiceDefinitionPtrOutput) HostingEnvironmentServiceUrls() HostingEnvironmentServiceDescriptionsArrayOutput {
 	return o.ApplyT(func(v *BackendServiceDefinition) []HostingEnvironmentServiceDescriptions {
 		if v == nil {
@@ -2773,7 +2455,6 @@ func (o BackendServiceDefinitionPtrOutput) HostingEnvironmentServiceUrls() Hosti
 	}).(HostingEnvironmentServiceDescriptionsArrayOutput)
 }
 
-// Resource Id
 func (o BackendServiceDefinitionPtrOutput) Id() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *BackendServiceDefinition) *string {
 		if v == nil {
@@ -2783,7 +2464,6 @@ func (o BackendServiceDefinitionPtrOutput) Id() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Kind of resource
 func (o BackendServiceDefinitionPtrOutput) Kind() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *BackendServiceDefinition) *string {
 		if v == nil {
@@ -2793,7 +2473,6 @@ func (o BackendServiceDefinitionPtrOutput) Kind() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Resource Location
 func (o BackendServiceDefinitionPtrOutput) Location() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *BackendServiceDefinition) *string {
 		if v == nil {
@@ -2803,7 +2482,6 @@ func (o BackendServiceDefinitionPtrOutput) Location() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Resource Name
 func (o BackendServiceDefinitionPtrOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *BackendServiceDefinition) *string {
 		if v == nil {
@@ -2813,7 +2491,6 @@ func (o BackendServiceDefinitionPtrOutput) Name() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Url from which the swagger payload will be fetched
 func (o BackendServiceDefinitionPtrOutput) ServiceUrl() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *BackendServiceDefinition) *string {
 		if v == nil {
@@ -2823,7 +2500,6 @@ func (o BackendServiceDefinitionPtrOutput) ServiceUrl() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Resource tags
 func (o BackendServiceDefinitionPtrOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *BackendServiceDefinition) map[string]string {
 		if v == nil {
@@ -2833,7 +2509,6 @@ func (o BackendServiceDefinitionPtrOutput) Tags() pulumi.StringMapOutput {
 	}).(pulumi.StringMapOutput)
 }
 
-// Resource type
 func (o BackendServiceDefinitionPtrOutput) Type() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *BackendServiceDefinition) *string {
 		if v == nil {
@@ -2843,24 +2518,15 @@ func (o BackendServiceDefinitionPtrOutput) Type() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// API definitions with backend urls
 type BackendServiceDefinitionResponse struct {
-	// Service Urls per Hosting environment
 	HostingEnvironmentServiceUrls []HostingEnvironmentServiceDescriptionsResponse `pulumi:"hostingEnvironmentServiceUrls"`
-	// Resource Id
-	Id *string `pulumi:"id"`
-	// Kind of resource
-	Kind *string `pulumi:"kind"`
-	// Resource Location
-	Location string `pulumi:"location"`
-	// Resource Name
-	Name *string `pulumi:"name"`
-	// Url from which the swagger payload will be fetched
-	ServiceUrl *string `pulumi:"serviceUrl"`
-	// Resource tags
-	Tags map[string]string `pulumi:"tags"`
-	// Resource type
-	Type *string `pulumi:"type"`
+	Id                            *string                                         `pulumi:"id"`
+	Kind                          *string                                         `pulumi:"kind"`
+	Location                      string                                          `pulumi:"location"`
+	Name                          *string                                         `pulumi:"name"`
+	ServiceUrl                    *string                                         `pulumi:"serviceUrl"`
+	Tags                          map[string]string                               `pulumi:"tags"`
+	Type                          *string                                         `pulumi:"type"`
 }
 
 // BackendServiceDefinitionResponseInput is an input type that accepts BackendServiceDefinitionResponseArgs and BackendServiceDefinitionResponseOutput values.
@@ -2874,24 +2540,15 @@ type BackendServiceDefinitionResponseInput interface {
 	ToBackendServiceDefinitionResponseOutputWithContext(context.Context) BackendServiceDefinitionResponseOutput
 }
 
-// API definitions with backend urls
 type BackendServiceDefinitionResponseArgs struct {
-	// Service Urls per Hosting environment
 	HostingEnvironmentServiceUrls HostingEnvironmentServiceDescriptionsResponseArrayInput `pulumi:"hostingEnvironmentServiceUrls"`
-	// Resource Id
-	Id pulumi.StringPtrInput `pulumi:"id"`
-	// Kind of resource
-	Kind pulumi.StringPtrInput `pulumi:"kind"`
-	// Resource Location
-	Location pulumi.StringInput `pulumi:"location"`
-	// Resource Name
-	Name pulumi.StringPtrInput `pulumi:"name"`
-	// Url from which the swagger payload will be fetched
-	ServiceUrl pulumi.StringPtrInput `pulumi:"serviceUrl"`
-	// Resource tags
-	Tags pulumi.StringMapInput `pulumi:"tags"`
-	// Resource type
-	Type pulumi.StringPtrInput `pulumi:"type"`
+	Id                            pulumi.StringPtrInput                                   `pulumi:"id"`
+	Kind                          pulumi.StringPtrInput                                   `pulumi:"kind"`
+	Location                      pulumi.StringInput                                      `pulumi:"location"`
+	Name                          pulumi.StringPtrInput                                   `pulumi:"name"`
+	ServiceUrl                    pulumi.StringPtrInput                                   `pulumi:"serviceUrl"`
+	Tags                          pulumi.StringMapInput                                   `pulumi:"tags"`
+	Type                          pulumi.StringPtrInput                                   `pulumi:"type"`
 }
 
 func (BackendServiceDefinitionResponseArgs) ElementType() reflect.Type {
@@ -2947,7 +2604,6 @@ func (i *backendServiceDefinitionResponsePtrType) ToBackendServiceDefinitionResp
 	return pulumi.ToOutputWithContext(ctx, i).(BackendServiceDefinitionResponsePtrOutput)
 }
 
-// API definitions with backend urls
 type BackendServiceDefinitionResponseOutput struct{ *pulumi.OutputState }
 
 func (BackendServiceDefinitionResponseOutput) ElementType() reflect.Type {
@@ -2967,49 +2623,41 @@ func (o BackendServiceDefinitionResponseOutput) ToBackendServiceDefinitionRespon
 }
 
 func (o BackendServiceDefinitionResponseOutput) ToBackendServiceDefinitionResponsePtrOutputWithContext(ctx context.Context) BackendServiceDefinitionResponsePtrOutput {
-	return o.ApplyT(func(v BackendServiceDefinitionResponse) *BackendServiceDefinitionResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v BackendServiceDefinitionResponse) *BackendServiceDefinitionResponse {
 		return &v
 	}).(BackendServiceDefinitionResponsePtrOutput)
 }
 
-// Service Urls per Hosting environment
 func (o BackendServiceDefinitionResponseOutput) HostingEnvironmentServiceUrls() HostingEnvironmentServiceDescriptionsResponseArrayOutput {
 	return o.ApplyT(func(v BackendServiceDefinitionResponse) []HostingEnvironmentServiceDescriptionsResponse {
 		return v.HostingEnvironmentServiceUrls
 	}).(HostingEnvironmentServiceDescriptionsResponseArrayOutput)
 }
 
-// Resource Id
 func (o BackendServiceDefinitionResponseOutput) Id() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v BackendServiceDefinitionResponse) *string { return v.Id }).(pulumi.StringPtrOutput)
 }
 
-// Kind of resource
 func (o BackendServiceDefinitionResponseOutput) Kind() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v BackendServiceDefinitionResponse) *string { return v.Kind }).(pulumi.StringPtrOutput)
 }
 
-// Resource Location
 func (o BackendServiceDefinitionResponseOutput) Location() pulumi.StringOutput {
 	return o.ApplyT(func(v BackendServiceDefinitionResponse) string { return v.Location }).(pulumi.StringOutput)
 }
 
-// Resource Name
 func (o BackendServiceDefinitionResponseOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v BackendServiceDefinitionResponse) *string { return v.Name }).(pulumi.StringPtrOutput)
 }
 
-// Url from which the swagger payload will be fetched
 func (o BackendServiceDefinitionResponseOutput) ServiceUrl() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v BackendServiceDefinitionResponse) *string { return v.ServiceUrl }).(pulumi.StringPtrOutput)
 }
 
-// Resource tags
 func (o BackendServiceDefinitionResponseOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v BackendServiceDefinitionResponse) map[string]string { return v.Tags }).(pulumi.StringMapOutput)
 }
 
-// Resource type
 func (o BackendServiceDefinitionResponseOutput) Type() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v BackendServiceDefinitionResponse) *string { return v.Type }).(pulumi.StringPtrOutput)
 }
@@ -3029,10 +2677,15 @@ func (o BackendServiceDefinitionResponsePtrOutput) ToBackendServiceDefinitionRes
 }
 
 func (o BackendServiceDefinitionResponsePtrOutput) Elem() BackendServiceDefinitionResponseOutput {
-	return o.ApplyT(func(v *BackendServiceDefinitionResponse) BackendServiceDefinitionResponse { return *v }).(BackendServiceDefinitionResponseOutput)
+	return o.ApplyT(func(v *BackendServiceDefinitionResponse) BackendServiceDefinitionResponse {
+		if v != nil {
+			return *v
+		}
+		var ret BackendServiceDefinitionResponse
+		return ret
+	}).(BackendServiceDefinitionResponseOutput)
 }
 
-// Service Urls per Hosting environment
 func (o BackendServiceDefinitionResponsePtrOutput) HostingEnvironmentServiceUrls() HostingEnvironmentServiceDescriptionsResponseArrayOutput {
 	return o.ApplyT(func(v *BackendServiceDefinitionResponse) []HostingEnvironmentServiceDescriptionsResponse {
 		if v == nil {
@@ -3042,7 +2695,6 @@ func (o BackendServiceDefinitionResponsePtrOutput) HostingEnvironmentServiceUrls
 	}).(HostingEnvironmentServiceDescriptionsResponseArrayOutput)
 }
 
-// Resource Id
 func (o BackendServiceDefinitionResponsePtrOutput) Id() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *BackendServiceDefinitionResponse) *string {
 		if v == nil {
@@ -3052,7 +2704,6 @@ func (o BackendServiceDefinitionResponsePtrOutput) Id() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Kind of resource
 func (o BackendServiceDefinitionResponsePtrOutput) Kind() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *BackendServiceDefinitionResponse) *string {
 		if v == nil {
@@ -3062,7 +2713,6 @@ func (o BackendServiceDefinitionResponsePtrOutput) Kind() pulumi.StringPtrOutput
 	}).(pulumi.StringPtrOutput)
 }
 
-// Resource Location
 func (o BackendServiceDefinitionResponsePtrOutput) Location() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *BackendServiceDefinitionResponse) *string {
 		if v == nil {
@@ -3072,7 +2722,6 @@ func (o BackendServiceDefinitionResponsePtrOutput) Location() pulumi.StringPtrOu
 	}).(pulumi.StringPtrOutput)
 }
 
-// Resource Name
 func (o BackendServiceDefinitionResponsePtrOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *BackendServiceDefinitionResponse) *string {
 		if v == nil {
@@ -3082,7 +2731,6 @@ func (o BackendServiceDefinitionResponsePtrOutput) Name() pulumi.StringPtrOutput
 	}).(pulumi.StringPtrOutput)
 }
 
-// Url from which the swagger payload will be fetched
 func (o BackendServiceDefinitionResponsePtrOutput) ServiceUrl() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *BackendServiceDefinitionResponse) *string {
 		if v == nil {
@@ -3092,7 +2740,6 @@ func (o BackendServiceDefinitionResponsePtrOutput) ServiceUrl() pulumi.StringPtr
 	}).(pulumi.StringPtrOutput)
 }
 
-// Resource tags
 func (o BackendServiceDefinitionResponsePtrOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *BackendServiceDefinitionResponse) map[string]string {
 		if v == nil {
@@ -3102,7 +2749,6 @@ func (o BackendServiceDefinitionResponsePtrOutput) Tags() pulumi.StringMapOutput
 	}).(pulumi.StringMapOutput)
 }
 
-// Resource type
 func (o BackendServiceDefinitionResponsePtrOutput) Type() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *BackendServiceDefinitionResponse) *string {
 		if v == nil {
@@ -3112,24 +2758,15 @@ func (o BackendServiceDefinitionResponsePtrOutput) Type() pulumi.StringPtrOutput
 	}).(pulumi.StringPtrOutput)
 }
 
-// Connection error
 type ConnectionError struct {
-	// code of the status
-	Code *string `pulumi:"code"`
-	// Resource Id
-	Id *string `pulumi:"id"`
-	// Kind of resource
-	Kind *string `pulumi:"kind"`
-	// Resource Location
-	Location string `pulumi:"location"`
-	// Description of the status
-	Message *string `pulumi:"message"`
-	// Resource Name
-	Name *string `pulumi:"name"`
-	// Resource tags
-	Tags map[string]string `pulumi:"tags"`
-	// Resource type
-	Type *string `pulumi:"type"`
+	Code     *string           `pulumi:"code"`
+	Id       *string           `pulumi:"id"`
+	Kind     *string           `pulumi:"kind"`
+	Location string            `pulumi:"location"`
+	Message  *string           `pulumi:"message"`
+	Name     *string           `pulumi:"name"`
+	Tags     map[string]string `pulumi:"tags"`
+	Type     *string           `pulumi:"type"`
 }
 
 // ConnectionErrorInput is an input type that accepts ConnectionErrorArgs and ConnectionErrorOutput values.
@@ -3143,24 +2780,15 @@ type ConnectionErrorInput interface {
 	ToConnectionErrorOutputWithContext(context.Context) ConnectionErrorOutput
 }
 
-// Connection error
 type ConnectionErrorArgs struct {
-	// code of the status
-	Code pulumi.StringPtrInput `pulumi:"code"`
-	// Resource Id
-	Id pulumi.StringPtrInput `pulumi:"id"`
-	// Kind of resource
-	Kind pulumi.StringPtrInput `pulumi:"kind"`
-	// Resource Location
-	Location pulumi.StringInput `pulumi:"location"`
-	// Description of the status
-	Message pulumi.StringPtrInput `pulumi:"message"`
-	// Resource Name
-	Name pulumi.StringPtrInput `pulumi:"name"`
-	// Resource tags
-	Tags pulumi.StringMapInput `pulumi:"tags"`
-	// Resource type
-	Type pulumi.StringPtrInput `pulumi:"type"`
+	Code     pulumi.StringPtrInput `pulumi:"code"`
+	Id       pulumi.StringPtrInput `pulumi:"id"`
+	Kind     pulumi.StringPtrInput `pulumi:"kind"`
+	Location pulumi.StringInput    `pulumi:"location"`
+	Message  pulumi.StringPtrInput `pulumi:"message"`
+	Name     pulumi.StringPtrInput `pulumi:"name"`
+	Tags     pulumi.StringMapInput `pulumi:"tags"`
+	Type     pulumi.StringPtrInput `pulumi:"type"`
 }
 
 func (ConnectionErrorArgs) ElementType() reflect.Type {
@@ -3216,7 +2844,6 @@ func (i *connectionErrorPtrType) ToConnectionErrorPtrOutputWithContext(ctx conte
 	return pulumi.ToOutputWithContext(ctx, i).(ConnectionErrorPtrOutput)
 }
 
-// Connection error
 type ConnectionErrorOutput struct{ *pulumi.OutputState }
 
 func (ConnectionErrorOutput) ElementType() reflect.Type {
@@ -3236,47 +2863,39 @@ func (o ConnectionErrorOutput) ToConnectionErrorPtrOutput() ConnectionErrorPtrOu
 }
 
 func (o ConnectionErrorOutput) ToConnectionErrorPtrOutputWithContext(ctx context.Context) ConnectionErrorPtrOutput {
-	return o.ApplyT(func(v ConnectionError) *ConnectionError {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ConnectionError) *ConnectionError {
 		return &v
 	}).(ConnectionErrorPtrOutput)
 }
 
-// code of the status
 func (o ConnectionErrorOutput) Code() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ConnectionError) *string { return v.Code }).(pulumi.StringPtrOutput)
 }
 
-// Resource Id
 func (o ConnectionErrorOutput) Id() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ConnectionError) *string { return v.Id }).(pulumi.StringPtrOutput)
 }
 
-// Kind of resource
 func (o ConnectionErrorOutput) Kind() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ConnectionError) *string { return v.Kind }).(pulumi.StringPtrOutput)
 }
 
-// Resource Location
 func (o ConnectionErrorOutput) Location() pulumi.StringOutput {
 	return o.ApplyT(func(v ConnectionError) string { return v.Location }).(pulumi.StringOutput)
 }
 
-// Description of the status
 func (o ConnectionErrorOutput) Message() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ConnectionError) *string { return v.Message }).(pulumi.StringPtrOutput)
 }
 
-// Resource Name
 func (o ConnectionErrorOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ConnectionError) *string { return v.Name }).(pulumi.StringPtrOutput)
 }
 
-// Resource tags
 func (o ConnectionErrorOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v ConnectionError) map[string]string { return v.Tags }).(pulumi.StringMapOutput)
 }
 
-// Resource type
 func (o ConnectionErrorOutput) Type() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ConnectionError) *string { return v.Type }).(pulumi.StringPtrOutput)
 }
@@ -3296,10 +2915,15 @@ func (o ConnectionErrorPtrOutput) ToConnectionErrorPtrOutputWithContext(ctx cont
 }
 
 func (o ConnectionErrorPtrOutput) Elem() ConnectionErrorOutput {
-	return o.ApplyT(func(v *ConnectionError) ConnectionError { return *v }).(ConnectionErrorOutput)
+	return o.ApplyT(func(v *ConnectionError) ConnectionError {
+		if v != nil {
+			return *v
+		}
+		var ret ConnectionError
+		return ret
+	}).(ConnectionErrorOutput)
 }
 
-// code of the status
 func (o ConnectionErrorPtrOutput) Code() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ConnectionError) *string {
 		if v == nil {
@@ -3309,7 +2933,6 @@ func (o ConnectionErrorPtrOutput) Code() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Resource Id
 func (o ConnectionErrorPtrOutput) Id() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ConnectionError) *string {
 		if v == nil {
@@ -3319,7 +2942,6 @@ func (o ConnectionErrorPtrOutput) Id() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Kind of resource
 func (o ConnectionErrorPtrOutput) Kind() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ConnectionError) *string {
 		if v == nil {
@@ -3329,7 +2951,6 @@ func (o ConnectionErrorPtrOutput) Kind() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Resource Location
 func (o ConnectionErrorPtrOutput) Location() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ConnectionError) *string {
 		if v == nil {
@@ -3339,7 +2960,6 @@ func (o ConnectionErrorPtrOutput) Location() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Description of the status
 func (o ConnectionErrorPtrOutput) Message() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ConnectionError) *string {
 		if v == nil {
@@ -3349,7 +2969,6 @@ func (o ConnectionErrorPtrOutput) Message() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Resource Name
 func (o ConnectionErrorPtrOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ConnectionError) *string {
 		if v == nil {
@@ -3359,7 +2978,6 @@ func (o ConnectionErrorPtrOutput) Name() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Resource tags
 func (o ConnectionErrorPtrOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *ConnectionError) map[string]string {
 		if v == nil {
@@ -3369,7 +2987,6 @@ func (o ConnectionErrorPtrOutput) Tags() pulumi.StringMapOutput {
 	}).(pulumi.StringMapOutput)
 }
 
-// Resource type
 func (o ConnectionErrorPtrOutput) Type() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ConnectionError) *string {
 		if v == nil {
@@ -3379,24 +2996,15 @@ func (o ConnectionErrorPtrOutput) Type() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Connection error
 type ConnectionErrorResponse struct {
-	// code of the status
-	Code *string `pulumi:"code"`
-	// Resource Id
-	Id *string `pulumi:"id"`
-	// Kind of resource
-	Kind *string `pulumi:"kind"`
-	// Resource Location
-	Location string `pulumi:"location"`
-	// Description of the status
-	Message *string `pulumi:"message"`
-	// Resource Name
-	Name *string `pulumi:"name"`
-	// Resource tags
-	Tags map[string]string `pulumi:"tags"`
-	// Resource type
-	Type *string `pulumi:"type"`
+	Code     *string           `pulumi:"code"`
+	Id       *string           `pulumi:"id"`
+	Kind     *string           `pulumi:"kind"`
+	Location string            `pulumi:"location"`
+	Message  *string           `pulumi:"message"`
+	Name     *string           `pulumi:"name"`
+	Tags     map[string]string `pulumi:"tags"`
+	Type     *string           `pulumi:"type"`
 }
 
 // ConnectionErrorResponseInput is an input type that accepts ConnectionErrorResponseArgs and ConnectionErrorResponseOutput values.
@@ -3410,24 +3018,15 @@ type ConnectionErrorResponseInput interface {
 	ToConnectionErrorResponseOutputWithContext(context.Context) ConnectionErrorResponseOutput
 }
 
-// Connection error
 type ConnectionErrorResponseArgs struct {
-	// code of the status
-	Code pulumi.StringPtrInput `pulumi:"code"`
-	// Resource Id
-	Id pulumi.StringPtrInput `pulumi:"id"`
-	// Kind of resource
-	Kind pulumi.StringPtrInput `pulumi:"kind"`
-	// Resource Location
-	Location pulumi.StringInput `pulumi:"location"`
-	// Description of the status
-	Message pulumi.StringPtrInput `pulumi:"message"`
-	// Resource Name
-	Name pulumi.StringPtrInput `pulumi:"name"`
-	// Resource tags
-	Tags pulumi.StringMapInput `pulumi:"tags"`
-	// Resource type
-	Type pulumi.StringPtrInput `pulumi:"type"`
+	Code     pulumi.StringPtrInput `pulumi:"code"`
+	Id       pulumi.StringPtrInput `pulumi:"id"`
+	Kind     pulumi.StringPtrInput `pulumi:"kind"`
+	Location pulumi.StringInput    `pulumi:"location"`
+	Message  pulumi.StringPtrInput `pulumi:"message"`
+	Name     pulumi.StringPtrInput `pulumi:"name"`
+	Tags     pulumi.StringMapInput `pulumi:"tags"`
+	Type     pulumi.StringPtrInput `pulumi:"type"`
 }
 
 func (ConnectionErrorResponseArgs) ElementType() reflect.Type {
@@ -3483,7 +3082,6 @@ func (i *connectionErrorResponsePtrType) ToConnectionErrorResponsePtrOutputWithC
 	return pulumi.ToOutputWithContext(ctx, i).(ConnectionErrorResponsePtrOutput)
 }
 
-// Connection error
 type ConnectionErrorResponseOutput struct{ *pulumi.OutputState }
 
 func (ConnectionErrorResponseOutput) ElementType() reflect.Type {
@@ -3503,47 +3101,39 @@ func (o ConnectionErrorResponseOutput) ToConnectionErrorResponsePtrOutput() Conn
 }
 
 func (o ConnectionErrorResponseOutput) ToConnectionErrorResponsePtrOutputWithContext(ctx context.Context) ConnectionErrorResponsePtrOutput {
-	return o.ApplyT(func(v ConnectionErrorResponse) *ConnectionErrorResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ConnectionErrorResponse) *ConnectionErrorResponse {
 		return &v
 	}).(ConnectionErrorResponsePtrOutput)
 }
 
-// code of the status
 func (o ConnectionErrorResponseOutput) Code() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ConnectionErrorResponse) *string { return v.Code }).(pulumi.StringPtrOutput)
 }
 
-// Resource Id
 func (o ConnectionErrorResponseOutput) Id() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ConnectionErrorResponse) *string { return v.Id }).(pulumi.StringPtrOutput)
 }
 
-// Kind of resource
 func (o ConnectionErrorResponseOutput) Kind() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ConnectionErrorResponse) *string { return v.Kind }).(pulumi.StringPtrOutput)
 }
 
-// Resource Location
 func (o ConnectionErrorResponseOutput) Location() pulumi.StringOutput {
 	return o.ApplyT(func(v ConnectionErrorResponse) string { return v.Location }).(pulumi.StringOutput)
 }
 
-// Description of the status
 func (o ConnectionErrorResponseOutput) Message() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ConnectionErrorResponse) *string { return v.Message }).(pulumi.StringPtrOutput)
 }
 
-// Resource Name
 func (o ConnectionErrorResponseOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ConnectionErrorResponse) *string { return v.Name }).(pulumi.StringPtrOutput)
 }
 
-// Resource tags
 func (o ConnectionErrorResponseOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v ConnectionErrorResponse) map[string]string { return v.Tags }).(pulumi.StringMapOutput)
 }
 
-// Resource type
 func (o ConnectionErrorResponseOutput) Type() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ConnectionErrorResponse) *string { return v.Type }).(pulumi.StringPtrOutput)
 }
@@ -3563,10 +3153,15 @@ func (o ConnectionErrorResponsePtrOutput) ToConnectionErrorResponsePtrOutputWith
 }
 
 func (o ConnectionErrorResponsePtrOutput) Elem() ConnectionErrorResponseOutput {
-	return o.ApplyT(func(v *ConnectionErrorResponse) ConnectionErrorResponse { return *v }).(ConnectionErrorResponseOutput)
+	return o.ApplyT(func(v *ConnectionErrorResponse) ConnectionErrorResponse {
+		if v != nil {
+			return *v
+		}
+		var ret ConnectionErrorResponse
+		return ret
+	}).(ConnectionErrorResponseOutput)
 }
 
-// code of the status
 func (o ConnectionErrorResponsePtrOutput) Code() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ConnectionErrorResponse) *string {
 		if v == nil {
@@ -3576,7 +3171,6 @@ func (o ConnectionErrorResponsePtrOutput) Code() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Resource Id
 func (o ConnectionErrorResponsePtrOutput) Id() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ConnectionErrorResponse) *string {
 		if v == nil {
@@ -3586,7 +3180,6 @@ func (o ConnectionErrorResponsePtrOutput) Id() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Kind of resource
 func (o ConnectionErrorResponsePtrOutput) Kind() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ConnectionErrorResponse) *string {
 		if v == nil {
@@ -3596,7 +3189,6 @@ func (o ConnectionErrorResponsePtrOutput) Kind() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Resource Location
 func (o ConnectionErrorResponsePtrOutput) Location() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ConnectionErrorResponse) *string {
 		if v == nil {
@@ -3606,7 +3198,6 @@ func (o ConnectionErrorResponsePtrOutput) Location() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Description of the status
 func (o ConnectionErrorResponsePtrOutput) Message() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ConnectionErrorResponse) *string {
 		if v == nil {
@@ -3616,7 +3207,6 @@ func (o ConnectionErrorResponsePtrOutput) Message() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Resource Name
 func (o ConnectionErrorResponsePtrOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ConnectionErrorResponse) *string {
 		if v == nil {
@@ -3626,7 +3216,6 @@ func (o ConnectionErrorResponsePtrOutput) Name() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Resource tags
 func (o ConnectionErrorResponsePtrOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *ConnectionErrorResponse) map[string]string {
 		if v == nil {
@@ -3636,7 +3225,6 @@ func (o ConnectionErrorResponsePtrOutput) Tags() pulumi.StringMapOutput {
 	}).(pulumi.StringMapOutput)
 }
 
-// Resource type
 func (o ConnectionErrorResponsePtrOutput) Type() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ConnectionErrorResponse) *string {
 		if v == nil {
@@ -3646,16 +3234,11 @@ func (o ConnectionErrorResponsePtrOutput) Type() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// connection provider parameters
 type ConnectionParameter struct {
-	// Default parameter value
-	DefaultValue interface{} `pulumi:"defaultValue"`
-	// Settings defining OAuth flow for the back end provider
-	OAuthSettings *ApiOAuthSettings `pulumi:"oAuthSettings"`
-	// Type of the parameter
-	Type *string `pulumi:"type"`
-	// UI definitions
-	UiDefinition interface{} `pulumi:"uiDefinition"`
+	DefaultValue  interface{}              `pulumi:"defaultValue"`
+	OAuthSettings *ApiOAuthSettings        `pulumi:"oAuthSettings"`
+	Type          *ConnectionParameterType `pulumi:"type"`
+	UiDefinition  interface{}              `pulumi:"uiDefinition"`
 }
 
 // ConnectionParameterInput is an input type that accepts ConnectionParameterArgs and ConnectionParameterOutput values.
@@ -3669,16 +3252,11 @@ type ConnectionParameterInput interface {
 	ToConnectionParameterOutputWithContext(context.Context) ConnectionParameterOutput
 }
 
-// connection provider parameters
 type ConnectionParameterArgs struct {
-	// Default parameter value
-	DefaultValue pulumi.Input `pulumi:"defaultValue"`
-	// Settings defining OAuth flow for the back end provider
-	OAuthSettings ApiOAuthSettingsPtrInput `pulumi:"oAuthSettings"`
-	// Type of the parameter
-	Type *ConnectionParameterType `pulumi:"type"`
-	// UI definitions
-	UiDefinition pulumi.Input `pulumi:"uiDefinition"`
+	DefaultValue  pulumi.Input                    `pulumi:"defaultValue"`
+	OAuthSettings ApiOAuthSettingsPtrInput        `pulumi:"oAuthSettings"`
+	Type          ConnectionParameterTypePtrInput `pulumi:"type"`
+	UiDefinition  pulumi.Input                    `pulumi:"uiDefinition"`
 }
 
 func (ConnectionParameterArgs) ElementType() reflect.Type {
@@ -3718,7 +3296,6 @@ func (i ConnectionParameterMap) ToConnectionParameterMapOutputWithContext(ctx co
 	return pulumi.ToOutputWithContext(ctx, i).(ConnectionParameterMapOutput)
 }
 
-// connection provider parameters
 type ConnectionParameterOutput struct{ *pulumi.OutputState }
 
 func (ConnectionParameterOutput) ElementType() reflect.Type {
@@ -3733,22 +3310,18 @@ func (o ConnectionParameterOutput) ToConnectionParameterOutputWithContext(ctx co
 	return o
 }
 
-// Default parameter value
 func (o ConnectionParameterOutput) DefaultValue() pulumi.AnyOutput {
 	return o.ApplyT(func(v ConnectionParameter) interface{} { return v.DefaultValue }).(pulumi.AnyOutput)
 }
 
-// Settings defining OAuth flow for the back end provider
 func (o ConnectionParameterOutput) OAuthSettings() ApiOAuthSettingsPtrOutput {
 	return o.ApplyT(func(v ConnectionParameter) *ApiOAuthSettings { return v.OAuthSettings }).(ApiOAuthSettingsPtrOutput)
 }
 
-// Type of the parameter
-func (o ConnectionParameterOutput) Type() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v ConnectionParameter) *string { return v.Type }).(pulumi.StringPtrOutput)
+func (o ConnectionParameterOutput) Type() ConnectionParameterTypePtrOutput {
+	return o.ApplyT(func(v ConnectionParameter) *ConnectionParameterType { return v.Type }).(ConnectionParameterTypePtrOutput)
 }
 
-// UI definitions
 func (o ConnectionParameterOutput) UiDefinition() pulumi.AnyOutput {
 	return o.ApplyT(func(v ConnectionParameter) interface{} { return v.UiDefinition }).(pulumi.AnyOutput)
 }
@@ -3773,16 +3346,11 @@ func (o ConnectionParameterMapOutput) MapIndex(k pulumi.StringInput) ConnectionP
 	}).(ConnectionParameterOutput)
 }
 
-// connection provider parameters
 type ConnectionParameterResponse struct {
-	// Default parameter value
-	DefaultValue interface{} `pulumi:"defaultValue"`
-	// Settings defining OAuth flow for the back end provider
+	DefaultValue  interface{}               `pulumi:"defaultValue"`
 	OAuthSettings *ApiOAuthSettingsResponse `pulumi:"oAuthSettings"`
-	// Type of the parameter
-	Type *string `pulumi:"type"`
-	// UI definitions
-	UiDefinition interface{} `pulumi:"uiDefinition"`
+	Type          *string                   `pulumi:"type"`
+	UiDefinition  interface{}               `pulumi:"uiDefinition"`
 }
 
 // ConnectionParameterResponseInput is an input type that accepts ConnectionParameterResponseArgs and ConnectionParameterResponseOutput values.
@@ -3796,16 +3364,11 @@ type ConnectionParameterResponseInput interface {
 	ToConnectionParameterResponseOutputWithContext(context.Context) ConnectionParameterResponseOutput
 }
 
-// connection provider parameters
 type ConnectionParameterResponseArgs struct {
-	// Default parameter value
-	DefaultValue pulumi.Input `pulumi:"defaultValue"`
-	// Settings defining OAuth flow for the back end provider
+	DefaultValue  pulumi.Input                     `pulumi:"defaultValue"`
 	OAuthSettings ApiOAuthSettingsResponsePtrInput `pulumi:"oAuthSettings"`
-	// Type of the parameter
-	Type pulumi.StringPtrInput `pulumi:"type"`
-	// UI definitions
-	UiDefinition pulumi.Input `pulumi:"uiDefinition"`
+	Type          pulumi.StringPtrInput            `pulumi:"type"`
+	UiDefinition  pulumi.Input                     `pulumi:"uiDefinition"`
 }
 
 func (ConnectionParameterResponseArgs) ElementType() reflect.Type {
@@ -3845,7 +3408,6 @@ func (i ConnectionParameterResponseMap) ToConnectionParameterResponseMapOutputWi
 	return pulumi.ToOutputWithContext(ctx, i).(ConnectionParameterResponseMapOutput)
 }
 
-// connection provider parameters
 type ConnectionParameterResponseOutput struct{ *pulumi.OutputState }
 
 func (ConnectionParameterResponseOutput) ElementType() reflect.Type {
@@ -3860,22 +3422,18 @@ func (o ConnectionParameterResponseOutput) ToConnectionParameterResponseOutputWi
 	return o
 }
 
-// Default parameter value
 func (o ConnectionParameterResponseOutput) DefaultValue() pulumi.AnyOutput {
 	return o.ApplyT(func(v ConnectionParameterResponse) interface{} { return v.DefaultValue }).(pulumi.AnyOutput)
 }
 
-// Settings defining OAuth flow for the back end provider
 func (o ConnectionParameterResponseOutput) OAuthSettings() ApiOAuthSettingsResponsePtrOutput {
 	return o.ApplyT(func(v ConnectionParameterResponse) *ApiOAuthSettingsResponse { return v.OAuthSettings }).(ApiOAuthSettingsResponsePtrOutput)
 }
 
-// Type of the parameter
 func (o ConnectionParameterResponseOutput) Type() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ConnectionParameterResponse) *string { return v.Type }).(pulumi.StringPtrOutput)
 }
 
-// UI definitions
 func (o ConnectionParameterResponseOutput) UiDefinition() pulumi.AnyOutput {
 	return o.ApplyT(func(v ConnectionParameterResponse) interface{} { return v.UiDefinition }).(pulumi.AnyOutput)
 }
@@ -3900,26 +3458,16 @@ func (o ConnectionParameterResponseMapOutput) MapIndex(k pulumi.StringInput) Con
 	}).(ConnectionParameterResponseOutput)
 }
 
-// Connection status
 type ConnectionStatus struct {
-	// Error details
-	Error *ConnectionError `pulumi:"error"`
-	// Resource Id
-	Id *string `pulumi:"id"`
-	// Kind of resource
-	Kind *string `pulumi:"kind"`
-	// Resource Location
-	Location string `pulumi:"location"`
-	// Resource Name
-	Name *string `pulumi:"name"`
-	// Status
-	Status *string `pulumi:"status"`
-	// Resource tags
-	Tags map[string]string `pulumi:"tags"`
-	// Target of the error
-	Target *string `pulumi:"target"`
-	// Resource type
-	Type *string `pulumi:"type"`
+	Error    *ConnectionError  `pulumi:"error"`
+	Id       *string           `pulumi:"id"`
+	Kind     *string           `pulumi:"kind"`
+	Location string            `pulumi:"location"`
+	Name     *string           `pulumi:"name"`
+	Status   *string           `pulumi:"status"`
+	Tags     map[string]string `pulumi:"tags"`
+	Target   *string           `pulumi:"target"`
+	Type     *string           `pulumi:"type"`
 }
 
 // ConnectionStatusInput is an input type that accepts ConnectionStatusArgs and ConnectionStatusOutput values.
@@ -3933,26 +3481,16 @@ type ConnectionStatusInput interface {
 	ToConnectionStatusOutputWithContext(context.Context) ConnectionStatusOutput
 }
 
-// Connection status
 type ConnectionStatusArgs struct {
-	// Error details
-	Error ConnectionErrorPtrInput `pulumi:"error"`
-	// Resource Id
-	Id pulumi.StringPtrInput `pulumi:"id"`
-	// Kind of resource
-	Kind pulumi.StringPtrInput `pulumi:"kind"`
-	// Resource Location
-	Location pulumi.StringInput `pulumi:"location"`
-	// Resource Name
-	Name pulumi.StringPtrInput `pulumi:"name"`
-	// Status
-	Status pulumi.StringPtrInput `pulumi:"status"`
-	// Resource tags
-	Tags pulumi.StringMapInput `pulumi:"tags"`
-	// Target of the error
-	Target pulumi.StringPtrInput `pulumi:"target"`
-	// Resource type
-	Type pulumi.StringPtrInput `pulumi:"type"`
+	Error    ConnectionErrorPtrInput `pulumi:"error"`
+	Id       pulumi.StringPtrInput   `pulumi:"id"`
+	Kind     pulumi.StringPtrInput   `pulumi:"kind"`
+	Location pulumi.StringInput      `pulumi:"location"`
+	Name     pulumi.StringPtrInput   `pulumi:"name"`
+	Status   pulumi.StringPtrInput   `pulumi:"status"`
+	Tags     pulumi.StringMapInput   `pulumi:"tags"`
+	Target   pulumi.StringPtrInput   `pulumi:"target"`
+	Type     pulumi.StringPtrInput   `pulumi:"type"`
 }
 
 func (ConnectionStatusArgs) ElementType() reflect.Type {
@@ -3992,7 +3530,6 @@ func (i ConnectionStatusArray) ToConnectionStatusArrayOutputWithContext(ctx cont
 	return pulumi.ToOutputWithContext(ctx, i).(ConnectionStatusArrayOutput)
 }
 
-// Connection status
 type ConnectionStatusOutput struct{ *pulumi.OutputState }
 
 func (ConnectionStatusOutput) ElementType() reflect.Type {
@@ -4007,47 +3544,38 @@ func (o ConnectionStatusOutput) ToConnectionStatusOutputWithContext(ctx context.
 	return o
 }
 
-// Error details
 func (o ConnectionStatusOutput) Error() ConnectionErrorPtrOutput {
 	return o.ApplyT(func(v ConnectionStatus) *ConnectionError { return v.Error }).(ConnectionErrorPtrOutput)
 }
 
-// Resource Id
 func (o ConnectionStatusOutput) Id() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ConnectionStatus) *string { return v.Id }).(pulumi.StringPtrOutput)
 }
 
-// Kind of resource
 func (o ConnectionStatusOutput) Kind() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ConnectionStatus) *string { return v.Kind }).(pulumi.StringPtrOutput)
 }
 
-// Resource Location
 func (o ConnectionStatusOutput) Location() pulumi.StringOutput {
 	return o.ApplyT(func(v ConnectionStatus) string { return v.Location }).(pulumi.StringOutput)
 }
 
-// Resource Name
 func (o ConnectionStatusOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ConnectionStatus) *string { return v.Name }).(pulumi.StringPtrOutput)
 }
 
-// Status
 func (o ConnectionStatusOutput) Status() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ConnectionStatus) *string { return v.Status }).(pulumi.StringPtrOutput)
 }
 
-// Resource tags
 func (o ConnectionStatusOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v ConnectionStatus) map[string]string { return v.Tags }).(pulumi.StringMapOutput)
 }
 
-// Target of the error
 func (o ConnectionStatusOutput) Target() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ConnectionStatus) *string { return v.Target }).(pulumi.StringPtrOutput)
 }
 
-// Resource type
 func (o ConnectionStatusOutput) Type() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ConnectionStatus) *string { return v.Type }).(pulumi.StringPtrOutput)
 }
@@ -4072,26 +3600,16 @@ func (o ConnectionStatusArrayOutput) Index(i pulumi.IntInput) ConnectionStatusOu
 	}).(ConnectionStatusOutput)
 }
 
-// Connection status
 type ConnectionStatusResponse struct {
-	// Error details
-	Error *ConnectionErrorResponse `pulumi:"error"`
-	// Resource Id
-	Id *string `pulumi:"id"`
-	// Kind of resource
-	Kind *string `pulumi:"kind"`
-	// Resource Location
-	Location string `pulumi:"location"`
-	// Resource Name
-	Name *string `pulumi:"name"`
-	// Status
-	Status *string `pulumi:"status"`
-	// Resource tags
-	Tags map[string]string `pulumi:"tags"`
-	// Target of the error
-	Target *string `pulumi:"target"`
-	// Resource type
-	Type *string `pulumi:"type"`
+	Error    *ConnectionErrorResponse `pulumi:"error"`
+	Id       *string                  `pulumi:"id"`
+	Kind     *string                  `pulumi:"kind"`
+	Location string                   `pulumi:"location"`
+	Name     *string                  `pulumi:"name"`
+	Status   *string                  `pulumi:"status"`
+	Tags     map[string]string        `pulumi:"tags"`
+	Target   *string                  `pulumi:"target"`
+	Type     *string                  `pulumi:"type"`
 }
 
 // ConnectionStatusResponseInput is an input type that accepts ConnectionStatusResponseArgs and ConnectionStatusResponseOutput values.
@@ -4105,26 +3623,16 @@ type ConnectionStatusResponseInput interface {
 	ToConnectionStatusResponseOutputWithContext(context.Context) ConnectionStatusResponseOutput
 }
 
-// Connection status
 type ConnectionStatusResponseArgs struct {
-	// Error details
-	Error ConnectionErrorResponsePtrInput `pulumi:"error"`
-	// Resource Id
-	Id pulumi.StringPtrInput `pulumi:"id"`
-	// Kind of resource
-	Kind pulumi.StringPtrInput `pulumi:"kind"`
-	// Resource Location
-	Location pulumi.StringInput `pulumi:"location"`
-	// Resource Name
-	Name pulumi.StringPtrInput `pulumi:"name"`
-	// Status
-	Status pulumi.StringPtrInput `pulumi:"status"`
-	// Resource tags
-	Tags pulumi.StringMapInput `pulumi:"tags"`
-	// Target of the error
-	Target pulumi.StringPtrInput `pulumi:"target"`
-	// Resource type
-	Type pulumi.StringPtrInput `pulumi:"type"`
+	Error    ConnectionErrorResponsePtrInput `pulumi:"error"`
+	Id       pulumi.StringPtrInput           `pulumi:"id"`
+	Kind     pulumi.StringPtrInput           `pulumi:"kind"`
+	Location pulumi.StringInput              `pulumi:"location"`
+	Name     pulumi.StringPtrInput           `pulumi:"name"`
+	Status   pulumi.StringPtrInput           `pulumi:"status"`
+	Tags     pulumi.StringMapInput           `pulumi:"tags"`
+	Target   pulumi.StringPtrInput           `pulumi:"target"`
+	Type     pulumi.StringPtrInput           `pulumi:"type"`
 }
 
 func (ConnectionStatusResponseArgs) ElementType() reflect.Type {
@@ -4164,7 +3672,6 @@ func (i ConnectionStatusResponseArray) ToConnectionStatusResponseArrayOutputWith
 	return pulumi.ToOutputWithContext(ctx, i).(ConnectionStatusResponseArrayOutput)
 }
 
-// Connection status
 type ConnectionStatusResponseOutput struct{ *pulumi.OutputState }
 
 func (ConnectionStatusResponseOutput) ElementType() reflect.Type {
@@ -4179,47 +3686,38 @@ func (o ConnectionStatusResponseOutput) ToConnectionStatusResponseOutputWithCont
 	return o
 }
 
-// Error details
 func (o ConnectionStatusResponseOutput) Error() ConnectionErrorResponsePtrOutput {
 	return o.ApplyT(func(v ConnectionStatusResponse) *ConnectionErrorResponse { return v.Error }).(ConnectionErrorResponsePtrOutput)
 }
 
-// Resource Id
 func (o ConnectionStatusResponseOutput) Id() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ConnectionStatusResponse) *string { return v.Id }).(pulumi.StringPtrOutput)
 }
 
-// Kind of resource
 func (o ConnectionStatusResponseOutput) Kind() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ConnectionStatusResponse) *string { return v.Kind }).(pulumi.StringPtrOutput)
 }
 
-// Resource Location
 func (o ConnectionStatusResponseOutput) Location() pulumi.StringOutput {
 	return o.ApplyT(func(v ConnectionStatusResponse) string { return v.Location }).(pulumi.StringOutput)
 }
 
-// Resource Name
 func (o ConnectionStatusResponseOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ConnectionStatusResponse) *string { return v.Name }).(pulumi.StringPtrOutput)
 }
 
-// Status
 func (o ConnectionStatusResponseOutput) Status() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ConnectionStatusResponse) *string { return v.Status }).(pulumi.StringPtrOutput)
 }
 
-// Resource tags
 func (o ConnectionStatusResponseOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v ConnectionStatusResponse) map[string]string { return v.Tags }).(pulumi.StringMapOutput)
 }
 
-// Target of the error
 func (o ConnectionStatusResponseOutput) Target() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ConnectionStatusResponse) *string { return v.Target }).(pulumi.StringPtrOutput)
 }
 
-// Resource type
 func (o ConnectionStatusResponseOutput) Type() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ConnectionStatusResponse) *string { return v.Type }).(pulumi.StringPtrOutput)
 }
@@ -4245,17 +3743,11 @@ func (o ConnectionStatusResponseArrayOutput) Index(i pulumi.IntInput) Connection
 }
 
 type ConsentLinkInputParameter struct {
-	// AAD OID (user or group) if the principal type is ActiveDirectory.
-	//             MSA PUID if the principal type is MicrosoftAccount.
-	ObjectId *string `pulumi:"objectId"`
-	// Name of the parameter in the connection provider's oauthSettings
-	ParameterName *string `pulumi:"parameterName"`
-	// Principal type
-	PrincipalType *string `pulumi:"principalType"`
-	// Name of the parameter in the connection provider's oauthSettings
-	RedirectUrl *string `pulumi:"redirectUrl"`
-	// Tenant Id
-	TenantId *string `pulumi:"tenantId"`
+	ObjectId      *string        `pulumi:"objectId"`
+	ParameterName *string        `pulumi:"parameterName"`
+	PrincipalType *PrincipalType `pulumi:"principalType"`
+	RedirectUrl   *string        `pulumi:"redirectUrl"`
+	TenantId      *string        `pulumi:"tenantId"`
 }
 
 // ConsentLinkInputParameterInput is an input type that accepts ConsentLinkInputParameterArgs and ConsentLinkInputParameterOutput values.
@@ -4270,17 +3762,11 @@ type ConsentLinkInputParameterInput interface {
 }
 
 type ConsentLinkInputParameterArgs struct {
-	// AAD OID (user or group) if the principal type is ActiveDirectory.
-	//             MSA PUID if the principal type is MicrosoftAccount.
-	ObjectId pulumi.StringPtrInput `pulumi:"objectId"`
-	// Name of the parameter in the connection provider's oauthSettings
+	ObjectId      pulumi.StringPtrInput `pulumi:"objectId"`
 	ParameterName pulumi.StringPtrInput `pulumi:"parameterName"`
-	// Principal type
-	PrincipalType *PrincipalType `pulumi:"principalType"`
-	// Name of the parameter in the connection provider's oauthSettings
-	RedirectUrl pulumi.StringPtrInput `pulumi:"redirectUrl"`
-	// Tenant Id
-	TenantId pulumi.StringPtrInput `pulumi:"tenantId"`
+	PrincipalType PrincipalTypePtrInput `pulumi:"principalType"`
+	RedirectUrl   pulumi.StringPtrInput `pulumi:"redirectUrl"`
+	TenantId      pulumi.StringPtrInput `pulumi:"tenantId"`
 }
 
 func (ConsentLinkInputParameterArgs) ElementType() reflect.Type {
@@ -4334,28 +3820,22 @@ func (o ConsentLinkInputParameterOutput) ToConsentLinkInputParameterOutputWithCo
 	return o
 }
 
-// AAD OID (user or group) if the principal type is ActiveDirectory.
-//             MSA PUID if the principal type is MicrosoftAccount.
 func (o ConsentLinkInputParameterOutput) ObjectId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ConsentLinkInputParameter) *string { return v.ObjectId }).(pulumi.StringPtrOutput)
 }
 
-// Name of the parameter in the connection provider's oauthSettings
 func (o ConsentLinkInputParameterOutput) ParameterName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ConsentLinkInputParameter) *string { return v.ParameterName }).(pulumi.StringPtrOutput)
 }
 
-// Principal type
-func (o ConsentLinkInputParameterOutput) PrincipalType() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v ConsentLinkInputParameter) *string { return v.PrincipalType }).(pulumi.StringPtrOutput)
+func (o ConsentLinkInputParameterOutput) PrincipalType() PrincipalTypePtrOutput {
+	return o.ApplyT(func(v ConsentLinkInputParameter) *PrincipalType { return v.PrincipalType }).(PrincipalTypePtrOutput)
 }
 
-// Name of the parameter in the connection provider's oauthSettings
 func (o ConsentLinkInputParameterOutput) RedirectUrl() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ConsentLinkInputParameter) *string { return v.RedirectUrl }).(pulumi.StringPtrOutput)
 }
 
-// Tenant Id
 func (o ConsentLinkInputParameterOutput) TenantId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ConsentLinkInputParameter) *string { return v.TenantId }).(pulumi.StringPtrOutput)
 }
@@ -4381,14 +3861,10 @@ func (o ConsentLinkInputParameterArrayOutput) Index(i pulumi.IntInput) ConsentLi
 }
 
 type ConsentLinkResponse struct {
-	// Display Name of the parameter in the connection provider's oauthSettings
-	DisplayName *string `pulumi:"displayName"`
-	// Uri for first party login
+	DisplayName        *string `pulumi:"displayName"`
 	FirstPartyLoginUri *string `pulumi:"firstPartyLoginUri"`
-	// Uri for the consent link
-	Link *string `pulumi:"link"`
-	// Status of the link
-	Status *string `pulumi:"status"`
+	Link               *string `pulumi:"link"`
+	Status             *string `pulumi:"status"`
 }
 
 // ConsentLinkResponseInput is an input type that accepts ConsentLinkResponseArgs and ConsentLinkResponseOutput values.
@@ -4403,14 +3879,10 @@ type ConsentLinkResponseInput interface {
 }
 
 type ConsentLinkResponseArgs struct {
-	// Display Name of the parameter in the connection provider's oauthSettings
-	DisplayName pulumi.StringPtrInput `pulumi:"displayName"`
-	// Uri for first party login
+	DisplayName        pulumi.StringPtrInput `pulumi:"displayName"`
 	FirstPartyLoginUri pulumi.StringPtrInput `pulumi:"firstPartyLoginUri"`
-	// Uri for the consent link
-	Link pulumi.StringPtrInput `pulumi:"link"`
-	// Status of the link
-	Status pulumi.StringPtrInput `pulumi:"status"`
+	Link               pulumi.StringPtrInput `pulumi:"link"`
+	Status             pulumi.StringPtrInput `pulumi:"status"`
 }
 
 func (ConsentLinkResponseArgs) ElementType() reflect.Type {
@@ -4464,22 +3936,18 @@ func (o ConsentLinkResponseOutput) ToConsentLinkResponseOutputWithContext(ctx co
 	return o
 }
 
-// Display Name of the parameter in the connection provider's oauthSettings
 func (o ConsentLinkResponseOutput) DisplayName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ConsentLinkResponse) *string { return v.DisplayName }).(pulumi.StringPtrOutput)
 }
 
-// Uri for first party login
 func (o ConsentLinkResponseOutput) FirstPartyLoginUri() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ConsentLinkResponse) *string { return v.FirstPartyLoginUri }).(pulumi.StringPtrOutput)
 }
 
-// Uri for the consent link
 func (o ConsentLinkResponseOutput) Link() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ConsentLinkResponse) *string { return v.Link }).(pulumi.StringPtrOutput)
 }
 
-// Status of the link
 func (o ConsentLinkResponseOutput) Status() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ConsentLinkResponse) *string { return v.Status }).(pulumi.StringPtrOutput)
 }
@@ -4504,22 +3972,14 @@ func (o ConsentLinkResponseArrayOutput) Index(i pulumi.IntInput) ConsentLinkResp
 	}).(ConsentLinkResponseOutput)
 }
 
-// Custom logging setting value
 type CustomLoginSettingValue struct {
-	// Resource Id
-	Id *string `pulumi:"id"`
-	// Kind of resource
-	Kind *string `pulumi:"kind"`
-	// Resource Location
-	Location string `pulumi:"location"`
-	// Resource Name
-	Name *string `pulumi:"name"`
-	// Option selected for this custom login setting value
-	Option *string `pulumi:"option"`
-	// Resource tags
-	Tags map[string]string `pulumi:"tags"`
-	// Resource type
-	Type *string `pulumi:"type"`
+	Id       *string           `pulumi:"id"`
+	Kind     *string           `pulumi:"kind"`
+	Location string            `pulumi:"location"`
+	Name     *string           `pulumi:"name"`
+	Option   *string           `pulumi:"option"`
+	Tags     map[string]string `pulumi:"tags"`
+	Type     *string           `pulumi:"type"`
 }
 
 // CustomLoginSettingValueInput is an input type that accepts CustomLoginSettingValueArgs and CustomLoginSettingValueOutput values.
@@ -4533,22 +3993,14 @@ type CustomLoginSettingValueInput interface {
 	ToCustomLoginSettingValueOutputWithContext(context.Context) CustomLoginSettingValueOutput
 }
 
-// Custom logging setting value
 type CustomLoginSettingValueArgs struct {
-	// Resource Id
-	Id pulumi.StringPtrInput `pulumi:"id"`
-	// Kind of resource
-	Kind pulumi.StringPtrInput `pulumi:"kind"`
-	// Resource Location
-	Location pulumi.StringInput `pulumi:"location"`
-	// Resource Name
-	Name pulumi.StringPtrInput `pulumi:"name"`
-	// Option selected for this custom login setting value
-	Option pulumi.StringPtrInput `pulumi:"option"`
-	// Resource tags
-	Tags pulumi.StringMapInput `pulumi:"tags"`
-	// Resource type
-	Type pulumi.StringPtrInput `pulumi:"type"`
+	Id       pulumi.StringPtrInput `pulumi:"id"`
+	Kind     pulumi.StringPtrInput `pulumi:"kind"`
+	Location pulumi.StringInput    `pulumi:"location"`
+	Name     pulumi.StringPtrInput `pulumi:"name"`
+	Option   pulumi.StringPtrInput `pulumi:"option"`
+	Tags     pulumi.StringMapInput `pulumi:"tags"`
+	Type     pulumi.StringPtrInput `pulumi:"type"`
 }
 
 func (CustomLoginSettingValueArgs) ElementType() reflect.Type {
@@ -4588,7 +4040,6 @@ func (i CustomLoginSettingValueMap) ToCustomLoginSettingValueMapOutputWithContex
 	return pulumi.ToOutputWithContext(ctx, i).(CustomLoginSettingValueMapOutput)
 }
 
-// Custom logging setting value
 type CustomLoginSettingValueOutput struct{ *pulumi.OutputState }
 
 func (CustomLoginSettingValueOutput) ElementType() reflect.Type {
@@ -4603,37 +4054,30 @@ func (o CustomLoginSettingValueOutput) ToCustomLoginSettingValueOutputWithContex
 	return o
 }
 
-// Resource Id
 func (o CustomLoginSettingValueOutput) Id() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v CustomLoginSettingValue) *string { return v.Id }).(pulumi.StringPtrOutput)
 }
 
-// Kind of resource
 func (o CustomLoginSettingValueOutput) Kind() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v CustomLoginSettingValue) *string { return v.Kind }).(pulumi.StringPtrOutput)
 }
 
-// Resource Location
 func (o CustomLoginSettingValueOutput) Location() pulumi.StringOutput {
 	return o.ApplyT(func(v CustomLoginSettingValue) string { return v.Location }).(pulumi.StringOutput)
 }
 
-// Resource Name
 func (o CustomLoginSettingValueOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v CustomLoginSettingValue) *string { return v.Name }).(pulumi.StringPtrOutput)
 }
 
-// Option selected for this custom login setting value
 func (o CustomLoginSettingValueOutput) Option() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v CustomLoginSettingValue) *string { return v.Option }).(pulumi.StringPtrOutput)
 }
 
-// Resource tags
 func (o CustomLoginSettingValueOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v CustomLoginSettingValue) map[string]string { return v.Tags }).(pulumi.StringMapOutput)
 }
 
-// Resource type
 func (o CustomLoginSettingValueOutput) Type() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v CustomLoginSettingValue) *string { return v.Type }).(pulumi.StringPtrOutput)
 }
@@ -4658,22 +4102,14 @@ func (o CustomLoginSettingValueMapOutput) MapIndex(k pulumi.StringInput) CustomL
 	}).(CustomLoginSettingValueOutput)
 }
 
-// Custom logging setting value
 type CustomLoginSettingValueResponse struct {
-	// Resource Id
-	Id *string `pulumi:"id"`
-	// Kind of resource
-	Kind *string `pulumi:"kind"`
-	// Resource Location
-	Location string `pulumi:"location"`
-	// Resource Name
-	Name *string `pulumi:"name"`
-	// Option selected for this custom login setting value
-	Option *string `pulumi:"option"`
-	// Resource tags
-	Tags map[string]string `pulumi:"tags"`
-	// Resource type
-	Type *string `pulumi:"type"`
+	Id       *string           `pulumi:"id"`
+	Kind     *string           `pulumi:"kind"`
+	Location string            `pulumi:"location"`
+	Name     *string           `pulumi:"name"`
+	Option   *string           `pulumi:"option"`
+	Tags     map[string]string `pulumi:"tags"`
+	Type     *string           `pulumi:"type"`
 }
 
 // CustomLoginSettingValueResponseInput is an input type that accepts CustomLoginSettingValueResponseArgs and CustomLoginSettingValueResponseOutput values.
@@ -4687,22 +4123,14 @@ type CustomLoginSettingValueResponseInput interface {
 	ToCustomLoginSettingValueResponseOutputWithContext(context.Context) CustomLoginSettingValueResponseOutput
 }
 
-// Custom logging setting value
 type CustomLoginSettingValueResponseArgs struct {
-	// Resource Id
-	Id pulumi.StringPtrInput `pulumi:"id"`
-	// Kind of resource
-	Kind pulumi.StringPtrInput `pulumi:"kind"`
-	// Resource Location
-	Location pulumi.StringInput `pulumi:"location"`
-	// Resource Name
-	Name pulumi.StringPtrInput `pulumi:"name"`
-	// Option selected for this custom login setting value
-	Option pulumi.StringPtrInput `pulumi:"option"`
-	// Resource tags
-	Tags pulumi.StringMapInput `pulumi:"tags"`
-	// Resource type
-	Type pulumi.StringPtrInput `pulumi:"type"`
+	Id       pulumi.StringPtrInput `pulumi:"id"`
+	Kind     pulumi.StringPtrInput `pulumi:"kind"`
+	Location pulumi.StringInput    `pulumi:"location"`
+	Name     pulumi.StringPtrInput `pulumi:"name"`
+	Option   pulumi.StringPtrInput `pulumi:"option"`
+	Tags     pulumi.StringMapInput `pulumi:"tags"`
+	Type     pulumi.StringPtrInput `pulumi:"type"`
 }
 
 func (CustomLoginSettingValueResponseArgs) ElementType() reflect.Type {
@@ -4742,7 +4170,6 @@ func (i CustomLoginSettingValueResponseMap) ToCustomLoginSettingValueResponseMap
 	return pulumi.ToOutputWithContext(ctx, i).(CustomLoginSettingValueResponseMapOutput)
 }
 
-// Custom logging setting value
 type CustomLoginSettingValueResponseOutput struct{ *pulumi.OutputState }
 
 func (CustomLoginSettingValueResponseOutput) ElementType() reflect.Type {
@@ -4757,37 +4184,30 @@ func (o CustomLoginSettingValueResponseOutput) ToCustomLoginSettingValueResponse
 	return o
 }
 
-// Resource Id
 func (o CustomLoginSettingValueResponseOutput) Id() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v CustomLoginSettingValueResponse) *string { return v.Id }).(pulumi.StringPtrOutput)
 }
 
-// Kind of resource
 func (o CustomLoginSettingValueResponseOutput) Kind() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v CustomLoginSettingValueResponse) *string { return v.Kind }).(pulumi.StringPtrOutput)
 }
 
-// Resource Location
 func (o CustomLoginSettingValueResponseOutput) Location() pulumi.StringOutput {
 	return o.ApplyT(func(v CustomLoginSettingValueResponse) string { return v.Location }).(pulumi.StringOutput)
 }
 
-// Resource Name
 func (o CustomLoginSettingValueResponseOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v CustomLoginSettingValueResponse) *string { return v.Name }).(pulumi.StringPtrOutput)
 }
 
-// Option selected for this custom login setting value
 func (o CustomLoginSettingValueResponseOutput) Option() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v CustomLoginSettingValueResponse) *string { return v.Option }).(pulumi.StringPtrOutput)
 }
 
-// Resource tags
 func (o CustomLoginSettingValueResponseOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v CustomLoginSettingValueResponse) map[string]string { return v.Tags }).(pulumi.StringMapOutput)
 }
 
-// Resource type
 func (o CustomLoginSettingValueResponseOutput) Type() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v CustomLoginSettingValueResponse) *string { return v.Type }).(pulumi.StringPtrOutput)
 }
@@ -4812,22 +4232,14 @@ func (o CustomLoginSettingValueResponseMapOutput) MapIndex(k pulumi.StringInput)
 	}).(CustomLoginSettingValueResponseOutput)
 }
 
-// expanded parent object for expansion
 type ExpandedParentApiEntity struct {
-	// Id of connection provider
-	Entity *ResponseMessageEnvelopeApiEntity `pulumi:"entity"`
-	// Resource Id
-	Id *string `pulumi:"id"`
-	// Kind of resource
-	Kind *string `pulumi:"kind"`
-	// Resource Location
-	Location string `pulumi:"location"`
-	// Resource Name
-	Name *string `pulumi:"name"`
-	// Resource tags
-	Tags map[string]string `pulumi:"tags"`
-	// Resource type
-	Type *string `pulumi:"type"`
+	Entity   *ResponseMessageEnvelopeApiEntity `pulumi:"entity"`
+	Id       *string                           `pulumi:"id"`
+	Kind     *string                           `pulumi:"kind"`
+	Location string                            `pulumi:"location"`
+	Name     *string                           `pulumi:"name"`
+	Tags     map[string]string                 `pulumi:"tags"`
+	Type     *string                           `pulumi:"type"`
 }
 
 // ExpandedParentApiEntityInput is an input type that accepts ExpandedParentApiEntityArgs and ExpandedParentApiEntityOutput values.
@@ -4841,22 +4253,14 @@ type ExpandedParentApiEntityInput interface {
 	ToExpandedParentApiEntityOutputWithContext(context.Context) ExpandedParentApiEntityOutput
 }
 
-// expanded parent object for expansion
 type ExpandedParentApiEntityArgs struct {
-	// Id of connection provider
-	Entity ResponseMessageEnvelopeApiEntityPtrInput `pulumi:"entity"`
-	// Resource Id
-	Id pulumi.StringPtrInput `pulumi:"id"`
-	// Kind of resource
-	Kind pulumi.StringPtrInput `pulumi:"kind"`
-	// Resource Location
-	Location pulumi.StringInput `pulumi:"location"`
-	// Resource Name
-	Name pulumi.StringPtrInput `pulumi:"name"`
-	// Resource tags
-	Tags pulumi.StringMapInput `pulumi:"tags"`
-	// Resource type
-	Type pulumi.StringPtrInput `pulumi:"type"`
+	Entity   ResponseMessageEnvelopeApiEntityPtrInput `pulumi:"entity"`
+	Id       pulumi.StringPtrInput                    `pulumi:"id"`
+	Kind     pulumi.StringPtrInput                    `pulumi:"kind"`
+	Location pulumi.StringInput                       `pulumi:"location"`
+	Name     pulumi.StringPtrInput                    `pulumi:"name"`
+	Tags     pulumi.StringMapInput                    `pulumi:"tags"`
+	Type     pulumi.StringPtrInput                    `pulumi:"type"`
 }
 
 func (ExpandedParentApiEntityArgs) ElementType() reflect.Type {
@@ -4912,7 +4316,6 @@ func (i *expandedParentApiEntityPtrType) ToExpandedParentApiEntityPtrOutputWithC
 	return pulumi.ToOutputWithContext(ctx, i).(ExpandedParentApiEntityPtrOutput)
 }
 
-// expanded parent object for expansion
 type ExpandedParentApiEntityOutput struct{ *pulumi.OutputState }
 
 func (ExpandedParentApiEntityOutput) ElementType() reflect.Type {
@@ -4932,42 +4335,35 @@ func (o ExpandedParentApiEntityOutput) ToExpandedParentApiEntityPtrOutput() Expa
 }
 
 func (o ExpandedParentApiEntityOutput) ToExpandedParentApiEntityPtrOutputWithContext(ctx context.Context) ExpandedParentApiEntityPtrOutput {
-	return o.ApplyT(func(v ExpandedParentApiEntity) *ExpandedParentApiEntity {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ExpandedParentApiEntity) *ExpandedParentApiEntity {
 		return &v
 	}).(ExpandedParentApiEntityPtrOutput)
 }
 
-// Id of connection provider
 func (o ExpandedParentApiEntityOutput) Entity() ResponseMessageEnvelopeApiEntityPtrOutput {
 	return o.ApplyT(func(v ExpandedParentApiEntity) *ResponseMessageEnvelopeApiEntity { return v.Entity }).(ResponseMessageEnvelopeApiEntityPtrOutput)
 }
 
-// Resource Id
 func (o ExpandedParentApiEntityOutput) Id() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ExpandedParentApiEntity) *string { return v.Id }).(pulumi.StringPtrOutput)
 }
 
-// Kind of resource
 func (o ExpandedParentApiEntityOutput) Kind() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ExpandedParentApiEntity) *string { return v.Kind }).(pulumi.StringPtrOutput)
 }
 
-// Resource Location
 func (o ExpandedParentApiEntityOutput) Location() pulumi.StringOutput {
 	return o.ApplyT(func(v ExpandedParentApiEntity) string { return v.Location }).(pulumi.StringOutput)
 }
 
-// Resource Name
 func (o ExpandedParentApiEntityOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ExpandedParentApiEntity) *string { return v.Name }).(pulumi.StringPtrOutput)
 }
 
-// Resource tags
 func (o ExpandedParentApiEntityOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v ExpandedParentApiEntity) map[string]string { return v.Tags }).(pulumi.StringMapOutput)
 }
 
-// Resource type
 func (o ExpandedParentApiEntityOutput) Type() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ExpandedParentApiEntity) *string { return v.Type }).(pulumi.StringPtrOutput)
 }
@@ -4987,10 +4383,15 @@ func (o ExpandedParentApiEntityPtrOutput) ToExpandedParentApiEntityPtrOutputWith
 }
 
 func (o ExpandedParentApiEntityPtrOutput) Elem() ExpandedParentApiEntityOutput {
-	return o.ApplyT(func(v *ExpandedParentApiEntity) ExpandedParentApiEntity { return *v }).(ExpandedParentApiEntityOutput)
+	return o.ApplyT(func(v *ExpandedParentApiEntity) ExpandedParentApiEntity {
+		if v != nil {
+			return *v
+		}
+		var ret ExpandedParentApiEntity
+		return ret
+	}).(ExpandedParentApiEntityOutput)
 }
 
-// Id of connection provider
 func (o ExpandedParentApiEntityPtrOutput) Entity() ResponseMessageEnvelopeApiEntityPtrOutput {
 	return o.ApplyT(func(v *ExpandedParentApiEntity) *ResponseMessageEnvelopeApiEntity {
 		if v == nil {
@@ -5000,7 +4401,6 @@ func (o ExpandedParentApiEntityPtrOutput) Entity() ResponseMessageEnvelopeApiEnt
 	}).(ResponseMessageEnvelopeApiEntityPtrOutput)
 }
 
-// Resource Id
 func (o ExpandedParentApiEntityPtrOutput) Id() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ExpandedParentApiEntity) *string {
 		if v == nil {
@@ -5010,7 +4410,6 @@ func (o ExpandedParentApiEntityPtrOutput) Id() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Kind of resource
 func (o ExpandedParentApiEntityPtrOutput) Kind() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ExpandedParentApiEntity) *string {
 		if v == nil {
@@ -5020,7 +4419,6 @@ func (o ExpandedParentApiEntityPtrOutput) Kind() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Resource Location
 func (o ExpandedParentApiEntityPtrOutput) Location() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ExpandedParentApiEntity) *string {
 		if v == nil {
@@ -5030,7 +4428,6 @@ func (o ExpandedParentApiEntityPtrOutput) Location() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Resource Name
 func (o ExpandedParentApiEntityPtrOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ExpandedParentApiEntity) *string {
 		if v == nil {
@@ -5040,7 +4437,6 @@ func (o ExpandedParentApiEntityPtrOutput) Name() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Resource tags
 func (o ExpandedParentApiEntityPtrOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *ExpandedParentApiEntity) map[string]string {
 		if v == nil {
@@ -5050,7 +4446,6 @@ func (o ExpandedParentApiEntityPtrOutput) Tags() pulumi.StringMapOutput {
 	}).(pulumi.StringMapOutput)
 }
 
-// Resource type
 func (o ExpandedParentApiEntityPtrOutput) Type() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ExpandedParentApiEntity) *string {
 		if v == nil {
@@ -5060,22 +4455,14 @@ func (o ExpandedParentApiEntityPtrOutput) Type() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// expanded parent object for expansion
 type ExpandedParentApiEntityResponse struct {
-	// Id of connection provider
-	Entity *ResponseMessageEnvelopeApiEntityResponse `pulumi:"entity"`
-	// Resource Id
-	Id *string `pulumi:"id"`
-	// Kind of resource
-	Kind *string `pulumi:"kind"`
-	// Resource Location
-	Location string `pulumi:"location"`
-	// Resource Name
-	Name *string `pulumi:"name"`
-	// Resource tags
-	Tags map[string]string `pulumi:"tags"`
-	// Resource type
-	Type *string `pulumi:"type"`
+	Entity   *ResponseMessageEnvelopeApiEntityResponse `pulumi:"entity"`
+	Id       *string                                   `pulumi:"id"`
+	Kind     *string                                   `pulumi:"kind"`
+	Location string                                    `pulumi:"location"`
+	Name     *string                                   `pulumi:"name"`
+	Tags     map[string]string                         `pulumi:"tags"`
+	Type     *string                                   `pulumi:"type"`
 }
 
 // ExpandedParentApiEntityResponseInput is an input type that accepts ExpandedParentApiEntityResponseArgs and ExpandedParentApiEntityResponseOutput values.
@@ -5089,22 +4476,14 @@ type ExpandedParentApiEntityResponseInput interface {
 	ToExpandedParentApiEntityResponseOutputWithContext(context.Context) ExpandedParentApiEntityResponseOutput
 }
 
-// expanded parent object for expansion
 type ExpandedParentApiEntityResponseArgs struct {
-	// Id of connection provider
-	Entity ResponseMessageEnvelopeApiEntityResponsePtrInput `pulumi:"entity"`
-	// Resource Id
-	Id pulumi.StringPtrInput `pulumi:"id"`
-	// Kind of resource
-	Kind pulumi.StringPtrInput `pulumi:"kind"`
-	// Resource Location
-	Location pulumi.StringInput `pulumi:"location"`
-	// Resource Name
-	Name pulumi.StringPtrInput `pulumi:"name"`
-	// Resource tags
-	Tags pulumi.StringMapInput `pulumi:"tags"`
-	// Resource type
-	Type pulumi.StringPtrInput `pulumi:"type"`
+	Entity   ResponseMessageEnvelopeApiEntityResponsePtrInput `pulumi:"entity"`
+	Id       pulumi.StringPtrInput                            `pulumi:"id"`
+	Kind     pulumi.StringPtrInput                            `pulumi:"kind"`
+	Location pulumi.StringInput                               `pulumi:"location"`
+	Name     pulumi.StringPtrInput                            `pulumi:"name"`
+	Tags     pulumi.StringMapInput                            `pulumi:"tags"`
+	Type     pulumi.StringPtrInput                            `pulumi:"type"`
 }
 
 func (ExpandedParentApiEntityResponseArgs) ElementType() reflect.Type {
@@ -5160,7 +4539,6 @@ func (i *expandedParentApiEntityResponsePtrType) ToExpandedParentApiEntityRespon
 	return pulumi.ToOutputWithContext(ctx, i).(ExpandedParentApiEntityResponsePtrOutput)
 }
 
-// expanded parent object for expansion
 type ExpandedParentApiEntityResponseOutput struct{ *pulumi.OutputState }
 
 func (ExpandedParentApiEntityResponseOutput) ElementType() reflect.Type {
@@ -5180,42 +4558,35 @@ func (o ExpandedParentApiEntityResponseOutput) ToExpandedParentApiEntityResponse
 }
 
 func (o ExpandedParentApiEntityResponseOutput) ToExpandedParentApiEntityResponsePtrOutputWithContext(ctx context.Context) ExpandedParentApiEntityResponsePtrOutput {
-	return o.ApplyT(func(v ExpandedParentApiEntityResponse) *ExpandedParentApiEntityResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ExpandedParentApiEntityResponse) *ExpandedParentApiEntityResponse {
 		return &v
 	}).(ExpandedParentApiEntityResponsePtrOutput)
 }
 
-// Id of connection provider
 func (o ExpandedParentApiEntityResponseOutput) Entity() ResponseMessageEnvelopeApiEntityResponsePtrOutput {
 	return o.ApplyT(func(v ExpandedParentApiEntityResponse) *ResponseMessageEnvelopeApiEntityResponse { return v.Entity }).(ResponseMessageEnvelopeApiEntityResponsePtrOutput)
 }
 
-// Resource Id
 func (o ExpandedParentApiEntityResponseOutput) Id() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ExpandedParentApiEntityResponse) *string { return v.Id }).(pulumi.StringPtrOutput)
 }
 
-// Kind of resource
 func (o ExpandedParentApiEntityResponseOutput) Kind() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ExpandedParentApiEntityResponse) *string { return v.Kind }).(pulumi.StringPtrOutput)
 }
 
-// Resource Location
 func (o ExpandedParentApiEntityResponseOutput) Location() pulumi.StringOutput {
 	return o.ApplyT(func(v ExpandedParentApiEntityResponse) string { return v.Location }).(pulumi.StringOutput)
 }
 
-// Resource Name
 func (o ExpandedParentApiEntityResponseOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ExpandedParentApiEntityResponse) *string { return v.Name }).(pulumi.StringPtrOutput)
 }
 
-// Resource tags
 func (o ExpandedParentApiEntityResponseOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v ExpandedParentApiEntityResponse) map[string]string { return v.Tags }).(pulumi.StringMapOutput)
 }
 
-// Resource type
 func (o ExpandedParentApiEntityResponseOutput) Type() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ExpandedParentApiEntityResponse) *string { return v.Type }).(pulumi.StringPtrOutput)
 }
@@ -5235,10 +4606,15 @@ func (o ExpandedParentApiEntityResponsePtrOutput) ToExpandedParentApiEntityRespo
 }
 
 func (o ExpandedParentApiEntityResponsePtrOutput) Elem() ExpandedParentApiEntityResponseOutput {
-	return o.ApplyT(func(v *ExpandedParentApiEntityResponse) ExpandedParentApiEntityResponse { return *v }).(ExpandedParentApiEntityResponseOutput)
+	return o.ApplyT(func(v *ExpandedParentApiEntityResponse) ExpandedParentApiEntityResponse {
+		if v != nil {
+			return *v
+		}
+		var ret ExpandedParentApiEntityResponse
+		return ret
+	}).(ExpandedParentApiEntityResponseOutput)
 }
 
-// Id of connection provider
 func (o ExpandedParentApiEntityResponsePtrOutput) Entity() ResponseMessageEnvelopeApiEntityResponsePtrOutput {
 	return o.ApplyT(func(v *ExpandedParentApiEntityResponse) *ResponseMessageEnvelopeApiEntityResponse {
 		if v == nil {
@@ -5248,7 +4624,6 @@ func (o ExpandedParentApiEntityResponsePtrOutput) Entity() ResponseMessageEnvelo
 	}).(ResponseMessageEnvelopeApiEntityResponsePtrOutput)
 }
 
-// Resource Id
 func (o ExpandedParentApiEntityResponsePtrOutput) Id() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ExpandedParentApiEntityResponse) *string {
 		if v == nil {
@@ -5258,7 +4633,6 @@ func (o ExpandedParentApiEntityResponsePtrOutput) Id() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Kind of resource
 func (o ExpandedParentApiEntityResponsePtrOutput) Kind() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ExpandedParentApiEntityResponse) *string {
 		if v == nil {
@@ -5268,7 +4642,6 @@ func (o ExpandedParentApiEntityResponsePtrOutput) Kind() pulumi.StringPtrOutput 
 	}).(pulumi.StringPtrOutput)
 }
 
-// Resource Location
 func (o ExpandedParentApiEntityResponsePtrOutput) Location() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ExpandedParentApiEntityResponse) *string {
 		if v == nil {
@@ -5278,7 +4651,6 @@ func (o ExpandedParentApiEntityResponsePtrOutput) Location() pulumi.StringPtrOut
 	}).(pulumi.StringPtrOutput)
 }
 
-// Resource Name
 func (o ExpandedParentApiEntityResponsePtrOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ExpandedParentApiEntityResponse) *string {
 		if v == nil {
@@ -5288,7 +4660,6 @@ func (o ExpandedParentApiEntityResponsePtrOutput) Name() pulumi.StringPtrOutput 
 	}).(pulumi.StringPtrOutput)
 }
 
-// Resource tags
 func (o ExpandedParentApiEntityResponsePtrOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *ExpandedParentApiEntityResponse) map[string]string {
 		if v == nil {
@@ -5298,7 +4669,6 @@ func (o ExpandedParentApiEntityResponsePtrOutput) Tags() pulumi.StringMapOutput 
 	}).(pulumi.StringMapOutput)
 }
 
-// Resource type
 func (o ExpandedParentApiEntityResponsePtrOutput) Type() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ExpandedParentApiEntityResponse) *string {
 		if v == nil {
@@ -5308,32 +4678,19 @@ func (o ExpandedParentApiEntityResponsePtrOutput) Type() pulumi.StringPtrOutput 
 	}).(pulumi.StringPtrOutput)
 }
 
-// General API information
 type GeneralApiInformation struct {
-	// DefaultConnectionNameTemplate
-	ConnectionDisplayName *string `pulumi:"connectionDisplayName"`
-	// ConnectionPortalUrl
-	ConnectionPortalUrl interface{} `pulumi:"connectionPortalUrl"`
-	// Description
-	Description *string `pulumi:"description"`
-	// Display Name
-	DisplayName *string `pulumi:"displayName"`
-	// Icon Url
-	IconUrl *string `pulumi:"iconUrl"`
-	// Resource Id
-	Id *string `pulumi:"id"`
-	// Kind of resource
-	Kind *string `pulumi:"kind"`
-	// Resource Location
-	Location string `pulumi:"location"`
-	// Resource Name
-	Name *string `pulumi:"name"`
-	// Resource tags
-	Tags map[string]string `pulumi:"tags"`
-	// a public accessible url of the Terms Of Use Url of this API
-	TermsOfUseUrl *string `pulumi:"termsOfUseUrl"`
-	// Resource type
-	Type *string `pulumi:"type"`
+	ConnectionDisplayName *string           `pulumi:"connectionDisplayName"`
+	ConnectionPortalUrl   interface{}       `pulumi:"connectionPortalUrl"`
+	Description           *string           `pulumi:"description"`
+	DisplayName           *string           `pulumi:"displayName"`
+	IconUrl               *string           `pulumi:"iconUrl"`
+	Id                    *string           `pulumi:"id"`
+	Kind                  *string           `pulumi:"kind"`
+	Location              string            `pulumi:"location"`
+	Name                  *string           `pulumi:"name"`
+	Tags                  map[string]string `pulumi:"tags"`
+	TermsOfUseUrl         *string           `pulumi:"termsOfUseUrl"`
+	Type                  *string           `pulumi:"type"`
 }
 
 // GeneralApiInformationInput is an input type that accepts GeneralApiInformationArgs and GeneralApiInformationOutput values.
@@ -5347,32 +4704,19 @@ type GeneralApiInformationInput interface {
 	ToGeneralApiInformationOutputWithContext(context.Context) GeneralApiInformationOutput
 }
 
-// General API information
 type GeneralApiInformationArgs struct {
-	// DefaultConnectionNameTemplate
 	ConnectionDisplayName pulumi.StringPtrInput `pulumi:"connectionDisplayName"`
-	// ConnectionPortalUrl
-	ConnectionPortalUrl pulumi.Input `pulumi:"connectionPortalUrl"`
-	// Description
-	Description pulumi.StringPtrInput `pulumi:"description"`
-	// Display Name
-	DisplayName pulumi.StringPtrInput `pulumi:"displayName"`
-	// Icon Url
-	IconUrl pulumi.StringPtrInput `pulumi:"iconUrl"`
-	// Resource Id
-	Id pulumi.StringPtrInput `pulumi:"id"`
-	// Kind of resource
-	Kind pulumi.StringPtrInput `pulumi:"kind"`
-	// Resource Location
-	Location pulumi.StringInput `pulumi:"location"`
-	// Resource Name
-	Name pulumi.StringPtrInput `pulumi:"name"`
-	// Resource tags
-	Tags pulumi.StringMapInput `pulumi:"tags"`
-	// a public accessible url of the Terms Of Use Url of this API
-	TermsOfUseUrl pulumi.StringPtrInput `pulumi:"termsOfUseUrl"`
-	// Resource type
-	Type pulumi.StringPtrInput `pulumi:"type"`
+	ConnectionPortalUrl   pulumi.Input          `pulumi:"connectionPortalUrl"`
+	Description           pulumi.StringPtrInput `pulumi:"description"`
+	DisplayName           pulumi.StringPtrInput `pulumi:"displayName"`
+	IconUrl               pulumi.StringPtrInput `pulumi:"iconUrl"`
+	Id                    pulumi.StringPtrInput `pulumi:"id"`
+	Kind                  pulumi.StringPtrInput `pulumi:"kind"`
+	Location              pulumi.StringInput    `pulumi:"location"`
+	Name                  pulumi.StringPtrInput `pulumi:"name"`
+	Tags                  pulumi.StringMapInput `pulumi:"tags"`
+	TermsOfUseUrl         pulumi.StringPtrInput `pulumi:"termsOfUseUrl"`
+	Type                  pulumi.StringPtrInput `pulumi:"type"`
 }
 
 func (GeneralApiInformationArgs) ElementType() reflect.Type {
@@ -5428,7 +4772,6 @@ func (i *generalApiInformationPtrType) ToGeneralApiInformationPtrOutputWithConte
 	return pulumi.ToOutputWithContext(ctx, i).(GeneralApiInformationPtrOutput)
 }
 
-// General API information
 type GeneralApiInformationOutput struct{ *pulumi.OutputState }
 
 func (GeneralApiInformationOutput) ElementType() reflect.Type {
@@ -5448,67 +4791,55 @@ func (o GeneralApiInformationOutput) ToGeneralApiInformationPtrOutput() GeneralA
 }
 
 func (o GeneralApiInformationOutput) ToGeneralApiInformationPtrOutputWithContext(ctx context.Context) GeneralApiInformationPtrOutput {
-	return o.ApplyT(func(v GeneralApiInformation) *GeneralApiInformation {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v GeneralApiInformation) *GeneralApiInformation {
 		return &v
 	}).(GeneralApiInformationPtrOutput)
 }
 
-// DefaultConnectionNameTemplate
 func (o GeneralApiInformationOutput) ConnectionDisplayName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v GeneralApiInformation) *string { return v.ConnectionDisplayName }).(pulumi.StringPtrOutput)
 }
 
-// ConnectionPortalUrl
 func (o GeneralApiInformationOutput) ConnectionPortalUrl() pulumi.AnyOutput {
 	return o.ApplyT(func(v GeneralApiInformation) interface{} { return v.ConnectionPortalUrl }).(pulumi.AnyOutput)
 }
 
-// Description
 func (o GeneralApiInformationOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v GeneralApiInformation) *string { return v.Description }).(pulumi.StringPtrOutput)
 }
 
-// Display Name
 func (o GeneralApiInformationOutput) DisplayName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v GeneralApiInformation) *string { return v.DisplayName }).(pulumi.StringPtrOutput)
 }
 
-// Icon Url
 func (o GeneralApiInformationOutput) IconUrl() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v GeneralApiInformation) *string { return v.IconUrl }).(pulumi.StringPtrOutput)
 }
 
-// Resource Id
 func (o GeneralApiInformationOutput) Id() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v GeneralApiInformation) *string { return v.Id }).(pulumi.StringPtrOutput)
 }
 
-// Kind of resource
 func (o GeneralApiInformationOutput) Kind() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v GeneralApiInformation) *string { return v.Kind }).(pulumi.StringPtrOutput)
 }
 
-// Resource Location
 func (o GeneralApiInformationOutput) Location() pulumi.StringOutput {
 	return o.ApplyT(func(v GeneralApiInformation) string { return v.Location }).(pulumi.StringOutput)
 }
 
-// Resource Name
 func (o GeneralApiInformationOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v GeneralApiInformation) *string { return v.Name }).(pulumi.StringPtrOutput)
 }
 
-// Resource tags
 func (o GeneralApiInformationOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v GeneralApiInformation) map[string]string { return v.Tags }).(pulumi.StringMapOutput)
 }
 
-// a public accessible url of the Terms Of Use Url of this API
 func (o GeneralApiInformationOutput) TermsOfUseUrl() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v GeneralApiInformation) *string { return v.TermsOfUseUrl }).(pulumi.StringPtrOutput)
 }
 
-// Resource type
 func (o GeneralApiInformationOutput) Type() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v GeneralApiInformation) *string { return v.Type }).(pulumi.StringPtrOutput)
 }
@@ -5528,10 +4859,15 @@ func (o GeneralApiInformationPtrOutput) ToGeneralApiInformationPtrOutputWithCont
 }
 
 func (o GeneralApiInformationPtrOutput) Elem() GeneralApiInformationOutput {
-	return o.ApplyT(func(v *GeneralApiInformation) GeneralApiInformation { return *v }).(GeneralApiInformationOutput)
+	return o.ApplyT(func(v *GeneralApiInformation) GeneralApiInformation {
+		if v != nil {
+			return *v
+		}
+		var ret GeneralApiInformation
+		return ret
+	}).(GeneralApiInformationOutput)
 }
 
-// DefaultConnectionNameTemplate
 func (o GeneralApiInformationPtrOutput) ConnectionDisplayName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *GeneralApiInformation) *string {
 		if v == nil {
@@ -5541,7 +4877,6 @@ func (o GeneralApiInformationPtrOutput) ConnectionDisplayName() pulumi.StringPtr
 	}).(pulumi.StringPtrOutput)
 }
 
-// ConnectionPortalUrl
 func (o GeneralApiInformationPtrOutput) ConnectionPortalUrl() pulumi.AnyOutput {
 	return o.ApplyT(func(v *GeneralApiInformation) interface{} {
 		if v == nil {
@@ -5551,7 +4886,6 @@ func (o GeneralApiInformationPtrOutput) ConnectionPortalUrl() pulumi.AnyOutput {
 	}).(pulumi.AnyOutput)
 }
 
-// Description
 func (o GeneralApiInformationPtrOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *GeneralApiInformation) *string {
 		if v == nil {
@@ -5561,7 +4895,6 @@ func (o GeneralApiInformationPtrOutput) Description() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Display Name
 func (o GeneralApiInformationPtrOutput) DisplayName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *GeneralApiInformation) *string {
 		if v == nil {
@@ -5571,7 +4904,6 @@ func (o GeneralApiInformationPtrOutput) DisplayName() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Icon Url
 func (o GeneralApiInformationPtrOutput) IconUrl() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *GeneralApiInformation) *string {
 		if v == nil {
@@ -5581,7 +4913,6 @@ func (o GeneralApiInformationPtrOutput) IconUrl() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Resource Id
 func (o GeneralApiInformationPtrOutput) Id() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *GeneralApiInformation) *string {
 		if v == nil {
@@ -5591,7 +4922,6 @@ func (o GeneralApiInformationPtrOutput) Id() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Kind of resource
 func (o GeneralApiInformationPtrOutput) Kind() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *GeneralApiInformation) *string {
 		if v == nil {
@@ -5601,7 +4931,6 @@ func (o GeneralApiInformationPtrOutput) Kind() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Resource Location
 func (o GeneralApiInformationPtrOutput) Location() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *GeneralApiInformation) *string {
 		if v == nil {
@@ -5611,7 +4940,6 @@ func (o GeneralApiInformationPtrOutput) Location() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Resource Name
 func (o GeneralApiInformationPtrOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *GeneralApiInformation) *string {
 		if v == nil {
@@ -5621,7 +4949,6 @@ func (o GeneralApiInformationPtrOutput) Name() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Resource tags
 func (o GeneralApiInformationPtrOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *GeneralApiInformation) map[string]string {
 		if v == nil {
@@ -5631,7 +4958,6 @@ func (o GeneralApiInformationPtrOutput) Tags() pulumi.StringMapOutput {
 	}).(pulumi.StringMapOutput)
 }
 
-// a public accessible url of the Terms Of Use Url of this API
 func (o GeneralApiInformationPtrOutput) TermsOfUseUrl() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *GeneralApiInformation) *string {
 		if v == nil {
@@ -5641,7 +4967,6 @@ func (o GeneralApiInformationPtrOutput) TermsOfUseUrl() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Resource type
 func (o GeneralApiInformationPtrOutput) Type() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *GeneralApiInformation) *string {
 		if v == nil {
@@ -5651,32 +4976,19 @@ func (o GeneralApiInformationPtrOutput) Type() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// General API information
 type GeneralApiInformationResponse struct {
-	// DefaultConnectionNameTemplate
-	ConnectionDisplayName *string `pulumi:"connectionDisplayName"`
-	// ConnectionPortalUrl
-	ConnectionPortalUrl interface{} `pulumi:"connectionPortalUrl"`
-	// Description
-	Description *string `pulumi:"description"`
-	// Display Name
-	DisplayName *string `pulumi:"displayName"`
-	// Icon Url
-	IconUrl *string `pulumi:"iconUrl"`
-	// Resource Id
-	Id *string `pulumi:"id"`
-	// Kind of resource
-	Kind *string `pulumi:"kind"`
-	// Resource Location
-	Location string `pulumi:"location"`
-	// Resource Name
-	Name *string `pulumi:"name"`
-	// Resource tags
-	Tags map[string]string `pulumi:"tags"`
-	// a public accessible url of the Terms Of Use Url of this API
-	TermsOfUseUrl *string `pulumi:"termsOfUseUrl"`
-	// Resource type
-	Type *string `pulumi:"type"`
+	ConnectionDisplayName *string           `pulumi:"connectionDisplayName"`
+	ConnectionPortalUrl   interface{}       `pulumi:"connectionPortalUrl"`
+	Description           *string           `pulumi:"description"`
+	DisplayName           *string           `pulumi:"displayName"`
+	IconUrl               *string           `pulumi:"iconUrl"`
+	Id                    *string           `pulumi:"id"`
+	Kind                  *string           `pulumi:"kind"`
+	Location              string            `pulumi:"location"`
+	Name                  *string           `pulumi:"name"`
+	Tags                  map[string]string `pulumi:"tags"`
+	TermsOfUseUrl         *string           `pulumi:"termsOfUseUrl"`
+	Type                  *string           `pulumi:"type"`
 }
 
 // GeneralApiInformationResponseInput is an input type that accepts GeneralApiInformationResponseArgs and GeneralApiInformationResponseOutput values.
@@ -5690,32 +5002,19 @@ type GeneralApiInformationResponseInput interface {
 	ToGeneralApiInformationResponseOutputWithContext(context.Context) GeneralApiInformationResponseOutput
 }
 
-// General API information
 type GeneralApiInformationResponseArgs struct {
-	// DefaultConnectionNameTemplate
 	ConnectionDisplayName pulumi.StringPtrInput `pulumi:"connectionDisplayName"`
-	// ConnectionPortalUrl
-	ConnectionPortalUrl pulumi.Input `pulumi:"connectionPortalUrl"`
-	// Description
-	Description pulumi.StringPtrInput `pulumi:"description"`
-	// Display Name
-	DisplayName pulumi.StringPtrInput `pulumi:"displayName"`
-	// Icon Url
-	IconUrl pulumi.StringPtrInput `pulumi:"iconUrl"`
-	// Resource Id
-	Id pulumi.StringPtrInput `pulumi:"id"`
-	// Kind of resource
-	Kind pulumi.StringPtrInput `pulumi:"kind"`
-	// Resource Location
-	Location pulumi.StringInput `pulumi:"location"`
-	// Resource Name
-	Name pulumi.StringPtrInput `pulumi:"name"`
-	// Resource tags
-	Tags pulumi.StringMapInput `pulumi:"tags"`
-	// a public accessible url of the Terms Of Use Url of this API
-	TermsOfUseUrl pulumi.StringPtrInput `pulumi:"termsOfUseUrl"`
-	// Resource type
-	Type pulumi.StringPtrInput `pulumi:"type"`
+	ConnectionPortalUrl   pulumi.Input          `pulumi:"connectionPortalUrl"`
+	Description           pulumi.StringPtrInput `pulumi:"description"`
+	DisplayName           pulumi.StringPtrInput `pulumi:"displayName"`
+	IconUrl               pulumi.StringPtrInput `pulumi:"iconUrl"`
+	Id                    pulumi.StringPtrInput `pulumi:"id"`
+	Kind                  pulumi.StringPtrInput `pulumi:"kind"`
+	Location              pulumi.StringInput    `pulumi:"location"`
+	Name                  pulumi.StringPtrInput `pulumi:"name"`
+	Tags                  pulumi.StringMapInput `pulumi:"tags"`
+	TermsOfUseUrl         pulumi.StringPtrInput `pulumi:"termsOfUseUrl"`
+	Type                  pulumi.StringPtrInput `pulumi:"type"`
 }
 
 func (GeneralApiInformationResponseArgs) ElementType() reflect.Type {
@@ -5771,7 +5070,6 @@ func (i *generalApiInformationResponsePtrType) ToGeneralApiInformationResponsePt
 	return pulumi.ToOutputWithContext(ctx, i).(GeneralApiInformationResponsePtrOutput)
 }
 
-// General API information
 type GeneralApiInformationResponseOutput struct{ *pulumi.OutputState }
 
 func (GeneralApiInformationResponseOutput) ElementType() reflect.Type {
@@ -5791,67 +5089,55 @@ func (o GeneralApiInformationResponseOutput) ToGeneralApiInformationResponsePtrO
 }
 
 func (o GeneralApiInformationResponseOutput) ToGeneralApiInformationResponsePtrOutputWithContext(ctx context.Context) GeneralApiInformationResponsePtrOutput {
-	return o.ApplyT(func(v GeneralApiInformationResponse) *GeneralApiInformationResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v GeneralApiInformationResponse) *GeneralApiInformationResponse {
 		return &v
 	}).(GeneralApiInformationResponsePtrOutput)
 }
 
-// DefaultConnectionNameTemplate
 func (o GeneralApiInformationResponseOutput) ConnectionDisplayName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v GeneralApiInformationResponse) *string { return v.ConnectionDisplayName }).(pulumi.StringPtrOutput)
 }
 
-// ConnectionPortalUrl
 func (o GeneralApiInformationResponseOutput) ConnectionPortalUrl() pulumi.AnyOutput {
 	return o.ApplyT(func(v GeneralApiInformationResponse) interface{} { return v.ConnectionPortalUrl }).(pulumi.AnyOutput)
 }
 
-// Description
 func (o GeneralApiInformationResponseOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v GeneralApiInformationResponse) *string { return v.Description }).(pulumi.StringPtrOutput)
 }
 
-// Display Name
 func (o GeneralApiInformationResponseOutput) DisplayName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v GeneralApiInformationResponse) *string { return v.DisplayName }).(pulumi.StringPtrOutput)
 }
 
-// Icon Url
 func (o GeneralApiInformationResponseOutput) IconUrl() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v GeneralApiInformationResponse) *string { return v.IconUrl }).(pulumi.StringPtrOutput)
 }
 
-// Resource Id
 func (o GeneralApiInformationResponseOutput) Id() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v GeneralApiInformationResponse) *string { return v.Id }).(pulumi.StringPtrOutput)
 }
 
-// Kind of resource
 func (o GeneralApiInformationResponseOutput) Kind() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v GeneralApiInformationResponse) *string { return v.Kind }).(pulumi.StringPtrOutput)
 }
 
-// Resource Location
 func (o GeneralApiInformationResponseOutput) Location() pulumi.StringOutput {
 	return o.ApplyT(func(v GeneralApiInformationResponse) string { return v.Location }).(pulumi.StringOutput)
 }
 
-// Resource Name
 func (o GeneralApiInformationResponseOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v GeneralApiInformationResponse) *string { return v.Name }).(pulumi.StringPtrOutput)
 }
 
-// Resource tags
 func (o GeneralApiInformationResponseOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v GeneralApiInformationResponse) map[string]string { return v.Tags }).(pulumi.StringMapOutput)
 }
 
-// a public accessible url of the Terms Of Use Url of this API
 func (o GeneralApiInformationResponseOutput) TermsOfUseUrl() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v GeneralApiInformationResponse) *string { return v.TermsOfUseUrl }).(pulumi.StringPtrOutput)
 }
 
-// Resource type
 func (o GeneralApiInformationResponseOutput) Type() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v GeneralApiInformationResponse) *string { return v.Type }).(pulumi.StringPtrOutput)
 }
@@ -5871,10 +5157,15 @@ func (o GeneralApiInformationResponsePtrOutput) ToGeneralApiInformationResponseP
 }
 
 func (o GeneralApiInformationResponsePtrOutput) Elem() GeneralApiInformationResponseOutput {
-	return o.ApplyT(func(v *GeneralApiInformationResponse) GeneralApiInformationResponse { return *v }).(GeneralApiInformationResponseOutput)
+	return o.ApplyT(func(v *GeneralApiInformationResponse) GeneralApiInformationResponse {
+		if v != nil {
+			return *v
+		}
+		var ret GeneralApiInformationResponse
+		return ret
+	}).(GeneralApiInformationResponseOutput)
 }
 
-// DefaultConnectionNameTemplate
 func (o GeneralApiInformationResponsePtrOutput) ConnectionDisplayName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *GeneralApiInformationResponse) *string {
 		if v == nil {
@@ -5884,7 +5175,6 @@ func (o GeneralApiInformationResponsePtrOutput) ConnectionDisplayName() pulumi.S
 	}).(pulumi.StringPtrOutput)
 }
 
-// ConnectionPortalUrl
 func (o GeneralApiInformationResponsePtrOutput) ConnectionPortalUrl() pulumi.AnyOutput {
 	return o.ApplyT(func(v *GeneralApiInformationResponse) interface{} {
 		if v == nil {
@@ -5894,7 +5184,6 @@ func (o GeneralApiInformationResponsePtrOutput) ConnectionPortalUrl() pulumi.Any
 	}).(pulumi.AnyOutput)
 }
 
-// Description
 func (o GeneralApiInformationResponsePtrOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *GeneralApiInformationResponse) *string {
 		if v == nil {
@@ -5904,7 +5193,6 @@ func (o GeneralApiInformationResponsePtrOutput) Description() pulumi.StringPtrOu
 	}).(pulumi.StringPtrOutput)
 }
 
-// Display Name
 func (o GeneralApiInformationResponsePtrOutput) DisplayName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *GeneralApiInformationResponse) *string {
 		if v == nil {
@@ -5914,7 +5202,6 @@ func (o GeneralApiInformationResponsePtrOutput) DisplayName() pulumi.StringPtrOu
 	}).(pulumi.StringPtrOutput)
 }
 
-// Icon Url
 func (o GeneralApiInformationResponsePtrOutput) IconUrl() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *GeneralApiInformationResponse) *string {
 		if v == nil {
@@ -5924,7 +5211,6 @@ func (o GeneralApiInformationResponsePtrOutput) IconUrl() pulumi.StringPtrOutput
 	}).(pulumi.StringPtrOutput)
 }
 
-// Resource Id
 func (o GeneralApiInformationResponsePtrOutput) Id() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *GeneralApiInformationResponse) *string {
 		if v == nil {
@@ -5934,7 +5220,6 @@ func (o GeneralApiInformationResponsePtrOutput) Id() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Kind of resource
 func (o GeneralApiInformationResponsePtrOutput) Kind() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *GeneralApiInformationResponse) *string {
 		if v == nil {
@@ -5944,7 +5229,6 @@ func (o GeneralApiInformationResponsePtrOutput) Kind() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Resource Location
 func (o GeneralApiInformationResponsePtrOutput) Location() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *GeneralApiInformationResponse) *string {
 		if v == nil {
@@ -5954,7 +5238,6 @@ func (o GeneralApiInformationResponsePtrOutput) Location() pulumi.StringPtrOutpu
 	}).(pulumi.StringPtrOutput)
 }
 
-// Resource Name
 func (o GeneralApiInformationResponsePtrOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *GeneralApiInformationResponse) *string {
 		if v == nil {
@@ -5964,7 +5247,6 @@ func (o GeneralApiInformationResponsePtrOutput) Name() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Resource tags
 func (o GeneralApiInformationResponsePtrOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *GeneralApiInformationResponse) map[string]string {
 		if v == nil {
@@ -5974,7 +5256,6 @@ func (o GeneralApiInformationResponsePtrOutput) Tags() pulumi.StringMapOutput {
 	}).(pulumi.StringMapOutput)
 }
 
-// a public accessible url of the Terms Of Use Url of this API
 func (o GeneralApiInformationResponsePtrOutput) TermsOfUseUrl() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *GeneralApiInformationResponse) *string {
 		if v == nil {
@@ -5984,7 +5265,6 @@ func (o GeneralApiInformationResponsePtrOutput) TermsOfUseUrl() pulumi.StringPtr
 	}).(pulumi.StringPtrOutput)
 }
 
-// Resource type
 func (o GeneralApiInformationResponsePtrOutput) Type() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *GeneralApiInformationResponse) *string {
 		if v == nil {
@@ -5994,19 +5274,11 @@ func (o GeneralApiInformationResponsePtrOutput) Type() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Back end service per ASE
 type HostingEnvironmentServiceDescriptions struct {
-	// Host Id
-	HostId *string `pulumi:"hostId"`
-	// Hosting environment Id
+	HostId               *string `pulumi:"hostId"`
 	HostingEnvironmentId *string `pulumi:"hostingEnvironmentId"`
-	// service url to use
-	ServiceUrl *string `pulumi:"serviceUrl"`
-	// When the backend url is in same ASE, for performance reason this flag can be set to true
-	//             If WebApp.DisableHostNames is also set it improves the security by making the back end accessible only
-	//             via API calls
-	//             Note: calls will fail if this option is used but back end is not on the same ASE
-	UseInternalRouting *bool `pulumi:"useInternalRouting"`
+	ServiceUrl           *string `pulumi:"serviceUrl"`
+	UseInternalRouting   *bool   `pulumi:"useInternalRouting"`
 }
 
 // HostingEnvironmentServiceDescriptionsInput is an input type that accepts HostingEnvironmentServiceDescriptionsArgs and HostingEnvironmentServiceDescriptionsOutput values.
@@ -6020,19 +5292,11 @@ type HostingEnvironmentServiceDescriptionsInput interface {
 	ToHostingEnvironmentServiceDescriptionsOutputWithContext(context.Context) HostingEnvironmentServiceDescriptionsOutput
 }
 
-// Back end service per ASE
 type HostingEnvironmentServiceDescriptionsArgs struct {
-	// Host Id
-	HostId pulumi.StringPtrInput `pulumi:"hostId"`
-	// Hosting environment Id
+	HostId               pulumi.StringPtrInput `pulumi:"hostId"`
 	HostingEnvironmentId pulumi.StringPtrInput `pulumi:"hostingEnvironmentId"`
-	// service url to use
-	ServiceUrl pulumi.StringPtrInput `pulumi:"serviceUrl"`
-	// When the backend url is in same ASE, for performance reason this flag can be set to true
-	//             If WebApp.DisableHostNames is also set it improves the security by making the back end accessible only
-	//             via API calls
-	//             Note: calls will fail if this option is used but back end is not on the same ASE
-	UseInternalRouting pulumi.BoolPtrInput `pulumi:"useInternalRouting"`
+	ServiceUrl           pulumi.StringPtrInput `pulumi:"serviceUrl"`
+	UseInternalRouting   pulumi.BoolPtrInput   `pulumi:"useInternalRouting"`
 }
 
 func (HostingEnvironmentServiceDescriptionsArgs) ElementType() reflect.Type {
@@ -6072,7 +5336,6 @@ func (i HostingEnvironmentServiceDescriptionsArray) ToHostingEnvironmentServiceD
 	return pulumi.ToOutputWithContext(ctx, i).(HostingEnvironmentServiceDescriptionsArrayOutput)
 }
 
-// Back end service per ASE
 type HostingEnvironmentServiceDescriptionsOutput struct{ *pulumi.OutputState }
 
 func (HostingEnvironmentServiceDescriptionsOutput) ElementType() reflect.Type {
@@ -6087,25 +5350,18 @@ func (o HostingEnvironmentServiceDescriptionsOutput) ToHostingEnvironmentService
 	return o
 }
 
-// Host Id
 func (o HostingEnvironmentServiceDescriptionsOutput) HostId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v HostingEnvironmentServiceDescriptions) *string { return v.HostId }).(pulumi.StringPtrOutput)
 }
 
-// Hosting environment Id
 func (o HostingEnvironmentServiceDescriptionsOutput) HostingEnvironmentId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v HostingEnvironmentServiceDescriptions) *string { return v.HostingEnvironmentId }).(pulumi.StringPtrOutput)
 }
 
-// service url to use
 func (o HostingEnvironmentServiceDescriptionsOutput) ServiceUrl() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v HostingEnvironmentServiceDescriptions) *string { return v.ServiceUrl }).(pulumi.StringPtrOutput)
 }
 
-// When the backend url is in same ASE, for performance reason this flag can be set to true
-//             If WebApp.DisableHostNames is also set it improves the security by making the back end accessible only
-//             via API calls
-//             Note: calls will fail if this option is used but back end is not on the same ASE
 func (o HostingEnvironmentServiceDescriptionsOutput) UseInternalRouting() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v HostingEnvironmentServiceDescriptions) *bool { return v.UseInternalRouting }).(pulumi.BoolPtrOutput)
 }
@@ -6130,19 +5386,11 @@ func (o HostingEnvironmentServiceDescriptionsArrayOutput) Index(i pulumi.IntInpu
 	}).(HostingEnvironmentServiceDescriptionsOutput)
 }
 
-// Back end service per ASE
 type HostingEnvironmentServiceDescriptionsResponse struct {
-	// Host Id
-	HostId *string `pulumi:"hostId"`
-	// Hosting environment Id
+	HostId               *string `pulumi:"hostId"`
 	HostingEnvironmentId *string `pulumi:"hostingEnvironmentId"`
-	// service url to use
-	ServiceUrl *string `pulumi:"serviceUrl"`
-	// When the backend url is in same ASE, for performance reason this flag can be set to true
-	//             If WebApp.DisableHostNames is also set it improves the security by making the back end accessible only
-	//             via API calls
-	//             Note: calls will fail if this option is used but back end is not on the same ASE
-	UseInternalRouting *bool `pulumi:"useInternalRouting"`
+	ServiceUrl           *string `pulumi:"serviceUrl"`
+	UseInternalRouting   *bool   `pulumi:"useInternalRouting"`
 }
 
 // HostingEnvironmentServiceDescriptionsResponseInput is an input type that accepts HostingEnvironmentServiceDescriptionsResponseArgs and HostingEnvironmentServiceDescriptionsResponseOutput values.
@@ -6156,19 +5404,11 @@ type HostingEnvironmentServiceDescriptionsResponseInput interface {
 	ToHostingEnvironmentServiceDescriptionsResponseOutputWithContext(context.Context) HostingEnvironmentServiceDescriptionsResponseOutput
 }
 
-// Back end service per ASE
 type HostingEnvironmentServiceDescriptionsResponseArgs struct {
-	// Host Id
-	HostId pulumi.StringPtrInput `pulumi:"hostId"`
-	// Hosting environment Id
+	HostId               pulumi.StringPtrInput `pulumi:"hostId"`
 	HostingEnvironmentId pulumi.StringPtrInput `pulumi:"hostingEnvironmentId"`
-	// service url to use
-	ServiceUrl pulumi.StringPtrInput `pulumi:"serviceUrl"`
-	// When the backend url is in same ASE, for performance reason this flag can be set to true
-	//             If WebApp.DisableHostNames is also set it improves the security by making the back end accessible only
-	//             via API calls
-	//             Note: calls will fail if this option is used but back end is not on the same ASE
-	UseInternalRouting pulumi.BoolPtrInput `pulumi:"useInternalRouting"`
+	ServiceUrl           pulumi.StringPtrInput `pulumi:"serviceUrl"`
+	UseInternalRouting   pulumi.BoolPtrInput   `pulumi:"useInternalRouting"`
 }
 
 func (HostingEnvironmentServiceDescriptionsResponseArgs) ElementType() reflect.Type {
@@ -6208,7 +5448,6 @@ func (i HostingEnvironmentServiceDescriptionsResponseArray) ToHostingEnvironment
 	return pulumi.ToOutputWithContext(ctx, i).(HostingEnvironmentServiceDescriptionsResponseArrayOutput)
 }
 
-// Back end service per ASE
 type HostingEnvironmentServiceDescriptionsResponseOutput struct{ *pulumi.OutputState }
 
 func (HostingEnvironmentServiceDescriptionsResponseOutput) ElementType() reflect.Type {
@@ -6223,25 +5462,18 @@ func (o HostingEnvironmentServiceDescriptionsResponseOutput) ToHostingEnvironmen
 	return o
 }
 
-// Host Id
 func (o HostingEnvironmentServiceDescriptionsResponseOutput) HostId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v HostingEnvironmentServiceDescriptionsResponse) *string { return v.HostId }).(pulumi.StringPtrOutput)
 }
 
-// Hosting environment Id
 func (o HostingEnvironmentServiceDescriptionsResponseOutput) HostingEnvironmentId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v HostingEnvironmentServiceDescriptionsResponse) *string { return v.HostingEnvironmentId }).(pulumi.StringPtrOutput)
 }
 
-// service url to use
 func (o HostingEnvironmentServiceDescriptionsResponseOutput) ServiceUrl() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v HostingEnvironmentServiceDescriptionsResponse) *string { return v.ServiceUrl }).(pulumi.StringPtrOutput)
 }
 
-// When the backend url is in same ASE, for performance reason this flag can be set to true
-//             If WebApp.DisableHostNames is also set it improves the security by making the back end accessible only
-//             via API calls
-//             Note: calls will fail if this option is used but back end is not on the same ASE
 func (o HostingEnvironmentServiceDescriptionsResponseOutput) UseInternalRouting() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v HostingEnvironmentServiceDescriptionsResponse) *bool { return v.UseInternalRouting }).(pulumi.BoolPtrOutput)
 }
@@ -6266,22 +5498,14 @@ func (o HostingEnvironmentServiceDescriptionsResponseArrayOutput) Index(i pulumi
 	}).(HostingEnvironmentServiceDescriptionsResponseOutput)
 }
 
-// Custom logging setting values
 type ParameterCustomLoginSettingValues struct {
-	// Custom parameters.
 	CustomParameters map[string]CustomLoginSettingValue `pulumi:"customParameters"`
-	// Resource Id
-	Id *string `pulumi:"id"`
-	// Kind of resource
-	Kind *string `pulumi:"kind"`
-	// Resource Location
-	Location string `pulumi:"location"`
-	// Resource Name
-	Name *string `pulumi:"name"`
-	// Resource tags
-	Tags map[string]string `pulumi:"tags"`
-	// Resource type
-	Type *string `pulumi:"type"`
+	Id               *string                            `pulumi:"id"`
+	Kind             *string                            `pulumi:"kind"`
+	Location         string                             `pulumi:"location"`
+	Name             *string                            `pulumi:"name"`
+	Tags             map[string]string                  `pulumi:"tags"`
+	Type             *string                            `pulumi:"type"`
 }
 
 // ParameterCustomLoginSettingValuesInput is an input type that accepts ParameterCustomLoginSettingValuesArgs and ParameterCustomLoginSettingValuesOutput values.
@@ -6295,22 +5519,14 @@ type ParameterCustomLoginSettingValuesInput interface {
 	ToParameterCustomLoginSettingValuesOutputWithContext(context.Context) ParameterCustomLoginSettingValuesOutput
 }
 
-// Custom logging setting values
 type ParameterCustomLoginSettingValuesArgs struct {
-	// Custom parameters.
 	CustomParameters CustomLoginSettingValueMapInput `pulumi:"customParameters"`
-	// Resource Id
-	Id pulumi.StringPtrInput `pulumi:"id"`
-	// Kind of resource
-	Kind pulumi.StringPtrInput `pulumi:"kind"`
-	// Resource Location
-	Location pulumi.StringInput `pulumi:"location"`
-	// Resource Name
-	Name pulumi.StringPtrInput `pulumi:"name"`
-	// Resource tags
-	Tags pulumi.StringMapInput `pulumi:"tags"`
-	// Resource type
-	Type pulumi.StringPtrInput `pulumi:"type"`
+	Id               pulumi.StringPtrInput           `pulumi:"id"`
+	Kind             pulumi.StringPtrInput           `pulumi:"kind"`
+	Location         pulumi.StringInput              `pulumi:"location"`
+	Name             pulumi.StringPtrInput           `pulumi:"name"`
+	Tags             pulumi.StringMapInput           `pulumi:"tags"`
+	Type             pulumi.StringPtrInput           `pulumi:"type"`
 }
 
 func (ParameterCustomLoginSettingValuesArgs) ElementType() reflect.Type {
@@ -6350,7 +5566,6 @@ func (i ParameterCustomLoginSettingValuesMap) ToParameterCustomLoginSettingValue
 	return pulumi.ToOutputWithContext(ctx, i).(ParameterCustomLoginSettingValuesMapOutput)
 }
 
-// Custom logging setting values
 type ParameterCustomLoginSettingValuesOutput struct{ *pulumi.OutputState }
 
 func (ParameterCustomLoginSettingValuesOutput) ElementType() reflect.Type {
@@ -6365,39 +5580,32 @@ func (o ParameterCustomLoginSettingValuesOutput) ToParameterCustomLoginSettingVa
 	return o
 }
 
-// Custom parameters.
 func (o ParameterCustomLoginSettingValuesOutput) CustomParameters() CustomLoginSettingValueMapOutput {
 	return o.ApplyT(func(v ParameterCustomLoginSettingValues) map[string]CustomLoginSettingValue {
 		return v.CustomParameters
 	}).(CustomLoginSettingValueMapOutput)
 }
 
-// Resource Id
 func (o ParameterCustomLoginSettingValuesOutput) Id() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ParameterCustomLoginSettingValues) *string { return v.Id }).(pulumi.StringPtrOutput)
 }
 
-// Kind of resource
 func (o ParameterCustomLoginSettingValuesOutput) Kind() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ParameterCustomLoginSettingValues) *string { return v.Kind }).(pulumi.StringPtrOutput)
 }
 
-// Resource Location
 func (o ParameterCustomLoginSettingValuesOutput) Location() pulumi.StringOutput {
 	return o.ApplyT(func(v ParameterCustomLoginSettingValues) string { return v.Location }).(pulumi.StringOutput)
 }
 
-// Resource Name
 func (o ParameterCustomLoginSettingValuesOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ParameterCustomLoginSettingValues) *string { return v.Name }).(pulumi.StringPtrOutput)
 }
 
-// Resource tags
 func (o ParameterCustomLoginSettingValuesOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v ParameterCustomLoginSettingValues) map[string]string { return v.Tags }).(pulumi.StringMapOutput)
 }
 
-// Resource type
 func (o ParameterCustomLoginSettingValuesOutput) Type() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ParameterCustomLoginSettingValues) *string { return v.Type }).(pulumi.StringPtrOutput)
 }
@@ -6422,22 +5630,14 @@ func (o ParameterCustomLoginSettingValuesMapOutput) MapIndex(k pulumi.StringInpu
 	}).(ParameterCustomLoginSettingValuesOutput)
 }
 
-// Custom logging setting values
 type ParameterCustomLoginSettingValuesResponse struct {
-	// Custom parameters.
 	CustomParameters map[string]CustomLoginSettingValueResponse `pulumi:"customParameters"`
-	// Resource Id
-	Id *string `pulumi:"id"`
-	// Kind of resource
-	Kind *string `pulumi:"kind"`
-	// Resource Location
-	Location string `pulumi:"location"`
-	// Resource Name
-	Name *string `pulumi:"name"`
-	// Resource tags
-	Tags map[string]string `pulumi:"tags"`
-	// Resource type
-	Type *string `pulumi:"type"`
+	Id               *string                                    `pulumi:"id"`
+	Kind             *string                                    `pulumi:"kind"`
+	Location         string                                     `pulumi:"location"`
+	Name             *string                                    `pulumi:"name"`
+	Tags             map[string]string                          `pulumi:"tags"`
+	Type             *string                                    `pulumi:"type"`
 }
 
 // ParameterCustomLoginSettingValuesResponseInput is an input type that accepts ParameterCustomLoginSettingValuesResponseArgs and ParameterCustomLoginSettingValuesResponseOutput values.
@@ -6451,22 +5651,14 @@ type ParameterCustomLoginSettingValuesResponseInput interface {
 	ToParameterCustomLoginSettingValuesResponseOutputWithContext(context.Context) ParameterCustomLoginSettingValuesResponseOutput
 }
 
-// Custom logging setting values
 type ParameterCustomLoginSettingValuesResponseArgs struct {
-	// Custom parameters.
 	CustomParameters CustomLoginSettingValueResponseMapInput `pulumi:"customParameters"`
-	// Resource Id
-	Id pulumi.StringPtrInput `pulumi:"id"`
-	// Kind of resource
-	Kind pulumi.StringPtrInput `pulumi:"kind"`
-	// Resource Location
-	Location pulumi.StringInput `pulumi:"location"`
-	// Resource Name
-	Name pulumi.StringPtrInput `pulumi:"name"`
-	// Resource tags
-	Tags pulumi.StringMapInput `pulumi:"tags"`
-	// Resource type
-	Type pulumi.StringPtrInput `pulumi:"type"`
+	Id               pulumi.StringPtrInput                   `pulumi:"id"`
+	Kind             pulumi.StringPtrInput                   `pulumi:"kind"`
+	Location         pulumi.StringInput                      `pulumi:"location"`
+	Name             pulumi.StringPtrInput                   `pulumi:"name"`
+	Tags             pulumi.StringMapInput                   `pulumi:"tags"`
+	Type             pulumi.StringPtrInput                   `pulumi:"type"`
 }
 
 func (ParameterCustomLoginSettingValuesResponseArgs) ElementType() reflect.Type {
@@ -6506,7 +5698,6 @@ func (i ParameterCustomLoginSettingValuesResponseMap) ToParameterCustomLoginSett
 	return pulumi.ToOutputWithContext(ctx, i).(ParameterCustomLoginSettingValuesResponseMapOutput)
 }
 
-// Custom logging setting values
 type ParameterCustomLoginSettingValuesResponseOutput struct{ *pulumi.OutputState }
 
 func (ParameterCustomLoginSettingValuesResponseOutput) ElementType() reflect.Type {
@@ -6521,39 +5712,32 @@ func (o ParameterCustomLoginSettingValuesResponseOutput) ToParameterCustomLoginS
 	return o
 }
 
-// Custom parameters.
 func (o ParameterCustomLoginSettingValuesResponseOutput) CustomParameters() CustomLoginSettingValueResponseMapOutput {
 	return o.ApplyT(func(v ParameterCustomLoginSettingValuesResponse) map[string]CustomLoginSettingValueResponse {
 		return v.CustomParameters
 	}).(CustomLoginSettingValueResponseMapOutput)
 }
 
-// Resource Id
 func (o ParameterCustomLoginSettingValuesResponseOutput) Id() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ParameterCustomLoginSettingValuesResponse) *string { return v.Id }).(pulumi.StringPtrOutput)
 }
 
-// Kind of resource
 func (o ParameterCustomLoginSettingValuesResponseOutput) Kind() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ParameterCustomLoginSettingValuesResponse) *string { return v.Kind }).(pulumi.StringPtrOutput)
 }
 
-// Resource Location
 func (o ParameterCustomLoginSettingValuesResponseOutput) Location() pulumi.StringOutput {
 	return o.ApplyT(func(v ParameterCustomLoginSettingValuesResponse) string { return v.Location }).(pulumi.StringOutput)
 }
 
-// Resource Name
 func (o ParameterCustomLoginSettingValuesResponseOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ParameterCustomLoginSettingValuesResponse) *string { return v.Name }).(pulumi.StringPtrOutput)
 }
 
-// Resource tags
 func (o ParameterCustomLoginSettingValuesResponseOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v ParameterCustomLoginSettingValuesResponse) map[string]string { return v.Tags }).(pulumi.StringMapOutput)
 }
 
-// Resource type
 func (o ParameterCustomLoginSettingValuesResponseOutput) Type() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ParameterCustomLoginSettingValuesResponse) *string { return v.Type }).(pulumi.StringPtrOutput)
 }
@@ -6578,26 +5762,15 @@ func (o ParameterCustomLoginSettingValuesResponseMapOutput) MapIndex(k pulumi.St
 	}).(ParameterCustomLoginSettingValuesResponseOutput)
 }
 
-// Message envelope that contains the common Azure resource manager properties and the resource provider specific content
 type ResponseMessageEnvelopeApiEntity struct {
-	// Resource Id. Typically id is populated only for responses to GET requests. Caller is responsible for passing in this
-	//             value for GET requests only.
-	//             For example: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupId}/providers/Microsoft.Web/sites/{sitename}
-	Id *string `pulumi:"id"`
-	// Geo region resource belongs to e.g. SouthCentralUS, SouthEastAsia
-	Location *string `pulumi:"location"`
-	// Name of resource
-	Name *string `pulumi:"name"`
-	// Azure resource manager plan
-	Plan *ArmPlan `pulumi:"plan"`
-	// Resource specific properties
-	Properties *ApiEntity `pulumi:"properties"`
-	// Sku description of the resource
-	Sku *SkuDescription `pulumi:"sku"`
-	// Tags associated with resource
-	Tags map[string]string `pulumi:"tags"`
-	// Type of resource e.g Microsoft.Web/sites
-	Type *string `pulumi:"type"`
+	Id         *string           `pulumi:"id"`
+	Location   *string           `pulumi:"location"`
+	Name       *string           `pulumi:"name"`
+	Plan       *ArmPlan          `pulumi:"plan"`
+	Properties *ApiEntity        `pulumi:"properties"`
+	Sku        *SkuDescription   `pulumi:"sku"`
+	Tags       map[string]string `pulumi:"tags"`
+	Type       *string           `pulumi:"type"`
 }
 
 // ResponseMessageEnvelopeApiEntityInput is an input type that accepts ResponseMessageEnvelopeApiEntityArgs and ResponseMessageEnvelopeApiEntityOutput values.
@@ -6611,26 +5784,15 @@ type ResponseMessageEnvelopeApiEntityInput interface {
 	ToResponseMessageEnvelopeApiEntityOutputWithContext(context.Context) ResponseMessageEnvelopeApiEntityOutput
 }
 
-// Message envelope that contains the common Azure resource manager properties and the resource provider specific content
 type ResponseMessageEnvelopeApiEntityArgs struct {
-	// Resource Id. Typically id is populated only for responses to GET requests. Caller is responsible for passing in this
-	//             value for GET requests only.
-	//             For example: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupId}/providers/Microsoft.Web/sites/{sitename}
-	Id pulumi.StringPtrInput `pulumi:"id"`
-	// Geo region resource belongs to e.g. SouthCentralUS, SouthEastAsia
-	Location pulumi.StringPtrInput `pulumi:"location"`
-	// Name of resource
-	Name pulumi.StringPtrInput `pulumi:"name"`
-	// Azure resource manager plan
-	Plan ArmPlanPtrInput `pulumi:"plan"`
-	// Resource specific properties
-	Properties ApiEntityPtrInput `pulumi:"properties"`
-	// Sku description of the resource
-	Sku SkuDescriptionPtrInput `pulumi:"sku"`
-	// Tags associated with resource
-	Tags pulumi.StringMapInput `pulumi:"tags"`
-	// Type of resource e.g Microsoft.Web/sites
-	Type pulumi.StringPtrInput `pulumi:"type"`
+	Id         pulumi.StringPtrInput  `pulumi:"id"`
+	Location   pulumi.StringPtrInput  `pulumi:"location"`
+	Name       pulumi.StringPtrInput  `pulumi:"name"`
+	Plan       ArmPlanPtrInput        `pulumi:"plan"`
+	Properties ApiEntityPtrInput      `pulumi:"properties"`
+	Sku        SkuDescriptionPtrInput `pulumi:"sku"`
+	Tags       pulumi.StringMapInput  `pulumi:"tags"`
+	Type       pulumi.StringPtrInput  `pulumi:"type"`
 }
 
 func (ResponseMessageEnvelopeApiEntityArgs) ElementType() reflect.Type {
@@ -6686,7 +5848,6 @@ func (i *responseMessageEnvelopeApiEntityPtrType) ToResponseMessageEnvelopeApiEn
 	return pulumi.ToOutputWithContext(ctx, i).(ResponseMessageEnvelopeApiEntityPtrOutput)
 }
 
-// Message envelope that contains the common Azure resource manager properties and the resource provider specific content
 type ResponseMessageEnvelopeApiEntityOutput struct{ *pulumi.OutputState }
 
 func (ResponseMessageEnvelopeApiEntityOutput) ElementType() reflect.Type {
@@ -6706,49 +5867,39 @@ func (o ResponseMessageEnvelopeApiEntityOutput) ToResponseMessageEnvelopeApiEnti
 }
 
 func (o ResponseMessageEnvelopeApiEntityOutput) ToResponseMessageEnvelopeApiEntityPtrOutputWithContext(ctx context.Context) ResponseMessageEnvelopeApiEntityPtrOutput {
-	return o.ApplyT(func(v ResponseMessageEnvelopeApiEntity) *ResponseMessageEnvelopeApiEntity {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ResponseMessageEnvelopeApiEntity) *ResponseMessageEnvelopeApiEntity {
 		return &v
 	}).(ResponseMessageEnvelopeApiEntityPtrOutput)
 }
 
-// Resource Id. Typically id is populated only for responses to GET requests. Caller is responsible for passing in this
-//             value for GET requests only.
-//             For example: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupId}/providers/Microsoft.Web/sites/{sitename}
 func (o ResponseMessageEnvelopeApiEntityOutput) Id() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ResponseMessageEnvelopeApiEntity) *string { return v.Id }).(pulumi.StringPtrOutput)
 }
 
-// Geo region resource belongs to e.g. SouthCentralUS, SouthEastAsia
 func (o ResponseMessageEnvelopeApiEntityOutput) Location() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ResponseMessageEnvelopeApiEntity) *string { return v.Location }).(pulumi.StringPtrOutput)
 }
 
-// Name of resource
 func (o ResponseMessageEnvelopeApiEntityOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ResponseMessageEnvelopeApiEntity) *string { return v.Name }).(pulumi.StringPtrOutput)
 }
 
-// Azure resource manager plan
 func (o ResponseMessageEnvelopeApiEntityOutput) Plan() ArmPlanPtrOutput {
 	return o.ApplyT(func(v ResponseMessageEnvelopeApiEntity) *ArmPlan { return v.Plan }).(ArmPlanPtrOutput)
 }
 
-// Resource specific properties
 func (o ResponseMessageEnvelopeApiEntityOutput) Properties() ApiEntityPtrOutput {
 	return o.ApplyT(func(v ResponseMessageEnvelopeApiEntity) *ApiEntity { return v.Properties }).(ApiEntityPtrOutput)
 }
 
-// Sku description of the resource
 func (o ResponseMessageEnvelopeApiEntityOutput) Sku() SkuDescriptionPtrOutput {
 	return o.ApplyT(func(v ResponseMessageEnvelopeApiEntity) *SkuDescription { return v.Sku }).(SkuDescriptionPtrOutput)
 }
 
-// Tags associated with resource
 func (o ResponseMessageEnvelopeApiEntityOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v ResponseMessageEnvelopeApiEntity) map[string]string { return v.Tags }).(pulumi.StringMapOutput)
 }
 
-// Type of resource e.g Microsoft.Web/sites
 func (o ResponseMessageEnvelopeApiEntityOutput) Type() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ResponseMessageEnvelopeApiEntity) *string { return v.Type }).(pulumi.StringPtrOutput)
 }
@@ -6768,12 +5919,15 @@ func (o ResponseMessageEnvelopeApiEntityPtrOutput) ToResponseMessageEnvelopeApiE
 }
 
 func (o ResponseMessageEnvelopeApiEntityPtrOutput) Elem() ResponseMessageEnvelopeApiEntityOutput {
-	return o.ApplyT(func(v *ResponseMessageEnvelopeApiEntity) ResponseMessageEnvelopeApiEntity { return *v }).(ResponseMessageEnvelopeApiEntityOutput)
+	return o.ApplyT(func(v *ResponseMessageEnvelopeApiEntity) ResponseMessageEnvelopeApiEntity {
+		if v != nil {
+			return *v
+		}
+		var ret ResponseMessageEnvelopeApiEntity
+		return ret
+	}).(ResponseMessageEnvelopeApiEntityOutput)
 }
 
-// Resource Id. Typically id is populated only for responses to GET requests. Caller is responsible for passing in this
-//             value for GET requests only.
-//             For example: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupId}/providers/Microsoft.Web/sites/{sitename}
 func (o ResponseMessageEnvelopeApiEntityPtrOutput) Id() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ResponseMessageEnvelopeApiEntity) *string {
 		if v == nil {
@@ -6783,7 +5937,6 @@ func (o ResponseMessageEnvelopeApiEntityPtrOutput) Id() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Geo region resource belongs to e.g. SouthCentralUS, SouthEastAsia
 func (o ResponseMessageEnvelopeApiEntityPtrOutput) Location() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ResponseMessageEnvelopeApiEntity) *string {
 		if v == nil {
@@ -6793,7 +5946,6 @@ func (o ResponseMessageEnvelopeApiEntityPtrOutput) Location() pulumi.StringPtrOu
 	}).(pulumi.StringPtrOutput)
 }
 
-// Name of resource
 func (o ResponseMessageEnvelopeApiEntityPtrOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ResponseMessageEnvelopeApiEntity) *string {
 		if v == nil {
@@ -6803,7 +5955,6 @@ func (o ResponseMessageEnvelopeApiEntityPtrOutput) Name() pulumi.StringPtrOutput
 	}).(pulumi.StringPtrOutput)
 }
 
-// Azure resource manager plan
 func (o ResponseMessageEnvelopeApiEntityPtrOutput) Plan() ArmPlanPtrOutput {
 	return o.ApplyT(func(v *ResponseMessageEnvelopeApiEntity) *ArmPlan {
 		if v == nil {
@@ -6813,7 +5964,6 @@ func (o ResponseMessageEnvelopeApiEntityPtrOutput) Plan() ArmPlanPtrOutput {
 	}).(ArmPlanPtrOutput)
 }
 
-// Resource specific properties
 func (o ResponseMessageEnvelopeApiEntityPtrOutput) Properties() ApiEntityPtrOutput {
 	return o.ApplyT(func(v *ResponseMessageEnvelopeApiEntity) *ApiEntity {
 		if v == nil {
@@ -6823,7 +5973,6 @@ func (o ResponseMessageEnvelopeApiEntityPtrOutput) Properties() ApiEntityPtrOutp
 	}).(ApiEntityPtrOutput)
 }
 
-// Sku description of the resource
 func (o ResponseMessageEnvelopeApiEntityPtrOutput) Sku() SkuDescriptionPtrOutput {
 	return o.ApplyT(func(v *ResponseMessageEnvelopeApiEntity) *SkuDescription {
 		if v == nil {
@@ -6833,7 +5982,6 @@ func (o ResponseMessageEnvelopeApiEntityPtrOutput) Sku() SkuDescriptionPtrOutput
 	}).(SkuDescriptionPtrOutput)
 }
 
-// Tags associated with resource
 func (o ResponseMessageEnvelopeApiEntityPtrOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *ResponseMessageEnvelopeApiEntity) map[string]string {
 		if v == nil {
@@ -6843,7 +5991,6 @@ func (o ResponseMessageEnvelopeApiEntityPtrOutput) Tags() pulumi.StringMapOutput
 	}).(pulumi.StringMapOutput)
 }
 
-// Type of resource e.g Microsoft.Web/sites
 func (o ResponseMessageEnvelopeApiEntityPtrOutput) Type() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ResponseMessageEnvelopeApiEntity) *string {
 		if v == nil {
@@ -6853,26 +6000,15 @@ func (o ResponseMessageEnvelopeApiEntityPtrOutput) Type() pulumi.StringPtrOutput
 	}).(pulumi.StringPtrOutput)
 }
 
-// Message envelope that contains the common Azure resource manager properties and the resource provider specific content
 type ResponseMessageEnvelopeApiEntityResponse struct {
-	// Resource Id. Typically id is populated only for responses to GET requests. Caller is responsible for passing in this
-	//             value for GET requests only.
-	//             For example: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupId}/providers/Microsoft.Web/sites/{sitename}
-	Id *string `pulumi:"id"`
-	// Geo region resource belongs to e.g. SouthCentralUS, SouthEastAsia
-	Location *string `pulumi:"location"`
-	// Name of resource
-	Name *string `pulumi:"name"`
-	// Azure resource manager plan
-	Plan *ArmPlanResponse `pulumi:"plan"`
-	// Resource specific properties
-	Properties *ApiEntityResponse `pulumi:"properties"`
-	// Sku description of the resource
-	Sku *SkuDescriptionResponse `pulumi:"sku"`
-	// Tags associated with resource
-	Tags map[string]string `pulumi:"tags"`
-	// Type of resource e.g Microsoft.Web/sites
-	Type *string `pulumi:"type"`
+	Id         *string                 `pulumi:"id"`
+	Location   *string                 `pulumi:"location"`
+	Name       *string                 `pulumi:"name"`
+	Plan       *ArmPlanResponse        `pulumi:"plan"`
+	Properties *ApiEntityResponse      `pulumi:"properties"`
+	Sku        *SkuDescriptionResponse `pulumi:"sku"`
+	Tags       map[string]string       `pulumi:"tags"`
+	Type       *string                 `pulumi:"type"`
 }
 
 // ResponseMessageEnvelopeApiEntityResponseInput is an input type that accepts ResponseMessageEnvelopeApiEntityResponseArgs and ResponseMessageEnvelopeApiEntityResponseOutput values.
@@ -6886,26 +6022,15 @@ type ResponseMessageEnvelopeApiEntityResponseInput interface {
 	ToResponseMessageEnvelopeApiEntityResponseOutputWithContext(context.Context) ResponseMessageEnvelopeApiEntityResponseOutput
 }
 
-// Message envelope that contains the common Azure resource manager properties and the resource provider specific content
 type ResponseMessageEnvelopeApiEntityResponseArgs struct {
-	// Resource Id. Typically id is populated only for responses to GET requests. Caller is responsible for passing in this
-	//             value for GET requests only.
-	//             For example: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupId}/providers/Microsoft.Web/sites/{sitename}
-	Id pulumi.StringPtrInput `pulumi:"id"`
-	// Geo region resource belongs to e.g. SouthCentralUS, SouthEastAsia
-	Location pulumi.StringPtrInput `pulumi:"location"`
-	// Name of resource
-	Name pulumi.StringPtrInput `pulumi:"name"`
-	// Azure resource manager plan
-	Plan ArmPlanResponsePtrInput `pulumi:"plan"`
-	// Resource specific properties
-	Properties ApiEntityResponsePtrInput `pulumi:"properties"`
-	// Sku description of the resource
-	Sku SkuDescriptionResponsePtrInput `pulumi:"sku"`
-	// Tags associated with resource
-	Tags pulumi.StringMapInput `pulumi:"tags"`
-	// Type of resource e.g Microsoft.Web/sites
-	Type pulumi.StringPtrInput `pulumi:"type"`
+	Id         pulumi.StringPtrInput          `pulumi:"id"`
+	Location   pulumi.StringPtrInput          `pulumi:"location"`
+	Name       pulumi.StringPtrInput          `pulumi:"name"`
+	Plan       ArmPlanResponsePtrInput        `pulumi:"plan"`
+	Properties ApiEntityResponsePtrInput      `pulumi:"properties"`
+	Sku        SkuDescriptionResponsePtrInput `pulumi:"sku"`
+	Tags       pulumi.StringMapInput          `pulumi:"tags"`
+	Type       pulumi.StringPtrInput          `pulumi:"type"`
 }
 
 func (ResponseMessageEnvelopeApiEntityResponseArgs) ElementType() reflect.Type {
@@ -6961,7 +6086,6 @@ func (i *responseMessageEnvelopeApiEntityResponsePtrType) ToResponseMessageEnvel
 	return pulumi.ToOutputWithContext(ctx, i).(ResponseMessageEnvelopeApiEntityResponsePtrOutput)
 }
 
-// Message envelope that contains the common Azure resource manager properties and the resource provider specific content
 type ResponseMessageEnvelopeApiEntityResponseOutput struct{ *pulumi.OutputState }
 
 func (ResponseMessageEnvelopeApiEntityResponseOutput) ElementType() reflect.Type {
@@ -6981,49 +6105,39 @@ func (o ResponseMessageEnvelopeApiEntityResponseOutput) ToResponseMessageEnvelop
 }
 
 func (o ResponseMessageEnvelopeApiEntityResponseOutput) ToResponseMessageEnvelopeApiEntityResponsePtrOutputWithContext(ctx context.Context) ResponseMessageEnvelopeApiEntityResponsePtrOutput {
-	return o.ApplyT(func(v ResponseMessageEnvelopeApiEntityResponse) *ResponseMessageEnvelopeApiEntityResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ResponseMessageEnvelopeApiEntityResponse) *ResponseMessageEnvelopeApiEntityResponse {
 		return &v
 	}).(ResponseMessageEnvelopeApiEntityResponsePtrOutput)
 }
 
-// Resource Id. Typically id is populated only for responses to GET requests. Caller is responsible for passing in this
-//             value for GET requests only.
-//             For example: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupId}/providers/Microsoft.Web/sites/{sitename}
 func (o ResponseMessageEnvelopeApiEntityResponseOutput) Id() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ResponseMessageEnvelopeApiEntityResponse) *string { return v.Id }).(pulumi.StringPtrOutput)
 }
 
-// Geo region resource belongs to e.g. SouthCentralUS, SouthEastAsia
 func (o ResponseMessageEnvelopeApiEntityResponseOutput) Location() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ResponseMessageEnvelopeApiEntityResponse) *string { return v.Location }).(pulumi.StringPtrOutput)
 }
 
-// Name of resource
 func (o ResponseMessageEnvelopeApiEntityResponseOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ResponseMessageEnvelopeApiEntityResponse) *string { return v.Name }).(pulumi.StringPtrOutput)
 }
 
-// Azure resource manager plan
 func (o ResponseMessageEnvelopeApiEntityResponseOutput) Plan() ArmPlanResponsePtrOutput {
 	return o.ApplyT(func(v ResponseMessageEnvelopeApiEntityResponse) *ArmPlanResponse { return v.Plan }).(ArmPlanResponsePtrOutput)
 }
 
-// Resource specific properties
 func (o ResponseMessageEnvelopeApiEntityResponseOutput) Properties() ApiEntityResponsePtrOutput {
 	return o.ApplyT(func(v ResponseMessageEnvelopeApiEntityResponse) *ApiEntityResponse { return v.Properties }).(ApiEntityResponsePtrOutput)
 }
 
-// Sku description of the resource
 func (o ResponseMessageEnvelopeApiEntityResponseOutput) Sku() SkuDescriptionResponsePtrOutput {
 	return o.ApplyT(func(v ResponseMessageEnvelopeApiEntityResponse) *SkuDescriptionResponse { return v.Sku }).(SkuDescriptionResponsePtrOutput)
 }
 
-// Tags associated with resource
 func (o ResponseMessageEnvelopeApiEntityResponseOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v ResponseMessageEnvelopeApiEntityResponse) map[string]string { return v.Tags }).(pulumi.StringMapOutput)
 }
 
-// Type of resource e.g Microsoft.Web/sites
 func (o ResponseMessageEnvelopeApiEntityResponseOutput) Type() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ResponseMessageEnvelopeApiEntityResponse) *string { return v.Type }).(pulumi.StringPtrOutput)
 }
@@ -7043,12 +6157,15 @@ func (o ResponseMessageEnvelopeApiEntityResponsePtrOutput) ToResponseMessageEnve
 }
 
 func (o ResponseMessageEnvelopeApiEntityResponsePtrOutput) Elem() ResponseMessageEnvelopeApiEntityResponseOutput {
-	return o.ApplyT(func(v *ResponseMessageEnvelopeApiEntityResponse) ResponseMessageEnvelopeApiEntityResponse { return *v }).(ResponseMessageEnvelopeApiEntityResponseOutput)
+	return o.ApplyT(func(v *ResponseMessageEnvelopeApiEntityResponse) ResponseMessageEnvelopeApiEntityResponse {
+		if v != nil {
+			return *v
+		}
+		var ret ResponseMessageEnvelopeApiEntityResponse
+		return ret
+	}).(ResponseMessageEnvelopeApiEntityResponseOutput)
 }
 
-// Resource Id. Typically id is populated only for responses to GET requests. Caller is responsible for passing in this
-//             value for GET requests only.
-//             For example: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupId}/providers/Microsoft.Web/sites/{sitename}
 func (o ResponseMessageEnvelopeApiEntityResponsePtrOutput) Id() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ResponseMessageEnvelopeApiEntityResponse) *string {
 		if v == nil {
@@ -7058,7 +6175,6 @@ func (o ResponseMessageEnvelopeApiEntityResponsePtrOutput) Id() pulumi.StringPtr
 	}).(pulumi.StringPtrOutput)
 }
 
-// Geo region resource belongs to e.g. SouthCentralUS, SouthEastAsia
 func (o ResponseMessageEnvelopeApiEntityResponsePtrOutput) Location() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ResponseMessageEnvelopeApiEntityResponse) *string {
 		if v == nil {
@@ -7068,7 +6184,6 @@ func (o ResponseMessageEnvelopeApiEntityResponsePtrOutput) Location() pulumi.Str
 	}).(pulumi.StringPtrOutput)
 }
 
-// Name of resource
 func (o ResponseMessageEnvelopeApiEntityResponsePtrOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ResponseMessageEnvelopeApiEntityResponse) *string {
 		if v == nil {
@@ -7078,7 +6193,6 @@ func (o ResponseMessageEnvelopeApiEntityResponsePtrOutput) Name() pulumi.StringP
 	}).(pulumi.StringPtrOutput)
 }
 
-// Azure resource manager plan
 func (o ResponseMessageEnvelopeApiEntityResponsePtrOutput) Plan() ArmPlanResponsePtrOutput {
 	return o.ApplyT(func(v *ResponseMessageEnvelopeApiEntityResponse) *ArmPlanResponse {
 		if v == nil {
@@ -7088,7 +6202,6 @@ func (o ResponseMessageEnvelopeApiEntityResponsePtrOutput) Plan() ArmPlanRespons
 	}).(ArmPlanResponsePtrOutput)
 }
 
-// Resource specific properties
 func (o ResponseMessageEnvelopeApiEntityResponsePtrOutput) Properties() ApiEntityResponsePtrOutput {
 	return o.ApplyT(func(v *ResponseMessageEnvelopeApiEntityResponse) *ApiEntityResponse {
 		if v == nil {
@@ -7098,7 +6211,6 @@ func (o ResponseMessageEnvelopeApiEntityResponsePtrOutput) Properties() ApiEntit
 	}).(ApiEntityResponsePtrOutput)
 }
 
-// Sku description of the resource
 func (o ResponseMessageEnvelopeApiEntityResponsePtrOutput) Sku() SkuDescriptionResponsePtrOutput {
 	return o.ApplyT(func(v *ResponseMessageEnvelopeApiEntityResponse) *SkuDescriptionResponse {
 		if v == nil {
@@ -7108,7 +6220,6 @@ func (o ResponseMessageEnvelopeApiEntityResponsePtrOutput) Sku() SkuDescriptionR
 	}).(SkuDescriptionResponsePtrOutput)
 }
 
-// Tags associated with resource
 func (o ResponseMessageEnvelopeApiEntityResponsePtrOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *ResponseMessageEnvelopeApiEntityResponse) map[string]string {
 		if v == nil {
@@ -7118,7 +6229,6 @@ func (o ResponseMessageEnvelopeApiEntityResponsePtrOutput) Tags() pulumi.StringM
 	}).(pulumi.StringMapOutput)
 }
 
-// Type of resource e.g Microsoft.Web/sites
 func (o ResponseMessageEnvelopeApiEntityResponsePtrOutput) Type() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ResponseMessageEnvelopeApiEntityResponse) *string {
 		if v == nil {
@@ -7128,18 +6238,12 @@ func (o ResponseMessageEnvelopeApiEntityResponsePtrOutput) Type() pulumi.StringP
 	}).(pulumi.StringPtrOutput)
 }
 
-// Describes a sku for a scalable resource
 type SkuDescription struct {
-	// Current number of instances assigned to the resource
-	Capacity *int `pulumi:"capacity"`
-	// Family code of the resource sku
-	Family *string `pulumi:"family"`
-	// Name of the resource sku
-	Name *string `pulumi:"name"`
-	// Size specifier of the resource sku
-	Size *string `pulumi:"size"`
-	// Service Tier of the resource sku
-	Tier *string `pulumi:"tier"`
+	Capacity *int    `pulumi:"capacity"`
+	Family   *string `pulumi:"family"`
+	Name     *string `pulumi:"name"`
+	Size     *string `pulumi:"size"`
+	Tier     *string `pulumi:"tier"`
 }
 
 // SkuDescriptionInput is an input type that accepts SkuDescriptionArgs and SkuDescriptionOutput values.
@@ -7153,18 +6257,12 @@ type SkuDescriptionInput interface {
 	ToSkuDescriptionOutputWithContext(context.Context) SkuDescriptionOutput
 }
 
-// Describes a sku for a scalable resource
 type SkuDescriptionArgs struct {
-	// Current number of instances assigned to the resource
-	Capacity pulumi.IntPtrInput `pulumi:"capacity"`
-	// Family code of the resource sku
-	Family pulumi.StringPtrInput `pulumi:"family"`
-	// Name of the resource sku
-	Name pulumi.StringPtrInput `pulumi:"name"`
-	// Size specifier of the resource sku
-	Size pulumi.StringPtrInput `pulumi:"size"`
-	// Service Tier of the resource sku
-	Tier pulumi.StringPtrInput `pulumi:"tier"`
+	Capacity pulumi.IntPtrInput    `pulumi:"capacity"`
+	Family   pulumi.StringPtrInput `pulumi:"family"`
+	Name     pulumi.StringPtrInput `pulumi:"name"`
+	Size     pulumi.StringPtrInput `pulumi:"size"`
+	Tier     pulumi.StringPtrInput `pulumi:"tier"`
 }
 
 func (SkuDescriptionArgs) ElementType() reflect.Type {
@@ -7220,7 +6318,6 @@ func (i *skuDescriptionPtrType) ToSkuDescriptionPtrOutputWithContext(ctx context
 	return pulumi.ToOutputWithContext(ctx, i).(SkuDescriptionPtrOutput)
 }
 
-// Describes a sku for a scalable resource
 type SkuDescriptionOutput struct{ *pulumi.OutputState }
 
 func (SkuDescriptionOutput) ElementType() reflect.Type {
@@ -7240,32 +6337,27 @@ func (o SkuDescriptionOutput) ToSkuDescriptionPtrOutput() SkuDescriptionPtrOutpu
 }
 
 func (o SkuDescriptionOutput) ToSkuDescriptionPtrOutputWithContext(ctx context.Context) SkuDescriptionPtrOutput {
-	return o.ApplyT(func(v SkuDescription) *SkuDescription {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v SkuDescription) *SkuDescription {
 		return &v
 	}).(SkuDescriptionPtrOutput)
 }
 
-// Current number of instances assigned to the resource
 func (o SkuDescriptionOutput) Capacity() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v SkuDescription) *int { return v.Capacity }).(pulumi.IntPtrOutput)
 }
 
-// Family code of the resource sku
 func (o SkuDescriptionOutput) Family() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SkuDescription) *string { return v.Family }).(pulumi.StringPtrOutput)
 }
 
-// Name of the resource sku
 func (o SkuDescriptionOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SkuDescription) *string { return v.Name }).(pulumi.StringPtrOutput)
 }
 
-// Size specifier of the resource sku
 func (o SkuDescriptionOutput) Size() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SkuDescription) *string { return v.Size }).(pulumi.StringPtrOutput)
 }
 
-// Service Tier of the resource sku
 func (o SkuDescriptionOutput) Tier() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SkuDescription) *string { return v.Tier }).(pulumi.StringPtrOutput)
 }
@@ -7285,10 +6377,15 @@ func (o SkuDescriptionPtrOutput) ToSkuDescriptionPtrOutputWithContext(ctx contex
 }
 
 func (o SkuDescriptionPtrOutput) Elem() SkuDescriptionOutput {
-	return o.ApplyT(func(v *SkuDescription) SkuDescription { return *v }).(SkuDescriptionOutput)
+	return o.ApplyT(func(v *SkuDescription) SkuDescription {
+		if v != nil {
+			return *v
+		}
+		var ret SkuDescription
+		return ret
+	}).(SkuDescriptionOutput)
 }
 
-// Current number of instances assigned to the resource
 func (o SkuDescriptionPtrOutput) Capacity() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *SkuDescription) *int {
 		if v == nil {
@@ -7298,7 +6395,6 @@ func (o SkuDescriptionPtrOutput) Capacity() pulumi.IntPtrOutput {
 	}).(pulumi.IntPtrOutput)
 }
 
-// Family code of the resource sku
 func (o SkuDescriptionPtrOutput) Family() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SkuDescription) *string {
 		if v == nil {
@@ -7308,7 +6404,6 @@ func (o SkuDescriptionPtrOutput) Family() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Name of the resource sku
 func (o SkuDescriptionPtrOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SkuDescription) *string {
 		if v == nil {
@@ -7318,7 +6413,6 @@ func (o SkuDescriptionPtrOutput) Name() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Size specifier of the resource sku
 func (o SkuDescriptionPtrOutput) Size() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SkuDescription) *string {
 		if v == nil {
@@ -7328,7 +6422,6 @@ func (o SkuDescriptionPtrOutput) Size() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Service Tier of the resource sku
 func (o SkuDescriptionPtrOutput) Tier() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SkuDescription) *string {
 		if v == nil {
@@ -7338,18 +6431,12 @@ func (o SkuDescriptionPtrOutput) Tier() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Describes a sku for a scalable resource
 type SkuDescriptionResponse struct {
-	// Current number of instances assigned to the resource
-	Capacity *int `pulumi:"capacity"`
-	// Family code of the resource sku
-	Family *string `pulumi:"family"`
-	// Name of the resource sku
-	Name *string `pulumi:"name"`
-	// Size specifier of the resource sku
-	Size *string `pulumi:"size"`
-	// Service Tier of the resource sku
-	Tier *string `pulumi:"tier"`
+	Capacity *int    `pulumi:"capacity"`
+	Family   *string `pulumi:"family"`
+	Name     *string `pulumi:"name"`
+	Size     *string `pulumi:"size"`
+	Tier     *string `pulumi:"tier"`
 }
 
 // SkuDescriptionResponseInput is an input type that accepts SkuDescriptionResponseArgs and SkuDescriptionResponseOutput values.
@@ -7363,18 +6450,12 @@ type SkuDescriptionResponseInput interface {
 	ToSkuDescriptionResponseOutputWithContext(context.Context) SkuDescriptionResponseOutput
 }
 
-// Describes a sku for a scalable resource
 type SkuDescriptionResponseArgs struct {
-	// Current number of instances assigned to the resource
-	Capacity pulumi.IntPtrInput `pulumi:"capacity"`
-	// Family code of the resource sku
-	Family pulumi.StringPtrInput `pulumi:"family"`
-	// Name of the resource sku
-	Name pulumi.StringPtrInput `pulumi:"name"`
-	// Size specifier of the resource sku
-	Size pulumi.StringPtrInput `pulumi:"size"`
-	// Service Tier of the resource sku
-	Tier pulumi.StringPtrInput `pulumi:"tier"`
+	Capacity pulumi.IntPtrInput    `pulumi:"capacity"`
+	Family   pulumi.StringPtrInput `pulumi:"family"`
+	Name     pulumi.StringPtrInput `pulumi:"name"`
+	Size     pulumi.StringPtrInput `pulumi:"size"`
+	Tier     pulumi.StringPtrInput `pulumi:"tier"`
 }
 
 func (SkuDescriptionResponseArgs) ElementType() reflect.Type {
@@ -7430,7 +6511,6 @@ func (i *skuDescriptionResponsePtrType) ToSkuDescriptionResponsePtrOutputWithCon
 	return pulumi.ToOutputWithContext(ctx, i).(SkuDescriptionResponsePtrOutput)
 }
 
-// Describes a sku for a scalable resource
 type SkuDescriptionResponseOutput struct{ *pulumi.OutputState }
 
 func (SkuDescriptionResponseOutput) ElementType() reflect.Type {
@@ -7450,32 +6530,27 @@ func (o SkuDescriptionResponseOutput) ToSkuDescriptionResponsePtrOutput() SkuDes
 }
 
 func (o SkuDescriptionResponseOutput) ToSkuDescriptionResponsePtrOutputWithContext(ctx context.Context) SkuDescriptionResponsePtrOutput {
-	return o.ApplyT(func(v SkuDescriptionResponse) *SkuDescriptionResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v SkuDescriptionResponse) *SkuDescriptionResponse {
 		return &v
 	}).(SkuDescriptionResponsePtrOutput)
 }
 
-// Current number of instances assigned to the resource
 func (o SkuDescriptionResponseOutput) Capacity() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v SkuDescriptionResponse) *int { return v.Capacity }).(pulumi.IntPtrOutput)
 }
 
-// Family code of the resource sku
 func (o SkuDescriptionResponseOutput) Family() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SkuDescriptionResponse) *string { return v.Family }).(pulumi.StringPtrOutput)
 }
 
-// Name of the resource sku
 func (o SkuDescriptionResponseOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SkuDescriptionResponse) *string { return v.Name }).(pulumi.StringPtrOutput)
 }
 
-// Size specifier of the resource sku
 func (o SkuDescriptionResponseOutput) Size() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SkuDescriptionResponse) *string { return v.Size }).(pulumi.StringPtrOutput)
 }
 
-// Service Tier of the resource sku
 func (o SkuDescriptionResponseOutput) Tier() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SkuDescriptionResponse) *string { return v.Tier }).(pulumi.StringPtrOutput)
 }
@@ -7495,10 +6570,15 @@ func (o SkuDescriptionResponsePtrOutput) ToSkuDescriptionResponsePtrOutputWithCo
 }
 
 func (o SkuDescriptionResponsePtrOutput) Elem() SkuDescriptionResponseOutput {
-	return o.ApplyT(func(v *SkuDescriptionResponse) SkuDescriptionResponse { return *v }).(SkuDescriptionResponseOutput)
+	return o.ApplyT(func(v *SkuDescriptionResponse) SkuDescriptionResponse {
+		if v != nil {
+			return *v
+		}
+		var ret SkuDescriptionResponse
+		return ret
+	}).(SkuDescriptionResponseOutput)
 }
 
-// Current number of instances assigned to the resource
 func (o SkuDescriptionResponsePtrOutput) Capacity() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *SkuDescriptionResponse) *int {
 		if v == nil {
@@ -7508,7 +6588,6 @@ func (o SkuDescriptionResponsePtrOutput) Capacity() pulumi.IntPtrOutput {
 	}).(pulumi.IntPtrOutput)
 }
 
-// Family code of the resource sku
 func (o SkuDescriptionResponsePtrOutput) Family() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SkuDescriptionResponse) *string {
 		if v == nil {
@@ -7518,7 +6597,6 @@ func (o SkuDescriptionResponsePtrOutput) Family() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Name of the resource sku
 func (o SkuDescriptionResponsePtrOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SkuDescriptionResponse) *string {
 		if v == nil {
@@ -7528,7 +6606,6 @@ func (o SkuDescriptionResponsePtrOutput) Name() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Size specifier of the resource sku
 func (o SkuDescriptionResponsePtrOutput) Size() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SkuDescriptionResponse) *string {
 		if v == nil {
@@ -7538,7 +6615,6 @@ func (o SkuDescriptionResponsePtrOutput) Size() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Service Tier of the resource sku
 func (o SkuDescriptionResponsePtrOutput) Tier() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SkuDescriptionResponse) *string {
 		if v == nil {

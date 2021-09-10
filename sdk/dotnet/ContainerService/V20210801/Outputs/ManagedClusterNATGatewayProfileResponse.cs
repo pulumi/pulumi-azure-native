@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.ContainerService.V20210801.Outputs
 {
 
+    /// <summary>
+    /// Profile of the managed cluster NAT gateway.
+    /// </summary>
     [OutputType]
     public sealed class ManagedClusterNATGatewayProfileResponse
     {

@@ -175,9 +175,7 @@ func (i *TemplateArtifact) ToTemplateArtifactOutputWithContext(ctx context.Conte
 	return pulumi.ToOutputWithContext(ctx, i).(TemplateArtifactOutput)
 }
 
-type TemplateArtifactOutput struct {
-	*pulumi.OutputState
-}
+type TemplateArtifactOutput struct{ *pulumi.OutputState }
 
 func (TemplateArtifactOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*TemplateArtifact)(nil))

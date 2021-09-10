@@ -11,22 +11,15 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// An Azure Cosmos DB Cassandra table.
 type DatabaseAccountCassandraTable struct {
 	pulumi.CustomResourceState
 
-	// Time to live of the Cosmos DB Cassandra table
-	DefaultTtl pulumi.IntPtrOutput `pulumi:"defaultTtl"`
-	// The location of the resource group to which the resource belongs.
-	Location pulumi.StringPtrOutput `pulumi:"location"`
-	// The name of the database account.
-	Name pulumi.StringOutput `pulumi:"name"`
-	// Schema of the Cosmos DB Cassandra table
-	Schema CassandraSchemaResponsePtrOutput `pulumi:"schema"`
-	// Tags are a list of key-value pairs that describe the resource. These tags can be used in viewing and grouping this resource (across resource groups). A maximum of 15 tags can be provided for a resource. Each tag must have a key no greater than 128 characters and value no greater than 256 characters. For example, the default experience for a template type is set with "defaultExperience": "Cassandra". Current "defaultExperience" values also include "Table", "Graph", "DocumentDB", and "MongoDB".
-	Tags pulumi.StringMapOutput `pulumi:"tags"`
-	// The type of Azure resource.
-	Type pulumi.StringOutput `pulumi:"type"`
+	DefaultTtl pulumi.IntPtrOutput              `pulumi:"defaultTtl"`
+	Location   pulumi.StringPtrOutput           `pulumi:"location"`
+	Name       pulumi.StringOutput              `pulumi:"name"`
+	Schema     CassandraSchemaResponsePtrOutput `pulumi:"schema"`
+	Tags       pulumi.StringMapOutput           `pulumi:"tags"`
+	Type       pulumi.StringOutput              `pulumi:"type"`
 }
 
 // NewDatabaseAccountCassandraTable registers a new resource with the given unique name, arguments, and options.
@@ -203,34 +196,22 @@ func (DatabaseAccountCassandraTableState) ElementType() reflect.Type {
 }
 
 type databaseAccountCassandraTableArgs struct {
-	// Cosmos DB database account name.
-	AccountName string `pulumi:"accountName"`
-	// Cosmos DB keyspace name.
-	KeyspaceName string `pulumi:"keyspaceName"`
-	// A key-value pair of options to be applied for the request. This corresponds to the headers sent with the request.
-	Options map[string]string `pulumi:"options"`
-	// The standard JSON format of a Cassandra table
-	Resource CassandraTableResource `pulumi:"resource"`
-	// Name of an Azure resource group.
-	ResourceGroupName string `pulumi:"resourceGroupName"`
-	// Cosmos DB table name.
-	TableName *string `pulumi:"tableName"`
+	AccountName       string                 `pulumi:"accountName"`
+	KeyspaceName      string                 `pulumi:"keyspaceName"`
+	Options           map[string]string      `pulumi:"options"`
+	Resource          CassandraTableResource `pulumi:"resource"`
+	ResourceGroupName string                 `pulumi:"resourceGroupName"`
+	TableName         *string                `pulumi:"tableName"`
 }
 
 // The set of arguments for constructing a DatabaseAccountCassandraTable resource.
 type DatabaseAccountCassandraTableArgs struct {
-	// Cosmos DB database account name.
-	AccountName pulumi.StringInput
-	// Cosmos DB keyspace name.
-	KeyspaceName pulumi.StringInput
-	// A key-value pair of options to be applied for the request. This corresponds to the headers sent with the request.
-	Options pulumi.StringMapInput
-	// The standard JSON format of a Cassandra table
-	Resource CassandraTableResourceInput
-	// Name of an Azure resource group.
+	AccountName       pulumi.StringInput
+	KeyspaceName      pulumi.StringInput
+	Options           pulumi.StringMapInput
+	Resource          CassandraTableResourceInput
 	ResourceGroupName pulumi.StringInput
-	// Cosmos DB table name.
-	TableName pulumi.StringPtrInput
+	TableName         pulumi.StringPtrInput
 }
 
 func (DatabaseAccountCassandraTableArgs) ElementType() reflect.Type {
@@ -256,9 +237,7 @@ func (i *DatabaseAccountCassandraTable) ToDatabaseAccountCassandraTableOutputWit
 	return pulumi.ToOutputWithContext(ctx, i).(DatabaseAccountCassandraTableOutput)
 }
 
-type DatabaseAccountCassandraTableOutput struct {
-	*pulumi.OutputState
-}
+type DatabaseAccountCassandraTableOutput struct{ *pulumi.OutputState }
 
 func (DatabaseAccountCassandraTableOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*DatabaseAccountCassandraTable)(nil))

@@ -11,16 +11,12 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Policy Contract details.
 type ProductPolicy struct {
 	pulumi.CustomResourceState
 
-	// Resource name.
-	Name pulumi.StringOutput `pulumi:"name"`
-	// Json escaped Xml Encoded contents of the Policy.
+	Name          pulumi.StringOutput `pulumi:"name"`
 	PolicyContent pulumi.StringOutput `pulumi:"policyContent"`
-	// Resource type for API Management resource.
-	Type pulumi.StringOutput `pulumi:"type"`
+	Type          pulumi.StringOutput `pulumi:"type"`
 }
 
 // NewProductPolicy registers a new resource with the given unique name, arguments, and options.
@@ -134,30 +130,20 @@ func (ProductPolicyState) ElementType() reflect.Type {
 }
 
 type productPolicyArgs struct {
-	// Json escaped Xml Encoded contents of the Policy.
-	PolicyContent string `pulumi:"policyContent"`
-	// The identifier of the Policy.
-	PolicyId *string `pulumi:"policyId"`
-	// Product identifier. Must be unique in the current API Management service instance.
-	ProductId string `pulumi:"productId"`
-	// The name of the resource group.
-	ResourceGroupName string `pulumi:"resourceGroupName"`
-	// The name of the API Management service.
-	ServiceName string `pulumi:"serviceName"`
+	PolicyContent     string  `pulumi:"policyContent"`
+	PolicyId          *string `pulumi:"policyId"`
+	ProductId         string  `pulumi:"productId"`
+	ResourceGroupName string  `pulumi:"resourceGroupName"`
+	ServiceName       string  `pulumi:"serviceName"`
 }
 
 // The set of arguments for constructing a ProductPolicy resource.
 type ProductPolicyArgs struct {
-	// Json escaped Xml Encoded contents of the Policy.
-	PolicyContent pulumi.StringInput
-	// The identifier of the Policy.
-	PolicyId pulumi.StringPtrInput
-	// Product identifier. Must be unique in the current API Management service instance.
-	ProductId pulumi.StringInput
-	// The name of the resource group.
+	PolicyContent     pulumi.StringInput
+	PolicyId          pulumi.StringPtrInput
+	ProductId         pulumi.StringInput
 	ResourceGroupName pulumi.StringInput
-	// The name of the API Management service.
-	ServiceName pulumi.StringInput
+	ServiceName       pulumi.StringInput
 }
 
 func (ProductPolicyArgs) ElementType() reflect.Type {
@@ -183,9 +169,7 @@ func (i *ProductPolicy) ToProductPolicyOutputWithContext(ctx context.Context) Pr
 	return pulumi.ToOutputWithContext(ctx, i).(ProductPolicyOutput)
 }
 
-type ProductPolicyOutput struct {
-	*pulumi.OutputState
-}
+type ProductPolicyOutput struct{ *pulumi.OutputState }
 
 func (ProductPolicyOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*ProductPolicy)(nil))

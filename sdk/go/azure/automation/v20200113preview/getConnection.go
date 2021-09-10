@@ -7,7 +7,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Definition of the connection.
 func LookupConnection(ctx *pulumi.Context, args *LookupConnectionArgs, opts ...pulumi.InvokeOption) (*LookupConnectionResult, error) {
 	var rv LookupConnectionResult
 	err := ctx.Invoke("azure-native:automation/v20200113preview:getConnection", args, &rv, opts...)
@@ -18,30 +17,19 @@ func LookupConnection(ctx *pulumi.Context, args *LookupConnectionArgs, opts ...p
 }
 
 type LookupConnectionArgs struct {
-	// The name of the automation account.
 	AutomationAccountName string `pulumi:"automationAccountName"`
-	// The name of connection.
-	ConnectionName string `pulumi:"connectionName"`
-	// Name of an Azure Resource group.
-	ResourceGroupName string `pulumi:"resourceGroupName"`
+	ConnectionName        string `pulumi:"connectionName"`
+	ResourceGroupName     string `pulumi:"resourceGroupName"`
 }
 
 // Definition of the connection.
 type LookupConnectionResult struct {
-	// Gets or sets the connectionType of the connection.
-	ConnectionType *ConnectionTypeAssociationPropertyResponse `pulumi:"connectionType"`
-	// Gets the creation time.
-	CreationTime string `pulumi:"creationTime"`
-	// Gets or sets the description.
-	Description *string `pulumi:"description"`
-	// Gets the field definition values of the connection.
-	FieldDefinitionValues map[string]string `pulumi:"fieldDefinitionValues"`
-	// Fully qualified resource Id for the resource
-	Id string `pulumi:"id"`
-	// Gets the last modified time.
-	LastModifiedTime string `pulumi:"lastModifiedTime"`
-	// The name of the resource
-	Name string `pulumi:"name"`
-	// The type of the resource.
-	Type string `pulumi:"type"`
+	ConnectionType        *ConnectionTypeAssociationPropertyResponse `pulumi:"connectionType"`
+	CreationTime          string                                     `pulumi:"creationTime"`
+	Description           *string                                    `pulumi:"description"`
+	FieldDefinitionValues map[string]string                          `pulumi:"fieldDefinitionValues"`
+	Id                    string                                     `pulumi:"id"`
+	LastModifiedTime      string                                     `pulumi:"lastModifiedTime"`
+	Name                  string                                     `pulumi:"name"`
+	Type                  string                                     `pulumi:"type"`
 }

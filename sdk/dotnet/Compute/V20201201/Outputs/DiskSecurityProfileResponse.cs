@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.Compute.V20201201.Outputs
 {
 
+    /// <summary>
+    /// Contains the security related information for the resource.
+    /// </summary>
     [OutputType]
     public sealed class DiskSecurityProfileResponse
     {

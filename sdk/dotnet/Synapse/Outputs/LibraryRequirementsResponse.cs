@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.Synapse.Outputs
 {
 
+    /// <summary>
+    /// Library requirements for a Big Data pool powered by Apache Spark
+    /// </summary>
     [OutputType]
     public sealed class LibraryRequirementsResponse
     {

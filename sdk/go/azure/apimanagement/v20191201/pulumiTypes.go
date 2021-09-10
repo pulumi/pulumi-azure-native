@@ -10,16 +10,11 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Description of an additional API Management resource location.
 type AdditionalLocation struct {
-	// Property only valid for an Api Management service deployed in multiple locations. This can be used to disable the gateway in this additional location.
-	DisableGateway *bool `pulumi:"disableGateway"`
-	// The location name of the additional region among Azure Data center regions.
-	Location string `pulumi:"location"`
-	// SKU properties of the API Management service.
-	Sku ApiManagementServiceSkuProperties `pulumi:"sku"`
-	// Virtual network configuration for the location.
-	VirtualNetworkConfiguration *VirtualNetworkConfiguration `pulumi:"virtualNetworkConfiguration"`
+	DisableGateway              *bool                             `pulumi:"disableGateway"`
+	Location                    string                            `pulumi:"location"`
+	Sku                         ApiManagementServiceSkuProperties `pulumi:"sku"`
+	VirtualNetworkConfiguration *VirtualNetworkConfiguration      `pulumi:"virtualNetworkConfiguration"`
 }
 
 // AdditionalLocationInput is an input type that accepts AdditionalLocationArgs and AdditionalLocationOutput values.
@@ -33,16 +28,11 @@ type AdditionalLocationInput interface {
 	ToAdditionalLocationOutputWithContext(context.Context) AdditionalLocationOutput
 }
 
-// Description of an additional API Management resource location.
 type AdditionalLocationArgs struct {
-	// Property only valid for an Api Management service deployed in multiple locations. This can be used to disable the gateway in this additional location.
-	DisableGateway pulumi.BoolPtrInput `pulumi:"disableGateway"`
-	// The location name of the additional region among Azure Data center regions.
-	Location pulumi.StringInput `pulumi:"location"`
-	// SKU properties of the API Management service.
-	Sku ApiManagementServiceSkuPropertiesInput `pulumi:"sku"`
-	// Virtual network configuration for the location.
-	VirtualNetworkConfiguration VirtualNetworkConfigurationPtrInput `pulumi:"virtualNetworkConfiguration"`
+	DisableGateway              pulumi.BoolPtrInput                    `pulumi:"disableGateway"`
+	Location                    pulumi.StringInput                     `pulumi:"location"`
+	Sku                         ApiManagementServiceSkuPropertiesInput `pulumi:"sku"`
+	VirtualNetworkConfiguration VirtualNetworkConfigurationPtrInput    `pulumi:"virtualNetworkConfiguration"`
 }
 
 func (AdditionalLocationArgs) ElementType() reflect.Type {
@@ -82,7 +72,6 @@ func (i AdditionalLocationArray) ToAdditionalLocationArrayOutputWithContext(ctx 
 	return pulumi.ToOutputWithContext(ctx, i).(AdditionalLocationArrayOutput)
 }
 
-// Description of an additional API Management resource location.
 type AdditionalLocationOutput struct{ *pulumi.OutputState }
 
 func (AdditionalLocationOutput) ElementType() reflect.Type {
@@ -97,22 +86,18 @@ func (o AdditionalLocationOutput) ToAdditionalLocationOutputWithContext(ctx cont
 	return o
 }
 
-// Property only valid for an Api Management service deployed in multiple locations. This can be used to disable the gateway in this additional location.
 func (o AdditionalLocationOutput) DisableGateway() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v AdditionalLocation) *bool { return v.DisableGateway }).(pulumi.BoolPtrOutput)
 }
 
-// The location name of the additional region among Azure Data center regions.
 func (o AdditionalLocationOutput) Location() pulumi.StringOutput {
 	return o.ApplyT(func(v AdditionalLocation) string { return v.Location }).(pulumi.StringOutput)
 }
 
-// SKU properties of the API Management service.
 func (o AdditionalLocationOutput) Sku() ApiManagementServiceSkuPropertiesOutput {
 	return o.ApplyT(func(v AdditionalLocation) ApiManagementServiceSkuProperties { return v.Sku }).(ApiManagementServiceSkuPropertiesOutput)
 }
 
-// Virtual network configuration for the location.
 func (o AdditionalLocationOutput) VirtualNetworkConfiguration() VirtualNetworkConfigurationPtrOutput {
 	return o.ApplyT(func(v AdditionalLocation) *VirtualNetworkConfiguration { return v.VirtualNetworkConfiguration }).(VirtualNetworkConfigurationPtrOutput)
 }
@@ -137,22 +122,14 @@ func (o AdditionalLocationArrayOutput) Index(i pulumi.IntInput) AdditionalLocati
 	}).(AdditionalLocationOutput)
 }
 
-// Description of an additional API Management resource location.
 type AdditionalLocationResponse struct {
-	// Property only valid for an Api Management service deployed in multiple locations. This can be used to disable the gateway in this additional location.
-	DisableGateway *bool `pulumi:"disableGateway"`
-	// Gateway URL of the API Management service in the Region.
-	GatewayRegionalUrl string `pulumi:"gatewayRegionalUrl"`
-	// The location name of the additional region among Azure Data center regions.
-	Location string `pulumi:"location"`
-	// Private Static Load Balanced IP addresses of the API Management service which is deployed in an Internal Virtual Network in a particular additional location. Available only for Basic, Standard and Premium SKU.
-	PrivateIPAddresses []string `pulumi:"privateIPAddresses"`
-	// Public Static Load Balanced IP addresses of the API Management service in the additional location. Available only for Basic, Standard and Premium SKU.
-	PublicIPAddresses []string `pulumi:"publicIPAddresses"`
-	// SKU properties of the API Management service.
-	Sku ApiManagementServiceSkuPropertiesResponse `pulumi:"sku"`
-	// Virtual network configuration for the location.
-	VirtualNetworkConfiguration *VirtualNetworkConfigurationResponse `pulumi:"virtualNetworkConfiguration"`
+	DisableGateway              *bool                                     `pulumi:"disableGateway"`
+	GatewayRegionalUrl          string                                    `pulumi:"gatewayRegionalUrl"`
+	Location                    string                                    `pulumi:"location"`
+	PrivateIPAddresses          []string                                  `pulumi:"privateIPAddresses"`
+	PublicIPAddresses           []string                                  `pulumi:"publicIPAddresses"`
+	Sku                         ApiManagementServiceSkuPropertiesResponse `pulumi:"sku"`
+	VirtualNetworkConfiguration *VirtualNetworkConfigurationResponse      `pulumi:"virtualNetworkConfiguration"`
 }
 
 // AdditionalLocationResponseInput is an input type that accepts AdditionalLocationResponseArgs and AdditionalLocationResponseOutput values.
@@ -166,22 +143,14 @@ type AdditionalLocationResponseInput interface {
 	ToAdditionalLocationResponseOutputWithContext(context.Context) AdditionalLocationResponseOutput
 }
 
-// Description of an additional API Management resource location.
 type AdditionalLocationResponseArgs struct {
-	// Property only valid for an Api Management service deployed in multiple locations. This can be used to disable the gateway in this additional location.
-	DisableGateway pulumi.BoolPtrInput `pulumi:"disableGateway"`
-	// Gateway URL of the API Management service in the Region.
-	GatewayRegionalUrl pulumi.StringInput `pulumi:"gatewayRegionalUrl"`
-	// The location name of the additional region among Azure Data center regions.
-	Location pulumi.StringInput `pulumi:"location"`
-	// Private Static Load Balanced IP addresses of the API Management service which is deployed in an Internal Virtual Network in a particular additional location. Available only for Basic, Standard and Premium SKU.
-	PrivateIPAddresses pulumi.StringArrayInput `pulumi:"privateIPAddresses"`
-	// Public Static Load Balanced IP addresses of the API Management service in the additional location. Available only for Basic, Standard and Premium SKU.
-	PublicIPAddresses pulumi.StringArrayInput `pulumi:"publicIPAddresses"`
-	// SKU properties of the API Management service.
-	Sku ApiManagementServiceSkuPropertiesResponseInput `pulumi:"sku"`
-	// Virtual network configuration for the location.
-	VirtualNetworkConfiguration VirtualNetworkConfigurationResponsePtrInput `pulumi:"virtualNetworkConfiguration"`
+	DisableGateway              pulumi.BoolPtrInput                            `pulumi:"disableGateway"`
+	GatewayRegionalUrl          pulumi.StringInput                             `pulumi:"gatewayRegionalUrl"`
+	Location                    pulumi.StringInput                             `pulumi:"location"`
+	PrivateIPAddresses          pulumi.StringArrayInput                        `pulumi:"privateIPAddresses"`
+	PublicIPAddresses           pulumi.StringArrayInput                        `pulumi:"publicIPAddresses"`
+	Sku                         ApiManagementServiceSkuPropertiesResponseInput `pulumi:"sku"`
+	VirtualNetworkConfiguration VirtualNetworkConfigurationResponsePtrInput    `pulumi:"virtualNetworkConfiguration"`
 }
 
 func (AdditionalLocationResponseArgs) ElementType() reflect.Type {
@@ -221,7 +190,6 @@ func (i AdditionalLocationResponseArray) ToAdditionalLocationResponseArrayOutput
 	return pulumi.ToOutputWithContext(ctx, i).(AdditionalLocationResponseArrayOutput)
 }
 
-// Description of an additional API Management resource location.
 type AdditionalLocationResponseOutput struct{ *pulumi.OutputState }
 
 func (AdditionalLocationResponseOutput) ElementType() reflect.Type {
@@ -236,37 +204,30 @@ func (o AdditionalLocationResponseOutput) ToAdditionalLocationResponseOutputWith
 	return o
 }
 
-// Property only valid for an Api Management service deployed in multiple locations. This can be used to disable the gateway in this additional location.
 func (o AdditionalLocationResponseOutput) DisableGateway() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v AdditionalLocationResponse) *bool { return v.DisableGateway }).(pulumi.BoolPtrOutput)
 }
 
-// Gateway URL of the API Management service in the Region.
 func (o AdditionalLocationResponseOutput) GatewayRegionalUrl() pulumi.StringOutput {
 	return o.ApplyT(func(v AdditionalLocationResponse) string { return v.GatewayRegionalUrl }).(pulumi.StringOutput)
 }
 
-// The location name of the additional region among Azure Data center regions.
 func (o AdditionalLocationResponseOutput) Location() pulumi.StringOutput {
 	return o.ApplyT(func(v AdditionalLocationResponse) string { return v.Location }).(pulumi.StringOutput)
 }
 
-// Private Static Load Balanced IP addresses of the API Management service which is deployed in an Internal Virtual Network in a particular additional location. Available only for Basic, Standard and Premium SKU.
 func (o AdditionalLocationResponseOutput) PrivateIPAddresses() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v AdditionalLocationResponse) []string { return v.PrivateIPAddresses }).(pulumi.StringArrayOutput)
 }
 
-// Public Static Load Balanced IP addresses of the API Management service in the additional location. Available only for Basic, Standard and Premium SKU.
 func (o AdditionalLocationResponseOutput) PublicIPAddresses() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v AdditionalLocationResponse) []string { return v.PublicIPAddresses }).(pulumi.StringArrayOutput)
 }
 
-// SKU properties of the API Management service.
 func (o AdditionalLocationResponseOutput) Sku() ApiManagementServiceSkuPropertiesResponseOutput {
 	return o.ApplyT(func(v AdditionalLocationResponse) ApiManagementServiceSkuPropertiesResponse { return v.Sku }).(ApiManagementServiceSkuPropertiesResponseOutput)
 }
 
-// Virtual network configuration for the location.
 func (o AdditionalLocationResponseOutput) VirtualNetworkConfiguration() VirtualNetworkConfigurationResponsePtrOutput {
 	return o.ApplyT(func(v AdditionalLocationResponse) *VirtualNetworkConfigurationResponse {
 		return v.VirtualNetworkConfiguration
@@ -293,12 +254,9 @@ func (o AdditionalLocationResponseArrayOutput) Index(i pulumi.IntInput) Addition
 	}).(AdditionalLocationResponseOutput)
 }
 
-// Criteria to limit import of WSDL to a subset of the document.
 type ApiCreateOrUpdatePropertiesWsdlSelector struct {
-	// Name of endpoint(port) to import from WSDL
 	WsdlEndpointName *string `pulumi:"wsdlEndpointName"`
-	// Name of service to import from WSDL
-	WsdlServiceName *string `pulumi:"wsdlServiceName"`
+	WsdlServiceName  *string `pulumi:"wsdlServiceName"`
 }
 
 // ApiCreateOrUpdatePropertiesWsdlSelectorInput is an input type that accepts ApiCreateOrUpdatePropertiesWsdlSelectorArgs and ApiCreateOrUpdatePropertiesWsdlSelectorOutput values.
@@ -312,12 +270,9 @@ type ApiCreateOrUpdatePropertiesWsdlSelectorInput interface {
 	ToApiCreateOrUpdatePropertiesWsdlSelectorOutputWithContext(context.Context) ApiCreateOrUpdatePropertiesWsdlSelectorOutput
 }
 
-// Criteria to limit import of WSDL to a subset of the document.
 type ApiCreateOrUpdatePropertiesWsdlSelectorArgs struct {
-	// Name of endpoint(port) to import from WSDL
 	WsdlEndpointName pulumi.StringPtrInput `pulumi:"wsdlEndpointName"`
-	// Name of service to import from WSDL
-	WsdlServiceName pulumi.StringPtrInput `pulumi:"wsdlServiceName"`
+	WsdlServiceName  pulumi.StringPtrInput `pulumi:"wsdlServiceName"`
 }
 
 func (ApiCreateOrUpdatePropertiesWsdlSelectorArgs) ElementType() reflect.Type {
@@ -373,7 +328,6 @@ func (i *apiCreateOrUpdatePropertiesWsdlSelectorPtrType) ToApiCreateOrUpdateProp
 	return pulumi.ToOutputWithContext(ctx, i).(ApiCreateOrUpdatePropertiesWsdlSelectorPtrOutput)
 }
 
-// Criteria to limit import of WSDL to a subset of the document.
 type ApiCreateOrUpdatePropertiesWsdlSelectorOutput struct{ *pulumi.OutputState }
 
 func (ApiCreateOrUpdatePropertiesWsdlSelectorOutput) ElementType() reflect.Type {
@@ -393,17 +347,15 @@ func (o ApiCreateOrUpdatePropertiesWsdlSelectorOutput) ToApiCreateOrUpdateProper
 }
 
 func (o ApiCreateOrUpdatePropertiesWsdlSelectorOutput) ToApiCreateOrUpdatePropertiesWsdlSelectorPtrOutputWithContext(ctx context.Context) ApiCreateOrUpdatePropertiesWsdlSelectorPtrOutput {
-	return o.ApplyT(func(v ApiCreateOrUpdatePropertiesWsdlSelector) *ApiCreateOrUpdatePropertiesWsdlSelector {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ApiCreateOrUpdatePropertiesWsdlSelector) *ApiCreateOrUpdatePropertiesWsdlSelector {
 		return &v
 	}).(ApiCreateOrUpdatePropertiesWsdlSelectorPtrOutput)
 }
 
-// Name of endpoint(port) to import from WSDL
 func (o ApiCreateOrUpdatePropertiesWsdlSelectorOutput) WsdlEndpointName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ApiCreateOrUpdatePropertiesWsdlSelector) *string { return v.WsdlEndpointName }).(pulumi.StringPtrOutput)
 }
 
-// Name of service to import from WSDL
 func (o ApiCreateOrUpdatePropertiesWsdlSelectorOutput) WsdlServiceName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ApiCreateOrUpdatePropertiesWsdlSelector) *string { return v.WsdlServiceName }).(pulumi.StringPtrOutput)
 }
@@ -423,10 +375,15 @@ func (o ApiCreateOrUpdatePropertiesWsdlSelectorPtrOutput) ToApiCreateOrUpdatePro
 }
 
 func (o ApiCreateOrUpdatePropertiesWsdlSelectorPtrOutput) Elem() ApiCreateOrUpdatePropertiesWsdlSelectorOutput {
-	return o.ApplyT(func(v *ApiCreateOrUpdatePropertiesWsdlSelector) ApiCreateOrUpdatePropertiesWsdlSelector { return *v }).(ApiCreateOrUpdatePropertiesWsdlSelectorOutput)
+	return o.ApplyT(func(v *ApiCreateOrUpdatePropertiesWsdlSelector) ApiCreateOrUpdatePropertiesWsdlSelector {
+		if v != nil {
+			return *v
+		}
+		var ret ApiCreateOrUpdatePropertiesWsdlSelector
+		return ret
+	}).(ApiCreateOrUpdatePropertiesWsdlSelectorOutput)
 }
 
-// Name of endpoint(port) to import from WSDL
 func (o ApiCreateOrUpdatePropertiesWsdlSelectorPtrOutput) WsdlEndpointName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ApiCreateOrUpdatePropertiesWsdlSelector) *string {
 		if v == nil {
@@ -436,7 +393,6 @@ func (o ApiCreateOrUpdatePropertiesWsdlSelectorPtrOutput) WsdlEndpointName() pul
 	}).(pulumi.StringPtrOutput)
 }
 
-// Name of service to import from WSDL
 func (o ApiCreateOrUpdatePropertiesWsdlSelectorPtrOutput) WsdlServiceName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ApiCreateOrUpdatePropertiesWsdlSelector) *string {
 		if v == nil {
@@ -446,14 +402,8 @@ func (o ApiCreateOrUpdatePropertiesWsdlSelectorPtrOutput) WsdlServiceName() pulu
 	}).(pulumi.StringPtrOutput)
 }
 
-// Identity properties of the Api Management service resource.
 type ApiManagementServiceIdentity struct {
-	// The type of identity used for the resource. The type 'SystemAssigned, UserAssigned' includes both an implicitly created identity and a set of user assigned identities. The type 'None' will remove any identities from the service.
-	Type string `pulumi:"type"`
-	// The list of user identities associated with the resource. The user identity
-	// dictionary key references will be ARM resource ids in the form:
-	// '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/
-	//     providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}'.
+	Type                   string                            `pulumi:"type"`
 	UserAssignedIdentities map[string]UserIdentityProperties `pulumi:"userAssignedIdentities"`
 }
 
@@ -468,14 +418,8 @@ type ApiManagementServiceIdentityInput interface {
 	ToApiManagementServiceIdentityOutputWithContext(context.Context) ApiManagementServiceIdentityOutput
 }
 
-// Identity properties of the Api Management service resource.
 type ApiManagementServiceIdentityArgs struct {
-	// The type of identity used for the resource. The type 'SystemAssigned, UserAssigned' includes both an implicitly created identity and a set of user assigned identities. The type 'None' will remove any identities from the service.
-	Type pulumi.StringInput `pulumi:"type"`
-	// The list of user identities associated with the resource. The user identity
-	// dictionary key references will be ARM resource ids in the form:
-	// '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/
-	//     providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}'.
+	Type                   pulumi.StringInput             `pulumi:"type"`
 	UserAssignedIdentities UserIdentityPropertiesMapInput `pulumi:"userAssignedIdentities"`
 }
 
@@ -532,7 +476,6 @@ func (i *apiManagementServiceIdentityPtrType) ToApiManagementServiceIdentityPtrO
 	return pulumi.ToOutputWithContext(ctx, i).(ApiManagementServiceIdentityPtrOutput)
 }
 
-// Identity properties of the Api Management service resource.
 type ApiManagementServiceIdentityOutput struct{ *pulumi.OutputState }
 
 func (ApiManagementServiceIdentityOutput) ElementType() reflect.Type {
@@ -552,20 +495,15 @@ func (o ApiManagementServiceIdentityOutput) ToApiManagementServiceIdentityPtrOut
 }
 
 func (o ApiManagementServiceIdentityOutput) ToApiManagementServiceIdentityPtrOutputWithContext(ctx context.Context) ApiManagementServiceIdentityPtrOutput {
-	return o.ApplyT(func(v ApiManagementServiceIdentity) *ApiManagementServiceIdentity {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ApiManagementServiceIdentity) *ApiManagementServiceIdentity {
 		return &v
 	}).(ApiManagementServiceIdentityPtrOutput)
 }
 
-// The type of identity used for the resource. The type 'SystemAssigned, UserAssigned' includes both an implicitly created identity and a set of user assigned identities. The type 'None' will remove any identities from the service.
 func (o ApiManagementServiceIdentityOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v ApiManagementServiceIdentity) string { return v.Type }).(pulumi.StringOutput)
 }
 
-// The list of user identities associated with the resource. The user identity
-// dictionary key references will be ARM resource ids in the form:
-// '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/
-//     providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}'.
 func (o ApiManagementServiceIdentityOutput) UserAssignedIdentities() UserIdentityPropertiesMapOutput {
 	return o.ApplyT(func(v ApiManagementServiceIdentity) map[string]UserIdentityProperties {
 		return v.UserAssignedIdentities
@@ -587,10 +525,15 @@ func (o ApiManagementServiceIdentityPtrOutput) ToApiManagementServiceIdentityPtr
 }
 
 func (o ApiManagementServiceIdentityPtrOutput) Elem() ApiManagementServiceIdentityOutput {
-	return o.ApplyT(func(v *ApiManagementServiceIdentity) ApiManagementServiceIdentity { return *v }).(ApiManagementServiceIdentityOutput)
+	return o.ApplyT(func(v *ApiManagementServiceIdentity) ApiManagementServiceIdentity {
+		if v != nil {
+			return *v
+		}
+		var ret ApiManagementServiceIdentity
+		return ret
+	}).(ApiManagementServiceIdentityOutput)
 }
 
-// The type of identity used for the resource. The type 'SystemAssigned, UserAssigned' includes both an implicitly created identity and a set of user assigned identities. The type 'None' will remove any identities from the service.
 func (o ApiManagementServiceIdentityPtrOutput) Type() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ApiManagementServiceIdentity) *string {
 		if v == nil {
@@ -600,10 +543,6 @@ func (o ApiManagementServiceIdentityPtrOutput) Type() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The list of user identities associated with the resource. The user identity
-// dictionary key references will be ARM resource ids in the form:
-// '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/
-//     providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}'.
 func (o ApiManagementServiceIdentityPtrOutput) UserAssignedIdentities() UserIdentityPropertiesMapOutput {
 	return o.ApplyT(func(v *ApiManagementServiceIdentity) map[string]UserIdentityProperties {
 		if v == nil {
@@ -613,18 +552,10 @@ func (o ApiManagementServiceIdentityPtrOutput) UserAssignedIdentities() UserIden
 	}).(UserIdentityPropertiesMapOutput)
 }
 
-// Identity properties of the Api Management service resource.
 type ApiManagementServiceIdentityResponse struct {
-	// The principal id of the identity.
-	PrincipalId string `pulumi:"principalId"`
-	// The client tenant id of the identity.
-	TenantId string `pulumi:"tenantId"`
-	// The type of identity used for the resource. The type 'SystemAssigned, UserAssigned' includes both an implicitly created identity and a set of user assigned identities. The type 'None' will remove any identities from the service.
-	Type string `pulumi:"type"`
-	// The list of user identities associated with the resource. The user identity
-	// dictionary key references will be ARM resource ids in the form:
-	// '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/
-	//     providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}'.
+	PrincipalId            string                                    `pulumi:"principalId"`
+	TenantId               string                                    `pulumi:"tenantId"`
+	Type                   string                                    `pulumi:"type"`
 	UserAssignedIdentities map[string]UserIdentityPropertiesResponse `pulumi:"userAssignedIdentities"`
 }
 
@@ -639,18 +570,10 @@ type ApiManagementServiceIdentityResponseInput interface {
 	ToApiManagementServiceIdentityResponseOutputWithContext(context.Context) ApiManagementServiceIdentityResponseOutput
 }
 
-// Identity properties of the Api Management service resource.
 type ApiManagementServiceIdentityResponseArgs struct {
-	// The principal id of the identity.
-	PrincipalId pulumi.StringInput `pulumi:"principalId"`
-	// The client tenant id of the identity.
-	TenantId pulumi.StringInput `pulumi:"tenantId"`
-	// The type of identity used for the resource. The type 'SystemAssigned, UserAssigned' includes both an implicitly created identity and a set of user assigned identities. The type 'None' will remove any identities from the service.
-	Type pulumi.StringInput `pulumi:"type"`
-	// The list of user identities associated with the resource. The user identity
-	// dictionary key references will be ARM resource ids in the form:
-	// '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/
-	//     providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}'.
+	PrincipalId            pulumi.StringInput                     `pulumi:"principalId"`
+	TenantId               pulumi.StringInput                     `pulumi:"tenantId"`
+	Type                   pulumi.StringInput                     `pulumi:"type"`
 	UserAssignedIdentities UserIdentityPropertiesResponseMapInput `pulumi:"userAssignedIdentities"`
 }
 
@@ -707,7 +630,6 @@ func (i *apiManagementServiceIdentityResponsePtrType) ToApiManagementServiceIden
 	return pulumi.ToOutputWithContext(ctx, i).(ApiManagementServiceIdentityResponsePtrOutput)
 }
 
-// Identity properties of the Api Management service resource.
 type ApiManagementServiceIdentityResponseOutput struct{ *pulumi.OutputState }
 
 func (ApiManagementServiceIdentityResponseOutput) ElementType() reflect.Type {
@@ -727,30 +649,23 @@ func (o ApiManagementServiceIdentityResponseOutput) ToApiManagementServiceIdenti
 }
 
 func (o ApiManagementServiceIdentityResponseOutput) ToApiManagementServiceIdentityResponsePtrOutputWithContext(ctx context.Context) ApiManagementServiceIdentityResponsePtrOutput {
-	return o.ApplyT(func(v ApiManagementServiceIdentityResponse) *ApiManagementServiceIdentityResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ApiManagementServiceIdentityResponse) *ApiManagementServiceIdentityResponse {
 		return &v
 	}).(ApiManagementServiceIdentityResponsePtrOutput)
 }
 
-// The principal id of the identity.
 func (o ApiManagementServiceIdentityResponseOutput) PrincipalId() pulumi.StringOutput {
 	return o.ApplyT(func(v ApiManagementServiceIdentityResponse) string { return v.PrincipalId }).(pulumi.StringOutput)
 }
 
-// The client tenant id of the identity.
 func (o ApiManagementServiceIdentityResponseOutput) TenantId() pulumi.StringOutput {
 	return o.ApplyT(func(v ApiManagementServiceIdentityResponse) string { return v.TenantId }).(pulumi.StringOutput)
 }
 
-// The type of identity used for the resource. The type 'SystemAssigned, UserAssigned' includes both an implicitly created identity and a set of user assigned identities. The type 'None' will remove any identities from the service.
 func (o ApiManagementServiceIdentityResponseOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v ApiManagementServiceIdentityResponse) string { return v.Type }).(pulumi.StringOutput)
 }
 
-// The list of user identities associated with the resource. The user identity
-// dictionary key references will be ARM resource ids in the form:
-// '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/
-//     providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}'.
 func (o ApiManagementServiceIdentityResponseOutput) UserAssignedIdentities() UserIdentityPropertiesResponseMapOutput {
 	return o.ApplyT(func(v ApiManagementServiceIdentityResponse) map[string]UserIdentityPropertiesResponse {
 		return v.UserAssignedIdentities
@@ -772,10 +687,15 @@ func (o ApiManagementServiceIdentityResponsePtrOutput) ToApiManagementServiceIde
 }
 
 func (o ApiManagementServiceIdentityResponsePtrOutput) Elem() ApiManagementServiceIdentityResponseOutput {
-	return o.ApplyT(func(v *ApiManagementServiceIdentityResponse) ApiManagementServiceIdentityResponse { return *v }).(ApiManagementServiceIdentityResponseOutput)
+	return o.ApplyT(func(v *ApiManagementServiceIdentityResponse) ApiManagementServiceIdentityResponse {
+		if v != nil {
+			return *v
+		}
+		var ret ApiManagementServiceIdentityResponse
+		return ret
+	}).(ApiManagementServiceIdentityResponseOutput)
 }
 
-// The principal id of the identity.
 func (o ApiManagementServiceIdentityResponsePtrOutput) PrincipalId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ApiManagementServiceIdentityResponse) *string {
 		if v == nil {
@@ -785,7 +705,6 @@ func (o ApiManagementServiceIdentityResponsePtrOutput) PrincipalId() pulumi.Stri
 	}).(pulumi.StringPtrOutput)
 }
 
-// The client tenant id of the identity.
 func (o ApiManagementServiceIdentityResponsePtrOutput) TenantId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ApiManagementServiceIdentityResponse) *string {
 		if v == nil {
@@ -795,7 +714,6 @@ func (o ApiManagementServiceIdentityResponsePtrOutput) TenantId() pulumi.StringP
 	}).(pulumi.StringPtrOutput)
 }
 
-// The type of identity used for the resource. The type 'SystemAssigned, UserAssigned' includes both an implicitly created identity and a set of user assigned identities. The type 'None' will remove any identities from the service.
 func (o ApiManagementServiceIdentityResponsePtrOutput) Type() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ApiManagementServiceIdentityResponse) *string {
 		if v == nil {
@@ -805,10 +723,6 @@ func (o ApiManagementServiceIdentityResponsePtrOutput) Type() pulumi.StringPtrOu
 	}).(pulumi.StringPtrOutput)
 }
 
-// The list of user identities associated with the resource. The user identity
-// dictionary key references will be ARM resource ids in the form:
-// '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/
-//     providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}'.
 func (o ApiManagementServiceIdentityResponsePtrOutput) UserAssignedIdentities() UserIdentityPropertiesResponseMapOutput {
 	return o.ApplyT(func(v *ApiManagementServiceIdentityResponse) map[string]UserIdentityPropertiesResponse {
 		if v == nil {
@@ -818,12 +732,9 @@ func (o ApiManagementServiceIdentityResponsePtrOutput) UserAssignedIdentities() 
 	}).(UserIdentityPropertiesResponseMapOutput)
 }
 
-// API Management service resource SKU properties.
 type ApiManagementServiceSkuProperties struct {
-	// Capacity of the SKU (number of deployed units of the SKU). For Consumption SKU capacity must be specified as 0.
-	Capacity int `pulumi:"capacity"`
-	// Name of the Sku.
-	Name string `pulumi:"name"`
+	Capacity int    `pulumi:"capacity"`
+	Name     string `pulumi:"name"`
 }
 
 // ApiManagementServiceSkuPropertiesInput is an input type that accepts ApiManagementServiceSkuPropertiesArgs and ApiManagementServiceSkuPropertiesOutput values.
@@ -837,12 +748,9 @@ type ApiManagementServiceSkuPropertiesInput interface {
 	ToApiManagementServiceSkuPropertiesOutputWithContext(context.Context) ApiManagementServiceSkuPropertiesOutput
 }
 
-// API Management service resource SKU properties.
 type ApiManagementServiceSkuPropertiesArgs struct {
-	// Capacity of the SKU (number of deployed units of the SKU). For Consumption SKU capacity must be specified as 0.
-	Capacity pulumi.IntInput `pulumi:"capacity"`
-	// Name of the Sku.
-	Name pulumi.StringInput `pulumi:"name"`
+	Capacity pulumi.IntInput    `pulumi:"capacity"`
+	Name     pulumi.StringInput `pulumi:"name"`
 }
 
 func (ApiManagementServiceSkuPropertiesArgs) ElementType() reflect.Type {
@@ -898,7 +806,6 @@ func (i *apiManagementServiceSkuPropertiesPtrType) ToApiManagementServiceSkuProp
 	return pulumi.ToOutputWithContext(ctx, i).(ApiManagementServiceSkuPropertiesPtrOutput)
 }
 
-// API Management service resource SKU properties.
 type ApiManagementServiceSkuPropertiesOutput struct{ *pulumi.OutputState }
 
 func (ApiManagementServiceSkuPropertiesOutput) ElementType() reflect.Type {
@@ -918,17 +825,15 @@ func (o ApiManagementServiceSkuPropertiesOutput) ToApiManagementServiceSkuProper
 }
 
 func (o ApiManagementServiceSkuPropertiesOutput) ToApiManagementServiceSkuPropertiesPtrOutputWithContext(ctx context.Context) ApiManagementServiceSkuPropertiesPtrOutput {
-	return o.ApplyT(func(v ApiManagementServiceSkuProperties) *ApiManagementServiceSkuProperties {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ApiManagementServiceSkuProperties) *ApiManagementServiceSkuProperties {
 		return &v
 	}).(ApiManagementServiceSkuPropertiesPtrOutput)
 }
 
-// Capacity of the SKU (number of deployed units of the SKU). For Consumption SKU capacity must be specified as 0.
 func (o ApiManagementServiceSkuPropertiesOutput) Capacity() pulumi.IntOutput {
 	return o.ApplyT(func(v ApiManagementServiceSkuProperties) int { return v.Capacity }).(pulumi.IntOutput)
 }
 
-// Name of the Sku.
 func (o ApiManagementServiceSkuPropertiesOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v ApiManagementServiceSkuProperties) string { return v.Name }).(pulumi.StringOutput)
 }
@@ -948,10 +853,15 @@ func (o ApiManagementServiceSkuPropertiesPtrOutput) ToApiManagementServiceSkuPro
 }
 
 func (o ApiManagementServiceSkuPropertiesPtrOutput) Elem() ApiManagementServiceSkuPropertiesOutput {
-	return o.ApplyT(func(v *ApiManagementServiceSkuProperties) ApiManagementServiceSkuProperties { return *v }).(ApiManagementServiceSkuPropertiesOutput)
+	return o.ApplyT(func(v *ApiManagementServiceSkuProperties) ApiManagementServiceSkuProperties {
+		if v != nil {
+			return *v
+		}
+		var ret ApiManagementServiceSkuProperties
+		return ret
+	}).(ApiManagementServiceSkuPropertiesOutput)
 }
 
-// Capacity of the SKU (number of deployed units of the SKU). For Consumption SKU capacity must be specified as 0.
 func (o ApiManagementServiceSkuPropertiesPtrOutput) Capacity() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *ApiManagementServiceSkuProperties) *int {
 		if v == nil {
@@ -961,7 +871,6 @@ func (o ApiManagementServiceSkuPropertiesPtrOutput) Capacity() pulumi.IntPtrOutp
 	}).(pulumi.IntPtrOutput)
 }
 
-// Name of the Sku.
 func (o ApiManagementServiceSkuPropertiesPtrOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ApiManagementServiceSkuProperties) *string {
 		if v == nil {
@@ -971,12 +880,9 @@ func (o ApiManagementServiceSkuPropertiesPtrOutput) Name() pulumi.StringPtrOutpu
 	}).(pulumi.StringPtrOutput)
 }
 
-// API Management service resource SKU properties.
 type ApiManagementServiceSkuPropertiesResponse struct {
-	// Capacity of the SKU (number of deployed units of the SKU). For Consumption SKU capacity must be specified as 0.
-	Capacity int `pulumi:"capacity"`
-	// Name of the Sku.
-	Name string `pulumi:"name"`
+	Capacity int    `pulumi:"capacity"`
+	Name     string `pulumi:"name"`
 }
 
 // ApiManagementServiceSkuPropertiesResponseInput is an input type that accepts ApiManagementServiceSkuPropertiesResponseArgs and ApiManagementServiceSkuPropertiesResponseOutput values.
@@ -990,12 +896,9 @@ type ApiManagementServiceSkuPropertiesResponseInput interface {
 	ToApiManagementServiceSkuPropertiesResponseOutputWithContext(context.Context) ApiManagementServiceSkuPropertiesResponseOutput
 }
 
-// API Management service resource SKU properties.
 type ApiManagementServiceSkuPropertiesResponseArgs struct {
-	// Capacity of the SKU (number of deployed units of the SKU). For Consumption SKU capacity must be specified as 0.
-	Capacity pulumi.IntInput `pulumi:"capacity"`
-	// Name of the Sku.
-	Name pulumi.StringInput `pulumi:"name"`
+	Capacity pulumi.IntInput    `pulumi:"capacity"`
+	Name     pulumi.StringInput `pulumi:"name"`
 }
 
 func (ApiManagementServiceSkuPropertiesResponseArgs) ElementType() reflect.Type {
@@ -1051,7 +954,6 @@ func (i *apiManagementServiceSkuPropertiesResponsePtrType) ToApiManagementServic
 	return pulumi.ToOutputWithContext(ctx, i).(ApiManagementServiceSkuPropertiesResponsePtrOutput)
 }
 
-// API Management service resource SKU properties.
 type ApiManagementServiceSkuPropertiesResponseOutput struct{ *pulumi.OutputState }
 
 func (ApiManagementServiceSkuPropertiesResponseOutput) ElementType() reflect.Type {
@@ -1071,17 +973,15 @@ func (o ApiManagementServiceSkuPropertiesResponseOutput) ToApiManagementServiceS
 }
 
 func (o ApiManagementServiceSkuPropertiesResponseOutput) ToApiManagementServiceSkuPropertiesResponsePtrOutputWithContext(ctx context.Context) ApiManagementServiceSkuPropertiesResponsePtrOutput {
-	return o.ApplyT(func(v ApiManagementServiceSkuPropertiesResponse) *ApiManagementServiceSkuPropertiesResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ApiManagementServiceSkuPropertiesResponse) *ApiManagementServiceSkuPropertiesResponse {
 		return &v
 	}).(ApiManagementServiceSkuPropertiesResponsePtrOutput)
 }
 
-// Capacity of the SKU (number of deployed units of the SKU). For Consumption SKU capacity must be specified as 0.
 func (o ApiManagementServiceSkuPropertiesResponseOutput) Capacity() pulumi.IntOutput {
 	return o.ApplyT(func(v ApiManagementServiceSkuPropertiesResponse) int { return v.Capacity }).(pulumi.IntOutput)
 }
 
-// Name of the Sku.
 func (o ApiManagementServiceSkuPropertiesResponseOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v ApiManagementServiceSkuPropertiesResponse) string { return v.Name }).(pulumi.StringOutput)
 }
@@ -1102,11 +1002,14 @@ func (o ApiManagementServiceSkuPropertiesResponsePtrOutput) ToApiManagementServi
 
 func (o ApiManagementServiceSkuPropertiesResponsePtrOutput) Elem() ApiManagementServiceSkuPropertiesResponseOutput {
 	return o.ApplyT(func(v *ApiManagementServiceSkuPropertiesResponse) ApiManagementServiceSkuPropertiesResponse {
-		return *v
+		if v != nil {
+			return *v
+		}
+		var ret ApiManagementServiceSkuPropertiesResponse
+		return ret
 	}).(ApiManagementServiceSkuPropertiesResponseOutput)
 }
 
-// Capacity of the SKU (number of deployed units of the SKU). For Consumption SKU capacity must be specified as 0.
 func (o ApiManagementServiceSkuPropertiesResponsePtrOutput) Capacity() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *ApiManagementServiceSkuPropertiesResponse) *int {
 		if v == nil {
@@ -1116,7 +1019,6 @@ func (o ApiManagementServiceSkuPropertiesResponsePtrOutput) Capacity() pulumi.In
 	}).(pulumi.IntPtrOutput)
 }
 
-// Name of the Sku.
 func (o ApiManagementServiceSkuPropertiesResponsePtrOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ApiManagementServiceSkuPropertiesResponse) *string {
 		if v == nil {
@@ -1126,9 +1028,7 @@ func (o ApiManagementServiceSkuPropertiesResponsePtrOutput) Name() pulumi.String
 	}).(pulumi.StringPtrOutput)
 }
 
-// Control Plane Apis version constraint for the API Management service.
 type ApiVersionConstraint struct {
-	// Limit control plane API calls to API Management service with version equal to or newer than this value.
 	MinApiVersion *string `pulumi:"minApiVersion"`
 }
 
@@ -1143,9 +1043,7 @@ type ApiVersionConstraintInput interface {
 	ToApiVersionConstraintOutputWithContext(context.Context) ApiVersionConstraintOutput
 }
 
-// Control Plane Apis version constraint for the API Management service.
 type ApiVersionConstraintArgs struct {
-	// Limit control plane API calls to API Management service with version equal to or newer than this value.
 	MinApiVersion pulumi.StringPtrInput `pulumi:"minApiVersion"`
 }
 
@@ -1202,7 +1100,6 @@ func (i *apiVersionConstraintPtrType) ToApiVersionConstraintPtrOutputWithContext
 	return pulumi.ToOutputWithContext(ctx, i).(ApiVersionConstraintPtrOutput)
 }
 
-// Control Plane Apis version constraint for the API Management service.
 type ApiVersionConstraintOutput struct{ *pulumi.OutputState }
 
 func (ApiVersionConstraintOutput) ElementType() reflect.Type {
@@ -1222,12 +1119,11 @@ func (o ApiVersionConstraintOutput) ToApiVersionConstraintPtrOutput() ApiVersion
 }
 
 func (o ApiVersionConstraintOutput) ToApiVersionConstraintPtrOutputWithContext(ctx context.Context) ApiVersionConstraintPtrOutput {
-	return o.ApplyT(func(v ApiVersionConstraint) *ApiVersionConstraint {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ApiVersionConstraint) *ApiVersionConstraint {
 		return &v
 	}).(ApiVersionConstraintPtrOutput)
 }
 
-// Limit control plane API calls to API Management service with version equal to or newer than this value.
 func (o ApiVersionConstraintOutput) MinApiVersion() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ApiVersionConstraint) *string { return v.MinApiVersion }).(pulumi.StringPtrOutput)
 }
@@ -1247,10 +1143,15 @@ func (o ApiVersionConstraintPtrOutput) ToApiVersionConstraintPtrOutputWithContex
 }
 
 func (o ApiVersionConstraintPtrOutput) Elem() ApiVersionConstraintOutput {
-	return o.ApplyT(func(v *ApiVersionConstraint) ApiVersionConstraint { return *v }).(ApiVersionConstraintOutput)
+	return o.ApplyT(func(v *ApiVersionConstraint) ApiVersionConstraint {
+		if v != nil {
+			return *v
+		}
+		var ret ApiVersionConstraint
+		return ret
+	}).(ApiVersionConstraintOutput)
 }
 
-// Limit control plane API calls to API Management service with version equal to or newer than this value.
 func (o ApiVersionConstraintPtrOutput) MinApiVersion() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ApiVersionConstraint) *string {
 		if v == nil {
@@ -1260,9 +1161,7 @@ func (o ApiVersionConstraintPtrOutput) MinApiVersion() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Control Plane Apis version constraint for the API Management service.
 type ApiVersionConstraintResponse struct {
-	// Limit control plane API calls to API Management service with version equal to or newer than this value.
 	MinApiVersion *string `pulumi:"minApiVersion"`
 }
 
@@ -1277,9 +1176,7 @@ type ApiVersionConstraintResponseInput interface {
 	ToApiVersionConstraintResponseOutputWithContext(context.Context) ApiVersionConstraintResponseOutput
 }
 
-// Control Plane Apis version constraint for the API Management service.
 type ApiVersionConstraintResponseArgs struct {
-	// Limit control plane API calls to API Management service with version equal to or newer than this value.
 	MinApiVersion pulumi.StringPtrInput `pulumi:"minApiVersion"`
 }
 
@@ -1336,7 +1233,6 @@ func (i *apiVersionConstraintResponsePtrType) ToApiVersionConstraintResponsePtrO
 	return pulumi.ToOutputWithContext(ctx, i).(ApiVersionConstraintResponsePtrOutput)
 }
 
-// Control Plane Apis version constraint for the API Management service.
 type ApiVersionConstraintResponseOutput struct{ *pulumi.OutputState }
 
 func (ApiVersionConstraintResponseOutput) ElementType() reflect.Type {
@@ -1356,12 +1252,11 @@ func (o ApiVersionConstraintResponseOutput) ToApiVersionConstraintResponsePtrOut
 }
 
 func (o ApiVersionConstraintResponseOutput) ToApiVersionConstraintResponsePtrOutputWithContext(ctx context.Context) ApiVersionConstraintResponsePtrOutput {
-	return o.ApplyT(func(v ApiVersionConstraintResponse) *ApiVersionConstraintResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ApiVersionConstraintResponse) *ApiVersionConstraintResponse {
 		return &v
 	}).(ApiVersionConstraintResponsePtrOutput)
 }
 
-// Limit control plane API calls to API Management service with version equal to or newer than this value.
 func (o ApiVersionConstraintResponseOutput) MinApiVersion() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ApiVersionConstraintResponse) *string { return v.MinApiVersion }).(pulumi.StringPtrOutput)
 }
@@ -1381,10 +1276,15 @@ func (o ApiVersionConstraintResponsePtrOutput) ToApiVersionConstraintResponsePtr
 }
 
 func (o ApiVersionConstraintResponsePtrOutput) Elem() ApiVersionConstraintResponseOutput {
-	return o.ApplyT(func(v *ApiVersionConstraintResponse) ApiVersionConstraintResponse { return *v }).(ApiVersionConstraintResponseOutput)
+	return o.ApplyT(func(v *ApiVersionConstraintResponse) ApiVersionConstraintResponse {
+		if v != nil {
+			return *v
+		}
+		var ret ApiVersionConstraintResponse
+		return ret
+	}).(ApiVersionConstraintResponseOutput)
 }
 
-// Limit control plane API calls to API Management service with version equal to or newer than this value.
 func (o ApiVersionConstraintResponsePtrOutput) MinApiVersion() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ApiVersionConstraintResponse) *string {
 		if v == nil {
@@ -1394,20 +1294,13 @@ func (o ApiVersionConstraintResponsePtrOutput) MinApiVersion() pulumi.StringPtrO
 	}).(pulumi.StringPtrOutput)
 }
 
-// An API Version Set contains the common configuration for a set of API Versions relating
 type ApiVersionSetContractDetails struct {
-	// Description of API Version Set.
-	Description *string `pulumi:"description"`
-	// Identifier for existing API Version Set. Omit this value to create a new Version Set.
-	Id *string `pulumi:"id"`
-	// The display Name of the API Version Set.
-	Name *string `pulumi:"name"`
-	// Name of HTTP header parameter that indicates the API Version if versioningScheme is set to `header`.
+	Description       *string `pulumi:"description"`
+	Id                *string `pulumi:"id"`
+	Name              *string `pulumi:"name"`
 	VersionHeaderName *string `pulumi:"versionHeaderName"`
-	// Name of query parameter that indicates the API Version if versioningScheme is set to `query`.
-	VersionQueryName *string `pulumi:"versionQueryName"`
-	// An value that determines where the API Version identifier will be located in a HTTP request.
-	VersioningScheme *string `pulumi:"versioningScheme"`
+	VersionQueryName  *string `pulumi:"versionQueryName"`
+	VersioningScheme  *string `pulumi:"versioningScheme"`
 }
 
 // ApiVersionSetContractDetailsInput is an input type that accepts ApiVersionSetContractDetailsArgs and ApiVersionSetContractDetailsOutput values.
@@ -1421,20 +1314,13 @@ type ApiVersionSetContractDetailsInput interface {
 	ToApiVersionSetContractDetailsOutputWithContext(context.Context) ApiVersionSetContractDetailsOutput
 }
 
-// An API Version Set contains the common configuration for a set of API Versions relating
 type ApiVersionSetContractDetailsArgs struct {
-	// Description of API Version Set.
-	Description pulumi.StringPtrInput `pulumi:"description"`
-	// Identifier for existing API Version Set. Omit this value to create a new Version Set.
-	Id pulumi.StringPtrInput `pulumi:"id"`
-	// The display Name of the API Version Set.
-	Name pulumi.StringPtrInput `pulumi:"name"`
-	// Name of HTTP header parameter that indicates the API Version if versioningScheme is set to `header`.
+	Description       pulumi.StringPtrInput `pulumi:"description"`
+	Id                pulumi.StringPtrInput `pulumi:"id"`
+	Name              pulumi.StringPtrInput `pulumi:"name"`
 	VersionHeaderName pulumi.StringPtrInput `pulumi:"versionHeaderName"`
-	// Name of query parameter that indicates the API Version if versioningScheme is set to `query`.
-	VersionQueryName pulumi.StringPtrInput `pulumi:"versionQueryName"`
-	// An value that determines where the API Version identifier will be located in a HTTP request.
-	VersioningScheme pulumi.StringPtrInput `pulumi:"versioningScheme"`
+	VersionQueryName  pulumi.StringPtrInput `pulumi:"versionQueryName"`
+	VersioningScheme  pulumi.StringPtrInput `pulumi:"versioningScheme"`
 }
 
 func (ApiVersionSetContractDetailsArgs) ElementType() reflect.Type {
@@ -1490,7 +1376,6 @@ func (i *apiVersionSetContractDetailsPtrType) ToApiVersionSetContractDetailsPtrO
 	return pulumi.ToOutputWithContext(ctx, i).(ApiVersionSetContractDetailsPtrOutput)
 }
 
-// An API Version Set contains the common configuration for a set of API Versions relating
 type ApiVersionSetContractDetailsOutput struct{ *pulumi.OutputState }
 
 func (ApiVersionSetContractDetailsOutput) ElementType() reflect.Type {
@@ -1510,37 +1395,31 @@ func (o ApiVersionSetContractDetailsOutput) ToApiVersionSetContractDetailsPtrOut
 }
 
 func (o ApiVersionSetContractDetailsOutput) ToApiVersionSetContractDetailsPtrOutputWithContext(ctx context.Context) ApiVersionSetContractDetailsPtrOutput {
-	return o.ApplyT(func(v ApiVersionSetContractDetails) *ApiVersionSetContractDetails {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ApiVersionSetContractDetails) *ApiVersionSetContractDetails {
 		return &v
 	}).(ApiVersionSetContractDetailsPtrOutput)
 }
 
-// Description of API Version Set.
 func (o ApiVersionSetContractDetailsOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ApiVersionSetContractDetails) *string { return v.Description }).(pulumi.StringPtrOutput)
 }
 
-// Identifier for existing API Version Set. Omit this value to create a new Version Set.
 func (o ApiVersionSetContractDetailsOutput) Id() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ApiVersionSetContractDetails) *string { return v.Id }).(pulumi.StringPtrOutput)
 }
 
-// The display Name of the API Version Set.
 func (o ApiVersionSetContractDetailsOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ApiVersionSetContractDetails) *string { return v.Name }).(pulumi.StringPtrOutput)
 }
 
-// Name of HTTP header parameter that indicates the API Version if versioningScheme is set to `header`.
 func (o ApiVersionSetContractDetailsOutput) VersionHeaderName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ApiVersionSetContractDetails) *string { return v.VersionHeaderName }).(pulumi.StringPtrOutput)
 }
 
-// Name of query parameter that indicates the API Version if versioningScheme is set to `query`.
 func (o ApiVersionSetContractDetailsOutput) VersionQueryName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ApiVersionSetContractDetails) *string { return v.VersionQueryName }).(pulumi.StringPtrOutput)
 }
 
-// An value that determines where the API Version identifier will be located in a HTTP request.
 func (o ApiVersionSetContractDetailsOutput) VersioningScheme() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ApiVersionSetContractDetails) *string { return v.VersioningScheme }).(pulumi.StringPtrOutput)
 }
@@ -1560,10 +1439,15 @@ func (o ApiVersionSetContractDetailsPtrOutput) ToApiVersionSetContractDetailsPtr
 }
 
 func (o ApiVersionSetContractDetailsPtrOutput) Elem() ApiVersionSetContractDetailsOutput {
-	return o.ApplyT(func(v *ApiVersionSetContractDetails) ApiVersionSetContractDetails { return *v }).(ApiVersionSetContractDetailsOutput)
+	return o.ApplyT(func(v *ApiVersionSetContractDetails) ApiVersionSetContractDetails {
+		if v != nil {
+			return *v
+		}
+		var ret ApiVersionSetContractDetails
+		return ret
+	}).(ApiVersionSetContractDetailsOutput)
 }
 
-// Description of API Version Set.
 func (o ApiVersionSetContractDetailsPtrOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ApiVersionSetContractDetails) *string {
 		if v == nil {
@@ -1573,7 +1457,6 @@ func (o ApiVersionSetContractDetailsPtrOutput) Description() pulumi.StringPtrOut
 	}).(pulumi.StringPtrOutput)
 }
 
-// Identifier for existing API Version Set. Omit this value to create a new Version Set.
 func (o ApiVersionSetContractDetailsPtrOutput) Id() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ApiVersionSetContractDetails) *string {
 		if v == nil {
@@ -1583,7 +1466,6 @@ func (o ApiVersionSetContractDetailsPtrOutput) Id() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The display Name of the API Version Set.
 func (o ApiVersionSetContractDetailsPtrOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ApiVersionSetContractDetails) *string {
 		if v == nil {
@@ -1593,7 +1475,6 @@ func (o ApiVersionSetContractDetailsPtrOutput) Name() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Name of HTTP header parameter that indicates the API Version if versioningScheme is set to `header`.
 func (o ApiVersionSetContractDetailsPtrOutput) VersionHeaderName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ApiVersionSetContractDetails) *string {
 		if v == nil {
@@ -1603,7 +1484,6 @@ func (o ApiVersionSetContractDetailsPtrOutput) VersionHeaderName() pulumi.String
 	}).(pulumi.StringPtrOutput)
 }
 
-// Name of query parameter that indicates the API Version if versioningScheme is set to `query`.
 func (o ApiVersionSetContractDetailsPtrOutput) VersionQueryName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ApiVersionSetContractDetails) *string {
 		if v == nil {
@@ -1613,7 +1493,6 @@ func (o ApiVersionSetContractDetailsPtrOutput) VersionQueryName() pulumi.StringP
 	}).(pulumi.StringPtrOutput)
 }
 
-// An value that determines where the API Version identifier will be located in a HTTP request.
 func (o ApiVersionSetContractDetailsPtrOutput) VersioningScheme() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ApiVersionSetContractDetails) *string {
 		if v == nil {
@@ -1623,20 +1502,13 @@ func (o ApiVersionSetContractDetailsPtrOutput) VersioningScheme() pulumi.StringP
 	}).(pulumi.StringPtrOutput)
 }
 
-// An API Version Set contains the common configuration for a set of API Versions relating
 type ApiVersionSetContractDetailsResponse struct {
-	// Description of API Version Set.
-	Description *string `pulumi:"description"`
-	// Identifier for existing API Version Set. Omit this value to create a new Version Set.
-	Id *string `pulumi:"id"`
-	// The display Name of the API Version Set.
-	Name *string `pulumi:"name"`
-	// Name of HTTP header parameter that indicates the API Version if versioningScheme is set to `header`.
+	Description       *string `pulumi:"description"`
+	Id                *string `pulumi:"id"`
+	Name              *string `pulumi:"name"`
 	VersionHeaderName *string `pulumi:"versionHeaderName"`
-	// Name of query parameter that indicates the API Version if versioningScheme is set to `query`.
-	VersionQueryName *string `pulumi:"versionQueryName"`
-	// An value that determines where the API Version identifier will be located in a HTTP request.
-	VersioningScheme *string `pulumi:"versioningScheme"`
+	VersionQueryName  *string `pulumi:"versionQueryName"`
+	VersioningScheme  *string `pulumi:"versioningScheme"`
 }
 
 // ApiVersionSetContractDetailsResponseInput is an input type that accepts ApiVersionSetContractDetailsResponseArgs and ApiVersionSetContractDetailsResponseOutput values.
@@ -1650,20 +1522,13 @@ type ApiVersionSetContractDetailsResponseInput interface {
 	ToApiVersionSetContractDetailsResponseOutputWithContext(context.Context) ApiVersionSetContractDetailsResponseOutput
 }
 
-// An API Version Set contains the common configuration for a set of API Versions relating
 type ApiVersionSetContractDetailsResponseArgs struct {
-	// Description of API Version Set.
-	Description pulumi.StringPtrInput `pulumi:"description"`
-	// Identifier for existing API Version Set. Omit this value to create a new Version Set.
-	Id pulumi.StringPtrInput `pulumi:"id"`
-	// The display Name of the API Version Set.
-	Name pulumi.StringPtrInput `pulumi:"name"`
-	// Name of HTTP header parameter that indicates the API Version if versioningScheme is set to `header`.
+	Description       pulumi.StringPtrInput `pulumi:"description"`
+	Id                pulumi.StringPtrInput `pulumi:"id"`
+	Name              pulumi.StringPtrInput `pulumi:"name"`
 	VersionHeaderName pulumi.StringPtrInput `pulumi:"versionHeaderName"`
-	// Name of query parameter that indicates the API Version if versioningScheme is set to `query`.
-	VersionQueryName pulumi.StringPtrInput `pulumi:"versionQueryName"`
-	// An value that determines where the API Version identifier will be located in a HTTP request.
-	VersioningScheme pulumi.StringPtrInput `pulumi:"versioningScheme"`
+	VersionQueryName  pulumi.StringPtrInput `pulumi:"versionQueryName"`
+	VersioningScheme  pulumi.StringPtrInput `pulumi:"versioningScheme"`
 }
 
 func (ApiVersionSetContractDetailsResponseArgs) ElementType() reflect.Type {
@@ -1719,7 +1584,6 @@ func (i *apiVersionSetContractDetailsResponsePtrType) ToApiVersionSetContractDet
 	return pulumi.ToOutputWithContext(ctx, i).(ApiVersionSetContractDetailsResponsePtrOutput)
 }
 
-// An API Version Set contains the common configuration for a set of API Versions relating
 type ApiVersionSetContractDetailsResponseOutput struct{ *pulumi.OutputState }
 
 func (ApiVersionSetContractDetailsResponseOutput) ElementType() reflect.Type {
@@ -1739,37 +1603,31 @@ func (o ApiVersionSetContractDetailsResponseOutput) ToApiVersionSetContractDetai
 }
 
 func (o ApiVersionSetContractDetailsResponseOutput) ToApiVersionSetContractDetailsResponsePtrOutputWithContext(ctx context.Context) ApiVersionSetContractDetailsResponsePtrOutput {
-	return o.ApplyT(func(v ApiVersionSetContractDetailsResponse) *ApiVersionSetContractDetailsResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ApiVersionSetContractDetailsResponse) *ApiVersionSetContractDetailsResponse {
 		return &v
 	}).(ApiVersionSetContractDetailsResponsePtrOutput)
 }
 
-// Description of API Version Set.
 func (o ApiVersionSetContractDetailsResponseOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ApiVersionSetContractDetailsResponse) *string { return v.Description }).(pulumi.StringPtrOutput)
 }
 
-// Identifier for existing API Version Set. Omit this value to create a new Version Set.
 func (o ApiVersionSetContractDetailsResponseOutput) Id() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ApiVersionSetContractDetailsResponse) *string { return v.Id }).(pulumi.StringPtrOutput)
 }
 
-// The display Name of the API Version Set.
 func (o ApiVersionSetContractDetailsResponseOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ApiVersionSetContractDetailsResponse) *string { return v.Name }).(pulumi.StringPtrOutput)
 }
 
-// Name of HTTP header parameter that indicates the API Version if versioningScheme is set to `header`.
 func (o ApiVersionSetContractDetailsResponseOutput) VersionHeaderName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ApiVersionSetContractDetailsResponse) *string { return v.VersionHeaderName }).(pulumi.StringPtrOutput)
 }
 
-// Name of query parameter that indicates the API Version if versioningScheme is set to `query`.
 func (o ApiVersionSetContractDetailsResponseOutput) VersionQueryName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ApiVersionSetContractDetailsResponse) *string { return v.VersionQueryName }).(pulumi.StringPtrOutput)
 }
 
-// An value that determines where the API Version identifier will be located in a HTTP request.
 func (o ApiVersionSetContractDetailsResponseOutput) VersioningScheme() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ApiVersionSetContractDetailsResponse) *string { return v.VersioningScheme }).(pulumi.StringPtrOutput)
 }
@@ -1789,10 +1647,15 @@ func (o ApiVersionSetContractDetailsResponsePtrOutput) ToApiVersionSetContractDe
 }
 
 func (o ApiVersionSetContractDetailsResponsePtrOutput) Elem() ApiVersionSetContractDetailsResponseOutput {
-	return o.ApplyT(func(v *ApiVersionSetContractDetailsResponse) ApiVersionSetContractDetailsResponse { return *v }).(ApiVersionSetContractDetailsResponseOutput)
+	return o.ApplyT(func(v *ApiVersionSetContractDetailsResponse) ApiVersionSetContractDetailsResponse {
+		if v != nil {
+			return *v
+		}
+		var ret ApiVersionSetContractDetailsResponse
+		return ret
+	}).(ApiVersionSetContractDetailsResponseOutput)
 }
 
-// Description of API Version Set.
 func (o ApiVersionSetContractDetailsResponsePtrOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ApiVersionSetContractDetailsResponse) *string {
 		if v == nil {
@@ -1802,7 +1665,6 @@ func (o ApiVersionSetContractDetailsResponsePtrOutput) Description() pulumi.Stri
 	}).(pulumi.StringPtrOutput)
 }
 
-// Identifier for existing API Version Set. Omit this value to create a new Version Set.
 func (o ApiVersionSetContractDetailsResponsePtrOutput) Id() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ApiVersionSetContractDetailsResponse) *string {
 		if v == nil {
@@ -1812,7 +1674,6 @@ func (o ApiVersionSetContractDetailsResponsePtrOutput) Id() pulumi.StringPtrOutp
 	}).(pulumi.StringPtrOutput)
 }
 
-// The display Name of the API Version Set.
 func (o ApiVersionSetContractDetailsResponsePtrOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ApiVersionSetContractDetailsResponse) *string {
 		if v == nil {
@@ -1822,7 +1683,6 @@ func (o ApiVersionSetContractDetailsResponsePtrOutput) Name() pulumi.StringPtrOu
 	}).(pulumi.StringPtrOutput)
 }
 
-// Name of HTTP header parameter that indicates the API Version if versioningScheme is set to `header`.
 func (o ApiVersionSetContractDetailsResponsePtrOutput) VersionHeaderName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ApiVersionSetContractDetailsResponse) *string {
 		if v == nil {
@@ -1832,7 +1692,6 @@ func (o ApiVersionSetContractDetailsResponsePtrOutput) VersionHeaderName() pulum
 	}).(pulumi.StringPtrOutput)
 }
 
-// Name of query parameter that indicates the API Version if versioningScheme is set to `query`.
 func (o ApiVersionSetContractDetailsResponsePtrOutput) VersionQueryName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ApiVersionSetContractDetailsResponse) *string {
 		if v == nil {
@@ -1842,7 +1701,6 @@ func (o ApiVersionSetContractDetailsResponsePtrOutput) VersionQueryName() pulumi
 	}).(pulumi.StringPtrOutput)
 }
 
-// An value that determines where the API Version identifier will be located in a HTTP request.
 func (o ApiVersionSetContractDetailsResponsePtrOutput) VersioningScheme() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ApiVersionSetContractDetailsResponse) *string {
 		if v == nil {
@@ -1852,11 +1710,8 @@ func (o ApiVersionSetContractDetailsResponsePtrOutput) VersioningScheme() pulumi
 	}).(pulumi.StringPtrOutput)
 }
 
-// API Authentication Settings.
 type AuthenticationSettingsContract struct {
-	// OAuth2 Authentication settings
 	OAuth2 *OAuth2AuthenticationSettingsContract `pulumi:"oAuth2"`
-	// OpenID Connect Authentication Settings
 	Openid *OpenIdAuthenticationSettingsContract `pulumi:"openid"`
 }
 
@@ -1871,11 +1726,8 @@ type AuthenticationSettingsContractInput interface {
 	ToAuthenticationSettingsContractOutputWithContext(context.Context) AuthenticationSettingsContractOutput
 }
 
-// API Authentication Settings.
 type AuthenticationSettingsContractArgs struct {
-	// OAuth2 Authentication settings
 	OAuth2 OAuth2AuthenticationSettingsContractPtrInput `pulumi:"oAuth2"`
-	// OpenID Connect Authentication Settings
 	Openid OpenIdAuthenticationSettingsContractPtrInput `pulumi:"openid"`
 }
 
@@ -1932,7 +1784,6 @@ func (i *authenticationSettingsContractPtrType) ToAuthenticationSettingsContract
 	return pulumi.ToOutputWithContext(ctx, i).(AuthenticationSettingsContractPtrOutput)
 }
 
-// API Authentication Settings.
 type AuthenticationSettingsContractOutput struct{ *pulumi.OutputState }
 
 func (AuthenticationSettingsContractOutput) ElementType() reflect.Type {
@@ -1952,17 +1803,15 @@ func (o AuthenticationSettingsContractOutput) ToAuthenticationSettingsContractPt
 }
 
 func (o AuthenticationSettingsContractOutput) ToAuthenticationSettingsContractPtrOutputWithContext(ctx context.Context) AuthenticationSettingsContractPtrOutput {
-	return o.ApplyT(func(v AuthenticationSettingsContract) *AuthenticationSettingsContract {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v AuthenticationSettingsContract) *AuthenticationSettingsContract {
 		return &v
 	}).(AuthenticationSettingsContractPtrOutput)
 }
 
-// OAuth2 Authentication settings
 func (o AuthenticationSettingsContractOutput) OAuth2() OAuth2AuthenticationSettingsContractPtrOutput {
 	return o.ApplyT(func(v AuthenticationSettingsContract) *OAuth2AuthenticationSettingsContract { return v.OAuth2 }).(OAuth2AuthenticationSettingsContractPtrOutput)
 }
 
-// OpenID Connect Authentication Settings
 func (o AuthenticationSettingsContractOutput) Openid() OpenIdAuthenticationSettingsContractPtrOutput {
 	return o.ApplyT(func(v AuthenticationSettingsContract) *OpenIdAuthenticationSettingsContract { return v.Openid }).(OpenIdAuthenticationSettingsContractPtrOutput)
 }
@@ -1982,10 +1831,15 @@ func (o AuthenticationSettingsContractPtrOutput) ToAuthenticationSettingsContrac
 }
 
 func (o AuthenticationSettingsContractPtrOutput) Elem() AuthenticationSettingsContractOutput {
-	return o.ApplyT(func(v *AuthenticationSettingsContract) AuthenticationSettingsContract { return *v }).(AuthenticationSettingsContractOutput)
+	return o.ApplyT(func(v *AuthenticationSettingsContract) AuthenticationSettingsContract {
+		if v != nil {
+			return *v
+		}
+		var ret AuthenticationSettingsContract
+		return ret
+	}).(AuthenticationSettingsContractOutput)
 }
 
-// OAuth2 Authentication settings
 func (o AuthenticationSettingsContractPtrOutput) OAuth2() OAuth2AuthenticationSettingsContractPtrOutput {
 	return o.ApplyT(func(v *AuthenticationSettingsContract) *OAuth2AuthenticationSettingsContract {
 		if v == nil {
@@ -1995,7 +1849,6 @@ func (o AuthenticationSettingsContractPtrOutput) OAuth2() OAuth2AuthenticationSe
 	}).(OAuth2AuthenticationSettingsContractPtrOutput)
 }
 
-// OpenID Connect Authentication Settings
 func (o AuthenticationSettingsContractPtrOutput) Openid() OpenIdAuthenticationSettingsContractPtrOutput {
 	return o.ApplyT(func(v *AuthenticationSettingsContract) *OpenIdAuthenticationSettingsContract {
 		if v == nil {
@@ -2005,11 +1858,8 @@ func (o AuthenticationSettingsContractPtrOutput) Openid() OpenIdAuthenticationSe
 	}).(OpenIdAuthenticationSettingsContractPtrOutput)
 }
 
-// API Authentication Settings.
 type AuthenticationSettingsContractResponse struct {
-	// OAuth2 Authentication settings
 	OAuth2 *OAuth2AuthenticationSettingsContractResponse `pulumi:"oAuth2"`
-	// OpenID Connect Authentication Settings
 	Openid *OpenIdAuthenticationSettingsContractResponse `pulumi:"openid"`
 }
 
@@ -2024,11 +1874,8 @@ type AuthenticationSettingsContractResponseInput interface {
 	ToAuthenticationSettingsContractResponseOutputWithContext(context.Context) AuthenticationSettingsContractResponseOutput
 }
 
-// API Authentication Settings.
 type AuthenticationSettingsContractResponseArgs struct {
-	// OAuth2 Authentication settings
 	OAuth2 OAuth2AuthenticationSettingsContractResponsePtrInput `pulumi:"oAuth2"`
-	// OpenID Connect Authentication Settings
 	Openid OpenIdAuthenticationSettingsContractResponsePtrInput `pulumi:"openid"`
 }
 
@@ -2085,7 +1932,6 @@ func (i *authenticationSettingsContractResponsePtrType) ToAuthenticationSettings
 	return pulumi.ToOutputWithContext(ctx, i).(AuthenticationSettingsContractResponsePtrOutput)
 }
 
-// API Authentication Settings.
 type AuthenticationSettingsContractResponseOutput struct{ *pulumi.OutputState }
 
 func (AuthenticationSettingsContractResponseOutput) ElementType() reflect.Type {
@@ -2105,19 +1951,17 @@ func (o AuthenticationSettingsContractResponseOutput) ToAuthenticationSettingsCo
 }
 
 func (o AuthenticationSettingsContractResponseOutput) ToAuthenticationSettingsContractResponsePtrOutputWithContext(ctx context.Context) AuthenticationSettingsContractResponsePtrOutput {
-	return o.ApplyT(func(v AuthenticationSettingsContractResponse) *AuthenticationSettingsContractResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v AuthenticationSettingsContractResponse) *AuthenticationSettingsContractResponse {
 		return &v
 	}).(AuthenticationSettingsContractResponsePtrOutput)
 }
 
-// OAuth2 Authentication settings
 func (o AuthenticationSettingsContractResponseOutput) OAuth2() OAuth2AuthenticationSettingsContractResponsePtrOutput {
 	return o.ApplyT(func(v AuthenticationSettingsContractResponse) *OAuth2AuthenticationSettingsContractResponse {
 		return v.OAuth2
 	}).(OAuth2AuthenticationSettingsContractResponsePtrOutput)
 }
 
-// OpenID Connect Authentication Settings
 func (o AuthenticationSettingsContractResponseOutput) Openid() OpenIdAuthenticationSettingsContractResponsePtrOutput {
 	return o.ApplyT(func(v AuthenticationSettingsContractResponse) *OpenIdAuthenticationSettingsContractResponse {
 		return v.Openid
@@ -2139,10 +1983,15 @@ func (o AuthenticationSettingsContractResponsePtrOutput) ToAuthenticationSetting
 }
 
 func (o AuthenticationSettingsContractResponsePtrOutput) Elem() AuthenticationSettingsContractResponseOutput {
-	return o.ApplyT(func(v *AuthenticationSettingsContractResponse) AuthenticationSettingsContractResponse { return *v }).(AuthenticationSettingsContractResponseOutput)
+	return o.ApplyT(func(v *AuthenticationSettingsContractResponse) AuthenticationSettingsContractResponse {
+		if v != nil {
+			return *v
+		}
+		var ret AuthenticationSettingsContractResponse
+		return ret
+	}).(AuthenticationSettingsContractResponseOutput)
 }
 
-// OAuth2 Authentication settings
 func (o AuthenticationSettingsContractResponsePtrOutput) OAuth2() OAuth2AuthenticationSettingsContractResponsePtrOutput {
 	return o.ApplyT(func(v *AuthenticationSettingsContractResponse) *OAuth2AuthenticationSettingsContractResponse {
 		if v == nil {
@@ -2152,7 +2001,6 @@ func (o AuthenticationSettingsContractResponsePtrOutput) OAuth2() OAuth2Authenti
 	}).(OAuth2AuthenticationSettingsContractResponsePtrOutput)
 }
 
-// OpenID Connect Authentication Settings
 func (o AuthenticationSettingsContractResponsePtrOutput) Openid() OpenIdAuthenticationSettingsContractResponsePtrOutput {
 	return o.ApplyT(func(v *AuthenticationSettingsContractResponse) *OpenIdAuthenticationSettingsContractResponse {
 		if v == nil {
@@ -2162,12 +2010,9 @@ func (o AuthenticationSettingsContractResponsePtrOutput) Openid() OpenIdAuthenti
 	}).(OpenIdAuthenticationSettingsContractResponsePtrOutput)
 }
 
-// Authorization header information.
 type BackendAuthorizationHeaderCredentials struct {
-	// Authentication Parameter value.
 	Parameter string `pulumi:"parameter"`
-	// Authentication Scheme name.
-	Scheme string `pulumi:"scheme"`
+	Scheme    string `pulumi:"scheme"`
 }
 
 // BackendAuthorizationHeaderCredentialsInput is an input type that accepts BackendAuthorizationHeaderCredentialsArgs and BackendAuthorizationHeaderCredentialsOutput values.
@@ -2181,12 +2026,9 @@ type BackendAuthorizationHeaderCredentialsInput interface {
 	ToBackendAuthorizationHeaderCredentialsOutputWithContext(context.Context) BackendAuthorizationHeaderCredentialsOutput
 }
 
-// Authorization header information.
 type BackendAuthorizationHeaderCredentialsArgs struct {
-	// Authentication Parameter value.
 	Parameter pulumi.StringInput `pulumi:"parameter"`
-	// Authentication Scheme name.
-	Scheme pulumi.StringInput `pulumi:"scheme"`
+	Scheme    pulumi.StringInput `pulumi:"scheme"`
 }
 
 func (BackendAuthorizationHeaderCredentialsArgs) ElementType() reflect.Type {
@@ -2242,7 +2084,6 @@ func (i *backendAuthorizationHeaderCredentialsPtrType) ToBackendAuthorizationHea
 	return pulumi.ToOutputWithContext(ctx, i).(BackendAuthorizationHeaderCredentialsPtrOutput)
 }
 
-// Authorization header information.
 type BackendAuthorizationHeaderCredentialsOutput struct{ *pulumi.OutputState }
 
 func (BackendAuthorizationHeaderCredentialsOutput) ElementType() reflect.Type {
@@ -2262,17 +2103,15 @@ func (o BackendAuthorizationHeaderCredentialsOutput) ToBackendAuthorizationHeade
 }
 
 func (o BackendAuthorizationHeaderCredentialsOutput) ToBackendAuthorizationHeaderCredentialsPtrOutputWithContext(ctx context.Context) BackendAuthorizationHeaderCredentialsPtrOutput {
-	return o.ApplyT(func(v BackendAuthorizationHeaderCredentials) *BackendAuthorizationHeaderCredentials {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v BackendAuthorizationHeaderCredentials) *BackendAuthorizationHeaderCredentials {
 		return &v
 	}).(BackendAuthorizationHeaderCredentialsPtrOutput)
 }
 
-// Authentication Parameter value.
 func (o BackendAuthorizationHeaderCredentialsOutput) Parameter() pulumi.StringOutput {
 	return o.ApplyT(func(v BackendAuthorizationHeaderCredentials) string { return v.Parameter }).(pulumi.StringOutput)
 }
 
-// Authentication Scheme name.
 func (o BackendAuthorizationHeaderCredentialsOutput) Scheme() pulumi.StringOutput {
 	return o.ApplyT(func(v BackendAuthorizationHeaderCredentials) string { return v.Scheme }).(pulumi.StringOutput)
 }
@@ -2292,10 +2131,15 @@ func (o BackendAuthorizationHeaderCredentialsPtrOutput) ToBackendAuthorizationHe
 }
 
 func (o BackendAuthorizationHeaderCredentialsPtrOutput) Elem() BackendAuthorizationHeaderCredentialsOutput {
-	return o.ApplyT(func(v *BackendAuthorizationHeaderCredentials) BackendAuthorizationHeaderCredentials { return *v }).(BackendAuthorizationHeaderCredentialsOutput)
+	return o.ApplyT(func(v *BackendAuthorizationHeaderCredentials) BackendAuthorizationHeaderCredentials {
+		if v != nil {
+			return *v
+		}
+		var ret BackendAuthorizationHeaderCredentials
+		return ret
+	}).(BackendAuthorizationHeaderCredentialsOutput)
 }
 
-// Authentication Parameter value.
 func (o BackendAuthorizationHeaderCredentialsPtrOutput) Parameter() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *BackendAuthorizationHeaderCredentials) *string {
 		if v == nil {
@@ -2305,7 +2149,6 @@ func (o BackendAuthorizationHeaderCredentialsPtrOutput) Parameter() pulumi.Strin
 	}).(pulumi.StringPtrOutput)
 }
 
-// Authentication Scheme name.
 func (o BackendAuthorizationHeaderCredentialsPtrOutput) Scheme() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *BackendAuthorizationHeaderCredentials) *string {
 		if v == nil {
@@ -2315,12 +2158,9 @@ func (o BackendAuthorizationHeaderCredentialsPtrOutput) Scheme() pulumi.StringPt
 	}).(pulumi.StringPtrOutput)
 }
 
-// Authorization header information.
 type BackendAuthorizationHeaderCredentialsResponse struct {
-	// Authentication Parameter value.
 	Parameter string `pulumi:"parameter"`
-	// Authentication Scheme name.
-	Scheme string `pulumi:"scheme"`
+	Scheme    string `pulumi:"scheme"`
 }
 
 // BackendAuthorizationHeaderCredentialsResponseInput is an input type that accepts BackendAuthorizationHeaderCredentialsResponseArgs and BackendAuthorizationHeaderCredentialsResponseOutput values.
@@ -2334,12 +2174,9 @@ type BackendAuthorizationHeaderCredentialsResponseInput interface {
 	ToBackendAuthorizationHeaderCredentialsResponseOutputWithContext(context.Context) BackendAuthorizationHeaderCredentialsResponseOutput
 }
 
-// Authorization header information.
 type BackendAuthorizationHeaderCredentialsResponseArgs struct {
-	// Authentication Parameter value.
 	Parameter pulumi.StringInput `pulumi:"parameter"`
-	// Authentication Scheme name.
-	Scheme pulumi.StringInput `pulumi:"scheme"`
+	Scheme    pulumi.StringInput `pulumi:"scheme"`
 }
 
 func (BackendAuthorizationHeaderCredentialsResponseArgs) ElementType() reflect.Type {
@@ -2395,7 +2232,6 @@ func (i *backendAuthorizationHeaderCredentialsResponsePtrType) ToBackendAuthoriz
 	return pulumi.ToOutputWithContext(ctx, i).(BackendAuthorizationHeaderCredentialsResponsePtrOutput)
 }
 
-// Authorization header information.
 type BackendAuthorizationHeaderCredentialsResponseOutput struct{ *pulumi.OutputState }
 
 func (BackendAuthorizationHeaderCredentialsResponseOutput) ElementType() reflect.Type {
@@ -2415,17 +2251,15 @@ func (o BackendAuthorizationHeaderCredentialsResponseOutput) ToBackendAuthorizat
 }
 
 func (o BackendAuthorizationHeaderCredentialsResponseOutput) ToBackendAuthorizationHeaderCredentialsResponsePtrOutputWithContext(ctx context.Context) BackendAuthorizationHeaderCredentialsResponsePtrOutput {
-	return o.ApplyT(func(v BackendAuthorizationHeaderCredentialsResponse) *BackendAuthorizationHeaderCredentialsResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v BackendAuthorizationHeaderCredentialsResponse) *BackendAuthorizationHeaderCredentialsResponse {
 		return &v
 	}).(BackendAuthorizationHeaderCredentialsResponsePtrOutput)
 }
 
-// Authentication Parameter value.
 func (o BackendAuthorizationHeaderCredentialsResponseOutput) Parameter() pulumi.StringOutput {
 	return o.ApplyT(func(v BackendAuthorizationHeaderCredentialsResponse) string { return v.Parameter }).(pulumi.StringOutput)
 }
 
-// Authentication Scheme name.
 func (o BackendAuthorizationHeaderCredentialsResponseOutput) Scheme() pulumi.StringOutput {
 	return o.ApplyT(func(v BackendAuthorizationHeaderCredentialsResponse) string { return v.Scheme }).(pulumi.StringOutput)
 }
@@ -2446,11 +2280,14 @@ func (o BackendAuthorizationHeaderCredentialsResponsePtrOutput) ToBackendAuthori
 
 func (o BackendAuthorizationHeaderCredentialsResponsePtrOutput) Elem() BackendAuthorizationHeaderCredentialsResponseOutput {
 	return o.ApplyT(func(v *BackendAuthorizationHeaderCredentialsResponse) BackendAuthorizationHeaderCredentialsResponse {
-		return *v
+		if v != nil {
+			return *v
+		}
+		var ret BackendAuthorizationHeaderCredentialsResponse
+		return ret
 	}).(BackendAuthorizationHeaderCredentialsResponseOutput)
 }
 
-// Authentication Parameter value.
 func (o BackendAuthorizationHeaderCredentialsResponsePtrOutput) Parameter() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *BackendAuthorizationHeaderCredentialsResponse) *string {
 		if v == nil {
@@ -2460,7 +2297,6 @@ func (o BackendAuthorizationHeaderCredentialsResponsePtrOutput) Parameter() pulu
 	}).(pulumi.StringPtrOutput)
 }
 
-// Authentication Scheme name.
 func (o BackendAuthorizationHeaderCredentialsResponsePtrOutput) Scheme() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *BackendAuthorizationHeaderCredentialsResponse) *string {
 		if v == nil {
@@ -2470,16 +2306,11 @@ func (o BackendAuthorizationHeaderCredentialsResponsePtrOutput) Scheme() pulumi.
 	}).(pulumi.StringPtrOutput)
 }
 
-// Details of the Credentials used to connect to Backend.
 type BackendCredentialsContract struct {
-	// Authorization header authentication
 	Authorization *BackendAuthorizationHeaderCredentials `pulumi:"authorization"`
-	// List of Client Certificate Thumbprint.
-	Certificate []string `pulumi:"certificate"`
-	// Header Parameter description.
-	Header map[string][]string `pulumi:"header"`
-	// Query Parameter description.
-	Query map[string][]string `pulumi:"query"`
+	Certificate   []string                               `pulumi:"certificate"`
+	Header        map[string][]string                    `pulumi:"header"`
+	Query         map[string][]string                    `pulumi:"query"`
 }
 
 // BackendCredentialsContractInput is an input type that accepts BackendCredentialsContractArgs and BackendCredentialsContractOutput values.
@@ -2493,16 +2324,11 @@ type BackendCredentialsContractInput interface {
 	ToBackendCredentialsContractOutputWithContext(context.Context) BackendCredentialsContractOutput
 }
 
-// Details of the Credentials used to connect to Backend.
 type BackendCredentialsContractArgs struct {
-	// Authorization header authentication
 	Authorization BackendAuthorizationHeaderCredentialsPtrInput `pulumi:"authorization"`
-	// List of Client Certificate Thumbprint.
-	Certificate pulumi.StringArrayInput `pulumi:"certificate"`
-	// Header Parameter description.
-	Header pulumi.StringArrayMapInput `pulumi:"header"`
-	// Query Parameter description.
-	Query pulumi.StringArrayMapInput `pulumi:"query"`
+	Certificate   pulumi.StringArrayInput                       `pulumi:"certificate"`
+	Header        pulumi.StringArrayMapInput                    `pulumi:"header"`
+	Query         pulumi.StringArrayMapInput                    `pulumi:"query"`
 }
 
 func (BackendCredentialsContractArgs) ElementType() reflect.Type {
@@ -2558,7 +2384,6 @@ func (i *backendCredentialsContractPtrType) ToBackendCredentialsContractPtrOutpu
 	return pulumi.ToOutputWithContext(ctx, i).(BackendCredentialsContractPtrOutput)
 }
 
-// Details of the Credentials used to connect to Backend.
 type BackendCredentialsContractOutput struct{ *pulumi.OutputState }
 
 func (BackendCredentialsContractOutput) ElementType() reflect.Type {
@@ -2578,27 +2403,23 @@ func (o BackendCredentialsContractOutput) ToBackendCredentialsContractPtrOutput(
 }
 
 func (o BackendCredentialsContractOutput) ToBackendCredentialsContractPtrOutputWithContext(ctx context.Context) BackendCredentialsContractPtrOutput {
-	return o.ApplyT(func(v BackendCredentialsContract) *BackendCredentialsContract {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v BackendCredentialsContract) *BackendCredentialsContract {
 		return &v
 	}).(BackendCredentialsContractPtrOutput)
 }
 
-// Authorization header authentication
 func (o BackendCredentialsContractOutput) Authorization() BackendAuthorizationHeaderCredentialsPtrOutput {
 	return o.ApplyT(func(v BackendCredentialsContract) *BackendAuthorizationHeaderCredentials { return v.Authorization }).(BackendAuthorizationHeaderCredentialsPtrOutput)
 }
 
-// List of Client Certificate Thumbprint.
 func (o BackendCredentialsContractOutput) Certificate() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v BackendCredentialsContract) []string { return v.Certificate }).(pulumi.StringArrayOutput)
 }
 
-// Header Parameter description.
 func (o BackendCredentialsContractOutput) Header() pulumi.StringArrayMapOutput {
 	return o.ApplyT(func(v BackendCredentialsContract) map[string][]string { return v.Header }).(pulumi.StringArrayMapOutput)
 }
 
-// Query Parameter description.
 func (o BackendCredentialsContractOutput) Query() pulumi.StringArrayMapOutput {
 	return o.ApplyT(func(v BackendCredentialsContract) map[string][]string { return v.Query }).(pulumi.StringArrayMapOutput)
 }
@@ -2618,10 +2439,15 @@ func (o BackendCredentialsContractPtrOutput) ToBackendCredentialsContractPtrOutp
 }
 
 func (o BackendCredentialsContractPtrOutput) Elem() BackendCredentialsContractOutput {
-	return o.ApplyT(func(v *BackendCredentialsContract) BackendCredentialsContract { return *v }).(BackendCredentialsContractOutput)
+	return o.ApplyT(func(v *BackendCredentialsContract) BackendCredentialsContract {
+		if v != nil {
+			return *v
+		}
+		var ret BackendCredentialsContract
+		return ret
+	}).(BackendCredentialsContractOutput)
 }
 
-// Authorization header authentication
 func (o BackendCredentialsContractPtrOutput) Authorization() BackendAuthorizationHeaderCredentialsPtrOutput {
 	return o.ApplyT(func(v *BackendCredentialsContract) *BackendAuthorizationHeaderCredentials {
 		if v == nil {
@@ -2631,7 +2457,6 @@ func (o BackendCredentialsContractPtrOutput) Authorization() BackendAuthorizatio
 	}).(BackendAuthorizationHeaderCredentialsPtrOutput)
 }
 
-// List of Client Certificate Thumbprint.
 func (o BackendCredentialsContractPtrOutput) Certificate() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *BackendCredentialsContract) []string {
 		if v == nil {
@@ -2641,7 +2466,6 @@ func (o BackendCredentialsContractPtrOutput) Certificate() pulumi.StringArrayOut
 	}).(pulumi.StringArrayOutput)
 }
 
-// Header Parameter description.
 func (o BackendCredentialsContractPtrOutput) Header() pulumi.StringArrayMapOutput {
 	return o.ApplyT(func(v *BackendCredentialsContract) map[string][]string {
 		if v == nil {
@@ -2651,7 +2475,6 @@ func (o BackendCredentialsContractPtrOutput) Header() pulumi.StringArrayMapOutpu
 	}).(pulumi.StringArrayMapOutput)
 }
 
-// Query Parameter description.
 func (o BackendCredentialsContractPtrOutput) Query() pulumi.StringArrayMapOutput {
 	return o.ApplyT(func(v *BackendCredentialsContract) map[string][]string {
 		if v == nil {
@@ -2661,16 +2484,11 @@ func (o BackendCredentialsContractPtrOutput) Query() pulumi.StringArrayMapOutput
 	}).(pulumi.StringArrayMapOutput)
 }
 
-// Details of the Credentials used to connect to Backend.
 type BackendCredentialsContractResponse struct {
-	// Authorization header authentication
 	Authorization *BackendAuthorizationHeaderCredentialsResponse `pulumi:"authorization"`
-	// List of Client Certificate Thumbprint.
-	Certificate []string `pulumi:"certificate"`
-	// Header Parameter description.
-	Header map[string][]string `pulumi:"header"`
-	// Query Parameter description.
-	Query map[string][]string `pulumi:"query"`
+	Certificate   []string                                       `pulumi:"certificate"`
+	Header        map[string][]string                            `pulumi:"header"`
+	Query         map[string][]string                            `pulumi:"query"`
 }
 
 // BackendCredentialsContractResponseInput is an input type that accepts BackendCredentialsContractResponseArgs and BackendCredentialsContractResponseOutput values.
@@ -2684,16 +2502,11 @@ type BackendCredentialsContractResponseInput interface {
 	ToBackendCredentialsContractResponseOutputWithContext(context.Context) BackendCredentialsContractResponseOutput
 }
 
-// Details of the Credentials used to connect to Backend.
 type BackendCredentialsContractResponseArgs struct {
-	// Authorization header authentication
 	Authorization BackendAuthorizationHeaderCredentialsResponsePtrInput `pulumi:"authorization"`
-	// List of Client Certificate Thumbprint.
-	Certificate pulumi.StringArrayInput `pulumi:"certificate"`
-	// Header Parameter description.
-	Header pulumi.StringArrayMapInput `pulumi:"header"`
-	// Query Parameter description.
-	Query pulumi.StringArrayMapInput `pulumi:"query"`
+	Certificate   pulumi.StringArrayInput                               `pulumi:"certificate"`
+	Header        pulumi.StringArrayMapInput                            `pulumi:"header"`
+	Query         pulumi.StringArrayMapInput                            `pulumi:"query"`
 }
 
 func (BackendCredentialsContractResponseArgs) ElementType() reflect.Type {
@@ -2749,7 +2562,6 @@ func (i *backendCredentialsContractResponsePtrType) ToBackendCredentialsContract
 	return pulumi.ToOutputWithContext(ctx, i).(BackendCredentialsContractResponsePtrOutput)
 }
 
-// Details of the Credentials used to connect to Backend.
 type BackendCredentialsContractResponseOutput struct{ *pulumi.OutputState }
 
 func (BackendCredentialsContractResponseOutput) ElementType() reflect.Type {
@@ -2769,29 +2581,25 @@ func (o BackendCredentialsContractResponseOutput) ToBackendCredentialsContractRe
 }
 
 func (o BackendCredentialsContractResponseOutput) ToBackendCredentialsContractResponsePtrOutputWithContext(ctx context.Context) BackendCredentialsContractResponsePtrOutput {
-	return o.ApplyT(func(v BackendCredentialsContractResponse) *BackendCredentialsContractResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v BackendCredentialsContractResponse) *BackendCredentialsContractResponse {
 		return &v
 	}).(BackendCredentialsContractResponsePtrOutput)
 }
 
-// Authorization header authentication
 func (o BackendCredentialsContractResponseOutput) Authorization() BackendAuthorizationHeaderCredentialsResponsePtrOutput {
 	return o.ApplyT(func(v BackendCredentialsContractResponse) *BackendAuthorizationHeaderCredentialsResponse {
 		return v.Authorization
 	}).(BackendAuthorizationHeaderCredentialsResponsePtrOutput)
 }
 
-// List of Client Certificate Thumbprint.
 func (o BackendCredentialsContractResponseOutput) Certificate() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v BackendCredentialsContractResponse) []string { return v.Certificate }).(pulumi.StringArrayOutput)
 }
 
-// Header Parameter description.
 func (o BackendCredentialsContractResponseOutput) Header() pulumi.StringArrayMapOutput {
 	return o.ApplyT(func(v BackendCredentialsContractResponse) map[string][]string { return v.Header }).(pulumi.StringArrayMapOutput)
 }
 
-// Query Parameter description.
 func (o BackendCredentialsContractResponseOutput) Query() pulumi.StringArrayMapOutput {
 	return o.ApplyT(func(v BackendCredentialsContractResponse) map[string][]string { return v.Query }).(pulumi.StringArrayMapOutput)
 }
@@ -2811,10 +2619,15 @@ func (o BackendCredentialsContractResponsePtrOutput) ToBackendCredentialsContrac
 }
 
 func (o BackendCredentialsContractResponsePtrOutput) Elem() BackendCredentialsContractResponseOutput {
-	return o.ApplyT(func(v *BackendCredentialsContractResponse) BackendCredentialsContractResponse { return *v }).(BackendCredentialsContractResponseOutput)
+	return o.ApplyT(func(v *BackendCredentialsContractResponse) BackendCredentialsContractResponse {
+		if v != nil {
+			return *v
+		}
+		var ret BackendCredentialsContractResponse
+		return ret
+	}).(BackendCredentialsContractResponseOutput)
 }
 
-// Authorization header authentication
 func (o BackendCredentialsContractResponsePtrOutput) Authorization() BackendAuthorizationHeaderCredentialsResponsePtrOutput {
 	return o.ApplyT(func(v *BackendCredentialsContractResponse) *BackendAuthorizationHeaderCredentialsResponse {
 		if v == nil {
@@ -2824,7 +2637,6 @@ func (o BackendCredentialsContractResponsePtrOutput) Authorization() BackendAuth
 	}).(BackendAuthorizationHeaderCredentialsResponsePtrOutput)
 }
 
-// List of Client Certificate Thumbprint.
 func (o BackendCredentialsContractResponsePtrOutput) Certificate() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *BackendCredentialsContractResponse) []string {
 		if v == nil {
@@ -2834,7 +2646,6 @@ func (o BackendCredentialsContractResponsePtrOutput) Certificate() pulumi.String
 	}).(pulumi.StringArrayOutput)
 }
 
-// Header Parameter description.
 func (o BackendCredentialsContractResponsePtrOutput) Header() pulumi.StringArrayMapOutput {
 	return o.ApplyT(func(v *BackendCredentialsContractResponse) map[string][]string {
 		if v == nil {
@@ -2844,7 +2655,6 @@ func (o BackendCredentialsContractResponsePtrOutput) Header() pulumi.StringArray
 	}).(pulumi.StringArrayMapOutput)
 }
 
-// Query Parameter description.
 func (o BackendCredentialsContractResponsePtrOutput) Query() pulumi.StringArrayMapOutput {
 	return o.ApplyT(func(v *BackendCredentialsContractResponse) map[string][]string {
 		if v == nil {
@@ -2854,9 +2664,7 @@ func (o BackendCredentialsContractResponsePtrOutput) Query() pulumi.StringArrayM
 	}).(pulumi.StringArrayMapOutput)
 }
 
-// Properties specific to the Backend Type.
 type BackendProperties struct {
-	// Backend Service Fabric Cluster Properties
 	ServiceFabricCluster *BackendServiceFabricClusterProperties `pulumi:"serviceFabricCluster"`
 }
 
@@ -2871,9 +2679,7 @@ type BackendPropertiesInput interface {
 	ToBackendPropertiesOutputWithContext(context.Context) BackendPropertiesOutput
 }
 
-// Properties specific to the Backend Type.
 type BackendPropertiesArgs struct {
-	// Backend Service Fabric Cluster Properties
 	ServiceFabricCluster BackendServiceFabricClusterPropertiesPtrInput `pulumi:"serviceFabricCluster"`
 }
 
@@ -2930,7 +2736,6 @@ func (i *backendPropertiesPtrType) ToBackendPropertiesPtrOutputWithContext(ctx c
 	return pulumi.ToOutputWithContext(ctx, i).(BackendPropertiesPtrOutput)
 }
 
-// Properties specific to the Backend Type.
 type BackendPropertiesOutput struct{ *pulumi.OutputState }
 
 func (BackendPropertiesOutput) ElementType() reflect.Type {
@@ -2950,12 +2755,11 @@ func (o BackendPropertiesOutput) ToBackendPropertiesPtrOutput() BackendPropertie
 }
 
 func (o BackendPropertiesOutput) ToBackendPropertiesPtrOutputWithContext(ctx context.Context) BackendPropertiesPtrOutput {
-	return o.ApplyT(func(v BackendProperties) *BackendProperties {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v BackendProperties) *BackendProperties {
 		return &v
 	}).(BackendPropertiesPtrOutput)
 }
 
-// Backend Service Fabric Cluster Properties
 func (o BackendPropertiesOutput) ServiceFabricCluster() BackendServiceFabricClusterPropertiesPtrOutput {
 	return o.ApplyT(func(v BackendProperties) *BackendServiceFabricClusterProperties { return v.ServiceFabricCluster }).(BackendServiceFabricClusterPropertiesPtrOutput)
 }
@@ -2975,10 +2779,15 @@ func (o BackendPropertiesPtrOutput) ToBackendPropertiesPtrOutputWithContext(ctx 
 }
 
 func (o BackendPropertiesPtrOutput) Elem() BackendPropertiesOutput {
-	return o.ApplyT(func(v *BackendProperties) BackendProperties { return *v }).(BackendPropertiesOutput)
+	return o.ApplyT(func(v *BackendProperties) BackendProperties {
+		if v != nil {
+			return *v
+		}
+		var ret BackendProperties
+		return ret
+	}).(BackendPropertiesOutput)
 }
 
-// Backend Service Fabric Cluster Properties
 func (o BackendPropertiesPtrOutput) ServiceFabricCluster() BackendServiceFabricClusterPropertiesPtrOutput {
 	return o.ApplyT(func(v *BackendProperties) *BackendServiceFabricClusterProperties {
 		if v == nil {
@@ -2988,9 +2797,7 @@ func (o BackendPropertiesPtrOutput) ServiceFabricCluster() BackendServiceFabricC
 	}).(BackendServiceFabricClusterPropertiesPtrOutput)
 }
 
-// Properties specific to the Backend Type.
 type BackendPropertiesResponse struct {
-	// Backend Service Fabric Cluster Properties
 	ServiceFabricCluster *BackendServiceFabricClusterPropertiesResponse `pulumi:"serviceFabricCluster"`
 }
 
@@ -3005,9 +2812,7 @@ type BackendPropertiesResponseInput interface {
 	ToBackendPropertiesResponseOutputWithContext(context.Context) BackendPropertiesResponseOutput
 }
 
-// Properties specific to the Backend Type.
 type BackendPropertiesResponseArgs struct {
-	// Backend Service Fabric Cluster Properties
 	ServiceFabricCluster BackendServiceFabricClusterPropertiesResponsePtrInput `pulumi:"serviceFabricCluster"`
 }
 
@@ -3064,7 +2869,6 @@ func (i *backendPropertiesResponsePtrType) ToBackendPropertiesResponsePtrOutputW
 	return pulumi.ToOutputWithContext(ctx, i).(BackendPropertiesResponsePtrOutput)
 }
 
-// Properties specific to the Backend Type.
 type BackendPropertiesResponseOutput struct{ *pulumi.OutputState }
 
 func (BackendPropertiesResponseOutput) ElementType() reflect.Type {
@@ -3084,12 +2888,11 @@ func (o BackendPropertiesResponseOutput) ToBackendPropertiesResponsePtrOutput() 
 }
 
 func (o BackendPropertiesResponseOutput) ToBackendPropertiesResponsePtrOutputWithContext(ctx context.Context) BackendPropertiesResponsePtrOutput {
-	return o.ApplyT(func(v BackendPropertiesResponse) *BackendPropertiesResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v BackendPropertiesResponse) *BackendPropertiesResponse {
 		return &v
 	}).(BackendPropertiesResponsePtrOutput)
 }
 
-// Backend Service Fabric Cluster Properties
 func (o BackendPropertiesResponseOutput) ServiceFabricCluster() BackendServiceFabricClusterPropertiesResponsePtrOutput {
 	return o.ApplyT(func(v BackendPropertiesResponse) *BackendServiceFabricClusterPropertiesResponse {
 		return v.ServiceFabricCluster
@@ -3111,10 +2914,15 @@ func (o BackendPropertiesResponsePtrOutput) ToBackendPropertiesResponsePtrOutput
 }
 
 func (o BackendPropertiesResponsePtrOutput) Elem() BackendPropertiesResponseOutput {
-	return o.ApplyT(func(v *BackendPropertiesResponse) BackendPropertiesResponse { return *v }).(BackendPropertiesResponseOutput)
+	return o.ApplyT(func(v *BackendPropertiesResponse) BackendPropertiesResponse {
+		if v != nil {
+			return *v
+		}
+		var ret BackendPropertiesResponse
+		return ret
+	}).(BackendPropertiesResponseOutput)
 }
 
-// Backend Service Fabric Cluster Properties
 func (o BackendPropertiesResponsePtrOutput) ServiceFabricCluster() BackendServiceFabricClusterPropertiesResponsePtrOutput {
 	return o.ApplyT(func(v *BackendPropertiesResponse) *BackendServiceFabricClusterPropertiesResponse {
 		if v == nil {
@@ -3124,13 +2932,9 @@ func (o BackendPropertiesResponsePtrOutput) ServiceFabricCluster() BackendServic
 	}).(BackendServiceFabricClusterPropertiesResponsePtrOutput)
 }
 
-// Details of the Backend WebProxy Server to use in the Request to Backend.
 type BackendProxyContract struct {
-	// Password to connect to the WebProxy Server
 	Password *string `pulumi:"password"`
-	// WebProxy Server AbsoluteUri property which includes the entire URI stored in the Uri instance, including all fragments and query strings.
-	Url string `pulumi:"url"`
-	// Username to connect to the WebProxy server
+	Url      string  `pulumi:"url"`
 	Username *string `pulumi:"username"`
 }
 
@@ -3145,13 +2949,9 @@ type BackendProxyContractInput interface {
 	ToBackendProxyContractOutputWithContext(context.Context) BackendProxyContractOutput
 }
 
-// Details of the Backend WebProxy Server to use in the Request to Backend.
 type BackendProxyContractArgs struct {
-	// Password to connect to the WebProxy Server
 	Password pulumi.StringPtrInput `pulumi:"password"`
-	// WebProxy Server AbsoluteUri property which includes the entire URI stored in the Uri instance, including all fragments and query strings.
-	Url pulumi.StringInput `pulumi:"url"`
-	// Username to connect to the WebProxy server
+	Url      pulumi.StringInput    `pulumi:"url"`
 	Username pulumi.StringPtrInput `pulumi:"username"`
 }
 
@@ -3208,7 +3008,6 @@ func (i *backendProxyContractPtrType) ToBackendProxyContractPtrOutputWithContext
 	return pulumi.ToOutputWithContext(ctx, i).(BackendProxyContractPtrOutput)
 }
 
-// Details of the Backend WebProxy Server to use in the Request to Backend.
 type BackendProxyContractOutput struct{ *pulumi.OutputState }
 
 func (BackendProxyContractOutput) ElementType() reflect.Type {
@@ -3228,22 +3027,19 @@ func (o BackendProxyContractOutput) ToBackendProxyContractPtrOutput() BackendPro
 }
 
 func (o BackendProxyContractOutput) ToBackendProxyContractPtrOutputWithContext(ctx context.Context) BackendProxyContractPtrOutput {
-	return o.ApplyT(func(v BackendProxyContract) *BackendProxyContract {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v BackendProxyContract) *BackendProxyContract {
 		return &v
 	}).(BackendProxyContractPtrOutput)
 }
 
-// Password to connect to the WebProxy Server
 func (o BackendProxyContractOutput) Password() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v BackendProxyContract) *string { return v.Password }).(pulumi.StringPtrOutput)
 }
 
-// WebProxy Server AbsoluteUri property which includes the entire URI stored in the Uri instance, including all fragments and query strings.
 func (o BackendProxyContractOutput) Url() pulumi.StringOutput {
 	return o.ApplyT(func(v BackendProxyContract) string { return v.Url }).(pulumi.StringOutput)
 }
 
-// Username to connect to the WebProxy server
 func (o BackendProxyContractOutput) Username() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v BackendProxyContract) *string { return v.Username }).(pulumi.StringPtrOutput)
 }
@@ -3263,10 +3059,15 @@ func (o BackendProxyContractPtrOutput) ToBackendProxyContractPtrOutputWithContex
 }
 
 func (o BackendProxyContractPtrOutput) Elem() BackendProxyContractOutput {
-	return o.ApplyT(func(v *BackendProxyContract) BackendProxyContract { return *v }).(BackendProxyContractOutput)
+	return o.ApplyT(func(v *BackendProxyContract) BackendProxyContract {
+		if v != nil {
+			return *v
+		}
+		var ret BackendProxyContract
+		return ret
+	}).(BackendProxyContractOutput)
 }
 
-// Password to connect to the WebProxy Server
 func (o BackendProxyContractPtrOutput) Password() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *BackendProxyContract) *string {
 		if v == nil {
@@ -3276,7 +3077,6 @@ func (o BackendProxyContractPtrOutput) Password() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// WebProxy Server AbsoluteUri property which includes the entire URI stored in the Uri instance, including all fragments and query strings.
 func (o BackendProxyContractPtrOutput) Url() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *BackendProxyContract) *string {
 		if v == nil {
@@ -3286,7 +3086,6 @@ func (o BackendProxyContractPtrOutput) Url() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Username to connect to the WebProxy server
 func (o BackendProxyContractPtrOutput) Username() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *BackendProxyContract) *string {
 		if v == nil {
@@ -3296,13 +3095,9 @@ func (o BackendProxyContractPtrOutput) Username() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Details of the Backend WebProxy Server to use in the Request to Backend.
 type BackendProxyContractResponse struct {
-	// Password to connect to the WebProxy Server
 	Password *string `pulumi:"password"`
-	// WebProxy Server AbsoluteUri property which includes the entire URI stored in the Uri instance, including all fragments and query strings.
-	Url string `pulumi:"url"`
-	// Username to connect to the WebProxy server
+	Url      string  `pulumi:"url"`
 	Username *string `pulumi:"username"`
 }
 
@@ -3317,13 +3112,9 @@ type BackendProxyContractResponseInput interface {
 	ToBackendProxyContractResponseOutputWithContext(context.Context) BackendProxyContractResponseOutput
 }
 
-// Details of the Backend WebProxy Server to use in the Request to Backend.
 type BackendProxyContractResponseArgs struct {
-	// Password to connect to the WebProxy Server
 	Password pulumi.StringPtrInput `pulumi:"password"`
-	// WebProxy Server AbsoluteUri property which includes the entire URI stored in the Uri instance, including all fragments and query strings.
-	Url pulumi.StringInput `pulumi:"url"`
-	// Username to connect to the WebProxy server
+	Url      pulumi.StringInput    `pulumi:"url"`
 	Username pulumi.StringPtrInput `pulumi:"username"`
 }
 
@@ -3380,7 +3171,6 @@ func (i *backendProxyContractResponsePtrType) ToBackendProxyContractResponsePtrO
 	return pulumi.ToOutputWithContext(ctx, i).(BackendProxyContractResponsePtrOutput)
 }
 
-// Details of the Backend WebProxy Server to use in the Request to Backend.
 type BackendProxyContractResponseOutput struct{ *pulumi.OutputState }
 
 func (BackendProxyContractResponseOutput) ElementType() reflect.Type {
@@ -3400,22 +3190,19 @@ func (o BackendProxyContractResponseOutput) ToBackendProxyContractResponsePtrOut
 }
 
 func (o BackendProxyContractResponseOutput) ToBackendProxyContractResponsePtrOutputWithContext(ctx context.Context) BackendProxyContractResponsePtrOutput {
-	return o.ApplyT(func(v BackendProxyContractResponse) *BackendProxyContractResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v BackendProxyContractResponse) *BackendProxyContractResponse {
 		return &v
 	}).(BackendProxyContractResponsePtrOutput)
 }
 
-// Password to connect to the WebProxy Server
 func (o BackendProxyContractResponseOutput) Password() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v BackendProxyContractResponse) *string { return v.Password }).(pulumi.StringPtrOutput)
 }
 
-// WebProxy Server AbsoluteUri property which includes the entire URI stored in the Uri instance, including all fragments and query strings.
 func (o BackendProxyContractResponseOutput) Url() pulumi.StringOutput {
 	return o.ApplyT(func(v BackendProxyContractResponse) string { return v.Url }).(pulumi.StringOutput)
 }
 
-// Username to connect to the WebProxy server
 func (o BackendProxyContractResponseOutput) Username() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v BackendProxyContractResponse) *string { return v.Username }).(pulumi.StringPtrOutput)
 }
@@ -3435,10 +3222,15 @@ func (o BackendProxyContractResponsePtrOutput) ToBackendProxyContractResponsePtr
 }
 
 func (o BackendProxyContractResponsePtrOutput) Elem() BackendProxyContractResponseOutput {
-	return o.ApplyT(func(v *BackendProxyContractResponse) BackendProxyContractResponse { return *v }).(BackendProxyContractResponseOutput)
+	return o.ApplyT(func(v *BackendProxyContractResponse) BackendProxyContractResponse {
+		if v != nil {
+			return *v
+		}
+		var ret BackendProxyContractResponse
+		return ret
+	}).(BackendProxyContractResponseOutput)
 }
 
-// Password to connect to the WebProxy Server
 func (o BackendProxyContractResponsePtrOutput) Password() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *BackendProxyContractResponse) *string {
 		if v == nil {
@@ -3448,7 +3240,6 @@ func (o BackendProxyContractResponsePtrOutput) Password() pulumi.StringPtrOutput
 	}).(pulumi.StringPtrOutput)
 }
 
-// WebProxy Server AbsoluteUri property which includes the entire URI stored in the Uri instance, including all fragments and query strings.
 func (o BackendProxyContractResponsePtrOutput) Url() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *BackendProxyContractResponse) *string {
 		if v == nil {
@@ -3458,7 +3249,6 @@ func (o BackendProxyContractResponsePtrOutput) Url() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Username to connect to the WebProxy server
 func (o BackendProxyContractResponsePtrOutput) Username() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *BackendProxyContractResponse) *string {
 		if v == nil {
@@ -3468,18 +3258,12 @@ func (o BackendProxyContractResponsePtrOutput) Username() pulumi.StringPtrOutput
 	}).(pulumi.StringPtrOutput)
 }
 
-// Properties of the Service Fabric Type Backend.
 type BackendServiceFabricClusterProperties struct {
-	// The client certificate thumbprint for the management endpoint.
-	ClientCertificatethumbprint string `pulumi:"clientCertificatethumbprint"`
-	// The cluster management endpoint.
-	ManagementEndpoints []string `pulumi:"managementEndpoints"`
-	// Maximum number of retries while attempting resolve the partition.
-	MaxPartitionResolutionRetries *int `pulumi:"maxPartitionResolutionRetries"`
-	// Thumbprints of certificates cluster management service uses for tls communication
-	ServerCertificateThumbprints []string `pulumi:"serverCertificateThumbprints"`
-	// Server X509 Certificate Names Collection
-	ServerX509Names []X509CertificateName `pulumi:"serverX509Names"`
+	ClientCertificatethumbprint   string                `pulumi:"clientCertificatethumbprint"`
+	ManagementEndpoints           []string              `pulumi:"managementEndpoints"`
+	MaxPartitionResolutionRetries *int                  `pulumi:"maxPartitionResolutionRetries"`
+	ServerCertificateThumbprints  []string              `pulumi:"serverCertificateThumbprints"`
+	ServerX509Names               []X509CertificateName `pulumi:"serverX509Names"`
 }
 
 // BackendServiceFabricClusterPropertiesInput is an input type that accepts BackendServiceFabricClusterPropertiesArgs and BackendServiceFabricClusterPropertiesOutput values.
@@ -3493,18 +3277,12 @@ type BackendServiceFabricClusterPropertiesInput interface {
 	ToBackendServiceFabricClusterPropertiesOutputWithContext(context.Context) BackendServiceFabricClusterPropertiesOutput
 }
 
-// Properties of the Service Fabric Type Backend.
 type BackendServiceFabricClusterPropertiesArgs struct {
-	// The client certificate thumbprint for the management endpoint.
-	ClientCertificatethumbprint pulumi.StringInput `pulumi:"clientCertificatethumbprint"`
-	// The cluster management endpoint.
-	ManagementEndpoints pulumi.StringArrayInput `pulumi:"managementEndpoints"`
-	// Maximum number of retries while attempting resolve the partition.
-	MaxPartitionResolutionRetries pulumi.IntPtrInput `pulumi:"maxPartitionResolutionRetries"`
-	// Thumbprints of certificates cluster management service uses for tls communication
-	ServerCertificateThumbprints pulumi.StringArrayInput `pulumi:"serverCertificateThumbprints"`
-	// Server X509 Certificate Names Collection
-	ServerX509Names X509CertificateNameArrayInput `pulumi:"serverX509Names"`
+	ClientCertificatethumbprint   pulumi.StringInput            `pulumi:"clientCertificatethumbprint"`
+	ManagementEndpoints           pulumi.StringArrayInput       `pulumi:"managementEndpoints"`
+	MaxPartitionResolutionRetries pulumi.IntPtrInput            `pulumi:"maxPartitionResolutionRetries"`
+	ServerCertificateThumbprints  pulumi.StringArrayInput       `pulumi:"serverCertificateThumbprints"`
+	ServerX509Names               X509CertificateNameArrayInput `pulumi:"serverX509Names"`
 }
 
 func (BackendServiceFabricClusterPropertiesArgs) ElementType() reflect.Type {
@@ -3560,7 +3338,6 @@ func (i *backendServiceFabricClusterPropertiesPtrType) ToBackendServiceFabricClu
 	return pulumi.ToOutputWithContext(ctx, i).(BackendServiceFabricClusterPropertiesPtrOutput)
 }
 
-// Properties of the Service Fabric Type Backend.
 type BackendServiceFabricClusterPropertiesOutput struct{ *pulumi.OutputState }
 
 func (BackendServiceFabricClusterPropertiesOutput) ElementType() reflect.Type {
@@ -3580,32 +3357,27 @@ func (o BackendServiceFabricClusterPropertiesOutput) ToBackendServiceFabricClust
 }
 
 func (o BackendServiceFabricClusterPropertiesOutput) ToBackendServiceFabricClusterPropertiesPtrOutputWithContext(ctx context.Context) BackendServiceFabricClusterPropertiesPtrOutput {
-	return o.ApplyT(func(v BackendServiceFabricClusterProperties) *BackendServiceFabricClusterProperties {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v BackendServiceFabricClusterProperties) *BackendServiceFabricClusterProperties {
 		return &v
 	}).(BackendServiceFabricClusterPropertiesPtrOutput)
 }
 
-// The client certificate thumbprint for the management endpoint.
 func (o BackendServiceFabricClusterPropertiesOutput) ClientCertificatethumbprint() pulumi.StringOutput {
 	return o.ApplyT(func(v BackendServiceFabricClusterProperties) string { return v.ClientCertificatethumbprint }).(pulumi.StringOutput)
 }
 
-// The cluster management endpoint.
 func (o BackendServiceFabricClusterPropertiesOutput) ManagementEndpoints() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v BackendServiceFabricClusterProperties) []string { return v.ManagementEndpoints }).(pulumi.StringArrayOutput)
 }
 
-// Maximum number of retries while attempting resolve the partition.
 func (o BackendServiceFabricClusterPropertiesOutput) MaxPartitionResolutionRetries() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v BackendServiceFabricClusterProperties) *int { return v.MaxPartitionResolutionRetries }).(pulumi.IntPtrOutput)
 }
 
-// Thumbprints of certificates cluster management service uses for tls communication
 func (o BackendServiceFabricClusterPropertiesOutput) ServerCertificateThumbprints() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v BackendServiceFabricClusterProperties) []string { return v.ServerCertificateThumbprints }).(pulumi.StringArrayOutput)
 }
 
-// Server X509 Certificate Names Collection
 func (o BackendServiceFabricClusterPropertiesOutput) ServerX509Names() X509CertificateNameArrayOutput {
 	return o.ApplyT(func(v BackendServiceFabricClusterProperties) []X509CertificateName { return v.ServerX509Names }).(X509CertificateNameArrayOutput)
 }
@@ -3625,10 +3397,15 @@ func (o BackendServiceFabricClusterPropertiesPtrOutput) ToBackendServiceFabricCl
 }
 
 func (o BackendServiceFabricClusterPropertiesPtrOutput) Elem() BackendServiceFabricClusterPropertiesOutput {
-	return o.ApplyT(func(v *BackendServiceFabricClusterProperties) BackendServiceFabricClusterProperties { return *v }).(BackendServiceFabricClusterPropertiesOutput)
+	return o.ApplyT(func(v *BackendServiceFabricClusterProperties) BackendServiceFabricClusterProperties {
+		if v != nil {
+			return *v
+		}
+		var ret BackendServiceFabricClusterProperties
+		return ret
+	}).(BackendServiceFabricClusterPropertiesOutput)
 }
 
-// The client certificate thumbprint for the management endpoint.
 func (o BackendServiceFabricClusterPropertiesPtrOutput) ClientCertificatethumbprint() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *BackendServiceFabricClusterProperties) *string {
 		if v == nil {
@@ -3638,7 +3415,6 @@ func (o BackendServiceFabricClusterPropertiesPtrOutput) ClientCertificatethumbpr
 	}).(pulumi.StringPtrOutput)
 }
 
-// The cluster management endpoint.
 func (o BackendServiceFabricClusterPropertiesPtrOutput) ManagementEndpoints() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *BackendServiceFabricClusterProperties) []string {
 		if v == nil {
@@ -3648,7 +3424,6 @@ func (o BackendServiceFabricClusterPropertiesPtrOutput) ManagementEndpoints() pu
 	}).(pulumi.StringArrayOutput)
 }
 
-// Maximum number of retries while attempting resolve the partition.
 func (o BackendServiceFabricClusterPropertiesPtrOutput) MaxPartitionResolutionRetries() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *BackendServiceFabricClusterProperties) *int {
 		if v == nil {
@@ -3658,7 +3433,6 @@ func (o BackendServiceFabricClusterPropertiesPtrOutput) MaxPartitionResolutionRe
 	}).(pulumi.IntPtrOutput)
 }
 
-// Thumbprints of certificates cluster management service uses for tls communication
 func (o BackendServiceFabricClusterPropertiesPtrOutput) ServerCertificateThumbprints() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *BackendServiceFabricClusterProperties) []string {
 		if v == nil {
@@ -3668,7 +3442,6 @@ func (o BackendServiceFabricClusterPropertiesPtrOutput) ServerCertificateThumbpr
 	}).(pulumi.StringArrayOutput)
 }
 
-// Server X509 Certificate Names Collection
 func (o BackendServiceFabricClusterPropertiesPtrOutput) ServerX509Names() X509CertificateNameArrayOutput {
 	return o.ApplyT(func(v *BackendServiceFabricClusterProperties) []X509CertificateName {
 		if v == nil {
@@ -3678,18 +3451,12 @@ func (o BackendServiceFabricClusterPropertiesPtrOutput) ServerX509Names() X509Ce
 	}).(X509CertificateNameArrayOutput)
 }
 
-// Properties of the Service Fabric Type Backend.
 type BackendServiceFabricClusterPropertiesResponse struct {
-	// The client certificate thumbprint for the management endpoint.
-	ClientCertificatethumbprint string `pulumi:"clientCertificatethumbprint"`
-	// The cluster management endpoint.
-	ManagementEndpoints []string `pulumi:"managementEndpoints"`
-	// Maximum number of retries while attempting resolve the partition.
-	MaxPartitionResolutionRetries *int `pulumi:"maxPartitionResolutionRetries"`
-	// Thumbprints of certificates cluster management service uses for tls communication
-	ServerCertificateThumbprints []string `pulumi:"serverCertificateThumbprints"`
-	// Server X509 Certificate Names Collection
-	ServerX509Names []X509CertificateNameResponse `pulumi:"serverX509Names"`
+	ClientCertificatethumbprint   string                        `pulumi:"clientCertificatethumbprint"`
+	ManagementEndpoints           []string                      `pulumi:"managementEndpoints"`
+	MaxPartitionResolutionRetries *int                          `pulumi:"maxPartitionResolutionRetries"`
+	ServerCertificateThumbprints  []string                      `pulumi:"serverCertificateThumbprints"`
+	ServerX509Names               []X509CertificateNameResponse `pulumi:"serverX509Names"`
 }
 
 // BackendServiceFabricClusterPropertiesResponseInput is an input type that accepts BackendServiceFabricClusterPropertiesResponseArgs and BackendServiceFabricClusterPropertiesResponseOutput values.
@@ -3703,18 +3470,12 @@ type BackendServiceFabricClusterPropertiesResponseInput interface {
 	ToBackendServiceFabricClusterPropertiesResponseOutputWithContext(context.Context) BackendServiceFabricClusterPropertiesResponseOutput
 }
 
-// Properties of the Service Fabric Type Backend.
 type BackendServiceFabricClusterPropertiesResponseArgs struct {
-	// The client certificate thumbprint for the management endpoint.
-	ClientCertificatethumbprint pulumi.StringInput `pulumi:"clientCertificatethumbprint"`
-	// The cluster management endpoint.
-	ManagementEndpoints pulumi.StringArrayInput `pulumi:"managementEndpoints"`
-	// Maximum number of retries while attempting resolve the partition.
-	MaxPartitionResolutionRetries pulumi.IntPtrInput `pulumi:"maxPartitionResolutionRetries"`
-	// Thumbprints of certificates cluster management service uses for tls communication
-	ServerCertificateThumbprints pulumi.StringArrayInput `pulumi:"serverCertificateThumbprints"`
-	// Server X509 Certificate Names Collection
-	ServerX509Names X509CertificateNameResponseArrayInput `pulumi:"serverX509Names"`
+	ClientCertificatethumbprint   pulumi.StringInput                    `pulumi:"clientCertificatethumbprint"`
+	ManagementEndpoints           pulumi.StringArrayInput               `pulumi:"managementEndpoints"`
+	MaxPartitionResolutionRetries pulumi.IntPtrInput                    `pulumi:"maxPartitionResolutionRetries"`
+	ServerCertificateThumbprints  pulumi.StringArrayInput               `pulumi:"serverCertificateThumbprints"`
+	ServerX509Names               X509CertificateNameResponseArrayInput `pulumi:"serverX509Names"`
 }
 
 func (BackendServiceFabricClusterPropertiesResponseArgs) ElementType() reflect.Type {
@@ -3770,7 +3531,6 @@ func (i *backendServiceFabricClusterPropertiesResponsePtrType) ToBackendServiceF
 	return pulumi.ToOutputWithContext(ctx, i).(BackendServiceFabricClusterPropertiesResponsePtrOutput)
 }
 
-// Properties of the Service Fabric Type Backend.
 type BackendServiceFabricClusterPropertiesResponseOutput struct{ *pulumi.OutputState }
 
 func (BackendServiceFabricClusterPropertiesResponseOutput) ElementType() reflect.Type {
@@ -3790,32 +3550,27 @@ func (o BackendServiceFabricClusterPropertiesResponseOutput) ToBackendServiceFab
 }
 
 func (o BackendServiceFabricClusterPropertiesResponseOutput) ToBackendServiceFabricClusterPropertiesResponsePtrOutputWithContext(ctx context.Context) BackendServiceFabricClusterPropertiesResponsePtrOutput {
-	return o.ApplyT(func(v BackendServiceFabricClusterPropertiesResponse) *BackendServiceFabricClusterPropertiesResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v BackendServiceFabricClusterPropertiesResponse) *BackendServiceFabricClusterPropertiesResponse {
 		return &v
 	}).(BackendServiceFabricClusterPropertiesResponsePtrOutput)
 }
 
-// The client certificate thumbprint for the management endpoint.
 func (o BackendServiceFabricClusterPropertiesResponseOutput) ClientCertificatethumbprint() pulumi.StringOutput {
 	return o.ApplyT(func(v BackendServiceFabricClusterPropertiesResponse) string { return v.ClientCertificatethumbprint }).(pulumi.StringOutput)
 }
 
-// The cluster management endpoint.
 func (o BackendServiceFabricClusterPropertiesResponseOutput) ManagementEndpoints() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v BackendServiceFabricClusterPropertiesResponse) []string { return v.ManagementEndpoints }).(pulumi.StringArrayOutput)
 }
 
-// Maximum number of retries while attempting resolve the partition.
 func (o BackendServiceFabricClusterPropertiesResponseOutput) MaxPartitionResolutionRetries() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v BackendServiceFabricClusterPropertiesResponse) *int { return v.MaxPartitionResolutionRetries }).(pulumi.IntPtrOutput)
 }
 
-// Thumbprints of certificates cluster management service uses for tls communication
 func (o BackendServiceFabricClusterPropertiesResponseOutput) ServerCertificateThumbprints() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v BackendServiceFabricClusterPropertiesResponse) []string { return v.ServerCertificateThumbprints }).(pulumi.StringArrayOutput)
 }
 
-// Server X509 Certificate Names Collection
 func (o BackendServiceFabricClusterPropertiesResponseOutput) ServerX509Names() X509CertificateNameResponseArrayOutput {
 	return o.ApplyT(func(v BackendServiceFabricClusterPropertiesResponse) []X509CertificateNameResponse {
 		return v.ServerX509Names
@@ -3838,11 +3593,14 @@ func (o BackendServiceFabricClusterPropertiesResponsePtrOutput) ToBackendService
 
 func (o BackendServiceFabricClusterPropertiesResponsePtrOutput) Elem() BackendServiceFabricClusterPropertiesResponseOutput {
 	return o.ApplyT(func(v *BackendServiceFabricClusterPropertiesResponse) BackendServiceFabricClusterPropertiesResponse {
-		return *v
+		if v != nil {
+			return *v
+		}
+		var ret BackendServiceFabricClusterPropertiesResponse
+		return ret
 	}).(BackendServiceFabricClusterPropertiesResponseOutput)
 }
 
-// The client certificate thumbprint for the management endpoint.
 func (o BackendServiceFabricClusterPropertiesResponsePtrOutput) ClientCertificatethumbprint() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *BackendServiceFabricClusterPropertiesResponse) *string {
 		if v == nil {
@@ -3852,7 +3610,6 @@ func (o BackendServiceFabricClusterPropertiesResponsePtrOutput) ClientCertificat
 	}).(pulumi.StringPtrOutput)
 }
 
-// The cluster management endpoint.
 func (o BackendServiceFabricClusterPropertiesResponsePtrOutput) ManagementEndpoints() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *BackendServiceFabricClusterPropertiesResponse) []string {
 		if v == nil {
@@ -3862,7 +3619,6 @@ func (o BackendServiceFabricClusterPropertiesResponsePtrOutput) ManagementEndpoi
 	}).(pulumi.StringArrayOutput)
 }
 
-// Maximum number of retries while attempting resolve the partition.
 func (o BackendServiceFabricClusterPropertiesResponsePtrOutput) MaxPartitionResolutionRetries() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *BackendServiceFabricClusterPropertiesResponse) *int {
 		if v == nil {
@@ -3872,7 +3628,6 @@ func (o BackendServiceFabricClusterPropertiesResponsePtrOutput) MaxPartitionReso
 	}).(pulumi.IntPtrOutput)
 }
 
-// Thumbprints of certificates cluster management service uses for tls communication
 func (o BackendServiceFabricClusterPropertiesResponsePtrOutput) ServerCertificateThumbprints() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *BackendServiceFabricClusterPropertiesResponse) []string {
 		if v == nil {
@@ -3882,7 +3637,6 @@ func (o BackendServiceFabricClusterPropertiesResponsePtrOutput) ServerCertificat
 	}).(pulumi.StringArrayOutput)
 }
 
-// Server X509 Certificate Names Collection
 func (o BackendServiceFabricClusterPropertiesResponsePtrOutput) ServerX509Names() X509CertificateNameResponseArrayOutput {
 	return o.ApplyT(func(v *BackendServiceFabricClusterPropertiesResponse) []X509CertificateNameResponse {
 		if v == nil {
@@ -3892,12 +3646,9 @@ func (o BackendServiceFabricClusterPropertiesResponsePtrOutput) ServerX509Names(
 	}).(X509CertificateNameResponseArrayOutput)
 }
 
-// Properties controlling TLS Certificate Validation.
 type BackendTlsProperties struct {
-	// Flag indicating whether SSL certificate chain validation should be done when using self-signed certificates for this backend host.
 	ValidateCertificateChain *bool `pulumi:"validateCertificateChain"`
-	// Flag indicating whether SSL certificate name validation should be done when using self-signed certificates for this backend host.
-	ValidateCertificateName *bool `pulumi:"validateCertificateName"`
+	ValidateCertificateName  *bool `pulumi:"validateCertificateName"`
 }
 
 // BackendTlsPropertiesInput is an input type that accepts BackendTlsPropertiesArgs and BackendTlsPropertiesOutput values.
@@ -3911,12 +3662,9 @@ type BackendTlsPropertiesInput interface {
 	ToBackendTlsPropertiesOutputWithContext(context.Context) BackendTlsPropertiesOutput
 }
 
-// Properties controlling TLS Certificate Validation.
 type BackendTlsPropertiesArgs struct {
-	// Flag indicating whether SSL certificate chain validation should be done when using self-signed certificates for this backend host.
 	ValidateCertificateChain pulumi.BoolPtrInput `pulumi:"validateCertificateChain"`
-	// Flag indicating whether SSL certificate name validation should be done when using self-signed certificates for this backend host.
-	ValidateCertificateName pulumi.BoolPtrInput `pulumi:"validateCertificateName"`
+	ValidateCertificateName  pulumi.BoolPtrInput `pulumi:"validateCertificateName"`
 }
 
 func (BackendTlsPropertiesArgs) ElementType() reflect.Type {
@@ -3972,7 +3720,6 @@ func (i *backendTlsPropertiesPtrType) ToBackendTlsPropertiesPtrOutputWithContext
 	return pulumi.ToOutputWithContext(ctx, i).(BackendTlsPropertiesPtrOutput)
 }
 
-// Properties controlling TLS Certificate Validation.
 type BackendTlsPropertiesOutput struct{ *pulumi.OutputState }
 
 func (BackendTlsPropertiesOutput) ElementType() reflect.Type {
@@ -3992,17 +3739,15 @@ func (o BackendTlsPropertiesOutput) ToBackendTlsPropertiesPtrOutput() BackendTls
 }
 
 func (o BackendTlsPropertiesOutput) ToBackendTlsPropertiesPtrOutputWithContext(ctx context.Context) BackendTlsPropertiesPtrOutput {
-	return o.ApplyT(func(v BackendTlsProperties) *BackendTlsProperties {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v BackendTlsProperties) *BackendTlsProperties {
 		return &v
 	}).(BackendTlsPropertiesPtrOutput)
 }
 
-// Flag indicating whether SSL certificate chain validation should be done when using self-signed certificates for this backend host.
 func (o BackendTlsPropertiesOutput) ValidateCertificateChain() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v BackendTlsProperties) *bool { return v.ValidateCertificateChain }).(pulumi.BoolPtrOutput)
 }
 
-// Flag indicating whether SSL certificate name validation should be done when using self-signed certificates for this backend host.
 func (o BackendTlsPropertiesOutput) ValidateCertificateName() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v BackendTlsProperties) *bool { return v.ValidateCertificateName }).(pulumi.BoolPtrOutput)
 }
@@ -4022,10 +3767,15 @@ func (o BackendTlsPropertiesPtrOutput) ToBackendTlsPropertiesPtrOutputWithContex
 }
 
 func (o BackendTlsPropertiesPtrOutput) Elem() BackendTlsPropertiesOutput {
-	return o.ApplyT(func(v *BackendTlsProperties) BackendTlsProperties { return *v }).(BackendTlsPropertiesOutput)
+	return o.ApplyT(func(v *BackendTlsProperties) BackendTlsProperties {
+		if v != nil {
+			return *v
+		}
+		var ret BackendTlsProperties
+		return ret
+	}).(BackendTlsPropertiesOutput)
 }
 
-// Flag indicating whether SSL certificate chain validation should be done when using self-signed certificates for this backend host.
 func (o BackendTlsPropertiesPtrOutput) ValidateCertificateChain() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *BackendTlsProperties) *bool {
 		if v == nil {
@@ -4035,7 +3785,6 @@ func (o BackendTlsPropertiesPtrOutput) ValidateCertificateChain() pulumi.BoolPtr
 	}).(pulumi.BoolPtrOutput)
 }
 
-// Flag indicating whether SSL certificate name validation should be done when using self-signed certificates for this backend host.
 func (o BackendTlsPropertiesPtrOutput) ValidateCertificateName() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *BackendTlsProperties) *bool {
 		if v == nil {
@@ -4045,12 +3794,9 @@ func (o BackendTlsPropertiesPtrOutput) ValidateCertificateName() pulumi.BoolPtrO
 	}).(pulumi.BoolPtrOutput)
 }
 
-// Properties controlling TLS Certificate Validation.
 type BackendTlsPropertiesResponse struct {
-	// Flag indicating whether SSL certificate chain validation should be done when using self-signed certificates for this backend host.
 	ValidateCertificateChain *bool `pulumi:"validateCertificateChain"`
-	// Flag indicating whether SSL certificate name validation should be done when using self-signed certificates for this backend host.
-	ValidateCertificateName *bool `pulumi:"validateCertificateName"`
+	ValidateCertificateName  *bool `pulumi:"validateCertificateName"`
 }
 
 // BackendTlsPropertiesResponseInput is an input type that accepts BackendTlsPropertiesResponseArgs and BackendTlsPropertiesResponseOutput values.
@@ -4064,12 +3810,9 @@ type BackendTlsPropertiesResponseInput interface {
 	ToBackendTlsPropertiesResponseOutputWithContext(context.Context) BackendTlsPropertiesResponseOutput
 }
 
-// Properties controlling TLS Certificate Validation.
 type BackendTlsPropertiesResponseArgs struct {
-	// Flag indicating whether SSL certificate chain validation should be done when using self-signed certificates for this backend host.
 	ValidateCertificateChain pulumi.BoolPtrInput `pulumi:"validateCertificateChain"`
-	// Flag indicating whether SSL certificate name validation should be done when using self-signed certificates for this backend host.
-	ValidateCertificateName pulumi.BoolPtrInput `pulumi:"validateCertificateName"`
+	ValidateCertificateName  pulumi.BoolPtrInput `pulumi:"validateCertificateName"`
 }
 
 func (BackendTlsPropertiesResponseArgs) ElementType() reflect.Type {
@@ -4125,7 +3868,6 @@ func (i *backendTlsPropertiesResponsePtrType) ToBackendTlsPropertiesResponsePtrO
 	return pulumi.ToOutputWithContext(ctx, i).(BackendTlsPropertiesResponsePtrOutput)
 }
 
-// Properties controlling TLS Certificate Validation.
 type BackendTlsPropertiesResponseOutput struct{ *pulumi.OutputState }
 
 func (BackendTlsPropertiesResponseOutput) ElementType() reflect.Type {
@@ -4145,17 +3887,15 @@ func (o BackendTlsPropertiesResponseOutput) ToBackendTlsPropertiesResponsePtrOut
 }
 
 func (o BackendTlsPropertiesResponseOutput) ToBackendTlsPropertiesResponsePtrOutputWithContext(ctx context.Context) BackendTlsPropertiesResponsePtrOutput {
-	return o.ApplyT(func(v BackendTlsPropertiesResponse) *BackendTlsPropertiesResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v BackendTlsPropertiesResponse) *BackendTlsPropertiesResponse {
 		return &v
 	}).(BackendTlsPropertiesResponsePtrOutput)
 }
 
-// Flag indicating whether SSL certificate chain validation should be done when using self-signed certificates for this backend host.
 func (o BackendTlsPropertiesResponseOutput) ValidateCertificateChain() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v BackendTlsPropertiesResponse) *bool { return v.ValidateCertificateChain }).(pulumi.BoolPtrOutput)
 }
 
-// Flag indicating whether SSL certificate name validation should be done when using self-signed certificates for this backend host.
 func (o BackendTlsPropertiesResponseOutput) ValidateCertificateName() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v BackendTlsPropertiesResponse) *bool { return v.ValidateCertificateName }).(pulumi.BoolPtrOutput)
 }
@@ -4175,10 +3915,15 @@ func (o BackendTlsPropertiesResponsePtrOutput) ToBackendTlsPropertiesResponsePtr
 }
 
 func (o BackendTlsPropertiesResponsePtrOutput) Elem() BackendTlsPropertiesResponseOutput {
-	return o.ApplyT(func(v *BackendTlsPropertiesResponse) BackendTlsPropertiesResponse { return *v }).(BackendTlsPropertiesResponseOutput)
+	return o.ApplyT(func(v *BackendTlsPropertiesResponse) BackendTlsPropertiesResponse {
+		if v != nil {
+			return *v
+		}
+		var ret BackendTlsPropertiesResponse
+		return ret
+	}).(BackendTlsPropertiesResponseOutput)
 }
 
-// Flag indicating whether SSL certificate chain validation should be done when using self-signed certificates for this backend host.
 func (o BackendTlsPropertiesResponsePtrOutput) ValidateCertificateChain() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *BackendTlsPropertiesResponse) *bool {
 		if v == nil {
@@ -4188,7 +3933,6 @@ func (o BackendTlsPropertiesResponsePtrOutput) ValidateCertificateChain() pulumi
 	}).(pulumi.BoolPtrOutput)
 }
 
-// Flag indicating whether SSL certificate name validation should be done when using self-signed certificates for this backend host.
 func (o BackendTlsPropertiesResponsePtrOutput) ValidateCertificateName() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *BackendTlsPropertiesResponse) *bool {
 		if v == nil {
@@ -4198,9 +3942,7 @@ func (o BackendTlsPropertiesResponsePtrOutput) ValidateCertificateName() pulumi.
 	}).(pulumi.BoolPtrOutput)
 }
 
-// Body logging settings.
 type BodyDiagnosticSettings struct {
-	// Number of request body bytes to log.
 	Bytes *int `pulumi:"bytes"`
 }
 
@@ -4215,9 +3957,7 @@ type BodyDiagnosticSettingsInput interface {
 	ToBodyDiagnosticSettingsOutputWithContext(context.Context) BodyDiagnosticSettingsOutput
 }
 
-// Body logging settings.
 type BodyDiagnosticSettingsArgs struct {
-	// Number of request body bytes to log.
 	Bytes pulumi.IntPtrInput `pulumi:"bytes"`
 }
 
@@ -4274,7 +4014,6 @@ func (i *bodyDiagnosticSettingsPtrType) ToBodyDiagnosticSettingsPtrOutputWithCon
 	return pulumi.ToOutputWithContext(ctx, i).(BodyDiagnosticSettingsPtrOutput)
 }
 
-// Body logging settings.
 type BodyDiagnosticSettingsOutput struct{ *pulumi.OutputState }
 
 func (BodyDiagnosticSettingsOutput) ElementType() reflect.Type {
@@ -4294,12 +4033,11 @@ func (o BodyDiagnosticSettingsOutput) ToBodyDiagnosticSettingsPtrOutput() BodyDi
 }
 
 func (o BodyDiagnosticSettingsOutput) ToBodyDiagnosticSettingsPtrOutputWithContext(ctx context.Context) BodyDiagnosticSettingsPtrOutput {
-	return o.ApplyT(func(v BodyDiagnosticSettings) *BodyDiagnosticSettings {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v BodyDiagnosticSettings) *BodyDiagnosticSettings {
 		return &v
 	}).(BodyDiagnosticSettingsPtrOutput)
 }
 
-// Number of request body bytes to log.
 func (o BodyDiagnosticSettingsOutput) Bytes() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v BodyDiagnosticSettings) *int { return v.Bytes }).(pulumi.IntPtrOutput)
 }
@@ -4319,10 +4057,15 @@ func (o BodyDiagnosticSettingsPtrOutput) ToBodyDiagnosticSettingsPtrOutputWithCo
 }
 
 func (o BodyDiagnosticSettingsPtrOutput) Elem() BodyDiagnosticSettingsOutput {
-	return o.ApplyT(func(v *BodyDiagnosticSettings) BodyDiagnosticSettings { return *v }).(BodyDiagnosticSettingsOutput)
+	return o.ApplyT(func(v *BodyDiagnosticSettings) BodyDiagnosticSettings {
+		if v != nil {
+			return *v
+		}
+		var ret BodyDiagnosticSettings
+		return ret
+	}).(BodyDiagnosticSettingsOutput)
 }
 
-// Number of request body bytes to log.
 func (o BodyDiagnosticSettingsPtrOutput) Bytes() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *BodyDiagnosticSettings) *int {
 		if v == nil {
@@ -4332,9 +4075,7 @@ func (o BodyDiagnosticSettingsPtrOutput) Bytes() pulumi.IntPtrOutput {
 	}).(pulumi.IntPtrOutput)
 }
 
-// Body logging settings.
 type BodyDiagnosticSettingsResponse struct {
-	// Number of request body bytes to log.
 	Bytes *int `pulumi:"bytes"`
 }
 
@@ -4349,9 +4090,7 @@ type BodyDiagnosticSettingsResponseInput interface {
 	ToBodyDiagnosticSettingsResponseOutputWithContext(context.Context) BodyDiagnosticSettingsResponseOutput
 }
 
-// Body logging settings.
 type BodyDiagnosticSettingsResponseArgs struct {
-	// Number of request body bytes to log.
 	Bytes pulumi.IntPtrInput `pulumi:"bytes"`
 }
 
@@ -4408,7 +4147,6 @@ func (i *bodyDiagnosticSettingsResponsePtrType) ToBodyDiagnosticSettingsResponse
 	return pulumi.ToOutputWithContext(ctx, i).(BodyDiagnosticSettingsResponsePtrOutput)
 }
 
-// Body logging settings.
 type BodyDiagnosticSettingsResponseOutput struct{ *pulumi.OutputState }
 
 func (BodyDiagnosticSettingsResponseOutput) ElementType() reflect.Type {
@@ -4428,12 +4166,11 @@ func (o BodyDiagnosticSettingsResponseOutput) ToBodyDiagnosticSettingsResponsePt
 }
 
 func (o BodyDiagnosticSettingsResponseOutput) ToBodyDiagnosticSettingsResponsePtrOutputWithContext(ctx context.Context) BodyDiagnosticSettingsResponsePtrOutput {
-	return o.ApplyT(func(v BodyDiagnosticSettingsResponse) *BodyDiagnosticSettingsResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v BodyDiagnosticSettingsResponse) *BodyDiagnosticSettingsResponse {
 		return &v
 	}).(BodyDiagnosticSettingsResponsePtrOutput)
 }
 
-// Number of request body bytes to log.
 func (o BodyDiagnosticSettingsResponseOutput) Bytes() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v BodyDiagnosticSettingsResponse) *int { return v.Bytes }).(pulumi.IntPtrOutput)
 }
@@ -4453,10 +4190,15 @@ func (o BodyDiagnosticSettingsResponsePtrOutput) ToBodyDiagnosticSettingsRespons
 }
 
 func (o BodyDiagnosticSettingsResponsePtrOutput) Elem() BodyDiagnosticSettingsResponseOutput {
-	return o.ApplyT(func(v *BodyDiagnosticSettingsResponse) BodyDiagnosticSettingsResponse { return *v }).(BodyDiagnosticSettingsResponseOutput)
+	return o.ApplyT(func(v *BodyDiagnosticSettingsResponse) BodyDiagnosticSettingsResponse {
+		if v != nil {
+			return *v
+		}
+		var ret BodyDiagnosticSettingsResponse
+		return ret
+	}).(BodyDiagnosticSettingsResponseOutput)
 }
 
-// Number of request body bytes to log.
 func (o BodyDiagnosticSettingsResponsePtrOutput) Bytes() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *BodyDiagnosticSettingsResponse) *int {
 		if v == nil {
@@ -4466,16 +4208,11 @@ func (o BodyDiagnosticSettingsResponsePtrOutput) Bytes() pulumi.IntPtrOutput {
 	}).(pulumi.IntPtrOutput)
 }
 
-// Certificate configuration which consist of non-trusted intermediates and root certificates.
 type CertificateConfiguration struct {
-	// Certificate information.
-	Certificate *CertificateInformation `pulumi:"certificate"`
-	// Certificate Password.
-	CertificatePassword *string `pulumi:"certificatePassword"`
-	// Base64 Encoded certificate.
-	EncodedCertificate *string `pulumi:"encodedCertificate"`
-	// The System.Security.Cryptography.x509certificates.StoreName certificate store location. Only Root and CertificateAuthority are valid locations.
-	StoreName string `pulumi:"storeName"`
+	Certificate         *CertificateInformation `pulumi:"certificate"`
+	CertificatePassword *string                 `pulumi:"certificatePassword"`
+	EncodedCertificate  *string                 `pulumi:"encodedCertificate"`
+	StoreName           string                  `pulumi:"storeName"`
 }
 
 // CertificateConfigurationInput is an input type that accepts CertificateConfigurationArgs and CertificateConfigurationOutput values.
@@ -4489,16 +4226,11 @@ type CertificateConfigurationInput interface {
 	ToCertificateConfigurationOutputWithContext(context.Context) CertificateConfigurationOutput
 }
 
-// Certificate configuration which consist of non-trusted intermediates and root certificates.
 type CertificateConfigurationArgs struct {
-	// Certificate information.
-	Certificate CertificateInformationPtrInput `pulumi:"certificate"`
-	// Certificate Password.
-	CertificatePassword pulumi.StringPtrInput `pulumi:"certificatePassword"`
-	// Base64 Encoded certificate.
-	EncodedCertificate pulumi.StringPtrInput `pulumi:"encodedCertificate"`
-	// The System.Security.Cryptography.x509certificates.StoreName certificate store location. Only Root and CertificateAuthority are valid locations.
-	StoreName pulumi.StringInput `pulumi:"storeName"`
+	Certificate         CertificateInformationPtrInput `pulumi:"certificate"`
+	CertificatePassword pulumi.StringPtrInput          `pulumi:"certificatePassword"`
+	EncodedCertificate  pulumi.StringPtrInput          `pulumi:"encodedCertificate"`
+	StoreName           pulumi.StringInput             `pulumi:"storeName"`
 }
 
 func (CertificateConfigurationArgs) ElementType() reflect.Type {
@@ -4538,7 +4270,6 @@ func (i CertificateConfigurationArray) ToCertificateConfigurationArrayOutputWith
 	return pulumi.ToOutputWithContext(ctx, i).(CertificateConfigurationArrayOutput)
 }
 
-// Certificate configuration which consist of non-trusted intermediates and root certificates.
 type CertificateConfigurationOutput struct{ *pulumi.OutputState }
 
 func (CertificateConfigurationOutput) ElementType() reflect.Type {
@@ -4553,22 +4284,18 @@ func (o CertificateConfigurationOutput) ToCertificateConfigurationOutputWithCont
 	return o
 }
 
-// Certificate information.
 func (o CertificateConfigurationOutput) Certificate() CertificateInformationPtrOutput {
 	return o.ApplyT(func(v CertificateConfiguration) *CertificateInformation { return v.Certificate }).(CertificateInformationPtrOutput)
 }
 
-// Certificate Password.
 func (o CertificateConfigurationOutput) CertificatePassword() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v CertificateConfiguration) *string { return v.CertificatePassword }).(pulumi.StringPtrOutput)
 }
 
-// Base64 Encoded certificate.
 func (o CertificateConfigurationOutput) EncodedCertificate() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v CertificateConfiguration) *string { return v.EncodedCertificate }).(pulumi.StringPtrOutput)
 }
 
-// The System.Security.Cryptography.x509certificates.StoreName certificate store location. Only Root and CertificateAuthority are valid locations.
 func (o CertificateConfigurationOutput) StoreName() pulumi.StringOutput {
 	return o.ApplyT(func(v CertificateConfiguration) string { return v.StoreName }).(pulumi.StringOutput)
 }
@@ -4593,16 +4320,11 @@ func (o CertificateConfigurationArrayOutput) Index(i pulumi.IntInput) Certificat
 	}).(CertificateConfigurationOutput)
 }
 
-// Certificate configuration which consist of non-trusted intermediates and root certificates.
 type CertificateConfigurationResponse struct {
-	// Certificate information.
-	Certificate *CertificateInformationResponse `pulumi:"certificate"`
-	// Certificate Password.
-	CertificatePassword *string `pulumi:"certificatePassword"`
-	// Base64 Encoded certificate.
-	EncodedCertificate *string `pulumi:"encodedCertificate"`
-	// The System.Security.Cryptography.x509certificates.StoreName certificate store location. Only Root and CertificateAuthority are valid locations.
-	StoreName string `pulumi:"storeName"`
+	Certificate         *CertificateInformationResponse `pulumi:"certificate"`
+	CertificatePassword *string                         `pulumi:"certificatePassword"`
+	EncodedCertificate  *string                         `pulumi:"encodedCertificate"`
+	StoreName           string                          `pulumi:"storeName"`
 }
 
 // CertificateConfigurationResponseInput is an input type that accepts CertificateConfigurationResponseArgs and CertificateConfigurationResponseOutput values.
@@ -4616,16 +4338,11 @@ type CertificateConfigurationResponseInput interface {
 	ToCertificateConfigurationResponseOutputWithContext(context.Context) CertificateConfigurationResponseOutput
 }
 
-// Certificate configuration which consist of non-trusted intermediates and root certificates.
 type CertificateConfigurationResponseArgs struct {
-	// Certificate information.
-	Certificate CertificateInformationResponsePtrInput `pulumi:"certificate"`
-	// Certificate Password.
-	CertificatePassword pulumi.StringPtrInput `pulumi:"certificatePassword"`
-	// Base64 Encoded certificate.
-	EncodedCertificate pulumi.StringPtrInput `pulumi:"encodedCertificate"`
-	// The System.Security.Cryptography.x509certificates.StoreName certificate store location. Only Root and CertificateAuthority are valid locations.
-	StoreName pulumi.StringInput `pulumi:"storeName"`
+	Certificate         CertificateInformationResponsePtrInput `pulumi:"certificate"`
+	CertificatePassword pulumi.StringPtrInput                  `pulumi:"certificatePassword"`
+	EncodedCertificate  pulumi.StringPtrInput                  `pulumi:"encodedCertificate"`
+	StoreName           pulumi.StringInput                     `pulumi:"storeName"`
 }
 
 func (CertificateConfigurationResponseArgs) ElementType() reflect.Type {
@@ -4665,7 +4382,6 @@ func (i CertificateConfigurationResponseArray) ToCertificateConfigurationRespons
 	return pulumi.ToOutputWithContext(ctx, i).(CertificateConfigurationResponseArrayOutput)
 }
 
-// Certificate configuration which consist of non-trusted intermediates and root certificates.
 type CertificateConfigurationResponseOutput struct{ *pulumi.OutputState }
 
 func (CertificateConfigurationResponseOutput) ElementType() reflect.Type {
@@ -4680,22 +4396,18 @@ func (o CertificateConfigurationResponseOutput) ToCertificateConfigurationRespon
 	return o
 }
 
-// Certificate information.
 func (o CertificateConfigurationResponseOutput) Certificate() CertificateInformationResponsePtrOutput {
 	return o.ApplyT(func(v CertificateConfigurationResponse) *CertificateInformationResponse { return v.Certificate }).(CertificateInformationResponsePtrOutput)
 }
 
-// Certificate Password.
 func (o CertificateConfigurationResponseOutput) CertificatePassword() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v CertificateConfigurationResponse) *string { return v.CertificatePassword }).(pulumi.StringPtrOutput)
 }
 
-// Base64 Encoded certificate.
 func (o CertificateConfigurationResponseOutput) EncodedCertificate() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v CertificateConfigurationResponse) *string { return v.EncodedCertificate }).(pulumi.StringPtrOutput)
 }
 
-// The System.Security.Cryptography.x509certificates.StoreName certificate store location. Only Root and CertificateAuthority are valid locations.
 func (o CertificateConfigurationResponseOutput) StoreName() pulumi.StringOutput {
 	return o.ApplyT(func(v CertificateConfigurationResponse) string { return v.StoreName }).(pulumi.StringOutput)
 }
@@ -4720,13 +4432,9 @@ func (o CertificateConfigurationResponseArrayOutput) Index(i pulumi.IntInput) Ce
 	}).(CertificateConfigurationResponseOutput)
 }
 
-// SSL certificate information.
 type CertificateInformation struct {
-	// Expiration date of the certificate. The date conforms to the following format: `yyyy-MM-ddTHH:mm:ssZ` as specified by the ISO 8601 standard.
-	Expiry string `pulumi:"expiry"`
-	// Subject of the certificate.
-	Subject string `pulumi:"subject"`
-	// Thumbprint of the certificate.
+	Expiry     string `pulumi:"expiry"`
+	Subject    string `pulumi:"subject"`
 	Thumbprint string `pulumi:"thumbprint"`
 }
 
@@ -4741,13 +4449,9 @@ type CertificateInformationInput interface {
 	ToCertificateInformationOutputWithContext(context.Context) CertificateInformationOutput
 }
 
-// SSL certificate information.
 type CertificateInformationArgs struct {
-	// Expiration date of the certificate. The date conforms to the following format: `yyyy-MM-ddTHH:mm:ssZ` as specified by the ISO 8601 standard.
-	Expiry pulumi.StringInput `pulumi:"expiry"`
-	// Subject of the certificate.
-	Subject pulumi.StringInput `pulumi:"subject"`
-	// Thumbprint of the certificate.
+	Expiry     pulumi.StringInput `pulumi:"expiry"`
+	Subject    pulumi.StringInput `pulumi:"subject"`
 	Thumbprint pulumi.StringInput `pulumi:"thumbprint"`
 }
 
@@ -4804,7 +4508,6 @@ func (i *certificateInformationPtrType) ToCertificateInformationPtrOutputWithCon
 	return pulumi.ToOutputWithContext(ctx, i).(CertificateInformationPtrOutput)
 }
 
-// SSL certificate information.
 type CertificateInformationOutput struct{ *pulumi.OutputState }
 
 func (CertificateInformationOutput) ElementType() reflect.Type {
@@ -4824,22 +4527,19 @@ func (o CertificateInformationOutput) ToCertificateInformationPtrOutput() Certif
 }
 
 func (o CertificateInformationOutput) ToCertificateInformationPtrOutputWithContext(ctx context.Context) CertificateInformationPtrOutput {
-	return o.ApplyT(func(v CertificateInformation) *CertificateInformation {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v CertificateInformation) *CertificateInformation {
 		return &v
 	}).(CertificateInformationPtrOutput)
 }
 
-// Expiration date of the certificate. The date conforms to the following format: `yyyy-MM-ddTHH:mm:ssZ` as specified by the ISO 8601 standard.
 func (o CertificateInformationOutput) Expiry() pulumi.StringOutput {
 	return o.ApplyT(func(v CertificateInformation) string { return v.Expiry }).(pulumi.StringOutput)
 }
 
-// Subject of the certificate.
 func (o CertificateInformationOutput) Subject() pulumi.StringOutput {
 	return o.ApplyT(func(v CertificateInformation) string { return v.Subject }).(pulumi.StringOutput)
 }
 
-// Thumbprint of the certificate.
 func (o CertificateInformationOutput) Thumbprint() pulumi.StringOutput {
 	return o.ApplyT(func(v CertificateInformation) string { return v.Thumbprint }).(pulumi.StringOutput)
 }
@@ -4859,10 +4559,15 @@ func (o CertificateInformationPtrOutput) ToCertificateInformationPtrOutputWithCo
 }
 
 func (o CertificateInformationPtrOutput) Elem() CertificateInformationOutput {
-	return o.ApplyT(func(v *CertificateInformation) CertificateInformation { return *v }).(CertificateInformationOutput)
+	return o.ApplyT(func(v *CertificateInformation) CertificateInformation {
+		if v != nil {
+			return *v
+		}
+		var ret CertificateInformation
+		return ret
+	}).(CertificateInformationOutput)
 }
 
-// Expiration date of the certificate. The date conforms to the following format: `yyyy-MM-ddTHH:mm:ssZ` as specified by the ISO 8601 standard.
 func (o CertificateInformationPtrOutput) Expiry() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *CertificateInformation) *string {
 		if v == nil {
@@ -4872,7 +4577,6 @@ func (o CertificateInformationPtrOutput) Expiry() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Subject of the certificate.
 func (o CertificateInformationPtrOutput) Subject() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *CertificateInformation) *string {
 		if v == nil {
@@ -4882,7 +4586,6 @@ func (o CertificateInformationPtrOutput) Subject() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Thumbprint of the certificate.
 func (o CertificateInformationPtrOutput) Thumbprint() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *CertificateInformation) *string {
 		if v == nil {
@@ -4892,13 +4595,9 @@ func (o CertificateInformationPtrOutput) Thumbprint() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// SSL certificate information.
 type CertificateInformationResponse struct {
-	// Expiration date of the certificate. The date conforms to the following format: `yyyy-MM-ddTHH:mm:ssZ` as specified by the ISO 8601 standard.
-	Expiry string `pulumi:"expiry"`
-	// Subject of the certificate.
-	Subject string `pulumi:"subject"`
-	// Thumbprint of the certificate.
+	Expiry     string `pulumi:"expiry"`
+	Subject    string `pulumi:"subject"`
 	Thumbprint string `pulumi:"thumbprint"`
 }
 
@@ -4913,13 +4612,9 @@ type CertificateInformationResponseInput interface {
 	ToCertificateInformationResponseOutputWithContext(context.Context) CertificateInformationResponseOutput
 }
 
-// SSL certificate information.
 type CertificateInformationResponseArgs struct {
-	// Expiration date of the certificate. The date conforms to the following format: `yyyy-MM-ddTHH:mm:ssZ` as specified by the ISO 8601 standard.
-	Expiry pulumi.StringInput `pulumi:"expiry"`
-	// Subject of the certificate.
-	Subject pulumi.StringInput `pulumi:"subject"`
-	// Thumbprint of the certificate.
+	Expiry     pulumi.StringInput `pulumi:"expiry"`
+	Subject    pulumi.StringInput `pulumi:"subject"`
 	Thumbprint pulumi.StringInput `pulumi:"thumbprint"`
 }
 
@@ -4976,7 +4671,6 @@ func (i *certificateInformationResponsePtrType) ToCertificateInformationResponse
 	return pulumi.ToOutputWithContext(ctx, i).(CertificateInformationResponsePtrOutput)
 }
 
-// SSL certificate information.
 type CertificateInformationResponseOutput struct{ *pulumi.OutputState }
 
 func (CertificateInformationResponseOutput) ElementType() reflect.Type {
@@ -4996,22 +4690,19 @@ func (o CertificateInformationResponseOutput) ToCertificateInformationResponsePt
 }
 
 func (o CertificateInformationResponseOutput) ToCertificateInformationResponsePtrOutputWithContext(ctx context.Context) CertificateInformationResponsePtrOutput {
-	return o.ApplyT(func(v CertificateInformationResponse) *CertificateInformationResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v CertificateInformationResponse) *CertificateInformationResponse {
 		return &v
 	}).(CertificateInformationResponsePtrOutput)
 }
 
-// Expiration date of the certificate. The date conforms to the following format: `yyyy-MM-ddTHH:mm:ssZ` as specified by the ISO 8601 standard.
 func (o CertificateInformationResponseOutput) Expiry() pulumi.StringOutput {
 	return o.ApplyT(func(v CertificateInformationResponse) string { return v.Expiry }).(pulumi.StringOutput)
 }
 
-// Subject of the certificate.
 func (o CertificateInformationResponseOutput) Subject() pulumi.StringOutput {
 	return o.ApplyT(func(v CertificateInformationResponse) string { return v.Subject }).(pulumi.StringOutput)
 }
 
-// Thumbprint of the certificate.
 func (o CertificateInformationResponseOutput) Thumbprint() pulumi.StringOutput {
 	return o.ApplyT(func(v CertificateInformationResponse) string { return v.Thumbprint }).(pulumi.StringOutput)
 }
@@ -5031,10 +4722,15 @@ func (o CertificateInformationResponsePtrOutput) ToCertificateInformationRespons
 }
 
 func (o CertificateInformationResponsePtrOutput) Elem() CertificateInformationResponseOutput {
-	return o.ApplyT(func(v *CertificateInformationResponse) CertificateInformationResponse { return *v }).(CertificateInformationResponseOutput)
+	return o.ApplyT(func(v *CertificateInformationResponse) CertificateInformationResponse {
+		if v != nil {
+			return *v
+		}
+		var ret CertificateInformationResponse
+		return ret
+	}).(CertificateInformationResponseOutput)
 }
 
-// Expiration date of the certificate. The date conforms to the following format: `yyyy-MM-ddTHH:mm:ssZ` as specified by the ISO 8601 standard.
 func (o CertificateInformationResponsePtrOutput) Expiry() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *CertificateInformationResponse) *string {
 		if v == nil {
@@ -5044,7 +4740,6 @@ func (o CertificateInformationResponsePtrOutput) Expiry() pulumi.StringPtrOutput
 	}).(pulumi.StringPtrOutput)
 }
 
-// Subject of the certificate.
 func (o CertificateInformationResponsePtrOutput) Subject() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *CertificateInformationResponse) *string {
 		if v == nil {
@@ -5054,7 +4749,6 @@ func (o CertificateInformationResponsePtrOutput) Subject() pulumi.StringPtrOutpu
 	}).(pulumi.StringPtrOutput)
 }
 
-// Thumbprint of the certificate.
 func (o CertificateInformationResponsePtrOutput) Thumbprint() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *CertificateInformationResponse) *string {
 		if v == nil {
@@ -5064,14 +4758,10 @@ func (o CertificateInformationResponsePtrOutput) Thumbprint() pulumi.StringPtrOu
 	}).(pulumi.StringPtrOutput)
 }
 
-// Email Template Parameter contract.
 type EmailTemplateParametersContractProperties struct {
-	// Template parameter description.
 	Description *string `pulumi:"description"`
-	// Template parameter name.
-	Name *string `pulumi:"name"`
-	// Template parameter title.
-	Title *string `pulumi:"title"`
+	Name        *string `pulumi:"name"`
+	Title       *string `pulumi:"title"`
 }
 
 // EmailTemplateParametersContractPropertiesInput is an input type that accepts EmailTemplateParametersContractPropertiesArgs and EmailTemplateParametersContractPropertiesOutput values.
@@ -5085,14 +4775,10 @@ type EmailTemplateParametersContractPropertiesInput interface {
 	ToEmailTemplateParametersContractPropertiesOutputWithContext(context.Context) EmailTemplateParametersContractPropertiesOutput
 }
 
-// Email Template Parameter contract.
 type EmailTemplateParametersContractPropertiesArgs struct {
-	// Template parameter description.
 	Description pulumi.StringPtrInput `pulumi:"description"`
-	// Template parameter name.
-	Name pulumi.StringPtrInput `pulumi:"name"`
-	// Template parameter title.
-	Title pulumi.StringPtrInput `pulumi:"title"`
+	Name        pulumi.StringPtrInput `pulumi:"name"`
+	Title       pulumi.StringPtrInput `pulumi:"title"`
 }
 
 func (EmailTemplateParametersContractPropertiesArgs) ElementType() reflect.Type {
@@ -5132,7 +4818,6 @@ func (i EmailTemplateParametersContractPropertiesArray) ToEmailTemplateParameter
 	return pulumi.ToOutputWithContext(ctx, i).(EmailTemplateParametersContractPropertiesArrayOutput)
 }
 
-// Email Template Parameter contract.
 type EmailTemplateParametersContractPropertiesOutput struct{ *pulumi.OutputState }
 
 func (EmailTemplateParametersContractPropertiesOutput) ElementType() reflect.Type {
@@ -5147,17 +4832,14 @@ func (o EmailTemplateParametersContractPropertiesOutput) ToEmailTemplateParamete
 	return o
 }
 
-// Template parameter description.
 func (o EmailTemplateParametersContractPropertiesOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v EmailTemplateParametersContractProperties) *string { return v.Description }).(pulumi.StringPtrOutput)
 }
 
-// Template parameter name.
 func (o EmailTemplateParametersContractPropertiesOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v EmailTemplateParametersContractProperties) *string { return v.Name }).(pulumi.StringPtrOutput)
 }
 
-// Template parameter title.
 func (o EmailTemplateParametersContractPropertiesOutput) Title() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v EmailTemplateParametersContractProperties) *string { return v.Title }).(pulumi.StringPtrOutput)
 }
@@ -5182,14 +4864,10 @@ func (o EmailTemplateParametersContractPropertiesArrayOutput) Index(i pulumi.Int
 	}).(EmailTemplateParametersContractPropertiesOutput)
 }
 
-// Email Template Parameter contract.
 type EmailTemplateParametersContractPropertiesResponse struct {
-	// Template parameter description.
 	Description *string `pulumi:"description"`
-	// Template parameter name.
-	Name *string `pulumi:"name"`
-	// Template parameter title.
-	Title *string `pulumi:"title"`
+	Name        *string `pulumi:"name"`
+	Title       *string `pulumi:"title"`
 }
 
 // EmailTemplateParametersContractPropertiesResponseInput is an input type that accepts EmailTemplateParametersContractPropertiesResponseArgs and EmailTemplateParametersContractPropertiesResponseOutput values.
@@ -5203,14 +4881,10 @@ type EmailTemplateParametersContractPropertiesResponseInput interface {
 	ToEmailTemplateParametersContractPropertiesResponseOutputWithContext(context.Context) EmailTemplateParametersContractPropertiesResponseOutput
 }
 
-// Email Template Parameter contract.
 type EmailTemplateParametersContractPropertiesResponseArgs struct {
-	// Template parameter description.
 	Description pulumi.StringPtrInput `pulumi:"description"`
-	// Template parameter name.
-	Name pulumi.StringPtrInput `pulumi:"name"`
-	// Template parameter title.
-	Title pulumi.StringPtrInput `pulumi:"title"`
+	Name        pulumi.StringPtrInput `pulumi:"name"`
+	Title       pulumi.StringPtrInput `pulumi:"title"`
 }
 
 func (EmailTemplateParametersContractPropertiesResponseArgs) ElementType() reflect.Type {
@@ -5250,7 +4924,6 @@ func (i EmailTemplateParametersContractPropertiesResponseArray) ToEmailTemplateP
 	return pulumi.ToOutputWithContext(ctx, i).(EmailTemplateParametersContractPropertiesResponseArrayOutput)
 }
 
-// Email Template Parameter contract.
 type EmailTemplateParametersContractPropertiesResponseOutput struct{ *pulumi.OutputState }
 
 func (EmailTemplateParametersContractPropertiesResponseOutput) ElementType() reflect.Type {
@@ -5265,17 +4938,14 @@ func (o EmailTemplateParametersContractPropertiesResponseOutput) ToEmailTemplate
 	return o
 }
 
-// Template parameter description.
 func (o EmailTemplateParametersContractPropertiesResponseOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v EmailTemplateParametersContractPropertiesResponse) *string { return v.Description }).(pulumi.StringPtrOutput)
 }
 
-// Template parameter name.
 func (o EmailTemplateParametersContractPropertiesResponseOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v EmailTemplateParametersContractPropertiesResponse) *string { return v.Name }).(pulumi.StringPtrOutput)
 }
 
-// Template parameter title.
 func (o EmailTemplateParametersContractPropertiesResponseOutput) Title() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v EmailTemplateParametersContractPropertiesResponse) *string { return v.Title }).(pulumi.StringPtrOutput)
 }
@@ -5300,18 +4970,12 @@ func (o EmailTemplateParametersContractPropertiesResponseArrayOutput) Index(i pu
 	}).(EmailTemplateParametersContractPropertiesResponseOutput)
 }
 
-// Group contract Properties.
 type GroupContractPropertiesResponse struct {
-	// true if the group is one of the three system groups (Administrators, Developers, or Guests); otherwise false.
-	BuiltIn bool `pulumi:"builtIn"`
-	// Group description. Can contain HTML formatting tags.
+	BuiltIn     bool    `pulumi:"builtIn"`
 	Description *string `pulumi:"description"`
-	// Group name.
-	DisplayName string `pulumi:"displayName"`
-	// For external groups, this property contains the id of the group from the external identity provider, e.g. for Azure Active Directory `aad://<tenant>.onmicrosoft.com/groups/<group object id>`; otherwise the value is null.
-	ExternalId *string `pulumi:"externalId"`
-	// Group type.
-	Type *string `pulumi:"type"`
+	DisplayName string  `pulumi:"displayName"`
+	ExternalId  *string `pulumi:"externalId"`
+	Type        *string `pulumi:"type"`
 }
 
 // GroupContractPropertiesResponseInput is an input type that accepts GroupContractPropertiesResponseArgs and GroupContractPropertiesResponseOutput values.
@@ -5325,18 +4989,12 @@ type GroupContractPropertiesResponseInput interface {
 	ToGroupContractPropertiesResponseOutputWithContext(context.Context) GroupContractPropertiesResponseOutput
 }
 
-// Group contract Properties.
 type GroupContractPropertiesResponseArgs struct {
-	// true if the group is one of the three system groups (Administrators, Developers, or Guests); otherwise false.
-	BuiltIn pulumi.BoolInput `pulumi:"builtIn"`
-	// Group description. Can contain HTML formatting tags.
+	BuiltIn     pulumi.BoolInput      `pulumi:"builtIn"`
 	Description pulumi.StringPtrInput `pulumi:"description"`
-	// Group name.
-	DisplayName pulumi.StringInput `pulumi:"displayName"`
-	// For external groups, this property contains the id of the group from the external identity provider, e.g. for Azure Active Directory `aad://<tenant>.onmicrosoft.com/groups/<group object id>`; otherwise the value is null.
-	ExternalId pulumi.StringPtrInput `pulumi:"externalId"`
-	// Group type.
-	Type pulumi.StringPtrInput `pulumi:"type"`
+	DisplayName pulumi.StringInput    `pulumi:"displayName"`
+	ExternalId  pulumi.StringPtrInput `pulumi:"externalId"`
+	Type        pulumi.StringPtrInput `pulumi:"type"`
 }
 
 func (GroupContractPropertiesResponseArgs) ElementType() reflect.Type {
@@ -5376,7 +5034,6 @@ func (i GroupContractPropertiesResponseArray) ToGroupContractPropertiesResponseA
 	return pulumi.ToOutputWithContext(ctx, i).(GroupContractPropertiesResponseArrayOutput)
 }
 
-// Group contract Properties.
 type GroupContractPropertiesResponseOutput struct{ *pulumi.OutputState }
 
 func (GroupContractPropertiesResponseOutput) ElementType() reflect.Type {
@@ -5391,27 +5048,22 @@ func (o GroupContractPropertiesResponseOutput) ToGroupContractPropertiesResponse
 	return o
 }
 
-// true if the group is one of the three system groups (Administrators, Developers, or Guests); otherwise false.
 func (o GroupContractPropertiesResponseOutput) BuiltIn() pulumi.BoolOutput {
 	return o.ApplyT(func(v GroupContractPropertiesResponse) bool { return v.BuiltIn }).(pulumi.BoolOutput)
 }
 
-// Group description. Can contain HTML formatting tags.
 func (o GroupContractPropertiesResponseOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v GroupContractPropertiesResponse) *string { return v.Description }).(pulumi.StringPtrOutput)
 }
 
-// Group name.
 func (o GroupContractPropertiesResponseOutput) DisplayName() pulumi.StringOutput {
 	return o.ApplyT(func(v GroupContractPropertiesResponse) string { return v.DisplayName }).(pulumi.StringOutput)
 }
 
-// For external groups, this property contains the id of the group from the external identity provider, e.g. for Azure Active Directory `aad://<tenant>.onmicrosoft.com/groups/<group object id>`; otherwise the value is null.
 func (o GroupContractPropertiesResponseOutput) ExternalId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v GroupContractPropertiesResponse) *string { return v.ExternalId }).(pulumi.StringPtrOutput)
 }
 
-// Group type.
 func (o GroupContractPropertiesResponseOutput) Type() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v GroupContractPropertiesResponse) *string { return v.Type }).(pulumi.StringPtrOutput)
 }
@@ -5436,24 +5088,15 @@ func (o GroupContractPropertiesResponseArrayOutput) Index(i pulumi.IntInput) Gro
 	}).(GroupContractPropertiesResponseOutput)
 }
 
-// Custom hostname configuration.
 type HostnameConfiguration struct {
-	// Certificate information.
-	Certificate *CertificateInformation `pulumi:"certificate"`
-	// Certificate Password.
-	CertificatePassword *string `pulumi:"certificatePassword"`
-	// Specify true to setup the certificate associated with this Hostname as the Default SSL Certificate. If a client does not send the SNI header, then this will be the certificate that will be challenged. The property is useful if a service has multiple custom hostname enabled and it needs to decide on the default ssl certificate. The setting only applied to Proxy Hostname Type.
-	DefaultSslBinding *bool `pulumi:"defaultSslBinding"`
-	// Base64 Encoded certificate.
-	EncodedCertificate *string `pulumi:"encodedCertificate"`
-	// Hostname to configure on the Api Management service.
-	HostName string `pulumi:"hostName"`
-	// Url to the KeyVault Secret containing the Ssl Certificate. If absolute Url containing version is provided, auto-update of ssl certificate will not work. This requires Api Management service to be configured with MSI. The secret should be of type *application/x-pkcs12*
-	KeyVaultId *string `pulumi:"keyVaultId"`
-	// Specify true to always negotiate client certificate on the hostname. Default Value is false.
-	NegotiateClientCertificate *bool `pulumi:"negotiateClientCertificate"`
-	// Hostname type.
-	Type string `pulumi:"type"`
+	Certificate                *CertificateInformation `pulumi:"certificate"`
+	CertificatePassword        *string                 `pulumi:"certificatePassword"`
+	DefaultSslBinding          *bool                   `pulumi:"defaultSslBinding"`
+	EncodedCertificate         *string                 `pulumi:"encodedCertificate"`
+	HostName                   string                  `pulumi:"hostName"`
+	KeyVaultId                 *string                 `pulumi:"keyVaultId"`
+	NegotiateClientCertificate *bool                   `pulumi:"negotiateClientCertificate"`
+	Type                       string                  `pulumi:"type"`
 }
 
 // HostnameConfigurationInput is an input type that accepts HostnameConfigurationArgs and HostnameConfigurationOutput values.
@@ -5467,24 +5110,15 @@ type HostnameConfigurationInput interface {
 	ToHostnameConfigurationOutputWithContext(context.Context) HostnameConfigurationOutput
 }
 
-// Custom hostname configuration.
 type HostnameConfigurationArgs struct {
-	// Certificate information.
-	Certificate CertificateInformationPtrInput `pulumi:"certificate"`
-	// Certificate Password.
-	CertificatePassword pulumi.StringPtrInput `pulumi:"certificatePassword"`
-	// Specify true to setup the certificate associated with this Hostname as the Default SSL Certificate. If a client does not send the SNI header, then this will be the certificate that will be challenged. The property is useful if a service has multiple custom hostname enabled and it needs to decide on the default ssl certificate. The setting only applied to Proxy Hostname Type.
-	DefaultSslBinding pulumi.BoolPtrInput `pulumi:"defaultSslBinding"`
-	// Base64 Encoded certificate.
-	EncodedCertificate pulumi.StringPtrInput `pulumi:"encodedCertificate"`
-	// Hostname to configure on the Api Management service.
-	HostName pulumi.StringInput `pulumi:"hostName"`
-	// Url to the KeyVault Secret containing the Ssl Certificate. If absolute Url containing version is provided, auto-update of ssl certificate will not work. This requires Api Management service to be configured with MSI. The secret should be of type *application/x-pkcs12*
-	KeyVaultId pulumi.StringPtrInput `pulumi:"keyVaultId"`
-	// Specify true to always negotiate client certificate on the hostname. Default Value is false.
-	NegotiateClientCertificate pulumi.BoolPtrInput `pulumi:"negotiateClientCertificate"`
-	// Hostname type.
-	Type pulumi.StringInput `pulumi:"type"`
+	Certificate                CertificateInformationPtrInput `pulumi:"certificate"`
+	CertificatePassword        pulumi.StringPtrInput          `pulumi:"certificatePassword"`
+	DefaultSslBinding          pulumi.BoolPtrInput            `pulumi:"defaultSslBinding"`
+	EncodedCertificate         pulumi.StringPtrInput          `pulumi:"encodedCertificate"`
+	HostName                   pulumi.StringInput             `pulumi:"hostName"`
+	KeyVaultId                 pulumi.StringPtrInput          `pulumi:"keyVaultId"`
+	NegotiateClientCertificate pulumi.BoolPtrInput            `pulumi:"negotiateClientCertificate"`
+	Type                       pulumi.StringInput             `pulumi:"type"`
 }
 
 func (HostnameConfigurationArgs) ElementType() reflect.Type {
@@ -5524,7 +5158,6 @@ func (i HostnameConfigurationArray) ToHostnameConfigurationArrayOutputWithContex
 	return pulumi.ToOutputWithContext(ctx, i).(HostnameConfigurationArrayOutput)
 }
 
-// Custom hostname configuration.
 type HostnameConfigurationOutput struct{ *pulumi.OutputState }
 
 func (HostnameConfigurationOutput) ElementType() reflect.Type {
@@ -5539,42 +5172,34 @@ func (o HostnameConfigurationOutput) ToHostnameConfigurationOutputWithContext(ct
 	return o
 }
 
-// Certificate information.
 func (o HostnameConfigurationOutput) Certificate() CertificateInformationPtrOutput {
 	return o.ApplyT(func(v HostnameConfiguration) *CertificateInformation { return v.Certificate }).(CertificateInformationPtrOutput)
 }
 
-// Certificate Password.
 func (o HostnameConfigurationOutput) CertificatePassword() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v HostnameConfiguration) *string { return v.CertificatePassword }).(pulumi.StringPtrOutput)
 }
 
-// Specify true to setup the certificate associated with this Hostname as the Default SSL Certificate. If a client does not send the SNI header, then this will be the certificate that will be challenged. The property is useful if a service has multiple custom hostname enabled and it needs to decide on the default ssl certificate. The setting only applied to Proxy Hostname Type.
 func (o HostnameConfigurationOutput) DefaultSslBinding() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v HostnameConfiguration) *bool { return v.DefaultSslBinding }).(pulumi.BoolPtrOutput)
 }
 
-// Base64 Encoded certificate.
 func (o HostnameConfigurationOutput) EncodedCertificate() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v HostnameConfiguration) *string { return v.EncodedCertificate }).(pulumi.StringPtrOutput)
 }
 
-// Hostname to configure on the Api Management service.
 func (o HostnameConfigurationOutput) HostName() pulumi.StringOutput {
 	return o.ApplyT(func(v HostnameConfiguration) string { return v.HostName }).(pulumi.StringOutput)
 }
 
-// Url to the KeyVault Secret containing the Ssl Certificate. If absolute Url containing version is provided, auto-update of ssl certificate will not work. This requires Api Management service to be configured with MSI. The secret should be of type *application/x-pkcs12*
 func (o HostnameConfigurationOutput) KeyVaultId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v HostnameConfiguration) *string { return v.KeyVaultId }).(pulumi.StringPtrOutput)
 }
 
-// Specify true to always negotiate client certificate on the hostname. Default Value is false.
 func (o HostnameConfigurationOutput) NegotiateClientCertificate() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v HostnameConfiguration) *bool { return v.NegotiateClientCertificate }).(pulumi.BoolPtrOutput)
 }
 
-// Hostname type.
 func (o HostnameConfigurationOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v HostnameConfiguration) string { return v.Type }).(pulumi.StringOutput)
 }
@@ -5599,24 +5224,15 @@ func (o HostnameConfigurationArrayOutput) Index(i pulumi.IntInput) HostnameConfi
 	}).(HostnameConfigurationOutput)
 }
 
-// Custom hostname configuration.
 type HostnameConfigurationResponse struct {
-	// Certificate information.
-	Certificate *CertificateInformationResponse `pulumi:"certificate"`
-	// Certificate Password.
-	CertificatePassword *string `pulumi:"certificatePassword"`
-	// Specify true to setup the certificate associated with this Hostname as the Default SSL Certificate. If a client does not send the SNI header, then this will be the certificate that will be challenged. The property is useful if a service has multiple custom hostname enabled and it needs to decide on the default ssl certificate. The setting only applied to Proxy Hostname Type.
-	DefaultSslBinding *bool `pulumi:"defaultSslBinding"`
-	// Base64 Encoded certificate.
-	EncodedCertificate *string `pulumi:"encodedCertificate"`
-	// Hostname to configure on the Api Management service.
-	HostName string `pulumi:"hostName"`
-	// Url to the KeyVault Secret containing the Ssl Certificate. If absolute Url containing version is provided, auto-update of ssl certificate will not work. This requires Api Management service to be configured with MSI. The secret should be of type *application/x-pkcs12*
-	KeyVaultId *string `pulumi:"keyVaultId"`
-	// Specify true to always negotiate client certificate on the hostname. Default Value is false.
-	NegotiateClientCertificate *bool `pulumi:"negotiateClientCertificate"`
-	// Hostname type.
-	Type string `pulumi:"type"`
+	Certificate                *CertificateInformationResponse `pulumi:"certificate"`
+	CertificatePassword        *string                         `pulumi:"certificatePassword"`
+	DefaultSslBinding          *bool                           `pulumi:"defaultSslBinding"`
+	EncodedCertificate         *string                         `pulumi:"encodedCertificate"`
+	HostName                   string                          `pulumi:"hostName"`
+	KeyVaultId                 *string                         `pulumi:"keyVaultId"`
+	NegotiateClientCertificate *bool                           `pulumi:"negotiateClientCertificate"`
+	Type                       string                          `pulumi:"type"`
 }
 
 // HostnameConfigurationResponseInput is an input type that accepts HostnameConfigurationResponseArgs and HostnameConfigurationResponseOutput values.
@@ -5630,24 +5246,15 @@ type HostnameConfigurationResponseInput interface {
 	ToHostnameConfigurationResponseOutputWithContext(context.Context) HostnameConfigurationResponseOutput
 }
 
-// Custom hostname configuration.
 type HostnameConfigurationResponseArgs struct {
-	// Certificate information.
-	Certificate CertificateInformationResponsePtrInput `pulumi:"certificate"`
-	// Certificate Password.
-	CertificatePassword pulumi.StringPtrInput `pulumi:"certificatePassword"`
-	// Specify true to setup the certificate associated with this Hostname as the Default SSL Certificate. If a client does not send the SNI header, then this will be the certificate that will be challenged. The property is useful if a service has multiple custom hostname enabled and it needs to decide on the default ssl certificate. The setting only applied to Proxy Hostname Type.
-	DefaultSslBinding pulumi.BoolPtrInput `pulumi:"defaultSslBinding"`
-	// Base64 Encoded certificate.
-	EncodedCertificate pulumi.StringPtrInput `pulumi:"encodedCertificate"`
-	// Hostname to configure on the Api Management service.
-	HostName pulumi.StringInput `pulumi:"hostName"`
-	// Url to the KeyVault Secret containing the Ssl Certificate. If absolute Url containing version is provided, auto-update of ssl certificate will not work. This requires Api Management service to be configured with MSI. The secret should be of type *application/x-pkcs12*
-	KeyVaultId pulumi.StringPtrInput `pulumi:"keyVaultId"`
-	// Specify true to always negotiate client certificate on the hostname. Default Value is false.
-	NegotiateClientCertificate pulumi.BoolPtrInput `pulumi:"negotiateClientCertificate"`
-	// Hostname type.
-	Type pulumi.StringInput `pulumi:"type"`
+	Certificate                CertificateInformationResponsePtrInput `pulumi:"certificate"`
+	CertificatePassword        pulumi.StringPtrInput                  `pulumi:"certificatePassword"`
+	DefaultSslBinding          pulumi.BoolPtrInput                    `pulumi:"defaultSslBinding"`
+	EncodedCertificate         pulumi.StringPtrInput                  `pulumi:"encodedCertificate"`
+	HostName                   pulumi.StringInput                     `pulumi:"hostName"`
+	KeyVaultId                 pulumi.StringPtrInput                  `pulumi:"keyVaultId"`
+	NegotiateClientCertificate pulumi.BoolPtrInput                    `pulumi:"negotiateClientCertificate"`
+	Type                       pulumi.StringInput                     `pulumi:"type"`
 }
 
 func (HostnameConfigurationResponseArgs) ElementType() reflect.Type {
@@ -5687,7 +5294,6 @@ func (i HostnameConfigurationResponseArray) ToHostnameConfigurationResponseArray
 	return pulumi.ToOutputWithContext(ctx, i).(HostnameConfigurationResponseArrayOutput)
 }
 
-// Custom hostname configuration.
 type HostnameConfigurationResponseOutput struct{ *pulumi.OutputState }
 
 func (HostnameConfigurationResponseOutput) ElementType() reflect.Type {
@@ -5702,42 +5308,34 @@ func (o HostnameConfigurationResponseOutput) ToHostnameConfigurationResponseOutp
 	return o
 }
 
-// Certificate information.
 func (o HostnameConfigurationResponseOutput) Certificate() CertificateInformationResponsePtrOutput {
 	return o.ApplyT(func(v HostnameConfigurationResponse) *CertificateInformationResponse { return v.Certificate }).(CertificateInformationResponsePtrOutput)
 }
 
-// Certificate Password.
 func (o HostnameConfigurationResponseOutput) CertificatePassword() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v HostnameConfigurationResponse) *string { return v.CertificatePassword }).(pulumi.StringPtrOutput)
 }
 
-// Specify true to setup the certificate associated with this Hostname as the Default SSL Certificate. If a client does not send the SNI header, then this will be the certificate that will be challenged. The property is useful if a service has multiple custom hostname enabled and it needs to decide on the default ssl certificate. The setting only applied to Proxy Hostname Type.
 func (o HostnameConfigurationResponseOutput) DefaultSslBinding() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v HostnameConfigurationResponse) *bool { return v.DefaultSslBinding }).(pulumi.BoolPtrOutput)
 }
 
-// Base64 Encoded certificate.
 func (o HostnameConfigurationResponseOutput) EncodedCertificate() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v HostnameConfigurationResponse) *string { return v.EncodedCertificate }).(pulumi.StringPtrOutput)
 }
 
-// Hostname to configure on the Api Management service.
 func (o HostnameConfigurationResponseOutput) HostName() pulumi.StringOutput {
 	return o.ApplyT(func(v HostnameConfigurationResponse) string { return v.HostName }).(pulumi.StringOutput)
 }
 
-// Url to the KeyVault Secret containing the Ssl Certificate. If absolute Url containing version is provided, auto-update of ssl certificate will not work. This requires Api Management service to be configured with MSI. The secret should be of type *application/x-pkcs12*
 func (o HostnameConfigurationResponseOutput) KeyVaultId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v HostnameConfigurationResponse) *string { return v.KeyVaultId }).(pulumi.StringPtrOutput)
 }
 
-// Specify true to always negotiate client certificate on the hostname. Default Value is false.
 func (o HostnameConfigurationResponseOutput) NegotiateClientCertificate() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v HostnameConfigurationResponse) *bool { return v.NegotiateClientCertificate }).(pulumi.BoolPtrOutput)
 }
 
-// Hostname type.
 func (o HostnameConfigurationResponseOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v HostnameConfigurationResponse) string { return v.Type }).(pulumi.StringOutput)
 }
@@ -5762,12 +5360,9 @@ func (o HostnameConfigurationResponseArrayOutput) Index(i pulumi.IntInput) Hostn
 	}).(HostnameConfigurationResponseOutput)
 }
 
-// Http message diagnostic settings.
 type HttpMessageDiagnostic struct {
-	// Body logging settings.
-	Body *BodyDiagnosticSettings `pulumi:"body"`
-	// Array of HTTP Headers to log.
-	Headers []string `pulumi:"headers"`
+	Body    *BodyDiagnosticSettings `pulumi:"body"`
+	Headers []string                `pulumi:"headers"`
 }
 
 // HttpMessageDiagnosticInput is an input type that accepts HttpMessageDiagnosticArgs and HttpMessageDiagnosticOutput values.
@@ -5781,12 +5376,9 @@ type HttpMessageDiagnosticInput interface {
 	ToHttpMessageDiagnosticOutputWithContext(context.Context) HttpMessageDiagnosticOutput
 }
 
-// Http message diagnostic settings.
 type HttpMessageDiagnosticArgs struct {
-	// Body logging settings.
-	Body BodyDiagnosticSettingsPtrInput `pulumi:"body"`
-	// Array of HTTP Headers to log.
-	Headers pulumi.StringArrayInput `pulumi:"headers"`
+	Body    BodyDiagnosticSettingsPtrInput `pulumi:"body"`
+	Headers pulumi.StringArrayInput        `pulumi:"headers"`
 }
 
 func (HttpMessageDiagnosticArgs) ElementType() reflect.Type {
@@ -5842,7 +5434,6 @@ func (i *httpMessageDiagnosticPtrType) ToHttpMessageDiagnosticPtrOutputWithConte
 	return pulumi.ToOutputWithContext(ctx, i).(HttpMessageDiagnosticPtrOutput)
 }
 
-// Http message diagnostic settings.
 type HttpMessageDiagnosticOutput struct{ *pulumi.OutputState }
 
 func (HttpMessageDiagnosticOutput) ElementType() reflect.Type {
@@ -5862,17 +5453,15 @@ func (o HttpMessageDiagnosticOutput) ToHttpMessageDiagnosticPtrOutput() HttpMess
 }
 
 func (o HttpMessageDiagnosticOutput) ToHttpMessageDiagnosticPtrOutputWithContext(ctx context.Context) HttpMessageDiagnosticPtrOutput {
-	return o.ApplyT(func(v HttpMessageDiagnostic) *HttpMessageDiagnostic {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v HttpMessageDiagnostic) *HttpMessageDiagnostic {
 		return &v
 	}).(HttpMessageDiagnosticPtrOutput)
 }
 
-// Body logging settings.
 func (o HttpMessageDiagnosticOutput) Body() BodyDiagnosticSettingsPtrOutput {
 	return o.ApplyT(func(v HttpMessageDiagnostic) *BodyDiagnosticSettings { return v.Body }).(BodyDiagnosticSettingsPtrOutput)
 }
 
-// Array of HTTP Headers to log.
 func (o HttpMessageDiagnosticOutput) Headers() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v HttpMessageDiagnostic) []string { return v.Headers }).(pulumi.StringArrayOutput)
 }
@@ -5892,10 +5481,15 @@ func (o HttpMessageDiagnosticPtrOutput) ToHttpMessageDiagnosticPtrOutputWithCont
 }
 
 func (o HttpMessageDiagnosticPtrOutput) Elem() HttpMessageDiagnosticOutput {
-	return o.ApplyT(func(v *HttpMessageDiagnostic) HttpMessageDiagnostic { return *v }).(HttpMessageDiagnosticOutput)
+	return o.ApplyT(func(v *HttpMessageDiagnostic) HttpMessageDiagnostic {
+		if v != nil {
+			return *v
+		}
+		var ret HttpMessageDiagnostic
+		return ret
+	}).(HttpMessageDiagnosticOutput)
 }
 
-// Body logging settings.
 func (o HttpMessageDiagnosticPtrOutput) Body() BodyDiagnosticSettingsPtrOutput {
 	return o.ApplyT(func(v *HttpMessageDiagnostic) *BodyDiagnosticSettings {
 		if v == nil {
@@ -5905,7 +5499,6 @@ func (o HttpMessageDiagnosticPtrOutput) Body() BodyDiagnosticSettingsPtrOutput {
 	}).(BodyDiagnosticSettingsPtrOutput)
 }
 
-// Array of HTTP Headers to log.
 func (o HttpMessageDiagnosticPtrOutput) Headers() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *HttpMessageDiagnostic) []string {
 		if v == nil {
@@ -5915,12 +5508,9 @@ func (o HttpMessageDiagnosticPtrOutput) Headers() pulumi.StringArrayOutput {
 	}).(pulumi.StringArrayOutput)
 }
 
-// Http message diagnostic settings.
 type HttpMessageDiagnosticResponse struct {
-	// Body logging settings.
-	Body *BodyDiagnosticSettingsResponse `pulumi:"body"`
-	// Array of HTTP Headers to log.
-	Headers []string `pulumi:"headers"`
+	Body    *BodyDiagnosticSettingsResponse `pulumi:"body"`
+	Headers []string                        `pulumi:"headers"`
 }
 
 // HttpMessageDiagnosticResponseInput is an input type that accepts HttpMessageDiagnosticResponseArgs and HttpMessageDiagnosticResponseOutput values.
@@ -5934,12 +5524,9 @@ type HttpMessageDiagnosticResponseInput interface {
 	ToHttpMessageDiagnosticResponseOutputWithContext(context.Context) HttpMessageDiagnosticResponseOutput
 }
 
-// Http message diagnostic settings.
 type HttpMessageDiagnosticResponseArgs struct {
-	// Body logging settings.
-	Body BodyDiagnosticSettingsResponsePtrInput `pulumi:"body"`
-	// Array of HTTP Headers to log.
-	Headers pulumi.StringArrayInput `pulumi:"headers"`
+	Body    BodyDiagnosticSettingsResponsePtrInput `pulumi:"body"`
+	Headers pulumi.StringArrayInput                `pulumi:"headers"`
 }
 
 func (HttpMessageDiagnosticResponseArgs) ElementType() reflect.Type {
@@ -5995,7 +5582,6 @@ func (i *httpMessageDiagnosticResponsePtrType) ToHttpMessageDiagnosticResponsePt
 	return pulumi.ToOutputWithContext(ctx, i).(HttpMessageDiagnosticResponsePtrOutput)
 }
 
-// Http message diagnostic settings.
 type HttpMessageDiagnosticResponseOutput struct{ *pulumi.OutputState }
 
 func (HttpMessageDiagnosticResponseOutput) ElementType() reflect.Type {
@@ -6015,17 +5601,15 @@ func (o HttpMessageDiagnosticResponseOutput) ToHttpMessageDiagnosticResponsePtrO
 }
 
 func (o HttpMessageDiagnosticResponseOutput) ToHttpMessageDiagnosticResponsePtrOutputWithContext(ctx context.Context) HttpMessageDiagnosticResponsePtrOutput {
-	return o.ApplyT(func(v HttpMessageDiagnosticResponse) *HttpMessageDiagnosticResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v HttpMessageDiagnosticResponse) *HttpMessageDiagnosticResponse {
 		return &v
 	}).(HttpMessageDiagnosticResponsePtrOutput)
 }
 
-// Body logging settings.
 func (o HttpMessageDiagnosticResponseOutput) Body() BodyDiagnosticSettingsResponsePtrOutput {
 	return o.ApplyT(func(v HttpMessageDiagnosticResponse) *BodyDiagnosticSettingsResponse { return v.Body }).(BodyDiagnosticSettingsResponsePtrOutput)
 }
 
-// Array of HTTP Headers to log.
 func (o HttpMessageDiagnosticResponseOutput) Headers() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v HttpMessageDiagnosticResponse) []string { return v.Headers }).(pulumi.StringArrayOutput)
 }
@@ -6045,10 +5629,15 @@ func (o HttpMessageDiagnosticResponsePtrOutput) ToHttpMessageDiagnosticResponseP
 }
 
 func (o HttpMessageDiagnosticResponsePtrOutput) Elem() HttpMessageDiagnosticResponseOutput {
-	return o.ApplyT(func(v *HttpMessageDiagnosticResponse) HttpMessageDiagnosticResponse { return *v }).(HttpMessageDiagnosticResponseOutput)
+	return o.ApplyT(func(v *HttpMessageDiagnosticResponse) HttpMessageDiagnosticResponse {
+		if v != nil {
+			return *v
+		}
+		var ret HttpMessageDiagnosticResponse
+		return ret
+	}).(HttpMessageDiagnosticResponseOutput)
 }
 
-// Body logging settings.
 func (o HttpMessageDiagnosticResponsePtrOutput) Body() BodyDiagnosticSettingsResponsePtrOutput {
 	return o.ApplyT(func(v *HttpMessageDiagnosticResponse) *BodyDiagnosticSettingsResponse {
 		if v == nil {
@@ -6058,7 +5647,6 @@ func (o HttpMessageDiagnosticResponsePtrOutput) Body() BodyDiagnosticSettingsRes
 	}).(BodyDiagnosticSettingsResponsePtrOutput)
 }
 
-// Array of HTTP Headers to log.
 func (o HttpMessageDiagnosticResponsePtrOutput) Headers() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *HttpMessageDiagnosticResponse) []string {
 		if v == nil {
@@ -6068,12 +5656,9 @@ func (o HttpMessageDiagnosticResponsePtrOutput) Headers() pulumi.StringArrayOutp
 	}).(pulumi.StringArrayOutput)
 }
 
-// API OAuth2 Authentication settings details.
 type OAuth2AuthenticationSettingsContract struct {
-	// OAuth authorization server identifier.
 	AuthorizationServerId *string `pulumi:"authorizationServerId"`
-	// operations scope.
-	Scope *string `pulumi:"scope"`
+	Scope                 *string `pulumi:"scope"`
 }
 
 // OAuth2AuthenticationSettingsContractInput is an input type that accepts OAuth2AuthenticationSettingsContractArgs and OAuth2AuthenticationSettingsContractOutput values.
@@ -6087,12 +5672,9 @@ type OAuth2AuthenticationSettingsContractInput interface {
 	ToOAuth2AuthenticationSettingsContractOutputWithContext(context.Context) OAuth2AuthenticationSettingsContractOutput
 }
 
-// API OAuth2 Authentication settings details.
 type OAuth2AuthenticationSettingsContractArgs struct {
-	// OAuth authorization server identifier.
 	AuthorizationServerId pulumi.StringPtrInput `pulumi:"authorizationServerId"`
-	// operations scope.
-	Scope pulumi.StringPtrInput `pulumi:"scope"`
+	Scope                 pulumi.StringPtrInput `pulumi:"scope"`
 }
 
 func (OAuth2AuthenticationSettingsContractArgs) ElementType() reflect.Type {
@@ -6148,7 +5730,6 @@ func (i *oauth2AuthenticationSettingsContractPtrType) ToOAuth2AuthenticationSett
 	return pulumi.ToOutputWithContext(ctx, i).(OAuth2AuthenticationSettingsContractPtrOutput)
 }
 
-// API OAuth2 Authentication settings details.
 type OAuth2AuthenticationSettingsContractOutput struct{ *pulumi.OutputState }
 
 func (OAuth2AuthenticationSettingsContractOutput) ElementType() reflect.Type {
@@ -6168,17 +5749,15 @@ func (o OAuth2AuthenticationSettingsContractOutput) ToOAuth2AuthenticationSettin
 }
 
 func (o OAuth2AuthenticationSettingsContractOutput) ToOAuth2AuthenticationSettingsContractPtrOutputWithContext(ctx context.Context) OAuth2AuthenticationSettingsContractPtrOutput {
-	return o.ApplyT(func(v OAuth2AuthenticationSettingsContract) *OAuth2AuthenticationSettingsContract {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v OAuth2AuthenticationSettingsContract) *OAuth2AuthenticationSettingsContract {
 		return &v
 	}).(OAuth2AuthenticationSettingsContractPtrOutput)
 }
 
-// OAuth authorization server identifier.
 func (o OAuth2AuthenticationSettingsContractOutput) AuthorizationServerId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v OAuth2AuthenticationSettingsContract) *string { return v.AuthorizationServerId }).(pulumi.StringPtrOutput)
 }
 
-// operations scope.
 func (o OAuth2AuthenticationSettingsContractOutput) Scope() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v OAuth2AuthenticationSettingsContract) *string { return v.Scope }).(pulumi.StringPtrOutput)
 }
@@ -6198,10 +5777,15 @@ func (o OAuth2AuthenticationSettingsContractPtrOutput) ToOAuth2AuthenticationSet
 }
 
 func (o OAuth2AuthenticationSettingsContractPtrOutput) Elem() OAuth2AuthenticationSettingsContractOutput {
-	return o.ApplyT(func(v *OAuth2AuthenticationSettingsContract) OAuth2AuthenticationSettingsContract { return *v }).(OAuth2AuthenticationSettingsContractOutput)
+	return o.ApplyT(func(v *OAuth2AuthenticationSettingsContract) OAuth2AuthenticationSettingsContract {
+		if v != nil {
+			return *v
+		}
+		var ret OAuth2AuthenticationSettingsContract
+		return ret
+	}).(OAuth2AuthenticationSettingsContractOutput)
 }
 
-// OAuth authorization server identifier.
 func (o OAuth2AuthenticationSettingsContractPtrOutput) AuthorizationServerId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *OAuth2AuthenticationSettingsContract) *string {
 		if v == nil {
@@ -6211,7 +5795,6 @@ func (o OAuth2AuthenticationSettingsContractPtrOutput) AuthorizationServerId() p
 	}).(pulumi.StringPtrOutput)
 }
 
-// operations scope.
 func (o OAuth2AuthenticationSettingsContractPtrOutput) Scope() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *OAuth2AuthenticationSettingsContract) *string {
 		if v == nil {
@@ -6221,12 +5804,9 @@ func (o OAuth2AuthenticationSettingsContractPtrOutput) Scope() pulumi.StringPtrO
 	}).(pulumi.StringPtrOutput)
 }
 
-// API OAuth2 Authentication settings details.
 type OAuth2AuthenticationSettingsContractResponse struct {
-	// OAuth authorization server identifier.
 	AuthorizationServerId *string `pulumi:"authorizationServerId"`
-	// operations scope.
-	Scope *string `pulumi:"scope"`
+	Scope                 *string `pulumi:"scope"`
 }
 
 // OAuth2AuthenticationSettingsContractResponseInput is an input type that accepts OAuth2AuthenticationSettingsContractResponseArgs and OAuth2AuthenticationSettingsContractResponseOutput values.
@@ -6240,12 +5820,9 @@ type OAuth2AuthenticationSettingsContractResponseInput interface {
 	ToOAuth2AuthenticationSettingsContractResponseOutputWithContext(context.Context) OAuth2AuthenticationSettingsContractResponseOutput
 }
 
-// API OAuth2 Authentication settings details.
 type OAuth2AuthenticationSettingsContractResponseArgs struct {
-	// OAuth authorization server identifier.
 	AuthorizationServerId pulumi.StringPtrInput `pulumi:"authorizationServerId"`
-	// operations scope.
-	Scope pulumi.StringPtrInput `pulumi:"scope"`
+	Scope                 pulumi.StringPtrInput `pulumi:"scope"`
 }
 
 func (OAuth2AuthenticationSettingsContractResponseArgs) ElementType() reflect.Type {
@@ -6301,7 +5878,6 @@ func (i *oauth2AuthenticationSettingsContractResponsePtrType) ToOAuth2Authentica
 	return pulumi.ToOutputWithContext(ctx, i).(OAuth2AuthenticationSettingsContractResponsePtrOutput)
 }
 
-// API OAuth2 Authentication settings details.
 type OAuth2AuthenticationSettingsContractResponseOutput struct{ *pulumi.OutputState }
 
 func (OAuth2AuthenticationSettingsContractResponseOutput) ElementType() reflect.Type {
@@ -6321,17 +5897,15 @@ func (o OAuth2AuthenticationSettingsContractResponseOutput) ToOAuth2Authenticati
 }
 
 func (o OAuth2AuthenticationSettingsContractResponseOutput) ToOAuth2AuthenticationSettingsContractResponsePtrOutputWithContext(ctx context.Context) OAuth2AuthenticationSettingsContractResponsePtrOutput {
-	return o.ApplyT(func(v OAuth2AuthenticationSettingsContractResponse) *OAuth2AuthenticationSettingsContractResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v OAuth2AuthenticationSettingsContractResponse) *OAuth2AuthenticationSettingsContractResponse {
 		return &v
 	}).(OAuth2AuthenticationSettingsContractResponsePtrOutput)
 }
 
-// OAuth authorization server identifier.
 func (o OAuth2AuthenticationSettingsContractResponseOutput) AuthorizationServerId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v OAuth2AuthenticationSettingsContractResponse) *string { return v.AuthorizationServerId }).(pulumi.StringPtrOutput)
 }
 
-// operations scope.
 func (o OAuth2AuthenticationSettingsContractResponseOutput) Scope() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v OAuth2AuthenticationSettingsContractResponse) *string { return v.Scope }).(pulumi.StringPtrOutput)
 }
@@ -6352,11 +5926,14 @@ func (o OAuth2AuthenticationSettingsContractResponsePtrOutput) ToOAuth2Authentic
 
 func (o OAuth2AuthenticationSettingsContractResponsePtrOutput) Elem() OAuth2AuthenticationSettingsContractResponseOutput {
 	return o.ApplyT(func(v *OAuth2AuthenticationSettingsContractResponse) OAuth2AuthenticationSettingsContractResponse {
-		return *v
+		if v != nil {
+			return *v
+		}
+		var ret OAuth2AuthenticationSettingsContractResponse
+		return ret
 	}).(OAuth2AuthenticationSettingsContractResponseOutput)
 }
 
-// OAuth authorization server identifier.
 func (o OAuth2AuthenticationSettingsContractResponsePtrOutput) AuthorizationServerId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *OAuth2AuthenticationSettingsContractResponse) *string {
 		if v == nil {
@@ -6366,7 +5943,6 @@ func (o OAuth2AuthenticationSettingsContractResponsePtrOutput) AuthorizationServ
 	}).(pulumi.StringPtrOutput)
 }
 
-// operations scope.
 func (o OAuth2AuthenticationSettingsContractResponsePtrOutput) Scope() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *OAuth2AuthenticationSettingsContractResponse) *string {
 		if v == nil {
@@ -6376,12 +5952,9 @@ func (o OAuth2AuthenticationSettingsContractResponsePtrOutput) Scope() pulumi.St
 	}).(pulumi.StringPtrOutput)
 }
 
-// API OAuth2 Authentication settings details.
 type OpenIdAuthenticationSettingsContract struct {
-	// How to send token to the server.
 	BearerTokenSendingMethods []string `pulumi:"bearerTokenSendingMethods"`
-	// OAuth authorization server identifier.
-	OpenidProviderId *string `pulumi:"openidProviderId"`
+	OpenidProviderId          *string  `pulumi:"openidProviderId"`
 }
 
 // OpenIdAuthenticationSettingsContractInput is an input type that accepts OpenIdAuthenticationSettingsContractArgs and OpenIdAuthenticationSettingsContractOutput values.
@@ -6395,12 +5968,9 @@ type OpenIdAuthenticationSettingsContractInput interface {
 	ToOpenIdAuthenticationSettingsContractOutputWithContext(context.Context) OpenIdAuthenticationSettingsContractOutput
 }
 
-// API OAuth2 Authentication settings details.
 type OpenIdAuthenticationSettingsContractArgs struct {
-	// How to send token to the server.
 	BearerTokenSendingMethods pulumi.StringArrayInput `pulumi:"bearerTokenSendingMethods"`
-	// OAuth authorization server identifier.
-	OpenidProviderId pulumi.StringPtrInput `pulumi:"openidProviderId"`
+	OpenidProviderId          pulumi.StringPtrInput   `pulumi:"openidProviderId"`
 }
 
 func (OpenIdAuthenticationSettingsContractArgs) ElementType() reflect.Type {
@@ -6456,7 +6026,6 @@ func (i *openIdAuthenticationSettingsContractPtrType) ToOpenIdAuthenticationSett
 	return pulumi.ToOutputWithContext(ctx, i).(OpenIdAuthenticationSettingsContractPtrOutput)
 }
 
-// API OAuth2 Authentication settings details.
 type OpenIdAuthenticationSettingsContractOutput struct{ *pulumi.OutputState }
 
 func (OpenIdAuthenticationSettingsContractOutput) ElementType() reflect.Type {
@@ -6476,17 +6045,15 @@ func (o OpenIdAuthenticationSettingsContractOutput) ToOpenIdAuthenticationSettin
 }
 
 func (o OpenIdAuthenticationSettingsContractOutput) ToOpenIdAuthenticationSettingsContractPtrOutputWithContext(ctx context.Context) OpenIdAuthenticationSettingsContractPtrOutput {
-	return o.ApplyT(func(v OpenIdAuthenticationSettingsContract) *OpenIdAuthenticationSettingsContract {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v OpenIdAuthenticationSettingsContract) *OpenIdAuthenticationSettingsContract {
 		return &v
 	}).(OpenIdAuthenticationSettingsContractPtrOutput)
 }
 
-// How to send token to the server.
 func (o OpenIdAuthenticationSettingsContractOutput) BearerTokenSendingMethods() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v OpenIdAuthenticationSettingsContract) []string { return v.BearerTokenSendingMethods }).(pulumi.StringArrayOutput)
 }
 
-// OAuth authorization server identifier.
 func (o OpenIdAuthenticationSettingsContractOutput) OpenidProviderId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v OpenIdAuthenticationSettingsContract) *string { return v.OpenidProviderId }).(pulumi.StringPtrOutput)
 }
@@ -6506,10 +6073,15 @@ func (o OpenIdAuthenticationSettingsContractPtrOutput) ToOpenIdAuthenticationSet
 }
 
 func (o OpenIdAuthenticationSettingsContractPtrOutput) Elem() OpenIdAuthenticationSettingsContractOutput {
-	return o.ApplyT(func(v *OpenIdAuthenticationSettingsContract) OpenIdAuthenticationSettingsContract { return *v }).(OpenIdAuthenticationSettingsContractOutput)
+	return o.ApplyT(func(v *OpenIdAuthenticationSettingsContract) OpenIdAuthenticationSettingsContract {
+		if v != nil {
+			return *v
+		}
+		var ret OpenIdAuthenticationSettingsContract
+		return ret
+	}).(OpenIdAuthenticationSettingsContractOutput)
 }
 
-// How to send token to the server.
 func (o OpenIdAuthenticationSettingsContractPtrOutput) BearerTokenSendingMethods() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *OpenIdAuthenticationSettingsContract) []string {
 		if v == nil {
@@ -6519,7 +6091,6 @@ func (o OpenIdAuthenticationSettingsContractPtrOutput) BearerTokenSendingMethods
 	}).(pulumi.StringArrayOutput)
 }
 
-// OAuth authorization server identifier.
 func (o OpenIdAuthenticationSettingsContractPtrOutput) OpenidProviderId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *OpenIdAuthenticationSettingsContract) *string {
 		if v == nil {
@@ -6529,12 +6100,9 @@ func (o OpenIdAuthenticationSettingsContractPtrOutput) OpenidProviderId() pulumi
 	}).(pulumi.StringPtrOutput)
 }
 
-// API OAuth2 Authentication settings details.
 type OpenIdAuthenticationSettingsContractResponse struct {
-	// How to send token to the server.
 	BearerTokenSendingMethods []string `pulumi:"bearerTokenSendingMethods"`
-	// OAuth authorization server identifier.
-	OpenidProviderId *string `pulumi:"openidProviderId"`
+	OpenidProviderId          *string  `pulumi:"openidProviderId"`
 }
 
 // OpenIdAuthenticationSettingsContractResponseInput is an input type that accepts OpenIdAuthenticationSettingsContractResponseArgs and OpenIdAuthenticationSettingsContractResponseOutput values.
@@ -6548,12 +6116,9 @@ type OpenIdAuthenticationSettingsContractResponseInput interface {
 	ToOpenIdAuthenticationSettingsContractResponseOutputWithContext(context.Context) OpenIdAuthenticationSettingsContractResponseOutput
 }
 
-// API OAuth2 Authentication settings details.
 type OpenIdAuthenticationSettingsContractResponseArgs struct {
-	// How to send token to the server.
 	BearerTokenSendingMethods pulumi.StringArrayInput `pulumi:"bearerTokenSendingMethods"`
-	// OAuth authorization server identifier.
-	OpenidProviderId pulumi.StringPtrInput `pulumi:"openidProviderId"`
+	OpenidProviderId          pulumi.StringPtrInput   `pulumi:"openidProviderId"`
 }
 
 func (OpenIdAuthenticationSettingsContractResponseArgs) ElementType() reflect.Type {
@@ -6609,7 +6174,6 @@ func (i *openIdAuthenticationSettingsContractResponsePtrType) ToOpenIdAuthentica
 	return pulumi.ToOutputWithContext(ctx, i).(OpenIdAuthenticationSettingsContractResponsePtrOutput)
 }
 
-// API OAuth2 Authentication settings details.
 type OpenIdAuthenticationSettingsContractResponseOutput struct{ *pulumi.OutputState }
 
 func (OpenIdAuthenticationSettingsContractResponseOutput) ElementType() reflect.Type {
@@ -6629,17 +6193,15 @@ func (o OpenIdAuthenticationSettingsContractResponseOutput) ToOpenIdAuthenticati
 }
 
 func (o OpenIdAuthenticationSettingsContractResponseOutput) ToOpenIdAuthenticationSettingsContractResponsePtrOutputWithContext(ctx context.Context) OpenIdAuthenticationSettingsContractResponsePtrOutput {
-	return o.ApplyT(func(v OpenIdAuthenticationSettingsContractResponse) *OpenIdAuthenticationSettingsContractResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v OpenIdAuthenticationSettingsContractResponse) *OpenIdAuthenticationSettingsContractResponse {
 		return &v
 	}).(OpenIdAuthenticationSettingsContractResponsePtrOutput)
 }
 
-// How to send token to the server.
 func (o OpenIdAuthenticationSettingsContractResponseOutput) BearerTokenSendingMethods() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v OpenIdAuthenticationSettingsContractResponse) []string { return v.BearerTokenSendingMethods }).(pulumi.StringArrayOutput)
 }
 
-// OAuth authorization server identifier.
 func (o OpenIdAuthenticationSettingsContractResponseOutput) OpenidProviderId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v OpenIdAuthenticationSettingsContractResponse) *string { return v.OpenidProviderId }).(pulumi.StringPtrOutput)
 }
@@ -6660,11 +6222,14 @@ func (o OpenIdAuthenticationSettingsContractResponsePtrOutput) ToOpenIdAuthentic
 
 func (o OpenIdAuthenticationSettingsContractResponsePtrOutput) Elem() OpenIdAuthenticationSettingsContractResponseOutput {
 	return o.ApplyT(func(v *OpenIdAuthenticationSettingsContractResponse) OpenIdAuthenticationSettingsContractResponse {
-		return *v
+		if v != nil {
+			return *v
+		}
+		var ret OpenIdAuthenticationSettingsContractResponse
+		return ret
 	}).(OpenIdAuthenticationSettingsContractResponseOutput)
 }
 
-// How to send token to the server.
 func (o OpenIdAuthenticationSettingsContractResponsePtrOutput) BearerTokenSendingMethods() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *OpenIdAuthenticationSettingsContractResponse) []string {
 		if v == nil {
@@ -6674,7 +6239,6 @@ func (o OpenIdAuthenticationSettingsContractResponsePtrOutput) BearerTokenSendin
 	}).(pulumi.StringArrayOutput)
 }
 
-// OAuth authorization server identifier.
 func (o OpenIdAuthenticationSettingsContractResponsePtrOutput) OpenidProviderId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *OpenIdAuthenticationSettingsContractResponse) *string {
 		if v == nil {
@@ -6684,20 +6248,13 @@ func (o OpenIdAuthenticationSettingsContractResponsePtrOutput) OpenidProviderId(
 	}).(pulumi.StringPtrOutput)
 }
 
-// Operation parameters details.
 type ParameterContract struct {
-	// Default parameter value.
-	DefaultValue *string `pulumi:"defaultValue"`
-	// Parameter description.
-	Description *string `pulumi:"description"`
-	// Parameter name.
-	Name string `pulumi:"name"`
-	// Specifies whether parameter is required or not.
-	Required *bool `pulumi:"required"`
-	// Parameter type.
-	Type string `pulumi:"type"`
-	// Parameter values.
-	Values []string `pulumi:"values"`
+	DefaultValue *string  `pulumi:"defaultValue"`
+	Description  *string  `pulumi:"description"`
+	Name         string   `pulumi:"name"`
+	Required     *bool    `pulumi:"required"`
+	Type         string   `pulumi:"type"`
+	Values       []string `pulumi:"values"`
 }
 
 // ParameterContractInput is an input type that accepts ParameterContractArgs and ParameterContractOutput values.
@@ -6711,20 +6268,13 @@ type ParameterContractInput interface {
 	ToParameterContractOutputWithContext(context.Context) ParameterContractOutput
 }
 
-// Operation parameters details.
 type ParameterContractArgs struct {
-	// Default parameter value.
-	DefaultValue pulumi.StringPtrInput `pulumi:"defaultValue"`
-	// Parameter description.
-	Description pulumi.StringPtrInput `pulumi:"description"`
-	// Parameter name.
-	Name pulumi.StringInput `pulumi:"name"`
-	// Specifies whether parameter is required or not.
-	Required pulumi.BoolPtrInput `pulumi:"required"`
-	// Parameter type.
-	Type pulumi.StringInput `pulumi:"type"`
-	// Parameter values.
-	Values pulumi.StringArrayInput `pulumi:"values"`
+	DefaultValue pulumi.StringPtrInput   `pulumi:"defaultValue"`
+	Description  pulumi.StringPtrInput   `pulumi:"description"`
+	Name         pulumi.StringInput      `pulumi:"name"`
+	Required     pulumi.BoolPtrInput     `pulumi:"required"`
+	Type         pulumi.StringInput      `pulumi:"type"`
+	Values       pulumi.StringArrayInput `pulumi:"values"`
 }
 
 func (ParameterContractArgs) ElementType() reflect.Type {
@@ -6764,7 +6314,6 @@ func (i ParameterContractArray) ToParameterContractArrayOutputWithContext(ctx co
 	return pulumi.ToOutputWithContext(ctx, i).(ParameterContractArrayOutput)
 }
 
-// Operation parameters details.
 type ParameterContractOutput struct{ *pulumi.OutputState }
 
 func (ParameterContractOutput) ElementType() reflect.Type {
@@ -6779,32 +6328,26 @@ func (o ParameterContractOutput) ToParameterContractOutputWithContext(ctx contex
 	return o
 }
 
-// Default parameter value.
 func (o ParameterContractOutput) DefaultValue() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ParameterContract) *string { return v.DefaultValue }).(pulumi.StringPtrOutput)
 }
 
-// Parameter description.
 func (o ParameterContractOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ParameterContract) *string { return v.Description }).(pulumi.StringPtrOutput)
 }
 
-// Parameter name.
 func (o ParameterContractOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v ParameterContract) string { return v.Name }).(pulumi.StringOutput)
 }
 
-// Specifies whether parameter is required or not.
 func (o ParameterContractOutput) Required() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v ParameterContract) *bool { return v.Required }).(pulumi.BoolPtrOutput)
 }
 
-// Parameter type.
 func (o ParameterContractOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v ParameterContract) string { return v.Type }).(pulumi.StringOutput)
 }
 
-// Parameter values.
 func (o ParameterContractOutput) Values() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v ParameterContract) []string { return v.Values }).(pulumi.StringArrayOutput)
 }
@@ -6829,20 +6372,13 @@ func (o ParameterContractArrayOutput) Index(i pulumi.IntInput) ParameterContract
 	}).(ParameterContractOutput)
 }
 
-// Operation parameters details.
 type ParameterContractResponse struct {
-	// Default parameter value.
-	DefaultValue *string `pulumi:"defaultValue"`
-	// Parameter description.
-	Description *string `pulumi:"description"`
-	// Parameter name.
-	Name string `pulumi:"name"`
-	// Specifies whether parameter is required or not.
-	Required *bool `pulumi:"required"`
-	// Parameter type.
-	Type string `pulumi:"type"`
-	// Parameter values.
-	Values []string `pulumi:"values"`
+	DefaultValue *string  `pulumi:"defaultValue"`
+	Description  *string  `pulumi:"description"`
+	Name         string   `pulumi:"name"`
+	Required     *bool    `pulumi:"required"`
+	Type         string   `pulumi:"type"`
+	Values       []string `pulumi:"values"`
 }
 
 // ParameterContractResponseInput is an input type that accepts ParameterContractResponseArgs and ParameterContractResponseOutput values.
@@ -6856,20 +6392,13 @@ type ParameterContractResponseInput interface {
 	ToParameterContractResponseOutputWithContext(context.Context) ParameterContractResponseOutput
 }
 
-// Operation parameters details.
 type ParameterContractResponseArgs struct {
-	// Default parameter value.
-	DefaultValue pulumi.StringPtrInput `pulumi:"defaultValue"`
-	// Parameter description.
-	Description pulumi.StringPtrInput `pulumi:"description"`
-	// Parameter name.
-	Name pulumi.StringInput `pulumi:"name"`
-	// Specifies whether parameter is required or not.
-	Required pulumi.BoolPtrInput `pulumi:"required"`
-	// Parameter type.
-	Type pulumi.StringInput `pulumi:"type"`
-	// Parameter values.
-	Values pulumi.StringArrayInput `pulumi:"values"`
+	DefaultValue pulumi.StringPtrInput   `pulumi:"defaultValue"`
+	Description  pulumi.StringPtrInput   `pulumi:"description"`
+	Name         pulumi.StringInput      `pulumi:"name"`
+	Required     pulumi.BoolPtrInput     `pulumi:"required"`
+	Type         pulumi.StringInput      `pulumi:"type"`
+	Values       pulumi.StringArrayInput `pulumi:"values"`
 }
 
 func (ParameterContractResponseArgs) ElementType() reflect.Type {
@@ -6909,7 +6438,6 @@ func (i ParameterContractResponseArray) ToParameterContractResponseArrayOutputWi
 	return pulumi.ToOutputWithContext(ctx, i).(ParameterContractResponseArrayOutput)
 }
 
-// Operation parameters details.
 type ParameterContractResponseOutput struct{ *pulumi.OutputState }
 
 func (ParameterContractResponseOutput) ElementType() reflect.Type {
@@ -6924,32 +6452,26 @@ func (o ParameterContractResponseOutput) ToParameterContractResponseOutputWithCo
 	return o
 }
 
-// Default parameter value.
 func (o ParameterContractResponseOutput) DefaultValue() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ParameterContractResponse) *string { return v.DefaultValue }).(pulumi.StringPtrOutput)
 }
 
-// Parameter description.
 func (o ParameterContractResponseOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ParameterContractResponse) *string { return v.Description }).(pulumi.StringPtrOutput)
 }
 
-// Parameter name.
 func (o ParameterContractResponseOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v ParameterContractResponse) string { return v.Name }).(pulumi.StringOutput)
 }
 
-// Specifies whether parameter is required or not.
 func (o ParameterContractResponseOutput) Required() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v ParameterContractResponse) *bool { return v.Required }).(pulumi.BoolPtrOutput)
 }
 
-// Parameter type.
 func (o ParameterContractResponseOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v ParameterContractResponse) string { return v.Type }).(pulumi.StringOutput)
 }
 
-// Parameter values.
 func (o ParameterContractResponseOutput) Values() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v ParameterContractResponse) []string { return v.Values }).(pulumi.StringArrayOutput)
 }
@@ -6974,11 +6496,8 @@ func (o ParameterContractResponseArrayOutput) Index(i pulumi.IntInput) Parameter
 	}).(ParameterContractResponseOutput)
 }
 
-// Diagnostic settings for incoming/outgoing HTTP messages to the Gateway.
 type PipelineDiagnosticSettings struct {
-	// Diagnostic settings for request.
-	Request *HttpMessageDiagnostic `pulumi:"request"`
-	// Diagnostic settings for response.
+	Request  *HttpMessageDiagnostic `pulumi:"request"`
 	Response *HttpMessageDiagnostic `pulumi:"response"`
 }
 
@@ -6993,11 +6512,8 @@ type PipelineDiagnosticSettingsInput interface {
 	ToPipelineDiagnosticSettingsOutputWithContext(context.Context) PipelineDiagnosticSettingsOutput
 }
 
-// Diagnostic settings for incoming/outgoing HTTP messages to the Gateway.
 type PipelineDiagnosticSettingsArgs struct {
-	// Diagnostic settings for request.
-	Request HttpMessageDiagnosticPtrInput `pulumi:"request"`
-	// Diagnostic settings for response.
+	Request  HttpMessageDiagnosticPtrInput `pulumi:"request"`
 	Response HttpMessageDiagnosticPtrInput `pulumi:"response"`
 }
 
@@ -7054,7 +6570,6 @@ func (i *pipelineDiagnosticSettingsPtrType) ToPipelineDiagnosticSettingsPtrOutpu
 	return pulumi.ToOutputWithContext(ctx, i).(PipelineDiagnosticSettingsPtrOutput)
 }
 
-// Diagnostic settings for incoming/outgoing HTTP messages to the Gateway.
 type PipelineDiagnosticSettingsOutput struct{ *pulumi.OutputState }
 
 func (PipelineDiagnosticSettingsOutput) ElementType() reflect.Type {
@@ -7074,17 +6589,15 @@ func (o PipelineDiagnosticSettingsOutput) ToPipelineDiagnosticSettingsPtrOutput(
 }
 
 func (o PipelineDiagnosticSettingsOutput) ToPipelineDiagnosticSettingsPtrOutputWithContext(ctx context.Context) PipelineDiagnosticSettingsPtrOutput {
-	return o.ApplyT(func(v PipelineDiagnosticSettings) *PipelineDiagnosticSettings {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v PipelineDiagnosticSettings) *PipelineDiagnosticSettings {
 		return &v
 	}).(PipelineDiagnosticSettingsPtrOutput)
 }
 
-// Diagnostic settings for request.
 func (o PipelineDiagnosticSettingsOutput) Request() HttpMessageDiagnosticPtrOutput {
 	return o.ApplyT(func(v PipelineDiagnosticSettings) *HttpMessageDiagnostic { return v.Request }).(HttpMessageDiagnosticPtrOutput)
 }
 
-// Diagnostic settings for response.
 func (o PipelineDiagnosticSettingsOutput) Response() HttpMessageDiagnosticPtrOutput {
 	return o.ApplyT(func(v PipelineDiagnosticSettings) *HttpMessageDiagnostic { return v.Response }).(HttpMessageDiagnosticPtrOutput)
 }
@@ -7104,10 +6617,15 @@ func (o PipelineDiagnosticSettingsPtrOutput) ToPipelineDiagnosticSettingsPtrOutp
 }
 
 func (o PipelineDiagnosticSettingsPtrOutput) Elem() PipelineDiagnosticSettingsOutput {
-	return o.ApplyT(func(v *PipelineDiagnosticSettings) PipelineDiagnosticSettings { return *v }).(PipelineDiagnosticSettingsOutput)
+	return o.ApplyT(func(v *PipelineDiagnosticSettings) PipelineDiagnosticSettings {
+		if v != nil {
+			return *v
+		}
+		var ret PipelineDiagnosticSettings
+		return ret
+	}).(PipelineDiagnosticSettingsOutput)
 }
 
-// Diagnostic settings for request.
 func (o PipelineDiagnosticSettingsPtrOutput) Request() HttpMessageDiagnosticPtrOutput {
 	return o.ApplyT(func(v *PipelineDiagnosticSettings) *HttpMessageDiagnostic {
 		if v == nil {
@@ -7117,7 +6635,6 @@ func (o PipelineDiagnosticSettingsPtrOutput) Request() HttpMessageDiagnosticPtrO
 	}).(HttpMessageDiagnosticPtrOutput)
 }
 
-// Diagnostic settings for response.
 func (o PipelineDiagnosticSettingsPtrOutput) Response() HttpMessageDiagnosticPtrOutput {
 	return o.ApplyT(func(v *PipelineDiagnosticSettings) *HttpMessageDiagnostic {
 		if v == nil {
@@ -7127,11 +6644,8 @@ func (o PipelineDiagnosticSettingsPtrOutput) Response() HttpMessageDiagnosticPtr
 	}).(HttpMessageDiagnosticPtrOutput)
 }
 
-// Diagnostic settings for incoming/outgoing HTTP messages to the Gateway.
 type PipelineDiagnosticSettingsResponse struct {
-	// Diagnostic settings for request.
-	Request *HttpMessageDiagnosticResponse `pulumi:"request"`
-	// Diagnostic settings for response.
+	Request  *HttpMessageDiagnosticResponse `pulumi:"request"`
 	Response *HttpMessageDiagnosticResponse `pulumi:"response"`
 }
 
@@ -7146,11 +6660,8 @@ type PipelineDiagnosticSettingsResponseInput interface {
 	ToPipelineDiagnosticSettingsResponseOutputWithContext(context.Context) PipelineDiagnosticSettingsResponseOutput
 }
 
-// Diagnostic settings for incoming/outgoing HTTP messages to the Gateway.
 type PipelineDiagnosticSettingsResponseArgs struct {
-	// Diagnostic settings for request.
-	Request HttpMessageDiagnosticResponsePtrInput `pulumi:"request"`
-	// Diagnostic settings for response.
+	Request  HttpMessageDiagnosticResponsePtrInput `pulumi:"request"`
 	Response HttpMessageDiagnosticResponsePtrInput `pulumi:"response"`
 }
 
@@ -7207,7 +6718,6 @@ func (i *pipelineDiagnosticSettingsResponsePtrType) ToPipelineDiagnosticSettings
 	return pulumi.ToOutputWithContext(ctx, i).(PipelineDiagnosticSettingsResponsePtrOutput)
 }
 
-// Diagnostic settings for incoming/outgoing HTTP messages to the Gateway.
 type PipelineDiagnosticSettingsResponseOutput struct{ *pulumi.OutputState }
 
 func (PipelineDiagnosticSettingsResponseOutput) ElementType() reflect.Type {
@@ -7227,17 +6737,15 @@ func (o PipelineDiagnosticSettingsResponseOutput) ToPipelineDiagnosticSettingsRe
 }
 
 func (o PipelineDiagnosticSettingsResponseOutput) ToPipelineDiagnosticSettingsResponsePtrOutputWithContext(ctx context.Context) PipelineDiagnosticSettingsResponsePtrOutput {
-	return o.ApplyT(func(v PipelineDiagnosticSettingsResponse) *PipelineDiagnosticSettingsResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v PipelineDiagnosticSettingsResponse) *PipelineDiagnosticSettingsResponse {
 		return &v
 	}).(PipelineDiagnosticSettingsResponsePtrOutput)
 }
 
-// Diagnostic settings for request.
 func (o PipelineDiagnosticSettingsResponseOutput) Request() HttpMessageDiagnosticResponsePtrOutput {
 	return o.ApplyT(func(v PipelineDiagnosticSettingsResponse) *HttpMessageDiagnosticResponse { return v.Request }).(HttpMessageDiagnosticResponsePtrOutput)
 }
 
-// Diagnostic settings for response.
 func (o PipelineDiagnosticSettingsResponseOutput) Response() HttpMessageDiagnosticResponsePtrOutput {
 	return o.ApplyT(func(v PipelineDiagnosticSettingsResponse) *HttpMessageDiagnosticResponse { return v.Response }).(HttpMessageDiagnosticResponsePtrOutput)
 }
@@ -7257,10 +6765,15 @@ func (o PipelineDiagnosticSettingsResponsePtrOutput) ToPipelineDiagnosticSetting
 }
 
 func (o PipelineDiagnosticSettingsResponsePtrOutput) Elem() PipelineDiagnosticSettingsResponseOutput {
-	return o.ApplyT(func(v *PipelineDiagnosticSettingsResponse) PipelineDiagnosticSettingsResponse { return *v }).(PipelineDiagnosticSettingsResponseOutput)
+	return o.ApplyT(func(v *PipelineDiagnosticSettingsResponse) PipelineDiagnosticSettingsResponse {
+		if v != nil {
+			return *v
+		}
+		var ret PipelineDiagnosticSettingsResponse
+		return ret
+	}).(PipelineDiagnosticSettingsResponseOutput)
 }
 
-// Diagnostic settings for request.
 func (o PipelineDiagnosticSettingsResponsePtrOutput) Request() HttpMessageDiagnosticResponsePtrOutput {
 	return o.ApplyT(func(v *PipelineDiagnosticSettingsResponse) *HttpMessageDiagnosticResponse {
 		if v == nil {
@@ -7270,7 +6783,6 @@ func (o PipelineDiagnosticSettingsResponsePtrOutput) Request() HttpMessageDiagno
 	}).(HttpMessageDiagnosticResponsePtrOutput)
 }
 
-// Diagnostic settings for response.
 func (o PipelineDiagnosticSettingsResponsePtrOutput) Response() HttpMessageDiagnosticResponsePtrOutput {
 	return o.ApplyT(func(v *PipelineDiagnosticSettingsResponse) *HttpMessageDiagnosticResponse {
 		if v == nil {
@@ -7280,18 +6792,12 @@ func (o PipelineDiagnosticSettingsResponsePtrOutput) Response() HttpMessageDiagn
 	}).(HttpMessageDiagnosticResponsePtrOutput)
 }
 
-// Operation request/response representation details.
 type RepresentationContract struct {
-	// Specifies a registered or custom content type for this representation, e.g. application/xml.
-	ContentType string `pulumi:"contentType"`
-	// Collection of form parameters. Required if 'contentType' value is either 'application/x-www-form-urlencoded' or 'multipart/form-data'..
+	ContentType    string              `pulumi:"contentType"`
 	FormParameters []ParameterContract `pulumi:"formParameters"`
-	// An example of the representation.
-	Sample *string `pulumi:"sample"`
-	// Schema identifier. Applicable only if 'contentType' value is neither 'application/x-www-form-urlencoded' nor 'multipart/form-data'.
-	SchemaId *string `pulumi:"schemaId"`
-	// Type name defined by the schema. Applicable only if 'contentType' value is neither 'application/x-www-form-urlencoded' nor 'multipart/form-data'.
-	TypeName *string `pulumi:"typeName"`
+	Sample         *string             `pulumi:"sample"`
+	SchemaId       *string             `pulumi:"schemaId"`
+	TypeName       *string             `pulumi:"typeName"`
 }
 
 // RepresentationContractInput is an input type that accepts RepresentationContractArgs and RepresentationContractOutput values.
@@ -7305,18 +6811,12 @@ type RepresentationContractInput interface {
 	ToRepresentationContractOutputWithContext(context.Context) RepresentationContractOutput
 }
 
-// Operation request/response representation details.
 type RepresentationContractArgs struct {
-	// Specifies a registered or custom content type for this representation, e.g. application/xml.
-	ContentType pulumi.StringInput `pulumi:"contentType"`
-	// Collection of form parameters. Required if 'contentType' value is either 'application/x-www-form-urlencoded' or 'multipart/form-data'..
+	ContentType    pulumi.StringInput          `pulumi:"contentType"`
 	FormParameters ParameterContractArrayInput `pulumi:"formParameters"`
-	// An example of the representation.
-	Sample pulumi.StringPtrInput `pulumi:"sample"`
-	// Schema identifier. Applicable only if 'contentType' value is neither 'application/x-www-form-urlencoded' nor 'multipart/form-data'.
-	SchemaId pulumi.StringPtrInput `pulumi:"schemaId"`
-	// Type name defined by the schema. Applicable only if 'contentType' value is neither 'application/x-www-form-urlencoded' nor 'multipart/form-data'.
-	TypeName pulumi.StringPtrInput `pulumi:"typeName"`
+	Sample         pulumi.StringPtrInput       `pulumi:"sample"`
+	SchemaId       pulumi.StringPtrInput       `pulumi:"schemaId"`
+	TypeName       pulumi.StringPtrInput       `pulumi:"typeName"`
 }
 
 func (RepresentationContractArgs) ElementType() reflect.Type {
@@ -7356,7 +6856,6 @@ func (i RepresentationContractArray) ToRepresentationContractArrayOutputWithCont
 	return pulumi.ToOutputWithContext(ctx, i).(RepresentationContractArrayOutput)
 }
 
-// Operation request/response representation details.
 type RepresentationContractOutput struct{ *pulumi.OutputState }
 
 func (RepresentationContractOutput) ElementType() reflect.Type {
@@ -7371,27 +6870,22 @@ func (o RepresentationContractOutput) ToRepresentationContractOutputWithContext(
 	return o
 }
 
-// Specifies a registered or custom content type for this representation, e.g. application/xml.
 func (o RepresentationContractOutput) ContentType() pulumi.StringOutput {
 	return o.ApplyT(func(v RepresentationContract) string { return v.ContentType }).(pulumi.StringOutput)
 }
 
-// Collection of form parameters. Required if 'contentType' value is either 'application/x-www-form-urlencoded' or 'multipart/form-data'..
 func (o RepresentationContractOutput) FormParameters() ParameterContractArrayOutput {
 	return o.ApplyT(func(v RepresentationContract) []ParameterContract { return v.FormParameters }).(ParameterContractArrayOutput)
 }
 
-// An example of the representation.
 func (o RepresentationContractOutput) Sample() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v RepresentationContract) *string { return v.Sample }).(pulumi.StringPtrOutput)
 }
 
-// Schema identifier. Applicable only if 'contentType' value is neither 'application/x-www-form-urlencoded' nor 'multipart/form-data'.
 func (o RepresentationContractOutput) SchemaId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v RepresentationContract) *string { return v.SchemaId }).(pulumi.StringPtrOutput)
 }
 
-// Type name defined by the schema. Applicable only if 'contentType' value is neither 'application/x-www-form-urlencoded' nor 'multipart/form-data'.
 func (o RepresentationContractOutput) TypeName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v RepresentationContract) *string { return v.TypeName }).(pulumi.StringPtrOutput)
 }
@@ -7416,18 +6910,12 @@ func (o RepresentationContractArrayOutput) Index(i pulumi.IntInput) Representati
 	}).(RepresentationContractOutput)
 }
 
-// Operation request/response representation details.
 type RepresentationContractResponse struct {
-	// Specifies a registered or custom content type for this representation, e.g. application/xml.
-	ContentType string `pulumi:"contentType"`
-	// Collection of form parameters. Required if 'contentType' value is either 'application/x-www-form-urlencoded' or 'multipart/form-data'..
+	ContentType    string                      `pulumi:"contentType"`
 	FormParameters []ParameterContractResponse `pulumi:"formParameters"`
-	// An example of the representation.
-	Sample *string `pulumi:"sample"`
-	// Schema identifier. Applicable only if 'contentType' value is neither 'application/x-www-form-urlencoded' nor 'multipart/form-data'.
-	SchemaId *string `pulumi:"schemaId"`
-	// Type name defined by the schema. Applicable only if 'contentType' value is neither 'application/x-www-form-urlencoded' nor 'multipart/form-data'.
-	TypeName *string `pulumi:"typeName"`
+	Sample         *string                     `pulumi:"sample"`
+	SchemaId       *string                     `pulumi:"schemaId"`
+	TypeName       *string                     `pulumi:"typeName"`
 }
 
 // RepresentationContractResponseInput is an input type that accepts RepresentationContractResponseArgs and RepresentationContractResponseOutput values.
@@ -7441,18 +6929,12 @@ type RepresentationContractResponseInput interface {
 	ToRepresentationContractResponseOutputWithContext(context.Context) RepresentationContractResponseOutput
 }
 
-// Operation request/response representation details.
 type RepresentationContractResponseArgs struct {
-	// Specifies a registered or custom content type for this representation, e.g. application/xml.
-	ContentType pulumi.StringInput `pulumi:"contentType"`
-	// Collection of form parameters. Required if 'contentType' value is either 'application/x-www-form-urlencoded' or 'multipart/form-data'..
+	ContentType    pulumi.StringInput                  `pulumi:"contentType"`
 	FormParameters ParameterContractResponseArrayInput `pulumi:"formParameters"`
-	// An example of the representation.
-	Sample pulumi.StringPtrInput `pulumi:"sample"`
-	// Schema identifier. Applicable only if 'contentType' value is neither 'application/x-www-form-urlencoded' nor 'multipart/form-data'.
-	SchemaId pulumi.StringPtrInput `pulumi:"schemaId"`
-	// Type name defined by the schema. Applicable only if 'contentType' value is neither 'application/x-www-form-urlencoded' nor 'multipart/form-data'.
-	TypeName pulumi.StringPtrInput `pulumi:"typeName"`
+	Sample         pulumi.StringPtrInput               `pulumi:"sample"`
+	SchemaId       pulumi.StringPtrInput               `pulumi:"schemaId"`
+	TypeName       pulumi.StringPtrInput               `pulumi:"typeName"`
 }
 
 func (RepresentationContractResponseArgs) ElementType() reflect.Type {
@@ -7492,7 +6974,6 @@ func (i RepresentationContractResponseArray) ToRepresentationContractResponseArr
 	return pulumi.ToOutputWithContext(ctx, i).(RepresentationContractResponseArrayOutput)
 }
 
-// Operation request/response representation details.
 type RepresentationContractResponseOutput struct{ *pulumi.OutputState }
 
 func (RepresentationContractResponseOutput) ElementType() reflect.Type {
@@ -7507,27 +6988,22 @@ func (o RepresentationContractResponseOutput) ToRepresentationContractResponseOu
 	return o
 }
 
-// Specifies a registered or custom content type for this representation, e.g. application/xml.
 func (o RepresentationContractResponseOutput) ContentType() pulumi.StringOutput {
 	return o.ApplyT(func(v RepresentationContractResponse) string { return v.ContentType }).(pulumi.StringOutput)
 }
 
-// Collection of form parameters. Required if 'contentType' value is either 'application/x-www-form-urlencoded' or 'multipart/form-data'..
 func (o RepresentationContractResponseOutput) FormParameters() ParameterContractResponseArrayOutput {
 	return o.ApplyT(func(v RepresentationContractResponse) []ParameterContractResponse { return v.FormParameters }).(ParameterContractResponseArrayOutput)
 }
 
-// An example of the representation.
 func (o RepresentationContractResponseOutput) Sample() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v RepresentationContractResponse) *string { return v.Sample }).(pulumi.StringPtrOutput)
 }
 
-// Schema identifier. Applicable only if 'contentType' value is neither 'application/x-www-form-urlencoded' nor 'multipart/form-data'.
 func (o RepresentationContractResponseOutput) SchemaId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v RepresentationContractResponse) *string { return v.SchemaId }).(pulumi.StringPtrOutput)
 }
 
-// Type name defined by the schema. Applicable only if 'contentType' value is neither 'application/x-www-form-urlencoded' nor 'multipart/form-data'.
 func (o RepresentationContractResponseOutput) TypeName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v RepresentationContractResponse) *string { return v.TypeName }).(pulumi.StringPtrOutput)
 }
@@ -7552,15 +7028,10 @@ func (o RepresentationContractResponseArrayOutput) Index(i pulumi.IntInput) Repr
 	}).(RepresentationContractResponseOutput)
 }
 
-// Operation request details.
 type RequestContract struct {
-	// Operation request description.
-	Description *string `pulumi:"description"`
-	// Collection of operation request headers.
-	Headers []ParameterContract `pulumi:"headers"`
-	// Collection of operation request query parameters.
-	QueryParameters []ParameterContract `pulumi:"queryParameters"`
-	// Collection of operation request representations.
+	Description     *string                  `pulumi:"description"`
+	Headers         []ParameterContract      `pulumi:"headers"`
+	QueryParameters []ParameterContract      `pulumi:"queryParameters"`
 	Representations []RepresentationContract `pulumi:"representations"`
 }
 
@@ -7575,15 +7046,10 @@ type RequestContractInput interface {
 	ToRequestContractOutputWithContext(context.Context) RequestContractOutput
 }
 
-// Operation request details.
 type RequestContractArgs struct {
-	// Operation request description.
-	Description pulumi.StringPtrInput `pulumi:"description"`
-	// Collection of operation request headers.
-	Headers ParameterContractArrayInput `pulumi:"headers"`
-	// Collection of operation request query parameters.
-	QueryParameters ParameterContractArrayInput `pulumi:"queryParameters"`
-	// Collection of operation request representations.
+	Description     pulumi.StringPtrInput            `pulumi:"description"`
+	Headers         ParameterContractArrayInput      `pulumi:"headers"`
+	QueryParameters ParameterContractArrayInput      `pulumi:"queryParameters"`
 	Representations RepresentationContractArrayInput `pulumi:"representations"`
 }
 
@@ -7640,7 +7106,6 @@ func (i *requestContractPtrType) ToRequestContractPtrOutputWithContext(ctx conte
 	return pulumi.ToOutputWithContext(ctx, i).(RequestContractPtrOutput)
 }
 
-// Operation request details.
 type RequestContractOutput struct{ *pulumi.OutputState }
 
 func (RequestContractOutput) ElementType() reflect.Type {
@@ -7660,27 +7125,23 @@ func (o RequestContractOutput) ToRequestContractPtrOutput() RequestContractPtrOu
 }
 
 func (o RequestContractOutput) ToRequestContractPtrOutputWithContext(ctx context.Context) RequestContractPtrOutput {
-	return o.ApplyT(func(v RequestContract) *RequestContract {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v RequestContract) *RequestContract {
 		return &v
 	}).(RequestContractPtrOutput)
 }
 
-// Operation request description.
 func (o RequestContractOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v RequestContract) *string { return v.Description }).(pulumi.StringPtrOutput)
 }
 
-// Collection of operation request headers.
 func (o RequestContractOutput) Headers() ParameterContractArrayOutput {
 	return o.ApplyT(func(v RequestContract) []ParameterContract { return v.Headers }).(ParameterContractArrayOutput)
 }
 
-// Collection of operation request query parameters.
 func (o RequestContractOutput) QueryParameters() ParameterContractArrayOutput {
 	return o.ApplyT(func(v RequestContract) []ParameterContract { return v.QueryParameters }).(ParameterContractArrayOutput)
 }
 
-// Collection of operation request representations.
 func (o RequestContractOutput) Representations() RepresentationContractArrayOutput {
 	return o.ApplyT(func(v RequestContract) []RepresentationContract { return v.Representations }).(RepresentationContractArrayOutput)
 }
@@ -7700,10 +7161,15 @@ func (o RequestContractPtrOutput) ToRequestContractPtrOutputWithContext(ctx cont
 }
 
 func (o RequestContractPtrOutput) Elem() RequestContractOutput {
-	return o.ApplyT(func(v *RequestContract) RequestContract { return *v }).(RequestContractOutput)
+	return o.ApplyT(func(v *RequestContract) RequestContract {
+		if v != nil {
+			return *v
+		}
+		var ret RequestContract
+		return ret
+	}).(RequestContractOutput)
 }
 
-// Operation request description.
 func (o RequestContractPtrOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *RequestContract) *string {
 		if v == nil {
@@ -7713,7 +7179,6 @@ func (o RequestContractPtrOutput) Description() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Collection of operation request headers.
 func (o RequestContractPtrOutput) Headers() ParameterContractArrayOutput {
 	return o.ApplyT(func(v *RequestContract) []ParameterContract {
 		if v == nil {
@@ -7723,7 +7188,6 @@ func (o RequestContractPtrOutput) Headers() ParameterContractArrayOutput {
 	}).(ParameterContractArrayOutput)
 }
 
-// Collection of operation request query parameters.
 func (o RequestContractPtrOutput) QueryParameters() ParameterContractArrayOutput {
 	return o.ApplyT(func(v *RequestContract) []ParameterContract {
 		if v == nil {
@@ -7733,7 +7197,6 @@ func (o RequestContractPtrOutput) QueryParameters() ParameterContractArrayOutput
 	}).(ParameterContractArrayOutput)
 }
 
-// Collection of operation request representations.
 func (o RequestContractPtrOutput) Representations() RepresentationContractArrayOutput {
 	return o.ApplyT(func(v *RequestContract) []RepresentationContract {
 		if v == nil {
@@ -7743,15 +7206,10 @@ func (o RequestContractPtrOutput) Representations() RepresentationContractArrayO
 	}).(RepresentationContractArrayOutput)
 }
 
-// Operation request details.
 type RequestContractResponse struct {
-	// Operation request description.
-	Description *string `pulumi:"description"`
-	// Collection of operation request headers.
-	Headers []ParameterContractResponse `pulumi:"headers"`
-	// Collection of operation request query parameters.
-	QueryParameters []ParameterContractResponse `pulumi:"queryParameters"`
-	// Collection of operation request representations.
+	Description     *string                          `pulumi:"description"`
+	Headers         []ParameterContractResponse      `pulumi:"headers"`
+	QueryParameters []ParameterContractResponse      `pulumi:"queryParameters"`
 	Representations []RepresentationContractResponse `pulumi:"representations"`
 }
 
@@ -7766,15 +7224,10 @@ type RequestContractResponseInput interface {
 	ToRequestContractResponseOutputWithContext(context.Context) RequestContractResponseOutput
 }
 
-// Operation request details.
 type RequestContractResponseArgs struct {
-	// Operation request description.
-	Description pulumi.StringPtrInput `pulumi:"description"`
-	// Collection of operation request headers.
-	Headers ParameterContractResponseArrayInput `pulumi:"headers"`
-	// Collection of operation request query parameters.
-	QueryParameters ParameterContractResponseArrayInput `pulumi:"queryParameters"`
-	// Collection of operation request representations.
+	Description     pulumi.StringPtrInput                    `pulumi:"description"`
+	Headers         ParameterContractResponseArrayInput      `pulumi:"headers"`
+	QueryParameters ParameterContractResponseArrayInput      `pulumi:"queryParameters"`
 	Representations RepresentationContractResponseArrayInput `pulumi:"representations"`
 }
 
@@ -7831,7 +7284,6 @@ func (i *requestContractResponsePtrType) ToRequestContractResponsePtrOutputWithC
 	return pulumi.ToOutputWithContext(ctx, i).(RequestContractResponsePtrOutput)
 }
 
-// Operation request details.
 type RequestContractResponseOutput struct{ *pulumi.OutputState }
 
 func (RequestContractResponseOutput) ElementType() reflect.Type {
@@ -7851,27 +7303,23 @@ func (o RequestContractResponseOutput) ToRequestContractResponsePtrOutput() Requ
 }
 
 func (o RequestContractResponseOutput) ToRequestContractResponsePtrOutputWithContext(ctx context.Context) RequestContractResponsePtrOutput {
-	return o.ApplyT(func(v RequestContractResponse) *RequestContractResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v RequestContractResponse) *RequestContractResponse {
 		return &v
 	}).(RequestContractResponsePtrOutput)
 }
 
-// Operation request description.
 func (o RequestContractResponseOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v RequestContractResponse) *string { return v.Description }).(pulumi.StringPtrOutput)
 }
 
-// Collection of operation request headers.
 func (o RequestContractResponseOutput) Headers() ParameterContractResponseArrayOutput {
 	return o.ApplyT(func(v RequestContractResponse) []ParameterContractResponse { return v.Headers }).(ParameterContractResponseArrayOutput)
 }
 
-// Collection of operation request query parameters.
 func (o RequestContractResponseOutput) QueryParameters() ParameterContractResponseArrayOutput {
 	return o.ApplyT(func(v RequestContractResponse) []ParameterContractResponse { return v.QueryParameters }).(ParameterContractResponseArrayOutput)
 }
 
-// Collection of operation request representations.
 func (o RequestContractResponseOutput) Representations() RepresentationContractResponseArrayOutput {
 	return o.ApplyT(func(v RequestContractResponse) []RepresentationContractResponse { return v.Representations }).(RepresentationContractResponseArrayOutput)
 }
@@ -7891,10 +7339,15 @@ func (o RequestContractResponsePtrOutput) ToRequestContractResponsePtrOutputWith
 }
 
 func (o RequestContractResponsePtrOutput) Elem() RequestContractResponseOutput {
-	return o.ApplyT(func(v *RequestContractResponse) RequestContractResponse { return *v }).(RequestContractResponseOutput)
+	return o.ApplyT(func(v *RequestContractResponse) RequestContractResponse {
+		if v != nil {
+			return *v
+		}
+		var ret RequestContractResponse
+		return ret
+	}).(RequestContractResponseOutput)
 }
 
-// Operation request description.
 func (o RequestContractResponsePtrOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *RequestContractResponse) *string {
 		if v == nil {
@@ -7904,7 +7357,6 @@ func (o RequestContractResponsePtrOutput) Description() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Collection of operation request headers.
 func (o RequestContractResponsePtrOutput) Headers() ParameterContractResponseArrayOutput {
 	return o.ApplyT(func(v *RequestContractResponse) []ParameterContractResponse {
 		if v == nil {
@@ -7914,7 +7366,6 @@ func (o RequestContractResponsePtrOutput) Headers() ParameterContractResponseArr
 	}).(ParameterContractResponseArrayOutput)
 }
 
-// Collection of operation request query parameters.
 func (o RequestContractResponsePtrOutput) QueryParameters() ParameterContractResponseArrayOutput {
 	return o.ApplyT(func(v *RequestContractResponse) []ParameterContractResponse {
 		if v == nil {
@@ -7924,7 +7375,6 @@ func (o RequestContractResponsePtrOutput) QueryParameters() ParameterContractRes
 	}).(ParameterContractResponseArrayOutput)
 }
 
-// Collection of operation request representations.
 func (o RequestContractResponsePtrOutput) Representations() RepresentationContractResponseArrayOutput {
 	return o.ApplyT(func(v *RequestContractResponse) []RepresentationContractResponse {
 		if v == nil {
@@ -7934,16 +7384,11 @@ func (o RequestContractResponsePtrOutput) Representations() RepresentationContra
 	}).(RepresentationContractResponseArrayOutput)
 }
 
-// Resource location data properties.
 type ResourceLocationDataContract struct {
-	// The city or locality where the resource is located.
-	City *string `pulumi:"city"`
-	// The country or region where the resource is located.
+	City            *string `pulumi:"city"`
 	CountryOrRegion *string `pulumi:"countryOrRegion"`
-	// The district, state, or province where the resource is located.
-	District *string `pulumi:"district"`
-	// A canonical name for the geographic or physical location.
-	Name string `pulumi:"name"`
+	District        *string `pulumi:"district"`
+	Name            string  `pulumi:"name"`
 }
 
 // ResourceLocationDataContractInput is an input type that accepts ResourceLocationDataContractArgs and ResourceLocationDataContractOutput values.
@@ -7957,16 +7402,11 @@ type ResourceLocationDataContractInput interface {
 	ToResourceLocationDataContractOutputWithContext(context.Context) ResourceLocationDataContractOutput
 }
 
-// Resource location data properties.
 type ResourceLocationDataContractArgs struct {
-	// The city or locality where the resource is located.
-	City pulumi.StringPtrInput `pulumi:"city"`
-	// The country or region where the resource is located.
+	City            pulumi.StringPtrInput `pulumi:"city"`
 	CountryOrRegion pulumi.StringPtrInput `pulumi:"countryOrRegion"`
-	// The district, state, or province where the resource is located.
-	District pulumi.StringPtrInput `pulumi:"district"`
-	// A canonical name for the geographic or physical location.
-	Name pulumi.StringInput `pulumi:"name"`
+	District        pulumi.StringPtrInput `pulumi:"district"`
+	Name            pulumi.StringInput    `pulumi:"name"`
 }
 
 func (ResourceLocationDataContractArgs) ElementType() reflect.Type {
@@ -8022,7 +7462,6 @@ func (i *resourceLocationDataContractPtrType) ToResourceLocationDataContractPtrO
 	return pulumi.ToOutputWithContext(ctx, i).(ResourceLocationDataContractPtrOutput)
 }
 
-// Resource location data properties.
 type ResourceLocationDataContractOutput struct{ *pulumi.OutputState }
 
 func (ResourceLocationDataContractOutput) ElementType() reflect.Type {
@@ -8042,27 +7481,23 @@ func (o ResourceLocationDataContractOutput) ToResourceLocationDataContractPtrOut
 }
 
 func (o ResourceLocationDataContractOutput) ToResourceLocationDataContractPtrOutputWithContext(ctx context.Context) ResourceLocationDataContractPtrOutput {
-	return o.ApplyT(func(v ResourceLocationDataContract) *ResourceLocationDataContract {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ResourceLocationDataContract) *ResourceLocationDataContract {
 		return &v
 	}).(ResourceLocationDataContractPtrOutput)
 }
 
-// The city or locality where the resource is located.
 func (o ResourceLocationDataContractOutput) City() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ResourceLocationDataContract) *string { return v.City }).(pulumi.StringPtrOutput)
 }
 
-// The country or region where the resource is located.
 func (o ResourceLocationDataContractOutput) CountryOrRegion() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ResourceLocationDataContract) *string { return v.CountryOrRegion }).(pulumi.StringPtrOutput)
 }
 
-// The district, state, or province where the resource is located.
 func (o ResourceLocationDataContractOutput) District() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ResourceLocationDataContract) *string { return v.District }).(pulumi.StringPtrOutput)
 }
 
-// A canonical name for the geographic or physical location.
 func (o ResourceLocationDataContractOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v ResourceLocationDataContract) string { return v.Name }).(pulumi.StringOutput)
 }
@@ -8082,10 +7517,15 @@ func (o ResourceLocationDataContractPtrOutput) ToResourceLocationDataContractPtr
 }
 
 func (o ResourceLocationDataContractPtrOutput) Elem() ResourceLocationDataContractOutput {
-	return o.ApplyT(func(v *ResourceLocationDataContract) ResourceLocationDataContract { return *v }).(ResourceLocationDataContractOutput)
+	return o.ApplyT(func(v *ResourceLocationDataContract) ResourceLocationDataContract {
+		if v != nil {
+			return *v
+		}
+		var ret ResourceLocationDataContract
+		return ret
+	}).(ResourceLocationDataContractOutput)
 }
 
-// The city or locality where the resource is located.
 func (o ResourceLocationDataContractPtrOutput) City() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ResourceLocationDataContract) *string {
 		if v == nil {
@@ -8095,7 +7535,6 @@ func (o ResourceLocationDataContractPtrOutput) City() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The country or region where the resource is located.
 func (o ResourceLocationDataContractPtrOutput) CountryOrRegion() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ResourceLocationDataContract) *string {
 		if v == nil {
@@ -8105,7 +7544,6 @@ func (o ResourceLocationDataContractPtrOutput) CountryOrRegion() pulumi.StringPt
 	}).(pulumi.StringPtrOutput)
 }
 
-// The district, state, or province where the resource is located.
 func (o ResourceLocationDataContractPtrOutput) District() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ResourceLocationDataContract) *string {
 		if v == nil {
@@ -8115,7 +7553,6 @@ func (o ResourceLocationDataContractPtrOutput) District() pulumi.StringPtrOutput
 	}).(pulumi.StringPtrOutput)
 }
 
-// A canonical name for the geographic or physical location.
 func (o ResourceLocationDataContractPtrOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ResourceLocationDataContract) *string {
 		if v == nil {
@@ -8125,16 +7562,11 @@ func (o ResourceLocationDataContractPtrOutput) Name() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Resource location data properties.
 type ResourceLocationDataContractResponse struct {
-	// The city or locality where the resource is located.
-	City *string `pulumi:"city"`
-	// The country or region where the resource is located.
+	City            *string `pulumi:"city"`
 	CountryOrRegion *string `pulumi:"countryOrRegion"`
-	// The district, state, or province where the resource is located.
-	District *string `pulumi:"district"`
-	// A canonical name for the geographic or physical location.
-	Name string `pulumi:"name"`
+	District        *string `pulumi:"district"`
+	Name            string  `pulumi:"name"`
 }
 
 // ResourceLocationDataContractResponseInput is an input type that accepts ResourceLocationDataContractResponseArgs and ResourceLocationDataContractResponseOutput values.
@@ -8148,16 +7580,11 @@ type ResourceLocationDataContractResponseInput interface {
 	ToResourceLocationDataContractResponseOutputWithContext(context.Context) ResourceLocationDataContractResponseOutput
 }
 
-// Resource location data properties.
 type ResourceLocationDataContractResponseArgs struct {
-	// The city or locality where the resource is located.
-	City pulumi.StringPtrInput `pulumi:"city"`
-	// The country or region where the resource is located.
+	City            pulumi.StringPtrInput `pulumi:"city"`
 	CountryOrRegion pulumi.StringPtrInput `pulumi:"countryOrRegion"`
-	// The district, state, or province where the resource is located.
-	District pulumi.StringPtrInput `pulumi:"district"`
-	// A canonical name for the geographic or physical location.
-	Name pulumi.StringInput `pulumi:"name"`
+	District        pulumi.StringPtrInput `pulumi:"district"`
+	Name            pulumi.StringInput    `pulumi:"name"`
 }
 
 func (ResourceLocationDataContractResponseArgs) ElementType() reflect.Type {
@@ -8213,7 +7640,6 @@ func (i *resourceLocationDataContractResponsePtrType) ToResourceLocationDataCont
 	return pulumi.ToOutputWithContext(ctx, i).(ResourceLocationDataContractResponsePtrOutput)
 }
 
-// Resource location data properties.
 type ResourceLocationDataContractResponseOutput struct{ *pulumi.OutputState }
 
 func (ResourceLocationDataContractResponseOutput) ElementType() reflect.Type {
@@ -8233,27 +7659,23 @@ func (o ResourceLocationDataContractResponseOutput) ToResourceLocationDataContra
 }
 
 func (o ResourceLocationDataContractResponseOutput) ToResourceLocationDataContractResponsePtrOutputWithContext(ctx context.Context) ResourceLocationDataContractResponsePtrOutput {
-	return o.ApplyT(func(v ResourceLocationDataContractResponse) *ResourceLocationDataContractResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ResourceLocationDataContractResponse) *ResourceLocationDataContractResponse {
 		return &v
 	}).(ResourceLocationDataContractResponsePtrOutput)
 }
 
-// The city or locality where the resource is located.
 func (o ResourceLocationDataContractResponseOutput) City() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ResourceLocationDataContractResponse) *string { return v.City }).(pulumi.StringPtrOutput)
 }
 
-// The country or region where the resource is located.
 func (o ResourceLocationDataContractResponseOutput) CountryOrRegion() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ResourceLocationDataContractResponse) *string { return v.CountryOrRegion }).(pulumi.StringPtrOutput)
 }
 
-// The district, state, or province where the resource is located.
 func (o ResourceLocationDataContractResponseOutput) District() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ResourceLocationDataContractResponse) *string { return v.District }).(pulumi.StringPtrOutput)
 }
 
-// A canonical name for the geographic or physical location.
 func (o ResourceLocationDataContractResponseOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v ResourceLocationDataContractResponse) string { return v.Name }).(pulumi.StringOutput)
 }
@@ -8273,10 +7695,15 @@ func (o ResourceLocationDataContractResponsePtrOutput) ToResourceLocationDataCon
 }
 
 func (o ResourceLocationDataContractResponsePtrOutput) Elem() ResourceLocationDataContractResponseOutput {
-	return o.ApplyT(func(v *ResourceLocationDataContractResponse) ResourceLocationDataContractResponse { return *v }).(ResourceLocationDataContractResponseOutput)
+	return o.ApplyT(func(v *ResourceLocationDataContractResponse) ResourceLocationDataContractResponse {
+		if v != nil {
+			return *v
+		}
+		var ret ResourceLocationDataContractResponse
+		return ret
+	}).(ResourceLocationDataContractResponseOutput)
 }
 
-// The city or locality where the resource is located.
 func (o ResourceLocationDataContractResponsePtrOutput) City() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ResourceLocationDataContractResponse) *string {
 		if v == nil {
@@ -8286,7 +7713,6 @@ func (o ResourceLocationDataContractResponsePtrOutput) City() pulumi.StringPtrOu
 	}).(pulumi.StringPtrOutput)
 }
 
-// The country or region where the resource is located.
 func (o ResourceLocationDataContractResponsePtrOutput) CountryOrRegion() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ResourceLocationDataContractResponse) *string {
 		if v == nil {
@@ -8296,7 +7722,6 @@ func (o ResourceLocationDataContractResponsePtrOutput) CountryOrRegion() pulumi.
 	}).(pulumi.StringPtrOutput)
 }
 
-// The district, state, or province where the resource is located.
 func (o ResourceLocationDataContractResponsePtrOutput) District() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ResourceLocationDataContractResponse) *string {
 		if v == nil {
@@ -8306,7 +7731,6 @@ func (o ResourceLocationDataContractResponsePtrOutput) District() pulumi.StringP
 	}).(pulumi.StringPtrOutput)
 }
 
-// A canonical name for the geographic or physical location.
 func (o ResourceLocationDataContractResponsePtrOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ResourceLocationDataContractResponse) *string {
 		if v == nil {
@@ -8316,16 +7740,11 @@ func (o ResourceLocationDataContractResponsePtrOutput) Name() pulumi.StringPtrOu
 	}).(pulumi.StringPtrOutput)
 }
 
-// Operation response details.
 type ResponseContract struct {
-	// Operation response description.
-	Description *string `pulumi:"description"`
-	// Collection of operation response headers.
-	Headers []ParameterContract `pulumi:"headers"`
-	// Collection of operation response representations.
+	Description     *string                  `pulumi:"description"`
+	Headers         []ParameterContract      `pulumi:"headers"`
 	Representations []RepresentationContract `pulumi:"representations"`
-	// Operation response HTTP status code.
-	StatusCode int `pulumi:"statusCode"`
+	StatusCode      int                      `pulumi:"statusCode"`
 }
 
 // ResponseContractInput is an input type that accepts ResponseContractArgs and ResponseContractOutput values.
@@ -8339,16 +7758,11 @@ type ResponseContractInput interface {
 	ToResponseContractOutputWithContext(context.Context) ResponseContractOutput
 }
 
-// Operation response details.
 type ResponseContractArgs struct {
-	// Operation response description.
-	Description pulumi.StringPtrInput `pulumi:"description"`
-	// Collection of operation response headers.
-	Headers ParameterContractArrayInput `pulumi:"headers"`
-	// Collection of operation response representations.
+	Description     pulumi.StringPtrInput            `pulumi:"description"`
+	Headers         ParameterContractArrayInput      `pulumi:"headers"`
 	Representations RepresentationContractArrayInput `pulumi:"representations"`
-	// Operation response HTTP status code.
-	StatusCode pulumi.IntInput `pulumi:"statusCode"`
+	StatusCode      pulumi.IntInput                  `pulumi:"statusCode"`
 }
 
 func (ResponseContractArgs) ElementType() reflect.Type {
@@ -8388,7 +7802,6 @@ func (i ResponseContractArray) ToResponseContractArrayOutputWithContext(ctx cont
 	return pulumi.ToOutputWithContext(ctx, i).(ResponseContractArrayOutput)
 }
 
-// Operation response details.
 type ResponseContractOutput struct{ *pulumi.OutputState }
 
 func (ResponseContractOutput) ElementType() reflect.Type {
@@ -8403,22 +7816,18 @@ func (o ResponseContractOutput) ToResponseContractOutputWithContext(ctx context.
 	return o
 }
 
-// Operation response description.
 func (o ResponseContractOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ResponseContract) *string { return v.Description }).(pulumi.StringPtrOutput)
 }
 
-// Collection of operation response headers.
 func (o ResponseContractOutput) Headers() ParameterContractArrayOutput {
 	return o.ApplyT(func(v ResponseContract) []ParameterContract { return v.Headers }).(ParameterContractArrayOutput)
 }
 
-// Collection of operation response representations.
 func (o ResponseContractOutput) Representations() RepresentationContractArrayOutput {
 	return o.ApplyT(func(v ResponseContract) []RepresentationContract { return v.Representations }).(RepresentationContractArrayOutput)
 }
 
-// Operation response HTTP status code.
 func (o ResponseContractOutput) StatusCode() pulumi.IntOutput {
 	return o.ApplyT(func(v ResponseContract) int { return v.StatusCode }).(pulumi.IntOutput)
 }
@@ -8443,16 +7852,11 @@ func (o ResponseContractArrayOutput) Index(i pulumi.IntInput) ResponseContractOu
 	}).(ResponseContractOutput)
 }
 
-// Operation response details.
 type ResponseContractResponse struct {
-	// Operation response description.
-	Description *string `pulumi:"description"`
-	// Collection of operation response headers.
-	Headers []ParameterContractResponse `pulumi:"headers"`
-	// Collection of operation response representations.
+	Description     *string                          `pulumi:"description"`
+	Headers         []ParameterContractResponse      `pulumi:"headers"`
 	Representations []RepresentationContractResponse `pulumi:"representations"`
-	// Operation response HTTP status code.
-	StatusCode int `pulumi:"statusCode"`
+	StatusCode      int                              `pulumi:"statusCode"`
 }
 
 // ResponseContractResponseInput is an input type that accepts ResponseContractResponseArgs and ResponseContractResponseOutput values.
@@ -8466,16 +7870,11 @@ type ResponseContractResponseInput interface {
 	ToResponseContractResponseOutputWithContext(context.Context) ResponseContractResponseOutput
 }
 
-// Operation response details.
 type ResponseContractResponseArgs struct {
-	// Operation response description.
-	Description pulumi.StringPtrInput `pulumi:"description"`
-	// Collection of operation response headers.
-	Headers ParameterContractResponseArrayInput `pulumi:"headers"`
-	// Collection of operation response representations.
+	Description     pulumi.StringPtrInput                    `pulumi:"description"`
+	Headers         ParameterContractResponseArrayInput      `pulumi:"headers"`
 	Representations RepresentationContractResponseArrayInput `pulumi:"representations"`
-	// Operation response HTTP status code.
-	StatusCode pulumi.IntInput `pulumi:"statusCode"`
+	StatusCode      pulumi.IntInput                          `pulumi:"statusCode"`
 }
 
 func (ResponseContractResponseArgs) ElementType() reflect.Type {
@@ -8515,7 +7914,6 @@ func (i ResponseContractResponseArray) ToResponseContractResponseArrayOutputWith
 	return pulumi.ToOutputWithContext(ctx, i).(ResponseContractResponseArrayOutput)
 }
 
-// Operation response details.
 type ResponseContractResponseOutput struct{ *pulumi.OutputState }
 
 func (ResponseContractResponseOutput) ElementType() reflect.Type {
@@ -8530,22 +7928,18 @@ func (o ResponseContractResponseOutput) ToResponseContractResponseOutputWithCont
 	return o
 }
 
-// Operation response description.
 func (o ResponseContractResponseOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ResponseContractResponse) *string { return v.Description }).(pulumi.StringPtrOutput)
 }
 
-// Collection of operation response headers.
 func (o ResponseContractResponseOutput) Headers() ParameterContractResponseArrayOutput {
 	return o.ApplyT(func(v ResponseContractResponse) []ParameterContractResponse { return v.Headers }).(ParameterContractResponseArrayOutput)
 }
 
-// Collection of operation response representations.
 func (o ResponseContractResponseOutput) Representations() RepresentationContractResponseArrayOutput {
 	return o.ApplyT(func(v ResponseContractResponse) []RepresentationContractResponse { return v.Representations }).(RepresentationContractResponseArrayOutput)
 }
 
-// Operation response HTTP status code.
 func (o ResponseContractResponseOutput) StatusCode() pulumi.IntOutput {
 	return o.ApplyT(func(v ResponseContractResponse) int { return v.StatusCode }).(pulumi.IntOutput)
 }
@@ -8570,12 +7964,9 @@ func (o ResponseContractResponseArrayOutput) Index(i pulumi.IntInput) ResponseCo
 	}).(ResponseContractResponseOutput)
 }
 
-// Sampling settings for Diagnostic.
 type SamplingSettings struct {
-	// Rate of sampling for fixed-rate sampling.
-	Percentage *float64 `pulumi:"percentage"`
-	// Sampling type.
-	SamplingType *string `pulumi:"samplingType"`
+	Percentage   *float64 `pulumi:"percentage"`
+	SamplingType *string  `pulumi:"samplingType"`
 }
 
 // SamplingSettingsInput is an input type that accepts SamplingSettingsArgs and SamplingSettingsOutput values.
@@ -8589,12 +7980,9 @@ type SamplingSettingsInput interface {
 	ToSamplingSettingsOutputWithContext(context.Context) SamplingSettingsOutput
 }
 
-// Sampling settings for Diagnostic.
 type SamplingSettingsArgs struct {
-	// Rate of sampling for fixed-rate sampling.
-	Percentage pulumi.Float64PtrInput `pulumi:"percentage"`
-	// Sampling type.
-	SamplingType pulumi.StringPtrInput `pulumi:"samplingType"`
+	Percentage   pulumi.Float64PtrInput `pulumi:"percentage"`
+	SamplingType pulumi.StringPtrInput  `pulumi:"samplingType"`
 }
 
 func (SamplingSettingsArgs) ElementType() reflect.Type {
@@ -8650,7 +8038,6 @@ func (i *samplingSettingsPtrType) ToSamplingSettingsPtrOutputWithContext(ctx con
 	return pulumi.ToOutputWithContext(ctx, i).(SamplingSettingsPtrOutput)
 }
 
-// Sampling settings for Diagnostic.
 type SamplingSettingsOutput struct{ *pulumi.OutputState }
 
 func (SamplingSettingsOutput) ElementType() reflect.Type {
@@ -8670,17 +8057,15 @@ func (o SamplingSettingsOutput) ToSamplingSettingsPtrOutput() SamplingSettingsPt
 }
 
 func (o SamplingSettingsOutput) ToSamplingSettingsPtrOutputWithContext(ctx context.Context) SamplingSettingsPtrOutput {
-	return o.ApplyT(func(v SamplingSettings) *SamplingSettings {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v SamplingSettings) *SamplingSettings {
 		return &v
 	}).(SamplingSettingsPtrOutput)
 }
 
-// Rate of sampling for fixed-rate sampling.
 func (o SamplingSettingsOutput) Percentage() pulumi.Float64PtrOutput {
 	return o.ApplyT(func(v SamplingSettings) *float64 { return v.Percentage }).(pulumi.Float64PtrOutput)
 }
 
-// Sampling type.
 func (o SamplingSettingsOutput) SamplingType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SamplingSettings) *string { return v.SamplingType }).(pulumi.StringPtrOutput)
 }
@@ -8700,10 +8085,15 @@ func (o SamplingSettingsPtrOutput) ToSamplingSettingsPtrOutputWithContext(ctx co
 }
 
 func (o SamplingSettingsPtrOutput) Elem() SamplingSettingsOutput {
-	return o.ApplyT(func(v *SamplingSettings) SamplingSettings { return *v }).(SamplingSettingsOutput)
+	return o.ApplyT(func(v *SamplingSettings) SamplingSettings {
+		if v != nil {
+			return *v
+		}
+		var ret SamplingSettings
+		return ret
+	}).(SamplingSettingsOutput)
 }
 
-// Rate of sampling for fixed-rate sampling.
 func (o SamplingSettingsPtrOutput) Percentage() pulumi.Float64PtrOutput {
 	return o.ApplyT(func(v *SamplingSettings) *float64 {
 		if v == nil {
@@ -8713,7 +8103,6 @@ func (o SamplingSettingsPtrOutput) Percentage() pulumi.Float64PtrOutput {
 	}).(pulumi.Float64PtrOutput)
 }
 
-// Sampling type.
 func (o SamplingSettingsPtrOutput) SamplingType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SamplingSettings) *string {
 		if v == nil {
@@ -8723,12 +8112,9 @@ func (o SamplingSettingsPtrOutput) SamplingType() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Sampling settings for Diagnostic.
 type SamplingSettingsResponse struct {
-	// Rate of sampling for fixed-rate sampling.
-	Percentage *float64 `pulumi:"percentage"`
-	// Sampling type.
-	SamplingType *string `pulumi:"samplingType"`
+	Percentage   *float64 `pulumi:"percentage"`
+	SamplingType *string  `pulumi:"samplingType"`
 }
 
 // SamplingSettingsResponseInput is an input type that accepts SamplingSettingsResponseArgs and SamplingSettingsResponseOutput values.
@@ -8742,12 +8128,9 @@ type SamplingSettingsResponseInput interface {
 	ToSamplingSettingsResponseOutputWithContext(context.Context) SamplingSettingsResponseOutput
 }
 
-// Sampling settings for Diagnostic.
 type SamplingSettingsResponseArgs struct {
-	// Rate of sampling for fixed-rate sampling.
-	Percentage pulumi.Float64PtrInput `pulumi:"percentage"`
-	// Sampling type.
-	SamplingType pulumi.StringPtrInput `pulumi:"samplingType"`
+	Percentage   pulumi.Float64PtrInput `pulumi:"percentage"`
+	SamplingType pulumi.StringPtrInput  `pulumi:"samplingType"`
 }
 
 func (SamplingSettingsResponseArgs) ElementType() reflect.Type {
@@ -8803,7 +8186,6 @@ func (i *samplingSettingsResponsePtrType) ToSamplingSettingsResponsePtrOutputWit
 	return pulumi.ToOutputWithContext(ctx, i).(SamplingSettingsResponsePtrOutput)
 }
 
-// Sampling settings for Diagnostic.
 type SamplingSettingsResponseOutput struct{ *pulumi.OutputState }
 
 func (SamplingSettingsResponseOutput) ElementType() reflect.Type {
@@ -8823,17 +8205,15 @@ func (o SamplingSettingsResponseOutput) ToSamplingSettingsResponsePtrOutput() Sa
 }
 
 func (o SamplingSettingsResponseOutput) ToSamplingSettingsResponsePtrOutputWithContext(ctx context.Context) SamplingSettingsResponsePtrOutput {
-	return o.ApplyT(func(v SamplingSettingsResponse) *SamplingSettingsResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v SamplingSettingsResponse) *SamplingSettingsResponse {
 		return &v
 	}).(SamplingSettingsResponsePtrOutput)
 }
 
-// Rate of sampling for fixed-rate sampling.
 func (o SamplingSettingsResponseOutput) Percentage() pulumi.Float64PtrOutput {
 	return o.ApplyT(func(v SamplingSettingsResponse) *float64 { return v.Percentage }).(pulumi.Float64PtrOutput)
 }
 
-// Sampling type.
 func (o SamplingSettingsResponseOutput) SamplingType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SamplingSettingsResponse) *string { return v.SamplingType }).(pulumi.StringPtrOutput)
 }
@@ -8853,10 +8233,15 @@ func (o SamplingSettingsResponsePtrOutput) ToSamplingSettingsResponsePtrOutputWi
 }
 
 func (o SamplingSettingsResponsePtrOutput) Elem() SamplingSettingsResponseOutput {
-	return o.ApplyT(func(v *SamplingSettingsResponse) SamplingSettingsResponse { return *v }).(SamplingSettingsResponseOutput)
+	return o.ApplyT(func(v *SamplingSettingsResponse) SamplingSettingsResponse {
+		if v != nil {
+			return *v
+		}
+		var ret SamplingSettingsResponse
+		return ret
+	}).(SamplingSettingsResponseOutput)
 }
 
-// Rate of sampling for fixed-rate sampling.
 func (o SamplingSettingsResponsePtrOutput) Percentage() pulumi.Float64PtrOutput {
 	return o.ApplyT(func(v *SamplingSettingsResponse) *float64 {
 		if v == nil {
@@ -8866,7 +8251,6 @@ func (o SamplingSettingsResponsePtrOutput) Percentage() pulumi.Float64PtrOutput 
 	}).(pulumi.Float64PtrOutput)
 }
 
-// Sampling type.
 func (o SamplingSettingsResponsePtrOutput) SamplingType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SamplingSettingsResponse) *string {
 		if v == nil {
@@ -8876,12 +8260,9 @@ func (o SamplingSettingsResponsePtrOutput) SamplingType() pulumi.StringPtrOutput
 	}).(pulumi.StringPtrOutput)
 }
 
-// Subscription key parameter names details.
 type SubscriptionKeyParameterNamesContract struct {
-	// Subscription key header name.
 	Header *string `pulumi:"header"`
-	// Subscription key query string parameter name.
-	Query *string `pulumi:"query"`
+	Query  *string `pulumi:"query"`
 }
 
 // SubscriptionKeyParameterNamesContractInput is an input type that accepts SubscriptionKeyParameterNamesContractArgs and SubscriptionKeyParameterNamesContractOutput values.
@@ -8895,12 +8276,9 @@ type SubscriptionKeyParameterNamesContractInput interface {
 	ToSubscriptionKeyParameterNamesContractOutputWithContext(context.Context) SubscriptionKeyParameterNamesContractOutput
 }
 
-// Subscription key parameter names details.
 type SubscriptionKeyParameterNamesContractArgs struct {
-	// Subscription key header name.
 	Header pulumi.StringPtrInput `pulumi:"header"`
-	// Subscription key query string parameter name.
-	Query pulumi.StringPtrInput `pulumi:"query"`
+	Query  pulumi.StringPtrInput `pulumi:"query"`
 }
 
 func (SubscriptionKeyParameterNamesContractArgs) ElementType() reflect.Type {
@@ -8956,7 +8334,6 @@ func (i *subscriptionKeyParameterNamesContractPtrType) ToSubscriptionKeyParamete
 	return pulumi.ToOutputWithContext(ctx, i).(SubscriptionKeyParameterNamesContractPtrOutput)
 }
 
-// Subscription key parameter names details.
 type SubscriptionKeyParameterNamesContractOutput struct{ *pulumi.OutputState }
 
 func (SubscriptionKeyParameterNamesContractOutput) ElementType() reflect.Type {
@@ -8976,17 +8353,15 @@ func (o SubscriptionKeyParameterNamesContractOutput) ToSubscriptionKeyParameterN
 }
 
 func (o SubscriptionKeyParameterNamesContractOutput) ToSubscriptionKeyParameterNamesContractPtrOutputWithContext(ctx context.Context) SubscriptionKeyParameterNamesContractPtrOutput {
-	return o.ApplyT(func(v SubscriptionKeyParameterNamesContract) *SubscriptionKeyParameterNamesContract {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v SubscriptionKeyParameterNamesContract) *SubscriptionKeyParameterNamesContract {
 		return &v
 	}).(SubscriptionKeyParameterNamesContractPtrOutput)
 }
 
-// Subscription key header name.
 func (o SubscriptionKeyParameterNamesContractOutput) Header() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SubscriptionKeyParameterNamesContract) *string { return v.Header }).(pulumi.StringPtrOutput)
 }
 
-// Subscription key query string parameter name.
 func (o SubscriptionKeyParameterNamesContractOutput) Query() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SubscriptionKeyParameterNamesContract) *string { return v.Query }).(pulumi.StringPtrOutput)
 }
@@ -9006,10 +8381,15 @@ func (o SubscriptionKeyParameterNamesContractPtrOutput) ToSubscriptionKeyParamet
 }
 
 func (o SubscriptionKeyParameterNamesContractPtrOutput) Elem() SubscriptionKeyParameterNamesContractOutput {
-	return o.ApplyT(func(v *SubscriptionKeyParameterNamesContract) SubscriptionKeyParameterNamesContract { return *v }).(SubscriptionKeyParameterNamesContractOutput)
+	return o.ApplyT(func(v *SubscriptionKeyParameterNamesContract) SubscriptionKeyParameterNamesContract {
+		if v != nil {
+			return *v
+		}
+		var ret SubscriptionKeyParameterNamesContract
+		return ret
+	}).(SubscriptionKeyParameterNamesContractOutput)
 }
 
-// Subscription key header name.
 func (o SubscriptionKeyParameterNamesContractPtrOutput) Header() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SubscriptionKeyParameterNamesContract) *string {
 		if v == nil {
@@ -9019,7 +8399,6 @@ func (o SubscriptionKeyParameterNamesContractPtrOutput) Header() pulumi.StringPt
 	}).(pulumi.StringPtrOutput)
 }
 
-// Subscription key query string parameter name.
 func (o SubscriptionKeyParameterNamesContractPtrOutput) Query() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SubscriptionKeyParameterNamesContract) *string {
 		if v == nil {
@@ -9029,12 +8408,9 @@ func (o SubscriptionKeyParameterNamesContractPtrOutput) Query() pulumi.StringPtr
 	}).(pulumi.StringPtrOutput)
 }
 
-// Subscription key parameter names details.
 type SubscriptionKeyParameterNamesContractResponse struct {
-	// Subscription key header name.
 	Header *string `pulumi:"header"`
-	// Subscription key query string parameter name.
-	Query *string `pulumi:"query"`
+	Query  *string `pulumi:"query"`
 }
 
 // SubscriptionKeyParameterNamesContractResponseInput is an input type that accepts SubscriptionKeyParameterNamesContractResponseArgs and SubscriptionKeyParameterNamesContractResponseOutput values.
@@ -9048,12 +8424,9 @@ type SubscriptionKeyParameterNamesContractResponseInput interface {
 	ToSubscriptionKeyParameterNamesContractResponseOutputWithContext(context.Context) SubscriptionKeyParameterNamesContractResponseOutput
 }
 
-// Subscription key parameter names details.
 type SubscriptionKeyParameterNamesContractResponseArgs struct {
-	// Subscription key header name.
 	Header pulumi.StringPtrInput `pulumi:"header"`
-	// Subscription key query string parameter name.
-	Query pulumi.StringPtrInput `pulumi:"query"`
+	Query  pulumi.StringPtrInput `pulumi:"query"`
 }
 
 func (SubscriptionKeyParameterNamesContractResponseArgs) ElementType() reflect.Type {
@@ -9109,7 +8482,6 @@ func (i *subscriptionKeyParameterNamesContractResponsePtrType) ToSubscriptionKey
 	return pulumi.ToOutputWithContext(ctx, i).(SubscriptionKeyParameterNamesContractResponsePtrOutput)
 }
 
-// Subscription key parameter names details.
 type SubscriptionKeyParameterNamesContractResponseOutput struct{ *pulumi.OutputState }
 
 func (SubscriptionKeyParameterNamesContractResponseOutput) ElementType() reflect.Type {
@@ -9129,17 +8501,15 @@ func (o SubscriptionKeyParameterNamesContractResponseOutput) ToSubscriptionKeyPa
 }
 
 func (o SubscriptionKeyParameterNamesContractResponseOutput) ToSubscriptionKeyParameterNamesContractResponsePtrOutputWithContext(ctx context.Context) SubscriptionKeyParameterNamesContractResponsePtrOutput {
-	return o.ApplyT(func(v SubscriptionKeyParameterNamesContractResponse) *SubscriptionKeyParameterNamesContractResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v SubscriptionKeyParameterNamesContractResponse) *SubscriptionKeyParameterNamesContractResponse {
 		return &v
 	}).(SubscriptionKeyParameterNamesContractResponsePtrOutput)
 }
 
-// Subscription key header name.
 func (o SubscriptionKeyParameterNamesContractResponseOutput) Header() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SubscriptionKeyParameterNamesContractResponse) *string { return v.Header }).(pulumi.StringPtrOutput)
 }
 
-// Subscription key query string parameter name.
 func (o SubscriptionKeyParameterNamesContractResponseOutput) Query() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SubscriptionKeyParameterNamesContractResponse) *string { return v.Query }).(pulumi.StringPtrOutput)
 }
@@ -9160,11 +8530,14 @@ func (o SubscriptionKeyParameterNamesContractResponsePtrOutput) ToSubscriptionKe
 
 func (o SubscriptionKeyParameterNamesContractResponsePtrOutput) Elem() SubscriptionKeyParameterNamesContractResponseOutput {
 	return o.ApplyT(func(v *SubscriptionKeyParameterNamesContractResponse) SubscriptionKeyParameterNamesContractResponse {
-		return *v
+		if v != nil {
+			return *v
+		}
+		var ret SubscriptionKeyParameterNamesContractResponse
+		return ret
 	}).(SubscriptionKeyParameterNamesContractResponseOutput)
 }
 
-// Subscription key header name.
 func (o SubscriptionKeyParameterNamesContractResponsePtrOutput) Header() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SubscriptionKeyParameterNamesContractResponse) *string {
 		if v == nil {
@@ -9174,7 +8547,6 @@ func (o SubscriptionKeyParameterNamesContractResponsePtrOutput) Header() pulumi.
 	}).(pulumi.StringPtrOutput)
 }
 
-// Subscription key query string parameter name.
 func (o SubscriptionKeyParameterNamesContractResponsePtrOutput) Query() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SubscriptionKeyParameterNamesContractResponse) *string {
 		if v == nil {
@@ -9184,11 +8556,8 @@ func (o SubscriptionKeyParameterNamesContractResponsePtrOutput) Query() pulumi.S
 	}).(pulumi.StringPtrOutput)
 }
 
-// OAuth acquire token request body parameter (www-url-form-encoded).
 type TokenBodyParameterContract struct {
-	// body parameter name.
-	Name string `pulumi:"name"`
-	// body parameter value.
+	Name  string `pulumi:"name"`
 	Value string `pulumi:"value"`
 }
 
@@ -9203,11 +8572,8 @@ type TokenBodyParameterContractInput interface {
 	ToTokenBodyParameterContractOutputWithContext(context.Context) TokenBodyParameterContractOutput
 }
 
-// OAuth acquire token request body parameter (www-url-form-encoded).
 type TokenBodyParameterContractArgs struct {
-	// body parameter name.
-	Name pulumi.StringInput `pulumi:"name"`
-	// body parameter value.
+	Name  pulumi.StringInput `pulumi:"name"`
 	Value pulumi.StringInput `pulumi:"value"`
 }
 
@@ -9248,7 +8614,6 @@ func (i TokenBodyParameterContractArray) ToTokenBodyParameterContractArrayOutput
 	return pulumi.ToOutputWithContext(ctx, i).(TokenBodyParameterContractArrayOutput)
 }
 
-// OAuth acquire token request body parameter (www-url-form-encoded).
 type TokenBodyParameterContractOutput struct{ *pulumi.OutputState }
 
 func (TokenBodyParameterContractOutput) ElementType() reflect.Type {
@@ -9263,12 +8628,10 @@ func (o TokenBodyParameterContractOutput) ToTokenBodyParameterContractOutputWith
 	return o
 }
 
-// body parameter name.
 func (o TokenBodyParameterContractOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v TokenBodyParameterContract) string { return v.Name }).(pulumi.StringOutput)
 }
 
-// body parameter value.
 func (o TokenBodyParameterContractOutput) Value() pulumi.StringOutput {
 	return o.ApplyT(func(v TokenBodyParameterContract) string { return v.Value }).(pulumi.StringOutput)
 }
@@ -9293,11 +8656,8 @@ func (o TokenBodyParameterContractArrayOutput) Index(i pulumi.IntInput) TokenBod
 	}).(TokenBodyParameterContractOutput)
 }
 
-// OAuth acquire token request body parameter (www-url-form-encoded).
 type TokenBodyParameterContractResponse struct {
-	// body parameter name.
-	Name string `pulumi:"name"`
-	// body parameter value.
+	Name  string `pulumi:"name"`
 	Value string `pulumi:"value"`
 }
 
@@ -9312,11 +8672,8 @@ type TokenBodyParameterContractResponseInput interface {
 	ToTokenBodyParameterContractResponseOutputWithContext(context.Context) TokenBodyParameterContractResponseOutput
 }
 
-// OAuth acquire token request body parameter (www-url-form-encoded).
 type TokenBodyParameterContractResponseArgs struct {
-	// body parameter name.
-	Name pulumi.StringInput `pulumi:"name"`
-	// body parameter value.
+	Name  pulumi.StringInput `pulumi:"name"`
 	Value pulumi.StringInput `pulumi:"value"`
 }
 
@@ -9357,7 +8714,6 @@ func (i TokenBodyParameterContractResponseArray) ToTokenBodyParameterContractRes
 	return pulumi.ToOutputWithContext(ctx, i).(TokenBodyParameterContractResponseArrayOutput)
 }
 
-// OAuth acquire token request body parameter (www-url-form-encoded).
 type TokenBodyParameterContractResponseOutput struct{ *pulumi.OutputState }
 
 func (TokenBodyParameterContractResponseOutput) ElementType() reflect.Type {
@@ -9372,12 +8728,10 @@ func (o TokenBodyParameterContractResponseOutput) ToTokenBodyParameterContractRe
 	return o
 }
 
-// body parameter name.
 func (o TokenBodyParameterContractResponseOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v TokenBodyParameterContractResponse) string { return v.Name }).(pulumi.StringOutput)
 }
 
-// body parameter value.
 func (o TokenBodyParameterContractResponseOutput) Value() pulumi.StringOutput {
 	return o.ApplyT(func(v TokenBodyParameterContractResponse) string { return v.Value }).(pulumi.StringOutput)
 }
@@ -9402,11 +8756,8 @@ func (o TokenBodyParameterContractResponseArrayOutput) Index(i pulumi.IntInput) 
 	}).(TokenBodyParameterContractResponseOutput)
 }
 
-// User identity details.
 type UserIdentityContract struct {
-	// Identifier value within provider.
-	Id *string `pulumi:"id"`
-	// Identity provider name.
+	Id       *string `pulumi:"id"`
 	Provider *string `pulumi:"provider"`
 }
 
@@ -9421,11 +8772,8 @@ type UserIdentityContractInput interface {
 	ToUserIdentityContractOutputWithContext(context.Context) UserIdentityContractOutput
 }
 
-// User identity details.
 type UserIdentityContractArgs struct {
-	// Identifier value within provider.
-	Id pulumi.StringPtrInput `pulumi:"id"`
-	// Identity provider name.
+	Id       pulumi.StringPtrInput `pulumi:"id"`
 	Provider pulumi.StringPtrInput `pulumi:"provider"`
 }
 
@@ -9466,7 +8814,6 @@ func (i UserIdentityContractArray) ToUserIdentityContractArrayOutputWithContext(
 	return pulumi.ToOutputWithContext(ctx, i).(UserIdentityContractArrayOutput)
 }
 
-// User identity details.
 type UserIdentityContractOutput struct{ *pulumi.OutputState }
 
 func (UserIdentityContractOutput) ElementType() reflect.Type {
@@ -9481,12 +8828,10 @@ func (o UserIdentityContractOutput) ToUserIdentityContractOutputWithContext(ctx 
 	return o
 }
 
-// Identifier value within provider.
 func (o UserIdentityContractOutput) Id() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v UserIdentityContract) *string { return v.Id }).(pulumi.StringPtrOutput)
 }
 
-// Identity provider name.
 func (o UserIdentityContractOutput) Provider() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v UserIdentityContract) *string { return v.Provider }).(pulumi.StringPtrOutput)
 }
@@ -9511,11 +8856,8 @@ func (o UserIdentityContractArrayOutput) Index(i pulumi.IntInput) UserIdentityCo
 	}).(UserIdentityContractOutput)
 }
 
-// User identity details.
 type UserIdentityContractResponse struct {
-	// Identifier value within provider.
-	Id *string `pulumi:"id"`
-	// Identity provider name.
+	Id       *string `pulumi:"id"`
 	Provider *string `pulumi:"provider"`
 }
 
@@ -9530,11 +8872,8 @@ type UserIdentityContractResponseInput interface {
 	ToUserIdentityContractResponseOutputWithContext(context.Context) UserIdentityContractResponseOutput
 }
 
-// User identity details.
 type UserIdentityContractResponseArgs struct {
-	// Identifier value within provider.
-	Id pulumi.StringPtrInput `pulumi:"id"`
-	// Identity provider name.
+	Id       pulumi.StringPtrInput `pulumi:"id"`
 	Provider pulumi.StringPtrInput `pulumi:"provider"`
 }
 
@@ -9575,7 +8914,6 @@ func (i UserIdentityContractResponseArray) ToUserIdentityContractResponseArrayOu
 	return pulumi.ToOutputWithContext(ctx, i).(UserIdentityContractResponseArrayOutput)
 }
 
-// User identity details.
 type UserIdentityContractResponseOutput struct{ *pulumi.OutputState }
 
 func (UserIdentityContractResponseOutput) ElementType() reflect.Type {
@@ -9590,12 +8928,10 @@ func (o UserIdentityContractResponseOutput) ToUserIdentityContractResponseOutput
 	return o
 }
 
-// Identifier value within provider.
 func (o UserIdentityContractResponseOutput) Id() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v UserIdentityContractResponse) *string { return v.Id }).(pulumi.StringPtrOutput)
 }
 
-// Identity provider name.
 func (o UserIdentityContractResponseOutput) Provider() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v UserIdentityContractResponse) *string { return v.Provider }).(pulumi.StringPtrOutput)
 }
@@ -9621,9 +8957,7 @@ func (o UserIdentityContractResponseArrayOutput) Index(i pulumi.IntInput) UserId
 }
 
 type UserIdentityProperties struct {
-	// The client id of user assigned identity.
-	ClientId *string `pulumi:"clientId"`
-	// The principal id of user assigned identity.
+	ClientId    *string `pulumi:"clientId"`
 	PrincipalId *string `pulumi:"principalId"`
 }
 
@@ -9639,9 +8973,7 @@ type UserIdentityPropertiesInput interface {
 }
 
 type UserIdentityPropertiesArgs struct {
-	// The client id of user assigned identity.
-	ClientId pulumi.StringPtrInput `pulumi:"clientId"`
-	// The principal id of user assigned identity.
+	ClientId    pulumi.StringPtrInput `pulumi:"clientId"`
 	PrincipalId pulumi.StringPtrInput `pulumi:"principalId"`
 }
 
@@ -9696,12 +9028,10 @@ func (o UserIdentityPropertiesOutput) ToUserIdentityPropertiesOutputWithContext(
 	return o
 }
 
-// The client id of user assigned identity.
 func (o UserIdentityPropertiesOutput) ClientId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v UserIdentityProperties) *string { return v.ClientId }).(pulumi.StringPtrOutput)
 }
 
-// The principal id of user assigned identity.
 func (o UserIdentityPropertiesOutput) PrincipalId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v UserIdentityProperties) *string { return v.PrincipalId }).(pulumi.StringPtrOutput)
 }
@@ -9727,9 +9057,7 @@ func (o UserIdentityPropertiesMapOutput) MapIndex(k pulumi.StringInput) UserIden
 }
 
 type UserIdentityPropertiesResponse struct {
-	// The client id of user assigned identity.
-	ClientId *string `pulumi:"clientId"`
-	// The principal id of user assigned identity.
+	ClientId    *string `pulumi:"clientId"`
 	PrincipalId *string `pulumi:"principalId"`
 }
 
@@ -9745,9 +9073,7 @@ type UserIdentityPropertiesResponseInput interface {
 }
 
 type UserIdentityPropertiesResponseArgs struct {
-	// The client id of user assigned identity.
-	ClientId pulumi.StringPtrInput `pulumi:"clientId"`
-	// The principal id of user assigned identity.
+	ClientId    pulumi.StringPtrInput `pulumi:"clientId"`
 	PrincipalId pulumi.StringPtrInput `pulumi:"principalId"`
 }
 
@@ -9802,12 +9128,10 @@ func (o UserIdentityPropertiesResponseOutput) ToUserIdentityPropertiesResponseOu
 	return o
 }
 
-// The client id of user assigned identity.
 func (o UserIdentityPropertiesResponseOutput) ClientId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v UserIdentityPropertiesResponse) *string { return v.ClientId }).(pulumi.StringPtrOutput)
 }
 
-// The principal id of user assigned identity.
 func (o UserIdentityPropertiesResponseOutput) PrincipalId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v UserIdentityPropertiesResponse) *string { return v.PrincipalId }).(pulumi.StringPtrOutput)
 }
@@ -9832,9 +9156,7 @@ func (o UserIdentityPropertiesResponseMapOutput) MapIndex(k pulumi.StringInput) 
 	}).(UserIdentityPropertiesResponseOutput)
 }
 
-// Configuration of a virtual network to which API Management service is deployed.
 type VirtualNetworkConfiguration struct {
-	// The full resource ID of a subnet in a virtual network to deploy the API Management service in.
 	SubnetResourceId *string `pulumi:"subnetResourceId"`
 }
 
@@ -9849,9 +9171,7 @@ type VirtualNetworkConfigurationInput interface {
 	ToVirtualNetworkConfigurationOutputWithContext(context.Context) VirtualNetworkConfigurationOutput
 }
 
-// Configuration of a virtual network to which API Management service is deployed.
 type VirtualNetworkConfigurationArgs struct {
-	// The full resource ID of a subnet in a virtual network to deploy the API Management service in.
 	SubnetResourceId pulumi.StringPtrInput `pulumi:"subnetResourceId"`
 }
 
@@ -9908,7 +9228,6 @@ func (i *virtualNetworkConfigurationPtrType) ToVirtualNetworkConfigurationPtrOut
 	return pulumi.ToOutputWithContext(ctx, i).(VirtualNetworkConfigurationPtrOutput)
 }
 
-// Configuration of a virtual network to which API Management service is deployed.
 type VirtualNetworkConfigurationOutput struct{ *pulumi.OutputState }
 
 func (VirtualNetworkConfigurationOutput) ElementType() reflect.Type {
@@ -9928,12 +9247,11 @@ func (o VirtualNetworkConfigurationOutput) ToVirtualNetworkConfigurationPtrOutpu
 }
 
 func (o VirtualNetworkConfigurationOutput) ToVirtualNetworkConfigurationPtrOutputWithContext(ctx context.Context) VirtualNetworkConfigurationPtrOutput {
-	return o.ApplyT(func(v VirtualNetworkConfiguration) *VirtualNetworkConfiguration {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v VirtualNetworkConfiguration) *VirtualNetworkConfiguration {
 		return &v
 	}).(VirtualNetworkConfigurationPtrOutput)
 }
 
-// The full resource ID of a subnet in a virtual network to deploy the API Management service in.
 func (o VirtualNetworkConfigurationOutput) SubnetResourceId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v VirtualNetworkConfiguration) *string { return v.SubnetResourceId }).(pulumi.StringPtrOutput)
 }
@@ -9953,10 +9271,15 @@ func (o VirtualNetworkConfigurationPtrOutput) ToVirtualNetworkConfigurationPtrOu
 }
 
 func (o VirtualNetworkConfigurationPtrOutput) Elem() VirtualNetworkConfigurationOutput {
-	return o.ApplyT(func(v *VirtualNetworkConfiguration) VirtualNetworkConfiguration { return *v }).(VirtualNetworkConfigurationOutput)
+	return o.ApplyT(func(v *VirtualNetworkConfiguration) VirtualNetworkConfiguration {
+		if v != nil {
+			return *v
+		}
+		var ret VirtualNetworkConfiguration
+		return ret
+	}).(VirtualNetworkConfigurationOutput)
 }
 
-// The full resource ID of a subnet in a virtual network to deploy the API Management service in.
 func (o VirtualNetworkConfigurationPtrOutput) SubnetResourceId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *VirtualNetworkConfiguration) *string {
 		if v == nil {
@@ -9966,14 +9289,10 @@ func (o VirtualNetworkConfigurationPtrOutput) SubnetResourceId() pulumi.StringPt
 	}).(pulumi.StringPtrOutput)
 }
 
-// Configuration of a virtual network to which API Management service is deployed.
 type VirtualNetworkConfigurationResponse struct {
-	// The full resource ID of a subnet in a virtual network to deploy the API Management service in.
 	SubnetResourceId *string `pulumi:"subnetResourceId"`
-	// The name of the subnet.
-	Subnetname string `pulumi:"subnetname"`
-	// The virtual network ID. This is typically a GUID. Expect a null GUID by default.
-	Vnetid string `pulumi:"vnetid"`
+	Subnetname       string  `pulumi:"subnetname"`
+	Vnetid           string  `pulumi:"vnetid"`
 }
 
 // VirtualNetworkConfigurationResponseInput is an input type that accepts VirtualNetworkConfigurationResponseArgs and VirtualNetworkConfigurationResponseOutput values.
@@ -9987,14 +9306,10 @@ type VirtualNetworkConfigurationResponseInput interface {
 	ToVirtualNetworkConfigurationResponseOutputWithContext(context.Context) VirtualNetworkConfigurationResponseOutput
 }
 
-// Configuration of a virtual network to which API Management service is deployed.
 type VirtualNetworkConfigurationResponseArgs struct {
-	// The full resource ID of a subnet in a virtual network to deploy the API Management service in.
 	SubnetResourceId pulumi.StringPtrInput `pulumi:"subnetResourceId"`
-	// The name of the subnet.
-	Subnetname pulumi.StringInput `pulumi:"subnetname"`
-	// The virtual network ID. This is typically a GUID. Expect a null GUID by default.
-	Vnetid pulumi.StringInput `pulumi:"vnetid"`
+	Subnetname       pulumi.StringInput    `pulumi:"subnetname"`
+	Vnetid           pulumi.StringInput    `pulumi:"vnetid"`
 }
 
 func (VirtualNetworkConfigurationResponseArgs) ElementType() reflect.Type {
@@ -10050,7 +9365,6 @@ func (i *virtualNetworkConfigurationResponsePtrType) ToVirtualNetworkConfigurati
 	return pulumi.ToOutputWithContext(ctx, i).(VirtualNetworkConfigurationResponsePtrOutput)
 }
 
-// Configuration of a virtual network to which API Management service is deployed.
 type VirtualNetworkConfigurationResponseOutput struct{ *pulumi.OutputState }
 
 func (VirtualNetworkConfigurationResponseOutput) ElementType() reflect.Type {
@@ -10070,22 +9384,19 @@ func (o VirtualNetworkConfigurationResponseOutput) ToVirtualNetworkConfiguration
 }
 
 func (o VirtualNetworkConfigurationResponseOutput) ToVirtualNetworkConfigurationResponsePtrOutputWithContext(ctx context.Context) VirtualNetworkConfigurationResponsePtrOutput {
-	return o.ApplyT(func(v VirtualNetworkConfigurationResponse) *VirtualNetworkConfigurationResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v VirtualNetworkConfigurationResponse) *VirtualNetworkConfigurationResponse {
 		return &v
 	}).(VirtualNetworkConfigurationResponsePtrOutput)
 }
 
-// The full resource ID of a subnet in a virtual network to deploy the API Management service in.
 func (o VirtualNetworkConfigurationResponseOutput) SubnetResourceId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v VirtualNetworkConfigurationResponse) *string { return v.SubnetResourceId }).(pulumi.StringPtrOutput)
 }
 
-// The name of the subnet.
 func (o VirtualNetworkConfigurationResponseOutput) Subnetname() pulumi.StringOutput {
 	return o.ApplyT(func(v VirtualNetworkConfigurationResponse) string { return v.Subnetname }).(pulumi.StringOutput)
 }
 
-// The virtual network ID. This is typically a GUID. Expect a null GUID by default.
 func (o VirtualNetworkConfigurationResponseOutput) Vnetid() pulumi.StringOutput {
 	return o.ApplyT(func(v VirtualNetworkConfigurationResponse) string { return v.Vnetid }).(pulumi.StringOutput)
 }
@@ -10105,10 +9416,15 @@ func (o VirtualNetworkConfigurationResponsePtrOutput) ToVirtualNetworkConfigurat
 }
 
 func (o VirtualNetworkConfigurationResponsePtrOutput) Elem() VirtualNetworkConfigurationResponseOutput {
-	return o.ApplyT(func(v *VirtualNetworkConfigurationResponse) VirtualNetworkConfigurationResponse { return *v }).(VirtualNetworkConfigurationResponseOutput)
+	return o.ApplyT(func(v *VirtualNetworkConfigurationResponse) VirtualNetworkConfigurationResponse {
+		if v != nil {
+			return *v
+		}
+		var ret VirtualNetworkConfigurationResponse
+		return ret
+	}).(VirtualNetworkConfigurationResponseOutput)
 }
 
-// The full resource ID of a subnet in a virtual network to deploy the API Management service in.
 func (o VirtualNetworkConfigurationResponsePtrOutput) SubnetResourceId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *VirtualNetworkConfigurationResponse) *string {
 		if v == nil {
@@ -10118,7 +9434,6 @@ func (o VirtualNetworkConfigurationResponsePtrOutput) SubnetResourceId() pulumi.
 	}).(pulumi.StringPtrOutput)
 }
 
-// The name of the subnet.
 func (o VirtualNetworkConfigurationResponsePtrOutput) Subnetname() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *VirtualNetworkConfigurationResponse) *string {
 		if v == nil {
@@ -10128,7 +9443,6 @@ func (o VirtualNetworkConfigurationResponsePtrOutput) Subnetname() pulumi.String
 	}).(pulumi.StringPtrOutput)
 }
 
-// The virtual network ID. This is typically a GUID. Expect a null GUID by default.
 func (o VirtualNetworkConfigurationResponsePtrOutput) Vnetid() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *VirtualNetworkConfigurationResponse) *string {
 		if v == nil {
@@ -10138,12 +9452,9 @@ func (o VirtualNetworkConfigurationResponsePtrOutput) Vnetid() pulumi.StringPtrO
 	}).(pulumi.StringPtrOutput)
 }
 
-// Properties of server X509Names.
 type X509CertificateName struct {
-	// Thumbprint for the Issuer of the Certificate.
 	IssuerCertificateThumbprint *string `pulumi:"issuerCertificateThumbprint"`
-	// Common Name of the Certificate.
-	Name *string `pulumi:"name"`
+	Name                        *string `pulumi:"name"`
 }
 
 // X509CertificateNameInput is an input type that accepts X509CertificateNameArgs and X509CertificateNameOutput values.
@@ -10157,12 +9468,9 @@ type X509CertificateNameInput interface {
 	ToX509CertificateNameOutputWithContext(context.Context) X509CertificateNameOutput
 }
 
-// Properties of server X509Names.
 type X509CertificateNameArgs struct {
-	// Thumbprint for the Issuer of the Certificate.
 	IssuerCertificateThumbprint pulumi.StringPtrInput `pulumi:"issuerCertificateThumbprint"`
-	// Common Name of the Certificate.
-	Name pulumi.StringPtrInput `pulumi:"name"`
+	Name                        pulumi.StringPtrInput `pulumi:"name"`
 }
 
 func (X509CertificateNameArgs) ElementType() reflect.Type {
@@ -10202,7 +9510,6 @@ func (i X509CertificateNameArray) ToX509CertificateNameArrayOutputWithContext(ct
 	return pulumi.ToOutputWithContext(ctx, i).(X509CertificateNameArrayOutput)
 }
 
-// Properties of server X509Names.
 type X509CertificateNameOutput struct{ *pulumi.OutputState }
 
 func (X509CertificateNameOutput) ElementType() reflect.Type {
@@ -10217,12 +9524,10 @@ func (o X509CertificateNameOutput) ToX509CertificateNameOutputWithContext(ctx co
 	return o
 }
 
-// Thumbprint for the Issuer of the Certificate.
 func (o X509CertificateNameOutput) IssuerCertificateThumbprint() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v X509CertificateName) *string { return v.IssuerCertificateThumbprint }).(pulumi.StringPtrOutput)
 }
 
-// Common Name of the Certificate.
 func (o X509CertificateNameOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v X509CertificateName) *string { return v.Name }).(pulumi.StringPtrOutput)
 }
@@ -10247,12 +9552,9 @@ func (o X509CertificateNameArrayOutput) Index(i pulumi.IntInput) X509Certificate
 	}).(X509CertificateNameOutput)
 }
 
-// Properties of server X509Names.
 type X509CertificateNameResponse struct {
-	// Thumbprint for the Issuer of the Certificate.
 	IssuerCertificateThumbprint *string `pulumi:"issuerCertificateThumbprint"`
-	// Common Name of the Certificate.
-	Name *string `pulumi:"name"`
+	Name                        *string `pulumi:"name"`
 }
 
 // X509CertificateNameResponseInput is an input type that accepts X509CertificateNameResponseArgs and X509CertificateNameResponseOutput values.
@@ -10266,12 +9568,9 @@ type X509CertificateNameResponseInput interface {
 	ToX509CertificateNameResponseOutputWithContext(context.Context) X509CertificateNameResponseOutput
 }
 
-// Properties of server X509Names.
 type X509CertificateNameResponseArgs struct {
-	// Thumbprint for the Issuer of the Certificate.
 	IssuerCertificateThumbprint pulumi.StringPtrInput `pulumi:"issuerCertificateThumbprint"`
-	// Common Name of the Certificate.
-	Name pulumi.StringPtrInput `pulumi:"name"`
+	Name                        pulumi.StringPtrInput `pulumi:"name"`
 }
 
 func (X509CertificateNameResponseArgs) ElementType() reflect.Type {
@@ -10311,7 +9610,6 @@ func (i X509CertificateNameResponseArray) ToX509CertificateNameResponseArrayOutp
 	return pulumi.ToOutputWithContext(ctx, i).(X509CertificateNameResponseArrayOutput)
 }
 
-// Properties of server X509Names.
 type X509CertificateNameResponseOutput struct{ *pulumi.OutputState }
 
 func (X509CertificateNameResponseOutput) ElementType() reflect.Type {
@@ -10326,12 +9624,10 @@ func (o X509CertificateNameResponseOutput) ToX509CertificateNameResponseOutputWi
 	return o
 }
 
-// Thumbprint for the Issuer of the Certificate.
 func (o X509CertificateNameResponseOutput) IssuerCertificateThumbprint() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v X509CertificateNameResponse) *string { return v.IssuerCertificateThumbprint }).(pulumi.StringPtrOutput)
 }
 
-// Common Name of the Certificate.
 func (o X509CertificateNameResponseOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v X509CertificateNameResponse) *string { return v.Name }).(pulumi.StringPtrOutput)
 }

@@ -7,7 +7,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Collection of top-level domain legal agreements.
 func ListTopLevelDomainAgreements(ctx *pulumi.Context, args *ListTopLevelDomainAgreementsArgs, opts ...pulumi.InvokeOption) (*ListTopLevelDomainAgreementsResult, error) {
 	var rv ListTopLevelDomainAgreementsResult
 	err := ctx.Invoke("azure-native:domainregistration/v20200901:listTopLevelDomainAgreements", args, &rv, opts...)
@@ -18,18 +17,13 @@ func ListTopLevelDomainAgreements(ctx *pulumi.Context, args *ListTopLevelDomainA
 }
 
 type ListTopLevelDomainAgreementsArgs struct {
-	// If <code>true</code>, then the list of agreements will include agreements for domain transfer as well; otherwise, <code>false</code>.
-	ForTransfer *bool `pulumi:"forTransfer"`
-	// If <code>true</code>, then the list of agreements will include agreements for domain privacy as well; otherwise, <code>false</code>.
-	IncludePrivacy *bool `pulumi:"includePrivacy"`
-	// Name of the top-level domain.
-	Name string `pulumi:"name"`
+	ForTransfer    *bool  `pulumi:"forTransfer"`
+	IncludePrivacy *bool  `pulumi:"includePrivacy"`
+	Name           string `pulumi:"name"`
 }
 
 // Collection of top-level domain legal agreements.
 type ListTopLevelDomainAgreementsResult struct {
-	// Link to next page of resources.
-	NextLink string `pulumi:"nextLink"`
-	// Collection of resources.
-	Value []TldLegalAgreementResponse `pulumi:"value"`
+	NextLink string                      `pulumi:"nextLink"`
+	Value    []TldLegalAgreementResponse `pulumi:"value"`
 }

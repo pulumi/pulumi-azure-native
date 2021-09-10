@@ -11,26 +11,17 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Azure Health Bot resource definition
 type Bot struct {
 	pulumi.CustomResourceState
 
-	// The identity of the Azure Health Bot.
-	Identity IdentityResponsePtrOutput `pulumi:"identity"`
-	// The geo-location where the resource lives
-	Location pulumi.StringOutput `pulumi:"location"`
-	// The name of the resource
-	Name pulumi.StringOutput `pulumi:"name"`
-	// The set of properties specific to Azure Health Bot resource.
+	Identity   IdentityResponsePtrOutput         `pulumi:"identity"`
+	Location   pulumi.StringOutput               `pulumi:"location"`
+	Name       pulumi.StringOutput               `pulumi:"name"`
 	Properties HealthBotPropertiesResponseOutput `pulumi:"properties"`
-	// SKU of the Azure Health Bot.
-	Sku SkuResponseOutput `pulumi:"sku"`
-	// Metadata pertaining to creation and last modification of the resource
-	SystemData SystemDataResponseOutput `pulumi:"systemData"`
-	// Resource tags.
-	Tags pulumi.StringMapOutput `pulumi:"tags"`
-	// The type of the resource.
-	Type pulumi.StringOutput `pulumi:"type"`
+	Sku        SkuResponseOutput                 `pulumi:"sku"`
+	SystemData SystemDataResponseOutput          `pulumi:"systemData"`
+	Tags       pulumi.StringMapOutput            `pulumi:"tags"`
+	Type       pulumi.StringOutput               `pulumi:"type"`
 }
 
 // NewBot registers a new resource with the given unique name, arguments, and options.
@@ -114,34 +105,22 @@ func (BotState) ElementType() reflect.Type {
 }
 
 type botArgs struct {
-	// The name of the Bot resource.
-	BotName *string `pulumi:"botName"`
-	// The identity of the Azure Health Bot.
-	Identity *Identity `pulumi:"identity"`
-	// The geo-location where the resource lives
-	Location *string `pulumi:"location"`
-	// The name of the Bot resource group in the user subscription.
-	ResourceGroupName string `pulumi:"resourceGroupName"`
-	// SKU of the Azure Health Bot.
-	Sku Sku `pulumi:"sku"`
-	// Resource tags.
-	Tags map[string]string `pulumi:"tags"`
+	BotName           *string           `pulumi:"botName"`
+	Identity          *Identity         `pulumi:"identity"`
+	Location          *string           `pulumi:"location"`
+	ResourceGroupName string            `pulumi:"resourceGroupName"`
+	Sku               Sku               `pulumi:"sku"`
+	Tags              map[string]string `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a Bot resource.
 type BotArgs struct {
-	// The name of the Bot resource.
-	BotName pulumi.StringPtrInput
-	// The identity of the Azure Health Bot.
-	Identity IdentityPtrInput
-	// The geo-location where the resource lives
-	Location pulumi.StringPtrInput
-	// The name of the Bot resource group in the user subscription.
+	BotName           pulumi.StringPtrInput
+	Identity          IdentityPtrInput
+	Location          pulumi.StringPtrInput
 	ResourceGroupName pulumi.StringInput
-	// SKU of the Azure Health Bot.
-	Sku SkuInput
-	// Resource tags.
-	Tags pulumi.StringMapInput
+	Sku               SkuInput
+	Tags              pulumi.StringMapInput
 }
 
 func (BotArgs) ElementType() reflect.Type {
@@ -167,9 +146,7 @@ func (i *Bot) ToBotOutputWithContext(ctx context.Context) BotOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(BotOutput)
 }
 
-type BotOutput struct {
-	*pulumi.OutputState
-}
+type BotOutput struct{ *pulumi.OutputState }
 
 func (BotOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*Bot)(nil))

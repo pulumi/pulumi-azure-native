@@ -10,11 +10,8 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// The login password for the container registry.
 type RegistryPasswordResponse struct {
-	// The password name.
-	Name *string `pulumi:"name"`
-	// The password value.
+	Name  *string `pulumi:"name"`
 	Value *string `pulumi:"value"`
 }
 
@@ -29,11 +26,8 @@ type RegistryPasswordResponseInput interface {
 	ToRegistryPasswordResponseOutputWithContext(context.Context) RegistryPasswordResponseOutput
 }
 
-// The login password for the container registry.
 type RegistryPasswordResponseArgs struct {
-	// The password name.
-	Name pulumi.StringPtrInput `pulumi:"name"`
-	// The password value.
+	Name  pulumi.StringPtrInput `pulumi:"name"`
 	Value pulumi.StringPtrInput `pulumi:"value"`
 }
 
@@ -74,7 +68,6 @@ func (i RegistryPasswordResponseArray) ToRegistryPasswordResponseArrayOutputWith
 	return pulumi.ToOutputWithContext(ctx, i).(RegistryPasswordResponseArrayOutput)
 }
 
-// The login password for the container registry.
 type RegistryPasswordResponseOutput struct{ *pulumi.OutputState }
 
 func (RegistryPasswordResponseOutput) ElementType() reflect.Type {
@@ -89,12 +82,10 @@ func (o RegistryPasswordResponseOutput) ToRegistryPasswordResponseOutputWithCont
 	return o
 }
 
-// The password name.
 func (o RegistryPasswordResponseOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v RegistryPasswordResponse) *string { return v.Name }).(pulumi.StringPtrOutput)
 }
 
-// The password value.
 func (o RegistryPasswordResponseOutput) Value() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v RegistryPasswordResponse) *string { return v.Value }).(pulumi.StringPtrOutput)
 }
@@ -119,9 +110,7 @@ func (o RegistryPasswordResponseArrayOutput) Index(i pulumi.IntInput) RegistryPa
 	}).(RegistryPasswordResponseOutput)
 }
 
-// The SKU of a container registry.
 type Sku struct {
-	// The SKU name of the container registry. Required for registry creation. Allowed value: Basic.
 	Name string `pulumi:"name"`
 }
 
@@ -136,9 +125,7 @@ type SkuInput interface {
 	ToSkuOutputWithContext(context.Context) SkuOutput
 }
 
-// The SKU of a container registry.
 type SkuArgs struct {
-	// The SKU name of the container registry. Required for registry creation. Allowed value: Basic.
 	Name pulumi.StringInput `pulumi:"name"`
 }
 
@@ -195,7 +182,6 @@ func (i *skuPtrType) ToSkuPtrOutputWithContext(ctx context.Context) SkuPtrOutput
 	return pulumi.ToOutputWithContext(ctx, i).(SkuPtrOutput)
 }
 
-// The SKU of a container registry.
 type SkuOutput struct{ *pulumi.OutputState }
 
 func (SkuOutput) ElementType() reflect.Type {
@@ -215,12 +201,11 @@ func (o SkuOutput) ToSkuPtrOutput() SkuPtrOutput {
 }
 
 func (o SkuOutput) ToSkuPtrOutputWithContext(ctx context.Context) SkuPtrOutput {
-	return o.ApplyT(func(v Sku) *Sku {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v Sku) *Sku {
 		return &v
 	}).(SkuPtrOutput)
 }
 
-// The SKU name of the container registry. Required for registry creation. Allowed value: Basic.
 func (o SkuOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v Sku) string { return v.Name }).(pulumi.StringOutput)
 }
@@ -240,10 +225,15 @@ func (o SkuPtrOutput) ToSkuPtrOutputWithContext(ctx context.Context) SkuPtrOutpu
 }
 
 func (o SkuPtrOutput) Elem() SkuOutput {
-	return o.ApplyT(func(v *Sku) Sku { return *v }).(SkuOutput)
+	return o.ApplyT(func(v *Sku) Sku {
+		if v != nil {
+			return *v
+		}
+		var ret Sku
+		return ret
+	}).(SkuOutput)
 }
 
-// The SKU name of the container registry. Required for registry creation. Allowed value: Basic.
 func (o SkuPtrOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Sku) *string {
 		if v == nil {
@@ -253,11 +243,8 @@ func (o SkuPtrOutput) Name() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The SKU of a container registry.
 type SkuResponse struct {
-	// The SKU name of the container registry. Required for registry creation. Allowed value: Basic.
 	Name string `pulumi:"name"`
-	// The SKU tier based on the SKU name.
 	Tier string `pulumi:"tier"`
 }
 
@@ -272,11 +259,8 @@ type SkuResponseInput interface {
 	ToSkuResponseOutputWithContext(context.Context) SkuResponseOutput
 }
 
-// The SKU of a container registry.
 type SkuResponseArgs struct {
-	// The SKU name of the container registry. Required for registry creation. Allowed value: Basic.
 	Name pulumi.StringInput `pulumi:"name"`
-	// The SKU tier based on the SKU name.
 	Tier pulumi.StringInput `pulumi:"tier"`
 }
 
@@ -333,7 +317,6 @@ func (i *skuResponsePtrType) ToSkuResponsePtrOutputWithContext(ctx context.Conte
 	return pulumi.ToOutputWithContext(ctx, i).(SkuResponsePtrOutput)
 }
 
-// The SKU of a container registry.
 type SkuResponseOutput struct{ *pulumi.OutputState }
 
 func (SkuResponseOutput) ElementType() reflect.Type {
@@ -353,17 +336,15 @@ func (o SkuResponseOutput) ToSkuResponsePtrOutput() SkuResponsePtrOutput {
 }
 
 func (o SkuResponseOutput) ToSkuResponsePtrOutputWithContext(ctx context.Context) SkuResponsePtrOutput {
-	return o.ApplyT(func(v SkuResponse) *SkuResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v SkuResponse) *SkuResponse {
 		return &v
 	}).(SkuResponsePtrOutput)
 }
 
-// The SKU name of the container registry. Required for registry creation. Allowed value: Basic.
 func (o SkuResponseOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v SkuResponse) string { return v.Name }).(pulumi.StringOutput)
 }
 
-// The SKU tier based on the SKU name.
 func (o SkuResponseOutput) Tier() pulumi.StringOutput {
 	return o.ApplyT(func(v SkuResponse) string { return v.Tier }).(pulumi.StringOutput)
 }
@@ -383,10 +364,15 @@ func (o SkuResponsePtrOutput) ToSkuResponsePtrOutputWithContext(ctx context.Cont
 }
 
 func (o SkuResponsePtrOutput) Elem() SkuResponseOutput {
-	return o.ApplyT(func(v *SkuResponse) SkuResponse { return *v }).(SkuResponseOutput)
+	return o.ApplyT(func(v *SkuResponse) SkuResponse {
+		if v != nil {
+			return *v
+		}
+		var ret SkuResponse
+		return ret
+	}).(SkuResponseOutput)
 }
 
-// The SKU name of the container registry. Required for registry creation. Allowed value: Basic.
 func (o SkuResponsePtrOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SkuResponse) *string {
 		if v == nil {
@@ -396,7 +382,6 @@ func (o SkuResponsePtrOutput) Name() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The SKU tier based on the SKU name.
 func (o SkuResponsePtrOutput) Tier() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SkuResponse) *string {
 		if v == nil {
@@ -406,12 +391,9 @@ func (o SkuResponsePtrOutput) Tier() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The parameters of a storage account for a container registry.
 type StorageAccountParameters struct {
-	// The access key to the storage account.
 	AccessKey string `pulumi:"accessKey"`
-	// The name of the storage account.
-	Name string `pulumi:"name"`
+	Name      string `pulumi:"name"`
 }
 
 // StorageAccountParametersInput is an input type that accepts StorageAccountParametersArgs and StorageAccountParametersOutput values.
@@ -425,12 +407,9 @@ type StorageAccountParametersInput interface {
 	ToStorageAccountParametersOutputWithContext(context.Context) StorageAccountParametersOutput
 }
 
-// The parameters of a storage account for a container registry.
 type StorageAccountParametersArgs struct {
-	// The access key to the storage account.
 	AccessKey pulumi.StringInput `pulumi:"accessKey"`
-	// The name of the storage account.
-	Name pulumi.StringInput `pulumi:"name"`
+	Name      pulumi.StringInput `pulumi:"name"`
 }
 
 func (StorageAccountParametersArgs) ElementType() reflect.Type {
@@ -486,7 +465,6 @@ func (i *storageAccountParametersPtrType) ToStorageAccountParametersPtrOutputWit
 	return pulumi.ToOutputWithContext(ctx, i).(StorageAccountParametersPtrOutput)
 }
 
-// The parameters of a storage account for a container registry.
 type StorageAccountParametersOutput struct{ *pulumi.OutputState }
 
 func (StorageAccountParametersOutput) ElementType() reflect.Type {
@@ -506,17 +484,15 @@ func (o StorageAccountParametersOutput) ToStorageAccountParametersPtrOutput() St
 }
 
 func (o StorageAccountParametersOutput) ToStorageAccountParametersPtrOutputWithContext(ctx context.Context) StorageAccountParametersPtrOutput {
-	return o.ApplyT(func(v StorageAccountParameters) *StorageAccountParameters {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v StorageAccountParameters) *StorageAccountParameters {
 		return &v
 	}).(StorageAccountParametersPtrOutput)
 }
 
-// The access key to the storage account.
 func (o StorageAccountParametersOutput) AccessKey() pulumi.StringOutput {
 	return o.ApplyT(func(v StorageAccountParameters) string { return v.AccessKey }).(pulumi.StringOutput)
 }
 
-// The name of the storage account.
 func (o StorageAccountParametersOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v StorageAccountParameters) string { return v.Name }).(pulumi.StringOutput)
 }
@@ -536,10 +512,15 @@ func (o StorageAccountParametersPtrOutput) ToStorageAccountParametersPtrOutputWi
 }
 
 func (o StorageAccountParametersPtrOutput) Elem() StorageAccountParametersOutput {
-	return o.ApplyT(func(v *StorageAccountParameters) StorageAccountParameters { return *v }).(StorageAccountParametersOutput)
+	return o.ApplyT(func(v *StorageAccountParameters) StorageAccountParameters {
+		if v != nil {
+			return *v
+		}
+		var ret StorageAccountParameters
+		return ret
+	}).(StorageAccountParametersOutput)
 }
 
-// The access key to the storage account.
 func (o StorageAccountParametersPtrOutput) AccessKey() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *StorageAccountParameters) *string {
 		if v == nil {
@@ -549,7 +530,6 @@ func (o StorageAccountParametersPtrOutput) AccessKey() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The name of the storage account.
 func (o StorageAccountParametersPtrOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *StorageAccountParameters) *string {
 		if v == nil {
@@ -559,9 +539,7 @@ func (o StorageAccountParametersPtrOutput) Name() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The properties of a storage account for a container registry.
 type StorageAccountPropertiesResponse struct {
-	// The name of the storage account.
 	Name *string `pulumi:"name"`
 }
 
@@ -576,9 +554,7 @@ type StorageAccountPropertiesResponseInput interface {
 	ToStorageAccountPropertiesResponseOutputWithContext(context.Context) StorageAccountPropertiesResponseOutput
 }
 
-// The properties of a storage account for a container registry.
 type StorageAccountPropertiesResponseArgs struct {
-	// The name of the storage account.
 	Name pulumi.StringPtrInput `pulumi:"name"`
 }
 
@@ -635,7 +611,6 @@ func (i *storageAccountPropertiesResponsePtrType) ToStorageAccountPropertiesResp
 	return pulumi.ToOutputWithContext(ctx, i).(StorageAccountPropertiesResponsePtrOutput)
 }
 
-// The properties of a storage account for a container registry.
 type StorageAccountPropertiesResponseOutput struct{ *pulumi.OutputState }
 
 func (StorageAccountPropertiesResponseOutput) ElementType() reflect.Type {
@@ -655,12 +630,11 @@ func (o StorageAccountPropertiesResponseOutput) ToStorageAccountPropertiesRespon
 }
 
 func (o StorageAccountPropertiesResponseOutput) ToStorageAccountPropertiesResponsePtrOutputWithContext(ctx context.Context) StorageAccountPropertiesResponsePtrOutput {
-	return o.ApplyT(func(v StorageAccountPropertiesResponse) *StorageAccountPropertiesResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v StorageAccountPropertiesResponse) *StorageAccountPropertiesResponse {
 		return &v
 	}).(StorageAccountPropertiesResponsePtrOutput)
 }
 
-// The name of the storage account.
 func (o StorageAccountPropertiesResponseOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v StorageAccountPropertiesResponse) *string { return v.Name }).(pulumi.StringPtrOutput)
 }
@@ -680,10 +654,15 @@ func (o StorageAccountPropertiesResponsePtrOutput) ToStorageAccountPropertiesRes
 }
 
 func (o StorageAccountPropertiesResponsePtrOutput) Elem() StorageAccountPropertiesResponseOutput {
-	return o.ApplyT(func(v *StorageAccountPropertiesResponse) StorageAccountPropertiesResponse { return *v }).(StorageAccountPropertiesResponseOutput)
+	return o.ApplyT(func(v *StorageAccountPropertiesResponse) StorageAccountPropertiesResponse {
+		if v != nil {
+			return *v
+		}
+		var ret StorageAccountPropertiesResponse
+		return ret
+	}).(StorageAccountPropertiesResponseOutput)
 }
 
-// The name of the storage account.
 func (o StorageAccountPropertiesResponsePtrOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *StorageAccountPropertiesResponse) *string {
 		if v == nil {

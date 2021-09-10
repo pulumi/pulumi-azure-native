@@ -7,7 +7,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Represents Microsoft Threat Intelligence data connector.
 func LookupMSTIDataConnector(ctx *pulumi.Context, args *LookupMSTIDataConnectorArgs, opts ...pulumi.InvokeOption) (*LookupMSTIDataConnectorResult, error) {
 	var rv LookupMSTIDataConnectorResult
 	err := ctx.Invoke("azure-native:securityinsights/v20210301preview:getMSTIDataConnector", args, &rv, opts...)
@@ -18,33 +17,20 @@ func LookupMSTIDataConnector(ctx *pulumi.Context, args *LookupMSTIDataConnectorA
 }
 
 type LookupMSTIDataConnectorArgs struct {
-	// Connector ID
-	DataConnectorId string `pulumi:"dataConnectorId"`
-	// The namespace of workspaces resource provider- Microsoft.OperationalInsights.
+	DataConnectorId                     string `pulumi:"dataConnectorId"`
 	OperationalInsightsResourceProvider string `pulumi:"operationalInsightsResourceProvider"`
-	// The name of the resource group. The name is case insensitive.
-	ResourceGroupName string `pulumi:"resourceGroupName"`
-	// The name of the workspace.
-	WorkspaceName string `pulumi:"workspaceName"`
+	ResourceGroupName                   string `pulumi:"resourceGroupName"`
+	WorkspaceName                       string `pulumi:"workspaceName"`
 }
 
 // Represents Microsoft Threat Intelligence data connector.
 type LookupMSTIDataConnectorResult struct {
-	// The available data types for the connector.
-	DataTypes MSTIDataConnectorDataTypesResponse `pulumi:"dataTypes"`
-	// Etag of the azure resource
-	Etag *string `pulumi:"etag"`
-	// Azure resource Id
-	Id string `pulumi:"id"`
-	// The kind of the data connector
-	// Expected value is 'MicrosoftThreatIntelligence'.
-	Kind string `pulumi:"kind"`
-	// Azure resource name
-	Name string `pulumi:"name"`
-	// Azure Resource Manager metadata containing createdBy and modifiedBy information.
-	SystemData SystemDataResponse `pulumi:"systemData"`
-	// The tenant id to connect to, and get the data from.
-	TenantId string `pulumi:"tenantId"`
-	// Azure resource type
-	Type string `pulumi:"type"`
+	DataTypes  MSTIDataConnectorDataTypesResponse `pulumi:"dataTypes"`
+	Etag       *string                            `pulumi:"etag"`
+	Id         string                             `pulumi:"id"`
+	Kind       string                             `pulumi:"kind"`
+	Name       string                             `pulumi:"name"`
+	SystemData SystemDataResponse                 `pulumi:"systemData"`
+	TenantId   string                             `pulumi:"tenantId"`
+	Type       string                             `pulumi:"type"`
 }

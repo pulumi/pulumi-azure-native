@@ -7,7 +7,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Represents a .rdp file
 func GetVirtualMachineRdpFileContents(ctx *pulumi.Context, args *GetVirtualMachineRdpFileContentsArgs, opts ...pulumi.InvokeOption) (*GetVirtualMachineRdpFileContentsResult, error) {
 	var rv GetVirtualMachineRdpFileContentsResult
 	err := ctx.Invoke("azure-native:devtestlab/v20180915:getVirtualMachineRdpFileContents", args, &rv, opts...)
@@ -18,16 +17,12 @@ func GetVirtualMachineRdpFileContents(ctx *pulumi.Context, args *GetVirtualMachi
 }
 
 type GetVirtualMachineRdpFileContentsArgs struct {
-	// The name of the lab.
-	LabName string `pulumi:"labName"`
-	// The name of the virtual machine.
-	Name string `pulumi:"name"`
-	// The name of the resource group.
+	LabName           string `pulumi:"labName"`
+	Name              string `pulumi:"name"`
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 }
 
 // Represents a .rdp file
 type GetVirtualMachineRdpFileContentsResult struct {
-	// The contents of the .rdp file
 	Contents *string `pulumi:"contents"`
 }

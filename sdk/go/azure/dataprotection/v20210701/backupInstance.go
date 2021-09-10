@@ -11,18 +11,13 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// BackupInstance Resource
 type BackupInstance struct {
 	pulumi.CustomResourceState
 
-	// Resource name associated with the resource.
-	Name pulumi.StringOutput `pulumi:"name"`
-	// BackupInstanceResource properties
+	Name       pulumi.StringOutput          `pulumi:"name"`
 	Properties BackupInstanceResponseOutput `pulumi:"properties"`
-	// Metadata pertaining to creation and last modification of the resource.
-	SystemData SystemDataResponseOutput `pulumi:"systemData"`
-	// Resource type represents the complete path of the form Namespace/ResourceType/ResourceType/...
-	Type pulumi.StringOutput `pulumi:"type"`
+	SystemData SystemDataResponseOutput     `pulumi:"systemData"`
+	Type       pulumi.StringOutput          `pulumi:"type"`
 }
 
 // NewBackupInstance registers a new resource with the given unique name, arguments, and options.
@@ -100,26 +95,18 @@ func (BackupInstanceState) ElementType() reflect.Type {
 }
 
 type backupInstanceArgs struct {
-	// The name of the backup instance
-	BackupInstanceName *string `pulumi:"backupInstanceName"`
-	// BackupInstanceResource properties
-	Properties *BackupInstanceType `pulumi:"properties"`
-	// The name of the resource group where the backup vault is present.
-	ResourceGroupName string `pulumi:"resourceGroupName"`
-	// The name of the backup vault.
-	VaultName string `pulumi:"vaultName"`
+	BackupInstanceName *string             `pulumi:"backupInstanceName"`
+	Properties         *BackupInstanceType `pulumi:"properties"`
+	ResourceGroupName  string              `pulumi:"resourceGroupName"`
+	VaultName          string              `pulumi:"vaultName"`
 }
 
 // The set of arguments for constructing a BackupInstance resource.
 type BackupInstanceArgs struct {
-	// The name of the backup instance
 	BackupInstanceName pulumi.StringPtrInput
-	// BackupInstanceResource properties
-	Properties BackupInstanceTypePtrInput
-	// The name of the resource group where the backup vault is present.
-	ResourceGroupName pulumi.StringInput
-	// The name of the backup vault.
-	VaultName pulumi.StringInput
+	Properties         BackupInstanceTypePtrInput
+	ResourceGroupName  pulumi.StringInput
+	VaultName          pulumi.StringInput
 }
 
 func (BackupInstanceArgs) ElementType() reflect.Type {
@@ -145,9 +132,7 @@ func (i *BackupInstance) ToBackupInstanceOutputWithContext(ctx context.Context) 
 	return pulumi.ToOutputWithContext(ctx, i).(BackupInstanceOutput)
 }
 
-type BackupInstanceOutput struct {
-	*pulumi.OutputState
-}
+type BackupInstanceOutput struct{ *pulumi.OutputState }
 
 func (BackupInstanceOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*BackupInstance)(nil))

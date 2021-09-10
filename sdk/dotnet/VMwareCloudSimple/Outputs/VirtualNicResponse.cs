@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.VMwareCloudSimple.Outputs
 {
 
+    /// <summary>
+    /// Virtual NIC model
+    /// </summary>
     [OutputType]
     public sealed class VirtualNicResponse
     {

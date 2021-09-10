@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.DataFactory.Outputs
 {
 
+    /// <summary>
+    /// Web activity.
+    /// </summary>
     [OutputType]
     public sealed class WebActivityResponse
     {

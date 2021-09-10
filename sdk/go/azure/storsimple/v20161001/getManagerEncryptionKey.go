@@ -7,7 +7,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// This class can be used as the Type for any secret entity represented as Value, ValueCertificateThumbprint, EncryptionAlgorithm. In this case, "Value" is a secret and the "valueThumbprint" represents the certificate thumbprint of the value. The algorithm field is mainly for future usage to potentially allow different entities encrypted using different algorithms.
 func GetManagerEncryptionKey(ctx *pulumi.Context, args *GetManagerEncryptionKeyArgs, opts ...pulumi.InvokeOption) (*GetManagerEncryptionKeyResult, error) {
 	var rv GetManagerEncryptionKeyResult
 	err := ctx.Invoke("azure-native:storsimple/v20161001:getManagerEncryptionKey", args, &rv, opts...)
@@ -18,18 +17,13 @@ func GetManagerEncryptionKey(ctx *pulumi.Context, args *GetManagerEncryptionKeyA
 }
 
 type GetManagerEncryptionKeyArgs struct {
-	// The manager name
-	ManagerName string `pulumi:"managerName"`
-	// The resource group name
+	ManagerName       string `pulumi:"managerName"`
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 }
 
 // This class can be used as the Type for any secret entity represented as Value, ValueCertificateThumbprint, EncryptionAlgorithm. In this case, "Value" is a secret and the "valueThumbprint" represents the certificate thumbprint of the value. The algorithm field is mainly for future usage to potentially allow different entities encrypted using different algorithms.
 type GetManagerEncryptionKeyResult struct {
-	// Algorithm used to encrypt "Value"
-	EncryptionAlgorithm string `pulumi:"encryptionAlgorithm"`
-	// The value of the secret itself. If the secret is in plaintext or null then EncryptionAlgorithm will be none
-	Value string `pulumi:"value"`
-	// Thumbprint cert that was used to encrypt "Value"
+	EncryptionAlgorithm        string  `pulumi:"encryptionAlgorithm"`
+	Value                      string  `pulumi:"value"`
 	ValueCertificateThumbprint *string `pulumi:"valueCertificateThumbprint"`
 }

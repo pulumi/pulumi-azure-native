@@ -10,9 +10,7 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// The gateway details.
 type GatewayDetails struct {
-	// Gateway resource to be associated with the server.
 	GatewayResourceId *string `pulumi:"gatewayResourceId"`
 }
 
@@ -27,9 +25,7 @@ type GatewayDetailsInput interface {
 	ToGatewayDetailsOutputWithContext(context.Context) GatewayDetailsOutput
 }
 
-// The gateway details.
 type GatewayDetailsArgs struct {
-	// Gateway resource to be associated with the server.
 	GatewayResourceId pulumi.StringPtrInput `pulumi:"gatewayResourceId"`
 }
 
@@ -86,7 +82,6 @@ func (i *gatewayDetailsPtrType) ToGatewayDetailsPtrOutputWithContext(ctx context
 	return pulumi.ToOutputWithContext(ctx, i).(GatewayDetailsPtrOutput)
 }
 
-// The gateway details.
 type GatewayDetailsOutput struct{ *pulumi.OutputState }
 
 func (GatewayDetailsOutput) ElementType() reflect.Type {
@@ -106,12 +101,11 @@ func (o GatewayDetailsOutput) ToGatewayDetailsPtrOutput() GatewayDetailsPtrOutpu
 }
 
 func (o GatewayDetailsOutput) ToGatewayDetailsPtrOutputWithContext(ctx context.Context) GatewayDetailsPtrOutput {
-	return o.ApplyT(func(v GatewayDetails) *GatewayDetails {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v GatewayDetails) *GatewayDetails {
 		return &v
 	}).(GatewayDetailsPtrOutput)
 }
 
-// Gateway resource to be associated with the server.
 func (o GatewayDetailsOutput) GatewayResourceId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v GatewayDetails) *string { return v.GatewayResourceId }).(pulumi.StringPtrOutput)
 }
@@ -131,10 +125,15 @@ func (o GatewayDetailsPtrOutput) ToGatewayDetailsPtrOutputWithContext(ctx contex
 }
 
 func (o GatewayDetailsPtrOutput) Elem() GatewayDetailsOutput {
-	return o.ApplyT(func(v *GatewayDetails) GatewayDetails { return *v }).(GatewayDetailsOutput)
+	return o.ApplyT(func(v *GatewayDetails) GatewayDetails {
+		if v != nil {
+			return *v
+		}
+		var ret GatewayDetails
+		return ret
+	}).(GatewayDetailsOutput)
 }
 
-// Gateway resource to be associated with the server.
 func (o GatewayDetailsPtrOutput) GatewayResourceId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *GatewayDetails) *string {
 		if v == nil {
@@ -144,13 +143,9 @@ func (o GatewayDetailsPtrOutput) GatewayResourceId() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The gateway details.
 type GatewayDetailsResponse struct {
-	// Uri of the DMTS cluster.
-	DmtsClusterUri string `pulumi:"dmtsClusterUri"`
-	// Gateway object id from in the DMTS cluster for the gateway resource.
-	GatewayObjectId string `pulumi:"gatewayObjectId"`
-	// Gateway resource to be associated with the server.
+	DmtsClusterUri    string  `pulumi:"dmtsClusterUri"`
+	GatewayObjectId   string  `pulumi:"gatewayObjectId"`
 	GatewayResourceId *string `pulumi:"gatewayResourceId"`
 }
 
@@ -165,13 +160,9 @@ type GatewayDetailsResponseInput interface {
 	ToGatewayDetailsResponseOutputWithContext(context.Context) GatewayDetailsResponseOutput
 }
 
-// The gateway details.
 type GatewayDetailsResponseArgs struct {
-	// Uri of the DMTS cluster.
-	DmtsClusterUri pulumi.StringInput `pulumi:"dmtsClusterUri"`
-	// Gateway object id from in the DMTS cluster for the gateway resource.
-	GatewayObjectId pulumi.StringInput `pulumi:"gatewayObjectId"`
-	// Gateway resource to be associated with the server.
+	DmtsClusterUri    pulumi.StringInput    `pulumi:"dmtsClusterUri"`
+	GatewayObjectId   pulumi.StringInput    `pulumi:"gatewayObjectId"`
 	GatewayResourceId pulumi.StringPtrInput `pulumi:"gatewayResourceId"`
 }
 
@@ -228,7 +219,6 @@ func (i *gatewayDetailsResponsePtrType) ToGatewayDetailsResponsePtrOutputWithCon
 	return pulumi.ToOutputWithContext(ctx, i).(GatewayDetailsResponsePtrOutput)
 }
 
-// The gateway details.
 type GatewayDetailsResponseOutput struct{ *pulumi.OutputState }
 
 func (GatewayDetailsResponseOutput) ElementType() reflect.Type {
@@ -248,22 +238,19 @@ func (o GatewayDetailsResponseOutput) ToGatewayDetailsResponsePtrOutput() Gatewa
 }
 
 func (o GatewayDetailsResponseOutput) ToGatewayDetailsResponsePtrOutputWithContext(ctx context.Context) GatewayDetailsResponsePtrOutput {
-	return o.ApplyT(func(v GatewayDetailsResponse) *GatewayDetailsResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v GatewayDetailsResponse) *GatewayDetailsResponse {
 		return &v
 	}).(GatewayDetailsResponsePtrOutput)
 }
 
-// Uri of the DMTS cluster.
 func (o GatewayDetailsResponseOutput) DmtsClusterUri() pulumi.StringOutput {
 	return o.ApplyT(func(v GatewayDetailsResponse) string { return v.DmtsClusterUri }).(pulumi.StringOutput)
 }
 
-// Gateway object id from in the DMTS cluster for the gateway resource.
 func (o GatewayDetailsResponseOutput) GatewayObjectId() pulumi.StringOutput {
 	return o.ApplyT(func(v GatewayDetailsResponse) string { return v.GatewayObjectId }).(pulumi.StringOutput)
 }
 
-// Gateway resource to be associated with the server.
 func (o GatewayDetailsResponseOutput) GatewayResourceId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v GatewayDetailsResponse) *string { return v.GatewayResourceId }).(pulumi.StringPtrOutput)
 }
@@ -283,10 +270,15 @@ func (o GatewayDetailsResponsePtrOutput) ToGatewayDetailsResponsePtrOutputWithCo
 }
 
 func (o GatewayDetailsResponsePtrOutput) Elem() GatewayDetailsResponseOutput {
-	return o.ApplyT(func(v *GatewayDetailsResponse) GatewayDetailsResponse { return *v }).(GatewayDetailsResponseOutput)
+	return o.ApplyT(func(v *GatewayDetailsResponse) GatewayDetailsResponse {
+		if v != nil {
+			return *v
+		}
+		var ret GatewayDetailsResponse
+		return ret
+	}).(GatewayDetailsResponseOutput)
 }
 
-// Uri of the DMTS cluster.
 func (o GatewayDetailsResponsePtrOutput) DmtsClusterUri() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *GatewayDetailsResponse) *string {
 		if v == nil {
@@ -296,7 +288,6 @@ func (o GatewayDetailsResponsePtrOutput) DmtsClusterUri() pulumi.StringPtrOutput
 	}).(pulumi.StringPtrOutput)
 }
 
-// Gateway object id from in the DMTS cluster for the gateway resource.
 func (o GatewayDetailsResponsePtrOutput) GatewayObjectId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *GatewayDetailsResponse) *string {
 		if v == nil {
@@ -306,7 +297,6 @@ func (o GatewayDetailsResponsePtrOutput) GatewayObjectId() pulumi.StringPtrOutpu
 	}).(pulumi.StringPtrOutput)
 }
 
-// Gateway resource to be associated with the server.
 func (o GatewayDetailsResponsePtrOutput) GatewayResourceId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *GatewayDetailsResponse) *string {
 		if v == nil {
@@ -316,11 +306,8 @@ func (o GatewayDetailsResponsePtrOutput) GatewayResourceId() pulumi.StringPtrOut
 	}).(pulumi.StringPtrOutput)
 }
 
-// Represents the SKU name and Azure pricing tier for Analysis Services resource.
 type ResourceSku struct {
-	// Name of the SKU level.
-	Name string `pulumi:"name"`
-	// The name of the Azure pricing tier to which the SKU applies.
+	Name string  `pulumi:"name"`
 	Tier *string `pulumi:"tier"`
 }
 
@@ -335,11 +322,8 @@ type ResourceSkuInput interface {
 	ToResourceSkuOutputWithContext(context.Context) ResourceSkuOutput
 }
 
-// Represents the SKU name and Azure pricing tier for Analysis Services resource.
 type ResourceSkuArgs struct {
-	// Name of the SKU level.
-	Name pulumi.StringInput `pulumi:"name"`
-	// The name of the Azure pricing tier to which the SKU applies.
+	Name pulumi.StringInput    `pulumi:"name"`
 	Tier pulumi.StringPtrInput `pulumi:"tier"`
 }
 
@@ -396,7 +380,6 @@ func (i *resourceSkuPtrType) ToResourceSkuPtrOutputWithContext(ctx context.Conte
 	return pulumi.ToOutputWithContext(ctx, i).(ResourceSkuPtrOutput)
 }
 
-// Represents the SKU name and Azure pricing tier for Analysis Services resource.
 type ResourceSkuOutput struct{ *pulumi.OutputState }
 
 func (ResourceSkuOutput) ElementType() reflect.Type {
@@ -416,17 +399,15 @@ func (o ResourceSkuOutput) ToResourceSkuPtrOutput() ResourceSkuPtrOutput {
 }
 
 func (o ResourceSkuOutput) ToResourceSkuPtrOutputWithContext(ctx context.Context) ResourceSkuPtrOutput {
-	return o.ApplyT(func(v ResourceSku) *ResourceSku {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ResourceSku) *ResourceSku {
 		return &v
 	}).(ResourceSkuPtrOutput)
 }
 
-// Name of the SKU level.
 func (o ResourceSkuOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v ResourceSku) string { return v.Name }).(pulumi.StringOutput)
 }
 
-// The name of the Azure pricing tier to which the SKU applies.
 func (o ResourceSkuOutput) Tier() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ResourceSku) *string { return v.Tier }).(pulumi.StringPtrOutput)
 }
@@ -446,10 +427,15 @@ func (o ResourceSkuPtrOutput) ToResourceSkuPtrOutputWithContext(ctx context.Cont
 }
 
 func (o ResourceSkuPtrOutput) Elem() ResourceSkuOutput {
-	return o.ApplyT(func(v *ResourceSku) ResourceSku { return *v }).(ResourceSkuOutput)
+	return o.ApplyT(func(v *ResourceSku) ResourceSku {
+		if v != nil {
+			return *v
+		}
+		var ret ResourceSku
+		return ret
+	}).(ResourceSkuOutput)
 }
 
-// Name of the SKU level.
 func (o ResourceSkuPtrOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ResourceSku) *string {
 		if v == nil {
@@ -459,7 +445,6 @@ func (o ResourceSkuPtrOutput) Name() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The name of the Azure pricing tier to which the SKU applies.
 func (o ResourceSkuPtrOutput) Tier() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ResourceSku) *string {
 		if v == nil {
@@ -469,11 +454,8 @@ func (o ResourceSkuPtrOutput) Tier() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Represents the SKU name and Azure pricing tier for Analysis Services resource.
 type ResourceSkuResponse struct {
-	// Name of the SKU level.
-	Name string `pulumi:"name"`
-	// The name of the Azure pricing tier to which the SKU applies.
+	Name string  `pulumi:"name"`
 	Tier *string `pulumi:"tier"`
 }
 
@@ -488,11 +470,8 @@ type ResourceSkuResponseInput interface {
 	ToResourceSkuResponseOutputWithContext(context.Context) ResourceSkuResponseOutput
 }
 
-// Represents the SKU name and Azure pricing tier for Analysis Services resource.
 type ResourceSkuResponseArgs struct {
-	// Name of the SKU level.
-	Name pulumi.StringInput `pulumi:"name"`
-	// The name of the Azure pricing tier to which the SKU applies.
+	Name pulumi.StringInput    `pulumi:"name"`
 	Tier pulumi.StringPtrInput `pulumi:"tier"`
 }
 
@@ -549,7 +528,6 @@ func (i *resourceSkuResponsePtrType) ToResourceSkuResponsePtrOutputWithContext(c
 	return pulumi.ToOutputWithContext(ctx, i).(ResourceSkuResponsePtrOutput)
 }
 
-// Represents the SKU name and Azure pricing tier for Analysis Services resource.
 type ResourceSkuResponseOutput struct{ *pulumi.OutputState }
 
 func (ResourceSkuResponseOutput) ElementType() reflect.Type {
@@ -569,17 +547,15 @@ func (o ResourceSkuResponseOutput) ToResourceSkuResponsePtrOutput() ResourceSkuR
 }
 
 func (o ResourceSkuResponseOutput) ToResourceSkuResponsePtrOutputWithContext(ctx context.Context) ResourceSkuResponsePtrOutput {
-	return o.ApplyT(func(v ResourceSkuResponse) *ResourceSkuResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ResourceSkuResponse) *ResourceSkuResponse {
 		return &v
 	}).(ResourceSkuResponsePtrOutput)
 }
 
-// Name of the SKU level.
 func (o ResourceSkuResponseOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v ResourceSkuResponse) string { return v.Name }).(pulumi.StringOutput)
 }
 
-// The name of the Azure pricing tier to which the SKU applies.
 func (o ResourceSkuResponseOutput) Tier() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ResourceSkuResponse) *string { return v.Tier }).(pulumi.StringPtrOutput)
 }
@@ -599,10 +575,15 @@ func (o ResourceSkuResponsePtrOutput) ToResourceSkuResponsePtrOutputWithContext(
 }
 
 func (o ResourceSkuResponsePtrOutput) Elem() ResourceSkuResponseOutput {
-	return o.ApplyT(func(v *ResourceSkuResponse) ResourceSkuResponse { return *v }).(ResourceSkuResponseOutput)
+	return o.ApplyT(func(v *ResourceSkuResponse) ResourceSkuResponse {
+		if v != nil {
+			return *v
+		}
+		var ret ResourceSkuResponse
+		return ret
+	}).(ResourceSkuResponseOutput)
 }
 
-// Name of the SKU level.
 func (o ResourceSkuResponsePtrOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ResourceSkuResponse) *string {
 		if v == nil {
@@ -612,7 +593,6 @@ func (o ResourceSkuResponsePtrOutput) Name() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The name of the Azure pricing tier to which the SKU applies.
 func (o ResourceSkuResponsePtrOutput) Tier() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ResourceSkuResponse) *string {
 		if v == nil {
@@ -622,9 +602,7 @@ func (o ResourceSkuResponsePtrOutput) Tier() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// An array of administrator user identities
 type ServerAdministrators struct {
-	// An array of administrator user identities.
 	Members []string `pulumi:"members"`
 }
 
@@ -639,9 +617,7 @@ type ServerAdministratorsInput interface {
 	ToServerAdministratorsOutputWithContext(context.Context) ServerAdministratorsOutput
 }
 
-// An array of administrator user identities
 type ServerAdministratorsArgs struct {
-	// An array of administrator user identities.
 	Members pulumi.StringArrayInput `pulumi:"members"`
 }
 
@@ -698,7 +674,6 @@ func (i *serverAdministratorsPtrType) ToServerAdministratorsPtrOutputWithContext
 	return pulumi.ToOutputWithContext(ctx, i).(ServerAdministratorsPtrOutput)
 }
 
-// An array of administrator user identities
 type ServerAdministratorsOutput struct{ *pulumi.OutputState }
 
 func (ServerAdministratorsOutput) ElementType() reflect.Type {
@@ -718,12 +693,11 @@ func (o ServerAdministratorsOutput) ToServerAdministratorsPtrOutput() ServerAdmi
 }
 
 func (o ServerAdministratorsOutput) ToServerAdministratorsPtrOutputWithContext(ctx context.Context) ServerAdministratorsPtrOutput {
-	return o.ApplyT(func(v ServerAdministrators) *ServerAdministrators {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ServerAdministrators) *ServerAdministrators {
 		return &v
 	}).(ServerAdministratorsPtrOutput)
 }
 
-// An array of administrator user identities.
 func (o ServerAdministratorsOutput) Members() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v ServerAdministrators) []string { return v.Members }).(pulumi.StringArrayOutput)
 }
@@ -743,10 +717,15 @@ func (o ServerAdministratorsPtrOutput) ToServerAdministratorsPtrOutputWithContex
 }
 
 func (o ServerAdministratorsPtrOutput) Elem() ServerAdministratorsOutput {
-	return o.ApplyT(func(v *ServerAdministrators) ServerAdministrators { return *v }).(ServerAdministratorsOutput)
+	return o.ApplyT(func(v *ServerAdministrators) ServerAdministrators {
+		if v != nil {
+			return *v
+		}
+		var ret ServerAdministrators
+		return ret
+	}).(ServerAdministratorsOutput)
 }
 
-// An array of administrator user identities.
 func (o ServerAdministratorsPtrOutput) Members() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *ServerAdministrators) []string {
 		if v == nil {
@@ -756,9 +735,7 @@ func (o ServerAdministratorsPtrOutput) Members() pulumi.StringArrayOutput {
 	}).(pulumi.StringArrayOutput)
 }
 
-// An array of administrator user identities
 type ServerAdministratorsResponse struct {
-	// An array of administrator user identities.
 	Members []string `pulumi:"members"`
 }
 
@@ -773,9 +750,7 @@ type ServerAdministratorsResponseInput interface {
 	ToServerAdministratorsResponseOutputWithContext(context.Context) ServerAdministratorsResponseOutput
 }
 
-// An array of administrator user identities
 type ServerAdministratorsResponseArgs struct {
-	// An array of administrator user identities.
 	Members pulumi.StringArrayInput `pulumi:"members"`
 }
 
@@ -832,7 +807,6 @@ func (i *serverAdministratorsResponsePtrType) ToServerAdministratorsResponsePtrO
 	return pulumi.ToOutputWithContext(ctx, i).(ServerAdministratorsResponsePtrOutput)
 }
 
-// An array of administrator user identities
 type ServerAdministratorsResponseOutput struct{ *pulumi.OutputState }
 
 func (ServerAdministratorsResponseOutput) ElementType() reflect.Type {
@@ -852,12 +826,11 @@ func (o ServerAdministratorsResponseOutput) ToServerAdministratorsResponsePtrOut
 }
 
 func (o ServerAdministratorsResponseOutput) ToServerAdministratorsResponsePtrOutputWithContext(ctx context.Context) ServerAdministratorsResponsePtrOutput {
-	return o.ApplyT(func(v ServerAdministratorsResponse) *ServerAdministratorsResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ServerAdministratorsResponse) *ServerAdministratorsResponse {
 		return &v
 	}).(ServerAdministratorsResponsePtrOutput)
 }
 
-// An array of administrator user identities.
 func (o ServerAdministratorsResponseOutput) Members() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v ServerAdministratorsResponse) []string { return v.Members }).(pulumi.StringArrayOutput)
 }
@@ -877,10 +850,15 @@ func (o ServerAdministratorsResponsePtrOutput) ToServerAdministratorsResponsePtr
 }
 
 func (o ServerAdministratorsResponsePtrOutput) Elem() ServerAdministratorsResponseOutput {
-	return o.ApplyT(func(v *ServerAdministratorsResponse) ServerAdministratorsResponse { return *v }).(ServerAdministratorsResponseOutput)
+	return o.ApplyT(func(v *ServerAdministratorsResponse) ServerAdministratorsResponse {
+		if v != nil {
+			return *v
+		}
+		var ret ServerAdministratorsResponse
+		return ret
+	}).(ServerAdministratorsResponseOutput)
 }
 
-// An array of administrator user identities.
 func (o ServerAdministratorsResponsePtrOutput) Members() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *ServerAdministratorsResponse) []string {
 		if v == nil {

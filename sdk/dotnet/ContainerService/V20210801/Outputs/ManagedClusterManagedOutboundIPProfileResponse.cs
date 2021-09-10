@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.ContainerService.V20210801.Outputs
 {
 
+    /// <summary>
+    /// Profile of the managed outbound IP resources of the managed cluster.
+    /// </summary>
     [OutputType]
     public sealed class ManagedClusterManagedOutboundIPProfileResponse
     {

@@ -168,9 +168,7 @@ func (i *IotConnectorFhirDestination) ToIotConnectorFhirDestinationOutputWithCon
 	return pulumi.ToOutputWithContext(ctx, i).(IotConnectorFhirDestinationOutput)
 }
 
-type IotConnectorFhirDestinationOutput struct {
-	*pulumi.OutputState
-}
+type IotConnectorFhirDestinationOutput struct{ *pulumi.OutputState }
 
 func (IotConnectorFhirDestinationOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*IotConnectorFhirDestination)(nil))

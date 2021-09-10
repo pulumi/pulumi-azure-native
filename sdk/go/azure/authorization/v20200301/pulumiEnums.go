@@ -10,8 +10,7 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// The policy assignment enforcement mode. Possible values are Default and DoNotEnforce.
-type EnforcementMode pulumi.String
+type EnforcementMode string
 
 const (
 	// The policy effect is enforced during resource creation or update.
@@ -21,7 +20,23 @@ const (
 )
 
 func (EnforcementMode) ElementType() reflect.Type {
-	return reflect.TypeOf((*pulumi.String)(nil)).Elem()
+	return reflect.TypeOf((*EnforcementMode)(nil)).Elem()
+}
+
+func (e EnforcementMode) ToEnforcementModeOutput() EnforcementModeOutput {
+	return pulumi.ToOutput(e).(EnforcementModeOutput)
+}
+
+func (e EnforcementMode) ToEnforcementModeOutputWithContext(ctx context.Context) EnforcementModeOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(EnforcementModeOutput)
+}
+
+func (e EnforcementMode) ToEnforcementModePtrOutput() EnforcementModePtrOutput {
+	return e.ToEnforcementModePtrOutputWithContext(context.Background())
+}
+
+func (e EnforcementMode) ToEnforcementModePtrOutputWithContext(ctx context.Context) EnforcementModePtrOutput {
+	return EnforcementMode(e).ToEnforcementModeOutputWithContext(ctx).ToEnforcementModePtrOutputWithContext(ctx)
 }
 
 func (e EnforcementMode) ToStringOutput() pulumi.StringOutput {
@@ -40,8 +55,128 @@ func (e EnforcementMode) ToStringPtrOutputWithContext(ctx context.Context) pulum
 	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
 }
 
-// The data type of the parameter.
-type ParameterType pulumi.String
+type EnforcementModeOutput struct{ *pulumi.OutputState }
+
+func (EnforcementModeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*EnforcementMode)(nil)).Elem()
+}
+
+func (o EnforcementModeOutput) ToEnforcementModeOutput() EnforcementModeOutput {
+	return o
+}
+
+func (o EnforcementModeOutput) ToEnforcementModeOutputWithContext(ctx context.Context) EnforcementModeOutput {
+	return o
+}
+
+func (o EnforcementModeOutput) ToEnforcementModePtrOutput() EnforcementModePtrOutput {
+	return o.ToEnforcementModePtrOutputWithContext(context.Background())
+}
+
+func (o EnforcementModeOutput) ToEnforcementModePtrOutputWithContext(ctx context.Context) EnforcementModePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v EnforcementMode) *EnforcementMode {
+		return &v
+	}).(EnforcementModePtrOutput)
+}
+
+func (o EnforcementModeOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o EnforcementModeOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e EnforcementMode) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o EnforcementModeOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o EnforcementModeOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e EnforcementMode) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type EnforcementModePtrOutput struct{ *pulumi.OutputState }
+
+func (EnforcementModePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**EnforcementMode)(nil)).Elem()
+}
+
+func (o EnforcementModePtrOutput) ToEnforcementModePtrOutput() EnforcementModePtrOutput {
+	return o
+}
+
+func (o EnforcementModePtrOutput) ToEnforcementModePtrOutputWithContext(ctx context.Context) EnforcementModePtrOutput {
+	return o
+}
+
+func (o EnforcementModePtrOutput) Elem() EnforcementModeOutput {
+	return o.ApplyT(func(v *EnforcementMode) EnforcementMode {
+		if v != nil {
+			return *v
+		}
+		var ret EnforcementMode
+		return ret
+	}).(EnforcementModeOutput)
+}
+
+func (o EnforcementModePtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o EnforcementModePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *EnforcementMode) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// EnforcementModeInput is an input type that accepts EnforcementModeArgs and EnforcementModeOutput values.
+// You can construct a concrete instance of `EnforcementModeInput` via:
+//
+//          EnforcementModeArgs{...}
+type EnforcementModeInput interface {
+	pulumi.Input
+
+	ToEnforcementModeOutput() EnforcementModeOutput
+	ToEnforcementModeOutputWithContext(context.Context) EnforcementModeOutput
+}
+
+var enforcementModePtrType = reflect.TypeOf((**EnforcementMode)(nil)).Elem()
+
+type EnforcementModePtrInput interface {
+	pulumi.Input
+
+	ToEnforcementModePtrOutput() EnforcementModePtrOutput
+	ToEnforcementModePtrOutputWithContext(context.Context) EnforcementModePtrOutput
+}
+
+type enforcementModePtr string
+
+func EnforcementModePtr(v string) EnforcementModePtrInput {
+	return (*enforcementModePtr)(&v)
+}
+
+func (*enforcementModePtr) ElementType() reflect.Type {
+	return enforcementModePtrType
+}
+
+func (in *enforcementModePtr) ToEnforcementModePtrOutput() EnforcementModePtrOutput {
+	return pulumi.ToOutput(in).(EnforcementModePtrOutput)
+}
+
+func (in *enforcementModePtr) ToEnforcementModePtrOutputWithContext(ctx context.Context) EnforcementModePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(EnforcementModePtrOutput)
+}
+
+type ParameterType string
 
 const (
 	ParameterTypeString   = ParameterType("String")
@@ -54,7 +189,23 @@ const (
 )
 
 func (ParameterType) ElementType() reflect.Type {
-	return reflect.TypeOf((*pulumi.String)(nil)).Elem()
+	return reflect.TypeOf((*ParameterType)(nil)).Elem()
+}
+
+func (e ParameterType) ToParameterTypeOutput() ParameterTypeOutput {
+	return pulumi.ToOutput(e).(ParameterTypeOutput)
+}
+
+func (e ParameterType) ToParameterTypeOutputWithContext(ctx context.Context) ParameterTypeOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(ParameterTypeOutput)
+}
+
+func (e ParameterType) ToParameterTypePtrOutput() ParameterTypePtrOutput {
+	return e.ToParameterTypePtrOutputWithContext(context.Background())
+}
+
+func (e ParameterType) ToParameterTypePtrOutputWithContext(ctx context.Context) ParameterTypePtrOutput {
+	return ParameterType(e).ToParameterTypeOutputWithContext(ctx).ToParameterTypePtrOutputWithContext(ctx)
 }
 
 func (e ParameterType) ToStringOutput() pulumi.StringOutput {
@@ -73,8 +224,128 @@ func (e ParameterType) ToStringPtrOutputWithContext(ctx context.Context) pulumi.
 	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
 }
 
-// The type of policy definition. Possible values are NotSpecified, BuiltIn, Custom, and Static.
-type PolicyType pulumi.String
+type ParameterTypeOutput struct{ *pulumi.OutputState }
+
+func (ParameterTypeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ParameterType)(nil)).Elem()
+}
+
+func (o ParameterTypeOutput) ToParameterTypeOutput() ParameterTypeOutput {
+	return o
+}
+
+func (o ParameterTypeOutput) ToParameterTypeOutputWithContext(ctx context.Context) ParameterTypeOutput {
+	return o
+}
+
+func (o ParameterTypeOutput) ToParameterTypePtrOutput() ParameterTypePtrOutput {
+	return o.ToParameterTypePtrOutputWithContext(context.Background())
+}
+
+func (o ParameterTypeOutput) ToParameterTypePtrOutputWithContext(ctx context.Context) ParameterTypePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ParameterType) *ParameterType {
+		return &v
+	}).(ParameterTypePtrOutput)
+}
+
+func (o ParameterTypeOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o ParameterTypeOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e ParameterType) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o ParameterTypeOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o ParameterTypeOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e ParameterType) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type ParameterTypePtrOutput struct{ *pulumi.OutputState }
+
+func (ParameterTypePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ParameterType)(nil)).Elem()
+}
+
+func (o ParameterTypePtrOutput) ToParameterTypePtrOutput() ParameterTypePtrOutput {
+	return o
+}
+
+func (o ParameterTypePtrOutput) ToParameterTypePtrOutputWithContext(ctx context.Context) ParameterTypePtrOutput {
+	return o
+}
+
+func (o ParameterTypePtrOutput) Elem() ParameterTypeOutput {
+	return o.ApplyT(func(v *ParameterType) ParameterType {
+		if v != nil {
+			return *v
+		}
+		var ret ParameterType
+		return ret
+	}).(ParameterTypeOutput)
+}
+
+func (o ParameterTypePtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o ParameterTypePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *ParameterType) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// ParameterTypeInput is an input type that accepts ParameterTypeArgs and ParameterTypeOutput values.
+// You can construct a concrete instance of `ParameterTypeInput` via:
+//
+//          ParameterTypeArgs{...}
+type ParameterTypeInput interface {
+	pulumi.Input
+
+	ToParameterTypeOutput() ParameterTypeOutput
+	ToParameterTypeOutputWithContext(context.Context) ParameterTypeOutput
+}
+
+var parameterTypePtrType = reflect.TypeOf((**ParameterType)(nil)).Elem()
+
+type ParameterTypePtrInput interface {
+	pulumi.Input
+
+	ToParameterTypePtrOutput() ParameterTypePtrOutput
+	ToParameterTypePtrOutputWithContext(context.Context) ParameterTypePtrOutput
+}
+
+type parameterTypePtr string
+
+func ParameterTypePtr(v string) ParameterTypePtrInput {
+	return (*parameterTypePtr)(&v)
+}
+
+func (*parameterTypePtr) ElementType() reflect.Type {
+	return parameterTypePtrType
+}
+
+func (in *parameterTypePtr) ToParameterTypePtrOutput() ParameterTypePtrOutput {
+	return pulumi.ToOutput(in).(ParameterTypePtrOutput)
+}
+
+func (in *parameterTypePtr) ToParameterTypePtrOutputWithContext(ctx context.Context) ParameterTypePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(ParameterTypePtrOutput)
+}
+
+type PolicyType string
 
 const (
 	PolicyTypeNotSpecified = PolicyType("NotSpecified")
@@ -84,7 +355,23 @@ const (
 )
 
 func (PolicyType) ElementType() reflect.Type {
-	return reflect.TypeOf((*pulumi.String)(nil)).Elem()
+	return reflect.TypeOf((*PolicyType)(nil)).Elem()
+}
+
+func (e PolicyType) ToPolicyTypeOutput() PolicyTypeOutput {
+	return pulumi.ToOutput(e).(PolicyTypeOutput)
+}
+
+func (e PolicyType) ToPolicyTypeOutputWithContext(ctx context.Context) PolicyTypeOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(PolicyTypeOutput)
+}
+
+func (e PolicyType) ToPolicyTypePtrOutput() PolicyTypePtrOutput {
+	return e.ToPolicyTypePtrOutputWithContext(context.Background())
+}
+
+func (e PolicyType) ToPolicyTypePtrOutputWithContext(ctx context.Context) PolicyTypePtrOutput {
+	return PolicyType(e).ToPolicyTypeOutputWithContext(ctx).ToPolicyTypePtrOutputWithContext(ctx)
 }
 
 func (e PolicyType) ToStringOutput() pulumi.StringOutput {
@@ -103,8 +390,128 @@ func (e PolicyType) ToStringPtrOutputWithContext(ctx context.Context) pulumi.Str
 	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
 }
 
-// The identity type. This is the only required field when adding a system assigned identity to a resource.
-type ResourceIdentityType pulumi.String
+type PolicyTypeOutput struct{ *pulumi.OutputState }
+
+func (PolicyTypeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*PolicyType)(nil)).Elem()
+}
+
+func (o PolicyTypeOutput) ToPolicyTypeOutput() PolicyTypeOutput {
+	return o
+}
+
+func (o PolicyTypeOutput) ToPolicyTypeOutputWithContext(ctx context.Context) PolicyTypeOutput {
+	return o
+}
+
+func (o PolicyTypeOutput) ToPolicyTypePtrOutput() PolicyTypePtrOutput {
+	return o.ToPolicyTypePtrOutputWithContext(context.Background())
+}
+
+func (o PolicyTypeOutput) ToPolicyTypePtrOutputWithContext(ctx context.Context) PolicyTypePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v PolicyType) *PolicyType {
+		return &v
+	}).(PolicyTypePtrOutput)
+}
+
+func (o PolicyTypeOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o PolicyTypeOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e PolicyType) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o PolicyTypeOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o PolicyTypeOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e PolicyType) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type PolicyTypePtrOutput struct{ *pulumi.OutputState }
+
+func (PolicyTypePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**PolicyType)(nil)).Elem()
+}
+
+func (o PolicyTypePtrOutput) ToPolicyTypePtrOutput() PolicyTypePtrOutput {
+	return o
+}
+
+func (o PolicyTypePtrOutput) ToPolicyTypePtrOutputWithContext(ctx context.Context) PolicyTypePtrOutput {
+	return o
+}
+
+func (o PolicyTypePtrOutput) Elem() PolicyTypeOutput {
+	return o.ApplyT(func(v *PolicyType) PolicyType {
+		if v != nil {
+			return *v
+		}
+		var ret PolicyType
+		return ret
+	}).(PolicyTypeOutput)
+}
+
+func (o PolicyTypePtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o PolicyTypePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *PolicyType) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// PolicyTypeInput is an input type that accepts PolicyTypeArgs and PolicyTypeOutput values.
+// You can construct a concrete instance of `PolicyTypeInput` via:
+//
+//          PolicyTypeArgs{...}
+type PolicyTypeInput interface {
+	pulumi.Input
+
+	ToPolicyTypeOutput() PolicyTypeOutput
+	ToPolicyTypeOutputWithContext(context.Context) PolicyTypeOutput
+}
+
+var policyTypePtrType = reflect.TypeOf((**PolicyType)(nil)).Elem()
+
+type PolicyTypePtrInput interface {
+	pulumi.Input
+
+	ToPolicyTypePtrOutput() PolicyTypePtrOutput
+	ToPolicyTypePtrOutputWithContext(context.Context) PolicyTypePtrOutput
+}
+
+type policyTypePtr string
+
+func PolicyTypePtr(v string) PolicyTypePtrInput {
+	return (*policyTypePtr)(&v)
+}
+
+func (*policyTypePtr) ElementType() reflect.Type {
+	return policyTypePtrType
+}
+
+func (in *policyTypePtr) ToPolicyTypePtrOutput() PolicyTypePtrOutput {
+	return pulumi.ToOutput(in).(PolicyTypePtrOutput)
+}
+
+func (in *policyTypePtr) ToPolicyTypePtrOutputWithContext(ctx context.Context) PolicyTypePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(PolicyTypePtrOutput)
+}
+
+type ResourceIdentityType string
 
 const (
 	// Indicates that a system assigned identity is associated with the resource.
@@ -114,7 +521,23 @@ const (
 )
 
 func (ResourceIdentityType) ElementType() reflect.Type {
-	return reflect.TypeOf((*pulumi.String)(nil)).Elem()
+	return reflect.TypeOf((*ResourceIdentityType)(nil)).Elem()
+}
+
+func (e ResourceIdentityType) ToResourceIdentityTypeOutput() ResourceIdentityTypeOutput {
+	return pulumi.ToOutput(e).(ResourceIdentityTypeOutput)
+}
+
+func (e ResourceIdentityType) ToResourceIdentityTypeOutputWithContext(ctx context.Context) ResourceIdentityTypeOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(ResourceIdentityTypeOutput)
+}
+
+func (e ResourceIdentityType) ToResourceIdentityTypePtrOutput() ResourceIdentityTypePtrOutput {
+	return e.ToResourceIdentityTypePtrOutputWithContext(context.Background())
+}
+
+func (e ResourceIdentityType) ToResourceIdentityTypePtrOutputWithContext(ctx context.Context) ResourceIdentityTypePtrOutput {
+	return ResourceIdentityType(e).ToResourceIdentityTypeOutputWithContext(ctx).ToResourceIdentityTypePtrOutputWithContext(ctx)
 }
 
 func (e ResourceIdentityType) ToStringOutput() pulumi.StringOutput {
@@ -131,4 +554,136 @@ func (e ResourceIdentityType) ToStringPtrOutput() pulumi.StringPtrOutput {
 
 func (e ResourceIdentityType) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
 	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type ResourceIdentityTypeOutput struct{ *pulumi.OutputState }
+
+func (ResourceIdentityTypeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ResourceIdentityType)(nil)).Elem()
+}
+
+func (o ResourceIdentityTypeOutput) ToResourceIdentityTypeOutput() ResourceIdentityTypeOutput {
+	return o
+}
+
+func (o ResourceIdentityTypeOutput) ToResourceIdentityTypeOutputWithContext(ctx context.Context) ResourceIdentityTypeOutput {
+	return o
+}
+
+func (o ResourceIdentityTypeOutput) ToResourceIdentityTypePtrOutput() ResourceIdentityTypePtrOutput {
+	return o.ToResourceIdentityTypePtrOutputWithContext(context.Background())
+}
+
+func (o ResourceIdentityTypeOutput) ToResourceIdentityTypePtrOutputWithContext(ctx context.Context) ResourceIdentityTypePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ResourceIdentityType) *ResourceIdentityType {
+		return &v
+	}).(ResourceIdentityTypePtrOutput)
+}
+
+func (o ResourceIdentityTypeOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o ResourceIdentityTypeOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e ResourceIdentityType) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o ResourceIdentityTypeOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o ResourceIdentityTypeOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e ResourceIdentityType) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type ResourceIdentityTypePtrOutput struct{ *pulumi.OutputState }
+
+func (ResourceIdentityTypePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ResourceIdentityType)(nil)).Elem()
+}
+
+func (o ResourceIdentityTypePtrOutput) ToResourceIdentityTypePtrOutput() ResourceIdentityTypePtrOutput {
+	return o
+}
+
+func (o ResourceIdentityTypePtrOutput) ToResourceIdentityTypePtrOutputWithContext(ctx context.Context) ResourceIdentityTypePtrOutput {
+	return o
+}
+
+func (o ResourceIdentityTypePtrOutput) Elem() ResourceIdentityTypeOutput {
+	return o.ApplyT(func(v *ResourceIdentityType) ResourceIdentityType {
+		if v != nil {
+			return *v
+		}
+		var ret ResourceIdentityType
+		return ret
+	}).(ResourceIdentityTypeOutput)
+}
+
+func (o ResourceIdentityTypePtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o ResourceIdentityTypePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *ResourceIdentityType) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// ResourceIdentityTypeInput is an input type that accepts ResourceIdentityTypeArgs and ResourceIdentityTypeOutput values.
+// You can construct a concrete instance of `ResourceIdentityTypeInput` via:
+//
+//          ResourceIdentityTypeArgs{...}
+type ResourceIdentityTypeInput interface {
+	pulumi.Input
+
+	ToResourceIdentityTypeOutput() ResourceIdentityTypeOutput
+	ToResourceIdentityTypeOutputWithContext(context.Context) ResourceIdentityTypeOutput
+}
+
+var resourceIdentityTypePtrType = reflect.TypeOf((**ResourceIdentityType)(nil)).Elem()
+
+type ResourceIdentityTypePtrInput interface {
+	pulumi.Input
+
+	ToResourceIdentityTypePtrOutput() ResourceIdentityTypePtrOutput
+	ToResourceIdentityTypePtrOutputWithContext(context.Context) ResourceIdentityTypePtrOutput
+}
+
+type resourceIdentityTypePtr string
+
+func ResourceIdentityTypePtr(v string) ResourceIdentityTypePtrInput {
+	return (*resourceIdentityTypePtr)(&v)
+}
+
+func (*resourceIdentityTypePtr) ElementType() reflect.Type {
+	return resourceIdentityTypePtrType
+}
+
+func (in *resourceIdentityTypePtr) ToResourceIdentityTypePtrOutput() ResourceIdentityTypePtrOutput {
+	return pulumi.ToOutput(in).(ResourceIdentityTypePtrOutput)
+}
+
+func (in *resourceIdentityTypePtr) ToResourceIdentityTypePtrOutputWithContext(ctx context.Context) ResourceIdentityTypePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(ResourceIdentityTypePtrOutput)
+}
+
+func init() {
+	pulumi.RegisterOutputType(EnforcementModeOutput{})
+	pulumi.RegisterOutputType(EnforcementModePtrOutput{})
+	pulumi.RegisterOutputType(ParameterTypeOutput{})
+	pulumi.RegisterOutputType(ParameterTypePtrOutput{})
+	pulumi.RegisterOutputType(PolicyTypeOutput{})
+	pulumi.RegisterOutputType(PolicyTypePtrOutput{})
+	pulumi.RegisterOutputType(ResourceIdentityTypeOutput{})
+	pulumi.RegisterOutputType(ResourceIdentityTypePtrOutput{})
 }

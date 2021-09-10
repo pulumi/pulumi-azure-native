@@ -7,7 +7,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// The properties of deployment in Elastic cloud corresponding to the Elastic monitor resource.
 func ListDeploymentInfo(ctx *pulumi.Context, args *ListDeploymentInfoArgs, opts ...pulumi.InvokeOption) (*ListDeploymentInfoResult, error) {
 	var rv ListDeploymentInfoResult
 	err := ctx.Invoke("azure-native:elastic/v20200701:listDeploymentInfo", args, &rv, opts...)
@@ -18,20 +17,14 @@ func ListDeploymentInfo(ctx *pulumi.Context, args *ListDeploymentInfoArgs, opts 
 }
 
 type ListDeploymentInfoArgs struct {
-	// Monitor resource name
-	MonitorName string `pulumi:"monitorName"`
-	// The name of the resource group to which the Elastic resource belongs.
+	MonitorName       string `pulumi:"monitorName"`
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 }
 
 // The properties of deployment in Elastic cloud corresponding to the Elastic monitor resource.
 type ListDeploymentInfoResult struct {
-	// Disk capacity of the elasticsearch in Elastic cloud deployment.
-	DiskCapacity string `pulumi:"diskCapacity"`
-	// RAM capacity of the elasticsearch in Elastic cloud deployment.
+	DiskCapacity   string `pulumi:"diskCapacity"`
 	MemoryCapacity string `pulumi:"memoryCapacity"`
-	// The Elastic deployment status.
-	Status string `pulumi:"status"`
-	// Version of the elasticsearch in Elastic cloud deployment.
-	Version string `pulumi:"version"`
+	Status         string `pulumi:"status"`
+	Version        string `pulumi:"version"`
 }

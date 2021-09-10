@@ -11,18 +11,13 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// A server trust group.
 type ServerTrustGroup struct {
 	pulumi.CustomResourceState
 
-	// Group members information for the server trust group.
 	GroupMembers ServerInfoResponseArrayOutput `pulumi:"groupMembers"`
-	// Resource name.
-	Name pulumi.StringOutput `pulumi:"name"`
-	// Trust scope of the server trust group.
-	TrustScopes pulumi.StringArrayOutput `pulumi:"trustScopes"`
-	// Resource type.
-	Type pulumi.StringOutput `pulumi:"type"`
+	Name         pulumi.StringOutput           `pulumi:"name"`
+	TrustScopes  pulumi.StringArrayOutput      `pulumi:"trustScopes"`
+	Type         pulumi.StringOutput           `pulumi:"type"`
 }
 
 // NewServerTrustGroup registers a new resource with the given unique name, arguments, and options.
@@ -106,30 +101,20 @@ func (ServerTrustGroupState) ElementType() reflect.Type {
 }
 
 type serverTrustGroupArgs struct {
-	// Group members information for the server trust group.
-	GroupMembers []ServerInfo `pulumi:"groupMembers"`
-	// The name of the region where the resource is located.
-	LocationName string `pulumi:"locationName"`
-	// The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
-	ResourceGroupName string `pulumi:"resourceGroupName"`
-	// The name of the server trust group.
-	ServerTrustGroupName *string `pulumi:"serverTrustGroupName"`
-	// Trust scope of the server trust group.
-	TrustScopes []string `pulumi:"trustScopes"`
+	GroupMembers         []ServerInfo `pulumi:"groupMembers"`
+	LocationName         string       `pulumi:"locationName"`
+	ResourceGroupName    string       `pulumi:"resourceGroupName"`
+	ServerTrustGroupName *string      `pulumi:"serverTrustGroupName"`
+	TrustScopes          []string     `pulumi:"trustScopes"`
 }
 
 // The set of arguments for constructing a ServerTrustGroup resource.
 type ServerTrustGroupArgs struct {
-	// Group members information for the server trust group.
-	GroupMembers ServerInfoArrayInput
-	// The name of the region where the resource is located.
-	LocationName pulumi.StringInput
-	// The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
-	ResourceGroupName pulumi.StringInput
-	// The name of the server trust group.
+	GroupMembers         ServerInfoArrayInput
+	LocationName         pulumi.StringInput
+	ResourceGroupName    pulumi.StringInput
 	ServerTrustGroupName pulumi.StringPtrInput
-	// Trust scope of the server trust group.
-	TrustScopes pulumi.StringArrayInput
+	TrustScopes          pulumi.StringArrayInput
 }
 
 func (ServerTrustGroupArgs) ElementType() reflect.Type {
@@ -155,9 +140,7 @@ func (i *ServerTrustGroup) ToServerTrustGroupOutputWithContext(ctx context.Conte
 	return pulumi.ToOutputWithContext(ctx, i).(ServerTrustGroupOutput)
 }
 
-type ServerTrustGroupOutput struct {
-	*pulumi.OutputState
-}
+type ServerTrustGroupOutput struct{ *pulumi.OutputState }
 
 func (ServerTrustGroupOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*ServerTrustGroup)(nil))

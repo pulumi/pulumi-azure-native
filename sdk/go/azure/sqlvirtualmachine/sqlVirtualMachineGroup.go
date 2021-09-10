@@ -151,9 +151,7 @@ func (i *SqlVirtualMachineGroup) ToSqlVirtualMachineGroupOutputWithContext(ctx c
 	return pulumi.ToOutputWithContext(ctx, i).(SqlVirtualMachineGroupOutput)
 }
 
-type SqlVirtualMachineGroupOutput struct {
-	*pulumi.OutputState
-}
+type SqlVirtualMachineGroupOutput struct{ *pulumi.OutputState }
 
 func (SqlVirtualMachineGroupOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*SqlVirtualMachineGroup)(nil))

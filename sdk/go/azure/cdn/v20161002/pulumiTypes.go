@@ -10,16 +10,11 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Origin to be added when creating a CDN endpoint.
 type DeepCreatedOrigin struct {
-	// The address of the origin. It can be a domain names, IPv4 address, or IPv6 address.
-	HostName string `pulumi:"hostName"`
-	// The value of the HTTP port. Must be between 1 and 65535
-	HttpPort *int `pulumi:"httpPort"`
-	// The value of the HTTPS port. Must be between 1 and 65535
-	HttpsPort *int `pulumi:"httpsPort"`
-	// Origin name
-	Name string `pulumi:"name"`
+	HostName  string `pulumi:"hostName"`
+	HttpPort  *int   `pulumi:"httpPort"`
+	HttpsPort *int   `pulumi:"httpsPort"`
+	Name      string `pulumi:"name"`
 }
 
 // DeepCreatedOriginInput is an input type that accepts DeepCreatedOriginArgs and DeepCreatedOriginOutput values.
@@ -33,16 +28,11 @@ type DeepCreatedOriginInput interface {
 	ToDeepCreatedOriginOutputWithContext(context.Context) DeepCreatedOriginOutput
 }
 
-// Origin to be added when creating a CDN endpoint.
 type DeepCreatedOriginArgs struct {
-	// The address of the origin. It can be a domain names, IPv4 address, or IPv6 address.
-	HostName pulumi.StringInput `pulumi:"hostName"`
-	// The value of the HTTP port. Must be between 1 and 65535
-	HttpPort pulumi.IntPtrInput `pulumi:"httpPort"`
-	// The value of the HTTPS port. Must be between 1 and 65535
+	HostName  pulumi.StringInput `pulumi:"hostName"`
+	HttpPort  pulumi.IntPtrInput `pulumi:"httpPort"`
 	HttpsPort pulumi.IntPtrInput `pulumi:"httpsPort"`
-	// Origin name
-	Name pulumi.StringInput `pulumi:"name"`
+	Name      pulumi.StringInput `pulumi:"name"`
 }
 
 func (DeepCreatedOriginArgs) ElementType() reflect.Type {
@@ -82,7 +72,6 @@ func (i DeepCreatedOriginArray) ToDeepCreatedOriginArrayOutputWithContext(ctx co
 	return pulumi.ToOutputWithContext(ctx, i).(DeepCreatedOriginArrayOutput)
 }
 
-// Origin to be added when creating a CDN endpoint.
 type DeepCreatedOriginOutput struct{ *pulumi.OutputState }
 
 func (DeepCreatedOriginOutput) ElementType() reflect.Type {
@@ -97,22 +86,18 @@ func (o DeepCreatedOriginOutput) ToDeepCreatedOriginOutputWithContext(ctx contex
 	return o
 }
 
-// The address of the origin. It can be a domain names, IPv4 address, or IPv6 address.
 func (o DeepCreatedOriginOutput) HostName() pulumi.StringOutput {
 	return o.ApplyT(func(v DeepCreatedOrigin) string { return v.HostName }).(pulumi.StringOutput)
 }
 
-// The value of the HTTP port. Must be between 1 and 65535
 func (o DeepCreatedOriginOutput) HttpPort() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v DeepCreatedOrigin) *int { return v.HttpPort }).(pulumi.IntPtrOutput)
 }
 
-// The value of the HTTPS port. Must be between 1 and 65535
 func (o DeepCreatedOriginOutput) HttpsPort() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v DeepCreatedOrigin) *int { return v.HttpsPort }).(pulumi.IntPtrOutput)
 }
 
-// Origin name
 func (o DeepCreatedOriginOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v DeepCreatedOrigin) string { return v.Name }).(pulumi.StringOutput)
 }
@@ -137,16 +122,11 @@ func (o DeepCreatedOriginArrayOutput) Index(i pulumi.IntInput) DeepCreatedOrigin
 	}).(DeepCreatedOriginOutput)
 }
 
-// Origin to be added when creating a CDN endpoint.
 type DeepCreatedOriginResponse struct {
-	// The address of the origin. It can be a domain names, IPv4 address, or IPv6 address.
-	HostName string `pulumi:"hostName"`
-	// The value of the HTTP port. Must be between 1 and 65535
-	HttpPort *int `pulumi:"httpPort"`
-	// The value of the HTTPS port. Must be between 1 and 65535
-	HttpsPort *int `pulumi:"httpsPort"`
-	// Origin name
-	Name string `pulumi:"name"`
+	HostName  string `pulumi:"hostName"`
+	HttpPort  *int   `pulumi:"httpPort"`
+	HttpsPort *int   `pulumi:"httpsPort"`
+	Name      string `pulumi:"name"`
 }
 
 // DeepCreatedOriginResponseInput is an input type that accepts DeepCreatedOriginResponseArgs and DeepCreatedOriginResponseOutput values.
@@ -160,16 +140,11 @@ type DeepCreatedOriginResponseInput interface {
 	ToDeepCreatedOriginResponseOutputWithContext(context.Context) DeepCreatedOriginResponseOutput
 }
 
-// Origin to be added when creating a CDN endpoint.
 type DeepCreatedOriginResponseArgs struct {
-	// The address of the origin. It can be a domain names, IPv4 address, or IPv6 address.
-	HostName pulumi.StringInput `pulumi:"hostName"`
-	// The value of the HTTP port. Must be between 1 and 65535
-	HttpPort pulumi.IntPtrInput `pulumi:"httpPort"`
-	// The value of the HTTPS port. Must be between 1 and 65535
+	HostName  pulumi.StringInput `pulumi:"hostName"`
+	HttpPort  pulumi.IntPtrInput `pulumi:"httpPort"`
 	HttpsPort pulumi.IntPtrInput `pulumi:"httpsPort"`
-	// Origin name
-	Name pulumi.StringInput `pulumi:"name"`
+	Name      pulumi.StringInput `pulumi:"name"`
 }
 
 func (DeepCreatedOriginResponseArgs) ElementType() reflect.Type {
@@ -209,7 +184,6 @@ func (i DeepCreatedOriginResponseArray) ToDeepCreatedOriginResponseArrayOutputWi
 	return pulumi.ToOutputWithContext(ctx, i).(DeepCreatedOriginResponseArrayOutput)
 }
 
-// Origin to be added when creating a CDN endpoint.
 type DeepCreatedOriginResponseOutput struct{ *pulumi.OutputState }
 
 func (DeepCreatedOriginResponseOutput) ElementType() reflect.Type {
@@ -224,22 +198,18 @@ func (o DeepCreatedOriginResponseOutput) ToDeepCreatedOriginResponseOutputWithCo
 	return o
 }
 
-// The address of the origin. It can be a domain names, IPv4 address, or IPv6 address.
 func (o DeepCreatedOriginResponseOutput) HostName() pulumi.StringOutput {
 	return o.ApplyT(func(v DeepCreatedOriginResponse) string { return v.HostName }).(pulumi.StringOutput)
 }
 
-// The value of the HTTP port. Must be between 1 and 65535
 func (o DeepCreatedOriginResponseOutput) HttpPort() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v DeepCreatedOriginResponse) *int { return v.HttpPort }).(pulumi.IntPtrOutput)
 }
 
-// The value of the HTTPS port. Must be between 1 and 65535
 func (o DeepCreatedOriginResponseOutput) HttpsPort() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v DeepCreatedOriginResponse) *int { return v.HttpsPort }).(pulumi.IntPtrOutput)
 }
 
-// Origin name
 func (o DeepCreatedOriginResponseOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v DeepCreatedOriginResponse) string { return v.Name }).(pulumi.StringOutput)
 }
@@ -264,14 +234,10 @@ func (o DeepCreatedOriginResponseArrayOutput) Index(i pulumi.IntInput) DeepCreat
 	}).(DeepCreatedOriginResponseOutput)
 }
 
-// Rules defining user geo access within a CDN endpoint.
 type GeoFilter struct {
-	// Action of the geo filter, i.e. allow or block access.
-	Action string `pulumi:"action"`
-	// Two letter country codes defining user country access in a geo filter, e.g. AU, MX, US.
-	CountryCodes []string `pulumi:"countryCodes"`
-	// Relative path applicable to geo filter. (e.g. '/mypictures', '/mypicture/kitty.jpg', and etc.)
-	RelativePath string `pulumi:"relativePath"`
+	Action       GeoFilterActions `pulumi:"action"`
+	CountryCodes []string         `pulumi:"countryCodes"`
+	RelativePath string           `pulumi:"relativePath"`
 }
 
 // GeoFilterInput is an input type that accepts GeoFilterArgs and GeoFilterOutput values.
@@ -285,14 +251,10 @@ type GeoFilterInput interface {
 	ToGeoFilterOutputWithContext(context.Context) GeoFilterOutput
 }
 
-// Rules defining user geo access within a CDN endpoint.
 type GeoFilterArgs struct {
-	// Action of the geo filter, i.e. allow or block access.
-	Action GeoFilterActions `pulumi:"action"`
-	// Two letter country codes defining user country access in a geo filter, e.g. AU, MX, US.
+	Action       GeoFilterActionsInput   `pulumi:"action"`
 	CountryCodes pulumi.StringArrayInput `pulumi:"countryCodes"`
-	// Relative path applicable to geo filter. (e.g. '/mypictures', '/mypicture/kitty.jpg', and etc.)
-	RelativePath pulumi.StringInput `pulumi:"relativePath"`
+	RelativePath pulumi.StringInput      `pulumi:"relativePath"`
 }
 
 func (GeoFilterArgs) ElementType() reflect.Type {
@@ -332,7 +294,6 @@ func (i GeoFilterArray) ToGeoFilterArrayOutputWithContext(ctx context.Context) G
 	return pulumi.ToOutputWithContext(ctx, i).(GeoFilterArrayOutput)
 }
 
-// Rules defining user geo access within a CDN endpoint.
 type GeoFilterOutput struct{ *pulumi.OutputState }
 
 func (GeoFilterOutput) ElementType() reflect.Type {
@@ -347,17 +308,14 @@ func (o GeoFilterOutput) ToGeoFilterOutputWithContext(ctx context.Context) GeoFi
 	return o
 }
 
-// Action of the geo filter, i.e. allow or block access.
-func (o GeoFilterOutput) Action() pulumi.StringOutput {
-	return o.ApplyT(func(v GeoFilter) string { return v.Action }).(pulumi.StringOutput)
+func (o GeoFilterOutput) Action() GeoFilterActionsOutput {
+	return o.ApplyT(func(v GeoFilter) GeoFilterActions { return v.Action }).(GeoFilterActionsOutput)
 }
 
-// Two letter country codes defining user country access in a geo filter, e.g. AU, MX, US.
 func (o GeoFilterOutput) CountryCodes() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v GeoFilter) []string { return v.CountryCodes }).(pulumi.StringArrayOutput)
 }
 
-// Relative path applicable to geo filter. (e.g. '/mypictures', '/mypicture/kitty.jpg', and etc.)
 func (o GeoFilterOutput) RelativePath() pulumi.StringOutput {
 	return o.ApplyT(func(v GeoFilter) string { return v.RelativePath }).(pulumi.StringOutput)
 }
@@ -382,14 +340,10 @@ func (o GeoFilterArrayOutput) Index(i pulumi.IntInput) GeoFilterOutput {
 	}).(GeoFilterOutput)
 }
 
-// Rules defining user geo access within a CDN endpoint.
 type GeoFilterResponse struct {
-	// Action of the geo filter, i.e. allow or block access.
-	Action string `pulumi:"action"`
-	// Two letter country codes defining user country access in a geo filter, e.g. AU, MX, US.
+	Action       string   `pulumi:"action"`
 	CountryCodes []string `pulumi:"countryCodes"`
-	// Relative path applicable to geo filter. (e.g. '/mypictures', '/mypicture/kitty.jpg', and etc.)
-	RelativePath string `pulumi:"relativePath"`
+	RelativePath string   `pulumi:"relativePath"`
 }
 
 // GeoFilterResponseInput is an input type that accepts GeoFilterResponseArgs and GeoFilterResponseOutput values.
@@ -403,14 +357,10 @@ type GeoFilterResponseInput interface {
 	ToGeoFilterResponseOutputWithContext(context.Context) GeoFilterResponseOutput
 }
 
-// Rules defining user geo access within a CDN endpoint.
 type GeoFilterResponseArgs struct {
-	// Action of the geo filter, i.e. allow or block access.
-	Action pulumi.StringInput `pulumi:"action"`
-	// Two letter country codes defining user country access in a geo filter, e.g. AU, MX, US.
+	Action       pulumi.StringInput      `pulumi:"action"`
 	CountryCodes pulumi.StringArrayInput `pulumi:"countryCodes"`
-	// Relative path applicable to geo filter. (e.g. '/mypictures', '/mypicture/kitty.jpg', and etc.)
-	RelativePath pulumi.StringInput `pulumi:"relativePath"`
+	RelativePath pulumi.StringInput      `pulumi:"relativePath"`
 }
 
 func (GeoFilterResponseArgs) ElementType() reflect.Type {
@@ -450,7 +400,6 @@ func (i GeoFilterResponseArray) ToGeoFilterResponseArrayOutputWithContext(ctx co
 	return pulumi.ToOutputWithContext(ctx, i).(GeoFilterResponseArrayOutput)
 }
 
-// Rules defining user geo access within a CDN endpoint.
 type GeoFilterResponseOutput struct{ *pulumi.OutputState }
 
 func (GeoFilterResponseOutput) ElementType() reflect.Type {
@@ -465,17 +414,14 @@ func (o GeoFilterResponseOutput) ToGeoFilterResponseOutputWithContext(ctx contex
 	return o
 }
 
-// Action of the geo filter, i.e. allow or block access.
 func (o GeoFilterResponseOutput) Action() pulumi.StringOutput {
 	return o.ApplyT(func(v GeoFilterResponse) string { return v.Action }).(pulumi.StringOutput)
 }
 
-// Two letter country codes defining user country access in a geo filter, e.g. AU, MX, US.
 func (o GeoFilterResponseOutput) CountryCodes() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v GeoFilterResponse) []string { return v.CountryCodes }).(pulumi.StringArrayOutput)
 }
 
-// Relative path applicable to geo filter. (e.g. '/mypictures', '/mypicture/kitty.jpg', and etc.)
 func (o GeoFilterResponseOutput) RelativePath() pulumi.StringOutput {
 	return o.ApplyT(func(v GeoFilterResponse) string { return v.RelativePath }).(pulumi.StringOutput)
 }
@@ -500,9 +446,7 @@ func (o GeoFilterResponseArrayOutput) Index(i pulumi.IntInput) GeoFilterResponse
 	}).(GeoFilterResponseOutput)
 }
 
-// The pricing tier (defines a CDN provider, feature list and rate) of the CDN profile.
 type Sku struct {
-	// Name of the pricing tier.
 	Name *string `pulumi:"name"`
 }
 
@@ -517,9 +461,7 @@ type SkuInput interface {
 	ToSkuOutputWithContext(context.Context) SkuOutput
 }
 
-// The pricing tier (defines a CDN provider, feature list and rate) of the CDN profile.
 type SkuArgs struct {
-	// Name of the pricing tier.
 	Name pulumi.StringPtrInput `pulumi:"name"`
 }
 
@@ -576,7 +518,6 @@ func (i *skuPtrType) ToSkuPtrOutputWithContext(ctx context.Context) SkuPtrOutput
 	return pulumi.ToOutputWithContext(ctx, i).(SkuPtrOutput)
 }
 
-// The pricing tier (defines a CDN provider, feature list and rate) of the CDN profile.
 type SkuOutput struct{ *pulumi.OutputState }
 
 func (SkuOutput) ElementType() reflect.Type {
@@ -596,12 +537,11 @@ func (o SkuOutput) ToSkuPtrOutput() SkuPtrOutput {
 }
 
 func (o SkuOutput) ToSkuPtrOutputWithContext(ctx context.Context) SkuPtrOutput {
-	return o.ApplyT(func(v Sku) *Sku {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v Sku) *Sku {
 		return &v
 	}).(SkuPtrOutput)
 }
 
-// Name of the pricing tier.
 func (o SkuOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v Sku) *string { return v.Name }).(pulumi.StringPtrOutput)
 }
@@ -621,10 +561,15 @@ func (o SkuPtrOutput) ToSkuPtrOutputWithContext(ctx context.Context) SkuPtrOutpu
 }
 
 func (o SkuPtrOutput) Elem() SkuOutput {
-	return o.ApplyT(func(v *Sku) Sku { return *v }).(SkuOutput)
+	return o.ApplyT(func(v *Sku) Sku {
+		if v != nil {
+			return *v
+		}
+		var ret Sku
+		return ret
+	}).(SkuOutput)
 }
 
-// Name of the pricing tier.
 func (o SkuPtrOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Sku) *string {
 		if v == nil {
@@ -634,9 +579,7 @@ func (o SkuPtrOutput) Name() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The pricing tier (defines a CDN provider, feature list and rate) of the CDN profile.
 type SkuResponse struct {
-	// Name of the pricing tier.
 	Name *string `pulumi:"name"`
 }
 
@@ -651,9 +594,7 @@ type SkuResponseInput interface {
 	ToSkuResponseOutputWithContext(context.Context) SkuResponseOutput
 }
 
-// The pricing tier (defines a CDN provider, feature list and rate) of the CDN profile.
 type SkuResponseArgs struct {
-	// Name of the pricing tier.
 	Name pulumi.StringPtrInput `pulumi:"name"`
 }
 
@@ -710,7 +651,6 @@ func (i *skuResponsePtrType) ToSkuResponsePtrOutputWithContext(ctx context.Conte
 	return pulumi.ToOutputWithContext(ctx, i).(SkuResponsePtrOutput)
 }
 
-// The pricing tier (defines a CDN provider, feature list and rate) of the CDN profile.
 type SkuResponseOutput struct{ *pulumi.OutputState }
 
 func (SkuResponseOutput) ElementType() reflect.Type {
@@ -730,12 +670,11 @@ func (o SkuResponseOutput) ToSkuResponsePtrOutput() SkuResponsePtrOutput {
 }
 
 func (o SkuResponseOutput) ToSkuResponsePtrOutputWithContext(ctx context.Context) SkuResponsePtrOutput {
-	return o.ApplyT(func(v SkuResponse) *SkuResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v SkuResponse) *SkuResponse {
 		return &v
 	}).(SkuResponsePtrOutput)
 }
 
-// Name of the pricing tier.
 func (o SkuResponseOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SkuResponse) *string { return v.Name }).(pulumi.StringPtrOutput)
 }
@@ -755,10 +694,15 @@ func (o SkuResponsePtrOutput) ToSkuResponsePtrOutputWithContext(ctx context.Cont
 }
 
 func (o SkuResponsePtrOutput) Elem() SkuResponseOutput {
-	return o.ApplyT(func(v *SkuResponse) SkuResponse { return *v }).(SkuResponseOutput)
+	return o.ApplyT(func(v *SkuResponse) SkuResponse {
+		if v != nil {
+			return *v
+		}
+		var ret SkuResponse
+		return ret
+	}).(SkuResponseOutput)
 }
 
-// Name of the pricing tier.
 func (o SkuResponsePtrOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SkuResponse) *string {
 		if v == nil {

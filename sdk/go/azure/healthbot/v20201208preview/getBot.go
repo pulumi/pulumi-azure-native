@@ -7,7 +7,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// HealthBot resource definition
 func LookupBot(ctx *pulumi.Context, args *LookupBotArgs, opts ...pulumi.InvokeOption) (*LookupBotResult, error) {
 	var rv LookupBotResult
 	err := ctx.Invoke("azure-native:healthbot/v20201208preview:getBot", args, &rv, opts...)
@@ -18,28 +17,18 @@ func LookupBot(ctx *pulumi.Context, args *LookupBotArgs, opts ...pulumi.InvokeOp
 }
 
 type LookupBotArgs struct {
-	// The name of the Bot resource.
-	BotName string `pulumi:"botName"`
-	// The name of the Bot resource group in the user subscription.
+	BotName           string `pulumi:"botName"`
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 }
 
 // HealthBot resource definition
 type LookupBotResult struct {
-	// Fully qualified resource Id for the resource.
-	Id string `pulumi:"id"`
-	// The geo-location where the resource lives
-	Location string `pulumi:"location"`
-	// The name of the resource
-	Name string `pulumi:"name"`
-	// The set of properties specific to healthcare bot resource.
+	Id         string                      `pulumi:"id"`
+	Location   string                      `pulumi:"location"`
+	Name       string                      `pulumi:"name"`
 	Properties HealthBotPropertiesResponse `pulumi:"properties"`
-	// SKU of the HealthBot.
-	Sku *SkuResponse `pulumi:"sku"`
-	// Metadata pertaining to creation and last modification of the resource
-	SystemData SystemDataResponse `pulumi:"systemData"`
-	// Resource tags.
-	Tags map[string]string `pulumi:"tags"`
-	// The type of the resource.
-	Type string `pulumi:"type"`
+	Sku        *SkuResponse                `pulumi:"sku"`
+	SystemData SystemDataResponse          `pulumi:"systemData"`
+	Tags       map[string]string           `pulumi:"tags"`
+	Type       string                      `pulumi:"type"`
 }

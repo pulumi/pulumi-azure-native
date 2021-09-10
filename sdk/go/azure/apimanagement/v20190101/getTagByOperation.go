@@ -7,7 +7,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Tag Contract details.
 func LookupTagByOperation(ctx *pulumi.Context, args *LookupTagByOperationArgs, opts ...pulumi.InvokeOption) (*LookupTagByOperationResult, error) {
 	var rv LookupTagByOperationResult
 	err := ctx.Invoke("azure-native:apimanagement/v20190101:getTagByOperation", args, &rv, opts...)
@@ -18,26 +17,17 @@ func LookupTagByOperation(ctx *pulumi.Context, args *LookupTagByOperationArgs, o
 }
 
 type LookupTagByOperationArgs struct {
-	// API revision identifier. Must be unique in the current API Management service instance. Non-current revision has ;rev=n as a suffix where n is the revision number.
-	ApiId string `pulumi:"apiId"`
-	// Operation identifier within an API. Must be unique in the current API Management service instance.
-	OperationId string `pulumi:"operationId"`
-	// The name of the resource group.
+	ApiId             string `pulumi:"apiId"`
+	OperationId       string `pulumi:"operationId"`
 	ResourceGroupName string `pulumi:"resourceGroupName"`
-	// The name of the API Management service.
-	ServiceName string `pulumi:"serviceName"`
-	// Tag identifier. Must be unique in the current API Management service instance.
-	TagId string `pulumi:"tagId"`
+	ServiceName       string `pulumi:"serviceName"`
+	TagId             string `pulumi:"tagId"`
 }
 
 // Tag Contract details.
 type LookupTagByOperationResult struct {
-	// Tag name.
 	DisplayName string `pulumi:"displayName"`
-	// Resource ID.
-	Id string `pulumi:"id"`
-	// Resource name.
-	Name string `pulumi:"name"`
-	// Resource type for API Management resource.
-	Type string `pulumi:"type"`
+	Id          string `pulumi:"id"`
+	Name        string `pulumi:"name"`
+	Type        string `pulumi:"type"`
 }

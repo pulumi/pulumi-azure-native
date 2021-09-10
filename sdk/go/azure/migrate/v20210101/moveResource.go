@@ -11,16 +11,12 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Defines the move resource.
 type MoveResource struct {
 	pulumi.CustomResourceState
 
-	// The name of the resource
-	Name pulumi.StringOutput `pulumi:"name"`
-	// Defines the move resource properties.
+	Name       pulumi.StringOutput                  `pulumi:"name"`
 	Properties MoveResourcePropertiesResponseOutput `pulumi:"properties"`
-	// The type of the resource.
-	Type pulumi.StringOutput `pulumi:"type"`
+	Type       pulumi.StringOutput                  `pulumi:"type"`
 }
 
 // NewMoveResource registers a new resource with the given unique name, arguments, and options.
@@ -86,26 +82,18 @@ func (MoveResourceState) ElementType() reflect.Type {
 }
 
 type moveResourceArgs struct {
-	// The Move Collection Name.
-	MoveCollectionName string `pulumi:"moveCollectionName"`
-	// The Move Resource Name.
-	MoveResourceName *string `pulumi:"moveResourceName"`
-	// Defines the move resource properties.
-	Properties *MoveResourceProperties `pulumi:"properties"`
-	// The Resource Group Name.
-	ResourceGroupName string `pulumi:"resourceGroupName"`
+	MoveCollectionName string                  `pulumi:"moveCollectionName"`
+	MoveResourceName   *string                 `pulumi:"moveResourceName"`
+	Properties         *MoveResourceProperties `pulumi:"properties"`
+	ResourceGroupName  string                  `pulumi:"resourceGroupName"`
 }
 
 // The set of arguments for constructing a MoveResource resource.
 type MoveResourceArgs struct {
-	// The Move Collection Name.
 	MoveCollectionName pulumi.StringInput
-	// The Move Resource Name.
-	MoveResourceName pulumi.StringPtrInput
-	// Defines the move resource properties.
-	Properties MoveResourcePropertiesPtrInput
-	// The Resource Group Name.
-	ResourceGroupName pulumi.StringInput
+	MoveResourceName   pulumi.StringPtrInput
+	Properties         MoveResourcePropertiesPtrInput
+	ResourceGroupName  pulumi.StringInput
 }
 
 func (MoveResourceArgs) ElementType() reflect.Type {
@@ -131,9 +119,7 @@ func (i *MoveResource) ToMoveResourceOutputWithContext(ctx context.Context) Move
 	return pulumi.ToOutputWithContext(ctx, i).(MoveResourceOutput)
 }
 
-type MoveResourceOutput struct {
-	*pulumi.OutputState
-}
+type MoveResourceOutput struct{ *pulumi.OutputState }
 
 func (MoveResourceOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*MoveResource)(nil))

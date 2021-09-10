@@ -10,17 +10,11 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Action rule properties defining scope, conditions, suppression logic for action rule
 type ActionRuleProperties struct {
-	// Conditions in alert instance to be matched for a given action rule. Default value is all. Multiple values could be provided with comma separation.
-	Conditions *Conditions `pulumi:"conditions"`
-	// Description of action rule
-	Description *string `pulumi:"description"`
-	// Target scope for a given action rule. By default scope will be the subscription. User can also provide list of resource groups or list of resources from the scope subscription as well.
-	Scope *Scope `pulumi:"scope"`
-	// Indicates if the given action rule is enabled or disabled
-	Status *string `pulumi:"status"`
-	// Suppression logic for a given action rule
+	Conditions        *Conditions        `pulumi:"conditions"`
+	Description       *string            `pulumi:"description"`
+	Scope             *Scope             `pulumi:"scope"`
+	Status            *string            `pulumi:"status"`
 	SuppressionConfig *SuppressionConfig `pulumi:"suppressionConfig"`
 }
 
@@ -35,17 +29,11 @@ type ActionRulePropertiesInput interface {
 	ToActionRulePropertiesOutputWithContext(context.Context) ActionRulePropertiesOutput
 }
 
-// Action rule properties defining scope, conditions, suppression logic for action rule
 type ActionRulePropertiesArgs struct {
-	// Conditions in alert instance to be matched for a given action rule. Default value is all. Multiple values could be provided with comma separation.
-	Conditions ConditionsPtrInput `pulumi:"conditions"`
-	// Description of action rule
-	Description pulumi.StringPtrInput `pulumi:"description"`
-	// Target scope for a given action rule. By default scope will be the subscription. User can also provide list of resource groups or list of resources from the scope subscription as well.
-	Scope ScopePtrInput `pulumi:"scope"`
-	// Indicates if the given action rule is enabled or disabled
-	Status pulumi.StringPtrInput `pulumi:"status"`
-	// Suppression logic for a given action rule
+	Conditions        ConditionsPtrInput        `pulumi:"conditions"`
+	Description       pulumi.StringPtrInput     `pulumi:"description"`
+	Scope             ScopePtrInput             `pulumi:"scope"`
+	Status            pulumi.StringPtrInput     `pulumi:"status"`
 	SuppressionConfig SuppressionConfigPtrInput `pulumi:"suppressionConfig"`
 }
 
@@ -102,7 +90,6 @@ func (i *actionRulePropertiesPtrType) ToActionRulePropertiesPtrOutputWithContext
 	return pulumi.ToOutputWithContext(ctx, i).(ActionRulePropertiesPtrOutput)
 }
 
-// Action rule properties defining scope, conditions, suppression logic for action rule
 type ActionRulePropertiesOutput struct{ *pulumi.OutputState }
 
 func (ActionRulePropertiesOutput) ElementType() reflect.Type {
@@ -122,32 +109,27 @@ func (o ActionRulePropertiesOutput) ToActionRulePropertiesPtrOutput() ActionRule
 }
 
 func (o ActionRulePropertiesOutput) ToActionRulePropertiesPtrOutputWithContext(ctx context.Context) ActionRulePropertiesPtrOutput {
-	return o.ApplyT(func(v ActionRuleProperties) *ActionRuleProperties {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ActionRuleProperties) *ActionRuleProperties {
 		return &v
 	}).(ActionRulePropertiesPtrOutput)
 }
 
-// Conditions in alert instance to be matched for a given action rule. Default value is all. Multiple values could be provided with comma separation.
 func (o ActionRulePropertiesOutput) Conditions() ConditionsPtrOutput {
 	return o.ApplyT(func(v ActionRuleProperties) *Conditions { return v.Conditions }).(ConditionsPtrOutput)
 }
 
-// Description of action rule
 func (o ActionRulePropertiesOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ActionRuleProperties) *string { return v.Description }).(pulumi.StringPtrOutput)
 }
 
-// Target scope for a given action rule. By default scope will be the subscription. User can also provide list of resource groups or list of resources from the scope subscription as well.
 func (o ActionRulePropertiesOutput) Scope() ScopePtrOutput {
 	return o.ApplyT(func(v ActionRuleProperties) *Scope { return v.Scope }).(ScopePtrOutput)
 }
 
-// Indicates if the given action rule is enabled or disabled
 func (o ActionRulePropertiesOutput) Status() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ActionRuleProperties) *string { return v.Status }).(pulumi.StringPtrOutput)
 }
 
-// Suppression logic for a given action rule
 func (o ActionRulePropertiesOutput) SuppressionConfig() SuppressionConfigPtrOutput {
 	return o.ApplyT(func(v ActionRuleProperties) *SuppressionConfig { return v.SuppressionConfig }).(SuppressionConfigPtrOutput)
 }
@@ -167,10 +149,15 @@ func (o ActionRulePropertiesPtrOutput) ToActionRulePropertiesPtrOutputWithContex
 }
 
 func (o ActionRulePropertiesPtrOutput) Elem() ActionRulePropertiesOutput {
-	return o.ApplyT(func(v *ActionRuleProperties) ActionRuleProperties { return *v }).(ActionRulePropertiesOutput)
+	return o.ApplyT(func(v *ActionRuleProperties) ActionRuleProperties {
+		if v != nil {
+			return *v
+		}
+		var ret ActionRuleProperties
+		return ret
+	}).(ActionRulePropertiesOutput)
 }
 
-// Conditions in alert instance to be matched for a given action rule. Default value is all. Multiple values could be provided with comma separation.
 func (o ActionRulePropertiesPtrOutput) Conditions() ConditionsPtrOutput {
 	return o.ApplyT(func(v *ActionRuleProperties) *Conditions {
 		if v == nil {
@@ -180,7 +167,6 @@ func (o ActionRulePropertiesPtrOutput) Conditions() ConditionsPtrOutput {
 	}).(ConditionsPtrOutput)
 }
 
-// Description of action rule
 func (o ActionRulePropertiesPtrOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ActionRuleProperties) *string {
 		if v == nil {
@@ -190,7 +176,6 @@ func (o ActionRulePropertiesPtrOutput) Description() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Target scope for a given action rule. By default scope will be the subscription. User can also provide list of resource groups or list of resources from the scope subscription as well.
 func (o ActionRulePropertiesPtrOutput) Scope() ScopePtrOutput {
 	return o.ApplyT(func(v *ActionRuleProperties) *Scope {
 		if v == nil {
@@ -200,7 +185,6 @@ func (o ActionRulePropertiesPtrOutput) Scope() ScopePtrOutput {
 	}).(ScopePtrOutput)
 }
 
-// Indicates if the given action rule is enabled or disabled
 func (o ActionRulePropertiesPtrOutput) Status() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ActionRuleProperties) *string {
 		if v == nil {
@@ -210,7 +194,6 @@ func (o ActionRulePropertiesPtrOutput) Status() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Suppression logic for a given action rule
 func (o ActionRulePropertiesPtrOutput) SuppressionConfig() SuppressionConfigPtrOutput {
 	return o.ApplyT(func(v *ActionRuleProperties) *SuppressionConfig {
 		if v == nil {
@@ -220,27 +203,16 @@ func (o ActionRulePropertiesPtrOutput) SuppressionConfig() SuppressionConfigPtrO
 	}).(SuppressionConfigPtrOutput)
 }
 
-// Action rule properties defining scope, conditions, suppression logic for action rule
 type ActionRulePropertiesResponse struct {
-	// Conditions in alert instance to be matched for a given action rule. Default value is all. Multiple values could be provided with comma separation.
-	Conditions *ConditionsResponse `pulumi:"conditions"`
-	// Creation time of action rule. Date-Time in ISO-8601 format.
-	CreatedAt string `pulumi:"createdAt"`
-	// Created by user name.
-	CreatedBy string `pulumi:"createdBy"`
-	// Description of action rule
-	Description *string `pulumi:"description"`
-	// Last updated time of action rule. Date-Time in ISO-8601 format.
-	LastModifiedAt string `pulumi:"lastModifiedAt"`
-	// Last modified by user name.
-	LastModifiedBy string `pulumi:"lastModifiedBy"`
-	// Resource group where action rule is stored
-	ResourceGroup string `pulumi:"resourceGroup"`
-	// Target scope for a given action rule. By default scope will be the subscription. User can also provide list of resource groups or list of resources from the scope subscription as well.
-	Scope *ScopeResponse `pulumi:"scope"`
-	// Indicates if the given action rule is enabled or disabled
-	Status *string `pulumi:"status"`
-	// Suppression logic for a given action rule
+	Conditions        *ConditionsResponse        `pulumi:"conditions"`
+	CreatedAt         string                     `pulumi:"createdAt"`
+	CreatedBy         string                     `pulumi:"createdBy"`
+	Description       *string                    `pulumi:"description"`
+	LastModifiedAt    string                     `pulumi:"lastModifiedAt"`
+	LastModifiedBy    string                     `pulumi:"lastModifiedBy"`
+	ResourceGroup     string                     `pulumi:"resourceGroup"`
+	Scope             *ScopeResponse             `pulumi:"scope"`
+	Status            *string                    `pulumi:"status"`
 	SuppressionConfig *SuppressionConfigResponse `pulumi:"suppressionConfig"`
 }
 
@@ -255,27 +227,16 @@ type ActionRulePropertiesResponseInput interface {
 	ToActionRulePropertiesResponseOutputWithContext(context.Context) ActionRulePropertiesResponseOutput
 }
 
-// Action rule properties defining scope, conditions, suppression logic for action rule
 type ActionRulePropertiesResponseArgs struct {
-	// Conditions in alert instance to be matched for a given action rule. Default value is all. Multiple values could be provided with comma separation.
-	Conditions ConditionsResponsePtrInput `pulumi:"conditions"`
-	// Creation time of action rule. Date-Time in ISO-8601 format.
-	CreatedAt pulumi.StringInput `pulumi:"createdAt"`
-	// Created by user name.
-	CreatedBy pulumi.StringInput `pulumi:"createdBy"`
-	// Description of action rule
-	Description pulumi.StringPtrInput `pulumi:"description"`
-	// Last updated time of action rule. Date-Time in ISO-8601 format.
-	LastModifiedAt pulumi.StringInput `pulumi:"lastModifiedAt"`
-	// Last modified by user name.
-	LastModifiedBy pulumi.StringInput `pulumi:"lastModifiedBy"`
-	// Resource group where action rule is stored
-	ResourceGroup pulumi.StringInput `pulumi:"resourceGroup"`
-	// Target scope for a given action rule. By default scope will be the subscription. User can also provide list of resource groups or list of resources from the scope subscription as well.
-	Scope ScopeResponsePtrInput `pulumi:"scope"`
-	// Indicates if the given action rule is enabled or disabled
-	Status pulumi.StringPtrInput `pulumi:"status"`
-	// Suppression logic for a given action rule
+	Conditions        ConditionsResponsePtrInput        `pulumi:"conditions"`
+	CreatedAt         pulumi.StringInput                `pulumi:"createdAt"`
+	CreatedBy         pulumi.StringInput                `pulumi:"createdBy"`
+	Description       pulumi.StringPtrInput             `pulumi:"description"`
+	LastModifiedAt    pulumi.StringInput                `pulumi:"lastModifiedAt"`
+	LastModifiedBy    pulumi.StringInput                `pulumi:"lastModifiedBy"`
+	ResourceGroup     pulumi.StringInput                `pulumi:"resourceGroup"`
+	Scope             ScopeResponsePtrInput             `pulumi:"scope"`
+	Status            pulumi.StringPtrInput             `pulumi:"status"`
 	SuppressionConfig SuppressionConfigResponsePtrInput `pulumi:"suppressionConfig"`
 }
 
@@ -332,7 +293,6 @@ func (i *actionRulePropertiesResponsePtrType) ToActionRulePropertiesResponsePtrO
 	return pulumi.ToOutputWithContext(ctx, i).(ActionRulePropertiesResponsePtrOutput)
 }
 
-// Action rule properties defining scope, conditions, suppression logic for action rule
 type ActionRulePropertiesResponseOutput struct{ *pulumi.OutputState }
 
 func (ActionRulePropertiesResponseOutput) ElementType() reflect.Type {
@@ -352,57 +312,47 @@ func (o ActionRulePropertiesResponseOutput) ToActionRulePropertiesResponsePtrOut
 }
 
 func (o ActionRulePropertiesResponseOutput) ToActionRulePropertiesResponsePtrOutputWithContext(ctx context.Context) ActionRulePropertiesResponsePtrOutput {
-	return o.ApplyT(func(v ActionRulePropertiesResponse) *ActionRulePropertiesResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ActionRulePropertiesResponse) *ActionRulePropertiesResponse {
 		return &v
 	}).(ActionRulePropertiesResponsePtrOutput)
 }
 
-// Conditions in alert instance to be matched for a given action rule. Default value is all. Multiple values could be provided with comma separation.
 func (o ActionRulePropertiesResponseOutput) Conditions() ConditionsResponsePtrOutput {
 	return o.ApplyT(func(v ActionRulePropertiesResponse) *ConditionsResponse { return v.Conditions }).(ConditionsResponsePtrOutput)
 }
 
-// Creation time of action rule. Date-Time in ISO-8601 format.
 func (o ActionRulePropertiesResponseOutput) CreatedAt() pulumi.StringOutput {
 	return o.ApplyT(func(v ActionRulePropertiesResponse) string { return v.CreatedAt }).(pulumi.StringOutput)
 }
 
-// Created by user name.
 func (o ActionRulePropertiesResponseOutput) CreatedBy() pulumi.StringOutput {
 	return o.ApplyT(func(v ActionRulePropertiesResponse) string { return v.CreatedBy }).(pulumi.StringOutput)
 }
 
-// Description of action rule
 func (o ActionRulePropertiesResponseOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ActionRulePropertiesResponse) *string { return v.Description }).(pulumi.StringPtrOutput)
 }
 
-// Last updated time of action rule. Date-Time in ISO-8601 format.
 func (o ActionRulePropertiesResponseOutput) LastModifiedAt() pulumi.StringOutput {
 	return o.ApplyT(func(v ActionRulePropertiesResponse) string { return v.LastModifiedAt }).(pulumi.StringOutput)
 }
 
-// Last modified by user name.
 func (o ActionRulePropertiesResponseOutput) LastModifiedBy() pulumi.StringOutput {
 	return o.ApplyT(func(v ActionRulePropertiesResponse) string { return v.LastModifiedBy }).(pulumi.StringOutput)
 }
 
-// Resource group where action rule is stored
 func (o ActionRulePropertiesResponseOutput) ResourceGroup() pulumi.StringOutput {
 	return o.ApplyT(func(v ActionRulePropertiesResponse) string { return v.ResourceGroup }).(pulumi.StringOutput)
 }
 
-// Target scope for a given action rule. By default scope will be the subscription. User can also provide list of resource groups or list of resources from the scope subscription as well.
 func (o ActionRulePropertiesResponseOutput) Scope() ScopeResponsePtrOutput {
 	return o.ApplyT(func(v ActionRulePropertiesResponse) *ScopeResponse { return v.Scope }).(ScopeResponsePtrOutput)
 }
 
-// Indicates if the given action rule is enabled or disabled
 func (o ActionRulePropertiesResponseOutput) Status() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ActionRulePropertiesResponse) *string { return v.Status }).(pulumi.StringPtrOutput)
 }
 
-// Suppression logic for a given action rule
 func (o ActionRulePropertiesResponseOutput) SuppressionConfig() SuppressionConfigResponsePtrOutput {
 	return o.ApplyT(func(v ActionRulePropertiesResponse) *SuppressionConfigResponse { return v.SuppressionConfig }).(SuppressionConfigResponsePtrOutput)
 }
@@ -422,10 +372,15 @@ func (o ActionRulePropertiesResponsePtrOutput) ToActionRulePropertiesResponsePtr
 }
 
 func (o ActionRulePropertiesResponsePtrOutput) Elem() ActionRulePropertiesResponseOutput {
-	return o.ApplyT(func(v *ActionRulePropertiesResponse) ActionRulePropertiesResponse { return *v }).(ActionRulePropertiesResponseOutput)
+	return o.ApplyT(func(v *ActionRulePropertiesResponse) ActionRulePropertiesResponse {
+		if v != nil {
+			return *v
+		}
+		var ret ActionRulePropertiesResponse
+		return ret
+	}).(ActionRulePropertiesResponseOutput)
 }
 
-// Conditions in alert instance to be matched for a given action rule. Default value is all. Multiple values could be provided with comma separation.
 func (o ActionRulePropertiesResponsePtrOutput) Conditions() ConditionsResponsePtrOutput {
 	return o.ApplyT(func(v *ActionRulePropertiesResponse) *ConditionsResponse {
 		if v == nil {
@@ -435,7 +390,6 @@ func (o ActionRulePropertiesResponsePtrOutput) Conditions() ConditionsResponsePt
 	}).(ConditionsResponsePtrOutput)
 }
 
-// Creation time of action rule. Date-Time in ISO-8601 format.
 func (o ActionRulePropertiesResponsePtrOutput) CreatedAt() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ActionRulePropertiesResponse) *string {
 		if v == nil {
@@ -445,7 +399,6 @@ func (o ActionRulePropertiesResponsePtrOutput) CreatedAt() pulumi.StringPtrOutpu
 	}).(pulumi.StringPtrOutput)
 }
 
-// Created by user name.
 func (o ActionRulePropertiesResponsePtrOutput) CreatedBy() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ActionRulePropertiesResponse) *string {
 		if v == nil {
@@ -455,7 +408,6 @@ func (o ActionRulePropertiesResponsePtrOutput) CreatedBy() pulumi.StringPtrOutpu
 	}).(pulumi.StringPtrOutput)
 }
 
-// Description of action rule
 func (o ActionRulePropertiesResponsePtrOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ActionRulePropertiesResponse) *string {
 		if v == nil {
@@ -465,7 +417,6 @@ func (o ActionRulePropertiesResponsePtrOutput) Description() pulumi.StringPtrOut
 	}).(pulumi.StringPtrOutput)
 }
 
-// Last updated time of action rule. Date-Time in ISO-8601 format.
 func (o ActionRulePropertiesResponsePtrOutput) LastModifiedAt() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ActionRulePropertiesResponse) *string {
 		if v == nil {
@@ -475,7 +426,6 @@ func (o ActionRulePropertiesResponsePtrOutput) LastModifiedAt() pulumi.StringPtr
 	}).(pulumi.StringPtrOutput)
 }
 
-// Last modified by user name.
 func (o ActionRulePropertiesResponsePtrOutput) LastModifiedBy() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ActionRulePropertiesResponse) *string {
 		if v == nil {
@@ -485,7 +435,6 @@ func (o ActionRulePropertiesResponsePtrOutput) LastModifiedBy() pulumi.StringPtr
 	}).(pulumi.StringPtrOutput)
 }
 
-// Resource group where action rule is stored
 func (o ActionRulePropertiesResponsePtrOutput) ResourceGroup() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ActionRulePropertiesResponse) *string {
 		if v == nil {
@@ -495,7 +444,6 @@ func (o ActionRulePropertiesResponsePtrOutput) ResourceGroup() pulumi.StringPtrO
 	}).(pulumi.StringPtrOutput)
 }
 
-// Target scope for a given action rule. By default scope will be the subscription. User can also provide list of resource groups or list of resources from the scope subscription as well.
 func (o ActionRulePropertiesResponsePtrOutput) Scope() ScopeResponsePtrOutput {
 	return o.ApplyT(func(v *ActionRulePropertiesResponse) *ScopeResponse {
 		if v == nil {
@@ -505,7 +453,6 @@ func (o ActionRulePropertiesResponsePtrOutput) Scope() ScopeResponsePtrOutput {
 	}).(ScopeResponsePtrOutput)
 }
 
-// Indicates if the given action rule is enabled or disabled
 func (o ActionRulePropertiesResponsePtrOutput) Status() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ActionRulePropertiesResponse) *string {
 		if v == nil {
@@ -515,7 +462,6 @@ func (o ActionRulePropertiesResponsePtrOutput) Status() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Suppression logic for a given action rule
 func (o ActionRulePropertiesResponsePtrOutput) SuppressionConfig() SuppressionConfigResponsePtrOutput {
 	return o.ApplyT(func(v *ActionRulePropertiesResponse) *SuppressionConfigResponse {
 		if v == nil {
@@ -525,12 +471,9 @@ func (o ActionRulePropertiesResponsePtrOutput) SuppressionConfig() SuppressionCo
 	}).(SuppressionConfigResponsePtrOutput)
 }
 
-// condition to trigger an action rule
 type Condition struct {
-	// operator for a given condition
-	Operator *string `pulumi:"operator"`
-	// list of values to match for a given condition.
-	Values []string `pulumi:"values"`
+	Operator *string  `pulumi:"operator"`
+	Values   []string `pulumi:"values"`
 }
 
 // ConditionInput is an input type that accepts ConditionArgs and ConditionOutput values.
@@ -544,12 +487,9 @@ type ConditionInput interface {
 	ToConditionOutputWithContext(context.Context) ConditionOutput
 }
 
-// condition to trigger an action rule
 type ConditionArgs struct {
-	// operator for a given condition
-	Operator pulumi.StringPtrInput `pulumi:"operator"`
-	// list of values to match for a given condition.
-	Values pulumi.StringArrayInput `pulumi:"values"`
+	Operator pulumi.StringPtrInput   `pulumi:"operator"`
+	Values   pulumi.StringArrayInput `pulumi:"values"`
 }
 
 func (ConditionArgs) ElementType() reflect.Type {
@@ -605,7 +545,6 @@ func (i *conditionPtrType) ToConditionPtrOutputWithContext(ctx context.Context) 
 	return pulumi.ToOutputWithContext(ctx, i).(ConditionPtrOutput)
 }
 
-// condition to trigger an action rule
 type ConditionOutput struct{ *pulumi.OutputState }
 
 func (ConditionOutput) ElementType() reflect.Type {
@@ -625,17 +564,15 @@ func (o ConditionOutput) ToConditionPtrOutput() ConditionPtrOutput {
 }
 
 func (o ConditionOutput) ToConditionPtrOutputWithContext(ctx context.Context) ConditionPtrOutput {
-	return o.ApplyT(func(v Condition) *Condition {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v Condition) *Condition {
 		return &v
 	}).(ConditionPtrOutput)
 }
 
-// operator for a given condition
 func (o ConditionOutput) Operator() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v Condition) *string { return v.Operator }).(pulumi.StringPtrOutput)
 }
 
-// list of values to match for a given condition.
 func (o ConditionOutput) Values() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v Condition) []string { return v.Values }).(pulumi.StringArrayOutput)
 }
@@ -655,10 +592,15 @@ func (o ConditionPtrOutput) ToConditionPtrOutputWithContext(ctx context.Context)
 }
 
 func (o ConditionPtrOutput) Elem() ConditionOutput {
-	return o.ApplyT(func(v *Condition) Condition { return *v }).(ConditionOutput)
+	return o.ApplyT(func(v *Condition) Condition {
+		if v != nil {
+			return *v
+		}
+		var ret Condition
+		return ret
+	}).(ConditionOutput)
 }
 
-// operator for a given condition
 func (o ConditionPtrOutput) Operator() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Condition) *string {
 		if v == nil {
@@ -668,7 +610,6 @@ func (o ConditionPtrOutput) Operator() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// list of values to match for a given condition.
 func (o ConditionPtrOutput) Values() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *Condition) []string {
 		if v == nil {
@@ -678,12 +619,9 @@ func (o ConditionPtrOutput) Values() pulumi.StringArrayOutput {
 	}).(pulumi.StringArrayOutput)
 }
 
-// condition to trigger an action rule
 type ConditionResponse struct {
-	// operator for a given condition
-	Operator *string `pulumi:"operator"`
-	// list of values to match for a given condition.
-	Values []string `pulumi:"values"`
+	Operator *string  `pulumi:"operator"`
+	Values   []string `pulumi:"values"`
 }
 
 // ConditionResponseInput is an input type that accepts ConditionResponseArgs and ConditionResponseOutput values.
@@ -697,12 +635,9 @@ type ConditionResponseInput interface {
 	ToConditionResponseOutputWithContext(context.Context) ConditionResponseOutput
 }
 
-// condition to trigger an action rule
 type ConditionResponseArgs struct {
-	// operator for a given condition
-	Operator pulumi.StringPtrInput `pulumi:"operator"`
-	// list of values to match for a given condition.
-	Values pulumi.StringArrayInput `pulumi:"values"`
+	Operator pulumi.StringPtrInput   `pulumi:"operator"`
+	Values   pulumi.StringArrayInput `pulumi:"values"`
 }
 
 func (ConditionResponseArgs) ElementType() reflect.Type {
@@ -758,7 +693,6 @@ func (i *conditionResponsePtrType) ToConditionResponsePtrOutputWithContext(ctx c
 	return pulumi.ToOutputWithContext(ctx, i).(ConditionResponsePtrOutput)
 }
 
-// condition to trigger an action rule
 type ConditionResponseOutput struct{ *pulumi.OutputState }
 
 func (ConditionResponseOutput) ElementType() reflect.Type {
@@ -778,17 +712,15 @@ func (o ConditionResponseOutput) ToConditionResponsePtrOutput() ConditionRespons
 }
 
 func (o ConditionResponseOutput) ToConditionResponsePtrOutputWithContext(ctx context.Context) ConditionResponsePtrOutput {
-	return o.ApplyT(func(v ConditionResponse) *ConditionResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ConditionResponse) *ConditionResponse {
 		return &v
 	}).(ConditionResponsePtrOutput)
 }
 
-// operator for a given condition
 func (o ConditionResponseOutput) Operator() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ConditionResponse) *string { return v.Operator }).(pulumi.StringPtrOutput)
 }
 
-// list of values to match for a given condition.
 func (o ConditionResponseOutput) Values() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v ConditionResponse) []string { return v.Values }).(pulumi.StringArrayOutput)
 }
@@ -808,10 +740,15 @@ func (o ConditionResponsePtrOutput) ToConditionResponsePtrOutputWithContext(ctx 
 }
 
 func (o ConditionResponsePtrOutput) Elem() ConditionResponseOutput {
-	return o.ApplyT(func(v *ConditionResponse) ConditionResponse { return *v }).(ConditionResponseOutput)
+	return o.ApplyT(func(v *ConditionResponse) ConditionResponse {
+		if v != nil {
+			return *v
+		}
+		var ret ConditionResponse
+		return ret
+	}).(ConditionResponseOutput)
 }
 
-// operator for a given condition
 func (o ConditionResponsePtrOutput) Operator() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ConditionResponse) *string {
 		if v == nil {
@@ -821,7 +758,6 @@ func (o ConditionResponsePtrOutput) Operator() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// list of values to match for a given condition.
 func (o ConditionResponsePtrOutput) Values() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *ConditionResponse) []string {
 		if v == nil {
@@ -831,30 +767,18 @@ func (o ConditionResponsePtrOutput) Values() pulumi.StringArrayOutput {
 	}).(pulumi.StringArrayOutput)
 }
 
-// Conditions in alert instance to be matched for a given action rule. Default value is all. Multiple values could be provided with comma separation.
 type Conditions struct {
-	// condition to trigger an action rule
-	AlertRuleId *Condition `pulumi:"alertRuleId"`
-	// condition to trigger an action rule
+	AlertRuleId                      *Condition `pulumi:"alertRuleId"`
 	ApplicationInsightsSearchResults *Condition `pulumi:"applicationInsightsSearchResults"`
-	// condition to trigger an action rule
-	Description *Condition `pulumi:"description"`
-	// condition to trigger an action rule
-	LogAnalyticsSearchResults *Condition `pulumi:"logAnalyticsSearchResults"`
-	// condition to trigger an action rule
-	MonitorCondition *Condition `pulumi:"monitorCondition"`
-	// condition to trigger an action rule
-	MonitorService *Condition `pulumi:"monitorService"`
-	// condition to trigger an action rule
-	Severity *Condition `pulumi:"severity"`
-	// condition to trigger an action rule
-	SignalType *Condition `pulumi:"signalType"`
-	// condition to trigger an action rule
-	TargetResource *Condition `pulumi:"targetResource"`
-	// condition to trigger an action rule
-	TargetResourceGroup *Condition `pulumi:"targetResourceGroup"`
-	// condition to trigger an action rule
-	TargetResourceType *Condition `pulumi:"targetResourceType"`
+	Description                      *Condition `pulumi:"description"`
+	LogAnalyticsSearchResults        *Condition `pulumi:"logAnalyticsSearchResults"`
+	MonitorCondition                 *Condition `pulumi:"monitorCondition"`
+	MonitorService                   *Condition `pulumi:"monitorService"`
+	Severity                         *Condition `pulumi:"severity"`
+	SignalType                       *Condition `pulumi:"signalType"`
+	TargetResource                   *Condition `pulumi:"targetResource"`
+	TargetResourceGroup              *Condition `pulumi:"targetResourceGroup"`
+	TargetResourceType               *Condition `pulumi:"targetResourceType"`
 }
 
 // ConditionsInput is an input type that accepts ConditionsArgs and ConditionsOutput values.
@@ -868,30 +792,18 @@ type ConditionsInput interface {
 	ToConditionsOutputWithContext(context.Context) ConditionsOutput
 }
 
-// Conditions in alert instance to be matched for a given action rule. Default value is all. Multiple values could be provided with comma separation.
 type ConditionsArgs struct {
-	// condition to trigger an action rule
-	AlertRuleId ConditionPtrInput `pulumi:"alertRuleId"`
-	// condition to trigger an action rule
+	AlertRuleId                      ConditionPtrInput `pulumi:"alertRuleId"`
 	ApplicationInsightsSearchResults ConditionPtrInput `pulumi:"applicationInsightsSearchResults"`
-	// condition to trigger an action rule
-	Description ConditionPtrInput `pulumi:"description"`
-	// condition to trigger an action rule
-	LogAnalyticsSearchResults ConditionPtrInput `pulumi:"logAnalyticsSearchResults"`
-	// condition to trigger an action rule
-	MonitorCondition ConditionPtrInput `pulumi:"monitorCondition"`
-	// condition to trigger an action rule
-	MonitorService ConditionPtrInput `pulumi:"monitorService"`
-	// condition to trigger an action rule
-	Severity ConditionPtrInput `pulumi:"severity"`
-	// condition to trigger an action rule
-	SignalType ConditionPtrInput `pulumi:"signalType"`
-	// condition to trigger an action rule
-	TargetResource ConditionPtrInput `pulumi:"targetResource"`
-	// condition to trigger an action rule
-	TargetResourceGroup ConditionPtrInput `pulumi:"targetResourceGroup"`
-	// condition to trigger an action rule
-	TargetResourceType ConditionPtrInput `pulumi:"targetResourceType"`
+	Description                      ConditionPtrInput `pulumi:"description"`
+	LogAnalyticsSearchResults        ConditionPtrInput `pulumi:"logAnalyticsSearchResults"`
+	MonitorCondition                 ConditionPtrInput `pulumi:"monitorCondition"`
+	MonitorService                   ConditionPtrInput `pulumi:"monitorService"`
+	Severity                         ConditionPtrInput `pulumi:"severity"`
+	SignalType                       ConditionPtrInput `pulumi:"signalType"`
+	TargetResource                   ConditionPtrInput `pulumi:"targetResource"`
+	TargetResourceGroup              ConditionPtrInput `pulumi:"targetResourceGroup"`
+	TargetResourceType               ConditionPtrInput `pulumi:"targetResourceType"`
 }
 
 func (ConditionsArgs) ElementType() reflect.Type {
@@ -947,7 +859,6 @@ func (i *conditionsPtrType) ToConditionsPtrOutputWithContext(ctx context.Context
 	return pulumi.ToOutputWithContext(ctx, i).(ConditionsPtrOutput)
 }
 
-// Conditions in alert instance to be matched for a given action rule. Default value is all. Multiple values could be provided with comma separation.
 type ConditionsOutput struct{ *pulumi.OutputState }
 
 func (ConditionsOutput) ElementType() reflect.Type {
@@ -967,62 +878,51 @@ func (o ConditionsOutput) ToConditionsPtrOutput() ConditionsPtrOutput {
 }
 
 func (o ConditionsOutput) ToConditionsPtrOutputWithContext(ctx context.Context) ConditionsPtrOutput {
-	return o.ApplyT(func(v Conditions) *Conditions {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v Conditions) *Conditions {
 		return &v
 	}).(ConditionsPtrOutput)
 }
 
-// condition to trigger an action rule
 func (o ConditionsOutput) AlertRuleId() ConditionPtrOutput {
 	return o.ApplyT(func(v Conditions) *Condition { return v.AlertRuleId }).(ConditionPtrOutput)
 }
 
-// condition to trigger an action rule
 func (o ConditionsOutput) ApplicationInsightsSearchResults() ConditionPtrOutput {
 	return o.ApplyT(func(v Conditions) *Condition { return v.ApplicationInsightsSearchResults }).(ConditionPtrOutput)
 }
 
-// condition to trigger an action rule
 func (o ConditionsOutput) Description() ConditionPtrOutput {
 	return o.ApplyT(func(v Conditions) *Condition { return v.Description }).(ConditionPtrOutput)
 }
 
-// condition to trigger an action rule
 func (o ConditionsOutput) LogAnalyticsSearchResults() ConditionPtrOutput {
 	return o.ApplyT(func(v Conditions) *Condition { return v.LogAnalyticsSearchResults }).(ConditionPtrOutput)
 }
 
-// condition to trigger an action rule
 func (o ConditionsOutput) MonitorCondition() ConditionPtrOutput {
 	return o.ApplyT(func(v Conditions) *Condition { return v.MonitorCondition }).(ConditionPtrOutput)
 }
 
-// condition to trigger an action rule
 func (o ConditionsOutput) MonitorService() ConditionPtrOutput {
 	return o.ApplyT(func(v Conditions) *Condition { return v.MonitorService }).(ConditionPtrOutput)
 }
 
-// condition to trigger an action rule
 func (o ConditionsOutput) Severity() ConditionPtrOutput {
 	return o.ApplyT(func(v Conditions) *Condition { return v.Severity }).(ConditionPtrOutput)
 }
 
-// condition to trigger an action rule
 func (o ConditionsOutput) SignalType() ConditionPtrOutput {
 	return o.ApplyT(func(v Conditions) *Condition { return v.SignalType }).(ConditionPtrOutput)
 }
 
-// condition to trigger an action rule
 func (o ConditionsOutput) TargetResource() ConditionPtrOutput {
 	return o.ApplyT(func(v Conditions) *Condition { return v.TargetResource }).(ConditionPtrOutput)
 }
 
-// condition to trigger an action rule
 func (o ConditionsOutput) TargetResourceGroup() ConditionPtrOutput {
 	return o.ApplyT(func(v Conditions) *Condition { return v.TargetResourceGroup }).(ConditionPtrOutput)
 }
 
-// condition to trigger an action rule
 func (o ConditionsOutput) TargetResourceType() ConditionPtrOutput {
 	return o.ApplyT(func(v Conditions) *Condition { return v.TargetResourceType }).(ConditionPtrOutput)
 }
@@ -1042,10 +942,15 @@ func (o ConditionsPtrOutput) ToConditionsPtrOutputWithContext(ctx context.Contex
 }
 
 func (o ConditionsPtrOutput) Elem() ConditionsOutput {
-	return o.ApplyT(func(v *Conditions) Conditions { return *v }).(ConditionsOutput)
+	return o.ApplyT(func(v *Conditions) Conditions {
+		if v != nil {
+			return *v
+		}
+		var ret Conditions
+		return ret
+	}).(ConditionsOutput)
 }
 
-// condition to trigger an action rule
 func (o ConditionsPtrOutput) AlertRuleId() ConditionPtrOutput {
 	return o.ApplyT(func(v *Conditions) *Condition {
 		if v == nil {
@@ -1055,7 +960,6 @@ func (o ConditionsPtrOutput) AlertRuleId() ConditionPtrOutput {
 	}).(ConditionPtrOutput)
 }
 
-// condition to trigger an action rule
 func (o ConditionsPtrOutput) ApplicationInsightsSearchResults() ConditionPtrOutput {
 	return o.ApplyT(func(v *Conditions) *Condition {
 		if v == nil {
@@ -1065,7 +969,6 @@ func (o ConditionsPtrOutput) ApplicationInsightsSearchResults() ConditionPtrOutp
 	}).(ConditionPtrOutput)
 }
 
-// condition to trigger an action rule
 func (o ConditionsPtrOutput) Description() ConditionPtrOutput {
 	return o.ApplyT(func(v *Conditions) *Condition {
 		if v == nil {
@@ -1075,7 +978,6 @@ func (o ConditionsPtrOutput) Description() ConditionPtrOutput {
 	}).(ConditionPtrOutput)
 }
 
-// condition to trigger an action rule
 func (o ConditionsPtrOutput) LogAnalyticsSearchResults() ConditionPtrOutput {
 	return o.ApplyT(func(v *Conditions) *Condition {
 		if v == nil {
@@ -1085,7 +987,6 @@ func (o ConditionsPtrOutput) LogAnalyticsSearchResults() ConditionPtrOutput {
 	}).(ConditionPtrOutput)
 }
 
-// condition to trigger an action rule
 func (o ConditionsPtrOutput) MonitorCondition() ConditionPtrOutput {
 	return o.ApplyT(func(v *Conditions) *Condition {
 		if v == nil {
@@ -1095,7 +996,6 @@ func (o ConditionsPtrOutput) MonitorCondition() ConditionPtrOutput {
 	}).(ConditionPtrOutput)
 }
 
-// condition to trigger an action rule
 func (o ConditionsPtrOutput) MonitorService() ConditionPtrOutput {
 	return o.ApplyT(func(v *Conditions) *Condition {
 		if v == nil {
@@ -1105,7 +1005,6 @@ func (o ConditionsPtrOutput) MonitorService() ConditionPtrOutput {
 	}).(ConditionPtrOutput)
 }
 
-// condition to trigger an action rule
 func (o ConditionsPtrOutput) Severity() ConditionPtrOutput {
 	return o.ApplyT(func(v *Conditions) *Condition {
 		if v == nil {
@@ -1115,7 +1014,6 @@ func (o ConditionsPtrOutput) Severity() ConditionPtrOutput {
 	}).(ConditionPtrOutput)
 }
 
-// condition to trigger an action rule
 func (o ConditionsPtrOutput) SignalType() ConditionPtrOutput {
 	return o.ApplyT(func(v *Conditions) *Condition {
 		if v == nil {
@@ -1125,7 +1023,6 @@ func (o ConditionsPtrOutput) SignalType() ConditionPtrOutput {
 	}).(ConditionPtrOutput)
 }
 
-// condition to trigger an action rule
 func (o ConditionsPtrOutput) TargetResource() ConditionPtrOutput {
 	return o.ApplyT(func(v *Conditions) *Condition {
 		if v == nil {
@@ -1135,7 +1032,6 @@ func (o ConditionsPtrOutput) TargetResource() ConditionPtrOutput {
 	}).(ConditionPtrOutput)
 }
 
-// condition to trigger an action rule
 func (o ConditionsPtrOutput) TargetResourceGroup() ConditionPtrOutput {
 	return o.ApplyT(func(v *Conditions) *Condition {
 		if v == nil {
@@ -1145,7 +1041,6 @@ func (o ConditionsPtrOutput) TargetResourceGroup() ConditionPtrOutput {
 	}).(ConditionPtrOutput)
 }
 
-// condition to trigger an action rule
 func (o ConditionsPtrOutput) TargetResourceType() ConditionPtrOutput {
 	return o.ApplyT(func(v *Conditions) *Condition {
 		if v == nil {
@@ -1155,30 +1050,18 @@ func (o ConditionsPtrOutput) TargetResourceType() ConditionPtrOutput {
 	}).(ConditionPtrOutput)
 }
 
-// Conditions in alert instance to be matched for a given action rule. Default value is all. Multiple values could be provided with comma separation.
 type ConditionsResponse struct {
-	// condition to trigger an action rule
-	AlertRuleId *ConditionResponse `pulumi:"alertRuleId"`
-	// condition to trigger an action rule
+	AlertRuleId                      *ConditionResponse `pulumi:"alertRuleId"`
 	ApplicationInsightsSearchResults *ConditionResponse `pulumi:"applicationInsightsSearchResults"`
-	// condition to trigger an action rule
-	Description *ConditionResponse `pulumi:"description"`
-	// condition to trigger an action rule
-	LogAnalyticsSearchResults *ConditionResponse `pulumi:"logAnalyticsSearchResults"`
-	// condition to trigger an action rule
-	MonitorCondition *ConditionResponse `pulumi:"monitorCondition"`
-	// condition to trigger an action rule
-	MonitorService *ConditionResponse `pulumi:"monitorService"`
-	// condition to trigger an action rule
-	Severity *ConditionResponse `pulumi:"severity"`
-	// condition to trigger an action rule
-	SignalType *ConditionResponse `pulumi:"signalType"`
-	// condition to trigger an action rule
-	TargetResource *ConditionResponse `pulumi:"targetResource"`
-	// condition to trigger an action rule
-	TargetResourceGroup *ConditionResponse `pulumi:"targetResourceGroup"`
-	// condition to trigger an action rule
-	TargetResourceType *ConditionResponse `pulumi:"targetResourceType"`
+	Description                      *ConditionResponse `pulumi:"description"`
+	LogAnalyticsSearchResults        *ConditionResponse `pulumi:"logAnalyticsSearchResults"`
+	MonitorCondition                 *ConditionResponse `pulumi:"monitorCondition"`
+	MonitorService                   *ConditionResponse `pulumi:"monitorService"`
+	Severity                         *ConditionResponse `pulumi:"severity"`
+	SignalType                       *ConditionResponse `pulumi:"signalType"`
+	TargetResource                   *ConditionResponse `pulumi:"targetResource"`
+	TargetResourceGroup              *ConditionResponse `pulumi:"targetResourceGroup"`
+	TargetResourceType               *ConditionResponse `pulumi:"targetResourceType"`
 }
 
 // ConditionsResponseInput is an input type that accepts ConditionsResponseArgs and ConditionsResponseOutput values.
@@ -1192,30 +1075,18 @@ type ConditionsResponseInput interface {
 	ToConditionsResponseOutputWithContext(context.Context) ConditionsResponseOutput
 }
 
-// Conditions in alert instance to be matched for a given action rule. Default value is all. Multiple values could be provided with comma separation.
 type ConditionsResponseArgs struct {
-	// condition to trigger an action rule
-	AlertRuleId ConditionResponsePtrInput `pulumi:"alertRuleId"`
-	// condition to trigger an action rule
+	AlertRuleId                      ConditionResponsePtrInput `pulumi:"alertRuleId"`
 	ApplicationInsightsSearchResults ConditionResponsePtrInput `pulumi:"applicationInsightsSearchResults"`
-	// condition to trigger an action rule
-	Description ConditionResponsePtrInput `pulumi:"description"`
-	// condition to trigger an action rule
-	LogAnalyticsSearchResults ConditionResponsePtrInput `pulumi:"logAnalyticsSearchResults"`
-	// condition to trigger an action rule
-	MonitorCondition ConditionResponsePtrInput `pulumi:"monitorCondition"`
-	// condition to trigger an action rule
-	MonitorService ConditionResponsePtrInput `pulumi:"monitorService"`
-	// condition to trigger an action rule
-	Severity ConditionResponsePtrInput `pulumi:"severity"`
-	// condition to trigger an action rule
-	SignalType ConditionResponsePtrInput `pulumi:"signalType"`
-	// condition to trigger an action rule
-	TargetResource ConditionResponsePtrInput `pulumi:"targetResource"`
-	// condition to trigger an action rule
-	TargetResourceGroup ConditionResponsePtrInput `pulumi:"targetResourceGroup"`
-	// condition to trigger an action rule
-	TargetResourceType ConditionResponsePtrInput `pulumi:"targetResourceType"`
+	Description                      ConditionResponsePtrInput `pulumi:"description"`
+	LogAnalyticsSearchResults        ConditionResponsePtrInput `pulumi:"logAnalyticsSearchResults"`
+	MonitorCondition                 ConditionResponsePtrInput `pulumi:"monitorCondition"`
+	MonitorService                   ConditionResponsePtrInput `pulumi:"monitorService"`
+	Severity                         ConditionResponsePtrInput `pulumi:"severity"`
+	SignalType                       ConditionResponsePtrInput `pulumi:"signalType"`
+	TargetResource                   ConditionResponsePtrInput `pulumi:"targetResource"`
+	TargetResourceGroup              ConditionResponsePtrInput `pulumi:"targetResourceGroup"`
+	TargetResourceType               ConditionResponsePtrInput `pulumi:"targetResourceType"`
 }
 
 func (ConditionsResponseArgs) ElementType() reflect.Type {
@@ -1271,7 +1142,6 @@ func (i *conditionsResponsePtrType) ToConditionsResponsePtrOutputWithContext(ctx
 	return pulumi.ToOutputWithContext(ctx, i).(ConditionsResponsePtrOutput)
 }
 
-// Conditions in alert instance to be matched for a given action rule. Default value is all. Multiple values could be provided with comma separation.
 type ConditionsResponseOutput struct{ *pulumi.OutputState }
 
 func (ConditionsResponseOutput) ElementType() reflect.Type {
@@ -1291,62 +1161,51 @@ func (o ConditionsResponseOutput) ToConditionsResponsePtrOutput() ConditionsResp
 }
 
 func (o ConditionsResponseOutput) ToConditionsResponsePtrOutputWithContext(ctx context.Context) ConditionsResponsePtrOutput {
-	return o.ApplyT(func(v ConditionsResponse) *ConditionsResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ConditionsResponse) *ConditionsResponse {
 		return &v
 	}).(ConditionsResponsePtrOutput)
 }
 
-// condition to trigger an action rule
 func (o ConditionsResponseOutput) AlertRuleId() ConditionResponsePtrOutput {
 	return o.ApplyT(func(v ConditionsResponse) *ConditionResponse { return v.AlertRuleId }).(ConditionResponsePtrOutput)
 }
 
-// condition to trigger an action rule
 func (o ConditionsResponseOutput) ApplicationInsightsSearchResults() ConditionResponsePtrOutput {
 	return o.ApplyT(func(v ConditionsResponse) *ConditionResponse { return v.ApplicationInsightsSearchResults }).(ConditionResponsePtrOutput)
 }
 
-// condition to trigger an action rule
 func (o ConditionsResponseOutput) Description() ConditionResponsePtrOutput {
 	return o.ApplyT(func(v ConditionsResponse) *ConditionResponse { return v.Description }).(ConditionResponsePtrOutput)
 }
 
-// condition to trigger an action rule
 func (o ConditionsResponseOutput) LogAnalyticsSearchResults() ConditionResponsePtrOutput {
 	return o.ApplyT(func(v ConditionsResponse) *ConditionResponse { return v.LogAnalyticsSearchResults }).(ConditionResponsePtrOutput)
 }
 
-// condition to trigger an action rule
 func (o ConditionsResponseOutput) MonitorCondition() ConditionResponsePtrOutput {
 	return o.ApplyT(func(v ConditionsResponse) *ConditionResponse { return v.MonitorCondition }).(ConditionResponsePtrOutput)
 }
 
-// condition to trigger an action rule
 func (o ConditionsResponseOutput) MonitorService() ConditionResponsePtrOutput {
 	return o.ApplyT(func(v ConditionsResponse) *ConditionResponse { return v.MonitorService }).(ConditionResponsePtrOutput)
 }
 
-// condition to trigger an action rule
 func (o ConditionsResponseOutput) Severity() ConditionResponsePtrOutput {
 	return o.ApplyT(func(v ConditionsResponse) *ConditionResponse { return v.Severity }).(ConditionResponsePtrOutput)
 }
 
-// condition to trigger an action rule
 func (o ConditionsResponseOutput) SignalType() ConditionResponsePtrOutput {
 	return o.ApplyT(func(v ConditionsResponse) *ConditionResponse { return v.SignalType }).(ConditionResponsePtrOutput)
 }
 
-// condition to trigger an action rule
 func (o ConditionsResponseOutput) TargetResource() ConditionResponsePtrOutput {
 	return o.ApplyT(func(v ConditionsResponse) *ConditionResponse { return v.TargetResource }).(ConditionResponsePtrOutput)
 }
 
-// condition to trigger an action rule
 func (o ConditionsResponseOutput) TargetResourceGroup() ConditionResponsePtrOutput {
 	return o.ApplyT(func(v ConditionsResponse) *ConditionResponse { return v.TargetResourceGroup }).(ConditionResponsePtrOutput)
 }
 
-// condition to trigger an action rule
 func (o ConditionsResponseOutput) TargetResourceType() ConditionResponsePtrOutput {
 	return o.ApplyT(func(v ConditionsResponse) *ConditionResponse { return v.TargetResourceType }).(ConditionResponsePtrOutput)
 }
@@ -1366,10 +1225,15 @@ func (o ConditionsResponsePtrOutput) ToConditionsResponsePtrOutputWithContext(ct
 }
 
 func (o ConditionsResponsePtrOutput) Elem() ConditionsResponseOutput {
-	return o.ApplyT(func(v *ConditionsResponse) ConditionsResponse { return *v }).(ConditionsResponseOutput)
+	return o.ApplyT(func(v *ConditionsResponse) ConditionsResponse {
+		if v != nil {
+			return *v
+		}
+		var ret ConditionsResponse
+		return ret
+	}).(ConditionsResponseOutput)
 }
 
-// condition to trigger an action rule
 func (o ConditionsResponsePtrOutput) AlertRuleId() ConditionResponsePtrOutput {
 	return o.ApplyT(func(v *ConditionsResponse) *ConditionResponse {
 		if v == nil {
@@ -1379,7 +1243,6 @@ func (o ConditionsResponsePtrOutput) AlertRuleId() ConditionResponsePtrOutput {
 	}).(ConditionResponsePtrOutput)
 }
 
-// condition to trigger an action rule
 func (o ConditionsResponsePtrOutput) ApplicationInsightsSearchResults() ConditionResponsePtrOutput {
 	return o.ApplyT(func(v *ConditionsResponse) *ConditionResponse {
 		if v == nil {
@@ -1389,7 +1252,6 @@ func (o ConditionsResponsePtrOutput) ApplicationInsightsSearchResults() Conditio
 	}).(ConditionResponsePtrOutput)
 }
 
-// condition to trigger an action rule
 func (o ConditionsResponsePtrOutput) Description() ConditionResponsePtrOutput {
 	return o.ApplyT(func(v *ConditionsResponse) *ConditionResponse {
 		if v == nil {
@@ -1399,7 +1261,6 @@ func (o ConditionsResponsePtrOutput) Description() ConditionResponsePtrOutput {
 	}).(ConditionResponsePtrOutput)
 }
 
-// condition to trigger an action rule
 func (o ConditionsResponsePtrOutput) LogAnalyticsSearchResults() ConditionResponsePtrOutput {
 	return o.ApplyT(func(v *ConditionsResponse) *ConditionResponse {
 		if v == nil {
@@ -1409,7 +1270,6 @@ func (o ConditionsResponsePtrOutput) LogAnalyticsSearchResults() ConditionRespon
 	}).(ConditionResponsePtrOutput)
 }
 
-// condition to trigger an action rule
 func (o ConditionsResponsePtrOutput) MonitorCondition() ConditionResponsePtrOutput {
 	return o.ApplyT(func(v *ConditionsResponse) *ConditionResponse {
 		if v == nil {
@@ -1419,7 +1279,6 @@ func (o ConditionsResponsePtrOutput) MonitorCondition() ConditionResponsePtrOutp
 	}).(ConditionResponsePtrOutput)
 }
 
-// condition to trigger an action rule
 func (o ConditionsResponsePtrOutput) MonitorService() ConditionResponsePtrOutput {
 	return o.ApplyT(func(v *ConditionsResponse) *ConditionResponse {
 		if v == nil {
@@ -1429,7 +1288,6 @@ func (o ConditionsResponsePtrOutput) MonitorService() ConditionResponsePtrOutput
 	}).(ConditionResponsePtrOutput)
 }
 
-// condition to trigger an action rule
 func (o ConditionsResponsePtrOutput) Severity() ConditionResponsePtrOutput {
 	return o.ApplyT(func(v *ConditionsResponse) *ConditionResponse {
 		if v == nil {
@@ -1439,7 +1297,6 @@ func (o ConditionsResponsePtrOutput) Severity() ConditionResponsePtrOutput {
 	}).(ConditionResponsePtrOutput)
 }
 
-// condition to trigger an action rule
 func (o ConditionsResponsePtrOutput) SignalType() ConditionResponsePtrOutput {
 	return o.ApplyT(func(v *ConditionsResponse) *ConditionResponse {
 		if v == nil {
@@ -1449,7 +1306,6 @@ func (o ConditionsResponsePtrOutput) SignalType() ConditionResponsePtrOutput {
 	}).(ConditionResponsePtrOutput)
 }
 
-// condition to trigger an action rule
 func (o ConditionsResponsePtrOutput) TargetResource() ConditionResponsePtrOutput {
 	return o.ApplyT(func(v *ConditionsResponse) *ConditionResponse {
 		if v == nil {
@@ -1459,7 +1315,6 @@ func (o ConditionsResponsePtrOutput) TargetResource() ConditionResponsePtrOutput
 	}).(ConditionResponsePtrOutput)
 }
 
-// condition to trigger an action rule
 func (o ConditionsResponsePtrOutput) TargetResourceGroup() ConditionResponsePtrOutput {
 	return o.ApplyT(func(v *ConditionsResponse) *ConditionResponse {
 		if v == nil {
@@ -1469,7 +1324,6 @@ func (o ConditionsResponsePtrOutput) TargetResourceGroup() ConditionResponsePtrO
 	}).(ConditionResponsePtrOutput)
 }
 
-// condition to trigger an action rule
 func (o ConditionsResponsePtrOutput) TargetResourceType() ConditionResponsePtrOutput {
 	return o.ApplyT(func(v *ConditionsResponse) *ConditionResponse {
 		if v == nil {
@@ -1479,11 +1333,8 @@ func (o ConditionsResponsePtrOutput) TargetResourceType() ConditionResponsePtrOu
 	}).(ConditionResponsePtrOutput)
 }
 
-// Target scope for a given action rule. By default scope will be the subscription. User can also provide list of resource groups or list of resources from the scope subscription as well.
 type Scope struct {
-	// type of target scope
-	Type *string `pulumi:"type"`
-	// list of ARM IDs of the given scope type which will be the target of the given action rule.
+	Type   *string  `pulumi:"type"`
 	Values []string `pulumi:"values"`
 }
 
@@ -1498,11 +1349,8 @@ type ScopeInput interface {
 	ToScopeOutputWithContext(context.Context) ScopeOutput
 }
 
-// Target scope for a given action rule. By default scope will be the subscription. User can also provide list of resource groups or list of resources from the scope subscription as well.
 type ScopeArgs struct {
-	// type of target scope
-	Type pulumi.StringPtrInput `pulumi:"type"`
-	// list of ARM IDs of the given scope type which will be the target of the given action rule.
+	Type   pulumi.StringPtrInput   `pulumi:"type"`
 	Values pulumi.StringArrayInput `pulumi:"values"`
 }
 
@@ -1559,7 +1407,6 @@ func (i *scopePtrType) ToScopePtrOutputWithContext(ctx context.Context) ScopePtr
 	return pulumi.ToOutputWithContext(ctx, i).(ScopePtrOutput)
 }
 
-// Target scope for a given action rule. By default scope will be the subscription. User can also provide list of resource groups or list of resources from the scope subscription as well.
 type ScopeOutput struct{ *pulumi.OutputState }
 
 func (ScopeOutput) ElementType() reflect.Type {
@@ -1579,17 +1426,15 @@ func (o ScopeOutput) ToScopePtrOutput() ScopePtrOutput {
 }
 
 func (o ScopeOutput) ToScopePtrOutputWithContext(ctx context.Context) ScopePtrOutput {
-	return o.ApplyT(func(v Scope) *Scope {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v Scope) *Scope {
 		return &v
 	}).(ScopePtrOutput)
 }
 
-// type of target scope
 func (o ScopeOutput) Type() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v Scope) *string { return v.Type }).(pulumi.StringPtrOutput)
 }
 
-// list of ARM IDs of the given scope type which will be the target of the given action rule.
 func (o ScopeOutput) Values() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v Scope) []string { return v.Values }).(pulumi.StringArrayOutput)
 }
@@ -1609,10 +1454,15 @@ func (o ScopePtrOutput) ToScopePtrOutputWithContext(ctx context.Context) ScopePt
 }
 
 func (o ScopePtrOutput) Elem() ScopeOutput {
-	return o.ApplyT(func(v *Scope) Scope { return *v }).(ScopeOutput)
+	return o.ApplyT(func(v *Scope) Scope {
+		if v != nil {
+			return *v
+		}
+		var ret Scope
+		return ret
+	}).(ScopeOutput)
 }
 
-// type of target scope
 func (o ScopePtrOutput) Type() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Scope) *string {
 		if v == nil {
@@ -1622,7 +1472,6 @@ func (o ScopePtrOutput) Type() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// list of ARM IDs of the given scope type which will be the target of the given action rule.
 func (o ScopePtrOutput) Values() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *Scope) []string {
 		if v == nil {
@@ -1632,11 +1481,8 @@ func (o ScopePtrOutput) Values() pulumi.StringArrayOutput {
 	}).(pulumi.StringArrayOutput)
 }
 
-// Target scope for a given action rule. By default scope will be the subscription. User can also provide list of resource groups or list of resources from the scope subscription as well.
 type ScopeResponse struct {
-	// type of target scope
-	Type *string `pulumi:"type"`
-	// list of ARM IDs of the given scope type which will be the target of the given action rule.
+	Type   *string  `pulumi:"type"`
 	Values []string `pulumi:"values"`
 }
 
@@ -1651,11 +1497,8 @@ type ScopeResponseInput interface {
 	ToScopeResponseOutputWithContext(context.Context) ScopeResponseOutput
 }
 
-// Target scope for a given action rule. By default scope will be the subscription. User can also provide list of resource groups or list of resources from the scope subscription as well.
 type ScopeResponseArgs struct {
-	// type of target scope
-	Type pulumi.StringPtrInput `pulumi:"type"`
-	// list of ARM IDs of the given scope type which will be the target of the given action rule.
+	Type   pulumi.StringPtrInput   `pulumi:"type"`
 	Values pulumi.StringArrayInput `pulumi:"values"`
 }
 
@@ -1712,7 +1555,6 @@ func (i *scopeResponsePtrType) ToScopeResponsePtrOutputWithContext(ctx context.C
 	return pulumi.ToOutputWithContext(ctx, i).(ScopeResponsePtrOutput)
 }
 
-// Target scope for a given action rule. By default scope will be the subscription. User can also provide list of resource groups or list of resources from the scope subscription as well.
 type ScopeResponseOutput struct{ *pulumi.OutputState }
 
 func (ScopeResponseOutput) ElementType() reflect.Type {
@@ -1732,17 +1574,15 @@ func (o ScopeResponseOutput) ToScopeResponsePtrOutput() ScopeResponsePtrOutput {
 }
 
 func (o ScopeResponseOutput) ToScopeResponsePtrOutputWithContext(ctx context.Context) ScopeResponsePtrOutput {
-	return o.ApplyT(func(v ScopeResponse) *ScopeResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ScopeResponse) *ScopeResponse {
 		return &v
 	}).(ScopeResponsePtrOutput)
 }
 
-// type of target scope
 func (o ScopeResponseOutput) Type() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ScopeResponse) *string { return v.Type }).(pulumi.StringPtrOutput)
 }
 
-// list of ARM IDs of the given scope type which will be the target of the given action rule.
 func (o ScopeResponseOutput) Values() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v ScopeResponse) []string { return v.Values }).(pulumi.StringArrayOutput)
 }
@@ -1762,10 +1602,15 @@ func (o ScopeResponsePtrOutput) ToScopeResponsePtrOutputWithContext(ctx context.
 }
 
 func (o ScopeResponsePtrOutput) Elem() ScopeResponseOutput {
-	return o.ApplyT(func(v *ScopeResponse) ScopeResponse { return *v }).(ScopeResponseOutput)
+	return o.ApplyT(func(v *ScopeResponse) ScopeResponse {
+		if v != nil {
+			return *v
+		}
+		var ret ScopeResponse
+		return ret
+	}).(ScopeResponseOutput)
 }
 
-// type of target scope
 func (o ScopeResponsePtrOutput) Type() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ScopeResponse) *string {
 		if v == nil {
@@ -1775,7 +1620,6 @@ func (o ScopeResponsePtrOutput) Type() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// list of ARM IDs of the given scope type which will be the target of the given action rule.
 func (o ScopeResponsePtrOutput) Values() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *ScopeResponse) []string {
 		if v == nil {
@@ -1785,12 +1629,9 @@ func (o ScopeResponsePtrOutput) Values() pulumi.StringArrayOutput {
 	}).(pulumi.StringArrayOutput)
 }
 
-// Suppression logic for a given action rule
 type SuppressionConfig struct {
-	// Specifies when the suppression should be applied
-	RecurrenceType string `pulumi:"recurrenceType"`
-	// Schedule for a given suppression configuration.
-	Schedule *SuppressionSchedule `pulumi:"schedule"`
+	RecurrenceType string               `pulumi:"recurrenceType"`
+	Schedule       *SuppressionSchedule `pulumi:"schedule"`
 }
 
 // SuppressionConfigInput is an input type that accepts SuppressionConfigArgs and SuppressionConfigOutput values.
@@ -1804,12 +1645,9 @@ type SuppressionConfigInput interface {
 	ToSuppressionConfigOutputWithContext(context.Context) SuppressionConfigOutput
 }
 
-// Suppression logic for a given action rule
 type SuppressionConfigArgs struct {
-	// Specifies when the suppression should be applied
-	RecurrenceType pulumi.StringInput `pulumi:"recurrenceType"`
-	// Schedule for a given suppression configuration.
-	Schedule SuppressionSchedulePtrInput `pulumi:"schedule"`
+	RecurrenceType pulumi.StringInput          `pulumi:"recurrenceType"`
+	Schedule       SuppressionSchedulePtrInput `pulumi:"schedule"`
 }
 
 func (SuppressionConfigArgs) ElementType() reflect.Type {
@@ -1865,7 +1703,6 @@ func (i *suppressionConfigPtrType) ToSuppressionConfigPtrOutputWithContext(ctx c
 	return pulumi.ToOutputWithContext(ctx, i).(SuppressionConfigPtrOutput)
 }
 
-// Suppression logic for a given action rule
 type SuppressionConfigOutput struct{ *pulumi.OutputState }
 
 func (SuppressionConfigOutput) ElementType() reflect.Type {
@@ -1885,17 +1722,15 @@ func (o SuppressionConfigOutput) ToSuppressionConfigPtrOutput() SuppressionConfi
 }
 
 func (o SuppressionConfigOutput) ToSuppressionConfigPtrOutputWithContext(ctx context.Context) SuppressionConfigPtrOutput {
-	return o.ApplyT(func(v SuppressionConfig) *SuppressionConfig {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v SuppressionConfig) *SuppressionConfig {
 		return &v
 	}).(SuppressionConfigPtrOutput)
 }
 
-// Specifies when the suppression should be applied
 func (o SuppressionConfigOutput) RecurrenceType() pulumi.StringOutput {
 	return o.ApplyT(func(v SuppressionConfig) string { return v.RecurrenceType }).(pulumi.StringOutput)
 }
 
-// Schedule for a given suppression configuration.
 func (o SuppressionConfigOutput) Schedule() SuppressionSchedulePtrOutput {
 	return o.ApplyT(func(v SuppressionConfig) *SuppressionSchedule { return v.Schedule }).(SuppressionSchedulePtrOutput)
 }
@@ -1915,10 +1750,15 @@ func (o SuppressionConfigPtrOutput) ToSuppressionConfigPtrOutputWithContext(ctx 
 }
 
 func (o SuppressionConfigPtrOutput) Elem() SuppressionConfigOutput {
-	return o.ApplyT(func(v *SuppressionConfig) SuppressionConfig { return *v }).(SuppressionConfigOutput)
+	return o.ApplyT(func(v *SuppressionConfig) SuppressionConfig {
+		if v != nil {
+			return *v
+		}
+		var ret SuppressionConfig
+		return ret
+	}).(SuppressionConfigOutput)
 }
 
-// Specifies when the suppression should be applied
 func (o SuppressionConfigPtrOutput) RecurrenceType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SuppressionConfig) *string {
 		if v == nil {
@@ -1928,7 +1768,6 @@ func (o SuppressionConfigPtrOutput) RecurrenceType() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Schedule for a given suppression configuration.
 func (o SuppressionConfigPtrOutput) Schedule() SuppressionSchedulePtrOutput {
 	return o.ApplyT(func(v *SuppressionConfig) *SuppressionSchedule {
 		if v == nil {
@@ -1938,12 +1777,9 @@ func (o SuppressionConfigPtrOutput) Schedule() SuppressionSchedulePtrOutput {
 	}).(SuppressionSchedulePtrOutput)
 }
 
-// Suppression logic for a given action rule
 type SuppressionConfigResponse struct {
-	// Specifies when the suppression should be applied
-	RecurrenceType string `pulumi:"recurrenceType"`
-	// Schedule for a given suppression configuration.
-	Schedule *SuppressionScheduleResponse `pulumi:"schedule"`
+	RecurrenceType string                       `pulumi:"recurrenceType"`
+	Schedule       *SuppressionScheduleResponse `pulumi:"schedule"`
 }
 
 // SuppressionConfigResponseInput is an input type that accepts SuppressionConfigResponseArgs and SuppressionConfigResponseOutput values.
@@ -1957,12 +1793,9 @@ type SuppressionConfigResponseInput interface {
 	ToSuppressionConfigResponseOutputWithContext(context.Context) SuppressionConfigResponseOutput
 }
 
-// Suppression logic for a given action rule
 type SuppressionConfigResponseArgs struct {
-	// Specifies when the suppression should be applied
-	RecurrenceType pulumi.StringInput `pulumi:"recurrenceType"`
-	// Schedule for a given suppression configuration.
-	Schedule SuppressionScheduleResponsePtrInput `pulumi:"schedule"`
+	RecurrenceType pulumi.StringInput                  `pulumi:"recurrenceType"`
+	Schedule       SuppressionScheduleResponsePtrInput `pulumi:"schedule"`
 }
 
 func (SuppressionConfigResponseArgs) ElementType() reflect.Type {
@@ -2018,7 +1851,6 @@ func (i *suppressionConfigResponsePtrType) ToSuppressionConfigResponsePtrOutputW
 	return pulumi.ToOutputWithContext(ctx, i).(SuppressionConfigResponsePtrOutput)
 }
 
-// Suppression logic for a given action rule
 type SuppressionConfigResponseOutput struct{ *pulumi.OutputState }
 
 func (SuppressionConfigResponseOutput) ElementType() reflect.Type {
@@ -2038,17 +1870,15 @@ func (o SuppressionConfigResponseOutput) ToSuppressionConfigResponsePtrOutput() 
 }
 
 func (o SuppressionConfigResponseOutput) ToSuppressionConfigResponsePtrOutputWithContext(ctx context.Context) SuppressionConfigResponsePtrOutput {
-	return o.ApplyT(func(v SuppressionConfigResponse) *SuppressionConfigResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v SuppressionConfigResponse) *SuppressionConfigResponse {
 		return &v
 	}).(SuppressionConfigResponsePtrOutput)
 }
 
-// Specifies when the suppression should be applied
 func (o SuppressionConfigResponseOutput) RecurrenceType() pulumi.StringOutput {
 	return o.ApplyT(func(v SuppressionConfigResponse) string { return v.RecurrenceType }).(pulumi.StringOutput)
 }
 
-// Schedule for a given suppression configuration.
 func (o SuppressionConfigResponseOutput) Schedule() SuppressionScheduleResponsePtrOutput {
 	return o.ApplyT(func(v SuppressionConfigResponse) *SuppressionScheduleResponse { return v.Schedule }).(SuppressionScheduleResponsePtrOutput)
 }
@@ -2068,10 +1898,15 @@ func (o SuppressionConfigResponsePtrOutput) ToSuppressionConfigResponsePtrOutput
 }
 
 func (o SuppressionConfigResponsePtrOutput) Elem() SuppressionConfigResponseOutput {
-	return o.ApplyT(func(v *SuppressionConfigResponse) SuppressionConfigResponse { return *v }).(SuppressionConfigResponseOutput)
+	return o.ApplyT(func(v *SuppressionConfigResponse) SuppressionConfigResponse {
+		if v != nil {
+			return *v
+		}
+		var ret SuppressionConfigResponse
+		return ret
+	}).(SuppressionConfigResponseOutput)
 }
 
-// Specifies when the suppression should be applied
 func (o SuppressionConfigResponsePtrOutput) RecurrenceType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SuppressionConfigResponse) *string {
 		if v == nil {
@@ -2081,7 +1916,6 @@ func (o SuppressionConfigResponsePtrOutput) RecurrenceType() pulumi.StringPtrOut
 	}).(pulumi.StringPtrOutput)
 }
 
-// Schedule for a given suppression configuration.
 func (o SuppressionConfigResponsePtrOutput) Schedule() SuppressionScheduleResponsePtrOutput {
 	return o.ApplyT(func(v *SuppressionConfigResponse) *SuppressionScheduleResponse {
 		if v == nil {
@@ -2091,18 +1925,12 @@ func (o SuppressionConfigResponsePtrOutput) Schedule() SuppressionScheduleRespon
 	}).(SuppressionScheduleResponsePtrOutput)
 }
 
-// Schedule for a given suppression configuration.
 type SuppressionSchedule struct {
-	// End date for suppression
-	EndDate *string `pulumi:"endDate"`
-	// End date for suppression
-	EndTime *string `pulumi:"endTime"`
-	// Specifies the values for recurrence pattern
-	RecurrenceValues []int `pulumi:"recurrenceValues"`
-	// Start date for suppression
-	StartDate *string `pulumi:"startDate"`
-	// Start time for suppression
-	StartTime *string `pulumi:"startTime"`
+	EndDate          *string `pulumi:"endDate"`
+	EndTime          *string `pulumi:"endTime"`
+	RecurrenceValues []int   `pulumi:"recurrenceValues"`
+	StartDate        *string `pulumi:"startDate"`
+	StartTime        *string `pulumi:"startTime"`
 }
 
 // SuppressionScheduleInput is an input type that accepts SuppressionScheduleArgs and SuppressionScheduleOutput values.
@@ -2116,18 +1944,12 @@ type SuppressionScheduleInput interface {
 	ToSuppressionScheduleOutputWithContext(context.Context) SuppressionScheduleOutput
 }
 
-// Schedule for a given suppression configuration.
 type SuppressionScheduleArgs struct {
-	// End date for suppression
-	EndDate pulumi.StringPtrInput `pulumi:"endDate"`
-	// End date for suppression
-	EndTime pulumi.StringPtrInput `pulumi:"endTime"`
-	// Specifies the values for recurrence pattern
-	RecurrenceValues pulumi.IntArrayInput `pulumi:"recurrenceValues"`
-	// Start date for suppression
-	StartDate pulumi.StringPtrInput `pulumi:"startDate"`
-	// Start time for suppression
-	StartTime pulumi.StringPtrInput `pulumi:"startTime"`
+	EndDate          pulumi.StringPtrInput `pulumi:"endDate"`
+	EndTime          pulumi.StringPtrInput `pulumi:"endTime"`
+	RecurrenceValues pulumi.IntArrayInput  `pulumi:"recurrenceValues"`
+	StartDate        pulumi.StringPtrInput `pulumi:"startDate"`
+	StartTime        pulumi.StringPtrInput `pulumi:"startTime"`
 }
 
 func (SuppressionScheduleArgs) ElementType() reflect.Type {
@@ -2183,7 +2005,6 @@ func (i *suppressionSchedulePtrType) ToSuppressionSchedulePtrOutputWithContext(c
 	return pulumi.ToOutputWithContext(ctx, i).(SuppressionSchedulePtrOutput)
 }
 
-// Schedule for a given suppression configuration.
 type SuppressionScheduleOutput struct{ *pulumi.OutputState }
 
 func (SuppressionScheduleOutput) ElementType() reflect.Type {
@@ -2203,32 +2024,27 @@ func (o SuppressionScheduleOutput) ToSuppressionSchedulePtrOutput() SuppressionS
 }
 
 func (o SuppressionScheduleOutput) ToSuppressionSchedulePtrOutputWithContext(ctx context.Context) SuppressionSchedulePtrOutput {
-	return o.ApplyT(func(v SuppressionSchedule) *SuppressionSchedule {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v SuppressionSchedule) *SuppressionSchedule {
 		return &v
 	}).(SuppressionSchedulePtrOutput)
 }
 
-// End date for suppression
 func (o SuppressionScheduleOutput) EndDate() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SuppressionSchedule) *string { return v.EndDate }).(pulumi.StringPtrOutput)
 }
 
-// End date for suppression
 func (o SuppressionScheduleOutput) EndTime() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SuppressionSchedule) *string { return v.EndTime }).(pulumi.StringPtrOutput)
 }
 
-// Specifies the values for recurrence pattern
 func (o SuppressionScheduleOutput) RecurrenceValues() pulumi.IntArrayOutput {
 	return o.ApplyT(func(v SuppressionSchedule) []int { return v.RecurrenceValues }).(pulumi.IntArrayOutput)
 }
 
-// Start date for suppression
 func (o SuppressionScheduleOutput) StartDate() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SuppressionSchedule) *string { return v.StartDate }).(pulumi.StringPtrOutput)
 }
 
-// Start time for suppression
 func (o SuppressionScheduleOutput) StartTime() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SuppressionSchedule) *string { return v.StartTime }).(pulumi.StringPtrOutput)
 }
@@ -2248,10 +2064,15 @@ func (o SuppressionSchedulePtrOutput) ToSuppressionSchedulePtrOutputWithContext(
 }
 
 func (o SuppressionSchedulePtrOutput) Elem() SuppressionScheduleOutput {
-	return o.ApplyT(func(v *SuppressionSchedule) SuppressionSchedule { return *v }).(SuppressionScheduleOutput)
+	return o.ApplyT(func(v *SuppressionSchedule) SuppressionSchedule {
+		if v != nil {
+			return *v
+		}
+		var ret SuppressionSchedule
+		return ret
+	}).(SuppressionScheduleOutput)
 }
 
-// End date for suppression
 func (o SuppressionSchedulePtrOutput) EndDate() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SuppressionSchedule) *string {
 		if v == nil {
@@ -2261,7 +2082,6 @@ func (o SuppressionSchedulePtrOutput) EndDate() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// End date for suppression
 func (o SuppressionSchedulePtrOutput) EndTime() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SuppressionSchedule) *string {
 		if v == nil {
@@ -2271,7 +2091,6 @@ func (o SuppressionSchedulePtrOutput) EndTime() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Specifies the values for recurrence pattern
 func (o SuppressionSchedulePtrOutput) RecurrenceValues() pulumi.IntArrayOutput {
 	return o.ApplyT(func(v *SuppressionSchedule) []int {
 		if v == nil {
@@ -2281,7 +2100,6 @@ func (o SuppressionSchedulePtrOutput) RecurrenceValues() pulumi.IntArrayOutput {
 	}).(pulumi.IntArrayOutput)
 }
 
-// Start date for suppression
 func (o SuppressionSchedulePtrOutput) StartDate() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SuppressionSchedule) *string {
 		if v == nil {
@@ -2291,7 +2109,6 @@ func (o SuppressionSchedulePtrOutput) StartDate() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Start time for suppression
 func (o SuppressionSchedulePtrOutput) StartTime() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SuppressionSchedule) *string {
 		if v == nil {
@@ -2301,18 +2118,12 @@ func (o SuppressionSchedulePtrOutput) StartTime() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Schedule for a given suppression configuration.
 type SuppressionScheduleResponse struct {
-	// End date for suppression
-	EndDate *string `pulumi:"endDate"`
-	// End date for suppression
-	EndTime *string `pulumi:"endTime"`
-	// Specifies the values for recurrence pattern
-	RecurrenceValues []int `pulumi:"recurrenceValues"`
-	// Start date for suppression
-	StartDate *string `pulumi:"startDate"`
-	// Start time for suppression
-	StartTime *string `pulumi:"startTime"`
+	EndDate          *string `pulumi:"endDate"`
+	EndTime          *string `pulumi:"endTime"`
+	RecurrenceValues []int   `pulumi:"recurrenceValues"`
+	StartDate        *string `pulumi:"startDate"`
+	StartTime        *string `pulumi:"startTime"`
 }
 
 // SuppressionScheduleResponseInput is an input type that accepts SuppressionScheduleResponseArgs and SuppressionScheduleResponseOutput values.
@@ -2326,18 +2137,12 @@ type SuppressionScheduleResponseInput interface {
 	ToSuppressionScheduleResponseOutputWithContext(context.Context) SuppressionScheduleResponseOutput
 }
 
-// Schedule for a given suppression configuration.
 type SuppressionScheduleResponseArgs struct {
-	// End date for suppression
-	EndDate pulumi.StringPtrInput `pulumi:"endDate"`
-	// End date for suppression
-	EndTime pulumi.StringPtrInput `pulumi:"endTime"`
-	// Specifies the values for recurrence pattern
-	RecurrenceValues pulumi.IntArrayInput `pulumi:"recurrenceValues"`
-	// Start date for suppression
-	StartDate pulumi.StringPtrInput `pulumi:"startDate"`
-	// Start time for suppression
-	StartTime pulumi.StringPtrInput `pulumi:"startTime"`
+	EndDate          pulumi.StringPtrInput `pulumi:"endDate"`
+	EndTime          pulumi.StringPtrInput `pulumi:"endTime"`
+	RecurrenceValues pulumi.IntArrayInput  `pulumi:"recurrenceValues"`
+	StartDate        pulumi.StringPtrInput `pulumi:"startDate"`
+	StartTime        pulumi.StringPtrInput `pulumi:"startTime"`
 }
 
 func (SuppressionScheduleResponseArgs) ElementType() reflect.Type {
@@ -2393,7 +2198,6 @@ func (i *suppressionScheduleResponsePtrType) ToSuppressionScheduleResponsePtrOut
 	return pulumi.ToOutputWithContext(ctx, i).(SuppressionScheduleResponsePtrOutput)
 }
 
-// Schedule for a given suppression configuration.
 type SuppressionScheduleResponseOutput struct{ *pulumi.OutputState }
 
 func (SuppressionScheduleResponseOutput) ElementType() reflect.Type {
@@ -2413,32 +2217,27 @@ func (o SuppressionScheduleResponseOutput) ToSuppressionScheduleResponsePtrOutpu
 }
 
 func (o SuppressionScheduleResponseOutput) ToSuppressionScheduleResponsePtrOutputWithContext(ctx context.Context) SuppressionScheduleResponsePtrOutput {
-	return o.ApplyT(func(v SuppressionScheduleResponse) *SuppressionScheduleResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v SuppressionScheduleResponse) *SuppressionScheduleResponse {
 		return &v
 	}).(SuppressionScheduleResponsePtrOutput)
 }
 
-// End date for suppression
 func (o SuppressionScheduleResponseOutput) EndDate() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SuppressionScheduleResponse) *string { return v.EndDate }).(pulumi.StringPtrOutput)
 }
 
-// End date for suppression
 func (o SuppressionScheduleResponseOutput) EndTime() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SuppressionScheduleResponse) *string { return v.EndTime }).(pulumi.StringPtrOutput)
 }
 
-// Specifies the values for recurrence pattern
 func (o SuppressionScheduleResponseOutput) RecurrenceValues() pulumi.IntArrayOutput {
 	return o.ApplyT(func(v SuppressionScheduleResponse) []int { return v.RecurrenceValues }).(pulumi.IntArrayOutput)
 }
 
-// Start date for suppression
 func (o SuppressionScheduleResponseOutput) StartDate() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SuppressionScheduleResponse) *string { return v.StartDate }).(pulumi.StringPtrOutput)
 }
 
-// Start time for suppression
 func (o SuppressionScheduleResponseOutput) StartTime() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SuppressionScheduleResponse) *string { return v.StartTime }).(pulumi.StringPtrOutput)
 }
@@ -2458,10 +2257,15 @@ func (o SuppressionScheduleResponsePtrOutput) ToSuppressionScheduleResponsePtrOu
 }
 
 func (o SuppressionScheduleResponsePtrOutput) Elem() SuppressionScheduleResponseOutput {
-	return o.ApplyT(func(v *SuppressionScheduleResponse) SuppressionScheduleResponse { return *v }).(SuppressionScheduleResponseOutput)
+	return o.ApplyT(func(v *SuppressionScheduleResponse) SuppressionScheduleResponse {
+		if v != nil {
+			return *v
+		}
+		var ret SuppressionScheduleResponse
+		return ret
+	}).(SuppressionScheduleResponseOutput)
 }
 
-// End date for suppression
 func (o SuppressionScheduleResponsePtrOutput) EndDate() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SuppressionScheduleResponse) *string {
 		if v == nil {
@@ -2471,7 +2275,6 @@ func (o SuppressionScheduleResponsePtrOutput) EndDate() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// End date for suppression
 func (o SuppressionScheduleResponsePtrOutput) EndTime() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SuppressionScheduleResponse) *string {
 		if v == nil {
@@ -2481,7 +2284,6 @@ func (o SuppressionScheduleResponsePtrOutput) EndTime() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Specifies the values for recurrence pattern
 func (o SuppressionScheduleResponsePtrOutput) RecurrenceValues() pulumi.IntArrayOutput {
 	return o.ApplyT(func(v *SuppressionScheduleResponse) []int {
 		if v == nil {
@@ -2491,7 +2293,6 @@ func (o SuppressionScheduleResponsePtrOutput) RecurrenceValues() pulumi.IntArray
 	}).(pulumi.IntArrayOutput)
 }
 
-// Start date for suppression
 func (o SuppressionScheduleResponsePtrOutput) StartDate() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SuppressionScheduleResponse) *string {
 		if v == nil {
@@ -2501,7 +2302,6 @@ func (o SuppressionScheduleResponsePtrOutput) StartDate() pulumi.StringPtrOutput
 	}).(pulumi.StringPtrOutput)
 }
 
-// Start time for suppression
 func (o SuppressionScheduleResponsePtrOutput) StartTime() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SuppressionScheduleResponse) *string {
 		if v == nil {

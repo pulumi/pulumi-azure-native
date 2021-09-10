@@ -221,9 +221,7 @@ func (i *WebAppBackupConfiguration) ToWebAppBackupConfigurationOutputWithContext
 	return pulumi.ToOutputWithContext(ctx, i).(WebAppBackupConfigurationOutput)
 }
 
-type WebAppBackupConfigurationOutput struct {
-	*pulumi.OutputState
-}
+type WebAppBackupConfigurationOutput struct{ *pulumi.OutputState }
 
 func (WebAppBackupConfigurationOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*WebAppBackupConfiguration)(nil))

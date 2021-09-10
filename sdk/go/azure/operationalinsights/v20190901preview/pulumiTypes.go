@@ -10,14 +10,10 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// The related metadata items for the function.
 type LogAnalyticsQueryPackQueryPropertiesRelated struct {
-	// The related categories for the function.
-	Categories []string `pulumi:"categories"`
-	// The related resource types for the function.
+	Categories    []string `pulumi:"categories"`
 	ResourceTypes []string `pulumi:"resourceTypes"`
-	// The related Log Analytics solutions for the function.
-	Solutions []string `pulumi:"solutions"`
+	Solutions     []string `pulumi:"solutions"`
 }
 
 // LogAnalyticsQueryPackQueryPropertiesRelatedInput is an input type that accepts LogAnalyticsQueryPackQueryPropertiesRelatedArgs and LogAnalyticsQueryPackQueryPropertiesRelatedOutput values.
@@ -31,14 +27,10 @@ type LogAnalyticsQueryPackQueryPropertiesRelatedInput interface {
 	ToLogAnalyticsQueryPackQueryPropertiesRelatedOutputWithContext(context.Context) LogAnalyticsQueryPackQueryPropertiesRelatedOutput
 }
 
-// The related metadata items for the function.
 type LogAnalyticsQueryPackQueryPropertiesRelatedArgs struct {
-	// The related categories for the function.
-	Categories pulumi.StringArrayInput `pulumi:"categories"`
-	// The related resource types for the function.
+	Categories    pulumi.StringArrayInput `pulumi:"categories"`
 	ResourceTypes pulumi.StringArrayInput `pulumi:"resourceTypes"`
-	// The related Log Analytics solutions for the function.
-	Solutions pulumi.StringArrayInput `pulumi:"solutions"`
+	Solutions     pulumi.StringArrayInput `pulumi:"solutions"`
 }
 
 func (LogAnalyticsQueryPackQueryPropertiesRelatedArgs) ElementType() reflect.Type {
@@ -94,7 +86,6 @@ func (i *logAnalyticsQueryPackQueryPropertiesRelatedPtrType) ToLogAnalyticsQuery
 	return pulumi.ToOutputWithContext(ctx, i).(LogAnalyticsQueryPackQueryPropertiesRelatedPtrOutput)
 }
 
-// The related metadata items for the function.
 type LogAnalyticsQueryPackQueryPropertiesRelatedOutput struct{ *pulumi.OutputState }
 
 func (LogAnalyticsQueryPackQueryPropertiesRelatedOutput) ElementType() reflect.Type {
@@ -114,22 +105,19 @@ func (o LogAnalyticsQueryPackQueryPropertiesRelatedOutput) ToLogAnalyticsQueryPa
 }
 
 func (o LogAnalyticsQueryPackQueryPropertiesRelatedOutput) ToLogAnalyticsQueryPackQueryPropertiesRelatedPtrOutputWithContext(ctx context.Context) LogAnalyticsQueryPackQueryPropertiesRelatedPtrOutput {
-	return o.ApplyT(func(v LogAnalyticsQueryPackQueryPropertiesRelated) *LogAnalyticsQueryPackQueryPropertiesRelated {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v LogAnalyticsQueryPackQueryPropertiesRelated) *LogAnalyticsQueryPackQueryPropertiesRelated {
 		return &v
 	}).(LogAnalyticsQueryPackQueryPropertiesRelatedPtrOutput)
 }
 
-// The related categories for the function.
 func (o LogAnalyticsQueryPackQueryPropertiesRelatedOutput) Categories() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v LogAnalyticsQueryPackQueryPropertiesRelated) []string { return v.Categories }).(pulumi.StringArrayOutput)
 }
 
-// The related resource types for the function.
 func (o LogAnalyticsQueryPackQueryPropertiesRelatedOutput) ResourceTypes() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v LogAnalyticsQueryPackQueryPropertiesRelated) []string { return v.ResourceTypes }).(pulumi.StringArrayOutput)
 }
 
-// The related Log Analytics solutions for the function.
 func (o LogAnalyticsQueryPackQueryPropertiesRelatedOutput) Solutions() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v LogAnalyticsQueryPackQueryPropertiesRelated) []string { return v.Solutions }).(pulumi.StringArrayOutput)
 }
@@ -150,11 +138,14 @@ func (o LogAnalyticsQueryPackQueryPropertiesRelatedPtrOutput) ToLogAnalyticsQuer
 
 func (o LogAnalyticsQueryPackQueryPropertiesRelatedPtrOutput) Elem() LogAnalyticsQueryPackQueryPropertiesRelatedOutput {
 	return o.ApplyT(func(v *LogAnalyticsQueryPackQueryPropertiesRelated) LogAnalyticsQueryPackQueryPropertiesRelated {
-		return *v
+		if v != nil {
+			return *v
+		}
+		var ret LogAnalyticsQueryPackQueryPropertiesRelated
+		return ret
 	}).(LogAnalyticsQueryPackQueryPropertiesRelatedOutput)
 }
 
-// The related categories for the function.
 func (o LogAnalyticsQueryPackQueryPropertiesRelatedPtrOutput) Categories() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *LogAnalyticsQueryPackQueryPropertiesRelated) []string {
 		if v == nil {
@@ -164,7 +155,6 @@ func (o LogAnalyticsQueryPackQueryPropertiesRelatedPtrOutput) Categories() pulum
 	}).(pulumi.StringArrayOutput)
 }
 
-// The related resource types for the function.
 func (o LogAnalyticsQueryPackQueryPropertiesRelatedPtrOutput) ResourceTypes() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *LogAnalyticsQueryPackQueryPropertiesRelated) []string {
 		if v == nil {
@@ -174,7 +164,6 @@ func (o LogAnalyticsQueryPackQueryPropertiesRelatedPtrOutput) ResourceTypes() pu
 	}).(pulumi.StringArrayOutput)
 }
 
-// The related Log Analytics solutions for the function.
 func (o LogAnalyticsQueryPackQueryPropertiesRelatedPtrOutput) Solutions() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *LogAnalyticsQueryPackQueryPropertiesRelated) []string {
 		if v == nil {
@@ -184,14 +173,10 @@ func (o LogAnalyticsQueryPackQueryPropertiesRelatedPtrOutput) Solutions() pulumi
 	}).(pulumi.StringArrayOutput)
 }
 
-// The related metadata items for the function.
 type LogAnalyticsQueryPackQueryPropertiesResponseRelated struct {
-	// The related categories for the function.
-	Categories []string `pulumi:"categories"`
-	// The related resource types for the function.
+	Categories    []string `pulumi:"categories"`
 	ResourceTypes []string `pulumi:"resourceTypes"`
-	// The related Log Analytics solutions for the function.
-	Solutions []string `pulumi:"solutions"`
+	Solutions     []string `pulumi:"solutions"`
 }
 
 // LogAnalyticsQueryPackQueryPropertiesResponseRelatedInput is an input type that accepts LogAnalyticsQueryPackQueryPropertiesResponseRelatedArgs and LogAnalyticsQueryPackQueryPropertiesResponseRelatedOutput values.
@@ -205,14 +190,10 @@ type LogAnalyticsQueryPackQueryPropertiesResponseRelatedInput interface {
 	ToLogAnalyticsQueryPackQueryPropertiesResponseRelatedOutputWithContext(context.Context) LogAnalyticsQueryPackQueryPropertiesResponseRelatedOutput
 }
 
-// The related metadata items for the function.
 type LogAnalyticsQueryPackQueryPropertiesResponseRelatedArgs struct {
-	// The related categories for the function.
-	Categories pulumi.StringArrayInput `pulumi:"categories"`
-	// The related resource types for the function.
+	Categories    pulumi.StringArrayInput `pulumi:"categories"`
 	ResourceTypes pulumi.StringArrayInput `pulumi:"resourceTypes"`
-	// The related Log Analytics solutions for the function.
-	Solutions pulumi.StringArrayInput `pulumi:"solutions"`
+	Solutions     pulumi.StringArrayInput `pulumi:"solutions"`
 }
 
 func (LogAnalyticsQueryPackQueryPropertiesResponseRelatedArgs) ElementType() reflect.Type {
@@ -268,7 +249,6 @@ func (i *logAnalyticsQueryPackQueryPropertiesResponseRelatedPtrType) ToLogAnalyt
 	return pulumi.ToOutputWithContext(ctx, i).(LogAnalyticsQueryPackQueryPropertiesResponseRelatedPtrOutput)
 }
 
-// The related metadata items for the function.
 type LogAnalyticsQueryPackQueryPropertiesResponseRelatedOutput struct{ *pulumi.OutputState }
 
 func (LogAnalyticsQueryPackQueryPropertiesResponseRelatedOutput) ElementType() reflect.Type {
@@ -288,22 +268,19 @@ func (o LogAnalyticsQueryPackQueryPropertiesResponseRelatedOutput) ToLogAnalytic
 }
 
 func (o LogAnalyticsQueryPackQueryPropertiesResponseRelatedOutput) ToLogAnalyticsQueryPackQueryPropertiesResponseRelatedPtrOutputWithContext(ctx context.Context) LogAnalyticsQueryPackQueryPropertiesResponseRelatedPtrOutput {
-	return o.ApplyT(func(v LogAnalyticsQueryPackQueryPropertiesResponseRelated) *LogAnalyticsQueryPackQueryPropertiesResponseRelated {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v LogAnalyticsQueryPackQueryPropertiesResponseRelated) *LogAnalyticsQueryPackQueryPropertiesResponseRelated {
 		return &v
 	}).(LogAnalyticsQueryPackQueryPropertiesResponseRelatedPtrOutput)
 }
 
-// The related categories for the function.
 func (o LogAnalyticsQueryPackQueryPropertiesResponseRelatedOutput) Categories() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v LogAnalyticsQueryPackQueryPropertiesResponseRelated) []string { return v.Categories }).(pulumi.StringArrayOutput)
 }
 
-// The related resource types for the function.
 func (o LogAnalyticsQueryPackQueryPropertiesResponseRelatedOutput) ResourceTypes() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v LogAnalyticsQueryPackQueryPropertiesResponseRelated) []string { return v.ResourceTypes }).(pulumi.StringArrayOutput)
 }
 
-// The related Log Analytics solutions for the function.
 func (o LogAnalyticsQueryPackQueryPropertiesResponseRelatedOutput) Solutions() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v LogAnalyticsQueryPackQueryPropertiesResponseRelated) []string { return v.Solutions }).(pulumi.StringArrayOutput)
 }
@@ -324,11 +301,14 @@ func (o LogAnalyticsQueryPackQueryPropertiesResponseRelatedPtrOutput) ToLogAnaly
 
 func (o LogAnalyticsQueryPackQueryPropertiesResponseRelatedPtrOutput) Elem() LogAnalyticsQueryPackQueryPropertiesResponseRelatedOutput {
 	return o.ApplyT(func(v *LogAnalyticsQueryPackQueryPropertiesResponseRelated) LogAnalyticsQueryPackQueryPropertiesResponseRelated {
-		return *v
+		if v != nil {
+			return *v
+		}
+		var ret LogAnalyticsQueryPackQueryPropertiesResponseRelated
+		return ret
 	}).(LogAnalyticsQueryPackQueryPropertiesResponseRelatedOutput)
 }
 
-// The related categories for the function.
 func (o LogAnalyticsQueryPackQueryPropertiesResponseRelatedPtrOutput) Categories() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *LogAnalyticsQueryPackQueryPropertiesResponseRelated) []string {
 		if v == nil {
@@ -338,7 +318,6 @@ func (o LogAnalyticsQueryPackQueryPropertiesResponseRelatedPtrOutput) Categories
 	}).(pulumi.StringArrayOutput)
 }
 
-// The related resource types for the function.
 func (o LogAnalyticsQueryPackQueryPropertiesResponseRelatedPtrOutput) ResourceTypes() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *LogAnalyticsQueryPackQueryPropertiesResponseRelated) []string {
 		if v == nil {
@@ -348,7 +327,6 @@ func (o LogAnalyticsQueryPackQueryPropertiesResponseRelatedPtrOutput) ResourceTy
 	}).(pulumi.StringArrayOutput)
 }
 
-// The related Log Analytics solutions for the function.
 func (o LogAnalyticsQueryPackQueryPropertiesResponseRelatedPtrOutput) Solutions() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *LogAnalyticsQueryPackQueryPropertiesResponseRelated) []string {
 		if v == nil {
@@ -358,19 +336,12 @@ func (o LogAnalyticsQueryPackQueryPropertiesResponseRelatedPtrOutput) Solutions(
 	}).(pulumi.StringArrayOutput)
 }
 
-// Read only system data
 type SystemDataResponse struct {
-	// The timestamp of resource creation (UTC)
-	CreatedAt *string `pulumi:"createdAt"`
-	// An identifier for the identity that created the resource
-	CreatedBy *string `pulumi:"createdBy"`
-	// The type of identity that created the resource
-	CreatedByType *string `pulumi:"createdByType"`
-	// The timestamp of resource last modification (UTC)
-	LastModifiedAt *string `pulumi:"lastModifiedAt"`
-	// An identifier for the identity that last modified the resource
-	LastModifiedBy *string `pulumi:"lastModifiedBy"`
-	// The type of identity that last modified the resource
+	CreatedAt          *string `pulumi:"createdAt"`
+	CreatedBy          *string `pulumi:"createdBy"`
+	CreatedByType      *string `pulumi:"createdByType"`
+	LastModifiedAt     *string `pulumi:"lastModifiedAt"`
+	LastModifiedBy     *string `pulumi:"lastModifiedBy"`
 	LastModifiedByType *string `pulumi:"lastModifiedByType"`
 }
 
@@ -385,19 +356,12 @@ type SystemDataResponseInput interface {
 	ToSystemDataResponseOutputWithContext(context.Context) SystemDataResponseOutput
 }
 
-// Read only system data
 type SystemDataResponseArgs struct {
-	// The timestamp of resource creation (UTC)
-	CreatedAt pulumi.StringPtrInput `pulumi:"createdAt"`
-	// An identifier for the identity that created the resource
-	CreatedBy pulumi.StringPtrInput `pulumi:"createdBy"`
-	// The type of identity that created the resource
-	CreatedByType pulumi.StringPtrInput `pulumi:"createdByType"`
-	// The timestamp of resource last modification (UTC)
-	LastModifiedAt pulumi.StringPtrInput `pulumi:"lastModifiedAt"`
-	// An identifier for the identity that last modified the resource
-	LastModifiedBy pulumi.StringPtrInput `pulumi:"lastModifiedBy"`
-	// The type of identity that last modified the resource
+	CreatedAt          pulumi.StringPtrInput `pulumi:"createdAt"`
+	CreatedBy          pulumi.StringPtrInput `pulumi:"createdBy"`
+	CreatedByType      pulumi.StringPtrInput `pulumi:"createdByType"`
+	LastModifiedAt     pulumi.StringPtrInput `pulumi:"lastModifiedAt"`
+	LastModifiedBy     pulumi.StringPtrInput `pulumi:"lastModifiedBy"`
 	LastModifiedByType pulumi.StringPtrInput `pulumi:"lastModifiedByType"`
 }
 
@@ -454,7 +418,6 @@ func (i *systemDataResponsePtrType) ToSystemDataResponsePtrOutputWithContext(ctx
 	return pulumi.ToOutputWithContext(ctx, i).(SystemDataResponsePtrOutput)
 }
 
-// Read only system data
 type SystemDataResponseOutput struct{ *pulumi.OutputState }
 
 func (SystemDataResponseOutput) ElementType() reflect.Type {
@@ -474,37 +437,31 @@ func (o SystemDataResponseOutput) ToSystemDataResponsePtrOutput() SystemDataResp
 }
 
 func (o SystemDataResponseOutput) ToSystemDataResponsePtrOutputWithContext(ctx context.Context) SystemDataResponsePtrOutput {
-	return o.ApplyT(func(v SystemDataResponse) *SystemDataResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v SystemDataResponse) *SystemDataResponse {
 		return &v
 	}).(SystemDataResponsePtrOutput)
 }
 
-// The timestamp of resource creation (UTC)
 func (o SystemDataResponseOutput) CreatedAt() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SystemDataResponse) *string { return v.CreatedAt }).(pulumi.StringPtrOutput)
 }
 
-// An identifier for the identity that created the resource
 func (o SystemDataResponseOutput) CreatedBy() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SystemDataResponse) *string { return v.CreatedBy }).(pulumi.StringPtrOutput)
 }
 
-// The type of identity that created the resource
 func (o SystemDataResponseOutput) CreatedByType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SystemDataResponse) *string { return v.CreatedByType }).(pulumi.StringPtrOutput)
 }
 
-// The timestamp of resource last modification (UTC)
 func (o SystemDataResponseOutput) LastModifiedAt() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SystemDataResponse) *string { return v.LastModifiedAt }).(pulumi.StringPtrOutput)
 }
 
-// An identifier for the identity that last modified the resource
 func (o SystemDataResponseOutput) LastModifiedBy() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SystemDataResponse) *string { return v.LastModifiedBy }).(pulumi.StringPtrOutput)
 }
 
-// The type of identity that last modified the resource
 func (o SystemDataResponseOutput) LastModifiedByType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SystemDataResponse) *string { return v.LastModifiedByType }).(pulumi.StringPtrOutput)
 }
@@ -524,10 +481,15 @@ func (o SystemDataResponsePtrOutput) ToSystemDataResponsePtrOutputWithContext(ct
 }
 
 func (o SystemDataResponsePtrOutput) Elem() SystemDataResponseOutput {
-	return o.ApplyT(func(v *SystemDataResponse) SystemDataResponse { return *v }).(SystemDataResponseOutput)
+	return o.ApplyT(func(v *SystemDataResponse) SystemDataResponse {
+		if v != nil {
+			return *v
+		}
+		var ret SystemDataResponse
+		return ret
+	}).(SystemDataResponseOutput)
 }
 
-// The timestamp of resource creation (UTC)
 func (o SystemDataResponsePtrOutput) CreatedAt() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SystemDataResponse) *string {
 		if v == nil {
@@ -537,7 +499,6 @@ func (o SystemDataResponsePtrOutput) CreatedAt() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// An identifier for the identity that created the resource
 func (o SystemDataResponsePtrOutput) CreatedBy() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SystemDataResponse) *string {
 		if v == nil {
@@ -547,7 +508,6 @@ func (o SystemDataResponsePtrOutput) CreatedBy() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The type of identity that created the resource
 func (o SystemDataResponsePtrOutput) CreatedByType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SystemDataResponse) *string {
 		if v == nil {
@@ -557,7 +517,6 @@ func (o SystemDataResponsePtrOutput) CreatedByType() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The timestamp of resource last modification (UTC)
 func (o SystemDataResponsePtrOutput) LastModifiedAt() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SystemDataResponse) *string {
 		if v == nil {
@@ -567,7 +526,6 @@ func (o SystemDataResponsePtrOutput) LastModifiedAt() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// An identifier for the identity that last modified the resource
 func (o SystemDataResponsePtrOutput) LastModifiedBy() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SystemDataResponse) *string {
 		if v == nil {
@@ -577,7 +535,6 @@ func (o SystemDataResponsePtrOutput) LastModifiedBy() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The type of identity that last modified the resource
 func (o SystemDataResponsePtrOutput) LastModifiedByType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SystemDataResponse) *string {
 		if v == nil {

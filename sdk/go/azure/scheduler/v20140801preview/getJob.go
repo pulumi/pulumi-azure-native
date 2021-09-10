@@ -17,21 +17,14 @@ func LookupJob(ctx *pulumi.Context, args *LookupJobArgs, opts ...pulumi.InvokeOp
 }
 
 type LookupJobArgs struct {
-	// The job collection name.
 	JobCollectionName string `pulumi:"jobCollectionName"`
-	// The job name.
-	JobName string `pulumi:"jobName"`
-	// The resource group name.
+	JobName           string `pulumi:"jobName"`
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 }
 
 type LookupJobResult struct {
-	// Gets the job resource identifier.
-	Id string `pulumi:"id"`
-	// Gets the job resource name.
-	Name string `pulumi:"name"`
-	// Gets or sets the job properties.
+	Id         string                `pulumi:"id"`
+	Name       string                `pulumi:"name"`
 	Properties JobPropertiesResponse `pulumi:"properties"`
-	// Gets the job resource type.
-	Type string `pulumi:"type"`
+	Type       string                `pulumi:"type"`
 }

@@ -11,26 +11,17 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Route table resource.
 type RouteTable struct {
 	pulumi.CustomResourceState
 
-	// Gets a unique read-only string that changes whenever the resource is updated.
-	Etag pulumi.StringPtrOutput `pulumi:"etag"`
-	// Resource location.
-	Location pulumi.StringPtrOutput `pulumi:"location"`
-	// Resource name.
-	Name pulumi.StringOutput `pulumi:"name"`
-	// The provisioning state of the resource. Possible values are: 'Updating', 'Deleting', and 'Failed'.
-	ProvisioningState pulumi.StringPtrOutput `pulumi:"provisioningState"`
-	// Collection of routes contained within a route table.
-	Routes RouteResponseArrayOutput `pulumi:"routes"`
-	// A collection of references to subnets.
-	Subnets SubnetResponseArrayOutput `pulumi:"subnets"`
-	// Resource tags.
-	Tags pulumi.StringMapOutput `pulumi:"tags"`
-	// Resource type.
-	Type pulumi.StringOutput `pulumi:"type"`
+	Etag              pulumi.StringPtrOutput    `pulumi:"etag"`
+	Location          pulumi.StringPtrOutput    `pulumi:"location"`
+	Name              pulumi.StringOutput       `pulumi:"name"`
+	ProvisioningState pulumi.StringPtrOutput    `pulumi:"provisioningState"`
+	Routes            RouteResponseArrayOutput  `pulumi:"routes"`
+	Subnets           SubnetResponseArrayOutput `pulumi:"subnets"`
+	Tags              pulumi.StringMapOutput    `pulumi:"tags"`
+	Type              pulumi.StringOutput       `pulumi:"type"`
 }
 
 // NewRouteTable registers a new resource with the given unique name, arguments, and options.
@@ -309,42 +300,26 @@ func (RouteTableState) ElementType() reflect.Type {
 }
 
 type routeTableArgs struct {
-	// Gets a unique read-only string that changes whenever the resource is updated.
-	Etag *string `pulumi:"etag"`
-	// Resource ID.
-	Id *string `pulumi:"id"`
-	// Resource location.
-	Location *string `pulumi:"location"`
-	// The provisioning state of the resource. Possible values are: 'Updating', 'Deleting', and 'Failed'.
-	ProvisioningState *string `pulumi:"provisioningState"`
-	// The name of the resource group.
-	ResourceGroupName string `pulumi:"resourceGroupName"`
-	// The name of the route table.
-	RouteTableName *string `pulumi:"routeTableName"`
-	// Collection of routes contained within a route table.
-	Routes []RouteType `pulumi:"routes"`
-	// Resource tags.
-	Tags map[string]string `pulumi:"tags"`
+	Etag              *string           `pulumi:"etag"`
+	Id                *string           `pulumi:"id"`
+	Location          *string           `pulumi:"location"`
+	ProvisioningState *string           `pulumi:"provisioningState"`
+	ResourceGroupName string            `pulumi:"resourceGroupName"`
+	RouteTableName    *string           `pulumi:"routeTableName"`
+	Routes            []RouteType       `pulumi:"routes"`
+	Tags              map[string]string `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a RouteTable resource.
 type RouteTableArgs struct {
-	// Gets a unique read-only string that changes whenever the resource is updated.
-	Etag pulumi.StringPtrInput
-	// Resource ID.
-	Id pulumi.StringPtrInput
-	// Resource location.
-	Location pulumi.StringPtrInput
-	// The provisioning state of the resource. Possible values are: 'Updating', 'Deleting', and 'Failed'.
+	Etag              pulumi.StringPtrInput
+	Id                pulumi.StringPtrInput
+	Location          pulumi.StringPtrInput
 	ProvisioningState pulumi.StringPtrInput
-	// The name of the resource group.
 	ResourceGroupName pulumi.StringInput
-	// The name of the route table.
-	RouteTableName pulumi.StringPtrInput
-	// Collection of routes contained within a route table.
-	Routes RouteTypeArrayInput
-	// Resource tags.
-	Tags pulumi.StringMapInput
+	RouteTableName    pulumi.StringPtrInput
+	Routes            RouteTypeArrayInput
+	Tags              pulumi.StringMapInput
 }
 
 func (RouteTableArgs) ElementType() reflect.Type {
@@ -370,9 +345,7 @@ func (i *RouteTable) ToRouteTableOutputWithContext(ctx context.Context) RouteTab
 	return pulumi.ToOutputWithContext(ctx, i).(RouteTableOutput)
 }
 
-type RouteTableOutput struct {
-	*pulumi.OutputState
-}
+type RouteTableOutput struct{ *pulumi.OutputState }
 
 func (RouteTableOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*RouteTable)(nil))

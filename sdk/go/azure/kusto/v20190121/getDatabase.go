@@ -7,7 +7,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Class representing a Kusto database.
 func LookupDatabase(ctx *pulumi.Context, args *LookupDatabaseArgs, opts ...pulumi.InvokeOption) (*LookupDatabaseResult, error) {
 	var rv LookupDatabaseResult
 	err := ctx.Invoke("azure-native:kusto/v20190121:getDatabase", args, &rv, opts...)
@@ -18,30 +17,19 @@ func LookupDatabase(ctx *pulumi.Context, args *LookupDatabaseArgs, opts ...pulum
 }
 
 type LookupDatabaseArgs struct {
-	// The name of the Kusto cluster.
-	ClusterName string `pulumi:"clusterName"`
-	// The name of the database in the Kusto cluster.
-	DatabaseName string `pulumi:"databaseName"`
-	// The name of the resource group containing the Kusto cluster.
+	ClusterName       string `pulumi:"clusterName"`
+	DatabaseName      string `pulumi:"databaseName"`
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 }
 
 // Class representing a Kusto database.
 type LookupDatabaseResult struct {
-	// The time the data that should be kept in cache for fast queries in TimeSpan.
-	HotCachePeriod *string `pulumi:"hotCachePeriod"`
-	// Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
-	Id string `pulumi:"id"`
-	// Resource location.
-	Location *string `pulumi:"location"`
-	// The name of the resource
-	Name string `pulumi:"name"`
-	// The provisioned state of the resource.
-	ProvisioningState string `pulumi:"provisioningState"`
-	// The time the data should be kept before it stops being accessible to queries in TimeSpan.
-	SoftDeletePeriod *string `pulumi:"softDeletePeriod"`
-	// The statistics of the database.
-	Statistics DatabaseStatisticsResponse `pulumi:"statistics"`
-	// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
-	Type string `pulumi:"type"`
+	HotCachePeriod    *string                    `pulumi:"hotCachePeriod"`
+	Id                string                     `pulumi:"id"`
+	Location          *string                    `pulumi:"location"`
+	Name              string                     `pulumi:"name"`
+	ProvisioningState string                     `pulumi:"provisioningState"`
+	SoftDeletePeriod  *string                    `pulumi:"softDeletePeriod"`
+	Statistics        DatabaseStatisticsResponse `pulumi:"statistics"`
+	Type              string                     `pulumi:"type"`
 }

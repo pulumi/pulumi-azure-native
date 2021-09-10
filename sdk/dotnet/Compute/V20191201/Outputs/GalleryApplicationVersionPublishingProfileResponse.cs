@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.Compute.V20191201.Outputs
 {
 
+    /// <summary>
+    /// The publishing profile of a gallery image version.
+    /// </summary>
     [OutputType]
     public sealed class GalleryApplicationVersionPublishingProfileResponse
     {

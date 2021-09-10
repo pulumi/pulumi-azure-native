@@ -11,18 +11,13 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Azure Resource Manager resource envelope.
 type ModelContainer struct {
 	pulumi.CustomResourceState
 
-	// The name of the resource
-	Name pulumi.StringOutput `pulumi:"name"`
-	// Additional attributes of the entity.
+	Name       pulumi.StringOutput          `pulumi:"name"`
 	Properties ModelContainerResponseOutput `pulumi:"properties"`
-	// System data associated with resource provider
-	SystemData SystemDataResponseOutput `pulumi:"systemData"`
-	// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
-	Type pulumi.StringOutput `pulumi:"type"`
+	SystemData SystemDataResponseOutput     `pulumi:"systemData"`
+	Type       pulumi.StringOutput          `pulumi:"type"`
 }
 
 // NewModelContainer registers a new resource with the given unique name, arguments, and options.
@@ -85,26 +80,18 @@ func (ModelContainerState) ElementType() reflect.Type {
 }
 
 type modelContainerArgs struct {
-	// Container name.
-	Name *string `pulumi:"name"`
-	// Additional attributes of the entity.
-	Properties ModelContainerType `pulumi:"properties"`
-	// The name of the resource group. The name is case insensitive.
-	ResourceGroupName string `pulumi:"resourceGroupName"`
-	// Name of Azure Machine Learning workspace.
-	WorkspaceName string `pulumi:"workspaceName"`
+	Name              *string            `pulumi:"name"`
+	Properties        ModelContainerType `pulumi:"properties"`
+	ResourceGroupName string             `pulumi:"resourceGroupName"`
+	WorkspaceName     string             `pulumi:"workspaceName"`
 }
 
 // The set of arguments for constructing a ModelContainer resource.
 type ModelContainerArgs struct {
-	// Container name.
-	Name pulumi.StringPtrInput
-	// Additional attributes of the entity.
-	Properties ModelContainerTypeInput
-	// The name of the resource group. The name is case insensitive.
+	Name              pulumi.StringPtrInput
+	Properties        ModelContainerTypeInput
 	ResourceGroupName pulumi.StringInput
-	// Name of Azure Machine Learning workspace.
-	WorkspaceName pulumi.StringInput
+	WorkspaceName     pulumi.StringInput
 }
 
 func (ModelContainerArgs) ElementType() reflect.Type {
@@ -130,9 +117,7 @@ func (i *ModelContainer) ToModelContainerOutputWithContext(ctx context.Context) 
 	return pulumi.ToOutputWithContext(ctx, i).(ModelContainerOutput)
 }
 
-type ModelContainerOutput struct {
-	*pulumi.OutputState
-}
+type ModelContainerOutput struct{ *pulumi.OutputState }
 
 func (ModelContainerOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*ModelContainer)(nil))

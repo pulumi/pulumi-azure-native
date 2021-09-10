@@ -11,32 +11,20 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// The build task that has the resource properties and all build items. The build task will have all information to schedule a build against it.
 type BuildTask struct {
 	pulumi.CustomResourceState
 
-	// The alternative updatable name for a build task.
-	Alias pulumi.StringOutput `pulumi:"alias"`
-	// The creation date of build task.
-	CreationDate pulumi.StringOutput `pulumi:"creationDate"`
-	// The location of the resource. This cannot be changed after the resource is created.
-	Location pulumi.StringOutput `pulumi:"location"`
-	// The name of the resource.
-	Name pulumi.StringOutput `pulumi:"name"`
-	// The platform properties against which the build has to happen.
-	Platform PlatformPropertiesResponseOutput `pulumi:"platform"`
-	// The provisioning state of the build task.
-	ProvisioningState pulumi.StringOutput `pulumi:"provisioningState"`
-	// The properties that describes the source(code) for the build task.
-	SourceRepository SourceRepositoryPropertiesResponseOutput `pulumi:"sourceRepository"`
-	// The current status of build task.
-	Status pulumi.StringPtrOutput `pulumi:"status"`
-	// The tags of the resource.
-	Tags pulumi.StringMapOutput `pulumi:"tags"`
-	// Build timeout in seconds.
-	Timeout pulumi.IntPtrOutput `pulumi:"timeout"`
-	// The type of the resource.
-	Type pulumi.StringOutput `pulumi:"type"`
+	Alias             pulumi.StringOutput                      `pulumi:"alias"`
+	CreationDate      pulumi.StringOutput                      `pulumi:"creationDate"`
+	Location          pulumi.StringOutput                      `pulumi:"location"`
+	Name              pulumi.StringOutput                      `pulumi:"name"`
+	Platform          PlatformPropertiesResponseOutput         `pulumi:"platform"`
+	ProvisioningState pulumi.StringOutput                      `pulumi:"provisioningState"`
+	SourceRepository  SourceRepositoryPropertiesResponseOutput `pulumi:"sourceRepository"`
+	Status            pulumi.StringPtrOutput                   `pulumi:"status"`
+	Tags              pulumi.StringMapOutput                   `pulumi:"tags"`
+	Timeout           pulumi.IntPtrOutput                      `pulumi:"timeout"`
+	Type              pulumi.StringOutput                      `pulumi:"type"`
 }
 
 // NewBuildTask registers a new resource with the given unique name, arguments, and options.
@@ -126,50 +114,30 @@ func (BuildTaskState) ElementType() reflect.Type {
 }
 
 type buildTaskArgs struct {
-	// The alternative updatable name for a build task.
-	Alias string `pulumi:"alias"`
-	// The name of the container registry build task.
-	BuildTaskName *string `pulumi:"buildTaskName"`
-	// The location of the resource. This cannot be changed after the resource is created.
-	Location *string `pulumi:"location"`
-	// The platform properties against which the build has to happen.
-	Platform PlatformProperties `pulumi:"platform"`
-	// The name of the container registry.
-	RegistryName string `pulumi:"registryName"`
-	// The name of the resource group to which the container registry belongs.
-	ResourceGroupName string `pulumi:"resourceGroupName"`
-	// The properties that describes the source(code) for the build task.
-	SourceRepository SourceRepositoryProperties `pulumi:"sourceRepository"`
-	// The current status of build task.
-	Status *string `pulumi:"status"`
-	// The tags of the resource.
-	Tags map[string]string `pulumi:"tags"`
-	// Build timeout in seconds.
-	Timeout *int `pulumi:"timeout"`
+	Alias             string                     `pulumi:"alias"`
+	BuildTaskName     *string                    `pulumi:"buildTaskName"`
+	Location          *string                    `pulumi:"location"`
+	Platform          PlatformProperties         `pulumi:"platform"`
+	RegistryName      string                     `pulumi:"registryName"`
+	ResourceGroupName string                     `pulumi:"resourceGroupName"`
+	SourceRepository  SourceRepositoryProperties `pulumi:"sourceRepository"`
+	Status            *string                    `pulumi:"status"`
+	Tags              map[string]string          `pulumi:"tags"`
+	Timeout           *int                       `pulumi:"timeout"`
 }
 
 // The set of arguments for constructing a BuildTask resource.
 type BuildTaskArgs struct {
-	// The alternative updatable name for a build task.
-	Alias pulumi.StringInput
-	// The name of the container registry build task.
-	BuildTaskName pulumi.StringPtrInput
-	// The location of the resource. This cannot be changed after the resource is created.
-	Location pulumi.StringPtrInput
-	// The platform properties against which the build has to happen.
-	Platform PlatformPropertiesInput
-	// The name of the container registry.
-	RegistryName pulumi.StringInput
-	// The name of the resource group to which the container registry belongs.
+	Alias             pulumi.StringInput
+	BuildTaskName     pulumi.StringPtrInput
+	Location          pulumi.StringPtrInput
+	Platform          PlatformPropertiesInput
+	RegistryName      pulumi.StringInput
 	ResourceGroupName pulumi.StringInput
-	// The properties that describes the source(code) for the build task.
-	SourceRepository SourceRepositoryPropertiesInput
-	// The current status of build task.
-	Status pulumi.StringPtrInput
-	// The tags of the resource.
-	Tags pulumi.StringMapInput
-	// Build timeout in seconds.
-	Timeout pulumi.IntPtrInput
+	SourceRepository  SourceRepositoryPropertiesInput
+	Status            pulumi.StringPtrInput
+	Tags              pulumi.StringMapInput
+	Timeout           pulumi.IntPtrInput
 }
 
 func (BuildTaskArgs) ElementType() reflect.Type {
@@ -195,9 +163,7 @@ func (i *BuildTask) ToBuildTaskOutputWithContext(ctx context.Context) BuildTaskO
 	return pulumi.ToOutputWithContext(ctx, i).(BuildTaskOutput)
 }
 
-type BuildTaskOutput struct {
-	*pulumi.OutputState
-}
+type BuildTaskOutput struct{ *pulumi.OutputState }
 
 func (BuildTaskOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*BuildTask)(nil))

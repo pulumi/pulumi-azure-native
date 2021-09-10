@@ -11,26 +11,17 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// The Managed Network resource
 type ManagedNetwork struct {
 	pulumi.CustomResourceState
 
-	// The collection of groups and policies concerned with connectivity
-	Connectivity ConnectivityCollectionResponseOutput `pulumi:"connectivity"`
-	// A unique read-only string that changes whenever the resource is updated.
-	Etag pulumi.StringOutput `pulumi:"etag"`
-	// The geo-location where the resource lives
-	Location pulumi.StringOutput `pulumi:"location"`
-	// The name of the resource
-	Name pulumi.StringOutput `pulumi:"name"`
-	// Provisioning state of the ManagedNetwork resource.
-	ProvisioningState pulumi.StringOutput `pulumi:"provisioningState"`
-	// The collection of management groups, subscriptions, virtual networks, and subnets by the Managed Network. This is a read-only property that is reflective of all ScopeAssignments for this Managed Network
-	Scope ScopeResponsePtrOutput `pulumi:"scope"`
-	// Resource tags
-	Tags pulumi.StringMapOutput `pulumi:"tags"`
-	// The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
-	Type pulumi.StringOutput `pulumi:"type"`
+	Connectivity      ConnectivityCollectionResponseOutput `pulumi:"connectivity"`
+	Etag              pulumi.StringOutput                  `pulumi:"etag"`
+	Location          pulumi.StringOutput                  `pulumi:"location"`
+	Name              pulumi.StringOutput                  `pulumi:"name"`
+	ProvisioningState pulumi.StringOutput                  `pulumi:"provisioningState"`
+	Scope             ScopeResponsePtrOutput               `pulumi:"scope"`
+	Tags              pulumi.StringMapOutput               `pulumi:"tags"`
+	Type              pulumi.StringOutput                  `pulumi:"type"`
 }
 
 // NewManagedNetwork registers a new resource with the given unique name, arguments, and options.
@@ -87,30 +78,20 @@ func (ManagedNetworkState) ElementType() reflect.Type {
 }
 
 type managedNetworkArgs struct {
-	// The geo-location where the resource lives
-	Location *string `pulumi:"location"`
-	// The name of the Managed Network.
-	ManagedNetworkName *string `pulumi:"managedNetworkName"`
-	// The name of the resource group.
-	ResourceGroupName string `pulumi:"resourceGroupName"`
-	// The collection of management groups, subscriptions, virtual networks, and subnets by the Managed Network. This is a read-only property that is reflective of all ScopeAssignments for this Managed Network
-	Scope *Scope `pulumi:"scope"`
-	// Resource tags
-	Tags map[string]string `pulumi:"tags"`
+	Location           *string           `pulumi:"location"`
+	ManagedNetworkName *string           `pulumi:"managedNetworkName"`
+	ResourceGroupName  string            `pulumi:"resourceGroupName"`
+	Scope              *Scope            `pulumi:"scope"`
+	Tags               map[string]string `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a ManagedNetwork resource.
 type ManagedNetworkArgs struct {
-	// The geo-location where the resource lives
-	Location pulumi.StringPtrInput
-	// The name of the Managed Network.
+	Location           pulumi.StringPtrInput
 	ManagedNetworkName pulumi.StringPtrInput
-	// The name of the resource group.
-	ResourceGroupName pulumi.StringInput
-	// The collection of management groups, subscriptions, virtual networks, and subnets by the Managed Network. This is a read-only property that is reflective of all ScopeAssignments for this Managed Network
-	Scope ScopePtrInput
-	// Resource tags
-	Tags pulumi.StringMapInput
+	ResourceGroupName  pulumi.StringInput
+	Scope              ScopePtrInput
+	Tags               pulumi.StringMapInput
 }
 
 func (ManagedNetworkArgs) ElementType() reflect.Type {
@@ -136,9 +117,7 @@ func (i *ManagedNetwork) ToManagedNetworkOutputWithContext(ctx context.Context) 
 	return pulumi.ToOutputWithContext(ctx, i).(ManagedNetworkOutput)
 }
 
-type ManagedNetworkOutput struct {
-	*pulumi.OutputState
-}
+type ManagedNetworkOutput struct{ *pulumi.OutputState }
 
 func (ManagedNetworkOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*ManagedNetwork)(nil))

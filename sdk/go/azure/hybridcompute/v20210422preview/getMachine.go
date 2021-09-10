@@ -7,7 +7,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Describes a hybrid machine.
 func LookupMachine(ctx *pulumi.Context, args *LookupMachineArgs, opts ...pulumi.InvokeOption) (*LookupMachineResult, error) {
 	var rv LookupMachineResult
 	err := ctx.Invoke("azure-native:hybridcompute/v20210422preview:getMachine", args, &rv, opts...)
@@ -18,30 +17,19 @@ func LookupMachine(ctx *pulumi.Context, args *LookupMachineArgs, opts ...pulumi.
 }
 
 type LookupMachineArgs struct {
-	// The expand expression to apply on the operation.
-	Expand *string `pulumi:"expand"`
-	// The name of the hybrid machine.
-	MachineName string `pulumi:"machineName"`
-	// The name of the resource group. The name is case insensitive.
-	ResourceGroupName string `pulumi:"resourceGroupName"`
+	Expand            *string `pulumi:"expand"`
+	MachineName       string  `pulumi:"machineName"`
+	ResourceGroupName string  `pulumi:"resourceGroupName"`
 }
 
 // Describes a hybrid machine.
 type LookupMachineResult struct {
-	// Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
-	Id string `pulumi:"id"`
-	// Identity for the resource.
-	Identity *IdentityResponse `pulumi:"identity"`
-	// The geo-location where the resource lives
-	Location string `pulumi:"location"`
-	// The name of the resource
-	Name string `pulumi:"name"`
-	// Hybrid Compute Machine properties
+	Id         string                    `pulumi:"id"`
+	Identity   *IdentityResponse         `pulumi:"identity"`
+	Location   string                    `pulumi:"location"`
+	Name       string                    `pulumi:"name"`
 	Properties MachinePropertiesResponse `pulumi:"properties"`
-	// The system meta data relating to this resource.
-	SystemData SystemDataResponse `pulumi:"systemData"`
-	// Resource tags.
-	Tags map[string]string `pulumi:"tags"`
-	// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
-	Type string `pulumi:"type"`
+	SystemData SystemDataResponse        `pulumi:"systemData"`
+	Tags       map[string]string         `pulumi:"tags"`
+	Type       string                    `pulumi:"type"`
 }

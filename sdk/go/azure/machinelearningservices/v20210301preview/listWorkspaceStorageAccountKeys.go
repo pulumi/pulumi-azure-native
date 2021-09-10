@@ -17,10 +17,8 @@ func ListWorkspaceStorageAccountKeys(ctx *pulumi.Context, args *ListWorkspaceSto
 }
 
 type ListWorkspaceStorageAccountKeysArgs struct {
-	// The name of the resource group. The name is case insensitive.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
-	// Name of Azure Machine Learning workspace.
-	WorkspaceName string `pulumi:"workspaceName"`
+	WorkspaceName     string `pulumi:"workspaceName"`
 }
 
 type ListWorkspaceStorageAccountKeysResult struct {

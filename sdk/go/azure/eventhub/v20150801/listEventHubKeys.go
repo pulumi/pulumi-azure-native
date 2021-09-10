@@ -7,7 +7,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Namespace/EventHub Connection String
 func ListEventHubKeys(ctx *pulumi.Context, args *ListEventHubKeysArgs, opts ...pulumi.InvokeOption) (*ListEventHubKeysResult, error) {
 	var rv ListEventHubKeysResult
 	err := ctx.Invoke("azure-native:eventhub/v20150801:listEventHubKeys", args, &rv, opts...)
@@ -18,26 +17,17 @@ func ListEventHubKeys(ctx *pulumi.Context, args *ListEventHubKeysArgs, opts ...p
 }
 
 type ListEventHubKeysArgs struct {
-	// The authorization rule name.
 	AuthorizationRuleName string `pulumi:"authorizationRuleName"`
-	// The Event Hub name
-	EventHubName string `pulumi:"eventHubName"`
-	// The Namespace name
-	NamespaceName string `pulumi:"namespaceName"`
-	// Name of the resource group within the azure subscription.
-	ResourceGroupName string `pulumi:"resourceGroupName"`
+	EventHubName          string `pulumi:"eventHubName"`
+	NamespaceName         string `pulumi:"namespaceName"`
+	ResourceGroupName     string `pulumi:"resourceGroupName"`
 }
 
 // Namespace/EventHub Connection String
 type ListEventHubKeysResult struct {
-	// A string that describes the AuthorizationRule.
-	KeyName string `pulumi:"keyName"`
-	// Primary connection string of the created Namespace AuthorizationRule.
-	PrimaryConnectionString string `pulumi:"primaryConnectionString"`
-	// A base64-encoded 256-bit primary key for signing and validating the SAS token.
-	PrimaryKey string `pulumi:"primaryKey"`
-	// Secondary connection string of the created Namespace AuthorizationRule.
+	KeyName                   string `pulumi:"keyName"`
+	PrimaryConnectionString   string `pulumi:"primaryConnectionString"`
+	PrimaryKey                string `pulumi:"primaryKey"`
 	SecondaryConnectionString string `pulumi:"secondaryConnectionString"`
-	// A base64-encoded 256-bit primary key for signing and validating the SAS token.
-	SecondaryKey string `pulumi:"secondaryKey"`
+	SecondaryKey              string `pulumi:"secondaryKey"`
 }

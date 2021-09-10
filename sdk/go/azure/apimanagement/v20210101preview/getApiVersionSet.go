@@ -7,7 +7,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// API Version Set Contract details.
 func LookupApiVersionSet(ctx *pulumi.Context, args *LookupApiVersionSetArgs, opts ...pulumi.InvokeOption) (*LookupApiVersionSetResult, error) {
 	var rv LookupApiVersionSetResult
 	err := ctx.Invoke("azure-native:apimanagement/v20210101preview:getApiVersionSet", args, &rv, opts...)
@@ -18,30 +17,19 @@ func LookupApiVersionSet(ctx *pulumi.Context, args *LookupApiVersionSetArgs, opt
 }
 
 type LookupApiVersionSetArgs struct {
-	// The name of the resource group.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
-	// The name of the API Management service.
-	ServiceName string `pulumi:"serviceName"`
-	// Api Version Set identifier. Must be unique in the current API Management service instance.
-	VersionSetId string `pulumi:"versionSetId"`
+	ServiceName       string `pulumi:"serviceName"`
+	VersionSetId      string `pulumi:"versionSetId"`
 }
 
 // API Version Set Contract details.
 type LookupApiVersionSetResult struct {
-	// Description of API Version Set.
-	Description *string `pulumi:"description"`
-	// Name of API Version Set
-	DisplayName string `pulumi:"displayName"`
-	// Resource ID.
-	Id string `pulumi:"id"`
-	// Resource name.
-	Name string `pulumi:"name"`
-	// Resource type for API Management resource.
-	Type string `pulumi:"type"`
-	// Name of HTTP header parameter that indicates the API Version if versioningScheme is set to `header`.
+	Description       *string `pulumi:"description"`
+	DisplayName       string  `pulumi:"displayName"`
+	Id                string  `pulumi:"id"`
+	Name              string  `pulumi:"name"`
+	Type              string  `pulumi:"type"`
 	VersionHeaderName *string `pulumi:"versionHeaderName"`
-	// Name of query parameter that indicates the API Version if versioningScheme is set to `query`.
-	VersionQueryName *string `pulumi:"versionQueryName"`
-	// An value that determines where the API Version identifier will be located in a HTTP request.
-	VersioningScheme string `pulumi:"versioningScheme"`
+	VersionQueryName  *string `pulumi:"versionQueryName"`
+	VersioningScheme  string  `pulumi:"versioningScheme"`
 }

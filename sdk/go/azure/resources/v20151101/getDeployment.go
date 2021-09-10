@@ -7,7 +7,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Deployment information.
 func LookupDeployment(ctx *pulumi.Context, args *LookupDeploymentArgs, opts ...pulumi.InvokeOption) (*LookupDeploymentResult, error) {
 	var rv LookupDeploymentResult
 	err := ctx.Invoke("azure-native:resources/v20151101:getDeployment", args, &rv, opts...)
@@ -18,18 +17,13 @@ func LookupDeployment(ctx *pulumi.Context, args *LookupDeploymentArgs, opts ...p
 }
 
 type LookupDeploymentArgs struct {
-	// The name of the deployment.
-	DeploymentName string `pulumi:"deploymentName"`
-	// The name of the resource group to get. The name is case insensitive.
+	DeploymentName    string `pulumi:"deploymentName"`
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 }
 
 // Deployment information.
 type LookupDeploymentResult struct {
-	// Gets or sets the ID of the deployment.
-	Id string `pulumi:"id"`
-	// Gets or sets the name of the deployment.
-	Name string `pulumi:"name"`
-	// Gets or sets deployment properties.
+	Id         string                               `pulumi:"id"`
+	Name       string                               `pulumi:"name"`
 	Properties DeploymentPropertiesExtendedResponse `pulumi:"properties"`
 }

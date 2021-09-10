@@ -7,7 +7,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// The policy definition.
 func LookupPolicyDefinition(ctx *pulumi.Context, args *LookupPolicyDefinitionArgs, opts ...pulumi.InvokeOption) (*LookupPolicyDefinitionResult, error) {
 	var rv LookupPolicyDefinitionResult
 	err := ctx.Invoke("azure-native:authorization/v20160401:getPolicyDefinition", args, &rv, opts...)
@@ -18,22 +17,15 @@ func LookupPolicyDefinition(ctx *pulumi.Context, args *LookupPolicyDefinitionArg
 }
 
 type LookupPolicyDefinitionArgs struct {
-	// The name of the policy definition to get.
 	PolicyDefinitionName string `pulumi:"policyDefinitionName"`
 }
 
 // The policy definition.
 type LookupPolicyDefinitionResult struct {
-	// The policy definition description.
-	Description *string `pulumi:"description"`
-	// The display name of the policy definition.
-	DisplayName *string `pulumi:"displayName"`
-	// The ID of the policy definition.
-	Id string `pulumi:"id"`
-	// The name of the policy definition. If you do not specify a value for name, the value is inferred from the name value in the request URI.
-	Name *string `pulumi:"name"`
-	// The policy rule.
-	PolicyRule interface{} `pulumi:"policyRule"`
-	// The type of policy definition. Possible values are NotSpecified, BuiltIn, and Custom.
-	PolicyType *string `pulumi:"policyType"`
+	Description *string     `pulumi:"description"`
+	DisplayName *string     `pulumi:"displayName"`
+	Id          string      `pulumi:"id"`
+	Name        *string     `pulumi:"name"`
+	PolicyRule  interface{} `pulumi:"policyRule"`
+	PolicyType  *string     `pulumi:"policyType"`
 }

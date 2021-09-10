@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.ApiManagement.V20180101.Outputs
 {
 
+    /// <summary>
+    /// Email Template Parameter contract.
+    /// </summary>
     [OutputType]
     public sealed class EmailTemplateParametersContractPropertiesResponse
     {

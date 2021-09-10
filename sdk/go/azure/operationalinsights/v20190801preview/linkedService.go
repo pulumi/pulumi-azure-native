@@ -11,17 +11,12 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// The top level Linked service resource container.
 type LinkedService struct {
 	pulumi.CustomResourceState
 
-	// Resource name.
-	Name pulumi.StringOutput `pulumi:"name"`
-	// The resource id of the resource that will be linked to the workspace. This should be used for linking resources which require read access
-	ResourceId pulumi.StringPtrOutput `pulumi:"resourceId"`
-	// Resource type.
-	Type pulumi.StringOutput `pulumi:"type"`
-	// The resource id of the resource that will be linked to the workspace. This should be used for linking resources which require write access
+	Name                  pulumi.StringOutput    `pulumi:"name"`
+	ResourceId            pulumi.StringPtrOutput `pulumi:"resourceId"`
+	Type                  pulumi.StringOutput    `pulumi:"type"`
 	WriteAccessResourceId pulumi.StringPtrOutput `pulumi:"writeAccessResourceId"`
 }
 
@@ -100,29 +95,19 @@ func (LinkedServiceState) ElementType() reflect.Type {
 }
 
 type linkedServiceArgs struct {
-	// Name of the linkedServices resource
-	LinkedServiceName *string `pulumi:"linkedServiceName"`
-	// The name of the resource group to get. The name is case insensitive.
-	ResourceGroupName string `pulumi:"resourceGroupName"`
-	// The resource id of the resource that will be linked to the workspace. This should be used for linking resources which require read access
-	ResourceId *string `pulumi:"resourceId"`
-	// Name of the Log Analytics Workspace that will contain the linkedServices resource
-	WorkspaceName string `pulumi:"workspaceName"`
-	// The resource id of the resource that will be linked to the workspace. This should be used for linking resources which require write access
+	LinkedServiceName     *string `pulumi:"linkedServiceName"`
+	ResourceGroupName     string  `pulumi:"resourceGroupName"`
+	ResourceId            *string `pulumi:"resourceId"`
+	WorkspaceName         string  `pulumi:"workspaceName"`
 	WriteAccessResourceId *string `pulumi:"writeAccessResourceId"`
 }
 
 // The set of arguments for constructing a LinkedService resource.
 type LinkedServiceArgs struct {
-	// Name of the linkedServices resource
-	LinkedServiceName pulumi.StringPtrInput
-	// The name of the resource group to get. The name is case insensitive.
-	ResourceGroupName pulumi.StringInput
-	// The resource id of the resource that will be linked to the workspace. This should be used for linking resources which require read access
-	ResourceId pulumi.StringPtrInput
-	// Name of the Log Analytics Workspace that will contain the linkedServices resource
-	WorkspaceName pulumi.StringInput
-	// The resource id of the resource that will be linked to the workspace. This should be used for linking resources which require write access
+	LinkedServiceName     pulumi.StringPtrInput
+	ResourceGroupName     pulumi.StringInput
+	ResourceId            pulumi.StringPtrInput
+	WorkspaceName         pulumi.StringInput
 	WriteAccessResourceId pulumi.StringPtrInput
 }
 
@@ -149,9 +134,7 @@ func (i *LinkedService) ToLinkedServiceOutputWithContext(ctx context.Context) Li
 	return pulumi.ToOutputWithContext(ctx, i).(LinkedServiceOutput)
 }
 
-type LinkedServiceOutput struct {
-	*pulumi.OutputState
-}
+type LinkedServiceOutput struct{ *pulumi.OutputState }
 
 func (LinkedServiceOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*LinkedService)(nil))

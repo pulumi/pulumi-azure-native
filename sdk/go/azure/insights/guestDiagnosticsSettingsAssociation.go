@@ -134,9 +134,7 @@ func (i *GuestDiagnosticsSettingsAssociation) ToGuestDiagnosticsSettingsAssociat
 	return pulumi.ToOutputWithContext(ctx, i).(GuestDiagnosticsSettingsAssociationOutput)
 }
 
-type GuestDiagnosticsSettingsAssociationOutput struct {
-	*pulumi.OutputState
-}
+type GuestDiagnosticsSettingsAssociationOutput struct{ *pulumi.OutputState }
 
 func (GuestDiagnosticsSettingsAssociationOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*GuestDiagnosticsSettingsAssociation)(nil))

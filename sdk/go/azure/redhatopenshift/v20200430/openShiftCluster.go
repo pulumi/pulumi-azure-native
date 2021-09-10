@@ -11,36 +11,22 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// OpenShiftCluster represents an Azure Red Hat OpenShift cluster.
 type OpenShiftCluster struct {
 	pulumi.CustomResourceState
 
-	// The cluster API server profile.
-	ApiserverProfile APIServerProfileResponsePtrOutput `pulumi:"apiserverProfile"`
-	// The cluster profile.
-	ClusterProfile ClusterProfileResponsePtrOutput `pulumi:"clusterProfile"`
-	// The console profile.
-	ConsoleProfile ConsoleProfileResponsePtrOutput `pulumi:"consoleProfile"`
-	// The cluster ingress profiles.
-	IngressProfiles IngressProfileResponseArrayOutput `pulumi:"ingressProfiles"`
-	// The geo-location where the resource lives
-	Location pulumi.StringOutput `pulumi:"location"`
-	// The cluster master profile.
-	MasterProfile MasterProfileResponsePtrOutput `pulumi:"masterProfile"`
-	// The name of the resource
-	Name pulumi.StringOutput `pulumi:"name"`
-	// The cluster network profile.
-	NetworkProfile NetworkProfileResponsePtrOutput `pulumi:"networkProfile"`
-	// The cluster provisioning state (immutable).
-	ProvisioningState pulumi.StringPtrOutput `pulumi:"provisioningState"`
-	// The cluster service principal profile.
+	ApiserverProfile        APIServerProfileResponsePtrOutput        `pulumi:"apiserverProfile"`
+	ClusterProfile          ClusterProfileResponsePtrOutput          `pulumi:"clusterProfile"`
+	ConsoleProfile          ConsoleProfileResponsePtrOutput          `pulumi:"consoleProfile"`
+	IngressProfiles         IngressProfileResponseArrayOutput        `pulumi:"ingressProfiles"`
+	Location                pulumi.StringOutput                      `pulumi:"location"`
+	MasterProfile           MasterProfileResponsePtrOutput           `pulumi:"masterProfile"`
+	Name                    pulumi.StringOutput                      `pulumi:"name"`
+	NetworkProfile          NetworkProfileResponsePtrOutput          `pulumi:"networkProfile"`
+	ProvisioningState       pulumi.StringPtrOutput                   `pulumi:"provisioningState"`
 	ServicePrincipalProfile ServicePrincipalProfileResponsePtrOutput `pulumi:"servicePrincipalProfile"`
-	// Resource tags.
-	Tags pulumi.StringMapOutput `pulumi:"tags"`
-	// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
-	Type pulumi.StringOutput `pulumi:"type"`
-	// The cluster worker profiles.
-	WorkerProfiles WorkerProfileResponseArrayOutput `pulumi:"workerProfiles"`
+	Tags                    pulumi.StringMapOutput                   `pulumi:"tags"`
+	Type                    pulumi.StringOutput                      `pulumi:"type"`
+	WorkerProfiles          WorkerProfileResponseArrayOutput         `pulumi:"workerProfiles"`
 }
 
 // NewOpenShiftCluster registers a new resource with the given unique name, arguments, and options.
@@ -103,62 +89,36 @@ func (OpenShiftClusterState) ElementType() reflect.Type {
 }
 
 type openShiftClusterArgs struct {
-	// The cluster API server profile.
-	ApiserverProfile *APIServerProfile `pulumi:"apiserverProfile"`
-	// The cluster profile.
-	ClusterProfile *ClusterProfile `pulumi:"clusterProfile"`
-	// The console profile.
-	ConsoleProfile *ConsoleProfile `pulumi:"consoleProfile"`
-	// The cluster ingress profiles.
-	IngressProfiles []IngressProfile `pulumi:"ingressProfiles"`
-	// The geo-location where the resource lives
-	Location *string `pulumi:"location"`
-	// The cluster master profile.
-	MasterProfile *MasterProfile `pulumi:"masterProfile"`
-	// The cluster network profile.
-	NetworkProfile *NetworkProfile `pulumi:"networkProfile"`
-	// The cluster provisioning state (immutable).
-	ProvisioningState *string `pulumi:"provisioningState"`
-	// The name of the resource group. The name is case insensitive.
-	ResourceGroupName string `pulumi:"resourceGroupName"`
-	// The name of the OpenShift cluster resource.
-	ResourceName *string `pulumi:"resourceName"`
-	// The cluster service principal profile.
+	ApiserverProfile        *APIServerProfile        `pulumi:"apiserverProfile"`
+	ClusterProfile          *ClusterProfile          `pulumi:"clusterProfile"`
+	ConsoleProfile          *ConsoleProfile          `pulumi:"consoleProfile"`
+	IngressProfiles         []IngressProfile         `pulumi:"ingressProfiles"`
+	Location                *string                  `pulumi:"location"`
+	MasterProfile           *MasterProfile           `pulumi:"masterProfile"`
+	NetworkProfile          *NetworkProfile          `pulumi:"networkProfile"`
+	ProvisioningState       *string                  `pulumi:"provisioningState"`
+	ResourceGroupName       string                   `pulumi:"resourceGroupName"`
+	ResourceName            *string                  `pulumi:"resourceName"`
 	ServicePrincipalProfile *ServicePrincipalProfile `pulumi:"servicePrincipalProfile"`
-	// Resource tags.
-	Tags map[string]string `pulumi:"tags"`
-	// The cluster worker profiles.
-	WorkerProfiles []WorkerProfile `pulumi:"workerProfiles"`
+	Tags                    map[string]string        `pulumi:"tags"`
+	WorkerProfiles          []WorkerProfile          `pulumi:"workerProfiles"`
 }
 
 // The set of arguments for constructing a OpenShiftCluster resource.
 type OpenShiftClusterArgs struct {
-	// The cluster API server profile.
-	ApiserverProfile APIServerProfilePtrInput
-	// The cluster profile.
-	ClusterProfile ClusterProfilePtrInput
-	// The console profile.
-	ConsoleProfile ConsoleProfilePtrInput
-	// The cluster ingress profiles.
-	IngressProfiles IngressProfileArrayInput
-	// The geo-location where the resource lives
-	Location pulumi.StringPtrInput
-	// The cluster master profile.
-	MasterProfile MasterProfilePtrInput
-	// The cluster network profile.
-	NetworkProfile NetworkProfilePtrInput
-	// The cluster provisioning state (immutable).
-	ProvisioningState pulumi.StringPtrInput
-	// The name of the resource group. The name is case insensitive.
-	ResourceGroupName pulumi.StringInput
-	// The name of the OpenShift cluster resource.
-	ResourceName pulumi.StringPtrInput
-	// The cluster service principal profile.
+	ApiserverProfile        APIServerProfilePtrInput
+	ClusterProfile          ClusterProfilePtrInput
+	ConsoleProfile          ConsoleProfilePtrInput
+	IngressProfiles         IngressProfileArrayInput
+	Location                pulumi.StringPtrInput
+	MasterProfile           MasterProfilePtrInput
+	NetworkProfile          NetworkProfilePtrInput
+	ProvisioningState       pulumi.StringPtrInput
+	ResourceGroupName       pulumi.StringInput
+	ResourceName            pulumi.StringPtrInput
 	ServicePrincipalProfile ServicePrincipalProfilePtrInput
-	// Resource tags.
-	Tags pulumi.StringMapInput
-	// The cluster worker profiles.
-	WorkerProfiles WorkerProfileArrayInput
+	Tags                    pulumi.StringMapInput
+	WorkerProfiles          WorkerProfileArrayInput
 }
 
 func (OpenShiftClusterArgs) ElementType() reflect.Type {
@@ -184,9 +144,7 @@ func (i *OpenShiftCluster) ToOpenShiftClusterOutputWithContext(ctx context.Conte
 	return pulumi.ToOutputWithContext(ctx, i).(OpenShiftClusterOutput)
 }
 
-type OpenShiftClusterOutput struct {
-	*pulumi.OutputState
-}
+type OpenShiftClusterOutput struct{ *pulumi.OutputState }
 
 func (OpenShiftClusterOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*OpenShiftCluster)(nil))

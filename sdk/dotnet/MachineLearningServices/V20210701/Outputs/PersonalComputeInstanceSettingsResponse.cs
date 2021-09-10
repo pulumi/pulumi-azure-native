@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.MachineLearningServices.V20210701.Outputs
 {
 
+    /// <summary>
+    /// Settings for a personal compute instance.
+    /// </summary>
     [OutputType]
     public sealed class PersonalComputeInstanceSettingsResponse
     {

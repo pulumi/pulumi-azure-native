@@ -45,6 +45,9 @@ func NewServerAdvisor(ctx *pulumi.Context,
 		return nil, errors.New("missing one or more required arguments")
 	}
 
+	if args.AutoExecuteStatus == nil {
+		return nil, errors.New("invalid value for required argument 'AutoExecuteStatus'")
+	}
 	if args.ResourceGroupName == nil {
 		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
 	}
@@ -128,7 +131,7 @@ type serverAdvisorArgs struct {
 	// The name of the Server Advisor.
 	AdvisorName *string `pulumi:"advisorName"`
 	// Gets the auto-execute status (whether to let the system execute the recommendations) of this advisor. Possible values are 'Enabled' and 'Disabled'
-	AutoExecuteStatus string `pulumi:"autoExecuteStatus"`
+	AutoExecuteStatus AutoExecuteStatus `pulumi:"autoExecuteStatus"`
 	// The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// The name of the server.
@@ -140,7 +143,7 @@ type ServerAdvisorArgs struct {
 	// The name of the Server Advisor.
 	AdvisorName pulumi.StringPtrInput
 	// Gets the auto-execute status (whether to let the system execute the recommendations) of this advisor. Possible values are 'Enabled' and 'Disabled'
-	AutoExecuteStatus AutoExecuteStatus
+	AutoExecuteStatus AutoExecuteStatusInput
 	// The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
 	ResourceGroupName pulumi.StringInput
 	// The name of the server.
@@ -170,9 +173,7 @@ func (i *ServerAdvisor) ToServerAdvisorOutputWithContext(ctx context.Context) Se
 	return pulumi.ToOutputWithContext(ctx, i).(ServerAdvisorOutput)
 }
 
-type ServerAdvisorOutput struct {
-	*pulumi.OutputState
-}
+type ServerAdvisorOutput struct{ *pulumi.OutputState }
 
 func (ServerAdvisorOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*ServerAdvisor)(nil))

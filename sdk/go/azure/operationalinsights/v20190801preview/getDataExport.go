@@ -7,7 +7,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// The top level data export resource container.
 func LookupDataExport(ctx *pulumi.Context, args *LookupDataExportArgs, opts ...pulumi.InvokeOption) (*LookupDataExportResult, error) {
 	var rv LookupDataExportResult
 	err := ctx.Invoke("azure-native:operationalinsights/v20190801preview:getDataExport", args, &rv, opts...)
@@ -18,34 +17,21 @@ func LookupDataExport(ctx *pulumi.Context, args *LookupDataExportArgs, opts ...p
 }
 
 type LookupDataExportArgs struct {
-	// The data export rule name.
-	DataExportName string `pulumi:"dataExportName"`
-	// The name of the resource group to get. The name is case insensitive.
+	DataExportName    string `pulumi:"dataExportName"`
 	ResourceGroupName string `pulumi:"resourceGroupName"`
-	// The Log Analytics workspace name.
-	WorkspaceName string `pulumi:"workspaceName"`
+	WorkspaceName     string `pulumi:"workspaceName"`
 }
 
 // The top level data export resource container.
 type LookupDataExportResult struct {
-	// The latest data export rule modification time.
-	CreatedDate *string `pulumi:"createdDate"`
-	// The data export rule ID.
-	DataExportId *string `pulumi:"dataExportId"`
-	// Active when enabled.
-	Enable *bool `pulumi:"enable"`
-	// Optional. Allows to define an Event Hub name. Not applicable when destination is Storage Account.
-	EventHubName *string `pulumi:"eventHubName"`
-	// Resource ID.
-	Id string `pulumi:"id"`
-	// Date and time when the export was last modified.
-	LastModifiedDate *string `pulumi:"lastModifiedDate"`
-	// Resource name.
-	Name string `pulumi:"name"`
-	// The destination resource ID. This can be copied from the Properties entry of the destination resource in Azure.
-	ResourceId string `pulumi:"resourceId"`
-	// An array of tables to export, for example: [“Heartbeat, SecurityEvent”].
-	TableNames []string `pulumi:"tableNames"`
-	// Resource type.
-	Type string `pulumi:"type"`
+	CreatedDate      *string  `pulumi:"createdDate"`
+	DataExportId     *string  `pulumi:"dataExportId"`
+	Enable           *bool    `pulumi:"enable"`
+	EventHubName     *string  `pulumi:"eventHubName"`
+	Id               string   `pulumi:"id"`
+	LastModifiedDate *string  `pulumi:"lastModifiedDate"`
+	Name             string   `pulumi:"name"`
+	ResourceId       string   `pulumi:"resourceId"`
+	TableNames       []string `pulumi:"tableNames"`
+	Type             string   `pulumi:"type"`
 }

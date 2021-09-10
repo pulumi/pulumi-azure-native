@@ -10,24 +10,15 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Information about an asset associated with the web service.
 type AssetItem struct {
-	// Asset's Id.
-	Id *string `pulumi:"id"`
-	// Information about the asset's input ports.
-	InputPorts map[string]InputPort `pulumi:"inputPorts"`
-	// Access information for the asset.
-	LocationInfo BlobLocation `pulumi:"locationInfo"`
-	// If the asset is a custom module, this holds the module's metadata.
-	Metadata map[string]string `pulumi:"metadata"`
-	// Asset's friendly name.
-	Name string `pulumi:"name"`
-	// Information about the asset's output ports.
-	OutputPorts map[string]OutputPort `pulumi:"outputPorts"`
-	// If the asset is a custom module, this holds the module's parameters.
-	Parameters []ModuleAssetParameter `pulumi:"parameters"`
-	// Asset's type.
-	Type string `pulumi:"type"`
+	Id           *string                `pulumi:"id"`
+	InputPorts   map[string]InputPort   `pulumi:"inputPorts"`
+	LocationInfo BlobLocation           `pulumi:"locationInfo"`
+	Metadata     map[string]string      `pulumi:"metadata"`
+	Name         string                 `pulumi:"name"`
+	OutputPorts  map[string]OutputPort  `pulumi:"outputPorts"`
+	Parameters   []ModuleAssetParameter `pulumi:"parameters"`
+	Type         string                 `pulumi:"type"`
 }
 
 // AssetItemInput is an input type that accepts AssetItemArgs and AssetItemOutput values.
@@ -41,24 +32,15 @@ type AssetItemInput interface {
 	ToAssetItemOutputWithContext(context.Context) AssetItemOutput
 }
 
-// Information about an asset associated with the web service.
 type AssetItemArgs struct {
-	// Asset's Id.
-	Id pulumi.StringPtrInput `pulumi:"id"`
-	// Information about the asset's input ports.
-	InputPorts InputPortMapInput `pulumi:"inputPorts"`
-	// Access information for the asset.
-	LocationInfo BlobLocationInput `pulumi:"locationInfo"`
-	// If the asset is a custom module, this holds the module's metadata.
-	Metadata pulumi.StringMapInput `pulumi:"metadata"`
-	// Asset's friendly name.
-	Name pulumi.StringInput `pulumi:"name"`
-	// Information about the asset's output ports.
-	OutputPorts OutputPortMapInput `pulumi:"outputPorts"`
-	// If the asset is a custom module, this holds the module's parameters.
-	Parameters ModuleAssetParameterArrayInput `pulumi:"parameters"`
-	// Asset's type.
-	Type pulumi.StringInput `pulumi:"type"`
+	Id           pulumi.StringPtrInput          `pulumi:"id"`
+	InputPorts   InputPortMapInput              `pulumi:"inputPorts"`
+	LocationInfo BlobLocationInput              `pulumi:"locationInfo"`
+	Metadata     pulumi.StringMapInput          `pulumi:"metadata"`
+	Name         pulumi.StringInput             `pulumi:"name"`
+	OutputPorts  OutputPortMapInput             `pulumi:"outputPorts"`
+	Parameters   ModuleAssetParameterArrayInput `pulumi:"parameters"`
+	Type         pulumi.StringInput             `pulumi:"type"`
 }
 
 func (AssetItemArgs) ElementType() reflect.Type {
@@ -98,7 +80,6 @@ func (i AssetItemMap) ToAssetItemMapOutputWithContext(ctx context.Context) Asset
 	return pulumi.ToOutputWithContext(ctx, i).(AssetItemMapOutput)
 }
 
-// Information about an asset associated with the web service.
 type AssetItemOutput struct{ *pulumi.OutputState }
 
 func (AssetItemOutput) ElementType() reflect.Type {
@@ -113,42 +94,34 @@ func (o AssetItemOutput) ToAssetItemOutputWithContext(ctx context.Context) Asset
 	return o
 }
 
-// Asset's Id.
 func (o AssetItemOutput) Id() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AssetItem) *string { return v.Id }).(pulumi.StringPtrOutput)
 }
 
-// Information about the asset's input ports.
 func (o AssetItemOutput) InputPorts() InputPortMapOutput {
 	return o.ApplyT(func(v AssetItem) map[string]InputPort { return v.InputPorts }).(InputPortMapOutput)
 }
 
-// Access information for the asset.
 func (o AssetItemOutput) LocationInfo() BlobLocationOutput {
 	return o.ApplyT(func(v AssetItem) BlobLocation { return v.LocationInfo }).(BlobLocationOutput)
 }
 
-// If the asset is a custom module, this holds the module's metadata.
 func (o AssetItemOutput) Metadata() pulumi.StringMapOutput {
 	return o.ApplyT(func(v AssetItem) map[string]string { return v.Metadata }).(pulumi.StringMapOutput)
 }
 
-// Asset's friendly name.
 func (o AssetItemOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v AssetItem) string { return v.Name }).(pulumi.StringOutput)
 }
 
-// Information about the asset's output ports.
 func (o AssetItemOutput) OutputPorts() OutputPortMapOutput {
 	return o.ApplyT(func(v AssetItem) map[string]OutputPort { return v.OutputPorts }).(OutputPortMapOutput)
 }
 
-// If the asset is a custom module, this holds the module's parameters.
 func (o AssetItemOutput) Parameters() ModuleAssetParameterArrayOutput {
 	return o.ApplyT(func(v AssetItem) []ModuleAssetParameter { return v.Parameters }).(ModuleAssetParameterArrayOutput)
 }
 
-// Asset's type.
 func (o AssetItemOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v AssetItem) string { return v.Type }).(pulumi.StringOutput)
 }
@@ -173,24 +146,15 @@ func (o AssetItemMapOutput) MapIndex(k pulumi.StringInput) AssetItemOutput {
 	}).(AssetItemOutput)
 }
 
-// Information about an asset associated with the web service.
 type AssetItemResponse struct {
-	// Asset's Id.
-	Id *string `pulumi:"id"`
-	// Information about the asset's input ports.
-	InputPorts map[string]InputPortResponse `pulumi:"inputPorts"`
-	// Access information for the asset.
-	LocationInfo BlobLocationResponse `pulumi:"locationInfo"`
-	// If the asset is a custom module, this holds the module's metadata.
-	Metadata map[string]string `pulumi:"metadata"`
-	// Asset's friendly name.
-	Name string `pulumi:"name"`
-	// Information about the asset's output ports.
-	OutputPorts map[string]OutputPortResponse `pulumi:"outputPorts"`
-	// If the asset is a custom module, this holds the module's parameters.
-	Parameters []ModuleAssetParameterResponse `pulumi:"parameters"`
-	// Asset's type.
-	Type string `pulumi:"type"`
+	Id           *string                        `pulumi:"id"`
+	InputPorts   map[string]InputPortResponse   `pulumi:"inputPorts"`
+	LocationInfo BlobLocationResponse           `pulumi:"locationInfo"`
+	Metadata     map[string]string              `pulumi:"metadata"`
+	Name         string                         `pulumi:"name"`
+	OutputPorts  map[string]OutputPortResponse  `pulumi:"outputPorts"`
+	Parameters   []ModuleAssetParameterResponse `pulumi:"parameters"`
+	Type         string                         `pulumi:"type"`
 }
 
 // AssetItemResponseInput is an input type that accepts AssetItemResponseArgs and AssetItemResponseOutput values.
@@ -204,24 +168,15 @@ type AssetItemResponseInput interface {
 	ToAssetItemResponseOutputWithContext(context.Context) AssetItemResponseOutput
 }
 
-// Information about an asset associated with the web service.
 type AssetItemResponseArgs struct {
-	// Asset's Id.
-	Id pulumi.StringPtrInput `pulumi:"id"`
-	// Information about the asset's input ports.
-	InputPorts InputPortResponseMapInput `pulumi:"inputPorts"`
-	// Access information for the asset.
-	LocationInfo BlobLocationResponseInput `pulumi:"locationInfo"`
-	// If the asset is a custom module, this holds the module's metadata.
-	Metadata pulumi.StringMapInput `pulumi:"metadata"`
-	// Asset's friendly name.
-	Name pulumi.StringInput `pulumi:"name"`
-	// Information about the asset's output ports.
-	OutputPorts OutputPortResponseMapInput `pulumi:"outputPorts"`
-	// If the asset is a custom module, this holds the module's parameters.
-	Parameters ModuleAssetParameterResponseArrayInput `pulumi:"parameters"`
-	// Asset's type.
-	Type pulumi.StringInput `pulumi:"type"`
+	Id           pulumi.StringPtrInput                  `pulumi:"id"`
+	InputPorts   InputPortResponseMapInput              `pulumi:"inputPorts"`
+	LocationInfo BlobLocationResponseInput              `pulumi:"locationInfo"`
+	Metadata     pulumi.StringMapInput                  `pulumi:"metadata"`
+	Name         pulumi.StringInput                     `pulumi:"name"`
+	OutputPorts  OutputPortResponseMapInput             `pulumi:"outputPorts"`
+	Parameters   ModuleAssetParameterResponseArrayInput `pulumi:"parameters"`
+	Type         pulumi.StringInput                     `pulumi:"type"`
 }
 
 func (AssetItemResponseArgs) ElementType() reflect.Type {
@@ -261,7 +216,6 @@ func (i AssetItemResponseMap) ToAssetItemResponseMapOutputWithContext(ctx contex
 	return pulumi.ToOutputWithContext(ctx, i).(AssetItemResponseMapOutput)
 }
 
-// Information about an asset associated with the web service.
 type AssetItemResponseOutput struct{ *pulumi.OutputState }
 
 func (AssetItemResponseOutput) ElementType() reflect.Type {
@@ -276,42 +230,34 @@ func (o AssetItemResponseOutput) ToAssetItemResponseOutputWithContext(ctx contex
 	return o
 }
 
-// Asset's Id.
 func (o AssetItemResponseOutput) Id() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AssetItemResponse) *string { return v.Id }).(pulumi.StringPtrOutput)
 }
 
-// Information about the asset's input ports.
 func (o AssetItemResponseOutput) InputPorts() InputPortResponseMapOutput {
 	return o.ApplyT(func(v AssetItemResponse) map[string]InputPortResponse { return v.InputPorts }).(InputPortResponseMapOutput)
 }
 
-// Access information for the asset.
 func (o AssetItemResponseOutput) LocationInfo() BlobLocationResponseOutput {
 	return o.ApplyT(func(v AssetItemResponse) BlobLocationResponse { return v.LocationInfo }).(BlobLocationResponseOutput)
 }
 
-// If the asset is a custom module, this holds the module's metadata.
 func (o AssetItemResponseOutput) Metadata() pulumi.StringMapOutput {
 	return o.ApplyT(func(v AssetItemResponse) map[string]string { return v.Metadata }).(pulumi.StringMapOutput)
 }
 
-// Asset's friendly name.
 func (o AssetItemResponseOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v AssetItemResponse) string { return v.Name }).(pulumi.StringOutput)
 }
 
-// Information about the asset's output ports.
 func (o AssetItemResponseOutput) OutputPorts() OutputPortResponseMapOutput {
 	return o.ApplyT(func(v AssetItemResponse) map[string]OutputPortResponse { return v.OutputPorts }).(OutputPortResponseMapOutput)
 }
 
-// If the asset is a custom module, this holds the module's parameters.
 func (o AssetItemResponseOutput) Parameters() ModuleAssetParameterResponseArrayOutput {
 	return o.ApplyT(func(v AssetItemResponse) []ModuleAssetParameterResponse { return v.Parameters }).(ModuleAssetParameterResponseArrayOutput)
 }
 
-// Asset's type.
 func (o AssetItemResponseOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v AssetItemResponse) string { return v.Type }).(pulumi.StringOutput)
 }
@@ -336,12 +282,9 @@ func (o AssetItemResponseMapOutput) MapIndex(k pulumi.StringInput) AssetItemResp
 	}).(AssetItemResponseOutput)
 }
 
-// Describes the access location for a blob.
 type BlobLocation struct {
-	// Access credentials for the blob, if applicable (e.g. blob specified by storage account connection string + blob URI)
 	Credentials *string `pulumi:"credentials"`
-	// The URI from which the blob is accessible from. For example, aml://abc for system assets or https://xyz for user assets or payload.
-	Uri string `pulumi:"uri"`
+	Uri         string  `pulumi:"uri"`
 }
 
 // BlobLocationInput is an input type that accepts BlobLocationArgs and BlobLocationOutput values.
@@ -355,12 +298,9 @@ type BlobLocationInput interface {
 	ToBlobLocationOutputWithContext(context.Context) BlobLocationOutput
 }
 
-// Describes the access location for a blob.
 type BlobLocationArgs struct {
-	// Access credentials for the blob, if applicable (e.g. blob specified by storage account connection string + blob URI)
 	Credentials pulumi.StringPtrInput `pulumi:"credentials"`
-	// The URI from which the blob is accessible from. For example, aml://abc for system assets or https://xyz for user assets or payload.
-	Uri pulumi.StringInput `pulumi:"uri"`
+	Uri         pulumi.StringInput    `pulumi:"uri"`
 }
 
 func (BlobLocationArgs) ElementType() reflect.Type {
@@ -416,7 +356,6 @@ func (i *blobLocationPtrType) ToBlobLocationPtrOutputWithContext(ctx context.Con
 	return pulumi.ToOutputWithContext(ctx, i).(BlobLocationPtrOutput)
 }
 
-// Describes the access location for a blob.
 type BlobLocationOutput struct{ *pulumi.OutputState }
 
 func (BlobLocationOutput) ElementType() reflect.Type {
@@ -436,17 +375,15 @@ func (o BlobLocationOutput) ToBlobLocationPtrOutput() BlobLocationPtrOutput {
 }
 
 func (o BlobLocationOutput) ToBlobLocationPtrOutputWithContext(ctx context.Context) BlobLocationPtrOutput {
-	return o.ApplyT(func(v BlobLocation) *BlobLocation {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v BlobLocation) *BlobLocation {
 		return &v
 	}).(BlobLocationPtrOutput)
 }
 
-// Access credentials for the blob, if applicable (e.g. blob specified by storage account connection string + blob URI)
 func (o BlobLocationOutput) Credentials() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v BlobLocation) *string { return v.Credentials }).(pulumi.StringPtrOutput)
 }
 
-// The URI from which the blob is accessible from. For example, aml://abc for system assets or https://xyz for user assets or payload.
 func (o BlobLocationOutput) Uri() pulumi.StringOutput {
 	return o.ApplyT(func(v BlobLocation) string { return v.Uri }).(pulumi.StringOutput)
 }
@@ -466,10 +403,15 @@ func (o BlobLocationPtrOutput) ToBlobLocationPtrOutputWithContext(ctx context.Co
 }
 
 func (o BlobLocationPtrOutput) Elem() BlobLocationOutput {
-	return o.ApplyT(func(v *BlobLocation) BlobLocation { return *v }).(BlobLocationOutput)
+	return o.ApplyT(func(v *BlobLocation) BlobLocation {
+		if v != nil {
+			return *v
+		}
+		var ret BlobLocation
+		return ret
+	}).(BlobLocationOutput)
 }
 
-// Access credentials for the blob, if applicable (e.g. blob specified by storage account connection string + blob URI)
 func (o BlobLocationPtrOutput) Credentials() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *BlobLocation) *string {
 		if v == nil {
@@ -479,7 +421,6 @@ func (o BlobLocationPtrOutput) Credentials() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The URI from which the blob is accessible from. For example, aml://abc for system assets or https://xyz for user assets or payload.
 func (o BlobLocationPtrOutput) Uri() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *BlobLocation) *string {
 		if v == nil {
@@ -489,12 +430,9 @@ func (o BlobLocationPtrOutput) Uri() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Describes the access location for a blob.
 type BlobLocationResponse struct {
-	// Access credentials for the blob, if applicable (e.g. blob specified by storage account connection string + blob URI)
 	Credentials *string `pulumi:"credentials"`
-	// The URI from which the blob is accessible from. For example, aml://abc for system assets or https://xyz for user assets or payload.
-	Uri string `pulumi:"uri"`
+	Uri         string  `pulumi:"uri"`
 }
 
 // BlobLocationResponseInput is an input type that accepts BlobLocationResponseArgs and BlobLocationResponseOutput values.
@@ -508,12 +446,9 @@ type BlobLocationResponseInput interface {
 	ToBlobLocationResponseOutputWithContext(context.Context) BlobLocationResponseOutput
 }
 
-// Describes the access location for a blob.
 type BlobLocationResponseArgs struct {
-	// Access credentials for the blob, if applicable (e.g. blob specified by storage account connection string + blob URI)
 	Credentials pulumi.StringPtrInput `pulumi:"credentials"`
-	// The URI from which the blob is accessible from. For example, aml://abc for system assets or https://xyz for user assets or payload.
-	Uri pulumi.StringInput `pulumi:"uri"`
+	Uri         pulumi.StringInput    `pulumi:"uri"`
 }
 
 func (BlobLocationResponseArgs) ElementType() reflect.Type {
@@ -569,7 +504,6 @@ func (i *blobLocationResponsePtrType) ToBlobLocationResponsePtrOutputWithContext
 	return pulumi.ToOutputWithContext(ctx, i).(BlobLocationResponsePtrOutput)
 }
 
-// Describes the access location for a blob.
 type BlobLocationResponseOutput struct{ *pulumi.OutputState }
 
 func (BlobLocationResponseOutput) ElementType() reflect.Type {
@@ -589,17 +523,15 @@ func (o BlobLocationResponseOutput) ToBlobLocationResponsePtrOutput() BlobLocati
 }
 
 func (o BlobLocationResponseOutput) ToBlobLocationResponsePtrOutputWithContext(ctx context.Context) BlobLocationResponsePtrOutput {
-	return o.ApplyT(func(v BlobLocationResponse) *BlobLocationResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v BlobLocationResponse) *BlobLocationResponse {
 		return &v
 	}).(BlobLocationResponsePtrOutput)
 }
 
-// Access credentials for the blob, if applicable (e.g. blob specified by storage account connection string + blob URI)
 func (o BlobLocationResponseOutput) Credentials() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v BlobLocationResponse) *string { return v.Credentials }).(pulumi.StringPtrOutput)
 }
 
-// The URI from which the blob is accessible from. For example, aml://abc for system assets or https://xyz for user assets or payload.
 func (o BlobLocationResponseOutput) Uri() pulumi.StringOutput {
 	return o.ApplyT(func(v BlobLocationResponse) string { return v.Uri }).(pulumi.StringOutput)
 }
@@ -619,10 +551,15 @@ func (o BlobLocationResponsePtrOutput) ToBlobLocationResponsePtrOutputWithContex
 }
 
 func (o BlobLocationResponsePtrOutput) Elem() BlobLocationResponseOutput {
-	return o.ApplyT(func(v *BlobLocationResponse) BlobLocationResponse { return *v }).(BlobLocationResponseOutput)
+	return o.ApplyT(func(v *BlobLocationResponse) BlobLocationResponse {
+		if v != nil {
+			return *v
+		}
+		var ret BlobLocationResponse
+		return ret
+	}).(BlobLocationResponseOutput)
 }
 
-// Access credentials for the blob, if applicable (e.g. blob specified by storage account connection string + blob URI)
 func (o BlobLocationResponsePtrOutput) Credentials() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *BlobLocationResponse) *string {
 		if v == nil {
@@ -632,7 +569,6 @@ func (o BlobLocationResponsePtrOutput) Credentials() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The URI from which the blob is accessible from. For example, aml://abc for system assets or https://xyz for user assets or payload.
 func (o BlobLocationResponsePtrOutput) Uri() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *BlobLocationResponse) *string {
 		if v == nil {
@@ -642,18 +578,12 @@ func (o BlobLocationResponsePtrOutput) Uri() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Swagger 2.0 schema for a column within the data table representing a web service input or output. See Swagger specification: http://swagger.io/specification/
 type ColumnSpecification struct {
-	// If the data type is categorical, this provides the list of accepted categories.
-	Enum []interface{} `pulumi:"enum"`
-	// Additional format information for the data type.
-	Format *string `pulumi:"format"`
-	// Data type of the column.
-	Type string `pulumi:"type"`
-	// Flag indicating if the type supports null values or not.
-	XMsIsnullable *bool `pulumi:"xMsIsnullable"`
-	// Flag indicating whether the categories are treated as an ordered set or not, if this is a categorical column.
-	XMsIsordered *bool `pulumi:"xMsIsordered"`
+	Enum          []interface{} `pulumi:"enum"`
+	Format        *string       `pulumi:"format"`
+	Type          string        `pulumi:"type"`
+	XMsIsnullable *bool         `pulumi:"xMsIsnullable"`
+	XMsIsordered  *bool         `pulumi:"xMsIsordered"`
 }
 
 // ColumnSpecificationInput is an input type that accepts ColumnSpecificationArgs and ColumnSpecificationOutput values.
@@ -667,18 +597,12 @@ type ColumnSpecificationInput interface {
 	ToColumnSpecificationOutputWithContext(context.Context) ColumnSpecificationOutput
 }
 
-// Swagger 2.0 schema for a column within the data table representing a web service input or output. See Swagger specification: http://swagger.io/specification/
 type ColumnSpecificationArgs struct {
-	// If the data type is categorical, this provides the list of accepted categories.
-	Enum pulumi.ArrayInput `pulumi:"enum"`
-	// Additional format information for the data type.
-	Format pulumi.StringPtrInput `pulumi:"format"`
-	// Data type of the column.
-	Type pulumi.StringInput `pulumi:"type"`
-	// Flag indicating if the type supports null values or not.
-	XMsIsnullable pulumi.BoolPtrInput `pulumi:"xMsIsnullable"`
-	// Flag indicating whether the categories are treated as an ordered set or not, if this is a categorical column.
-	XMsIsordered pulumi.BoolPtrInput `pulumi:"xMsIsordered"`
+	Enum          pulumi.ArrayInput     `pulumi:"enum"`
+	Format        pulumi.StringPtrInput `pulumi:"format"`
+	Type          pulumi.StringInput    `pulumi:"type"`
+	XMsIsnullable pulumi.BoolPtrInput   `pulumi:"xMsIsnullable"`
+	XMsIsordered  pulumi.BoolPtrInput   `pulumi:"xMsIsordered"`
 }
 
 func (ColumnSpecificationArgs) ElementType() reflect.Type {
@@ -718,7 +642,6 @@ func (i ColumnSpecificationMap) ToColumnSpecificationMapOutputWithContext(ctx co
 	return pulumi.ToOutputWithContext(ctx, i).(ColumnSpecificationMapOutput)
 }
 
-// Swagger 2.0 schema for a column within the data table representing a web service input or output. See Swagger specification: http://swagger.io/specification/
 type ColumnSpecificationOutput struct{ *pulumi.OutputState }
 
 func (ColumnSpecificationOutput) ElementType() reflect.Type {
@@ -733,27 +656,22 @@ func (o ColumnSpecificationOutput) ToColumnSpecificationOutputWithContext(ctx co
 	return o
 }
 
-// If the data type is categorical, this provides the list of accepted categories.
 func (o ColumnSpecificationOutput) Enum() pulumi.ArrayOutput {
 	return o.ApplyT(func(v ColumnSpecification) []interface{} { return v.Enum }).(pulumi.ArrayOutput)
 }
 
-// Additional format information for the data type.
 func (o ColumnSpecificationOutput) Format() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ColumnSpecification) *string { return v.Format }).(pulumi.StringPtrOutput)
 }
 
-// Data type of the column.
 func (o ColumnSpecificationOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v ColumnSpecification) string { return v.Type }).(pulumi.StringOutput)
 }
 
-// Flag indicating if the type supports null values or not.
 func (o ColumnSpecificationOutput) XMsIsnullable() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v ColumnSpecification) *bool { return v.XMsIsnullable }).(pulumi.BoolPtrOutput)
 }
 
-// Flag indicating whether the categories are treated as an ordered set or not, if this is a categorical column.
 func (o ColumnSpecificationOutput) XMsIsordered() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v ColumnSpecification) *bool { return v.XMsIsordered }).(pulumi.BoolPtrOutput)
 }
@@ -778,18 +696,12 @@ func (o ColumnSpecificationMapOutput) MapIndex(k pulumi.StringInput) ColumnSpeci
 	}).(ColumnSpecificationOutput)
 }
 
-// Swagger 2.0 schema for a column within the data table representing a web service input or output. See Swagger specification: http://swagger.io/specification/
 type ColumnSpecificationResponse struct {
-	// If the data type is categorical, this provides the list of accepted categories.
-	Enum []interface{} `pulumi:"enum"`
-	// Additional format information for the data type.
-	Format *string `pulumi:"format"`
-	// Data type of the column.
-	Type string `pulumi:"type"`
-	// Flag indicating if the type supports null values or not.
-	XMsIsnullable *bool `pulumi:"xMsIsnullable"`
-	// Flag indicating whether the categories are treated as an ordered set or not, if this is a categorical column.
-	XMsIsordered *bool `pulumi:"xMsIsordered"`
+	Enum          []interface{} `pulumi:"enum"`
+	Format        *string       `pulumi:"format"`
+	Type          string        `pulumi:"type"`
+	XMsIsnullable *bool         `pulumi:"xMsIsnullable"`
+	XMsIsordered  *bool         `pulumi:"xMsIsordered"`
 }
 
 // ColumnSpecificationResponseInput is an input type that accepts ColumnSpecificationResponseArgs and ColumnSpecificationResponseOutput values.
@@ -803,18 +715,12 @@ type ColumnSpecificationResponseInput interface {
 	ToColumnSpecificationResponseOutputWithContext(context.Context) ColumnSpecificationResponseOutput
 }
 
-// Swagger 2.0 schema for a column within the data table representing a web service input or output. See Swagger specification: http://swagger.io/specification/
 type ColumnSpecificationResponseArgs struct {
-	// If the data type is categorical, this provides the list of accepted categories.
-	Enum pulumi.ArrayInput `pulumi:"enum"`
-	// Additional format information for the data type.
-	Format pulumi.StringPtrInput `pulumi:"format"`
-	// Data type of the column.
-	Type pulumi.StringInput `pulumi:"type"`
-	// Flag indicating if the type supports null values or not.
-	XMsIsnullable pulumi.BoolPtrInput `pulumi:"xMsIsnullable"`
-	// Flag indicating whether the categories are treated as an ordered set or not, if this is a categorical column.
-	XMsIsordered pulumi.BoolPtrInput `pulumi:"xMsIsordered"`
+	Enum          pulumi.ArrayInput     `pulumi:"enum"`
+	Format        pulumi.StringPtrInput `pulumi:"format"`
+	Type          pulumi.StringInput    `pulumi:"type"`
+	XMsIsnullable pulumi.BoolPtrInput   `pulumi:"xMsIsnullable"`
+	XMsIsordered  pulumi.BoolPtrInput   `pulumi:"xMsIsordered"`
 }
 
 func (ColumnSpecificationResponseArgs) ElementType() reflect.Type {
@@ -854,7 +760,6 @@ func (i ColumnSpecificationResponseMap) ToColumnSpecificationResponseMapOutputWi
 	return pulumi.ToOutputWithContext(ctx, i).(ColumnSpecificationResponseMapOutput)
 }
 
-// Swagger 2.0 schema for a column within the data table representing a web service input or output. See Swagger specification: http://swagger.io/specification/
 type ColumnSpecificationResponseOutput struct{ *pulumi.OutputState }
 
 func (ColumnSpecificationResponseOutput) ElementType() reflect.Type {
@@ -869,27 +774,22 @@ func (o ColumnSpecificationResponseOutput) ToColumnSpecificationResponseOutputWi
 	return o
 }
 
-// If the data type is categorical, this provides the list of accepted categories.
 func (o ColumnSpecificationResponseOutput) Enum() pulumi.ArrayOutput {
 	return o.ApplyT(func(v ColumnSpecificationResponse) []interface{} { return v.Enum }).(pulumi.ArrayOutput)
 }
 
-// Additional format information for the data type.
 func (o ColumnSpecificationResponseOutput) Format() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ColumnSpecificationResponse) *string { return v.Format }).(pulumi.StringPtrOutput)
 }
 
-// Data type of the column.
 func (o ColumnSpecificationResponseOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v ColumnSpecificationResponse) string { return v.Type }).(pulumi.StringOutput)
 }
 
-// Flag indicating if the type supports null values or not.
 func (o ColumnSpecificationResponseOutput) XMsIsnullable() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v ColumnSpecificationResponse) *bool { return v.XMsIsnullable }).(pulumi.BoolPtrOutput)
 }
 
-// Flag indicating whether the categories are treated as an ordered set or not, if this is a categorical column.
 func (o ColumnSpecificationResponseOutput) XMsIsordered() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v ColumnSpecificationResponse) *bool { return v.XMsIsordered }).(pulumi.BoolPtrOutput)
 }
@@ -914,9 +814,7 @@ func (o ColumnSpecificationResponseMapOutput) MapIndex(k pulumi.StringInput) Col
 	}).(ColumnSpecificationResponseOutput)
 }
 
-// Information about the machine learning commitment plan associated with the web service.
 type CommitmentPlan struct {
-	// Specifies the Azure Resource Manager ID of the commitment plan associated with the web service.
 	Id string `pulumi:"id"`
 }
 
@@ -931,9 +829,7 @@ type CommitmentPlanInput interface {
 	ToCommitmentPlanOutputWithContext(context.Context) CommitmentPlanOutput
 }
 
-// Information about the machine learning commitment plan associated with the web service.
 type CommitmentPlanArgs struct {
-	// Specifies the Azure Resource Manager ID of the commitment plan associated with the web service.
 	Id pulumi.StringInput `pulumi:"id"`
 }
 
@@ -990,7 +886,6 @@ func (i *commitmentPlanPtrType) ToCommitmentPlanPtrOutputWithContext(ctx context
 	return pulumi.ToOutputWithContext(ctx, i).(CommitmentPlanPtrOutput)
 }
 
-// Information about the machine learning commitment plan associated with the web service.
 type CommitmentPlanOutput struct{ *pulumi.OutputState }
 
 func (CommitmentPlanOutput) ElementType() reflect.Type {
@@ -1010,12 +905,11 @@ func (o CommitmentPlanOutput) ToCommitmentPlanPtrOutput() CommitmentPlanPtrOutpu
 }
 
 func (o CommitmentPlanOutput) ToCommitmentPlanPtrOutputWithContext(ctx context.Context) CommitmentPlanPtrOutput {
-	return o.ApplyT(func(v CommitmentPlan) *CommitmentPlan {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v CommitmentPlan) *CommitmentPlan {
 		return &v
 	}).(CommitmentPlanPtrOutput)
 }
 
-// Specifies the Azure Resource Manager ID of the commitment plan associated with the web service.
 func (o CommitmentPlanOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v CommitmentPlan) string { return v.Id }).(pulumi.StringOutput)
 }
@@ -1035,10 +929,15 @@ func (o CommitmentPlanPtrOutput) ToCommitmentPlanPtrOutputWithContext(ctx contex
 }
 
 func (o CommitmentPlanPtrOutput) Elem() CommitmentPlanOutput {
-	return o.ApplyT(func(v *CommitmentPlan) CommitmentPlan { return *v }).(CommitmentPlanOutput)
+	return o.ApplyT(func(v *CommitmentPlan) CommitmentPlan {
+		if v != nil {
+			return *v
+		}
+		var ret CommitmentPlan
+		return ret
+	}).(CommitmentPlanOutput)
 }
 
-// Specifies the Azure Resource Manager ID of the commitment plan associated with the web service.
 func (o CommitmentPlanPtrOutput) Id() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *CommitmentPlan) *string {
 		if v == nil {
@@ -1048,9 +947,7 @@ func (o CommitmentPlanPtrOutput) Id() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Information about the machine learning commitment plan associated with the web service.
 type CommitmentPlanResponse struct {
-	// Specifies the Azure Resource Manager ID of the commitment plan associated with the web service.
 	Id string `pulumi:"id"`
 }
 
@@ -1065,9 +962,7 @@ type CommitmentPlanResponseInput interface {
 	ToCommitmentPlanResponseOutputWithContext(context.Context) CommitmentPlanResponseOutput
 }
 
-// Information about the machine learning commitment plan associated with the web service.
 type CommitmentPlanResponseArgs struct {
-	// Specifies the Azure Resource Manager ID of the commitment plan associated with the web service.
 	Id pulumi.StringInput `pulumi:"id"`
 }
 
@@ -1124,7 +1019,6 @@ func (i *commitmentPlanResponsePtrType) ToCommitmentPlanResponsePtrOutputWithCon
 	return pulumi.ToOutputWithContext(ctx, i).(CommitmentPlanResponsePtrOutput)
 }
 
-// Information about the machine learning commitment plan associated with the web service.
 type CommitmentPlanResponseOutput struct{ *pulumi.OutputState }
 
 func (CommitmentPlanResponseOutput) ElementType() reflect.Type {
@@ -1144,12 +1038,11 @@ func (o CommitmentPlanResponseOutput) ToCommitmentPlanResponsePtrOutput() Commit
 }
 
 func (o CommitmentPlanResponseOutput) ToCommitmentPlanResponsePtrOutputWithContext(ctx context.Context) CommitmentPlanResponsePtrOutput {
-	return o.ApplyT(func(v CommitmentPlanResponse) *CommitmentPlanResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v CommitmentPlanResponse) *CommitmentPlanResponse {
 		return &v
 	}).(CommitmentPlanResponsePtrOutput)
 }
 
-// Specifies the Azure Resource Manager ID of the commitment plan associated with the web service.
 func (o CommitmentPlanResponseOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v CommitmentPlanResponse) string { return v.Id }).(pulumi.StringOutput)
 }
@@ -1169,10 +1062,15 @@ func (o CommitmentPlanResponsePtrOutput) ToCommitmentPlanResponsePtrOutputWithCo
 }
 
 func (o CommitmentPlanResponsePtrOutput) Elem() CommitmentPlanResponseOutput {
-	return o.ApplyT(func(v *CommitmentPlanResponse) CommitmentPlanResponse { return *v }).(CommitmentPlanResponseOutput)
+	return o.ApplyT(func(v *CommitmentPlanResponse) CommitmentPlanResponse {
+		if v != nil {
+			return *v
+		}
+		var ret CommitmentPlanResponse
+		return ret
+	}).(CommitmentPlanResponseOutput)
 }
 
-// Specifies the Azure Resource Manager ID of the commitment plan associated with the web service.
 func (o CommitmentPlanResponsePtrOutput) Id() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *CommitmentPlanResponse) *string {
 		if v == nil {
@@ -1182,12 +1080,9 @@ func (o CommitmentPlanResponsePtrOutput) Id() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Diagnostics settings for an Azure ML web service.
 type DiagnosticsConfiguration struct {
-	// Specifies the date and time when the logging will cease. If null, diagnostic collection is not time limited.
 	Expiry *string `pulumi:"expiry"`
-	// Specifies the verbosity of the diagnostic output. Valid values are: None - disables tracing; Error - collects only error (stderr) traces; All - collects all traces (stdout and stderr).
-	Level string `pulumi:"level"`
+	Level  string  `pulumi:"level"`
 }
 
 // DiagnosticsConfigurationInput is an input type that accepts DiagnosticsConfigurationArgs and DiagnosticsConfigurationOutput values.
@@ -1201,12 +1096,9 @@ type DiagnosticsConfigurationInput interface {
 	ToDiagnosticsConfigurationOutputWithContext(context.Context) DiagnosticsConfigurationOutput
 }
 
-// Diagnostics settings for an Azure ML web service.
 type DiagnosticsConfigurationArgs struct {
-	// Specifies the date and time when the logging will cease. If null, diagnostic collection is not time limited.
 	Expiry pulumi.StringPtrInput `pulumi:"expiry"`
-	// Specifies the verbosity of the diagnostic output. Valid values are: None - disables tracing; Error - collects only error (stderr) traces; All - collects all traces (stdout and stderr).
-	Level pulumi.StringInput `pulumi:"level"`
+	Level  pulumi.StringInput    `pulumi:"level"`
 }
 
 func (DiagnosticsConfigurationArgs) ElementType() reflect.Type {
@@ -1262,7 +1154,6 @@ func (i *diagnosticsConfigurationPtrType) ToDiagnosticsConfigurationPtrOutputWit
 	return pulumi.ToOutputWithContext(ctx, i).(DiagnosticsConfigurationPtrOutput)
 }
 
-// Diagnostics settings for an Azure ML web service.
 type DiagnosticsConfigurationOutput struct{ *pulumi.OutputState }
 
 func (DiagnosticsConfigurationOutput) ElementType() reflect.Type {
@@ -1282,17 +1173,15 @@ func (o DiagnosticsConfigurationOutput) ToDiagnosticsConfigurationPtrOutput() Di
 }
 
 func (o DiagnosticsConfigurationOutput) ToDiagnosticsConfigurationPtrOutputWithContext(ctx context.Context) DiagnosticsConfigurationPtrOutput {
-	return o.ApplyT(func(v DiagnosticsConfiguration) *DiagnosticsConfiguration {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v DiagnosticsConfiguration) *DiagnosticsConfiguration {
 		return &v
 	}).(DiagnosticsConfigurationPtrOutput)
 }
 
-// Specifies the date and time when the logging will cease. If null, diagnostic collection is not time limited.
 func (o DiagnosticsConfigurationOutput) Expiry() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v DiagnosticsConfiguration) *string { return v.Expiry }).(pulumi.StringPtrOutput)
 }
 
-// Specifies the verbosity of the diagnostic output. Valid values are: None - disables tracing; Error - collects only error (stderr) traces; All - collects all traces (stdout and stderr).
 func (o DiagnosticsConfigurationOutput) Level() pulumi.StringOutput {
 	return o.ApplyT(func(v DiagnosticsConfiguration) string { return v.Level }).(pulumi.StringOutput)
 }
@@ -1312,10 +1201,15 @@ func (o DiagnosticsConfigurationPtrOutput) ToDiagnosticsConfigurationPtrOutputWi
 }
 
 func (o DiagnosticsConfigurationPtrOutput) Elem() DiagnosticsConfigurationOutput {
-	return o.ApplyT(func(v *DiagnosticsConfiguration) DiagnosticsConfiguration { return *v }).(DiagnosticsConfigurationOutput)
+	return o.ApplyT(func(v *DiagnosticsConfiguration) DiagnosticsConfiguration {
+		if v != nil {
+			return *v
+		}
+		var ret DiagnosticsConfiguration
+		return ret
+	}).(DiagnosticsConfigurationOutput)
 }
 
-// Specifies the date and time when the logging will cease. If null, diagnostic collection is not time limited.
 func (o DiagnosticsConfigurationPtrOutput) Expiry() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *DiagnosticsConfiguration) *string {
 		if v == nil {
@@ -1325,7 +1219,6 @@ func (o DiagnosticsConfigurationPtrOutput) Expiry() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Specifies the verbosity of the diagnostic output. Valid values are: None - disables tracing; Error - collects only error (stderr) traces; All - collects all traces (stdout and stderr).
 func (o DiagnosticsConfigurationPtrOutput) Level() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *DiagnosticsConfiguration) *string {
 		if v == nil {
@@ -1335,12 +1228,9 @@ func (o DiagnosticsConfigurationPtrOutput) Level() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Diagnostics settings for an Azure ML web service.
 type DiagnosticsConfigurationResponse struct {
-	// Specifies the date and time when the logging will cease. If null, diagnostic collection is not time limited.
 	Expiry *string `pulumi:"expiry"`
-	// Specifies the verbosity of the diagnostic output. Valid values are: None - disables tracing; Error - collects only error (stderr) traces; All - collects all traces (stdout and stderr).
-	Level string `pulumi:"level"`
+	Level  string  `pulumi:"level"`
 }
 
 // DiagnosticsConfigurationResponseInput is an input type that accepts DiagnosticsConfigurationResponseArgs and DiagnosticsConfigurationResponseOutput values.
@@ -1354,12 +1244,9 @@ type DiagnosticsConfigurationResponseInput interface {
 	ToDiagnosticsConfigurationResponseOutputWithContext(context.Context) DiagnosticsConfigurationResponseOutput
 }
 
-// Diagnostics settings for an Azure ML web service.
 type DiagnosticsConfigurationResponseArgs struct {
-	// Specifies the date and time when the logging will cease. If null, diagnostic collection is not time limited.
 	Expiry pulumi.StringPtrInput `pulumi:"expiry"`
-	// Specifies the verbosity of the diagnostic output. Valid values are: None - disables tracing; Error - collects only error (stderr) traces; All - collects all traces (stdout and stderr).
-	Level pulumi.StringInput `pulumi:"level"`
+	Level  pulumi.StringInput    `pulumi:"level"`
 }
 
 func (DiagnosticsConfigurationResponseArgs) ElementType() reflect.Type {
@@ -1415,7 +1302,6 @@ func (i *diagnosticsConfigurationResponsePtrType) ToDiagnosticsConfigurationResp
 	return pulumi.ToOutputWithContext(ctx, i).(DiagnosticsConfigurationResponsePtrOutput)
 }
 
-// Diagnostics settings for an Azure ML web service.
 type DiagnosticsConfigurationResponseOutput struct{ *pulumi.OutputState }
 
 func (DiagnosticsConfigurationResponseOutput) ElementType() reflect.Type {
@@ -1435,17 +1321,15 @@ func (o DiagnosticsConfigurationResponseOutput) ToDiagnosticsConfigurationRespon
 }
 
 func (o DiagnosticsConfigurationResponseOutput) ToDiagnosticsConfigurationResponsePtrOutputWithContext(ctx context.Context) DiagnosticsConfigurationResponsePtrOutput {
-	return o.ApplyT(func(v DiagnosticsConfigurationResponse) *DiagnosticsConfigurationResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v DiagnosticsConfigurationResponse) *DiagnosticsConfigurationResponse {
 		return &v
 	}).(DiagnosticsConfigurationResponsePtrOutput)
 }
 
-// Specifies the date and time when the logging will cease. If null, diagnostic collection is not time limited.
 func (o DiagnosticsConfigurationResponseOutput) Expiry() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v DiagnosticsConfigurationResponse) *string { return v.Expiry }).(pulumi.StringPtrOutput)
 }
 
-// Specifies the verbosity of the diagnostic output. Valid values are: None - disables tracing; Error - collects only error (stderr) traces; All - collects all traces (stdout and stderr).
 func (o DiagnosticsConfigurationResponseOutput) Level() pulumi.StringOutput {
 	return o.ApplyT(func(v DiagnosticsConfigurationResponse) string { return v.Level }).(pulumi.StringOutput)
 }
@@ -1465,10 +1349,15 @@ func (o DiagnosticsConfigurationResponsePtrOutput) ToDiagnosticsConfigurationRes
 }
 
 func (o DiagnosticsConfigurationResponsePtrOutput) Elem() DiagnosticsConfigurationResponseOutput {
-	return o.ApplyT(func(v *DiagnosticsConfigurationResponse) DiagnosticsConfigurationResponse { return *v }).(DiagnosticsConfigurationResponseOutput)
+	return o.ApplyT(func(v *DiagnosticsConfigurationResponse) DiagnosticsConfigurationResponse {
+		if v != nil {
+			return *v
+		}
+		var ret DiagnosticsConfigurationResponse
+		return ret
+	}).(DiagnosticsConfigurationResponseOutput)
 }
 
-// Specifies the date and time when the logging will cease. If null, diagnostic collection is not time limited.
 func (o DiagnosticsConfigurationResponsePtrOutput) Expiry() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *DiagnosticsConfigurationResponse) *string {
 		if v == nil {
@@ -1478,7 +1367,6 @@ func (o DiagnosticsConfigurationResponsePtrOutput) Expiry() pulumi.StringPtrOutp
 	}).(pulumi.StringPtrOutput)
 }
 
-// Specifies the verbosity of the diagnostic output. Valid values are: None - disables tracing; Error - collects only error (stderr) traces; All - collects all traces (stdout and stderr).
 func (o DiagnosticsConfigurationResponsePtrOutput) Level() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *DiagnosticsConfigurationResponse) *string {
 		if v == nil {
@@ -1488,12 +1376,9 @@ func (o DiagnosticsConfigurationResponsePtrOutput) Level() pulumi.StringPtrOutpu
 	}).(pulumi.StringPtrOutput)
 }
 
-// Sample input data for the service's input(s).
 type ExampleRequest struct {
-	// Sample input data for the web service's global parameters
-	GlobalParameters map[string]interface{} `pulumi:"globalParameters"`
-	// Sample input data for the web service's input(s) given as an input name to sample input values matrix map.
-	Inputs map[string][][]interface{} `pulumi:"inputs"`
+	GlobalParameters map[string]interface{}     `pulumi:"globalParameters"`
+	Inputs           map[string][][]interface{} `pulumi:"inputs"`
 }
 
 // ExampleRequestInput is an input type that accepts ExampleRequestArgs and ExampleRequestOutput values.
@@ -1507,12 +1392,9 @@ type ExampleRequestInput interface {
 	ToExampleRequestOutputWithContext(context.Context) ExampleRequestOutput
 }
 
-// Sample input data for the service's input(s).
 type ExampleRequestArgs struct {
-	// Sample input data for the web service's global parameters
-	GlobalParameters pulumi.MapInput `pulumi:"globalParameters"`
-	// Sample input data for the web service's input(s) given as an input name to sample input values matrix map.
-	Inputs pulumi.ArrayArrayMapInput `pulumi:"inputs"`
+	GlobalParameters pulumi.MapInput           `pulumi:"globalParameters"`
+	Inputs           pulumi.ArrayArrayMapInput `pulumi:"inputs"`
 }
 
 func (ExampleRequestArgs) ElementType() reflect.Type {
@@ -1568,7 +1450,6 @@ func (i *exampleRequestPtrType) ToExampleRequestPtrOutputWithContext(ctx context
 	return pulumi.ToOutputWithContext(ctx, i).(ExampleRequestPtrOutput)
 }
 
-// Sample input data for the service's input(s).
 type ExampleRequestOutput struct{ *pulumi.OutputState }
 
 func (ExampleRequestOutput) ElementType() reflect.Type {
@@ -1588,17 +1469,15 @@ func (o ExampleRequestOutput) ToExampleRequestPtrOutput() ExampleRequestPtrOutpu
 }
 
 func (o ExampleRequestOutput) ToExampleRequestPtrOutputWithContext(ctx context.Context) ExampleRequestPtrOutput {
-	return o.ApplyT(func(v ExampleRequest) *ExampleRequest {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ExampleRequest) *ExampleRequest {
 		return &v
 	}).(ExampleRequestPtrOutput)
 }
 
-// Sample input data for the web service's global parameters
 func (o ExampleRequestOutput) GlobalParameters() pulumi.MapOutput {
 	return o.ApplyT(func(v ExampleRequest) map[string]interface{} { return v.GlobalParameters }).(pulumi.MapOutput)
 }
 
-// Sample input data for the web service's input(s) given as an input name to sample input values matrix map.
 func (o ExampleRequestOutput) Inputs() pulumi.ArrayArrayMapOutput {
 	return o.ApplyT(func(v ExampleRequest) map[string][][]interface{} { return v.Inputs }).(pulumi.ArrayArrayMapOutput)
 }
@@ -1618,10 +1497,15 @@ func (o ExampleRequestPtrOutput) ToExampleRequestPtrOutputWithContext(ctx contex
 }
 
 func (o ExampleRequestPtrOutput) Elem() ExampleRequestOutput {
-	return o.ApplyT(func(v *ExampleRequest) ExampleRequest { return *v }).(ExampleRequestOutput)
+	return o.ApplyT(func(v *ExampleRequest) ExampleRequest {
+		if v != nil {
+			return *v
+		}
+		var ret ExampleRequest
+		return ret
+	}).(ExampleRequestOutput)
 }
 
-// Sample input data for the web service's global parameters
 func (o ExampleRequestPtrOutput) GlobalParameters() pulumi.MapOutput {
 	return o.ApplyT(func(v *ExampleRequest) map[string]interface{} {
 		if v == nil {
@@ -1631,7 +1515,6 @@ func (o ExampleRequestPtrOutput) GlobalParameters() pulumi.MapOutput {
 	}).(pulumi.MapOutput)
 }
 
-// Sample input data for the web service's input(s) given as an input name to sample input values matrix map.
 func (o ExampleRequestPtrOutput) Inputs() pulumi.ArrayArrayMapOutput {
 	return o.ApplyT(func(v *ExampleRequest) map[string][][]interface{} {
 		if v == nil {
@@ -1641,12 +1524,9 @@ func (o ExampleRequestPtrOutput) Inputs() pulumi.ArrayArrayMapOutput {
 	}).(pulumi.ArrayArrayMapOutput)
 }
 
-// Sample input data for the service's input(s).
 type ExampleRequestResponse struct {
-	// Sample input data for the web service's global parameters
-	GlobalParameters map[string]interface{} `pulumi:"globalParameters"`
-	// Sample input data for the web service's input(s) given as an input name to sample input values matrix map.
-	Inputs map[string][][]interface{} `pulumi:"inputs"`
+	GlobalParameters map[string]interface{}     `pulumi:"globalParameters"`
+	Inputs           map[string][][]interface{} `pulumi:"inputs"`
 }
 
 // ExampleRequestResponseInput is an input type that accepts ExampleRequestResponseArgs and ExampleRequestResponseOutput values.
@@ -1660,12 +1540,9 @@ type ExampleRequestResponseInput interface {
 	ToExampleRequestResponseOutputWithContext(context.Context) ExampleRequestResponseOutput
 }
 
-// Sample input data for the service's input(s).
 type ExampleRequestResponseArgs struct {
-	// Sample input data for the web service's global parameters
-	GlobalParameters pulumi.MapInput `pulumi:"globalParameters"`
-	// Sample input data for the web service's input(s) given as an input name to sample input values matrix map.
-	Inputs pulumi.ArrayArrayMapInput `pulumi:"inputs"`
+	GlobalParameters pulumi.MapInput           `pulumi:"globalParameters"`
+	Inputs           pulumi.ArrayArrayMapInput `pulumi:"inputs"`
 }
 
 func (ExampleRequestResponseArgs) ElementType() reflect.Type {
@@ -1721,7 +1598,6 @@ func (i *exampleRequestResponsePtrType) ToExampleRequestResponsePtrOutputWithCon
 	return pulumi.ToOutputWithContext(ctx, i).(ExampleRequestResponsePtrOutput)
 }
 
-// Sample input data for the service's input(s).
 type ExampleRequestResponseOutput struct{ *pulumi.OutputState }
 
 func (ExampleRequestResponseOutput) ElementType() reflect.Type {
@@ -1741,17 +1617,15 @@ func (o ExampleRequestResponseOutput) ToExampleRequestResponsePtrOutput() Exampl
 }
 
 func (o ExampleRequestResponseOutput) ToExampleRequestResponsePtrOutputWithContext(ctx context.Context) ExampleRequestResponsePtrOutput {
-	return o.ApplyT(func(v ExampleRequestResponse) *ExampleRequestResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ExampleRequestResponse) *ExampleRequestResponse {
 		return &v
 	}).(ExampleRequestResponsePtrOutput)
 }
 
-// Sample input data for the web service's global parameters
 func (o ExampleRequestResponseOutput) GlobalParameters() pulumi.MapOutput {
 	return o.ApplyT(func(v ExampleRequestResponse) map[string]interface{} { return v.GlobalParameters }).(pulumi.MapOutput)
 }
 
-// Sample input data for the web service's input(s) given as an input name to sample input values matrix map.
 func (o ExampleRequestResponseOutput) Inputs() pulumi.ArrayArrayMapOutput {
 	return o.ApplyT(func(v ExampleRequestResponse) map[string][][]interface{} { return v.Inputs }).(pulumi.ArrayArrayMapOutput)
 }
@@ -1771,10 +1645,15 @@ func (o ExampleRequestResponsePtrOutput) ToExampleRequestResponsePtrOutputWithCo
 }
 
 func (o ExampleRequestResponsePtrOutput) Elem() ExampleRequestResponseOutput {
-	return o.ApplyT(func(v *ExampleRequestResponse) ExampleRequestResponse { return *v }).(ExampleRequestResponseOutput)
+	return o.ApplyT(func(v *ExampleRequestResponse) ExampleRequestResponse {
+		if v != nil {
+			return *v
+		}
+		var ret ExampleRequestResponse
+		return ret
+	}).(ExampleRequestResponseOutput)
 }
 
-// Sample input data for the web service's global parameters
 func (o ExampleRequestResponsePtrOutput) GlobalParameters() pulumi.MapOutput {
 	return o.ApplyT(func(v *ExampleRequestResponse) map[string]interface{} {
 		if v == nil {
@@ -1784,7 +1663,6 @@ func (o ExampleRequestResponsePtrOutput) GlobalParameters() pulumi.MapOutput {
 	}).(pulumi.MapOutput)
 }
 
-// Sample input data for the web service's input(s) given as an input name to sample input values matrix map.
 func (o ExampleRequestResponsePtrOutput) Inputs() pulumi.ArrayArrayMapOutput {
 	return o.ApplyT(func(v *ExampleRequestResponse) map[string][][]interface{} {
 		if v == nil {
@@ -1794,15 +1672,10 @@ func (o ExampleRequestResponsePtrOutput) Inputs() pulumi.ArrayArrayMapOutput {
 	}).(pulumi.ArrayArrayMapOutput)
 }
 
-// Defines an edge within the web service's graph.
 type GraphEdge struct {
-	// The source graph node's identifier.
 	SourceNodeId *string `pulumi:"sourceNodeId"`
-	// The identifier of the source node's port that the edge connects from.
 	SourcePortId *string `pulumi:"sourcePortId"`
-	// The destination graph node's identifier.
 	TargetNodeId *string `pulumi:"targetNodeId"`
-	// The identifier of the destination node's port that the edge connects into.
 	TargetPortId *string `pulumi:"targetPortId"`
 }
 
@@ -1817,15 +1690,10 @@ type GraphEdgeInput interface {
 	ToGraphEdgeOutputWithContext(context.Context) GraphEdgeOutput
 }
 
-// Defines an edge within the web service's graph.
 type GraphEdgeArgs struct {
-	// The source graph node's identifier.
 	SourceNodeId pulumi.StringPtrInput `pulumi:"sourceNodeId"`
-	// The identifier of the source node's port that the edge connects from.
 	SourcePortId pulumi.StringPtrInput `pulumi:"sourcePortId"`
-	// The destination graph node's identifier.
 	TargetNodeId pulumi.StringPtrInput `pulumi:"targetNodeId"`
-	// The identifier of the destination node's port that the edge connects into.
 	TargetPortId pulumi.StringPtrInput `pulumi:"targetPortId"`
 }
 
@@ -1866,7 +1734,6 @@ func (i GraphEdgeArray) ToGraphEdgeArrayOutputWithContext(ctx context.Context) G
 	return pulumi.ToOutputWithContext(ctx, i).(GraphEdgeArrayOutput)
 }
 
-// Defines an edge within the web service's graph.
 type GraphEdgeOutput struct{ *pulumi.OutputState }
 
 func (GraphEdgeOutput) ElementType() reflect.Type {
@@ -1881,22 +1748,18 @@ func (o GraphEdgeOutput) ToGraphEdgeOutputWithContext(ctx context.Context) Graph
 	return o
 }
 
-// The source graph node's identifier.
 func (o GraphEdgeOutput) SourceNodeId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v GraphEdge) *string { return v.SourceNodeId }).(pulumi.StringPtrOutput)
 }
 
-// The identifier of the source node's port that the edge connects from.
 func (o GraphEdgeOutput) SourcePortId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v GraphEdge) *string { return v.SourcePortId }).(pulumi.StringPtrOutput)
 }
 
-// The destination graph node's identifier.
 func (o GraphEdgeOutput) TargetNodeId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v GraphEdge) *string { return v.TargetNodeId }).(pulumi.StringPtrOutput)
 }
 
-// The identifier of the destination node's port that the edge connects into.
 func (o GraphEdgeOutput) TargetPortId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v GraphEdge) *string { return v.TargetPortId }).(pulumi.StringPtrOutput)
 }
@@ -1921,15 +1784,10 @@ func (o GraphEdgeArrayOutput) Index(i pulumi.IntInput) GraphEdgeOutput {
 	}).(GraphEdgeOutput)
 }
 
-// Defines an edge within the web service's graph.
 type GraphEdgeResponse struct {
-	// The source graph node's identifier.
 	SourceNodeId *string `pulumi:"sourceNodeId"`
-	// The identifier of the source node's port that the edge connects from.
 	SourcePortId *string `pulumi:"sourcePortId"`
-	// The destination graph node's identifier.
 	TargetNodeId *string `pulumi:"targetNodeId"`
-	// The identifier of the destination node's port that the edge connects into.
 	TargetPortId *string `pulumi:"targetPortId"`
 }
 
@@ -1944,15 +1802,10 @@ type GraphEdgeResponseInput interface {
 	ToGraphEdgeResponseOutputWithContext(context.Context) GraphEdgeResponseOutput
 }
 
-// Defines an edge within the web service's graph.
 type GraphEdgeResponseArgs struct {
-	// The source graph node's identifier.
 	SourceNodeId pulumi.StringPtrInput `pulumi:"sourceNodeId"`
-	// The identifier of the source node's port that the edge connects from.
 	SourcePortId pulumi.StringPtrInput `pulumi:"sourcePortId"`
-	// The destination graph node's identifier.
 	TargetNodeId pulumi.StringPtrInput `pulumi:"targetNodeId"`
-	// The identifier of the destination node's port that the edge connects into.
 	TargetPortId pulumi.StringPtrInput `pulumi:"targetPortId"`
 }
 
@@ -1993,7 +1846,6 @@ func (i GraphEdgeResponseArray) ToGraphEdgeResponseArrayOutputWithContext(ctx co
 	return pulumi.ToOutputWithContext(ctx, i).(GraphEdgeResponseArrayOutput)
 }
 
-// Defines an edge within the web service's graph.
 type GraphEdgeResponseOutput struct{ *pulumi.OutputState }
 
 func (GraphEdgeResponseOutput) ElementType() reflect.Type {
@@ -2008,22 +1860,18 @@ func (o GraphEdgeResponseOutput) ToGraphEdgeResponseOutputWithContext(ctx contex
 	return o
 }
 
-// The source graph node's identifier.
 func (o GraphEdgeResponseOutput) SourceNodeId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v GraphEdgeResponse) *string { return v.SourceNodeId }).(pulumi.StringPtrOutput)
 }
 
-// The identifier of the source node's port that the edge connects from.
 func (o GraphEdgeResponseOutput) SourcePortId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v GraphEdgeResponse) *string { return v.SourcePortId }).(pulumi.StringPtrOutput)
 }
 
-// The destination graph node's identifier.
 func (o GraphEdgeResponseOutput) TargetNodeId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v GraphEdgeResponse) *string { return v.TargetNodeId }).(pulumi.StringPtrOutput)
 }
 
-// The identifier of the destination node's port that the edge connects into.
 func (o GraphEdgeResponseOutput) TargetPortId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v GraphEdgeResponse) *string { return v.TargetPortId }).(pulumi.StringPtrOutput)
 }
@@ -2048,15 +1896,10 @@ func (o GraphEdgeResponseArrayOutput) Index(i pulumi.IntInput) GraphEdgeResponse
 	}).(GraphEdgeResponseOutput)
 }
 
-// Specifies a node in the web service graph. The node can either be an input, output or asset node, so only one of the corresponding id properties is populated at any given time.
 type GraphNode struct {
-	// The id of the asset represented by this node.
-	AssetId *string `pulumi:"assetId"`
-	// The id of the input element represented by this node.
-	InputId *string `pulumi:"inputId"`
-	// The id of the output element represented by this node.
-	OutputId *string `pulumi:"outputId"`
-	// If applicable, parameters of the node. Global graph parameters map into these, with values set at runtime.
+	AssetId    *string                        `pulumi:"assetId"`
+	InputId    *string                        `pulumi:"inputId"`
+	OutputId   *string                        `pulumi:"outputId"`
 	Parameters map[string]WebServiceParameter `pulumi:"parameters"`
 }
 
@@ -2071,15 +1914,10 @@ type GraphNodeInput interface {
 	ToGraphNodeOutputWithContext(context.Context) GraphNodeOutput
 }
 
-// Specifies a node in the web service graph. The node can either be an input, output or asset node, so only one of the corresponding id properties is populated at any given time.
 type GraphNodeArgs struct {
-	// The id of the asset represented by this node.
-	AssetId pulumi.StringPtrInput `pulumi:"assetId"`
-	// The id of the input element represented by this node.
-	InputId pulumi.StringPtrInput `pulumi:"inputId"`
-	// The id of the output element represented by this node.
-	OutputId pulumi.StringPtrInput `pulumi:"outputId"`
-	// If applicable, parameters of the node. Global graph parameters map into these, with values set at runtime.
+	AssetId    pulumi.StringPtrInput       `pulumi:"assetId"`
+	InputId    pulumi.StringPtrInput       `pulumi:"inputId"`
+	OutputId   pulumi.StringPtrInput       `pulumi:"outputId"`
 	Parameters WebServiceParameterMapInput `pulumi:"parameters"`
 }
 
@@ -2120,7 +1958,6 @@ func (i GraphNodeMap) ToGraphNodeMapOutputWithContext(ctx context.Context) Graph
 	return pulumi.ToOutputWithContext(ctx, i).(GraphNodeMapOutput)
 }
 
-// Specifies a node in the web service graph. The node can either be an input, output or asset node, so only one of the corresponding id properties is populated at any given time.
 type GraphNodeOutput struct{ *pulumi.OutputState }
 
 func (GraphNodeOutput) ElementType() reflect.Type {
@@ -2135,22 +1972,18 @@ func (o GraphNodeOutput) ToGraphNodeOutputWithContext(ctx context.Context) Graph
 	return o
 }
 
-// The id of the asset represented by this node.
 func (o GraphNodeOutput) AssetId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v GraphNode) *string { return v.AssetId }).(pulumi.StringPtrOutput)
 }
 
-// The id of the input element represented by this node.
 func (o GraphNodeOutput) InputId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v GraphNode) *string { return v.InputId }).(pulumi.StringPtrOutput)
 }
 
-// The id of the output element represented by this node.
 func (o GraphNodeOutput) OutputId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v GraphNode) *string { return v.OutputId }).(pulumi.StringPtrOutput)
 }
 
-// If applicable, parameters of the node. Global graph parameters map into these, with values set at runtime.
 func (o GraphNodeOutput) Parameters() WebServiceParameterMapOutput {
 	return o.ApplyT(func(v GraphNode) map[string]WebServiceParameter { return v.Parameters }).(WebServiceParameterMapOutput)
 }
@@ -2175,15 +2008,10 @@ func (o GraphNodeMapOutput) MapIndex(k pulumi.StringInput) GraphNodeOutput {
 	}).(GraphNodeOutput)
 }
 
-// Specifies a node in the web service graph. The node can either be an input, output or asset node, so only one of the corresponding id properties is populated at any given time.
 type GraphNodeResponse struct {
-	// The id of the asset represented by this node.
-	AssetId *string `pulumi:"assetId"`
-	// The id of the input element represented by this node.
-	InputId *string `pulumi:"inputId"`
-	// The id of the output element represented by this node.
-	OutputId *string `pulumi:"outputId"`
-	// If applicable, parameters of the node. Global graph parameters map into these, with values set at runtime.
+	AssetId    *string                                `pulumi:"assetId"`
+	InputId    *string                                `pulumi:"inputId"`
+	OutputId   *string                                `pulumi:"outputId"`
 	Parameters map[string]WebServiceParameterResponse `pulumi:"parameters"`
 }
 
@@ -2198,15 +2026,10 @@ type GraphNodeResponseInput interface {
 	ToGraphNodeResponseOutputWithContext(context.Context) GraphNodeResponseOutput
 }
 
-// Specifies a node in the web service graph. The node can either be an input, output or asset node, so only one of the corresponding id properties is populated at any given time.
 type GraphNodeResponseArgs struct {
-	// The id of the asset represented by this node.
-	AssetId pulumi.StringPtrInput `pulumi:"assetId"`
-	// The id of the input element represented by this node.
-	InputId pulumi.StringPtrInput `pulumi:"inputId"`
-	// The id of the output element represented by this node.
-	OutputId pulumi.StringPtrInput `pulumi:"outputId"`
-	// If applicable, parameters of the node. Global graph parameters map into these, with values set at runtime.
+	AssetId    pulumi.StringPtrInput               `pulumi:"assetId"`
+	InputId    pulumi.StringPtrInput               `pulumi:"inputId"`
+	OutputId   pulumi.StringPtrInput               `pulumi:"outputId"`
 	Parameters WebServiceParameterResponseMapInput `pulumi:"parameters"`
 }
 
@@ -2247,7 +2070,6 @@ func (i GraphNodeResponseMap) ToGraphNodeResponseMapOutputWithContext(ctx contex
 	return pulumi.ToOutputWithContext(ctx, i).(GraphNodeResponseMapOutput)
 }
 
-// Specifies a node in the web service graph. The node can either be an input, output or asset node, so only one of the corresponding id properties is populated at any given time.
 type GraphNodeResponseOutput struct{ *pulumi.OutputState }
 
 func (GraphNodeResponseOutput) ElementType() reflect.Type {
@@ -2262,22 +2084,18 @@ func (o GraphNodeResponseOutput) ToGraphNodeResponseOutputWithContext(ctx contex
 	return o
 }
 
-// The id of the asset represented by this node.
 func (o GraphNodeResponseOutput) AssetId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v GraphNodeResponse) *string { return v.AssetId }).(pulumi.StringPtrOutput)
 }
 
-// The id of the input element represented by this node.
 func (o GraphNodeResponseOutput) InputId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v GraphNodeResponse) *string { return v.InputId }).(pulumi.StringPtrOutput)
 }
 
-// The id of the output element represented by this node.
 func (o GraphNodeResponseOutput) OutputId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v GraphNodeResponse) *string { return v.OutputId }).(pulumi.StringPtrOutput)
 }
 
-// If applicable, parameters of the node. Global graph parameters map into these, with values set at runtime.
 func (o GraphNodeResponseOutput) Parameters() WebServiceParameterResponseMapOutput {
 	return o.ApplyT(func(v GraphNodeResponse) map[string]WebServiceParameterResponse { return v.Parameters }).(WebServiceParameterResponseMapOutput)
 }
@@ -2302,14 +2120,10 @@ func (o GraphNodeResponseMapOutput) MapIndex(k pulumi.StringInput) GraphNodeResp
 	}).(GraphNodeResponseOutput)
 }
 
-// Defines the graph of modules making up the machine learning solution.
 type GraphPackage struct {
-	// The list of edges making up the graph.
-	Edges []GraphEdge `pulumi:"edges"`
-	// The collection of global parameters for the graph, given as a global parameter name to GraphParameter map. Each parameter here has a 1:1 match with the global parameters values map declared at the WebServiceProperties level.
+	Edges           []GraphEdge               `pulumi:"edges"`
 	GraphParameters map[string]GraphParameter `pulumi:"graphParameters"`
-	// The set of nodes making up the graph, provided as a nodeId to GraphNode map
-	Nodes map[string]GraphNode `pulumi:"nodes"`
+	Nodes           map[string]GraphNode      `pulumi:"nodes"`
 }
 
 // GraphPackageInput is an input type that accepts GraphPackageArgs and GraphPackageOutput values.
@@ -2323,14 +2137,10 @@ type GraphPackageInput interface {
 	ToGraphPackageOutputWithContext(context.Context) GraphPackageOutput
 }
 
-// Defines the graph of modules making up the machine learning solution.
 type GraphPackageArgs struct {
-	// The list of edges making up the graph.
-	Edges GraphEdgeArrayInput `pulumi:"edges"`
-	// The collection of global parameters for the graph, given as a global parameter name to GraphParameter map. Each parameter here has a 1:1 match with the global parameters values map declared at the WebServiceProperties level.
+	Edges           GraphEdgeArrayInput    `pulumi:"edges"`
 	GraphParameters GraphParameterMapInput `pulumi:"graphParameters"`
-	// The set of nodes making up the graph, provided as a nodeId to GraphNode map
-	Nodes GraphNodeMapInput `pulumi:"nodes"`
+	Nodes           GraphNodeMapInput      `pulumi:"nodes"`
 }
 
 func (GraphPackageArgs) ElementType() reflect.Type {
@@ -2386,7 +2196,6 @@ func (i *graphPackagePtrType) ToGraphPackagePtrOutputWithContext(ctx context.Con
 	return pulumi.ToOutputWithContext(ctx, i).(GraphPackagePtrOutput)
 }
 
-// Defines the graph of modules making up the machine learning solution.
 type GraphPackageOutput struct{ *pulumi.OutputState }
 
 func (GraphPackageOutput) ElementType() reflect.Type {
@@ -2406,22 +2215,19 @@ func (o GraphPackageOutput) ToGraphPackagePtrOutput() GraphPackagePtrOutput {
 }
 
 func (o GraphPackageOutput) ToGraphPackagePtrOutputWithContext(ctx context.Context) GraphPackagePtrOutput {
-	return o.ApplyT(func(v GraphPackage) *GraphPackage {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v GraphPackage) *GraphPackage {
 		return &v
 	}).(GraphPackagePtrOutput)
 }
 
-// The list of edges making up the graph.
 func (o GraphPackageOutput) Edges() GraphEdgeArrayOutput {
 	return o.ApplyT(func(v GraphPackage) []GraphEdge { return v.Edges }).(GraphEdgeArrayOutput)
 }
 
-// The collection of global parameters for the graph, given as a global parameter name to GraphParameter map. Each parameter here has a 1:1 match with the global parameters values map declared at the WebServiceProperties level.
 func (o GraphPackageOutput) GraphParameters() GraphParameterMapOutput {
 	return o.ApplyT(func(v GraphPackage) map[string]GraphParameter { return v.GraphParameters }).(GraphParameterMapOutput)
 }
 
-// The set of nodes making up the graph, provided as a nodeId to GraphNode map
 func (o GraphPackageOutput) Nodes() GraphNodeMapOutput {
 	return o.ApplyT(func(v GraphPackage) map[string]GraphNode { return v.Nodes }).(GraphNodeMapOutput)
 }
@@ -2441,10 +2247,15 @@ func (o GraphPackagePtrOutput) ToGraphPackagePtrOutputWithContext(ctx context.Co
 }
 
 func (o GraphPackagePtrOutput) Elem() GraphPackageOutput {
-	return o.ApplyT(func(v *GraphPackage) GraphPackage { return *v }).(GraphPackageOutput)
+	return o.ApplyT(func(v *GraphPackage) GraphPackage {
+		if v != nil {
+			return *v
+		}
+		var ret GraphPackage
+		return ret
+	}).(GraphPackageOutput)
 }
 
-// The list of edges making up the graph.
 func (o GraphPackagePtrOutput) Edges() GraphEdgeArrayOutput {
 	return o.ApplyT(func(v *GraphPackage) []GraphEdge {
 		if v == nil {
@@ -2454,7 +2265,6 @@ func (o GraphPackagePtrOutput) Edges() GraphEdgeArrayOutput {
 	}).(GraphEdgeArrayOutput)
 }
 
-// The collection of global parameters for the graph, given as a global parameter name to GraphParameter map. Each parameter here has a 1:1 match with the global parameters values map declared at the WebServiceProperties level.
 func (o GraphPackagePtrOutput) GraphParameters() GraphParameterMapOutput {
 	return o.ApplyT(func(v *GraphPackage) map[string]GraphParameter {
 		if v == nil {
@@ -2464,7 +2274,6 @@ func (o GraphPackagePtrOutput) GraphParameters() GraphParameterMapOutput {
 	}).(GraphParameterMapOutput)
 }
 
-// The set of nodes making up the graph, provided as a nodeId to GraphNode map
 func (o GraphPackagePtrOutput) Nodes() GraphNodeMapOutput {
 	return o.ApplyT(func(v *GraphPackage) map[string]GraphNode {
 		if v == nil {
@@ -2474,14 +2283,10 @@ func (o GraphPackagePtrOutput) Nodes() GraphNodeMapOutput {
 	}).(GraphNodeMapOutput)
 }
 
-// Defines the graph of modules making up the machine learning solution.
 type GraphPackageResponse struct {
-	// The list of edges making up the graph.
-	Edges []GraphEdgeResponse `pulumi:"edges"`
-	// The collection of global parameters for the graph, given as a global parameter name to GraphParameter map. Each parameter here has a 1:1 match with the global parameters values map declared at the WebServiceProperties level.
+	Edges           []GraphEdgeResponse               `pulumi:"edges"`
 	GraphParameters map[string]GraphParameterResponse `pulumi:"graphParameters"`
-	// The set of nodes making up the graph, provided as a nodeId to GraphNode map
-	Nodes map[string]GraphNodeResponse `pulumi:"nodes"`
+	Nodes           map[string]GraphNodeResponse      `pulumi:"nodes"`
 }
 
 // GraphPackageResponseInput is an input type that accepts GraphPackageResponseArgs and GraphPackageResponseOutput values.
@@ -2495,14 +2300,10 @@ type GraphPackageResponseInput interface {
 	ToGraphPackageResponseOutputWithContext(context.Context) GraphPackageResponseOutput
 }
 
-// Defines the graph of modules making up the machine learning solution.
 type GraphPackageResponseArgs struct {
-	// The list of edges making up the graph.
-	Edges GraphEdgeResponseArrayInput `pulumi:"edges"`
-	// The collection of global parameters for the graph, given as a global parameter name to GraphParameter map. Each parameter here has a 1:1 match with the global parameters values map declared at the WebServiceProperties level.
+	Edges           GraphEdgeResponseArrayInput    `pulumi:"edges"`
 	GraphParameters GraphParameterResponseMapInput `pulumi:"graphParameters"`
-	// The set of nodes making up the graph, provided as a nodeId to GraphNode map
-	Nodes GraphNodeResponseMapInput `pulumi:"nodes"`
+	Nodes           GraphNodeResponseMapInput      `pulumi:"nodes"`
 }
 
 func (GraphPackageResponseArgs) ElementType() reflect.Type {
@@ -2558,7 +2359,6 @@ func (i *graphPackageResponsePtrType) ToGraphPackageResponsePtrOutputWithContext
 	return pulumi.ToOutputWithContext(ctx, i).(GraphPackageResponsePtrOutput)
 }
 
-// Defines the graph of modules making up the machine learning solution.
 type GraphPackageResponseOutput struct{ *pulumi.OutputState }
 
 func (GraphPackageResponseOutput) ElementType() reflect.Type {
@@ -2578,22 +2378,19 @@ func (o GraphPackageResponseOutput) ToGraphPackageResponsePtrOutput() GraphPacka
 }
 
 func (o GraphPackageResponseOutput) ToGraphPackageResponsePtrOutputWithContext(ctx context.Context) GraphPackageResponsePtrOutput {
-	return o.ApplyT(func(v GraphPackageResponse) *GraphPackageResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v GraphPackageResponse) *GraphPackageResponse {
 		return &v
 	}).(GraphPackageResponsePtrOutput)
 }
 
-// The list of edges making up the graph.
 func (o GraphPackageResponseOutput) Edges() GraphEdgeResponseArrayOutput {
 	return o.ApplyT(func(v GraphPackageResponse) []GraphEdgeResponse { return v.Edges }).(GraphEdgeResponseArrayOutput)
 }
 
-// The collection of global parameters for the graph, given as a global parameter name to GraphParameter map. Each parameter here has a 1:1 match with the global parameters values map declared at the WebServiceProperties level.
 func (o GraphPackageResponseOutput) GraphParameters() GraphParameterResponseMapOutput {
 	return o.ApplyT(func(v GraphPackageResponse) map[string]GraphParameterResponse { return v.GraphParameters }).(GraphParameterResponseMapOutput)
 }
 
-// The set of nodes making up the graph, provided as a nodeId to GraphNode map
 func (o GraphPackageResponseOutput) Nodes() GraphNodeResponseMapOutput {
 	return o.ApplyT(func(v GraphPackageResponse) map[string]GraphNodeResponse { return v.Nodes }).(GraphNodeResponseMapOutput)
 }
@@ -2613,10 +2410,15 @@ func (o GraphPackageResponsePtrOutput) ToGraphPackageResponsePtrOutputWithContex
 }
 
 func (o GraphPackageResponsePtrOutput) Elem() GraphPackageResponseOutput {
-	return o.ApplyT(func(v *GraphPackageResponse) GraphPackageResponse { return *v }).(GraphPackageResponseOutput)
+	return o.ApplyT(func(v *GraphPackageResponse) GraphPackageResponse {
+		if v != nil {
+			return *v
+		}
+		var ret GraphPackageResponse
+		return ret
+	}).(GraphPackageResponseOutput)
 }
 
-// The list of edges making up the graph.
 func (o GraphPackageResponsePtrOutput) Edges() GraphEdgeResponseArrayOutput {
 	return o.ApplyT(func(v *GraphPackageResponse) []GraphEdgeResponse {
 		if v == nil {
@@ -2626,7 +2428,6 @@ func (o GraphPackageResponsePtrOutput) Edges() GraphEdgeResponseArrayOutput {
 	}).(GraphEdgeResponseArrayOutput)
 }
 
-// The collection of global parameters for the graph, given as a global parameter name to GraphParameter map. Each parameter here has a 1:1 match with the global parameters values map declared at the WebServiceProperties level.
 func (o GraphPackageResponsePtrOutput) GraphParameters() GraphParameterResponseMapOutput {
 	return o.ApplyT(func(v *GraphPackageResponse) map[string]GraphParameterResponse {
 		if v == nil {
@@ -2636,7 +2437,6 @@ func (o GraphPackageResponsePtrOutput) GraphParameters() GraphParameterResponseM
 	}).(GraphParameterResponseMapOutput)
 }
 
-// The set of nodes making up the graph, provided as a nodeId to GraphNode map
 func (o GraphPackageResponsePtrOutput) Nodes() GraphNodeResponseMapOutput {
 	return o.ApplyT(func(v *GraphPackageResponse) map[string]GraphNodeResponse {
 		if v == nil {
@@ -2646,14 +2446,10 @@ func (o GraphPackageResponsePtrOutput) Nodes() GraphNodeResponseMapOutput {
 	}).(GraphNodeResponseMapOutput)
 }
 
-// Defines a global parameter in the graph.
 type GraphParameter struct {
-	// Description of this graph parameter.
-	Description *string `pulumi:"description"`
-	// Association links for this parameter to nodes in the graph.
-	Links []GraphParameterLink `pulumi:"links"`
-	// Graph parameter's type.
-	Type string `pulumi:"type"`
+	Description *string              `pulumi:"description"`
+	Links       []GraphParameterLink `pulumi:"links"`
+	Type        string               `pulumi:"type"`
 }
 
 // GraphParameterInput is an input type that accepts GraphParameterArgs and GraphParameterOutput values.
@@ -2667,14 +2463,10 @@ type GraphParameterInput interface {
 	ToGraphParameterOutputWithContext(context.Context) GraphParameterOutput
 }
 
-// Defines a global parameter in the graph.
 type GraphParameterArgs struct {
-	// Description of this graph parameter.
-	Description pulumi.StringPtrInput `pulumi:"description"`
-	// Association links for this parameter to nodes in the graph.
-	Links GraphParameterLinkArrayInput `pulumi:"links"`
-	// Graph parameter's type.
-	Type pulumi.StringInput `pulumi:"type"`
+	Description pulumi.StringPtrInput        `pulumi:"description"`
+	Links       GraphParameterLinkArrayInput `pulumi:"links"`
+	Type        pulumi.StringInput           `pulumi:"type"`
 }
 
 func (GraphParameterArgs) ElementType() reflect.Type {
@@ -2714,7 +2506,6 @@ func (i GraphParameterMap) ToGraphParameterMapOutputWithContext(ctx context.Cont
 	return pulumi.ToOutputWithContext(ctx, i).(GraphParameterMapOutput)
 }
 
-// Defines a global parameter in the graph.
 type GraphParameterOutput struct{ *pulumi.OutputState }
 
 func (GraphParameterOutput) ElementType() reflect.Type {
@@ -2729,17 +2520,14 @@ func (o GraphParameterOutput) ToGraphParameterOutputWithContext(ctx context.Cont
 	return o
 }
 
-// Description of this graph parameter.
 func (o GraphParameterOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v GraphParameter) *string { return v.Description }).(pulumi.StringPtrOutput)
 }
 
-// Association links for this parameter to nodes in the graph.
 func (o GraphParameterOutput) Links() GraphParameterLinkArrayOutput {
 	return o.ApplyT(func(v GraphParameter) []GraphParameterLink { return v.Links }).(GraphParameterLinkArrayOutput)
 }
 
-// Graph parameter's type.
 func (o GraphParameterOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v GraphParameter) string { return v.Type }).(pulumi.StringOutput)
 }
@@ -2764,11 +2552,8 @@ func (o GraphParameterMapOutput) MapIndex(k pulumi.StringInput) GraphParameterOu
 	}).(GraphParameterOutput)
 }
 
-// Association link for a graph global parameter to a node in the graph.
 type GraphParameterLink struct {
-	// The graph node's identifier
-	NodeId string `pulumi:"nodeId"`
-	// The identifier of the node parameter that the global parameter maps to.
+	NodeId       string `pulumi:"nodeId"`
 	ParameterKey string `pulumi:"parameterKey"`
 }
 
@@ -2783,11 +2568,8 @@ type GraphParameterLinkInput interface {
 	ToGraphParameterLinkOutputWithContext(context.Context) GraphParameterLinkOutput
 }
 
-// Association link for a graph global parameter to a node in the graph.
 type GraphParameterLinkArgs struct {
-	// The graph node's identifier
-	NodeId pulumi.StringInput `pulumi:"nodeId"`
-	// The identifier of the node parameter that the global parameter maps to.
+	NodeId       pulumi.StringInput `pulumi:"nodeId"`
 	ParameterKey pulumi.StringInput `pulumi:"parameterKey"`
 }
 
@@ -2828,7 +2610,6 @@ func (i GraphParameterLinkArray) ToGraphParameterLinkArrayOutputWithContext(ctx 
 	return pulumi.ToOutputWithContext(ctx, i).(GraphParameterLinkArrayOutput)
 }
 
-// Association link for a graph global parameter to a node in the graph.
 type GraphParameterLinkOutput struct{ *pulumi.OutputState }
 
 func (GraphParameterLinkOutput) ElementType() reflect.Type {
@@ -2843,12 +2624,10 @@ func (o GraphParameterLinkOutput) ToGraphParameterLinkOutputWithContext(ctx cont
 	return o
 }
 
-// The graph node's identifier
 func (o GraphParameterLinkOutput) NodeId() pulumi.StringOutput {
 	return o.ApplyT(func(v GraphParameterLink) string { return v.NodeId }).(pulumi.StringOutput)
 }
 
-// The identifier of the node parameter that the global parameter maps to.
 func (o GraphParameterLinkOutput) ParameterKey() pulumi.StringOutput {
 	return o.ApplyT(func(v GraphParameterLink) string { return v.ParameterKey }).(pulumi.StringOutput)
 }
@@ -2873,11 +2652,8 @@ func (o GraphParameterLinkArrayOutput) Index(i pulumi.IntInput) GraphParameterLi
 	}).(GraphParameterLinkOutput)
 }
 
-// Association link for a graph global parameter to a node in the graph.
 type GraphParameterLinkResponse struct {
-	// The graph node's identifier
-	NodeId string `pulumi:"nodeId"`
-	// The identifier of the node parameter that the global parameter maps to.
+	NodeId       string `pulumi:"nodeId"`
 	ParameterKey string `pulumi:"parameterKey"`
 }
 
@@ -2892,11 +2668,8 @@ type GraphParameterLinkResponseInput interface {
 	ToGraphParameterLinkResponseOutputWithContext(context.Context) GraphParameterLinkResponseOutput
 }
 
-// Association link for a graph global parameter to a node in the graph.
 type GraphParameterLinkResponseArgs struct {
-	// The graph node's identifier
-	NodeId pulumi.StringInput `pulumi:"nodeId"`
-	// The identifier of the node parameter that the global parameter maps to.
+	NodeId       pulumi.StringInput `pulumi:"nodeId"`
 	ParameterKey pulumi.StringInput `pulumi:"parameterKey"`
 }
 
@@ -2937,7 +2710,6 @@ func (i GraphParameterLinkResponseArray) ToGraphParameterLinkResponseArrayOutput
 	return pulumi.ToOutputWithContext(ctx, i).(GraphParameterLinkResponseArrayOutput)
 }
 
-// Association link for a graph global parameter to a node in the graph.
 type GraphParameterLinkResponseOutput struct{ *pulumi.OutputState }
 
 func (GraphParameterLinkResponseOutput) ElementType() reflect.Type {
@@ -2952,12 +2724,10 @@ func (o GraphParameterLinkResponseOutput) ToGraphParameterLinkResponseOutputWith
 	return o
 }
 
-// The graph node's identifier
 func (o GraphParameterLinkResponseOutput) NodeId() pulumi.StringOutput {
 	return o.ApplyT(func(v GraphParameterLinkResponse) string { return v.NodeId }).(pulumi.StringOutput)
 }
 
-// The identifier of the node parameter that the global parameter maps to.
 func (o GraphParameterLinkResponseOutput) ParameterKey() pulumi.StringOutput {
 	return o.ApplyT(func(v GraphParameterLinkResponse) string { return v.ParameterKey }).(pulumi.StringOutput)
 }
@@ -2982,14 +2752,10 @@ func (o GraphParameterLinkResponseArrayOutput) Index(i pulumi.IntInput) GraphPar
 	}).(GraphParameterLinkResponseOutput)
 }
 
-// Defines a global parameter in the graph.
 type GraphParameterResponse struct {
-	// Description of this graph parameter.
-	Description *string `pulumi:"description"`
-	// Association links for this parameter to nodes in the graph.
-	Links []GraphParameterLinkResponse `pulumi:"links"`
-	// Graph parameter's type.
-	Type string `pulumi:"type"`
+	Description *string                      `pulumi:"description"`
+	Links       []GraphParameterLinkResponse `pulumi:"links"`
+	Type        string                       `pulumi:"type"`
 }
 
 // GraphParameterResponseInput is an input type that accepts GraphParameterResponseArgs and GraphParameterResponseOutput values.
@@ -3003,14 +2769,10 @@ type GraphParameterResponseInput interface {
 	ToGraphParameterResponseOutputWithContext(context.Context) GraphParameterResponseOutput
 }
 
-// Defines a global parameter in the graph.
 type GraphParameterResponseArgs struct {
-	// Description of this graph parameter.
-	Description pulumi.StringPtrInput `pulumi:"description"`
-	// Association links for this parameter to nodes in the graph.
-	Links GraphParameterLinkResponseArrayInput `pulumi:"links"`
-	// Graph parameter's type.
-	Type pulumi.StringInput `pulumi:"type"`
+	Description pulumi.StringPtrInput                `pulumi:"description"`
+	Links       GraphParameterLinkResponseArrayInput `pulumi:"links"`
+	Type        pulumi.StringInput                   `pulumi:"type"`
 }
 
 func (GraphParameterResponseArgs) ElementType() reflect.Type {
@@ -3050,7 +2812,6 @@ func (i GraphParameterResponseMap) ToGraphParameterResponseMapOutputWithContext(
 	return pulumi.ToOutputWithContext(ctx, i).(GraphParameterResponseMapOutput)
 }
 
-// Defines a global parameter in the graph.
 type GraphParameterResponseOutput struct{ *pulumi.OutputState }
 
 func (GraphParameterResponseOutput) ElementType() reflect.Type {
@@ -3065,17 +2826,14 @@ func (o GraphParameterResponseOutput) ToGraphParameterResponseOutputWithContext(
 	return o
 }
 
-// Description of this graph parameter.
 func (o GraphParameterResponseOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v GraphParameterResponse) *string { return v.Description }).(pulumi.StringPtrOutput)
 }
 
-// Association links for this parameter to nodes in the graph.
 func (o GraphParameterResponseOutput) Links() GraphParameterLinkResponseArrayOutput {
 	return o.ApplyT(func(v GraphParameterResponse) []GraphParameterLinkResponse { return v.Links }).(GraphParameterLinkResponseArrayOutput)
 }
 
-// Graph parameter's type.
 func (o GraphParameterResponseOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v GraphParameterResponse) string { return v.Type }).(pulumi.StringOutput)
 }
@@ -3100,9 +2858,7 @@ func (o GraphParameterResponseMapOutput) MapIndex(k pulumi.StringInput) GraphPar
 	}).(GraphParameterResponseOutput)
 }
 
-// Asset input port
 type InputPort struct {
-	// Port data type.
 	Type *string `pulumi:"type"`
 }
 
@@ -3117,9 +2873,7 @@ type InputPortInput interface {
 	ToInputPortOutputWithContext(context.Context) InputPortOutput
 }
 
-// Asset input port
 type InputPortArgs struct {
-	// Port data type.
 	Type pulumi.StringPtrInput `pulumi:"type"`
 }
 
@@ -3160,7 +2914,6 @@ func (i InputPortMap) ToInputPortMapOutputWithContext(ctx context.Context) Input
 	return pulumi.ToOutputWithContext(ctx, i).(InputPortMapOutput)
 }
 
-// Asset input port
 type InputPortOutput struct{ *pulumi.OutputState }
 
 func (InputPortOutput) ElementType() reflect.Type {
@@ -3175,7 +2928,6 @@ func (o InputPortOutput) ToInputPortOutputWithContext(ctx context.Context) Input
 	return o
 }
 
-// Port data type.
 func (o InputPortOutput) Type() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v InputPort) *string { return v.Type }).(pulumi.StringPtrOutput)
 }
@@ -3200,9 +2952,7 @@ func (o InputPortMapOutput) MapIndex(k pulumi.StringInput) InputPortOutput {
 	}).(InputPortOutput)
 }
 
-// Asset input port
 type InputPortResponse struct {
-	// Port data type.
 	Type *string `pulumi:"type"`
 }
 
@@ -3217,9 +2967,7 @@ type InputPortResponseInput interface {
 	ToInputPortResponseOutputWithContext(context.Context) InputPortResponseOutput
 }
 
-// Asset input port
 type InputPortResponseArgs struct {
-	// Port data type.
 	Type pulumi.StringPtrInput `pulumi:"type"`
 }
 
@@ -3260,7 +3008,6 @@ func (i InputPortResponseMap) ToInputPortResponseMapOutputWithContext(ctx contex
 	return pulumi.ToOutputWithContext(ctx, i).(InputPortResponseMapOutput)
 }
 
-// Asset input port
 type InputPortResponseOutput struct{ *pulumi.OutputState }
 
 func (InputPortResponseOutput) ElementType() reflect.Type {
@@ -3275,7 +3022,6 @@ func (o InputPortResponseOutput) ToInputPortResponseOutputWithContext(ctx contex
 	return o
 }
 
-// Port data type.
 func (o InputPortResponseOutput) Type() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v InputPortResponse) *string { return v.Type }).(pulumi.StringPtrOutput)
 }
@@ -3300,9 +3046,7 @@ func (o InputPortResponseMapOutput) MapIndex(k pulumi.StringInput) InputPortResp
 	}).(InputPortResponseOutput)
 }
 
-// Information about the machine learning workspace containing the experiment that is source for the web service.
 type MachineLearningWorkspace struct {
-	// Specifies the workspace ID of the machine learning workspace associated with the web service
 	Id string `pulumi:"id"`
 }
 
@@ -3317,9 +3061,7 @@ type MachineLearningWorkspaceInput interface {
 	ToMachineLearningWorkspaceOutputWithContext(context.Context) MachineLearningWorkspaceOutput
 }
 
-// Information about the machine learning workspace containing the experiment that is source for the web service.
 type MachineLearningWorkspaceArgs struct {
-	// Specifies the workspace ID of the machine learning workspace associated with the web service
 	Id pulumi.StringInput `pulumi:"id"`
 }
 
@@ -3376,7 +3118,6 @@ func (i *machineLearningWorkspacePtrType) ToMachineLearningWorkspacePtrOutputWit
 	return pulumi.ToOutputWithContext(ctx, i).(MachineLearningWorkspacePtrOutput)
 }
 
-// Information about the machine learning workspace containing the experiment that is source for the web service.
 type MachineLearningWorkspaceOutput struct{ *pulumi.OutputState }
 
 func (MachineLearningWorkspaceOutput) ElementType() reflect.Type {
@@ -3396,12 +3137,11 @@ func (o MachineLearningWorkspaceOutput) ToMachineLearningWorkspacePtrOutput() Ma
 }
 
 func (o MachineLearningWorkspaceOutput) ToMachineLearningWorkspacePtrOutputWithContext(ctx context.Context) MachineLearningWorkspacePtrOutput {
-	return o.ApplyT(func(v MachineLearningWorkspace) *MachineLearningWorkspace {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v MachineLearningWorkspace) *MachineLearningWorkspace {
 		return &v
 	}).(MachineLearningWorkspacePtrOutput)
 }
 
-// Specifies the workspace ID of the machine learning workspace associated with the web service
 func (o MachineLearningWorkspaceOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v MachineLearningWorkspace) string { return v.Id }).(pulumi.StringOutput)
 }
@@ -3421,10 +3161,15 @@ func (o MachineLearningWorkspacePtrOutput) ToMachineLearningWorkspacePtrOutputWi
 }
 
 func (o MachineLearningWorkspacePtrOutput) Elem() MachineLearningWorkspaceOutput {
-	return o.ApplyT(func(v *MachineLearningWorkspace) MachineLearningWorkspace { return *v }).(MachineLearningWorkspaceOutput)
+	return o.ApplyT(func(v *MachineLearningWorkspace) MachineLearningWorkspace {
+		if v != nil {
+			return *v
+		}
+		var ret MachineLearningWorkspace
+		return ret
+	}).(MachineLearningWorkspaceOutput)
 }
 
-// Specifies the workspace ID of the machine learning workspace associated with the web service
 func (o MachineLearningWorkspacePtrOutput) Id() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *MachineLearningWorkspace) *string {
 		if v == nil {
@@ -3434,9 +3179,7 @@ func (o MachineLearningWorkspacePtrOutput) Id() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Information about the machine learning workspace containing the experiment that is source for the web service.
 type MachineLearningWorkspaceResponse struct {
-	// Specifies the workspace ID of the machine learning workspace associated with the web service
 	Id string `pulumi:"id"`
 }
 
@@ -3451,9 +3194,7 @@ type MachineLearningWorkspaceResponseInput interface {
 	ToMachineLearningWorkspaceResponseOutputWithContext(context.Context) MachineLearningWorkspaceResponseOutput
 }
 
-// Information about the machine learning workspace containing the experiment that is source for the web service.
 type MachineLearningWorkspaceResponseArgs struct {
-	// Specifies the workspace ID of the machine learning workspace associated with the web service
 	Id pulumi.StringInput `pulumi:"id"`
 }
 
@@ -3510,7 +3251,6 @@ func (i *machineLearningWorkspaceResponsePtrType) ToMachineLearningWorkspaceResp
 	return pulumi.ToOutputWithContext(ctx, i).(MachineLearningWorkspaceResponsePtrOutput)
 }
 
-// Information about the machine learning workspace containing the experiment that is source for the web service.
 type MachineLearningWorkspaceResponseOutput struct{ *pulumi.OutputState }
 
 func (MachineLearningWorkspaceResponseOutput) ElementType() reflect.Type {
@@ -3530,12 +3270,11 @@ func (o MachineLearningWorkspaceResponseOutput) ToMachineLearningWorkspaceRespon
 }
 
 func (o MachineLearningWorkspaceResponseOutput) ToMachineLearningWorkspaceResponsePtrOutputWithContext(ctx context.Context) MachineLearningWorkspaceResponsePtrOutput {
-	return o.ApplyT(func(v MachineLearningWorkspaceResponse) *MachineLearningWorkspaceResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v MachineLearningWorkspaceResponse) *MachineLearningWorkspaceResponse {
 		return &v
 	}).(MachineLearningWorkspaceResponsePtrOutput)
 }
 
-// Specifies the workspace ID of the machine learning workspace associated with the web service
 func (o MachineLearningWorkspaceResponseOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v MachineLearningWorkspaceResponse) string { return v.Id }).(pulumi.StringOutput)
 }
@@ -3555,10 +3294,15 @@ func (o MachineLearningWorkspaceResponsePtrOutput) ToMachineLearningWorkspaceRes
 }
 
 func (o MachineLearningWorkspaceResponsePtrOutput) Elem() MachineLearningWorkspaceResponseOutput {
-	return o.ApplyT(func(v *MachineLearningWorkspaceResponse) MachineLearningWorkspaceResponse { return *v }).(MachineLearningWorkspaceResponseOutput)
+	return o.ApplyT(func(v *MachineLearningWorkspaceResponse) MachineLearningWorkspaceResponse {
+		if v != nil {
+			return *v
+		}
+		var ret MachineLearningWorkspaceResponse
+		return ret
+	}).(MachineLearningWorkspaceResponseOutput)
 }
 
-// Specifies the workspace ID of the machine learning workspace associated with the web service
 func (o MachineLearningWorkspaceResponsePtrOutput) Id() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *MachineLearningWorkspaceResponse) *string {
 		if v == nil {
@@ -3568,12 +3312,9 @@ func (o MachineLearningWorkspaceResponsePtrOutput) Id() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Nested parameter definition.
 type ModeValueInfo struct {
-	// The interface string name for the nested parameter.
-	InterfaceString *string `pulumi:"interfaceString"`
-	// The definition of the parameter.
-	Parameters []ModuleAssetParameter `pulumi:"parameters"`
+	InterfaceString *string                `pulumi:"interfaceString"`
+	Parameters      []ModuleAssetParameter `pulumi:"parameters"`
 }
 
 // ModeValueInfoInput is an input type that accepts ModeValueInfoArgs and ModeValueInfoOutput values.
@@ -3587,12 +3328,9 @@ type ModeValueInfoInput interface {
 	ToModeValueInfoOutputWithContext(context.Context) ModeValueInfoOutput
 }
 
-// Nested parameter definition.
 type ModeValueInfoArgs struct {
-	// The interface string name for the nested parameter.
-	InterfaceString pulumi.StringPtrInput `pulumi:"interfaceString"`
-	// The definition of the parameter.
-	Parameters ModuleAssetParameterArrayInput `pulumi:"parameters"`
+	InterfaceString pulumi.StringPtrInput          `pulumi:"interfaceString"`
+	Parameters      ModuleAssetParameterArrayInput `pulumi:"parameters"`
 }
 
 func (ModeValueInfoArgs) ElementType() reflect.Type {
@@ -3632,7 +3370,6 @@ func (i ModeValueInfoMap) ToModeValueInfoMapOutputWithContext(ctx context.Contex
 	return pulumi.ToOutputWithContext(ctx, i).(ModeValueInfoMapOutput)
 }
 
-// Nested parameter definition.
 type ModeValueInfoOutput struct{ *pulumi.OutputState }
 
 func (ModeValueInfoOutput) ElementType() reflect.Type {
@@ -3647,12 +3384,10 @@ func (o ModeValueInfoOutput) ToModeValueInfoOutputWithContext(ctx context.Contex
 	return o
 }
 
-// The interface string name for the nested parameter.
 func (o ModeValueInfoOutput) InterfaceString() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ModeValueInfo) *string { return v.InterfaceString }).(pulumi.StringPtrOutput)
 }
 
-// The definition of the parameter.
 func (o ModeValueInfoOutput) Parameters() ModuleAssetParameterArrayOutput {
 	return o.ApplyT(func(v ModeValueInfo) []ModuleAssetParameter { return v.Parameters }).(ModuleAssetParameterArrayOutput)
 }
@@ -3677,12 +3412,9 @@ func (o ModeValueInfoMapOutput) MapIndex(k pulumi.StringInput) ModeValueInfoOutp
 	}).(ModeValueInfoOutput)
 }
 
-// Nested parameter definition.
 type ModeValueInfoResponse struct {
-	// The interface string name for the nested parameter.
-	InterfaceString *string `pulumi:"interfaceString"`
-	// The definition of the parameter.
-	Parameters []ModuleAssetParameterResponse `pulumi:"parameters"`
+	InterfaceString *string                        `pulumi:"interfaceString"`
+	Parameters      []ModuleAssetParameterResponse `pulumi:"parameters"`
 }
 
 // ModeValueInfoResponseInput is an input type that accepts ModeValueInfoResponseArgs and ModeValueInfoResponseOutput values.
@@ -3696,12 +3428,9 @@ type ModeValueInfoResponseInput interface {
 	ToModeValueInfoResponseOutputWithContext(context.Context) ModeValueInfoResponseOutput
 }
 
-// Nested parameter definition.
 type ModeValueInfoResponseArgs struct {
-	// The interface string name for the nested parameter.
-	InterfaceString pulumi.StringPtrInput `pulumi:"interfaceString"`
-	// The definition of the parameter.
-	Parameters ModuleAssetParameterResponseArrayInput `pulumi:"parameters"`
+	InterfaceString pulumi.StringPtrInput                  `pulumi:"interfaceString"`
+	Parameters      ModuleAssetParameterResponseArrayInput `pulumi:"parameters"`
 }
 
 func (ModeValueInfoResponseArgs) ElementType() reflect.Type {
@@ -3741,7 +3470,6 @@ func (i ModeValueInfoResponseMap) ToModeValueInfoResponseMapOutputWithContext(ct
 	return pulumi.ToOutputWithContext(ctx, i).(ModeValueInfoResponseMapOutput)
 }
 
-// Nested parameter definition.
 type ModeValueInfoResponseOutput struct{ *pulumi.OutputState }
 
 func (ModeValueInfoResponseOutput) ElementType() reflect.Type {
@@ -3756,12 +3484,10 @@ func (o ModeValueInfoResponseOutput) ToModeValueInfoResponseOutputWithContext(ct
 	return o
 }
 
-// The interface string name for the nested parameter.
 func (o ModeValueInfoResponseOutput) InterfaceString() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ModeValueInfoResponse) *string { return v.InterfaceString }).(pulumi.StringPtrOutput)
 }
 
-// The definition of the parameter.
 func (o ModeValueInfoResponseOutput) Parameters() ModuleAssetParameterResponseArrayOutput {
 	return o.ApplyT(func(v ModeValueInfoResponse) []ModuleAssetParameterResponse { return v.Parameters }).(ModuleAssetParameterResponseArrayOutput)
 }
@@ -3786,14 +3512,10 @@ func (o ModeValueInfoResponseMapOutput) MapIndex(k pulumi.StringInput) ModeValue
 	}).(ModeValueInfoResponseOutput)
 }
 
-// Parameter definition for a module asset.
 type ModuleAssetParameter struct {
-	// Definitions for nested interface parameters if this is a complex module parameter.
 	ModeValuesInfo map[string]ModeValueInfo `pulumi:"modeValuesInfo"`
-	// Parameter name.
-	Name *string `pulumi:"name"`
-	// Parameter type.
-	ParameterType *string `pulumi:"parameterType"`
+	Name           *string                  `pulumi:"name"`
+	ParameterType  *string                  `pulumi:"parameterType"`
 }
 
 // ModuleAssetParameterInput is an input type that accepts ModuleAssetParameterArgs and ModuleAssetParameterOutput values.
@@ -3807,14 +3529,10 @@ type ModuleAssetParameterInput interface {
 	ToModuleAssetParameterOutputWithContext(context.Context) ModuleAssetParameterOutput
 }
 
-// Parameter definition for a module asset.
 type ModuleAssetParameterArgs struct {
-	// Definitions for nested interface parameters if this is a complex module parameter.
 	ModeValuesInfo ModeValueInfoMapInput `pulumi:"modeValuesInfo"`
-	// Parameter name.
-	Name pulumi.StringPtrInput `pulumi:"name"`
-	// Parameter type.
-	ParameterType pulumi.StringPtrInput `pulumi:"parameterType"`
+	Name           pulumi.StringPtrInput `pulumi:"name"`
+	ParameterType  pulumi.StringPtrInput `pulumi:"parameterType"`
 }
 
 func (ModuleAssetParameterArgs) ElementType() reflect.Type {
@@ -3854,7 +3572,6 @@ func (i ModuleAssetParameterArray) ToModuleAssetParameterArrayOutputWithContext(
 	return pulumi.ToOutputWithContext(ctx, i).(ModuleAssetParameterArrayOutput)
 }
 
-// Parameter definition for a module asset.
 type ModuleAssetParameterOutput struct{ *pulumi.OutputState }
 
 func (ModuleAssetParameterOutput) ElementType() reflect.Type {
@@ -3869,17 +3586,14 @@ func (o ModuleAssetParameterOutput) ToModuleAssetParameterOutputWithContext(ctx 
 	return o
 }
 
-// Definitions for nested interface parameters if this is a complex module parameter.
 func (o ModuleAssetParameterOutput) ModeValuesInfo() ModeValueInfoMapOutput {
 	return o.ApplyT(func(v ModuleAssetParameter) map[string]ModeValueInfo { return v.ModeValuesInfo }).(ModeValueInfoMapOutput)
 }
 
-// Parameter name.
 func (o ModuleAssetParameterOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ModuleAssetParameter) *string { return v.Name }).(pulumi.StringPtrOutput)
 }
 
-// Parameter type.
 func (o ModuleAssetParameterOutput) ParameterType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ModuleAssetParameter) *string { return v.ParameterType }).(pulumi.StringPtrOutput)
 }
@@ -3904,14 +3618,10 @@ func (o ModuleAssetParameterArrayOutput) Index(i pulumi.IntInput) ModuleAssetPar
 	}).(ModuleAssetParameterOutput)
 }
 
-// Parameter definition for a module asset.
 type ModuleAssetParameterResponse struct {
-	// Definitions for nested interface parameters if this is a complex module parameter.
 	ModeValuesInfo map[string]ModeValueInfoResponse `pulumi:"modeValuesInfo"`
-	// Parameter name.
-	Name *string `pulumi:"name"`
-	// Parameter type.
-	ParameterType *string `pulumi:"parameterType"`
+	Name           *string                          `pulumi:"name"`
+	ParameterType  *string                          `pulumi:"parameterType"`
 }
 
 // ModuleAssetParameterResponseInput is an input type that accepts ModuleAssetParameterResponseArgs and ModuleAssetParameterResponseOutput values.
@@ -3925,14 +3635,10 @@ type ModuleAssetParameterResponseInput interface {
 	ToModuleAssetParameterResponseOutputWithContext(context.Context) ModuleAssetParameterResponseOutput
 }
 
-// Parameter definition for a module asset.
 type ModuleAssetParameterResponseArgs struct {
-	// Definitions for nested interface parameters if this is a complex module parameter.
 	ModeValuesInfo ModeValueInfoResponseMapInput `pulumi:"modeValuesInfo"`
-	// Parameter name.
-	Name pulumi.StringPtrInput `pulumi:"name"`
-	// Parameter type.
-	ParameterType pulumi.StringPtrInput `pulumi:"parameterType"`
+	Name           pulumi.StringPtrInput         `pulumi:"name"`
+	ParameterType  pulumi.StringPtrInput         `pulumi:"parameterType"`
 }
 
 func (ModuleAssetParameterResponseArgs) ElementType() reflect.Type {
@@ -3972,7 +3678,6 @@ func (i ModuleAssetParameterResponseArray) ToModuleAssetParameterResponseArrayOu
 	return pulumi.ToOutputWithContext(ctx, i).(ModuleAssetParameterResponseArrayOutput)
 }
 
-// Parameter definition for a module asset.
 type ModuleAssetParameterResponseOutput struct{ *pulumi.OutputState }
 
 func (ModuleAssetParameterResponseOutput) ElementType() reflect.Type {
@@ -3987,17 +3692,14 @@ func (o ModuleAssetParameterResponseOutput) ToModuleAssetParameterResponseOutput
 	return o
 }
 
-// Definitions for nested interface parameters if this is a complex module parameter.
 func (o ModuleAssetParameterResponseOutput) ModeValuesInfo() ModeValueInfoResponseMapOutput {
 	return o.ApplyT(func(v ModuleAssetParameterResponse) map[string]ModeValueInfoResponse { return v.ModeValuesInfo }).(ModeValueInfoResponseMapOutput)
 }
 
-// Parameter name.
 func (o ModuleAssetParameterResponseOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ModuleAssetParameterResponse) *string { return v.Name }).(pulumi.StringPtrOutput)
 }
 
-// Parameter type.
 func (o ModuleAssetParameterResponseOutput) ParameterType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ModuleAssetParameterResponse) *string { return v.ParameterType }).(pulumi.StringPtrOutput)
 }
@@ -4022,9 +3724,7 @@ func (o ModuleAssetParameterResponseArrayOutput) Index(i pulumi.IntInput) Module
 	}).(ModuleAssetParameterResponseOutput)
 }
 
-// Asset output port
 type OutputPort struct {
-	// Port data type.
 	Type *string `pulumi:"type"`
 }
 
@@ -4039,9 +3739,7 @@ type OutputPortInput interface {
 	ToOutputPortOutputWithContext(context.Context) OutputPortOutput
 }
 
-// Asset output port
 type OutputPortArgs struct {
-	// Port data type.
 	Type pulumi.StringPtrInput `pulumi:"type"`
 }
 
@@ -4082,7 +3780,6 @@ func (i OutputPortMap) ToOutputPortMapOutputWithContext(ctx context.Context) Out
 	return pulumi.ToOutputWithContext(ctx, i).(OutputPortMapOutput)
 }
 
-// Asset output port
 type OutputPortOutput struct{ *pulumi.OutputState }
 
 func (OutputPortOutput) ElementType() reflect.Type {
@@ -4097,7 +3794,6 @@ func (o OutputPortOutput) ToOutputPortOutputWithContext(ctx context.Context) Out
 	return o
 }
 
-// Port data type.
 func (o OutputPortOutput) Type() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v OutputPort) *string { return v.Type }).(pulumi.StringPtrOutput)
 }
@@ -4122,9 +3818,7 @@ func (o OutputPortMapOutput) MapIndex(k pulumi.StringInput) OutputPortOutput {
 	}).(OutputPortOutput)
 }
 
-// Asset output port
 type OutputPortResponse struct {
-	// Port data type.
 	Type *string `pulumi:"type"`
 }
 
@@ -4139,9 +3833,7 @@ type OutputPortResponseInput interface {
 	ToOutputPortResponseOutputWithContext(context.Context) OutputPortResponseOutput
 }
 
-// Asset output port
 type OutputPortResponseArgs struct {
-	// Port data type.
 	Type pulumi.StringPtrInput `pulumi:"type"`
 }
 
@@ -4182,7 +3874,6 @@ func (i OutputPortResponseMap) ToOutputPortResponseMapOutputWithContext(ctx cont
 	return pulumi.ToOutputWithContext(ctx, i).(OutputPortResponseMapOutput)
 }
 
-// Asset output port
 type OutputPortResponseOutput struct{ *pulumi.OutputState }
 
 func (OutputPortResponseOutput) ElementType() reflect.Type {
@@ -4197,7 +3888,6 @@ func (o OutputPortResponseOutput) ToOutputPortResponseOutputWithContext(ctx cont
 	return o
 }
 
-// Port data type.
 func (o OutputPortResponseOutput) Type() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v OutputPortResponse) *string { return v.Type }).(pulumi.StringPtrOutput)
 }
@@ -4222,9 +3912,7 @@ func (o OutputPortResponseMapOutput) MapIndex(k pulumi.StringInput) OutputPortRe
 	}).(OutputPortResponseOutput)
 }
 
-// Holds the available configuration options for an Azure ML web service endpoint.
 type RealtimeConfiguration struct {
-	// Specifies the maximum concurrent calls that can be made to the web service. Minimum value: 4, Maximum value: 200.
 	MaxConcurrentCalls *int `pulumi:"maxConcurrentCalls"`
 }
 
@@ -4239,9 +3927,7 @@ type RealtimeConfigurationInput interface {
 	ToRealtimeConfigurationOutputWithContext(context.Context) RealtimeConfigurationOutput
 }
 
-// Holds the available configuration options for an Azure ML web service endpoint.
 type RealtimeConfigurationArgs struct {
-	// Specifies the maximum concurrent calls that can be made to the web service. Minimum value: 4, Maximum value: 200.
 	MaxConcurrentCalls pulumi.IntPtrInput `pulumi:"maxConcurrentCalls"`
 }
 
@@ -4298,7 +3984,6 @@ func (i *realtimeConfigurationPtrType) ToRealtimeConfigurationPtrOutputWithConte
 	return pulumi.ToOutputWithContext(ctx, i).(RealtimeConfigurationPtrOutput)
 }
 
-// Holds the available configuration options for an Azure ML web service endpoint.
 type RealtimeConfigurationOutput struct{ *pulumi.OutputState }
 
 func (RealtimeConfigurationOutput) ElementType() reflect.Type {
@@ -4318,12 +4003,11 @@ func (o RealtimeConfigurationOutput) ToRealtimeConfigurationPtrOutput() Realtime
 }
 
 func (o RealtimeConfigurationOutput) ToRealtimeConfigurationPtrOutputWithContext(ctx context.Context) RealtimeConfigurationPtrOutput {
-	return o.ApplyT(func(v RealtimeConfiguration) *RealtimeConfiguration {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v RealtimeConfiguration) *RealtimeConfiguration {
 		return &v
 	}).(RealtimeConfigurationPtrOutput)
 }
 
-// Specifies the maximum concurrent calls that can be made to the web service. Minimum value: 4, Maximum value: 200.
 func (o RealtimeConfigurationOutput) MaxConcurrentCalls() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v RealtimeConfiguration) *int { return v.MaxConcurrentCalls }).(pulumi.IntPtrOutput)
 }
@@ -4343,10 +4027,15 @@ func (o RealtimeConfigurationPtrOutput) ToRealtimeConfigurationPtrOutputWithCont
 }
 
 func (o RealtimeConfigurationPtrOutput) Elem() RealtimeConfigurationOutput {
-	return o.ApplyT(func(v *RealtimeConfiguration) RealtimeConfiguration { return *v }).(RealtimeConfigurationOutput)
+	return o.ApplyT(func(v *RealtimeConfiguration) RealtimeConfiguration {
+		if v != nil {
+			return *v
+		}
+		var ret RealtimeConfiguration
+		return ret
+	}).(RealtimeConfigurationOutput)
 }
 
-// Specifies the maximum concurrent calls that can be made to the web service. Minimum value: 4, Maximum value: 200.
 func (o RealtimeConfigurationPtrOutput) MaxConcurrentCalls() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *RealtimeConfiguration) *int {
 		if v == nil {
@@ -4356,9 +4045,7 @@ func (o RealtimeConfigurationPtrOutput) MaxConcurrentCalls() pulumi.IntPtrOutput
 	}).(pulumi.IntPtrOutput)
 }
 
-// Holds the available configuration options for an Azure ML web service endpoint.
 type RealtimeConfigurationResponse struct {
-	// Specifies the maximum concurrent calls that can be made to the web service. Minimum value: 4, Maximum value: 200.
 	MaxConcurrentCalls *int `pulumi:"maxConcurrentCalls"`
 }
 
@@ -4373,9 +4060,7 @@ type RealtimeConfigurationResponseInput interface {
 	ToRealtimeConfigurationResponseOutputWithContext(context.Context) RealtimeConfigurationResponseOutput
 }
 
-// Holds the available configuration options for an Azure ML web service endpoint.
 type RealtimeConfigurationResponseArgs struct {
-	// Specifies the maximum concurrent calls that can be made to the web service. Minimum value: 4, Maximum value: 200.
 	MaxConcurrentCalls pulumi.IntPtrInput `pulumi:"maxConcurrentCalls"`
 }
 
@@ -4432,7 +4117,6 @@ func (i *realtimeConfigurationResponsePtrType) ToRealtimeConfigurationResponsePt
 	return pulumi.ToOutputWithContext(ctx, i).(RealtimeConfigurationResponsePtrOutput)
 }
 
-// Holds the available configuration options for an Azure ML web service endpoint.
 type RealtimeConfigurationResponseOutput struct{ *pulumi.OutputState }
 
 func (RealtimeConfigurationResponseOutput) ElementType() reflect.Type {
@@ -4452,12 +4136,11 @@ func (o RealtimeConfigurationResponseOutput) ToRealtimeConfigurationResponsePtrO
 }
 
 func (o RealtimeConfigurationResponseOutput) ToRealtimeConfigurationResponsePtrOutputWithContext(ctx context.Context) RealtimeConfigurationResponsePtrOutput {
-	return o.ApplyT(func(v RealtimeConfigurationResponse) *RealtimeConfigurationResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v RealtimeConfigurationResponse) *RealtimeConfigurationResponse {
 		return &v
 	}).(RealtimeConfigurationResponsePtrOutput)
 }
 
-// Specifies the maximum concurrent calls that can be made to the web service. Minimum value: 4, Maximum value: 200.
 func (o RealtimeConfigurationResponseOutput) MaxConcurrentCalls() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v RealtimeConfigurationResponse) *int { return v.MaxConcurrentCalls }).(pulumi.IntPtrOutput)
 }
@@ -4477,10 +4160,15 @@ func (o RealtimeConfigurationResponsePtrOutput) ToRealtimeConfigurationResponseP
 }
 
 func (o RealtimeConfigurationResponsePtrOutput) Elem() RealtimeConfigurationResponseOutput {
-	return o.ApplyT(func(v *RealtimeConfigurationResponse) RealtimeConfigurationResponse { return *v }).(RealtimeConfigurationResponseOutput)
+	return o.ApplyT(func(v *RealtimeConfigurationResponse) RealtimeConfigurationResponse {
+		if v != nil {
+			return *v
+		}
+		var ret RealtimeConfigurationResponse
+		return ret
+	}).(RealtimeConfigurationResponseOutput)
 }
 
-// Specifies the maximum concurrent calls that can be made to the web service. Minimum value: 4, Maximum value: 200.
 func (o RealtimeConfigurationResponsePtrOutput) MaxConcurrentCalls() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *RealtimeConfigurationResponse) *int {
 		if v == nil {
@@ -4490,16 +4178,11 @@ func (o RealtimeConfigurationResponsePtrOutput) MaxConcurrentCalls() pulumi.IntP
 	}).(pulumi.IntPtrOutput)
 }
 
-// The swagger 2.0 schema describing the service's inputs or outputs. See Swagger specification: http://swagger.io/specification/
 type ServiceInputOutputSpecification struct {
-	// The description of the Swagger schema.
-	Description *string `pulumi:"description"`
-	// Specifies a collection that contains the column schema for each input or output of the web service. For more information, see the Swagger specification.
-	Properties map[string]TableSpecification `pulumi:"properties"`
-	// The title of your Swagger schema.
-	Title *string `pulumi:"title"`
-	// The type of the entity described in swagger. Always 'object'.
-	Type string `pulumi:"type"`
+	Description *string                       `pulumi:"description"`
+	Properties  map[string]TableSpecification `pulumi:"properties"`
+	Title       *string                       `pulumi:"title"`
+	Type        string                        `pulumi:"type"`
 }
 
 // ServiceInputOutputSpecificationInput is an input type that accepts ServiceInputOutputSpecificationArgs and ServiceInputOutputSpecificationOutput values.
@@ -4513,16 +4196,11 @@ type ServiceInputOutputSpecificationInput interface {
 	ToServiceInputOutputSpecificationOutputWithContext(context.Context) ServiceInputOutputSpecificationOutput
 }
 
-// The swagger 2.0 schema describing the service's inputs or outputs. See Swagger specification: http://swagger.io/specification/
 type ServiceInputOutputSpecificationArgs struct {
-	// The description of the Swagger schema.
-	Description pulumi.StringPtrInput `pulumi:"description"`
-	// Specifies a collection that contains the column schema for each input or output of the web service. For more information, see the Swagger specification.
-	Properties TableSpecificationMapInput `pulumi:"properties"`
-	// The title of your Swagger schema.
-	Title pulumi.StringPtrInput `pulumi:"title"`
-	// The type of the entity described in swagger. Always 'object'.
-	Type pulumi.StringInput `pulumi:"type"`
+	Description pulumi.StringPtrInput      `pulumi:"description"`
+	Properties  TableSpecificationMapInput `pulumi:"properties"`
+	Title       pulumi.StringPtrInput      `pulumi:"title"`
+	Type        pulumi.StringInput         `pulumi:"type"`
 }
 
 func (ServiceInputOutputSpecificationArgs) ElementType() reflect.Type {
@@ -4578,7 +4256,6 @@ func (i *serviceInputOutputSpecificationPtrType) ToServiceInputOutputSpecificati
 	return pulumi.ToOutputWithContext(ctx, i).(ServiceInputOutputSpecificationPtrOutput)
 }
 
-// The swagger 2.0 schema describing the service's inputs or outputs. See Swagger specification: http://swagger.io/specification/
 type ServiceInputOutputSpecificationOutput struct{ *pulumi.OutputState }
 
 func (ServiceInputOutputSpecificationOutput) ElementType() reflect.Type {
@@ -4598,27 +4275,23 @@ func (o ServiceInputOutputSpecificationOutput) ToServiceInputOutputSpecification
 }
 
 func (o ServiceInputOutputSpecificationOutput) ToServiceInputOutputSpecificationPtrOutputWithContext(ctx context.Context) ServiceInputOutputSpecificationPtrOutput {
-	return o.ApplyT(func(v ServiceInputOutputSpecification) *ServiceInputOutputSpecification {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ServiceInputOutputSpecification) *ServiceInputOutputSpecification {
 		return &v
 	}).(ServiceInputOutputSpecificationPtrOutput)
 }
 
-// The description of the Swagger schema.
 func (o ServiceInputOutputSpecificationOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ServiceInputOutputSpecification) *string { return v.Description }).(pulumi.StringPtrOutput)
 }
 
-// Specifies a collection that contains the column schema for each input or output of the web service. For more information, see the Swagger specification.
 func (o ServiceInputOutputSpecificationOutput) Properties() TableSpecificationMapOutput {
 	return o.ApplyT(func(v ServiceInputOutputSpecification) map[string]TableSpecification { return v.Properties }).(TableSpecificationMapOutput)
 }
 
-// The title of your Swagger schema.
 func (o ServiceInputOutputSpecificationOutput) Title() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ServiceInputOutputSpecification) *string { return v.Title }).(pulumi.StringPtrOutput)
 }
 
-// The type of the entity described in swagger. Always 'object'.
 func (o ServiceInputOutputSpecificationOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v ServiceInputOutputSpecification) string { return v.Type }).(pulumi.StringOutput)
 }
@@ -4638,10 +4311,15 @@ func (o ServiceInputOutputSpecificationPtrOutput) ToServiceInputOutputSpecificat
 }
 
 func (o ServiceInputOutputSpecificationPtrOutput) Elem() ServiceInputOutputSpecificationOutput {
-	return o.ApplyT(func(v *ServiceInputOutputSpecification) ServiceInputOutputSpecification { return *v }).(ServiceInputOutputSpecificationOutput)
+	return o.ApplyT(func(v *ServiceInputOutputSpecification) ServiceInputOutputSpecification {
+		if v != nil {
+			return *v
+		}
+		var ret ServiceInputOutputSpecification
+		return ret
+	}).(ServiceInputOutputSpecificationOutput)
 }
 
-// The description of the Swagger schema.
 func (o ServiceInputOutputSpecificationPtrOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ServiceInputOutputSpecification) *string {
 		if v == nil {
@@ -4651,7 +4329,6 @@ func (o ServiceInputOutputSpecificationPtrOutput) Description() pulumi.StringPtr
 	}).(pulumi.StringPtrOutput)
 }
 
-// Specifies a collection that contains the column schema for each input or output of the web service. For more information, see the Swagger specification.
 func (o ServiceInputOutputSpecificationPtrOutput) Properties() TableSpecificationMapOutput {
 	return o.ApplyT(func(v *ServiceInputOutputSpecification) map[string]TableSpecification {
 		if v == nil {
@@ -4661,7 +4338,6 @@ func (o ServiceInputOutputSpecificationPtrOutput) Properties() TableSpecificatio
 	}).(TableSpecificationMapOutput)
 }
 
-// The title of your Swagger schema.
 func (o ServiceInputOutputSpecificationPtrOutput) Title() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ServiceInputOutputSpecification) *string {
 		if v == nil {
@@ -4671,7 +4347,6 @@ func (o ServiceInputOutputSpecificationPtrOutput) Title() pulumi.StringPtrOutput
 	}).(pulumi.StringPtrOutput)
 }
 
-// The type of the entity described in swagger. Always 'object'.
 func (o ServiceInputOutputSpecificationPtrOutput) Type() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ServiceInputOutputSpecification) *string {
 		if v == nil {
@@ -4681,16 +4356,11 @@ func (o ServiceInputOutputSpecificationPtrOutput) Type() pulumi.StringPtrOutput 
 	}).(pulumi.StringPtrOutput)
 }
 
-// The swagger 2.0 schema describing the service's inputs or outputs. See Swagger specification: http://swagger.io/specification/
 type ServiceInputOutputSpecificationResponse struct {
-	// The description of the Swagger schema.
-	Description *string `pulumi:"description"`
-	// Specifies a collection that contains the column schema for each input or output of the web service. For more information, see the Swagger specification.
-	Properties map[string]TableSpecificationResponse `pulumi:"properties"`
-	// The title of your Swagger schema.
-	Title *string `pulumi:"title"`
-	// The type of the entity described in swagger. Always 'object'.
-	Type string `pulumi:"type"`
+	Description *string                               `pulumi:"description"`
+	Properties  map[string]TableSpecificationResponse `pulumi:"properties"`
+	Title       *string                               `pulumi:"title"`
+	Type        string                                `pulumi:"type"`
 }
 
 // ServiceInputOutputSpecificationResponseInput is an input type that accepts ServiceInputOutputSpecificationResponseArgs and ServiceInputOutputSpecificationResponseOutput values.
@@ -4704,16 +4374,11 @@ type ServiceInputOutputSpecificationResponseInput interface {
 	ToServiceInputOutputSpecificationResponseOutputWithContext(context.Context) ServiceInputOutputSpecificationResponseOutput
 }
 
-// The swagger 2.0 schema describing the service's inputs or outputs. See Swagger specification: http://swagger.io/specification/
 type ServiceInputOutputSpecificationResponseArgs struct {
-	// The description of the Swagger schema.
-	Description pulumi.StringPtrInput `pulumi:"description"`
-	// Specifies a collection that contains the column schema for each input or output of the web service. For more information, see the Swagger specification.
-	Properties TableSpecificationResponseMapInput `pulumi:"properties"`
-	// The title of your Swagger schema.
-	Title pulumi.StringPtrInput `pulumi:"title"`
-	// The type of the entity described in swagger. Always 'object'.
-	Type pulumi.StringInput `pulumi:"type"`
+	Description pulumi.StringPtrInput              `pulumi:"description"`
+	Properties  TableSpecificationResponseMapInput `pulumi:"properties"`
+	Title       pulumi.StringPtrInput              `pulumi:"title"`
+	Type        pulumi.StringInput                 `pulumi:"type"`
 }
 
 func (ServiceInputOutputSpecificationResponseArgs) ElementType() reflect.Type {
@@ -4769,7 +4434,6 @@ func (i *serviceInputOutputSpecificationResponsePtrType) ToServiceInputOutputSpe
 	return pulumi.ToOutputWithContext(ctx, i).(ServiceInputOutputSpecificationResponsePtrOutput)
 }
 
-// The swagger 2.0 schema describing the service's inputs or outputs. See Swagger specification: http://swagger.io/specification/
 type ServiceInputOutputSpecificationResponseOutput struct{ *pulumi.OutputState }
 
 func (ServiceInputOutputSpecificationResponseOutput) ElementType() reflect.Type {
@@ -4789,29 +4453,25 @@ func (o ServiceInputOutputSpecificationResponseOutput) ToServiceInputOutputSpeci
 }
 
 func (o ServiceInputOutputSpecificationResponseOutput) ToServiceInputOutputSpecificationResponsePtrOutputWithContext(ctx context.Context) ServiceInputOutputSpecificationResponsePtrOutput {
-	return o.ApplyT(func(v ServiceInputOutputSpecificationResponse) *ServiceInputOutputSpecificationResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ServiceInputOutputSpecificationResponse) *ServiceInputOutputSpecificationResponse {
 		return &v
 	}).(ServiceInputOutputSpecificationResponsePtrOutput)
 }
 
-// The description of the Swagger schema.
 func (o ServiceInputOutputSpecificationResponseOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ServiceInputOutputSpecificationResponse) *string { return v.Description }).(pulumi.StringPtrOutput)
 }
 
-// Specifies a collection that contains the column schema for each input or output of the web service. For more information, see the Swagger specification.
 func (o ServiceInputOutputSpecificationResponseOutput) Properties() TableSpecificationResponseMapOutput {
 	return o.ApplyT(func(v ServiceInputOutputSpecificationResponse) map[string]TableSpecificationResponse {
 		return v.Properties
 	}).(TableSpecificationResponseMapOutput)
 }
 
-// The title of your Swagger schema.
 func (o ServiceInputOutputSpecificationResponseOutput) Title() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ServiceInputOutputSpecificationResponse) *string { return v.Title }).(pulumi.StringPtrOutput)
 }
 
-// The type of the entity described in swagger. Always 'object'.
 func (o ServiceInputOutputSpecificationResponseOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v ServiceInputOutputSpecificationResponse) string { return v.Type }).(pulumi.StringOutput)
 }
@@ -4831,10 +4491,15 @@ func (o ServiceInputOutputSpecificationResponsePtrOutput) ToServiceInputOutputSp
 }
 
 func (o ServiceInputOutputSpecificationResponsePtrOutput) Elem() ServiceInputOutputSpecificationResponseOutput {
-	return o.ApplyT(func(v *ServiceInputOutputSpecificationResponse) ServiceInputOutputSpecificationResponse { return *v }).(ServiceInputOutputSpecificationResponseOutput)
+	return o.ApplyT(func(v *ServiceInputOutputSpecificationResponse) ServiceInputOutputSpecificationResponse {
+		if v != nil {
+			return *v
+		}
+		var ret ServiceInputOutputSpecificationResponse
+		return ret
+	}).(ServiceInputOutputSpecificationResponseOutput)
 }
 
-// The description of the Swagger schema.
 func (o ServiceInputOutputSpecificationResponsePtrOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ServiceInputOutputSpecificationResponse) *string {
 		if v == nil {
@@ -4844,7 +4509,6 @@ func (o ServiceInputOutputSpecificationResponsePtrOutput) Description() pulumi.S
 	}).(pulumi.StringPtrOutput)
 }
 
-// Specifies a collection that contains the column schema for each input or output of the web service. For more information, see the Swagger specification.
 func (o ServiceInputOutputSpecificationResponsePtrOutput) Properties() TableSpecificationResponseMapOutput {
 	return o.ApplyT(func(v *ServiceInputOutputSpecificationResponse) map[string]TableSpecificationResponse {
 		if v == nil {
@@ -4854,7 +4518,6 @@ func (o ServiceInputOutputSpecificationResponsePtrOutput) Properties() TableSpec
 	}).(TableSpecificationResponseMapOutput)
 }
 
-// The title of your Swagger schema.
 func (o ServiceInputOutputSpecificationResponsePtrOutput) Title() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ServiceInputOutputSpecificationResponse) *string {
 		if v == nil {
@@ -4864,7 +4527,6 @@ func (o ServiceInputOutputSpecificationResponsePtrOutput) Title() pulumi.StringP
 	}).(pulumi.StringPtrOutput)
 }
 
-// The type of the entity described in swagger. Always 'object'.
 func (o ServiceInputOutputSpecificationResponsePtrOutput) Type() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ServiceInputOutputSpecificationResponse) *string {
 		if v == nil {
@@ -4874,11 +4536,8 @@ func (o ServiceInputOutputSpecificationResponsePtrOutput) Type() pulumi.StringPt
 	}).(pulumi.StringPtrOutput)
 }
 
-// Access information for a storage account.
 type StorageAccount struct {
-	// Specifies the key used to access the storage account.
-	Key *string `pulumi:"key"`
-	// Specifies the name of the storage account.
+	Key  *string `pulumi:"key"`
 	Name *string `pulumi:"name"`
 }
 
@@ -4893,11 +4552,8 @@ type StorageAccountInput interface {
 	ToStorageAccountOutputWithContext(context.Context) StorageAccountOutput
 }
 
-// Access information for a storage account.
 type StorageAccountArgs struct {
-	// Specifies the key used to access the storage account.
-	Key pulumi.StringPtrInput `pulumi:"key"`
-	// Specifies the name of the storage account.
+	Key  pulumi.StringPtrInput `pulumi:"key"`
 	Name pulumi.StringPtrInput `pulumi:"name"`
 }
 
@@ -4954,7 +4610,6 @@ func (i *storageAccountPtrType) ToStorageAccountPtrOutputWithContext(ctx context
 	return pulumi.ToOutputWithContext(ctx, i).(StorageAccountPtrOutput)
 }
 
-// Access information for a storage account.
 type StorageAccountOutput struct{ *pulumi.OutputState }
 
 func (StorageAccountOutput) ElementType() reflect.Type {
@@ -4974,17 +4629,15 @@ func (o StorageAccountOutput) ToStorageAccountPtrOutput() StorageAccountPtrOutpu
 }
 
 func (o StorageAccountOutput) ToStorageAccountPtrOutputWithContext(ctx context.Context) StorageAccountPtrOutput {
-	return o.ApplyT(func(v StorageAccount) *StorageAccount {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v StorageAccount) *StorageAccount {
 		return &v
 	}).(StorageAccountPtrOutput)
 }
 
-// Specifies the key used to access the storage account.
 func (o StorageAccountOutput) Key() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v StorageAccount) *string { return v.Key }).(pulumi.StringPtrOutput)
 }
 
-// Specifies the name of the storage account.
 func (o StorageAccountOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v StorageAccount) *string { return v.Name }).(pulumi.StringPtrOutput)
 }
@@ -5004,10 +4657,15 @@ func (o StorageAccountPtrOutput) ToStorageAccountPtrOutputWithContext(ctx contex
 }
 
 func (o StorageAccountPtrOutput) Elem() StorageAccountOutput {
-	return o.ApplyT(func(v *StorageAccount) StorageAccount { return *v }).(StorageAccountOutput)
+	return o.ApplyT(func(v *StorageAccount) StorageAccount {
+		if v != nil {
+			return *v
+		}
+		var ret StorageAccount
+		return ret
+	}).(StorageAccountOutput)
 }
 
-// Specifies the key used to access the storage account.
 func (o StorageAccountPtrOutput) Key() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *StorageAccount) *string {
 		if v == nil {
@@ -5017,7 +4675,6 @@ func (o StorageAccountPtrOutput) Key() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Specifies the name of the storage account.
 func (o StorageAccountPtrOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *StorageAccount) *string {
 		if v == nil {
@@ -5027,11 +4684,8 @@ func (o StorageAccountPtrOutput) Name() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Access information for a storage account.
 type StorageAccountResponse struct {
-	// Specifies the key used to access the storage account.
-	Key *string `pulumi:"key"`
-	// Specifies the name of the storage account.
+	Key  *string `pulumi:"key"`
 	Name *string `pulumi:"name"`
 }
 
@@ -5046,11 +4700,8 @@ type StorageAccountResponseInput interface {
 	ToStorageAccountResponseOutputWithContext(context.Context) StorageAccountResponseOutput
 }
 
-// Access information for a storage account.
 type StorageAccountResponseArgs struct {
-	// Specifies the key used to access the storage account.
-	Key pulumi.StringPtrInput `pulumi:"key"`
-	// Specifies the name of the storage account.
+	Key  pulumi.StringPtrInput `pulumi:"key"`
 	Name pulumi.StringPtrInput `pulumi:"name"`
 }
 
@@ -5107,7 +4758,6 @@ func (i *storageAccountResponsePtrType) ToStorageAccountResponsePtrOutputWithCon
 	return pulumi.ToOutputWithContext(ctx, i).(StorageAccountResponsePtrOutput)
 }
 
-// Access information for a storage account.
 type StorageAccountResponseOutput struct{ *pulumi.OutputState }
 
 func (StorageAccountResponseOutput) ElementType() reflect.Type {
@@ -5127,17 +4777,15 @@ func (o StorageAccountResponseOutput) ToStorageAccountResponsePtrOutput() Storag
 }
 
 func (o StorageAccountResponseOutput) ToStorageAccountResponsePtrOutputWithContext(ctx context.Context) StorageAccountResponsePtrOutput {
-	return o.ApplyT(func(v StorageAccountResponse) *StorageAccountResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v StorageAccountResponse) *StorageAccountResponse {
 		return &v
 	}).(StorageAccountResponsePtrOutput)
 }
 
-// Specifies the key used to access the storage account.
 func (o StorageAccountResponseOutput) Key() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v StorageAccountResponse) *string { return v.Key }).(pulumi.StringPtrOutput)
 }
 
-// Specifies the name of the storage account.
 func (o StorageAccountResponseOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v StorageAccountResponse) *string { return v.Name }).(pulumi.StringPtrOutput)
 }
@@ -5157,10 +4805,15 @@ func (o StorageAccountResponsePtrOutput) ToStorageAccountResponsePtrOutputWithCo
 }
 
 func (o StorageAccountResponsePtrOutput) Elem() StorageAccountResponseOutput {
-	return o.ApplyT(func(v *StorageAccountResponse) StorageAccountResponse { return *v }).(StorageAccountResponseOutput)
+	return o.ApplyT(func(v *StorageAccountResponse) StorageAccountResponse {
+		if v != nil {
+			return *v
+		}
+		var ret StorageAccountResponse
+		return ret
+	}).(StorageAccountResponseOutput)
 }
 
-// Specifies the key used to access the storage account.
 func (o StorageAccountResponsePtrOutput) Key() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *StorageAccountResponse) *string {
 		if v == nil {
@@ -5170,7 +4823,6 @@ func (o StorageAccountResponsePtrOutput) Key() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Specifies the name of the storage account.
 func (o StorageAccountResponsePtrOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *StorageAccountResponse) *string {
 		if v == nil {
@@ -5180,18 +4832,12 @@ func (o StorageAccountResponsePtrOutput) Name() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The swagger 2.0 schema describing a single service input or output. See Swagger specification: http://swagger.io/specification/
 type TableSpecification struct {
-	// Swagger schema description.
-	Description *string `pulumi:"description"`
-	// The format, if 'type' is not 'object'
-	Format *string `pulumi:"format"`
-	// The set of columns within the data table.
-	Properties map[string]ColumnSpecification `pulumi:"properties"`
-	// Swagger schema title.
-	Title *string `pulumi:"title"`
-	// The type of the entity described in swagger.
-	Type string `pulumi:"type"`
+	Description *string                        `pulumi:"description"`
+	Format      *string                        `pulumi:"format"`
+	Properties  map[string]ColumnSpecification `pulumi:"properties"`
+	Title       *string                        `pulumi:"title"`
+	Type        string                         `pulumi:"type"`
 }
 
 // TableSpecificationInput is an input type that accepts TableSpecificationArgs and TableSpecificationOutput values.
@@ -5205,18 +4851,12 @@ type TableSpecificationInput interface {
 	ToTableSpecificationOutputWithContext(context.Context) TableSpecificationOutput
 }
 
-// The swagger 2.0 schema describing a single service input or output. See Swagger specification: http://swagger.io/specification/
 type TableSpecificationArgs struct {
-	// Swagger schema description.
-	Description pulumi.StringPtrInput `pulumi:"description"`
-	// The format, if 'type' is not 'object'
-	Format pulumi.StringPtrInput `pulumi:"format"`
-	// The set of columns within the data table.
-	Properties ColumnSpecificationMapInput `pulumi:"properties"`
-	// Swagger schema title.
-	Title pulumi.StringPtrInput `pulumi:"title"`
-	// The type of the entity described in swagger.
-	Type pulumi.StringInput `pulumi:"type"`
+	Description pulumi.StringPtrInput       `pulumi:"description"`
+	Format      pulumi.StringPtrInput       `pulumi:"format"`
+	Properties  ColumnSpecificationMapInput `pulumi:"properties"`
+	Title       pulumi.StringPtrInput       `pulumi:"title"`
+	Type        pulumi.StringInput          `pulumi:"type"`
 }
 
 func (TableSpecificationArgs) ElementType() reflect.Type {
@@ -5256,7 +4896,6 @@ func (i TableSpecificationMap) ToTableSpecificationMapOutputWithContext(ctx cont
 	return pulumi.ToOutputWithContext(ctx, i).(TableSpecificationMapOutput)
 }
 
-// The swagger 2.0 schema describing a single service input or output. See Swagger specification: http://swagger.io/specification/
 type TableSpecificationOutput struct{ *pulumi.OutputState }
 
 func (TableSpecificationOutput) ElementType() reflect.Type {
@@ -5271,27 +4910,22 @@ func (o TableSpecificationOutput) ToTableSpecificationOutputWithContext(ctx cont
 	return o
 }
 
-// Swagger schema description.
 func (o TableSpecificationOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v TableSpecification) *string { return v.Description }).(pulumi.StringPtrOutput)
 }
 
-// The format, if 'type' is not 'object'
 func (o TableSpecificationOutput) Format() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v TableSpecification) *string { return v.Format }).(pulumi.StringPtrOutput)
 }
 
-// The set of columns within the data table.
 func (o TableSpecificationOutput) Properties() ColumnSpecificationMapOutput {
 	return o.ApplyT(func(v TableSpecification) map[string]ColumnSpecification { return v.Properties }).(ColumnSpecificationMapOutput)
 }
 
-// Swagger schema title.
 func (o TableSpecificationOutput) Title() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v TableSpecification) *string { return v.Title }).(pulumi.StringPtrOutput)
 }
 
-// The type of the entity described in swagger.
 func (o TableSpecificationOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v TableSpecification) string { return v.Type }).(pulumi.StringOutput)
 }
@@ -5316,18 +4950,12 @@ func (o TableSpecificationMapOutput) MapIndex(k pulumi.StringInput) TableSpecifi
 	}).(TableSpecificationOutput)
 }
 
-// The swagger 2.0 schema describing a single service input or output. See Swagger specification: http://swagger.io/specification/
 type TableSpecificationResponse struct {
-	// Swagger schema description.
-	Description *string `pulumi:"description"`
-	// The format, if 'type' is not 'object'
-	Format *string `pulumi:"format"`
-	// The set of columns within the data table.
-	Properties map[string]ColumnSpecificationResponse `pulumi:"properties"`
-	// Swagger schema title.
-	Title *string `pulumi:"title"`
-	// The type of the entity described in swagger.
-	Type string `pulumi:"type"`
+	Description *string                                `pulumi:"description"`
+	Format      *string                                `pulumi:"format"`
+	Properties  map[string]ColumnSpecificationResponse `pulumi:"properties"`
+	Title       *string                                `pulumi:"title"`
+	Type        string                                 `pulumi:"type"`
 }
 
 // TableSpecificationResponseInput is an input type that accepts TableSpecificationResponseArgs and TableSpecificationResponseOutput values.
@@ -5341,18 +4969,12 @@ type TableSpecificationResponseInput interface {
 	ToTableSpecificationResponseOutputWithContext(context.Context) TableSpecificationResponseOutput
 }
 
-// The swagger 2.0 schema describing a single service input or output. See Swagger specification: http://swagger.io/specification/
 type TableSpecificationResponseArgs struct {
-	// Swagger schema description.
-	Description pulumi.StringPtrInput `pulumi:"description"`
-	// The format, if 'type' is not 'object'
-	Format pulumi.StringPtrInput `pulumi:"format"`
-	// The set of columns within the data table.
-	Properties ColumnSpecificationResponseMapInput `pulumi:"properties"`
-	// Swagger schema title.
-	Title pulumi.StringPtrInput `pulumi:"title"`
-	// The type of the entity described in swagger.
-	Type pulumi.StringInput `pulumi:"type"`
+	Description pulumi.StringPtrInput               `pulumi:"description"`
+	Format      pulumi.StringPtrInput               `pulumi:"format"`
+	Properties  ColumnSpecificationResponseMapInput `pulumi:"properties"`
+	Title       pulumi.StringPtrInput               `pulumi:"title"`
+	Type        pulumi.StringInput                  `pulumi:"type"`
 }
 
 func (TableSpecificationResponseArgs) ElementType() reflect.Type {
@@ -5392,7 +5014,6 @@ func (i TableSpecificationResponseMap) ToTableSpecificationResponseMapOutputWith
 	return pulumi.ToOutputWithContext(ctx, i).(TableSpecificationResponseMapOutput)
 }
 
-// The swagger 2.0 schema describing a single service input or output. See Swagger specification: http://swagger.io/specification/
 type TableSpecificationResponseOutput struct{ *pulumi.OutputState }
 
 func (TableSpecificationResponseOutput) ElementType() reflect.Type {
@@ -5407,27 +5028,22 @@ func (o TableSpecificationResponseOutput) ToTableSpecificationResponseOutputWith
 	return o
 }
 
-// Swagger schema description.
 func (o TableSpecificationResponseOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v TableSpecificationResponse) *string { return v.Description }).(pulumi.StringPtrOutput)
 }
 
-// The format, if 'type' is not 'object'
 func (o TableSpecificationResponseOutput) Format() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v TableSpecificationResponse) *string { return v.Format }).(pulumi.StringPtrOutput)
 }
 
-// The set of columns within the data table.
 func (o TableSpecificationResponseOutput) Properties() ColumnSpecificationResponseMapOutput {
 	return o.ApplyT(func(v TableSpecificationResponse) map[string]ColumnSpecificationResponse { return v.Properties }).(ColumnSpecificationResponseMapOutput)
 }
 
-// Swagger schema title.
 func (o TableSpecificationResponseOutput) Title() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v TableSpecificationResponse) *string { return v.Title }).(pulumi.StringPtrOutput)
 }
 
-// The type of the entity described in swagger.
 func (o TableSpecificationResponseOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v TableSpecificationResponse) string { return v.Type }).(pulumi.StringOutput)
 }
@@ -5452,11 +5068,8 @@ func (o TableSpecificationResponseMapOutput) MapIndex(k pulumi.StringInput) Tabl
 	}).(TableSpecificationResponseOutput)
 }
 
-// Access keys for the web service calls.
 type WebServiceKeys struct {
-	// The primary access key.
-	Primary *string `pulumi:"primary"`
-	// The secondary access key.
+	Primary   *string `pulumi:"primary"`
 	Secondary *string `pulumi:"secondary"`
 }
 
@@ -5471,11 +5084,8 @@ type WebServiceKeysInput interface {
 	ToWebServiceKeysOutputWithContext(context.Context) WebServiceKeysOutput
 }
 
-// Access keys for the web service calls.
 type WebServiceKeysArgs struct {
-	// The primary access key.
-	Primary pulumi.StringPtrInput `pulumi:"primary"`
-	// The secondary access key.
+	Primary   pulumi.StringPtrInput `pulumi:"primary"`
 	Secondary pulumi.StringPtrInput `pulumi:"secondary"`
 }
 
@@ -5532,7 +5142,6 @@ func (i *webServiceKeysPtrType) ToWebServiceKeysPtrOutputWithContext(ctx context
 	return pulumi.ToOutputWithContext(ctx, i).(WebServiceKeysPtrOutput)
 }
 
-// Access keys for the web service calls.
 type WebServiceKeysOutput struct{ *pulumi.OutputState }
 
 func (WebServiceKeysOutput) ElementType() reflect.Type {
@@ -5552,17 +5161,15 @@ func (o WebServiceKeysOutput) ToWebServiceKeysPtrOutput() WebServiceKeysPtrOutpu
 }
 
 func (o WebServiceKeysOutput) ToWebServiceKeysPtrOutputWithContext(ctx context.Context) WebServiceKeysPtrOutput {
-	return o.ApplyT(func(v WebServiceKeys) *WebServiceKeys {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v WebServiceKeys) *WebServiceKeys {
 		return &v
 	}).(WebServiceKeysPtrOutput)
 }
 
-// The primary access key.
 func (o WebServiceKeysOutput) Primary() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v WebServiceKeys) *string { return v.Primary }).(pulumi.StringPtrOutput)
 }
 
-// The secondary access key.
 func (o WebServiceKeysOutput) Secondary() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v WebServiceKeys) *string { return v.Secondary }).(pulumi.StringPtrOutput)
 }
@@ -5582,10 +5189,15 @@ func (o WebServiceKeysPtrOutput) ToWebServiceKeysPtrOutputWithContext(ctx contex
 }
 
 func (o WebServiceKeysPtrOutput) Elem() WebServiceKeysOutput {
-	return o.ApplyT(func(v *WebServiceKeys) WebServiceKeys { return *v }).(WebServiceKeysOutput)
+	return o.ApplyT(func(v *WebServiceKeys) WebServiceKeys {
+		if v != nil {
+			return *v
+		}
+		var ret WebServiceKeys
+		return ret
+	}).(WebServiceKeysOutput)
 }
 
-// The primary access key.
 func (o WebServiceKeysPtrOutput) Primary() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *WebServiceKeys) *string {
 		if v == nil {
@@ -5595,7 +5207,6 @@ func (o WebServiceKeysPtrOutput) Primary() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The secondary access key.
 func (o WebServiceKeysPtrOutput) Secondary() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *WebServiceKeys) *string {
 		if v == nil {
@@ -5605,11 +5216,8 @@ func (o WebServiceKeysPtrOutput) Secondary() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Access keys for the web service calls.
 type WebServiceKeysResponse struct {
-	// The primary access key.
-	Primary *string `pulumi:"primary"`
-	// The secondary access key.
+	Primary   *string `pulumi:"primary"`
 	Secondary *string `pulumi:"secondary"`
 }
 
@@ -5624,11 +5232,8 @@ type WebServiceKeysResponseInput interface {
 	ToWebServiceKeysResponseOutputWithContext(context.Context) WebServiceKeysResponseOutput
 }
 
-// Access keys for the web service calls.
 type WebServiceKeysResponseArgs struct {
-	// The primary access key.
-	Primary pulumi.StringPtrInput `pulumi:"primary"`
-	// The secondary access key.
+	Primary   pulumi.StringPtrInput `pulumi:"primary"`
 	Secondary pulumi.StringPtrInput `pulumi:"secondary"`
 }
 
@@ -5685,7 +5290,6 @@ func (i *webServiceKeysResponsePtrType) ToWebServiceKeysResponsePtrOutputWithCon
 	return pulumi.ToOutputWithContext(ctx, i).(WebServiceKeysResponsePtrOutput)
 }
 
-// Access keys for the web service calls.
 type WebServiceKeysResponseOutput struct{ *pulumi.OutputState }
 
 func (WebServiceKeysResponseOutput) ElementType() reflect.Type {
@@ -5705,17 +5309,15 @@ func (o WebServiceKeysResponseOutput) ToWebServiceKeysResponsePtrOutput() WebSer
 }
 
 func (o WebServiceKeysResponseOutput) ToWebServiceKeysResponsePtrOutputWithContext(ctx context.Context) WebServiceKeysResponsePtrOutput {
-	return o.ApplyT(func(v WebServiceKeysResponse) *WebServiceKeysResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v WebServiceKeysResponse) *WebServiceKeysResponse {
 		return &v
 	}).(WebServiceKeysResponsePtrOutput)
 }
 
-// The primary access key.
 func (o WebServiceKeysResponseOutput) Primary() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v WebServiceKeysResponse) *string { return v.Primary }).(pulumi.StringPtrOutput)
 }
 
-// The secondary access key.
 func (o WebServiceKeysResponseOutput) Secondary() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v WebServiceKeysResponse) *string { return v.Secondary }).(pulumi.StringPtrOutput)
 }
@@ -5735,10 +5337,15 @@ func (o WebServiceKeysResponsePtrOutput) ToWebServiceKeysResponsePtrOutputWithCo
 }
 
 func (o WebServiceKeysResponsePtrOutput) Elem() WebServiceKeysResponseOutput {
-	return o.ApplyT(func(v *WebServiceKeysResponse) WebServiceKeysResponse { return *v }).(WebServiceKeysResponseOutput)
+	return o.ApplyT(func(v *WebServiceKeysResponse) WebServiceKeysResponse {
+		if v != nil {
+			return *v
+		}
+		var ret WebServiceKeysResponse
+		return ret
+	}).(WebServiceKeysResponseOutput)
 }
 
-// The primary access key.
 func (o WebServiceKeysResponsePtrOutput) Primary() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *WebServiceKeysResponse) *string {
 		if v == nil {
@@ -5748,7 +5355,6 @@ func (o WebServiceKeysResponsePtrOutput) Primary() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The secondary access key.
 func (o WebServiceKeysResponsePtrOutput) Secondary() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *WebServiceKeysResponse) *string {
 		if v == nil {
@@ -5758,12 +5364,9 @@ func (o WebServiceKeysResponsePtrOutput) Secondary() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Web Service Parameter object for node and global parameter
 type WebServiceParameter struct {
-	// If the parameter value in 'value' field is encrypted, the thumbprint of the certificate should be put here.
-	CertificateThumbprint *string `pulumi:"certificateThumbprint"`
-	// The parameter value
-	Value interface{} `pulumi:"value"`
+	CertificateThumbprint *string     `pulumi:"certificateThumbprint"`
+	Value                 interface{} `pulumi:"value"`
 }
 
 // WebServiceParameterInput is an input type that accepts WebServiceParameterArgs and WebServiceParameterOutput values.
@@ -5777,12 +5380,9 @@ type WebServiceParameterInput interface {
 	ToWebServiceParameterOutputWithContext(context.Context) WebServiceParameterOutput
 }
 
-// Web Service Parameter object for node and global parameter
 type WebServiceParameterArgs struct {
-	// If the parameter value in 'value' field is encrypted, the thumbprint of the certificate should be put here.
 	CertificateThumbprint pulumi.StringPtrInput `pulumi:"certificateThumbprint"`
-	// The parameter value
-	Value pulumi.Input `pulumi:"value"`
+	Value                 pulumi.Input          `pulumi:"value"`
 }
 
 func (WebServiceParameterArgs) ElementType() reflect.Type {
@@ -5822,7 +5422,6 @@ func (i WebServiceParameterMap) ToWebServiceParameterMapOutputWithContext(ctx co
 	return pulumi.ToOutputWithContext(ctx, i).(WebServiceParameterMapOutput)
 }
 
-// Web Service Parameter object for node and global parameter
 type WebServiceParameterOutput struct{ *pulumi.OutputState }
 
 func (WebServiceParameterOutput) ElementType() reflect.Type {
@@ -5837,12 +5436,10 @@ func (o WebServiceParameterOutput) ToWebServiceParameterOutputWithContext(ctx co
 	return o
 }
 
-// If the parameter value in 'value' field is encrypted, the thumbprint of the certificate should be put here.
 func (o WebServiceParameterOutput) CertificateThumbprint() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v WebServiceParameter) *string { return v.CertificateThumbprint }).(pulumi.StringPtrOutput)
 }
 
-// The parameter value
 func (o WebServiceParameterOutput) Value() pulumi.AnyOutput {
 	return o.ApplyT(func(v WebServiceParameter) interface{} { return v.Value }).(pulumi.AnyOutput)
 }
@@ -5867,12 +5464,9 @@ func (o WebServiceParameterMapOutput) MapIndex(k pulumi.StringInput) WebServiceP
 	}).(WebServiceParameterOutput)
 }
 
-// Web Service Parameter object for node and global parameter
 type WebServiceParameterResponse struct {
-	// If the parameter value in 'value' field is encrypted, the thumbprint of the certificate should be put here.
-	CertificateThumbprint *string `pulumi:"certificateThumbprint"`
-	// The parameter value
-	Value interface{} `pulumi:"value"`
+	CertificateThumbprint *string     `pulumi:"certificateThumbprint"`
+	Value                 interface{} `pulumi:"value"`
 }
 
 // WebServiceParameterResponseInput is an input type that accepts WebServiceParameterResponseArgs and WebServiceParameterResponseOutput values.
@@ -5886,12 +5480,9 @@ type WebServiceParameterResponseInput interface {
 	ToWebServiceParameterResponseOutputWithContext(context.Context) WebServiceParameterResponseOutput
 }
 
-// Web Service Parameter object for node and global parameter
 type WebServiceParameterResponseArgs struct {
-	// If the parameter value in 'value' field is encrypted, the thumbprint of the certificate should be put here.
 	CertificateThumbprint pulumi.StringPtrInput `pulumi:"certificateThumbprint"`
-	// The parameter value
-	Value pulumi.Input `pulumi:"value"`
+	Value                 pulumi.Input          `pulumi:"value"`
 }
 
 func (WebServiceParameterResponseArgs) ElementType() reflect.Type {
@@ -5931,7 +5522,6 @@ func (i WebServiceParameterResponseMap) ToWebServiceParameterResponseMapOutputWi
 	return pulumi.ToOutputWithContext(ctx, i).(WebServiceParameterResponseMapOutput)
 }
 
-// Web Service Parameter object for node and global parameter
 type WebServiceParameterResponseOutput struct{ *pulumi.OutputState }
 
 func (WebServiceParameterResponseOutput) ElementType() reflect.Type {
@@ -5946,12 +5536,10 @@ func (o WebServiceParameterResponseOutput) ToWebServiceParameterResponseOutputWi
 	return o
 }
 
-// If the parameter value in 'value' field is encrypted, the thumbprint of the certificate should be put here.
 func (o WebServiceParameterResponseOutput) CertificateThumbprint() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v WebServiceParameterResponse) *string { return v.CertificateThumbprint }).(pulumi.StringPtrOutput)
 }
 
-// The parameter value
 func (o WebServiceParameterResponseOutput) Value() pulumi.AnyOutput {
 	return o.ApplyT(func(v WebServiceParameterResponse) interface{} { return v.Value }).(pulumi.AnyOutput)
 }
@@ -5976,47 +5564,26 @@ func (o WebServiceParameterResponseMapOutput) MapIndex(k pulumi.StringInput) Web
 	}).(WebServiceParameterResponseOutput)
 }
 
-// Properties specific to a Graph based web service.
 type WebServicePropertiesForGraph struct {
-	// Contains user defined properties describing web service assets. Properties are expressed as Key/Value pairs.
-	Assets map[string]AssetItem `pulumi:"assets"`
-	// Contains the commitment plan associated with this web service. Set at creation time. Once set, this value cannot be changed. Note: The commitment plan is not returned from calls to GET operations.
-	CommitmentPlan *CommitmentPlan `pulumi:"commitmentPlan"`
-	// The description of the web service.
-	Description *string `pulumi:"description"`
-	// Settings controlling the diagnostics traces collection for the web service.
-	Diagnostics *DiagnosticsConfiguration `pulumi:"diagnostics"`
-	// Defines sample input data for one or more of the service's inputs.
-	ExampleRequest *ExampleRequest `pulumi:"exampleRequest"`
-	// When set to true, sample data is included in the web service's swagger definition. The default value is true.
-	ExposeSampleData *bool `pulumi:"exposeSampleData"`
-	// Contains the Swagger 2.0 schema describing one or more of the web service's inputs. For more information, see the Swagger specification.
-	Input *ServiceInputOutputSpecification `pulumi:"input"`
-	// Contains the web service provisioning keys. If you do not specify provisioning keys, the Azure Machine Learning system generates them for you. Note: The keys are not returned from calls to GET operations.
-	Keys *WebServiceKeys `pulumi:"keys"`
-	// Specifies the Machine Learning workspace containing the experiment that is source for the web service.
-	MachineLearningWorkspace *MachineLearningWorkspace `pulumi:"machineLearningWorkspace"`
-	// Contains the Swagger 2.0 schema describing one or more of the web service's outputs. For more information, see the Swagger specification.
-	Output *ServiceInputOutputSpecification `pulumi:"output"`
-	// The definition of the graph package making up this web service.
-	Package *GraphPackage `pulumi:"package"`
-	// Specifies the package type. Valid values are Graph (Specifies a web service published through the Machine Learning Studio) and Code (Specifies a web service published using code such as Python). Note: Code is not supported at this time.
-	// Expected value is 'Graph'.
-	PackageType string `pulumi:"packageType"`
-	// The set of global parameters values defined for the web service, given as a global parameter name to default value map. If no default value is specified, the parameter is considered to be required.
-	Parameters map[string]WebServiceParameter `pulumi:"parameters"`
-	// When set to true, indicates that the payload size is larger than 3 MB. Otherwise false. If the payload size exceed 3 MB, the payload is stored in a blob and the PayloadsLocation parameter contains the URI of the blob. Otherwise, this will be set to false and Assets, Input, Output, Package, Parameters, ExampleRequest are inline. The Payload sizes is determined by adding the size of the Assets, Input, Output, Package, Parameters, and the ExampleRequest.
-	PayloadsInBlobStorage *bool `pulumi:"payloadsInBlobStorage"`
-	// The URI of the payload blob. This parameter contains a value only if the payloadsInBlobStorage parameter is set to true. Otherwise is set to null.
-	PayloadsLocation *BlobLocation `pulumi:"payloadsLocation"`
-	// When set to true, indicates that the web service is read-only and can no longer be updated or patched, only removed. Default, is false. Note: Once set to true, you cannot change its value.
-	ReadOnly *bool `pulumi:"readOnly"`
-	// Contains the configuration settings for the web service endpoint.
-	RealtimeConfiguration *RealtimeConfiguration `pulumi:"realtimeConfiguration"`
-	// Specifies the storage account that Azure Machine Learning uses to store information about the web service. Only the name of the storage account is returned from calls to GET operations. When updating the storage account information, you must ensure that all necessary assets are available in the new storage account or calls to your web service will fail.
-	StorageAccount *StorageAccount `pulumi:"storageAccount"`
-	// The title of the web service.
-	Title *string `pulumi:"title"`
+	Assets                   map[string]AssetItem             `pulumi:"assets"`
+	CommitmentPlan           *CommitmentPlan                  `pulumi:"commitmentPlan"`
+	Description              *string                          `pulumi:"description"`
+	Diagnostics              *DiagnosticsConfiguration        `pulumi:"diagnostics"`
+	ExampleRequest           *ExampleRequest                  `pulumi:"exampleRequest"`
+	ExposeSampleData         *bool                            `pulumi:"exposeSampleData"`
+	Input                    *ServiceInputOutputSpecification `pulumi:"input"`
+	Keys                     *WebServiceKeys                  `pulumi:"keys"`
+	MachineLearningWorkspace *MachineLearningWorkspace        `pulumi:"machineLearningWorkspace"`
+	Output                   *ServiceInputOutputSpecification `pulumi:"output"`
+	Package                  *GraphPackage                    `pulumi:"package"`
+	PackageType              string                           `pulumi:"packageType"`
+	Parameters               map[string]WebServiceParameter   `pulumi:"parameters"`
+	PayloadsInBlobStorage    *bool                            `pulumi:"payloadsInBlobStorage"`
+	PayloadsLocation         *BlobLocation                    `pulumi:"payloadsLocation"`
+	ReadOnly                 *bool                            `pulumi:"readOnly"`
+	RealtimeConfiguration    *RealtimeConfiguration           `pulumi:"realtimeConfiguration"`
+	StorageAccount           *StorageAccount                  `pulumi:"storageAccount"`
+	Title                    *string                          `pulumi:"title"`
 }
 
 // WebServicePropertiesForGraphInput is an input type that accepts WebServicePropertiesForGraphArgs and WebServicePropertiesForGraphOutput values.
@@ -6030,47 +5597,26 @@ type WebServicePropertiesForGraphInput interface {
 	ToWebServicePropertiesForGraphOutputWithContext(context.Context) WebServicePropertiesForGraphOutput
 }
 
-// Properties specific to a Graph based web service.
 type WebServicePropertiesForGraphArgs struct {
-	// Contains user defined properties describing web service assets. Properties are expressed as Key/Value pairs.
-	Assets AssetItemMapInput `pulumi:"assets"`
-	// Contains the commitment plan associated with this web service. Set at creation time. Once set, this value cannot be changed. Note: The commitment plan is not returned from calls to GET operations.
-	CommitmentPlan CommitmentPlanPtrInput `pulumi:"commitmentPlan"`
-	// The description of the web service.
-	Description pulumi.StringPtrInput `pulumi:"description"`
-	// Settings controlling the diagnostics traces collection for the web service.
-	Diagnostics DiagnosticsConfigurationPtrInput `pulumi:"diagnostics"`
-	// Defines sample input data for one or more of the service's inputs.
-	ExampleRequest ExampleRequestPtrInput `pulumi:"exampleRequest"`
-	// When set to true, sample data is included in the web service's swagger definition. The default value is true.
-	ExposeSampleData pulumi.BoolPtrInput `pulumi:"exposeSampleData"`
-	// Contains the Swagger 2.0 schema describing one or more of the web service's inputs. For more information, see the Swagger specification.
-	Input ServiceInputOutputSpecificationPtrInput `pulumi:"input"`
-	// Contains the web service provisioning keys. If you do not specify provisioning keys, the Azure Machine Learning system generates them for you. Note: The keys are not returned from calls to GET operations.
-	Keys WebServiceKeysPtrInput `pulumi:"keys"`
-	// Specifies the Machine Learning workspace containing the experiment that is source for the web service.
-	MachineLearningWorkspace MachineLearningWorkspacePtrInput `pulumi:"machineLearningWorkspace"`
-	// Contains the Swagger 2.0 schema describing one or more of the web service's outputs. For more information, see the Swagger specification.
-	Output ServiceInputOutputSpecificationPtrInput `pulumi:"output"`
-	// The definition of the graph package making up this web service.
-	Package GraphPackagePtrInput `pulumi:"package"`
-	// Specifies the package type. Valid values are Graph (Specifies a web service published through the Machine Learning Studio) and Code (Specifies a web service published using code such as Python). Note: Code is not supported at this time.
-	// Expected value is 'Graph'.
-	PackageType pulumi.StringInput `pulumi:"packageType"`
-	// The set of global parameters values defined for the web service, given as a global parameter name to default value map. If no default value is specified, the parameter is considered to be required.
-	Parameters WebServiceParameterMapInput `pulumi:"parameters"`
-	// When set to true, indicates that the payload size is larger than 3 MB. Otherwise false. If the payload size exceed 3 MB, the payload is stored in a blob and the PayloadsLocation parameter contains the URI of the blob. Otherwise, this will be set to false and Assets, Input, Output, Package, Parameters, ExampleRequest are inline. The Payload sizes is determined by adding the size of the Assets, Input, Output, Package, Parameters, and the ExampleRequest.
-	PayloadsInBlobStorage pulumi.BoolPtrInput `pulumi:"payloadsInBlobStorage"`
-	// The URI of the payload blob. This parameter contains a value only if the payloadsInBlobStorage parameter is set to true. Otherwise is set to null.
-	PayloadsLocation BlobLocationPtrInput `pulumi:"payloadsLocation"`
-	// When set to true, indicates that the web service is read-only and can no longer be updated or patched, only removed. Default, is false. Note: Once set to true, you cannot change its value.
-	ReadOnly pulumi.BoolPtrInput `pulumi:"readOnly"`
-	// Contains the configuration settings for the web service endpoint.
-	RealtimeConfiguration RealtimeConfigurationPtrInput `pulumi:"realtimeConfiguration"`
-	// Specifies the storage account that Azure Machine Learning uses to store information about the web service. Only the name of the storage account is returned from calls to GET operations. When updating the storage account information, you must ensure that all necessary assets are available in the new storage account or calls to your web service will fail.
-	StorageAccount StorageAccountPtrInput `pulumi:"storageAccount"`
-	// The title of the web service.
-	Title pulumi.StringPtrInput `pulumi:"title"`
+	Assets                   AssetItemMapInput                       `pulumi:"assets"`
+	CommitmentPlan           CommitmentPlanPtrInput                  `pulumi:"commitmentPlan"`
+	Description              pulumi.StringPtrInput                   `pulumi:"description"`
+	Diagnostics              DiagnosticsConfigurationPtrInput        `pulumi:"diagnostics"`
+	ExampleRequest           ExampleRequestPtrInput                  `pulumi:"exampleRequest"`
+	ExposeSampleData         pulumi.BoolPtrInput                     `pulumi:"exposeSampleData"`
+	Input                    ServiceInputOutputSpecificationPtrInput `pulumi:"input"`
+	Keys                     WebServiceKeysPtrInput                  `pulumi:"keys"`
+	MachineLearningWorkspace MachineLearningWorkspacePtrInput        `pulumi:"machineLearningWorkspace"`
+	Output                   ServiceInputOutputSpecificationPtrInput `pulumi:"output"`
+	Package                  GraphPackagePtrInput                    `pulumi:"package"`
+	PackageType              pulumi.StringInput                      `pulumi:"packageType"`
+	Parameters               WebServiceParameterMapInput             `pulumi:"parameters"`
+	PayloadsInBlobStorage    pulumi.BoolPtrInput                     `pulumi:"payloadsInBlobStorage"`
+	PayloadsLocation         BlobLocationPtrInput                    `pulumi:"payloadsLocation"`
+	ReadOnly                 pulumi.BoolPtrInput                     `pulumi:"readOnly"`
+	RealtimeConfiguration    RealtimeConfigurationPtrInput           `pulumi:"realtimeConfiguration"`
+	StorageAccount           StorageAccountPtrInput                  `pulumi:"storageAccount"`
+	Title                    pulumi.StringPtrInput                   `pulumi:"title"`
 }
 
 func (WebServicePropertiesForGraphArgs) ElementType() reflect.Type {
@@ -6126,7 +5672,6 @@ func (i *webServicePropertiesForGraphPtrType) ToWebServicePropertiesForGraphPtrO
 	return pulumi.ToOutputWithContext(ctx, i).(WebServicePropertiesForGraphPtrOutput)
 }
 
-// Properties specific to a Graph based web service.
 type WebServicePropertiesForGraphOutput struct{ *pulumi.OutputState }
 
 func (WebServicePropertiesForGraphOutput) ElementType() reflect.Type {
@@ -6146,103 +5691,83 @@ func (o WebServicePropertiesForGraphOutput) ToWebServicePropertiesForGraphPtrOut
 }
 
 func (o WebServicePropertiesForGraphOutput) ToWebServicePropertiesForGraphPtrOutputWithContext(ctx context.Context) WebServicePropertiesForGraphPtrOutput {
-	return o.ApplyT(func(v WebServicePropertiesForGraph) *WebServicePropertiesForGraph {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v WebServicePropertiesForGraph) *WebServicePropertiesForGraph {
 		return &v
 	}).(WebServicePropertiesForGraphPtrOutput)
 }
 
-// Contains user defined properties describing web service assets. Properties are expressed as Key/Value pairs.
 func (o WebServicePropertiesForGraphOutput) Assets() AssetItemMapOutput {
 	return o.ApplyT(func(v WebServicePropertiesForGraph) map[string]AssetItem { return v.Assets }).(AssetItemMapOutput)
 }
 
-// Contains the commitment plan associated with this web service. Set at creation time. Once set, this value cannot be changed. Note: The commitment plan is not returned from calls to GET operations.
 func (o WebServicePropertiesForGraphOutput) CommitmentPlan() CommitmentPlanPtrOutput {
 	return o.ApplyT(func(v WebServicePropertiesForGraph) *CommitmentPlan { return v.CommitmentPlan }).(CommitmentPlanPtrOutput)
 }
 
-// The description of the web service.
 func (o WebServicePropertiesForGraphOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v WebServicePropertiesForGraph) *string { return v.Description }).(pulumi.StringPtrOutput)
 }
 
-// Settings controlling the diagnostics traces collection for the web service.
 func (o WebServicePropertiesForGraphOutput) Diagnostics() DiagnosticsConfigurationPtrOutput {
 	return o.ApplyT(func(v WebServicePropertiesForGraph) *DiagnosticsConfiguration { return v.Diagnostics }).(DiagnosticsConfigurationPtrOutput)
 }
 
-// Defines sample input data for one or more of the service's inputs.
 func (o WebServicePropertiesForGraphOutput) ExampleRequest() ExampleRequestPtrOutput {
 	return o.ApplyT(func(v WebServicePropertiesForGraph) *ExampleRequest { return v.ExampleRequest }).(ExampleRequestPtrOutput)
 }
 
-// When set to true, sample data is included in the web service's swagger definition. The default value is true.
 func (o WebServicePropertiesForGraphOutput) ExposeSampleData() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v WebServicePropertiesForGraph) *bool { return v.ExposeSampleData }).(pulumi.BoolPtrOutput)
 }
 
-// Contains the Swagger 2.0 schema describing one or more of the web service's inputs. For more information, see the Swagger specification.
 func (o WebServicePropertiesForGraphOutput) Input() ServiceInputOutputSpecificationPtrOutput {
 	return o.ApplyT(func(v WebServicePropertiesForGraph) *ServiceInputOutputSpecification { return v.Input }).(ServiceInputOutputSpecificationPtrOutput)
 }
 
-// Contains the web service provisioning keys. If you do not specify provisioning keys, the Azure Machine Learning system generates them for you. Note: The keys are not returned from calls to GET operations.
 func (o WebServicePropertiesForGraphOutput) Keys() WebServiceKeysPtrOutput {
 	return o.ApplyT(func(v WebServicePropertiesForGraph) *WebServiceKeys { return v.Keys }).(WebServiceKeysPtrOutput)
 }
 
-// Specifies the Machine Learning workspace containing the experiment that is source for the web service.
 func (o WebServicePropertiesForGraphOutput) MachineLearningWorkspace() MachineLearningWorkspacePtrOutput {
 	return o.ApplyT(func(v WebServicePropertiesForGraph) *MachineLearningWorkspace { return v.MachineLearningWorkspace }).(MachineLearningWorkspacePtrOutput)
 }
 
-// Contains the Swagger 2.0 schema describing one or more of the web service's outputs. For more information, see the Swagger specification.
 func (o WebServicePropertiesForGraphOutput) Output() ServiceInputOutputSpecificationPtrOutput {
 	return o.ApplyT(func(v WebServicePropertiesForGraph) *ServiceInputOutputSpecification { return v.Output }).(ServiceInputOutputSpecificationPtrOutput)
 }
 
-// The definition of the graph package making up this web service.
 func (o WebServicePropertiesForGraphOutput) Package() GraphPackagePtrOutput {
 	return o.ApplyT(func(v WebServicePropertiesForGraph) *GraphPackage { return v.Package }).(GraphPackagePtrOutput)
 }
 
-// Specifies the package type. Valid values are Graph (Specifies a web service published through the Machine Learning Studio) and Code (Specifies a web service published using code such as Python). Note: Code is not supported at this time.
-// Expected value is 'Graph'.
 func (o WebServicePropertiesForGraphOutput) PackageType() pulumi.StringOutput {
 	return o.ApplyT(func(v WebServicePropertiesForGraph) string { return v.PackageType }).(pulumi.StringOutput)
 }
 
-// The set of global parameters values defined for the web service, given as a global parameter name to default value map. If no default value is specified, the parameter is considered to be required.
 func (o WebServicePropertiesForGraphOutput) Parameters() WebServiceParameterMapOutput {
 	return o.ApplyT(func(v WebServicePropertiesForGraph) map[string]WebServiceParameter { return v.Parameters }).(WebServiceParameterMapOutput)
 }
 
-// When set to true, indicates that the payload size is larger than 3 MB. Otherwise false. If the payload size exceed 3 MB, the payload is stored in a blob and the PayloadsLocation parameter contains the URI of the blob. Otherwise, this will be set to false and Assets, Input, Output, Package, Parameters, ExampleRequest are inline. The Payload sizes is determined by adding the size of the Assets, Input, Output, Package, Parameters, and the ExampleRequest.
 func (o WebServicePropertiesForGraphOutput) PayloadsInBlobStorage() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v WebServicePropertiesForGraph) *bool { return v.PayloadsInBlobStorage }).(pulumi.BoolPtrOutput)
 }
 
-// The URI of the payload blob. This parameter contains a value only if the payloadsInBlobStorage parameter is set to true. Otherwise is set to null.
 func (o WebServicePropertiesForGraphOutput) PayloadsLocation() BlobLocationPtrOutput {
 	return o.ApplyT(func(v WebServicePropertiesForGraph) *BlobLocation { return v.PayloadsLocation }).(BlobLocationPtrOutput)
 }
 
-// When set to true, indicates that the web service is read-only and can no longer be updated or patched, only removed. Default, is false. Note: Once set to true, you cannot change its value.
 func (o WebServicePropertiesForGraphOutput) ReadOnly() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v WebServicePropertiesForGraph) *bool { return v.ReadOnly }).(pulumi.BoolPtrOutput)
 }
 
-// Contains the configuration settings for the web service endpoint.
 func (o WebServicePropertiesForGraphOutput) RealtimeConfiguration() RealtimeConfigurationPtrOutput {
 	return o.ApplyT(func(v WebServicePropertiesForGraph) *RealtimeConfiguration { return v.RealtimeConfiguration }).(RealtimeConfigurationPtrOutput)
 }
 
-// Specifies the storage account that Azure Machine Learning uses to store information about the web service. Only the name of the storage account is returned from calls to GET operations. When updating the storage account information, you must ensure that all necessary assets are available in the new storage account or calls to your web service will fail.
 func (o WebServicePropertiesForGraphOutput) StorageAccount() StorageAccountPtrOutput {
 	return o.ApplyT(func(v WebServicePropertiesForGraph) *StorageAccount { return v.StorageAccount }).(StorageAccountPtrOutput)
 }
 
-// The title of the web service.
 func (o WebServicePropertiesForGraphOutput) Title() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v WebServicePropertiesForGraph) *string { return v.Title }).(pulumi.StringPtrOutput)
 }
@@ -6262,10 +5787,15 @@ func (o WebServicePropertiesForGraphPtrOutput) ToWebServicePropertiesForGraphPtr
 }
 
 func (o WebServicePropertiesForGraphPtrOutput) Elem() WebServicePropertiesForGraphOutput {
-	return o.ApplyT(func(v *WebServicePropertiesForGraph) WebServicePropertiesForGraph { return *v }).(WebServicePropertiesForGraphOutput)
+	return o.ApplyT(func(v *WebServicePropertiesForGraph) WebServicePropertiesForGraph {
+		if v != nil {
+			return *v
+		}
+		var ret WebServicePropertiesForGraph
+		return ret
+	}).(WebServicePropertiesForGraphOutput)
 }
 
-// Contains user defined properties describing web service assets. Properties are expressed as Key/Value pairs.
 func (o WebServicePropertiesForGraphPtrOutput) Assets() AssetItemMapOutput {
 	return o.ApplyT(func(v *WebServicePropertiesForGraph) map[string]AssetItem {
 		if v == nil {
@@ -6275,7 +5805,6 @@ func (o WebServicePropertiesForGraphPtrOutput) Assets() AssetItemMapOutput {
 	}).(AssetItemMapOutput)
 }
 
-// Contains the commitment plan associated with this web service. Set at creation time. Once set, this value cannot be changed. Note: The commitment plan is not returned from calls to GET operations.
 func (o WebServicePropertiesForGraphPtrOutput) CommitmentPlan() CommitmentPlanPtrOutput {
 	return o.ApplyT(func(v *WebServicePropertiesForGraph) *CommitmentPlan {
 		if v == nil {
@@ -6285,7 +5814,6 @@ func (o WebServicePropertiesForGraphPtrOutput) CommitmentPlan() CommitmentPlanPt
 	}).(CommitmentPlanPtrOutput)
 }
 
-// The description of the web service.
 func (o WebServicePropertiesForGraphPtrOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *WebServicePropertiesForGraph) *string {
 		if v == nil {
@@ -6295,7 +5823,6 @@ func (o WebServicePropertiesForGraphPtrOutput) Description() pulumi.StringPtrOut
 	}).(pulumi.StringPtrOutput)
 }
 
-// Settings controlling the diagnostics traces collection for the web service.
 func (o WebServicePropertiesForGraphPtrOutput) Diagnostics() DiagnosticsConfigurationPtrOutput {
 	return o.ApplyT(func(v *WebServicePropertiesForGraph) *DiagnosticsConfiguration {
 		if v == nil {
@@ -6305,7 +5832,6 @@ func (o WebServicePropertiesForGraphPtrOutput) Diagnostics() DiagnosticsConfigur
 	}).(DiagnosticsConfigurationPtrOutput)
 }
 
-// Defines sample input data for one or more of the service's inputs.
 func (o WebServicePropertiesForGraphPtrOutput) ExampleRequest() ExampleRequestPtrOutput {
 	return o.ApplyT(func(v *WebServicePropertiesForGraph) *ExampleRequest {
 		if v == nil {
@@ -6315,7 +5841,6 @@ func (o WebServicePropertiesForGraphPtrOutput) ExampleRequest() ExampleRequestPt
 	}).(ExampleRequestPtrOutput)
 }
 
-// When set to true, sample data is included in the web service's swagger definition. The default value is true.
 func (o WebServicePropertiesForGraphPtrOutput) ExposeSampleData() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *WebServicePropertiesForGraph) *bool {
 		if v == nil {
@@ -6325,7 +5850,6 @@ func (o WebServicePropertiesForGraphPtrOutput) ExposeSampleData() pulumi.BoolPtr
 	}).(pulumi.BoolPtrOutput)
 }
 
-// Contains the Swagger 2.0 schema describing one or more of the web service's inputs. For more information, see the Swagger specification.
 func (o WebServicePropertiesForGraphPtrOutput) Input() ServiceInputOutputSpecificationPtrOutput {
 	return o.ApplyT(func(v *WebServicePropertiesForGraph) *ServiceInputOutputSpecification {
 		if v == nil {
@@ -6335,7 +5859,6 @@ func (o WebServicePropertiesForGraphPtrOutput) Input() ServiceInputOutputSpecifi
 	}).(ServiceInputOutputSpecificationPtrOutput)
 }
 
-// Contains the web service provisioning keys. If you do not specify provisioning keys, the Azure Machine Learning system generates them for you. Note: The keys are not returned from calls to GET operations.
 func (o WebServicePropertiesForGraphPtrOutput) Keys() WebServiceKeysPtrOutput {
 	return o.ApplyT(func(v *WebServicePropertiesForGraph) *WebServiceKeys {
 		if v == nil {
@@ -6345,7 +5868,6 @@ func (o WebServicePropertiesForGraphPtrOutput) Keys() WebServiceKeysPtrOutput {
 	}).(WebServiceKeysPtrOutput)
 }
 
-// Specifies the Machine Learning workspace containing the experiment that is source for the web service.
 func (o WebServicePropertiesForGraphPtrOutput) MachineLearningWorkspace() MachineLearningWorkspacePtrOutput {
 	return o.ApplyT(func(v *WebServicePropertiesForGraph) *MachineLearningWorkspace {
 		if v == nil {
@@ -6355,7 +5877,6 @@ func (o WebServicePropertiesForGraphPtrOutput) MachineLearningWorkspace() Machin
 	}).(MachineLearningWorkspacePtrOutput)
 }
 
-// Contains the Swagger 2.0 schema describing one or more of the web service's outputs. For more information, see the Swagger specification.
 func (o WebServicePropertiesForGraphPtrOutput) Output() ServiceInputOutputSpecificationPtrOutput {
 	return o.ApplyT(func(v *WebServicePropertiesForGraph) *ServiceInputOutputSpecification {
 		if v == nil {
@@ -6365,7 +5886,6 @@ func (o WebServicePropertiesForGraphPtrOutput) Output() ServiceInputOutputSpecif
 	}).(ServiceInputOutputSpecificationPtrOutput)
 }
 
-// The definition of the graph package making up this web service.
 func (o WebServicePropertiesForGraphPtrOutput) Package() GraphPackagePtrOutput {
 	return o.ApplyT(func(v *WebServicePropertiesForGraph) *GraphPackage {
 		if v == nil {
@@ -6375,8 +5895,6 @@ func (o WebServicePropertiesForGraphPtrOutput) Package() GraphPackagePtrOutput {
 	}).(GraphPackagePtrOutput)
 }
 
-// Specifies the package type. Valid values are Graph (Specifies a web service published through the Machine Learning Studio) and Code (Specifies a web service published using code such as Python). Note: Code is not supported at this time.
-// Expected value is 'Graph'.
 func (o WebServicePropertiesForGraphPtrOutput) PackageType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *WebServicePropertiesForGraph) *string {
 		if v == nil {
@@ -6386,7 +5904,6 @@ func (o WebServicePropertiesForGraphPtrOutput) PackageType() pulumi.StringPtrOut
 	}).(pulumi.StringPtrOutput)
 }
 
-// The set of global parameters values defined for the web service, given as a global parameter name to default value map. If no default value is specified, the parameter is considered to be required.
 func (o WebServicePropertiesForGraphPtrOutput) Parameters() WebServiceParameterMapOutput {
 	return o.ApplyT(func(v *WebServicePropertiesForGraph) map[string]WebServiceParameter {
 		if v == nil {
@@ -6396,7 +5913,6 @@ func (o WebServicePropertiesForGraphPtrOutput) Parameters() WebServiceParameterM
 	}).(WebServiceParameterMapOutput)
 }
 
-// When set to true, indicates that the payload size is larger than 3 MB. Otherwise false. If the payload size exceed 3 MB, the payload is stored in a blob and the PayloadsLocation parameter contains the URI of the blob. Otherwise, this will be set to false and Assets, Input, Output, Package, Parameters, ExampleRequest are inline. The Payload sizes is determined by adding the size of the Assets, Input, Output, Package, Parameters, and the ExampleRequest.
 func (o WebServicePropertiesForGraphPtrOutput) PayloadsInBlobStorage() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *WebServicePropertiesForGraph) *bool {
 		if v == nil {
@@ -6406,7 +5922,6 @@ func (o WebServicePropertiesForGraphPtrOutput) PayloadsInBlobStorage() pulumi.Bo
 	}).(pulumi.BoolPtrOutput)
 }
 
-// The URI of the payload blob. This parameter contains a value only if the payloadsInBlobStorage parameter is set to true. Otherwise is set to null.
 func (o WebServicePropertiesForGraphPtrOutput) PayloadsLocation() BlobLocationPtrOutput {
 	return o.ApplyT(func(v *WebServicePropertiesForGraph) *BlobLocation {
 		if v == nil {
@@ -6416,7 +5931,6 @@ func (o WebServicePropertiesForGraphPtrOutput) PayloadsLocation() BlobLocationPt
 	}).(BlobLocationPtrOutput)
 }
 
-// When set to true, indicates that the web service is read-only and can no longer be updated or patched, only removed. Default, is false. Note: Once set to true, you cannot change its value.
 func (o WebServicePropertiesForGraphPtrOutput) ReadOnly() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *WebServicePropertiesForGraph) *bool {
 		if v == nil {
@@ -6426,7 +5940,6 @@ func (o WebServicePropertiesForGraphPtrOutput) ReadOnly() pulumi.BoolPtrOutput {
 	}).(pulumi.BoolPtrOutput)
 }
 
-// Contains the configuration settings for the web service endpoint.
 func (o WebServicePropertiesForGraphPtrOutput) RealtimeConfiguration() RealtimeConfigurationPtrOutput {
 	return o.ApplyT(func(v *WebServicePropertiesForGraph) *RealtimeConfiguration {
 		if v == nil {
@@ -6436,7 +5949,6 @@ func (o WebServicePropertiesForGraphPtrOutput) RealtimeConfiguration() RealtimeC
 	}).(RealtimeConfigurationPtrOutput)
 }
 
-// Specifies the storage account that Azure Machine Learning uses to store information about the web service. Only the name of the storage account is returned from calls to GET operations. When updating the storage account information, you must ensure that all necessary assets are available in the new storage account or calls to your web service will fail.
 func (o WebServicePropertiesForGraphPtrOutput) StorageAccount() StorageAccountPtrOutput {
 	return o.ApplyT(func(v *WebServicePropertiesForGraph) *StorageAccount {
 		if v == nil {
@@ -6446,7 +5958,6 @@ func (o WebServicePropertiesForGraphPtrOutput) StorageAccount() StorageAccountPt
 	}).(StorageAccountPtrOutput)
 }
 
-// The title of the web service.
 func (o WebServicePropertiesForGraphPtrOutput) Title() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *WebServicePropertiesForGraph) *string {
 		if v == nil {
@@ -6456,55 +5967,30 @@ func (o WebServicePropertiesForGraphPtrOutput) Title() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Properties specific to a Graph based web service.
 type WebServicePropertiesForGraphResponse struct {
-	// Contains user defined properties describing web service assets. Properties are expressed as Key/Value pairs.
-	Assets map[string]AssetItemResponse `pulumi:"assets"`
-	// Contains the commitment plan associated with this web service. Set at creation time. Once set, this value cannot be changed. Note: The commitment plan is not returned from calls to GET operations.
-	CommitmentPlan *CommitmentPlanResponse `pulumi:"commitmentPlan"`
-	// Read Only: The date and time when the web service was created.
-	CreatedOn string `pulumi:"createdOn"`
-	// The description of the web service.
-	Description *string `pulumi:"description"`
-	// Settings controlling the diagnostics traces collection for the web service.
-	Diagnostics *DiagnosticsConfigurationResponse `pulumi:"diagnostics"`
-	// Defines sample input data for one or more of the service's inputs.
-	ExampleRequest *ExampleRequestResponse `pulumi:"exampleRequest"`
-	// When set to true, sample data is included in the web service's swagger definition. The default value is true.
-	ExposeSampleData *bool `pulumi:"exposeSampleData"`
-	// Contains the Swagger 2.0 schema describing one or more of the web service's inputs. For more information, see the Swagger specification.
-	Input *ServiceInputOutputSpecificationResponse `pulumi:"input"`
-	// Contains the web service provisioning keys. If you do not specify provisioning keys, the Azure Machine Learning system generates them for you. Note: The keys are not returned from calls to GET operations.
-	Keys *WebServiceKeysResponse `pulumi:"keys"`
-	// Specifies the Machine Learning workspace containing the experiment that is source for the web service.
-	MachineLearningWorkspace *MachineLearningWorkspaceResponse `pulumi:"machineLearningWorkspace"`
-	// Read Only: The date and time when the web service was last modified.
-	ModifiedOn string `pulumi:"modifiedOn"`
-	// Contains the Swagger 2.0 schema describing one or more of the web service's outputs. For more information, see the Swagger specification.
-	Output *ServiceInputOutputSpecificationResponse `pulumi:"output"`
-	// The definition of the graph package making up this web service.
-	Package *GraphPackageResponse `pulumi:"package"`
-	// Specifies the package type. Valid values are Graph (Specifies a web service published through the Machine Learning Studio) and Code (Specifies a web service published using code such as Python). Note: Code is not supported at this time.
-	// Expected value is 'Graph'.
-	PackageType string `pulumi:"packageType"`
-	// The set of global parameters values defined for the web service, given as a global parameter name to default value map. If no default value is specified, the parameter is considered to be required.
-	Parameters map[string]WebServiceParameterResponse `pulumi:"parameters"`
-	// When set to true, indicates that the payload size is larger than 3 MB. Otherwise false. If the payload size exceed 3 MB, the payload is stored in a blob and the PayloadsLocation parameter contains the URI of the blob. Otherwise, this will be set to false and Assets, Input, Output, Package, Parameters, ExampleRequest are inline. The Payload sizes is determined by adding the size of the Assets, Input, Output, Package, Parameters, and the ExampleRequest.
-	PayloadsInBlobStorage *bool `pulumi:"payloadsInBlobStorage"`
-	// The URI of the payload blob. This parameter contains a value only if the payloadsInBlobStorage parameter is set to true. Otherwise is set to null.
-	PayloadsLocation *BlobLocationResponse `pulumi:"payloadsLocation"`
-	// Read Only: The provision state of the web service. Valid values are Unknown, Provisioning, Succeeded, and Failed.
-	ProvisioningState string `pulumi:"provisioningState"`
-	// When set to true, indicates that the web service is read-only and can no longer be updated or patched, only removed. Default, is false. Note: Once set to true, you cannot change its value.
-	ReadOnly *bool `pulumi:"readOnly"`
-	// Contains the configuration settings for the web service endpoint.
-	RealtimeConfiguration *RealtimeConfigurationResponse `pulumi:"realtimeConfiguration"`
-	// Specifies the storage account that Azure Machine Learning uses to store information about the web service. Only the name of the storage account is returned from calls to GET operations. When updating the storage account information, you must ensure that all necessary assets are available in the new storage account or calls to your web service will fail.
-	StorageAccount *StorageAccountResponse `pulumi:"storageAccount"`
-	// Read Only: Contains the URI of the swagger spec associated with this web service.
-	SwaggerLocation string `pulumi:"swaggerLocation"`
-	// The title of the web service.
-	Title *string `pulumi:"title"`
+	Assets                   map[string]AssetItemResponse             `pulumi:"assets"`
+	CommitmentPlan           *CommitmentPlanResponse                  `pulumi:"commitmentPlan"`
+	CreatedOn                string                                   `pulumi:"createdOn"`
+	Description              *string                                  `pulumi:"description"`
+	Diagnostics              *DiagnosticsConfigurationResponse        `pulumi:"diagnostics"`
+	ExampleRequest           *ExampleRequestResponse                  `pulumi:"exampleRequest"`
+	ExposeSampleData         *bool                                    `pulumi:"exposeSampleData"`
+	Input                    *ServiceInputOutputSpecificationResponse `pulumi:"input"`
+	Keys                     *WebServiceKeysResponse                  `pulumi:"keys"`
+	MachineLearningWorkspace *MachineLearningWorkspaceResponse        `pulumi:"machineLearningWorkspace"`
+	ModifiedOn               string                                   `pulumi:"modifiedOn"`
+	Output                   *ServiceInputOutputSpecificationResponse `pulumi:"output"`
+	Package                  *GraphPackageResponse                    `pulumi:"package"`
+	PackageType              string                                   `pulumi:"packageType"`
+	Parameters               map[string]WebServiceParameterResponse   `pulumi:"parameters"`
+	PayloadsInBlobStorage    *bool                                    `pulumi:"payloadsInBlobStorage"`
+	PayloadsLocation         *BlobLocationResponse                    `pulumi:"payloadsLocation"`
+	ProvisioningState        string                                   `pulumi:"provisioningState"`
+	ReadOnly                 *bool                                    `pulumi:"readOnly"`
+	RealtimeConfiguration    *RealtimeConfigurationResponse           `pulumi:"realtimeConfiguration"`
+	StorageAccount           *StorageAccountResponse                  `pulumi:"storageAccount"`
+	SwaggerLocation          string                                   `pulumi:"swaggerLocation"`
+	Title                    *string                                  `pulumi:"title"`
 }
 
 // WebServicePropertiesForGraphResponseInput is an input type that accepts WebServicePropertiesForGraphResponseArgs and WebServicePropertiesForGraphResponseOutput values.
@@ -6518,55 +6004,30 @@ type WebServicePropertiesForGraphResponseInput interface {
 	ToWebServicePropertiesForGraphResponseOutputWithContext(context.Context) WebServicePropertiesForGraphResponseOutput
 }
 
-// Properties specific to a Graph based web service.
 type WebServicePropertiesForGraphResponseArgs struct {
-	// Contains user defined properties describing web service assets. Properties are expressed as Key/Value pairs.
-	Assets AssetItemResponseMapInput `pulumi:"assets"`
-	// Contains the commitment plan associated with this web service. Set at creation time. Once set, this value cannot be changed. Note: The commitment plan is not returned from calls to GET operations.
-	CommitmentPlan CommitmentPlanResponsePtrInput `pulumi:"commitmentPlan"`
-	// Read Only: The date and time when the web service was created.
-	CreatedOn pulumi.StringInput `pulumi:"createdOn"`
-	// The description of the web service.
-	Description pulumi.StringPtrInput `pulumi:"description"`
-	// Settings controlling the diagnostics traces collection for the web service.
-	Diagnostics DiagnosticsConfigurationResponsePtrInput `pulumi:"diagnostics"`
-	// Defines sample input data for one or more of the service's inputs.
-	ExampleRequest ExampleRequestResponsePtrInput `pulumi:"exampleRequest"`
-	// When set to true, sample data is included in the web service's swagger definition. The default value is true.
-	ExposeSampleData pulumi.BoolPtrInput `pulumi:"exposeSampleData"`
-	// Contains the Swagger 2.0 schema describing one or more of the web service's inputs. For more information, see the Swagger specification.
-	Input ServiceInputOutputSpecificationResponsePtrInput `pulumi:"input"`
-	// Contains the web service provisioning keys. If you do not specify provisioning keys, the Azure Machine Learning system generates them for you. Note: The keys are not returned from calls to GET operations.
-	Keys WebServiceKeysResponsePtrInput `pulumi:"keys"`
-	// Specifies the Machine Learning workspace containing the experiment that is source for the web service.
-	MachineLearningWorkspace MachineLearningWorkspaceResponsePtrInput `pulumi:"machineLearningWorkspace"`
-	// Read Only: The date and time when the web service was last modified.
-	ModifiedOn pulumi.StringInput `pulumi:"modifiedOn"`
-	// Contains the Swagger 2.0 schema describing one or more of the web service's outputs. For more information, see the Swagger specification.
-	Output ServiceInputOutputSpecificationResponsePtrInput `pulumi:"output"`
-	// The definition of the graph package making up this web service.
-	Package GraphPackageResponsePtrInput `pulumi:"package"`
-	// Specifies the package type. Valid values are Graph (Specifies a web service published through the Machine Learning Studio) and Code (Specifies a web service published using code such as Python). Note: Code is not supported at this time.
-	// Expected value is 'Graph'.
-	PackageType pulumi.StringInput `pulumi:"packageType"`
-	// The set of global parameters values defined for the web service, given as a global parameter name to default value map. If no default value is specified, the parameter is considered to be required.
-	Parameters WebServiceParameterResponseMapInput `pulumi:"parameters"`
-	// When set to true, indicates that the payload size is larger than 3 MB. Otherwise false. If the payload size exceed 3 MB, the payload is stored in a blob and the PayloadsLocation parameter contains the URI of the blob. Otherwise, this will be set to false and Assets, Input, Output, Package, Parameters, ExampleRequest are inline. The Payload sizes is determined by adding the size of the Assets, Input, Output, Package, Parameters, and the ExampleRequest.
-	PayloadsInBlobStorage pulumi.BoolPtrInput `pulumi:"payloadsInBlobStorage"`
-	// The URI of the payload blob. This parameter contains a value only if the payloadsInBlobStorage parameter is set to true. Otherwise is set to null.
-	PayloadsLocation BlobLocationResponsePtrInput `pulumi:"payloadsLocation"`
-	// Read Only: The provision state of the web service. Valid values are Unknown, Provisioning, Succeeded, and Failed.
-	ProvisioningState pulumi.StringInput `pulumi:"provisioningState"`
-	// When set to true, indicates that the web service is read-only and can no longer be updated or patched, only removed. Default, is false. Note: Once set to true, you cannot change its value.
-	ReadOnly pulumi.BoolPtrInput `pulumi:"readOnly"`
-	// Contains the configuration settings for the web service endpoint.
-	RealtimeConfiguration RealtimeConfigurationResponsePtrInput `pulumi:"realtimeConfiguration"`
-	// Specifies the storage account that Azure Machine Learning uses to store information about the web service. Only the name of the storage account is returned from calls to GET operations. When updating the storage account information, you must ensure that all necessary assets are available in the new storage account or calls to your web service will fail.
-	StorageAccount StorageAccountResponsePtrInput `pulumi:"storageAccount"`
-	// Read Only: Contains the URI of the swagger spec associated with this web service.
-	SwaggerLocation pulumi.StringInput `pulumi:"swaggerLocation"`
-	// The title of the web service.
-	Title pulumi.StringPtrInput `pulumi:"title"`
+	Assets                   AssetItemResponseMapInput                       `pulumi:"assets"`
+	CommitmentPlan           CommitmentPlanResponsePtrInput                  `pulumi:"commitmentPlan"`
+	CreatedOn                pulumi.StringInput                              `pulumi:"createdOn"`
+	Description              pulumi.StringPtrInput                           `pulumi:"description"`
+	Diagnostics              DiagnosticsConfigurationResponsePtrInput        `pulumi:"diagnostics"`
+	ExampleRequest           ExampleRequestResponsePtrInput                  `pulumi:"exampleRequest"`
+	ExposeSampleData         pulumi.BoolPtrInput                             `pulumi:"exposeSampleData"`
+	Input                    ServiceInputOutputSpecificationResponsePtrInput `pulumi:"input"`
+	Keys                     WebServiceKeysResponsePtrInput                  `pulumi:"keys"`
+	MachineLearningWorkspace MachineLearningWorkspaceResponsePtrInput        `pulumi:"machineLearningWorkspace"`
+	ModifiedOn               pulumi.StringInput                              `pulumi:"modifiedOn"`
+	Output                   ServiceInputOutputSpecificationResponsePtrInput `pulumi:"output"`
+	Package                  GraphPackageResponsePtrInput                    `pulumi:"package"`
+	PackageType              pulumi.StringInput                              `pulumi:"packageType"`
+	Parameters               WebServiceParameterResponseMapInput             `pulumi:"parameters"`
+	PayloadsInBlobStorage    pulumi.BoolPtrInput                             `pulumi:"payloadsInBlobStorage"`
+	PayloadsLocation         BlobLocationResponsePtrInput                    `pulumi:"payloadsLocation"`
+	ProvisioningState        pulumi.StringInput                              `pulumi:"provisioningState"`
+	ReadOnly                 pulumi.BoolPtrInput                             `pulumi:"readOnly"`
+	RealtimeConfiguration    RealtimeConfigurationResponsePtrInput           `pulumi:"realtimeConfiguration"`
+	StorageAccount           StorageAccountResponsePtrInput                  `pulumi:"storageAccount"`
+	SwaggerLocation          pulumi.StringInput                              `pulumi:"swaggerLocation"`
+	Title                    pulumi.StringPtrInput                           `pulumi:"title"`
 }
 
 func (WebServicePropertiesForGraphResponseArgs) ElementType() reflect.Type {
@@ -6622,7 +6083,6 @@ func (i *webServicePropertiesForGraphResponsePtrType) ToWebServicePropertiesForG
 	return pulumi.ToOutputWithContext(ctx, i).(WebServicePropertiesForGraphResponsePtrOutput)
 }
 
-// Properties specific to a Graph based web service.
 type WebServicePropertiesForGraphResponseOutput struct{ *pulumi.OutputState }
 
 func (WebServicePropertiesForGraphResponseOutput) ElementType() reflect.Type {
@@ -6642,129 +6102,105 @@ func (o WebServicePropertiesForGraphResponseOutput) ToWebServicePropertiesForGra
 }
 
 func (o WebServicePropertiesForGraphResponseOutput) ToWebServicePropertiesForGraphResponsePtrOutputWithContext(ctx context.Context) WebServicePropertiesForGraphResponsePtrOutput {
-	return o.ApplyT(func(v WebServicePropertiesForGraphResponse) *WebServicePropertiesForGraphResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v WebServicePropertiesForGraphResponse) *WebServicePropertiesForGraphResponse {
 		return &v
 	}).(WebServicePropertiesForGraphResponsePtrOutput)
 }
 
-// Contains user defined properties describing web service assets. Properties are expressed as Key/Value pairs.
 func (o WebServicePropertiesForGraphResponseOutput) Assets() AssetItemResponseMapOutput {
 	return o.ApplyT(func(v WebServicePropertiesForGraphResponse) map[string]AssetItemResponse { return v.Assets }).(AssetItemResponseMapOutput)
 }
 
-// Contains the commitment plan associated with this web service. Set at creation time. Once set, this value cannot be changed. Note: The commitment plan is not returned from calls to GET operations.
 func (o WebServicePropertiesForGraphResponseOutput) CommitmentPlan() CommitmentPlanResponsePtrOutput {
 	return o.ApplyT(func(v WebServicePropertiesForGraphResponse) *CommitmentPlanResponse { return v.CommitmentPlan }).(CommitmentPlanResponsePtrOutput)
 }
 
-// Read Only: The date and time when the web service was created.
 func (o WebServicePropertiesForGraphResponseOutput) CreatedOn() pulumi.StringOutput {
 	return o.ApplyT(func(v WebServicePropertiesForGraphResponse) string { return v.CreatedOn }).(pulumi.StringOutput)
 }
 
-// The description of the web service.
 func (o WebServicePropertiesForGraphResponseOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v WebServicePropertiesForGraphResponse) *string { return v.Description }).(pulumi.StringPtrOutput)
 }
 
-// Settings controlling the diagnostics traces collection for the web service.
 func (o WebServicePropertiesForGraphResponseOutput) Diagnostics() DiagnosticsConfigurationResponsePtrOutput {
 	return o.ApplyT(func(v WebServicePropertiesForGraphResponse) *DiagnosticsConfigurationResponse { return v.Diagnostics }).(DiagnosticsConfigurationResponsePtrOutput)
 }
 
-// Defines sample input data for one or more of the service's inputs.
 func (o WebServicePropertiesForGraphResponseOutput) ExampleRequest() ExampleRequestResponsePtrOutput {
 	return o.ApplyT(func(v WebServicePropertiesForGraphResponse) *ExampleRequestResponse { return v.ExampleRequest }).(ExampleRequestResponsePtrOutput)
 }
 
-// When set to true, sample data is included in the web service's swagger definition. The default value is true.
 func (o WebServicePropertiesForGraphResponseOutput) ExposeSampleData() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v WebServicePropertiesForGraphResponse) *bool { return v.ExposeSampleData }).(pulumi.BoolPtrOutput)
 }
 
-// Contains the Swagger 2.0 schema describing one or more of the web service's inputs. For more information, see the Swagger specification.
 func (o WebServicePropertiesForGraphResponseOutput) Input() ServiceInputOutputSpecificationResponsePtrOutput {
 	return o.ApplyT(func(v WebServicePropertiesForGraphResponse) *ServiceInputOutputSpecificationResponse { return v.Input }).(ServiceInputOutputSpecificationResponsePtrOutput)
 }
 
-// Contains the web service provisioning keys. If you do not specify provisioning keys, the Azure Machine Learning system generates them for you. Note: The keys are not returned from calls to GET operations.
 func (o WebServicePropertiesForGraphResponseOutput) Keys() WebServiceKeysResponsePtrOutput {
 	return o.ApplyT(func(v WebServicePropertiesForGraphResponse) *WebServiceKeysResponse { return v.Keys }).(WebServiceKeysResponsePtrOutput)
 }
 
-// Specifies the Machine Learning workspace containing the experiment that is source for the web service.
 func (o WebServicePropertiesForGraphResponseOutput) MachineLearningWorkspace() MachineLearningWorkspaceResponsePtrOutput {
 	return o.ApplyT(func(v WebServicePropertiesForGraphResponse) *MachineLearningWorkspaceResponse {
 		return v.MachineLearningWorkspace
 	}).(MachineLearningWorkspaceResponsePtrOutput)
 }
 
-// Read Only: The date and time when the web service was last modified.
 func (o WebServicePropertiesForGraphResponseOutput) ModifiedOn() pulumi.StringOutput {
 	return o.ApplyT(func(v WebServicePropertiesForGraphResponse) string { return v.ModifiedOn }).(pulumi.StringOutput)
 }
 
-// Contains the Swagger 2.0 schema describing one or more of the web service's outputs. For more information, see the Swagger specification.
 func (o WebServicePropertiesForGraphResponseOutput) Output() ServiceInputOutputSpecificationResponsePtrOutput {
 	return o.ApplyT(func(v WebServicePropertiesForGraphResponse) *ServiceInputOutputSpecificationResponse { return v.Output }).(ServiceInputOutputSpecificationResponsePtrOutput)
 }
 
-// The definition of the graph package making up this web service.
 func (o WebServicePropertiesForGraphResponseOutput) Package() GraphPackageResponsePtrOutput {
 	return o.ApplyT(func(v WebServicePropertiesForGraphResponse) *GraphPackageResponse { return v.Package }).(GraphPackageResponsePtrOutput)
 }
 
-// Specifies the package type. Valid values are Graph (Specifies a web service published through the Machine Learning Studio) and Code (Specifies a web service published using code such as Python). Note: Code is not supported at this time.
-// Expected value is 'Graph'.
 func (o WebServicePropertiesForGraphResponseOutput) PackageType() pulumi.StringOutput {
 	return o.ApplyT(func(v WebServicePropertiesForGraphResponse) string { return v.PackageType }).(pulumi.StringOutput)
 }
 
-// The set of global parameters values defined for the web service, given as a global parameter name to default value map. If no default value is specified, the parameter is considered to be required.
 func (o WebServicePropertiesForGraphResponseOutput) Parameters() WebServiceParameterResponseMapOutput {
 	return o.ApplyT(func(v WebServicePropertiesForGraphResponse) map[string]WebServiceParameterResponse {
 		return v.Parameters
 	}).(WebServiceParameterResponseMapOutput)
 }
 
-// When set to true, indicates that the payload size is larger than 3 MB. Otherwise false. If the payload size exceed 3 MB, the payload is stored in a blob and the PayloadsLocation parameter contains the URI of the blob. Otherwise, this will be set to false and Assets, Input, Output, Package, Parameters, ExampleRequest are inline. The Payload sizes is determined by adding the size of the Assets, Input, Output, Package, Parameters, and the ExampleRequest.
 func (o WebServicePropertiesForGraphResponseOutput) PayloadsInBlobStorage() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v WebServicePropertiesForGraphResponse) *bool { return v.PayloadsInBlobStorage }).(pulumi.BoolPtrOutput)
 }
 
-// The URI of the payload blob. This parameter contains a value only if the payloadsInBlobStorage parameter is set to true. Otherwise is set to null.
 func (o WebServicePropertiesForGraphResponseOutput) PayloadsLocation() BlobLocationResponsePtrOutput {
 	return o.ApplyT(func(v WebServicePropertiesForGraphResponse) *BlobLocationResponse { return v.PayloadsLocation }).(BlobLocationResponsePtrOutput)
 }
 
-// Read Only: The provision state of the web service. Valid values are Unknown, Provisioning, Succeeded, and Failed.
 func (o WebServicePropertiesForGraphResponseOutput) ProvisioningState() pulumi.StringOutput {
 	return o.ApplyT(func(v WebServicePropertiesForGraphResponse) string { return v.ProvisioningState }).(pulumi.StringOutput)
 }
 
-// When set to true, indicates that the web service is read-only and can no longer be updated or patched, only removed. Default, is false. Note: Once set to true, you cannot change its value.
 func (o WebServicePropertiesForGraphResponseOutput) ReadOnly() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v WebServicePropertiesForGraphResponse) *bool { return v.ReadOnly }).(pulumi.BoolPtrOutput)
 }
 
-// Contains the configuration settings for the web service endpoint.
 func (o WebServicePropertiesForGraphResponseOutput) RealtimeConfiguration() RealtimeConfigurationResponsePtrOutput {
 	return o.ApplyT(func(v WebServicePropertiesForGraphResponse) *RealtimeConfigurationResponse {
 		return v.RealtimeConfiguration
 	}).(RealtimeConfigurationResponsePtrOutput)
 }
 
-// Specifies the storage account that Azure Machine Learning uses to store information about the web service. Only the name of the storage account is returned from calls to GET operations. When updating the storage account information, you must ensure that all necessary assets are available in the new storage account or calls to your web service will fail.
 func (o WebServicePropertiesForGraphResponseOutput) StorageAccount() StorageAccountResponsePtrOutput {
 	return o.ApplyT(func(v WebServicePropertiesForGraphResponse) *StorageAccountResponse { return v.StorageAccount }).(StorageAccountResponsePtrOutput)
 }
 
-// Read Only: Contains the URI of the swagger spec associated with this web service.
 func (o WebServicePropertiesForGraphResponseOutput) SwaggerLocation() pulumi.StringOutput {
 	return o.ApplyT(func(v WebServicePropertiesForGraphResponse) string { return v.SwaggerLocation }).(pulumi.StringOutput)
 }
 
-// The title of the web service.
 func (o WebServicePropertiesForGraphResponseOutput) Title() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v WebServicePropertiesForGraphResponse) *string { return v.Title }).(pulumi.StringPtrOutput)
 }
@@ -6784,10 +6220,15 @@ func (o WebServicePropertiesForGraphResponsePtrOutput) ToWebServicePropertiesFor
 }
 
 func (o WebServicePropertiesForGraphResponsePtrOutput) Elem() WebServicePropertiesForGraphResponseOutput {
-	return o.ApplyT(func(v *WebServicePropertiesForGraphResponse) WebServicePropertiesForGraphResponse { return *v }).(WebServicePropertiesForGraphResponseOutput)
+	return o.ApplyT(func(v *WebServicePropertiesForGraphResponse) WebServicePropertiesForGraphResponse {
+		if v != nil {
+			return *v
+		}
+		var ret WebServicePropertiesForGraphResponse
+		return ret
+	}).(WebServicePropertiesForGraphResponseOutput)
 }
 
-// Contains user defined properties describing web service assets. Properties are expressed as Key/Value pairs.
 func (o WebServicePropertiesForGraphResponsePtrOutput) Assets() AssetItemResponseMapOutput {
 	return o.ApplyT(func(v *WebServicePropertiesForGraphResponse) map[string]AssetItemResponse {
 		if v == nil {
@@ -6797,7 +6238,6 @@ func (o WebServicePropertiesForGraphResponsePtrOutput) Assets() AssetItemRespons
 	}).(AssetItemResponseMapOutput)
 }
 
-// Contains the commitment plan associated with this web service. Set at creation time. Once set, this value cannot be changed. Note: The commitment plan is not returned from calls to GET operations.
 func (o WebServicePropertiesForGraphResponsePtrOutput) CommitmentPlan() CommitmentPlanResponsePtrOutput {
 	return o.ApplyT(func(v *WebServicePropertiesForGraphResponse) *CommitmentPlanResponse {
 		if v == nil {
@@ -6807,7 +6247,6 @@ func (o WebServicePropertiesForGraphResponsePtrOutput) CommitmentPlan() Commitme
 	}).(CommitmentPlanResponsePtrOutput)
 }
 
-// Read Only: The date and time when the web service was created.
 func (o WebServicePropertiesForGraphResponsePtrOutput) CreatedOn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *WebServicePropertiesForGraphResponse) *string {
 		if v == nil {
@@ -6817,7 +6256,6 @@ func (o WebServicePropertiesForGraphResponsePtrOutput) CreatedOn() pulumi.String
 	}).(pulumi.StringPtrOutput)
 }
 
-// The description of the web service.
 func (o WebServicePropertiesForGraphResponsePtrOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *WebServicePropertiesForGraphResponse) *string {
 		if v == nil {
@@ -6827,7 +6265,6 @@ func (o WebServicePropertiesForGraphResponsePtrOutput) Description() pulumi.Stri
 	}).(pulumi.StringPtrOutput)
 }
 
-// Settings controlling the diagnostics traces collection for the web service.
 func (o WebServicePropertiesForGraphResponsePtrOutput) Diagnostics() DiagnosticsConfigurationResponsePtrOutput {
 	return o.ApplyT(func(v *WebServicePropertiesForGraphResponse) *DiagnosticsConfigurationResponse {
 		if v == nil {
@@ -6837,7 +6274,6 @@ func (o WebServicePropertiesForGraphResponsePtrOutput) Diagnostics() Diagnostics
 	}).(DiagnosticsConfigurationResponsePtrOutput)
 }
 
-// Defines sample input data for one or more of the service's inputs.
 func (o WebServicePropertiesForGraphResponsePtrOutput) ExampleRequest() ExampleRequestResponsePtrOutput {
 	return o.ApplyT(func(v *WebServicePropertiesForGraphResponse) *ExampleRequestResponse {
 		if v == nil {
@@ -6847,7 +6283,6 @@ func (o WebServicePropertiesForGraphResponsePtrOutput) ExampleRequest() ExampleR
 	}).(ExampleRequestResponsePtrOutput)
 }
 
-// When set to true, sample data is included in the web service's swagger definition. The default value is true.
 func (o WebServicePropertiesForGraphResponsePtrOutput) ExposeSampleData() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *WebServicePropertiesForGraphResponse) *bool {
 		if v == nil {
@@ -6857,7 +6292,6 @@ func (o WebServicePropertiesForGraphResponsePtrOutput) ExposeSampleData() pulumi
 	}).(pulumi.BoolPtrOutput)
 }
 
-// Contains the Swagger 2.0 schema describing one or more of the web service's inputs. For more information, see the Swagger specification.
 func (o WebServicePropertiesForGraphResponsePtrOutput) Input() ServiceInputOutputSpecificationResponsePtrOutput {
 	return o.ApplyT(func(v *WebServicePropertiesForGraphResponse) *ServiceInputOutputSpecificationResponse {
 		if v == nil {
@@ -6867,7 +6301,6 @@ func (o WebServicePropertiesForGraphResponsePtrOutput) Input() ServiceInputOutpu
 	}).(ServiceInputOutputSpecificationResponsePtrOutput)
 }
 
-// Contains the web service provisioning keys. If you do not specify provisioning keys, the Azure Machine Learning system generates them for you. Note: The keys are not returned from calls to GET operations.
 func (o WebServicePropertiesForGraphResponsePtrOutput) Keys() WebServiceKeysResponsePtrOutput {
 	return o.ApplyT(func(v *WebServicePropertiesForGraphResponse) *WebServiceKeysResponse {
 		if v == nil {
@@ -6877,7 +6310,6 @@ func (o WebServicePropertiesForGraphResponsePtrOutput) Keys() WebServiceKeysResp
 	}).(WebServiceKeysResponsePtrOutput)
 }
 
-// Specifies the Machine Learning workspace containing the experiment that is source for the web service.
 func (o WebServicePropertiesForGraphResponsePtrOutput) MachineLearningWorkspace() MachineLearningWorkspaceResponsePtrOutput {
 	return o.ApplyT(func(v *WebServicePropertiesForGraphResponse) *MachineLearningWorkspaceResponse {
 		if v == nil {
@@ -6887,7 +6319,6 @@ func (o WebServicePropertiesForGraphResponsePtrOutput) MachineLearningWorkspace(
 	}).(MachineLearningWorkspaceResponsePtrOutput)
 }
 
-// Read Only: The date and time when the web service was last modified.
 func (o WebServicePropertiesForGraphResponsePtrOutput) ModifiedOn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *WebServicePropertiesForGraphResponse) *string {
 		if v == nil {
@@ -6897,7 +6328,6 @@ func (o WebServicePropertiesForGraphResponsePtrOutput) ModifiedOn() pulumi.Strin
 	}).(pulumi.StringPtrOutput)
 }
 
-// Contains the Swagger 2.0 schema describing one or more of the web service's outputs. For more information, see the Swagger specification.
 func (o WebServicePropertiesForGraphResponsePtrOutput) Output() ServiceInputOutputSpecificationResponsePtrOutput {
 	return o.ApplyT(func(v *WebServicePropertiesForGraphResponse) *ServiceInputOutputSpecificationResponse {
 		if v == nil {
@@ -6907,7 +6337,6 @@ func (o WebServicePropertiesForGraphResponsePtrOutput) Output() ServiceInputOutp
 	}).(ServiceInputOutputSpecificationResponsePtrOutput)
 }
 
-// The definition of the graph package making up this web service.
 func (o WebServicePropertiesForGraphResponsePtrOutput) Package() GraphPackageResponsePtrOutput {
 	return o.ApplyT(func(v *WebServicePropertiesForGraphResponse) *GraphPackageResponse {
 		if v == nil {
@@ -6917,8 +6346,6 @@ func (o WebServicePropertiesForGraphResponsePtrOutput) Package() GraphPackageRes
 	}).(GraphPackageResponsePtrOutput)
 }
 
-// Specifies the package type. Valid values are Graph (Specifies a web service published through the Machine Learning Studio) and Code (Specifies a web service published using code such as Python). Note: Code is not supported at this time.
-// Expected value is 'Graph'.
 func (o WebServicePropertiesForGraphResponsePtrOutput) PackageType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *WebServicePropertiesForGraphResponse) *string {
 		if v == nil {
@@ -6928,7 +6355,6 @@ func (o WebServicePropertiesForGraphResponsePtrOutput) PackageType() pulumi.Stri
 	}).(pulumi.StringPtrOutput)
 }
 
-// The set of global parameters values defined for the web service, given as a global parameter name to default value map. If no default value is specified, the parameter is considered to be required.
 func (o WebServicePropertiesForGraphResponsePtrOutput) Parameters() WebServiceParameterResponseMapOutput {
 	return o.ApplyT(func(v *WebServicePropertiesForGraphResponse) map[string]WebServiceParameterResponse {
 		if v == nil {
@@ -6938,7 +6364,6 @@ func (o WebServicePropertiesForGraphResponsePtrOutput) Parameters() WebServicePa
 	}).(WebServiceParameterResponseMapOutput)
 }
 
-// When set to true, indicates that the payload size is larger than 3 MB. Otherwise false. If the payload size exceed 3 MB, the payload is stored in a blob and the PayloadsLocation parameter contains the URI of the blob. Otherwise, this will be set to false and Assets, Input, Output, Package, Parameters, ExampleRequest are inline. The Payload sizes is determined by adding the size of the Assets, Input, Output, Package, Parameters, and the ExampleRequest.
 func (o WebServicePropertiesForGraphResponsePtrOutput) PayloadsInBlobStorage() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *WebServicePropertiesForGraphResponse) *bool {
 		if v == nil {
@@ -6948,7 +6373,6 @@ func (o WebServicePropertiesForGraphResponsePtrOutput) PayloadsInBlobStorage() p
 	}).(pulumi.BoolPtrOutput)
 }
 
-// The URI of the payload blob. This parameter contains a value only if the payloadsInBlobStorage parameter is set to true. Otherwise is set to null.
 func (o WebServicePropertiesForGraphResponsePtrOutput) PayloadsLocation() BlobLocationResponsePtrOutput {
 	return o.ApplyT(func(v *WebServicePropertiesForGraphResponse) *BlobLocationResponse {
 		if v == nil {
@@ -6958,7 +6382,6 @@ func (o WebServicePropertiesForGraphResponsePtrOutput) PayloadsLocation() BlobLo
 	}).(BlobLocationResponsePtrOutput)
 }
 
-// Read Only: The provision state of the web service. Valid values are Unknown, Provisioning, Succeeded, and Failed.
 func (o WebServicePropertiesForGraphResponsePtrOutput) ProvisioningState() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *WebServicePropertiesForGraphResponse) *string {
 		if v == nil {
@@ -6968,7 +6391,6 @@ func (o WebServicePropertiesForGraphResponsePtrOutput) ProvisioningState() pulum
 	}).(pulumi.StringPtrOutput)
 }
 
-// When set to true, indicates that the web service is read-only and can no longer be updated or patched, only removed. Default, is false. Note: Once set to true, you cannot change its value.
 func (o WebServicePropertiesForGraphResponsePtrOutput) ReadOnly() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *WebServicePropertiesForGraphResponse) *bool {
 		if v == nil {
@@ -6978,7 +6400,6 @@ func (o WebServicePropertiesForGraphResponsePtrOutput) ReadOnly() pulumi.BoolPtr
 	}).(pulumi.BoolPtrOutput)
 }
 
-// Contains the configuration settings for the web service endpoint.
 func (o WebServicePropertiesForGraphResponsePtrOutput) RealtimeConfiguration() RealtimeConfigurationResponsePtrOutput {
 	return o.ApplyT(func(v *WebServicePropertiesForGraphResponse) *RealtimeConfigurationResponse {
 		if v == nil {
@@ -6988,7 +6409,6 @@ func (o WebServicePropertiesForGraphResponsePtrOutput) RealtimeConfiguration() R
 	}).(RealtimeConfigurationResponsePtrOutput)
 }
 
-// Specifies the storage account that Azure Machine Learning uses to store information about the web service. Only the name of the storage account is returned from calls to GET operations. When updating the storage account information, you must ensure that all necessary assets are available in the new storage account or calls to your web service will fail.
 func (o WebServicePropertiesForGraphResponsePtrOutput) StorageAccount() StorageAccountResponsePtrOutput {
 	return o.ApplyT(func(v *WebServicePropertiesForGraphResponse) *StorageAccountResponse {
 		if v == nil {
@@ -6998,7 +6418,6 @@ func (o WebServicePropertiesForGraphResponsePtrOutput) StorageAccount() StorageA
 	}).(StorageAccountResponsePtrOutput)
 }
 
-// Read Only: Contains the URI of the swagger spec associated with this web service.
 func (o WebServicePropertiesForGraphResponsePtrOutput) SwaggerLocation() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *WebServicePropertiesForGraphResponse) *string {
 		if v == nil {
@@ -7008,7 +6427,6 @@ func (o WebServicePropertiesForGraphResponsePtrOutput) SwaggerLocation() pulumi.
 	}).(pulumi.StringPtrOutput)
 }
 
-// The title of the web service.
 func (o WebServicePropertiesForGraphResponsePtrOutput) Title() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *WebServicePropertiesForGraphResponse) *string {
 		if v == nil {

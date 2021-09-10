@@ -152,9 +152,7 @@ func (i *ManagementLockAtResourceGroupLevel) ToManagementLockAtResourceGroupLeve
 	return pulumi.ToOutputWithContext(ctx, i).(ManagementLockAtResourceGroupLevelOutput)
 }
 
-type ManagementLockAtResourceGroupLevelOutput struct {
-	*pulumi.OutputState
-}
+type ManagementLockAtResourceGroupLevelOutput struct{ *pulumi.OutputState }
 
 func (ManagementLockAtResourceGroupLevelOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*ManagementLockAtResourceGroupLevel)(nil))

@@ -124,9 +124,7 @@ func (i *ComponentCurrentBillingFeature) ToComponentCurrentBillingFeatureOutputW
 	return pulumi.ToOutputWithContext(ctx, i).(ComponentCurrentBillingFeatureOutput)
 }
 
-type ComponentCurrentBillingFeatureOutput struct {
-	*pulumi.OutputState
-}
+type ComponentCurrentBillingFeatureOutput struct{ *pulumi.OutputState }
 
 func (ComponentCurrentBillingFeatureOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*ComponentCurrentBillingFeature)(nil))

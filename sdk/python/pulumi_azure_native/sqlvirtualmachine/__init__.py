@@ -17,7 +17,8 @@ from . import outputs
 
 # Make subpackages available:
 if typing.TYPE_CHECKING:
-    import pulumi_azure_native.sqlvirtualmachine.v20170301preview as v20170301preview
+    import pulumi_azure_native.sqlvirtualmachine.v20170301preview as __v20170301preview
+    v20170301preview = __v20170301preview
 else:
     v20170301preview = _utilities.lazy_import('pulumi_azure_native.sqlvirtualmachine.v20170301preview')
 

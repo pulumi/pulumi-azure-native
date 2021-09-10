@@ -11,26 +11,17 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Definition of the certificate.
 type Certificate struct {
 	pulumi.CustomResourceState
 
-	// Gets the creation time.
-	CreationTime pulumi.StringOutput `pulumi:"creationTime"`
-	// Gets or sets the description.
-	Description pulumi.StringPtrOutput `pulumi:"description"`
-	// Gets the expiry time of the certificate.
-	ExpiryTime pulumi.StringOutput `pulumi:"expiryTime"`
-	// Gets the is exportable flag of the certificate.
-	IsExportable pulumi.BoolOutput `pulumi:"isExportable"`
-	// Gets the last modified time.
-	LastModifiedTime pulumi.StringOutput `pulumi:"lastModifiedTime"`
-	// The name of the resource
-	Name pulumi.StringOutput `pulumi:"name"`
-	// Gets the thumbprint of the certificate.
-	Thumbprint pulumi.StringOutput `pulumi:"thumbprint"`
-	// The type of the resource.
-	Type pulumi.StringOutput `pulumi:"type"`
+	CreationTime     pulumi.StringOutput    `pulumi:"creationTime"`
+	Description      pulumi.StringPtrOutput `pulumi:"description"`
+	ExpiryTime       pulumi.StringOutput    `pulumi:"expiryTime"`
+	IsExportable     pulumi.BoolOutput      `pulumi:"isExportable"`
+	LastModifiedTime pulumi.StringOutput    `pulumi:"lastModifiedTime"`
+	Name             pulumi.StringOutput    `pulumi:"name"`
+	Thumbprint       pulumi.StringOutput    `pulumi:"thumbprint"`
+	Type             pulumi.StringOutput    `pulumi:"type"`
 }
 
 // NewCertificate registers a new resource with the given unique name, arguments, and options.
@@ -108,42 +99,26 @@ func (CertificateState) ElementType() reflect.Type {
 }
 
 type certificateArgs struct {
-	// The name of the automation account.
-	AutomationAccountName string `pulumi:"automationAccountName"`
-	// Gets or sets the base64 encoded value of the certificate.
-	Base64Value string `pulumi:"base64Value"`
-	// The parameters supplied to the create or update certificate operation.
-	CertificateName *string `pulumi:"certificateName"`
-	// Gets or sets the description of the certificate.
-	Description *string `pulumi:"description"`
-	// Gets or sets the is exportable flag of the certificate.
-	IsExportable *bool `pulumi:"isExportable"`
-	// Gets or sets the name of the certificate.
-	Name string `pulumi:"name"`
-	// Name of an Azure Resource group.
-	ResourceGroupName string `pulumi:"resourceGroupName"`
-	// Gets or sets the thumbprint of the certificate.
-	Thumbprint *string `pulumi:"thumbprint"`
+	AutomationAccountName string  `pulumi:"automationAccountName"`
+	Base64Value           string  `pulumi:"base64Value"`
+	CertificateName       *string `pulumi:"certificateName"`
+	Description           *string `pulumi:"description"`
+	IsExportable          *bool   `pulumi:"isExportable"`
+	Name                  string  `pulumi:"name"`
+	ResourceGroupName     string  `pulumi:"resourceGroupName"`
+	Thumbprint            *string `pulumi:"thumbprint"`
 }
 
 // The set of arguments for constructing a Certificate resource.
 type CertificateArgs struct {
-	// The name of the automation account.
 	AutomationAccountName pulumi.StringInput
-	// Gets or sets the base64 encoded value of the certificate.
-	Base64Value pulumi.StringInput
-	// The parameters supplied to the create or update certificate operation.
-	CertificateName pulumi.StringPtrInput
-	// Gets or sets the description of the certificate.
-	Description pulumi.StringPtrInput
-	// Gets or sets the is exportable flag of the certificate.
-	IsExportable pulumi.BoolPtrInput
-	// Gets or sets the name of the certificate.
-	Name pulumi.StringInput
-	// Name of an Azure Resource group.
-	ResourceGroupName pulumi.StringInput
-	// Gets or sets the thumbprint of the certificate.
-	Thumbprint pulumi.StringPtrInput
+	Base64Value           pulumi.StringInput
+	CertificateName       pulumi.StringPtrInput
+	Description           pulumi.StringPtrInput
+	IsExportable          pulumi.BoolPtrInput
+	Name                  pulumi.StringInput
+	ResourceGroupName     pulumi.StringInput
+	Thumbprint            pulumi.StringPtrInput
 }
 
 func (CertificateArgs) ElementType() reflect.Type {
@@ -169,9 +144,7 @@ func (i *Certificate) ToCertificateOutputWithContext(ctx context.Context) Certif
 	return pulumi.ToOutputWithContext(ctx, i).(CertificateOutput)
 }
 
-type CertificateOutput struct {
-	*pulumi.OutputState
-}
+type CertificateOutput struct{ *pulumi.OutputState }
 
 func (CertificateOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*Certificate)(nil))

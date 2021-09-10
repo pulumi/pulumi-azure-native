@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.DataBox.V20201101.Outputs
 {
 
+    /// <summary>
+    /// Details of the data to be used for importing data to azure.
+    /// </summary>
     [OutputType]
     public sealed class DataImportDetailsResponse
     {

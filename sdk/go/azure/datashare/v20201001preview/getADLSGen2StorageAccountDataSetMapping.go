@@ -7,7 +7,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// ADLSGen2 storage account data set mapping.
 func LookupADLSGen2StorageAccountDataSetMapping(ctx *pulumi.Context, args *LookupADLSGen2StorageAccountDataSetMappingArgs, opts ...pulumi.InvokeOption) (*LookupADLSGen2StorageAccountDataSetMappingResult, error) {
 	var rv LookupADLSGen2StorageAccountDataSetMappingResult
 	err := ctx.Invoke("azure-native:datashare/v20201001preview:getADLSGen2StorageAccountDataSetMapping", args, &rv, opts...)
@@ -18,43 +17,25 @@ func LookupADLSGen2StorageAccountDataSetMapping(ctx *pulumi.Context, args *Looku
 }
 
 type LookupADLSGen2StorageAccountDataSetMappingArgs struct {
-	// The name of the share account.
-	AccountName string `pulumi:"accountName"`
-	// The name of the dataSetMapping.
-	DataSetMappingName string `pulumi:"dataSetMappingName"`
-	// The resource group name.
-	ResourceGroupName string `pulumi:"resourceGroupName"`
-	// The name of the shareSubscription.
+	AccountName           string `pulumi:"accountName"`
+	DataSetMappingName    string `pulumi:"dataSetMappingName"`
+	ResourceGroupName     string `pulumi:"resourceGroupName"`
 	ShareSubscriptionName string `pulumi:"shareSubscriptionName"`
 }
 
 // ADLSGen2 storage account data set mapping.
 type LookupADLSGen2StorageAccountDataSetMappingResult struct {
-	// Gets or sets the container name.
-	ContainerName string `pulumi:"containerName"`
-	// The id of the source data set.
-	DataSetId string `pulumi:"dataSetId"`
-	// Gets the status of the data set mapping.
-	DataSetMappingStatus string `pulumi:"dataSetMappingStatus"`
-	// Gets or sets the path to folder within the container.
-	Folder string `pulumi:"folder"`
-	// The resource id of the azure resource
-	Id string `pulumi:"id"`
-	// Kind of data set mapping.
-	// Expected value is 'AdlsGen2StorageAccount'.
-	Kind string `pulumi:"kind"`
-	// Location of the sink storage account.
-	Location string `pulumi:"location"`
-	// Gets or sets the mount path
-	MountPath *string `pulumi:"mountPath"`
-	// Name of the azure resource
-	Name string `pulumi:"name"`
-	// Provisioning state of the data set mapping.
-	ProvisioningState string `pulumi:"provisioningState"`
-	// Resource id of the sink storage account
-	StorageAccountResourceId string `pulumi:"storageAccountResourceId"`
-	// System Data of the Azure resource.
-	SystemData SystemDataResponse `pulumi:"systemData"`
-	// Type of the azure resource
-	Type string `pulumi:"type"`
+	ContainerName            string             `pulumi:"containerName"`
+	DataSetId                string             `pulumi:"dataSetId"`
+	DataSetMappingStatus     string             `pulumi:"dataSetMappingStatus"`
+	Folder                   string             `pulumi:"folder"`
+	Id                       string             `pulumi:"id"`
+	Kind                     string             `pulumi:"kind"`
+	Location                 string             `pulumi:"location"`
+	MountPath                *string            `pulumi:"mountPath"`
+	Name                     string             `pulumi:"name"`
+	ProvisioningState        string             `pulumi:"provisioningState"`
+	StorageAccountResourceId string             `pulumi:"storageAccountResourceId"`
+	SystemData               SystemDataResponse `pulumi:"systemData"`
+	Type                     string             `pulumi:"type"`
 }

@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.DBforMySQL.V20171201Preview.Outputs
 {
 
+    /// <summary>
+    /// A private endpoint connection under a server
+    /// </summary>
     [OutputType]
     public sealed class ServerPrivateEndpointConnectionResponse
     {

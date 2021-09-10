@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.Network.Outputs
 {
 
+    /// <summary>
+    /// Rule of type network.
+    /// </summary>
     [OutputType]
     public sealed class NetworkRuleResponse
     {

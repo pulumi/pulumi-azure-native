@@ -7,7 +7,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// A sql database resource.
 func LookupSqlDatabase(ctx *pulumi.Context, args *LookupSqlDatabaseArgs, opts ...pulumi.InvokeOption) (*LookupSqlDatabaseResult, error) {
 	var rv LookupSqlDatabaseResult
 	err := ctx.Invoke("azure-native:synapse/v20200401preview:getSqlDatabase", args, &rv, opts...)
@@ -18,34 +17,21 @@ func LookupSqlDatabase(ctx *pulumi.Context, args *LookupSqlDatabaseArgs, opts ..
 }
 
 type LookupSqlDatabaseArgs struct {
-	// The name of the resource group. The name is case insensitive.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
-	// The name of the sql database.
-	SqlDatabaseName string `pulumi:"sqlDatabaseName"`
-	// The name of the workspace.
-	WorkspaceName string `pulumi:"workspaceName"`
+	SqlDatabaseName   string `pulumi:"sqlDatabaseName"`
+	WorkspaceName     string `pulumi:"workspaceName"`
 }
 
 // A sql database resource.
 type LookupSqlDatabaseResult struct {
-	// The collation of the database.
-	Collation *string `pulumi:"collation"`
-	// The Guid of the database.
-	DatabaseGuid string `pulumi:"databaseGuid"`
-	// Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
-	Id string `pulumi:"id"`
-	// The geo-location where the resource lives
-	Location string `pulumi:"location"`
-	// The name of the resource
-	Name string `pulumi:"name"`
-	// Status of the database.
-	Status string `pulumi:"status"`
-	// Storage redundancy of the database.
-	StorageRedundancy *string `pulumi:"storageRedundancy"`
-	// SystemData of SqlDatabase.
-	SystemData SystemDataResponse `pulumi:"systemData"`
-	// Resource tags.
-	Tags map[string]string `pulumi:"tags"`
-	// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
-	Type string `pulumi:"type"`
+	Collation         *string            `pulumi:"collation"`
+	DatabaseGuid      string             `pulumi:"databaseGuid"`
+	Id                string             `pulumi:"id"`
+	Location          string             `pulumi:"location"`
+	Name              string             `pulumi:"name"`
+	Status            string             `pulumi:"status"`
+	StorageRedundancy *string            `pulumi:"storageRedundancy"`
+	SystemData        SystemDataResponse `pulumi:"systemData"`
+	Tags              map[string]string  `pulumi:"tags"`
+	Type              string             `pulumi:"type"`
 }

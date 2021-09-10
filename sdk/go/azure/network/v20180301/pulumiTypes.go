@@ -10,12 +10,9 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Class containing DNS settings in a Traffic Manager profile.
 type DnsConfig struct {
-	// The relative DNS name provided by this Traffic Manager profile. This value is combined with the DNS domain name used by Azure Traffic Manager to form the fully-qualified domain name (FQDN) of the profile.
-	RelativeName *string `pulumi:"relativeName"`
-	// The DNS Time-To-Live (TTL), in seconds. This informs the local DNS resolvers and DNS clients how long to cache DNS responses provided by this Traffic Manager profile.
-	Ttl *float64 `pulumi:"ttl"`
+	RelativeName *string  `pulumi:"relativeName"`
+	Ttl          *float64 `pulumi:"ttl"`
 }
 
 // DnsConfigInput is an input type that accepts DnsConfigArgs and DnsConfigOutput values.
@@ -29,12 +26,9 @@ type DnsConfigInput interface {
 	ToDnsConfigOutputWithContext(context.Context) DnsConfigOutput
 }
 
-// Class containing DNS settings in a Traffic Manager profile.
 type DnsConfigArgs struct {
-	// The relative DNS name provided by this Traffic Manager profile. This value is combined with the DNS domain name used by Azure Traffic Manager to form the fully-qualified domain name (FQDN) of the profile.
-	RelativeName pulumi.StringPtrInput `pulumi:"relativeName"`
-	// The DNS Time-To-Live (TTL), in seconds. This informs the local DNS resolvers and DNS clients how long to cache DNS responses provided by this Traffic Manager profile.
-	Ttl pulumi.Float64PtrInput `pulumi:"ttl"`
+	RelativeName pulumi.StringPtrInput  `pulumi:"relativeName"`
+	Ttl          pulumi.Float64PtrInput `pulumi:"ttl"`
 }
 
 func (DnsConfigArgs) ElementType() reflect.Type {
@@ -90,7 +84,6 @@ func (i *dnsConfigPtrType) ToDnsConfigPtrOutputWithContext(ctx context.Context) 
 	return pulumi.ToOutputWithContext(ctx, i).(DnsConfigPtrOutput)
 }
 
-// Class containing DNS settings in a Traffic Manager profile.
 type DnsConfigOutput struct{ *pulumi.OutputState }
 
 func (DnsConfigOutput) ElementType() reflect.Type {
@@ -110,17 +103,15 @@ func (o DnsConfigOutput) ToDnsConfigPtrOutput() DnsConfigPtrOutput {
 }
 
 func (o DnsConfigOutput) ToDnsConfigPtrOutputWithContext(ctx context.Context) DnsConfigPtrOutput {
-	return o.ApplyT(func(v DnsConfig) *DnsConfig {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v DnsConfig) *DnsConfig {
 		return &v
 	}).(DnsConfigPtrOutput)
 }
 
-// The relative DNS name provided by this Traffic Manager profile. This value is combined with the DNS domain name used by Azure Traffic Manager to form the fully-qualified domain name (FQDN) of the profile.
 func (o DnsConfigOutput) RelativeName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v DnsConfig) *string { return v.RelativeName }).(pulumi.StringPtrOutput)
 }
 
-// The DNS Time-To-Live (TTL), in seconds. This informs the local DNS resolvers and DNS clients how long to cache DNS responses provided by this Traffic Manager profile.
 func (o DnsConfigOutput) Ttl() pulumi.Float64PtrOutput {
 	return o.ApplyT(func(v DnsConfig) *float64 { return v.Ttl }).(pulumi.Float64PtrOutput)
 }
@@ -140,10 +131,15 @@ func (o DnsConfigPtrOutput) ToDnsConfigPtrOutputWithContext(ctx context.Context)
 }
 
 func (o DnsConfigPtrOutput) Elem() DnsConfigOutput {
-	return o.ApplyT(func(v *DnsConfig) DnsConfig { return *v }).(DnsConfigOutput)
+	return o.ApplyT(func(v *DnsConfig) DnsConfig {
+		if v != nil {
+			return *v
+		}
+		var ret DnsConfig
+		return ret
+	}).(DnsConfigOutput)
 }
 
-// The relative DNS name provided by this Traffic Manager profile. This value is combined with the DNS domain name used by Azure Traffic Manager to form the fully-qualified domain name (FQDN) of the profile.
 func (o DnsConfigPtrOutput) RelativeName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *DnsConfig) *string {
 		if v == nil {
@@ -153,7 +149,6 @@ func (o DnsConfigPtrOutput) RelativeName() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The DNS Time-To-Live (TTL), in seconds. This informs the local DNS resolvers and DNS clients how long to cache DNS responses provided by this Traffic Manager profile.
 func (o DnsConfigPtrOutput) Ttl() pulumi.Float64PtrOutput {
 	return o.ApplyT(func(v *DnsConfig) *float64 {
 		if v == nil {
@@ -163,14 +158,10 @@ func (o DnsConfigPtrOutput) Ttl() pulumi.Float64PtrOutput {
 	}).(pulumi.Float64PtrOutput)
 }
 
-// Class containing DNS settings in a Traffic Manager profile.
 type DnsConfigResponse struct {
-	// The fully-qualified domain name (FQDN) of the Traffic Manager profile. This is formed from the concatenation of the RelativeName with the DNS domain used by Azure Traffic Manager.
-	Fqdn string `pulumi:"fqdn"`
-	// The relative DNS name provided by this Traffic Manager profile. This value is combined with the DNS domain name used by Azure Traffic Manager to form the fully-qualified domain name (FQDN) of the profile.
-	RelativeName *string `pulumi:"relativeName"`
-	// The DNS Time-To-Live (TTL), in seconds. This informs the local DNS resolvers and DNS clients how long to cache DNS responses provided by this Traffic Manager profile.
-	Ttl *float64 `pulumi:"ttl"`
+	Fqdn         string   `pulumi:"fqdn"`
+	RelativeName *string  `pulumi:"relativeName"`
+	Ttl          *float64 `pulumi:"ttl"`
 }
 
 // DnsConfigResponseInput is an input type that accepts DnsConfigResponseArgs and DnsConfigResponseOutput values.
@@ -184,14 +175,10 @@ type DnsConfigResponseInput interface {
 	ToDnsConfigResponseOutputWithContext(context.Context) DnsConfigResponseOutput
 }
 
-// Class containing DNS settings in a Traffic Manager profile.
 type DnsConfigResponseArgs struct {
-	// The fully-qualified domain name (FQDN) of the Traffic Manager profile. This is formed from the concatenation of the RelativeName with the DNS domain used by Azure Traffic Manager.
-	Fqdn pulumi.StringInput `pulumi:"fqdn"`
-	// The relative DNS name provided by this Traffic Manager profile. This value is combined with the DNS domain name used by Azure Traffic Manager to form the fully-qualified domain name (FQDN) of the profile.
-	RelativeName pulumi.StringPtrInput `pulumi:"relativeName"`
-	// The DNS Time-To-Live (TTL), in seconds. This informs the local DNS resolvers and DNS clients how long to cache DNS responses provided by this Traffic Manager profile.
-	Ttl pulumi.Float64PtrInput `pulumi:"ttl"`
+	Fqdn         pulumi.StringInput     `pulumi:"fqdn"`
+	RelativeName pulumi.StringPtrInput  `pulumi:"relativeName"`
+	Ttl          pulumi.Float64PtrInput `pulumi:"ttl"`
 }
 
 func (DnsConfigResponseArgs) ElementType() reflect.Type {
@@ -247,7 +234,6 @@ func (i *dnsConfigResponsePtrType) ToDnsConfigResponsePtrOutputWithContext(ctx c
 	return pulumi.ToOutputWithContext(ctx, i).(DnsConfigResponsePtrOutput)
 }
 
-// Class containing DNS settings in a Traffic Manager profile.
 type DnsConfigResponseOutput struct{ *pulumi.OutputState }
 
 func (DnsConfigResponseOutput) ElementType() reflect.Type {
@@ -267,22 +253,19 @@ func (o DnsConfigResponseOutput) ToDnsConfigResponsePtrOutput() DnsConfigRespons
 }
 
 func (o DnsConfigResponseOutput) ToDnsConfigResponsePtrOutputWithContext(ctx context.Context) DnsConfigResponsePtrOutput {
-	return o.ApplyT(func(v DnsConfigResponse) *DnsConfigResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v DnsConfigResponse) *DnsConfigResponse {
 		return &v
 	}).(DnsConfigResponsePtrOutput)
 }
 
-// The fully-qualified domain name (FQDN) of the Traffic Manager profile. This is formed from the concatenation of the RelativeName with the DNS domain used by Azure Traffic Manager.
 func (o DnsConfigResponseOutput) Fqdn() pulumi.StringOutput {
 	return o.ApplyT(func(v DnsConfigResponse) string { return v.Fqdn }).(pulumi.StringOutput)
 }
 
-// The relative DNS name provided by this Traffic Manager profile. This value is combined with the DNS domain name used by Azure Traffic Manager to form the fully-qualified domain name (FQDN) of the profile.
 func (o DnsConfigResponseOutput) RelativeName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v DnsConfigResponse) *string { return v.RelativeName }).(pulumi.StringPtrOutput)
 }
 
-// The DNS Time-To-Live (TTL), in seconds. This informs the local DNS resolvers and DNS clients how long to cache DNS responses provided by this Traffic Manager profile.
 func (o DnsConfigResponseOutput) Ttl() pulumi.Float64PtrOutput {
 	return o.ApplyT(func(v DnsConfigResponse) *float64 { return v.Ttl }).(pulumi.Float64PtrOutput)
 }
@@ -302,10 +285,15 @@ func (o DnsConfigResponsePtrOutput) ToDnsConfigResponsePtrOutputWithContext(ctx 
 }
 
 func (o DnsConfigResponsePtrOutput) Elem() DnsConfigResponseOutput {
-	return o.ApplyT(func(v *DnsConfigResponse) DnsConfigResponse { return *v }).(DnsConfigResponseOutput)
+	return o.ApplyT(func(v *DnsConfigResponse) DnsConfigResponse {
+		if v != nil {
+			return *v
+		}
+		var ret DnsConfigResponse
+		return ret
+	}).(DnsConfigResponseOutput)
 }
 
-// The fully-qualified domain name (FQDN) of the Traffic Manager profile. This is formed from the concatenation of the RelativeName with the DNS domain used by Azure Traffic Manager.
 func (o DnsConfigResponsePtrOutput) Fqdn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *DnsConfigResponse) *string {
 		if v == nil {
@@ -315,7 +303,6 @@ func (o DnsConfigResponsePtrOutput) Fqdn() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The relative DNS name provided by this Traffic Manager profile. This value is combined with the DNS domain name used by Azure Traffic Manager to form the fully-qualified domain name (FQDN) of the profile.
 func (o DnsConfigResponsePtrOutput) RelativeName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *DnsConfigResponse) *string {
 		if v == nil {
@@ -325,7 +312,6 @@ func (o DnsConfigResponsePtrOutput) RelativeName() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The DNS Time-To-Live (TTL), in seconds. This informs the local DNS resolvers and DNS clients how long to cache DNS responses provided by this Traffic Manager profile.
 func (o DnsConfigResponsePtrOutput) Ttl() pulumi.Float64PtrOutput {
 	return o.ApplyT(func(v *DnsConfigResponse) *float64 {
 		if v == nil {
@@ -335,34 +321,20 @@ func (o DnsConfigResponsePtrOutput) Ttl() pulumi.Float64PtrOutput {
 	}).(pulumi.Float64PtrOutput)
 }
 
-// Class representing a Traffic Manager endpoint.
 type EndpointType struct {
-	// List of custom headers.
-	CustomHeaders []EndpointPropertiesCustomHeaders `pulumi:"customHeaders"`
-	// Specifies the location of the external or nested endpoints when using the ‘Performance’ traffic routing method.
-	EndpointLocation *string `pulumi:"endpointLocation"`
-	// The monitoring status of the endpoint.
-	EndpointMonitorStatus *string `pulumi:"endpointMonitorStatus"`
-	// The status of the endpoint. If the endpoint is Enabled, it is probed for endpoint health and is included in the traffic routing method.
-	EndpointStatus *string `pulumi:"endpointStatus"`
-	// The list of countries/regions mapped to this endpoint when using the ‘Geographic’ traffic routing method. Please consult Traffic Manager Geographic documentation for a full list of accepted values.
-	GeoMapping []string `pulumi:"geoMapping"`
-	// Fully qualified resource Id for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Network/trafficManagerProfiles/{resourceName}
-	Id *string `pulumi:"id"`
-	// The minimum number of endpoints that must be available in the child profile in order for the parent profile to be considered available. Only applicable to endpoint of type 'NestedEndpoints'.
-	MinChildEndpoints *float64 `pulumi:"minChildEndpoints"`
-	// The name of the resource
-	Name *string `pulumi:"name"`
-	// The priority of this endpoint when using the ‘Priority’ traffic routing method. Possible values are from 1 to 1000, lower values represent higher priority. This is an optional parameter.  If specified, it must be specified on all endpoints, and no two endpoints can share the same priority value.
-	Priority *float64 `pulumi:"priority"`
-	// The fully-qualified DNS name or IP address of the endpoint. Traffic Manager returns this value in DNS responses to direct traffic to this endpoint.
-	Target *string `pulumi:"target"`
-	// The Azure Resource URI of the of the endpoint. Not applicable to endpoints of type 'ExternalEndpoints'.
-	TargetResourceId *string `pulumi:"targetResourceId"`
-	// The type of the resource. Ex- Microsoft.Network/trafficManagerProfiles.
-	Type *string `pulumi:"type"`
-	// The weight of this endpoint when using the 'Weighted' traffic routing method. Possible values are from 1 to 1000.
-	Weight *float64 `pulumi:"weight"`
+	CustomHeaders         []EndpointPropertiesCustomHeaders `pulumi:"customHeaders"`
+	EndpointLocation      *string                           `pulumi:"endpointLocation"`
+	EndpointMonitorStatus *string                           `pulumi:"endpointMonitorStatus"`
+	EndpointStatus        *string                           `pulumi:"endpointStatus"`
+	GeoMapping            []string                          `pulumi:"geoMapping"`
+	Id                    *string                           `pulumi:"id"`
+	MinChildEndpoints     *float64                          `pulumi:"minChildEndpoints"`
+	Name                  *string                           `pulumi:"name"`
+	Priority              *float64                          `pulumi:"priority"`
+	Target                *string                           `pulumi:"target"`
+	TargetResourceId      *string                           `pulumi:"targetResourceId"`
+	Type                  *string                           `pulumi:"type"`
+	Weight                *float64                          `pulumi:"weight"`
 }
 
 // EndpointTypeInput is an input type that accepts EndpointTypeArgs and EndpointTypeOutput values.
@@ -376,34 +348,20 @@ type EndpointTypeInput interface {
 	ToEndpointTypeOutputWithContext(context.Context) EndpointTypeOutput
 }
 
-// Class representing a Traffic Manager endpoint.
 type EndpointTypeArgs struct {
-	// List of custom headers.
-	CustomHeaders EndpointPropertiesCustomHeadersArrayInput `pulumi:"customHeaders"`
-	// Specifies the location of the external or nested endpoints when using the ‘Performance’ traffic routing method.
-	EndpointLocation pulumi.StringPtrInput `pulumi:"endpointLocation"`
-	// The monitoring status of the endpoint.
-	EndpointMonitorStatus pulumi.StringPtrInput `pulumi:"endpointMonitorStatus"`
-	// The status of the endpoint. If the endpoint is Enabled, it is probed for endpoint health and is included in the traffic routing method.
-	EndpointStatus pulumi.StringPtrInput `pulumi:"endpointStatus"`
-	// The list of countries/regions mapped to this endpoint when using the ‘Geographic’ traffic routing method. Please consult Traffic Manager Geographic documentation for a full list of accepted values.
-	GeoMapping pulumi.StringArrayInput `pulumi:"geoMapping"`
-	// Fully qualified resource Id for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Network/trafficManagerProfiles/{resourceName}
-	Id pulumi.StringPtrInput `pulumi:"id"`
-	// The minimum number of endpoints that must be available in the child profile in order for the parent profile to be considered available. Only applicable to endpoint of type 'NestedEndpoints'.
-	MinChildEndpoints pulumi.Float64PtrInput `pulumi:"minChildEndpoints"`
-	// The name of the resource
-	Name pulumi.StringPtrInput `pulumi:"name"`
-	// The priority of this endpoint when using the ‘Priority’ traffic routing method. Possible values are from 1 to 1000, lower values represent higher priority. This is an optional parameter.  If specified, it must be specified on all endpoints, and no two endpoints can share the same priority value.
-	Priority pulumi.Float64PtrInput `pulumi:"priority"`
-	// The fully-qualified DNS name or IP address of the endpoint. Traffic Manager returns this value in DNS responses to direct traffic to this endpoint.
-	Target pulumi.StringPtrInput `pulumi:"target"`
-	// The Azure Resource URI of the of the endpoint. Not applicable to endpoints of type 'ExternalEndpoints'.
-	TargetResourceId pulumi.StringPtrInput `pulumi:"targetResourceId"`
-	// The type of the resource. Ex- Microsoft.Network/trafficManagerProfiles.
-	Type pulumi.StringPtrInput `pulumi:"type"`
-	// The weight of this endpoint when using the 'Weighted' traffic routing method. Possible values are from 1 to 1000.
-	Weight pulumi.Float64PtrInput `pulumi:"weight"`
+	CustomHeaders         EndpointPropertiesCustomHeadersArrayInput `pulumi:"customHeaders"`
+	EndpointLocation      pulumi.StringPtrInput                     `pulumi:"endpointLocation"`
+	EndpointMonitorStatus pulumi.StringPtrInput                     `pulumi:"endpointMonitorStatus"`
+	EndpointStatus        pulumi.StringPtrInput                     `pulumi:"endpointStatus"`
+	GeoMapping            pulumi.StringArrayInput                   `pulumi:"geoMapping"`
+	Id                    pulumi.StringPtrInput                     `pulumi:"id"`
+	MinChildEndpoints     pulumi.Float64PtrInput                    `pulumi:"minChildEndpoints"`
+	Name                  pulumi.StringPtrInput                     `pulumi:"name"`
+	Priority              pulumi.Float64PtrInput                    `pulumi:"priority"`
+	Target                pulumi.StringPtrInput                     `pulumi:"target"`
+	TargetResourceId      pulumi.StringPtrInput                     `pulumi:"targetResourceId"`
+	Type                  pulumi.StringPtrInput                     `pulumi:"type"`
+	Weight                pulumi.Float64PtrInput                    `pulumi:"weight"`
 }
 
 func (EndpointTypeArgs) ElementType() reflect.Type {
@@ -443,7 +401,6 @@ func (i EndpointTypeArray) ToEndpointTypeArrayOutputWithContext(ctx context.Cont
 	return pulumi.ToOutputWithContext(ctx, i).(EndpointTypeArrayOutput)
 }
 
-// Class representing a Traffic Manager endpoint.
 type EndpointTypeOutput struct{ *pulumi.OutputState }
 
 func (EndpointTypeOutput) ElementType() reflect.Type {
@@ -458,67 +415,54 @@ func (o EndpointTypeOutput) ToEndpointTypeOutputWithContext(ctx context.Context)
 	return o
 }
 
-// List of custom headers.
 func (o EndpointTypeOutput) CustomHeaders() EndpointPropertiesCustomHeadersArrayOutput {
 	return o.ApplyT(func(v EndpointType) []EndpointPropertiesCustomHeaders { return v.CustomHeaders }).(EndpointPropertiesCustomHeadersArrayOutput)
 }
 
-// Specifies the location of the external or nested endpoints when using the ‘Performance’ traffic routing method.
 func (o EndpointTypeOutput) EndpointLocation() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v EndpointType) *string { return v.EndpointLocation }).(pulumi.StringPtrOutput)
 }
 
-// The monitoring status of the endpoint.
 func (o EndpointTypeOutput) EndpointMonitorStatus() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v EndpointType) *string { return v.EndpointMonitorStatus }).(pulumi.StringPtrOutput)
 }
 
-// The status of the endpoint. If the endpoint is Enabled, it is probed for endpoint health and is included in the traffic routing method.
 func (o EndpointTypeOutput) EndpointStatus() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v EndpointType) *string { return v.EndpointStatus }).(pulumi.StringPtrOutput)
 }
 
-// The list of countries/regions mapped to this endpoint when using the ‘Geographic’ traffic routing method. Please consult Traffic Manager Geographic documentation for a full list of accepted values.
 func (o EndpointTypeOutput) GeoMapping() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v EndpointType) []string { return v.GeoMapping }).(pulumi.StringArrayOutput)
 }
 
-// Fully qualified resource Id for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Network/trafficManagerProfiles/{resourceName}
 func (o EndpointTypeOutput) Id() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v EndpointType) *string { return v.Id }).(pulumi.StringPtrOutput)
 }
 
-// The minimum number of endpoints that must be available in the child profile in order for the parent profile to be considered available. Only applicable to endpoint of type 'NestedEndpoints'.
 func (o EndpointTypeOutput) MinChildEndpoints() pulumi.Float64PtrOutput {
 	return o.ApplyT(func(v EndpointType) *float64 { return v.MinChildEndpoints }).(pulumi.Float64PtrOutput)
 }
 
-// The name of the resource
 func (o EndpointTypeOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v EndpointType) *string { return v.Name }).(pulumi.StringPtrOutput)
 }
 
-// The priority of this endpoint when using the ‘Priority’ traffic routing method. Possible values are from 1 to 1000, lower values represent higher priority. This is an optional parameter.  If specified, it must be specified on all endpoints, and no two endpoints can share the same priority value.
 func (o EndpointTypeOutput) Priority() pulumi.Float64PtrOutput {
 	return o.ApplyT(func(v EndpointType) *float64 { return v.Priority }).(pulumi.Float64PtrOutput)
 }
 
-// The fully-qualified DNS name or IP address of the endpoint. Traffic Manager returns this value in DNS responses to direct traffic to this endpoint.
 func (o EndpointTypeOutput) Target() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v EndpointType) *string { return v.Target }).(pulumi.StringPtrOutput)
 }
 
-// The Azure Resource URI of the of the endpoint. Not applicable to endpoints of type 'ExternalEndpoints'.
 func (o EndpointTypeOutput) TargetResourceId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v EndpointType) *string { return v.TargetResourceId }).(pulumi.StringPtrOutput)
 }
 
-// The type of the resource. Ex- Microsoft.Network/trafficManagerProfiles.
 func (o EndpointTypeOutput) Type() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v EndpointType) *string { return v.Type }).(pulumi.StringPtrOutput)
 }
 
-// The weight of this endpoint when using the 'Weighted' traffic routing method. Possible values are from 1 to 1000.
 func (o EndpointTypeOutput) Weight() pulumi.Float64PtrOutput {
 	return o.ApplyT(func(v EndpointType) *float64 { return v.Weight }).(pulumi.Float64PtrOutput)
 }
@@ -543,11 +487,8 @@ func (o EndpointTypeArrayOutput) Index(i pulumi.IntInput) EndpointTypeOutput {
 	}).(EndpointTypeOutput)
 }
 
-// Custom header name and value.
 type EndpointPropertiesCustomHeaders struct {
-	// Header name.
-	Name *string `pulumi:"name"`
-	// Header value.
+	Name  *string `pulumi:"name"`
 	Value *string `pulumi:"value"`
 }
 
@@ -562,11 +503,8 @@ type EndpointPropertiesCustomHeadersInput interface {
 	ToEndpointPropertiesCustomHeadersOutputWithContext(context.Context) EndpointPropertiesCustomHeadersOutput
 }
 
-// Custom header name and value.
 type EndpointPropertiesCustomHeadersArgs struct {
-	// Header name.
-	Name pulumi.StringPtrInput `pulumi:"name"`
-	// Header value.
+	Name  pulumi.StringPtrInput `pulumi:"name"`
 	Value pulumi.StringPtrInput `pulumi:"value"`
 }
 
@@ -607,7 +545,6 @@ func (i EndpointPropertiesCustomHeadersArray) ToEndpointPropertiesCustomHeadersA
 	return pulumi.ToOutputWithContext(ctx, i).(EndpointPropertiesCustomHeadersArrayOutput)
 }
 
-// Custom header name and value.
 type EndpointPropertiesCustomHeadersOutput struct{ *pulumi.OutputState }
 
 func (EndpointPropertiesCustomHeadersOutput) ElementType() reflect.Type {
@@ -622,12 +559,10 @@ func (o EndpointPropertiesCustomHeadersOutput) ToEndpointPropertiesCustomHeaders
 	return o
 }
 
-// Header name.
 func (o EndpointPropertiesCustomHeadersOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v EndpointPropertiesCustomHeaders) *string { return v.Name }).(pulumi.StringPtrOutput)
 }
 
-// Header value.
 func (o EndpointPropertiesCustomHeadersOutput) Value() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v EndpointPropertiesCustomHeaders) *string { return v.Value }).(pulumi.StringPtrOutput)
 }
@@ -652,11 +587,8 @@ func (o EndpointPropertiesCustomHeadersArrayOutput) Index(i pulumi.IntInput) End
 	}).(EndpointPropertiesCustomHeadersOutput)
 }
 
-// Custom header name and value.
 type EndpointPropertiesResponseCustomHeaders struct {
-	// Header name.
-	Name *string `pulumi:"name"`
-	// Header value.
+	Name  *string `pulumi:"name"`
 	Value *string `pulumi:"value"`
 }
 
@@ -671,11 +603,8 @@ type EndpointPropertiesResponseCustomHeadersInput interface {
 	ToEndpointPropertiesResponseCustomHeadersOutputWithContext(context.Context) EndpointPropertiesResponseCustomHeadersOutput
 }
 
-// Custom header name and value.
 type EndpointPropertiesResponseCustomHeadersArgs struct {
-	// Header name.
-	Name pulumi.StringPtrInput `pulumi:"name"`
-	// Header value.
+	Name  pulumi.StringPtrInput `pulumi:"name"`
 	Value pulumi.StringPtrInput `pulumi:"value"`
 }
 
@@ -716,7 +645,6 @@ func (i EndpointPropertiesResponseCustomHeadersArray) ToEndpointPropertiesRespon
 	return pulumi.ToOutputWithContext(ctx, i).(EndpointPropertiesResponseCustomHeadersArrayOutput)
 }
 
-// Custom header name and value.
 type EndpointPropertiesResponseCustomHeadersOutput struct{ *pulumi.OutputState }
 
 func (EndpointPropertiesResponseCustomHeadersOutput) ElementType() reflect.Type {
@@ -731,12 +659,10 @@ func (o EndpointPropertiesResponseCustomHeadersOutput) ToEndpointPropertiesRespo
 	return o
 }
 
-// Header name.
 func (o EndpointPropertiesResponseCustomHeadersOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v EndpointPropertiesResponseCustomHeaders) *string { return v.Name }).(pulumi.StringPtrOutput)
 }
 
-// Header value.
 func (o EndpointPropertiesResponseCustomHeadersOutput) Value() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v EndpointPropertiesResponseCustomHeaders) *string { return v.Value }).(pulumi.StringPtrOutput)
 }
@@ -761,34 +687,20 @@ func (o EndpointPropertiesResponseCustomHeadersArrayOutput) Index(i pulumi.IntIn
 	}).(EndpointPropertiesResponseCustomHeadersOutput)
 }
 
-// Class representing a Traffic Manager endpoint.
 type EndpointResponse struct {
-	// List of custom headers.
-	CustomHeaders []EndpointPropertiesResponseCustomHeaders `pulumi:"customHeaders"`
-	// Specifies the location of the external or nested endpoints when using the ‘Performance’ traffic routing method.
-	EndpointLocation *string `pulumi:"endpointLocation"`
-	// The monitoring status of the endpoint.
-	EndpointMonitorStatus *string `pulumi:"endpointMonitorStatus"`
-	// The status of the endpoint. If the endpoint is Enabled, it is probed for endpoint health and is included in the traffic routing method.
-	EndpointStatus *string `pulumi:"endpointStatus"`
-	// The list of countries/regions mapped to this endpoint when using the ‘Geographic’ traffic routing method. Please consult Traffic Manager Geographic documentation for a full list of accepted values.
-	GeoMapping []string `pulumi:"geoMapping"`
-	// Fully qualified resource Id for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Network/trafficManagerProfiles/{resourceName}
-	Id *string `pulumi:"id"`
-	// The minimum number of endpoints that must be available in the child profile in order for the parent profile to be considered available. Only applicable to endpoint of type 'NestedEndpoints'.
-	MinChildEndpoints *float64 `pulumi:"minChildEndpoints"`
-	// The name of the resource
-	Name *string `pulumi:"name"`
-	// The priority of this endpoint when using the ‘Priority’ traffic routing method. Possible values are from 1 to 1000, lower values represent higher priority. This is an optional parameter.  If specified, it must be specified on all endpoints, and no two endpoints can share the same priority value.
-	Priority *float64 `pulumi:"priority"`
-	// The fully-qualified DNS name or IP address of the endpoint. Traffic Manager returns this value in DNS responses to direct traffic to this endpoint.
-	Target *string `pulumi:"target"`
-	// The Azure Resource URI of the of the endpoint. Not applicable to endpoints of type 'ExternalEndpoints'.
-	TargetResourceId *string `pulumi:"targetResourceId"`
-	// The type of the resource. Ex- Microsoft.Network/trafficManagerProfiles.
-	Type *string `pulumi:"type"`
-	// The weight of this endpoint when using the 'Weighted' traffic routing method. Possible values are from 1 to 1000.
-	Weight *float64 `pulumi:"weight"`
+	CustomHeaders         []EndpointPropertiesResponseCustomHeaders `pulumi:"customHeaders"`
+	EndpointLocation      *string                                   `pulumi:"endpointLocation"`
+	EndpointMonitorStatus *string                                   `pulumi:"endpointMonitorStatus"`
+	EndpointStatus        *string                                   `pulumi:"endpointStatus"`
+	GeoMapping            []string                                  `pulumi:"geoMapping"`
+	Id                    *string                                   `pulumi:"id"`
+	MinChildEndpoints     *float64                                  `pulumi:"minChildEndpoints"`
+	Name                  *string                                   `pulumi:"name"`
+	Priority              *float64                                  `pulumi:"priority"`
+	Target                *string                                   `pulumi:"target"`
+	TargetResourceId      *string                                   `pulumi:"targetResourceId"`
+	Type                  *string                                   `pulumi:"type"`
+	Weight                *float64                                  `pulumi:"weight"`
 }
 
 // EndpointResponseInput is an input type that accepts EndpointResponseArgs and EndpointResponseOutput values.
@@ -802,34 +714,20 @@ type EndpointResponseInput interface {
 	ToEndpointResponseOutputWithContext(context.Context) EndpointResponseOutput
 }
 
-// Class representing a Traffic Manager endpoint.
 type EndpointResponseArgs struct {
-	// List of custom headers.
-	CustomHeaders EndpointPropertiesResponseCustomHeadersArrayInput `pulumi:"customHeaders"`
-	// Specifies the location of the external or nested endpoints when using the ‘Performance’ traffic routing method.
-	EndpointLocation pulumi.StringPtrInput `pulumi:"endpointLocation"`
-	// The monitoring status of the endpoint.
-	EndpointMonitorStatus pulumi.StringPtrInput `pulumi:"endpointMonitorStatus"`
-	// The status of the endpoint. If the endpoint is Enabled, it is probed for endpoint health and is included in the traffic routing method.
-	EndpointStatus pulumi.StringPtrInput `pulumi:"endpointStatus"`
-	// The list of countries/regions mapped to this endpoint when using the ‘Geographic’ traffic routing method. Please consult Traffic Manager Geographic documentation for a full list of accepted values.
-	GeoMapping pulumi.StringArrayInput `pulumi:"geoMapping"`
-	// Fully qualified resource Id for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Network/trafficManagerProfiles/{resourceName}
-	Id pulumi.StringPtrInput `pulumi:"id"`
-	// The minimum number of endpoints that must be available in the child profile in order for the parent profile to be considered available. Only applicable to endpoint of type 'NestedEndpoints'.
-	MinChildEndpoints pulumi.Float64PtrInput `pulumi:"minChildEndpoints"`
-	// The name of the resource
-	Name pulumi.StringPtrInput `pulumi:"name"`
-	// The priority of this endpoint when using the ‘Priority’ traffic routing method. Possible values are from 1 to 1000, lower values represent higher priority. This is an optional parameter.  If specified, it must be specified on all endpoints, and no two endpoints can share the same priority value.
-	Priority pulumi.Float64PtrInput `pulumi:"priority"`
-	// The fully-qualified DNS name or IP address of the endpoint. Traffic Manager returns this value in DNS responses to direct traffic to this endpoint.
-	Target pulumi.StringPtrInput `pulumi:"target"`
-	// The Azure Resource URI of the of the endpoint. Not applicable to endpoints of type 'ExternalEndpoints'.
-	TargetResourceId pulumi.StringPtrInput `pulumi:"targetResourceId"`
-	// The type of the resource. Ex- Microsoft.Network/trafficManagerProfiles.
-	Type pulumi.StringPtrInput `pulumi:"type"`
-	// The weight of this endpoint when using the 'Weighted' traffic routing method. Possible values are from 1 to 1000.
-	Weight pulumi.Float64PtrInput `pulumi:"weight"`
+	CustomHeaders         EndpointPropertiesResponseCustomHeadersArrayInput `pulumi:"customHeaders"`
+	EndpointLocation      pulumi.StringPtrInput                             `pulumi:"endpointLocation"`
+	EndpointMonitorStatus pulumi.StringPtrInput                             `pulumi:"endpointMonitorStatus"`
+	EndpointStatus        pulumi.StringPtrInput                             `pulumi:"endpointStatus"`
+	GeoMapping            pulumi.StringArrayInput                           `pulumi:"geoMapping"`
+	Id                    pulumi.StringPtrInput                             `pulumi:"id"`
+	MinChildEndpoints     pulumi.Float64PtrInput                            `pulumi:"minChildEndpoints"`
+	Name                  pulumi.StringPtrInput                             `pulumi:"name"`
+	Priority              pulumi.Float64PtrInput                            `pulumi:"priority"`
+	Target                pulumi.StringPtrInput                             `pulumi:"target"`
+	TargetResourceId      pulumi.StringPtrInput                             `pulumi:"targetResourceId"`
+	Type                  pulumi.StringPtrInput                             `pulumi:"type"`
+	Weight                pulumi.Float64PtrInput                            `pulumi:"weight"`
 }
 
 func (EndpointResponseArgs) ElementType() reflect.Type {
@@ -869,7 +767,6 @@ func (i EndpointResponseArray) ToEndpointResponseArrayOutputWithContext(ctx cont
 	return pulumi.ToOutputWithContext(ctx, i).(EndpointResponseArrayOutput)
 }
 
-// Class representing a Traffic Manager endpoint.
 type EndpointResponseOutput struct{ *pulumi.OutputState }
 
 func (EndpointResponseOutput) ElementType() reflect.Type {
@@ -884,67 +781,54 @@ func (o EndpointResponseOutput) ToEndpointResponseOutputWithContext(ctx context.
 	return o
 }
 
-// List of custom headers.
 func (o EndpointResponseOutput) CustomHeaders() EndpointPropertiesResponseCustomHeadersArrayOutput {
 	return o.ApplyT(func(v EndpointResponse) []EndpointPropertiesResponseCustomHeaders { return v.CustomHeaders }).(EndpointPropertiesResponseCustomHeadersArrayOutput)
 }
 
-// Specifies the location of the external or nested endpoints when using the ‘Performance’ traffic routing method.
 func (o EndpointResponseOutput) EndpointLocation() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v EndpointResponse) *string { return v.EndpointLocation }).(pulumi.StringPtrOutput)
 }
 
-// The monitoring status of the endpoint.
 func (o EndpointResponseOutput) EndpointMonitorStatus() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v EndpointResponse) *string { return v.EndpointMonitorStatus }).(pulumi.StringPtrOutput)
 }
 
-// The status of the endpoint. If the endpoint is Enabled, it is probed for endpoint health and is included in the traffic routing method.
 func (o EndpointResponseOutput) EndpointStatus() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v EndpointResponse) *string { return v.EndpointStatus }).(pulumi.StringPtrOutput)
 }
 
-// The list of countries/regions mapped to this endpoint when using the ‘Geographic’ traffic routing method. Please consult Traffic Manager Geographic documentation for a full list of accepted values.
 func (o EndpointResponseOutput) GeoMapping() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v EndpointResponse) []string { return v.GeoMapping }).(pulumi.StringArrayOutput)
 }
 
-// Fully qualified resource Id for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Network/trafficManagerProfiles/{resourceName}
 func (o EndpointResponseOutput) Id() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v EndpointResponse) *string { return v.Id }).(pulumi.StringPtrOutput)
 }
 
-// The minimum number of endpoints that must be available in the child profile in order for the parent profile to be considered available. Only applicable to endpoint of type 'NestedEndpoints'.
 func (o EndpointResponseOutput) MinChildEndpoints() pulumi.Float64PtrOutput {
 	return o.ApplyT(func(v EndpointResponse) *float64 { return v.MinChildEndpoints }).(pulumi.Float64PtrOutput)
 }
 
-// The name of the resource
 func (o EndpointResponseOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v EndpointResponse) *string { return v.Name }).(pulumi.StringPtrOutput)
 }
 
-// The priority of this endpoint when using the ‘Priority’ traffic routing method. Possible values are from 1 to 1000, lower values represent higher priority. This is an optional parameter.  If specified, it must be specified on all endpoints, and no two endpoints can share the same priority value.
 func (o EndpointResponseOutput) Priority() pulumi.Float64PtrOutput {
 	return o.ApplyT(func(v EndpointResponse) *float64 { return v.Priority }).(pulumi.Float64PtrOutput)
 }
 
-// The fully-qualified DNS name or IP address of the endpoint. Traffic Manager returns this value in DNS responses to direct traffic to this endpoint.
 func (o EndpointResponseOutput) Target() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v EndpointResponse) *string { return v.Target }).(pulumi.StringPtrOutput)
 }
 
-// The Azure Resource URI of the of the endpoint. Not applicable to endpoints of type 'ExternalEndpoints'.
 func (o EndpointResponseOutput) TargetResourceId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v EndpointResponse) *string { return v.TargetResourceId }).(pulumi.StringPtrOutput)
 }
 
-// The type of the resource. Ex- Microsoft.Network/trafficManagerProfiles.
 func (o EndpointResponseOutput) Type() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v EndpointResponse) *string { return v.Type }).(pulumi.StringPtrOutput)
 }
 
-// The weight of this endpoint when using the 'Weighted' traffic routing method. Possible values are from 1 to 1000.
 func (o EndpointResponseOutput) Weight() pulumi.Float64PtrOutput {
 	return o.ApplyT(func(v EndpointResponse) *float64 { return v.Weight }).(pulumi.Float64PtrOutput)
 }
@@ -969,26 +853,16 @@ func (o EndpointResponseArrayOutput) Index(i pulumi.IntInput) EndpointResponseOu
 	}).(EndpointResponseOutput)
 }
 
-// Class containing endpoint monitoring settings in a Traffic Manager profile.
 type MonitorConfig struct {
-	// List of custom headers.
-	CustomHeaders []MonitorConfigCustomHeaders `pulumi:"customHeaders"`
-	// List of expected status code ranges.
-	ExpectedStatusCodeRanges []MonitorConfigExpectedStatusCodeRanges `pulumi:"expectedStatusCodeRanges"`
-	// The monitor interval for endpoints in this profile. This is the interval at which Traffic Manager will check the health of each endpoint in this profile.
-	IntervalInSeconds *float64 `pulumi:"intervalInSeconds"`
-	// The path relative to the endpoint domain name used to probe for endpoint health.
-	Path *string `pulumi:"path"`
-	// The TCP port used to probe for endpoint health.
-	Port *float64 `pulumi:"port"`
-	// The profile-level monitoring status of the Traffic Manager profile.
-	ProfileMonitorStatus *string `pulumi:"profileMonitorStatus"`
-	// The protocol (HTTP, HTTPS or TCP) used to probe for endpoint health.
-	Protocol *string `pulumi:"protocol"`
-	// The monitor timeout for endpoints in this profile. This is the time that Traffic Manager allows endpoints in this profile to response to the health check.
-	TimeoutInSeconds *float64 `pulumi:"timeoutInSeconds"`
-	// The number of consecutive failed health check that Traffic Manager tolerates before declaring an endpoint in this profile Degraded after the next failed health check.
-	ToleratedNumberOfFailures *float64 `pulumi:"toleratedNumberOfFailures"`
+	CustomHeaders             []MonitorConfigCustomHeaders            `pulumi:"customHeaders"`
+	ExpectedStatusCodeRanges  []MonitorConfigExpectedStatusCodeRanges `pulumi:"expectedStatusCodeRanges"`
+	IntervalInSeconds         *float64                                `pulumi:"intervalInSeconds"`
+	Path                      *string                                 `pulumi:"path"`
+	Port                      *float64                                `pulumi:"port"`
+	ProfileMonitorStatus      *string                                 `pulumi:"profileMonitorStatus"`
+	Protocol                  *string                                 `pulumi:"protocol"`
+	TimeoutInSeconds          *float64                                `pulumi:"timeoutInSeconds"`
+	ToleratedNumberOfFailures *float64                                `pulumi:"toleratedNumberOfFailures"`
 }
 
 // MonitorConfigInput is an input type that accepts MonitorConfigArgs and MonitorConfigOutput values.
@@ -1002,26 +876,16 @@ type MonitorConfigInput interface {
 	ToMonitorConfigOutputWithContext(context.Context) MonitorConfigOutput
 }
 
-// Class containing endpoint monitoring settings in a Traffic Manager profile.
 type MonitorConfigArgs struct {
-	// List of custom headers.
-	CustomHeaders MonitorConfigCustomHeadersArrayInput `pulumi:"customHeaders"`
-	// List of expected status code ranges.
-	ExpectedStatusCodeRanges MonitorConfigExpectedStatusCodeRangesArrayInput `pulumi:"expectedStatusCodeRanges"`
-	// The monitor interval for endpoints in this profile. This is the interval at which Traffic Manager will check the health of each endpoint in this profile.
-	IntervalInSeconds pulumi.Float64PtrInput `pulumi:"intervalInSeconds"`
-	// The path relative to the endpoint domain name used to probe for endpoint health.
-	Path pulumi.StringPtrInput `pulumi:"path"`
-	// The TCP port used to probe for endpoint health.
-	Port pulumi.Float64PtrInput `pulumi:"port"`
-	// The profile-level monitoring status of the Traffic Manager profile.
-	ProfileMonitorStatus pulumi.StringPtrInput `pulumi:"profileMonitorStatus"`
-	// The protocol (HTTP, HTTPS or TCP) used to probe for endpoint health.
-	Protocol pulumi.StringPtrInput `pulumi:"protocol"`
-	// The monitor timeout for endpoints in this profile. This is the time that Traffic Manager allows endpoints in this profile to response to the health check.
-	TimeoutInSeconds pulumi.Float64PtrInput `pulumi:"timeoutInSeconds"`
-	// The number of consecutive failed health check that Traffic Manager tolerates before declaring an endpoint in this profile Degraded after the next failed health check.
-	ToleratedNumberOfFailures pulumi.Float64PtrInput `pulumi:"toleratedNumberOfFailures"`
+	CustomHeaders             MonitorConfigCustomHeadersArrayInput            `pulumi:"customHeaders"`
+	ExpectedStatusCodeRanges  MonitorConfigExpectedStatusCodeRangesArrayInput `pulumi:"expectedStatusCodeRanges"`
+	IntervalInSeconds         pulumi.Float64PtrInput                          `pulumi:"intervalInSeconds"`
+	Path                      pulumi.StringPtrInput                           `pulumi:"path"`
+	Port                      pulumi.Float64PtrInput                          `pulumi:"port"`
+	ProfileMonitorStatus      pulumi.StringPtrInput                           `pulumi:"profileMonitorStatus"`
+	Protocol                  pulumi.StringPtrInput                           `pulumi:"protocol"`
+	TimeoutInSeconds          pulumi.Float64PtrInput                          `pulumi:"timeoutInSeconds"`
+	ToleratedNumberOfFailures pulumi.Float64PtrInput                          `pulumi:"toleratedNumberOfFailures"`
 }
 
 func (MonitorConfigArgs) ElementType() reflect.Type {
@@ -1077,7 +941,6 @@ func (i *monitorConfigPtrType) ToMonitorConfigPtrOutputWithContext(ctx context.C
 	return pulumi.ToOutputWithContext(ctx, i).(MonitorConfigPtrOutput)
 }
 
-// Class containing endpoint monitoring settings in a Traffic Manager profile.
 type MonitorConfigOutput struct{ *pulumi.OutputState }
 
 func (MonitorConfigOutput) ElementType() reflect.Type {
@@ -1097,52 +960,43 @@ func (o MonitorConfigOutput) ToMonitorConfigPtrOutput() MonitorConfigPtrOutput {
 }
 
 func (o MonitorConfigOutput) ToMonitorConfigPtrOutputWithContext(ctx context.Context) MonitorConfigPtrOutput {
-	return o.ApplyT(func(v MonitorConfig) *MonitorConfig {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v MonitorConfig) *MonitorConfig {
 		return &v
 	}).(MonitorConfigPtrOutput)
 }
 
-// List of custom headers.
 func (o MonitorConfigOutput) CustomHeaders() MonitorConfigCustomHeadersArrayOutput {
 	return o.ApplyT(func(v MonitorConfig) []MonitorConfigCustomHeaders { return v.CustomHeaders }).(MonitorConfigCustomHeadersArrayOutput)
 }
 
-// List of expected status code ranges.
 func (o MonitorConfigOutput) ExpectedStatusCodeRanges() MonitorConfigExpectedStatusCodeRangesArrayOutput {
 	return o.ApplyT(func(v MonitorConfig) []MonitorConfigExpectedStatusCodeRanges { return v.ExpectedStatusCodeRanges }).(MonitorConfigExpectedStatusCodeRangesArrayOutput)
 }
 
-// The monitor interval for endpoints in this profile. This is the interval at which Traffic Manager will check the health of each endpoint in this profile.
 func (o MonitorConfigOutput) IntervalInSeconds() pulumi.Float64PtrOutput {
 	return o.ApplyT(func(v MonitorConfig) *float64 { return v.IntervalInSeconds }).(pulumi.Float64PtrOutput)
 }
 
-// The path relative to the endpoint domain name used to probe for endpoint health.
 func (o MonitorConfigOutput) Path() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v MonitorConfig) *string { return v.Path }).(pulumi.StringPtrOutput)
 }
 
-// The TCP port used to probe for endpoint health.
 func (o MonitorConfigOutput) Port() pulumi.Float64PtrOutput {
 	return o.ApplyT(func(v MonitorConfig) *float64 { return v.Port }).(pulumi.Float64PtrOutput)
 }
 
-// The profile-level monitoring status of the Traffic Manager profile.
 func (o MonitorConfigOutput) ProfileMonitorStatus() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v MonitorConfig) *string { return v.ProfileMonitorStatus }).(pulumi.StringPtrOutput)
 }
 
-// The protocol (HTTP, HTTPS or TCP) used to probe for endpoint health.
 func (o MonitorConfigOutput) Protocol() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v MonitorConfig) *string { return v.Protocol }).(pulumi.StringPtrOutput)
 }
 
-// The monitor timeout for endpoints in this profile. This is the time that Traffic Manager allows endpoints in this profile to response to the health check.
 func (o MonitorConfigOutput) TimeoutInSeconds() pulumi.Float64PtrOutput {
 	return o.ApplyT(func(v MonitorConfig) *float64 { return v.TimeoutInSeconds }).(pulumi.Float64PtrOutput)
 }
 
-// The number of consecutive failed health check that Traffic Manager tolerates before declaring an endpoint in this profile Degraded after the next failed health check.
 func (o MonitorConfigOutput) ToleratedNumberOfFailures() pulumi.Float64PtrOutput {
 	return o.ApplyT(func(v MonitorConfig) *float64 { return v.ToleratedNumberOfFailures }).(pulumi.Float64PtrOutput)
 }
@@ -1162,10 +1016,15 @@ func (o MonitorConfigPtrOutput) ToMonitorConfigPtrOutputWithContext(ctx context.
 }
 
 func (o MonitorConfigPtrOutput) Elem() MonitorConfigOutput {
-	return o.ApplyT(func(v *MonitorConfig) MonitorConfig { return *v }).(MonitorConfigOutput)
+	return o.ApplyT(func(v *MonitorConfig) MonitorConfig {
+		if v != nil {
+			return *v
+		}
+		var ret MonitorConfig
+		return ret
+	}).(MonitorConfigOutput)
 }
 
-// List of custom headers.
 func (o MonitorConfigPtrOutput) CustomHeaders() MonitorConfigCustomHeadersArrayOutput {
 	return o.ApplyT(func(v *MonitorConfig) []MonitorConfigCustomHeaders {
 		if v == nil {
@@ -1175,7 +1034,6 @@ func (o MonitorConfigPtrOutput) CustomHeaders() MonitorConfigCustomHeadersArrayO
 	}).(MonitorConfigCustomHeadersArrayOutput)
 }
 
-// List of expected status code ranges.
 func (o MonitorConfigPtrOutput) ExpectedStatusCodeRanges() MonitorConfigExpectedStatusCodeRangesArrayOutput {
 	return o.ApplyT(func(v *MonitorConfig) []MonitorConfigExpectedStatusCodeRanges {
 		if v == nil {
@@ -1185,7 +1043,6 @@ func (o MonitorConfigPtrOutput) ExpectedStatusCodeRanges() MonitorConfigExpected
 	}).(MonitorConfigExpectedStatusCodeRangesArrayOutput)
 }
 
-// The monitor interval for endpoints in this profile. This is the interval at which Traffic Manager will check the health of each endpoint in this profile.
 func (o MonitorConfigPtrOutput) IntervalInSeconds() pulumi.Float64PtrOutput {
 	return o.ApplyT(func(v *MonitorConfig) *float64 {
 		if v == nil {
@@ -1195,7 +1052,6 @@ func (o MonitorConfigPtrOutput) IntervalInSeconds() pulumi.Float64PtrOutput {
 	}).(pulumi.Float64PtrOutput)
 }
 
-// The path relative to the endpoint domain name used to probe for endpoint health.
 func (o MonitorConfigPtrOutput) Path() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *MonitorConfig) *string {
 		if v == nil {
@@ -1205,7 +1061,6 @@ func (o MonitorConfigPtrOutput) Path() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The TCP port used to probe for endpoint health.
 func (o MonitorConfigPtrOutput) Port() pulumi.Float64PtrOutput {
 	return o.ApplyT(func(v *MonitorConfig) *float64 {
 		if v == nil {
@@ -1215,7 +1070,6 @@ func (o MonitorConfigPtrOutput) Port() pulumi.Float64PtrOutput {
 	}).(pulumi.Float64PtrOutput)
 }
 
-// The profile-level monitoring status of the Traffic Manager profile.
 func (o MonitorConfigPtrOutput) ProfileMonitorStatus() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *MonitorConfig) *string {
 		if v == nil {
@@ -1225,7 +1079,6 @@ func (o MonitorConfigPtrOutput) ProfileMonitorStatus() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The protocol (HTTP, HTTPS or TCP) used to probe for endpoint health.
 func (o MonitorConfigPtrOutput) Protocol() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *MonitorConfig) *string {
 		if v == nil {
@@ -1235,7 +1088,6 @@ func (o MonitorConfigPtrOutput) Protocol() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The monitor timeout for endpoints in this profile. This is the time that Traffic Manager allows endpoints in this profile to response to the health check.
 func (o MonitorConfigPtrOutput) TimeoutInSeconds() pulumi.Float64PtrOutput {
 	return o.ApplyT(func(v *MonitorConfig) *float64 {
 		if v == nil {
@@ -1245,7 +1097,6 @@ func (o MonitorConfigPtrOutput) TimeoutInSeconds() pulumi.Float64PtrOutput {
 	}).(pulumi.Float64PtrOutput)
 }
 
-// The number of consecutive failed health check that Traffic Manager tolerates before declaring an endpoint in this profile Degraded after the next failed health check.
 func (o MonitorConfigPtrOutput) ToleratedNumberOfFailures() pulumi.Float64PtrOutput {
 	return o.ApplyT(func(v *MonitorConfig) *float64 {
 		if v == nil {
@@ -1255,11 +1106,8 @@ func (o MonitorConfigPtrOutput) ToleratedNumberOfFailures() pulumi.Float64PtrOut
 	}).(pulumi.Float64PtrOutput)
 }
 
-// Custom header name and value.
 type MonitorConfigCustomHeaders struct {
-	// Header name.
-	Name *string `pulumi:"name"`
-	// Header value.
+	Name  *string `pulumi:"name"`
 	Value *string `pulumi:"value"`
 }
 
@@ -1274,11 +1122,8 @@ type MonitorConfigCustomHeadersInput interface {
 	ToMonitorConfigCustomHeadersOutputWithContext(context.Context) MonitorConfigCustomHeadersOutput
 }
 
-// Custom header name and value.
 type MonitorConfigCustomHeadersArgs struct {
-	// Header name.
-	Name pulumi.StringPtrInput `pulumi:"name"`
-	// Header value.
+	Name  pulumi.StringPtrInput `pulumi:"name"`
 	Value pulumi.StringPtrInput `pulumi:"value"`
 }
 
@@ -1319,7 +1164,6 @@ func (i MonitorConfigCustomHeadersArray) ToMonitorConfigCustomHeadersArrayOutput
 	return pulumi.ToOutputWithContext(ctx, i).(MonitorConfigCustomHeadersArrayOutput)
 }
 
-// Custom header name and value.
 type MonitorConfigCustomHeadersOutput struct{ *pulumi.OutputState }
 
 func (MonitorConfigCustomHeadersOutput) ElementType() reflect.Type {
@@ -1334,12 +1178,10 @@ func (o MonitorConfigCustomHeadersOutput) ToMonitorConfigCustomHeadersOutputWith
 	return o
 }
 
-// Header name.
 func (o MonitorConfigCustomHeadersOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v MonitorConfigCustomHeaders) *string { return v.Name }).(pulumi.StringPtrOutput)
 }
 
-// Header value.
 func (o MonitorConfigCustomHeadersOutput) Value() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v MonitorConfigCustomHeaders) *string { return v.Value }).(pulumi.StringPtrOutput)
 }
@@ -1364,11 +1206,8 @@ func (o MonitorConfigCustomHeadersArrayOutput) Index(i pulumi.IntInput) MonitorC
 	}).(MonitorConfigCustomHeadersOutput)
 }
 
-// Min and max value of a status code range.
 type MonitorConfigExpectedStatusCodeRanges struct {
-	// Max status code.
 	Max *int `pulumi:"max"`
-	// Min status code.
 	Min *int `pulumi:"min"`
 }
 
@@ -1383,11 +1222,8 @@ type MonitorConfigExpectedStatusCodeRangesInput interface {
 	ToMonitorConfigExpectedStatusCodeRangesOutputWithContext(context.Context) MonitorConfigExpectedStatusCodeRangesOutput
 }
 
-// Min and max value of a status code range.
 type MonitorConfigExpectedStatusCodeRangesArgs struct {
-	// Max status code.
 	Max pulumi.IntPtrInput `pulumi:"max"`
-	// Min status code.
 	Min pulumi.IntPtrInput `pulumi:"min"`
 }
 
@@ -1428,7 +1264,6 @@ func (i MonitorConfigExpectedStatusCodeRangesArray) ToMonitorConfigExpectedStatu
 	return pulumi.ToOutputWithContext(ctx, i).(MonitorConfigExpectedStatusCodeRangesArrayOutput)
 }
 
-// Min and max value of a status code range.
 type MonitorConfigExpectedStatusCodeRangesOutput struct{ *pulumi.OutputState }
 
 func (MonitorConfigExpectedStatusCodeRangesOutput) ElementType() reflect.Type {
@@ -1443,12 +1278,10 @@ func (o MonitorConfigExpectedStatusCodeRangesOutput) ToMonitorConfigExpectedStat
 	return o
 }
 
-// Max status code.
 func (o MonitorConfigExpectedStatusCodeRangesOutput) Max() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v MonitorConfigExpectedStatusCodeRanges) *int { return v.Max }).(pulumi.IntPtrOutput)
 }
 
-// Min status code.
 func (o MonitorConfigExpectedStatusCodeRangesOutput) Min() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v MonitorConfigExpectedStatusCodeRanges) *int { return v.Min }).(pulumi.IntPtrOutput)
 }
@@ -1473,26 +1306,16 @@ func (o MonitorConfigExpectedStatusCodeRangesArrayOutput) Index(i pulumi.IntInpu
 	}).(MonitorConfigExpectedStatusCodeRangesOutput)
 }
 
-// Class containing endpoint monitoring settings in a Traffic Manager profile.
 type MonitorConfigResponse struct {
-	// List of custom headers.
-	CustomHeaders []MonitorConfigResponseCustomHeaders `pulumi:"customHeaders"`
-	// List of expected status code ranges.
-	ExpectedStatusCodeRanges []MonitorConfigResponseExpectedStatusCodeRanges `pulumi:"expectedStatusCodeRanges"`
-	// The monitor interval for endpoints in this profile. This is the interval at which Traffic Manager will check the health of each endpoint in this profile.
-	IntervalInSeconds *float64 `pulumi:"intervalInSeconds"`
-	// The path relative to the endpoint domain name used to probe for endpoint health.
-	Path *string `pulumi:"path"`
-	// The TCP port used to probe for endpoint health.
-	Port *float64 `pulumi:"port"`
-	// The profile-level monitoring status of the Traffic Manager profile.
-	ProfileMonitorStatus *string `pulumi:"profileMonitorStatus"`
-	// The protocol (HTTP, HTTPS or TCP) used to probe for endpoint health.
-	Protocol *string `pulumi:"protocol"`
-	// The monitor timeout for endpoints in this profile. This is the time that Traffic Manager allows endpoints in this profile to response to the health check.
-	TimeoutInSeconds *float64 `pulumi:"timeoutInSeconds"`
-	// The number of consecutive failed health check that Traffic Manager tolerates before declaring an endpoint in this profile Degraded after the next failed health check.
-	ToleratedNumberOfFailures *float64 `pulumi:"toleratedNumberOfFailures"`
+	CustomHeaders             []MonitorConfigResponseCustomHeaders            `pulumi:"customHeaders"`
+	ExpectedStatusCodeRanges  []MonitorConfigResponseExpectedStatusCodeRanges `pulumi:"expectedStatusCodeRanges"`
+	IntervalInSeconds         *float64                                        `pulumi:"intervalInSeconds"`
+	Path                      *string                                         `pulumi:"path"`
+	Port                      *float64                                        `pulumi:"port"`
+	ProfileMonitorStatus      *string                                         `pulumi:"profileMonitorStatus"`
+	Protocol                  *string                                         `pulumi:"protocol"`
+	TimeoutInSeconds          *float64                                        `pulumi:"timeoutInSeconds"`
+	ToleratedNumberOfFailures *float64                                        `pulumi:"toleratedNumberOfFailures"`
 }
 
 // MonitorConfigResponseInput is an input type that accepts MonitorConfigResponseArgs and MonitorConfigResponseOutput values.
@@ -1506,26 +1329,16 @@ type MonitorConfigResponseInput interface {
 	ToMonitorConfigResponseOutputWithContext(context.Context) MonitorConfigResponseOutput
 }
 
-// Class containing endpoint monitoring settings in a Traffic Manager profile.
 type MonitorConfigResponseArgs struct {
-	// List of custom headers.
-	CustomHeaders MonitorConfigResponseCustomHeadersArrayInput `pulumi:"customHeaders"`
-	// List of expected status code ranges.
-	ExpectedStatusCodeRanges MonitorConfigResponseExpectedStatusCodeRangesArrayInput `pulumi:"expectedStatusCodeRanges"`
-	// The monitor interval for endpoints in this profile. This is the interval at which Traffic Manager will check the health of each endpoint in this profile.
-	IntervalInSeconds pulumi.Float64PtrInput `pulumi:"intervalInSeconds"`
-	// The path relative to the endpoint domain name used to probe for endpoint health.
-	Path pulumi.StringPtrInput `pulumi:"path"`
-	// The TCP port used to probe for endpoint health.
-	Port pulumi.Float64PtrInput `pulumi:"port"`
-	// The profile-level monitoring status of the Traffic Manager profile.
-	ProfileMonitorStatus pulumi.StringPtrInput `pulumi:"profileMonitorStatus"`
-	// The protocol (HTTP, HTTPS or TCP) used to probe for endpoint health.
-	Protocol pulumi.StringPtrInput `pulumi:"protocol"`
-	// The monitor timeout for endpoints in this profile. This is the time that Traffic Manager allows endpoints in this profile to response to the health check.
-	TimeoutInSeconds pulumi.Float64PtrInput `pulumi:"timeoutInSeconds"`
-	// The number of consecutive failed health check that Traffic Manager tolerates before declaring an endpoint in this profile Degraded after the next failed health check.
-	ToleratedNumberOfFailures pulumi.Float64PtrInput `pulumi:"toleratedNumberOfFailures"`
+	CustomHeaders             MonitorConfigResponseCustomHeadersArrayInput            `pulumi:"customHeaders"`
+	ExpectedStatusCodeRanges  MonitorConfigResponseExpectedStatusCodeRangesArrayInput `pulumi:"expectedStatusCodeRanges"`
+	IntervalInSeconds         pulumi.Float64PtrInput                                  `pulumi:"intervalInSeconds"`
+	Path                      pulumi.StringPtrInput                                   `pulumi:"path"`
+	Port                      pulumi.Float64PtrInput                                  `pulumi:"port"`
+	ProfileMonitorStatus      pulumi.StringPtrInput                                   `pulumi:"profileMonitorStatus"`
+	Protocol                  pulumi.StringPtrInput                                   `pulumi:"protocol"`
+	TimeoutInSeconds          pulumi.Float64PtrInput                                  `pulumi:"timeoutInSeconds"`
+	ToleratedNumberOfFailures pulumi.Float64PtrInput                                  `pulumi:"toleratedNumberOfFailures"`
 }
 
 func (MonitorConfigResponseArgs) ElementType() reflect.Type {
@@ -1581,7 +1394,6 @@ func (i *monitorConfigResponsePtrType) ToMonitorConfigResponsePtrOutputWithConte
 	return pulumi.ToOutputWithContext(ctx, i).(MonitorConfigResponsePtrOutput)
 }
 
-// Class containing endpoint monitoring settings in a Traffic Manager profile.
 type MonitorConfigResponseOutput struct{ *pulumi.OutputState }
 
 func (MonitorConfigResponseOutput) ElementType() reflect.Type {
@@ -1601,54 +1413,45 @@ func (o MonitorConfigResponseOutput) ToMonitorConfigResponsePtrOutput() MonitorC
 }
 
 func (o MonitorConfigResponseOutput) ToMonitorConfigResponsePtrOutputWithContext(ctx context.Context) MonitorConfigResponsePtrOutput {
-	return o.ApplyT(func(v MonitorConfigResponse) *MonitorConfigResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v MonitorConfigResponse) *MonitorConfigResponse {
 		return &v
 	}).(MonitorConfigResponsePtrOutput)
 }
 
-// List of custom headers.
 func (o MonitorConfigResponseOutput) CustomHeaders() MonitorConfigResponseCustomHeadersArrayOutput {
 	return o.ApplyT(func(v MonitorConfigResponse) []MonitorConfigResponseCustomHeaders { return v.CustomHeaders }).(MonitorConfigResponseCustomHeadersArrayOutput)
 }
 
-// List of expected status code ranges.
 func (o MonitorConfigResponseOutput) ExpectedStatusCodeRanges() MonitorConfigResponseExpectedStatusCodeRangesArrayOutput {
 	return o.ApplyT(func(v MonitorConfigResponse) []MonitorConfigResponseExpectedStatusCodeRanges {
 		return v.ExpectedStatusCodeRanges
 	}).(MonitorConfigResponseExpectedStatusCodeRangesArrayOutput)
 }
 
-// The monitor interval for endpoints in this profile. This is the interval at which Traffic Manager will check the health of each endpoint in this profile.
 func (o MonitorConfigResponseOutput) IntervalInSeconds() pulumi.Float64PtrOutput {
 	return o.ApplyT(func(v MonitorConfigResponse) *float64 { return v.IntervalInSeconds }).(pulumi.Float64PtrOutput)
 }
 
-// The path relative to the endpoint domain name used to probe for endpoint health.
 func (o MonitorConfigResponseOutput) Path() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v MonitorConfigResponse) *string { return v.Path }).(pulumi.StringPtrOutput)
 }
 
-// The TCP port used to probe for endpoint health.
 func (o MonitorConfigResponseOutput) Port() pulumi.Float64PtrOutput {
 	return o.ApplyT(func(v MonitorConfigResponse) *float64 { return v.Port }).(pulumi.Float64PtrOutput)
 }
 
-// The profile-level monitoring status of the Traffic Manager profile.
 func (o MonitorConfigResponseOutput) ProfileMonitorStatus() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v MonitorConfigResponse) *string { return v.ProfileMonitorStatus }).(pulumi.StringPtrOutput)
 }
 
-// The protocol (HTTP, HTTPS or TCP) used to probe for endpoint health.
 func (o MonitorConfigResponseOutput) Protocol() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v MonitorConfigResponse) *string { return v.Protocol }).(pulumi.StringPtrOutput)
 }
 
-// The monitor timeout for endpoints in this profile. This is the time that Traffic Manager allows endpoints in this profile to response to the health check.
 func (o MonitorConfigResponseOutput) TimeoutInSeconds() pulumi.Float64PtrOutput {
 	return o.ApplyT(func(v MonitorConfigResponse) *float64 { return v.TimeoutInSeconds }).(pulumi.Float64PtrOutput)
 }
 
-// The number of consecutive failed health check that Traffic Manager tolerates before declaring an endpoint in this profile Degraded after the next failed health check.
 func (o MonitorConfigResponseOutput) ToleratedNumberOfFailures() pulumi.Float64PtrOutput {
 	return o.ApplyT(func(v MonitorConfigResponse) *float64 { return v.ToleratedNumberOfFailures }).(pulumi.Float64PtrOutput)
 }
@@ -1668,10 +1471,15 @@ func (o MonitorConfigResponsePtrOutput) ToMonitorConfigResponsePtrOutputWithCont
 }
 
 func (o MonitorConfigResponsePtrOutput) Elem() MonitorConfigResponseOutput {
-	return o.ApplyT(func(v *MonitorConfigResponse) MonitorConfigResponse { return *v }).(MonitorConfigResponseOutput)
+	return o.ApplyT(func(v *MonitorConfigResponse) MonitorConfigResponse {
+		if v != nil {
+			return *v
+		}
+		var ret MonitorConfigResponse
+		return ret
+	}).(MonitorConfigResponseOutput)
 }
 
-// List of custom headers.
 func (o MonitorConfigResponsePtrOutput) CustomHeaders() MonitorConfigResponseCustomHeadersArrayOutput {
 	return o.ApplyT(func(v *MonitorConfigResponse) []MonitorConfigResponseCustomHeaders {
 		if v == nil {
@@ -1681,7 +1489,6 @@ func (o MonitorConfigResponsePtrOutput) CustomHeaders() MonitorConfigResponseCus
 	}).(MonitorConfigResponseCustomHeadersArrayOutput)
 }
 
-// List of expected status code ranges.
 func (o MonitorConfigResponsePtrOutput) ExpectedStatusCodeRanges() MonitorConfigResponseExpectedStatusCodeRangesArrayOutput {
 	return o.ApplyT(func(v *MonitorConfigResponse) []MonitorConfigResponseExpectedStatusCodeRanges {
 		if v == nil {
@@ -1691,7 +1498,6 @@ func (o MonitorConfigResponsePtrOutput) ExpectedStatusCodeRanges() MonitorConfig
 	}).(MonitorConfigResponseExpectedStatusCodeRangesArrayOutput)
 }
 
-// The monitor interval for endpoints in this profile. This is the interval at which Traffic Manager will check the health of each endpoint in this profile.
 func (o MonitorConfigResponsePtrOutput) IntervalInSeconds() pulumi.Float64PtrOutput {
 	return o.ApplyT(func(v *MonitorConfigResponse) *float64 {
 		if v == nil {
@@ -1701,7 +1507,6 @@ func (o MonitorConfigResponsePtrOutput) IntervalInSeconds() pulumi.Float64PtrOut
 	}).(pulumi.Float64PtrOutput)
 }
 
-// The path relative to the endpoint domain name used to probe for endpoint health.
 func (o MonitorConfigResponsePtrOutput) Path() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *MonitorConfigResponse) *string {
 		if v == nil {
@@ -1711,7 +1516,6 @@ func (o MonitorConfigResponsePtrOutput) Path() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The TCP port used to probe for endpoint health.
 func (o MonitorConfigResponsePtrOutput) Port() pulumi.Float64PtrOutput {
 	return o.ApplyT(func(v *MonitorConfigResponse) *float64 {
 		if v == nil {
@@ -1721,7 +1525,6 @@ func (o MonitorConfigResponsePtrOutput) Port() pulumi.Float64PtrOutput {
 	}).(pulumi.Float64PtrOutput)
 }
 
-// The profile-level monitoring status of the Traffic Manager profile.
 func (o MonitorConfigResponsePtrOutput) ProfileMonitorStatus() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *MonitorConfigResponse) *string {
 		if v == nil {
@@ -1731,7 +1534,6 @@ func (o MonitorConfigResponsePtrOutput) ProfileMonitorStatus() pulumi.StringPtrO
 	}).(pulumi.StringPtrOutput)
 }
 
-// The protocol (HTTP, HTTPS or TCP) used to probe for endpoint health.
 func (o MonitorConfigResponsePtrOutput) Protocol() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *MonitorConfigResponse) *string {
 		if v == nil {
@@ -1741,7 +1543,6 @@ func (o MonitorConfigResponsePtrOutput) Protocol() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The monitor timeout for endpoints in this profile. This is the time that Traffic Manager allows endpoints in this profile to response to the health check.
 func (o MonitorConfigResponsePtrOutput) TimeoutInSeconds() pulumi.Float64PtrOutput {
 	return o.ApplyT(func(v *MonitorConfigResponse) *float64 {
 		if v == nil {
@@ -1751,7 +1552,6 @@ func (o MonitorConfigResponsePtrOutput) TimeoutInSeconds() pulumi.Float64PtrOutp
 	}).(pulumi.Float64PtrOutput)
 }
 
-// The number of consecutive failed health check that Traffic Manager tolerates before declaring an endpoint in this profile Degraded after the next failed health check.
 func (o MonitorConfigResponsePtrOutput) ToleratedNumberOfFailures() pulumi.Float64PtrOutput {
 	return o.ApplyT(func(v *MonitorConfigResponse) *float64 {
 		if v == nil {
@@ -1761,11 +1561,8 @@ func (o MonitorConfigResponsePtrOutput) ToleratedNumberOfFailures() pulumi.Float
 	}).(pulumi.Float64PtrOutput)
 }
 
-// Custom header name and value.
 type MonitorConfigResponseCustomHeaders struct {
-	// Header name.
-	Name *string `pulumi:"name"`
-	// Header value.
+	Name  *string `pulumi:"name"`
 	Value *string `pulumi:"value"`
 }
 
@@ -1780,11 +1577,8 @@ type MonitorConfigResponseCustomHeadersInput interface {
 	ToMonitorConfigResponseCustomHeadersOutputWithContext(context.Context) MonitorConfigResponseCustomHeadersOutput
 }
 
-// Custom header name and value.
 type MonitorConfigResponseCustomHeadersArgs struct {
-	// Header name.
-	Name pulumi.StringPtrInput `pulumi:"name"`
-	// Header value.
+	Name  pulumi.StringPtrInput `pulumi:"name"`
 	Value pulumi.StringPtrInput `pulumi:"value"`
 }
 
@@ -1825,7 +1619,6 @@ func (i MonitorConfigResponseCustomHeadersArray) ToMonitorConfigResponseCustomHe
 	return pulumi.ToOutputWithContext(ctx, i).(MonitorConfigResponseCustomHeadersArrayOutput)
 }
 
-// Custom header name and value.
 type MonitorConfigResponseCustomHeadersOutput struct{ *pulumi.OutputState }
 
 func (MonitorConfigResponseCustomHeadersOutput) ElementType() reflect.Type {
@@ -1840,12 +1633,10 @@ func (o MonitorConfigResponseCustomHeadersOutput) ToMonitorConfigResponseCustomH
 	return o
 }
 
-// Header name.
 func (o MonitorConfigResponseCustomHeadersOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v MonitorConfigResponseCustomHeaders) *string { return v.Name }).(pulumi.StringPtrOutput)
 }
 
-// Header value.
 func (o MonitorConfigResponseCustomHeadersOutput) Value() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v MonitorConfigResponseCustomHeaders) *string { return v.Value }).(pulumi.StringPtrOutput)
 }
@@ -1870,11 +1661,8 @@ func (o MonitorConfigResponseCustomHeadersArrayOutput) Index(i pulumi.IntInput) 
 	}).(MonitorConfigResponseCustomHeadersOutput)
 }
 
-// Min and max value of a status code range.
 type MonitorConfigResponseExpectedStatusCodeRanges struct {
-	// Max status code.
 	Max *int `pulumi:"max"`
-	// Min status code.
 	Min *int `pulumi:"min"`
 }
 
@@ -1889,11 +1677,8 @@ type MonitorConfigResponseExpectedStatusCodeRangesInput interface {
 	ToMonitorConfigResponseExpectedStatusCodeRangesOutputWithContext(context.Context) MonitorConfigResponseExpectedStatusCodeRangesOutput
 }
 
-// Min and max value of a status code range.
 type MonitorConfigResponseExpectedStatusCodeRangesArgs struct {
-	// Max status code.
 	Max pulumi.IntPtrInput `pulumi:"max"`
-	// Min status code.
 	Min pulumi.IntPtrInput `pulumi:"min"`
 }
 
@@ -1934,7 +1719,6 @@ func (i MonitorConfigResponseExpectedStatusCodeRangesArray) ToMonitorConfigRespo
 	return pulumi.ToOutputWithContext(ctx, i).(MonitorConfigResponseExpectedStatusCodeRangesArrayOutput)
 }
 
-// Min and max value of a status code range.
 type MonitorConfigResponseExpectedStatusCodeRangesOutput struct{ *pulumi.OutputState }
 
 func (MonitorConfigResponseExpectedStatusCodeRangesOutput) ElementType() reflect.Type {
@@ -1949,12 +1733,10 @@ func (o MonitorConfigResponseExpectedStatusCodeRangesOutput) ToMonitorConfigResp
 	return o
 }
 
-// Max status code.
 func (o MonitorConfigResponseExpectedStatusCodeRangesOutput) Max() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v MonitorConfigResponseExpectedStatusCodeRanges) *int { return v.Max }).(pulumi.IntPtrOutput)
 }
 
-// Min status code.
 func (o MonitorConfigResponseExpectedStatusCodeRangesOutput) Min() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v MonitorConfigResponseExpectedStatusCodeRanges) *int { return v.Min }).(pulumi.IntPtrOutput)
 }

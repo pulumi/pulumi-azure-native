@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.ContainerService.Outputs
 {
 
+    /// <summary>
+    /// Defines the Identity provider for MS AAD.
+    /// </summary>
     [OutputType]
     public sealed class OpenShiftManagedClusterAADIdentityProviderResponse
     {

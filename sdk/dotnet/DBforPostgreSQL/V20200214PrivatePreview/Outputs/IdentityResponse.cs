@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.DBforPostgreSQL.V20200214PrivatePreview.Outputs
 {
 
+    /// <summary>
+    /// Identity for the resource.
+    /// </summary>
     [OutputType]
     public sealed class IdentityResponse
     {

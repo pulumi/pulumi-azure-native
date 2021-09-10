@@ -11,26 +11,17 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// An Azure resource which represents access to a suite of Maps REST APIs.
 type Account struct {
 	pulumi.CustomResourceState
 
-	// Get or Set Kind property.
-	Kind pulumi.StringPtrOutput `pulumi:"kind"`
-	// The geo-location where the resource lives
-	Location pulumi.StringOutput `pulumi:"location"`
-	// The name of the resource
-	Name pulumi.StringOutput `pulumi:"name"`
-	// The map account properties.
+	Kind       pulumi.StringPtrOutput              `pulumi:"kind"`
+	Location   pulumi.StringOutput                 `pulumi:"location"`
+	Name       pulumi.StringOutput                 `pulumi:"name"`
 	Properties MapsAccountPropertiesResponseOutput `pulumi:"properties"`
-	// The SKU of this account.
-	Sku SkuResponseOutput `pulumi:"sku"`
-	// The system meta data relating to this resource.
-	SystemData SystemDataResponseOutput `pulumi:"systemData"`
-	// Resource tags.
-	Tags pulumi.StringMapOutput `pulumi:"tags"`
-	// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
-	Type pulumi.StringOutput `pulumi:"type"`
+	Sku        SkuResponseOutput                   `pulumi:"sku"`
+	SystemData SystemDataResponseOutput            `pulumi:"systemData"`
+	Tags       pulumi.StringMapOutput              `pulumi:"tags"`
+	Type       pulumi.StringOutput                 `pulumi:"type"`
 }
 
 // NewAccount registers a new resource with the given unique name, arguments, and options.
@@ -114,38 +105,24 @@ func (AccountState) ElementType() reflect.Type {
 }
 
 type accountArgs struct {
-	// The name of the Maps Account.
-	AccountName *string `pulumi:"accountName"`
-	// Get or Set Kind property.
-	Kind *string `pulumi:"kind"`
-	// The geo-location where the resource lives
-	Location *string `pulumi:"location"`
-	// The map account properties.
-	Properties *MapsAccountProperties `pulumi:"properties"`
-	// The name of the resource group. The name is case insensitive.
-	ResourceGroupName string `pulumi:"resourceGroupName"`
-	// The SKU of this account.
-	Sku Sku `pulumi:"sku"`
-	// Resource tags.
-	Tags map[string]string `pulumi:"tags"`
+	AccountName       *string                `pulumi:"accountName"`
+	Kind              *string                `pulumi:"kind"`
+	Location          *string                `pulumi:"location"`
+	Properties        *MapsAccountProperties `pulumi:"properties"`
+	ResourceGroupName string                 `pulumi:"resourceGroupName"`
+	Sku               Sku                    `pulumi:"sku"`
+	Tags              map[string]string      `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a Account resource.
 type AccountArgs struct {
-	// The name of the Maps Account.
-	AccountName pulumi.StringPtrInput
-	// Get or Set Kind property.
-	Kind pulumi.StringPtrInput
-	// The geo-location where the resource lives
-	Location pulumi.StringPtrInput
-	// The map account properties.
-	Properties MapsAccountPropertiesPtrInput
-	// The name of the resource group. The name is case insensitive.
+	AccountName       pulumi.StringPtrInput
+	Kind              pulumi.StringPtrInput
+	Location          pulumi.StringPtrInput
+	Properties        MapsAccountPropertiesPtrInput
 	ResourceGroupName pulumi.StringInput
-	// The SKU of this account.
-	Sku SkuInput
-	// Resource tags.
-	Tags pulumi.StringMapInput
+	Sku               SkuInput
+	Tags              pulumi.StringMapInput
 }
 
 func (AccountArgs) ElementType() reflect.Type {
@@ -171,9 +148,7 @@ func (i *Account) ToAccountOutputWithContext(ctx context.Context) AccountOutput 
 	return pulumi.ToOutputWithContext(ctx, i).(AccountOutput)
 }
 
-type AccountOutput struct {
-	*pulumi.OutputState
-}
+type AccountOutput struct{ *pulumi.OutputState }
 
 func (AccountOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*Account)(nil))

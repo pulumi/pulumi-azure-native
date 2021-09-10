@@ -269,9 +269,7 @@ func (i *MachineLearningDatastore) ToMachineLearningDatastoreOutputWithContext(c
 	return pulumi.ToOutputWithContext(ctx, i).(MachineLearningDatastoreOutput)
 }
 
-type MachineLearningDatastoreOutput struct {
-	*pulumi.OutputState
-}
+type MachineLearningDatastoreOutput struct{ *pulumi.OutputState }
 
 func (MachineLearningDatastoreOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*MachineLearningDatastore)(nil))

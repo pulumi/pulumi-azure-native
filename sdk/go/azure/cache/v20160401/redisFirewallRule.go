@@ -11,18 +11,13 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// A firewall rule on a redis cache has a name, and describes a contiguous range of IP addresses permitted to connect
 type RedisFirewallRule struct {
 	pulumi.CustomResourceState
 
-	// highest IP address included in the range
-	EndIP pulumi.StringOutput `pulumi:"endIP"`
-	// name of the firewall rule
-	Name pulumi.StringOutput `pulumi:"name"`
-	// lowest IP address included in the range
+	EndIP   pulumi.StringOutput `pulumi:"endIP"`
+	Name    pulumi.StringOutput `pulumi:"name"`
 	StartIP pulumi.StringOutput `pulumi:"startIP"`
-	// type (of the firewall rule resource = 'Microsoft.Cache/redis/firewallRule')
-	Type pulumi.StringOutput `pulumi:"type"`
+	Type    pulumi.StringOutput `pulumi:"type"`
 }
 
 // NewRedisFirewallRule registers a new resource with the given unique name, arguments, and options.
@@ -124,30 +119,20 @@ func (RedisFirewallRuleState) ElementType() reflect.Type {
 }
 
 type redisFirewallRuleArgs struct {
-	// The name of the Redis cache.
-	CacheName string `pulumi:"cacheName"`
-	// highest IP address included in the range
-	EndIP string `pulumi:"endIP"`
-	// The name of the resource group.
-	ResourceGroupName string `pulumi:"resourceGroupName"`
-	// The name of the firewall rule.
-	RuleName *string `pulumi:"ruleName"`
-	// lowest IP address included in the range
-	StartIP string `pulumi:"startIP"`
+	CacheName         string  `pulumi:"cacheName"`
+	EndIP             string  `pulumi:"endIP"`
+	ResourceGroupName string  `pulumi:"resourceGroupName"`
+	RuleName          *string `pulumi:"ruleName"`
+	StartIP           string  `pulumi:"startIP"`
 }
 
 // The set of arguments for constructing a RedisFirewallRule resource.
 type RedisFirewallRuleArgs struct {
-	// The name of the Redis cache.
-	CacheName pulumi.StringInput
-	// highest IP address included in the range
-	EndIP pulumi.StringInput
-	// The name of the resource group.
+	CacheName         pulumi.StringInput
+	EndIP             pulumi.StringInput
 	ResourceGroupName pulumi.StringInput
-	// The name of the firewall rule.
-	RuleName pulumi.StringPtrInput
-	// lowest IP address included in the range
-	StartIP pulumi.StringInput
+	RuleName          pulumi.StringPtrInput
+	StartIP           pulumi.StringInput
 }
 
 func (RedisFirewallRuleArgs) ElementType() reflect.Type {
@@ -173,9 +158,7 @@ func (i *RedisFirewallRule) ToRedisFirewallRuleOutputWithContext(ctx context.Con
 	return pulumi.ToOutputWithContext(ctx, i).(RedisFirewallRuleOutput)
 }
 
-type RedisFirewallRuleOutput struct {
-	*pulumi.OutputState
-}
+type RedisFirewallRuleOutput struct{ *pulumi.OutputState }
 
 func (RedisFirewallRuleOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*RedisFirewallRule)(nil))

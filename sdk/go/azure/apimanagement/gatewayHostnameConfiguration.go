@@ -187,9 +187,7 @@ func (i *GatewayHostnameConfiguration) ToGatewayHostnameConfigurationOutputWithC
 	return pulumi.ToOutputWithContext(ctx, i).(GatewayHostnameConfigurationOutput)
 }
 
-type GatewayHostnameConfigurationOutput struct {
-	*pulumi.OutputState
-}
+type GatewayHostnameConfigurationOutput struct{ *pulumi.OutputState }
 
 func (GatewayHostnameConfigurationOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*GatewayHostnameConfiguration)(nil))

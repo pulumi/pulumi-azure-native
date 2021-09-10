@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.ManagedNetwork.V20190601Preview.Outputs
 {
 
+    /// <summary>
+    /// Generic pointer to a resource
+    /// </summary>
     [OutputType]
     public sealed class ResourceIdResponse
     {

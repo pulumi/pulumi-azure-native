@@ -77,26 +77,20 @@ func (HyperVCollectorState) ElementType() reflect.Type {
 }
 
 type hyperVCollectorArgs struct {
-	ETag *string `pulumi:"eTag"`
-	// Unique name of a Hyper-V collector within a project.
-	HyperVCollectorName *string `pulumi:"hyperVCollectorName"`
-	// Name of the Azure Migrate project.
-	ProjectName string               `pulumi:"projectName"`
-	Properties  *CollectorProperties `pulumi:"properties"`
-	// Name of the Azure Resource Group that project is part of.
-	ResourceGroupName string `pulumi:"resourceGroupName"`
+	ETag                *string              `pulumi:"eTag"`
+	HyperVCollectorName *string              `pulumi:"hyperVCollectorName"`
+	ProjectName         string               `pulumi:"projectName"`
+	Properties          *CollectorProperties `pulumi:"properties"`
+	ResourceGroupName   string               `pulumi:"resourceGroupName"`
 }
 
 // The set of arguments for constructing a HyperVCollector resource.
 type HyperVCollectorArgs struct {
-	ETag pulumi.StringPtrInput
-	// Unique name of a Hyper-V collector within a project.
+	ETag                pulumi.StringPtrInput
 	HyperVCollectorName pulumi.StringPtrInput
-	// Name of the Azure Migrate project.
-	ProjectName pulumi.StringInput
-	Properties  CollectorPropertiesPtrInput
-	// Name of the Azure Resource Group that project is part of.
-	ResourceGroupName pulumi.StringInput
+	ProjectName         pulumi.StringInput
+	Properties          CollectorPropertiesPtrInput
+	ResourceGroupName   pulumi.StringInput
 }
 
 func (HyperVCollectorArgs) ElementType() reflect.Type {
@@ -122,9 +116,7 @@ func (i *HyperVCollector) ToHyperVCollectorOutputWithContext(ctx context.Context
 	return pulumi.ToOutputWithContext(ctx, i).(HyperVCollectorOutput)
 }
 
-type HyperVCollectorOutput struct {
-	*pulumi.OutputState
-}
+type HyperVCollectorOutput struct{ *pulumi.OutputState }
 
 func (HyperVCollectorOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*HyperVCollector)(nil))

@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.Network.V20160601.Outputs
 {
 
+    /// <summary>
+    /// Specifies the peering config
+    /// </summary>
     [OutputType]
     public sealed class ExpressRouteCircuitPeeringConfigResponse
     {

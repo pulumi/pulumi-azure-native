@@ -11,48 +11,28 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// The prediction resource format.
 type Prediction struct {
 	pulumi.CustomResourceState
 
-	// Whether do auto analyze.
-	AutoAnalyze pulumi.BoolOutput `pulumi:"autoAnalyze"`
-	// Description of the prediction.
-	Description pulumi.StringMapOutput `pulumi:"description"`
-	// Display name of the prediction.
-	DisplayName pulumi.StringMapOutput `pulumi:"displayName"`
-	// The prediction grades.
-	Grades PredictionResponseGradesArrayOutput `pulumi:"grades"`
-	// Interaction types involved in the prediction.
-	InvolvedInteractionTypes pulumi.StringArrayOutput `pulumi:"involvedInteractionTypes"`
-	// KPI types involved in the prediction.
-	InvolvedKpiTypes pulumi.StringArrayOutput `pulumi:"involvedKpiTypes"`
-	// Relationships involved in the prediction.
-	InvolvedRelationships pulumi.StringArrayOutput `pulumi:"involvedRelationships"`
-	// Definition of the link mapping of prediction.
-	Mappings PredictionResponseMappingsOutput `pulumi:"mappings"`
-	// Resource name.
-	Name pulumi.StringOutput `pulumi:"name"`
-	// Negative outcome expression.
-	NegativeOutcomeExpression pulumi.StringOutput `pulumi:"negativeOutcomeExpression"`
-	// Positive outcome expression.
-	PositiveOutcomeExpression pulumi.StringOutput `pulumi:"positiveOutcomeExpression"`
-	// Name of the prediction.
-	PredictionName pulumi.StringPtrOutput `pulumi:"predictionName"`
-	// Primary profile type.
-	PrimaryProfileType pulumi.StringOutput `pulumi:"primaryProfileType"`
-	// Provisioning state.
-	ProvisioningState pulumi.StringOutput `pulumi:"provisioningState"`
-	// Scope expression.
-	ScopeExpression pulumi.StringOutput `pulumi:"scopeExpression"`
-	// Score label.
-	ScoreLabel pulumi.StringOutput `pulumi:"scoreLabel"`
-	// System generated entities.
-	SystemGeneratedEntities PredictionResponseSystemGeneratedEntitiesOutput `pulumi:"systemGeneratedEntities"`
-	// The hub name.
-	TenantId pulumi.StringOutput `pulumi:"tenantId"`
-	// Resource type.
-	Type pulumi.StringOutput `pulumi:"type"`
+	AutoAnalyze               pulumi.BoolOutput                               `pulumi:"autoAnalyze"`
+	Description               pulumi.StringMapOutput                          `pulumi:"description"`
+	DisplayName               pulumi.StringMapOutput                          `pulumi:"displayName"`
+	Grades                    PredictionResponseGradesArrayOutput             `pulumi:"grades"`
+	InvolvedInteractionTypes  pulumi.StringArrayOutput                        `pulumi:"involvedInteractionTypes"`
+	InvolvedKpiTypes          pulumi.StringArrayOutput                        `pulumi:"involvedKpiTypes"`
+	InvolvedRelationships     pulumi.StringArrayOutput                        `pulumi:"involvedRelationships"`
+	Mappings                  PredictionResponseMappingsOutput                `pulumi:"mappings"`
+	Name                      pulumi.StringOutput                             `pulumi:"name"`
+	NegativeOutcomeExpression pulumi.StringOutput                             `pulumi:"negativeOutcomeExpression"`
+	PositiveOutcomeExpression pulumi.StringOutput                             `pulumi:"positiveOutcomeExpression"`
+	PredictionName            pulumi.StringPtrOutput                          `pulumi:"predictionName"`
+	PrimaryProfileType        pulumi.StringOutput                             `pulumi:"primaryProfileType"`
+	ProvisioningState         pulumi.StringOutput                             `pulumi:"provisioningState"`
+	ScopeExpression           pulumi.StringOutput                             `pulumi:"scopeExpression"`
+	ScoreLabel                pulumi.StringOutput                             `pulumi:"scoreLabel"`
+	SystemGeneratedEntities   PredictionResponseSystemGeneratedEntitiesOutput `pulumi:"systemGeneratedEntities"`
+	TenantId                  pulumi.StringOutput                             `pulumi:"tenantId"`
+	Type                      pulumi.StringOutput                             `pulumi:"type"`
 }
 
 // NewPrediction registers a new resource with the given unique name, arguments, and options.
@@ -133,74 +113,42 @@ func (PredictionState) ElementType() reflect.Type {
 }
 
 type predictionArgs struct {
-	// Whether do auto analyze.
-	AutoAnalyze bool `pulumi:"autoAnalyze"`
-	// Description of the prediction.
-	Description map[string]string `pulumi:"description"`
-	// Display name of the prediction.
-	DisplayName map[string]string `pulumi:"displayName"`
-	// The prediction grades.
-	Grades []PredictionGrades `pulumi:"grades"`
-	// The name of the hub.
-	HubName string `pulumi:"hubName"`
-	// Interaction types involved in the prediction.
-	InvolvedInteractionTypes []string `pulumi:"involvedInteractionTypes"`
-	// KPI types involved in the prediction.
-	InvolvedKpiTypes []string `pulumi:"involvedKpiTypes"`
-	// Relationships involved in the prediction.
-	InvolvedRelationships []string `pulumi:"involvedRelationships"`
-	// Definition of the link mapping of prediction.
-	Mappings PredictionMappings `pulumi:"mappings"`
-	// Negative outcome expression.
-	NegativeOutcomeExpression string `pulumi:"negativeOutcomeExpression"`
-	// Positive outcome expression.
-	PositiveOutcomeExpression string `pulumi:"positiveOutcomeExpression"`
-	// Name of the prediction.
-	PredictionName *string `pulumi:"predictionName"`
-	// Primary profile type.
-	PrimaryProfileType string `pulumi:"primaryProfileType"`
-	// The name of the resource group.
-	ResourceGroupName string `pulumi:"resourceGroupName"`
-	// Scope expression.
-	ScopeExpression string `pulumi:"scopeExpression"`
-	// Score label.
-	ScoreLabel string `pulumi:"scoreLabel"`
+	AutoAnalyze               bool               `pulumi:"autoAnalyze"`
+	Description               map[string]string  `pulumi:"description"`
+	DisplayName               map[string]string  `pulumi:"displayName"`
+	Grades                    []PredictionGrades `pulumi:"grades"`
+	HubName                   string             `pulumi:"hubName"`
+	InvolvedInteractionTypes  []string           `pulumi:"involvedInteractionTypes"`
+	InvolvedKpiTypes          []string           `pulumi:"involvedKpiTypes"`
+	InvolvedRelationships     []string           `pulumi:"involvedRelationships"`
+	Mappings                  PredictionMappings `pulumi:"mappings"`
+	NegativeOutcomeExpression string             `pulumi:"negativeOutcomeExpression"`
+	PositiveOutcomeExpression string             `pulumi:"positiveOutcomeExpression"`
+	PredictionName            *string            `pulumi:"predictionName"`
+	PrimaryProfileType        string             `pulumi:"primaryProfileType"`
+	ResourceGroupName         string             `pulumi:"resourceGroupName"`
+	ScopeExpression           string             `pulumi:"scopeExpression"`
+	ScoreLabel                string             `pulumi:"scoreLabel"`
 }
 
 // The set of arguments for constructing a Prediction resource.
 type PredictionArgs struct {
-	// Whether do auto analyze.
-	AutoAnalyze pulumi.BoolInput
-	// Description of the prediction.
-	Description pulumi.StringMapInput
-	// Display name of the prediction.
-	DisplayName pulumi.StringMapInput
-	// The prediction grades.
-	Grades PredictionGradesArrayInput
-	// The name of the hub.
-	HubName pulumi.StringInput
-	// Interaction types involved in the prediction.
-	InvolvedInteractionTypes pulumi.StringArrayInput
-	// KPI types involved in the prediction.
-	InvolvedKpiTypes pulumi.StringArrayInput
-	// Relationships involved in the prediction.
-	InvolvedRelationships pulumi.StringArrayInput
-	// Definition of the link mapping of prediction.
-	Mappings PredictionMappingsInput
-	// Negative outcome expression.
+	AutoAnalyze               pulumi.BoolInput
+	Description               pulumi.StringMapInput
+	DisplayName               pulumi.StringMapInput
+	Grades                    PredictionGradesArrayInput
+	HubName                   pulumi.StringInput
+	InvolvedInteractionTypes  pulumi.StringArrayInput
+	InvolvedKpiTypes          pulumi.StringArrayInput
+	InvolvedRelationships     pulumi.StringArrayInput
+	Mappings                  PredictionMappingsInput
 	NegativeOutcomeExpression pulumi.StringInput
-	// Positive outcome expression.
 	PositiveOutcomeExpression pulumi.StringInput
-	// Name of the prediction.
-	PredictionName pulumi.StringPtrInput
-	// Primary profile type.
-	PrimaryProfileType pulumi.StringInput
-	// The name of the resource group.
-	ResourceGroupName pulumi.StringInput
-	// Scope expression.
-	ScopeExpression pulumi.StringInput
-	// Score label.
-	ScoreLabel pulumi.StringInput
+	PredictionName            pulumi.StringPtrInput
+	PrimaryProfileType        pulumi.StringInput
+	ResourceGroupName         pulumi.StringInput
+	ScopeExpression           pulumi.StringInput
+	ScoreLabel                pulumi.StringInput
 }
 
 func (PredictionArgs) ElementType() reflect.Type {
@@ -226,9 +174,7 @@ func (i *Prediction) ToPredictionOutputWithContext(ctx context.Context) Predicti
 	return pulumi.ToOutputWithContext(ctx, i).(PredictionOutput)
 }
 
-type PredictionOutput struct {
-	*pulumi.OutputState
-}
+type PredictionOutput struct{ *pulumi.OutputState }
 
 func (PredictionOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*Prediction)(nil))

@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.RecoveryServices.V20160810.Outputs
 {
 
+    /// <summary>
+    /// Recovery plan protected item.
+    /// </summary>
     [OutputType]
     public sealed class RecoveryPlanProtectedItemResponse
     {

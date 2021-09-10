@@ -191,9 +191,7 @@ func (i *ConnectedCluster) ToConnectedClusterOutputWithContext(ctx context.Conte
 	return pulumi.ToOutputWithContext(ctx, i).(ConnectedClusterOutput)
 }
 
-type ConnectedClusterOutput struct {
-	*pulumi.OutputState
-}
+type ConnectedClusterOutput struct{ *pulumi.OutputState }
 
 func (ConnectedClusterOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*ConnectedCluster)(nil))

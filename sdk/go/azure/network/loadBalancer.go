@@ -411,9 +411,7 @@ func (i *LoadBalancer) ToLoadBalancerOutputWithContext(ctx context.Context) Load
 	return pulumi.ToOutputWithContext(ctx, i).(LoadBalancerOutput)
 }
 
-type LoadBalancerOutput struct {
-	*pulumi.OutputState
-}
+type LoadBalancerOutput struct{ *pulumi.OutputState }
 
 func (LoadBalancerOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*LoadBalancer)(nil))

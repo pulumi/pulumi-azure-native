@@ -218,9 +218,7 @@ func (i *WebAppSitePushSettings) ToWebAppSitePushSettingsOutputWithContext(ctx c
 	return pulumi.ToOutputWithContext(ctx, i).(WebAppSitePushSettingsOutput)
 }
 
-type WebAppSitePushSettingsOutput struct {
-	*pulumi.OutputState
-}
+type WebAppSitePushSettingsOutput struct{ *pulumi.OutputState }
 
 func (WebAppSitePushSettingsOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*WebAppSitePushSettings)(nil))

@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.EventGrid.V20210601Preview.Outputs
 {
 
+    /// <summary>
+    /// Information about the deadletter destination with resource identity.
+    /// </summary>
     [OutputType]
     public sealed class DeadLetterWithResourceIdentityResponse
     {

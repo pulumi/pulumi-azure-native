@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.PolicyInsights.V20190701.Outputs
 {
 
+    /// <summary>
+    /// Error definition.
+    /// </summary>
     [OutputType]
     public sealed class ErrorDefinitionResponse
     {

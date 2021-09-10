@@ -11,18 +11,13 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Linked service resource type.
 type LinkedService struct {
 	pulumi.CustomResourceState
 
-	// Etag identifies change in the resource.
-	Etag pulumi.StringOutput `pulumi:"etag"`
-	// The resource name.
-	Name pulumi.StringOutput `pulumi:"name"`
-	// Properties of linked service.
-	Properties pulumi.AnyOutput `pulumi:"properties"`
-	// The resource type.
-	Type pulumi.StringOutput `pulumi:"type"`
+	Etag       pulumi.StringOutput `pulumi:"etag"`
+	Name       pulumi.StringOutput `pulumi:"name"`
+	Properties pulumi.AnyOutput    `pulumi:"properties"`
+	Type       pulumi.StringOutput `pulumi:"type"`
 }
 
 // NewLinkedService registers a new resource with the given unique name, arguments, and options.
@@ -91,25 +86,17 @@ func (LinkedServiceState) ElementType() reflect.Type {
 }
 
 type linkedServiceArgs struct {
-	// The factory name.
-	FactoryName string `pulumi:"factoryName"`
-	// The linked service name.
-	LinkedServiceName *string `pulumi:"linkedServiceName"`
-	// Properties of linked service.
-	Properties interface{} `pulumi:"properties"`
-	// The resource group name.
-	ResourceGroupName string `pulumi:"resourceGroupName"`
+	FactoryName       string      `pulumi:"factoryName"`
+	LinkedServiceName *string     `pulumi:"linkedServiceName"`
+	Properties        interface{} `pulumi:"properties"`
+	ResourceGroupName string      `pulumi:"resourceGroupName"`
 }
 
 // The set of arguments for constructing a LinkedService resource.
 type LinkedServiceArgs struct {
-	// The factory name.
-	FactoryName pulumi.StringInput
-	// The linked service name.
+	FactoryName       pulumi.StringInput
 	LinkedServiceName pulumi.StringPtrInput
-	// Properties of linked service.
-	Properties pulumi.Input
-	// The resource group name.
+	Properties        pulumi.Input
 	ResourceGroupName pulumi.StringInput
 }
 
@@ -136,9 +123,7 @@ func (i *LinkedService) ToLinkedServiceOutputWithContext(ctx context.Context) Li
 	return pulumi.ToOutputWithContext(ctx, i).(LinkedServiceOutput)
 }
 
-type LinkedServiceOutput struct {
-	*pulumi.OutputState
-}
+type LinkedServiceOutput struct{ *pulumi.OutputState }
 
 func (LinkedServiceOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*LinkedService)(nil))

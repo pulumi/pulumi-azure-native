@@ -17,16 +17,12 @@ type WebAppAuthSettingsV2Slot struct {
 	GlobalValidation  GlobalValidationResponsePtrOutput  `pulumi:"globalValidation"`
 	HttpSettings      HttpSettingsResponsePtrOutput      `pulumi:"httpSettings"`
 	IdentityProviders IdentityProvidersResponsePtrOutput `pulumi:"identityProviders"`
-	// Kind of resource.
-	Kind  pulumi.StringPtrOutput `pulumi:"kind"`
-	Login LoginResponsePtrOutput `pulumi:"login"`
-	// Resource Name.
-	Name     pulumi.StringOutput           `pulumi:"name"`
-	Platform AuthPlatformResponsePtrOutput `pulumi:"platform"`
-	// The system metadata relating to this resource.
-	SystemData SystemDataResponseOutput `pulumi:"systemData"`
-	// Resource type.
-	Type pulumi.StringOutput `pulumi:"type"`
+	Kind              pulumi.StringPtrOutput             `pulumi:"kind"`
+	Login             LoginResponsePtrOutput             `pulumi:"login"`
+	Name              pulumi.StringOutput                `pulumi:"name"`
+	Platform          AuthPlatformResponsePtrOutput      `pulumi:"platform"`
+	SystemData        SystemDataResponseOutput           `pulumi:"systemData"`
+	Type              pulumi.StringOutput                `pulumi:"type"`
 }
 
 // NewWebAppAuthSettingsV2Slot registers a new resource with the given unique name, arguments, and options.
@@ -128,16 +124,12 @@ type webAppAuthSettingsV2SlotArgs struct {
 	GlobalValidation  *GlobalValidation  `pulumi:"globalValidation"`
 	HttpSettings      *HttpSettings      `pulumi:"httpSettings"`
 	IdentityProviders *IdentityProviders `pulumi:"identityProviders"`
-	// Kind of resource.
-	Kind  *string `pulumi:"kind"`
-	Login *Login  `pulumi:"login"`
-	// Name of web app.
-	Name     string        `pulumi:"name"`
-	Platform *AuthPlatform `pulumi:"platform"`
-	// Name of the resource group to which the resource belongs.
-	ResourceGroupName string `pulumi:"resourceGroupName"`
-	// Name of web app slot. If not specified then will default to production slot.
-	Slot string `pulumi:"slot"`
+	Kind              *string            `pulumi:"kind"`
+	Login             *Login             `pulumi:"login"`
+	Name              string             `pulumi:"name"`
+	Platform          *AuthPlatform      `pulumi:"platform"`
+	ResourceGroupName string             `pulumi:"resourceGroupName"`
+	Slot              string             `pulumi:"slot"`
 }
 
 // The set of arguments for constructing a WebAppAuthSettingsV2Slot resource.
@@ -145,16 +137,12 @@ type WebAppAuthSettingsV2SlotArgs struct {
 	GlobalValidation  GlobalValidationPtrInput
 	HttpSettings      HttpSettingsPtrInput
 	IdentityProviders IdentityProvidersPtrInput
-	// Kind of resource.
-	Kind  pulumi.StringPtrInput
-	Login LoginPtrInput
-	// Name of web app.
-	Name     pulumi.StringInput
-	Platform AuthPlatformPtrInput
-	// Name of the resource group to which the resource belongs.
+	Kind              pulumi.StringPtrInput
+	Login             LoginPtrInput
+	Name              pulumi.StringInput
+	Platform          AuthPlatformPtrInput
 	ResourceGroupName pulumi.StringInput
-	// Name of web app slot. If not specified then will default to production slot.
-	Slot pulumi.StringInput
+	Slot              pulumi.StringInput
 }
 
 func (WebAppAuthSettingsV2SlotArgs) ElementType() reflect.Type {
@@ -180,9 +168,7 @@ func (i *WebAppAuthSettingsV2Slot) ToWebAppAuthSettingsV2SlotOutputWithContext(c
 	return pulumi.ToOutputWithContext(ctx, i).(WebAppAuthSettingsV2SlotOutput)
 }
 
-type WebAppAuthSettingsV2SlotOutput struct {
-	*pulumi.OutputState
-}
+type WebAppAuthSettingsV2SlotOutput struct{ *pulumi.OutputState }
 
 func (WebAppAuthSettingsV2SlotOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*WebAppAuthSettingsV2Slot)(nil))

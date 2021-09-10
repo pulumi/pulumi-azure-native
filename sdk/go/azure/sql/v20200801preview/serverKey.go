@@ -11,24 +11,16 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// A server key.
 type ServerKey struct {
 	pulumi.CustomResourceState
 
-	// The server key creation date.
 	CreationDate pulumi.StringOutput `pulumi:"creationDate"`
-	// Kind of encryption protector. This is metadata used for the Azure portal experience.
-	Kind pulumi.StringOutput `pulumi:"kind"`
-	// Resource location.
-	Location pulumi.StringOutput `pulumi:"location"`
-	// Resource name.
-	Name pulumi.StringOutput `pulumi:"name"`
-	// Subregion of the server key.
-	Subregion pulumi.StringOutput `pulumi:"subregion"`
-	// Thumbprint of the server key.
-	Thumbprint pulumi.StringOutput `pulumi:"thumbprint"`
-	// Resource type.
-	Type pulumi.StringOutput `pulumi:"type"`
+	Kind         pulumi.StringOutput `pulumi:"kind"`
+	Location     pulumi.StringOutput `pulumi:"location"`
+	Name         pulumi.StringOutput `pulumi:"name"`
+	Subregion    pulumi.StringOutput `pulumi:"subregion"`
+	Thumbprint   pulumi.StringOutput `pulumi:"thumbprint"`
+	Type         pulumi.StringOutput `pulumi:"type"`
 }
 
 // NewServerKey registers a new resource with the given unique name, arguments, and options.
@@ -115,30 +107,20 @@ func (ServerKeyState) ElementType() reflect.Type {
 }
 
 type serverKeyArgs struct {
-	// The name of the server key to be operated on (updated or created). The key name is required to be in the format of 'vault_key_version'. For example, if the keyId is https://YourVaultName.vault.azure.net/keys/YourKeyName/YourKeyVersion, then the server key name should be formatted as: YourVaultName_YourKeyName_YourKeyVersion
-	KeyName *string `pulumi:"keyName"`
-	// The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
-	ResourceGroupName string `pulumi:"resourceGroupName"`
-	// The server key type like 'ServiceManaged', 'AzureKeyVault'.
-	ServerKeyType string `pulumi:"serverKeyType"`
-	// The name of the server.
-	ServerName string `pulumi:"serverName"`
-	// The URI of the server key. If the ServerKeyType is AzureKeyVault, then the URI is required.
-	Uri *string `pulumi:"uri"`
+	KeyName           *string `pulumi:"keyName"`
+	ResourceGroupName string  `pulumi:"resourceGroupName"`
+	ServerKeyType     string  `pulumi:"serverKeyType"`
+	ServerName        string  `pulumi:"serverName"`
+	Uri               *string `pulumi:"uri"`
 }
 
 // The set of arguments for constructing a ServerKey resource.
 type ServerKeyArgs struct {
-	// The name of the server key to be operated on (updated or created). The key name is required to be in the format of 'vault_key_version'. For example, if the keyId is https://YourVaultName.vault.azure.net/keys/YourKeyName/YourKeyVersion, then the server key name should be formatted as: YourVaultName_YourKeyName_YourKeyVersion
-	KeyName pulumi.StringPtrInput
-	// The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
+	KeyName           pulumi.StringPtrInput
 	ResourceGroupName pulumi.StringInput
-	// The server key type like 'ServiceManaged', 'AzureKeyVault'.
-	ServerKeyType pulumi.StringInput
-	// The name of the server.
-	ServerName pulumi.StringInput
-	// The URI of the server key. If the ServerKeyType is AzureKeyVault, then the URI is required.
-	Uri pulumi.StringPtrInput
+	ServerKeyType     pulumi.StringInput
+	ServerName        pulumi.StringInput
+	Uri               pulumi.StringPtrInput
 }
 
 func (ServerKeyArgs) ElementType() reflect.Type {
@@ -164,9 +146,7 @@ func (i *ServerKey) ToServerKeyOutputWithContext(ctx context.Context) ServerKeyO
 	return pulumi.ToOutputWithContext(ctx, i).(ServerKeyOutput)
 }
 
-type ServerKeyOutput struct {
-	*pulumi.OutputState
-}
+type ServerKeyOutput struct{ *pulumi.OutputState }
 
 func (ServerKeyOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*ServerKey)(nil))

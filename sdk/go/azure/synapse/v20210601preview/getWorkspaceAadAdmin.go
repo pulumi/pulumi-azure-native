@@ -7,7 +7,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Workspace active directory administrator
 func LookupWorkspaceAadAdmin(ctx *pulumi.Context, args *LookupWorkspaceAadAdminArgs, opts ...pulumi.InvokeOption) (*LookupWorkspaceAadAdminResult, error) {
 	var rv LookupWorkspaceAadAdminResult
 	err := ctx.Invoke("azure-native:synapse/v20210601preview:getWorkspaceAadAdmin", args, &rv, opts...)
@@ -18,26 +17,17 @@ func LookupWorkspaceAadAdmin(ctx *pulumi.Context, args *LookupWorkspaceAadAdminA
 }
 
 type LookupWorkspaceAadAdminArgs struct {
-	// The name of the resource group. The name is case insensitive.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
-	// The name of the workspace
-	WorkspaceName string `pulumi:"workspaceName"`
+	WorkspaceName     string `pulumi:"workspaceName"`
 }
 
 // Workspace active directory administrator
 type LookupWorkspaceAadAdminResult struct {
-	// Workspace active directory administrator type
 	AdministratorType *string `pulumi:"administratorType"`
-	// Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
-	Id string `pulumi:"id"`
-	// Login of the workspace active directory administrator
-	Login *string `pulumi:"login"`
-	// The name of the resource
-	Name string `pulumi:"name"`
-	// Object ID of the workspace active directory administrator
-	Sid *string `pulumi:"sid"`
-	// Tenant ID of the workspace active directory administrator
-	TenantId *string `pulumi:"tenantId"`
-	// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
-	Type string `pulumi:"type"`
+	Id                string  `pulumi:"id"`
+	Login             *string `pulumi:"login"`
+	Name              string  `pulumi:"name"`
+	Sid               *string `pulumi:"sid"`
+	TenantId          *string `pulumi:"tenantId"`
+	Type              string  `pulumi:"type"`
 }

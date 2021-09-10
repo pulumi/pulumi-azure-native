@@ -7,7 +7,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Attestation service response message.
 func LookupAttestationProvider(ctx *pulumi.Context, args *LookupAttestationProviderArgs, opts ...pulumi.InvokeOption) (*LookupAttestationProviderResult, error) {
 	var rv LookupAttestationProviderResult
 	err := ctx.Invoke("azure-native:attestation/v20180901preview:getAttestationProvider", args, &rv, opts...)
@@ -18,28 +17,18 @@ func LookupAttestationProvider(ctx *pulumi.Context, args *LookupAttestationProvi
 }
 
 type LookupAttestationProviderArgs struct {
-	// Name of the attestation service instance
-	ProviderName string `pulumi:"providerName"`
-	// The name of the resource group. The name is case insensitive.
+	ProviderName      string `pulumi:"providerName"`
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 }
 
 // Attestation service response message.
 type LookupAttestationProviderResult struct {
-	// Gets the uri of attestation service
-	AttestUri *string `pulumi:"attestUri"`
-	// Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
-	Id string `pulumi:"id"`
-	// The geo-location where the resource lives
-	Location string `pulumi:"location"`
-	// The name of the resource
-	Name string `pulumi:"name"`
-	// Status of attestation service.
-	Status *string `pulumi:"status"`
-	// Resource tags.
-	Tags map[string]string `pulumi:"tags"`
-	// Trust model for the attestation service instance.
-	TrustModel *string `pulumi:"trustModel"`
-	// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
-	Type string `pulumi:"type"`
+	AttestUri  *string           `pulumi:"attestUri"`
+	Id         string            `pulumi:"id"`
+	Location   string            `pulumi:"location"`
+	Name       string            `pulumi:"name"`
+	Status     *string           `pulumi:"status"`
+	Tags       map[string]string `pulumi:"tags"`
+	TrustModel *string           `pulumi:"trustModel"`
+	Type       string            `pulumi:"type"`
 }

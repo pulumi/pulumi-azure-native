@@ -7,7 +7,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// The essential information related to the peer's ASN.
 func LookupPeerAsn(ctx *pulumi.Context, args *LookupPeerAsnArgs, opts ...pulumi.InvokeOption) (*LookupPeerAsnResult, error) {
 	var rv LookupPeerAsnResult
 	err := ctx.Invoke("azure-native:peering/v20210101:getPeerAsn", args, &rv, opts...)
@@ -18,26 +17,17 @@ func LookupPeerAsn(ctx *pulumi.Context, args *LookupPeerAsnArgs, opts ...pulumi.
 }
 
 type LookupPeerAsnArgs struct {
-	// The peer ASN name.
 	PeerAsnName string `pulumi:"peerAsnName"`
 }
 
 // The essential information related to the peer's ASN.
 type LookupPeerAsnResult struct {
-	// The error message for the validation state
-	ErrorMessage string `pulumi:"errorMessage"`
-	// The ID of the resource.
-	Id string `pulumi:"id"`
-	// The name of the resource.
-	Name string `pulumi:"name"`
-	// The Autonomous System Number (ASN) of the peer.
-	PeerAsn *int `pulumi:"peerAsn"`
-	// The contact details of the peer.
+	ErrorMessage      string                  `pulumi:"errorMessage"`
+	Id                string                  `pulumi:"id"`
+	Name              string                  `pulumi:"name"`
+	PeerAsn           *int                    `pulumi:"peerAsn"`
 	PeerContactDetail []ContactDetailResponse `pulumi:"peerContactDetail"`
-	// The name of the peer.
-	PeerName *string `pulumi:"peerName"`
-	// The type of the resource.
-	Type string `pulumi:"type"`
-	// The validation state of the ASN associated with the peer.
-	ValidationState *string `pulumi:"validationState"`
+	PeerName          *string                 `pulumi:"peerName"`
+	Type              string                  `pulumi:"type"`
+	ValidationState   *string                 `pulumi:"validationState"`
 }

@@ -7,7 +7,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Backup policy information
 func LookupBackupPolicy(ctx *pulumi.Context, args *LookupBackupPolicyArgs, opts ...pulumi.InvokeOption) (*LookupBackupPolicyResult, error) {
 	var rv LookupBackupPolicyResult
 	err := ctx.Invoke("azure-native:netapp/v20201201:getBackupPolicy", args, &rv, opts...)
@@ -18,40 +17,24 @@ func LookupBackupPolicy(ctx *pulumi.Context, args *LookupBackupPolicyArgs, opts 
 }
 
 type LookupBackupPolicyArgs struct {
-	// The name of the NetApp account
-	AccountName string `pulumi:"accountName"`
-	// Backup policy Name which uniquely identify backup policy.
-	BackupPolicyName string `pulumi:"backupPolicyName"`
-	// The name of the resource group.
+	AccountName       string `pulumi:"accountName"`
+	BackupPolicyName  string `pulumi:"backupPolicyName"`
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 }
 
 // Backup policy information
 type LookupBackupPolicyResult struct {
-	// Daily backups count to keep
-	DailyBackupsToKeep *int `pulumi:"dailyBackupsToKeep"`
-	// The property to decide policy is enabled or not
-	Enabled *bool `pulumi:"enabled"`
-	// Resource Id
-	Id string `pulumi:"id"`
-	// Resource location
-	Location string `pulumi:"location"`
-	// Monthly backups count to keep
-	MonthlyBackupsToKeep *int `pulumi:"monthlyBackupsToKeep"`
-	// Name of backup policy
-	Name string `pulumi:"name"`
-	// Azure lifecycle management
-	ProvisioningState string `pulumi:"provisioningState"`
-	// Resource tags
-	Tags map[string]string `pulumi:"tags"`
-	// Resource type
-	Type string `pulumi:"type"`
-	// A list of volumes assigned to this policy
-	VolumeBackups []VolumeBackupsResponse `pulumi:"volumeBackups"`
-	// Volumes using current backup policy
-	VolumesAssigned *int `pulumi:"volumesAssigned"`
-	// Weekly backups count to keep
-	WeeklyBackupsToKeep *int `pulumi:"weeklyBackupsToKeep"`
-	// Yearly backups count to keep
-	YearlyBackupsToKeep *int `pulumi:"yearlyBackupsToKeep"`
+	DailyBackupsToKeep   *int                    `pulumi:"dailyBackupsToKeep"`
+	Enabled              *bool                   `pulumi:"enabled"`
+	Id                   string                  `pulumi:"id"`
+	Location             string                  `pulumi:"location"`
+	MonthlyBackupsToKeep *int                    `pulumi:"monthlyBackupsToKeep"`
+	Name                 string                  `pulumi:"name"`
+	ProvisioningState    string                  `pulumi:"provisioningState"`
+	Tags                 map[string]string       `pulumi:"tags"`
+	Type                 string                  `pulumi:"type"`
+	VolumeBackups        []VolumeBackupsResponse `pulumi:"volumeBackups"`
+	VolumesAssigned      *int                    `pulumi:"volumesAssigned"`
+	WeeklyBackupsToKeep  *int                    `pulumi:"weeklyBackupsToKeep"`
+	YearlyBackupsToKeep  *int                    `pulumi:"yearlyBackupsToKeep"`
 }

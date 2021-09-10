@@ -7,7 +7,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Represents a migration resource.
 func LookupMigration(ctx *pulumi.Context, args *LookupMigrationArgs, opts ...pulumi.InvokeOption) (*LookupMigrationResult, error) {
 	var rv LookupMigrationResult
 	err := ctx.Invoke("azure-native:dbforpostgresql/v20210615privatepreview:getMigration", args, &rv, opts...)
@@ -18,51 +17,35 @@ func LookupMigration(ctx *pulumi.Context, args *LookupMigrationArgs, opts ...pul
 }
 
 type LookupMigrationArgs struct {
-	// The name of the migration.
-	MigrationName string `pulumi:"migrationName"`
-	// The name of the target database server.
-	TargetDBServerName string `pulumi:"targetDBServerName"`
-	// The resource group name of the target database server.
+	MigrationName                   string `pulumi:"migrationName"`
+	TargetDBServerName              string `pulumi:"targetDBServerName"`
 	TargetDBServerResourceGroupName string `pulumi:"targetDBServerResourceGroupName"`
-	// The subscription ID of the target database server.
-	TargetDBServerSubscriptionId string `pulumi:"targetDBServerSubscriptionId"`
+	TargetDBServerSubscriptionId    string `pulumi:"targetDBServerSubscriptionId"`
 }
 
 // Represents a migration resource.
 type LookupMigrationResult struct {
-	// Migration status.
-	CurrentStatus MigrationStatusResponse `pulumi:"currentStatus"`
-	DBsToMigrate  []string                `pulumi:"dBsToMigrate"`
-	// Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
-	Id string `pulumi:"id"`
-	// The geo-location where the resource lives
-	Location string `pulumi:"location"`
-	// Migration details level.
-	MigrationDetailsLevel string `pulumi:"migrationDetailsLevel"`
-	MigrationId           string `pulumi:"migrationId"`
-	MigrationName         string `pulumi:"migrationName"`
-	// Migration resource group.
-	MigrationResourceGroup        *MigrationResourceGroupResponse `pulumi:"migrationResourceGroup"`
-	MigrationWindowStartTimeInUtc *string                         `pulumi:"migrationWindowStartTimeInUtc"`
-	// The name of the resource
-	Name                 string `pulumi:"name"`
-	OverwriteDBsInTarget *bool  `pulumi:"overwriteDBsInTarget"`
-	// Migration secret parameters.
+	CurrentStatus                             MigrationStatusResponse            `pulumi:"currentStatus"`
+	DBsToMigrate                              []string                           `pulumi:"dBsToMigrate"`
+	Id                                        string                             `pulumi:"id"`
+	Location                                  string                             `pulumi:"location"`
+	MigrationDetailsLevel                     string                             `pulumi:"migrationDetailsLevel"`
+	MigrationId                               string                             `pulumi:"migrationId"`
+	MigrationName                             string                             `pulumi:"migrationName"`
+	MigrationResourceGroup                    *MigrationResourceGroupResponse    `pulumi:"migrationResourceGroup"`
+	MigrationWindowStartTimeInUtc             *string                            `pulumi:"migrationWindowStartTimeInUtc"`
+	Name                                      string                             `pulumi:"name"`
+	OverwriteDBsInTarget                      *bool                              `pulumi:"overwriteDBsInTarget"`
 	SecretParameters                          *MigrationSecretParametersResponse `pulumi:"secretParameters"`
 	SetupLogicalReplicationOnSourceDBIfNeeded *bool                              `pulumi:"setupLogicalReplicationOnSourceDBIfNeeded"`
-	// Database server metadata.
-	SourceDBServerMetadata   DBServerMetadataResponse `pulumi:"sourceDBServerMetadata"`
-	SourceDBServerResourceId *string                  `pulumi:"sourceDBServerResourceId"`
-	StartDataMigration       *bool                    `pulumi:"startDataMigration"`
-	// Metadata pertaining to creation and last modification of the resource.
-	SystemData SystemDataResponse `pulumi:"systemData"`
-	// Resource tags.
-	Tags map[string]string `pulumi:"tags"`
-	// Database server metadata.
-	TargetDBServerMetadata   DBServerMetadataResponse `pulumi:"targetDBServerMetadata"`
-	TargetDBServerResourceId string                   `pulumi:"targetDBServerResourceId"`
-	TriggerCutover           *bool                    `pulumi:"triggerCutover"`
-	// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
-	Type                           string  `pulumi:"type"`
-	UserAssignedIdentityResourceId *string `pulumi:"userAssignedIdentityResourceId"`
+	SourceDBServerMetadata                    DBServerMetadataResponse           `pulumi:"sourceDBServerMetadata"`
+	SourceDBServerResourceId                  *string                            `pulumi:"sourceDBServerResourceId"`
+	StartDataMigration                        *bool                              `pulumi:"startDataMigration"`
+	SystemData                                SystemDataResponse                 `pulumi:"systemData"`
+	Tags                                      map[string]string                  `pulumi:"tags"`
+	TargetDBServerMetadata                    DBServerMetadataResponse           `pulumi:"targetDBServerMetadata"`
+	TargetDBServerResourceId                  string                             `pulumi:"targetDBServerResourceId"`
+	TriggerCutover                            *bool                              `pulumi:"triggerCutover"`
+	Type                                      string                             `pulumi:"type"`
+	UserAssignedIdentityResourceId            *string                            `pulumi:"userAssignedIdentityResourceId"`
 }

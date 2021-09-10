@@ -161,9 +161,7 @@ func (i *BatchDeployment) ToBatchDeploymentOutputWithContext(ctx context.Context
 	return pulumi.ToOutputWithContext(ctx, i).(BatchDeploymentOutput)
 }
 
-type BatchDeploymentOutput struct {
-	*pulumi.OutputState
-}
+type BatchDeploymentOutput struct{ *pulumi.OutputState }
 
 func (BatchDeploymentOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*BatchDeployment)(nil))

@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.Authorization.V20170401.Outputs
 {
 
+    /// <summary>
+    /// Lock owner properties.
+    /// </summary>
     [OutputType]
     public sealed class ManagementLockOwnerResponse
     {

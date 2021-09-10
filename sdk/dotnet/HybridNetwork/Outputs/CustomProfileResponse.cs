@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.HybridNetwork.Outputs
 {
 
+    /// <summary>
+    /// Specifies the custom settings for the virtual machine.
+    /// </summary>
     [OutputType]
     public sealed class CustomProfileResponse
     {

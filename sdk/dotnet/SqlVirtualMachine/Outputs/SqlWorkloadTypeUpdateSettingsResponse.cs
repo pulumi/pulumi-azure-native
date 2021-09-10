@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.SqlVirtualMachine.Outputs
 {
 
+    /// <summary>
+    /// Set workload type to optimize storage for SQL Server.
+    /// </summary>
     [OutputType]
     public sealed class SqlWorkloadTypeUpdateSettingsResponse
     {

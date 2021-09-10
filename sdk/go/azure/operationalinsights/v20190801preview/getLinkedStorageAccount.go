@@ -7,7 +7,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Linked storage accounts top level resource container.
 func LookupLinkedStorageAccount(ctx *pulumi.Context, args *LookupLinkedStorageAccountArgs, opts ...pulumi.InvokeOption) (*LookupLinkedStorageAccountResult, error) {
 	var rv LookupLinkedStorageAccountResult
 	err := ctx.Invoke("azure-native:operationalinsights/v20190801preview:getLinkedStorageAccount", args, &rv, opts...)
@@ -18,24 +17,16 @@ func LookupLinkedStorageAccount(ctx *pulumi.Context, args *LookupLinkedStorageAc
 }
 
 type LookupLinkedStorageAccountArgs struct {
-	// Linked storage accounts type.
-	DataSourceType string `pulumi:"dataSourceType"`
-	// The name of the resource group to get. The name is case insensitive.
+	DataSourceType    string `pulumi:"dataSourceType"`
 	ResourceGroupName string `pulumi:"resourceGroupName"`
-	// Name of the Log Analytics Workspace that will contain the resource.
-	WorkspaceName string `pulumi:"workspaceName"`
+	WorkspaceName     string `pulumi:"workspaceName"`
 }
 
 // Linked storage accounts top level resource container.
 type LookupLinkedStorageAccountResult struct {
-	// Linked storage accounts type.
-	DataSourceType string `pulumi:"dataSourceType"`
-	// Resource ID.
-	Id string `pulumi:"id"`
-	// Resource name.
-	Name string `pulumi:"name"`
-	// Linked storage accounts resources ids.
+	DataSourceType    string   `pulumi:"dataSourceType"`
+	Id                string   `pulumi:"id"`
+	Name              string   `pulumi:"name"`
 	StorageAccountIds []string `pulumi:"storageAccountIds"`
-	// Resource type.
-	Type string `pulumi:"type"`
+	Type              string   `pulumi:"type"`
 }

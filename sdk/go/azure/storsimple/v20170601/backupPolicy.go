@@ -11,30 +11,19 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// The backup policy.
 type BackupPolicy struct {
 	pulumi.CustomResourceState
 
-	// The backup policy creation type. Indicates whether this was created through SaaS or through StorSimple Snapshot Manager.
-	BackupPolicyCreationType pulumi.StringOutput `pulumi:"backupPolicyCreationType"`
-	// The Kind of the object. Currently only Series8000 is supported
-	Kind pulumi.StringPtrOutput `pulumi:"kind"`
-	// The time of the last backup for the backup policy.
-	LastBackupTime pulumi.StringOutput `pulumi:"lastBackupTime"`
-	// The name of the object.
-	Name pulumi.StringOutput `pulumi:"name"`
-	// The time of the next backup for the backup policy.
-	NextBackupTime pulumi.StringOutput `pulumi:"nextBackupTime"`
-	// Indicates whether at least one of the schedules in the backup policy is active or not.
-	ScheduledBackupStatus pulumi.StringOutput `pulumi:"scheduledBackupStatus"`
-	// The count of schedules the backup policy contains.
-	SchedulesCount pulumi.Float64Output `pulumi:"schedulesCount"`
-	// If the backup policy was created by StorSimple Snapshot Manager, then this field indicates the hostname of the StorSimple Snapshot Manager.
-	SsmHostName pulumi.StringOutput `pulumi:"ssmHostName"`
-	// The hierarchical type of the object.
-	Type pulumi.StringOutput `pulumi:"type"`
-	// The path IDs of the volumes which are part of the backup policy.
-	VolumeIds pulumi.StringArrayOutput `pulumi:"volumeIds"`
+	BackupPolicyCreationType pulumi.StringOutput      `pulumi:"backupPolicyCreationType"`
+	Kind                     pulumi.StringPtrOutput   `pulumi:"kind"`
+	LastBackupTime           pulumi.StringOutput      `pulumi:"lastBackupTime"`
+	Name                     pulumi.StringOutput      `pulumi:"name"`
+	NextBackupTime           pulumi.StringOutput      `pulumi:"nextBackupTime"`
+	ScheduledBackupStatus    pulumi.StringOutput      `pulumi:"scheduledBackupStatus"`
+	SchedulesCount           pulumi.Float64Output     `pulumi:"schedulesCount"`
+	SsmHostName              pulumi.StringOutput      `pulumi:"ssmHostName"`
+	Type                     pulumi.StringOutput      `pulumi:"type"`
+	VolumeIds                pulumi.StringArrayOutput `pulumi:"volumeIds"`
 }
 
 // NewBackupPolicy registers a new resource with the given unique name, arguments, and options.
@@ -100,34 +89,22 @@ func (BackupPolicyState) ElementType() reflect.Type {
 }
 
 type backupPolicyArgs struct {
-	// The name of the backup policy to be created/updated.
-	BackupPolicyName *string `pulumi:"backupPolicyName"`
-	// The device name
-	DeviceName string `pulumi:"deviceName"`
-	// The Kind of the object. Currently only Series8000 is supported
-	Kind *string `pulumi:"kind"`
-	// The manager name
-	ManagerName string `pulumi:"managerName"`
-	// The resource group name
-	ResourceGroupName string `pulumi:"resourceGroupName"`
-	// The path IDs of the volumes which are part of the backup policy.
-	VolumeIds []string `pulumi:"volumeIds"`
+	BackupPolicyName  *string  `pulumi:"backupPolicyName"`
+	DeviceName        string   `pulumi:"deviceName"`
+	Kind              *Kind    `pulumi:"kind"`
+	ManagerName       string   `pulumi:"managerName"`
+	ResourceGroupName string   `pulumi:"resourceGroupName"`
+	VolumeIds         []string `pulumi:"volumeIds"`
 }
 
 // The set of arguments for constructing a BackupPolicy resource.
 type BackupPolicyArgs struct {
-	// The name of the backup policy to be created/updated.
-	BackupPolicyName pulumi.StringPtrInput
-	// The device name
-	DeviceName pulumi.StringInput
-	// The Kind of the object. Currently only Series8000 is supported
-	Kind *Kind
-	// The manager name
-	ManagerName pulumi.StringInput
-	// The resource group name
+	BackupPolicyName  pulumi.StringPtrInput
+	DeviceName        pulumi.StringInput
+	Kind              KindPtrInput
+	ManagerName       pulumi.StringInput
 	ResourceGroupName pulumi.StringInput
-	// The path IDs of the volumes which are part of the backup policy.
-	VolumeIds pulumi.StringArrayInput
+	VolumeIds         pulumi.StringArrayInput
 }
 
 func (BackupPolicyArgs) ElementType() reflect.Type {
@@ -153,9 +130,7 @@ func (i *BackupPolicy) ToBackupPolicyOutputWithContext(ctx context.Context) Back
 	return pulumi.ToOutputWithContext(ctx, i).(BackupPolicyOutput)
 }
 
-type BackupPolicyOutput struct {
-	*pulumi.OutputState
-}
+type BackupPolicyOutput struct{ *pulumi.OutputState }
 
 func (BackupPolicyOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*BackupPolicy)(nil))

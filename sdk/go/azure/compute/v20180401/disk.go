@@ -11,36 +11,22 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Disk resource.
 type Disk struct {
 	pulumi.CustomResourceState
 
-	// Disk source information. CreationData information cannot be changed after the disk has been created.
-	CreationData CreationDataResponseOutput `pulumi:"creationData"`
-	// If creationData.createOption is Empty, this field is mandatory and it indicates the size of the VHD to create. If this field is present for updates or creation with other options, it indicates a resize. Resizes are only allowed if the disk is not attached to a running VM, and can only increase the disk's size.
-	DiskSizeGB pulumi.IntPtrOutput `pulumi:"diskSizeGB"`
-	// Encryption settings for disk or snapshot
+	CreationData       CreationDataResponseOutput          `pulumi:"creationData"`
+	DiskSizeGB         pulumi.IntPtrOutput                 `pulumi:"diskSizeGB"`
 	EncryptionSettings EncryptionSettingsResponsePtrOutput `pulumi:"encryptionSettings"`
-	// Resource location
-	Location pulumi.StringOutput `pulumi:"location"`
-	// A relative URI containing the ID of the VM that has the disk attached.
-	ManagedBy pulumi.StringOutput `pulumi:"managedBy"`
-	// Resource name
-	Name pulumi.StringOutput `pulumi:"name"`
-	// The Operating System type.
-	OsType pulumi.StringPtrOutput `pulumi:"osType"`
-	// The disk provisioning state.
-	ProvisioningState pulumi.StringOutput `pulumi:"provisioningState"`
-	// The disks sku name. Can be Standard_LRS, Premium_LRS, or StandardSSD_LRS.
-	Sku DiskSkuResponsePtrOutput `pulumi:"sku"`
-	// Resource tags
-	Tags pulumi.StringMapOutput `pulumi:"tags"`
-	// The time when the disk was created.
-	TimeCreated pulumi.StringOutput `pulumi:"timeCreated"`
-	// Resource type
-	Type pulumi.StringOutput `pulumi:"type"`
-	// The Logical zone list for Disk.
-	Zones pulumi.StringArrayOutput `pulumi:"zones"`
+	Location           pulumi.StringOutput                 `pulumi:"location"`
+	ManagedBy          pulumi.StringOutput                 `pulumi:"managedBy"`
+	Name               pulumi.StringOutput                 `pulumi:"name"`
+	OsType             pulumi.StringPtrOutput              `pulumi:"osType"`
+	ProvisioningState  pulumi.StringOutput                 `pulumi:"provisioningState"`
+	Sku                DiskSkuResponsePtrOutput            `pulumi:"sku"`
+	Tags               pulumi.StringMapOutput              `pulumi:"tags"`
+	TimeCreated        pulumi.StringOutput                 `pulumi:"timeCreated"`
+	Type               pulumi.StringOutput                 `pulumi:"type"`
+	Zones              pulumi.StringArrayOutput            `pulumi:"zones"`
 }
 
 // NewDisk registers a new resource with the given unique name, arguments, and options.
@@ -172,50 +158,30 @@ func (DiskState) ElementType() reflect.Type {
 }
 
 type diskArgs struct {
-	// Disk source information. CreationData information cannot be changed after the disk has been created.
-	CreationData CreationData `pulumi:"creationData"`
-	// The name of the managed disk that is being created. The name can't be changed after the disk is created. Supported characters for the name are a-z, A-Z, 0-9 and _. The maximum name length is 80 characters.
-	DiskName *string `pulumi:"diskName"`
-	// If creationData.createOption is Empty, this field is mandatory and it indicates the size of the VHD to create. If this field is present for updates or creation with other options, it indicates a resize. Resizes are only allowed if the disk is not attached to a running VM, and can only increase the disk's size.
-	DiskSizeGB *int `pulumi:"diskSizeGB"`
-	// Encryption settings for disk or snapshot
-	EncryptionSettings *EncryptionSettings `pulumi:"encryptionSettings"`
-	// Resource location
-	Location *string `pulumi:"location"`
-	// The Operating System type.
-	OsType *string `pulumi:"osType"`
-	// The name of the resource group.
-	ResourceGroupName string `pulumi:"resourceGroupName"`
-	// The disks sku name. Can be Standard_LRS, Premium_LRS, or StandardSSD_LRS.
-	Sku *DiskSku `pulumi:"sku"`
-	// Resource tags
-	Tags map[string]string `pulumi:"tags"`
-	// The Logical zone list for Disk.
-	Zones []string `pulumi:"zones"`
+	CreationData       CreationData          `pulumi:"creationData"`
+	DiskName           *string               `pulumi:"diskName"`
+	DiskSizeGB         *int                  `pulumi:"diskSizeGB"`
+	EncryptionSettings *EncryptionSettings   `pulumi:"encryptionSettings"`
+	Location           *string               `pulumi:"location"`
+	OsType             *OperatingSystemTypes `pulumi:"osType"`
+	ResourceGroupName  string                `pulumi:"resourceGroupName"`
+	Sku                *DiskSku              `pulumi:"sku"`
+	Tags               map[string]string     `pulumi:"tags"`
+	Zones              []string              `pulumi:"zones"`
 }
 
 // The set of arguments for constructing a Disk resource.
 type DiskArgs struct {
-	// Disk source information. CreationData information cannot be changed after the disk has been created.
-	CreationData CreationDataInput
-	// The name of the managed disk that is being created. The name can't be changed after the disk is created. Supported characters for the name are a-z, A-Z, 0-9 and _. The maximum name length is 80 characters.
-	DiskName pulumi.StringPtrInput
-	// If creationData.createOption is Empty, this field is mandatory and it indicates the size of the VHD to create. If this field is present for updates or creation with other options, it indicates a resize. Resizes are only allowed if the disk is not attached to a running VM, and can only increase the disk's size.
-	DiskSizeGB pulumi.IntPtrInput
-	// Encryption settings for disk or snapshot
+	CreationData       CreationDataInput
+	DiskName           pulumi.StringPtrInput
+	DiskSizeGB         pulumi.IntPtrInput
 	EncryptionSettings EncryptionSettingsPtrInput
-	// Resource location
-	Location pulumi.StringPtrInput
-	// The Operating System type.
-	OsType *OperatingSystemTypes
-	// The name of the resource group.
-	ResourceGroupName pulumi.StringInput
-	// The disks sku name. Can be Standard_LRS, Premium_LRS, or StandardSSD_LRS.
-	Sku DiskSkuPtrInput
-	// Resource tags
-	Tags pulumi.StringMapInput
-	// The Logical zone list for Disk.
-	Zones pulumi.StringArrayInput
+	Location           pulumi.StringPtrInput
+	OsType             OperatingSystemTypesPtrInput
+	ResourceGroupName  pulumi.StringInput
+	Sku                DiskSkuPtrInput
+	Tags               pulumi.StringMapInput
+	Zones              pulumi.StringArrayInput
 }
 
 func (DiskArgs) ElementType() reflect.Type {
@@ -241,9 +207,7 @@ func (i *Disk) ToDiskOutputWithContext(ctx context.Context) DiskOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(DiskOutput)
 }
 
-type DiskOutput struct {
-	*pulumi.OutputState
-}
+type DiskOutput struct{ *pulumi.OutputState }
 
 func (DiskOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*Disk)(nil))

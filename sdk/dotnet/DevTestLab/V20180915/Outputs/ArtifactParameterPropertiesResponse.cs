@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.DevTestLab.V20180915.Outputs
 {
 
+    /// <summary>
+    /// Properties of an artifact parameter.
+    /// </summary>
     [OutputType]
     public sealed class ArtifactParameterPropertiesResponse
     {

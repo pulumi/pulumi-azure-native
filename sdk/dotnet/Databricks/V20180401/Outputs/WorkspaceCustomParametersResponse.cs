@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.Databricks.V20180401.Outputs
 {
 
+    /// <summary>
+    /// Custom Parameters used for Cluster Creation.
+    /// </summary>
     [OutputType]
     public sealed class WorkspaceCustomParametersResponse
     {

@@ -14,11 +14,9 @@ import (
 type SkusNestedResourceTypeThird struct {
 	pulumi.CustomResourceState
 
-	// The name of the resource
 	Name       pulumi.StringOutput                 `pulumi:"name"`
 	Properties SkuResourceResponsePropertiesOutput `pulumi:"properties"`
-	// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
-	Type pulumi.StringOutput `pulumi:"type"`
+	Type       pulumi.StringOutput                 `pulumi:"type"`
 }
 
 // NewSkusNestedResourceTypeThird registers a new resource with the given unique name, arguments, and options.
@@ -102,40 +100,26 @@ func (SkusNestedResourceTypeThirdState) ElementType() reflect.Type {
 }
 
 type skusNestedResourceTypeThirdArgs struct {
-	// The first child resource type.
-	NestedResourceTypeFirst string `pulumi:"nestedResourceTypeFirst"`
-	// The second child resource type.
-	NestedResourceTypeSecond string `pulumi:"nestedResourceTypeSecond"`
-	// The third child resource type.
-	NestedResourceTypeThird string `pulumi:"nestedResourceTypeThird"`
-	// The name of the resource provider hosted within ProviderHub.
-	ProviderNamespace string `pulumi:"providerNamespace"`
-	// The provisioned state of the resource.
-	ProvisioningState *string `pulumi:"provisioningState"`
-	// The resource type.
-	ResourceType string `pulumi:"resourceType"`
-	// The SKU.
-	Sku         *string      `pulumi:"sku"`
-	SkuSettings []SkuSetting `pulumi:"skuSettings"`
+	NestedResourceTypeFirst  string       `pulumi:"nestedResourceTypeFirst"`
+	NestedResourceTypeSecond string       `pulumi:"nestedResourceTypeSecond"`
+	NestedResourceTypeThird  string       `pulumi:"nestedResourceTypeThird"`
+	ProviderNamespace        string       `pulumi:"providerNamespace"`
+	ProvisioningState        *string      `pulumi:"provisioningState"`
+	ResourceType             string       `pulumi:"resourceType"`
+	Sku                      *string      `pulumi:"sku"`
+	SkuSettings              []SkuSetting `pulumi:"skuSettings"`
 }
 
 // The set of arguments for constructing a SkusNestedResourceTypeThird resource.
 type SkusNestedResourceTypeThirdArgs struct {
-	// The first child resource type.
-	NestedResourceTypeFirst pulumi.StringInput
-	// The second child resource type.
+	NestedResourceTypeFirst  pulumi.StringInput
 	NestedResourceTypeSecond pulumi.StringInput
-	// The third child resource type.
-	NestedResourceTypeThird pulumi.StringInput
-	// The name of the resource provider hosted within ProviderHub.
-	ProviderNamespace pulumi.StringInput
-	// The provisioned state of the resource.
-	ProvisioningState pulumi.StringPtrInput
-	// The resource type.
-	ResourceType pulumi.StringInput
-	// The SKU.
-	Sku         pulumi.StringPtrInput
-	SkuSettings SkuSettingArrayInput
+	NestedResourceTypeThird  pulumi.StringInput
+	ProviderNamespace        pulumi.StringInput
+	ProvisioningState        pulumi.StringPtrInput
+	ResourceType             pulumi.StringInput
+	Sku                      pulumi.StringPtrInput
+	SkuSettings              SkuSettingArrayInput
 }
 
 func (SkusNestedResourceTypeThirdArgs) ElementType() reflect.Type {
@@ -161,9 +145,7 @@ func (i *SkusNestedResourceTypeThird) ToSkusNestedResourceTypeThirdOutputWithCon
 	return pulumi.ToOutputWithContext(ctx, i).(SkusNestedResourceTypeThirdOutput)
 }
 
-type SkusNestedResourceTypeThirdOutput struct {
-	*pulumi.OutputState
-}
+type SkusNestedResourceTypeThirdOutput struct{ *pulumi.OutputState }
 
 func (SkusNestedResourceTypeThirdOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*SkusNestedResourceTypeThird)(nil))

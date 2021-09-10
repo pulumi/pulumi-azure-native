@@ -7,7 +7,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// A list of Network Manager Deployment Status
 func ListNetworkManagerDeploymentStatus(ctx *pulumi.Context, args *ListNetworkManagerDeploymentStatusArgs, opts ...pulumi.InvokeOption) (*ListNetworkManagerDeploymentStatusResult, error) {
 	var rv ListNetworkManagerDeploymentStatusResult
 	err := ctx.Invoke("azure-native:network/v20210201preview:listNetworkManagerDeploymentStatus", args, &rv, opts...)
@@ -18,22 +17,15 @@ func ListNetworkManagerDeploymentStatus(ctx *pulumi.Context, args *ListNetworkMa
 }
 
 type ListNetworkManagerDeploymentStatusArgs struct {
-	// List of deployment types.
-	DeploymentTypes []string `pulumi:"deploymentTypes"`
-	// The name of the network manager.
-	NetworkManagerName string `pulumi:"networkManagerName"`
-	// List of locations.
-	Regions []string `pulumi:"regions"`
-	// The name of the resource group.
-	ResourceGroupName string `pulumi:"resourceGroupName"`
-	// Continuation token for pagination, capturing the next page size and offset, as well as the context of the query.
-	SkipToken *string `pulumi:"skipToken"`
+	DeploymentTypes    []string `pulumi:"deploymentTypes"`
+	NetworkManagerName string   `pulumi:"networkManagerName"`
+	Regions            []string `pulumi:"regions"`
+	ResourceGroupName  string   `pulumi:"resourceGroupName"`
+	SkipToken          *string  `pulumi:"skipToken"`
 }
 
 // A list of Network Manager Deployment Status
 type ListNetworkManagerDeploymentStatusResult struct {
-	// When present, the value can be passed to a subsequent query call (together with the same query and scopes used in the current request) to retrieve the next page of data.
-	SkipToken *string `pulumi:"skipToken"`
-	// Gets a page of Network Manager Deployment Status
-	Value []NetworkManagerDeploymentStatusResponse `pulumi:"value"`
+	SkipToken *string                                  `pulumi:"skipToken"`
+	Value     []NetworkManagerDeploymentStatusResponse `pulumi:"value"`
 }

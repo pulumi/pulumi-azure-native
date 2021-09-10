@@ -11,52 +11,30 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Single Namespace item in List or Get Operation
 type Namespace struct {
 	pulumi.CustomResourceState
 
-	// Cluster ARM ID of the Namespace.
-	ClusterArmId pulumi.StringPtrOutput `pulumi:"clusterArmId"`
-	// The time the Namespace was created.
-	CreatedAt pulumi.StringOutput `pulumi:"createdAt"`
-	// This property disables SAS authentication for the Event Hubs namespace.
-	DisableLocalAuth pulumi.BoolPtrOutput `pulumi:"disableLocalAuth"`
-	// Properties of BYOK Encryption description
-	Encryption EncryptionResponsePtrOutput `pulumi:"encryption"`
-	// Properties of BYOK Identity description
-	Identity IdentityResponsePtrOutput `pulumi:"identity"`
-	// Value that indicates whether AutoInflate is enabled for eventhub namespace.
-	IsAutoInflateEnabled pulumi.BoolPtrOutput `pulumi:"isAutoInflateEnabled"`
-	// Value that indicates whether Kafka is enabled for eventhub namespace.
-	KafkaEnabled pulumi.BoolPtrOutput `pulumi:"kafkaEnabled"`
-	// Resource location.
-	Location pulumi.StringPtrOutput `pulumi:"location"`
-	// Upper limit of throughput units when AutoInflate is enabled, value should be within 0 to 20 throughput units. ( '0' if AutoInflateEnabled = true)
-	MaximumThroughputUnits pulumi.IntPtrOutput `pulumi:"maximumThroughputUnits"`
-	// Identifier for Azure Insights metrics.
-	MetricId pulumi.StringOutput `pulumi:"metricId"`
-	// Resource name.
-	Name pulumi.StringOutput `pulumi:"name"`
-	// List of private endpoint connections.
+	ClusterArmId               pulumi.StringPtrOutput                       `pulumi:"clusterArmId"`
+	CreatedAt                  pulumi.StringOutput                          `pulumi:"createdAt"`
+	DisableLocalAuth           pulumi.BoolPtrOutput                         `pulumi:"disableLocalAuth"`
+	Encryption                 EncryptionResponsePtrOutput                  `pulumi:"encryption"`
+	Identity                   IdentityResponsePtrOutput                    `pulumi:"identity"`
+	IsAutoInflateEnabled       pulumi.BoolPtrOutput                         `pulumi:"isAutoInflateEnabled"`
+	KafkaEnabled               pulumi.BoolPtrOutput                         `pulumi:"kafkaEnabled"`
+	Location                   pulumi.StringPtrOutput                       `pulumi:"location"`
+	MaximumThroughputUnits     pulumi.IntPtrOutput                          `pulumi:"maximumThroughputUnits"`
+	MetricId                   pulumi.StringOutput                          `pulumi:"metricId"`
+	Name                       pulumi.StringOutput                          `pulumi:"name"`
 	PrivateEndpointConnections PrivateEndpointConnectionResponseArrayOutput `pulumi:"privateEndpointConnections"`
-	// Provisioning state of the Namespace.
-	ProvisioningState pulumi.StringOutput `pulumi:"provisioningState"`
-	// Endpoint you can use to perform Service Bus operations.
-	ServiceBusEndpoint pulumi.StringOutput `pulumi:"serviceBusEndpoint"`
-	// Properties of sku resource
-	Sku SkuResponsePtrOutput `pulumi:"sku"`
-	// Status of the Namespace.
-	Status pulumi.StringOutput `pulumi:"status"`
-	// The system meta data relating to this resource.
-	SystemData SystemDataResponseOutput `pulumi:"systemData"`
-	// Resource tags.
-	Tags pulumi.StringMapOutput `pulumi:"tags"`
-	// Resource type.
-	Type pulumi.StringOutput `pulumi:"type"`
-	// The time the Namespace was updated.
-	UpdatedAt pulumi.StringOutput `pulumi:"updatedAt"`
-	// Enabling this property creates a Standard Event Hubs Namespace in regions supported availability zones.
-	ZoneRedundant pulumi.BoolPtrOutput `pulumi:"zoneRedundant"`
+	ProvisioningState          pulumi.StringOutput                          `pulumi:"provisioningState"`
+	ServiceBusEndpoint         pulumi.StringOutput                          `pulumi:"serviceBusEndpoint"`
+	Sku                        SkuResponsePtrOutput                         `pulumi:"sku"`
+	Status                     pulumi.StringOutput                          `pulumi:"status"`
+	SystemData                 SystemDataResponseOutput                     `pulumi:"systemData"`
+	Tags                       pulumi.StringMapOutput                       `pulumi:"tags"`
+	Type                       pulumi.StringOutput                          `pulumi:"type"`
+	UpdatedAt                  pulumi.StringOutput                          `pulumi:"updatedAt"`
+	ZoneRedundant              pulumi.BoolPtrOutput                         `pulumi:"zoneRedundant"`
 }
 
 // NewNamespace registers a new resource with the given unique name, arguments, and options.
@@ -143,66 +121,38 @@ func (NamespaceState) ElementType() reflect.Type {
 }
 
 type namespaceArgs struct {
-	// Cluster ARM ID of the Namespace.
-	ClusterArmId *string `pulumi:"clusterArmId"`
-	// This property disables SAS authentication for the Event Hubs namespace.
-	DisableLocalAuth *bool `pulumi:"disableLocalAuth"`
-	// Properties of BYOK Encryption description
-	Encryption *Encryption `pulumi:"encryption"`
-	// Properties of BYOK Identity description
-	Identity *Identity `pulumi:"identity"`
-	// Value that indicates whether AutoInflate is enabled for eventhub namespace.
-	IsAutoInflateEnabled *bool `pulumi:"isAutoInflateEnabled"`
-	// Value that indicates whether Kafka is enabled for eventhub namespace.
-	KafkaEnabled *bool `pulumi:"kafkaEnabled"`
-	// Resource location.
-	Location *string `pulumi:"location"`
-	// Upper limit of throughput units when AutoInflate is enabled, value should be within 0 to 20 throughput units. ( '0' if AutoInflateEnabled = true)
-	MaximumThroughputUnits *int `pulumi:"maximumThroughputUnits"`
-	// The Namespace name
-	NamespaceName *string `pulumi:"namespaceName"`
-	// List of private endpoint connections.
+	ClusterArmId               *string                         `pulumi:"clusterArmId"`
+	DisableLocalAuth           *bool                           `pulumi:"disableLocalAuth"`
+	Encryption                 *Encryption                     `pulumi:"encryption"`
+	Identity                   *Identity                       `pulumi:"identity"`
+	IsAutoInflateEnabled       *bool                           `pulumi:"isAutoInflateEnabled"`
+	KafkaEnabled               *bool                           `pulumi:"kafkaEnabled"`
+	Location                   *string                         `pulumi:"location"`
+	MaximumThroughputUnits     *int                            `pulumi:"maximumThroughputUnits"`
+	NamespaceName              *string                         `pulumi:"namespaceName"`
 	PrivateEndpointConnections []PrivateEndpointConnectionType `pulumi:"privateEndpointConnections"`
-	// Name of the resource group within the azure subscription.
-	ResourceGroupName string `pulumi:"resourceGroupName"`
-	// Properties of sku resource
-	Sku *Sku `pulumi:"sku"`
-	// Resource tags.
-	Tags map[string]string `pulumi:"tags"`
-	// Enabling this property creates a Standard Event Hubs Namespace in regions supported availability zones.
-	ZoneRedundant *bool `pulumi:"zoneRedundant"`
+	ResourceGroupName          string                          `pulumi:"resourceGroupName"`
+	Sku                        *Sku                            `pulumi:"sku"`
+	Tags                       map[string]string               `pulumi:"tags"`
+	ZoneRedundant              *bool                           `pulumi:"zoneRedundant"`
 }
 
 // The set of arguments for constructing a Namespace resource.
 type NamespaceArgs struct {
-	// Cluster ARM ID of the Namespace.
-	ClusterArmId pulumi.StringPtrInput
-	// This property disables SAS authentication for the Event Hubs namespace.
-	DisableLocalAuth pulumi.BoolPtrInput
-	// Properties of BYOK Encryption description
-	Encryption EncryptionPtrInput
-	// Properties of BYOK Identity description
-	Identity IdentityPtrInput
-	// Value that indicates whether AutoInflate is enabled for eventhub namespace.
-	IsAutoInflateEnabled pulumi.BoolPtrInput
-	// Value that indicates whether Kafka is enabled for eventhub namespace.
-	KafkaEnabled pulumi.BoolPtrInput
-	// Resource location.
-	Location pulumi.StringPtrInput
-	// Upper limit of throughput units when AutoInflate is enabled, value should be within 0 to 20 throughput units. ( '0' if AutoInflateEnabled = true)
-	MaximumThroughputUnits pulumi.IntPtrInput
-	// The Namespace name
-	NamespaceName pulumi.StringPtrInput
-	// List of private endpoint connections.
+	ClusterArmId               pulumi.StringPtrInput
+	DisableLocalAuth           pulumi.BoolPtrInput
+	Encryption                 EncryptionPtrInput
+	Identity                   IdentityPtrInput
+	IsAutoInflateEnabled       pulumi.BoolPtrInput
+	KafkaEnabled               pulumi.BoolPtrInput
+	Location                   pulumi.StringPtrInput
+	MaximumThroughputUnits     pulumi.IntPtrInput
+	NamespaceName              pulumi.StringPtrInput
 	PrivateEndpointConnections PrivateEndpointConnectionTypeArrayInput
-	// Name of the resource group within the azure subscription.
-	ResourceGroupName pulumi.StringInput
-	// Properties of sku resource
-	Sku SkuPtrInput
-	// Resource tags.
-	Tags pulumi.StringMapInput
-	// Enabling this property creates a Standard Event Hubs Namespace in regions supported availability zones.
-	ZoneRedundant pulumi.BoolPtrInput
+	ResourceGroupName          pulumi.StringInput
+	Sku                        SkuPtrInput
+	Tags                       pulumi.StringMapInput
+	ZoneRedundant              pulumi.BoolPtrInput
 }
 
 func (NamespaceArgs) ElementType() reflect.Type {
@@ -228,9 +178,7 @@ func (i *Namespace) ToNamespaceOutputWithContext(ctx context.Context) NamespaceO
 	return pulumi.ToOutputWithContext(ctx, i).(NamespaceOutput)
 }
 
-type NamespaceOutput struct {
-	*pulumi.OutputState
-}
+type NamespaceOutput struct{ *pulumi.OutputState }
 
 func (NamespaceOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*Namespace)(nil))

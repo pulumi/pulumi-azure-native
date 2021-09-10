@@ -7,7 +7,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// A report resource.
 func LookupReportByBillingAccount(ctx *pulumi.Context, args *LookupReportByBillingAccountArgs, opts ...pulumi.InvokeOption) (*LookupReportByBillingAccountResult, error) {
 	var rv LookupReportByBillingAccountResult
 	err := ctx.Invoke("azure-native:costmanagement/v20180801preview:getReportByBillingAccount", args, &rv, opts...)
@@ -18,28 +17,18 @@ func LookupReportByBillingAccount(ctx *pulumi.Context, args *LookupReportByBilli
 }
 
 type LookupReportByBillingAccountArgs struct {
-	// BillingAccount ID
 	BillingAccountId string `pulumi:"billingAccountId"`
-	// Report Name.
-	ReportName string `pulumi:"reportName"`
+	ReportName       string `pulumi:"reportName"`
 }
 
 // A report resource.
 type LookupReportByBillingAccountResult struct {
-	// Has definition for the report.
-	Definition ReportDefinitionResponse `pulumi:"definition"`
-	// Has delivery information for the report.
+	Definition   ReportDefinitionResponse   `pulumi:"definition"`
 	DeliveryInfo ReportDeliveryInfoResponse `pulumi:"deliveryInfo"`
-	// The format of the report being delivered.
-	Format *string `pulumi:"format"`
-	// Resource Id.
-	Id string `pulumi:"id"`
-	// Resource name.
-	Name string `pulumi:"name"`
-	// Has schedule information for the report.
-	Schedule *ReportScheduleResponse `pulumi:"schedule"`
-	// Resource tags.
-	Tags map[string]string `pulumi:"tags"`
-	// Resource type.
-	Type string `pulumi:"type"`
+	Format       *string                    `pulumi:"format"`
+	Id           string                     `pulumi:"id"`
+	Name         string                     `pulumi:"name"`
+	Schedule     *ReportScheduleResponse    `pulumi:"schedule"`
+	Tags         map[string]string          `pulumi:"tags"`
+	Type         string                     `pulumi:"type"`
 }

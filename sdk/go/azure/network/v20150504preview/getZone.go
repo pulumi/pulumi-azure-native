@@ -7,7 +7,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Describes a DNS zone.
 func LookupZone(ctx *pulumi.Context, args *LookupZoneArgs, opts ...pulumi.InvokeOption) (*LookupZoneResult, error) {
 	var rv LookupZoneResult
 	err := ctx.Invoke("azure-native:network/v20150504preview:getZone", args, &rv, opts...)
@@ -18,26 +17,17 @@ func LookupZone(ctx *pulumi.Context, args *LookupZoneArgs, opts ...pulumi.Invoke
 }
 
 type LookupZoneArgs struct {
-	// The name of the resource group. The name is case insensitive.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
-	// The name of the zone without a terminating dot.
-	ZoneName string `pulumi:"zoneName"`
+	ZoneName          string `pulumi:"zoneName"`
 }
 
 // Describes a DNS zone.
 type LookupZoneResult struct {
-	// Gets or sets the ETag of the zone that is being updated, as received from a Get operation.
-	Etag *string `pulumi:"etag"`
-	// Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
-	Id string `pulumi:"id"`
-	// The geo-location where the resource lives
-	Location string `pulumi:"location"`
-	// The name of the resource
-	Name string `pulumi:"name"`
-	// Gets or sets the properties of the zone.
+	Etag       *string                `pulumi:"etag"`
+	Id         string                 `pulumi:"id"`
+	Location   string                 `pulumi:"location"`
+	Name       string                 `pulumi:"name"`
 	Properties ZonePropertiesResponse `pulumi:"properties"`
-	// Resource tags.
-	Tags map[string]string `pulumi:"tags"`
-	// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
-	Type string `pulumi:"type"`
+	Tags       map[string]string      `pulumi:"tags"`
+	Type       string                 `pulumi:"type"`
 }

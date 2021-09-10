@@ -198,9 +198,7 @@ func (i *ADLSGen2FileSystemDataSet) ToADLSGen2FileSystemDataSetOutputWithContext
 	return pulumi.ToOutputWithContext(ctx, i).(ADLSGen2FileSystemDataSetOutput)
 }
 
-type ADLSGen2FileSystemDataSetOutput struct {
-	*pulumi.OutputState
-}
+type ADLSGen2FileSystemDataSetOutput struct{ *pulumi.OutputState }
 
 func (ADLSGen2FileSystemDataSetOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*ADLSGen2FileSystemDataSet)(nil))

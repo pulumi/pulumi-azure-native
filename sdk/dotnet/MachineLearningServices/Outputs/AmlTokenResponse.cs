@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.MachineLearningServices.Outputs
 {
 
+    /// <summary>
+    /// AML Token identity configuration.
+    /// </summary>
     [OutputType]
     public sealed class AmlTokenResponse
     {

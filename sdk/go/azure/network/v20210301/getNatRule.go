@@ -7,7 +7,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// VpnGatewayNatRule Resource.
 func LookupNatRule(ctx *pulumi.Context, args *LookupNatRuleArgs, opts ...pulumi.InvokeOption) (*LookupNatRuleResult, error) {
 	var rv LookupNatRuleResult
 	err := ctx.Invoke("azure-native:network/v20210301:getNatRule", args, &rv, opts...)
@@ -18,36 +17,22 @@ func LookupNatRule(ctx *pulumi.Context, args *LookupNatRuleArgs, opts ...pulumi.
 }
 
 type LookupNatRuleArgs struct {
-	// The name of the gateway.
-	GatewayName string `pulumi:"gatewayName"`
-	// The name of the nat rule.
-	NatRuleName string `pulumi:"natRuleName"`
-	// The resource group name of the VpnGateway.
+	GatewayName       string `pulumi:"gatewayName"`
+	NatRuleName       string `pulumi:"natRuleName"`
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 }
 
 // VpnGatewayNatRule Resource.
 type LookupNatRuleResult struct {
-	// List of egress VpnSiteLinkConnections.
-	EgressVpnSiteLinkConnections []SubResourceResponse `pulumi:"egressVpnSiteLinkConnections"`
-	// A unique read-only string that changes whenever the resource is updated.
-	Etag string `pulumi:"etag"`
-	// The private IP address external mapping for NAT.
-	ExternalMappings []VpnNatRuleMappingResponse `pulumi:"externalMappings"`
-	// Resource ID.
-	Id *string `pulumi:"id"`
-	// List of ingress VpnSiteLinkConnections.
-	IngressVpnSiteLinkConnections []SubResourceResponse `pulumi:"ingressVpnSiteLinkConnections"`
-	// The private IP address internal mapping for NAT.
-	InternalMappings []VpnNatRuleMappingResponse `pulumi:"internalMappings"`
-	// The IP Configuration ID this NAT rule applies to.
-	IpConfigurationId *string `pulumi:"ipConfigurationId"`
-	// The Source NAT direction of a VPN NAT.
-	Mode *string `pulumi:"mode"`
-	// The name of the resource that is unique within a resource group. This name can be used to access the resource.
-	Name *string `pulumi:"name"`
-	// The provisioning state of the NAT Rule resource.
-	ProvisioningState string `pulumi:"provisioningState"`
-	// Resource type.
-	Type string `pulumi:"type"`
+	EgressVpnSiteLinkConnections  []SubResourceResponse       `pulumi:"egressVpnSiteLinkConnections"`
+	Etag                          string                      `pulumi:"etag"`
+	ExternalMappings              []VpnNatRuleMappingResponse `pulumi:"externalMappings"`
+	Id                            *string                     `pulumi:"id"`
+	IngressVpnSiteLinkConnections []SubResourceResponse       `pulumi:"ingressVpnSiteLinkConnections"`
+	InternalMappings              []VpnNatRuleMappingResponse `pulumi:"internalMappings"`
+	IpConfigurationId             *string                     `pulumi:"ipConfigurationId"`
+	Mode                          *string                     `pulumi:"mode"`
+	Name                          *string                     `pulumi:"name"`
+	ProvisioningState             string                      `pulumi:"provisioningState"`
+	Type                          string                      `pulumi:"type"`
 }

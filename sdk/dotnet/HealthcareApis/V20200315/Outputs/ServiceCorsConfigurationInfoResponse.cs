@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.HealthcareApis.V20200315.Outputs
 {
 
+    /// <summary>
+    /// The settings for the CORS configuration of the service instance.
+    /// </summary>
     [OutputType]
     public sealed class ServiceCorsConfigurationInfoResponse
     {

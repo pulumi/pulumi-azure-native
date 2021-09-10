@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.Compute.V20200930.Outputs
 {
 
+    /// <summary>
+    /// Used for establishing the purchase context of any 3rd Party artifact through MarketPlace.
+    /// </summary>
     [OutputType]
     public sealed class PurchasePlanResponse
     {

@@ -11,20 +11,14 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// A Synchronization Setting data transfer object.
-//
 // Deprecated: Please use one of the variants: ScheduledSynchronizationSetting.
 type SynchronizationSetting struct {
 	pulumi.CustomResourceState
 
-	// Kind of synchronization setting.
-	Kind pulumi.StringOutput `pulumi:"kind"`
-	// Name of the azure resource
-	Name pulumi.StringOutput `pulumi:"name"`
-	// System Data of the Azure resource.
+	Kind       pulumi.StringOutput      `pulumi:"kind"`
+	Name       pulumi.StringOutput      `pulumi:"name"`
 	SystemData SystemDataResponseOutput `pulumi:"systemData"`
-	// Type of the azure resource
-	Type pulumi.StringOutput `pulumi:"type"`
+	Type       pulumi.StringOutput      `pulumi:"type"`
 }
 
 // NewSynchronizationSetting registers a new resource with the given unique name, arguments, and options.
@@ -108,29 +102,19 @@ func (SynchronizationSettingState) ElementType() reflect.Type {
 }
 
 type synchronizationSettingArgs struct {
-	// The name of the share account.
-	AccountName string `pulumi:"accountName"`
-	// Kind of synchronization setting.
-	Kind string `pulumi:"kind"`
-	// The resource group name.
-	ResourceGroupName string `pulumi:"resourceGroupName"`
-	// The name of the share to add the synchronization setting to.
-	ShareName string `pulumi:"shareName"`
-	// The name of the synchronizationSetting.
+	AccountName                string  `pulumi:"accountName"`
+	Kind                       string  `pulumi:"kind"`
+	ResourceGroupName          string  `pulumi:"resourceGroupName"`
+	ShareName                  string  `pulumi:"shareName"`
 	SynchronizationSettingName *string `pulumi:"synchronizationSettingName"`
 }
 
 // The set of arguments for constructing a SynchronizationSetting resource.
 type SynchronizationSettingArgs struct {
-	// The name of the share account.
-	AccountName pulumi.StringInput
-	// Kind of synchronization setting.
-	Kind pulumi.StringInput
-	// The resource group name.
-	ResourceGroupName pulumi.StringInput
-	// The name of the share to add the synchronization setting to.
-	ShareName pulumi.StringInput
-	// The name of the synchronizationSetting.
+	AccountName                pulumi.StringInput
+	Kind                       pulumi.StringInput
+	ResourceGroupName          pulumi.StringInput
+	ShareName                  pulumi.StringInput
 	SynchronizationSettingName pulumi.StringPtrInput
 }
 
@@ -157,9 +141,7 @@ func (i *SynchronizationSetting) ToSynchronizationSettingOutputWithContext(ctx c
 	return pulumi.ToOutputWithContext(ctx, i).(SynchronizationSettingOutput)
 }
 
-type SynchronizationSettingOutput struct {
-	*pulumi.OutputState
-}
+type SynchronizationSettingOutput struct{ *pulumi.OutputState }
 
 func (SynchronizationSettingOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*SynchronizationSetting)(nil))

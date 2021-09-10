@@ -7,7 +7,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// The integration account partner.
 func LookupPartner(ctx *pulumi.Context, args *LookupPartnerArgs, opts ...pulumi.InvokeOption) (*LookupPartnerResult, error) {
 	var rv LookupPartnerResult
 	err := ctx.Invoke("azure-native:logic/v20160601:getPartner", args, &rv, opts...)
@@ -18,34 +17,21 @@ func LookupPartner(ctx *pulumi.Context, args *LookupPartnerArgs, opts ...pulumi.
 }
 
 type LookupPartnerArgs struct {
-	// The integration account name.
 	IntegrationAccountName string `pulumi:"integrationAccountName"`
-	// The integration account partner name.
-	PartnerName string `pulumi:"partnerName"`
-	// The resource group name.
-	ResourceGroupName string `pulumi:"resourceGroupName"`
+	PartnerName            string `pulumi:"partnerName"`
+	ResourceGroupName      string `pulumi:"resourceGroupName"`
 }
 
 // The integration account partner.
 type LookupPartnerResult struct {
-	// The changed time.
-	ChangedTime string `pulumi:"changedTime"`
-	// The partner content.
-	Content PartnerContentResponse `pulumi:"content"`
-	// The created time.
-	CreatedTime string `pulumi:"createdTime"`
-	// The resource id.
-	Id string `pulumi:"id"`
-	// The resource location.
-	Location *string `pulumi:"location"`
-	// The metadata.
-	Metadata interface{} `pulumi:"metadata"`
-	// Gets the resource name.
-	Name string `pulumi:"name"`
-	// The partner type.
-	PartnerType string `pulumi:"partnerType"`
-	// The resource tags.
-	Tags map[string]string `pulumi:"tags"`
-	// Gets the resource type.
-	Type string `pulumi:"type"`
+	ChangedTime string                 `pulumi:"changedTime"`
+	Content     PartnerContentResponse `pulumi:"content"`
+	CreatedTime string                 `pulumi:"createdTime"`
+	Id          string                 `pulumi:"id"`
+	Location    *string                `pulumi:"location"`
+	Metadata    interface{}            `pulumi:"metadata"`
+	Name        string                 `pulumi:"name"`
+	PartnerType string                 `pulumi:"partnerType"`
+	Tags        map[string]string      `pulumi:"tags"`
+	Type        string                 `pulumi:"type"`
 }

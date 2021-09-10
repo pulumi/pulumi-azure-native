@@ -7,7 +7,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Backup of a Volume
 func LookupBackup(ctx *pulumi.Context, args *LookupBackupArgs, opts ...pulumi.InvokeOption) (*LookupBackupResult, error) {
 	var rv LookupBackupResult
 	err := ctx.Invoke("azure-native:netapp/v20210401preview:getBackup", args, &rv, opts...)
@@ -18,44 +17,26 @@ func LookupBackup(ctx *pulumi.Context, args *LookupBackupArgs, opts ...pulumi.In
 }
 
 type LookupBackupArgs struct {
-	// The name of the NetApp account
-	AccountName string `pulumi:"accountName"`
-	// The name of the backup
-	BackupName string `pulumi:"backupName"`
-	// The name of the capacity pool
-	PoolName string `pulumi:"poolName"`
-	// The name of the resource group.
+	AccountName       string `pulumi:"accountName"`
+	BackupName        string `pulumi:"backupName"`
+	PoolName          string `pulumi:"poolName"`
 	ResourceGroupName string `pulumi:"resourceGroupName"`
-	// The name of the volume
-	VolumeName string `pulumi:"volumeName"`
+	VolumeName        string `pulumi:"volumeName"`
 }
 
 // Backup of a Volume
 type LookupBackupResult struct {
-	// UUID v4 used to identify the Backup
-	BackupId string `pulumi:"backupId"`
-	// Type of backup Manual or Scheduled
-	BackupType string `pulumi:"backupType"`
-	// The creation date of the backup
-	CreationDate string `pulumi:"creationDate"`
-	// Failure reason
-	FailureReason string `pulumi:"failureReason"`
-	// Resource Id
-	Id string `pulumi:"id"`
-	// Label for backup
-	Label *string `pulumi:"label"`
-	// Resource location
-	Location string `pulumi:"location"`
-	// Resource name
-	Name string `pulumi:"name"`
-	// Azure lifecycle management
-	ProvisioningState string `pulumi:"provisioningState"`
-	// Size of backup
-	Size float64 `pulumi:"size"`
-	// Resource type
-	Type string `pulumi:"type"`
-	// Manual backup an already existing snapshot. This will always be false for scheduled backups and true/false for manual backups
-	UseExistingSnapshot *bool `pulumi:"useExistingSnapshot"`
-	// Volume name
-	VolumeName string `pulumi:"volumeName"`
+	BackupId            string  `pulumi:"backupId"`
+	BackupType          string  `pulumi:"backupType"`
+	CreationDate        string  `pulumi:"creationDate"`
+	FailureReason       string  `pulumi:"failureReason"`
+	Id                  string  `pulumi:"id"`
+	Label               *string `pulumi:"label"`
+	Location            string  `pulumi:"location"`
+	Name                string  `pulumi:"name"`
+	ProvisioningState   string  `pulumi:"provisioningState"`
+	Size                float64 `pulumi:"size"`
+	Type                string  `pulumi:"type"`
+	UseExistingSnapshot *bool   `pulumi:"useExistingSnapshot"`
+	VolumeName          string  `pulumi:"volumeName"`
 }

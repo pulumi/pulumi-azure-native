@@ -211,9 +211,7 @@ func (i *ProductApi) ToProductApiOutputWithContext(ctx context.Context) ProductA
 	return pulumi.ToOutputWithContext(ctx, i).(ProductApiOutput)
 }
 
-type ProductApiOutput struct {
-	*pulumi.OutputState
-}
+type ProductApiOutput struct{ *pulumi.OutputState }
 
 func (ProductApiOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*ProductApi)(nil))

@@ -11,27 +11,17 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// A kusto cluster data set.
 type KustoClusterDataSet struct {
 	pulumi.CustomResourceState
 
-	// Unique id for identifying a data set resource
-	DataSetId pulumi.StringOutput `pulumi:"dataSetId"`
-	// Kind of data set.
-	// Expected value is 'KustoCluster'.
-	Kind pulumi.StringOutput `pulumi:"kind"`
-	// Resource id of the kusto cluster.
-	KustoClusterResourceId pulumi.StringOutput `pulumi:"kustoClusterResourceId"`
-	// Location of the kusto cluster.
-	Location pulumi.StringOutput `pulumi:"location"`
-	// Name of the azure resource
-	Name pulumi.StringOutput `pulumi:"name"`
-	// Provisioning state of the kusto cluster data set.
-	ProvisioningState pulumi.StringOutput `pulumi:"provisioningState"`
-	// System Data of the Azure resource.
-	SystemData SystemDataResponseOutput `pulumi:"systemData"`
-	// Type of the azure resource
-	Type pulumi.StringOutput `pulumi:"type"`
+	DataSetId              pulumi.StringOutput      `pulumi:"dataSetId"`
+	Kind                   pulumi.StringOutput      `pulumi:"kind"`
+	KustoClusterResourceId pulumi.StringOutput      `pulumi:"kustoClusterResourceId"`
+	Location               pulumi.StringOutput      `pulumi:"location"`
+	Name                   pulumi.StringOutput      `pulumi:"name"`
+	ProvisioningState      pulumi.StringOutput      `pulumi:"provisioningState"`
+	SystemData             SystemDataResponseOutput `pulumi:"systemData"`
+	Type                   pulumi.StringOutput      `pulumi:"type"`
 }
 
 // NewKustoClusterDataSet registers a new resource with the given unique name, arguments, and options.
@@ -119,36 +109,22 @@ func (KustoClusterDataSetState) ElementType() reflect.Type {
 }
 
 type kustoClusterDataSetArgs struct {
-	// The name of the share account.
-	AccountName string `pulumi:"accountName"`
-	// The name of the dataSet.
-	DataSetName *string `pulumi:"dataSetName"`
-	// Kind of data set.
-	// Expected value is 'KustoCluster'.
-	Kind string `pulumi:"kind"`
-	// Resource id of the kusto cluster.
-	KustoClusterResourceId string `pulumi:"kustoClusterResourceId"`
-	// The resource group name.
-	ResourceGroupName string `pulumi:"resourceGroupName"`
-	// The name of the share to add the data set to.
-	ShareName string `pulumi:"shareName"`
+	AccountName            string  `pulumi:"accountName"`
+	DataSetName            *string `pulumi:"dataSetName"`
+	Kind                   string  `pulumi:"kind"`
+	KustoClusterResourceId string  `pulumi:"kustoClusterResourceId"`
+	ResourceGroupName      string  `pulumi:"resourceGroupName"`
+	ShareName              string  `pulumi:"shareName"`
 }
 
 // The set of arguments for constructing a KustoClusterDataSet resource.
 type KustoClusterDataSetArgs struct {
-	// The name of the share account.
-	AccountName pulumi.StringInput
-	// The name of the dataSet.
-	DataSetName pulumi.StringPtrInput
-	// Kind of data set.
-	// Expected value is 'KustoCluster'.
-	Kind pulumi.StringInput
-	// Resource id of the kusto cluster.
+	AccountName            pulumi.StringInput
+	DataSetName            pulumi.StringPtrInput
+	Kind                   pulumi.StringInput
 	KustoClusterResourceId pulumi.StringInput
-	// The resource group name.
-	ResourceGroupName pulumi.StringInput
-	// The name of the share to add the data set to.
-	ShareName pulumi.StringInput
+	ResourceGroupName      pulumi.StringInput
+	ShareName              pulumi.StringInput
 }
 
 func (KustoClusterDataSetArgs) ElementType() reflect.Type {
@@ -174,9 +150,7 @@ func (i *KustoClusterDataSet) ToKustoClusterDataSetOutputWithContext(ctx context
 	return pulumi.ToOutputWithContext(ctx, i).(KustoClusterDataSetOutput)
 }
 
-type KustoClusterDataSetOutput struct {
-	*pulumi.OutputState
-}
+type KustoClusterDataSetOutput struct{ *pulumi.OutputState }
 
 func (KustoClusterDataSetOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*KustoClusterDataSet)(nil))

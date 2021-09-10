@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.Compute.V20210701.Outputs
 {
 
+    /// <summary>
+    /// Specifies settings related to VM Guest Patching on Windows.
+    /// </summary>
     [OutputType]
     public sealed class PatchSettingsResponse
     {

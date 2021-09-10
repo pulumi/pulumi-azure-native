@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.Blueprint.V20171111Preview.Outputs
 {
 
+    /// <summary>
+    /// Represent a parameter with constrains and metadata.
+    /// </summary>
     [OutputType]
     public sealed class ParameterDefinitionResponse
     {

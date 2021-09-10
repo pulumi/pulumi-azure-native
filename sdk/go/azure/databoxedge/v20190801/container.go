@@ -11,22 +11,15 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Represents a container on the  Data Box Edge/Gateway device.
 type Container struct {
 	pulumi.CustomResourceState
 
-	// Current status of the container.
-	ContainerStatus pulumi.StringOutput `pulumi:"containerStatus"`
-	// The UTC time when container got created.
-	CreatedDateTime pulumi.StringOutput `pulumi:"createdDateTime"`
-	// DataFormat for Container
-	DataFormat pulumi.StringOutput `pulumi:"dataFormat"`
-	// The object name.
-	Name pulumi.StringOutput `pulumi:"name"`
-	// Details of the refresh job on this container.
-	RefreshDetails RefreshDetailsResponseOutput `pulumi:"refreshDetails"`
-	// The hierarchical type of the object.
-	Type pulumi.StringOutput `pulumi:"type"`
+	ContainerStatus pulumi.StringOutput          `pulumi:"containerStatus"`
+	CreatedDateTime pulumi.StringOutput          `pulumi:"createdDateTime"`
+	DataFormat      pulumi.StringOutput          `pulumi:"dataFormat"`
+	Name            pulumi.StringOutput          `pulumi:"name"`
+	RefreshDetails  RefreshDetailsResponseOutput `pulumi:"refreshDetails"`
+	Type            pulumi.StringOutput          `pulumi:"type"`
 }
 
 // NewContainer registers a new resource with the given unique name, arguments, and options.
@@ -128,29 +121,19 @@ func (ContainerState) ElementType() reflect.Type {
 }
 
 type containerArgs struct {
-	// The container name.
-	ContainerName *string `pulumi:"containerName"`
-	// DataFormat for Container
-	DataFormat string `pulumi:"dataFormat"`
-	// The device name.
-	DeviceName string `pulumi:"deviceName"`
-	// The resource group name.
-	ResourceGroupName string `pulumi:"resourceGroupName"`
-	// The Storage Account Name
-	StorageAccountName string `pulumi:"storageAccountName"`
+	ContainerName      *string `pulumi:"containerName"`
+	DataFormat         string  `pulumi:"dataFormat"`
+	DeviceName         string  `pulumi:"deviceName"`
+	ResourceGroupName  string  `pulumi:"resourceGroupName"`
+	StorageAccountName string  `pulumi:"storageAccountName"`
 }
 
 // The set of arguments for constructing a Container resource.
 type ContainerArgs struct {
-	// The container name.
-	ContainerName pulumi.StringPtrInput
-	// DataFormat for Container
-	DataFormat pulumi.StringInput
-	// The device name.
-	DeviceName pulumi.StringInput
-	// The resource group name.
-	ResourceGroupName pulumi.StringInput
-	// The Storage Account Name
+	ContainerName      pulumi.StringPtrInput
+	DataFormat         pulumi.StringInput
+	DeviceName         pulumi.StringInput
+	ResourceGroupName  pulumi.StringInput
 	StorageAccountName pulumi.StringInput
 }
 
@@ -177,9 +160,7 @@ func (i *Container) ToContainerOutputWithContext(ctx context.Context) ContainerO
 	return pulumi.ToOutputWithContext(ctx, i).(ContainerOutput)
 }
 
-type ContainerOutput struct {
-	*pulumi.OutputState
-}
+type ContainerOutput struct{ *pulumi.OutputState }
 
 func (ContainerOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*Container)(nil))

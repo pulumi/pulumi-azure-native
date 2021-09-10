@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.Automation.V20151031.Outputs
 {
 
+    /// <summary>
+    /// Definition of the content link.
+    /// </summary>
     [OutputType]
     public sealed class ContentLinkResponse
     {

@@ -7,7 +7,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// An Azure SQL job agent.
 func LookupJobAgent(ctx *pulumi.Context, args *LookupJobAgentArgs, opts ...pulumi.InvokeOption) (*LookupJobAgentResult, error) {
 	var rv LookupJobAgentResult
 	err := ctx.Invoke("azure-native:sql/v20170301preview:getJobAgent", args, &rv, opts...)
@@ -18,30 +17,19 @@ func LookupJobAgent(ctx *pulumi.Context, args *LookupJobAgentArgs, opts ...pulum
 }
 
 type LookupJobAgentArgs struct {
-	// The name of the job agent to be retrieved.
-	JobAgentName string `pulumi:"jobAgentName"`
-	// The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
+	JobAgentName      string `pulumi:"jobAgentName"`
 	ResourceGroupName string `pulumi:"resourceGroupName"`
-	// The name of the server.
-	ServerName string `pulumi:"serverName"`
+	ServerName        string `pulumi:"serverName"`
 }
 
 // An Azure SQL job agent.
 type LookupJobAgentResult struct {
-	// Resource ID of the database to store job metadata in.
-	DatabaseId string `pulumi:"databaseId"`
-	// Resource ID.
-	Id string `pulumi:"id"`
-	// Resource location.
-	Location string `pulumi:"location"`
-	// Resource name.
-	Name string `pulumi:"name"`
-	// The name and tier of the SKU.
-	Sku *SkuResponse `pulumi:"sku"`
-	// The state of the job agent.
-	State string `pulumi:"state"`
-	// Resource tags.
-	Tags map[string]string `pulumi:"tags"`
-	// Resource type.
-	Type string `pulumi:"type"`
+	DatabaseId string            `pulumi:"databaseId"`
+	Id         string            `pulumi:"id"`
+	Location   string            `pulumi:"location"`
+	Name       string            `pulumi:"name"`
+	Sku        *SkuResponse      `pulumi:"sku"`
+	State      string            `pulumi:"state"`
+	Tags       map[string]string `pulumi:"tags"`
+	Type       string            `pulumi:"type"`
 }

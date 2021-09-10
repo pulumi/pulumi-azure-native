@@ -7,7 +7,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// VpnGateway Resource.
 func LookupVpnGateway(ctx *pulumi.Context, args *LookupVpnGatewayArgs, opts ...pulumi.InvokeOption) (*LookupVpnGatewayResult, error) {
 	var rv LookupVpnGatewayResult
 	err := ctx.Invoke("azure-native:network/v20191101:getVpnGateway", args, &rv, opts...)
@@ -18,34 +17,21 @@ func LookupVpnGateway(ctx *pulumi.Context, args *LookupVpnGatewayArgs, opts ...p
 }
 
 type LookupVpnGatewayArgs struct {
-	// The name of the gateway.
-	GatewayName string `pulumi:"gatewayName"`
-	// The resource group name of the VpnGateway.
+	GatewayName       string `pulumi:"gatewayName"`
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 }
 
 // VpnGateway Resource.
 type LookupVpnGatewayResult struct {
-	// Local network gateway's BGP speaker settings.
-	BgpSettings *BgpSettingsResponse `pulumi:"bgpSettings"`
-	// List of all vpn connections to the gateway.
-	Connections []VpnConnectionResponse `pulumi:"connections"`
-	// A unique read-only string that changes whenever the resource is updated.
-	Etag string `pulumi:"etag"`
-	// Resource ID.
-	Id *string `pulumi:"id"`
-	// Resource location.
-	Location string `pulumi:"location"`
-	// Resource name.
-	Name string `pulumi:"name"`
-	// The provisioning state of the VPN gateway resource.
-	ProvisioningState string `pulumi:"provisioningState"`
-	// Resource tags.
-	Tags map[string]string `pulumi:"tags"`
-	// Resource type.
-	Type string `pulumi:"type"`
-	// The VirtualHub to which the gateway belongs.
-	VirtualHub *SubResourceResponse `pulumi:"virtualHub"`
-	// The scale unit for this vpn gateway.
-	VpnGatewayScaleUnit *int `pulumi:"vpnGatewayScaleUnit"`
+	BgpSettings         *BgpSettingsResponse    `pulumi:"bgpSettings"`
+	Connections         []VpnConnectionResponse `pulumi:"connections"`
+	Etag                string                  `pulumi:"etag"`
+	Id                  *string                 `pulumi:"id"`
+	Location            string                  `pulumi:"location"`
+	Name                string                  `pulumi:"name"`
+	ProvisioningState   string                  `pulumi:"provisioningState"`
+	Tags                map[string]string       `pulumi:"tags"`
+	Type                string                  `pulumi:"type"`
+	VirtualHub          *SubResourceResponse    `pulumi:"virtualHub"`
+	VpnGatewayScaleUnit *int                    `pulumi:"vpnGatewayScaleUnit"`
 }

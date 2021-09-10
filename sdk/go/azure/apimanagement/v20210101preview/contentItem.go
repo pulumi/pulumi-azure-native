@@ -11,16 +11,12 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Content type contract details.
 type ContentItem struct {
 	pulumi.CustomResourceState
 
-	// Resource name.
-	Name pulumi.StringOutput `pulumi:"name"`
-	// Properties of the content item.
-	Properties pulumi.AnyOutput `pulumi:"properties"`
-	// Resource type for API Management resource.
-	Type pulumi.StringOutput `pulumi:"type"`
+	Name       pulumi.StringOutput `pulumi:"name"`
+	Properties pulumi.AnyOutput    `pulumi:"properties"`
+	Type       pulumi.StringOutput `pulumi:"type"`
 }
 
 // NewContentItem registers a new resource with the given unique name, arguments, and options.
@@ -101,26 +97,18 @@ func (ContentItemState) ElementType() reflect.Type {
 }
 
 type contentItemArgs struct {
-	// Content item identifier.
-	ContentItemId *string `pulumi:"contentItemId"`
-	// Content type identifier.
-	ContentTypeId string `pulumi:"contentTypeId"`
-	// The name of the resource group.
-	ResourceGroupName string `pulumi:"resourceGroupName"`
-	// The name of the API Management service.
-	ServiceName string `pulumi:"serviceName"`
+	ContentItemId     *string `pulumi:"contentItemId"`
+	ContentTypeId     string  `pulumi:"contentTypeId"`
+	ResourceGroupName string  `pulumi:"resourceGroupName"`
+	ServiceName       string  `pulumi:"serviceName"`
 }
 
 // The set of arguments for constructing a ContentItem resource.
 type ContentItemArgs struct {
-	// Content item identifier.
-	ContentItemId pulumi.StringPtrInput
-	// Content type identifier.
-	ContentTypeId pulumi.StringInput
-	// The name of the resource group.
+	ContentItemId     pulumi.StringPtrInput
+	ContentTypeId     pulumi.StringInput
 	ResourceGroupName pulumi.StringInput
-	// The name of the API Management service.
-	ServiceName pulumi.StringInput
+	ServiceName       pulumi.StringInput
 }
 
 func (ContentItemArgs) ElementType() reflect.Type {
@@ -146,9 +134,7 @@ func (i *ContentItem) ToContentItemOutputWithContext(ctx context.Context) Conten
 	return pulumi.ToOutputWithContext(ctx, i).(ContentItemOutput)
 }
 
-type ContentItemOutput struct {
-	*pulumi.OutputState
-}
+type ContentItemOutput struct{ *pulumi.OutputState }
 
 func (ContentItemOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*ContentItem)(nil))

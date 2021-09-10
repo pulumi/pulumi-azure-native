@@ -11,20 +11,14 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// A file resource
 type File struct {
 	pulumi.CustomResourceState
 
-	// HTTP strong entity tag value. This is ignored if submitted.
-	Etag pulumi.StringPtrOutput `pulumi:"etag"`
-	// Resource name.
-	Name pulumi.StringOutput `pulumi:"name"`
-	// Custom file properties
+	Etag       pulumi.StringPtrOutput              `pulumi:"etag"`
+	Name       pulumi.StringOutput                 `pulumi:"name"`
 	Properties ProjectFilePropertiesResponseOutput `pulumi:"properties"`
-	// Metadata pertaining to creation and last modification of the resource.
-	SystemData SystemDataResponseOutput `pulumi:"systemData"`
-	// Resource type.
-	Type pulumi.StringOutput `pulumi:"type"`
+	SystemData SystemDataResponseOutput            `pulumi:"systemData"`
+	Type       pulumi.StringOutput                 `pulumi:"type"`
 }
 
 // NewFile registers a new resource with the given unique name, arguments, and options.
@@ -93,33 +87,21 @@ func (FileState) ElementType() reflect.Type {
 }
 
 type fileArgs struct {
-	// HTTP strong entity tag value. This is ignored if submitted.
-	Etag *string `pulumi:"etag"`
-	// Name of the File
-	FileName *string `pulumi:"fileName"`
-	// Name of the resource group
-	GroupName string `pulumi:"groupName"`
-	// Name of the project
-	ProjectName string `pulumi:"projectName"`
-	// Custom file properties
-	Properties *ProjectFileProperties `pulumi:"properties"`
-	// Name of the service
-	ServiceName string `pulumi:"serviceName"`
+	Etag        *string                `pulumi:"etag"`
+	FileName    *string                `pulumi:"fileName"`
+	GroupName   string                 `pulumi:"groupName"`
+	ProjectName string                 `pulumi:"projectName"`
+	Properties  *ProjectFileProperties `pulumi:"properties"`
+	ServiceName string                 `pulumi:"serviceName"`
 }
 
 // The set of arguments for constructing a File resource.
 type FileArgs struct {
-	// HTTP strong entity tag value. This is ignored if submitted.
-	Etag pulumi.StringPtrInput
-	// Name of the File
-	FileName pulumi.StringPtrInput
-	// Name of the resource group
-	GroupName pulumi.StringInput
-	// Name of the project
+	Etag        pulumi.StringPtrInput
+	FileName    pulumi.StringPtrInput
+	GroupName   pulumi.StringInput
 	ProjectName pulumi.StringInput
-	// Custom file properties
-	Properties ProjectFilePropertiesPtrInput
-	// Name of the service
+	Properties  ProjectFilePropertiesPtrInput
 	ServiceName pulumi.StringInput
 }
 
@@ -146,9 +128,7 @@ func (i *File) ToFileOutputWithContext(ctx context.Context) FileOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(FileOutput)
 }
 
-type FileOutput struct {
-	*pulumi.OutputState
-}
+type FileOutput struct{ *pulumi.OutputState }
 
 func (FileOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*File)(nil))

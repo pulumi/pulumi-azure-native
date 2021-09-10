@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.EngagementFabric.Outputs
 {
 
+    /// <summary>
+    /// EngagementFabric channel description
+    /// </summary>
     [OutputType]
     public sealed class ChannelTypeDescriptionResponse
     {

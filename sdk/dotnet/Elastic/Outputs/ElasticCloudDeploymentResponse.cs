@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.Elastic.Outputs
 {
 
+    /// <summary>
+    /// Details of the user's elastic deployment associated with the monitor resource.
+    /// </summary>
     [OutputType]
     public sealed class ElasticCloudDeploymentResponse
     {

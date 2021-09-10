@@ -11,54 +11,31 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// An assessment created for a group in the Migration project.
 type Assessment struct {
 	pulumi.CustomResourceState
 
-	// AHUB discount on windows virtual machines.
-	AzureHybridUseBenefit pulumi.StringOutput `pulumi:"azureHybridUseBenefit"`
-	// Target Azure location for which the machines should be assessed. These enums are the same as used by Compute API.
-	AzureLocation pulumi.StringOutput `pulumi:"azureLocation"`
-	// Offer code according to which cost estimation is done.
-	AzureOfferCode pulumi.StringOutput `pulumi:"azureOfferCode"`
-	// Pricing tier for Size evaluation.
-	AzurePricingTier pulumi.StringOutput `pulumi:"azurePricingTier"`
-	// Storage Redundancy type offered by Azure.
-	AzureStorageRedundancy pulumi.StringOutput `pulumi:"azureStorageRedundancy"`
-	// Time when this project was created. Date-Time represented in ISO-8601 format.
-	CreatedTimestamp pulumi.StringOutput `pulumi:"createdTimestamp"`
-	// Currency to report prices in.
-	Currency pulumi.StringOutput `pulumi:"currency"`
-	// Custom discount percentage to be applied on final costs. Can be in the range [0, 100].
-	DiscountPercentage pulumi.Float64Output `pulumi:"discountPercentage"`
-	// For optimistic concurrency control.
-	ETag pulumi.StringPtrOutput `pulumi:"eTag"`
-	// Monthly network cost estimate for the machines that are part of this assessment as a group, for a 31-day month.
-	MonthlyBandwidthCost pulumi.Float64Output `pulumi:"monthlyBandwidthCost"`
-	// Monthly compute cost estimate for the machines that are part of this assessment as a group, for a 31-day month.
-	MonthlyComputeCost pulumi.Float64Output `pulumi:"monthlyComputeCost"`
-	// Monthly storage cost estimate for the machines that are part of this assessment as a group, for a 31-day month.
-	MonthlyStorageCost pulumi.Float64Output `pulumi:"monthlyStorageCost"`
-	// Unique name of an assessment.
-	Name pulumi.StringOutput `pulumi:"name"`
-	// Number of assessed machines part of this assessment.
-	NumberOfMachines pulumi.IntOutput `pulumi:"numberOfMachines"`
-	// Percentile of performance data used to recommend Azure size.
-	Percentile pulumi.StringOutput `pulumi:"percentile"`
-	// Time when the Azure Prices were queried. Date-Time represented in ISO-8601 format.
-	PricesTimestamp pulumi.StringOutput `pulumi:"pricesTimestamp"`
-	// Scaling factor used over utilization data to add a performance buffer for new machines to be created in Azure. Min Value = 1.0, Max value = 1.9, Default = 1.3.
-	ScalingFactor pulumi.Float64Output `pulumi:"scalingFactor"`
-	// User configurable setting that describes the status of the assessment.
-	Stage pulumi.StringOutput `pulumi:"stage"`
-	// Whether the assessment has been created and is valid.
-	Status pulumi.StringOutput `pulumi:"status"`
-	// Time range of performance data used to recommend a size.
-	TimeRange pulumi.StringOutput `pulumi:"timeRange"`
-	// Type of the object = [Microsoft.Migrate/projects/groups/assessments].
-	Type pulumi.StringOutput `pulumi:"type"`
-	// Time when this project was last updated. Date-Time represented in ISO-8601 format.
-	UpdatedTimestamp pulumi.StringOutput `pulumi:"updatedTimestamp"`
+	AzureHybridUseBenefit  pulumi.StringOutput    `pulumi:"azureHybridUseBenefit"`
+	AzureLocation          pulumi.StringOutput    `pulumi:"azureLocation"`
+	AzureOfferCode         pulumi.StringOutput    `pulumi:"azureOfferCode"`
+	AzurePricingTier       pulumi.StringOutput    `pulumi:"azurePricingTier"`
+	AzureStorageRedundancy pulumi.StringOutput    `pulumi:"azureStorageRedundancy"`
+	CreatedTimestamp       pulumi.StringOutput    `pulumi:"createdTimestamp"`
+	Currency               pulumi.StringOutput    `pulumi:"currency"`
+	DiscountPercentage     pulumi.Float64Output   `pulumi:"discountPercentage"`
+	ETag                   pulumi.StringPtrOutput `pulumi:"eTag"`
+	MonthlyBandwidthCost   pulumi.Float64Output   `pulumi:"monthlyBandwidthCost"`
+	MonthlyComputeCost     pulumi.Float64Output   `pulumi:"monthlyComputeCost"`
+	MonthlyStorageCost     pulumi.Float64Output   `pulumi:"monthlyStorageCost"`
+	Name                   pulumi.StringOutput    `pulumi:"name"`
+	NumberOfMachines       pulumi.IntOutput       `pulumi:"numberOfMachines"`
+	Percentile             pulumi.StringOutput    `pulumi:"percentile"`
+	PricesTimestamp        pulumi.StringOutput    `pulumi:"pricesTimestamp"`
+	ScalingFactor          pulumi.Float64Output   `pulumi:"scalingFactor"`
+	Stage                  pulumi.StringOutput    `pulumi:"stage"`
+	Status                 pulumi.StringOutput    `pulumi:"status"`
+	TimeRange              pulumi.StringOutput    `pulumi:"timeRange"`
+	Type                   pulumi.StringOutput    `pulumi:"type"`
+	UpdatedTimestamp       pulumi.StringOutput    `pulumi:"updatedTimestamp"`
 }
 
 // NewAssessment registers a new resource with the given unique name, arguments, and options.
@@ -154,74 +131,42 @@ func (AssessmentState) ElementType() reflect.Type {
 }
 
 type assessmentArgs struct {
-	// Unique name of an assessment within a project.
-	AssessmentName *string `pulumi:"assessmentName"`
-	// AHUB discount on windows virtual machines.
-	AzureHybridUseBenefit string `pulumi:"azureHybridUseBenefit"`
-	// Target Azure location for which the machines should be assessed. These enums are the same as used by Compute API.
-	AzureLocation string `pulumi:"azureLocation"`
-	// Offer code according to which cost estimation is done.
-	AzureOfferCode string `pulumi:"azureOfferCode"`
-	// Pricing tier for Size evaluation.
-	AzurePricingTier string `pulumi:"azurePricingTier"`
-	// Storage Redundancy type offered by Azure.
-	AzureStorageRedundancy string `pulumi:"azureStorageRedundancy"`
-	// Currency to report prices in.
-	Currency string `pulumi:"currency"`
-	// Custom discount percentage to be applied on final costs. Can be in the range [0, 100].
-	DiscountPercentage float64 `pulumi:"discountPercentage"`
-	// For optimistic concurrency control.
-	ETag *string `pulumi:"eTag"`
-	// Unique name of a group within a project.
-	GroupName string `pulumi:"groupName"`
-	// Percentile of performance data used to recommend Azure size.
-	Percentile string `pulumi:"percentile"`
-	// Name of the Azure Migrate project.
-	ProjectName string `pulumi:"projectName"`
-	// Name of the Azure Resource Group that project is part of.
-	ResourceGroupName string `pulumi:"resourceGroupName"`
-	// Scaling factor used over utilization data to add a performance buffer for new machines to be created in Azure. Min Value = 1.0, Max value = 1.9, Default = 1.3.
-	ScalingFactor float64 `pulumi:"scalingFactor"`
-	// User configurable setting that describes the status of the assessment.
-	Stage string `pulumi:"stage"`
-	// Time range of performance data used to recommend a size.
-	TimeRange string `pulumi:"timeRange"`
+	AssessmentName         *string `pulumi:"assessmentName"`
+	AzureHybridUseBenefit  string  `pulumi:"azureHybridUseBenefit"`
+	AzureLocation          string  `pulumi:"azureLocation"`
+	AzureOfferCode         string  `pulumi:"azureOfferCode"`
+	AzurePricingTier       string  `pulumi:"azurePricingTier"`
+	AzureStorageRedundancy string  `pulumi:"azureStorageRedundancy"`
+	Currency               string  `pulumi:"currency"`
+	DiscountPercentage     float64 `pulumi:"discountPercentage"`
+	ETag                   *string `pulumi:"eTag"`
+	GroupName              string  `pulumi:"groupName"`
+	Percentile             string  `pulumi:"percentile"`
+	ProjectName            string  `pulumi:"projectName"`
+	ResourceGroupName      string  `pulumi:"resourceGroupName"`
+	ScalingFactor          float64 `pulumi:"scalingFactor"`
+	Stage                  string  `pulumi:"stage"`
+	TimeRange              string  `pulumi:"timeRange"`
 }
 
 // The set of arguments for constructing a Assessment resource.
 type AssessmentArgs struct {
-	// Unique name of an assessment within a project.
-	AssessmentName pulumi.StringPtrInput
-	// AHUB discount on windows virtual machines.
-	AzureHybridUseBenefit pulumi.StringInput
-	// Target Azure location for which the machines should be assessed. These enums are the same as used by Compute API.
-	AzureLocation pulumi.StringInput
-	// Offer code according to which cost estimation is done.
-	AzureOfferCode pulumi.StringInput
-	// Pricing tier for Size evaluation.
-	AzurePricingTier pulumi.StringInput
-	// Storage Redundancy type offered by Azure.
+	AssessmentName         pulumi.StringPtrInput
+	AzureHybridUseBenefit  pulumi.StringInput
+	AzureLocation          pulumi.StringInput
+	AzureOfferCode         pulumi.StringInput
+	AzurePricingTier       pulumi.StringInput
 	AzureStorageRedundancy pulumi.StringInput
-	// Currency to report prices in.
-	Currency pulumi.StringInput
-	// Custom discount percentage to be applied on final costs. Can be in the range [0, 100].
-	DiscountPercentage pulumi.Float64Input
-	// For optimistic concurrency control.
-	ETag pulumi.StringPtrInput
-	// Unique name of a group within a project.
-	GroupName pulumi.StringInput
-	// Percentile of performance data used to recommend Azure size.
-	Percentile pulumi.StringInput
-	// Name of the Azure Migrate project.
-	ProjectName pulumi.StringInput
-	// Name of the Azure Resource Group that project is part of.
-	ResourceGroupName pulumi.StringInput
-	// Scaling factor used over utilization data to add a performance buffer for new machines to be created in Azure. Min Value = 1.0, Max value = 1.9, Default = 1.3.
-	ScalingFactor pulumi.Float64Input
-	// User configurable setting that describes the status of the assessment.
-	Stage pulumi.StringInput
-	// Time range of performance data used to recommend a size.
-	TimeRange pulumi.StringInput
+	Currency               pulumi.StringInput
+	DiscountPercentage     pulumi.Float64Input
+	ETag                   pulumi.StringPtrInput
+	GroupName              pulumi.StringInput
+	Percentile             pulumi.StringInput
+	ProjectName            pulumi.StringInput
+	ResourceGroupName      pulumi.StringInput
+	ScalingFactor          pulumi.Float64Input
+	Stage                  pulumi.StringInput
+	TimeRange              pulumi.StringInput
 }
 
 func (AssessmentArgs) ElementType() reflect.Type {
@@ -247,9 +192,7 @@ func (i *Assessment) ToAssessmentOutputWithContext(ctx context.Context) Assessme
 	return pulumi.ToOutputWithContext(ctx, i).(AssessmentOutput)
 }
 
-type AssessmentOutput struct {
-	*pulumi.OutputState
-}
+type AssessmentOutput struct{ *pulumi.OutputState }
 
 func (AssessmentOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*Assessment)(nil))

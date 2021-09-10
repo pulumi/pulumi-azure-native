@@ -11,30 +11,19 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Represents a Blueprint definition.
 type Blueprint struct {
 	pulumi.CustomResourceState
 
-	// Multi-line explain this resource.
-	Description pulumi.StringPtrOutput `pulumi:"description"`
-	// One-liner string explain this resource.
-	DisplayName pulumi.StringPtrOutput `pulumi:"displayName"`
-	// Layout view of the blueprint, for UI reference.
-	Layout pulumi.AnyOutput `pulumi:"layout"`
-	// Name of this resource.
-	Name pulumi.StringOutput `pulumi:"name"`
-	// Parameters required by this Blueprint definition.
-	Parameters ParameterDefinitionResponseMapOutput `pulumi:"parameters"`
-	// Resource group placeholders defined by this Blueprint definition.
+	Description    pulumi.StringPtrOutput                   `pulumi:"description"`
+	DisplayName    pulumi.StringPtrOutput                   `pulumi:"displayName"`
+	Layout         pulumi.AnyOutput                         `pulumi:"layout"`
+	Name           pulumi.StringOutput                      `pulumi:"name"`
+	Parameters     ParameterDefinitionResponseMapOutput     `pulumi:"parameters"`
 	ResourceGroups ResourceGroupDefinitionResponseMapOutput `pulumi:"resourceGroups"`
-	// Status of the Blueprint. This field is readonly.
-	Status BlueprintStatusResponseOutput `pulumi:"status"`
-	// The scope where this Blueprint can be applied.
-	TargetScope pulumi.StringOutput `pulumi:"targetScope"`
-	// Type of this resource.
-	Type pulumi.StringOutput `pulumi:"type"`
-	// Published versions of this blueprint.
-	Versions pulumi.AnyOutput `pulumi:"versions"`
+	Status         BlueprintStatusResponseOutput            `pulumi:"status"`
+	TargetScope    pulumi.StringOutput                      `pulumi:"targetScope"`
+	Type           pulumi.StringOutput                      `pulumi:"type"`
+	Versions       pulumi.AnyOutput                         `pulumi:"versions"`
 }
 
 // NewBlueprint registers a new resource with the given unique name, arguments, and options.
@@ -88,46 +77,28 @@ func (BlueprintState) ElementType() reflect.Type {
 }
 
 type blueprintArgs struct {
-	// name of the blueprint.
-	BlueprintName *string `pulumi:"blueprintName"`
-	// Multi-line explain this resource.
-	Description *string `pulumi:"description"`
-	// One-liner string explain this resource.
-	DisplayName *string `pulumi:"displayName"`
-	// Layout view of the blueprint, for UI reference.
-	Layout interface{} `pulumi:"layout"`
-	// ManagementGroup where blueprint stores.
-	ManagementGroupName string `pulumi:"managementGroupName"`
-	// Parameters required by this Blueprint definition.
-	Parameters map[string]ParameterDefinition `pulumi:"parameters"`
-	// Resource group placeholders defined by this Blueprint definition.
-	ResourceGroups map[string]ResourceGroupDefinition `pulumi:"resourceGroups"`
-	// The scope where this Blueprint can be applied.
-	TargetScope string `pulumi:"targetScope"`
-	// Published versions of this blueprint.
-	Versions interface{} `pulumi:"versions"`
+	BlueprintName       *string                            `pulumi:"blueprintName"`
+	Description         *string                            `pulumi:"description"`
+	DisplayName         *string                            `pulumi:"displayName"`
+	Layout              interface{}                        `pulumi:"layout"`
+	ManagementGroupName string                             `pulumi:"managementGroupName"`
+	Parameters          map[string]ParameterDefinition     `pulumi:"parameters"`
+	ResourceGroups      map[string]ResourceGroupDefinition `pulumi:"resourceGroups"`
+	TargetScope         string                             `pulumi:"targetScope"`
+	Versions            interface{}                        `pulumi:"versions"`
 }
 
 // The set of arguments for constructing a Blueprint resource.
 type BlueprintArgs struct {
-	// name of the blueprint.
-	BlueprintName pulumi.StringPtrInput
-	// Multi-line explain this resource.
-	Description pulumi.StringPtrInput
-	// One-liner string explain this resource.
-	DisplayName pulumi.StringPtrInput
-	// Layout view of the blueprint, for UI reference.
-	Layout pulumi.Input
-	// ManagementGroup where blueprint stores.
+	BlueprintName       pulumi.StringPtrInput
+	Description         pulumi.StringPtrInput
+	DisplayName         pulumi.StringPtrInput
+	Layout              pulumi.Input
 	ManagementGroupName pulumi.StringInput
-	// Parameters required by this Blueprint definition.
-	Parameters ParameterDefinitionMapInput
-	// Resource group placeholders defined by this Blueprint definition.
-	ResourceGroups ResourceGroupDefinitionMapInput
-	// The scope where this Blueprint can be applied.
-	TargetScope pulumi.StringInput
-	// Published versions of this blueprint.
-	Versions pulumi.Input
+	Parameters          ParameterDefinitionMapInput
+	ResourceGroups      ResourceGroupDefinitionMapInput
+	TargetScope         pulumi.StringInput
+	Versions            pulumi.Input
 }
 
 func (BlueprintArgs) ElementType() reflect.Type {
@@ -153,9 +124,7 @@ func (i *Blueprint) ToBlueprintOutputWithContext(ctx context.Context) BlueprintO
 	return pulumi.ToOutputWithContext(ctx, i).(BlueprintOutput)
 }
 
-type BlueprintOutput struct {
-	*pulumi.OutputState
-}
+type BlueprintOutput struct{ *pulumi.OutputState }
 
 func (BlueprintOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*Blueprint)(nil))

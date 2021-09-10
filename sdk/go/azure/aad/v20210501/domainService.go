@@ -11,54 +11,31 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Domain service.
 type DomainService struct {
 	pulumi.CustomResourceState
 
-	// Configuration diagnostics data containing latest execution from client.
-	ConfigDiagnostics ConfigDiagnosticsResponsePtrOutput `pulumi:"configDiagnostics"`
-	// Deployment Id
-	DeploymentId pulumi.StringOutput `pulumi:"deploymentId"`
-	// Domain Configuration Type
-	DomainConfigurationType pulumi.StringPtrOutput `pulumi:"domainConfigurationType"`
-	// The name of the Azure domain that the user would like to deploy Domain Services to.
-	DomainName pulumi.StringPtrOutput `pulumi:"domainName"`
-	// DomainSecurity Settings
-	DomainSecuritySettings DomainSecuritySettingsResponsePtrOutput `pulumi:"domainSecuritySettings"`
-	// Resource etag
-	Etag pulumi.StringPtrOutput `pulumi:"etag"`
-	// Enabled or Disabled flag to turn on Group-based filtered sync
-	FilteredSync pulumi.StringPtrOutput `pulumi:"filteredSync"`
-	// Secure LDAP Settings
-	LdapsSettings LdapsSettingsResponsePtrOutput `pulumi:"ldapsSettings"`
-	// Resource location
-	Location pulumi.StringPtrOutput `pulumi:"location"`
-	// Migration Properties
-	MigrationProperties MigrationPropertiesResponseOutput `pulumi:"migrationProperties"`
-	// Resource name
-	Name pulumi.StringOutput `pulumi:"name"`
-	// Notification Settings
-	NotificationSettings NotificationSettingsResponsePtrOutput `pulumi:"notificationSettings"`
-	// the current deployment or provisioning state, which only appears in the response.
-	ProvisioningState pulumi.StringOutput `pulumi:"provisioningState"`
-	// List of ReplicaSets
-	ReplicaSets ReplicaSetResponseArrayOutput `pulumi:"replicaSets"`
-	// Resource Forest Settings
-	ResourceForestSettings ResourceForestSettingsResponsePtrOutput `pulumi:"resourceForestSettings"`
-	// Sku Type
-	Sku pulumi.StringPtrOutput `pulumi:"sku"`
-	// SyncOwner ReplicaSet Id
-	SyncOwner pulumi.StringOutput `pulumi:"syncOwner"`
-	// The system meta data relating to this resource.
-	SystemData SystemDataResponseOutput `pulumi:"systemData"`
-	// Resource tags
-	Tags pulumi.StringMapOutput `pulumi:"tags"`
-	// Azure Active Directory Tenant Id
-	TenantId pulumi.StringOutput `pulumi:"tenantId"`
-	// Resource type
-	Type pulumi.StringOutput `pulumi:"type"`
-	// Data Model Version
-	Version pulumi.IntOutput `pulumi:"version"`
+	ConfigDiagnostics       ConfigDiagnosticsResponsePtrOutput      `pulumi:"configDiagnostics"`
+	DeploymentId            pulumi.StringOutput                     `pulumi:"deploymentId"`
+	DomainConfigurationType pulumi.StringPtrOutput                  `pulumi:"domainConfigurationType"`
+	DomainName              pulumi.StringPtrOutput                  `pulumi:"domainName"`
+	DomainSecuritySettings  DomainSecuritySettingsResponsePtrOutput `pulumi:"domainSecuritySettings"`
+	Etag                    pulumi.StringPtrOutput                  `pulumi:"etag"`
+	FilteredSync            pulumi.StringPtrOutput                  `pulumi:"filteredSync"`
+	LdapsSettings           LdapsSettingsResponsePtrOutput          `pulumi:"ldapsSettings"`
+	Location                pulumi.StringPtrOutput                  `pulumi:"location"`
+	MigrationProperties     MigrationPropertiesResponseOutput       `pulumi:"migrationProperties"`
+	Name                    pulumi.StringOutput                     `pulumi:"name"`
+	NotificationSettings    NotificationSettingsResponsePtrOutput   `pulumi:"notificationSettings"`
+	ProvisioningState       pulumi.StringOutput                     `pulumi:"provisioningState"`
+	ReplicaSets             ReplicaSetResponseArrayOutput           `pulumi:"replicaSets"`
+	ResourceForestSettings  ResourceForestSettingsResponsePtrOutput `pulumi:"resourceForestSettings"`
+	Sku                     pulumi.StringPtrOutput                  `pulumi:"sku"`
+	SyncOwner               pulumi.StringOutput                     `pulumi:"syncOwner"`
+	SystemData              SystemDataResponseOutput                `pulumi:"systemData"`
+	Tags                    pulumi.StringMapOutput                  `pulumi:"tags"`
+	TenantId                pulumi.StringOutput                     `pulumi:"tenantId"`
+	Type                    pulumi.StringOutput                     `pulumi:"type"`
+	Version                 pulumi.IntOutput                        `pulumi:"version"`
 }
 
 // NewDomainService registers a new resource with the given unique name, arguments, and options.
@@ -139,70 +116,40 @@ func (DomainServiceState) ElementType() reflect.Type {
 }
 
 type domainServiceArgs struct {
-	// Configuration diagnostics data containing latest execution from client.
-	ConfigDiagnostics *ConfigDiagnostics `pulumi:"configDiagnostics"`
-	// Domain Configuration Type
-	DomainConfigurationType *string `pulumi:"domainConfigurationType"`
-	// The name of the Azure domain that the user would like to deploy Domain Services to.
-	DomainName *string `pulumi:"domainName"`
-	// DomainSecurity Settings
-	DomainSecuritySettings *DomainSecuritySettings `pulumi:"domainSecuritySettings"`
-	// The name of the domain service.
-	DomainServiceName *string `pulumi:"domainServiceName"`
-	// Resource etag
-	Etag *string `pulumi:"etag"`
-	// Enabled or Disabled flag to turn on Group-based filtered sync
-	FilteredSync *string `pulumi:"filteredSync"`
-	// Secure LDAP Settings
-	LdapsSettings *LdapsSettings `pulumi:"ldapsSettings"`
-	// Resource location
-	Location *string `pulumi:"location"`
-	// Notification Settings
-	NotificationSettings *NotificationSettings `pulumi:"notificationSettings"`
-	// List of ReplicaSets
-	ReplicaSets []ReplicaSet `pulumi:"replicaSets"`
-	// Resource Forest Settings
-	ResourceForestSettings *ResourceForestSettings `pulumi:"resourceForestSettings"`
-	// The name of the resource group within the user's subscription. The name is case insensitive.
-	ResourceGroupName string `pulumi:"resourceGroupName"`
-	// Sku Type
-	Sku *string `pulumi:"sku"`
-	// Resource tags
-	Tags map[string]string `pulumi:"tags"`
+	ConfigDiagnostics       *ConfigDiagnostics      `pulumi:"configDiagnostics"`
+	DomainConfigurationType *string                 `pulumi:"domainConfigurationType"`
+	DomainName              *string                 `pulumi:"domainName"`
+	DomainSecuritySettings  *DomainSecuritySettings `pulumi:"domainSecuritySettings"`
+	DomainServiceName       *string                 `pulumi:"domainServiceName"`
+	Etag                    *string                 `pulumi:"etag"`
+	FilteredSync            *string                 `pulumi:"filteredSync"`
+	LdapsSettings           *LdapsSettings          `pulumi:"ldapsSettings"`
+	Location                *string                 `pulumi:"location"`
+	NotificationSettings    *NotificationSettings   `pulumi:"notificationSettings"`
+	ReplicaSets             []ReplicaSet            `pulumi:"replicaSets"`
+	ResourceForestSettings  *ResourceForestSettings `pulumi:"resourceForestSettings"`
+	ResourceGroupName       string                  `pulumi:"resourceGroupName"`
+	Sku                     *string                 `pulumi:"sku"`
+	Tags                    map[string]string       `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a DomainService resource.
 type DomainServiceArgs struct {
-	// Configuration diagnostics data containing latest execution from client.
-	ConfigDiagnostics ConfigDiagnosticsPtrInput
-	// Domain Configuration Type
+	ConfigDiagnostics       ConfigDiagnosticsPtrInput
 	DomainConfigurationType pulumi.StringPtrInput
-	// The name of the Azure domain that the user would like to deploy Domain Services to.
-	DomainName pulumi.StringPtrInput
-	// DomainSecurity Settings
-	DomainSecuritySettings DomainSecuritySettingsPtrInput
-	// The name of the domain service.
-	DomainServiceName pulumi.StringPtrInput
-	// Resource etag
-	Etag pulumi.StringPtrInput
-	// Enabled or Disabled flag to turn on Group-based filtered sync
-	FilteredSync pulumi.StringPtrInput
-	// Secure LDAP Settings
-	LdapsSettings LdapsSettingsPtrInput
-	// Resource location
-	Location pulumi.StringPtrInput
-	// Notification Settings
-	NotificationSettings NotificationSettingsPtrInput
-	// List of ReplicaSets
-	ReplicaSets ReplicaSetArrayInput
-	// Resource Forest Settings
-	ResourceForestSettings ResourceForestSettingsPtrInput
-	// The name of the resource group within the user's subscription. The name is case insensitive.
-	ResourceGroupName pulumi.StringInput
-	// Sku Type
-	Sku pulumi.StringPtrInput
-	// Resource tags
-	Tags pulumi.StringMapInput
+	DomainName              pulumi.StringPtrInput
+	DomainSecuritySettings  DomainSecuritySettingsPtrInput
+	DomainServiceName       pulumi.StringPtrInput
+	Etag                    pulumi.StringPtrInput
+	FilteredSync            pulumi.StringPtrInput
+	LdapsSettings           LdapsSettingsPtrInput
+	Location                pulumi.StringPtrInput
+	NotificationSettings    NotificationSettingsPtrInput
+	ReplicaSets             ReplicaSetArrayInput
+	ResourceForestSettings  ResourceForestSettingsPtrInput
+	ResourceGroupName       pulumi.StringInput
+	Sku                     pulumi.StringPtrInput
+	Tags                    pulumi.StringMapInput
 }
 
 func (DomainServiceArgs) ElementType() reflect.Type {
@@ -228,9 +175,7 @@ func (i *DomainService) ToDomainServiceOutputWithContext(ctx context.Context) Do
 	return pulumi.ToOutputWithContext(ctx, i).(DomainServiceOutput)
 }
 
-type DomainServiceOutput struct {
-	*pulumi.OutputState
-}
+type DomainServiceOutput struct{ *pulumi.OutputState }
 
 func (DomainServiceOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*DomainService)(nil))

@@ -11,22 +11,15 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Role management policy
 type RoleManagementPolicyAssignment struct {
 	pulumi.CustomResourceState
 
-	// The role management policy name.
-	Name pulumi.StringOutput `pulumi:"name"`
-	// Additional properties of scope, role definition and policy
+	Name                       pulumi.StringOutput                      `pulumi:"name"`
 	PolicyAssignmentProperties PolicyAssignmentPropertiesResponseOutput `pulumi:"policyAssignmentProperties"`
-	// The policy id role management policy assignment.
-	PolicyId pulumi.StringPtrOutput `pulumi:"policyId"`
-	// The role definition of management policy assignment.
-	RoleDefinitionId pulumi.StringPtrOutput `pulumi:"roleDefinitionId"`
-	// The role management policy scope.
-	Scope pulumi.StringPtrOutput `pulumi:"scope"`
-	// The role management policy type.
-	Type pulumi.StringOutput `pulumi:"type"`
+	PolicyId                   pulumi.StringPtrOutput                   `pulumi:"policyId"`
+	RoleDefinitionId           pulumi.StringPtrOutput                   `pulumi:"roleDefinitionId"`
+	Scope                      pulumi.StringPtrOutput                   `pulumi:"scope"`
+	Type                       pulumi.StringOutput                      `pulumi:"type"`
 }
 
 // NewRoleManagementPolicyAssignment registers a new resource with the given unique name, arguments, and options.
@@ -83,26 +76,18 @@ func (RoleManagementPolicyAssignmentState) ElementType() reflect.Type {
 }
 
 type roleManagementPolicyAssignmentArgs struct {
-	// The policy id role management policy assignment.
-	PolicyId *string `pulumi:"policyId"`
-	// The role definition of management policy assignment.
-	RoleDefinitionId *string `pulumi:"roleDefinitionId"`
-	// The name of format {guid_guid} the role management policy assignment to upsert.
+	PolicyId                           *string `pulumi:"policyId"`
+	RoleDefinitionId                   *string `pulumi:"roleDefinitionId"`
 	RoleManagementPolicyAssignmentName *string `pulumi:"roleManagementPolicyAssignmentName"`
-	// The role management policy scope.
-	Scope string `pulumi:"scope"`
+	Scope                              string  `pulumi:"scope"`
 }
 
 // The set of arguments for constructing a RoleManagementPolicyAssignment resource.
 type RoleManagementPolicyAssignmentArgs struct {
-	// The policy id role management policy assignment.
-	PolicyId pulumi.StringPtrInput
-	// The role definition of management policy assignment.
-	RoleDefinitionId pulumi.StringPtrInput
-	// The name of format {guid_guid} the role management policy assignment to upsert.
+	PolicyId                           pulumi.StringPtrInput
+	RoleDefinitionId                   pulumi.StringPtrInput
 	RoleManagementPolicyAssignmentName pulumi.StringPtrInput
-	// The role management policy scope.
-	Scope pulumi.StringInput
+	Scope                              pulumi.StringInput
 }
 
 func (RoleManagementPolicyAssignmentArgs) ElementType() reflect.Type {
@@ -128,9 +113,7 @@ func (i *RoleManagementPolicyAssignment) ToRoleManagementPolicyAssignmentOutputW
 	return pulumi.ToOutputWithContext(ctx, i).(RoleManagementPolicyAssignmentOutput)
 }
 
-type RoleManagementPolicyAssignmentOutput struct {
-	*pulumi.OutputState
-}
+type RoleManagementPolicyAssignmentOutput struct{ *pulumi.OutputState }
 
 func (RoleManagementPolicyAssignmentOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*RoleManagementPolicyAssignment)(nil))

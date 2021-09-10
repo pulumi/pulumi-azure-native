@@ -7,7 +7,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Slot Config names azure resource
 func LookupSiteSlotConfigNames(ctx *pulumi.Context, args *LookupSiteSlotConfigNamesArgs, opts ...pulumi.InvokeOption) (*LookupSiteSlotConfigNamesResult, error) {
 	var rv LookupSiteSlotConfigNamesResult
 	err := ctx.Invoke("azure-native:web/v20150801:getSiteSlotConfigNames", args, &rv, opts...)
@@ -18,28 +17,18 @@ func LookupSiteSlotConfigNames(ctx *pulumi.Context, args *LookupSiteSlotConfigNa
 }
 
 type LookupSiteSlotConfigNamesArgs struct {
-	// Name of web app
-	Name string `pulumi:"name"`
-	// Name of resource group
+	Name              string `pulumi:"name"`
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 }
 
 // Slot Config names azure resource
 type LookupSiteSlotConfigNamesResult struct {
-	// List of application settings names
-	AppSettingNames []string `pulumi:"appSettingNames"`
-	// List of connection string names
-	ConnectionStringNames []string `pulumi:"connectionStringNames"`
-	// Resource Id
-	Id *string `pulumi:"id"`
-	// Kind of resource
-	Kind *string `pulumi:"kind"`
-	// Resource Location
-	Location string `pulumi:"location"`
-	// Resource Name
-	Name *string `pulumi:"name"`
-	// Resource tags
-	Tags map[string]string `pulumi:"tags"`
-	// Resource type
-	Type *string `pulumi:"type"`
+	AppSettingNames       []string          `pulumi:"appSettingNames"`
+	ConnectionStringNames []string          `pulumi:"connectionStringNames"`
+	Id                    *string           `pulumi:"id"`
+	Kind                  *string           `pulumi:"kind"`
+	Location              string            `pulumi:"location"`
+	Name                  *string           `pulumi:"name"`
+	Tags                  map[string]string `pulumi:"tags"`
+	Type                  *string           `pulumi:"type"`
 }

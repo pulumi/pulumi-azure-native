@@ -7,7 +7,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// An IPSec parameters for a virtual network gateway P2S connection.
 func GetVirtualNetworkGatewayVpnclientIpsecParameters(ctx *pulumi.Context, args *GetVirtualNetworkGatewayVpnclientIpsecParametersArgs, opts ...pulumi.InvokeOption) (*GetVirtualNetworkGatewayVpnclientIpsecParametersResult, error) {
 	var rv GetVirtualNetworkGatewayVpnclientIpsecParametersResult
 	err := ctx.Invoke("azure-native:network/v20180701:getVirtualNetworkGatewayVpnclientIpsecParameters", args, &rv, opts...)
@@ -18,28 +17,18 @@ func GetVirtualNetworkGatewayVpnclientIpsecParameters(ctx *pulumi.Context, args 
 }
 
 type GetVirtualNetworkGatewayVpnclientIpsecParametersArgs struct {
-	// The name of the resource group.
-	ResourceGroupName string `pulumi:"resourceGroupName"`
-	// The virtual network gateway name.
+	ResourceGroupName         string `pulumi:"resourceGroupName"`
 	VirtualNetworkGatewayName string `pulumi:"virtualNetworkGatewayName"`
 }
 
 // An IPSec parameters for a virtual network gateway P2S connection.
 type GetVirtualNetworkGatewayVpnclientIpsecParametersResult struct {
-	// The DH Groups used in IKE Phase 1 for initial SA.
-	DhGroup string `pulumi:"dhGroup"`
-	// The IKE encryption algorithm (IKE phase 2).
-	IkeEncryption string `pulumi:"ikeEncryption"`
-	// The IKE integrity algorithm (IKE phase 2).
-	IkeIntegrity string `pulumi:"ikeIntegrity"`
-	// The IPSec encryption algorithm (IKE phase 1).
-	IpsecEncryption string `pulumi:"ipsecEncryption"`
-	// The IPSec integrity algorithm (IKE phase 1).
-	IpsecIntegrity string `pulumi:"ipsecIntegrity"`
-	// The Pfs Groups used in IKE Phase 2 for new child SA.
-	PfsGroup string `pulumi:"pfsGroup"`
-	// The IPSec Security Association (also called Quick Mode or Phase 2 SA) payload size in KB for P2S client..
-	SaDataSizeKilobytes int `pulumi:"saDataSizeKilobytes"`
-	// The IPSec Security Association (also called Quick Mode or Phase 2 SA) lifetime in seconds for P2S client.
-	SaLifeTimeSeconds int `pulumi:"saLifeTimeSeconds"`
+	DhGroup             string `pulumi:"dhGroup"`
+	IkeEncryption       string `pulumi:"ikeEncryption"`
+	IkeIntegrity        string `pulumi:"ikeIntegrity"`
+	IpsecEncryption     string `pulumi:"ipsecEncryption"`
+	IpsecIntegrity      string `pulumi:"ipsecIntegrity"`
+	PfsGroup            string `pulumi:"pfsGroup"`
+	SaDataSizeKilobytes int    `pulumi:"saDataSizeKilobytes"`
+	SaLifeTimeSeconds   int    `pulumi:"saLifeTimeSeconds"`
 }

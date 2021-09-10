@@ -11,22 +11,15 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Contract details.
 type Group struct {
 	pulumi.CustomResourceState
 
-	// true if the group is one of the three system groups (Administrators, Developers, or Guests); otherwise false.
-	BuiltIn pulumi.BoolOutput `pulumi:"builtIn"`
-	// Group description. Can contain HTML formatting tags.
+	BuiltIn     pulumi.BoolOutput      `pulumi:"builtIn"`
 	Description pulumi.StringPtrOutput `pulumi:"description"`
-	// Group name.
-	DisplayName pulumi.StringOutput `pulumi:"displayName"`
-	// For external groups, this property contains the id of the group from the external identity provider, e.g. for Azure Active Directory aad://<tenant>.onmicrosoft.com/groups/<group object id>; otherwise the value is null.
-	ExternalId pulumi.StringPtrOutput `pulumi:"externalId"`
-	// Resource name.
-	Name pulumi.StringOutput `pulumi:"name"`
-	// Resource type for API Management resource.
-	Type pulumi.StringOutput `pulumi:"type"`
+	DisplayName pulumi.StringOutput    `pulumi:"displayName"`
+	ExternalId  pulumi.StringPtrOutput `pulumi:"externalId"`
+	Name        pulumi.StringOutput    `pulumi:"name"`
+	Type        pulumi.StringOutput    `pulumi:"type"`
 }
 
 // NewGroup registers a new resource with the given unique name, arguments, and options.
@@ -149,38 +142,24 @@ func (GroupState) ElementType() reflect.Type {
 }
 
 type groupArgs struct {
-	// Group description.
-	Description *string `pulumi:"description"`
-	// Group name.
-	DisplayName string `pulumi:"displayName"`
-	// Identifier of the external groups, this property contains the id of the group from the external identity provider, e.g. for Azure Active Directory aad://<tenant>.onmicrosoft.com/groups/<group object id>; otherwise the value is null.
-	ExternalId *string `pulumi:"externalId"`
-	// Group identifier. Must be unique in the current API Management service instance.
-	GroupId *string `pulumi:"groupId"`
-	// The name of the resource group.
-	ResourceGroupName string `pulumi:"resourceGroupName"`
-	// The name of the API Management service.
-	ServiceName string `pulumi:"serviceName"`
-	// Group type.
-	Type *string `pulumi:"type"`
+	Description       *string    `pulumi:"description"`
+	DisplayName       string     `pulumi:"displayName"`
+	ExternalId        *string    `pulumi:"externalId"`
+	GroupId           *string    `pulumi:"groupId"`
+	ResourceGroupName string     `pulumi:"resourceGroupName"`
+	ServiceName       string     `pulumi:"serviceName"`
+	Type              *GroupType `pulumi:"type"`
 }
 
 // The set of arguments for constructing a Group resource.
 type GroupArgs struct {
-	// Group description.
-	Description pulumi.StringPtrInput
-	// Group name.
-	DisplayName pulumi.StringInput
-	// Identifier of the external groups, this property contains the id of the group from the external identity provider, e.g. for Azure Active Directory aad://<tenant>.onmicrosoft.com/groups/<group object id>; otherwise the value is null.
-	ExternalId pulumi.StringPtrInput
-	// Group identifier. Must be unique in the current API Management service instance.
-	GroupId pulumi.StringPtrInput
-	// The name of the resource group.
+	Description       pulumi.StringPtrInput
+	DisplayName       pulumi.StringInput
+	ExternalId        pulumi.StringPtrInput
+	GroupId           pulumi.StringPtrInput
 	ResourceGroupName pulumi.StringInput
-	// The name of the API Management service.
-	ServiceName pulumi.StringInput
-	// Group type.
-	Type *GroupType
+	ServiceName       pulumi.StringInput
+	Type              GroupTypePtrInput
 }
 
 func (GroupArgs) ElementType() reflect.Type {
@@ -206,9 +185,7 @@ func (i *Group) ToGroupOutputWithContext(ctx context.Context) GroupOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(GroupOutput)
 }
 
-type GroupOutput struct {
-	*pulumi.OutputState
-}
+type GroupOutput struct{ *pulumi.OutputState }
 
 func (GroupOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*Group)(nil))

@@ -11,30 +11,19 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// VpnGateway Resource.
 type VpnGateway struct {
 	pulumi.CustomResourceState
 
-	// Local network gateway's BGP speaker settings.
-	BgpSettings BgpSettingsResponsePtrOutput `pulumi:"bgpSettings"`
-	// list of all vpn connections to the gateway.
-	Connections VpnConnectionResponseArrayOutput `pulumi:"connections"`
-	// Gets a unique read-only string that changes whenever the resource is updated.
-	Etag pulumi.StringOutput `pulumi:"etag"`
-	// Resource location.
-	Location pulumi.StringOutput `pulumi:"location"`
-	// Resource name.
-	Name pulumi.StringOutput `pulumi:"name"`
-	// The provisioning state of the resource.
-	ProvisioningState pulumi.StringOutput `pulumi:"provisioningState"`
-	// Resource tags.
-	Tags pulumi.StringMapOutput `pulumi:"tags"`
-	// Resource type.
-	Type pulumi.StringOutput `pulumi:"type"`
-	// The VirtualHub to which the gateway belongs
-	VirtualHub SubResourceResponsePtrOutput `pulumi:"virtualHub"`
-	// The scale unit for this vpn gateway.
-	VpnGatewayScaleUnit pulumi.IntPtrOutput `pulumi:"vpnGatewayScaleUnit"`
+	BgpSettings         BgpSettingsResponsePtrOutput     `pulumi:"bgpSettings"`
+	Connections         VpnConnectionResponseArrayOutput `pulumi:"connections"`
+	Etag                pulumi.StringOutput              `pulumi:"etag"`
+	Location            pulumi.StringOutput              `pulumi:"location"`
+	Name                pulumi.StringOutput              `pulumi:"name"`
+	ProvisioningState   pulumi.StringOutput              `pulumi:"provisioningState"`
+	Tags                pulumi.StringMapOutput           `pulumi:"tags"`
+	Type                pulumi.StringOutput              `pulumi:"type"`
+	VirtualHub          SubResourceResponsePtrOutput     `pulumi:"virtualHub"`
+	VpnGatewayScaleUnit pulumi.IntPtrOutput              `pulumi:"vpnGatewayScaleUnit"`
 }
 
 // NewVpnGateway registers a new resource with the given unique name, arguments, and options.
@@ -229,45 +218,27 @@ func (VpnGatewayState) ElementType() reflect.Type {
 }
 
 type vpnGatewayArgs struct {
-	// Local network gateway's BGP speaker settings.
-	BgpSettings *BgpSettings `pulumi:"bgpSettings"`
-	// list of all vpn connections to the gateway.
-	Connections []VpnConnectionType `pulumi:"connections"`
-	// The name of the gateway.
-	GatewayName *string `pulumi:"gatewayName"`
-	// Resource ID.
-	Id *string `pulumi:"id"`
-	// Resource location.
-	Location *string `pulumi:"location"`
-	// The resource group name of the VpnGateway.
-	ResourceGroupName string `pulumi:"resourceGroupName"`
-	// Resource tags.
-	Tags map[string]string `pulumi:"tags"`
-	// The VirtualHub to which the gateway belongs
-	VirtualHub *SubResource `pulumi:"virtualHub"`
-	// The scale unit for this vpn gateway.
-	VpnGatewayScaleUnit *int `pulumi:"vpnGatewayScaleUnit"`
+	BgpSettings         *BgpSettings        `pulumi:"bgpSettings"`
+	Connections         []VpnConnectionType `pulumi:"connections"`
+	GatewayName         *string             `pulumi:"gatewayName"`
+	Id                  *string             `pulumi:"id"`
+	Location            *string             `pulumi:"location"`
+	ResourceGroupName   string              `pulumi:"resourceGroupName"`
+	Tags                map[string]string   `pulumi:"tags"`
+	VirtualHub          *SubResource        `pulumi:"virtualHub"`
+	VpnGatewayScaleUnit *int                `pulumi:"vpnGatewayScaleUnit"`
 }
 
 // The set of arguments for constructing a VpnGateway resource.
 type VpnGatewayArgs struct {
-	// Local network gateway's BGP speaker settings.
-	BgpSettings BgpSettingsPtrInput
-	// list of all vpn connections to the gateway.
-	Connections VpnConnectionTypeArrayInput
-	// The name of the gateway.
-	GatewayName pulumi.StringPtrInput
-	// Resource ID.
-	Id pulumi.StringPtrInput
-	// Resource location.
-	Location pulumi.StringPtrInput
-	// The resource group name of the VpnGateway.
-	ResourceGroupName pulumi.StringInput
-	// Resource tags.
-	Tags pulumi.StringMapInput
-	// The VirtualHub to which the gateway belongs
-	VirtualHub SubResourcePtrInput
-	// The scale unit for this vpn gateway.
+	BgpSettings         BgpSettingsPtrInput
+	Connections         VpnConnectionTypeArrayInput
+	GatewayName         pulumi.StringPtrInput
+	Id                  pulumi.StringPtrInput
+	Location            pulumi.StringPtrInput
+	ResourceGroupName   pulumi.StringInput
+	Tags                pulumi.StringMapInput
+	VirtualHub          SubResourcePtrInput
 	VpnGatewayScaleUnit pulumi.IntPtrInput
 }
 
@@ -294,9 +265,7 @@ func (i *VpnGateway) ToVpnGatewayOutputWithContext(ctx context.Context) VpnGatew
 	return pulumi.ToOutputWithContext(ctx, i).(VpnGatewayOutput)
 }
 
-type VpnGatewayOutput struct {
-	*pulumi.OutputState
-}
+type VpnGatewayOutput struct{ *pulumi.OutputState }
 
 func (VpnGatewayOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*VpnGateway)(nil))

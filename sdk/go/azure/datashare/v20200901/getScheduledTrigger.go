@@ -7,7 +7,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// A type of trigger based on schedule
 func LookupScheduledTrigger(ctx *pulumi.Context, args *LookupScheduledTriggerArgs, opts ...pulumi.InvokeOption) (*LookupScheduledTriggerResult, error) {
 	var rv LookupScheduledTriggerResult
 	err := ctx.Invoke("azure-native:datashare/v20200901:getScheduledTrigger", args, &rv, opts...)
@@ -18,41 +17,24 @@ func LookupScheduledTrigger(ctx *pulumi.Context, args *LookupScheduledTriggerArg
 }
 
 type LookupScheduledTriggerArgs struct {
-	// The name of the share account.
-	AccountName string `pulumi:"accountName"`
-	// The resource group name.
-	ResourceGroupName string `pulumi:"resourceGroupName"`
-	// The name of the shareSubscription.
+	AccountName           string `pulumi:"accountName"`
+	ResourceGroupName     string `pulumi:"resourceGroupName"`
 	ShareSubscriptionName string `pulumi:"shareSubscriptionName"`
-	// The name of the trigger.
-	TriggerName string `pulumi:"triggerName"`
+	TriggerName           string `pulumi:"triggerName"`
 }
 
 // A type of trigger based on schedule
 type LookupScheduledTriggerResult struct {
-	// Time at which the trigger was created.
-	CreatedAt string `pulumi:"createdAt"`
-	// The resource id of the azure resource
-	Id string `pulumi:"id"`
-	// Kind of synchronization on trigger.
-	// Expected value is 'ScheduleBased'.
-	Kind string `pulumi:"kind"`
-	// Name of the azure resource
-	Name string `pulumi:"name"`
-	// Gets the provisioning state
-	ProvisioningState string `pulumi:"provisioningState"`
-	// Recurrence Interval
-	RecurrenceInterval string `pulumi:"recurrenceInterval"`
-	// Synchronization mode
-	SynchronizationMode *string `pulumi:"synchronizationMode"`
-	// Synchronization time
-	SynchronizationTime string `pulumi:"synchronizationTime"`
-	// System Data of the Azure resource.
-	SystemData SystemDataResponse `pulumi:"systemData"`
-	// Gets the trigger state
-	TriggerStatus string `pulumi:"triggerStatus"`
-	// Type of the azure resource
-	Type string `pulumi:"type"`
-	// Name of the user who created the trigger.
-	UserName string `pulumi:"userName"`
+	CreatedAt           string             `pulumi:"createdAt"`
+	Id                  string             `pulumi:"id"`
+	Kind                string             `pulumi:"kind"`
+	Name                string             `pulumi:"name"`
+	ProvisioningState   string             `pulumi:"provisioningState"`
+	RecurrenceInterval  string             `pulumi:"recurrenceInterval"`
+	SynchronizationMode *string            `pulumi:"synchronizationMode"`
+	SynchronizationTime string             `pulumi:"synchronizationTime"`
+	SystemData          SystemDataResponse `pulumi:"systemData"`
+	TriggerStatus       string             `pulumi:"triggerStatus"`
+	Type                string             `pulumi:"type"`
+	UserName            string             `pulumi:"userName"`
 }

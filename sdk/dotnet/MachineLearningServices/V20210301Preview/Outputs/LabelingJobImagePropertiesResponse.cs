@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.MachineLearningServices.V20210301Preview.Outputs
 {
 
+    /// <summary>
+    /// Properties of a labeling job for image data
+    /// </summary>
     [OutputType]
     public sealed class LabelingJobImagePropertiesResponse
     {

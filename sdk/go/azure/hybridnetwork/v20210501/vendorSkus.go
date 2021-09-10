@@ -11,32 +11,20 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Sku sub resource.
 type VendorSkus struct {
 	pulumi.CustomResourceState
 
-	// The sku deployment mode.
-	DeploymentMode pulumi.StringPtrOutput `pulumi:"deploymentMode"`
-	// The parameters for the managed application to be supplied by the vendor.
-	ManagedApplicationParameters pulumi.AnyOutput `pulumi:"managedApplicationParameters"`
-	// The template for the managed application deployment.
-	ManagedApplicationTemplate pulumi.AnyOutput `pulumi:"managedApplicationTemplate"`
-	// The name of the resource
-	Name pulumi.StringOutput `pulumi:"name"`
-	// The template definition of the network function.
-	NetworkFunctionTemplate NetworkFunctionTemplateResponsePtrOutput `pulumi:"networkFunctionTemplate"`
-	// The network function type.
-	NetworkFunctionType pulumi.StringPtrOutput `pulumi:"networkFunctionType"`
-	// Indicates if the vendor sku is in preview mode.
-	Preview pulumi.BoolPtrOutput `pulumi:"preview"`
-	// The provisioning state of the vendor sku sub resource.
-	ProvisioningState pulumi.StringOutput `pulumi:"provisioningState"`
-	// The sku type.
-	SkuType pulumi.StringPtrOutput `pulumi:"skuType"`
-	// The system meta data relating to this resource.
-	SystemData SystemDataResponseOutput `pulumi:"systemData"`
-	// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
-	Type pulumi.StringOutput `pulumi:"type"`
+	DeploymentMode               pulumi.StringPtrOutput                   `pulumi:"deploymentMode"`
+	ManagedApplicationParameters pulumi.AnyOutput                         `pulumi:"managedApplicationParameters"`
+	ManagedApplicationTemplate   pulumi.AnyOutput                         `pulumi:"managedApplicationTemplate"`
+	Name                         pulumi.StringOutput                      `pulumi:"name"`
+	NetworkFunctionTemplate      NetworkFunctionTemplateResponsePtrOutput `pulumi:"networkFunctionTemplate"`
+	NetworkFunctionType          pulumi.StringPtrOutput                   `pulumi:"networkFunctionType"`
+	Preview                      pulumi.BoolPtrOutput                     `pulumi:"preview"`
+	ProvisioningState            pulumi.StringOutput                      `pulumi:"provisioningState"`
+	SkuType                      pulumi.StringPtrOutput                   `pulumi:"skuType"`
+	SystemData                   SystemDataResponseOutput                 `pulumi:"systemData"`
+	Type                         pulumi.StringOutput                      `pulumi:"type"`
 }
 
 // NewVendorSkus registers a new resource with the given unique name, arguments, and options.
@@ -99,46 +87,28 @@ func (VendorSkusState) ElementType() reflect.Type {
 }
 
 type vendorSkusArgs struct {
-	// The sku deployment mode.
-	DeploymentMode *string `pulumi:"deploymentMode"`
-	// The parameters for the managed application to be supplied by the vendor.
-	ManagedApplicationParameters interface{} `pulumi:"managedApplicationParameters"`
-	// The template for the managed application deployment.
-	ManagedApplicationTemplate interface{} `pulumi:"managedApplicationTemplate"`
-	// The template definition of the network function.
-	NetworkFunctionTemplate *NetworkFunctionTemplate `pulumi:"networkFunctionTemplate"`
-	// The network function type.
-	NetworkFunctionType *string `pulumi:"networkFunctionType"`
-	// Indicates if the vendor sku is in preview mode.
-	Preview *bool `pulumi:"preview"`
-	// The name of the sku.
-	SkuName *string `pulumi:"skuName"`
-	// The sku type.
-	SkuType *string `pulumi:"skuType"`
-	// The name of the vendor.
-	VendorName string `pulumi:"vendorName"`
+	DeploymentMode               *string                  `pulumi:"deploymentMode"`
+	ManagedApplicationParameters interface{}              `pulumi:"managedApplicationParameters"`
+	ManagedApplicationTemplate   interface{}              `pulumi:"managedApplicationTemplate"`
+	NetworkFunctionTemplate      *NetworkFunctionTemplate `pulumi:"networkFunctionTemplate"`
+	NetworkFunctionType          *string                  `pulumi:"networkFunctionType"`
+	Preview                      *bool                    `pulumi:"preview"`
+	SkuName                      *string                  `pulumi:"skuName"`
+	SkuType                      *string                  `pulumi:"skuType"`
+	VendorName                   string                   `pulumi:"vendorName"`
 }
 
 // The set of arguments for constructing a VendorSkus resource.
 type VendorSkusArgs struct {
-	// The sku deployment mode.
-	DeploymentMode pulumi.StringPtrInput
-	// The parameters for the managed application to be supplied by the vendor.
+	DeploymentMode               pulumi.StringPtrInput
 	ManagedApplicationParameters pulumi.Input
-	// The template for the managed application deployment.
-	ManagedApplicationTemplate pulumi.Input
-	// The template definition of the network function.
-	NetworkFunctionTemplate NetworkFunctionTemplatePtrInput
-	// The network function type.
-	NetworkFunctionType pulumi.StringPtrInput
-	// Indicates if the vendor sku is in preview mode.
-	Preview pulumi.BoolPtrInput
-	// The name of the sku.
-	SkuName pulumi.StringPtrInput
-	// The sku type.
-	SkuType pulumi.StringPtrInput
-	// The name of the vendor.
-	VendorName pulumi.StringInput
+	ManagedApplicationTemplate   pulumi.Input
+	NetworkFunctionTemplate      NetworkFunctionTemplatePtrInput
+	NetworkFunctionType          pulumi.StringPtrInput
+	Preview                      pulumi.BoolPtrInput
+	SkuName                      pulumi.StringPtrInput
+	SkuType                      pulumi.StringPtrInput
+	VendorName                   pulumi.StringInput
 }
 
 func (VendorSkusArgs) ElementType() reflect.Type {
@@ -164,9 +134,7 @@ func (i *VendorSkus) ToVendorSkusOutputWithContext(ctx context.Context) VendorSk
 	return pulumi.ToOutputWithContext(ctx, i).(VendorSkusOutput)
 }
 
-type VendorSkusOutput struct {
-	*pulumi.OutputState
-}
+type VendorSkusOutput struct{ *pulumi.OutputState }
 
 func (VendorSkusOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*VendorSkus)(nil))

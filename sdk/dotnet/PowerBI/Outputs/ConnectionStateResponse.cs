@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.PowerBI.Outputs
 {
 
+    /// <summary>
+    /// ConnectionState information.
+    /// </summary>
     [OutputType]
     public sealed class ConnectionStateResponse
     {

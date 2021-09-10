@@ -11,32 +11,20 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Server Endpoint object.
 type ServerEndpoint struct {
 	pulumi.CustomResourceState
 
-	// Cloud Tiering.
-	CloudTiering pulumi.StringPtrOutput `pulumi:"cloudTiering"`
-	// Friendly Name
-	FriendlyName pulumi.StringPtrOutput `pulumi:"friendlyName"`
-	// Resource Last Operation Name
-	LastOperationName pulumi.StringPtrOutput `pulumi:"lastOperationName"`
-	// ServerEndpoint lastWorkflowId
-	LastWorkflowId pulumi.StringPtrOutput `pulumi:"lastWorkflowId"`
-	// The name of the resource
-	Name pulumi.StringOutput `pulumi:"name"`
-	// ServerEndpoint Provisioning State
-	ProvisioningState pulumi.StringPtrOutput `pulumi:"provisioningState"`
-	// Server Local path.
-	ServerLocalPath pulumi.StringPtrOutput `pulumi:"serverLocalPath"`
-	// Server Resource Id.
-	ServerResourceId pulumi.StringPtrOutput `pulumi:"serverResourceId"`
-	// Sync Health Status
-	SyncStatus pulumi.AnyOutput `pulumi:"syncStatus"`
-	// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
-	Type pulumi.StringOutput `pulumi:"type"`
-	// Level of free space to be maintained by Cloud Tiering if it is enabled.
-	VolumeFreeSpacePercent pulumi.IntPtrOutput `pulumi:"volumeFreeSpacePercent"`
+	CloudTiering           pulumi.StringPtrOutput `pulumi:"cloudTiering"`
+	FriendlyName           pulumi.StringPtrOutput `pulumi:"friendlyName"`
+	LastOperationName      pulumi.StringPtrOutput `pulumi:"lastOperationName"`
+	LastWorkflowId         pulumi.StringPtrOutput `pulumi:"lastWorkflowId"`
+	Name                   pulumi.StringOutput    `pulumi:"name"`
+	ProvisioningState      pulumi.StringPtrOutput `pulumi:"provisioningState"`
+	ServerLocalPath        pulumi.StringPtrOutput `pulumi:"serverLocalPath"`
+	ServerResourceId       pulumi.StringPtrOutput `pulumi:"serverResourceId"`
+	SyncStatus             pulumi.AnyOutput       `pulumi:"syncStatus"`
+	Type                   pulumi.StringOutput    `pulumi:"type"`
+	VolumeFreeSpacePercent pulumi.IntPtrOutput    `pulumi:"volumeFreeSpacePercent"`
 }
 
 // NewServerEndpoint registers a new resource with the given unique name, arguments, and options.
@@ -153,53 +141,31 @@ func (ServerEndpointState) ElementType() reflect.Type {
 }
 
 type serverEndpointArgs struct {
-	// Cloud Tiering.
-	CloudTiering *string `pulumi:"cloudTiering"`
-	// Friendly Name
-	FriendlyName *string `pulumi:"friendlyName"`
-	// Required. Gets or sets the location of the resource. This will be one of the supported and registered Azure Geo Regions (e.g. West US, East US, Southeast Asia, etc.). The geo region of a resource cannot be changed once it is created, but if an identical geo region is specified on update, the request will succeed.
-	Location *string `pulumi:"location"`
-	// The name of the resource group. The name is case insensitive.
-	ResourceGroupName string `pulumi:"resourceGroupName"`
-	// Name of Server Endpoint object.
-	ServerEndpointName *string `pulumi:"serverEndpointName"`
-	// Server Local path.
-	ServerLocalPath *string `pulumi:"serverLocalPath"`
-	// Server Resource Id.
-	ServerResourceId *string `pulumi:"serverResourceId"`
-	// Name of Storage Sync Service resource.
-	StorageSyncServiceName string `pulumi:"storageSyncServiceName"`
-	// Name of Sync Group resource.
-	SyncGroupName string `pulumi:"syncGroupName"`
-	// Gets or sets a list of key value pairs that describe the resource. These tags can be used for viewing and grouping this resource (across resource groups). A maximum of 15 tags can be provided for a resource. Each tag must have a key with a length no greater than 128 characters and a value with a length no greater than 256 characters.
-	Tags map[string]string `pulumi:"tags"`
-	// Level of free space to be maintained by Cloud Tiering if it is enabled.
-	VolumeFreeSpacePercent *int `pulumi:"volumeFreeSpacePercent"`
+	CloudTiering           *string           `pulumi:"cloudTiering"`
+	FriendlyName           *string           `pulumi:"friendlyName"`
+	Location               *string           `pulumi:"location"`
+	ResourceGroupName      string            `pulumi:"resourceGroupName"`
+	ServerEndpointName     *string           `pulumi:"serverEndpointName"`
+	ServerLocalPath        *string           `pulumi:"serverLocalPath"`
+	ServerResourceId       *string           `pulumi:"serverResourceId"`
+	StorageSyncServiceName string            `pulumi:"storageSyncServiceName"`
+	SyncGroupName          string            `pulumi:"syncGroupName"`
+	Tags                   map[string]string `pulumi:"tags"`
+	VolumeFreeSpacePercent *int              `pulumi:"volumeFreeSpacePercent"`
 }
 
 // The set of arguments for constructing a ServerEndpoint resource.
 type ServerEndpointArgs struct {
-	// Cloud Tiering.
-	CloudTiering pulumi.StringPtrInput
-	// Friendly Name
-	FriendlyName pulumi.StringPtrInput
-	// Required. Gets or sets the location of the resource. This will be one of the supported and registered Azure Geo Regions (e.g. West US, East US, Southeast Asia, etc.). The geo region of a resource cannot be changed once it is created, but if an identical geo region is specified on update, the request will succeed.
-	Location pulumi.StringPtrInput
-	// The name of the resource group. The name is case insensitive.
-	ResourceGroupName pulumi.StringInput
-	// Name of Server Endpoint object.
-	ServerEndpointName pulumi.StringPtrInput
-	// Server Local path.
-	ServerLocalPath pulumi.StringPtrInput
-	// Server Resource Id.
-	ServerResourceId pulumi.StringPtrInput
-	// Name of Storage Sync Service resource.
+	CloudTiering           pulumi.StringPtrInput
+	FriendlyName           pulumi.StringPtrInput
+	Location               pulumi.StringPtrInput
+	ResourceGroupName      pulumi.StringInput
+	ServerEndpointName     pulumi.StringPtrInput
+	ServerLocalPath        pulumi.StringPtrInput
+	ServerResourceId       pulumi.StringPtrInput
 	StorageSyncServiceName pulumi.StringInput
-	// Name of Sync Group resource.
-	SyncGroupName pulumi.StringInput
-	// Gets or sets a list of key value pairs that describe the resource. These tags can be used for viewing and grouping this resource (across resource groups). A maximum of 15 tags can be provided for a resource. Each tag must have a key with a length no greater than 128 characters and a value with a length no greater than 256 characters.
-	Tags pulumi.StringMapInput
-	// Level of free space to be maintained by Cloud Tiering if it is enabled.
+	SyncGroupName          pulumi.StringInput
+	Tags                   pulumi.StringMapInput
 	VolumeFreeSpacePercent pulumi.IntPtrInput
 }
 
@@ -226,9 +192,7 @@ func (i *ServerEndpoint) ToServerEndpointOutputWithContext(ctx context.Context) 
 	return pulumi.ToOutputWithContext(ctx, i).(ServerEndpointOutput)
 }
 
-type ServerEndpointOutput struct {
-	*pulumi.OutputState
-}
+type ServerEndpointOutput struct{ *pulumi.OutputState }
 
 func (ServerEndpointOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*ServerEndpoint)(nil))

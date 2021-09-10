@@ -11,28 +11,18 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Configuration of Azure web site
 type SiteLogsConfig struct {
 	pulumi.CustomResourceState
 
-	// Application logs configuration
-	ApplicationLogs ApplicationLogsConfigResponsePtrOutput `pulumi:"applicationLogs"`
-	// Detailed error messages configuration
-	DetailedErrorMessages EnabledConfigResponsePtrOutput `pulumi:"detailedErrorMessages"`
-	// Failed requests tracing configuration
-	FailedRequestsTracing EnabledConfigResponsePtrOutput `pulumi:"failedRequestsTracing"`
-	// Http logs configuration
-	HttpLogs HttpLogsConfigResponsePtrOutput `pulumi:"httpLogs"`
-	// Kind of resource
-	Kind pulumi.StringPtrOutput `pulumi:"kind"`
-	// Resource Location
-	Location pulumi.StringOutput `pulumi:"location"`
-	// Resource Name
-	Name pulumi.StringPtrOutput `pulumi:"name"`
-	// Resource tags
-	Tags pulumi.StringMapOutput `pulumi:"tags"`
-	// Resource type
-	Type pulumi.StringPtrOutput `pulumi:"type"`
+	ApplicationLogs       ApplicationLogsConfigResponsePtrOutput `pulumi:"applicationLogs"`
+	DetailedErrorMessages EnabledConfigResponsePtrOutput         `pulumi:"detailedErrorMessages"`
+	FailedRequestsTracing EnabledConfigResponsePtrOutput         `pulumi:"failedRequestsTracing"`
+	HttpLogs              HttpLogsConfigResponsePtrOutput        `pulumi:"httpLogs"`
+	Kind                  pulumi.StringPtrOutput                 `pulumi:"kind"`
+	Location              pulumi.StringOutput                    `pulumi:"location"`
+	Name                  pulumi.StringPtrOutput                 `pulumi:"name"`
+	Tags                  pulumi.StringMapOutput                 `pulumi:"tags"`
+	Type                  pulumi.StringPtrOutput                 `pulumi:"type"`
 }
 
 // NewSiteLogsConfig registers a new resource with the given unique name, arguments, and options.
@@ -158,54 +148,32 @@ func (SiteLogsConfigState) ElementType() reflect.Type {
 }
 
 type siteLogsConfigArgs struct {
-	// Application logs configuration
-	ApplicationLogs *ApplicationLogsConfig `pulumi:"applicationLogs"`
-	// Detailed error messages configuration
-	DetailedErrorMessages *EnabledConfig `pulumi:"detailedErrorMessages"`
-	// Failed requests tracing configuration
-	FailedRequestsTracing *EnabledConfig `pulumi:"failedRequestsTracing"`
-	// Http logs configuration
-	HttpLogs *HttpLogsConfig `pulumi:"httpLogs"`
-	// Resource Id
-	Id *string `pulumi:"id"`
-	// Kind of resource
-	Kind *string `pulumi:"kind"`
-	// Resource Location
-	Location *string `pulumi:"location"`
-	// Resource Name
-	Name string `pulumi:"name"`
-	// Name of resource group
-	ResourceGroupName string `pulumi:"resourceGroupName"`
-	// Resource tags
-	Tags map[string]string `pulumi:"tags"`
-	// Resource type
-	Type *string `pulumi:"type"`
+	ApplicationLogs       *ApplicationLogsConfig `pulumi:"applicationLogs"`
+	DetailedErrorMessages *EnabledConfig         `pulumi:"detailedErrorMessages"`
+	FailedRequestsTracing *EnabledConfig         `pulumi:"failedRequestsTracing"`
+	HttpLogs              *HttpLogsConfig        `pulumi:"httpLogs"`
+	Id                    *string                `pulumi:"id"`
+	Kind                  *string                `pulumi:"kind"`
+	Location              *string                `pulumi:"location"`
+	Name                  string                 `pulumi:"name"`
+	ResourceGroupName     string                 `pulumi:"resourceGroupName"`
+	Tags                  map[string]string      `pulumi:"tags"`
+	Type                  *string                `pulumi:"type"`
 }
 
 // The set of arguments for constructing a SiteLogsConfig resource.
 type SiteLogsConfigArgs struct {
-	// Application logs configuration
-	ApplicationLogs ApplicationLogsConfigPtrInput
-	// Detailed error messages configuration
+	ApplicationLogs       ApplicationLogsConfigPtrInput
 	DetailedErrorMessages EnabledConfigPtrInput
-	// Failed requests tracing configuration
 	FailedRequestsTracing EnabledConfigPtrInput
-	// Http logs configuration
-	HttpLogs HttpLogsConfigPtrInput
-	// Resource Id
-	Id pulumi.StringPtrInput
-	// Kind of resource
-	Kind pulumi.StringPtrInput
-	// Resource Location
-	Location pulumi.StringPtrInput
-	// Resource Name
-	Name pulumi.StringInput
-	// Name of resource group
-	ResourceGroupName pulumi.StringInput
-	// Resource tags
-	Tags pulumi.StringMapInput
-	// Resource type
-	Type pulumi.StringPtrInput
+	HttpLogs              HttpLogsConfigPtrInput
+	Id                    pulumi.StringPtrInput
+	Kind                  pulumi.StringPtrInput
+	Location              pulumi.StringPtrInput
+	Name                  pulumi.StringInput
+	ResourceGroupName     pulumi.StringInput
+	Tags                  pulumi.StringMapInput
+	Type                  pulumi.StringPtrInput
 }
 
 func (SiteLogsConfigArgs) ElementType() reflect.Type {
@@ -231,9 +199,7 @@ func (i *SiteLogsConfig) ToSiteLogsConfigOutputWithContext(ctx context.Context) 
 	return pulumi.ToOutputWithContext(ctx, i).(SiteLogsConfigOutput)
 }
 
-type SiteLogsConfigOutput struct {
-	*pulumi.OutputState
-}
+type SiteLogsConfigOutput struct{ *pulumi.OutputState }
 
 func (SiteLogsConfigOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*SiteLogsConfig)(nil))

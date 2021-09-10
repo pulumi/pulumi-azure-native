@@ -190,9 +190,7 @@ func (i *WorkspaceConnection) ToWorkspaceConnectionOutputWithContext(ctx context
 	return pulumi.ToOutputWithContext(ctx, i).(WorkspaceConnectionOutput)
 }
 
-type WorkspaceConnectionOutput struct {
-	*pulumi.OutputState
-}
+type WorkspaceConnectionOutput struct{ *pulumi.OutputState }
 
 func (WorkspaceConnectionOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*WorkspaceConnection)(nil))

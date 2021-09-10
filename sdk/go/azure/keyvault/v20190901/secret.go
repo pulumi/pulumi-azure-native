@@ -11,20 +11,14 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Resource information with extended details.
 type Secret struct {
 	pulumi.CustomResourceState
 
-	// Azure location of the key vault resource.
-	Location pulumi.StringOutput `pulumi:"location"`
-	// Name of the key vault resource.
-	Name pulumi.StringOutput `pulumi:"name"`
-	// Properties of the secret
+	Location   pulumi.StringOutput            `pulumi:"location"`
+	Name       pulumi.StringOutput            `pulumi:"name"`
 	Properties SecretPropertiesResponseOutput `pulumi:"properties"`
-	// Tags assigned to the key vault resource.
-	Tags pulumi.StringMapOutput `pulumi:"tags"`
-	// Resource type of the key vault resource.
-	Type pulumi.StringOutput `pulumi:"type"`
+	Tags       pulumi.StringMapOutput         `pulumi:"tags"`
+	Type       pulumi.StringOutput            `pulumi:"type"`
 }
 
 // NewSecret registers a new resource with the given unique name, arguments, and options.
@@ -123,30 +117,20 @@ func (SecretState) ElementType() reflect.Type {
 }
 
 type secretArgs struct {
-	// Properties of the secret
-	Properties SecretProperties `pulumi:"properties"`
-	// The name of the Resource Group to which the vault belongs.
-	ResourceGroupName string `pulumi:"resourceGroupName"`
-	// Name of the secret
-	SecretName *string `pulumi:"secretName"`
-	// The tags that will be assigned to the secret.
-	Tags map[string]string `pulumi:"tags"`
-	// Name of the vault
-	VaultName string `pulumi:"vaultName"`
+	Properties        SecretProperties  `pulumi:"properties"`
+	ResourceGroupName string            `pulumi:"resourceGroupName"`
+	SecretName        *string           `pulumi:"secretName"`
+	Tags              map[string]string `pulumi:"tags"`
+	VaultName         string            `pulumi:"vaultName"`
 }
 
 // The set of arguments for constructing a Secret resource.
 type SecretArgs struct {
-	// Properties of the secret
-	Properties SecretPropertiesInput
-	// The name of the Resource Group to which the vault belongs.
+	Properties        SecretPropertiesInput
 	ResourceGroupName pulumi.StringInput
-	// Name of the secret
-	SecretName pulumi.StringPtrInput
-	// The tags that will be assigned to the secret.
-	Tags pulumi.StringMapInput
-	// Name of the vault
-	VaultName pulumi.StringInput
+	SecretName        pulumi.StringPtrInput
+	Tags              pulumi.StringMapInput
+	VaultName         pulumi.StringInput
 }
 
 func (SecretArgs) ElementType() reflect.Type {
@@ -172,9 +156,7 @@ func (i *Secret) ToSecretOutputWithContext(ctx context.Context) SecretOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(SecretOutput)
 }
 
-type SecretOutput struct {
-	*pulumi.OutputState
-}
+type SecretOutput struct{ *pulumi.OutputState }
 
 func (SecretOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*Secret)(nil))

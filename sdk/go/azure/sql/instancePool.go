@@ -182,9 +182,7 @@ func (i *InstancePool) ToInstancePoolOutputWithContext(ctx context.Context) Inst
 	return pulumi.ToOutputWithContext(ctx, i).(InstancePoolOutput)
 }
 
-type InstancePoolOutput struct {
-	*pulumi.OutputState
-}
+type InstancePoolOutput struct{ *pulumi.OutputState }
 
 func (InstancePoolOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*InstancePool)(nil))

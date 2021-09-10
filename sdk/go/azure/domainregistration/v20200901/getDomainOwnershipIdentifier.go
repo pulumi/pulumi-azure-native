@@ -7,7 +7,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Domain ownership Identifier.
 func LookupDomainOwnershipIdentifier(ctx *pulumi.Context, args *LookupDomainOwnershipIdentifierArgs, opts ...pulumi.InvokeOption) (*LookupDomainOwnershipIdentifierResult, error) {
 	var rv LookupDomainOwnershipIdentifierResult
 	err := ctx.Invoke("azure-native:domainregistration/v20200901:getDomainOwnershipIdentifier", args, &rv, opts...)
@@ -18,26 +17,17 @@ func LookupDomainOwnershipIdentifier(ctx *pulumi.Context, args *LookupDomainOwne
 }
 
 type LookupDomainOwnershipIdentifierArgs struct {
-	// Name of domain.
-	DomainName string `pulumi:"domainName"`
-	// Name of identifier.
-	Name string `pulumi:"name"`
-	// Name of the resource group to which the resource belongs.
+	DomainName        string `pulumi:"domainName"`
+	Name              string `pulumi:"name"`
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 }
 
 // Domain ownership Identifier.
 type LookupDomainOwnershipIdentifierResult struct {
-	// Resource Id.
-	Id string `pulumi:"id"`
-	// Kind of resource.
-	Kind *string `pulumi:"kind"`
-	// Resource Name.
-	Name string `pulumi:"name"`
-	// Ownership Id.
-	OwnershipId *string `pulumi:"ownershipId"`
-	// The system metadata relating to this resource.
-	SystemData SystemDataResponse `pulumi:"systemData"`
-	// Resource type.
-	Type string `pulumi:"type"`
+	Id          string             `pulumi:"id"`
+	Kind        *string            `pulumi:"kind"`
+	Name        string             `pulumi:"name"`
+	OwnershipId *string            `pulumi:"ownershipId"`
+	SystemData  SystemDataResponse `pulumi:"systemData"`
+	Type        string             `pulumi:"type"`
 }

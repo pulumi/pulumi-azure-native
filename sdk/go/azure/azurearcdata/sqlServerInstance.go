@@ -145,9 +145,7 @@ func (i *SqlServerInstance) ToSqlServerInstanceOutputWithContext(ctx context.Con
 	return pulumi.ToOutputWithContext(ctx, i).(SqlServerInstanceOutput)
 }
 
-type SqlServerInstanceOutput struct {
-	*pulumi.OutputState
-}
+type SqlServerInstanceOutput struct{ *pulumi.OutputState }
 
 func (SqlServerInstanceOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*SqlServerInstance)(nil))

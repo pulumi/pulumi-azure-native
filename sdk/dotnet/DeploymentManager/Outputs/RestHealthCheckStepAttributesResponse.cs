@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.DeploymentManager.Outputs
 {
 
+    /// <summary>
+    /// Defines the REST health check step properties.
+    /// </summary>
     [OutputType]
     public sealed class RestHealthCheckStepAttributesResponse
     {

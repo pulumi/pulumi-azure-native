@@ -10,12 +10,9 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Information about the destination for an event subscription
 type EventSubscriptionDestination struct {
-	// Type of the endpoint for the event subscription destination
 	EndpointType *string `pulumi:"endpointType"`
-	// The URL that represents the endpoint of the destination of an event subscription.
-	EndpointUrl *string `pulumi:"endpointUrl"`
+	EndpointUrl  *string `pulumi:"endpointUrl"`
 }
 
 // EventSubscriptionDestinationInput is an input type that accepts EventSubscriptionDestinationArgs and EventSubscriptionDestinationOutput values.
@@ -29,12 +26,9 @@ type EventSubscriptionDestinationInput interface {
 	ToEventSubscriptionDestinationOutputWithContext(context.Context) EventSubscriptionDestinationOutput
 }
 
-// Information about the destination for an event subscription
 type EventSubscriptionDestinationArgs struct {
-	// Type of the endpoint for the event subscription destination
 	EndpointType pulumi.StringPtrInput `pulumi:"endpointType"`
-	// The URL that represents the endpoint of the destination of an event subscription.
-	EndpointUrl pulumi.StringPtrInput `pulumi:"endpointUrl"`
+	EndpointUrl  pulumi.StringPtrInput `pulumi:"endpointUrl"`
 }
 
 func (EventSubscriptionDestinationArgs) ElementType() reflect.Type {
@@ -90,7 +84,6 @@ func (i *eventSubscriptionDestinationPtrType) ToEventSubscriptionDestinationPtrO
 	return pulumi.ToOutputWithContext(ctx, i).(EventSubscriptionDestinationPtrOutput)
 }
 
-// Information about the destination for an event subscription
 type EventSubscriptionDestinationOutput struct{ *pulumi.OutputState }
 
 func (EventSubscriptionDestinationOutput) ElementType() reflect.Type {
@@ -110,17 +103,15 @@ func (o EventSubscriptionDestinationOutput) ToEventSubscriptionDestinationPtrOut
 }
 
 func (o EventSubscriptionDestinationOutput) ToEventSubscriptionDestinationPtrOutputWithContext(ctx context.Context) EventSubscriptionDestinationPtrOutput {
-	return o.ApplyT(func(v EventSubscriptionDestination) *EventSubscriptionDestination {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v EventSubscriptionDestination) *EventSubscriptionDestination {
 		return &v
 	}).(EventSubscriptionDestinationPtrOutput)
 }
 
-// Type of the endpoint for the event subscription destination
 func (o EventSubscriptionDestinationOutput) EndpointType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v EventSubscriptionDestination) *string { return v.EndpointType }).(pulumi.StringPtrOutput)
 }
 
-// The URL that represents the endpoint of the destination of an event subscription.
 func (o EventSubscriptionDestinationOutput) EndpointUrl() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v EventSubscriptionDestination) *string { return v.EndpointUrl }).(pulumi.StringPtrOutput)
 }
@@ -140,10 +131,15 @@ func (o EventSubscriptionDestinationPtrOutput) ToEventSubscriptionDestinationPtr
 }
 
 func (o EventSubscriptionDestinationPtrOutput) Elem() EventSubscriptionDestinationOutput {
-	return o.ApplyT(func(v *EventSubscriptionDestination) EventSubscriptionDestination { return *v }).(EventSubscriptionDestinationOutput)
+	return o.ApplyT(func(v *EventSubscriptionDestination) EventSubscriptionDestination {
+		if v != nil {
+			return *v
+		}
+		var ret EventSubscriptionDestination
+		return ret
+	}).(EventSubscriptionDestinationOutput)
 }
 
-// Type of the endpoint for the event subscription destination
 func (o EventSubscriptionDestinationPtrOutput) EndpointType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *EventSubscriptionDestination) *string {
 		if v == nil {
@@ -153,7 +149,6 @@ func (o EventSubscriptionDestinationPtrOutput) EndpointType() pulumi.StringPtrOu
 	}).(pulumi.StringPtrOutput)
 }
 
-// The URL that represents the endpoint of the destination of an event subscription.
 func (o EventSubscriptionDestinationPtrOutput) EndpointUrl() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *EventSubscriptionDestination) *string {
 		if v == nil {
@@ -163,14 +158,10 @@ func (o EventSubscriptionDestinationPtrOutput) EndpointUrl() pulumi.StringPtrOut
 	}).(pulumi.StringPtrOutput)
 }
 
-// Information about the destination for an event subscription
 type EventSubscriptionDestinationResponse struct {
-	// The base URL that represents the endpoint of the destination of an event subscription.
-	EndpointBaseUrl string `pulumi:"endpointBaseUrl"`
-	// Type of the endpoint for the event subscription destination
-	EndpointType *string `pulumi:"endpointType"`
-	// The URL that represents the endpoint of the destination of an event subscription.
-	EndpointUrl *string `pulumi:"endpointUrl"`
+	EndpointBaseUrl string  `pulumi:"endpointBaseUrl"`
+	EndpointType    *string `pulumi:"endpointType"`
+	EndpointUrl     *string `pulumi:"endpointUrl"`
 }
 
 // EventSubscriptionDestinationResponseInput is an input type that accepts EventSubscriptionDestinationResponseArgs and EventSubscriptionDestinationResponseOutput values.
@@ -184,14 +175,10 @@ type EventSubscriptionDestinationResponseInput interface {
 	ToEventSubscriptionDestinationResponseOutputWithContext(context.Context) EventSubscriptionDestinationResponseOutput
 }
 
-// Information about the destination for an event subscription
 type EventSubscriptionDestinationResponseArgs struct {
-	// The base URL that represents the endpoint of the destination of an event subscription.
-	EndpointBaseUrl pulumi.StringInput `pulumi:"endpointBaseUrl"`
-	// Type of the endpoint for the event subscription destination
-	EndpointType pulumi.StringPtrInput `pulumi:"endpointType"`
-	// The URL that represents the endpoint of the destination of an event subscription.
-	EndpointUrl pulumi.StringPtrInput `pulumi:"endpointUrl"`
+	EndpointBaseUrl pulumi.StringInput    `pulumi:"endpointBaseUrl"`
+	EndpointType    pulumi.StringPtrInput `pulumi:"endpointType"`
+	EndpointUrl     pulumi.StringPtrInput `pulumi:"endpointUrl"`
 }
 
 func (EventSubscriptionDestinationResponseArgs) ElementType() reflect.Type {
@@ -247,7 +234,6 @@ func (i *eventSubscriptionDestinationResponsePtrType) ToEventSubscriptionDestina
 	return pulumi.ToOutputWithContext(ctx, i).(EventSubscriptionDestinationResponsePtrOutput)
 }
 
-// Information about the destination for an event subscription
 type EventSubscriptionDestinationResponseOutput struct{ *pulumi.OutputState }
 
 func (EventSubscriptionDestinationResponseOutput) ElementType() reflect.Type {
@@ -267,22 +253,19 @@ func (o EventSubscriptionDestinationResponseOutput) ToEventSubscriptionDestinati
 }
 
 func (o EventSubscriptionDestinationResponseOutput) ToEventSubscriptionDestinationResponsePtrOutputWithContext(ctx context.Context) EventSubscriptionDestinationResponsePtrOutput {
-	return o.ApplyT(func(v EventSubscriptionDestinationResponse) *EventSubscriptionDestinationResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v EventSubscriptionDestinationResponse) *EventSubscriptionDestinationResponse {
 		return &v
 	}).(EventSubscriptionDestinationResponsePtrOutput)
 }
 
-// The base URL that represents the endpoint of the destination of an event subscription.
 func (o EventSubscriptionDestinationResponseOutput) EndpointBaseUrl() pulumi.StringOutput {
 	return o.ApplyT(func(v EventSubscriptionDestinationResponse) string { return v.EndpointBaseUrl }).(pulumi.StringOutput)
 }
 
-// Type of the endpoint for the event subscription destination
 func (o EventSubscriptionDestinationResponseOutput) EndpointType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v EventSubscriptionDestinationResponse) *string { return v.EndpointType }).(pulumi.StringPtrOutput)
 }
 
-// The URL that represents the endpoint of the destination of an event subscription.
 func (o EventSubscriptionDestinationResponseOutput) EndpointUrl() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v EventSubscriptionDestinationResponse) *string { return v.EndpointUrl }).(pulumi.StringPtrOutput)
 }
@@ -302,10 +285,15 @@ func (o EventSubscriptionDestinationResponsePtrOutput) ToEventSubscriptionDestin
 }
 
 func (o EventSubscriptionDestinationResponsePtrOutput) Elem() EventSubscriptionDestinationResponseOutput {
-	return o.ApplyT(func(v *EventSubscriptionDestinationResponse) EventSubscriptionDestinationResponse { return *v }).(EventSubscriptionDestinationResponseOutput)
+	return o.ApplyT(func(v *EventSubscriptionDestinationResponse) EventSubscriptionDestinationResponse {
+		if v != nil {
+			return *v
+		}
+		var ret EventSubscriptionDestinationResponse
+		return ret
+	}).(EventSubscriptionDestinationResponseOutput)
 }
 
-// The base URL that represents the endpoint of the destination of an event subscription.
 func (o EventSubscriptionDestinationResponsePtrOutput) EndpointBaseUrl() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *EventSubscriptionDestinationResponse) *string {
 		if v == nil {
@@ -315,7 +303,6 @@ func (o EventSubscriptionDestinationResponsePtrOutput) EndpointBaseUrl() pulumi.
 	}).(pulumi.StringPtrOutput)
 }
 
-// Type of the endpoint for the event subscription destination
 func (o EventSubscriptionDestinationResponsePtrOutput) EndpointType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *EventSubscriptionDestinationResponse) *string {
 		if v == nil {
@@ -325,7 +312,6 @@ func (o EventSubscriptionDestinationResponsePtrOutput) EndpointType() pulumi.Str
 	}).(pulumi.StringPtrOutput)
 }
 
-// The URL that represents the endpoint of the destination of an event subscription.
 func (o EventSubscriptionDestinationResponsePtrOutput) EndpointUrl() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *EventSubscriptionDestinationResponse) *string {
 		if v == nil {
@@ -335,21 +321,11 @@ func (o EventSubscriptionDestinationResponsePtrOutput) EndpointUrl() pulumi.Stri
 	}).(pulumi.StringPtrOutput)
 }
 
-// Filter for the Event Subscription
 type EventSubscriptionFilter struct {
-	// A list of applicable event types that need to be part of the event subscription.
-	// If it is desired to subscribe to all event types, the string "all" needs to be specified as an element in this list.
-	IncludedEventTypes []string `pulumi:"includedEventTypes"`
-	// Specifies if the SubjectBeginsWith and SubjectEndsWith properties of the filter
-	// should be compared in a case sensitive manner.
-	IsSubjectCaseSensitive *bool `pulumi:"isSubjectCaseSensitive"`
-	// An optional string to filter events for an event subscription based on a resource path prefix.
-	// The format of this depends on the publisher of the events.
-	// Wildcard characters are not supported in this path.
-	SubjectBeginsWith *string `pulumi:"subjectBeginsWith"`
-	// An optional string to filter events for an event subscription based on a resource path suffix.
-	// Wildcard characters are not supported in this path.
-	SubjectEndsWith *string `pulumi:"subjectEndsWith"`
+	IncludedEventTypes     []string `pulumi:"includedEventTypes"`
+	IsSubjectCaseSensitive *bool    `pulumi:"isSubjectCaseSensitive"`
+	SubjectBeginsWith      *string  `pulumi:"subjectBeginsWith"`
+	SubjectEndsWith        *string  `pulumi:"subjectEndsWith"`
 }
 
 // EventSubscriptionFilterInput is an input type that accepts EventSubscriptionFilterArgs and EventSubscriptionFilterOutput values.
@@ -363,21 +339,11 @@ type EventSubscriptionFilterInput interface {
 	ToEventSubscriptionFilterOutputWithContext(context.Context) EventSubscriptionFilterOutput
 }
 
-// Filter for the Event Subscription
 type EventSubscriptionFilterArgs struct {
-	// A list of applicable event types that need to be part of the event subscription.
-	// If it is desired to subscribe to all event types, the string "all" needs to be specified as an element in this list.
-	IncludedEventTypes pulumi.StringArrayInput `pulumi:"includedEventTypes"`
-	// Specifies if the SubjectBeginsWith and SubjectEndsWith properties of the filter
-	// should be compared in a case sensitive manner.
-	IsSubjectCaseSensitive pulumi.BoolPtrInput `pulumi:"isSubjectCaseSensitive"`
-	// An optional string to filter events for an event subscription based on a resource path prefix.
-	// The format of this depends on the publisher of the events.
-	// Wildcard characters are not supported in this path.
-	SubjectBeginsWith pulumi.StringPtrInput `pulumi:"subjectBeginsWith"`
-	// An optional string to filter events for an event subscription based on a resource path suffix.
-	// Wildcard characters are not supported in this path.
-	SubjectEndsWith pulumi.StringPtrInput `pulumi:"subjectEndsWith"`
+	IncludedEventTypes     pulumi.StringArrayInput `pulumi:"includedEventTypes"`
+	IsSubjectCaseSensitive pulumi.BoolPtrInput     `pulumi:"isSubjectCaseSensitive"`
+	SubjectBeginsWith      pulumi.StringPtrInput   `pulumi:"subjectBeginsWith"`
+	SubjectEndsWith        pulumi.StringPtrInput   `pulumi:"subjectEndsWith"`
 }
 
 func (EventSubscriptionFilterArgs) ElementType() reflect.Type {
@@ -433,7 +399,6 @@ func (i *eventSubscriptionFilterPtrType) ToEventSubscriptionFilterPtrOutputWithC
 	return pulumi.ToOutputWithContext(ctx, i).(EventSubscriptionFilterPtrOutput)
 }
 
-// Filter for the Event Subscription
 type EventSubscriptionFilterOutput struct{ *pulumi.OutputState }
 
 func (EventSubscriptionFilterOutput) ElementType() reflect.Type {
@@ -453,32 +418,23 @@ func (o EventSubscriptionFilterOutput) ToEventSubscriptionFilterPtrOutput() Even
 }
 
 func (o EventSubscriptionFilterOutput) ToEventSubscriptionFilterPtrOutputWithContext(ctx context.Context) EventSubscriptionFilterPtrOutput {
-	return o.ApplyT(func(v EventSubscriptionFilter) *EventSubscriptionFilter {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v EventSubscriptionFilter) *EventSubscriptionFilter {
 		return &v
 	}).(EventSubscriptionFilterPtrOutput)
 }
 
-// A list of applicable event types that need to be part of the event subscription.
-// If it is desired to subscribe to all event types, the string "all" needs to be specified as an element in this list.
 func (o EventSubscriptionFilterOutput) IncludedEventTypes() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v EventSubscriptionFilter) []string { return v.IncludedEventTypes }).(pulumi.StringArrayOutput)
 }
 
-// Specifies if the SubjectBeginsWith and SubjectEndsWith properties of the filter
-// should be compared in a case sensitive manner.
 func (o EventSubscriptionFilterOutput) IsSubjectCaseSensitive() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v EventSubscriptionFilter) *bool { return v.IsSubjectCaseSensitive }).(pulumi.BoolPtrOutput)
 }
 
-// An optional string to filter events for an event subscription based on a resource path prefix.
-// The format of this depends on the publisher of the events.
-// Wildcard characters are not supported in this path.
 func (o EventSubscriptionFilterOutput) SubjectBeginsWith() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v EventSubscriptionFilter) *string { return v.SubjectBeginsWith }).(pulumi.StringPtrOutput)
 }
 
-// An optional string to filter events for an event subscription based on a resource path suffix.
-// Wildcard characters are not supported in this path.
 func (o EventSubscriptionFilterOutput) SubjectEndsWith() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v EventSubscriptionFilter) *string { return v.SubjectEndsWith }).(pulumi.StringPtrOutput)
 }
@@ -498,11 +454,15 @@ func (o EventSubscriptionFilterPtrOutput) ToEventSubscriptionFilterPtrOutputWith
 }
 
 func (o EventSubscriptionFilterPtrOutput) Elem() EventSubscriptionFilterOutput {
-	return o.ApplyT(func(v *EventSubscriptionFilter) EventSubscriptionFilter { return *v }).(EventSubscriptionFilterOutput)
+	return o.ApplyT(func(v *EventSubscriptionFilter) EventSubscriptionFilter {
+		if v != nil {
+			return *v
+		}
+		var ret EventSubscriptionFilter
+		return ret
+	}).(EventSubscriptionFilterOutput)
 }
 
-// A list of applicable event types that need to be part of the event subscription.
-// If it is desired to subscribe to all event types, the string "all" needs to be specified as an element in this list.
 func (o EventSubscriptionFilterPtrOutput) IncludedEventTypes() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *EventSubscriptionFilter) []string {
 		if v == nil {
@@ -512,8 +472,6 @@ func (o EventSubscriptionFilterPtrOutput) IncludedEventTypes() pulumi.StringArra
 	}).(pulumi.StringArrayOutput)
 }
 
-// Specifies if the SubjectBeginsWith and SubjectEndsWith properties of the filter
-// should be compared in a case sensitive manner.
 func (o EventSubscriptionFilterPtrOutput) IsSubjectCaseSensitive() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *EventSubscriptionFilter) *bool {
 		if v == nil {
@@ -523,9 +481,6 @@ func (o EventSubscriptionFilterPtrOutput) IsSubjectCaseSensitive() pulumi.BoolPt
 	}).(pulumi.BoolPtrOutput)
 }
 
-// An optional string to filter events for an event subscription based on a resource path prefix.
-// The format of this depends on the publisher of the events.
-// Wildcard characters are not supported in this path.
 func (o EventSubscriptionFilterPtrOutput) SubjectBeginsWith() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *EventSubscriptionFilter) *string {
 		if v == nil {
@@ -535,8 +490,6 @@ func (o EventSubscriptionFilterPtrOutput) SubjectBeginsWith() pulumi.StringPtrOu
 	}).(pulumi.StringPtrOutput)
 }
 
-// An optional string to filter events for an event subscription based on a resource path suffix.
-// Wildcard characters are not supported in this path.
 func (o EventSubscriptionFilterPtrOutput) SubjectEndsWith() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *EventSubscriptionFilter) *string {
 		if v == nil {
@@ -546,21 +499,11 @@ func (o EventSubscriptionFilterPtrOutput) SubjectEndsWith() pulumi.StringPtrOutp
 	}).(pulumi.StringPtrOutput)
 }
 
-// Filter for the Event Subscription
 type EventSubscriptionFilterResponse struct {
-	// A list of applicable event types that need to be part of the event subscription.
-	// If it is desired to subscribe to all event types, the string "all" needs to be specified as an element in this list.
-	IncludedEventTypes []string `pulumi:"includedEventTypes"`
-	// Specifies if the SubjectBeginsWith and SubjectEndsWith properties of the filter
-	// should be compared in a case sensitive manner.
-	IsSubjectCaseSensitive *bool `pulumi:"isSubjectCaseSensitive"`
-	// An optional string to filter events for an event subscription based on a resource path prefix.
-	// The format of this depends on the publisher of the events.
-	// Wildcard characters are not supported in this path.
-	SubjectBeginsWith *string `pulumi:"subjectBeginsWith"`
-	// An optional string to filter events for an event subscription based on a resource path suffix.
-	// Wildcard characters are not supported in this path.
-	SubjectEndsWith *string `pulumi:"subjectEndsWith"`
+	IncludedEventTypes     []string `pulumi:"includedEventTypes"`
+	IsSubjectCaseSensitive *bool    `pulumi:"isSubjectCaseSensitive"`
+	SubjectBeginsWith      *string  `pulumi:"subjectBeginsWith"`
+	SubjectEndsWith        *string  `pulumi:"subjectEndsWith"`
 }
 
 // EventSubscriptionFilterResponseInput is an input type that accepts EventSubscriptionFilterResponseArgs and EventSubscriptionFilterResponseOutput values.
@@ -574,21 +517,11 @@ type EventSubscriptionFilterResponseInput interface {
 	ToEventSubscriptionFilterResponseOutputWithContext(context.Context) EventSubscriptionFilterResponseOutput
 }
 
-// Filter for the Event Subscription
 type EventSubscriptionFilterResponseArgs struct {
-	// A list of applicable event types that need to be part of the event subscription.
-	// If it is desired to subscribe to all event types, the string "all" needs to be specified as an element in this list.
-	IncludedEventTypes pulumi.StringArrayInput `pulumi:"includedEventTypes"`
-	// Specifies if the SubjectBeginsWith and SubjectEndsWith properties of the filter
-	// should be compared in a case sensitive manner.
-	IsSubjectCaseSensitive pulumi.BoolPtrInput `pulumi:"isSubjectCaseSensitive"`
-	// An optional string to filter events for an event subscription based on a resource path prefix.
-	// The format of this depends on the publisher of the events.
-	// Wildcard characters are not supported in this path.
-	SubjectBeginsWith pulumi.StringPtrInput `pulumi:"subjectBeginsWith"`
-	// An optional string to filter events for an event subscription based on a resource path suffix.
-	// Wildcard characters are not supported in this path.
-	SubjectEndsWith pulumi.StringPtrInput `pulumi:"subjectEndsWith"`
+	IncludedEventTypes     pulumi.StringArrayInput `pulumi:"includedEventTypes"`
+	IsSubjectCaseSensitive pulumi.BoolPtrInput     `pulumi:"isSubjectCaseSensitive"`
+	SubjectBeginsWith      pulumi.StringPtrInput   `pulumi:"subjectBeginsWith"`
+	SubjectEndsWith        pulumi.StringPtrInput   `pulumi:"subjectEndsWith"`
 }
 
 func (EventSubscriptionFilterResponseArgs) ElementType() reflect.Type {
@@ -644,7 +577,6 @@ func (i *eventSubscriptionFilterResponsePtrType) ToEventSubscriptionFilterRespon
 	return pulumi.ToOutputWithContext(ctx, i).(EventSubscriptionFilterResponsePtrOutput)
 }
 
-// Filter for the Event Subscription
 type EventSubscriptionFilterResponseOutput struct{ *pulumi.OutputState }
 
 func (EventSubscriptionFilterResponseOutput) ElementType() reflect.Type {
@@ -664,32 +596,23 @@ func (o EventSubscriptionFilterResponseOutput) ToEventSubscriptionFilterResponse
 }
 
 func (o EventSubscriptionFilterResponseOutput) ToEventSubscriptionFilterResponsePtrOutputWithContext(ctx context.Context) EventSubscriptionFilterResponsePtrOutput {
-	return o.ApplyT(func(v EventSubscriptionFilterResponse) *EventSubscriptionFilterResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v EventSubscriptionFilterResponse) *EventSubscriptionFilterResponse {
 		return &v
 	}).(EventSubscriptionFilterResponsePtrOutput)
 }
 
-// A list of applicable event types that need to be part of the event subscription.
-// If it is desired to subscribe to all event types, the string "all" needs to be specified as an element in this list.
 func (o EventSubscriptionFilterResponseOutput) IncludedEventTypes() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v EventSubscriptionFilterResponse) []string { return v.IncludedEventTypes }).(pulumi.StringArrayOutput)
 }
 
-// Specifies if the SubjectBeginsWith and SubjectEndsWith properties of the filter
-// should be compared in a case sensitive manner.
 func (o EventSubscriptionFilterResponseOutput) IsSubjectCaseSensitive() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v EventSubscriptionFilterResponse) *bool { return v.IsSubjectCaseSensitive }).(pulumi.BoolPtrOutput)
 }
 
-// An optional string to filter events for an event subscription based on a resource path prefix.
-// The format of this depends on the publisher of the events.
-// Wildcard characters are not supported in this path.
 func (o EventSubscriptionFilterResponseOutput) SubjectBeginsWith() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v EventSubscriptionFilterResponse) *string { return v.SubjectBeginsWith }).(pulumi.StringPtrOutput)
 }
 
-// An optional string to filter events for an event subscription based on a resource path suffix.
-// Wildcard characters are not supported in this path.
 func (o EventSubscriptionFilterResponseOutput) SubjectEndsWith() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v EventSubscriptionFilterResponse) *string { return v.SubjectEndsWith }).(pulumi.StringPtrOutput)
 }
@@ -709,11 +632,15 @@ func (o EventSubscriptionFilterResponsePtrOutput) ToEventSubscriptionFilterRespo
 }
 
 func (o EventSubscriptionFilterResponsePtrOutput) Elem() EventSubscriptionFilterResponseOutput {
-	return o.ApplyT(func(v *EventSubscriptionFilterResponse) EventSubscriptionFilterResponse { return *v }).(EventSubscriptionFilterResponseOutput)
+	return o.ApplyT(func(v *EventSubscriptionFilterResponse) EventSubscriptionFilterResponse {
+		if v != nil {
+			return *v
+		}
+		var ret EventSubscriptionFilterResponse
+		return ret
+	}).(EventSubscriptionFilterResponseOutput)
 }
 
-// A list of applicable event types that need to be part of the event subscription.
-// If it is desired to subscribe to all event types, the string "all" needs to be specified as an element in this list.
 func (o EventSubscriptionFilterResponsePtrOutput) IncludedEventTypes() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *EventSubscriptionFilterResponse) []string {
 		if v == nil {
@@ -723,8 +650,6 @@ func (o EventSubscriptionFilterResponsePtrOutput) IncludedEventTypes() pulumi.St
 	}).(pulumi.StringArrayOutput)
 }
 
-// Specifies if the SubjectBeginsWith and SubjectEndsWith properties of the filter
-// should be compared in a case sensitive manner.
 func (o EventSubscriptionFilterResponsePtrOutput) IsSubjectCaseSensitive() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *EventSubscriptionFilterResponse) *bool {
 		if v == nil {
@@ -734,9 +659,6 @@ func (o EventSubscriptionFilterResponsePtrOutput) IsSubjectCaseSensitive() pulum
 	}).(pulumi.BoolPtrOutput)
 }
 
-// An optional string to filter events for an event subscription based on a resource path prefix.
-// The format of this depends on the publisher of the events.
-// Wildcard characters are not supported in this path.
 func (o EventSubscriptionFilterResponsePtrOutput) SubjectBeginsWith() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *EventSubscriptionFilterResponse) *string {
 		if v == nil {
@@ -746,8 +668,6 @@ func (o EventSubscriptionFilterResponsePtrOutput) SubjectBeginsWith() pulumi.Str
 	}).(pulumi.StringPtrOutput)
 }
 
-// An optional string to filter events for an event subscription based on a resource path suffix.
-// Wildcard characters are not supported in this path.
 func (o EventSubscriptionFilterResponsePtrOutput) SubjectEndsWith() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *EventSubscriptionFilterResponse) *string {
 		if v == nil {

@@ -11,38 +11,23 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// This type describes an application resource.
 type Application struct {
 	pulumi.CustomResourceState
 
-	// Internal - used by Visual Studio to setup the debugging session on the local development environment.
-	DebugParams pulumi.StringPtrOutput `pulumi:"debugParams"`
-	// User readable description of the application.
-	Description pulumi.StringPtrOutput `pulumi:"description"`
-	// Describes the diagnostics definition and usage for an application resource.
-	Diagnostics DiagnosticsDescriptionResponsePtrOutput `pulumi:"diagnostics"`
-	// Describes the health state of an application resource.
-	HealthState pulumi.StringOutput `pulumi:"healthState"`
-	// The geo-location where the resource lives
-	Location pulumi.StringOutput `pulumi:"location"`
-	// The name of the resource
-	Name pulumi.StringOutput `pulumi:"name"`
-	// State of the resource.
-	ProvisioningState pulumi.StringOutput `pulumi:"provisioningState"`
-	// Names of the services in the application.
-	ServiceNames pulumi.StringArrayOutput `pulumi:"serviceNames"`
-	// Describes the services in the application. This property is used to create or modify services of the application. On get only the name of the service is returned. The service description can be obtained by querying for the service resource.
-	Services ServiceResourceDescriptionResponseArrayOutput `pulumi:"services"`
-	// Status of the application.
-	Status pulumi.StringOutput `pulumi:"status"`
-	// Gives additional information about the current status of the application.
-	StatusDetails pulumi.StringOutput `pulumi:"statusDetails"`
-	// Resource tags.
-	Tags pulumi.StringMapOutput `pulumi:"tags"`
-	// The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
-	Type pulumi.StringOutput `pulumi:"type"`
-	// When the application's health state is not 'Ok', this additional details from service fabric Health Manager for the user to know why the application is marked unhealthy.
-	UnhealthyEvaluation pulumi.StringOutput `pulumi:"unhealthyEvaluation"`
+	DebugParams         pulumi.StringPtrOutput                        `pulumi:"debugParams"`
+	Description         pulumi.StringPtrOutput                        `pulumi:"description"`
+	Diagnostics         DiagnosticsDescriptionResponsePtrOutput       `pulumi:"diagnostics"`
+	HealthState         pulumi.StringOutput                           `pulumi:"healthState"`
+	Location            pulumi.StringOutput                           `pulumi:"location"`
+	Name                pulumi.StringOutput                           `pulumi:"name"`
+	ProvisioningState   pulumi.StringOutput                           `pulumi:"provisioningState"`
+	ServiceNames        pulumi.StringArrayOutput                      `pulumi:"serviceNames"`
+	Services            ServiceResourceDescriptionResponseArrayOutput `pulumi:"services"`
+	Status              pulumi.StringOutput                           `pulumi:"status"`
+	StatusDetails       pulumi.StringOutput                           `pulumi:"statusDetails"`
+	Tags                pulumi.StringMapOutput                        `pulumi:"tags"`
+	Type                pulumi.StringOutput                           `pulumi:"type"`
+	UnhealthyEvaluation pulumi.StringOutput                           `pulumi:"unhealthyEvaluation"`
 }
 
 // NewApplication registers a new resource with the given unique name, arguments, and options.
@@ -105,42 +90,26 @@ func (ApplicationState) ElementType() reflect.Type {
 }
 
 type applicationArgs struct {
-	// The identity of the application.
-	ApplicationResourceName *string `pulumi:"applicationResourceName"`
-	// Internal - used by Visual Studio to setup the debugging session on the local development environment.
-	DebugParams *string `pulumi:"debugParams"`
-	// User readable description of the application.
-	Description *string `pulumi:"description"`
-	// Describes the diagnostics definition and usage for an application resource.
-	Diagnostics *DiagnosticsDescription `pulumi:"diagnostics"`
-	// The geo-location where the resource lives
-	Location *string `pulumi:"location"`
-	// Azure resource group name
-	ResourceGroupName string `pulumi:"resourceGroupName"`
-	// Describes the services in the application. This property is used to create or modify services of the application. On get only the name of the service is returned. The service description can be obtained by querying for the service resource.
-	Services []ServiceResourceDescription `pulumi:"services"`
-	// Resource tags.
-	Tags map[string]string `pulumi:"tags"`
+	ApplicationResourceName *string                      `pulumi:"applicationResourceName"`
+	DebugParams             *string                      `pulumi:"debugParams"`
+	Description             *string                      `pulumi:"description"`
+	Diagnostics             *DiagnosticsDescription      `pulumi:"diagnostics"`
+	Location                *string                      `pulumi:"location"`
+	ResourceGroupName       string                       `pulumi:"resourceGroupName"`
+	Services                []ServiceResourceDescription `pulumi:"services"`
+	Tags                    map[string]string            `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a Application resource.
 type ApplicationArgs struct {
-	// The identity of the application.
 	ApplicationResourceName pulumi.StringPtrInput
-	// Internal - used by Visual Studio to setup the debugging session on the local development environment.
-	DebugParams pulumi.StringPtrInput
-	// User readable description of the application.
-	Description pulumi.StringPtrInput
-	// Describes the diagnostics definition and usage for an application resource.
-	Diagnostics DiagnosticsDescriptionPtrInput
-	// The geo-location where the resource lives
-	Location pulumi.StringPtrInput
-	// Azure resource group name
-	ResourceGroupName pulumi.StringInput
-	// Describes the services in the application. This property is used to create or modify services of the application. On get only the name of the service is returned. The service description can be obtained by querying for the service resource.
-	Services ServiceResourceDescriptionArrayInput
-	// Resource tags.
-	Tags pulumi.StringMapInput
+	DebugParams             pulumi.StringPtrInput
+	Description             pulumi.StringPtrInput
+	Diagnostics             DiagnosticsDescriptionPtrInput
+	Location                pulumi.StringPtrInput
+	ResourceGroupName       pulumi.StringInput
+	Services                ServiceResourceDescriptionArrayInput
+	Tags                    pulumi.StringMapInput
 }
 
 func (ApplicationArgs) ElementType() reflect.Type {
@@ -166,9 +135,7 @@ func (i *Application) ToApplicationOutputWithContext(ctx context.Context) Applic
 	return pulumi.ToOutputWithContext(ctx, i).(ApplicationOutput)
 }
 
-type ApplicationOutput struct {
-	*pulumi.OutputState
-}
+type ApplicationOutput struct{ *pulumi.OutputState }
 
 func (ApplicationOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*Application)(nil))

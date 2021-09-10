@@ -7,7 +7,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Describes a database on the RedisEnterprise cluster
 func LookupDatabase(ctx *pulumi.Context, args *LookupDatabaseArgs, opts ...pulumi.InvokeOption) (*LookupDatabaseResult, error) {
 	var rv LookupDatabaseResult
 	err := ctx.Invoke("azure-native:cache/v20201001preview:getDatabase", args, &rv, opts...)
@@ -18,34 +17,21 @@ func LookupDatabase(ctx *pulumi.Context, args *LookupDatabaseArgs, opts ...pulum
 }
 
 type LookupDatabaseArgs struct {
-	// The name of the RedisEnterprise cluster.
-	ClusterName string `pulumi:"clusterName"`
-	// The name of the database.
-	DatabaseName string `pulumi:"databaseName"`
-	// The name of the resource group.
+	ClusterName       string `pulumi:"clusterName"`
+	DatabaseName      string `pulumi:"databaseName"`
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 }
 
 // Describes a database on the RedisEnterprise cluster
 type LookupDatabaseResult struct {
-	// Specifies whether redis clients can connect using TLS-encrypted or plaintext redis protocols. Default is TLS-encrypted.
-	ClientProtocol *string `pulumi:"clientProtocol"`
-	// Clustering policy - default is OSSCluster. Specified at create time.
-	ClusteringPolicy *string `pulumi:"clusteringPolicy"`
-	// Redis eviction policy - default is VolatileLRU
-	EvictionPolicy *string `pulumi:"evictionPolicy"`
-	// Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
-	Id string `pulumi:"id"`
-	// Optional set of redis modules to enable in this database - modules can only be added at creation time.
-	Modules []ModuleResponse `pulumi:"modules"`
-	// The name of the resource
-	Name string `pulumi:"name"`
-	// TCP port of the database endpoint. Specified at create time. Defaults to an available port.
-	Port *int `pulumi:"port"`
-	// Current provisioning status of the database
-	ProvisioningState string `pulumi:"provisioningState"`
-	// Current resource status of the database
-	ResourceState string `pulumi:"resourceState"`
-	// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
-	Type string `pulumi:"type"`
+	ClientProtocol    *string          `pulumi:"clientProtocol"`
+	ClusteringPolicy  *string          `pulumi:"clusteringPolicy"`
+	EvictionPolicy    *string          `pulumi:"evictionPolicy"`
+	Id                string           `pulumi:"id"`
+	Modules           []ModuleResponse `pulumi:"modules"`
+	Name              string           `pulumi:"name"`
+	Port              *int             `pulumi:"port"`
+	ProvisioningState string           `pulumi:"provisioningState"`
+	ResourceState     string           `pulumi:"resourceState"`
+	Type              string           `pulumi:"type"`
 }

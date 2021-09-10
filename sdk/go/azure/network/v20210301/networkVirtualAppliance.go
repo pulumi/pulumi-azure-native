@@ -11,46 +11,27 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// NetworkVirtualAppliance Resource.
 type NetworkVirtualAppliance struct {
 	pulumi.CustomResourceState
 
-	// Address Prefix.
-	AddressPrefix pulumi.StringOutput `pulumi:"addressPrefix"`
-	// BootStrapConfigurationBlobs storage URLs.
-	BootStrapConfigurationBlobs pulumi.StringArrayOutput `pulumi:"bootStrapConfigurationBlobs"`
-	// CloudInitConfiguration string in plain text.
-	CloudInitConfiguration pulumi.StringPtrOutput `pulumi:"cloudInitConfiguration"`
-	// CloudInitConfigurationBlob storage URLs.
-	CloudInitConfigurationBlobs pulumi.StringArrayOutput `pulumi:"cloudInitConfigurationBlobs"`
-	// A unique read-only string that changes whenever the resource is updated.
-	Etag pulumi.StringOutput `pulumi:"etag"`
-	// The service principal that has read access to cloud-init and config blob.
-	Identity ManagedServiceIdentityResponsePtrOutput `pulumi:"identity"`
-	// List of references to InboundSecurityRules.
-	InboundSecurityRules SubResourceResponseArrayOutput `pulumi:"inboundSecurityRules"`
-	// Resource location.
-	Location pulumi.StringPtrOutput `pulumi:"location"`
-	// Resource name.
-	Name pulumi.StringOutput `pulumi:"name"`
-	// Network Virtual Appliance SKU.
-	NvaSku VirtualApplianceSkuPropertiesResponsePtrOutput `pulumi:"nvaSku"`
-	// The provisioning state of the resource.
-	ProvisioningState pulumi.StringOutput `pulumi:"provisioningState"`
-	// Public key for SSH login.
-	SshPublicKey pulumi.StringPtrOutput `pulumi:"sshPublicKey"`
-	// Resource tags.
-	Tags pulumi.StringMapOutput `pulumi:"tags"`
-	// Resource type.
-	Type pulumi.StringOutput `pulumi:"type"`
-	// VirtualAppliance ASN.
-	VirtualApplianceAsn pulumi.Float64PtrOutput `pulumi:"virtualApplianceAsn"`
-	// List of Virtual Appliance Network Interfaces.
-	VirtualApplianceNics VirtualApplianceNicPropertiesResponseArrayOutput `pulumi:"virtualApplianceNics"`
-	// List of references to VirtualApplianceSite.
-	VirtualApplianceSites SubResourceResponseArrayOutput `pulumi:"virtualApplianceSites"`
-	// The Virtual Hub where Network Virtual Appliance is being deployed.
-	VirtualHub SubResourceResponsePtrOutput `pulumi:"virtualHub"`
+	AddressPrefix               pulumi.StringOutput                              `pulumi:"addressPrefix"`
+	BootStrapConfigurationBlobs pulumi.StringArrayOutput                         `pulumi:"bootStrapConfigurationBlobs"`
+	CloudInitConfiguration      pulumi.StringPtrOutput                           `pulumi:"cloudInitConfiguration"`
+	CloudInitConfigurationBlobs pulumi.StringArrayOutput                         `pulumi:"cloudInitConfigurationBlobs"`
+	Etag                        pulumi.StringOutput                              `pulumi:"etag"`
+	Identity                    ManagedServiceIdentityResponsePtrOutput          `pulumi:"identity"`
+	InboundSecurityRules        SubResourceResponseArrayOutput                   `pulumi:"inboundSecurityRules"`
+	Location                    pulumi.StringPtrOutput                           `pulumi:"location"`
+	Name                        pulumi.StringOutput                              `pulumi:"name"`
+	NvaSku                      VirtualApplianceSkuPropertiesResponsePtrOutput   `pulumi:"nvaSku"`
+	ProvisioningState           pulumi.StringOutput                              `pulumi:"provisioningState"`
+	SshPublicKey                pulumi.StringPtrOutput                           `pulumi:"sshPublicKey"`
+	Tags                        pulumi.StringMapOutput                           `pulumi:"tags"`
+	Type                        pulumi.StringOutput                              `pulumi:"type"`
+	VirtualApplianceAsn         pulumi.Float64PtrOutput                          `pulumi:"virtualApplianceAsn"`
+	VirtualApplianceNics        VirtualApplianceNicPropertiesResponseArrayOutput `pulumi:"virtualApplianceNics"`
+	VirtualApplianceSites       SubResourceResponseArrayOutput                   `pulumi:"virtualApplianceSites"`
+	VirtualHub                  SubResourceResponsePtrOutput                     `pulumi:"virtualHub"`
 }
 
 // NewNetworkVirtualAppliance registers a new resource with the given unique name, arguments, and options.
@@ -161,62 +142,36 @@ func (NetworkVirtualApplianceState) ElementType() reflect.Type {
 }
 
 type networkVirtualApplianceArgs struct {
-	// BootStrapConfigurationBlobs storage URLs.
-	BootStrapConfigurationBlobs []string `pulumi:"bootStrapConfigurationBlobs"`
-	// CloudInitConfiguration string in plain text.
-	CloudInitConfiguration *string `pulumi:"cloudInitConfiguration"`
-	// CloudInitConfigurationBlob storage URLs.
-	CloudInitConfigurationBlobs []string `pulumi:"cloudInitConfigurationBlobs"`
-	// Resource ID.
-	Id *string `pulumi:"id"`
-	// The service principal that has read access to cloud-init and config blob.
-	Identity *ManagedServiceIdentity `pulumi:"identity"`
-	// Resource location.
-	Location *string `pulumi:"location"`
-	// The name of Network Virtual Appliance.
-	NetworkVirtualApplianceName *string `pulumi:"networkVirtualApplianceName"`
-	// Network Virtual Appliance SKU.
-	NvaSku *VirtualApplianceSkuProperties `pulumi:"nvaSku"`
-	// The name of the resource group.
-	ResourceGroupName string `pulumi:"resourceGroupName"`
-	// Public key for SSH login.
-	SshPublicKey *string `pulumi:"sshPublicKey"`
-	// Resource tags.
-	Tags map[string]string `pulumi:"tags"`
-	// VirtualAppliance ASN.
-	VirtualApplianceAsn *float64 `pulumi:"virtualApplianceAsn"`
-	// The Virtual Hub where Network Virtual Appliance is being deployed.
-	VirtualHub *SubResource `pulumi:"virtualHub"`
+	BootStrapConfigurationBlobs []string                       `pulumi:"bootStrapConfigurationBlobs"`
+	CloudInitConfiguration      *string                        `pulumi:"cloudInitConfiguration"`
+	CloudInitConfigurationBlobs []string                       `pulumi:"cloudInitConfigurationBlobs"`
+	Id                          *string                        `pulumi:"id"`
+	Identity                    *ManagedServiceIdentity        `pulumi:"identity"`
+	Location                    *string                        `pulumi:"location"`
+	NetworkVirtualApplianceName *string                        `pulumi:"networkVirtualApplianceName"`
+	NvaSku                      *VirtualApplianceSkuProperties `pulumi:"nvaSku"`
+	ResourceGroupName           string                         `pulumi:"resourceGroupName"`
+	SshPublicKey                *string                        `pulumi:"sshPublicKey"`
+	Tags                        map[string]string              `pulumi:"tags"`
+	VirtualApplianceAsn         *float64                       `pulumi:"virtualApplianceAsn"`
+	VirtualHub                  *SubResource                   `pulumi:"virtualHub"`
 }
 
 // The set of arguments for constructing a NetworkVirtualAppliance resource.
 type NetworkVirtualApplianceArgs struct {
-	// BootStrapConfigurationBlobs storage URLs.
 	BootStrapConfigurationBlobs pulumi.StringArrayInput
-	// CloudInitConfiguration string in plain text.
-	CloudInitConfiguration pulumi.StringPtrInput
-	// CloudInitConfigurationBlob storage URLs.
+	CloudInitConfiguration      pulumi.StringPtrInput
 	CloudInitConfigurationBlobs pulumi.StringArrayInput
-	// Resource ID.
-	Id pulumi.StringPtrInput
-	// The service principal that has read access to cloud-init and config blob.
-	Identity ManagedServiceIdentityPtrInput
-	// Resource location.
-	Location pulumi.StringPtrInput
-	// The name of Network Virtual Appliance.
+	Id                          pulumi.StringPtrInput
+	Identity                    ManagedServiceIdentityPtrInput
+	Location                    pulumi.StringPtrInput
 	NetworkVirtualApplianceName pulumi.StringPtrInput
-	// Network Virtual Appliance SKU.
-	NvaSku VirtualApplianceSkuPropertiesPtrInput
-	// The name of the resource group.
-	ResourceGroupName pulumi.StringInput
-	// Public key for SSH login.
-	SshPublicKey pulumi.StringPtrInput
-	// Resource tags.
-	Tags pulumi.StringMapInput
-	// VirtualAppliance ASN.
-	VirtualApplianceAsn pulumi.Float64PtrInput
-	// The Virtual Hub where Network Virtual Appliance is being deployed.
-	VirtualHub SubResourcePtrInput
+	NvaSku                      VirtualApplianceSkuPropertiesPtrInput
+	ResourceGroupName           pulumi.StringInput
+	SshPublicKey                pulumi.StringPtrInput
+	Tags                        pulumi.StringMapInput
+	VirtualApplianceAsn         pulumi.Float64PtrInput
+	VirtualHub                  SubResourcePtrInput
 }
 
 func (NetworkVirtualApplianceArgs) ElementType() reflect.Type {
@@ -242,9 +197,7 @@ func (i *NetworkVirtualAppliance) ToNetworkVirtualApplianceOutputWithContext(ctx
 	return pulumi.ToOutputWithContext(ctx, i).(NetworkVirtualApplianceOutput)
 }
 
-type NetworkVirtualApplianceOutput struct {
-	*pulumi.OutputState
-}
+type NetworkVirtualApplianceOutput struct{ *pulumi.OutputState }
 
 func (NetworkVirtualApplianceOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*NetworkVirtualAppliance)(nil))

@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.HDInsight.Outputs
 {
 
+    /// <summary>
+    /// The configuration that services will be excluded when creating cluster.
+    /// </summary>
     [OutputType]
     public sealed class ExcludedServicesConfigResponse
     {

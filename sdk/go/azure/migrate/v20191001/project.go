@@ -11,22 +11,15 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Azure Migrate Project.
 type Project struct {
 	pulumi.CustomResourceState
 
-	// For optimistic concurrency control.
-	ETag pulumi.StringPtrOutput `pulumi:"eTag"`
-	// Azure location in which project is created.
-	Location pulumi.StringPtrOutput `pulumi:"location"`
-	// Name of the project.
-	Name pulumi.StringOutput `pulumi:"name"`
-	// Properties of the project.
+	ETag       pulumi.StringPtrOutput          `pulumi:"eTag"`
+	Location   pulumi.StringPtrOutput          `pulumi:"location"`
+	Name       pulumi.StringOutput             `pulumi:"name"`
 	Properties ProjectPropertiesResponseOutput `pulumi:"properties"`
-	// Tags provided by Azure Tagging service.
-	Tags pulumi.AnyOutput `pulumi:"tags"`
-	// Type of the object = [Microsoft.Migrate/assessmentProjects].
-	Type pulumi.StringOutput `pulumi:"type"`
+	Tags       pulumi.AnyOutput                `pulumi:"tags"`
+	Type       pulumi.StringOutput             `pulumi:"type"`
 }
 
 // NewProject registers a new resource with the given unique name, arguments, and options.
@@ -83,34 +76,22 @@ func (ProjectState) ElementType() reflect.Type {
 }
 
 type projectArgs struct {
-	// For optimistic concurrency control.
-	ETag *string `pulumi:"eTag"`
-	// Azure location in which project is created.
-	Location *string `pulumi:"location"`
-	// Name of the Azure Migrate project.
-	ProjectName *string `pulumi:"projectName"`
-	// Properties of the project.
-	Properties *ProjectProperties `pulumi:"properties"`
-	// Name of the Azure Resource Group that project is part of.
-	ResourceGroupName string `pulumi:"resourceGroupName"`
-	// Tags provided by Azure Tagging service.
-	Tags interface{} `pulumi:"tags"`
+	ETag              *string            `pulumi:"eTag"`
+	Location          *string            `pulumi:"location"`
+	ProjectName       *string            `pulumi:"projectName"`
+	Properties        *ProjectProperties `pulumi:"properties"`
+	ResourceGroupName string             `pulumi:"resourceGroupName"`
+	Tags              interface{}        `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a Project resource.
 type ProjectArgs struct {
-	// For optimistic concurrency control.
-	ETag pulumi.StringPtrInput
-	// Azure location in which project is created.
-	Location pulumi.StringPtrInput
-	// Name of the Azure Migrate project.
-	ProjectName pulumi.StringPtrInput
-	// Properties of the project.
-	Properties ProjectPropertiesPtrInput
-	// Name of the Azure Resource Group that project is part of.
+	ETag              pulumi.StringPtrInput
+	Location          pulumi.StringPtrInput
+	ProjectName       pulumi.StringPtrInput
+	Properties        ProjectPropertiesPtrInput
 	ResourceGroupName pulumi.StringInput
-	// Tags provided by Azure Tagging service.
-	Tags pulumi.Input
+	Tags              pulumi.Input
 }
 
 func (ProjectArgs) ElementType() reflect.Type {
@@ -136,9 +117,7 @@ func (i *Project) ToProjectOutputWithContext(ctx context.Context) ProjectOutput 
 	return pulumi.ToOutputWithContext(ctx, i).(ProjectOutput)
 }
 
-type ProjectOutput struct {
-	*pulumi.OutputState
-}
+type ProjectOutput struct{ *pulumi.OutputState }
 
 func (ProjectOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*Project)(nil))

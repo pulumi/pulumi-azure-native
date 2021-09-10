@@ -11,26 +11,17 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Dedicated cloud service model
 type DedicatedCloudService struct {
 	pulumi.CustomResourceState
 
-	// gateway Subnet for the account. It will collect the subnet address and always treat it as /28
-	GatewaySubnet pulumi.StringOutput `pulumi:"gatewaySubnet"`
-	// indicates whether account onboarded or not in a given region
-	IsAccountOnboarded pulumi.StringOutput `pulumi:"isAccountOnboarded"`
-	// Azure region
-	Location pulumi.StringOutput `pulumi:"location"`
-	// {dedicatedCloudServiceName}
-	Name pulumi.StringOutput `pulumi:"name"`
-	// total nodes purchased
-	Nodes pulumi.IntOutput `pulumi:"nodes"`
-	// link to a service management web portal
-	ServiceURL pulumi.StringOutput `pulumi:"serviceURL"`
-	// The list of tags
-	Tags pulumi.StringMapOutput `pulumi:"tags"`
-	// {resourceProviderNamespace}/{resourceType}
-	Type pulumi.StringOutput `pulumi:"type"`
+	GatewaySubnet      pulumi.StringOutput    `pulumi:"gatewaySubnet"`
+	IsAccountOnboarded pulumi.StringOutput    `pulumi:"isAccountOnboarded"`
+	Location           pulumi.StringOutput    `pulumi:"location"`
+	Name               pulumi.StringOutput    `pulumi:"name"`
+	Nodes              pulumi.IntOutput       `pulumi:"nodes"`
+	ServiceURL         pulumi.StringOutput    `pulumi:"serviceURL"`
+	Tags               pulumi.StringMapOutput `pulumi:"tags"`
+	Type               pulumi.StringOutput    `pulumi:"type"`
 }
 
 // NewDedicatedCloudService registers a new resource with the given unique name, arguments, and options.
@@ -90,30 +81,20 @@ func (DedicatedCloudServiceState) ElementType() reflect.Type {
 }
 
 type dedicatedCloudServiceArgs struct {
-	// dedicated cloud Service name
-	DedicatedCloudServiceName *string `pulumi:"dedicatedCloudServiceName"`
-	// gateway Subnet for the account. It will collect the subnet address and always treat it as /28
-	GatewaySubnet string `pulumi:"gatewaySubnet"`
-	// Azure region
-	Location *string `pulumi:"location"`
-	// The name of the resource group
-	ResourceGroupName string `pulumi:"resourceGroupName"`
-	// The list of tags
-	Tags map[string]string `pulumi:"tags"`
+	DedicatedCloudServiceName *string           `pulumi:"dedicatedCloudServiceName"`
+	GatewaySubnet             string            `pulumi:"gatewaySubnet"`
+	Location                  *string           `pulumi:"location"`
+	ResourceGroupName         string            `pulumi:"resourceGroupName"`
+	Tags                      map[string]string `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a DedicatedCloudService resource.
 type DedicatedCloudServiceArgs struct {
-	// dedicated cloud Service name
 	DedicatedCloudServiceName pulumi.StringPtrInput
-	// gateway Subnet for the account. It will collect the subnet address and always treat it as /28
-	GatewaySubnet pulumi.StringInput
-	// Azure region
-	Location pulumi.StringPtrInput
-	// The name of the resource group
-	ResourceGroupName pulumi.StringInput
-	// The list of tags
-	Tags pulumi.StringMapInput
+	GatewaySubnet             pulumi.StringInput
+	Location                  pulumi.StringPtrInput
+	ResourceGroupName         pulumi.StringInput
+	Tags                      pulumi.StringMapInput
 }
 
 func (DedicatedCloudServiceArgs) ElementType() reflect.Type {
@@ -139,9 +120,7 @@ func (i *DedicatedCloudService) ToDedicatedCloudServiceOutputWithContext(ctx con
 	return pulumi.ToOutputWithContext(ctx, i).(DedicatedCloudServiceOutput)
 }
 
-type DedicatedCloudServiceOutput struct {
-	*pulumi.OutputState
-}
+type DedicatedCloudServiceOutput struct{ *pulumi.OutputState }
 
 func (DedicatedCloudServiceOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*DedicatedCloudService)(nil))

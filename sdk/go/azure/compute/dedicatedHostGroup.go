@@ -192,9 +192,7 @@ func (i *DedicatedHostGroup) ToDedicatedHostGroupOutputWithContext(ctx context.C
 	return pulumi.ToOutputWithContext(ctx, i).(DedicatedHostGroupOutput)
 }
 
-type DedicatedHostGroupOutput struct {
-	*pulumi.OutputState
-}
+type DedicatedHostGroupOutput struct{ *pulumi.OutputState }
 
 func (DedicatedHostGroupOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*DedicatedHostGroup)(nil))

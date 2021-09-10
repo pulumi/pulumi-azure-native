@@ -147,9 +147,7 @@ func (i *LabAccount) ToLabAccountOutputWithContext(ctx context.Context) LabAccou
 	return pulumi.ToOutputWithContext(ctx, i).(LabAccountOutput)
 }
 
-type LabAccountOutput struct {
-	*pulumi.OutputState
-}
+type LabAccountOutput struct{ *pulumi.OutputState }
 
 func (LabAccountOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*LabAccount)(nil))

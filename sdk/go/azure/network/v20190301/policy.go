@@ -11,31 +11,20 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Defines web application firewall policy.
 type Policy struct {
 	pulumi.CustomResourceState
 
-	// Describes custom rules inside the policy.
-	CustomRules CustomRuleListResponsePtrOutput `pulumi:"customRules"`
-	// Gets a unique read-only string that changes whenever the resource is updated.
-	Etag pulumi.StringPtrOutput `pulumi:"etag"`
-	// Describes Frontend Endpoints associated with this Web Application Firewall policy.
-	FrontendEndpointLinks FrontendEndpointLinkResponseArrayOutput `pulumi:"frontendEndpointLinks"`
-	// Resource location.
-	Location pulumi.StringPtrOutput `pulumi:"location"`
-	// Describes managed rules inside the policy.
-	ManagedRules ManagedRuleSetListResponsePtrOutput `pulumi:"managedRules"`
-	// Resource name.
-	Name pulumi.StringOutput `pulumi:"name"`
-	// Describes settings for the policy.
-	PolicySettings FrontDoorPolicySettingsResponsePtrOutput `pulumi:"policySettings"`
-	// Provisioning state of the policy.
-	ProvisioningState pulumi.StringOutput `pulumi:"provisioningState"`
-	ResourceState     pulumi.StringOutput `pulumi:"resourceState"`
-	// Resource tags.
-	Tags pulumi.StringMapOutput `pulumi:"tags"`
-	// Resource type.
-	Type pulumi.StringOutput `pulumi:"type"`
+	CustomRules           CustomRuleListResponsePtrOutput          `pulumi:"customRules"`
+	Etag                  pulumi.StringPtrOutput                   `pulumi:"etag"`
+	FrontendEndpointLinks FrontendEndpointLinkResponseArrayOutput  `pulumi:"frontendEndpointLinks"`
+	Location              pulumi.StringPtrOutput                   `pulumi:"location"`
+	ManagedRules          ManagedRuleSetListResponsePtrOutput      `pulumi:"managedRules"`
+	Name                  pulumi.StringOutput                      `pulumi:"name"`
+	PolicySettings        FrontDoorPolicySettingsResponsePtrOutput `pulumi:"policySettings"`
+	ProvisioningState     pulumi.StringOutput                      `pulumi:"provisioningState"`
+	ResourceState         pulumi.StringOutput                      `pulumi:"resourceState"`
+	Tags                  pulumi.StringMapOutput                   `pulumi:"tags"`
+	Type                  pulumi.StringOutput                      `pulumi:"type"`
 }
 
 // NewPolicy registers a new resource with the given unique name, arguments, and options.
@@ -110,42 +99,26 @@ func (PolicyState) ElementType() reflect.Type {
 }
 
 type policyArgs struct {
-	// Describes custom rules inside the policy.
-	CustomRules *CustomRuleList `pulumi:"customRules"`
-	// Gets a unique read-only string that changes whenever the resource is updated.
-	Etag *string `pulumi:"etag"`
-	// Resource location.
-	Location *string `pulumi:"location"`
-	// Describes managed rules inside the policy.
-	ManagedRules *ManagedRuleSetList `pulumi:"managedRules"`
-	// The name of the Web Application Firewall Policy.
-	PolicyName *string `pulumi:"policyName"`
-	// Describes settings for the policy.
-	PolicySettings *FrontDoorPolicySettings `pulumi:"policySettings"`
-	// Name of the Resource group within the Azure subscription.
-	ResourceGroupName string `pulumi:"resourceGroupName"`
-	// Resource tags.
-	Tags map[string]string `pulumi:"tags"`
+	CustomRules       *CustomRuleList          `pulumi:"customRules"`
+	Etag              *string                  `pulumi:"etag"`
+	Location          *string                  `pulumi:"location"`
+	ManagedRules      *ManagedRuleSetList      `pulumi:"managedRules"`
+	PolicyName        *string                  `pulumi:"policyName"`
+	PolicySettings    *FrontDoorPolicySettings `pulumi:"policySettings"`
+	ResourceGroupName string                   `pulumi:"resourceGroupName"`
+	Tags              map[string]string        `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a Policy resource.
 type PolicyArgs struct {
-	// Describes custom rules inside the policy.
-	CustomRules CustomRuleListPtrInput
-	// Gets a unique read-only string that changes whenever the resource is updated.
-	Etag pulumi.StringPtrInput
-	// Resource location.
-	Location pulumi.StringPtrInput
-	// Describes managed rules inside the policy.
-	ManagedRules ManagedRuleSetListPtrInput
-	// The name of the Web Application Firewall Policy.
-	PolicyName pulumi.StringPtrInput
-	// Describes settings for the policy.
-	PolicySettings FrontDoorPolicySettingsPtrInput
-	// Name of the Resource group within the Azure subscription.
+	CustomRules       CustomRuleListPtrInput
+	Etag              pulumi.StringPtrInput
+	Location          pulumi.StringPtrInput
+	ManagedRules      ManagedRuleSetListPtrInput
+	PolicyName        pulumi.StringPtrInput
+	PolicySettings    FrontDoorPolicySettingsPtrInput
 	ResourceGroupName pulumi.StringInput
-	// Resource tags.
-	Tags pulumi.StringMapInput
+	Tags              pulumi.StringMapInput
 }
 
 func (PolicyArgs) ElementType() reflect.Type {
@@ -171,9 +144,7 @@ func (i *Policy) ToPolicyOutputWithContext(ctx context.Context) PolicyOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(PolicyOutput)
 }
 
-type PolicyOutput struct {
-	*pulumi.OutputState
-}
+type PolicyOutput struct{ *pulumi.OutputState }
 
 func (PolicyOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*Policy)(nil))

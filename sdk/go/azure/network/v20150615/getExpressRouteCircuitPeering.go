@@ -7,7 +7,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Peering in an ExpressRouteCircuit resource.
 func LookupExpressRouteCircuitPeering(ctx *pulumi.Context, args *LookupExpressRouteCircuitPeeringArgs, opts ...pulumi.InvokeOption) (*LookupExpressRouteCircuitPeeringResult, error) {
 	var rv LookupExpressRouteCircuitPeeringResult
 	err := ctx.Invoke("azure-native:network/v20150615:getExpressRouteCircuitPeering", args, &rv, opts...)
@@ -18,46 +17,27 @@ func LookupExpressRouteCircuitPeering(ctx *pulumi.Context, args *LookupExpressRo
 }
 
 type LookupExpressRouteCircuitPeeringArgs struct {
-	// The name of the express route circuit.
-	CircuitName string `pulumi:"circuitName"`
-	// The name of the peering.
-	PeeringName string `pulumi:"peeringName"`
-	// The name of the resource group.
+	CircuitName       string `pulumi:"circuitName"`
+	PeeringName       string `pulumi:"peeringName"`
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 }
 
 // Peering in an ExpressRouteCircuit resource.
 type LookupExpressRouteCircuitPeeringResult struct {
-	// The Azure ASN.
-	AzureASN *int `pulumi:"azureASN"`
-	// A unique read-only string that changes whenever the resource is updated.
-	Etag *string `pulumi:"etag"`
-	// Resource Identifier.
-	Id *string `pulumi:"id"`
-	// The Microsoft peering configuration.
-	MicrosoftPeeringConfig *ExpressRouteCircuitPeeringConfigResponse `pulumi:"microsoftPeeringConfig"`
-	// Gets name of the resource that is unique within a resource group. This name can be used to access the resource.
-	Name *string `pulumi:"name"`
-	// The peer ASN.
-	PeerASN *int `pulumi:"peerASN"`
-	// The PeeringType. Possible values are: 'AzurePublicPeering', 'AzurePrivatePeering', and 'MicrosoftPeering'.
-	PeeringType *string `pulumi:"peeringType"`
-	// The primary port.
-	PrimaryAzurePort *string `pulumi:"primaryAzurePort"`
-	// The primary address prefix.
-	PrimaryPeerAddressPrefix *string `pulumi:"primaryPeerAddressPrefix"`
-	// Gets the provisioning state of the public IP resource. Possible values are: 'Updating', 'Deleting', and 'Failed'.
-	ProvisioningState *string `pulumi:"provisioningState"`
-	// The secondary port.
-	SecondaryAzurePort *string `pulumi:"secondaryAzurePort"`
-	// The secondary address prefix.
-	SecondaryPeerAddressPrefix *string `pulumi:"secondaryPeerAddressPrefix"`
-	// The shared key.
-	SharedKey *string `pulumi:"sharedKey"`
-	// The state of peering. Possible values are: 'Disabled' and 'Enabled'
-	State *string `pulumi:"state"`
-	// Gets peering stats.
-	Stats *ExpressRouteCircuitStatsResponse `pulumi:"stats"`
-	// The VLAN ID.
-	VlanId *int `pulumi:"vlanId"`
+	AzureASN                   *int                                      `pulumi:"azureASN"`
+	Etag                       *string                                   `pulumi:"etag"`
+	Id                         *string                                   `pulumi:"id"`
+	MicrosoftPeeringConfig     *ExpressRouteCircuitPeeringConfigResponse `pulumi:"microsoftPeeringConfig"`
+	Name                       *string                                   `pulumi:"name"`
+	PeerASN                    *int                                      `pulumi:"peerASN"`
+	PeeringType                *string                                   `pulumi:"peeringType"`
+	PrimaryAzurePort           *string                                   `pulumi:"primaryAzurePort"`
+	PrimaryPeerAddressPrefix   *string                                   `pulumi:"primaryPeerAddressPrefix"`
+	ProvisioningState          *string                                   `pulumi:"provisioningState"`
+	SecondaryAzurePort         *string                                   `pulumi:"secondaryAzurePort"`
+	SecondaryPeerAddressPrefix *string                                   `pulumi:"secondaryPeerAddressPrefix"`
+	SharedKey                  *string                                   `pulumi:"sharedKey"`
+	State                      *string                                   `pulumi:"state"`
+	Stats                      *ExpressRouteCircuitStatsResponse         `pulumi:"stats"`
+	VlanId                     *int                                      `pulumi:"vlanId"`
 }

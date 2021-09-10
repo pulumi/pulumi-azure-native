@@ -7,7 +7,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// A virtual network rule.
 func LookupVirtualNetworkRule(ctx *pulumi.Context, args *LookupVirtualNetworkRuleArgs, opts ...pulumi.InvokeOption) (*LookupVirtualNetworkRuleResult, error) {
 	var rv LookupVirtualNetworkRuleResult
 	err := ctx.Invoke("azure-native:dbformariadb/v20180601:getVirtualNetworkRule", args, &rv, opts...)
@@ -18,26 +17,17 @@ func LookupVirtualNetworkRule(ctx *pulumi.Context, args *LookupVirtualNetworkRul
 }
 
 type LookupVirtualNetworkRuleArgs struct {
-	// The name of the resource group. The name is case insensitive.
-	ResourceGroupName string `pulumi:"resourceGroupName"`
-	// The name of the server.
-	ServerName string `pulumi:"serverName"`
-	// The name of the virtual network rule.
+	ResourceGroupName      string `pulumi:"resourceGroupName"`
+	ServerName             string `pulumi:"serverName"`
 	VirtualNetworkRuleName string `pulumi:"virtualNetworkRuleName"`
 }
 
 // A virtual network rule.
 type LookupVirtualNetworkRuleResult struct {
-	// Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
-	Id string `pulumi:"id"`
-	// Create firewall rule before the virtual network has vnet service endpoint enabled.
-	IgnoreMissingVnetServiceEndpoint *bool `pulumi:"ignoreMissingVnetServiceEndpoint"`
-	// The name of the resource
-	Name string `pulumi:"name"`
-	// Virtual Network Rule State
-	State string `pulumi:"state"`
-	// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
-	Type string `pulumi:"type"`
-	// The ARM resource id of the virtual network subnet.
-	VirtualNetworkSubnetId string `pulumi:"virtualNetworkSubnetId"`
+	Id                               string `pulumi:"id"`
+	IgnoreMissingVnetServiceEndpoint *bool  `pulumi:"ignoreMissingVnetServiceEndpoint"`
+	Name                             string `pulumi:"name"`
+	State                            string `pulumi:"state"`
+	Type                             string `pulumi:"type"`
+	VirtualNetworkSubnetId           string `pulumi:"virtualNetworkSubnetId"`
 }

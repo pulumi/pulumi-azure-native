@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.CostManagement.V20201201Preview.Outputs
 {
 
+    /// <summary>
+    /// The delivery information associated with a export.
+    /// </summary>
     [OutputType]
     public sealed class ExportDeliveryInfoResponse
     {

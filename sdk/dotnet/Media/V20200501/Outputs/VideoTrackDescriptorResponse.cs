@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.Media.V20200501.Outputs
 {
 
+    /// <summary>
+    /// A TrackSelection to select video tracks.
+    /// </summary>
     [OutputType]
     public sealed class VideoTrackDescriptorResponse
     {

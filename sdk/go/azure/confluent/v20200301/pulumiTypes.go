@@ -10,18 +10,12 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Confluent offer detail
 type OrganizationResourcePropertiesOfferDetail struct {
-	// Offer Id
-	Id *string `pulumi:"id"`
-	// Offer Plan Id
-	PlanId *string `pulumi:"planId"`
-	// Offer Plan Name
-	PlanName *string `pulumi:"planName"`
-	// Publisher Id
+	Id          *string `pulumi:"id"`
+	PlanId      *string `pulumi:"planId"`
+	PlanName    *string `pulumi:"planName"`
 	PublisherId *string `pulumi:"publisherId"`
-	// Offer Plan Term unit
-	TermUnit *string `pulumi:"termUnit"`
+	TermUnit    *string `pulumi:"termUnit"`
 }
 
 // OrganizationResourcePropertiesOfferDetailInput is an input type that accepts OrganizationResourcePropertiesOfferDetailArgs and OrganizationResourcePropertiesOfferDetailOutput values.
@@ -35,18 +29,12 @@ type OrganizationResourcePropertiesOfferDetailInput interface {
 	ToOrganizationResourcePropertiesOfferDetailOutputWithContext(context.Context) OrganizationResourcePropertiesOfferDetailOutput
 }
 
-// Confluent offer detail
 type OrganizationResourcePropertiesOfferDetailArgs struct {
-	// Offer Id
-	Id pulumi.StringPtrInput `pulumi:"id"`
-	// Offer Plan Id
-	PlanId pulumi.StringPtrInput `pulumi:"planId"`
-	// Offer Plan Name
-	PlanName pulumi.StringPtrInput `pulumi:"planName"`
-	// Publisher Id
+	Id          pulumi.StringPtrInput `pulumi:"id"`
+	PlanId      pulumi.StringPtrInput `pulumi:"planId"`
+	PlanName    pulumi.StringPtrInput `pulumi:"planName"`
 	PublisherId pulumi.StringPtrInput `pulumi:"publisherId"`
-	// Offer Plan Term unit
-	TermUnit pulumi.StringPtrInput `pulumi:"termUnit"`
+	TermUnit    pulumi.StringPtrInput `pulumi:"termUnit"`
 }
 
 func (OrganizationResourcePropertiesOfferDetailArgs) ElementType() reflect.Type {
@@ -102,7 +90,6 @@ func (i *organizationResourcePropertiesOfferDetailPtrType) ToOrganizationResourc
 	return pulumi.ToOutputWithContext(ctx, i).(OrganizationResourcePropertiesOfferDetailPtrOutput)
 }
 
-// Confluent offer detail
 type OrganizationResourcePropertiesOfferDetailOutput struct{ *pulumi.OutputState }
 
 func (OrganizationResourcePropertiesOfferDetailOutput) ElementType() reflect.Type {
@@ -122,32 +109,27 @@ func (o OrganizationResourcePropertiesOfferDetailOutput) ToOrganizationResourceP
 }
 
 func (o OrganizationResourcePropertiesOfferDetailOutput) ToOrganizationResourcePropertiesOfferDetailPtrOutputWithContext(ctx context.Context) OrganizationResourcePropertiesOfferDetailPtrOutput {
-	return o.ApplyT(func(v OrganizationResourcePropertiesOfferDetail) *OrganizationResourcePropertiesOfferDetail {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v OrganizationResourcePropertiesOfferDetail) *OrganizationResourcePropertiesOfferDetail {
 		return &v
 	}).(OrganizationResourcePropertiesOfferDetailPtrOutput)
 }
 
-// Offer Id
 func (o OrganizationResourcePropertiesOfferDetailOutput) Id() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v OrganizationResourcePropertiesOfferDetail) *string { return v.Id }).(pulumi.StringPtrOutput)
 }
 
-// Offer Plan Id
 func (o OrganizationResourcePropertiesOfferDetailOutput) PlanId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v OrganizationResourcePropertiesOfferDetail) *string { return v.PlanId }).(pulumi.StringPtrOutput)
 }
 
-// Offer Plan Name
 func (o OrganizationResourcePropertiesOfferDetailOutput) PlanName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v OrganizationResourcePropertiesOfferDetail) *string { return v.PlanName }).(pulumi.StringPtrOutput)
 }
 
-// Publisher Id
 func (o OrganizationResourcePropertiesOfferDetailOutput) PublisherId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v OrganizationResourcePropertiesOfferDetail) *string { return v.PublisherId }).(pulumi.StringPtrOutput)
 }
 
-// Offer Plan Term unit
 func (o OrganizationResourcePropertiesOfferDetailOutput) TermUnit() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v OrganizationResourcePropertiesOfferDetail) *string { return v.TermUnit }).(pulumi.StringPtrOutput)
 }
@@ -168,11 +150,14 @@ func (o OrganizationResourcePropertiesOfferDetailPtrOutput) ToOrganizationResour
 
 func (o OrganizationResourcePropertiesOfferDetailPtrOutput) Elem() OrganizationResourcePropertiesOfferDetailOutput {
 	return o.ApplyT(func(v *OrganizationResourcePropertiesOfferDetail) OrganizationResourcePropertiesOfferDetail {
-		return *v
+		if v != nil {
+			return *v
+		}
+		var ret OrganizationResourcePropertiesOfferDetail
+		return ret
 	}).(OrganizationResourcePropertiesOfferDetailOutput)
 }
 
-// Offer Id
 func (o OrganizationResourcePropertiesOfferDetailPtrOutput) Id() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *OrganizationResourcePropertiesOfferDetail) *string {
 		if v == nil {
@@ -182,7 +167,6 @@ func (o OrganizationResourcePropertiesOfferDetailPtrOutput) Id() pulumi.StringPt
 	}).(pulumi.StringPtrOutput)
 }
 
-// Offer Plan Id
 func (o OrganizationResourcePropertiesOfferDetailPtrOutput) PlanId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *OrganizationResourcePropertiesOfferDetail) *string {
 		if v == nil {
@@ -192,7 +176,6 @@ func (o OrganizationResourcePropertiesOfferDetailPtrOutput) PlanId() pulumi.Stri
 	}).(pulumi.StringPtrOutput)
 }
 
-// Offer Plan Name
 func (o OrganizationResourcePropertiesOfferDetailPtrOutput) PlanName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *OrganizationResourcePropertiesOfferDetail) *string {
 		if v == nil {
@@ -202,7 +185,6 @@ func (o OrganizationResourcePropertiesOfferDetailPtrOutput) PlanName() pulumi.St
 	}).(pulumi.StringPtrOutput)
 }
 
-// Publisher Id
 func (o OrganizationResourcePropertiesOfferDetailPtrOutput) PublisherId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *OrganizationResourcePropertiesOfferDetail) *string {
 		if v == nil {
@@ -212,7 +194,6 @@ func (o OrganizationResourcePropertiesOfferDetailPtrOutput) PublisherId() pulumi
 	}).(pulumi.StringPtrOutput)
 }
 
-// Offer Plan Term unit
 func (o OrganizationResourcePropertiesOfferDetailPtrOutput) TermUnit() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *OrganizationResourcePropertiesOfferDetail) *string {
 		if v == nil {
@@ -222,20 +203,13 @@ func (o OrganizationResourcePropertiesOfferDetailPtrOutput) TermUnit() pulumi.St
 	}).(pulumi.StringPtrOutput)
 }
 
-// Confluent offer detail
 type OrganizationResourcePropertiesResponseOfferDetail struct {
-	// Offer Id
-	Id *string `pulumi:"id"`
-	// Offer Plan Id
-	PlanId *string `pulumi:"planId"`
-	// Offer Plan Name
-	PlanName *string `pulumi:"planName"`
-	// Publisher Id
+	Id          *string `pulumi:"id"`
+	PlanId      *string `pulumi:"planId"`
+	PlanName    *string `pulumi:"planName"`
 	PublisherId *string `pulumi:"publisherId"`
-	// SaaS Offer Status
-	Status string `pulumi:"status"`
-	// Offer Plan Term unit
-	TermUnit *string `pulumi:"termUnit"`
+	Status      string  `pulumi:"status"`
+	TermUnit    *string `pulumi:"termUnit"`
 }
 
 // OrganizationResourcePropertiesResponseOfferDetailInput is an input type that accepts OrganizationResourcePropertiesResponseOfferDetailArgs and OrganizationResourcePropertiesResponseOfferDetailOutput values.
@@ -249,20 +223,13 @@ type OrganizationResourcePropertiesResponseOfferDetailInput interface {
 	ToOrganizationResourcePropertiesResponseOfferDetailOutputWithContext(context.Context) OrganizationResourcePropertiesResponseOfferDetailOutput
 }
 
-// Confluent offer detail
 type OrganizationResourcePropertiesResponseOfferDetailArgs struct {
-	// Offer Id
-	Id pulumi.StringPtrInput `pulumi:"id"`
-	// Offer Plan Id
-	PlanId pulumi.StringPtrInput `pulumi:"planId"`
-	// Offer Plan Name
-	PlanName pulumi.StringPtrInput `pulumi:"planName"`
-	// Publisher Id
+	Id          pulumi.StringPtrInput `pulumi:"id"`
+	PlanId      pulumi.StringPtrInput `pulumi:"planId"`
+	PlanName    pulumi.StringPtrInput `pulumi:"planName"`
 	PublisherId pulumi.StringPtrInput `pulumi:"publisherId"`
-	// SaaS Offer Status
-	Status pulumi.StringInput `pulumi:"status"`
-	// Offer Plan Term unit
-	TermUnit pulumi.StringPtrInput `pulumi:"termUnit"`
+	Status      pulumi.StringInput    `pulumi:"status"`
+	TermUnit    pulumi.StringPtrInput `pulumi:"termUnit"`
 }
 
 func (OrganizationResourcePropertiesResponseOfferDetailArgs) ElementType() reflect.Type {
@@ -318,7 +285,6 @@ func (i *organizationResourcePropertiesResponseOfferDetailPtrType) ToOrganizatio
 	return pulumi.ToOutputWithContext(ctx, i).(OrganizationResourcePropertiesResponseOfferDetailPtrOutput)
 }
 
-// Confluent offer detail
 type OrganizationResourcePropertiesResponseOfferDetailOutput struct{ *pulumi.OutputState }
 
 func (OrganizationResourcePropertiesResponseOfferDetailOutput) ElementType() reflect.Type {
@@ -338,37 +304,31 @@ func (o OrganizationResourcePropertiesResponseOfferDetailOutput) ToOrganizationR
 }
 
 func (o OrganizationResourcePropertiesResponseOfferDetailOutput) ToOrganizationResourcePropertiesResponseOfferDetailPtrOutputWithContext(ctx context.Context) OrganizationResourcePropertiesResponseOfferDetailPtrOutput {
-	return o.ApplyT(func(v OrganizationResourcePropertiesResponseOfferDetail) *OrganizationResourcePropertiesResponseOfferDetail {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v OrganizationResourcePropertiesResponseOfferDetail) *OrganizationResourcePropertiesResponseOfferDetail {
 		return &v
 	}).(OrganizationResourcePropertiesResponseOfferDetailPtrOutput)
 }
 
-// Offer Id
 func (o OrganizationResourcePropertiesResponseOfferDetailOutput) Id() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v OrganizationResourcePropertiesResponseOfferDetail) *string { return v.Id }).(pulumi.StringPtrOutput)
 }
 
-// Offer Plan Id
 func (o OrganizationResourcePropertiesResponseOfferDetailOutput) PlanId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v OrganizationResourcePropertiesResponseOfferDetail) *string { return v.PlanId }).(pulumi.StringPtrOutput)
 }
 
-// Offer Plan Name
 func (o OrganizationResourcePropertiesResponseOfferDetailOutput) PlanName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v OrganizationResourcePropertiesResponseOfferDetail) *string { return v.PlanName }).(pulumi.StringPtrOutput)
 }
 
-// Publisher Id
 func (o OrganizationResourcePropertiesResponseOfferDetailOutput) PublisherId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v OrganizationResourcePropertiesResponseOfferDetail) *string { return v.PublisherId }).(pulumi.StringPtrOutput)
 }
 
-// SaaS Offer Status
 func (o OrganizationResourcePropertiesResponseOfferDetailOutput) Status() pulumi.StringOutput {
 	return o.ApplyT(func(v OrganizationResourcePropertiesResponseOfferDetail) string { return v.Status }).(pulumi.StringOutput)
 }
 
-// Offer Plan Term unit
 func (o OrganizationResourcePropertiesResponseOfferDetailOutput) TermUnit() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v OrganizationResourcePropertiesResponseOfferDetail) *string { return v.TermUnit }).(pulumi.StringPtrOutput)
 }
@@ -389,11 +349,14 @@ func (o OrganizationResourcePropertiesResponseOfferDetailPtrOutput) ToOrganizati
 
 func (o OrganizationResourcePropertiesResponseOfferDetailPtrOutput) Elem() OrganizationResourcePropertiesResponseOfferDetailOutput {
 	return o.ApplyT(func(v *OrganizationResourcePropertiesResponseOfferDetail) OrganizationResourcePropertiesResponseOfferDetail {
-		return *v
+		if v != nil {
+			return *v
+		}
+		var ret OrganizationResourcePropertiesResponseOfferDetail
+		return ret
 	}).(OrganizationResourcePropertiesResponseOfferDetailOutput)
 }
 
-// Offer Id
 func (o OrganizationResourcePropertiesResponseOfferDetailPtrOutput) Id() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *OrganizationResourcePropertiesResponseOfferDetail) *string {
 		if v == nil {
@@ -403,7 +366,6 @@ func (o OrganizationResourcePropertiesResponseOfferDetailPtrOutput) Id() pulumi.
 	}).(pulumi.StringPtrOutput)
 }
 
-// Offer Plan Id
 func (o OrganizationResourcePropertiesResponseOfferDetailPtrOutput) PlanId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *OrganizationResourcePropertiesResponseOfferDetail) *string {
 		if v == nil {
@@ -413,7 +375,6 @@ func (o OrganizationResourcePropertiesResponseOfferDetailPtrOutput) PlanId() pul
 	}).(pulumi.StringPtrOutput)
 }
 
-// Offer Plan Name
 func (o OrganizationResourcePropertiesResponseOfferDetailPtrOutput) PlanName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *OrganizationResourcePropertiesResponseOfferDetail) *string {
 		if v == nil {
@@ -423,7 +384,6 @@ func (o OrganizationResourcePropertiesResponseOfferDetailPtrOutput) PlanName() p
 	}).(pulumi.StringPtrOutput)
 }
 
-// Publisher Id
 func (o OrganizationResourcePropertiesResponseOfferDetailPtrOutput) PublisherId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *OrganizationResourcePropertiesResponseOfferDetail) *string {
 		if v == nil {
@@ -433,7 +393,6 @@ func (o OrganizationResourcePropertiesResponseOfferDetailPtrOutput) PublisherId(
 	}).(pulumi.StringPtrOutput)
 }
 
-// SaaS Offer Status
 func (o OrganizationResourcePropertiesResponseOfferDetailPtrOutput) Status() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *OrganizationResourcePropertiesResponseOfferDetail) *string {
 		if v == nil {
@@ -443,7 +402,6 @@ func (o OrganizationResourcePropertiesResponseOfferDetailPtrOutput) Status() pul
 	}).(pulumi.StringPtrOutput)
 }
 
-// Offer Plan Term unit
 func (o OrganizationResourcePropertiesResponseOfferDetailPtrOutput) TermUnit() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *OrganizationResourcePropertiesResponseOfferDetail) *string {
 		if v == nil {
@@ -453,14 +411,10 @@ func (o OrganizationResourcePropertiesResponseOfferDetailPtrOutput) TermUnit() p
 	}).(pulumi.StringPtrOutput)
 }
 
-// Subscriber detail
 type OrganizationResourcePropertiesResponseUserDetail struct {
-	// Email address
 	EmailAddress *string `pulumi:"emailAddress"`
-	// First name
-	FirstName *string `pulumi:"firstName"`
-	// Last name
-	LastName *string `pulumi:"lastName"`
+	FirstName    *string `pulumi:"firstName"`
+	LastName     *string `pulumi:"lastName"`
 }
 
 // OrganizationResourcePropertiesResponseUserDetailInput is an input type that accepts OrganizationResourcePropertiesResponseUserDetailArgs and OrganizationResourcePropertiesResponseUserDetailOutput values.
@@ -474,14 +428,10 @@ type OrganizationResourcePropertiesResponseUserDetailInput interface {
 	ToOrganizationResourcePropertiesResponseUserDetailOutputWithContext(context.Context) OrganizationResourcePropertiesResponseUserDetailOutput
 }
 
-// Subscriber detail
 type OrganizationResourcePropertiesResponseUserDetailArgs struct {
-	// Email address
 	EmailAddress pulumi.StringPtrInput `pulumi:"emailAddress"`
-	// First name
-	FirstName pulumi.StringPtrInput `pulumi:"firstName"`
-	// Last name
-	LastName pulumi.StringPtrInput `pulumi:"lastName"`
+	FirstName    pulumi.StringPtrInput `pulumi:"firstName"`
+	LastName     pulumi.StringPtrInput `pulumi:"lastName"`
 }
 
 func (OrganizationResourcePropertiesResponseUserDetailArgs) ElementType() reflect.Type {
@@ -537,7 +487,6 @@ func (i *organizationResourcePropertiesResponseUserDetailPtrType) ToOrganization
 	return pulumi.ToOutputWithContext(ctx, i).(OrganizationResourcePropertiesResponseUserDetailPtrOutput)
 }
 
-// Subscriber detail
 type OrganizationResourcePropertiesResponseUserDetailOutput struct{ *pulumi.OutputState }
 
 func (OrganizationResourcePropertiesResponseUserDetailOutput) ElementType() reflect.Type {
@@ -557,22 +506,19 @@ func (o OrganizationResourcePropertiesResponseUserDetailOutput) ToOrganizationRe
 }
 
 func (o OrganizationResourcePropertiesResponseUserDetailOutput) ToOrganizationResourcePropertiesResponseUserDetailPtrOutputWithContext(ctx context.Context) OrganizationResourcePropertiesResponseUserDetailPtrOutput {
-	return o.ApplyT(func(v OrganizationResourcePropertiesResponseUserDetail) *OrganizationResourcePropertiesResponseUserDetail {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v OrganizationResourcePropertiesResponseUserDetail) *OrganizationResourcePropertiesResponseUserDetail {
 		return &v
 	}).(OrganizationResourcePropertiesResponseUserDetailPtrOutput)
 }
 
-// Email address
 func (o OrganizationResourcePropertiesResponseUserDetailOutput) EmailAddress() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v OrganizationResourcePropertiesResponseUserDetail) *string { return v.EmailAddress }).(pulumi.StringPtrOutput)
 }
 
-// First name
 func (o OrganizationResourcePropertiesResponseUserDetailOutput) FirstName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v OrganizationResourcePropertiesResponseUserDetail) *string { return v.FirstName }).(pulumi.StringPtrOutput)
 }
 
-// Last name
 func (o OrganizationResourcePropertiesResponseUserDetailOutput) LastName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v OrganizationResourcePropertiesResponseUserDetail) *string { return v.LastName }).(pulumi.StringPtrOutput)
 }
@@ -593,11 +539,14 @@ func (o OrganizationResourcePropertiesResponseUserDetailPtrOutput) ToOrganizatio
 
 func (o OrganizationResourcePropertiesResponseUserDetailPtrOutput) Elem() OrganizationResourcePropertiesResponseUserDetailOutput {
 	return o.ApplyT(func(v *OrganizationResourcePropertiesResponseUserDetail) OrganizationResourcePropertiesResponseUserDetail {
-		return *v
+		if v != nil {
+			return *v
+		}
+		var ret OrganizationResourcePropertiesResponseUserDetail
+		return ret
 	}).(OrganizationResourcePropertiesResponseUserDetailOutput)
 }
 
-// Email address
 func (o OrganizationResourcePropertiesResponseUserDetailPtrOutput) EmailAddress() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *OrganizationResourcePropertiesResponseUserDetail) *string {
 		if v == nil {
@@ -607,7 +556,6 @@ func (o OrganizationResourcePropertiesResponseUserDetailPtrOutput) EmailAddress(
 	}).(pulumi.StringPtrOutput)
 }
 
-// First name
 func (o OrganizationResourcePropertiesResponseUserDetailPtrOutput) FirstName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *OrganizationResourcePropertiesResponseUserDetail) *string {
 		if v == nil {
@@ -617,7 +565,6 @@ func (o OrganizationResourcePropertiesResponseUserDetailPtrOutput) FirstName() p
 	}).(pulumi.StringPtrOutput)
 }
 
-// Last name
 func (o OrganizationResourcePropertiesResponseUserDetailPtrOutput) LastName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *OrganizationResourcePropertiesResponseUserDetail) *string {
 		if v == nil {
@@ -627,14 +574,10 @@ func (o OrganizationResourcePropertiesResponseUserDetailPtrOutput) LastName() pu
 	}).(pulumi.StringPtrOutput)
 }
 
-// Subscriber detail
 type OrganizationResourcePropertiesUserDetail struct {
-	// Email address
 	EmailAddress *string `pulumi:"emailAddress"`
-	// First name
-	FirstName *string `pulumi:"firstName"`
-	// Last name
-	LastName *string `pulumi:"lastName"`
+	FirstName    *string `pulumi:"firstName"`
+	LastName     *string `pulumi:"lastName"`
 }
 
 // OrganizationResourcePropertiesUserDetailInput is an input type that accepts OrganizationResourcePropertiesUserDetailArgs and OrganizationResourcePropertiesUserDetailOutput values.
@@ -648,14 +591,10 @@ type OrganizationResourcePropertiesUserDetailInput interface {
 	ToOrganizationResourcePropertiesUserDetailOutputWithContext(context.Context) OrganizationResourcePropertiesUserDetailOutput
 }
 
-// Subscriber detail
 type OrganizationResourcePropertiesUserDetailArgs struct {
-	// Email address
 	EmailAddress pulumi.StringPtrInput `pulumi:"emailAddress"`
-	// First name
-	FirstName pulumi.StringPtrInput `pulumi:"firstName"`
-	// Last name
-	LastName pulumi.StringPtrInput `pulumi:"lastName"`
+	FirstName    pulumi.StringPtrInput `pulumi:"firstName"`
+	LastName     pulumi.StringPtrInput `pulumi:"lastName"`
 }
 
 func (OrganizationResourcePropertiesUserDetailArgs) ElementType() reflect.Type {
@@ -711,7 +650,6 @@ func (i *organizationResourcePropertiesUserDetailPtrType) ToOrganizationResource
 	return pulumi.ToOutputWithContext(ctx, i).(OrganizationResourcePropertiesUserDetailPtrOutput)
 }
 
-// Subscriber detail
 type OrganizationResourcePropertiesUserDetailOutput struct{ *pulumi.OutputState }
 
 func (OrganizationResourcePropertiesUserDetailOutput) ElementType() reflect.Type {
@@ -731,22 +669,19 @@ func (o OrganizationResourcePropertiesUserDetailOutput) ToOrganizationResourcePr
 }
 
 func (o OrganizationResourcePropertiesUserDetailOutput) ToOrganizationResourcePropertiesUserDetailPtrOutputWithContext(ctx context.Context) OrganizationResourcePropertiesUserDetailPtrOutput {
-	return o.ApplyT(func(v OrganizationResourcePropertiesUserDetail) *OrganizationResourcePropertiesUserDetail {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v OrganizationResourcePropertiesUserDetail) *OrganizationResourcePropertiesUserDetail {
 		return &v
 	}).(OrganizationResourcePropertiesUserDetailPtrOutput)
 }
 
-// Email address
 func (o OrganizationResourcePropertiesUserDetailOutput) EmailAddress() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v OrganizationResourcePropertiesUserDetail) *string { return v.EmailAddress }).(pulumi.StringPtrOutput)
 }
 
-// First name
 func (o OrganizationResourcePropertiesUserDetailOutput) FirstName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v OrganizationResourcePropertiesUserDetail) *string { return v.FirstName }).(pulumi.StringPtrOutput)
 }
 
-// Last name
 func (o OrganizationResourcePropertiesUserDetailOutput) LastName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v OrganizationResourcePropertiesUserDetail) *string { return v.LastName }).(pulumi.StringPtrOutput)
 }
@@ -766,10 +701,15 @@ func (o OrganizationResourcePropertiesUserDetailPtrOutput) ToOrganizationResourc
 }
 
 func (o OrganizationResourcePropertiesUserDetailPtrOutput) Elem() OrganizationResourcePropertiesUserDetailOutput {
-	return o.ApplyT(func(v *OrganizationResourcePropertiesUserDetail) OrganizationResourcePropertiesUserDetail { return *v }).(OrganizationResourcePropertiesUserDetailOutput)
+	return o.ApplyT(func(v *OrganizationResourcePropertiesUserDetail) OrganizationResourcePropertiesUserDetail {
+		if v != nil {
+			return *v
+		}
+		var ret OrganizationResourcePropertiesUserDetail
+		return ret
+	}).(OrganizationResourcePropertiesUserDetailOutput)
 }
 
-// Email address
 func (o OrganizationResourcePropertiesUserDetailPtrOutput) EmailAddress() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *OrganizationResourcePropertiesUserDetail) *string {
 		if v == nil {
@@ -779,7 +719,6 @@ func (o OrganizationResourcePropertiesUserDetailPtrOutput) EmailAddress() pulumi
 	}).(pulumi.StringPtrOutput)
 }
 
-// First name
 func (o OrganizationResourcePropertiesUserDetailPtrOutput) FirstName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *OrganizationResourcePropertiesUserDetail) *string {
 		if v == nil {
@@ -789,7 +728,6 @@ func (o OrganizationResourcePropertiesUserDetailPtrOutput) FirstName() pulumi.St
 	}).(pulumi.StringPtrOutput)
 }
 
-// Last name
 func (o OrganizationResourcePropertiesUserDetailPtrOutput) LastName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *OrganizationResourcePropertiesUserDetail) *string {
 		if v == nil {

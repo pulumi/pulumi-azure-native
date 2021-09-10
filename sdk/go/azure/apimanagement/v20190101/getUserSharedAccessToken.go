@@ -7,7 +7,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Get User Token response details.
 func GetUserSharedAccessToken(ctx *pulumi.Context, args *GetUserSharedAccessTokenArgs, opts ...pulumi.InvokeOption) (*GetUserSharedAccessTokenResult, error) {
 	var rv GetUserSharedAccessTokenResult
 	err := ctx.Invoke("azure-native:apimanagement/v20190101:getUserSharedAccessToken", args, &rv, opts...)
@@ -18,20 +17,14 @@ func GetUserSharedAccessToken(ctx *pulumi.Context, args *GetUserSharedAccessToke
 }
 
 type GetUserSharedAccessTokenArgs struct {
-	// The Expiry time of the Token. Maximum token expiry time is set to 30 days. The date conforms to the following format: `yyyy-MM-ddTHH:mm:ssZ` as specified by the ISO 8601 standard.
-	Expiry string `pulumi:"expiry"`
-	// The Key to be used to generate token for user.
-	KeyType string `pulumi:"keyType"`
-	// The name of the resource group.
-	ResourceGroupName string `pulumi:"resourceGroupName"`
-	// The name of the API Management service.
-	ServiceName string `pulumi:"serviceName"`
-	// User identifier. Must be unique in the current API Management service instance.
-	UserId string `pulumi:"userId"`
+	Expiry            string  `pulumi:"expiry"`
+	KeyType           KeyType `pulumi:"keyType"`
+	ResourceGroupName string  `pulumi:"resourceGroupName"`
+	ServiceName       string  `pulumi:"serviceName"`
+	UserId            string  `pulumi:"userId"`
 }
 
 // Get User Token response details.
 type GetUserSharedAccessTokenResult struct {
-	// Shared Access Authorization token for the User.
 	Value *string `pulumi:"value"`
 }

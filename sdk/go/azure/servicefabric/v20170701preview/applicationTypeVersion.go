@@ -11,22 +11,15 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// An application type version resource for the specified application type name resource.
 type ApplicationTypeVersion struct {
 	pulumi.CustomResourceState
 
-	// The URL to the application package
-	AppPackageUrl pulumi.StringOutput `pulumi:"appPackageUrl"`
-	// List of application type parameters that can be overridden when creating or updating the application.
+	AppPackageUrl        pulumi.StringOutput    `pulumi:"appPackageUrl"`
 	DefaultParameterList pulumi.StringMapOutput `pulumi:"defaultParameterList"`
-	// Azure resource location.
-	Location pulumi.StringPtrOutput `pulumi:"location"`
-	// Azure resource name.
-	Name pulumi.StringOutput `pulumi:"name"`
-	// The current deployment or provisioning state, which only appears in the response
-	ProvisioningState pulumi.StringOutput `pulumi:"provisioningState"`
-	// Azure resource type.
-	Type pulumi.StringOutput `pulumi:"type"`
+	Location             pulumi.StringPtrOutput `pulumi:"location"`
+	Name                 pulumi.StringOutput    `pulumi:"name"`
+	ProvisioningState    pulumi.StringOutput    `pulumi:"provisioningState"`
+	Type                 pulumi.StringOutput    `pulumi:"type"`
 }
 
 // NewApplicationTypeVersion registers a new resource with the given unique name, arguments, and options.
@@ -134,34 +127,22 @@ func (ApplicationTypeVersionState) ElementType() reflect.Type {
 }
 
 type applicationTypeVersionArgs struct {
-	// The URL to the application package
-	AppPackageUrl string `pulumi:"appPackageUrl"`
-	// The name of the application type name resource.
-	ApplicationTypeName string `pulumi:"applicationTypeName"`
-	// The name of the cluster resource.
-	ClusterName string `pulumi:"clusterName"`
-	// Azure resource location.
-	Location *string `pulumi:"location"`
-	// The name of the resource group.
-	ResourceGroupName string `pulumi:"resourceGroupName"`
-	// The application type version.
-	Version *string `pulumi:"version"`
+	AppPackageUrl       string  `pulumi:"appPackageUrl"`
+	ApplicationTypeName string  `pulumi:"applicationTypeName"`
+	ClusterName         string  `pulumi:"clusterName"`
+	Location            *string `pulumi:"location"`
+	ResourceGroupName   string  `pulumi:"resourceGroupName"`
+	Version             *string `pulumi:"version"`
 }
 
 // The set of arguments for constructing a ApplicationTypeVersion resource.
 type ApplicationTypeVersionArgs struct {
-	// The URL to the application package
-	AppPackageUrl pulumi.StringInput
-	// The name of the application type name resource.
+	AppPackageUrl       pulumi.StringInput
 	ApplicationTypeName pulumi.StringInput
-	// The name of the cluster resource.
-	ClusterName pulumi.StringInput
-	// Azure resource location.
-	Location pulumi.StringPtrInput
-	// The name of the resource group.
-	ResourceGroupName pulumi.StringInput
-	// The application type version.
-	Version pulumi.StringPtrInput
+	ClusterName         pulumi.StringInput
+	Location            pulumi.StringPtrInput
+	ResourceGroupName   pulumi.StringInput
+	Version             pulumi.StringPtrInput
 }
 
 func (ApplicationTypeVersionArgs) ElementType() reflect.Type {
@@ -187,9 +168,7 @@ func (i *ApplicationTypeVersion) ToApplicationTypeVersionOutputWithContext(ctx c
 	return pulumi.ToOutputWithContext(ctx, i).(ApplicationTypeVersionOutput)
 }
 
-type ApplicationTypeVersionOutput struct {
-	*pulumi.OutputState
-}
+type ApplicationTypeVersionOutput struct{ *pulumi.OutputState }
 
 func (ApplicationTypeVersionOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*ApplicationTypeVersion)(nil))

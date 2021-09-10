@@ -11,26 +11,17 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Machine Learning service object wrapped into ARM resource envelope.
-//
 // Deprecated: Please use one of the variants: ACIService, AKSService, EndpointVariant.
 type MachineLearningService struct {
 	pulumi.CustomResourceState
 
-	// The identity of the resource.
-	Identity IdentityResponsePtrOutput `pulumi:"identity"`
-	// Specifies the location of the resource.
-	Location pulumi.StringPtrOutput `pulumi:"location"`
-	// Specifies the name of the resource.
-	Name pulumi.StringOutput `pulumi:"name"`
-	// Service properties
-	Properties pulumi.AnyOutput `pulumi:"properties"`
-	// The sku of the workspace.
-	Sku SkuResponsePtrOutput `pulumi:"sku"`
-	// Contains resource tags defined as key/value pairs.
-	Tags pulumi.StringMapOutput `pulumi:"tags"`
-	// Specifies the type of the resource.
-	Type pulumi.StringOutput `pulumi:"type"`
+	Identity   IdentityResponsePtrOutput `pulumi:"identity"`
+	Location   pulumi.StringPtrOutput    `pulumi:"location"`
+	Name       pulumi.StringOutput       `pulumi:"name"`
+	Properties pulumi.AnyOutput          `pulumi:"properties"`
+	Sku        SkuResponsePtrOutput      `pulumi:"sku"`
+	Tags       pulumi.StringMapOutput    `pulumi:"tags"`
+	Type       pulumi.StringOutput       `pulumi:"type"`
 }
 
 // NewMachineLearningService registers a new resource with the given unique name, arguments, and options.
@@ -117,50 +108,30 @@ func (MachineLearningServiceState) ElementType() reflect.Type {
 }
 
 type machineLearningServiceArgs struct {
-	// The compute environment type for the service.
-	ComputeType string `pulumi:"computeType"`
-	// The description of the service.
-	Description *string `pulumi:"description"`
-	// The Environment, models and assets needed for inferencing.
+	ComputeType             string                                       `pulumi:"computeType"`
+	Description             *string                                      `pulumi:"description"`
 	EnvironmentImageRequest *CreateServiceRequestEnvironmentImageRequest `pulumi:"environmentImageRequest"`
-	// The authentication keys.
-	Keys *CreateServiceRequestKeys `pulumi:"keys"`
-	// The service tag dictionary. Tags are mutable.
-	KvTags map[string]string `pulumi:"kvTags"`
-	// The name of the Azure location/region.
-	Location *string `pulumi:"location"`
-	// The service properties dictionary. Properties are immutable.
-	Properties map[string]string `pulumi:"properties"`
-	// Name of the resource group in which workspace is located.
-	ResourceGroupName string `pulumi:"resourceGroupName"`
-	// Name of the Azure Machine Learning service.
-	ServiceName *string `pulumi:"serviceName"`
-	// Name of Azure Machine Learning workspace.
-	WorkspaceName string `pulumi:"workspaceName"`
+	Keys                    *CreateServiceRequestKeys                    `pulumi:"keys"`
+	KvTags                  map[string]string                            `pulumi:"kvTags"`
+	Location                *string                                      `pulumi:"location"`
+	Properties              map[string]string                            `pulumi:"properties"`
+	ResourceGroupName       string                                       `pulumi:"resourceGroupName"`
+	ServiceName             *string                                      `pulumi:"serviceName"`
+	WorkspaceName           string                                       `pulumi:"workspaceName"`
 }
 
 // The set of arguments for constructing a MachineLearningService resource.
 type MachineLearningServiceArgs struct {
-	// The compute environment type for the service.
-	ComputeType pulumi.StringInput
-	// The description of the service.
-	Description pulumi.StringPtrInput
-	// The Environment, models and assets needed for inferencing.
+	ComputeType             pulumi.StringInput
+	Description             pulumi.StringPtrInput
 	EnvironmentImageRequest CreateServiceRequestEnvironmentImageRequestPtrInput
-	// The authentication keys.
-	Keys CreateServiceRequestKeysPtrInput
-	// The service tag dictionary. Tags are mutable.
-	KvTags pulumi.StringMapInput
-	// The name of the Azure location/region.
-	Location pulumi.StringPtrInput
-	// The service properties dictionary. Properties are immutable.
-	Properties pulumi.StringMapInput
-	// Name of the resource group in which workspace is located.
-	ResourceGroupName pulumi.StringInput
-	// Name of the Azure Machine Learning service.
-	ServiceName pulumi.StringPtrInput
-	// Name of Azure Machine Learning workspace.
-	WorkspaceName pulumi.StringInput
+	Keys                    CreateServiceRequestKeysPtrInput
+	KvTags                  pulumi.StringMapInput
+	Location                pulumi.StringPtrInput
+	Properties              pulumi.StringMapInput
+	ResourceGroupName       pulumi.StringInput
+	ServiceName             pulumi.StringPtrInput
+	WorkspaceName           pulumi.StringInput
 }
 
 func (MachineLearningServiceArgs) ElementType() reflect.Type {
@@ -186,9 +157,7 @@ func (i *MachineLearningService) ToMachineLearningServiceOutputWithContext(ctx c
 	return pulumi.ToOutputWithContext(ctx, i).(MachineLearningServiceOutput)
 }
 
-type MachineLearningServiceOutput struct {
-	*pulumi.OutputState
-}
+type MachineLearningServiceOutput struct{ *pulumi.OutputState }
 
 func (MachineLearningServiceOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*MachineLearningService)(nil))

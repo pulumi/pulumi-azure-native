@@ -10,9 +10,7 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Describes a cloud service extension profile.
 type CloudServiceExtensionProfile struct {
-	// List of extensions for the cloud service.
 	Extensions []Extension `pulumi:"extensions"`
 }
 
@@ -27,9 +25,7 @@ type CloudServiceExtensionProfileInput interface {
 	ToCloudServiceExtensionProfileOutputWithContext(context.Context) CloudServiceExtensionProfileOutput
 }
 
-// Describes a cloud service extension profile.
 type CloudServiceExtensionProfileArgs struct {
-	// List of extensions for the cloud service.
 	Extensions ExtensionArrayInput `pulumi:"extensions"`
 }
 
@@ -86,7 +82,6 @@ func (i *cloudServiceExtensionProfilePtrType) ToCloudServiceExtensionProfilePtrO
 	return pulumi.ToOutputWithContext(ctx, i).(CloudServiceExtensionProfilePtrOutput)
 }
 
-// Describes a cloud service extension profile.
 type CloudServiceExtensionProfileOutput struct{ *pulumi.OutputState }
 
 func (CloudServiceExtensionProfileOutput) ElementType() reflect.Type {
@@ -106,12 +101,11 @@ func (o CloudServiceExtensionProfileOutput) ToCloudServiceExtensionProfilePtrOut
 }
 
 func (o CloudServiceExtensionProfileOutput) ToCloudServiceExtensionProfilePtrOutputWithContext(ctx context.Context) CloudServiceExtensionProfilePtrOutput {
-	return o.ApplyT(func(v CloudServiceExtensionProfile) *CloudServiceExtensionProfile {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v CloudServiceExtensionProfile) *CloudServiceExtensionProfile {
 		return &v
 	}).(CloudServiceExtensionProfilePtrOutput)
 }
 
-// List of extensions for the cloud service.
 func (o CloudServiceExtensionProfileOutput) Extensions() ExtensionArrayOutput {
 	return o.ApplyT(func(v CloudServiceExtensionProfile) []Extension { return v.Extensions }).(ExtensionArrayOutput)
 }
@@ -131,10 +125,15 @@ func (o CloudServiceExtensionProfilePtrOutput) ToCloudServiceExtensionProfilePtr
 }
 
 func (o CloudServiceExtensionProfilePtrOutput) Elem() CloudServiceExtensionProfileOutput {
-	return o.ApplyT(func(v *CloudServiceExtensionProfile) CloudServiceExtensionProfile { return *v }).(CloudServiceExtensionProfileOutput)
+	return o.ApplyT(func(v *CloudServiceExtensionProfile) CloudServiceExtensionProfile {
+		if v != nil {
+			return *v
+		}
+		var ret CloudServiceExtensionProfile
+		return ret
+	}).(CloudServiceExtensionProfileOutput)
 }
 
-// List of extensions for the cloud service.
 func (o CloudServiceExtensionProfilePtrOutput) Extensions() ExtensionArrayOutput {
 	return o.ApplyT(func(v *CloudServiceExtensionProfile) []Extension {
 		if v == nil {
@@ -144,9 +143,7 @@ func (o CloudServiceExtensionProfilePtrOutput) Extensions() ExtensionArrayOutput
 	}).(ExtensionArrayOutput)
 }
 
-// Describes a cloud service extension profile.
 type CloudServiceExtensionProfileResponse struct {
-	// List of extensions for the cloud service.
 	Extensions []ExtensionResponse `pulumi:"extensions"`
 }
 
@@ -161,9 +158,7 @@ type CloudServiceExtensionProfileResponseInput interface {
 	ToCloudServiceExtensionProfileResponseOutputWithContext(context.Context) CloudServiceExtensionProfileResponseOutput
 }
 
-// Describes a cloud service extension profile.
 type CloudServiceExtensionProfileResponseArgs struct {
-	// List of extensions for the cloud service.
 	Extensions ExtensionResponseArrayInput `pulumi:"extensions"`
 }
 
@@ -220,7 +215,6 @@ func (i *cloudServiceExtensionProfileResponsePtrType) ToCloudServiceExtensionPro
 	return pulumi.ToOutputWithContext(ctx, i).(CloudServiceExtensionProfileResponsePtrOutput)
 }
 
-// Describes a cloud service extension profile.
 type CloudServiceExtensionProfileResponseOutput struct{ *pulumi.OutputState }
 
 func (CloudServiceExtensionProfileResponseOutput) ElementType() reflect.Type {
@@ -240,12 +234,11 @@ func (o CloudServiceExtensionProfileResponseOutput) ToCloudServiceExtensionProfi
 }
 
 func (o CloudServiceExtensionProfileResponseOutput) ToCloudServiceExtensionProfileResponsePtrOutputWithContext(ctx context.Context) CloudServiceExtensionProfileResponsePtrOutput {
-	return o.ApplyT(func(v CloudServiceExtensionProfileResponse) *CloudServiceExtensionProfileResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v CloudServiceExtensionProfileResponse) *CloudServiceExtensionProfileResponse {
 		return &v
 	}).(CloudServiceExtensionProfileResponsePtrOutput)
 }
 
-// List of extensions for the cloud service.
 func (o CloudServiceExtensionProfileResponseOutput) Extensions() ExtensionResponseArrayOutput {
 	return o.ApplyT(func(v CloudServiceExtensionProfileResponse) []ExtensionResponse { return v.Extensions }).(ExtensionResponseArrayOutput)
 }
@@ -265,10 +258,15 @@ func (o CloudServiceExtensionProfileResponsePtrOutput) ToCloudServiceExtensionPr
 }
 
 func (o CloudServiceExtensionProfileResponsePtrOutput) Elem() CloudServiceExtensionProfileResponseOutput {
-	return o.ApplyT(func(v *CloudServiceExtensionProfileResponse) CloudServiceExtensionProfileResponse { return *v }).(CloudServiceExtensionProfileResponseOutput)
+	return o.ApplyT(func(v *CloudServiceExtensionProfileResponse) CloudServiceExtensionProfileResponse {
+		if v != nil {
+			return *v
+		}
+		var ret CloudServiceExtensionProfileResponse
+		return ret
+	}).(CloudServiceExtensionProfileResponseOutput)
 }
 
-// List of extensions for the cloud service.
 func (o CloudServiceExtensionProfileResponsePtrOutput) Extensions() ExtensionResponseArrayOutput {
 	return o.ApplyT(func(v *CloudServiceExtensionProfileResponse) []ExtensionResponse {
 		if v == nil {
@@ -278,29 +276,16 @@ func (o CloudServiceExtensionProfileResponsePtrOutput) Extensions() ExtensionRes
 	}).(ExtensionResponseArrayOutput)
 }
 
-// Extension Properties.
 type CloudServiceExtensionProperties struct {
-	// Explicitly specify whether platform can automatically upgrade typeHandlerVersion to higher minor versions when they become available.
-	AutoUpgradeMinorVersion *bool `pulumi:"autoUpgradeMinorVersion"`
-	// Tag to force apply the provided public and protected settings.
-	// Changing the tag value allows for re-running the extension without changing any of the public or protected settings.
-	// If forceUpdateTag is not changed, updates to public or protected settings would still be applied by the handler.
-	// If neither forceUpdateTag nor any of public or protected settings change, extension would flow to the role instance with the same sequence-number, and
-	// it is up to handler implementation whether to re-run it or not
-	ForceUpdateTag *string `pulumi:"forceUpdateTag"`
-	// Protected settings for the extension which are encrypted before sent to the role instance.
+	AutoUpgradeMinorVersion       *bool                                `pulumi:"autoUpgradeMinorVersion"`
+	ForceUpdateTag                *string                              `pulumi:"forceUpdateTag"`
 	ProtectedSettings             *string                              `pulumi:"protectedSettings"`
 	ProtectedSettingsFromKeyVault *CloudServiceVaultAndSecretReference `pulumi:"protectedSettingsFromKeyVault"`
-	// The name of the extension handler publisher.
-	Publisher *string `pulumi:"publisher"`
-	// Optional list of roles to apply this extension. If property is not specified or '*' is specified, extension is applied to all roles in the cloud service.
-	RolesAppliedTo []string `pulumi:"rolesAppliedTo"`
-	// Public settings for the extension. For JSON extensions, this is the JSON settings for the extension. For XML Extension (like RDP), this is the XML setting for the extension.
-	Settings *string `pulumi:"settings"`
-	// Specifies the type of the extension.
-	Type *string `pulumi:"type"`
-	// Specifies the version of the extension. Specifies the version of the extension. If this element is not specified or an asterisk (*) is used as the value, the latest version of the extension is used. If the value is specified with a major version number and an asterisk as the minor version number (X.), the latest minor version of the specified major version is selected. If a major version number and a minor version number are specified (X.Y), the specific extension version is selected. If a version is specified, an auto-upgrade is performed on the role instance.
-	TypeHandlerVersion *string `pulumi:"typeHandlerVersion"`
+	Publisher                     *string                              `pulumi:"publisher"`
+	RolesAppliedTo                []string                             `pulumi:"rolesAppliedTo"`
+	Settings                      *string                              `pulumi:"settings"`
+	Type                          *string                              `pulumi:"type"`
+	TypeHandlerVersion            *string                              `pulumi:"typeHandlerVersion"`
 }
 
 // CloudServiceExtensionPropertiesInput is an input type that accepts CloudServiceExtensionPropertiesArgs and CloudServiceExtensionPropertiesOutput values.
@@ -314,29 +299,16 @@ type CloudServiceExtensionPropertiesInput interface {
 	ToCloudServiceExtensionPropertiesOutputWithContext(context.Context) CloudServiceExtensionPropertiesOutput
 }
 
-// Extension Properties.
 type CloudServiceExtensionPropertiesArgs struct {
-	// Explicitly specify whether platform can automatically upgrade typeHandlerVersion to higher minor versions when they become available.
-	AutoUpgradeMinorVersion pulumi.BoolPtrInput `pulumi:"autoUpgradeMinorVersion"`
-	// Tag to force apply the provided public and protected settings.
-	// Changing the tag value allows for re-running the extension without changing any of the public or protected settings.
-	// If forceUpdateTag is not changed, updates to public or protected settings would still be applied by the handler.
-	// If neither forceUpdateTag nor any of public or protected settings change, extension would flow to the role instance with the same sequence-number, and
-	// it is up to handler implementation whether to re-run it or not
-	ForceUpdateTag pulumi.StringPtrInput `pulumi:"forceUpdateTag"`
-	// Protected settings for the extension which are encrypted before sent to the role instance.
+	AutoUpgradeMinorVersion       pulumi.BoolPtrInput                         `pulumi:"autoUpgradeMinorVersion"`
+	ForceUpdateTag                pulumi.StringPtrInput                       `pulumi:"forceUpdateTag"`
 	ProtectedSettings             pulumi.StringPtrInput                       `pulumi:"protectedSettings"`
 	ProtectedSettingsFromKeyVault CloudServiceVaultAndSecretReferencePtrInput `pulumi:"protectedSettingsFromKeyVault"`
-	// The name of the extension handler publisher.
-	Publisher pulumi.StringPtrInput `pulumi:"publisher"`
-	// Optional list of roles to apply this extension. If property is not specified or '*' is specified, extension is applied to all roles in the cloud service.
-	RolesAppliedTo pulumi.StringArrayInput `pulumi:"rolesAppliedTo"`
-	// Public settings for the extension. For JSON extensions, this is the JSON settings for the extension. For XML Extension (like RDP), this is the XML setting for the extension.
-	Settings pulumi.StringPtrInput `pulumi:"settings"`
-	// Specifies the type of the extension.
-	Type pulumi.StringPtrInput `pulumi:"type"`
-	// Specifies the version of the extension. Specifies the version of the extension. If this element is not specified or an asterisk (*) is used as the value, the latest version of the extension is used. If the value is specified with a major version number and an asterisk as the minor version number (X.), the latest minor version of the specified major version is selected. If a major version number and a minor version number are specified (X.Y), the specific extension version is selected. If a version is specified, an auto-upgrade is performed on the role instance.
-	TypeHandlerVersion pulumi.StringPtrInput `pulumi:"typeHandlerVersion"`
+	Publisher                     pulumi.StringPtrInput                       `pulumi:"publisher"`
+	RolesAppliedTo                pulumi.StringArrayInput                     `pulumi:"rolesAppliedTo"`
+	Settings                      pulumi.StringPtrInput                       `pulumi:"settings"`
+	Type                          pulumi.StringPtrInput                       `pulumi:"type"`
+	TypeHandlerVersion            pulumi.StringPtrInput                       `pulumi:"typeHandlerVersion"`
 }
 
 func (CloudServiceExtensionPropertiesArgs) ElementType() reflect.Type {
@@ -392,7 +364,6 @@ func (i *cloudServiceExtensionPropertiesPtrType) ToCloudServiceExtensionProperti
 	return pulumi.ToOutputWithContext(ctx, i).(CloudServiceExtensionPropertiesPtrOutput)
 }
 
-// Extension Properties.
 type CloudServiceExtensionPropertiesOutput struct{ *pulumi.OutputState }
 
 func (CloudServiceExtensionPropertiesOutput) ElementType() reflect.Type {
@@ -412,26 +383,19 @@ func (o CloudServiceExtensionPropertiesOutput) ToCloudServiceExtensionProperties
 }
 
 func (o CloudServiceExtensionPropertiesOutput) ToCloudServiceExtensionPropertiesPtrOutputWithContext(ctx context.Context) CloudServiceExtensionPropertiesPtrOutput {
-	return o.ApplyT(func(v CloudServiceExtensionProperties) *CloudServiceExtensionProperties {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v CloudServiceExtensionProperties) *CloudServiceExtensionProperties {
 		return &v
 	}).(CloudServiceExtensionPropertiesPtrOutput)
 }
 
-// Explicitly specify whether platform can automatically upgrade typeHandlerVersion to higher minor versions when they become available.
 func (o CloudServiceExtensionPropertiesOutput) AutoUpgradeMinorVersion() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v CloudServiceExtensionProperties) *bool { return v.AutoUpgradeMinorVersion }).(pulumi.BoolPtrOutput)
 }
 
-// Tag to force apply the provided public and protected settings.
-// Changing the tag value allows for re-running the extension without changing any of the public or protected settings.
-// If forceUpdateTag is not changed, updates to public or protected settings would still be applied by the handler.
-// If neither forceUpdateTag nor any of public or protected settings change, extension would flow to the role instance with the same sequence-number, and
-// it is up to handler implementation whether to re-run it or not
 func (o CloudServiceExtensionPropertiesOutput) ForceUpdateTag() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v CloudServiceExtensionProperties) *string { return v.ForceUpdateTag }).(pulumi.StringPtrOutput)
 }
 
-// Protected settings for the extension which are encrypted before sent to the role instance.
 func (o CloudServiceExtensionPropertiesOutput) ProtectedSettings() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v CloudServiceExtensionProperties) *string { return v.ProtectedSettings }).(pulumi.StringPtrOutput)
 }
@@ -442,27 +406,22 @@ func (o CloudServiceExtensionPropertiesOutput) ProtectedSettingsFromKeyVault() C
 	}).(CloudServiceVaultAndSecretReferencePtrOutput)
 }
 
-// The name of the extension handler publisher.
 func (o CloudServiceExtensionPropertiesOutput) Publisher() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v CloudServiceExtensionProperties) *string { return v.Publisher }).(pulumi.StringPtrOutput)
 }
 
-// Optional list of roles to apply this extension. If property is not specified or '*' is specified, extension is applied to all roles in the cloud service.
 func (o CloudServiceExtensionPropertiesOutput) RolesAppliedTo() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v CloudServiceExtensionProperties) []string { return v.RolesAppliedTo }).(pulumi.StringArrayOutput)
 }
 
-// Public settings for the extension. For JSON extensions, this is the JSON settings for the extension. For XML Extension (like RDP), this is the XML setting for the extension.
 func (o CloudServiceExtensionPropertiesOutput) Settings() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v CloudServiceExtensionProperties) *string { return v.Settings }).(pulumi.StringPtrOutput)
 }
 
-// Specifies the type of the extension.
 func (o CloudServiceExtensionPropertiesOutput) Type() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v CloudServiceExtensionProperties) *string { return v.Type }).(pulumi.StringPtrOutput)
 }
 
-// Specifies the version of the extension. Specifies the version of the extension. If this element is not specified or an asterisk (*) is used as the value, the latest version of the extension is used. If the value is specified with a major version number and an asterisk as the minor version number (X.), the latest minor version of the specified major version is selected. If a major version number and a minor version number are specified (X.Y), the specific extension version is selected. If a version is specified, an auto-upgrade is performed on the role instance.
 func (o CloudServiceExtensionPropertiesOutput) TypeHandlerVersion() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v CloudServiceExtensionProperties) *string { return v.TypeHandlerVersion }).(pulumi.StringPtrOutput)
 }
@@ -482,10 +441,15 @@ func (o CloudServiceExtensionPropertiesPtrOutput) ToCloudServiceExtensionPropert
 }
 
 func (o CloudServiceExtensionPropertiesPtrOutput) Elem() CloudServiceExtensionPropertiesOutput {
-	return o.ApplyT(func(v *CloudServiceExtensionProperties) CloudServiceExtensionProperties { return *v }).(CloudServiceExtensionPropertiesOutput)
+	return o.ApplyT(func(v *CloudServiceExtensionProperties) CloudServiceExtensionProperties {
+		if v != nil {
+			return *v
+		}
+		var ret CloudServiceExtensionProperties
+		return ret
+	}).(CloudServiceExtensionPropertiesOutput)
 }
 
-// Explicitly specify whether platform can automatically upgrade typeHandlerVersion to higher minor versions when they become available.
 func (o CloudServiceExtensionPropertiesPtrOutput) AutoUpgradeMinorVersion() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *CloudServiceExtensionProperties) *bool {
 		if v == nil {
@@ -495,11 +459,6 @@ func (o CloudServiceExtensionPropertiesPtrOutput) AutoUpgradeMinorVersion() pulu
 	}).(pulumi.BoolPtrOutput)
 }
 
-// Tag to force apply the provided public and protected settings.
-// Changing the tag value allows for re-running the extension without changing any of the public or protected settings.
-// If forceUpdateTag is not changed, updates to public or protected settings would still be applied by the handler.
-// If neither forceUpdateTag nor any of public or protected settings change, extension would flow to the role instance with the same sequence-number, and
-// it is up to handler implementation whether to re-run it or not
 func (o CloudServiceExtensionPropertiesPtrOutput) ForceUpdateTag() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *CloudServiceExtensionProperties) *string {
 		if v == nil {
@@ -509,7 +468,6 @@ func (o CloudServiceExtensionPropertiesPtrOutput) ForceUpdateTag() pulumi.String
 	}).(pulumi.StringPtrOutput)
 }
 
-// Protected settings for the extension which are encrypted before sent to the role instance.
 func (o CloudServiceExtensionPropertiesPtrOutput) ProtectedSettings() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *CloudServiceExtensionProperties) *string {
 		if v == nil {
@@ -528,7 +486,6 @@ func (o CloudServiceExtensionPropertiesPtrOutput) ProtectedSettingsFromKeyVault(
 	}).(CloudServiceVaultAndSecretReferencePtrOutput)
 }
 
-// The name of the extension handler publisher.
 func (o CloudServiceExtensionPropertiesPtrOutput) Publisher() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *CloudServiceExtensionProperties) *string {
 		if v == nil {
@@ -538,7 +495,6 @@ func (o CloudServiceExtensionPropertiesPtrOutput) Publisher() pulumi.StringPtrOu
 	}).(pulumi.StringPtrOutput)
 }
 
-// Optional list of roles to apply this extension. If property is not specified or '*' is specified, extension is applied to all roles in the cloud service.
 func (o CloudServiceExtensionPropertiesPtrOutput) RolesAppliedTo() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *CloudServiceExtensionProperties) []string {
 		if v == nil {
@@ -548,7 +504,6 @@ func (o CloudServiceExtensionPropertiesPtrOutput) RolesAppliedTo() pulumi.String
 	}).(pulumi.StringArrayOutput)
 }
 
-// Public settings for the extension. For JSON extensions, this is the JSON settings for the extension. For XML Extension (like RDP), this is the XML setting for the extension.
 func (o CloudServiceExtensionPropertiesPtrOutput) Settings() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *CloudServiceExtensionProperties) *string {
 		if v == nil {
@@ -558,7 +513,6 @@ func (o CloudServiceExtensionPropertiesPtrOutput) Settings() pulumi.StringPtrOut
 	}).(pulumi.StringPtrOutput)
 }
 
-// Specifies the type of the extension.
 func (o CloudServiceExtensionPropertiesPtrOutput) Type() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *CloudServiceExtensionProperties) *string {
 		if v == nil {
@@ -568,7 +522,6 @@ func (o CloudServiceExtensionPropertiesPtrOutput) Type() pulumi.StringPtrOutput 
 	}).(pulumi.StringPtrOutput)
 }
 
-// Specifies the version of the extension. Specifies the version of the extension. If this element is not specified or an asterisk (*) is used as the value, the latest version of the extension is used. If the value is specified with a major version number and an asterisk as the minor version number (X.), the latest minor version of the specified major version is selected. If a major version number and a minor version number are specified (X.Y), the specific extension version is selected. If a version is specified, an auto-upgrade is performed on the role instance.
 func (o CloudServiceExtensionPropertiesPtrOutput) TypeHandlerVersion() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *CloudServiceExtensionProperties) *string {
 		if v == nil {
@@ -578,31 +531,17 @@ func (o CloudServiceExtensionPropertiesPtrOutput) TypeHandlerVersion() pulumi.St
 	}).(pulumi.StringPtrOutput)
 }
 
-// Extension Properties.
 type CloudServiceExtensionPropertiesResponse struct {
-	// Explicitly specify whether platform can automatically upgrade typeHandlerVersion to higher minor versions when they become available.
-	AutoUpgradeMinorVersion *bool `pulumi:"autoUpgradeMinorVersion"`
-	// Tag to force apply the provided public and protected settings.
-	// Changing the tag value allows for re-running the extension without changing any of the public or protected settings.
-	// If forceUpdateTag is not changed, updates to public or protected settings would still be applied by the handler.
-	// If neither forceUpdateTag nor any of public or protected settings change, extension would flow to the role instance with the same sequence-number, and
-	// it is up to handler implementation whether to re-run it or not
-	ForceUpdateTag *string `pulumi:"forceUpdateTag"`
-	// Protected settings for the extension which are encrypted before sent to the role instance.
+	AutoUpgradeMinorVersion       *bool                                        `pulumi:"autoUpgradeMinorVersion"`
+	ForceUpdateTag                *string                                      `pulumi:"forceUpdateTag"`
 	ProtectedSettings             *string                                      `pulumi:"protectedSettings"`
 	ProtectedSettingsFromKeyVault *CloudServiceVaultAndSecretReferenceResponse `pulumi:"protectedSettingsFromKeyVault"`
-	// The provisioning state, which only appears in the response.
-	ProvisioningState string `pulumi:"provisioningState"`
-	// The name of the extension handler publisher.
-	Publisher *string `pulumi:"publisher"`
-	// Optional list of roles to apply this extension. If property is not specified or '*' is specified, extension is applied to all roles in the cloud service.
-	RolesAppliedTo []string `pulumi:"rolesAppliedTo"`
-	// Public settings for the extension. For JSON extensions, this is the JSON settings for the extension. For XML Extension (like RDP), this is the XML setting for the extension.
-	Settings *string `pulumi:"settings"`
-	// Specifies the type of the extension.
-	Type *string `pulumi:"type"`
-	// Specifies the version of the extension. Specifies the version of the extension. If this element is not specified or an asterisk (*) is used as the value, the latest version of the extension is used. If the value is specified with a major version number and an asterisk as the minor version number (X.), the latest minor version of the specified major version is selected. If a major version number and a minor version number are specified (X.Y), the specific extension version is selected. If a version is specified, an auto-upgrade is performed on the role instance.
-	TypeHandlerVersion *string `pulumi:"typeHandlerVersion"`
+	ProvisioningState             string                                       `pulumi:"provisioningState"`
+	Publisher                     *string                                      `pulumi:"publisher"`
+	RolesAppliedTo                []string                                     `pulumi:"rolesAppliedTo"`
+	Settings                      *string                                      `pulumi:"settings"`
+	Type                          *string                                      `pulumi:"type"`
+	TypeHandlerVersion            *string                                      `pulumi:"typeHandlerVersion"`
 }
 
 // CloudServiceExtensionPropertiesResponseInput is an input type that accepts CloudServiceExtensionPropertiesResponseArgs and CloudServiceExtensionPropertiesResponseOutput values.
@@ -616,31 +555,17 @@ type CloudServiceExtensionPropertiesResponseInput interface {
 	ToCloudServiceExtensionPropertiesResponseOutputWithContext(context.Context) CloudServiceExtensionPropertiesResponseOutput
 }
 
-// Extension Properties.
 type CloudServiceExtensionPropertiesResponseArgs struct {
-	// Explicitly specify whether platform can automatically upgrade typeHandlerVersion to higher minor versions when they become available.
-	AutoUpgradeMinorVersion pulumi.BoolPtrInput `pulumi:"autoUpgradeMinorVersion"`
-	// Tag to force apply the provided public and protected settings.
-	// Changing the tag value allows for re-running the extension without changing any of the public or protected settings.
-	// If forceUpdateTag is not changed, updates to public or protected settings would still be applied by the handler.
-	// If neither forceUpdateTag nor any of public or protected settings change, extension would flow to the role instance with the same sequence-number, and
-	// it is up to handler implementation whether to re-run it or not
-	ForceUpdateTag pulumi.StringPtrInput `pulumi:"forceUpdateTag"`
-	// Protected settings for the extension which are encrypted before sent to the role instance.
+	AutoUpgradeMinorVersion       pulumi.BoolPtrInput                                 `pulumi:"autoUpgradeMinorVersion"`
+	ForceUpdateTag                pulumi.StringPtrInput                               `pulumi:"forceUpdateTag"`
 	ProtectedSettings             pulumi.StringPtrInput                               `pulumi:"protectedSettings"`
 	ProtectedSettingsFromKeyVault CloudServiceVaultAndSecretReferenceResponsePtrInput `pulumi:"protectedSettingsFromKeyVault"`
-	// The provisioning state, which only appears in the response.
-	ProvisioningState pulumi.StringInput `pulumi:"provisioningState"`
-	// The name of the extension handler publisher.
-	Publisher pulumi.StringPtrInput `pulumi:"publisher"`
-	// Optional list of roles to apply this extension. If property is not specified or '*' is specified, extension is applied to all roles in the cloud service.
-	RolesAppliedTo pulumi.StringArrayInput `pulumi:"rolesAppliedTo"`
-	// Public settings for the extension. For JSON extensions, this is the JSON settings for the extension. For XML Extension (like RDP), this is the XML setting for the extension.
-	Settings pulumi.StringPtrInput `pulumi:"settings"`
-	// Specifies the type of the extension.
-	Type pulumi.StringPtrInput `pulumi:"type"`
-	// Specifies the version of the extension. Specifies the version of the extension. If this element is not specified or an asterisk (*) is used as the value, the latest version of the extension is used. If the value is specified with a major version number and an asterisk as the minor version number (X.), the latest minor version of the specified major version is selected. If a major version number and a minor version number are specified (X.Y), the specific extension version is selected. If a version is specified, an auto-upgrade is performed on the role instance.
-	TypeHandlerVersion pulumi.StringPtrInput `pulumi:"typeHandlerVersion"`
+	ProvisioningState             pulumi.StringInput                                  `pulumi:"provisioningState"`
+	Publisher                     pulumi.StringPtrInput                               `pulumi:"publisher"`
+	RolesAppliedTo                pulumi.StringArrayInput                             `pulumi:"rolesAppliedTo"`
+	Settings                      pulumi.StringPtrInput                               `pulumi:"settings"`
+	Type                          pulumi.StringPtrInput                               `pulumi:"type"`
+	TypeHandlerVersion            pulumi.StringPtrInput                               `pulumi:"typeHandlerVersion"`
 }
 
 func (CloudServiceExtensionPropertiesResponseArgs) ElementType() reflect.Type {
@@ -696,7 +621,6 @@ func (i *cloudServiceExtensionPropertiesResponsePtrType) ToCloudServiceExtension
 	return pulumi.ToOutputWithContext(ctx, i).(CloudServiceExtensionPropertiesResponsePtrOutput)
 }
 
-// Extension Properties.
 type CloudServiceExtensionPropertiesResponseOutput struct{ *pulumi.OutputState }
 
 func (CloudServiceExtensionPropertiesResponseOutput) ElementType() reflect.Type {
@@ -716,26 +640,19 @@ func (o CloudServiceExtensionPropertiesResponseOutput) ToCloudServiceExtensionPr
 }
 
 func (o CloudServiceExtensionPropertiesResponseOutput) ToCloudServiceExtensionPropertiesResponsePtrOutputWithContext(ctx context.Context) CloudServiceExtensionPropertiesResponsePtrOutput {
-	return o.ApplyT(func(v CloudServiceExtensionPropertiesResponse) *CloudServiceExtensionPropertiesResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v CloudServiceExtensionPropertiesResponse) *CloudServiceExtensionPropertiesResponse {
 		return &v
 	}).(CloudServiceExtensionPropertiesResponsePtrOutput)
 }
 
-// Explicitly specify whether platform can automatically upgrade typeHandlerVersion to higher minor versions when they become available.
 func (o CloudServiceExtensionPropertiesResponseOutput) AutoUpgradeMinorVersion() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v CloudServiceExtensionPropertiesResponse) *bool { return v.AutoUpgradeMinorVersion }).(pulumi.BoolPtrOutput)
 }
 
-// Tag to force apply the provided public and protected settings.
-// Changing the tag value allows for re-running the extension without changing any of the public or protected settings.
-// If forceUpdateTag is not changed, updates to public or protected settings would still be applied by the handler.
-// If neither forceUpdateTag nor any of public or protected settings change, extension would flow to the role instance with the same sequence-number, and
-// it is up to handler implementation whether to re-run it or not
 func (o CloudServiceExtensionPropertiesResponseOutput) ForceUpdateTag() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v CloudServiceExtensionPropertiesResponse) *string { return v.ForceUpdateTag }).(pulumi.StringPtrOutput)
 }
 
-// Protected settings for the extension which are encrypted before sent to the role instance.
 func (o CloudServiceExtensionPropertiesResponseOutput) ProtectedSettings() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v CloudServiceExtensionPropertiesResponse) *string { return v.ProtectedSettings }).(pulumi.StringPtrOutput)
 }
@@ -746,32 +663,26 @@ func (o CloudServiceExtensionPropertiesResponseOutput) ProtectedSettingsFromKeyV
 	}).(CloudServiceVaultAndSecretReferenceResponsePtrOutput)
 }
 
-// The provisioning state, which only appears in the response.
 func (o CloudServiceExtensionPropertiesResponseOutput) ProvisioningState() pulumi.StringOutput {
 	return o.ApplyT(func(v CloudServiceExtensionPropertiesResponse) string { return v.ProvisioningState }).(pulumi.StringOutput)
 }
 
-// The name of the extension handler publisher.
 func (o CloudServiceExtensionPropertiesResponseOutput) Publisher() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v CloudServiceExtensionPropertiesResponse) *string { return v.Publisher }).(pulumi.StringPtrOutput)
 }
 
-// Optional list of roles to apply this extension. If property is not specified or '*' is specified, extension is applied to all roles in the cloud service.
 func (o CloudServiceExtensionPropertiesResponseOutput) RolesAppliedTo() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v CloudServiceExtensionPropertiesResponse) []string { return v.RolesAppliedTo }).(pulumi.StringArrayOutput)
 }
 
-// Public settings for the extension. For JSON extensions, this is the JSON settings for the extension. For XML Extension (like RDP), this is the XML setting for the extension.
 func (o CloudServiceExtensionPropertiesResponseOutput) Settings() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v CloudServiceExtensionPropertiesResponse) *string { return v.Settings }).(pulumi.StringPtrOutput)
 }
 
-// Specifies the type of the extension.
 func (o CloudServiceExtensionPropertiesResponseOutput) Type() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v CloudServiceExtensionPropertiesResponse) *string { return v.Type }).(pulumi.StringPtrOutput)
 }
 
-// Specifies the version of the extension. Specifies the version of the extension. If this element is not specified or an asterisk (*) is used as the value, the latest version of the extension is used. If the value is specified with a major version number and an asterisk as the minor version number (X.), the latest minor version of the specified major version is selected. If a major version number and a minor version number are specified (X.Y), the specific extension version is selected. If a version is specified, an auto-upgrade is performed on the role instance.
 func (o CloudServiceExtensionPropertiesResponseOutput) TypeHandlerVersion() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v CloudServiceExtensionPropertiesResponse) *string { return v.TypeHandlerVersion }).(pulumi.StringPtrOutput)
 }
@@ -791,10 +702,15 @@ func (o CloudServiceExtensionPropertiesResponsePtrOutput) ToCloudServiceExtensio
 }
 
 func (o CloudServiceExtensionPropertiesResponsePtrOutput) Elem() CloudServiceExtensionPropertiesResponseOutput {
-	return o.ApplyT(func(v *CloudServiceExtensionPropertiesResponse) CloudServiceExtensionPropertiesResponse { return *v }).(CloudServiceExtensionPropertiesResponseOutput)
+	return o.ApplyT(func(v *CloudServiceExtensionPropertiesResponse) CloudServiceExtensionPropertiesResponse {
+		if v != nil {
+			return *v
+		}
+		var ret CloudServiceExtensionPropertiesResponse
+		return ret
+	}).(CloudServiceExtensionPropertiesResponseOutput)
 }
 
-// Explicitly specify whether platform can automatically upgrade typeHandlerVersion to higher minor versions when they become available.
 func (o CloudServiceExtensionPropertiesResponsePtrOutput) AutoUpgradeMinorVersion() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *CloudServiceExtensionPropertiesResponse) *bool {
 		if v == nil {
@@ -804,11 +720,6 @@ func (o CloudServiceExtensionPropertiesResponsePtrOutput) AutoUpgradeMinorVersio
 	}).(pulumi.BoolPtrOutput)
 }
 
-// Tag to force apply the provided public and protected settings.
-// Changing the tag value allows for re-running the extension without changing any of the public or protected settings.
-// If forceUpdateTag is not changed, updates to public or protected settings would still be applied by the handler.
-// If neither forceUpdateTag nor any of public or protected settings change, extension would flow to the role instance with the same sequence-number, and
-// it is up to handler implementation whether to re-run it or not
 func (o CloudServiceExtensionPropertiesResponsePtrOutput) ForceUpdateTag() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *CloudServiceExtensionPropertiesResponse) *string {
 		if v == nil {
@@ -818,7 +729,6 @@ func (o CloudServiceExtensionPropertiesResponsePtrOutput) ForceUpdateTag() pulum
 	}).(pulumi.StringPtrOutput)
 }
 
-// Protected settings for the extension which are encrypted before sent to the role instance.
 func (o CloudServiceExtensionPropertiesResponsePtrOutput) ProtectedSettings() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *CloudServiceExtensionPropertiesResponse) *string {
 		if v == nil {
@@ -837,7 +747,6 @@ func (o CloudServiceExtensionPropertiesResponsePtrOutput) ProtectedSettingsFromK
 	}).(CloudServiceVaultAndSecretReferenceResponsePtrOutput)
 }
 
-// The provisioning state, which only appears in the response.
 func (o CloudServiceExtensionPropertiesResponsePtrOutput) ProvisioningState() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *CloudServiceExtensionPropertiesResponse) *string {
 		if v == nil {
@@ -847,7 +756,6 @@ func (o CloudServiceExtensionPropertiesResponsePtrOutput) ProvisioningState() pu
 	}).(pulumi.StringPtrOutput)
 }
 
-// The name of the extension handler publisher.
 func (o CloudServiceExtensionPropertiesResponsePtrOutput) Publisher() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *CloudServiceExtensionPropertiesResponse) *string {
 		if v == nil {
@@ -857,7 +765,6 @@ func (o CloudServiceExtensionPropertiesResponsePtrOutput) Publisher() pulumi.Str
 	}).(pulumi.StringPtrOutput)
 }
 
-// Optional list of roles to apply this extension. If property is not specified or '*' is specified, extension is applied to all roles in the cloud service.
 func (o CloudServiceExtensionPropertiesResponsePtrOutput) RolesAppliedTo() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *CloudServiceExtensionPropertiesResponse) []string {
 		if v == nil {
@@ -867,7 +774,6 @@ func (o CloudServiceExtensionPropertiesResponsePtrOutput) RolesAppliedTo() pulum
 	}).(pulumi.StringArrayOutput)
 }
 
-// Public settings for the extension. For JSON extensions, this is the JSON settings for the extension. For XML Extension (like RDP), this is the XML setting for the extension.
 func (o CloudServiceExtensionPropertiesResponsePtrOutput) Settings() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *CloudServiceExtensionPropertiesResponse) *string {
 		if v == nil {
@@ -877,7 +783,6 @@ func (o CloudServiceExtensionPropertiesResponsePtrOutput) Settings() pulumi.Stri
 	}).(pulumi.StringPtrOutput)
 }
 
-// Specifies the type of the extension.
 func (o CloudServiceExtensionPropertiesResponsePtrOutput) Type() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *CloudServiceExtensionPropertiesResponse) *string {
 		if v == nil {
@@ -887,7 +792,6 @@ func (o CloudServiceExtensionPropertiesResponsePtrOutput) Type() pulumi.StringPt
 	}).(pulumi.StringPtrOutput)
 }
 
-// Specifies the version of the extension. Specifies the version of the extension. If this element is not specified or an asterisk (*) is used as the value, the latest version of the extension is used. If the value is specified with a major version number and an asterisk as the minor version number (X.), the latest minor version of the specified major version is selected. If a major version number and a minor version number are specified (X.Y), the specific extension version is selected. If a version is specified, an auto-upgrade is performed on the role instance.
 func (o CloudServiceExtensionPropertiesResponsePtrOutput) TypeHandlerVersion() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *CloudServiceExtensionPropertiesResponse) *string {
 		if v == nil {
@@ -897,9 +801,7 @@ func (o CloudServiceExtensionPropertiesResponsePtrOutput) TypeHandlerVersion() p
 	}).(pulumi.StringPtrOutput)
 }
 
-// Network Profile for the cloud service.
 type CloudServiceNetworkProfile struct {
-	// The list of load balancer configurations for the cloud service.
 	LoadBalancerConfigurations []LoadBalancerConfiguration `pulumi:"loadBalancerConfigurations"`
 	SwappableCloudService      *SubResource                `pulumi:"swappableCloudService"`
 }
@@ -915,9 +817,7 @@ type CloudServiceNetworkProfileInput interface {
 	ToCloudServiceNetworkProfileOutputWithContext(context.Context) CloudServiceNetworkProfileOutput
 }
 
-// Network Profile for the cloud service.
 type CloudServiceNetworkProfileArgs struct {
-	// The list of load balancer configurations for the cloud service.
 	LoadBalancerConfigurations LoadBalancerConfigurationArrayInput `pulumi:"loadBalancerConfigurations"`
 	SwappableCloudService      SubResourcePtrInput                 `pulumi:"swappableCloudService"`
 }
@@ -975,7 +875,6 @@ func (i *cloudServiceNetworkProfilePtrType) ToCloudServiceNetworkProfilePtrOutpu
 	return pulumi.ToOutputWithContext(ctx, i).(CloudServiceNetworkProfilePtrOutput)
 }
 
-// Network Profile for the cloud service.
 type CloudServiceNetworkProfileOutput struct{ *pulumi.OutputState }
 
 func (CloudServiceNetworkProfileOutput) ElementType() reflect.Type {
@@ -995,12 +894,11 @@ func (o CloudServiceNetworkProfileOutput) ToCloudServiceNetworkProfilePtrOutput(
 }
 
 func (o CloudServiceNetworkProfileOutput) ToCloudServiceNetworkProfilePtrOutputWithContext(ctx context.Context) CloudServiceNetworkProfilePtrOutput {
-	return o.ApplyT(func(v CloudServiceNetworkProfile) *CloudServiceNetworkProfile {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v CloudServiceNetworkProfile) *CloudServiceNetworkProfile {
 		return &v
 	}).(CloudServiceNetworkProfilePtrOutput)
 }
 
-// The list of load balancer configurations for the cloud service.
 func (o CloudServiceNetworkProfileOutput) LoadBalancerConfigurations() LoadBalancerConfigurationArrayOutput {
 	return o.ApplyT(func(v CloudServiceNetworkProfile) []LoadBalancerConfiguration { return v.LoadBalancerConfigurations }).(LoadBalancerConfigurationArrayOutput)
 }
@@ -1024,10 +922,15 @@ func (o CloudServiceNetworkProfilePtrOutput) ToCloudServiceNetworkProfilePtrOutp
 }
 
 func (o CloudServiceNetworkProfilePtrOutput) Elem() CloudServiceNetworkProfileOutput {
-	return o.ApplyT(func(v *CloudServiceNetworkProfile) CloudServiceNetworkProfile { return *v }).(CloudServiceNetworkProfileOutput)
+	return o.ApplyT(func(v *CloudServiceNetworkProfile) CloudServiceNetworkProfile {
+		if v != nil {
+			return *v
+		}
+		var ret CloudServiceNetworkProfile
+		return ret
+	}).(CloudServiceNetworkProfileOutput)
 }
 
-// The list of load balancer configurations for the cloud service.
 func (o CloudServiceNetworkProfilePtrOutput) LoadBalancerConfigurations() LoadBalancerConfigurationArrayOutput {
 	return o.ApplyT(func(v *CloudServiceNetworkProfile) []LoadBalancerConfiguration {
 		if v == nil {
@@ -1046,9 +949,7 @@ func (o CloudServiceNetworkProfilePtrOutput) SwappableCloudService() SubResource
 	}).(SubResourcePtrOutput)
 }
 
-// Network Profile for the cloud service.
 type CloudServiceNetworkProfileResponse struct {
-	// The list of load balancer configurations for the cloud service.
 	LoadBalancerConfigurations []LoadBalancerConfigurationResponse `pulumi:"loadBalancerConfigurations"`
 	SwappableCloudService      *SubResourceResponse                `pulumi:"swappableCloudService"`
 }
@@ -1064,9 +965,7 @@ type CloudServiceNetworkProfileResponseInput interface {
 	ToCloudServiceNetworkProfileResponseOutputWithContext(context.Context) CloudServiceNetworkProfileResponseOutput
 }
 
-// Network Profile for the cloud service.
 type CloudServiceNetworkProfileResponseArgs struct {
-	// The list of load balancer configurations for the cloud service.
 	LoadBalancerConfigurations LoadBalancerConfigurationResponseArrayInput `pulumi:"loadBalancerConfigurations"`
 	SwappableCloudService      SubResourceResponsePtrInput                 `pulumi:"swappableCloudService"`
 }
@@ -1124,7 +1023,6 @@ func (i *cloudServiceNetworkProfileResponsePtrType) ToCloudServiceNetworkProfile
 	return pulumi.ToOutputWithContext(ctx, i).(CloudServiceNetworkProfileResponsePtrOutput)
 }
 
-// Network Profile for the cloud service.
 type CloudServiceNetworkProfileResponseOutput struct{ *pulumi.OutputState }
 
 func (CloudServiceNetworkProfileResponseOutput) ElementType() reflect.Type {
@@ -1144,12 +1042,11 @@ func (o CloudServiceNetworkProfileResponseOutput) ToCloudServiceNetworkProfileRe
 }
 
 func (o CloudServiceNetworkProfileResponseOutput) ToCloudServiceNetworkProfileResponsePtrOutputWithContext(ctx context.Context) CloudServiceNetworkProfileResponsePtrOutput {
-	return o.ApplyT(func(v CloudServiceNetworkProfileResponse) *CloudServiceNetworkProfileResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v CloudServiceNetworkProfileResponse) *CloudServiceNetworkProfileResponse {
 		return &v
 	}).(CloudServiceNetworkProfileResponsePtrOutput)
 }
 
-// The list of load balancer configurations for the cloud service.
 func (o CloudServiceNetworkProfileResponseOutput) LoadBalancerConfigurations() LoadBalancerConfigurationResponseArrayOutput {
 	return o.ApplyT(func(v CloudServiceNetworkProfileResponse) []LoadBalancerConfigurationResponse {
 		return v.LoadBalancerConfigurations
@@ -1175,10 +1072,15 @@ func (o CloudServiceNetworkProfileResponsePtrOutput) ToCloudServiceNetworkProfil
 }
 
 func (o CloudServiceNetworkProfileResponsePtrOutput) Elem() CloudServiceNetworkProfileResponseOutput {
-	return o.ApplyT(func(v *CloudServiceNetworkProfileResponse) CloudServiceNetworkProfileResponse { return *v }).(CloudServiceNetworkProfileResponseOutput)
+	return o.ApplyT(func(v *CloudServiceNetworkProfileResponse) CloudServiceNetworkProfileResponse {
+		if v != nil {
+			return *v
+		}
+		var ret CloudServiceNetworkProfileResponse
+		return ret
+	}).(CloudServiceNetworkProfileResponseOutput)
 }
 
-// The list of load balancer configurations for the cloud service.
 func (o CloudServiceNetworkProfileResponsePtrOutput) LoadBalancerConfigurations() LoadBalancerConfigurationResponseArrayOutput {
 	return o.ApplyT(func(v *CloudServiceNetworkProfileResponse) []LoadBalancerConfigurationResponse {
 		if v == nil {
@@ -1197,9 +1099,7 @@ func (o CloudServiceNetworkProfileResponsePtrOutput) SwappableCloudService() Sub
 	}).(SubResourceResponsePtrOutput)
 }
 
-// Describes the OS profile for the cloud service.
 type CloudServiceOsProfile struct {
-	// Specifies set of certificates that should be installed onto the role instances.
 	Secrets []CloudServiceVaultSecretGroup `pulumi:"secrets"`
 }
 
@@ -1214,9 +1114,7 @@ type CloudServiceOsProfileInput interface {
 	ToCloudServiceOsProfileOutputWithContext(context.Context) CloudServiceOsProfileOutput
 }
 
-// Describes the OS profile for the cloud service.
 type CloudServiceOsProfileArgs struct {
-	// Specifies set of certificates that should be installed onto the role instances.
 	Secrets CloudServiceVaultSecretGroupArrayInput `pulumi:"secrets"`
 }
 
@@ -1273,7 +1171,6 @@ func (i *cloudServiceOsProfilePtrType) ToCloudServiceOsProfilePtrOutputWithConte
 	return pulumi.ToOutputWithContext(ctx, i).(CloudServiceOsProfilePtrOutput)
 }
 
-// Describes the OS profile for the cloud service.
 type CloudServiceOsProfileOutput struct{ *pulumi.OutputState }
 
 func (CloudServiceOsProfileOutput) ElementType() reflect.Type {
@@ -1293,12 +1190,11 @@ func (o CloudServiceOsProfileOutput) ToCloudServiceOsProfilePtrOutput() CloudSer
 }
 
 func (o CloudServiceOsProfileOutput) ToCloudServiceOsProfilePtrOutputWithContext(ctx context.Context) CloudServiceOsProfilePtrOutput {
-	return o.ApplyT(func(v CloudServiceOsProfile) *CloudServiceOsProfile {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v CloudServiceOsProfile) *CloudServiceOsProfile {
 		return &v
 	}).(CloudServiceOsProfilePtrOutput)
 }
 
-// Specifies set of certificates that should be installed onto the role instances.
 func (o CloudServiceOsProfileOutput) Secrets() CloudServiceVaultSecretGroupArrayOutput {
 	return o.ApplyT(func(v CloudServiceOsProfile) []CloudServiceVaultSecretGroup { return v.Secrets }).(CloudServiceVaultSecretGroupArrayOutput)
 }
@@ -1318,10 +1214,15 @@ func (o CloudServiceOsProfilePtrOutput) ToCloudServiceOsProfilePtrOutputWithCont
 }
 
 func (o CloudServiceOsProfilePtrOutput) Elem() CloudServiceOsProfileOutput {
-	return o.ApplyT(func(v *CloudServiceOsProfile) CloudServiceOsProfile { return *v }).(CloudServiceOsProfileOutput)
+	return o.ApplyT(func(v *CloudServiceOsProfile) CloudServiceOsProfile {
+		if v != nil {
+			return *v
+		}
+		var ret CloudServiceOsProfile
+		return ret
+	}).(CloudServiceOsProfileOutput)
 }
 
-// Specifies set of certificates that should be installed onto the role instances.
 func (o CloudServiceOsProfilePtrOutput) Secrets() CloudServiceVaultSecretGroupArrayOutput {
 	return o.ApplyT(func(v *CloudServiceOsProfile) []CloudServiceVaultSecretGroup {
 		if v == nil {
@@ -1331,9 +1232,7 @@ func (o CloudServiceOsProfilePtrOutput) Secrets() CloudServiceVaultSecretGroupAr
 	}).(CloudServiceVaultSecretGroupArrayOutput)
 }
 
-// Describes the OS profile for the cloud service.
 type CloudServiceOsProfileResponse struct {
-	// Specifies set of certificates that should be installed onto the role instances.
 	Secrets []CloudServiceVaultSecretGroupResponse `pulumi:"secrets"`
 }
 
@@ -1348,9 +1247,7 @@ type CloudServiceOsProfileResponseInput interface {
 	ToCloudServiceOsProfileResponseOutputWithContext(context.Context) CloudServiceOsProfileResponseOutput
 }
 
-// Describes the OS profile for the cloud service.
 type CloudServiceOsProfileResponseArgs struct {
-	// Specifies set of certificates that should be installed onto the role instances.
 	Secrets CloudServiceVaultSecretGroupResponseArrayInput `pulumi:"secrets"`
 }
 
@@ -1407,7 +1304,6 @@ func (i *cloudServiceOsProfileResponsePtrType) ToCloudServiceOsProfileResponsePt
 	return pulumi.ToOutputWithContext(ctx, i).(CloudServiceOsProfileResponsePtrOutput)
 }
 
-// Describes the OS profile for the cloud service.
 type CloudServiceOsProfileResponseOutput struct{ *pulumi.OutputState }
 
 func (CloudServiceOsProfileResponseOutput) ElementType() reflect.Type {
@@ -1427,12 +1323,11 @@ func (o CloudServiceOsProfileResponseOutput) ToCloudServiceOsProfileResponsePtrO
 }
 
 func (o CloudServiceOsProfileResponseOutput) ToCloudServiceOsProfileResponsePtrOutputWithContext(ctx context.Context) CloudServiceOsProfileResponsePtrOutput {
-	return o.ApplyT(func(v CloudServiceOsProfileResponse) *CloudServiceOsProfileResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v CloudServiceOsProfileResponse) *CloudServiceOsProfileResponse {
 		return &v
 	}).(CloudServiceOsProfileResponsePtrOutput)
 }
 
-// Specifies set of certificates that should be installed onto the role instances.
 func (o CloudServiceOsProfileResponseOutput) Secrets() CloudServiceVaultSecretGroupResponseArrayOutput {
 	return o.ApplyT(func(v CloudServiceOsProfileResponse) []CloudServiceVaultSecretGroupResponse { return v.Secrets }).(CloudServiceVaultSecretGroupResponseArrayOutput)
 }
@@ -1452,10 +1347,15 @@ func (o CloudServiceOsProfileResponsePtrOutput) ToCloudServiceOsProfileResponseP
 }
 
 func (o CloudServiceOsProfileResponsePtrOutput) Elem() CloudServiceOsProfileResponseOutput {
-	return o.ApplyT(func(v *CloudServiceOsProfileResponse) CloudServiceOsProfileResponse { return *v }).(CloudServiceOsProfileResponseOutput)
+	return o.ApplyT(func(v *CloudServiceOsProfileResponse) CloudServiceOsProfileResponse {
+		if v != nil {
+			return *v
+		}
+		var ret CloudServiceOsProfileResponse
+		return ret
+	}).(CloudServiceOsProfileResponseOutput)
 }
 
-// Specifies set of certificates that should be installed onto the role instances.
 func (o CloudServiceOsProfileResponsePtrOutput) Secrets() CloudServiceVaultSecretGroupResponseArrayOutput {
 	return o.ApplyT(func(v *CloudServiceOsProfileResponse) []CloudServiceVaultSecretGroupResponse {
 		if v == nil {
@@ -1465,31 +1365,16 @@ func (o CloudServiceOsProfileResponsePtrOutput) Secrets() CloudServiceVaultSecre
 	}).(CloudServiceVaultSecretGroupResponseArrayOutput)
 }
 
-// Cloud service properties
 type CloudServiceProperties struct {
-	// Specifies the XML service configuration (.cscfg) for the cloud service.
-	Configuration *string `pulumi:"configuration"`
-	// Specifies a URL that refers to the location of the service configuration in the Blob service. The service package URL  can be Shared Access Signature (SAS) URI from any storage account.
-	// This is a write-only property and is not returned in GET calls.
-	ConfigurationUrl *string `pulumi:"configurationUrl"`
-	// Describes a cloud service extension profile.
-	ExtensionProfile *CloudServiceExtensionProfile `pulumi:"extensionProfile"`
-	// Network Profile for the cloud service.
-	NetworkProfile *CloudServiceNetworkProfile `pulumi:"networkProfile"`
-	// Describes the OS profile for the cloud service.
-	OsProfile *CloudServiceOsProfile `pulumi:"osProfile"`
-	// Specifies a URL that refers to the location of the service package in the Blob service. The service package URL can be Shared Access Signature (SAS) URI from any storage account.
-	// This is a write-only property and is not returned in GET calls.
-	PackageUrl *string `pulumi:"packageUrl"`
-	// Describes the role profile for the cloud service.
-	RoleProfile *CloudServiceRoleProfile `pulumi:"roleProfile"`
-	// (Optional) Indicates whether to start the cloud service immediately after it is created. The default value is `true`.
-	// If false, the service model is still deployed, but the code is not run immediately. Instead, the service is PoweredOff until you call Start, at which time the service will be started. A deployed service still incurs charges, even if it is poweredoff.
-	StartCloudService *bool `pulumi:"startCloudService"`
-	// Update mode for the cloud service. Role instances are allocated to update domains when the service is deployed. Updates can be initiated manually in each update domain or initiated automatically in all update domains.
-	// Possible Values are <br /><br />**Auto**<br /><br />**Manual** <br /><br />**Simultaneous**<br /><br />
-	// If not specified, the default value is Auto. If set to Manual, PUT UpdateDomain must be called to apply the update. If set to Auto, the update is automatically applied to each update domain in sequence.
-	UpgradeMode *string `pulumi:"upgradeMode"`
+	Configuration     *string                       `pulumi:"configuration"`
+	ConfigurationUrl  *string                       `pulumi:"configurationUrl"`
+	ExtensionProfile  *CloudServiceExtensionProfile `pulumi:"extensionProfile"`
+	NetworkProfile    *CloudServiceNetworkProfile   `pulumi:"networkProfile"`
+	OsProfile         *CloudServiceOsProfile        `pulumi:"osProfile"`
+	PackageUrl        *string                       `pulumi:"packageUrl"`
+	RoleProfile       *CloudServiceRoleProfile      `pulumi:"roleProfile"`
+	StartCloudService *bool                         `pulumi:"startCloudService"`
+	UpgradeMode       *string                       `pulumi:"upgradeMode"`
 }
 
 // CloudServicePropertiesInput is an input type that accepts CloudServicePropertiesArgs and CloudServicePropertiesOutput values.
@@ -1503,31 +1388,16 @@ type CloudServicePropertiesInput interface {
 	ToCloudServicePropertiesOutputWithContext(context.Context) CloudServicePropertiesOutput
 }
 
-// Cloud service properties
 type CloudServicePropertiesArgs struct {
-	// Specifies the XML service configuration (.cscfg) for the cloud service.
-	Configuration pulumi.StringPtrInput `pulumi:"configuration"`
-	// Specifies a URL that refers to the location of the service configuration in the Blob service. The service package URL  can be Shared Access Signature (SAS) URI from any storage account.
-	// This is a write-only property and is not returned in GET calls.
-	ConfigurationUrl pulumi.StringPtrInput `pulumi:"configurationUrl"`
-	// Describes a cloud service extension profile.
-	ExtensionProfile CloudServiceExtensionProfilePtrInput `pulumi:"extensionProfile"`
-	// Network Profile for the cloud service.
-	NetworkProfile CloudServiceNetworkProfilePtrInput `pulumi:"networkProfile"`
-	// Describes the OS profile for the cloud service.
-	OsProfile CloudServiceOsProfilePtrInput `pulumi:"osProfile"`
-	// Specifies a URL that refers to the location of the service package in the Blob service. The service package URL can be Shared Access Signature (SAS) URI from any storage account.
-	// This is a write-only property and is not returned in GET calls.
-	PackageUrl pulumi.StringPtrInput `pulumi:"packageUrl"`
-	// Describes the role profile for the cloud service.
-	RoleProfile CloudServiceRoleProfilePtrInput `pulumi:"roleProfile"`
-	// (Optional) Indicates whether to start the cloud service immediately after it is created. The default value is `true`.
-	// If false, the service model is still deployed, but the code is not run immediately. Instead, the service is PoweredOff until you call Start, at which time the service will be started. A deployed service still incurs charges, even if it is poweredoff.
-	StartCloudService pulumi.BoolPtrInput `pulumi:"startCloudService"`
-	// Update mode for the cloud service. Role instances are allocated to update domains when the service is deployed. Updates can be initiated manually in each update domain or initiated automatically in all update domains.
-	// Possible Values are <br /><br />**Auto**<br /><br />**Manual** <br /><br />**Simultaneous**<br /><br />
-	// If not specified, the default value is Auto. If set to Manual, PUT UpdateDomain must be called to apply the update. If set to Auto, the update is automatically applied to each update domain in sequence.
-	UpgradeMode pulumi.StringPtrInput `pulumi:"upgradeMode"`
+	Configuration     pulumi.StringPtrInput                `pulumi:"configuration"`
+	ConfigurationUrl  pulumi.StringPtrInput                `pulumi:"configurationUrl"`
+	ExtensionProfile  CloudServiceExtensionProfilePtrInput `pulumi:"extensionProfile"`
+	NetworkProfile    CloudServiceNetworkProfilePtrInput   `pulumi:"networkProfile"`
+	OsProfile         CloudServiceOsProfilePtrInput        `pulumi:"osProfile"`
+	PackageUrl        pulumi.StringPtrInput                `pulumi:"packageUrl"`
+	RoleProfile       CloudServiceRoleProfilePtrInput      `pulumi:"roleProfile"`
+	StartCloudService pulumi.BoolPtrInput                  `pulumi:"startCloudService"`
+	UpgradeMode       pulumi.StringPtrInput                `pulumi:"upgradeMode"`
 }
 
 func (CloudServicePropertiesArgs) ElementType() reflect.Type {
@@ -1583,7 +1453,6 @@ func (i *cloudServicePropertiesPtrType) ToCloudServicePropertiesPtrOutputWithCon
 	return pulumi.ToOutputWithContext(ctx, i).(CloudServicePropertiesPtrOutput)
 }
 
-// Cloud service properties
 type CloudServicePropertiesOutput struct{ *pulumi.OutputState }
 
 func (CloudServicePropertiesOutput) ElementType() reflect.Type {
@@ -1603,57 +1472,43 @@ func (o CloudServicePropertiesOutput) ToCloudServicePropertiesPtrOutput() CloudS
 }
 
 func (o CloudServicePropertiesOutput) ToCloudServicePropertiesPtrOutputWithContext(ctx context.Context) CloudServicePropertiesPtrOutput {
-	return o.ApplyT(func(v CloudServiceProperties) *CloudServiceProperties {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v CloudServiceProperties) *CloudServiceProperties {
 		return &v
 	}).(CloudServicePropertiesPtrOutput)
 }
 
-// Specifies the XML service configuration (.cscfg) for the cloud service.
 func (o CloudServicePropertiesOutput) Configuration() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v CloudServiceProperties) *string { return v.Configuration }).(pulumi.StringPtrOutput)
 }
 
-// Specifies a URL that refers to the location of the service configuration in the Blob service. The service package URL  can be Shared Access Signature (SAS) URI from any storage account.
-// This is a write-only property and is not returned in GET calls.
 func (o CloudServicePropertiesOutput) ConfigurationUrl() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v CloudServiceProperties) *string { return v.ConfigurationUrl }).(pulumi.StringPtrOutput)
 }
 
-// Describes a cloud service extension profile.
 func (o CloudServicePropertiesOutput) ExtensionProfile() CloudServiceExtensionProfilePtrOutput {
 	return o.ApplyT(func(v CloudServiceProperties) *CloudServiceExtensionProfile { return v.ExtensionProfile }).(CloudServiceExtensionProfilePtrOutput)
 }
 
-// Network Profile for the cloud service.
 func (o CloudServicePropertiesOutput) NetworkProfile() CloudServiceNetworkProfilePtrOutput {
 	return o.ApplyT(func(v CloudServiceProperties) *CloudServiceNetworkProfile { return v.NetworkProfile }).(CloudServiceNetworkProfilePtrOutput)
 }
 
-// Describes the OS profile for the cloud service.
 func (o CloudServicePropertiesOutput) OsProfile() CloudServiceOsProfilePtrOutput {
 	return o.ApplyT(func(v CloudServiceProperties) *CloudServiceOsProfile { return v.OsProfile }).(CloudServiceOsProfilePtrOutput)
 }
 
-// Specifies a URL that refers to the location of the service package in the Blob service. The service package URL can be Shared Access Signature (SAS) URI from any storage account.
-// This is a write-only property and is not returned in GET calls.
 func (o CloudServicePropertiesOutput) PackageUrl() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v CloudServiceProperties) *string { return v.PackageUrl }).(pulumi.StringPtrOutput)
 }
 
-// Describes the role profile for the cloud service.
 func (o CloudServicePropertiesOutput) RoleProfile() CloudServiceRoleProfilePtrOutput {
 	return o.ApplyT(func(v CloudServiceProperties) *CloudServiceRoleProfile { return v.RoleProfile }).(CloudServiceRoleProfilePtrOutput)
 }
 
-// (Optional) Indicates whether to start the cloud service immediately after it is created. The default value is `true`.
-// If false, the service model is still deployed, but the code is not run immediately. Instead, the service is PoweredOff until you call Start, at which time the service will be started. A deployed service still incurs charges, even if it is poweredoff.
 func (o CloudServicePropertiesOutput) StartCloudService() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v CloudServiceProperties) *bool { return v.StartCloudService }).(pulumi.BoolPtrOutput)
 }
 
-// Update mode for the cloud service. Role instances are allocated to update domains when the service is deployed. Updates can be initiated manually in each update domain or initiated automatically in all update domains.
-// Possible Values are <br /><br />**Auto**<br /><br />**Manual** <br /><br />**Simultaneous**<br /><br />
-// If not specified, the default value is Auto. If set to Manual, PUT UpdateDomain must be called to apply the update. If set to Auto, the update is automatically applied to each update domain in sequence.
 func (o CloudServicePropertiesOutput) UpgradeMode() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v CloudServiceProperties) *string { return v.UpgradeMode }).(pulumi.StringPtrOutput)
 }
@@ -1673,10 +1528,15 @@ func (o CloudServicePropertiesPtrOutput) ToCloudServicePropertiesPtrOutputWithCo
 }
 
 func (o CloudServicePropertiesPtrOutput) Elem() CloudServicePropertiesOutput {
-	return o.ApplyT(func(v *CloudServiceProperties) CloudServiceProperties { return *v }).(CloudServicePropertiesOutput)
+	return o.ApplyT(func(v *CloudServiceProperties) CloudServiceProperties {
+		if v != nil {
+			return *v
+		}
+		var ret CloudServiceProperties
+		return ret
+	}).(CloudServicePropertiesOutput)
 }
 
-// Specifies the XML service configuration (.cscfg) for the cloud service.
 func (o CloudServicePropertiesPtrOutput) Configuration() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *CloudServiceProperties) *string {
 		if v == nil {
@@ -1686,8 +1546,6 @@ func (o CloudServicePropertiesPtrOutput) Configuration() pulumi.StringPtrOutput 
 	}).(pulumi.StringPtrOutput)
 }
 
-// Specifies a URL that refers to the location of the service configuration in the Blob service. The service package URL  can be Shared Access Signature (SAS) URI from any storage account.
-// This is a write-only property and is not returned in GET calls.
 func (o CloudServicePropertiesPtrOutput) ConfigurationUrl() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *CloudServiceProperties) *string {
 		if v == nil {
@@ -1697,7 +1555,6 @@ func (o CloudServicePropertiesPtrOutput) ConfigurationUrl() pulumi.StringPtrOutp
 	}).(pulumi.StringPtrOutput)
 }
 
-// Describes a cloud service extension profile.
 func (o CloudServicePropertiesPtrOutput) ExtensionProfile() CloudServiceExtensionProfilePtrOutput {
 	return o.ApplyT(func(v *CloudServiceProperties) *CloudServiceExtensionProfile {
 		if v == nil {
@@ -1707,7 +1564,6 @@ func (o CloudServicePropertiesPtrOutput) ExtensionProfile() CloudServiceExtensio
 	}).(CloudServiceExtensionProfilePtrOutput)
 }
 
-// Network Profile for the cloud service.
 func (o CloudServicePropertiesPtrOutput) NetworkProfile() CloudServiceNetworkProfilePtrOutput {
 	return o.ApplyT(func(v *CloudServiceProperties) *CloudServiceNetworkProfile {
 		if v == nil {
@@ -1717,7 +1573,6 @@ func (o CloudServicePropertiesPtrOutput) NetworkProfile() CloudServiceNetworkPro
 	}).(CloudServiceNetworkProfilePtrOutput)
 }
 
-// Describes the OS profile for the cloud service.
 func (o CloudServicePropertiesPtrOutput) OsProfile() CloudServiceOsProfilePtrOutput {
 	return o.ApplyT(func(v *CloudServiceProperties) *CloudServiceOsProfile {
 		if v == nil {
@@ -1727,8 +1582,6 @@ func (o CloudServicePropertiesPtrOutput) OsProfile() CloudServiceOsProfilePtrOut
 	}).(CloudServiceOsProfilePtrOutput)
 }
 
-// Specifies a URL that refers to the location of the service package in the Blob service. The service package URL can be Shared Access Signature (SAS) URI from any storage account.
-// This is a write-only property and is not returned in GET calls.
 func (o CloudServicePropertiesPtrOutput) PackageUrl() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *CloudServiceProperties) *string {
 		if v == nil {
@@ -1738,7 +1591,6 @@ func (o CloudServicePropertiesPtrOutput) PackageUrl() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Describes the role profile for the cloud service.
 func (o CloudServicePropertiesPtrOutput) RoleProfile() CloudServiceRoleProfilePtrOutput {
 	return o.ApplyT(func(v *CloudServiceProperties) *CloudServiceRoleProfile {
 		if v == nil {
@@ -1748,8 +1600,6 @@ func (o CloudServicePropertiesPtrOutput) RoleProfile() CloudServiceRoleProfilePt
 	}).(CloudServiceRoleProfilePtrOutput)
 }
 
-// (Optional) Indicates whether to start the cloud service immediately after it is created. The default value is `true`.
-// If false, the service model is still deployed, but the code is not run immediately. Instead, the service is PoweredOff until you call Start, at which time the service will be started. A deployed service still incurs charges, even if it is poweredoff.
 func (o CloudServicePropertiesPtrOutput) StartCloudService() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *CloudServiceProperties) *bool {
 		if v == nil {
@@ -1759,9 +1609,6 @@ func (o CloudServicePropertiesPtrOutput) StartCloudService() pulumi.BoolPtrOutpu
 	}).(pulumi.BoolPtrOutput)
 }
 
-// Update mode for the cloud service. Role instances are allocated to update domains when the service is deployed. Updates can be initiated manually in each update domain or initiated automatically in all update domains.
-// Possible Values are <br /><br />**Auto**<br /><br />**Manual** <br /><br />**Simultaneous**<br /><br />
-// If not specified, the default value is Auto. If set to Manual, PUT UpdateDomain must be called to apply the update. If set to Auto, the update is automatically applied to each update domain in sequence.
 func (o CloudServicePropertiesPtrOutput) UpgradeMode() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *CloudServiceProperties) *string {
 		if v == nil {
@@ -1771,35 +1618,18 @@ func (o CloudServicePropertiesPtrOutput) UpgradeMode() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Cloud service properties
 type CloudServicePropertiesResponse struct {
-	// Specifies the XML service configuration (.cscfg) for the cloud service.
-	Configuration *string `pulumi:"configuration"`
-	// Specifies a URL that refers to the location of the service configuration in the Blob service. The service package URL  can be Shared Access Signature (SAS) URI from any storage account.
-	// This is a write-only property and is not returned in GET calls.
-	ConfigurationUrl *string `pulumi:"configurationUrl"`
-	// Describes a cloud service extension profile.
-	ExtensionProfile *CloudServiceExtensionProfileResponse `pulumi:"extensionProfile"`
-	// Network Profile for the cloud service.
-	NetworkProfile *CloudServiceNetworkProfileResponse `pulumi:"networkProfile"`
-	// Describes the OS profile for the cloud service.
-	OsProfile *CloudServiceOsProfileResponse `pulumi:"osProfile"`
-	// Specifies a URL that refers to the location of the service package in the Blob service. The service package URL can be Shared Access Signature (SAS) URI from any storage account.
-	// This is a write-only property and is not returned in GET calls.
-	PackageUrl *string `pulumi:"packageUrl"`
-	// The provisioning state, which only appears in the response.
-	ProvisioningState string `pulumi:"provisioningState"`
-	// Describes the role profile for the cloud service.
-	RoleProfile *CloudServiceRoleProfileResponse `pulumi:"roleProfile"`
-	// (Optional) Indicates whether to start the cloud service immediately after it is created. The default value is `true`.
-	// If false, the service model is still deployed, but the code is not run immediately. Instead, the service is PoweredOff until you call Start, at which time the service will be started. A deployed service still incurs charges, even if it is poweredoff.
-	StartCloudService *bool `pulumi:"startCloudService"`
-	// The unique identifier for the cloud service.
-	UniqueId string `pulumi:"uniqueId"`
-	// Update mode for the cloud service. Role instances are allocated to update domains when the service is deployed. Updates can be initiated manually in each update domain or initiated automatically in all update domains.
-	// Possible Values are <br /><br />**Auto**<br /><br />**Manual** <br /><br />**Simultaneous**<br /><br />
-	// If not specified, the default value is Auto. If set to Manual, PUT UpdateDomain must be called to apply the update. If set to Auto, the update is automatically applied to each update domain in sequence.
-	UpgradeMode *string `pulumi:"upgradeMode"`
+	Configuration     *string                               `pulumi:"configuration"`
+	ConfigurationUrl  *string                               `pulumi:"configurationUrl"`
+	ExtensionProfile  *CloudServiceExtensionProfileResponse `pulumi:"extensionProfile"`
+	NetworkProfile    *CloudServiceNetworkProfileResponse   `pulumi:"networkProfile"`
+	OsProfile         *CloudServiceOsProfileResponse        `pulumi:"osProfile"`
+	PackageUrl        *string                               `pulumi:"packageUrl"`
+	ProvisioningState string                                `pulumi:"provisioningState"`
+	RoleProfile       *CloudServiceRoleProfileResponse      `pulumi:"roleProfile"`
+	StartCloudService *bool                                 `pulumi:"startCloudService"`
+	UniqueId          string                                `pulumi:"uniqueId"`
+	UpgradeMode       *string                               `pulumi:"upgradeMode"`
 }
 
 // CloudServicePropertiesResponseInput is an input type that accepts CloudServicePropertiesResponseArgs and CloudServicePropertiesResponseOutput values.
@@ -1813,35 +1643,18 @@ type CloudServicePropertiesResponseInput interface {
 	ToCloudServicePropertiesResponseOutputWithContext(context.Context) CloudServicePropertiesResponseOutput
 }
 
-// Cloud service properties
 type CloudServicePropertiesResponseArgs struct {
-	// Specifies the XML service configuration (.cscfg) for the cloud service.
-	Configuration pulumi.StringPtrInput `pulumi:"configuration"`
-	// Specifies a URL that refers to the location of the service configuration in the Blob service. The service package URL  can be Shared Access Signature (SAS) URI from any storage account.
-	// This is a write-only property and is not returned in GET calls.
-	ConfigurationUrl pulumi.StringPtrInput `pulumi:"configurationUrl"`
-	// Describes a cloud service extension profile.
-	ExtensionProfile CloudServiceExtensionProfileResponsePtrInput `pulumi:"extensionProfile"`
-	// Network Profile for the cloud service.
-	NetworkProfile CloudServiceNetworkProfileResponsePtrInput `pulumi:"networkProfile"`
-	// Describes the OS profile for the cloud service.
-	OsProfile CloudServiceOsProfileResponsePtrInput `pulumi:"osProfile"`
-	// Specifies a URL that refers to the location of the service package in the Blob service. The service package URL can be Shared Access Signature (SAS) URI from any storage account.
-	// This is a write-only property and is not returned in GET calls.
-	PackageUrl pulumi.StringPtrInput `pulumi:"packageUrl"`
-	// The provisioning state, which only appears in the response.
-	ProvisioningState pulumi.StringInput `pulumi:"provisioningState"`
-	// Describes the role profile for the cloud service.
-	RoleProfile CloudServiceRoleProfileResponsePtrInput `pulumi:"roleProfile"`
-	// (Optional) Indicates whether to start the cloud service immediately after it is created. The default value is `true`.
-	// If false, the service model is still deployed, but the code is not run immediately. Instead, the service is PoweredOff until you call Start, at which time the service will be started. A deployed service still incurs charges, even if it is poweredoff.
-	StartCloudService pulumi.BoolPtrInput `pulumi:"startCloudService"`
-	// The unique identifier for the cloud service.
-	UniqueId pulumi.StringInput `pulumi:"uniqueId"`
-	// Update mode for the cloud service. Role instances are allocated to update domains when the service is deployed. Updates can be initiated manually in each update domain or initiated automatically in all update domains.
-	// Possible Values are <br /><br />**Auto**<br /><br />**Manual** <br /><br />**Simultaneous**<br /><br />
-	// If not specified, the default value is Auto. If set to Manual, PUT UpdateDomain must be called to apply the update. If set to Auto, the update is automatically applied to each update domain in sequence.
-	UpgradeMode pulumi.StringPtrInput `pulumi:"upgradeMode"`
+	Configuration     pulumi.StringPtrInput                        `pulumi:"configuration"`
+	ConfigurationUrl  pulumi.StringPtrInput                        `pulumi:"configurationUrl"`
+	ExtensionProfile  CloudServiceExtensionProfileResponsePtrInput `pulumi:"extensionProfile"`
+	NetworkProfile    CloudServiceNetworkProfileResponsePtrInput   `pulumi:"networkProfile"`
+	OsProfile         CloudServiceOsProfileResponsePtrInput        `pulumi:"osProfile"`
+	PackageUrl        pulumi.StringPtrInput                        `pulumi:"packageUrl"`
+	ProvisioningState pulumi.StringInput                           `pulumi:"provisioningState"`
+	RoleProfile       CloudServiceRoleProfileResponsePtrInput      `pulumi:"roleProfile"`
+	StartCloudService pulumi.BoolPtrInput                          `pulumi:"startCloudService"`
+	UniqueId          pulumi.StringInput                           `pulumi:"uniqueId"`
+	UpgradeMode       pulumi.StringPtrInput                        `pulumi:"upgradeMode"`
 }
 
 func (CloudServicePropertiesResponseArgs) ElementType() reflect.Type {
@@ -1897,7 +1710,6 @@ func (i *cloudServicePropertiesResponsePtrType) ToCloudServicePropertiesResponse
 	return pulumi.ToOutputWithContext(ctx, i).(CloudServicePropertiesResponsePtrOutput)
 }
 
-// Cloud service properties
 type CloudServicePropertiesResponseOutput struct{ *pulumi.OutputState }
 
 func (CloudServicePropertiesResponseOutput) ElementType() reflect.Type {
@@ -1917,69 +1729,53 @@ func (o CloudServicePropertiesResponseOutput) ToCloudServicePropertiesResponsePt
 }
 
 func (o CloudServicePropertiesResponseOutput) ToCloudServicePropertiesResponsePtrOutputWithContext(ctx context.Context) CloudServicePropertiesResponsePtrOutput {
-	return o.ApplyT(func(v CloudServicePropertiesResponse) *CloudServicePropertiesResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v CloudServicePropertiesResponse) *CloudServicePropertiesResponse {
 		return &v
 	}).(CloudServicePropertiesResponsePtrOutput)
 }
 
-// Specifies the XML service configuration (.cscfg) for the cloud service.
 func (o CloudServicePropertiesResponseOutput) Configuration() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v CloudServicePropertiesResponse) *string { return v.Configuration }).(pulumi.StringPtrOutput)
 }
 
-// Specifies a URL that refers to the location of the service configuration in the Blob service. The service package URL  can be Shared Access Signature (SAS) URI from any storage account.
-// This is a write-only property and is not returned in GET calls.
 func (o CloudServicePropertiesResponseOutput) ConfigurationUrl() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v CloudServicePropertiesResponse) *string { return v.ConfigurationUrl }).(pulumi.StringPtrOutput)
 }
 
-// Describes a cloud service extension profile.
 func (o CloudServicePropertiesResponseOutput) ExtensionProfile() CloudServiceExtensionProfileResponsePtrOutput {
 	return o.ApplyT(func(v CloudServicePropertiesResponse) *CloudServiceExtensionProfileResponse {
 		return v.ExtensionProfile
 	}).(CloudServiceExtensionProfileResponsePtrOutput)
 }
 
-// Network Profile for the cloud service.
 func (o CloudServicePropertiesResponseOutput) NetworkProfile() CloudServiceNetworkProfileResponsePtrOutput {
 	return o.ApplyT(func(v CloudServicePropertiesResponse) *CloudServiceNetworkProfileResponse { return v.NetworkProfile }).(CloudServiceNetworkProfileResponsePtrOutput)
 }
 
-// Describes the OS profile for the cloud service.
 func (o CloudServicePropertiesResponseOutput) OsProfile() CloudServiceOsProfileResponsePtrOutput {
 	return o.ApplyT(func(v CloudServicePropertiesResponse) *CloudServiceOsProfileResponse { return v.OsProfile }).(CloudServiceOsProfileResponsePtrOutput)
 }
 
-// Specifies a URL that refers to the location of the service package in the Blob service. The service package URL can be Shared Access Signature (SAS) URI from any storage account.
-// This is a write-only property and is not returned in GET calls.
 func (o CloudServicePropertiesResponseOutput) PackageUrl() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v CloudServicePropertiesResponse) *string { return v.PackageUrl }).(pulumi.StringPtrOutput)
 }
 
-// The provisioning state, which only appears in the response.
 func (o CloudServicePropertiesResponseOutput) ProvisioningState() pulumi.StringOutput {
 	return o.ApplyT(func(v CloudServicePropertiesResponse) string { return v.ProvisioningState }).(pulumi.StringOutput)
 }
 
-// Describes the role profile for the cloud service.
 func (o CloudServicePropertiesResponseOutput) RoleProfile() CloudServiceRoleProfileResponsePtrOutput {
 	return o.ApplyT(func(v CloudServicePropertiesResponse) *CloudServiceRoleProfileResponse { return v.RoleProfile }).(CloudServiceRoleProfileResponsePtrOutput)
 }
 
-// (Optional) Indicates whether to start the cloud service immediately after it is created. The default value is `true`.
-// If false, the service model is still deployed, but the code is not run immediately. Instead, the service is PoweredOff until you call Start, at which time the service will be started. A deployed service still incurs charges, even if it is poweredoff.
 func (o CloudServicePropertiesResponseOutput) StartCloudService() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v CloudServicePropertiesResponse) *bool { return v.StartCloudService }).(pulumi.BoolPtrOutput)
 }
 
-// The unique identifier for the cloud service.
 func (o CloudServicePropertiesResponseOutput) UniqueId() pulumi.StringOutput {
 	return o.ApplyT(func(v CloudServicePropertiesResponse) string { return v.UniqueId }).(pulumi.StringOutput)
 }
 
-// Update mode for the cloud service. Role instances are allocated to update domains when the service is deployed. Updates can be initiated manually in each update domain or initiated automatically in all update domains.
-// Possible Values are <br /><br />**Auto**<br /><br />**Manual** <br /><br />**Simultaneous**<br /><br />
-// If not specified, the default value is Auto. If set to Manual, PUT UpdateDomain must be called to apply the update. If set to Auto, the update is automatically applied to each update domain in sequence.
 func (o CloudServicePropertiesResponseOutput) UpgradeMode() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v CloudServicePropertiesResponse) *string { return v.UpgradeMode }).(pulumi.StringPtrOutput)
 }
@@ -1999,10 +1795,15 @@ func (o CloudServicePropertiesResponsePtrOutput) ToCloudServicePropertiesRespons
 }
 
 func (o CloudServicePropertiesResponsePtrOutput) Elem() CloudServicePropertiesResponseOutput {
-	return o.ApplyT(func(v *CloudServicePropertiesResponse) CloudServicePropertiesResponse { return *v }).(CloudServicePropertiesResponseOutput)
+	return o.ApplyT(func(v *CloudServicePropertiesResponse) CloudServicePropertiesResponse {
+		if v != nil {
+			return *v
+		}
+		var ret CloudServicePropertiesResponse
+		return ret
+	}).(CloudServicePropertiesResponseOutput)
 }
 
-// Specifies the XML service configuration (.cscfg) for the cloud service.
 func (o CloudServicePropertiesResponsePtrOutput) Configuration() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *CloudServicePropertiesResponse) *string {
 		if v == nil {
@@ -2012,8 +1813,6 @@ func (o CloudServicePropertiesResponsePtrOutput) Configuration() pulumi.StringPt
 	}).(pulumi.StringPtrOutput)
 }
 
-// Specifies a URL that refers to the location of the service configuration in the Blob service. The service package URL  can be Shared Access Signature (SAS) URI from any storage account.
-// This is a write-only property and is not returned in GET calls.
 func (o CloudServicePropertiesResponsePtrOutput) ConfigurationUrl() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *CloudServicePropertiesResponse) *string {
 		if v == nil {
@@ -2023,7 +1822,6 @@ func (o CloudServicePropertiesResponsePtrOutput) ConfigurationUrl() pulumi.Strin
 	}).(pulumi.StringPtrOutput)
 }
 
-// Describes a cloud service extension profile.
 func (o CloudServicePropertiesResponsePtrOutput) ExtensionProfile() CloudServiceExtensionProfileResponsePtrOutput {
 	return o.ApplyT(func(v *CloudServicePropertiesResponse) *CloudServiceExtensionProfileResponse {
 		if v == nil {
@@ -2033,7 +1831,6 @@ func (o CloudServicePropertiesResponsePtrOutput) ExtensionProfile() CloudService
 	}).(CloudServiceExtensionProfileResponsePtrOutput)
 }
 
-// Network Profile for the cloud service.
 func (o CloudServicePropertiesResponsePtrOutput) NetworkProfile() CloudServiceNetworkProfileResponsePtrOutput {
 	return o.ApplyT(func(v *CloudServicePropertiesResponse) *CloudServiceNetworkProfileResponse {
 		if v == nil {
@@ -2043,7 +1840,6 @@ func (o CloudServicePropertiesResponsePtrOutput) NetworkProfile() CloudServiceNe
 	}).(CloudServiceNetworkProfileResponsePtrOutput)
 }
 
-// Describes the OS profile for the cloud service.
 func (o CloudServicePropertiesResponsePtrOutput) OsProfile() CloudServiceOsProfileResponsePtrOutput {
 	return o.ApplyT(func(v *CloudServicePropertiesResponse) *CloudServiceOsProfileResponse {
 		if v == nil {
@@ -2053,8 +1849,6 @@ func (o CloudServicePropertiesResponsePtrOutput) OsProfile() CloudServiceOsProfi
 	}).(CloudServiceOsProfileResponsePtrOutput)
 }
 
-// Specifies a URL that refers to the location of the service package in the Blob service. The service package URL can be Shared Access Signature (SAS) URI from any storage account.
-// This is a write-only property and is not returned in GET calls.
 func (o CloudServicePropertiesResponsePtrOutput) PackageUrl() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *CloudServicePropertiesResponse) *string {
 		if v == nil {
@@ -2064,7 +1858,6 @@ func (o CloudServicePropertiesResponsePtrOutput) PackageUrl() pulumi.StringPtrOu
 	}).(pulumi.StringPtrOutput)
 }
 
-// The provisioning state, which only appears in the response.
 func (o CloudServicePropertiesResponsePtrOutput) ProvisioningState() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *CloudServicePropertiesResponse) *string {
 		if v == nil {
@@ -2074,7 +1867,6 @@ func (o CloudServicePropertiesResponsePtrOutput) ProvisioningState() pulumi.Stri
 	}).(pulumi.StringPtrOutput)
 }
 
-// Describes the role profile for the cloud service.
 func (o CloudServicePropertiesResponsePtrOutput) RoleProfile() CloudServiceRoleProfileResponsePtrOutput {
 	return o.ApplyT(func(v *CloudServicePropertiesResponse) *CloudServiceRoleProfileResponse {
 		if v == nil {
@@ -2084,8 +1876,6 @@ func (o CloudServicePropertiesResponsePtrOutput) RoleProfile() CloudServiceRoleP
 	}).(CloudServiceRoleProfileResponsePtrOutput)
 }
 
-// (Optional) Indicates whether to start the cloud service immediately after it is created. The default value is `true`.
-// If false, the service model is still deployed, but the code is not run immediately. Instead, the service is PoweredOff until you call Start, at which time the service will be started. A deployed service still incurs charges, even if it is poweredoff.
 func (o CloudServicePropertiesResponsePtrOutput) StartCloudService() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *CloudServicePropertiesResponse) *bool {
 		if v == nil {
@@ -2095,7 +1885,6 @@ func (o CloudServicePropertiesResponsePtrOutput) StartCloudService() pulumi.Bool
 	}).(pulumi.BoolPtrOutput)
 }
 
-// The unique identifier for the cloud service.
 func (o CloudServicePropertiesResponsePtrOutput) UniqueId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *CloudServicePropertiesResponse) *string {
 		if v == nil {
@@ -2105,9 +1894,6 @@ func (o CloudServicePropertiesResponsePtrOutput) UniqueId() pulumi.StringPtrOutp
 	}).(pulumi.StringPtrOutput)
 }
 
-// Update mode for the cloud service. Role instances are allocated to update domains when the service is deployed. Updates can be initiated manually in each update domain or initiated automatically in all update domains.
-// Possible Values are <br /><br />**Auto**<br /><br />**Manual** <br /><br />**Simultaneous**<br /><br />
-// If not specified, the default value is Auto. If set to Manual, PUT UpdateDomain must be called to apply the update. If set to Auto, the update is automatically applied to each update domain in sequence.
 func (o CloudServicePropertiesResponsePtrOutput) UpgradeMode() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *CloudServicePropertiesResponse) *string {
 		if v == nil {
@@ -2117,9 +1903,7 @@ func (o CloudServicePropertiesResponsePtrOutput) UpgradeMode() pulumi.StringPtrO
 	}).(pulumi.StringPtrOutput)
 }
 
-// Describes the role profile for the cloud service.
 type CloudServiceRoleProfile struct {
-	// List of roles for the cloud service.
 	Roles []CloudServiceRoleProfileProperties `pulumi:"roles"`
 }
 
@@ -2134,9 +1918,7 @@ type CloudServiceRoleProfileInput interface {
 	ToCloudServiceRoleProfileOutputWithContext(context.Context) CloudServiceRoleProfileOutput
 }
 
-// Describes the role profile for the cloud service.
 type CloudServiceRoleProfileArgs struct {
-	// List of roles for the cloud service.
 	Roles CloudServiceRoleProfilePropertiesArrayInput `pulumi:"roles"`
 }
 
@@ -2193,7 +1975,6 @@ func (i *cloudServiceRoleProfilePtrType) ToCloudServiceRoleProfilePtrOutputWithC
 	return pulumi.ToOutputWithContext(ctx, i).(CloudServiceRoleProfilePtrOutput)
 }
 
-// Describes the role profile for the cloud service.
 type CloudServiceRoleProfileOutput struct{ *pulumi.OutputState }
 
 func (CloudServiceRoleProfileOutput) ElementType() reflect.Type {
@@ -2213,12 +1994,11 @@ func (o CloudServiceRoleProfileOutput) ToCloudServiceRoleProfilePtrOutput() Clou
 }
 
 func (o CloudServiceRoleProfileOutput) ToCloudServiceRoleProfilePtrOutputWithContext(ctx context.Context) CloudServiceRoleProfilePtrOutput {
-	return o.ApplyT(func(v CloudServiceRoleProfile) *CloudServiceRoleProfile {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v CloudServiceRoleProfile) *CloudServiceRoleProfile {
 		return &v
 	}).(CloudServiceRoleProfilePtrOutput)
 }
 
-// List of roles for the cloud service.
 func (o CloudServiceRoleProfileOutput) Roles() CloudServiceRoleProfilePropertiesArrayOutput {
 	return o.ApplyT(func(v CloudServiceRoleProfile) []CloudServiceRoleProfileProperties { return v.Roles }).(CloudServiceRoleProfilePropertiesArrayOutput)
 }
@@ -2238,10 +2018,15 @@ func (o CloudServiceRoleProfilePtrOutput) ToCloudServiceRoleProfilePtrOutputWith
 }
 
 func (o CloudServiceRoleProfilePtrOutput) Elem() CloudServiceRoleProfileOutput {
-	return o.ApplyT(func(v *CloudServiceRoleProfile) CloudServiceRoleProfile { return *v }).(CloudServiceRoleProfileOutput)
+	return o.ApplyT(func(v *CloudServiceRoleProfile) CloudServiceRoleProfile {
+		if v != nil {
+			return *v
+		}
+		var ret CloudServiceRoleProfile
+		return ret
+	}).(CloudServiceRoleProfileOutput)
 }
 
-// List of roles for the cloud service.
 func (o CloudServiceRoleProfilePtrOutput) Roles() CloudServiceRoleProfilePropertiesArrayOutput {
 	return o.ApplyT(func(v *CloudServiceRoleProfile) []CloudServiceRoleProfileProperties {
 		if v == nil {
@@ -2251,12 +2036,9 @@ func (o CloudServiceRoleProfilePtrOutput) Roles() CloudServiceRoleProfilePropert
 	}).(CloudServiceRoleProfilePropertiesArrayOutput)
 }
 
-// Describes the role properties.
 type CloudServiceRoleProfileProperties struct {
-	// Resource name.
-	Name *string `pulumi:"name"`
-	// Describes the cloud service role sku.
-	Sku *CloudServiceRoleSku `pulumi:"sku"`
+	Name *string              `pulumi:"name"`
+	Sku  *CloudServiceRoleSku `pulumi:"sku"`
 }
 
 // CloudServiceRoleProfilePropertiesInput is an input type that accepts CloudServiceRoleProfilePropertiesArgs and CloudServiceRoleProfilePropertiesOutput values.
@@ -2270,12 +2052,9 @@ type CloudServiceRoleProfilePropertiesInput interface {
 	ToCloudServiceRoleProfilePropertiesOutputWithContext(context.Context) CloudServiceRoleProfilePropertiesOutput
 }
 
-// Describes the role properties.
 type CloudServiceRoleProfilePropertiesArgs struct {
-	// Resource name.
-	Name pulumi.StringPtrInput `pulumi:"name"`
-	// Describes the cloud service role sku.
-	Sku CloudServiceRoleSkuPtrInput `pulumi:"sku"`
+	Name pulumi.StringPtrInput       `pulumi:"name"`
+	Sku  CloudServiceRoleSkuPtrInput `pulumi:"sku"`
 }
 
 func (CloudServiceRoleProfilePropertiesArgs) ElementType() reflect.Type {
@@ -2315,7 +2094,6 @@ func (i CloudServiceRoleProfilePropertiesArray) ToCloudServiceRoleProfilePropert
 	return pulumi.ToOutputWithContext(ctx, i).(CloudServiceRoleProfilePropertiesArrayOutput)
 }
 
-// Describes the role properties.
 type CloudServiceRoleProfilePropertiesOutput struct{ *pulumi.OutputState }
 
 func (CloudServiceRoleProfilePropertiesOutput) ElementType() reflect.Type {
@@ -2330,12 +2108,10 @@ func (o CloudServiceRoleProfilePropertiesOutput) ToCloudServiceRoleProfileProper
 	return o
 }
 
-// Resource name.
 func (o CloudServiceRoleProfilePropertiesOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v CloudServiceRoleProfileProperties) *string { return v.Name }).(pulumi.StringPtrOutput)
 }
 
-// Describes the cloud service role sku.
 func (o CloudServiceRoleProfilePropertiesOutput) Sku() CloudServiceRoleSkuPtrOutput {
 	return o.ApplyT(func(v CloudServiceRoleProfileProperties) *CloudServiceRoleSku { return v.Sku }).(CloudServiceRoleSkuPtrOutput)
 }
@@ -2360,12 +2136,9 @@ func (o CloudServiceRoleProfilePropertiesArrayOutput) Index(i pulumi.IntInput) C
 	}).(CloudServiceRoleProfilePropertiesOutput)
 }
 
-// Describes the role properties.
 type CloudServiceRoleProfilePropertiesResponse struct {
-	// Resource name.
-	Name *string `pulumi:"name"`
-	// Describes the cloud service role sku.
-	Sku *CloudServiceRoleSkuResponse `pulumi:"sku"`
+	Name *string                      `pulumi:"name"`
+	Sku  *CloudServiceRoleSkuResponse `pulumi:"sku"`
 }
 
 // CloudServiceRoleProfilePropertiesResponseInput is an input type that accepts CloudServiceRoleProfilePropertiesResponseArgs and CloudServiceRoleProfilePropertiesResponseOutput values.
@@ -2379,12 +2152,9 @@ type CloudServiceRoleProfilePropertiesResponseInput interface {
 	ToCloudServiceRoleProfilePropertiesResponseOutputWithContext(context.Context) CloudServiceRoleProfilePropertiesResponseOutput
 }
 
-// Describes the role properties.
 type CloudServiceRoleProfilePropertiesResponseArgs struct {
-	// Resource name.
-	Name pulumi.StringPtrInput `pulumi:"name"`
-	// Describes the cloud service role sku.
-	Sku CloudServiceRoleSkuResponsePtrInput `pulumi:"sku"`
+	Name pulumi.StringPtrInput               `pulumi:"name"`
+	Sku  CloudServiceRoleSkuResponsePtrInput `pulumi:"sku"`
 }
 
 func (CloudServiceRoleProfilePropertiesResponseArgs) ElementType() reflect.Type {
@@ -2424,7 +2194,6 @@ func (i CloudServiceRoleProfilePropertiesResponseArray) ToCloudServiceRoleProfil
 	return pulumi.ToOutputWithContext(ctx, i).(CloudServiceRoleProfilePropertiesResponseArrayOutput)
 }
 
-// Describes the role properties.
 type CloudServiceRoleProfilePropertiesResponseOutput struct{ *pulumi.OutputState }
 
 func (CloudServiceRoleProfilePropertiesResponseOutput) ElementType() reflect.Type {
@@ -2439,12 +2208,10 @@ func (o CloudServiceRoleProfilePropertiesResponseOutput) ToCloudServiceRoleProfi
 	return o
 }
 
-// Resource name.
 func (o CloudServiceRoleProfilePropertiesResponseOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v CloudServiceRoleProfilePropertiesResponse) *string { return v.Name }).(pulumi.StringPtrOutput)
 }
 
-// Describes the cloud service role sku.
 func (o CloudServiceRoleProfilePropertiesResponseOutput) Sku() CloudServiceRoleSkuResponsePtrOutput {
 	return o.ApplyT(func(v CloudServiceRoleProfilePropertiesResponse) *CloudServiceRoleSkuResponse { return v.Sku }).(CloudServiceRoleSkuResponsePtrOutput)
 }
@@ -2469,9 +2236,7 @@ func (o CloudServiceRoleProfilePropertiesResponseArrayOutput) Index(i pulumi.Int
 	}).(CloudServiceRoleProfilePropertiesResponseOutput)
 }
 
-// Describes the role profile for the cloud service.
 type CloudServiceRoleProfileResponse struct {
-	// List of roles for the cloud service.
 	Roles []CloudServiceRoleProfilePropertiesResponse `pulumi:"roles"`
 }
 
@@ -2486,9 +2251,7 @@ type CloudServiceRoleProfileResponseInput interface {
 	ToCloudServiceRoleProfileResponseOutputWithContext(context.Context) CloudServiceRoleProfileResponseOutput
 }
 
-// Describes the role profile for the cloud service.
 type CloudServiceRoleProfileResponseArgs struct {
-	// List of roles for the cloud service.
 	Roles CloudServiceRoleProfilePropertiesResponseArrayInput `pulumi:"roles"`
 }
 
@@ -2545,7 +2308,6 @@ func (i *cloudServiceRoleProfileResponsePtrType) ToCloudServiceRoleProfileRespon
 	return pulumi.ToOutputWithContext(ctx, i).(CloudServiceRoleProfileResponsePtrOutput)
 }
 
-// Describes the role profile for the cloud service.
 type CloudServiceRoleProfileResponseOutput struct{ *pulumi.OutputState }
 
 func (CloudServiceRoleProfileResponseOutput) ElementType() reflect.Type {
@@ -2565,12 +2327,11 @@ func (o CloudServiceRoleProfileResponseOutput) ToCloudServiceRoleProfileResponse
 }
 
 func (o CloudServiceRoleProfileResponseOutput) ToCloudServiceRoleProfileResponsePtrOutputWithContext(ctx context.Context) CloudServiceRoleProfileResponsePtrOutput {
-	return o.ApplyT(func(v CloudServiceRoleProfileResponse) *CloudServiceRoleProfileResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v CloudServiceRoleProfileResponse) *CloudServiceRoleProfileResponse {
 		return &v
 	}).(CloudServiceRoleProfileResponsePtrOutput)
 }
 
-// List of roles for the cloud service.
 func (o CloudServiceRoleProfileResponseOutput) Roles() CloudServiceRoleProfilePropertiesResponseArrayOutput {
 	return o.ApplyT(func(v CloudServiceRoleProfileResponse) []CloudServiceRoleProfilePropertiesResponse { return v.Roles }).(CloudServiceRoleProfilePropertiesResponseArrayOutput)
 }
@@ -2590,10 +2351,15 @@ func (o CloudServiceRoleProfileResponsePtrOutput) ToCloudServiceRoleProfileRespo
 }
 
 func (o CloudServiceRoleProfileResponsePtrOutput) Elem() CloudServiceRoleProfileResponseOutput {
-	return o.ApplyT(func(v *CloudServiceRoleProfileResponse) CloudServiceRoleProfileResponse { return *v }).(CloudServiceRoleProfileResponseOutput)
+	return o.ApplyT(func(v *CloudServiceRoleProfileResponse) CloudServiceRoleProfileResponse {
+		if v != nil {
+			return *v
+		}
+		var ret CloudServiceRoleProfileResponse
+		return ret
+	}).(CloudServiceRoleProfileResponseOutput)
 }
 
-// List of roles for the cloud service.
 func (o CloudServiceRoleProfileResponsePtrOutput) Roles() CloudServiceRoleProfilePropertiesResponseArrayOutput {
 	return o.ApplyT(func(v *CloudServiceRoleProfileResponse) []CloudServiceRoleProfilePropertiesResponse {
 		if v == nil {
@@ -2603,14 +2369,10 @@ func (o CloudServiceRoleProfileResponsePtrOutput) Roles() CloudServiceRoleProfil
 	}).(CloudServiceRoleProfilePropertiesResponseArrayOutput)
 }
 
-// Describes the cloud service role sku.
 type CloudServiceRoleSku struct {
-	// Specifies the number of role instances in the cloud service.
 	Capacity *float64 `pulumi:"capacity"`
-	// The sku name. NOTE: If the new SKU is not supported on the hardware the cloud service is currently on, you need to delete and recreate the cloud service or move back to the old sku.
-	Name *string `pulumi:"name"`
-	// Specifies the tier of the cloud service. Possible Values are <br /><br /> **Standard** <br /><br /> **Basic**
-	Tier *string `pulumi:"tier"`
+	Name     *string  `pulumi:"name"`
+	Tier     *string  `pulumi:"tier"`
 }
 
 // CloudServiceRoleSkuInput is an input type that accepts CloudServiceRoleSkuArgs and CloudServiceRoleSkuOutput values.
@@ -2624,14 +2386,10 @@ type CloudServiceRoleSkuInput interface {
 	ToCloudServiceRoleSkuOutputWithContext(context.Context) CloudServiceRoleSkuOutput
 }
 
-// Describes the cloud service role sku.
 type CloudServiceRoleSkuArgs struct {
-	// Specifies the number of role instances in the cloud service.
 	Capacity pulumi.Float64PtrInput `pulumi:"capacity"`
-	// The sku name. NOTE: If the new SKU is not supported on the hardware the cloud service is currently on, you need to delete and recreate the cloud service or move back to the old sku.
-	Name pulumi.StringPtrInput `pulumi:"name"`
-	// Specifies the tier of the cloud service. Possible Values are <br /><br /> **Standard** <br /><br /> **Basic**
-	Tier pulumi.StringPtrInput `pulumi:"tier"`
+	Name     pulumi.StringPtrInput  `pulumi:"name"`
+	Tier     pulumi.StringPtrInput  `pulumi:"tier"`
 }
 
 func (CloudServiceRoleSkuArgs) ElementType() reflect.Type {
@@ -2687,7 +2445,6 @@ func (i *cloudServiceRoleSkuPtrType) ToCloudServiceRoleSkuPtrOutputWithContext(c
 	return pulumi.ToOutputWithContext(ctx, i).(CloudServiceRoleSkuPtrOutput)
 }
 
-// Describes the cloud service role sku.
 type CloudServiceRoleSkuOutput struct{ *pulumi.OutputState }
 
 func (CloudServiceRoleSkuOutput) ElementType() reflect.Type {
@@ -2707,22 +2464,19 @@ func (o CloudServiceRoleSkuOutput) ToCloudServiceRoleSkuPtrOutput() CloudService
 }
 
 func (o CloudServiceRoleSkuOutput) ToCloudServiceRoleSkuPtrOutputWithContext(ctx context.Context) CloudServiceRoleSkuPtrOutput {
-	return o.ApplyT(func(v CloudServiceRoleSku) *CloudServiceRoleSku {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v CloudServiceRoleSku) *CloudServiceRoleSku {
 		return &v
 	}).(CloudServiceRoleSkuPtrOutput)
 }
 
-// Specifies the number of role instances in the cloud service.
 func (o CloudServiceRoleSkuOutput) Capacity() pulumi.Float64PtrOutput {
 	return o.ApplyT(func(v CloudServiceRoleSku) *float64 { return v.Capacity }).(pulumi.Float64PtrOutput)
 }
 
-// The sku name. NOTE: If the new SKU is not supported on the hardware the cloud service is currently on, you need to delete and recreate the cloud service or move back to the old sku.
 func (o CloudServiceRoleSkuOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v CloudServiceRoleSku) *string { return v.Name }).(pulumi.StringPtrOutput)
 }
 
-// Specifies the tier of the cloud service. Possible Values are <br /><br /> **Standard** <br /><br /> **Basic**
 func (o CloudServiceRoleSkuOutput) Tier() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v CloudServiceRoleSku) *string { return v.Tier }).(pulumi.StringPtrOutput)
 }
@@ -2742,10 +2496,15 @@ func (o CloudServiceRoleSkuPtrOutput) ToCloudServiceRoleSkuPtrOutputWithContext(
 }
 
 func (o CloudServiceRoleSkuPtrOutput) Elem() CloudServiceRoleSkuOutput {
-	return o.ApplyT(func(v *CloudServiceRoleSku) CloudServiceRoleSku { return *v }).(CloudServiceRoleSkuOutput)
+	return o.ApplyT(func(v *CloudServiceRoleSku) CloudServiceRoleSku {
+		if v != nil {
+			return *v
+		}
+		var ret CloudServiceRoleSku
+		return ret
+	}).(CloudServiceRoleSkuOutput)
 }
 
-// Specifies the number of role instances in the cloud service.
 func (o CloudServiceRoleSkuPtrOutput) Capacity() pulumi.Float64PtrOutput {
 	return o.ApplyT(func(v *CloudServiceRoleSku) *float64 {
 		if v == nil {
@@ -2755,7 +2514,6 @@ func (o CloudServiceRoleSkuPtrOutput) Capacity() pulumi.Float64PtrOutput {
 	}).(pulumi.Float64PtrOutput)
 }
 
-// The sku name. NOTE: If the new SKU is not supported on the hardware the cloud service is currently on, you need to delete and recreate the cloud service or move back to the old sku.
 func (o CloudServiceRoleSkuPtrOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *CloudServiceRoleSku) *string {
 		if v == nil {
@@ -2765,7 +2523,6 @@ func (o CloudServiceRoleSkuPtrOutput) Name() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Specifies the tier of the cloud service. Possible Values are <br /><br /> **Standard** <br /><br /> **Basic**
 func (o CloudServiceRoleSkuPtrOutput) Tier() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *CloudServiceRoleSku) *string {
 		if v == nil {
@@ -2775,14 +2532,10 @@ func (o CloudServiceRoleSkuPtrOutput) Tier() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Describes the cloud service role sku.
 type CloudServiceRoleSkuResponse struct {
-	// Specifies the number of role instances in the cloud service.
 	Capacity *float64 `pulumi:"capacity"`
-	// The sku name. NOTE: If the new SKU is not supported on the hardware the cloud service is currently on, you need to delete and recreate the cloud service or move back to the old sku.
-	Name *string `pulumi:"name"`
-	// Specifies the tier of the cloud service. Possible Values are <br /><br /> **Standard** <br /><br /> **Basic**
-	Tier *string `pulumi:"tier"`
+	Name     *string  `pulumi:"name"`
+	Tier     *string  `pulumi:"tier"`
 }
 
 // CloudServiceRoleSkuResponseInput is an input type that accepts CloudServiceRoleSkuResponseArgs and CloudServiceRoleSkuResponseOutput values.
@@ -2796,14 +2549,10 @@ type CloudServiceRoleSkuResponseInput interface {
 	ToCloudServiceRoleSkuResponseOutputWithContext(context.Context) CloudServiceRoleSkuResponseOutput
 }
 
-// Describes the cloud service role sku.
 type CloudServiceRoleSkuResponseArgs struct {
-	// Specifies the number of role instances in the cloud service.
 	Capacity pulumi.Float64PtrInput `pulumi:"capacity"`
-	// The sku name. NOTE: If the new SKU is not supported on the hardware the cloud service is currently on, you need to delete and recreate the cloud service or move back to the old sku.
-	Name pulumi.StringPtrInput `pulumi:"name"`
-	// Specifies the tier of the cloud service. Possible Values are <br /><br /> **Standard** <br /><br /> **Basic**
-	Tier pulumi.StringPtrInput `pulumi:"tier"`
+	Name     pulumi.StringPtrInput  `pulumi:"name"`
+	Tier     pulumi.StringPtrInput  `pulumi:"tier"`
 }
 
 func (CloudServiceRoleSkuResponseArgs) ElementType() reflect.Type {
@@ -2859,7 +2608,6 @@ func (i *cloudServiceRoleSkuResponsePtrType) ToCloudServiceRoleSkuResponsePtrOut
 	return pulumi.ToOutputWithContext(ctx, i).(CloudServiceRoleSkuResponsePtrOutput)
 }
 
-// Describes the cloud service role sku.
 type CloudServiceRoleSkuResponseOutput struct{ *pulumi.OutputState }
 
 func (CloudServiceRoleSkuResponseOutput) ElementType() reflect.Type {
@@ -2879,22 +2627,19 @@ func (o CloudServiceRoleSkuResponseOutput) ToCloudServiceRoleSkuResponsePtrOutpu
 }
 
 func (o CloudServiceRoleSkuResponseOutput) ToCloudServiceRoleSkuResponsePtrOutputWithContext(ctx context.Context) CloudServiceRoleSkuResponsePtrOutput {
-	return o.ApplyT(func(v CloudServiceRoleSkuResponse) *CloudServiceRoleSkuResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v CloudServiceRoleSkuResponse) *CloudServiceRoleSkuResponse {
 		return &v
 	}).(CloudServiceRoleSkuResponsePtrOutput)
 }
 
-// Specifies the number of role instances in the cloud service.
 func (o CloudServiceRoleSkuResponseOutput) Capacity() pulumi.Float64PtrOutput {
 	return o.ApplyT(func(v CloudServiceRoleSkuResponse) *float64 { return v.Capacity }).(pulumi.Float64PtrOutput)
 }
 
-// The sku name. NOTE: If the new SKU is not supported on the hardware the cloud service is currently on, you need to delete and recreate the cloud service or move back to the old sku.
 func (o CloudServiceRoleSkuResponseOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v CloudServiceRoleSkuResponse) *string { return v.Name }).(pulumi.StringPtrOutput)
 }
 
-// Specifies the tier of the cloud service. Possible Values are <br /><br /> **Standard** <br /><br /> **Basic**
 func (o CloudServiceRoleSkuResponseOutput) Tier() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v CloudServiceRoleSkuResponse) *string { return v.Tier }).(pulumi.StringPtrOutput)
 }
@@ -2914,10 +2659,15 @@ func (o CloudServiceRoleSkuResponsePtrOutput) ToCloudServiceRoleSkuResponsePtrOu
 }
 
 func (o CloudServiceRoleSkuResponsePtrOutput) Elem() CloudServiceRoleSkuResponseOutput {
-	return o.ApplyT(func(v *CloudServiceRoleSkuResponse) CloudServiceRoleSkuResponse { return *v }).(CloudServiceRoleSkuResponseOutput)
+	return o.ApplyT(func(v *CloudServiceRoleSkuResponse) CloudServiceRoleSkuResponse {
+		if v != nil {
+			return *v
+		}
+		var ret CloudServiceRoleSkuResponse
+		return ret
+	}).(CloudServiceRoleSkuResponseOutput)
 }
 
-// Specifies the number of role instances in the cloud service.
 func (o CloudServiceRoleSkuResponsePtrOutput) Capacity() pulumi.Float64PtrOutput {
 	return o.ApplyT(func(v *CloudServiceRoleSkuResponse) *float64 {
 		if v == nil {
@@ -2927,7 +2677,6 @@ func (o CloudServiceRoleSkuResponsePtrOutput) Capacity() pulumi.Float64PtrOutput
 	}).(pulumi.Float64PtrOutput)
 }
 
-// The sku name. NOTE: If the new SKU is not supported on the hardware the cloud service is currently on, you need to delete and recreate the cloud service or move back to the old sku.
 func (o CloudServiceRoleSkuResponsePtrOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *CloudServiceRoleSkuResponse) *string {
 		if v == nil {
@@ -2937,7 +2686,6 @@ func (o CloudServiceRoleSkuResponsePtrOutput) Name() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Specifies the tier of the cloud service. Possible Values are <br /><br /> **Standard** <br /><br /> **Basic**
 func (o CloudServiceRoleSkuResponsePtrOutput) Tier() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *CloudServiceRoleSkuResponse) *string {
 		if v == nil {
@@ -3040,10 +2788,11 @@ func (o CloudServiceVaultAndSecretReferenceOutput) ToCloudServiceVaultAndSecretR
 }
 
 func (o CloudServiceVaultAndSecretReferenceOutput) ToCloudServiceVaultAndSecretReferencePtrOutputWithContext(ctx context.Context) CloudServiceVaultAndSecretReferencePtrOutput {
-	return o.ApplyT(func(v CloudServiceVaultAndSecretReference) *CloudServiceVaultAndSecretReference {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v CloudServiceVaultAndSecretReference) *CloudServiceVaultAndSecretReference {
 		return &v
 	}).(CloudServiceVaultAndSecretReferencePtrOutput)
 }
+
 func (o CloudServiceVaultAndSecretReferenceOutput) SecretUrl() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v CloudServiceVaultAndSecretReference) *string { return v.SecretUrl }).(pulumi.StringPtrOutput)
 }
@@ -3067,7 +2816,13 @@ func (o CloudServiceVaultAndSecretReferencePtrOutput) ToCloudServiceVaultAndSecr
 }
 
 func (o CloudServiceVaultAndSecretReferencePtrOutput) Elem() CloudServiceVaultAndSecretReferenceOutput {
-	return o.ApplyT(func(v *CloudServiceVaultAndSecretReference) CloudServiceVaultAndSecretReference { return *v }).(CloudServiceVaultAndSecretReferenceOutput)
+	return o.ApplyT(func(v *CloudServiceVaultAndSecretReference) CloudServiceVaultAndSecretReference {
+		if v != nil {
+			return *v
+		}
+		var ret CloudServiceVaultAndSecretReference
+		return ret
+	}).(CloudServiceVaultAndSecretReferenceOutput)
 }
 
 func (o CloudServiceVaultAndSecretReferencePtrOutput) SecretUrl() pulumi.StringPtrOutput {
@@ -3181,10 +2936,11 @@ func (o CloudServiceVaultAndSecretReferenceResponseOutput) ToCloudServiceVaultAn
 }
 
 func (o CloudServiceVaultAndSecretReferenceResponseOutput) ToCloudServiceVaultAndSecretReferenceResponsePtrOutputWithContext(ctx context.Context) CloudServiceVaultAndSecretReferenceResponsePtrOutput {
-	return o.ApplyT(func(v CloudServiceVaultAndSecretReferenceResponse) *CloudServiceVaultAndSecretReferenceResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v CloudServiceVaultAndSecretReferenceResponse) *CloudServiceVaultAndSecretReferenceResponse {
 		return &v
 	}).(CloudServiceVaultAndSecretReferenceResponsePtrOutput)
 }
+
 func (o CloudServiceVaultAndSecretReferenceResponseOutput) SecretUrl() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v CloudServiceVaultAndSecretReferenceResponse) *string { return v.SecretUrl }).(pulumi.StringPtrOutput)
 }
@@ -3209,7 +2965,11 @@ func (o CloudServiceVaultAndSecretReferenceResponsePtrOutput) ToCloudServiceVaul
 
 func (o CloudServiceVaultAndSecretReferenceResponsePtrOutput) Elem() CloudServiceVaultAndSecretReferenceResponseOutput {
 	return o.ApplyT(func(v *CloudServiceVaultAndSecretReferenceResponse) CloudServiceVaultAndSecretReferenceResponse {
-		return *v
+		if v != nil {
+			return *v
+		}
+		var ret CloudServiceVaultAndSecretReferenceResponse
+		return ret
 	}).(CloudServiceVaultAndSecretReferenceResponseOutput)
 }
 
@@ -3231,9 +2991,7 @@ func (o CloudServiceVaultAndSecretReferenceResponsePtrOutput) SourceVault() SubR
 	}).(SubResourceResponsePtrOutput)
 }
 
-// Describes a single certificate reference in a Key Vault, and where the certificate should reside on the role instance.
 type CloudServiceVaultCertificate struct {
-	// This is the URL of a certificate that has been uploaded to Key Vault as a secret.
 	CertificateUrl *string `pulumi:"certificateUrl"`
 }
 
@@ -3248,9 +3006,7 @@ type CloudServiceVaultCertificateInput interface {
 	ToCloudServiceVaultCertificateOutputWithContext(context.Context) CloudServiceVaultCertificateOutput
 }
 
-// Describes a single certificate reference in a Key Vault, and where the certificate should reside on the role instance.
 type CloudServiceVaultCertificateArgs struct {
-	// This is the URL of a certificate that has been uploaded to Key Vault as a secret.
 	CertificateUrl pulumi.StringPtrInput `pulumi:"certificateUrl"`
 }
 
@@ -3291,7 +3047,6 @@ func (i CloudServiceVaultCertificateArray) ToCloudServiceVaultCertificateArrayOu
 	return pulumi.ToOutputWithContext(ctx, i).(CloudServiceVaultCertificateArrayOutput)
 }
 
-// Describes a single certificate reference in a Key Vault, and where the certificate should reside on the role instance.
 type CloudServiceVaultCertificateOutput struct{ *pulumi.OutputState }
 
 func (CloudServiceVaultCertificateOutput) ElementType() reflect.Type {
@@ -3306,7 +3061,6 @@ func (o CloudServiceVaultCertificateOutput) ToCloudServiceVaultCertificateOutput
 	return o
 }
 
-// This is the URL of a certificate that has been uploaded to Key Vault as a secret.
 func (o CloudServiceVaultCertificateOutput) CertificateUrl() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v CloudServiceVaultCertificate) *string { return v.CertificateUrl }).(pulumi.StringPtrOutput)
 }
@@ -3331,9 +3085,7 @@ func (o CloudServiceVaultCertificateArrayOutput) Index(i pulumi.IntInput) CloudS
 	}).(CloudServiceVaultCertificateOutput)
 }
 
-// Describes a single certificate reference in a Key Vault, and where the certificate should reside on the role instance.
 type CloudServiceVaultCertificateResponse struct {
-	// This is the URL of a certificate that has been uploaded to Key Vault as a secret.
 	CertificateUrl *string `pulumi:"certificateUrl"`
 }
 
@@ -3348,9 +3100,7 @@ type CloudServiceVaultCertificateResponseInput interface {
 	ToCloudServiceVaultCertificateResponseOutputWithContext(context.Context) CloudServiceVaultCertificateResponseOutput
 }
 
-// Describes a single certificate reference in a Key Vault, and where the certificate should reside on the role instance.
 type CloudServiceVaultCertificateResponseArgs struct {
-	// This is the URL of a certificate that has been uploaded to Key Vault as a secret.
 	CertificateUrl pulumi.StringPtrInput `pulumi:"certificateUrl"`
 }
 
@@ -3391,7 +3141,6 @@ func (i CloudServiceVaultCertificateResponseArray) ToCloudServiceVaultCertificat
 	return pulumi.ToOutputWithContext(ctx, i).(CloudServiceVaultCertificateResponseArrayOutput)
 }
 
-// Describes a single certificate reference in a Key Vault, and where the certificate should reside on the role instance.
 type CloudServiceVaultCertificateResponseOutput struct{ *pulumi.OutputState }
 
 func (CloudServiceVaultCertificateResponseOutput) ElementType() reflect.Type {
@@ -3406,7 +3155,6 @@ func (o CloudServiceVaultCertificateResponseOutput) ToCloudServiceVaultCertifica
 	return o
 }
 
-// This is the URL of a certificate that has been uploaded to Key Vault as a secret.
 func (o CloudServiceVaultCertificateResponseOutput) CertificateUrl() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v CloudServiceVaultCertificateResponse) *string { return v.CertificateUrl }).(pulumi.StringPtrOutput)
 }
@@ -3431,11 +3179,8 @@ func (o CloudServiceVaultCertificateResponseArrayOutput) Index(i pulumi.IntInput
 	}).(CloudServiceVaultCertificateResponseOutput)
 }
 
-// Describes a set of certificates which are all in the same Key Vault.
 type CloudServiceVaultSecretGroup struct {
-	// The relative URL of the Key Vault containing all of the certificates in VaultCertificates.
-	SourceVault *SubResource `pulumi:"sourceVault"`
-	// The list of key vault references in SourceVault which contain certificates.
+	SourceVault       *SubResource                   `pulumi:"sourceVault"`
 	VaultCertificates []CloudServiceVaultCertificate `pulumi:"vaultCertificates"`
 }
 
@@ -3450,11 +3195,8 @@ type CloudServiceVaultSecretGroupInput interface {
 	ToCloudServiceVaultSecretGroupOutputWithContext(context.Context) CloudServiceVaultSecretGroupOutput
 }
 
-// Describes a set of certificates which are all in the same Key Vault.
 type CloudServiceVaultSecretGroupArgs struct {
-	// The relative URL of the Key Vault containing all of the certificates in VaultCertificates.
-	SourceVault SubResourcePtrInput `pulumi:"sourceVault"`
-	// The list of key vault references in SourceVault which contain certificates.
+	SourceVault       SubResourcePtrInput                    `pulumi:"sourceVault"`
 	VaultCertificates CloudServiceVaultCertificateArrayInput `pulumi:"vaultCertificates"`
 }
 
@@ -3495,7 +3237,6 @@ func (i CloudServiceVaultSecretGroupArray) ToCloudServiceVaultSecretGroupArrayOu
 	return pulumi.ToOutputWithContext(ctx, i).(CloudServiceVaultSecretGroupArrayOutput)
 }
 
-// Describes a set of certificates which are all in the same Key Vault.
 type CloudServiceVaultSecretGroupOutput struct{ *pulumi.OutputState }
 
 func (CloudServiceVaultSecretGroupOutput) ElementType() reflect.Type {
@@ -3510,12 +3251,10 @@ func (o CloudServiceVaultSecretGroupOutput) ToCloudServiceVaultSecretGroupOutput
 	return o
 }
 
-// The relative URL of the Key Vault containing all of the certificates in VaultCertificates.
 func (o CloudServiceVaultSecretGroupOutput) SourceVault() SubResourcePtrOutput {
 	return o.ApplyT(func(v CloudServiceVaultSecretGroup) *SubResource { return v.SourceVault }).(SubResourcePtrOutput)
 }
 
-// The list of key vault references in SourceVault which contain certificates.
 func (o CloudServiceVaultSecretGroupOutput) VaultCertificates() CloudServiceVaultCertificateArrayOutput {
 	return o.ApplyT(func(v CloudServiceVaultSecretGroup) []CloudServiceVaultCertificate { return v.VaultCertificates }).(CloudServiceVaultCertificateArrayOutput)
 }
@@ -3540,11 +3279,8 @@ func (o CloudServiceVaultSecretGroupArrayOutput) Index(i pulumi.IntInput) CloudS
 	}).(CloudServiceVaultSecretGroupOutput)
 }
 
-// Describes a set of certificates which are all in the same Key Vault.
 type CloudServiceVaultSecretGroupResponse struct {
-	// The relative URL of the Key Vault containing all of the certificates in VaultCertificates.
-	SourceVault *SubResourceResponse `pulumi:"sourceVault"`
-	// The list of key vault references in SourceVault which contain certificates.
+	SourceVault       *SubResourceResponse                   `pulumi:"sourceVault"`
 	VaultCertificates []CloudServiceVaultCertificateResponse `pulumi:"vaultCertificates"`
 }
 
@@ -3559,11 +3295,8 @@ type CloudServiceVaultSecretGroupResponseInput interface {
 	ToCloudServiceVaultSecretGroupResponseOutputWithContext(context.Context) CloudServiceVaultSecretGroupResponseOutput
 }
 
-// Describes a set of certificates which are all in the same Key Vault.
 type CloudServiceVaultSecretGroupResponseArgs struct {
-	// The relative URL of the Key Vault containing all of the certificates in VaultCertificates.
-	SourceVault SubResourceResponsePtrInput `pulumi:"sourceVault"`
-	// The list of key vault references in SourceVault which contain certificates.
+	SourceVault       SubResourceResponsePtrInput                    `pulumi:"sourceVault"`
 	VaultCertificates CloudServiceVaultCertificateResponseArrayInput `pulumi:"vaultCertificates"`
 }
 
@@ -3604,7 +3337,6 @@ func (i CloudServiceVaultSecretGroupResponseArray) ToCloudServiceVaultSecretGrou
 	return pulumi.ToOutputWithContext(ctx, i).(CloudServiceVaultSecretGroupResponseArrayOutput)
 }
 
-// Describes a set of certificates which are all in the same Key Vault.
 type CloudServiceVaultSecretGroupResponseOutput struct{ *pulumi.OutputState }
 
 func (CloudServiceVaultSecretGroupResponseOutput) ElementType() reflect.Type {
@@ -3619,12 +3351,10 @@ func (o CloudServiceVaultSecretGroupResponseOutput) ToCloudServiceVaultSecretGro
 	return o
 }
 
-// The relative URL of the Key Vault containing all of the certificates in VaultCertificates.
 func (o CloudServiceVaultSecretGroupResponseOutput) SourceVault() SubResourceResponsePtrOutput {
 	return o.ApplyT(func(v CloudServiceVaultSecretGroupResponse) *SubResourceResponse { return v.SourceVault }).(SubResourceResponsePtrOutput)
 }
 
-// The list of key vault references in SourceVault which contain certificates.
 func (o CloudServiceVaultSecretGroupResponseOutput) VaultCertificates() CloudServiceVaultCertificateResponseArrayOutput {
 	return o.ApplyT(func(v CloudServiceVaultSecretGroupResponse) []CloudServiceVaultCertificateResponse {
 		return v.VaultCertificates
@@ -3651,11 +3381,8 @@ func (o CloudServiceVaultSecretGroupResponseArrayOutput) Index(i pulumi.IntInput
 	}).(CloudServiceVaultSecretGroupResponseOutput)
 }
 
-// Describes a cloud service Extension.
 type Extension struct {
-	// The name of the extension.
-	Name *string `pulumi:"name"`
-	// Extension Properties.
+	Name       *string                          `pulumi:"name"`
 	Properties *CloudServiceExtensionProperties `pulumi:"properties"`
 }
 
@@ -3670,11 +3397,8 @@ type ExtensionInput interface {
 	ToExtensionOutputWithContext(context.Context) ExtensionOutput
 }
 
-// Describes a cloud service Extension.
 type ExtensionArgs struct {
-	// The name of the extension.
-	Name pulumi.StringPtrInput `pulumi:"name"`
-	// Extension Properties.
+	Name       pulumi.StringPtrInput                   `pulumi:"name"`
 	Properties CloudServiceExtensionPropertiesPtrInput `pulumi:"properties"`
 }
 
@@ -3715,7 +3439,6 @@ func (i ExtensionArray) ToExtensionArrayOutputWithContext(ctx context.Context) E
 	return pulumi.ToOutputWithContext(ctx, i).(ExtensionArrayOutput)
 }
 
-// Describes a cloud service Extension.
 type ExtensionOutput struct{ *pulumi.OutputState }
 
 func (ExtensionOutput) ElementType() reflect.Type {
@@ -3730,12 +3453,10 @@ func (o ExtensionOutput) ToExtensionOutputWithContext(ctx context.Context) Exten
 	return o
 }
 
-// The name of the extension.
 func (o ExtensionOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v Extension) *string { return v.Name }).(pulumi.StringPtrOutput)
 }
 
-// Extension Properties.
 func (o ExtensionOutput) Properties() CloudServiceExtensionPropertiesPtrOutput {
 	return o.ApplyT(func(v Extension) *CloudServiceExtensionProperties { return v.Properties }).(CloudServiceExtensionPropertiesPtrOutput)
 }
@@ -3760,11 +3481,8 @@ func (o ExtensionArrayOutput) Index(i pulumi.IntInput) ExtensionOutput {
 	}).(ExtensionOutput)
 }
 
-// Describes a cloud service Extension.
 type ExtensionResponse struct {
-	// The name of the extension.
-	Name *string `pulumi:"name"`
-	// Extension Properties.
+	Name       *string                                  `pulumi:"name"`
 	Properties *CloudServiceExtensionPropertiesResponse `pulumi:"properties"`
 }
 
@@ -3779,11 +3497,8 @@ type ExtensionResponseInput interface {
 	ToExtensionResponseOutputWithContext(context.Context) ExtensionResponseOutput
 }
 
-// Describes a cloud service Extension.
 type ExtensionResponseArgs struct {
-	// The name of the extension.
-	Name pulumi.StringPtrInput `pulumi:"name"`
-	// Extension Properties.
+	Name       pulumi.StringPtrInput                           `pulumi:"name"`
 	Properties CloudServiceExtensionPropertiesResponsePtrInput `pulumi:"properties"`
 }
 
@@ -3824,7 +3539,6 @@ func (i ExtensionResponseArray) ToExtensionResponseArrayOutputWithContext(ctx co
 	return pulumi.ToOutputWithContext(ctx, i).(ExtensionResponseArrayOutput)
 }
 
-// Describes a cloud service Extension.
 type ExtensionResponseOutput struct{ *pulumi.OutputState }
 
 func (ExtensionResponseOutput) ElementType() reflect.Type {
@@ -3839,12 +3553,10 @@ func (o ExtensionResponseOutput) ToExtensionResponseOutputWithContext(ctx contex
 	return o
 }
 
-// The name of the extension.
 func (o ExtensionResponseOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ExtensionResponse) *string { return v.Name }).(pulumi.StringPtrOutput)
 }
 
-// Extension Properties.
 func (o ExtensionResponseOutput) Properties() CloudServiceExtensionPropertiesResponsePtrOutput {
 	return o.ApplyT(func(v ExtensionResponse) *CloudServiceExtensionPropertiesResponse { return v.Properties }).(CloudServiceExtensionPropertiesResponsePtrOutput)
 }
@@ -3869,9 +3581,7 @@ func (o ExtensionResponseArrayOutput) Index(i pulumi.IntInput) ExtensionResponse
 	}).(ExtensionResponseOutput)
 }
 
-// Describes the load balancer configuration.
 type LoadBalancerConfiguration struct {
-	// Resource Name
 	Name       *string                              `pulumi:"name"`
 	Properties *LoadBalancerConfigurationProperties `pulumi:"properties"`
 }
@@ -3887,9 +3597,7 @@ type LoadBalancerConfigurationInput interface {
 	ToLoadBalancerConfigurationOutputWithContext(context.Context) LoadBalancerConfigurationOutput
 }
 
-// Describes the load balancer configuration.
 type LoadBalancerConfigurationArgs struct {
-	// Resource Name
 	Name       pulumi.StringPtrInput                       `pulumi:"name"`
 	Properties LoadBalancerConfigurationPropertiesPtrInput `pulumi:"properties"`
 }
@@ -3931,7 +3639,6 @@ func (i LoadBalancerConfigurationArray) ToLoadBalancerConfigurationArrayOutputWi
 	return pulumi.ToOutputWithContext(ctx, i).(LoadBalancerConfigurationArrayOutput)
 }
 
-// Describes the load balancer configuration.
 type LoadBalancerConfigurationOutput struct{ *pulumi.OutputState }
 
 func (LoadBalancerConfigurationOutput) ElementType() reflect.Type {
@@ -3946,7 +3653,6 @@ func (o LoadBalancerConfigurationOutput) ToLoadBalancerConfigurationOutputWithCo
 	return o
 }
 
-// Resource Name
 func (o LoadBalancerConfigurationOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LoadBalancerConfiguration) *string { return v.Name }).(pulumi.StringPtrOutput)
 }
@@ -3976,7 +3682,6 @@ func (o LoadBalancerConfigurationArrayOutput) Index(i pulumi.IntInput) LoadBalan
 }
 
 type LoadBalancerConfigurationProperties struct {
-	// List of IP
 	FrontendIPConfigurations []LoadBalancerFrontendIPConfiguration `pulumi:"frontendIPConfigurations"`
 }
 
@@ -3992,7 +3697,6 @@ type LoadBalancerConfigurationPropertiesInput interface {
 }
 
 type LoadBalancerConfigurationPropertiesArgs struct {
-	// List of IP
 	FrontendIPConfigurations LoadBalancerFrontendIPConfigurationArrayInput `pulumi:"frontendIPConfigurations"`
 }
 
@@ -4068,12 +3772,11 @@ func (o LoadBalancerConfigurationPropertiesOutput) ToLoadBalancerConfigurationPr
 }
 
 func (o LoadBalancerConfigurationPropertiesOutput) ToLoadBalancerConfigurationPropertiesPtrOutputWithContext(ctx context.Context) LoadBalancerConfigurationPropertiesPtrOutput {
-	return o.ApplyT(func(v LoadBalancerConfigurationProperties) *LoadBalancerConfigurationProperties {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v LoadBalancerConfigurationProperties) *LoadBalancerConfigurationProperties {
 		return &v
 	}).(LoadBalancerConfigurationPropertiesPtrOutput)
 }
 
-// List of IP
 func (o LoadBalancerConfigurationPropertiesOutput) FrontendIPConfigurations() LoadBalancerFrontendIPConfigurationArrayOutput {
 	return o.ApplyT(func(v LoadBalancerConfigurationProperties) []LoadBalancerFrontendIPConfiguration {
 		return v.FrontendIPConfigurations
@@ -4095,10 +3798,15 @@ func (o LoadBalancerConfigurationPropertiesPtrOutput) ToLoadBalancerConfiguratio
 }
 
 func (o LoadBalancerConfigurationPropertiesPtrOutput) Elem() LoadBalancerConfigurationPropertiesOutput {
-	return o.ApplyT(func(v *LoadBalancerConfigurationProperties) LoadBalancerConfigurationProperties { return *v }).(LoadBalancerConfigurationPropertiesOutput)
+	return o.ApplyT(func(v *LoadBalancerConfigurationProperties) LoadBalancerConfigurationProperties {
+		if v != nil {
+			return *v
+		}
+		var ret LoadBalancerConfigurationProperties
+		return ret
+	}).(LoadBalancerConfigurationPropertiesOutput)
 }
 
-// List of IP
 func (o LoadBalancerConfigurationPropertiesPtrOutput) FrontendIPConfigurations() LoadBalancerFrontendIPConfigurationArrayOutput {
 	return o.ApplyT(func(v *LoadBalancerConfigurationProperties) []LoadBalancerFrontendIPConfiguration {
 		if v == nil {
@@ -4109,7 +3817,6 @@ func (o LoadBalancerConfigurationPropertiesPtrOutput) FrontendIPConfigurations()
 }
 
 type LoadBalancerConfigurationPropertiesResponse struct {
-	// List of IP
 	FrontendIPConfigurations []LoadBalancerFrontendIPConfigurationResponse `pulumi:"frontendIPConfigurations"`
 }
 
@@ -4125,7 +3832,6 @@ type LoadBalancerConfigurationPropertiesResponseInput interface {
 }
 
 type LoadBalancerConfigurationPropertiesResponseArgs struct {
-	// List of IP
 	FrontendIPConfigurations LoadBalancerFrontendIPConfigurationResponseArrayInput `pulumi:"frontendIPConfigurations"`
 }
 
@@ -4201,12 +3907,11 @@ func (o LoadBalancerConfigurationPropertiesResponseOutput) ToLoadBalancerConfigu
 }
 
 func (o LoadBalancerConfigurationPropertiesResponseOutput) ToLoadBalancerConfigurationPropertiesResponsePtrOutputWithContext(ctx context.Context) LoadBalancerConfigurationPropertiesResponsePtrOutput {
-	return o.ApplyT(func(v LoadBalancerConfigurationPropertiesResponse) *LoadBalancerConfigurationPropertiesResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v LoadBalancerConfigurationPropertiesResponse) *LoadBalancerConfigurationPropertiesResponse {
 		return &v
 	}).(LoadBalancerConfigurationPropertiesResponsePtrOutput)
 }
 
-// List of IP
 func (o LoadBalancerConfigurationPropertiesResponseOutput) FrontendIPConfigurations() LoadBalancerFrontendIPConfigurationResponseArrayOutput {
 	return o.ApplyT(func(v LoadBalancerConfigurationPropertiesResponse) []LoadBalancerFrontendIPConfigurationResponse {
 		return v.FrontendIPConfigurations
@@ -4229,11 +3934,14 @@ func (o LoadBalancerConfigurationPropertiesResponsePtrOutput) ToLoadBalancerConf
 
 func (o LoadBalancerConfigurationPropertiesResponsePtrOutput) Elem() LoadBalancerConfigurationPropertiesResponseOutput {
 	return o.ApplyT(func(v *LoadBalancerConfigurationPropertiesResponse) LoadBalancerConfigurationPropertiesResponse {
-		return *v
+		if v != nil {
+			return *v
+		}
+		var ret LoadBalancerConfigurationPropertiesResponse
+		return ret
 	}).(LoadBalancerConfigurationPropertiesResponseOutput)
 }
 
-// List of IP
 func (o LoadBalancerConfigurationPropertiesResponsePtrOutput) FrontendIPConfigurations() LoadBalancerFrontendIPConfigurationResponseArrayOutput {
 	return o.ApplyT(func(v *LoadBalancerConfigurationPropertiesResponse) []LoadBalancerFrontendIPConfigurationResponse {
 		if v == nil {
@@ -4243,9 +3951,7 @@ func (o LoadBalancerConfigurationPropertiesResponsePtrOutput) FrontendIPConfigur
 	}).(LoadBalancerFrontendIPConfigurationResponseArrayOutput)
 }
 
-// Describes the load balancer configuration.
 type LoadBalancerConfigurationResponse struct {
-	// Resource Name
 	Name       *string                                      `pulumi:"name"`
 	Properties *LoadBalancerConfigurationPropertiesResponse `pulumi:"properties"`
 }
@@ -4261,9 +3967,7 @@ type LoadBalancerConfigurationResponseInput interface {
 	ToLoadBalancerConfigurationResponseOutputWithContext(context.Context) LoadBalancerConfigurationResponseOutput
 }
 
-// Describes the load balancer configuration.
 type LoadBalancerConfigurationResponseArgs struct {
-	// Resource Name
 	Name       pulumi.StringPtrInput                               `pulumi:"name"`
 	Properties LoadBalancerConfigurationPropertiesResponsePtrInput `pulumi:"properties"`
 }
@@ -4305,7 +4009,6 @@ func (i LoadBalancerConfigurationResponseArray) ToLoadBalancerConfigurationRespo
 	return pulumi.ToOutputWithContext(ctx, i).(LoadBalancerConfigurationResponseArrayOutput)
 }
 
-// Describes the load balancer configuration.
 type LoadBalancerConfigurationResponseOutput struct{ *pulumi.OutputState }
 
 func (LoadBalancerConfigurationResponseOutput) ElementType() reflect.Type {
@@ -4320,7 +4023,6 @@ func (o LoadBalancerConfigurationResponseOutput) ToLoadBalancerConfigurationResp
 	return o
 }
 
-// Resource Name
 func (o LoadBalancerConfigurationResponseOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LoadBalancerConfigurationResponse) *string { return v.Name }).(pulumi.StringPtrOutput)
 }
@@ -4352,8 +4054,7 @@ func (o LoadBalancerConfigurationResponseArrayOutput) Index(i pulumi.IntInput) L
 }
 
 type LoadBalancerFrontendIPConfiguration struct {
-	Name *string `pulumi:"name"`
-	// Describes a cloud service IP Configuration
+	Name       *string                                        `pulumi:"name"`
 	Properties *LoadBalancerFrontendIPConfigurationProperties `pulumi:"properties"`
 }
 
@@ -4369,8 +4070,7 @@ type LoadBalancerFrontendIPConfigurationInput interface {
 }
 
 type LoadBalancerFrontendIPConfigurationArgs struct {
-	Name pulumi.StringPtrInput `pulumi:"name"`
-	// Describes a cloud service IP Configuration
+	Name       pulumi.StringPtrInput                                 `pulumi:"name"`
 	Properties LoadBalancerFrontendIPConfigurationPropertiesPtrInput `pulumi:"properties"`
 }
 
@@ -4429,7 +4129,6 @@ func (o LoadBalancerFrontendIPConfigurationOutput) Name() pulumi.StringPtrOutput
 	return o.ApplyT(func(v LoadBalancerFrontendIPConfiguration) *string { return v.Name }).(pulumi.StringPtrOutput)
 }
 
-// Describes a cloud service IP Configuration
 func (o LoadBalancerFrontendIPConfigurationOutput) Properties() LoadBalancerFrontendIPConfigurationPropertiesPtrOutput {
 	return o.ApplyT(func(v LoadBalancerFrontendIPConfiguration) *LoadBalancerFrontendIPConfigurationProperties {
 		return v.Properties
@@ -4456,9 +4155,7 @@ func (o LoadBalancerFrontendIPConfigurationArrayOutput) Index(i pulumi.IntInput)
 	}).(LoadBalancerFrontendIPConfigurationOutput)
 }
 
-// Describes a cloud service IP Configuration
 type LoadBalancerFrontendIPConfigurationProperties struct {
-	// The private IP address referenced by the cloud service.
 	PrivateIPAddress *string      `pulumi:"privateIPAddress"`
 	PublicIPAddress  *SubResource `pulumi:"publicIPAddress"`
 	Subnet           *SubResource `pulumi:"subnet"`
@@ -4475,9 +4172,7 @@ type LoadBalancerFrontendIPConfigurationPropertiesInput interface {
 	ToLoadBalancerFrontendIPConfigurationPropertiesOutputWithContext(context.Context) LoadBalancerFrontendIPConfigurationPropertiesOutput
 }
 
-// Describes a cloud service IP Configuration
 type LoadBalancerFrontendIPConfigurationPropertiesArgs struct {
-	// The private IP address referenced by the cloud service.
 	PrivateIPAddress pulumi.StringPtrInput `pulumi:"privateIPAddress"`
 	PublicIPAddress  SubResourcePtrInput   `pulumi:"publicIPAddress"`
 	Subnet           SubResourcePtrInput   `pulumi:"subnet"`
@@ -4536,7 +4231,6 @@ func (i *loadBalancerFrontendIPConfigurationPropertiesPtrType) ToLoadBalancerFro
 	return pulumi.ToOutputWithContext(ctx, i).(LoadBalancerFrontendIPConfigurationPropertiesPtrOutput)
 }
 
-// Describes a cloud service IP Configuration
 type LoadBalancerFrontendIPConfigurationPropertiesOutput struct{ *pulumi.OutputState }
 
 func (LoadBalancerFrontendIPConfigurationPropertiesOutput) ElementType() reflect.Type {
@@ -4556,12 +4250,11 @@ func (o LoadBalancerFrontendIPConfigurationPropertiesOutput) ToLoadBalancerFront
 }
 
 func (o LoadBalancerFrontendIPConfigurationPropertiesOutput) ToLoadBalancerFrontendIPConfigurationPropertiesPtrOutputWithContext(ctx context.Context) LoadBalancerFrontendIPConfigurationPropertiesPtrOutput {
-	return o.ApplyT(func(v LoadBalancerFrontendIPConfigurationProperties) *LoadBalancerFrontendIPConfigurationProperties {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v LoadBalancerFrontendIPConfigurationProperties) *LoadBalancerFrontendIPConfigurationProperties {
 		return &v
 	}).(LoadBalancerFrontendIPConfigurationPropertiesPtrOutput)
 }
 
-// The private IP address referenced by the cloud service.
 func (o LoadBalancerFrontendIPConfigurationPropertiesOutput) PrivateIPAddress() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LoadBalancerFrontendIPConfigurationProperties) *string { return v.PrivateIPAddress }).(pulumi.StringPtrOutput)
 }
@@ -4590,11 +4283,14 @@ func (o LoadBalancerFrontendIPConfigurationPropertiesPtrOutput) ToLoadBalancerFr
 
 func (o LoadBalancerFrontendIPConfigurationPropertiesPtrOutput) Elem() LoadBalancerFrontendIPConfigurationPropertiesOutput {
 	return o.ApplyT(func(v *LoadBalancerFrontendIPConfigurationProperties) LoadBalancerFrontendIPConfigurationProperties {
-		return *v
+		if v != nil {
+			return *v
+		}
+		var ret LoadBalancerFrontendIPConfigurationProperties
+		return ret
 	}).(LoadBalancerFrontendIPConfigurationPropertiesOutput)
 }
 
-// The private IP address referenced by the cloud service.
 func (o LoadBalancerFrontendIPConfigurationPropertiesPtrOutput) PrivateIPAddress() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *LoadBalancerFrontendIPConfigurationProperties) *string {
 		if v == nil {
@@ -4622,9 +4318,7 @@ func (o LoadBalancerFrontendIPConfigurationPropertiesPtrOutput) Subnet() SubReso
 	}).(SubResourcePtrOutput)
 }
 
-// Describes a cloud service IP Configuration
 type LoadBalancerFrontendIPConfigurationPropertiesResponse struct {
-	// The private IP address referenced by the cloud service.
 	PrivateIPAddress *string              `pulumi:"privateIPAddress"`
 	PublicIPAddress  *SubResourceResponse `pulumi:"publicIPAddress"`
 	Subnet           *SubResourceResponse `pulumi:"subnet"`
@@ -4641,9 +4335,7 @@ type LoadBalancerFrontendIPConfigurationPropertiesResponseInput interface {
 	ToLoadBalancerFrontendIPConfigurationPropertiesResponseOutputWithContext(context.Context) LoadBalancerFrontendIPConfigurationPropertiesResponseOutput
 }
 
-// Describes a cloud service IP Configuration
 type LoadBalancerFrontendIPConfigurationPropertiesResponseArgs struct {
-	// The private IP address referenced by the cloud service.
 	PrivateIPAddress pulumi.StringPtrInput       `pulumi:"privateIPAddress"`
 	PublicIPAddress  SubResourceResponsePtrInput `pulumi:"publicIPAddress"`
 	Subnet           SubResourceResponsePtrInput `pulumi:"subnet"`
@@ -4702,7 +4394,6 @@ func (i *loadBalancerFrontendIPConfigurationPropertiesResponsePtrType) ToLoadBal
 	return pulumi.ToOutputWithContext(ctx, i).(LoadBalancerFrontendIPConfigurationPropertiesResponsePtrOutput)
 }
 
-// Describes a cloud service IP Configuration
 type LoadBalancerFrontendIPConfigurationPropertiesResponseOutput struct{ *pulumi.OutputState }
 
 func (LoadBalancerFrontendIPConfigurationPropertiesResponseOutput) ElementType() reflect.Type {
@@ -4722,12 +4413,11 @@ func (o LoadBalancerFrontendIPConfigurationPropertiesResponseOutput) ToLoadBalan
 }
 
 func (o LoadBalancerFrontendIPConfigurationPropertiesResponseOutput) ToLoadBalancerFrontendIPConfigurationPropertiesResponsePtrOutputWithContext(ctx context.Context) LoadBalancerFrontendIPConfigurationPropertiesResponsePtrOutput {
-	return o.ApplyT(func(v LoadBalancerFrontendIPConfigurationPropertiesResponse) *LoadBalancerFrontendIPConfigurationPropertiesResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v LoadBalancerFrontendIPConfigurationPropertiesResponse) *LoadBalancerFrontendIPConfigurationPropertiesResponse {
 		return &v
 	}).(LoadBalancerFrontendIPConfigurationPropertiesResponsePtrOutput)
 }
 
-// The private IP address referenced by the cloud service.
 func (o LoadBalancerFrontendIPConfigurationPropertiesResponseOutput) PrivateIPAddress() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LoadBalancerFrontendIPConfigurationPropertiesResponse) *string { return v.PrivateIPAddress }).(pulumi.StringPtrOutput)
 }
@@ -4758,11 +4448,14 @@ func (o LoadBalancerFrontendIPConfigurationPropertiesResponsePtrOutput) ToLoadBa
 
 func (o LoadBalancerFrontendIPConfigurationPropertiesResponsePtrOutput) Elem() LoadBalancerFrontendIPConfigurationPropertiesResponseOutput {
 	return o.ApplyT(func(v *LoadBalancerFrontendIPConfigurationPropertiesResponse) LoadBalancerFrontendIPConfigurationPropertiesResponse {
-		return *v
+		if v != nil {
+			return *v
+		}
+		var ret LoadBalancerFrontendIPConfigurationPropertiesResponse
+		return ret
 	}).(LoadBalancerFrontendIPConfigurationPropertiesResponseOutput)
 }
 
-// The private IP address referenced by the cloud service.
 func (o LoadBalancerFrontendIPConfigurationPropertiesResponsePtrOutput) PrivateIPAddress() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *LoadBalancerFrontendIPConfigurationPropertiesResponse) *string {
 		if v == nil {
@@ -4791,8 +4484,7 @@ func (o LoadBalancerFrontendIPConfigurationPropertiesResponsePtrOutput) Subnet()
 }
 
 type LoadBalancerFrontendIPConfigurationResponse struct {
-	Name *string `pulumi:"name"`
-	// Describes a cloud service IP Configuration
+	Name       *string                                                `pulumi:"name"`
 	Properties *LoadBalancerFrontendIPConfigurationPropertiesResponse `pulumi:"properties"`
 }
 
@@ -4808,8 +4500,7 @@ type LoadBalancerFrontendIPConfigurationResponseInput interface {
 }
 
 type LoadBalancerFrontendIPConfigurationResponseArgs struct {
-	Name pulumi.StringPtrInput `pulumi:"name"`
-	// Describes a cloud service IP Configuration
+	Name       pulumi.StringPtrInput                                         `pulumi:"name"`
 	Properties LoadBalancerFrontendIPConfigurationPropertiesResponsePtrInput `pulumi:"properties"`
 }
 
@@ -4868,7 +4559,6 @@ func (o LoadBalancerFrontendIPConfigurationResponseOutput) Name() pulumi.StringP
 	return o.ApplyT(func(v LoadBalancerFrontendIPConfigurationResponse) *string { return v.Name }).(pulumi.StringPtrOutput)
 }
 
-// Describes a cloud service IP Configuration
 func (o LoadBalancerFrontendIPConfigurationResponseOutput) Properties() LoadBalancerFrontendIPConfigurationPropertiesResponsePtrOutput {
 	return o.ApplyT(func(v LoadBalancerFrontendIPConfigurationResponse) *LoadBalancerFrontendIPConfigurationPropertiesResponse {
 		return v.Properties
@@ -4896,7 +4586,6 @@ func (o LoadBalancerFrontendIPConfigurationResponseArrayOutput) Index(i pulumi.I
 }
 
 type SubResource struct {
-	// Resource Id
 	Id *string `pulumi:"id"`
 }
 
@@ -4912,7 +4601,6 @@ type SubResourceInput interface {
 }
 
 type SubResourceArgs struct {
-	// Resource Id
 	Id pulumi.StringPtrInput `pulumi:"id"`
 }
 
@@ -4988,12 +4676,11 @@ func (o SubResourceOutput) ToSubResourcePtrOutput() SubResourcePtrOutput {
 }
 
 func (o SubResourceOutput) ToSubResourcePtrOutputWithContext(ctx context.Context) SubResourcePtrOutput {
-	return o.ApplyT(func(v SubResource) *SubResource {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v SubResource) *SubResource {
 		return &v
 	}).(SubResourcePtrOutput)
 }
 
-// Resource Id
 func (o SubResourceOutput) Id() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SubResource) *string { return v.Id }).(pulumi.StringPtrOutput)
 }
@@ -5013,10 +4700,15 @@ func (o SubResourcePtrOutput) ToSubResourcePtrOutputWithContext(ctx context.Cont
 }
 
 func (o SubResourcePtrOutput) Elem() SubResourceOutput {
-	return o.ApplyT(func(v *SubResource) SubResource { return *v }).(SubResourceOutput)
+	return o.ApplyT(func(v *SubResource) SubResource {
+		if v != nil {
+			return *v
+		}
+		var ret SubResource
+		return ret
+	}).(SubResourceOutput)
 }
 
-// Resource Id
 func (o SubResourcePtrOutput) Id() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SubResource) *string {
 		if v == nil {
@@ -5027,7 +4719,6 @@ func (o SubResourcePtrOutput) Id() pulumi.StringPtrOutput {
 }
 
 type SubResourceResponse struct {
-	// Resource Id
 	Id *string `pulumi:"id"`
 }
 
@@ -5043,7 +4734,6 @@ type SubResourceResponseInput interface {
 }
 
 type SubResourceResponseArgs struct {
-	// Resource Id
 	Id pulumi.StringPtrInput `pulumi:"id"`
 }
 
@@ -5119,12 +4809,11 @@ func (o SubResourceResponseOutput) ToSubResourceResponsePtrOutput() SubResourceR
 }
 
 func (o SubResourceResponseOutput) ToSubResourceResponsePtrOutputWithContext(ctx context.Context) SubResourceResponsePtrOutput {
-	return o.ApplyT(func(v SubResourceResponse) *SubResourceResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v SubResourceResponse) *SubResourceResponse {
 		return &v
 	}).(SubResourceResponsePtrOutput)
 }
 
-// Resource Id
 func (o SubResourceResponseOutput) Id() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SubResourceResponse) *string { return v.Id }).(pulumi.StringPtrOutput)
 }
@@ -5144,10 +4833,15 @@ func (o SubResourceResponsePtrOutput) ToSubResourceResponsePtrOutputWithContext(
 }
 
 func (o SubResourceResponsePtrOutput) Elem() SubResourceResponseOutput {
-	return o.ApplyT(func(v *SubResourceResponse) SubResourceResponse { return *v }).(SubResourceResponseOutput)
+	return o.ApplyT(func(v *SubResourceResponse) SubResourceResponse {
+		if v != nil {
+			return *v
+		}
+		var ret SubResourceResponse
+		return ret
+	}).(SubResourceResponseOutput)
 }
 
-// Resource Id
 func (o SubResourceResponsePtrOutput) Id() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SubResourceResponse) *string {
 		if v == nil {

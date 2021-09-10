@@ -10,12 +10,9 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Connection string for ingesting security data and logs
 type IngestionConnectionStringResponse struct {
-	// The region where ingested logs and data resides
 	Location string `pulumi:"location"`
-	// Connection string value
-	Value string `pulumi:"value"`
+	Value    string `pulumi:"value"`
 }
 
 // IngestionConnectionStringResponseInput is an input type that accepts IngestionConnectionStringResponseArgs and IngestionConnectionStringResponseOutput values.
@@ -29,12 +26,9 @@ type IngestionConnectionStringResponseInput interface {
 	ToIngestionConnectionStringResponseOutputWithContext(context.Context) IngestionConnectionStringResponseOutput
 }
 
-// Connection string for ingesting security data and logs
 type IngestionConnectionStringResponseArgs struct {
-	// The region where ingested logs and data resides
 	Location pulumi.StringInput `pulumi:"location"`
-	// Connection string value
-	Value pulumi.StringInput `pulumi:"value"`
+	Value    pulumi.StringInput `pulumi:"value"`
 }
 
 func (IngestionConnectionStringResponseArgs) ElementType() reflect.Type {
@@ -74,7 +68,6 @@ func (i IngestionConnectionStringResponseArray) ToIngestionConnectionStringRespo
 	return pulumi.ToOutputWithContext(ctx, i).(IngestionConnectionStringResponseArrayOutput)
 }
 
-// Connection string for ingesting security data and logs
 type IngestionConnectionStringResponseOutput struct{ *pulumi.OutputState }
 
 func (IngestionConnectionStringResponseOutput) ElementType() reflect.Type {
@@ -89,12 +82,10 @@ func (o IngestionConnectionStringResponseOutput) ToIngestionConnectionStringResp
 	return o
 }
 
-// The region where ingested logs and data resides
 func (o IngestionConnectionStringResponseOutput) Location() pulumi.StringOutput {
 	return o.ApplyT(func(v IngestionConnectionStringResponse) string { return v.Location }).(pulumi.StringOutput)
 }
 
-// Connection string value
 func (o IngestionConnectionStringResponseOutput) Value() pulumi.StringOutput {
 	return o.ApplyT(func(v IngestionConnectionStringResponse) string { return v.Value }).(pulumi.StringOutput)
 }

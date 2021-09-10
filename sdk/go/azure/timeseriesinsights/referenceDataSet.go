@@ -175,9 +175,7 @@ func (i *ReferenceDataSet) ToReferenceDataSetOutputWithContext(ctx context.Conte
 	return pulumi.ToOutputWithContext(ctx, i).(ReferenceDataSetOutput)
 }
 
-type ReferenceDataSetOutput struct {
-	*pulumi.OutputState
-}
+type ReferenceDataSetOutput struct{ *pulumi.OutputState }
 
 func (ReferenceDataSetOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*ReferenceDataSet)(nil))

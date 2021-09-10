@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.Logic.Outputs
 {
 
+    /// <summary>
+    /// The integration service environment access endpoint.
+    /// </summary>
     [OutputType]
     public sealed class IntegrationServiceEnvironmentAccessEndpointResponse
     {

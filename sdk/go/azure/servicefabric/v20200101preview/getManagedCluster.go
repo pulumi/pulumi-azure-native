@@ -7,7 +7,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// The manged cluster resource
 func LookupManagedCluster(ctx *pulumi.Context, args *LookupManagedClusterArgs, opts ...pulumi.InvokeOption) (*LookupManagedClusterResult, error) {
 	var rv LookupManagedClusterResult
 	err := ctx.Invoke("azure-native:servicefabric/v20200101preview:getManagedCluster", args, &rv, opts...)
@@ -18,58 +17,33 @@ func LookupManagedCluster(ctx *pulumi.Context, args *LookupManagedClusterArgs, o
 }
 
 type LookupManagedClusterArgs struct {
-	// The name of the cluster resource.
-	ClusterName string `pulumi:"clusterName"`
-	// The name of the resource group.
+	ClusterName       string `pulumi:"clusterName"`
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 }
 
 // The manged cluster resource
 type LookupManagedClusterResult struct {
-	// client certificates for the cluster.
-	AddonFeatures []string `pulumi:"addonFeatures"`
-	// vm admin user password.
-	AdminPassword *string `pulumi:"adminPassword"`
-	// vm admin user name.
-	AdminUserName string `pulumi:"adminUserName"`
-	// Azure active directory.
-	AzureActiveDirectory *AzureActiveDirectoryResponse `pulumi:"azureActiveDirectory"`
-	// The port used for client connections to the cluster.
-	ClientConnectionPort *int `pulumi:"clientConnectionPort"`
-	// client certificates for the cluster.
-	Clients []ClientCertificateResponse `pulumi:"clients"`
-	// The cluster certificate thumbprint used node to node communication.
-	ClusterCertificateThumbprint string `pulumi:"clusterCertificateThumbprint"`
-	// The Service Fabric runtime version of the cluster. This property can only by set the user when **upgradeMode** is set to 'Manual'. To get list of available Service Fabric versions for new clusters use [ClusterVersion API](./ClusterVersion.md). To get the list of available version for existing clusters use **availableClusterVersions**.
-	ClusterCodeVersion *string `pulumi:"clusterCodeVersion"`
-	// A service generated unique identifier for the cluster resource.
-	ClusterId string `pulumi:"clusterId"`
-	// The current state of the cluster.
-	ClusterState string `pulumi:"clusterState"`
-	// The cluster dns name.
-	DnsName string `pulumi:"dnsName"`
-	// Azure resource etag.
-	Etag string `pulumi:"etag"`
-	// The list of custom fabric settings to configure the cluster.
-	FabricSettings []SettingsSectionDescriptionResponse `pulumi:"fabricSettings"`
-	// the cluster Fully qualified domain name.
-	Fqdn string `pulumi:"fqdn"`
-	// The port used for http connections to the cluster.
-	HttpGatewayConnectionPort *int `pulumi:"httpGatewayConnectionPort"`
-	// Azure resource identifier.
-	Id string `pulumi:"id"`
-	// Describes load balancing rules.
-	LoadBalancingRules []LoadBalancingRuleResponse `pulumi:"loadBalancingRules"`
-	// Azure resource location.
-	Location string `pulumi:"location"`
-	// Azure resource name.
-	Name string `pulumi:"name"`
-	// The provisioning state of the managed cluster resource.
-	ProvisioningState string `pulumi:"provisioningState"`
-	// The sku of the managed cluster
-	Sku *SkuResponse `pulumi:"sku"`
-	// Azure resource tags.
-	Tags map[string]string `pulumi:"tags"`
-	// Azure resource type.
-	Type string `pulumi:"type"`
+	AddonFeatures                []string                             `pulumi:"addonFeatures"`
+	AdminPassword                *string                              `pulumi:"adminPassword"`
+	AdminUserName                string                               `pulumi:"adminUserName"`
+	AzureActiveDirectory         *AzureActiveDirectoryResponse        `pulumi:"azureActiveDirectory"`
+	ClientConnectionPort         *int                                 `pulumi:"clientConnectionPort"`
+	Clients                      []ClientCertificateResponse          `pulumi:"clients"`
+	ClusterCertificateThumbprint string                               `pulumi:"clusterCertificateThumbprint"`
+	ClusterCodeVersion           *string                              `pulumi:"clusterCodeVersion"`
+	ClusterId                    string                               `pulumi:"clusterId"`
+	ClusterState                 string                               `pulumi:"clusterState"`
+	DnsName                      string                               `pulumi:"dnsName"`
+	Etag                         string                               `pulumi:"etag"`
+	FabricSettings               []SettingsSectionDescriptionResponse `pulumi:"fabricSettings"`
+	Fqdn                         string                               `pulumi:"fqdn"`
+	HttpGatewayConnectionPort    *int                                 `pulumi:"httpGatewayConnectionPort"`
+	Id                           string                               `pulumi:"id"`
+	LoadBalancingRules           []LoadBalancingRuleResponse          `pulumi:"loadBalancingRules"`
+	Location                     string                               `pulumi:"location"`
+	Name                         string                               `pulumi:"name"`
+	ProvisioningState            string                               `pulumi:"provisioningState"`
+	Sku                          *SkuResponse                         `pulumi:"sku"`
+	Tags                         map[string]string                    `pulumi:"tags"`
+	Type                         string                               `pulumi:"type"`
 }

@@ -11,16 +11,12 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Describes a Shared Private Link Resource managed by the Azure Cognitive Search service.
 type SharedPrivateLinkResource struct {
 	pulumi.CustomResourceState
 
-	// The name of the resource
-	Name pulumi.StringOutput `pulumi:"name"`
-	// Describes the properties of a Shared Private Link Resource managed by the Azure Cognitive Search service.
+	Name       pulumi.StringOutput                               `pulumi:"name"`
 	Properties SharedPrivateLinkResourcePropertiesResponseOutput `pulumi:"properties"`
-	// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
-	Type pulumi.StringOutput `pulumi:"type"`
+	Type       pulumi.StringOutput                               `pulumi:"type"`
 }
 
 // NewSharedPrivateLinkResource registers a new resource with the given unique name, arguments, and options.
@@ -92,25 +88,17 @@ func (SharedPrivateLinkResourceState) ElementType() reflect.Type {
 }
 
 type sharedPrivateLinkResourceArgs struct {
-	// Describes the properties of a Shared Private Link Resource managed by the Azure Cognitive Search service.
-	Properties *SharedPrivateLinkResourceProperties `pulumi:"properties"`
-	// The name of the resource group within the current subscription. You can obtain this value from the Azure Resource Manager API or the portal.
-	ResourceGroupName string `pulumi:"resourceGroupName"`
-	// The name of the Azure Cognitive Search service associated with the specified resource group.
-	SearchServiceName string `pulumi:"searchServiceName"`
-	// The name of the shared private link resource managed by the Azure Cognitive Search service within the specified resource group.
-	SharedPrivateLinkResourceName *string `pulumi:"sharedPrivateLinkResourceName"`
+	Properties                    *SharedPrivateLinkResourceProperties `pulumi:"properties"`
+	ResourceGroupName             string                               `pulumi:"resourceGroupName"`
+	SearchServiceName             string                               `pulumi:"searchServiceName"`
+	SharedPrivateLinkResourceName *string                              `pulumi:"sharedPrivateLinkResourceName"`
 }
 
 // The set of arguments for constructing a SharedPrivateLinkResource resource.
 type SharedPrivateLinkResourceArgs struct {
-	// Describes the properties of a Shared Private Link Resource managed by the Azure Cognitive Search service.
-	Properties SharedPrivateLinkResourcePropertiesPtrInput
-	// The name of the resource group within the current subscription. You can obtain this value from the Azure Resource Manager API or the portal.
-	ResourceGroupName pulumi.StringInput
-	// The name of the Azure Cognitive Search service associated with the specified resource group.
-	SearchServiceName pulumi.StringInput
-	// The name of the shared private link resource managed by the Azure Cognitive Search service within the specified resource group.
+	Properties                    SharedPrivateLinkResourcePropertiesPtrInput
+	ResourceGroupName             pulumi.StringInput
+	SearchServiceName             pulumi.StringInput
 	SharedPrivateLinkResourceName pulumi.StringPtrInput
 }
 
@@ -137,9 +125,7 @@ func (i *SharedPrivateLinkResource) ToSharedPrivateLinkResourceOutputWithContext
 	return pulumi.ToOutputWithContext(ctx, i).(SharedPrivateLinkResourceOutput)
 }
 
-type SharedPrivateLinkResourceOutput struct {
-	*pulumi.OutputState
-}
+type SharedPrivateLinkResourceOutput struct{ *pulumi.OutputState }
 
 func (SharedPrivateLinkResourceOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*SharedPrivateLinkResource)(nil))

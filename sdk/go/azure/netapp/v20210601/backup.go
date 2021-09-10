@@ -11,34 +11,21 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Backup of a Volume
 type Backup struct {
 	pulumi.CustomResourceState
 
-	// UUID v4 used to identify the Backup
-	BackupId pulumi.StringOutput `pulumi:"backupId"`
-	// Type of backup Manual or Scheduled
-	BackupType pulumi.StringOutput `pulumi:"backupType"`
-	// The creation date of the backup
-	CreationDate pulumi.StringOutput `pulumi:"creationDate"`
-	// Failure reason
-	FailureReason pulumi.StringOutput `pulumi:"failureReason"`
-	// Label for backup
-	Label pulumi.StringPtrOutput `pulumi:"label"`
-	// Resource location
-	Location pulumi.StringOutput `pulumi:"location"`
-	// Resource name
-	Name pulumi.StringOutput `pulumi:"name"`
-	// Azure lifecycle management
-	ProvisioningState pulumi.StringOutput `pulumi:"provisioningState"`
-	// Size of backup
-	Size pulumi.Float64Output `pulumi:"size"`
-	// Resource type
-	Type pulumi.StringOutput `pulumi:"type"`
-	// Manual backup an already existing snapshot. This will always be false for scheduled backups and true/false for manual backups
-	UseExistingSnapshot pulumi.BoolPtrOutput `pulumi:"useExistingSnapshot"`
-	// Volume name
-	VolumeName pulumi.StringOutput `pulumi:"volumeName"`
+	BackupId            pulumi.StringOutput    `pulumi:"backupId"`
+	BackupType          pulumi.StringOutput    `pulumi:"backupType"`
+	CreationDate        pulumi.StringOutput    `pulumi:"creationDate"`
+	FailureReason       pulumi.StringOutput    `pulumi:"failureReason"`
+	Label               pulumi.StringPtrOutput `pulumi:"label"`
+	Location            pulumi.StringOutput    `pulumi:"location"`
+	Name                pulumi.StringOutput    `pulumi:"name"`
+	ProvisioningState   pulumi.StringOutput    `pulumi:"provisioningState"`
+	Size                pulumi.Float64Output   `pulumi:"size"`
+	Type                pulumi.StringOutput    `pulumi:"type"`
+	UseExistingSnapshot pulumi.BoolPtrOutput   `pulumi:"useExistingSnapshot"`
+	VolumeName          pulumi.StringOutput    `pulumi:"volumeName"`
 }
 
 // NewBackup registers a new resource with the given unique name, arguments, and options.
@@ -167,42 +154,26 @@ func (BackupState) ElementType() reflect.Type {
 }
 
 type backupArgs struct {
-	// The name of the NetApp account
-	AccountName string `pulumi:"accountName"`
-	// The name of the backup
-	BackupName *string `pulumi:"backupName"`
-	// Label for backup
-	Label *string `pulumi:"label"`
-	// Resource location
-	Location *string `pulumi:"location"`
-	// The name of the capacity pool
-	PoolName string `pulumi:"poolName"`
-	// The name of the resource group.
-	ResourceGroupName string `pulumi:"resourceGroupName"`
-	// Manual backup an already existing snapshot. This will always be false for scheduled backups and true/false for manual backups
-	UseExistingSnapshot *bool `pulumi:"useExistingSnapshot"`
-	// The name of the volume
-	VolumeName string `pulumi:"volumeName"`
+	AccountName         string  `pulumi:"accountName"`
+	BackupName          *string `pulumi:"backupName"`
+	Label               *string `pulumi:"label"`
+	Location            *string `pulumi:"location"`
+	PoolName            string  `pulumi:"poolName"`
+	ResourceGroupName   string  `pulumi:"resourceGroupName"`
+	UseExistingSnapshot *bool   `pulumi:"useExistingSnapshot"`
+	VolumeName          string  `pulumi:"volumeName"`
 }
 
 // The set of arguments for constructing a Backup resource.
 type BackupArgs struct {
-	// The name of the NetApp account
-	AccountName pulumi.StringInput
-	// The name of the backup
-	BackupName pulumi.StringPtrInput
-	// Label for backup
-	Label pulumi.StringPtrInput
-	// Resource location
-	Location pulumi.StringPtrInput
-	// The name of the capacity pool
-	PoolName pulumi.StringInput
-	// The name of the resource group.
-	ResourceGroupName pulumi.StringInput
-	// Manual backup an already existing snapshot. This will always be false for scheduled backups and true/false for manual backups
+	AccountName         pulumi.StringInput
+	BackupName          pulumi.StringPtrInput
+	Label               pulumi.StringPtrInput
+	Location            pulumi.StringPtrInput
+	PoolName            pulumi.StringInput
+	ResourceGroupName   pulumi.StringInput
 	UseExistingSnapshot pulumi.BoolPtrInput
-	// The name of the volume
-	VolumeName pulumi.StringInput
+	VolumeName          pulumi.StringInput
 }
 
 func (BackupArgs) ElementType() reflect.Type {
@@ -228,9 +199,7 @@ func (i *Backup) ToBackupOutputWithContext(ctx context.Context) BackupOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(BackupOutput)
 }
 
-type BackupOutput struct {
-	*pulumi.OutputState
-}
+type BackupOutput struct{ *pulumi.OutputState }
 
 func (BackupOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*Backup)(nil))

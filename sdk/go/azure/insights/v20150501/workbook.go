@@ -11,36 +11,22 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// An Application Insights workbook definition.
 type Workbook struct {
 	pulumi.CustomResourceState
 
-	// Workbook category, as defined by the user at creation time.
-	Category pulumi.StringOutput `pulumi:"category"`
-	// The kind of workbook. Choices are user and shared.
-	Kind pulumi.StringPtrOutput `pulumi:"kind"`
-	// Resource location
-	Location pulumi.StringPtrOutput `pulumi:"location"`
-	// Azure resource name
-	Name pulumi.StringOutput `pulumi:"name"`
-	// Configuration of this particular workbook. Configuration data is a string containing valid JSON
-	SerializedData pulumi.StringOutput `pulumi:"serializedData"`
-	// Enum indicating if this workbook definition is owned by a specific user or is shared between all users with access to the Application Insights component.
-	SharedTypeKind pulumi.StringOutput `pulumi:"sharedTypeKind"`
-	// Optional resourceId for a source resource.
+	Category         pulumi.StringOutput    `pulumi:"category"`
+	Kind             pulumi.StringPtrOutput `pulumi:"kind"`
+	Location         pulumi.StringPtrOutput `pulumi:"location"`
+	Name             pulumi.StringOutput    `pulumi:"name"`
+	SerializedData   pulumi.StringOutput    `pulumi:"serializedData"`
+	SharedTypeKind   pulumi.StringOutput    `pulumi:"sharedTypeKind"`
 	SourceResourceId pulumi.StringPtrOutput `pulumi:"sourceResourceId"`
-	// Resource tags
-	Tags pulumi.StringMapOutput `pulumi:"tags"`
-	// Date and time in UTC of the last modification that was made to this workbook definition.
-	TimeModified pulumi.StringOutput `pulumi:"timeModified"`
-	// Azure resource type
-	Type pulumi.StringOutput `pulumi:"type"`
-	// Unique user id of the specific user that owns this workbook.
-	UserId pulumi.StringOutput `pulumi:"userId"`
-	// This instance's version of the data model. This can change as new features are added that can be marked workbook.
-	Version pulumi.StringPtrOutput `pulumi:"version"`
-	// Internally assigned unique id of the workbook definition.
-	WorkbookId pulumi.StringOutput `pulumi:"workbookId"`
+	Tags             pulumi.StringMapOutput `pulumi:"tags"`
+	TimeModified     pulumi.StringOutput    `pulumi:"timeModified"`
+	Type             pulumi.StringOutput    `pulumi:"type"`
+	UserId           pulumi.StringOutput    `pulumi:"userId"`
+	Version          pulumi.StringPtrOutput `pulumi:"version"`
+	WorkbookId       pulumi.StringOutput    `pulumi:"workbookId"`
 }
 
 // NewWorkbook registers a new resource with the given unique name, arguments, and options.
@@ -61,9 +47,6 @@ func NewWorkbook(ctx *pulumi.Context,
 	}
 	if args.SerializedData == nil {
 		return nil, errors.New("invalid value for required argument 'SerializedData'")
-	}
-	if args.SharedTypeKind == nil {
-		return nil, errors.New("invalid value for required argument 'SharedTypeKind'")
 	}
 	if args.UserId == nil {
 		return nil, errors.New("invalid value for required argument 'UserId'")
@@ -136,62 +119,36 @@ func (WorkbookState) ElementType() reflect.Type {
 }
 
 type workbookArgs struct {
-	// Workbook category, as defined by the user at creation time.
-	Category string `pulumi:"category"`
-	// The kind of workbook. Choices are user and shared.
-	Kind *string `pulumi:"kind"`
-	// Resource location
-	Location *string `pulumi:"location"`
-	// The user-defined name of the workbook.
-	Name string `pulumi:"name"`
-	// The name of the resource group. The name is case insensitive.
-	ResourceGroupName string `pulumi:"resourceGroupName"`
-	// The name of the Application Insights component resource.
-	ResourceName *string `pulumi:"resourceName"`
-	// Configuration of this particular workbook. Configuration data is a string containing valid JSON
-	SerializedData string `pulumi:"serializedData"`
-	// Enum indicating if this workbook definition is owned by a specific user or is shared between all users with access to the Application Insights component.
-	SharedTypeKind string `pulumi:"sharedTypeKind"`
-	// Optional resourceId for a source resource.
-	SourceResourceId *string `pulumi:"sourceResourceId"`
-	// Resource tags
-	Tags map[string]string `pulumi:"tags"`
-	// Unique user id of the specific user that owns this workbook.
-	UserId string `pulumi:"userId"`
-	// This instance's version of the data model. This can change as new features are added that can be marked workbook.
-	Version *string `pulumi:"version"`
-	// Internally assigned unique id of the workbook definition.
-	WorkbookId string `pulumi:"workbookId"`
+	Category          string            `pulumi:"category"`
+	Kind              *string           `pulumi:"kind"`
+	Location          *string           `pulumi:"location"`
+	Name              string            `pulumi:"name"`
+	ResourceGroupName string            `pulumi:"resourceGroupName"`
+	ResourceName      *string           `pulumi:"resourceName"`
+	SerializedData    string            `pulumi:"serializedData"`
+	SharedTypeKind    string            `pulumi:"sharedTypeKind"`
+	SourceResourceId  *string           `pulumi:"sourceResourceId"`
+	Tags              map[string]string `pulumi:"tags"`
+	UserId            string            `pulumi:"userId"`
+	Version           *string           `pulumi:"version"`
+	WorkbookId        string            `pulumi:"workbookId"`
 }
 
 // The set of arguments for constructing a Workbook resource.
 type WorkbookArgs struct {
-	// Workbook category, as defined by the user at creation time.
-	Category pulumi.StringInput
-	// The kind of workbook. Choices are user and shared.
-	Kind pulumi.StringPtrInput
-	// Resource location
-	Location pulumi.StringPtrInput
-	// The user-defined name of the workbook.
-	Name pulumi.StringInput
-	// The name of the resource group. The name is case insensitive.
+	Category          pulumi.StringInput
+	Kind              pulumi.StringPtrInput
+	Location          pulumi.StringPtrInput
+	Name              pulumi.StringInput
 	ResourceGroupName pulumi.StringInput
-	// The name of the Application Insights component resource.
-	ResourceName pulumi.StringPtrInput
-	// Configuration of this particular workbook. Configuration data is a string containing valid JSON
-	SerializedData pulumi.StringInput
-	// Enum indicating if this workbook definition is owned by a specific user or is shared between all users with access to the Application Insights component.
-	SharedTypeKind pulumi.StringInput
-	// Optional resourceId for a source resource.
-	SourceResourceId pulumi.StringPtrInput
-	// Resource tags
-	Tags pulumi.StringMapInput
-	// Unique user id of the specific user that owns this workbook.
-	UserId pulumi.StringInput
-	// This instance's version of the data model. This can change as new features are added that can be marked workbook.
-	Version pulumi.StringPtrInput
-	// Internally assigned unique id of the workbook definition.
-	WorkbookId pulumi.StringInput
+	ResourceName      pulumi.StringPtrInput
+	SerializedData    pulumi.StringInput
+	SharedTypeKind    pulumi.StringInput
+	SourceResourceId  pulumi.StringPtrInput
+	Tags              pulumi.StringMapInput
+	UserId            pulumi.StringInput
+	Version           pulumi.StringPtrInput
+	WorkbookId        pulumi.StringInput
 }
 
 func (WorkbookArgs) ElementType() reflect.Type {
@@ -217,9 +174,7 @@ func (i *Workbook) ToWorkbookOutputWithContext(ctx context.Context) WorkbookOutp
 	return pulumi.ToOutputWithContext(ctx, i).(WorkbookOutput)
 }
 
-type WorkbookOutput struct {
-	*pulumi.OutputState
-}
+type WorkbookOutput struct{ *pulumi.OutputState }
 
 func (WorkbookOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*Workbook)(nil))

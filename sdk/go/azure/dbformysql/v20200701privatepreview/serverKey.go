@@ -11,22 +11,15 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// A MySQL Server key.
 type ServerKey struct {
 	pulumi.CustomResourceState
 
-	// The key creation date.
-	CreationDate pulumi.StringOutput `pulumi:"creationDate"`
-	// Kind of encryption protector used to protect the key.
-	Kind pulumi.StringOutput `pulumi:"kind"`
-	// The name of the resource
-	Name pulumi.StringOutput `pulumi:"name"`
-	// The key type like 'AzureKeyVault'.
-	ServerKeyType pulumi.StringOutput `pulumi:"serverKeyType"`
-	// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
-	Type pulumi.StringOutput `pulumi:"type"`
-	// The URI of the key.
-	Uri pulumi.StringPtrOutput `pulumi:"uri"`
+	CreationDate  pulumi.StringOutput    `pulumi:"creationDate"`
+	Kind          pulumi.StringOutput    `pulumi:"kind"`
+	Name          pulumi.StringOutput    `pulumi:"name"`
+	ServerKeyType pulumi.StringOutput    `pulumi:"serverKeyType"`
+	Type          pulumi.StringOutput    `pulumi:"type"`
+	Uri           pulumi.StringPtrOutput `pulumi:"uri"`
 }
 
 // NewServerKey registers a new resource with the given unique name, arguments, and options.
@@ -89,30 +82,20 @@ func (ServerKeyState) ElementType() reflect.Type {
 }
 
 type serverKeyArgs struct {
-	// The name of the server key.
-	KeyName *string `pulumi:"keyName"`
-	// The name of the resource group. The name is case insensitive.
-	ResourceGroupName string `pulumi:"resourceGroupName"`
-	// The key type like 'AzureKeyVault'.
-	ServerKeyType string `pulumi:"serverKeyType"`
-	// The name of the server.
-	ServerName string `pulumi:"serverName"`
-	// The URI of the key.
-	Uri *string `pulumi:"uri"`
+	KeyName           *string `pulumi:"keyName"`
+	ResourceGroupName string  `pulumi:"resourceGroupName"`
+	ServerKeyType     string  `pulumi:"serverKeyType"`
+	ServerName        string  `pulumi:"serverName"`
+	Uri               *string `pulumi:"uri"`
 }
 
 // The set of arguments for constructing a ServerKey resource.
 type ServerKeyArgs struct {
-	// The name of the server key.
-	KeyName pulumi.StringPtrInput
-	// The name of the resource group. The name is case insensitive.
+	KeyName           pulumi.StringPtrInput
 	ResourceGroupName pulumi.StringInput
-	// The key type like 'AzureKeyVault'.
-	ServerKeyType pulumi.StringInput
-	// The name of the server.
-	ServerName pulumi.StringInput
-	// The URI of the key.
-	Uri pulumi.StringPtrInput
+	ServerKeyType     pulumi.StringInput
+	ServerName        pulumi.StringInput
+	Uri               pulumi.StringPtrInput
 }
 
 func (ServerKeyArgs) ElementType() reflect.Type {
@@ -138,9 +121,7 @@ func (i *ServerKey) ToServerKeyOutputWithContext(ctx context.Context) ServerKeyO
 	return pulumi.ToOutputWithContext(ctx, i).(ServerKeyOutput)
 }
 
-type ServerKeyOutput struct {
-	*pulumi.OutputState
-}
+type ServerKeyOutput struct{ *pulumi.OutputState }
 
 func (ServerKeyOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*ServerKey)(nil))

@@ -11,26 +11,17 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Properties that define an Analytics item that is associated to an Application Insights component.
 type AnalyticsItem struct {
 	pulumi.CustomResourceState
 
-	// The content of this item
-	Content pulumi.StringPtrOutput `pulumi:"content"`
-	// The user-defined name of the item.
-	Name pulumi.StringPtrOutput `pulumi:"name"`
-	// A set of properties that can be defined in the context of a specific item type. Each type may have its own properties.
-	Properties ApplicationInsightsComponentAnalyticsItemPropertiesResponseOutput `pulumi:"properties"`
-	// Enum indicating if this item definition is owned by a specific user or is shared between all users with access to the Application Insights component.
-	Scope pulumi.StringPtrOutput `pulumi:"scope"`
-	// Date and time in UTC when this item was created.
-	TimeCreated pulumi.StringOutput `pulumi:"timeCreated"`
-	// Date and time in UTC of the last modification that was made to this item.
-	TimeModified pulumi.StringOutput `pulumi:"timeModified"`
-	// Enum indicating the type of the Analytics item.
-	Type pulumi.StringPtrOutput `pulumi:"type"`
-	// This instance's version of the data model. This can change as new features are added.
-	Version pulumi.StringOutput `pulumi:"version"`
+	Content      pulumi.StringPtrOutput                                            `pulumi:"content"`
+	Name         pulumi.StringPtrOutput                                            `pulumi:"name"`
+	Properties   ApplicationInsightsComponentAnalyticsItemPropertiesResponseOutput `pulumi:"properties"`
+	Scope        pulumi.StringPtrOutput                                            `pulumi:"scope"`
+	TimeCreated  pulumi.StringOutput                                               `pulumi:"timeCreated"`
+	TimeModified pulumi.StringOutput                                               `pulumi:"timeModified"`
+	Type         pulumi.StringPtrOutput                                            `pulumi:"type"`
+	Version      pulumi.StringOutput                                               `pulumi:"version"`
 }
 
 // NewAnalyticsItem registers a new resource with the given unique name, arguments, and options.
@@ -93,50 +84,30 @@ func (AnalyticsItemState) ElementType() reflect.Type {
 }
 
 type analyticsItemArgs struct {
-	// The content of this item
-	Content *string `pulumi:"content"`
-	// Internally assigned unique id of the item definition.
-	Id *string `pulumi:"id"`
-	// The user-defined name of the item.
-	Name *string `pulumi:"name"`
-	// Flag indicating whether or not to force save an item. This allows overriding an item if it already exists.
-	OverrideItem *bool `pulumi:"overrideItem"`
-	// A set of properties that can be defined in the context of a specific item type. Each type may have its own properties.
-	Properties *ApplicationInsightsComponentAnalyticsItemProperties `pulumi:"properties"`
-	// The name of the resource group. The name is case insensitive.
-	ResourceGroupName string `pulumi:"resourceGroupName"`
-	// The name of the Application Insights component resource.
-	ResourceName string `pulumi:"resourceName"`
-	// Enum indicating if this item definition is owned by a specific user or is shared between all users with access to the Application Insights component.
-	Scope *string `pulumi:"scope"`
-	// Enum indicating if this item definition is owned by a specific user or is shared between all users with access to the Application Insights component.
-	ScopePath string `pulumi:"scopePath"`
-	// Enum indicating the type of the Analytics item.
-	Type *string `pulumi:"type"`
+	Content           *string                                              `pulumi:"content"`
+	Id                *string                                              `pulumi:"id"`
+	Name              *string                                              `pulumi:"name"`
+	OverrideItem      *bool                                                `pulumi:"overrideItem"`
+	Properties        *ApplicationInsightsComponentAnalyticsItemProperties `pulumi:"properties"`
+	ResourceGroupName string                                               `pulumi:"resourceGroupName"`
+	ResourceName      string                                               `pulumi:"resourceName"`
+	Scope             *string                                              `pulumi:"scope"`
+	ScopePath         string                                               `pulumi:"scopePath"`
+	Type              *string                                              `pulumi:"type"`
 }
 
 // The set of arguments for constructing a AnalyticsItem resource.
 type AnalyticsItemArgs struct {
-	// The content of this item
-	Content pulumi.StringPtrInput
-	// Internally assigned unique id of the item definition.
-	Id pulumi.StringPtrInput
-	// The user-defined name of the item.
-	Name pulumi.StringPtrInput
-	// Flag indicating whether or not to force save an item. This allows overriding an item if it already exists.
-	OverrideItem pulumi.BoolPtrInput
-	// A set of properties that can be defined in the context of a specific item type. Each type may have its own properties.
-	Properties ApplicationInsightsComponentAnalyticsItemPropertiesPtrInput
-	// The name of the resource group. The name is case insensitive.
+	Content           pulumi.StringPtrInput
+	Id                pulumi.StringPtrInput
+	Name              pulumi.StringPtrInput
+	OverrideItem      pulumi.BoolPtrInput
+	Properties        ApplicationInsightsComponentAnalyticsItemPropertiesPtrInput
 	ResourceGroupName pulumi.StringInput
-	// The name of the Application Insights component resource.
-	ResourceName pulumi.StringInput
-	// Enum indicating if this item definition is owned by a specific user or is shared between all users with access to the Application Insights component.
-	Scope pulumi.StringPtrInput
-	// Enum indicating if this item definition is owned by a specific user or is shared between all users with access to the Application Insights component.
-	ScopePath pulumi.StringInput
-	// Enum indicating the type of the Analytics item.
-	Type pulumi.StringPtrInput
+	ResourceName      pulumi.StringInput
+	Scope             pulumi.StringPtrInput
+	ScopePath         pulumi.StringInput
+	Type              pulumi.StringPtrInput
 }
 
 func (AnalyticsItemArgs) ElementType() reflect.Type {
@@ -162,9 +133,7 @@ func (i *AnalyticsItem) ToAnalyticsItemOutputWithContext(ctx context.Context) An
 	return pulumi.ToOutputWithContext(ctx, i).(AnalyticsItemOutput)
 }
 
-type AnalyticsItemOutput struct {
-	*pulumi.OutputState
-}
+type AnalyticsItemOutput struct{ *pulumi.OutputState }
 
 func (AnalyticsItemOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*AnalyticsItem)(nil))

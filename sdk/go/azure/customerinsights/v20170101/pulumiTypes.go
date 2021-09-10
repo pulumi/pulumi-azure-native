@@ -10,14 +10,10 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// The AssignmentPrincipal
 type AssignmentPrincipal struct {
-	// The principal id being assigned to.
-	PrincipalId string `pulumi:"principalId"`
-	// Other metadata for the principal.
+	PrincipalId       string            `pulumi:"principalId"`
 	PrincipalMetadata map[string]string `pulumi:"principalMetadata"`
-	// The Type of the principal ID.
-	PrincipalType string `pulumi:"principalType"`
+	PrincipalType     string            `pulumi:"principalType"`
 }
 
 // AssignmentPrincipalInput is an input type that accepts AssignmentPrincipalArgs and AssignmentPrincipalOutput values.
@@ -31,14 +27,10 @@ type AssignmentPrincipalInput interface {
 	ToAssignmentPrincipalOutputWithContext(context.Context) AssignmentPrincipalOutput
 }
 
-// The AssignmentPrincipal
 type AssignmentPrincipalArgs struct {
-	// The principal id being assigned to.
-	PrincipalId pulumi.StringInput `pulumi:"principalId"`
-	// Other metadata for the principal.
+	PrincipalId       pulumi.StringInput    `pulumi:"principalId"`
 	PrincipalMetadata pulumi.StringMapInput `pulumi:"principalMetadata"`
-	// The Type of the principal ID.
-	PrincipalType pulumi.StringInput `pulumi:"principalType"`
+	PrincipalType     pulumi.StringInput    `pulumi:"principalType"`
 }
 
 func (AssignmentPrincipalArgs) ElementType() reflect.Type {
@@ -78,7 +70,6 @@ func (i AssignmentPrincipalArray) ToAssignmentPrincipalArrayOutputWithContext(ct
 	return pulumi.ToOutputWithContext(ctx, i).(AssignmentPrincipalArrayOutput)
 }
 
-// The AssignmentPrincipal
 type AssignmentPrincipalOutput struct{ *pulumi.OutputState }
 
 func (AssignmentPrincipalOutput) ElementType() reflect.Type {
@@ -93,17 +84,14 @@ func (o AssignmentPrincipalOutput) ToAssignmentPrincipalOutputWithContext(ctx co
 	return o
 }
 
-// The principal id being assigned to.
 func (o AssignmentPrincipalOutput) PrincipalId() pulumi.StringOutput {
 	return o.ApplyT(func(v AssignmentPrincipal) string { return v.PrincipalId }).(pulumi.StringOutput)
 }
 
-// Other metadata for the principal.
 func (o AssignmentPrincipalOutput) PrincipalMetadata() pulumi.StringMapOutput {
 	return o.ApplyT(func(v AssignmentPrincipal) map[string]string { return v.PrincipalMetadata }).(pulumi.StringMapOutput)
 }
 
-// The Type of the principal ID.
 func (o AssignmentPrincipalOutput) PrincipalType() pulumi.StringOutput {
 	return o.ApplyT(func(v AssignmentPrincipal) string { return v.PrincipalType }).(pulumi.StringOutput)
 }
@@ -128,14 +116,10 @@ func (o AssignmentPrincipalArrayOutput) Index(i pulumi.IntInput) AssignmentPrinc
 	}).(AssignmentPrincipalOutput)
 }
 
-// The AssignmentPrincipal
 type AssignmentPrincipalResponse struct {
-	// The principal id being assigned to.
-	PrincipalId string `pulumi:"principalId"`
-	// Other metadata for the principal.
+	PrincipalId       string            `pulumi:"principalId"`
 	PrincipalMetadata map[string]string `pulumi:"principalMetadata"`
-	// The Type of the principal ID.
-	PrincipalType string `pulumi:"principalType"`
+	PrincipalType     string            `pulumi:"principalType"`
 }
 
 // AssignmentPrincipalResponseInput is an input type that accepts AssignmentPrincipalResponseArgs and AssignmentPrincipalResponseOutput values.
@@ -149,14 +133,10 @@ type AssignmentPrincipalResponseInput interface {
 	ToAssignmentPrincipalResponseOutputWithContext(context.Context) AssignmentPrincipalResponseOutput
 }
 
-// The AssignmentPrincipal
 type AssignmentPrincipalResponseArgs struct {
-	// The principal id being assigned to.
-	PrincipalId pulumi.StringInput `pulumi:"principalId"`
-	// Other metadata for the principal.
+	PrincipalId       pulumi.StringInput    `pulumi:"principalId"`
 	PrincipalMetadata pulumi.StringMapInput `pulumi:"principalMetadata"`
-	// The Type of the principal ID.
-	PrincipalType pulumi.StringInput `pulumi:"principalType"`
+	PrincipalType     pulumi.StringInput    `pulumi:"principalType"`
 }
 
 func (AssignmentPrincipalResponseArgs) ElementType() reflect.Type {
@@ -196,7 +176,6 @@ func (i AssignmentPrincipalResponseArray) ToAssignmentPrincipalResponseArrayOutp
 	return pulumi.ToOutputWithContext(ctx, i).(AssignmentPrincipalResponseArrayOutput)
 }
 
-// The AssignmentPrincipal
 type AssignmentPrincipalResponseOutput struct{ *pulumi.OutputState }
 
 func (AssignmentPrincipalResponseOutput) ElementType() reflect.Type {
@@ -211,17 +190,14 @@ func (o AssignmentPrincipalResponseOutput) ToAssignmentPrincipalResponseOutputWi
 	return o
 }
 
-// The principal id being assigned to.
 func (o AssignmentPrincipalResponseOutput) PrincipalId() pulumi.StringOutput {
 	return o.ApplyT(func(v AssignmentPrincipalResponse) string { return v.PrincipalId }).(pulumi.StringOutput)
 }
 
-// Other metadata for the principal.
 func (o AssignmentPrincipalResponseOutput) PrincipalMetadata() pulumi.StringMapOutput {
 	return o.ApplyT(func(v AssignmentPrincipalResponse) map[string]string { return v.PrincipalMetadata }).(pulumi.StringMapOutput)
 }
 
-// The Type of the principal ID.
 func (o AssignmentPrincipalResponseOutput) PrincipalType() pulumi.StringOutput {
 	return o.ApplyT(func(v AssignmentPrincipalResponse) string { return v.PrincipalType }).(pulumi.StringOutput)
 }
@@ -246,12 +222,9 @@ func (o AssignmentPrincipalResponseArrayOutput) Index(i pulumi.IntInput) Assignm
 	}).(AssignmentPrincipalResponseOutput)
 }
 
-// Connector mapping property availability.
 type ConnectorMappingAvailability struct {
-	// The frequency to update.
-	Frequency *string `pulumi:"frequency"`
-	// The interval of the given frequency to use.
-	Interval int `pulumi:"interval"`
+	Frequency *FrequencyTypes `pulumi:"frequency"`
+	Interval  int             `pulumi:"interval"`
 }
 
 // ConnectorMappingAvailabilityInput is an input type that accepts ConnectorMappingAvailabilityArgs and ConnectorMappingAvailabilityOutput values.
@@ -265,12 +238,9 @@ type ConnectorMappingAvailabilityInput interface {
 	ToConnectorMappingAvailabilityOutputWithContext(context.Context) ConnectorMappingAvailabilityOutput
 }
 
-// Connector mapping property availability.
 type ConnectorMappingAvailabilityArgs struct {
-	// The frequency to update.
-	Frequency *FrequencyTypes `pulumi:"frequency"`
-	// The interval of the given frequency to use.
-	Interval pulumi.IntInput `pulumi:"interval"`
+	Frequency FrequencyTypesPtrInput `pulumi:"frequency"`
+	Interval  pulumi.IntInput        `pulumi:"interval"`
 }
 
 func (ConnectorMappingAvailabilityArgs) ElementType() reflect.Type {
@@ -326,7 +296,6 @@ func (i *connectorMappingAvailabilityPtrType) ToConnectorMappingAvailabilityPtrO
 	return pulumi.ToOutputWithContext(ctx, i).(ConnectorMappingAvailabilityPtrOutput)
 }
 
-// Connector mapping property availability.
 type ConnectorMappingAvailabilityOutput struct{ *pulumi.OutputState }
 
 func (ConnectorMappingAvailabilityOutput) ElementType() reflect.Type {
@@ -346,17 +315,15 @@ func (o ConnectorMappingAvailabilityOutput) ToConnectorMappingAvailabilityPtrOut
 }
 
 func (o ConnectorMappingAvailabilityOutput) ToConnectorMappingAvailabilityPtrOutputWithContext(ctx context.Context) ConnectorMappingAvailabilityPtrOutput {
-	return o.ApplyT(func(v ConnectorMappingAvailability) *ConnectorMappingAvailability {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ConnectorMappingAvailability) *ConnectorMappingAvailability {
 		return &v
 	}).(ConnectorMappingAvailabilityPtrOutput)
 }
 
-// The frequency to update.
-func (o ConnectorMappingAvailabilityOutput) Frequency() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v ConnectorMappingAvailability) *string { return v.Frequency }).(pulumi.StringPtrOutput)
+func (o ConnectorMappingAvailabilityOutput) Frequency() FrequencyTypesPtrOutput {
+	return o.ApplyT(func(v ConnectorMappingAvailability) *FrequencyTypes { return v.Frequency }).(FrequencyTypesPtrOutput)
 }
 
-// The interval of the given frequency to use.
 func (o ConnectorMappingAvailabilityOutput) Interval() pulumi.IntOutput {
 	return o.ApplyT(func(v ConnectorMappingAvailability) int { return v.Interval }).(pulumi.IntOutput)
 }
@@ -376,20 +343,24 @@ func (o ConnectorMappingAvailabilityPtrOutput) ToConnectorMappingAvailabilityPtr
 }
 
 func (o ConnectorMappingAvailabilityPtrOutput) Elem() ConnectorMappingAvailabilityOutput {
-	return o.ApplyT(func(v *ConnectorMappingAvailability) ConnectorMappingAvailability { return *v }).(ConnectorMappingAvailabilityOutput)
+	return o.ApplyT(func(v *ConnectorMappingAvailability) ConnectorMappingAvailability {
+		if v != nil {
+			return *v
+		}
+		var ret ConnectorMappingAvailability
+		return ret
+	}).(ConnectorMappingAvailabilityOutput)
 }
 
-// The frequency to update.
-func (o ConnectorMappingAvailabilityPtrOutput) Frequency() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *ConnectorMappingAvailability) *string {
+func (o ConnectorMappingAvailabilityPtrOutput) Frequency() FrequencyTypesPtrOutput {
+	return o.ApplyT(func(v *ConnectorMappingAvailability) *FrequencyTypes {
 		if v == nil {
 			return nil
 		}
 		return v.Frequency
-	}).(pulumi.StringPtrOutput)
+	}).(FrequencyTypesPtrOutput)
 }
 
-// The interval of the given frequency to use.
 func (o ConnectorMappingAvailabilityPtrOutput) Interval() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *ConnectorMappingAvailability) *int {
 		if v == nil {
@@ -399,12 +370,9 @@ func (o ConnectorMappingAvailabilityPtrOutput) Interval() pulumi.IntPtrOutput {
 	}).(pulumi.IntPtrOutput)
 }
 
-// Connector mapping property availability.
 type ConnectorMappingAvailabilityResponse struct {
-	// The frequency to update.
 	Frequency *string `pulumi:"frequency"`
-	// The interval of the given frequency to use.
-	Interval int `pulumi:"interval"`
+	Interval  int     `pulumi:"interval"`
 }
 
 // ConnectorMappingAvailabilityResponseInput is an input type that accepts ConnectorMappingAvailabilityResponseArgs and ConnectorMappingAvailabilityResponseOutput values.
@@ -418,12 +386,9 @@ type ConnectorMappingAvailabilityResponseInput interface {
 	ToConnectorMappingAvailabilityResponseOutputWithContext(context.Context) ConnectorMappingAvailabilityResponseOutput
 }
 
-// Connector mapping property availability.
 type ConnectorMappingAvailabilityResponseArgs struct {
-	// The frequency to update.
 	Frequency pulumi.StringPtrInput `pulumi:"frequency"`
-	// The interval of the given frequency to use.
-	Interval pulumi.IntInput `pulumi:"interval"`
+	Interval  pulumi.IntInput       `pulumi:"interval"`
 }
 
 func (ConnectorMappingAvailabilityResponseArgs) ElementType() reflect.Type {
@@ -479,7 +444,6 @@ func (i *connectorMappingAvailabilityResponsePtrType) ToConnectorMappingAvailabi
 	return pulumi.ToOutputWithContext(ctx, i).(ConnectorMappingAvailabilityResponsePtrOutput)
 }
 
-// Connector mapping property availability.
 type ConnectorMappingAvailabilityResponseOutput struct{ *pulumi.OutputState }
 
 func (ConnectorMappingAvailabilityResponseOutput) ElementType() reflect.Type {
@@ -499,17 +463,15 @@ func (o ConnectorMappingAvailabilityResponseOutput) ToConnectorMappingAvailabili
 }
 
 func (o ConnectorMappingAvailabilityResponseOutput) ToConnectorMappingAvailabilityResponsePtrOutputWithContext(ctx context.Context) ConnectorMappingAvailabilityResponsePtrOutput {
-	return o.ApplyT(func(v ConnectorMappingAvailabilityResponse) *ConnectorMappingAvailabilityResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ConnectorMappingAvailabilityResponse) *ConnectorMappingAvailabilityResponse {
 		return &v
 	}).(ConnectorMappingAvailabilityResponsePtrOutput)
 }
 
-// The frequency to update.
 func (o ConnectorMappingAvailabilityResponseOutput) Frequency() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ConnectorMappingAvailabilityResponse) *string { return v.Frequency }).(pulumi.StringPtrOutput)
 }
 
-// The interval of the given frequency to use.
 func (o ConnectorMappingAvailabilityResponseOutput) Interval() pulumi.IntOutput {
 	return o.ApplyT(func(v ConnectorMappingAvailabilityResponse) int { return v.Interval }).(pulumi.IntOutput)
 }
@@ -529,10 +491,15 @@ func (o ConnectorMappingAvailabilityResponsePtrOutput) ToConnectorMappingAvailab
 }
 
 func (o ConnectorMappingAvailabilityResponsePtrOutput) Elem() ConnectorMappingAvailabilityResponseOutput {
-	return o.ApplyT(func(v *ConnectorMappingAvailabilityResponse) ConnectorMappingAvailabilityResponse { return *v }).(ConnectorMappingAvailabilityResponseOutput)
+	return o.ApplyT(func(v *ConnectorMappingAvailabilityResponse) ConnectorMappingAvailabilityResponse {
+		if v != nil {
+			return *v
+		}
+		var ret ConnectorMappingAvailabilityResponse
+		return ret
+	}).(ConnectorMappingAvailabilityResponseOutput)
 }
 
-// The frequency to update.
 func (o ConnectorMappingAvailabilityResponsePtrOutput) Frequency() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ConnectorMappingAvailabilityResponse) *string {
 		if v == nil {
@@ -542,7 +509,6 @@ func (o ConnectorMappingAvailabilityResponsePtrOutput) Frequency() pulumi.String
 	}).(pulumi.StringPtrOutput)
 }
 
-// The interval of the given frequency to use.
 func (o ConnectorMappingAvailabilityResponsePtrOutput) Interval() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *ConnectorMappingAvailabilityResponse) *int {
 		if v == nil {
@@ -552,12 +518,9 @@ func (o ConnectorMappingAvailabilityResponsePtrOutput) Interval() pulumi.IntPtrO
 	}).(pulumi.IntPtrOutput)
 }
 
-// The complete operation.
 type ConnectorMappingCompleteOperation struct {
-	// The type of completion operation.
-	CompletionOperationType *string `pulumi:"completionOperationType"`
-	// The destination folder where files will be moved to once the import is done.
-	DestinationFolder *string `pulumi:"destinationFolder"`
+	CompletionOperationType *CompletionOperationTypes `pulumi:"completionOperationType"`
+	DestinationFolder       *string                   `pulumi:"destinationFolder"`
 }
 
 // ConnectorMappingCompleteOperationInput is an input type that accepts ConnectorMappingCompleteOperationArgs and ConnectorMappingCompleteOperationOutput values.
@@ -571,12 +534,9 @@ type ConnectorMappingCompleteOperationInput interface {
 	ToConnectorMappingCompleteOperationOutputWithContext(context.Context) ConnectorMappingCompleteOperationOutput
 }
 
-// The complete operation.
 type ConnectorMappingCompleteOperationArgs struct {
-	// The type of completion operation.
-	CompletionOperationType *CompletionOperationTypes `pulumi:"completionOperationType"`
-	// The destination folder where files will be moved to once the import is done.
-	DestinationFolder pulumi.StringPtrInput `pulumi:"destinationFolder"`
+	CompletionOperationType CompletionOperationTypesPtrInput `pulumi:"completionOperationType"`
+	DestinationFolder       pulumi.StringPtrInput            `pulumi:"destinationFolder"`
 }
 
 func (ConnectorMappingCompleteOperationArgs) ElementType() reflect.Type {
@@ -632,7 +592,6 @@ func (i *connectorMappingCompleteOperationPtrType) ToConnectorMappingCompleteOpe
 	return pulumi.ToOutputWithContext(ctx, i).(ConnectorMappingCompleteOperationPtrOutput)
 }
 
-// The complete operation.
 type ConnectorMappingCompleteOperationOutput struct{ *pulumi.OutputState }
 
 func (ConnectorMappingCompleteOperationOutput) ElementType() reflect.Type {
@@ -652,17 +611,15 @@ func (o ConnectorMappingCompleteOperationOutput) ToConnectorMappingCompleteOpera
 }
 
 func (o ConnectorMappingCompleteOperationOutput) ToConnectorMappingCompleteOperationPtrOutputWithContext(ctx context.Context) ConnectorMappingCompleteOperationPtrOutput {
-	return o.ApplyT(func(v ConnectorMappingCompleteOperation) *ConnectorMappingCompleteOperation {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ConnectorMappingCompleteOperation) *ConnectorMappingCompleteOperation {
 		return &v
 	}).(ConnectorMappingCompleteOperationPtrOutput)
 }
 
-// The type of completion operation.
-func (o ConnectorMappingCompleteOperationOutput) CompletionOperationType() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v ConnectorMappingCompleteOperation) *string { return v.CompletionOperationType }).(pulumi.StringPtrOutput)
+func (o ConnectorMappingCompleteOperationOutput) CompletionOperationType() CompletionOperationTypesPtrOutput {
+	return o.ApplyT(func(v ConnectorMappingCompleteOperation) *CompletionOperationTypes { return v.CompletionOperationType }).(CompletionOperationTypesPtrOutput)
 }
 
-// The destination folder where files will be moved to once the import is done.
 func (o ConnectorMappingCompleteOperationOutput) DestinationFolder() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ConnectorMappingCompleteOperation) *string { return v.DestinationFolder }).(pulumi.StringPtrOutput)
 }
@@ -682,20 +639,24 @@ func (o ConnectorMappingCompleteOperationPtrOutput) ToConnectorMappingCompleteOp
 }
 
 func (o ConnectorMappingCompleteOperationPtrOutput) Elem() ConnectorMappingCompleteOperationOutput {
-	return o.ApplyT(func(v *ConnectorMappingCompleteOperation) ConnectorMappingCompleteOperation { return *v }).(ConnectorMappingCompleteOperationOutput)
+	return o.ApplyT(func(v *ConnectorMappingCompleteOperation) ConnectorMappingCompleteOperation {
+		if v != nil {
+			return *v
+		}
+		var ret ConnectorMappingCompleteOperation
+		return ret
+	}).(ConnectorMappingCompleteOperationOutput)
 }
 
-// The type of completion operation.
-func (o ConnectorMappingCompleteOperationPtrOutput) CompletionOperationType() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *ConnectorMappingCompleteOperation) *string {
+func (o ConnectorMappingCompleteOperationPtrOutput) CompletionOperationType() CompletionOperationTypesPtrOutput {
+	return o.ApplyT(func(v *ConnectorMappingCompleteOperation) *CompletionOperationTypes {
 		if v == nil {
 			return nil
 		}
 		return v.CompletionOperationType
-	}).(pulumi.StringPtrOutput)
+	}).(CompletionOperationTypesPtrOutput)
 }
 
-// The destination folder where files will be moved to once the import is done.
 func (o ConnectorMappingCompleteOperationPtrOutput) DestinationFolder() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ConnectorMappingCompleteOperation) *string {
 		if v == nil {
@@ -705,12 +666,9 @@ func (o ConnectorMappingCompleteOperationPtrOutput) DestinationFolder() pulumi.S
 	}).(pulumi.StringPtrOutput)
 }
 
-// The complete operation.
 type ConnectorMappingCompleteOperationResponse struct {
-	// The type of completion operation.
 	CompletionOperationType *string `pulumi:"completionOperationType"`
-	// The destination folder where files will be moved to once the import is done.
-	DestinationFolder *string `pulumi:"destinationFolder"`
+	DestinationFolder       *string `pulumi:"destinationFolder"`
 }
 
 // ConnectorMappingCompleteOperationResponseInput is an input type that accepts ConnectorMappingCompleteOperationResponseArgs and ConnectorMappingCompleteOperationResponseOutput values.
@@ -724,12 +682,9 @@ type ConnectorMappingCompleteOperationResponseInput interface {
 	ToConnectorMappingCompleteOperationResponseOutputWithContext(context.Context) ConnectorMappingCompleteOperationResponseOutput
 }
 
-// The complete operation.
 type ConnectorMappingCompleteOperationResponseArgs struct {
-	// The type of completion operation.
 	CompletionOperationType pulumi.StringPtrInput `pulumi:"completionOperationType"`
-	// The destination folder where files will be moved to once the import is done.
-	DestinationFolder pulumi.StringPtrInput `pulumi:"destinationFolder"`
+	DestinationFolder       pulumi.StringPtrInput `pulumi:"destinationFolder"`
 }
 
 func (ConnectorMappingCompleteOperationResponseArgs) ElementType() reflect.Type {
@@ -785,7 +740,6 @@ func (i *connectorMappingCompleteOperationResponsePtrType) ToConnectorMappingCom
 	return pulumi.ToOutputWithContext(ctx, i).(ConnectorMappingCompleteOperationResponsePtrOutput)
 }
 
-// The complete operation.
 type ConnectorMappingCompleteOperationResponseOutput struct{ *pulumi.OutputState }
 
 func (ConnectorMappingCompleteOperationResponseOutput) ElementType() reflect.Type {
@@ -805,17 +759,15 @@ func (o ConnectorMappingCompleteOperationResponseOutput) ToConnectorMappingCompl
 }
 
 func (o ConnectorMappingCompleteOperationResponseOutput) ToConnectorMappingCompleteOperationResponsePtrOutputWithContext(ctx context.Context) ConnectorMappingCompleteOperationResponsePtrOutput {
-	return o.ApplyT(func(v ConnectorMappingCompleteOperationResponse) *ConnectorMappingCompleteOperationResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ConnectorMappingCompleteOperationResponse) *ConnectorMappingCompleteOperationResponse {
 		return &v
 	}).(ConnectorMappingCompleteOperationResponsePtrOutput)
 }
 
-// The type of completion operation.
 func (o ConnectorMappingCompleteOperationResponseOutput) CompletionOperationType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ConnectorMappingCompleteOperationResponse) *string { return v.CompletionOperationType }).(pulumi.StringPtrOutput)
 }
 
-// The destination folder where files will be moved to once the import is done.
 func (o ConnectorMappingCompleteOperationResponseOutput) DestinationFolder() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ConnectorMappingCompleteOperationResponse) *string { return v.DestinationFolder }).(pulumi.StringPtrOutput)
 }
@@ -836,11 +788,14 @@ func (o ConnectorMappingCompleteOperationResponsePtrOutput) ToConnectorMappingCo
 
 func (o ConnectorMappingCompleteOperationResponsePtrOutput) Elem() ConnectorMappingCompleteOperationResponseOutput {
 	return o.ApplyT(func(v *ConnectorMappingCompleteOperationResponse) ConnectorMappingCompleteOperationResponse {
-		return *v
+		if v != nil {
+			return *v
+		}
+		var ret ConnectorMappingCompleteOperationResponse
+		return ret
 	}).(ConnectorMappingCompleteOperationResponseOutput)
 }
 
-// The type of completion operation.
 func (o ConnectorMappingCompleteOperationResponsePtrOutput) CompletionOperationType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ConnectorMappingCompleteOperationResponse) *string {
 		if v == nil {
@@ -850,7 +805,6 @@ func (o ConnectorMappingCompleteOperationResponsePtrOutput) CompletionOperationT
 	}).(pulumi.StringPtrOutput)
 }
 
-// The destination folder where files will be moved to once the import is done.
 func (o ConnectorMappingCompleteOperationResponsePtrOutput) DestinationFolder() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ConnectorMappingCompleteOperationResponse) *string {
 		if v == nil {
@@ -860,12 +814,9 @@ func (o ConnectorMappingCompleteOperationResponsePtrOutput) DestinationFolder() 
 	}).(pulumi.StringPtrOutput)
 }
 
-// The error management.
 type ConnectorMappingErrorManagement struct {
-	// The error limit allowed while importing data.
-	ErrorLimit *int `pulumi:"errorLimit"`
-	// The type of error management to use for the mapping.
-	ErrorManagementType string `pulumi:"errorManagementType"`
+	ErrorLimit          *int                 `pulumi:"errorLimit"`
+	ErrorManagementType ErrorManagementTypes `pulumi:"errorManagementType"`
 }
 
 // ConnectorMappingErrorManagementInput is an input type that accepts ConnectorMappingErrorManagementArgs and ConnectorMappingErrorManagementOutput values.
@@ -879,12 +830,9 @@ type ConnectorMappingErrorManagementInput interface {
 	ToConnectorMappingErrorManagementOutputWithContext(context.Context) ConnectorMappingErrorManagementOutput
 }
 
-// The error management.
 type ConnectorMappingErrorManagementArgs struct {
-	// The error limit allowed while importing data.
-	ErrorLimit pulumi.IntPtrInput `pulumi:"errorLimit"`
-	// The type of error management to use for the mapping.
-	ErrorManagementType ErrorManagementTypes `pulumi:"errorManagementType"`
+	ErrorLimit          pulumi.IntPtrInput        `pulumi:"errorLimit"`
+	ErrorManagementType ErrorManagementTypesInput `pulumi:"errorManagementType"`
 }
 
 func (ConnectorMappingErrorManagementArgs) ElementType() reflect.Type {
@@ -940,7 +888,6 @@ func (i *connectorMappingErrorManagementPtrType) ToConnectorMappingErrorManageme
 	return pulumi.ToOutputWithContext(ctx, i).(ConnectorMappingErrorManagementPtrOutput)
 }
 
-// The error management.
 type ConnectorMappingErrorManagementOutput struct{ *pulumi.OutputState }
 
 func (ConnectorMappingErrorManagementOutput) ElementType() reflect.Type {
@@ -960,19 +907,17 @@ func (o ConnectorMappingErrorManagementOutput) ToConnectorMappingErrorManagement
 }
 
 func (o ConnectorMappingErrorManagementOutput) ToConnectorMappingErrorManagementPtrOutputWithContext(ctx context.Context) ConnectorMappingErrorManagementPtrOutput {
-	return o.ApplyT(func(v ConnectorMappingErrorManagement) *ConnectorMappingErrorManagement {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ConnectorMappingErrorManagement) *ConnectorMappingErrorManagement {
 		return &v
 	}).(ConnectorMappingErrorManagementPtrOutput)
 }
 
-// The error limit allowed while importing data.
 func (o ConnectorMappingErrorManagementOutput) ErrorLimit() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v ConnectorMappingErrorManagement) *int { return v.ErrorLimit }).(pulumi.IntPtrOutput)
 }
 
-// The type of error management to use for the mapping.
-func (o ConnectorMappingErrorManagementOutput) ErrorManagementType() pulumi.StringOutput {
-	return o.ApplyT(func(v ConnectorMappingErrorManagement) string { return v.ErrorManagementType }).(pulumi.StringOutput)
+func (o ConnectorMappingErrorManagementOutput) ErrorManagementType() ErrorManagementTypesOutput {
+	return o.ApplyT(func(v ConnectorMappingErrorManagement) ErrorManagementTypes { return v.ErrorManagementType }).(ErrorManagementTypesOutput)
 }
 
 type ConnectorMappingErrorManagementPtrOutput struct{ *pulumi.OutputState }
@@ -990,10 +935,15 @@ func (o ConnectorMappingErrorManagementPtrOutput) ToConnectorMappingErrorManagem
 }
 
 func (o ConnectorMappingErrorManagementPtrOutput) Elem() ConnectorMappingErrorManagementOutput {
-	return o.ApplyT(func(v *ConnectorMappingErrorManagement) ConnectorMappingErrorManagement { return *v }).(ConnectorMappingErrorManagementOutput)
+	return o.ApplyT(func(v *ConnectorMappingErrorManagement) ConnectorMappingErrorManagement {
+		if v != nil {
+			return *v
+		}
+		var ret ConnectorMappingErrorManagement
+		return ret
+	}).(ConnectorMappingErrorManagementOutput)
 }
 
-// The error limit allowed while importing data.
 func (o ConnectorMappingErrorManagementPtrOutput) ErrorLimit() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *ConnectorMappingErrorManagement) *int {
 		if v == nil {
@@ -1003,21 +953,17 @@ func (o ConnectorMappingErrorManagementPtrOutput) ErrorLimit() pulumi.IntPtrOutp
 	}).(pulumi.IntPtrOutput)
 }
 
-// The type of error management to use for the mapping.
-func (o ConnectorMappingErrorManagementPtrOutput) ErrorManagementType() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *ConnectorMappingErrorManagement) *string {
+func (o ConnectorMappingErrorManagementPtrOutput) ErrorManagementType() ErrorManagementTypesPtrOutput {
+	return o.ApplyT(func(v *ConnectorMappingErrorManagement) *ErrorManagementTypes {
 		if v == nil {
 			return nil
 		}
 		return &v.ErrorManagementType
-	}).(pulumi.StringPtrOutput)
+	}).(ErrorManagementTypesPtrOutput)
 }
 
-// The error management.
 type ConnectorMappingErrorManagementResponse struct {
-	// The error limit allowed while importing data.
-	ErrorLimit *int `pulumi:"errorLimit"`
-	// The type of error management to use for the mapping.
+	ErrorLimit          *int   `pulumi:"errorLimit"`
 	ErrorManagementType string `pulumi:"errorManagementType"`
 }
 
@@ -1032,11 +978,8 @@ type ConnectorMappingErrorManagementResponseInput interface {
 	ToConnectorMappingErrorManagementResponseOutputWithContext(context.Context) ConnectorMappingErrorManagementResponseOutput
 }
 
-// The error management.
 type ConnectorMappingErrorManagementResponseArgs struct {
-	// The error limit allowed while importing data.
-	ErrorLimit pulumi.IntPtrInput `pulumi:"errorLimit"`
-	// The type of error management to use for the mapping.
+	ErrorLimit          pulumi.IntPtrInput `pulumi:"errorLimit"`
 	ErrorManagementType pulumi.StringInput `pulumi:"errorManagementType"`
 }
 
@@ -1093,7 +1036,6 @@ func (i *connectorMappingErrorManagementResponsePtrType) ToConnectorMappingError
 	return pulumi.ToOutputWithContext(ctx, i).(ConnectorMappingErrorManagementResponsePtrOutput)
 }
 
-// The error management.
 type ConnectorMappingErrorManagementResponseOutput struct{ *pulumi.OutputState }
 
 func (ConnectorMappingErrorManagementResponseOutput) ElementType() reflect.Type {
@@ -1113,17 +1055,15 @@ func (o ConnectorMappingErrorManagementResponseOutput) ToConnectorMappingErrorMa
 }
 
 func (o ConnectorMappingErrorManagementResponseOutput) ToConnectorMappingErrorManagementResponsePtrOutputWithContext(ctx context.Context) ConnectorMappingErrorManagementResponsePtrOutput {
-	return o.ApplyT(func(v ConnectorMappingErrorManagementResponse) *ConnectorMappingErrorManagementResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ConnectorMappingErrorManagementResponse) *ConnectorMappingErrorManagementResponse {
 		return &v
 	}).(ConnectorMappingErrorManagementResponsePtrOutput)
 }
 
-// The error limit allowed while importing data.
 func (o ConnectorMappingErrorManagementResponseOutput) ErrorLimit() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v ConnectorMappingErrorManagementResponse) *int { return v.ErrorLimit }).(pulumi.IntPtrOutput)
 }
 
-// The type of error management to use for the mapping.
 func (o ConnectorMappingErrorManagementResponseOutput) ErrorManagementType() pulumi.StringOutput {
 	return o.ApplyT(func(v ConnectorMappingErrorManagementResponse) string { return v.ErrorManagementType }).(pulumi.StringOutput)
 }
@@ -1143,10 +1083,15 @@ func (o ConnectorMappingErrorManagementResponsePtrOutput) ToConnectorMappingErro
 }
 
 func (o ConnectorMappingErrorManagementResponsePtrOutput) Elem() ConnectorMappingErrorManagementResponseOutput {
-	return o.ApplyT(func(v *ConnectorMappingErrorManagementResponse) ConnectorMappingErrorManagementResponse { return *v }).(ConnectorMappingErrorManagementResponseOutput)
+	return o.ApplyT(func(v *ConnectorMappingErrorManagementResponse) ConnectorMappingErrorManagementResponse {
+		if v != nil {
+			return *v
+		}
+		var ret ConnectorMappingErrorManagementResponse
+		return ret
+	}).(ConnectorMappingErrorManagementResponseOutput)
 }
 
-// The error limit allowed while importing data.
 func (o ConnectorMappingErrorManagementResponsePtrOutput) ErrorLimit() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *ConnectorMappingErrorManagementResponse) *int {
 		if v == nil {
@@ -1156,7 +1101,6 @@ func (o ConnectorMappingErrorManagementResponsePtrOutput) ErrorLimit() pulumi.In
 	}).(pulumi.IntPtrOutput)
 }
 
-// The type of error management to use for the mapping.
 func (o ConnectorMappingErrorManagementResponsePtrOutput) ErrorManagementType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ConnectorMappingErrorManagementResponse) *string {
 		if v == nil {
@@ -1166,20 +1110,13 @@ func (o ConnectorMappingErrorManagementResponsePtrOutput) ErrorManagementType() 
 	}).(pulumi.StringPtrOutput)
 }
 
-// Connector mapping property format.
 type ConnectorMappingFormat struct {
-	// The oData language.
-	AcceptLanguage *string `pulumi:"acceptLanguage"`
-	// Character separating array elements.
-	ArraySeparator *string `pulumi:"arraySeparator"`
-	// The character that signifies a break between columns.
-	ColumnDelimiter *string `pulumi:"columnDelimiter"`
-	// The type mapping format.
-	FormatType string `pulumi:"formatType"`
-	// Quote character, used to indicate enquoted fields.
-	QuoteCharacter *string `pulumi:"quoteCharacter"`
-	// Escape character for quotes, can be the same as the quoteCharacter.
-	QuoteEscapeCharacter *string `pulumi:"quoteEscapeCharacter"`
+	AcceptLanguage       *string     `pulumi:"acceptLanguage"`
+	ArraySeparator       *string     `pulumi:"arraySeparator"`
+	ColumnDelimiter      *string     `pulumi:"columnDelimiter"`
+	FormatType           FormatTypes `pulumi:"formatType"`
+	QuoteCharacter       *string     `pulumi:"quoteCharacter"`
+	QuoteEscapeCharacter *string     `pulumi:"quoteEscapeCharacter"`
 }
 
 // ConnectorMappingFormatInput is an input type that accepts ConnectorMappingFormatArgs and ConnectorMappingFormatOutput values.
@@ -1193,19 +1130,12 @@ type ConnectorMappingFormatInput interface {
 	ToConnectorMappingFormatOutputWithContext(context.Context) ConnectorMappingFormatOutput
 }
 
-// Connector mapping property format.
 type ConnectorMappingFormatArgs struct {
-	// The oData language.
-	AcceptLanguage pulumi.StringPtrInput `pulumi:"acceptLanguage"`
-	// Character separating array elements.
-	ArraySeparator pulumi.StringPtrInput `pulumi:"arraySeparator"`
-	// The character that signifies a break between columns.
-	ColumnDelimiter pulumi.StringPtrInput `pulumi:"columnDelimiter"`
-	// The type mapping format.
-	FormatType FormatTypes `pulumi:"formatType"`
-	// Quote character, used to indicate enquoted fields.
-	QuoteCharacter pulumi.StringPtrInput `pulumi:"quoteCharacter"`
-	// Escape character for quotes, can be the same as the quoteCharacter.
+	AcceptLanguage       pulumi.StringPtrInput `pulumi:"acceptLanguage"`
+	ArraySeparator       pulumi.StringPtrInput `pulumi:"arraySeparator"`
+	ColumnDelimiter      pulumi.StringPtrInput `pulumi:"columnDelimiter"`
+	FormatType           FormatTypesInput      `pulumi:"formatType"`
+	QuoteCharacter       pulumi.StringPtrInput `pulumi:"quoteCharacter"`
 	QuoteEscapeCharacter pulumi.StringPtrInput `pulumi:"quoteEscapeCharacter"`
 }
 
@@ -1262,7 +1192,6 @@ func (i *connectorMappingFormatPtrType) ToConnectorMappingFormatPtrOutputWithCon
 	return pulumi.ToOutputWithContext(ctx, i).(ConnectorMappingFormatPtrOutput)
 }
 
-// Connector mapping property format.
 type ConnectorMappingFormatOutput struct{ *pulumi.OutputState }
 
 func (ConnectorMappingFormatOutput) ElementType() reflect.Type {
@@ -1282,37 +1211,31 @@ func (o ConnectorMappingFormatOutput) ToConnectorMappingFormatPtrOutput() Connec
 }
 
 func (o ConnectorMappingFormatOutput) ToConnectorMappingFormatPtrOutputWithContext(ctx context.Context) ConnectorMappingFormatPtrOutput {
-	return o.ApplyT(func(v ConnectorMappingFormat) *ConnectorMappingFormat {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ConnectorMappingFormat) *ConnectorMappingFormat {
 		return &v
 	}).(ConnectorMappingFormatPtrOutput)
 }
 
-// The oData language.
 func (o ConnectorMappingFormatOutput) AcceptLanguage() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ConnectorMappingFormat) *string { return v.AcceptLanguage }).(pulumi.StringPtrOutput)
 }
 
-// Character separating array elements.
 func (o ConnectorMappingFormatOutput) ArraySeparator() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ConnectorMappingFormat) *string { return v.ArraySeparator }).(pulumi.StringPtrOutput)
 }
 
-// The character that signifies a break between columns.
 func (o ConnectorMappingFormatOutput) ColumnDelimiter() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ConnectorMappingFormat) *string { return v.ColumnDelimiter }).(pulumi.StringPtrOutput)
 }
 
-// The type mapping format.
-func (o ConnectorMappingFormatOutput) FormatType() pulumi.StringOutput {
-	return o.ApplyT(func(v ConnectorMappingFormat) string { return v.FormatType }).(pulumi.StringOutput)
+func (o ConnectorMappingFormatOutput) FormatType() FormatTypesOutput {
+	return o.ApplyT(func(v ConnectorMappingFormat) FormatTypes { return v.FormatType }).(FormatTypesOutput)
 }
 
-// Quote character, used to indicate enquoted fields.
 func (o ConnectorMappingFormatOutput) QuoteCharacter() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ConnectorMappingFormat) *string { return v.QuoteCharacter }).(pulumi.StringPtrOutput)
 }
 
-// Escape character for quotes, can be the same as the quoteCharacter.
 func (o ConnectorMappingFormatOutput) QuoteEscapeCharacter() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ConnectorMappingFormat) *string { return v.QuoteEscapeCharacter }).(pulumi.StringPtrOutput)
 }
@@ -1332,10 +1255,15 @@ func (o ConnectorMappingFormatPtrOutput) ToConnectorMappingFormatPtrOutputWithCo
 }
 
 func (o ConnectorMappingFormatPtrOutput) Elem() ConnectorMappingFormatOutput {
-	return o.ApplyT(func(v *ConnectorMappingFormat) ConnectorMappingFormat { return *v }).(ConnectorMappingFormatOutput)
+	return o.ApplyT(func(v *ConnectorMappingFormat) ConnectorMappingFormat {
+		if v != nil {
+			return *v
+		}
+		var ret ConnectorMappingFormat
+		return ret
+	}).(ConnectorMappingFormatOutput)
 }
 
-// The oData language.
 func (o ConnectorMappingFormatPtrOutput) AcceptLanguage() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ConnectorMappingFormat) *string {
 		if v == nil {
@@ -1345,7 +1273,6 @@ func (o ConnectorMappingFormatPtrOutput) AcceptLanguage() pulumi.StringPtrOutput
 	}).(pulumi.StringPtrOutput)
 }
 
-// Character separating array elements.
 func (o ConnectorMappingFormatPtrOutput) ArraySeparator() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ConnectorMappingFormat) *string {
 		if v == nil {
@@ -1355,7 +1282,6 @@ func (o ConnectorMappingFormatPtrOutput) ArraySeparator() pulumi.StringPtrOutput
 	}).(pulumi.StringPtrOutput)
 }
 
-// The character that signifies a break between columns.
 func (o ConnectorMappingFormatPtrOutput) ColumnDelimiter() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ConnectorMappingFormat) *string {
 		if v == nil {
@@ -1365,17 +1291,15 @@ func (o ConnectorMappingFormatPtrOutput) ColumnDelimiter() pulumi.StringPtrOutpu
 	}).(pulumi.StringPtrOutput)
 }
 
-// The type mapping format.
-func (o ConnectorMappingFormatPtrOutput) FormatType() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *ConnectorMappingFormat) *string {
+func (o ConnectorMappingFormatPtrOutput) FormatType() FormatTypesPtrOutput {
+	return o.ApplyT(func(v *ConnectorMappingFormat) *FormatTypes {
 		if v == nil {
 			return nil
 		}
 		return &v.FormatType
-	}).(pulumi.StringPtrOutput)
+	}).(FormatTypesPtrOutput)
 }
 
-// Quote character, used to indicate enquoted fields.
 func (o ConnectorMappingFormatPtrOutput) QuoteCharacter() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ConnectorMappingFormat) *string {
 		if v == nil {
@@ -1385,7 +1309,6 @@ func (o ConnectorMappingFormatPtrOutput) QuoteCharacter() pulumi.StringPtrOutput
 	}).(pulumi.StringPtrOutput)
 }
 
-// Escape character for quotes, can be the same as the quoteCharacter.
 func (o ConnectorMappingFormatPtrOutput) QuoteEscapeCharacter() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ConnectorMappingFormat) *string {
 		if v == nil {
@@ -1395,19 +1318,12 @@ func (o ConnectorMappingFormatPtrOutput) QuoteEscapeCharacter() pulumi.StringPtr
 	}).(pulumi.StringPtrOutput)
 }
 
-// Connector mapping property format.
 type ConnectorMappingFormatResponse struct {
-	// The oData language.
-	AcceptLanguage *string `pulumi:"acceptLanguage"`
-	// Character separating array elements.
-	ArraySeparator *string `pulumi:"arraySeparator"`
-	// The character that signifies a break between columns.
-	ColumnDelimiter *string `pulumi:"columnDelimiter"`
-	// The type mapping format.
-	FormatType string `pulumi:"formatType"`
-	// Quote character, used to indicate enquoted fields.
-	QuoteCharacter *string `pulumi:"quoteCharacter"`
-	// Escape character for quotes, can be the same as the quoteCharacter.
+	AcceptLanguage       *string `pulumi:"acceptLanguage"`
+	ArraySeparator       *string `pulumi:"arraySeparator"`
+	ColumnDelimiter      *string `pulumi:"columnDelimiter"`
+	FormatType           string  `pulumi:"formatType"`
+	QuoteCharacter       *string `pulumi:"quoteCharacter"`
 	QuoteEscapeCharacter *string `pulumi:"quoteEscapeCharacter"`
 }
 
@@ -1422,19 +1338,12 @@ type ConnectorMappingFormatResponseInput interface {
 	ToConnectorMappingFormatResponseOutputWithContext(context.Context) ConnectorMappingFormatResponseOutput
 }
 
-// Connector mapping property format.
 type ConnectorMappingFormatResponseArgs struct {
-	// The oData language.
-	AcceptLanguage pulumi.StringPtrInput `pulumi:"acceptLanguage"`
-	// Character separating array elements.
-	ArraySeparator pulumi.StringPtrInput `pulumi:"arraySeparator"`
-	// The character that signifies a break between columns.
-	ColumnDelimiter pulumi.StringPtrInput `pulumi:"columnDelimiter"`
-	// The type mapping format.
-	FormatType pulumi.StringInput `pulumi:"formatType"`
-	// Quote character, used to indicate enquoted fields.
-	QuoteCharacter pulumi.StringPtrInput `pulumi:"quoteCharacter"`
-	// Escape character for quotes, can be the same as the quoteCharacter.
+	AcceptLanguage       pulumi.StringPtrInput `pulumi:"acceptLanguage"`
+	ArraySeparator       pulumi.StringPtrInput `pulumi:"arraySeparator"`
+	ColumnDelimiter      pulumi.StringPtrInput `pulumi:"columnDelimiter"`
+	FormatType           pulumi.StringInput    `pulumi:"formatType"`
+	QuoteCharacter       pulumi.StringPtrInput `pulumi:"quoteCharacter"`
 	QuoteEscapeCharacter pulumi.StringPtrInput `pulumi:"quoteEscapeCharacter"`
 }
 
@@ -1491,7 +1400,6 @@ func (i *connectorMappingFormatResponsePtrType) ToConnectorMappingFormatResponse
 	return pulumi.ToOutputWithContext(ctx, i).(ConnectorMappingFormatResponsePtrOutput)
 }
 
-// Connector mapping property format.
 type ConnectorMappingFormatResponseOutput struct{ *pulumi.OutputState }
 
 func (ConnectorMappingFormatResponseOutput) ElementType() reflect.Type {
@@ -1511,37 +1419,31 @@ func (o ConnectorMappingFormatResponseOutput) ToConnectorMappingFormatResponsePt
 }
 
 func (o ConnectorMappingFormatResponseOutput) ToConnectorMappingFormatResponsePtrOutputWithContext(ctx context.Context) ConnectorMappingFormatResponsePtrOutput {
-	return o.ApplyT(func(v ConnectorMappingFormatResponse) *ConnectorMappingFormatResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ConnectorMappingFormatResponse) *ConnectorMappingFormatResponse {
 		return &v
 	}).(ConnectorMappingFormatResponsePtrOutput)
 }
 
-// The oData language.
 func (o ConnectorMappingFormatResponseOutput) AcceptLanguage() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ConnectorMappingFormatResponse) *string { return v.AcceptLanguage }).(pulumi.StringPtrOutput)
 }
 
-// Character separating array elements.
 func (o ConnectorMappingFormatResponseOutput) ArraySeparator() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ConnectorMappingFormatResponse) *string { return v.ArraySeparator }).(pulumi.StringPtrOutput)
 }
 
-// The character that signifies a break between columns.
 func (o ConnectorMappingFormatResponseOutput) ColumnDelimiter() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ConnectorMappingFormatResponse) *string { return v.ColumnDelimiter }).(pulumi.StringPtrOutput)
 }
 
-// The type mapping format.
 func (o ConnectorMappingFormatResponseOutput) FormatType() pulumi.StringOutput {
 	return o.ApplyT(func(v ConnectorMappingFormatResponse) string { return v.FormatType }).(pulumi.StringOutput)
 }
 
-// Quote character, used to indicate enquoted fields.
 func (o ConnectorMappingFormatResponseOutput) QuoteCharacter() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ConnectorMappingFormatResponse) *string { return v.QuoteCharacter }).(pulumi.StringPtrOutput)
 }
 
-// Escape character for quotes, can be the same as the quoteCharacter.
 func (o ConnectorMappingFormatResponseOutput) QuoteEscapeCharacter() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ConnectorMappingFormatResponse) *string { return v.QuoteEscapeCharacter }).(pulumi.StringPtrOutput)
 }
@@ -1561,10 +1463,15 @@ func (o ConnectorMappingFormatResponsePtrOutput) ToConnectorMappingFormatRespons
 }
 
 func (o ConnectorMappingFormatResponsePtrOutput) Elem() ConnectorMappingFormatResponseOutput {
-	return o.ApplyT(func(v *ConnectorMappingFormatResponse) ConnectorMappingFormatResponse { return *v }).(ConnectorMappingFormatResponseOutput)
+	return o.ApplyT(func(v *ConnectorMappingFormatResponse) ConnectorMappingFormatResponse {
+		if v != nil {
+			return *v
+		}
+		var ret ConnectorMappingFormatResponse
+		return ret
+	}).(ConnectorMappingFormatResponseOutput)
 }
 
-// The oData language.
 func (o ConnectorMappingFormatResponsePtrOutput) AcceptLanguage() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ConnectorMappingFormatResponse) *string {
 		if v == nil {
@@ -1574,7 +1481,6 @@ func (o ConnectorMappingFormatResponsePtrOutput) AcceptLanguage() pulumi.StringP
 	}).(pulumi.StringPtrOutput)
 }
 
-// Character separating array elements.
 func (o ConnectorMappingFormatResponsePtrOutput) ArraySeparator() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ConnectorMappingFormatResponse) *string {
 		if v == nil {
@@ -1584,7 +1490,6 @@ func (o ConnectorMappingFormatResponsePtrOutput) ArraySeparator() pulumi.StringP
 	}).(pulumi.StringPtrOutput)
 }
 
-// The character that signifies a break between columns.
 func (o ConnectorMappingFormatResponsePtrOutput) ColumnDelimiter() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ConnectorMappingFormatResponse) *string {
 		if v == nil {
@@ -1594,7 +1499,6 @@ func (o ConnectorMappingFormatResponsePtrOutput) ColumnDelimiter() pulumi.String
 	}).(pulumi.StringPtrOutput)
 }
 
-// The type mapping format.
 func (o ConnectorMappingFormatResponsePtrOutput) FormatType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ConnectorMappingFormatResponse) *string {
 		if v == nil {
@@ -1604,7 +1508,6 @@ func (o ConnectorMappingFormatResponsePtrOutput) FormatType() pulumi.StringPtrOu
 	}).(pulumi.StringPtrOutput)
 }
 
-// Quote character, used to indicate enquoted fields.
 func (o ConnectorMappingFormatResponsePtrOutput) QuoteCharacter() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ConnectorMappingFormatResponse) *string {
 		if v == nil {
@@ -1614,7 +1517,6 @@ func (o ConnectorMappingFormatResponsePtrOutput) QuoteCharacter() pulumi.StringP
 	}).(pulumi.StringPtrOutput)
 }
 
-// Escape character for quotes, can be the same as the quoteCharacter.
 func (o ConnectorMappingFormatResponsePtrOutput) QuoteEscapeCharacter() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ConnectorMappingFormatResponse) *string {
 		if v == nil {
@@ -1624,24 +1526,15 @@ func (o ConnectorMappingFormatResponsePtrOutput) QuoteEscapeCharacter() pulumi.S
 	}).(pulumi.StringPtrOutput)
 }
 
-// The connector mapping properties.
 type ConnectorMappingProperties struct {
-	// The availability of mapping property.
-	Availability ConnectorMappingAvailability `pulumi:"availability"`
-	// The operation after import is done.
+	Availability      ConnectorMappingAvailability      `pulumi:"availability"`
 	CompleteOperation ConnectorMappingCompleteOperation `pulumi:"completeOperation"`
-	// The error management setting for the mapping.
-	ErrorManagement ConnectorMappingErrorManagement `pulumi:"errorManagement"`
-	// The file filter for the mapping.
-	FileFilter *string `pulumi:"fileFilter"`
-	// The folder path for the mapping.
-	FolderPath *string `pulumi:"folderPath"`
-	// The format of mapping property.
-	Format ConnectorMappingFormat `pulumi:"format"`
-	// If the file contains a header or not.
-	HasHeader *bool `pulumi:"hasHeader"`
-	// Ingestion mapping information at property level.
-	Structure []ConnectorMappingStructure `pulumi:"structure"`
+	ErrorManagement   ConnectorMappingErrorManagement   `pulumi:"errorManagement"`
+	FileFilter        *string                           `pulumi:"fileFilter"`
+	FolderPath        *string                           `pulumi:"folderPath"`
+	Format            ConnectorMappingFormat            `pulumi:"format"`
+	HasHeader         *bool                             `pulumi:"hasHeader"`
+	Structure         []ConnectorMappingStructure       `pulumi:"structure"`
 }
 
 // ConnectorMappingPropertiesInput is an input type that accepts ConnectorMappingPropertiesArgs and ConnectorMappingPropertiesOutput values.
@@ -1655,24 +1548,15 @@ type ConnectorMappingPropertiesInput interface {
 	ToConnectorMappingPropertiesOutputWithContext(context.Context) ConnectorMappingPropertiesOutput
 }
 
-// The connector mapping properties.
 type ConnectorMappingPropertiesArgs struct {
-	// The availability of mapping property.
-	Availability ConnectorMappingAvailabilityInput `pulumi:"availability"`
-	// The operation after import is done.
+	Availability      ConnectorMappingAvailabilityInput      `pulumi:"availability"`
 	CompleteOperation ConnectorMappingCompleteOperationInput `pulumi:"completeOperation"`
-	// The error management setting for the mapping.
-	ErrorManagement ConnectorMappingErrorManagementInput `pulumi:"errorManagement"`
-	// The file filter for the mapping.
-	FileFilter pulumi.StringPtrInput `pulumi:"fileFilter"`
-	// The folder path for the mapping.
-	FolderPath pulumi.StringPtrInput `pulumi:"folderPath"`
-	// The format of mapping property.
-	Format ConnectorMappingFormatInput `pulumi:"format"`
-	// If the file contains a header or not.
-	HasHeader pulumi.BoolPtrInput `pulumi:"hasHeader"`
-	// Ingestion mapping information at property level.
-	Structure ConnectorMappingStructureArrayInput `pulumi:"structure"`
+	ErrorManagement   ConnectorMappingErrorManagementInput   `pulumi:"errorManagement"`
+	FileFilter        pulumi.StringPtrInput                  `pulumi:"fileFilter"`
+	FolderPath        pulumi.StringPtrInput                  `pulumi:"folderPath"`
+	Format            ConnectorMappingFormatInput            `pulumi:"format"`
+	HasHeader         pulumi.BoolPtrInput                    `pulumi:"hasHeader"`
+	Structure         ConnectorMappingStructureArrayInput    `pulumi:"structure"`
 }
 
 func (ConnectorMappingPropertiesArgs) ElementType() reflect.Type {
@@ -1728,7 +1612,6 @@ func (i *connectorMappingPropertiesPtrType) ToConnectorMappingPropertiesPtrOutpu
 	return pulumi.ToOutputWithContext(ctx, i).(ConnectorMappingPropertiesPtrOutput)
 }
 
-// The connector mapping properties.
 type ConnectorMappingPropertiesOutput struct{ *pulumi.OutputState }
 
 func (ConnectorMappingPropertiesOutput) ElementType() reflect.Type {
@@ -1748,47 +1631,39 @@ func (o ConnectorMappingPropertiesOutput) ToConnectorMappingPropertiesPtrOutput(
 }
 
 func (o ConnectorMappingPropertiesOutput) ToConnectorMappingPropertiesPtrOutputWithContext(ctx context.Context) ConnectorMappingPropertiesPtrOutput {
-	return o.ApplyT(func(v ConnectorMappingProperties) *ConnectorMappingProperties {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ConnectorMappingProperties) *ConnectorMappingProperties {
 		return &v
 	}).(ConnectorMappingPropertiesPtrOutput)
 }
 
-// The availability of mapping property.
 func (o ConnectorMappingPropertiesOutput) Availability() ConnectorMappingAvailabilityOutput {
 	return o.ApplyT(func(v ConnectorMappingProperties) ConnectorMappingAvailability { return v.Availability }).(ConnectorMappingAvailabilityOutput)
 }
 
-// The operation after import is done.
 func (o ConnectorMappingPropertiesOutput) CompleteOperation() ConnectorMappingCompleteOperationOutput {
 	return o.ApplyT(func(v ConnectorMappingProperties) ConnectorMappingCompleteOperation { return v.CompleteOperation }).(ConnectorMappingCompleteOperationOutput)
 }
 
-// The error management setting for the mapping.
 func (o ConnectorMappingPropertiesOutput) ErrorManagement() ConnectorMappingErrorManagementOutput {
 	return o.ApplyT(func(v ConnectorMappingProperties) ConnectorMappingErrorManagement { return v.ErrorManagement }).(ConnectorMappingErrorManagementOutput)
 }
 
-// The file filter for the mapping.
 func (o ConnectorMappingPropertiesOutput) FileFilter() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ConnectorMappingProperties) *string { return v.FileFilter }).(pulumi.StringPtrOutput)
 }
 
-// The folder path for the mapping.
 func (o ConnectorMappingPropertiesOutput) FolderPath() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ConnectorMappingProperties) *string { return v.FolderPath }).(pulumi.StringPtrOutput)
 }
 
-// The format of mapping property.
 func (o ConnectorMappingPropertiesOutput) Format() ConnectorMappingFormatOutput {
 	return o.ApplyT(func(v ConnectorMappingProperties) ConnectorMappingFormat { return v.Format }).(ConnectorMappingFormatOutput)
 }
 
-// If the file contains a header or not.
 func (o ConnectorMappingPropertiesOutput) HasHeader() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v ConnectorMappingProperties) *bool { return v.HasHeader }).(pulumi.BoolPtrOutput)
 }
 
-// Ingestion mapping information at property level.
 func (o ConnectorMappingPropertiesOutput) Structure() ConnectorMappingStructureArrayOutput {
 	return o.ApplyT(func(v ConnectorMappingProperties) []ConnectorMappingStructure { return v.Structure }).(ConnectorMappingStructureArrayOutput)
 }
@@ -1808,10 +1683,15 @@ func (o ConnectorMappingPropertiesPtrOutput) ToConnectorMappingPropertiesPtrOutp
 }
 
 func (o ConnectorMappingPropertiesPtrOutput) Elem() ConnectorMappingPropertiesOutput {
-	return o.ApplyT(func(v *ConnectorMappingProperties) ConnectorMappingProperties { return *v }).(ConnectorMappingPropertiesOutput)
+	return o.ApplyT(func(v *ConnectorMappingProperties) ConnectorMappingProperties {
+		if v != nil {
+			return *v
+		}
+		var ret ConnectorMappingProperties
+		return ret
+	}).(ConnectorMappingPropertiesOutput)
 }
 
-// The availability of mapping property.
 func (o ConnectorMappingPropertiesPtrOutput) Availability() ConnectorMappingAvailabilityPtrOutput {
 	return o.ApplyT(func(v *ConnectorMappingProperties) *ConnectorMappingAvailability {
 		if v == nil {
@@ -1821,7 +1701,6 @@ func (o ConnectorMappingPropertiesPtrOutput) Availability() ConnectorMappingAvai
 	}).(ConnectorMappingAvailabilityPtrOutput)
 }
 
-// The operation after import is done.
 func (o ConnectorMappingPropertiesPtrOutput) CompleteOperation() ConnectorMappingCompleteOperationPtrOutput {
 	return o.ApplyT(func(v *ConnectorMappingProperties) *ConnectorMappingCompleteOperation {
 		if v == nil {
@@ -1831,7 +1710,6 @@ func (o ConnectorMappingPropertiesPtrOutput) CompleteOperation() ConnectorMappin
 	}).(ConnectorMappingCompleteOperationPtrOutput)
 }
 
-// The error management setting for the mapping.
 func (o ConnectorMappingPropertiesPtrOutput) ErrorManagement() ConnectorMappingErrorManagementPtrOutput {
 	return o.ApplyT(func(v *ConnectorMappingProperties) *ConnectorMappingErrorManagement {
 		if v == nil {
@@ -1841,7 +1719,6 @@ func (o ConnectorMappingPropertiesPtrOutput) ErrorManagement() ConnectorMappingE
 	}).(ConnectorMappingErrorManagementPtrOutput)
 }
 
-// The file filter for the mapping.
 func (o ConnectorMappingPropertiesPtrOutput) FileFilter() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ConnectorMappingProperties) *string {
 		if v == nil {
@@ -1851,7 +1728,6 @@ func (o ConnectorMappingPropertiesPtrOutput) FileFilter() pulumi.StringPtrOutput
 	}).(pulumi.StringPtrOutput)
 }
 
-// The folder path for the mapping.
 func (o ConnectorMappingPropertiesPtrOutput) FolderPath() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ConnectorMappingProperties) *string {
 		if v == nil {
@@ -1861,7 +1737,6 @@ func (o ConnectorMappingPropertiesPtrOutput) FolderPath() pulumi.StringPtrOutput
 	}).(pulumi.StringPtrOutput)
 }
 
-// The format of mapping property.
 func (o ConnectorMappingPropertiesPtrOutput) Format() ConnectorMappingFormatPtrOutput {
 	return o.ApplyT(func(v *ConnectorMappingProperties) *ConnectorMappingFormat {
 		if v == nil {
@@ -1871,7 +1746,6 @@ func (o ConnectorMappingPropertiesPtrOutput) Format() ConnectorMappingFormatPtrO
 	}).(ConnectorMappingFormatPtrOutput)
 }
 
-// If the file contains a header or not.
 func (o ConnectorMappingPropertiesPtrOutput) HasHeader() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *ConnectorMappingProperties) *bool {
 		if v == nil {
@@ -1881,7 +1755,6 @@ func (o ConnectorMappingPropertiesPtrOutput) HasHeader() pulumi.BoolPtrOutput {
 	}).(pulumi.BoolPtrOutput)
 }
 
-// Ingestion mapping information at property level.
 func (o ConnectorMappingPropertiesPtrOutput) Structure() ConnectorMappingStructureArrayOutput {
 	return o.ApplyT(func(v *ConnectorMappingProperties) []ConnectorMappingStructure {
 		if v == nil {
@@ -1891,24 +1764,15 @@ func (o ConnectorMappingPropertiesPtrOutput) Structure() ConnectorMappingStructu
 	}).(ConnectorMappingStructureArrayOutput)
 }
 
-// The connector mapping properties.
 type ConnectorMappingPropertiesResponse struct {
-	// The availability of mapping property.
-	Availability ConnectorMappingAvailabilityResponse `pulumi:"availability"`
-	// The operation after import is done.
+	Availability      ConnectorMappingAvailabilityResponse      `pulumi:"availability"`
 	CompleteOperation ConnectorMappingCompleteOperationResponse `pulumi:"completeOperation"`
-	// The error management setting for the mapping.
-	ErrorManagement ConnectorMappingErrorManagementResponse `pulumi:"errorManagement"`
-	// The file filter for the mapping.
-	FileFilter *string `pulumi:"fileFilter"`
-	// The folder path for the mapping.
-	FolderPath *string `pulumi:"folderPath"`
-	// The format of mapping property.
-	Format ConnectorMappingFormatResponse `pulumi:"format"`
-	// If the file contains a header or not.
-	HasHeader *bool `pulumi:"hasHeader"`
-	// Ingestion mapping information at property level.
-	Structure []ConnectorMappingStructureResponse `pulumi:"structure"`
+	ErrorManagement   ConnectorMappingErrorManagementResponse   `pulumi:"errorManagement"`
+	FileFilter        *string                                   `pulumi:"fileFilter"`
+	FolderPath        *string                                   `pulumi:"folderPath"`
+	Format            ConnectorMappingFormatResponse            `pulumi:"format"`
+	HasHeader         *bool                                     `pulumi:"hasHeader"`
+	Structure         []ConnectorMappingStructureResponse       `pulumi:"structure"`
 }
 
 // ConnectorMappingPropertiesResponseInput is an input type that accepts ConnectorMappingPropertiesResponseArgs and ConnectorMappingPropertiesResponseOutput values.
@@ -1922,24 +1786,15 @@ type ConnectorMappingPropertiesResponseInput interface {
 	ToConnectorMappingPropertiesResponseOutputWithContext(context.Context) ConnectorMappingPropertiesResponseOutput
 }
 
-// The connector mapping properties.
 type ConnectorMappingPropertiesResponseArgs struct {
-	// The availability of mapping property.
-	Availability ConnectorMappingAvailabilityResponseInput `pulumi:"availability"`
-	// The operation after import is done.
+	Availability      ConnectorMappingAvailabilityResponseInput      `pulumi:"availability"`
 	CompleteOperation ConnectorMappingCompleteOperationResponseInput `pulumi:"completeOperation"`
-	// The error management setting for the mapping.
-	ErrorManagement ConnectorMappingErrorManagementResponseInput `pulumi:"errorManagement"`
-	// The file filter for the mapping.
-	FileFilter pulumi.StringPtrInput `pulumi:"fileFilter"`
-	// The folder path for the mapping.
-	FolderPath pulumi.StringPtrInput `pulumi:"folderPath"`
-	// The format of mapping property.
-	Format ConnectorMappingFormatResponseInput `pulumi:"format"`
-	// If the file contains a header or not.
-	HasHeader pulumi.BoolPtrInput `pulumi:"hasHeader"`
-	// Ingestion mapping information at property level.
-	Structure ConnectorMappingStructureResponseArrayInput `pulumi:"structure"`
+	ErrorManagement   ConnectorMappingErrorManagementResponseInput   `pulumi:"errorManagement"`
+	FileFilter        pulumi.StringPtrInput                          `pulumi:"fileFilter"`
+	FolderPath        pulumi.StringPtrInput                          `pulumi:"folderPath"`
+	Format            ConnectorMappingFormatResponseInput            `pulumi:"format"`
+	HasHeader         pulumi.BoolPtrInput                            `pulumi:"hasHeader"`
+	Structure         ConnectorMappingStructureResponseArrayInput    `pulumi:"structure"`
 }
 
 func (ConnectorMappingPropertiesResponseArgs) ElementType() reflect.Type {
@@ -1995,7 +1850,6 @@ func (i *connectorMappingPropertiesResponsePtrType) ToConnectorMappingProperties
 	return pulumi.ToOutputWithContext(ctx, i).(ConnectorMappingPropertiesResponsePtrOutput)
 }
 
-// The connector mapping properties.
 type ConnectorMappingPropertiesResponseOutput struct{ *pulumi.OutputState }
 
 func (ConnectorMappingPropertiesResponseOutput) ElementType() reflect.Type {
@@ -2015,51 +1869,43 @@ func (o ConnectorMappingPropertiesResponseOutput) ToConnectorMappingPropertiesRe
 }
 
 func (o ConnectorMappingPropertiesResponseOutput) ToConnectorMappingPropertiesResponsePtrOutputWithContext(ctx context.Context) ConnectorMappingPropertiesResponsePtrOutput {
-	return o.ApplyT(func(v ConnectorMappingPropertiesResponse) *ConnectorMappingPropertiesResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ConnectorMappingPropertiesResponse) *ConnectorMappingPropertiesResponse {
 		return &v
 	}).(ConnectorMappingPropertiesResponsePtrOutput)
 }
 
-// The availability of mapping property.
 func (o ConnectorMappingPropertiesResponseOutput) Availability() ConnectorMappingAvailabilityResponseOutput {
 	return o.ApplyT(func(v ConnectorMappingPropertiesResponse) ConnectorMappingAvailabilityResponse { return v.Availability }).(ConnectorMappingAvailabilityResponseOutput)
 }
 
-// The operation after import is done.
 func (o ConnectorMappingPropertiesResponseOutput) CompleteOperation() ConnectorMappingCompleteOperationResponseOutput {
 	return o.ApplyT(func(v ConnectorMappingPropertiesResponse) ConnectorMappingCompleteOperationResponse {
 		return v.CompleteOperation
 	}).(ConnectorMappingCompleteOperationResponseOutput)
 }
 
-// The error management setting for the mapping.
 func (o ConnectorMappingPropertiesResponseOutput) ErrorManagement() ConnectorMappingErrorManagementResponseOutput {
 	return o.ApplyT(func(v ConnectorMappingPropertiesResponse) ConnectorMappingErrorManagementResponse {
 		return v.ErrorManagement
 	}).(ConnectorMappingErrorManagementResponseOutput)
 }
 
-// The file filter for the mapping.
 func (o ConnectorMappingPropertiesResponseOutput) FileFilter() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ConnectorMappingPropertiesResponse) *string { return v.FileFilter }).(pulumi.StringPtrOutput)
 }
 
-// The folder path for the mapping.
 func (o ConnectorMappingPropertiesResponseOutput) FolderPath() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ConnectorMappingPropertiesResponse) *string { return v.FolderPath }).(pulumi.StringPtrOutput)
 }
 
-// The format of mapping property.
 func (o ConnectorMappingPropertiesResponseOutput) Format() ConnectorMappingFormatResponseOutput {
 	return o.ApplyT(func(v ConnectorMappingPropertiesResponse) ConnectorMappingFormatResponse { return v.Format }).(ConnectorMappingFormatResponseOutput)
 }
 
-// If the file contains a header or not.
 func (o ConnectorMappingPropertiesResponseOutput) HasHeader() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v ConnectorMappingPropertiesResponse) *bool { return v.HasHeader }).(pulumi.BoolPtrOutput)
 }
 
-// Ingestion mapping information at property level.
 func (o ConnectorMappingPropertiesResponseOutput) Structure() ConnectorMappingStructureResponseArrayOutput {
 	return o.ApplyT(func(v ConnectorMappingPropertiesResponse) []ConnectorMappingStructureResponse { return v.Structure }).(ConnectorMappingStructureResponseArrayOutput)
 }
@@ -2079,10 +1925,15 @@ func (o ConnectorMappingPropertiesResponsePtrOutput) ToConnectorMappingPropertie
 }
 
 func (o ConnectorMappingPropertiesResponsePtrOutput) Elem() ConnectorMappingPropertiesResponseOutput {
-	return o.ApplyT(func(v *ConnectorMappingPropertiesResponse) ConnectorMappingPropertiesResponse { return *v }).(ConnectorMappingPropertiesResponseOutput)
+	return o.ApplyT(func(v *ConnectorMappingPropertiesResponse) ConnectorMappingPropertiesResponse {
+		if v != nil {
+			return *v
+		}
+		var ret ConnectorMappingPropertiesResponse
+		return ret
+	}).(ConnectorMappingPropertiesResponseOutput)
 }
 
-// The availability of mapping property.
 func (o ConnectorMappingPropertiesResponsePtrOutput) Availability() ConnectorMappingAvailabilityResponsePtrOutput {
 	return o.ApplyT(func(v *ConnectorMappingPropertiesResponse) *ConnectorMappingAvailabilityResponse {
 		if v == nil {
@@ -2092,7 +1943,6 @@ func (o ConnectorMappingPropertiesResponsePtrOutput) Availability() ConnectorMap
 	}).(ConnectorMappingAvailabilityResponsePtrOutput)
 }
 
-// The operation after import is done.
 func (o ConnectorMappingPropertiesResponsePtrOutput) CompleteOperation() ConnectorMappingCompleteOperationResponsePtrOutput {
 	return o.ApplyT(func(v *ConnectorMappingPropertiesResponse) *ConnectorMappingCompleteOperationResponse {
 		if v == nil {
@@ -2102,7 +1952,6 @@ func (o ConnectorMappingPropertiesResponsePtrOutput) CompleteOperation() Connect
 	}).(ConnectorMappingCompleteOperationResponsePtrOutput)
 }
 
-// The error management setting for the mapping.
 func (o ConnectorMappingPropertiesResponsePtrOutput) ErrorManagement() ConnectorMappingErrorManagementResponsePtrOutput {
 	return o.ApplyT(func(v *ConnectorMappingPropertiesResponse) *ConnectorMappingErrorManagementResponse {
 		if v == nil {
@@ -2112,7 +1961,6 @@ func (o ConnectorMappingPropertiesResponsePtrOutput) ErrorManagement() Connector
 	}).(ConnectorMappingErrorManagementResponsePtrOutput)
 }
 
-// The file filter for the mapping.
 func (o ConnectorMappingPropertiesResponsePtrOutput) FileFilter() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ConnectorMappingPropertiesResponse) *string {
 		if v == nil {
@@ -2122,7 +1970,6 @@ func (o ConnectorMappingPropertiesResponsePtrOutput) FileFilter() pulumi.StringP
 	}).(pulumi.StringPtrOutput)
 }
 
-// The folder path for the mapping.
 func (o ConnectorMappingPropertiesResponsePtrOutput) FolderPath() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ConnectorMappingPropertiesResponse) *string {
 		if v == nil {
@@ -2132,7 +1979,6 @@ func (o ConnectorMappingPropertiesResponsePtrOutput) FolderPath() pulumi.StringP
 	}).(pulumi.StringPtrOutput)
 }
 
-// The format of mapping property.
 func (o ConnectorMappingPropertiesResponsePtrOutput) Format() ConnectorMappingFormatResponsePtrOutput {
 	return o.ApplyT(func(v *ConnectorMappingPropertiesResponse) *ConnectorMappingFormatResponse {
 		if v == nil {
@@ -2142,7 +1988,6 @@ func (o ConnectorMappingPropertiesResponsePtrOutput) Format() ConnectorMappingFo
 	}).(ConnectorMappingFormatResponsePtrOutput)
 }
 
-// If the file contains a header or not.
 func (o ConnectorMappingPropertiesResponsePtrOutput) HasHeader() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *ConnectorMappingPropertiesResponse) *bool {
 		if v == nil {
@@ -2152,7 +1997,6 @@ func (o ConnectorMappingPropertiesResponsePtrOutput) HasHeader() pulumi.BoolPtrO
 	}).(pulumi.BoolPtrOutput)
 }
 
-// Ingestion mapping information at property level.
 func (o ConnectorMappingPropertiesResponsePtrOutput) Structure() ConnectorMappingStructureResponseArrayOutput {
 	return o.ApplyT(func(v *ConnectorMappingPropertiesResponse) []ConnectorMappingStructureResponse {
 		if v == nil {
@@ -2162,16 +2006,11 @@ func (o ConnectorMappingPropertiesResponsePtrOutput) Structure() ConnectorMappin
 	}).(ConnectorMappingStructureResponseArrayOutput)
 }
 
-// Connector mapping property structure.
 type ConnectorMappingStructure struct {
-	// The column name of the import file.
-	ColumnName string `pulumi:"columnName"`
-	// Custom format specifier for input parsing.
+	ColumnName            string  `pulumi:"columnName"`
 	CustomFormatSpecifier *string `pulumi:"customFormatSpecifier"`
-	// Indicates if the column is encrypted.
-	IsEncrypted *bool `pulumi:"isEncrypted"`
-	// The property name of the mapping entity.
-	PropertyName string `pulumi:"propertyName"`
+	IsEncrypted           *bool   `pulumi:"isEncrypted"`
+	PropertyName          string  `pulumi:"propertyName"`
 }
 
 // ConnectorMappingStructureInput is an input type that accepts ConnectorMappingStructureArgs and ConnectorMappingStructureOutput values.
@@ -2185,16 +2024,11 @@ type ConnectorMappingStructureInput interface {
 	ToConnectorMappingStructureOutputWithContext(context.Context) ConnectorMappingStructureOutput
 }
 
-// Connector mapping property structure.
 type ConnectorMappingStructureArgs struct {
-	// The column name of the import file.
-	ColumnName pulumi.StringInput `pulumi:"columnName"`
-	// Custom format specifier for input parsing.
+	ColumnName            pulumi.StringInput    `pulumi:"columnName"`
 	CustomFormatSpecifier pulumi.StringPtrInput `pulumi:"customFormatSpecifier"`
-	// Indicates if the column is encrypted.
-	IsEncrypted pulumi.BoolPtrInput `pulumi:"isEncrypted"`
-	// The property name of the mapping entity.
-	PropertyName pulumi.StringInput `pulumi:"propertyName"`
+	IsEncrypted           pulumi.BoolPtrInput   `pulumi:"isEncrypted"`
+	PropertyName          pulumi.StringInput    `pulumi:"propertyName"`
 }
 
 func (ConnectorMappingStructureArgs) ElementType() reflect.Type {
@@ -2234,7 +2068,6 @@ func (i ConnectorMappingStructureArray) ToConnectorMappingStructureArrayOutputWi
 	return pulumi.ToOutputWithContext(ctx, i).(ConnectorMappingStructureArrayOutput)
 }
 
-// Connector mapping property structure.
 type ConnectorMappingStructureOutput struct{ *pulumi.OutputState }
 
 func (ConnectorMappingStructureOutput) ElementType() reflect.Type {
@@ -2249,22 +2082,18 @@ func (o ConnectorMappingStructureOutput) ToConnectorMappingStructureOutputWithCo
 	return o
 }
 
-// The column name of the import file.
 func (o ConnectorMappingStructureOutput) ColumnName() pulumi.StringOutput {
 	return o.ApplyT(func(v ConnectorMappingStructure) string { return v.ColumnName }).(pulumi.StringOutput)
 }
 
-// Custom format specifier for input parsing.
 func (o ConnectorMappingStructureOutput) CustomFormatSpecifier() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ConnectorMappingStructure) *string { return v.CustomFormatSpecifier }).(pulumi.StringPtrOutput)
 }
 
-// Indicates if the column is encrypted.
 func (o ConnectorMappingStructureOutput) IsEncrypted() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v ConnectorMappingStructure) *bool { return v.IsEncrypted }).(pulumi.BoolPtrOutput)
 }
 
-// The property name of the mapping entity.
 func (o ConnectorMappingStructureOutput) PropertyName() pulumi.StringOutput {
 	return o.ApplyT(func(v ConnectorMappingStructure) string { return v.PropertyName }).(pulumi.StringOutput)
 }
@@ -2289,16 +2118,11 @@ func (o ConnectorMappingStructureArrayOutput) Index(i pulumi.IntInput) Connector
 	}).(ConnectorMappingStructureOutput)
 }
 
-// Connector mapping property structure.
 type ConnectorMappingStructureResponse struct {
-	// The column name of the import file.
-	ColumnName string `pulumi:"columnName"`
-	// Custom format specifier for input parsing.
+	ColumnName            string  `pulumi:"columnName"`
 	CustomFormatSpecifier *string `pulumi:"customFormatSpecifier"`
-	// Indicates if the column is encrypted.
-	IsEncrypted *bool `pulumi:"isEncrypted"`
-	// The property name of the mapping entity.
-	PropertyName string `pulumi:"propertyName"`
+	IsEncrypted           *bool   `pulumi:"isEncrypted"`
+	PropertyName          string  `pulumi:"propertyName"`
 }
 
 // ConnectorMappingStructureResponseInput is an input type that accepts ConnectorMappingStructureResponseArgs and ConnectorMappingStructureResponseOutput values.
@@ -2312,16 +2136,11 @@ type ConnectorMappingStructureResponseInput interface {
 	ToConnectorMappingStructureResponseOutputWithContext(context.Context) ConnectorMappingStructureResponseOutput
 }
 
-// Connector mapping property structure.
 type ConnectorMappingStructureResponseArgs struct {
-	// The column name of the import file.
-	ColumnName pulumi.StringInput `pulumi:"columnName"`
-	// Custom format specifier for input parsing.
+	ColumnName            pulumi.StringInput    `pulumi:"columnName"`
 	CustomFormatSpecifier pulumi.StringPtrInput `pulumi:"customFormatSpecifier"`
-	// Indicates if the column is encrypted.
-	IsEncrypted pulumi.BoolPtrInput `pulumi:"isEncrypted"`
-	// The property name of the mapping entity.
-	PropertyName pulumi.StringInput `pulumi:"propertyName"`
+	IsEncrypted           pulumi.BoolPtrInput   `pulumi:"isEncrypted"`
+	PropertyName          pulumi.StringInput    `pulumi:"propertyName"`
 }
 
 func (ConnectorMappingStructureResponseArgs) ElementType() reflect.Type {
@@ -2361,7 +2180,6 @@ func (i ConnectorMappingStructureResponseArray) ToConnectorMappingStructureRespo
 	return pulumi.ToOutputWithContext(ctx, i).(ConnectorMappingStructureResponseArrayOutput)
 }
 
-// Connector mapping property structure.
 type ConnectorMappingStructureResponseOutput struct{ *pulumi.OutputState }
 
 func (ConnectorMappingStructureResponseOutput) ElementType() reflect.Type {
@@ -2376,22 +2194,18 @@ func (o ConnectorMappingStructureResponseOutput) ToConnectorMappingStructureResp
 	return o
 }
 
-// The column name of the import file.
 func (o ConnectorMappingStructureResponseOutput) ColumnName() pulumi.StringOutput {
 	return o.ApplyT(func(v ConnectorMappingStructureResponse) string { return v.ColumnName }).(pulumi.StringOutput)
 }
 
-// Custom format specifier for input parsing.
 func (o ConnectorMappingStructureResponseOutput) CustomFormatSpecifier() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ConnectorMappingStructureResponse) *string { return v.CustomFormatSpecifier }).(pulumi.StringPtrOutput)
 }
 
-// Indicates if the column is encrypted.
 func (o ConnectorMappingStructureResponseOutput) IsEncrypted() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v ConnectorMappingStructureResponse) *bool { return v.IsEncrypted }).(pulumi.BoolPtrOutput)
 }
 
-// The property name of the mapping entity.
 func (o ConnectorMappingStructureResponseOutput) PropertyName() pulumi.StringOutput {
 	return o.ApplyT(func(v ConnectorMappingStructureResponse) string { return v.PropertyName }).(pulumi.StringOutput)
 }
@@ -2416,20 +2230,13 @@ func (o ConnectorMappingStructureResponseArrayOutput) Index(i pulumi.IntInput) C
 	}).(ConnectorMappingStructureResponseOutput)
 }
 
-// The data source precedence is a way to know the precedence of each data source.
 type DataSourcePrecedenceResponse struct {
-	// The data source reference id.
 	DataSourceReferenceId string `pulumi:"dataSourceReferenceId"`
-	// The data source type.
-	DataSourceType string `pulumi:"dataSourceType"`
-	// The data source ID.
-	Id int `pulumi:"id"`
-	// The data source name
-	Name string `pulumi:"name"`
-	// the precedence value.
-	Precedence *int `pulumi:"precedence"`
-	// The data source status.
-	Status string `pulumi:"status"`
+	DataSourceType        string `pulumi:"dataSourceType"`
+	Id                    int    `pulumi:"id"`
+	Name                  string `pulumi:"name"`
+	Precedence            *int   `pulumi:"precedence"`
+	Status                string `pulumi:"status"`
 }
 
 // DataSourcePrecedenceResponseInput is an input type that accepts DataSourcePrecedenceResponseArgs and DataSourcePrecedenceResponseOutput values.
@@ -2443,20 +2250,13 @@ type DataSourcePrecedenceResponseInput interface {
 	ToDataSourcePrecedenceResponseOutputWithContext(context.Context) DataSourcePrecedenceResponseOutput
 }
 
-// The data source precedence is a way to know the precedence of each data source.
 type DataSourcePrecedenceResponseArgs struct {
-	// The data source reference id.
 	DataSourceReferenceId pulumi.StringInput `pulumi:"dataSourceReferenceId"`
-	// The data source type.
-	DataSourceType pulumi.StringInput `pulumi:"dataSourceType"`
-	// The data source ID.
-	Id pulumi.IntInput `pulumi:"id"`
-	// The data source name
-	Name pulumi.StringInput `pulumi:"name"`
-	// the precedence value.
-	Precedence pulumi.IntPtrInput `pulumi:"precedence"`
-	// The data source status.
-	Status pulumi.StringInput `pulumi:"status"`
+	DataSourceType        pulumi.StringInput `pulumi:"dataSourceType"`
+	Id                    pulumi.IntInput    `pulumi:"id"`
+	Name                  pulumi.StringInput `pulumi:"name"`
+	Precedence            pulumi.IntPtrInput `pulumi:"precedence"`
+	Status                pulumi.StringInput `pulumi:"status"`
 }
 
 func (DataSourcePrecedenceResponseArgs) ElementType() reflect.Type {
@@ -2496,7 +2296,6 @@ func (i DataSourcePrecedenceResponseArray) ToDataSourcePrecedenceResponseArrayOu
 	return pulumi.ToOutputWithContext(ctx, i).(DataSourcePrecedenceResponseArrayOutput)
 }
 
-// The data source precedence is a way to know the precedence of each data source.
 type DataSourcePrecedenceResponseOutput struct{ *pulumi.OutputState }
 
 func (DataSourcePrecedenceResponseOutput) ElementType() reflect.Type {
@@ -2511,32 +2310,26 @@ func (o DataSourcePrecedenceResponseOutput) ToDataSourcePrecedenceResponseOutput
 	return o
 }
 
-// The data source reference id.
 func (o DataSourcePrecedenceResponseOutput) DataSourceReferenceId() pulumi.StringOutput {
 	return o.ApplyT(func(v DataSourcePrecedenceResponse) string { return v.DataSourceReferenceId }).(pulumi.StringOutput)
 }
 
-// The data source type.
 func (o DataSourcePrecedenceResponseOutput) DataSourceType() pulumi.StringOutput {
 	return o.ApplyT(func(v DataSourcePrecedenceResponse) string { return v.DataSourceType }).(pulumi.StringOutput)
 }
 
-// The data source ID.
 func (o DataSourcePrecedenceResponseOutput) Id() pulumi.IntOutput {
 	return o.ApplyT(func(v DataSourcePrecedenceResponse) int { return v.Id }).(pulumi.IntOutput)
 }
 
-// The data source name
 func (o DataSourcePrecedenceResponseOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v DataSourcePrecedenceResponse) string { return v.Name }).(pulumi.StringOutput)
 }
 
-// the precedence value.
 func (o DataSourcePrecedenceResponseOutput) Precedence() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v DataSourcePrecedenceResponse) *int { return v.Precedence }).(pulumi.IntPtrOutput)
 }
 
-// The data source status.
 func (o DataSourcePrecedenceResponseOutput) Status() pulumi.StringOutput {
 	return o.ApplyT(func(v DataSourcePrecedenceResponse) string { return v.Status }).(pulumi.StringOutput)
 }
@@ -2561,14 +2354,10 @@ func (o DataSourcePrecedenceResponseArrayOutput) Index(i pulumi.IntInput) DataSo
 	}).(DataSourcePrecedenceResponseOutput)
 }
 
-// Hub billing info.
 type HubBillingInfoFormat struct {
-	// The maximum number of units can be used.  One unit is 10,000 Profiles and 100,000 Interactions.
-	MaxUnits *int `pulumi:"maxUnits"`
-	// The minimum number of units will be billed. One unit is 10,000 Profiles and 100,000 Interactions.
-	MinUnits *int `pulumi:"minUnits"`
-	// The sku name.
-	SkuName *string `pulumi:"skuName"`
+	MaxUnits *int    `pulumi:"maxUnits"`
+	MinUnits *int    `pulumi:"minUnits"`
+	SkuName  *string `pulumi:"skuName"`
 }
 
 // HubBillingInfoFormatInput is an input type that accepts HubBillingInfoFormatArgs and HubBillingInfoFormatOutput values.
@@ -2582,14 +2371,10 @@ type HubBillingInfoFormatInput interface {
 	ToHubBillingInfoFormatOutputWithContext(context.Context) HubBillingInfoFormatOutput
 }
 
-// Hub billing info.
 type HubBillingInfoFormatArgs struct {
-	// The maximum number of units can be used.  One unit is 10,000 Profiles and 100,000 Interactions.
-	MaxUnits pulumi.IntPtrInput `pulumi:"maxUnits"`
-	// The minimum number of units will be billed. One unit is 10,000 Profiles and 100,000 Interactions.
-	MinUnits pulumi.IntPtrInput `pulumi:"minUnits"`
-	// The sku name.
-	SkuName pulumi.StringPtrInput `pulumi:"skuName"`
+	MaxUnits pulumi.IntPtrInput    `pulumi:"maxUnits"`
+	MinUnits pulumi.IntPtrInput    `pulumi:"minUnits"`
+	SkuName  pulumi.StringPtrInput `pulumi:"skuName"`
 }
 
 func (HubBillingInfoFormatArgs) ElementType() reflect.Type {
@@ -2645,7 +2430,6 @@ func (i *hubBillingInfoFormatPtrType) ToHubBillingInfoFormatPtrOutputWithContext
 	return pulumi.ToOutputWithContext(ctx, i).(HubBillingInfoFormatPtrOutput)
 }
 
-// Hub billing info.
 type HubBillingInfoFormatOutput struct{ *pulumi.OutputState }
 
 func (HubBillingInfoFormatOutput) ElementType() reflect.Type {
@@ -2665,22 +2449,19 @@ func (o HubBillingInfoFormatOutput) ToHubBillingInfoFormatPtrOutput() HubBilling
 }
 
 func (o HubBillingInfoFormatOutput) ToHubBillingInfoFormatPtrOutputWithContext(ctx context.Context) HubBillingInfoFormatPtrOutput {
-	return o.ApplyT(func(v HubBillingInfoFormat) *HubBillingInfoFormat {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v HubBillingInfoFormat) *HubBillingInfoFormat {
 		return &v
 	}).(HubBillingInfoFormatPtrOutput)
 }
 
-// The maximum number of units can be used.  One unit is 10,000 Profiles and 100,000 Interactions.
 func (o HubBillingInfoFormatOutput) MaxUnits() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v HubBillingInfoFormat) *int { return v.MaxUnits }).(pulumi.IntPtrOutput)
 }
 
-// The minimum number of units will be billed. One unit is 10,000 Profiles and 100,000 Interactions.
 func (o HubBillingInfoFormatOutput) MinUnits() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v HubBillingInfoFormat) *int { return v.MinUnits }).(pulumi.IntPtrOutput)
 }
 
-// The sku name.
 func (o HubBillingInfoFormatOutput) SkuName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v HubBillingInfoFormat) *string { return v.SkuName }).(pulumi.StringPtrOutput)
 }
@@ -2700,10 +2481,15 @@ func (o HubBillingInfoFormatPtrOutput) ToHubBillingInfoFormatPtrOutputWithContex
 }
 
 func (o HubBillingInfoFormatPtrOutput) Elem() HubBillingInfoFormatOutput {
-	return o.ApplyT(func(v *HubBillingInfoFormat) HubBillingInfoFormat { return *v }).(HubBillingInfoFormatOutput)
+	return o.ApplyT(func(v *HubBillingInfoFormat) HubBillingInfoFormat {
+		if v != nil {
+			return *v
+		}
+		var ret HubBillingInfoFormat
+		return ret
+	}).(HubBillingInfoFormatOutput)
 }
 
-// The maximum number of units can be used.  One unit is 10,000 Profiles and 100,000 Interactions.
 func (o HubBillingInfoFormatPtrOutput) MaxUnits() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *HubBillingInfoFormat) *int {
 		if v == nil {
@@ -2713,7 +2499,6 @@ func (o HubBillingInfoFormatPtrOutput) MaxUnits() pulumi.IntPtrOutput {
 	}).(pulumi.IntPtrOutput)
 }
 
-// The minimum number of units will be billed. One unit is 10,000 Profiles and 100,000 Interactions.
 func (o HubBillingInfoFormatPtrOutput) MinUnits() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *HubBillingInfoFormat) *int {
 		if v == nil {
@@ -2723,7 +2508,6 @@ func (o HubBillingInfoFormatPtrOutput) MinUnits() pulumi.IntPtrOutput {
 	}).(pulumi.IntPtrOutput)
 }
 
-// The sku name.
 func (o HubBillingInfoFormatPtrOutput) SkuName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *HubBillingInfoFormat) *string {
 		if v == nil {
@@ -2733,14 +2517,10 @@ func (o HubBillingInfoFormatPtrOutput) SkuName() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Hub billing info.
 type HubBillingInfoFormatResponse struct {
-	// The maximum number of units can be used.  One unit is 10,000 Profiles and 100,000 Interactions.
-	MaxUnits *int `pulumi:"maxUnits"`
-	// The minimum number of units will be billed. One unit is 10,000 Profiles and 100,000 Interactions.
-	MinUnits *int `pulumi:"minUnits"`
-	// The sku name.
-	SkuName *string `pulumi:"skuName"`
+	MaxUnits *int    `pulumi:"maxUnits"`
+	MinUnits *int    `pulumi:"minUnits"`
+	SkuName  *string `pulumi:"skuName"`
 }
 
 // HubBillingInfoFormatResponseInput is an input type that accepts HubBillingInfoFormatResponseArgs and HubBillingInfoFormatResponseOutput values.
@@ -2754,14 +2534,10 @@ type HubBillingInfoFormatResponseInput interface {
 	ToHubBillingInfoFormatResponseOutputWithContext(context.Context) HubBillingInfoFormatResponseOutput
 }
 
-// Hub billing info.
 type HubBillingInfoFormatResponseArgs struct {
-	// The maximum number of units can be used.  One unit is 10,000 Profiles and 100,000 Interactions.
-	MaxUnits pulumi.IntPtrInput `pulumi:"maxUnits"`
-	// The minimum number of units will be billed. One unit is 10,000 Profiles and 100,000 Interactions.
-	MinUnits pulumi.IntPtrInput `pulumi:"minUnits"`
-	// The sku name.
-	SkuName pulumi.StringPtrInput `pulumi:"skuName"`
+	MaxUnits pulumi.IntPtrInput    `pulumi:"maxUnits"`
+	MinUnits pulumi.IntPtrInput    `pulumi:"minUnits"`
+	SkuName  pulumi.StringPtrInput `pulumi:"skuName"`
 }
 
 func (HubBillingInfoFormatResponseArgs) ElementType() reflect.Type {
@@ -2817,7 +2593,6 @@ func (i *hubBillingInfoFormatResponsePtrType) ToHubBillingInfoFormatResponsePtrO
 	return pulumi.ToOutputWithContext(ctx, i).(HubBillingInfoFormatResponsePtrOutput)
 }
 
-// Hub billing info.
 type HubBillingInfoFormatResponseOutput struct{ *pulumi.OutputState }
 
 func (HubBillingInfoFormatResponseOutput) ElementType() reflect.Type {
@@ -2837,22 +2612,19 @@ func (o HubBillingInfoFormatResponseOutput) ToHubBillingInfoFormatResponsePtrOut
 }
 
 func (o HubBillingInfoFormatResponseOutput) ToHubBillingInfoFormatResponsePtrOutputWithContext(ctx context.Context) HubBillingInfoFormatResponsePtrOutput {
-	return o.ApplyT(func(v HubBillingInfoFormatResponse) *HubBillingInfoFormatResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v HubBillingInfoFormatResponse) *HubBillingInfoFormatResponse {
 		return &v
 	}).(HubBillingInfoFormatResponsePtrOutput)
 }
 
-// The maximum number of units can be used.  One unit is 10,000 Profiles and 100,000 Interactions.
 func (o HubBillingInfoFormatResponseOutput) MaxUnits() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v HubBillingInfoFormatResponse) *int { return v.MaxUnits }).(pulumi.IntPtrOutput)
 }
 
-// The minimum number of units will be billed. One unit is 10,000 Profiles and 100,000 Interactions.
 func (o HubBillingInfoFormatResponseOutput) MinUnits() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v HubBillingInfoFormatResponse) *int { return v.MinUnits }).(pulumi.IntPtrOutput)
 }
 
-// The sku name.
 func (o HubBillingInfoFormatResponseOutput) SkuName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v HubBillingInfoFormatResponse) *string { return v.SkuName }).(pulumi.StringPtrOutput)
 }
@@ -2872,10 +2644,15 @@ func (o HubBillingInfoFormatResponsePtrOutput) ToHubBillingInfoFormatResponsePtr
 }
 
 func (o HubBillingInfoFormatResponsePtrOutput) Elem() HubBillingInfoFormatResponseOutput {
-	return o.ApplyT(func(v *HubBillingInfoFormatResponse) HubBillingInfoFormatResponse { return *v }).(HubBillingInfoFormatResponseOutput)
+	return o.ApplyT(func(v *HubBillingInfoFormatResponse) HubBillingInfoFormatResponse {
+		if v != nil {
+			return *v
+		}
+		var ret HubBillingInfoFormatResponse
+		return ret
+	}).(HubBillingInfoFormatResponseOutput)
 }
 
-// The maximum number of units can be used.  One unit is 10,000 Profiles and 100,000 Interactions.
 func (o HubBillingInfoFormatResponsePtrOutput) MaxUnits() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *HubBillingInfoFormatResponse) *int {
 		if v == nil {
@@ -2885,7 +2662,6 @@ func (o HubBillingInfoFormatResponsePtrOutput) MaxUnits() pulumi.IntPtrOutput {
 	}).(pulumi.IntPtrOutput)
 }
 
-// The minimum number of units will be billed. One unit is 10,000 Profiles and 100,000 Interactions.
 func (o HubBillingInfoFormatResponsePtrOutput) MinUnits() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *HubBillingInfoFormatResponse) *int {
 		if v == nil {
@@ -2895,7 +2671,6 @@ func (o HubBillingInfoFormatResponsePtrOutput) MinUnits() pulumi.IntPtrOutput {
 	}).(pulumi.IntPtrOutput)
 }
 
-// The sku name.
 func (o HubBillingInfoFormatResponsePtrOutput) SkuName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *HubBillingInfoFormatResponse) *string {
 		if v == nil {
@@ -2905,11 +2680,8 @@ func (o HubBillingInfoFormatResponsePtrOutput) SkuName() pulumi.StringPtrOutput 
 	}).(pulumi.StringPtrOutput)
 }
 
-// The KPI alias.
 type KpiAlias struct {
-	// KPI alias name.
-	AliasName string `pulumi:"aliasName"`
-	// The expression.
+	AliasName  string `pulumi:"aliasName"`
 	Expression string `pulumi:"expression"`
 }
 
@@ -2924,11 +2696,8 @@ type KpiAliasInput interface {
 	ToKpiAliasOutputWithContext(context.Context) KpiAliasOutput
 }
 
-// The KPI alias.
 type KpiAliasArgs struct {
-	// KPI alias name.
-	AliasName pulumi.StringInput `pulumi:"aliasName"`
-	// The expression.
+	AliasName  pulumi.StringInput `pulumi:"aliasName"`
 	Expression pulumi.StringInput `pulumi:"expression"`
 }
 
@@ -2969,7 +2738,6 @@ func (i KpiAliasArray) ToKpiAliasArrayOutputWithContext(ctx context.Context) Kpi
 	return pulumi.ToOutputWithContext(ctx, i).(KpiAliasArrayOutput)
 }
 
-// The KPI alias.
 type KpiAliasOutput struct{ *pulumi.OutputState }
 
 func (KpiAliasOutput) ElementType() reflect.Type {
@@ -2984,12 +2752,10 @@ func (o KpiAliasOutput) ToKpiAliasOutputWithContext(ctx context.Context) KpiAlia
 	return o
 }
 
-// KPI alias name.
 func (o KpiAliasOutput) AliasName() pulumi.StringOutput {
 	return o.ApplyT(func(v KpiAlias) string { return v.AliasName }).(pulumi.StringOutput)
 }
 
-// The expression.
 func (o KpiAliasOutput) Expression() pulumi.StringOutput {
 	return o.ApplyT(func(v KpiAlias) string { return v.Expression }).(pulumi.StringOutput)
 }
@@ -3014,11 +2780,8 @@ func (o KpiAliasArrayOutput) Index(i pulumi.IntInput) KpiAliasOutput {
 	}).(KpiAliasOutput)
 }
 
-// The KPI alias.
 type KpiAliasResponse struct {
-	// KPI alias name.
-	AliasName string `pulumi:"aliasName"`
-	// The expression.
+	AliasName  string `pulumi:"aliasName"`
 	Expression string `pulumi:"expression"`
 }
 
@@ -3033,11 +2796,8 @@ type KpiAliasResponseInput interface {
 	ToKpiAliasResponseOutputWithContext(context.Context) KpiAliasResponseOutput
 }
 
-// The KPI alias.
 type KpiAliasResponseArgs struct {
-	// KPI alias name.
-	AliasName pulumi.StringInput `pulumi:"aliasName"`
-	// The expression.
+	AliasName  pulumi.StringInput `pulumi:"aliasName"`
 	Expression pulumi.StringInput `pulumi:"expression"`
 }
 
@@ -3078,7 +2838,6 @@ func (i KpiAliasResponseArray) ToKpiAliasResponseArrayOutputWithContext(ctx cont
 	return pulumi.ToOutputWithContext(ctx, i).(KpiAliasResponseArrayOutput)
 }
 
-// The KPI alias.
 type KpiAliasResponseOutput struct{ *pulumi.OutputState }
 
 func (KpiAliasResponseOutput) ElementType() reflect.Type {
@@ -3093,12 +2852,10 @@ func (o KpiAliasResponseOutput) ToKpiAliasResponseOutputWithContext(ctx context.
 	return o
 }
 
-// KPI alias name.
 func (o KpiAliasResponseOutput) AliasName() pulumi.StringOutput {
 	return o.ApplyT(func(v KpiAliasResponse) string { return v.AliasName }).(pulumi.StringOutput)
 }
 
-// The expression.
 func (o KpiAliasResponseOutput) Expression() pulumi.StringOutput {
 	return o.ApplyT(func(v KpiAliasResponse) string { return v.Expression }).(pulumi.StringOutput)
 }
@@ -3123,11 +2880,8 @@ func (o KpiAliasResponseArrayOutput) Index(i pulumi.IntInput) KpiAliasResponseOu
 	}).(KpiAliasResponseOutput)
 }
 
-// The KPI extract.
 type KpiExtract struct {
-	// The expression.
-	Expression string `pulumi:"expression"`
-	// KPI extract name.
+	Expression  string `pulumi:"expression"`
 	ExtractName string `pulumi:"extractName"`
 }
 
@@ -3142,11 +2896,8 @@ type KpiExtractInput interface {
 	ToKpiExtractOutputWithContext(context.Context) KpiExtractOutput
 }
 
-// The KPI extract.
 type KpiExtractArgs struct {
-	// The expression.
-	Expression pulumi.StringInput `pulumi:"expression"`
-	// KPI extract name.
+	Expression  pulumi.StringInput `pulumi:"expression"`
 	ExtractName pulumi.StringInput `pulumi:"extractName"`
 }
 
@@ -3187,7 +2938,6 @@ func (i KpiExtractArray) ToKpiExtractArrayOutputWithContext(ctx context.Context)
 	return pulumi.ToOutputWithContext(ctx, i).(KpiExtractArrayOutput)
 }
 
-// The KPI extract.
 type KpiExtractOutput struct{ *pulumi.OutputState }
 
 func (KpiExtractOutput) ElementType() reflect.Type {
@@ -3202,12 +2952,10 @@ func (o KpiExtractOutput) ToKpiExtractOutputWithContext(ctx context.Context) Kpi
 	return o
 }
 
-// The expression.
 func (o KpiExtractOutput) Expression() pulumi.StringOutput {
 	return o.ApplyT(func(v KpiExtract) string { return v.Expression }).(pulumi.StringOutput)
 }
 
-// KPI extract name.
 func (o KpiExtractOutput) ExtractName() pulumi.StringOutput {
 	return o.ApplyT(func(v KpiExtract) string { return v.ExtractName }).(pulumi.StringOutput)
 }
@@ -3232,11 +2980,8 @@ func (o KpiExtractArrayOutput) Index(i pulumi.IntInput) KpiExtractOutput {
 	}).(KpiExtractOutput)
 }
 
-// The KPI extract.
 type KpiExtractResponse struct {
-	// The expression.
-	Expression string `pulumi:"expression"`
-	// KPI extract name.
+	Expression  string `pulumi:"expression"`
 	ExtractName string `pulumi:"extractName"`
 }
 
@@ -3251,11 +2996,8 @@ type KpiExtractResponseInput interface {
 	ToKpiExtractResponseOutputWithContext(context.Context) KpiExtractResponseOutput
 }
 
-// The KPI extract.
 type KpiExtractResponseArgs struct {
-	// The expression.
-	Expression pulumi.StringInput `pulumi:"expression"`
-	// KPI extract name.
+	Expression  pulumi.StringInput `pulumi:"expression"`
 	ExtractName pulumi.StringInput `pulumi:"extractName"`
 }
 
@@ -3296,7 +3038,6 @@ func (i KpiExtractResponseArray) ToKpiExtractResponseArrayOutputWithContext(ctx 
 	return pulumi.ToOutputWithContext(ctx, i).(KpiExtractResponseArrayOutput)
 }
 
-// The KPI extract.
 type KpiExtractResponseOutput struct{ *pulumi.OutputState }
 
 func (KpiExtractResponseOutput) ElementType() reflect.Type {
@@ -3311,12 +3052,10 @@ func (o KpiExtractResponseOutput) ToKpiExtractResponseOutputWithContext(ctx cont
 	return o
 }
 
-// The expression.
 func (o KpiExtractResponseOutput) Expression() pulumi.StringOutput {
 	return o.ApplyT(func(v KpiExtractResponse) string { return v.Expression }).(pulumi.StringOutput)
 }
 
-// KPI extract name.
 func (o KpiExtractResponseOutput) ExtractName() pulumi.StringOutput {
 	return o.ApplyT(func(v KpiExtractResponse) string { return v.ExtractName }).(pulumi.StringOutput)
 }
@@ -3341,14 +3080,10 @@ func (o KpiExtractResponseArrayOutput) Index(i pulumi.IntInput) KpiExtractRespon
 	}).(KpiExtractResponseOutput)
 }
 
-// The KPI GroupBy field metadata.
 type KpiGroupByMetadataResponse struct {
-	// The display name.
 	DisplayName map[string]string `pulumi:"displayName"`
-	// The name of the field.
-	FieldName *string `pulumi:"fieldName"`
-	// The type of the field.
-	FieldType *string `pulumi:"fieldType"`
+	FieldName   *string           `pulumi:"fieldName"`
+	FieldType   *string           `pulumi:"fieldType"`
 }
 
 // KpiGroupByMetadataResponseInput is an input type that accepts KpiGroupByMetadataResponseArgs and KpiGroupByMetadataResponseOutput values.
@@ -3362,14 +3097,10 @@ type KpiGroupByMetadataResponseInput interface {
 	ToKpiGroupByMetadataResponseOutputWithContext(context.Context) KpiGroupByMetadataResponseOutput
 }
 
-// The KPI GroupBy field metadata.
 type KpiGroupByMetadataResponseArgs struct {
-	// The display name.
 	DisplayName pulumi.StringMapInput `pulumi:"displayName"`
-	// The name of the field.
-	FieldName pulumi.StringPtrInput `pulumi:"fieldName"`
-	// The type of the field.
-	FieldType pulumi.StringPtrInput `pulumi:"fieldType"`
+	FieldName   pulumi.StringPtrInput `pulumi:"fieldName"`
+	FieldType   pulumi.StringPtrInput `pulumi:"fieldType"`
 }
 
 func (KpiGroupByMetadataResponseArgs) ElementType() reflect.Type {
@@ -3409,7 +3140,6 @@ func (i KpiGroupByMetadataResponseArray) ToKpiGroupByMetadataResponseArrayOutput
 	return pulumi.ToOutputWithContext(ctx, i).(KpiGroupByMetadataResponseArrayOutput)
 }
 
-// The KPI GroupBy field metadata.
 type KpiGroupByMetadataResponseOutput struct{ *pulumi.OutputState }
 
 func (KpiGroupByMetadataResponseOutput) ElementType() reflect.Type {
@@ -3424,17 +3154,14 @@ func (o KpiGroupByMetadataResponseOutput) ToKpiGroupByMetadataResponseOutputWith
 	return o
 }
 
-// The display name.
 func (o KpiGroupByMetadataResponseOutput) DisplayName() pulumi.StringMapOutput {
 	return o.ApplyT(func(v KpiGroupByMetadataResponse) map[string]string { return v.DisplayName }).(pulumi.StringMapOutput)
 }
 
-// The name of the field.
 func (o KpiGroupByMetadataResponseOutput) FieldName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v KpiGroupByMetadataResponse) *string { return v.FieldName }).(pulumi.StringPtrOutput)
 }
 
-// The type of the field.
 func (o KpiGroupByMetadataResponseOutput) FieldType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v KpiGroupByMetadataResponse) *string { return v.FieldType }).(pulumi.StringPtrOutput)
 }
@@ -3459,9 +3186,7 @@ func (o KpiGroupByMetadataResponseArrayOutput) Index(i pulumi.IntInput) KpiGroup
 	}).(KpiGroupByMetadataResponseOutput)
 }
 
-// The KPI participant profile metadata.
 type KpiParticipantProfilesMetadataResponse struct {
-	// Name of the type.
 	TypeName string `pulumi:"typeName"`
 }
 
@@ -3476,9 +3201,7 @@ type KpiParticipantProfilesMetadataResponseInput interface {
 	ToKpiParticipantProfilesMetadataResponseOutputWithContext(context.Context) KpiParticipantProfilesMetadataResponseOutput
 }
 
-// The KPI participant profile metadata.
 type KpiParticipantProfilesMetadataResponseArgs struct {
-	// Name of the type.
 	TypeName pulumi.StringInput `pulumi:"typeName"`
 }
 
@@ -3519,7 +3242,6 @@ func (i KpiParticipantProfilesMetadataResponseArray) ToKpiParticipantProfilesMet
 	return pulumi.ToOutputWithContext(ctx, i).(KpiParticipantProfilesMetadataResponseArrayOutput)
 }
 
-// The KPI participant profile metadata.
 type KpiParticipantProfilesMetadataResponseOutput struct{ *pulumi.OutputState }
 
 func (KpiParticipantProfilesMetadataResponseOutput) ElementType() reflect.Type {
@@ -3534,7 +3256,6 @@ func (o KpiParticipantProfilesMetadataResponseOutput) ToKpiParticipantProfilesMe
 	return o
 }
 
-// Name of the type.
 func (o KpiParticipantProfilesMetadataResponseOutput) TypeName() pulumi.StringOutput {
 	return o.ApplyT(func(v KpiParticipantProfilesMetadataResponse) string { return v.TypeName }).(pulumi.StringOutput)
 }
@@ -3559,14 +3280,10 @@ func (o KpiParticipantProfilesMetadataResponseArrayOutput) Index(i pulumi.IntInp
 	}).(KpiParticipantProfilesMetadataResponseOutput)
 }
 
-// Defines the KPI Threshold limits.
 type KpiThresholds struct {
-	// Whether or not the KPI is an increasing KPI.
-	IncreasingKpi bool `pulumi:"increasingKpi"`
-	// The lower threshold limit.
-	LowerLimit float64 `pulumi:"lowerLimit"`
-	// The upper threshold limit.
-	UpperLimit float64 `pulumi:"upperLimit"`
+	IncreasingKpi bool    `pulumi:"increasingKpi"`
+	LowerLimit    float64 `pulumi:"lowerLimit"`
+	UpperLimit    float64 `pulumi:"upperLimit"`
 }
 
 // KpiThresholdsInput is an input type that accepts KpiThresholdsArgs and KpiThresholdsOutput values.
@@ -3580,14 +3297,10 @@ type KpiThresholdsInput interface {
 	ToKpiThresholdsOutputWithContext(context.Context) KpiThresholdsOutput
 }
 
-// Defines the KPI Threshold limits.
 type KpiThresholdsArgs struct {
-	// Whether or not the KPI is an increasing KPI.
-	IncreasingKpi pulumi.BoolInput `pulumi:"increasingKpi"`
-	// The lower threshold limit.
-	LowerLimit pulumi.Float64Input `pulumi:"lowerLimit"`
-	// The upper threshold limit.
-	UpperLimit pulumi.Float64Input `pulumi:"upperLimit"`
+	IncreasingKpi pulumi.BoolInput    `pulumi:"increasingKpi"`
+	LowerLimit    pulumi.Float64Input `pulumi:"lowerLimit"`
+	UpperLimit    pulumi.Float64Input `pulumi:"upperLimit"`
 }
 
 func (KpiThresholdsArgs) ElementType() reflect.Type {
@@ -3643,7 +3356,6 @@ func (i *kpiThresholdsPtrType) ToKpiThresholdsPtrOutputWithContext(ctx context.C
 	return pulumi.ToOutputWithContext(ctx, i).(KpiThresholdsPtrOutput)
 }
 
-// Defines the KPI Threshold limits.
 type KpiThresholdsOutput struct{ *pulumi.OutputState }
 
 func (KpiThresholdsOutput) ElementType() reflect.Type {
@@ -3663,22 +3375,19 @@ func (o KpiThresholdsOutput) ToKpiThresholdsPtrOutput() KpiThresholdsPtrOutput {
 }
 
 func (o KpiThresholdsOutput) ToKpiThresholdsPtrOutputWithContext(ctx context.Context) KpiThresholdsPtrOutput {
-	return o.ApplyT(func(v KpiThresholds) *KpiThresholds {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v KpiThresholds) *KpiThresholds {
 		return &v
 	}).(KpiThresholdsPtrOutput)
 }
 
-// Whether or not the KPI is an increasing KPI.
 func (o KpiThresholdsOutput) IncreasingKpi() pulumi.BoolOutput {
 	return o.ApplyT(func(v KpiThresholds) bool { return v.IncreasingKpi }).(pulumi.BoolOutput)
 }
 
-// The lower threshold limit.
 func (o KpiThresholdsOutput) LowerLimit() pulumi.Float64Output {
 	return o.ApplyT(func(v KpiThresholds) float64 { return v.LowerLimit }).(pulumi.Float64Output)
 }
 
-// The upper threshold limit.
 func (o KpiThresholdsOutput) UpperLimit() pulumi.Float64Output {
 	return o.ApplyT(func(v KpiThresholds) float64 { return v.UpperLimit }).(pulumi.Float64Output)
 }
@@ -3698,10 +3407,15 @@ func (o KpiThresholdsPtrOutput) ToKpiThresholdsPtrOutputWithContext(ctx context.
 }
 
 func (o KpiThresholdsPtrOutput) Elem() KpiThresholdsOutput {
-	return o.ApplyT(func(v *KpiThresholds) KpiThresholds { return *v }).(KpiThresholdsOutput)
+	return o.ApplyT(func(v *KpiThresholds) KpiThresholds {
+		if v != nil {
+			return *v
+		}
+		var ret KpiThresholds
+		return ret
+	}).(KpiThresholdsOutput)
 }
 
-// Whether or not the KPI is an increasing KPI.
 func (o KpiThresholdsPtrOutput) IncreasingKpi() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *KpiThresholds) *bool {
 		if v == nil {
@@ -3711,7 +3425,6 @@ func (o KpiThresholdsPtrOutput) IncreasingKpi() pulumi.BoolPtrOutput {
 	}).(pulumi.BoolPtrOutput)
 }
 
-// The lower threshold limit.
 func (o KpiThresholdsPtrOutput) LowerLimit() pulumi.Float64PtrOutput {
 	return o.ApplyT(func(v *KpiThresholds) *float64 {
 		if v == nil {
@@ -3721,7 +3434,6 @@ func (o KpiThresholdsPtrOutput) LowerLimit() pulumi.Float64PtrOutput {
 	}).(pulumi.Float64PtrOutput)
 }
 
-// The upper threshold limit.
 func (o KpiThresholdsPtrOutput) UpperLimit() pulumi.Float64PtrOutput {
 	return o.ApplyT(func(v *KpiThresholds) *float64 {
 		if v == nil {
@@ -3731,14 +3443,10 @@ func (o KpiThresholdsPtrOutput) UpperLimit() pulumi.Float64PtrOutput {
 	}).(pulumi.Float64PtrOutput)
 }
 
-// Defines the KPI Threshold limits.
 type KpiThresholdsResponse struct {
-	// Whether or not the KPI is an increasing KPI.
-	IncreasingKpi bool `pulumi:"increasingKpi"`
-	// The lower threshold limit.
-	LowerLimit float64 `pulumi:"lowerLimit"`
-	// The upper threshold limit.
-	UpperLimit float64 `pulumi:"upperLimit"`
+	IncreasingKpi bool    `pulumi:"increasingKpi"`
+	LowerLimit    float64 `pulumi:"lowerLimit"`
+	UpperLimit    float64 `pulumi:"upperLimit"`
 }
 
 // KpiThresholdsResponseInput is an input type that accepts KpiThresholdsResponseArgs and KpiThresholdsResponseOutput values.
@@ -3752,14 +3460,10 @@ type KpiThresholdsResponseInput interface {
 	ToKpiThresholdsResponseOutputWithContext(context.Context) KpiThresholdsResponseOutput
 }
 
-// Defines the KPI Threshold limits.
 type KpiThresholdsResponseArgs struct {
-	// Whether or not the KPI is an increasing KPI.
-	IncreasingKpi pulumi.BoolInput `pulumi:"increasingKpi"`
-	// The lower threshold limit.
-	LowerLimit pulumi.Float64Input `pulumi:"lowerLimit"`
-	// The upper threshold limit.
-	UpperLimit pulumi.Float64Input `pulumi:"upperLimit"`
+	IncreasingKpi pulumi.BoolInput    `pulumi:"increasingKpi"`
+	LowerLimit    pulumi.Float64Input `pulumi:"lowerLimit"`
+	UpperLimit    pulumi.Float64Input `pulumi:"upperLimit"`
 }
 
 func (KpiThresholdsResponseArgs) ElementType() reflect.Type {
@@ -3815,7 +3519,6 @@ func (i *kpiThresholdsResponsePtrType) ToKpiThresholdsResponsePtrOutputWithConte
 	return pulumi.ToOutputWithContext(ctx, i).(KpiThresholdsResponsePtrOutput)
 }
 
-// Defines the KPI Threshold limits.
 type KpiThresholdsResponseOutput struct{ *pulumi.OutputState }
 
 func (KpiThresholdsResponseOutput) ElementType() reflect.Type {
@@ -3835,22 +3538,19 @@ func (o KpiThresholdsResponseOutput) ToKpiThresholdsResponsePtrOutput() KpiThres
 }
 
 func (o KpiThresholdsResponseOutput) ToKpiThresholdsResponsePtrOutputWithContext(ctx context.Context) KpiThresholdsResponsePtrOutput {
-	return o.ApplyT(func(v KpiThresholdsResponse) *KpiThresholdsResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v KpiThresholdsResponse) *KpiThresholdsResponse {
 		return &v
 	}).(KpiThresholdsResponsePtrOutput)
 }
 
-// Whether or not the KPI is an increasing KPI.
 func (o KpiThresholdsResponseOutput) IncreasingKpi() pulumi.BoolOutput {
 	return o.ApplyT(func(v KpiThresholdsResponse) bool { return v.IncreasingKpi }).(pulumi.BoolOutput)
 }
 
-// The lower threshold limit.
 func (o KpiThresholdsResponseOutput) LowerLimit() pulumi.Float64Output {
 	return o.ApplyT(func(v KpiThresholdsResponse) float64 { return v.LowerLimit }).(pulumi.Float64Output)
 }
 
-// The upper threshold limit.
 func (o KpiThresholdsResponseOutput) UpperLimit() pulumi.Float64Output {
 	return o.ApplyT(func(v KpiThresholdsResponse) float64 { return v.UpperLimit }).(pulumi.Float64Output)
 }
@@ -3870,10 +3570,15 @@ func (o KpiThresholdsResponsePtrOutput) ToKpiThresholdsResponsePtrOutputWithCont
 }
 
 func (o KpiThresholdsResponsePtrOutput) Elem() KpiThresholdsResponseOutput {
-	return o.ApplyT(func(v *KpiThresholdsResponse) KpiThresholdsResponse { return *v }).(KpiThresholdsResponseOutput)
+	return o.ApplyT(func(v *KpiThresholdsResponse) KpiThresholdsResponse {
+		if v != nil {
+			return *v
+		}
+		var ret KpiThresholdsResponse
+		return ret
+	}).(KpiThresholdsResponseOutput)
 }
 
-// Whether or not the KPI is an increasing KPI.
 func (o KpiThresholdsResponsePtrOutput) IncreasingKpi() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *KpiThresholdsResponse) *bool {
 		if v == nil {
@@ -3883,7 +3588,6 @@ func (o KpiThresholdsResponsePtrOutput) IncreasingKpi() pulumi.BoolPtrOutput {
 	}).(pulumi.BoolPtrOutput)
 }
 
-// The lower threshold limit.
 func (o KpiThresholdsResponsePtrOutput) LowerLimit() pulumi.Float64PtrOutput {
 	return o.ApplyT(func(v *KpiThresholdsResponse) *float64 {
 		if v == nil {
@@ -3893,7 +3597,6 @@ func (o KpiThresholdsResponsePtrOutput) LowerLimit() pulumi.Float64PtrOutput {
 	}).(pulumi.Float64PtrOutput)
 }
 
-// The upper threshold limit.
 func (o KpiThresholdsResponsePtrOutput) UpperLimit() pulumi.Float64PtrOutput {
 	return o.ApplyT(func(v *KpiThresholdsResponse) *float64 {
 		if v == nil {
@@ -3903,12 +3606,9 @@ func (o KpiThresholdsResponsePtrOutput) UpperLimit() pulumi.Float64PtrOutput {
 	}).(pulumi.Float64PtrOutput)
 }
 
-// The participant property reference.
 type ParticipantPropertyReference struct {
-	// The interaction property that maps to the profile property.
 	InteractionPropertyName string `pulumi:"interactionPropertyName"`
-	// The profile property that maps to the interaction property.
-	ProfilePropertyName string `pulumi:"profilePropertyName"`
+	ProfilePropertyName     string `pulumi:"profilePropertyName"`
 }
 
 // ParticipantPropertyReferenceInput is an input type that accepts ParticipantPropertyReferenceArgs and ParticipantPropertyReferenceOutput values.
@@ -3922,12 +3622,9 @@ type ParticipantPropertyReferenceInput interface {
 	ToParticipantPropertyReferenceOutputWithContext(context.Context) ParticipantPropertyReferenceOutput
 }
 
-// The participant property reference.
 type ParticipantPropertyReferenceArgs struct {
-	// The interaction property that maps to the profile property.
 	InteractionPropertyName pulumi.StringInput `pulumi:"interactionPropertyName"`
-	// The profile property that maps to the interaction property.
-	ProfilePropertyName pulumi.StringInput `pulumi:"profilePropertyName"`
+	ProfilePropertyName     pulumi.StringInput `pulumi:"profilePropertyName"`
 }
 
 func (ParticipantPropertyReferenceArgs) ElementType() reflect.Type {
@@ -3967,7 +3664,6 @@ func (i ParticipantPropertyReferenceArray) ToParticipantPropertyReferenceArrayOu
 	return pulumi.ToOutputWithContext(ctx, i).(ParticipantPropertyReferenceArrayOutput)
 }
 
-// The participant property reference.
 type ParticipantPropertyReferenceOutput struct{ *pulumi.OutputState }
 
 func (ParticipantPropertyReferenceOutput) ElementType() reflect.Type {
@@ -3982,12 +3678,10 @@ func (o ParticipantPropertyReferenceOutput) ToParticipantPropertyReferenceOutput
 	return o
 }
 
-// The interaction property that maps to the profile property.
 func (o ParticipantPropertyReferenceOutput) InteractionPropertyName() pulumi.StringOutput {
 	return o.ApplyT(func(v ParticipantPropertyReference) string { return v.InteractionPropertyName }).(pulumi.StringOutput)
 }
 
-// The profile property that maps to the interaction property.
 func (o ParticipantPropertyReferenceOutput) ProfilePropertyName() pulumi.StringOutput {
 	return o.ApplyT(func(v ParticipantPropertyReference) string { return v.ProfilePropertyName }).(pulumi.StringOutput)
 }
@@ -4012,12 +3706,9 @@ func (o ParticipantPropertyReferenceArrayOutput) Index(i pulumi.IntInput) Partic
 	}).(ParticipantPropertyReferenceOutput)
 }
 
-// The participant property reference.
 type ParticipantPropertyReferenceResponse struct {
-	// The interaction property that maps to the profile property.
 	InteractionPropertyName string `pulumi:"interactionPropertyName"`
-	// The profile property that maps to the interaction property.
-	ProfilePropertyName string `pulumi:"profilePropertyName"`
+	ProfilePropertyName     string `pulumi:"profilePropertyName"`
 }
 
 // ParticipantPropertyReferenceResponseInput is an input type that accepts ParticipantPropertyReferenceResponseArgs and ParticipantPropertyReferenceResponseOutput values.
@@ -4031,12 +3722,9 @@ type ParticipantPropertyReferenceResponseInput interface {
 	ToParticipantPropertyReferenceResponseOutputWithContext(context.Context) ParticipantPropertyReferenceResponseOutput
 }
 
-// The participant property reference.
 type ParticipantPropertyReferenceResponseArgs struct {
-	// The interaction property that maps to the profile property.
 	InteractionPropertyName pulumi.StringInput `pulumi:"interactionPropertyName"`
-	// The profile property that maps to the interaction property.
-	ProfilePropertyName pulumi.StringInput `pulumi:"profilePropertyName"`
+	ProfilePropertyName     pulumi.StringInput `pulumi:"profilePropertyName"`
 }
 
 func (ParticipantPropertyReferenceResponseArgs) ElementType() reflect.Type {
@@ -4076,7 +3764,6 @@ func (i ParticipantPropertyReferenceResponseArray) ToParticipantPropertyReferenc
 	return pulumi.ToOutputWithContext(ctx, i).(ParticipantPropertyReferenceResponseArrayOutput)
 }
 
-// The participant property reference.
 type ParticipantPropertyReferenceResponseOutput struct{ *pulumi.OutputState }
 
 func (ParticipantPropertyReferenceResponseOutput) ElementType() reflect.Type {
@@ -4091,12 +3778,10 @@ func (o ParticipantPropertyReferenceResponseOutput) ToParticipantPropertyReferen
 	return o
 }
 
-// The interaction property that maps to the profile property.
 func (o ParticipantPropertyReferenceResponseOutput) InteractionPropertyName() pulumi.StringOutput {
 	return o.ApplyT(func(v ParticipantPropertyReferenceResponse) string { return v.InteractionPropertyName }).(pulumi.StringOutput)
 }
 
-// The profile property that maps to the interaction property.
 func (o ParticipantPropertyReferenceResponseOutput) ProfilePropertyName() pulumi.StringOutput {
 	return o.ApplyT(func(v ParticipantPropertyReferenceResponse) string { return v.ProfilePropertyName }).(pulumi.StringOutput)
 }
@@ -4121,12 +3806,9 @@ func (o ParticipantPropertyReferenceResponseArrayOutput) Index(i pulumi.IntInput
 	}).(ParticipantPropertyReferenceResponseOutput)
 }
 
-// Valid enum values in case of an enum property.
 type ProfileEnumValidValuesFormat struct {
-	// Localized names of the enum member.
 	LocalizedValueNames map[string]string `pulumi:"localizedValueNames"`
-	// The integer value of the enum member.
-	Value *int `pulumi:"value"`
+	Value               *int              `pulumi:"value"`
 }
 
 // ProfileEnumValidValuesFormatInput is an input type that accepts ProfileEnumValidValuesFormatArgs and ProfileEnumValidValuesFormatOutput values.
@@ -4140,12 +3822,9 @@ type ProfileEnumValidValuesFormatInput interface {
 	ToProfileEnumValidValuesFormatOutputWithContext(context.Context) ProfileEnumValidValuesFormatOutput
 }
 
-// Valid enum values in case of an enum property.
 type ProfileEnumValidValuesFormatArgs struct {
-	// Localized names of the enum member.
 	LocalizedValueNames pulumi.StringMapInput `pulumi:"localizedValueNames"`
-	// The integer value of the enum member.
-	Value pulumi.IntPtrInput `pulumi:"value"`
+	Value               pulumi.IntPtrInput    `pulumi:"value"`
 }
 
 func (ProfileEnumValidValuesFormatArgs) ElementType() reflect.Type {
@@ -4185,7 +3864,6 @@ func (i ProfileEnumValidValuesFormatArray) ToProfileEnumValidValuesFormatArrayOu
 	return pulumi.ToOutputWithContext(ctx, i).(ProfileEnumValidValuesFormatArrayOutput)
 }
 
-// Valid enum values in case of an enum property.
 type ProfileEnumValidValuesFormatOutput struct{ *pulumi.OutputState }
 
 func (ProfileEnumValidValuesFormatOutput) ElementType() reflect.Type {
@@ -4200,12 +3878,10 @@ func (o ProfileEnumValidValuesFormatOutput) ToProfileEnumValidValuesFormatOutput
 	return o
 }
 
-// Localized names of the enum member.
 func (o ProfileEnumValidValuesFormatOutput) LocalizedValueNames() pulumi.StringMapOutput {
 	return o.ApplyT(func(v ProfileEnumValidValuesFormat) map[string]string { return v.LocalizedValueNames }).(pulumi.StringMapOutput)
 }
 
-// The integer value of the enum member.
 func (o ProfileEnumValidValuesFormatOutput) Value() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v ProfileEnumValidValuesFormat) *int { return v.Value }).(pulumi.IntPtrOutput)
 }
@@ -4230,12 +3906,9 @@ func (o ProfileEnumValidValuesFormatArrayOutput) Index(i pulumi.IntInput) Profil
 	}).(ProfileEnumValidValuesFormatOutput)
 }
 
-// Valid enum values in case of an enum property.
 type ProfileEnumValidValuesFormatResponse struct {
-	// Localized names of the enum member.
 	LocalizedValueNames map[string]string `pulumi:"localizedValueNames"`
-	// The integer value of the enum member.
-	Value *int `pulumi:"value"`
+	Value               *int              `pulumi:"value"`
 }
 
 // ProfileEnumValidValuesFormatResponseInput is an input type that accepts ProfileEnumValidValuesFormatResponseArgs and ProfileEnumValidValuesFormatResponseOutput values.
@@ -4249,12 +3922,9 @@ type ProfileEnumValidValuesFormatResponseInput interface {
 	ToProfileEnumValidValuesFormatResponseOutputWithContext(context.Context) ProfileEnumValidValuesFormatResponseOutput
 }
 
-// Valid enum values in case of an enum property.
 type ProfileEnumValidValuesFormatResponseArgs struct {
-	// Localized names of the enum member.
 	LocalizedValueNames pulumi.StringMapInput `pulumi:"localizedValueNames"`
-	// The integer value of the enum member.
-	Value pulumi.IntPtrInput `pulumi:"value"`
+	Value               pulumi.IntPtrInput    `pulumi:"value"`
 }
 
 func (ProfileEnumValidValuesFormatResponseArgs) ElementType() reflect.Type {
@@ -4294,7 +3964,6 @@ func (i ProfileEnumValidValuesFormatResponseArray) ToProfileEnumValidValuesForma
 	return pulumi.ToOutputWithContext(ctx, i).(ProfileEnumValidValuesFormatResponseArrayOutput)
 }
 
-// Valid enum values in case of an enum property.
 type ProfileEnumValidValuesFormatResponseOutput struct{ *pulumi.OutputState }
 
 func (ProfileEnumValidValuesFormatResponseOutput) ElementType() reflect.Type {
@@ -4309,12 +3978,10 @@ func (o ProfileEnumValidValuesFormatResponseOutput) ToProfileEnumValidValuesForm
 	return o
 }
 
-// Localized names of the enum member.
 func (o ProfileEnumValidValuesFormatResponseOutput) LocalizedValueNames() pulumi.StringMapOutput {
 	return o.ApplyT(func(v ProfileEnumValidValuesFormatResponse) map[string]string { return v.LocalizedValueNames }).(pulumi.StringMapOutput)
 }
 
-// The integer value of the enum member.
 func (o ProfileEnumValidValuesFormatResponseOutput) Value() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v ProfileEnumValidValuesFormatResponse) *int { return v.Value }).(pulumi.IntPtrOutput)
 }
@@ -4339,38 +4006,22 @@ func (o ProfileEnumValidValuesFormatResponseArrayOutput) Index(i pulumi.IntInput
 	}).(ProfileEnumValidValuesFormatResponseOutput)
 }
 
-// Property definition.
 type PropertyDefinition struct {
-	// Array value separator for properties with isArray set.
-	ArrayValueSeparator *string `pulumi:"arrayValueSeparator"`
-	// Describes valid values for an enum property.
-	EnumValidValues []ProfileEnumValidValuesFormat `pulumi:"enumValidValues"`
-	// Name of the property.
-	FieldName string `pulumi:"fieldName"`
-	// Type of the property.
-	FieldType string `pulumi:"fieldType"`
-	// Indicates if the property is actually an array of the fieldType above on the data api.
-	IsArray *bool `pulumi:"isArray"`
-	// Whether property is available in graph or not.
-	IsAvailableInGraph *bool `pulumi:"isAvailableInGraph"`
-	// Indicates if the property is an enum.
-	IsEnum *bool `pulumi:"isEnum"`
-	// Indicates if the property is an flag enum.
-	IsFlagEnum *bool `pulumi:"isFlagEnum"`
-	// Whether the property is an Image.
-	IsImage *bool `pulumi:"isImage"`
-	// Whether the property is a localized string.
-	IsLocalizedString *bool `pulumi:"isLocalizedString"`
-	// Whether the property is a name or a part of name.
-	IsName *bool `pulumi:"isName"`
-	// Whether property value is required on instances, IsRequired field only for Interaction. Profile Instance will not check for required field.
-	IsRequired *bool `pulumi:"isRequired"`
-	// Max length of string. Used only if type is string.
-	MaxLength *int `pulumi:"maxLength"`
-	// The ID associated with the property.
-	PropertyId *string `pulumi:"propertyId"`
-	// URL encoded schema.org item prop link for the property.
-	SchemaItemPropLink *string `pulumi:"schemaItemPropLink"`
+	ArrayValueSeparator *string                        `pulumi:"arrayValueSeparator"`
+	EnumValidValues     []ProfileEnumValidValuesFormat `pulumi:"enumValidValues"`
+	FieldName           string                         `pulumi:"fieldName"`
+	FieldType           string                         `pulumi:"fieldType"`
+	IsArray             *bool                          `pulumi:"isArray"`
+	IsAvailableInGraph  *bool                          `pulumi:"isAvailableInGraph"`
+	IsEnum              *bool                          `pulumi:"isEnum"`
+	IsFlagEnum          *bool                          `pulumi:"isFlagEnum"`
+	IsImage             *bool                          `pulumi:"isImage"`
+	IsLocalizedString   *bool                          `pulumi:"isLocalizedString"`
+	IsName              *bool                          `pulumi:"isName"`
+	IsRequired          *bool                          `pulumi:"isRequired"`
+	MaxLength           *int                           `pulumi:"maxLength"`
+	PropertyId          *string                        `pulumi:"propertyId"`
+	SchemaItemPropLink  *string                        `pulumi:"schemaItemPropLink"`
 }
 
 // PropertyDefinitionInput is an input type that accepts PropertyDefinitionArgs and PropertyDefinitionOutput values.
@@ -4384,38 +4035,22 @@ type PropertyDefinitionInput interface {
 	ToPropertyDefinitionOutputWithContext(context.Context) PropertyDefinitionOutput
 }
 
-// Property definition.
 type PropertyDefinitionArgs struct {
-	// Array value separator for properties with isArray set.
-	ArrayValueSeparator pulumi.StringPtrInput `pulumi:"arrayValueSeparator"`
-	// Describes valid values for an enum property.
-	EnumValidValues ProfileEnumValidValuesFormatArrayInput `pulumi:"enumValidValues"`
-	// Name of the property.
-	FieldName pulumi.StringInput `pulumi:"fieldName"`
-	// Type of the property.
-	FieldType pulumi.StringInput `pulumi:"fieldType"`
-	// Indicates if the property is actually an array of the fieldType above on the data api.
-	IsArray pulumi.BoolPtrInput `pulumi:"isArray"`
-	// Whether property is available in graph or not.
-	IsAvailableInGraph pulumi.BoolPtrInput `pulumi:"isAvailableInGraph"`
-	// Indicates if the property is an enum.
-	IsEnum pulumi.BoolPtrInput `pulumi:"isEnum"`
-	// Indicates if the property is an flag enum.
-	IsFlagEnum pulumi.BoolPtrInput `pulumi:"isFlagEnum"`
-	// Whether the property is an Image.
-	IsImage pulumi.BoolPtrInput `pulumi:"isImage"`
-	// Whether the property is a localized string.
-	IsLocalizedString pulumi.BoolPtrInput `pulumi:"isLocalizedString"`
-	// Whether the property is a name or a part of name.
-	IsName pulumi.BoolPtrInput `pulumi:"isName"`
-	// Whether property value is required on instances, IsRequired field only for Interaction. Profile Instance will not check for required field.
-	IsRequired pulumi.BoolPtrInput `pulumi:"isRequired"`
-	// Max length of string. Used only if type is string.
-	MaxLength pulumi.IntPtrInput `pulumi:"maxLength"`
-	// The ID associated with the property.
-	PropertyId pulumi.StringPtrInput `pulumi:"propertyId"`
-	// URL encoded schema.org item prop link for the property.
-	SchemaItemPropLink pulumi.StringPtrInput `pulumi:"schemaItemPropLink"`
+	ArrayValueSeparator pulumi.StringPtrInput                  `pulumi:"arrayValueSeparator"`
+	EnumValidValues     ProfileEnumValidValuesFormatArrayInput `pulumi:"enumValidValues"`
+	FieldName           pulumi.StringInput                     `pulumi:"fieldName"`
+	FieldType           pulumi.StringInput                     `pulumi:"fieldType"`
+	IsArray             pulumi.BoolPtrInput                    `pulumi:"isArray"`
+	IsAvailableInGraph  pulumi.BoolPtrInput                    `pulumi:"isAvailableInGraph"`
+	IsEnum              pulumi.BoolPtrInput                    `pulumi:"isEnum"`
+	IsFlagEnum          pulumi.BoolPtrInput                    `pulumi:"isFlagEnum"`
+	IsImage             pulumi.BoolPtrInput                    `pulumi:"isImage"`
+	IsLocalizedString   pulumi.BoolPtrInput                    `pulumi:"isLocalizedString"`
+	IsName              pulumi.BoolPtrInput                    `pulumi:"isName"`
+	IsRequired          pulumi.BoolPtrInput                    `pulumi:"isRequired"`
+	MaxLength           pulumi.IntPtrInput                     `pulumi:"maxLength"`
+	PropertyId          pulumi.StringPtrInput                  `pulumi:"propertyId"`
+	SchemaItemPropLink  pulumi.StringPtrInput                  `pulumi:"schemaItemPropLink"`
 }
 
 func (PropertyDefinitionArgs) ElementType() reflect.Type {
@@ -4455,7 +4090,6 @@ func (i PropertyDefinitionArray) ToPropertyDefinitionArrayOutputWithContext(ctx 
 	return pulumi.ToOutputWithContext(ctx, i).(PropertyDefinitionArrayOutput)
 }
 
-// Property definition.
 type PropertyDefinitionOutput struct{ *pulumi.OutputState }
 
 func (PropertyDefinitionOutput) ElementType() reflect.Type {
@@ -4470,77 +4104,62 @@ func (o PropertyDefinitionOutput) ToPropertyDefinitionOutputWithContext(ctx cont
 	return o
 }
 
-// Array value separator for properties with isArray set.
 func (o PropertyDefinitionOutput) ArrayValueSeparator() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v PropertyDefinition) *string { return v.ArrayValueSeparator }).(pulumi.StringPtrOutput)
 }
 
-// Describes valid values for an enum property.
 func (o PropertyDefinitionOutput) EnumValidValues() ProfileEnumValidValuesFormatArrayOutput {
 	return o.ApplyT(func(v PropertyDefinition) []ProfileEnumValidValuesFormat { return v.EnumValidValues }).(ProfileEnumValidValuesFormatArrayOutput)
 }
 
-// Name of the property.
 func (o PropertyDefinitionOutput) FieldName() pulumi.StringOutput {
 	return o.ApplyT(func(v PropertyDefinition) string { return v.FieldName }).(pulumi.StringOutput)
 }
 
-// Type of the property.
 func (o PropertyDefinitionOutput) FieldType() pulumi.StringOutput {
 	return o.ApplyT(func(v PropertyDefinition) string { return v.FieldType }).(pulumi.StringOutput)
 }
 
-// Indicates if the property is actually an array of the fieldType above on the data api.
 func (o PropertyDefinitionOutput) IsArray() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v PropertyDefinition) *bool { return v.IsArray }).(pulumi.BoolPtrOutput)
 }
 
-// Whether property is available in graph or not.
 func (o PropertyDefinitionOutput) IsAvailableInGraph() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v PropertyDefinition) *bool { return v.IsAvailableInGraph }).(pulumi.BoolPtrOutput)
 }
 
-// Indicates if the property is an enum.
 func (o PropertyDefinitionOutput) IsEnum() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v PropertyDefinition) *bool { return v.IsEnum }).(pulumi.BoolPtrOutput)
 }
 
-// Indicates if the property is an flag enum.
 func (o PropertyDefinitionOutput) IsFlagEnum() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v PropertyDefinition) *bool { return v.IsFlagEnum }).(pulumi.BoolPtrOutput)
 }
 
-// Whether the property is an Image.
 func (o PropertyDefinitionOutput) IsImage() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v PropertyDefinition) *bool { return v.IsImage }).(pulumi.BoolPtrOutput)
 }
 
-// Whether the property is a localized string.
 func (o PropertyDefinitionOutput) IsLocalizedString() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v PropertyDefinition) *bool { return v.IsLocalizedString }).(pulumi.BoolPtrOutput)
 }
 
-// Whether the property is a name or a part of name.
 func (o PropertyDefinitionOutput) IsName() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v PropertyDefinition) *bool { return v.IsName }).(pulumi.BoolPtrOutput)
 }
 
-// Whether property value is required on instances, IsRequired field only for Interaction. Profile Instance will not check for required field.
 func (o PropertyDefinitionOutput) IsRequired() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v PropertyDefinition) *bool { return v.IsRequired }).(pulumi.BoolPtrOutput)
 }
 
-// Max length of string. Used only if type is string.
 func (o PropertyDefinitionOutput) MaxLength() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v PropertyDefinition) *int { return v.MaxLength }).(pulumi.IntPtrOutput)
 }
 
-// The ID associated with the property.
 func (o PropertyDefinitionOutput) PropertyId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v PropertyDefinition) *string { return v.PropertyId }).(pulumi.StringPtrOutput)
 }
 
-// URL encoded schema.org item prop link for the property.
 func (o PropertyDefinitionOutput) SchemaItemPropLink() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v PropertyDefinition) *string { return v.SchemaItemPropLink }).(pulumi.StringPtrOutput)
 }
@@ -4565,40 +4184,23 @@ func (o PropertyDefinitionArrayOutput) Index(i pulumi.IntInput) PropertyDefiniti
 	}).(PropertyDefinitionOutput)
 }
 
-// Property definition.
 type PropertyDefinitionResponse struct {
-	// Array value separator for properties with isArray set.
-	ArrayValueSeparator *string `pulumi:"arrayValueSeparator"`
-	// This is specific to interactions modeled as activities. Data sources are used to determine where data is stored and also in precedence rules.
-	DataSourcePrecedenceRules []DataSourcePrecedenceResponse `pulumi:"dataSourcePrecedenceRules"`
-	// Describes valid values for an enum property.
-	EnumValidValues []ProfileEnumValidValuesFormatResponse `pulumi:"enumValidValues"`
-	// Name of the property.
-	FieldName string `pulumi:"fieldName"`
-	// Type of the property.
-	FieldType string `pulumi:"fieldType"`
-	// Indicates if the property is actually an array of the fieldType above on the data api.
-	IsArray *bool `pulumi:"isArray"`
-	// Whether property is available in graph or not.
-	IsAvailableInGraph *bool `pulumi:"isAvailableInGraph"`
-	// Indicates if the property is an enum.
-	IsEnum *bool `pulumi:"isEnum"`
-	// Indicates if the property is an flag enum.
-	IsFlagEnum *bool `pulumi:"isFlagEnum"`
-	// Whether the property is an Image.
-	IsImage *bool `pulumi:"isImage"`
-	// Whether the property is a localized string.
-	IsLocalizedString *bool `pulumi:"isLocalizedString"`
-	// Whether the property is a name or a part of name.
-	IsName *bool `pulumi:"isName"`
-	// Whether property value is required on instances, IsRequired field only for Interaction. Profile Instance will not check for required field.
-	IsRequired *bool `pulumi:"isRequired"`
-	// Max length of string. Used only if type is string.
-	MaxLength *int `pulumi:"maxLength"`
-	// The ID associated with the property.
-	PropertyId *string `pulumi:"propertyId"`
-	// URL encoded schema.org item prop link for the property.
-	SchemaItemPropLink *string `pulumi:"schemaItemPropLink"`
+	ArrayValueSeparator       *string                                `pulumi:"arrayValueSeparator"`
+	DataSourcePrecedenceRules []DataSourcePrecedenceResponse         `pulumi:"dataSourcePrecedenceRules"`
+	EnumValidValues           []ProfileEnumValidValuesFormatResponse `pulumi:"enumValidValues"`
+	FieldName                 string                                 `pulumi:"fieldName"`
+	FieldType                 string                                 `pulumi:"fieldType"`
+	IsArray                   *bool                                  `pulumi:"isArray"`
+	IsAvailableInGraph        *bool                                  `pulumi:"isAvailableInGraph"`
+	IsEnum                    *bool                                  `pulumi:"isEnum"`
+	IsFlagEnum                *bool                                  `pulumi:"isFlagEnum"`
+	IsImage                   *bool                                  `pulumi:"isImage"`
+	IsLocalizedString         *bool                                  `pulumi:"isLocalizedString"`
+	IsName                    *bool                                  `pulumi:"isName"`
+	IsRequired                *bool                                  `pulumi:"isRequired"`
+	MaxLength                 *int                                   `pulumi:"maxLength"`
+	PropertyId                *string                                `pulumi:"propertyId"`
+	SchemaItemPropLink        *string                                `pulumi:"schemaItemPropLink"`
 }
 
 // PropertyDefinitionResponseInput is an input type that accepts PropertyDefinitionResponseArgs and PropertyDefinitionResponseOutput values.
@@ -4612,40 +4214,23 @@ type PropertyDefinitionResponseInput interface {
 	ToPropertyDefinitionResponseOutputWithContext(context.Context) PropertyDefinitionResponseOutput
 }
 
-// Property definition.
 type PropertyDefinitionResponseArgs struct {
-	// Array value separator for properties with isArray set.
-	ArrayValueSeparator pulumi.StringPtrInput `pulumi:"arrayValueSeparator"`
-	// This is specific to interactions modeled as activities. Data sources are used to determine where data is stored and also in precedence rules.
-	DataSourcePrecedenceRules DataSourcePrecedenceResponseArrayInput `pulumi:"dataSourcePrecedenceRules"`
-	// Describes valid values for an enum property.
-	EnumValidValues ProfileEnumValidValuesFormatResponseArrayInput `pulumi:"enumValidValues"`
-	// Name of the property.
-	FieldName pulumi.StringInput `pulumi:"fieldName"`
-	// Type of the property.
-	FieldType pulumi.StringInput `pulumi:"fieldType"`
-	// Indicates if the property is actually an array of the fieldType above on the data api.
-	IsArray pulumi.BoolPtrInput `pulumi:"isArray"`
-	// Whether property is available in graph or not.
-	IsAvailableInGraph pulumi.BoolPtrInput `pulumi:"isAvailableInGraph"`
-	// Indicates if the property is an enum.
-	IsEnum pulumi.BoolPtrInput `pulumi:"isEnum"`
-	// Indicates if the property is an flag enum.
-	IsFlagEnum pulumi.BoolPtrInput `pulumi:"isFlagEnum"`
-	// Whether the property is an Image.
-	IsImage pulumi.BoolPtrInput `pulumi:"isImage"`
-	// Whether the property is a localized string.
-	IsLocalizedString pulumi.BoolPtrInput `pulumi:"isLocalizedString"`
-	// Whether the property is a name or a part of name.
-	IsName pulumi.BoolPtrInput `pulumi:"isName"`
-	// Whether property value is required on instances, IsRequired field only for Interaction. Profile Instance will not check for required field.
-	IsRequired pulumi.BoolPtrInput `pulumi:"isRequired"`
-	// Max length of string. Used only if type is string.
-	MaxLength pulumi.IntPtrInput `pulumi:"maxLength"`
-	// The ID associated with the property.
-	PropertyId pulumi.StringPtrInput `pulumi:"propertyId"`
-	// URL encoded schema.org item prop link for the property.
-	SchemaItemPropLink pulumi.StringPtrInput `pulumi:"schemaItemPropLink"`
+	ArrayValueSeparator       pulumi.StringPtrInput                          `pulumi:"arrayValueSeparator"`
+	DataSourcePrecedenceRules DataSourcePrecedenceResponseArrayInput         `pulumi:"dataSourcePrecedenceRules"`
+	EnumValidValues           ProfileEnumValidValuesFormatResponseArrayInput `pulumi:"enumValidValues"`
+	FieldName                 pulumi.StringInput                             `pulumi:"fieldName"`
+	FieldType                 pulumi.StringInput                             `pulumi:"fieldType"`
+	IsArray                   pulumi.BoolPtrInput                            `pulumi:"isArray"`
+	IsAvailableInGraph        pulumi.BoolPtrInput                            `pulumi:"isAvailableInGraph"`
+	IsEnum                    pulumi.BoolPtrInput                            `pulumi:"isEnum"`
+	IsFlagEnum                pulumi.BoolPtrInput                            `pulumi:"isFlagEnum"`
+	IsImage                   pulumi.BoolPtrInput                            `pulumi:"isImage"`
+	IsLocalizedString         pulumi.BoolPtrInput                            `pulumi:"isLocalizedString"`
+	IsName                    pulumi.BoolPtrInput                            `pulumi:"isName"`
+	IsRequired                pulumi.BoolPtrInput                            `pulumi:"isRequired"`
+	MaxLength                 pulumi.IntPtrInput                             `pulumi:"maxLength"`
+	PropertyId                pulumi.StringPtrInput                          `pulumi:"propertyId"`
+	SchemaItemPropLink        pulumi.StringPtrInput                          `pulumi:"schemaItemPropLink"`
 }
 
 func (PropertyDefinitionResponseArgs) ElementType() reflect.Type {
@@ -4685,7 +4270,6 @@ func (i PropertyDefinitionResponseArray) ToPropertyDefinitionResponseArrayOutput
 	return pulumi.ToOutputWithContext(ctx, i).(PropertyDefinitionResponseArrayOutput)
 }
 
-// Property definition.
 type PropertyDefinitionResponseOutput struct{ *pulumi.OutputState }
 
 func (PropertyDefinitionResponseOutput) ElementType() reflect.Type {
@@ -4700,82 +4284,66 @@ func (o PropertyDefinitionResponseOutput) ToPropertyDefinitionResponseOutputWith
 	return o
 }
 
-// Array value separator for properties with isArray set.
 func (o PropertyDefinitionResponseOutput) ArrayValueSeparator() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v PropertyDefinitionResponse) *string { return v.ArrayValueSeparator }).(pulumi.StringPtrOutput)
 }
 
-// This is specific to interactions modeled as activities. Data sources are used to determine where data is stored and also in precedence rules.
 func (o PropertyDefinitionResponseOutput) DataSourcePrecedenceRules() DataSourcePrecedenceResponseArrayOutput {
 	return o.ApplyT(func(v PropertyDefinitionResponse) []DataSourcePrecedenceResponse { return v.DataSourcePrecedenceRules }).(DataSourcePrecedenceResponseArrayOutput)
 }
 
-// Describes valid values for an enum property.
 func (o PropertyDefinitionResponseOutput) EnumValidValues() ProfileEnumValidValuesFormatResponseArrayOutput {
 	return o.ApplyT(func(v PropertyDefinitionResponse) []ProfileEnumValidValuesFormatResponse { return v.EnumValidValues }).(ProfileEnumValidValuesFormatResponseArrayOutput)
 }
 
-// Name of the property.
 func (o PropertyDefinitionResponseOutput) FieldName() pulumi.StringOutput {
 	return o.ApplyT(func(v PropertyDefinitionResponse) string { return v.FieldName }).(pulumi.StringOutput)
 }
 
-// Type of the property.
 func (o PropertyDefinitionResponseOutput) FieldType() pulumi.StringOutput {
 	return o.ApplyT(func(v PropertyDefinitionResponse) string { return v.FieldType }).(pulumi.StringOutput)
 }
 
-// Indicates if the property is actually an array of the fieldType above on the data api.
 func (o PropertyDefinitionResponseOutput) IsArray() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v PropertyDefinitionResponse) *bool { return v.IsArray }).(pulumi.BoolPtrOutput)
 }
 
-// Whether property is available in graph or not.
 func (o PropertyDefinitionResponseOutput) IsAvailableInGraph() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v PropertyDefinitionResponse) *bool { return v.IsAvailableInGraph }).(pulumi.BoolPtrOutput)
 }
 
-// Indicates if the property is an enum.
 func (o PropertyDefinitionResponseOutput) IsEnum() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v PropertyDefinitionResponse) *bool { return v.IsEnum }).(pulumi.BoolPtrOutput)
 }
 
-// Indicates if the property is an flag enum.
 func (o PropertyDefinitionResponseOutput) IsFlagEnum() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v PropertyDefinitionResponse) *bool { return v.IsFlagEnum }).(pulumi.BoolPtrOutput)
 }
 
-// Whether the property is an Image.
 func (o PropertyDefinitionResponseOutput) IsImage() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v PropertyDefinitionResponse) *bool { return v.IsImage }).(pulumi.BoolPtrOutput)
 }
 
-// Whether the property is a localized string.
 func (o PropertyDefinitionResponseOutput) IsLocalizedString() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v PropertyDefinitionResponse) *bool { return v.IsLocalizedString }).(pulumi.BoolPtrOutput)
 }
 
-// Whether the property is a name or a part of name.
 func (o PropertyDefinitionResponseOutput) IsName() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v PropertyDefinitionResponse) *bool { return v.IsName }).(pulumi.BoolPtrOutput)
 }
 
-// Whether property value is required on instances, IsRequired field only for Interaction. Profile Instance will not check for required field.
 func (o PropertyDefinitionResponseOutput) IsRequired() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v PropertyDefinitionResponse) *bool { return v.IsRequired }).(pulumi.BoolPtrOutput)
 }
 
-// Max length of string. Used only if type is string.
 func (o PropertyDefinitionResponseOutput) MaxLength() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v PropertyDefinitionResponse) *int { return v.MaxLength }).(pulumi.IntPtrOutput)
 }
 
-// The ID associated with the property.
 func (o PropertyDefinitionResponseOutput) PropertyId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v PropertyDefinitionResponse) *string { return v.PropertyId }).(pulumi.StringPtrOutput)
 }
 
-// URL encoded schema.org item prop link for the property.
 func (o PropertyDefinitionResponseOutput) SchemaItemPropLink() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v PropertyDefinitionResponse) *string { return v.SchemaItemPropLink }).(pulumi.StringPtrOutput)
 }
@@ -4800,14 +4368,10 @@ func (o PropertyDefinitionResponseArrayOutput) Index(i pulumi.IntInput) Property
 	}).(PropertyDefinitionResponseOutput)
 }
 
-// The fields mapping for Relationships.
 type RelationshipLinkFieldMapping struct {
-	// The field name on the Interaction Type.
-	InteractionFieldName string `pulumi:"interactionFieldName"`
-	// Link type.
-	LinkType *string `pulumi:"linkType"`
-	// The field name on the Relationship metadata.
-	RelationshipFieldName string `pulumi:"relationshipFieldName"`
+	InteractionFieldName  string     `pulumi:"interactionFieldName"`
+	LinkType              *LinkTypes `pulumi:"linkType"`
+	RelationshipFieldName string     `pulumi:"relationshipFieldName"`
 }
 
 // RelationshipLinkFieldMappingInput is an input type that accepts RelationshipLinkFieldMappingArgs and RelationshipLinkFieldMappingOutput values.
@@ -4821,13 +4385,9 @@ type RelationshipLinkFieldMappingInput interface {
 	ToRelationshipLinkFieldMappingOutputWithContext(context.Context) RelationshipLinkFieldMappingOutput
 }
 
-// The fields mapping for Relationships.
 type RelationshipLinkFieldMappingArgs struct {
-	// The field name on the Interaction Type.
-	InteractionFieldName pulumi.StringInput `pulumi:"interactionFieldName"`
-	// Link type.
-	LinkType *LinkTypes `pulumi:"linkType"`
-	// The field name on the Relationship metadata.
+	InteractionFieldName  pulumi.StringInput `pulumi:"interactionFieldName"`
+	LinkType              LinkTypesPtrInput  `pulumi:"linkType"`
 	RelationshipFieldName pulumi.StringInput `pulumi:"relationshipFieldName"`
 }
 
@@ -4868,7 +4428,6 @@ func (i RelationshipLinkFieldMappingArray) ToRelationshipLinkFieldMappingArrayOu
 	return pulumi.ToOutputWithContext(ctx, i).(RelationshipLinkFieldMappingArrayOutput)
 }
 
-// The fields mapping for Relationships.
 type RelationshipLinkFieldMappingOutput struct{ *pulumi.OutputState }
 
 func (RelationshipLinkFieldMappingOutput) ElementType() reflect.Type {
@@ -4883,17 +4442,14 @@ func (o RelationshipLinkFieldMappingOutput) ToRelationshipLinkFieldMappingOutput
 	return o
 }
 
-// The field name on the Interaction Type.
 func (o RelationshipLinkFieldMappingOutput) InteractionFieldName() pulumi.StringOutput {
 	return o.ApplyT(func(v RelationshipLinkFieldMapping) string { return v.InteractionFieldName }).(pulumi.StringOutput)
 }
 
-// Link type.
-func (o RelationshipLinkFieldMappingOutput) LinkType() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v RelationshipLinkFieldMapping) *string { return v.LinkType }).(pulumi.StringPtrOutput)
+func (o RelationshipLinkFieldMappingOutput) LinkType() LinkTypesPtrOutput {
+	return o.ApplyT(func(v RelationshipLinkFieldMapping) *LinkTypes { return v.LinkType }).(LinkTypesPtrOutput)
 }
 
-// The field name on the Relationship metadata.
 func (o RelationshipLinkFieldMappingOutput) RelationshipFieldName() pulumi.StringOutput {
 	return o.ApplyT(func(v RelationshipLinkFieldMapping) string { return v.RelationshipFieldName }).(pulumi.StringOutput)
 }
@@ -4918,14 +4474,10 @@ func (o RelationshipLinkFieldMappingArrayOutput) Index(i pulumi.IntInput) Relati
 	}).(RelationshipLinkFieldMappingOutput)
 }
 
-// The fields mapping for Relationships.
 type RelationshipLinkFieldMappingResponse struct {
-	// The field name on the Interaction Type.
-	InteractionFieldName string `pulumi:"interactionFieldName"`
-	// Link type.
-	LinkType *string `pulumi:"linkType"`
-	// The field name on the Relationship metadata.
-	RelationshipFieldName string `pulumi:"relationshipFieldName"`
+	InteractionFieldName  string  `pulumi:"interactionFieldName"`
+	LinkType              *string `pulumi:"linkType"`
+	RelationshipFieldName string  `pulumi:"relationshipFieldName"`
 }
 
 // RelationshipLinkFieldMappingResponseInput is an input type that accepts RelationshipLinkFieldMappingResponseArgs and RelationshipLinkFieldMappingResponseOutput values.
@@ -4939,14 +4491,10 @@ type RelationshipLinkFieldMappingResponseInput interface {
 	ToRelationshipLinkFieldMappingResponseOutputWithContext(context.Context) RelationshipLinkFieldMappingResponseOutput
 }
 
-// The fields mapping for Relationships.
 type RelationshipLinkFieldMappingResponseArgs struct {
-	// The field name on the Interaction Type.
-	InteractionFieldName pulumi.StringInput `pulumi:"interactionFieldName"`
-	// Link type.
-	LinkType pulumi.StringPtrInput `pulumi:"linkType"`
-	// The field name on the Relationship metadata.
-	RelationshipFieldName pulumi.StringInput `pulumi:"relationshipFieldName"`
+	InteractionFieldName  pulumi.StringInput    `pulumi:"interactionFieldName"`
+	LinkType              pulumi.StringPtrInput `pulumi:"linkType"`
+	RelationshipFieldName pulumi.StringInput    `pulumi:"relationshipFieldName"`
 }
 
 func (RelationshipLinkFieldMappingResponseArgs) ElementType() reflect.Type {
@@ -4986,7 +4534,6 @@ func (i RelationshipLinkFieldMappingResponseArray) ToRelationshipLinkFieldMappin
 	return pulumi.ToOutputWithContext(ctx, i).(RelationshipLinkFieldMappingResponseArrayOutput)
 }
 
-// The fields mapping for Relationships.
 type RelationshipLinkFieldMappingResponseOutput struct{ *pulumi.OutputState }
 
 func (RelationshipLinkFieldMappingResponseOutput) ElementType() reflect.Type {
@@ -5001,17 +4548,14 @@ func (o RelationshipLinkFieldMappingResponseOutput) ToRelationshipLinkFieldMappi
 	return o
 }
 
-// The field name on the Interaction Type.
 func (o RelationshipLinkFieldMappingResponseOutput) InteractionFieldName() pulumi.StringOutput {
 	return o.ApplyT(func(v RelationshipLinkFieldMappingResponse) string { return v.InteractionFieldName }).(pulumi.StringOutput)
 }
 
-// Link type.
 func (o RelationshipLinkFieldMappingResponseOutput) LinkType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v RelationshipLinkFieldMappingResponse) *string { return v.LinkType }).(pulumi.StringPtrOutput)
 }
 
-// The field name on the Relationship metadata.
 func (o RelationshipLinkFieldMappingResponseOutput) RelationshipFieldName() pulumi.StringOutput {
 	return o.ApplyT(func(v RelationshipLinkFieldMappingResponse) string { return v.RelationshipFieldName }).(pulumi.StringOutput)
 }
@@ -5036,11 +4580,8 @@ func (o RelationshipLinkFieldMappingResponseArrayOutput) Index(i pulumi.IntInput
 	}).(RelationshipLinkFieldMappingResponseOutput)
 }
 
-// Map a field of profile to its corresponding StrongId in Related Profile.
 type RelationshipTypeFieldMapping struct {
-	// Specifies the fieldName in profile.
-	ProfileFieldName string `pulumi:"profileFieldName"`
-	// Specifies the KeyProperty (from StrongId) of the related profile.
+	ProfileFieldName          string `pulumi:"profileFieldName"`
 	RelatedProfileKeyProperty string `pulumi:"relatedProfileKeyProperty"`
 }
 
@@ -5055,11 +4596,8 @@ type RelationshipTypeFieldMappingInput interface {
 	ToRelationshipTypeFieldMappingOutputWithContext(context.Context) RelationshipTypeFieldMappingOutput
 }
 
-// Map a field of profile to its corresponding StrongId in Related Profile.
 type RelationshipTypeFieldMappingArgs struct {
-	// Specifies the fieldName in profile.
-	ProfileFieldName pulumi.StringInput `pulumi:"profileFieldName"`
-	// Specifies the KeyProperty (from StrongId) of the related profile.
+	ProfileFieldName          pulumi.StringInput `pulumi:"profileFieldName"`
 	RelatedProfileKeyProperty pulumi.StringInput `pulumi:"relatedProfileKeyProperty"`
 }
 
@@ -5100,7 +4638,6 @@ func (i RelationshipTypeFieldMappingArray) ToRelationshipTypeFieldMappingArrayOu
 	return pulumi.ToOutputWithContext(ctx, i).(RelationshipTypeFieldMappingArrayOutput)
 }
 
-// Map a field of profile to its corresponding StrongId in Related Profile.
 type RelationshipTypeFieldMappingOutput struct{ *pulumi.OutputState }
 
 func (RelationshipTypeFieldMappingOutput) ElementType() reflect.Type {
@@ -5115,12 +4652,10 @@ func (o RelationshipTypeFieldMappingOutput) ToRelationshipTypeFieldMappingOutput
 	return o
 }
 
-// Specifies the fieldName in profile.
 func (o RelationshipTypeFieldMappingOutput) ProfileFieldName() pulumi.StringOutput {
 	return o.ApplyT(func(v RelationshipTypeFieldMapping) string { return v.ProfileFieldName }).(pulumi.StringOutput)
 }
 
-// Specifies the KeyProperty (from StrongId) of the related profile.
 func (o RelationshipTypeFieldMappingOutput) RelatedProfileKeyProperty() pulumi.StringOutput {
 	return o.ApplyT(func(v RelationshipTypeFieldMapping) string { return v.RelatedProfileKeyProperty }).(pulumi.StringOutput)
 }
@@ -5145,11 +4680,8 @@ func (o RelationshipTypeFieldMappingArrayOutput) Index(i pulumi.IntInput) Relati
 	}).(RelationshipTypeFieldMappingOutput)
 }
 
-// Map a field of profile to its corresponding StrongId in Related Profile.
 type RelationshipTypeFieldMappingResponse struct {
-	// Specifies the fieldName in profile.
-	ProfileFieldName string `pulumi:"profileFieldName"`
-	// Specifies the KeyProperty (from StrongId) of the related profile.
+	ProfileFieldName          string `pulumi:"profileFieldName"`
 	RelatedProfileKeyProperty string `pulumi:"relatedProfileKeyProperty"`
 }
 
@@ -5164,11 +4696,8 @@ type RelationshipTypeFieldMappingResponseInput interface {
 	ToRelationshipTypeFieldMappingResponseOutputWithContext(context.Context) RelationshipTypeFieldMappingResponseOutput
 }
 
-// Map a field of profile to its corresponding StrongId in Related Profile.
 type RelationshipTypeFieldMappingResponseArgs struct {
-	// Specifies the fieldName in profile.
-	ProfileFieldName pulumi.StringInput `pulumi:"profileFieldName"`
-	// Specifies the KeyProperty (from StrongId) of the related profile.
+	ProfileFieldName          pulumi.StringInput `pulumi:"profileFieldName"`
 	RelatedProfileKeyProperty pulumi.StringInput `pulumi:"relatedProfileKeyProperty"`
 }
 
@@ -5209,7 +4738,6 @@ func (i RelationshipTypeFieldMappingResponseArray) ToRelationshipTypeFieldMappin
 	return pulumi.ToOutputWithContext(ctx, i).(RelationshipTypeFieldMappingResponseArrayOutput)
 }
 
-// Map a field of profile to its corresponding StrongId in Related Profile.
 type RelationshipTypeFieldMappingResponseOutput struct{ *pulumi.OutputState }
 
 func (RelationshipTypeFieldMappingResponseOutput) ElementType() reflect.Type {
@@ -5224,12 +4752,10 @@ func (o RelationshipTypeFieldMappingResponseOutput) ToRelationshipTypeFieldMappi
 	return o
 }
 
-// Specifies the fieldName in profile.
 func (o RelationshipTypeFieldMappingResponseOutput) ProfileFieldName() pulumi.StringOutput {
 	return o.ApplyT(func(v RelationshipTypeFieldMappingResponse) string { return v.ProfileFieldName }).(pulumi.StringOutput)
 }
 
-// Specifies the KeyProperty (from StrongId) of the related profile.
 func (o RelationshipTypeFieldMappingResponseOutput) RelatedProfileKeyProperty() pulumi.StringOutput {
 	return o.ApplyT(func(v RelationshipTypeFieldMappingResponse) string { return v.RelatedProfileKeyProperty }).(pulumi.StringOutput)
 }
@@ -5254,9 +4780,7 @@ func (o RelationshipTypeFieldMappingResponseArrayOutput) Index(i pulumi.IntInput
 	}).(RelationshipTypeFieldMappingResponseOutput)
 }
 
-// Maps fields in Profile to their corresponding StrongIds in Related Profile.
 type RelationshipTypeMapping struct {
-	// Maps a profile property with the StrongId of related profile. This is an array to support StrongIds that are composite key as well.
 	FieldMappings []RelationshipTypeFieldMapping `pulumi:"fieldMappings"`
 }
 
@@ -5271,9 +4795,7 @@ type RelationshipTypeMappingInput interface {
 	ToRelationshipTypeMappingOutputWithContext(context.Context) RelationshipTypeMappingOutput
 }
 
-// Maps fields in Profile to their corresponding StrongIds in Related Profile.
 type RelationshipTypeMappingArgs struct {
-	// Maps a profile property with the StrongId of related profile. This is an array to support StrongIds that are composite key as well.
 	FieldMappings RelationshipTypeFieldMappingArrayInput `pulumi:"fieldMappings"`
 }
 
@@ -5314,7 +4836,6 @@ func (i RelationshipTypeMappingArray) ToRelationshipTypeMappingArrayOutputWithCo
 	return pulumi.ToOutputWithContext(ctx, i).(RelationshipTypeMappingArrayOutput)
 }
 
-// Maps fields in Profile to their corresponding StrongIds in Related Profile.
 type RelationshipTypeMappingOutput struct{ *pulumi.OutputState }
 
 func (RelationshipTypeMappingOutput) ElementType() reflect.Type {
@@ -5329,7 +4850,6 @@ func (o RelationshipTypeMappingOutput) ToRelationshipTypeMappingOutputWithContex
 	return o
 }
 
-// Maps a profile property with the StrongId of related profile. This is an array to support StrongIds that are composite key as well.
 func (o RelationshipTypeMappingOutput) FieldMappings() RelationshipTypeFieldMappingArrayOutput {
 	return o.ApplyT(func(v RelationshipTypeMapping) []RelationshipTypeFieldMapping { return v.FieldMappings }).(RelationshipTypeFieldMappingArrayOutput)
 }
@@ -5354,9 +4874,7 @@ func (o RelationshipTypeMappingArrayOutput) Index(i pulumi.IntInput) Relationshi
 	}).(RelationshipTypeMappingOutput)
 }
 
-// Maps fields in Profile to their corresponding StrongIds in Related Profile.
 type RelationshipTypeMappingResponse struct {
-	// Maps a profile property with the StrongId of related profile. This is an array to support StrongIds that are composite key as well.
 	FieldMappings []RelationshipTypeFieldMappingResponse `pulumi:"fieldMappings"`
 }
 
@@ -5371,9 +4889,7 @@ type RelationshipTypeMappingResponseInput interface {
 	ToRelationshipTypeMappingResponseOutputWithContext(context.Context) RelationshipTypeMappingResponseOutput
 }
 
-// Maps fields in Profile to their corresponding StrongIds in Related Profile.
 type RelationshipTypeMappingResponseArgs struct {
-	// Maps a profile property with the StrongId of related profile. This is an array to support StrongIds that are composite key as well.
 	FieldMappings RelationshipTypeFieldMappingResponseArrayInput `pulumi:"fieldMappings"`
 }
 
@@ -5414,7 +4930,6 @@ func (i RelationshipTypeMappingResponseArray) ToRelationshipTypeMappingResponseA
 	return pulumi.ToOutputWithContext(ctx, i).(RelationshipTypeMappingResponseArrayOutput)
 }
 
-// Maps fields in Profile to their corresponding StrongIds in Related Profile.
 type RelationshipTypeMappingResponseOutput struct{ *pulumi.OutputState }
 
 func (RelationshipTypeMappingResponseOutput) ElementType() reflect.Type {
@@ -5429,7 +4944,6 @@ func (o RelationshipTypeMappingResponseOutput) ToRelationshipTypeMappingResponse
 	return o
 }
 
-// Maps a profile property with the StrongId of related profile. This is an array to support StrongIds that are composite key as well.
 func (o RelationshipTypeMappingResponseOutput) FieldMappings() RelationshipTypeFieldMappingResponseArrayOutput {
 	return o.ApplyT(func(v RelationshipTypeMappingResponse) []RelationshipTypeFieldMappingResponse { return v.FieldMappings }).(RelationshipTypeFieldMappingResponseArrayOutput)
 }
@@ -5454,11 +4968,8 @@ func (o RelationshipTypeMappingResponseArrayOutput) Index(i pulumi.IntInput) Rel
 	}).(RelationshipTypeMappingResponseOutput)
 }
 
-// The resource set description.
 type ResourceSetDescription struct {
-	// The elements included in the set.
-	Elements []string `pulumi:"elements"`
-	// The elements that are not included in the set, in case elements contains '*' indicating 'all'.
+	Elements   []string `pulumi:"elements"`
 	Exceptions []string `pulumi:"exceptions"`
 }
 
@@ -5473,11 +4984,8 @@ type ResourceSetDescriptionInput interface {
 	ToResourceSetDescriptionOutputWithContext(context.Context) ResourceSetDescriptionOutput
 }
 
-// The resource set description.
 type ResourceSetDescriptionArgs struct {
-	// The elements included in the set.
-	Elements pulumi.StringArrayInput `pulumi:"elements"`
-	// The elements that are not included in the set, in case elements contains '*' indicating 'all'.
+	Elements   pulumi.StringArrayInput `pulumi:"elements"`
 	Exceptions pulumi.StringArrayInput `pulumi:"exceptions"`
 }
 
@@ -5534,7 +5042,6 @@ func (i *resourceSetDescriptionPtrType) ToResourceSetDescriptionPtrOutputWithCon
 	return pulumi.ToOutputWithContext(ctx, i).(ResourceSetDescriptionPtrOutput)
 }
 
-// The resource set description.
 type ResourceSetDescriptionOutput struct{ *pulumi.OutputState }
 
 func (ResourceSetDescriptionOutput) ElementType() reflect.Type {
@@ -5554,17 +5061,15 @@ func (o ResourceSetDescriptionOutput) ToResourceSetDescriptionPtrOutput() Resour
 }
 
 func (o ResourceSetDescriptionOutput) ToResourceSetDescriptionPtrOutputWithContext(ctx context.Context) ResourceSetDescriptionPtrOutput {
-	return o.ApplyT(func(v ResourceSetDescription) *ResourceSetDescription {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ResourceSetDescription) *ResourceSetDescription {
 		return &v
 	}).(ResourceSetDescriptionPtrOutput)
 }
 
-// The elements included in the set.
 func (o ResourceSetDescriptionOutput) Elements() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v ResourceSetDescription) []string { return v.Elements }).(pulumi.StringArrayOutput)
 }
 
-// The elements that are not included in the set, in case elements contains '*' indicating 'all'.
 func (o ResourceSetDescriptionOutput) Exceptions() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v ResourceSetDescription) []string { return v.Exceptions }).(pulumi.StringArrayOutput)
 }
@@ -5584,10 +5089,15 @@ func (o ResourceSetDescriptionPtrOutput) ToResourceSetDescriptionPtrOutputWithCo
 }
 
 func (o ResourceSetDescriptionPtrOutput) Elem() ResourceSetDescriptionOutput {
-	return o.ApplyT(func(v *ResourceSetDescription) ResourceSetDescription { return *v }).(ResourceSetDescriptionOutput)
+	return o.ApplyT(func(v *ResourceSetDescription) ResourceSetDescription {
+		if v != nil {
+			return *v
+		}
+		var ret ResourceSetDescription
+		return ret
+	}).(ResourceSetDescriptionOutput)
 }
 
-// The elements included in the set.
 func (o ResourceSetDescriptionPtrOutput) Elements() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *ResourceSetDescription) []string {
 		if v == nil {
@@ -5597,7 +5107,6 @@ func (o ResourceSetDescriptionPtrOutput) Elements() pulumi.StringArrayOutput {
 	}).(pulumi.StringArrayOutput)
 }
 
-// The elements that are not included in the set, in case elements contains '*' indicating 'all'.
 func (o ResourceSetDescriptionPtrOutput) Exceptions() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *ResourceSetDescription) []string {
 		if v == nil {
@@ -5607,11 +5116,8 @@ func (o ResourceSetDescriptionPtrOutput) Exceptions() pulumi.StringArrayOutput {
 	}).(pulumi.StringArrayOutput)
 }
 
-// The resource set description.
 type ResourceSetDescriptionResponse struct {
-	// The elements included in the set.
-	Elements []string `pulumi:"elements"`
-	// The elements that are not included in the set, in case elements contains '*' indicating 'all'.
+	Elements   []string `pulumi:"elements"`
 	Exceptions []string `pulumi:"exceptions"`
 }
 
@@ -5626,11 +5132,8 @@ type ResourceSetDescriptionResponseInput interface {
 	ToResourceSetDescriptionResponseOutputWithContext(context.Context) ResourceSetDescriptionResponseOutput
 }
 
-// The resource set description.
 type ResourceSetDescriptionResponseArgs struct {
-	// The elements included in the set.
-	Elements pulumi.StringArrayInput `pulumi:"elements"`
-	// The elements that are not included in the set, in case elements contains '*' indicating 'all'.
+	Elements   pulumi.StringArrayInput `pulumi:"elements"`
 	Exceptions pulumi.StringArrayInput `pulumi:"exceptions"`
 }
 
@@ -5687,7 +5190,6 @@ func (i *resourceSetDescriptionResponsePtrType) ToResourceSetDescriptionResponse
 	return pulumi.ToOutputWithContext(ctx, i).(ResourceSetDescriptionResponsePtrOutput)
 }
 
-// The resource set description.
 type ResourceSetDescriptionResponseOutput struct{ *pulumi.OutputState }
 
 func (ResourceSetDescriptionResponseOutput) ElementType() reflect.Type {
@@ -5707,17 +5209,15 @@ func (o ResourceSetDescriptionResponseOutput) ToResourceSetDescriptionResponsePt
 }
 
 func (o ResourceSetDescriptionResponseOutput) ToResourceSetDescriptionResponsePtrOutputWithContext(ctx context.Context) ResourceSetDescriptionResponsePtrOutput {
-	return o.ApplyT(func(v ResourceSetDescriptionResponse) *ResourceSetDescriptionResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ResourceSetDescriptionResponse) *ResourceSetDescriptionResponse {
 		return &v
 	}).(ResourceSetDescriptionResponsePtrOutput)
 }
 
-// The elements included in the set.
 func (o ResourceSetDescriptionResponseOutput) Elements() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v ResourceSetDescriptionResponse) []string { return v.Elements }).(pulumi.StringArrayOutput)
 }
 
-// The elements that are not included in the set, in case elements contains '*' indicating 'all'.
 func (o ResourceSetDescriptionResponseOutput) Exceptions() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v ResourceSetDescriptionResponse) []string { return v.Exceptions }).(pulumi.StringArrayOutput)
 }
@@ -5737,10 +5237,15 @@ func (o ResourceSetDescriptionResponsePtrOutput) ToResourceSetDescriptionRespons
 }
 
 func (o ResourceSetDescriptionResponsePtrOutput) Elem() ResourceSetDescriptionResponseOutput {
-	return o.ApplyT(func(v *ResourceSetDescriptionResponse) ResourceSetDescriptionResponse { return *v }).(ResourceSetDescriptionResponseOutput)
+	return o.ApplyT(func(v *ResourceSetDescriptionResponse) ResourceSetDescriptionResponse {
+		if v != nil {
+			return *v
+		}
+		var ret ResourceSetDescriptionResponse
+		return ret
+	}).(ResourceSetDescriptionResponseOutput)
 }
 
-// The elements included in the set.
 func (o ResourceSetDescriptionResponsePtrOutput) Elements() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *ResourceSetDescriptionResponse) []string {
 		if v == nil {
@@ -5750,7 +5255,6 @@ func (o ResourceSetDescriptionResponsePtrOutput) Elements() pulumi.StringArrayOu
 	}).(pulumi.StringArrayOutput)
 }
 
-// The elements that are not included in the set, in case elements contains '*' indicating 'all'.
 func (o ResourceSetDescriptionResponsePtrOutput) Exceptions() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *ResourceSetDescriptionResponse) []string {
 		if v == nil {
@@ -5760,16 +5264,11 @@ func (o ResourceSetDescriptionResponsePtrOutput) Exceptions() pulumi.StringArray
 	}).(pulumi.StringArrayOutput)
 }
 
-// Property/Properties which represent a unique ID.
 type StrongId struct {
-	// Localized descriptions.
-	Description map[string]string `pulumi:"description"`
-	// Localized display name.
-	DisplayName map[string]string `pulumi:"displayName"`
-	// The properties which make up the unique ID.
-	KeyPropertyNames []string `pulumi:"keyPropertyNames"`
-	// The Name identifying the strong ID.
-	StrongIdName string `pulumi:"strongIdName"`
+	Description      map[string]string `pulumi:"description"`
+	DisplayName      map[string]string `pulumi:"displayName"`
+	KeyPropertyNames []string          `pulumi:"keyPropertyNames"`
+	StrongIdName     string            `pulumi:"strongIdName"`
 }
 
 // StrongIdInput is an input type that accepts StrongIdArgs and StrongIdOutput values.
@@ -5783,16 +5282,11 @@ type StrongIdInput interface {
 	ToStrongIdOutputWithContext(context.Context) StrongIdOutput
 }
 
-// Property/Properties which represent a unique ID.
 type StrongIdArgs struct {
-	// Localized descriptions.
-	Description pulumi.StringMapInput `pulumi:"description"`
-	// Localized display name.
-	DisplayName pulumi.StringMapInput `pulumi:"displayName"`
-	// The properties which make up the unique ID.
+	Description      pulumi.StringMapInput   `pulumi:"description"`
+	DisplayName      pulumi.StringMapInput   `pulumi:"displayName"`
 	KeyPropertyNames pulumi.StringArrayInput `pulumi:"keyPropertyNames"`
-	// The Name identifying the strong ID.
-	StrongIdName pulumi.StringInput `pulumi:"strongIdName"`
+	StrongIdName     pulumi.StringInput      `pulumi:"strongIdName"`
 }
 
 func (StrongIdArgs) ElementType() reflect.Type {
@@ -5832,7 +5326,6 @@ func (i StrongIdArray) ToStrongIdArrayOutputWithContext(ctx context.Context) Str
 	return pulumi.ToOutputWithContext(ctx, i).(StrongIdArrayOutput)
 }
 
-// Property/Properties which represent a unique ID.
 type StrongIdOutput struct{ *pulumi.OutputState }
 
 func (StrongIdOutput) ElementType() reflect.Type {
@@ -5847,22 +5340,18 @@ func (o StrongIdOutput) ToStrongIdOutputWithContext(ctx context.Context) StrongI
 	return o
 }
 
-// Localized descriptions.
 func (o StrongIdOutput) Description() pulumi.StringMapOutput {
 	return o.ApplyT(func(v StrongId) map[string]string { return v.Description }).(pulumi.StringMapOutput)
 }
 
-// Localized display name.
 func (o StrongIdOutput) DisplayName() pulumi.StringMapOutput {
 	return o.ApplyT(func(v StrongId) map[string]string { return v.DisplayName }).(pulumi.StringMapOutput)
 }
 
-// The properties which make up the unique ID.
 func (o StrongIdOutput) KeyPropertyNames() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v StrongId) []string { return v.KeyPropertyNames }).(pulumi.StringArrayOutput)
 }
 
-// The Name identifying the strong ID.
 func (o StrongIdOutput) StrongIdName() pulumi.StringOutput {
 	return o.ApplyT(func(v StrongId) string { return v.StrongIdName }).(pulumi.StringOutput)
 }
@@ -5887,16 +5376,11 @@ func (o StrongIdArrayOutput) Index(i pulumi.IntInput) StrongIdOutput {
 	}).(StrongIdOutput)
 }
 
-// Property/Properties which represent a unique ID.
 type StrongIdResponse struct {
-	// Localized descriptions.
-	Description map[string]string `pulumi:"description"`
-	// Localized display name.
-	DisplayName map[string]string `pulumi:"displayName"`
-	// The properties which make up the unique ID.
-	KeyPropertyNames []string `pulumi:"keyPropertyNames"`
-	// The Name identifying the strong ID.
-	StrongIdName string `pulumi:"strongIdName"`
+	Description      map[string]string `pulumi:"description"`
+	DisplayName      map[string]string `pulumi:"displayName"`
+	KeyPropertyNames []string          `pulumi:"keyPropertyNames"`
+	StrongIdName     string            `pulumi:"strongIdName"`
 }
 
 // StrongIdResponseInput is an input type that accepts StrongIdResponseArgs and StrongIdResponseOutput values.
@@ -5910,16 +5394,11 @@ type StrongIdResponseInput interface {
 	ToStrongIdResponseOutputWithContext(context.Context) StrongIdResponseOutput
 }
 
-// Property/Properties which represent a unique ID.
 type StrongIdResponseArgs struct {
-	// Localized descriptions.
-	Description pulumi.StringMapInput `pulumi:"description"`
-	// Localized display name.
-	DisplayName pulumi.StringMapInput `pulumi:"displayName"`
-	// The properties which make up the unique ID.
+	Description      pulumi.StringMapInput   `pulumi:"description"`
+	DisplayName      pulumi.StringMapInput   `pulumi:"displayName"`
 	KeyPropertyNames pulumi.StringArrayInput `pulumi:"keyPropertyNames"`
-	// The Name identifying the strong ID.
-	StrongIdName pulumi.StringInput `pulumi:"strongIdName"`
+	StrongIdName     pulumi.StringInput      `pulumi:"strongIdName"`
 }
 
 func (StrongIdResponseArgs) ElementType() reflect.Type {
@@ -5959,7 +5438,6 @@ func (i StrongIdResponseArray) ToStrongIdResponseArrayOutputWithContext(ctx cont
 	return pulumi.ToOutputWithContext(ctx, i).(StrongIdResponseArrayOutput)
 }
 
-// Property/Properties which represent a unique ID.
 type StrongIdResponseOutput struct{ *pulumi.OutputState }
 
 func (StrongIdResponseOutput) ElementType() reflect.Type {
@@ -5974,22 +5452,18 @@ func (o StrongIdResponseOutput) ToStrongIdResponseOutputWithContext(ctx context.
 	return o
 }
 
-// Localized descriptions.
 func (o StrongIdResponseOutput) Description() pulumi.StringMapOutput {
 	return o.ApplyT(func(v StrongIdResponse) map[string]string { return v.Description }).(pulumi.StringMapOutput)
 }
 
-// Localized display name.
 func (o StrongIdResponseOutput) DisplayName() pulumi.StringMapOutput {
 	return o.ApplyT(func(v StrongIdResponse) map[string]string { return v.DisplayName }).(pulumi.StringMapOutput)
 }
 
-// The properties which make up the unique ID.
 func (o StrongIdResponseOutput) KeyPropertyNames() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v StrongIdResponse) []string { return v.KeyPropertyNames }).(pulumi.StringArrayOutput)
 }
 
-// The Name identifying the strong ID.
 func (o StrongIdResponseOutput) StrongIdName() pulumi.StringOutput {
 	return o.ApplyT(func(v StrongIdResponse) string { return v.StrongIdName }).(pulumi.StringOutput)
 }
@@ -6014,16 +5488,11 @@ func (o StrongIdResponseArrayOutput) Index(i pulumi.IntInput) StrongIdResponseOu
 	}).(StrongIdResponseOutput)
 }
 
-// Metadata for a Link's property mapping.
 type TypePropertiesMapping struct {
-	//  Property name on the source Interaction Type.
-	InteractionTypePropertyName string `pulumi:"interactionTypePropertyName"`
-	// Flag to indicate whether the Profile Type property is an id on the Profile Type.
-	IsProfileTypeId *bool `pulumi:"isProfileTypeId"`
-	// Link type.
-	LinkType *string `pulumi:"linkType"`
-	// Property name on the target Profile Type.
-	ProfileTypePropertyName string `pulumi:"profileTypePropertyName"`
+	InteractionTypePropertyName string     `pulumi:"interactionTypePropertyName"`
+	IsProfileTypeId             *bool      `pulumi:"isProfileTypeId"`
+	LinkType                    *LinkTypes `pulumi:"linkType"`
+	ProfileTypePropertyName     string     `pulumi:"profileTypePropertyName"`
 }
 
 // TypePropertiesMappingInput is an input type that accepts TypePropertiesMappingArgs and TypePropertiesMappingOutput values.
@@ -6037,16 +5506,11 @@ type TypePropertiesMappingInput interface {
 	ToTypePropertiesMappingOutputWithContext(context.Context) TypePropertiesMappingOutput
 }
 
-// Metadata for a Link's property mapping.
 type TypePropertiesMappingArgs struct {
-	//  Property name on the source Interaction Type.
-	InteractionTypePropertyName pulumi.StringInput `pulumi:"interactionTypePropertyName"`
-	// Flag to indicate whether the Profile Type property is an id on the Profile Type.
-	IsProfileTypeId pulumi.BoolPtrInput `pulumi:"isProfileTypeId"`
-	// Link type.
-	LinkType *LinkTypes `pulumi:"linkType"`
-	// Property name on the target Profile Type.
-	ProfileTypePropertyName pulumi.StringInput `pulumi:"profileTypePropertyName"`
+	InteractionTypePropertyName pulumi.StringInput  `pulumi:"interactionTypePropertyName"`
+	IsProfileTypeId             pulumi.BoolPtrInput `pulumi:"isProfileTypeId"`
+	LinkType                    LinkTypesPtrInput   `pulumi:"linkType"`
+	ProfileTypePropertyName     pulumi.StringInput  `pulumi:"profileTypePropertyName"`
 }
 
 func (TypePropertiesMappingArgs) ElementType() reflect.Type {
@@ -6086,7 +5550,6 @@ func (i TypePropertiesMappingArray) ToTypePropertiesMappingArrayOutputWithContex
 	return pulumi.ToOutputWithContext(ctx, i).(TypePropertiesMappingArrayOutput)
 }
 
-// Metadata for a Link's property mapping.
 type TypePropertiesMappingOutput struct{ *pulumi.OutputState }
 
 func (TypePropertiesMappingOutput) ElementType() reflect.Type {
@@ -6101,22 +5564,18 @@ func (o TypePropertiesMappingOutput) ToTypePropertiesMappingOutputWithContext(ct
 	return o
 }
 
-//  Property name on the source Interaction Type.
 func (o TypePropertiesMappingOutput) InteractionTypePropertyName() pulumi.StringOutput {
 	return o.ApplyT(func(v TypePropertiesMapping) string { return v.InteractionTypePropertyName }).(pulumi.StringOutput)
 }
 
-// Flag to indicate whether the Profile Type property is an id on the Profile Type.
 func (o TypePropertiesMappingOutput) IsProfileTypeId() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v TypePropertiesMapping) *bool { return v.IsProfileTypeId }).(pulumi.BoolPtrOutput)
 }
 
-// Link type.
-func (o TypePropertiesMappingOutput) LinkType() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v TypePropertiesMapping) *string { return v.LinkType }).(pulumi.StringPtrOutput)
+func (o TypePropertiesMappingOutput) LinkType() LinkTypesPtrOutput {
+	return o.ApplyT(func(v TypePropertiesMapping) *LinkTypes { return v.LinkType }).(LinkTypesPtrOutput)
 }
 
-// Property name on the target Profile Type.
 func (o TypePropertiesMappingOutput) ProfileTypePropertyName() pulumi.StringOutput {
 	return o.ApplyT(func(v TypePropertiesMapping) string { return v.ProfileTypePropertyName }).(pulumi.StringOutput)
 }
@@ -6141,16 +5600,11 @@ func (o TypePropertiesMappingArrayOutput) Index(i pulumi.IntInput) TypePropertie
 	}).(TypePropertiesMappingOutput)
 }
 
-// Metadata for a Link's property mapping.
 type TypePropertiesMappingResponse struct {
-	//  Property name on the source Interaction Type.
-	InteractionTypePropertyName string `pulumi:"interactionTypePropertyName"`
-	// Flag to indicate whether the Profile Type property is an id on the Profile Type.
-	IsProfileTypeId *bool `pulumi:"isProfileTypeId"`
-	// Link type.
-	LinkType *string `pulumi:"linkType"`
-	// Property name on the target Profile Type.
-	ProfileTypePropertyName string `pulumi:"profileTypePropertyName"`
+	InteractionTypePropertyName string  `pulumi:"interactionTypePropertyName"`
+	IsProfileTypeId             *bool   `pulumi:"isProfileTypeId"`
+	LinkType                    *string `pulumi:"linkType"`
+	ProfileTypePropertyName     string  `pulumi:"profileTypePropertyName"`
 }
 
 // TypePropertiesMappingResponseInput is an input type that accepts TypePropertiesMappingResponseArgs and TypePropertiesMappingResponseOutput values.
@@ -6164,16 +5618,11 @@ type TypePropertiesMappingResponseInput interface {
 	ToTypePropertiesMappingResponseOutputWithContext(context.Context) TypePropertiesMappingResponseOutput
 }
 
-// Metadata for a Link's property mapping.
 type TypePropertiesMappingResponseArgs struct {
-	//  Property name on the source Interaction Type.
-	InteractionTypePropertyName pulumi.StringInput `pulumi:"interactionTypePropertyName"`
-	// Flag to indicate whether the Profile Type property is an id on the Profile Type.
-	IsProfileTypeId pulumi.BoolPtrInput `pulumi:"isProfileTypeId"`
-	// Link type.
-	LinkType pulumi.StringPtrInput `pulumi:"linkType"`
-	// Property name on the target Profile Type.
-	ProfileTypePropertyName pulumi.StringInput `pulumi:"profileTypePropertyName"`
+	InteractionTypePropertyName pulumi.StringInput    `pulumi:"interactionTypePropertyName"`
+	IsProfileTypeId             pulumi.BoolPtrInput   `pulumi:"isProfileTypeId"`
+	LinkType                    pulumi.StringPtrInput `pulumi:"linkType"`
+	ProfileTypePropertyName     pulumi.StringInput    `pulumi:"profileTypePropertyName"`
 }
 
 func (TypePropertiesMappingResponseArgs) ElementType() reflect.Type {
@@ -6213,7 +5662,6 @@ func (i TypePropertiesMappingResponseArray) ToTypePropertiesMappingResponseArray
 	return pulumi.ToOutputWithContext(ctx, i).(TypePropertiesMappingResponseArrayOutput)
 }
 
-// Metadata for a Link's property mapping.
 type TypePropertiesMappingResponseOutput struct{ *pulumi.OutputState }
 
 func (TypePropertiesMappingResponseOutput) ElementType() reflect.Type {
@@ -6228,22 +5676,18 @@ func (o TypePropertiesMappingResponseOutput) ToTypePropertiesMappingResponseOutp
 	return o
 }
 
-//  Property name on the source Interaction Type.
 func (o TypePropertiesMappingResponseOutput) InteractionTypePropertyName() pulumi.StringOutput {
 	return o.ApplyT(func(v TypePropertiesMappingResponse) string { return v.InteractionTypePropertyName }).(pulumi.StringOutput)
 }
 
-// Flag to indicate whether the Profile Type property is an id on the Profile Type.
 func (o TypePropertiesMappingResponseOutput) IsProfileTypeId() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v TypePropertiesMappingResponse) *bool { return v.IsProfileTypeId }).(pulumi.BoolPtrOutput)
 }
 
-// Link type.
 func (o TypePropertiesMappingResponseOutput) LinkType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v TypePropertiesMappingResponse) *string { return v.LinkType }).(pulumi.StringPtrOutput)
 }
 
-// Property name on the target Profile Type.
 func (o TypePropertiesMappingResponseOutput) ProfileTypePropertyName() pulumi.StringOutput {
 	return o.ApplyT(func(v TypePropertiesMappingResponse) string { return v.ProfileTypePropertyName }).(pulumi.StringOutput)
 }

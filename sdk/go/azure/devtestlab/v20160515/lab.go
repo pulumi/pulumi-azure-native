@@ -11,40 +11,23 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// A lab.
 type Lab struct {
 	pulumi.CustomResourceState
 
-	// The lab's artifact storage account.
-	ArtifactsStorageAccount pulumi.StringOutput `pulumi:"artifactsStorageAccount"`
-	// The creation date of the lab.
-	CreatedDate pulumi.StringOutput `pulumi:"createdDate"`
-	// The lab's default premium storage account.
-	DefaultPremiumStorageAccount pulumi.StringOutput `pulumi:"defaultPremiumStorageAccount"`
-	// The lab's default storage account.
-	DefaultStorageAccount pulumi.StringOutput `pulumi:"defaultStorageAccount"`
-	// Type of storage used by the lab. It can be either Premium or Standard. Default is Premium.
-	LabStorageType pulumi.StringPtrOutput `pulumi:"labStorageType"`
-	// The location of the resource.
-	Location pulumi.StringPtrOutput `pulumi:"location"`
-	// The name of the resource.
-	Name pulumi.StringOutput `pulumi:"name"`
-	// The lab's premium data disk storage account.
-	PremiumDataDiskStorageAccount pulumi.StringOutput `pulumi:"premiumDataDiskStorageAccount"`
-	// The setting to enable usage of premium data disks.
-	// When its value is 'Enabled', creation of standard or premium data disks is allowed.
-	// When its value is 'Disabled', only creation of standard data disks is allowed.
-	PremiumDataDisks pulumi.StringPtrOutput `pulumi:"premiumDataDisks"`
-	// The provisioning status of the resource.
-	ProvisioningState pulumi.StringPtrOutput `pulumi:"provisioningState"`
-	// The tags of the resource.
-	Tags pulumi.StringMapOutput `pulumi:"tags"`
-	// The type of the resource.
-	Type pulumi.StringOutput `pulumi:"type"`
-	// The unique immutable identifier of a resource (Guid).
-	UniqueIdentifier pulumi.StringPtrOutput `pulumi:"uniqueIdentifier"`
-	// The lab's Key vault.
-	VaultName pulumi.StringOutput `pulumi:"vaultName"`
+	ArtifactsStorageAccount       pulumi.StringOutput    `pulumi:"artifactsStorageAccount"`
+	CreatedDate                   pulumi.StringOutput    `pulumi:"createdDate"`
+	DefaultPremiumStorageAccount  pulumi.StringOutput    `pulumi:"defaultPremiumStorageAccount"`
+	DefaultStorageAccount         pulumi.StringOutput    `pulumi:"defaultStorageAccount"`
+	LabStorageType                pulumi.StringPtrOutput `pulumi:"labStorageType"`
+	Location                      pulumi.StringPtrOutput `pulumi:"location"`
+	Name                          pulumi.StringOutput    `pulumi:"name"`
+	PremiumDataDiskStorageAccount pulumi.StringOutput    `pulumi:"premiumDataDiskStorageAccount"`
+	PremiumDataDisks              pulumi.StringPtrOutput `pulumi:"premiumDataDisks"`
+	ProvisioningState             pulumi.StringPtrOutput `pulumi:"provisioningState"`
+	Tags                          pulumi.StringMapOutput `pulumi:"tags"`
+	Type                          pulumi.StringOutput    `pulumi:"type"`
+	UniqueIdentifier              pulumi.StringPtrOutput `pulumi:"uniqueIdentifier"`
+	VaultName                     pulumi.StringOutput    `pulumi:"vaultName"`
 }
 
 // NewLab registers a new resource with the given unique name, arguments, and options.
@@ -113,46 +96,26 @@ func (LabState) ElementType() reflect.Type {
 }
 
 type labArgs struct {
-	// Type of storage used by the lab. It can be either Premium or Standard. Default is Premium.
-	LabStorageType *string `pulumi:"labStorageType"`
-	// The location of the resource.
-	Location *string `pulumi:"location"`
-	// The name of the lab.
-	Name *string `pulumi:"name"`
-	// The setting to enable usage of premium data disks.
-	// When its value is 'Enabled', creation of standard or premium data disks is allowed.
-	// When its value is 'Disabled', only creation of standard data disks is allowed.
-	PremiumDataDisks *string `pulumi:"premiumDataDisks"`
-	// The provisioning status of the resource.
-	ProvisioningState *string `pulumi:"provisioningState"`
-	// The name of the resource group.
-	ResourceGroupName string `pulumi:"resourceGroupName"`
-	// The tags of the resource.
-	Tags map[string]string `pulumi:"tags"`
-	// The unique immutable identifier of a resource (Guid).
-	UniqueIdentifier *string `pulumi:"uniqueIdentifier"`
+	LabStorageType    *string           `pulumi:"labStorageType"`
+	Location          *string           `pulumi:"location"`
+	Name              *string           `pulumi:"name"`
+	PremiumDataDisks  *string           `pulumi:"premiumDataDisks"`
+	ProvisioningState *string           `pulumi:"provisioningState"`
+	ResourceGroupName string            `pulumi:"resourceGroupName"`
+	Tags              map[string]string `pulumi:"tags"`
+	UniqueIdentifier  *string           `pulumi:"uniqueIdentifier"`
 }
 
 // The set of arguments for constructing a Lab resource.
 type LabArgs struct {
-	// Type of storage used by the lab. It can be either Premium or Standard. Default is Premium.
-	LabStorageType pulumi.StringPtrInput
-	// The location of the resource.
-	Location pulumi.StringPtrInput
-	// The name of the lab.
-	Name pulumi.StringPtrInput
-	// The setting to enable usage of premium data disks.
-	// When its value is 'Enabled', creation of standard or premium data disks is allowed.
-	// When its value is 'Disabled', only creation of standard data disks is allowed.
-	PremiumDataDisks pulumi.StringPtrInput
-	// The provisioning status of the resource.
+	LabStorageType    pulumi.StringPtrInput
+	Location          pulumi.StringPtrInput
+	Name              pulumi.StringPtrInput
+	PremiumDataDisks  pulumi.StringPtrInput
 	ProvisioningState pulumi.StringPtrInput
-	// The name of the resource group.
 	ResourceGroupName pulumi.StringInput
-	// The tags of the resource.
-	Tags pulumi.StringMapInput
-	// The unique immutable identifier of a resource (Guid).
-	UniqueIdentifier pulumi.StringPtrInput
+	Tags              pulumi.StringMapInput
+	UniqueIdentifier  pulumi.StringPtrInput
 }
 
 func (LabArgs) ElementType() reflect.Type {
@@ -178,9 +141,7 @@ func (i *Lab) ToLabOutputWithContext(ctx context.Context) LabOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(LabOutput)
 }
 
-type LabOutput struct {
-	*pulumi.OutputState
-}
+type LabOutput struct{ *pulumi.OutputState }
 
 func (LabOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*Lab)(nil))

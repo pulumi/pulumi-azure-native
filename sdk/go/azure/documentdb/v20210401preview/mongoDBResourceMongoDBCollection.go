@@ -11,22 +11,16 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// An Azure Cosmos DB MongoDB collection.
 type MongoDBResourceMongoDBCollection struct {
 	pulumi.CustomResourceState
 
-	// Identity for the resource.
-	Identity ManagedServiceIdentityResponsePtrOutput `pulumi:"identity"`
-	// The location of the resource group to which the resource belongs.
-	Location pulumi.StringPtrOutput `pulumi:"location"`
-	// The name of the ARM resource.
+	Identity ManagedServiceIdentityResponsePtrOutput                 `pulumi:"identity"`
+	Location pulumi.StringPtrOutput                                  `pulumi:"location"`
 	Name     pulumi.StringOutput                                     `pulumi:"name"`
 	Options  MongoDBCollectionGetPropertiesResponseOptionsPtrOutput  `pulumi:"options"`
 	Resource MongoDBCollectionGetPropertiesResponseResourcePtrOutput `pulumi:"resource"`
-	// Tags are a list of key-value pairs that describe the resource. These tags can be used in viewing and grouping this resource (across resource groups). A maximum of 15 tags can be provided for a resource. Each tag must have a key no greater than 128 characters and value no greater than 256 characters. For example, the default experience for a template type is set with "defaultExperience": "Cassandra". Current "defaultExperience" values also include "Table", "Graph", "DocumentDB", and "MongoDB".
-	Tags pulumi.StringMapOutput `pulumi:"tags"`
-	// The type of Azure resource.
-	Type pulumi.StringOutput `pulumi:"type"`
+	Tags     pulumi.StringMapOutput                                  `pulumi:"tags"`
+	Type     pulumi.StringOutput                                     `pulumi:"type"`
 }
 
 // NewMongoDBResourceMongoDBCollection registers a new resource with the given unique name, arguments, and options.
@@ -200,46 +194,28 @@ func (MongoDBResourceMongoDBCollectionState) ElementType() reflect.Type {
 }
 
 type mongoDBResourceMongoDBCollectionArgs struct {
-	// Cosmos DB database account name.
-	AccountName string `pulumi:"accountName"`
-	// Cosmos DB collection name.
-	CollectionName *string `pulumi:"collectionName"`
-	// Cosmos DB database name.
-	DatabaseName string `pulumi:"databaseName"`
-	// Identity for the resource.
-	Identity *ManagedServiceIdentity `pulumi:"identity"`
-	// The location of the resource group to which the resource belongs.
-	Location *string `pulumi:"location"`
-	// A key-value pair of options to be applied for the request. This corresponds to the headers sent with the request.
-	Options *CreateUpdateOptions `pulumi:"options"`
-	// The standard JSON format of a MongoDB collection
-	Resource MongoDBCollectionResource `pulumi:"resource"`
-	// The name of the resource group. The name is case insensitive.
-	ResourceGroupName string `pulumi:"resourceGroupName"`
-	// Tags are a list of key-value pairs that describe the resource. These tags can be used in viewing and grouping this resource (across resource groups). A maximum of 15 tags can be provided for a resource. Each tag must have a key no greater than 128 characters and value no greater than 256 characters. For example, the default experience for a template type is set with "defaultExperience": "Cassandra". Current "defaultExperience" values also include "Table", "Graph", "DocumentDB", and "MongoDB".
-	Tags map[string]string `pulumi:"tags"`
+	AccountName       string                    `pulumi:"accountName"`
+	CollectionName    *string                   `pulumi:"collectionName"`
+	DatabaseName      string                    `pulumi:"databaseName"`
+	Identity          *ManagedServiceIdentity   `pulumi:"identity"`
+	Location          *string                   `pulumi:"location"`
+	Options           *CreateUpdateOptions      `pulumi:"options"`
+	Resource          MongoDBCollectionResource `pulumi:"resource"`
+	ResourceGroupName string                    `pulumi:"resourceGroupName"`
+	Tags              map[string]string         `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a MongoDBResourceMongoDBCollection resource.
 type MongoDBResourceMongoDBCollectionArgs struct {
-	// Cosmos DB database account name.
-	AccountName pulumi.StringInput
-	// Cosmos DB collection name.
-	CollectionName pulumi.StringPtrInput
-	// Cosmos DB database name.
-	DatabaseName pulumi.StringInput
-	// Identity for the resource.
-	Identity ManagedServiceIdentityPtrInput
-	// The location of the resource group to which the resource belongs.
-	Location pulumi.StringPtrInput
-	// A key-value pair of options to be applied for the request. This corresponds to the headers sent with the request.
-	Options CreateUpdateOptionsPtrInput
-	// The standard JSON format of a MongoDB collection
-	Resource MongoDBCollectionResourceInput
-	// The name of the resource group. The name is case insensitive.
+	AccountName       pulumi.StringInput
+	CollectionName    pulumi.StringPtrInput
+	DatabaseName      pulumi.StringInput
+	Identity          ManagedServiceIdentityPtrInput
+	Location          pulumi.StringPtrInput
+	Options           CreateUpdateOptionsPtrInput
+	Resource          MongoDBCollectionResourceInput
 	ResourceGroupName pulumi.StringInput
-	// Tags are a list of key-value pairs that describe the resource. These tags can be used in viewing and grouping this resource (across resource groups). A maximum of 15 tags can be provided for a resource. Each tag must have a key no greater than 128 characters and value no greater than 256 characters. For example, the default experience for a template type is set with "defaultExperience": "Cassandra". Current "defaultExperience" values also include "Table", "Graph", "DocumentDB", and "MongoDB".
-	Tags pulumi.StringMapInput
+	Tags              pulumi.StringMapInput
 }
 
 func (MongoDBResourceMongoDBCollectionArgs) ElementType() reflect.Type {
@@ -265,9 +241,7 @@ func (i *MongoDBResourceMongoDBCollection) ToMongoDBResourceMongoDBCollectionOut
 	return pulumi.ToOutputWithContext(ctx, i).(MongoDBResourceMongoDBCollectionOutput)
 }
 
-type MongoDBResourceMongoDBCollectionOutput struct {
-	*pulumi.OutputState
-}
+type MongoDBResourceMongoDBCollectionOutput struct{ *pulumi.OutputState }
 
 func (MongoDBResourceMongoDBCollectionOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*MongoDBResourceMongoDBCollection)(nil))

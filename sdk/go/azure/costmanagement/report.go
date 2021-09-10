@@ -138,9 +138,7 @@ func (i *Report) ToReportOutputWithContext(ctx context.Context) ReportOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(ReportOutput)
 }
 
-type ReportOutput struct {
-	*pulumi.OutputState
-}
+type ReportOutput struct{ *pulumi.OutputState }
 
 func (ReportOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*Report)(nil))

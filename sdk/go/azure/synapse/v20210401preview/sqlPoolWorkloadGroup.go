@@ -11,26 +11,17 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Workload group operations for a sql pool
 type SqlPoolWorkloadGroup struct {
 	pulumi.CustomResourceState
 
-	// The workload group importance level.
-	Importance pulumi.StringPtrOutput `pulumi:"importance"`
-	// The workload group cap percentage resource.
-	MaxResourcePercent pulumi.IntOutput `pulumi:"maxResourcePercent"`
-	// The workload group request maximum grant percentage.
+	Importance                   pulumi.StringPtrOutput  `pulumi:"importance"`
+	MaxResourcePercent           pulumi.IntOutput        `pulumi:"maxResourcePercent"`
 	MaxResourcePercentPerRequest pulumi.Float64PtrOutput `pulumi:"maxResourcePercentPerRequest"`
-	// The workload group minimum percentage resource.
-	MinResourcePercent pulumi.IntOutput `pulumi:"minResourcePercent"`
-	// The workload group request minimum grant percentage.
-	MinResourcePercentPerRequest pulumi.Float64Output `pulumi:"minResourcePercentPerRequest"`
-	// The name of the resource
-	Name pulumi.StringOutput `pulumi:"name"`
-	// The workload group query execution timeout.
-	QueryExecutionTimeout pulumi.IntPtrOutput `pulumi:"queryExecutionTimeout"`
-	// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
-	Type pulumi.StringOutput `pulumi:"type"`
+	MinResourcePercent           pulumi.IntOutput        `pulumi:"minResourcePercent"`
+	MinResourcePercentPerRequest pulumi.Float64Output    `pulumi:"minResourcePercentPerRequest"`
+	Name                         pulumi.StringOutput     `pulumi:"name"`
+	QueryExecutionTimeout        pulumi.IntPtrOutput     `pulumi:"queryExecutionTimeout"`
+	Type                         pulumi.StringOutput     `pulumi:"type"`
 }
 
 // NewSqlPoolWorkloadGroup registers a new resource with the given unique name, arguments, and options.
@@ -138,50 +129,30 @@ func (SqlPoolWorkloadGroupState) ElementType() reflect.Type {
 }
 
 type sqlPoolWorkloadGroupArgs struct {
-	// The workload group importance level.
-	Importance *string `pulumi:"importance"`
-	// The workload group cap percentage resource.
-	MaxResourcePercent int `pulumi:"maxResourcePercent"`
-	// The workload group request maximum grant percentage.
+	Importance                   *string  `pulumi:"importance"`
+	MaxResourcePercent           int      `pulumi:"maxResourcePercent"`
 	MaxResourcePercentPerRequest *float64 `pulumi:"maxResourcePercentPerRequest"`
-	// The workload group minimum percentage resource.
-	MinResourcePercent int `pulumi:"minResourcePercent"`
-	// The workload group request minimum grant percentage.
-	MinResourcePercentPerRequest float64 `pulumi:"minResourcePercentPerRequest"`
-	// The workload group query execution timeout.
-	QueryExecutionTimeout *int `pulumi:"queryExecutionTimeout"`
-	// The name of the resource group. The name is case insensitive.
-	ResourceGroupName string `pulumi:"resourceGroupName"`
-	// SQL pool name
-	SqlPoolName string `pulumi:"sqlPoolName"`
-	// The name of the workload group.
-	WorkloadGroupName *string `pulumi:"workloadGroupName"`
-	// The name of the workspace
-	WorkspaceName string `pulumi:"workspaceName"`
+	MinResourcePercent           int      `pulumi:"minResourcePercent"`
+	MinResourcePercentPerRequest float64  `pulumi:"minResourcePercentPerRequest"`
+	QueryExecutionTimeout        *int     `pulumi:"queryExecutionTimeout"`
+	ResourceGroupName            string   `pulumi:"resourceGroupName"`
+	SqlPoolName                  string   `pulumi:"sqlPoolName"`
+	WorkloadGroupName            *string  `pulumi:"workloadGroupName"`
+	WorkspaceName                string   `pulumi:"workspaceName"`
 }
 
 // The set of arguments for constructing a SqlPoolWorkloadGroup resource.
 type SqlPoolWorkloadGroupArgs struct {
-	// The workload group importance level.
-	Importance pulumi.StringPtrInput
-	// The workload group cap percentage resource.
-	MaxResourcePercent pulumi.IntInput
-	// The workload group request maximum grant percentage.
+	Importance                   pulumi.StringPtrInput
+	MaxResourcePercent           pulumi.IntInput
 	MaxResourcePercentPerRequest pulumi.Float64PtrInput
-	// The workload group minimum percentage resource.
-	MinResourcePercent pulumi.IntInput
-	// The workload group request minimum grant percentage.
+	MinResourcePercent           pulumi.IntInput
 	MinResourcePercentPerRequest pulumi.Float64Input
-	// The workload group query execution timeout.
-	QueryExecutionTimeout pulumi.IntPtrInput
-	// The name of the resource group. The name is case insensitive.
-	ResourceGroupName pulumi.StringInput
-	// SQL pool name
-	SqlPoolName pulumi.StringInput
-	// The name of the workload group.
-	WorkloadGroupName pulumi.StringPtrInput
-	// The name of the workspace
-	WorkspaceName pulumi.StringInput
+	QueryExecutionTimeout        pulumi.IntPtrInput
+	ResourceGroupName            pulumi.StringInput
+	SqlPoolName                  pulumi.StringInput
+	WorkloadGroupName            pulumi.StringPtrInput
+	WorkspaceName                pulumi.StringInput
 }
 
 func (SqlPoolWorkloadGroupArgs) ElementType() reflect.Type {
@@ -207,9 +178,7 @@ func (i *SqlPoolWorkloadGroup) ToSqlPoolWorkloadGroupOutputWithContext(ctx conte
 	return pulumi.ToOutputWithContext(ctx, i).(SqlPoolWorkloadGroupOutput)
 }
 
-type SqlPoolWorkloadGroupOutput struct {
-	*pulumi.OutputState
-}
+type SqlPoolWorkloadGroupOutput struct{ *pulumi.OutputState }
 
 func (SqlPoolWorkloadGroupOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*SqlPoolWorkloadGroup)(nil))

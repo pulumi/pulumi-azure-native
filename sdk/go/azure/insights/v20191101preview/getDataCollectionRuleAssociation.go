@@ -7,7 +7,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Definition of generic ARM proxy resource.
 func LookupDataCollectionRuleAssociation(ctx *pulumi.Context, args *LookupDataCollectionRuleAssociationArgs, opts ...pulumi.InvokeOption) (*LookupDataCollectionRuleAssociationResult, error) {
 	var rv LookupDataCollectionRuleAssociationResult
 	err := ctx.Invoke("azure-native:insights/v20191101preview:getDataCollectionRuleAssociation", args, &rv, opts...)
@@ -18,26 +17,17 @@ func LookupDataCollectionRuleAssociation(ctx *pulumi.Context, args *LookupDataCo
 }
 
 type LookupDataCollectionRuleAssociationArgs struct {
-	// The name of the association. The name is case insensitive.
 	AssociationName string `pulumi:"associationName"`
-	// The identifier of the resource.
-	ResourceUri string `pulumi:"resourceUri"`
+	ResourceUri     string `pulumi:"resourceUri"`
 }
 
 // Definition of generic ARM proxy resource.
 type LookupDataCollectionRuleAssociationResult struct {
-	// The resource ID of the data collection rule that is to be associated.
 	DataCollectionRuleId *string `pulumi:"dataCollectionRuleId"`
-	// Description of the association.
-	Description *string `pulumi:"description"`
-	// Resource entity tag (ETag).
-	Etag string `pulumi:"etag"`
-	// Fully qualified ID of the resource.
-	Id string `pulumi:"id"`
-	// The name of the resource.
-	Name string `pulumi:"name"`
-	// The resource provisioning state.
-	ProvisioningState string `pulumi:"provisioningState"`
-	// The type of the resource.
-	Type string `pulumi:"type"`
+	Description          *string `pulumi:"description"`
+	Etag                 string  `pulumi:"etag"`
+	Id                   string  `pulumi:"id"`
+	Name                 string  `pulumi:"name"`
+	ProvisioningState    string  `pulumi:"provisioningState"`
+	Type                 string  `pulumi:"type"`
 }

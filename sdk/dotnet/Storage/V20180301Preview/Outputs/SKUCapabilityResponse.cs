@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.Storage.V20180301Preview.Outputs
 {
 
+    /// <summary>
+    /// The capability information in the specified sku, including file encryption, network acls, change notification, etc.
+    /// </summary>
     [OutputType]
     public sealed class SKUCapabilityResponse
     {

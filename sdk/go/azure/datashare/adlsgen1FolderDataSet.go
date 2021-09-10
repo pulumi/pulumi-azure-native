@@ -191,9 +191,7 @@ func (i *ADLSGen1FolderDataSet) ToADLSGen1FolderDataSetOutputWithContext(ctx con
 	return pulumi.ToOutputWithContext(ctx, i).(ADLSGen1FolderDataSetOutput)
 }
 
-type ADLSGen1FolderDataSetOutput struct {
-	*pulumi.OutputState
-}
+type ADLSGen1FolderDataSetOutput struct{ *pulumi.OutputState }
 
 func (ADLSGen1FolderDataSetOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*ADLSGen1FolderDataSet)(nil))

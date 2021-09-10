@@ -7,7 +7,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// the ISV access token result response.
 func ListSaasSubscriptionLevelAccessToken(ctx *pulumi.Context, args *ListSaasSubscriptionLevelAccessTokenArgs, opts ...pulumi.InvokeOption) (*ListSaasSubscriptionLevelAccessTokenResult, error) {
 	var rv ListSaasSubscriptionLevelAccessTokenResult
 	err := ctx.Invoke("azure-native:saas/v20180301beta:listSaasSubscriptionLevelAccessToken", args, &rv, opts...)
@@ -18,16 +17,12 @@ func ListSaasSubscriptionLevelAccessToken(ctx *pulumi.Context, args *ListSaasSub
 }
 
 type ListSaasSubscriptionLevelAccessTokenArgs struct {
-	// The name of the resource group.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
-	// The name of the resource.
-	ResourceName string `pulumi:"resourceName"`
+	ResourceName      string `pulumi:"resourceName"`
 }
 
 // the ISV access token result response.
 type ListSaasSubscriptionLevelAccessTokenResult struct {
-	// The Publisher Offer Base Uri
 	PublisherOfferBaseUri *string `pulumi:"publisherOfferBaseUri"`
-	// The generated token
-	Token *string `pulumi:"token"`
+	Token                 *string `pulumi:"token"`
 }

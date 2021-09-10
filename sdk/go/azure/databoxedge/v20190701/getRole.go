@@ -7,8 +7,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Compute role.
-//
 // Deprecated: Please use one of the variants: IoTRole.
 func LookupRole(ctx *pulumi.Context, args *LookupRoleArgs, opts ...pulumi.InvokeOption) (*LookupRoleResult, error) {
 	var rv LookupRoleResult
@@ -20,22 +18,15 @@ func LookupRole(ctx *pulumi.Context, args *LookupRoleArgs, opts ...pulumi.Invoke
 }
 
 type LookupRoleArgs struct {
-	// The device name.
-	DeviceName string `pulumi:"deviceName"`
-	// The role name.
-	Name string `pulumi:"name"`
-	// The resource group name.
+	DeviceName        string `pulumi:"deviceName"`
+	Name              string `pulumi:"name"`
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 }
 
 // Compute role.
 type LookupRoleResult struct {
-	// The path ID that uniquely identifies the object.
-	Id string `pulumi:"id"`
-	// Role type.
+	Id   string `pulumi:"id"`
 	Kind string `pulumi:"kind"`
-	// The object name.
 	Name string `pulumi:"name"`
-	// The hierarchical type of the object.
 	Type string `pulumi:"type"`
 }

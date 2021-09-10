@@ -141,9 +141,7 @@ func (i *SentinelOnboardingState) ToSentinelOnboardingStateOutputWithContext(ctx
 	return pulumi.ToOutputWithContext(ctx, i).(SentinelOnboardingStateOutput)
 }
 
-type SentinelOnboardingStateOutput struct {
-	*pulumi.OutputState
-}
+type SentinelOnboardingStateOutput struct{ *pulumi.OutputState }
 
 func (SentinelOnboardingStateOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*SentinelOnboardingState)(nil))

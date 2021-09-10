@@ -216,9 +216,7 @@ func (i *Bookmark) ToBookmarkOutputWithContext(ctx context.Context) BookmarkOutp
 	return pulumi.ToOutputWithContext(ctx, i).(BookmarkOutput)
 }
 
-type BookmarkOutput struct {
-	*pulumi.OutputState
-}
+type BookmarkOutput struct{ *pulumi.OutputState }
 
 func (BookmarkOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*Bookmark)(nil))

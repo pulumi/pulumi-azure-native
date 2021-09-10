@@ -11,15 +11,12 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Subscription feature registration details
 type SubscriptionFeatureRegistration struct {
 	pulumi.CustomResourceState
 
-	// Azure resource name.
 	Name       pulumi.StringOutput                                     `pulumi:"name"`
 	Properties SubscriptionFeatureRegistrationResponsePropertiesOutput `pulumi:"properties"`
-	// Azure resource type.
-	Type pulumi.StringOutput `pulumi:"type"`
+	Type       pulumi.StringOutput                                     `pulumi:"type"`
 }
 
 // NewSubscriptionFeatureRegistration registers a new resource with the given unique name, arguments, and options.
@@ -76,19 +73,15 @@ func (SubscriptionFeatureRegistrationState) ElementType() reflect.Type {
 }
 
 type subscriptionFeatureRegistrationArgs struct {
-	// The feature name.
-	FeatureName *string                                    `pulumi:"featureName"`
-	Properties  *SubscriptionFeatureRegistrationProperties `pulumi:"properties"`
-	// The provider namespace.
-	ProviderNamespace string `pulumi:"providerNamespace"`
+	FeatureName       *string                                    `pulumi:"featureName"`
+	Properties        *SubscriptionFeatureRegistrationProperties `pulumi:"properties"`
+	ProviderNamespace string                                     `pulumi:"providerNamespace"`
 }
 
 // The set of arguments for constructing a SubscriptionFeatureRegistration resource.
 type SubscriptionFeatureRegistrationArgs struct {
-	// The feature name.
-	FeatureName pulumi.StringPtrInput
-	Properties  SubscriptionFeatureRegistrationPropertiesPtrInput
-	// The provider namespace.
+	FeatureName       pulumi.StringPtrInput
+	Properties        SubscriptionFeatureRegistrationPropertiesPtrInput
 	ProviderNamespace pulumi.StringInput
 }
 
@@ -115,9 +108,7 @@ func (i *SubscriptionFeatureRegistration) ToSubscriptionFeatureRegistrationOutpu
 	return pulumi.ToOutputWithContext(ctx, i).(SubscriptionFeatureRegistrationOutput)
 }
 
-type SubscriptionFeatureRegistrationOutput struct {
-	*pulumi.OutputState
-}
+type SubscriptionFeatureRegistrationOutput struct{ *pulumi.OutputState }
 
 func (SubscriptionFeatureRegistrationOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*SubscriptionFeatureRegistration)(nil))

@@ -11,16 +11,12 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Build step resource properties
 type BuildStep struct {
 	pulumi.CustomResourceState
 
-	// The name of the resource.
-	Name pulumi.StringOutput `pulumi:"name"`
-	// The properties of a build step.
+	Name       pulumi.StringOutput           `pulumi:"name"`
 	Properties DockerBuildStepResponseOutput `pulumi:"properties"`
-	// The type of the resource.
-	Type pulumi.StringOutput `pulumi:"type"`
+	Type       pulumi.StringOutput           `pulumi:"type"`
 }
 
 // NewBuildStep registers a new resource with the given unique name, arguments, and options.
@@ -77,26 +73,18 @@ func (BuildStepState) ElementType() reflect.Type {
 }
 
 type buildStepArgs struct {
-	// The name of the container registry build task.
-	BuildTaskName string `pulumi:"buildTaskName"`
-	// The name of the container registry.
-	RegistryName string `pulumi:"registryName"`
-	// The name of the resource group to which the container registry belongs.
-	ResourceGroupName string `pulumi:"resourceGroupName"`
-	// The name of a build step for a container registry build task.
-	StepName *string `pulumi:"stepName"`
+	BuildTaskName     string  `pulumi:"buildTaskName"`
+	RegistryName      string  `pulumi:"registryName"`
+	ResourceGroupName string  `pulumi:"resourceGroupName"`
+	StepName          *string `pulumi:"stepName"`
 }
 
 // The set of arguments for constructing a BuildStep resource.
 type BuildStepArgs struct {
-	// The name of the container registry build task.
-	BuildTaskName pulumi.StringInput
-	// The name of the container registry.
-	RegistryName pulumi.StringInput
-	// The name of the resource group to which the container registry belongs.
+	BuildTaskName     pulumi.StringInput
+	RegistryName      pulumi.StringInput
 	ResourceGroupName pulumi.StringInput
-	// The name of a build step for a container registry build task.
-	StepName pulumi.StringPtrInput
+	StepName          pulumi.StringPtrInput
 }
 
 func (BuildStepArgs) ElementType() reflect.Type {
@@ -122,9 +110,7 @@ func (i *BuildStep) ToBuildStepOutputWithContext(ctx context.Context) BuildStepO
 	return pulumi.ToOutputWithContext(ctx, i).(BuildStepOutput)
 }
 
-type BuildStepOutput struct {
-	*pulumi.OutputState
-}
+type BuildStepOutput struct{ *pulumi.OutputState }
 
 func (BuildStepOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*BuildStep)(nil))

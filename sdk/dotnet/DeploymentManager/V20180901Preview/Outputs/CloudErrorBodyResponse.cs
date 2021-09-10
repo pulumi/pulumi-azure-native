@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.DeploymentManager.V20180901Preview.Outputs
 {
 
+    /// <summary>
+    /// Detailed error information of any failure.
+    /// </summary>
     [OutputType]
     public sealed class CloudErrorBodyResponse
     {

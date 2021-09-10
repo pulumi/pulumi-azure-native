@@ -7,7 +7,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// An instance failover group.
 func LookupInstanceFailoverGroup(ctx *pulumi.Context, args *LookupInstanceFailoverGroupArgs, opts ...pulumi.InvokeOption) (*LookupInstanceFailoverGroupResult, error) {
 	var rv LookupInstanceFailoverGroupResult
 	err := ctx.Invoke("azure-native:sql/v20200202preview:getInstanceFailoverGroup", args, &rv, opts...)
@@ -18,32 +17,20 @@ func LookupInstanceFailoverGroup(ctx *pulumi.Context, args *LookupInstanceFailov
 }
 
 type LookupInstanceFailoverGroupArgs struct {
-	// The name of the failover group.
 	FailoverGroupName string `pulumi:"failoverGroupName"`
-	// The name of the region where the resource is located.
-	LocationName string `pulumi:"locationName"`
-	// The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
+	LocationName      string `pulumi:"locationName"`
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 }
 
 // An instance failover group.
 type LookupInstanceFailoverGroupResult struct {
-	// Resource ID.
-	Id string `pulumi:"id"`
-	// List of managed instance pairs in the failover group.
-	ManagedInstancePairs []ManagedInstancePairInfoResponse `pulumi:"managedInstancePairs"`
-	// Resource name.
-	Name string `pulumi:"name"`
-	// Partner region information for the failover group.
-	PartnerRegions []PartnerRegionInfoResponse `pulumi:"partnerRegions"`
-	// Read-only endpoint of the failover group instance.
-	ReadOnlyEndpoint *InstanceFailoverGroupReadOnlyEndpointResponse `pulumi:"readOnlyEndpoint"`
-	// Read-write endpoint of the failover group instance.
-	ReadWriteEndpoint InstanceFailoverGroupReadWriteEndpointResponse `pulumi:"readWriteEndpoint"`
-	// Local replication role of the failover group instance.
-	ReplicationRole string `pulumi:"replicationRole"`
-	// Replication state of the failover group instance.
-	ReplicationState string `pulumi:"replicationState"`
-	// Resource type.
-	Type string `pulumi:"type"`
+	Id                   string                                         `pulumi:"id"`
+	ManagedInstancePairs []ManagedInstancePairInfoResponse              `pulumi:"managedInstancePairs"`
+	Name                 string                                         `pulumi:"name"`
+	PartnerRegions       []PartnerRegionInfoResponse                    `pulumi:"partnerRegions"`
+	ReadOnlyEndpoint     *InstanceFailoverGroupReadOnlyEndpointResponse `pulumi:"readOnlyEndpoint"`
+	ReadWriteEndpoint    InstanceFailoverGroupReadWriteEndpointResponse `pulumi:"readWriteEndpoint"`
+	ReplicationRole      string                                         `pulumi:"replicationRole"`
+	ReplicationState     string                                         `pulumi:"replicationState"`
+	Type                 string                                         `pulumi:"type"`
 }

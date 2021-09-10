@@ -153,7 +153,7 @@ type dedicatedHostArgs struct {
 	// The name of the dedicated host .
 	HostName *string `pulumi:"hostName"`
 	// Specifies the software license type that will be applied to the VMs deployed on the dedicated host. <br><br> Possible values are: <br><br> **None** <br><br> **Windows_Server_Hybrid** <br><br> **Windows_Server_Perpetual** <br><br> Default: **None**
-	LicenseType *string `pulumi:"licenseType"`
+	LicenseType *DedicatedHostLicenseTypes `pulumi:"licenseType"`
 	// Resource location
 	Location *string `pulumi:"location"`
 	// Fault domain of the dedicated host within a dedicated host group.
@@ -175,7 +175,7 @@ type DedicatedHostArgs struct {
 	// The name of the dedicated host .
 	HostName pulumi.StringPtrInput
 	// Specifies the software license type that will be applied to the VMs deployed on the dedicated host. <br><br> Possible values are: <br><br> **None** <br><br> **Windows_Server_Hybrid** <br><br> **Windows_Server_Perpetual** <br><br> Default: **None**
-	LicenseType *DedicatedHostLicenseTypes
+	LicenseType DedicatedHostLicenseTypesPtrInput
 	// Resource location
 	Location pulumi.StringPtrInput
 	// Fault domain of the dedicated host within a dedicated host group.
@@ -211,9 +211,7 @@ func (i *DedicatedHost) ToDedicatedHostOutputWithContext(ctx context.Context) De
 	return pulumi.ToOutputWithContext(ctx, i).(DedicatedHostOutput)
 }
 
-type DedicatedHostOutput struct {
-	*pulumi.OutputState
-}
+type DedicatedHostOutput struct{ *pulumi.OutputState }
 
 func (DedicatedHostOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*DedicatedHost)(nil))

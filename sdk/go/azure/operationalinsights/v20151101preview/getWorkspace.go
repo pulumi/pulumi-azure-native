@@ -7,7 +7,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// The top level Workspace resource container.
 func LookupWorkspace(ctx *pulumi.Context, args *LookupWorkspaceArgs, opts ...pulumi.InvokeOption) (*LookupWorkspaceResult, error) {
 	var rv LookupWorkspaceResult
 	err := ctx.Invoke("azure-native:operationalinsights/v20151101preview:getWorkspace", args, &rv, opts...)
@@ -18,36 +17,22 @@ func LookupWorkspace(ctx *pulumi.Context, args *LookupWorkspaceArgs, opts ...pul
 }
 
 type LookupWorkspaceArgs struct {
-	// The resource group name of the workspace.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
-	// Name of the Log Analytics Workspace.
-	WorkspaceName string `pulumi:"workspaceName"`
+	WorkspaceName     string `pulumi:"workspaceName"`
 }
 
 // The top level Workspace resource container.
 type LookupWorkspaceResult struct {
-	// This is a read-only property. Represents the ID associated with the workspace.
-	CustomerId string `pulumi:"customerId"`
-	// The ETag of the workspace.
-	ETag *string `pulumi:"eTag"`
-	// Resource Id
-	Id string `pulumi:"id"`
-	// Resource location
-	Location *string `pulumi:"location"`
-	// Resource name
-	Name string `pulumi:"name"`
-	// This is a legacy property and is not used anymore. Kept here for backward compatibility.
-	PortalUrl string `pulumi:"portalUrl"`
-	// The provisioning state of the workspace.
-	ProvisioningState *string `pulumi:"provisioningState"`
-	// The workspace data retention in days. -1 means Unlimited retention for the Unlimited Sku. 730 days is the maximum allowed for all other Skus.
-	RetentionInDays *int `pulumi:"retentionInDays"`
-	// The SKU of the workspace.
-	Sku *SkuResponse `pulumi:"sku"`
-	// This is a read-only legacy property. It is always set to 'Azure' by the service. Kept here for backward compatibility.
-	Source string `pulumi:"source"`
-	// Resource tags
-	Tags map[string]string `pulumi:"tags"`
-	// Resource type
-	Type string `pulumi:"type"`
+	CustomerId        string            `pulumi:"customerId"`
+	ETag              *string           `pulumi:"eTag"`
+	Id                string            `pulumi:"id"`
+	Location          *string           `pulumi:"location"`
+	Name              string            `pulumi:"name"`
+	PortalUrl         string            `pulumi:"portalUrl"`
+	ProvisioningState *string           `pulumi:"provisioningState"`
+	RetentionInDays   *int              `pulumi:"retentionInDays"`
+	Sku               *SkuResponse      `pulumi:"sku"`
+	Source            string            `pulumi:"source"`
+	Tags              map[string]string `pulumi:"tags"`
+	Type              string            `pulumi:"type"`
 }

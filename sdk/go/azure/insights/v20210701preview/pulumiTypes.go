@@ -10,14 +10,10 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Properties that define the scope private link mode settings.
 type AccessModeSettings struct {
-	// List of exclusions that override the default access mode settings for specific private endpoint connections.
-	Exclusions []AccessModeSettingsExclusion `pulumi:"exclusions"`
-	// Specifies the default access mode of ingestion through associated private endpoints in scope. If not specified default value is 'Open'. You can override this default setting for a specific private endpoint connection by adding an exclusion in the 'exclusions' array.
-	IngestionAccessMode string `pulumi:"ingestionAccessMode"`
-	// Specifies the default access mode of queries through associated private endpoints in scope. If not specified default value is 'Open'. You can override this default setting for a specific private endpoint connection by adding an exclusion in the 'exclusions' array.
-	QueryAccessMode string `pulumi:"queryAccessMode"`
+	Exclusions          []AccessModeSettingsExclusion `pulumi:"exclusions"`
+	IngestionAccessMode string                        `pulumi:"ingestionAccessMode"`
+	QueryAccessMode     string                        `pulumi:"queryAccessMode"`
 }
 
 // AccessModeSettingsInput is an input type that accepts AccessModeSettingsArgs and AccessModeSettingsOutput values.
@@ -31,14 +27,10 @@ type AccessModeSettingsInput interface {
 	ToAccessModeSettingsOutputWithContext(context.Context) AccessModeSettingsOutput
 }
 
-// Properties that define the scope private link mode settings.
 type AccessModeSettingsArgs struct {
-	// List of exclusions that override the default access mode settings for specific private endpoint connections.
-	Exclusions AccessModeSettingsExclusionArrayInput `pulumi:"exclusions"`
-	// Specifies the default access mode of ingestion through associated private endpoints in scope. If not specified default value is 'Open'. You can override this default setting for a specific private endpoint connection by adding an exclusion in the 'exclusions' array.
-	IngestionAccessMode pulumi.StringInput `pulumi:"ingestionAccessMode"`
-	// Specifies the default access mode of queries through associated private endpoints in scope. If not specified default value is 'Open'. You can override this default setting for a specific private endpoint connection by adding an exclusion in the 'exclusions' array.
-	QueryAccessMode pulumi.StringInput `pulumi:"queryAccessMode"`
+	Exclusions          AccessModeSettingsExclusionArrayInput `pulumi:"exclusions"`
+	IngestionAccessMode pulumi.StringInput                    `pulumi:"ingestionAccessMode"`
+	QueryAccessMode     pulumi.StringInput                    `pulumi:"queryAccessMode"`
 }
 
 func (AccessModeSettingsArgs) ElementType() reflect.Type {
@@ -94,7 +86,6 @@ func (i *accessModeSettingsPtrType) ToAccessModeSettingsPtrOutputWithContext(ctx
 	return pulumi.ToOutputWithContext(ctx, i).(AccessModeSettingsPtrOutput)
 }
 
-// Properties that define the scope private link mode settings.
 type AccessModeSettingsOutput struct{ *pulumi.OutputState }
 
 func (AccessModeSettingsOutput) ElementType() reflect.Type {
@@ -114,22 +105,19 @@ func (o AccessModeSettingsOutput) ToAccessModeSettingsPtrOutput() AccessModeSett
 }
 
 func (o AccessModeSettingsOutput) ToAccessModeSettingsPtrOutputWithContext(ctx context.Context) AccessModeSettingsPtrOutput {
-	return o.ApplyT(func(v AccessModeSettings) *AccessModeSettings {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v AccessModeSettings) *AccessModeSettings {
 		return &v
 	}).(AccessModeSettingsPtrOutput)
 }
 
-// List of exclusions that override the default access mode settings for specific private endpoint connections.
 func (o AccessModeSettingsOutput) Exclusions() AccessModeSettingsExclusionArrayOutput {
 	return o.ApplyT(func(v AccessModeSettings) []AccessModeSettingsExclusion { return v.Exclusions }).(AccessModeSettingsExclusionArrayOutput)
 }
 
-// Specifies the default access mode of ingestion through associated private endpoints in scope. If not specified default value is 'Open'. You can override this default setting for a specific private endpoint connection by adding an exclusion in the 'exclusions' array.
 func (o AccessModeSettingsOutput) IngestionAccessMode() pulumi.StringOutput {
 	return o.ApplyT(func(v AccessModeSettings) string { return v.IngestionAccessMode }).(pulumi.StringOutput)
 }
 
-// Specifies the default access mode of queries through associated private endpoints in scope. If not specified default value is 'Open'. You can override this default setting for a specific private endpoint connection by adding an exclusion in the 'exclusions' array.
 func (o AccessModeSettingsOutput) QueryAccessMode() pulumi.StringOutput {
 	return o.ApplyT(func(v AccessModeSettings) string { return v.QueryAccessMode }).(pulumi.StringOutput)
 }
@@ -149,10 +137,15 @@ func (o AccessModeSettingsPtrOutput) ToAccessModeSettingsPtrOutputWithContext(ct
 }
 
 func (o AccessModeSettingsPtrOutput) Elem() AccessModeSettingsOutput {
-	return o.ApplyT(func(v *AccessModeSettings) AccessModeSettings { return *v }).(AccessModeSettingsOutput)
+	return o.ApplyT(func(v *AccessModeSettings) AccessModeSettings {
+		if v != nil {
+			return *v
+		}
+		var ret AccessModeSettings
+		return ret
+	}).(AccessModeSettingsOutput)
 }
 
-// List of exclusions that override the default access mode settings for specific private endpoint connections.
 func (o AccessModeSettingsPtrOutput) Exclusions() AccessModeSettingsExclusionArrayOutput {
 	return o.ApplyT(func(v *AccessModeSettings) []AccessModeSettingsExclusion {
 		if v == nil {
@@ -162,7 +155,6 @@ func (o AccessModeSettingsPtrOutput) Exclusions() AccessModeSettingsExclusionArr
 	}).(AccessModeSettingsExclusionArrayOutput)
 }
 
-// Specifies the default access mode of ingestion through associated private endpoints in scope. If not specified default value is 'Open'. You can override this default setting for a specific private endpoint connection by adding an exclusion in the 'exclusions' array.
 func (o AccessModeSettingsPtrOutput) IngestionAccessMode() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *AccessModeSettings) *string {
 		if v == nil {
@@ -172,7 +164,6 @@ func (o AccessModeSettingsPtrOutput) IngestionAccessMode() pulumi.StringPtrOutpu
 	}).(pulumi.StringPtrOutput)
 }
 
-// Specifies the default access mode of queries through associated private endpoints in scope. If not specified default value is 'Open'. You can override this default setting for a specific private endpoint connection by adding an exclusion in the 'exclusions' array.
 func (o AccessModeSettingsPtrOutput) QueryAccessMode() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *AccessModeSettings) *string {
 		if v == nil {
@@ -182,14 +173,10 @@ func (o AccessModeSettingsPtrOutput) QueryAccessMode() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Properties that define the scope private link mode settings exclusion item. This setting applies to a specific private endpoint connection and overrides the default settings for that private endpoint connection.
 type AccessModeSettingsExclusion struct {
-	// Specifies the access mode of ingestion through the specified private endpoint connection in the exclusion.
-	IngestionAccessMode *string `pulumi:"ingestionAccessMode"`
-	// The private endpoint connection name associated to the private endpoint on which we want to apply the specific access mode settings.
+	IngestionAccessMode           *string `pulumi:"ingestionAccessMode"`
 	PrivateEndpointConnectionName *string `pulumi:"privateEndpointConnectionName"`
-	// Specifies the access mode of queries through the specified private endpoint connection in the exclusion.
-	QueryAccessMode *string `pulumi:"queryAccessMode"`
+	QueryAccessMode               *string `pulumi:"queryAccessMode"`
 }
 
 // AccessModeSettingsExclusionInput is an input type that accepts AccessModeSettingsExclusionArgs and AccessModeSettingsExclusionOutput values.
@@ -203,14 +190,10 @@ type AccessModeSettingsExclusionInput interface {
 	ToAccessModeSettingsExclusionOutputWithContext(context.Context) AccessModeSettingsExclusionOutput
 }
 
-// Properties that define the scope private link mode settings exclusion item. This setting applies to a specific private endpoint connection and overrides the default settings for that private endpoint connection.
 type AccessModeSettingsExclusionArgs struct {
-	// Specifies the access mode of ingestion through the specified private endpoint connection in the exclusion.
-	IngestionAccessMode pulumi.StringPtrInput `pulumi:"ingestionAccessMode"`
-	// The private endpoint connection name associated to the private endpoint on which we want to apply the specific access mode settings.
+	IngestionAccessMode           pulumi.StringPtrInput `pulumi:"ingestionAccessMode"`
 	PrivateEndpointConnectionName pulumi.StringPtrInput `pulumi:"privateEndpointConnectionName"`
-	// Specifies the access mode of queries through the specified private endpoint connection in the exclusion.
-	QueryAccessMode pulumi.StringPtrInput `pulumi:"queryAccessMode"`
+	QueryAccessMode               pulumi.StringPtrInput `pulumi:"queryAccessMode"`
 }
 
 func (AccessModeSettingsExclusionArgs) ElementType() reflect.Type {
@@ -250,7 +233,6 @@ func (i AccessModeSettingsExclusionArray) ToAccessModeSettingsExclusionArrayOutp
 	return pulumi.ToOutputWithContext(ctx, i).(AccessModeSettingsExclusionArrayOutput)
 }
 
-// Properties that define the scope private link mode settings exclusion item. This setting applies to a specific private endpoint connection and overrides the default settings for that private endpoint connection.
 type AccessModeSettingsExclusionOutput struct{ *pulumi.OutputState }
 
 func (AccessModeSettingsExclusionOutput) ElementType() reflect.Type {
@@ -265,17 +247,14 @@ func (o AccessModeSettingsExclusionOutput) ToAccessModeSettingsExclusionOutputWi
 	return o
 }
 
-// Specifies the access mode of ingestion through the specified private endpoint connection in the exclusion.
 func (o AccessModeSettingsExclusionOutput) IngestionAccessMode() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AccessModeSettingsExclusion) *string { return v.IngestionAccessMode }).(pulumi.StringPtrOutput)
 }
 
-// The private endpoint connection name associated to the private endpoint on which we want to apply the specific access mode settings.
 func (o AccessModeSettingsExclusionOutput) PrivateEndpointConnectionName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AccessModeSettingsExclusion) *string { return v.PrivateEndpointConnectionName }).(pulumi.StringPtrOutput)
 }
 
-// Specifies the access mode of queries through the specified private endpoint connection in the exclusion.
 func (o AccessModeSettingsExclusionOutput) QueryAccessMode() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AccessModeSettingsExclusion) *string { return v.QueryAccessMode }).(pulumi.StringPtrOutput)
 }
@@ -300,14 +279,10 @@ func (o AccessModeSettingsExclusionArrayOutput) Index(i pulumi.IntInput) AccessM
 	}).(AccessModeSettingsExclusionOutput)
 }
 
-// Properties that define the scope private link mode settings exclusion item. This setting applies to a specific private endpoint connection and overrides the default settings for that private endpoint connection.
 type AccessModeSettingsExclusionResponse struct {
-	// Specifies the access mode of ingestion through the specified private endpoint connection in the exclusion.
-	IngestionAccessMode *string `pulumi:"ingestionAccessMode"`
-	// The private endpoint connection name associated to the private endpoint on which we want to apply the specific access mode settings.
+	IngestionAccessMode           *string `pulumi:"ingestionAccessMode"`
 	PrivateEndpointConnectionName *string `pulumi:"privateEndpointConnectionName"`
-	// Specifies the access mode of queries through the specified private endpoint connection in the exclusion.
-	QueryAccessMode *string `pulumi:"queryAccessMode"`
+	QueryAccessMode               *string `pulumi:"queryAccessMode"`
 }
 
 // AccessModeSettingsExclusionResponseInput is an input type that accepts AccessModeSettingsExclusionResponseArgs and AccessModeSettingsExclusionResponseOutput values.
@@ -321,14 +296,10 @@ type AccessModeSettingsExclusionResponseInput interface {
 	ToAccessModeSettingsExclusionResponseOutputWithContext(context.Context) AccessModeSettingsExclusionResponseOutput
 }
 
-// Properties that define the scope private link mode settings exclusion item. This setting applies to a specific private endpoint connection and overrides the default settings for that private endpoint connection.
 type AccessModeSettingsExclusionResponseArgs struct {
-	// Specifies the access mode of ingestion through the specified private endpoint connection in the exclusion.
-	IngestionAccessMode pulumi.StringPtrInput `pulumi:"ingestionAccessMode"`
-	// The private endpoint connection name associated to the private endpoint on which we want to apply the specific access mode settings.
+	IngestionAccessMode           pulumi.StringPtrInput `pulumi:"ingestionAccessMode"`
 	PrivateEndpointConnectionName pulumi.StringPtrInput `pulumi:"privateEndpointConnectionName"`
-	// Specifies the access mode of queries through the specified private endpoint connection in the exclusion.
-	QueryAccessMode pulumi.StringPtrInput `pulumi:"queryAccessMode"`
+	QueryAccessMode               pulumi.StringPtrInput `pulumi:"queryAccessMode"`
 }
 
 func (AccessModeSettingsExclusionResponseArgs) ElementType() reflect.Type {
@@ -368,7 +339,6 @@ func (i AccessModeSettingsExclusionResponseArray) ToAccessModeSettingsExclusionR
 	return pulumi.ToOutputWithContext(ctx, i).(AccessModeSettingsExclusionResponseArrayOutput)
 }
 
-// Properties that define the scope private link mode settings exclusion item. This setting applies to a specific private endpoint connection and overrides the default settings for that private endpoint connection.
 type AccessModeSettingsExclusionResponseOutput struct{ *pulumi.OutputState }
 
 func (AccessModeSettingsExclusionResponseOutput) ElementType() reflect.Type {
@@ -383,17 +353,14 @@ func (o AccessModeSettingsExclusionResponseOutput) ToAccessModeSettingsExclusion
 	return o
 }
 
-// Specifies the access mode of ingestion through the specified private endpoint connection in the exclusion.
 func (o AccessModeSettingsExclusionResponseOutput) IngestionAccessMode() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AccessModeSettingsExclusionResponse) *string { return v.IngestionAccessMode }).(pulumi.StringPtrOutput)
 }
 
-// The private endpoint connection name associated to the private endpoint on which we want to apply the specific access mode settings.
 func (o AccessModeSettingsExclusionResponseOutput) PrivateEndpointConnectionName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AccessModeSettingsExclusionResponse) *string { return v.PrivateEndpointConnectionName }).(pulumi.StringPtrOutput)
 }
 
-// Specifies the access mode of queries through the specified private endpoint connection in the exclusion.
 func (o AccessModeSettingsExclusionResponseOutput) QueryAccessMode() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AccessModeSettingsExclusionResponse) *string { return v.QueryAccessMode }).(pulumi.StringPtrOutput)
 }
@@ -418,14 +385,10 @@ func (o AccessModeSettingsExclusionResponseArrayOutput) Index(i pulumi.IntInput)
 	}).(AccessModeSettingsExclusionResponseOutput)
 }
 
-// Properties that define the scope private link mode settings.
 type AccessModeSettingsResponse struct {
-	// List of exclusions that override the default access mode settings for specific private endpoint connections.
-	Exclusions []AccessModeSettingsExclusionResponse `pulumi:"exclusions"`
-	// Specifies the default access mode of ingestion through associated private endpoints in scope. If not specified default value is 'Open'. You can override this default setting for a specific private endpoint connection by adding an exclusion in the 'exclusions' array.
-	IngestionAccessMode string `pulumi:"ingestionAccessMode"`
-	// Specifies the default access mode of queries through associated private endpoints in scope. If not specified default value is 'Open'. You can override this default setting for a specific private endpoint connection by adding an exclusion in the 'exclusions' array.
-	QueryAccessMode string `pulumi:"queryAccessMode"`
+	Exclusions          []AccessModeSettingsExclusionResponse `pulumi:"exclusions"`
+	IngestionAccessMode string                                `pulumi:"ingestionAccessMode"`
+	QueryAccessMode     string                                `pulumi:"queryAccessMode"`
 }
 
 // AccessModeSettingsResponseInput is an input type that accepts AccessModeSettingsResponseArgs and AccessModeSettingsResponseOutput values.
@@ -439,14 +402,10 @@ type AccessModeSettingsResponseInput interface {
 	ToAccessModeSettingsResponseOutputWithContext(context.Context) AccessModeSettingsResponseOutput
 }
 
-// Properties that define the scope private link mode settings.
 type AccessModeSettingsResponseArgs struct {
-	// List of exclusions that override the default access mode settings for specific private endpoint connections.
-	Exclusions AccessModeSettingsExclusionResponseArrayInput `pulumi:"exclusions"`
-	// Specifies the default access mode of ingestion through associated private endpoints in scope. If not specified default value is 'Open'. You can override this default setting for a specific private endpoint connection by adding an exclusion in the 'exclusions' array.
-	IngestionAccessMode pulumi.StringInput `pulumi:"ingestionAccessMode"`
-	// Specifies the default access mode of queries through associated private endpoints in scope. If not specified default value is 'Open'. You can override this default setting for a specific private endpoint connection by adding an exclusion in the 'exclusions' array.
-	QueryAccessMode pulumi.StringInput `pulumi:"queryAccessMode"`
+	Exclusions          AccessModeSettingsExclusionResponseArrayInput `pulumi:"exclusions"`
+	IngestionAccessMode pulumi.StringInput                            `pulumi:"ingestionAccessMode"`
+	QueryAccessMode     pulumi.StringInput                            `pulumi:"queryAccessMode"`
 }
 
 func (AccessModeSettingsResponseArgs) ElementType() reflect.Type {
@@ -502,7 +461,6 @@ func (i *accessModeSettingsResponsePtrType) ToAccessModeSettingsResponsePtrOutpu
 	return pulumi.ToOutputWithContext(ctx, i).(AccessModeSettingsResponsePtrOutput)
 }
 
-// Properties that define the scope private link mode settings.
 type AccessModeSettingsResponseOutput struct{ *pulumi.OutputState }
 
 func (AccessModeSettingsResponseOutput) ElementType() reflect.Type {
@@ -522,22 +480,19 @@ func (o AccessModeSettingsResponseOutput) ToAccessModeSettingsResponsePtrOutput(
 }
 
 func (o AccessModeSettingsResponseOutput) ToAccessModeSettingsResponsePtrOutputWithContext(ctx context.Context) AccessModeSettingsResponsePtrOutput {
-	return o.ApplyT(func(v AccessModeSettingsResponse) *AccessModeSettingsResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v AccessModeSettingsResponse) *AccessModeSettingsResponse {
 		return &v
 	}).(AccessModeSettingsResponsePtrOutput)
 }
 
-// List of exclusions that override the default access mode settings for specific private endpoint connections.
 func (o AccessModeSettingsResponseOutput) Exclusions() AccessModeSettingsExclusionResponseArrayOutput {
 	return o.ApplyT(func(v AccessModeSettingsResponse) []AccessModeSettingsExclusionResponse { return v.Exclusions }).(AccessModeSettingsExclusionResponseArrayOutput)
 }
 
-// Specifies the default access mode of ingestion through associated private endpoints in scope. If not specified default value is 'Open'. You can override this default setting for a specific private endpoint connection by adding an exclusion in the 'exclusions' array.
 func (o AccessModeSettingsResponseOutput) IngestionAccessMode() pulumi.StringOutput {
 	return o.ApplyT(func(v AccessModeSettingsResponse) string { return v.IngestionAccessMode }).(pulumi.StringOutput)
 }
 
-// Specifies the default access mode of queries through associated private endpoints in scope. If not specified default value is 'Open'. You can override this default setting for a specific private endpoint connection by adding an exclusion in the 'exclusions' array.
 func (o AccessModeSettingsResponseOutput) QueryAccessMode() pulumi.StringOutput {
 	return o.ApplyT(func(v AccessModeSettingsResponse) string { return v.QueryAccessMode }).(pulumi.StringOutput)
 }
@@ -557,10 +512,15 @@ func (o AccessModeSettingsResponsePtrOutput) ToAccessModeSettingsResponsePtrOutp
 }
 
 func (o AccessModeSettingsResponsePtrOutput) Elem() AccessModeSettingsResponseOutput {
-	return o.ApplyT(func(v *AccessModeSettingsResponse) AccessModeSettingsResponse { return *v }).(AccessModeSettingsResponseOutput)
+	return o.ApplyT(func(v *AccessModeSettingsResponse) AccessModeSettingsResponse {
+		if v != nil {
+			return *v
+		}
+		var ret AccessModeSettingsResponse
+		return ret
+	}).(AccessModeSettingsResponseOutput)
 }
 
-// List of exclusions that override the default access mode settings for specific private endpoint connections.
 func (o AccessModeSettingsResponsePtrOutput) Exclusions() AccessModeSettingsExclusionResponseArrayOutput {
 	return o.ApplyT(func(v *AccessModeSettingsResponse) []AccessModeSettingsExclusionResponse {
 		if v == nil {
@@ -570,7 +530,6 @@ func (o AccessModeSettingsResponsePtrOutput) Exclusions() AccessModeSettingsExcl
 	}).(AccessModeSettingsExclusionResponseArrayOutput)
 }
 
-// Specifies the default access mode of ingestion through associated private endpoints in scope. If not specified default value is 'Open'. You can override this default setting for a specific private endpoint connection by adding an exclusion in the 'exclusions' array.
 func (o AccessModeSettingsResponsePtrOutput) IngestionAccessMode() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *AccessModeSettingsResponse) *string {
 		if v == nil {
@@ -580,7 +539,6 @@ func (o AccessModeSettingsResponsePtrOutput) IngestionAccessMode() pulumi.String
 	}).(pulumi.StringPtrOutput)
 }
 
-// Specifies the default access mode of queries through associated private endpoints in scope. If not specified default value is 'Open'. You can override this default setting for a specific private endpoint connection by adding an exclusion in the 'exclusions' array.
 func (o AccessModeSettingsResponsePtrOutput) QueryAccessMode() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *AccessModeSettingsResponse) *string {
 		if v == nil {
@@ -590,20 +548,13 @@ func (o AccessModeSettingsResponsePtrOutput) QueryAccessMode() pulumi.StringPtrO
 	}).(pulumi.StringPtrOutput)
 }
 
-// The Private Endpoint Connection resource.
 type PrivateEndpointConnectionResponse struct {
-	// Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
-	Id string `pulumi:"id"`
-	// The name of the resource
-	Name string `pulumi:"name"`
-	// The resource of private end point.
-	PrivateEndpoint *PrivateEndpointResponse `pulumi:"privateEndpoint"`
-	// A collection of information about the state of the connection between service consumer and provider.
+	Id                                string                                    `pulumi:"id"`
+	Name                              string                                    `pulumi:"name"`
+	PrivateEndpoint                   *PrivateEndpointResponse                  `pulumi:"privateEndpoint"`
 	PrivateLinkServiceConnectionState PrivateLinkServiceConnectionStateResponse `pulumi:"privateLinkServiceConnectionState"`
-	// The provisioning state of the private endpoint connection resource.
-	ProvisioningState string `pulumi:"provisioningState"`
-	// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
-	Type string `pulumi:"type"`
+	ProvisioningState                 string                                    `pulumi:"provisioningState"`
+	Type                              string                                    `pulumi:"type"`
 }
 
 // PrivateEndpointConnectionResponseInput is an input type that accepts PrivateEndpointConnectionResponseArgs and PrivateEndpointConnectionResponseOutput values.
@@ -617,20 +568,13 @@ type PrivateEndpointConnectionResponseInput interface {
 	ToPrivateEndpointConnectionResponseOutputWithContext(context.Context) PrivateEndpointConnectionResponseOutput
 }
 
-// The Private Endpoint Connection resource.
 type PrivateEndpointConnectionResponseArgs struct {
-	// Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
-	Id pulumi.StringInput `pulumi:"id"`
-	// The name of the resource
-	Name pulumi.StringInput `pulumi:"name"`
-	// The resource of private end point.
-	PrivateEndpoint PrivateEndpointResponsePtrInput `pulumi:"privateEndpoint"`
-	// A collection of information about the state of the connection between service consumer and provider.
+	Id                                pulumi.StringInput                             `pulumi:"id"`
+	Name                              pulumi.StringInput                             `pulumi:"name"`
+	PrivateEndpoint                   PrivateEndpointResponsePtrInput                `pulumi:"privateEndpoint"`
 	PrivateLinkServiceConnectionState PrivateLinkServiceConnectionStateResponseInput `pulumi:"privateLinkServiceConnectionState"`
-	// The provisioning state of the private endpoint connection resource.
-	ProvisioningState pulumi.StringInput `pulumi:"provisioningState"`
-	// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
-	Type pulumi.StringInput `pulumi:"type"`
+	ProvisioningState                 pulumi.StringInput                             `pulumi:"provisioningState"`
+	Type                              pulumi.StringInput                             `pulumi:"type"`
 }
 
 func (PrivateEndpointConnectionResponseArgs) ElementType() reflect.Type {
@@ -670,7 +614,6 @@ func (i PrivateEndpointConnectionResponseArray) ToPrivateEndpointConnectionRespo
 	return pulumi.ToOutputWithContext(ctx, i).(PrivateEndpointConnectionResponseArrayOutput)
 }
 
-// The Private Endpoint Connection resource.
 type PrivateEndpointConnectionResponseOutput struct{ *pulumi.OutputState }
 
 func (PrivateEndpointConnectionResponseOutput) ElementType() reflect.Type {
@@ -685,34 +628,28 @@ func (o PrivateEndpointConnectionResponseOutput) ToPrivateEndpointConnectionResp
 	return o
 }
 
-// Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
 func (o PrivateEndpointConnectionResponseOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v PrivateEndpointConnectionResponse) string { return v.Id }).(pulumi.StringOutput)
 }
 
-// The name of the resource
 func (o PrivateEndpointConnectionResponseOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v PrivateEndpointConnectionResponse) string { return v.Name }).(pulumi.StringOutput)
 }
 
-// The resource of private end point.
 func (o PrivateEndpointConnectionResponseOutput) PrivateEndpoint() PrivateEndpointResponsePtrOutput {
 	return o.ApplyT(func(v PrivateEndpointConnectionResponse) *PrivateEndpointResponse { return v.PrivateEndpoint }).(PrivateEndpointResponsePtrOutput)
 }
 
-// A collection of information about the state of the connection between service consumer and provider.
 func (o PrivateEndpointConnectionResponseOutput) PrivateLinkServiceConnectionState() PrivateLinkServiceConnectionStateResponseOutput {
 	return o.ApplyT(func(v PrivateEndpointConnectionResponse) PrivateLinkServiceConnectionStateResponse {
 		return v.PrivateLinkServiceConnectionState
 	}).(PrivateLinkServiceConnectionStateResponseOutput)
 }
 
-// The provisioning state of the private endpoint connection resource.
 func (o PrivateEndpointConnectionResponseOutput) ProvisioningState() pulumi.StringOutput {
 	return o.ApplyT(func(v PrivateEndpointConnectionResponse) string { return v.ProvisioningState }).(pulumi.StringOutput)
 }
 
-// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
 func (o PrivateEndpointConnectionResponseOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v PrivateEndpointConnectionResponse) string { return v.Type }).(pulumi.StringOutput)
 }
@@ -737,9 +674,7 @@ func (o PrivateEndpointConnectionResponseArrayOutput) Index(i pulumi.IntInput) P
 	}).(PrivateEndpointConnectionResponseOutput)
 }
 
-// The Private Endpoint resource.
 type PrivateEndpointResponse struct {
-	// The ARM identifier for Private Endpoint
 	Id string `pulumi:"id"`
 }
 
@@ -754,9 +689,7 @@ type PrivateEndpointResponseInput interface {
 	ToPrivateEndpointResponseOutputWithContext(context.Context) PrivateEndpointResponseOutput
 }
 
-// The Private Endpoint resource.
 type PrivateEndpointResponseArgs struct {
-	// The ARM identifier for Private Endpoint
 	Id pulumi.StringInput `pulumi:"id"`
 }
 
@@ -813,7 +746,6 @@ func (i *privateEndpointResponsePtrType) ToPrivateEndpointResponsePtrOutputWithC
 	return pulumi.ToOutputWithContext(ctx, i).(PrivateEndpointResponsePtrOutput)
 }
 
-// The Private Endpoint resource.
 type PrivateEndpointResponseOutput struct{ *pulumi.OutputState }
 
 func (PrivateEndpointResponseOutput) ElementType() reflect.Type {
@@ -833,12 +765,11 @@ func (o PrivateEndpointResponseOutput) ToPrivateEndpointResponsePtrOutput() Priv
 }
 
 func (o PrivateEndpointResponseOutput) ToPrivateEndpointResponsePtrOutputWithContext(ctx context.Context) PrivateEndpointResponsePtrOutput {
-	return o.ApplyT(func(v PrivateEndpointResponse) *PrivateEndpointResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v PrivateEndpointResponse) *PrivateEndpointResponse {
 		return &v
 	}).(PrivateEndpointResponsePtrOutput)
 }
 
-// The ARM identifier for Private Endpoint
 func (o PrivateEndpointResponseOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v PrivateEndpointResponse) string { return v.Id }).(pulumi.StringOutput)
 }
@@ -858,10 +789,15 @@ func (o PrivateEndpointResponsePtrOutput) ToPrivateEndpointResponsePtrOutputWith
 }
 
 func (o PrivateEndpointResponsePtrOutput) Elem() PrivateEndpointResponseOutput {
-	return o.ApplyT(func(v *PrivateEndpointResponse) PrivateEndpointResponse { return *v }).(PrivateEndpointResponseOutput)
+	return o.ApplyT(func(v *PrivateEndpointResponse) PrivateEndpointResponse {
+		if v != nil {
+			return *v
+		}
+		var ret PrivateEndpointResponse
+		return ret
+	}).(PrivateEndpointResponseOutput)
 }
 
-// The ARM identifier for Private Endpoint
 func (o PrivateEndpointResponsePtrOutput) Id() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *PrivateEndpointResponse) *string {
 		if v == nil {
@@ -871,14 +807,10 @@ func (o PrivateEndpointResponsePtrOutput) Id() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// A collection of information about the state of the connection between service consumer and provider.
 type PrivateLinkServiceConnectionState struct {
-	// A message indicating if changes on the service provider require any updates on the consumer.
 	ActionsRequired *string `pulumi:"actionsRequired"`
-	// The reason for approval/rejection of the connection.
-	Description *string `pulumi:"description"`
-	// Indicates whether the connection has been Approved/Rejected/Removed by the owner of the service.
-	Status *string `pulumi:"status"`
+	Description     *string `pulumi:"description"`
+	Status          *string `pulumi:"status"`
 }
 
 // PrivateLinkServiceConnectionStateInput is an input type that accepts PrivateLinkServiceConnectionStateArgs and PrivateLinkServiceConnectionStateOutput values.
@@ -892,14 +824,10 @@ type PrivateLinkServiceConnectionStateInput interface {
 	ToPrivateLinkServiceConnectionStateOutputWithContext(context.Context) PrivateLinkServiceConnectionStateOutput
 }
 
-// A collection of information about the state of the connection between service consumer and provider.
 type PrivateLinkServiceConnectionStateArgs struct {
-	// A message indicating if changes on the service provider require any updates on the consumer.
 	ActionsRequired pulumi.StringPtrInput `pulumi:"actionsRequired"`
-	// The reason for approval/rejection of the connection.
-	Description pulumi.StringPtrInput `pulumi:"description"`
-	// Indicates whether the connection has been Approved/Rejected/Removed by the owner of the service.
-	Status pulumi.StringPtrInput `pulumi:"status"`
+	Description     pulumi.StringPtrInput `pulumi:"description"`
+	Status          pulumi.StringPtrInput `pulumi:"status"`
 }
 
 func (PrivateLinkServiceConnectionStateArgs) ElementType() reflect.Type {
@@ -955,7 +883,6 @@ func (i *privateLinkServiceConnectionStatePtrType) ToPrivateLinkServiceConnectio
 	return pulumi.ToOutputWithContext(ctx, i).(PrivateLinkServiceConnectionStatePtrOutput)
 }
 
-// A collection of information about the state of the connection between service consumer and provider.
 type PrivateLinkServiceConnectionStateOutput struct{ *pulumi.OutputState }
 
 func (PrivateLinkServiceConnectionStateOutput) ElementType() reflect.Type {
@@ -975,22 +902,19 @@ func (o PrivateLinkServiceConnectionStateOutput) ToPrivateLinkServiceConnectionS
 }
 
 func (o PrivateLinkServiceConnectionStateOutput) ToPrivateLinkServiceConnectionStatePtrOutputWithContext(ctx context.Context) PrivateLinkServiceConnectionStatePtrOutput {
-	return o.ApplyT(func(v PrivateLinkServiceConnectionState) *PrivateLinkServiceConnectionState {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v PrivateLinkServiceConnectionState) *PrivateLinkServiceConnectionState {
 		return &v
 	}).(PrivateLinkServiceConnectionStatePtrOutput)
 }
 
-// A message indicating if changes on the service provider require any updates on the consumer.
 func (o PrivateLinkServiceConnectionStateOutput) ActionsRequired() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v PrivateLinkServiceConnectionState) *string { return v.ActionsRequired }).(pulumi.StringPtrOutput)
 }
 
-// The reason for approval/rejection of the connection.
 func (o PrivateLinkServiceConnectionStateOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v PrivateLinkServiceConnectionState) *string { return v.Description }).(pulumi.StringPtrOutput)
 }
 
-// Indicates whether the connection has been Approved/Rejected/Removed by the owner of the service.
 func (o PrivateLinkServiceConnectionStateOutput) Status() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v PrivateLinkServiceConnectionState) *string { return v.Status }).(pulumi.StringPtrOutput)
 }
@@ -1010,10 +934,15 @@ func (o PrivateLinkServiceConnectionStatePtrOutput) ToPrivateLinkServiceConnecti
 }
 
 func (o PrivateLinkServiceConnectionStatePtrOutput) Elem() PrivateLinkServiceConnectionStateOutput {
-	return o.ApplyT(func(v *PrivateLinkServiceConnectionState) PrivateLinkServiceConnectionState { return *v }).(PrivateLinkServiceConnectionStateOutput)
+	return o.ApplyT(func(v *PrivateLinkServiceConnectionState) PrivateLinkServiceConnectionState {
+		if v != nil {
+			return *v
+		}
+		var ret PrivateLinkServiceConnectionState
+		return ret
+	}).(PrivateLinkServiceConnectionStateOutput)
 }
 
-// A message indicating if changes on the service provider require any updates on the consumer.
 func (o PrivateLinkServiceConnectionStatePtrOutput) ActionsRequired() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *PrivateLinkServiceConnectionState) *string {
 		if v == nil {
@@ -1023,7 +952,6 @@ func (o PrivateLinkServiceConnectionStatePtrOutput) ActionsRequired() pulumi.Str
 	}).(pulumi.StringPtrOutput)
 }
 
-// The reason for approval/rejection of the connection.
 func (o PrivateLinkServiceConnectionStatePtrOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *PrivateLinkServiceConnectionState) *string {
 		if v == nil {
@@ -1033,7 +961,6 @@ func (o PrivateLinkServiceConnectionStatePtrOutput) Description() pulumi.StringP
 	}).(pulumi.StringPtrOutput)
 }
 
-// Indicates whether the connection has been Approved/Rejected/Removed by the owner of the service.
 func (o PrivateLinkServiceConnectionStatePtrOutput) Status() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *PrivateLinkServiceConnectionState) *string {
 		if v == nil {
@@ -1043,14 +970,10 @@ func (o PrivateLinkServiceConnectionStatePtrOutput) Status() pulumi.StringPtrOut
 	}).(pulumi.StringPtrOutput)
 }
 
-// A collection of information about the state of the connection between service consumer and provider.
 type PrivateLinkServiceConnectionStateResponse struct {
-	// A message indicating if changes on the service provider require any updates on the consumer.
 	ActionsRequired *string `pulumi:"actionsRequired"`
-	// The reason for approval/rejection of the connection.
-	Description *string `pulumi:"description"`
-	// Indicates whether the connection has been Approved/Rejected/Removed by the owner of the service.
-	Status *string `pulumi:"status"`
+	Description     *string `pulumi:"description"`
+	Status          *string `pulumi:"status"`
 }
 
 // PrivateLinkServiceConnectionStateResponseInput is an input type that accepts PrivateLinkServiceConnectionStateResponseArgs and PrivateLinkServiceConnectionStateResponseOutput values.
@@ -1064,14 +987,10 @@ type PrivateLinkServiceConnectionStateResponseInput interface {
 	ToPrivateLinkServiceConnectionStateResponseOutputWithContext(context.Context) PrivateLinkServiceConnectionStateResponseOutput
 }
 
-// A collection of information about the state of the connection between service consumer and provider.
 type PrivateLinkServiceConnectionStateResponseArgs struct {
-	// A message indicating if changes on the service provider require any updates on the consumer.
 	ActionsRequired pulumi.StringPtrInput `pulumi:"actionsRequired"`
-	// The reason for approval/rejection of the connection.
-	Description pulumi.StringPtrInput `pulumi:"description"`
-	// Indicates whether the connection has been Approved/Rejected/Removed by the owner of the service.
-	Status pulumi.StringPtrInput `pulumi:"status"`
+	Description     pulumi.StringPtrInput `pulumi:"description"`
+	Status          pulumi.StringPtrInput `pulumi:"status"`
 }
 
 func (PrivateLinkServiceConnectionStateResponseArgs) ElementType() reflect.Type {
@@ -1127,7 +1046,6 @@ func (i *privateLinkServiceConnectionStateResponsePtrType) ToPrivateLinkServiceC
 	return pulumi.ToOutputWithContext(ctx, i).(PrivateLinkServiceConnectionStateResponsePtrOutput)
 }
 
-// A collection of information about the state of the connection between service consumer and provider.
 type PrivateLinkServiceConnectionStateResponseOutput struct{ *pulumi.OutputState }
 
 func (PrivateLinkServiceConnectionStateResponseOutput) ElementType() reflect.Type {
@@ -1147,22 +1065,19 @@ func (o PrivateLinkServiceConnectionStateResponseOutput) ToPrivateLinkServiceCon
 }
 
 func (o PrivateLinkServiceConnectionStateResponseOutput) ToPrivateLinkServiceConnectionStateResponsePtrOutputWithContext(ctx context.Context) PrivateLinkServiceConnectionStateResponsePtrOutput {
-	return o.ApplyT(func(v PrivateLinkServiceConnectionStateResponse) *PrivateLinkServiceConnectionStateResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v PrivateLinkServiceConnectionStateResponse) *PrivateLinkServiceConnectionStateResponse {
 		return &v
 	}).(PrivateLinkServiceConnectionStateResponsePtrOutput)
 }
 
-// A message indicating if changes on the service provider require any updates on the consumer.
 func (o PrivateLinkServiceConnectionStateResponseOutput) ActionsRequired() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v PrivateLinkServiceConnectionStateResponse) *string { return v.ActionsRequired }).(pulumi.StringPtrOutput)
 }
 
-// The reason for approval/rejection of the connection.
 func (o PrivateLinkServiceConnectionStateResponseOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v PrivateLinkServiceConnectionStateResponse) *string { return v.Description }).(pulumi.StringPtrOutput)
 }
 
-// Indicates whether the connection has been Approved/Rejected/Removed by the owner of the service.
 func (o PrivateLinkServiceConnectionStateResponseOutput) Status() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v PrivateLinkServiceConnectionStateResponse) *string { return v.Status }).(pulumi.StringPtrOutput)
 }
@@ -1183,11 +1098,14 @@ func (o PrivateLinkServiceConnectionStateResponsePtrOutput) ToPrivateLinkService
 
 func (o PrivateLinkServiceConnectionStateResponsePtrOutput) Elem() PrivateLinkServiceConnectionStateResponseOutput {
 	return o.ApplyT(func(v *PrivateLinkServiceConnectionStateResponse) PrivateLinkServiceConnectionStateResponse {
-		return *v
+		if v != nil {
+			return *v
+		}
+		var ret PrivateLinkServiceConnectionStateResponse
+		return ret
 	}).(PrivateLinkServiceConnectionStateResponseOutput)
 }
 
-// A message indicating if changes on the service provider require any updates on the consumer.
 func (o PrivateLinkServiceConnectionStateResponsePtrOutput) ActionsRequired() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *PrivateLinkServiceConnectionStateResponse) *string {
 		if v == nil {
@@ -1197,7 +1115,6 @@ func (o PrivateLinkServiceConnectionStateResponsePtrOutput) ActionsRequired() pu
 	}).(pulumi.StringPtrOutput)
 }
 
-// The reason for approval/rejection of the connection.
 func (o PrivateLinkServiceConnectionStateResponsePtrOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *PrivateLinkServiceConnectionStateResponse) *string {
 		if v == nil {
@@ -1207,7 +1124,6 @@ func (o PrivateLinkServiceConnectionStateResponsePtrOutput) Description() pulumi
 	}).(pulumi.StringPtrOutput)
 }
 
-// Indicates whether the connection has been Approved/Rejected/Removed by the owner of the service.
 func (o PrivateLinkServiceConnectionStateResponsePtrOutput) Status() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *PrivateLinkServiceConnectionStateResponse) *string {
 		if v == nil {
@@ -1217,19 +1133,12 @@ func (o PrivateLinkServiceConnectionStateResponsePtrOutput) Status() pulumi.Stri
 	}).(pulumi.StringPtrOutput)
 }
 
-// Metadata pertaining to creation and last modification of the resource.
 type SystemDataResponse struct {
-	// The timestamp of resource creation (UTC).
-	CreatedAt *string `pulumi:"createdAt"`
-	// The identity that created the resource.
-	CreatedBy *string `pulumi:"createdBy"`
-	// The type of identity that created the resource.
-	CreatedByType *string `pulumi:"createdByType"`
-	// The timestamp of resource last modification (UTC)
-	LastModifiedAt *string `pulumi:"lastModifiedAt"`
-	// The identity that last modified the resource.
-	LastModifiedBy *string `pulumi:"lastModifiedBy"`
-	// The type of identity that last modified the resource.
+	CreatedAt          *string `pulumi:"createdAt"`
+	CreatedBy          *string `pulumi:"createdBy"`
+	CreatedByType      *string `pulumi:"createdByType"`
+	LastModifiedAt     *string `pulumi:"lastModifiedAt"`
+	LastModifiedBy     *string `pulumi:"lastModifiedBy"`
 	LastModifiedByType *string `pulumi:"lastModifiedByType"`
 }
 
@@ -1244,19 +1153,12 @@ type SystemDataResponseInput interface {
 	ToSystemDataResponseOutputWithContext(context.Context) SystemDataResponseOutput
 }
 
-// Metadata pertaining to creation and last modification of the resource.
 type SystemDataResponseArgs struct {
-	// The timestamp of resource creation (UTC).
-	CreatedAt pulumi.StringPtrInput `pulumi:"createdAt"`
-	// The identity that created the resource.
-	CreatedBy pulumi.StringPtrInput `pulumi:"createdBy"`
-	// The type of identity that created the resource.
-	CreatedByType pulumi.StringPtrInput `pulumi:"createdByType"`
-	// The timestamp of resource last modification (UTC)
-	LastModifiedAt pulumi.StringPtrInput `pulumi:"lastModifiedAt"`
-	// The identity that last modified the resource.
-	LastModifiedBy pulumi.StringPtrInput `pulumi:"lastModifiedBy"`
-	// The type of identity that last modified the resource.
+	CreatedAt          pulumi.StringPtrInput `pulumi:"createdAt"`
+	CreatedBy          pulumi.StringPtrInput `pulumi:"createdBy"`
+	CreatedByType      pulumi.StringPtrInput `pulumi:"createdByType"`
+	LastModifiedAt     pulumi.StringPtrInput `pulumi:"lastModifiedAt"`
+	LastModifiedBy     pulumi.StringPtrInput `pulumi:"lastModifiedBy"`
 	LastModifiedByType pulumi.StringPtrInput `pulumi:"lastModifiedByType"`
 }
 
@@ -1313,7 +1215,6 @@ func (i *systemDataResponsePtrType) ToSystemDataResponsePtrOutputWithContext(ctx
 	return pulumi.ToOutputWithContext(ctx, i).(SystemDataResponsePtrOutput)
 }
 
-// Metadata pertaining to creation and last modification of the resource.
 type SystemDataResponseOutput struct{ *pulumi.OutputState }
 
 func (SystemDataResponseOutput) ElementType() reflect.Type {
@@ -1333,37 +1234,31 @@ func (o SystemDataResponseOutput) ToSystemDataResponsePtrOutput() SystemDataResp
 }
 
 func (o SystemDataResponseOutput) ToSystemDataResponsePtrOutputWithContext(ctx context.Context) SystemDataResponsePtrOutput {
-	return o.ApplyT(func(v SystemDataResponse) *SystemDataResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v SystemDataResponse) *SystemDataResponse {
 		return &v
 	}).(SystemDataResponsePtrOutput)
 }
 
-// The timestamp of resource creation (UTC).
 func (o SystemDataResponseOutput) CreatedAt() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SystemDataResponse) *string { return v.CreatedAt }).(pulumi.StringPtrOutput)
 }
 
-// The identity that created the resource.
 func (o SystemDataResponseOutput) CreatedBy() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SystemDataResponse) *string { return v.CreatedBy }).(pulumi.StringPtrOutput)
 }
 
-// The type of identity that created the resource.
 func (o SystemDataResponseOutput) CreatedByType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SystemDataResponse) *string { return v.CreatedByType }).(pulumi.StringPtrOutput)
 }
 
-// The timestamp of resource last modification (UTC)
 func (o SystemDataResponseOutput) LastModifiedAt() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SystemDataResponse) *string { return v.LastModifiedAt }).(pulumi.StringPtrOutput)
 }
 
-// The identity that last modified the resource.
 func (o SystemDataResponseOutput) LastModifiedBy() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SystemDataResponse) *string { return v.LastModifiedBy }).(pulumi.StringPtrOutput)
 }
 
-// The type of identity that last modified the resource.
 func (o SystemDataResponseOutput) LastModifiedByType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SystemDataResponse) *string { return v.LastModifiedByType }).(pulumi.StringPtrOutput)
 }
@@ -1383,10 +1278,15 @@ func (o SystemDataResponsePtrOutput) ToSystemDataResponsePtrOutputWithContext(ct
 }
 
 func (o SystemDataResponsePtrOutput) Elem() SystemDataResponseOutput {
-	return o.ApplyT(func(v *SystemDataResponse) SystemDataResponse { return *v }).(SystemDataResponseOutput)
+	return o.ApplyT(func(v *SystemDataResponse) SystemDataResponse {
+		if v != nil {
+			return *v
+		}
+		var ret SystemDataResponse
+		return ret
+	}).(SystemDataResponseOutput)
 }
 
-// The timestamp of resource creation (UTC).
 func (o SystemDataResponsePtrOutput) CreatedAt() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SystemDataResponse) *string {
 		if v == nil {
@@ -1396,7 +1296,6 @@ func (o SystemDataResponsePtrOutput) CreatedAt() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The identity that created the resource.
 func (o SystemDataResponsePtrOutput) CreatedBy() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SystemDataResponse) *string {
 		if v == nil {
@@ -1406,7 +1305,6 @@ func (o SystemDataResponsePtrOutput) CreatedBy() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The type of identity that created the resource.
 func (o SystemDataResponsePtrOutput) CreatedByType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SystemDataResponse) *string {
 		if v == nil {
@@ -1416,7 +1314,6 @@ func (o SystemDataResponsePtrOutput) CreatedByType() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The timestamp of resource last modification (UTC)
 func (o SystemDataResponsePtrOutput) LastModifiedAt() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SystemDataResponse) *string {
 		if v == nil {
@@ -1426,7 +1323,6 @@ func (o SystemDataResponsePtrOutput) LastModifiedAt() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The identity that last modified the resource.
 func (o SystemDataResponsePtrOutput) LastModifiedBy() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SystemDataResponse) *string {
 		if v == nil {
@@ -1436,7 +1332,6 @@ func (o SystemDataResponsePtrOutput) LastModifiedBy() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The type of identity that last modified the resource.
 func (o SystemDataResponsePtrOutput) LastModifiedByType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SystemDataResponse) *string {
 		if v == nil {

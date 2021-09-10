@@ -7,7 +7,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// CDN origin is the source of the content being delivered via CDN. When the edge nodes represented by an endpoint do not have the requested content cached, they attempt to fetch it from one or more of the configured origins.
 func LookupOrigin(ctx *pulumi.Context, args *LookupOriginArgs, opts ...pulumi.InvokeOption) (*LookupOriginResult, error) {
 	var rv LookupOriginResult
 	err := ctx.Invoke("azure-native:cdn/v20160402:getOrigin", args, &rv, opts...)
@@ -18,32 +17,20 @@ func LookupOrigin(ctx *pulumi.Context, args *LookupOriginArgs, opts ...pulumi.In
 }
 
 type LookupOriginArgs struct {
-	// Name of the endpoint within the CDN profile.
-	EndpointName string `pulumi:"endpointName"`
-	// Name of the origin, an arbitrary value but it needs to be unique under endpoint
-	OriginName string `pulumi:"originName"`
-	// Name of the CDN profile within the resource group.
-	ProfileName string `pulumi:"profileName"`
-	// Name of the resource group within the Azure subscription.
+	EndpointName      string `pulumi:"endpointName"`
+	OriginName        string `pulumi:"originName"`
+	ProfileName       string `pulumi:"profileName"`
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 }
 
 // CDN origin is the source of the content being delivered via CDN. When the edge nodes represented by an endpoint do not have the requested content cached, they attempt to fetch it from one or more of the configured origins.
 type LookupOriginResult struct {
-	// The address of the origin. Domain names, IPv4 addresses, and IPv6 addresses are supported.
-	HostName string `pulumi:"hostName"`
-	// The value of the HTTP port. Must be between 1 and 65535.
-	HttpPort *int `pulumi:"httpPort"`
-	// The value of the https port. Must be between 1 and 65535.
-	HttpsPort *int `pulumi:"httpsPort"`
-	// Resource ID
-	Id string `pulumi:"id"`
-	// Resource name
-	Name string `pulumi:"name"`
-	// Provisioning status of the origin.
+	HostName          string `pulumi:"hostName"`
+	HttpPort          *int   `pulumi:"httpPort"`
+	HttpsPort         *int   `pulumi:"httpsPort"`
+	Id                string `pulumi:"id"`
+	Name              string `pulumi:"name"`
 	ProvisioningState string `pulumi:"provisioningState"`
-	// Resource status of the origin.
-	ResourceState string `pulumi:"resourceState"`
-	// Resource type
-	Type string `pulumi:"type"`
+	ResourceState     string `pulumi:"resourceState"`
+	Type              string `pulumi:"type"`
 }

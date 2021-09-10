@@ -7,7 +7,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// The Test Base Account resource.
 func LookupTestBaseAccount(ctx *pulumi.Context, args *LookupTestBaseAccountArgs, opts ...pulumi.InvokeOption) (*LookupTestBaseAccountResult, error) {
 	var rv LookupTestBaseAccountResult
 	err := ctx.Invoke("azure-native:testbase/v20201216preview:getTestBaseAccount", args, &rv, opts...)
@@ -18,32 +17,20 @@ func LookupTestBaseAccount(ctx *pulumi.Context, args *LookupTestBaseAccountArgs,
 }
 
 type LookupTestBaseAccountArgs struct {
-	// The name of the resource group that contains the resource.
-	ResourceGroupName string `pulumi:"resourceGroupName"`
-	// The resource name of the Test Base Account.
+	ResourceGroupName   string `pulumi:"resourceGroupName"`
 	TestBaseAccountName string `pulumi:"testBaseAccountName"`
 }
 
 // The Test Base Account resource.
 type LookupTestBaseAccountResult struct {
-	// The access level of the Test Base Account.
-	AccessLevel string `pulumi:"accessLevel"`
-	// Resource Etag.
-	Etag string `pulumi:"etag"`
-	// Resource ID.
-	Id string `pulumi:"id"`
-	// The geo-location where the resource lives
-	Location string `pulumi:"location"`
-	// Resource name.
-	Name string `pulumi:"name"`
-	// The provisioning state of the resource.
-	ProvisioningState string `pulumi:"provisioningState"`
-	// The SKU of the Test Base Account.
-	Sku TestBaseAccountSKUResponse `pulumi:"sku"`
-	// The system metadata relating to this resource
-	SystemData SystemDataResponse `pulumi:"systemData"`
-	// The tags of the resource.
-	Tags map[string]string `pulumi:"tags"`
-	// Resource type.
-	Type string `pulumi:"type"`
+	AccessLevel       string                     `pulumi:"accessLevel"`
+	Etag              string                     `pulumi:"etag"`
+	Id                string                     `pulumi:"id"`
+	Location          string                     `pulumi:"location"`
+	Name              string                     `pulumi:"name"`
+	ProvisioningState string                     `pulumi:"provisioningState"`
+	Sku               TestBaseAccountSKUResponse `pulumi:"sku"`
+	SystemData        SystemDataResponse         `pulumi:"systemData"`
+	Tags              map[string]string          `pulumi:"tags"`
+	Type              string                     `pulumi:"type"`
 }

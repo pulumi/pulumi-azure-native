@@ -157,9 +157,7 @@ func (i *ServiceFabric) ToServiceFabricOutputWithContext(ctx context.Context) Se
 	return pulumi.ToOutputWithContext(ctx, i).(ServiceFabricOutput)
 }
 
-type ServiceFabricOutput struct {
-	*pulumi.OutputState
-}
+type ServiceFabricOutput struct{ *pulumi.OutputState }
 
 func (ServiceFabricOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*ServiceFabric)(nil))

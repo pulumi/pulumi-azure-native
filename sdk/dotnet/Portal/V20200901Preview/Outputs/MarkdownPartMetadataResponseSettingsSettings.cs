@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.Portal.V20200901Preview.Outputs
 {
 
+    /// <summary>
+    /// The setting of the content of markdown part.
+    /// </summary>
     [OutputType]
     public sealed class MarkdownPartMetadataResponseSettingsSettings
     {

@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.Insights.V20180416.Outputs
 {
 
+    /// <summary>
+    /// Defines how often to run the search and the time interval.
+    /// </summary>
     [OutputType]
     public sealed class ScheduleResponse
     {

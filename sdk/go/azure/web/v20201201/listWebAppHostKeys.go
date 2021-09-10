@@ -7,7 +7,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Functions host level keys.
 func ListWebAppHostKeys(ctx *pulumi.Context, args *ListWebAppHostKeysArgs, opts ...pulumi.InvokeOption) (*ListWebAppHostKeysResult, error) {
 	var rv ListWebAppHostKeysResult
 	err := ctx.Invoke("azure-native:web/v20201201:listWebAppHostKeys", args, &rv, opts...)
@@ -18,18 +17,13 @@ func ListWebAppHostKeys(ctx *pulumi.Context, args *ListWebAppHostKeysArgs, opts 
 }
 
 type ListWebAppHostKeysArgs struct {
-	// Site name.
-	Name string `pulumi:"name"`
-	// Name of the resource group to which the resource belongs.
+	Name              string `pulumi:"name"`
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 }
 
 // Functions host level keys.
 type ListWebAppHostKeysResult struct {
-	// Host level function keys.
 	FunctionKeys map[string]string `pulumi:"functionKeys"`
-	// Secret key.
-	MasterKey *string `pulumi:"masterKey"`
-	// System keys.
-	SystemKeys map[string]string `pulumi:"systemKeys"`
+	MasterKey    *string           `pulumi:"masterKey"`
+	SystemKeys   map[string]string `pulumi:"systemKeys"`
 }

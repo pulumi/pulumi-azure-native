@@ -189,9 +189,7 @@ func (i *AFDOrigin) ToAFDOriginOutputWithContext(ctx context.Context) AFDOriginO
 	return pulumi.ToOutputWithContext(ctx, i).(AFDOriginOutput)
 }
 
-type AFDOriginOutput struct {
-	*pulumi.OutputState
-}
+type AFDOriginOutput struct{ *pulumi.OutputState }
 
 func (AFDOriginOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*AFDOrigin)(nil))

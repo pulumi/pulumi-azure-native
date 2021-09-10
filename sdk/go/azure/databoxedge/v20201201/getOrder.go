@@ -7,7 +7,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// The order details.
 func LookupOrder(ctx *pulumi.Context, args *LookupOrderArgs, opts ...pulumi.InvokeOption) (*LookupOrderResult, error) {
 	var rv LookupOrderResult
 	err := ctx.Invoke("azure-native:databoxedge/v20201201:getOrder", args, &rv, opts...)
@@ -18,34 +17,21 @@ func LookupOrder(ctx *pulumi.Context, args *LookupOrderArgs, opts ...pulumi.Invo
 }
 
 type LookupOrderArgs struct {
-	// The device name.
-	DeviceName string `pulumi:"deviceName"`
-	// The resource group name.
+	DeviceName        string `pulumi:"deviceName"`
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 }
 
 // The order details.
 type LookupOrderResult struct {
-	// The contact details.
-	ContactInformation ContactDetailsResponse `pulumi:"contactInformation"`
-	// Current status of the order.
-	CurrentStatus OrderStatusResponse `pulumi:"currentStatus"`
-	// Tracking information for the package delivered to the customer whether it has an original or a replacement device.
+	ContactInformation   ContactDetailsResponse `pulumi:"contactInformation"`
+	CurrentStatus        OrderStatusResponse    `pulumi:"currentStatus"`
 	DeliveryTrackingInfo []TrackingInfoResponse `pulumi:"deliveryTrackingInfo"`
-	// The path ID that uniquely identifies the object.
-	Id string `pulumi:"id"`
-	// The object name.
-	Name string `pulumi:"name"`
-	// List of status changes in the order.
-	OrderHistory []OrderStatusResponse `pulumi:"orderHistory"`
-	// Tracking information for the package returned from the customer whether it has an original or a replacement device.
-	ReturnTrackingInfo []TrackingInfoResponse `pulumi:"returnTrackingInfo"`
-	// Serial number of the device.
-	SerialNumber string `pulumi:"serialNumber"`
-	// ShipmentType of the order
-	ShipmentType *string `pulumi:"shipmentType"`
-	// The shipping address.
-	ShippingAddress *AddressResponse `pulumi:"shippingAddress"`
-	// The hierarchical type of the object.
-	Type string `pulumi:"type"`
+	Id                   string                 `pulumi:"id"`
+	Name                 string                 `pulumi:"name"`
+	OrderHistory         []OrderStatusResponse  `pulumi:"orderHistory"`
+	ReturnTrackingInfo   []TrackingInfoResponse `pulumi:"returnTrackingInfo"`
+	SerialNumber         string                 `pulumi:"serialNumber"`
+	ShipmentType         *string                `pulumi:"shipmentType"`
+	ShippingAddress      *AddressResponse       `pulumi:"shippingAddress"`
+	Type                 string                 `pulumi:"type"`
 }

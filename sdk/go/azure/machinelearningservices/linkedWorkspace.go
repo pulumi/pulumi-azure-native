@@ -130,9 +130,7 @@ func (i *LinkedWorkspace) ToLinkedWorkspaceOutputWithContext(ctx context.Context
 	return pulumi.ToOutputWithContext(ctx, i).(LinkedWorkspaceOutput)
 }
 
-type LinkedWorkspaceOutput struct {
-	*pulumi.OutputState
-}
+type LinkedWorkspaceOutput struct{ *pulumi.OutputState }
 
 func (LinkedWorkspaceOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*LinkedWorkspace)(nil))

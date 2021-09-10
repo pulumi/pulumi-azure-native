@@ -7,7 +7,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Machine Learning datastore object wrapped into ARM resource envelope.
 func LookupMachineLearningDatastore(ctx *pulumi.Context, args *LookupMachineLearningDatastoreArgs, opts ...pulumi.InvokeOption) (*LookupMachineLearningDatastoreResult, error) {
 	var rv LookupMachineLearningDatastoreResult
 	err := ctx.Invoke("azure-native:machinelearningservices/v20200501preview:getMachineLearningDatastore", args, &rv, opts...)
@@ -18,30 +17,19 @@ func LookupMachineLearningDatastore(ctx *pulumi.Context, args *LookupMachineLear
 }
 
 type LookupMachineLearningDatastoreArgs struct {
-	// The Datastore name.
-	DatastoreName string `pulumi:"datastoreName"`
-	// Name of the resource group in which workspace is located.
+	DatastoreName     string `pulumi:"datastoreName"`
 	ResourceGroupName string `pulumi:"resourceGroupName"`
-	// Name of Azure Machine Learning workspace.
-	WorkspaceName string `pulumi:"workspaceName"`
+	WorkspaceName     string `pulumi:"workspaceName"`
 }
 
 // Machine Learning datastore object wrapped into ARM resource envelope.
 type LookupMachineLearningDatastoreResult struct {
-	// Specifies the resource ID.
-	Id string `pulumi:"id"`
-	// The identity of the resource.
-	Identity *IdentityResponse `pulumi:"identity"`
-	// Specifies the location of the resource.
-	Location *string `pulumi:"location"`
-	// Specifies the name of the resource.
-	Name string `pulumi:"name"`
-	// Datastore properties
+	Id         string            `pulumi:"id"`
+	Identity   *IdentityResponse `pulumi:"identity"`
+	Location   *string           `pulumi:"location"`
+	Name       string            `pulumi:"name"`
 	Properties DatastoreResponse `pulumi:"properties"`
-	// The sku of the workspace.
-	Sku *SkuResponse `pulumi:"sku"`
-	// Contains resource tags defined as key/value pairs.
-	Tags map[string]string `pulumi:"tags"`
-	// Specifies the type of the resource.
-	Type string `pulumi:"type"`
+	Sku        *SkuResponse      `pulumi:"sku"`
+	Tags       map[string]string `pulumi:"tags"`
+	Type       string            `pulumi:"type"`
 }

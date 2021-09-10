@@ -7,7 +7,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Response of a list operation.
 func ListMonitoredResource(ctx *pulumi.Context, args *ListMonitoredResourceArgs, opts ...pulumi.InvokeOption) (*ListMonitoredResourceResult, error) {
 	var rv ListMonitoredResourceResult
 	err := ctx.Invoke("azure-native:elastic/v20200701preview:listMonitoredResource", args, &rv, opts...)
@@ -18,16 +17,12 @@ func ListMonitoredResource(ctx *pulumi.Context, args *ListMonitoredResourceArgs,
 }
 
 type ListMonitoredResourceArgs struct {
-	// Monitor resource name
-	MonitorName string `pulumi:"monitorName"`
-	// The name of the resource group to which the Elastic resource belongs.
+	MonitorName       string `pulumi:"monitorName"`
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 }
 
 // Response of a list operation.
 type ListMonitoredResourceResult struct {
-	// Link to the next set of results, if any.
-	NextLink *string `pulumi:"nextLink"`
-	// Results of a list operation.
-	Value []MonitoredResourceResponse `pulumi:"value"`
+	NextLink *string                     `pulumi:"nextLink"`
+	Value    []MonitoredResourceResponse `pulumi:"value"`
 }

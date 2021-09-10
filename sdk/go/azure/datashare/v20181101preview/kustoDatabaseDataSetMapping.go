@@ -11,27 +11,17 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// A Kusto database data set mapping
 type KustoDatabaseDataSetMapping struct {
 	pulumi.CustomResourceState
 
-	// The id of the source data set.
-	DataSetId pulumi.StringOutput `pulumi:"dataSetId"`
-	// Gets the status of the data set mapping.
-	DataSetMappingStatus pulumi.StringOutput `pulumi:"dataSetMappingStatus"`
-	// Kind of data set mapping.
-	// Expected value is 'KustoDatabase'.
-	Kind pulumi.StringOutput `pulumi:"kind"`
-	// Resource id of the sink kusto cluster.
+	DataSetId              pulumi.StringOutput `pulumi:"dataSetId"`
+	DataSetMappingStatus   pulumi.StringOutput `pulumi:"dataSetMappingStatus"`
+	Kind                   pulumi.StringOutput `pulumi:"kind"`
 	KustoClusterResourceId pulumi.StringOutput `pulumi:"kustoClusterResourceId"`
-	// Location of the sink kusto cluster.
-	Location pulumi.StringOutput `pulumi:"location"`
-	// Name of the azure resource
-	Name pulumi.StringOutput `pulumi:"name"`
-	// Provisioning state of the data set mapping.
-	ProvisioningState pulumi.StringOutput `pulumi:"provisioningState"`
-	// Type of the azure resource
-	Type pulumi.StringOutput `pulumi:"type"`
+	Location               pulumi.StringOutput `pulumi:"location"`
+	Name                   pulumi.StringOutput `pulumi:"name"`
+	ProvisioningState      pulumi.StringOutput `pulumi:"provisioningState"`
+	Type                   pulumi.StringOutput `pulumi:"type"`
 }
 
 // NewKustoDatabaseDataSetMapping registers a new resource with the given unique name, arguments, and options.
@@ -122,40 +112,24 @@ func (KustoDatabaseDataSetMappingState) ElementType() reflect.Type {
 }
 
 type kustoDatabaseDataSetMappingArgs struct {
-	// The name of the share account.
-	AccountName string `pulumi:"accountName"`
-	// The id of the source data set.
-	DataSetId string `pulumi:"dataSetId"`
-	// The name of the data set mapping to be created.
-	DataSetMappingName *string `pulumi:"dataSetMappingName"`
-	// Kind of data set mapping.
-	// Expected value is 'KustoDatabase'.
-	Kind string `pulumi:"kind"`
-	// Resource id of the sink kusto cluster.
-	KustoClusterResourceId string `pulumi:"kustoClusterResourceId"`
-	// The resource group name.
-	ResourceGroupName string `pulumi:"resourceGroupName"`
-	// The name of the share subscription which will hold the data set sink.
-	ShareSubscriptionName string `pulumi:"shareSubscriptionName"`
+	AccountName            string  `pulumi:"accountName"`
+	DataSetId              string  `pulumi:"dataSetId"`
+	DataSetMappingName     *string `pulumi:"dataSetMappingName"`
+	Kind                   string  `pulumi:"kind"`
+	KustoClusterResourceId string  `pulumi:"kustoClusterResourceId"`
+	ResourceGroupName      string  `pulumi:"resourceGroupName"`
+	ShareSubscriptionName  string  `pulumi:"shareSubscriptionName"`
 }
 
 // The set of arguments for constructing a KustoDatabaseDataSetMapping resource.
 type KustoDatabaseDataSetMappingArgs struct {
-	// The name of the share account.
-	AccountName pulumi.StringInput
-	// The id of the source data set.
-	DataSetId pulumi.StringInput
-	// The name of the data set mapping to be created.
-	DataSetMappingName pulumi.StringPtrInput
-	// Kind of data set mapping.
-	// Expected value is 'KustoDatabase'.
-	Kind pulumi.StringInput
-	// Resource id of the sink kusto cluster.
+	AccountName            pulumi.StringInput
+	DataSetId              pulumi.StringInput
+	DataSetMappingName     pulumi.StringPtrInput
+	Kind                   pulumi.StringInput
 	KustoClusterResourceId pulumi.StringInput
-	// The resource group name.
-	ResourceGroupName pulumi.StringInput
-	// The name of the share subscription which will hold the data set sink.
-	ShareSubscriptionName pulumi.StringInput
+	ResourceGroupName      pulumi.StringInput
+	ShareSubscriptionName  pulumi.StringInput
 }
 
 func (KustoDatabaseDataSetMappingArgs) ElementType() reflect.Type {
@@ -181,9 +155,7 @@ func (i *KustoDatabaseDataSetMapping) ToKustoDatabaseDataSetMappingOutputWithCon
 	return pulumi.ToOutputWithContext(ctx, i).(KustoDatabaseDataSetMappingOutput)
 }
 
-type KustoDatabaseDataSetMappingOutput struct {
-	*pulumi.OutputState
-}
+type KustoDatabaseDataSetMappingOutput struct{ *pulumi.OutputState }
 
 func (KustoDatabaseDataSetMappingOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*KustoDatabaseDataSetMapping)(nil))

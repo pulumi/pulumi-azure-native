@@ -11,24 +11,16 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// The iSCSI server.
 type IscsiServer struct {
 	pulumi.CustomResourceState
 
-	// The backup policy id.
-	BackupScheduleGroupId pulumi.StringOutput `pulumi:"backupScheduleGroupId"`
-	// The chap id.
-	ChapId pulumi.StringPtrOutput `pulumi:"chapId"`
-	// The description.
-	Description pulumi.StringPtrOutput `pulumi:"description"`
-	// The name.
-	Name pulumi.StringOutput `pulumi:"name"`
-	// The reverse chap id.
-	ReverseChapId pulumi.StringPtrOutput `pulumi:"reverseChapId"`
-	// The storage domain id.
-	StorageDomainId pulumi.StringOutput `pulumi:"storageDomainId"`
-	// The type.
-	Type pulumi.StringOutput `pulumi:"type"`
+	BackupScheduleGroupId pulumi.StringOutput    `pulumi:"backupScheduleGroupId"`
+	ChapId                pulumi.StringPtrOutput `pulumi:"chapId"`
+	Description           pulumi.StringPtrOutput `pulumi:"description"`
+	Name                  pulumi.StringOutput    `pulumi:"name"`
+	ReverseChapId         pulumi.StringPtrOutput `pulumi:"reverseChapId"`
+	StorageDomainId       pulumi.StringOutput    `pulumi:"storageDomainId"`
+	Type                  pulumi.StringOutput    `pulumi:"type"`
 }
 
 // NewIscsiServer registers a new resource with the given unique name, arguments, and options.
@@ -91,46 +83,28 @@ func (IscsiServerState) ElementType() reflect.Type {
 }
 
 type iscsiServerArgs struct {
-	// The backup policy id.
-	BackupScheduleGroupId string `pulumi:"backupScheduleGroupId"`
-	// The chap id.
-	ChapId *string `pulumi:"chapId"`
-	// The description.
-	Description *string `pulumi:"description"`
-	// The device name.
-	DeviceName string `pulumi:"deviceName"`
-	// The iSCSI server name.
-	IscsiServerName *string `pulumi:"iscsiServerName"`
-	// The manager name
-	ManagerName string `pulumi:"managerName"`
-	// The resource group name
-	ResourceGroupName string `pulumi:"resourceGroupName"`
-	// The reverse chap id.
-	ReverseChapId *string `pulumi:"reverseChapId"`
-	// The storage domain id.
-	StorageDomainId string `pulumi:"storageDomainId"`
+	BackupScheduleGroupId string  `pulumi:"backupScheduleGroupId"`
+	ChapId                *string `pulumi:"chapId"`
+	Description           *string `pulumi:"description"`
+	DeviceName            string  `pulumi:"deviceName"`
+	IscsiServerName       *string `pulumi:"iscsiServerName"`
+	ManagerName           string  `pulumi:"managerName"`
+	ResourceGroupName     string  `pulumi:"resourceGroupName"`
+	ReverseChapId         *string `pulumi:"reverseChapId"`
+	StorageDomainId       string  `pulumi:"storageDomainId"`
 }
 
 // The set of arguments for constructing a IscsiServer resource.
 type IscsiServerArgs struct {
-	// The backup policy id.
 	BackupScheduleGroupId pulumi.StringInput
-	// The chap id.
-	ChapId pulumi.StringPtrInput
-	// The description.
-	Description pulumi.StringPtrInput
-	// The device name.
-	DeviceName pulumi.StringInput
-	// The iSCSI server name.
-	IscsiServerName pulumi.StringPtrInput
-	// The manager name
-	ManagerName pulumi.StringInput
-	// The resource group name
-	ResourceGroupName pulumi.StringInput
-	// The reverse chap id.
-	ReverseChapId pulumi.StringPtrInput
-	// The storage domain id.
-	StorageDomainId pulumi.StringInput
+	ChapId                pulumi.StringPtrInput
+	Description           pulumi.StringPtrInput
+	DeviceName            pulumi.StringInput
+	IscsiServerName       pulumi.StringPtrInput
+	ManagerName           pulumi.StringInput
+	ResourceGroupName     pulumi.StringInput
+	ReverseChapId         pulumi.StringPtrInput
+	StorageDomainId       pulumi.StringInput
 }
 
 func (IscsiServerArgs) ElementType() reflect.Type {
@@ -156,9 +130,7 @@ func (i *IscsiServer) ToIscsiServerOutputWithContext(ctx context.Context) IscsiS
 	return pulumi.ToOutputWithContext(ctx, i).(IscsiServerOutput)
 }
 
-type IscsiServerOutput struct {
-	*pulumi.OutputState
-}
+type IscsiServerOutput struct{ *pulumi.OutputState }
 
 func (IscsiServerOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*IscsiServer)(nil))

@@ -11,48 +11,28 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Payload of the blockchain member which is exposed in the request/response of the resource provider.
 type BlockchainMember struct {
 	pulumi.CustomResourceState
 
-	// Gets or sets the consortium for the blockchain member.
-	Consortium pulumi.StringPtrOutput `pulumi:"consortium"`
-	// Gets the managed consortium management account address.
-	ConsortiumManagementAccountAddress pulumi.StringOutput `pulumi:"consortiumManagementAccountAddress"`
-	// Sets the managed consortium management account password.
-	ConsortiumManagementAccountPassword pulumi.StringPtrOutput `pulumi:"consortiumManagementAccountPassword"`
-	// Gets the display name of the member in the consortium.
-	ConsortiumMemberDisplayName pulumi.StringPtrOutput `pulumi:"consortiumMemberDisplayName"`
-	// Gets the role of the member in the consortium.
-	ConsortiumRole pulumi.StringPtrOutput `pulumi:"consortiumRole"`
-	// Gets the dns endpoint of the blockchain member.
-	Dns pulumi.StringOutput `pulumi:"dns"`
-	// Gets or sets firewall rules
-	FirewallRules FirewallRuleResponseArrayOutput `pulumi:"firewallRules"`
-	// The GEO location of the blockchain service.
-	Location pulumi.StringPtrOutput `pulumi:"location"`
-	// The name of the resource.
-	Name pulumi.StringOutput `pulumi:"name"`
-	// Sets the basic auth password of the blockchain member.
-	Password pulumi.StringPtrOutput `pulumi:"password"`
-	// Gets or sets the blockchain protocol.
-	Protocol pulumi.StringPtrOutput `pulumi:"protocol"`
-	// Gets or sets the blockchain member provision state.
-	ProvisioningState pulumi.StringOutput `pulumi:"provisioningState"`
-	// Gets the public key of the blockchain member (default transaction node).
-	PublicKey pulumi.StringOutput `pulumi:"publicKey"`
-	// Gets the Ethereum root contract address of the blockchain.
-	RootContractAddress pulumi.StringOutput `pulumi:"rootContractAddress"`
-	// Gets or sets the blockchain member Sku.
-	Sku SkuResponsePtrOutput `pulumi:"sku"`
-	// Tags of the service which is a list of key value pairs that describes the resource.
-	Tags pulumi.StringMapOutput `pulumi:"tags"`
-	// The type of the service - e.g. "Microsoft.Blockchain"
-	Type pulumi.StringOutput `pulumi:"type"`
-	// Gets the auth user name of the blockchain member.
-	UserName pulumi.StringOutput `pulumi:"userName"`
-	// Gets or sets the blockchain validator nodes Sku.
-	ValidatorNodesSku BlockchainMemberNodesSkuResponsePtrOutput `pulumi:"validatorNodesSku"`
+	Consortium                          pulumi.StringPtrOutput                    `pulumi:"consortium"`
+	ConsortiumManagementAccountAddress  pulumi.StringOutput                       `pulumi:"consortiumManagementAccountAddress"`
+	ConsortiumManagementAccountPassword pulumi.StringPtrOutput                    `pulumi:"consortiumManagementAccountPassword"`
+	ConsortiumMemberDisplayName         pulumi.StringPtrOutput                    `pulumi:"consortiumMemberDisplayName"`
+	ConsortiumRole                      pulumi.StringPtrOutput                    `pulumi:"consortiumRole"`
+	Dns                                 pulumi.StringOutput                       `pulumi:"dns"`
+	FirewallRules                       FirewallRuleResponseArrayOutput           `pulumi:"firewallRules"`
+	Location                            pulumi.StringPtrOutput                    `pulumi:"location"`
+	Name                                pulumi.StringOutput                       `pulumi:"name"`
+	Password                            pulumi.StringPtrOutput                    `pulumi:"password"`
+	Protocol                            pulumi.StringPtrOutput                    `pulumi:"protocol"`
+	ProvisioningState                   pulumi.StringOutput                       `pulumi:"provisioningState"`
+	PublicKey                           pulumi.StringOutput                       `pulumi:"publicKey"`
+	RootContractAddress                 pulumi.StringOutput                       `pulumi:"rootContractAddress"`
+	Sku                                 SkuResponsePtrOutput                      `pulumi:"sku"`
+	Tags                                pulumi.StringMapOutput                    `pulumi:"tags"`
+	Type                                pulumi.StringOutput                       `pulumi:"type"`
+	UserName                            pulumi.StringOutput                       `pulumi:"userName"`
+	ValidatorNodesSku                   BlockchainMemberNodesSkuResponsePtrOutput `pulumi:"validatorNodesSku"`
 }
 
 // NewBlockchainMember registers a new resource with the given unique name, arguments, and options.
@@ -109,62 +89,36 @@ func (BlockchainMemberState) ElementType() reflect.Type {
 }
 
 type blockchainMemberArgs struct {
-	// Blockchain member name.
-	BlockchainMemberName *string `pulumi:"blockchainMemberName"`
-	// Gets or sets the consortium for the blockchain member.
-	Consortium *string `pulumi:"consortium"`
-	// Sets the managed consortium management account password.
-	ConsortiumManagementAccountPassword *string `pulumi:"consortiumManagementAccountPassword"`
-	// Gets the display name of the member in the consortium.
-	ConsortiumMemberDisplayName *string `pulumi:"consortiumMemberDisplayName"`
-	// Gets the role of the member in the consortium.
-	ConsortiumRole *string `pulumi:"consortiumRole"`
-	// Gets or sets firewall rules
-	FirewallRules []FirewallRule `pulumi:"firewallRules"`
-	// The GEO location of the blockchain service.
-	Location *string `pulumi:"location"`
-	// Sets the basic auth password of the blockchain member.
-	Password *string `pulumi:"password"`
-	// Gets or sets the blockchain protocol.
-	Protocol *string `pulumi:"protocol"`
-	// The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
-	ResourceGroupName string `pulumi:"resourceGroupName"`
-	// Gets or sets the blockchain member Sku.
-	Sku *Sku `pulumi:"sku"`
-	// Tags of the service which is a list of key value pairs that describes the resource.
-	Tags map[string]string `pulumi:"tags"`
-	// Gets or sets the blockchain validator nodes Sku.
-	ValidatorNodesSku *BlockchainMemberNodesSku `pulumi:"validatorNodesSku"`
+	BlockchainMemberName                *string                   `pulumi:"blockchainMemberName"`
+	Consortium                          *string                   `pulumi:"consortium"`
+	ConsortiumManagementAccountPassword *string                   `pulumi:"consortiumManagementAccountPassword"`
+	ConsortiumMemberDisplayName         *string                   `pulumi:"consortiumMemberDisplayName"`
+	ConsortiumRole                      *string                   `pulumi:"consortiumRole"`
+	FirewallRules                       []FirewallRule            `pulumi:"firewallRules"`
+	Location                            *string                   `pulumi:"location"`
+	Password                            *string                   `pulumi:"password"`
+	Protocol                            *string                   `pulumi:"protocol"`
+	ResourceGroupName                   string                    `pulumi:"resourceGroupName"`
+	Sku                                 *Sku                      `pulumi:"sku"`
+	Tags                                map[string]string         `pulumi:"tags"`
+	ValidatorNodesSku                   *BlockchainMemberNodesSku `pulumi:"validatorNodesSku"`
 }
 
 // The set of arguments for constructing a BlockchainMember resource.
 type BlockchainMemberArgs struct {
-	// Blockchain member name.
-	BlockchainMemberName pulumi.StringPtrInput
-	// Gets or sets the consortium for the blockchain member.
-	Consortium pulumi.StringPtrInput
-	// Sets the managed consortium management account password.
+	BlockchainMemberName                pulumi.StringPtrInput
+	Consortium                          pulumi.StringPtrInput
 	ConsortiumManagementAccountPassword pulumi.StringPtrInput
-	// Gets the display name of the member in the consortium.
-	ConsortiumMemberDisplayName pulumi.StringPtrInput
-	// Gets the role of the member in the consortium.
-	ConsortiumRole pulumi.StringPtrInput
-	// Gets or sets firewall rules
-	FirewallRules FirewallRuleArrayInput
-	// The GEO location of the blockchain service.
-	Location pulumi.StringPtrInput
-	// Sets the basic auth password of the blockchain member.
-	Password pulumi.StringPtrInput
-	// Gets or sets the blockchain protocol.
-	Protocol pulumi.StringPtrInput
-	// The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
-	ResourceGroupName pulumi.StringInput
-	// Gets or sets the blockchain member Sku.
-	Sku SkuPtrInput
-	// Tags of the service which is a list of key value pairs that describes the resource.
-	Tags pulumi.StringMapInput
-	// Gets or sets the blockchain validator nodes Sku.
-	ValidatorNodesSku BlockchainMemberNodesSkuPtrInput
+	ConsortiumMemberDisplayName         pulumi.StringPtrInput
+	ConsortiumRole                      pulumi.StringPtrInput
+	FirewallRules                       FirewallRuleArrayInput
+	Location                            pulumi.StringPtrInput
+	Password                            pulumi.StringPtrInput
+	Protocol                            pulumi.StringPtrInput
+	ResourceGroupName                   pulumi.StringInput
+	Sku                                 SkuPtrInput
+	Tags                                pulumi.StringMapInput
+	ValidatorNodesSku                   BlockchainMemberNodesSkuPtrInput
 }
 
 func (BlockchainMemberArgs) ElementType() reflect.Type {
@@ -190,9 +144,7 @@ func (i *BlockchainMember) ToBlockchainMemberOutputWithContext(ctx context.Conte
 	return pulumi.ToOutputWithContext(ctx, i).(BlockchainMemberOutput)
 }
 
-type BlockchainMemberOutput struct {
-	*pulumi.OutputState
-}
+type BlockchainMemberOutput struct{ *pulumi.OutputState }
 
 func (BlockchainMemberOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*BlockchainMember)(nil))

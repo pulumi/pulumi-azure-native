@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.Cdn.Outputs
 {
 
+    /// <summary>
+    /// Reference to another resource.
+    /// </summary>
     [OutputType]
     public sealed class ResourceReferenceResponse
     {

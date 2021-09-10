@@ -10,9 +10,7 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Information about the formal API definition for the app.
 type ApiDefinitionInfo struct {
-	// The URL of the API definition.
 	Url *string `pulumi:"url"`
 }
 
@@ -27,9 +25,7 @@ type ApiDefinitionInfoInput interface {
 	ToApiDefinitionInfoOutputWithContext(context.Context) ApiDefinitionInfoOutput
 }
 
-// Information about the formal API definition for the app.
 type ApiDefinitionInfoArgs struct {
-	// The URL of the API definition.
 	Url pulumi.StringPtrInput `pulumi:"url"`
 }
 
@@ -86,7 +82,6 @@ func (i *apiDefinitionInfoPtrType) ToApiDefinitionInfoPtrOutputWithContext(ctx c
 	return pulumi.ToOutputWithContext(ctx, i).(ApiDefinitionInfoPtrOutput)
 }
 
-// Information about the formal API definition for the app.
 type ApiDefinitionInfoOutput struct{ *pulumi.OutputState }
 
 func (ApiDefinitionInfoOutput) ElementType() reflect.Type {
@@ -106,12 +101,11 @@ func (o ApiDefinitionInfoOutput) ToApiDefinitionInfoPtrOutput() ApiDefinitionInf
 }
 
 func (o ApiDefinitionInfoOutput) ToApiDefinitionInfoPtrOutputWithContext(ctx context.Context) ApiDefinitionInfoPtrOutput {
-	return o.ApplyT(func(v ApiDefinitionInfo) *ApiDefinitionInfo {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ApiDefinitionInfo) *ApiDefinitionInfo {
 		return &v
 	}).(ApiDefinitionInfoPtrOutput)
 }
 
-// The URL of the API definition.
 func (o ApiDefinitionInfoOutput) Url() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ApiDefinitionInfo) *string { return v.Url }).(pulumi.StringPtrOutput)
 }
@@ -131,10 +125,15 @@ func (o ApiDefinitionInfoPtrOutput) ToApiDefinitionInfoPtrOutputWithContext(ctx 
 }
 
 func (o ApiDefinitionInfoPtrOutput) Elem() ApiDefinitionInfoOutput {
-	return o.ApplyT(func(v *ApiDefinitionInfo) ApiDefinitionInfo { return *v }).(ApiDefinitionInfoOutput)
+	return o.ApplyT(func(v *ApiDefinitionInfo) ApiDefinitionInfo {
+		if v != nil {
+			return *v
+		}
+		var ret ApiDefinitionInfo
+		return ret
+	}).(ApiDefinitionInfoOutput)
 }
 
-// The URL of the API definition.
 func (o ApiDefinitionInfoPtrOutput) Url() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ApiDefinitionInfo) *string {
 		if v == nil {
@@ -144,9 +143,7 @@ func (o ApiDefinitionInfoPtrOutput) Url() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Information about the formal API definition for the app.
 type ApiDefinitionInfoResponse struct {
-	// The URL of the API definition.
 	Url *string `pulumi:"url"`
 }
 
@@ -161,9 +158,7 @@ type ApiDefinitionInfoResponseInput interface {
 	ToApiDefinitionInfoResponseOutputWithContext(context.Context) ApiDefinitionInfoResponseOutput
 }
 
-// Information about the formal API definition for the app.
 type ApiDefinitionInfoResponseArgs struct {
-	// The URL of the API definition.
 	Url pulumi.StringPtrInput `pulumi:"url"`
 }
 
@@ -220,7 +215,6 @@ func (i *apiDefinitionInfoResponsePtrType) ToApiDefinitionInfoResponsePtrOutputW
 	return pulumi.ToOutputWithContext(ctx, i).(ApiDefinitionInfoResponsePtrOutput)
 }
 
-// Information about the formal API definition for the app.
 type ApiDefinitionInfoResponseOutput struct{ *pulumi.OutputState }
 
 func (ApiDefinitionInfoResponseOutput) ElementType() reflect.Type {
@@ -240,12 +234,11 @@ func (o ApiDefinitionInfoResponseOutput) ToApiDefinitionInfoResponsePtrOutput() 
 }
 
 func (o ApiDefinitionInfoResponseOutput) ToApiDefinitionInfoResponsePtrOutputWithContext(ctx context.Context) ApiDefinitionInfoResponsePtrOutput {
-	return o.ApplyT(func(v ApiDefinitionInfoResponse) *ApiDefinitionInfoResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ApiDefinitionInfoResponse) *ApiDefinitionInfoResponse {
 		return &v
 	}).(ApiDefinitionInfoResponsePtrOutput)
 }
 
-// The URL of the API definition.
 func (o ApiDefinitionInfoResponseOutput) Url() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ApiDefinitionInfoResponse) *string { return v.Url }).(pulumi.StringPtrOutput)
 }
@@ -265,10 +258,15 @@ func (o ApiDefinitionInfoResponsePtrOutput) ToApiDefinitionInfoResponsePtrOutput
 }
 
 func (o ApiDefinitionInfoResponsePtrOutput) Elem() ApiDefinitionInfoResponseOutput {
-	return o.ApplyT(func(v *ApiDefinitionInfoResponse) ApiDefinitionInfoResponse { return *v }).(ApiDefinitionInfoResponseOutput)
+	return o.ApplyT(func(v *ApiDefinitionInfoResponse) ApiDefinitionInfoResponse {
+		if v != nil {
+			return *v
+		}
+		var ret ApiDefinitionInfoResponse
+		return ret
+	}).(ApiDefinitionInfoResponseOutput)
 }
 
-// The URL of the API definition.
 func (o ApiDefinitionInfoResponsePtrOutput) Url() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ApiDefinitionInfoResponse) *string {
 		if v == nil {
@@ -278,9 +276,7 @@ func (o ApiDefinitionInfoResponsePtrOutput) Url() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Azure API management (APIM) configuration linked to the app.
 type ApiManagementConfig struct {
-	// APIM-Api Identifier.
 	Id *string `pulumi:"id"`
 }
 
@@ -295,9 +291,7 @@ type ApiManagementConfigInput interface {
 	ToApiManagementConfigOutputWithContext(context.Context) ApiManagementConfigOutput
 }
 
-// Azure API management (APIM) configuration linked to the app.
 type ApiManagementConfigArgs struct {
-	// APIM-Api Identifier.
 	Id pulumi.StringPtrInput `pulumi:"id"`
 }
 
@@ -354,7 +348,6 @@ func (i *apiManagementConfigPtrType) ToApiManagementConfigPtrOutputWithContext(c
 	return pulumi.ToOutputWithContext(ctx, i).(ApiManagementConfigPtrOutput)
 }
 
-// Azure API management (APIM) configuration linked to the app.
 type ApiManagementConfigOutput struct{ *pulumi.OutputState }
 
 func (ApiManagementConfigOutput) ElementType() reflect.Type {
@@ -374,12 +367,11 @@ func (o ApiManagementConfigOutput) ToApiManagementConfigPtrOutput() ApiManagemen
 }
 
 func (o ApiManagementConfigOutput) ToApiManagementConfigPtrOutputWithContext(ctx context.Context) ApiManagementConfigPtrOutput {
-	return o.ApplyT(func(v ApiManagementConfig) *ApiManagementConfig {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ApiManagementConfig) *ApiManagementConfig {
 		return &v
 	}).(ApiManagementConfigPtrOutput)
 }
 
-// APIM-Api Identifier.
 func (o ApiManagementConfigOutput) Id() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ApiManagementConfig) *string { return v.Id }).(pulumi.StringPtrOutput)
 }
@@ -399,10 +391,15 @@ func (o ApiManagementConfigPtrOutput) ToApiManagementConfigPtrOutputWithContext(
 }
 
 func (o ApiManagementConfigPtrOutput) Elem() ApiManagementConfigOutput {
-	return o.ApplyT(func(v *ApiManagementConfig) ApiManagementConfig { return *v }).(ApiManagementConfigOutput)
+	return o.ApplyT(func(v *ApiManagementConfig) ApiManagementConfig {
+		if v != nil {
+			return *v
+		}
+		var ret ApiManagementConfig
+		return ret
+	}).(ApiManagementConfigOutput)
 }
 
-// APIM-Api Identifier.
 func (o ApiManagementConfigPtrOutput) Id() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ApiManagementConfig) *string {
 		if v == nil {
@@ -412,9 +409,7 @@ func (o ApiManagementConfigPtrOutput) Id() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Azure API management (APIM) configuration linked to the app.
 type ApiManagementConfigResponse struct {
-	// APIM-Api Identifier.
 	Id *string `pulumi:"id"`
 }
 
@@ -429,9 +424,7 @@ type ApiManagementConfigResponseInput interface {
 	ToApiManagementConfigResponseOutputWithContext(context.Context) ApiManagementConfigResponseOutput
 }
 
-// Azure API management (APIM) configuration linked to the app.
 type ApiManagementConfigResponseArgs struct {
-	// APIM-Api Identifier.
 	Id pulumi.StringPtrInput `pulumi:"id"`
 }
 
@@ -488,7 +481,6 @@ func (i *apiManagementConfigResponsePtrType) ToApiManagementConfigResponsePtrOut
 	return pulumi.ToOutputWithContext(ctx, i).(ApiManagementConfigResponsePtrOutput)
 }
 
-// Azure API management (APIM) configuration linked to the app.
 type ApiManagementConfigResponseOutput struct{ *pulumi.OutputState }
 
 func (ApiManagementConfigResponseOutput) ElementType() reflect.Type {
@@ -508,12 +500,11 @@ func (o ApiManagementConfigResponseOutput) ToApiManagementConfigResponsePtrOutpu
 }
 
 func (o ApiManagementConfigResponseOutput) ToApiManagementConfigResponsePtrOutputWithContext(ctx context.Context) ApiManagementConfigResponsePtrOutput {
-	return o.ApplyT(func(v ApiManagementConfigResponse) *ApiManagementConfigResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ApiManagementConfigResponse) *ApiManagementConfigResponse {
 		return &v
 	}).(ApiManagementConfigResponsePtrOutput)
 }
 
-// APIM-Api Identifier.
 func (o ApiManagementConfigResponseOutput) Id() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ApiManagementConfigResponse) *string { return v.Id }).(pulumi.StringPtrOutput)
 }
@@ -533,10 +524,15 @@ func (o ApiManagementConfigResponsePtrOutput) ToApiManagementConfigResponsePtrOu
 }
 
 func (o ApiManagementConfigResponsePtrOutput) Elem() ApiManagementConfigResponseOutput {
-	return o.ApplyT(func(v *ApiManagementConfigResponse) ApiManagementConfigResponse { return *v }).(ApiManagementConfigResponseOutput)
+	return o.ApplyT(func(v *ApiManagementConfigResponse) ApiManagementConfigResponse {
+		if v != nil {
+			return *v
+		}
+		var ret ApiManagementConfigResponse
+		return ret
+	}).(ApiManagementConfigResponseOutput)
 }
 
-// APIM-Api Identifier.
 func (o ApiManagementConfigResponsePtrOutput) Id() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ApiManagementConfigResponse) *string {
 		if v == nil {
@@ -546,14 +542,10 @@ func (o ApiManagementConfigResponsePtrOutput) Id() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Application logs configuration.
 type ApplicationLogsConfig struct {
-	// Application logs to blob storage configuration.
-	AzureBlobStorage *AzureBlobStorageApplicationLogsConfig `pulumi:"azureBlobStorage"`
-	// Application logs to azure table storage configuration.
+	AzureBlobStorage  *AzureBlobStorageApplicationLogsConfig  `pulumi:"azureBlobStorage"`
 	AzureTableStorage *AzureTableStorageApplicationLogsConfig `pulumi:"azureTableStorage"`
-	// Application logs to file system configuration.
-	FileSystem *FileSystemApplicationLogsConfig `pulumi:"fileSystem"`
+	FileSystem        *FileSystemApplicationLogsConfig        `pulumi:"fileSystem"`
 }
 
 // ApplicationLogsConfigInput is an input type that accepts ApplicationLogsConfigArgs and ApplicationLogsConfigOutput values.
@@ -567,14 +559,10 @@ type ApplicationLogsConfigInput interface {
 	ToApplicationLogsConfigOutputWithContext(context.Context) ApplicationLogsConfigOutput
 }
 
-// Application logs configuration.
 type ApplicationLogsConfigArgs struct {
-	// Application logs to blob storage configuration.
-	AzureBlobStorage AzureBlobStorageApplicationLogsConfigPtrInput `pulumi:"azureBlobStorage"`
-	// Application logs to azure table storage configuration.
+	AzureBlobStorage  AzureBlobStorageApplicationLogsConfigPtrInput  `pulumi:"azureBlobStorage"`
 	AzureTableStorage AzureTableStorageApplicationLogsConfigPtrInput `pulumi:"azureTableStorage"`
-	// Application logs to file system configuration.
-	FileSystem FileSystemApplicationLogsConfigPtrInput `pulumi:"fileSystem"`
+	FileSystem        FileSystemApplicationLogsConfigPtrInput        `pulumi:"fileSystem"`
 }
 
 func (ApplicationLogsConfigArgs) ElementType() reflect.Type {
@@ -630,7 +618,6 @@ func (i *applicationLogsConfigPtrType) ToApplicationLogsConfigPtrOutputWithConte
 	return pulumi.ToOutputWithContext(ctx, i).(ApplicationLogsConfigPtrOutput)
 }
 
-// Application logs configuration.
 type ApplicationLogsConfigOutput struct{ *pulumi.OutputState }
 
 func (ApplicationLogsConfigOutput) ElementType() reflect.Type {
@@ -650,22 +637,19 @@ func (o ApplicationLogsConfigOutput) ToApplicationLogsConfigPtrOutput() Applicat
 }
 
 func (o ApplicationLogsConfigOutput) ToApplicationLogsConfigPtrOutputWithContext(ctx context.Context) ApplicationLogsConfigPtrOutput {
-	return o.ApplyT(func(v ApplicationLogsConfig) *ApplicationLogsConfig {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ApplicationLogsConfig) *ApplicationLogsConfig {
 		return &v
 	}).(ApplicationLogsConfigPtrOutput)
 }
 
-// Application logs to blob storage configuration.
 func (o ApplicationLogsConfigOutput) AzureBlobStorage() AzureBlobStorageApplicationLogsConfigPtrOutput {
 	return o.ApplyT(func(v ApplicationLogsConfig) *AzureBlobStorageApplicationLogsConfig { return v.AzureBlobStorage }).(AzureBlobStorageApplicationLogsConfigPtrOutput)
 }
 
-// Application logs to azure table storage configuration.
 func (o ApplicationLogsConfigOutput) AzureTableStorage() AzureTableStorageApplicationLogsConfigPtrOutput {
 	return o.ApplyT(func(v ApplicationLogsConfig) *AzureTableStorageApplicationLogsConfig { return v.AzureTableStorage }).(AzureTableStorageApplicationLogsConfigPtrOutput)
 }
 
-// Application logs to file system configuration.
 func (o ApplicationLogsConfigOutput) FileSystem() FileSystemApplicationLogsConfigPtrOutput {
 	return o.ApplyT(func(v ApplicationLogsConfig) *FileSystemApplicationLogsConfig { return v.FileSystem }).(FileSystemApplicationLogsConfigPtrOutput)
 }
@@ -685,10 +669,15 @@ func (o ApplicationLogsConfigPtrOutput) ToApplicationLogsConfigPtrOutputWithCont
 }
 
 func (o ApplicationLogsConfigPtrOutput) Elem() ApplicationLogsConfigOutput {
-	return o.ApplyT(func(v *ApplicationLogsConfig) ApplicationLogsConfig { return *v }).(ApplicationLogsConfigOutput)
+	return o.ApplyT(func(v *ApplicationLogsConfig) ApplicationLogsConfig {
+		if v != nil {
+			return *v
+		}
+		var ret ApplicationLogsConfig
+		return ret
+	}).(ApplicationLogsConfigOutput)
 }
 
-// Application logs to blob storage configuration.
 func (o ApplicationLogsConfigPtrOutput) AzureBlobStorage() AzureBlobStorageApplicationLogsConfigPtrOutput {
 	return o.ApplyT(func(v *ApplicationLogsConfig) *AzureBlobStorageApplicationLogsConfig {
 		if v == nil {
@@ -698,7 +687,6 @@ func (o ApplicationLogsConfigPtrOutput) AzureBlobStorage() AzureBlobStorageAppli
 	}).(AzureBlobStorageApplicationLogsConfigPtrOutput)
 }
 
-// Application logs to azure table storage configuration.
 func (o ApplicationLogsConfigPtrOutput) AzureTableStorage() AzureTableStorageApplicationLogsConfigPtrOutput {
 	return o.ApplyT(func(v *ApplicationLogsConfig) *AzureTableStorageApplicationLogsConfig {
 		if v == nil {
@@ -708,7 +696,6 @@ func (o ApplicationLogsConfigPtrOutput) AzureTableStorage() AzureTableStorageApp
 	}).(AzureTableStorageApplicationLogsConfigPtrOutput)
 }
 
-// Application logs to file system configuration.
 func (o ApplicationLogsConfigPtrOutput) FileSystem() FileSystemApplicationLogsConfigPtrOutput {
 	return o.ApplyT(func(v *ApplicationLogsConfig) *FileSystemApplicationLogsConfig {
 		if v == nil {
@@ -718,14 +705,10 @@ func (o ApplicationLogsConfigPtrOutput) FileSystem() FileSystemApplicationLogsCo
 	}).(FileSystemApplicationLogsConfigPtrOutput)
 }
 
-// Application logs configuration.
 type ApplicationLogsConfigResponse struct {
-	// Application logs to blob storage configuration.
-	AzureBlobStorage *AzureBlobStorageApplicationLogsConfigResponse `pulumi:"azureBlobStorage"`
-	// Application logs to azure table storage configuration.
+	AzureBlobStorage  *AzureBlobStorageApplicationLogsConfigResponse  `pulumi:"azureBlobStorage"`
 	AzureTableStorage *AzureTableStorageApplicationLogsConfigResponse `pulumi:"azureTableStorage"`
-	// Application logs to file system configuration.
-	FileSystem *FileSystemApplicationLogsConfigResponse `pulumi:"fileSystem"`
+	FileSystem        *FileSystemApplicationLogsConfigResponse        `pulumi:"fileSystem"`
 }
 
 // ApplicationLogsConfigResponseInput is an input type that accepts ApplicationLogsConfigResponseArgs and ApplicationLogsConfigResponseOutput values.
@@ -739,14 +722,10 @@ type ApplicationLogsConfigResponseInput interface {
 	ToApplicationLogsConfigResponseOutputWithContext(context.Context) ApplicationLogsConfigResponseOutput
 }
 
-// Application logs configuration.
 type ApplicationLogsConfigResponseArgs struct {
-	// Application logs to blob storage configuration.
-	AzureBlobStorage AzureBlobStorageApplicationLogsConfigResponsePtrInput `pulumi:"azureBlobStorage"`
-	// Application logs to azure table storage configuration.
+	AzureBlobStorage  AzureBlobStorageApplicationLogsConfigResponsePtrInput  `pulumi:"azureBlobStorage"`
 	AzureTableStorage AzureTableStorageApplicationLogsConfigResponsePtrInput `pulumi:"azureTableStorage"`
-	// Application logs to file system configuration.
-	FileSystem FileSystemApplicationLogsConfigResponsePtrInput `pulumi:"fileSystem"`
+	FileSystem        FileSystemApplicationLogsConfigResponsePtrInput        `pulumi:"fileSystem"`
 }
 
 func (ApplicationLogsConfigResponseArgs) ElementType() reflect.Type {
@@ -802,7 +781,6 @@ func (i *applicationLogsConfigResponsePtrType) ToApplicationLogsConfigResponsePt
 	return pulumi.ToOutputWithContext(ctx, i).(ApplicationLogsConfigResponsePtrOutput)
 }
 
-// Application logs configuration.
 type ApplicationLogsConfigResponseOutput struct{ *pulumi.OutputState }
 
 func (ApplicationLogsConfigResponseOutput) ElementType() reflect.Type {
@@ -822,26 +800,23 @@ func (o ApplicationLogsConfigResponseOutput) ToApplicationLogsConfigResponsePtrO
 }
 
 func (o ApplicationLogsConfigResponseOutput) ToApplicationLogsConfigResponsePtrOutputWithContext(ctx context.Context) ApplicationLogsConfigResponsePtrOutput {
-	return o.ApplyT(func(v ApplicationLogsConfigResponse) *ApplicationLogsConfigResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ApplicationLogsConfigResponse) *ApplicationLogsConfigResponse {
 		return &v
 	}).(ApplicationLogsConfigResponsePtrOutput)
 }
 
-// Application logs to blob storage configuration.
 func (o ApplicationLogsConfigResponseOutput) AzureBlobStorage() AzureBlobStorageApplicationLogsConfigResponsePtrOutput {
 	return o.ApplyT(func(v ApplicationLogsConfigResponse) *AzureBlobStorageApplicationLogsConfigResponse {
 		return v.AzureBlobStorage
 	}).(AzureBlobStorageApplicationLogsConfigResponsePtrOutput)
 }
 
-// Application logs to azure table storage configuration.
 func (o ApplicationLogsConfigResponseOutput) AzureTableStorage() AzureTableStorageApplicationLogsConfigResponsePtrOutput {
 	return o.ApplyT(func(v ApplicationLogsConfigResponse) *AzureTableStorageApplicationLogsConfigResponse {
 		return v.AzureTableStorage
 	}).(AzureTableStorageApplicationLogsConfigResponsePtrOutput)
 }
 
-// Application logs to file system configuration.
 func (o ApplicationLogsConfigResponseOutput) FileSystem() FileSystemApplicationLogsConfigResponsePtrOutput {
 	return o.ApplyT(func(v ApplicationLogsConfigResponse) *FileSystemApplicationLogsConfigResponse { return v.FileSystem }).(FileSystemApplicationLogsConfigResponsePtrOutput)
 }
@@ -861,10 +836,15 @@ func (o ApplicationLogsConfigResponsePtrOutput) ToApplicationLogsConfigResponseP
 }
 
 func (o ApplicationLogsConfigResponsePtrOutput) Elem() ApplicationLogsConfigResponseOutput {
-	return o.ApplyT(func(v *ApplicationLogsConfigResponse) ApplicationLogsConfigResponse { return *v }).(ApplicationLogsConfigResponseOutput)
+	return o.ApplyT(func(v *ApplicationLogsConfigResponse) ApplicationLogsConfigResponse {
+		if v != nil {
+			return *v
+		}
+		var ret ApplicationLogsConfigResponse
+		return ret
+	}).(ApplicationLogsConfigResponseOutput)
 }
 
-// Application logs to blob storage configuration.
 func (o ApplicationLogsConfigResponsePtrOutput) AzureBlobStorage() AzureBlobStorageApplicationLogsConfigResponsePtrOutput {
 	return o.ApplyT(func(v *ApplicationLogsConfigResponse) *AzureBlobStorageApplicationLogsConfigResponse {
 		if v == nil {
@@ -874,7 +854,6 @@ func (o ApplicationLogsConfigResponsePtrOutput) AzureBlobStorage() AzureBlobStor
 	}).(AzureBlobStorageApplicationLogsConfigResponsePtrOutput)
 }
 
-// Application logs to azure table storage configuration.
 func (o ApplicationLogsConfigResponsePtrOutput) AzureTableStorage() AzureTableStorageApplicationLogsConfigResponsePtrOutput {
 	return o.ApplyT(func(v *ApplicationLogsConfigResponse) *AzureTableStorageApplicationLogsConfigResponse {
 		if v == nil {
@@ -884,7 +863,6 @@ func (o ApplicationLogsConfigResponsePtrOutput) AzureTableStorage() AzureTableSt
 	}).(AzureTableStorageApplicationLogsConfigResponsePtrOutput)
 }
 
-// Application logs to file system configuration.
 func (o ApplicationLogsConfigResponsePtrOutput) FileSystem() FileSystemApplicationLogsConfigResponsePtrOutput {
 	return o.ApplyT(func(v *ApplicationLogsConfigResponse) *FileSystemApplicationLogsConfigResponse {
 		if v == nil {
@@ -894,7 +872,6 @@ func (o ApplicationLogsConfigResponsePtrOutput) FileSystem() FileSystemApplicati
 	}).(FileSystemApplicationLogsConfigResponsePtrOutput)
 }
 
-// A wrapper for an ARM resource id
 type ArmIdWrapperResponse struct {
 	Id string `pulumi:"id"`
 }
@@ -910,7 +887,6 @@ type ArmIdWrapperResponseInput interface {
 	ToArmIdWrapperResponseOutputWithContext(context.Context) ArmIdWrapperResponseOutput
 }
 
-// A wrapper for an ARM resource id
 type ArmIdWrapperResponseArgs struct {
 	Id pulumi.StringInput `pulumi:"id"`
 }
@@ -968,7 +944,6 @@ func (i *armIdWrapperResponsePtrType) ToArmIdWrapperResponsePtrOutputWithContext
 	return pulumi.ToOutputWithContext(ctx, i).(ArmIdWrapperResponsePtrOutput)
 }
 
-// A wrapper for an ARM resource id
 type ArmIdWrapperResponseOutput struct{ *pulumi.OutputState }
 
 func (ArmIdWrapperResponseOutput) ElementType() reflect.Type {
@@ -988,10 +963,11 @@ func (o ArmIdWrapperResponseOutput) ToArmIdWrapperResponsePtrOutput() ArmIdWrapp
 }
 
 func (o ArmIdWrapperResponseOutput) ToArmIdWrapperResponsePtrOutputWithContext(ctx context.Context) ArmIdWrapperResponsePtrOutput {
-	return o.ApplyT(func(v ArmIdWrapperResponse) *ArmIdWrapperResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ArmIdWrapperResponse) *ArmIdWrapperResponse {
 		return &v
 	}).(ArmIdWrapperResponsePtrOutput)
 }
+
 func (o ArmIdWrapperResponseOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v ArmIdWrapperResponse) string { return v.Id }).(pulumi.StringOutput)
 }
@@ -1011,7 +987,13 @@ func (o ArmIdWrapperResponsePtrOutput) ToArmIdWrapperResponsePtrOutputWithContex
 }
 
 func (o ArmIdWrapperResponsePtrOutput) Elem() ArmIdWrapperResponseOutput {
-	return o.ApplyT(func(v *ArmIdWrapperResponse) ArmIdWrapperResponse { return *v }).(ArmIdWrapperResponseOutput)
+	return o.ApplyT(func(v *ArmIdWrapperResponse) ArmIdWrapperResponse {
+		if v != nil {
+			return *v
+		}
+		var ret ArmIdWrapperResponse
+		return ret
+	}).(ArmIdWrapperResponseOutput)
 }
 
 func (o ArmIdWrapperResponsePtrOutput) Id() pulumi.StringPtrOutput {
@@ -1023,15 +1005,10 @@ func (o ArmIdWrapperResponsePtrOutput) Id() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Actions which to take by the auto-heal module when a rule is triggered.
 type AutoHealActions struct {
-	// Predefined action to be taken.
-	ActionType *string `pulumi:"actionType"`
-	// Custom action to be taken.
-	CustomAction *AutoHealCustomAction `pulumi:"customAction"`
-	// Minimum time the process must execute
-	// before taking the action
-	MinProcessExecutionTime *string `pulumi:"minProcessExecutionTime"`
+	ActionType              *AutoHealActionType   `pulumi:"actionType"`
+	CustomAction            *AutoHealCustomAction `pulumi:"customAction"`
+	MinProcessExecutionTime *string               `pulumi:"minProcessExecutionTime"`
 }
 
 // AutoHealActionsInput is an input type that accepts AutoHealActionsArgs and AutoHealActionsOutput values.
@@ -1045,15 +1022,10 @@ type AutoHealActionsInput interface {
 	ToAutoHealActionsOutputWithContext(context.Context) AutoHealActionsOutput
 }
 
-// Actions which to take by the auto-heal module when a rule is triggered.
 type AutoHealActionsArgs struct {
-	// Predefined action to be taken.
-	ActionType *AutoHealActionType `pulumi:"actionType"`
-	// Custom action to be taken.
-	CustomAction AutoHealCustomActionPtrInput `pulumi:"customAction"`
-	// Minimum time the process must execute
-	// before taking the action
-	MinProcessExecutionTime pulumi.StringPtrInput `pulumi:"minProcessExecutionTime"`
+	ActionType              AutoHealActionTypePtrInput   `pulumi:"actionType"`
+	CustomAction            AutoHealCustomActionPtrInput `pulumi:"customAction"`
+	MinProcessExecutionTime pulumi.StringPtrInput        `pulumi:"minProcessExecutionTime"`
 }
 
 func (AutoHealActionsArgs) ElementType() reflect.Type {
@@ -1109,7 +1081,6 @@ func (i *autoHealActionsPtrType) ToAutoHealActionsPtrOutputWithContext(ctx conte
 	return pulumi.ToOutputWithContext(ctx, i).(AutoHealActionsPtrOutput)
 }
 
-// Actions which to take by the auto-heal module when a rule is triggered.
 type AutoHealActionsOutput struct{ *pulumi.OutputState }
 
 func (AutoHealActionsOutput) ElementType() reflect.Type {
@@ -1129,23 +1100,19 @@ func (o AutoHealActionsOutput) ToAutoHealActionsPtrOutput() AutoHealActionsPtrOu
 }
 
 func (o AutoHealActionsOutput) ToAutoHealActionsPtrOutputWithContext(ctx context.Context) AutoHealActionsPtrOutput {
-	return o.ApplyT(func(v AutoHealActions) *AutoHealActions {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v AutoHealActions) *AutoHealActions {
 		return &v
 	}).(AutoHealActionsPtrOutput)
 }
 
-// Predefined action to be taken.
-func (o AutoHealActionsOutput) ActionType() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v AutoHealActions) *string { return v.ActionType }).(pulumi.StringPtrOutput)
+func (o AutoHealActionsOutput) ActionType() AutoHealActionTypePtrOutput {
+	return o.ApplyT(func(v AutoHealActions) *AutoHealActionType { return v.ActionType }).(AutoHealActionTypePtrOutput)
 }
 
-// Custom action to be taken.
 func (o AutoHealActionsOutput) CustomAction() AutoHealCustomActionPtrOutput {
 	return o.ApplyT(func(v AutoHealActions) *AutoHealCustomAction { return v.CustomAction }).(AutoHealCustomActionPtrOutput)
 }
 
-// Minimum time the process must execute
-// before taking the action
 func (o AutoHealActionsOutput) MinProcessExecutionTime() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AutoHealActions) *string { return v.MinProcessExecutionTime }).(pulumi.StringPtrOutput)
 }
@@ -1165,20 +1132,24 @@ func (o AutoHealActionsPtrOutput) ToAutoHealActionsPtrOutputWithContext(ctx cont
 }
 
 func (o AutoHealActionsPtrOutput) Elem() AutoHealActionsOutput {
-	return o.ApplyT(func(v *AutoHealActions) AutoHealActions { return *v }).(AutoHealActionsOutput)
+	return o.ApplyT(func(v *AutoHealActions) AutoHealActions {
+		if v != nil {
+			return *v
+		}
+		var ret AutoHealActions
+		return ret
+	}).(AutoHealActionsOutput)
 }
 
-// Predefined action to be taken.
-func (o AutoHealActionsPtrOutput) ActionType() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *AutoHealActions) *string {
+func (o AutoHealActionsPtrOutput) ActionType() AutoHealActionTypePtrOutput {
+	return o.ApplyT(func(v *AutoHealActions) *AutoHealActionType {
 		if v == nil {
 			return nil
 		}
 		return v.ActionType
-	}).(pulumi.StringPtrOutput)
+	}).(AutoHealActionTypePtrOutput)
 }
 
-// Custom action to be taken.
 func (o AutoHealActionsPtrOutput) CustomAction() AutoHealCustomActionPtrOutput {
 	return o.ApplyT(func(v *AutoHealActions) *AutoHealCustomAction {
 		if v == nil {
@@ -1188,8 +1159,6 @@ func (o AutoHealActionsPtrOutput) CustomAction() AutoHealCustomActionPtrOutput {
 	}).(AutoHealCustomActionPtrOutput)
 }
 
-// Minimum time the process must execute
-// before taking the action
 func (o AutoHealActionsPtrOutput) MinProcessExecutionTime() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *AutoHealActions) *string {
 		if v == nil {
@@ -1199,15 +1168,10 @@ func (o AutoHealActionsPtrOutput) MinProcessExecutionTime() pulumi.StringPtrOutp
 	}).(pulumi.StringPtrOutput)
 }
 
-// Actions which to take by the auto-heal module when a rule is triggered.
 type AutoHealActionsResponse struct {
-	// Predefined action to be taken.
-	ActionType *string `pulumi:"actionType"`
-	// Custom action to be taken.
-	CustomAction *AutoHealCustomActionResponse `pulumi:"customAction"`
-	// Minimum time the process must execute
-	// before taking the action
-	MinProcessExecutionTime *string `pulumi:"minProcessExecutionTime"`
+	ActionType              *string                       `pulumi:"actionType"`
+	CustomAction            *AutoHealCustomActionResponse `pulumi:"customAction"`
+	MinProcessExecutionTime *string                       `pulumi:"minProcessExecutionTime"`
 }
 
 // AutoHealActionsResponseInput is an input type that accepts AutoHealActionsResponseArgs and AutoHealActionsResponseOutput values.
@@ -1221,15 +1185,10 @@ type AutoHealActionsResponseInput interface {
 	ToAutoHealActionsResponseOutputWithContext(context.Context) AutoHealActionsResponseOutput
 }
 
-// Actions which to take by the auto-heal module when a rule is triggered.
 type AutoHealActionsResponseArgs struct {
-	// Predefined action to be taken.
-	ActionType pulumi.StringPtrInput `pulumi:"actionType"`
-	// Custom action to be taken.
-	CustomAction AutoHealCustomActionResponsePtrInput `pulumi:"customAction"`
-	// Minimum time the process must execute
-	// before taking the action
-	MinProcessExecutionTime pulumi.StringPtrInput `pulumi:"minProcessExecutionTime"`
+	ActionType              pulumi.StringPtrInput                `pulumi:"actionType"`
+	CustomAction            AutoHealCustomActionResponsePtrInput `pulumi:"customAction"`
+	MinProcessExecutionTime pulumi.StringPtrInput                `pulumi:"minProcessExecutionTime"`
 }
 
 func (AutoHealActionsResponseArgs) ElementType() reflect.Type {
@@ -1285,7 +1244,6 @@ func (i *autoHealActionsResponsePtrType) ToAutoHealActionsResponsePtrOutputWithC
 	return pulumi.ToOutputWithContext(ctx, i).(AutoHealActionsResponsePtrOutput)
 }
 
-// Actions which to take by the auto-heal module when a rule is triggered.
 type AutoHealActionsResponseOutput struct{ *pulumi.OutputState }
 
 func (AutoHealActionsResponseOutput) ElementType() reflect.Type {
@@ -1305,23 +1263,19 @@ func (o AutoHealActionsResponseOutput) ToAutoHealActionsResponsePtrOutput() Auto
 }
 
 func (o AutoHealActionsResponseOutput) ToAutoHealActionsResponsePtrOutputWithContext(ctx context.Context) AutoHealActionsResponsePtrOutput {
-	return o.ApplyT(func(v AutoHealActionsResponse) *AutoHealActionsResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v AutoHealActionsResponse) *AutoHealActionsResponse {
 		return &v
 	}).(AutoHealActionsResponsePtrOutput)
 }
 
-// Predefined action to be taken.
 func (o AutoHealActionsResponseOutput) ActionType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AutoHealActionsResponse) *string { return v.ActionType }).(pulumi.StringPtrOutput)
 }
 
-// Custom action to be taken.
 func (o AutoHealActionsResponseOutput) CustomAction() AutoHealCustomActionResponsePtrOutput {
 	return o.ApplyT(func(v AutoHealActionsResponse) *AutoHealCustomActionResponse { return v.CustomAction }).(AutoHealCustomActionResponsePtrOutput)
 }
 
-// Minimum time the process must execute
-// before taking the action
 func (o AutoHealActionsResponseOutput) MinProcessExecutionTime() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AutoHealActionsResponse) *string { return v.MinProcessExecutionTime }).(pulumi.StringPtrOutput)
 }
@@ -1341,10 +1295,15 @@ func (o AutoHealActionsResponsePtrOutput) ToAutoHealActionsResponsePtrOutputWith
 }
 
 func (o AutoHealActionsResponsePtrOutput) Elem() AutoHealActionsResponseOutput {
-	return o.ApplyT(func(v *AutoHealActionsResponse) AutoHealActionsResponse { return *v }).(AutoHealActionsResponseOutput)
+	return o.ApplyT(func(v *AutoHealActionsResponse) AutoHealActionsResponse {
+		if v != nil {
+			return *v
+		}
+		var ret AutoHealActionsResponse
+		return ret
+	}).(AutoHealActionsResponseOutput)
 }
 
-// Predefined action to be taken.
 func (o AutoHealActionsResponsePtrOutput) ActionType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *AutoHealActionsResponse) *string {
 		if v == nil {
@@ -1354,7 +1313,6 @@ func (o AutoHealActionsResponsePtrOutput) ActionType() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Custom action to be taken.
 func (o AutoHealActionsResponsePtrOutput) CustomAction() AutoHealCustomActionResponsePtrOutput {
 	return o.ApplyT(func(v *AutoHealActionsResponse) *AutoHealCustomActionResponse {
 		if v == nil {
@@ -1364,8 +1322,6 @@ func (o AutoHealActionsResponsePtrOutput) CustomAction() AutoHealCustomActionRes
 	}).(AutoHealCustomActionResponsePtrOutput)
 }
 
-// Minimum time the process must execute
-// before taking the action
 func (o AutoHealActionsResponsePtrOutput) MinProcessExecutionTime() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *AutoHealActionsResponse) *string {
 		if v == nil {
@@ -1375,12 +1331,8 @@ func (o AutoHealActionsResponsePtrOutput) MinProcessExecutionTime() pulumi.Strin
 	}).(pulumi.StringPtrOutput)
 }
 
-// Custom action to be executed
-// when an auto heal rule is triggered.
 type AutoHealCustomAction struct {
-	// Executable to be run.
-	Exe *string `pulumi:"exe"`
-	// Parameters for the executable.
+	Exe        *string `pulumi:"exe"`
 	Parameters *string `pulumi:"parameters"`
 }
 
@@ -1395,12 +1347,8 @@ type AutoHealCustomActionInput interface {
 	ToAutoHealCustomActionOutputWithContext(context.Context) AutoHealCustomActionOutput
 }
 
-// Custom action to be executed
-// when an auto heal rule is triggered.
 type AutoHealCustomActionArgs struct {
-	// Executable to be run.
-	Exe pulumi.StringPtrInput `pulumi:"exe"`
-	// Parameters for the executable.
+	Exe        pulumi.StringPtrInput `pulumi:"exe"`
 	Parameters pulumi.StringPtrInput `pulumi:"parameters"`
 }
 
@@ -1457,8 +1405,6 @@ func (i *autoHealCustomActionPtrType) ToAutoHealCustomActionPtrOutputWithContext
 	return pulumi.ToOutputWithContext(ctx, i).(AutoHealCustomActionPtrOutput)
 }
 
-// Custom action to be executed
-// when an auto heal rule is triggered.
 type AutoHealCustomActionOutput struct{ *pulumi.OutputState }
 
 func (AutoHealCustomActionOutput) ElementType() reflect.Type {
@@ -1478,17 +1424,15 @@ func (o AutoHealCustomActionOutput) ToAutoHealCustomActionPtrOutput() AutoHealCu
 }
 
 func (o AutoHealCustomActionOutput) ToAutoHealCustomActionPtrOutputWithContext(ctx context.Context) AutoHealCustomActionPtrOutput {
-	return o.ApplyT(func(v AutoHealCustomAction) *AutoHealCustomAction {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v AutoHealCustomAction) *AutoHealCustomAction {
 		return &v
 	}).(AutoHealCustomActionPtrOutput)
 }
 
-// Executable to be run.
 func (o AutoHealCustomActionOutput) Exe() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AutoHealCustomAction) *string { return v.Exe }).(pulumi.StringPtrOutput)
 }
 
-// Parameters for the executable.
 func (o AutoHealCustomActionOutput) Parameters() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AutoHealCustomAction) *string { return v.Parameters }).(pulumi.StringPtrOutput)
 }
@@ -1508,10 +1452,15 @@ func (o AutoHealCustomActionPtrOutput) ToAutoHealCustomActionPtrOutputWithContex
 }
 
 func (o AutoHealCustomActionPtrOutput) Elem() AutoHealCustomActionOutput {
-	return o.ApplyT(func(v *AutoHealCustomAction) AutoHealCustomAction { return *v }).(AutoHealCustomActionOutput)
+	return o.ApplyT(func(v *AutoHealCustomAction) AutoHealCustomAction {
+		if v != nil {
+			return *v
+		}
+		var ret AutoHealCustomAction
+		return ret
+	}).(AutoHealCustomActionOutput)
 }
 
-// Executable to be run.
 func (o AutoHealCustomActionPtrOutput) Exe() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *AutoHealCustomAction) *string {
 		if v == nil {
@@ -1521,7 +1470,6 @@ func (o AutoHealCustomActionPtrOutput) Exe() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Parameters for the executable.
 func (o AutoHealCustomActionPtrOutput) Parameters() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *AutoHealCustomAction) *string {
 		if v == nil {
@@ -1531,12 +1479,8 @@ func (o AutoHealCustomActionPtrOutput) Parameters() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Custom action to be executed
-// when an auto heal rule is triggered.
 type AutoHealCustomActionResponse struct {
-	// Executable to be run.
-	Exe *string `pulumi:"exe"`
-	// Parameters for the executable.
+	Exe        *string `pulumi:"exe"`
 	Parameters *string `pulumi:"parameters"`
 }
 
@@ -1551,12 +1495,8 @@ type AutoHealCustomActionResponseInput interface {
 	ToAutoHealCustomActionResponseOutputWithContext(context.Context) AutoHealCustomActionResponseOutput
 }
 
-// Custom action to be executed
-// when an auto heal rule is triggered.
 type AutoHealCustomActionResponseArgs struct {
-	// Executable to be run.
-	Exe pulumi.StringPtrInput `pulumi:"exe"`
-	// Parameters for the executable.
+	Exe        pulumi.StringPtrInput `pulumi:"exe"`
 	Parameters pulumi.StringPtrInput `pulumi:"parameters"`
 }
 
@@ -1613,8 +1553,6 @@ func (i *autoHealCustomActionResponsePtrType) ToAutoHealCustomActionResponsePtrO
 	return pulumi.ToOutputWithContext(ctx, i).(AutoHealCustomActionResponsePtrOutput)
 }
 
-// Custom action to be executed
-// when an auto heal rule is triggered.
 type AutoHealCustomActionResponseOutput struct{ *pulumi.OutputState }
 
 func (AutoHealCustomActionResponseOutput) ElementType() reflect.Type {
@@ -1634,17 +1572,15 @@ func (o AutoHealCustomActionResponseOutput) ToAutoHealCustomActionResponsePtrOut
 }
 
 func (o AutoHealCustomActionResponseOutput) ToAutoHealCustomActionResponsePtrOutputWithContext(ctx context.Context) AutoHealCustomActionResponsePtrOutput {
-	return o.ApplyT(func(v AutoHealCustomActionResponse) *AutoHealCustomActionResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v AutoHealCustomActionResponse) *AutoHealCustomActionResponse {
 		return &v
 	}).(AutoHealCustomActionResponsePtrOutput)
 }
 
-// Executable to be run.
 func (o AutoHealCustomActionResponseOutput) Exe() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AutoHealCustomActionResponse) *string { return v.Exe }).(pulumi.StringPtrOutput)
 }
 
-// Parameters for the executable.
 func (o AutoHealCustomActionResponseOutput) Parameters() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AutoHealCustomActionResponse) *string { return v.Parameters }).(pulumi.StringPtrOutput)
 }
@@ -1664,10 +1600,15 @@ func (o AutoHealCustomActionResponsePtrOutput) ToAutoHealCustomActionResponsePtr
 }
 
 func (o AutoHealCustomActionResponsePtrOutput) Elem() AutoHealCustomActionResponseOutput {
-	return o.ApplyT(func(v *AutoHealCustomActionResponse) AutoHealCustomActionResponse { return *v }).(AutoHealCustomActionResponseOutput)
+	return o.ApplyT(func(v *AutoHealCustomActionResponse) AutoHealCustomActionResponse {
+		if v != nil {
+			return *v
+		}
+		var ret AutoHealCustomActionResponse
+		return ret
+	}).(AutoHealCustomActionResponseOutput)
 }
 
-// Executable to be run.
 func (o AutoHealCustomActionResponsePtrOutput) Exe() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *AutoHealCustomActionResponse) *string {
 		if v == nil {
@@ -1677,7 +1618,6 @@ func (o AutoHealCustomActionResponsePtrOutput) Exe() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Parameters for the executable.
 func (o AutoHealCustomActionResponsePtrOutput) Parameters() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *AutoHealCustomActionResponse) *string {
 		if v == nil {
@@ -1687,11 +1627,8 @@ func (o AutoHealCustomActionResponsePtrOutput) Parameters() pulumi.StringPtrOutp
 	}).(pulumi.StringPtrOutput)
 }
 
-// Rules that can be defined for auto-heal.
 type AutoHealRules struct {
-	// Actions to be executed when a rule is triggered.
-	Actions *AutoHealActions `pulumi:"actions"`
-	// Conditions that describe when to execute the auto-heal actions.
+	Actions  *AutoHealActions  `pulumi:"actions"`
 	Triggers *AutoHealTriggers `pulumi:"triggers"`
 }
 
@@ -1706,11 +1643,8 @@ type AutoHealRulesInput interface {
 	ToAutoHealRulesOutputWithContext(context.Context) AutoHealRulesOutput
 }
 
-// Rules that can be defined for auto-heal.
 type AutoHealRulesArgs struct {
-	// Actions to be executed when a rule is triggered.
-	Actions AutoHealActionsPtrInput `pulumi:"actions"`
-	// Conditions that describe when to execute the auto-heal actions.
+	Actions  AutoHealActionsPtrInput  `pulumi:"actions"`
 	Triggers AutoHealTriggersPtrInput `pulumi:"triggers"`
 }
 
@@ -1767,7 +1701,6 @@ func (i *autoHealRulesPtrType) ToAutoHealRulesPtrOutputWithContext(ctx context.C
 	return pulumi.ToOutputWithContext(ctx, i).(AutoHealRulesPtrOutput)
 }
 
-// Rules that can be defined for auto-heal.
 type AutoHealRulesOutput struct{ *pulumi.OutputState }
 
 func (AutoHealRulesOutput) ElementType() reflect.Type {
@@ -1787,17 +1720,15 @@ func (o AutoHealRulesOutput) ToAutoHealRulesPtrOutput() AutoHealRulesPtrOutput {
 }
 
 func (o AutoHealRulesOutput) ToAutoHealRulesPtrOutputWithContext(ctx context.Context) AutoHealRulesPtrOutput {
-	return o.ApplyT(func(v AutoHealRules) *AutoHealRules {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v AutoHealRules) *AutoHealRules {
 		return &v
 	}).(AutoHealRulesPtrOutput)
 }
 
-// Actions to be executed when a rule is triggered.
 func (o AutoHealRulesOutput) Actions() AutoHealActionsPtrOutput {
 	return o.ApplyT(func(v AutoHealRules) *AutoHealActions { return v.Actions }).(AutoHealActionsPtrOutput)
 }
 
-// Conditions that describe when to execute the auto-heal actions.
 func (o AutoHealRulesOutput) Triggers() AutoHealTriggersPtrOutput {
 	return o.ApplyT(func(v AutoHealRules) *AutoHealTriggers { return v.Triggers }).(AutoHealTriggersPtrOutput)
 }
@@ -1817,10 +1748,15 @@ func (o AutoHealRulesPtrOutput) ToAutoHealRulesPtrOutputWithContext(ctx context.
 }
 
 func (o AutoHealRulesPtrOutput) Elem() AutoHealRulesOutput {
-	return o.ApplyT(func(v *AutoHealRules) AutoHealRules { return *v }).(AutoHealRulesOutput)
+	return o.ApplyT(func(v *AutoHealRules) AutoHealRules {
+		if v != nil {
+			return *v
+		}
+		var ret AutoHealRules
+		return ret
+	}).(AutoHealRulesOutput)
 }
 
-// Actions to be executed when a rule is triggered.
 func (o AutoHealRulesPtrOutput) Actions() AutoHealActionsPtrOutput {
 	return o.ApplyT(func(v *AutoHealRules) *AutoHealActions {
 		if v == nil {
@@ -1830,7 +1766,6 @@ func (o AutoHealRulesPtrOutput) Actions() AutoHealActionsPtrOutput {
 	}).(AutoHealActionsPtrOutput)
 }
 
-// Conditions that describe when to execute the auto-heal actions.
 func (o AutoHealRulesPtrOutput) Triggers() AutoHealTriggersPtrOutput {
 	return o.ApplyT(func(v *AutoHealRules) *AutoHealTriggers {
 		if v == nil {
@@ -1840,11 +1775,8 @@ func (o AutoHealRulesPtrOutput) Triggers() AutoHealTriggersPtrOutput {
 	}).(AutoHealTriggersPtrOutput)
 }
 
-// Rules that can be defined for auto-heal.
 type AutoHealRulesResponse struct {
-	// Actions to be executed when a rule is triggered.
-	Actions *AutoHealActionsResponse `pulumi:"actions"`
-	// Conditions that describe when to execute the auto-heal actions.
+	Actions  *AutoHealActionsResponse  `pulumi:"actions"`
 	Triggers *AutoHealTriggersResponse `pulumi:"triggers"`
 }
 
@@ -1859,11 +1791,8 @@ type AutoHealRulesResponseInput interface {
 	ToAutoHealRulesResponseOutputWithContext(context.Context) AutoHealRulesResponseOutput
 }
 
-// Rules that can be defined for auto-heal.
 type AutoHealRulesResponseArgs struct {
-	// Actions to be executed when a rule is triggered.
-	Actions AutoHealActionsResponsePtrInput `pulumi:"actions"`
-	// Conditions that describe when to execute the auto-heal actions.
+	Actions  AutoHealActionsResponsePtrInput  `pulumi:"actions"`
 	Triggers AutoHealTriggersResponsePtrInput `pulumi:"triggers"`
 }
 
@@ -1920,7 +1849,6 @@ func (i *autoHealRulesResponsePtrType) ToAutoHealRulesResponsePtrOutputWithConte
 	return pulumi.ToOutputWithContext(ctx, i).(AutoHealRulesResponsePtrOutput)
 }
 
-// Rules that can be defined for auto-heal.
 type AutoHealRulesResponseOutput struct{ *pulumi.OutputState }
 
 func (AutoHealRulesResponseOutput) ElementType() reflect.Type {
@@ -1940,17 +1868,15 @@ func (o AutoHealRulesResponseOutput) ToAutoHealRulesResponsePtrOutput() AutoHeal
 }
 
 func (o AutoHealRulesResponseOutput) ToAutoHealRulesResponsePtrOutputWithContext(ctx context.Context) AutoHealRulesResponsePtrOutput {
-	return o.ApplyT(func(v AutoHealRulesResponse) *AutoHealRulesResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v AutoHealRulesResponse) *AutoHealRulesResponse {
 		return &v
 	}).(AutoHealRulesResponsePtrOutput)
 }
 
-// Actions to be executed when a rule is triggered.
 func (o AutoHealRulesResponseOutput) Actions() AutoHealActionsResponsePtrOutput {
 	return o.ApplyT(func(v AutoHealRulesResponse) *AutoHealActionsResponse { return v.Actions }).(AutoHealActionsResponsePtrOutput)
 }
 
-// Conditions that describe when to execute the auto-heal actions.
 func (o AutoHealRulesResponseOutput) Triggers() AutoHealTriggersResponsePtrOutput {
 	return o.ApplyT(func(v AutoHealRulesResponse) *AutoHealTriggersResponse { return v.Triggers }).(AutoHealTriggersResponsePtrOutput)
 }
@@ -1970,10 +1896,15 @@ func (o AutoHealRulesResponsePtrOutput) ToAutoHealRulesResponsePtrOutputWithCont
 }
 
 func (o AutoHealRulesResponsePtrOutput) Elem() AutoHealRulesResponseOutput {
-	return o.ApplyT(func(v *AutoHealRulesResponse) AutoHealRulesResponse { return *v }).(AutoHealRulesResponseOutput)
+	return o.ApplyT(func(v *AutoHealRulesResponse) AutoHealRulesResponse {
+		if v != nil {
+			return *v
+		}
+		var ret AutoHealRulesResponse
+		return ret
+	}).(AutoHealRulesResponseOutput)
 }
 
-// Actions to be executed when a rule is triggered.
 func (o AutoHealRulesResponsePtrOutput) Actions() AutoHealActionsResponsePtrOutput {
 	return o.ApplyT(func(v *AutoHealRulesResponse) *AutoHealActionsResponse {
 		if v == nil {
@@ -1983,7 +1914,6 @@ func (o AutoHealRulesResponsePtrOutput) Actions() AutoHealActionsResponsePtrOutp
 	}).(AutoHealActionsResponsePtrOutput)
 }
 
-// Conditions that describe when to execute the auto-heal actions.
 func (o AutoHealRulesResponsePtrOutput) Triggers() AutoHealTriggersResponsePtrOutput {
 	return o.ApplyT(func(v *AutoHealRulesResponse) *AutoHealTriggersResponse {
 		if v == nil {
@@ -1993,16 +1923,11 @@ func (o AutoHealRulesResponsePtrOutput) Triggers() AutoHealTriggersResponsePtrOu
 	}).(AutoHealTriggersResponsePtrOutput)
 }
 
-// Triggers for auto-heal.
 type AutoHealTriggers struct {
-	// A rule based on private bytes.
-	PrivateBytesInKB *int `pulumi:"privateBytesInKB"`
-	// A rule based on total requests.
-	Requests *RequestsBasedTrigger `pulumi:"requests"`
-	// A rule based on request execution time.
-	SlowRequests *SlowRequestsBasedTrigger `pulumi:"slowRequests"`
-	// A rule based on status codes.
-	StatusCodes []StatusCodesBasedTrigger `pulumi:"statusCodes"`
+	PrivateBytesInKB *int                      `pulumi:"privateBytesInKB"`
+	Requests         *RequestsBasedTrigger     `pulumi:"requests"`
+	SlowRequests     *SlowRequestsBasedTrigger `pulumi:"slowRequests"`
+	StatusCodes      []StatusCodesBasedTrigger `pulumi:"statusCodes"`
 }
 
 // AutoHealTriggersInput is an input type that accepts AutoHealTriggersArgs and AutoHealTriggersOutput values.
@@ -2016,16 +1941,11 @@ type AutoHealTriggersInput interface {
 	ToAutoHealTriggersOutputWithContext(context.Context) AutoHealTriggersOutput
 }
 
-// Triggers for auto-heal.
 type AutoHealTriggersArgs struct {
-	// A rule based on private bytes.
-	PrivateBytesInKB pulumi.IntPtrInput `pulumi:"privateBytesInKB"`
-	// A rule based on total requests.
-	Requests RequestsBasedTriggerPtrInput `pulumi:"requests"`
-	// A rule based on request execution time.
-	SlowRequests SlowRequestsBasedTriggerPtrInput `pulumi:"slowRequests"`
-	// A rule based on status codes.
-	StatusCodes StatusCodesBasedTriggerArrayInput `pulumi:"statusCodes"`
+	PrivateBytesInKB pulumi.IntPtrInput                `pulumi:"privateBytesInKB"`
+	Requests         RequestsBasedTriggerPtrInput      `pulumi:"requests"`
+	SlowRequests     SlowRequestsBasedTriggerPtrInput  `pulumi:"slowRequests"`
+	StatusCodes      StatusCodesBasedTriggerArrayInput `pulumi:"statusCodes"`
 }
 
 func (AutoHealTriggersArgs) ElementType() reflect.Type {
@@ -2081,7 +2001,6 @@ func (i *autoHealTriggersPtrType) ToAutoHealTriggersPtrOutputWithContext(ctx con
 	return pulumi.ToOutputWithContext(ctx, i).(AutoHealTriggersPtrOutput)
 }
 
-// Triggers for auto-heal.
 type AutoHealTriggersOutput struct{ *pulumi.OutputState }
 
 func (AutoHealTriggersOutput) ElementType() reflect.Type {
@@ -2101,27 +2020,23 @@ func (o AutoHealTriggersOutput) ToAutoHealTriggersPtrOutput() AutoHealTriggersPt
 }
 
 func (o AutoHealTriggersOutput) ToAutoHealTriggersPtrOutputWithContext(ctx context.Context) AutoHealTriggersPtrOutput {
-	return o.ApplyT(func(v AutoHealTriggers) *AutoHealTriggers {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v AutoHealTriggers) *AutoHealTriggers {
 		return &v
 	}).(AutoHealTriggersPtrOutput)
 }
 
-// A rule based on private bytes.
 func (o AutoHealTriggersOutput) PrivateBytesInKB() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v AutoHealTriggers) *int { return v.PrivateBytesInKB }).(pulumi.IntPtrOutput)
 }
 
-// A rule based on total requests.
 func (o AutoHealTriggersOutput) Requests() RequestsBasedTriggerPtrOutput {
 	return o.ApplyT(func(v AutoHealTriggers) *RequestsBasedTrigger { return v.Requests }).(RequestsBasedTriggerPtrOutput)
 }
 
-// A rule based on request execution time.
 func (o AutoHealTriggersOutput) SlowRequests() SlowRequestsBasedTriggerPtrOutput {
 	return o.ApplyT(func(v AutoHealTriggers) *SlowRequestsBasedTrigger { return v.SlowRequests }).(SlowRequestsBasedTriggerPtrOutput)
 }
 
-// A rule based on status codes.
 func (o AutoHealTriggersOutput) StatusCodes() StatusCodesBasedTriggerArrayOutput {
 	return o.ApplyT(func(v AutoHealTriggers) []StatusCodesBasedTrigger { return v.StatusCodes }).(StatusCodesBasedTriggerArrayOutput)
 }
@@ -2141,10 +2056,15 @@ func (o AutoHealTriggersPtrOutput) ToAutoHealTriggersPtrOutputWithContext(ctx co
 }
 
 func (o AutoHealTriggersPtrOutput) Elem() AutoHealTriggersOutput {
-	return o.ApplyT(func(v *AutoHealTriggers) AutoHealTriggers { return *v }).(AutoHealTriggersOutput)
+	return o.ApplyT(func(v *AutoHealTriggers) AutoHealTriggers {
+		if v != nil {
+			return *v
+		}
+		var ret AutoHealTriggers
+		return ret
+	}).(AutoHealTriggersOutput)
 }
 
-// A rule based on private bytes.
 func (o AutoHealTriggersPtrOutput) PrivateBytesInKB() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *AutoHealTriggers) *int {
 		if v == nil {
@@ -2154,7 +2074,6 @@ func (o AutoHealTriggersPtrOutput) PrivateBytesInKB() pulumi.IntPtrOutput {
 	}).(pulumi.IntPtrOutput)
 }
 
-// A rule based on total requests.
 func (o AutoHealTriggersPtrOutput) Requests() RequestsBasedTriggerPtrOutput {
 	return o.ApplyT(func(v *AutoHealTriggers) *RequestsBasedTrigger {
 		if v == nil {
@@ -2164,7 +2083,6 @@ func (o AutoHealTriggersPtrOutput) Requests() RequestsBasedTriggerPtrOutput {
 	}).(RequestsBasedTriggerPtrOutput)
 }
 
-// A rule based on request execution time.
 func (o AutoHealTriggersPtrOutput) SlowRequests() SlowRequestsBasedTriggerPtrOutput {
 	return o.ApplyT(func(v *AutoHealTriggers) *SlowRequestsBasedTrigger {
 		if v == nil {
@@ -2174,7 +2092,6 @@ func (o AutoHealTriggersPtrOutput) SlowRequests() SlowRequestsBasedTriggerPtrOut
 	}).(SlowRequestsBasedTriggerPtrOutput)
 }
 
-// A rule based on status codes.
 func (o AutoHealTriggersPtrOutput) StatusCodes() StatusCodesBasedTriggerArrayOutput {
 	return o.ApplyT(func(v *AutoHealTriggers) []StatusCodesBasedTrigger {
 		if v == nil {
@@ -2184,16 +2101,11 @@ func (o AutoHealTriggersPtrOutput) StatusCodes() StatusCodesBasedTriggerArrayOut
 	}).(StatusCodesBasedTriggerArrayOutput)
 }
 
-// Triggers for auto-heal.
 type AutoHealTriggersResponse struct {
-	// A rule based on private bytes.
-	PrivateBytesInKB *int `pulumi:"privateBytesInKB"`
-	// A rule based on total requests.
-	Requests *RequestsBasedTriggerResponse `pulumi:"requests"`
-	// A rule based on request execution time.
-	SlowRequests *SlowRequestsBasedTriggerResponse `pulumi:"slowRequests"`
-	// A rule based on status codes.
-	StatusCodes []StatusCodesBasedTriggerResponse `pulumi:"statusCodes"`
+	PrivateBytesInKB *int                              `pulumi:"privateBytesInKB"`
+	Requests         *RequestsBasedTriggerResponse     `pulumi:"requests"`
+	SlowRequests     *SlowRequestsBasedTriggerResponse `pulumi:"slowRequests"`
+	StatusCodes      []StatusCodesBasedTriggerResponse `pulumi:"statusCodes"`
 }
 
 // AutoHealTriggersResponseInput is an input type that accepts AutoHealTriggersResponseArgs and AutoHealTriggersResponseOutput values.
@@ -2207,16 +2119,11 @@ type AutoHealTriggersResponseInput interface {
 	ToAutoHealTriggersResponseOutputWithContext(context.Context) AutoHealTriggersResponseOutput
 }
 
-// Triggers for auto-heal.
 type AutoHealTriggersResponseArgs struct {
-	// A rule based on private bytes.
-	PrivateBytesInKB pulumi.IntPtrInput `pulumi:"privateBytesInKB"`
-	// A rule based on total requests.
-	Requests RequestsBasedTriggerResponsePtrInput `pulumi:"requests"`
-	// A rule based on request execution time.
-	SlowRequests SlowRequestsBasedTriggerResponsePtrInput `pulumi:"slowRequests"`
-	// A rule based on status codes.
-	StatusCodes StatusCodesBasedTriggerResponseArrayInput `pulumi:"statusCodes"`
+	PrivateBytesInKB pulumi.IntPtrInput                        `pulumi:"privateBytesInKB"`
+	Requests         RequestsBasedTriggerResponsePtrInput      `pulumi:"requests"`
+	SlowRequests     SlowRequestsBasedTriggerResponsePtrInput  `pulumi:"slowRequests"`
+	StatusCodes      StatusCodesBasedTriggerResponseArrayInput `pulumi:"statusCodes"`
 }
 
 func (AutoHealTriggersResponseArgs) ElementType() reflect.Type {
@@ -2272,7 +2179,6 @@ func (i *autoHealTriggersResponsePtrType) ToAutoHealTriggersResponsePtrOutputWit
 	return pulumi.ToOutputWithContext(ctx, i).(AutoHealTriggersResponsePtrOutput)
 }
 
-// Triggers for auto-heal.
 type AutoHealTriggersResponseOutput struct{ *pulumi.OutputState }
 
 func (AutoHealTriggersResponseOutput) ElementType() reflect.Type {
@@ -2292,27 +2198,23 @@ func (o AutoHealTriggersResponseOutput) ToAutoHealTriggersResponsePtrOutput() Au
 }
 
 func (o AutoHealTriggersResponseOutput) ToAutoHealTriggersResponsePtrOutputWithContext(ctx context.Context) AutoHealTriggersResponsePtrOutput {
-	return o.ApplyT(func(v AutoHealTriggersResponse) *AutoHealTriggersResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v AutoHealTriggersResponse) *AutoHealTriggersResponse {
 		return &v
 	}).(AutoHealTriggersResponsePtrOutput)
 }
 
-// A rule based on private bytes.
 func (o AutoHealTriggersResponseOutput) PrivateBytesInKB() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v AutoHealTriggersResponse) *int { return v.PrivateBytesInKB }).(pulumi.IntPtrOutput)
 }
 
-// A rule based on total requests.
 func (o AutoHealTriggersResponseOutput) Requests() RequestsBasedTriggerResponsePtrOutput {
 	return o.ApplyT(func(v AutoHealTriggersResponse) *RequestsBasedTriggerResponse { return v.Requests }).(RequestsBasedTriggerResponsePtrOutput)
 }
 
-// A rule based on request execution time.
 func (o AutoHealTriggersResponseOutput) SlowRequests() SlowRequestsBasedTriggerResponsePtrOutput {
 	return o.ApplyT(func(v AutoHealTriggersResponse) *SlowRequestsBasedTriggerResponse { return v.SlowRequests }).(SlowRequestsBasedTriggerResponsePtrOutput)
 }
 
-// A rule based on status codes.
 func (o AutoHealTriggersResponseOutput) StatusCodes() StatusCodesBasedTriggerResponseArrayOutput {
 	return o.ApplyT(func(v AutoHealTriggersResponse) []StatusCodesBasedTriggerResponse { return v.StatusCodes }).(StatusCodesBasedTriggerResponseArrayOutput)
 }
@@ -2332,10 +2234,15 @@ func (o AutoHealTriggersResponsePtrOutput) ToAutoHealTriggersResponsePtrOutputWi
 }
 
 func (o AutoHealTriggersResponsePtrOutput) Elem() AutoHealTriggersResponseOutput {
-	return o.ApplyT(func(v *AutoHealTriggersResponse) AutoHealTriggersResponse { return *v }).(AutoHealTriggersResponseOutput)
+	return o.ApplyT(func(v *AutoHealTriggersResponse) AutoHealTriggersResponse {
+		if v != nil {
+			return *v
+		}
+		var ret AutoHealTriggersResponse
+		return ret
+	}).(AutoHealTriggersResponseOutput)
 }
 
-// A rule based on private bytes.
 func (o AutoHealTriggersResponsePtrOutput) PrivateBytesInKB() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *AutoHealTriggersResponse) *int {
 		if v == nil {
@@ -2345,7 +2252,6 @@ func (o AutoHealTriggersResponsePtrOutput) PrivateBytesInKB() pulumi.IntPtrOutpu
 	}).(pulumi.IntPtrOutput)
 }
 
-// A rule based on total requests.
 func (o AutoHealTriggersResponsePtrOutput) Requests() RequestsBasedTriggerResponsePtrOutput {
 	return o.ApplyT(func(v *AutoHealTriggersResponse) *RequestsBasedTriggerResponse {
 		if v == nil {
@@ -2355,7 +2261,6 @@ func (o AutoHealTriggersResponsePtrOutput) Requests() RequestsBasedTriggerRespon
 	}).(RequestsBasedTriggerResponsePtrOutput)
 }
 
-// A rule based on request execution time.
 func (o AutoHealTriggersResponsePtrOutput) SlowRequests() SlowRequestsBasedTriggerResponsePtrOutput {
 	return o.ApplyT(func(v *AutoHealTriggersResponse) *SlowRequestsBasedTriggerResponse {
 		if v == nil {
@@ -2365,7 +2270,6 @@ func (o AutoHealTriggersResponsePtrOutput) SlowRequests() SlowRequestsBasedTrigg
 	}).(SlowRequestsBasedTriggerResponsePtrOutput)
 }
 
-// A rule based on status codes.
 func (o AutoHealTriggersResponsePtrOutput) StatusCodes() StatusCodesBasedTriggerResponseArrayOutput {
 	return o.ApplyT(func(v *AutoHealTriggersResponse) []StatusCodesBasedTriggerResponse {
 		if v == nil {
@@ -2375,16 +2279,10 @@ func (o AutoHealTriggersResponsePtrOutput) StatusCodes() StatusCodesBasedTrigger
 	}).(StatusCodesBasedTriggerResponseArrayOutput)
 }
 
-// Application logs azure blob storage configuration.
 type AzureBlobStorageApplicationLogsConfig struct {
-	// Log level.
-	Level *string `pulumi:"level"`
-	// Retention in days.
-	// Remove blobs older than X days.
-	// 0 or lower means no retention.
-	RetentionInDays *int `pulumi:"retentionInDays"`
-	// SAS url to a azure blob container with read/write/list/delete permissions.
-	SasUrl *string `pulumi:"sasUrl"`
+	Level           *LogLevel `pulumi:"level"`
+	RetentionInDays *int      `pulumi:"retentionInDays"`
+	SasUrl          *string   `pulumi:"sasUrl"`
 }
 
 // AzureBlobStorageApplicationLogsConfigInput is an input type that accepts AzureBlobStorageApplicationLogsConfigArgs and AzureBlobStorageApplicationLogsConfigOutput values.
@@ -2398,16 +2296,10 @@ type AzureBlobStorageApplicationLogsConfigInput interface {
 	ToAzureBlobStorageApplicationLogsConfigOutputWithContext(context.Context) AzureBlobStorageApplicationLogsConfigOutput
 }
 
-// Application logs azure blob storage configuration.
 type AzureBlobStorageApplicationLogsConfigArgs struct {
-	// Log level.
-	Level *LogLevel `pulumi:"level"`
-	// Retention in days.
-	// Remove blobs older than X days.
-	// 0 or lower means no retention.
-	RetentionInDays pulumi.IntPtrInput `pulumi:"retentionInDays"`
-	// SAS url to a azure blob container with read/write/list/delete permissions.
-	SasUrl pulumi.StringPtrInput `pulumi:"sasUrl"`
+	Level           LogLevelPtrInput      `pulumi:"level"`
+	RetentionInDays pulumi.IntPtrInput    `pulumi:"retentionInDays"`
+	SasUrl          pulumi.StringPtrInput `pulumi:"sasUrl"`
 }
 
 func (AzureBlobStorageApplicationLogsConfigArgs) ElementType() reflect.Type {
@@ -2463,7 +2355,6 @@ func (i *azureBlobStorageApplicationLogsConfigPtrType) ToAzureBlobStorageApplica
 	return pulumi.ToOutputWithContext(ctx, i).(AzureBlobStorageApplicationLogsConfigPtrOutput)
 }
 
-// Application logs azure blob storage configuration.
 type AzureBlobStorageApplicationLogsConfigOutput struct{ *pulumi.OutputState }
 
 func (AzureBlobStorageApplicationLogsConfigOutput) ElementType() reflect.Type {
@@ -2483,24 +2374,19 @@ func (o AzureBlobStorageApplicationLogsConfigOutput) ToAzureBlobStorageApplicati
 }
 
 func (o AzureBlobStorageApplicationLogsConfigOutput) ToAzureBlobStorageApplicationLogsConfigPtrOutputWithContext(ctx context.Context) AzureBlobStorageApplicationLogsConfigPtrOutput {
-	return o.ApplyT(func(v AzureBlobStorageApplicationLogsConfig) *AzureBlobStorageApplicationLogsConfig {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v AzureBlobStorageApplicationLogsConfig) *AzureBlobStorageApplicationLogsConfig {
 		return &v
 	}).(AzureBlobStorageApplicationLogsConfigPtrOutput)
 }
 
-// Log level.
-func (o AzureBlobStorageApplicationLogsConfigOutput) Level() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v AzureBlobStorageApplicationLogsConfig) *string { return v.Level }).(pulumi.StringPtrOutput)
+func (o AzureBlobStorageApplicationLogsConfigOutput) Level() LogLevelPtrOutput {
+	return o.ApplyT(func(v AzureBlobStorageApplicationLogsConfig) *LogLevel { return v.Level }).(LogLevelPtrOutput)
 }
 
-// Retention in days.
-// Remove blobs older than X days.
-// 0 or lower means no retention.
 func (o AzureBlobStorageApplicationLogsConfigOutput) RetentionInDays() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v AzureBlobStorageApplicationLogsConfig) *int { return v.RetentionInDays }).(pulumi.IntPtrOutput)
 }
 
-// SAS url to a azure blob container with read/write/list/delete permissions.
 func (o AzureBlobStorageApplicationLogsConfigOutput) SasUrl() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AzureBlobStorageApplicationLogsConfig) *string { return v.SasUrl }).(pulumi.StringPtrOutput)
 }
@@ -2520,22 +2406,24 @@ func (o AzureBlobStorageApplicationLogsConfigPtrOutput) ToAzureBlobStorageApplic
 }
 
 func (o AzureBlobStorageApplicationLogsConfigPtrOutput) Elem() AzureBlobStorageApplicationLogsConfigOutput {
-	return o.ApplyT(func(v *AzureBlobStorageApplicationLogsConfig) AzureBlobStorageApplicationLogsConfig { return *v }).(AzureBlobStorageApplicationLogsConfigOutput)
+	return o.ApplyT(func(v *AzureBlobStorageApplicationLogsConfig) AzureBlobStorageApplicationLogsConfig {
+		if v != nil {
+			return *v
+		}
+		var ret AzureBlobStorageApplicationLogsConfig
+		return ret
+	}).(AzureBlobStorageApplicationLogsConfigOutput)
 }
 
-// Log level.
-func (o AzureBlobStorageApplicationLogsConfigPtrOutput) Level() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *AzureBlobStorageApplicationLogsConfig) *string {
+func (o AzureBlobStorageApplicationLogsConfigPtrOutput) Level() LogLevelPtrOutput {
+	return o.ApplyT(func(v *AzureBlobStorageApplicationLogsConfig) *LogLevel {
 		if v == nil {
 			return nil
 		}
 		return v.Level
-	}).(pulumi.StringPtrOutput)
+	}).(LogLevelPtrOutput)
 }
 
-// Retention in days.
-// Remove blobs older than X days.
-// 0 or lower means no retention.
 func (o AzureBlobStorageApplicationLogsConfigPtrOutput) RetentionInDays() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *AzureBlobStorageApplicationLogsConfig) *int {
 		if v == nil {
@@ -2545,7 +2433,6 @@ func (o AzureBlobStorageApplicationLogsConfigPtrOutput) RetentionInDays() pulumi
 	}).(pulumi.IntPtrOutput)
 }
 
-// SAS url to a azure blob container with read/write/list/delete permissions.
 func (o AzureBlobStorageApplicationLogsConfigPtrOutput) SasUrl() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *AzureBlobStorageApplicationLogsConfig) *string {
 		if v == nil {
@@ -2555,16 +2442,10 @@ func (o AzureBlobStorageApplicationLogsConfigPtrOutput) SasUrl() pulumi.StringPt
 	}).(pulumi.StringPtrOutput)
 }
 
-// Application logs azure blob storage configuration.
 type AzureBlobStorageApplicationLogsConfigResponse struct {
-	// Log level.
-	Level *string `pulumi:"level"`
-	// Retention in days.
-	// Remove blobs older than X days.
-	// 0 or lower means no retention.
-	RetentionInDays *int `pulumi:"retentionInDays"`
-	// SAS url to a azure blob container with read/write/list/delete permissions.
-	SasUrl *string `pulumi:"sasUrl"`
+	Level           *string `pulumi:"level"`
+	RetentionInDays *int    `pulumi:"retentionInDays"`
+	SasUrl          *string `pulumi:"sasUrl"`
 }
 
 // AzureBlobStorageApplicationLogsConfigResponseInput is an input type that accepts AzureBlobStorageApplicationLogsConfigResponseArgs and AzureBlobStorageApplicationLogsConfigResponseOutput values.
@@ -2578,16 +2459,10 @@ type AzureBlobStorageApplicationLogsConfigResponseInput interface {
 	ToAzureBlobStorageApplicationLogsConfigResponseOutputWithContext(context.Context) AzureBlobStorageApplicationLogsConfigResponseOutput
 }
 
-// Application logs azure blob storage configuration.
 type AzureBlobStorageApplicationLogsConfigResponseArgs struct {
-	// Log level.
-	Level pulumi.StringPtrInput `pulumi:"level"`
-	// Retention in days.
-	// Remove blobs older than X days.
-	// 0 or lower means no retention.
-	RetentionInDays pulumi.IntPtrInput `pulumi:"retentionInDays"`
-	// SAS url to a azure blob container with read/write/list/delete permissions.
-	SasUrl pulumi.StringPtrInput `pulumi:"sasUrl"`
+	Level           pulumi.StringPtrInput `pulumi:"level"`
+	RetentionInDays pulumi.IntPtrInput    `pulumi:"retentionInDays"`
+	SasUrl          pulumi.StringPtrInput `pulumi:"sasUrl"`
 }
 
 func (AzureBlobStorageApplicationLogsConfigResponseArgs) ElementType() reflect.Type {
@@ -2643,7 +2518,6 @@ func (i *azureBlobStorageApplicationLogsConfigResponsePtrType) ToAzureBlobStorag
 	return pulumi.ToOutputWithContext(ctx, i).(AzureBlobStorageApplicationLogsConfigResponsePtrOutput)
 }
 
-// Application logs azure blob storage configuration.
 type AzureBlobStorageApplicationLogsConfigResponseOutput struct{ *pulumi.OutputState }
 
 func (AzureBlobStorageApplicationLogsConfigResponseOutput) ElementType() reflect.Type {
@@ -2663,24 +2537,19 @@ func (o AzureBlobStorageApplicationLogsConfigResponseOutput) ToAzureBlobStorageA
 }
 
 func (o AzureBlobStorageApplicationLogsConfigResponseOutput) ToAzureBlobStorageApplicationLogsConfigResponsePtrOutputWithContext(ctx context.Context) AzureBlobStorageApplicationLogsConfigResponsePtrOutput {
-	return o.ApplyT(func(v AzureBlobStorageApplicationLogsConfigResponse) *AzureBlobStorageApplicationLogsConfigResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v AzureBlobStorageApplicationLogsConfigResponse) *AzureBlobStorageApplicationLogsConfigResponse {
 		return &v
 	}).(AzureBlobStorageApplicationLogsConfigResponsePtrOutput)
 }
 
-// Log level.
 func (o AzureBlobStorageApplicationLogsConfigResponseOutput) Level() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AzureBlobStorageApplicationLogsConfigResponse) *string { return v.Level }).(pulumi.StringPtrOutput)
 }
 
-// Retention in days.
-// Remove blobs older than X days.
-// 0 or lower means no retention.
 func (o AzureBlobStorageApplicationLogsConfigResponseOutput) RetentionInDays() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v AzureBlobStorageApplicationLogsConfigResponse) *int { return v.RetentionInDays }).(pulumi.IntPtrOutput)
 }
 
-// SAS url to a azure blob container with read/write/list/delete permissions.
 func (o AzureBlobStorageApplicationLogsConfigResponseOutput) SasUrl() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AzureBlobStorageApplicationLogsConfigResponse) *string { return v.SasUrl }).(pulumi.StringPtrOutput)
 }
@@ -2701,11 +2570,14 @@ func (o AzureBlobStorageApplicationLogsConfigResponsePtrOutput) ToAzureBlobStora
 
 func (o AzureBlobStorageApplicationLogsConfigResponsePtrOutput) Elem() AzureBlobStorageApplicationLogsConfigResponseOutput {
 	return o.ApplyT(func(v *AzureBlobStorageApplicationLogsConfigResponse) AzureBlobStorageApplicationLogsConfigResponse {
-		return *v
+		if v != nil {
+			return *v
+		}
+		var ret AzureBlobStorageApplicationLogsConfigResponse
+		return ret
 	}).(AzureBlobStorageApplicationLogsConfigResponseOutput)
 }
 
-// Log level.
 func (o AzureBlobStorageApplicationLogsConfigResponsePtrOutput) Level() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *AzureBlobStorageApplicationLogsConfigResponse) *string {
 		if v == nil {
@@ -2715,9 +2587,6 @@ func (o AzureBlobStorageApplicationLogsConfigResponsePtrOutput) Level() pulumi.S
 	}).(pulumi.StringPtrOutput)
 }
 
-// Retention in days.
-// Remove blobs older than X days.
-// 0 or lower means no retention.
 func (o AzureBlobStorageApplicationLogsConfigResponsePtrOutput) RetentionInDays() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *AzureBlobStorageApplicationLogsConfigResponse) *int {
 		if v == nil {
@@ -2727,7 +2596,6 @@ func (o AzureBlobStorageApplicationLogsConfigResponsePtrOutput) RetentionInDays(
 	}).(pulumi.IntPtrOutput)
 }
 
-// SAS url to a azure blob container with read/write/list/delete permissions.
 func (o AzureBlobStorageApplicationLogsConfigResponsePtrOutput) SasUrl() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *AzureBlobStorageApplicationLogsConfigResponse) *string {
 		if v == nil {
@@ -2737,16 +2605,10 @@ func (o AzureBlobStorageApplicationLogsConfigResponsePtrOutput) SasUrl() pulumi.
 	}).(pulumi.StringPtrOutput)
 }
 
-// Http logs to azure blob storage configuration.
 type AzureBlobStorageHttpLogsConfig struct {
-	// True if configuration is enabled, false if it is disabled and null if configuration is not set.
-	Enabled *bool `pulumi:"enabled"`
-	// Retention in days.
-	// Remove blobs older than X days.
-	// 0 or lower means no retention.
-	RetentionInDays *int `pulumi:"retentionInDays"`
-	// SAS url to a azure blob container with read/write/list/delete permissions.
-	SasUrl *string `pulumi:"sasUrl"`
+	Enabled         *bool   `pulumi:"enabled"`
+	RetentionInDays *int    `pulumi:"retentionInDays"`
+	SasUrl          *string `pulumi:"sasUrl"`
 }
 
 // AzureBlobStorageHttpLogsConfigInput is an input type that accepts AzureBlobStorageHttpLogsConfigArgs and AzureBlobStorageHttpLogsConfigOutput values.
@@ -2760,16 +2622,10 @@ type AzureBlobStorageHttpLogsConfigInput interface {
 	ToAzureBlobStorageHttpLogsConfigOutputWithContext(context.Context) AzureBlobStorageHttpLogsConfigOutput
 }
 
-// Http logs to azure blob storage configuration.
 type AzureBlobStorageHttpLogsConfigArgs struct {
-	// True if configuration is enabled, false if it is disabled and null if configuration is not set.
-	Enabled pulumi.BoolPtrInput `pulumi:"enabled"`
-	// Retention in days.
-	// Remove blobs older than X days.
-	// 0 or lower means no retention.
-	RetentionInDays pulumi.IntPtrInput `pulumi:"retentionInDays"`
-	// SAS url to a azure blob container with read/write/list/delete permissions.
-	SasUrl pulumi.StringPtrInput `pulumi:"sasUrl"`
+	Enabled         pulumi.BoolPtrInput   `pulumi:"enabled"`
+	RetentionInDays pulumi.IntPtrInput    `pulumi:"retentionInDays"`
+	SasUrl          pulumi.StringPtrInput `pulumi:"sasUrl"`
 }
 
 func (AzureBlobStorageHttpLogsConfigArgs) ElementType() reflect.Type {
@@ -2825,7 +2681,6 @@ func (i *azureBlobStorageHttpLogsConfigPtrType) ToAzureBlobStorageHttpLogsConfig
 	return pulumi.ToOutputWithContext(ctx, i).(AzureBlobStorageHttpLogsConfigPtrOutput)
 }
 
-// Http logs to azure blob storage configuration.
 type AzureBlobStorageHttpLogsConfigOutput struct{ *pulumi.OutputState }
 
 func (AzureBlobStorageHttpLogsConfigOutput) ElementType() reflect.Type {
@@ -2845,24 +2700,19 @@ func (o AzureBlobStorageHttpLogsConfigOutput) ToAzureBlobStorageHttpLogsConfigPt
 }
 
 func (o AzureBlobStorageHttpLogsConfigOutput) ToAzureBlobStorageHttpLogsConfigPtrOutputWithContext(ctx context.Context) AzureBlobStorageHttpLogsConfigPtrOutput {
-	return o.ApplyT(func(v AzureBlobStorageHttpLogsConfig) *AzureBlobStorageHttpLogsConfig {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v AzureBlobStorageHttpLogsConfig) *AzureBlobStorageHttpLogsConfig {
 		return &v
 	}).(AzureBlobStorageHttpLogsConfigPtrOutput)
 }
 
-// True if configuration is enabled, false if it is disabled and null if configuration is not set.
 func (o AzureBlobStorageHttpLogsConfigOutput) Enabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v AzureBlobStorageHttpLogsConfig) *bool { return v.Enabled }).(pulumi.BoolPtrOutput)
 }
 
-// Retention in days.
-// Remove blobs older than X days.
-// 0 or lower means no retention.
 func (o AzureBlobStorageHttpLogsConfigOutput) RetentionInDays() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v AzureBlobStorageHttpLogsConfig) *int { return v.RetentionInDays }).(pulumi.IntPtrOutput)
 }
 
-// SAS url to a azure blob container with read/write/list/delete permissions.
 func (o AzureBlobStorageHttpLogsConfigOutput) SasUrl() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AzureBlobStorageHttpLogsConfig) *string { return v.SasUrl }).(pulumi.StringPtrOutput)
 }
@@ -2882,10 +2732,15 @@ func (o AzureBlobStorageHttpLogsConfigPtrOutput) ToAzureBlobStorageHttpLogsConfi
 }
 
 func (o AzureBlobStorageHttpLogsConfigPtrOutput) Elem() AzureBlobStorageHttpLogsConfigOutput {
-	return o.ApplyT(func(v *AzureBlobStorageHttpLogsConfig) AzureBlobStorageHttpLogsConfig { return *v }).(AzureBlobStorageHttpLogsConfigOutput)
+	return o.ApplyT(func(v *AzureBlobStorageHttpLogsConfig) AzureBlobStorageHttpLogsConfig {
+		if v != nil {
+			return *v
+		}
+		var ret AzureBlobStorageHttpLogsConfig
+		return ret
+	}).(AzureBlobStorageHttpLogsConfigOutput)
 }
 
-// True if configuration is enabled, false if it is disabled and null if configuration is not set.
 func (o AzureBlobStorageHttpLogsConfigPtrOutput) Enabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *AzureBlobStorageHttpLogsConfig) *bool {
 		if v == nil {
@@ -2895,9 +2750,6 @@ func (o AzureBlobStorageHttpLogsConfigPtrOutput) Enabled() pulumi.BoolPtrOutput 
 	}).(pulumi.BoolPtrOutput)
 }
 
-// Retention in days.
-// Remove blobs older than X days.
-// 0 or lower means no retention.
 func (o AzureBlobStorageHttpLogsConfigPtrOutput) RetentionInDays() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *AzureBlobStorageHttpLogsConfig) *int {
 		if v == nil {
@@ -2907,7 +2759,6 @@ func (o AzureBlobStorageHttpLogsConfigPtrOutput) RetentionInDays() pulumi.IntPtr
 	}).(pulumi.IntPtrOutput)
 }
 
-// SAS url to a azure blob container with read/write/list/delete permissions.
 func (o AzureBlobStorageHttpLogsConfigPtrOutput) SasUrl() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *AzureBlobStorageHttpLogsConfig) *string {
 		if v == nil {
@@ -2917,16 +2768,10 @@ func (o AzureBlobStorageHttpLogsConfigPtrOutput) SasUrl() pulumi.StringPtrOutput
 	}).(pulumi.StringPtrOutput)
 }
 
-// Http logs to azure blob storage configuration.
 type AzureBlobStorageHttpLogsConfigResponse struct {
-	// True if configuration is enabled, false if it is disabled and null if configuration is not set.
-	Enabled *bool `pulumi:"enabled"`
-	// Retention in days.
-	// Remove blobs older than X days.
-	// 0 or lower means no retention.
-	RetentionInDays *int `pulumi:"retentionInDays"`
-	// SAS url to a azure blob container with read/write/list/delete permissions.
-	SasUrl *string `pulumi:"sasUrl"`
+	Enabled         *bool   `pulumi:"enabled"`
+	RetentionInDays *int    `pulumi:"retentionInDays"`
+	SasUrl          *string `pulumi:"sasUrl"`
 }
 
 // AzureBlobStorageHttpLogsConfigResponseInput is an input type that accepts AzureBlobStorageHttpLogsConfigResponseArgs and AzureBlobStorageHttpLogsConfigResponseOutput values.
@@ -2940,16 +2785,10 @@ type AzureBlobStorageHttpLogsConfigResponseInput interface {
 	ToAzureBlobStorageHttpLogsConfigResponseOutputWithContext(context.Context) AzureBlobStorageHttpLogsConfigResponseOutput
 }
 
-// Http logs to azure blob storage configuration.
 type AzureBlobStorageHttpLogsConfigResponseArgs struct {
-	// True if configuration is enabled, false if it is disabled and null if configuration is not set.
-	Enabled pulumi.BoolPtrInput `pulumi:"enabled"`
-	// Retention in days.
-	// Remove blobs older than X days.
-	// 0 or lower means no retention.
-	RetentionInDays pulumi.IntPtrInput `pulumi:"retentionInDays"`
-	// SAS url to a azure blob container with read/write/list/delete permissions.
-	SasUrl pulumi.StringPtrInput `pulumi:"sasUrl"`
+	Enabled         pulumi.BoolPtrInput   `pulumi:"enabled"`
+	RetentionInDays pulumi.IntPtrInput    `pulumi:"retentionInDays"`
+	SasUrl          pulumi.StringPtrInput `pulumi:"sasUrl"`
 }
 
 func (AzureBlobStorageHttpLogsConfigResponseArgs) ElementType() reflect.Type {
@@ -3005,7 +2844,6 @@ func (i *azureBlobStorageHttpLogsConfigResponsePtrType) ToAzureBlobStorageHttpLo
 	return pulumi.ToOutputWithContext(ctx, i).(AzureBlobStorageHttpLogsConfigResponsePtrOutput)
 }
 
-// Http logs to azure blob storage configuration.
 type AzureBlobStorageHttpLogsConfigResponseOutput struct{ *pulumi.OutputState }
 
 func (AzureBlobStorageHttpLogsConfigResponseOutput) ElementType() reflect.Type {
@@ -3025,24 +2863,19 @@ func (o AzureBlobStorageHttpLogsConfigResponseOutput) ToAzureBlobStorageHttpLogs
 }
 
 func (o AzureBlobStorageHttpLogsConfigResponseOutput) ToAzureBlobStorageHttpLogsConfigResponsePtrOutputWithContext(ctx context.Context) AzureBlobStorageHttpLogsConfigResponsePtrOutput {
-	return o.ApplyT(func(v AzureBlobStorageHttpLogsConfigResponse) *AzureBlobStorageHttpLogsConfigResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v AzureBlobStorageHttpLogsConfigResponse) *AzureBlobStorageHttpLogsConfigResponse {
 		return &v
 	}).(AzureBlobStorageHttpLogsConfigResponsePtrOutput)
 }
 
-// True if configuration is enabled, false if it is disabled and null if configuration is not set.
 func (o AzureBlobStorageHttpLogsConfigResponseOutput) Enabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v AzureBlobStorageHttpLogsConfigResponse) *bool { return v.Enabled }).(pulumi.BoolPtrOutput)
 }
 
-// Retention in days.
-// Remove blobs older than X days.
-// 0 or lower means no retention.
 func (o AzureBlobStorageHttpLogsConfigResponseOutput) RetentionInDays() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v AzureBlobStorageHttpLogsConfigResponse) *int { return v.RetentionInDays }).(pulumi.IntPtrOutput)
 }
 
-// SAS url to a azure blob container with read/write/list/delete permissions.
 func (o AzureBlobStorageHttpLogsConfigResponseOutput) SasUrl() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AzureBlobStorageHttpLogsConfigResponse) *string { return v.SasUrl }).(pulumi.StringPtrOutput)
 }
@@ -3062,10 +2895,15 @@ func (o AzureBlobStorageHttpLogsConfigResponsePtrOutput) ToAzureBlobStorageHttpL
 }
 
 func (o AzureBlobStorageHttpLogsConfigResponsePtrOutput) Elem() AzureBlobStorageHttpLogsConfigResponseOutput {
-	return o.ApplyT(func(v *AzureBlobStorageHttpLogsConfigResponse) AzureBlobStorageHttpLogsConfigResponse { return *v }).(AzureBlobStorageHttpLogsConfigResponseOutput)
+	return o.ApplyT(func(v *AzureBlobStorageHttpLogsConfigResponse) AzureBlobStorageHttpLogsConfigResponse {
+		if v != nil {
+			return *v
+		}
+		var ret AzureBlobStorageHttpLogsConfigResponse
+		return ret
+	}).(AzureBlobStorageHttpLogsConfigResponseOutput)
 }
 
-// True if configuration is enabled, false if it is disabled and null if configuration is not set.
 func (o AzureBlobStorageHttpLogsConfigResponsePtrOutput) Enabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *AzureBlobStorageHttpLogsConfigResponse) *bool {
 		if v == nil {
@@ -3075,9 +2913,6 @@ func (o AzureBlobStorageHttpLogsConfigResponsePtrOutput) Enabled() pulumi.BoolPt
 	}).(pulumi.BoolPtrOutput)
 }
 
-// Retention in days.
-// Remove blobs older than X days.
-// 0 or lower means no retention.
 func (o AzureBlobStorageHttpLogsConfigResponsePtrOutput) RetentionInDays() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *AzureBlobStorageHttpLogsConfigResponse) *int {
 		if v == nil {
@@ -3087,7 +2922,6 @@ func (o AzureBlobStorageHttpLogsConfigResponsePtrOutput) RetentionInDays() pulum
 	}).(pulumi.IntPtrOutput)
 }
 
-// SAS url to a azure blob container with read/write/list/delete permissions.
 func (o AzureBlobStorageHttpLogsConfigResponsePtrOutput) SasUrl() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *AzureBlobStorageHttpLogsConfigResponse) *string {
 		if v == nil {
@@ -3097,18 +2931,12 @@ func (o AzureBlobStorageHttpLogsConfigResponsePtrOutput) SasUrl() pulumi.StringP
 	}).(pulumi.StringPtrOutput)
 }
 
-// Azure Files or Blob Storage access information value for dictionary storage.
 type AzureStorageInfoValue struct {
-	// Access key for the storage account.
-	AccessKey *string `pulumi:"accessKey"`
-	// Name of the storage account.
-	AccountName *string `pulumi:"accountName"`
-	// Path to mount the storage within the site's runtime environment.
-	MountPath *string `pulumi:"mountPath"`
-	// Name of the file share (container name, for Blob storage).
-	ShareName *string `pulumi:"shareName"`
-	// Type of storage.
-	Type *string `pulumi:"type"`
+	AccessKey   *string           `pulumi:"accessKey"`
+	AccountName *string           `pulumi:"accountName"`
+	MountPath   *string           `pulumi:"mountPath"`
+	ShareName   *string           `pulumi:"shareName"`
+	Type        *AzureStorageType `pulumi:"type"`
 }
 
 // AzureStorageInfoValueInput is an input type that accepts AzureStorageInfoValueArgs and AzureStorageInfoValueOutput values.
@@ -3122,18 +2950,12 @@ type AzureStorageInfoValueInput interface {
 	ToAzureStorageInfoValueOutputWithContext(context.Context) AzureStorageInfoValueOutput
 }
 
-// Azure Files or Blob Storage access information value for dictionary storage.
 type AzureStorageInfoValueArgs struct {
-	// Access key for the storage account.
-	AccessKey pulumi.StringPtrInput `pulumi:"accessKey"`
-	// Name of the storage account.
-	AccountName pulumi.StringPtrInput `pulumi:"accountName"`
-	// Path to mount the storage within the site's runtime environment.
-	MountPath pulumi.StringPtrInput `pulumi:"mountPath"`
-	// Name of the file share (container name, for Blob storage).
-	ShareName pulumi.StringPtrInput `pulumi:"shareName"`
-	// Type of storage.
-	Type *AzureStorageType `pulumi:"type"`
+	AccessKey   pulumi.StringPtrInput    `pulumi:"accessKey"`
+	AccountName pulumi.StringPtrInput    `pulumi:"accountName"`
+	MountPath   pulumi.StringPtrInput    `pulumi:"mountPath"`
+	ShareName   pulumi.StringPtrInput    `pulumi:"shareName"`
+	Type        AzureStorageTypePtrInput `pulumi:"type"`
 }
 
 func (AzureStorageInfoValueArgs) ElementType() reflect.Type {
@@ -3173,7 +2995,6 @@ func (i AzureStorageInfoValueMap) ToAzureStorageInfoValueMapOutputWithContext(ct
 	return pulumi.ToOutputWithContext(ctx, i).(AzureStorageInfoValueMapOutput)
 }
 
-// Azure Files or Blob Storage access information value for dictionary storage.
 type AzureStorageInfoValueOutput struct{ *pulumi.OutputState }
 
 func (AzureStorageInfoValueOutput) ElementType() reflect.Type {
@@ -3188,29 +3009,24 @@ func (o AzureStorageInfoValueOutput) ToAzureStorageInfoValueOutputWithContext(ct
 	return o
 }
 
-// Access key for the storage account.
 func (o AzureStorageInfoValueOutput) AccessKey() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AzureStorageInfoValue) *string { return v.AccessKey }).(pulumi.StringPtrOutput)
 }
 
-// Name of the storage account.
 func (o AzureStorageInfoValueOutput) AccountName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AzureStorageInfoValue) *string { return v.AccountName }).(pulumi.StringPtrOutput)
 }
 
-// Path to mount the storage within the site's runtime environment.
 func (o AzureStorageInfoValueOutput) MountPath() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AzureStorageInfoValue) *string { return v.MountPath }).(pulumi.StringPtrOutput)
 }
 
-// Name of the file share (container name, for Blob storage).
 func (o AzureStorageInfoValueOutput) ShareName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AzureStorageInfoValue) *string { return v.ShareName }).(pulumi.StringPtrOutput)
 }
 
-// Type of storage.
-func (o AzureStorageInfoValueOutput) Type() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v AzureStorageInfoValue) *string { return v.Type }).(pulumi.StringPtrOutput)
+func (o AzureStorageInfoValueOutput) Type() AzureStorageTypePtrOutput {
+	return o.ApplyT(func(v AzureStorageInfoValue) *AzureStorageType { return v.Type }).(AzureStorageTypePtrOutput)
 }
 
 type AzureStorageInfoValueMapOutput struct{ *pulumi.OutputState }
@@ -3233,20 +3049,13 @@ func (o AzureStorageInfoValueMapOutput) MapIndex(k pulumi.StringInput) AzureStor
 	}).(AzureStorageInfoValueOutput)
 }
 
-// Azure Files or Blob Storage access information value for dictionary storage.
 type AzureStorageInfoValueResponse struct {
-	// Access key for the storage account.
-	AccessKey *string `pulumi:"accessKey"`
-	// Name of the storage account.
+	AccessKey   *string `pulumi:"accessKey"`
 	AccountName *string `pulumi:"accountName"`
-	// Path to mount the storage within the site's runtime environment.
-	MountPath *string `pulumi:"mountPath"`
-	// Name of the file share (container name, for Blob storage).
-	ShareName *string `pulumi:"shareName"`
-	// State of the storage account.
-	State string `pulumi:"state"`
-	// Type of storage.
-	Type *string `pulumi:"type"`
+	MountPath   *string `pulumi:"mountPath"`
+	ShareName   *string `pulumi:"shareName"`
+	State       string  `pulumi:"state"`
+	Type        *string `pulumi:"type"`
 }
 
 // AzureStorageInfoValueResponseInput is an input type that accepts AzureStorageInfoValueResponseArgs and AzureStorageInfoValueResponseOutput values.
@@ -3260,20 +3069,13 @@ type AzureStorageInfoValueResponseInput interface {
 	ToAzureStorageInfoValueResponseOutputWithContext(context.Context) AzureStorageInfoValueResponseOutput
 }
 
-// Azure Files or Blob Storage access information value for dictionary storage.
 type AzureStorageInfoValueResponseArgs struct {
-	// Access key for the storage account.
-	AccessKey pulumi.StringPtrInput `pulumi:"accessKey"`
-	// Name of the storage account.
+	AccessKey   pulumi.StringPtrInput `pulumi:"accessKey"`
 	AccountName pulumi.StringPtrInput `pulumi:"accountName"`
-	// Path to mount the storage within the site's runtime environment.
-	MountPath pulumi.StringPtrInput `pulumi:"mountPath"`
-	// Name of the file share (container name, for Blob storage).
-	ShareName pulumi.StringPtrInput `pulumi:"shareName"`
-	// State of the storage account.
-	State pulumi.StringInput `pulumi:"state"`
-	// Type of storage.
-	Type pulumi.StringPtrInput `pulumi:"type"`
+	MountPath   pulumi.StringPtrInput `pulumi:"mountPath"`
+	ShareName   pulumi.StringPtrInput `pulumi:"shareName"`
+	State       pulumi.StringInput    `pulumi:"state"`
+	Type        pulumi.StringPtrInput `pulumi:"type"`
 }
 
 func (AzureStorageInfoValueResponseArgs) ElementType() reflect.Type {
@@ -3313,7 +3115,6 @@ func (i AzureStorageInfoValueResponseMap) ToAzureStorageInfoValueResponseMapOutp
 	return pulumi.ToOutputWithContext(ctx, i).(AzureStorageInfoValueResponseMapOutput)
 }
 
-// Azure Files or Blob Storage access information value for dictionary storage.
 type AzureStorageInfoValueResponseOutput struct{ *pulumi.OutputState }
 
 func (AzureStorageInfoValueResponseOutput) ElementType() reflect.Type {
@@ -3328,32 +3129,26 @@ func (o AzureStorageInfoValueResponseOutput) ToAzureStorageInfoValueResponseOutp
 	return o
 }
 
-// Access key for the storage account.
 func (o AzureStorageInfoValueResponseOutput) AccessKey() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AzureStorageInfoValueResponse) *string { return v.AccessKey }).(pulumi.StringPtrOutput)
 }
 
-// Name of the storage account.
 func (o AzureStorageInfoValueResponseOutput) AccountName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AzureStorageInfoValueResponse) *string { return v.AccountName }).(pulumi.StringPtrOutput)
 }
 
-// Path to mount the storage within the site's runtime environment.
 func (o AzureStorageInfoValueResponseOutput) MountPath() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AzureStorageInfoValueResponse) *string { return v.MountPath }).(pulumi.StringPtrOutput)
 }
 
-// Name of the file share (container name, for Blob storage).
 func (o AzureStorageInfoValueResponseOutput) ShareName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AzureStorageInfoValueResponse) *string { return v.ShareName }).(pulumi.StringPtrOutput)
 }
 
-// State of the storage account.
 func (o AzureStorageInfoValueResponseOutput) State() pulumi.StringOutput {
 	return o.ApplyT(func(v AzureStorageInfoValueResponse) string { return v.State }).(pulumi.StringOutput)
 }
 
-// Type of storage.
 func (o AzureStorageInfoValueResponseOutput) Type() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AzureStorageInfoValueResponse) *string { return v.Type }).(pulumi.StringPtrOutput)
 }
@@ -3378,12 +3173,9 @@ func (o AzureStorageInfoValueResponseMapOutput) MapIndex(k pulumi.StringInput) A
 	}).(AzureStorageInfoValueResponseOutput)
 }
 
-// Application logs to Azure table storage configuration.
 type AzureTableStorageApplicationLogsConfig struct {
-	// Log level.
-	Level *string `pulumi:"level"`
-	// SAS URL to an Azure table with add/query/delete permissions.
-	SasUrl string `pulumi:"sasUrl"`
+	Level  *LogLevel `pulumi:"level"`
+	SasUrl string    `pulumi:"sasUrl"`
 }
 
 // AzureTableStorageApplicationLogsConfigInput is an input type that accepts AzureTableStorageApplicationLogsConfigArgs and AzureTableStorageApplicationLogsConfigOutput values.
@@ -3397,11 +3189,8 @@ type AzureTableStorageApplicationLogsConfigInput interface {
 	ToAzureTableStorageApplicationLogsConfigOutputWithContext(context.Context) AzureTableStorageApplicationLogsConfigOutput
 }
 
-// Application logs to Azure table storage configuration.
 type AzureTableStorageApplicationLogsConfigArgs struct {
-	// Log level.
-	Level *LogLevel `pulumi:"level"`
-	// SAS URL to an Azure table with add/query/delete permissions.
+	Level  LogLevelPtrInput   `pulumi:"level"`
 	SasUrl pulumi.StringInput `pulumi:"sasUrl"`
 }
 
@@ -3458,7 +3247,6 @@ func (i *azureTableStorageApplicationLogsConfigPtrType) ToAzureTableStorageAppli
 	return pulumi.ToOutputWithContext(ctx, i).(AzureTableStorageApplicationLogsConfigPtrOutput)
 }
 
-// Application logs to Azure table storage configuration.
 type AzureTableStorageApplicationLogsConfigOutput struct{ *pulumi.OutputState }
 
 func (AzureTableStorageApplicationLogsConfigOutput) ElementType() reflect.Type {
@@ -3478,17 +3266,15 @@ func (o AzureTableStorageApplicationLogsConfigOutput) ToAzureTableStorageApplica
 }
 
 func (o AzureTableStorageApplicationLogsConfigOutput) ToAzureTableStorageApplicationLogsConfigPtrOutputWithContext(ctx context.Context) AzureTableStorageApplicationLogsConfigPtrOutput {
-	return o.ApplyT(func(v AzureTableStorageApplicationLogsConfig) *AzureTableStorageApplicationLogsConfig {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v AzureTableStorageApplicationLogsConfig) *AzureTableStorageApplicationLogsConfig {
 		return &v
 	}).(AzureTableStorageApplicationLogsConfigPtrOutput)
 }
 
-// Log level.
-func (o AzureTableStorageApplicationLogsConfigOutput) Level() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v AzureTableStorageApplicationLogsConfig) *string { return v.Level }).(pulumi.StringPtrOutput)
+func (o AzureTableStorageApplicationLogsConfigOutput) Level() LogLevelPtrOutput {
+	return o.ApplyT(func(v AzureTableStorageApplicationLogsConfig) *LogLevel { return v.Level }).(LogLevelPtrOutput)
 }
 
-// SAS URL to an Azure table with add/query/delete permissions.
 func (o AzureTableStorageApplicationLogsConfigOutput) SasUrl() pulumi.StringOutput {
 	return o.ApplyT(func(v AzureTableStorageApplicationLogsConfig) string { return v.SasUrl }).(pulumi.StringOutput)
 }
@@ -3508,20 +3294,24 @@ func (o AzureTableStorageApplicationLogsConfigPtrOutput) ToAzureTableStorageAppl
 }
 
 func (o AzureTableStorageApplicationLogsConfigPtrOutput) Elem() AzureTableStorageApplicationLogsConfigOutput {
-	return o.ApplyT(func(v *AzureTableStorageApplicationLogsConfig) AzureTableStorageApplicationLogsConfig { return *v }).(AzureTableStorageApplicationLogsConfigOutput)
+	return o.ApplyT(func(v *AzureTableStorageApplicationLogsConfig) AzureTableStorageApplicationLogsConfig {
+		if v != nil {
+			return *v
+		}
+		var ret AzureTableStorageApplicationLogsConfig
+		return ret
+	}).(AzureTableStorageApplicationLogsConfigOutput)
 }
 
-// Log level.
-func (o AzureTableStorageApplicationLogsConfigPtrOutput) Level() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *AzureTableStorageApplicationLogsConfig) *string {
+func (o AzureTableStorageApplicationLogsConfigPtrOutput) Level() LogLevelPtrOutput {
+	return o.ApplyT(func(v *AzureTableStorageApplicationLogsConfig) *LogLevel {
 		if v == nil {
 			return nil
 		}
 		return v.Level
-	}).(pulumi.StringPtrOutput)
+	}).(LogLevelPtrOutput)
 }
 
-// SAS URL to an Azure table with add/query/delete permissions.
 func (o AzureTableStorageApplicationLogsConfigPtrOutput) SasUrl() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *AzureTableStorageApplicationLogsConfig) *string {
 		if v == nil {
@@ -3531,12 +3321,9 @@ func (o AzureTableStorageApplicationLogsConfigPtrOutput) SasUrl() pulumi.StringP
 	}).(pulumi.StringPtrOutput)
 }
 
-// Application logs to Azure table storage configuration.
 type AzureTableStorageApplicationLogsConfigResponse struct {
-	// Log level.
-	Level *string `pulumi:"level"`
-	// SAS URL to an Azure table with add/query/delete permissions.
-	SasUrl string `pulumi:"sasUrl"`
+	Level  *string `pulumi:"level"`
+	SasUrl string  `pulumi:"sasUrl"`
 }
 
 // AzureTableStorageApplicationLogsConfigResponseInput is an input type that accepts AzureTableStorageApplicationLogsConfigResponseArgs and AzureTableStorageApplicationLogsConfigResponseOutput values.
@@ -3550,12 +3337,9 @@ type AzureTableStorageApplicationLogsConfigResponseInput interface {
 	ToAzureTableStorageApplicationLogsConfigResponseOutputWithContext(context.Context) AzureTableStorageApplicationLogsConfigResponseOutput
 }
 
-// Application logs to Azure table storage configuration.
 type AzureTableStorageApplicationLogsConfigResponseArgs struct {
-	// Log level.
-	Level pulumi.StringPtrInput `pulumi:"level"`
-	// SAS URL to an Azure table with add/query/delete permissions.
-	SasUrl pulumi.StringInput `pulumi:"sasUrl"`
+	Level  pulumi.StringPtrInput `pulumi:"level"`
+	SasUrl pulumi.StringInput    `pulumi:"sasUrl"`
 }
 
 func (AzureTableStorageApplicationLogsConfigResponseArgs) ElementType() reflect.Type {
@@ -3611,7 +3395,6 @@ func (i *azureTableStorageApplicationLogsConfigResponsePtrType) ToAzureTableStor
 	return pulumi.ToOutputWithContext(ctx, i).(AzureTableStorageApplicationLogsConfigResponsePtrOutput)
 }
 
-// Application logs to Azure table storage configuration.
 type AzureTableStorageApplicationLogsConfigResponseOutput struct{ *pulumi.OutputState }
 
 func (AzureTableStorageApplicationLogsConfigResponseOutput) ElementType() reflect.Type {
@@ -3631,17 +3414,15 @@ func (o AzureTableStorageApplicationLogsConfigResponseOutput) ToAzureTableStorag
 }
 
 func (o AzureTableStorageApplicationLogsConfigResponseOutput) ToAzureTableStorageApplicationLogsConfigResponsePtrOutputWithContext(ctx context.Context) AzureTableStorageApplicationLogsConfigResponsePtrOutput {
-	return o.ApplyT(func(v AzureTableStorageApplicationLogsConfigResponse) *AzureTableStorageApplicationLogsConfigResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v AzureTableStorageApplicationLogsConfigResponse) *AzureTableStorageApplicationLogsConfigResponse {
 		return &v
 	}).(AzureTableStorageApplicationLogsConfigResponsePtrOutput)
 }
 
-// Log level.
 func (o AzureTableStorageApplicationLogsConfigResponseOutput) Level() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AzureTableStorageApplicationLogsConfigResponse) *string { return v.Level }).(pulumi.StringPtrOutput)
 }
 
-// SAS URL to an Azure table with add/query/delete permissions.
 func (o AzureTableStorageApplicationLogsConfigResponseOutput) SasUrl() pulumi.StringOutput {
 	return o.ApplyT(func(v AzureTableStorageApplicationLogsConfigResponse) string { return v.SasUrl }).(pulumi.StringOutput)
 }
@@ -3662,11 +3443,14 @@ func (o AzureTableStorageApplicationLogsConfigResponsePtrOutput) ToAzureTableSto
 
 func (o AzureTableStorageApplicationLogsConfigResponsePtrOutput) Elem() AzureTableStorageApplicationLogsConfigResponseOutput {
 	return o.ApplyT(func(v *AzureTableStorageApplicationLogsConfigResponse) AzureTableStorageApplicationLogsConfigResponse {
-		return *v
+		if v != nil {
+			return *v
+		}
+		var ret AzureTableStorageApplicationLogsConfigResponse
+		return ret
 	}).(AzureTableStorageApplicationLogsConfigResponseOutput)
 }
 
-// Log level.
 func (o AzureTableStorageApplicationLogsConfigResponsePtrOutput) Level() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *AzureTableStorageApplicationLogsConfigResponse) *string {
 		if v == nil {
@@ -3676,7 +3460,6 @@ func (o AzureTableStorageApplicationLogsConfigResponsePtrOutput) Level() pulumi.
 	}).(pulumi.StringPtrOutput)
 }
 
-// SAS URL to an Azure table with add/query/delete permissions.
 func (o AzureTableStorageApplicationLogsConfigResponsePtrOutput) SasUrl() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *AzureTableStorageApplicationLogsConfigResponse) *string {
 		if v == nil {
@@ -3686,42 +3469,24 @@ func (o AzureTableStorageApplicationLogsConfigResponsePtrOutput) SasUrl() pulumi
 	}).(pulumi.StringPtrOutput)
 }
 
-// Backup description.
 type BackupItemResponse struct {
-	// Id of the backup.
-	BackupId int `pulumi:"backupId"`
-	// Name of the blob which contains data for this backup.
-	BlobName string `pulumi:"blobName"`
-	// Unique correlation identifier. Please use this along with the timestamp while communicating with Azure support.
-	CorrelationId string `pulumi:"correlationId"`
-	// Timestamp of the backup creation.
-	Created string `pulumi:"created"`
-	// List of databases included in the backup.
-	Databases []DatabaseBackupSettingResponse `pulumi:"databases"`
-	// Timestamp when this backup finished.
-	FinishedTimeStamp string `pulumi:"finishedTimeStamp"`
-	// Resource Id.
-	Id string `pulumi:"id"`
-	// Kind of resource.
-	Kind *string `pulumi:"kind"`
-	// Timestamp of a last restore operation which used this backup.
-	LastRestoreTimeStamp string `pulumi:"lastRestoreTimeStamp"`
-	// Details regarding this backup. Might contain an error message.
-	Log string `pulumi:"log"`
-	// Resource Name.
-	Name string `pulumi:"name"`
-	// True if this backup has been created due to a schedule being triggered.
-	Scheduled bool `pulumi:"scheduled"`
-	// Size of the backup in bytes.
-	SizeInBytes float64 `pulumi:"sizeInBytes"`
-	// Backup status.
-	Status string `pulumi:"status"`
-	// SAS URL for the storage account container which contains this backup.
-	StorageAccountUrl string `pulumi:"storageAccountUrl"`
-	// Resource type.
-	Type string `pulumi:"type"`
-	// Size of the original web app which has been backed up.
-	WebsiteSizeInBytes float64 `pulumi:"websiteSizeInBytes"`
+	BackupId             int                             `pulumi:"backupId"`
+	BlobName             string                          `pulumi:"blobName"`
+	CorrelationId        string                          `pulumi:"correlationId"`
+	Created              string                          `pulumi:"created"`
+	Databases            []DatabaseBackupSettingResponse `pulumi:"databases"`
+	FinishedTimeStamp    string                          `pulumi:"finishedTimeStamp"`
+	Id                   string                          `pulumi:"id"`
+	Kind                 *string                         `pulumi:"kind"`
+	LastRestoreTimeStamp string                          `pulumi:"lastRestoreTimeStamp"`
+	Log                  string                          `pulumi:"log"`
+	Name                 string                          `pulumi:"name"`
+	Scheduled            bool                            `pulumi:"scheduled"`
+	SizeInBytes          float64                         `pulumi:"sizeInBytes"`
+	Status               string                          `pulumi:"status"`
+	StorageAccountUrl    string                          `pulumi:"storageAccountUrl"`
+	Type                 string                          `pulumi:"type"`
+	WebsiteSizeInBytes   float64                         `pulumi:"websiteSizeInBytes"`
 }
 
 // BackupItemResponseInput is an input type that accepts BackupItemResponseArgs and BackupItemResponseOutput values.
@@ -3735,42 +3500,24 @@ type BackupItemResponseInput interface {
 	ToBackupItemResponseOutputWithContext(context.Context) BackupItemResponseOutput
 }
 
-// Backup description.
 type BackupItemResponseArgs struct {
-	// Id of the backup.
-	BackupId pulumi.IntInput `pulumi:"backupId"`
-	// Name of the blob which contains data for this backup.
-	BlobName pulumi.StringInput `pulumi:"blobName"`
-	// Unique correlation identifier. Please use this along with the timestamp while communicating with Azure support.
-	CorrelationId pulumi.StringInput `pulumi:"correlationId"`
-	// Timestamp of the backup creation.
-	Created pulumi.StringInput `pulumi:"created"`
-	// List of databases included in the backup.
-	Databases DatabaseBackupSettingResponseArrayInput `pulumi:"databases"`
-	// Timestamp when this backup finished.
-	FinishedTimeStamp pulumi.StringInput `pulumi:"finishedTimeStamp"`
-	// Resource Id.
-	Id pulumi.StringInput `pulumi:"id"`
-	// Kind of resource.
-	Kind pulumi.StringPtrInput `pulumi:"kind"`
-	// Timestamp of a last restore operation which used this backup.
-	LastRestoreTimeStamp pulumi.StringInput `pulumi:"lastRestoreTimeStamp"`
-	// Details regarding this backup. Might contain an error message.
-	Log pulumi.StringInput `pulumi:"log"`
-	// Resource Name.
-	Name pulumi.StringInput `pulumi:"name"`
-	// True if this backup has been created due to a schedule being triggered.
-	Scheduled pulumi.BoolInput `pulumi:"scheduled"`
-	// Size of the backup in bytes.
-	SizeInBytes pulumi.Float64Input `pulumi:"sizeInBytes"`
-	// Backup status.
-	Status pulumi.StringInput `pulumi:"status"`
-	// SAS URL for the storage account container which contains this backup.
-	StorageAccountUrl pulumi.StringInput `pulumi:"storageAccountUrl"`
-	// Resource type.
-	Type pulumi.StringInput `pulumi:"type"`
-	// Size of the original web app which has been backed up.
-	WebsiteSizeInBytes pulumi.Float64Input `pulumi:"websiteSizeInBytes"`
+	BackupId             pulumi.IntInput                         `pulumi:"backupId"`
+	BlobName             pulumi.StringInput                      `pulumi:"blobName"`
+	CorrelationId        pulumi.StringInput                      `pulumi:"correlationId"`
+	Created              pulumi.StringInput                      `pulumi:"created"`
+	Databases            DatabaseBackupSettingResponseArrayInput `pulumi:"databases"`
+	FinishedTimeStamp    pulumi.StringInput                      `pulumi:"finishedTimeStamp"`
+	Id                   pulumi.StringInput                      `pulumi:"id"`
+	Kind                 pulumi.StringPtrInput                   `pulumi:"kind"`
+	LastRestoreTimeStamp pulumi.StringInput                      `pulumi:"lastRestoreTimeStamp"`
+	Log                  pulumi.StringInput                      `pulumi:"log"`
+	Name                 pulumi.StringInput                      `pulumi:"name"`
+	Scheduled            pulumi.BoolInput                        `pulumi:"scheduled"`
+	SizeInBytes          pulumi.Float64Input                     `pulumi:"sizeInBytes"`
+	Status               pulumi.StringInput                      `pulumi:"status"`
+	StorageAccountUrl    pulumi.StringInput                      `pulumi:"storageAccountUrl"`
+	Type                 pulumi.StringInput                      `pulumi:"type"`
+	WebsiteSizeInBytes   pulumi.Float64Input                     `pulumi:"websiteSizeInBytes"`
 }
 
 func (BackupItemResponseArgs) ElementType() reflect.Type {
@@ -3810,7 +3557,6 @@ func (i BackupItemResponseArray) ToBackupItemResponseArrayOutputWithContext(ctx 
 	return pulumi.ToOutputWithContext(ctx, i).(BackupItemResponseArrayOutput)
 }
 
-// Backup description.
 type BackupItemResponseOutput struct{ *pulumi.OutputState }
 
 func (BackupItemResponseOutput) ElementType() reflect.Type {
@@ -3825,87 +3571,70 @@ func (o BackupItemResponseOutput) ToBackupItemResponseOutputWithContext(ctx cont
 	return o
 }
 
-// Id of the backup.
 func (o BackupItemResponseOutput) BackupId() pulumi.IntOutput {
 	return o.ApplyT(func(v BackupItemResponse) int { return v.BackupId }).(pulumi.IntOutput)
 }
 
-// Name of the blob which contains data for this backup.
 func (o BackupItemResponseOutput) BlobName() pulumi.StringOutput {
 	return o.ApplyT(func(v BackupItemResponse) string { return v.BlobName }).(pulumi.StringOutput)
 }
 
-// Unique correlation identifier. Please use this along with the timestamp while communicating with Azure support.
 func (o BackupItemResponseOutput) CorrelationId() pulumi.StringOutput {
 	return o.ApplyT(func(v BackupItemResponse) string { return v.CorrelationId }).(pulumi.StringOutput)
 }
 
-// Timestamp of the backup creation.
 func (o BackupItemResponseOutput) Created() pulumi.StringOutput {
 	return o.ApplyT(func(v BackupItemResponse) string { return v.Created }).(pulumi.StringOutput)
 }
 
-// List of databases included in the backup.
 func (o BackupItemResponseOutput) Databases() DatabaseBackupSettingResponseArrayOutput {
 	return o.ApplyT(func(v BackupItemResponse) []DatabaseBackupSettingResponse { return v.Databases }).(DatabaseBackupSettingResponseArrayOutput)
 }
 
-// Timestamp when this backup finished.
 func (o BackupItemResponseOutput) FinishedTimeStamp() pulumi.StringOutput {
 	return o.ApplyT(func(v BackupItemResponse) string { return v.FinishedTimeStamp }).(pulumi.StringOutput)
 }
 
-// Resource Id.
 func (o BackupItemResponseOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v BackupItemResponse) string { return v.Id }).(pulumi.StringOutput)
 }
 
-// Kind of resource.
 func (o BackupItemResponseOutput) Kind() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v BackupItemResponse) *string { return v.Kind }).(pulumi.StringPtrOutput)
 }
 
-// Timestamp of a last restore operation which used this backup.
 func (o BackupItemResponseOutput) LastRestoreTimeStamp() pulumi.StringOutput {
 	return o.ApplyT(func(v BackupItemResponse) string { return v.LastRestoreTimeStamp }).(pulumi.StringOutput)
 }
 
-// Details regarding this backup. Might contain an error message.
 func (o BackupItemResponseOutput) Log() pulumi.StringOutput {
 	return o.ApplyT(func(v BackupItemResponse) string { return v.Log }).(pulumi.StringOutput)
 }
 
-// Resource Name.
 func (o BackupItemResponseOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v BackupItemResponse) string { return v.Name }).(pulumi.StringOutput)
 }
 
-// True if this backup has been created due to a schedule being triggered.
 func (o BackupItemResponseOutput) Scheduled() pulumi.BoolOutput {
 	return o.ApplyT(func(v BackupItemResponse) bool { return v.Scheduled }).(pulumi.BoolOutput)
 }
 
-// Size of the backup in bytes.
 func (o BackupItemResponseOutput) SizeInBytes() pulumi.Float64Output {
 	return o.ApplyT(func(v BackupItemResponse) float64 { return v.SizeInBytes }).(pulumi.Float64Output)
 }
 
-// Backup status.
 func (o BackupItemResponseOutput) Status() pulumi.StringOutput {
 	return o.ApplyT(func(v BackupItemResponse) string { return v.Status }).(pulumi.StringOutput)
 }
 
-// SAS URL for the storage account container which contains this backup.
 func (o BackupItemResponseOutput) StorageAccountUrl() pulumi.StringOutput {
 	return o.ApplyT(func(v BackupItemResponse) string { return v.StorageAccountUrl }).(pulumi.StringOutput)
 }
 
-// Resource type.
 func (o BackupItemResponseOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v BackupItemResponse) string { return v.Type }).(pulumi.StringOutput)
 }
 
-// Size of the original web app which has been backed up.
 func (o BackupItemResponseOutput) WebsiteSizeInBytes() pulumi.Float64Output {
 	return o.ApplyT(func(v BackupItemResponse) float64 { return v.WebsiteSizeInBytes }).(pulumi.Float64Output)
 }
@@ -3930,18 +3659,12 @@ func (o BackupItemResponseArrayOutput) Index(i pulumi.IntInput) BackupItemRespon
 	}).(BackupItemResponseOutput)
 }
 
-// Description of a backup schedule. Describes how often should be the backup performed and what should be the retention policy.
 type BackupSchedule struct {
-	// How often the backup should be executed (e.g. for weekly backup, this should be set to 7 and FrequencyUnit should be set to Day)
-	FrequencyInterval int `pulumi:"frequencyInterval"`
-	// The unit of time for how often the backup should be executed (e.g. for weekly backup, this should be set to Day and FrequencyInterval should be set to 7)
-	FrequencyUnit string `pulumi:"frequencyUnit"`
-	// True if the retention policy should always keep at least one backup in the storage account, regardless how old it is; false otherwise.
-	KeepAtLeastOneBackup bool `pulumi:"keepAtLeastOneBackup"`
-	// After how many days backups should be deleted.
-	RetentionPeriodInDays int `pulumi:"retentionPeriodInDays"`
-	// When the schedule should start working.
-	StartTime *string `pulumi:"startTime"`
+	FrequencyInterval     int           `pulumi:"frequencyInterval"`
+	FrequencyUnit         FrequencyUnit `pulumi:"frequencyUnit"`
+	KeepAtLeastOneBackup  bool          `pulumi:"keepAtLeastOneBackup"`
+	RetentionPeriodInDays int           `pulumi:"retentionPeriodInDays"`
+	StartTime             *string       `pulumi:"startTime"`
 }
 
 // BackupScheduleInput is an input type that accepts BackupScheduleArgs and BackupScheduleOutput values.
@@ -3955,18 +3678,12 @@ type BackupScheduleInput interface {
 	ToBackupScheduleOutputWithContext(context.Context) BackupScheduleOutput
 }
 
-// Description of a backup schedule. Describes how often should be the backup performed and what should be the retention policy.
 type BackupScheduleArgs struct {
-	// How often the backup should be executed (e.g. for weekly backup, this should be set to 7 and FrequencyUnit should be set to Day)
-	FrequencyInterval pulumi.IntInput `pulumi:"frequencyInterval"`
-	// The unit of time for how often the backup should be executed (e.g. for weekly backup, this should be set to Day and FrequencyInterval should be set to 7)
-	FrequencyUnit FrequencyUnit `pulumi:"frequencyUnit"`
-	// True if the retention policy should always keep at least one backup in the storage account, regardless how old it is; false otherwise.
-	KeepAtLeastOneBackup pulumi.BoolInput `pulumi:"keepAtLeastOneBackup"`
-	// After how many days backups should be deleted.
-	RetentionPeriodInDays pulumi.IntInput `pulumi:"retentionPeriodInDays"`
-	// When the schedule should start working.
-	StartTime pulumi.StringPtrInput `pulumi:"startTime"`
+	FrequencyInterval     pulumi.IntInput       `pulumi:"frequencyInterval"`
+	FrequencyUnit         FrequencyUnitInput    `pulumi:"frequencyUnit"`
+	KeepAtLeastOneBackup  pulumi.BoolInput      `pulumi:"keepAtLeastOneBackup"`
+	RetentionPeriodInDays pulumi.IntInput       `pulumi:"retentionPeriodInDays"`
+	StartTime             pulumi.StringPtrInput `pulumi:"startTime"`
 }
 
 func (BackupScheduleArgs) ElementType() reflect.Type {
@@ -4022,7 +3739,6 @@ func (i *backupSchedulePtrType) ToBackupSchedulePtrOutputWithContext(ctx context
 	return pulumi.ToOutputWithContext(ctx, i).(BackupSchedulePtrOutput)
 }
 
-// Description of a backup schedule. Describes how often should be the backup performed and what should be the retention policy.
 type BackupScheduleOutput struct{ *pulumi.OutputState }
 
 func (BackupScheduleOutput) ElementType() reflect.Type {
@@ -4042,32 +3758,27 @@ func (o BackupScheduleOutput) ToBackupSchedulePtrOutput() BackupSchedulePtrOutpu
 }
 
 func (o BackupScheduleOutput) ToBackupSchedulePtrOutputWithContext(ctx context.Context) BackupSchedulePtrOutput {
-	return o.ApplyT(func(v BackupSchedule) *BackupSchedule {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v BackupSchedule) *BackupSchedule {
 		return &v
 	}).(BackupSchedulePtrOutput)
 }
 
-// How often the backup should be executed (e.g. for weekly backup, this should be set to 7 and FrequencyUnit should be set to Day)
 func (o BackupScheduleOutput) FrequencyInterval() pulumi.IntOutput {
 	return o.ApplyT(func(v BackupSchedule) int { return v.FrequencyInterval }).(pulumi.IntOutput)
 }
 
-// The unit of time for how often the backup should be executed (e.g. for weekly backup, this should be set to Day and FrequencyInterval should be set to 7)
-func (o BackupScheduleOutput) FrequencyUnit() pulumi.StringOutput {
-	return o.ApplyT(func(v BackupSchedule) string { return v.FrequencyUnit }).(pulumi.StringOutput)
+func (o BackupScheduleOutput) FrequencyUnit() FrequencyUnitOutput {
+	return o.ApplyT(func(v BackupSchedule) FrequencyUnit { return v.FrequencyUnit }).(FrequencyUnitOutput)
 }
 
-// True if the retention policy should always keep at least one backup in the storage account, regardless how old it is; false otherwise.
 func (o BackupScheduleOutput) KeepAtLeastOneBackup() pulumi.BoolOutput {
 	return o.ApplyT(func(v BackupSchedule) bool { return v.KeepAtLeastOneBackup }).(pulumi.BoolOutput)
 }
 
-// After how many days backups should be deleted.
 func (o BackupScheduleOutput) RetentionPeriodInDays() pulumi.IntOutput {
 	return o.ApplyT(func(v BackupSchedule) int { return v.RetentionPeriodInDays }).(pulumi.IntOutput)
 }
 
-// When the schedule should start working.
 func (o BackupScheduleOutput) StartTime() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v BackupSchedule) *string { return v.StartTime }).(pulumi.StringPtrOutput)
 }
@@ -4087,10 +3798,15 @@ func (o BackupSchedulePtrOutput) ToBackupSchedulePtrOutputWithContext(ctx contex
 }
 
 func (o BackupSchedulePtrOutput) Elem() BackupScheduleOutput {
-	return o.ApplyT(func(v *BackupSchedule) BackupSchedule { return *v }).(BackupScheduleOutput)
+	return o.ApplyT(func(v *BackupSchedule) BackupSchedule {
+		if v != nil {
+			return *v
+		}
+		var ret BackupSchedule
+		return ret
+	}).(BackupScheduleOutput)
 }
 
-// How often the backup should be executed (e.g. for weekly backup, this should be set to 7 and FrequencyUnit should be set to Day)
 func (o BackupSchedulePtrOutput) FrequencyInterval() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *BackupSchedule) *int {
 		if v == nil {
@@ -4100,17 +3816,15 @@ func (o BackupSchedulePtrOutput) FrequencyInterval() pulumi.IntPtrOutput {
 	}).(pulumi.IntPtrOutput)
 }
 
-// The unit of time for how often the backup should be executed (e.g. for weekly backup, this should be set to Day and FrequencyInterval should be set to 7)
-func (o BackupSchedulePtrOutput) FrequencyUnit() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *BackupSchedule) *string {
+func (o BackupSchedulePtrOutput) FrequencyUnit() FrequencyUnitPtrOutput {
+	return o.ApplyT(func(v *BackupSchedule) *FrequencyUnit {
 		if v == nil {
 			return nil
 		}
 		return &v.FrequencyUnit
-	}).(pulumi.StringPtrOutput)
+	}).(FrequencyUnitPtrOutput)
 }
 
-// True if the retention policy should always keep at least one backup in the storage account, regardless how old it is; false otherwise.
 func (o BackupSchedulePtrOutput) KeepAtLeastOneBackup() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *BackupSchedule) *bool {
 		if v == nil {
@@ -4120,7 +3834,6 @@ func (o BackupSchedulePtrOutput) KeepAtLeastOneBackup() pulumi.BoolPtrOutput {
 	}).(pulumi.BoolPtrOutput)
 }
 
-// After how many days backups should be deleted.
 func (o BackupSchedulePtrOutput) RetentionPeriodInDays() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *BackupSchedule) *int {
 		if v == nil {
@@ -4130,7 +3843,6 @@ func (o BackupSchedulePtrOutput) RetentionPeriodInDays() pulumi.IntPtrOutput {
 	}).(pulumi.IntPtrOutput)
 }
 
-// When the schedule should start working.
 func (o BackupSchedulePtrOutput) StartTime() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *BackupSchedule) *string {
 		if v == nil {
@@ -4140,20 +3852,13 @@ func (o BackupSchedulePtrOutput) StartTime() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Description of a backup schedule. Describes how often should be the backup performed and what should be the retention policy.
 type BackupScheduleResponse struct {
-	// How often the backup should be executed (e.g. for weekly backup, this should be set to 7 and FrequencyUnit should be set to Day)
-	FrequencyInterval int `pulumi:"frequencyInterval"`
-	// The unit of time for how often the backup should be executed (e.g. for weekly backup, this should be set to Day and FrequencyInterval should be set to 7)
-	FrequencyUnit string `pulumi:"frequencyUnit"`
-	// True if the retention policy should always keep at least one backup in the storage account, regardless how old it is; false otherwise.
-	KeepAtLeastOneBackup bool `pulumi:"keepAtLeastOneBackup"`
-	// Last time when this schedule was triggered.
-	LastExecutionTime string `pulumi:"lastExecutionTime"`
-	// After how many days backups should be deleted.
-	RetentionPeriodInDays int `pulumi:"retentionPeriodInDays"`
-	// When the schedule should start working.
-	StartTime *string `pulumi:"startTime"`
+	FrequencyInterval     int     `pulumi:"frequencyInterval"`
+	FrequencyUnit         string  `pulumi:"frequencyUnit"`
+	KeepAtLeastOneBackup  bool    `pulumi:"keepAtLeastOneBackup"`
+	LastExecutionTime     string  `pulumi:"lastExecutionTime"`
+	RetentionPeriodInDays int     `pulumi:"retentionPeriodInDays"`
+	StartTime             *string `pulumi:"startTime"`
 }
 
 // BackupScheduleResponseInput is an input type that accepts BackupScheduleResponseArgs and BackupScheduleResponseOutput values.
@@ -4167,20 +3872,13 @@ type BackupScheduleResponseInput interface {
 	ToBackupScheduleResponseOutputWithContext(context.Context) BackupScheduleResponseOutput
 }
 
-// Description of a backup schedule. Describes how often should be the backup performed and what should be the retention policy.
 type BackupScheduleResponseArgs struct {
-	// How often the backup should be executed (e.g. for weekly backup, this should be set to 7 and FrequencyUnit should be set to Day)
-	FrequencyInterval pulumi.IntInput `pulumi:"frequencyInterval"`
-	// The unit of time for how often the backup should be executed (e.g. for weekly backup, this should be set to Day and FrequencyInterval should be set to 7)
-	FrequencyUnit pulumi.StringInput `pulumi:"frequencyUnit"`
-	// True if the retention policy should always keep at least one backup in the storage account, regardless how old it is; false otherwise.
-	KeepAtLeastOneBackup pulumi.BoolInput `pulumi:"keepAtLeastOneBackup"`
-	// Last time when this schedule was triggered.
-	LastExecutionTime pulumi.StringInput `pulumi:"lastExecutionTime"`
-	// After how many days backups should be deleted.
-	RetentionPeriodInDays pulumi.IntInput `pulumi:"retentionPeriodInDays"`
-	// When the schedule should start working.
-	StartTime pulumi.StringPtrInput `pulumi:"startTime"`
+	FrequencyInterval     pulumi.IntInput       `pulumi:"frequencyInterval"`
+	FrequencyUnit         pulumi.StringInput    `pulumi:"frequencyUnit"`
+	KeepAtLeastOneBackup  pulumi.BoolInput      `pulumi:"keepAtLeastOneBackup"`
+	LastExecutionTime     pulumi.StringInput    `pulumi:"lastExecutionTime"`
+	RetentionPeriodInDays pulumi.IntInput       `pulumi:"retentionPeriodInDays"`
+	StartTime             pulumi.StringPtrInput `pulumi:"startTime"`
 }
 
 func (BackupScheduleResponseArgs) ElementType() reflect.Type {
@@ -4236,7 +3934,6 @@ func (i *backupScheduleResponsePtrType) ToBackupScheduleResponsePtrOutputWithCon
 	return pulumi.ToOutputWithContext(ctx, i).(BackupScheduleResponsePtrOutput)
 }
 
-// Description of a backup schedule. Describes how often should be the backup performed and what should be the retention policy.
 type BackupScheduleResponseOutput struct{ *pulumi.OutputState }
 
 func (BackupScheduleResponseOutput) ElementType() reflect.Type {
@@ -4256,37 +3953,31 @@ func (o BackupScheduleResponseOutput) ToBackupScheduleResponsePtrOutput() Backup
 }
 
 func (o BackupScheduleResponseOutput) ToBackupScheduleResponsePtrOutputWithContext(ctx context.Context) BackupScheduleResponsePtrOutput {
-	return o.ApplyT(func(v BackupScheduleResponse) *BackupScheduleResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v BackupScheduleResponse) *BackupScheduleResponse {
 		return &v
 	}).(BackupScheduleResponsePtrOutput)
 }
 
-// How often the backup should be executed (e.g. for weekly backup, this should be set to 7 and FrequencyUnit should be set to Day)
 func (o BackupScheduleResponseOutput) FrequencyInterval() pulumi.IntOutput {
 	return o.ApplyT(func(v BackupScheduleResponse) int { return v.FrequencyInterval }).(pulumi.IntOutput)
 }
 
-// The unit of time for how often the backup should be executed (e.g. for weekly backup, this should be set to Day and FrequencyInterval should be set to 7)
 func (o BackupScheduleResponseOutput) FrequencyUnit() pulumi.StringOutput {
 	return o.ApplyT(func(v BackupScheduleResponse) string { return v.FrequencyUnit }).(pulumi.StringOutput)
 }
 
-// True if the retention policy should always keep at least one backup in the storage account, regardless how old it is; false otherwise.
 func (o BackupScheduleResponseOutput) KeepAtLeastOneBackup() pulumi.BoolOutput {
 	return o.ApplyT(func(v BackupScheduleResponse) bool { return v.KeepAtLeastOneBackup }).(pulumi.BoolOutput)
 }
 
-// Last time when this schedule was triggered.
 func (o BackupScheduleResponseOutput) LastExecutionTime() pulumi.StringOutput {
 	return o.ApplyT(func(v BackupScheduleResponse) string { return v.LastExecutionTime }).(pulumi.StringOutput)
 }
 
-// After how many days backups should be deleted.
 func (o BackupScheduleResponseOutput) RetentionPeriodInDays() pulumi.IntOutput {
 	return o.ApplyT(func(v BackupScheduleResponse) int { return v.RetentionPeriodInDays }).(pulumi.IntOutput)
 }
 
-// When the schedule should start working.
 func (o BackupScheduleResponseOutput) StartTime() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v BackupScheduleResponse) *string { return v.StartTime }).(pulumi.StringPtrOutput)
 }
@@ -4306,10 +3997,15 @@ func (o BackupScheduleResponsePtrOutput) ToBackupScheduleResponsePtrOutputWithCo
 }
 
 func (o BackupScheduleResponsePtrOutput) Elem() BackupScheduleResponseOutput {
-	return o.ApplyT(func(v *BackupScheduleResponse) BackupScheduleResponse { return *v }).(BackupScheduleResponseOutput)
+	return o.ApplyT(func(v *BackupScheduleResponse) BackupScheduleResponse {
+		if v != nil {
+			return *v
+		}
+		var ret BackupScheduleResponse
+		return ret
+	}).(BackupScheduleResponseOutput)
 }
 
-// How often the backup should be executed (e.g. for weekly backup, this should be set to 7 and FrequencyUnit should be set to Day)
 func (o BackupScheduleResponsePtrOutput) FrequencyInterval() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *BackupScheduleResponse) *int {
 		if v == nil {
@@ -4319,7 +4015,6 @@ func (o BackupScheduleResponsePtrOutput) FrequencyInterval() pulumi.IntPtrOutput
 	}).(pulumi.IntPtrOutput)
 }
 
-// The unit of time for how often the backup should be executed (e.g. for weekly backup, this should be set to Day and FrequencyInterval should be set to 7)
 func (o BackupScheduleResponsePtrOutput) FrequencyUnit() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *BackupScheduleResponse) *string {
 		if v == nil {
@@ -4329,7 +4024,6 @@ func (o BackupScheduleResponsePtrOutput) FrequencyUnit() pulumi.StringPtrOutput 
 	}).(pulumi.StringPtrOutput)
 }
 
-// True if the retention policy should always keep at least one backup in the storage account, regardless how old it is; false otherwise.
 func (o BackupScheduleResponsePtrOutput) KeepAtLeastOneBackup() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *BackupScheduleResponse) *bool {
 		if v == nil {
@@ -4339,7 +4033,6 @@ func (o BackupScheduleResponsePtrOutput) KeepAtLeastOneBackup() pulumi.BoolPtrOu
 	}).(pulumi.BoolPtrOutput)
 }
 
-// Last time when this schedule was triggered.
 func (o BackupScheduleResponsePtrOutput) LastExecutionTime() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *BackupScheduleResponse) *string {
 		if v == nil {
@@ -4349,7 +4042,6 @@ func (o BackupScheduleResponsePtrOutput) LastExecutionTime() pulumi.StringPtrOut
 	}).(pulumi.StringPtrOutput)
 }
 
-// After how many days backups should be deleted.
 func (o BackupScheduleResponsePtrOutput) RetentionPeriodInDays() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *BackupScheduleResponse) *int {
 		if v == nil {
@@ -4359,7 +4051,6 @@ func (o BackupScheduleResponsePtrOutput) RetentionPeriodInDays() pulumi.IntPtrOu
 	}).(pulumi.IntPtrOutput)
 }
 
-// When the schedule should start working.
 func (o BackupScheduleResponsePtrOutput) StartTime() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *BackupScheduleResponse) *string {
 		if v == nil {
@@ -4369,14 +4060,10 @@ func (o BackupScheduleResponsePtrOutput) StartTime() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Describes the capabilities/features allowed for a specific SKU.
 type Capability struct {
-	// Name of the SKU capability.
-	Name *string `pulumi:"name"`
-	// Reason of the SKU capability.
+	Name   *string `pulumi:"name"`
 	Reason *string `pulumi:"reason"`
-	// Value of the SKU capability.
-	Value *string `pulumi:"value"`
+	Value  *string `pulumi:"value"`
 }
 
 // CapabilityInput is an input type that accepts CapabilityArgs and CapabilityOutput values.
@@ -4390,14 +4077,10 @@ type CapabilityInput interface {
 	ToCapabilityOutputWithContext(context.Context) CapabilityOutput
 }
 
-// Describes the capabilities/features allowed for a specific SKU.
 type CapabilityArgs struct {
-	// Name of the SKU capability.
-	Name pulumi.StringPtrInput `pulumi:"name"`
-	// Reason of the SKU capability.
+	Name   pulumi.StringPtrInput `pulumi:"name"`
 	Reason pulumi.StringPtrInput `pulumi:"reason"`
-	// Value of the SKU capability.
-	Value pulumi.StringPtrInput `pulumi:"value"`
+	Value  pulumi.StringPtrInput `pulumi:"value"`
 }
 
 func (CapabilityArgs) ElementType() reflect.Type {
@@ -4437,7 +4120,6 @@ func (i CapabilityArray) ToCapabilityArrayOutputWithContext(ctx context.Context)
 	return pulumi.ToOutputWithContext(ctx, i).(CapabilityArrayOutput)
 }
 
-// Describes the capabilities/features allowed for a specific SKU.
 type CapabilityOutput struct{ *pulumi.OutputState }
 
 func (CapabilityOutput) ElementType() reflect.Type {
@@ -4452,17 +4134,14 @@ func (o CapabilityOutput) ToCapabilityOutputWithContext(ctx context.Context) Cap
 	return o
 }
 
-// Name of the SKU capability.
 func (o CapabilityOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v Capability) *string { return v.Name }).(pulumi.StringPtrOutput)
 }
 
-// Reason of the SKU capability.
 func (o CapabilityOutput) Reason() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v Capability) *string { return v.Reason }).(pulumi.StringPtrOutput)
 }
 
-// Value of the SKU capability.
 func (o CapabilityOutput) Value() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v Capability) *string { return v.Value }).(pulumi.StringPtrOutput)
 }
@@ -4487,14 +4166,10 @@ func (o CapabilityArrayOutput) Index(i pulumi.IntInput) CapabilityOutput {
 	}).(CapabilityOutput)
 }
 
-// Describes the capabilities/features allowed for a specific SKU.
 type CapabilityResponse struct {
-	// Name of the SKU capability.
-	Name *string `pulumi:"name"`
-	// Reason of the SKU capability.
+	Name   *string `pulumi:"name"`
 	Reason *string `pulumi:"reason"`
-	// Value of the SKU capability.
-	Value *string `pulumi:"value"`
+	Value  *string `pulumi:"value"`
 }
 
 // CapabilityResponseInput is an input type that accepts CapabilityResponseArgs and CapabilityResponseOutput values.
@@ -4508,14 +4183,10 @@ type CapabilityResponseInput interface {
 	ToCapabilityResponseOutputWithContext(context.Context) CapabilityResponseOutput
 }
 
-// Describes the capabilities/features allowed for a specific SKU.
 type CapabilityResponseArgs struct {
-	// Name of the SKU capability.
-	Name pulumi.StringPtrInput `pulumi:"name"`
-	// Reason of the SKU capability.
+	Name   pulumi.StringPtrInput `pulumi:"name"`
 	Reason pulumi.StringPtrInput `pulumi:"reason"`
-	// Value of the SKU capability.
-	Value pulumi.StringPtrInput `pulumi:"value"`
+	Value  pulumi.StringPtrInput `pulumi:"value"`
 }
 
 func (CapabilityResponseArgs) ElementType() reflect.Type {
@@ -4555,7 +4226,6 @@ func (i CapabilityResponseArray) ToCapabilityResponseArrayOutputWithContext(ctx 
 	return pulumi.ToOutputWithContext(ctx, i).(CapabilityResponseArrayOutput)
 }
 
-// Describes the capabilities/features allowed for a specific SKU.
 type CapabilityResponseOutput struct{ *pulumi.OutputState }
 
 func (CapabilityResponseOutput) ElementType() reflect.Type {
@@ -4570,17 +4240,14 @@ func (o CapabilityResponseOutput) ToCapabilityResponseOutputWithContext(ctx cont
 	return o
 }
 
-// Name of the SKU capability.
 func (o CapabilityResponseOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v CapabilityResponse) *string { return v.Name }).(pulumi.StringPtrOutput)
 }
 
-// Reason of the SKU capability.
 func (o CapabilityResponseOutput) Reason() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v CapabilityResponse) *string { return v.Reason }).(pulumi.StringPtrOutput)
 }
 
-// Value of the SKU capability.
 func (o CapabilityResponseOutput) Value() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v CapabilityResponse) *string { return v.Value }).(pulumi.StringPtrOutput)
 }
@@ -4605,35 +4272,18 @@ func (o CapabilityResponseArrayOutput) Index(i pulumi.IntInput) CapabilityRespon
 	}).(CapabilityResponseOutput)
 }
 
-// Information needed for cloning operation.
 type CloningInfo struct {
-	// Application setting overrides for cloned app. If specified, these settings override the settings cloned
-	// from source app. Otherwise, application settings from source app are retained.
-	AppSettingsOverrides map[string]string `pulumi:"appSettingsOverrides"`
-	// <code>true</code> to clone custom hostnames from source app; otherwise, <code>false</code>.
-	CloneCustomHostNames *bool `pulumi:"cloneCustomHostNames"`
-	// <code>true</code> to clone source control from source app; otherwise, <code>false</code>.
-	CloneSourceControl *bool `pulumi:"cloneSourceControl"`
-	// <code>true</code> to configure load balancing for source and destination app.
-	ConfigureLoadBalancing *bool `pulumi:"configureLoadBalancing"`
-	// Correlation ID of cloning operation. This ID ties multiple cloning operations
-	// together to use the same snapshot.
-	CorrelationId *string `pulumi:"correlationId"`
-	// App Service Environment.
-	HostingEnvironment *string `pulumi:"hostingEnvironment"`
-	// <code>true</code> to overwrite destination app; otherwise, <code>false</code>.
-	Overwrite *bool `pulumi:"overwrite"`
-	// ARM resource ID of the source app. App resource ID is of the form
-	// /subscriptions/{subId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Web/sites/{siteName} for production slots and
-	// /subscriptions/{subId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Web/sites/{siteName}/slots/{slotName} for other slots.
-	SourceWebAppId string `pulumi:"sourceWebAppId"`
-	// Location of source app ex: West US or North Europe
-	SourceWebAppLocation *string `pulumi:"sourceWebAppLocation"`
-	// ARM resource ID of the Traffic Manager profile to use, if it exists. Traffic Manager resource ID is of the form
-	// /subscriptions/{subId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Network/trafficManagerProfiles/{profileName}.
-	TrafficManagerProfileId *string `pulumi:"trafficManagerProfileId"`
-	// Name of Traffic Manager profile to create. This is only needed if Traffic Manager profile does not already exist.
-	TrafficManagerProfileName *string `pulumi:"trafficManagerProfileName"`
+	AppSettingsOverrides      map[string]string `pulumi:"appSettingsOverrides"`
+	CloneCustomHostNames      *bool             `pulumi:"cloneCustomHostNames"`
+	CloneSourceControl        *bool             `pulumi:"cloneSourceControl"`
+	ConfigureLoadBalancing    *bool             `pulumi:"configureLoadBalancing"`
+	CorrelationId             *string           `pulumi:"correlationId"`
+	HostingEnvironment        *string           `pulumi:"hostingEnvironment"`
+	Overwrite                 *bool             `pulumi:"overwrite"`
+	SourceWebAppId            string            `pulumi:"sourceWebAppId"`
+	SourceWebAppLocation      *string           `pulumi:"sourceWebAppLocation"`
+	TrafficManagerProfileId   *string           `pulumi:"trafficManagerProfileId"`
+	TrafficManagerProfileName *string           `pulumi:"trafficManagerProfileName"`
 }
 
 // CloningInfoInput is an input type that accepts CloningInfoArgs and CloningInfoOutput values.
@@ -4647,34 +4297,17 @@ type CloningInfoInput interface {
 	ToCloningInfoOutputWithContext(context.Context) CloningInfoOutput
 }
 
-// Information needed for cloning operation.
 type CloningInfoArgs struct {
-	// Application setting overrides for cloned app. If specified, these settings override the settings cloned
-	// from source app. Otherwise, application settings from source app are retained.
-	AppSettingsOverrides pulumi.StringMapInput `pulumi:"appSettingsOverrides"`
-	// <code>true</code> to clone custom hostnames from source app; otherwise, <code>false</code>.
-	CloneCustomHostNames pulumi.BoolPtrInput `pulumi:"cloneCustomHostNames"`
-	// <code>true</code> to clone source control from source app; otherwise, <code>false</code>.
-	CloneSourceControl pulumi.BoolPtrInput `pulumi:"cloneSourceControl"`
-	// <code>true</code> to configure load balancing for source and destination app.
-	ConfigureLoadBalancing pulumi.BoolPtrInput `pulumi:"configureLoadBalancing"`
-	// Correlation ID of cloning operation. This ID ties multiple cloning operations
-	// together to use the same snapshot.
-	CorrelationId pulumi.StringPtrInput `pulumi:"correlationId"`
-	// App Service Environment.
-	HostingEnvironment pulumi.StringPtrInput `pulumi:"hostingEnvironment"`
-	// <code>true</code> to overwrite destination app; otherwise, <code>false</code>.
-	Overwrite pulumi.BoolPtrInput `pulumi:"overwrite"`
-	// ARM resource ID of the source app. App resource ID is of the form
-	// /subscriptions/{subId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Web/sites/{siteName} for production slots and
-	// /subscriptions/{subId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Web/sites/{siteName}/slots/{slotName} for other slots.
-	SourceWebAppId pulumi.StringInput `pulumi:"sourceWebAppId"`
-	// Location of source app ex: West US or North Europe
-	SourceWebAppLocation pulumi.StringPtrInput `pulumi:"sourceWebAppLocation"`
-	// ARM resource ID of the Traffic Manager profile to use, if it exists. Traffic Manager resource ID is of the form
-	// /subscriptions/{subId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Network/trafficManagerProfiles/{profileName}.
-	TrafficManagerProfileId pulumi.StringPtrInput `pulumi:"trafficManagerProfileId"`
-	// Name of Traffic Manager profile to create. This is only needed if Traffic Manager profile does not already exist.
+	AppSettingsOverrides      pulumi.StringMapInput `pulumi:"appSettingsOverrides"`
+	CloneCustomHostNames      pulumi.BoolPtrInput   `pulumi:"cloneCustomHostNames"`
+	CloneSourceControl        pulumi.BoolPtrInput   `pulumi:"cloneSourceControl"`
+	ConfigureLoadBalancing    pulumi.BoolPtrInput   `pulumi:"configureLoadBalancing"`
+	CorrelationId             pulumi.StringPtrInput `pulumi:"correlationId"`
+	HostingEnvironment        pulumi.StringPtrInput `pulumi:"hostingEnvironment"`
+	Overwrite                 pulumi.BoolPtrInput   `pulumi:"overwrite"`
+	SourceWebAppId            pulumi.StringInput    `pulumi:"sourceWebAppId"`
+	SourceWebAppLocation      pulumi.StringPtrInput `pulumi:"sourceWebAppLocation"`
+	TrafficManagerProfileId   pulumi.StringPtrInput `pulumi:"trafficManagerProfileId"`
 	TrafficManagerProfileName pulumi.StringPtrInput `pulumi:"trafficManagerProfileName"`
 }
 
@@ -4731,7 +4364,6 @@ func (i *cloningInfoPtrType) ToCloningInfoPtrOutputWithContext(ctx context.Conte
 	return pulumi.ToOutputWithContext(ctx, i).(CloningInfoPtrOutput)
 }
 
-// Information needed for cloning operation.
 type CloningInfoOutput struct{ *pulumi.OutputState }
 
 func (CloningInfoOutput) ElementType() reflect.Type {
@@ -4751,67 +4383,51 @@ func (o CloningInfoOutput) ToCloningInfoPtrOutput() CloningInfoPtrOutput {
 }
 
 func (o CloningInfoOutput) ToCloningInfoPtrOutputWithContext(ctx context.Context) CloningInfoPtrOutput {
-	return o.ApplyT(func(v CloningInfo) *CloningInfo {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v CloningInfo) *CloningInfo {
 		return &v
 	}).(CloningInfoPtrOutput)
 }
 
-// Application setting overrides for cloned app. If specified, these settings override the settings cloned
-// from source app. Otherwise, application settings from source app are retained.
 func (o CloningInfoOutput) AppSettingsOverrides() pulumi.StringMapOutput {
 	return o.ApplyT(func(v CloningInfo) map[string]string { return v.AppSettingsOverrides }).(pulumi.StringMapOutput)
 }
 
-// <code>true</code> to clone custom hostnames from source app; otherwise, <code>false</code>.
 func (o CloningInfoOutput) CloneCustomHostNames() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v CloningInfo) *bool { return v.CloneCustomHostNames }).(pulumi.BoolPtrOutput)
 }
 
-// <code>true</code> to clone source control from source app; otherwise, <code>false</code>.
 func (o CloningInfoOutput) CloneSourceControl() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v CloningInfo) *bool { return v.CloneSourceControl }).(pulumi.BoolPtrOutput)
 }
 
-// <code>true</code> to configure load balancing for source and destination app.
 func (o CloningInfoOutput) ConfigureLoadBalancing() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v CloningInfo) *bool { return v.ConfigureLoadBalancing }).(pulumi.BoolPtrOutput)
 }
 
-// Correlation ID of cloning operation. This ID ties multiple cloning operations
-// together to use the same snapshot.
 func (o CloningInfoOutput) CorrelationId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v CloningInfo) *string { return v.CorrelationId }).(pulumi.StringPtrOutput)
 }
 
-// App Service Environment.
 func (o CloningInfoOutput) HostingEnvironment() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v CloningInfo) *string { return v.HostingEnvironment }).(pulumi.StringPtrOutput)
 }
 
-// <code>true</code> to overwrite destination app; otherwise, <code>false</code>.
 func (o CloningInfoOutput) Overwrite() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v CloningInfo) *bool { return v.Overwrite }).(pulumi.BoolPtrOutput)
 }
 
-// ARM resource ID of the source app. App resource ID is of the form
-// /subscriptions/{subId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Web/sites/{siteName} for production slots and
-// /subscriptions/{subId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Web/sites/{siteName}/slots/{slotName} for other slots.
 func (o CloningInfoOutput) SourceWebAppId() pulumi.StringOutput {
 	return o.ApplyT(func(v CloningInfo) string { return v.SourceWebAppId }).(pulumi.StringOutput)
 }
 
-// Location of source app ex: West US or North Europe
 func (o CloningInfoOutput) SourceWebAppLocation() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v CloningInfo) *string { return v.SourceWebAppLocation }).(pulumi.StringPtrOutput)
 }
 
-// ARM resource ID of the Traffic Manager profile to use, if it exists. Traffic Manager resource ID is of the form
-// /subscriptions/{subId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Network/trafficManagerProfiles/{profileName}.
 func (o CloningInfoOutput) TrafficManagerProfileId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v CloningInfo) *string { return v.TrafficManagerProfileId }).(pulumi.StringPtrOutput)
 }
 
-// Name of Traffic Manager profile to create. This is only needed if Traffic Manager profile does not already exist.
 func (o CloningInfoOutput) TrafficManagerProfileName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v CloningInfo) *string { return v.TrafficManagerProfileName }).(pulumi.StringPtrOutput)
 }
@@ -4831,11 +4447,15 @@ func (o CloningInfoPtrOutput) ToCloningInfoPtrOutputWithContext(ctx context.Cont
 }
 
 func (o CloningInfoPtrOutput) Elem() CloningInfoOutput {
-	return o.ApplyT(func(v *CloningInfo) CloningInfo { return *v }).(CloningInfoOutput)
+	return o.ApplyT(func(v *CloningInfo) CloningInfo {
+		if v != nil {
+			return *v
+		}
+		var ret CloningInfo
+		return ret
+	}).(CloningInfoOutput)
 }
 
-// Application setting overrides for cloned app. If specified, these settings override the settings cloned
-// from source app. Otherwise, application settings from source app are retained.
 func (o CloningInfoPtrOutput) AppSettingsOverrides() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *CloningInfo) map[string]string {
 		if v == nil {
@@ -4845,7 +4465,6 @@ func (o CloningInfoPtrOutput) AppSettingsOverrides() pulumi.StringMapOutput {
 	}).(pulumi.StringMapOutput)
 }
 
-// <code>true</code> to clone custom hostnames from source app; otherwise, <code>false</code>.
 func (o CloningInfoPtrOutput) CloneCustomHostNames() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *CloningInfo) *bool {
 		if v == nil {
@@ -4855,7 +4474,6 @@ func (o CloningInfoPtrOutput) CloneCustomHostNames() pulumi.BoolPtrOutput {
 	}).(pulumi.BoolPtrOutput)
 }
 
-// <code>true</code> to clone source control from source app; otherwise, <code>false</code>.
 func (o CloningInfoPtrOutput) CloneSourceControl() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *CloningInfo) *bool {
 		if v == nil {
@@ -4865,7 +4483,6 @@ func (o CloningInfoPtrOutput) CloneSourceControl() pulumi.BoolPtrOutput {
 	}).(pulumi.BoolPtrOutput)
 }
 
-// <code>true</code> to configure load balancing for source and destination app.
 func (o CloningInfoPtrOutput) ConfigureLoadBalancing() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *CloningInfo) *bool {
 		if v == nil {
@@ -4875,8 +4492,6 @@ func (o CloningInfoPtrOutput) ConfigureLoadBalancing() pulumi.BoolPtrOutput {
 	}).(pulumi.BoolPtrOutput)
 }
 
-// Correlation ID of cloning operation. This ID ties multiple cloning operations
-// together to use the same snapshot.
 func (o CloningInfoPtrOutput) CorrelationId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *CloningInfo) *string {
 		if v == nil {
@@ -4886,7 +4501,6 @@ func (o CloningInfoPtrOutput) CorrelationId() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// App Service Environment.
 func (o CloningInfoPtrOutput) HostingEnvironment() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *CloningInfo) *string {
 		if v == nil {
@@ -4896,7 +4510,6 @@ func (o CloningInfoPtrOutput) HostingEnvironment() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// <code>true</code> to overwrite destination app; otherwise, <code>false</code>.
 func (o CloningInfoPtrOutput) Overwrite() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *CloningInfo) *bool {
 		if v == nil {
@@ -4906,9 +4519,6 @@ func (o CloningInfoPtrOutput) Overwrite() pulumi.BoolPtrOutput {
 	}).(pulumi.BoolPtrOutput)
 }
 
-// ARM resource ID of the source app. App resource ID is of the form
-// /subscriptions/{subId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Web/sites/{siteName} for production slots and
-// /subscriptions/{subId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Web/sites/{siteName}/slots/{slotName} for other slots.
 func (o CloningInfoPtrOutput) SourceWebAppId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *CloningInfo) *string {
 		if v == nil {
@@ -4918,7 +4528,6 @@ func (o CloningInfoPtrOutput) SourceWebAppId() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Location of source app ex: West US or North Europe
 func (o CloningInfoPtrOutput) SourceWebAppLocation() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *CloningInfo) *string {
 		if v == nil {
@@ -4928,8 +4537,6 @@ func (o CloningInfoPtrOutput) SourceWebAppLocation() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// ARM resource ID of the Traffic Manager profile to use, if it exists. Traffic Manager resource ID is of the form
-// /subscriptions/{subId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Network/trafficManagerProfiles/{profileName}.
 func (o CloningInfoPtrOutput) TrafficManagerProfileId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *CloningInfo) *string {
 		if v == nil {
@@ -4939,7 +4546,6 @@ func (o CloningInfoPtrOutput) TrafficManagerProfileId() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Name of Traffic Manager profile to create. This is only needed if Traffic Manager profile does not already exist.
 func (o CloningInfoPtrOutput) TrafficManagerProfileName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *CloningInfo) *string {
 		if v == nil {
@@ -4949,35 +4555,18 @@ func (o CloningInfoPtrOutput) TrafficManagerProfileName() pulumi.StringPtrOutput
 	}).(pulumi.StringPtrOutput)
 }
 
-// Information needed for cloning operation.
 type CloningInfoResponse struct {
-	// Application setting overrides for cloned app. If specified, these settings override the settings cloned
-	// from source app. Otherwise, application settings from source app are retained.
-	AppSettingsOverrides map[string]string `pulumi:"appSettingsOverrides"`
-	// <code>true</code> to clone custom hostnames from source app; otherwise, <code>false</code>.
-	CloneCustomHostNames *bool `pulumi:"cloneCustomHostNames"`
-	// <code>true</code> to clone source control from source app; otherwise, <code>false</code>.
-	CloneSourceControl *bool `pulumi:"cloneSourceControl"`
-	// <code>true</code> to configure load balancing for source and destination app.
-	ConfigureLoadBalancing *bool `pulumi:"configureLoadBalancing"`
-	// Correlation ID of cloning operation. This ID ties multiple cloning operations
-	// together to use the same snapshot.
-	CorrelationId *string `pulumi:"correlationId"`
-	// App Service Environment.
-	HostingEnvironment *string `pulumi:"hostingEnvironment"`
-	// <code>true</code> to overwrite destination app; otherwise, <code>false</code>.
-	Overwrite *bool `pulumi:"overwrite"`
-	// ARM resource ID of the source app. App resource ID is of the form
-	// /subscriptions/{subId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Web/sites/{siteName} for production slots and
-	// /subscriptions/{subId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Web/sites/{siteName}/slots/{slotName} for other slots.
-	SourceWebAppId string `pulumi:"sourceWebAppId"`
-	// Location of source app ex: West US or North Europe
-	SourceWebAppLocation *string `pulumi:"sourceWebAppLocation"`
-	// ARM resource ID of the Traffic Manager profile to use, if it exists. Traffic Manager resource ID is of the form
-	// /subscriptions/{subId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Network/trafficManagerProfiles/{profileName}.
-	TrafficManagerProfileId *string `pulumi:"trafficManagerProfileId"`
-	// Name of Traffic Manager profile to create. This is only needed if Traffic Manager profile does not already exist.
-	TrafficManagerProfileName *string `pulumi:"trafficManagerProfileName"`
+	AppSettingsOverrides      map[string]string `pulumi:"appSettingsOverrides"`
+	CloneCustomHostNames      *bool             `pulumi:"cloneCustomHostNames"`
+	CloneSourceControl        *bool             `pulumi:"cloneSourceControl"`
+	ConfigureLoadBalancing    *bool             `pulumi:"configureLoadBalancing"`
+	CorrelationId             *string           `pulumi:"correlationId"`
+	HostingEnvironment        *string           `pulumi:"hostingEnvironment"`
+	Overwrite                 *bool             `pulumi:"overwrite"`
+	SourceWebAppId            string            `pulumi:"sourceWebAppId"`
+	SourceWebAppLocation      *string           `pulumi:"sourceWebAppLocation"`
+	TrafficManagerProfileId   *string           `pulumi:"trafficManagerProfileId"`
+	TrafficManagerProfileName *string           `pulumi:"trafficManagerProfileName"`
 }
 
 // CloningInfoResponseInput is an input type that accepts CloningInfoResponseArgs and CloningInfoResponseOutput values.
@@ -4991,34 +4580,17 @@ type CloningInfoResponseInput interface {
 	ToCloningInfoResponseOutputWithContext(context.Context) CloningInfoResponseOutput
 }
 
-// Information needed for cloning operation.
 type CloningInfoResponseArgs struct {
-	// Application setting overrides for cloned app. If specified, these settings override the settings cloned
-	// from source app. Otherwise, application settings from source app are retained.
-	AppSettingsOverrides pulumi.StringMapInput `pulumi:"appSettingsOverrides"`
-	// <code>true</code> to clone custom hostnames from source app; otherwise, <code>false</code>.
-	CloneCustomHostNames pulumi.BoolPtrInput `pulumi:"cloneCustomHostNames"`
-	// <code>true</code> to clone source control from source app; otherwise, <code>false</code>.
-	CloneSourceControl pulumi.BoolPtrInput `pulumi:"cloneSourceControl"`
-	// <code>true</code> to configure load balancing for source and destination app.
-	ConfigureLoadBalancing pulumi.BoolPtrInput `pulumi:"configureLoadBalancing"`
-	// Correlation ID of cloning operation. This ID ties multiple cloning operations
-	// together to use the same snapshot.
-	CorrelationId pulumi.StringPtrInput `pulumi:"correlationId"`
-	// App Service Environment.
-	HostingEnvironment pulumi.StringPtrInput `pulumi:"hostingEnvironment"`
-	// <code>true</code> to overwrite destination app; otherwise, <code>false</code>.
-	Overwrite pulumi.BoolPtrInput `pulumi:"overwrite"`
-	// ARM resource ID of the source app. App resource ID is of the form
-	// /subscriptions/{subId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Web/sites/{siteName} for production slots and
-	// /subscriptions/{subId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Web/sites/{siteName}/slots/{slotName} for other slots.
-	SourceWebAppId pulumi.StringInput `pulumi:"sourceWebAppId"`
-	// Location of source app ex: West US or North Europe
-	SourceWebAppLocation pulumi.StringPtrInput `pulumi:"sourceWebAppLocation"`
-	// ARM resource ID of the Traffic Manager profile to use, if it exists. Traffic Manager resource ID is of the form
-	// /subscriptions/{subId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Network/trafficManagerProfiles/{profileName}.
-	TrafficManagerProfileId pulumi.StringPtrInput `pulumi:"trafficManagerProfileId"`
-	// Name of Traffic Manager profile to create. This is only needed if Traffic Manager profile does not already exist.
+	AppSettingsOverrides      pulumi.StringMapInput `pulumi:"appSettingsOverrides"`
+	CloneCustomHostNames      pulumi.BoolPtrInput   `pulumi:"cloneCustomHostNames"`
+	CloneSourceControl        pulumi.BoolPtrInput   `pulumi:"cloneSourceControl"`
+	ConfigureLoadBalancing    pulumi.BoolPtrInput   `pulumi:"configureLoadBalancing"`
+	CorrelationId             pulumi.StringPtrInput `pulumi:"correlationId"`
+	HostingEnvironment        pulumi.StringPtrInput `pulumi:"hostingEnvironment"`
+	Overwrite                 pulumi.BoolPtrInput   `pulumi:"overwrite"`
+	SourceWebAppId            pulumi.StringInput    `pulumi:"sourceWebAppId"`
+	SourceWebAppLocation      pulumi.StringPtrInput `pulumi:"sourceWebAppLocation"`
+	TrafficManagerProfileId   pulumi.StringPtrInput `pulumi:"trafficManagerProfileId"`
 	TrafficManagerProfileName pulumi.StringPtrInput `pulumi:"trafficManagerProfileName"`
 }
 
@@ -5034,7 +4606,6 @@ func (i CloningInfoResponseArgs) ToCloningInfoResponseOutputWithContext(ctx cont
 	return pulumi.ToOutputWithContext(ctx, i).(CloningInfoResponseOutput)
 }
 
-// Information needed for cloning operation.
 type CloningInfoResponseOutput struct{ *pulumi.OutputState }
 
 func (CloningInfoResponseOutput) ElementType() reflect.Type {
@@ -5049,74 +4620,54 @@ func (o CloningInfoResponseOutput) ToCloningInfoResponseOutputWithContext(ctx co
 	return o
 }
 
-// Application setting overrides for cloned app. If specified, these settings override the settings cloned
-// from source app. Otherwise, application settings from source app are retained.
 func (o CloningInfoResponseOutput) AppSettingsOverrides() pulumi.StringMapOutput {
 	return o.ApplyT(func(v CloningInfoResponse) map[string]string { return v.AppSettingsOverrides }).(pulumi.StringMapOutput)
 }
 
-// <code>true</code> to clone custom hostnames from source app; otherwise, <code>false</code>.
 func (o CloningInfoResponseOutput) CloneCustomHostNames() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v CloningInfoResponse) *bool { return v.CloneCustomHostNames }).(pulumi.BoolPtrOutput)
 }
 
-// <code>true</code> to clone source control from source app; otherwise, <code>false</code>.
 func (o CloningInfoResponseOutput) CloneSourceControl() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v CloningInfoResponse) *bool { return v.CloneSourceControl }).(pulumi.BoolPtrOutput)
 }
 
-// <code>true</code> to configure load balancing for source and destination app.
 func (o CloningInfoResponseOutput) ConfigureLoadBalancing() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v CloningInfoResponse) *bool { return v.ConfigureLoadBalancing }).(pulumi.BoolPtrOutput)
 }
 
-// Correlation ID of cloning operation. This ID ties multiple cloning operations
-// together to use the same snapshot.
 func (o CloningInfoResponseOutput) CorrelationId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v CloningInfoResponse) *string { return v.CorrelationId }).(pulumi.StringPtrOutput)
 }
 
-// App Service Environment.
 func (o CloningInfoResponseOutput) HostingEnvironment() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v CloningInfoResponse) *string { return v.HostingEnvironment }).(pulumi.StringPtrOutput)
 }
 
-// <code>true</code> to overwrite destination app; otherwise, <code>false</code>.
 func (o CloningInfoResponseOutput) Overwrite() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v CloningInfoResponse) *bool { return v.Overwrite }).(pulumi.BoolPtrOutput)
 }
 
-// ARM resource ID of the source app. App resource ID is of the form
-// /subscriptions/{subId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Web/sites/{siteName} for production slots and
-// /subscriptions/{subId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Web/sites/{siteName}/slots/{slotName} for other slots.
 func (o CloningInfoResponseOutput) SourceWebAppId() pulumi.StringOutput {
 	return o.ApplyT(func(v CloningInfoResponse) string { return v.SourceWebAppId }).(pulumi.StringOutput)
 }
 
-// Location of source app ex: West US or North Europe
 func (o CloningInfoResponseOutput) SourceWebAppLocation() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v CloningInfoResponse) *string { return v.SourceWebAppLocation }).(pulumi.StringPtrOutput)
 }
 
-// ARM resource ID of the Traffic Manager profile to use, if it exists. Traffic Manager resource ID is of the form
-// /subscriptions/{subId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Network/trafficManagerProfiles/{profileName}.
 func (o CloningInfoResponseOutput) TrafficManagerProfileId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v CloningInfoResponse) *string { return v.TrafficManagerProfileId }).(pulumi.StringPtrOutput)
 }
 
-// Name of Traffic Manager profile to create. This is only needed if Traffic Manager profile does not already exist.
 func (o CloningInfoResponseOutput) TrafficManagerProfileName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v CloningInfoResponse) *string { return v.TrafficManagerProfileName }).(pulumi.StringPtrOutput)
 }
 
-// Database connection string information.
 type ConnStringInfo struct {
-	// Connection string value.
-	ConnectionString *string `pulumi:"connectionString"`
-	// Name of connection string.
-	Name *string `pulumi:"name"`
-	// Type of database.
-	Type *string `pulumi:"type"`
+	ConnectionString *string               `pulumi:"connectionString"`
+	Name             *string               `pulumi:"name"`
+	Type             *ConnectionStringType `pulumi:"type"`
 }
 
 // ConnStringInfoInput is an input type that accepts ConnStringInfoArgs and ConnStringInfoOutput values.
@@ -5130,14 +4681,10 @@ type ConnStringInfoInput interface {
 	ToConnStringInfoOutputWithContext(context.Context) ConnStringInfoOutput
 }
 
-// Database connection string information.
 type ConnStringInfoArgs struct {
-	// Connection string value.
-	ConnectionString pulumi.StringPtrInput `pulumi:"connectionString"`
-	// Name of connection string.
-	Name pulumi.StringPtrInput `pulumi:"name"`
-	// Type of database.
-	Type *ConnectionStringType `pulumi:"type"`
+	ConnectionString pulumi.StringPtrInput        `pulumi:"connectionString"`
+	Name             pulumi.StringPtrInput        `pulumi:"name"`
+	Type             ConnectionStringTypePtrInput `pulumi:"type"`
 }
 
 func (ConnStringInfoArgs) ElementType() reflect.Type {
@@ -5177,7 +4724,6 @@ func (i ConnStringInfoArray) ToConnStringInfoArrayOutputWithContext(ctx context.
 	return pulumi.ToOutputWithContext(ctx, i).(ConnStringInfoArrayOutput)
 }
 
-// Database connection string information.
 type ConnStringInfoOutput struct{ *pulumi.OutputState }
 
 func (ConnStringInfoOutput) ElementType() reflect.Type {
@@ -5192,19 +4738,16 @@ func (o ConnStringInfoOutput) ToConnStringInfoOutputWithContext(ctx context.Cont
 	return o
 }
 
-// Connection string value.
 func (o ConnStringInfoOutput) ConnectionString() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ConnStringInfo) *string { return v.ConnectionString }).(pulumi.StringPtrOutput)
 }
 
-// Name of connection string.
 func (o ConnStringInfoOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ConnStringInfo) *string { return v.Name }).(pulumi.StringPtrOutput)
 }
 
-// Type of database.
-func (o ConnStringInfoOutput) Type() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v ConnStringInfo) *string { return v.Type }).(pulumi.StringPtrOutput)
+func (o ConnStringInfoOutput) Type() ConnectionStringTypePtrOutput {
+	return o.ApplyT(func(v ConnStringInfo) *ConnectionStringType { return v.Type }).(ConnectionStringTypePtrOutput)
 }
 
 type ConnStringInfoArrayOutput struct{ *pulumi.OutputState }
@@ -5227,14 +4770,10 @@ func (o ConnStringInfoArrayOutput) Index(i pulumi.IntInput) ConnStringInfoOutput
 	}).(ConnStringInfoOutput)
 }
 
-// Database connection string information.
 type ConnStringInfoResponse struct {
-	// Connection string value.
 	ConnectionString *string `pulumi:"connectionString"`
-	// Name of connection string.
-	Name *string `pulumi:"name"`
-	// Type of database.
-	Type *string `pulumi:"type"`
+	Name             *string `pulumi:"name"`
+	Type             *string `pulumi:"type"`
 }
 
 // ConnStringInfoResponseInput is an input type that accepts ConnStringInfoResponseArgs and ConnStringInfoResponseOutput values.
@@ -5248,14 +4787,10 @@ type ConnStringInfoResponseInput interface {
 	ToConnStringInfoResponseOutputWithContext(context.Context) ConnStringInfoResponseOutput
 }
 
-// Database connection string information.
 type ConnStringInfoResponseArgs struct {
-	// Connection string value.
 	ConnectionString pulumi.StringPtrInput `pulumi:"connectionString"`
-	// Name of connection string.
-	Name pulumi.StringPtrInput `pulumi:"name"`
-	// Type of database.
-	Type pulumi.StringPtrInput `pulumi:"type"`
+	Name             pulumi.StringPtrInput `pulumi:"name"`
+	Type             pulumi.StringPtrInput `pulumi:"type"`
 }
 
 func (ConnStringInfoResponseArgs) ElementType() reflect.Type {
@@ -5295,7 +4830,6 @@ func (i ConnStringInfoResponseArray) ToConnStringInfoResponseArrayOutputWithCont
 	return pulumi.ToOutputWithContext(ctx, i).(ConnStringInfoResponseArrayOutput)
 }
 
-// Database connection string information.
 type ConnStringInfoResponseOutput struct{ *pulumi.OutputState }
 
 func (ConnStringInfoResponseOutput) ElementType() reflect.Type {
@@ -5310,17 +4844,14 @@ func (o ConnStringInfoResponseOutput) ToConnStringInfoResponseOutputWithContext(
 	return o
 }
 
-// Connection string value.
 func (o ConnStringInfoResponseOutput) ConnectionString() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ConnStringInfoResponse) *string { return v.ConnectionString }).(pulumi.StringPtrOutput)
 }
 
-// Name of connection string.
 func (o ConnStringInfoResponseOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ConnStringInfoResponse) *string { return v.Name }).(pulumi.StringPtrOutput)
 }
 
-// Type of database.
 func (o ConnStringInfoResponseOutput) Type() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ConnStringInfoResponse) *string { return v.Type }).(pulumi.StringPtrOutput)
 }
@@ -5345,12 +4876,9 @@ func (o ConnStringInfoResponseArrayOutput) Index(i pulumi.IntInput) ConnStringIn
 	}).(ConnStringInfoResponseOutput)
 }
 
-// Database connection string value to type pair.
 type ConnStringValueTypePair struct {
-	// Type of database.
-	Type string `pulumi:"type"`
-	// Value of pair.
-	Value string `pulumi:"value"`
+	Type  ConnectionStringType `pulumi:"type"`
+	Value string               `pulumi:"value"`
 }
 
 // ConnStringValueTypePairInput is an input type that accepts ConnStringValueTypePairArgs and ConnStringValueTypePairOutput values.
@@ -5364,12 +4892,9 @@ type ConnStringValueTypePairInput interface {
 	ToConnStringValueTypePairOutputWithContext(context.Context) ConnStringValueTypePairOutput
 }
 
-// Database connection string value to type pair.
 type ConnStringValueTypePairArgs struct {
-	// Type of database.
-	Type ConnectionStringType `pulumi:"type"`
-	// Value of pair.
-	Value pulumi.StringInput `pulumi:"value"`
+	Type  ConnectionStringTypeInput `pulumi:"type"`
+	Value pulumi.StringInput        `pulumi:"value"`
 }
 
 func (ConnStringValueTypePairArgs) ElementType() reflect.Type {
@@ -5409,7 +4934,6 @@ func (i ConnStringValueTypePairMap) ToConnStringValueTypePairMapOutputWithContex
 	return pulumi.ToOutputWithContext(ctx, i).(ConnStringValueTypePairMapOutput)
 }
 
-// Database connection string value to type pair.
 type ConnStringValueTypePairOutput struct{ *pulumi.OutputState }
 
 func (ConnStringValueTypePairOutput) ElementType() reflect.Type {
@@ -5424,12 +4948,10 @@ func (o ConnStringValueTypePairOutput) ToConnStringValueTypePairOutputWithContex
 	return o
 }
 
-// Type of database.
-func (o ConnStringValueTypePairOutput) Type() pulumi.StringOutput {
-	return o.ApplyT(func(v ConnStringValueTypePair) string { return v.Type }).(pulumi.StringOutput)
+func (o ConnStringValueTypePairOutput) Type() ConnectionStringTypeOutput {
+	return o.ApplyT(func(v ConnStringValueTypePair) ConnectionStringType { return v.Type }).(ConnectionStringTypeOutput)
 }
 
-// Value of pair.
 func (o ConnStringValueTypePairOutput) Value() pulumi.StringOutput {
 	return o.ApplyT(func(v ConnStringValueTypePair) string { return v.Value }).(pulumi.StringOutput)
 }
@@ -5454,11 +4976,8 @@ func (o ConnStringValueTypePairMapOutput) MapIndex(k pulumi.StringInput) ConnStr
 	}).(ConnStringValueTypePairOutput)
 }
 
-// Database connection string value to type pair.
 type ConnStringValueTypePairResponse struct {
-	// Type of database.
-	Type string `pulumi:"type"`
-	// Value of pair.
+	Type  string `pulumi:"type"`
 	Value string `pulumi:"value"`
 }
 
@@ -5473,11 +4992,8 @@ type ConnStringValueTypePairResponseInput interface {
 	ToConnStringValueTypePairResponseOutputWithContext(context.Context) ConnStringValueTypePairResponseOutput
 }
 
-// Database connection string value to type pair.
 type ConnStringValueTypePairResponseArgs struct {
-	// Type of database.
-	Type pulumi.StringInput `pulumi:"type"`
-	// Value of pair.
+	Type  pulumi.StringInput `pulumi:"type"`
 	Value pulumi.StringInput `pulumi:"value"`
 }
 
@@ -5518,7 +5034,6 @@ func (i ConnStringValueTypePairResponseMap) ToConnStringValueTypePairResponseMap
 	return pulumi.ToOutputWithContext(ctx, i).(ConnStringValueTypePairResponseMapOutput)
 }
 
-// Database connection string value to type pair.
 type ConnStringValueTypePairResponseOutput struct{ *pulumi.OutputState }
 
 func (ConnStringValueTypePairResponseOutput) ElementType() reflect.Type {
@@ -5533,12 +5048,10 @@ func (o ConnStringValueTypePairResponseOutput) ToConnStringValueTypePairResponse
 	return o
 }
 
-// Type of database.
 func (o ConnStringValueTypePairResponseOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v ConnStringValueTypePairResponse) string { return v.Type }).(pulumi.StringOutput)
 }
 
-// Value of pair.
 func (o ConnStringValueTypePairResponseOutput) Value() pulumi.StringOutput {
 	return o.ApplyT(func(v ConnStringValueTypePairResponse) string { return v.Value }).(pulumi.StringOutput)
 }
@@ -5563,15 +5076,9 @@ func (o ConnStringValueTypePairResponseMapOutput) MapIndex(k pulumi.StringInput)
 	}).(ConnStringValueTypePairResponseOutput)
 }
 
-// Cross-Origin Resource Sharing (CORS) settings for the app.
 type CorsSettings struct {
-	// Gets or sets the list of origins that should be allowed to make cross-origin
-	// calls (for example: http://example.com:12345). Use "*" to allow all.
-	AllowedOrigins []string `pulumi:"allowedOrigins"`
-	// Gets or sets whether CORS requests with credentials are allowed. See
-	// https://developer.mozilla.org/en-US/docs/Web/HTTP/CORS#Requests_with_credentials
-	// for more details.
-	SupportCredentials *bool `pulumi:"supportCredentials"`
+	AllowedOrigins     []string `pulumi:"allowedOrigins"`
+	SupportCredentials *bool    `pulumi:"supportCredentials"`
 }
 
 // CorsSettingsInput is an input type that accepts CorsSettingsArgs and CorsSettingsOutput values.
@@ -5585,15 +5092,9 @@ type CorsSettingsInput interface {
 	ToCorsSettingsOutputWithContext(context.Context) CorsSettingsOutput
 }
 
-// Cross-Origin Resource Sharing (CORS) settings for the app.
 type CorsSettingsArgs struct {
-	// Gets or sets the list of origins that should be allowed to make cross-origin
-	// calls (for example: http://example.com:12345). Use "*" to allow all.
-	AllowedOrigins pulumi.StringArrayInput `pulumi:"allowedOrigins"`
-	// Gets or sets whether CORS requests with credentials are allowed. See
-	// https://developer.mozilla.org/en-US/docs/Web/HTTP/CORS#Requests_with_credentials
-	// for more details.
-	SupportCredentials pulumi.BoolPtrInput `pulumi:"supportCredentials"`
+	AllowedOrigins     pulumi.StringArrayInput `pulumi:"allowedOrigins"`
+	SupportCredentials pulumi.BoolPtrInput     `pulumi:"supportCredentials"`
 }
 
 func (CorsSettingsArgs) ElementType() reflect.Type {
@@ -5649,7 +5150,6 @@ func (i *corsSettingsPtrType) ToCorsSettingsPtrOutputWithContext(ctx context.Con
 	return pulumi.ToOutputWithContext(ctx, i).(CorsSettingsPtrOutput)
 }
 
-// Cross-Origin Resource Sharing (CORS) settings for the app.
 type CorsSettingsOutput struct{ *pulumi.OutputState }
 
 func (CorsSettingsOutput) ElementType() reflect.Type {
@@ -5669,20 +5169,15 @@ func (o CorsSettingsOutput) ToCorsSettingsPtrOutput() CorsSettingsPtrOutput {
 }
 
 func (o CorsSettingsOutput) ToCorsSettingsPtrOutputWithContext(ctx context.Context) CorsSettingsPtrOutput {
-	return o.ApplyT(func(v CorsSettings) *CorsSettings {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v CorsSettings) *CorsSettings {
 		return &v
 	}).(CorsSettingsPtrOutput)
 }
 
-// Gets or sets the list of origins that should be allowed to make cross-origin
-// calls (for example: http://example.com:12345). Use "*" to allow all.
 func (o CorsSettingsOutput) AllowedOrigins() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v CorsSettings) []string { return v.AllowedOrigins }).(pulumi.StringArrayOutput)
 }
 
-// Gets or sets whether CORS requests with credentials are allowed. See
-// https://developer.mozilla.org/en-US/docs/Web/HTTP/CORS#Requests_with_credentials
-// for more details.
 func (o CorsSettingsOutput) SupportCredentials() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v CorsSettings) *bool { return v.SupportCredentials }).(pulumi.BoolPtrOutput)
 }
@@ -5702,11 +5197,15 @@ func (o CorsSettingsPtrOutput) ToCorsSettingsPtrOutputWithContext(ctx context.Co
 }
 
 func (o CorsSettingsPtrOutput) Elem() CorsSettingsOutput {
-	return o.ApplyT(func(v *CorsSettings) CorsSettings { return *v }).(CorsSettingsOutput)
+	return o.ApplyT(func(v *CorsSettings) CorsSettings {
+		if v != nil {
+			return *v
+		}
+		var ret CorsSettings
+		return ret
+	}).(CorsSettingsOutput)
 }
 
-// Gets or sets the list of origins that should be allowed to make cross-origin
-// calls (for example: http://example.com:12345). Use "*" to allow all.
 func (o CorsSettingsPtrOutput) AllowedOrigins() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *CorsSettings) []string {
 		if v == nil {
@@ -5716,9 +5215,6 @@ func (o CorsSettingsPtrOutput) AllowedOrigins() pulumi.StringArrayOutput {
 	}).(pulumi.StringArrayOutput)
 }
 
-// Gets or sets whether CORS requests with credentials are allowed. See
-// https://developer.mozilla.org/en-US/docs/Web/HTTP/CORS#Requests_with_credentials
-// for more details.
 func (o CorsSettingsPtrOutput) SupportCredentials() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *CorsSettings) *bool {
 		if v == nil {
@@ -5728,15 +5224,9 @@ func (o CorsSettingsPtrOutput) SupportCredentials() pulumi.BoolPtrOutput {
 	}).(pulumi.BoolPtrOutput)
 }
 
-// Cross-Origin Resource Sharing (CORS) settings for the app.
 type CorsSettingsResponse struct {
-	// Gets or sets the list of origins that should be allowed to make cross-origin
-	// calls (for example: http://example.com:12345). Use "*" to allow all.
-	AllowedOrigins []string `pulumi:"allowedOrigins"`
-	// Gets or sets whether CORS requests with credentials are allowed. See
-	// https://developer.mozilla.org/en-US/docs/Web/HTTP/CORS#Requests_with_credentials
-	// for more details.
-	SupportCredentials *bool `pulumi:"supportCredentials"`
+	AllowedOrigins     []string `pulumi:"allowedOrigins"`
+	SupportCredentials *bool    `pulumi:"supportCredentials"`
 }
 
 // CorsSettingsResponseInput is an input type that accepts CorsSettingsResponseArgs and CorsSettingsResponseOutput values.
@@ -5750,15 +5240,9 @@ type CorsSettingsResponseInput interface {
 	ToCorsSettingsResponseOutputWithContext(context.Context) CorsSettingsResponseOutput
 }
 
-// Cross-Origin Resource Sharing (CORS) settings for the app.
 type CorsSettingsResponseArgs struct {
-	// Gets or sets the list of origins that should be allowed to make cross-origin
-	// calls (for example: http://example.com:12345). Use "*" to allow all.
-	AllowedOrigins pulumi.StringArrayInput `pulumi:"allowedOrigins"`
-	// Gets or sets whether CORS requests with credentials are allowed. See
-	// https://developer.mozilla.org/en-US/docs/Web/HTTP/CORS#Requests_with_credentials
-	// for more details.
-	SupportCredentials pulumi.BoolPtrInput `pulumi:"supportCredentials"`
+	AllowedOrigins     pulumi.StringArrayInput `pulumi:"allowedOrigins"`
+	SupportCredentials pulumi.BoolPtrInput     `pulumi:"supportCredentials"`
 }
 
 func (CorsSettingsResponseArgs) ElementType() reflect.Type {
@@ -5814,7 +5298,6 @@ func (i *corsSettingsResponsePtrType) ToCorsSettingsResponsePtrOutputWithContext
 	return pulumi.ToOutputWithContext(ctx, i).(CorsSettingsResponsePtrOutput)
 }
 
-// Cross-Origin Resource Sharing (CORS) settings for the app.
 type CorsSettingsResponseOutput struct{ *pulumi.OutputState }
 
 func (CorsSettingsResponseOutput) ElementType() reflect.Type {
@@ -5834,20 +5317,15 @@ func (o CorsSettingsResponseOutput) ToCorsSettingsResponsePtrOutput() CorsSettin
 }
 
 func (o CorsSettingsResponseOutput) ToCorsSettingsResponsePtrOutputWithContext(ctx context.Context) CorsSettingsResponsePtrOutput {
-	return o.ApplyT(func(v CorsSettingsResponse) *CorsSettingsResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v CorsSettingsResponse) *CorsSettingsResponse {
 		return &v
 	}).(CorsSettingsResponsePtrOutput)
 }
 
-// Gets or sets the list of origins that should be allowed to make cross-origin
-// calls (for example: http://example.com:12345). Use "*" to allow all.
 func (o CorsSettingsResponseOutput) AllowedOrigins() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v CorsSettingsResponse) []string { return v.AllowedOrigins }).(pulumi.StringArrayOutput)
 }
 
-// Gets or sets whether CORS requests with credentials are allowed. See
-// https://developer.mozilla.org/en-US/docs/Web/HTTP/CORS#Requests_with_credentials
-// for more details.
 func (o CorsSettingsResponseOutput) SupportCredentials() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v CorsSettingsResponse) *bool { return v.SupportCredentials }).(pulumi.BoolPtrOutput)
 }
@@ -5867,11 +5345,15 @@ func (o CorsSettingsResponsePtrOutput) ToCorsSettingsResponsePtrOutputWithContex
 }
 
 func (o CorsSettingsResponsePtrOutput) Elem() CorsSettingsResponseOutput {
-	return o.ApplyT(func(v *CorsSettingsResponse) CorsSettingsResponse { return *v }).(CorsSettingsResponseOutput)
+	return o.ApplyT(func(v *CorsSettingsResponse) CorsSettingsResponse {
+		if v != nil {
+			return *v
+		}
+		var ret CorsSettingsResponse
+		return ret
+	}).(CorsSettingsResponseOutput)
 }
 
-// Gets or sets the list of origins that should be allowed to make cross-origin
-// calls (for example: http://example.com:12345). Use "*" to allow all.
 func (o CorsSettingsResponsePtrOutput) AllowedOrigins() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *CorsSettingsResponse) []string {
 		if v == nil {
@@ -5881,9 +5363,6 @@ func (o CorsSettingsResponsePtrOutput) AllowedOrigins() pulumi.StringArrayOutput
 	}).(pulumi.StringArrayOutput)
 }
 
-// Gets or sets whether CORS requests with credentials are allowed. See
-// https://developer.mozilla.org/en-US/docs/Web/HTTP/CORS#Requests_with_credentials
-// for more details.
 func (o CorsSettingsResponsePtrOutput) SupportCredentials() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *CorsSettingsResponse) *bool {
 		if v == nil {
@@ -5893,16 +5372,11 @@ func (o CorsSettingsResponsePtrOutput) SupportCredentials() pulumi.BoolPtrOutput
 	}).(pulumi.BoolPtrOutput)
 }
 
-// Database backup settings.
 type DatabaseBackupSetting struct {
-	// Contains a connection string to a database which is being backed up or restored. If the restore should happen to a new database, the database name inside is the new one.
-	ConnectionString *string `pulumi:"connectionString"`
-	// Contains a connection string name that is linked to the SiteConfig.ConnectionStrings.
-	// This is used during restore with overwrite connection strings options.
+	ConnectionString     *string `pulumi:"connectionString"`
 	ConnectionStringName *string `pulumi:"connectionStringName"`
-	// Database type (e.g. SqlAzure / MySql).
-	DatabaseType string  `pulumi:"databaseType"`
-	Name         *string `pulumi:"name"`
+	DatabaseType         string  `pulumi:"databaseType"`
+	Name                 *string `pulumi:"name"`
 }
 
 // DatabaseBackupSettingInput is an input type that accepts DatabaseBackupSettingArgs and DatabaseBackupSettingOutput values.
@@ -5916,16 +5390,11 @@ type DatabaseBackupSettingInput interface {
 	ToDatabaseBackupSettingOutputWithContext(context.Context) DatabaseBackupSettingOutput
 }
 
-// Database backup settings.
 type DatabaseBackupSettingArgs struct {
-	// Contains a connection string to a database which is being backed up or restored. If the restore should happen to a new database, the database name inside is the new one.
-	ConnectionString pulumi.StringPtrInput `pulumi:"connectionString"`
-	// Contains a connection string name that is linked to the SiteConfig.ConnectionStrings.
-	// This is used during restore with overwrite connection strings options.
+	ConnectionString     pulumi.StringPtrInput `pulumi:"connectionString"`
 	ConnectionStringName pulumi.StringPtrInput `pulumi:"connectionStringName"`
-	// Database type (e.g. SqlAzure / MySql).
-	DatabaseType pulumi.StringInput    `pulumi:"databaseType"`
-	Name         pulumi.StringPtrInput `pulumi:"name"`
+	DatabaseType         pulumi.StringInput    `pulumi:"databaseType"`
+	Name                 pulumi.StringPtrInput `pulumi:"name"`
 }
 
 func (DatabaseBackupSettingArgs) ElementType() reflect.Type {
@@ -5965,7 +5434,6 @@ func (i DatabaseBackupSettingArray) ToDatabaseBackupSettingArrayOutputWithContex
 	return pulumi.ToOutputWithContext(ctx, i).(DatabaseBackupSettingArrayOutput)
 }
 
-// Database backup settings.
 type DatabaseBackupSettingOutput struct{ *pulumi.OutputState }
 
 func (DatabaseBackupSettingOutput) ElementType() reflect.Type {
@@ -5980,18 +5448,14 @@ func (o DatabaseBackupSettingOutput) ToDatabaseBackupSettingOutputWithContext(ct
 	return o
 }
 
-// Contains a connection string to a database which is being backed up or restored. If the restore should happen to a new database, the database name inside is the new one.
 func (o DatabaseBackupSettingOutput) ConnectionString() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v DatabaseBackupSetting) *string { return v.ConnectionString }).(pulumi.StringPtrOutput)
 }
 
-// Contains a connection string name that is linked to the SiteConfig.ConnectionStrings.
-// This is used during restore with overwrite connection strings options.
 func (o DatabaseBackupSettingOutput) ConnectionStringName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v DatabaseBackupSetting) *string { return v.ConnectionStringName }).(pulumi.StringPtrOutput)
 }
 
-// Database type (e.g. SqlAzure / MySql).
 func (o DatabaseBackupSettingOutput) DatabaseType() pulumi.StringOutput {
 	return o.ApplyT(func(v DatabaseBackupSetting) string { return v.DatabaseType }).(pulumi.StringOutput)
 }
@@ -6020,16 +5484,11 @@ func (o DatabaseBackupSettingArrayOutput) Index(i pulumi.IntInput) DatabaseBacku
 	}).(DatabaseBackupSettingOutput)
 }
 
-// Database backup settings.
 type DatabaseBackupSettingResponse struct {
-	// Contains a connection string to a database which is being backed up or restored. If the restore should happen to a new database, the database name inside is the new one.
-	ConnectionString *string `pulumi:"connectionString"`
-	// Contains a connection string name that is linked to the SiteConfig.ConnectionStrings.
-	// This is used during restore with overwrite connection strings options.
+	ConnectionString     *string `pulumi:"connectionString"`
 	ConnectionStringName *string `pulumi:"connectionStringName"`
-	// Database type (e.g. SqlAzure / MySql).
-	DatabaseType string  `pulumi:"databaseType"`
-	Name         *string `pulumi:"name"`
+	DatabaseType         string  `pulumi:"databaseType"`
+	Name                 *string `pulumi:"name"`
 }
 
 // DatabaseBackupSettingResponseInput is an input type that accepts DatabaseBackupSettingResponseArgs and DatabaseBackupSettingResponseOutput values.
@@ -6043,16 +5502,11 @@ type DatabaseBackupSettingResponseInput interface {
 	ToDatabaseBackupSettingResponseOutputWithContext(context.Context) DatabaseBackupSettingResponseOutput
 }
 
-// Database backup settings.
 type DatabaseBackupSettingResponseArgs struct {
-	// Contains a connection string to a database which is being backed up or restored. If the restore should happen to a new database, the database name inside is the new one.
-	ConnectionString pulumi.StringPtrInput `pulumi:"connectionString"`
-	// Contains a connection string name that is linked to the SiteConfig.ConnectionStrings.
-	// This is used during restore with overwrite connection strings options.
+	ConnectionString     pulumi.StringPtrInput `pulumi:"connectionString"`
 	ConnectionStringName pulumi.StringPtrInput `pulumi:"connectionStringName"`
-	// Database type (e.g. SqlAzure / MySql).
-	DatabaseType pulumi.StringInput    `pulumi:"databaseType"`
-	Name         pulumi.StringPtrInput `pulumi:"name"`
+	DatabaseType         pulumi.StringInput    `pulumi:"databaseType"`
+	Name                 pulumi.StringPtrInput `pulumi:"name"`
 }
 
 func (DatabaseBackupSettingResponseArgs) ElementType() reflect.Type {
@@ -6092,7 +5546,6 @@ func (i DatabaseBackupSettingResponseArray) ToDatabaseBackupSettingResponseArray
 	return pulumi.ToOutputWithContext(ctx, i).(DatabaseBackupSettingResponseArrayOutput)
 }
 
-// Database backup settings.
 type DatabaseBackupSettingResponseOutput struct{ *pulumi.OutputState }
 
 func (DatabaseBackupSettingResponseOutput) ElementType() reflect.Type {
@@ -6107,18 +5560,14 @@ func (o DatabaseBackupSettingResponseOutput) ToDatabaseBackupSettingResponseOutp
 	return o
 }
 
-// Contains a connection string to a database which is being backed up or restored. If the restore should happen to a new database, the database name inside is the new one.
 func (o DatabaseBackupSettingResponseOutput) ConnectionString() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v DatabaseBackupSettingResponse) *string { return v.ConnectionString }).(pulumi.StringPtrOutput)
 }
 
-// Contains a connection string name that is linked to the SiteConfig.ConnectionStrings.
-// This is used during restore with overwrite connection strings options.
 func (o DatabaseBackupSettingResponseOutput) ConnectionStringName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v DatabaseBackupSettingResponse) *string { return v.ConnectionStringName }).(pulumi.StringPtrOutput)
 }
 
-// Database type (e.g. SqlAzure / MySql).
 func (o DatabaseBackupSettingResponseOutput) DatabaseType() pulumi.StringOutput {
 	return o.ApplyT(func(v DatabaseBackupSettingResponse) string { return v.DatabaseType }).(pulumi.StringOutput)
 }
@@ -6147,9 +5596,7 @@ func (o DatabaseBackupSettingResponseArrayOutput) Index(i pulumi.IntInput) Datab
 	}).(DatabaseBackupSettingResponseOutput)
 }
 
-// Enabled configuration.
 type EnabledConfig struct {
-	// True if configuration is enabled, false if it is disabled and null if configuration is not set.
 	Enabled *bool `pulumi:"enabled"`
 }
 
@@ -6164,9 +5611,7 @@ type EnabledConfigInput interface {
 	ToEnabledConfigOutputWithContext(context.Context) EnabledConfigOutput
 }
 
-// Enabled configuration.
 type EnabledConfigArgs struct {
-	// True if configuration is enabled, false if it is disabled and null if configuration is not set.
 	Enabled pulumi.BoolPtrInput `pulumi:"enabled"`
 }
 
@@ -6223,7 +5668,6 @@ func (i *enabledConfigPtrType) ToEnabledConfigPtrOutputWithContext(ctx context.C
 	return pulumi.ToOutputWithContext(ctx, i).(EnabledConfigPtrOutput)
 }
 
-// Enabled configuration.
 type EnabledConfigOutput struct{ *pulumi.OutputState }
 
 func (EnabledConfigOutput) ElementType() reflect.Type {
@@ -6243,12 +5687,11 @@ func (o EnabledConfigOutput) ToEnabledConfigPtrOutput() EnabledConfigPtrOutput {
 }
 
 func (o EnabledConfigOutput) ToEnabledConfigPtrOutputWithContext(ctx context.Context) EnabledConfigPtrOutput {
-	return o.ApplyT(func(v EnabledConfig) *EnabledConfig {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v EnabledConfig) *EnabledConfig {
 		return &v
 	}).(EnabledConfigPtrOutput)
 }
 
-// True if configuration is enabled, false if it is disabled and null if configuration is not set.
 func (o EnabledConfigOutput) Enabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v EnabledConfig) *bool { return v.Enabled }).(pulumi.BoolPtrOutput)
 }
@@ -6268,10 +5711,15 @@ func (o EnabledConfigPtrOutput) ToEnabledConfigPtrOutputWithContext(ctx context.
 }
 
 func (o EnabledConfigPtrOutput) Elem() EnabledConfigOutput {
-	return o.ApplyT(func(v *EnabledConfig) EnabledConfig { return *v }).(EnabledConfigOutput)
+	return o.ApplyT(func(v *EnabledConfig) EnabledConfig {
+		if v != nil {
+			return *v
+		}
+		var ret EnabledConfig
+		return ret
+	}).(EnabledConfigOutput)
 }
 
-// True if configuration is enabled, false if it is disabled and null if configuration is not set.
 func (o EnabledConfigPtrOutput) Enabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *EnabledConfig) *bool {
 		if v == nil {
@@ -6281,9 +5729,7 @@ func (o EnabledConfigPtrOutput) Enabled() pulumi.BoolPtrOutput {
 	}).(pulumi.BoolPtrOutput)
 }
 
-// Enabled configuration.
 type EnabledConfigResponse struct {
-	// True if configuration is enabled, false if it is disabled and null if configuration is not set.
 	Enabled *bool `pulumi:"enabled"`
 }
 
@@ -6298,9 +5744,7 @@ type EnabledConfigResponseInput interface {
 	ToEnabledConfigResponseOutputWithContext(context.Context) EnabledConfigResponseOutput
 }
 
-// Enabled configuration.
 type EnabledConfigResponseArgs struct {
-	// True if configuration is enabled, false if it is disabled and null if configuration is not set.
 	Enabled pulumi.BoolPtrInput `pulumi:"enabled"`
 }
 
@@ -6357,7 +5801,6 @@ func (i *enabledConfigResponsePtrType) ToEnabledConfigResponsePtrOutputWithConte
 	return pulumi.ToOutputWithContext(ctx, i).(EnabledConfigResponsePtrOutput)
 }
 
-// Enabled configuration.
 type EnabledConfigResponseOutput struct{ *pulumi.OutputState }
 
 func (EnabledConfigResponseOutput) ElementType() reflect.Type {
@@ -6377,12 +5820,11 @@ func (o EnabledConfigResponseOutput) ToEnabledConfigResponsePtrOutput() EnabledC
 }
 
 func (o EnabledConfigResponseOutput) ToEnabledConfigResponsePtrOutputWithContext(ctx context.Context) EnabledConfigResponsePtrOutput {
-	return o.ApplyT(func(v EnabledConfigResponse) *EnabledConfigResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v EnabledConfigResponse) *EnabledConfigResponse {
 		return &v
 	}).(EnabledConfigResponsePtrOutput)
 }
 
-// True if configuration is enabled, false if it is disabled and null if configuration is not set.
 func (o EnabledConfigResponseOutput) Enabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v EnabledConfigResponse) *bool { return v.Enabled }).(pulumi.BoolPtrOutput)
 }
@@ -6402,10 +5844,15 @@ func (o EnabledConfigResponsePtrOutput) ToEnabledConfigResponsePtrOutputWithCont
 }
 
 func (o EnabledConfigResponsePtrOutput) Elem() EnabledConfigResponseOutput {
-	return o.ApplyT(func(v *EnabledConfigResponse) EnabledConfigResponse { return *v }).(EnabledConfigResponseOutput)
+	return o.ApplyT(func(v *EnabledConfigResponse) EnabledConfigResponse {
+		if v != nil {
+			return *v
+		}
+		var ret EnabledConfigResponse
+		return ret
+	}).(EnabledConfigResponseOutput)
 }
 
-// True if configuration is enabled, false if it is disabled and null if configuration is not set.
 func (o EnabledConfigResponsePtrOutput) Enabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *EnabledConfigResponse) *bool {
 		if v == nil {
@@ -6415,9 +5862,7 @@ func (o EnabledConfigResponsePtrOutput) Enabled() pulumi.BoolPtrOutput {
 	}).(pulumi.BoolPtrOutput)
 }
 
-// Routing rules in production experiments.
 type Experiments struct {
-	// List of ramp-up rules.
 	RampUpRules []RampUpRule `pulumi:"rampUpRules"`
 }
 
@@ -6432,9 +5877,7 @@ type ExperimentsInput interface {
 	ToExperimentsOutputWithContext(context.Context) ExperimentsOutput
 }
 
-// Routing rules in production experiments.
 type ExperimentsArgs struct {
-	// List of ramp-up rules.
 	RampUpRules RampUpRuleArrayInput `pulumi:"rampUpRules"`
 }
 
@@ -6491,7 +5934,6 @@ func (i *experimentsPtrType) ToExperimentsPtrOutputWithContext(ctx context.Conte
 	return pulumi.ToOutputWithContext(ctx, i).(ExperimentsPtrOutput)
 }
 
-// Routing rules in production experiments.
 type ExperimentsOutput struct{ *pulumi.OutputState }
 
 func (ExperimentsOutput) ElementType() reflect.Type {
@@ -6511,12 +5953,11 @@ func (o ExperimentsOutput) ToExperimentsPtrOutput() ExperimentsPtrOutput {
 }
 
 func (o ExperimentsOutput) ToExperimentsPtrOutputWithContext(ctx context.Context) ExperimentsPtrOutput {
-	return o.ApplyT(func(v Experiments) *Experiments {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v Experiments) *Experiments {
 		return &v
 	}).(ExperimentsPtrOutput)
 }
 
-// List of ramp-up rules.
 func (o ExperimentsOutput) RampUpRules() RampUpRuleArrayOutput {
 	return o.ApplyT(func(v Experiments) []RampUpRule { return v.RampUpRules }).(RampUpRuleArrayOutput)
 }
@@ -6536,10 +5977,15 @@ func (o ExperimentsPtrOutput) ToExperimentsPtrOutputWithContext(ctx context.Cont
 }
 
 func (o ExperimentsPtrOutput) Elem() ExperimentsOutput {
-	return o.ApplyT(func(v *Experiments) Experiments { return *v }).(ExperimentsOutput)
+	return o.ApplyT(func(v *Experiments) Experiments {
+		if v != nil {
+			return *v
+		}
+		var ret Experiments
+		return ret
+	}).(ExperimentsOutput)
 }
 
-// List of ramp-up rules.
 func (o ExperimentsPtrOutput) RampUpRules() RampUpRuleArrayOutput {
 	return o.ApplyT(func(v *Experiments) []RampUpRule {
 		if v == nil {
@@ -6549,9 +5995,7 @@ func (o ExperimentsPtrOutput) RampUpRules() RampUpRuleArrayOutput {
 	}).(RampUpRuleArrayOutput)
 }
 
-// Routing rules in production experiments.
 type ExperimentsResponse struct {
-	// List of ramp-up rules.
 	RampUpRules []RampUpRuleResponse `pulumi:"rampUpRules"`
 }
 
@@ -6566,9 +6010,7 @@ type ExperimentsResponseInput interface {
 	ToExperimentsResponseOutputWithContext(context.Context) ExperimentsResponseOutput
 }
 
-// Routing rules in production experiments.
 type ExperimentsResponseArgs struct {
-	// List of ramp-up rules.
 	RampUpRules RampUpRuleResponseArrayInput `pulumi:"rampUpRules"`
 }
 
@@ -6625,7 +6067,6 @@ func (i *experimentsResponsePtrType) ToExperimentsResponsePtrOutputWithContext(c
 	return pulumi.ToOutputWithContext(ctx, i).(ExperimentsResponsePtrOutput)
 }
 
-// Routing rules in production experiments.
 type ExperimentsResponseOutput struct{ *pulumi.OutputState }
 
 func (ExperimentsResponseOutput) ElementType() reflect.Type {
@@ -6645,12 +6086,11 @@ func (o ExperimentsResponseOutput) ToExperimentsResponsePtrOutput() ExperimentsR
 }
 
 func (o ExperimentsResponseOutput) ToExperimentsResponsePtrOutputWithContext(ctx context.Context) ExperimentsResponsePtrOutput {
-	return o.ApplyT(func(v ExperimentsResponse) *ExperimentsResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ExperimentsResponse) *ExperimentsResponse {
 		return &v
 	}).(ExperimentsResponsePtrOutput)
 }
 
-// List of ramp-up rules.
 func (o ExperimentsResponseOutput) RampUpRules() RampUpRuleResponseArrayOutput {
 	return o.ApplyT(func(v ExperimentsResponse) []RampUpRuleResponse { return v.RampUpRules }).(RampUpRuleResponseArrayOutput)
 }
@@ -6670,10 +6110,15 @@ func (o ExperimentsResponsePtrOutput) ToExperimentsResponsePtrOutputWithContext(
 }
 
 func (o ExperimentsResponsePtrOutput) Elem() ExperimentsResponseOutput {
-	return o.ApplyT(func(v *ExperimentsResponse) ExperimentsResponse { return *v }).(ExperimentsResponseOutput)
+	return o.ApplyT(func(v *ExperimentsResponse) ExperimentsResponse {
+		if v != nil {
+			return *v
+		}
+		var ret ExperimentsResponse
+		return ret
+	}).(ExperimentsResponseOutput)
 }
 
-// List of ramp-up rules.
 func (o ExperimentsResponsePtrOutput) RampUpRules() RampUpRuleResponseArrayOutput {
 	return o.ApplyT(func(v *ExperimentsResponse) []RampUpRuleResponse {
 		if v == nil {
@@ -6683,10 +6128,8 @@ func (o ExperimentsResponsePtrOutput) RampUpRules() RampUpRuleResponseArrayOutpu
 	}).(RampUpRuleResponseArrayOutput)
 }
 
-// Application logs to file system configuration.
 type FileSystemApplicationLogsConfig struct {
-	// Log level.
-	Level *string `pulumi:"level"`
+	Level *LogLevel `pulumi:"level"`
 }
 
 // FileSystemApplicationLogsConfigInput is an input type that accepts FileSystemApplicationLogsConfigArgs and FileSystemApplicationLogsConfigOutput values.
@@ -6700,10 +6143,8 @@ type FileSystemApplicationLogsConfigInput interface {
 	ToFileSystemApplicationLogsConfigOutputWithContext(context.Context) FileSystemApplicationLogsConfigOutput
 }
 
-// Application logs to file system configuration.
 type FileSystemApplicationLogsConfigArgs struct {
-	// Log level.
-	Level *LogLevel `pulumi:"level"`
+	Level LogLevelPtrInput `pulumi:"level"`
 }
 
 func (FileSystemApplicationLogsConfigArgs) ElementType() reflect.Type {
@@ -6759,7 +6200,6 @@ func (i *fileSystemApplicationLogsConfigPtrType) ToFileSystemApplicationLogsConf
 	return pulumi.ToOutputWithContext(ctx, i).(FileSystemApplicationLogsConfigPtrOutput)
 }
 
-// Application logs to file system configuration.
 type FileSystemApplicationLogsConfigOutput struct{ *pulumi.OutputState }
 
 func (FileSystemApplicationLogsConfigOutput) ElementType() reflect.Type {
@@ -6779,14 +6219,13 @@ func (o FileSystemApplicationLogsConfigOutput) ToFileSystemApplicationLogsConfig
 }
 
 func (o FileSystemApplicationLogsConfigOutput) ToFileSystemApplicationLogsConfigPtrOutputWithContext(ctx context.Context) FileSystemApplicationLogsConfigPtrOutput {
-	return o.ApplyT(func(v FileSystemApplicationLogsConfig) *FileSystemApplicationLogsConfig {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v FileSystemApplicationLogsConfig) *FileSystemApplicationLogsConfig {
 		return &v
 	}).(FileSystemApplicationLogsConfigPtrOutput)
 }
 
-// Log level.
-func (o FileSystemApplicationLogsConfigOutput) Level() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v FileSystemApplicationLogsConfig) *string { return v.Level }).(pulumi.StringPtrOutput)
+func (o FileSystemApplicationLogsConfigOutput) Level() LogLevelPtrOutput {
+	return o.ApplyT(func(v FileSystemApplicationLogsConfig) *LogLevel { return v.Level }).(LogLevelPtrOutput)
 }
 
 type FileSystemApplicationLogsConfigPtrOutput struct{ *pulumi.OutputState }
@@ -6804,22 +6243,25 @@ func (o FileSystemApplicationLogsConfigPtrOutput) ToFileSystemApplicationLogsCon
 }
 
 func (o FileSystemApplicationLogsConfigPtrOutput) Elem() FileSystemApplicationLogsConfigOutput {
-	return o.ApplyT(func(v *FileSystemApplicationLogsConfig) FileSystemApplicationLogsConfig { return *v }).(FileSystemApplicationLogsConfigOutput)
+	return o.ApplyT(func(v *FileSystemApplicationLogsConfig) FileSystemApplicationLogsConfig {
+		if v != nil {
+			return *v
+		}
+		var ret FileSystemApplicationLogsConfig
+		return ret
+	}).(FileSystemApplicationLogsConfigOutput)
 }
 
-// Log level.
-func (o FileSystemApplicationLogsConfigPtrOutput) Level() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *FileSystemApplicationLogsConfig) *string {
+func (o FileSystemApplicationLogsConfigPtrOutput) Level() LogLevelPtrOutput {
+	return o.ApplyT(func(v *FileSystemApplicationLogsConfig) *LogLevel {
 		if v == nil {
 			return nil
 		}
 		return v.Level
-	}).(pulumi.StringPtrOutput)
+	}).(LogLevelPtrOutput)
 }
 
-// Application logs to file system configuration.
 type FileSystemApplicationLogsConfigResponse struct {
-	// Log level.
 	Level *string `pulumi:"level"`
 }
 
@@ -6834,9 +6276,7 @@ type FileSystemApplicationLogsConfigResponseInput interface {
 	ToFileSystemApplicationLogsConfigResponseOutputWithContext(context.Context) FileSystemApplicationLogsConfigResponseOutput
 }
 
-// Application logs to file system configuration.
 type FileSystemApplicationLogsConfigResponseArgs struct {
-	// Log level.
 	Level pulumi.StringPtrInput `pulumi:"level"`
 }
 
@@ -6893,7 +6333,6 @@ func (i *fileSystemApplicationLogsConfigResponsePtrType) ToFileSystemApplication
 	return pulumi.ToOutputWithContext(ctx, i).(FileSystemApplicationLogsConfigResponsePtrOutput)
 }
 
-// Application logs to file system configuration.
 type FileSystemApplicationLogsConfigResponseOutput struct{ *pulumi.OutputState }
 
 func (FileSystemApplicationLogsConfigResponseOutput) ElementType() reflect.Type {
@@ -6913,12 +6352,11 @@ func (o FileSystemApplicationLogsConfigResponseOutput) ToFileSystemApplicationLo
 }
 
 func (o FileSystemApplicationLogsConfigResponseOutput) ToFileSystemApplicationLogsConfigResponsePtrOutputWithContext(ctx context.Context) FileSystemApplicationLogsConfigResponsePtrOutput {
-	return o.ApplyT(func(v FileSystemApplicationLogsConfigResponse) *FileSystemApplicationLogsConfigResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v FileSystemApplicationLogsConfigResponse) *FileSystemApplicationLogsConfigResponse {
 		return &v
 	}).(FileSystemApplicationLogsConfigResponsePtrOutput)
 }
 
-// Log level.
 func (o FileSystemApplicationLogsConfigResponseOutput) Level() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v FileSystemApplicationLogsConfigResponse) *string { return v.Level }).(pulumi.StringPtrOutput)
 }
@@ -6938,10 +6376,15 @@ func (o FileSystemApplicationLogsConfigResponsePtrOutput) ToFileSystemApplicatio
 }
 
 func (o FileSystemApplicationLogsConfigResponsePtrOutput) Elem() FileSystemApplicationLogsConfigResponseOutput {
-	return o.ApplyT(func(v *FileSystemApplicationLogsConfigResponse) FileSystemApplicationLogsConfigResponse { return *v }).(FileSystemApplicationLogsConfigResponseOutput)
+	return o.ApplyT(func(v *FileSystemApplicationLogsConfigResponse) FileSystemApplicationLogsConfigResponse {
+		if v != nil {
+			return *v
+		}
+		var ret FileSystemApplicationLogsConfigResponse
+		return ret
+	}).(FileSystemApplicationLogsConfigResponseOutput)
 }
 
-// Log level.
 func (o FileSystemApplicationLogsConfigResponsePtrOutput) Level() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *FileSystemApplicationLogsConfigResponse) *string {
 		if v == nil {
@@ -6951,18 +6394,10 @@ func (o FileSystemApplicationLogsConfigResponsePtrOutput) Level() pulumi.StringP
 	}).(pulumi.StringPtrOutput)
 }
 
-// Http logs to file system configuration.
 type FileSystemHttpLogsConfig struct {
-	// True if configuration is enabled, false if it is disabled and null if configuration is not set.
-	Enabled *bool `pulumi:"enabled"`
-	// Retention in days.
-	// Remove files older than X days.
-	// 0 or lower means no retention.
-	RetentionInDays *int `pulumi:"retentionInDays"`
-	// Maximum size in megabytes that http log files can use.
-	// When reached old log files will be removed to make space for new ones.
-	// Value can range between 25 and 100.
-	RetentionInMb *int `pulumi:"retentionInMb"`
+	Enabled         *bool `pulumi:"enabled"`
+	RetentionInDays *int  `pulumi:"retentionInDays"`
+	RetentionInMb   *int  `pulumi:"retentionInMb"`
 }
 
 // FileSystemHttpLogsConfigInput is an input type that accepts FileSystemHttpLogsConfigArgs and FileSystemHttpLogsConfigOutput values.
@@ -6976,18 +6411,10 @@ type FileSystemHttpLogsConfigInput interface {
 	ToFileSystemHttpLogsConfigOutputWithContext(context.Context) FileSystemHttpLogsConfigOutput
 }
 
-// Http logs to file system configuration.
 type FileSystemHttpLogsConfigArgs struct {
-	// True if configuration is enabled, false if it is disabled and null if configuration is not set.
-	Enabled pulumi.BoolPtrInput `pulumi:"enabled"`
-	// Retention in days.
-	// Remove files older than X days.
-	// 0 or lower means no retention.
-	RetentionInDays pulumi.IntPtrInput `pulumi:"retentionInDays"`
-	// Maximum size in megabytes that http log files can use.
-	// When reached old log files will be removed to make space for new ones.
-	// Value can range between 25 and 100.
-	RetentionInMb pulumi.IntPtrInput `pulumi:"retentionInMb"`
+	Enabled         pulumi.BoolPtrInput `pulumi:"enabled"`
+	RetentionInDays pulumi.IntPtrInput  `pulumi:"retentionInDays"`
+	RetentionInMb   pulumi.IntPtrInput  `pulumi:"retentionInMb"`
 }
 
 func (FileSystemHttpLogsConfigArgs) ElementType() reflect.Type {
@@ -7043,7 +6470,6 @@ func (i *fileSystemHttpLogsConfigPtrType) ToFileSystemHttpLogsConfigPtrOutputWit
 	return pulumi.ToOutputWithContext(ctx, i).(FileSystemHttpLogsConfigPtrOutput)
 }
 
-// Http logs to file system configuration.
 type FileSystemHttpLogsConfigOutput struct{ *pulumi.OutputState }
 
 func (FileSystemHttpLogsConfigOutput) ElementType() reflect.Type {
@@ -7063,26 +6489,19 @@ func (o FileSystemHttpLogsConfigOutput) ToFileSystemHttpLogsConfigPtrOutput() Fi
 }
 
 func (o FileSystemHttpLogsConfigOutput) ToFileSystemHttpLogsConfigPtrOutputWithContext(ctx context.Context) FileSystemHttpLogsConfigPtrOutput {
-	return o.ApplyT(func(v FileSystemHttpLogsConfig) *FileSystemHttpLogsConfig {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v FileSystemHttpLogsConfig) *FileSystemHttpLogsConfig {
 		return &v
 	}).(FileSystemHttpLogsConfigPtrOutput)
 }
 
-// True if configuration is enabled, false if it is disabled and null if configuration is not set.
 func (o FileSystemHttpLogsConfigOutput) Enabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v FileSystemHttpLogsConfig) *bool { return v.Enabled }).(pulumi.BoolPtrOutput)
 }
 
-// Retention in days.
-// Remove files older than X days.
-// 0 or lower means no retention.
 func (o FileSystemHttpLogsConfigOutput) RetentionInDays() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v FileSystemHttpLogsConfig) *int { return v.RetentionInDays }).(pulumi.IntPtrOutput)
 }
 
-// Maximum size in megabytes that http log files can use.
-// When reached old log files will be removed to make space for new ones.
-// Value can range between 25 and 100.
 func (o FileSystemHttpLogsConfigOutput) RetentionInMb() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v FileSystemHttpLogsConfig) *int { return v.RetentionInMb }).(pulumi.IntPtrOutput)
 }
@@ -7102,10 +6521,15 @@ func (o FileSystemHttpLogsConfigPtrOutput) ToFileSystemHttpLogsConfigPtrOutputWi
 }
 
 func (o FileSystemHttpLogsConfigPtrOutput) Elem() FileSystemHttpLogsConfigOutput {
-	return o.ApplyT(func(v *FileSystemHttpLogsConfig) FileSystemHttpLogsConfig { return *v }).(FileSystemHttpLogsConfigOutput)
+	return o.ApplyT(func(v *FileSystemHttpLogsConfig) FileSystemHttpLogsConfig {
+		if v != nil {
+			return *v
+		}
+		var ret FileSystemHttpLogsConfig
+		return ret
+	}).(FileSystemHttpLogsConfigOutput)
 }
 
-// True if configuration is enabled, false if it is disabled and null if configuration is not set.
 func (o FileSystemHttpLogsConfigPtrOutput) Enabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *FileSystemHttpLogsConfig) *bool {
 		if v == nil {
@@ -7115,9 +6539,6 @@ func (o FileSystemHttpLogsConfigPtrOutput) Enabled() pulumi.BoolPtrOutput {
 	}).(pulumi.BoolPtrOutput)
 }
 
-// Retention in days.
-// Remove files older than X days.
-// 0 or lower means no retention.
 func (o FileSystemHttpLogsConfigPtrOutput) RetentionInDays() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *FileSystemHttpLogsConfig) *int {
 		if v == nil {
@@ -7127,9 +6548,6 @@ func (o FileSystemHttpLogsConfigPtrOutput) RetentionInDays() pulumi.IntPtrOutput
 	}).(pulumi.IntPtrOutput)
 }
 
-// Maximum size in megabytes that http log files can use.
-// When reached old log files will be removed to make space for new ones.
-// Value can range between 25 and 100.
 func (o FileSystemHttpLogsConfigPtrOutput) RetentionInMb() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *FileSystemHttpLogsConfig) *int {
 		if v == nil {
@@ -7139,18 +6557,10 @@ func (o FileSystemHttpLogsConfigPtrOutput) RetentionInMb() pulumi.IntPtrOutput {
 	}).(pulumi.IntPtrOutput)
 }
 
-// Http logs to file system configuration.
 type FileSystemHttpLogsConfigResponse struct {
-	// True if configuration is enabled, false if it is disabled and null if configuration is not set.
-	Enabled *bool `pulumi:"enabled"`
-	// Retention in days.
-	// Remove files older than X days.
-	// 0 or lower means no retention.
-	RetentionInDays *int `pulumi:"retentionInDays"`
-	// Maximum size in megabytes that http log files can use.
-	// When reached old log files will be removed to make space for new ones.
-	// Value can range between 25 and 100.
-	RetentionInMb *int `pulumi:"retentionInMb"`
+	Enabled         *bool `pulumi:"enabled"`
+	RetentionInDays *int  `pulumi:"retentionInDays"`
+	RetentionInMb   *int  `pulumi:"retentionInMb"`
 }
 
 // FileSystemHttpLogsConfigResponseInput is an input type that accepts FileSystemHttpLogsConfigResponseArgs and FileSystemHttpLogsConfigResponseOutput values.
@@ -7164,18 +6574,10 @@ type FileSystemHttpLogsConfigResponseInput interface {
 	ToFileSystemHttpLogsConfigResponseOutputWithContext(context.Context) FileSystemHttpLogsConfigResponseOutput
 }
 
-// Http logs to file system configuration.
 type FileSystemHttpLogsConfigResponseArgs struct {
-	// True if configuration is enabled, false if it is disabled and null if configuration is not set.
-	Enabled pulumi.BoolPtrInput `pulumi:"enabled"`
-	// Retention in days.
-	// Remove files older than X days.
-	// 0 or lower means no retention.
-	RetentionInDays pulumi.IntPtrInput `pulumi:"retentionInDays"`
-	// Maximum size in megabytes that http log files can use.
-	// When reached old log files will be removed to make space for new ones.
-	// Value can range between 25 and 100.
-	RetentionInMb pulumi.IntPtrInput `pulumi:"retentionInMb"`
+	Enabled         pulumi.BoolPtrInput `pulumi:"enabled"`
+	RetentionInDays pulumi.IntPtrInput  `pulumi:"retentionInDays"`
+	RetentionInMb   pulumi.IntPtrInput  `pulumi:"retentionInMb"`
 }
 
 func (FileSystemHttpLogsConfigResponseArgs) ElementType() reflect.Type {
@@ -7231,7 +6633,6 @@ func (i *fileSystemHttpLogsConfigResponsePtrType) ToFileSystemHttpLogsConfigResp
 	return pulumi.ToOutputWithContext(ctx, i).(FileSystemHttpLogsConfigResponsePtrOutput)
 }
 
-// Http logs to file system configuration.
 type FileSystemHttpLogsConfigResponseOutput struct{ *pulumi.OutputState }
 
 func (FileSystemHttpLogsConfigResponseOutput) ElementType() reflect.Type {
@@ -7251,26 +6652,19 @@ func (o FileSystemHttpLogsConfigResponseOutput) ToFileSystemHttpLogsConfigRespon
 }
 
 func (o FileSystemHttpLogsConfigResponseOutput) ToFileSystemHttpLogsConfigResponsePtrOutputWithContext(ctx context.Context) FileSystemHttpLogsConfigResponsePtrOutput {
-	return o.ApplyT(func(v FileSystemHttpLogsConfigResponse) *FileSystemHttpLogsConfigResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v FileSystemHttpLogsConfigResponse) *FileSystemHttpLogsConfigResponse {
 		return &v
 	}).(FileSystemHttpLogsConfigResponsePtrOutput)
 }
 
-// True if configuration is enabled, false if it is disabled and null if configuration is not set.
 func (o FileSystemHttpLogsConfigResponseOutput) Enabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v FileSystemHttpLogsConfigResponse) *bool { return v.Enabled }).(pulumi.BoolPtrOutput)
 }
 
-// Retention in days.
-// Remove files older than X days.
-// 0 or lower means no retention.
 func (o FileSystemHttpLogsConfigResponseOutput) RetentionInDays() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v FileSystemHttpLogsConfigResponse) *int { return v.RetentionInDays }).(pulumi.IntPtrOutput)
 }
 
-// Maximum size in megabytes that http log files can use.
-// When reached old log files will be removed to make space for new ones.
-// Value can range between 25 and 100.
 func (o FileSystemHttpLogsConfigResponseOutput) RetentionInMb() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v FileSystemHttpLogsConfigResponse) *int { return v.RetentionInMb }).(pulumi.IntPtrOutput)
 }
@@ -7290,10 +6684,15 @@ func (o FileSystemHttpLogsConfigResponsePtrOutput) ToFileSystemHttpLogsConfigRes
 }
 
 func (o FileSystemHttpLogsConfigResponsePtrOutput) Elem() FileSystemHttpLogsConfigResponseOutput {
-	return o.ApplyT(func(v *FileSystemHttpLogsConfigResponse) FileSystemHttpLogsConfigResponse { return *v }).(FileSystemHttpLogsConfigResponseOutput)
+	return o.ApplyT(func(v *FileSystemHttpLogsConfigResponse) FileSystemHttpLogsConfigResponse {
+		if v != nil {
+			return *v
+		}
+		var ret FileSystemHttpLogsConfigResponse
+		return ret
+	}).(FileSystemHttpLogsConfigResponseOutput)
 }
 
-// True if configuration is enabled, false if it is disabled and null if configuration is not set.
 func (o FileSystemHttpLogsConfigResponsePtrOutput) Enabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *FileSystemHttpLogsConfigResponse) *bool {
 		if v == nil {
@@ -7303,9 +6702,6 @@ func (o FileSystemHttpLogsConfigResponsePtrOutput) Enabled() pulumi.BoolPtrOutpu
 	}).(pulumi.BoolPtrOutput)
 }
 
-// Retention in days.
-// Remove files older than X days.
-// 0 or lower means no retention.
 func (o FileSystemHttpLogsConfigResponsePtrOutput) RetentionInDays() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *FileSystemHttpLogsConfigResponse) *int {
 		if v == nil {
@@ -7315,9 +6711,6 @@ func (o FileSystemHttpLogsConfigResponsePtrOutput) RetentionInDays() pulumi.IntP
 	}).(pulumi.IntPtrOutput)
 }
 
-// Maximum size in megabytes that http log files can use.
-// When reached old log files will be removed to make space for new ones.
-// Value can range between 25 and 100.
 func (o FileSystemHttpLogsConfigResponsePtrOutput) RetentionInMb() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *FileSystemHttpLogsConfigResponse) *int {
 		if v == nil {
@@ -7327,14 +6720,9 @@ func (o FileSystemHttpLogsConfigResponsePtrOutput) RetentionInMb() pulumi.IntPtr
 	}).(pulumi.IntPtrOutput)
 }
 
-// The IIS handler mappings used to define which handler processes HTTP requests with certain extension.
-// For example, it is used to configure php-cgi.exe process to handle all HTTP requests with *.php extension.
 type HandlerMapping struct {
-	// Command-line arguments to be passed to the script processor.
-	Arguments *string `pulumi:"arguments"`
-	// Requests with this extension will be handled using the specified FastCGI application.
-	Extension *string `pulumi:"extension"`
-	// The absolute path to the FastCGI application.
+	Arguments       *string `pulumi:"arguments"`
+	Extension       *string `pulumi:"extension"`
 	ScriptProcessor *string `pulumi:"scriptProcessor"`
 }
 
@@ -7349,14 +6737,9 @@ type HandlerMappingInput interface {
 	ToHandlerMappingOutputWithContext(context.Context) HandlerMappingOutput
 }
 
-// The IIS handler mappings used to define which handler processes HTTP requests with certain extension.
-// For example, it is used to configure php-cgi.exe process to handle all HTTP requests with *.php extension.
 type HandlerMappingArgs struct {
-	// Command-line arguments to be passed to the script processor.
-	Arguments pulumi.StringPtrInput `pulumi:"arguments"`
-	// Requests with this extension will be handled using the specified FastCGI application.
-	Extension pulumi.StringPtrInput `pulumi:"extension"`
-	// The absolute path to the FastCGI application.
+	Arguments       pulumi.StringPtrInput `pulumi:"arguments"`
+	Extension       pulumi.StringPtrInput `pulumi:"extension"`
 	ScriptProcessor pulumi.StringPtrInput `pulumi:"scriptProcessor"`
 }
 
@@ -7397,8 +6780,6 @@ func (i HandlerMappingArray) ToHandlerMappingArrayOutputWithContext(ctx context.
 	return pulumi.ToOutputWithContext(ctx, i).(HandlerMappingArrayOutput)
 }
 
-// The IIS handler mappings used to define which handler processes HTTP requests with certain extension.
-// For example, it is used to configure php-cgi.exe process to handle all HTTP requests with *.php extension.
 type HandlerMappingOutput struct{ *pulumi.OutputState }
 
 func (HandlerMappingOutput) ElementType() reflect.Type {
@@ -7413,17 +6794,14 @@ func (o HandlerMappingOutput) ToHandlerMappingOutputWithContext(ctx context.Cont
 	return o
 }
 
-// Command-line arguments to be passed to the script processor.
 func (o HandlerMappingOutput) Arguments() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v HandlerMapping) *string { return v.Arguments }).(pulumi.StringPtrOutput)
 }
 
-// Requests with this extension will be handled using the specified FastCGI application.
 func (o HandlerMappingOutput) Extension() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v HandlerMapping) *string { return v.Extension }).(pulumi.StringPtrOutput)
 }
 
-// The absolute path to the FastCGI application.
 func (o HandlerMappingOutput) ScriptProcessor() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v HandlerMapping) *string { return v.ScriptProcessor }).(pulumi.StringPtrOutput)
 }
@@ -7448,14 +6826,9 @@ func (o HandlerMappingArrayOutput) Index(i pulumi.IntInput) HandlerMappingOutput
 	}).(HandlerMappingOutput)
 }
 
-// The IIS handler mappings used to define which handler processes HTTP requests with certain extension.
-// For example, it is used to configure php-cgi.exe process to handle all HTTP requests with *.php extension.
 type HandlerMappingResponse struct {
-	// Command-line arguments to be passed to the script processor.
-	Arguments *string `pulumi:"arguments"`
-	// Requests with this extension will be handled using the specified FastCGI application.
-	Extension *string `pulumi:"extension"`
-	// The absolute path to the FastCGI application.
+	Arguments       *string `pulumi:"arguments"`
+	Extension       *string `pulumi:"extension"`
 	ScriptProcessor *string `pulumi:"scriptProcessor"`
 }
 
@@ -7470,14 +6843,9 @@ type HandlerMappingResponseInput interface {
 	ToHandlerMappingResponseOutputWithContext(context.Context) HandlerMappingResponseOutput
 }
 
-// The IIS handler mappings used to define which handler processes HTTP requests with certain extension.
-// For example, it is used to configure php-cgi.exe process to handle all HTTP requests with *.php extension.
 type HandlerMappingResponseArgs struct {
-	// Command-line arguments to be passed to the script processor.
-	Arguments pulumi.StringPtrInput `pulumi:"arguments"`
-	// Requests with this extension will be handled using the specified FastCGI application.
-	Extension pulumi.StringPtrInput `pulumi:"extension"`
-	// The absolute path to the FastCGI application.
+	Arguments       pulumi.StringPtrInput `pulumi:"arguments"`
+	Extension       pulumi.StringPtrInput `pulumi:"extension"`
 	ScriptProcessor pulumi.StringPtrInput `pulumi:"scriptProcessor"`
 }
 
@@ -7518,8 +6886,6 @@ func (i HandlerMappingResponseArray) ToHandlerMappingResponseArrayOutputWithCont
 	return pulumi.ToOutputWithContext(ctx, i).(HandlerMappingResponseArrayOutput)
 }
 
-// The IIS handler mappings used to define which handler processes HTTP requests with certain extension.
-// For example, it is used to configure php-cgi.exe process to handle all HTTP requests with *.php extension.
 type HandlerMappingResponseOutput struct{ *pulumi.OutputState }
 
 func (HandlerMappingResponseOutput) ElementType() reflect.Type {
@@ -7534,17 +6900,14 @@ func (o HandlerMappingResponseOutput) ToHandlerMappingResponseOutputWithContext(
 	return o
 }
 
-// Command-line arguments to be passed to the script processor.
 func (o HandlerMappingResponseOutput) Arguments() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v HandlerMappingResponse) *string { return v.Arguments }).(pulumi.StringPtrOutput)
 }
 
-// Requests with this extension will be handled using the specified FastCGI application.
 func (o HandlerMappingResponseOutput) Extension() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v HandlerMappingResponse) *string { return v.Extension }).(pulumi.StringPtrOutput)
 }
 
-// The absolute path to the FastCGI application.
 func (o HandlerMappingResponseOutput) ScriptProcessor() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v HandlerMappingResponse) *string { return v.ScriptProcessor }).(pulumi.StringPtrOutput)
 }
@@ -7569,20 +6932,13 @@ func (o HandlerMappingResponseArrayOutput) Index(i pulumi.IntInput) HandlerMappi
 	}).(HandlerMappingResponseOutput)
 }
 
-// SSL-enabled hostname.
 type HostNameSslState struct {
-	// Indicates whether the hostname is a standard or repository hostname.
-	HostType *string `pulumi:"hostType"`
-	// Hostname.
-	Name *string `pulumi:"name"`
-	// SSL type.
-	SslState *string `pulumi:"sslState"`
-	// SSL certificate thumbprint.
-	Thumbprint *string `pulumi:"thumbprint"`
-	// Set to <code>true</code> to update existing hostname.
-	ToUpdate *bool `pulumi:"toUpdate"`
-	// Virtual IP address assigned to the hostname if IP based SSL is enabled.
-	VirtualIP *string `pulumi:"virtualIP"`
+	HostType   *HostType `pulumi:"hostType"`
+	Name       *string   `pulumi:"name"`
+	SslState   *SslState `pulumi:"sslState"`
+	Thumbprint *string   `pulumi:"thumbprint"`
+	ToUpdate   *bool     `pulumi:"toUpdate"`
+	VirtualIP  *string   `pulumi:"virtualIP"`
 }
 
 // HostNameSslStateInput is an input type that accepts HostNameSslStateArgs and HostNameSslStateOutput values.
@@ -7596,20 +6952,13 @@ type HostNameSslStateInput interface {
 	ToHostNameSslStateOutputWithContext(context.Context) HostNameSslStateOutput
 }
 
-// SSL-enabled hostname.
 type HostNameSslStateArgs struct {
-	// Indicates whether the hostname is a standard or repository hostname.
-	HostType *HostType `pulumi:"hostType"`
-	// Hostname.
-	Name pulumi.StringPtrInput `pulumi:"name"`
-	// SSL type.
-	SslState *SslState `pulumi:"sslState"`
-	// SSL certificate thumbprint.
+	HostType   HostTypePtrInput      `pulumi:"hostType"`
+	Name       pulumi.StringPtrInput `pulumi:"name"`
+	SslState   SslStatePtrInput      `pulumi:"sslState"`
 	Thumbprint pulumi.StringPtrInput `pulumi:"thumbprint"`
-	// Set to <code>true</code> to update existing hostname.
-	ToUpdate pulumi.BoolPtrInput `pulumi:"toUpdate"`
-	// Virtual IP address assigned to the hostname if IP based SSL is enabled.
-	VirtualIP pulumi.StringPtrInput `pulumi:"virtualIP"`
+	ToUpdate   pulumi.BoolPtrInput   `pulumi:"toUpdate"`
+	VirtualIP  pulumi.StringPtrInput `pulumi:"virtualIP"`
 }
 
 func (HostNameSslStateArgs) ElementType() reflect.Type {
@@ -7649,7 +6998,6 @@ func (i HostNameSslStateArray) ToHostNameSslStateArrayOutputWithContext(ctx cont
 	return pulumi.ToOutputWithContext(ctx, i).(HostNameSslStateArrayOutput)
 }
 
-// SSL-enabled hostname.
 type HostNameSslStateOutput struct{ *pulumi.OutputState }
 
 func (HostNameSslStateOutput) ElementType() reflect.Type {
@@ -7664,32 +7012,26 @@ func (o HostNameSslStateOutput) ToHostNameSslStateOutputWithContext(ctx context.
 	return o
 }
 
-// Indicates whether the hostname is a standard or repository hostname.
-func (o HostNameSslStateOutput) HostType() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v HostNameSslState) *string { return v.HostType }).(pulumi.StringPtrOutput)
+func (o HostNameSslStateOutput) HostType() HostTypePtrOutput {
+	return o.ApplyT(func(v HostNameSslState) *HostType { return v.HostType }).(HostTypePtrOutput)
 }
 
-// Hostname.
 func (o HostNameSslStateOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v HostNameSslState) *string { return v.Name }).(pulumi.StringPtrOutput)
 }
 
-// SSL type.
-func (o HostNameSslStateOutput) SslState() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v HostNameSslState) *string { return v.SslState }).(pulumi.StringPtrOutput)
+func (o HostNameSslStateOutput) SslState() SslStatePtrOutput {
+	return o.ApplyT(func(v HostNameSslState) *SslState { return v.SslState }).(SslStatePtrOutput)
 }
 
-// SSL certificate thumbprint.
 func (o HostNameSslStateOutput) Thumbprint() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v HostNameSslState) *string { return v.Thumbprint }).(pulumi.StringPtrOutput)
 }
 
-// Set to <code>true</code> to update existing hostname.
 func (o HostNameSslStateOutput) ToUpdate() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v HostNameSslState) *bool { return v.ToUpdate }).(pulumi.BoolPtrOutput)
 }
 
-// Virtual IP address assigned to the hostname if IP based SSL is enabled.
 func (o HostNameSslStateOutput) VirtualIP() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v HostNameSslState) *string { return v.VirtualIP }).(pulumi.StringPtrOutput)
 }
@@ -7714,20 +7056,13 @@ func (o HostNameSslStateArrayOutput) Index(i pulumi.IntInput) HostNameSslStateOu
 	}).(HostNameSslStateOutput)
 }
 
-// SSL-enabled hostname.
 type HostNameSslStateResponse struct {
-	// Indicates whether the hostname is a standard or repository hostname.
-	HostType *string `pulumi:"hostType"`
-	// Hostname.
-	Name *string `pulumi:"name"`
-	// SSL type.
-	SslState *string `pulumi:"sslState"`
-	// SSL certificate thumbprint.
+	HostType   *string `pulumi:"hostType"`
+	Name       *string `pulumi:"name"`
+	SslState   *string `pulumi:"sslState"`
 	Thumbprint *string `pulumi:"thumbprint"`
-	// Set to <code>true</code> to update existing hostname.
-	ToUpdate *bool `pulumi:"toUpdate"`
-	// Virtual IP address assigned to the hostname if IP based SSL is enabled.
-	VirtualIP *string `pulumi:"virtualIP"`
+	ToUpdate   *bool   `pulumi:"toUpdate"`
+	VirtualIP  *string `pulumi:"virtualIP"`
 }
 
 // HostNameSslStateResponseInput is an input type that accepts HostNameSslStateResponseArgs and HostNameSslStateResponseOutput values.
@@ -7741,20 +7076,13 @@ type HostNameSslStateResponseInput interface {
 	ToHostNameSslStateResponseOutputWithContext(context.Context) HostNameSslStateResponseOutput
 }
 
-// SSL-enabled hostname.
 type HostNameSslStateResponseArgs struct {
-	// Indicates whether the hostname is a standard or repository hostname.
-	HostType pulumi.StringPtrInput `pulumi:"hostType"`
-	// Hostname.
-	Name pulumi.StringPtrInput `pulumi:"name"`
-	// SSL type.
-	SslState pulumi.StringPtrInput `pulumi:"sslState"`
-	// SSL certificate thumbprint.
+	HostType   pulumi.StringPtrInput `pulumi:"hostType"`
+	Name       pulumi.StringPtrInput `pulumi:"name"`
+	SslState   pulumi.StringPtrInput `pulumi:"sslState"`
 	Thumbprint pulumi.StringPtrInput `pulumi:"thumbprint"`
-	// Set to <code>true</code> to update existing hostname.
-	ToUpdate pulumi.BoolPtrInput `pulumi:"toUpdate"`
-	// Virtual IP address assigned to the hostname if IP based SSL is enabled.
-	VirtualIP pulumi.StringPtrInput `pulumi:"virtualIP"`
+	ToUpdate   pulumi.BoolPtrInput   `pulumi:"toUpdate"`
+	VirtualIP  pulumi.StringPtrInput `pulumi:"virtualIP"`
 }
 
 func (HostNameSslStateResponseArgs) ElementType() reflect.Type {
@@ -7794,7 +7122,6 @@ func (i HostNameSslStateResponseArray) ToHostNameSslStateResponseArrayOutputWith
 	return pulumi.ToOutputWithContext(ctx, i).(HostNameSslStateResponseArrayOutput)
 }
 
-// SSL-enabled hostname.
 type HostNameSslStateResponseOutput struct{ *pulumi.OutputState }
 
 func (HostNameSslStateResponseOutput) ElementType() reflect.Type {
@@ -7809,32 +7136,26 @@ func (o HostNameSslStateResponseOutput) ToHostNameSslStateResponseOutputWithCont
 	return o
 }
 
-// Indicates whether the hostname is a standard or repository hostname.
 func (o HostNameSslStateResponseOutput) HostType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v HostNameSslStateResponse) *string { return v.HostType }).(pulumi.StringPtrOutput)
 }
 
-// Hostname.
 func (o HostNameSslStateResponseOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v HostNameSslStateResponse) *string { return v.Name }).(pulumi.StringPtrOutput)
 }
 
-// SSL type.
 func (o HostNameSslStateResponseOutput) SslState() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v HostNameSslStateResponse) *string { return v.SslState }).(pulumi.StringPtrOutput)
 }
 
-// SSL certificate thumbprint.
 func (o HostNameSslStateResponseOutput) Thumbprint() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v HostNameSslStateResponse) *string { return v.Thumbprint }).(pulumi.StringPtrOutput)
 }
 
-// Set to <code>true</code> to update existing hostname.
 func (o HostNameSslStateResponseOutput) ToUpdate() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v HostNameSslStateResponse) *bool { return v.ToUpdate }).(pulumi.BoolPtrOutput)
 }
 
-// Virtual IP address assigned to the hostname if IP based SSL is enabled.
 func (o HostNameSslStateResponseOutput) VirtualIP() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v HostNameSslStateResponse) *string { return v.VirtualIP }).(pulumi.StringPtrOutput)
 }
@@ -7859,9 +7180,7 @@ func (o HostNameSslStateResponseArrayOutput) Index(i pulumi.IntInput) HostNameSs
 	}).(HostNameSslStateResponseOutput)
 }
 
-// Specification for an App Service Environment to use for this resource.
 type HostingEnvironmentProfile struct {
-	// Resource ID of the App Service Environment.
 	Id *string `pulumi:"id"`
 }
 
@@ -7876,9 +7195,7 @@ type HostingEnvironmentProfileInput interface {
 	ToHostingEnvironmentProfileOutputWithContext(context.Context) HostingEnvironmentProfileOutput
 }
 
-// Specification for an App Service Environment to use for this resource.
 type HostingEnvironmentProfileArgs struct {
-	// Resource ID of the App Service Environment.
 	Id pulumi.StringPtrInput `pulumi:"id"`
 }
 
@@ -7935,7 +7252,6 @@ func (i *hostingEnvironmentProfilePtrType) ToHostingEnvironmentProfilePtrOutputW
 	return pulumi.ToOutputWithContext(ctx, i).(HostingEnvironmentProfilePtrOutput)
 }
 
-// Specification for an App Service Environment to use for this resource.
 type HostingEnvironmentProfileOutput struct{ *pulumi.OutputState }
 
 func (HostingEnvironmentProfileOutput) ElementType() reflect.Type {
@@ -7955,12 +7271,11 @@ func (o HostingEnvironmentProfileOutput) ToHostingEnvironmentProfilePtrOutput() 
 }
 
 func (o HostingEnvironmentProfileOutput) ToHostingEnvironmentProfilePtrOutputWithContext(ctx context.Context) HostingEnvironmentProfilePtrOutput {
-	return o.ApplyT(func(v HostingEnvironmentProfile) *HostingEnvironmentProfile {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v HostingEnvironmentProfile) *HostingEnvironmentProfile {
 		return &v
 	}).(HostingEnvironmentProfilePtrOutput)
 }
 
-// Resource ID of the App Service Environment.
 func (o HostingEnvironmentProfileOutput) Id() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v HostingEnvironmentProfile) *string { return v.Id }).(pulumi.StringPtrOutput)
 }
@@ -7980,10 +7295,15 @@ func (o HostingEnvironmentProfilePtrOutput) ToHostingEnvironmentProfilePtrOutput
 }
 
 func (o HostingEnvironmentProfilePtrOutput) Elem() HostingEnvironmentProfileOutput {
-	return o.ApplyT(func(v *HostingEnvironmentProfile) HostingEnvironmentProfile { return *v }).(HostingEnvironmentProfileOutput)
+	return o.ApplyT(func(v *HostingEnvironmentProfile) HostingEnvironmentProfile {
+		if v != nil {
+			return *v
+		}
+		var ret HostingEnvironmentProfile
+		return ret
+	}).(HostingEnvironmentProfileOutput)
 }
 
-// Resource ID of the App Service Environment.
 func (o HostingEnvironmentProfilePtrOutput) Id() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *HostingEnvironmentProfile) *string {
 		if v == nil {
@@ -7993,14 +7313,10 @@ func (o HostingEnvironmentProfilePtrOutput) Id() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Specification for an App Service Environment to use for this resource.
 type HostingEnvironmentProfileResponse struct {
-	// Resource ID of the App Service Environment.
-	Id *string `pulumi:"id"`
-	// Name of the App Service Environment.
-	Name string `pulumi:"name"`
-	// Resource type of the App Service Environment.
-	Type string `pulumi:"type"`
+	Id   *string `pulumi:"id"`
+	Name string  `pulumi:"name"`
+	Type string  `pulumi:"type"`
 }
 
 // HostingEnvironmentProfileResponseInput is an input type that accepts HostingEnvironmentProfileResponseArgs and HostingEnvironmentProfileResponseOutput values.
@@ -8014,14 +7330,10 @@ type HostingEnvironmentProfileResponseInput interface {
 	ToHostingEnvironmentProfileResponseOutputWithContext(context.Context) HostingEnvironmentProfileResponseOutput
 }
 
-// Specification for an App Service Environment to use for this resource.
 type HostingEnvironmentProfileResponseArgs struct {
-	// Resource ID of the App Service Environment.
-	Id pulumi.StringPtrInput `pulumi:"id"`
-	// Name of the App Service Environment.
-	Name pulumi.StringInput `pulumi:"name"`
-	// Resource type of the App Service Environment.
-	Type pulumi.StringInput `pulumi:"type"`
+	Id   pulumi.StringPtrInput `pulumi:"id"`
+	Name pulumi.StringInput    `pulumi:"name"`
+	Type pulumi.StringInput    `pulumi:"type"`
 }
 
 func (HostingEnvironmentProfileResponseArgs) ElementType() reflect.Type {
@@ -8077,7 +7389,6 @@ func (i *hostingEnvironmentProfileResponsePtrType) ToHostingEnvironmentProfileRe
 	return pulumi.ToOutputWithContext(ctx, i).(HostingEnvironmentProfileResponsePtrOutput)
 }
 
-// Specification for an App Service Environment to use for this resource.
 type HostingEnvironmentProfileResponseOutput struct{ *pulumi.OutputState }
 
 func (HostingEnvironmentProfileResponseOutput) ElementType() reflect.Type {
@@ -8097,22 +7408,19 @@ func (o HostingEnvironmentProfileResponseOutput) ToHostingEnvironmentProfileResp
 }
 
 func (o HostingEnvironmentProfileResponseOutput) ToHostingEnvironmentProfileResponsePtrOutputWithContext(ctx context.Context) HostingEnvironmentProfileResponsePtrOutput {
-	return o.ApplyT(func(v HostingEnvironmentProfileResponse) *HostingEnvironmentProfileResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v HostingEnvironmentProfileResponse) *HostingEnvironmentProfileResponse {
 		return &v
 	}).(HostingEnvironmentProfileResponsePtrOutput)
 }
 
-// Resource ID of the App Service Environment.
 func (o HostingEnvironmentProfileResponseOutput) Id() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v HostingEnvironmentProfileResponse) *string { return v.Id }).(pulumi.StringPtrOutput)
 }
 
-// Name of the App Service Environment.
 func (o HostingEnvironmentProfileResponseOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v HostingEnvironmentProfileResponse) string { return v.Name }).(pulumi.StringOutput)
 }
 
-// Resource type of the App Service Environment.
 func (o HostingEnvironmentProfileResponseOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v HostingEnvironmentProfileResponse) string { return v.Type }).(pulumi.StringOutput)
 }
@@ -8132,10 +7440,15 @@ func (o HostingEnvironmentProfileResponsePtrOutput) ToHostingEnvironmentProfileR
 }
 
 func (o HostingEnvironmentProfileResponsePtrOutput) Elem() HostingEnvironmentProfileResponseOutput {
-	return o.ApplyT(func(v *HostingEnvironmentProfileResponse) HostingEnvironmentProfileResponse { return *v }).(HostingEnvironmentProfileResponseOutput)
+	return o.ApplyT(func(v *HostingEnvironmentProfileResponse) HostingEnvironmentProfileResponse {
+		if v != nil {
+			return *v
+		}
+		var ret HostingEnvironmentProfileResponse
+		return ret
+	}).(HostingEnvironmentProfileResponseOutput)
 }
 
-// Resource ID of the App Service Environment.
 func (o HostingEnvironmentProfileResponsePtrOutput) Id() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *HostingEnvironmentProfileResponse) *string {
 		if v == nil {
@@ -8145,7 +7458,6 @@ func (o HostingEnvironmentProfileResponsePtrOutput) Id() pulumi.StringPtrOutput 
 	}).(pulumi.StringPtrOutput)
 }
 
-// Name of the App Service Environment.
 func (o HostingEnvironmentProfileResponsePtrOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *HostingEnvironmentProfileResponse) *string {
 		if v == nil {
@@ -8155,7 +7467,6 @@ func (o HostingEnvironmentProfileResponsePtrOutput) Name() pulumi.StringPtrOutpu
 	}).(pulumi.StringPtrOutput)
 }
 
-// Resource type of the App Service Environment.
 func (o HostingEnvironmentProfileResponsePtrOutput) Type() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *HostingEnvironmentProfileResponse) *string {
 		if v == nil {
@@ -8165,12 +7476,9 @@ func (o HostingEnvironmentProfileResponsePtrOutput) Type() pulumi.StringPtrOutpu
 	}).(pulumi.StringPtrOutput)
 }
 
-// Http logs configuration.
 type HttpLogsConfig struct {
-	// Http logs to azure blob storage configuration.
 	AzureBlobStorage *AzureBlobStorageHttpLogsConfig `pulumi:"azureBlobStorage"`
-	// Http logs to file system configuration.
-	FileSystem *FileSystemHttpLogsConfig `pulumi:"fileSystem"`
+	FileSystem       *FileSystemHttpLogsConfig       `pulumi:"fileSystem"`
 }
 
 // HttpLogsConfigInput is an input type that accepts HttpLogsConfigArgs and HttpLogsConfigOutput values.
@@ -8184,12 +7492,9 @@ type HttpLogsConfigInput interface {
 	ToHttpLogsConfigOutputWithContext(context.Context) HttpLogsConfigOutput
 }
 
-// Http logs configuration.
 type HttpLogsConfigArgs struct {
-	// Http logs to azure blob storage configuration.
 	AzureBlobStorage AzureBlobStorageHttpLogsConfigPtrInput `pulumi:"azureBlobStorage"`
-	// Http logs to file system configuration.
-	FileSystem FileSystemHttpLogsConfigPtrInput `pulumi:"fileSystem"`
+	FileSystem       FileSystemHttpLogsConfigPtrInput       `pulumi:"fileSystem"`
 }
 
 func (HttpLogsConfigArgs) ElementType() reflect.Type {
@@ -8245,7 +7550,6 @@ func (i *httpLogsConfigPtrType) ToHttpLogsConfigPtrOutputWithContext(ctx context
 	return pulumi.ToOutputWithContext(ctx, i).(HttpLogsConfigPtrOutput)
 }
 
-// Http logs configuration.
 type HttpLogsConfigOutput struct{ *pulumi.OutputState }
 
 func (HttpLogsConfigOutput) ElementType() reflect.Type {
@@ -8265,17 +7569,15 @@ func (o HttpLogsConfigOutput) ToHttpLogsConfigPtrOutput() HttpLogsConfigPtrOutpu
 }
 
 func (o HttpLogsConfigOutput) ToHttpLogsConfigPtrOutputWithContext(ctx context.Context) HttpLogsConfigPtrOutput {
-	return o.ApplyT(func(v HttpLogsConfig) *HttpLogsConfig {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v HttpLogsConfig) *HttpLogsConfig {
 		return &v
 	}).(HttpLogsConfigPtrOutput)
 }
 
-// Http logs to azure blob storage configuration.
 func (o HttpLogsConfigOutput) AzureBlobStorage() AzureBlobStorageHttpLogsConfigPtrOutput {
 	return o.ApplyT(func(v HttpLogsConfig) *AzureBlobStorageHttpLogsConfig { return v.AzureBlobStorage }).(AzureBlobStorageHttpLogsConfigPtrOutput)
 }
 
-// Http logs to file system configuration.
 func (o HttpLogsConfigOutput) FileSystem() FileSystemHttpLogsConfigPtrOutput {
 	return o.ApplyT(func(v HttpLogsConfig) *FileSystemHttpLogsConfig { return v.FileSystem }).(FileSystemHttpLogsConfigPtrOutput)
 }
@@ -8295,10 +7597,15 @@ func (o HttpLogsConfigPtrOutput) ToHttpLogsConfigPtrOutputWithContext(ctx contex
 }
 
 func (o HttpLogsConfigPtrOutput) Elem() HttpLogsConfigOutput {
-	return o.ApplyT(func(v *HttpLogsConfig) HttpLogsConfig { return *v }).(HttpLogsConfigOutput)
+	return o.ApplyT(func(v *HttpLogsConfig) HttpLogsConfig {
+		if v != nil {
+			return *v
+		}
+		var ret HttpLogsConfig
+		return ret
+	}).(HttpLogsConfigOutput)
 }
 
-// Http logs to azure blob storage configuration.
 func (o HttpLogsConfigPtrOutput) AzureBlobStorage() AzureBlobStorageHttpLogsConfigPtrOutput {
 	return o.ApplyT(func(v *HttpLogsConfig) *AzureBlobStorageHttpLogsConfig {
 		if v == nil {
@@ -8308,7 +7615,6 @@ func (o HttpLogsConfigPtrOutput) AzureBlobStorage() AzureBlobStorageHttpLogsConf
 	}).(AzureBlobStorageHttpLogsConfigPtrOutput)
 }
 
-// Http logs to file system configuration.
 func (o HttpLogsConfigPtrOutput) FileSystem() FileSystemHttpLogsConfigPtrOutput {
 	return o.ApplyT(func(v *HttpLogsConfig) *FileSystemHttpLogsConfig {
 		if v == nil {
@@ -8318,12 +7624,9 @@ func (o HttpLogsConfigPtrOutput) FileSystem() FileSystemHttpLogsConfigPtrOutput 
 	}).(FileSystemHttpLogsConfigPtrOutput)
 }
 
-// Http logs configuration.
 type HttpLogsConfigResponse struct {
-	// Http logs to azure blob storage configuration.
 	AzureBlobStorage *AzureBlobStorageHttpLogsConfigResponse `pulumi:"azureBlobStorage"`
-	// Http logs to file system configuration.
-	FileSystem *FileSystemHttpLogsConfigResponse `pulumi:"fileSystem"`
+	FileSystem       *FileSystemHttpLogsConfigResponse       `pulumi:"fileSystem"`
 }
 
 // HttpLogsConfigResponseInput is an input type that accepts HttpLogsConfigResponseArgs and HttpLogsConfigResponseOutput values.
@@ -8337,12 +7640,9 @@ type HttpLogsConfigResponseInput interface {
 	ToHttpLogsConfigResponseOutputWithContext(context.Context) HttpLogsConfigResponseOutput
 }
 
-// Http logs configuration.
 type HttpLogsConfigResponseArgs struct {
-	// Http logs to azure blob storage configuration.
 	AzureBlobStorage AzureBlobStorageHttpLogsConfigResponsePtrInput `pulumi:"azureBlobStorage"`
-	// Http logs to file system configuration.
-	FileSystem FileSystemHttpLogsConfigResponsePtrInput `pulumi:"fileSystem"`
+	FileSystem       FileSystemHttpLogsConfigResponsePtrInput       `pulumi:"fileSystem"`
 }
 
 func (HttpLogsConfigResponseArgs) ElementType() reflect.Type {
@@ -8398,7 +7698,6 @@ func (i *httpLogsConfigResponsePtrType) ToHttpLogsConfigResponsePtrOutputWithCon
 	return pulumi.ToOutputWithContext(ctx, i).(HttpLogsConfigResponsePtrOutput)
 }
 
-// Http logs configuration.
 type HttpLogsConfigResponseOutput struct{ *pulumi.OutputState }
 
 func (HttpLogsConfigResponseOutput) ElementType() reflect.Type {
@@ -8418,17 +7717,15 @@ func (o HttpLogsConfigResponseOutput) ToHttpLogsConfigResponsePtrOutput() HttpLo
 }
 
 func (o HttpLogsConfigResponseOutput) ToHttpLogsConfigResponsePtrOutputWithContext(ctx context.Context) HttpLogsConfigResponsePtrOutput {
-	return o.ApplyT(func(v HttpLogsConfigResponse) *HttpLogsConfigResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v HttpLogsConfigResponse) *HttpLogsConfigResponse {
 		return &v
 	}).(HttpLogsConfigResponsePtrOutput)
 }
 
-// Http logs to azure blob storage configuration.
 func (o HttpLogsConfigResponseOutput) AzureBlobStorage() AzureBlobStorageHttpLogsConfigResponsePtrOutput {
 	return o.ApplyT(func(v HttpLogsConfigResponse) *AzureBlobStorageHttpLogsConfigResponse { return v.AzureBlobStorage }).(AzureBlobStorageHttpLogsConfigResponsePtrOutput)
 }
 
-// Http logs to file system configuration.
 func (o HttpLogsConfigResponseOutput) FileSystem() FileSystemHttpLogsConfigResponsePtrOutput {
 	return o.ApplyT(func(v HttpLogsConfigResponse) *FileSystemHttpLogsConfigResponse { return v.FileSystem }).(FileSystemHttpLogsConfigResponsePtrOutput)
 }
@@ -8448,10 +7745,15 @@ func (o HttpLogsConfigResponsePtrOutput) ToHttpLogsConfigResponsePtrOutputWithCo
 }
 
 func (o HttpLogsConfigResponsePtrOutput) Elem() HttpLogsConfigResponseOutput {
-	return o.ApplyT(func(v *HttpLogsConfigResponse) HttpLogsConfigResponse { return *v }).(HttpLogsConfigResponseOutput)
+	return o.ApplyT(func(v *HttpLogsConfigResponse) HttpLogsConfigResponse {
+		if v != nil {
+			return *v
+		}
+		var ret HttpLogsConfigResponse
+		return ret
+	}).(HttpLogsConfigResponseOutput)
 }
 
-// Http logs to azure blob storage configuration.
 func (o HttpLogsConfigResponsePtrOutput) AzureBlobStorage() AzureBlobStorageHttpLogsConfigResponsePtrOutput {
 	return o.ApplyT(func(v *HttpLogsConfigResponse) *AzureBlobStorageHttpLogsConfigResponse {
 		if v == nil {
@@ -8461,7 +7763,6 @@ func (o HttpLogsConfigResponsePtrOutput) AzureBlobStorage() AzureBlobStorageHttp
 	}).(AzureBlobStorageHttpLogsConfigResponsePtrOutput)
 }
 
-// Http logs to file system configuration.
 func (o HttpLogsConfigResponsePtrOutput) FileSystem() FileSystemHttpLogsConfigResponsePtrOutput {
 	return o.ApplyT(func(v *HttpLogsConfigResponse) *FileSystemHttpLogsConfigResponse {
 		if v == nil {
@@ -8471,17 +7772,11 @@ func (o HttpLogsConfigResponsePtrOutput) FileSystem() FileSystemHttpLogsConfigRe
 	}).(FileSystemHttpLogsConfigResponsePtrOutput)
 }
 
-// A domain specific resource identifier.
 type IdentifierResponse struct {
-	// Resource Id.
-	Id string `pulumi:"id"`
-	// Kind of resource.
-	Kind *string `pulumi:"kind"`
-	// Resource Name.
-	Name string `pulumi:"name"`
-	// Resource type.
-	Type string `pulumi:"type"`
-	// String representation of the identity.
+	Id    string  `pulumi:"id"`
+	Kind  *string `pulumi:"kind"`
+	Name  string  `pulumi:"name"`
+	Type  string  `pulumi:"type"`
 	Value *string `pulumi:"value"`
 }
 
@@ -8496,17 +7791,11 @@ type IdentifierResponseInput interface {
 	ToIdentifierResponseOutputWithContext(context.Context) IdentifierResponseOutput
 }
 
-// A domain specific resource identifier.
 type IdentifierResponseArgs struct {
-	// Resource Id.
-	Id pulumi.StringInput `pulumi:"id"`
-	// Kind of resource.
-	Kind pulumi.StringPtrInput `pulumi:"kind"`
-	// Resource Name.
-	Name pulumi.StringInput `pulumi:"name"`
-	// Resource type.
-	Type pulumi.StringInput `pulumi:"type"`
-	// String representation of the identity.
+	Id    pulumi.StringInput    `pulumi:"id"`
+	Kind  pulumi.StringPtrInput `pulumi:"kind"`
+	Name  pulumi.StringInput    `pulumi:"name"`
+	Type  pulumi.StringInput    `pulumi:"type"`
 	Value pulumi.StringPtrInput `pulumi:"value"`
 }
 
@@ -8547,7 +7836,6 @@ func (i IdentifierResponseArray) ToIdentifierResponseArrayOutputWithContext(ctx 
 	return pulumi.ToOutputWithContext(ctx, i).(IdentifierResponseArrayOutput)
 }
 
-// A domain specific resource identifier.
 type IdentifierResponseOutput struct{ *pulumi.OutputState }
 
 func (IdentifierResponseOutput) ElementType() reflect.Type {
@@ -8562,27 +7850,22 @@ func (o IdentifierResponseOutput) ToIdentifierResponseOutputWithContext(ctx cont
 	return o
 }
 
-// Resource Id.
 func (o IdentifierResponseOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v IdentifierResponse) string { return v.Id }).(pulumi.StringOutput)
 }
 
-// Kind of resource.
 func (o IdentifierResponseOutput) Kind() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v IdentifierResponse) *string { return v.Kind }).(pulumi.StringPtrOutput)
 }
 
-// Resource Name.
 func (o IdentifierResponseOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v IdentifierResponse) string { return v.Name }).(pulumi.StringOutput)
 }
 
-// Resource type.
 func (o IdentifierResponseOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v IdentifierResponse) string { return v.Type }).(pulumi.StringOutput)
 }
 
-// String representation of the identity.
 func (o IdentifierResponseOutput) Value() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v IdentifierResponse) *string { return v.Value }).(pulumi.StringPtrOutput)
 }
@@ -8607,31 +7890,17 @@ func (o IdentifierResponseArrayOutput) Index(i pulumi.IntInput) IdentifierRespon
 	}).(IdentifierResponseOutput)
 }
 
-// IP security restriction on an app.
 type IpSecurityRestriction struct {
-	// Allow or Deny access for this IP range.
-	Action *string `pulumi:"action"`
-	// IP restriction rule description.
-	Description *string `pulumi:"description"`
-	// IP address the security restriction is valid for.
-	// It can be in form of pure ipv4 address (required SubnetMask property) or
-	// CIDR notation such as ipv4/mask (leading bit match). For CIDR,
-	// SubnetMask property must not be specified.
-	IpAddress *string `pulumi:"ipAddress"`
-	// IP restriction rule name.
-	Name *string `pulumi:"name"`
-	// Priority of IP restriction rule.
-	Priority *int `pulumi:"priority"`
-	// Subnet mask for the range of IP addresses the restriction is valid for.
-	SubnetMask *string `pulumi:"subnetMask"`
-	// (internal) Subnet traffic tag
-	SubnetTrafficTag *int `pulumi:"subnetTrafficTag"`
-	// Defines what this IP filter will be used for. This is to support IP filtering on proxies.
-	Tag *string `pulumi:"tag"`
-	// Virtual network resource id
-	VnetSubnetResourceId *string `pulumi:"vnetSubnetResourceId"`
-	// (internal) Vnet traffic tag
-	VnetTrafficTag *int `pulumi:"vnetTrafficTag"`
+	Action               *string      `pulumi:"action"`
+	Description          *string      `pulumi:"description"`
+	IpAddress            *string      `pulumi:"ipAddress"`
+	Name                 *string      `pulumi:"name"`
+	Priority             *int         `pulumi:"priority"`
+	SubnetMask           *string      `pulumi:"subnetMask"`
+	SubnetTrafficTag     *int         `pulumi:"subnetTrafficTag"`
+	Tag                  *IpFilterTag `pulumi:"tag"`
+	VnetSubnetResourceId *string      `pulumi:"vnetSubnetResourceId"`
+	VnetTrafficTag       *int         `pulumi:"vnetTrafficTag"`
 }
 
 // IpSecurityRestrictionInput is an input type that accepts IpSecurityRestrictionArgs and IpSecurityRestrictionOutput values.
@@ -8645,31 +7914,17 @@ type IpSecurityRestrictionInput interface {
 	ToIpSecurityRestrictionOutputWithContext(context.Context) IpSecurityRestrictionOutput
 }
 
-// IP security restriction on an app.
 type IpSecurityRestrictionArgs struct {
-	// Allow or Deny access for this IP range.
-	Action pulumi.StringPtrInput `pulumi:"action"`
-	// IP restriction rule description.
-	Description pulumi.StringPtrInput `pulumi:"description"`
-	// IP address the security restriction is valid for.
-	// It can be in form of pure ipv4 address (required SubnetMask property) or
-	// CIDR notation such as ipv4/mask (leading bit match). For CIDR,
-	// SubnetMask property must not be specified.
-	IpAddress pulumi.StringPtrInput `pulumi:"ipAddress"`
-	// IP restriction rule name.
-	Name pulumi.StringPtrInput `pulumi:"name"`
-	// Priority of IP restriction rule.
-	Priority pulumi.IntPtrInput `pulumi:"priority"`
-	// Subnet mask for the range of IP addresses the restriction is valid for.
-	SubnetMask pulumi.StringPtrInput `pulumi:"subnetMask"`
-	// (internal) Subnet traffic tag
-	SubnetTrafficTag pulumi.IntPtrInput `pulumi:"subnetTrafficTag"`
-	// Defines what this IP filter will be used for. This is to support IP filtering on proxies.
-	Tag *IpFilterTag `pulumi:"tag"`
-	// Virtual network resource id
+	Action               pulumi.StringPtrInput `pulumi:"action"`
+	Description          pulumi.StringPtrInput `pulumi:"description"`
+	IpAddress            pulumi.StringPtrInput `pulumi:"ipAddress"`
+	Name                 pulumi.StringPtrInput `pulumi:"name"`
+	Priority             pulumi.IntPtrInput    `pulumi:"priority"`
+	SubnetMask           pulumi.StringPtrInput `pulumi:"subnetMask"`
+	SubnetTrafficTag     pulumi.IntPtrInput    `pulumi:"subnetTrafficTag"`
+	Tag                  IpFilterTagPtrInput   `pulumi:"tag"`
 	VnetSubnetResourceId pulumi.StringPtrInput `pulumi:"vnetSubnetResourceId"`
-	// (internal) Vnet traffic tag
-	VnetTrafficTag pulumi.IntPtrInput `pulumi:"vnetTrafficTag"`
+	VnetTrafficTag       pulumi.IntPtrInput    `pulumi:"vnetTrafficTag"`
 }
 
 func (IpSecurityRestrictionArgs) ElementType() reflect.Type {
@@ -8709,7 +7964,6 @@ func (i IpSecurityRestrictionArray) ToIpSecurityRestrictionArrayOutputWithContex
 	return pulumi.ToOutputWithContext(ctx, i).(IpSecurityRestrictionArrayOutput)
 }
 
-// IP security restriction on an app.
 type IpSecurityRestrictionOutput struct{ *pulumi.OutputState }
 
 func (IpSecurityRestrictionOutput) ElementType() reflect.Type {
@@ -8724,55 +7978,42 @@ func (o IpSecurityRestrictionOutput) ToIpSecurityRestrictionOutputWithContext(ct
 	return o
 }
 
-// Allow or Deny access for this IP range.
 func (o IpSecurityRestrictionOutput) Action() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v IpSecurityRestriction) *string { return v.Action }).(pulumi.StringPtrOutput)
 }
 
-// IP restriction rule description.
 func (o IpSecurityRestrictionOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v IpSecurityRestriction) *string { return v.Description }).(pulumi.StringPtrOutput)
 }
 
-// IP address the security restriction is valid for.
-// It can be in form of pure ipv4 address (required SubnetMask property) or
-// CIDR notation such as ipv4/mask (leading bit match). For CIDR,
-// SubnetMask property must not be specified.
 func (o IpSecurityRestrictionOutput) IpAddress() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v IpSecurityRestriction) *string { return v.IpAddress }).(pulumi.StringPtrOutput)
 }
 
-// IP restriction rule name.
 func (o IpSecurityRestrictionOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v IpSecurityRestriction) *string { return v.Name }).(pulumi.StringPtrOutput)
 }
 
-// Priority of IP restriction rule.
 func (o IpSecurityRestrictionOutput) Priority() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v IpSecurityRestriction) *int { return v.Priority }).(pulumi.IntPtrOutput)
 }
 
-// Subnet mask for the range of IP addresses the restriction is valid for.
 func (o IpSecurityRestrictionOutput) SubnetMask() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v IpSecurityRestriction) *string { return v.SubnetMask }).(pulumi.StringPtrOutput)
 }
 
-// (internal) Subnet traffic tag
 func (o IpSecurityRestrictionOutput) SubnetTrafficTag() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v IpSecurityRestriction) *int { return v.SubnetTrafficTag }).(pulumi.IntPtrOutput)
 }
 
-// Defines what this IP filter will be used for. This is to support IP filtering on proxies.
-func (o IpSecurityRestrictionOutput) Tag() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v IpSecurityRestriction) *string { return v.Tag }).(pulumi.StringPtrOutput)
+func (o IpSecurityRestrictionOutput) Tag() IpFilterTagPtrOutput {
+	return o.ApplyT(func(v IpSecurityRestriction) *IpFilterTag { return v.Tag }).(IpFilterTagPtrOutput)
 }
 
-// Virtual network resource id
 func (o IpSecurityRestrictionOutput) VnetSubnetResourceId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v IpSecurityRestriction) *string { return v.VnetSubnetResourceId }).(pulumi.StringPtrOutput)
 }
 
-// (internal) Vnet traffic tag
 func (o IpSecurityRestrictionOutput) VnetTrafficTag() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v IpSecurityRestriction) *int { return v.VnetTrafficTag }).(pulumi.IntPtrOutput)
 }
@@ -8797,31 +8038,17 @@ func (o IpSecurityRestrictionArrayOutput) Index(i pulumi.IntInput) IpSecurityRes
 	}).(IpSecurityRestrictionOutput)
 }
 
-// IP security restriction on an app.
 type IpSecurityRestrictionResponse struct {
-	// Allow or Deny access for this IP range.
-	Action *string `pulumi:"action"`
-	// IP restriction rule description.
-	Description *string `pulumi:"description"`
-	// IP address the security restriction is valid for.
-	// It can be in form of pure ipv4 address (required SubnetMask property) or
-	// CIDR notation such as ipv4/mask (leading bit match). For CIDR,
-	// SubnetMask property must not be specified.
-	IpAddress *string `pulumi:"ipAddress"`
-	// IP restriction rule name.
-	Name *string `pulumi:"name"`
-	// Priority of IP restriction rule.
-	Priority *int `pulumi:"priority"`
-	// Subnet mask for the range of IP addresses the restriction is valid for.
-	SubnetMask *string `pulumi:"subnetMask"`
-	// (internal) Subnet traffic tag
-	SubnetTrafficTag *int `pulumi:"subnetTrafficTag"`
-	// Defines what this IP filter will be used for. This is to support IP filtering on proxies.
-	Tag *string `pulumi:"tag"`
-	// Virtual network resource id
+	Action               *string `pulumi:"action"`
+	Description          *string `pulumi:"description"`
+	IpAddress            *string `pulumi:"ipAddress"`
+	Name                 *string `pulumi:"name"`
+	Priority             *int    `pulumi:"priority"`
+	SubnetMask           *string `pulumi:"subnetMask"`
+	SubnetTrafficTag     *int    `pulumi:"subnetTrafficTag"`
+	Tag                  *string `pulumi:"tag"`
 	VnetSubnetResourceId *string `pulumi:"vnetSubnetResourceId"`
-	// (internal) Vnet traffic tag
-	VnetTrafficTag *int `pulumi:"vnetTrafficTag"`
+	VnetTrafficTag       *int    `pulumi:"vnetTrafficTag"`
 }
 
 // IpSecurityRestrictionResponseInput is an input type that accepts IpSecurityRestrictionResponseArgs and IpSecurityRestrictionResponseOutput values.
@@ -8835,31 +8062,17 @@ type IpSecurityRestrictionResponseInput interface {
 	ToIpSecurityRestrictionResponseOutputWithContext(context.Context) IpSecurityRestrictionResponseOutput
 }
 
-// IP security restriction on an app.
 type IpSecurityRestrictionResponseArgs struct {
-	// Allow or Deny access for this IP range.
-	Action pulumi.StringPtrInput `pulumi:"action"`
-	// IP restriction rule description.
-	Description pulumi.StringPtrInput `pulumi:"description"`
-	// IP address the security restriction is valid for.
-	// It can be in form of pure ipv4 address (required SubnetMask property) or
-	// CIDR notation such as ipv4/mask (leading bit match). For CIDR,
-	// SubnetMask property must not be specified.
-	IpAddress pulumi.StringPtrInput `pulumi:"ipAddress"`
-	// IP restriction rule name.
-	Name pulumi.StringPtrInput `pulumi:"name"`
-	// Priority of IP restriction rule.
-	Priority pulumi.IntPtrInput `pulumi:"priority"`
-	// Subnet mask for the range of IP addresses the restriction is valid for.
-	SubnetMask pulumi.StringPtrInput `pulumi:"subnetMask"`
-	// (internal) Subnet traffic tag
-	SubnetTrafficTag pulumi.IntPtrInput `pulumi:"subnetTrafficTag"`
-	// Defines what this IP filter will be used for. This is to support IP filtering on proxies.
-	Tag pulumi.StringPtrInput `pulumi:"tag"`
-	// Virtual network resource id
+	Action               pulumi.StringPtrInput `pulumi:"action"`
+	Description          pulumi.StringPtrInput `pulumi:"description"`
+	IpAddress            pulumi.StringPtrInput `pulumi:"ipAddress"`
+	Name                 pulumi.StringPtrInput `pulumi:"name"`
+	Priority             pulumi.IntPtrInput    `pulumi:"priority"`
+	SubnetMask           pulumi.StringPtrInput `pulumi:"subnetMask"`
+	SubnetTrafficTag     pulumi.IntPtrInput    `pulumi:"subnetTrafficTag"`
+	Tag                  pulumi.StringPtrInput `pulumi:"tag"`
 	VnetSubnetResourceId pulumi.StringPtrInput `pulumi:"vnetSubnetResourceId"`
-	// (internal) Vnet traffic tag
-	VnetTrafficTag pulumi.IntPtrInput `pulumi:"vnetTrafficTag"`
+	VnetTrafficTag       pulumi.IntPtrInput    `pulumi:"vnetTrafficTag"`
 }
 
 func (IpSecurityRestrictionResponseArgs) ElementType() reflect.Type {
@@ -8899,7 +8112,6 @@ func (i IpSecurityRestrictionResponseArray) ToIpSecurityRestrictionResponseArray
 	return pulumi.ToOutputWithContext(ctx, i).(IpSecurityRestrictionResponseArrayOutput)
 }
 
-// IP security restriction on an app.
 type IpSecurityRestrictionResponseOutput struct{ *pulumi.OutputState }
 
 func (IpSecurityRestrictionResponseOutput) ElementType() reflect.Type {
@@ -8914,55 +8126,42 @@ func (o IpSecurityRestrictionResponseOutput) ToIpSecurityRestrictionResponseOutp
 	return o
 }
 
-// Allow or Deny access for this IP range.
 func (o IpSecurityRestrictionResponseOutput) Action() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v IpSecurityRestrictionResponse) *string { return v.Action }).(pulumi.StringPtrOutput)
 }
 
-// IP restriction rule description.
 func (o IpSecurityRestrictionResponseOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v IpSecurityRestrictionResponse) *string { return v.Description }).(pulumi.StringPtrOutput)
 }
 
-// IP address the security restriction is valid for.
-// It can be in form of pure ipv4 address (required SubnetMask property) or
-// CIDR notation such as ipv4/mask (leading bit match). For CIDR,
-// SubnetMask property must not be specified.
 func (o IpSecurityRestrictionResponseOutput) IpAddress() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v IpSecurityRestrictionResponse) *string { return v.IpAddress }).(pulumi.StringPtrOutput)
 }
 
-// IP restriction rule name.
 func (o IpSecurityRestrictionResponseOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v IpSecurityRestrictionResponse) *string { return v.Name }).(pulumi.StringPtrOutput)
 }
 
-// Priority of IP restriction rule.
 func (o IpSecurityRestrictionResponseOutput) Priority() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v IpSecurityRestrictionResponse) *int { return v.Priority }).(pulumi.IntPtrOutput)
 }
 
-// Subnet mask for the range of IP addresses the restriction is valid for.
 func (o IpSecurityRestrictionResponseOutput) SubnetMask() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v IpSecurityRestrictionResponse) *string { return v.SubnetMask }).(pulumi.StringPtrOutput)
 }
 
-// (internal) Subnet traffic tag
 func (o IpSecurityRestrictionResponseOutput) SubnetTrafficTag() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v IpSecurityRestrictionResponse) *int { return v.SubnetTrafficTag }).(pulumi.IntPtrOutput)
 }
 
-// Defines what this IP filter will be used for. This is to support IP filtering on proxies.
 func (o IpSecurityRestrictionResponseOutput) Tag() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v IpSecurityRestrictionResponse) *string { return v.Tag }).(pulumi.StringPtrOutput)
 }
 
-// Virtual network resource id
 func (o IpSecurityRestrictionResponseOutput) VnetSubnetResourceId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v IpSecurityRestrictionResponse) *string { return v.VnetSubnetResourceId }).(pulumi.StringPtrOutput)
 }
 
-// (internal) Vnet traffic tag
 func (o IpSecurityRestrictionResponseOutput) VnetTrafficTag() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v IpSecurityRestrictionResponse) *int { return v.VnetTrafficTag }).(pulumi.IntPtrOutput)
 }
@@ -8987,12 +8186,9 @@ func (o IpSecurityRestrictionResponseArrayOutput) Index(i pulumi.IntInput) IpSec
 	}).(IpSecurityRestrictionResponseOutput)
 }
 
-// Managed service identity.
 type ManagedServiceIdentity struct {
-	// Type of managed service identity.
-	Type *string `pulumi:"type"`
-	// The list of user assigned identities associated with the resource. The user identity dictionary key references will be ARM resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}
-	UserAssignedIdentities map[string]interface{} `pulumi:"userAssignedIdentities"`
+	Type                   *ManagedServiceIdentityType `pulumi:"type"`
+	UserAssignedIdentities map[string]interface{}      `pulumi:"userAssignedIdentities"`
 }
 
 // ManagedServiceIdentityInput is an input type that accepts ManagedServiceIdentityArgs and ManagedServiceIdentityOutput values.
@@ -9006,12 +8202,9 @@ type ManagedServiceIdentityInput interface {
 	ToManagedServiceIdentityOutputWithContext(context.Context) ManagedServiceIdentityOutput
 }
 
-// Managed service identity.
 type ManagedServiceIdentityArgs struct {
-	// Type of managed service identity.
-	Type *ManagedServiceIdentityType `pulumi:"type"`
-	// The list of user assigned identities associated with the resource. The user identity dictionary key references will be ARM resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}
-	UserAssignedIdentities pulumi.MapInput `pulumi:"userAssignedIdentities"`
+	Type                   ManagedServiceIdentityTypePtrInput `pulumi:"type"`
+	UserAssignedIdentities pulumi.MapInput                    `pulumi:"userAssignedIdentities"`
 }
 
 func (ManagedServiceIdentityArgs) ElementType() reflect.Type {
@@ -9067,7 +8260,6 @@ func (i *managedServiceIdentityPtrType) ToManagedServiceIdentityPtrOutputWithCon
 	return pulumi.ToOutputWithContext(ctx, i).(ManagedServiceIdentityPtrOutput)
 }
 
-// Managed service identity.
 type ManagedServiceIdentityOutput struct{ *pulumi.OutputState }
 
 func (ManagedServiceIdentityOutput) ElementType() reflect.Type {
@@ -9087,17 +8279,15 @@ func (o ManagedServiceIdentityOutput) ToManagedServiceIdentityPtrOutput() Manage
 }
 
 func (o ManagedServiceIdentityOutput) ToManagedServiceIdentityPtrOutputWithContext(ctx context.Context) ManagedServiceIdentityPtrOutput {
-	return o.ApplyT(func(v ManagedServiceIdentity) *ManagedServiceIdentity {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ManagedServiceIdentity) *ManagedServiceIdentity {
 		return &v
 	}).(ManagedServiceIdentityPtrOutput)
 }
 
-// Type of managed service identity.
-func (o ManagedServiceIdentityOutput) Type() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v ManagedServiceIdentity) *string { return v.Type }).(pulumi.StringPtrOutput)
+func (o ManagedServiceIdentityOutput) Type() ManagedServiceIdentityTypePtrOutput {
+	return o.ApplyT(func(v ManagedServiceIdentity) *ManagedServiceIdentityType { return v.Type }).(ManagedServiceIdentityTypePtrOutput)
 }
 
-// The list of user assigned identities associated with the resource. The user identity dictionary key references will be ARM resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}
 func (o ManagedServiceIdentityOutput) UserAssignedIdentities() pulumi.MapOutput {
 	return o.ApplyT(func(v ManagedServiceIdentity) map[string]interface{} { return v.UserAssignedIdentities }).(pulumi.MapOutput)
 }
@@ -9117,20 +8307,24 @@ func (o ManagedServiceIdentityPtrOutput) ToManagedServiceIdentityPtrOutputWithCo
 }
 
 func (o ManagedServiceIdentityPtrOutput) Elem() ManagedServiceIdentityOutput {
-	return o.ApplyT(func(v *ManagedServiceIdentity) ManagedServiceIdentity { return *v }).(ManagedServiceIdentityOutput)
+	return o.ApplyT(func(v *ManagedServiceIdentity) ManagedServiceIdentity {
+		if v != nil {
+			return *v
+		}
+		var ret ManagedServiceIdentity
+		return ret
+	}).(ManagedServiceIdentityOutput)
 }
 
-// Type of managed service identity.
-func (o ManagedServiceIdentityPtrOutput) Type() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *ManagedServiceIdentity) *string {
+func (o ManagedServiceIdentityPtrOutput) Type() ManagedServiceIdentityTypePtrOutput {
+	return o.ApplyT(func(v *ManagedServiceIdentity) *ManagedServiceIdentityType {
 		if v == nil {
 			return nil
 		}
 		return v.Type
-	}).(pulumi.StringPtrOutput)
+	}).(ManagedServiceIdentityTypePtrOutput)
 }
 
-// The list of user assigned identities associated with the resource. The user identity dictionary key references will be ARM resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}
 func (o ManagedServiceIdentityPtrOutput) UserAssignedIdentities() pulumi.MapOutput {
 	return o.ApplyT(func(v *ManagedServiceIdentity) map[string]interface{} {
 		if v == nil {
@@ -9140,15 +8334,10 @@ func (o ManagedServiceIdentityPtrOutput) UserAssignedIdentities() pulumi.MapOutp
 	}).(pulumi.MapOutput)
 }
 
-// Managed service identity.
 type ManagedServiceIdentityResponse struct {
-	// Principal Id of managed service identity.
-	PrincipalId string `pulumi:"principalId"`
-	// Tenant of managed service identity.
-	TenantId string `pulumi:"tenantId"`
-	// Type of managed service identity.
-	Type *string `pulumi:"type"`
-	// The list of user assigned identities associated with the resource. The user identity dictionary key references will be ARM resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}
+	PrincipalId            string                                                          `pulumi:"principalId"`
+	TenantId               string                                                          `pulumi:"tenantId"`
+	Type                   *string                                                         `pulumi:"type"`
 	UserAssignedIdentities map[string]ManagedServiceIdentityResponseUserAssignedIdentities `pulumi:"userAssignedIdentities"`
 }
 
@@ -9163,15 +8352,10 @@ type ManagedServiceIdentityResponseInput interface {
 	ToManagedServiceIdentityResponseOutputWithContext(context.Context) ManagedServiceIdentityResponseOutput
 }
 
-// Managed service identity.
 type ManagedServiceIdentityResponseArgs struct {
-	// Principal Id of managed service identity.
-	PrincipalId pulumi.StringInput `pulumi:"principalId"`
-	// Tenant of managed service identity.
-	TenantId pulumi.StringInput `pulumi:"tenantId"`
-	// Type of managed service identity.
-	Type pulumi.StringPtrInput `pulumi:"type"`
-	// The list of user assigned identities associated with the resource. The user identity dictionary key references will be ARM resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}
+	PrincipalId            pulumi.StringInput                                           `pulumi:"principalId"`
+	TenantId               pulumi.StringInput                                           `pulumi:"tenantId"`
+	Type                   pulumi.StringPtrInput                                        `pulumi:"type"`
 	UserAssignedIdentities ManagedServiceIdentityResponseUserAssignedIdentitiesMapInput `pulumi:"userAssignedIdentities"`
 }
 
@@ -9228,7 +8412,6 @@ func (i *managedServiceIdentityResponsePtrType) ToManagedServiceIdentityResponse
 	return pulumi.ToOutputWithContext(ctx, i).(ManagedServiceIdentityResponsePtrOutput)
 }
 
-// Managed service identity.
 type ManagedServiceIdentityResponseOutput struct{ *pulumi.OutputState }
 
 func (ManagedServiceIdentityResponseOutput) ElementType() reflect.Type {
@@ -9248,27 +8431,23 @@ func (o ManagedServiceIdentityResponseOutput) ToManagedServiceIdentityResponsePt
 }
 
 func (o ManagedServiceIdentityResponseOutput) ToManagedServiceIdentityResponsePtrOutputWithContext(ctx context.Context) ManagedServiceIdentityResponsePtrOutput {
-	return o.ApplyT(func(v ManagedServiceIdentityResponse) *ManagedServiceIdentityResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ManagedServiceIdentityResponse) *ManagedServiceIdentityResponse {
 		return &v
 	}).(ManagedServiceIdentityResponsePtrOutput)
 }
 
-// Principal Id of managed service identity.
 func (o ManagedServiceIdentityResponseOutput) PrincipalId() pulumi.StringOutput {
 	return o.ApplyT(func(v ManagedServiceIdentityResponse) string { return v.PrincipalId }).(pulumi.StringOutput)
 }
 
-// Tenant of managed service identity.
 func (o ManagedServiceIdentityResponseOutput) TenantId() pulumi.StringOutput {
 	return o.ApplyT(func(v ManagedServiceIdentityResponse) string { return v.TenantId }).(pulumi.StringOutput)
 }
 
-// Type of managed service identity.
 func (o ManagedServiceIdentityResponseOutput) Type() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ManagedServiceIdentityResponse) *string { return v.Type }).(pulumi.StringPtrOutput)
 }
 
-// The list of user assigned identities associated with the resource. The user identity dictionary key references will be ARM resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}
 func (o ManagedServiceIdentityResponseOutput) UserAssignedIdentities() ManagedServiceIdentityResponseUserAssignedIdentitiesMapOutput {
 	return o.ApplyT(func(v ManagedServiceIdentityResponse) map[string]ManagedServiceIdentityResponseUserAssignedIdentities {
 		return v.UserAssignedIdentities
@@ -9290,10 +8469,15 @@ func (o ManagedServiceIdentityResponsePtrOutput) ToManagedServiceIdentityRespons
 }
 
 func (o ManagedServiceIdentityResponsePtrOutput) Elem() ManagedServiceIdentityResponseOutput {
-	return o.ApplyT(func(v *ManagedServiceIdentityResponse) ManagedServiceIdentityResponse { return *v }).(ManagedServiceIdentityResponseOutput)
+	return o.ApplyT(func(v *ManagedServiceIdentityResponse) ManagedServiceIdentityResponse {
+		if v != nil {
+			return *v
+		}
+		var ret ManagedServiceIdentityResponse
+		return ret
+	}).(ManagedServiceIdentityResponseOutput)
 }
 
-// Principal Id of managed service identity.
 func (o ManagedServiceIdentityResponsePtrOutput) PrincipalId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ManagedServiceIdentityResponse) *string {
 		if v == nil {
@@ -9303,7 +8487,6 @@ func (o ManagedServiceIdentityResponsePtrOutput) PrincipalId() pulumi.StringPtrO
 	}).(pulumi.StringPtrOutput)
 }
 
-// Tenant of managed service identity.
 func (o ManagedServiceIdentityResponsePtrOutput) TenantId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ManagedServiceIdentityResponse) *string {
 		if v == nil {
@@ -9313,7 +8496,6 @@ func (o ManagedServiceIdentityResponsePtrOutput) TenantId() pulumi.StringPtrOutp
 	}).(pulumi.StringPtrOutput)
 }
 
-// Type of managed service identity.
 func (o ManagedServiceIdentityResponsePtrOutput) Type() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ManagedServiceIdentityResponse) *string {
 		if v == nil {
@@ -9323,7 +8505,6 @@ func (o ManagedServiceIdentityResponsePtrOutput) Type() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The list of user assigned identities associated with the resource. The user identity dictionary key references will be ARM resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}
 func (o ManagedServiceIdentityResponsePtrOutput) UserAssignedIdentities() ManagedServiceIdentityResponseUserAssignedIdentitiesMapOutput {
 	return o.ApplyT(func(v *ManagedServiceIdentityResponse) map[string]ManagedServiceIdentityResponseUserAssignedIdentities {
 		if v == nil {
@@ -9334,9 +8515,7 @@ func (o ManagedServiceIdentityResponsePtrOutput) UserAssignedIdentities() Manage
 }
 
 type ManagedServiceIdentityResponseUserAssignedIdentities struct {
-	// Client Id of user assigned identity
-	ClientId string `pulumi:"clientId"`
-	// Principal Id of user assigned identity
+	ClientId    string `pulumi:"clientId"`
 	PrincipalId string `pulumi:"principalId"`
 }
 
@@ -9352,9 +8531,7 @@ type ManagedServiceIdentityResponseUserAssignedIdentitiesInput interface {
 }
 
 type ManagedServiceIdentityResponseUserAssignedIdentitiesArgs struct {
-	// Client Id of user assigned identity
-	ClientId pulumi.StringInput `pulumi:"clientId"`
-	// Principal Id of user assigned identity
+	ClientId    pulumi.StringInput `pulumi:"clientId"`
 	PrincipalId pulumi.StringInput `pulumi:"principalId"`
 }
 
@@ -9409,12 +8586,10 @@ func (o ManagedServiceIdentityResponseUserAssignedIdentitiesOutput) ToManagedSer
 	return o
 }
 
-// Client Id of user assigned identity
 func (o ManagedServiceIdentityResponseUserAssignedIdentitiesOutput) ClientId() pulumi.StringOutput {
 	return o.ApplyT(func(v ManagedServiceIdentityResponseUserAssignedIdentities) string { return v.ClientId }).(pulumi.StringOutput)
 }
 
-// Principal Id of user assigned identity
 func (o ManagedServiceIdentityResponseUserAssignedIdentitiesOutput) PrincipalId() pulumi.StringOutput {
 	return o.ApplyT(func(v ManagedServiceIdentityResponseUserAssignedIdentities) string { return v.PrincipalId }).(pulumi.StringOutput)
 }
@@ -9439,11 +8614,8 @@ func (o ManagedServiceIdentityResponseUserAssignedIdentitiesMapOutput) MapIndex(
 	}).(ManagedServiceIdentityResponseUserAssignedIdentitiesOutput)
 }
 
-// Name value pair.
 type NameValuePair struct {
-	// Pair name.
-	Name *string `pulumi:"name"`
-	// Pair value.
+	Name  *string `pulumi:"name"`
 	Value *string `pulumi:"value"`
 }
 
@@ -9458,11 +8630,8 @@ type NameValuePairInput interface {
 	ToNameValuePairOutputWithContext(context.Context) NameValuePairOutput
 }
 
-// Name value pair.
 type NameValuePairArgs struct {
-	// Pair name.
-	Name pulumi.StringPtrInput `pulumi:"name"`
-	// Pair value.
+	Name  pulumi.StringPtrInput `pulumi:"name"`
 	Value pulumi.StringPtrInput `pulumi:"value"`
 }
 
@@ -9503,7 +8672,6 @@ func (i NameValuePairArray) ToNameValuePairArrayOutputWithContext(ctx context.Co
 	return pulumi.ToOutputWithContext(ctx, i).(NameValuePairArrayOutput)
 }
 
-// Name value pair.
 type NameValuePairOutput struct{ *pulumi.OutputState }
 
 func (NameValuePairOutput) ElementType() reflect.Type {
@@ -9518,12 +8686,10 @@ func (o NameValuePairOutput) ToNameValuePairOutputWithContext(ctx context.Contex
 	return o
 }
 
-// Pair name.
 func (o NameValuePairOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v NameValuePair) *string { return v.Name }).(pulumi.StringPtrOutput)
 }
 
-// Pair value.
 func (o NameValuePairOutput) Value() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v NameValuePair) *string { return v.Value }).(pulumi.StringPtrOutput)
 }
@@ -9548,11 +8714,8 @@ func (o NameValuePairArrayOutput) Index(i pulumi.IntInput) NameValuePairOutput {
 	}).(NameValuePairOutput)
 }
 
-// Name value pair.
 type NameValuePairResponse struct {
-	// Pair name.
-	Name *string `pulumi:"name"`
-	// Pair value.
+	Name  *string `pulumi:"name"`
 	Value *string `pulumi:"value"`
 }
 
@@ -9567,11 +8730,8 @@ type NameValuePairResponseInput interface {
 	ToNameValuePairResponseOutputWithContext(context.Context) NameValuePairResponseOutput
 }
 
-// Name value pair.
 type NameValuePairResponseArgs struct {
-	// Pair name.
-	Name pulumi.StringPtrInput `pulumi:"name"`
-	// Pair value.
+	Name  pulumi.StringPtrInput `pulumi:"name"`
 	Value pulumi.StringPtrInput `pulumi:"value"`
 }
 
@@ -9612,7 +8772,6 @@ func (i NameValuePairResponseArray) ToNameValuePairResponseArrayOutputWithContex
 	return pulumi.ToOutputWithContext(ctx, i).(NameValuePairResponseArrayOutput)
 }
 
-// Name value pair.
 type NameValuePairResponseOutput struct{ *pulumi.OutputState }
 
 func (NameValuePairResponseOutput) ElementType() reflect.Type {
@@ -9627,12 +8786,10 @@ func (o NameValuePairResponseOutput) ToNameValuePairResponseOutputWithContext(ct
 	return o
 }
 
-// Pair name.
 func (o NameValuePairResponseOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v NameValuePairResponse) *string { return v.Name }).(pulumi.StringPtrOutput)
 }
 
-// Pair value.
 func (o NameValuePairResponseOutput) Value() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v NameValuePairResponse) *string { return v.Value }).(pulumi.StringPtrOutput)
 }
@@ -9657,16 +8814,11 @@ func (o NameValuePairResponseArrayOutput) Index(i pulumi.IntInput) NameValuePair
 	}).(NameValuePairResponseOutput)
 }
 
-// Network access control entry.
 type NetworkAccessControlEntry struct {
-	// Action object.
-	Action *string `pulumi:"action"`
-	// Description of network access control entry.
-	Description *string `pulumi:"description"`
-	// Order of precedence.
-	Order *int `pulumi:"order"`
-	// Remote subnet.
-	RemoteSubnet *string `pulumi:"remoteSubnet"`
+	Action       *AccessControlEntryAction `pulumi:"action"`
+	Description  *string                   `pulumi:"description"`
+	Order        *int                      `pulumi:"order"`
+	RemoteSubnet *string                   `pulumi:"remoteSubnet"`
 }
 
 // NetworkAccessControlEntryInput is an input type that accepts NetworkAccessControlEntryArgs and NetworkAccessControlEntryOutput values.
@@ -9680,16 +8832,11 @@ type NetworkAccessControlEntryInput interface {
 	ToNetworkAccessControlEntryOutputWithContext(context.Context) NetworkAccessControlEntryOutput
 }
 
-// Network access control entry.
 type NetworkAccessControlEntryArgs struct {
-	// Action object.
-	Action *AccessControlEntryAction `pulumi:"action"`
-	// Description of network access control entry.
-	Description pulumi.StringPtrInput `pulumi:"description"`
-	// Order of precedence.
-	Order pulumi.IntPtrInput `pulumi:"order"`
-	// Remote subnet.
-	RemoteSubnet pulumi.StringPtrInput `pulumi:"remoteSubnet"`
+	Action       AccessControlEntryActionPtrInput `pulumi:"action"`
+	Description  pulumi.StringPtrInput            `pulumi:"description"`
+	Order        pulumi.IntPtrInput               `pulumi:"order"`
+	RemoteSubnet pulumi.StringPtrInput            `pulumi:"remoteSubnet"`
 }
 
 func (NetworkAccessControlEntryArgs) ElementType() reflect.Type {
@@ -9729,7 +8876,6 @@ func (i NetworkAccessControlEntryArray) ToNetworkAccessControlEntryArrayOutputWi
 	return pulumi.ToOutputWithContext(ctx, i).(NetworkAccessControlEntryArrayOutput)
 }
 
-// Network access control entry.
 type NetworkAccessControlEntryOutput struct{ *pulumi.OutputState }
 
 func (NetworkAccessControlEntryOutput) ElementType() reflect.Type {
@@ -9744,22 +8890,18 @@ func (o NetworkAccessControlEntryOutput) ToNetworkAccessControlEntryOutputWithCo
 	return o
 }
 
-// Action object.
-func (o NetworkAccessControlEntryOutput) Action() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v NetworkAccessControlEntry) *string { return v.Action }).(pulumi.StringPtrOutput)
+func (o NetworkAccessControlEntryOutput) Action() AccessControlEntryActionPtrOutput {
+	return o.ApplyT(func(v NetworkAccessControlEntry) *AccessControlEntryAction { return v.Action }).(AccessControlEntryActionPtrOutput)
 }
 
-// Description of network access control entry.
 func (o NetworkAccessControlEntryOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v NetworkAccessControlEntry) *string { return v.Description }).(pulumi.StringPtrOutput)
 }
 
-// Order of precedence.
 func (o NetworkAccessControlEntryOutput) Order() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v NetworkAccessControlEntry) *int { return v.Order }).(pulumi.IntPtrOutput)
 }
 
-// Remote subnet.
 func (o NetworkAccessControlEntryOutput) RemoteSubnet() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v NetworkAccessControlEntry) *string { return v.RemoteSubnet }).(pulumi.StringPtrOutput)
 }
@@ -9784,15 +8926,10 @@ func (o NetworkAccessControlEntryArrayOutput) Index(i pulumi.IntInput) NetworkAc
 	}).(NetworkAccessControlEntryOutput)
 }
 
-// Network access control entry.
 type NetworkAccessControlEntryResponse struct {
-	// Action object.
-	Action *string `pulumi:"action"`
-	// Description of network access control entry.
-	Description *string `pulumi:"description"`
-	// Order of precedence.
-	Order *int `pulumi:"order"`
-	// Remote subnet.
+	Action       *string `pulumi:"action"`
+	Description  *string `pulumi:"description"`
+	Order        *int    `pulumi:"order"`
 	RemoteSubnet *string `pulumi:"remoteSubnet"`
 }
 
@@ -9807,15 +8944,10 @@ type NetworkAccessControlEntryResponseInput interface {
 	ToNetworkAccessControlEntryResponseOutputWithContext(context.Context) NetworkAccessControlEntryResponseOutput
 }
 
-// Network access control entry.
 type NetworkAccessControlEntryResponseArgs struct {
-	// Action object.
-	Action pulumi.StringPtrInput `pulumi:"action"`
-	// Description of network access control entry.
-	Description pulumi.StringPtrInput `pulumi:"description"`
-	// Order of precedence.
-	Order pulumi.IntPtrInput `pulumi:"order"`
-	// Remote subnet.
+	Action       pulumi.StringPtrInput `pulumi:"action"`
+	Description  pulumi.StringPtrInput `pulumi:"description"`
+	Order        pulumi.IntPtrInput    `pulumi:"order"`
 	RemoteSubnet pulumi.StringPtrInput `pulumi:"remoteSubnet"`
 }
 
@@ -9856,7 +8988,6 @@ func (i NetworkAccessControlEntryResponseArray) ToNetworkAccessControlEntryRespo
 	return pulumi.ToOutputWithContext(ctx, i).(NetworkAccessControlEntryResponseArrayOutput)
 }
 
-// Network access control entry.
 type NetworkAccessControlEntryResponseOutput struct{ *pulumi.OutputState }
 
 func (NetworkAccessControlEntryResponseOutput) ElementType() reflect.Type {
@@ -9871,22 +9002,18 @@ func (o NetworkAccessControlEntryResponseOutput) ToNetworkAccessControlEntryResp
 	return o
 }
 
-// Action object.
 func (o NetworkAccessControlEntryResponseOutput) Action() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v NetworkAccessControlEntryResponse) *string { return v.Action }).(pulumi.StringPtrOutput)
 }
 
-// Description of network access control entry.
 func (o NetworkAccessControlEntryResponseOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v NetworkAccessControlEntryResponse) *string { return v.Description }).(pulumi.StringPtrOutput)
 }
 
-// Order of precedence.
 func (o NetworkAccessControlEntryResponseOutput) Order() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v NetworkAccessControlEntryResponse) *int { return v.Order }).(pulumi.IntPtrOutput)
 }
 
-// Remote subnet.
 func (o NetworkAccessControlEntryResponseOutput) RemoteSubnet() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v NetworkAccessControlEntryResponse) *string { return v.RemoteSubnet }).(pulumi.StringPtrOutput)
 }
@@ -9911,14 +9038,10 @@ func (o NetworkAccessControlEntryResponseArrayOutput) Index(i pulumi.IntInput) N
 	}).(NetworkAccessControlEntryResponseOutput)
 }
 
-// The state of a private link connection
 type PrivateLinkConnectionState struct {
-	// ActionsRequired for a private link connection
 	ActionsRequired *string `pulumi:"actionsRequired"`
-	// Description of a private link connection
-	Description *string `pulumi:"description"`
-	// Status of a private link connection
-	Status *string `pulumi:"status"`
+	Description     *string `pulumi:"description"`
+	Status          *string `pulumi:"status"`
 }
 
 // PrivateLinkConnectionStateInput is an input type that accepts PrivateLinkConnectionStateArgs and PrivateLinkConnectionStateOutput values.
@@ -9932,14 +9055,10 @@ type PrivateLinkConnectionStateInput interface {
 	ToPrivateLinkConnectionStateOutputWithContext(context.Context) PrivateLinkConnectionStateOutput
 }
 
-// The state of a private link connection
 type PrivateLinkConnectionStateArgs struct {
-	// ActionsRequired for a private link connection
 	ActionsRequired pulumi.StringPtrInput `pulumi:"actionsRequired"`
-	// Description of a private link connection
-	Description pulumi.StringPtrInput `pulumi:"description"`
-	// Status of a private link connection
-	Status pulumi.StringPtrInput `pulumi:"status"`
+	Description     pulumi.StringPtrInput `pulumi:"description"`
+	Status          pulumi.StringPtrInput `pulumi:"status"`
 }
 
 func (PrivateLinkConnectionStateArgs) ElementType() reflect.Type {
@@ -9995,7 +9114,6 @@ func (i *privateLinkConnectionStatePtrType) ToPrivateLinkConnectionStatePtrOutpu
 	return pulumi.ToOutputWithContext(ctx, i).(PrivateLinkConnectionStatePtrOutput)
 }
 
-// The state of a private link connection
 type PrivateLinkConnectionStateOutput struct{ *pulumi.OutputState }
 
 func (PrivateLinkConnectionStateOutput) ElementType() reflect.Type {
@@ -10015,22 +9133,19 @@ func (o PrivateLinkConnectionStateOutput) ToPrivateLinkConnectionStatePtrOutput(
 }
 
 func (o PrivateLinkConnectionStateOutput) ToPrivateLinkConnectionStatePtrOutputWithContext(ctx context.Context) PrivateLinkConnectionStatePtrOutput {
-	return o.ApplyT(func(v PrivateLinkConnectionState) *PrivateLinkConnectionState {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v PrivateLinkConnectionState) *PrivateLinkConnectionState {
 		return &v
 	}).(PrivateLinkConnectionStatePtrOutput)
 }
 
-// ActionsRequired for a private link connection
 func (o PrivateLinkConnectionStateOutput) ActionsRequired() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v PrivateLinkConnectionState) *string { return v.ActionsRequired }).(pulumi.StringPtrOutput)
 }
 
-// Description of a private link connection
 func (o PrivateLinkConnectionStateOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v PrivateLinkConnectionState) *string { return v.Description }).(pulumi.StringPtrOutput)
 }
 
-// Status of a private link connection
 func (o PrivateLinkConnectionStateOutput) Status() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v PrivateLinkConnectionState) *string { return v.Status }).(pulumi.StringPtrOutput)
 }
@@ -10050,10 +9165,15 @@ func (o PrivateLinkConnectionStatePtrOutput) ToPrivateLinkConnectionStatePtrOutp
 }
 
 func (o PrivateLinkConnectionStatePtrOutput) Elem() PrivateLinkConnectionStateOutput {
-	return o.ApplyT(func(v *PrivateLinkConnectionState) PrivateLinkConnectionState { return *v }).(PrivateLinkConnectionStateOutput)
+	return o.ApplyT(func(v *PrivateLinkConnectionState) PrivateLinkConnectionState {
+		if v != nil {
+			return *v
+		}
+		var ret PrivateLinkConnectionState
+		return ret
+	}).(PrivateLinkConnectionStateOutput)
 }
 
-// ActionsRequired for a private link connection
 func (o PrivateLinkConnectionStatePtrOutput) ActionsRequired() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *PrivateLinkConnectionState) *string {
 		if v == nil {
@@ -10063,7 +9183,6 @@ func (o PrivateLinkConnectionStatePtrOutput) ActionsRequired() pulumi.StringPtrO
 	}).(pulumi.StringPtrOutput)
 }
 
-// Description of a private link connection
 func (o PrivateLinkConnectionStatePtrOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *PrivateLinkConnectionState) *string {
 		if v == nil {
@@ -10073,7 +9192,6 @@ func (o PrivateLinkConnectionStatePtrOutput) Description() pulumi.StringPtrOutpu
 	}).(pulumi.StringPtrOutput)
 }
 
-// Status of a private link connection
 func (o PrivateLinkConnectionStatePtrOutput) Status() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *PrivateLinkConnectionState) *string {
 		if v == nil {
@@ -10083,14 +9201,10 @@ func (o PrivateLinkConnectionStatePtrOutput) Status() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The state of a private link connection
 type PrivateLinkConnectionStateResponse struct {
-	// ActionsRequired for a private link connection
 	ActionsRequired *string `pulumi:"actionsRequired"`
-	// Description of a private link connection
-	Description *string `pulumi:"description"`
-	// Status of a private link connection
-	Status *string `pulumi:"status"`
+	Description     *string `pulumi:"description"`
+	Status          *string `pulumi:"status"`
 }
 
 // PrivateLinkConnectionStateResponseInput is an input type that accepts PrivateLinkConnectionStateResponseArgs and PrivateLinkConnectionStateResponseOutput values.
@@ -10104,14 +9218,10 @@ type PrivateLinkConnectionStateResponseInput interface {
 	ToPrivateLinkConnectionStateResponseOutputWithContext(context.Context) PrivateLinkConnectionStateResponseOutput
 }
 
-// The state of a private link connection
 type PrivateLinkConnectionStateResponseArgs struct {
-	// ActionsRequired for a private link connection
 	ActionsRequired pulumi.StringPtrInput `pulumi:"actionsRequired"`
-	// Description of a private link connection
-	Description pulumi.StringPtrInput `pulumi:"description"`
-	// Status of a private link connection
-	Status pulumi.StringPtrInput `pulumi:"status"`
+	Description     pulumi.StringPtrInput `pulumi:"description"`
+	Status          pulumi.StringPtrInput `pulumi:"status"`
 }
 
 func (PrivateLinkConnectionStateResponseArgs) ElementType() reflect.Type {
@@ -10167,7 +9277,6 @@ func (i *privateLinkConnectionStateResponsePtrType) ToPrivateLinkConnectionState
 	return pulumi.ToOutputWithContext(ctx, i).(PrivateLinkConnectionStateResponsePtrOutput)
 }
 
-// The state of a private link connection
 type PrivateLinkConnectionStateResponseOutput struct{ *pulumi.OutputState }
 
 func (PrivateLinkConnectionStateResponseOutput) ElementType() reflect.Type {
@@ -10187,22 +9296,19 @@ func (o PrivateLinkConnectionStateResponseOutput) ToPrivateLinkConnectionStateRe
 }
 
 func (o PrivateLinkConnectionStateResponseOutput) ToPrivateLinkConnectionStateResponsePtrOutputWithContext(ctx context.Context) PrivateLinkConnectionStateResponsePtrOutput {
-	return o.ApplyT(func(v PrivateLinkConnectionStateResponse) *PrivateLinkConnectionStateResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v PrivateLinkConnectionStateResponse) *PrivateLinkConnectionStateResponse {
 		return &v
 	}).(PrivateLinkConnectionStateResponsePtrOutput)
 }
 
-// ActionsRequired for a private link connection
 func (o PrivateLinkConnectionStateResponseOutput) ActionsRequired() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v PrivateLinkConnectionStateResponse) *string { return v.ActionsRequired }).(pulumi.StringPtrOutput)
 }
 
-// Description of a private link connection
 func (o PrivateLinkConnectionStateResponseOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v PrivateLinkConnectionStateResponse) *string { return v.Description }).(pulumi.StringPtrOutput)
 }
 
-// Status of a private link connection
 func (o PrivateLinkConnectionStateResponseOutput) Status() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v PrivateLinkConnectionStateResponse) *string { return v.Status }).(pulumi.StringPtrOutput)
 }
@@ -10222,10 +9328,15 @@ func (o PrivateLinkConnectionStateResponsePtrOutput) ToPrivateLinkConnectionStat
 }
 
 func (o PrivateLinkConnectionStateResponsePtrOutput) Elem() PrivateLinkConnectionStateResponseOutput {
-	return o.ApplyT(func(v *PrivateLinkConnectionStateResponse) PrivateLinkConnectionStateResponse { return *v }).(PrivateLinkConnectionStateResponseOutput)
+	return o.ApplyT(func(v *PrivateLinkConnectionStateResponse) PrivateLinkConnectionStateResponse {
+		if v != nil {
+			return *v
+		}
+		var ret PrivateLinkConnectionStateResponse
+		return ret
+	}).(PrivateLinkConnectionStateResponseOutput)
 }
 
-// ActionsRequired for a private link connection
 func (o PrivateLinkConnectionStateResponsePtrOutput) ActionsRequired() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *PrivateLinkConnectionStateResponse) *string {
 		if v == nil {
@@ -10235,7 +9346,6 @@ func (o PrivateLinkConnectionStateResponsePtrOutput) ActionsRequired() pulumi.St
 	}).(pulumi.StringPtrOutput)
 }
 
-// Description of a private link connection
 func (o PrivateLinkConnectionStateResponsePtrOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *PrivateLinkConnectionStateResponse) *string {
 		if v == nil {
@@ -10245,7 +9355,6 @@ func (o PrivateLinkConnectionStateResponsePtrOutput) Description() pulumi.String
 	}).(pulumi.StringPtrOutput)
 }
 
-// Status of a private link connection
 func (o PrivateLinkConnectionStateResponsePtrOutput) Status() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *PrivateLinkConnectionStateResponse) *string {
 		if v == nil {
@@ -10255,20 +9364,11 @@ func (o PrivateLinkConnectionStateResponsePtrOutput) Status() pulumi.StringPtrOu
 	}).(pulumi.StringPtrOutput)
 }
 
-// Push settings for the App.
 type PushSettings struct {
-	// Gets or sets a JSON string containing a list of dynamic tags that will be evaluated from user claims in the push registration endpoint.
-	DynamicTagsJson *string `pulumi:"dynamicTagsJson"`
-	// Gets or sets a flag indicating whether the Push endpoint is enabled.
-	IsPushEnabled bool `pulumi:"isPushEnabled"`
-	// Kind of resource.
-	Kind *string `pulumi:"kind"`
-	// Gets or sets a JSON string containing a list of tags that are whitelisted for use by the push registration endpoint.
-	TagWhitelistJson *string `pulumi:"tagWhitelistJson"`
-	// Gets or sets a JSON string containing a list of tags that require user authentication to be used in the push registration endpoint.
-	// Tags can consist of alphanumeric characters and the following:
-	// '_', '@', '#', '.', ':', '-'.
-	// Validation should be performed at the PushRequestHandler.
+	DynamicTagsJson   *string `pulumi:"dynamicTagsJson"`
+	IsPushEnabled     bool    `pulumi:"isPushEnabled"`
+	Kind              *string `pulumi:"kind"`
+	TagWhitelistJson  *string `pulumi:"tagWhitelistJson"`
 	TagsRequiringAuth *string `pulumi:"tagsRequiringAuth"`
 }
 
@@ -10283,20 +9383,11 @@ type PushSettingsInput interface {
 	ToPushSettingsOutputWithContext(context.Context) PushSettingsOutput
 }
 
-// Push settings for the App.
 type PushSettingsArgs struct {
-	// Gets or sets a JSON string containing a list of dynamic tags that will be evaluated from user claims in the push registration endpoint.
-	DynamicTagsJson pulumi.StringPtrInput `pulumi:"dynamicTagsJson"`
-	// Gets or sets a flag indicating whether the Push endpoint is enabled.
-	IsPushEnabled pulumi.BoolInput `pulumi:"isPushEnabled"`
-	// Kind of resource.
-	Kind pulumi.StringPtrInput `pulumi:"kind"`
-	// Gets or sets a JSON string containing a list of tags that are whitelisted for use by the push registration endpoint.
-	TagWhitelistJson pulumi.StringPtrInput `pulumi:"tagWhitelistJson"`
-	// Gets or sets a JSON string containing a list of tags that require user authentication to be used in the push registration endpoint.
-	// Tags can consist of alphanumeric characters and the following:
-	// '_', '@', '#', '.', ':', '-'.
-	// Validation should be performed at the PushRequestHandler.
+	DynamicTagsJson   pulumi.StringPtrInput `pulumi:"dynamicTagsJson"`
+	IsPushEnabled     pulumi.BoolInput      `pulumi:"isPushEnabled"`
+	Kind              pulumi.StringPtrInput `pulumi:"kind"`
+	TagWhitelistJson  pulumi.StringPtrInput `pulumi:"tagWhitelistJson"`
 	TagsRequiringAuth pulumi.StringPtrInput `pulumi:"tagsRequiringAuth"`
 }
 
@@ -10353,7 +9444,6 @@ func (i *pushSettingsPtrType) ToPushSettingsPtrOutputWithContext(ctx context.Con
 	return pulumi.ToOutputWithContext(ctx, i).(PushSettingsPtrOutput)
 }
 
-// Push settings for the App.
 type PushSettingsOutput struct{ *pulumi.OutputState }
 
 func (PushSettingsOutput) ElementType() reflect.Type {
@@ -10373,35 +9463,27 @@ func (o PushSettingsOutput) ToPushSettingsPtrOutput() PushSettingsPtrOutput {
 }
 
 func (o PushSettingsOutput) ToPushSettingsPtrOutputWithContext(ctx context.Context) PushSettingsPtrOutput {
-	return o.ApplyT(func(v PushSettings) *PushSettings {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v PushSettings) *PushSettings {
 		return &v
 	}).(PushSettingsPtrOutput)
 }
 
-// Gets or sets a JSON string containing a list of dynamic tags that will be evaluated from user claims in the push registration endpoint.
 func (o PushSettingsOutput) DynamicTagsJson() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v PushSettings) *string { return v.DynamicTagsJson }).(pulumi.StringPtrOutput)
 }
 
-// Gets or sets a flag indicating whether the Push endpoint is enabled.
 func (o PushSettingsOutput) IsPushEnabled() pulumi.BoolOutput {
 	return o.ApplyT(func(v PushSettings) bool { return v.IsPushEnabled }).(pulumi.BoolOutput)
 }
 
-// Kind of resource.
 func (o PushSettingsOutput) Kind() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v PushSettings) *string { return v.Kind }).(pulumi.StringPtrOutput)
 }
 
-// Gets or sets a JSON string containing a list of tags that are whitelisted for use by the push registration endpoint.
 func (o PushSettingsOutput) TagWhitelistJson() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v PushSettings) *string { return v.TagWhitelistJson }).(pulumi.StringPtrOutput)
 }
 
-// Gets or sets a JSON string containing a list of tags that require user authentication to be used in the push registration endpoint.
-// Tags can consist of alphanumeric characters and the following:
-// '_', '@', '#', '.', ':', '-'.
-// Validation should be performed at the PushRequestHandler.
 func (o PushSettingsOutput) TagsRequiringAuth() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v PushSettings) *string { return v.TagsRequiringAuth }).(pulumi.StringPtrOutput)
 }
@@ -10421,10 +9503,15 @@ func (o PushSettingsPtrOutput) ToPushSettingsPtrOutputWithContext(ctx context.Co
 }
 
 func (o PushSettingsPtrOutput) Elem() PushSettingsOutput {
-	return o.ApplyT(func(v *PushSettings) PushSettings { return *v }).(PushSettingsOutput)
+	return o.ApplyT(func(v *PushSettings) PushSettings {
+		if v != nil {
+			return *v
+		}
+		var ret PushSettings
+		return ret
+	}).(PushSettingsOutput)
 }
 
-// Gets or sets a JSON string containing a list of dynamic tags that will be evaluated from user claims in the push registration endpoint.
 func (o PushSettingsPtrOutput) DynamicTagsJson() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *PushSettings) *string {
 		if v == nil {
@@ -10434,7 +9521,6 @@ func (o PushSettingsPtrOutput) DynamicTagsJson() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Gets or sets a flag indicating whether the Push endpoint is enabled.
 func (o PushSettingsPtrOutput) IsPushEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *PushSettings) *bool {
 		if v == nil {
@@ -10444,7 +9530,6 @@ func (o PushSettingsPtrOutput) IsPushEnabled() pulumi.BoolPtrOutput {
 	}).(pulumi.BoolPtrOutput)
 }
 
-// Kind of resource.
 func (o PushSettingsPtrOutput) Kind() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *PushSettings) *string {
 		if v == nil {
@@ -10454,7 +9539,6 @@ func (o PushSettingsPtrOutput) Kind() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Gets or sets a JSON string containing a list of tags that are whitelisted for use by the push registration endpoint.
 func (o PushSettingsPtrOutput) TagWhitelistJson() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *PushSettings) *string {
 		if v == nil {
@@ -10464,10 +9548,6 @@ func (o PushSettingsPtrOutput) TagWhitelistJson() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Gets or sets a JSON string containing a list of tags that require user authentication to be used in the push registration endpoint.
-// Tags can consist of alphanumeric characters and the following:
-// '_', '@', '#', '.', ':', '-'.
-// Validation should be performed at the PushRequestHandler.
 func (o PushSettingsPtrOutput) TagsRequiringAuth() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *PushSettings) *string {
 		if v == nil {
@@ -10477,27 +9557,15 @@ func (o PushSettingsPtrOutput) TagsRequiringAuth() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Push settings for the App.
 type PushSettingsResponse struct {
-	// Gets or sets a JSON string containing a list of dynamic tags that will be evaluated from user claims in the push registration endpoint.
-	DynamicTagsJson *string `pulumi:"dynamicTagsJson"`
-	// Resource Id.
-	Id string `pulumi:"id"`
-	// Gets or sets a flag indicating whether the Push endpoint is enabled.
-	IsPushEnabled bool `pulumi:"isPushEnabled"`
-	// Kind of resource.
-	Kind *string `pulumi:"kind"`
-	// Resource Name.
-	Name string `pulumi:"name"`
-	// Gets or sets a JSON string containing a list of tags that are whitelisted for use by the push registration endpoint.
-	TagWhitelistJson *string `pulumi:"tagWhitelistJson"`
-	// Gets or sets a JSON string containing a list of tags that require user authentication to be used in the push registration endpoint.
-	// Tags can consist of alphanumeric characters and the following:
-	// '_', '@', '#', '.', ':', '-'.
-	// Validation should be performed at the PushRequestHandler.
+	DynamicTagsJson   *string `pulumi:"dynamicTagsJson"`
+	Id                string  `pulumi:"id"`
+	IsPushEnabled     bool    `pulumi:"isPushEnabled"`
+	Kind              *string `pulumi:"kind"`
+	Name              string  `pulumi:"name"`
+	TagWhitelistJson  *string `pulumi:"tagWhitelistJson"`
 	TagsRequiringAuth *string `pulumi:"tagsRequiringAuth"`
-	// Resource type.
-	Type string `pulumi:"type"`
+	Type              string  `pulumi:"type"`
 }
 
 // PushSettingsResponseInput is an input type that accepts PushSettingsResponseArgs and PushSettingsResponseOutput values.
@@ -10511,27 +9579,15 @@ type PushSettingsResponseInput interface {
 	ToPushSettingsResponseOutputWithContext(context.Context) PushSettingsResponseOutput
 }
 
-// Push settings for the App.
 type PushSettingsResponseArgs struct {
-	// Gets or sets a JSON string containing a list of dynamic tags that will be evaluated from user claims in the push registration endpoint.
-	DynamicTagsJson pulumi.StringPtrInput `pulumi:"dynamicTagsJson"`
-	// Resource Id.
-	Id pulumi.StringInput `pulumi:"id"`
-	// Gets or sets a flag indicating whether the Push endpoint is enabled.
-	IsPushEnabled pulumi.BoolInput `pulumi:"isPushEnabled"`
-	// Kind of resource.
-	Kind pulumi.StringPtrInput `pulumi:"kind"`
-	// Resource Name.
-	Name pulumi.StringInput `pulumi:"name"`
-	// Gets or sets a JSON string containing a list of tags that are whitelisted for use by the push registration endpoint.
-	TagWhitelistJson pulumi.StringPtrInput `pulumi:"tagWhitelistJson"`
-	// Gets or sets a JSON string containing a list of tags that require user authentication to be used in the push registration endpoint.
-	// Tags can consist of alphanumeric characters and the following:
-	// '_', '@', '#', '.', ':', '-'.
-	// Validation should be performed at the PushRequestHandler.
+	DynamicTagsJson   pulumi.StringPtrInput `pulumi:"dynamicTagsJson"`
+	Id                pulumi.StringInput    `pulumi:"id"`
+	IsPushEnabled     pulumi.BoolInput      `pulumi:"isPushEnabled"`
+	Kind              pulumi.StringPtrInput `pulumi:"kind"`
+	Name              pulumi.StringInput    `pulumi:"name"`
+	TagWhitelistJson  pulumi.StringPtrInput `pulumi:"tagWhitelistJson"`
 	TagsRequiringAuth pulumi.StringPtrInput `pulumi:"tagsRequiringAuth"`
-	// Resource type.
-	Type pulumi.StringInput `pulumi:"type"`
+	Type              pulumi.StringInput    `pulumi:"type"`
 }
 
 func (PushSettingsResponseArgs) ElementType() reflect.Type {
@@ -10587,7 +9643,6 @@ func (i *pushSettingsResponsePtrType) ToPushSettingsResponsePtrOutputWithContext
 	return pulumi.ToOutputWithContext(ctx, i).(PushSettingsResponsePtrOutput)
 }
 
-// Push settings for the App.
 type PushSettingsResponseOutput struct{ *pulumi.OutputState }
 
 func (PushSettingsResponseOutput) ElementType() reflect.Type {
@@ -10607,50 +9662,39 @@ func (o PushSettingsResponseOutput) ToPushSettingsResponsePtrOutput() PushSettin
 }
 
 func (o PushSettingsResponseOutput) ToPushSettingsResponsePtrOutputWithContext(ctx context.Context) PushSettingsResponsePtrOutput {
-	return o.ApplyT(func(v PushSettingsResponse) *PushSettingsResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v PushSettingsResponse) *PushSettingsResponse {
 		return &v
 	}).(PushSettingsResponsePtrOutput)
 }
 
-// Gets or sets a JSON string containing a list of dynamic tags that will be evaluated from user claims in the push registration endpoint.
 func (o PushSettingsResponseOutput) DynamicTagsJson() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v PushSettingsResponse) *string { return v.DynamicTagsJson }).(pulumi.StringPtrOutput)
 }
 
-// Resource Id.
 func (o PushSettingsResponseOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v PushSettingsResponse) string { return v.Id }).(pulumi.StringOutput)
 }
 
-// Gets or sets a flag indicating whether the Push endpoint is enabled.
 func (o PushSettingsResponseOutput) IsPushEnabled() pulumi.BoolOutput {
 	return o.ApplyT(func(v PushSettingsResponse) bool { return v.IsPushEnabled }).(pulumi.BoolOutput)
 }
 
-// Kind of resource.
 func (o PushSettingsResponseOutput) Kind() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v PushSettingsResponse) *string { return v.Kind }).(pulumi.StringPtrOutput)
 }
 
-// Resource Name.
 func (o PushSettingsResponseOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v PushSettingsResponse) string { return v.Name }).(pulumi.StringOutput)
 }
 
-// Gets or sets a JSON string containing a list of tags that are whitelisted for use by the push registration endpoint.
 func (o PushSettingsResponseOutput) TagWhitelistJson() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v PushSettingsResponse) *string { return v.TagWhitelistJson }).(pulumi.StringPtrOutput)
 }
 
-// Gets or sets a JSON string containing a list of tags that require user authentication to be used in the push registration endpoint.
-// Tags can consist of alphanumeric characters and the following:
-// '_', '@', '#', '.', ':', '-'.
-// Validation should be performed at the PushRequestHandler.
 func (o PushSettingsResponseOutput) TagsRequiringAuth() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v PushSettingsResponse) *string { return v.TagsRequiringAuth }).(pulumi.StringPtrOutput)
 }
 
-// Resource type.
 func (o PushSettingsResponseOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v PushSettingsResponse) string { return v.Type }).(pulumi.StringOutput)
 }
@@ -10670,10 +9714,15 @@ func (o PushSettingsResponsePtrOutput) ToPushSettingsResponsePtrOutputWithContex
 }
 
 func (o PushSettingsResponsePtrOutput) Elem() PushSettingsResponseOutput {
-	return o.ApplyT(func(v *PushSettingsResponse) PushSettingsResponse { return *v }).(PushSettingsResponseOutput)
+	return o.ApplyT(func(v *PushSettingsResponse) PushSettingsResponse {
+		if v != nil {
+			return *v
+		}
+		var ret PushSettingsResponse
+		return ret
+	}).(PushSettingsResponseOutput)
 }
 
-// Gets or sets a JSON string containing a list of dynamic tags that will be evaluated from user claims in the push registration endpoint.
 func (o PushSettingsResponsePtrOutput) DynamicTagsJson() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *PushSettingsResponse) *string {
 		if v == nil {
@@ -10683,7 +9732,6 @@ func (o PushSettingsResponsePtrOutput) DynamicTagsJson() pulumi.StringPtrOutput 
 	}).(pulumi.StringPtrOutput)
 }
 
-// Resource Id.
 func (o PushSettingsResponsePtrOutput) Id() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *PushSettingsResponse) *string {
 		if v == nil {
@@ -10693,7 +9741,6 @@ func (o PushSettingsResponsePtrOutput) Id() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Gets or sets a flag indicating whether the Push endpoint is enabled.
 func (o PushSettingsResponsePtrOutput) IsPushEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *PushSettingsResponse) *bool {
 		if v == nil {
@@ -10703,7 +9750,6 @@ func (o PushSettingsResponsePtrOutput) IsPushEnabled() pulumi.BoolPtrOutput {
 	}).(pulumi.BoolPtrOutput)
 }
 
-// Kind of resource.
 func (o PushSettingsResponsePtrOutput) Kind() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *PushSettingsResponse) *string {
 		if v == nil {
@@ -10713,7 +9759,6 @@ func (o PushSettingsResponsePtrOutput) Kind() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Resource Name.
 func (o PushSettingsResponsePtrOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *PushSettingsResponse) *string {
 		if v == nil {
@@ -10723,7 +9768,6 @@ func (o PushSettingsResponsePtrOutput) Name() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Gets or sets a JSON string containing a list of tags that are whitelisted for use by the push registration endpoint.
 func (o PushSettingsResponsePtrOutput) TagWhitelistJson() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *PushSettingsResponse) *string {
 		if v == nil {
@@ -10733,10 +9777,6 @@ func (o PushSettingsResponsePtrOutput) TagWhitelistJson() pulumi.StringPtrOutput
 	}).(pulumi.StringPtrOutput)
 }
 
-// Gets or sets a JSON string containing a list of tags that require user authentication to be used in the push registration endpoint.
-// Tags can consist of alphanumeric characters and the following:
-// '_', '@', '#', '.', ':', '-'.
-// Validation should be performed at the PushRequestHandler.
 func (o PushSettingsResponsePtrOutput) TagsRequiringAuth() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *PushSettingsResponse) *string {
 		if v == nil {
@@ -10746,7 +9786,6 @@ func (o PushSettingsResponsePtrOutput) TagsRequiringAuth() pulumi.StringPtrOutpu
 	}).(pulumi.StringPtrOutput)
 }
 
-// Resource type.
 func (o PushSettingsResponsePtrOutput) Type() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *PushSettingsResponse) *string {
 		if v == nil {
@@ -10756,27 +9795,15 @@ func (o PushSettingsResponsePtrOutput) Type() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Routing rules for ramp up testing. This rule allows to redirect static traffic % to a slot or to gradually change routing % based on performance.
 type RampUpRule struct {
-	// Hostname of a slot to which the traffic will be redirected if decided to. E.g. myapp-stage.azurewebsites.net.
-	ActionHostName *string `pulumi:"actionHostName"`
-	// Custom decision algorithm can be provided in TiPCallback site extension which URL can be specified. See TiPCallback site extension for the scaffold and contracts.
-	// https://www.siteextensions.net/packages/TiPCallback/
-	ChangeDecisionCallbackUrl *string `pulumi:"changeDecisionCallbackUrl"`
-	// Specifies interval in minutes to reevaluate ReroutePercentage.
-	ChangeIntervalInMinutes *int `pulumi:"changeIntervalInMinutes"`
-	// In auto ramp up scenario this is the step to add/remove from <code>ReroutePercentage</code> until it reaches \n<code>MinReroutePercentage</code> or
-	// <code>MaxReroutePercentage</code>. Site metrics are checked every N minutes specified in <code>ChangeIntervalInMinutes</code>.\nCustom decision algorithm
-	// can be provided in TiPCallback site extension which URL can be specified in <code>ChangeDecisionCallbackUrl</code>.
-	ChangeStep *float64 `pulumi:"changeStep"`
-	// Specifies upper boundary below which ReroutePercentage will stay.
-	MaxReroutePercentage *float64 `pulumi:"maxReroutePercentage"`
-	// Specifies lower boundary above which ReroutePercentage will stay.
-	MinReroutePercentage *float64 `pulumi:"minReroutePercentage"`
-	// Name of the routing rule. The recommended name would be to point to the slot which will receive the traffic in the experiment.
-	Name *string `pulumi:"name"`
-	// Percentage of the traffic which will be redirected to <code>ActionHostName</code>.
-	ReroutePercentage *float64 `pulumi:"reroutePercentage"`
+	ActionHostName            *string  `pulumi:"actionHostName"`
+	ChangeDecisionCallbackUrl *string  `pulumi:"changeDecisionCallbackUrl"`
+	ChangeIntervalInMinutes   *int     `pulumi:"changeIntervalInMinutes"`
+	ChangeStep                *float64 `pulumi:"changeStep"`
+	MaxReroutePercentage      *float64 `pulumi:"maxReroutePercentage"`
+	MinReroutePercentage      *float64 `pulumi:"minReroutePercentage"`
+	Name                      *string  `pulumi:"name"`
+	ReroutePercentage         *float64 `pulumi:"reroutePercentage"`
 }
 
 // RampUpRuleInput is an input type that accepts RampUpRuleArgs and RampUpRuleOutput values.
@@ -10790,27 +9817,15 @@ type RampUpRuleInput interface {
 	ToRampUpRuleOutputWithContext(context.Context) RampUpRuleOutput
 }
 
-// Routing rules for ramp up testing. This rule allows to redirect static traffic % to a slot or to gradually change routing % based on performance.
 type RampUpRuleArgs struct {
-	// Hostname of a slot to which the traffic will be redirected if decided to. E.g. myapp-stage.azurewebsites.net.
-	ActionHostName pulumi.StringPtrInput `pulumi:"actionHostName"`
-	// Custom decision algorithm can be provided in TiPCallback site extension which URL can be specified. See TiPCallback site extension for the scaffold and contracts.
-	// https://www.siteextensions.net/packages/TiPCallback/
-	ChangeDecisionCallbackUrl pulumi.StringPtrInput `pulumi:"changeDecisionCallbackUrl"`
-	// Specifies interval in minutes to reevaluate ReroutePercentage.
-	ChangeIntervalInMinutes pulumi.IntPtrInput `pulumi:"changeIntervalInMinutes"`
-	// In auto ramp up scenario this is the step to add/remove from <code>ReroutePercentage</code> until it reaches \n<code>MinReroutePercentage</code> or
-	// <code>MaxReroutePercentage</code>. Site metrics are checked every N minutes specified in <code>ChangeIntervalInMinutes</code>.\nCustom decision algorithm
-	// can be provided in TiPCallback site extension which URL can be specified in <code>ChangeDecisionCallbackUrl</code>.
-	ChangeStep pulumi.Float64PtrInput `pulumi:"changeStep"`
-	// Specifies upper boundary below which ReroutePercentage will stay.
-	MaxReroutePercentage pulumi.Float64PtrInput `pulumi:"maxReroutePercentage"`
-	// Specifies lower boundary above which ReroutePercentage will stay.
-	MinReroutePercentage pulumi.Float64PtrInput `pulumi:"minReroutePercentage"`
-	// Name of the routing rule. The recommended name would be to point to the slot which will receive the traffic in the experiment.
-	Name pulumi.StringPtrInput `pulumi:"name"`
-	// Percentage of the traffic which will be redirected to <code>ActionHostName</code>.
-	ReroutePercentage pulumi.Float64PtrInput `pulumi:"reroutePercentage"`
+	ActionHostName            pulumi.StringPtrInput  `pulumi:"actionHostName"`
+	ChangeDecisionCallbackUrl pulumi.StringPtrInput  `pulumi:"changeDecisionCallbackUrl"`
+	ChangeIntervalInMinutes   pulumi.IntPtrInput     `pulumi:"changeIntervalInMinutes"`
+	ChangeStep                pulumi.Float64PtrInput `pulumi:"changeStep"`
+	MaxReroutePercentage      pulumi.Float64PtrInput `pulumi:"maxReroutePercentage"`
+	MinReroutePercentage      pulumi.Float64PtrInput `pulumi:"minReroutePercentage"`
+	Name                      pulumi.StringPtrInput  `pulumi:"name"`
+	ReroutePercentage         pulumi.Float64PtrInput `pulumi:"reroutePercentage"`
 }
 
 func (RampUpRuleArgs) ElementType() reflect.Type {
@@ -10850,7 +9865,6 @@ func (i RampUpRuleArray) ToRampUpRuleArrayOutputWithContext(ctx context.Context)
 	return pulumi.ToOutputWithContext(ctx, i).(RampUpRuleArrayOutput)
 }
 
-// Routing rules for ramp up testing. This rule allows to redirect static traffic % to a slot or to gradually change routing % based on performance.
 type RampUpRuleOutput struct{ *pulumi.OutputState }
 
 func (RampUpRuleOutput) ElementType() reflect.Type {
@@ -10865,45 +9879,34 @@ func (o RampUpRuleOutput) ToRampUpRuleOutputWithContext(ctx context.Context) Ram
 	return o
 }
 
-// Hostname of a slot to which the traffic will be redirected if decided to. E.g. myapp-stage.azurewebsites.net.
 func (o RampUpRuleOutput) ActionHostName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v RampUpRule) *string { return v.ActionHostName }).(pulumi.StringPtrOutput)
 }
 
-// Custom decision algorithm can be provided in TiPCallback site extension which URL can be specified. See TiPCallback site extension for the scaffold and contracts.
-// https://www.siteextensions.net/packages/TiPCallback/
 func (o RampUpRuleOutput) ChangeDecisionCallbackUrl() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v RampUpRule) *string { return v.ChangeDecisionCallbackUrl }).(pulumi.StringPtrOutput)
 }
 
-// Specifies interval in minutes to reevaluate ReroutePercentage.
 func (o RampUpRuleOutput) ChangeIntervalInMinutes() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v RampUpRule) *int { return v.ChangeIntervalInMinutes }).(pulumi.IntPtrOutput)
 }
 
-// In auto ramp up scenario this is the step to add/remove from <code>ReroutePercentage</code> until it reaches \n<code>MinReroutePercentage</code> or
-// <code>MaxReroutePercentage</code>. Site metrics are checked every N minutes specified in <code>ChangeIntervalInMinutes</code>.\nCustom decision algorithm
-// can be provided in TiPCallback site extension which URL can be specified in <code>ChangeDecisionCallbackUrl</code>.
 func (o RampUpRuleOutput) ChangeStep() pulumi.Float64PtrOutput {
 	return o.ApplyT(func(v RampUpRule) *float64 { return v.ChangeStep }).(pulumi.Float64PtrOutput)
 }
 
-// Specifies upper boundary below which ReroutePercentage will stay.
 func (o RampUpRuleOutput) MaxReroutePercentage() pulumi.Float64PtrOutput {
 	return o.ApplyT(func(v RampUpRule) *float64 { return v.MaxReroutePercentage }).(pulumi.Float64PtrOutput)
 }
 
-// Specifies lower boundary above which ReroutePercentage will stay.
 func (o RampUpRuleOutput) MinReroutePercentage() pulumi.Float64PtrOutput {
 	return o.ApplyT(func(v RampUpRule) *float64 { return v.MinReroutePercentage }).(pulumi.Float64PtrOutput)
 }
 
-// Name of the routing rule. The recommended name would be to point to the slot which will receive the traffic in the experiment.
 func (o RampUpRuleOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v RampUpRule) *string { return v.Name }).(pulumi.StringPtrOutput)
 }
 
-// Percentage of the traffic which will be redirected to <code>ActionHostName</code>.
 func (o RampUpRuleOutput) ReroutePercentage() pulumi.Float64PtrOutput {
 	return o.ApplyT(func(v RampUpRule) *float64 { return v.ReroutePercentage }).(pulumi.Float64PtrOutput)
 }
@@ -10928,27 +9931,15 @@ func (o RampUpRuleArrayOutput) Index(i pulumi.IntInput) RampUpRuleOutput {
 	}).(RampUpRuleOutput)
 }
 
-// Routing rules for ramp up testing. This rule allows to redirect static traffic % to a slot or to gradually change routing % based on performance.
 type RampUpRuleResponse struct {
-	// Hostname of a slot to which the traffic will be redirected if decided to. E.g. myapp-stage.azurewebsites.net.
-	ActionHostName *string `pulumi:"actionHostName"`
-	// Custom decision algorithm can be provided in TiPCallback site extension which URL can be specified. See TiPCallback site extension for the scaffold and contracts.
-	// https://www.siteextensions.net/packages/TiPCallback/
-	ChangeDecisionCallbackUrl *string `pulumi:"changeDecisionCallbackUrl"`
-	// Specifies interval in minutes to reevaluate ReroutePercentage.
-	ChangeIntervalInMinutes *int `pulumi:"changeIntervalInMinutes"`
-	// In auto ramp up scenario this is the step to add/remove from <code>ReroutePercentage</code> until it reaches \n<code>MinReroutePercentage</code> or
-	// <code>MaxReroutePercentage</code>. Site metrics are checked every N minutes specified in <code>ChangeIntervalInMinutes</code>.\nCustom decision algorithm
-	// can be provided in TiPCallback site extension which URL can be specified in <code>ChangeDecisionCallbackUrl</code>.
-	ChangeStep *float64 `pulumi:"changeStep"`
-	// Specifies upper boundary below which ReroutePercentage will stay.
-	MaxReroutePercentage *float64 `pulumi:"maxReroutePercentage"`
-	// Specifies lower boundary above which ReroutePercentage will stay.
-	MinReroutePercentage *float64 `pulumi:"minReroutePercentage"`
-	// Name of the routing rule. The recommended name would be to point to the slot which will receive the traffic in the experiment.
-	Name *string `pulumi:"name"`
-	// Percentage of the traffic which will be redirected to <code>ActionHostName</code>.
-	ReroutePercentage *float64 `pulumi:"reroutePercentage"`
+	ActionHostName            *string  `pulumi:"actionHostName"`
+	ChangeDecisionCallbackUrl *string  `pulumi:"changeDecisionCallbackUrl"`
+	ChangeIntervalInMinutes   *int     `pulumi:"changeIntervalInMinutes"`
+	ChangeStep                *float64 `pulumi:"changeStep"`
+	MaxReroutePercentage      *float64 `pulumi:"maxReroutePercentage"`
+	MinReroutePercentage      *float64 `pulumi:"minReroutePercentage"`
+	Name                      *string  `pulumi:"name"`
+	ReroutePercentage         *float64 `pulumi:"reroutePercentage"`
 }
 
 // RampUpRuleResponseInput is an input type that accepts RampUpRuleResponseArgs and RampUpRuleResponseOutput values.
@@ -10962,27 +9953,15 @@ type RampUpRuleResponseInput interface {
 	ToRampUpRuleResponseOutputWithContext(context.Context) RampUpRuleResponseOutput
 }
 
-// Routing rules for ramp up testing. This rule allows to redirect static traffic % to a slot or to gradually change routing % based on performance.
 type RampUpRuleResponseArgs struct {
-	// Hostname of a slot to which the traffic will be redirected if decided to. E.g. myapp-stage.azurewebsites.net.
-	ActionHostName pulumi.StringPtrInput `pulumi:"actionHostName"`
-	// Custom decision algorithm can be provided in TiPCallback site extension which URL can be specified. See TiPCallback site extension for the scaffold and contracts.
-	// https://www.siteextensions.net/packages/TiPCallback/
-	ChangeDecisionCallbackUrl pulumi.StringPtrInput `pulumi:"changeDecisionCallbackUrl"`
-	// Specifies interval in minutes to reevaluate ReroutePercentage.
-	ChangeIntervalInMinutes pulumi.IntPtrInput `pulumi:"changeIntervalInMinutes"`
-	// In auto ramp up scenario this is the step to add/remove from <code>ReroutePercentage</code> until it reaches \n<code>MinReroutePercentage</code> or
-	// <code>MaxReroutePercentage</code>. Site metrics are checked every N minutes specified in <code>ChangeIntervalInMinutes</code>.\nCustom decision algorithm
-	// can be provided in TiPCallback site extension which URL can be specified in <code>ChangeDecisionCallbackUrl</code>.
-	ChangeStep pulumi.Float64PtrInput `pulumi:"changeStep"`
-	// Specifies upper boundary below which ReroutePercentage will stay.
-	MaxReroutePercentage pulumi.Float64PtrInput `pulumi:"maxReroutePercentage"`
-	// Specifies lower boundary above which ReroutePercentage will stay.
-	MinReroutePercentage pulumi.Float64PtrInput `pulumi:"minReroutePercentage"`
-	// Name of the routing rule. The recommended name would be to point to the slot which will receive the traffic in the experiment.
-	Name pulumi.StringPtrInput `pulumi:"name"`
-	// Percentage of the traffic which will be redirected to <code>ActionHostName</code>.
-	ReroutePercentage pulumi.Float64PtrInput `pulumi:"reroutePercentage"`
+	ActionHostName            pulumi.StringPtrInput  `pulumi:"actionHostName"`
+	ChangeDecisionCallbackUrl pulumi.StringPtrInput  `pulumi:"changeDecisionCallbackUrl"`
+	ChangeIntervalInMinutes   pulumi.IntPtrInput     `pulumi:"changeIntervalInMinutes"`
+	ChangeStep                pulumi.Float64PtrInput `pulumi:"changeStep"`
+	MaxReroutePercentage      pulumi.Float64PtrInput `pulumi:"maxReroutePercentage"`
+	MinReroutePercentage      pulumi.Float64PtrInput `pulumi:"minReroutePercentage"`
+	Name                      pulumi.StringPtrInput  `pulumi:"name"`
+	ReroutePercentage         pulumi.Float64PtrInput `pulumi:"reroutePercentage"`
 }
 
 func (RampUpRuleResponseArgs) ElementType() reflect.Type {
@@ -11022,7 +10001,6 @@ func (i RampUpRuleResponseArray) ToRampUpRuleResponseArrayOutputWithContext(ctx 
 	return pulumi.ToOutputWithContext(ctx, i).(RampUpRuleResponseArrayOutput)
 }
 
-// Routing rules for ramp up testing. This rule allows to redirect static traffic % to a slot or to gradually change routing % based on performance.
 type RampUpRuleResponseOutput struct{ *pulumi.OutputState }
 
 func (RampUpRuleResponseOutput) ElementType() reflect.Type {
@@ -11037,45 +10015,34 @@ func (o RampUpRuleResponseOutput) ToRampUpRuleResponseOutputWithContext(ctx cont
 	return o
 }
 
-// Hostname of a slot to which the traffic will be redirected if decided to. E.g. myapp-stage.azurewebsites.net.
 func (o RampUpRuleResponseOutput) ActionHostName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v RampUpRuleResponse) *string { return v.ActionHostName }).(pulumi.StringPtrOutput)
 }
 
-// Custom decision algorithm can be provided in TiPCallback site extension which URL can be specified. See TiPCallback site extension for the scaffold and contracts.
-// https://www.siteextensions.net/packages/TiPCallback/
 func (o RampUpRuleResponseOutput) ChangeDecisionCallbackUrl() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v RampUpRuleResponse) *string { return v.ChangeDecisionCallbackUrl }).(pulumi.StringPtrOutput)
 }
 
-// Specifies interval in minutes to reevaluate ReroutePercentage.
 func (o RampUpRuleResponseOutput) ChangeIntervalInMinutes() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v RampUpRuleResponse) *int { return v.ChangeIntervalInMinutes }).(pulumi.IntPtrOutput)
 }
 
-// In auto ramp up scenario this is the step to add/remove from <code>ReroutePercentage</code> until it reaches \n<code>MinReroutePercentage</code> or
-// <code>MaxReroutePercentage</code>. Site metrics are checked every N minutes specified in <code>ChangeIntervalInMinutes</code>.\nCustom decision algorithm
-// can be provided in TiPCallback site extension which URL can be specified in <code>ChangeDecisionCallbackUrl</code>.
 func (o RampUpRuleResponseOutput) ChangeStep() pulumi.Float64PtrOutput {
 	return o.ApplyT(func(v RampUpRuleResponse) *float64 { return v.ChangeStep }).(pulumi.Float64PtrOutput)
 }
 
-// Specifies upper boundary below which ReroutePercentage will stay.
 func (o RampUpRuleResponseOutput) MaxReroutePercentage() pulumi.Float64PtrOutput {
 	return o.ApplyT(func(v RampUpRuleResponse) *float64 { return v.MaxReroutePercentage }).(pulumi.Float64PtrOutput)
 }
 
-// Specifies lower boundary above which ReroutePercentage will stay.
 func (o RampUpRuleResponseOutput) MinReroutePercentage() pulumi.Float64PtrOutput {
 	return o.ApplyT(func(v RampUpRuleResponse) *float64 { return v.MinReroutePercentage }).(pulumi.Float64PtrOutput)
 }
 
-// Name of the routing rule. The recommended name would be to point to the slot which will receive the traffic in the experiment.
 func (o RampUpRuleResponseOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v RampUpRuleResponse) *string { return v.Name }).(pulumi.StringPtrOutput)
 }
 
-// Percentage of the traffic which will be redirected to <code>ActionHostName</code>.
 func (o RampUpRuleResponseOutput) ReroutePercentage() pulumi.Float64PtrOutput {
 	return o.ApplyT(func(v RampUpRuleResponse) *float64 { return v.ReroutePercentage }).(pulumi.Float64PtrOutput)
 }
@@ -11100,11 +10067,8 @@ func (o RampUpRuleResponseArrayOutput) Index(i pulumi.IntInput) RampUpRuleRespon
 	}).(RampUpRuleResponseOutput)
 }
 
-// Trigger based on total requests.
 type RequestsBasedTrigger struct {
-	// Request Count.
-	Count *int `pulumi:"count"`
-	// Time interval.
+	Count        *int    `pulumi:"count"`
 	TimeInterval *string `pulumi:"timeInterval"`
 }
 
@@ -11119,11 +10083,8 @@ type RequestsBasedTriggerInput interface {
 	ToRequestsBasedTriggerOutputWithContext(context.Context) RequestsBasedTriggerOutput
 }
 
-// Trigger based on total requests.
 type RequestsBasedTriggerArgs struct {
-	// Request Count.
-	Count pulumi.IntPtrInput `pulumi:"count"`
-	// Time interval.
+	Count        pulumi.IntPtrInput    `pulumi:"count"`
 	TimeInterval pulumi.StringPtrInput `pulumi:"timeInterval"`
 }
 
@@ -11180,7 +10141,6 @@ func (i *requestsBasedTriggerPtrType) ToRequestsBasedTriggerPtrOutputWithContext
 	return pulumi.ToOutputWithContext(ctx, i).(RequestsBasedTriggerPtrOutput)
 }
 
-// Trigger based on total requests.
 type RequestsBasedTriggerOutput struct{ *pulumi.OutputState }
 
 func (RequestsBasedTriggerOutput) ElementType() reflect.Type {
@@ -11200,17 +10160,15 @@ func (o RequestsBasedTriggerOutput) ToRequestsBasedTriggerPtrOutput() RequestsBa
 }
 
 func (o RequestsBasedTriggerOutput) ToRequestsBasedTriggerPtrOutputWithContext(ctx context.Context) RequestsBasedTriggerPtrOutput {
-	return o.ApplyT(func(v RequestsBasedTrigger) *RequestsBasedTrigger {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v RequestsBasedTrigger) *RequestsBasedTrigger {
 		return &v
 	}).(RequestsBasedTriggerPtrOutput)
 }
 
-// Request Count.
 func (o RequestsBasedTriggerOutput) Count() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v RequestsBasedTrigger) *int { return v.Count }).(pulumi.IntPtrOutput)
 }
 
-// Time interval.
 func (o RequestsBasedTriggerOutput) TimeInterval() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v RequestsBasedTrigger) *string { return v.TimeInterval }).(pulumi.StringPtrOutput)
 }
@@ -11230,10 +10188,15 @@ func (o RequestsBasedTriggerPtrOutput) ToRequestsBasedTriggerPtrOutputWithContex
 }
 
 func (o RequestsBasedTriggerPtrOutput) Elem() RequestsBasedTriggerOutput {
-	return o.ApplyT(func(v *RequestsBasedTrigger) RequestsBasedTrigger { return *v }).(RequestsBasedTriggerOutput)
+	return o.ApplyT(func(v *RequestsBasedTrigger) RequestsBasedTrigger {
+		if v != nil {
+			return *v
+		}
+		var ret RequestsBasedTrigger
+		return ret
+	}).(RequestsBasedTriggerOutput)
 }
 
-// Request Count.
 func (o RequestsBasedTriggerPtrOutput) Count() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *RequestsBasedTrigger) *int {
 		if v == nil {
@@ -11243,7 +10206,6 @@ func (o RequestsBasedTriggerPtrOutput) Count() pulumi.IntPtrOutput {
 	}).(pulumi.IntPtrOutput)
 }
 
-// Time interval.
 func (o RequestsBasedTriggerPtrOutput) TimeInterval() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *RequestsBasedTrigger) *string {
 		if v == nil {
@@ -11253,11 +10215,8 @@ func (o RequestsBasedTriggerPtrOutput) TimeInterval() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Trigger based on total requests.
 type RequestsBasedTriggerResponse struct {
-	// Request Count.
-	Count *int `pulumi:"count"`
-	// Time interval.
+	Count        *int    `pulumi:"count"`
 	TimeInterval *string `pulumi:"timeInterval"`
 }
 
@@ -11272,11 +10231,8 @@ type RequestsBasedTriggerResponseInput interface {
 	ToRequestsBasedTriggerResponseOutputWithContext(context.Context) RequestsBasedTriggerResponseOutput
 }
 
-// Trigger based on total requests.
 type RequestsBasedTriggerResponseArgs struct {
-	// Request Count.
-	Count pulumi.IntPtrInput `pulumi:"count"`
-	// Time interval.
+	Count        pulumi.IntPtrInput    `pulumi:"count"`
 	TimeInterval pulumi.StringPtrInput `pulumi:"timeInterval"`
 }
 
@@ -11333,7 +10289,6 @@ func (i *requestsBasedTriggerResponsePtrType) ToRequestsBasedTriggerResponsePtrO
 	return pulumi.ToOutputWithContext(ctx, i).(RequestsBasedTriggerResponsePtrOutput)
 }
 
-// Trigger based on total requests.
 type RequestsBasedTriggerResponseOutput struct{ *pulumi.OutputState }
 
 func (RequestsBasedTriggerResponseOutput) ElementType() reflect.Type {
@@ -11353,17 +10308,15 @@ func (o RequestsBasedTriggerResponseOutput) ToRequestsBasedTriggerResponsePtrOut
 }
 
 func (o RequestsBasedTriggerResponseOutput) ToRequestsBasedTriggerResponsePtrOutputWithContext(ctx context.Context) RequestsBasedTriggerResponsePtrOutput {
-	return o.ApplyT(func(v RequestsBasedTriggerResponse) *RequestsBasedTriggerResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v RequestsBasedTriggerResponse) *RequestsBasedTriggerResponse {
 		return &v
 	}).(RequestsBasedTriggerResponsePtrOutput)
 }
 
-// Request Count.
 func (o RequestsBasedTriggerResponseOutput) Count() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v RequestsBasedTriggerResponse) *int { return v.Count }).(pulumi.IntPtrOutput)
 }
 
-// Time interval.
 func (o RequestsBasedTriggerResponseOutput) TimeInterval() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v RequestsBasedTriggerResponse) *string { return v.TimeInterval }).(pulumi.StringPtrOutput)
 }
@@ -11383,10 +10336,15 @@ func (o RequestsBasedTriggerResponsePtrOutput) ToRequestsBasedTriggerResponsePtr
 }
 
 func (o RequestsBasedTriggerResponsePtrOutput) Elem() RequestsBasedTriggerResponseOutput {
-	return o.ApplyT(func(v *RequestsBasedTriggerResponse) RequestsBasedTriggerResponse { return *v }).(RequestsBasedTriggerResponseOutput)
+	return o.ApplyT(func(v *RequestsBasedTriggerResponse) RequestsBasedTriggerResponse {
+		if v != nil {
+			return *v
+		}
+		var ret RequestsBasedTriggerResponse
+		return ret
+	}).(RequestsBasedTriggerResponseOutput)
 }
 
-// Request Count.
 func (o RequestsBasedTriggerResponsePtrOutput) Count() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *RequestsBasedTriggerResponse) *int {
 		if v == nil {
@@ -11396,7 +10354,6 @@ func (o RequestsBasedTriggerResponsePtrOutput) Count() pulumi.IntPtrOutput {
 	}).(pulumi.IntPtrOutput)
 }
 
-// Time interval.
 func (o RequestsBasedTriggerResponsePtrOutput) TimeInterval() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *RequestsBasedTriggerResponse) *string {
 		if v == nil {
@@ -11406,121 +10363,63 @@ func (o RequestsBasedTriggerResponsePtrOutput) TimeInterval() pulumi.StringPtrOu
 	}).(pulumi.StringPtrOutput)
 }
 
-// Configuration of an App Service app.
 type SiteConfig struct {
-	// Flag to use Managed Identity Creds for ACR pull
-	AcrUseManagedIdentityCreds *bool `pulumi:"acrUseManagedIdentityCreds"`
-	// If using user managed identity, the user managed identity ClientId
-	AcrUserManagedIdentityID *string `pulumi:"acrUserManagedIdentityID"`
-	// <code>true</code> if Always On is enabled; otherwise, <code>false</code>.
-	AlwaysOn *bool `pulumi:"alwaysOn"`
-	// Information about the formal API definition for the app.
-	ApiDefinition *ApiDefinitionInfo `pulumi:"apiDefinition"`
-	// Azure API management settings linked to the app.
-	ApiManagementConfig *ApiManagementConfig `pulumi:"apiManagementConfig"`
-	// App command line to launch.
-	AppCommandLine *string `pulumi:"appCommandLine"`
-	// Application settings.
-	AppSettings []NameValuePair `pulumi:"appSettings"`
-	// <code>true</code> if Auto Heal is enabled; otherwise, <code>false</code>.
-	AutoHealEnabled *bool `pulumi:"autoHealEnabled"`
-	// Auto Heal rules.
-	AutoHealRules *AutoHealRules `pulumi:"autoHealRules"`
-	// Auto-swap slot name.
-	AutoSwapSlotName *string `pulumi:"autoSwapSlotName"`
-	// Connection strings.
-	ConnectionStrings []ConnStringInfo `pulumi:"connectionStrings"`
-	// Cross-Origin Resource Sharing (CORS) settings.
-	Cors *CorsSettings `pulumi:"cors"`
-	// Default documents.
-	DefaultDocuments []string `pulumi:"defaultDocuments"`
-	// <code>true</code> if detailed error logging is enabled; otherwise, <code>false</code>.
-	DetailedErrorLoggingEnabled *bool `pulumi:"detailedErrorLoggingEnabled"`
-	// Document root.
-	DocumentRoot *string `pulumi:"documentRoot"`
-	// This is work around for polymorphic types.
-	Experiments *Experiments `pulumi:"experiments"`
-	// State of FTP / FTPS service
-	FtpsState *string `pulumi:"ftpsState"`
-	// Handler mappings.
-	HandlerMappings []HandlerMapping `pulumi:"handlerMappings"`
-	// Health check path
-	HealthCheckPath *string `pulumi:"healthCheckPath"`
-	// Http20Enabled: configures a web site to allow clients to connect over http2.0
-	Http20Enabled *bool `pulumi:"http20Enabled"`
-	// <code>true</code> if HTTP logging is enabled; otherwise, <code>false</code>.
-	HttpLoggingEnabled *bool `pulumi:"httpLoggingEnabled"`
-	// IP security restrictions for main.
-	IpSecurityRestrictions []IpSecurityRestriction `pulumi:"ipSecurityRestrictions"`
-	// Java container.
-	JavaContainer *string `pulumi:"javaContainer"`
-	// Java container version.
-	JavaContainerVersion *string `pulumi:"javaContainerVersion"`
-	// Java version.
-	JavaVersion *string `pulumi:"javaVersion"`
-	// Site limits.
-	Limits *SiteLimits `pulumi:"limits"`
-	// Linux App Framework and version
-	LinuxFxVersion *string `pulumi:"linuxFxVersion"`
-	// Site load balancing.
-	LoadBalancing *string `pulumi:"loadBalancing"`
-	// <code>true</code> to enable local MySQL; otherwise, <code>false</code>.
-	LocalMySqlEnabled *bool `pulumi:"localMySqlEnabled"`
-	// HTTP logs directory size limit.
-	LogsDirectorySizeLimit *int `pulumi:"logsDirectorySizeLimit"`
-	// Managed pipeline mode.
-	ManagedPipelineMode *string `pulumi:"managedPipelineMode"`
-	// Managed Service Identity Id
-	ManagedServiceIdentityId *int `pulumi:"managedServiceIdentityId"`
-	// MinTlsVersion: configures the minimum version of TLS required for SSL requests
-	MinTlsVersion *string `pulumi:"minTlsVersion"`
-	// .NET Framework version.
-	NetFrameworkVersion *string `pulumi:"netFrameworkVersion"`
-	// Version of Node.js.
-	NodeVersion *string `pulumi:"nodeVersion"`
-	// Number of workers.
-	NumberOfWorkers *int `pulumi:"numberOfWorkers"`
-	// Version of PHP.
-	PhpVersion *string `pulumi:"phpVersion"`
-	// Version of PowerShell.
-	PowerShellVersion *string `pulumi:"powerShellVersion"`
-	// Number of preWarmed instances.
-	// This setting only applies to the Consumption and Elastic Plans
-	PreWarmedInstanceCount *int `pulumi:"preWarmedInstanceCount"`
-	// Publishing user name.
-	PublishingUsername *string `pulumi:"publishingUsername"`
-	// Push endpoint settings.
-	Push *PushSettings `pulumi:"push"`
-	// Version of Python.
-	PythonVersion *string `pulumi:"pythonVersion"`
-	// <code>true</code> if remote debugging is enabled; otherwise, <code>false</code>.
-	RemoteDebuggingEnabled *bool `pulumi:"remoteDebuggingEnabled"`
-	// Remote debugging version.
-	RemoteDebuggingVersion *string `pulumi:"remoteDebuggingVersion"`
-	// <code>true</code> if request tracing is enabled; otherwise, <code>false</code>.
-	RequestTracingEnabled *bool `pulumi:"requestTracingEnabled"`
-	// Request tracing expiration time.
-	RequestTracingExpirationTime *string `pulumi:"requestTracingExpirationTime"`
-	// IP security restrictions for scm.
-	ScmIpSecurityRestrictions []IpSecurityRestriction `pulumi:"scmIpSecurityRestrictions"`
-	// IP security restrictions for scm to use main.
-	ScmIpSecurityRestrictionsUseMain *bool `pulumi:"scmIpSecurityRestrictionsUseMain"`
-	// SCM type.
-	ScmType *string `pulumi:"scmType"`
-	// Tracing options.
-	TracingOptions *string `pulumi:"tracingOptions"`
-	// <code>true</code> to use 32-bit worker process; otherwise, <code>false</code>.
-	Use32BitWorkerProcess *bool `pulumi:"use32BitWorkerProcess"`
-	// Virtual applications.
-	VirtualApplications []VirtualApplication `pulumi:"virtualApplications"`
-	// Virtual Network name.
-	VnetName *string `pulumi:"vnetName"`
-	// <code>true</code> if WebSocket is enabled; otherwise, <code>false</code>.
-	WebSocketsEnabled *bool `pulumi:"webSocketsEnabled"`
-	// Xenon App Framework and version
-	WindowsFxVersion *string `pulumi:"windowsFxVersion"`
-	// Explicit Managed Service Identity Id
-	XManagedServiceIdentityId *int `pulumi:"xManagedServiceIdentityId"`
+	AcrUseManagedIdentityCreds       *bool                   `pulumi:"acrUseManagedIdentityCreds"`
+	AcrUserManagedIdentityID         *string                 `pulumi:"acrUserManagedIdentityID"`
+	AlwaysOn                         *bool                   `pulumi:"alwaysOn"`
+	ApiDefinition                    *ApiDefinitionInfo      `pulumi:"apiDefinition"`
+	ApiManagementConfig              *ApiManagementConfig    `pulumi:"apiManagementConfig"`
+	AppCommandLine                   *string                 `pulumi:"appCommandLine"`
+	AppSettings                      []NameValuePair         `pulumi:"appSettings"`
+	AutoHealEnabled                  *bool                   `pulumi:"autoHealEnabled"`
+	AutoHealRules                    *AutoHealRules          `pulumi:"autoHealRules"`
+	AutoSwapSlotName                 *string                 `pulumi:"autoSwapSlotName"`
+	ConnectionStrings                []ConnStringInfo        `pulumi:"connectionStrings"`
+	Cors                             *CorsSettings           `pulumi:"cors"`
+	DefaultDocuments                 []string                `pulumi:"defaultDocuments"`
+	DetailedErrorLoggingEnabled      *bool                   `pulumi:"detailedErrorLoggingEnabled"`
+	DocumentRoot                     *string                 `pulumi:"documentRoot"`
+	Experiments                      *Experiments            `pulumi:"experiments"`
+	FtpsState                        *string                 `pulumi:"ftpsState"`
+	HandlerMappings                  []HandlerMapping        `pulumi:"handlerMappings"`
+	HealthCheckPath                  *string                 `pulumi:"healthCheckPath"`
+	Http20Enabled                    *bool                   `pulumi:"http20Enabled"`
+	HttpLoggingEnabled               *bool                   `pulumi:"httpLoggingEnabled"`
+	IpSecurityRestrictions           []IpSecurityRestriction `pulumi:"ipSecurityRestrictions"`
+	JavaContainer                    *string                 `pulumi:"javaContainer"`
+	JavaContainerVersion             *string                 `pulumi:"javaContainerVersion"`
+	JavaVersion                      *string                 `pulumi:"javaVersion"`
+	Limits                           *SiteLimits             `pulumi:"limits"`
+	LinuxFxVersion                   *string                 `pulumi:"linuxFxVersion"`
+	LoadBalancing                    *SiteLoadBalancing      `pulumi:"loadBalancing"`
+	LocalMySqlEnabled                *bool                   `pulumi:"localMySqlEnabled"`
+	LogsDirectorySizeLimit           *int                    `pulumi:"logsDirectorySizeLimit"`
+	ManagedPipelineMode              *ManagedPipelineMode    `pulumi:"managedPipelineMode"`
+	ManagedServiceIdentityId         *int                    `pulumi:"managedServiceIdentityId"`
+	MinTlsVersion                    *string                 `pulumi:"minTlsVersion"`
+	NetFrameworkVersion              *string                 `pulumi:"netFrameworkVersion"`
+	NodeVersion                      *string                 `pulumi:"nodeVersion"`
+	NumberOfWorkers                  *int                    `pulumi:"numberOfWorkers"`
+	PhpVersion                       *string                 `pulumi:"phpVersion"`
+	PowerShellVersion                *string                 `pulumi:"powerShellVersion"`
+	PreWarmedInstanceCount           *int                    `pulumi:"preWarmedInstanceCount"`
+	PublishingUsername               *string                 `pulumi:"publishingUsername"`
+	Push                             *PushSettings           `pulumi:"push"`
+	PythonVersion                    *string                 `pulumi:"pythonVersion"`
+	RemoteDebuggingEnabled           *bool                   `pulumi:"remoteDebuggingEnabled"`
+	RemoteDebuggingVersion           *string                 `pulumi:"remoteDebuggingVersion"`
+	RequestTracingEnabled            *bool                   `pulumi:"requestTracingEnabled"`
+	RequestTracingExpirationTime     *string                 `pulumi:"requestTracingExpirationTime"`
+	ScmIpSecurityRestrictions        []IpSecurityRestriction `pulumi:"scmIpSecurityRestrictions"`
+	ScmIpSecurityRestrictionsUseMain *bool                   `pulumi:"scmIpSecurityRestrictionsUseMain"`
+	ScmType                          *string                 `pulumi:"scmType"`
+	TracingOptions                   *string                 `pulumi:"tracingOptions"`
+	Use32BitWorkerProcess            *bool                   `pulumi:"use32BitWorkerProcess"`
+	VirtualApplications              []VirtualApplication    `pulumi:"virtualApplications"`
+	VnetName                         *string                 `pulumi:"vnetName"`
+	WebSocketsEnabled                *bool                   `pulumi:"webSocketsEnabled"`
+	WindowsFxVersion                 *string                 `pulumi:"windowsFxVersion"`
+	XManagedServiceIdentityId        *int                    `pulumi:"xManagedServiceIdentityId"`
 }
 
 // SiteConfigInput is an input type that accepts SiteConfigArgs and SiteConfigOutput values.
@@ -11534,121 +10433,63 @@ type SiteConfigInput interface {
 	ToSiteConfigOutputWithContext(context.Context) SiteConfigOutput
 }
 
-// Configuration of an App Service app.
 type SiteConfigArgs struct {
-	// Flag to use Managed Identity Creds for ACR pull
-	AcrUseManagedIdentityCreds pulumi.BoolPtrInput `pulumi:"acrUseManagedIdentityCreds"`
-	// If using user managed identity, the user managed identity ClientId
-	AcrUserManagedIdentityID pulumi.StringPtrInput `pulumi:"acrUserManagedIdentityID"`
-	// <code>true</code> if Always On is enabled; otherwise, <code>false</code>.
-	AlwaysOn pulumi.BoolPtrInput `pulumi:"alwaysOn"`
-	// Information about the formal API definition for the app.
-	ApiDefinition ApiDefinitionInfoPtrInput `pulumi:"apiDefinition"`
-	// Azure API management settings linked to the app.
-	ApiManagementConfig ApiManagementConfigPtrInput `pulumi:"apiManagementConfig"`
-	// App command line to launch.
-	AppCommandLine pulumi.StringPtrInput `pulumi:"appCommandLine"`
-	// Application settings.
-	AppSettings NameValuePairArrayInput `pulumi:"appSettings"`
-	// <code>true</code> if Auto Heal is enabled; otherwise, <code>false</code>.
-	AutoHealEnabled pulumi.BoolPtrInput `pulumi:"autoHealEnabled"`
-	// Auto Heal rules.
-	AutoHealRules AutoHealRulesPtrInput `pulumi:"autoHealRules"`
-	// Auto-swap slot name.
-	AutoSwapSlotName pulumi.StringPtrInput `pulumi:"autoSwapSlotName"`
-	// Connection strings.
-	ConnectionStrings ConnStringInfoArrayInput `pulumi:"connectionStrings"`
-	// Cross-Origin Resource Sharing (CORS) settings.
-	Cors CorsSettingsPtrInput `pulumi:"cors"`
-	// Default documents.
-	DefaultDocuments pulumi.StringArrayInput `pulumi:"defaultDocuments"`
-	// <code>true</code> if detailed error logging is enabled; otherwise, <code>false</code>.
-	DetailedErrorLoggingEnabled pulumi.BoolPtrInput `pulumi:"detailedErrorLoggingEnabled"`
-	// Document root.
-	DocumentRoot pulumi.StringPtrInput `pulumi:"documentRoot"`
-	// This is work around for polymorphic types.
-	Experiments ExperimentsPtrInput `pulumi:"experiments"`
-	// State of FTP / FTPS service
-	FtpsState pulumi.StringPtrInput `pulumi:"ftpsState"`
-	// Handler mappings.
-	HandlerMappings HandlerMappingArrayInput `pulumi:"handlerMappings"`
-	// Health check path
-	HealthCheckPath pulumi.StringPtrInput `pulumi:"healthCheckPath"`
-	// Http20Enabled: configures a web site to allow clients to connect over http2.0
-	Http20Enabled pulumi.BoolPtrInput `pulumi:"http20Enabled"`
-	// <code>true</code> if HTTP logging is enabled; otherwise, <code>false</code>.
-	HttpLoggingEnabled pulumi.BoolPtrInput `pulumi:"httpLoggingEnabled"`
-	// IP security restrictions for main.
-	IpSecurityRestrictions IpSecurityRestrictionArrayInput `pulumi:"ipSecurityRestrictions"`
-	// Java container.
-	JavaContainer pulumi.StringPtrInput `pulumi:"javaContainer"`
-	// Java container version.
-	JavaContainerVersion pulumi.StringPtrInput `pulumi:"javaContainerVersion"`
-	// Java version.
-	JavaVersion pulumi.StringPtrInput `pulumi:"javaVersion"`
-	// Site limits.
-	Limits SiteLimitsPtrInput `pulumi:"limits"`
-	// Linux App Framework and version
-	LinuxFxVersion pulumi.StringPtrInput `pulumi:"linuxFxVersion"`
-	// Site load balancing.
-	LoadBalancing *SiteLoadBalancing `pulumi:"loadBalancing"`
-	// <code>true</code> to enable local MySQL; otherwise, <code>false</code>.
-	LocalMySqlEnabled pulumi.BoolPtrInput `pulumi:"localMySqlEnabled"`
-	// HTTP logs directory size limit.
-	LogsDirectorySizeLimit pulumi.IntPtrInput `pulumi:"logsDirectorySizeLimit"`
-	// Managed pipeline mode.
-	ManagedPipelineMode *ManagedPipelineMode `pulumi:"managedPipelineMode"`
-	// Managed Service Identity Id
-	ManagedServiceIdentityId pulumi.IntPtrInput `pulumi:"managedServiceIdentityId"`
-	// MinTlsVersion: configures the minimum version of TLS required for SSL requests
-	MinTlsVersion pulumi.StringPtrInput `pulumi:"minTlsVersion"`
-	// .NET Framework version.
-	NetFrameworkVersion pulumi.StringPtrInput `pulumi:"netFrameworkVersion"`
-	// Version of Node.js.
-	NodeVersion pulumi.StringPtrInput `pulumi:"nodeVersion"`
-	// Number of workers.
-	NumberOfWorkers pulumi.IntPtrInput `pulumi:"numberOfWorkers"`
-	// Version of PHP.
-	PhpVersion pulumi.StringPtrInput `pulumi:"phpVersion"`
-	// Version of PowerShell.
-	PowerShellVersion pulumi.StringPtrInput `pulumi:"powerShellVersion"`
-	// Number of preWarmed instances.
-	// This setting only applies to the Consumption and Elastic Plans
-	PreWarmedInstanceCount pulumi.IntPtrInput `pulumi:"preWarmedInstanceCount"`
-	// Publishing user name.
-	PublishingUsername pulumi.StringPtrInput `pulumi:"publishingUsername"`
-	// Push endpoint settings.
-	Push PushSettingsPtrInput `pulumi:"push"`
-	// Version of Python.
-	PythonVersion pulumi.StringPtrInput `pulumi:"pythonVersion"`
-	// <code>true</code> if remote debugging is enabled; otherwise, <code>false</code>.
-	RemoteDebuggingEnabled pulumi.BoolPtrInput `pulumi:"remoteDebuggingEnabled"`
-	// Remote debugging version.
-	RemoteDebuggingVersion pulumi.StringPtrInput `pulumi:"remoteDebuggingVersion"`
-	// <code>true</code> if request tracing is enabled; otherwise, <code>false</code>.
-	RequestTracingEnabled pulumi.BoolPtrInput `pulumi:"requestTracingEnabled"`
-	// Request tracing expiration time.
-	RequestTracingExpirationTime pulumi.StringPtrInput `pulumi:"requestTracingExpirationTime"`
-	// IP security restrictions for scm.
-	ScmIpSecurityRestrictions IpSecurityRestrictionArrayInput `pulumi:"scmIpSecurityRestrictions"`
-	// IP security restrictions for scm to use main.
-	ScmIpSecurityRestrictionsUseMain pulumi.BoolPtrInput `pulumi:"scmIpSecurityRestrictionsUseMain"`
-	// SCM type.
-	ScmType pulumi.StringPtrInput `pulumi:"scmType"`
-	// Tracing options.
-	TracingOptions pulumi.StringPtrInput `pulumi:"tracingOptions"`
-	// <code>true</code> to use 32-bit worker process; otherwise, <code>false</code>.
-	Use32BitWorkerProcess pulumi.BoolPtrInput `pulumi:"use32BitWorkerProcess"`
-	// Virtual applications.
-	VirtualApplications VirtualApplicationArrayInput `pulumi:"virtualApplications"`
-	// Virtual Network name.
-	VnetName pulumi.StringPtrInput `pulumi:"vnetName"`
-	// <code>true</code> if WebSocket is enabled; otherwise, <code>false</code>.
-	WebSocketsEnabled pulumi.BoolPtrInput `pulumi:"webSocketsEnabled"`
-	// Xenon App Framework and version
-	WindowsFxVersion pulumi.StringPtrInput `pulumi:"windowsFxVersion"`
-	// Explicit Managed Service Identity Id
-	XManagedServiceIdentityId pulumi.IntPtrInput `pulumi:"xManagedServiceIdentityId"`
+	AcrUseManagedIdentityCreds       pulumi.BoolPtrInput             `pulumi:"acrUseManagedIdentityCreds"`
+	AcrUserManagedIdentityID         pulumi.StringPtrInput           `pulumi:"acrUserManagedIdentityID"`
+	AlwaysOn                         pulumi.BoolPtrInput             `pulumi:"alwaysOn"`
+	ApiDefinition                    ApiDefinitionInfoPtrInput       `pulumi:"apiDefinition"`
+	ApiManagementConfig              ApiManagementConfigPtrInput     `pulumi:"apiManagementConfig"`
+	AppCommandLine                   pulumi.StringPtrInput           `pulumi:"appCommandLine"`
+	AppSettings                      NameValuePairArrayInput         `pulumi:"appSettings"`
+	AutoHealEnabled                  pulumi.BoolPtrInput             `pulumi:"autoHealEnabled"`
+	AutoHealRules                    AutoHealRulesPtrInput           `pulumi:"autoHealRules"`
+	AutoSwapSlotName                 pulumi.StringPtrInput           `pulumi:"autoSwapSlotName"`
+	ConnectionStrings                ConnStringInfoArrayInput        `pulumi:"connectionStrings"`
+	Cors                             CorsSettingsPtrInput            `pulumi:"cors"`
+	DefaultDocuments                 pulumi.StringArrayInput         `pulumi:"defaultDocuments"`
+	DetailedErrorLoggingEnabled      pulumi.BoolPtrInput             `pulumi:"detailedErrorLoggingEnabled"`
+	DocumentRoot                     pulumi.StringPtrInput           `pulumi:"documentRoot"`
+	Experiments                      ExperimentsPtrInput             `pulumi:"experiments"`
+	FtpsState                        pulumi.StringPtrInput           `pulumi:"ftpsState"`
+	HandlerMappings                  HandlerMappingArrayInput        `pulumi:"handlerMappings"`
+	HealthCheckPath                  pulumi.StringPtrInput           `pulumi:"healthCheckPath"`
+	Http20Enabled                    pulumi.BoolPtrInput             `pulumi:"http20Enabled"`
+	HttpLoggingEnabled               pulumi.BoolPtrInput             `pulumi:"httpLoggingEnabled"`
+	IpSecurityRestrictions           IpSecurityRestrictionArrayInput `pulumi:"ipSecurityRestrictions"`
+	JavaContainer                    pulumi.StringPtrInput           `pulumi:"javaContainer"`
+	JavaContainerVersion             pulumi.StringPtrInput           `pulumi:"javaContainerVersion"`
+	JavaVersion                      pulumi.StringPtrInput           `pulumi:"javaVersion"`
+	Limits                           SiteLimitsPtrInput              `pulumi:"limits"`
+	LinuxFxVersion                   pulumi.StringPtrInput           `pulumi:"linuxFxVersion"`
+	LoadBalancing                    SiteLoadBalancingPtrInput       `pulumi:"loadBalancing"`
+	LocalMySqlEnabled                pulumi.BoolPtrInput             `pulumi:"localMySqlEnabled"`
+	LogsDirectorySizeLimit           pulumi.IntPtrInput              `pulumi:"logsDirectorySizeLimit"`
+	ManagedPipelineMode              ManagedPipelineModePtrInput     `pulumi:"managedPipelineMode"`
+	ManagedServiceIdentityId         pulumi.IntPtrInput              `pulumi:"managedServiceIdentityId"`
+	MinTlsVersion                    pulumi.StringPtrInput           `pulumi:"minTlsVersion"`
+	NetFrameworkVersion              pulumi.StringPtrInput           `pulumi:"netFrameworkVersion"`
+	NodeVersion                      pulumi.StringPtrInput           `pulumi:"nodeVersion"`
+	NumberOfWorkers                  pulumi.IntPtrInput              `pulumi:"numberOfWorkers"`
+	PhpVersion                       pulumi.StringPtrInput           `pulumi:"phpVersion"`
+	PowerShellVersion                pulumi.StringPtrInput           `pulumi:"powerShellVersion"`
+	PreWarmedInstanceCount           pulumi.IntPtrInput              `pulumi:"preWarmedInstanceCount"`
+	PublishingUsername               pulumi.StringPtrInput           `pulumi:"publishingUsername"`
+	Push                             PushSettingsPtrInput            `pulumi:"push"`
+	PythonVersion                    pulumi.StringPtrInput           `pulumi:"pythonVersion"`
+	RemoteDebuggingEnabled           pulumi.BoolPtrInput             `pulumi:"remoteDebuggingEnabled"`
+	RemoteDebuggingVersion           pulumi.StringPtrInput           `pulumi:"remoteDebuggingVersion"`
+	RequestTracingEnabled            pulumi.BoolPtrInput             `pulumi:"requestTracingEnabled"`
+	RequestTracingExpirationTime     pulumi.StringPtrInput           `pulumi:"requestTracingExpirationTime"`
+	ScmIpSecurityRestrictions        IpSecurityRestrictionArrayInput `pulumi:"scmIpSecurityRestrictions"`
+	ScmIpSecurityRestrictionsUseMain pulumi.BoolPtrInput             `pulumi:"scmIpSecurityRestrictionsUseMain"`
+	ScmType                          pulumi.StringPtrInput           `pulumi:"scmType"`
+	TracingOptions                   pulumi.StringPtrInput           `pulumi:"tracingOptions"`
+	Use32BitWorkerProcess            pulumi.BoolPtrInput             `pulumi:"use32BitWorkerProcess"`
+	VirtualApplications              VirtualApplicationArrayInput    `pulumi:"virtualApplications"`
+	VnetName                         pulumi.StringPtrInput           `pulumi:"vnetName"`
+	WebSocketsEnabled                pulumi.BoolPtrInput             `pulumi:"webSocketsEnabled"`
+	WindowsFxVersion                 pulumi.StringPtrInput           `pulumi:"windowsFxVersion"`
+	XManagedServiceIdentityId        pulumi.IntPtrInput              `pulumi:"xManagedServiceIdentityId"`
 }
 
 func (SiteConfigArgs) ElementType() reflect.Type {
@@ -11704,7 +10545,6 @@ func (i *siteConfigPtrType) ToSiteConfigPtrOutputWithContext(ctx context.Context
 	return pulumi.ToOutputWithContext(ctx, i).(SiteConfigPtrOutput)
 }
 
-// Configuration of an App Service app.
 type SiteConfigOutput struct{ *pulumi.OutputState }
 
 func (SiteConfigOutput) ElementType() reflect.Type {
@@ -11724,288 +10564,231 @@ func (o SiteConfigOutput) ToSiteConfigPtrOutput() SiteConfigPtrOutput {
 }
 
 func (o SiteConfigOutput) ToSiteConfigPtrOutputWithContext(ctx context.Context) SiteConfigPtrOutput {
-	return o.ApplyT(func(v SiteConfig) *SiteConfig {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v SiteConfig) *SiteConfig {
 		return &v
 	}).(SiteConfigPtrOutput)
 }
 
-// Flag to use Managed Identity Creds for ACR pull
 func (o SiteConfigOutput) AcrUseManagedIdentityCreds() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v SiteConfig) *bool { return v.AcrUseManagedIdentityCreds }).(pulumi.BoolPtrOutput)
 }
 
-// If using user managed identity, the user managed identity ClientId
 func (o SiteConfigOutput) AcrUserManagedIdentityID() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SiteConfig) *string { return v.AcrUserManagedIdentityID }).(pulumi.StringPtrOutput)
 }
 
-// <code>true</code> if Always On is enabled; otherwise, <code>false</code>.
 func (o SiteConfigOutput) AlwaysOn() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v SiteConfig) *bool { return v.AlwaysOn }).(pulumi.BoolPtrOutput)
 }
 
-// Information about the formal API definition for the app.
 func (o SiteConfigOutput) ApiDefinition() ApiDefinitionInfoPtrOutput {
 	return o.ApplyT(func(v SiteConfig) *ApiDefinitionInfo { return v.ApiDefinition }).(ApiDefinitionInfoPtrOutput)
 }
 
-// Azure API management settings linked to the app.
 func (o SiteConfigOutput) ApiManagementConfig() ApiManagementConfigPtrOutput {
 	return o.ApplyT(func(v SiteConfig) *ApiManagementConfig { return v.ApiManagementConfig }).(ApiManagementConfigPtrOutput)
 }
 
-// App command line to launch.
 func (o SiteConfigOutput) AppCommandLine() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SiteConfig) *string { return v.AppCommandLine }).(pulumi.StringPtrOutput)
 }
 
-// Application settings.
 func (o SiteConfigOutput) AppSettings() NameValuePairArrayOutput {
 	return o.ApplyT(func(v SiteConfig) []NameValuePair { return v.AppSettings }).(NameValuePairArrayOutput)
 }
 
-// <code>true</code> if Auto Heal is enabled; otherwise, <code>false</code>.
 func (o SiteConfigOutput) AutoHealEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v SiteConfig) *bool { return v.AutoHealEnabled }).(pulumi.BoolPtrOutput)
 }
 
-// Auto Heal rules.
 func (o SiteConfigOutput) AutoHealRules() AutoHealRulesPtrOutput {
 	return o.ApplyT(func(v SiteConfig) *AutoHealRules { return v.AutoHealRules }).(AutoHealRulesPtrOutput)
 }
 
-// Auto-swap slot name.
 func (o SiteConfigOutput) AutoSwapSlotName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SiteConfig) *string { return v.AutoSwapSlotName }).(pulumi.StringPtrOutput)
 }
 
-// Connection strings.
 func (o SiteConfigOutput) ConnectionStrings() ConnStringInfoArrayOutput {
 	return o.ApplyT(func(v SiteConfig) []ConnStringInfo { return v.ConnectionStrings }).(ConnStringInfoArrayOutput)
 }
 
-// Cross-Origin Resource Sharing (CORS) settings.
 func (o SiteConfigOutput) Cors() CorsSettingsPtrOutput {
 	return o.ApplyT(func(v SiteConfig) *CorsSettings { return v.Cors }).(CorsSettingsPtrOutput)
 }
 
-// Default documents.
 func (o SiteConfigOutput) DefaultDocuments() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v SiteConfig) []string { return v.DefaultDocuments }).(pulumi.StringArrayOutput)
 }
 
-// <code>true</code> if detailed error logging is enabled; otherwise, <code>false</code>.
 func (o SiteConfigOutput) DetailedErrorLoggingEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v SiteConfig) *bool { return v.DetailedErrorLoggingEnabled }).(pulumi.BoolPtrOutput)
 }
 
-// Document root.
 func (o SiteConfigOutput) DocumentRoot() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SiteConfig) *string { return v.DocumentRoot }).(pulumi.StringPtrOutput)
 }
 
-// This is work around for polymorphic types.
 func (o SiteConfigOutput) Experiments() ExperimentsPtrOutput {
 	return o.ApplyT(func(v SiteConfig) *Experiments { return v.Experiments }).(ExperimentsPtrOutput)
 }
 
-// State of FTP / FTPS service
 func (o SiteConfigOutput) FtpsState() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SiteConfig) *string { return v.FtpsState }).(pulumi.StringPtrOutput)
 }
 
-// Handler mappings.
 func (o SiteConfigOutput) HandlerMappings() HandlerMappingArrayOutput {
 	return o.ApplyT(func(v SiteConfig) []HandlerMapping { return v.HandlerMappings }).(HandlerMappingArrayOutput)
 }
 
-// Health check path
 func (o SiteConfigOutput) HealthCheckPath() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SiteConfig) *string { return v.HealthCheckPath }).(pulumi.StringPtrOutput)
 }
 
-// Http20Enabled: configures a web site to allow clients to connect over http2.0
 func (o SiteConfigOutput) Http20Enabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v SiteConfig) *bool { return v.Http20Enabled }).(pulumi.BoolPtrOutput)
 }
 
-// <code>true</code> if HTTP logging is enabled; otherwise, <code>false</code>.
 func (o SiteConfigOutput) HttpLoggingEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v SiteConfig) *bool { return v.HttpLoggingEnabled }).(pulumi.BoolPtrOutput)
 }
 
-// IP security restrictions for main.
 func (o SiteConfigOutput) IpSecurityRestrictions() IpSecurityRestrictionArrayOutput {
 	return o.ApplyT(func(v SiteConfig) []IpSecurityRestriction { return v.IpSecurityRestrictions }).(IpSecurityRestrictionArrayOutput)
 }
 
-// Java container.
 func (o SiteConfigOutput) JavaContainer() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SiteConfig) *string { return v.JavaContainer }).(pulumi.StringPtrOutput)
 }
 
-// Java container version.
 func (o SiteConfigOutput) JavaContainerVersion() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SiteConfig) *string { return v.JavaContainerVersion }).(pulumi.StringPtrOutput)
 }
 
-// Java version.
 func (o SiteConfigOutput) JavaVersion() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SiteConfig) *string { return v.JavaVersion }).(pulumi.StringPtrOutput)
 }
 
-// Site limits.
 func (o SiteConfigOutput) Limits() SiteLimitsPtrOutput {
 	return o.ApplyT(func(v SiteConfig) *SiteLimits { return v.Limits }).(SiteLimitsPtrOutput)
 }
 
-// Linux App Framework and version
 func (o SiteConfigOutput) LinuxFxVersion() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SiteConfig) *string { return v.LinuxFxVersion }).(pulumi.StringPtrOutput)
 }
 
-// Site load balancing.
-func (o SiteConfigOutput) LoadBalancing() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v SiteConfig) *string { return v.LoadBalancing }).(pulumi.StringPtrOutput)
+func (o SiteConfigOutput) LoadBalancing() SiteLoadBalancingPtrOutput {
+	return o.ApplyT(func(v SiteConfig) *SiteLoadBalancing { return v.LoadBalancing }).(SiteLoadBalancingPtrOutput)
 }
 
-// <code>true</code> to enable local MySQL; otherwise, <code>false</code>.
 func (o SiteConfigOutput) LocalMySqlEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v SiteConfig) *bool { return v.LocalMySqlEnabled }).(pulumi.BoolPtrOutput)
 }
 
-// HTTP logs directory size limit.
 func (o SiteConfigOutput) LogsDirectorySizeLimit() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v SiteConfig) *int { return v.LogsDirectorySizeLimit }).(pulumi.IntPtrOutput)
 }
 
-// Managed pipeline mode.
-func (o SiteConfigOutput) ManagedPipelineMode() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v SiteConfig) *string { return v.ManagedPipelineMode }).(pulumi.StringPtrOutput)
+func (o SiteConfigOutput) ManagedPipelineMode() ManagedPipelineModePtrOutput {
+	return o.ApplyT(func(v SiteConfig) *ManagedPipelineMode { return v.ManagedPipelineMode }).(ManagedPipelineModePtrOutput)
 }
 
-// Managed Service Identity Id
 func (o SiteConfigOutput) ManagedServiceIdentityId() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v SiteConfig) *int { return v.ManagedServiceIdentityId }).(pulumi.IntPtrOutput)
 }
 
-// MinTlsVersion: configures the minimum version of TLS required for SSL requests
 func (o SiteConfigOutput) MinTlsVersion() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SiteConfig) *string { return v.MinTlsVersion }).(pulumi.StringPtrOutput)
 }
 
-// .NET Framework version.
 func (o SiteConfigOutput) NetFrameworkVersion() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SiteConfig) *string { return v.NetFrameworkVersion }).(pulumi.StringPtrOutput)
 }
 
-// Version of Node.js.
 func (o SiteConfigOutput) NodeVersion() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SiteConfig) *string { return v.NodeVersion }).(pulumi.StringPtrOutput)
 }
 
-// Number of workers.
 func (o SiteConfigOutput) NumberOfWorkers() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v SiteConfig) *int { return v.NumberOfWorkers }).(pulumi.IntPtrOutput)
 }
 
-// Version of PHP.
 func (o SiteConfigOutput) PhpVersion() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SiteConfig) *string { return v.PhpVersion }).(pulumi.StringPtrOutput)
 }
 
-// Version of PowerShell.
 func (o SiteConfigOutput) PowerShellVersion() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SiteConfig) *string { return v.PowerShellVersion }).(pulumi.StringPtrOutput)
 }
 
-// Number of preWarmed instances.
-// This setting only applies to the Consumption and Elastic Plans
 func (o SiteConfigOutput) PreWarmedInstanceCount() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v SiteConfig) *int { return v.PreWarmedInstanceCount }).(pulumi.IntPtrOutput)
 }
 
-// Publishing user name.
 func (o SiteConfigOutput) PublishingUsername() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SiteConfig) *string { return v.PublishingUsername }).(pulumi.StringPtrOutput)
 }
 
-// Push endpoint settings.
 func (o SiteConfigOutput) Push() PushSettingsPtrOutput {
 	return o.ApplyT(func(v SiteConfig) *PushSettings { return v.Push }).(PushSettingsPtrOutput)
 }
 
-// Version of Python.
 func (o SiteConfigOutput) PythonVersion() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SiteConfig) *string { return v.PythonVersion }).(pulumi.StringPtrOutput)
 }
 
-// <code>true</code> if remote debugging is enabled; otherwise, <code>false</code>.
 func (o SiteConfigOutput) RemoteDebuggingEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v SiteConfig) *bool { return v.RemoteDebuggingEnabled }).(pulumi.BoolPtrOutput)
 }
 
-// Remote debugging version.
 func (o SiteConfigOutput) RemoteDebuggingVersion() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SiteConfig) *string { return v.RemoteDebuggingVersion }).(pulumi.StringPtrOutput)
 }
 
-// <code>true</code> if request tracing is enabled; otherwise, <code>false</code>.
 func (o SiteConfigOutput) RequestTracingEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v SiteConfig) *bool { return v.RequestTracingEnabled }).(pulumi.BoolPtrOutput)
 }
 
-// Request tracing expiration time.
 func (o SiteConfigOutput) RequestTracingExpirationTime() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SiteConfig) *string { return v.RequestTracingExpirationTime }).(pulumi.StringPtrOutput)
 }
 
-// IP security restrictions for scm.
 func (o SiteConfigOutput) ScmIpSecurityRestrictions() IpSecurityRestrictionArrayOutput {
 	return o.ApplyT(func(v SiteConfig) []IpSecurityRestriction { return v.ScmIpSecurityRestrictions }).(IpSecurityRestrictionArrayOutput)
 }
 
-// IP security restrictions for scm to use main.
 func (o SiteConfigOutput) ScmIpSecurityRestrictionsUseMain() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v SiteConfig) *bool { return v.ScmIpSecurityRestrictionsUseMain }).(pulumi.BoolPtrOutput)
 }
 
-// SCM type.
 func (o SiteConfigOutput) ScmType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SiteConfig) *string { return v.ScmType }).(pulumi.StringPtrOutput)
 }
 
-// Tracing options.
 func (o SiteConfigOutput) TracingOptions() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SiteConfig) *string { return v.TracingOptions }).(pulumi.StringPtrOutput)
 }
 
-// <code>true</code> to use 32-bit worker process; otherwise, <code>false</code>.
 func (o SiteConfigOutput) Use32BitWorkerProcess() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v SiteConfig) *bool { return v.Use32BitWorkerProcess }).(pulumi.BoolPtrOutput)
 }
 
-// Virtual applications.
 func (o SiteConfigOutput) VirtualApplications() VirtualApplicationArrayOutput {
 	return o.ApplyT(func(v SiteConfig) []VirtualApplication { return v.VirtualApplications }).(VirtualApplicationArrayOutput)
 }
 
-// Virtual Network name.
 func (o SiteConfigOutput) VnetName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SiteConfig) *string { return v.VnetName }).(pulumi.StringPtrOutput)
 }
 
-// <code>true</code> if WebSocket is enabled; otherwise, <code>false</code>.
 func (o SiteConfigOutput) WebSocketsEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v SiteConfig) *bool { return v.WebSocketsEnabled }).(pulumi.BoolPtrOutput)
 }
 
-// Xenon App Framework and version
 func (o SiteConfigOutput) WindowsFxVersion() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SiteConfig) *string { return v.WindowsFxVersion }).(pulumi.StringPtrOutput)
 }
 
-// Explicit Managed Service Identity Id
 func (o SiteConfigOutput) XManagedServiceIdentityId() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v SiteConfig) *int { return v.XManagedServiceIdentityId }).(pulumi.IntPtrOutput)
 }
@@ -12025,10 +10808,15 @@ func (o SiteConfigPtrOutput) ToSiteConfigPtrOutputWithContext(ctx context.Contex
 }
 
 func (o SiteConfigPtrOutput) Elem() SiteConfigOutput {
-	return o.ApplyT(func(v *SiteConfig) SiteConfig { return *v }).(SiteConfigOutput)
+	return o.ApplyT(func(v *SiteConfig) SiteConfig {
+		if v != nil {
+			return *v
+		}
+		var ret SiteConfig
+		return ret
+	}).(SiteConfigOutput)
 }
 
-// Flag to use Managed Identity Creds for ACR pull
 func (o SiteConfigPtrOutput) AcrUseManagedIdentityCreds() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *SiteConfig) *bool {
 		if v == nil {
@@ -12038,7 +10826,6 @@ func (o SiteConfigPtrOutput) AcrUseManagedIdentityCreds() pulumi.BoolPtrOutput {
 	}).(pulumi.BoolPtrOutput)
 }
 
-// If using user managed identity, the user managed identity ClientId
 func (o SiteConfigPtrOutput) AcrUserManagedIdentityID() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SiteConfig) *string {
 		if v == nil {
@@ -12048,7 +10835,6 @@ func (o SiteConfigPtrOutput) AcrUserManagedIdentityID() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// <code>true</code> if Always On is enabled; otherwise, <code>false</code>.
 func (o SiteConfigPtrOutput) AlwaysOn() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *SiteConfig) *bool {
 		if v == nil {
@@ -12058,7 +10844,6 @@ func (o SiteConfigPtrOutput) AlwaysOn() pulumi.BoolPtrOutput {
 	}).(pulumi.BoolPtrOutput)
 }
 
-// Information about the formal API definition for the app.
 func (o SiteConfigPtrOutput) ApiDefinition() ApiDefinitionInfoPtrOutput {
 	return o.ApplyT(func(v *SiteConfig) *ApiDefinitionInfo {
 		if v == nil {
@@ -12068,7 +10853,6 @@ func (o SiteConfigPtrOutput) ApiDefinition() ApiDefinitionInfoPtrOutput {
 	}).(ApiDefinitionInfoPtrOutput)
 }
 
-// Azure API management settings linked to the app.
 func (o SiteConfigPtrOutput) ApiManagementConfig() ApiManagementConfigPtrOutput {
 	return o.ApplyT(func(v *SiteConfig) *ApiManagementConfig {
 		if v == nil {
@@ -12078,7 +10862,6 @@ func (o SiteConfigPtrOutput) ApiManagementConfig() ApiManagementConfigPtrOutput 
 	}).(ApiManagementConfigPtrOutput)
 }
 
-// App command line to launch.
 func (o SiteConfigPtrOutput) AppCommandLine() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SiteConfig) *string {
 		if v == nil {
@@ -12088,7 +10871,6 @@ func (o SiteConfigPtrOutput) AppCommandLine() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Application settings.
 func (o SiteConfigPtrOutput) AppSettings() NameValuePairArrayOutput {
 	return o.ApplyT(func(v *SiteConfig) []NameValuePair {
 		if v == nil {
@@ -12098,7 +10880,6 @@ func (o SiteConfigPtrOutput) AppSettings() NameValuePairArrayOutput {
 	}).(NameValuePairArrayOutput)
 }
 
-// <code>true</code> if Auto Heal is enabled; otherwise, <code>false</code>.
 func (o SiteConfigPtrOutput) AutoHealEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *SiteConfig) *bool {
 		if v == nil {
@@ -12108,7 +10889,6 @@ func (o SiteConfigPtrOutput) AutoHealEnabled() pulumi.BoolPtrOutput {
 	}).(pulumi.BoolPtrOutput)
 }
 
-// Auto Heal rules.
 func (o SiteConfigPtrOutput) AutoHealRules() AutoHealRulesPtrOutput {
 	return o.ApplyT(func(v *SiteConfig) *AutoHealRules {
 		if v == nil {
@@ -12118,7 +10898,6 @@ func (o SiteConfigPtrOutput) AutoHealRules() AutoHealRulesPtrOutput {
 	}).(AutoHealRulesPtrOutput)
 }
 
-// Auto-swap slot name.
 func (o SiteConfigPtrOutput) AutoSwapSlotName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SiteConfig) *string {
 		if v == nil {
@@ -12128,7 +10907,6 @@ func (o SiteConfigPtrOutput) AutoSwapSlotName() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Connection strings.
 func (o SiteConfigPtrOutput) ConnectionStrings() ConnStringInfoArrayOutput {
 	return o.ApplyT(func(v *SiteConfig) []ConnStringInfo {
 		if v == nil {
@@ -12138,7 +10916,6 @@ func (o SiteConfigPtrOutput) ConnectionStrings() ConnStringInfoArrayOutput {
 	}).(ConnStringInfoArrayOutput)
 }
 
-// Cross-Origin Resource Sharing (CORS) settings.
 func (o SiteConfigPtrOutput) Cors() CorsSettingsPtrOutput {
 	return o.ApplyT(func(v *SiteConfig) *CorsSettings {
 		if v == nil {
@@ -12148,7 +10925,6 @@ func (o SiteConfigPtrOutput) Cors() CorsSettingsPtrOutput {
 	}).(CorsSettingsPtrOutput)
 }
 
-// Default documents.
 func (o SiteConfigPtrOutput) DefaultDocuments() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *SiteConfig) []string {
 		if v == nil {
@@ -12158,7 +10934,6 @@ func (o SiteConfigPtrOutput) DefaultDocuments() pulumi.StringArrayOutput {
 	}).(pulumi.StringArrayOutput)
 }
 
-// <code>true</code> if detailed error logging is enabled; otherwise, <code>false</code>.
 func (o SiteConfigPtrOutput) DetailedErrorLoggingEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *SiteConfig) *bool {
 		if v == nil {
@@ -12168,7 +10943,6 @@ func (o SiteConfigPtrOutput) DetailedErrorLoggingEnabled() pulumi.BoolPtrOutput 
 	}).(pulumi.BoolPtrOutput)
 }
 
-// Document root.
 func (o SiteConfigPtrOutput) DocumentRoot() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SiteConfig) *string {
 		if v == nil {
@@ -12178,7 +10952,6 @@ func (o SiteConfigPtrOutput) DocumentRoot() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// This is work around for polymorphic types.
 func (o SiteConfigPtrOutput) Experiments() ExperimentsPtrOutput {
 	return o.ApplyT(func(v *SiteConfig) *Experiments {
 		if v == nil {
@@ -12188,7 +10961,6 @@ func (o SiteConfigPtrOutput) Experiments() ExperimentsPtrOutput {
 	}).(ExperimentsPtrOutput)
 }
 
-// State of FTP / FTPS service
 func (o SiteConfigPtrOutput) FtpsState() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SiteConfig) *string {
 		if v == nil {
@@ -12198,7 +10970,6 @@ func (o SiteConfigPtrOutput) FtpsState() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Handler mappings.
 func (o SiteConfigPtrOutput) HandlerMappings() HandlerMappingArrayOutput {
 	return o.ApplyT(func(v *SiteConfig) []HandlerMapping {
 		if v == nil {
@@ -12208,7 +10979,6 @@ func (o SiteConfigPtrOutput) HandlerMappings() HandlerMappingArrayOutput {
 	}).(HandlerMappingArrayOutput)
 }
 
-// Health check path
 func (o SiteConfigPtrOutput) HealthCheckPath() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SiteConfig) *string {
 		if v == nil {
@@ -12218,7 +10988,6 @@ func (o SiteConfigPtrOutput) HealthCheckPath() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Http20Enabled: configures a web site to allow clients to connect over http2.0
 func (o SiteConfigPtrOutput) Http20Enabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *SiteConfig) *bool {
 		if v == nil {
@@ -12228,7 +10997,6 @@ func (o SiteConfigPtrOutput) Http20Enabled() pulumi.BoolPtrOutput {
 	}).(pulumi.BoolPtrOutput)
 }
 
-// <code>true</code> if HTTP logging is enabled; otherwise, <code>false</code>.
 func (o SiteConfigPtrOutput) HttpLoggingEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *SiteConfig) *bool {
 		if v == nil {
@@ -12238,7 +11006,6 @@ func (o SiteConfigPtrOutput) HttpLoggingEnabled() pulumi.BoolPtrOutput {
 	}).(pulumi.BoolPtrOutput)
 }
 
-// IP security restrictions for main.
 func (o SiteConfigPtrOutput) IpSecurityRestrictions() IpSecurityRestrictionArrayOutput {
 	return o.ApplyT(func(v *SiteConfig) []IpSecurityRestriction {
 		if v == nil {
@@ -12248,7 +11015,6 @@ func (o SiteConfigPtrOutput) IpSecurityRestrictions() IpSecurityRestrictionArray
 	}).(IpSecurityRestrictionArrayOutput)
 }
 
-// Java container.
 func (o SiteConfigPtrOutput) JavaContainer() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SiteConfig) *string {
 		if v == nil {
@@ -12258,7 +11024,6 @@ func (o SiteConfigPtrOutput) JavaContainer() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Java container version.
 func (o SiteConfigPtrOutput) JavaContainerVersion() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SiteConfig) *string {
 		if v == nil {
@@ -12268,7 +11033,6 @@ func (o SiteConfigPtrOutput) JavaContainerVersion() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Java version.
 func (o SiteConfigPtrOutput) JavaVersion() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SiteConfig) *string {
 		if v == nil {
@@ -12278,7 +11042,6 @@ func (o SiteConfigPtrOutput) JavaVersion() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Site limits.
 func (o SiteConfigPtrOutput) Limits() SiteLimitsPtrOutput {
 	return o.ApplyT(func(v *SiteConfig) *SiteLimits {
 		if v == nil {
@@ -12288,7 +11051,6 @@ func (o SiteConfigPtrOutput) Limits() SiteLimitsPtrOutput {
 	}).(SiteLimitsPtrOutput)
 }
 
-// Linux App Framework and version
 func (o SiteConfigPtrOutput) LinuxFxVersion() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SiteConfig) *string {
 		if v == nil {
@@ -12298,17 +11060,15 @@ func (o SiteConfigPtrOutput) LinuxFxVersion() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Site load balancing.
-func (o SiteConfigPtrOutput) LoadBalancing() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *SiteConfig) *string {
+func (o SiteConfigPtrOutput) LoadBalancing() SiteLoadBalancingPtrOutput {
+	return o.ApplyT(func(v *SiteConfig) *SiteLoadBalancing {
 		if v == nil {
 			return nil
 		}
 		return v.LoadBalancing
-	}).(pulumi.StringPtrOutput)
+	}).(SiteLoadBalancingPtrOutput)
 }
 
-// <code>true</code> to enable local MySQL; otherwise, <code>false</code>.
 func (o SiteConfigPtrOutput) LocalMySqlEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *SiteConfig) *bool {
 		if v == nil {
@@ -12318,7 +11078,6 @@ func (o SiteConfigPtrOutput) LocalMySqlEnabled() pulumi.BoolPtrOutput {
 	}).(pulumi.BoolPtrOutput)
 }
 
-// HTTP logs directory size limit.
 func (o SiteConfigPtrOutput) LogsDirectorySizeLimit() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *SiteConfig) *int {
 		if v == nil {
@@ -12328,17 +11087,15 @@ func (o SiteConfigPtrOutput) LogsDirectorySizeLimit() pulumi.IntPtrOutput {
 	}).(pulumi.IntPtrOutput)
 }
 
-// Managed pipeline mode.
-func (o SiteConfigPtrOutput) ManagedPipelineMode() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *SiteConfig) *string {
+func (o SiteConfigPtrOutput) ManagedPipelineMode() ManagedPipelineModePtrOutput {
+	return o.ApplyT(func(v *SiteConfig) *ManagedPipelineMode {
 		if v == nil {
 			return nil
 		}
 		return v.ManagedPipelineMode
-	}).(pulumi.StringPtrOutput)
+	}).(ManagedPipelineModePtrOutput)
 }
 
-// Managed Service Identity Id
 func (o SiteConfigPtrOutput) ManagedServiceIdentityId() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *SiteConfig) *int {
 		if v == nil {
@@ -12348,7 +11105,6 @@ func (o SiteConfigPtrOutput) ManagedServiceIdentityId() pulumi.IntPtrOutput {
 	}).(pulumi.IntPtrOutput)
 }
 
-// MinTlsVersion: configures the minimum version of TLS required for SSL requests
 func (o SiteConfigPtrOutput) MinTlsVersion() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SiteConfig) *string {
 		if v == nil {
@@ -12358,7 +11114,6 @@ func (o SiteConfigPtrOutput) MinTlsVersion() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// .NET Framework version.
 func (o SiteConfigPtrOutput) NetFrameworkVersion() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SiteConfig) *string {
 		if v == nil {
@@ -12368,7 +11123,6 @@ func (o SiteConfigPtrOutput) NetFrameworkVersion() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Version of Node.js.
 func (o SiteConfigPtrOutput) NodeVersion() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SiteConfig) *string {
 		if v == nil {
@@ -12378,7 +11132,6 @@ func (o SiteConfigPtrOutput) NodeVersion() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Number of workers.
 func (o SiteConfigPtrOutput) NumberOfWorkers() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *SiteConfig) *int {
 		if v == nil {
@@ -12388,7 +11141,6 @@ func (o SiteConfigPtrOutput) NumberOfWorkers() pulumi.IntPtrOutput {
 	}).(pulumi.IntPtrOutput)
 }
 
-// Version of PHP.
 func (o SiteConfigPtrOutput) PhpVersion() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SiteConfig) *string {
 		if v == nil {
@@ -12398,7 +11150,6 @@ func (o SiteConfigPtrOutput) PhpVersion() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Version of PowerShell.
 func (o SiteConfigPtrOutput) PowerShellVersion() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SiteConfig) *string {
 		if v == nil {
@@ -12408,8 +11159,6 @@ func (o SiteConfigPtrOutput) PowerShellVersion() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Number of preWarmed instances.
-// This setting only applies to the Consumption and Elastic Plans
 func (o SiteConfigPtrOutput) PreWarmedInstanceCount() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *SiteConfig) *int {
 		if v == nil {
@@ -12419,7 +11168,6 @@ func (o SiteConfigPtrOutput) PreWarmedInstanceCount() pulumi.IntPtrOutput {
 	}).(pulumi.IntPtrOutput)
 }
 
-// Publishing user name.
 func (o SiteConfigPtrOutput) PublishingUsername() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SiteConfig) *string {
 		if v == nil {
@@ -12429,7 +11177,6 @@ func (o SiteConfigPtrOutput) PublishingUsername() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Push endpoint settings.
 func (o SiteConfigPtrOutput) Push() PushSettingsPtrOutput {
 	return o.ApplyT(func(v *SiteConfig) *PushSettings {
 		if v == nil {
@@ -12439,7 +11186,6 @@ func (o SiteConfigPtrOutput) Push() PushSettingsPtrOutput {
 	}).(PushSettingsPtrOutput)
 }
 
-// Version of Python.
 func (o SiteConfigPtrOutput) PythonVersion() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SiteConfig) *string {
 		if v == nil {
@@ -12449,7 +11195,6 @@ func (o SiteConfigPtrOutput) PythonVersion() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// <code>true</code> if remote debugging is enabled; otherwise, <code>false</code>.
 func (o SiteConfigPtrOutput) RemoteDebuggingEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *SiteConfig) *bool {
 		if v == nil {
@@ -12459,7 +11204,6 @@ func (o SiteConfigPtrOutput) RemoteDebuggingEnabled() pulumi.BoolPtrOutput {
 	}).(pulumi.BoolPtrOutput)
 }
 
-// Remote debugging version.
 func (o SiteConfigPtrOutput) RemoteDebuggingVersion() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SiteConfig) *string {
 		if v == nil {
@@ -12469,7 +11213,6 @@ func (o SiteConfigPtrOutput) RemoteDebuggingVersion() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// <code>true</code> if request tracing is enabled; otherwise, <code>false</code>.
 func (o SiteConfigPtrOutput) RequestTracingEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *SiteConfig) *bool {
 		if v == nil {
@@ -12479,7 +11222,6 @@ func (o SiteConfigPtrOutput) RequestTracingEnabled() pulumi.BoolPtrOutput {
 	}).(pulumi.BoolPtrOutput)
 }
 
-// Request tracing expiration time.
 func (o SiteConfigPtrOutput) RequestTracingExpirationTime() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SiteConfig) *string {
 		if v == nil {
@@ -12489,7 +11231,6 @@ func (o SiteConfigPtrOutput) RequestTracingExpirationTime() pulumi.StringPtrOutp
 	}).(pulumi.StringPtrOutput)
 }
 
-// IP security restrictions for scm.
 func (o SiteConfigPtrOutput) ScmIpSecurityRestrictions() IpSecurityRestrictionArrayOutput {
 	return o.ApplyT(func(v *SiteConfig) []IpSecurityRestriction {
 		if v == nil {
@@ -12499,7 +11240,6 @@ func (o SiteConfigPtrOutput) ScmIpSecurityRestrictions() IpSecurityRestrictionAr
 	}).(IpSecurityRestrictionArrayOutput)
 }
 
-// IP security restrictions for scm to use main.
 func (o SiteConfigPtrOutput) ScmIpSecurityRestrictionsUseMain() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *SiteConfig) *bool {
 		if v == nil {
@@ -12509,7 +11249,6 @@ func (o SiteConfigPtrOutput) ScmIpSecurityRestrictionsUseMain() pulumi.BoolPtrOu
 	}).(pulumi.BoolPtrOutput)
 }
 
-// SCM type.
 func (o SiteConfigPtrOutput) ScmType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SiteConfig) *string {
 		if v == nil {
@@ -12519,7 +11258,6 @@ func (o SiteConfigPtrOutput) ScmType() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Tracing options.
 func (o SiteConfigPtrOutput) TracingOptions() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SiteConfig) *string {
 		if v == nil {
@@ -12529,7 +11267,6 @@ func (o SiteConfigPtrOutput) TracingOptions() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// <code>true</code> to use 32-bit worker process; otherwise, <code>false</code>.
 func (o SiteConfigPtrOutput) Use32BitWorkerProcess() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *SiteConfig) *bool {
 		if v == nil {
@@ -12539,7 +11276,6 @@ func (o SiteConfigPtrOutput) Use32BitWorkerProcess() pulumi.BoolPtrOutput {
 	}).(pulumi.BoolPtrOutput)
 }
 
-// Virtual applications.
 func (o SiteConfigPtrOutput) VirtualApplications() VirtualApplicationArrayOutput {
 	return o.ApplyT(func(v *SiteConfig) []VirtualApplication {
 		if v == nil {
@@ -12549,7 +11285,6 @@ func (o SiteConfigPtrOutput) VirtualApplications() VirtualApplicationArrayOutput
 	}).(VirtualApplicationArrayOutput)
 }
 
-// Virtual Network name.
 func (o SiteConfigPtrOutput) VnetName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SiteConfig) *string {
 		if v == nil {
@@ -12559,7 +11294,6 @@ func (o SiteConfigPtrOutput) VnetName() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// <code>true</code> if WebSocket is enabled; otherwise, <code>false</code>.
 func (o SiteConfigPtrOutput) WebSocketsEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *SiteConfig) *bool {
 		if v == nil {
@@ -12569,7 +11303,6 @@ func (o SiteConfigPtrOutput) WebSocketsEnabled() pulumi.BoolPtrOutput {
 	}).(pulumi.BoolPtrOutput)
 }
 
-// Xenon App Framework and version
 func (o SiteConfigPtrOutput) WindowsFxVersion() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SiteConfig) *string {
 		if v == nil {
@@ -12579,7 +11312,6 @@ func (o SiteConfigPtrOutput) WindowsFxVersion() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Explicit Managed Service Identity Id
 func (o SiteConfigPtrOutput) XManagedServiceIdentityId() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *SiteConfig) *int {
 		if v == nil {
@@ -12589,123 +11321,64 @@ func (o SiteConfigPtrOutput) XManagedServiceIdentityId() pulumi.IntPtrOutput {
 	}).(pulumi.IntPtrOutput)
 }
 
-// Configuration of an App Service app.
 type SiteConfigResponse struct {
-	// Flag to use Managed Identity Creds for ACR pull
-	AcrUseManagedIdentityCreds *bool `pulumi:"acrUseManagedIdentityCreds"`
-	// If using user managed identity, the user managed identity ClientId
-	AcrUserManagedIdentityID *string `pulumi:"acrUserManagedIdentityID"`
-	// <code>true</code> if Always On is enabled; otherwise, <code>false</code>.
-	AlwaysOn *bool `pulumi:"alwaysOn"`
-	// Information about the formal API definition for the app.
-	ApiDefinition *ApiDefinitionInfoResponse `pulumi:"apiDefinition"`
-	// Azure API management settings linked to the app.
-	ApiManagementConfig *ApiManagementConfigResponse `pulumi:"apiManagementConfig"`
-	// App command line to launch.
-	AppCommandLine *string `pulumi:"appCommandLine"`
-	// Application settings.
-	AppSettings []NameValuePairResponse `pulumi:"appSettings"`
-	// <code>true</code> if Auto Heal is enabled; otherwise, <code>false</code>.
-	AutoHealEnabled *bool `pulumi:"autoHealEnabled"`
-	// Auto Heal rules.
-	AutoHealRules *AutoHealRulesResponse `pulumi:"autoHealRules"`
-	// Auto-swap slot name.
-	AutoSwapSlotName *string `pulumi:"autoSwapSlotName"`
-	// Connection strings.
-	ConnectionStrings []ConnStringInfoResponse `pulumi:"connectionStrings"`
-	// Cross-Origin Resource Sharing (CORS) settings.
-	Cors *CorsSettingsResponse `pulumi:"cors"`
-	// Default documents.
-	DefaultDocuments []string `pulumi:"defaultDocuments"`
-	// <code>true</code> if detailed error logging is enabled; otherwise, <code>false</code>.
-	DetailedErrorLoggingEnabled *bool `pulumi:"detailedErrorLoggingEnabled"`
-	// Document root.
-	DocumentRoot *string `pulumi:"documentRoot"`
-	// This is work around for polymorphic types.
-	Experiments *ExperimentsResponse `pulumi:"experiments"`
-	// State of FTP / FTPS service
-	FtpsState *string `pulumi:"ftpsState"`
-	// Handler mappings.
-	HandlerMappings []HandlerMappingResponse `pulumi:"handlerMappings"`
-	// Health check path
-	HealthCheckPath *string `pulumi:"healthCheckPath"`
-	// Http20Enabled: configures a web site to allow clients to connect over http2.0
-	Http20Enabled *bool `pulumi:"http20Enabled"`
-	// <code>true</code> if HTTP logging is enabled; otherwise, <code>false</code>.
-	HttpLoggingEnabled *bool `pulumi:"httpLoggingEnabled"`
-	// IP security restrictions for main.
-	IpSecurityRestrictions []IpSecurityRestrictionResponse `pulumi:"ipSecurityRestrictions"`
-	// Java container.
-	JavaContainer *string `pulumi:"javaContainer"`
-	// Java container version.
-	JavaContainerVersion *string `pulumi:"javaContainerVersion"`
-	// Java version.
-	JavaVersion *string `pulumi:"javaVersion"`
-	// Site limits.
-	Limits *SiteLimitsResponse `pulumi:"limits"`
-	// Linux App Framework and version
-	LinuxFxVersion *string `pulumi:"linuxFxVersion"`
-	// Site load balancing.
-	LoadBalancing *string `pulumi:"loadBalancing"`
-	// <code>true</code> to enable local MySQL; otherwise, <code>false</code>.
-	LocalMySqlEnabled *bool `pulumi:"localMySqlEnabled"`
-	// HTTP logs directory size limit.
-	LogsDirectorySizeLimit *int `pulumi:"logsDirectorySizeLimit"`
-	// Site MachineKey.
-	MachineKey SiteMachineKeyResponse `pulumi:"machineKey"`
-	// Managed pipeline mode.
-	ManagedPipelineMode *string `pulumi:"managedPipelineMode"`
-	// Managed Service Identity Id
-	ManagedServiceIdentityId *int `pulumi:"managedServiceIdentityId"`
-	// MinTlsVersion: configures the minimum version of TLS required for SSL requests
-	MinTlsVersion *string `pulumi:"minTlsVersion"`
-	// .NET Framework version.
-	NetFrameworkVersion *string `pulumi:"netFrameworkVersion"`
-	// Version of Node.js.
-	NodeVersion *string `pulumi:"nodeVersion"`
-	// Number of workers.
-	NumberOfWorkers *int `pulumi:"numberOfWorkers"`
-	// Version of PHP.
-	PhpVersion *string `pulumi:"phpVersion"`
-	// Version of PowerShell.
-	PowerShellVersion *string `pulumi:"powerShellVersion"`
-	// Number of preWarmed instances.
-	// This setting only applies to the Consumption and Elastic Plans
-	PreWarmedInstanceCount *int `pulumi:"preWarmedInstanceCount"`
-	// Publishing user name.
-	PublishingUsername *string `pulumi:"publishingUsername"`
-	// Push endpoint settings.
-	Push *PushSettingsResponse `pulumi:"push"`
-	// Version of Python.
-	PythonVersion *string `pulumi:"pythonVersion"`
-	// <code>true</code> if remote debugging is enabled; otherwise, <code>false</code>.
-	RemoteDebuggingEnabled *bool `pulumi:"remoteDebuggingEnabled"`
-	// Remote debugging version.
-	RemoteDebuggingVersion *string `pulumi:"remoteDebuggingVersion"`
-	// <code>true</code> if request tracing is enabled; otherwise, <code>false</code>.
-	RequestTracingEnabled *bool `pulumi:"requestTracingEnabled"`
-	// Request tracing expiration time.
-	RequestTracingExpirationTime *string `pulumi:"requestTracingExpirationTime"`
-	// IP security restrictions for scm.
-	ScmIpSecurityRestrictions []IpSecurityRestrictionResponse `pulumi:"scmIpSecurityRestrictions"`
-	// IP security restrictions for scm to use main.
-	ScmIpSecurityRestrictionsUseMain *bool `pulumi:"scmIpSecurityRestrictionsUseMain"`
-	// SCM type.
-	ScmType *string `pulumi:"scmType"`
-	// Tracing options.
-	TracingOptions *string `pulumi:"tracingOptions"`
-	// <code>true</code> to use 32-bit worker process; otherwise, <code>false</code>.
-	Use32BitWorkerProcess *bool `pulumi:"use32BitWorkerProcess"`
-	// Virtual applications.
-	VirtualApplications []VirtualApplicationResponse `pulumi:"virtualApplications"`
-	// Virtual Network name.
-	VnetName *string `pulumi:"vnetName"`
-	// <code>true</code> if WebSocket is enabled; otherwise, <code>false</code>.
-	WebSocketsEnabled *bool `pulumi:"webSocketsEnabled"`
-	// Xenon App Framework and version
-	WindowsFxVersion *string `pulumi:"windowsFxVersion"`
-	// Explicit Managed Service Identity Id
-	XManagedServiceIdentityId *int `pulumi:"xManagedServiceIdentityId"`
+	AcrUseManagedIdentityCreds       *bool                           `pulumi:"acrUseManagedIdentityCreds"`
+	AcrUserManagedIdentityID         *string                         `pulumi:"acrUserManagedIdentityID"`
+	AlwaysOn                         *bool                           `pulumi:"alwaysOn"`
+	ApiDefinition                    *ApiDefinitionInfoResponse      `pulumi:"apiDefinition"`
+	ApiManagementConfig              *ApiManagementConfigResponse    `pulumi:"apiManagementConfig"`
+	AppCommandLine                   *string                         `pulumi:"appCommandLine"`
+	AppSettings                      []NameValuePairResponse         `pulumi:"appSettings"`
+	AutoHealEnabled                  *bool                           `pulumi:"autoHealEnabled"`
+	AutoHealRules                    *AutoHealRulesResponse          `pulumi:"autoHealRules"`
+	AutoSwapSlotName                 *string                         `pulumi:"autoSwapSlotName"`
+	ConnectionStrings                []ConnStringInfoResponse        `pulumi:"connectionStrings"`
+	Cors                             *CorsSettingsResponse           `pulumi:"cors"`
+	DefaultDocuments                 []string                        `pulumi:"defaultDocuments"`
+	DetailedErrorLoggingEnabled      *bool                           `pulumi:"detailedErrorLoggingEnabled"`
+	DocumentRoot                     *string                         `pulumi:"documentRoot"`
+	Experiments                      *ExperimentsResponse            `pulumi:"experiments"`
+	FtpsState                        *string                         `pulumi:"ftpsState"`
+	HandlerMappings                  []HandlerMappingResponse        `pulumi:"handlerMappings"`
+	HealthCheckPath                  *string                         `pulumi:"healthCheckPath"`
+	Http20Enabled                    *bool                           `pulumi:"http20Enabled"`
+	HttpLoggingEnabled               *bool                           `pulumi:"httpLoggingEnabled"`
+	IpSecurityRestrictions           []IpSecurityRestrictionResponse `pulumi:"ipSecurityRestrictions"`
+	JavaContainer                    *string                         `pulumi:"javaContainer"`
+	JavaContainerVersion             *string                         `pulumi:"javaContainerVersion"`
+	JavaVersion                      *string                         `pulumi:"javaVersion"`
+	Limits                           *SiteLimitsResponse             `pulumi:"limits"`
+	LinuxFxVersion                   *string                         `pulumi:"linuxFxVersion"`
+	LoadBalancing                    *string                         `pulumi:"loadBalancing"`
+	LocalMySqlEnabled                *bool                           `pulumi:"localMySqlEnabled"`
+	LogsDirectorySizeLimit           *int                            `pulumi:"logsDirectorySizeLimit"`
+	MachineKey                       SiteMachineKeyResponse          `pulumi:"machineKey"`
+	ManagedPipelineMode              *string                         `pulumi:"managedPipelineMode"`
+	ManagedServiceIdentityId         *int                            `pulumi:"managedServiceIdentityId"`
+	MinTlsVersion                    *string                         `pulumi:"minTlsVersion"`
+	NetFrameworkVersion              *string                         `pulumi:"netFrameworkVersion"`
+	NodeVersion                      *string                         `pulumi:"nodeVersion"`
+	NumberOfWorkers                  *int                            `pulumi:"numberOfWorkers"`
+	PhpVersion                       *string                         `pulumi:"phpVersion"`
+	PowerShellVersion                *string                         `pulumi:"powerShellVersion"`
+	PreWarmedInstanceCount           *int                            `pulumi:"preWarmedInstanceCount"`
+	PublishingUsername               *string                         `pulumi:"publishingUsername"`
+	Push                             *PushSettingsResponse           `pulumi:"push"`
+	PythonVersion                    *string                         `pulumi:"pythonVersion"`
+	RemoteDebuggingEnabled           *bool                           `pulumi:"remoteDebuggingEnabled"`
+	RemoteDebuggingVersion           *string                         `pulumi:"remoteDebuggingVersion"`
+	RequestTracingEnabled            *bool                           `pulumi:"requestTracingEnabled"`
+	RequestTracingExpirationTime     *string                         `pulumi:"requestTracingExpirationTime"`
+	ScmIpSecurityRestrictions        []IpSecurityRestrictionResponse `pulumi:"scmIpSecurityRestrictions"`
+	ScmIpSecurityRestrictionsUseMain *bool                           `pulumi:"scmIpSecurityRestrictionsUseMain"`
+	ScmType                          *string                         `pulumi:"scmType"`
+	TracingOptions                   *string                         `pulumi:"tracingOptions"`
+	Use32BitWorkerProcess            *bool                           `pulumi:"use32BitWorkerProcess"`
+	VirtualApplications              []VirtualApplicationResponse    `pulumi:"virtualApplications"`
+	VnetName                         *string                         `pulumi:"vnetName"`
+	WebSocketsEnabled                *bool                           `pulumi:"webSocketsEnabled"`
+	WindowsFxVersion                 *string                         `pulumi:"windowsFxVersion"`
+	XManagedServiceIdentityId        *int                            `pulumi:"xManagedServiceIdentityId"`
 }
 
 // SiteConfigResponseInput is an input type that accepts SiteConfigResponseArgs and SiteConfigResponseOutput values.
@@ -12719,123 +11392,64 @@ type SiteConfigResponseInput interface {
 	ToSiteConfigResponseOutputWithContext(context.Context) SiteConfigResponseOutput
 }
 
-// Configuration of an App Service app.
 type SiteConfigResponseArgs struct {
-	// Flag to use Managed Identity Creds for ACR pull
-	AcrUseManagedIdentityCreds pulumi.BoolPtrInput `pulumi:"acrUseManagedIdentityCreds"`
-	// If using user managed identity, the user managed identity ClientId
-	AcrUserManagedIdentityID pulumi.StringPtrInput `pulumi:"acrUserManagedIdentityID"`
-	// <code>true</code> if Always On is enabled; otherwise, <code>false</code>.
-	AlwaysOn pulumi.BoolPtrInput `pulumi:"alwaysOn"`
-	// Information about the formal API definition for the app.
-	ApiDefinition ApiDefinitionInfoResponsePtrInput `pulumi:"apiDefinition"`
-	// Azure API management settings linked to the app.
-	ApiManagementConfig ApiManagementConfigResponsePtrInput `pulumi:"apiManagementConfig"`
-	// App command line to launch.
-	AppCommandLine pulumi.StringPtrInput `pulumi:"appCommandLine"`
-	// Application settings.
-	AppSettings NameValuePairResponseArrayInput `pulumi:"appSettings"`
-	// <code>true</code> if Auto Heal is enabled; otherwise, <code>false</code>.
-	AutoHealEnabled pulumi.BoolPtrInput `pulumi:"autoHealEnabled"`
-	// Auto Heal rules.
-	AutoHealRules AutoHealRulesResponsePtrInput `pulumi:"autoHealRules"`
-	// Auto-swap slot name.
-	AutoSwapSlotName pulumi.StringPtrInput `pulumi:"autoSwapSlotName"`
-	// Connection strings.
-	ConnectionStrings ConnStringInfoResponseArrayInput `pulumi:"connectionStrings"`
-	// Cross-Origin Resource Sharing (CORS) settings.
-	Cors CorsSettingsResponsePtrInput `pulumi:"cors"`
-	// Default documents.
-	DefaultDocuments pulumi.StringArrayInput `pulumi:"defaultDocuments"`
-	// <code>true</code> if detailed error logging is enabled; otherwise, <code>false</code>.
-	DetailedErrorLoggingEnabled pulumi.BoolPtrInput `pulumi:"detailedErrorLoggingEnabled"`
-	// Document root.
-	DocumentRoot pulumi.StringPtrInput `pulumi:"documentRoot"`
-	// This is work around for polymorphic types.
-	Experiments ExperimentsResponsePtrInput `pulumi:"experiments"`
-	// State of FTP / FTPS service
-	FtpsState pulumi.StringPtrInput `pulumi:"ftpsState"`
-	// Handler mappings.
-	HandlerMappings HandlerMappingResponseArrayInput `pulumi:"handlerMappings"`
-	// Health check path
-	HealthCheckPath pulumi.StringPtrInput `pulumi:"healthCheckPath"`
-	// Http20Enabled: configures a web site to allow clients to connect over http2.0
-	Http20Enabled pulumi.BoolPtrInput `pulumi:"http20Enabled"`
-	// <code>true</code> if HTTP logging is enabled; otherwise, <code>false</code>.
-	HttpLoggingEnabled pulumi.BoolPtrInput `pulumi:"httpLoggingEnabled"`
-	// IP security restrictions for main.
-	IpSecurityRestrictions IpSecurityRestrictionResponseArrayInput `pulumi:"ipSecurityRestrictions"`
-	// Java container.
-	JavaContainer pulumi.StringPtrInput `pulumi:"javaContainer"`
-	// Java container version.
-	JavaContainerVersion pulumi.StringPtrInput `pulumi:"javaContainerVersion"`
-	// Java version.
-	JavaVersion pulumi.StringPtrInput `pulumi:"javaVersion"`
-	// Site limits.
-	Limits SiteLimitsResponsePtrInput `pulumi:"limits"`
-	// Linux App Framework and version
-	LinuxFxVersion pulumi.StringPtrInput `pulumi:"linuxFxVersion"`
-	// Site load balancing.
-	LoadBalancing pulumi.StringPtrInput `pulumi:"loadBalancing"`
-	// <code>true</code> to enable local MySQL; otherwise, <code>false</code>.
-	LocalMySqlEnabled pulumi.BoolPtrInput `pulumi:"localMySqlEnabled"`
-	// HTTP logs directory size limit.
-	LogsDirectorySizeLimit pulumi.IntPtrInput `pulumi:"logsDirectorySizeLimit"`
-	// Site MachineKey.
-	MachineKey SiteMachineKeyResponseInput `pulumi:"machineKey"`
-	// Managed pipeline mode.
-	ManagedPipelineMode pulumi.StringPtrInput `pulumi:"managedPipelineMode"`
-	// Managed Service Identity Id
-	ManagedServiceIdentityId pulumi.IntPtrInput `pulumi:"managedServiceIdentityId"`
-	// MinTlsVersion: configures the minimum version of TLS required for SSL requests
-	MinTlsVersion pulumi.StringPtrInput `pulumi:"minTlsVersion"`
-	// .NET Framework version.
-	NetFrameworkVersion pulumi.StringPtrInput `pulumi:"netFrameworkVersion"`
-	// Version of Node.js.
-	NodeVersion pulumi.StringPtrInput `pulumi:"nodeVersion"`
-	// Number of workers.
-	NumberOfWorkers pulumi.IntPtrInput `pulumi:"numberOfWorkers"`
-	// Version of PHP.
-	PhpVersion pulumi.StringPtrInput `pulumi:"phpVersion"`
-	// Version of PowerShell.
-	PowerShellVersion pulumi.StringPtrInput `pulumi:"powerShellVersion"`
-	// Number of preWarmed instances.
-	// This setting only applies to the Consumption and Elastic Plans
-	PreWarmedInstanceCount pulumi.IntPtrInput `pulumi:"preWarmedInstanceCount"`
-	// Publishing user name.
-	PublishingUsername pulumi.StringPtrInput `pulumi:"publishingUsername"`
-	// Push endpoint settings.
-	Push PushSettingsResponsePtrInput `pulumi:"push"`
-	// Version of Python.
-	PythonVersion pulumi.StringPtrInput `pulumi:"pythonVersion"`
-	// <code>true</code> if remote debugging is enabled; otherwise, <code>false</code>.
-	RemoteDebuggingEnabled pulumi.BoolPtrInput `pulumi:"remoteDebuggingEnabled"`
-	// Remote debugging version.
-	RemoteDebuggingVersion pulumi.StringPtrInput `pulumi:"remoteDebuggingVersion"`
-	// <code>true</code> if request tracing is enabled; otherwise, <code>false</code>.
-	RequestTracingEnabled pulumi.BoolPtrInput `pulumi:"requestTracingEnabled"`
-	// Request tracing expiration time.
-	RequestTracingExpirationTime pulumi.StringPtrInput `pulumi:"requestTracingExpirationTime"`
-	// IP security restrictions for scm.
-	ScmIpSecurityRestrictions IpSecurityRestrictionResponseArrayInput `pulumi:"scmIpSecurityRestrictions"`
-	// IP security restrictions for scm to use main.
-	ScmIpSecurityRestrictionsUseMain pulumi.BoolPtrInput `pulumi:"scmIpSecurityRestrictionsUseMain"`
-	// SCM type.
-	ScmType pulumi.StringPtrInput `pulumi:"scmType"`
-	// Tracing options.
-	TracingOptions pulumi.StringPtrInput `pulumi:"tracingOptions"`
-	// <code>true</code> to use 32-bit worker process; otherwise, <code>false</code>.
-	Use32BitWorkerProcess pulumi.BoolPtrInput `pulumi:"use32BitWorkerProcess"`
-	// Virtual applications.
-	VirtualApplications VirtualApplicationResponseArrayInput `pulumi:"virtualApplications"`
-	// Virtual Network name.
-	VnetName pulumi.StringPtrInput `pulumi:"vnetName"`
-	// <code>true</code> if WebSocket is enabled; otherwise, <code>false</code>.
-	WebSocketsEnabled pulumi.BoolPtrInput `pulumi:"webSocketsEnabled"`
-	// Xenon App Framework and version
-	WindowsFxVersion pulumi.StringPtrInput `pulumi:"windowsFxVersion"`
-	// Explicit Managed Service Identity Id
-	XManagedServiceIdentityId pulumi.IntPtrInput `pulumi:"xManagedServiceIdentityId"`
+	AcrUseManagedIdentityCreds       pulumi.BoolPtrInput                     `pulumi:"acrUseManagedIdentityCreds"`
+	AcrUserManagedIdentityID         pulumi.StringPtrInput                   `pulumi:"acrUserManagedIdentityID"`
+	AlwaysOn                         pulumi.BoolPtrInput                     `pulumi:"alwaysOn"`
+	ApiDefinition                    ApiDefinitionInfoResponsePtrInput       `pulumi:"apiDefinition"`
+	ApiManagementConfig              ApiManagementConfigResponsePtrInput     `pulumi:"apiManagementConfig"`
+	AppCommandLine                   pulumi.StringPtrInput                   `pulumi:"appCommandLine"`
+	AppSettings                      NameValuePairResponseArrayInput         `pulumi:"appSettings"`
+	AutoHealEnabled                  pulumi.BoolPtrInput                     `pulumi:"autoHealEnabled"`
+	AutoHealRules                    AutoHealRulesResponsePtrInput           `pulumi:"autoHealRules"`
+	AutoSwapSlotName                 pulumi.StringPtrInput                   `pulumi:"autoSwapSlotName"`
+	ConnectionStrings                ConnStringInfoResponseArrayInput        `pulumi:"connectionStrings"`
+	Cors                             CorsSettingsResponsePtrInput            `pulumi:"cors"`
+	DefaultDocuments                 pulumi.StringArrayInput                 `pulumi:"defaultDocuments"`
+	DetailedErrorLoggingEnabled      pulumi.BoolPtrInput                     `pulumi:"detailedErrorLoggingEnabled"`
+	DocumentRoot                     pulumi.StringPtrInput                   `pulumi:"documentRoot"`
+	Experiments                      ExperimentsResponsePtrInput             `pulumi:"experiments"`
+	FtpsState                        pulumi.StringPtrInput                   `pulumi:"ftpsState"`
+	HandlerMappings                  HandlerMappingResponseArrayInput        `pulumi:"handlerMappings"`
+	HealthCheckPath                  pulumi.StringPtrInput                   `pulumi:"healthCheckPath"`
+	Http20Enabled                    pulumi.BoolPtrInput                     `pulumi:"http20Enabled"`
+	HttpLoggingEnabled               pulumi.BoolPtrInput                     `pulumi:"httpLoggingEnabled"`
+	IpSecurityRestrictions           IpSecurityRestrictionResponseArrayInput `pulumi:"ipSecurityRestrictions"`
+	JavaContainer                    pulumi.StringPtrInput                   `pulumi:"javaContainer"`
+	JavaContainerVersion             pulumi.StringPtrInput                   `pulumi:"javaContainerVersion"`
+	JavaVersion                      pulumi.StringPtrInput                   `pulumi:"javaVersion"`
+	Limits                           SiteLimitsResponsePtrInput              `pulumi:"limits"`
+	LinuxFxVersion                   pulumi.StringPtrInput                   `pulumi:"linuxFxVersion"`
+	LoadBalancing                    pulumi.StringPtrInput                   `pulumi:"loadBalancing"`
+	LocalMySqlEnabled                pulumi.BoolPtrInput                     `pulumi:"localMySqlEnabled"`
+	LogsDirectorySizeLimit           pulumi.IntPtrInput                      `pulumi:"logsDirectorySizeLimit"`
+	MachineKey                       SiteMachineKeyResponseInput             `pulumi:"machineKey"`
+	ManagedPipelineMode              pulumi.StringPtrInput                   `pulumi:"managedPipelineMode"`
+	ManagedServiceIdentityId         pulumi.IntPtrInput                      `pulumi:"managedServiceIdentityId"`
+	MinTlsVersion                    pulumi.StringPtrInput                   `pulumi:"minTlsVersion"`
+	NetFrameworkVersion              pulumi.StringPtrInput                   `pulumi:"netFrameworkVersion"`
+	NodeVersion                      pulumi.StringPtrInput                   `pulumi:"nodeVersion"`
+	NumberOfWorkers                  pulumi.IntPtrInput                      `pulumi:"numberOfWorkers"`
+	PhpVersion                       pulumi.StringPtrInput                   `pulumi:"phpVersion"`
+	PowerShellVersion                pulumi.StringPtrInput                   `pulumi:"powerShellVersion"`
+	PreWarmedInstanceCount           pulumi.IntPtrInput                      `pulumi:"preWarmedInstanceCount"`
+	PublishingUsername               pulumi.StringPtrInput                   `pulumi:"publishingUsername"`
+	Push                             PushSettingsResponsePtrInput            `pulumi:"push"`
+	PythonVersion                    pulumi.StringPtrInput                   `pulumi:"pythonVersion"`
+	RemoteDebuggingEnabled           pulumi.BoolPtrInput                     `pulumi:"remoteDebuggingEnabled"`
+	RemoteDebuggingVersion           pulumi.StringPtrInput                   `pulumi:"remoteDebuggingVersion"`
+	RequestTracingEnabled            pulumi.BoolPtrInput                     `pulumi:"requestTracingEnabled"`
+	RequestTracingExpirationTime     pulumi.StringPtrInput                   `pulumi:"requestTracingExpirationTime"`
+	ScmIpSecurityRestrictions        IpSecurityRestrictionResponseArrayInput `pulumi:"scmIpSecurityRestrictions"`
+	ScmIpSecurityRestrictionsUseMain pulumi.BoolPtrInput                     `pulumi:"scmIpSecurityRestrictionsUseMain"`
+	ScmType                          pulumi.StringPtrInput                   `pulumi:"scmType"`
+	TracingOptions                   pulumi.StringPtrInput                   `pulumi:"tracingOptions"`
+	Use32BitWorkerProcess            pulumi.BoolPtrInput                     `pulumi:"use32BitWorkerProcess"`
+	VirtualApplications              VirtualApplicationResponseArrayInput    `pulumi:"virtualApplications"`
+	VnetName                         pulumi.StringPtrInput                   `pulumi:"vnetName"`
+	WebSocketsEnabled                pulumi.BoolPtrInput                     `pulumi:"webSocketsEnabled"`
+	WindowsFxVersion                 pulumi.StringPtrInput                   `pulumi:"windowsFxVersion"`
+	XManagedServiceIdentityId        pulumi.IntPtrInput                      `pulumi:"xManagedServiceIdentityId"`
 }
 
 func (SiteConfigResponseArgs) ElementType() reflect.Type {
@@ -12891,7 +11505,6 @@ func (i *siteConfigResponsePtrType) ToSiteConfigResponsePtrOutputWithContext(ctx
 	return pulumi.ToOutputWithContext(ctx, i).(SiteConfigResponsePtrOutput)
 }
 
-// Configuration of an App Service app.
 type SiteConfigResponseOutput struct{ *pulumi.OutputState }
 
 func (SiteConfigResponseOutput) ElementType() reflect.Type {
@@ -12911,293 +11524,235 @@ func (o SiteConfigResponseOutput) ToSiteConfigResponsePtrOutput() SiteConfigResp
 }
 
 func (o SiteConfigResponseOutput) ToSiteConfigResponsePtrOutputWithContext(ctx context.Context) SiteConfigResponsePtrOutput {
-	return o.ApplyT(func(v SiteConfigResponse) *SiteConfigResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v SiteConfigResponse) *SiteConfigResponse {
 		return &v
 	}).(SiteConfigResponsePtrOutput)
 }
 
-// Flag to use Managed Identity Creds for ACR pull
 func (o SiteConfigResponseOutput) AcrUseManagedIdentityCreds() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v SiteConfigResponse) *bool { return v.AcrUseManagedIdentityCreds }).(pulumi.BoolPtrOutput)
 }
 
-// If using user managed identity, the user managed identity ClientId
 func (o SiteConfigResponseOutput) AcrUserManagedIdentityID() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SiteConfigResponse) *string { return v.AcrUserManagedIdentityID }).(pulumi.StringPtrOutput)
 }
 
-// <code>true</code> if Always On is enabled; otherwise, <code>false</code>.
 func (o SiteConfigResponseOutput) AlwaysOn() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v SiteConfigResponse) *bool { return v.AlwaysOn }).(pulumi.BoolPtrOutput)
 }
 
-// Information about the formal API definition for the app.
 func (o SiteConfigResponseOutput) ApiDefinition() ApiDefinitionInfoResponsePtrOutput {
 	return o.ApplyT(func(v SiteConfigResponse) *ApiDefinitionInfoResponse { return v.ApiDefinition }).(ApiDefinitionInfoResponsePtrOutput)
 }
 
-// Azure API management settings linked to the app.
 func (o SiteConfigResponseOutput) ApiManagementConfig() ApiManagementConfigResponsePtrOutput {
 	return o.ApplyT(func(v SiteConfigResponse) *ApiManagementConfigResponse { return v.ApiManagementConfig }).(ApiManagementConfigResponsePtrOutput)
 }
 
-// App command line to launch.
 func (o SiteConfigResponseOutput) AppCommandLine() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SiteConfigResponse) *string { return v.AppCommandLine }).(pulumi.StringPtrOutput)
 }
 
-// Application settings.
 func (o SiteConfigResponseOutput) AppSettings() NameValuePairResponseArrayOutput {
 	return o.ApplyT(func(v SiteConfigResponse) []NameValuePairResponse { return v.AppSettings }).(NameValuePairResponseArrayOutput)
 }
 
-// <code>true</code> if Auto Heal is enabled; otherwise, <code>false</code>.
 func (o SiteConfigResponseOutput) AutoHealEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v SiteConfigResponse) *bool { return v.AutoHealEnabled }).(pulumi.BoolPtrOutput)
 }
 
-// Auto Heal rules.
 func (o SiteConfigResponseOutput) AutoHealRules() AutoHealRulesResponsePtrOutput {
 	return o.ApplyT(func(v SiteConfigResponse) *AutoHealRulesResponse { return v.AutoHealRules }).(AutoHealRulesResponsePtrOutput)
 }
 
-// Auto-swap slot name.
 func (o SiteConfigResponseOutput) AutoSwapSlotName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SiteConfigResponse) *string { return v.AutoSwapSlotName }).(pulumi.StringPtrOutput)
 }
 
-// Connection strings.
 func (o SiteConfigResponseOutput) ConnectionStrings() ConnStringInfoResponseArrayOutput {
 	return o.ApplyT(func(v SiteConfigResponse) []ConnStringInfoResponse { return v.ConnectionStrings }).(ConnStringInfoResponseArrayOutput)
 }
 
-// Cross-Origin Resource Sharing (CORS) settings.
 func (o SiteConfigResponseOutput) Cors() CorsSettingsResponsePtrOutput {
 	return o.ApplyT(func(v SiteConfigResponse) *CorsSettingsResponse { return v.Cors }).(CorsSettingsResponsePtrOutput)
 }
 
-// Default documents.
 func (o SiteConfigResponseOutput) DefaultDocuments() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v SiteConfigResponse) []string { return v.DefaultDocuments }).(pulumi.StringArrayOutput)
 }
 
-// <code>true</code> if detailed error logging is enabled; otherwise, <code>false</code>.
 func (o SiteConfigResponseOutput) DetailedErrorLoggingEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v SiteConfigResponse) *bool { return v.DetailedErrorLoggingEnabled }).(pulumi.BoolPtrOutput)
 }
 
-// Document root.
 func (o SiteConfigResponseOutput) DocumentRoot() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SiteConfigResponse) *string { return v.DocumentRoot }).(pulumi.StringPtrOutput)
 }
 
-// This is work around for polymorphic types.
 func (o SiteConfigResponseOutput) Experiments() ExperimentsResponsePtrOutput {
 	return o.ApplyT(func(v SiteConfigResponse) *ExperimentsResponse { return v.Experiments }).(ExperimentsResponsePtrOutput)
 }
 
-// State of FTP / FTPS service
 func (o SiteConfigResponseOutput) FtpsState() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SiteConfigResponse) *string { return v.FtpsState }).(pulumi.StringPtrOutput)
 }
 
-// Handler mappings.
 func (o SiteConfigResponseOutput) HandlerMappings() HandlerMappingResponseArrayOutput {
 	return o.ApplyT(func(v SiteConfigResponse) []HandlerMappingResponse { return v.HandlerMappings }).(HandlerMappingResponseArrayOutput)
 }
 
-// Health check path
 func (o SiteConfigResponseOutput) HealthCheckPath() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SiteConfigResponse) *string { return v.HealthCheckPath }).(pulumi.StringPtrOutput)
 }
 
-// Http20Enabled: configures a web site to allow clients to connect over http2.0
 func (o SiteConfigResponseOutput) Http20Enabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v SiteConfigResponse) *bool { return v.Http20Enabled }).(pulumi.BoolPtrOutput)
 }
 
-// <code>true</code> if HTTP logging is enabled; otherwise, <code>false</code>.
 func (o SiteConfigResponseOutput) HttpLoggingEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v SiteConfigResponse) *bool { return v.HttpLoggingEnabled }).(pulumi.BoolPtrOutput)
 }
 
-// IP security restrictions for main.
 func (o SiteConfigResponseOutput) IpSecurityRestrictions() IpSecurityRestrictionResponseArrayOutput {
 	return o.ApplyT(func(v SiteConfigResponse) []IpSecurityRestrictionResponse { return v.IpSecurityRestrictions }).(IpSecurityRestrictionResponseArrayOutput)
 }
 
-// Java container.
 func (o SiteConfigResponseOutput) JavaContainer() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SiteConfigResponse) *string { return v.JavaContainer }).(pulumi.StringPtrOutput)
 }
 
-// Java container version.
 func (o SiteConfigResponseOutput) JavaContainerVersion() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SiteConfigResponse) *string { return v.JavaContainerVersion }).(pulumi.StringPtrOutput)
 }
 
-// Java version.
 func (o SiteConfigResponseOutput) JavaVersion() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SiteConfigResponse) *string { return v.JavaVersion }).(pulumi.StringPtrOutput)
 }
 
-// Site limits.
 func (o SiteConfigResponseOutput) Limits() SiteLimitsResponsePtrOutput {
 	return o.ApplyT(func(v SiteConfigResponse) *SiteLimitsResponse { return v.Limits }).(SiteLimitsResponsePtrOutput)
 }
 
-// Linux App Framework and version
 func (o SiteConfigResponseOutput) LinuxFxVersion() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SiteConfigResponse) *string { return v.LinuxFxVersion }).(pulumi.StringPtrOutput)
 }
 
-// Site load balancing.
 func (o SiteConfigResponseOutput) LoadBalancing() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SiteConfigResponse) *string { return v.LoadBalancing }).(pulumi.StringPtrOutput)
 }
 
-// <code>true</code> to enable local MySQL; otherwise, <code>false</code>.
 func (o SiteConfigResponseOutput) LocalMySqlEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v SiteConfigResponse) *bool { return v.LocalMySqlEnabled }).(pulumi.BoolPtrOutput)
 }
 
-// HTTP logs directory size limit.
 func (o SiteConfigResponseOutput) LogsDirectorySizeLimit() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v SiteConfigResponse) *int { return v.LogsDirectorySizeLimit }).(pulumi.IntPtrOutput)
 }
 
-// Site MachineKey.
 func (o SiteConfigResponseOutput) MachineKey() SiteMachineKeyResponseOutput {
 	return o.ApplyT(func(v SiteConfigResponse) SiteMachineKeyResponse { return v.MachineKey }).(SiteMachineKeyResponseOutput)
 }
 
-// Managed pipeline mode.
 func (o SiteConfigResponseOutput) ManagedPipelineMode() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SiteConfigResponse) *string { return v.ManagedPipelineMode }).(pulumi.StringPtrOutput)
 }
 
-// Managed Service Identity Id
 func (o SiteConfigResponseOutput) ManagedServiceIdentityId() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v SiteConfigResponse) *int { return v.ManagedServiceIdentityId }).(pulumi.IntPtrOutput)
 }
 
-// MinTlsVersion: configures the minimum version of TLS required for SSL requests
 func (o SiteConfigResponseOutput) MinTlsVersion() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SiteConfigResponse) *string { return v.MinTlsVersion }).(pulumi.StringPtrOutput)
 }
 
-// .NET Framework version.
 func (o SiteConfigResponseOutput) NetFrameworkVersion() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SiteConfigResponse) *string { return v.NetFrameworkVersion }).(pulumi.StringPtrOutput)
 }
 
-// Version of Node.js.
 func (o SiteConfigResponseOutput) NodeVersion() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SiteConfigResponse) *string { return v.NodeVersion }).(pulumi.StringPtrOutput)
 }
 
-// Number of workers.
 func (o SiteConfigResponseOutput) NumberOfWorkers() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v SiteConfigResponse) *int { return v.NumberOfWorkers }).(pulumi.IntPtrOutput)
 }
 
-// Version of PHP.
 func (o SiteConfigResponseOutput) PhpVersion() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SiteConfigResponse) *string { return v.PhpVersion }).(pulumi.StringPtrOutput)
 }
 
-// Version of PowerShell.
 func (o SiteConfigResponseOutput) PowerShellVersion() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SiteConfigResponse) *string { return v.PowerShellVersion }).(pulumi.StringPtrOutput)
 }
 
-// Number of preWarmed instances.
-// This setting only applies to the Consumption and Elastic Plans
 func (o SiteConfigResponseOutput) PreWarmedInstanceCount() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v SiteConfigResponse) *int { return v.PreWarmedInstanceCount }).(pulumi.IntPtrOutput)
 }
 
-// Publishing user name.
 func (o SiteConfigResponseOutput) PublishingUsername() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SiteConfigResponse) *string { return v.PublishingUsername }).(pulumi.StringPtrOutput)
 }
 
-// Push endpoint settings.
 func (o SiteConfigResponseOutput) Push() PushSettingsResponsePtrOutput {
 	return o.ApplyT(func(v SiteConfigResponse) *PushSettingsResponse { return v.Push }).(PushSettingsResponsePtrOutput)
 }
 
-// Version of Python.
 func (o SiteConfigResponseOutput) PythonVersion() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SiteConfigResponse) *string { return v.PythonVersion }).(pulumi.StringPtrOutput)
 }
 
-// <code>true</code> if remote debugging is enabled; otherwise, <code>false</code>.
 func (o SiteConfigResponseOutput) RemoteDebuggingEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v SiteConfigResponse) *bool { return v.RemoteDebuggingEnabled }).(pulumi.BoolPtrOutput)
 }
 
-// Remote debugging version.
 func (o SiteConfigResponseOutput) RemoteDebuggingVersion() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SiteConfigResponse) *string { return v.RemoteDebuggingVersion }).(pulumi.StringPtrOutput)
 }
 
-// <code>true</code> if request tracing is enabled; otherwise, <code>false</code>.
 func (o SiteConfigResponseOutput) RequestTracingEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v SiteConfigResponse) *bool { return v.RequestTracingEnabled }).(pulumi.BoolPtrOutput)
 }
 
-// Request tracing expiration time.
 func (o SiteConfigResponseOutput) RequestTracingExpirationTime() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SiteConfigResponse) *string { return v.RequestTracingExpirationTime }).(pulumi.StringPtrOutput)
 }
 
-// IP security restrictions for scm.
 func (o SiteConfigResponseOutput) ScmIpSecurityRestrictions() IpSecurityRestrictionResponseArrayOutput {
 	return o.ApplyT(func(v SiteConfigResponse) []IpSecurityRestrictionResponse { return v.ScmIpSecurityRestrictions }).(IpSecurityRestrictionResponseArrayOutput)
 }
 
-// IP security restrictions for scm to use main.
 func (o SiteConfigResponseOutput) ScmIpSecurityRestrictionsUseMain() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v SiteConfigResponse) *bool { return v.ScmIpSecurityRestrictionsUseMain }).(pulumi.BoolPtrOutput)
 }
 
-// SCM type.
 func (o SiteConfigResponseOutput) ScmType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SiteConfigResponse) *string { return v.ScmType }).(pulumi.StringPtrOutput)
 }
 
-// Tracing options.
 func (o SiteConfigResponseOutput) TracingOptions() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SiteConfigResponse) *string { return v.TracingOptions }).(pulumi.StringPtrOutput)
 }
 
-// <code>true</code> to use 32-bit worker process; otherwise, <code>false</code>.
 func (o SiteConfigResponseOutput) Use32BitWorkerProcess() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v SiteConfigResponse) *bool { return v.Use32BitWorkerProcess }).(pulumi.BoolPtrOutput)
 }
 
-// Virtual applications.
 func (o SiteConfigResponseOutput) VirtualApplications() VirtualApplicationResponseArrayOutput {
 	return o.ApplyT(func(v SiteConfigResponse) []VirtualApplicationResponse { return v.VirtualApplications }).(VirtualApplicationResponseArrayOutput)
 }
 
-// Virtual Network name.
 func (o SiteConfigResponseOutput) VnetName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SiteConfigResponse) *string { return v.VnetName }).(pulumi.StringPtrOutput)
 }
 
-// <code>true</code> if WebSocket is enabled; otherwise, <code>false</code>.
 func (o SiteConfigResponseOutput) WebSocketsEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v SiteConfigResponse) *bool { return v.WebSocketsEnabled }).(pulumi.BoolPtrOutput)
 }
 
-// Xenon App Framework and version
 func (o SiteConfigResponseOutput) WindowsFxVersion() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SiteConfigResponse) *string { return v.WindowsFxVersion }).(pulumi.StringPtrOutput)
 }
 
-// Explicit Managed Service Identity Id
 func (o SiteConfigResponseOutput) XManagedServiceIdentityId() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v SiteConfigResponse) *int { return v.XManagedServiceIdentityId }).(pulumi.IntPtrOutput)
 }
@@ -13217,10 +11772,15 @@ func (o SiteConfigResponsePtrOutput) ToSiteConfigResponsePtrOutputWithContext(ct
 }
 
 func (o SiteConfigResponsePtrOutput) Elem() SiteConfigResponseOutput {
-	return o.ApplyT(func(v *SiteConfigResponse) SiteConfigResponse { return *v }).(SiteConfigResponseOutput)
+	return o.ApplyT(func(v *SiteConfigResponse) SiteConfigResponse {
+		if v != nil {
+			return *v
+		}
+		var ret SiteConfigResponse
+		return ret
+	}).(SiteConfigResponseOutput)
 }
 
-// Flag to use Managed Identity Creds for ACR pull
 func (o SiteConfigResponsePtrOutput) AcrUseManagedIdentityCreds() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *SiteConfigResponse) *bool {
 		if v == nil {
@@ -13230,7 +11790,6 @@ func (o SiteConfigResponsePtrOutput) AcrUseManagedIdentityCreds() pulumi.BoolPtr
 	}).(pulumi.BoolPtrOutput)
 }
 
-// If using user managed identity, the user managed identity ClientId
 func (o SiteConfigResponsePtrOutput) AcrUserManagedIdentityID() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SiteConfigResponse) *string {
 		if v == nil {
@@ -13240,7 +11799,6 @@ func (o SiteConfigResponsePtrOutput) AcrUserManagedIdentityID() pulumi.StringPtr
 	}).(pulumi.StringPtrOutput)
 }
 
-// <code>true</code> if Always On is enabled; otherwise, <code>false</code>.
 func (o SiteConfigResponsePtrOutput) AlwaysOn() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *SiteConfigResponse) *bool {
 		if v == nil {
@@ -13250,7 +11808,6 @@ func (o SiteConfigResponsePtrOutput) AlwaysOn() pulumi.BoolPtrOutput {
 	}).(pulumi.BoolPtrOutput)
 }
 
-// Information about the formal API definition for the app.
 func (o SiteConfigResponsePtrOutput) ApiDefinition() ApiDefinitionInfoResponsePtrOutput {
 	return o.ApplyT(func(v *SiteConfigResponse) *ApiDefinitionInfoResponse {
 		if v == nil {
@@ -13260,7 +11817,6 @@ func (o SiteConfigResponsePtrOutput) ApiDefinition() ApiDefinitionInfoResponsePt
 	}).(ApiDefinitionInfoResponsePtrOutput)
 }
 
-// Azure API management settings linked to the app.
 func (o SiteConfigResponsePtrOutput) ApiManagementConfig() ApiManagementConfigResponsePtrOutput {
 	return o.ApplyT(func(v *SiteConfigResponse) *ApiManagementConfigResponse {
 		if v == nil {
@@ -13270,7 +11826,6 @@ func (o SiteConfigResponsePtrOutput) ApiManagementConfig() ApiManagementConfigRe
 	}).(ApiManagementConfigResponsePtrOutput)
 }
 
-// App command line to launch.
 func (o SiteConfigResponsePtrOutput) AppCommandLine() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SiteConfigResponse) *string {
 		if v == nil {
@@ -13280,7 +11835,6 @@ func (o SiteConfigResponsePtrOutput) AppCommandLine() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Application settings.
 func (o SiteConfigResponsePtrOutput) AppSettings() NameValuePairResponseArrayOutput {
 	return o.ApplyT(func(v *SiteConfigResponse) []NameValuePairResponse {
 		if v == nil {
@@ -13290,7 +11844,6 @@ func (o SiteConfigResponsePtrOutput) AppSettings() NameValuePairResponseArrayOut
 	}).(NameValuePairResponseArrayOutput)
 }
 
-// <code>true</code> if Auto Heal is enabled; otherwise, <code>false</code>.
 func (o SiteConfigResponsePtrOutput) AutoHealEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *SiteConfigResponse) *bool {
 		if v == nil {
@@ -13300,7 +11853,6 @@ func (o SiteConfigResponsePtrOutput) AutoHealEnabled() pulumi.BoolPtrOutput {
 	}).(pulumi.BoolPtrOutput)
 }
 
-// Auto Heal rules.
 func (o SiteConfigResponsePtrOutput) AutoHealRules() AutoHealRulesResponsePtrOutput {
 	return o.ApplyT(func(v *SiteConfigResponse) *AutoHealRulesResponse {
 		if v == nil {
@@ -13310,7 +11862,6 @@ func (o SiteConfigResponsePtrOutput) AutoHealRules() AutoHealRulesResponsePtrOut
 	}).(AutoHealRulesResponsePtrOutput)
 }
 
-// Auto-swap slot name.
 func (o SiteConfigResponsePtrOutput) AutoSwapSlotName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SiteConfigResponse) *string {
 		if v == nil {
@@ -13320,7 +11871,6 @@ func (o SiteConfigResponsePtrOutput) AutoSwapSlotName() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Connection strings.
 func (o SiteConfigResponsePtrOutput) ConnectionStrings() ConnStringInfoResponseArrayOutput {
 	return o.ApplyT(func(v *SiteConfigResponse) []ConnStringInfoResponse {
 		if v == nil {
@@ -13330,7 +11880,6 @@ func (o SiteConfigResponsePtrOutput) ConnectionStrings() ConnStringInfoResponseA
 	}).(ConnStringInfoResponseArrayOutput)
 }
 
-// Cross-Origin Resource Sharing (CORS) settings.
 func (o SiteConfigResponsePtrOutput) Cors() CorsSettingsResponsePtrOutput {
 	return o.ApplyT(func(v *SiteConfigResponse) *CorsSettingsResponse {
 		if v == nil {
@@ -13340,7 +11889,6 @@ func (o SiteConfigResponsePtrOutput) Cors() CorsSettingsResponsePtrOutput {
 	}).(CorsSettingsResponsePtrOutput)
 }
 
-// Default documents.
 func (o SiteConfigResponsePtrOutput) DefaultDocuments() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *SiteConfigResponse) []string {
 		if v == nil {
@@ -13350,7 +11898,6 @@ func (o SiteConfigResponsePtrOutput) DefaultDocuments() pulumi.StringArrayOutput
 	}).(pulumi.StringArrayOutput)
 }
 
-// <code>true</code> if detailed error logging is enabled; otherwise, <code>false</code>.
 func (o SiteConfigResponsePtrOutput) DetailedErrorLoggingEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *SiteConfigResponse) *bool {
 		if v == nil {
@@ -13360,7 +11907,6 @@ func (o SiteConfigResponsePtrOutput) DetailedErrorLoggingEnabled() pulumi.BoolPt
 	}).(pulumi.BoolPtrOutput)
 }
 
-// Document root.
 func (o SiteConfigResponsePtrOutput) DocumentRoot() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SiteConfigResponse) *string {
 		if v == nil {
@@ -13370,7 +11916,6 @@ func (o SiteConfigResponsePtrOutput) DocumentRoot() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// This is work around for polymorphic types.
 func (o SiteConfigResponsePtrOutput) Experiments() ExperimentsResponsePtrOutput {
 	return o.ApplyT(func(v *SiteConfigResponse) *ExperimentsResponse {
 		if v == nil {
@@ -13380,7 +11925,6 @@ func (o SiteConfigResponsePtrOutput) Experiments() ExperimentsResponsePtrOutput 
 	}).(ExperimentsResponsePtrOutput)
 }
 
-// State of FTP / FTPS service
 func (o SiteConfigResponsePtrOutput) FtpsState() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SiteConfigResponse) *string {
 		if v == nil {
@@ -13390,7 +11934,6 @@ func (o SiteConfigResponsePtrOutput) FtpsState() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Handler mappings.
 func (o SiteConfigResponsePtrOutput) HandlerMappings() HandlerMappingResponseArrayOutput {
 	return o.ApplyT(func(v *SiteConfigResponse) []HandlerMappingResponse {
 		if v == nil {
@@ -13400,7 +11943,6 @@ func (o SiteConfigResponsePtrOutput) HandlerMappings() HandlerMappingResponseArr
 	}).(HandlerMappingResponseArrayOutput)
 }
 
-// Health check path
 func (o SiteConfigResponsePtrOutput) HealthCheckPath() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SiteConfigResponse) *string {
 		if v == nil {
@@ -13410,7 +11952,6 @@ func (o SiteConfigResponsePtrOutput) HealthCheckPath() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Http20Enabled: configures a web site to allow clients to connect over http2.0
 func (o SiteConfigResponsePtrOutput) Http20Enabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *SiteConfigResponse) *bool {
 		if v == nil {
@@ -13420,7 +11961,6 @@ func (o SiteConfigResponsePtrOutput) Http20Enabled() pulumi.BoolPtrOutput {
 	}).(pulumi.BoolPtrOutput)
 }
 
-// <code>true</code> if HTTP logging is enabled; otherwise, <code>false</code>.
 func (o SiteConfigResponsePtrOutput) HttpLoggingEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *SiteConfigResponse) *bool {
 		if v == nil {
@@ -13430,7 +11970,6 @@ func (o SiteConfigResponsePtrOutput) HttpLoggingEnabled() pulumi.BoolPtrOutput {
 	}).(pulumi.BoolPtrOutput)
 }
 
-// IP security restrictions for main.
 func (o SiteConfigResponsePtrOutput) IpSecurityRestrictions() IpSecurityRestrictionResponseArrayOutput {
 	return o.ApplyT(func(v *SiteConfigResponse) []IpSecurityRestrictionResponse {
 		if v == nil {
@@ -13440,7 +11979,6 @@ func (o SiteConfigResponsePtrOutput) IpSecurityRestrictions() IpSecurityRestrict
 	}).(IpSecurityRestrictionResponseArrayOutput)
 }
 
-// Java container.
 func (o SiteConfigResponsePtrOutput) JavaContainer() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SiteConfigResponse) *string {
 		if v == nil {
@@ -13450,7 +11988,6 @@ func (o SiteConfigResponsePtrOutput) JavaContainer() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Java container version.
 func (o SiteConfigResponsePtrOutput) JavaContainerVersion() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SiteConfigResponse) *string {
 		if v == nil {
@@ -13460,7 +11997,6 @@ func (o SiteConfigResponsePtrOutput) JavaContainerVersion() pulumi.StringPtrOutp
 	}).(pulumi.StringPtrOutput)
 }
 
-// Java version.
 func (o SiteConfigResponsePtrOutput) JavaVersion() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SiteConfigResponse) *string {
 		if v == nil {
@@ -13470,7 +12006,6 @@ func (o SiteConfigResponsePtrOutput) JavaVersion() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Site limits.
 func (o SiteConfigResponsePtrOutput) Limits() SiteLimitsResponsePtrOutput {
 	return o.ApplyT(func(v *SiteConfigResponse) *SiteLimitsResponse {
 		if v == nil {
@@ -13480,7 +12015,6 @@ func (o SiteConfigResponsePtrOutput) Limits() SiteLimitsResponsePtrOutput {
 	}).(SiteLimitsResponsePtrOutput)
 }
 
-// Linux App Framework and version
 func (o SiteConfigResponsePtrOutput) LinuxFxVersion() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SiteConfigResponse) *string {
 		if v == nil {
@@ -13490,7 +12024,6 @@ func (o SiteConfigResponsePtrOutput) LinuxFxVersion() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Site load balancing.
 func (o SiteConfigResponsePtrOutput) LoadBalancing() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SiteConfigResponse) *string {
 		if v == nil {
@@ -13500,7 +12033,6 @@ func (o SiteConfigResponsePtrOutput) LoadBalancing() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// <code>true</code> to enable local MySQL; otherwise, <code>false</code>.
 func (o SiteConfigResponsePtrOutput) LocalMySqlEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *SiteConfigResponse) *bool {
 		if v == nil {
@@ -13510,7 +12042,6 @@ func (o SiteConfigResponsePtrOutput) LocalMySqlEnabled() pulumi.BoolPtrOutput {
 	}).(pulumi.BoolPtrOutput)
 }
 
-// HTTP logs directory size limit.
 func (o SiteConfigResponsePtrOutput) LogsDirectorySizeLimit() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *SiteConfigResponse) *int {
 		if v == nil {
@@ -13520,7 +12051,6 @@ func (o SiteConfigResponsePtrOutput) LogsDirectorySizeLimit() pulumi.IntPtrOutpu
 	}).(pulumi.IntPtrOutput)
 }
 
-// Site MachineKey.
 func (o SiteConfigResponsePtrOutput) MachineKey() SiteMachineKeyResponsePtrOutput {
 	return o.ApplyT(func(v *SiteConfigResponse) *SiteMachineKeyResponse {
 		if v == nil {
@@ -13530,7 +12060,6 @@ func (o SiteConfigResponsePtrOutput) MachineKey() SiteMachineKeyResponsePtrOutpu
 	}).(SiteMachineKeyResponsePtrOutput)
 }
 
-// Managed pipeline mode.
 func (o SiteConfigResponsePtrOutput) ManagedPipelineMode() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SiteConfigResponse) *string {
 		if v == nil {
@@ -13540,7 +12069,6 @@ func (o SiteConfigResponsePtrOutput) ManagedPipelineMode() pulumi.StringPtrOutpu
 	}).(pulumi.StringPtrOutput)
 }
 
-// Managed Service Identity Id
 func (o SiteConfigResponsePtrOutput) ManagedServiceIdentityId() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *SiteConfigResponse) *int {
 		if v == nil {
@@ -13550,7 +12078,6 @@ func (o SiteConfigResponsePtrOutput) ManagedServiceIdentityId() pulumi.IntPtrOut
 	}).(pulumi.IntPtrOutput)
 }
 
-// MinTlsVersion: configures the minimum version of TLS required for SSL requests
 func (o SiteConfigResponsePtrOutput) MinTlsVersion() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SiteConfigResponse) *string {
 		if v == nil {
@@ -13560,7 +12087,6 @@ func (o SiteConfigResponsePtrOutput) MinTlsVersion() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// .NET Framework version.
 func (o SiteConfigResponsePtrOutput) NetFrameworkVersion() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SiteConfigResponse) *string {
 		if v == nil {
@@ -13570,7 +12096,6 @@ func (o SiteConfigResponsePtrOutput) NetFrameworkVersion() pulumi.StringPtrOutpu
 	}).(pulumi.StringPtrOutput)
 }
 
-// Version of Node.js.
 func (o SiteConfigResponsePtrOutput) NodeVersion() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SiteConfigResponse) *string {
 		if v == nil {
@@ -13580,7 +12105,6 @@ func (o SiteConfigResponsePtrOutput) NodeVersion() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Number of workers.
 func (o SiteConfigResponsePtrOutput) NumberOfWorkers() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *SiteConfigResponse) *int {
 		if v == nil {
@@ -13590,7 +12114,6 @@ func (o SiteConfigResponsePtrOutput) NumberOfWorkers() pulumi.IntPtrOutput {
 	}).(pulumi.IntPtrOutput)
 }
 
-// Version of PHP.
 func (o SiteConfigResponsePtrOutput) PhpVersion() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SiteConfigResponse) *string {
 		if v == nil {
@@ -13600,7 +12123,6 @@ func (o SiteConfigResponsePtrOutput) PhpVersion() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Version of PowerShell.
 func (o SiteConfigResponsePtrOutput) PowerShellVersion() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SiteConfigResponse) *string {
 		if v == nil {
@@ -13610,8 +12132,6 @@ func (o SiteConfigResponsePtrOutput) PowerShellVersion() pulumi.StringPtrOutput 
 	}).(pulumi.StringPtrOutput)
 }
 
-// Number of preWarmed instances.
-// This setting only applies to the Consumption and Elastic Plans
 func (o SiteConfigResponsePtrOutput) PreWarmedInstanceCount() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *SiteConfigResponse) *int {
 		if v == nil {
@@ -13621,7 +12141,6 @@ func (o SiteConfigResponsePtrOutput) PreWarmedInstanceCount() pulumi.IntPtrOutpu
 	}).(pulumi.IntPtrOutput)
 }
 
-// Publishing user name.
 func (o SiteConfigResponsePtrOutput) PublishingUsername() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SiteConfigResponse) *string {
 		if v == nil {
@@ -13631,7 +12150,6 @@ func (o SiteConfigResponsePtrOutput) PublishingUsername() pulumi.StringPtrOutput
 	}).(pulumi.StringPtrOutput)
 }
 
-// Push endpoint settings.
 func (o SiteConfigResponsePtrOutput) Push() PushSettingsResponsePtrOutput {
 	return o.ApplyT(func(v *SiteConfigResponse) *PushSettingsResponse {
 		if v == nil {
@@ -13641,7 +12159,6 @@ func (o SiteConfigResponsePtrOutput) Push() PushSettingsResponsePtrOutput {
 	}).(PushSettingsResponsePtrOutput)
 }
 
-// Version of Python.
 func (o SiteConfigResponsePtrOutput) PythonVersion() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SiteConfigResponse) *string {
 		if v == nil {
@@ -13651,7 +12168,6 @@ func (o SiteConfigResponsePtrOutput) PythonVersion() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// <code>true</code> if remote debugging is enabled; otherwise, <code>false</code>.
 func (o SiteConfigResponsePtrOutput) RemoteDebuggingEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *SiteConfigResponse) *bool {
 		if v == nil {
@@ -13661,7 +12177,6 @@ func (o SiteConfigResponsePtrOutput) RemoteDebuggingEnabled() pulumi.BoolPtrOutp
 	}).(pulumi.BoolPtrOutput)
 }
 
-// Remote debugging version.
 func (o SiteConfigResponsePtrOutput) RemoteDebuggingVersion() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SiteConfigResponse) *string {
 		if v == nil {
@@ -13671,7 +12186,6 @@ func (o SiteConfigResponsePtrOutput) RemoteDebuggingVersion() pulumi.StringPtrOu
 	}).(pulumi.StringPtrOutput)
 }
 
-// <code>true</code> if request tracing is enabled; otherwise, <code>false</code>.
 func (o SiteConfigResponsePtrOutput) RequestTracingEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *SiteConfigResponse) *bool {
 		if v == nil {
@@ -13681,7 +12195,6 @@ func (o SiteConfigResponsePtrOutput) RequestTracingEnabled() pulumi.BoolPtrOutpu
 	}).(pulumi.BoolPtrOutput)
 }
 
-// Request tracing expiration time.
 func (o SiteConfigResponsePtrOutput) RequestTracingExpirationTime() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SiteConfigResponse) *string {
 		if v == nil {
@@ -13691,7 +12204,6 @@ func (o SiteConfigResponsePtrOutput) RequestTracingExpirationTime() pulumi.Strin
 	}).(pulumi.StringPtrOutput)
 }
 
-// IP security restrictions for scm.
 func (o SiteConfigResponsePtrOutput) ScmIpSecurityRestrictions() IpSecurityRestrictionResponseArrayOutput {
 	return o.ApplyT(func(v *SiteConfigResponse) []IpSecurityRestrictionResponse {
 		if v == nil {
@@ -13701,7 +12213,6 @@ func (o SiteConfigResponsePtrOutput) ScmIpSecurityRestrictions() IpSecurityRestr
 	}).(IpSecurityRestrictionResponseArrayOutput)
 }
 
-// IP security restrictions for scm to use main.
 func (o SiteConfigResponsePtrOutput) ScmIpSecurityRestrictionsUseMain() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *SiteConfigResponse) *bool {
 		if v == nil {
@@ -13711,7 +12222,6 @@ func (o SiteConfigResponsePtrOutput) ScmIpSecurityRestrictionsUseMain() pulumi.B
 	}).(pulumi.BoolPtrOutput)
 }
 
-// SCM type.
 func (o SiteConfigResponsePtrOutput) ScmType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SiteConfigResponse) *string {
 		if v == nil {
@@ -13721,7 +12231,6 @@ func (o SiteConfigResponsePtrOutput) ScmType() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Tracing options.
 func (o SiteConfigResponsePtrOutput) TracingOptions() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SiteConfigResponse) *string {
 		if v == nil {
@@ -13731,7 +12240,6 @@ func (o SiteConfigResponsePtrOutput) TracingOptions() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// <code>true</code> to use 32-bit worker process; otherwise, <code>false</code>.
 func (o SiteConfigResponsePtrOutput) Use32BitWorkerProcess() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *SiteConfigResponse) *bool {
 		if v == nil {
@@ -13741,7 +12249,6 @@ func (o SiteConfigResponsePtrOutput) Use32BitWorkerProcess() pulumi.BoolPtrOutpu
 	}).(pulumi.BoolPtrOutput)
 }
 
-// Virtual applications.
 func (o SiteConfigResponsePtrOutput) VirtualApplications() VirtualApplicationResponseArrayOutput {
 	return o.ApplyT(func(v *SiteConfigResponse) []VirtualApplicationResponse {
 		if v == nil {
@@ -13751,7 +12258,6 @@ func (o SiteConfigResponsePtrOutput) VirtualApplications() VirtualApplicationRes
 	}).(VirtualApplicationResponseArrayOutput)
 }
 
-// Virtual Network name.
 func (o SiteConfigResponsePtrOutput) VnetName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SiteConfigResponse) *string {
 		if v == nil {
@@ -13761,7 +12267,6 @@ func (o SiteConfigResponsePtrOutput) VnetName() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// <code>true</code> if WebSocket is enabled; otherwise, <code>false</code>.
 func (o SiteConfigResponsePtrOutput) WebSocketsEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *SiteConfigResponse) *bool {
 		if v == nil {
@@ -13771,7 +12276,6 @@ func (o SiteConfigResponsePtrOutput) WebSocketsEnabled() pulumi.BoolPtrOutput {
 	}).(pulumi.BoolPtrOutput)
 }
 
-// Xenon App Framework and version
 func (o SiteConfigResponsePtrOutput) WindowsFxVersion() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SiteConfigResponse) *string {
 		if v == nil {
@@ -13781,7 +12285,6 @@ func (o SiteConfigResponsePtrOutput) WindowsFxVersion() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Explicit Managed Service Identity Id
 func (o SiteConfigResponsePtrOutput) XManagedServiceIdentityId() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *SiteConfigResponse) *int {
 		if v == nil {
@@ -13791,13 +12294,9 @@ func (o SiteConfigResponsePtrOutput) XManagedServiceIdentityId() pulumi.IntPtrOu
 	}).(pulumi.IntPtrOutput)
 }
 
-// Metric limits set on an app.
 type SiteLimits struct {
-	// Maximum allowed disk size usage in MB.
-	MaxDiskSizeInMb *float64 `pulumi:"maxDiskSizeInMb"`
-	// Maximum allowed memory usage in MB.
-	MaxMemoryInMb *float64 `pulumi:"maxMemoryInMb"`
-	// Maximum allowed CPU usage percentage.
+	MaxDiskSizeInMb  *float64 `pulumi:"maxDiskSizeInMb"`
+	MaxMemoryInMb    *float64 `pulumi:"maxMemoryInMb"`
 	MaxPercentageCpu *float64 `pulumi:"maxPercentageCpu"`
 }
 
@@ -13812,13 +12311,9 @@ type SiteLimitsInput interface {
 	ToSiteLimitsOutputWithContext(context.Context) SiteLimitsOutput
 }
 
-// Metric limits set on an app.
 type SiteLimitsArgs struct {
-	// Maximum allowed disk size usage in MB.
-	MaxDiskSizeInMb pulumi.Float64PtrInput `pulumi:"maxDiskSizeInMb"`
-	// Maximum allowed memory usage in MB.
-	MaxMemoryInMb pulumi.Float64PtrInput `pulumi:"maxMemoryInMb"`
-	// Maximum allowed CPU usage percentage.
+	MaxDiskSizeInMb  pulumi.Float64PtrInput `pulumi:"maxDiskSizeInMb"`
+	MaxMemoryInMb    pulumi.Float64PtrInput `pulumi:"maxMemoryInMb"`
 	MaxPercentageCpu pulumi.Float64PtrInput `pulumi:"maxPercentageCpu"`
 }
 
@@ -13875,7 +12370,6 @@ func (i *siteLimitsPtrType) ToSiteLimitsPtrOutputWithContext(ctx context.Context
 	return pulumi.ToOutputWithContext(ctx, i).(SiteLimitsPtrOutput)
 }
 
-// Metric limits set on an app.
 type SiteLimitsOutput struct{ *pulumi.OutputState }
 
 func (SiteLimitsOutput) ElementType() reflect.Type {
@@ -13895,22 +12389,19 @@ func (o SiteLimitsOutput) ToSiteLimitsPtrOutput() SiteLimitsPtrOutput {
 }
 
 func (o SiteLimitsOutput) ToSiteLimitsPtrOutputWithContext(ctx context.Context) SiteLimitsPtrOutput {
-	return o.ApplyT(func(v SiteLimits) *SiteLimits {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v SiteLimits) *SiteLimits {
 		return &v
 	}).(SiteLimitsPtrOutput)
 }
 
-// Maximum allowed disk size usage in MB.
 func (o SiteLimitsOutput) MaxDiskSizeInMb() pulumi.Float64PtrOutput {
 	return o.ApplyT(func(v SiteLimits) *float64 { return v.MaxDiskSizeInMb }).(pulumi.Float64PtrOutput)
 }
 
-// Maximum allowed memory usage in MB.
 func (o SiteLimitsOutput) MaxMemoryInMb() pulumi.Float64PtrOutput {
 	return o.ApplyT(func(v SiteLimits) *float64 { return v.MaxMemoryInMb }).(pulumi.Float64PtrOutput)
 }
 
-// Maximum allowed CPU usage percentage.
 func (o SiteLimitsOutput) MaxPercentageCpu() pulumi.Float64PtrOutput {
 	return o.ApplyT(func(v SiteLimits) *float64 { return v.MaxPercentageCpu }).(pulumi.Float64PtrOutput)
 }
@@ -13930,10 +12421,15 @@ func (o SiteLimitsPtrOutput) ToSiteLimitsPtrOutputWithContext(ctx context.Contex
 }
 
 func (o SiteLimitsPtrOutput) Elem() SiteLimitsOutput {
-	return o.ApplyT(func(v *SiteLimits) SiteLimits { return *v }).(SiteLimitsOutput)
+	return o.ApplyT(func(v *SiteLimits) SiteLimits {
+		if v != nil {
+			return *v
+		}
+		var ret SiteLimits
+		return ret
+	}).(SiteLimitsOutput)
 }
 
-// Maximum allowed disk size usage in MB.
 func (o SiteLimitsPtrOutput) MaxDiskSizeInMb() pulumi.Float64PtrOutput {
 	return o.ApplyT(func(v *SiteLimits) *float64 {
 		if v == nil {
@@ -13943,7 +12439,6 @@ func (o SiteLimitsPtrOutput) MaxDiskSizeInMb() pulumi.Float64PtrOutput {
 	}).(pulumi.Float64PtrOutput)
 }
 
-// Maximum allowed memory usage in MB.
 func (o SiteLimitsPtrOutput) MaxMemoryInMb() pulumi.Float64PtrOutput {
 	return o.ApplyT(func(v *SiteLimits) *float64 {
 		if v == nil {
@@ -13953,7 +12448,6 @@ func (o SiteLimitsPtrOutput) MaxMemoryInMb() pulumi.Float64PtrOutput {
 	}).(pulumi.Float64PtrOutput)
 }
 
-// Maximum allowed CPU usage percentage.
 func (o SiteLimitsPtrOutput) MaxPercentageCpu() pulumi.Float64PtrOutput {
 	return o.ApplyT(func(v *SiteLimits) *float64 {
 		if v == nil {
@@ -13963,13 +12457,9 @@ func (o SiteLimitsPtrOutput) MaxPercentageCpu() pulumi.Float64PtrOutput {
 	}).(pulumi.Float64PtrOutput)
 }
 
-// Metric limits set on an app.
 type SiteLimitsResponse struct {
-	// Maximum allowed disk size usage in MB.
-	MaxDiskSizeInMb *float64 `pulumi:"maxDiskSizeInMb"`
-	// Maximum allowed memory usage in MB.
-	MaxMemoryInMb *float64 `pulumi:"maxMemoryInMb"`
-	// Maximum allowed CPU usage percentage.
+	MaxDiskSizeInMb  *float64 `pulumi:"maxDiskSizeInMb"`
+	MaxMemoryInMb    *float64 `pulumi:"maxMemoryInMb"`
 	MaxPercentageCpu *float64 `pulumi:"maxPercentageCpu"`
 }
 
@@ -13984,13 +12474,9 @@ type SiteLimitsResponseInput interface {
 	ToSiteLimitsResponseOutputWithContext(context.Context) SiteLimitsResponseOutput
 }
 
-// Metric limits set on an app.
 type SiteLimitsResponseArgs struct {
-	// Maximum allowed disk size usage in MB.
-	MaxDiskSizeInMb pulumi.Float64PtrInput `pulumi:"maxDiskSizeInMb"`
-	// Maximum allowed memory usage in MB.
-	MaxMemoryInMb pulumi.Float64PtrInput `pulumi:"maxMemoryInMb"`
-	// Maximum allowed CPU usage percentage.
+	MaxDiskSizeInMb  pulumi.Float64PtrInput `pulumi:"maxDiskSizeInMb"`
+	MaxMemoryInMb    pulumi.Float64PtrInput `pulumi:"maxMemoryInMb"`
 	MaxPercentageCpu pulumi.Float64PtrInput `pulumi:"maxPercentageCpu"`
 }
 
@@ -14047,7 +12533,6 @@ func (i *siteLimitsResponsePtrType) ToSiteLimitsResponsePtrOutputWithContext(ctx
 	return pulumi.ToOutputWithContext(ctx, i).(SiteLimitsResponsePtrOutput)
 }
 
-// Metric limits set on an app.
 type SiteLimitsResponseOutput struct{ *pulumi.OutputState }
 
 func (SiteLimitsResponseOutput) ElementType() reflect.Type {
@@ -14067,22 +12552,19 @@ func (o SiteLimitsResponseOutput) ToSiteLimitsResponsePtrOutput() SiteLimitsResp
 }
 
 func (o SiteLimitsResponseOutput) ToSiteLimitsResponsePtrOutputWithContext(ctx context.Context) SiteLimitsResponsePtrOutput {
-	return o.ApplyT(func(v SiteLimitsResponse) *SiteLimitsResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v SiteLimitsResponse) *SiteLimitsResponse {
 		return &v
 	}).(SiteLimitsResponsePtrOutput)
 }
 
-// Maximum allowed disk size usage in MB.
 func (o SiteLimitsResponseOutput) MaxDiskSizeInMb() pulumi.Float64PtrOutput {
 	return o.ApplyT(func(v SiteLimitsResponse) *float64 { return v.MaxDiskSizeInMb }).(pulumi.Float64PtrOutput)
 }
 
-// Maximum allowed memory usage in MB.
 func (o SiteLimitsResponseOutput) MaxMemoryInMb() pulumi.Float64PtrOutput {
 	return o.ApplyT(func(v SiteLimitsResponse) *float64 { return v.MaxMemoryInMb }).(pulumi.Float64PtrOutput)
 }
 
-// Maximum allowed CPU usage percentage.
 func (o SiteLimitsResponseOutput) MaxPercentageCpu() pulumi.Float64PtrOutput {
 	return o.ApplyT(func(v SiteLimitsResponse) *float64 { return v.MaxPercentageCpu }).(pulumi.Float64PtrOutput)
 }
@@ -14102,10 +12584,15 @@ func (o SiteLimitsResponsePtrOutput) ToSiteLimitsResponsePtrOutputWithContext(ct
 }
 
 func (o SiteLimitsResponsePtrOutput) Elem() SiteLimitsResponseOutput {
-	return o.ApplyT(func(v *SiteLimitsResponse) SiteLimitsResponse { return *v }).(SiteLimitsResponseOutput)
+	return o.ApplyT(func(v *SiteLimitsResponse) SiteLimitsResponse {
+		if v != nil {
+			return *v
+		}
+		var ret SiteLimitsResponse
+		return ret
+	}).(SiteLimitsResponseOutput)
 }
 
-// Maximum allowed disk size usage in MB.
 func (o SiteLimitsResponsePtrOutput) MaxDiskSizeInMb() pulumi.Float64PtrOutput {
 	return o.ApplyT(func(v *SiteLimitsResponse) *float64 {
 		if v == nil {
@@ -14115,7 +12602,6 @@ func (o SiteLimitsResponsePtrOutput) MaxDiskSizeInMb() pulumi.Float64PtrOutput {
 	}).(pulumi.Float64PtrOutput)
 }
 
-// Maximum allowed memory usage in MB.
 func (o SiteLimitsResponsePtrOutput) MaxMemoryInMb() pulumi.Float64PtrOutput {
 	return o.ApplyT(func(v *SiteLimitsResponse) *float64 {
 		if v == nil {
@@ -14125,7 +12611,6 @@ func (o SiteLimitsResponsePtrOutput) MaxMemoryInMb() pulumi.Float64PtrOutput {
 	}).(pulumi.Float64PtrOutput)
 }
 
-// Maximum allowed CPU usage percentage.
 func (o SiteLimitsResponsePtrOutput) MaxPercentageCpu() pulumi.Float64PtrOutput {
 	return o.ApplyT(func(v *SiteLimitsResponse) *float64 {
 		if v == nil {
@@ -14135,15 +12620,10 @@ func (o SiteLimitsResponsePtrOutput) MaxPercentageCpu() pulumi.Float64PtrOutput 
 	}).(pulumi.Float64PtrOutput)
 }
 
-// MachineKey of an app.
 type SiteMachineKeyResponse struct {
-	// Algorithm used for decryption.
-	Decryption *string `pulumi:"decryption"`
-	// Decryption key.
+	Decryption    *string `pulumi:"decryption"`
 	DecryptionKey *string `pulumi:"decryptionKey"`
-	// MachineKey validation.
-	Validation *string `pulumi:"validation"`
-	// Validation key.
+	Validation    *string `pulumi:"validation"`
 	ValidationKey *string `pulumi:"validationKey"`
 }
 
@@ -14158,15 +12638,10 @@ type SiteMachineKeyResponseInput interface {
 	ToSiteMachineKeyResponseOutputWithContext(context.Context) SiteMachineKeyResponseOutput
 }
 
-// MachineKey of an app.
 type SiteMachineKeyResponseArgs struct {
-	// Algorithm used for decryption.
-	Decryption pulumi.StringPtrInput `pulumi:"decryption"`
-	// Decryption key.
+	Decryption    pulumi.StringPtrInput `pulumi:"decryption"`
 	DecryptionKey pulumi.StringPtrInput `pulumi:"decryptionKey"`
-	// MachineKey validation.
-	Validation pulumi.StringPtrInput `pulumi:"validation"`
-	// Validation key.
+	Validation    pulumi.StringPtrInput `pulumi:"validation"`
 	ValidationKey pulumi.StringPtrInput `pulumi:"validationKey"`
 }
 
@@ -14223,7 +12698,6 @@ func (i *siteMachineKeyResponsePtrType) ToSiteMachineKeyResponsePtrOutputWithCon
 	return pulumi.ToOutputWithContext(ctx, i).(SiteMachineKeyResponsePtrOutput)
 }
 
-// MachineKey of an app.
 type SiteMachineKeyResponseOutput struct{ *pulumi.OutputState }
 
 func (SiteMachineKeyResponseOutput) ElementType() reflect.Type {
@@ -14243,27 +12717,23 @@ func (o SiteMachineKeyResponseOutput) ToSiteMachineKeyResponsePtrOutput() SiteMa
 }
 
 func (o SiteMachineKeyResponseOutput) ToSiteMachineKeyResponsePtrOutputWithContext(ctx context.Context) SiteMachineKeyResponsePtrOutput {
-	return o.ApplyT(func(v SiteMachineKeyResponse) *SiteMachineKeyResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v SiteMachineKeyResponse) *SiteMachineKeyResponse {
 		return &v
 	}).(SiteMachineKeyResponsePtrOutput)
 }
 
-// Algorithm used for decryption.
 func (o SiteMachineKeyResponseOutput) Decryption() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SiteMachineKeyResponse) *string { return v.Decryption }).(pulumi.StringPtrOutput)
 }
 
-// Decryption key.
 func (o SiteMachineKeyResponseOutput) DecryptionKey() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SiteMachineKeyResponse) *string { return v.DecryptionKey }).(pulumi.StringPtrOutput)
 }
 
-// MachineKey validation.
 func (o SiteMachineKeyResponseOutput) Validation() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SiteMachineKeyResponse) *string { return v.Validation }).(pulumi.StringPtrOutput)
 }
 
-// Validation key.
 func (o SiteMachineKeyResponseOutput) ValidationKey() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SiteMachineKeyResponse) *string { return v.ValidationKey }).(pulumi.StringPtrOutput)
 }
@@ -14283,10 +12753,15 @@ func (o SiteMachineKeyResponsePtrOutput) ToSiteMachineKeyResponsePtrOutputWithCo
 }
 
 func (o SiteMachineKeyResponsePtrOutput) Elem() SiteMachineKeyResponseOutput {
-	return o.ApplyT(func(v *SiteMachineKeyResponse) SiteMachineKeyResponse { return *v }).(SiteMachineKeyResponseOutput)
+	return o.ApplyT(func(v *SiteMachineKeyResponse) SiteMachineKeyResponse {
+		if v != nil {
+			return *v
+		}
+		var ret SiteMachineKeyResponse
+		return ret
+	}).(SiteMachineKeyResponseOutput)
 }
 
-// Algorithm used for decryption.
 func (o SiteMachineKeyResponsePtrOutput) Decryption() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SiteMachineKeyResponse) *string {
 		if v == nil {
@@ -14296,7 +12771,6 @@ func (o SiteMachineKeyResponsePtrOutput) Decryption() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Decryption key.
 func (o SiteMachineKeyResponsePtrOutput) DecryptionKey() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SiteMachineKeyResponse) *string {
 		if v == nil {
@@ -14306,7 +12780,6 @@ func (o SiteMachineKeyResponsePtrOutput) DecryptionKey() pulumi.StringPtrOutput 
 	}).(pulumi.StringPtrOutput)
 }
 
-// MachineKey validation.
 func (o SiteMachineKeyResponsePtrOutput) Validation() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SiteMachineKeyResponse) *string {
 		if v == nil {
@@ -14316,7 +12789,6 @@ func (o SiteMachineKeyResponsePtrOutput) Validation() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Validation key.
 func (o SiteMachineKeyResponsePtrOutput) ValidationKey() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SiteMachineKeyResponse) *string {
 		if v == nil {
@@ -14326,15 +12798,10 @@ func (o SiteMachineKeyResponsePtrOutput) ValidationKey() pulumi.StringPtrOutput 
 	}).(pulumi.StringPtrOutput)
 }
 
-// Description of the App Service plan scale options.
 type SkuCapacity struct {
-	// Default number of workers for this App Service plan SKU.
-	Default *int `pulumi:"default"`
-	// Maximum number of workers for this App Service plan SKU.
-	Maximum *int `pulumi:"maximum"`
-	// Minimum number of workers for this App Service plan SKU.
-	Minimum *int `pulumi:"minimum"`
-	// Available scale configurations for an App Service plan.
+	Default   *int    `pulumi:"default"`
+	Maximum   *int    `pulumi:"maximum"`
+	Minimum   *int    `pulumi:"minimum"`
 	ScaleType *string `pulumi:"scaleType"`
 }
 
@@ -14349,15 +12816,10 @@ type SkuCapacityInput interface {
 	ToSkuCapacityOutputWithContext(context.Context) SkuCapacityOutput
 }
 
-// Description of the App Service plan scale options.
 type SkuCapacityArgs struct {
-	// Default number of workers for this App Service plan SKU.
-	Default pulumi.IntPtrInput `pulumi:"default"`
-	// Maximum number of workers for this App Service plan SKU.
-	Maximum pulumi.IntPtrInput `pulumi:"maximum"`
-	// Minimum number of workers for this App Service plan SKU.
-	Minimum pulumi.IntPtrInput `pulumi:"minimum"`
-	// Available scale configurations for an App Service plan.
+	Default   pulumi.IntPtrInput    `pulumi:"default"`
+	Maximum   pulumi.IntPtrInput    `pulumi:"maximum"`
+	Minimum   pulumi.IntPtrInput    `pulumi:"minimum"`
 	ScaleType pulumi.StringPtrInput `pulumi:"scaleType"`
 }
 
@@ -14414,7 +12876,6 @@ func (i *skuCapacityPtrType) ToSkuCapacityPtrOutputWithContext(ctx context.Conte
 	return pulumi.ToOutputWithContext(ctx, i).(SkuCapacityPtrOutput)
 }
 
-// Description of the App Service plan scale options.
 type SkuCapacityOutput struct{ *pulumi.OutputState }
 
 func (SkuCapacityOutput) ElementType() reflect.Type {
@@ -14434,27 +12895,23 @@ func (o SkuCapacityOutput) ToSkuCapacityPtrOutput() SkuCapacityPtrOutput {
 }
 
 func (o SkuCapacityOutput) ToSkuCapacityPtrOutputWithContext(ctx context.Context) SkuCapacityPtrOutput {
-	return o.ApplyT(func(v SkuCapacity) *SkuCapacity {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v SkuCapacity) *SkuCapacity {
 		return &v
 	}).(SkuCapacityPtrOutput)
 }
 
-// Default number of workers for this App Service plan SKU.
 func (o SkuCapacityOutput) Default() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v SkuCapacity) *int { return v.Default }).(pulumi.IntPtrOutput)
 }
 
-// Maximum number of workers for this App Service plan SKU.
 func (o SkuCapacityOutput) Maximum() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v SkuCapacity) *int { return v.Maximum }).(pulumi.IntPtrOutput)
 }
 
-// Minimum number of workers for this App Service plan SKU.
 func (o SkuCapacityOutput) Minimum() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v SkuCapacity) *int { return v.Minimum }).(pulumi.IntPtrOutput)
 }
 
-// Available scale configurations for an App Service plan.
 func (o SkuCapacityOutput) ScaleType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SkuCapacity) *string { return v.ScaleType }).(pulumi.StringPtrOutput)
 }
@@ -14474,10 +12931,15 @@ func (o SkuCapacityPtrOutput) ToSkuCapacityPtrOutputWithContext(ctx context.Cont
 }
 
 func (o SkuCapacityPtrOutput) Elem() SkuCapacityOutput {
-	return o.ApplyT(func(v *SkuCapacity) SkuCapacity { return *v }).(SkuCapacityOutput)
+	return o.ApplyT(func(v *SkuCapacity) SkuCapacity {
+		if v != nil {
+			return *v
+		}
+		var ret SkuCapacity
+		return ret
+	}).(SkuCapacityOutput)
 }
 
-// Default number of workers for this App Service plan SKU.
 func (o SkuCapacityPtrOutput) Default() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *SkuCapacity) *int {
 		if v == nil {
@@ -14487,7 +12949,6 @@ func (o SkuCapacityPtrOutput) Default() pulumi.IntPtrOutput {
 	}).(pulumi.IntPtrOutput)
 }
 
-// Maximum number of workers for this App Service plan SKU.
 func (o SkuCapacityPtrOutput) Maximum() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *SkuCapacity) *int {
 		if v == nil {
@@ -14497,7 +12958,6 @@ func (o SkuCapacityPtrOutput) Maximum() pulumi.IntPtrOutput {
 	}).(pulumi.IntPtrOutput)
 }
 
-// Minimum number of workers for this App Service plan SKU.
 func (o SkuCapacityPtrOutput) Minimum() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *SkuCapacity) *int {
 		if v == nil {
@@ -14507,7 +12967,6 @@ func (o SkuCapacityPtrOutput) Minimum() pulumi.IntPtrOutput {
 	}).(pulumi.IntPtrOutput)
 }
 
-// Available scale configurations for an App Service plan.
 func (o SkuCapacityPtrOutput) ScaleType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SkuCapacity) *string {
 		if v == nil {
@@ -14517,15 +12976,10 @@ func (o SkuCapacityPtrOutput) ScaleType() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Description of the App Service plan scale options.
 type SkuCapacityResponse struct {
-	// Default number of workers for this App Service plan SKU.
-	Default *int `pulumi:"default"`
-	// Maximum number of workers for this App Service plan SKU.
-	Maximum *int `pulumi:"maximum"`
-	// Minimum number of workers for this App Service plan SKU.
-	Minimum *int `pulumi:"minimum"`
-	// Available scale configurations for an App Service plan.
+	Default   *int    `pulumi:"default"`
+	Maximum   *int    `pulumi:"maximum"`
+	Minimum   *int    `pulumi:"minimum"`
 	ScaleType *string `pulumi:"scaleType"`
 }
 
@@ -14540,15 +12994,10 @@ type SkuCapacityResponseInput interface {
 	ToSkuCapacityResponseOutputWithContext(context.Context) SkuCapacityResponseOutput
 }
 
-// Description of the App Service plan scale options.
 type SkuCapacityResponseArgs struct {
-	// Default number of workers for this App Service plan SKU.
-	Default pulumi.IntPtrInput `pulumi:"default"`
-	// Maximum number of workers for this App Service plan SKU.
-	Maximum pulumi.IntPtrInput `pulumi:"maximum"`
-	// Minimum number of workers for this App Service plan SKU.
-	Minimum pulumi.IntPtrInput `pulumi:"minimum"`
-	// Available scale configurations for an App Service plan.
+	Default   pulumi.IntPtrInput    `pulumi:"default"`
+	Maximum   pulumi.IntPtrInput    `pulumi:"maximum"`
+	Minimum   pulumi.IntPtrInput    `pulumi:"minimum"`
 	ScaleType pulumi.StringPtrInput `pulumi:"scaleType"`
 }
 
@@ -14605,7 +13054,6 @@ func (i *skuCapacityResponsePtrType) ToSkuCapacityResponsePtrOutputWithContext(c
 	return pulumi.ToOutputWithContext(ctx, i).(SkuCapacityResponsePtrOutput)
 }
 
-// Description of the App Service plan scale options.
 type SkuCapacityResponseOutput struct{ *pulumi.OutputState }
 
 func (SkuCapacityResponseOutput) ElementType() reflect.Type {
@@ -14625,27 +13073,23 @@ func (o SkuCapacityResponseOutput) ToSkuCapacityResponsePtrOutput() SkuCapacityR
 }
 
 func (o SkuCapacityResponseOutput) ToSkuCapacityResponsePtrOutputWithContext(ctx context.Context) SkuCapacityResponsePtrOutput {
-	return o.ApplyT(func(v SkuCapacityResponse) *SkuCapacityResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v SkuCapacityResponse) *SkuCapacityResponse {
 		return &v
 	}).(SkuCapacityResponsePtrOutput)
 }
 
-// Default number of workers for this App Service plan SKU.
 func (o SkuCapacityResponseOutput) Default() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v SkuCapacityResponse) *int { return v.Default }).(pulumi.IntPtrOutput)
 }
 
-// Maximum number of workers for this App Service plan SKU.
 func (o SkuCapacityResponseOutput) Maximum() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v SkuCapacityResponse) *int { return v.Maximum }).(pulumi.IntPtrOutput)
 }
 
-// Minimum number of workers for this App Service plan SKU.
 func (o SkuCapacityResponseOutput) Minimum() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v SkuCapacityResponse) *int { return v.Minimum }).(pulumi.IntPtrOutput)
 }
 
-// Available scale configurations for an App Service plan.
 func (o SkuCapacityResponseOutput) ScaleType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SkuCapacityResponse) *string { return v.ScaleType }).(pulumi.StringPtrOutput)
 }
@@ -14665,10 +13109,15 @@ func (o SkuCapacityResponsePtrOutput) ToSkuCapacityResponsePtrOutputWithContext(
 }
 
 func (o SkuCapacityResponsePtrOutput) Elem() SkuCapacityResponseOutput {
-	return o.ApplyT(func(v *SkuCapacityResponse) SkuCapacityResponse { return *v }).(SkuCapacityResponseOutput)
+	return o.ApplyT(func(v *SkuCapacityResponse) SkuCapacityResponse {
+		if v != nil {
+			return *v
+		}
+		var ret SkuCapacityResponse
+		return ret
+	}).(SkuCapacityResponseOutput)
 }
 
-// Default number of workers for this App Service plan SKU.
 func (o SkuCapacityResponsePtrOutput) Default() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *SkuCapacityResponse) *int {
 		if v == nil {
@@ -14678,7 +13127,6 @@ func (o SkuCapacityResponsePtrOutput) Default() pulumi.IntPtrOutput {
 	}).(pulumi.IntPtrOutput)
 }
 
-// Maximum number of workers for this App Service plan SKU.
 func (o SkuCapacityResponsePtrOutput) Maximum() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *SkuCapacityResponse) *int {
 		if v == nil {
@@ -14688,7 +13136,6 @@ func (o SkuCapacityResponsePtrOutput) Maximum() pulumi.IntPtrOutput {
 	}).(pulumi.IntPtrOutput)
 }
 
-// Minimum number of workers for this App Service plan SKU.
 func (o SkuCapacityResponsePtrOutput) Minimum() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *SkuCapacityResponse) *int {
 		if v == nil {
@@ -14698,7 +13145,6 @@ func (o SkuCapacityResponsePtrOutput) Minimum() pulumi.IntPtrOutput {
 	}).(pulumi.IntPtrOutput)
 }
 
-// Available scale configurations for an App Service plan.
 func (o SkuCapacityResponsePtrOutput) ScaleType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SkuCapacityResponse) *string {
 		if v == nil {
@@ -14708,24 +13154,15 @@ func (o SkuCapacityResponsePtrOutput) ScaleType() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Description of a SKU for a scalable resource.
 type SkuDescription struct {
-	// Capabilities of the SKU, e.g., is traffic manager enabled?
 	Capabilities []Capability `pulumi:"capabilities"`
-	// Current number of instances assigned to the resource.
-	Capacity *int `pulumi:"capacity"`
-	// Family code of the resource SKU.
-	Family *string `pulumi:"family"`
-	// Locations of the SKU.
-	Locations []string `pulumi:"locations"`
-	// Name of the resource SKU.
-	Name *string `pulumi:"name"`
-	// Size specifier of the resource SKU.
-	Size *string `pulumi:"size"`
-	// Min, max, and default scale values of the SKU.
-	SkuCapacity *SkuCapacity `pulumi:"skuCapacity"`
-	// Service tier of the resource SKU.
-	Tier *string `pulumi:"tier"`
+	Capacity     *int         `pulumi:"capacity"`
+	Family       *string      `pulumi:"family"`
+	Locations    []string     `pulumi:"locations"`
+	Name         *string      `pulumi:"name"`
+	Size         *string      `pulumi:"size"`
+	SkuCapacity  *SkuCapacity `pulumi:"skuCapacity"`
+	Tier         *string      `pulumi:"tier"`
 }
 
 // SkuDescriptionInput is an input type that accepts SkuDescriptionArgs and SkuDescriptionOutput values.
@@ -14739,24 +13176,15 @@ type SkuDescriptionInput interface {
 	ToSkuDescriptionOutputWithContext(context.Context) SkuDescriptionOutput
 }
 
-// Description of a SKU for a scalable resource.
 type SkuDescriptionArgs struct {
-	// Capabilities of the SKU, e.g., is traffic manager enabled?
-	Capabilities CapabilityArrayInput `pulumi:"capabilities"`
-	// Current number of instances assigned to the resource.
-	Capacity pulumi.IntPtrInput `pulumi:"capacity"`
-	// Family code of the resource SKU.
-	Family pulumi.StringPtrInput `pulumi:"family"`
-	// Locations of the SKU.
-	Locations pulumi.StringArrayInput `pulumi:"locations"`
-	// Name of the resource SKU.
-	Name pulumi.StringPtrInput `pulumi:"name"`
-	// Size specifier of the resource SKU.
-	Size pulumi.StringPtrInput `pulumi:"size"`
-	// Min, max, and default scale values of the SKU.
-	SkuCapacity SkuCapacityPtrInput `pulumi:"skuCapacity"`
-	// Service tier of the resource SKU.
-	Tier pulumi.StringPtrInput `pulumi:"tier"`
+	Capabilities CapabilityArrayInput    `pulumi:"capabilities"`
+	Capacity     pulumi.IntPtrInput      `pulumi:"capacity"`
+	Family       pulumi.StringPtrInput   `pulumi:"family"`
+	Locations    pulumi.StringArrayInput `pulumi:"locations"`
+	Name         pulumi.StringPtrInput   `pulumi:"name"`
+	Size         pulumi.StringPtrInput   `pulumi:"size"`
+	SkuCapacity  SkuCapacityPtrInput     `pulumi:"skuCapacity"`
+	Tier         pulumi.StringPtrInput   `pulumi:"tier"`
 }
 
 func (SkuDescriptionArgs) ElementType() reflect.Type {
@@ -14812,7 +13240,6 @@ func (i *skuDescriptionPtrType) ToSkuDescriptionPtrOutputWithContext(ctx context
 	return pulumi.ToOutputWithContext(ctx, i).(SkuDescriptionPtrOutput)
 }
 
-// Description of a SKU for a scalable resource.
 type SkuDescriptionOutput struct{ *pulumi.OutputState }
 
 func (SkuDescriptionOutput) ElementType() reflect.Type {
@@ -14832,47 +13259,39 @@ func (o SkuDescriptionOutput) ToSkuDescriptionPtrOutput() SkuDescriptionPtrOutpu
 }
 
 func (o SkuDescriptionOutput) ToSkuDescriptionPtrOutputWithContext(ctx context.Context) SkuDescriptionPtrOutput {
-	return o.ApplyT(func(v SkuDescription) *SkuDescription {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v SkuDescription) *SkuDescription {
 		return &v
 	}).(SkuDescriptionPtrOutput)
 }
 
-// Capabilities of the SKU, e.g., is traffic manager enabled?
 func (o SkuDescriptionOutput) Capabilities() CapabilityArrayOutput {
 	return o.ApplyT(func(v SkuDescription) []Capability { return v.Capabilities }).(CapabilityArrayOutput)
 }
 
-// Current number of instances assigned to the resource.
 func (o SkuDescriptionOutput) Capacity() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v SkuDescription) *int { return v.Capacity }).(pulumi.IntPtrOutput)
 }
 
-// Family code of the resource SKU.
 func (o SkuDescriptionOutput) Family() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SkuDescription) *string { return v.Family }).(pulumi.StringPtrOutput)
 }
 
-// Locations of the SKU.
 func (o SkuDescriptionOutput) Locations() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v SkuDescription) []string { return v.Locations }).(pulumi.StringArrayOutput)
 }
 
-// Name of the resource SKU.
 func (o SkuDescriptionOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SkuDescription) *string { return v.Name }).(pulumi.StringPtrOutput)
 }
 
-// Size specifier of the resource SKU.
 func (o SkuDescriptionOutput) Size() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SkuDescription) *string { return v.Size }).(pulumi.StringPtrOutput)
 }
 
-// Min, max, and default scale values of the SKU.
 func (o SkuDescriptionOutput) SkuCapacity() SkuCapacityPtrOutput {
 	return o.ApplyT(func(v SkuDescription) *SkuCapacity { return v.SkuCapacity }).(SkuCapacityPtrOutput)
 }
 
-// Service tier of the resource SKU.
 func (o SkuDescriptionOutput) Tier() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SkuDescription) *string { return v.Tier }).(pulumi.StringPtrOutput)
 }
@@ -14892,10 +13311,15 @@ func (o SkuDescriptionPtrOutput) ToSkuDescriptionPtrOutputWithContext(ctx contex
 }
 
 func (o SkuDescriptionPtrOutput) Elem() SkuDescriptionOutput {
-	return o.ApplyT(func(v *SkuDescription) SkuDescription { return *v }).(SkuDescriptionOutput)
+	return o.ApplyT(func(v *SkuDescription) SkuDescription {
+		if v != nil {
+			return *v
+		}
+		var ret SkuDescription
+		return ret
+	}).(SkuDescriptionOutput)
 }
 
-// Capabilities of the SKU, e.g., is traffic manager enabled?
 func (o SkuDescriptionPtrOutput) Capabilities() CapabilityArrayOutput {
 	return o.ApplyT(func(v *SkuDescription) []Capability {
 		if v == nil {
@@ -14905,7 +13329,6 @@ func (o SkuDescriptionPtrOutput) Capabilities() CapabilityArrayOutput {
 	}).(CapabilityArrayOutput)
 }
 
-// Current number of instances assigned to the resource.
 func (o SkuDescriptionPtrOutput) Capacity() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *SkuDescription) *int {
 		if v == nil {
@@ -14915,7 +13338,6 @@ func (o SkuDescriptionPtrOutput) Capacity() pulumi.IntPtrOutput {
 	}).(pulumi.IntPtrOutput)
 }
 
-// Family code of the resource SKU.
 func (o SkuDescriptionPtrOutput) Family() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SkuDescription) *string {
 		if v == nil {
@@ -14925,7 +13347,6 @@ func (o SkuDescriptionPtrOutput) Family() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Locations of the SKU.
 func (o SkuDescriptionPtrOutput) Locations() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *SkuDescription) []string {
 		if v == nil {
@@ -14935,7 +13356,6 @@ func (o SkuDescriptionPtrOutput) Locations() pulumi.StringArrayOutput {
 	}).(pulumi.StringArrayOutput)
 }
 
-// Name of the resource SKU.
 func (o SkuDescriptionPtrOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SkuDescription) *string {
 		if v == nil {
@@ -14945,7 +13365,6 @@ func (o SkuDescriptionPtrOutput) Name() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Size specifier of the resource SKU.
 func (o SkuDescriptionPtrOutput) Size() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SkuDescription) *string {
 		if v == nil {
@@ -14955,7 +13374,6 @@ func (o SkuDescriptionPtrOutput) Size() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Min, max, and default scale values of the SKU.
 func (o SkuDescriptionPtrOutput) SkuCapacity() SkuCapacityPtrOutput {
 	return o.ApplyT(func(v *SkuDescription) *SkuCapacity {
 		if v == nil {
@@ -14965,7 +13383,6 @@ func (o SkuDescriptionPtrOutput) SkuCapacity() SkuCapacityPtrOutput {
 	}).(SkuCapacityPtrOutput)
 }
 
-// Service tier of the resource SKU.
 func (o SkuDescriptionPtrOutput) Tier() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SkuDescription) *string {
 		if v == nil {
@@ -14975,24 +13392,15 @@ func (o SkuDescriptionPtrOutput) Tier() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Description of a SKU for a scalable resource.
 type SkuDescriptionResponse struct {
-	// Capabilities of the SKU, e.g., is traffic manager enabled?
 	Capabilities []CapabilityResponse `pulumi:"capabilities"`
-	// Current number of instances assigned to the resource.
-	Capacity *int `pulumi:"capacity"`
-	// Family code of the resource SKU.
-	Family *string `pulumi:"family"`
-	// Locations of the SKU.
-	Locations []string `pulumi:"locations"`
-	// Name of the resource SKU.
-	Name *string `pulumi:"name"`
-	// Size specifier of the resource SKU.
-	Size *string `pulumi:"size"`
-	// Min, max, and default scale values of the SKU.
-	SkuCapacity *SkuCapacityResponse `pulumi:"skuCapacity"`
-	// Service tier of the resource SKU.
-	Tier *string `pulumi:"tier"`
+	Capacity     *int                 `pulumi:"capacity"`
+	Family       *string              `pulumi:"family"`
+	Locations    []string             `pulumi:"locations"`
+	Name         *string              `pulumi:"name"`
+	Size         *string              `pulumi:"size"`
+	SkuCapacity  *SkuCapacityResponse `pulumi:"skuCapacity"`
+	Tier         *string              `pulumi:"tier"`
 }
 
 // SkuDescriptionResponseInput is an input type that accepts SkuDescriptionResponseArgs and SkuDescriptionResponseOutput values.
@@ -15006,24 +13414,15 @@ type SkuDescriptionResponseInput interface {
 	ToSkuDescriptionResponseOutputWithContext(context.Context) SkuDescriptionResponseOutput
 }
 
-// Description of a SKU for a scalable resource.
 type SkuDescriptionResponseArgs struct {
-	// Capabilities of the SKU, e.g., is traffic manager enabled?
 	Capabilities CapabilityResponseArrayInput `pulumi:"capabilities"`
-	// Current number of instances assigned to the resource.
-	Capacity pulumi.IntPtrInput `pulumi:"capacity"`
-	// Family code of the resource SKU.
-	Family pulumi.StringPtrInput `pulumi:"family"`
-	// Locations of the SKU.
-	Locations pulumi.StringArrayInput `pulumi:"locations"`
-	// Name of the resource SKU.
-	Name pulumi.StringPtrInput `pulumi:"name"`
-	// Size specifier of the resource SKU.
-	Size pulumi.StringPtrInput `pulumi:"size"`
-	// Min, max, and default scale values of the SKU.
-	SkuCapacity SkuCapacityResponsePtrInput `pulumi:"skuCapacity"`
-	// Service tier of the resource SKU.
-	Tier pulumi.StringPtrInput `pulumi:"tier"`
+	Capacity     pulumi.IntPtrInput           `pulumi:"capacity"`
+	Family       pulumi.StringPtrInput        `pulumi:"family"`
+	Locations    pulumi.StringArrayInput      `pulumi:"locations"`
+	Name         pulumi.StringPtrInput        `pulumi:"name"`
+	Size         pulumi.StringPtrInput        `pulumi:"size"`
+	SkuCapacity  SkuCapacityResponsePtrInput  `pulumi:"skuCapacity"`
+	Tier         pulumi.StringPtrInput        `pulumi:"tier"`
 }
 
 func (SkuDescriptionResponseArgs) ElementType() reflect.Type {
@@ -15079,7 +13478,6 @@ func (i *skuDescriptionResponsePtrType) ToSkuDescriptionResponsePtrOutputWithCon
 	return pulumi.ToOutputWithContext(ctx, i).(SkuDescriptionResponsePtrOutput)
 }
 
-// Description of a SKU for a scalable resource.
 type SkuDescriptionResponseOutput struct{ *pulumi.OutputState }
 
 func (SkuDescriptionResponseOutput) ElementType() reflect.Type {
@@ -15099,47 +13497,39 @@ func (o SkuDescriptionResponseOutput) ToSkuDescriptionResponsePtrOutput() SkuDes
 }
 
 func (o SkuDescriptionResponseOutput) ToSkuDescriptionResponsePtrOutputWithContext(ctx context.Context) SkuDescriptionResponsePtrOutput {
-	return o.ApplyT(func(v SkuDescriptionResponse) *SkuDescriptionResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v SkuDescriptionResponse) *SkuDescriptionResponse {
 		return &v
 	}).(SkuDescriptionResponsePtrOutput)
 }
 
-// Capabilities of the SKU, e.g., is traffic manager enabled?
 func (o SkuDescriptionResponseOutput) Capabilities() CapabilityResponseArrayOutput {
 	return o.ApplyT(func(v SkuDescriptionResponse) []CapabilityResponse { return v.Capabilities }).(CapabilityResponseArrayOutput)
 }
 
-// Current number of instances assigned to the resource.
 func (o SkuDescriptionResponseOutput) Capacity() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v SkuDescriptionResponse) *int { return v.Capacity }).(pulumi.IntPtrOutput)
 }
 
-// Family code of the resource SKU.
 func (o SkuDescriptionResponseOutput) Family() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SkuDescriptionResponse) *string { return v.Family }).(pulumi.StringPtrOutput)
 }
 
-// Locations of the SKU.
 func (o SkuDescriptionResponseOutput) Locations() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v SkuDescriptionResponse) []string { return v.Locations }).(pulumi.StringArrayOutput)
 }
 
-// Name of the resource SKU.
 func (o SkuDescriptionResponseOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SkuDescriptionResponse) *string { return v.Name }).(pulumi.StringPtrOutput)
 }
 
-// Size specifier of the resource SKU.
 func (o SkuDescriptionResponseOutput) Size() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SkuDescriptionResponse) *string { return v.Size }).(pulumi.StringPtrOutput)
 }
 
-// Min, max, and default scale values of the SKU.
 func (o SkuDescriptionResponseOutput) SkuCapacity() SkuCapacityResponsePtrOutput {
 	return o.ApplyT(func(v SkuDescriptionResponse) *SkuCapacityResponse { return v.SkuCapacity }).(SkuCapacityResponsePtrOutput)
 }
 
-// Service tier of the resource SKU.
 func (o SkuDescriptionResponseOutput) Tier() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SkuDescriptionResponse) *string { return v.Tier }).(pulumi.StringPtrOutput)
 }
@@ -15159,10 +13549,15 @@ func (o SkuDescriptionResponsePtrOutput) ToSkuDescriptionResponsePtrOutputWithCo
 }
 
 func (o SkuDescriptionResponsePtrOutput) Elem() SkuDescriptionResponseOutput {
-	return o.ApplyT(func(v *SkuDescriptionResponse) SkuDescriptionResponse { return *v }).(SkuDescriptionResponseOutput)
+	return o.ApplyT(func(v *SkuDescriptionResponse) SkuDescriptionResponse {
+		if v != nil {
+			return *v
+		}
+		var ret SkuDescriptionResponse
+		return ret
+	}).(SkuDescriptionResponseOutput)
 }
 
-// Capabilities of the SKU, e.g., is traffic manager enabled?
 func (o SkuDescriptionResponsePtrOutput) Capabilities() CapabilityResponseArrayOutput {
 	return o.ApplyT(func(v *SkuDescriptionResponse) []CapabilityResponse {
 		if v == nil {
@@ -15172,7 +13567,6 @@ func (o SkuDescriptionResponsePtrOutput) Capabilities() CapabilityResponseArrayO
 	}).(CapabilityResponseArrayOutput)
 }
 
-// Current number of instances assigned to the resource.
 func (o SkuDescriptionResponsePtrOutput) Capacity() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *SkuDescriptionResponse) *int {
 		if v == nil {
@@ -15182,7 +13576,6 @@ func (o SkuDescriptionResponsePtrOutput) Capacity() pulumi.IntPtrOutput {
 	}).(pulumi.IntPtrOutput)
 }
 
-// Family code of the resource SKU.
 func (o SkuDescriptionResponsePtrOutput) Family() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SkuDescriptionResponse) *string {
 		if v == nil {
@@ -15192,7 +13585,6 @@ func (o SkuDescriptionResponsePtrOutput) Family() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Locations of the SKU.
 func (o SkuDescriptionResponsePtrOutput) Locations() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *SkuDescriptionResponse) []string {
 		if v == nil {
@@ -15202,7 +13594,6 @@ func (o SkuDescriptionResponsePtrOutput) Locations() pulumi.StringArrayOutput {
 	}).(pulumi.StringArrayOutput)
 }
 
-// Name of the resource SKU.
 func (o SkuDescriptionResponsePtrOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SkuDescriptionResponse) *string {
 		if v == nil {
@@ -15212,7 +13603,6 @@ func (o SkuDescriptionResponsePtrOutput) Name() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Size specifier of the resource SKU.
 func (o SkuDescriptionResponsePtrOutput) Size() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SkuDescriptionResponse) *string {
 		if v == nil {
@@ -15222,7 +13612,6 @@ func (o SkuDescriptionResponsePtrOutput) Size() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Min, max, and default scale values of the SKU.
 func (o SkuDescriptionResponsePtrOutput) SkuCapacity() SkuCapacityResponsePtrOutput {
 	return o.ApplyT(func(v *SkuDescriptionResponse) *SkuCapacityResponse {
 		if v == nil {
@@ -15232,7 +13621,6 @@ func (o SkuDescriptionResponsePtrOutput) SkuCapacity() SkuCapacityResponsePtrOut
 	}).(SkuCapacityResponsePtrOutput)
 }
 
-// Service tier of the resource SKU.
 func (o SkuDescriptionResponsePtrOutput) Tier() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SkuDescriptionResponse) *string {
 		if v == nil {
@@ -15242,14 +13630,10 @@ func (o SkuDescriptionResponsePtrOutput) Tier() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The status of the last successful slot swap operation.
 type SlotSwapStatusResponse struct {
-	// The destination slot of the last swap operation.
 	DestinationSlotName string `pulumi:"destinationSlotName"`
-	// The source slot of the last swap operation.
-	SourceSlotName string `pulumi:"sourceSlotName"`
-	// The time the last successful slot swap completed.
-	TimestampUtc string `pulumi:"timestampUtc"`
+	SourceSlotName      string `pulumi:"sourceSlotName"`
+	TimestampUtc        string `pulumi:"timestampUtc"`
 }
 
 // SlotSwapStatusResponseInput is an input type that accepts SlotSwapStatusResponseArgs and SlotSwapStatusResponseOutput values.
@@ -15263,14 +13647,10 @@ type SlotSwapStatusResponseInput interface {
 	ToSlotSwapStatusResponseOutputWithContext(context.Context) SlotSwapStatusResponseOutput
 }
 
-// The status of the last successful slot swap operation.
 type SlotSwapStatusResponseArgs struct {
-	// The destination slot of the last swap operation.
 	DestinationSlotName pulumi.StringInput `pulumi:"destinationSlotName"`
-	// The source slot of the last swap operation.
-	SourceSlotName pulumi.StringInput `pulumi:"sourceSlotName"`
-	// The time the last successful slot swap completed.
-	TimestampUtc pulumi.StringInput `pulumi:"timestampUtc"`
+	SourceSlotName      pulumi.StringInput `pulumi:"sourceSlotName"`
+	TimestampUtc        pulumi.StringInput `pulumi:"timestampUtc"`
 }
 
 func (SlotSwapStatusResponseArgs) ElementType() reflect.Type {
@@ -15326,7 +13706,6 @@ func (i *slotSwapStatusResponsePtrType) ToSlotSwapStatusResponsePtrOutputWithCon
 	return pulumi.ToOutputWithContext(ctx, i).(SlotSwapStatusResponsePtrOutput)
 }
 
-// The status of the last successful slot swap operation.
 type SlotSwapStatusResponseOutput struct{ *pulumi.OutputState }
 
 func (SlotSwapStatusResponseOutput) ElementType() reflect.Type {
@@ -15346,22 +13725,19 @@ func (o SlotSwapStatusResponseOutput) ToSlotSwapStatusResponsePtrOutput() SlotSw
 }
 
 func (o SlotSwapStatusResponseOutput) ToSlotSwapStatusResponsePtrOutputWithContext(ctx context.Context) SlotSwapStatusResponsePtrOutput {
-	return o.ApplyT(func(v SlotSwapStatusResponse) *SlotSwapStatusResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v SlotSwapStatusResponse) *SlotSwapStatusResponse {
 		return &v
 	}).(SlotSwapStatusResponsePtrOutput)
 }
 
-// The destination slot of the last swap operation.
 func (o SlotSwapStatusResponseOutput) DestinationSlotName() pulumi.StringOutput {
 	return o.ApplyT(func(v SlotSwapStatusResponse) string { return v.DestinationSlotName }).(pulumi.StringOutput)
 }
 
-// The source slot of the last swap operation.
 func (o SlotSwapStatusResponseOutput) SourceSlotName() pulumi.StringOutput {
 	return o.ApplyT(func(v SlotSwapStatusResponse) string { return v.SourceSlotName }).(pulumi.StringOutput)
 }
 
-// The time the last successful slot swap completed.
 func (o SlotSwapStatusResponseOutput) TimestampUtc() pulumi.StringOutput {
 	return o.ApplyT(func(v SlotSwapStatusResponse) string { return v.TimestampUtc }).(pulumi.StringOutput)
 }
@@ -15381,10 +13757,15 @@ func (o SlotSwapStatusResponsePtrOutput) ToSlotSwapStatusResponsePtrOutputWithCo
 }
 
 func (o SlotSwapStatusResponsePtrOutput) Elem() SlotSwapStatusResponseOutput {
-	return o.ApplyT(func(v *SlotSwapStatusResponse) SlotSwapStatusResponse { return *v }).(SlotSwapStatusResponseOutput)
+	return o.ApplyT(func(v *SlotSwapStatusResponse) SlotSwapStatusResponse {
+		if v != nil {
+			return *v
+		}
+		var ret SlotSwapStatusResponse
+		return ret
+	}).(SlotSwapStatusResponseOutput)
 }
 
-// The destination slot of the last swap operation.
 func (o SlotSwapStatusResponsePtrOutput) DestinationSlotName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SlotSwapStatusResponse) *string {
 		if v == nil {
@@ -15394,7 +13775,6 @@ func (o SlotSwapStatusResponsePtrOutput) DestinationSlotName() pulumi.StringPtrO
 	}).(pulumi.StringPtrOutput)
 }
 
-// The source slot of the last swap operation.
 func (o SlotSwapStatusResponsePtrOutput) SourceSlotName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SlotSwapStatusResponse) *string {
 		if v == nil {
@@ -15404,7 +13784,6 @@ func (o SlotSwapStatusResponsePtrOutput) SourceSlotName() pulumi.StringPtrOutput
 	}).(pulumi.StringPtrOutput)
 }
 
-// The time the last successful slot swap completed.
 func (o SlotSwapStatusResponsePtrOutput) TimestampUtc() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SlotSwapStatusResponse) *string {
 		if v == nil {
@@ -15414,14 +13793,10 @@ func (o SlotSwapStatusResponsePtrOutput) TimestampUtc() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Trigger based on request execution time.
 type SlowRequestsBasedTrigger struct {
-	// Request Count.
-	Count *int `pulumi:"count"`
-	// Time interval.
+	Count        *int    `pulumi:"count"`
 	TimeInterval *string `pulumi:"timeInterval"`
-	// Time taken.
-	TimeTaken *string `pulumi:"timeTaken"`
+	TimeTaken    *string `pulumi:"timeTaken"`
 }
 
 // SlowRequestsBasedTriggerInput is an input type that accepts SlowRequestsBasedTriggerArgs and SlowRequestsBasedTriggerOutput values.
@@ -15435,14 +13810,10 @@ type SlowRequestsBasedTriggerInput interface {
 	ToSlowRequestsBasedTriggerOutputWithContext(context.Context) SlowRequestsBasedTriggerOutput
 }
 
-// Trigger based on request execution time.
 type SlowRequestsBasedTriggerArgs struct {
-	// Request Count.
-	Count pulumi.IntPtrInput `pulumi:"count"`
-	// Time interval.
+	Count        pulumi.IntPtrInput    `pulumi:"count"`
 	TimeInterval pulumi.StringPtrInput `pulumi:"timeInterval"`
-	// Time taken.
-	TimeTaken pulumi.StringPtrInput `pulumi:"timeTaken"`
+	TimeTaken    pulumi.StringPtrInput `pulumi:"timeTaken"`
 }
 
 func (SlowRequestsBasedTriggerArgs) ElementType() reflect.Type {
@@ -15498,7 +13869,6 @@ func (i *slowRequestsBasedTriggerPtrType) ToSlowRequestsBasedTriggerPtrOutputWit
 	return pulumi.ToOutputWithContext(ctx, i).(SlowRequestsBasedTriggerPtrOutput)
 }
 
-// Trigger based on request execution time.
 type SlowRequestsBasedTriggerOutput struct{ *pulumi.OutputState }
 
 func (SlowRequestsBasedTriggerOutput) ElementType() reflect.Type {
@@ -15518,22 +13888,19 @@ func (o SlowRequestsBasedTriggerOutput) ToSlowRequestsBasedTriggerPtrOutput() Sl
 }
 
 func (o SlowRequestsBasedTriggerOutput) ToSlowRequestsBasedTriggerPtrOutputWithContext(ctx context.Context) SlowRequestsBasedTriggerPtrOutput {
-	return o.ApplyT(func(v SlowRequestsBasedTrigger) *SlowRequestsBasedTrigger {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v SlowRequestsBasedTrigger) *SlowRequestsBasedTrigger {
 		return &v
 	}).(SlowRequestsBasedTriggerPtrOutput)
 }
 
-// Request Count.
 func (o SlowRequestsBasedTriggerOutput) Count() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v SlowRequestsBasedTrigger) *int { return v.Count }).(pulumi.IntPtrOutput)
 }
 
-// Time interval.
 func (o SlowRequestsBasedTriggerOutput) TimeInterval() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SlowRequestsBasedTrigger) *string { return v.TimeInterval }).(pulumi.StringPtrOutput)
 }
 
-// Time taken.
 func (o SlowRequestsBasedTriggerOutput) TimeTaken() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SlowRequestsBasedTrigger) *string { return v.TimeTaken }).(pulumi.StringPtrOutput)
 }
@@ -15553,10 +13920,15 @@ func (o SlowRequestsBasedTriggerPtrOutput) ToSlowRequestsBasedTriggerPtrOutputWi
 }
 
 func (o SlowRequestsBasedTriggerPtrOutput) Elem() SlowRequestsBasedTriggerOutput {
-	return o.ApplyT(func(v *SlowRequestsBasedTrigger) SlowRequestsBasedTrigger { return *v }).(SlowRequestsBasedTriggerOutput)
+	return o.ApplyT(func(v *SlowRequestsBasedTrigger) SlowRequestsBasedTrigger {
+		if v != nil {
+			return *v
+		}
+		var ret SlowRequestsBasedTrigger
+		return ret
+	}).(SlowRequestsBasedTriggerOutput)
 }
 
-// Request Count.
 func (o SlowRequestsBasedTriggerPtrOutput) Count() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *SlowRequestsBasedTrigger) *int {
 		if v == nil {
@@ -15566,7 +13938,6 @@ func (o SlowRequestsBasedTriggerPtrOutput) Count() pulumi.IntPtrOutput {
 	}).(pulumi.IntPtrOutput)
 }
 
-// Time interval.
 func (o SlowRequestsBasedTriggerPtrOutput) TimeInterval() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SlowRequestsBasedTrigger) *string {
 		if v == nil {
@@ -15576,7 +13947,6 @@ func (o SlowRequestsBasedTriggerPtrOutput) TimeInterval() pulumi.StringPtrOutput
 	}).(pulumi.StringPtrOutput)
 }
 
-// Time taken.
 func (o SlowRequestsBasedTriggerPtrOutput) TimeTaken() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SlowRequestsBasedTrigger) *string {
 		if v == nil {
@@ -15586,14 +13956,10 @@ func (o SlowRequestsBasedTriggerPtrOutput) TimeTaken() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Trigger based on request execution time.
 type SlowRequestsBasedTriggerResponse struct {
-	// Request Count.
-	Count *int `pulumi:"count"`
-	// Time interval.
+	Count        *int    `pulumi:"count"`
 	TimeInterval *string `pulumi:"timeInterval"`
-	// Time taken.
-	TimeTaken *string `pulumi:"timeTaken"`
+	TimeTaken    *string `pulumi:"timeTaken"`
 }
 
 // SlowRequestsBasedTriggerResponseInput is an input type that accepts SlowRequestsBasedTriggerResponseArgs and SlowRequestsBasedTriggerResponseOutput values.
@@ -15607,14 +13973,10 @@ type SlowRequestsBasedTriggerResponseInput interface {
 	ToSlowRequestsBasedTriggerResponseOutputWithContext(context.Context) SlowRequestsBasedTriggerResponseOutput
 }
 
-// Trigger based on request execution time.
 type SlowRequestsBasedTriggerResponseArgs struct {
-	// Request Count.
-	Count pulumi.IntPtrInput `pulumi:"count"`
-	// Time interval.
+	Count        pulumi.IntPtrInput    `pulumi:"count"`
 	TimeInterval pulumi.StringPtrInput `pulumi:"timeInterval"`
-	// Time taken.
-	TimeTaken pulumi.StringPtrInput `pulumi:"timeTaken"`
+	TimeTaken    pulumi.StringPtrInput `pulumi:"timeTaken"`
 }
 
 func (SlowRequestsBasedTriggerResponseArgs) ElementType() reflect.Type {
@@ -15670,7 +14032,6 @@ func (i *slowRequestsBasedTriggerResponsePtrType) ToSlowRequestsBasedTriggerResp
 	return pulumi.ToOutputWithContext(ctx, i).(SlowRequestsBasedTriggerResponsePtrOutput)
 }
 
-// Trigger based on request execution time.
 type SlowRequestsBasedTriggerResponseOutput struct{ *pulumi.OutputState }
 
 func (SlowRequestsBasedTriggerResponseOutput) ElementType() reflect.Type {
@@ -15690,22 +14051,19 @@ func (o SlowRequestsBasedTriggerResponseOutput) ToSlowRequestsBasedTriggerRespon
 }
 
 func (o SlowRequestsBasedTriggerResponseOutput) ToSlowRequestsBasedTriggerResponsePtrOutputWithContext(ctx context.Context) SlowRequestsBasedTriggerResponsePtrOutput {
-	return o.ApplyT(func(v SlowRequestsBasedTriggerResponse) *SlowRequestsBasedTriggerResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v SlowRequestsBasedTriggerResponse) *SlowRequestsBasedTriggerResponse {
 		return &v
 	}).(SlowRequestsBasedTriggerResponsePtrOutput)
 }
 
-// Request Count.
 func (o SlowRequestsBasedTriggerResponseOutput) Count() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v SlowRequestsBasedTriggerResponse) *int { return v.Count }).(pulumi.IntPtrOutput)
 }
 
-// Time interval.
 func (o SlowRequestsBasedTriggerResponseOutput) TimeInterval() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SlowRequestsBasedTriggerResponse) *string { return v.TimeInterval }).(pulumi.StringPtrOutput)
 }
 
-// Time taken.
 func (o SlowRequestsBasedTriggerResponseOutput) TimeTaken() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SlowRequestsBasedTriggerResponse) *string { return v.TimeTaken }).(pulumi.StringPtrOutput)
 }
@@ -15725,10 +14083,15 @@ func (o SlowRequestsBasedTriggerResponsePtrOutput) ToSlowRequestsBasedTriggerRes
 }
 
 func (o SlowRequestsBasedTriggerResponsePtrOutput) Elem() SlowRequestsBasedTriggerResponseOutput {
-	return o.ApplyT(func(v *SlowRequestsBasedTriggerResponse) SlowRequestsBasedTriggerResponse { return *v }).(SlowRequestsBasedTriggerResponseOutput)
+	return o.ApplyT(func(v *SlowRequestsBasedTriggerResponse) SlowRequestsBasedTriggerResponse {
+		if v != nil {
+			return *v
+		}
+		var ret SlowRequestsBasedTriggerResponse
+		return ret
+	}).(SlowRequestsBasedTriggerResponseOutput)
 }
 
-// Request Count.
 func (o SlowRequestsBasedTriggerResponsePtrOutput) Count() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *SlowRequestsBasedTriggerResponse) *int {
 		if v == nil {
@@ -15738,7 +14101,6 @@ func (o SlowRequestsBasedTriggerResponsePtrOutput) Count() pulumi.IntPtrOutput {
 	}).(pulumi.IntPtrOutput)
 }
 
-// Time interval.
 func (o SlowRequestsBasedTriggerResponsePtrOutput) TimeInterval() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SlowRequestsBasedTriggerResponse) *string {
 		if v == nil {
@@ -15748,7 +14110,6 @@ func (o SlowRequestsBasedTriggerResponsePtrOutput) TimeInterval() pulumi.StringP
 	}).(pulumi.StringPtrOutput)
 }
 
-// Time taken.
 func (o SlowRequestsBasedTriggerResponsePtrOutput) TimeTaken() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SlowRequestsBasedTriggerResponse) *string {
 		if v == nil {
@@ -15758,34 +14119,18 @@ func (o SlowRequestsBasedTriggerResponsePtrOutput) TimeTaken() pulumi.StringPtrO
 	}).(pulumi.StringPtrOutput)
 }
 
-// Stamp capacity information.
 type StampCapacityResponse struct {
-	// Available capacity (# of machines, bytes of storage etc...).
-	AvailableCapacity *float64 `pulumi:"availableCapacity"`
-	// Shared/dedicated workers.
-	ComputeMode *string `pulumi:"computeMode"`
-	// If <code>true</code>, it includes basic apps.
-	// Basic apps are not used for capacity allocation.
-	ExcludeFromCapacityAllocation *bool `pulumi:"excludeFromCapacityAllocation"`
-	// <code>true</code> if capacity is applicable for all apps; otherwise, <code>false</code>.
-	IsApplicableForAllComputeModes *bool `pulumi:"isApplicableForAllComputeModes"`
-	// Is this a linux stamp capacity
-	IsLinux *bool `pulumi:"isLinux"`
-	// Name of the stamp.
-	Name *string `pulumi:"name"`
-	// Shared or Dedicated.
-	SiteMode *string `pulumi:"siteMode"`
-	// Total capacity (# of machines, bytes of storage etc...).
-	TotalCapacity *float64 `pulumi:"totalCapacity"`
-	// Name of the unit.
-	Unit *string `pulumi:"unit"`
-	// Size of the machines.
-	WorkerSize *string `pulumi:"workerSize"`
-	// Size ID of machines:
-	// 0 - Small
-	// 1 - Medium
-	// 2 - Large
-	WorkerSizeId *int `pulumi:"workerSizeId"`
+	AvailableCapacity              *float64 `pulumi:"availableCapacity"`
+	ComputeMode                    *string  `pulumi:"computeMode"`
+	ExcludeFromCapacityAllocation  *bool    `pulumi:"excludeFromCapacityAllocation"`
+	IsApplicableForAllComputeModes *bool    `pulumi:"isApplicableForAllComputeModes"`
+	IsLinux                        *bool    `pulumi:"isLinux"`
+	Name                           *string  `pulumi:"name"`
+	SiteMode                       *string  `pulumi:"siteMode"`
+	TotalCapacity                  *float64 `pulumi:"totalCapacity"`
+	Unit                           *string  `pulumi:"unit"`
+	WorkerSize                     *string  `pulumi:"workerSize"`
+	WorkerSizeId                   *int     `pulumi:"workerSizeId"`
 }
 
 // StampCapacityResponseInput is an input type that accepts StampCapacityResponseArgs and StampCapacityResponseOutput values.
@@ -15799,34 +14144,18 @@ type StampCapacityResponseInput interface {
 	ToStampCapacityResponseOutputWithContext(context.Context) StampCapacityResponseOutput
 }
 
-// Stamp capacity information.
 type StampCapacityResponseArgs struct {
-	// Available capacity (# of machines, bytes of storage etc...).
-	AvailableCapacity pulumi.Float64PtrInput `pulumi:"availableCapacity"`
-	// Shared/dedicated workers.
-	ComputeMode pulumi.StringPtrInput `pulumi:"computeMode"`
-	// If <code>true</code>, it includes basic apps.
-	// Basic apps are not used for capacity allocation.
-	ExcludeFromCapacityAllocation pulumi.BoolPtrInput `pulumi:"excludeFromCapacityAllocation"`
-	// <code>true</code> if capacity is applicable for all apps; otherwise, <code>false</code>.
-	IsApplicableForAllComputeModes pulumi.BoolPtrInput `pulumi:"isApplicableForAllComputeModes"`
-	// Is this a linux stamp capacity
-	IsLinux pulumi.BoolPtrInput `pulumi:"isLinux"`
-	// Name of the stamp.
-	Name pulumi.StringPtrInput `pulumi:"name"`
-	// Shared or Dedicated.
-	SiteMode pulumi.StringPtrInput `pulumi:"siteMode"`
-	// Total capacity (# of machines, bytes of storage etc...).
-	TotalCapacity pulumi.Float64PtrInput `pulumi:"totalCapacity"`
-	// Name of the unit.
-	Unit pulumi.StringPtrInput `pulumi:"unit"`
-	// Size of the machines.
-	WorkerSize pulumi.StringPtrInput `pulumi:"workerSize"`
-	// Size ID of machines:
-	// 0 - Small
-	// 1 - Medium
-	// 2 - Large
-	WorkerSizeId pulumi.IntPtrInput `pulumi:"workerSizeId"`
+	AvailableCapacity              pulumi.Float64PtrInput `pulumi:"availableCapacity"`
+	ComputeMode                    pulumi.StringPtrInput  `pulumi:"computeMode"`
+	ExcludeFromCapacityAllocation  pulumi.BoolPtrInput    `pulumi:"excludeFromCapacityAllocation"`
+	IsApplicableForAllComputeModes pulumi.BoolPtrInput    `pulumi:"isApplicableForAllComputeModes"`
+	IsLinux                        pulumi.BoolPtrInput    `pulumi:"isLinux"`
+	Name                           pulumi.StringPtrInput  `pulumi:"name"`
+	SiteMode                       pulumi.StringPtrInput  `pulumi:"siteMode"`
+	TotalCapacity                  pulumi.Float64PtrInput `pulumi:"totalCapacity"`
+	Unit                           pulumi.StringPtrInput  `pulumi:"unit"`
+	WorkerSize                     pulumi.StringPtrInput  `pulumi:"workerSize"`
+	WorkerSizeId                   pulumi.IntPtrInput     `pulumi:"workerSizeId"`
 }
 
 func (StampCapacityResponseArgs) ElementType() reflect.Type {
@@ -15866,7 +14195,6 @@ func (i StampCapacityResponseArray) ToStampCapacityResponseArrayOutputWithContex
 	return pulumi.ToOutputWithContext(ctx, i).(StampCapacityResponseArrayOutput)
 }
 
-// Stamp capacity information.
 type StampCapacityResponseOutput struct{ *pulumi.OutputState }
 
 func (StampCapacityResponseOutput) ElementType() reflect.Type {
@@ -15881,61 +14209,46 @@ func (o StampCapacityResponseOutput) ToStampCapacityResponseOutputWithContext(ct
 	return o
 }
 
-// Available capacity (# of machines, bytes of storage etc...).
 func (o StampCapacityResponseOutput) AvailableCapacity() pulumi.Float64PtrOutput {
 	return o.ApplyT(func(v StampCapacityResponse) *float64 { return v.AvailableCapacity }).(pulumi.Float64PtrOutput)
 }
 
-// Shared/dedicated workers.
 func (o StampCapacityResponseOutput) ComputeMode() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v StampCapacityResponse) *string { return v.ComputeMode }).(pulumi.StringPtrOutput)
 }
 
-// If <code>true</code>, it includes basic apps.
-// Basic apps are not used for capacity allocation.
 func (o StampCapacityResponseOutput) ExcludeFromCapacityAllocation() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v StampCapacityResponse) *bool { return v.ExcludeFromCapacityAllocation }).(pulumi.BoolPtrOutput)
 }
 
-// <code>true</code> if capacity is applicable for all apps; otherwise, <code>false</code>.
 func (o StampCapacityResponseOutput) IsApplicableForAllComputeModes() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v StampCapacityResponse) *bool { return v.IsApplicableForAllComputeModes }).(pulumi.BoolPtrOutput)
 }
 
-// Is this a linux stamp capacity
 func (o StampCapacityResponseOutput) IsLinux() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v StampCapacityResponse) *bool { return v.IsLinux }).(pulumi.BoolPtrOutput)
 }
 
-// Name of the stamp.
 func (o StampCapacityResponseOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v StampCapacityResponse) *string { return v.Name }).(pulumi.StringPtrOutput)
 }
 
-// Shared or Dedicated.
 func (o StampCapacityResponseOutput) SiteMode() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v StampCapacityResponse) *string { return v.SiteMode }).(pulumi.StringPtrOutput)
 }
 
-// Total capacity (# of machines, bytes of storage etc...).
 func (o StampCapacityResponseOutput) TotalCapacity() pulumi.Float64PtrOutput {
 	return o.ApplyT(func(v StampCapacityResponse) *float64 { return v.TotalCapacity }).(pulumi.Float64PtrOutput)
 }
 
-// Name of the unit.
 func (o StampCapacityResponseOutput) Unit() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v StampCapacityResponse) *string { return v.Unit }).(pulumi.StringPtrOutput)
 }
 
-// Size of the machines.
 func (o StampCapacityResponseOutput) WorkerSize() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v StampCapacityResponse) *string { return v.WorkerSize }).(pulumi.StringPtrOutput)
 }
 
-// Size ID of machines:
-// 0 - Small
-// 1 - Medium
-// 2 - Large
 func (o StampCapacityResponseOutput) WorkerSizeId() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v StampCapacityResponse) *int { return v.WorkerSizeId }).(pulumi.IntPtrOutput)
 }
@@ -15960,14 +14273,10 @@ func (o StampCapacityResponseArrayOutput) Index(i pulumi.IntInput) StampCapacity
 	}).(StampCapacityResponseOutput)
 }
 
-// Build properties for the static site.
 type StaticSiteBuildProperties struct {
-	// The path to the api code within the repository.
-	ApiLocation *string `pulumi:"apiLocation"`
-	// The path of the app artifacts after building.
+	ApiLocation         *string `pulumi:"apiLocation"`
 	AppArtifactLocation *string `pulumi:"appArtifactLocation"`
-	// The path to the app code within the repository.
-	AppLocation *string `pulumi:"appLocation"`
+	AppLocation         *string `pulumi:"appLocation"`
 }
 
 // StaticSiteBuildPropertiesInput is an input type that accepts StaticSiteBuildPropertiesArgs and StaticSiteBuildPropertiesOutput values.
@@ -15981,14 +14290,10 @@ type StaticSiteBuildPropertiesInput interface {
 	ToStaticSiteBuildPropertiesOutputWithContext(context.Context) StaticSiteBuildPropertiesOutput
 }
 
-// Build properties for the static site.
 type StaticSiteBuildPropertiesArgs struct {
-	// The path to the api code within the repository.
-	ApiLocation pulumi.StringPtrInput `pulumi:"apiLocation"`
-	// The path of the app artifacts after building.
+	ApiLocation         pulumi.StringPtrInput `pulumi:"apiLocation"`
 	AppArtifactLocation pulumi.StringPtrInput `pulumi:"appArtifactLocation"`
-	// The path to the app code within the repository.
-	AppLocation pulumi.StringPtrInput `pulumi:"appLocation"`
+	AppLocation         pulumi.StringPtrInput `pulumi:"appLocation"`
 }
 
 func (StaticSiteBuildPropertiesArgs) ElementType() reflect.Type {
@@ -16044,7 +14349,6 @@ func (i *staticSiteBuildPropertiesPtrType) ToStaticSiteBuildPropertiesPtrOutputW
 	return pulumi.ToOutputWithContext(ctx, i).(StaticSiteBuildPropertiesPtrOutput)
 }
 
-// Build properties for the static site.
 type StaticSiteBuildPropertiesOutput struct{ *pulumi.OutputState }
 
 func (StaticSiteBuildPropertiesOutput) ElementType() reflect.Type {
@@ -16064,22 +14368,19 @@ func (o StaticSiteBuildPropertiesOutput) ToStaticSiteBuildPropertiesPtrOutput() 
 }
 
 func (o StaticSiteBuildPropertiesOutput) ToStaticSiteBuildPropertiesPtrOutputWithContext(ctx context.Context) StaticSiteBuildPropertiesPtrOutput {
-	return o.ApplyT(func(v StaticSiteBuildProperties) *StaticSiteBuildProperties {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v StaticSiteBuildProperties) *StaticSiteBuildProperties {
 		return &v
 	}).(StaticSiteBuildPropertiesPtrOutput)
 }
 
-// The path to the api code within the repository.
 func (o StaticSiteBuildPropertiesOutput) ApiLocation() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v StaticSiteBuildProperties) *string { return v.ApiLocation }).(pulumi.StringPtrOutput)
 }
 
-// The path of the app artifacts after building.
 func (o StaticSiteBuildPropertiesOutput) AppArtifactLocation() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v StaticSiteBuildProperties) *string { return v.AppArtifactLocation }).(pulumi.StringPtrOutput)
 }
 
-// The path to the app code within the repository.
 func (o StaticSiteBuildPropertiesOutput) AppLocation() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v StaticSiteBuildProperties) *string { return v.AppLocation }).(pulumi.StringPtrOutput)
 }
@@ -16099,10 +14400,15 @@ func (o StaticSiteBuildPropertiesPtrOutput) ToStaticSiteBuildPropertiesPtrOutput
 }
 
 func (o StaticSiteBuildPropertiesPtrOutput) Elem() StaticSiteBuildPropertiesOutput {
-	return o.ApplyT(func(v *StaticSiteBuildProperties) StaticSiteBuildProperties { return *v }).(StaticSiteBuildPropertiesOutput)
+	return o.ApplyT(func(v *StaticSiteBuildProperties) StaticSiteBuildProperties {
+		if v != nil {
+			return *v
+		}
+		var ret StaticSiteBuildProperties
+		return ret
+	}).(StaticSiteBuildPropertiesOutput)
 }
 
-// The path to the api code within the repository.
 func (o StaticSiteBuildPropertiesPtrOutput) ApiLocation() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *StaticSiteBuildProperties) *string {
 		if v == nil {
@@ -16112,7 +14418,6 @@ func (o StaticSiteBuildPropertiesPtrOutput) ApiLocation() pulumi.StringPtrOutput
 	}).(pulumi.StringPtrOutput)
 }
 
-// The path of the app artifacts after building.
 func (o StaticSiteBuildPropertiesPtrOutput) AppArtifactLocation() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *StaticSiteBuildProperties) *string {
 		if v == nil {
@@ -16122,7 +14427,6 @@ func (o StaticSiteBuildPropertiesPtrOutput) AppArtifactLocation() pulumi.StringP
 	}).(pulumi.StringPtrOutput)
 }
 
-// The path to the app code within the repository.
 func (o StaticSiteBuildPropertiesPtrOutput) AppLocation() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *StaticSiteBuildProperties) *string {
 		if v == nil {
@@ -16132,14 +14436,10 @@ func (o StaticSiteBuildPropertiesPtrOutput) AppLocation() pulumi.StringPtrOutput
 	}).(pulumi.StringPtrOutput)
 }
 
-// Build properties for the static site.
 type StaticSiteBuildPropertiesResponse struct {
-	// The path to the api code within the repository.
-	ApiLocation *string `pulumi:"apiLocation"`
-	// The path of the app artifacts after building.
+	ApiLocation         *string `pulumi:"apiLocation"`
 	AppArtifactLocation *string `pulumi:"appArtifactLocation"`
-	// The path to the app code within the repository.
-	AppLocation *string `pulumi:"appLocation"`
+	AppLocation         *string `pulumi:"appLocation"`
 }
 
 // StaticSiteBuildPropertiesResponseInput is an input type that accepts StaticSiteBuildPropertiesResponseArgs and StaticSiteBuildPropertiesResponseOutput values.
@@ -16153,14 +14453,10 @@ type StaticSiteBuildPropertiesResponseInput interface {
 	ToStaticSiteBuildPropertiesResponseOutputWithContext(context.Context) StaticSiteBuildPropertiesResponseOutput
 }
 
-// Build properties for the static site.
 type StaticSiteBuildPropertiesResponseArgs struct {
-	// The path to the api code within the repository.
-	ApiLocation pulumi.StringPtrInput `pulumi:"apiLocation"`
-	// The path of the app artifacts after building.
+	ApiLocation         pulumi.StringPtrInput `pulumi:"apiLocation"`
 	AppArtifactLocation pulumi.StringPtrInput `pulumi:"appArtifactLocation"`
-	// The path to the app code within the repository.
-	AppLocation pulumi.StringPtrInput `pulumi:"appLocation"`
+	AppLocation         pulumi.StringPtrInput `pulumi:"appLocation"`
 }
 
 func (StaticSiteBuildPropertiesResponseArgs) ElementType() reflect.Type {
@@ -16216,7 +14512,6 @@ func (i *staticSiteBuildPropertiesResponsePtrType) ToStaticSiteBuildPropertiesRe
 	return pulumi.ToOutputWithContext(ctx, i).(StaticSiteBuildPropertiesResponsePtrOutput)
 }
 
-// Build properties for the static site.
 type StaticSiteBuildPropertiesResponseOutput struct{ *pulumi.OutputState }
 
 func (StaticSiteBuildPropertiesResponseOutput) ElementType() reflect.Type {
@@ -16236,22 +14531,19 @@ func (o StaticSiteBuildPropertiesResponseOutput) ToStaticSiteBuildPropertiesResp
 }
 
 func (o StaticSiteBuildPropertiesResponseOutput) ToStaticSiteBuildPropertiesResponsePtrOutputWithContext(ctx context.Context) StaticSiteBuildPropertiesResponsePtrOutput {
-	return o.ApplyT(func(v StaticSiteBuildPropertiesResponse) *StaticSiteBuildPropertiesResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v StaticSiteBuildPropertiesResponse) *StaticSiteBuildPropertiesResponse {
 		return &v
 	}).(StaticSiteBuildPropertiesResponsePtrOutput)
 }
 
-// The path to the api code within the repository.
 func (o StaticSiteBuildPropertiesResponseOutput) ApiLocation() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v StaticSiteBuildPropertiesResponse) *string { return v.ApiLocation }).(pulumi.StringPtrOutput)
 }
 
-// The path of the app artifacts after building.
 func (o StaticSiteBuildPropertiesResponseOutput) AppArtifactLocation() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v StaticSiteBuildPropertiesResponse) *string { return v.AppArtifactLocation }).(pulumi.StringPtrOutput)
 }
 
-// The path to the app code within the repository.
 func (o StaticSiteBuildPropertiesResponseOutput) AppLocation() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v StaticSiteBuildPropertiesResponse) *string { return v.AppLocation }).(pulumi.StringPtrOutput)
 }
@@ -16271,10 +14563,15 @@ func (o StaticSiteBuildPropertiesResponsePtrOutput) ToStaticSiteBuildPropertiesR
 }
 
 func (o StaticSiteBuildPropertiesResponsePtrOutput) Elem() StaticSiteBuildPropertiesResponseOutput {
-	return o.ApplyT(func(v *StaticSiteBuildPropertiesResponse) StaticSiteBuildPropertiesResponse { return *v }).(StaticSiteBuildPropertiesResponseOutput)
+	return o.ApplyT(func(v *StaticSiteBuildPropertiesResponse) StaticSiteBuildPropertiesResponse {
+		if v != nil {
+			return *v
+		}
+		var ret StaticSiteBuildPropertiesResponse
+		return ret
+	}).(StaticSiteBuildPropertiesResponseOutput)
 }
 
-// The path to the api code within the repository.
 func (o StaticSiteBuildPropertiesResponsePtrOutput) ApiLocation() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *StaticSiteBuildPropertiesResponse) *string {
 		if v == nil {
@@ -16284,7 +14581,6 @@ func (o StaticSiteBuildPropertiesResponsePtrOutput) ApiLocation() pulumi.StringP
 	}).(pulumi.StringPtrOutput)
 }
 
-// The path of the app artifacts after building.
 func (o StaticSiteBuildPropertiesResponsePtrOutput) AppArtifactLocation() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *StaticSiteBuildPropertiesResponse) *string {
 		if v == nil {
@@ -16294,7 +14590,6 @@ func (o StaticSiteBuildPropertiesResponsePtrOutput) AppArtifactLocation() pulumi
 	}).(pulumi.StringPtrOutput)
 }
 
-// The path to the app code within the repository.
 func (o StaticSiteBuildPropertiesResponsePtrOutput) AppLocation() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *StaticSiteBuildPropertiesResponse) *string {
 		if v == nil {
@@ -16304,24 +14599,15 @@ func (o StaticSiteBuildPropertiesResponsePtrOutput) AppLocation() pulumi.StringP
 	}).(pulumi.StringPtrOutput)
 }
 
-// Static Site User ARM resource.
 type StaticSiteUserARMResourceResponse struct {
-	// The display name for the static site user.
-	DisplayName string `pulumi:"displayName"`
-	// Resource Id.
-	Id string `pulumi:"id"`
-	// Kind of resource.
-	Kind *string `pulumi:"kind"`
-	// Resource Name.
-	Name string `pulumi:"name"`
-	// The identity provider for the static site user.
-	Provider string `pulumi:"provider"`
-	// The roles for the static site user, in free-form string format
-	Roles *string `pulumi:"roles"`
-	// Resource type.
-	Type string `pulumi:"type"`
-	// The user id for the static site user.
-	UserId string `pulumi:"userId"`
+	DisplayName string  `pulumi:"displayName"`
+	Id          string  `pulumi:"id"`
+	Kind        *string `pulumi:"kind"`
+	Name        string  `pulumi:"name"`
+	Provider    string  `pulumi:"provider"`
+	Roles       *string `pulumi:"roles"`
+	Type        string  `pulumi:"type"`
+	UserId      string  `pulumi:"userId"`
 }
 
 // StaticSiteUserARMResourceResponseInput is an input type that accepts StaticSiteUserARMResourceResponseArgs and StaticSiteUserARMResourceResponseOutput values.
@@ -16335,24 +14621,15 @@ type StaticSiteUserARMResourceResponseInput interface {
 	ToStaticSiteUserARMResourceResponseOutputWithContext(context.Context) StaticSiteUserARMResourceResponseOutput
 }
 
-// Static Site User ARM resource.
 type StaticSiteUserARMResourceResponseArgs struct {
-	// The display name for the static site user.
-	DisplayName pulumi.StringInput `pulumi:"displayName"`
-	// Resource Id.
-	Id pulumi.StringInput `pulumi:"id"`
-	// Kind of resource.
-	Kind pulumi.StringPtrInput `pulumi:"kind"`
-	// Resource Name.
-	Name pulumi.StringInput `pulumi:"name"`
-	// The identity provider for the static site user.
-	Provider pulumi.StringInput `pulumi:"provider"`
-	// The roles for the static site user, in free-form string format
-	Roles pulumi.StringPtrInput `pulumi:"roles"`
-	// Resource type.
-	Type pulumi.StringInput `pulumi:"type"`
-	// The user id for the static site user.
-	UserId pulumi.StringInput `pulumi:"userId"`
+	DisplayName pulumi.StringInput    `pulumi:"displayName"`
+	Id          pulumi.StringInput    `pulumi:"id"`
+	Kind        pulumi.StringPtrInput `pulumi:"kind"`
+	Name        pulumi.StringInput    `pulumi:"name"`
+	Provider    pulumi.StringInput    `pulumi:"provider"`
+	Roles       pulumi.StringPtrInput `pulumi:"roles"`
+	Type        pulumi.StringInput    `pulumi:"type"`
+	UserId      pulumi.StringInput    `pulumi:"userId"`
 }
 
 func (StaticSiteUserARMResourceResponseArgs) ElementType() reflect.Type {
@@ -16392,7 +14669,6 @@ func (i StaticSiteUserARMResourceResponseArray) ToStaticSiteUserARMResourceRespo
 	return pulumi.ToOutputWithContext(ctx, i).(StaticSiteUserARMResourceResponseArrayOutput)
 }
 
-// Static Site User ARM resource.
 type StaticSiteUserARMResourceResponseOutput struct{ *pulumi.OutputState }
 
 func (StaticSiteUserARMResourceResponseOutput) ElementType() reflect.Type {
@@ -16407,42 +14683,34 @@ func (o StaticSiteUserARMResourceResponseOutput) ToStaticSiteUserARMResourceResp
 	return o
 }
 
-// The display name for the static site user.
 func (o StaticSiteUserARMResourceResponseOutput) DisplayName() pulumi.StringOutput {
 	return o.ApplyT(func(v StaticSiteUserARMResourceResponse) string { return v.DisplayName }).(pulumi.StringOutput)
 }
 
-// Resource Id.
 func (o StaticSiteUserARMResourceResponseOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v StaticSiteUserARMResourceResponse) string { return v.Id }).(pulumi.StringOutput)
 }
 
-// Kind of resource.
 func (o StaticSiteUserARMResourceResponseOutput) Kind() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v StaticSiteUserARMResourceResponse) *string { return v.Kind }).(pulumi.StringPtrOutput)
 }
 
-// Resource Name.
 func (o StaticSiteUserARMResourceResponseOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v StaticSiteUserARMResourceResponse) string { return v.Name }).(pulumi.StringOutput)
 }
 
-// The identity provider for the static site user.
 func (o StaticSiteUserARMResourceResponseOutput) Provider() pulumi.StringOutput {
 	return o.ApplyT(func(v StaticSiteUserARMResourceResponse) string { return v.Provider }).(pulumi.StringOutput)
 }
 
-// The roles for the static site user, in free-form string format
 func (o StaticSiteUserARMResourceResponseOutput) Roles() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v StaticSiteUserARMResourceResponse) *string { return v.Roles }).(pulumi.StringPtrOutput)
 }
 
-// Resource type.
 func (o StaticSiteUserARMResourceResponseOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v StaticSiteUserARMResourceResponse) string { return v.Type }).(pulumi.StringOutput)
 }
 
-// The user id for the static site user.
 func (o StaticSiteUserARMResourceResponseOutput) UserId() pulumi.StringOutput {
 	return o.ApplyT(func(v StaticSiteUserARMResourceResponse) string { return v.UserId }).(pulumi.StringOutput)
 }
@@ -16467,18 +14735,12 @@ func (o StaticSiteUserARMResourceResponseArrayOutput) Index(i pulumi.IntInput) S
 	}).(StaticSiteUserARMResourceResponseOutput)
 }
 
-// Trigger based on status code.
 type StatusCodesBasedTrigger struct {
-	// Request Count.
-	Count *int `pulumi:"count"`
-	// HTTP status code.
-	Status *int `pulumi:"status"`
-	// Request Sub Status.
-	SubStatus *int `pulumi:"subStatus"`
-	// Time interval.
+	Count        *int    `pulumi:"count"`
+	Status       *int    `pulumi:"status"`
+	SubStatus    *int    `pulumi:"subStatus"`
 	TimeInterval *string `pulumi:"timeInterval"`
-	// Win32 error code.
-	Win32Status *int `pulumi:"win32Status"`
+	Win32Status  *int    `pulumi:"win32Status"`
 }
 
 // StatusCodesBasedTriggerInput is an input type that accepts StatusCodesBasedTriggerArgs and StatusCodesBasedTriggerOutput values.
@@ -16492,18 +14754,12 @@ type StatusCodesBasedTriggerInput interface {
 	ToStatusCodesBasedTriggerOutputWithContext(context.Context) StatusCodesBasedTriggerOutput
 }
 
-// Trigger based on status code.
 type StatusCodesBasedTriggerArgs struct {
-	// Request Count.
-	Count pulumi.IntPtrInput `pulumi:"count"`
-	// HTTP status code.
-	Status pulumi.IntPtrInput `pulumi:"status"`
-	// Request Sub Status.
-	SubStatus pulumi.IntPtrInput `pulumi:"subStatus"`
-	// Time interval.
+	Count        pulumi.IntPtrInput    `pulumi:"count"`
+	Status       pulumi.IntPtrInput    `pulumi:"status"`
+	SubStatus    pulumi.IntPtrInput    `pulumi:"subStatus"`
 	TimeInterval pulumi.StringPtrInput `pulumi:"timeInterval"`
-	// Win32 error code.
-	Win32Status pulumi.IntPtrInput `pulumi:"win32Status"`
+	Win32Status  pulumi.IntPtrInput    `pulumi:"win32Status"`
 }
 
 func (StatusCodesBasedTriggerArgs) ElementType() reflect.Type {
@@ -16543,7 +14799,6 @@ func (i StatusCodesBasedTriggerArray) ToStatusCodesBasedTriggerArrayOutputWithCo
 	return pulumi.ToOutputWithContext(ctx, i).(StatusCodesBasedTriggerArrayOutput)
 }
 
-// Trigger based on status code.
 type StatusCodesBasedTriggerOutput struct{ *pulumi.OutputState }
 
 func (StatusCodesBasedTriggerOutput) ElementType() reflect.Type {
@@ -16558,27 +14813,22 @@ func (o StatusCodesBasedTriggerOutput) ToStatusCodesBasedTriggerOutputWithContex
 	return o
 }
 
-// Request Count.
 func (o StatusCodesBasedTriggerOutput) Count() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v StatusCodesBasedTrigger) *int { return v.Count }).(pulumi.IntPtrOutput)
 }
 
-// HTTP status code.
 func (o StatusCodesBasedTriggerOutput) Status() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v StatusCodesBasedTrigger) *int { return v.Status }).(pulumi.IntPtrOutput)
 }
 
-// Request Sub Status.
 func (o StatusCodesBasedTriggerOutput) SubStatus() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v StatusCodesBasedTrigger) *int { return v.SubStatus }).(pulumi.IntPtrOutput)
 }
 
-// Time interval.
 func (o StatusCodesBasedTriggerOutput) TimeInterval() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v StatusCodesBasedTrigger) *string { return v.TimeInterval }).(pulumi.StringPtrOutput)
 }
 
-// Win32 error code.
 func (o StatusCodesBasedTriggerOutput) Win32Status() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v StatusCodesBasedTrigger) *int { return v.Win32Status }).(pulumi.IntPtrOutput)
 }
@@ -16603,18 +14853,12 @@ func (o StatusCodesBasedTriggerArrayOutput) Index(i pulumi.IntInput) StatusCodes
 	}).(StatusCodesBasedTriggerOutput)
 }
 
-// Trigger based on status code.
 type StatusCodesBasedTriggerResponse struct {
-	// Request Count.
-	Count *int `pulumi:"count"`
-	// HTTP status code.
-	Status *int `pulumi:"status"`
-	// Request Sub Status.
-	SubStatus *int `pulumi:"subStatus"`
-	// Time interval.
+	Count        *int    `pulumi:"count"`
+	Status       *int    `pulumi:"status"`
+	SubStatus    *int    `pulumi:"subStatus"`
 	TimeInterval *string `pulumi:"timeInterval"`
-	// Win32 error code.
-	Win32Status *int `pulumi:"win32Status"`
+	Win32Status  *int    `pulumi:"win32Status"`
 }
 
 // StatusCodesBasedTriggerResponseInput is an input type that accepts StatusCodesBasedTriggerResponseArgs and StatusCodesBasedTriggerResponseOutput values.
@@ -16628,18 +14872,12 @@ type StatusCodesBasedTriggerResponseInput interface {
 	ToStatusCodesBasedTriggerResponseOutputWithContext(context.Context) StatusCodesBasedTriggerResponseOutput
 }
 
-// Trigger based on status code.
 type StatusCodesBasedTriggerResponseArgs struct {
-	// Request Count.
-	Count pulumi.IntPtrInput `pulumi:"count"`
-	// HTTP status code.
-	Status pulumi.IntPtrInput `pulumi:"status"`
-	// Request Sub Status.
-	SubStatus pulumi.IntPtrInput `pulumi:"subStatus"`
-	// Time interval.
+	Count        pulumi.IntPtrInput    `pulumi:"count"`
+	Status       pulumi.IntPtrInput    `pulumi:"status"`
+	SubStatus    pulumi.IntPtrInput    `pulumi:"subStatus"`
 	TimeInterval pulumi.StringPtrInput `pulumi:"timeInterval"`
-	// Win32 error code.
-	Win32Status pulumi.IntPtrInput `pulumi:"win32Status"`
+	Win32Status  pulumi.IntPtrInput    `pulumi:"win32Status"`
 }
 
 func (StatusCodesBasedTriggerResponseArgs) ElementType() reflect.Type {
@@ -16679,7 +14917,6 @@ func (i StatusCodesBasedTriggerResponseArray) ToStatusCodesBasedTriggerResponseA
 	return pulumi.ToOutputWithContext(ctx, i).(StatusCodesBasedTriggerResponseArrayOutput)
 }
 
-// Trigger based on status code.
 type StatusCodesBasedTriggerResponseOutput struct{ *pulumi.OutputState }
 
 func (StatusCodesBasedTriggerResponseOutput) ElementType() reflect.Type {
@@ -16694,27 +14931,22 @@ func (o StatusCodesBasedTriggerResponseOutput) ToStatusCodesBasedTriggerResponse
 	return o
 }
 
-// Request Count.
 func (o StatusCodesBasedTriggerResponseOutput) Count() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v StatusCodesBasedTriggerResponse) *int { return v.Count }).(pulumi.IntPtrOutput)
 }
 
-// HTTP status code.
 func (o StatusCodesBasedTriggerResponseOutput) Status() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v StatusCodesBasedTriggerResponse) *int { return v.Status }).(pulumi.IntPtrOutput)
 }
 
-// Request Sub Status.
 func (o StatusCodesBasedTriggerResponseOutput) SubStatus() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v StatusCodesBasedTriggerResponse) *int { return v.SubStatus }).(pulumi.IntPtrOutput)
 }
 
-// Time interval.
 func (o StatusCodesBasedTriggerResponseOutput) TimeInterval() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v StatusCodesBasedTriggerResponse) *string { return v.TimeInterval }).(pulumi.StringPtrOutput)
 }
 
-// Win32 error code.
 func (o StatusCodesBasedTriggerResponseOutput) Win32Status() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v StatusCodesBasedTriggerResponse) *int { return v.Win32Status }).(pulumi.IntPtrOutput)
 }
@@ -16739,16 +14971,11 @@ func (o StatusCodesBasedTriggerResponseArrayOutput) Index(i pulumi.IntInput) Sta
 	}).(StatusCodesBasedTriggerResponseOutput)
 }
 
-// Virtual application in an app.
 type VirtualApplication struct {
-	// Physical path.
-	PhysicalPath *string `pulumi:"physicalPath"`
-	// <code>true</code> if preloading is enabled; otherwise, <code>false</code>.
-	PreloadEnabled *bool `pulumi:"preloadEnabled"`
-	// Virtual directories for virtual application.
+	PhysicalPath       *string            `pulumi:"physicalPath"`
+	PreloadEnabled     *bool              `pulumi:"preloadEnabled"`
 	VirtualDirectories []VirtualDirectory `pulumi:"virtualDirectories"`
-	// Virtual path.
-	VirtualPath *string `pulumi:"virtualPath"`
+	VirtualPath        *string            `pulumi:"virtualPath"`
 }
 
 // VirtualApplicationInput is an input type that accepts VirtualApplicationArgs and VirtualApplicationOutput values.
@@ -16762,16 +14989,11 @@ type VirtualApplicationInput interface {
 	ToVirtualApplicationOutputWithContext(context.Context) VirtualApplicationOutput
 }
 
-// Virtual application in an app.
 type VirtualApplicationArgs struct {
-	// Physical path.
-	PhysicalPath pulumi.StringPtrInput `pulumi:"physicalPath"`
-	// <code>true</code> if preloading is enabled; otherwise, <code>false</code>.
-	PreloadEnabled pulumi.BoolPtrInput `pulumi:"preloadEnabled"`
-	// Virtual directories for virtual application.
+	PhysicalPath       pulumi.StringPtrInput      `pulumi:"physicalPath"`
+	PreloadEnabled     pulumi.BoolPtrInput        `pulumi:"preloadEnabled"`
 	VirtualDirectories VirtualDirectoryArrayInput `pulumi:"virtualDirectories"`
-	// Virtual path.
-	VirtualPath pulumi.StringPtrInput `pulumi:"virtualPath"`
+	VirtualPath        pulumi.StringPtrInput      `pulumi:"virtualPath"`
 }
 
 func (VirtualApplicationArgs) ElementType() reflect.Type {
@@ -16811,7 +15033,6 @@ func (i VirtualApplicationArray) ToVirtualApplicationArrayOutputWithContext(ctx 
 	return pulumi.ToOutputWithContext(ctx, i).(VirtualApplicationArrayOutput)
 }
 
-// Virtual application in an app.
 type VirtualApplicationOutput struct{ *pulumi.OutputState }
 
 func (VirtualApplicationOutput) ElementType() reflect.Type {
@@ -16826,22 +15047,18 @@ func (o VirtualApplicationOutput) ToVirtualApplicationOutputWithContext(ctx cont
 	return o
 }
 
-// Physical path.
 func (o VirtualApplicationOutput) PhysicalPath() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v VirtualApplication) *string { return v.PhysicalPath }).(pulumi.StringPtrOutput)
 }
 
-// <code>true</code> if preloading is enabled; otherwise, <code>false</code>.
 func (o VirtualApplicationOutput) PreloadEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v VirtualApplication) *bool { return v.PreloadEnabled }).(pulumi.BoolPtrOutput)
 }
 
-// Virtual directories for virtual application.
 func (o VirtualApplicationOutput) VirtualDirectories() VirtualDirectoryArrayOutput {
 	return o.ApplyT(func(v VirtualApplication) []VirtualDirectory { return v.VirtualDirectories }).(VirtualDirectoryArrayOutput)
 }
 
-// Virtual path.
 func (o VirtualApplicationOutput) VirtualPath() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v VirtualApplication) *string { return v.VirtualPath }).(pulumi.StringPtrOutput)
 }
@@ -16866,16 +15083,11 @@ func (o VirtualApplicationArrayOutput) Index(i pulumi.IntInput) VirtualApplicati
 	}).(VirtualApplicationOutput)
 }
 
-// Virtual application in an app.
 type VirtualApplicationResponse struct {
-	// Physical path.
-	PhysicalPath *string `pulumi:"physicalPath"`
-	// <code>true</code> if preloading is enabled; otherwise, <code>false</code>.
-	PreloadEnabled *bool `pulumi:"preloadEnabled"`
-	// Virtual directories for virtual application.
+	PhysicalPath       *string                    `pulumi:"physicalPath"`
+	PreloadEnabled     *bool                      `pulumi:"preloadEnabled"`
 	VirtualDirectories []VirtualDirectoryResponse `pulumi:"virtualDirectories"`
-	// Virtual path.
-	VirtualPath *string `pulumi:"virtualPath"`
+	VirtualPath        *string                    `pulumi:"virtualPath"`
 }
 
 // VirtualApplicationResponseInput is an input type that accepts VirtualApplicationResponseArgs and VirtualApplicationResponseOutput values.
@@ -16889,16 +15101,11 @@ type VirtualApplicationResponseInput interface {
 	ToVirtualApplicationResponseOutputWithContext(context.Context) VirtualApplicationResponseOutput
 }
 
-// Virtual application in an app.
 type VirtualApplicationResponseArgs struct {
-	// Physical path.
-	PhysicalPath pulumi.StringPtrInput `pulumi:"physicalPath"`
-	// <code>true</code> if preloading is enabled; otherwise, <code>false</code>.
-	PreloadEnabled pulumi.BoolPtrInput `pulumi:"preloadEnabled"`
-	// Virtual directories for virtual application.
+	PhysicalPath       pulumi.StringPtrInput              `pulumi:"physicalPath"`
+	PreloadEnabled     pulumi.BoolPtrInput                `pulumi:"preloadEnabled"`
 	VirtualDirectories VirtualDirectoryResponseArrayInput `pulumi:"virtualDirectories"`
-	// Virtual path.
-	VirtualPath pulumi.StringPtrInput `pulumi:"virtualPath"`
+	VirtualPath        pulumi.StringPtrInput              `pulumi:"virtualPath"`
 }
 
 func (VirtualApplicationResponseArgs) ElementType() reflect.Type {
@@ -16938,7 +15145,6 @@ func (i VirtualApplicationResponseArray) ToVirtualApplicationResponseArrayOutput
 	return pulumi.ToOutputWithContext(ctx, i).(VirtualApplicationResponseArrayOutput)
 }
 
-// Virtual application in an app.
 type VirtualApplicationResponseOutput struct{ *pulumi.OutputState }
 
 func (VirtualApplicationResponseOutput) ElementType() reflect.Type {
@@ -16953,22 +15159,18 @@ func (o VirtualApplicationResponseOutput) ToVirtualApplicationResponseOutputWith
 	return o
 }
 
-// Physical path.
 func (o VirtualApplicationResponseOutput) PhysicalPath() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v VirtualApplicationResponse) *string { return v.PhysicalPath }).(pulumi.StringPtrOutput)
 }
 
-// <code>true</code> if preloading is enabled; otherwise, <code>false</code>.
 func (o VirtualApplicationResponseOutput) PreloadEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v VirtualApplicationResponse) *bool { return v.PreloadEnabled }).(pulumi.BoolPtrOutput)
 }
 
-// Virtual directories for virtual application.
 func (o VirtualApplicationResponseOutput) VirtualDirectories() VirtualDirectoryResponseArrayOutput {
 	return o.ApplyT(func(v VirtualApplicationResponse) []VirtualDirectoryResponse { return v.VirtualDirectories }).(VirtualDirectoryResponseArrayOutput)
 }
 
-// Virtual path.
 func (o VirtualApplicationResponseOutput) VirtualPath() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v VirtualApplicationResponse) *string { return v.VirtualPath }).(pulumi.StringPtrOutput)
 }
@@ -16993,12 +15195,9 @@ func (o VirtualApplicationResponseArrayOutput) Index(i pulumi.IntInput) VirtualA
 	}).(VirtualApplicationResponseOutput)
 }
 
-// Directory for virtual application.
 type VirtualDirectory struct {
-	// Physical path.
 	PhysicalPath *string `pulumi:"physicalPath"`
-	// Path to virtual application.
-	VirtualPath *string `pulumi:"virtualPath"`
+	VirtualPath  *string `pulumi:"virtualPath"`
 }
 
 // VirtualDirectoryInput is an input type that accepts VirtualDirectoryArgs and VirtualDirectoryOutput values.
@@ -17012,12 +15211,9 @@ type VirtualDirectoryInput interface {
 	ToVirtualDirectoryOutputWithContext(context.Context) VirtualDirectoryOutput
 }
 
-// Directory for virtual application.
 type VirtualDirectoryArgs struct {
-	// Physical path.
 	PhysicalPath pulumi.StringPtrInput `pulumi:"physicalPath"`
-	// Path to virtual application.
-	VirtualPath pulumi.StringPtrInput `pulumi:"virtualPath"`
+	VirtualPath  pulumi.StringPtrInput `pulumi:"virtualPath"`
 }
 
 func (VirtualDirectoryArgs) ElementType() reflect.Type {
@@ -17057,7 +15253,6 @@ func (i VirtualDirectoryArray) ToVirtualDirectoryArrayOutputWithContext(ctx cont
 	return pulumi.ToOutputWithContext(ctx, i).(VirtualDirectoryArrayOutput)
 }
 
-// Directory for virtual application.
 type VirtualDirectoryOutput struct{ *pulumi.OutputState }
 
 func (VirtualDirectoryOutput) ElementType() reflect.Type {
@@ -17072,12 +15267,10 @@ func (o VirtualDirectoryOutput) ToVirtualDirectoryOutputWithContext(ctx context.
 	return o
 }
 
-// Physical path.
 func (o VirtualDirectoryOutput) PhysicalPath() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v VirtualDirectory) *string { return v.PhysicalPath }).(pulumi.StringPtrOutput)
 }
 
-// Path to virtual application.
 func (o VirtualDirectoryOutput) VirtualPath() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v VirtualDirectory) *string { return v.VirtualPath }).(pulumi.StringPtrOutput)
 }
@@ -17102,12 +15295,9 @@ func (o VirtualDirectoryArrayOutput) Index(i pulumi.IntInput) VirtualDirectoryOu
 	}).(VirtualDirectoryOutput)
 }
 
-// Directory for virtual application.
 type VirtualDirectoryResponse struct {
-	// Physical path.
 	PhysicalPath *string `pulumi:"physicalPath"`
-	// Path to virtual application.
-	VirtualPath *string `pulumi:"virtualPath"`
+	VirtualPath  *string `pulumi:"virtualPath"`
 }
 
 // VirtualDirectoryResponseInput is an input type that accepts VirtualDirectoryResponseArgs and VirtualDirectoryResponseOutput values.
@@ -17121,12 +15311,9 @@ type VirtualDirectoryResponseInput interface {
 	ToVirtualDirectoryResponseOutputWithContext(context.Context) VirtualDirectoryResponseOutput
 }
 
-// Directory for virtual application.
 type VirtualDirectoryResponseArgs struct {
-	// Physical path.
 	PhysicalPath pulumi.StringPtrInput `pulumi:"physicalPath"`
-	// Path to virtual application.
-	VirtualPath pulumi.StringPtrInput `pulumi:"virtualPath"`
+	VirtualPath  pulumi.StringPtrInput `pulumi:"virtualPath"`
 }
 
 func (VirtualDirectoryResponseArgs) ElementType() reflect.Type {
@@ -17166,7 +15353,6 @@ func (i VirtualDirectoryResponseArray) ToVirtualDirectoryResponseArrayOutputWith
 	return pulumi.ToOutputWithContext(ctx, i).(VirtualDirectoryResponseArrayOutput)
 }
 
-// Directory for virtual application.
 type VirtualDirectoryResponseOutput struct{ *pulumi.OutputState }
 
 func (VirtualDirectoryResponseOutput) ElementType() reflect.Type {
@@ -17181,12 +15367,10 @@ func (o VirtualDirectoryResponseOutput) ToVirtualDirectoryResponseOutputWithCont
 	return o
 }
 
-// Physical path.
 func (o VirtualDirectoryResponseOutput) PhysicalPath() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v VirtualDirectoryResponse) *string { return v.PhysicalPath }).(pulumi.StringPtrOutput)
 }
 
-// Path to virtual application.
 func (o VirtualDirectoryResponseOutput) VirtualPath() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v VirtualDirectoryResponse) *string { return v.VirtualPath }).(pulumi.StringPtrOutput)
 }
@@ -17211,18 +15395,12 @@ func (o VirtualDirectoryResponseArrayOutput) Index(i pulumi.IntInput) VirtualDir
 	}).(VirtualDirectoryResponseOutput)
 }
 
-// Virtual IP mapping.
 type VirtualIPMappingResponse struct {
-	// Is virtual IP mapping in use.
-	InUse *bool `pulumi:"inUse"`
-	// Internal HTTP port.
-	InternalHttpPort *int `pulumi:"internalHttpPort"`
-	// Internal HTTPS port.
-	InternalHttpsPort *int `pulumi:"internalHttpsPort"`
-	// name of the service that virtual IP is assigned to
-	ServiceName *string `pulumi:"serviceName"`
-	// Virtual IP address.
-	VirtualIP *string `pulumi:"virtualIP"`
+	InUse             *bool   `pulumi:"inUse"`
+	InternalHttpPort  *int    `pulumi:"internalHttpPort"`
+	InternalHttpsPort *int    `pulumi:"internalHttpsPort"`
+	ServiceName       *string `pulumi:"serviceName"`
+	VirtualIP         *string `pulumi:"virtualIP"`
 }
 
 // VirtualIPMappingResponseInput is an input type that accepts VirtualIPMappingResponseArgs and VirtualIPMappingResponseOutput values.
@@ -17236,18 +15414,12 @@ type VirtualIPMappingResponseInput interface {
 	ToVirtualIPMappingResponseOutputWithContext(context.Context) VirtualIPMappingResponseOutput
 }
 
-// Virtual IP mapping.
 type VirtualIPMappingResponseArgs struct {
-	// Is virtual IP mapping in use.
-	InUse pulumi.BoolPtrInput `pulumi:"inUse"`
-	// Internal HTTP port.
-	InternalHttpPort pulumi.IntPtrInput `pulumi:"internalHttpPort"`
-	// Internal HTTPS port.
-	InternalHttpsPort pulumi.IntPtrInput `pulumi:"internalHttpsPort"`
-	// name of the service that virtual IP is assigned to
-	ServiceName pulumi.StringPtrInput `pulumi:"serviceName"`
-	// Virtual IP address.
-	VirtualIP pulumi.StringPtrInput `pulumi:"virtualIP"`
+	InUse             pulumi.BoolPtrInput   `pulumi:"inUse"`
+	InternalHttpPort  pulumi.IntPtrInput    `pulumi:"internalHttpPort"`
+	InternalHttpsPort pulumi.IntPtrInput    `pulumi:"internalHttpsPort"`
+	ServiceName       pulumi.StringPtrInput `pulumi:"serviceName"`
+	VirtualIP         pulumi.StringPtrInput `pulumi:"virtualIP"`
 }
 
 func (VirtualIPMappingResponseArgs) ElementType() reflect.Type {
@@ -17287,7 +15459,6 @@ func (i VirtualIPMappingResponseArray) ToVirtualIPMappingResponseArrayOutputWith
 	return pulumi.ToOutputWithContext(ctx, i).(VirtualIPMappingResponseArrayOutput)
 }
 
-// Virtual IP mapping.
 type VirtualIPMappingResponseOutput struct{ *pulumi.OutputState }
 
 func (VirtualIPMappingResponseOutput) ElementType() reflect.Type {
@@ -17302,27 +15473,22 @@ func (o VirtualIPMappingResponseOutput) ToVirtualIPMappingResponseOutputWithCont
 	return o
 }
 
-// Is virtual IP mapping in use.
 func (o VirtualIPMappingResponseOutput) InUse() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v VirtualIPMappingResponse) *bool { return v.InUse }).(pulumi.BoolPtrOutput)
 }
 
-// Internal HTTP port.
 func (o VirtualIPMappingResponseOutput) InternalHttpPort() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v VirtualIPMappingResponse) *int { return v.InternalHttpPort }).(pulumi.IntPtrOutput)
 }
 
-// Internal HTTPS port.
 func (o VirtualIPMappingResponseOutput) InternalHttpsPort() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v VirtualIPMappingResponse) *int { return v.InternalHttpsPort }).(pulumi.IntPtrOutput)
 }
 
-// name of the service that virtual IP is assigned to
 func (o VirtualIPMappingResponseOutput) ServiceName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v VirtualIPMappingResponse) *string { return v.ServiceName }).(pulumi.StringPtrOutput)
 }
 
-// Virtual IP address.
 func (o VirtualIPMappingResponseOutput) VirtualIP() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v VirtualIPMappingResponse) *string { return v.VirtualIP }).(pulumi.StringPtrOutput)
 }
@@ -17347,11 +15513,8 @@ func (o VirtualIPMappingResponseArrayOutput) Index(i pulumi.IntInput) VirtualIPM
 	}).(VirtualIPMappingResponseOutput)
 }
 
-// Specification for using a Virtual Network.
 type VirtualNetworkProfile struct {
-	// Resource id of the Virtual Network.
-	Id *string `pulumi:"id"`
-	// Subnet within the Virtual Network.
+	Id     *string `pulumi:"id"`
 	Subnet *string `pulumi:"subnet"`
 }
 
@@ -17366,11 +15529,8 @@ type VirtualNetworkProfileInput interface {
 	ToVirtualNetworkProfileOutputWithContext(context.Context) VirtualNetworkProfileOutput
 }
 
-// Specification for using a Virtual Network.
 type VirtualNetworkProfileArgs struct {
-	// Resource id of the Virtual Network.
-	Id pulumi.StringPtrInput `pulumi:"id"`
-	// Subnet within the Virtual Network.
+	Id     pulumi.StringPtrInput `pulumi:"id"`
 	Subnet pulumi.StringPtrInput `pulumi:"subnet"`
 }
 
@@ -17427,7 +15587,6 @@ func (i *virtualNetworkProfilePtrType) ToVirtualNetworkProfilePtrOutputWithConte
 	return pulumi.ToOutputWithContext(ctx, i).(VirtualNetworkProfilePtrOutput)
 }
 
-// Specification for using a Virtual Network.
 type VirtualNetworkProfileOutput struct{ *pulumi.OutputState }
 
 func (VirtualNetworkProfileOutput) ElementType() reflect.Type {
@@ -17447,17 +15606,15 @@ func (o VirtualNetworkProfileOutput) ToVirtualNetworkProfilePtrOutput() VirtualN
 }
 
 func (o VirtualNetworkProfileOutput) ToVirtualNetworkProfilePtrOutputWithContext(ctx context.Context) VirtualNetworkProfilePtrOutput {
-	return o.ApplyT(func(v VirtualNetworkProfile) *VirtualNetworkProfile {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v VirtualNetworkProfile) *VirtualNetworkProfile {
 		return &v
 	}).(VirtualNetworkProfilePtrOutput)
 }
 
-// Resource id of the Virtual Network.
 func (o VirtualNetworkProfileOutput) Id() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v VirtualNetworkProfile) *string { return v.Id }).(pulumi.StringPtrOutput)
 }
 
-// Subnet within the Virtual Network.
 func (o VirtualNetworkProfileOutput) Subnet() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v VirtualNetworkProfile) *string { return v.Subnet }).(pulumi.StringPtrOutput)
 }
@@ -17477,10 +15634,15 @@ func (o VirtualNetworkProfilePtrOutput) ToVirtualNetworkProfilePtrOutputWithCont
 }
 
 func (o VirtualNetworkProfilePtrOutput) Elem() VirtualNetworkProfileOutput {
-	return o.ApplyT(func(v *VirtualNetworkProfile) VirtualNetworkProfile { return *v }).(VirtualNetworkProfileOutput)
+	return o.ApplyT(func(v *VirtualNetworkProfile) VirtualNetworkProfile {
+		if v != nil {
+			return *v
+		}
+		var ret VirtualNetworkProfile
+		return ret
+	}).(VirtualNetworkProfileOutput)
 }
 
-// Resource id of the Virtual Network.
 func (o VirtualNetworkProfilePtrOutput) Id() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *VirtualNetworkProfile) *string {
 		if v == nil {
@@ -17490,7 +15652,6 @@ func (o VirtualNetworkProfilePtrOutput) Id() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Subnet within the Virtual Network.
 func (o VirtualNetworkProfilePtrOutput) Subnet() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *VirtualNetworkProfile) *string {
 		if v == nil {
@@ -17500,16 +15661,11 @@ func (o VirtualNetworkProfilePtrOutput) Subnet() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Specification for using a Virtual Network.
 type VirtualNetworkProfileResponse struct {
-	// Resource id of the Virtual Network.
-	Id *string `pulumi:"id"`
-	// Name of the Virtual Network (read-only).
-	Name string `pulumi:"name"`
-	// Subnet within the Virtual Network.
+	Id     *string `pulumi:"id"`
+	Name   string  `pulumi:"name"`
 	Subnet *string `pulumi:"subnet"`
-	// Resource type of the Virtual Network (read-only).
-	Type string `pulumi:"type"`
+	Type   string  `pulumi:"type"`
 }
 
 // VirtualNetworkProfileResponseInput is an input type that accepts VirtualNetworkProfileResponseArgs and VirtualNetworkProfileResponseOutput values.
@@ -17523,16 +15679,11 @@ type VirtualNetworkProfileResponseInput interface {
 	ToVirtualNetworkProfileResponseOutputWithContext(context.Context) VirtualNetworkProfileResponseOutput
 }
 
-// Specification for using a Virtual Network.
 type VirtualNetworkProfileResponseArgs struct {
-	// Resource id of the Virtual Network.
-	Id pulumi.StringPtrInput `pulumi:"id"`
-	// Name of the Virtual Network (read-only).
-	Name pulumi.StringInput `pulumi:"name"`
-	// Subnet within the Virtual Network.
+	Id     pulumi.StringPtrInput `pulumi:"id"`
+	Name   pulumi.StringInput    `pulumi:"name"`
 	Subnet pulumi.StringPtrInput `pulumi:"subnet"`
-	// Resource type of the Virtual Network (read-only).
-	Type pulumi.StringInput `pulumi:"type"`
+	Type   pulumi.StringInput    `pulumi:"type"`
 }
 
 func (VirtualNetworkProfileResponseArgs) ElementType() reflect.Type {
@@ -17588,7 +15739,6 @@ func (i *virtualNetworkProfileResponsePtrType) ToVirtualNetworkProfileResponsePt
 	return pulumi.ToOutputWithContext(ctx, i).(VirtualNetworkProfileResponsePtrOutput)
 }
 
-// Specification for using a Virtual Network.
 type VirtualNetworkProfileResponseOutput struct{ *pulumi.OutputState }
 
 func (VirtualNetworkProfileResponseOutput) ElementType() reflect.Type {
@@ -17608,27 +15758,23 @@ func (o VirtualNetworkProfileResponseOutput) ToVirtualNetworkProfileResponsePtrO
 }
 
 func (o VirtualNetworkProfileResponseOutput) ToVirtualNetworkProfileResponsePtrOutputWithContext(ctx context.Context) VirtualNetworkProfileResponsePtrOutput {
-	return o.ApplyT(func(v VirtualNetworkProfileResponse) *VirtualNetworkProfileResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v VirtualNetworkProfileResponse) *VirtualNetworkProfileResponse {
 		return &v
 	}).(VirtualNetworkProfileResponsePtrOutput)
 }
 
-// Resource id of the Virtual Network.
 func (o VirtualNetworkProfileResponseOutput) Id() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v VirtualNetworkProfileResponse) *string { return v.Id }).(pulumi.StringPtrOutput)
 }
 
-// Name of the Virtual Network (read-only).
 func (o VirtualNetworkProfileResponseOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v VirtualNetworkProfileResponse) string { return v.Name }).(pulumi.StringOutput)
 }
 
-// Subnet within the Virtual Network.
 func (o VirtualNetworkProfileResponseOutput) Subnet() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v VirtualNetworkProfileResponse) *string { return v.Subnet }).(pulumi.StringPtrOutput)
 }
 
-// Resource type of the Virtual Network (read-only).
 func (o VirtualNetworkProfileResponseOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v VirtualNetworkProfileResponse) string { return v.Type }).(pulumi.StringOutput)
 }
@@ -17648,10 +15794,15 @@ func (o VirtualNetworkProfileResponsePtrOutput) ToVirtualNetworkProfileResponseP
 }
 
 func (o VirtualNetworkProfileResponsePtrOutput) Elem() VirtualNetworkProfileResponseOutput {
-	return o.ApplyT(func(v *VirtualNetworkProfileResponse) VirtualNetworkProfileResponse { return *v }).(VirtualNetworkProfileResponseOutput)
+	return o.ApplyT(func(v *VirtualNetworkProfileResponse) VirtualNetworkProfileResponse {
+		if v != nil {
+			return *v
+		}
+		var ret VirtualNetworkProfileResponse
+		return ret
+	}).(VirtualNetworkProfileResponseOutput)
 }
 
-// Resource id of the Virtual Network.
 func (o VirtualNetworkProfileResponsePtrOutput) Id() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *VirtualNetworkProfileResponse) *string {
 		if v == nil {
@@ -17661,7 +15812,6 @@ func (o VirtualNetworkProfileResponsePtrOutput) Id() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Name of the Virtual Network (read-only).
 func (o VirtualNetworkProfileResponsePtrOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *VirtualNetworkProfileResponse) *string {
 		if v == nil {
@@ -17671,7 +15821,6 @@ func (o VirtualNetworkProfileResponsePtrOutput) Name() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Subnet within the Virtual Network.
 func (o VirtualNetworkProfileResponsePtrOutput) Subnet() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *VirtualNetworkProfileResponse) *string {
 		if v == nil {
@@ -17681,7 +15830,6 @@ func (o VirtualNetworkProfileResponsePtrOutput) Subnet() pulumi.StringPtrOutput 
 	}).(pulumi.StringPtrOutput)
 }
 
-// Resource type of the Virtual Network (read-only).
 func (o VirtualNetworkProfileResponsePtrOutput) Type() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *VirtualNetworkProfileResponse) *string {
 		if v == nil {
@@ -17691,27 +15839,14 @@ func (o VirtualNetworkProfileResponsePtrOutput) Type() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Virtual Network route contract used to pass routing information for a Virtual Network.
 type VnetRouteResponse struct {
-	// The ending address for this route. If the start address is specified in CIDR notation, this must be omitted.
-	EndAddress *string `pulumi:"endAddress"`
-	// Resource Id.
-	Id string `pulumi:"id"`
-	// Kind of resource.
-	Kind *string `pulumi:"kind"`
-	// Resource Name.
-	Name string `pulumi:"name"`
-	// The type of route this is:
-	// DEFAULT - By default, every app has routes to the local address ranges specified by RFC1918
-	// INHERITED - Routes inherited from the real Virtual Network routes
-	// STATIC - Static route set on the app only
-	//
-	// These values will be used for syncing an app's routes with those from a Virtual Network.
-	RouteType *string `pulumi:"routeType"`
-	// The starting address for this route. This may also include a CIDR notation, in which case the end address must not be specified.
+	EndAddress   *string `pulumi:"endAddress"`
+	Id           string  `pulumi:"id"`
+	Kind         *string `pulumi:"kind"`
+	Name         string  `pulumi:"name"`
+	RouteType    *string `pulumi:"routeType"`
 	StartAddress *string `pulumi:"startAddress"`
-	// Resource type.
-	Type string `pulumi:"type"`
+	Type         string  `pulumi:"type"`
 }
 
 // VnetRouteResponseInput is an input type that accepts VnetRouteResponseArgs and VnetRouteResponseOutput values.
@@ -17725,27 +15860,14 @@ type VnetRouteResponseInput interface {
 	ToVnetRouteResponseOutputWithContext(context.Context) VnetRouteResponseOutput
 }
 
-// Virtual Network route contract used to pass routing information for a Virtual Network.
 type VnetRouteResponseArgs struct {
-	// The ending address for this route. If the start address is specified in CIDR notation, this must be omitted.
-	EndAddress pulumi.StringPtrInput `pulumi:"endAddress"`
-	// Resource Id.
-	Id pulumi.StringInput `pulumi:"id"`
-	// Kind of resource.
-	Kind pulumi.StringPtrInput `pulumi:"kind"`
-	// Resource Name.
-	Name pulumi.StringInput `pulumi:"name"`
-	// The type of route this is:
-	// DEFAULT - By default, every app has routes to the local address ranges specified by RFC1918
-	// INHERITED - Routes inherited from the real Virtual Network routes
-	// STATIC - Static route set on the app only
-	//
-	// These values will be used for syncing an app's routes with those from a Virtual Network.
-	RouteType pulumi.StringPtrInput `pulumi:"routeType"`
-	// The starting address for this route. This may also include a CIDR notation, in which case the end address must not be specified.
+	EndAddress   pulumi.StringPtrInput `pulumi:"endAddress"`
+	Id           pulumi.StringInput    `pulumi:"id"`
+	Kind         pulumi.StringPtrInput `pulumi:"kind"`
+	Name         pulumi.StringInput    `pulumi:"name"`
+	RouteType    pulumi.StringPtrInput `pulumi:"routeType"`
 	StartAddress pulumi.StringPtrInput `pulumi:"startAddress"`
-	// Resource type.
-	Type pulumi.StringInput `pulumi:"type"`
+	Type         pulumi.StringInput    `pulumi:"type"`
 }
 
 func (VnetRouteResponseArgs) ElementType() reflect.Type {
@@ -17785,7 +15907,6 @@ func (i VnetRouteResponseArray) ToVnetRouteResponseArrayOutputWithContext(ctx co
 	return pulumi.ToOutputWithContext(ctx, i).(VnetRouteResponseArrayOutput)
 }
 
-// Virtual Network route contract used to pass routing information for a Virtual Network.
 type VnetRouteResponseOutput struct{ *pulumi.OutputState }
 
 func (VnetRouteResponseOutput) ElementType() reflect.Type {
@@ -17800,42 +15921,30 @@ func (o VnetRouteResponseOutput) ToVnetRouteResponseOutputWithContext(ctx contex
 	return o
 }
 
-// The ending address for this route. If the start address is specified in CIDR notation, this must be omitted.
 func (o VnetRouteResponseOutput) EndAddress() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v VnetRouteResponse) *string { return v.EndAddress }).(pulumi.StringPtrOutput)
 }
 
-// Resource Id.
 func (o VnetRouteResponseOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v VnetRouteResponse) string { return v.Id }).(pulumi.StringOutput)
 }
 
-// Kind of resource.
 func (o VnetRouteResponseOutput) Kind() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v VnetRouteResponse) *string { return v.Kind }).(pulumi.StringPtrOutput)
 }
 
-// Resource Name.
 func (o VnetRouteResponseOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v VnetRouteResponse) string { return v.Name }).(pulumi.StringOutput)
 }
 
-// The type of route this is:
-// DEFAULT - By default, every app has routes to the local address ranges specified by RFC1918
-// INHERITED - Routes inherited from the real Virtual Network routes
-// STATIC - Static route set on the app only
-//
-// These values will be used for syncing an app's routes with those from a Virtual Network.
 func (o VnetRouteResponseOutput) RouteType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v VnetRouteResponse) *string { return v.RouteType }).(pulumi.StringPtrOutput)
 }
 
-// The starting address for this route. This may also include a CIDR notation, in which case the end address must not be specified.
 func (o VnetRouteResponseOutput) StartAddress() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v VnetRouteResponse) *string { return v.StartAddress }).(pulumi.StringPtrOutput)
 }
 
-// Resource type.
 func (o VnetRouteResponseOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v VnetRouteResponse) string { return v.Type }).(pulumi.StringOutput)
 }
@@ -17860,16 +15969,11 @@ func (o VnetRouteResponseArrayOutput) Index(i pulumi.IntInput) VnetRouteResponse
 	}).(VnetRouteResponseOutput)
 }
 
-// Worker pool of an App Service Environment.
 type WorkerPool struct {
-	// Shared or dedicated app hosting.
-	ComputeMode *string `pulumi:"computeMode"`
-	// Number of instances in the worker pool.
-	WorkerCount *int `pulumi:"workerCount"`
-	// VM size of the worker pool instances.
-	WorkerSize *string `pulumi:"workerSize"`
-	// Worker size ID for referencing this worker pool.
-	WorkerSizeId *int `pulumi:"workerSizeId"`
+	ComputeMode  *ComputeModeOptions `pulumi:"computeMode"`
+	WorkerCount  *int                `pulumi:"workerCount"`
+	WorkerSize   *string             `pulumi:"workerSize"`
+	WorkerSizeId *int                `pulumi:"workerSizeId"`
 }
 
 // WorkerPoolInput is an input type that accepts WorkerPoolArgs and WorkerPoolOutput values.
@@ -17883,16 +15987,11 @@ type WorkerPoolInput interface {
 	ToWorkerPoolOutputWithContext(context.Context) WorkerPoolOutput
 }
 
-// Worker pool of an App Service Environment.
 type WorkerPoolArgs struct {
-	// Shared or dedicated app hosting.
-	ComputeMode *ComputeModeOptions `pulumi:"computeMode"`
-	// Number of instances in the worker pool.
-	WorkerCount pulumi.IntPtrInput `pulumi:"workerCount"`
-	// VM size of the worker pool instances.
-	WorkerSize pulumi.StringPtrInput `pulumi:"workerSize"`
-	// Worker size ID for referencing this worker pool.
-	WorkerSizeId pulumi.IntPtrInput `pulumi:"workerSizeId"`
+	ComputeMode  ComputeModeOptionsPtrInput `pulumi:"computeMode"`
+	WorkerCount  pulumi.IntPtrInput         `pulumi:"workerCount"`
+	WorkerSize   pulumi.StringPtrInput      `pulumi:"workerSize"`
+	WorkerSizeId pulumi.IntPtrInput         `pulumi:"workerSizeId"`
 }
 
 func (WorkerPoolArgs) ElementType() reflect.Type {
@@ -17932,7 +16031,6 @@ func (i WorkerPoolArray) ToWorkerPoolArrayOutputWithContext(ctx context.Context)
 	return pulumi.ToOutputWithContext(ctx, i).(WorkerPoolArrayOutput)
 }
 
-// Worker pool of an App Service Environment.
 type WorkerPoolOutput struct{ *pulumi.OutputState }
 
 func (WorkerPoolOutput) ElementType() reflect.Type {
@@ -17947,22 +16045,18 @@ func (o WorkerPoolOutput) ToWorkerPoolOutputWithContext(ctx context.Context) Wor
 	return o
 }
 
-// Shared or dedicated app hosting.
-func (o WorkerPoolOutput) ComputeMode() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v WorkerPool) *string { return v.ComputeMode }).(pulumi.StringPtrOutput)
+func (o WorkerPoolOutput) ComputeMode() ComputeModeOptionsPtrOutput {
+	return o.ApplyT(func(v WorkerPool) *ComputeModeOptions { return v.ComputeMode }).(ComputeModeOptionsPtrOutput)
 }
 
-// Number of instances in the worker pool.
 func (o WorkerPoolOutput) WorkerCount() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v WorkerPool) *int { return v.WorkerCount }).(pulumi.IntPtrOutput)
 }
 
-// VM size of the worker pool instances.
 func (o WorkerPoolOutput) WorkerSize() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v WorkerPool) *string { return v.WorkerSize }).(pulumi.StringPtrOutput)
 }
 
-// Worker size ID for referencing this worker pool.
 func (o WorkerPoolOutput) WorkerSizeId() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v WorkerPool) *int { return v.WorkerSizeId }).(pulumi.IntPtrOutput)
 }
@@ -17987,18 +16081,12 @@ func (o WorkerPoolArrayOutput) Index(i pulumi.IntInput) WorkerPoolOutput {
 	}).(WorkerPoolOutput)
 }
 
-// Worker pool of an App Service Environment.
 type WorkerPoolResponse struct {
-	// Shared or dedicated app hosting.
-	ComputeMode *string `pulumi:"computeMode"`
-	// Names of all instances in the worker pool (read only).
+	ComputeMode   *string  `pulumi:"computeMode"`
 	InstanceNames []string `pulumi:"instanceNames"`
-	// Number of instances in the worker pool.
-	WorkerCount *int `pulumi:"workerCount"`
-	// VM size of the worker pool instances.
-	WorkerSize *string `pulumi:"workerSize"`
-	// Worker size ID for referencing this worker pool.
-	WorkerSizeId *int `pulumi:"workerSizeId"`
+	WorkerCount   *int     `pulumi:"workerCount"`
+	WorkerSize    *string  `pulumi:"workerSize"`
+	WorkerSizeId  *int     `pulumi:"workerSizeId"`
 }
 
 // WorkerPoolResponseInput is an input type that accepts WorkerPoolResponseArgs and WorkerPoolResponseOutput values.
@@ -18012,18 +16100,12 @@ type WorkerPoolResponseInput interface {
 	ToWorkerPoolResponseOutputWithContext(context.Context) WorkerPoolResponseOutput
 }
 
-// Worker pool of an App Service Environment.
 type WorkerPoolResponseArgs struct {
-	// Shared or dedicated app hosting.
-	ComputeMode pulumi.StringPtrInput `pulumi:"computeMode"`
-	// Names of all instances in the worker pool (read only).
+	ComputeMode   pulumi.StringPtrInput   `pulumi:"computeMode"`
 	InstanceNames pulumi.StringArrayInput `pulumi:"instanceNames"`
-	// Number of instances in the worker pool.
-	WorkerCount pulumi.IntPtrInput `pulumi:"workerCount"`
-	// VM size of the worker pool instances.
-	WorkerSize pulumi.StringPtrInput `pulumi:"workerSize"`
-	// Worker size ID for referencing this worker pool.
-	WorkerSizeId pulumi.IntPtrInput `pulumi:"workerSizeId"`
+	WorkerCount   pulumi.IntPtrInput      `pulumi:"workerCount"`
+	WorkerSize    pulumi.StringPtrInput   `pulumi:"workerSize"`
+	WorkerSizeId  pulumi.IntPtrInput      `pulumi:"workerSizeId"`
 }
 
 func (WorkerPoolResponseArgs) ElementType() reflect.Type {
@@ -18063,7 +16145,6 @@ func (i WorkerPoolResponseArray) ToWorkerPoolResponseArrayOutputWithContext(ctx 
 	return pulumi.ToOutputWithContext(ctx, i).(WorkerPoolResponseArrayOutput)
 }
 
-// Worker pool of an App Service Environment.
 type WorkerPoolResponseOutput struct{ *pulumi.OutputState }
 
 func (WorkerPoolResponseOutput) ElementType() reflect.Type {
@@ -18078,27 +16159,22 @@ func (o WorkerPoolResponseOutput) ToWorkerPoolResponseOutputWithContext(ctx cont
 	return o
 }
 
-// Shared or dedicated app hosting.
 func (o WorkerPoolResponseOutput) ComputeMode() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v WorkerPoolResponse) *string { return v.ComputeMode }).(pulumi.StringPtrOutput)
 }
 
-// Names of all instances in the worker pool (read only).
 func (o WorkerPoolResponseOutput) InstanceNames() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v WorkerPoolResponse) []string { return v.InstanceNames }).(pulumi.StringArrayOutput)
 }
 
-// Number of instances in the worker pool.
 func (o WorkerPoolResponseOutput) WorkerCount() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v WorkerPoolResponse) *int { return v.WorkerCount }).(pulumi.IntPtrOutput)
 }
 
-// VM size of the worker pool instances.
 func (o WorkerPoolResponseOutput) WorkerSize() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v WorkerPoolResponse) *string { return v.WorkerSize }).(pulumi.StringPtrOutput)
 }
 
-// Worker size ID for referencing this worker pool.
 func (o WorkerPoolResponseOutput) WorkerSizeId() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v WorkerPoolResponse) *int { return v.WorkerSizeId }).(pulumi.IntPtrOutput)
 }

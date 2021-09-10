@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.Web.V20150801.Outputs
 {
 
+    /// <summary>
+    /// AutoHealRules - describes the rules which can be defined for auto-heal
+    /// </summary>
     [OutputType]
     public sealed class AutoHealRulesResponse
     {

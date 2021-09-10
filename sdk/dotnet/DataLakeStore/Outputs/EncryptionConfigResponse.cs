@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.DataLakeStore.Outputs
 {
 
+    /// <summary>
+    /// The encryption configuration for the account.
+    /// </summary>
     [OutputType]
     public sealed class EncryptionConfigResponse
     {

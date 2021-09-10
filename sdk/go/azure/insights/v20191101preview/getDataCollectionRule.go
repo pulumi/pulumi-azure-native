@@ -7,7 +7,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Definition of ARM tracked top level resource.
 func LookupDataCollectionRule(ctx *pulumi.Context, args *LookupDataCollectionRuleArgs, opts ...pulumi.InvokeOption) (*LookupDataCollectionRuleResult, error) {
 	var rv LookupDataCollectionRuleResult
 	err := ctx.Invoke("azure-native:insights/v20191101preview:getDataCollectionRule", args, &rv, opts...)
@@ -18,39 +17,23 @@ func LookupDataCollectionRule(ctx *pulumi.Context, args *LookupDataCollectionRul
 }
 
 type LookupDataCollectionRuleArgs struct {
-	// The name of the data collection rule. The name is case insensitive.
 	DataCollectionRuleName string `pulumi:"dataCollectionRuleName"`
-	// The name of the resource group. The name is case insensitive.
-	ResourceGroupName string `pulumi:"resourceGroupName"`
+	ResourceGroupName      string `pulumi:"resourceGroupName"`
 }
 
 // Definition of ARM tracked top level resource.
 type LookupDataCollectionRuleResult struct {
-	// The specification of data flows.
-	DataFlows []DataFlowResponse `pulumi:"dataFlows"`
-	// The specification of data sources.
-	// This property is optional and can be omitted if the rule is meant to be used via direct calls to the provisioned endpoint.
-	DataSources *DataCollectionRuleResponseDataSources `pulumi:"dataSources"`
-	// Description of the data collection rule.
-	Description *string `pulumi:"description"`
-	// The specification of destinations.
-	Destinations *DataCollectionRuleResponseDestinations `pulumi:"destinations"`
-	// Resource entity tag (ETag).
-	Etag string `pulumi:"etag"`
-	// Fully qualified ID of the resource.
-	Id string `pulumi:"id"`
-	// The immutable ID of this data collection rule. This property is READ-ONLY.
-	ImmutableId string `pulumi:"immutableId"`
-	// The kind of the resource.
-	Kind *string `pulumi:"kind"`
-	// The geo-location where the resource lives.
-	Location string `pulumi:"location"`
-	// The name of the resource.
-	Name string `pulumi:"name"`
-	// The resource provisioning state.
-	ProvisioningState string `pulumi:"provisioningState"`
-	// Resource tags.
-	Tags map[string]string `pulumi:"tags"`
-	// The type of the resource.
-	Type string `pulumi:"type"`
+	DataFlows         []DataFlowResponse                      `pulumi:"dataFlows"`
+	DataSources       *DataCollectionRuleResponseDataSources  `pulumi:"dataSources"`
+	Description       *string                                 `pulumi:"description"`
+	Destinations      *DataCollectionRuleResponseDestinations `pulumi:"destinations"`
+	Etag              string                                  `pulumi:"etag"`
+	Id                string                                  `pulumi:"id"`
+	ImmutableId       string                                  `pulumi:"immutableId"`
+	Kind              *string                                 `pulumi:"kind"`
+	Location          string                                  `pulumi:"location"`
+	Name              string                                  `pulumi:"name"`
+	ProvisioningState string                                  `pulumi:"provisioningState"`
+	Tags              map[string]string                       `pulumi:"tags"`
+	Type              string                                  `pulumi:"type"`
 }

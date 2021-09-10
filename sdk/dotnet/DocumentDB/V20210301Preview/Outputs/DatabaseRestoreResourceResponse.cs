@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.DocumentDB.V20210301Preview.Outputs
 {
 
+    /// <summary>
+    /// Specific Databases to restore.
+    /// </summary>
     [OutputType]
     public sealed class DatabaseRestoreResourceResponse
     {

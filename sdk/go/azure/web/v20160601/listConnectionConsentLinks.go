@@ -7,7 +7,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Collection of consent links
 func ListConnectionConsentLinks(ctx *pulumi.Context, args *ListConnectionConsentLinksArgs, opts ...pulumi.InvokeOption) (*ListConnectionConsentLinksResult, error) {
 	var rv ListConnectionConsentLinksResult
 	err := ctx.Invoke("azure-native:web/v20160601:listConnectionConsentLinks", args, &rv, opts...)
@@ -18,18 +17,13 @@ func ListConnectionConsentLinks(ctx *pulumi.Context, args *ListConnectionConsent
 }
 
 type ListConnectionConsentLinksArgs struct {
-	// Connection name
-	ConnectionName string `pulumi:"connectionName"`
-	// Collection of resources
-	Parameters []ConsentLinkParameterDefinition `pulumi:"parameters"`
-	// The resource group
-	ResourceGroupName string `pulumi:"resourceGroupName"`
-	// Subscription Id
-	SubscriptionId *string `pulumi:"subscriptionId"`
+	ConnectionName    string                           `pulumi:"connectionName"`
+	Parameters        []ConsentLinkParameterDefinition `pulumi:"parameters"`
+	ResourceGroupName string                           `pulumi:"resourceGroupName"`
+	SubscriptionId    *string                          `pulumi:"subscriptionId"`
 }
 
 // Collection of consent links
 type ListConnectionConsentLinksResult struct {
-	// Collection of resources
 	Value []ConsentLinkDefinitionResponse `pulumi:"value"`
 }

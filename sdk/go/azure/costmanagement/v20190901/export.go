@@ -11,24 +11,16 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// A export resource.
 type Export struct {
 	pulumi.CustomResourceState
 
-	// Has definition for the export.
-	Definition QueryDefinitionResponseOutput `pulumi:"definition"`
-	// Has delivery information for the export.
+	Definition   QueryDefinitionResponseOutput    `pulumi:"definition"`
 	DeliveryInfo ExportDeliveryInfoResponseOutput `pulumi:"deliveryInfo"`
-	// The format of the export being delivered.
-	Format pulumi.StringPtrOutput `pulumi:"format"`
-	// Resource name.
-	Name pulumi.StringOutput `pulumi:"name"`
-	// Has schedule information for the export.
-	Schedule ExportScheduleResponsePtrOutput `pulumi:"schedule"`
-	// Resource tags.
-	Tags pulumi.StringMapOutput `pulumi:"tags"`
-	// Resource type.
-	Type pulumi.StringOutput `pulumi:"type"`
+	Format       pulumi.StringPtrOutput           `pulumi:"format"`
+	Name         pulumi.StringOutput              `pulumi:"name"`
+	Schedule     ExportScheduleResponsePtrOutput  `pulumi:"schedule"`
+	Tags         pulumi.StringMapOutput           `pulumi:"tags"`
+	Type         pulumi.StringOutput              `pulumi:"type"`
 }
 
 // NewExport registers a new resource with the given unique name, arguments, and options.
@@ -127,34 +119,22 @@ func (ExportState) ElementType() reflect.Type {
 }
 
 type exportArgs struct {
-	// Has definition for the export.
-	Definition QueryDefinition `pulumi:"definition"`
-	// Has delivery information for the export.
+	Definition   QueryDefinition    `pulumi:"definition"`
 	DeliveryInfo ExportDeliveryInfo `pulumi:"deliveryInfo"`
-	// Export Name.
-	ExportName *string `pulumi:"exportName"`
-	// The format of the export being delivered.
-	Format *string `pulumi:"format"`
-	// Has schedule information for the export.
-	Schedule *ExportSchedule `pulumi:"schedule"`
-	// The scope associated with query and export operations. This includes '/subscriptions/{subscriptionId}/' for subscription scope, '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}' for resourceGroup scope, '/providers/Microsoft.Billing/billingAccounts/{billingAccountId}' for Billing Account scope and '/providers/Microsoft.Billing/billingAccounts/{billingAccountId}/departments/{departmentId}' for Department scope, '/providers/Microsoft.Billing/billingAccounts/{billingAccountId}/enrollmentAccounts/{enrollmentAccountId}' for EnrollmentAccount scope and '/providers/Microsoft.Management/managementGroups/{managementGroupId} for Management Group scope..
-	Scope string `pulumi:"scope"`
+	ExportName   *string            `pulumi:"exportName"`
+	Format       *string            `pulumi:"format"`
+	Schedule     *ExportSchedule    `pulumi:"schedule"`
+	Scope        string             `pulumi:"scope"`
 }
 
 // The set of arguments for constructing a Export resource.
 type ExportArgs struct {
-	// Has definition for the export.
-	Definition QueryDefinitionInput
-	// Has delivery information for the export.
+	Definition   QueryDefinitionInput
 	DeliveryInfo ExportDeliveryInfoInput
-	// Export Name.
-	ExportName pulumi.StringPtrInput
-	// The format of the export being delivered.
-	Format pulumi.StringPtrInput
-	// Has schedule information for the export.
-	Schedule ExportSchedulePtrInput
-	// The scope associated with query and export operations. This includes '/subscriptions/{subscriptionId}/' for subscription scope, '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}' for resourceGroup scope, '/providers/Microsoft.Billing/billingAccounts/{billingAccountId}' for Billing Account scope and '/providers/Microsoft.Billing/billingAccounts/{billingAccountId}/departments/{departmentId}' for Department scope, '/providers/Microsoft.Billing/billingAccounts/{billingAccountId}/enrollmentAccounts/{enrollmentAccountId}' for EnrollmentAccount scope and '/providers/Microsoft.Management/managementGroups/{managementGroupId} for Management Group scope..
-	Scope pulumi.StringInput
+	ExportName   pulumi.StringPtrInput
+	Format       pulumi.StringPtrInput
+	Schedule     ExportSchedulePtrInput
+	Scope        pulumi.StringInput
 }
 
 func (ExportArgs) ElementType() reflect.Type {
@@ -180,9 +160,7 @@ func (i *Export) ToExportOutputWithContext(ctx context.Context) ExportOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(ExportOutput)
 }
 
-type ExportOutput struct {
-	*pulumi.OutputState
-}
+type ExportOutput struct{ *pulumi.OutputState }
 
 func (ExportOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*Export)(nil))

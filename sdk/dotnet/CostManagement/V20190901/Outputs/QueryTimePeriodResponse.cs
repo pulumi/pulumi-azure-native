@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.CostManagement.V20190901.Outputs
 {
 
+    /// <summary>
+    /// The start and end date for pulling data for the query.
+    /// </summary>
     [OutputType]
     public sealed class QueryTimePeriodResponse
     {

@@ -7,7 +7,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Response containing the primary and secondary admin API keys for a given Azure Cognitive Search service.
 func ListAdminKey(ctx *pulumi.Context, args *ListAdminKeyArgs, opts ...pulumi.InvokeOption) (*ListAdminKeyResult, error) {
 	var rv ListAdminKeyResult
 	err := ctx.Invoke("azure-native:search/v20210401preview:listAdminKey", args, &rv, opts...)
@@ -18,16 +17,12 @@ func ListAdminKey(ctx *pulumi.Context, args *ListAdminKeyArgs, opts ...pulumi.In
 }
 
 type ListAdminKeyArgs struct {
-	// The name of the resource group within the current subscription. You can obtain this value from the Azure Resource Manager API or the portal.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
-	// The name of the Azure Cognitive Search service associated with the specified resource group.
 	SearchServiceName string `pulumi:"searchServiceName"`
 }
 
 // Response containing the primary and secondary admin API keys for a given Azure Cognitive Search service.
 type ListAdminKeyResult struct {
-	// The primary admin API key of the search service.
-	PrimaryKey string `pulumi:"primaryKey"`
-	// The secondary admin API key of the search service.
+	PrimaryKey   string `pulumi:"primaryKey"`
 	SecondaryKey string `pulumi:"secondaryKey"`
 }

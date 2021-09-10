@@ -11,24 +11,16 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// PrivateEndpointConnection resource.
 type PrivateLinkServicePrivateEndpointConnection struct {
 	pulumi.CustomResourceState
 
-	// A unique read-only string that changes whenever the resource is updated.
-	Etag pulumi.StringOutput `pulumi:"etag"`
-	// The consumer link id.
-	LinkIdentifier pulumi.StringOutput `pulumi:"linkIdentifier"`
-	// The name of the resource that is unique within a resource group. This name can be used to access the resource.
-	Name pulumi.StringPtrOutput `pulumi:"name"`
-	// The resource of private end point.
-	PrivateEndpoint PrivateEndpointResponseOutput `pulumi:"privateEndpoint"`
-	// A collection of information about the state of the connection between service consumer and provider.
+	Etag                              pulumi.StringOutput                                `pulumi:"etag"`
+	LinkIdentifier                    pulumi.StringOutput                                `pulumi:"linkIdentifier"`
+	Name                              pulumi.StringPtrOutput                             `pulumi:"name"`
+	PrivateEndpoint                   PrivateEndpointResponseOutput                      `pulumi:"privateEndpoint"`
 	PrivateLinkServiceConnectionState PrivateLinkServiceConnectionStateResponsePtrOutput `pulumi:"privateLinkServiceConnectionState"`
-	// The provisioning state of the private endpoint connection resource.
-	ProvisioningState pulumi.StringOutput `pulumi:"provisioningState"`
-	// The resource type.
-	Type pulumi.StringOutput `pulumi:"type"`
+	ProvisioningState                 pulumi.StringOutput                                `pulumi:"provisioningState"`
+	Type                              pulumi.StringOutput                                `pulumi:"type"`
 }
 
 // NewPrivateLinkServicePrivateEndpointConnection registers a new resource with the given unique name, arguments, and options.
@@ -154,34 +146,22 @@ func (PrivateLinkServicePrivateEndpointConnectionState) ElementType() reflect.Ty
 }
 
 type privateLinkServicePrivateEndpointConnectionArgs struct {
-	// Resource ID.
-	Id *string `pulumi:"id"`
-	// The name of the resource that is unique within a resource group. This name can be used to access the resource.
-	Name *string `pulumi:"name"`
-	// The name of the private end point connection.
-	PeConnectionName *string `pulumi:"peConnectionName"`
-	// A collection of information about the state of the connection between service consumer and provider.
+	Id                                *string                            `pulumi:"id"`
+	Name                              *string                            `pulumi:"name"`
+	PeConnectionName                  *string                            `pulumi:"peConnectionName"`
 	PrivateLinkServiceConnectionState *PrivateLinkServiceConnectionState `pulumi:"privateLinkServiceConnectionState"`
-	// The name of the resource group.
-	ResourceGroupName string `pulumi:"resourceGroupName"`
-	// The name of the private link service.
-	ServiceName string `pulumi:"serviceName"`
+	ResourceGroupName                 string                             `pulumi:"resourceGroupName"`
+	ServiceName                       string                             `pulumi:"serviceName"`
 }
 
 // The set of arguments for constructing a PrivateLinkServicePrivateEndpointConnection resource.
 type PrivateLinkServicePrivateEndpointConnectionArgs struct {
-	// Resource ID.
-	Id pulumi.StringPtrInput
-	// The name of the resource that is unique within a resource group. This name can be used to access the resource.
-	Name pulumi.StringPtrInput
-	// The name of the private end point connection.
-	PeConnectionName pulumi.StringPtrInput
-	// A collection of information about the state of the connection between service consumer and provider.
+	Id                                pulumi.StringPtrInput
+	Name                              pulumi.StringPtrInput
+	PeConnectionName                  pulumi.StringPtrInput
 	PrivateLinkServiceConnectionState PrivateLinkServiceConnectionStatePtrInput
-	// The name of the resource group.
-	ResourceGroupName pulumi.StringInput
-	// The name of the private link service.
-	ServiceName pulumi.StringInput
+	ResourceGroupName                 pulumi.StringInput
+	ServiceName                       pulumi.StringInput
 }
 
 func (PrivateLinkServicePrivateEndpointConnectionArgs) ElementType() reflect.Type {
@@ -207,9 +187,7 @@ func (i *PrivateLinkServicePrivateEndpointConnection) ToPrivateLinkServicePrivat
 	return pulumi.ToOutputWithContext(ctx, i).(PrivateLinkServicePrivateEndpointConnectionOutput)
 }
 
-type PrivateLinkServicePrivateEndpointConnectionOutput struct {
-	*pulumi.OutputState
-}
+type PrivateLinkServicePrivateEndpointConnectionOutput struct{ *pulumi.OutputState }
 
 func (PrivateLinkServicePrivateEndpointConnectionOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*PrivateLinkServicePrivateEndpointConnection)(nil))

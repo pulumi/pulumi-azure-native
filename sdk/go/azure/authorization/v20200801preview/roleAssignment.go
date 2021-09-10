@@ -11,38 +11,23 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Role Assignments
 type RoleAssignment struct {
 	pulumi.CustomResourceState
 
-	// The conditions on the role assignment. This limits the resources it can be assigned to. e.g.: @Resource[Microsoft.Storage/storageAccounts/blobServices/containers:ContainerName] StringEqualsIgnoreCase 'foo_storage_container'
-	Condition pulumi.StringPtrOutput `pulumi:"condition"`
-	// Version of the condition. Currently accepted value is '2.0'
-	ConditionVersion pulumi.StringPtrOutput `pulumi:"conditionVersion"`
-	// Id of the user who created the assignment
-	CreatedBy pulumi.StringOutput `pulumi:"createdBy"`
-	// Time it was created
-	CreatedOn pulumi.StringOutput `pulumi:"createdOn"`
-	// Id of the delegated managed identity resource
+	Condition                          pulumi.StringPtrOutput `pulumi:"condition"`
+	ConditionVersion                   pulumi.StringPtrOutput `pulumi:"conditionVersion"`
+	CreatedBy                          pulumi.StringOutput    `pulumi:"createdBy"`
+	CreatedOn                          pulumi.StringOutput    `pulumi:"createdOn"`
 	DelegatedManagedIdentityResourceId pulumi.StringPtrOutput `pulumi:"delegatedManagedIdentityResourceId"`
-	// Description of role assignment
-	Description pulumi.StringPtrOutput `pulumi:"description"`
-	// The role assignment name.
-	Name pulumi.StringOutput `pulumi:"name"`
-	// The principal ID.
-	PrincipalId pulumi.StringOutput `pulumi:"principalId"`
-	// The principal type of the assigned principal ID.
-	PrincipalType pulumi.StringPtrOutput `pulumi:"principalType"`
-	// The role definition ID.
-	RoleDefinitionId pulumi.StringOutput `pulumi:"roleDefinitionId"`
-	// The role assignment scope.
-	Scope pulumi.StringOutput `pulumi:"scope"`
-	// The role assignment type.
-	Type pulumi.StringOutput `pulumi:"type"`
-	// Id of the user who updated the assignment
-	UpdatedBy pulumi.StringOutput `pulumi:"updatedBy"`
-	// Time it was updated
-	UpdatedOn pulumi.StringOutput `pulumi:"updatedOn"`
+	Description                        pulumi.StringPtrOutput `pulumi:"description"`
+	Name                               pulumi.StringOutput    `pulumi:"name"`
+	PrincipalId                        pulumi.StringOutput    `pulumi:"principalId"`
+	PrincipalType                      pulumi.StringPtrOutput `pulumi:"principalType"`
+	RoleDefinitionId                   pulumi.StringOutput    `pulumi:"roleDefinitionId"`
+	Scope                              pulumi.StringOutput    `pulumi:"scope"`
+	Type                               pulumi.StringOutput    `pulumi:"type"`
+	UpdatedBy                          pulumi.StringOutput    `pulumi:"updatedBy"`
+	UpdatedOn                          pulumi.StringOutput    `pulumi:"updatedOn"`
 }
 
 // NewRoleAssignment registers a new resource with the given unique name, arguments, and options.
@@ -150,46 +135,28 @@ func (RoleAssignmentState) ElementType() reflect.Type {
 }
 
 type roleAssignmentArgs struct {
-	// The conditions on the role assignment. This limits the resources it can be assigned to. e.g.: @Resource[Microsoft.Storage/storageAccounts/blobServices/containers:ContainerName] StringEqualsIgnoreCase 'foo_storage_container'
-	Condition *string `pulumi:"condition"`
-	// Version of the condition. Currently accepted value is '2.0'
-	ConditionVersion *string `pulumi:"conditionVersion"`
-	// Id of the delegated managed identity resource
+	Condition                          *string `pulumi:"condition"`
+	ConditionVersion                   *string `pulumi:"conditionVersion"`
 	DelegatedManagedIdentityResourceId *string `pulumi:"delegatedManagedIdentityResourceId"`
-	// Description of role assignment
-	Description *string `pulumi:"description"`
-	// The principal ID.
-	PrincipalId string `pulumi:"principalId"`
-	// The principal type of the assigned principal ID.
-	PrincipalType *string `pulumi:"principalType"`
-	// The name of the role assignment. It can be any valid GUID.
-	RoleAssignmentName *string `pulumi:"roleAssignmentName"`
-	// The role definition ID.
-	RoleDefinitionId string `pulumi:"roleDefinitionId"`
-	// The scope of the operation or resource. Valid scopes are: subscription (format: '/subscriptions/{subscriptionId}'), resource group (format: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}', or resource (format: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/[{parentResourcePath}/]{resourceType}/{resourceName}'
-	Scope string `pulumi:"scope"`
+	Description                        *string `pulumi:"description"`
+	PrincipalId                        string  `pulumi:"principalId"`
+	PrincipalType                      *string `pulumi:"principalType"`
+	RoleAssignmentName                 *string `pulumi:"roleAssignmentName"`
+	RoleDefinitionId                   string  `pulumi:"roleDefinitionId"`
+	Scope                              string  `pulumi:"scope"`
 }
 
 // The set of arguments for constructing a RoleAssignment resource.
 type RoleAssignmentArgs struct {
-	// The conditions on the role assignment. This limits the resources it can be assigned to. e.g.: @Resource[Microsoft.Storage/storageAccounts/blobServices/containers:ContainerName] StringEqualsIgnoreCase 'foo_storage_container'
-	Condition pulumi.StringPtrInput
-	// Version of the condition. Currently accepted value is '2.0'
-	ConditionVersion pulumi.StringPtrInput
-	// Id of the delegated managed identity resource
+	Condition                          pulumi.StringPtrInput
+	ConditionVersion                   pulumi.StringPtrInput
 	DelegatedManagedIdentityResourceId pulumi.StringPtrInput
-	// Description of role assignment
-	Description pulumi.StringPtrInput
-	// The principal ID.
-	PrincipalId pulumi.StringInput
-	// The principal type of the assigned principal ID.
-	PrincipalType pulumi.StringPtrInput
-	// The name of the role assignment. It can be any valid GUID.
-	RoleAssignmentName pulumi.StringPtrInput
-	// The role definition ID.
-	RoleDefinitionId pulumi.StringInput
-	// The scope of the operation or resource. Valid scopes are: subscription (format: '/subscriptions/{subscriptionId}'), resource group (format: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}', or resource (format: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/[{parentResourcePath}/]{resourceType}/{resourceName}'
-	Scope pulumi.StringInput
+	Description                        pulumi.StringPtrInput
+	PrincipalId                        pulumi.StringInput
+	PrincipalType                      pulumi.StringPtrInput
+	RoleAssignmentName                 pulumi.StringPtrInput
+	RoleDefinitionId                   pulumi.StringInput
+	Scope                              pulumi.StringInput
 }
 
 func (RoleAssignmentArgs) ElementType() reflect.Type {
@@ -215,9 +182,7 @@ func (i *RoleAssignment) ToRoleAssignmentOutputWithContext(ctx context.Context) 
 	return pulumi.ToOutputWithContext(ctx, i).(RoleAssignmentOutput)
 }
 
-type RoleAssignmentOutput struct {
-	*pulumi.OutputState
-}
+type RoleAssignmentOutput struct{ *pulumi.OutputState }
 
 func (RoleAssignmentOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*RoleAssignment)(nil))

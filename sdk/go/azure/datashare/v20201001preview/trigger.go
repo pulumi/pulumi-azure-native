@@ -11,20 +11,14 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// A Trigger data transfer object.
-//
 // Deprecated: Please use one of the variants: ScheduledTrigger.
 type Trigger struct {
 	pulumi.CustomResourceState
 
-	// Kind of synchronization on trigger.
-	Kind pulumi.StringOutput `pulumi:"kind"`
-	// Name of the azure resource
-	Name pulumi.StringOutput `pulumi:"name"`
-	// System Data of the Azure resource.
+	Kind       pulumi.StringOutput      `pulumi:"kind"`
+	Name       pulumi.StringOutput      `pulumi:"name"`
 	SystemData SystemDataResponseOutput `pulumi:"systemData"`
-	// Type of the azure resource
-	Type pulumi.StringOutput `pulumi:"type"`
+	Type       pulumi.StringOutput      `pulumi:"type"`
 }
 
 // NewTrigger registers a new resource with the given unique name, arguments, and options.
@@ -108,30 +102,20 @@ func (TriggerState) ElementType() reflect.Type {
 }
 
 type triggerArgs struct {
-	// The name of the share account.
-	AccountName string `pulumi:"accountName"`
-	// Kind of synchronization on trigger.
-	Kind string `pulumi:"kind"`
-	// The resource group name.
-	ResourceGroupName string `pulumi:"resourceGroupName"`
-	// The name of the share subscription which will hold the data set sink.
-	ShareSubscriptionName string `pulumi:"shareSubscriptionName"`
-	// The name of the trigger.
-	TriggerName *string `pulumi:"triggerName"`
+	AccountName           string  `pulumi:"accountName"`
+	Kind                  string  `pulumi:"kind"`
+	ResourceGroupName     string  `pulumi:"resourceGroupName"`
+	ShareSubscriptionName string  `pulumi:"shareSubscriptionName"`
+	TriggerName           *string `pulumi:"triggerName"`
 }
 
 // The set of arguments for constructing a Trigger resource.
 type TriggerArgs struct {
-	// The name of the share account.
-	AccountName pulumi.StringInput
-	// Kind of synchronization on trigger.
-	Kind pulumi.StringInput
-	// The resource group name.
-	ResourceGroupName pulumi.StringInput
-	// The name of the share subscription which will hold the data set sink.
+	AccountName           pulumi.StringInput
+	Kind                  pulumi.StringInput
+	ResourceGroupName     pulumi.StringInput
 	ShareSubscriptionName pulumi.StringInput
-	// The name of the trigger.
-	TriggerName pulumi.StringPtrInput
+	TriggerName           pulumi.StringPtrInput
 }
 
 func (TriggerArgs) ElementType() reflect.Type {
@@ -157,9 +141,7 @@ func (i *Trigger) ToTriggerOutputWithContext(ctx context.Context) TriggerOutput 
 	return pulumi.ToOutputWithContext(ctx, i).(TriggerOutput)
 }
 
-type TriggerOutput struct {
-	*pulumi.OutputState
-}
+type TriggerOutput struct{ *pulumi.OutputState }
 
 func (TriggerOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*Trigger)(nil))

@@ -11,86 +11,45 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// A web app, a mobile app backend, or an API app.
 type WebAppSlot struct {
 	pulumi.CustomResourceState
 
-	// Management information availability state for the app.
-	AvailabilityState pulumi.StringOutput `pulumi:"availabilityState"`
-	// <code>true</code> to enable client affinity; <code>false</code> to stop sending session affinity cookies, which route client requests in the same session to the same instance. Default is <code>true</code>.
-	ClientAffinityEnabled pulumi.BoolPtrOutput `pulumi:"clientAffinityEnabled"`
-	// <code>true</code> to enable client certificate authentication (TLS mutual authentication); otherwise, <code>false</code>. Default is <code>false</code>.
-	ClientCertEnabled pulumi.BoolPtrOutput `pulumi:"clientCertEnabled"`
-	// Size of the function container.
-	ContainerSize pulumi.IntPtrOutput `pulumi:"containerSize"`
-	// Maximum allowed daily memory-time quota (applicable on dynamic apps only).
-	DailyMemoryTimeQuota pulumi.IntPtrOutput `pulumi:"dailyMemoryTimeQuota"`
-	// Default hostname of the app. Read-only.
-	DefaultHostName pulumi.StringOutput `pulumi:"defaultHostName"`
-	// <code>true</code> if the app is enabled; otherwise, <code>false</code>. Setting this value to false disables the app (takes the app offline).
-	Enabled pulumi.BoolPtrOutput `pulumi:"enabled"`
-	// Enabled hostnames for the app.Hostnames need to be assigned (see HostNames) AND enabled. Otherwise,
-	// the app is not served on those hostnames.
-	EnabledHostNames pulumi.StringArrayOutput `pulumi:"enabledHostNames"`
-	// Hostname SSL states are used to manage the SSL bindings for app's hostnames.
-	HostNameSslStates HostNameSslStateResponseArrayOutput `pulumi:"hostNameSslStates"`
-	// Hostnames associated with the app.
-	HostNames pulumi.StringArrayOutput `pulumi:"hostNames"`
-	// <code>true</code> to disable the public hostnames of the app; otherwise, <code>false</code>.
-	//  If <code>true</code>, the app is only accessible via API management process.
-	HostNamesDisabled pulumi.BoolPtrOutput `pulumi:"hostNamesDisabled"`
-	// App Service Environment to use for the app.
-	HostingEnvironmentProfile HostingEnvironmentProfileResponsePtrOutput `pulumi:"hostingEnvironmentProfile"`
-	// HttpsOnly: configures a web site to accept only https requests. Issues redirect for
-	// http requests
-	HttpsOnly pulumi.BoolPtrOutput `pulumi:"httpsOnly"`
-	// Managed service identity.
-	Identity ManagedServiceIdentityResponsePtrOutput `pulumi:"identity"`
-	// <code>true</code> if the app is a default container; otherwise, <code>false</code>.
-	IsDefaultContainer pulumi.BoolOutput `pulumi:"isDefaultContainer"`
-	// Kind of resource.
-	Kind pulumi.StringPtrOutput `pulumi:"kind"`
-	// Last time the app was modified, in UTC. Read-only.
-	LastModifiedTimeUtc pulumi.StringOutput `pulumi:"lastModifiedTimeUtc"`
-	// Resource Location.
-	Location pulumi.StringOutput `pulumi:"location"`
-	// Maximum number of workers.
-	// This only applies to Functions container.
-	MaxNumberOfWorkers pulumi.IntOutput `pulumi:"maxNumberOfWorkers"`
-	// Resource Name.
-	Name pulumi.StringOutput `pulumi:"name"`
-	// List of IP addresses that the app uses for outbound connections (e.g. database access). Includes VIPs from tenants that site can be hosted with current settings. Read-only.
-	OutboundIpAddresses pulumi.StringOutput `pulumi:"outboundIpAddresses"`
-	// List of IP addresses that the app uses for outbound connections (e.g. database access). Includes VIPs from all tenants. Read-only.
-	PossibleOutboundIpAddresses pulumi.StringOutput `pulumi:"possibleOutboundIpAddresses"`
-	// Name of the repository site.
-	RepositorySiteName pulumi.StringOutput `pulumi:"repositorySiteName"`
-	// <code>true</code> if reserved; otherwise, <code>false</code>.
-	Reserved pulumi.BoolPtrOutput `pulumi:"reserved"`
-	// Name of the resource group the app belongs to. Read-only.
-	ResourceGroup pulumi.StringOutput `pulumi:"resourceGroup"`
-	// <code>true</code> to stop SCM (KUDU) site when the app is stopped; otherwise, <code>false</code>. The default is <code>false</code>.
-	ScmSiteAlsoStopped pulumi.BoolPtrOutput `pulumi:"scmSiteAlsoStopped"`
-	// Resource ID of the associated App Service plan, formatted as: "/subscriptions/{subscriptionID}/resourceGroups/{groupName}/providers/Microsoft.Web/serverfarms/{appServicePlanName}".
-	ServerFarmId pulumi.StringPtrOutput `pulumi:"serverFarmId"`
-	// Configuration of the app.
-	SiteConfig SiteConfigResponsePtrOutput `pulumi:"siteConfig"`
-	// Status of the last deployment slot swap operation.
-	SlotSwapStatus SlotSwapStatusResponseOutput `pulumi:"slotSwapStatus"`
-	// Current state of the app.
-	State pulumi.StringOutput `pulumi:"state"`
-	// App suspended till in case memory-time quota is exceeded.
-	SuspendedTill pulumi.StringOutput `pulumi:"suspendedTill"`
-	// Resource tags.
-	Tags pulumi.StringMapOutput `pulumi:"tags"`
-	// Specifies which deployment slot this app will swap into. Read-only.
-	TargetSwapSlot pulumi.StringOutput `pulumi:"targetSwapSlot"`
-	// Azure Traffic Manager hostnames associated with the app. Read-only.
-	TrafficManagerHostNames pulumi.StringArrayOutput `pulumi:"trafficManagerHostNames"`
-	// Resource type.
-	Type pulumi.StringOutput `pulumi:"type"`
-	// State indicating whether the app has exceeded its quota usage. Read-only.
-	UsageState pulumi.StringOutput `pulumi:"usageState"`
+	AvailabilityState           pulumi.StringOutput                        `pulumi:"availabilityState"`
+	ClientAffinityEnabled       pulumi.BoolPtrOutput                       `pulumi:"clientAffinityEnabled"`
+	ClientCertEnabled           pulumi.BoolPtrOutput                       `pulumi:"clientCertEnabled"`
+	ContainerSize               pulumi.IntPtrOutput                        `pulumi:"containerSize"`
+	DailyMemoryTimeQuota        pulumi.IntPtrOutput                        `pulumi:"dailyMemoryTimeQuota"`
+	DefaultHostName             pulumi.StringOutput                        `pulumi:"defaultHostName"`
+	Enabled                     pulumi.BoolPtrOutput                       `pulumi:"enabled"`
+	EnabledHostNames            pulumi.StringArrayOutput                   `pulumi:"enabledHostNames"`
+	HostNameSslStates           HostNameSslStateResponseArrayOutput        `pulumi:"hostNameSslStates"`
+	HostNames                   pulumi.StringArrayOutput                   `pulumi:"hostNames"`
+	HostNamesDisabled           pulumi.BoolPtrOutput                       `pulumi:"hostNamesDisabled"`
+	HostingEnvironmentProfile   HostingEnvironmentProfileResponsePtrOutput `pulumi:"hostingEnvironmentProfile"`
+	HttpsOnly                   pulumi.BoolPtrOutput                       `pulumi:"httpsOnly"`
+	Identity                    ManagedServiceIdentityResponsePtrOutput    `pulumi:"identity"`
+	IsDefaultContainer          pulumi.BoolOutput                          `pulumi:"isDefaultContainer"`
+	Kind                        pulumi.StringPtrOutput                     `pulumi:"kind"`
+	LastModifiedTimeUtc         pulumi.StringOutput                        `pulumi:"lastModifiedTimeUtc"`
+	Location                    pulumi.StringOutput                        `pulumi:"location"`
+	MaxNumberOfWorkers          pulumi.IntOutput                           `pulumi:"maxNumberOfWorkers"`
+	Name                        pulumi.StringOutput                        `pulumi:"name"`
+	OutboundIpAddresses         pulumi.StringOutput                        `pulumi:"outboundIpAddresses"`
+	PossibleOutboundIpAddresses pulumi.StringOutput                        `pulumi:"possibleOutboundIpAddresses"`
+	RepositorySiteName          pulumi.StringOutput                        `pulumi:"repositorySiteName"`
+	Reserved                    pulumi.BoolPtrOutput                       `pulumi:"reserved"`
+	ResourceGroup               pulumi.StringOutput                        `pulumi:"resourceGroup"`
+	ScmSiteAlsoStopped          pulumi.BoolPtrOutput                       `pulumi:"scmSiteAlsoStopped"`
+	ServerFarmId                pulumi.StringPtrOutput                     `pulumi:"serverFarmId"`
+	SiteConfig                  SiteConfigResponsePtrOutput                `pulumi:"siteConfig"`
+	SlotSwapStatus              SlotSwapStatusResponseOutput               `pulumi:"slotSwapStatus"`
+	State                       pulumi.StringOutput                        `pulumi:"state"`
+	SuspendedTill               pulumi.StringOutput                        `pulumi:"suspendedTill"`
+	Tags                        pulumi.StringMapOutput                     `pulumi:"tags"`
+	TargetSwapSlot              pulumi.StringOutput                        `pulumi:"targetSwapSlot"`
+	TrafficManagerHostNames     pulumi.StringArrayOutput                   `pulumi:"trafficManagerHostNames"`
+	Type                        pulumi.StringOutput                        `pulumi:"type"`
+	UsageState                  pulumi.StringOutput                        `pulumi:"usageState"`
 }
 
 // NewWebAppSlot registers a new resource with the given unique name, arguments, and options.
@@ -222,120 +181,62 @@ func (WebAppSlotState) ElementType() reflect.Type {
 }
 
 type webAppSlotArgs struct {
-	// <code>true</code> to enable client affinity; <code>false</code> to stop sending session affinity cookies, which route client requests in the same session to the same instance. Default is <code>true</code>.
-	ClientAffinityEnabled *bool `pulumi:"clientAffinityEnabled"`
-	// <code>true</code> to enable client certificate authentication (TLS mutual authentication); otherwise, <code>false</code>. Default is <code>false</code>.
-	ClientCertEnabled *bool `pulumi:"clientCertEnabled"`
-	// If specified during app creation, the app is cloned from a source app.
-	CloningInfo *CloningInfo `pulumi:"cloningInfo"`
-	// Size of the function container.
-	ContainerSize *int `pulumi:"containerSize"`
-	// Maximum allowed daily memory-time quota (applicable on dynamic apps only).
-	DailyMemoryTimeQuota *int `pulumi:"dailyMemoryTimeQuota"`
-	// <code>true</code> if the app is enabled; otherwise, <code>false</code>. Setting this value to false disables the app (takes the app offline).
-	Enabled *bool `pulumi:"enabled"`
-	// If true, web app hostname is force registered with DNS.
-	ForceDnsRegistration *bool `pulumi:"forceDnsRegistration"`
-	// Hostname SSL states are used to manage the SSL bindings for app's hostnames.
-	HostNameSslStates []HostNameSslState `pulumi:"hostNameSslStates"`
-	// <code>true</code> to disable the public hostnames of the app; otherwise, <code>false</code>.
-	//  If <code>true</code>, the app is only accessible via API management process.
-	HostNamesDisabled *bool `pulumi:"hostNamesDisabled"`
-	// App Service Environment to use for the app.
-	HostingEnvironmentProfile *HostingEnvironmentProfile `pulumi:"hostingEnvironmentProfile"`
-	// HttpsOnly: configures a web site to accept only https requests. Issues redirect for
-	// http requests
-	HttpsOnly *bool `pulumi:"httpsOnly"`
-	// Managed service identity.
-	Identity *ManagedServiceIdentity `pulumi:"identity"`
-	// Kind of resource.
-	Kind *string `pulumi:"kind"`
-	// Resource Location.
-	Location *string `pulumi:"location"`
-	// Unique name of the app to create or update. To create or update a deployment slot, use the {slot} parameter.
-	Name string `pulumi:"name"`
-	// <code>true</code> if reserved; otherwise, <code>false</code>.
-	Reserved *bool `pulumi:"reserved"`
-	// Name of the resource group to which the resource belongs.
-	ResourceGroupName string `pulumi:"resourceGroupName"`
-	// <code>true</code> to stop SCM (KUDU) site when the app is stopped; otherwise, <code>false</code>. The default is <code>false</code>.
-	ScmSiteAlsoStopped *bool `pulumi:"scmSiteAlsoStopped"`
-	// Resource ID of the associated App Service plan, formatted as: "/subscriptions/{subscriptionID}/resourceGroups/{groupName}/providers/Microsoft.Web/serverfarms/{appServicePlanName}".
-	ServerFarmId *string `pulumi:"serverFarmId"`
-	// Configuration of the app.
-	SiteConfig *SiteConfig `pulumi:"siteConfig"`
-	// If true, custom (non *.azurewebsites.net) domains associated with web app are not verified.
-	SkipCustomDomainVerification *bool `pulumi:"skipCustomDomainVerification"`
-	// If true web app hostname is not registered with DNS on creation. This parameter is
-	//  only used for app creation.
-	SkipDnsRegistration *bool `pulumi:"skipDnsRegistration"`
-	// Name of the deployment slot to create or update. By default, this API attempts to create or modify the production slot.
-	Slot *string `pulumi:"slot"`
-	// If specified during app creation, the app is created from a previous snapshot.
-	SnapshotInfo *SnapshotRecoveryRequest `pulumi:"snapshotInfo"`
-	// Resource tags.
-	Tags map[string]string `pulumi:"tags"`
-	// Time to live in seconds for web app's default domain name.
-	TtlInSeconds *string `pulumi:"ttlInSeconds"`
+	ClientAffinityEnabled        *bool                      `pulumi:"clientAffinityEnabled"`
+	ClientCertEnabled            *bool                      `pulumi:"clientCertEnabled"`
+	CloningInfo                  *CloningInfo               `pulumi:"cloningInfo"`
+	ContainerSize                *int                       `pulumi:"containerSize"`
+	DailyMemoryTimeQuota         *int                       `pulumi:"dailyMemoryTimeQuota"`
+	Enabled                      *bool                      `pulumi:"enabled"`
+	ForceDnsRegistration         *bool                      `pulumi:"forceDnsRegistration"`
+	HostNameSslStates            []HostNameSslState         `pulumi:"hostNameSslStates"`
+	HostNamesDisabled            *bool                      `pulumi:"hostNamesDisabled"`
+	HostingEnvironmentProfile    *HostingEnvironmentProfile `pulumi:"hostingEnvironmentProfile"`
+	HttpsOnly                    *bool                      `pulumi:"httpsOnly"`
+	Identity                     *ManagedServiceIdentity    `pulumi:"identity"`
+	Kind                         *string                    `pulumi:"kind"`
+	Location                     *string                    `pulumi:"location"`
+	Name                         string                     `pulumi:"name"`
+	Reserved                     *bool                      `pulumi:"reserved"`
+	ResourceGroupName            string                     `pulumi:"resourceGroupName"`
+	ScmSiteAlsoStopped           *bool                      `pulumi:"scmSiteAlsoStopped"`
+	ServerFarmId                 *string                    `pulumi:"serverFarmId"`
+	SiteConfig                   *SiteConfig                `pulumi:"siteConfig"`
+	SkipCustomDomainVerification *bool                      `pulumi:"skipCustomDomainVerification"`
+	SkipDnsRegistration          *bool                      `pulumi:"skipDnsRegistration"`
+	Slot                         *string                    `pulumi:"slot"`
+	SnapshotInfo                 *SnapshotRecoveryRequest   `pulumi:"snapshotInfo"`
+	Tags                         map[string]string          `pulumi:"tags"`
+	TtlInSeconds                 *string                    `pulumi:"ttlInSeconds"`
 }
 
 // The set of arguments for constructing a WebAppSlot resource.
 type WebAppSlotArgs struct {
-	// <code>true</code> to enable client affinity; <code>false</code> to stop sending session affinity cookies, which route client requests in the same session to the same instance. Default is <code>true</code>.
-	ClientAffinityEnabled pulumi.BoolPtrInput
-	// <code>true</code> to enable client certificate authentication (TLS mutual authentication); otherwise, <code>false</code>. Default is <code>false</code>.
-	ClientCertEnabled pulumi.BoolPtrInput
-	// If specified during app creation, the app is cloned from a source app.
-	CloningInfo CloningInfoPtrInput
-	// Size of the function container.
-	ContainerSize pulumi.IntPtrInput
-	// Maximum allowed daily memory-time quota (applicable on dynamic apps only).
-	DailyMemoryTimeQuota pulumi.IntPtrInput
-	// <code>true</code> if the app is enabled; otherwise, <code>false</code>. Setting this value to false disables the app (takes the app offline).
-	Enabled pulumi.BoolPtrInput
-	// If true, web app hostname is force registered with DNS.
-	ForceDnsRegistration pulumi.BoolPtrInput
-	// Hostname SSL states are used to manage the SSL bindings for app's hostnames.
-	HostNameSslStates HostNameSslStateArrayInput
-	// <code>true</code> to disable the public hostnames of the app; otherwise, <code>false</code>.
-	//  If <code>true</code>, the app is only accessible via API management process.
-	HostNamesDisabled pulumi.BoolPtrInput
-	// App Service Environment to use for the app.
-	HostingEnvironmentProfile HostingEnvironmentProfilePtrInput
-	// HttpsOnly: configures a web site to accept only https requests. Issues redirect for
-	// http requests
-	HttpsOnly pulumi.BoolPtrInput
-	// Managed service identity.
-	Identity ManagedServiceIdentityPtrInput
-	// Kind of resource.
-	Kind pulumi.StringPtrInput
-	// Resource Location.
-	Location pulumi.StringPtrInput
-	// Unique name of the app to create or update. To create or update a deployment slot, use the {slot} parameter.
-	Name pulumi.StringInput
-	// <code>true</code> if reserved; otherwise, <code>false</code>.
-	Reserved pulumi.BoolPtrInput
-	// Name of the resource group to which the resource belongs.
-	ResourceGroupName pulumi.StringInput
-	// <code>true</code> to stop SCM (KUDU) site when the app is stopped; otherwise, <code>false</code>. The default is <code>false</code>.
-	ScmSiteAlsoStopped pulumi.BoolPtrInput
-	// Resource ID of the associated App Service plan, formatted as: "/subscriptions/{subscriptionID}/resourceGroups/{groupName}/providers/Microsoft.Web/serverfarms/{appServicePlanName}".
-	ServerFarmId pulumi.StringPtrInput
-	// Configuration of the app.
-	SiteConfig SiteConfigPtrInput
-	// If true, custom (non *.azurewebsites.net) domains associated with web app are not verified.
+	ClientAffinityEnabled        pulumi.BoolPtrInput
+	ClientCertEnabled            pulumi.BoolPtrInput
+	CloningInfo                  CloningInfoPtrInput
+	ContainerSize                pulumi.IntPtrInput
+	DailyMemoryTimeQuota         pulumi.IntPtrInput
+	Enabled                      pulumi.BoolPtrInput
+	ForceDnsRegistration         pulumi.BoolPtrInput
+	HostNameSslStates            HostNameSslStateArrayInput
+	HostNamesDisabled            pulumi.BoolPtrInput
+	HostingEnvironmentProfile    HostingEnvironmentProfilePtrInput
+	HttpsOnly                    pulumi.BoolPtrInput
+	Identity                     ManagedServiceIdentityPtrInput
+	Kind                         pulumi.StringPtrInput
+	Location                     pulumi.StringPtrInput
+	Name                         pulumi.StringInput
+	Reserved                     pulumi.BoolPtrInput
+	ResourceGroupName            pulumi.StringInput
+	ScmSiteAlsoStopped           pulumi.BoolPtrInput
+	ServerFarmId                 pulumi.StringPtrInput
+	SiteConfig                   SiteConfigPtrInput
 	SkipCustomDomainVerification pulumi.BoolPtrInput
-	// If true web app hostname is not registered with DNS on creation. This parameter is
-	//  only used for app creation.
-	SkipDnsRegistration pulumi.BoolPtrInput
-	// Name of the deployment slot to create or update. By default, this API attempts to create or modify the production slot.
-	Slot pulumi.StringPtrInput
-	// If specified during app creation, the app is created from a previous snapshot.
-	SnapshotInfo SnapshotRecoveryRequestPtrInput
-	// Resource tags.
-	Tags pulumi.StringMapInput
-	// Time to live in seconds for web app's default domain name.
-	TtlInSeconds pulumi.StringPtrInput
+	SkipDnsRegistration          pulumi.BoolPtrInput
+	Slot                         pulumi.StringPtrInput
+	SnapshotInfo                 SnapshotRecoveryRequestPtrInput
+	Tags                         pulumi.StringMapInput
+	TtlInSeconds                 pulumi.StringPtrInput
 }
 
 func (WebAppSlotArgs) ElementType() reflect.Type {
@@ -361,9 +262,7 @@ func (i *WebAppSlot) ToWebAppSlotOutputWithContext(ctx context.Context) WebAppSl
 	return pulumi.ToOutputWithContext(ctx, i).(WebAppSlotOutput)
 }
 
-type WebAppSlotOutput struct {
-	*pulumi.OutputState
-}
+type WebAppSlotOutput struct{ *pulumi.OutputState }
 
 func (WebAppSlotOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*WebAppSlot)(nil))

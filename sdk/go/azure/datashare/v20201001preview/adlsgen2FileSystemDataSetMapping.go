@@ -11,33 +11,20 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// An ADLS Gen2 file system data set mapping.
 type ADLSGen2FileSystemDataSetMapping struct {
 	pulumi.CustomResourceState
 
-	// The id of the source data set.
-	DataSetId pulumi.StringOutput `pulumi:"dataSetId"`
-	// Gets the status of the data set mapping.
-	DataSetMappingStatus pulumi.StringOutput `pulumi:"dataSetMappingStatus"`
-	// The file system name.
-	FileSystem pulumi.StringOutput `pulumi:"fileSystem"`
-	// Kind of data set mapping.
-	// Expected value is 'AdlsGen2FileSystem'.
-	Kind pulumi.StringOutput `pulumi:"kind"`
-	// Name of the azure resource
-	Name pulumi.StringOutput `pulumi:"name"`
-	// Provisioning state of the data set mapping.
-	ProvisioningState pulumi.StringOutput `pulumi:"provisioningState"`
-	// Resource group of storage account.
-	ResourceGroup pulumi.StringOutput `pulumi:"resourceGroup"`
-	// Storage account name of the source data set.
-	StorageAccountName pulumi.StringOutput `pulumi:"storageAccountName"`
-	// Subscription id of storage account.
-	SubscriptionId pulumi.StringOutput `pulumi:"subscriptionId"`
-	// System Data of the Azure resource.
-	SystemData SystemDataResponseOutput `pulumi:"systemData"`
-	// Type of the azure resource
-	Type pulumi.StringOutput `pulumi:"type"`
+	DataSetId            pulumi.StringOutput      `pulumi:"dataSetId"`
+	DataSetMappingStatus pulumi.StringOutput      `pulumi:"dataSetMappingStatus"`
+	FileSystem           pulumi.StringOutput      `pulumi:"fileSystem"`
+	Kind                 pulumi.StringOutput      `pulumi:"kind"`
+	Name                 pulumi.StringOutput      `pulumi:"name"`
+	ProvisioningState    pulumi.StringOutput      `pulumi:"provisioningState"`
+	ResourceGroup        pulumi.StringOutput      `pulumi:"resourceGroup"`
+	StorageAccountName   pulumi.StringOutput      `pulumi:"storageAccountName"`
+	SubscriptionId       pulumi.StringOutput      `pulumi:"subscriptionId"`
+	SystemData           SystemDataResponseOutput `pulumi:"systemData"`
+	Type                 pulumi.StringOutput      `pulumi:"type"`
 }
 
 // NewADLSGen2FileSystemDataSetMapping registers a new resource with the given unique name, arguments, and options.
@@ -137,52 +124,30 @@ func (ADLSGen2FileSystemDataSetMappingState) ElementType() reflect.Type {
 }
 
 type adlsgen2FileSystemDataSetMappingArgs struct {
-	// The name of the share account.
-	AccountName string `pulumi:"accountName"`
-	// The id of the source data set.
-	DataSetId string `pulumi:"dataSetId"`
-	// The name of the data set mapping to be created.
-	DataSetMappingName *string `pulumi:"dataSetMappingName"`
-	// The file system name.
-	FileSystem string `pulumi:"fileSystem"`
-	// Kind of data set mapping.
-	// Expected value is 'AdlsGen2FileSystem'.
-	Kind string `pulumi:"kind"`
-	// Resource group of storage account.
-	ResourceGroup string `pulumi:"resourceGroup"`
-	// The resource group name.
-	ResourceGroupName string `pulumi:"resourceGroupName"`
-	// The name of the share subscription which will hold the data set sink.
-	ShareSubscriptionName string `pulumi:"shareSubscriptionName"`
-	// Storage account name of the source data set.
-	StorageAccountName string `pulumi:"storageAccountName"`
-	// Subscription id of storage account.
-	SubscriptionId string `pulumi:"subscriptionId"`
+	AccountName           string  `pulumi:"accountName"`
+	DataSetId             string  `pulumi:"dataSetId"`
+	DataSetMappingName    *string `pulumi:"dataSetMappingName"`
+	FileSystem            string  `pulumi:"fileSystem"`
+	Kind                  string  `pulumi:"kind"`
+	ResourceGroup         string  `pulumi:"resourceGroup"`
+	ResourceGroupName     string  `pulumi:"resourceGroupName"`
+	ShareSubscriptionName string  `pulumi:"shareSubscriptionName"`
+	StorageAccountName    string  `pulumi:"storageAccountName"`
+	SubscriptionId        string  `pulumi:"subscriptionId"`
 }
 
 // The set of arguments for constructing a ADLSGen2FileSystemDataSetMapping resource.
 type ADLSGen2FileSystemDataSetMappingArgs struct {
-	// The name of the share account.
-	AccountName pulumi.StringInput
-	// The id of the source data set.
-	DataSetId pulumi.StringInput
-	// The name of the data set mapping to be created.
-	DataSetMappingName pulumi.StringPtrInput
-	// The file system name.
-	FileSystem pulumi.StringInput
-	// Kind of data set mapping.
-	// Expected value is 'AdlsGen2FileSystem'.
-	Kind pulumi.StringInput
-	// Resource group of storage account.
-	ResourceGroup pulumi.StringInput
-	// The resource group name.
-	ResourceGroupName pulumi.StringInput
-	// The name of the share subscription which will hold the data set sink.
+	AccountName           pulumi.StringInput
+	DataSetId             pulumi.StringInput
+	DataSetMappingName    pulumi.StringPtrInput
+	FileSystem            pulumi.StringInput
+	Kind                  pulumi.StringInput
+	ResourceGroup         pulumi.StringInput
+	ResourceGroupName     pulumi.StringInput
 	ShareSubscriptionName pulumi.StringInput
-	// Storage account name of the source data set.
-	StorageAccountName pulumi.StringInput
-	// Subscription id of storage account.
-	SubscriptionId pulumi.StringInput
+	StorageAccountName    pulumi.StringInput
+	SubscriptionId        pulumi.StringInput
 }
 
 func (ADLSGen2FileSystemDataSetMappingArgs) ElementType() reflect.Type {
@@ -208,9 +173,7 @@ func (i *ADLSGen2FileSystemDataSetMapping) ToADLSGen2FileSystemDataSetMappingOut
 	return pulumi.ToOutputWithContext(ctx, i).(ADLSGen2FileSystemDataSetMappingOutput)
 }
 
-type ADLSGen2FileSystemDataSetMappingOutput struct {
-	*pulumi.OutputState
-}
+type ADLSGen2FileSystemDataSetMappingOutput struct{ *pulumi.OutputState }
 
 func (ADLSGen2FileSystemDataSetMappingOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*ADLSGen2FileSystemDataSetMapping)(nil))

@@ -7,7 +7,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// disk encryption set resource.
 func LookupDiskEncryptionSet(ctx *pulumi.Context, args *LookupDiskEncryptionSetArgs, opts ...pulumi.InvokeOption) (*LookupDiskEncryptionSetResult, error) {
 	var rv LookupDiskEncryptionSetResult
 	err := ctx.Invoke("azure-native:compute/v20210401:getDiskEncryptionSet", args, &rv, opts...)
@@ -18,38 +17,23 @@ func LookupDiskEncryptionSet(ctx *pulumi.Context, args *LookupDiskEncryptionSetA
 }
 
 type LookupDiskEncryptionSetArgs struct {
-	// The name of the disk encryption set that is being created. The name can't be changed after the disk encryption set is created. Supported characters for the name are a-z, A-Z, 0-9, _ and -. The maximum name length is 80 characters.
 	DiskEncryptionSetName string `pulumi:"diskEncryptionSetName"`
-	// The name of the resource group.
-	ResourceGroupName string `pulumi:"resourceGroupName"`
+	ResourceGroupName     string `pulumi:"resourceGroupName"`
 }
 
 // disk encryption set resource.
 type LookupDiskEncryptionSetResult struct {
-	// The key vault key which is currently used by this disk encryption set.
-	ActiveKey *KeyForDiskEncryptionSetResponse `pulumi:"activeKey"`
-	// The error that was encountered during auto-key rotation. If an error is present, then auto-key rotation will not be attempted until the error on this disk encryption set is fixed.
-	AutoKeyRotationError ApiErrorResponse `pulumi:"autoKeyRotationError"`
-	// The type of key used to encrypt the data of the disk.
-	EncryptionType *string `pulumi:"encryptionType"`
-	// Resource Id
-	Id string `pulumi:"id"`
-	// The managed identity for the disk encryption set. It should be given permission on the key vault before it can be used to encrypt disks.
-	Identity *EncryptionSetIdentityResponse `pulumi:"identity"`
-	// The time when the active key of this disk encryption set was updated.
-	LastKeyRotationTimestamp string `pulumi:"lastKeyRotationTimestamp"`
-	// Resource location
-	Location string `pulumi:"location"`
-	// Resource name
-	Name string `pulumi:"name"`
-	// A readonly collection of key vault keys previously used by this disk encryption set while a key rotation is in progress. It will be empty if there is no ongoing key rotation.
-	PreviousKeys []KeyForDiskEncryptionSetResponse `pulumi:"previousKeys"`
-	// The disk encryption set provisioning state.
-	ProvisioningState string `pulumi:"provisioningState"`
-	// Set this flag to true to enable auto-updating of this disk encryption set to the latest key version.
-	RotationToLatestKeyVersionEnabled *bool `pulumi:"rotationToLatestKeyVersionEnabled"`
-	// Resource tags
-	Tags map[string]string `pulumi:"tags"`
-	// Resource type
-	Type string `pulumi:"type"`
+	ActiveKey                         *KeyForDiskEncryptionSetResponse  `pulumi:"activeKey"`
+	AutoKeyRotationError              ApiErrorResponse                  `pulumi:"autoKeyRotationError"`
+	EncryptionType                    *string                           `pulumi:"encryptionType"`
+	Id                                string                            `pulumi:"id"`
+	Identity                          *EncryptionSetIdentityResponse    `pulumi:"identity"`
+	LastKeyRotationTimestamp          string                            `pulumi:"lastKeyRotationTimestamp"`
+	Location                          string                            `pulumi:"location"`
+	Name                              string                            `pulumi:"name"`
+	PreviousKeys                      []KeyForDiskEncryptionSetResponse `pulumi:"previousKeys"`
+	ProvisioningState                 string                            `pulumi:"provisioningState"`
+	RotationToLatestKeyVersionEnabled *bool                             `pulumi:"rotationToLatestKeyVersionEnabled"`
+	Tags                              map[string]string                 `pulumi:"tags"`
+	Type                              string                            `pulumi:"type"`
 }

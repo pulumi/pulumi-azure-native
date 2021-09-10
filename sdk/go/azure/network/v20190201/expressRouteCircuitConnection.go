@@ -11,26 +11,17 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Express Route Circuit Connection in an ExpressRouteCircuitPeering resource.
 type ExpressRouteCircuitConnection struct {
 	pulumi.CustomResourceState
 
-	// /29 IP address space to carve out Customer addresses for tunnels.
-	AddressPrefix pulumi.StringPtrOutput `pulumi:"addressPrefix"`
-	// The authorization key.
-	AuthorizationKey pulumi.StringPtrOutput `pulumi:"authorizationKey"`
-	// Express Route Circuit connection state.
-	CircuitConnectionStatus pulumi.StringOutput `pulumi:"circuitConnectionStatus"`
-	// A unique read-only string that changes whenever the resource is updated.
-	Etag pulumi.StringOutput `pulumi:"etag"`
-	// Reference to Express Route Circuit Private Peering Resource of the circuit initiating connection.
-	ExpressRouteCircuitPeering SubResourceResponsePtrOutput `pulumi:"expressRouteCircuitPeering"`
-	// Gets name of the resource that is unique within a resource group. This name can be used to access the resource.
-	Name pulumi.StringPtrOutput `pulumi:"name"`
-	// Reference to Express Route Circuit Private Peering Resource of the peered circuit.
+	AddressPrefix                  pulumi.StringPtrOutput       `pulumi:"addressPrefix"`
+	AuthorizationKey               pulumi.StringPtrOutput       `pulumi:"authorizationKey"`
+	CircuitConnectionStatus        pulumi.StringOutput          `pulumi:"circuitConnectionStatus"`
+	Etag                           pulumi.StringOutput          `pulumi:"etag"`
+	ExpressRouteCircuitPeering     SubResourceResponsePtrOutput `pulumi:"expressRouteCircuitPeering"`
+	Name                           pulumi.StringPtrOutput       `pulumi:"name"`
 	PeerExpressRouteCircuitPeering SubResourceResponsePtrOutput `pulumi:"peerExpressRouteCircuitPeering"`
-	// Provisioning state of the circuit connection resource. Possible values are: 'Succeeded', 'Updating', 'Deleting', and 'Failed'.
-	ProvisioningState pulumi.StringOutput `pulumi:"provisioningState"`
+	ProvisioningState              pulumi.StringOutput          `pulumi:"provisioningState"`
 }
 
 // NewExpressRouteCircuitConnection registers a new resource with the given unique name, arguments, and options.
@@ -237,50 +228,30 @@ func (ExpressRouteCircuitConnectionState) ElementType() reflect.Type {
 }
 
 type expressRouteCircuitConnectionArgs struct {
-	// /29 IP address space to carve out Customer addresses for tunnels.
-	AddressPrefix *string `pulumi:"addressPrefix"`
-	// The authorization key.
-	AuthorizationKey *string `pulumi:"authorizationKey"`
-	// The name of the express route circuit.
-	CircuitName string `pulumi:"circuitName"`
-	// The name of the express route circuit connection.
-	ConnectionName *string `pulumi:"connectionName"`
-	// Reference to Express Route Circuit Private Peering Resource of the circuit initiating connection.
-	ExpressRouteCircuitPeering *SubResource `pulumi:"expressRouteCircuitPeering"`
-	// Resource ID.
-	Id *string `pulumi:"id"`
-	// Gets name of the resource that is unique within a resource group. This name can be used to access the resource.
-	Name *string `pulumi:"name"`
-	// Reference to Express Route Circuit Private Peering Resource of the peered circuit.
+	AddressPrefix                  *string      `pulumi:"addressPrefix"`
+	AuthorizationKey               *string      `pulumi:"authorizationKey"`
+	CircuitName                    string       `pulumi:"circuitName"`
+	ConnectionName                 *string      `pulumi:"connectionName"`
+	ExpressRouteCircuitPeering     *SubResource `pulumi:"expressRouteCircuitPeering"`
+	Id                             *string      `pulumi:"id"`
+	Name                           *string      `pulumi:"name"`
 	PeerExpressRouteCircuitPeering *SubResource `pulumi:"peerExpressRouteCircuitPeering"`
-	// The name of the peering.
-	PeeringName string `pulumi:"peeringName"`
-	// The name of the resource group.
-	ResourceGroupName string `pulumi:"resourceGroupName"`
+	PeeringName                    string       `pulumi:"peeringName"`
+	ResourceGroupName              string       `pulumi:"resourceGroupName"`
 }
 
 // The set of arguments for constructing a ExpressRouteCircuitConnection resource.
 type ExpressRouteCircuitConnectionArgs struct {
-	// /29 IP address space to carve out Customer addresses for tunnels.
-	AddressPrefix pulumi.StringPtrInput
-	// The authorization key.
-	AuthorizationKey pulumi.StringPtrInput
-	// The name of the express route circuit.
-	CircuitName pulumi.StringInput
-	// The name of the express route circuit connection.
-	ConnectionName pulumi.StringPtrInput
-	// Reference to Express Route Circuit Private Peering Resource of the circuit initiating connection.
-	ExpressRouteCircuitPeering SubResourcePtrInput
-	// Resource ID.
-	Id pulumi.StringPtrInput
-	// Gets name of the resource that is unique within a resource group. This name can be used to access the resource.
-	Name pulumi.StringPtrInput
-	// Reference to Express Route Circuit Private Peering Resource of the peered circuit.
+	AddressPrefix                  pulumi.StringPtrInput
+	AuthorizationKey               pulumi.StringPtrInput
+	CircuitName                    pulumi.StringInput
+	ConnectionName                 pulumi.StringPtrInput
+	ExpressRouteCircuitPeering     SubResourcePtrInput
+	Id                             pulumi.StringPtrInput
+	Name                           pulumi.StringPtrInput
 	PeerExpressRouteCircuitPeering SubResourcePtrInput
-	// The name of the peering.
-	PeeringName pulumi.StringInput
-	// The name of the resource group.
-	ResourceGroupName pulumi.StringInput
+	PeeringName                    pulumi.StringInput
+	ResourceGroupName              pulumi.StringInput
 }
 
 func (ExpressRouteCircuitConnectionArgs) ElementType() reflect.Type {
@@ -306,9 +277,7 @@ func (i *ExpressRouteCircuitConnection) ToExpressRouteCircuitConnectionOutputWit
 	return pulumi.ToOutputWithContext(ctx, i).(ExpressRouteCircuitConnectionOutput)
 }
 
-type ExpressRouteCircuitConnectionOutput struct {
-	*pulumi.OutputState
-}
+type ExpressRouteCircuitConnectionOutput struct{ *pulumi.OutputState }
 
 func (ExpressRouteCircuitConnectionOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*ExpressRouteCircuitConnection)(nil))

@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.Web.V20201201.Outputs
 {
 
+    /// <summary>
+    /// The GitHub action container configuration.
+    /// </summary>
     [OutputType]
     public sealed class GitHubActionContainerConfigurationResponse
     {

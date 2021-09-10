@@ -187,9 +187,7 @@ func (i *DscConfiguration) ToDscConfigurationOutputWithContext(ctx context.Conte
 	return pulumi.ToOutputWithContext(ctx, i).(DscConfigurationOutput)
 }
 
-type DscConfigurationOutput struct {
-	*pulumi.OutputState
-}
+type DscConfigurationOutput struct{ *pulumi.OutputState }
 
 func (DscConfigurationOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*DscConfiguration)(nil))

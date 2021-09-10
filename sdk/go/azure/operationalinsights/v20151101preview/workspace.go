@@ -11,32 +11,20 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// The top level Workspace resource container.
 type Workspace struct {
 	pulumi.CustomResourceState
 
-	// This is a read-only property. Represents the ID associated with the workspace.
-	CustomerId pulumi.StringOutput `pulumi:"customerId"`
-	// The ETag of the workspace.
-	ETag pulumi.StringPtrOutput `pulumi:"eTag"`
-	// Resource location
-	Location pulumi.StringPtrOutput `pulumi:"location"`
-	// Resource name
-	Name pulumi.StringOutput `pulumi:"name"`
-	// This is a legacy property and is not used anymore. Kept here for backward compatibility.
-	PortalUrl pulumi.StringOutput `pulumi:"portalUrl"`
-	// The provisioning state of the workspace.
+	CustomerId        pulumi.StringOutput    `pulumi:"customerId"`
+	ETag              pulumi.StringPtrOutput `pulumi:"eTag"`
+	Location          pulumi.StringPtrOutput `pulumi:"location"`
+	Name              pulumi.StringOutput    `pulumi:"name"`
+	PortalUrl         pulumi.StringOutput    `pulumi:"portalUrl"`
 	ProvisioningState pulumi.StringPtrOutput `pulumi:"provisioningState"`
-	// The workspace data retention in days. -1 means Unlimited retention for the Unlimited Sku. 730 days is the maximum allowed for all other Skus.
-	RetentionInDays pulumi.IntPtrOutput `pulumi:"retentionInDays"`
-	// The SKU of the workspace.
-	Sku SkuResponsePtrOutput `pulumi:"sku"`
-	// This is a read-only legacy property. It is always set to 'Azure' by the service. Kept here for backward compatibility.
-	Source pulumi.StringOutput `pulumi:"source"`
-	// Resource tags
-	Tags pulumi.StringMapOutput `pulumi:"tags"`
-	// Resource type
-	Type pulumi.StringOutput `pulumi:"type"`
+	RetentionInDays   pulumi.IntPtrOutput    `pulumi:"retentionInDays"`
+	Sku               SkuResponsePtrOutput   `pulumi:"sku"`
+	Source            pulumi.StringOutput    `pulumi:"source"`
+	Tags              pulumi.StringMapOutput `pulumi:"tags"`
+	Type              pulumi.StringOutput    `pulumi:"type"`
 }
 
 // NewWorkspace registers a new resource with the given unique name, arguments, and options.
@@ -117,42 +105,26 @@ func (WorkspaceState) ElementType() reflect.Type {
 }
 
 type workspaceArgs struct {
-	// The ETag of the workspace.
-	ETag *string `pulumi:"eTag"`
-	// Resource location
-	Location *string `pulumi:"location"`
-	// The provisioning state of the workspace.
-	ProvisioningState *string `pulumi:"provisioningState"`
-	// The resource group name of the workspace.
-	ResourceGroupName string `pulumi:"resourceGroupName"`
-	// The workspace data retention in days. -1 means Unlimited retention for the Unlimited Sku. 730 days is the maximum allowed for all other Skus.
-	RetentionInDays *int `pulumi:"retentionInDays"`
-	// The SKU of the workspace.
-	Sku *Sku `pulumi:"sku"`
-	// Resource tags
-	Tags map[string]string `pulumi:"tags"`
-	// The name of the workspace.
-	WorkspaceName *string `pulumi:"workspaceName"`
+	ETag              *string           `pulumi:"eTag"`
+	Location          *string           `pulumi:"location"`
+	ProvisioningState *string           `pulumi:"provisioningState"`
+	ResourceGroupName string            `pulumi:"resourceGroupName"`
+	RetentionInDays   *int              `pulumi:"retentionInDays"`
+	Sku               *Sku              `pulumi:"sku"`
+	Tags              map[string]string `pulumi:"tags"`
+	WorkspaceName     *string           `pulumi:"workspaceName"`
 }
 
 // The set of arguments for constructing a Workspace resource.
 type WorkspaceArgs struct {
-	// The ETag of the workspace.
-	ETag pulumi.StringPtrInput
-	// Resource location
-	Location pulumi.StringPtrInput
-	// The provisioning state of the workspace.
+	ETag              pulumi.StringPtrInput
+	Location          pulumi.StringPtrInput
 	ProvisioningState pulumi.StringPtrInput
-	// The resource group name of the workspace.
 	ResourceGroupName pulumi.StringInput
-	// The workspace data retention in days. -1 means Unlimited retention for the Unlimited Sku. 730 days is the maximum allowed for all other Skus.
-	RetentionInDays pulumi.IntPtrInput
-	// The SKU of the workspace.
-	Sku SkuPtrInput
-	// Resource tags
-	Tags pulumi.StringMapInput
-	// The name of the workspace.
-	WorkspaceName pulumi.StringPtrInput
+	RetentionInDays   pulumi.IntPtrInput
+	Sku               SkuPtrInput
+	Tags              pulumi.StringMapInput
+	WorkspaceName     pulumi.StringPtrInput
 }
 
 func (WorkspaceArgs) ElementType() reflect.Type {
@@ -178,9 +150,7 @@ func (i *Workspace) ToWorkspaceOutputWithContext(ctx context.Context) WorkspaceO
 	return pulumi.ToOutputWithContext(ctx, i).(WorkspaceOutput)
 }
 
-type WorkspaceOutput struct {
-	*pulumi.OutputState
-}
+type WorkspaceOutput struct{ *pulumi.OutputState }
 
 func (WorkspaceOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*Workspace)(nil))

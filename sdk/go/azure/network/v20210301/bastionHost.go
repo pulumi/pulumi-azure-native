@@ -11,40 +11,24 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Bastion Host resource.
 type BastionHost struct {
 	pulumi.CustomResourceState
 
-	// Enable/Disable Copy/Paste feature of the Bastion Host resource.
-	DisableCopyPaste pulumi.BoolPtrOutput `pulumi:"disableCopyPaste"`
-	// FQDN for the endpoint on which bastion host is accessible.
-	DnsName pulumi.StringPtrOutput `pulumi:"dnsName"`
-	// Enable/Disable File Copy feature of the Bastion Host resource.
-	EnableFileCopy pulumi.BoolPtrOutput `pulumi:"enableFileCopy"`
-	// Enable/Disable IP Connect feature of the Bastion Host resource.
-	EnableIpConnect pulumi.BoolPtrOutput `pulumi:"enableIpConnect"`
-	// Enable/Disable Shareable Link of the Bastion Host resource.
-	EnableShareableLink pulumi.BoolPtrOutput `pulumi:"enableShareableLink"`
-	// Enable/Disable Tunneling feature of the Bastion Host resource.
-	EnableTunneling pulumi.BoolPtrOutput `pulumi:"enableTunneling"`
-	// A unique read-only string that changes whenever the resource is updated.
-	Etag pulumi.StringOutput `pulumi:"etag"`
-	// IP configuration of the Bastion Host resource.
-	IpConfigurations BastionHostIPConfigurationResponseArrayOutput `pulumi:"ipConfigurations"`
-	// Resource location.
-	Location pulumi.StringPtrOutput `pulumi:"location"`
-	// Resource name.
-	Name pulumi.StringOutput `pulumi:"name"`
-	// The provisioning state of the bastion host resource.
-	ProvisioningState pulumi.StringOutput `pulumi:"provisioningState"`
-	// The scale units for the Bastion Host resource.
-	ScaleUnits pulumi.IntPtrOutput `pulumi:"scaleUnits"`
-	// The sku of this Bastion Host.
-	Sku SkuResponsePtrOutput `pulumi:"sku"`
-	// Resource tags.
-	Tags pulumi.StringMapOutput `pulumi:"tags"`
-	// Resource type.
-	Type pulumi.StringOutput `pulumi:"type"`
+	DisableCopyPaste    pulumi.BoolPtrOutput                          `pulumi:"disableCopyPaste"`
+	DnsName             pulumi.StringPtrOutput                        `pulumi:"dnsName"`
+	EnableFileCopy      pulumi.BoolPtrOutput                          `pulumi:"enableFileCopy"`
+	EnableIpConnect     pulumi.BoolPtrOutput                          `pulumi:"enableIpConnect"`
+	EnableShareableLink pulumi.BoolPtrOutput                          `pulumi:"enableShareableLink"`
+	EnableTunneling     pulumi.BoolPtrOutput                          `pulumi:"enableTunneling"`
+	Etag                pulumi.StringOutput                           `pulumi:"etag"`
+	IpConfigurations    BastionHostIPConfigurationResponseArrayOutput `pulumi:"ipConfigurations"`
+	Location            pulumi.StringPtrOutput                        `pulumi:"location"`
+	Name                pulumi.StringOutput                           `pulumi:"name"`
+	ProvisioningState   pulumi.StringOutput                           `pulumi:"provisioningState"`
+	ScaleUnits          pulumi.IntPtrOutput                           `pulumi:"scaleUnits"`
+	Sku                 SkuResponsePtrOutput                          `pulumi:"sku"`
+	Tags                pulumi.StringMapOutput                        `pulumi:"tags"`
+	Type                pulumi.StringOutput                           `pulumi:"type"`
 }
 
 // NewBastionHost registers a new resource with the given unique name, arguments, and options.
@@ -206,66 +190,38 @@ func (BastionHostState) ElementType() reflect.Type {
 }
 
 type bastionHostArgs struct {
-	// The name of the Bastion Host.
-	BastionHostName *string `pulumi:"bastionHostName"`
-	// Enable/Disable Copy/Paste feature of the Bastion Host resource.
-	DisableCopyPaste *bool `pulumi:"disableCopyPaste"`
-	// FQDN for the endpoint on which bastion host is accessible.
-	DnsName *string `pulumi:"dnsName"`
-	// Enable/Disable File Copy feature of the Bastion Host resource.
-	EnableFileCopy *bool `pulumi:"enableFileCopy"`
-	// Enable/Disable IP Connect feature of the Bastion Host resource.
-	EnableIpConnect *bool `pulumi:"enableIpConnect"`
-	// Enable/Disable Shareable Link of the Bastion Host resource.
-	EnableShareableLink *bool `pulumi:"enableShareableLink"`
-	// Enable/Disable Tunneling feature of the Bastion Host resource.
-	EnableTunneling *bool `pulumi:"enableTunneling"`
-	// Resource ID.
-	Id *string `pulumi:"id"`
-	// IP configuration of the Bastion Host resource.
-	IpConfigurations []BastionHostIPConfiguration `pulumi:"ipConfigurations"`
-	// Resource location.
-	Location *string `pulumi:"location"`
-	// The name of the resource group.
-	ResourceGroupName string `pulumi:"resourceGroupName"`
-	// The scale units for the Bastion Host resource.
-	ScaleUnits *int `pulumi:"scaleUnits"`
-	// The sku of this Bastion Host.
-	Sku *Sku `pulumi:"sku"`
-	// Resource tags.
-	Tags map[string]string `pulumi:"tags"`
+	BastionHostName     *string                      `pulumi:"bastionHostName"`
+	DisableCopyPaste    *bool                        `pulumi:"disableCopyPaste"`
+	DnsName             *string                      `pulumi:"dnsName"`
+	EnableFileCopy      *bool                        `pulumi:"enableFileCopy"`
+	EnableIpConnect     *bool                        `pulumi:"enableIpConnect"`
+	EnableShareableLink *bool                        `pulumi:"enableShareableLink"`
+	EnableTunneling     *bool                        `pulumi:"enableTunneling"`
+	Id                  *string                      `pulumi:"id"`
+	IpConfigurations    []BastionHostIPConfiguration `pulumi:"ipConfigurations"`
+	Location            *string                      `pulumi:"location"`
+	ResourceGroupName   string                       `pulumi:"resourceGroupName"`
+	ScaleUnits          *int                         `pulumi:"scaleUnits"`
+	Sku                 *Sku                         `pulumi:"sku"`
+	Tags                map[string]string            `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a BastionHost resource.
 type BastionHostArgs struct {
-	// The name of the Bastion Host.
-	BastionHostName pulumi.StringPtrInput
-	// Enable/Disable Copy/Paste feature of the Bastion Host resource.
-	DisableCopyPaste pulumi.BoolPtrInput
-	// FQDN for the endpoint on which bastion host is accessible.
-	DnsName pulumi.StringPtrInput
-	// Enable/Disable File Copy feature of the Bastion Host resource.
-	EnableFileCopy pulumi.BoolPtrInput
-	// Enable/Disable IP Connect feature of the Bastion Host resource.
-	EnableIpConnect pulumi.BoolPtrInput
-	// Enable/Disable Shareable Link of the Bastion Host resource.
+	BastionHostName     pulumi.StringPtrInput
+	DisableCopyPaste    pulumi.BoolPtrInput
+	DnsName             pulumi.StringPtrInput
+	EnableFileCopy      pulumi.BoolPtrInput
+	EnableIpConnect     pulumi.BoolPtrInput
 	EnableShareableLink pulumi.BoolPtrInput
-	// Enable/Disable Tunneling feature of the Bastion Host resource.
-	EnableTunneling pulumi.BoolPtrInput
-	// Resource ID.
-	Id pulumi.StringPtrInput
-	// IP configuration of the Bastion Host resource.
-	IpConfigurations BastionHostIPConfigurationArrayInput
-	// Resource location.
-	Location pulumi.StringPtrInput
-	// The name of the resource group.
-	ResourceGroupName pulumi.StringInput
-	// The scale units for the Bastion Host resource.
-	ScaleUnits pulumi.IntPtrInput
-	// The sku of this Bastion Host.
-	Sku SkuPtrInput
-	// Resource tags.
-	Tags pulumi.StringMapInput
+	EnableTunneling     pulumi.BoolPtrInput
+	Id                  pulumi.StringPtrInput
+	IpConfigurations    BastionHostIPConfigurationArrayInput
+	Location            pulumi.StringPtrInput
+	ResourceGroupName   pulumi.StringInput
+	ScaleUnits          pulumi.IntPtrInput
+	Sku                 SkuPtrInput
+	Tags                pulumi.StringMapInput
 }
 
 func (BastionHostArgs) ElementType() reflect.Type {
@@ -291,9 +247,7 @@ func (i *BastionHost) ToBastionHostOutputWithContext(ctx context.Context) Bastio
 	return pulumi.ToOutputWithContext(ctx, i).(BastionHostOutput)
 }
 
-type BastionHostOutput struct {
-	*pulumi.OutputState
-}
+type BastionHostOutput struct{ *pulumi.OutputState }
 
 func (BastionHostOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*BastionHost)(nil))

@@ -11,22 +11,15 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Workspace active directory administrator
 type WorkspaceAadAdmin struct {
 	pulumi.CustomResourceState
 
-	// Workspace active directory administrator type
 	AdministratorType pulumi.StringPtrOutput `pulumi:"administratorType"`
-	// Login of the workspace active directory administrator
-	Login pulumi.StringPtrOutput `pulumi:"login"`
-	// The name of the resource
-	Name pulumi.StringOutput `pulumi:"name"`
-	// Object ID of the workspace active directory administrator
-	Sid pulumi.StringPtrOutput `pulumi:"sid"`
-	// Tenant ID of the workspace active directory administrator
-	TenantId pulumi.StringPtrOutput `pulumi:"tenantId"`
-	// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
-	Type pulumi.StringOutput `pulumi:"type"`
+	Login             pulumi.StringPtrOutput `pulumi:"login"`
+	Name              pulumi.StringOutput    `pulumi:"name"`
+	Sid               pulumi.StringPtrOutput `pulumi:"sid"`
+	TenantId          pulumi.StringPtrOutput `pulumi:"tenantId"`
+	Type              pulumi.StringOutput    `pulumi:"type"`
 }
 
 // NewWorkspaceAadAdmin registers a new resource with the given unique name, arguments, and options.
@@ -122,34 +115,22 @@ func (WorkspaceAadAdminState) ElementType() reflect.Type {
 }
 
 type workspaceAadAdminArgs struct {
-	// Workspace active directory administrator type
 	AdministratorType *string `pulumi:"administratorType"`
-	// Login of the workspace active directory administrator
-	Login *string `pulumi:"login"`
-	// The name of the resource group. The name is case insensitive.
-	ResourceGroupName string `pulumi:"resourceGroupName"`
-	// Object ID of the workspace active directory administrator
-	Sid *string `pulumi:"sid"`
-	// Tenant ID of the workspace active directory administrator
-	TenantId *string `pulumi:"tenantId"`
-	// The name of the workspace
-	WorkspaceName string `pulumi:"workspaceName"`
+	Login             *string `pulumi:"login"`
+	ResourceGroupName string  `pulumi:"resourceGroupName"`
+	Sid               *string `pulumi:"sid"`
+	TenantId          *string `pulumi:"tenantId"`
+	WorkspaceName     string  `pulumi:"workspaceName"`
 }
 
 // The set of arguments for constructing a WorkspaceAadAdmin resource.
 type WorkspaceAadAdminArgs struct {
-	// Workspace active directory administrator type
 	AdministratorType pulumi.StringPtrInput
-	// Login of the workspace active directory administrator
-	Login pulumi.StringPtrInput
-	// The name of the resource group. The name is case insensitive.
+	Login             pulumi.StringPtrInput
 	ResourceGroupName pulumi.StringInput
-	// Object ID of the workspace active directory administrator
-	Sid pulumi.StringPtrInput
-	// Tenant ID of the workspace active directory administrator
-	TenantId pulumi.StringPtrInput
-	// The name of the workspace
-	WorkspaceName pulumi.StringInput
+	Sid               pulumi.StringPtrInput
+	TenantId          pulumi.StringPtrInput
+	WorkspaceName     pulumi.StringInput
 }
 
 func (WorkspaceAadAdminArgs) ElementType() reflect.Type {
@@ -175,9 +156,7 @@ func (i *WorkspaceAadAdmin) ToWorkspaceAadAdminOutputWithContext(ctx context.Con
 	return pulumi.ToOutputWithContext(ctx, i).(WorkspaceAadAdminOutput)
 }
 
-type WorkspaceAadAdminOutput struct {
-	*pulumi.OutputState
-}
+type WorkspaceAadAdminOutput struct{ *pulumi.OutputState }
 
 func (WorkspaceAadAdminOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*WorkspaceAadAdmin)(nil))

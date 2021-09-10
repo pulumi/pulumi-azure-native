@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.Synapse.V20210601Preview.Outputs
 {
 
+    /// <summary>
+    /// The language extension object.
+    /// </summary>
     [OutputType]
     public sealed class LanguageExtensionResponse
     {

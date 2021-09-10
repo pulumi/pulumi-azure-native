@@ -11,48 +11,28 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Description of subscription resource.
 type Subscription struct {
 	pulumi.CustomResourceState
 
-	// Last time there was a receive request to this subscription.
-	AccessedAt pulumi.StringOutput `pulumi:"accessedAt"`
-	// ISO 8061 timeSpan idle interval after which the topic is automatically deleted. The minimum duration is 5 minutes.
-	AutoDeleteOnIdle pulumi.StringPtrOutput `pulumi:"autoDeleteOnIdle"`
-	// Message count details
-	CountDetails MessageCountDetailsResponseOutput `pulumi:"countDetails"`
-	// Exact time the message was created.
-	CreatedAt pulumi.StringOutput `pulumi:"createdAt"`
-	// Value that indicates whether a subscription has dead letter support on filter evaluation exceptions.
-	DeadLetteringOnFilterEvaluationExceptions pulumi.BoolPtrOutput `pulumi:"deadLetteringOnFilterEvaluationExceptions"`
-	// Value that indicates whether a subscription has dead letter support when a message expires.
-	DeadLetteringOnMessageExpiration pulumi.BoolPtrOutput `pulumi:"deadLetteringOnMessageExpiration"`
-	// ISO 8061 Default message timespan to live value. This is the duration after which the message expires, starting from when the message is sent to Service Bus. This is the default value used when TimeToLive is not set on a message itself.
-	DefaultMessageTimeToLive pulumi.StringPtrOutput `pulumi:"defaultMessageTimeToLive"`
-	// ISO 8601 timeSpan structure that defines the duration of the duplicate detection history. The default value is 10 minutes.
-	DuplicateDetectionHistoryTimeWindow pulumi.StringPtrOutput `pulumi:"duplicateDetectionHistoryTimeWindow"`
-	// Value that indicates whether server-side batched operations are enabled.
-	EnableBatchedOperations pulumi.BoolPtrOutput `pulumi:"enableBatchedOperations"`
-	// Queue/Topic name to forward the Dead Letter message
-	ForwardDeadLetteredMessagesTo pulumi.StringPtrOutput `pulumi:"forwardDeadLetteredMessagesTo"`
-	// Queue/Topic name to forward the messages
-	ForwardTo pulumi.StringPtrOutput `pulumi:"forwardTo"`
-	// ISO 8061 lock duration timespan for the subscription. The default value is 1 minute.
-	LockDuration pulumi.StringPtrOutput `pulumi:"lockDuration"`
-	// Number of maximum deliveries.
-	MaxDeliveryCount pulumi.IntPtrOutput `pulumi:"maxDeliveryCount"`
-	// Number of messages.
-	MessageCount pulumi.Float64Output `pulumi:"messageCount"`
-	// Resource name
-	Name pulumi.StringOutput `pulumi:"name"`
-	// Value indicating if a subscription supports the concept of sessions.
-	RequiresSession pulumi.BoolPtrOutput `pulumi:"requiresSession"`
-	// Enumerates the possible values for the status of a messaging entity.
-	Status pulumi.StringPtrOutput `pulumi:"status"`
-	// Resource type
-	Type pulumi.StringOutput `pulumi:"type"`
-	// The exact time the message was updated.
-	UpdatedAt pulumi.StringOutput `pulumi:"updatedAt"`
+	AccessedAt                                pulumi.StringOutput               `pulumi:"accessedAt"`
+	AutoDeleteOnIdle                          pulumi.StringPtrOutput            `pulumi:"autoDeleteOnIdle"`
+	CountDetails                              MessageCountDetailsResponseOutput `pulumi:"countDetails"`
+	CreatedAt                                 pulumi.StringOutput               `pulumi:"createdAt"`
+	DeadLetteringOnFilterEvaluationExceptions pulumi.BoolPtrOutput              `pulumi:"deadLetteringOnFilterEvaluationExceptions"`
+	DeadLetteringOnMessageExpiration          pulumi.BoolPtrOutput              `pulumi:"deadLetteringOnMessageExpiration"`
+	DefaultMessageTimeToLive                  pulumi.StringPtrOutput            `pulumi:"defaultMessageTimeToLive"`
+	DuplicateDetectionHistoryTimeWindow       pulumi.StringPtrOutput            `pulumi:"duplicateDetectionHistoryTimeWindow"`
+	EnableBatchedOperations                   pulumi.BoolPtrOutput              `pulumi:"enableBatchedOperations"`
+	ForwardDeadLetteredMessagesTo             pulumi.StringPtrOutput            `pulumi:"forwardDeadLetteredMessagesTo"`
+	ForwardTo                                 pulumi.StringPtrOutput            `pulumi:"forwardTo"`
+	LockDuration                              pulumi.StringPtrOutput            `pulumi:"lockDuration"`
+	MaxDeliveryCount                          pulumi.IntPtrOutput               `pulumi:"maxDeliveryCount"`
+	MessageCount                              pulumi.Float64Output              `pulumi:"messageCount"`
+	Name                                      pulumi.StringOutput               `pulumi:"name"`
+	RequiresSession                           pulumi.BoolPtrOutput              `pulumi:"requiresSession"`
+	Status                                    pulumi.StringPtrOutput            `pulumi:"status"`
+	Type                                      pulumi.StringOutput               `pulumi:"type"`
+	UpdatedAt                                 pulumi.StringOutput               `pulumi:"updatedAt"`
 }
 
 // NewSubscription registers a new resource with the given unique name, arguments, and options.
@@ -145,74 +125,42 @@ func (SubscriptionState) ElementType() reflect.Type {
 }
 
 type subscriptionArgs struct {
-	// ISO 8061 timeSpan idle interval after which the topic is automatically deleted. The minimum duration is 5 minutes.
-	AutoDeleteOnIdle *string `pulumi:"autoDeleteOnIdle"`
-	// Value that indicates whether a subscription has dead letter support on filter evaluation exceptions.
-	DeadLetteringOnFilterEvaluationExceptions *bool `pulumi:"deadLetteringOnFilterEvaluationExceptions"`
-	// Value that indicates whether a subscription has dead letter support when a message expires.
-	DeadLetteringOnMessageExpiration *bool `pulumi:"deadLetteringOnMessageExpiration"`
-	// ISO 8061 Default message timespan to live value. This is the duration after which the message expires, starting from when the message is sent to Service Bus. This is the default value used when TimeToLive is not set on a message itself.
-	DefaultMessageTimeToLive *string `pulumi:"defaultMessageTimeToLive"`
-	// ISO 8601 timeSpan structure that defines the duration of the duplicate detection history. The default value is 10 minutes.
-	DuplicateDetectionHistoryTimeWindow *string `pulumi:"duplicateDetectionHistoryTimeWindow"`
-	// Value that indicates whether server-side batched operations are enabled.
-	EnableBatchedOperations *bool `pulumi:"enableBatchedOperations"`
-	// Queue/Topic name to forward the Dead Letter message
-	ForwardDeadLetteredMessagesTo *string `pulumi:"forwardDeadLetteredMessagesTo"`
-	// Queue/Topic name to forward the messages
-	ForwardTo *string `pulumi:"forwardTo"`
-	// ISO 8061 lock duration timespan for the subscription. The default value is 1 minute.
-	LockDuration *string `pulumi:"lockDuration"`
-	// Number of maximum deliveries.
-	MaxDeliveryCount *int `pulumi:"maxDeliveryCount"`
-	// The namespace name
-	NamespaceName string `pulumi:"namespaceName"`
-	// Value indicating if a subscription supports the concept of sessions.
-	RequiresSession *bool `pulumi:"requiresSession"`
-	// Name of the Resource group within the Azure subscription.
-	ResourceGroupName string `pulumi:"resourceGroupName"`
-	// Enumerates the possible values for the status of a messaging entity.
-	Status *string `pulumi:"status"`
-	// The subscription name.
-	SubscriptionName *string `pulumi:"subscriptionName"`
-	// The topic name.
-	TopicName string `pulumi:"topicName"`
+	AutoDeleteOnIdle                          *string       `pulumi:"autoDeleteOnIdle"`
+	DeadLetteringOnFilterEvaluationExceptions *bool         `pulumi:"deadLetteringOnFilterEvaluationExceptions"`
+	DeadLetteringOnMessageExpiration          *bool         `pulumi:"deadLetteringOnMessageExpiration"`
+	DefaultMessageTimeToLive                  *string       `pulumi:"defaultMessageTimeToLive"`
+	DuplicateDetectionHistoryTimeWindow       *string       `pulumi:"duplicateDetectionHistoryTimeWindow"`
+	EnableBatchedOperations                   *bool         `pulumi:"enableBatchedOperations"`
+	ForwardDeadLetteredMessagesTo             *string       `pulumi:"forwardDeadLetteredMessagesTo"`
+	ForwardTo                                 *string       `pulumi:"forwardTo"`
+	LockDuration                              *string       `pulumi:"lockDuration"`
+	MaxDeliveryCount                          *int          `pulumi:"maxDeliveryCount"`
+	NamespaceName                             string        `pulumi:"namespaceName"`
+	RequiresSession                           *bool         `pulumi:"requiresSession"`
+	ResourceGroupName                         string        `pulumi:"resourceGroupName"`
+	Status                                    *EntityStatus `pulumi:"status"`
+	SubscriptionName                          *string       `pulumi:"subscriptionName"`
+	TopicName                                 string        `pulumi:"topicName"`
 }
 
 // The set of arguments for constructing a Subscription resource.
 type SubscriptionArgs struct {
-	// ISO 8061 timeSpan idle interval after which the topic is automatically deleted. The minimum duration is 5 minutes.
-	AutoDeleteOnIdle pulumi.StringPtrInput
-	// Value that indicates whether a subscription has dead letter support on filter evaluation exceptions.
+	AutoDeleteOnIdle                          pulumi.StringPtrInput
 	DeadLetteringOnFilterEvaluationExceptions pulumi.BoolPtrInput
-	// Value that indicates whether a subscription has dead letter support when a message expires.
-	DeadLetteringOnMessageExpiration pulumi.BoolPtrInput
-	// ISO 8061 Default message timespan to live value. This is the duration after which the message expires, starting from when the message is sent to Service Bus. This is the default value used when TimeToLive is not set on a message itself.
-	DefaultMessageTimeToLive pulumi.StringPtrInput
-	// ISO 8601 timeSpan structure that defines the duration of the duplicate detection history. The default value is 10 minutes.
-	DuplicateDetectionHistoryTimeWindow pulumi.StringPtrInput
-	// Value that indicates whether server-side batched operations are enabled.
-	EnableBatchedOperations pulumi.BoolPtrInput
-	// Queue/Topic name to forward the Dead Letter message
-	ForwardDeadLetteredMessagesTo pulumi.StringPtrInput
-	// Queue/Topic name to forward the messages
-	ForwardTo pulumi.StringPtrInput
-	// ISO 8061 lock duration timespan for the subscription. The default value is 1 minute.
-	LockDuration pulumi.StringPtrInput
-	// Number of maximum deliveries.
-	MaxDeliveryCount pulumi.IntPtrInput
-	// The namespace name
-	NamespaceName pulumi.StringInput
-	// Value indicating if a subscription supports the concept of sessions.
-	RequiresSession pulumi.BoolPtrInput
-	// Name of the Resource group within the Azure subscription.
-	ResourceGroupName pulumi.StringInput
-	// Enumerates the possible values for the status of a messaging entity.
-	Status *EntityStatus
-	// The subscription name.
-	SubscriptionName pulumi.StringPtrInput
-	// The topic name.
-	TopicName pulumi.StringInput
+	DeadLetteringOnMessageExpiration          pulumi.BoolPtrInput
+	DefaultMessageTimeToLive                  pulumi.StringPtrInput
+	DuplicateDetectionHistoryTimeWindow       pulumi.StringPtrInput
+	EnableBatchedOperations                   pulumi.BoolPtrInput
+	ForwardDeadLetteredMessagesTo             pulumi.StringPtrInput
+	ForwardTo                                 pulumi.StringPtrInput
+	LockDuration                              pulumi.StringPtrInput
+	MaxDeliveryCount                          pulumi.IntPtrInput
+	NamespaceName                             pulumi.StringInput
+	RequiresSession                           pulumi.BoolPtrInput
+	ResourceGroupName                         pulumi.StringInput
+	Status                                    EntityStatusPtrInput
+	SubscriptionName                          pulumi.StringPtrInput
+	TopicName                                 pulumi.StringInput
 }
 
 func (SubscriptionArgs) ElementType() reflect.Type {
@@ -238,9 +186,7 @@ func (i *Subscription) ToSubscriptionOutputWithContext(ctx context.Context) Subs
 	return pulumi.ToOutputWithContext(ctx, i).(SubscriptionOutput)
 }
 
-type SubscriptionOutput struct {
-	*pulumi.OutputState
-}
+type SubscriptionOutput struct{ *pulumi.OutputState }
 
 func (SubscriptionOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*Subscription)(nil))

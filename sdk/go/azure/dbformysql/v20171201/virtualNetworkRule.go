@@ -11,20 +11,14 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// A virtual network rule.
 type VirtualNetworkRule struct {
 	pulumi.CustomResourceState
 
-	// Create firewall rule before the virtual network has vnet service endpoint enabled.
 	IgnoreMissingVnetServiceEndpoint pulumi.BoolPtrOutput `pulumi:"ignoreMissingVnetServiceEndpoint"`
-	// The name of the resource
-	Name pulumi.StringOutput `pulumi:"name"`
-	// Virtual Network Rule State
-	State pulumi.StringOutput `pulumi:"state"`
-	// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
-	Type pulumi.StringOutput `pulumi:"type"`
-	// The ARM resource id of the virtual network subnet.
-	VirtualNetworkSubnetId pulumi.StringOutput `pulumi:"virtualNetworkSubnetId"`
+	Name                             pulumi.StringOutput  `pulumi:"name"`
+	State                            pulumi.StringOutput  `pulumi:"state"`
+	Type                             pulumi.StringOutput  `pulumi:"type"`
+	VirtualNetworkSubnetId           pulumi.StringOutput  `pulumi:"virtualNetworkSubnetId"`
 }
 
 // NewVirtualNetworkRule registers a new resource with the given unique name, arguments, and options.
@@ -93,30 +87,20 @@ func (VirtualNetworkRuleState) ElementType() reflect.Type {
 }
 
 type virtualNetworkRuleArgs struct {
-	// Create firewall rule before the virtual network has vnet service endpoint enabled.
-	IgnoreMissingVnetServiceEndpoint *bool `pulumi:"ignoreMissingVnetServiceEndpoint"`
-	// The name of the resource group. The name is case insensitive.
-	ResourceGroupName string `pulumi:"resourceGroupName"`
-	// The name of the server.
-	ServerName string `pulumi:"serverName"`
-	// The name of the virtual network rule.
-	VirtualNetworkRuleName *string `pulumi:"virtualNetworkRuleName"`
-	// The ARM resource id of the virtual network subnet.
-	VirtualNetworkSubnetId string `pulumi:"virtualNetworkSubnetId"`
+	IgnoreMissingVnetServiceEndpoint *bool   `pulumi:"ignoreMissingVnetServiceEndpoint"`
+	ResourceGroupName                string  `pulumi:"resourceGroupName"`
+	ServerName                       string  `pulumi:"serverName"`
+	VirtualNetworkRuleName           *string `pulumi:"virtualNetworkRuleName"`
+	VirtualNetworkSubnetId           string  `pulumi:"virtualNetworkSubnetId"`
 }
 
 // The set of arguments for constructing a VirtualNetworkRule resource.
 type VirtualNetworkRuleArgs struct {
-	// Create firewall rule before the virtual network has vnet service endpoint enabled.
 	IgnoreMissingVnetServiceEndpoint pulumi.BoolPtrInput
-	// The name of the resource group. The name is case insensitive.
-	ResourceGroupName pulumi.StringInput
-	// The name of the server.
-	ServerName pulumi.StringInput
-	// The name of the virtual network rule.
-	VirtualNetworkRuleName pulumi.StringPtrInput
-	// The ARM resource id of the virtual network subnet.
-	VirtualNetworkSubnetId pulumi.StringInput
+	ResourceGroupName                pulumi.StringInput
+	ServerName                       pulumi.StringInput
+	VirtualNetworkRuleName           pulumi.StringPtrInput
+	VirtualNetworkSubnetId           pulumi.StringInput
 }
 
 func (VirtualNetworkRuleArgs) ElementType() reflect.Type {
@@ -142,9 +126,7 @@ func (i *VirtualNetworkRule) ToVirtualNetworkRuleOutputWithContext(ctx context.C
 	return pulumi.ToOutputWithContext(ctx, i).(VirtualNetworkRuleOutput)
 }
 
-type VirtualNetworkRuleOutput struct {
-	*pulumi.OutputState
-}
+type VirtualNetworkRuleOutput struct{ *pulumi.OutputState }
 
 func (VirtualNetworkRuleOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*VirtualNetworkRule)(nil))

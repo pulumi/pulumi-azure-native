@@ -11,50 +11,29 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Represents a connected cluster.
 type ConnectedCluster struct {
 	pulumi.CustomResourceState
 
-	// Base64 encoded public certificate used by the agent to do the initial handshake to the backend services in Azure.
-	AgentPublicKeyCertificate pulumi.StringOutput `pulumi:"agentPublicKeyCertificate"`
-	// Version of the agent running on the connected cluster resource
-	AgentVersion pulumi.StringOutput `pulumi:"agentVersion"`
-	// Represents the connectivity status of the connected cluster.
-	ConnectivityStatus pulumi.StringOutput `pulumi:"connectivityStatus"`
-	// The Kubernetes distribution running on this connected cluster.
-	Distribution pulumi.StringPtrOutput `pulumi:"distribution"`
-	// The identity of the connected cluster.
-	Identity ConnectedClusterIdentityResponseOutput `pulumi:"identity"`
-	// The infrastructure on which the Kubernetes cluster represented by this connected cluster is running on.
-	Infrastructure pulumi.StringPtrOutput `pulumi:"infrastructure"`
-	// The Kubernetes version of the connected cluster resource
-	KubernetesVersion pulumi.StringOutput `pulumi:"kubernetesVersion"`
-	// Time representing the last instance when heart beat was received from the cluster
-	LastConnectivityTime pulumi.StringOutput `pulumi:"lastConnectivityTime"`
-	// The geo-location where the resource lives
-	Location pulumi.StringOutput `pulumi:"location"`
-	// Expiration time of the managed identity certificate
-	ManagedIdentityCertificateExpirationTime pulumi.StringOutput `pulumi:"managedIdentityCertificateExpirationTime"`
-	// The name of the resource
-	Name pulumi.StringOutput `pulumi:"name"`
-	// Connected cluster offering
-	Offering pulumi.StringOutput `pulumi:"offering"`
-	// The resource id of the private link scope this connected cluster is assigned to, if any.
-	PrivateLinkScopeResourceId pulumi.StringPtrOutput `pulumi:"privateLinkScopeResourceId"`
-	// Property which describes the state of private link on a connected cluster resource.
-	PrivateLinkState pulumi.StringPtrOutput `pulumi:"privateLinkState"`
-	// Provisioning state of the connected cluster resource.
-	ProvisioningState pulumi.StringPtrOutput `pulumi:"provisioningState"`
-	// Metadata pertaining to creation and last modification of the resource
-	SystemData SystemDataResponseOutput `pulumi:"systemData"`
-	// Resource tags.
-	Tags pulumi.StringMapOutput `pulumi:"tags"`
-	// Number of CPU cores present in the connected cluster resource
-	TotalCoreCount pulumi.IntOutput `pulumi:"totalCoreCount"`
-	// Number of nodes present in the connected cluster resource
-	TotalNodeCount pulumi.IntOutput `pulumi:"totalNodeCount"`
-	// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
-	Type pulumi.StringOutput `pulumi:"type"`
+	AgentPublicKeyCertificate                pulumi.StringOutput                    `pulumi:"agentPublicKeyCertificate"`
+	AgentVersion                             pulumi.StringOutput                    `pulumi:"agentVersion"`
+	ConnectivityStatus                       pulumi.StringOutput                    `pulumi:"connectivityStatus"`
+	Distribution                             pulumi.StringPtrOutput                 `pulumi:"distribution"`
+	Identity                                 ConnectedClusterIdentityResponseOutput `pulumi:"identity"`
+	Infrastructure                           pulumi.StringPtrOutput                 `pulumi:"infrastructure"`
+	KubernetesVersion                        pulumi.StringOutput                    `pulumi:"kubernetesVersion"`
+	LastConnectivityTime                     pulumi.StringOutput                    `pulumi:"lastConnectivityTime"`
+	Location                                 pulumi.StringOutput                    `pulumi:"location"`
+	ManagedIdentityCertificateExpirationTime pulumi.StringOutput                    `pulumi:"managedIdentityCertificateExpirationTime"`
+	Name                                     pulumi.StringOutput                    `pulumi:"name"`
+	Offering                                 pulumi.StringOutput                    `pulumi:"offering"`
+	PrivateLinkScopeResourceId               pulumi.StringPtrOutput                 `pulumi:"privateLinkScopeResourceId"`
+	PrivateLinkState                         pulumi.StringPtrOutput                 `pulumi:"privateLinkState"`
+	ProvisioningState                        pulumi.StringPtrOutput                 `pulumi:"provisioningState"`
+	SystemData                               SystemDataResponseOutput               `pulumi:"systemData"`
+	Tags                                     pulumi.StringMapOutput                 `pulumi:"tags"`
+	TotalCoreCount                           pulumi.IntOutput                       `pulumi:"totalCoreCount"`
+	TotalNodeCount                           pulumi.IntOutput                       `pulumi:"totalNodeCount"`
+	Type                                     pulumi.StringOutput                    `pulumi:"type"`
 }
 
 // NewConnectedCluster registers a new resource with the given unique name, arguments, and options.
@@ -132,54 +111,32 @@ func (ConnectedClusterState) ElementType() reflect.Type {
 }
 
 type connectedClusterArgs struct {
-	// Base64 encoded public certificate used by the agent to do the initial handshake to the backend services in Azure.
-	AgentPublicKeyCertificate string `pulumi:"agentPublicKeyCertificate"`
-	// The name of the Kubernetes cluster on which get is called.
-	ClusterName *string `pulumi:"clusterName"`
-	// The Kubernetes distribution running on this connected cluster.
-	Distribution *string `pulumi:"distribution"`
-	// The identity of the connected cluster.
-	Identity ConnectedClusterIdentity `pulumi:"identity"`
-	// The infrastructure on which the Kubernetes cluster represented by this connected cluster is running on.
-	Infrastructure *string `pulumi:"infrastructure"`
-	// The geo-location where the resource lives
-	Location *string `pulumi:"location"`
-	// The resource id of the private link scope this connected cluster is assigned to, if any.
-	PrivateLinkScopeResourceId *string `pulumi:"privateLinkScopeResourceId"`
-	// Property which describes the state of private link on a connected cluster resource.
-	PrivateLinkState *string `pulumi:"privateLinkState"`
-	// Provisioning state of the connected cluster resource.
-	ProvisioningState *string `pulumi:"provisioningState"`
-	// The name of the resource group. The name is case insensitive.
-	ResourceGroupName string `pulumi:"resourceGroupName"`
-	// Resource tags.
-	Tags map[string]string `pulumi:"tags"`
+	AgentPublicKeyCertificate  string                   `pulumi:"agentPublicKeyCertificate"`
+	ClusterName                *string                  `pulumi:"clusterName"`
+	Distribution               *string                  `pulumi:"distribution"`
+	Identity                   ConnectedClusterIdentity `pulumi:"identity"`
+	Infrastructure             *string                  `pulumi:"infrastructure"`
+	Location                   *string                  `pulumi:"location"`
+	PrivateLinkScopeResourceId *string                  `pulumi:"privateLinkScopeResourceId"`
+	PrivateLinkState           *string                  `pulumi:"privateLinkState"`
+	ProvisioningState          *string                  `pulumi:"provisioningState"`
+	ResourceGroupName          string                   `pulumi:"resourceGroupName"`
+	Tags                       map[string]string        `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a ConnectedCluster resource.
 type ConnectedClusterArgs struct {
-	// Base64 encoded public certificate used by the agent to do the initial handshake to the backend services in Azure.
-	AgentPublicKeyCertificate pulumi.StringInput
-	// The name of the Kubernetes cluster on which get is called.
-	ClusterName pulumi.StringPtrInput
-	// The Kubernetes distribution running on this connected cluster.
-	Distribution pulumi.StringPtrInput
-	// The identity of the connected cluster.
-	Identity ConnectedClusterIdentityInput
-	// The infrastructure on which the Kubernetes cluster represented by this connected cluster is running on.
-	Infrastructure pulumi.StringPtrInput
-	// The geo-location where the resource lives
-	Location pulumi.StringPtrInput
-	// The resource id of the private link scope this connected cluster is assigned to, if any.
+	AgentPublicKeyCertificate  pulumi.StringInput
+	ClusterName                pulumi.StringPtrInput
+	Distribution               pulumi.StringPtrInput
+	Identity                   ConnectedClusterIdentityInput
+	Infrastructure             pulumi.StringPtrInput
+	Location                   pulumi.StringPtrInput
 	PrivateLinkScopeResourceId pulumi.StringPtrInput
-	// Property which describes the state of private link on a connected cluster resource.
-	PrivateLinkState pulumi.StringPtrInput
-	// Provisioning state of the connected cluster resource.
-	ProvisioningState pulumi.StringPtrInput
-	// The name of the resource group. The name is case insensitive.
-	ResourceGroupName pulumi.StringInput
-	// Resource tags.
-	Tags pulumi.StringMapInput
+	PrivateLinkState           pulumi.StringPtrInput
+	ProvisioningState          pulumi.StringPtrInput
+	ResourceGroupName          pulumi.StringInput
+	Tags                       pulumi.StringMapInput
 }
 
 func (ConnectedClusterArgs) ElementType() reflect.Type {
@@ -205,9 +162,7 @@ func (i *ConnectedCluster) ToConnectedClusterOutputWithContext(ctx context.Conte
 	return pulumi.ToOutputWithContext(ctx, i).(ConnectedClusterOutput)
 }
 
-type ConnectedClusterOutput struct {
-	*pulumi.OutputState
-}
+type ConnectedClusterOutput struct{ *pulumi.OutputState }
 
 func (ConnectedClusterOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*ConnectedCluster)(nil))

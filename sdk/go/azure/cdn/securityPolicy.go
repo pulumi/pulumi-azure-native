@@ -131,9 +131,7 @@ func (i *SecurityPolicy) ToSecurityPolicyOutputWithContext(ctx context.Context) 
 	return pulumi.ToOutputWithContext(ctx, i).(SecurityPolicyOutput)
 }
 
-type SecurityPolicyOutput struct {
-	*pulumi.OutputState
-}
+type SecurityPolicyOutput struct{ *pulumi.OutputState }
 
 func (SecurityPolicyOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*SecurityPolicy)(nil))

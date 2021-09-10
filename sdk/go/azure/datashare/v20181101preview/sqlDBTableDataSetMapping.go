@@ -11,31 +11,19 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// A SQL DB Table data set mapping.
 type SqlDBTableDataSetMapping struct {
 	pulumi.CustomResourceState
 
-	// The id of the source data set.
-	DataSetId pulumi.StringOutput `pulumi:"dataSetId"`
-	// Gets the status of the data set mapping.
+	DataSetId            pulumi.StringOutput `pulumi:"dataSetId"`
 	DataSetMappingStatus pulumi.StringOutput `pulumi:"dataSetMappingStatus"`
-	// DatabaseName name of the sink data set
-	DatabaseName pulumi.StringOutput `pulumi:"databaseName"`
-	// Kind of data set mapping.
-	// Expected value is 'SqlDBTable'.
-	Kind pulumi.StringOutput `pulumi:"kind"`
-	// Name of the azure resource
-	Name pulumi.StringOutput `pulumi:"name"`
-	// Provisioning state of the data set mapping.
-	ProvisioningState pulumi.StringOutput `pulumi:"provisioningState"`
-	// Schema of the table. Default value is dbo.
-	SchemaName pulumi.StringOutput `pulumi:"schemaName"`
-	// Resource id of SQL server
-	SqlServerResourceId pulumi.StringOutput `pulumi:"sqlServerResourceId"`
-	// SQL DB table name.
-	TableName pulumi.StringOutput `pulumi:"tableName"`
-	// Type of the azure resource
-	Type pulumi.StringOutput `pulumi:"type"`
+	DatabaseName         pulumi.StringOutput `pulumi:"databaseName"`
+	Kind                 pulumi.StringOutput `pulumi:"kind"`
+	Name                 pulumi.StringOutput `pulumi:"name"`
+	ProvisioningState    pulumi.StringOutput `pulumi:"provisioningState"`
+	SchemaName           pulumi.StringOutput `pulumi:"schemaName"`
+	SqlServerResourceId  pulumi.StringOutput `pulumi:"sqlServerResourceId"`
+	TableName            pulumi.StringOutput `pulumi:"tableName"`
+	Type                 pulumi.StringOutput `pulumi:"type"`
 }
 
 // NewSqlDBTableDataSetMapping registers a new resource with the given unique name, arguments, and options.
@@ -135,52 +123,30 @@ func (SqlDBTableDataSetMappingState) ElementType() reflect.Type {
 }
 
 type sqlDBTableDataSetMappingArgs struct {
-	// The name of the share account.
-	AccountName string `pulumi:"accountName"`
-	// The id of the source data set.
-	DataSetId string `pulumi:"dataSetId"`
-	// The name of the data set mapping to be created.
-	DataSetMappingName *string `pulumi:"dataSetMappingName"`
-	// DatabaseName name of the sink data set
-	DatabaseName string `pulumi:"databaseName"`
-	// Kind of data set mapping.
-	// Expected value is 'SqlDBTable'.
-	Kind string `pulumi:"kind"`
-	// The resource group name.
-	ResourceGroupName string `pulumi:"resourceGroupName"`
-	// Schema of the table. Default value is dbo.
-	SchemaName string `pulumi:"schemaName"`
-	// The name of the share subscription which will hold the data set sink.
-	ShareSubscriptionName string `pulumi:"shareSubscriptionName"`
-	// Resource id of SQL server
-	SqlServerResourceId string `pulumi:"sqlServerResourceId"`
-	// SQL DB table name.
-	TableName string `pulumi:"tableName"`
+	AccountName           string  `pulumi:"accountName"`
+	DataSetId             string  `pulumi:"dataSetId"`
+	DataSetMappingName    *string `pulumi:"dataSetMappingName"`
+	DatabaseName          string  `pulumi:"databaseName"`
+	Kind                  string  `pulumi:"kind"`
+	ResourceGroupName     string  `pulumi:"resourceGroupName"`
+	SchemaName            string  `pulumi:"schemaName"`
+	ShareSubscriptionName string  `pulumi:"shareSubscriptionName"`
+	SqlServerResourceId   string  `pulumi:"sqlServerResourceId"`
+	TableName             string  `pulumi:"tableName"`
 }
 
 // The set of arguments for constructing a SqlDBTableDataSetMapping resource.
 type SqlDBTableDataSetMappingArgs struct {
-	// The name of the share account.
-	AccountName pulumi.StringInput
-	// The id of the source data set.
-	DataSetId pulumi.StringInput
-	// The name of the data set mapping to be created.
-	DataSetMappingName pulumi.StringPtrInput
-	// DatabaseName name of the sink data set
-	DatabaseName pulumi.StringInput
-	// Kind of data set mapping.
-	// Expected value is 'SqlDBTable'.
-	Kind pulumi.StringInput
-	// The resource group name.
-	ResourceGroupName pulumi.StringInput
-	// Schema of the table. Default value is dbo.
-	SchemaName pulumi.StringInput
-	// The name of the share subscription which will hold the data set sink.
+	AccountName           pulumi.StringInput
+	DataSetId             pulumi.StringInput
+	DataSetMappingName    pulumi.StringPtrInput
+	DatabaseName          pulumi.StringInput
+	Kind                  pulumi.StringInput
+	ResourceGroupName     pulumi.StringInput
+	SchemaName            pulumi.StringInput
 	ShareSubscriptionName pulumi.StringInput
-	// Resource id of SQL server
-	SqlServerResourceId pulumi.StringInput
-	// SQL DB table name.
-	TableName pulumi.StringInput
+	SqlServerResourceId   pulumi.StringInput
+	TableName             pulumi.StringInput
 }
 
 func (SqlDBTableDataSetMappingArgs) ElementType() reflect.Type {
@@ -206,9 +172,7 @@ func (i *SqlDBTableDataSetMapping) ToSqlDBTableDataSetMappingOutputWithContext(c
 	return pulumi.ToOutputWithContext(ctx, i).(SqlDBTableDataSetMappingOutput)
 }
 
-type SqlDBTableDataSetMappingOutput struct {
-	*pulumi.OutputState
-}
+type SqlDBTableDataSetMappingOutput struct{ *pulumi.OutputState }
 
 func (SqlDBTableDataSetMappingOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*SqlDBTableDataSetMapping)(nil))

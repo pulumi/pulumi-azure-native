@@ -166,9 +166,7 @@ func (i *HealthAlert) ToHealthAlertOutputWithContext(ctx context.Context) Health
 	return pulumi.ToOutputWithContext(ctx, i).(HealthAlertOutput)
 }
 
-type HealthAlertOutput struct {
-	*pulumi.OutputState
-}
+type HealthAlertOutput struct{ *pulumi.OutputState }
 
 func (HealthAlertOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*HealthAlert)(nil))

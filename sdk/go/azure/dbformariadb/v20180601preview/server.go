@@ -11,44 +11,26 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Represents a server.
 type Server struct {
 	pulumi.CustomResourceState
 
-	// The administrator's login name of a server. Can only be specified when the server is being created (and is required for creation).
-	AdministratorLogin pulumi.StringPtrOutput `pulumi:"administratorLogin"`
-	// Earliest restore point creation time (ISO8601 format)
-	EarliestRestoreDate pulumi.StringPtrOutput `pulumi:"earliestRestoreDate"`
-	// The fully qualified domain name of a server.
-	FullyQualifiedDomainName pulumi.StringPtrOutput `pulumi:"fullyQualifiedDomainName"`
-	// The Azure Active Directory identity of the server.
-	Identity ResourceIdentityResponsePtrOutput `pulumi:"identity"`
-	// The geo-location where the resource lives
-	Location pulumi.StringOutput `pulumi:"location"`
-	// The master server id of a replica server.
-	MasterServerId pulumi.StringPtrOutput `pulumi:"masterServerId"`
-	// Enforce a minimal Tls version for the server.
-	MinimalTlsVersion pulumi.StringPtrOutput `pulumi:"minimalTlsVersion"`
-	// The name of the resource
-	Name pulumi.StringOutput `pulumi:"name"`
-	// The maximum number of replicas that a master server can have.
-	ReplicaCapacity pulumi.IntPtrOutput `pulumi:"replicaCapacity"`
-	// The replication role of the server.
-	ReplicationRole pulumi.StringPtrOutput `pulumi:"replicationRole"`
-	// The SKU (pricing tier) of the server.
-	Sku SkuResponsePtrOutput `pulumi:"sku"`
-	// Enable ssl enforcement or not when connect to server.
-	SslEnforcement pulumi.StringPtrOutput `pulumi:"sslEnforcement"`
-	// Storage profile of a server.
-	StorageProfile StorageProfileResponsePtrOutput `pulumi:"storageProfile"`
-	// Resource tags.
-	Tags pulumi.StringMapOutput `pulumi:"tags"`
-	// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
-	Type pulumi.StringOutput `pulumi:"type"`
-	// A state of a server that is visible to user.
-	UserVisibleState pulumi.StringPtrOutput `pulumi:"userVisibleState"`
-	// Server version.
-	Version pulumi.StringPtrOutput `pulumi:"version"`
+	AdministratorLogin       pulumi.StringPtrOutput            `pulumi:"administratorLogin"`
+	EarliestRestoreDate      pulumi.StringPtrOutput            `pulumi:"earliestRestoreDate"`
+	FullyQualifiedDomainName pulumi.StringPtrOutput            `pulumi:"fullyQualifiedDomainName"`
+	Identity                 ResourceIdentityResponsePtrOutput `pulumi:"identity"`
+	Location                 pulumi.StringOutput               `pulumi:"location"`
+	MasterServerId           pulumi.StringPtrOutput            `pulumi:"masterServerId"`
+	MinimalTlsVersion        pulumi.StringPtrOutput            `pulumi:"minimalTlsVersion"`
+	Name                     pulumi.StringOutput               `pulumi:"name"`
+	ReplicaCapacity          pulumi.IntPtrOutput               `pulumi:"replicaCapacity"`
+	ReplicationRole          pulumi.StringPtrOutput            `pulumi:"replicationRole"`
+	Sku                      SkuResponsePtrOutput              `pulumi:"sku"`
+	SslEnforcement           pulumi.StringPtrOutput            `pulumi:"sslEnforcement"`
+	StorageProfile           StorageProfileResponsePtrOutput   `pulumi:"storageProfile"`
+	Tags                     pulumi.StringMapOutput            `pulumi:"tags"`
+	Type                     pulumi.StringOutput               `pulumi:"type"`
+	UserVisibleState         pulumi.StringPtrOutput            `pulumi:"userVisibleState"`
+	Version                  pulumi.StringPtrOutput            `pulumi:"version"`
 }
 
 // NewServer registers a new resource with the given unique name, arguments, and options.
@@ -114,34 +96,22 @@ func (ServerState) ElementType() reflect.Type {
 }
 
 type serverArgs struct {
-	// The location the resource resides in.
-	Location *string `pulumi:"location"`
-	// Properties of the server.
-	Properties interface{} `pulumi:"properties"`
-	// The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
-	ResourceGroupName string `pulumi:"resourceGroupName"`
-	// The name of the server.
-	ServerName *string `pulumi:"serverName"`
-	// The SKU (pricing tier) of the server.
-	Sku *Sku `pulumi:"sku"`
-	// Application-specific metadata in the form of key-value pairs.
-	Tags map[string]string `pulumi:"tags"`
+	Location          *string           `pulumi:"location"`
+	Properties        interface{}       `pulumi:"properties"`
+	ResourceGroupName string            `pulumi:"resourceGroupName"`
+	ServerName        *string           `pulumi:"serverName"`
+	Sku               *Sku              `pulumi:"sku"`
+	Tags              map[string]string `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a Server resource.
 type ServerArgs struct {
-	// The location the resource resides in.
-	Location pulumi.StringPtrInput
-	// Properties of the server.
-	Properties pulumi.Input
-	// The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
+	Location          pulumi.StringPtrInput
+	Properties        pulumi.Input
 	ResourceGroupName pulumi.StringInput
-	// The name of the server.
-	ServerName pulumi.StringPtrInput
-	// The SKU (pricing tier) of the server.
-	Sku SkuPtrInput
-	// Application-specific metadata in the form of key-value pairs.
-	Tags pulumi.StringMapInput
+	ServerName        pulumi.StringPtrInput
+	Sku               SkuPtrInput
+	Tags              pulumi.StringMapInput
 }
 
 func (ServerArgs) ElementType() reflect.Type {
@@ -167,9 +137,7 @@ func (i *Server) ToServerOutputWithContext(ctx context.Context) ServerOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(ServerOutput)
 }
 
-type ServerOutput struct {
-	*pulumi.OutputState
-}
+type ServerOutput struct{ *pulumi.OutputState }
 
 func (ServerOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*Server)(nil))

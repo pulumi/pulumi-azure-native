@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.Network.V20200801.Outputs
 {
 
+    /// <summary>
+    /// Qos Traffic Profiler Port range properties.
+    /// </summary>
     [OutputType]
     public sealed class QosPortRangeResponse
     {

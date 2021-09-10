@@ -13,7 +13,7 @@ import (
 // Represent the secrets intended for encryption with asymmetric key pair.
 type AsymmetricEncryptedSecret struct {
 	// The algorithm used to encrypt "Value".
-	EncryptionAlgorithm string `pulumi:"encryptionAlgorithm"`
+	EncryptionAlgorithm EncryptionAlgorithm `pulumi:"encryptionAlgorithm"`
 	// Thumbprint certificate that was used to encrypt "Value". If the value in unencrypted, it will be null.
 	EncryptionCertThumbprint *string `pulumi:"encryptionCertThumbprint"`
 	// The value of the secret.
@@ -34,7 +34,7 @@ type AsymmetricEncryptedSecretInput interface {
 // Represent the secrets intended for encryption with asymmetric key pair.
 type AsymmetricEncryptedSecretArgs struct {
 	// The algorithm used to encrypt "Value".
-	EncryptionAlgorithm EncryptionAlgorithm `pulumi:"encryptionAlgorithm"`
+	EncryptionAlgorithm EncryptionAlgorithmInput `pulumi:"encryptionAlgorithm"`
 	// Thumbprint certificate that was used to encrypt "Value". If the value in unencrypted, it will be null.
 	EncryptionCertThumbprint pulumi.StringPtrInput `pulumi:"encryptionCertThumbprint"`
 	// The value of the secret.
@@ -114,14 +114,14 @@ func (o AsymmetricEncryptedSecretOutput) ToAsymmetricEncryptedSecretPtrOutput() 
 }
 
 func (o AsymmetricEncryptedSecretOutput) ToAsymmetricEncryptedSecretPtrOutputWithContext(ctx context.Context) AsymmetricEncryptedSecretPtrOutput {
-	return o.ApplyT(func(v AsymmetricEncryptedSecret) *AsymmetricEncryptedSecret {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v AsymmetricEncryptedSecret) *AsymmetricEncryptedSecret {
 		return &v
 	}).(AsymmetricEncryptedSecretPtrOutput)
 }
 
 // The algorithm used to encrypt "Value".
-func (o AsymmetricEncryptedSecretOutput) EncryptionAlgorithm() pulumi.StringOutput {
-	return o.ApplyT(func(v AsymmetricEncryptedSecret) string { return v.EncryptionAlgorithm }).(pulumi.StringOutput)
+func (o AsymmetricEncryptedSecretOutput) EncryptionAlgorithm() EncryptionAlgorithmOutput {
+	return o.ApplyT(func(v AsymmetricEncryptedSecret) EncryptionAlgorithm { return v.EncryptionAlgorithm }).(EncryptionAlgorithmOutput)
 }
 
 // Thumbprint certificate that was used to encrypt "Value". If the value in unencrypted, it will be null.
@@ -149,17 +149,23 @@ func (o AsymmetricEncryptedSecretPtrOutput) ToAsymmetricEncryptedSecretPtrOutput
 }
 
 func (o AsymmetricEncryptedSecretPtrOutput) Elem() AsymmetricEncryptedSecretOutput {
-	return o.ApplyT(func(v *AsymmetricEncryptedSecret) AsymmetricEncryptedSecret { return *v }).(AsymmetricEncryptedSecretOutput)
+	return o.ApplyT(func(v *AsymmetricEncryptedSecret) AsymmetricEncryptedSecret {
+		if v != nil {
+			return *v
+		}
+		var ret AsymmetricEncryptedSecret
+		return ret
+	}).(AsymmetricEncryptedSecretOutput)
 }
 
 // The algorithm used to encrypt "Value".
-func (o AsymmetricEncryptedSecretPtrOutput) EncryptionAlgorithm() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *AsymmetricEncryptedSecret) *string {
+func (o AsymmetricEncryptedSecretPtrOutput) EncryptionAlgorithm() EncryptionAlgorithmPtrOutput {
+	return o.ApplyT(func(v *AsymmetricEncryptedSecret) *EncryptionAlgorithm {
 		if v == nil {
 			return nil
 		}
 		return &v.EncryptionAlgorithm
-	}).(pulumi.StringPtrOutput)
+	}).(EncryptionAlgorithmPtrOutput)
 }
 
 // Thumbprint certificate that was used to encrypt "Value". If the value in unencrypted, it will be null.
@@ -286,7 +292,7 @@ func (o AsymmetricEncryptedSecretResponseOutput) ToAsymmetricEncryptedSecretResp
 }
 
 func (o AsymmetricEncryptedSecretResponseOutput) ToAsymmetricEncryptedSecretResponsePtrOutputWithContext(ctx context.Context) AsymmetricEncryptedSecretResponsePtrOutput {
-	return o.ApplyT(func(v AsymmetricEncryptedSecretResponse) *AsymmetricEncryptedSecretResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v AsymmetricEncryptedSecretResponse) *AsymmetricEncryptedSecretResponse {
 		return &v
 	}).(AsymmetricEncryptedSecretResponsePtrOutput)
 }
@@ -321,7 +327,13 @@ func (o AsymmetricEncryptedSecretResponsePtrOutput) ToAsymmetricEncryptedSecretR
 }
 
 func (o AsymmetricEncryptedSecretResponsePtrOutput) Elem() AsymmetricEncryptedSecretResponseOutput {
-	return o.ApplyT(func(v *AsymmetricEncryptedSecretResponse) AsymmetricEncryptedSecretResponse { return *v }).(AsymmetricEncryptedSecretResponseOutput)
+	return o.ApplyT(func(v *AsymmetricEncryptedSecretResponse) AsymmetricEncryptedSecretResponse {
+		if v != nil {
+			return *v
+		}
+		var ret AsymmetricEncryptedSecretResponse
+		return ret
+	}).(AsymmetricEncryptedSecretResponseOutput)
 }
 
 // The algorithm used to encrypt "Value".
@@ -357,7 +369,7 @@ func (o AsymmetricEncryptedSecretResponsePtrOutput) Value() pulumi.StringPtrOutp
 // The schedule for bandwidth setting.
 type BandwidthSchedule struct {
 	// The days of the week when this schedule is applicable.
-	Days []string `pulumi:"days"`
+	Days []DayOfWeek `pulumi:"days"`
 	// The rate in Mbps.
 	RateInMbps int `pulumi:"rateInMbps"`
 	// The start time of the schedule.
@@ -442,8 +454,8 @@ func (o BandwidthScheduleOutput) ToBandwidthScheduleOutputWithContext(ctx contex
 }
 
 // The days of the week when this schedule is applicable.
-func (o BandwidthScheduleOutput) Days() pulumi.StringArrayOutput {
-	return o.ApplyT(func(v BandwidthSchedule) []string { return v.Days }).(pulumi.StringArrayOutput)
+func (o BandwidthScheduleOutput) Days() DayOfWeekArrayOutput {
+	return o.ApplyT(func(v BandwidthSchedule) []DayOfWeek { return v.Days }).(DayOfWeekArrayOutput)
 }
 
 // The rate in Mbps.
@@ -708,7 +720,7 @@ func (o FailoverSetEligibilityResultResponseOutput) ToFailoverSetEligibilityResu
 }
 
 func (o FailoverSetEligibilityResultResponseOutput) ToFailoverSetEligibilityResultResponsePtrOutputWithContext(ctx context.Context) FailoverSetEligibilityResultResponsePtrOutput {
-	return o.ApplyT(func(v FailoverSetEligibilityResultResponse) *FailoverSetEligibilityResultResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v FailoverSetEligibilityResultResponse) *FailoverSetEligibilityResultResponse {
 		return &v
 	}).(FailoverSetEligibilityResultResponsePtrOutput)
 }
@@ -738,7 +750,13 @@ func (o FailoverSetEligibilityResultResponsePtrOutput) ToFailoverSetEligibilityR
 }
 
 func (o FailoverSetEligibilityResultResponsePtrOutput) Elem() FailoverSetEligibilityResultResponseOutput {
-	return o.ApplyT(func(v *FailoverSetEligibilityResultResponse) FailoverSetEligibilityResultResponse { return *v }).(FailoverSetEligibilityResultResponseOutput)
+	return o.ApplyT(func(v *FailoverSetEligibilityResultResponse) FailoverSetEligibilityResultResponse {
+		if v != nil {
+			return *v
+		}
+		var ret FailoverSetEligibilityResultResponse
+		return ret
+	}).(FailoverSetEligibilityResultResponseOutput)
 }
 
 // The error message, if the failover set is not eligible for failover.
@@ -1063,7 +1081,7 @@ func (o FailoverTargetResponseArrayOutput) Index(i pulumi.IntInput) FailoverTarg
 // Intrinsic settings which refers to the type of the StorSimple Manager.
 type ManagerIntrinsicSettings struct {
 	// The type of StorSimple Manager.
-	Type string `pulumi:"type"`
+	Type ManagerType `pulumi:"type"`
 }
 
 // ManagerIntrinsicSettingsInput is an input type that accepts ManagerIntrinsicSettingsArgs and ManagerIntrinsicSettingsOutput values.
@@ -1080,7 +1098,7 @@ type ManagerIntrinsicSettingsInput interface {
 // Intrinsic settings which refers to the type of the StorSimple Manager.
 type ManagerIntrinsicSettingsArgs struct {
 	// The type of StorSimple Manager.
-	Type ManagerType `pulumi:"type"`
+	Type ManagerTypeInput `pulumi:"type"`
 }
 
 func (ManagerIntrinsicSettingsArgs) ElementType() reflect.Type {
@@ -1156,14 +1174,14 @@ func (o ManagerIntrinsicSettingsOutput) ToManagerIntrinsicSettingsPtrOutput() Ma
 }
 
 func (o ManagerIntrinsicSettingsOutput) ToManagerIntrinsicSettingsPtrOutputWithContext(ctx context.Context) ManagerIntrinsicSettingsPtrOutput {
-	return o.ApplyT(func(v ManagerIntrinsicSettings) *ManagerIntrinsicSettings {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ManagerIntrinsicSettings) *ManagerIntrinsicSettings {
 		return &v
 	}).(ManagerIntrinsicSettingsPtrOutput)
 }
 
 // The type of StorSimple Manager.
-func (o ManagerIntrinsicSettingsOutput) Type() pulumi.StringOutput {
-	return o.ApplyT(func(v ManagerIntrinsicSettings) string { return v.Type }).(pulumi.StringOutput)
+func (o ManagerIntrinsicSettingsOutput) Type() ManagerTypeOutput {
+	return o.ApplyT(func(v ManagerIntrinsicSettings) ManagerType { return v.Type }).(ManagerTypeOutput)
 }
 
 type ManagerIntrinsicSettingsPtrOutput struct{ *pulumi.OutputState }
@@ -1181,17 +1199,23 @@ func (o ManagerIntrinsicSettingsPtrOutput) ToManagerIntrinsicSettingsPtrOutputWi
 }
 
 func (o ManagerIntrinsicSettingsPtrOutput) Elem() ManagerIntrinsicSettingsOutput {
-	return o.ApplyT(func(v *ManagerIntrinsicSettings) ManagerIntrinsicSettings { return *v }).(ManagerIntrinsicSettingsOutput)
+	return o.ApplyT(func(v *ManagerIntrinsicSettings) ManagerIntrinsicSettings {
+		if v != nil {
+			return *v
+		}
+		var ret ManagerIntrinsicSettings
+		return ret
+	}).(ManagerIntrinsicSettingsOutput)
 }
 
 // The type of StorSimple Manager.
-func (o ManagerIntrinsicSettingsPtrOutput) Type() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *ManagerIntrinsicSettings) *string {
+func (o ManagerIntrinsicSettingsPtrOutput) Type() ManagerTypePtrOutput {
+	return o.ApplyT(func(v *ManagerIntrinsicSettings) *ManagerType {
 		if v == nil {
 			return nil
 		}
 		return &v.Type
-	}).(pulumi.StringPtrOutput)
+	}).(ManagerTypePtrOutput)
 }
 
 // Intrinsic settings which refers to the type of the StorSimple Manager.
@@ -1290,7 +1314,7 @@ func (o ManagerIntrinsicSettingsResponseOutput) ToManagerIntrinsicSettingsRespon
 }
 
 func (o ManagerIntrinsicSettingsResponseOutput) ToManagerIntrinsicSettingsResponsePtrOutputWithContext(ctx context.Context) ManagerIntrinsicSettingsResponsePtrOutput {
-	return o.ApplyT(func(v ManagerIntrinsicSettingsResponse) *ManagerIntrinsicSettingsResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ManagerIntrinsicSettingsResponse) *ManagerIntrinsicSettingsResponse {
 		return &v
 	}).(ManagerIntrinsicSettingsResponsePtrOutput)
 }
@@ -1315,7 +1339,13 @@ func (o ManagerIntrinsicSettingsResponsePtrOutput) ToManagerIntrinsicSettingsRes
 }
 
 func (o ManagerIntrinsicSettingsResponsePtrOutput) Elem() ManagerIntrinsicSettingsResponseOutput {
-	return o.ApplyT(func(v *ManagerIntrinsicSettingsResponse) ManagerIntrinsicSettingsResponse { return *v }).(ManagerIntrinsicSettingsResponseOutput)
+	return o.ApplyT(func(v *ManagerIntrinsicSettingsResponse) ManagerIntrinsicSettingsResponse {
+		if v != nil {
+			return *v
+		}
+		var ret ManagerIntrinsicSettingsResponse
+		return ret
+	}).(ManagerIntrinsicSettingsResponseOutput)
 }
 
 // The type of StorSimple Manager.
@@ -1331,7 +1361,7 @@ func (o ManagerIntrinsicSettingsResponsePtrOutput) Type() pulumi.StringPtrOutput
 // The Sku.
 type ManagerSku struct {
 	// Refers to the sku name which should be "Standard"
-	Name string `pulumi:"name"`
+	Name ManagerSkuType `pulumi:"name"`
 }
 
 // ManagerSkuInput is an input type that accepts ManagerSkuArgs and ManagerSkuOutput values.
@@ -1348,7 +1378,7 @@ type ManagerSkuInput interface {
 // The Sku.
 type ManagerSkuArgs struct {
 	// Refers to the sku name which should be "Standard"
-	Name ManagerSkuType `pulumi:"name"`
+	Name ManagerSkuTypeInput `pulumi:"name"`
 }
 
 func (ManagerSkuArgs) ElementType() reflect.Type {
@@ -1424,14 +1454,14 @@ func (o ManagerSkuOutput) ToManagerSkuPtrOutput() ManagerSkuPtrOutput {
 }
 
 func (o ManagerSkuOutput) ToManagerSkuPtrOutputWithContext(ctx context.Context) ManagerSkuPtrOutput {
-	return o.ApplyT(func(v ManagerSku) *ManagerSku {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ManagerSku) *ManagerSku {
 		return &v
 	}).(ManagerSkuPtrOutput)
 }
 
 // Refers to the sku name which should be "Standard"
-func (o ManagerSkuOutput) Name() pulumi.StringOutput {
-	return o.ApplyT(func(v ManagerSku) string { return v.Name }).(pulumi.StringOutput)
+func (o ManagerSkuOutput) Name() ManagerSkuTypeOutput {
+	return o.ApplyT(func(v ManagerSku) ManagerSkuType { return v.Name }).(ManagerSkuTypeOutput)
 }
 
 type ManagerSkuPtrOutput struct{ *pulumi.OutputState }
@@ -1449,17 +1479,23 @@ func (o ManagerSkuPtrOutput) ToManagerSkuPtrOutputWithContext(ctx context.Contex
 }
 
 func (o ManagerSkuPtrOutput) Elem() ManagerSkuOutput {
-	return o.ApplyT(func(v *ManagerSku) ManagerSku { return *v }).(ManagerSkuOutput)
+	return o.ApplyT(func(v *ManagerSku) ManagerSku {
+		if v != nil {
+			return *v
+		}
+		var ret ManagerSku
+		return ret
+	}).(ManagerSkuOutput)
 }
 
 // Refers to the sku name which should be "Standard"
-func (o ManagerSkuPtrOutput) Name() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *ManagerSku) *string {
+func (o ManagerSkuPtrOutput) Name() ManagerSkuTypePtrOutput {
+	return o.ApplyT(func(v *ManagerSku) *ManagerSkuType {
 		if v == nil {
 			return nil
 		}
 		return &v.Name
-	}).(pulumi.StringPtrOutput)
+	}).(ManagerSkuTypePtrOutput)
 }
 
 // The Sku.
@@ -1558,7 +1594,7 @@ func (o ManagerSkuResponseOutput) ToManagerSkuResponsePtrOutput() ManagerSkuResp
 }
 
 func (o ManagerSkuResponseOutput) ToManagerSkuResponsePtrOutputWithContext(ctx context.Context) ManagerSkuResponsePtrOutput {
-	return o.ApplyT(func(v ManagerSkuResponse) *ManagerSkuResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ManagerSkuResponse) *ManagerSkuResponse {
 		return &v
 	}).(ManagerSkuResponsePtrOutput)
 }
@@ -1583,7 +1619,13 @@ func (o ManagerSkuResponsePtrOutput) ToManagerSkuResponsePtrOutputWithContext(ct
 }
 
 func (o ManagerSkuResponsePtrOutput) Elem() ManagerSkuResponseOutput {
-	return o.ApplyT(func(v *ManagerSkuResponse) ManagerSkuResponse { return *v }).(ManagerSkuResponseOutput)
+	return o.ApplyT(func(v *ManagerSkuResponse) ManagerSkuResponse {
+		if v != nil {
+			return *v
+		}
+		var ret ManagerSkuResponse
+		return ret
+	}).(ManagerSkuResponseOutput)
 }
 
 // Refers to the sku name which should be "Standard"
@@ -1599,11 +1641,11 @@ func (o ManagerSkuResponsePtrOutput) Name() pulumi.StringPtrOutput {
 // The schedule recurrence.
 type ScheduleRecurrence struct {
 	// The recurrence type.
-	RecurrenceType string `pulumi:"recurrenceType"`
+	RecurrenceType RecurrenceType `pulumi:"recurrenceType"`
 	// The recurrence value.
 	RecurrenceValue int `pulumi:"recurrenceValue"`
 	// The week days list. Applicable only for schedules of recurrence type 'weekly'.
-	WeeklyDaysList []string `pulumi:"weeklyDaysList"`
+	WeeklyDaysList []DayOfWeek `pulumi:"weeklyDaysList"`
 }
 
 // ScheduleRecurrenceInput is an input type that accepts ScheduleRecurrenceArgs and ScheduleRecurrenceOutput values.
@@ -1620,7 +1662,7 @@ type ScheduleRecurrenceInput interface {
 // The schedule recurrence.
 type ScheduleRecurrenceArgs struct {
 	// The recurrence type.
-	RecurrenceType RecurrenceType `pulumi:"recurrenceType"`
+	RecurrenceType RecurrenceTypeInput `pulumi:"recurrenceType"`
 	// The recurrence value.
 	RecurrenceValue pulumi.IntInput `pulumi:"recurrenceValue"`
 	// The week days list. Applicable only for schedules of recurrence type 'weekly'.
@@ -1700,14 +1742,14 @@ func (o ScheduleRecurrenceOutput) ToScheduleRecurrencePtrOutput() ScheduleRecurr
 }
 
 func (o ScheduleRecurrenceOutput) ToScheduleRecurrencePtrOutputWithContext(ctx context.Context) ScheduleRecurrencePtrOutput {
-	return o.ApplyT(func(v ScheduleRecurrence) *ScheduleRecurrence {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ScheduleRecurrence) *ScheduleRecurrence {
 		return &v
 	}).(ScheduleRecurrencePtrOutput)
 }
 
 // The recurrence type.
-func (o ScheduleRecurrenceOutput) RecurrenceType() pulumi.StringOutput {
-	return o.ApplyT(func(v ScheduleRecurrence) string { return v.RecurrenceType }).(pulumi.StringOutput)
+func (o ScheduleRecurrenceOutput) RecurrenceType() RecurrenceTypeOutput {
+	return o.ApplyT(func(v ScheduleRecurrence) RecurrenceType { return v.RecurrenceType }).(RecurrenceTypeOutput)
 }
 
 // The recurrence value.
@@ -1716,8 +1758,8 @@ func (o ScheduleRecurrenceOutput) RecurrenceValue() pulumi.IntOutput {
 }
 
 // The week days list. Applicable only for schedules of recurrence type 'weekly'.
-func (o ScheduleRecurrenceOutput) WeeklyDaysList() pulumi.StringArrayOutput {
-	return o.ApplyT(func(v ScheduleRecurrence) []string { return v.WeeklyDaysList }).(pulumi.StringArrayOutput)
+func (o ScheduleRecurrenceOutput) WeeklyDaysList() DayOfWeekArrayOutput {
+	return o.ApplyT(func(v ScheduleRecurrence) []DayOfWeek { return v.WeeklyDaysList }).(DayOfWeekArrayOutput)
 }
 
 type ScheduleRecurrencePtrOutput struct{ *pulumi.OutputState }
@@ -1735,17 +1777,23 @@ func (o ScheduleRecurrencePtrOutput) ToScheduleRecurrencePtrOutputWithContext(ct
 }
 
 func (o ScheduleRecurrencePtrOutput) Elem() ScheduleRecurrenceOutput {
-	return o.ApplyT(func(v *ScheduleRecurrence) ScheduleRecurrence { return *v }).(ScheduleRecurrenceOutput)
+	return o.ApplyT(func(v *ScheduleRecurrence) ScheduleRecurrence {
+		if v != nil {
+			return *v
+		}
+		var ret ScheduleRecurrence
+		return ret
+	}).(ScheduleRecurrenceOutput)
 }
 
 // The recurrence type.
-func (o ScheduleRecurrencePtrOutput) RecurrenceType() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *ScheduleRecurrence) *string {
+func (o ScheduleRecurrencePtrOutput) RecurrenceType() RecurrenceTypePtrOutput {
+	return o.ApplyT(func(v *ScheduleRecurrence) *RecurrenceType {
 		if v == nil {
 			return nil
 		}
 		return &v.RecurrenceType
-	}).(pulumi.StringPtrOutput)
+	}).(RecurrenceTypePtrOutput)
 }
 
 // The recurrence value.
@@ -1759,13 +1807,13 @@ func (o ScheduleRecurrencePtrOutput) RecurrenceValue() pulumi.IntPtrOutput {
 }
 
 // The week days list. Applicable only for schedules of recurrence type 'weekly'.
-func (o ScheduleRecurrencePtrOutput) WeeklyDaysList() pulumi.StringArrayOutput {
-	return o.ApplyT(func(v *ScheduleRecurrence) []string {
+func (o ScheduleRecurrencePtrOutput) WeeklyDaysList() DayOfWeekArrayOutput {
+	return o.ApplyT(func(v *ScheduleRecurrence) []DayOfWeek {
 		if v == nil {
 			return nil
 		}
 		return v.WeeklyDaysList
-	}).(pulumi.StringArrayOutput)
+	}).(DayOfWeekArrayOutput)
 }
 
 // The schedule recurrence.
@@ -1872,7 +1920,7 @@ func (o ScheduleRecurrenceResponseOutput) ToScheduleRecurrenceResponsePtrOutput(
 }
 
 func (o ScheduleRecurrenceResponseOutput) ToScheduleRecurrenceResponsePtrOutputWithContext(ctx context.Context) ScheduleRecurrenceResponsePtrOutput {
-	return o.ApplyT(func(v ScheduleRecurrenceResponse) *ScheduleRecurrenceResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ScheduleRecurrenceResponse) *ScheduleRecurrenceResponse {
 		return &v
 	}).(ScheduleRecurrenceResponsePtrOutput)
 }
@@ -1907,7 +1955,13 @@ func (o ScheduleRecurrenceResponsePtrOutput) ToScheduleRecurrenceResponsePtrOutp
 }
 
 func (o ScheduleRecurrenceResponsePtrOutput) Elem() ScheduleRecurrenceResponseOutput {
-	return o.ApplyT(func(v *ScheduleRecurrenceResponse) ScheduleRecurrenceResponse { return *v }).(ScheduleRecurrenceResponseOutput)
+	return o.ApplyT(func(v *ScheduleRecurrenceResponse) ScheduleRecurrenceResponse {
+		if v != nil {
+			return *v
+		}
+		var ret ScheduleRecurrenceResponse
+		return ret
+	}).(ScheduleRecurrenceResponseOutput)
 }
 
 // The recurrence type.
@@ -2158,7 +2212,7 @@ func (o TargetEligibilityResultResponseOutput) ToTargetEligibilityResultResponse
 }
 
 func (o TargetEligibilityResultResponseOutput) ToTargetEligibilityResultResponsePtrOutputWithContext(ctx context.Context) TargetEligibilityResultResponsePtrOutput {
-	return o.ApplyT(func(v TargetEligibilityResultResponse) *TargetEligibilityResultResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v TargetEligibilityResultResponse) *TargetEligibilityResultResponse {
 		return &v
 	}).(TargetEligibilityResultResponsePtrOutput)
 }
@@ -2188,7 +2242,13 @@ func (o TargetEligibilityResultResponsePtrOutput) ToTargetEligibilityResultRespo
 }
 
 func (o TargetEligibilityResultResponsePtrOutput) Elem() TargetEligibilityResultResponseOutput {
-	return o.ApplyT(func(v *TargetEligibilityResultResponse) TargetEligibilityResultResponse { return *v }).(TargetEligibilityResultResponseOutput)
+	return o.ApplyT(func(v *TargetEligibilityResultResponse) TargetEligibilityResultResponse {
+		if v != nil {
+			return *v
+		}
+		var ret TargetEligibilityResultResponse
+		return ret
+	}).(TargetEligibilityResultResponseOutput)
 }
 
 // The eligibility status of device, as a failover target device.

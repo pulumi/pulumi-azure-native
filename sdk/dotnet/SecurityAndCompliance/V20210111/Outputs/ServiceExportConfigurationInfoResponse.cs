@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.SecurityAndCompliance.V20210111.Outputs
 {
 
+    /// <summary>
+    /// Export operation configuration information
+    /// </summary>
     [OutputType]
     public sealed class ServiceExportConfigurationInfoResponse
     {

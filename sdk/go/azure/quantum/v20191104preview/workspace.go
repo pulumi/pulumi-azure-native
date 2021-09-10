@@ -11,32 +11,20 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// The resource proxy definition object for quantum workspace.
 type Workspace struct {
 	pulumi.CustomResourceState
 
-	// The URI of the workspace endpoint.
-	EndpointUri pulumi.StringOutput `pulumi:"endpointUri"`
-	// Managed Identity information.
-	Identity QuantumWorkspaceResponseIdentityPtrOutput `pulumi:"identity"`
-	// The geo-location where the resource lives
-	Location pulumi.StringOutput `pulumi:"location"`
-	// The name of the resource
-	Name pulumi.StringOutput `pulumi:"name"`
-	// List of Providers selected for this Workspace
-	Providers ProviderResponseArrayOutput `pulumi:"providers"`
-	// Provisioning status field
-	ProvisioningState pulumi.StringOutput `pulumi:"provisioningState"`
-	// ARM Resource Id of the storage account associated with this workspace.
-	StorageAccount pulumi.StringPtrOutput `pulumi:"storageAccount"`
-	// System metadata
-	SystemData SystemDataResponseOutput `pulumi:"systemData"`
-	// Resource tags.
-	Tags pulumi.StringMapOutput `pulumi:"tags"`
-	// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
-	Type pulumi.StringOutput `pulumi:"type"`
-	// Whether the current workspace is ready to accept Jobs.
-	Usable pulumi.StringOutput `pulumi:"usable"`
+	EndpointUri       pulumi.StringOutput                       `pulumi:"endpointUri"`
+	Identity          QuantumWorkspaceResponseIdentityPtrOutput `pulumi:"identity"`
+	Location          pulumi.StringOutput                       `pulumi:"location"`
+	Name              pulumi.StringOutput                       `pulumi:"name"`
+	Providers         ProviderResponseArrayOutput               `pulumi:"providers"`
+	ProvisioningState pulumi.StringOutput                       `pulumi:"provisioningState"`
+	StorageAccount    pulumi.StringPtrOutput                    `pulumi:"storageAccount"`
+	SystemData        SystemDataResponseOutput                  `pulumi:"systemData"`
+	Tags              pulumi.StringMapOutput                    `pulumi:"tags"`
+	Type              pulumi.StringOutput                       `pulumi:"type"`
+	Usable            pulumi.StringOutput                       `pulumi:"usable"`
 }
 
 // NewWorkspace registers a new resource with the given unique name, arguments, and options.
@@ -93,38 +81,24 @@ func (WorkspaceState) ElementType() reflect.Type {
 }
 
 type workspaceArgs struct {
-	// Managed Identity information.
-	Identity *QuantumWorkspaceIdentity `pulumi:"identity"`
-	// The geo-location where the resource lives
-	Location *string `pulumi:"location"`
-	// List of Providers selected for this Workspace
-	Providers []Provider `pulumi:"providers"`
-	// The name of the resource group.
-	ResourceGroupName string `pulumi:"resourceGroupName"`
-	// ARM Resource Id of the storage account associated with this workspace.
-	StorageAccount *string `pulumi:"storageAccount"`
-	// Resource tags.
-	Tags map[string]string `pulumi:"tags"`
-	// The name of the quantum workspace resource.
-	WorkspaceName *string `pulumi:"workspaceName"`
+	Identity          *QuantumWorkspaceIdentity `pulumi:"identity"`
+	Location          *string                   `pulumi:"location"`
+	Providers         []Provider                `pulumi:"providers"`
+	ResourceGroupName string                    `pulumi:"resourceGroupName"`
+	StorageAccount    *string                   `pulumi:"storageAccount"`
+	Tags              map[string]string         `pulumi:"tags"`
+	WorkspaceName     *string                   `pulumi:"workspaceName"`
 }
 
 // The set of arguments for constructing a Workspace resource.
 type WorkspaceArgs struct {
-	// Managed Identity information.
-	Identity QuantumWorkspaceIdentityPtrInput
-	// The geo-location where the resource lives
-	Location pulumi.StringPtrInput
-	// List of Providers selected for this Workspace
-	Providers ProviderArrayInput
-	// The name of the resource group.
+	Identity          QuantumWorkspaceIdentityPtrInput
+	Location          pulumi.StringPtrInput
+	Providers         ProviderArrayInput
 	ResourceGroupName pulumi.StringInput
-	// ARM Resource Id of the storage account associated with this workspace.
-	StorageAccount pulumi.StringPtrInput
-	// Resource tags.
-	Tags pulumi.StringMapInput
-	// The name of the quantum workspace resource.
-	WorkspaceName pulumi.StringPtrInput
+	StorageAccount    pulumi.StringPtrInput
+	Tags              pulumi.StringMapInput
+	WorkspaceName     pulumi.StringPtrInput
 }
 
 func (WorkspaceArgs) ElementType() reflect.Type {
@@ -150,9 +124,7 @@ func (i *Workspace) ToWorkspaceOutputWithContext(ctx context.Context) WorkspaceO
 	return pulumi.ToOutputWithContext(ctx, i).(WorkspaceOutput)
 }
 
-type WorkspaceOutput struct {
-	*pulumi.OutputState
-}
+type WorkspaceOutput struct{ *pulumi.OutputState }
 
 func (WorkspaceOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*Workspace)(nil))

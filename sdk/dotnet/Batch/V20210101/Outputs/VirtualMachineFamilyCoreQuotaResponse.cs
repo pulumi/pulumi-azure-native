@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.Batch.V20210101.Outputs
 {
 
+    /// <summary>
+    /// A VM Family and its associated core quota for the Batch account.
+    /// </summary>
     [OutputType]
     public sealed class VirtualMachineFamilyCoreQuotaResponse
     {

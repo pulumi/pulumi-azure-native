@@ -17,15 +17,11 @@ func ListWorkspaceCollectionAccessKeys(ctx *pulumi.Context, args *ListWorkspaceC
 }
 
 type ListWorkspaceCollectionAccessKeysArgs struct {
-	// Azure resource group
-	ResourceGroupName string `pulumi:"resourceGroupName"`
-	// Power BI Embedded Workspace Collection name
+	ResourceGroupName       string `pulumi:"resourceGroupName"`
 	WorkspaceCollectionName string `pulumi:"workspaceCollectionName"`
 }
 
 type ListWorkspaceCollectionAccessKeysResult struct {
-	// Access key 1
 	Key1 *string `pulumi:"key1"`
-	// Access key 2
 	Key2 *string `pulumi:"key2"`
 }

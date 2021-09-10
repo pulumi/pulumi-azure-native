@@ -11,26 +11,17 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// An object that represents a container registry.
 type Registry struct {
 	pulumi.CustomResourceState
 
-	// The value that indicates whether the admin user is enabled. This value is false by default.
-	AdminUserEnabled pulumi.BoolPtrOutput `pulumi:"adminUserEnabled"`
-	// The creation date of the container registry in ISO8601 format.
-	CreationDate pulumi.StringOutput `pulumi:"creationDate"`
-	// The location of the resource. This cannot be changed after the resource is created.
-	Location pulumi.StringOutput `pulumi:"location"`
-	// The URL that can be used to log into the container registry.
-	LoginServer pulumi.StringOutput `pulumi:"loginServer"`
-	// The name of the resource.
-	Name pulumi.StringOutput `pulumi:"name"`
-	// The properties of the storage account for the container registry. If specified, the storage account must be in the same physical location as the container registry.
-	StorageAccount StorageAccountPropertiesResponseOutput `pulumi:"storageAccount"`
-	// The tags of the resource.
-	Tags pulumi.StringMapOutput `pulumi:"tags"`
-	// The type of the resource.
-	Type pulumi.StringOutput `pulumi:"type"`
+	AdminUserEnabled pulumi.BoolPtrOutput                   `pulumi:"adminUserEnabled"`
+	CreationDate     pulumi.StringOutput                    `pulumi:"creationDate"`
+	Location         pulumi.StringOutput                    `pulumi:"location"`
+	LoginServer      pulumi.StringOutput                    `pulumi:"loginServer"`
+	Name             pulumi.StringOutput                    `pulumi:"name"`
+	StorageAccount   StorageAccountPropertiesResponseOutput `pulumi:"storageAccount"`
+	Tags             pulumi.StringMapOutput                 `pulumi:"tags"`
+	Type             pulumi.StringOutput                    `pulumi:"type"`
 }
 
 // NewRegistry registers a new resource with the given unique name, arguments, and options.
@@ -135,34 +126,22 @@ func (RegistryState) ElementType() reflect.Type {
 }
 
 type registryArgs struct {
-	// The value that indicates whether the admin user is enabled. This value is false by default.
-	AdminUserEnabled *bool `pulumi:"adminUserEnabled"`
-	// The location of the resource. This cannot be changed after the resource is created.
-	Location *string `pulumi:"location"`
-	// The name of the container registry.
-	RegistryName *string `pulumi:"registryName"`
-	// The name of the resource group to which the container registry belongs.
-	ResourceGroupName string `pulumi:"resourceGroupName"`
-	// The properties of the storage account for the container registry. If specified, the storage account must be in the same physical location as the container registry.
-	StorageAccount StorageAccountProperties `pulumi:"storageAccount"`
-	// The tags of the resource.
-	Tags map[string]string `pulumi:"tags"`
+	AdminUserEnabled  *bool                    `pulumi:"adminUserEnabled"`
+	Location          *string                  `pulumi:"location"`
+	RegistryName      *string                  `pulumi:"registryName"`
+	ResourceGroupName string                   `pulumi:"resourceGroupName"`
+	StorageAccount    StorageAccountProperties `pulumi:"storageAccount"`
+	Tags              map[string]string        `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a Registry resource.
 type RegistryArgs struct {
-	// The value that indicates whether the admin user is enabled. This value is false by default.
-	AdminUserEnabled pulumi.BoolPtrInput
-	// The location of the resource. This cannot be changed after the resource is created.
-	Location pulumi.StringPtrInput
-	// The name of the container registry.
-	RegistryName pulumi.StringPtrInput
-	// The name of the resource group to which the container registry belongs.
+	AdminUserEnabled  pulumi.BoolPtrInput
+	Location          pulumi.StringPtrInput
+	RegistryName      pulumi.StringPtrInput
 	ResourceGroupName pulumi.StringInput
-	// The properties of the storage account for the container registry. If specified, the storage account must be in the same physical location as the container registry.
-	StorageAccount StorageAccountPropertiesInput
-	// The tags of the resource.
-	Tags pulumi.StringMapInput
+	StorageAccount    StorageAccountPropertiesInput
+	Tags              pulumi.StringMapInput
 }
 
 func (RegistryArgs) ElementType() reflect.Type {
@@ -188,9 +167,7 @@ func (i *Registry) ToRegistryOutputWithContext(ctx context.Context) RegistryOutp
 	return pulumi.ToOutputWithContext(ctx, i).(RegistryOutput)
 }
 
-type RegistryOutput struct {
-	*pulumi.OutputState
-}
+type RegistryOutput struct{ *pulumi.OutputState }
 
 func (RegistryOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*Registry)(nil))

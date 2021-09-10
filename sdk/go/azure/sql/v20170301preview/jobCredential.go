@@ -11,15 +11,11 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// A stored credential that can be used by a job to connect to target databases.
 type JobCredential struct {
 	pulumi.CustomResourceState
 
-	// Resource name.
-	Name pulumi.StringOutput `pulumi:"name"`
-	// Resource type.
-	Type pulumi.StringOutput `pulumi:"type"`
-	// The credential user name.
+	Name     pulumi.StringOutput `pulumi:"name"`
+	Type     pulumi.StringOutput `pulumi:"type"`
 	Username pulumi.StringOutput `pulumi:"username"`
 }
 
@@ -113,34 +109,22 @@ func (JobCredentialState) ElementType() reflect.Type {
 }
 
 type jobCredentialArgs struct {
-	// The name of the credential.
-	CredentialName *string `pulumi:"credentialName"`
-	// The name of the job agent.
-	JobAgentName string `pulumi:"jobAgentName"`
-	// The credential password.
-	Password string `pulumi:"password"`
-	// The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
-	ResourceGroupName string `pulumi:"resourceGroupName"`
-	// The name of the server.
-	ServerName string `pulumi:"serverName"`
-	// The credential user name.
-	Username string `pulumi:"username"`
+	CredentialName    *string `pulumi:"credentialName"`
+	JobAgentName      string  `pulumi:"jobAgentName"`
+	Password          string  `pulumi:"password"`
+	ResourceGroupName string  `pulumi:"resourceGroupName"`
+	ServerName        string  `pulumi:"serverName"`
+	Username          string  `pulumi:"username"`
 }
 
 // The set of arguments for constructing a JobCredential resource.
 type JobCredentialArgs struct {
-	// The name of the credential.
-	CredentialName pulumi.StringPtrInput
-	// The name of the job agent.
-	JobAgentName pulumi.StringInput
-	// The credential password.
-	Password pulumi.StringInput
-	// The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
+	CredentialName    pulumi.StringPtrInput
+	JobAgentName      pulumi.StringInput
+	Password          pulumi.StringInput
 	ResourceGroupName pulumi.StringInput
-	// The name of the server.
-	ServerName pulumi.StringInput
-	// The credential user name.
-	Username pulumi.StringInput
+	ServerName        pulumi.StringInput
+	Username          pulumi.StringInput
 }
 
 func (JobCredentialArgs) ElementType() reflect.Type {
@@ -166,9 +150,7 @@ func (i *JobCredential) ToJobCredentialOutputWithContext(ctx context.Context) Jo
 	return pulumi.ToOutputWithContext(ctx, i).(JobCredentialOutput)
 }
 
-type JobCredentialOutput struct {
-	*pulumi.OutputState
-}
+type JobCredentialOutput struct{ *pulumi.OutputState }
 
 func (JobCredentialOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*JobCredential)(nil))

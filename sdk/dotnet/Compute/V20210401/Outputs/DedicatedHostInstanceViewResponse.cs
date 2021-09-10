@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.Compute.V20210401.Outputs
 {
 
+    /// <summary>
+    /// The instance view of a dedicated host.
+    /// </summary>
     [OutputType]
     public sealed class DedicatedHostInstanceViewResponse
     {

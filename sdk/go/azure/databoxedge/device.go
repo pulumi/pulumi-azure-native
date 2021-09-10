@@ -231,9 +231,7 @@ func (i *Device) ToDeviceOutputWithContext(ctx context.Context) DeviceOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(DeviceOutput)
 }
 
-type DeviceOutput struct {
-	*pulumi.OutputState
-}
+type DeviceOutput struct{ *pulumi.OutputState }
 
 func (DeviceOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*Device)(nil))

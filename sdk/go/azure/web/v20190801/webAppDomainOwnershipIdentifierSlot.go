@@ -11,17 +11,12 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// A domain specific resource identifier.
 type WebAppDomainOwnershipIdentifierSlot struct {
 	pulumi.CustomResourceState
 
-	// Kind of resource.
-	Kind pulumi.StringPtrOutput `pulumi:"kind"`
-	// Resource Name.
-	Name pulumi.StringOutput `pulumi:"name"`
-	// Resource type.
-	Type pulumi.StringOutput `pulumi:"type"`
-	// String representation of the identity.
+	Kind  pulumi.StringPtrOutput `pulumi:"kind"`
+	Name  pulumi.StringOutput    `pulumi:"name"`
+	Type  pulumi.StringOutput    `pulumi:"type"`
 	Value pulumi.StringPtrOutput `pulumi:"value"`
 }
 
@@ -145,34 +140,22 @@ func (WebAppDomainOwnershipIdentifierSlotState) ElementType() reflect.Type {
 }
 
 type webAppDomainOwnershipIdentifierSlotArgs struct {
-	// Name of domain ownership identifier.
 	DomainOwnershipIdentifierName *string `pulumi:"domainOwnershipIdentifierName"`
-	// Kind of resource.
-	Kind *string `pulumi:"kind"`
-	// Name of the app.
-	Name string `pulumi:"name"`
-	// Name of the resource group to which the resource belongs.
-	ResourceGroupName string `pulumi:"resourceGroupName"`
-	// Name of the deployment slot. If a slot is not specified, the API will delete the binding for the production slot.
-	Slot string `pulumi:"slot"`
-	// String representation of the identity.
-	Value *string `pulumi:"value"`
+	Kind                          *string `pulumi:"kind"`
+	Name                          string  `pulumi:"name"`
+	ResourceGroupName             string  `pulumi:"resourceGroupName"`
+	Slot                          string  `pulumi:"slot"`
+	Value                         *string `pulumi:"value"`
 }
 
 // The set of arguments for constructing a WebAppDomainOwnershipIdentifierSlot resource.
 type WebAppDomainOwnershipIdentifierSlotArgs struct {
-	// Name of domain ownership identifier.
 	DomainOwnershipIdentifierName pulumi.StringPtrInput
-	// Kind of resource.
-	Kind pulumi.StringPtrInput
-	// Name of the app.
-	Name pulumi.StringInput
-	// Name of the resource group to which the resource belongs.
-	ResourceGroupName pulumi.StringInput
-	// Name of the deployment slot. If a slot is not specified, the API will delete the binding for the production slot.
-	Slot pulumi.StringInput
-	// String representation of the identity.
-	Value pulumi.StringPtrInput
+	Kind                          pulumi.StringPtrInput
+	Name                          pulumi.StringInput
+	ResourceGroupName             pulumi.StringInput
+	Slot                          pulumi.StringInput
+	Value                         pulumi.StringPtrInput
 }
 
 func (WebAppDomainOwnershipIdentifierSlotArgs) ElementType() reflect.Type {
@@ -198,9 +181,7 @@ func (i *WebAppDomainOwnershipIdentifierSlot) ToWebAppDomainOwnershipIdentifierS
 	return pulumi.ToOutputWithContext(ctx, i).(WebAppDomainOwnershipIdentifierSlotOutput)
 }
 
-type WebAppDomainOwnershipIdentifierSlotOutput struct {
-	*pulumi.OutputState
-}
+type WebAppDomainOwnershipIdentifierSlotOutput struct{ *pulumi.OutputState }
 
 func (WebAppDomainOwnershipIdentifierSlotOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*WebAppDomainOwnershipIdentifierSlot)(nil))

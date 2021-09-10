@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.Automation.V20190601.Outputs
 {
 
+    /// <summary>
+    /// Error response of an operation failure
+    /// </summary>
     [OutputType]
     public sealed class ErrorResponseResponse
     {

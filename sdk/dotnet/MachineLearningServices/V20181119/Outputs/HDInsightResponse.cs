@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.MachineLearningServices.V20181119.Outputs
 {
 
+    /// <summary>
+    /// A HDInsight compute.
+    /// </summary>
     [OutputType]
     public sealed class HDInsightResponse
     {

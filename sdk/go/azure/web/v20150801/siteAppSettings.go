@@ -11,22 +11,15 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// String dictionary resource
 type SiteAppSettings struct {
 	pulumi.CustomResourceState
 
-	// Kind of resource
-	Kind pulumi.StringPtrOutput `pulumi:"kind"`
-	// Resource Location
-	Location pulumi.StringOutput `pulumi:"location"`
-	// Resource Name
-	Name pulumi.StringPtrOutput `pulumi:"name"`
-	// Settings
+	Kind       pulumi.StringPtrOutput `pulumi:"kind"`
+	Location   pulumi.StringOutput    `pulumi:"location"`
+	Name       pulumi.StringPtrOutput `pulumi:"name"`
 	Properties pulumi.StringMapOutput `pulumi:"properties"`
-	// Resource tags
-	Tags pulumi.StringMapOutput `pulumi:"tags"`
-	// Resource type
-	Type pulumi.StringPtrOutput `pulumi:"type"`
+	Tags       pulumi.StringMapOutput `pulumi:"tags"`
+	Type       pulumi.StringPtrOutput `pulumi:"type"`
 }
 
 // NewSiteAppSettings registers a new resource with the given unique name, arguments, and options.
@@ -152,42 +145,26 @@ func (SiteAppSettingsState) ElementType() reflect.Type {
 }
 
 type siteAppSettingsArgs struct {
-	// Resource Id
-	Id *string `pulumi:"id"`
-	// Kind of resource
-	Kind *string `pulumi:"kind"`
-	// Resource Location
-	Location *string `pulumi:"location"`
-	// Resource Name
-	Name string `pulumi:"name"`
-	// Settings
-	Properties map[string]string `pulumi:"properties"`
-	// Name of resource group
-	ResourceGroupName string `pulumi:"resourceGroupName"`
-	// Resource tags
-	Tags map[string]string `pulumi:"tags"`
-	// Resource type
-	Type *string `pulumi:"type"`
+	Id                *string           `pulumi:"id"`
+	Kind              *string           `pulumi:"kind"`
+	Location          *string           `pulumi:"location"`
+	Name              string            `pulumi:"name"`
+	Properties        map[string]string `pulumi:"properties"`
+	ResourceGroupName string            `pulumi:"resourceGroupName"`
+	Tags              map[string]string `pulumi:"tags"`
+	Type              *string           `pulumi:"type"`
 }
 
 // The set of arguments for constructing a SiteAppSettings resource.
 type SiteAppSettingsArgs struct {
-	// Resource Id
-	Id pulumi.StringPtrInput
-	// Kind of resource
-	Kind pulumi.StringPtrInput
-	// Resource Location
-	Location pulumi.StringPtrInput
-	// Resource Name
-	Name pulumi.StringInput
-	// Settings
-	Properties pulumi.StringMapInput
-	// Name of resource group
+	Id                pulumi.StringPtrInput
+	Kind              pulumi.StringPtrInput
+	Location          pulumi.StringPtrInput
+	Name              pulumi.StringInput
+	Properties        pulumi.StringMapInput
 	ResourceGroupName pulumi.StringInput
-	// Resource tags
-	Tags pulumi.StringMapInput
-	// Resource type
-	Type pulumi.StringPtrInput
+	Tags              pulumi.StringMapInput
+	Type              pulumi.StringPtrInput
 }
 
 func (SiteAppSettingsArgs) ElementType() reflect.Type {
@@ -213,9 +190,7 @@ func (i *SiteAppSettings) ToSiteAppSettingsOutputWithContext(ctx context.Context
 	return pulumi.ToOutputWithContext(ctx, i).(SiteAppSettingsOutput)
 }
 
-type SiteAppSettingsOutput struct {
-	*pulumi.OutputState
-}
+type SiteAppSettingsOutput struct{ *pulumi.OutputState }
 
 func (SiteAppSettingsOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*SiteAppSettings)(nil))

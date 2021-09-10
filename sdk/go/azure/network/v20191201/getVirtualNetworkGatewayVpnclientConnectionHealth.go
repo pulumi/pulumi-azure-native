@@ -7,7 +7,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// List of virtual network gateway vpn client connection health.
 func GetVirtualNetworkGatewayVpnclientConnectionHealth(ctx *pulumi.Context, args *GetVirtualNetworkGatewayVpnclientConnectionHealthArgs, opts ...pulumi.InvokeOption) (*GetVirtualNetworkGatewayVpnclientConnectionHealthResult, error) {
 	var rv GetVirtualNetworkGatewayVpnclientConnectionHealthResult
 	err := ctx.Invoke("azure-native:network/v20191201:getVirtualNetworkGatewayVpnclientConnectionHealth", args, &rv, opts...)
@@ -18,14 +17,11 @@ func GetVirtualNetworkGatewayVpnclientConnectionHealth(ctx *pulumi.Context, args
 }
 
 type GetVirtualNetworkGatewayVpnclientConnectionHealthArgs struct {
-	// The name of the resource group.
-	ResourceGroupName string `pulumi:"resourceGroupName"`
-	// The name of the virtual network gateway.
+	ResourceGroupName         string `pulumi:"resourceGroupName"`
 	VirtualNetworkGatewayName string `pulumi:"virtualNetworkGatewayName"`
 }
 
 // List of virtual network gateway vpn client connection health.
 type GetVirtualNetworkGatewayVpnclientConnectionHealthResult struct {
-	// List of vpn client connection health.
 	Value []VpnClientConnectionHealthDetailResponse `pulumi:"value"`
 }

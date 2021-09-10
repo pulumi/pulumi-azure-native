@@ -11,26 +11,17 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Bastion Host resource.
 type BastionHost struct {
 	pulumi.CustomResourceState
 
-	// FQDN for the endpoint on which bastion host is accessible.
-	DnsName pulumi.StringPtrOutput `pulumi:"dnsName"`
-	// A unique read-only string that changes whenever the resource is updated.
-	Etag pulumi.StringOutput `pulumi:"etag"`
-	// IP configuration of the Bastion Host resource.
-	IpConfigurations BastionHostIPConfigurationResponseArrayOutput `pulumi:"ipConfigurations"`
-	// Resource location.
-	Location pulumi.StringPtrOutput `pulumi:"location"`
-	// Resource name.
-	Name pulumi.StringOutput `pulumi:"name"`
-	// The provisioning state of the bastion host resource.
-	ProvisioningState pulumi.StringOutput `pulumi:"provisioningState"`
-	// Resource tags.
-	Tags pulumi.StringMapOutput `pulumi:"tags"`
-	// Resource type.
-	Type pulumi.StringOutput `pulumi:"type"`
+	DnsName           pulumi.StringPtrOutput                        `pulumi:"dnsName"`
+	Etag              pulumi.StringOutput                           `pulumi:"etag"`
+	IpConfigurations  BastionHostIPConfigurationResponseArrayOutput `pulumi:"ipConfigurations"`
+	Location          pulumi.StringPtrOutput                        `pulumi:"location"`
+	Name              pulumi.StringOutput                           `pulumi:"name"`
+	ProvisioningState pulumi.StringOutput                           `pulumi:"provisioningState"`
+	Tags              pulumi.StringMapOutput                        `pulumi:"tags"`
+	Type              pulumi.StringOutput                           `pulumi:"type"`
 }
 
 // NewBastionHost registers a new resource with the given unique name, arguments, and options.
@@ -177,38 +168,24 @@ func (BastionHostState) ElementType() reflect.Type {
 }
 
 type bastionHostArgs struct {
-	// The name of the Bastion Host.
-	BastionHostName *string `pulumi:"bastionHostName"`
-	// FQDN for the endpoint on which bastion host is accessible.
-	DnsName *string `pulumi:"dnsName"`
-	// Resource ID.
-	Id *string `pulumi:"id"`
-	// IP configuration of the Bastion Host resource.
-	IpConfigurations []BastionHostIPConfiguration `pulumi:"ipConfigurations"`
-	// Resource location.
-	Location *string `pulumi:"location"`
-	// The name of the resource group.
-	ResourceGroupName string `pulumi:"resourceGroupName"`
-	// Resource tags.
-	Tags map[string]string `pulumi:"tags"`
+	BastionHostName   *string                      `pulumi:"bastionHostName"`
+	DnsName           *string                      `pulumi:"dnsName"`
+	Id                *string                      `pulumi:"id"`
+	IpConfigurations  []BastionHostIPConfiguration `pulumi:"ipConfigurations"`
+	Location          *string                      `pulumi:"location"`
+	ResourceGroupName string                       `pulumi:"resourceGroupName"`
+	Tags              map[string]string            `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a BastionHost resource.
 type BastionHostArgs struct {
-	// The name of the Bastion Host.
-	BastionHostName pulumi.StringPtrInput
-	// FQDN for the endpoint on which bastion host is accessible.
-	DnsName pulumi.StringPtrInput
-	// Resource ID.
-	Id pulumi.StringPtrInput
-	// IP configuration of the Bastion Host resource.
-	IpConfigurations BastionHostIPConfigurationArrayInput
-	// Resource location.
-	Location pulumi.StringPtrInput
-	// The name of the resource group.
+	BastionHostName   pulumi.StringPtrInput
+	DnsName           pulumi.StringPtrInput
+	Id                pulumi.StringPtrInput
+	IpConfigurations  BastionHostIPConfigurationArrayInput
+	Location          pulumi.StringPtrInput
 	ResourceGroupName pulumi.StringInput
-	// Resource tags.
-	Tags pulumi.StringMapInput
+	Tags              pulumi.StringMapInput
 }
 
 func (BastionHostArgs) ElementType() reflect.Type {
@@ -234,9 +211,7 @@ func (i *BastionHost) ToBastionHostOutputWithContext(ctx context.Context) Bastio
 	return pulumi.ToOutputWithContext(ctx, i).(BastionHostOutput)
 }
 
-type BastionHostOutput struct {
-	*pulumi.OutputState
-}
+type BastionHostOutput struct{ *pulumi.OutputState }
 
 func (BastionHostOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*BastionHost)(nil))

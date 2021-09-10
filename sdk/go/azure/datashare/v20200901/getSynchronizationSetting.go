@@ -7,8 +7,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// A Synchronization Setting data transfer object.
-//
 // Deprecated: Please use one of the variants: ScheduledSynchronizationSetting.
 func LookupSynchronizationSetting(ctx *pulumi.Context, args *LookupSynchronizationSettingArgs, opts ...pulumi.InvokeOption) (*LookupSynchronizationSettingResult, error) {
 	var rv LookupSynchronizationSettingResult
@@ -20,26 +18,17 @@ func LookupSynchronizationSetting(ctx *pulumi.Context, args *LookupSynchronizati
 }
 
 type LookupSynchronizationSettingArgs struct {
-	// The name of the share account.
-	AccountName string `pulumi:"accountName"`
-	// The resource group name.
-	ResourceGroupName string `pulumi:"resourceGroupName"`
-	// The name of the share.
-	ShareName string `pulumi:"shareName"`
-	// The name of the synchronizationSetting.
+	AccountName                string `pulumi:"accountName"`
+	ResourceGroupName          string `pulumi:"resourceGroupName"`
+	ShareName                  string `pulumi:"shareName"`
 	SynchronizationSettingName string `pulumi:"synchronizationSettingName"`
 }
 
 // A Synchronization Setting data transfer object.
 type LookupSynchronizationSettingResult struct {
-	// The resource id of the azure resource
-	Id string `pulumi:"id"`
-	// Kind of synchronization setting.
-	Kind string `pulumi:"kind"`
-	// Name of the azure resource
-	Name string `pulumi:"name"`
-	// System Data of the Azure resource.
+	Id         string             `pulumi:"id"`
+	Kind       string             `pulumi:"kind"`
+	Name       string             `pulumi:"name"`
 	SystemData SystemDataResponse `pulumi:"systemData"`
-	// Type of the azure resource
-	Type string `pulumi:"type"`
+	Type       string             `pulumi:"type"`
 }

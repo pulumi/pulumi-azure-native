@@ -11,30 +11,19 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Peering is a logical representation of a set of connections to the Microsoft Cloud Edge at a location.
 type Peering struct {
 	pulumi.CustomResourceState
 
-	// The properties that define a direct peering.
-	Direct PeeringPropertiesDirectResponsePtrOutput `pulumi:"direct"`
-	// The properties that define an exchange peering.
-	Exchange PeeringPropertiesExchangeResponsePtrOutput `pulumi:"exchange"`
-	// The kind of the peering.
-	Kind pulumi.StringOutput `pulumi:"kind"`
-	// The location of the resource.
-	Location pulumi.StringOutput `pulumi:"location"`
-	// The name of the resource.
-	Name pulumi.StringOutput `pulumi:"name"`
-	// The location of the peering.
-	PeeringLocation pulumi.StringPtrOutput `pulumi:"peeringLocation"`
-	// The provisioning state of the resource.
-	ProvisioningState pulumi.StringOutput `pulumi:"provisioningState"`
-	// The SKU that defines the tier and kind of the peering.
-	Sku PeeringSkuResponseOutput `pulumi:"sku"`
-	// The resource tags.
-	Tags pulumi.StringMapOutput `pulumi:"tags"`
-	// The type of the resource.
-	Type pulumi.StringOutput `pulumi:"type"`
+	Direct            PeeringPropertiesDirectResponsePtrOutput   `pulumi:"direct"`
+	Exchange          PeeringPropertiesExchangeResponsePtrOutput `pulumi:"exchange"`
+	Kind              pulumi.StringOutput                        `pulumi:"kind"`
+	Location          pulumi.StringOutput                        `pulumi:"location"`
+	Name              pulumi.StringOutput                        `pulumi:"name"`
+	PeeringLocation   pulumi.StringPtrOutput                     `pulumi:"peeringLocation"`
+	ProvisioningState pulumi.StringOutput                        `pulumi:"provisioningState"`
+	Sku               PeeringSkuResponseOutput                   `pulumi:"sku"`
+	Tags              pulumi.StringMapOutput                     `pulumi:"tags"`
+	Type              pulumi.StringOutput                        `pulumi:"type"`
 }
 
 // NewPeering registers a new resource with the given unique name, arguments, and options.
@@ -133,46 +122,28 @@ func (PeeringState) ElementType() reflect.Type {
 }
 
 type peeringArgs struct {
-	// The properties that define a direct peering.
-	Direct *PeeringPropertiesDirect `pulumi:"direct"`
-	// The properties that define an exchange peering.
-	Exchange *PeeringPropertiesExchange `pulumi:"exchange"`
-	// The kind of the peering.
-	Kind string `pulumi:"kind"`
-	// The location of the resource.
-	Location *string `pulumi:"location"`
-	// The location of the peering.
-	PeeringLocation *string `pulumi:"peeringLocation"`
-	// The name of the peering.
-	PeeringName *string `pulumi:"peeringName"`
-	// The name of the resource group.
-	ResourceGroupName string `pulumi:"resourceGroupName"`
-	// The SKU that defines the tier and kind of the peering.
-	Sku PeeringSku `pulumi:"sku"`
-	// The resource tags.
-	Tags map[string]string `pulumi:"tags"`
+	Direct            *PeeringPropertiesDirect   `pulumi:"direct"`
+	Exchange          *PeeringPropertiesExchange `pulumi:"exchange"`
+	Kind              string                     `pulumi:"kind"`
+	Location          *string                    `pulumi:"location"`
+	PeeringLocation   *string                    `pulumi:"peeringLocation"`
+	PeeringName       *string                    `pulumi:"peeringName"`
+	ResourceGroupName string                     `pulumi:"resourceGroupName"`
+	Sku               PeeringSku                 `pulumi:"sku"`
+	Tags              map[string]string          `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a Peering resource.
 type PeeringArgs struct {
-	// The properties that define a direct peering.
-	Direct PeeringPropertiesDirectPtrInput
-	// The properties that define an exchange peering.
-	Exchange PeeringPropertiesExchangePtrInput
-	// The kind of the peering.
-	Kind pulumi.StringInput
-	// The location of the resource.
-	Location pulumi.StringPtrInput
-	// The location of the peering.
-	PeeringLocation pulumi.StringPtrInput
-	// The name of the peering.
-	PeeringName pulumi.StringPtrInput
-	// The name of the resource group.
+	Direct            PeeringPropertiesDirectPtrInput
+	Exchange          PeeringPropertiesExchangePtrInput
+	Kind              pulumi.StringInput
+	Location          pulumi.StringPtrInput
+	PeeringLocation   pulumi.StringPtrInput
+	PeeringName       pulumi.StringPtrInput
 	ResourceGroupName pulumi.StringInput
-	// The SKU that defines the tier and kind of the peering.
-	Sku PeeringSkuInput
-	// The resource tags.
-	Tags pulumi.StringMapInput
+	Sku               PeeringSkuInput
+	Tags              pulumi.StringMapInput
 }
 
 func (PeeringArgs) ElementType() reflect.Type {
@@ -198,9 +169,7 @@ func (i *Peering) ToPeeringOutputWithContext(ctx context.Context) PeeringOutput 
 	return pulumi.ToOutputWithContext(ctx, i).(PeeringOutput)
 }
 
-type PeeringOutput struct {
-	*pulumi.OutputState
-}
+type PeeringOutput struct{ *pulumi.OutputState }
 
 func (PeeringOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*Peering)(nil))

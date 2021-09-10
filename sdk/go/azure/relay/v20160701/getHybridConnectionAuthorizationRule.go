@@ -7,7 +7,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Description of a Namespace AuthorizationRules.
 func LookupHybridConnectionAuthorizationRule(ctx *pulumi.Context, args *LookupHybridConnectionAuthorizationRuleArgs, opts ...pulumi.InvokeOption) (*LookupHybridConnectionAuthorizationRuleResult, error) {
 	var rv LookupHybridConnectionAuthorizationRuleResult
 	err := ctx.Invoke("azure-native:relay/v20160701:getHybridConnectionAuthorizationRule", args, &rv, opts...)
@@ -18,24 +17,16 @@ func LookupHybridConnectionAuthorizationRule(ctx *pulumi.Context, args *LookupHy
 }
 
 type LookupHybridConnectionAuthorizationRuleArgs struct {
-	// The authorizationRule name.
 	AuthorizationRuleName string `pulumi:"authorizationRuleName"`
-	// The hybrid connection name.
-	HybridConnectionName string `pulumi:"hybridConnectionName"`
-	// The Namespace Name
-	NamespaceName string `pulumi:"namespaceName"`
-	// Name of the Resource group within the Azure subscription.
-	ResourceGroupName string `pulumi:"resourceGroupName"`
+	HybridConnectionName  string `pulumi:"hybridConnectionName"`
+	NamespaceName         string `pulumi:"namespaceName"`
+	ResourceGroupName     string `pulumi:"resourceGroupName"`
 }
 
 // Description of a Namespace AuthorizationRules.
 type LookupHybridConnectionAuthorizationRuleResult struct {
-	// Resource Id
-	Id string `pulumi:"id"`
-	// Resource name
-	Name string `pulumi:"name"`
-	// The rights associated with the rule.
+	Id     string   `pulumi:"id"`
+	Name   string   `pulumi:"name"`
 	Rights []string `pulumi:"rights"`
-	// Resource type
-	Type string `pulumi:"type"`
+	Type   string   `pulumi:"type"`
 }

@@ -7,7 +7,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// An action group resource.
 func LookupActionGroup(ctx *pulumi.Context, args *LookupActionGroupArgs, opts ...pulumi.InvokeOption) (*LookupActionGroupResult, error) {
 	var rv LookupActionGroupResult
 	err := ctx.Invoke("azure-native:insights/v20170401:getActionGroup", args, &rv, opts...)
@@ -18,38 +17,23 @@ func LookupActionGroup(ctx *pulumi.Context, args *LookupActionGroupArgs, opts ..
 }
 
 type LookupActionGroupArgs struct {
-	// The name of the action group.
-	ActionGroupName string `pulumi:"actionGroupName"`
-	// The name of the resource group.
+	ActionGroupName   string `pulumi:"actionGroupName"`
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 }
 
 // An action group resource.
 type LookupActionGroupResult struct {
-	// The list of AutomationRunbook receivers that are part of this action group.
 	AutomationRunbookReceivers []AutomationRunbookReceiverResponse `pulumi:"automationRunbookReceivers"`
-	// The list of AzureAppPush receivers that are part of this action group.
-	AzureAppPushReceivers []AzureAppPushReceiverResponse `pulumi:"azureAppPushReceivers"`
-	// The list of email receivers that are part of this action group.
-	EmailReceivers []EmailReceiverResponse `pulumi:"emailReceivers"`
-	// Indicates whether this action group is enabled. If an action group is not enabled, then none of its receivers will receive communications.
-	Enabled bool `pulumi:"enabled"`
-	// The short name of the action group. This will be used in SMS messages.
-	GroupShortName string `pulumi:"groupShortName"`
-	// Azure resource Id
-	Id string `pulumi:"id"`
-	// The list of ITSM receivers that are part of this action group.
-	ItsmReceivers []ItsmReceiverResponse `pulumi:"itsmReceivers"`
-	// Resource location
-	Location string `pulumi:"location"`
-	// Azure resource name
-	Name string `pulumi:"name"`
-	// The list of SMS receivers that are part of this action group.
-	SmsReceivers []SmsReceiverResponse `pulumi:"smsReceivers"`
-	// Resource tags
-	Tags map[string]string `pulumi:"tags"`
-	// Azure resource type
-	Type string `pulumi:"type"`
-	// The list of webhook receivers that are part of this action group.
-	WebhookReceivers []WebhookReceiverResponse `pulumi:"webhookReceivers"`
+	AzureAppPushReceivers      []AzureAppPushReceiverResponse      `pulumi:"azureAppPushReceivers"`
+	EmailReceivers             []EmailReceiverResponse             `pulumi:"emailReceivers"`
+	Enabled                    bool                                `pulumi:"enabled"`
+	GroupShortName             string                              `pulumi:"groupShortName"`
+	Id                         string                              `pulumi:"id"`
+	ItsmReceivers              []ItsmReceiverResponse              `pulumi:"itsmReceivers"`
+	Location                   string                              `pulumi:"location"`
+	Name                       string                              `pulumi:"name"`
+	SmsReceivers               []SmsReceiverResponse               `pulumi:"smsReceivers"`
+	Tags                       map[string]string                   `pulumi:"tags"`
+	Type                       string                              `pulumi:"type"`
+	WebhookReceivers           []WebhookReceiverResponse           `pulumi:"webhookReceivers"`
 }

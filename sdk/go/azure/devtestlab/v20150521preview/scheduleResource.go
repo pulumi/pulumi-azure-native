@@ -11,32 +11,20 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// A schedule.
 type ScheduleResource struct {
 	pulumi.CustomResourceState
 
-	// The daily recurrence of the schedule.
-	DailyRecurrence DayDetailsResponsePtrOutput `pulumi:"dailyRecurrence"`
-	// The hourly recurrence of the schedule.
-	HourlyRecurrence HourDetailsResponsePtrOutput `pulumi:"hourlyRecurrence"`
-	// The location of the resource.
-	Location pulumi.StringPtrOutput `pulumi:"location"`
-	// The name of the resource.
-	Name pulumi.StringPtrOutput `pulumi:"name"`
-	// The provisioning status of the resource.
-	ProvisioningState pulumi.StringPtrOutput `pulumi:"provisioningState"`
-	// The status of the schedule.
-	Status pulumi.StringPtrOutput `pulumi:"status"`
-	// The tags of the resource.
-	Tags pulumi.StringMapOutput `pulumi:"tags"`
-	// The task type of the schedule.
-	TaskType pulumi.StringPtrOutput `pulumi:"taskType"`
-	// The time zone id.
-	TimeZoneId pulumi.StringPtrOutput `pulumi:"timeZoneId"`
-	// The type of the resource.
-	Type pulumi.StringPtrOutput `pulumi:"type"`
-	// The weekly recurrence of the schedule.
-	WeeklyRecurrence WeekDetailsResponsePtrOutput `pulumi:"weeklyRecurrence"`
+	DailyRecurrence   DayDetailsResponsePtrOutput  `pulumi:"dailyRecurrence"`
+	HourlyRecurrence  HourDetailsResponsePtrOutput `pulumi:"hourlyRecurrence"`
+	Location          pulumi.StringPtrOutput       `pulumi:"location"`
+	Name              pulumi.StringPtrOutput       `pulumi:"name"`
+	ProvisioningState pulumi.StringPtrOutput       `pulumi:"provisioningState"`
+	Status            pulumi.StringPtrOutput       `pulumi:"status"`
+	Tags              pulumi.StringMapOutput       `pulumi:"tags"`
+	TaskType          pulumi.StringPtrOutput       `pulumi:"taskType"`
+	TimeZoneId        pulumi.StringPtrOutput       `pulumi:"timeZoneId"`
+	Type              pulumi.StringPtrOutput       `pulumi:"type"`
+	WeeklyRecurrence  WeekDetailsResponsePtrOutput `pulumi:"weeklyRecurrence"`
 }
 
 // NewScheduleResource registers a new resource with the given unique name, arguments, and options.
@@ -108,66 +96,38 @@ func (ScheduleResourceState) ElementType() reflect.Type {
 }
 
 type scheduleResourceArgs struct {
-	// The daily recurrence of the schedule.
-	DailyRecurrence *DayDetails `pulumi:"dailyRecurrence"`
-	// The hourly recurrence of the schedule.
-	HourlyRecurrence *HourDetails `pulumi:"hourlyRecurrence"`
-	// The identifier of the resource.
-	Id *string `pulumi:"id"`
-	// The name of the lab.
-	LabName string `pulumi:"labName"`
-	// The location of the resource.
-	Location *string `pulumi:"location"`
-	// The name of the resource.
-	Name *string `pulumi:"name"`
-	// The provisioning status of the resource.
-	ProvisioningState *string `pulumi:"provisioningState"`
-	// The name of the resource group.
-	ResourceGroupName string `pulumi:"resourceGroupName"`
-	// The status of the schedule.
-	Status *string `pulumi:"status"`
-	// The tags of the resource.
-	Tags map[string]string `pulumi:"tags"`
-	// The task type of the schedule.
-	TaskType *string `pulumi:"taskType"`
-	// The time zone id.
-	TimeZoneId *string `pulumi:"timeZoneId"`
-	// The type of the resource.
-	Type *string `pulumi:"type"`
-	// The weekly recurrence of the schedule.
-	WeeklyRecurrence *WeekDetails `pulumi:"weeklyRecurrence"`
+	DailyRecurrence   *DayDetails       `pulumi:"dailyRecurrence"`
+	HourlyRecurrence  *HourDetails      `pulumi:"hourlyRecurrence"`
+	Id                *string           `pulumi:"id"`
+	LabName           string            `pulumi:"labName"`
+	Location          *string           `pulumi:"location"`
+	Name              *string           `pulumi:"name"`
+	ProvisioningState *string           `pulumi:"provisioningState"`
+	ResourceGroupName string            `pulumi:"resourceGroupName"`
+	Status            *string           `pulumi:"status"`
+	Tags              map[string]string `pulumi:"tags"`
+	TaskType          *string           `pulumi:"taskType"`
+	TimeZoneId        *string           `pulumi:"timeZoneId"`
+	Type              *string           `pulumi:"type"`
+	WeeklyRecurrence  *WeekDetails      `pulumi:"weeklyRecurrence"`
 }
 
 // The set of arguments for constructing a ScheduleResource resource.
 type ScheduleResourceArgs struct {
-	// The daily recurrence of the schedule.
-	DailyRecurrence DayDetailsPtrInput
-	// The hourly recurrence of the schedule.
-	HourlyRecurrence HourDetailsPtrInput
-	// The identifier of the resource.
-	Id pulumi.StringPtrInput
-	// The name of the lab.
-	LabName pulumi.StringInput
-	// The location of the resource.
-	Location pulumi.StringPtrInput
-	// The name of the resource.
-	Name pulumi.StringPtrInput
-	// The provisioning status of the resource.
+	DailyRecurrence   DayDetailsPtrInput
+	HourlyRecurrence  HourDetailsPtrInput
+	Id                pulumi.StringPtrInput
+	LabName           pulumi.StringInput
+	Location          pulumi.StringPtrInput
+	Name              pulumi.StringPtrInput
 	ProvisioningState pulumi.StringPtrInput
-	// The name of the resource group.
 	ResourceGroupName pulumi.StringInput
-	// The status of the schedule.
-	Status pulumi.StringPtrInput
-	// The tags of the resource.
-	Tags pulumi.StringMapInput
-	// The task type of the schedule.
-	TaskType pulumi.StringPtrInput
-	// The time zone id.
-	TimeZoneId pulumi.StringPtrInput
-	// The type of the resource.
-	Type pulumi.StringPtrInput
-	// The weekly recurrence of the schedule.
-	WeeklyRecurrence WeekDetailsPtrInput
+	Status            pulumi.StringPtrInput
+	Tags              pulumi.StringMapInput
+	TaskType          pulumi.StringPtrInput
+	TimeZoneId        pulumi.StringPtrInput
+	Type              pulumi.StringPtrInput
+	WeeklyRecurrence  WeekDetailsPtrInput
 }
 
 func (ScheduleResourceArgs) ElementType() reflect.Type {
@@ -193,9 +153,7 @@ func (i *ScheduleResource) ToScheduleResourceOutputWithContext(ctx context.Conte
 	return pulumi.ToOutputWithContext(ctx, i).(ScheduleResourceOutput)
 }
 
-type ScheduleResourceOutput struct {
-	*pulumi.OutputState
-}
+type ScheduleResourceOutput struct{ *pulumi.OutputState }
 
 func (ScheduleResourceOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*ScheduleResource)(nil))

@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.Compute.V20181001.Outputs
 {
 
+    /// <summary>
+    /// Maintenance Operation Status.
+    /// </summary>
     [OutputType]
     public sealed class MaintenanceRedeployStatusResponse
     {

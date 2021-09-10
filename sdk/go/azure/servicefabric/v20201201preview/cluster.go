@@ -11,90 +11,39 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// The cluster resource
 type Cluster struct {
 	pulumi.CustomResourceState
 
-	// The list of add-on features to enable in the cluster.
-	AddOnFeatures pulumi.StringArrayOutput `pulumi:"addOnFeatures"`
-	// The policy used to clean up unused versions.
+	AddOnFeatures                        pulumi.StringArrayOutput                              `pulumi:"addOnFeatures"`
 	ApplicationTypeVersionsCleanupPolicy ApplicationTypeVersionsCleanupPolicyResponsePtrOutput `pulumi:"applicationTypeVersionsCleanupPolicy"`
-	// The Service Fabric runtime versions available for this cluster.
-	AvailableClusterVersions ClusterVersionDetailsResponseArrayOutput `pulumi:"availableClusterVersions"`
-	// The AAD authentication settings of the cluster.
-	AzureActiveDirectory AzureActiveDirectoryResponsePtrOutput `pulumi:"azureActiveDirectory"`
-	// The certificate to use for securing the cluster. The certificate provided will be used for node to node security within the cluster, SSL certificate for cluster management endpoint and default admin client.
-	Certificate CertificateDescriptionResponsePtrOutput `pulumi:"certificate"`
-	// Describes a list of server certificates referenced by common name that are used to secure the cluster.
-	CertificateCommonNames ServerCertificateCommonNamesResponsePtrOutput `pulumi:"certificateCommonNames"`
-	// The list of client certificates referenced by common name that are allowed to manage the cluster.
-	ClientCertificateCommonNames ClientCertificateCommonNameResponseArrayOutput `pulumi:"clientCertificateCommonNames"`
-	// The list of client certificates referenced by thumbprint that are allowed to manage the cluster.
-	ClientCertificateThumbprints ClientCertificateThumbprintResponseArrayOutput `pulumi:"clientCertificateThumbprints"`
-	// The Service Fabric runtime version of the cluster. This property can only by set the user when **upgradeMode** is set to 'Manual'. To get list of available Service Fabric versions for new clusters use [ClusterVersion API](./ClusterVersion.md). To get the list of available version for existing clusters use **availableClusterVersions**.
-	ClusterCodeVersion pulumi.StringPtrOutput `pulumi:"clusterCodeVersion"`
-	// The Azure Resource Provider endpoint. A system service in the cluster connects to this  endpoint.
-	ClusterEndpoint pulumi.StringOutput `pulumi:"clusterEndpoint"`
-	// A service generated unique identifier for the cluster resource.
-	ClusterId pulumi.StringOutput `pulumi:"clusterId"`
-	// The current state of the cluster.
-	//
-	//   - WaitingForNodes - Indicates that the cluster resource is created and the resource provider is waiting for Service Fabric VM extension to boot up and report to it.
-	//   - Deploying - Indicates that the Service Fabric runtime is being installed on the VMs. Cluster resource will be in this state until the cluster boots up and system services are up.
-	//   - BaselineUpgrade - Indicates that the cluster is upgrading to establishes the cluster version. This upgrade is automatically initiated when the cluster boots up for the first time.
-	//   - UpdatingUserConfiguration - Indicates that the cluster is being upgraded with the user provided configuration.
-	//   - UpdatingUserCertificate - Indicates that the cluster is being upgraded with the user provided certificate.
-	//   - UpdatingInfrastructure - Indicates that the cluster is being upgraded with the latest Service Fabric runtime version. This happens only when the **upgradeMode** is set to 'Automatic'.
-	//   - EnforcingClusterVersion - Indicates that cluster is on a different version than expected and the cluster is being upgraded to the expected version.
-	//   - UpgradeServiceUnreachable - Indicates that the system service in the cluster is no longer polling the Resource Provider. Clusters in this state cannot be managed by the Resource Provider.
-	//   - AutoScale - Indicates that the ReliabilityLevel of the cluster is being adjusted.
-	//   - Ready - Indicates that the cluster is in a stable state.
-	ClusterState pulumi.StringOutput `pulumi:"clusterState"`
-	// The storage account information for storing Service Fabric diagnostic logs.
-	DiagnosticsStorageAccountConfig DiagnosticsStorageAccountConfigResponsePtrOutput `pulumi:"diagnosticsStorageAccountConfig"`
-	// Azure resource etag.
-	Etag pulumi.StringOutput `pulumi:"etag"`
-	// Indicates if the event store service is enabled.
-	EventStoreServiceEnabled pulumi.BoolPtrOutput `pulumi:"eventStoreServiceEnabled"`
-	// The list of custom fabric settings to configure the cluster.
-	FabricSettings SettingsSectionDescriptionResponseArrayOutput `pulumi:"fabricSettings"`
-	// Azure resource location.
-	Location pulumi.StringOutput `pulumi:"location"`
-	// The http management endpoint of the cluster.
-	ManagementEndpoint pulumi.StringOutput `pulumi:"managementEndpoint"`
-	// Azure resource name.
-	Name pulumi.StringOutput `pulumi:"name"`
-	// The list of node types in the cluster.
-	NodeTypes NodeTypeDescriptionResponseArrayOutput `pulumi:"nodeTypes"`
-	// The provisioning state of the cluster resource.
-	ProvisioningState pulumi.StringOutput `pulumi:"provisioningState"`
-	// The reliability level sets the replica set size of system services. Learn about [ReliabilityLevel](https://docs.microsoft.com/azure/service-fabric/service-fabric-cluster-capacity).
-	//
-	//   - None - Run the System services with a target replica set count of 1. This should only be used for test clusters.
-	//   - Bronze - Run the System services with a target replica set count of 3. This should only be used for test clusters.
-	//   - Silver - Run the System services with a target replica set count of 5.
-	//   - Gold - Run the System services with a target replica set count of 7.
-	//   - Platinum - Run the System services with a target replica set count of 9.
-	ReliabilityLevel pulumi.StringPtrOutput `pulumi:"reliabilityLevel"`
-	// The server certificate used by reverse proxy.
-	ReverseProxyCertificate CertificateDescriptionResponsePtrOutput `pulumi:"reverseProxyCertificate"`
-	// Describes a list of server certificates referenced by common name that are used to secure the cluster.
-	ReverseProxyCertificateCommonNames ServerCertificateCommonNamesResponsePtrOutput `pulumi:"reverseProxyCertificateCommonNames"`
-	// Metadata pertaining to creation and last modification of the resource.
-	SystemData SystemDataResponseOutput `pulumi:"systemData"`
-	// Azure resource tags.
-	Tags pulumi.StringMapOutput `pulumi:"tags"`
-	// Azure resource type.
-	Type pulumi.StringOutput `pulumi:"type"`
-	// The policy to use when upgrading the cluster.
-	UpgradeDescription ClusterUpgradePolicyResponsePtrOutput `pulumi:"upgradeDescription"`
-	// The upgrade mode of the cluster when new Service Fabric runtime version is available.
-	//
-	//   - Automatic - The cluster will be automatically upgraded to the latest Service Fabric runtime version as soon as it is available.
-	//   - Manual - The cluster will not be automatically upgraded to the latest Service Fabric runtime version. The cluster is upgraded by setting the **clusterCodeVersion** property in the cluster resource.
-	UpgradeMode pulumi.StringPtrOutput `pulumi:"upgradeMode"`
-	// The VM image VMSS has been configured with. Generic names such as Windows or Linux can be used.
-	VmImage pulumi.StringPtrOutput `pulumi:"vmImage"`
+	AvailableClusterVersions             ClusterVersionDetailsResponseArrayOutput              `pulumi:"availableClusterVersions"`
+	AzureActiveDirectory                 AzureActiveDirectoryResponsePtrOutput                 `pulumi:"azureActiveDirectory"`
+	Certificate                          CertificateDescriptionResponsePtrOutput               `pulumi:"certificate"`
+	CertificateCommonNames               ServerCertificateCommonNamesResponsePtrOutput         `pulumi:"certificateCommonNames"`
+	ClientCertificateCommonNames         ClientCertificateCommonNameResponseArrayOutput        `pulumi:"clientCertificateCommonNames"`
+	ClientCertificateThumbprints         ClientCertificateThumbprintResponseArrayOutput        `pulumi:"clientCertificateThumbprints"`
+	ClusterCodeVersion                   pulumi.StringPtrOutput                                `pulumi:"clusterCodeVersion"`
+	ClusterEndpoint                      pulumi.StringOutput                                   `pulumi:"clusterEndpoint"`
+	ClusterId                            pulumi.StringOutput                                   `pulumi:"clusterId"`
+	ClusterState                         pulumi.StringOutput                                   `pulumi:"clusterState"`
+	DiagnosticsStorageAccountConfig      DiagnosticsStorageAccountConfigResponsePtrOutput      `pulumi:"diagnosticsStorageAccountConfig"`
+	Etag                                 pulumi.StringOutput                                   `pulumi:"etag"`
+	EventStoreServiceEnabled             pulumi.BoolPtrOutput                                  `pulumi:"eventStoreServiceEnabled"`
+	FabricSettings                       SettingsSectionDescriptionResponseArrayOutput         `pulumi:"fabricSettings"`
+	Location                             pulumi.StringOutput                                   `pulumi:"location"`
+	ManagementEndpoint                   pulumi.StringOutput                                   `pulumi:"managementEndpoint"`
+	Name                                 pulumi.StringOutput                                   `pulumi:"name"`
+	NodeTypes                            NodeTypeDescriptionResponseArrayOutput                `pulumi:"nodeTypes"`
+	ProvisioningState                    pulumi.StringOutput                                   `pulumi:"provisioningState"`
+	ReliabilityLevel                     pulumi.StringPtrOutput                                `pulumi:"reliabilityLevel"`
+	ReverseProxyCertificate              CertificateDescriptionResponsePtrOutput               `pulumi:"reverseProxyCertificate"`
+	ReverseProxyCertificateCommonNames   ServerCertificateCommonNamesResponsePtrOutput         `pulumi:"reverseProxyCertificateCommonNames"`
+	SystemData                           SystemDataResponseOutput                              `pulumi:"systemData"`
+	Tags                                 pulumi.StringMapOutput                                `pulumi:"tags"`
+	Type                                 pulumi.StringOutput                                   `pulumi:"type"`
+	UpgradeDescription                   ClusterUpgradePolicyResponsePtrOutput                 `pulumi:"upgradeDescription"`
+	UpgradeMode                          pulumi.StringPtrOutput                                `pulumi:"upgradeMode"`
+	VmImage                              pulumi.StringPtrOutput                                `pulumi:"vmImage"`
 }
 
 // NewCluster registers a new resource with the given unique name, arguments, and options.
@@ -211,120 +160,56 @@ func (ClusterState) ElementType() reflect.Type {
 }
 
 type clusterArgs struct {
-	// The list of add-on features to enable in the cluster.
-	AddOnFeatures []string `pulumi:"addOnFeatures"`
-	// The policy used to clean up unused versions.
+	AddOnFeatures                        []string                              `pulumi:"addOnFeatures"`
 	ApplicationTypeVersionsCleanupPolicy *ApplicationTypeVersionsCleanupPolicy `pulumi:"applicationTypeVersionsCleanupPolicy"`
-	// The AAD authentication settings of the cluster.
-	AzureActiveDirectory *AzureActiveDirectory `pulumi:"azureActiveDirectory"`
-	// The certificate to use for securing the cluster. The certificate provided will be used for node to node security within the cluster, SSL certificate for cluster management endpoint and default admin client.
-	Certificate *CertificateDescription `pulumi:"certificate"`
-	// Describes a list of server certificates referenced by common name that are used to secure the cluster.
-	CertificateCommonNames *ServerCertificateCommonNames `pulumi:"certificateCommonNames"`
-	// The list of client certificates referenced by common name that are allowed to manage the cluster.
-	ClientCertificateCommonNames []ClientCertificateCommonName `pulumi:"clientCertificateCommonNames"`
-	// The list of client certificates referenced by thumbprint that are allowed to manage the cluster.
-	ClientCertificateThumbprints []ClientCertificateThumbprint `pulumi:"clientCertificateThumbprints"`
-	// The Service Fabric runtime version of the cluster. This property can only by set the user when **upgradeMode** is set to 'Manual'. To get list of available Service Fabric versions for new clusters use [ClusterVersion API](./ClusterVersion.md). To get the list of available version for existing clusters use **availableClusterVersions**.
-	ClusterCodeVersion *string `pulumi:"clusterCodeVersion"`
-	// The name of the cluster resource.
-	ClusterName *string `pulumi:"clusterName"`
-	// The storage account information for storing Service Fabric diagnostic logs.
-	DiagnosticsStorageAccountConfig *DiagnosticsStorageAccountConfig `pulumi:"diagnosticsStorageAccountConfig"`
-	// Indicates if the event store service is enabled.
-	EventStoreServiceEnabled *bool `pulumi:"eventStoreServiceEnabled"`
-	// The list of custom fabric settings to configure the cluster.
-	FabricSettings []SettingsSectionDescription `pulumi:"fabricSettings"`
-	// Azure resource location.
-	Location *string `pulumi:"location"`
-	// The http management endpoint of the cluster.
-	ManagementEndpoint string `pulumi:"managementEndpoint"`
-	// The list of node types in the cluster.
-	NodeTypes []NodeTypeDescription `pulumi:"nodeTypes"`
-	// The reliability level sets the replica set size of system services. Learn about [ReliabilityLevel](https://docs.microsoft.com/azure/service-fabric/service-fabric-cluster-capacity).
-	//
-	//   - None - Run the System services with a target replica set count of 1. This should only be used for test clusters.
-	//   - Bronze - Run the System services with a target replica set count of 3. This should only be used for test clusters.
-	//   - Silver - Run the System services with a target replica set count of 5.
-	//   - Gold - Run the System services with a target replica set count of 7.
-	//   - Platinum - Run the System services with a target replica set count of 9.
-	ReliabilityLevel *string `pulumi:"reliabilityLevel"`
-	// The name of the resource group.
-	ResourceGroupName string `pulumi:"resourceGroupName"`
-	// The server certificate used by reverse proxy.
-	ReverseProxyCertificate *CertificateDescription `pulumi:"reverseProxyCertificate"`
-	// Describes a list of server certificates referenced by common name that are used to secure the cluster.
-	ReverseProxyCertificateCommonNames *ServerCertificateCommonNames `pulumi:"reverseProxyCertificateCommonNames"`
-	// Azure resource tags.
-	Tags map[string]string `pulumi:"tags"`
-	// The policy to use when upgrading the cluster.
-	UpgradeDescription *ClusterUpgradePolicy `pulumi:"upgradeDescription"`
-	// The upgrade mode of the cluster when new Service Fabric runtime version is available.
-	//
-	//   - Automatic - The cluster will be automatically upgraded to the latest Service Fabric runtime version as soon as it is available.
-	//   - Manual - The cluster will not be automatically upgraded to the latest Service Fabric runtime version. The cluster is upgraded by setting the **clusterCodeVersion** property in the cluster resource.
-	UpgradeMode *string `pulumi:"upgradeMode"`
-	// The VM image VMSS has been configured with. Generic names such as Windows or Linux can be used.
-	VmImage *string `pulumi:"vmImage"`
+	AzureActiveDirectory                 *AzureActiveDirectory                 `pulumi:"azureActiveDirectory"`
+	Certificate                          *CertificateDescription               `pulumi:"certificate"`
+	CertificateCommonNames               *ServerCertificateCommonNames         `pulumi:"certificateCommonNames"`
+	ClientCertificateCommonNames         []ClientCertificateCommonName         `pulumi:"clientCertificateCommonNames"`
+	ClientCertificateThumbprints         []ClientCertificateThumbprint         `pulumi:"clientCertificateThumbprints"`
+	ClusterCodeVersion                   *string                               `pulumi:"clusterCodeVersion"`
+	ClusterName                          *string                               `pulumi:"clusterName"`
+	DiagnosticsStorageAccountConfig      *DiagnosticsStorageAccountConfig      `pulumi:"diagnosticsStorageAccountConfig"`
+	EventStoreServiceEnabled             *bool                                 `pulumi:"eventStoreServiceEnabled"`
+	FabricSettings                       []SettingsSectionDescription          `pulumi:"fabricSettings"`
+	Location                             *string                               `pulumi:"location"`
+	ManagementEndpoint                   string                                `pulumi:"managementEndpoint"`
+	NodeTypes                            []NodeTypeDescription                 `pulumi:"nodeTypes"`
+	ReliabilityLevel                     *string                               `pulumi:"reliabilityLevel"`
+	ResourceGroupName                    string                                `pulumi:"resourceGroupName"`
+	ReverseProxyCertificate              *CertificateDescription               `pulumi:"reverseProxyCertificate"`
+	ReverseProxyCertificateCommonNames   *ServerCertificateCommonNames         `pulumi:"reverseProxyCertificateCommonNames"`
+	Tags                                 map[string]string                     `pulumi:"tags"`
+	UpgradeDescription                   *ClusterUpgradePolicy                 `pulumi:"upgradeDescription"`
+	UpgradeMode                          *string                               `pulumi:"upgradeMode"`
+	VmImage                              *string                               `pulumi:"vmImage"`
 }
 
 // The set of arguments for constructing a Cluster resource.
 type ClusterArgs struct {
-	// The list of add-on features to enable in the cluster.
-	AddOnFeatures pulumi.StringArrayInput
-	// The policy used to clean up unused versions.
+	AddOnFeatures                        pulumi.StringArrayInput
 	ApplicationTypeVersionsCleanupPolicy ApplicationTypeVersionsCleanupPolicyPtrInput
-	// The AAD authentication settings of the cluster.
-	AzureActiveDirectory AzureActiveDirectoryPtrInput
-	// The certificate to use for securing the cluster. The certificate provided will be used for node to node security within the cluster, SSL certificate for cluster management endpoint and default admin client.
-	Certificate CertificateDescriptionPtrInput
-	// Describes a list of server certificates referenced by common name that are used to secure the cluster.
-	CertificateCommonNames ServerCertificateCommonNamesPtrInput
-	// The list of client certificates referenced by common name that are allowed to manage the cluster.
-	ClientCertificateCommonNames ClientCertificateCommonNameArrayInput
-	// The list of client certificates referenced by thumbprint that are allowed to manage the cluster.
-	ClientCertificateThumbprints ClientCertificateThumbprintArrayInput
-	// The Service Fabric runtime version of the cluster. This property can only by set the user when **upgradeMode** is set to 'Manual'. To get list of available Service Fabric versions for new clusters use [ClusterVersion API](./ClusterVersion.md). To get the list of available version for existing clusters use **availableClusterVersions**.
-	ClusterCodeVersion pulumi.StringPtrInput
-	// The name of the cluster resource.
-	ClusterName pulumi.StringPtrInput
-	// The storage account information for storing Service Fabric diagnostic logs.
-	DiagnosticsStorageAccountConfig DiagnosticsStorageAccountConfigPtrInput
-	// Indicates if the event store service is enabled.
-	EventStoreServiceEnabled pulumi.BoolPtrInput
-	// The list of custom fabric settings to configure the cluster.
-	FabricSettings SettingsSectionDescriptionArrayInput
-	// Azure resource location.
-	Location pulumi.StringPtrInput
-	// The http management endpoint of the cluster.
-	ManagementEndpoint pulumi.StringInput
-	// The list of node types in the cluster.
-	NodeTypes NodeTypeDescriptionArrayInput
-	// The reliability level sets the replica set size of system services. Learn about [ReliabilityLevel](https://docs.microsoft.com/azure/service-fabric/service-fabric-cluster-capacity).
-	//
-	//   - None - Run the System services with a target replica set count of 1. This should only be used for test clusters.
-	//   - Bronze - Run the System services with a target replica set count of 3. This should only be used for test clusters.
-	//   - Silver - Run the System services with a target replica set count of 5.
-	//   - Gold - Run the System services with a target replica set count of 7.
-	//   - Platinum - Run the System services with a target replica set count of 9.
-	ReliabilityLevel pulumi.StringPtrInput
-	// The name of the resource group.
-	ResourceGroupName pulumi.StringInput
-	// The server certificate used by reverse proxy.
-	ReverseProxyCertificate CertificateDescriptionPtrInput
-	// Describes a list of server certificates referenced by common name that are used to secure the cluster.
-	ReverseProxyCertificateCommonNames ServerCertificateCommonNamesPtrInput
-	// Azure resource tags.
-	Tags pulumi.StringMapInput
-	// The policy to use when upgrading the cluster.
-	UpgradeDescription ClusterUpgradePolicyPtrInput
-	// The upgrade mode of the cluster when new Service Fabric runtime version is available.
-	//
-	//   - Automatic - The cluster will be automatically upgraded to the latest Service Fabric runtime version as soon as it is available.
-	//   - Manual - The cluster will not be automatically upgraded to the latest Service Fabric runtime version. The cluster is upgraded by setting the **clusterCodeVersion** property in the cluster resource.
-	UpgradeMode pulumi.StringPtrInput
-	// The VM image VMSS has been configured with. Generic names such as Windows or Linux can be used.
-	VmImage pulumi.StringPtrInput
+	AzureActiveDirectory                 AzureActiveDirectoryPtrInput
+	Certificate                          CertificateDescriptionPtrInput
+	CertificateCommonNames               ServerCertificateCommonNamesPtrInput
+	ClientCertificateCommonNames         ClientCertificateCommonNameArrayInput
+	ClientCertificateThumbprints         ClientCertificateThumbprintArrayInput
+	ClusterCodeVersion                   pulumi.StringPtrInput
+	ClusterName                          pulumi.StringPtrInput
+	DiagnosticsStorageAccountConfig      DiagnosticsStorageAccountConfigPtrInput
+	EventStoreServiceEnabled             pulumi.BoolPtrInput
+	FabricSettings                       SettingsSectionDescriptionArrayInput
+	Location                             pulumi.StringPtrInput
+	ManagementEndpoint                   pulumi.StringInput
+	NodeTypes                            NodeTypeDescriptionArrayInput
+	ReliabilityLevel                     pulumi.StringPtrInput
+	ResourceGroupName                    pulumi.StringInput
+	ReverseProxyCertificate              CertificateDescriptionPtrInput
+	ReverseProxyCertificateCommonNames   ServerCertificateCommonNamesPtrInput
+	Tags                                 pulumi.StringMapInput
+	UpgradeDescription                   ClusterUpgradePolicyPtrInput
+	UpgradeMode                          pulumi.StringPtrInput
+	VmImage                              pulumi.StringPtrInput
 }
 
 func (ClusterArgs) ElementType() reflect.Type {
@@ -350,9 +235,7 @@ func (i *Cluster) ToClusterOutputWithContext(ctx context.Context) ClusterOutput 
 	return pulumi.ToOutputWithContext(ctx, i).(ClusterOutput)
 }
 
-type ClusterOutput struct {
-	*pulumi.OutputState
-}
+type ClusterOutput struct{ *pulumi.OutputState }
 
 func (ClusterOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*Cluster)(nil))

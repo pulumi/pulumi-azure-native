@@ -11,38 +11,23 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Represents settings of an environment, from which environment instances would be created
 type EnvironmentSetting struct {
 	pulumi.CustomResourceState
 
-	// Describes the user's progress in configuring their environment setting
-	ConfigurationState pulumi.StringPtrOutput `pulumi:"configurationState"`
-	// Describes the environment and its resource settings
-	Description pulumi.StringPtrOutput `pulumi:"description"`
-	// Time when the template VM was last changed.
-	LastChanged pulumi.StringOutput `pulumi:"lastChanged"`
-	// Time when the template VM was last sent for publishing.
-	LastPublished pulumi.StringOutput `pulumi:"lastPublished"`
-	// The details of the latest operation. ex: status, error
+	ConfigurationState    pulumi.StringPtrOutput              `pulumi:"configurationState"`
+	Description           pulumi.StringPtrOutput              `pulumi:"description"`
+	LastChanged           pulumi.StringOutput                 `pulumi:"lastChanged"`
+	LastPublished         pulumi.StringOutput                 `pulumi:"lastPublished"`
 	LatestOperationResult LatestOperationResultResponseOutput `pulumi:"latestOperationResult"`
-	// The location of the resource.
-	Location pulumi.StringPtrOutput `pulumi:"location"`
-	// The name of the resource.
-	Name pulumi.StringOutput `pulumi:"name"`
-	// The provisioning status of the resource.
-	ProvisioningState pulumi.StringPtrOutput `pulumi:"provisioningState"`
-	// Describes the readiness of this environment setting
-	PublishingState pulumi.StringOutput `pulumi:"publishingState"`
-	// The resource specific settings
-	ResourceSettings ResourceSettingsResponseOutput `pulumi:"resourceSettings"`
-	// The tags of the resource.
-	Tags pulumi.StringMapOutput `pulumi:"tags"`
-	// Brief title describing the environment and its resource settings
-	Title pulumi.StringPtrOutput `pulumi:"title"`
-	// The type of the resource.
-	Type pulumi.StringOutput `pulumi:"type"`
-	// The unique immutable identifier of a resource (Guid).
-	UniqueIdentifier pulumi.StringPtrOutput `pulumi:"uniqueIdentifier"`
+	Location              pulumi.StringPtrOutput              `pulumi:"location"`
+	Name                  pulumi.StringOutput                 `pulumi:"name"`
+	ProvisioningState     pulumi.StringPtrOutput              `pulumi:"provisioningState"`
+	PublishingState       pulumi.StringOutput                 `pulumi:"publishingState"`
+	ResourceSettings      ResourceSettingsResponseOutput      `pulumi:"resourceSettings"`
+	Tags                  pulumi.StringMapOutput              `pulumi:"tags"`
+	Title                 pulumi.StringPtrOutput              `pulumi:"title"`
+	Type                  pulumi.StringOutput                 `pulumi:"type"`
+	UniqueIdentifier      pulumi.StringPtrOutput              `pulumi:"uniqueIdentifier"`
 }
 
 // NewEnvironmentSetting registers a new resource with the given unique name, arguments, and options.
@@ -108,58 +93,34 @@ func (EnvironmentSettingState) ElementType() reflect.Type {
 }
 
 type environmentSettingArgs struct {
-	// Describes the user's progress in configuring their environment setting
-	ConfigurationState *string `pulumi:"configurationState"`
-	// Describes the environment and its resource settings
-	Description *string `pulumi:"description"`
-	// The name of the environment Setting.
-	EnvironmentSettingName *string `pulumi:"environmentSettingName"`
-	// The name of the lab Account.
-	LabAccountName string `pulumi:"labAccountName"`
-	// The name of the lab.
-	LabName string `pulumi:"labName"`
-	// The location of the resource.
-	Location *string `pulumi:"location"`
-	// The provisioning status of the resource.
-	ProvisioningState *string `pulumi:"provisioningState"`
-	// The name of the resource group.
-	ResourceGroupName string `pulumi:"resourceGroupName"`
-	// The resource specific settings
-	ResourceSettings ResourceSettings `pulumi:"resourceSettings"`
-	// The tags of the resource.
-	Tags map[string]string `pulumi:"tags"`
-	// Brief title describing the environment and its resource settings
-	Title *string `pulumi:"title"`
-	// The unique immutable identifier of a resource (Guid).
-	UniqueIdentifier *string `pulumi:"uniqueIdentifier"`
+	ConfigurationState     *string           `pulumi:"configurationState"`
+	Description            *string           `pulumi:"description"`
+	EnvironmentSettingName *string           `pulumi:"environmentSettingName"`
+	LabAccountName         string            `pulumi:"labAccountName"`
+	LabName                string            `pulumi:"labName"`
+	Location               *string           `pulumi:"location"`
+	ProvisioningState      *string           `pulumi:"provisioningState"`
+	ResourceGroupName      string            `pulumi:"resourceGroupName"`
+	ResourceSettings       ResourceSettings  `pulumi:"resourceSettings"`
+	Tags                   map[string]string `pulumi:"tags"`
+	Title                  *string           `pulumi:"title"`
+	UniqueIdentifier       *string           `pulumi:"uniqueIdentifier"`
 }
 
 // The set of arguments for constructing a EnvironmentSetting resource.
 type EnvironmentSettingArgs struct {
-	// Describes the user's progress in configuring their environment setting
-	ConfigurationState pulumi.StringPtrInput
-	// Describes the environment and its resource settings
-	Description pulumi.StringPtrInput
-	// The name of the environment Setting.
+	ConfigurationState     pulumi.StringPtrInput
+	Description            pulumi.StringPtrInput
 	EnvironmentSettingName pulumi.StringPtrInput
-	// The name of the lab Account.
-	LabAccountName pulumi.StringInput
-	// The name of the lab.
-	LabName pulumi.StringInput
-	// The location of the resource.
-	Location pulumi.StringPtrInput
-	// The provisioning status of the resource.
-	ProvisioningState pulumi.StringPtrInput
-	// The name of the resource group.
-	ResourceGroupName pulumi.StringInput
-	// The resource specific settings
-	ResourceSettings ResourceSettingsInput
-	// The tags of the resource.
-	Tags pulumi.StringMapInput
-	// Brief title describing the environment and its resource settings
-	Title pulumi.StringPtrInput
-	// The unique immutable identifier of a resource (Guid).
-	UniqueIdentifier pulumi.StringPtrInput
+	LabAccountName         pulumi.StringInput
+	LabName                pulumi.StringInput
+	Location               pulumi.StringPtrInput
+	ProvisioningState      pulumi.StringPtrInput
+	ResourceGroupName      pulumi.StringInput
+	ResourceSettings       ResourceSettingsInput
+	Tags                   pulumi.StringMapInput
+	Title                  pulumi.StringPtrInput
+	UniqueIdentifier       pulumi.StringPtrInput
 }
 
 func (EnvironmentSettingArgs) ElementType() reflect.Type {
@@ -185,9 +146,7 @@ func (i *EnvironmentSetting) ToEnvironmentSettingOutputWithContext(ctx context.C
 	return pulumi.ToOutputWithContext(ctx, i).(EnvironmentSettingOutput)
 }
 
-type EnvironmentSettingOutput struct {
-	*pulumi.OutputState
-}
+type EnvironmentSettingOutput struct{ *pulumi.OutputState }
 
 func (EnvironmentSettingOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*EnvironmentSetting)(nil))

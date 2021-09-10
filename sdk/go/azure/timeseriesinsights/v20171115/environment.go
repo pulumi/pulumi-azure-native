@@ -11,36 +11,22 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// An environment is a set of time-series data available for query, and is the top level Azure Time Series Insights resource.
 type Environment struct {
 	pulumi.CustomResourceState
 
-	// The time the resource was created.
-	CreationTime pulumi.StringOutput `pulumi:"creationTime"`
-	// The fully qualified domain name used to access the environment data, e.g. to query the environment's events or upload reference data for the environment.
-	DataAccessFqdn pulumi.StringOutput `pulumi:"dataAccessFqdn"`
-	// An id used to access the environment data, e.g. to query the environment's events or upload reference data for the environment.
-	DataAccessId pulumi.StringOutput `pulumi:"dataAccessId"`
-	// ISO8601 timespan specifying the minimum number of days the environment's events will be available for query.
-	DataRetentionTime pulumi.StringOutput `pulumi:"dataRetentionTime"`
-	// Resource location
-	Location pulumi.StringOutput `pulumi:"location"`
-	// Resource name
-	Name pulumi.StringOutput `pulumi:"name"`
-	// The list of partition keys according to which the data in the environment will be ordered.
-	PartitionKeyProperties PartitionKeyPropertyResponseArrayOutput `pulumi:"partitionKeyProperties"`
-	// Provisioning state of the resource.
-	ProvisioningState pulumi.StringOutput `pulumi:"provisioningState"`
-	// The sku determines the capacity of the environment, the SLA (in queries-per-minute and total capacity), and the billing rate.
-	Sku SkuResponsePtrOutput `pulumi:"sku"`
-	// An object that represents the status of the environment, and its internal state in the Time Series Insights service.
-	Status EnvironmentStatusResponseOutput `pulumi:"status"`
-	// The behavior the Time Series Insights service should take when the environment's capacity has been exceeded. If "PauseIngress" is specified, new events will not be read from the event source. If "PurgeOldData" is specified, new events will continue to be read and old events will be deleted from the environment. The default behavior is PurgeOldData.
-	StorageLimitExceededBehavior pulumi.StringPtrOutput `pulumi:"storageLimitExceededBehavior"`
-	// Resource tags
-	Tags pulumi.StringMapOutput `pulumi:"tags"`
-	// Resource type
-	Type pulumi.StringOutput `pulumi:"type"`
+	CreationTime                 pulumi.StringOutput                     `pulumi:"creationTime"`
+	DataAccessFqdn               pulumi.StringOutput                     `pulumi:"dataAccessFqdn"`
+	DataAccessId                 pulumi.StringOutput                     `pulumi:"dataAccessId"`
+	DataRetentionTime            pulumi.StringOutput                     `pulumi:"dataRetentionTime"`
+	Location                     pulumi.StringOutput                     `pulumi:"location"`
+	Name                         pulumi.StringOutput                     `pulumi:"name"`
+	PartitionKeyProperties       PartitionKeyPropertyResponseArrayOutput `pulumi:"partitionKeyProperties"`
+	ProvisioningState            pulumi.StringOutput                     `pulumi:"provisioningState"`
+	Sku                          SkuResponsePtrOutput                    `pulumi:"sku"`
+	Status                       EnvironmentStatusResponseOutput         `pulumi:"status"`
+	StorageLimitExceededBehavior pulumi.StringPtrOutput                  `pulumi:"storageLimitExceededBehavior"`
+	Tags                         pulumi.StringMapOutput                  `pulumi:"tags"`
+	Type                         pulumi.StringOutput                     `pulumi:"type"`
 }
 
 // NewEnvironment registers a new resource with the given unique name, arguments, and options.
@@ -127,42 +113,26 @@ func (EnvironmentState) ElementType() reflect.Type {
 }
 
 type environmentArgs struct {
-	// ISO8601 timespan specifying the minimum number of days the environment's events will be available for query.
-	DataRetentionTime string `pulumi:"dataRetentionTime"`
-	// Name of the environment
-	EnvironmentName *string `pulumi:"environmentName"`
-	// The location of the resource.
-	Location *string `pulumi:"location"`
-	// The list of partition keys according to which the data in the environment will be ordered.
-	PartitionKeyProperties []PartitionKeyProperty `pulumi:"partitionKeyProperties"`
-	// Name of an Azure Resource group.
-	ResourceGroupName string `pulumi:"resourceGroupName"`
-	// The sku determines the capacity of the environment, the SLA (in queries-per-minute and total capacity), and the billing rate.
-	Sku Sku `pulumi:"sku"`
-	// The behavior the Time Series Insights service should take when the environment's capacity has been exceeded. If "PauseIngress" is specified, new events will not be read from the event source. If "PurgeOldData" is specified, new events will continue to be read and old events will be deleted from the environment. The default behavior is PurgeOldData.
-	StorageLimitExceededBehavior *string `pulumi:"storageLimitExceededBehavior"`
-	// Key-value pairs of additional properties for the resource.
-	Tags map[string]string `pulumi:"tags"`
+	DataRetentionTime            string                        `pulumi:"dataRetentionTime"`
+	EnvironmentName              *string                       `pulumi:"environmentName"`
+	Location                     *string                       `pulumi:"location"`
+	PartitionKeyProperties       []PartitionKeyProperty        `pulumi:"partitionKeyProperties"`
+	ResourceGroupName            string                        `pulumi:"resourceGroupName"`
+	Sku                          Sku                           `pulumi:"sku"`
+	StorageLimitExceededBehavior *StorageLimitExceededBehavior `pulumi:"storageLimitExceededBehavior"`
+	Tags                         map[string]string             `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a Environment resource.
 type EnvironmentArgs struct {
-	// ISO8601 timespan specifying the minimum number of days the environment's events will be available for query.
-	DataRetentionTime pulumi.StringInput
-	// Name of the environment
-	EnvironmentName pulumi.StringPtrInput
-	// The location of the resource.
-	Location pulumi.StringPtrInput
-	// The list of partition keys according to which the data in the environment will be ordered.
-	PartitionKeyProperties PartitionKeyPropertyArrayInput
-	// Name of an Azure Resource group.
-	ResourceGroupName pulumi.StringInput
-	// The sku determines the capacity of the environment, the SLA (in queries-per-minute and total capacity), and the billing rate.
-	Sku SkuInput
-	// The behavior the Time Series Insights service should take when the environment's capacity has been exceeded. If "PauseIngress" is specified, new events will not be read from the event source. If "PurgeOldData" is specified, new events will continue to be read and old events will be deleted from the environment. The default behavior is PurgeOldData.
-	StorageLimitExceededBehavior *StorageLimitExceededBehavior
-	// Key-value pairs of additional properties for the resource.
-	Tags pulumi.StringMapInput
+	DataRetentionTime            pulumi.StringInput
+	EnvironmentName              pulumi.StringPtrInput
+	Location                     pulumi.StringPtrInput
+	PartitionKeyProperties       PartitionKeyPropertyArrayInput
+	ResourceGroupName            pulumi.StringInput
+	Sku                          SkuInput
+	StorageLimitExceededBehavior StorageLimitExceededBehaviorPtrInput
+	Tags                         pulumi.StringMapInput
 }
 
 func (EnvironmentArgs) ElementType() reflect.Type {
@@ -188,9 +158,7 @@ func (i *Environment) ToEnvironmentOutputWithContext(ctx context.Context) Enviro
 	return pulumi.ToOutputWithContext(ctx, i).(EnvironmentOutput)
 }
 
-type EnvironmentOutput struct {
-	*pulumi.OutputState
-}
+type EnvironmentOutput struct{ *pulumi.OutputState }
 
 func (EnvironmentOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*Environment)(nil))

@@ -7,7 +7,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Virtual Network resource
 func LookupVirtualNetwork(ctx *pulumi.Context, args *LookupVirtualNetworkArgs, opts ...pulumi.InvokeOption) (*LookupVirtualNetworkResult, error) {
 	var rv LookupVirtualNetworkResult
 	err := ctx.Invoke("azure-native:network/v20160601:getVirtualNetwork", args, &rv, opts...)
@@ -18,38 +17,23 @@ func LookupVirtualNetwork(ctx *pulumi.Context, args *LookupVirtualNetworkArgs, o
 }
 
 type LookupVirtualNetworkArgs struct {
-	// expand references resources.
-	Expand *string `pulumi:"expand"`
-	// The name of the resource group.
-	ResourceGroupName string `pulumi:"resourceGroupName"`
-	// The name of the virtual network.
-	VirtualNetworkName string `pulumi:"virtualNetworkName"`
+	Expand             *string `pulumi:"expand"`
+	ResourceGroupName  string  `pulumi:"resourceGroupName"`
+	VirtualNetworkName string  `pulumi:"virtualNetworkName"`
 }
 
 // Virtual Network resource
 type LookupVirtualNetworkResult struct {
-	// Gets or sets AddressSpace that contains an array of IP address ranges that can be used by subnets
-	AddressSpace *AddressSpaceResponse `pulumi:"addressSpace"`
-	// Gets or sets DHCPOptions that contains an array of DNS servers available to VMs deployed in the virtual network
-	DhcpOptions *DhcpOptionsResponse `pulumi:"dhcpOptions"`
-	// Gets a unique read-only string that changes whenever the resource is updated
-	Etag *string `pulumi:"etag"`
-	// Resource Id
-	Id *string `pulumi:"id"`
-	// Resource location
-	Location *string `pulumi:"location"`
-	// Resource name
-	Name string `pulumi:"name"`
-	// Gets provisioning state of the PublicIP resource Updating/Deleting/Failed
-	ProvisioningState *string `pulumi:"provisioningState"`
-	// Gets or sets resource guid property of the VirtualNetwork resource
-	ResourceGuid *string `pulumi:"resourceGuid"`
-	// Gets or sets list of subnets in a VirtualNetwork
-	Subnets []SubnetResponse `pulumi:"subnets"`
-	// Resource tags
-	Tags map[string]string `pulumi:"tags"`
-	// Resource type
-	Type string `pulumi:"type"`
-	// Gets or sets list of peerings in a VirtualNetwork
+	AddressSpace           *AddressSpaceResponse           `pulumi:"addressSpace"`
+	DhcpOptions            *DhcpOptionsResponse            `pulumi:"dhcpOptions"`
+	Etag                   *string                         `pulumi:"etag"`
+	Id                     *string                         `pulumi:"id"`
+	Location               *string                         `pulumi:"location"`
+	Name                   string                          `pulumi:"name"`
+	ProvisioningState      *string                         `pulumi:"provisioningState"`
+	ResourceGuid           *string                         `pulumi:"resourceGuid"`
+	Subnets                []SubnetResponse                `pulumi:"subnets"`
+	Tags                   map[string]string               `pulumi:"tags"`
+	Type                   string                          `pulumi:"type"`
 	VirtualNetworkPeerings []VirtualNetworkPeeringResponse `pulumi:"virtualNetworkPeerings"`
 }

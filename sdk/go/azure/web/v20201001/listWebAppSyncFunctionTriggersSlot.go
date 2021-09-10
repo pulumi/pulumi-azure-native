@@ -7,7 +7,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Function secrets.
 func ListWebAppSyncFunctionTriggersSlot(ctx *pulumi.Context, args *ListWebAppSyncFunctionTriggersSlotArgs, opts ...pulumi.InvokeOption) (*ListWebAppSyncFunctionTriggersSlotResult, error) {
 	var rv ListWebAppSyncFunctionTriggersSlotResult
 	err := ctx.Invoke("azure-native:web/v20201001:listWebAppSyncFunctionTriggersSlot", args, &rv, opts...)
@@ -18,18 +17,13 @@ func ListWebAppSyncFunctionTriggersSlot(ctx *pulumi.Context, args *ListWebAppSyn
 }
 
 type ListWebAppSyncFunctionTriggersSlotArgs struct {
-	// Name of the app.
-	Name string `pulumi:"name"`
-	// Name of the resource group to which the resource belongs.
+	Name              string `pulumi:"name"`
 	ResourceGroupName string `pulumi:"resourceGroupName"`
-	// Name of the deployment slot.
-	Slot string `pulumi:"slot"`
+	Slot              string `pulumi:"slot"`
 }
 
 // Function secrets.
 type ListWebAppSyncFunctionTriggersSlotResult struct {
-	// Secret key.
-	Key *string `pulumi:"key"`
-	// Trigger URL.
+	Key        *string `pulumi:"key"`
 	TriggerUrl *string `pulumi:"triggerUrl"`
 }

@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.Solutions.Outputs
 {
 
+    /// <summary>
+    /// Managed application policy.
+    /// </summary>
     [OutputType]
     public sealed class ApplicationPolicyResponse
     {

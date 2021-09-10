@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.EventGrid.V20200101Preview.Outputs
 {
 
+    /// <summary>
+    /// StringNotIn Advanced Filter.
+    /// </summary>
     [OutputType]
     public sealed class StringNotInAdvancedFilterResponse
     {

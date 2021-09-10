@@ -149,9 +149,7 @@ func (i *RoleDefinition) ToRoleDefinitionOutputWithContext(ctx context.Context) 
 	return pulumi.ToOutputWithContext(ctx, i).(RoleDefinitionOutput)
 }
 
-type RoleDefinitionOutput struct {
-	*pulumi.OutputState
-}
+type RoleDefinitionOutput struct{ *pulumi.OutputState }
 
 func (RoleDefinitionOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*RoleDefinition)(nil))

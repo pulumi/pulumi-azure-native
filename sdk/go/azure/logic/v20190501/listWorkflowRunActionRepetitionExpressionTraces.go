@@ -7,7 +7,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// The expression traces.
 func ListWorkflowRunActionRepetitionExpressionTraces(ctx *pulumi.Context, args *ListWorkflowRunActionRepetitionExpressionTracesArgs, opts ...pulumi.InvokeOption) (*ListWorkflowRunActionRepetitionExpressionTracesResult, error) {
 	var rv ListWorkflowRunActionRepetitionExpressionTracesResult
 	err := ctx.Invoke("azure-native:logic/v20190501:listWorkflowRunActionRepetitionExpressionTraces", args, &rv, opts...)
@@ -18,16 +17,11 @@ func ListWorkflowRunActionRepetitionExpressionTraces(ctx *pulumi.Context, args *
 }
 
 type ListWorkflowRunActionRepetitionExpressionTracesArgs struct {
-	// The workflow action name.
-	ActionName string `pulumi:"actionName"`
-	// The workflow repetition.
-	RepetitionName string `pulumi:"repetitionName"`
-	// The resource group name.
+	ActionName        string `pulumi:"actionName"`
+	RepetitionName    string `pulumi:"repetitionName"`
 	ResourceGroupName string `pulumi:"resourceGroupName"`
-	// The workflow run name.
-	RunName string `pulumi:"runName"`
-	// The workflow name.
-	WorkflowName string `pulumi:"workflowName"`
+	RunName           string `pulumi:"runName"`
+	WorkflowName      string `pulumi:"workflowName"`
 }
 
 // The expression traces.

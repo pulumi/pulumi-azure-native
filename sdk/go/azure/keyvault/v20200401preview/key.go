@@ -11,31 +11,20 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// The key resource.
 type Key struct {
 	pulumi.CustomResourceState
 
-	// The attributes of the key.
-	Attributes KeyAttributesResponsePtrOutput `pulumi:"attributes"`
-	// The elliptic curve name. For valid values, see JsonWebKeyCurveName.
-	CurveName pulumi.StringPtrOutput   `pulumi:"curveName"`
-	KeyOps    pulumi.StringArrayOutput `pulumi:"keyOps"`
-	// The key size in bits. For example: 2048, 3072, or 4096 for RSA.
-	KeySize pulumi.IntPtrOutput `pulumi:"keySize"`
-	// The URI to retrieve the current version of the key.
-	KeyUri pulumi.StringOutput `pulumi:"keyUri"`
-	// The URI to retrieve the specific version of the key.
-	KeyUriWithVersion pulumi.StringOutput `pulumi:"keyUriWithVersion"`
-	// The type of the key. For valid values, see JsonWebKeyType.
-	Kty pulumi.StringPtrOutput `pulumi:"kty"`
-	// Azure location of the key vault resource.
-	Location pulumi.StringOutput `pulumi:"location"`
-	// Name of the key vault resource.
-	Name pulumi.StringOutput `pulumi:"name"`
-	// Tags assigned to the key vault resource.
-	Tags pulumi.StringMapOutput `pulumi:"tags"`
-	// Resource type of the key vault resource.
-	Type pulumi.StringOutput `pulumi:"type"`
+	Attributes        KeyAttributesResponsePtrOutput `pulumi:"attributes"`
+	CurveName         pulumi.StringPtrOutput         `pulumi:"curveName"`
+	KeyOps            pulumi.StringArrayOutput       `pulumi:"keyOps"`
+	KeySize           pulumi.IntPtrOutput            `pulumi:"keySize"`
+	KeyUri            pulumi.StringOutput            `pulumi:"keyUri"`
+	KeyUriWithVersion pulumi.StringOutput            `pulumi:"keyUriWithVersion"`
+	Kty               pulumi.StringPtrOutput         `pulumi:"kty"`
+	Location          pulumi.StringOutput            `pulumi:"location"`
+	Name              pulumi.StringOutput            `pulumi:"name"`
+	Tags              pulumi.StringMapOutput         `pulumi:"tags"`
+	Type              pulumi.StringOutput            `pulumi:"type"`
 }
 
 // NewKey registers a new resource with the given unique name, arguments, and options.
@@ -116,30 +105,20 @@ func (KeyState) ElementType() reflect.Type {
 }
 
 type keyArgs struct {
-	// The name of the key to be created.
-	KeyName *string `pulumi:"keyName"`
-	// The properties of the key to be created.
-	Properties KeyProperties `pulumi:"properties"`
-	// The name of the resource group which contains the specified key vault.
-	ResourceGroupName string `pulumi:"resourceGroupName"`
-	// The tags that will be assigned to the key.
-	Tags map[string]string `pulumi:"tags"`
-	// The name of the key vault which contains the key to be created.
-	VaultName string `pulumi:"vaultName"`
+	KeyName           *string           `pulumi:"keyName"`
+	Properties        KeyProperties     `pulumi:"properties"`
+	ResourceGroupName string            `pulumi:"resourceGroupName"`
+	Tags              map[string]string `pulumi:"tags"`
+	VaultName         string            `pulumi:"vaultName"`
 }
 
 // The set of arguments for constructing a Key resource.
 type KeyArgs struct {
-	// The name of the key to be created.
-	KeyName pulumi.StringPtrInput
-	// The properties of the key to be created.
-	Properties KeyPropertiesInput
-	// The name of the resource group which contains the specified key vault.
+	KeyName           pulumi.StringPtrInput
+	Properties        KeyPropertiesInput
 	ResourceGroupName pulumi.StringInput
-	// The tags that will be assigned to the key.
-	Tags pulumi.StringMapInput
-	// The name of the key vault which contains the key to be created.
-	VaultName pulumi.StringInput
+	Tags              pulumi.StringMapInput
+	VaultName         pulumi.StringInput
 }
 
 func (KeyArgs) ElementType() reflect.Type {
@@ -165,9 +144,7 @@ func (i *Key) ToKeyOutputWithContext(ctx context.Context) KeyOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(KeyOutput)
 }
 
-type KeyOutput struct {
-	*pulumi.OutputState
-}
+type KeyOutput struct{ *pulumi.OutputState }
 
 func (KeyOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*Key)(nil))

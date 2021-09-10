@@ -11,27 +11,17 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Class representing a read write database.
 type ReadWriteDatabase struct {
 	pulumi.CustomResourceState
 
-	// The time the data should be kept in cache for fast queries in TimeSpan.
-	HotCachePeriod pulumi.StringPtrOutput `pulumi:"hotCachePeriod"`
-	// Kind of the database
-	// Expected value is 'ReadWrite'.
-	Kind pulumi.StringPtrOutput `pulumi:"kind"`
-	// Resource location.
-	Location pulumi.StringPtrOutput `pulumi:"location"`
-	// The name of the resource
-	Name pulumi.StringOutput `pulumi:"name"`
-	// The provisioned state of the resource.
-	ProvisioningState pulumi.StringOutput `pulumi:"provisioningState"`
-	// The time the data should be kept before it stops being accessible to queries in TimeSpan.
-	SoftDeletePeriod pulumi.StringPtrOutput `pulumi:"softDeletePeriod"`
-	// The statistics of the database.
-	Statistics DatabaseStatisticsResponseOutput `pulumi:"statistics"`
-	// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
-	Type pulumi.StringOutput `pulumi:"type"`
+	HotCachePeriod    pulumi.StringPtrOutput           `pulumi:"hotCachePeriod"`
+	Kind              pulumi.StringPtrOutput           `pulumi:"kind"`
+	Location          pulumi.StringPtrOutput           `pulumi:"location"`
+	Name              pulumi.StringOutput              `pulumi:"name"`
+	ProvisioningState pulumi.StringOutput              `pulumi:"provisioningState"`
+	SoftDeletePeriod  pulumi.StringPtrOutput           `pulumi:"softDeletePeriod"`
+	Statistics        DatabaseStatisticsResponseOutput `pulumi:"statistics"`
+	Type              pulumi.StringOutput              `pulumi:"type"`
 }
 
 // NewReadWriteDatabase registers a new resource with the given unique name, arguments, and options.
@@ -152,40 +142,24 @@ func (ReadWriteDatabaseState) ElementType() reflect.Type {
 }
 
 type readWriteDatabaseArgs struct {
-	// The name of the Kusto cluster.
-	ClusterName string `pulumi:"clusterName"`
-	// The name of the database in the Kusto cluster.
-	DatabaseName *string `pulumi:"databaseName"`
-	// The time the data should be kept in cache for fast queries in TimeSpan.
-	HotCachePeriod *string `pulumi:"hotCachePeriod"`
-	// Kind of the database
-	// Expected value is 'ReadWrite'.
-	Kind *string `pulumi:"kind"`
-	// Resource location.
-	Location *string `pulumi:"location"`
-	// The name of the resource group containing the Kusto cluster.
-	ResourceGroupName string `pulumi:"resourceGroupName"`
-	// The time the data should be kept before it stops being accessible to queries in TimeSpan.
-	SoftDeletePeriod *string `pulumi:"softDeletePeriod"`
+	ClusterName       string  `pulumi:"clusterName"`
+	DatabaseName      *string `pulumi:"databaseName"`
+	HotCachePeriod    *string `pulumi:"hotCachePeriod"`
+	Kind              *string `pulumi:"kind"`
+	Location          *string `pulumi:"location"`
+	ResourceGroupName string  `pulumi:"resourceGroupName"`
+	SoftDeletePeriod  *string `pulumi:"softDeletePeriod"`
 }
 
 // The set of arguments for constructing a ReadWriteDatabase resource.
 type ReadWriteDatabaseArgs struct {
-	// The name of the Kusto cluster.
-	ClusterName pulumi.StringInput
-	// The name of the database in the Kusto cluster.
-	DatabaseName pulumi.StringPtrInput
-	// The time the data should be kept in cache for fast queries in TimeSpan.
-	HotCachePeriod pulumi.StringPtrInput
-	// Kind of the database
-	// Expected value is 'ReadWrite'.
-	Kind pulumi.StringPtrInput
-	// Resource location.
-	Location pulumi.StringPtrInput
-	// The name of the resource group containing the Kusto cluster.
+	ClusterName       pulumi.StringInput
+	DatabaseName      pulumi.StringPtrInput
+	HotCachePeriod    pulumi.StringPtrInput
+	Kind              pulumi.StringPtrInput
+	Location          pulumi.StringPtrInput
 	ResourceGroupName pulumi.StringInput
-	// The time the data should be kept before it stops being accessible to queries in TimeSpan.
-	SoftDeletePeriod pulumi.StringPtrInput
+	SoftDeletePeriod  pulumi.StringPtrInput
 }
 
 func (ReadWriteDatabaseArgs) ElementType() reflect.Type {
@@ -211,9 +185,7 @@ func (i *ReadWriteDatabase) ToReadWriteDatabaseOutputWithContext(ctx context.Con
 	return pulumi.ToOutputWithContext(ctx, i).(ReadWriteDatabaseOutput)
 }
 
-type ReadWriteDatabaseOutput struct {
-	*pulumi.OutputState
-}
+type ReadWriteDatabaseOutput struct{ *pulumi.OutputState }
 
 func (ReadWriteDatabaseOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*ReadWriteDatabase)(nil))

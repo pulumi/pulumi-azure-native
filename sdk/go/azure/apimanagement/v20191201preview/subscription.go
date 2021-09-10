@@ -11,40 +11,24 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Subscription details.
 type Subscription struct {
 	pulumi.CustomResourceState
 
-	// Determines whether tracing is enabled
-	AllowTracing pulumi.BoolPtrOutput `pulumi:"allowTracing"`
-	// Subscription creation date. The date conforms to the following format: `yyyy-MM-ddTHH:mm:ssZ` as specified by the ISO 8601 standard.
-	CreatedDate pulumi.StringOutput `pulumi:"createdDate"`
-	// The name of the subscription, or null if the subscription has no name.
-	DisplayName pulumi.StringPtrOutput `pulumi:"displayName"`
-	// Date when subscription was cancelled or expired. The setting is for audit purposes only and the subscription is not automatically cancelled. The subscription lifecycle can be managed by using the `state` property. The date conforms to the following format: `yyyy-MM-ddTHH:mm:ssZ` as specified by the ISO 8601 standard.
-	EndDate pulumi.StringPtrOutput `pulumi:"endDate"`
-	// Subscription expiration date. The setting is for audit purposes only and the subscription is not automatically expired. The subscription lifecycle can be managed by using the `state` property. The date conforms to the following format: `yyyy-MM-ddTHH:mm:ssZ` as specified by the ISO 8601 standard.
-	ExpirationDate pulumi.StringPtrOutput `pulumi:"expirationDate"`
-	// Resource name.
-	Name pulumi.StringOutput `pulumi:"name"`
-	// Upcoming subscription expiration notification date. The date conforms to the following format: `yyyy-MM-ddTHH:mm:ssZ` as specified by the ISO 8601 standard.
+	AllowTracing     pulumi.BoolPtrOutput   `pulumi:"allowTracing"`
+	CreatedDate      pulumi.StringOutput    `pulumi:"createdDate"`
+	DisplayName      pulumi.StringPtrOutput `pulumi:"displayName"`
+	EndDate          pulumi.StringPtrOutput `pulumi:"endDate"`
+	ExpirationDate   pulumi.StringPtrOutput `pulumi:"expirationDate"`
+	Name             pulumi.StringOutput    `pulumi:"name"`
 	NotificationDate pulumi.StringPtrOutput `pulumi:"notificationDate"`
-	// The user resource identifier of the subscription owner. The value is a valid relative URL in the format of /users/{userId} where {userId} is a user identifier.
-	OwnerId pulumi.StringPtrOutput `pulumi:"ownerId"`
-	// Subscription primary key. This property will not be filled on 'GET' operations! Use '/listSecrets' POST request to get the value.
-	PrimaryKey pulumi.StringPtrOutput `pulumi:"primaryKey"`
-	// Scope like /products/{productId} or /apis or /apis/{apiId}.
-	Scope pulumi.StringOutput `pulumi:"scope"`
-	// Subscription secondary key. This property will not be filled on 'GET' operations! Use '/listSecrets' POST request to get the value.
-	SecondaryKey pulumi.StringPtrOutput `pulumi:"secondaryKey"`
-	// Subscription activation date. The setting is for audit purposes only and the subscription is not automatically activated. The subscription lifecycle can be managed by using the `state` property. The date conforms to the following format: `yyyy-MM-ddTHH:mm:ssZ` as specified by the ISO 8601 standard.
-	StartDate pulumi.StringPtrOutput `pulumi:"startDate"`
-	// Subscription state. Possible states are * active – the subscription is active, * suspended – the subscription is blocked, and the subscriber cannot call any APIs of the product, * submitted – the subscription request has been made by the developer, but has not yet been approved or rejected, * rejected – the subscription request has been denied by an administrator, * cancelled – the subscription has been cancelled by the developer or administrator, * expired – the subscription reached its expiration date and was deactivated.
-	State pulumi.StringOutput `pulumi:"state"`
-	// Optional subscription comment added by an administrator.
-	StateComment pulumi.StringPtrOutput `pulumi:"stateComment"`
-	// Resource type for API Management resource.
-	Type pulumi.StringOutput `pulumi:"type"`
+	OwnerId          pulumi.StringPtrOutput `pulumi:"ownerId"`
+	PrimaryKey       pulumi.StringPtrOutput `pulumi:"primaryKey"`
+	Scope            pulumi.StringOutput    `pulumi:"scope"`
+	SecondaryKey     pulumi.StringPtrOutput `pulumi:"secondaryKey"`
+	StartDate        pulumi.StringPtrOutput `pulumi:"startDate"`
+	State            pulumi.StringOutput    `pulumi:"state"`
+	StateComment     pulumi.StringPtrOutput `pulumi:"stateComment"`
+	Type             pulumi.StringOutput    `pulumi:"type"`
 }
 
 // NewSubscription registers a new resource with the given unique name, arguments, and options.
@@ -170,58 +154,32 @@ func (SubscriptionState) ElementType() reflect.Type {
 }
 
 type subscriptionArgs struct {
-	// Determines whether tracing can be enabled
-	AllowTracing *bool `pulumi:"allowTracing"`
-	// Subscription name.
-	DisplayName string `pulumi:"displayName"`
-	// Notify change in Subscription State.
-	//  - If false, do not send any email notification for change of state of subscription
-	//  - If true, send email notification of change of state of subscription
-	Notify *bool `pulumi:"notify"`
-	// User (user id path) for whom subscription is being created in form /users/{userId}
-	OwnerId *string `pulumi:"ownerId"`
-	// Primary subscription key. If not specified during request key will be generated automatically.
-	PrimaryKey *string `pulumi:"primaryKey"`
-	// The name of the resource group.
-	ResourceGroupName string `pulumi:"resourceGroupName"`
-	// Scope like /products/{productId} or /apis or /apis/{apiId}.
-	Scope string `pulumi:"scope"`
-	// Secondary subscription key. If not specified during request key will be generated automatically.
-	SecondaryKey *string `pulumi:"secondaryKey"`
-	// The name of the API Management service.
-	ServiceName string `pulumi:"serviceName"`
-	// Subscription entity Identifier. The entity represents the association between a user and a product in API Management.
-	Sid *string `pulumi:"sid"`
-	// Initial subscription state. If no value is specified, subscription is created with Submitted state. Possible states are * active – the subscription is active, * suspended – the subscription is blocked, and the subscriber cannot call any APIs of the product, * submitted – the subscription request has been made by the developer, but has not yet been approved or rejected, * rejected – the subscription request has been denied by an administrator, * cancelled – the subscription has been cancelled by the developer or administrator, * expired – the subscription reached its expiration date and was deactivated.
-	State *string `pulumi:"state"`
+	AllowTracing      *bool                  `pulumi:"allowTracing"`
+	DisplayName       string                 `pulumi:"displayName"`
+	Notify            *bool                  `pulumi:"notify"`
+	OwnerId           *string                `pulumi:"ownerId"`
+	PrimaryKey        *string                `pulumi:"primaryKey"`
+	ResourceGroupName string                 `pulumi:"resourceGroupName"`
+	Scope             string                 `pulumi:"scope"`
+	SecondaryKey      *string                `pulumi:"secondaryKey"`
+	ServiceName       string                 `pulumi:"serviceName"`
+	Sid               *string                `pulumi:"sid"`
+	State             *SubscriptionStateEnum `pulumi:"state"`
 }
 
 // The set of arguments for constructing a Subscription resource.
 type SubscriptionArgs struct {
-	// Determines whether tracing can be enabled
-	AllowTracing pulumi.BoolPtrInput
-	// Subscription name.
-	DisplayName pulumi.StringInput
-	// Notify change in Subscription State.
-	//  - If false, do not send any email notification for change of state of subscription
-	//  - If true, send email notification of change of state of subscription
-	Notify pulumi.BoolPtrInput
-	// User (user id path) for whom subscription is being created in form /users/{userId}
-	OwnerId pulumi.StringPtrInput
-	// Primary subscription key. If not specified during request key will be generated automatically.
-	PrimaryKey pulumi.StringPtrInput
-	// The name of the resource group.
+	AllowTracing      pulumi.BoolPtrInput
+	DisplayName       pulumi.StringInput
+	Notify            pulumi.BoolPtrInput
+	OwnerId           pulumi.StringPtrInput
+	PrimaryKey        pulumi.StringPtrInput
 	ResourceGroupName pulumi.StringInput
-	// Scope like /products/{productId} or /apis or /apis/{apiId}.
-	Scope pulumi.StringInput
-	// Secondary subscription key. If not specified during request key will be generated automatically.
-	SecondaryKey pulumi.StringPtrInput
-	// The name of the API Management service.
-	ServiceName pulumi.StringInput
-	// Subscription entity Identifier. The entity represents the association between a user and a product in API Management.
-	Sid pulumi.StringPtrInput
-	// Initial subscription state. If no value is specified, subscription is created with Submitted state. Possible states are * active – the subscription is active, * suspended – the subscription is blocked, and the subscriber cannot call any APIs of the product, * submitted – the subscription request has been made by the developer, but has not yet been approved or rejected, * rejected – the subscription request has been denied by an administrator, * cancelled – the subscription has been cancelled by the developer or administrator, * expired – the subscription reached its expiration date and was deactivated.
-	State *SubscriptionStateEnum
+	Scope             pulumi.StringInput
+	SecondaryKey      pulumi.StringPtrInput
+	ServiceName       pulumi.StringInput
+	Sid               pulumi.StringPtrInput
+	State             SubscriptionStateEnumPtrInput
 }
 
 func (SubscriptionArgs) ElementType() reflect.Type {
@@ -247,9 +205,7 @@ func (i *Subscription) ToSubscriptionOutputWithContext(ctx context.Context) Subs
 	return pulumi.ToOutputWithContext(ctx, i).(SubscriptionOutput)
 }
 
-type SubscriptionOutput struct {
-	*pulumi.OutputState
-}
+type SubscriptionOutput struct{ *pulumi.OutputState }
 
 func (SubscriptionOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*Subscription)(nil))

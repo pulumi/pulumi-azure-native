@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.Cache.V20170201.Outputs
 {
 
+    /// <summary>
+    /// List of linked server Ids of a Redis cache.
+    /// </summary>
     [OutputType]
     public sealed class RedisLinkedServerListResponse
     {

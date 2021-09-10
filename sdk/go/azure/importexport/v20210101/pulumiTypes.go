@@ -10,16 +10,11 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Contains information about the delivery package being shipped by the customer to the Microsoft data center.
 type DeliveryPackageInformation struct {
-	// The name of the carrier that is used to ship the import or export drives.
-	CarrierName string `pulumi:"carrierName"`
-	// The number of drives included in the package.
-	DriveCount *float64 `pulumi:"driveCount"`
-	// The date when the package is shipped.
-	ShipDate *string `pulumi:"shipDate"`
-	// The tracking number of the package.
-	TrackingNumber string `pulumi:"trackingNumber"`
+	CarrierName    string   `pulumi:"carrierName"`
+	DriveCount     *float64 `pulumi:"driveCount"`
+	ShipDate       *string  `pulumi:"shipDate"`
+	TrackingNumber string   `pulumi:"trackingNumber"`
 }
 
 // DeliveryPackageInformationInput is an input type that accepts DeliveryPackageInformationArgs and DeliveryPackageInformationOutput values.
@@ -33,16 +28,11 @@ type DeliveryPackageInformationInput interface {
 	ToDeliveryPackageInformationOutputWithContext(context.Context) DeliveryPackageInformationOutput
 }
 
-// Contains information about the delivery package being shipped by the customer to the Microsoft data center.
 type DeliveryPackageInformationArgs struct {
-	// The name of the carrier that is used to ship the import or export drives.
-	CarrierName pulumi.StringInput `pulumi:"carrierName"`
-	// The number of drives included in the package.
-	DriveCount pulumi.Float64PtrInput `pulumi:"driveCount"`
-	// The date when the package is shipped.
-	ShipDate pulumi.StringPtrInput `pulumi:"shipDate"`
-	// The tracking number of the package.
-	TrackingNumber pulumi.StringInput `pulumi:"trackingNumber"`
+	CarrierName    pulumi.StringInput     `pulumi:"carrierName"`
+	DriveCount     pulumi.Float64PtrInput `pulumi:"driveCount"`
+	ShipDate       pulumi.StringPtrInput  `pulumi:"shipDate"`
+	TrackingNumber pulumi.StringInput     `pulumi:"trackingNumber"`
 }
 
 func (DeliveryPackageInformationArgs) ElementType() reflect.Type {
@@ -98,7 +88,6 @@ func (i *deliveryPackageInformationPtrType) ToDeliveryPackageInformationPtrOutpu
 	return pulumi.ToOutputWithContext(ctx, i).(DeliveryPackageInformationPtrOutput)
 }
 
-// Contains information about the delivery package being shipped by the customer to the Microsoft data center.
 type DeliveryPackageInformationOutput struct{ *pulumi.OutputState }
 
 func (DeliveryPackageInformationOutput) ElementType() reflect.Type {
@@ -118,27 +107,23 @@ func (o DeliveryPackageInformationOutput) ToDeliveryPackageInformationPtrOutput(
 }
 
 func (o DeliveryPackageInformationOutput) ToDeliveryPackageInformationPtrOutputWithContext(ctx context.Context) DeliveryPackageInformationPtrOutput {
-	return o.ApplyT(func(v DeliveryPackageInformation) *DeliveryPackageInformation {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v DeliveryPackageInformation) *DeliveryPackageInformation {
 		return &v
 	}).(DeliveryPackageInformationPtrOutput)
 }
 
-// The name of the carrier that is used to ship the import or export drives.
 func (o DeliveryPackageInformationOutput) CarrierName() pulumi.StringOutput {
 	return o.ApplyT(func(v DeliveryPackageInformation) string { return v.CarrierName }).(pulumi.StringOutput)
 }
 
-// The number of drives included in the package.
 func (o DeliveryPackageInformationOutput) DriveCount() pulumi.Float64PtrOutput {
 	return o.ApplyT(func(v DeliveryPackageInformation) *float64 { return v.DriveCount }).(pulumi.Float64PtrOutput)
 }
 
-// The date when the package is shipped.
 func (o DeliveryPackageInformationOutput) ShipDate() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v DeliveryPackageInformation) *string { return v.ShipDate }).(pulumi.StringPtrOutput)
 }
 
-// The tracking number of the package.
 func (o DeliveryPackageInformationOutput) TrackingNumber() pulumi.StringOutput {
 	return o.ApplyT(func(v DeliveryPackageInformation) string { return v.TrackingNumber }).(pulumi.StringOutput)
 }
@@ -158,10 +143,15 @@ func (o DeliveryPackageInformationPtrOutput) ToDeliveryPackageInformationPtrOutp
 }
 
 func (o DeliveryPackageInformationPtrOutput) Elem() DeliveryPackageInformationOutput {
-	return o.ApplyT(func(v *DeliveryPackageInformation) DeliveryPackageInformation { return *v }).(DeliveryPackageInformationOutput)
+	return o.ApplyT(func(v *DeliveryPackageInformation) DeliveryPackageInformation {
+		if v != nil {
+			return *v
+		}
+		var ret DeliveryPackageInformation
+		return ret
+	}).(DeliveryPackageInformationOutput)
 }
 
-// The name of the carrier that is used to ship the import or export drives.
 func (o DeliveryPackageInformationPtrOutput) CarrierName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *DeliveryPackageInformation) *string {
 		if v == nil {
@@ -171,7 +161,6 @@ func (o DeliveryPackageInformationPtrOutput) CarrierName() pulumi.StringPtrOutpu
 	}).(pulumi.StringPtrOutput)
 }
 
-// The number of drives included in the package.
 func (o DeliveryPackageInformationPtrOutput) DriveCount() pulumi.Float64PtrOutput {
 	return o.ApplyT(func(v *DeliveryPackageInformation) *float64 {
 		if v == nil {
@@ -181,7 +170,6 @@ func (o DeliveryPackageInformationPtrOutput) DriveCount() pulumi.Float64PtrOutpu
 	}).(pulumi.Float64PtrOutput)
 }
 
-// The date when the package is shipped.
 func (o DeliveryPackageInformationPtrOutput) ShipDate() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *DeliveryPackageInformation) *string {
 		if v == nil {
@@ -191,7 +179,6 @@ func (o DeliveryPackageInformationPtrOutput) ShipDate() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The tracking number of the package.
 func (o DeliveryPackageInformationPtrOutput) TrackingNumber() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *DeliveryPackageInformation) *string {
 		if v == nil {
@@ -201,16 +188,11 @@ func (o DeliveryPackageInformationPtrOutput) TrackingNumber() pulumi.StringPtrOu
 	}).(pulumi.StringPtrOutput)
 }
 
-// Contains information about the delivery package being shipped by the customer to the Microsoft data center.
 type DeliveryPackageInformationResponse struct {
-	// The name of the carrier that is used to ship the import or export drives.
-	CarrierName string `pulumi:"carrierName"`
-	// The number of drives included in the package.
-	DriveCount *float64 `pulumi:"driveCount"`
-	// The date when the package is shipped.
-	ShipDate *string `pulumi:"shipDate"`
-	// The tracking number of the package.
-	TrackingNumber string `pulumi:"trackingNumber"`
+	CarrierName    string   `pulumi:"carrierName"`
+	DriveCount     *float64 `pulumi:"driveCount"`
+	ShipDate       *string  `pulumi:"shipDate"`
+	TrackingNumber string   `pulumi:"trackingNumber"`
 }
 
 // DeliveryPackageInformationResponseInput is an input type that accepts DeliveryPackageInformationResponseArgs and DeliveryPackageInformationResponseOutput values.
@@ -224,16 +206,11 @@ type DeliveryPackageInformationResponseInput interface {
 	ToDeliveryPackageInformationResponseOutputWithContext(context.Context) DeliveryPackageInformationResponseOutput
 }
 
-// Contains information about the delivery package being shipped by the customer to the Microsoft data center.
 type DeliveryPackageInformationResponseArgs struct {
-	// The name of the carrier that is used to ship the import or export drives.
-	CarrierName pulumi.StringInput `pulumi:"carrierName"`
-	// The number of drives included in the package.
-	DriveCount pulumi.Float64PtrInput `pulumi:"driveCount"`
-	// The date when the package is shipped.
-	ShipDate pulumi.StringPtrInput `pulumi:"shipDate"`
-	// The tracking number of the package.
-	TrackingNumber pulumi.StringInput `pulumi:"trackingNumber"`
+	CarrierName    pulumi.StringInput     `pulumi:"carrierName"`
+	DriveCount     pulumi.Float64PtrInput `pulumi:"driveCount"`
+	ShipDate       pulumi.StringPtrInput  `pulumi:"shipDate"`
+	TrackingNumber pulumi.StringInput     `pulumi:"trackingNumber"`
 }
 
 func (DeliveryPackageInformationResponseArgs) ElementType() reflect.Type {
@@ -289,7 +266,6 @@ func (i *deliveryPackageInformationResponsePtrType) ToDeliveryPackageInformation
 	return pulumi.ToOutputWithContext(ctx, i).(DeliveryPackageInformationResponsePtrOutput)
 }
 
-// Contains information about the delivery package being shipped by the customer to the Microsoft data center.
 type DeliveryPackageInformationResponseOutput struct{ *pulumi.OutputState }
 
 func (DeliveryPackageInformationResponseOutput) ElementType() reflect.Type {
@@ -309,27 +285,23 @@ func (o DeliveryPackageInformationResponseOutput) ToDeliveryPackageInformationRe
 }
 
 func (o DeliveryPackageInformationResponseOutput) ToDeliveryPackageInformationResponsePtrOutputWithContext(ctx context.Context) DeliveryPackageInformationResponsePtrOutput {
-	return o.ApplyT(func(v DeliveryPackageInformationResponse) *DeliveryPackageInformationResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v DeliveryPackageInformationResponse) *DeliveryPackageInformationResponse {
 		return &v
 	}).(DeliveryPackageInformationResponsePtrOutput)
 }
 
-// The name of the carrier that is used to ship the import or export drives.
 func (o DeliveryPackageInformationResponseOutput) CarrierName() pulumi.StringOutput {
 	return o.ApplyT(func(v DeliveryPackageInformationResponse) string { return v.CarrierName }).(pulumi.StringOutput)
 }
 
-// The number of drives included in the package.
 func (o DeliveryPackageInformationResponseOutput) DriveCount() pulumi.Float64PtrOutput {
 	return o.ApplyT(func(v DeliveryPackageInformationResponse) *float64 { return v.DriveCount }).(pulumi.Float64PtrOutput)
 }
 
-// The date when the package is shipped.
 func (o DeliveryPackageInformationResponseOutput) ShipDate() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v DeliveryPackageInformationResponse) *string { return v.ShipDate }).(pulumi.StringPtrOutput)
 }
 
-// The tracking number of the package.
 func (o DeliveryPackageInformationResponseOutput) TrackingNumber() pulumi.StringOutput {
 	return o.ApplyT(func(v DeliveryPackageInformationResponse) string { return v.TrackingNumber }).(pulumi.StringOutput)
 }
@@ -349,10 +321,15 @@ func (o DeliveryPackageInformationResponsePtrOutput) ToDeliveryPackageInformatio
 }
 
 func (o DeliveryPackageInformationResponsePtrOutput) Elem() DeliveryPackageInformationResponseOutput {
-	return o.ApplyT(func(v *DeliveryPackageInformationResponse) DeliveryPackageInformationResponse { return *v }).(DeliveryPackageInformationResponseOutput)
+	return o.ApplyT(func(v *DeliveryPackageInformationResponse) DeliveryPackageInformationResponse {
+		if v != nil {
+			return *v
+		}
+		var ret DeliveryPackageInformationResponse
+		return ret
+	}).(DeliveryPackageInformationResponseOutput)
 }
 
-// The name of the carrier that is used to ship the import or export drives.
 func (o DeliveryPackageInformationResponsePtrOutput) CarrierName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *DeliveryPackageInformationResponse) *string {
 		if v == nil {
@@ -362,7 +339,6 @@ func (o DeliveryPackageInformationResponsePtrOutput) CarrierName() pulumi.String
 	}).(pulumi.StringPtrOutput)
 }
 
-// The number of drives included in the package.
 func (o DeliveryPackageInformationResponsePtrOutput) DriveCount() pulumi.Float64PtrOutput {
 	return o.ApplyT(func(v *DeliveryPackageInformationResponse) *float64 {
 		if v == nil {
@@ -372,7 +348,6 @@ func (o DeliveryPackageInformationResponsePtrOutput) DriveCount() pulumi.Float64
 	}).(pulumi.Float64PtrOutput)
 }
 
-// The date when the package is shipped.
 func (o DeliveryPackageInformationResponsePtrOutput) ShipDate() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *DeliveryPackageInformationResponse) *string {
 		if v == nil {
@@ -382,7 +357,6 @@ func (o DeliveryPackageInformationResponsePtrOutput) ShipDate() pulumi.StringPtr
 	}).(pulumi.StringPtrOutput)
 }
 
-// The tracking number of the package.
 func (o DeliveryPackageInformationResponsePtrOutput) TrackingNumber() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *DeliveryPackageInformationResponse) *string {
 		if v == nil {
@@ -392,12 +366,9 @@ func (o DeliveryPackageInformationResponsePtrOutput) TrackingNumber() pulumi.Str
 	}).(pulumi.StringPtrOutput)
 }
 
-// BitLocker recovery key or password to the specified drive
 type DriveBitLockerKeyResponse struct {
-	// BitLocker recovery key or password
 	BitLockerKey *string `pulumi:"bitLockerKey"`
-	// Drive ID
-	DriveId *string `pulumi:"driveId"`
+	DriveId      *string `pulumi:"driveId"`
 }
 
 // DriveBitLockerKeyResponseInput is an input type that accepts DriveBitLockerKeyResponseArgs and DriveBitLockerKeyResponseOutput values.
@@ -411,12 +382,9 @@ type DriveBitLockerKeyResponseInput interface {
 	ToDriveBitLockerKeyResponseOutputWithContext(context.Context) DriveBitLockerKeyResponseOutput
 }
 
-// BitLocker recovery key or password to the specified drive
 type DriveBitLockerKeyResponseArgs struct {
-	// BitLocker recovery key or password
 	BitLockerKey pulumi.StringPtrInput `pulumi:"bitLockerKey"`
-	// Drive ID
-	DriveId pulumi.StringPtrInput `pulumi:"driveId"`
+	DriveId      pulumi.StringPtrInput `pulumi:"driveId"`
 }
 
 func (DriveBitLockerKeyResponseArgs) ElementType() reflect.Type {
@@ -456,7 +424,6 @@ func (i DriveBitLockerKeyResponseArray) ToDriveBitLockerKeyResponseArrayOutputWi
 	return pulumi.ToOutputWithContext(ctx, i).(DriveBitLockerKeyResponseArrayOutput)
 }
 
-// BitLocker recovery key or password to the specified drive
 type DriveBitLockerKeyResponseOutput struct{ *pulumi.OutputState }
 
 func (DriveBitLockerKeyResponseOutput) ElementType() reflect.Type {
@@ -471,12 +438,10 @@ func (o DriveBitLockerKeyResponseOutput) ToDriveBitLockerKeyResponseOutputWithCo
 	return o
 }
 
-// BitLocker recovery key or password
 func (o DriveBitLockerKeyResponseOutput) BitLockerKey() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v DriveBitLockerKeyResponse) *string { return v.BitLockerKey }).(pulumi.StringPtrOutput)
 }
 
-// Drive ID
 func (o DriveBitLockerKeyResponseOutput) DriveId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v DriveBitLockerKeyResponse) *string { return v.DriveId }).(pulumi.StringPtrOutput)
 }
@@ -501,32 +466,19 @@ func (o DriveBitLockerKeyResponseArrayOutput) Index(i pulumi.IntInput) DriveBitL
 	}).(DriveBitLockerKeyResponseOutput)
 }
 
-// Provides information about the drive's status
 type DriveStatus struct {
-	// The BitLocker key used to encrypt the drive.
-	BitLockerKey *string `pulumi:"bitLockerKey"`
-	// Bytes successfully transferred for the drive.
-	BytesSucceeded *float64 `pulumi:"bytesSucceeded"`
-	// Detailed status about the data transfer process. This field is not returned in the response until the drive is in the Transferring state.
-	CopyStatus *string `pulumi:"copyStatus"`
-	// The drive header hash value.
-	DriveHeaderHash *string `pulumi:"driveHeaderHash"`
-	// The drive's hardware serial number, without spaces.
-	DriveId *string `pulumi:"driveId"`
-	// A URI that points to the blob containing the error log for the data transfer operation.
-	ErrorLogUri *string `pulumi:"errorLogUri"`
-	// The relative path of the manifest file on the drive.
-	ManifestFile *string `pulumi:"manifestFile"`
-	// The Base16-encoded MD5 hash of the manifest file on the drive.
-	ManifestHash *string `pulumi:"manifestHash"`
-	// A URI that points to the blob containing the drive manifest file.
-	ManifestUri *string `pulumi:"manifestUri"`
-	// Percentage completed for the drive.
+	BitLockerKey    *string  `pulumi:"bitLockerKey"`
+	BytesSucceeded  *float64 `pulumi:"bytesSucceeded"`
+	CopyStatus      *string  `pulumi:"copyStatus"`
+	DriveHeaderHash *string  `pulumi:"driveHeaderHash"`
+	DriveId         *string  `pulumi:"driveId"`
+	ErrorLogUri     *string  `pulumi:"errorLogUri"`
+	ManifestFile    *string  `pulumi:"manifestFile"`
+	ManifestHash    *string  `pulumi:"manifestHash"`
+	ManifestUri     *string  `pulumi:"manifestUri"`
 	PercentComplete *float64 `pulumi:"percentComplete"`
-	// The drive's current state.
-	State *string `pulumi:"state"`
-	// A URI that points to the blob containing the verbose log for the data transfer operation.
-	VerboseLogUri *string `pulumi:"verboseLogUri"`
+	State           *string  `pulumi:"state"`
+	VerboseLogUri   *string  `pulumi:"verboseLogUri"`
 }
 
 // DriveStatusInput is an input type that accepts DriveStatusArgs and DriveStatusOutput values.
@@ -540,32 +492,19 @@ type DriveStatusInput interface {
 	ToDriveStatusOutputWithContext(context.Context) DriveStatusOutput
 }
 
-// Provides information about the drive's status
 type DriveStatusArgs struct {
-	// The BitLocker key used to encrypt the drive.
-	BitLockerKey pulumi.StringPtrInput `pulumi:"bitLockerKey"`
-	// Bytes successfully transferred for the drive.
-	BytesSucceeded pulumi.Float64PtrInput `pulumi:"bytesSucceeded"`
-	// Detailed status about the data transfer process. This field is not returned in the response until the drive is in the Transferring state.
-	CopyStatus pulumi.StringPtrInput `pulumi:"copyStatus"`
-	// The drive header hash value.
-	DriveHeaderHash pulumi.StringPtrInput `pulumi:"driveHeaderHash"`
-	// The drive's hardware serial number, without spaces.
-	DriveId pulumi.StringPtrInput `pulumi:"driveId"`
-	// A URI that points to the blob containing the error log for the data transfer operation.
-	ErrorLogUri pulumi.StringPtrInput `pulumi:"errorLogUri"`
-	// The relative path of the manifest file on the drive.
-	ManifestFile pulumi.StringPtrInput `pulumi:"manifestFile"`
-	// The Base16-encoded MD5 hash of the manifest file on the drive.
-	ManifestHash pulumi.StringPtrInput `pulumi:"manifestHash"`
-	// A URI that points to the blob containing the drive manifest file.
-	ManifestUri pulumi.StringPtrInput `pulumi:"manifestUri"`
-	// Percentage completed for the drive.
+	BitLockerKey    pulumi.StringPtrInput  `pulumi:"bitLockerKey"`
+	BytesSucceeded  pulumi.Float64PtrInput `pulumi:"bytesSucceeded"`
+	CopyStatus      pulumi.StringPtrInput  `pulumi:"copyStatus"`
+	DriveHeaderHash pulumi.StringPtrInput  `pulumi:"driveHeaderHash"`
+	DriveId         pulumi.StringPtrInput  `pulumi:"driveId"`
+	ErrorLogUri     pulumi.StringPtrInput  `pulumi:"errorLogUri"`
+	ManifestFile    pulumi.StringPtrInput  `pulumi:"manifestFile"`
+	ManifestHash    pulumi.StringPtrInput  `pulumi:"manifestHash"`
+	ManifestUri     pulumi.StringPtrInput  `pulumi:"manifestUri"`
 	PercentComplete pulumi.Float64PtrInput `pulumi:"percentComplete"`
-	// The drive's current state.
-	State pulumi.StringPtrInput `pulumi:"state"`
-	// A URI that points to the blob containing the verbose log for the data transfer operation.
-	VerboseLogUri pulumi.StringPtrInput `pulumi:"verboseLogUri"`
+	State           pulumi.StringPtrInput  `pulumi:"state"`
+	VerboseLogUri   pulumi.StringPtrInput  `pulumi:"verboseLogUri"`
 }
 
 func (DriveStatusArgs) ElementType() reflect.Type {
@@ -605,7 +544,6 @@ func (i DriveStatusArray) ToDriveStatusArrayOutputWithContext(ctx context.Contex
 	return pulumi.ToOutputWithContext(ctx, i).(DriveStatusArrayOutput)
 }
 
-// Provides information about the drive's status
 type DriveStatusOutput struct{ *pulumi.OutputState }
 
 func (DriveStatusOutput) ElementType() reflect.Type {
@@ -620,62 +558,50 @@ func (o DriveStatusOutput) ToDriveStatusOutputWithContext(ctx context.Context) D
 	return o
 }
 
-// The BitLocker key used to encrypt the drive.
 func (o DriveStatusOutput) BitLockerKey() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v DriveStatus) *string { return v.BitLockerKey }).(pulumi.StringPtrOutput)
 }
 
-// Bytes successfully transferred for the drive.
 func (o DriveStatusOutput) BytesSucceeded() pulumi.Float64PtrOutput {
 	return o.ApplyT(func(v DriveStatus) *float64 { return v.BytesSucceeded }).(pulumi.Float64PtrOutput)
 }
 
-// Detailed status about the data transfer process. This field is not returned in the response until the drive is in the Transferring state.
 func (o DriveStatusOutput) CopyStatus() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v DriveStatus) *string { return v.CopyStatus }).(pulumi.StringPtrOutput)
 }
 
-// The drive header hash value.
 func (o DriveStatusOutput) DriveHeaderHash() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v DriveStatus) *string { return v.DriveHeaderHash }).(pulumi.StringPtrOutput)
 }
 
-// The drive's hardware serial number, without spaces.
 func (o DriveStatusOutput) DriveId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v DriveStatus) *string { return v.DriveId }).(pulumi.StringPtrOutput)
 }
 
-// A URI that points to the blob containing the error log for the data transfer operation.
 func (o DriveStatusOutput) ErrorLogUri() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v DriveStatus) *string { return v.ErrorLogUri }).(pulumi.StringPtrOutput)
 }
 
-// The relative path of the manifest file on the drive.
 func (o DriveStatusOutput) ManifestFile() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v DriveStatus) *string { return v.ManifestFile }).(pulumi.StringPtrOutput)
 }
 
-// The Base16-encoded MD5 hash of the manifest file on the drive.
 func (o DriveStatusOutput) ManifestHash() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v DriveStatus) *string { return v.ManifestHash }).(pulumi.StringPtrOutput)
 }
 
-// A URI that points to the blob containing the drive manifest file.
 func (o DriveStatusOutput) ManifestUri() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v DriveStatus) *string { return v.ManifestUri }).(pulumi.StringPtrOutput)
 }
 
-// Percentage completed for the drive.
 func (o DriveStatusOutput) PercentComplete() pulumi.Float64PtrOutput {
 	return o.ApplyT(func(v DriveStatus) *float64 { return v.PercentComplete }).(pulumi.Float64PtrOutput)
 }
 
-// The drive's current state.
 func (o DriveStatusOutput) State() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v DriveStatus) *string { return v.State }).(pulumi.StringPtrOutput)
 }
 
-// A URI that points to the blob containing the verbose log for the data transfer operation.
 func (o DriveStatusOutput) VerboseLogUri() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v DriveStatus) *string { return v.VerboseLogUri }).(pulumi.StringPtrOutput)
 }
@@ -700,32 +626,19 @@ func (o DriveStatusArrayOutput) Index(i pulumi.IntInput) DriveStatusOutput {
 	}).(DriveStatusOutput)
 }
 
-// Provides information about the drive's status
 type DriveStatusResponse struct {
-	// The BitLocker key used to encrypt the drive.
-	BitLockerKey *string `pulumi:"bitLockerKey"`
-	// Bytes successfully transferred for the drive.
-	BytesSucceeded *float64 `pulumi:"bytesSucceeded"`
-	// Detailed status about the data transfer process. This field is not returned in the response until the drive is in the Transferring state.
-	CopyStatus *string `pulumi:"copyStatus"`
-	// The drive header hash value.
-	DriveHeaderHash *string `pulumi:"driveHeaderHash"`
-	// The drive's hardware serial number, without spaces.
-	DriveId *string `pulumi:"driveId"`
-	// A URI that points to the blob containing the error log for the data transfer operation.
-	ErrorLogUri *string `pulumi:"errorLogUri"`
-	// The relative path of the manifest file on the drive.
-	ManifestFile *string `pulumi:"manifestFile"`
-	// The Base16-encoded MD5 hash of the manifest file on the drive.
-	ManifestHash *string `pulumi:"manifestHash"`
-	// A URI that points to the blob containing the drive manifest file.
-	ManifestUri *string `pulumi:"manifestUri"`
-	// Percentage completed for the drive.
+	BitLockerKey    *string  `pulumi:"bitLockerKey"`
+	BytesSucceeded  *float64 `pulumi:"bytesSucceeded"`
+	CopyStatus      *string  `pulumi:"copyStatus"`
+	DriveHeaderHash *string  `pulumi:"driveHeaderHash"`
+	DriveId         *string  `pulumi:"driveId"`
+	ErrorLogUri     *string  `pulumi:"errorLogUri"`
+	ManifestFile    *string  `pulumi:"manifestFile"`
+	ManifestHash    *string  `pulumi:"manifestHash"`
+	ManifestUri     *string  `pulumi:"manifestUri"`
 	PercentComplete *float64 `pulumi:"percentComplete"`
-	// The drive's current state.
-	State *string `pulumi:"state"`
-	// A URI that points to the blob containing the verbose log for the data transfer operation.
-	VerboseLogUri *string `pulumi:"verboseLogUri"`
+	State           *string  `pulumi:"state"`
+	VerboseLogUri   *string  `pulumi:"verboseLogUri"`
 }
 
 // DriveStatusResponseInput is an input type that accepts DriveStatusResponseArgs and DriveStatusResponseOutput values.
@@ -739,32 +652,19 @@ type DriveStatusResponseInput interface {
 	ToDriveStatusResponseOutputWithContext(context.Context) DriveStatusResponseOutput
 }
 
-// Provides information about the drive's status
 type DriveStatusResponseArgs struct {
-	// The BitLocker key used to encrypt the drive.
-	BitLockerKey pulumi.StringPtrInput `pulumi:"bitLockerKey"`
-	// Bytes successfully transferred for the drive.
-	BytesSucceeded pulumi.Float64PtrInput `pulumi:"bytesSucceeded"`
-	// Detailed status about the data transfer process. This field is not returned in the response until the drive is in the Transferring state.
-	CopyStatus pulumi.StringPtrInput `pulumi:"copyStatus"`
-	// The drive header hash value.
-	DriveHeaderHash pulumi.StringPtrInput `pulumi:"driveHeaderHash"`
-	// The drive's hardware serial number, without spaces.
-	DriveId pulumi.StringPtrInput `pulumi:"driveId"`
-	// A URI that points to the blob containing the error log for the data transfer operation.
-	ErrorLogUri pulumi.StringPtrInput `pulumi:"errorLogUri"`
-	// The relative path of the manifest file on the drive.
-	ManifestFile pulumi.StringPtrInput `pulumi:"manifestFile"`
-	// The Base16-encoded MD5 hash of the manifest file on the drive.
-	ManifestHash pulumi.StringPtrInput `pulumi:"manifestHash"`
-	// A URI that points to the blob containing the drive manifest file.
-	ManifestUri pulumi.StringPtrInput `pulumi:"manifestUri"`
-	// Percentage completed for the drive.
+	BitLockerKey    pulumi.StringPtrInput  `pulumi:"bitLockerKey"`
+	BytesSucceeded  pulumi.Float64PtrInput `pulumi:"bytesSucceeded"`
+	CopyStatus      pulumi.StringPtrInput  `pulumi:"copyStatus"`
+	DriveHeaderHash pulumi.StringPtrInput  `pulumi:"driveHeaderHash"`
+	DriveId         pulumi.StringPtrInput  `pulumi:"driveId"`
+	ErrorLogUri     pulumi.StringPtrInput  `pulumi:"errorLogUri"`
+	ManifestFile    pulumi.StringPtrInput  `pulumi:"manifestFile"`
+	ManifestHash    pulumi.StringPtrInput  `pulumi:"manifestHash"`
+	ManifestUri     pulumi.StringPtrInput  `pulumi:"manifestUri"`
 	PercentComplete pulumi.Float64PtrInput `pulumi:"percentComplete"`
-	// The drive's current state.
-	State pulumi.StringPtrInput `pulumi:"state"`
-	// A URI that points to the blob containing the verbose log for the data transfer operation.
-	VerboseLogUri pulumi.StringPtrInput `pulumi:"verboseLogUri"`
+	State           pulumi.StringPtrInput  `pulumi:"state"`
+	VerboseLogUri   pulumi.StringPtrInput  `pulumi:"verboseLogUri"`
 }
 
 func (DriveStatusResponseArgs) ElementType() reflect.Type {
@@ -804,7 +704,6 @@ func (i DriveStatusResponseArray) ToDriveStatusResponseArrayOutputWithContext(ct
 	return pulumi.ToOutputWithContext(ctx, i).(DriveStatusResponseArrayOutput)
 }
 
-// Provides information about the drive's status
 type DriveStatusResponseOutput struct{ *pulumi.OutputState }
 
 func (DriveStatusResponseOutput) ElementType() reflect.Type {
@@ -819,62 +718,50 @@ func (o DriveStatusResponseOutput) ToDriveStatusResponseOutputWithContext(ctx co
 	return o
 }
 
-// The BitLocker key used to encrypt the drive.
 func (o DriveStatusResponseOutput) BitLockerKey() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v DriveStatusResponse) *string { return v.BitLockerKey }).(pulumi.StringPtrOutput)
 }
 
-// Bytes successfully transferred for the drive.
 func (o DriveStatusResponseOutput) BytesSucceeded() pulumi.Float64PtrOutput {
 	return o.ApplyT(func(v DriveStatusResponse) *float64 { return v.BytesSucceeded }).(pulumi.Float64PtrOutput)
 }
 
-// Detailed status about the data transfer process. This field is not returned in the response until the drive is in the Transferring state.
 func (o DriveStatusResponseOutput) CopyStatus() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v DriveStatusResponse) *string { return v.CopyStatus }).(pulumi.StringPtrOutput)
 }
 
-// The drive header hash value.
 func (o DriveStatusResponseOutput) DriveHeaderHash() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v DriveStatusResponse) *string { return v.DriveHeaderHash }).(pulumi.StringPtrOutput)
 }
 
-// The drive's hardware serial number, without spaces.
 func (o DriveStatusResponseOutput) DriveId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v DriveStatusResponse) *string { return v.DriveId }).(pulumi.StringPtrOutput)
 }
 
-// A URI that points to the blob containing the error log for the data transfer operation.
 func (o DriveStatusResponseOutput) ErrorLogUri() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v DriveStatusResponse) *string { return v.ErrorLogUri }).(pulumi.StringPtrOutput)
 }
 
-// The relative path of the manifest file on the drive.
 func (o DriveStatusResponseOutput) ManifestFile() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v DriveStatusResponse) *string { return v.ManifestFile }).(pulumi.StringPtrOutput)
 }
 
-// The Base16-encoded MD5 hash of the manifest file on the drive.
 func (o DriveStatusResponseOutput) ManifestHash() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v DriveStatusResponse) *string { return v.ManifestHash }).(pulumi.StringPtrOutput)
 }
 
-// A URI that points to the blob containing the drive manifest file.
 func (o DriveStatusResponseOutput) ManifestUri() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v DriveStatusResponse) *string { return v.ManifestUri }).(pulumi.StringPtrOutput)
 }
 
-// Percentage completed for the drive.
 func (o DriveStatusResponseOutput) PercentComplete() pulumi.Float64PtrOutput {
 	return o.ApplyT(func(v DriveStatusResponse) *float64 { return v.PercentComplete }).(pulumi.Float64PtrOutput)
 }
 
-// The drive's current state.
 func (o DriveStatusResponseOutput) State() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v DriveStatusResponse) *string { return v.State }).(pulumi.StringPtrOutput)
 }
 
-// A URI that points to the blob containing the verbose log for the data transfer operation.
 func (o DriveStatusResponseOutput) VerboseLogUri() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v DriveStatusResponse) *string { return v.VerboseLogUri }).(pulumi.StringPtrOutput)
 }
@@ -899,13 +786,9 @@ func (o DriveStatusResponseArrayOutput) Index(i pulumi.IntInput) DriveStatusResp
 	}).(DriveStatusResponseOutput)
 }
 
-// Specifies the encryption key properties
 type EncryptionKeyDetails struct {
-	// The type of kek encryption key
-	KekType *string `pulumi:"kekType"`
-	// Specifies the url for kek encryption key.
-	KekUrl *string `pulumi:"kekUrl"`
-	// Specifies the keyvault resource id for kek encryption key.
+	KekType            *string `pulumi:"kekType"`
+	KekUrl             *string `pulumi:"kekUrl"`
 	KekVaultResourceID *string `pulumi:"kekVaultResourceID"`
 }
 
@@ -920,13 +803,9 @@ type EncryptionKeyDetailsInput interface {
 	ToEncryptionKeyDetailsOutputWithContext(context.Context) EncryptionKeyDetailsOutput
 }
 
-// Specifies the encryption key properties
 type EncryptionKeyDetailsArgs struct {
-	// The type of kek encryption key
-	KekType pulumi.StringPtrInput `pulumi:"kekType"`
-	// Specifies the url for kek encryption key.
-	KekUrl pulumi.StringPtrInput `pulumi:"kekUrl"`
-	// Specifies the keyvault resource id for kek encryption key.
+	KekType            pulumi.StringPtrInput `pulumi:"kekType"`
+	KekUrl             pulumi.StringPtrInput `pulumi:"kekUrl"`
 	KekVaultResourceID pulumi.StringPtrInput `pulumi:"kekVaultResourceID"`
 }
 
@@ -983,7 +862,6 @@ func (i *encryptionKeyDetailsPtrType) ToEncryptionKeyDetailsPtrOutputWithContext
 	return pulumi.ToOutputWithContext(ctx, i).(EncryptionKeyDetailsPtrOutput)
 }
 
-// Specifies the encryption key properties
 type EncryptionKeyDetailsOutput struct{ *pulumi.OutputState }
 
 func (EncryptionKeyDetailsOutput) ElementType() reflect.Type {
@@ -1003,22 +881,19 @@ func (o EncryptionKeyDetailsOutput) ToEncryptionKeyDetailsPtrOutput() Encryption
 }
 
 func (o EncryptionKeyDetailsOutput) ToEncryptionKeyDetailsPtrOutputWithContext(ctx context.Context) EncryptionKeyDetailsPtrOutput {
-	return o.ApplyT(func(v EncryptionKeyDetails) *EncryptionKeyDetails {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v EncryptionKeyDetails) *EncryptionKeyDetails {
 		return &v
 	}).(EncryptionKeyDetailsPtrOutput)
 }
 
-// The type of kek encryption key
 func (o EncryptionKeyDetailsOutput) KekType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v EncryptionKeyDetails) *string { return v.KekType }).(pulumi.StringPtrOutput)
 }
 
-// Specifies the url for kek encryption key.
 func (o EncryptionKeyDetailsOutput) KekUrl() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v EncryptionKeyDetails) *string { return v.KekUrl }).(pulumi.StringPtrOutput)
 }
 
-// Specifies the keyvault resource id for kek encryption key.
 func (o EncryptionKeyDetailsOutput) KekVaultResourceID() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v EncryptionKeyDetails) *string { return v.KekVaultResourceID }).(pulumi.StringPtrOutput)
 }
@@ -1038,10 +913,15 @@ func (o EncryptionKeyDetailsPtrOutput) ToEncryptionKeyDetailsPtrOutputWithContex
 }
 
 func (o EncryptionKeyDetailsPtrOutput) Elem() EncryptionKeyDetailsOutput {
-	return o.ApplyT(func(v *EncryptionKeyDetails) EncryptionKeyDetails { return *v }).(EncryptionKeyDetailsOutput)
+	return o.ApplyT(func(v *EncryptionKeyDetails) EncryptionKeyDetails {
+		if v != nil {
+			return *v
+		}
+		var ret EncryptionKeyDetails
+		return ret
+	}).(EncryptionKeyDetailsOutput)
 }
 
-// The type of kek encryption key
 func (o EncryptionKeyDetailsPtrOutput) KekType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *EncryptionKeyDetails) *string {
 		if v == nil {
@@ -1051,7 +931,6 @@ func (o EncryptionKeyDetailsPtrOutput) KekType() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Specifies the url for kek encryption key.
 func (o EncryptionKeyDetailsPtrOutput) KekUrl() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *EncryptionKeyDetails) *string {
 		if v == nil {
@@ -1061,7 +940,6 @@ func (o EncryptionKeyDetailsPtrOutput) KekUrl() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Specifies the keyvault resource id for kek encryption key.
 func (o EncryptionKeyDetailsPtrOutput) KekVaultResourceID() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *EncryptionKeyDetails) *string {
 		if v == nil {
@@ -1071,13 +949,9 @@ func (o EncryptionKeyDetailsPtrOutput) KekVaultResourceID() pulumi.StringPtrOutp
 	}).(pulumi.StringPtrOutput)
 }
 
-// Specifies the encryption key properties
 type EncryptionKeyDetailsResponse struct {
-	// The type of kek encryption key
-	KekType *string `pulumi:"kekType"`
-	// Specifies the url for kek encryption key.
-	KekUrl *string `pulumi:"kekUrl"`
-	// Specifies the keyvault resource id for kek encryption key.
+	KekType            *string `pulumi:"kekType"`
+	KekUrl             *string `pulumi:"kekUrl"`
 	KekVaultResourceID *string `pulumi:"kekVaultResourceID"`
 }
 
@@ -1092,13 +966,9 @@ type EncryptionKeyDetailsResponseInput interface {
 	ToEncryptionKeyDetailsResponseOutputWithContext(context.Context) EncryptionKeyDetailsResponseOutput
 }
 
-// Specifies the encryption key properties
 type EncryptionKeyDetailsResponseArgs struct {
-	// The type of kek encryption key
-	KekType pulumi.StringPtrInput `pulumi:"kekType"`
-	// Specifies the url for kek encryption key.
-	KekUrl pulumi.StringPtrInput `pulumi:"kekUrl"`
-	// Specifies the keyvault resource id for kek encryption key.
+	KekType            pulumi.StringPtrInput `pulumi:"kekType"`
+	KekUrl             pulumi.StringPtrInput `pulumi:"kekUrl"`
 	KekVaultResourceID pulumi.StringPtrInput `pulumi:"kekVaultResourceID"`
 }
 
@@ -1155,7 +1025,6 @@ func (i *encryptionKeyDetailsResponsePtrType) ToEncryptionKeyDetailsResponsePtrO
 	return pulumi.ToOutputWithContext(ctx, i).(EncryptionKeyDetailsResponsePtrOutput)
 }
 
-// Specifies the encryption key properties
 type EncryptionKeyDetailsResponseOutput struct{ *pulumi.OutputState }
 
 func (EncryptionKeyDetailsResponseOutput) ElementType() reflect.Type {
@@ -1175,22 +1044,19 @@ func (o EncryptionKeyDetailsResponseOutput) ToEncryptionKeyDetailsResponsePtrOut
 }
 
 func (o EncryptionKeyDetailsResponseOutput) ToEncryptionKeyDetailsResponsePtrOutputWithContext(ctx context.Context) EncryptionKeyDetailsResponsePtrOutput {
-	return o.ApplyT(func(v EncryptionKeyDetailsResponse) *EncryptionKeyDetailsResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v EncryptionKeyDetailsResponse) *EncryptionKeyDetailsResponse {
 		return &v
 	}).(EncryptionKeyDetailsResponsePtrOutput)
 }
 
-// The type of kek encryption key
 func (o EncryptionKeyDetailsResponseOutput) KekType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v EncryptionKeyDetailsResponse) *string { return v.KekType }).(pulumi.StringPtrOutput)
 }
 
-// Specifies the url for kek encryption key.
 func (o EncryptionKeyDetailsResponseOutput) KekUrl() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v EncryptionKeyDetailsResponse) *string { return v.KekUrl }).(pulumi.StringPtrOutput)
 }
 
-// Specifies the keyvault resource id for kek encryption key.
 func (o EncryptionKeyDetailsResponseOutput) KekVaultResourceID() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v EncryptionKeyDetailsResponse) *string { return v.KekVaultResourceID }).(pulumi.StringPtrOutput)
 }
@@ -1210,10 +1076,15 @@ func (o EncryptionKeyDetailsResponsePtrOutput) ToEncryptionKeyDetailsResponsePtr
 }
 
 func (o EncryptionKeyDetailsResponsePtrOutput) Elem() EncryptionKeyDetailsResponseOutput {
-	return o.ApplyT(func(v *EncryptionKeyDetailsResponse) EncryptionKeyDetailsResponse { return *v }).(EncryptionKeyDetailsResponseOutput)
+	return o.ApplyT(func(v *EncryptionKeyDetailsResponse) EncryptionKeyDetailsResponse {
+		if v != nil {
+			return *v
+		}
+		var ret EncryptionKeyDetailsResponse
+		return ret
+	}).(EncryptionKeyDetailsResponseOutput)
 }
 
-// The type of kek encryption key
 func (o EncryptionKeyDetailsResponsePtrOutput) KekType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *EncryptionKeyDetailsResponse) *string {
 		if v == nil {
@@ -1223,7 +1094,6 @@ func (o EncryptionKeyDetailsResponsePtrOutput) KekType() pulumi.StringPtrOutput 
 	}).(pulumi.StringPtrOutput)
 }
 
-// Specifies the url for kek encryption key.
 func (o EncryptionKeyDetailsResponsePtrOutput) KekUrl() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *EncryptionKeyDetailsResponse) *string {
 		if v == nil {
@@ -1233,7 +1103,6 @@ func (o EncryptionKeyDetailsResponsePtrOutput) KekUrl() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Specifies the keyvault resource id for kek encryption key.
 func (o EncryptionKeyDetailsResponsePtrOutput) KekVaultResourceID() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *EncryptionKeyDetailsResponse) *string {
 		if v == nil {
@@ -1243,14 +1112,10 @@ func (o EncryptionKeyDetailsResponsePtrOutput) KekVaultResourceID() pulumi.Strin
 	}).(pulumi.StringPtrOutput)
 }
 
-// A property containing information about the blobs to be exported for an export job. This property is required for export jobs, but must not be specified for import jobs.
 type Export struct {
-	// The relative URI to the block blob that contains the list of blob paths or blob path prefixes as defined above, beginning with the container name. If the blob is in root container, the URI must begin with $root.
-	BlobListBlobPath *string `pulumi:"blobListBlobPath"`
-	// A collection of blob-path strings.
-	BlobPath []string `pulumi:"blobPath"`
-	// A collection of blob-prefix strings.
-	BlobPathPrefix []string `pulumi:"blobPathPrefix"`
+	BlobListBlobPath *string  `pulumi:"blobListBlobPath"`
+	BlobPath         []string `pulumi:"blobPath"`
+	BlobPathPrefix   []string `pulumi:"blobPathPrefix"`
 }
 
 // ExportInput is an input type that accepts ExportArgs and ExportOutput values.
@@ -1264,14 +1129,10 @@ type ExportInput interface {
 	ToExportOutputWithContext(context.Context) ExportOutput
 }
 
-// A property containing information about the blobs to be exported for an export job. This property is required for export jobs, but must not be specified for import jobs.
 type ExportArgs struct {
-	// The relative URI to the block blob that contains the list of blob paths or blob path prefixes as defined above, beginning with the container name. If the blob is in root container, the URI must begin with $root.
-	BlobListBlobPath pulumi.StringPtrInput `pulumi:"blobListBlobPath"`
-	// A collection of blob-path strings.
-	BlobPath pulumi.StringArrayInput `pulumi:"blobPath"`
-	// A collection of blob-prefix strings.
-	BlobPathPrefix pulumi.StringArrayInput `pulumi:"blobPathPrefix"`
+	BlobListBlobPath pulumi.StringPtrInput   `pulumi:"blobListBlobPath"`
+	BlobPath         pulumi.StringArrayInput `pulumi:"blobPath"`
+	BlobPathPrefix   pulumi.StringArrayInput `pulumi:"blobPathPrefix"`
 }
 
 func (ExportArgs) ElementType() reflect.Type {
@@ -1327,7 +1188,6 @@ func (i *exportPtrType) ToExportPtrOutputWithContext(ctx context.Context) Export
 	return pulumi.ToOutputWithContext(ctx, i).(ExportPtrOutput)
 }
 
-// A property containing information about the blobs to be exported for an export job. This property is required for export jobs, but must not be specified for import jobs.
 type ExportOutput struct{ *pulumi.OutputState }
 
 func (ExportOutput) ElementType() reflect.Type {
@@ -1347,22 +1207,19 @@ func (o ExportOutput) ToExportPtrOutput() ExportPtrOutput {
 }
 
 func (o ExportOutput) ToExportPtrOutputWithContext(ctx context.Context) ExportPtrOutput {
-	return o.ApplyT(func(v Export) *Export {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v Export) *Export {
 		return &v
 	}).(ExportPtrOutput)
 }
 
-// The relative URI to the block blob that contains the list of blob paths or blob path prefixes as defined above, beginning with the container name. If the blob is in root container, the URI must begin with $root.
 func (o ExportOutput) BlobListBlobPath() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v Export) *string { return v.BlobListBlobPath }).(pulumi.StringPtrOutput)
 }
 
-// A collection of blob-path strings.
 func (o ExportOutput) BlobPath() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v Export) []string { return v.BlobPath }).(pulumi.StringArrayOutput)
 }
 
-// A collection of blob-prefix strings.
 func (o ExportOutput) BlobPathPrefix() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v Export) []string { return v.BlobPathPrefix }).(pulumi.StringArrayOutput)
 }
@@ -1382,10 +1239,15 @@ func (o ExportPtrOutput) ToExportPtrOutputWithContext(ctx context.Context) Expor
 }
 
 func (o ExportPtrOutput) Elem() ExportOutput {
-	return o.ApplyT(func(v *Export) Export { return *v }).(ExportOutput)
+	return o.ApplyT(func(v *Export) Export {
+		if v != nil {
+			return *v
+		}
+		var ret Export
+		return ret
+	}).(ExportOutput)
 }
 
-// The relative URI to the block blob that contains the list of blob paths or blob path prefixes as defined above, beginning with the container name. If the blob is in root container, the URI must begin with $root.
 func (o ExportPtrOutput) BlobListBlobPath() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Export) *string {
 		if v == nil {
@@ -1395,7 +1257,6 @@ func (o ExportPtrOutput) BlobListBlobPath() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// A collection of blob-path strings.
 func (o ExportPtrOutput) BlobPath() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *Export) []string {
 		if v == nil {
@@ -1405,7 +1266,6 @@ func (o ExportPtrOutput) BlobPath() pulumi.StringArrayOutput {
 	}).(pulumi.StringArrayOutput)
 }
 
-// A collection of blob-prefix strings.
 func (o ExportPtrOutput) BlobPathPrefix() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *Export) []string {
 		if v == nil {
@@ -1415,14 +1275,10 @@ func (o ExportPtrOutput) BlobPathPrefix() pulumi.StringArrayOutput {
 	}).(pulumi.StringArrayOutput)
 }
 
-// A property containing information about the blobs to be exported for an export job. This property is required for export jobs, but must not be specified for import jobs.
 type ExportResponse struct {
-	// The relative URI to the block blob that contains the list of blob paths or blob path prefixes as defined above, beginning with the container name. If the blob is in root container, the URI must begin with $root.
-	BlobListBlobPath *string `pulumi:"blobListBlobPath"`
-	// A collection of blob-path strings.
-	BlobPath []string `pulumi:"blobPath"`
-	// A collection of blob-prefix strings.
-	BlobPathPrefix []string `pulumi:"blobPathPrefix"`
+	BlobListBlobPath *string  `pulumi:"blobListBlobPath"`
+	BlobPath         []string `pulumi:"blobPath"`
+	BlobPathPrefix   []string `pulumi:"blobPathPrefix"`
 }
 
 // ExportResponseInput is an input type that accepts ExportResponseArgs and ExportResponseOutput values.
@@ -1436,14 +1292,10 @@ type ExportResponseInput interface {
 	ToExportResponseOutputWithContext(context.Context) ExportResponseOutput
 }
 
-// A property containing information about the blobs to be exported for an export job. This property is required for export jobs, but must not be specified for import jobs.
 type ExportResponseArgs struct {
-	// The relative URI to the block blob that contains the list of blob paths or blob path prefixes as defined above, beginning with the container name. If the blob is in root container, the URI must begin with $root.
-	BlobListBlobPath pulumi.StringPtrInput `pulumi:"blobListBlobPath"`
-	// A collection of blob-path strings.
-	BlobPath pulumi.StringArrayInput `pulumi:"blobPath"`
-	// A collection of blob-prefix strings.
-	BlobPathPrefix pulumi.StringArrayInput `pulumi:"blobPathPrefix"`
+	BlobListBlobPath pulumi.StringPtrInput   `pulumi:"blobListBlobPath"`
+	BlobPath         pulumi.StringArrayInput `pulumi:"blobPath"`
+	BlobPathPrefix   pulumi.StringArrayInput `pulumi:"blobPathPrefix"`
 }
 
 func (ExportResponseArgs) ElementType() reflect.Type {
@@ -1499,7 +1351,6 @@ func (i *exportResponsePtrType) ToExportResponsePtrOutputWithContext(ctx context
 	return pulumi.ToOutputWithContext(ctx, i).(ExportResponsePtrOutput)
 }
 
-// A property containing information about the blobs to be exported for an export job. This property is required for export jobs, but must not be specified for import jobs.
 type ExportResponseOutput struct{ *pulumi.OutputState }
 
 func (ExportResponseOutput) ElementType() reflect.Type {
@@ -1519,22 +1370,19 @@ func (o ExportResponseOutput) ToExportResponsePtrOutput() ExportResponsePtrOutpu
 }
 
 func (o ExportResponseOutput) ToExportResponsePtrOutputWithContext(ctx context.Context) ExportResponsePtrOutput {
-	return o.ApplyT(func(v ExportResponse) *ExportResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ExportResponse) *ExportResponse {
 		return &v
 	}).(ExportResponsePtrOutput)
 }
 
-// The relative URI to the block blob that contains the list of blob paths or blob path prefixes as defined above, beginning with the container name. If the blob is in root container, the URI must begin with $root.
 func (o ExportResponseOutput) BlobListBlobPath() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ExportResponse) *string { return v.BlobListBlobPath }).(pulumi.StringPtrOutput)
 }
 
-// A collection of blob-path strings.
 func (o ExportResponseOutput) BlobPath() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v ExportResponse) []string { return v.BlobPath }).(pulumi.StringArrayOutput)
 }
 
-// A collection of blob-prefix strings.
 func (o ExportResponseOutput) BlobPathPrefix() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v ExportResponse) []string { return v.BlobPathPrefix }).(pulumi.StringArrayOutput)
 }
@@ -1554,10 +1402,15 @@ func (o ExportResponsePtrOutput) ToExportResponsePtrOutputWithContext(ctx contex
 }
 
 func (o ExportResponsePtrOutput) Elem() ExportResponseOutput {
-	return o.ApplyT(func(v *ExportResponse) ExportResponse { return *v }).(ExportResponseOutput)
+	return o.ApplyT(func(v *ExportResponse) ExportResponse {
+		if v != nil {
+			return *v
+		}
+		var ret ExportResponse
+		return ret
+	}).(ExportResponseOutput)
 }
 
-// The relative URI to the block blob that contains the list of blob paths or blob path prefixes as defined above, beginning with the container name. If the blob is in root container, the URI must begin with $root.
 func (o ExportResponsePtrOutput) BlobListBlobPath() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ExportResponse) *string {
 		if v == nil {
@@ -1567,7 +1420,6 @@ func (o ExportResponsePtrOutput) BlobListBlobPath() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// A collection of blob-path strings.
 func (o ExportResponsePtrOutput) BlobPath() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *ExportResponse) []string {
 		if v == nil {
@@ -1577,7 +1429,6 @@ func (o ExportResponsePtrOutput) BlobPath() pulumi.StringArrayOutput {
 	}).(pulumi.StringArrayOutput)
 }
 
-// A collection of blob-prefix strings.
 func (o ExportResponsePtrOutput) BlobPathPrefix() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *ExportResponse) []string {
 		if v == nil {
@@ -1587,14 +1438,10 @@ func (o ExportResponsePtrOutput) BlobPathPrefix() pulumi.StringArrayOutput {
 	}).(pulumi.StringArrayOutput)
 }
 
-// Specifies the identity properties.
 type IdentityDetailsResponse struct {
-	// Specifies the principal id for the identity for the job.
-	PrincipalId string `pulumi:"principalId"`
-	// Specifies the tenant id for the identity for the job.
-	TenantId string `pulumi:"tenantId"`
-	// The type of identity
-	Type *string `pulumi:"type"`
+	PrincipalId string  `pulumi:"principalId"`
+	TenantId    string  `pulumi:"tenantId"`
+	Type        *string `pulumi:"type"`
 }
 
 // IdentityDetailsResponseInput is an input type that accepts IdentityDetailsResponseArgs and IdentityDetailsResponseOutput values.
@@ -1608,14 +1455,10 @@ type IdentityDetailsResponseInput interface {
 	ToIdentityDetailsResponseOutputWithContext(context.Context) IdentityDetailsResponseOutput
 }
 
-// Specifies the identity properties.
 type IdentityDetailsResponseArgs struct {
-	// Specifies the principal id for the identity for the job.
-	PrincipalId pulumi.StringInput `pulumi:"principalId"`
-	// Specifies the tenant id for the identity for the job.
-	TenantId pulumi.StringInput `pulumi:"tenantId"`
-	// The type of identity
-	Type pulumi.StringPtrInput `pulumi:"type"`
+	PrincipalId pulumi.StringInput    `pulumi:"principalId"`
+	TenantId    pulumi.StringInput    `pulumi:"tenantId"`
+	Type        pulumi.StringPtrInput `pulumi:"type"`
 }
 
 func (IdentityDetailsResponseArgs) ElementType() reflect.Type {
@@ -1671,7 +1514,6 @@ func (i *identityDetailsResponsePtrType) ToIdentityDetailsResponsePtrOutputWithC
 	return pulumi.ToOutputWithContext(ctx, i).(IdentityDetailsResponsePtrOutput)
 }
 
-// Specifies the identity properties.
 type IdentityDetailsResponseOutput struct{ *pulumi.OutputState }
 
 func (IdentityDetailsResponseOutput) ElementType() reflect.Type {
@@ -1691,22 +1533,19 @@ func (o IdentityDetailsResponseOutput) ToIdentityDetailsResponsePtrOutput() Iden
 }
 
 func (o IdentityDetailsResponseOutput) ToIdentityDetailsResponsePtrOutputWithContext(ctx context.Context) IdentityDetailsResponsePtrOutput {
-	return o.ApplyT(func(v IdentityDetailsResponse) *IdentityDetailsResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v IdentityDetailsResponse) *IdentityDetailsResponse {
 		return &v
 	}).(IdentityDetailsResponsePtrOutput)
 }
 
-// Specifies the principal id for the identity for the job.
 func (o IdentityDetailsResponseOutput) PrincipalId() pulumi.StringOutput {
 	return o.ApplyT(func(v IdentityDetailsResponse) string { return v.PrincipalId }).(pulumi.StringOutput)
 }
 
-// Specifies the tenant id for the identity for the job.
 func (o IdentityDetailsResponseOutput) TenantId() pulumi.StringOutput {
 	return o.ApplyT(func(v IdentityDetailsResponse) string { return v.TenantId }).(pulumi.StringOutput)
 }
 
-// The type of identity
 func (o IdentityDetailsResponseOutput) Type() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v IdentityDetailsResponse) *string { return v.Type }).(pulumi.StringPtrOutput)
 }
@@ -1726,10 +1565,15 @@ func (o IdentityDetailsResponsePtrOutput) ToIdentityDetailsResponsePtrOutputWith
 }
 
 func (o IdentityDetailsResponsePtrOutput) Elem() IdentityDetailsResponseOutput {
-	return o.ApplyT(func(v *IdentityDetailsResponse) IdentityDetailsResponse { return *v }).(IdentityDetailsResponseOutput)
+	return o.ApplyT(func(v *IdentityDetailsResponse) IdentityDetailsResponse {
+		if v != nil {
+			return *v
+		}
+		var ret IdentityDetailsResponse
+		return ret
+	}).(IdentityDetailsResponseOutput)
 }
 
-// Specifies the principal id for the identity for the job.
 func (o IdentityDetailsResponsePtrOutput) PrincipalId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *IdentityDetailsResponse) *string {
 		if v == nil {
@@ -1739,7 +1583,6 @@ func (o IdentityDetailsResponsePtrOutput) PrincipalId() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Specifies the tenant id for the identity for the job.
 func (o IdentityDetailsResponsePtrOutput) TenantId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *IdentityDetailsResponse) *string {
 		if v == nil {
@@ -1749,7 +1592,6 @@ func (o IdentityDetailsResponsePtrOutput) TenantId() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The type of identity
 func (o IdentityDetailsResponsePtrOutput) Type() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *IdentityDetailsResponse) *string {
 		if v == nil {
@@ -1759,44 +1601,25 @@ func (o IdentityDetailsResponsePtrOutput) Type() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Specifies the job properties
 type JobDetails struct {
-	// Default value is false. Indicates whether the manifest files on the drives should be copied to block blobs.
-	BackupDriveManifest *bool `pulumi:"backupDriveManifest"`
-	// Indicates whether a request has been submitted to cancel the job.
-	CancelRequested *bool `pulumi:"cancelRequested"`
-	// Contains information about the package being shipped by the customer to the Microsoft data center.
-	DeliveryPackage *DeliveryPackageInformation `pulumi:"deliveryPackage"`
-	// The virtual blob directory to which the copy logs and backups of drive manifest files (if enabled) will be stored.
-	DiagnosticsPath *string `pulumi:"diagnosticsPath"`
-	// List of up to ten drives that comprise the job. The drive list is a required element for an import job; it is not specified for export jobs.
-	DriveList []DriveStatus `pulumi:"driveList"`
-	// Contains information about the encryption key.
-	EncryptionKey *EncryptionKeyDetails `pulumi:"encryptionKey"`
-	// A property containing information about the blobs to be exported for an export job. This property is included for export jobs only.
-	Export *Export `pulumi:"export"`
-	// A blob path that points to a block blob containing a list of blob names that were not exported due to insufficient drive space. If all blobs were exported successfully, then this element is not included in the response.
-	IncompleteBlobListUri *string `pulumi:"incompleteBlobListUri"`
-	// The type of job
-	JobType *string `pulumi:"jobType"`
-	// Default value is Error. Indicates whether error logging or verbose logging will be enabled.
-	LogLevel *string `pulumi:"logLevel"`
-	// Overall percentage completed for the job.
-	PercentComplete *float64 `pulumi:"percentComplete"`
-	// Specifies the provisioning state of the job.
-	ProvisioningState *string `pulumi:"provisioningState"`
-	// Specifies the return address information for the job.
-	ReturnAddress *ReturnAddress `pulumi:"returnAddress"`
-	// Contains information about the package being shipped from the Microsoft data center to the customer to return the drives. The format is the same as the deliveryPackage property above. This property is not included if the drives have not yet been returned.
-	ReturnPackage *PackageInformation `pulumi:"returnPackage"`
-	// Specifies the return carrier and customer's account with the carrier.
-	ReturnShipping *ReturnShipping `pulumi:"returnShipping"`
-	// Contains information about the Microsoft datacenter to which the drives should be shipped.
-	ShippingInformation *ShippingInformation `pulumi:"shippingInformation"`
-	// Current state of the job.
-	State *string `pulumi:"state"`
-	// The resource identifier of the storage account where data will be imported to or exported from.
-	StorageAccountId *string `pulumi:"storageAccountId"`
+	BackupDriveManifest   *bool                       `pulumi:"backupDriveManifest"`
+	CancelRequested       *bool                       `pulumi:"cancelRequested"`
+	DeliveryPackage       *DeliveryPackageInformation `pulumi:"deliveryPackage"`
+	DiagnosticsPath       *string                     `pulumi:"diagnosticsPath"`
+	DriveList             []DriveStatus               `pulumi:"driveList"`
+	EncryptionKey         *EncryptionKeyDetails       `pulumi:"encryptionKey"`
+	Export                *Export                     `pulumi:"export"`
+	IncompleteBlobListUri *string                     `pulumi:"incompleteBlobListUri"`
+	JobType               *string                     `pulumi:"jobType"`
+	LogLevel              *string                     `pulumi:"logLevel"`
+	PercentComplete       *float64                    `pulumi:"percentComplete"`
+	ProvisioningState     *string                     `pulumi:"provisioningState"`
+	ReturnAddress         *ReturnAddress              `pulumi:"returnAddress"`
+	ReturnPackage         *PackageInformation         `pulumi:"returnPackage"`
+	ReturnShipping        *ReturnShipping             `pulumi:"returnShipping"`
+	ShippingInformation   *ShippingInformation        `pulumi:"shippingInformation"`
+	State                 *string                     `pulumi:"state"`
+	StorageAccountId      *string                     `pulumi:"storageAccountId"`
 }
 
 // JobDetailsInput is an input type that accepts JobDetailsArgs and JobDetailsOutput values.
@@ -1810,44 +1633,25 @@ type JobDetailsInput interface {
 	ToJobDetailsOutputWithContext(context.Context) JobDetailsOutput
 }
 
-// Specifies the job properties
 type JobDetailsArgs struct {
-	// Default value is false. Indicates whether the manifest files on the drives should be copied to block blobs.
-	BackupDriveManifest pulumi.BoolPtrInput `pulumi:"backupDriveManifest"`
-	// Indicates whether a request has been submitted to cancel the job.
-	CancelRequested pulumi.BoolPtrInput `pulumi:"cancelRequested"`
-	// Contains information about the package being shipped by the customer to the Microsoft data center.
-	DeliveryPackage DeliveryPackageInformationPtrInput `pulumi:"deliveryPackage"`
-	// The virtual blob directory to which the copy logs and backups of drive manifest files (if enabled) will be stored.
-	DiagnosticsPath pulumi.StringPtrInput `pulumi:"diagnosticsPath"`
-	// List of up to ten drives that comprise the job. The drive list is a required element for an import job; it is not specified for export jobs.
-	DriveList DriveStatusArrayInput `pulumi:"driveList"`
-	// Contains information about the encryption key.
-	EncryptionKey EncryptionKeyDetailsPtrInput `pulumi:"encryptionKey"`
-	// A property containing information about the blobs to be exported for an export job. This property is included for export jobs only.
-	Export ExportPtrInput `pulumi:"export"`
-	// A blob path that points to a block blob containing a list of blob names that were not exported due to insufficient drive space. If all blobs were exported successfully, then this element is not included in the response.
-	IncompleteBlobListUri pulumi.StringPtrInput `pulumi:"incompleteBlobListUri"`
-	// The type of job
-	JobType pulumi.StringPtrInput `pulumi:"jobType"`
-	// Default value is Error. Indicates whether error logging or verbose logging will be enabled.
-	LogLevel pulumi.StringPtrInput `pulumi:"logLevel"`
-	// Overall percentage completed for the job.
-	PercentComplete pulumi.Float64PtrInput `pulumi:"percentComplete"`
-	// Specifies the provisioning state of the job.
-	ProvisioningState pulumi.StringPtrInput `pulumi:"provisioningState"`
-	// Specifies the return address information for the job.
-	ReturnAddress ReturnAddressPtrInput `pulumi:"returnAddress"`
-	// Contains information about the package being shipped from the Microsoft data center to the customer to return the drives. The format is the same as the deliveryPackage property above. This property is not included if the drives have not yet been returned.
-	ReturnPackage PackageInformationPtrInput `pulumi:"returnPackage"`
-	// Specifies the return carrier and customer's account with the carrier.
-	ReturnShipping ReturnShippingPtrInput `pulumi:"returnShipping"`
-	// Contains information about the Microsoft datacenter to which the drives should be shipped.
-	ShippingInformation ShippingInformationPtrInput `pulumi:"shippingInformation"`
-	// Current state of the job.
-	State pulumi.StringPtrInput `pulumi:"state"`
-	// The resource identifier of the storage account where data will be imported to or exported from.
-	StorageAccountId pulumi.StringPtrInput `pulumi:"storageAccountId"`
+	BackupDriveManifest   pulumi.BoolPtrInput                `pulumi:"backupDriveManifest"`
+	CancelRequested       pulumi.BoolPtrInput                `pulumi:"cancelRequested"`
+	DeliveryPackage       DeliveryPackageInformationPtrInput `pulumi:"deliveryPackage"`
+	DiagnosticsPath       pulumi.StringPtrInput              `pulumi:"diagnosticsPath"`
+	DriveList             DriveStatusArrayInput              `pulumi:"driveList"`
+	EncryptionKey         EncryptionKeyDetailsPtrInput       `pulumi:"encryptionKey"`
+	Export                ExportPtrInput                     `pulumi:"export"`
+	IncompleteBlobListUri pulumi.StringPtrInput              `pulumi:"incompleteBlobListUri"`
+	JobType               pulumi.StringPtrInput              `pulumi:"jobType"`
+	LogLevel              pulumi.StringPtrInput              `pulumi:"logLevel"`
+	PercentComplete       pulumi.Float64PtrInput             `pulumi:"percentComplete"`
+	ProvisioningState     pulumi.StringPtrInput              `pulumi:"provisioningState"`
+	ReturnAddress         ReturnAddressPtrInput              `pulumi:"returnAddress"`
+	ReturnPackage         PackageInformationPtrInput         `pulumi:"returnPackage"`
+	ReturnShipping        ReturnShippingPtrInput             `pulumi:"returnShipping"`
+	ShippingInformation   ShippingInformationPtrInput        `pulumi:"shippingInformation"`
+	State                 pulumi.StringPtrInput              `pulumi:"state"`
+	StorageAccountId      pulumi.StringPtrInput              `pulumi:"storageAccountId"`
 }
 
 func (JobDetailsArgs) ElementType() reflect.Type {
@@ -1903,7 +1707,6 @@ func (i *jobDetailsPtrType) ToJobDetailsPtrOutputWithContext(ctx context.Context
 	return pulumi.ToOutputWithContext(ctx, i).(JobDetailsPtrOutput)
 }
 
-// Specifies the job properties
 type JobDetailsOutput struct{ *pulumi.OutputState }
 
 func (JobDetailsOutput) ElementType() reflect.Type {
@@ -1923,97 +1726,79 @@ func (o JobDetailsOutput) ToJobDetailsPtrOutput() JobDetailsPtrOutput {
 }
 
 func (o JobDetailsOutput) ToJobDetailsPtrOutputWithContext(ctx context.Context) JobDetailsPtrOutput {
-	return o.ApplyT(func(v JobDetails) *JobDetails {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v JobDetails) *JobDetails {
 		return &v
 	}).(JobDetailsPtrOutput)
 }
 
-// Default value is false. Indicates whether the manifest files on the drives should be copied to block blobs.
 func (o JobDetailsOutput) BackupDriveManifest() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v JobDetails) *bool { return v.BackupDriveManifest }).(pulumi.BoolPtrOutput)
 }
 
-// Indicates whether a request has been submitted to cancel the job.
 func (o JobDetailsOutput) CancelRequested() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v JobDetails) *bool { return v.CancelRequested }).(pulumi.BoolPtrOutput)
 }
 
-// Contains information about the package being shipped by the customer to the Microsoft data center.
 func (o JobDetailsOutput) DeliveryPackage() DeliveryPackageInformationPtrOutput {
 	return o.ApplyT(func(v JobDetails) *DeliveryPackageInformation { return v.DeliveryPackage }).(DeliveryPackageInformationPtrOutput)
 }
 
-// The virtual blob directory to which the copy logs and backups of drive manifest files (if enabled) will be stored.
 func (o JobDetailsOutput) DiagnosticsPath() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v JobDetails) *string { return v.DiagnosticsPath }).(pulumi.StringPtrOutput)
 }
 
-// List of up to ten drives that comprise the job. The drive list is a required element for an import job; it is not specified for export jobs.
 func (o JobDetailsOutput) DriveList() DriveStatusArrayOutput {
 	return o.ApplyT(func(v JobDetails) []DriveStatus { return v.DriveList }).(DriveStatusArrayOutput)
 }
 
-// Contains information about the encryption key.
 func (o JobDetailsOutput) EncryptionKey() EncryptionKeyDetailsPtrOutput {
 	return o.ApplyT(func(v JobDetails) *EncryptionKeyDetails { return v.EncryptionKey }).(EncryptionKeyDetailsPtrOutput)
 }
 
-// A property containing information about the blobs to be exported for an export job. This property is included for export jobs only.
 func (o JobDetailsOutput) Export() ExportPtrOutput {
 	return o.ApplyT(func(v JobDetails) *Export { return v.Export }).(ExportPtrOutput)
 }
 
-// A blob path that points to a block blob containing a list of blob names that were not exported due to insufficient drive space. If all blobs were exported successfully, then this element is not included in the response.
 func (o JobDetailsOutput) IncompleteBlobListUri() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v JobDetails) *string { return v.IncompleteBlobListUri }).(pulumi.StringPtrOutput)
 }
 
-// The type of job
 func (o JobDetailsOutput) JobType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v JobDetails) *string { return v.JobType }).(pulumi.StringPtrOutput)
 }
 
-// Default value is Error. Indicates whether error logging or verbose logging will be enabled.
 func (o JobDetailsOutput) LogLevel() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v JobDetails) *string { return v.LogLevel }).(pulumi.StringPtrOutput)
 }
 
-// Overall percentage completed for the job.
 func (o JobDetailsOutput) PercentComplete() pulumi.Float64PtrOutput {
 	return o.ApplyT(func(v JobDetails) *float64 { return v.PercentComplete }).(pulumi.Float64PtrOutput)
 }
 
-// Specifies the provisioning state of the job.
 func (o JobDetailsOutput) ProvisioningState() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v JobDetails) *string { return v.ProvisioningState }).(pulumi.StringPtrOutput)
 }
 
-// Specifies the return address information for the job.
 func (o JobDetailsOutput) ReturnAddress() ReturnAddressPtrOutput {
 	return o.ApplyT(func(v JobDetails) *ReturnAddress { return v.ReturnAddress }).(ReturnAddressPtrOutput)
 }
 
-// Contains information about the package being shipped from the Microsoft data center to the customer to return the drives. The format is the same as the deliveryPackage property above. This property is not included if the drives have not yet been returned.
 func (o JobDetailsOutput) ReturnPackage() PackageInformationPtrOutput {
 	return o.ApplyT(func(v JobDetails) *PackageInformation { return v.ReturnPackage }).(PackageInformationPtrOutput)
 }
 
-// Specifies the return carrier and customer's account with the carrier.
 func (o JobDetailsOutput) ReturnShipping() ReturnShippingPtrOutput {
 	return o.ApplyT(func(v JobDetails) *ReturnShipping { return v.ReturnShipping }).(ReturnShippingPtrOutput)
 }
 
-// Contains information about the Microsoft datacenter to which the drives should be shipped.
 func (o JobDetailsOutput) ShippingInformation() ShippingInformationPtrOutput {
 	return o.ApplyT(func(v JobDetails) *ShippingInformation { return v.ShippingInformation }).(ShippingInformationPtrOutput)
 }
 
-// Current state of the job.
 func (o JobDetailsOutput) State() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v JobDetails) *string { return v.State }).(pulumi.StringPtrOutput)
 }
 
-// The resource identifier of the storage account where data will be imported to or exported from.
 func (o JobDetailsOutput) StorageAccountId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v JobDetails) *string { return v.StorageAccountId }).(pulumi.StringPtrOutput)
 }
@@ -2033,10 +1818,15 @@ func (o JobDetailsPtrOutput) ToJobDetailsPtrOutputWithContext(ctx context.Contex
 }
 
 func (o JobDetailsPtrOutput) Elem() JobDetailsOutput {
-	return o.ApplyT(func(v *JobDetails) JobDetails { return *v }).(JobDetailsOutput)
+	return o.ApplyT(func(v *JobDetails) JobDetails {
+		if v != nil {
+			return *v
+		}
+		var ret JobDetails
+		return ret
+	}).(JobDetailsOutput)
 }
 
-// Default value is false. Indicates whether the manifest files on the drives should be copied to block blobs.
 func (o JobDetailsPtrOutput) BackupDriveManifest() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *JobDetails) *bool {
 		if v == nil {
@@ -2046,7 +1836,6 @@ func (o JobDetailsPtrOutput) BackupDriveManifest() pulumi.BoolPtrOutput {
 	}).(pulumi.BoolPtrOutput)
 }
 
-// Indicates whether a request has been submitted to cancel the job.
 func (o JobDetailsPtrOutput) CancelRequested() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *JobDetails) *bool {
 		if v == nil {
@@ -2056,7 +1845,6 @@ func (o JobDetailsPtrOutput) CancelRequested() pulumi.BoolPtrOutput {
 	}).(pulumi.BoolPtrOutput)
 }
 
-// Contains information about the package being shipped by the customer to the Microsoft data center.
 func (o JobDetailsPtrOutput) DeliveryPackage() DeliveryPackageInformationPtrOutput {
 	return o.ApplyT(func(v *JobDetails) *DeliveryPackageInformation {
 		if v == nil {
@@ -2066,7 +1854,6 @@ func (o JobDetailsPtrOutput) DeliveryPackage() DeliveryPackageInformationPtrOutp
 	}).(DeliveryPackageInformationPtrOutput)
 }
 
-// The virtual blob directory to which the copy logs and backups of drive manifest files (if enabled) will be stored.
 func (o JobDetailsPtrOutput) DiagnosticsPath() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *JobDetails) *string {
 		if v == nil {
@@ -2076,7 +1863,6 @@ func (o JobDetailsPtrOutput) DiagnosticsPath() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// List of up to ten drives that comprise the job. The drive list is a required element for an import job; it is not specified for export jobs.
 func (o JobDetailsPtrOutput) DriveList() DriveStatusArrayOutput {
 	return o.ApplyT(func(v *JobDetails) []DriveStatus {
 		if v == nil {
@@ -2086,7 +1872,6 @@ func (o JobDetailsPtrOutput) DriveList() DriveStatusArrayOutput {
 	}).(DriveStatusArrayOutput)
 }
 
-// Contains information about the encryption key.
 func (o JobDetailsPtrOutput) EncryptionKey() EncryptionKeyDetailsPtrOutput {
 	return o.ApplyT(func(v *JobDetails) *EncryptionKeyDetails {
 		if v == nil {
@@ -2096,7 +1881,6 @@ func (o JobDetailsPtrOutput) EncryptionKey() EncryptionKeyDetailsPtrOutput {
 	}).(EncryptionKeyDetailsPtrOutput)
 }
 
-// A property containing information about the blobs to be exported for an export job. This property is included for export jobs only.
 func (o JobDetailsPtrOutput) Export() ExportPtrOutput {
 	return o.ApplyT(func(v *JobDetails) *Export {
 		if v == nil {
@@ -2106,7 +1890,6 @@ func (o JobDetailsPtrOutput) Export() ExportPtrOutput {
 	}).(ExportPtrOutput)
 }
 
-// A blob path that points to a block blob containing a list of blob names that were not exported due to insufficient drive space. If all blobs were exported successfully, then this element is not included in the response.
 func (o JobDetailsPtrOutput) IncompleteBlobListUri() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *JobDetails) *string {
 		if v == nil {
@@ -2116,7 +1899,6 @@ func (o JobDetailsPtrOutput) IncompleteBlobListUri() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The type of job
 func (o JobDetailsPtrOutput) JobType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *JobDetails) *string {
 		if v == nil {
@@ -2126,7 +1908,6 @@ func (o JobDetailsPtrOutput) JobType() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Default value is Error. Indicates whether error logging or verbose logging will be enabled.
 func (o JobDetailsPtrOutput) LogLevel() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *JobDetails) *string {
 		if v == nil {
@@ -2136,7 +1917,6 @@ func (o JobDetailsPtrOutput) LogLevel() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Overall percentage completed for the job.
 func (o JobDetailsPtrOutput) PercentComplete() pulumi.Float64PtrOutput {
 	return o.ApplyT(func(v *JobDetails) *float64 {
 		if v == nil {
@@ -2146,7 +1926,6 @@ func (o JobDetailsPtrOutput) PercentComplete() pulumi.Float64PtrOutput {
 	}).(pulumi.Float64PtrOutput)
 }
 
-// Specifies the provisioning state of the job.
 func (o JobDetailsPtrOutput) ProvisioningState() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *JobDetails) *string {
 		if v == nil {
@@ -2156,7 +1935,6 @@ func (o JobDetailsPtrOutput) ProvisioningState() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Specifies the return address information for the job.
 func (o JobDetailsPtrOutput) ReturnAddress() ReturnAddressPtrOutput {
 	return o.ApplyT(func(v *JobDetails) *ReturnAddress {
 		if v == nil {
@@ -2166,7 +1944,6 @@ func (o JobDetailsPtrOutput) ReturnAddress() ReturnAddressPtrOutput {
 	}).(ReturnAddressPtrOutput)
 }
 
-// Contains information about the package being shipped from the Microsoft data center to the customer to return the drives. The format is the same as the deliveryPackage property above. This property is not included if the drives have not yet been returned.
 func (o JobDetailsPtrOutput) ReturnPackage() PackageInformationPtrOutput {
 	return o.ApplyT(func(v *JobDetails) *PackageInformation {
 		if v == nil {
@@ -2176,7 +1953,6 @@ func (o JobDetailsPtrOutput) ReturnPackage() PackageInformationPtrOutput {
 	}).(PackageInformationPtrOutput)
 }
 
-// Specifies the return carrier and customer's account with the carrier.
 func (o JobDetailsPtrOutput) ReturnShipping() ReturnShippingPtrOutput {
 	return o.ApplyT(func(v *JobDetails) *ReturnShipping {
 		if v == nil {
@@ -2186,7 +1962,6 @@ func (o JobDetailsPtrOutput) ReturnShipping() ReturnShippingPtrOutput {
 	}).(ReturnShippingPtrOutput)
 }
 
-// Contains information about the Microsoft datacenter to which the drives should be shipped.
 func (o JobDetailsPtrOutput) ShippingInformation() ShippingInformationPtrOutput {
 	return o.ApplyT(func(v *JobDetails) *ShippingInformation {
 		if v == nil {
@@ -2196,7 +1971,6 @@ func (o JobDetailsPtrOutput) ShippingInformation() ShippingInformationPtrOutput 
 	}).(ShippingInformationPtrOutput)
 }
 
-// Current state of the job.
 func (o JobDetailsPtrOutput) State() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *JobDetails) *string {
 		if v == nil {
@@ -2206,7 +1980,6 @@ func (o JobDetailsPtrOutput) State() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The resource identifier of the storage account where data will be imported to or exported from.
 func (o JobDetailsPtrOutput) StorageAccountId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *JobDetails) *string {
 		if v == nil {
@@ -2216,44 +1989,25 @@ func (o JobDetailsPtrOutput) StorageAccountId() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Specifies the job properties
 type JobDetailsResponse struct {
-	// Default value is false. Indicates whether the manifest files on the drives should be copied to block blobs.
-	BackupDriveManifest *bool `pulumi:"backupDriveManifest"`
-	// Indicates whether a request has been submitted to cancel the job.
-	CancelRequested *bool `pulumi:"cancelRequested"`
-	// Contains information about the package being shipped by the customer to the Microsoft data center.
-	DeliveryPackage *DeliveryPackageInformationResponse `pulumi:"deliveryPackage"`
-	// The virtual blob directory to which the copy logs and backups of drive manifest files (if enabled) will be stored.
-	DiagnosticsPath *string `pulumi:"diagnosticsPath"`
-	// List of up to ten drives that comprise the job. The drive list is a required element for an import job; it is not specified for export jobs.
-	DriveList []DriveStatusResponse `pulumi:"driveList"`
-	// Contains information about the encryption key.
-	EncryptionKey *EncryptionKeyDetailsResponse `pulumi:"encryptionKey"`
-	// A property containing information about the blobs to be exported for an export job. This property is included for export jobs only.
-	Export *ExportResponse `pulumi:"export"`
-	// A blob path that points to a block blob containing a list of blob names that were not exported due to insufficient drive space. If all blobs were exported successfully, then this element is not included in the response.
-	IncompleteBlobListUri *string `pulumi:"incompleteBlobListUri"`
-	// The type of job
-	JobType *string `pulumi:"jobType"`
-	// Default value is Error. Indicates whether error logging or verbose logging will be enabled.
-	LogLevel *string `pulumi:"logLevel"`
-	// Overall percentage completed for the job.
-	PercentComplete *float64 `pulumi:"percentComplete"`
-	// Specifies the provisioning state of the job.
-	ProvisioningState *string `pulumi:"provisioningState"`
-	// Specifies the return address information for the job.
-	ReturnAddress *ReturnAddressResponse `pulumi:"returnAddress"`
-	// Contains information about the package being shipped from the Microsoft data center to the customer to return the drives. The format is the same as the deliveryPackage property above. This property is not included if the drives have not yet been returned.
-	ReturnPackage *PackageInformationResponse `pulumi:"returnPackage"`
-	// Specifies the return carrier and customer's account with the carrier.
-	ReturnShipping *ReturnShippingResponse `pulumi:"returnShipping"`
-	// Contains information about the Microsoft datacenter to which the drives should be shipped.
-	ShippingInformation *ShippingInformationResponse `pulumi:"shippingInformation"`
-	// Current state of the job.
-	State *string `pulumi:"state"`
-	// The resource identifier of the storage account where data will be imported to or exported from.
-	StorageAccountId *string `pulumi:"storageAccountId"`
+	BackupDriveManifest   *bool                               `pulumi:"backupDriveManifest"`
+	CancelRequested       *bool                               `pulumi:"cancelRequested"`
+	DeliveryPackage       *DeliveryPackageInformationResponse `pulumi:"deliveryPackage"`
+	DiagnosticsPath       *string                             `pulumi:"diagnosticsPath"`
+	DriveList             []DriveStatusResponse               `pulumi:"driveList"`
+	EncryptionKey         *EncryptionKeyDetailsResponse       `pulumi:"encryptionKey"`
+	Export                *ExportResponse                     `pulumi:"export"`
+	IncompleteBlobListUri *string                             `pulumi:"incompleteBlobListUri"`
+	JobType               *string                             `pulumi:"jobType"`
+	LogLevel              *string                             `pulumi:"logLevel"`
+	PercentComplete       *float64                            `pulumi:"percentComplete"`
+	ProvisioningState     *string                             `pulumi:"provisioningState"`
+	ReturnAddress         *ReturnAddressResponse              `pulumi:"returnAddress"`
+	ReturnPackage         *PackageInformationResponse         `pulumi:"returnPackage"`
+	ReturnShipping        *ReturnShippingResponse             `pulumi:"returnShipping"`
+	ShippingInformation   *ShippingInformationResponse        `pulumi:"shippingInformation"`
+	State                 *string                             `pulumi:"state"`
+	StorageAccountId      *string                             `pulumi:"storageAccountId"`
 }
 
 // JobDetailsResponseInput is an input type that accepts JobDetailsResponseArgs and JobDetailsResponseOutput values.
@@ -2267,44 +2021,25 @@ type JobDetailsResponseInput interface {
 	ToJobDetailsResponseOutputWithContext(context.Context) JobDetailsResponseOutput
 }
 
-// Specifies the job properties
 type JobDetailsResponseArgs struct {
-	// Default value is false. Indicates whether the manifest files on the drives should be copied to block blobs.
-	BackupDriveManifest pulumi.BoolPtrInput `pulumi:"backupDriveManifest"`
-	// Indicates whether a request has been submitted to cancel the job.
-	CancelRequested pulumi.BoolPtrInput `pulumi:"cancelRequested"`
-	// Contains information about the package being shipped by the customer to the Microsoft data center.
-	DeliveryPackage DeliveryPackageInformationResponsePtrInput `pulumi:"deliveryPackage"`
-	// The virtual blob directory to which the copy logs and backups of drive manifest files (if enabled) will be stored.
-	DiagnosticsPath pulumi.StringPtrInput `pulumi:"diagnosticsPath"`
-	// List of up to ten drives that comprise the job. The drive list is a required element for an import job; it is not specified for export jobs.
-	DriveList DriveStatusResponseArrayInput `pulumi:"driveList"`
-	// Contains information about the encryption key.
-	EncryptionKey EncryptionKeyDetailsResponsePtrInput `pulumi:"encryptionKey"`
-	// A property containing information about the blobs to be exported for an export job. This property is included for export jobs only.
-	Export ExportResponsePtrInput `pulumi:"export"`
-	// A blob path that points to a block blob containing a list of blob names that were not exported due to insufficient drive space. If all blobs were exported successfully, then this element is not included in the response.
-	IncompleteBlobListUri pulumi.StringPtrInput `pulumi:"incompleteBlobListUri"`
-	// The type of job
-	JobType pulumi.StringPtrInput `pulumi:"jobType"`
-	// Default value is Error. Indicates whether error logging or verbose logging will be enabled.
-	LogLevel pulumi.StringPtrInput `pulumi:"logLevel"`
-	// Overall percentage completed for the job.
-	PercentComplete pulumi.Float64PtrInput `pulumi:"percentComplete"`
-	// Specifies the provisioning state of the job.
-	ProvisioningState pulumi.StringPtrInput `pulumi:"provisioningState"`
-	// Specifies the return address information for the job.
-	ReturnAddress ReturnAddressResponsePtrInput `pulumi:"returnAddress"`
-	// Contains information about the package being shipped from the Microsoft data center to the customer to return the drives. The format is the same as the deliveryPackage property above. This property is not included if the drives have not yet been returned.
-	ReturnPackage PackageInformationResponsePtrInput `pulumi:"returnPackage"`
-	// Specifies the return carrier and customer's account with the carrier.
-	ReturnShipping ReturnShippingResponsePtrInput `pulumi:"returnShipping"`
-	// Contains information about the Microsoft datacenter to which the drives should be shipped.
-	ShippingInformation ShippingInformationResponsePtrInput `pulumi:"shippingInformation"`
-	// Current state of the job.
-	State pulumi.StringPtrInput `pulumi:"state"`
-	// The resource identifier of the storage account where data will be imported to or exported from.
-	StorageAccountId pulumi.StringPtrInput `pulumi:"storageAccountId"`
+	BackupDriveManifest   pulumi.BoolPtrInput                        `pulumi:"backupDriveManifest"`
+	CancelRequested       pulumi.BoolPtrInput                        `pulumi:"cancelRequested"`
+	DeliveryPackage       DeliveryPackageInformationResponsePtrInput `pulumi:"deliveryPackage"`
+	DiagnosticsPath       pulumi.StringPtrInput                      `pulumi:"diagnosticsPath"`
+	DriveList             DriveStatusResponseArrayInput              `pulumi:"driveList"`
+	EncryptionKey         EncryptionKeyDetailsResponsePtrInput       `pulumi:"encryptionKey"`
+	Export                ExportResponsePtrInput                     `pulumi:"export"`
+	IncompleteBlobListUri pulumi.StringPtrInput                      `pulumi:"incompleteBlobListUri"`
+	JobType               pulumi.StringPtrInput                      `pulumi:"jobType"`
+	LogLevel              pulumi.StringPtrInput                      `pulumi:"logLevel"`
+	PercentComplete       pulumi.Float64PtrInput                     `pulumi:"percentComplete"`
+	ProvisioningState     pulumi.StringPtrInput                      `pulumi:"provisioningState"`
+	ReturnAddress         ReturnAddressResponsePtrInput              `pulumi:"returnAddress"`
+	ReturnPackage         PackageInformationResponsePtrInput         `pulumi:"returnPackage"`
+	ReturnShipping        ReturnShippingResponsePtrInput             `pulumi:"returnShipping"`
+	ShippingInformation   ShippingInformationResponsePtrInput        `pulumi:"shippingInformation"`
+	State                 pulumi.StringPtrInput                      `pulumi:"state"`
+	StorageAccountId      pulumi.StringPtrInput                      `pulumi:"storageAccountId"`
 }
 
 func (JobDetailsResponseArgs) ElementType() reflect.Type {
@@ -2360,7 +2095,6 @@ func (i *jobDetailsResponsePtrType) ToJobDetailsResponsePtrOutputWithContext(ctx
 	return pulumi.ToOutputWithContext(ctx, i).(JobDetailsResponsePtrOutput)
 }
 
-// Specifies the job properties
 type JobDetailsResponseOutput struct{ *pulumi.OutputState }
 
 func (JobDetailsResponseOutput) ElementType() reflect.Type {
@@ -2380,97 +2114,79 @@ func (o JobDetailsResponseOutput) ToJobDetailsResponsePtrOutput() JobDetailsResp
 }
 
 func (o JobDetailsResponseOutput) ToJobDetailsResponsePtrOutputWithContext(ctx context.Context) JobDetailsResponsePtrOutput {
-	return o.ApplyT(func(v JobDetailsResponse) *JobDetailsResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v JobDetailsResponse) *JobDetailsResponse {
 		return &v
 	}).(JobDetailsResponsePtrOutput)
 }
 
-// Default value is false. Indicates whether the manifest files on the drives should be copied to block blobs.
 func (o JobDetailsResponseOutput) BackupDriveManifest() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v JobDetailsResponse) *bool { return v.BackupDriveManifest }).(pulumi.BoolPtrOutput)
 }
 
-// Indicates whether a request has been submitted to cancel the job.
 func (o JobDetailsResponseOutput) CancelRequested() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v JobDetailsResponse) *bool { return v.CancelRequested }).(pulumi.BoolPtrOutput)
 }
 
-// Contains information about the package being shipped by the customer to the Microsoft data center.
 func (o JobDetailsResponseOutput) DeliveryPackage() DeliveryPackageInformationResponsePtrOutput {
 	return o.ApplyT(func(v JobDetailsResponse) *DeliveryPackageInformationResponse { return v.DeliveryPackage }).(DeliveryPackageInformationResponsePtrOutput)
 }
 
-// The virtual blob directory to which the copy logs and backups of drive manifest files (if enabled) will be stored.
 func (o JobDetailsResponseOutput) DiagnosticsPath() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v JobDetailsResponse) *string { return v.DiagnosticsPath }).(pulumi.StringPtrOutput)
 }
 
-// List of up to ten drives that comprise the job. The drive list is a required element for an import job; it is not specified for export jobs.
 func (o JobDetailsResponseOutput) DriveList() DriveStatusResponseArrayOutput {
 	return o.ApplyT(func(v JobDetailsResponse) []DriveStatusResponse { return v.DriveList }).(DriveStatusResponseArrayOutput)
 }
 
-// Contains information about the encryption key.
 func (o JobDetailsResponseOutput) EncryptionKey() EncryptionKeyDetailsResponsePtrOutput {
 	return o.ApplyT(func(v JobDetailsResponse) *EncryptionKeyDetailsResponse { return v.EncryptionKey }).(EncryptionKeyDetailsResponsePtrOutput)
 }
 
-// A property containing information about the blobs to be exported for an export job. This property is included for export jobs only.
 func (o JobDetailsResponseOutput) Export() ExportResponsePtrOutput {
 	return o.ApplyT(func(v JobDetailsResponse) *ExportResponse { return v.Export }).(ExportResponsePtrOutput)
 }
 
-// A blob path that points to a block blob containing a list of blob names that were not exported due to insufficient drive space. If all blobs were exported successfully, then this element is not included in the response.
 func (o JobDetailsResponseOutput) IncompleteBlobListUri() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v JobDetailsResponse) *string { return v.IncompleteBlobListUri }).(pulumi.StringPtrOutput)
 }
 
-// The type of job
 func (o JobDetailsResponseOutput) JobType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v JobDetailsResponse) *string { return v.JobType }).(pulumi.StringPtrOutput)
 }
 
-// Default value is Error. Indicates whether error logging or verbose logging will be enabled.
 func (o JobDetailsResponseOutput) LogLevel() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v JobDetailsResponse) *string { return v.LogLevel }).(pulumi.StringPtrOutput)
 }
 
-// Overall percentage completed for the job.
 func (o JobDetailsResponseOutput) PercentComplete() pulumi.Float64PtrOutput {
 	return o.ApplyT(func(v JobDetailsResponse) *float64 { return v.PercentComplete }).(pulumi.Float64PtrOutput)
 }
 
-// Specifies the provisioning state of the job.
 func (o JobDetailsResponseOutput) ProvisioningState() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v JobDetailsResponse) *string { return v.ProvisioningState }).(pulumi.StringPtrOutput)
 }
 
-// Specifies the return address information for the job.
 func (o JobDetailsResponseOutput) ReturnAddress() ReturnAddressResponsePtrOutput {
 	return o.ApplyT(func(v JobDetailsResponse) *ReturnAddressResponse { return v.ReturnAddress }).(ReturnAddressResponsePtrOutput)
 }
 
-// Contains information about the package being shipped from the Microsoft data center to the customer to return the drives. The format is the same as the deliveryPackage property above. This property is not included if the drives have not yet been returned.
 func (o JobDetailsResponseOutput) ReturnPackage() PackageInformationResponsePtrOutput {
 	return o.ApplyT(func(v JobDetailsResponse) *PackageInformationResponse { return v.ReturnPackage }).(PackageInformationResponsePtrOutput)
 }
 
-// Specifies the return carrier and customer's account with the carrier.
 func (o JobDetailsResponseOutput) ReturnShipping() ReturnShippingResponsePtrOutput {
 	return o.ApplyT(func(v JobDetailsResponse) *ReturnShippingResponse { return v.ReturnShipping }).(ReturnShippingResponsePtrOutput)
 }
 
-// Contains information about the Microsoft datacenter to which the drives should be shipped.
 func (o JobDetailsResponseOutput) ShippingInformation() ShippingInformationResponsePtrOutput {
 	return o.ApplyT(func(v JobDetailsResponse) *ShippingInformationResponse { return v.ShippingInformation }).(ShippingInformationResponsePtrOutput)
 }
 
-// Current state of the job.
 func (o JobDetailsResponseOutput) State() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v JobDetailsResponse) *string { return v.State }).(pulumi.StringPtrOutput)
 }
 
-// The resource identifier of the storage account where data will be imported to or exported from.
 func (o JobDetailsResponseOutput) StorageAccountId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v JobDetailsResponse) *string { return v.StorageAccountId }).(pulumi.StringPtrOutput)
 }
@@ -2490,10 +2206,15 @@ func (o JobDetailsResponsePtrOutput) ToJobDetailsResponsePtrOutputWithContext(ct
 }
 
 func (o JobDetailsResponsePtrOutput) Elem() JobDetailsResponseOutput {
-	return o.ApplyT(func(v *JobDetailsResponse) JobDetailsResponse { return *v }).(JobDetailsResponseOutput)
+	return o.ApplyT(func(v *JobDetailsResponse) JobDetailsResponse {
+		if v != nil {
+			return *v
+		}
+		var ret JobDetailsResponse
+		return ret
+	}).(JobDetailsResponseOutput)
 }
 
-// Default value is false. Indicates whether the manifest files on the drives should be copied to block blobs.
 func (o JobDetailsResponsePtrOutput) BackupDriveManifest() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *JobDetailsResponse) *bool {
 		if v == nil {
@@ -2503,7 +2224,6 @@ func (o JobDetailsResponsePtrOutput) BackupDriveManifest() pulumi.BoolPtrOutput 
 	}).(pulumi.BoolPtrOutput)
 }
 
-// Indicates whether a request has been submitted to cancel the job.
 func (o JobDetailsResponsePtrOutput) CancelRequested() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *JobDetailsResponse) *bool {
 		if v == nil {
@@ -2513,7 +2233,6 @@ func (o JobDetailsResponsePtrOutput) CancelRequested() pulumi.BoolPtrOutput {
 	}).(pulumi.BoolPtrOutput)
 }
 
-// Contains information about the package being shipped by the customer to the Microsoft data center.
 func (o JobDetailsResponsePtrOutput) DeliveryPackage() DeliveryPackageInformationResponsePtrOutput {
 	return o.ApplyT(func(v *JobDetailsResponse) *DeliveryPackageInformationResponse {
 		if v == nil {
@@ -2523,7 +2242,6 @@ func (o JobDetailsResponsePtrOutput) DeliveryPackage() DeliveryPackageInformatio
 	}).(DeliveryPackageInformationResponsePtrOutput)
 }
 
-// The virtual blob directory to which the copy logs and backups of drive manifest files (if enabled) will be stored.
 func (o JobDetailsResponsePtrOutput) DiagnosticsPath() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *JobDetailsResponse) *string {
 		if v == nil {
@@ -2533,7 +2251,6 @@ func (o JobDetailsResponsePtrOutput) DiagnosticsPath() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// List of up to ten drives that comprise the job. The drive list is a required element for an import job; it is not specified for export jobs.
 func (o JobDetailsResponsePtrOutput) DriveList() DriveStatusResponseArrayOutput {
 	return o.ApplyT(func(v *JobDetailsResponse) []DriveStatusResponse {
 		if v == nil {
@@ -2543,7 +2260,6 @@ func (o JobDetailsResponsePtrOutput) DriveList() DriveStatusResponseArrayOutput 
 	}).(DriveStatusResponseArrayOutput)
 }
 
-// Contains information about the encryption key.
 func (o JobDetailsResponsePtrOutput) EncryptionKey() EncryptionKeyDetailsResponsePtrOutput {
 	return o.ApplyT(func(v *JobDetailsResponse) *EncryptionKeyDetailsResponse {
 		if v == nil {
@@ -2553,7 +2269,6 @@ func (o JobDetailsResponsePtrOutput) EncryptionKey() EncryptionKeyDetailsRespons
 	}).(EncryptionKeyDetailsResponsePtrOutput)
 }
 
-// A property containing information about the blobs to be exported for an export job. This property is included for export jobs only.
 func (o JobDetailsResponsePtrOutput) Export() ExportResponsePtrOutput {
 	return o.ApplyT(func(v *JobDetailsResponse) *ExportResponse {
 		if v == nil {
@@ -2563,7 +2278,6 @@ func (o JobDetailsResponsePtrOutput) Export() ExportResponsePtrOutput {
 	}).(ExportResponsePtrOutput)
 }
 
-// A blob path that points to a block blob containing a list of blob names that were not exported due to insufficient drive space. If all blobs were exported successfully, then this element is not included in the response.
 func (o JobDetailsResponsePtrOutput) IncompleteBlobListUri() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *JobDetailsResponse) *string {
 		if v == nil {
@@ -2573,7 +2287,6 @@ func (o JobDetailsResponsePtrOutput) IncompleteBlobListUri() pulumi.StringPtrOut
 	}).(pulumi.StringPtrOutput)
 }
 
-// The type of job
 func (o JobDetailsResponsePtrOutput) JobType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *JobDetailsResponse) *string {
 		if v == nil {
@@ -2583,7 +2296,6 @@ func (o JobDetailsResponsePtrOutput) JobType() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Default value is Error. Indicates whether error logging or verbose logging will be enabled.
 func (o JobDetailsResponsePtrOutput) LogLevel() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *JobDetailsResponse) *string {
 		if v == nil {
@@ -2593,7 +2305,6 @@ func (o JobDetailsResponsePtrOutput) LogLevel() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Overall percentage completed for the job.
 func (o JobDetailsResponsePtrOutput) PercentComplete() pulumi.Float64PtrOutput {
 	return o.ApplyT(func(v *JobDetailsResponse) *float64 {
 		if v == nil {
@@ -2603,7 +2314,6 @@ func (o JobDetailsResponsePtrOutput) PercentComplete() pulumi.Float64PtrOutput {
 	}).(pulumi.Float64PtrOutput)
 }
 
-// Specifies the provisioning state of the job.
 func (o JobDetailsResponsePtrOutput) ProvisioningState() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *JobDetailsResponse) *string {
 		if v == nil {
@@ -2613,7 +2323,6 @@ func (o JobDetailsResponsePtrOutput) ProvisioningState() pulumi.StringPtrOutput 
 	}).(pulumi.StringPtrOutput)
 }
 
-// Specifies the return address information for the job.
 func (o JobDetailsResponsePtrOutput) ReturnAddress() ReturnAddressResponsePtrOutput {
 	return o.ApplyT(func(v *JobDetailsResponse) *ReturnAddressResponse {
 		if v == nil {
@@ -2623,7 +2332,6 @@ func (o JobDetailsResponsePtrOutput) ReturnAddress() ReturnAddressResponsePtrOut
 	}).(ReturnAddressResponsePtrOutput)
 }
 
-// Contains information about the package being shipped from the Microsoft data center to the customer to return the drives. The format is the same as the deliveryPackage property above. This property is not included if the drives have not yet been returned.
 func (o JobDetailsResponsePtrOutput) ReturnPackage() PackageInformationResponsePtrOutput {
 	return o.ApplyT(func(v *JobDetailsResponse) *PackageInformationResponse {
 		if v == nil {
@@ -2633,7 +2341,6 @@ func (o JobDetailsResponsePtrOutput) ReturnPackage() PackageInformationResponseP
 	}).(PackageInformationResponsePtrOutput)
 }
 
-// Specifies the return carrier and customer's account with the carrier.
 func (o JobDetailsResponsePtrOutput) ReturnShipping() ReturnShippingResponsePtrOutput {
 	return o.ApplyT(func(v *JobDetailsResponse) *ReturnShippingResponse {
 		if v == nil {
@@ -2643,7 +2350,6 @@ func (o JobDetailsResponsePtrOutput) ReturnShipping() ReturnShippingResponsePtrO
 	}).(ReturnShippingResponsePtrOutput)
 }
 
-// Contains information about the Microsoft datacenter to which the drives should be shipped.
 func (o JobDetailsResponsePtrOutput) ShippingInformation() ShippingInformationResponsePtrOutput {
 	return o.ApplyT(func(v *JobDetailsResponse) *ShippingInformationResponse {
 		if v == nil {
@@ -2653,7 +2359,6 @@ func (o JobDetailsResponsePtrOutput) ShippingInformation() ShippingInformationRe
 	}).(ShippingInformationResponsePtrOutput)
 }
 
-// Current state of the job.
 func (o JobDetailsResponsePtrOutput) State() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *JobDetailsResponse) *string {
 		if v == nil {
@@ -2663,7 +2368,6 @@ func (o JobDetailsResponsePtrOutput) State() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The resource identifier of the storage account where data will be imported to or exported from.
 func (o JobDetailsResponsePtrOutput) StorageAccountId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *JobDetailsResponse) *string {
 		if v == nil {
@@ -2673,16 +2377,11 @@ func (o JobDetailsResponsePtrOutput) StorageAccountId() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Contains information about the package being shipped by the customer to the Microsoft data center.
 type PackageInformation struct {
-	// The name of the carrier that is used to ship the import or export drives.
-	CarrierName string `pulumi:"carrierName"`
-	// The number of drives included in the package.
-	DriveCount float64 `pulumi:"driveCount"`
-	// The date when the package is shipped.
-	ShipDate string `pulumi:"shipDate"`
-	// The tracking number of the package.
-	TrackingNumber string `pulumi:"trackingNumber"`
+	CarrierName    string  `pulumi:"carrierName"`
+	DriveCount     float64 `pulumi:"driveCount"`
+	ShipDate       string  `pulumi:"shipDate"`
+	TrackingNumber string  `pulumi:"trackingNumber"`
 }
 
 // PackageInformationInput is an input type that accepts PackageInformationArgs and PackageInformationOutput values.
@@ -2696,16 +2395,11 @@ type PackageInformationInput interface {
 	ToPackageInformationOutputWithContext(context.Context) PackageInformationOutput
 }
 
-// Contains information about the package being shipped by the customer to the Microsoft data center.
 type PackageInformationArgs struct {
-	// The name of the carrier that is used to ship the import or export drives.
-	CarrierName pulumi.StringInput `pulumi:"carrierName"`
-	// The number of drives included in the package.
-	DriveCount pulumi.Float64Input `pulumi:"driveCount"`
-	// The date when the package is shipped.
-	ShipDate pulumi.StringInput `pulumi:"shipDate"`
-	// The tracking number of the package.
-	TrackingNumber pulumi.StringInput `pulumi:"trackingNumber"`
+	CarrierName    pulumi.StringInput  `pulumi:"carrierName"`
+	DriveCount     pulumi.Float64Input `pulumi:"driveCount"`
+	ShipDate       pulumi.StringInput  `pulumi:"shipDate"`
+	TrackingNumber pulumi.StringInput  `pulumi:"trackingNumber"`
 }
 
 func (PackageInformationArgs) ElementType() reflect.Type {
@@ -2761,7 +2455,6 @@ func (i *packageInformationPtrType) ToPackageInformationPtrOutputWithContext(ctx
 	return pulumi.ToOutputWithContext(ctx, i).(PackageInformationPtrOutput)
 }
 
-// Contains information about the package being shipped by the customer to the Microsoft data center.
 type PackageInformationOutput struct{ *pulumi.OutputState }
 
 func (PackageInformationOutput) ElementType() reflect.Type {
@@ -2781,27 +2474,23 @@ func (o PackageInformationOutput) ToPackageInformationPtrOutput() PackageInforma
 }
 
 func (o PackageInformationOutput) ToPackageInformationPtrOutputWithContext(ctx context.Context) PackageInformationPtrOutput {
-	return o.ApplyT(func(v PackageInformation) *PackageInformation {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v PackageInformation) *PackageInformation {
 		return &v
 	}).(PackageInformationPtrOutput)
 }
 
-// The name of the carrier that is used to ship the import or export drives.
 func (o PackageInformationOutput) CarrierName() pulumi.StringOutput {
 	return o.ApplyT(func(v PackageInformation) string { return v.CarrierName }).(pulumi.StringOutput)
 }
 
-// The number of drives included in the package.
 func (o PackageInformationOutput) DriveCount() pulumi.Float64Output {
 	return o.ApplyT(func(v PackageInformation) float64 { return v.DriveCount }).(pulumi.Float64Output)
 }
 
-// The date when the package is shipped.
 func (o PackageInformationOutput) ShipDate() pulumi.StringOutput {
 	return o.ApplyT(func(v PackageInformation) string { return v.ShipDate }).(pulumi.StringOutput)
 }
 
-// The tracking number of the package.
 func (o PackageInformationOutput) TrackingNumber() pulumi.StringOutput {
 	return o.ApplyT(func(v PackageInformation) string { return v.TrackingNumber }).(pulumi.StringOutput)
 }
@@ -2821,10 +2510,15 @@ func (o PackageInformationPtrOutput) ToPackageInformationPtrOutputWithContext(ct
 }
 
 func (o PackageInformationPtrOutput) Elem() PackageInformationOutput {
-	return o.ApplyT(func(v *PackageInformation) PackageInformation { return *v }).(PackageInformationOutput)
+	return o.ApplyT(func(v *PackageInformation) PackageInformation {
+		if v != nil {
+			return *v
+		}
+		var ret PackageInformation
+		return ret
+	}).(PackageInformationOutput)
 }
 
-// The name of the carrier that is used to ship the import or export drives.
 func (o PackageInformationPtrOutput) CarrierName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *PackageInformation) *string {
 		if v == nil {
@@ -2834,7 +2528,6 @@ func (o PackageInformationPtrOutput) CarrierName() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The number of drives included in the package.
 func (o PackageInformationPtrOutput) DriveCount() pulumi.Float64PtrOutput {
 	return o.ApplyT(func(v *PackageInformation) *float64 {
 		if v == nil {
@@ -2844,7 +2537,6 @@ func (o PackageInformationPtrOutput) DriveCount() pulumi.Float64PtrOutput {
 	}).(pulumi.Float64PtrOutput)
 }
 
-// The date when the package is shipped.
 func (o PackageInformationPtrOutput) ShipDate() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *PackageInformation) *string {
 		if v == nil {
@@ -2854,7 +2546,6 @@ func (o PackageInformationPtrOutput) ShipDate() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The tracking number of the package.
 func (o PackageInformationPtrOutput) TrackingNumber() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *PackageInformation) *string {
 		if v == nil {
@@ -2864,16 +2555,11 @@ func (o PackageInformationPtrOutput) TrackingNumber() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Contains information about the package being shipped by the customer to the Microsoft data center.
 type PackageInformationResponse struct {
-	// The name of the carrier that is used to ship the import or export drives.
-	CarrierName string `pulumi:"carrierName"`
-	// The number of drives included in the package.
-	DriveCount float64 `pulumi:"driveCount"`
-	// The date when the package is shipped.
-	ShipDate string `pulumi:"shipDate"`
-	// The tracking number of the package.
-	TrackingNumber string `pulumi:"trackingNumber"`
+	CarrierName    string  `pulumi:"carrierName"`
+	DriveCount     float64 `pulumi:"driveCount"`
+	ShipDate       string  `pulumi:"shipDate"`
+	TrackingNumber string  `pulumi:"trackingNumber"`
 }
 
 // PackageInformationResponseInput is an input type that accepts PackageInformationResponseArgs and PackageInformationResponseOutput values.
@@ -2887,16 +2573,11 @@ type PackageInformationResponseInput interface {
 	ToPackageInformationResponseOutputWithContext(context.Context) PackageInformationResponseOutput
 }
 
-// Contains information about the package being shipped by the customer to the Microsoft data center.
 type PackageInformationResponseArgs struct {
-	// The name of the carrier that is used to ship the import or export drives.
-	CarrierName pulumi.StringInput `pulumi:"carrierName"`
-	// The number of drives included in the package.
-	DriveCount pulumi.Float64Input `pulumi:"driveCount"`
-	// The date when the package is shipped.
-	ShipDate pulumi.StringInput `pulumi:"shipDate"`
-	// The tracking number of the package.
-	TrackingNumber pulumi.StringInput `pulumi:"trackingNumber"`
+	CarrierName    pulumi.StringInput  `pulumi:"carrierName"`
+	DriveCount     pulumi.Float64Input `pulumi:"driveCount"`
+	ShipDate       pulumi.StringInput  `pulumi:"shipDate"`
+	TrackingNumber pulumi.StringInput  `pulumi:"trackingNumber"`
 }
 
 func (PackageInformationResponseArgs) ElementType() reflect.Type {
@@ -2952,7 +2633,6 @@ func (i *packageInformationResponsePtrType) ToPackageInformationResponsePtrOutpu
 	return pulumi.ToOutputWithContext(ctx, i).(PackageInformationResponsePtrOutput)
 }
 
-// Contains information about the package being shipped by the customer to the Microsoft data center.
 type PackageInformationResponseOutput struct{ *pulumi.OutputState }
 
 func (PackageInformationResponseOutput) ElementType() reflect.Type {
@@ -2972,27 +2652,23 @@ func (o PackageInformationResponseOutput) ToPackageInformationResponsePtrOutput(
 }
 
 func (o PackageInformationResponseOutput) ToPackageInformationResponsePtrOutputWithContext(ctx context.Context) PackageInformationResponsePtrOutput {
-	return o.ApplyT(func(v PackageInformationResponse) *PackageInformationResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v PackageInformationResponse) *PackageInformationResponse {
 		return &v
 	}).(PackageInformationResponsePtrOutput)
 }
 
-// The name of the carrier that is used to ship the import or export drives.
 func (o PackageInformationResponseOutput) CarrierName() pulumi.StringOutput {
 	return o.ApplyT(func(v PackageInformationResponse) string { return v.CarrierName }).(pulumi.StringOutput)
 }
 
-// The number of drives included in the package.
 func (o PackageInformationResponseOutput) DriveCount() pulumi.Float64Output {
 	return o.ApplyT(func(v PackageInformationResponse) float64 { return v.DriveCount }).(pulumi.Float64Output)
 }
 
-// The date when the package is shipped.
 func (o PackageInformationResponseOutput) ShipDate() pulumi.StringOutput {
 	return o.ApplyT(func(v PackageInformationResponse) string { return v.ShipDate }).(pulumi.StringOutput)
 }
 
-// The tracking number of the package.
 func (o PackageInformationResponseOutput) TrackingNumber() pulumi.StringOutput {
 	return o.ApplyT(func(v PackageInformationResponse) string { return v.TrackingNumber }).(pulumi.StringOutput)
 }
@@ -3012,10 +2688,15 @@ func (o PackageInformationResponsePtrOutput) ToPackageInformationResponsePtrOutp
 }
 
 func (o PackageInformationResponsePtrOutput) Elem() PackageInformationResponseOutput {
-	return o.ApplyT(func(v *PackageInformationResponse) PackageInformationResponse { return *v }).(PackageInformationResponseOutput)
+	return o.ApplyT(func(v *PackageInformationResponse) PackageInformationResponse {
+		if v != nil {
+			return *v
+		}
+		var ret PackageInformationResponse
+		return ret
+	}).(PackageInformationResponseOutput)
 }
 
-// The name of the carrier that is used to ship the import or export drives.
 func (o PackageInformationResponsePtrOutput) CarrierName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *PackageInformationResponse) *string {
 		if v == nil {
@@ -3025,7 +2706,6 @@ func (o PackageInformationResponsePtrOutput) CarrierName() pulumi.StringPtrOutpu
 	}).(pulumi.StringPtrOutput)
 }
 
-// The number of drives included in the package.
 func (o PackageInformationResponsePtrOutput) DriveCount() pulumi.Float64PtrOutput {
 	return o.ApplyT(func(v *PackageInformationResponse) *float64 {
 		if v == nil {
@@ -3035,7 +2715,6 @@ func (o PackageInformationResponsePtrOutput) DriveCount() pulumi.Float64PtrOutpu
 	}).(pulumi.Float64PtrOutput)
 }
 
-// The date when the package is shipped.
 func (o PackageInformationResponsePtrOutput) ShipDate() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *PackageInformationResponse) *string {
 		if v == nil {
@@ -3045,7 +2724,6 @@ func (o PackageInformationResponsePtrOutput) ShipDate() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The tracking number of the package.
 func (o PackageInformationResponsePtrOutput) TrackingNumber() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *PackageInformationResponse) *string {
 		if v == nil {
@@ -3055,26 +2733,16 @@ func (o PackageInformationResponsePtrOutput) TrackingNumber() pulumi.StringPtrOu
 	}).(pulumi.StringPtrOutput)
 }
 
-// Specifies the return address information for the job.
 type ReturnAddress struct {
-	// The city name to use when returning the drives.
-	City string `pulumi:"city"`
-	// The country or region to use when returning the drives.
-	CountryOrRegion string `pulumi:"countryOrRegion"`
-	// Email address of the recipient of the returned drives.
-	Email string `pulumi:"email"`
-	// Phone number of the recipient of the returned drives.
-	Phone string `pulumi:"phone"`
-	// The postal code to use when returning the drives.
-	PostalCode string `pulumi:"postalCode"`
-	// The name of the recipient who will receive the hard drives when they are returned.
-	RecipientName string `pulumi:"recipientName"`
-	// The state or province to use when returning the drives.
+	City            string  `pulumi:"city"`
+	CountryOrRegion string  `pulumi:"countryOrRegion"`
+	Email           string  `pulumi:"email"`
+	Phone           string  `pulumi:"phone"`
+	PostalCode      string  `pulumi:"postalCode"`
+	RecipientName   string  `pulumi:"recipientName"`
 	StateOrProvince *string `pulumi:"stateOrProvince"`
-	// The first line of the street address to use when returning the drives.
-	StreetAddress1 string `pulumi:"streetAddress1"`
-	// The second line of the street address to use when returning the drives.
-	StreetAddress2 *string `pulumi:"streetAddress2"`
+	StreetAddress1  string  `pulumi:"streetAddress1"`
+	StreetAddress2  *string `pulumi:"streetAddress2"`
 }
 
 // ReturnAddressInput is an input type that accepts ReturnAddressArgs and ReturnAddressOutput values.
@@ -3088,26 +2756,16 @@ type ReturnAddressInput interface {
 	ToReturnAddressOutputWithContext(context.Context) ReturnAddressOutput
 }
 
-// Specifies the return address information for the job.
 type ReturnAddressArgs struct {
-	// The city name to use when returning the drives.
-	City pulumi.StringInput `pulumi:"city"`
-	// The country or region to use when returning the drives.
-	CountryOrRegion pulumi.StringInput `pulumi:"countryOrRegion"`
-	// Email address of the recipient of the returned drives.
-	Email pulumi.StringInput `pulumi:"email"`
-	// Phone number of the recipient of the returned drives.
-	Phone pulumi.StringInput `pulumi:"phone"`
-	// The postal code to use when returning the drives.
-	PostalCode pulumi.StringInput `pulumi:"postalCode"`
-	// The name of the recipient who will receive the hard drives when they are returned.
-	RecipientName pulumi.StringInput `pulumi:"recipientName"`
-	// The state or province to use when returning the drives.
+	City            pulumi.StringInput    `pulumi:"city"`
+	CountryOrRegion pulumi.StringInput    `pulumi:"countryOrRegion"`
+	Email           pulumi.StringInput    `pulumi:"email"`
+	Phone           pulumi.StringInput    `pulumi:"phone"`
+	PostalCode      pulumi.StringInput    `pulumi:"postalCode"`
+	RecipientName   pulumi.StringInput    `pulumi:"recipientName"`
 	StateOrProvince pulumi.StringPtrInput `pulumi:"stateOrProvince"`
-	// The first line of the street address to use when returning the drives.
-	StreetAddress1 pulumi.StringInput `pulumi:"streetAddress1"`
-	// The second line of the street address to use when returning the drives.
-	StreetAddress2 pulumi.StringPtrInput `pulumi:"streetAddress2"`
+	StreetAddress1  pulumi.StringInput    `pulumi:"streetAddress1"`
+	StreetAddress2  pulumi.StringPtrInput `pulumi:"streetAddress2"`
 }
 
 func (ReturnAddressArgs) ElementType() reflect.Type {
@@ -3163,7 +2821,6 @@ func (i *returnAddressPtrType) ToReturnAddressPtrOutputWithContext(ctx context.C
 	return pulumi.ToOutputWithContext(ctx, i).(ReturnAddressPtrOutput)
 }
 
-// Specifies the return address information for the job.
 type ReturnAddressOutput struct{ *pulumi.OutputState }
 
 func (ReturnAddressOutput) ElementType() reflect.Type {
@@ -3183,52 +2840,43 @@ func (o ReturnAddressOutput) ToReturnAddressPtrOutput() ReturnAddressPtrOutput {
 }
 
 func (o ReturnAddressOutput) ToReturnAddressPtrOutputWithContext(ctx context.Context) ReturnAddressPtrOutput {
-	return o.ApplyT(func(v ReturnAddress) *ReturnAddress {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ReturnAddress) *ReturnAddress {
 		return &v
 	}).(ReturnAddressPtrOutput)
 }
 
-// The city name to use when returning the drives.
 func (o ReturnAddressOutput) City() pulumi.StringOutput {
 	return o.ApplyT(func(v ReturnAddress) string { return v.City }).(pulumi.StringOutput)
 }
 
-// The country or region to use when returning the drives.
 func (o ReturnAddressOutput) CountryOrRegion() pulumi.StringOutput {
 	return o.ApplyT(func(v ReturnAddress) string { return v.CountryOrRegion }).(pulumi.StringOutput)
 }
 
-// Email address of the recipient of the returned drives.
 func (o ReturnAddressOutput) Email() pulumi.StringOutput {
 	return o.ApplyT(func(v ReturnAddress) string { return v.Email }).(pulumi.StringOutput)
 }
 
-// Phone number of the recipient of the returned drives.
 func (o ReturnAddressOutput) Phone() pulumi.StringOutput {
 	return o.ApplyT(func(v ReturnAddress) string { return v.Phone }).(pulumi.StringOutput)
 }
 
-// The postal code to use when returning the drives.
 func (o ReturnAddressOutput) PostalCode() pulumi.StringOutput {
 	return o.ApplyT(func(v ReturnAddress) string { return v.PostalCode }).(pulumi.StringOutput)
 }
 
-// The name of the recipient who will receive the hard drives when they are returned.
 func (o ReturnAddressOutput) RecipientName() pulumi.StringOutput {
 	return o.ApplyT(func(v ReturnAddress) string { return v.RecipientName }).(pulumi.StringOutput)
 }
 
-// The state or province to use when returning the drives.
 func (o ReturnAddressOutput) StateOrProvince() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ReturnAddress) *string { return v.StateOrProvince }).(pulumi.StringPtrOutput)
 }
 
-// The first line of the street address to use when returning the drives.
 func (o ReturnAddressOutput) StreetAddress1() pulumi.StringOutput {
 	return o.ApplyT(func(v ReturnAddress) string { return v.StreetAddress1 }).(pulumi.StringOutput)
 }
 
-// The second line of the street address to use when returning the drives.
 func (o ReturnAddressOutput) StreetAddress2() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ReturnAddress) *string { return v.StreetAddress2 }).(pulumi.StringPtrOutput)
 }
@@ -3248,10 +2896,15 @@ func (o ReturnAddressPtrOutput) ToReturnAddressPtrOutputWithContext(ctx context.
 }
 
 func (o ReturnAddressPtrOutput) Elem() ReturnAddressOutput {
-	return o.ApplyT(func(v *ReturnAddress) ReturnAddress { return *v }).(ReturnAddressOutput)
+	return o.ApplyT(func(v *ReturnAddress) ReturnAddress {
+		if v != nil {
+			return *v
+		}
+		var ret ReturnAddress
+		return ret
+	}).(ReturnAddressOutput)
 }
 
-// The city name to use when returning the drives.
 func (o ReturnAddressPtrOutput) City() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ReturnAddress) *string {
 		if v == nil {
@@ -3261,7 +2914,6 @@ func (o ReturnAddressPtrOutput) City() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The country or region to use when returning the drives.
 func (o ReturnAddressPtrOutput) CountryOrRegion() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ReturnAddress) *string {
 		if v == nil {
@@ -3271,7 +2923,6 @@ func (o ReturnAddressPtrOutput) CountryOrRegion() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Email address of the recipient of the returned drives.
 func (o ReturnAddressPtrOutput) Email() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ReturnAddress) *string {
 		if v == nil {
@@ -3281,7 +2932,6 @@ func (o ReturnAddressPtrOutput) Email() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Phone number of the recipient of the returned drives.
 func (o ReturnAddressPtrOutput) Phone() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ReturnAddress) *string {
 		if v == nil {
@@ -3291,7 +2941,6 @@ func (o ReturnAddressPtrOutput) Phone() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The postal code to use when returning the drives.
 func (o ReturnAddressPtrOutput) PostalCode() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ReturnAddress) *string {
 		if v == nil {
@@ -3301,7 +2950,6 @@ func (o ReturnAddressPtrOutput) PostalCode() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The name of the recipient who will receive the hard drives when they are returned.
 func (o ReturnAddressPtrOutput) RecipientName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ReturnAddress) *string {
 		if v == nil {
@@ -3311,7 +2959,6 @@ func (o ReturnAddressPtrOutput) RecipientName() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The state or province to use when returning the drives.
 func (o ReturnAddressPtrOutput) StateOrProvince() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ReturnAddress) *string {
 		if v == nil {
@@ -3321,7 +2968,6 @@ func (o ReturnAddressPtrOutput) StateOrProvince() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The first line of the street address to use when returning the drives.
 func (o ReturnAddressPtrOutput) StreetAddress1() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ReturnAddress) *string {
 		if v == nil {
@@ -3331,7 +2977,6 @@ func (o ReturnAddressPtrOutput) StreetAddress1() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The second line of the street address to use when returning the drives.
 func (o ReturnAddressPtrOutput) StreetAddress2() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ReturnAddress) *string {
 		if v == nil {
@@ -3341,26 +2986,16 @@ func (o ReturnAddressPtrOutput) StreetAddress2() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Specifies the return address information for the job.
 type ReturnAddressResponse struct {
-	// The city name to use when returning the drives.
-	City string `pulumi:"city"`
-	// The country or region to use when returning the drives.
-	CountryOrRegion string `pulumi:"countryOrRegion"`
-	// Email address of the recipient of the returned drives.
-	Email string `pulumi:"email"`
-	// Phone number of the recipient of the returned drives.
-	Phone string `pulumi:"phone"`
-	// The postal code to use when returning the drives.
-	PostalCode string `pulumi:"postalCode"`
-	// The name of the recipient who will receive the hard drives when they are returned.
-	RecipientName string `pulumi:"recipientName"`
-	// The state or province to use when returning the drives.
+	City            string  `pulumi:"city"`
+	CountryOrRegion string  `pulumi:"countryOrRegion"`
+	Email           string  `pulumi:"email"`
+	Phone           string  `pulumi:"phone"`
+	PostalCode      string  `pulumi:"postalCode"`
+	RecipientName   string  `pulumi:"recipientName"`
 	StateOrProvince *string `pulumi:"stateOrProvince"`
-	// The first line of the street address to use when returning the drives.
-	StreetAddress1 string `pulumi:"streetAddress1"`
-	// The second line of the street address to use when returning the drives.
-	StreetAddress2 *string `pulumi:"streetAddress2"`
+	StreetAddress1  string  `pulumi:"streetAddress1"`
+	StreetAddress2  *string `pulumi:"streetAddress2"`
 }
 
 // ReturnAddressResponseInput is an input type that accepts ReturnAddressResponseArgs and ReturnAddressResponseOutput values.
@@ -3374,26 +3009,16 @@ type ReturnAddressResponseInput interface {
 	ToReturnAddressResponseOutputWithContext(context.Context) ReturnAddressResponseOutput
 }
 
-// Specifies the return address information for the job.
 type ReturnAddressResponseArgs struct {
-	// The city name to use when returning the drives.
-	City pulumi.StringInput `pulumi:"city"`
-	// The country or region to use when returning the drives.
-	CountryOrRegion pulumi.StringInput `pulumi:"countryOrRegion"`
-	// Email address of the recipient of the returned drives.
-	Email pulumi.StringInput `pulumi:"email"`
-	// Phone number of the recipient of the returned drives.
-	Phone pulumi.StringInput `pulumi:"phone"`
-	// The postal code to use when returning the drives.
-	PostalCode pulumi.StringInput `pulumi:"postalCode"`
-	// The name of the recipient who will receive the hard drives when they are returned.
-	RecipientName pulumi.StringInput `pulumi:"recipientName"`
-	// The state or province to use when returning the drives.
+	City            pulumi.StringInput    `pulumi:"city"`
+	CountryOrRegion pulumi.StringInput    `pulumi:"countryOrRegion"`
+	Email           pulumi.StringInput    `pulumi:"email"`
+	Phone           pulumi.StringInput    `pulumi:"phone"`
+	PostalCode      pulumi.StringInput    `pulumi:"postalCode"`
+	RecipientName   pulumi.StringInput    `pulumi:"recipientName"`
 	StateOrProvince pulumi.StringPtrInput `pulumi:"stateOrProvince"`
-	// The first line of the street address to use when returning the drives.
-	StreetAddress1 pulumi.StringInput `pulumi:"streetAddress1"`
-	// The second line of the street address to use when returning the drives.
-	StreetAddress2 pulumi.StringPtrInput `pulumi:"streetAddress2"`
+	StreetAddress1  pulumi.StringInput    `pulumi:"streetAddress1"`
+	StreetAddress2  pulumi.StringPtrInput `pulumi:"streetAddress2"`
 }
 
 func (ReturnAddressResponseArgs) ElementType() reflect.Type {
@@ -3449,7 +3074,6 @@ func (i *returnAddressResponsePtrType) ToReturnAddressResponsePtrOutputWithConte
 	return pulumi.ToOutputWithContext(ctx, i).(ReturnAddressResponsePtrOutput)
 }
 
-// Specifies the return address information for the job.
 type ReturnAddressResponseOutput struct{ *pulumi.OutputState }
 
 func (ReturnAddressResponseOutput) ElementType() reflect.Type {
@@ -3469,52 +3093,43 @@ func (o ReturnAddressResponseOutput) ToReturnAddressResponsePtrOutput() ReturnAd
 }
 
 func (o ReturnAddressResponseOutput) ToReturnAddressResponsePtrOutputWithContext(ctx context.Context) ReturnAddressResponsePtrOutput {
-	return o.ApplyT(func(v ReturnAddressResponse) *ReturnAddressResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ReturnAddressResponse) *ReturnAddressResponse {
 		return &v
 	}).(ReturnAddressResponsePtrOutput)
 }
 
-// The city name to use when returning the drives.
 func (o ReturnAddressResponseOutput) City() pulumi.StringOutput {
 	return o.ApplyT(func(v ReturnAddressResponse) string { return v.City }).(pulumi.StringOutput)
 }
 
-// The country or region to use when returning the drives.
 func (o ReturnAddressResponseOutput) CountryOrRegion() pulumi.StringOutput {
 	return o.ApplyT(func(v ReturnAddressResponse) string { return v.CountryOrRegion }).(pulumi.StringOutput)
 }
 
-// Email address of the recipient of the returned drives.
 func (o ReturnAddressResponseOutput) Email() pulumi.StringOutput {
 	return o.ApplyT(func(v ReturnAddressResponse) string { return v.Email }).(pulumi.StringOutput)
 }
 
-// Phone number of the recipient of the returned drives.
 func (o ReturnAddressResponseOutput) Phone() pulumi.StringOutput {
 	return o.ApplyT(func(v ReturnAddressResponse) string { return v.Phone }).(pulumi.StringOutput)
 }
 
-// The postal code to use when returning the drives.
 func (o ReturnAddressResponseOutput) PostalCode() pulumi.StringOutput {
 	return o.ApplyT(func(v ReturnAddressResponse) string { return v.PostalCode }).(pulumi.StringOutput)
 }
 
-// The name of the recipient who will receive the hard drives when they are returned.
 func (o ReturnAddressResponseOutput) RecipientName() pulumi.StringOutput {
 	return o.ApplyT(func(v ReturnAddressResponse) string { return v.RecipientName }).(pulumi.StringOutput)
 }
 
-// The state or province to use when returning the drives.
 func (o ReturnAddressResponseOutput) StateOrProvince() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ReturnAddressResponse) *string { return v.StateOrProvince }).(pulumi.StringPtrOutput)
 }
 
-// The first line of the street address to use when returning the drives.
 func (o ReturnAddressResponseOutput) StreetAddress1() pulumi.StringOutput {
 	return o.ApplyT(func(v ReturnAddressResponse) string { return v.StreetAddress1 }).(pulumi.StringOutput)
 }
 
-// The second line of the street address to use when returning the drives.
 func (o ReturnAddressResponseOutput) StreetAddress2() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ReturnAddressResponse) *string { return v.StreetAddress2 }).(pulumi.StringPtrOutput)
 }
@@ -3534,10 +3149,15 @@ func (o ReturnAddressResponsePtrOutput) ToReturnAddressResponsePtrOutputWithCont
 }
 
 func (o ReturnAddressResponsePtrOutput) Elem() ReturnAddressResponseOutput {
-	return o.ApplyT(func(v *ReturnAddressResponse) ReturnAddressResponse { return *v }).(ReturnAddressResponseOutput)
+	return o.ApplyT(func(v *ReturnAddressResponse) ReturnAddressResponse {
+		if v != nil {
+			return *v
+		}
+		var ret ReturnAddressResponse
+		return ret
+	}).(ReturnAddressResponseOutput)
 }
 
-// The city name to use when returning the drives.
 func (o ReturnAddressResponsePtrOutput) City() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ReturnAddressResponse) *string {
 		if v == nil {
@@ -3547,7 +3167,6 @@ func (o ReturnAddressResponsePtrOutput) City() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The country or region to use when returning the drives.
 func (o ReturnAddressResponsePtrOutput) CountryOrRegion() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ReturnAddressResponse) *string {
 		if v == nil {
@@ -3557,7 +3176,6 @@ func (o ReturnAddressResponsePtrOutput) CountryOrRegion() pulumi.StringPtrOutput
 	}).(pulumi.StringPtrOutput)
 }
 
-// Email address of the recipient of the returned drives.
 func (o ReturnAddressResponsePtrOutput) Email() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ReturnAddressResponse) *string {
 		if v == nil {
@@ -3567,7 +3185,6 @@ func (o ReturnAddressResponsePtrOutput) Email() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Phone number of the recipient of the returned drives.
 func (o ReturnAddressResponsePtrOutput) Phone() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ReturnAddressResponse) *string {
 		if v == nil {
@@ -3577,7 +3194,6 @@ func (o ReturnAddressResponsePtrOutput) Phone() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The postal code to use when returning the drives.
 func (o ReturnAddressResponsePtrOutput) PostalCode() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ReturnAddressResponse) *string {
 		if v == nil {
@@ -3587,7 +3203,6 @@ func (o ReturnAddressResponsePtrOutput) PostalCode() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The name of the recipient who will receive the hard drives when they are returned.
 func (o ReturnAddressResponsePtrOutput) RecipientName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ReturnAddressResponse) *string {
 		if v == nil {
@@ -3597,7 +3212,6 @@ func (o ReturnAddressResponsePtrOutput) RecipientName() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The state or province to use when returning the drives.
 func (o ReturnAddressResponsePtrOutput) StateOrProvince() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ReturnAddressResponse) *string {
 		if v == nil {
@@ -3607,7 +3221,6 @@ func (o ReturnAddressResponsePtrOutput) StateOrProvince() pulumi.StringPtrOutput
 	}).(pulumi.StringPtrOutput)
 }
 
-// The first line of the street address to use when returning the drives.
 func (o ReturnAddressResponsePtrOutput) StreetAddress1() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ReturnAddressResponse) *string {
 		if v == nil {
@@ -3617,7 +3230,6 @@ func (o ReturnAddressResponsePtrOutput) StreetAddress1() pulumi.StringPtrOutput 
 	}).(pulumi.StringPtrOutput)
 }
 
-// The second line of the street address to use when returning the drives.
 func (o ReturnAddressResponsePtrOutput) StreetAddress2() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ReturnAddressResponse) *string {
 		if v == nil {
@@ -3627,12 +3239,9 @@ func (o ReturnAddressResponsePtrOutput) StreetAddress2() pulumi.StringPtrOutput 
 	}).(pulumi.StringPtrOutput)
 }
 
-// Specifies the return carrier and customer's account with the carrier.
 type ReturnShipping struct {
-	// The customer's account number with the carrier.
 	CarrierAccountNumber string `pulumi:"carrierAccountNumber"`
-	// The carrier's name.
-	CarrierName string `pulumi:"carrierName"`
+	CarrierName          string `pulumi:"carrierName"`
 }
 
 // ReturnShippingInput is an input type that accepts ReturnShippingArgs and ReturnShippingOutput values.
@@ -3646,12 +3255,9 @@ type ReturnShippingInput interface {
 	ToReturnShippingOutputWithContext(context.Context) ReturnShippingOutput
 }
 
-// Specifies the return carrier and customer's account with the carrier.
 type ReturnShippingArgs struct {
-	// The customer's account number with the carrier.
 	CarrierAccountNumber pulumi.StringInput `pulumi:"carrierAccountNumber"`
-	// The carrier's name.
-	CarrierName pulumi.StringInput `pulumi:"carrierName"`
+	CarrierName          pulumi.StringInput `pulumi:"carrierName"`
 }
 
 func (ReturnShippingArgs) ElementType() reflect.Type {
@@ -3707,7 +3313,6 @@ func (i *returnShippingPtrType) ToReturnShippingPtrOutputWithContext(ctx context
 	return pulumi.ToOutputWithContext(ctx, i).(ReturnShippingPtrOutput)
 }
 
-// Specifies the return carrier and customer's account with the carrier.
 type ReturnShippingOutput struct{ *pulumi.OutputState }
 
 func (ReturnShippingOutput) ElementType() reflect.Type {
@@ -3727,17 +3332,15 @@ func (o ReturnShippingOutput) ToReturnShippingPtrOutput() ReturnShippingPtrOutpu
 }
 
 func (o ReturnShippingOutput) ToReturnShippingPtrOutputWithContext(ctx context.Context) ReturnShippingPtrOutput {
-	return o.ApplyT(func(v ReturnShipping) *ReturnShipping {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ReturnShipping) *ReturnShipping {
 		return &v
 	}).(ReturnShippingPtrOutput)
 }
 
-// The customer's account number with the carrier.
 func (o ReturnShippingOutput) CarrierAccountNumber() pulumi.StringOutput {
 	return o.ApplyT(func(v ReturnShipping) string { return v.CarrierAccountNumber }).(pulumi.StringOutput)
 }
 
-// The carrier's name.
 func (o ReturnShippingOutput) CarrierName() pulumi.StringOutput {
 	return o.ApplyT(func(v ReturnShipping) string { return v.CarrierName }).(pulumi.StringOutput)
 }
@@ -3757,10 +3360,15 @@ func (o ReturnShippingPtrOutput) ToReturnShippingPtrOutputWithContext(ctx contex
 }
 
 func (o ReturnShippingPtrOutput) Elem() ReturnShippingOutput {
-	return o.ApplyT(func(v *ReturnShipping) ReturnShipping { return *v }).(ReturnShippingOutput)
+	return o.ApplyT(func(v *ReturnShipping) ReturnShipping {
+		if v != nil {
+			return *v
+		}
+		var ret ReturnShipping
+		return ret
+	}).(ReturnShippingOutput)
 }
 
-// The customer's account number with the carrier.
 func (o ReturnShippingPtrOutput) CarrierAccountNumber() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ReturnShipping) *string {
 		if v == nil {
@@ -3770,7 +3378,6 @@ func (o ReturnShippingPtrOutput) CarrierAccountNumber() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The carrier's name.
 func (o ReturnShippingPtrOutput) CarrierName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ReturnShipping) *string {
 		if v == nil {
@@ -3780,12 +3387,9 @@ func (o ReturnShippingPtrOutput) CarrierName() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Specifies the return carrier and customer's account with the carrier.
 type ReturnShippingResponse struct {
-	// The customer's account number with the carrier.
 	CarrierAccountNumber string `pulumi:"carrierAccountNumber"`
-	// The carrier's name.
-	CarrierName string `pulumi:"carrierName"`
+	CarrierName          string `pulumi:"carrierName"`
 }
 
 // ReturnShippingResponseInput is an input type that accepts ReturnShippingResponseArgs and ReturnShippingResponseOutput values.
@@ -3799,12 +3403,9 @@ type ReturnShippingResponseInput interface {
 	ToReturnShippingResponseOutputWithContext(context.Context) ReturnShippingResponseOutput
 }
 
-// Specifies the return carrier and customer's account with the carrier.
 type ReturnShippingResponseArgs struct {
-	// The customer's account number with the carrier.
 	CarrierAccountNumber pulumi.StringInput `pulumi:"carrierAccountNumber"`
-	// The carrier's name.
-	CarrierName pulumi.StringInput `pulumi:"carrierName"`
+	CarrierName          pulumi.StringInput `pulumi:"carrierName"`
 }
 
 func (ReturnShippingResponseArgs) ElementType() reflect.Type {
@@ -3860,7 +3461,6 @@ func (i *returnShippingResponsePtrType) ToReturnShippingResponsePtrOutputWithCon
 	return pulumi.ToOutputWithContext(ctx, i).(ReturnShippingResponsePtrOutput)
 }
 
-// Specifies the return carrier and customer's account with the carrier.
 type ReturnShippingResponseOutput struct{ *pulumi.OutputState }
 
 func (ReturnShippingResponseOutput) ElementType() reflect.Type {
@@ -3880,17 +3480,15 @@ func (o ReturnShippingResponseOutput) ToReturnShippingResponsePtrOutput() Return
 }
 
 func (o ReturnShippingResponseOutput) ToReturnShippingResponsePtrOutputWithContext(ctx context.Context) ReturnShippingResponsePtrOutput {
-	return o.ApplyT(func(v ReturnShippingResponse) *ReturnShippingResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ReturnShippingResponse) *ReturnShippingResponse {
 		return &v
 	}).(ReturnShippingResponsePtrOutput)
 }
 
-// The customer's account number with the carrier.
 func (o ReturnShippingResponseOutput) CarrierAccountNumber() pulumi.StringOutput {
 	return o.ApplyT(func(v ReturnShippingResponse) string { return v.CarrierAccountNumber }).(pulumi.StringOutput)
 }
 
-// The carrier's name.
 func (o ReturnShippingResponseOutput) CarrierName() pulumi.StringOutput {
 	return o.ApplyT(func(v ReturnShippingResponse) string { return v.CarrierName }).(pulumi.StringOutput)
 }
@@ -3910,10 +3508,15 @@ func (o ReturnShippingResponsePtrOutput) ToReturnShippingResponsePtrOutputWithCo
 }
 
 func (o ReturnShippingResponsePtrOutput) Elem() ReturnShippingResponseOutput {
-	return o.ApplyT(func(v *ReturnShippingResponse) ReturnShippingResponse { return *v }).(ReturnShippingResponseOutput)
+	return o.ApplyT(func(v *ReturnShippingResponse) ReturnShippingResponse {
+		if v != nil {
+			return *v
+		}
+		var ret ReturnShippingResponse
+		return ret
+	}).(ReturnShippingResponseOutput)
 }
 
-// The customer's account number with the carrier.
 func (o ReturnShippingResponsePtrOutput) CarrierAccountNumber() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ReturnShippingResponse) *string {
 		if v == nil {
@@ -3923,7 +3526,6 @@ func (o ReturnShippingResponsePtrOutput) CarrierAccountNumber() pulumi.StringPtr
 	}).(pulumi.StringPtrOutput)
 }
 
-// The carrier's name.
 func (o ReturnShippingResponsePtrOutput) CarrierName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ReturnShippingResponse) *string {
 		if v == nil {
@@ -3933,24 +3535,15 @@ func (o ReturnShippingResponsePtrOutput) CarrierName() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Contains information about the Microsoft datacenter to which the drives should be shipped.
 type ShippingInformation struct {
-	// The city name to use when returning the drives.
-	City *string `pulumi:"city"`
-	// The country or region to use when returning the drives.
+	City            *string `pulumi:"city"`
 	CountryOrRegion *string `pulumi:"countryOrRegion"`
-	// Phone number of the recipient of the returned drives.
-	Phone *string `pulumi:"phone"`
-	// The postal code to use when returning the drives.
-	PostalCode *string `pulumi:"postalCode"`
-	// The name of the recipient who will receive the hard drives when they are returned.
-	RecipientName *string `pulumi:"recipientName"`
-	// The state or province to use when returning the drives.
+	Phone           *string `pulumi:"phone"`
+	PostalCode      *string `pulumi:"postalCode"`
+	RecipientName   *string `pulumi:"recipientName"`
 	StateOrProvince *string `pulumi:"stateOrProvince"`
-	// The first line of the street address to use when returning the drives.
-	StreetAddress1 *string `pulumi:"streetAddress1"`
-	// The second line of the street address to use when returning the drives.
-	StreetAddress2 *string `pulumi:"streetAddress2"`
+	StreetAddress1  *string `pulumi:"streetAddress1"`
+	StreetAddress2  *string `pulumi:"streetAddress2"`
 }
 
 // ShippingInformationInput is an input type that accepts ShippingInformationArgs and ShippingInformationOutput values.
@@ -3964,24 +3557,15 @@ type ShippingInformationInput interface {
 	ToShippingInformationOutputWithContext(context.Context) ShippingInformationOutput
 }
 
-// Contains information about the Microsoft datacenter to which the drives should be shipped.
 type ShippingInformationArgs struct {
-	// The city name to use when returning the drives.
-	City pulumi.StringPtrInput `pulumi:"city"`
-	// The country or region to use when returning the drives.
+	City            pulumi.StringPtrInput `pulumi:"city"`
 	CountryOrRegion pulumi.StringPtrInput `pulumi:"countryOrRegion"`
-	// Phone number of the recipient of the returned drives.
-	Phone pulumi.StringPtrInput `pulumi:"phone"`
-	// The postal code to use when returning the drives.
-	PostalCode pulumi.StringPtrInput `pulumi:"postalCode"`
-	// The name of the recipient who will receive the hard drives when they are returned.
-	RecipientName pulumi.StringPtrInput `pulumi:"recipientName"`
-	// The state or province to use when returning the drives.
+	Phone           pulumi.StringPtrInput `pulumi:"phone"`
+	PostalCode      pulumi.StringPtrInput `pulumi:"postalCode"`
+	RecipientName   pulumi.StringPtrInput `pulumi:"recipientName"`
 	StateOrProvince pulumi.StringPtrInput `pulumi:"stateOrProvince"`
-	// The first line of the street address to use when returning the drives.
-	StreetAddress1 pulumi.StringPtrInput `pulumi:"streetAddress1"`
-	// The second line of the street address to use when returning the drives.
-	StreetAddress2 pulumi.StringPtrInput `pulumi:"streetAddress2"`
+	StreetAddress1  pulumi.StringPtrInput `pulumi:"streetAddress1"`
+	StreetAddress2  pulumi.StringPtrInput `pulumi:"streetAddress2"`
 }
 
 func (ShippingInformationArgs) ElementType() reflect.Type {
@@ -4037,7 +3621,6 @@ func (i *shippingInformationPtrType) ToShippingInformationPtrOutputWithContext(c
 	return pulumi.ToOutputWithContext(ctx, i).(ShippingInformationPtrOutput)
 }
 
-// Contains information about the Microsoft datacenter to which the drives should be shipped.
 type ShippingInformationOutput struct{ *pulumi.OutputState }
 
 func (ShippingInformationOutput) ElementType() reflect.Type {
@@ -4057,47 +3640,39 @@ func (o ShippingInformationOutput) ToShippingInformationPtrOutput() ShippingInfo
 }
 
 func (o ShippingInformationOutput) ToShippingInformationPtrOutputWithContext(ctx context.Context) ShippingInformationPtrOutput {
-	return o.ApplyT(func(v ShippingInformation) *ShippingInformation {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ShippingInformation) *ShippingInformation {
 		return &v
 	}).(ShippingInformationPtrOutput)
 }
 
-// The city name to use when returning the drives.
 func (o ShippingInformationOutput) City() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ShippingInformation) *string { return v.City }).(pulumi.StringPtrOutput)
 }
 
-// The country or region to use when returning the drives.
 func (o ShippingInformationOutput) CountryOrRegion() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ShippingInformation) *string { return v.CountryOrRegion }).(pulumi.StringPtrOutput)
 }
 
-// Phone number of the recipient of the returned drives.
 func (o ShippingInformationOutput) Phone() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ShippingInformation) *string { return v.Phone }).(pulumi.StringPtrOutput)
 }
 
-// The postal code to use when returning the drives.
 func (o ShippingInformationOutput) PostalCode() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ShippingInformation) *string { return v.PostalCode }).(pulumi.StringPtrOutput)
 }
 
-// The name of the recipient who will receive the hard drives when they are returned.
 func (o ShippingInformationOutput) RecipientName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ShippingInformation) *string { return v.RecipientName }).(pulumi.StringPtrOutput)
 }
 
-// The state or province to use when returning the drives.
 func (o ShippingInformationOutput) StateOrProvince() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ShippingInformation) *string { return v.StateOrProvince }).(pulumi.StringPtrOutput)
 }
 
-// The first line of the street address to use when returning the drives.
 func (o ShippingInformationOutput) StreetAddress1() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ShippingInformation) *string { return v.StreetAddress1 }).(pulumi.StringPtrOutput)
 }
 
-// The second line of the street address to use when returning the drives.
 func (o ShippingInformationOutput) StreetAddress2() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ShippingInformation) *string { return v.StreetAddress2 }).(pulumi.StringPtrOutput)
 }
@@ -4117,10 +3692,15 @@ func (o ShippingInformationPtrOutput) ToShippingInformationPtrOutputWithContext(
 }
 
 func (o ShippingInformationPtrOutput) Elem() ShippingInformationOutput {
-	return o.ApplyT(func(v *ShippingInformation) ShippingInformation { return *v }).(ShippingInformationOutput)
+	return o.ApplyT(func(v *ShippingInformation) ShippingInformation {
+		if v != nil {
+			return *v
+		}
+		var ret ShippingInformation
+		return ret
+	}).(ShippingInformationOutput)
 }
 
-// The city name to use when returning the drives.
 func (o ShippingInformationPtrOutput) City() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ShippingInformation) *string {
 		if v == nil {
@@ -4130,7 +3710,6 @@ func (o ShippingInformationPtrOutput) City() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The country or region to use when returning the drives.
 func (o ShippingInformationPtrOutput) CountryOrRegion() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ShippingInformation) *string {
 		if v == nil {
@@ -4140,7 +3719,6 @@ func (o ShippingInformationPtrOutput) CountryOrRegion() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Phone number of the recipient of the returned drives.
 func (o ShippingInformationPtrOutput) Phone() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ShippingInformation) *string {
 		if v == nil {
@@ -4150,7 +3728,6 @@ func (o ShippingInformationPtrOutput) Phone() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The postal code to use when returning the drives.
 func (o ShippingInformationPtrOutput) PostalCode() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ShippingInformation) *string {
 		if v == nil {
@@ -4160,7 +3737,6 @@ func (o ShippingInformationPtrOutput) PostalCode() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The name of the recipient who will receive the hard drives when they are returned.
 func (o ShippingInformationPtrOutput) RecipientName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ShippingInformation) *string {
 		if v == nil {
@@ -4170,7 +3746,6 @@ func (o ShippingInformationPtrOutput) RecipientName() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The state or province to use when returning the drives.
 func (o ShippingInformationPtrOutput) StateOrProvince() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ShippingInformation) *string {
 		if v == nil {
@@ -4180,7 +3755,6 @@ func (o ShippingInformationPtrOutput) StateOrProvince() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The first line of the street address to use when returning the drives.
 func (o ShippingInformationPtrOutput) StreetAddress1() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ShippingInformation) *string {
 		if v == nil {
@@ -4190,7 +3764,6 @@ func (o ShippingInformationPtrOutput) StreetAddress1() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The second line of the street address to use when returning the drives.
 func (o ShippingInformationPtrOutput) StreetAddress2() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ShippingInformation) *string {
 		if v == nil {
@@ -4200,26 +3773,16 @@ func (o ShippingInformationPtrOutput) StreetAddress2() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Contains information about the Microsoft datacenter to which the drives should be shipped.
 type ShippingInformationResponse struct {
-	// Additional shipping information for customer, specific to datacenter to which customer should send their disks.
-	AdditionalInformation string `pulumi:"additionalInformation"`
-	// The city name to use when returning the drives.
-	City *string `pulumi:"city"`
-	// The country or region to use when returning the drives.
-	CountryOrRegion *string `pulumi:"countryOrRegion"`
-	// Phone number of the recipient of the returned drives.
-	Phone *string `pulumi:"phone"`
-	// The postal code to use when returning the drives.
-	PostalCode *string `pulumi:"postalCode"`
-	// The name of the recipient who will receive the hard drives when they are returned.
-	RecipientName *string `pulumi:"recipientName"`
-	// The state or province to use when returning the drives.
-	StateOrProvince *string `pulumi:"stateOrProvince"`
-	// The first line of the street address to use when returning the drives.
-	StreetAddress1 *string `pulumi:"streetAddress1"`
-	// The second line of the street address to use when returning the drives.
-	StreetAddress2 *string `pulumi:"streetAddress2"`
+	AdditionalInformation string  `pulumi:"additionalInformation"`
+	City                  *string `pulumi:"city"`
+	CountryOrRegion       *string `pulumi:"countryOrRegion"`
+	Phone                 *string `pulumi:"phone"`
+	PostalCode            *string `pulumi:"postalCode"`
+	RecipientName         *string `pulumi:"recipientName"`
+	StateOrProvince       *string `pulumi:"stateOrProvince"`
+	StreetAddress1        *string `pulumi:"streetAddress1"`
+	StreetAddress2        *string `pulumi:"streetAddress2"`
 }
 
 // ShippingInformationResponseInput is an input type that accepts ShippingInformationResponseArgs and ShippingInformationResponseOutput values.
@@ -4233,26 +3796,16 @@ type ShippingInformationResponseInput interface {
 	ToShippingInformationResponseOutputWithContext(context.Context) ShippingInformationResponseOutput
 }
 
-// Contains information about the Microsoft datacenter to which the drives should be shipped.
 type ShippingInformationResponseArgs struct {
-	// Additional shipping information for customer, specific to datacenter to which customer should send their disks.
-	AdditionalInformation pulumi.StringInput `pulumi:"additionalInformation"`
-	// The city name to use when returning the drives.
-	City pulumi.StringPtrInput `pulumi:"city"`
-	// The country or region to use when returning the drives.
-	CountryOrRegion pulumi.StringPtrInput `pulumi:"countryOrRegion"`
-	// Phone number of the recipient of the returned drives.
-	Phone pulumi.StringPtrInput `pulumi:"phone"`
-	// The postal code to use when returning the drives.
-	PostalCode pulumi.StringPtrInput `pulumi:"postalCode"`
-	// The name of the recipient who will receive the hard drives when they are returned.
-	RecipientName pulumi.StringPtrInput `pulumi:"recipientName"`
-	// The state or province to use when returning the drives.
-	StateOrProvince pulumi.StringPtrInput `pulumi:"stateOrProvince"`
-	// The first line of the street address to use when returning the drives.
-	StreetAddress1 pulumi.StringPtrInput `pulumi:"streetAddress1"`
-	// The second line of the street address to use when returning the drives.
-	StreetAddress2 pulumi.StringPtrInput `pulumi:"streetAddress2"`
+	AdditionalInformation pulumi.StringInput    `pulumi:"additionalInformation"`
+	City                  pulumi.StringPtrInput `pulumi:"city"`
+	CountryOrRegion       pulumi.StringPtrInput `pulumi:"countryOrRegion"`
+	Phone                 pulumi.StringPtrInput `pulumi:"phone"`
+	PostalCode            pulumi.StringPtrInput `pulumi:"postalCode"`
+	RecipientName         pulumi.StringPtrInput `pulumi:"recipientName"`
+	StateOrProvince       pulumi.StringPtrInput `pulumi:"stateOrProvince"`
+	StreetAddress1        pulumi.StringPtrInput `pulumi:"streetAddress1"`
+	StreetAddress2        pulumi.StringPtrInput `pulumi:"streetAddress2"`
 }
 
 func (ShippingInformationResponseArgs) ElementType() reflect.Type {
@@ -4308,7 +3861,6 @@ func (i *shippingInformationResponsePtrType) ToShippingInformationResponsePtrOut
 	return pulumi.ToOutputWithContext(ctx, i).(ShippingInformationResponsePtrOutput)
 }
 
-// Contains information about the Microsoft datacenter to which the drives should be shipped.
 type ShippingInformationResponseOutput struct{ *pulumi.OutputState }
 
 func (ShippingInformationResponseOutput) ElementType() reflect.Type {
@@ -4328,52 +3880,43 @@ func (o ShippingInformationResponseOutput) ToShippingInformationResponsePtrOutpu
 }
 
 func (o ShippingInformationResponseOutput) ToShippingInformationResponsePtrOutputWithContext(ctx context.Context) ShippingInformationResponsePtrOutput {
-	return o.ApplyT(func(v ShippingInformationResponse) *ShippingInformationResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ShippingInformationResponse) *ShippingInformationResponse {
 		return &v
 	}).(ShippingInformationResponsePtrOutput)
 }
 
-// Additional shipping information for customer, specific to datacenter to which customer should send their disks.
 func (o ShippingInformationResponseOutput) AdditionalInformation() pulumi.StringOutput {
 	return o.ApplyT(func(v ShippingInformationResponse) string { return v.AdditionalInformation }).(pulumi.StringOutput)
 }
 
-// The city name to use when returning the drives.
 func (o ShippingInformationResponseOutput) City() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ShippingInformationResponse) *string { return v.City }).(pulumi.StringPtrOutput)
 }
 
-// The country or region to use when returning the drives.
 func (o ShippingInformationResponseOutput) CountryOrRegion() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ShippingInformationResponse) *string { return v.CountryOrRegion }).(pulumi.StringPtrOutput)
 }
 
-// Phone number of the recipient of the returned drives.
 func (o ShippingInformationResponseOutput) Phone() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ShippingInformationResponse) *string { return v.Phone }).(pulumi.StringPtrOutput)
 }
 
-// The postal code to use when returning the drives.
 func (o ShippingInformationResponseOutput) PostalCode() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ShippingInformationResponse) *string { return v.PostalCode }).(pulumi.StringPtrOutput)
 }
 
-// The name of the recipient who will receive the hard drives when they are returned.
 func (o ShippingInformationResponseOutput) RecipientName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ShippingInformationResponse) *string { return v.RecipientName }).(pulumi.StringPtrOutput)
 }
 
-// The state or province to use when returning the drives.
 func (o ShippingInformationResponseOutput) StateOrProvince() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ShippingInformationResponse) *string { return v.StateOrProvince }).(pulumi.StringPtrOutput)
 }
 
-// The first line of the street address to use when returning the drives.
 func (o ShippingInformationResponseOutput) StreetAddress1() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ShippingInformationResponse) *string { return v.StreetAddress1 }).(pulumi.StringPtrOutput)
 }
 
-// The second line of the street address to use when returning the drives.
 func (o ShippingInformationResponseOutput) StreetAddress2() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ShippingInformationResponse) *string { return v.StreetAddress2 }).(pulumi.StringPtrOutput)
 }
@@ -4393,10 +3936,15 @@ func (o ShippingInformationResponsePtrOutput) ToShippingInformationResponsePtrOu
 }
 
 func (o ShippingInformationResponsePtrOutput) Elem() ShippingInformationResponseOutput {
-	return o.ApplyT(func(v *ShippingInformationResponse) ShippingInformationResponse { return *v }).(ShippingInformationResponseOutput)
+	return o.ApplyT(func(v *ShippingInformationResponse) ShippingInformationResponse {
+		if v != nil {
+			return *v
+		}
+		var ret ShippingInformationResponse
+		return ret
+	}).(ShippingInformationResponseOutput)
 }
 
-// Additional shipping information for customer, specific to datacenter to which customer should send their disks.
 func (o ShippingInformationResponsePtrOutput) AdditionalInformation() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ShippingInformationResponse) *string {
 		if v == nil {
@@ -4406,7 +3954,6 @@ func (o ShippingInformationResponsePtrOutput) AdditionalInformation() pulumi.Str
 	}).(pulumi.StringPtrOutput)
 }
 
-// The city name to use when returning the drives.
 func (o ShippingInformationResponsePtrOutput) City() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ShippingInformationResponse) *string {
 		if v == nil {
@@ -4416,7 +3963,6 @@ func (o ShippingInformationResponsePtrOutput) City() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The country or region to use when returning the drives.
 func (o ShippingInformationResponsePtrOutput) CountryOrRegion() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ShippingInformationResponse) *string {
 		if v == nil {
@@ -4426,7 +3972,6 @@ func (o ShippingInformationResponsePtrOutput) CountryOrRegion() pulumi.StringPtr
 	}).(pulumi.StringPtrOutput)
 }
 
-// Phone number of the recipient of the returned drives.
 func (o ShippingInformationResponsePtrOutput) Phone() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ShippingInformationResponse) *string {
 		if v == nil {
@@ -4436,7 +3981,6 @@ func (o ShippingInformationResponsePtrOutput) Phone() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The postal code to use when returning the drives.
 func (o ShippingInformationResponsePtrOutput) PostalCode() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ShippingInformationResponse) *string {
 		if v == nil {
@@ -4446,7 +3990,6 @@ func (o ShippingInformationResponsePtrOutput) PostalCode() pulumi.StringPtrOutpu
 	}).(pulumi.StringPtrOutput)
 }
 
-// The name of the recipient who will receive the hard drives when they are returned.
 func (o ShippingInformationResponsePtrOutput) RecipientName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ShippingInformationResponse) *string {
 		if v == nil {
@@ -4456,7 +3999,6 @@ func (o ShippingInformationResponsePtrOutput) RecipientName() pulumi.StringPtrOu
 	}).(pulumi.StringPtrOutput)
 }
 
-// The state or province to use when returning the drives.
 func (o ShippingInformationResponsePtrOutput) StateOrProvince() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ShippingInformationResponse) *string {
 		if v == nil {
@@ -4466,7 +4008,6 @@ func (o ShippingInformationResponsePtrOutput) StateOrProvince() pulumi.StringPtr
 	}).(pulumi.StringPtrOutput)
 }
 
-// The first line of the street address to use when returning the drives.
 func (o ShippingInformationResponsePtrOutput) StreetAddress1() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ShippingInformationResponse) *string {
 		if v == nil {
@@ -4476,7 +4017,6 @@ func (o ShippingInformationResponsePtrOutput) StreetAddress1() pulumi.StringPtrO
 	}).(pulumi.StringPtrOutput)
 }
 
-// The second line of the street address to use when returning the drives.
 func (o ShippingInformationResponsePtrOutput) StreetAddress2() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ShippingInformationResponse) *string {
 		if v == nil {
@@ -4486,19 +4026,12 @@ func (o ShippingInformationResponsePtrOutput) StreetAddress2() pulumi.StringPtrO
 	}).(pulumi.StringPtrOutput)
 }
 
-// Metadata pertaining to creation and last modification of the resource.
 type SystemDataResponse struct {
-	// The timestamp of resource creation (UTC).
-	CreatedAt *string `pulumi:"createdAt"`
-	// The identity that created the resource.
-	CreatedBy *string `pulumi:"createdBy"`
-	// The type of identity that created the resource.
-	CreatedByType *string `pulumi:"createdByType"`
-	// The timestamp of resource last modification (UTC)
-	LastModifiedAt *string `pulumi:"lastModifiedAt"`
-	// The identity that last modified the resource.
-	LastModifiedBy *string `pulumi:"lastModifiedBy"`
-	// The type of identity that last modified the resource.
+	CreatedAt          *string `pulumi:"createdAt"`
+	CreatedBy          *string `pulumi:"createdBy"`
+	CreatedByType      *string `pulumi:"createdByType"`
+	LastModifiedAt     *string `pulumi:"lastModifiedAt"`
+	LastModifiedBy     *string `pulumi:"lastModifiedBy"`
 	LastModifiedByType *string `pulumi:"lastModifiedByType"`
 }
 
@@ -4513,19 +4046,12 @@ type SystemDataResponseInput interface {
 	ToSystemDataResponseOutputWithContext(context.Context) SystemDataResponseOutput
 }
 
-// Metadata pertaining to creation and last modification of the resource.
 type SystemDataResponseArgs struct {
-	// The timestamp of resource creation (UTC).
-	CreatedAt pulumi.StringPtrInput `pulumi:"createdAt"`
-	// The identity that created the resource.
-	CreatedBy pulumi.StringPtrInput `pulumi:"createdBy"`
-	// The type of identity that created the resource.
-	CreatedByType pulumi.StringPtrInput `pulumi:"createdByType"`
-	// The timestamp of resource last modification (UTC)
-	LastModifiedAt pulumi.StringPtrInput `pulumi:"lastModifiedAt"`
-	// The identity that last modified the resource.
-	LastModifiedBy pulumi.StringPtrInput `pulumi:"lastModifiedBy"`
-	// The type of identity that last modified the resource.
+	CreatedAt          pulumi.StringPtrInput `pulumi:"createdAt"`
+	CreatedBy          pulumi.StringPtrInput `pulumi:"createdBy"`
+	CreatedByType      pulumi.StringPtrInput `pulumi:"createdByType"`
+	LastModifiedAt     pulumi.StringPtrInput `pulumi:"lastModifiedAt"`
+	LastModifiedBy     pulumi.StringPtrInput `pulumi:"lastModifiedBy"`
 	LastModifiedByType pulumi.StringPtrInput `pulumi:"lastModifiedByType"`
 }
 
@@ -4582,7 +4108,6 @@ func (i *systemDataResponsePtrType) ToSystemDataResponsePtrOutputWithContext(ctx
 	return pulumi.ToOutputWithContext(ctx, i).(SystemDataResponsePtrOutput)
 }
 
-// Metadata pertaining to creation and last modification of the resource.
 type SystemDataResponseOutput struct{ *pulumi.OutputState }
 
 func (SystemDataResponseOutput) ElementType() reflect.Type {
@@ -4602,37 +4127,31 @@ func (o SystemDataResponseOutput) ToSystemDataResponsePtrOutput() SystemDataResp
 }
 
 func (o SystemDataResponseOutput) ToSystemDataResponsePtrOutputWithContext(ctx context.Context) SystemDataResponsePtrOutput {
-	return o.ApplyT(func(v SystemDataResponse) *SystemDataResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v SystemDataResponse) *SystemDataResponse {
 		return &v
 	}).(SystemDataResponsePtrOutput)
 }
 
-// The timestamp of resource creation (UTC).
 func (o SystemDataResponseOutput) CreatedAt() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SystemDataResponse) *string { return v.CreatedAt }).(pulumi.StringPtrOutput)
 }
 
-// The identity that created the resource.
 func (o SystemDataResponseOutput) CreatedBy() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SystemDataResponse) *string { return v.CreatedBy }).(pulumi.StringPtrOutput)
 }
 
-// The type of identity that created the resource.
 func (o SystemDataResponseOutput) CreatedByType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SystemDataResponse) *string { return v.CreatedByType }).(pulumi.StringPtrOutput)
 }
 
-// The timestamp of resource last modification (UTC)
 func (o SystemDataResponseOutput) LastModifiedAt() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SystemDataResponse) *string { return v.LastModifiedAt }).(pulumi.StringPtrOutput)
 }
 
-// The identity that last modified the resource.
 func (o SystemDataResponseOutput) LastModifiedBy() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SystemDataResponse) *string { return v.LastModifiedBy }).(pulumi.StringPtrOutput)
 }
 
-// The type of identity that last modified the resource.
 func (o SystemDataResponseOutput) LastModifiedByType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SystemDataResponse) *string { return v.LastModifiedByType }).(pulumi.StringPtrOutput)
 }
@@ -4652,10 +4171,15 @@ func (o SystemDataResponsePtrOutput) ToSystemDataResponsePtrOutputWithContext(ct
 }
 
 func (o SystemDataResponsePtrOutput) Elem() SystemDataResponseOutput {
-	return o.ApplyT(func(v *SystemDataResponse) SystemDataResponse { return *v }).(SystemDataResponseOutput)
+	return o.ApplyT(func(v *SystemDataResponse) SystemDataResponse {
+		if v != nil {
+			return *v
+		}
+		var ret SystemDataResponse
+		return ret
+	}).(SystemDataResponseOutput)
 }
 
-// The timestamp of resource creation (UTC).
 func (o SystemDataResponsePtrOutput) CreatedAt() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SystemDataResponse) *string {
 		if v == nil {
@@ -4665,7 +4189,6 @@ func (o SystemDataResponsePtrOutput) CreatedAt() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The identity that created the resource.
 func (o SystemDataResponsePtrOutput) CreatedBy() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SystemDataResponse) *string {
 		if v == nil {
@@ -4675,7 +4198,6 @@ func (o SystemDataResponsePtrOutput) CreatedBy() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The type of identity that created the resource.
 func (o SystemDataResponsePtrOutput) CreatedByType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SystemDataResponse) *string {
 		if v == nil {
@@ -4685,7 +4207,6 @@ func (o SystemDataResponsePtrOutput) CreatedByType() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The timestamp of resource last modification (UTC)
 func (o SystemDataResponsePtrOutput) LastModifiedAt() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SystemDataResponse) *string {
 		if v == nil {
@@ -4695,7 +4216,6 @@ func (o SystemDataResponsePtrOutput) LastModifiedAt() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The identity that last modified the resource.
 func (o SystemDataResponsePtrOutput) LastModifiedBy() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SystemDataResponse) *string {
 		if v == nil {
@@ -4705,7 +4225,6 @@ func (o SystemDataResponsePtrOutput) LastModifiedBy() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The type of identity that last modified the resource.
 func (o SystemDataResponsePtrOutput) LastModifiedByType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SystemDataResponse) *string {
 		if v == nil {

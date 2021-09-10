@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.DataFactory.Outputs
 {
 
+    /// <summary>
+    /// Pipeline ElapsedTime Metric Policy.
+    /// </summary>
     [OutputType]
     public sealed class PipelineElapsedTimeMetricPolicyResponse
     {

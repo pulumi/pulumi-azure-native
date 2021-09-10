@@ -7,7 +7,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// The Get Storage Account ManagementPolicies operation response.
 func LookupManagementPolicy(ctx *pulumi.Context, args *LookupManagementPolicyArgs, opts ...pulumi.InvokeOption) (*LookupManagementPolicyResult, error) {
 	var rv LookupManagementPolicyResult
 	err := ctx.Invoke("azure-native:storage/v20180301preview:getManagementPolicy", args, &rv, opts...)
@@ -18,24 +17,16 @@ func LookupManagementPolicy(ctx *pulumi.Context, args *LookupManagementPolicyArg
 }
 
 type LookupManagementPolicyArgs struct {
-	// The name of the storage account within the specified resource group. Storage account names must be between 3 and 24 characters in length and use numbers and lower-case letters only.
-	AccountName string `pulumi:"accountName"`
-	// The name of the Storage Account Management Policy. It should always be 'default'
+	AccountName          string `pulumi:"accountName"`
 	ManagementPolicyName string `pulumi:"managementPolicyName"`
-	// The name of the resource group within the user's subscription. The name is case insensitive.
-	ResourceGroupName string `pulumi:"resourceGroupName"`
+	ResourceGroupName    string `pulumi:"resourceGroupName"`
 }
 
 // The Get Storage Account ManagementPolicies operation response.
 type LookupManagementPolicyResult struct {
-	// Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
-	Id string `pulumi:"id"`
-	// Returns the date and time the ManagementPolicies was last modified.
-	LastModifiedTime string `pulumi:"lastModifiedTime"`
-	// The name of the resource
-	Name string `pulumi:"name"`
-	// The Storage Account ManagementPolicies Rules, in JSON format. See more details in: https://docs.microsoft.com/en-us/azure/storage/common/storage-lifecycle-managment-concepts.
-	Policy interface{} `pulumi:"policy"`
-	// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
-	Type string `pulumi:"type"`
+	Id               string      `pulumi:"id"`
+	LastModifiedTime string      `pulumi:"lastModifiedTime"`
+	Name             string      `pulumi:"name"`
+	Policy           interface{} `pulumi:"policy"`
+	Type             string      `pulumi:"type"`
 }

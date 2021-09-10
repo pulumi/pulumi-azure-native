@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.DataFactory.Outputs
 {
 
+    /// <summary>
+    /// Snowflake import command settings.
+    /// </summary>
     [OutputType]
     public sealed class SnowflakeImportCopyCommandResponse
     {

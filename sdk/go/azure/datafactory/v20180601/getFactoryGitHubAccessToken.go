@@ -7,7 +7,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Get GitHub access token response definition.
 func GetFactoryGitHubAccessToken(ctx *pulumi.Context, args *GetFactoryGitHubAccessTokenArgs, opts ...pulumi.InvokeOption) (*GetFactoryGitHubAccessTokenResult, error) {
 	var rv GetFactoryGitHubAccessTokenResult
 	err := ctx.Invoke("azure-native:datafactory/v20180601:getFactoryGitHubAccessToken", args, &rv, opts...)
@@ -18,22 +17,15 @@ func GetFactoryGitHubAccessToken(ctx *pulumi.Context, args *GetFactoryGitHubAcce
 }
 
 type GetFactoryGitHubAccessTokenArgs struct {
-	// The factory name.
-	FactoryName string `pulumi:"factoryName"`
-	// GitHub access code.
-	GitHubAccessCode string `pulumi:"gitHubAccessCode"`
-	// GitHub access token base URL.
-	GitHubAccessTokenBaseUrl string `pulumi:"gitHubAccessTokenBaseUrl"`
-	// GitHub application client ID.
-	GitHubClientId *string `pulumi:"gitHubClientId"`
-	// GitHub bring your own app client secret information.
-	GitHubClientSecret *GitHubClientSecret `pulumi:"gitHubClientSecret"`
-	// The resource group name.
-	ResourceGroupName string `pulumi:"resourceGroupName"`
+	FactoryName              string              `pulumi:"factoryName"`
+	GitHubAccessCode         string              `pulumi:"gitHubAccessCode"`
+	GitHubAccessTokenBaseUrl string              `pulumi:"gitHubAccessTokenBaseUrl"`
+	GitHubClientId           *string             `pulumi:"gitHubClientId"`
+	GitHubClientSecret       *GitHubClientSecret `pulumi:"gitHubClientSecret"`
+	ResourceGroupName        string              `pulumi:"resourceGroupName"`
 }
 
 // Get GitHub access token response definition.
 type GetFactoryGitHubAccessTokenResult struct {
-	// GitHub access token.
 	GitHubAccessToken *string `pulumi:"gitHubAccessToken"`
 }

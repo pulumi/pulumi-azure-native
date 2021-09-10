@@ -7,7 +7,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Description of an hostingEnvironment (App Service Environment)
 func LookupManagedHostingEnvironment(ctx *pulumi.Context, args *LookupManagedHostingEnvironmentArgs, opts ...pulumi.InvokeOption) (*LookupManagedHostingEnvironmentResult, error) {
 	var rv LookupManagedHostingEnvironmentResult
 	err := ctx.Invoke("azure-native:web/v20150801:getManagedHostingEnvironment", args, &rv, opts...)
@@ -18,45 +17,26 @@ func LookupManagedHostingEnvironment(ctx *pulumi.Context, args *LookupManagedHos
 }
 
 type LookupManagedHostingEnvironmentArgs struct {
-	// Name of managed hosting environment
-	Name string `pulumi:"name"`
-	// Name of resource group
+	Name              string `pulumi:"name"`
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 }
 
 // Description of a managed hosting environment
 type LookupManagedHostingEnvironmentResult struct {
-	// Resource id of the api management account associated with this managed hosting environment (read only)
-	ApiManagementAccount *string `pulumi:"apiManagementAccount"`
-	// DNS suffix of the managed hosting environment
-	DnsSuffix *string `pulumi:"dnsSuffix"`
-	// True/false indicating whether the managed hosting environment is healthy
-	EnvironmentIsHealthy *bool `pulumi:"environmentIsHealthy"`
-	// Detailed message about with results of the last check of the managed hosting environment
-	EnvironmentStatus *string `pulumi:"environmentStatus"`
-	// Resource Id
-	Id *string `pulumi:"id"`
-	// Number of ip ssl addresses reserved for the managed hosting environment
-	IpsslAddressCount *int `pulumi:"ipsslAddressCount"`
-	// Kind of resource
-	Kind *string `pulumi:"kind"`
-	// Resource Location
-	Location string `pulumi:"location"`
-	// Resource Name
-	Name *string `pulumi:"name"`
-	// Resource group of the managed hosting environment (read only)
-	ResourceGroup *string `pulumi:"resourceGroup"`
-	// Current status of the managed hosting environment
-	Status string `pulumi:"status"`
-	// Subscription of the managed hosting environment (read only)
-	SubscriptionId *string `pulumi:"subscriptionId"`
-	// True/false indicating whether the managed hosting environment is suspended. The environment can be suspended e.g. when the management endpoint is no longer available
-	//             (most likely because NSG blocked the incoming traffic)
-	Suspended *bool `pulumi:"suspended"`
-	// Resource tags
-	Tags map[string]string `pulumi:"tags"`
-	// Resource type
-	Type *string `pulumi:"type"`
-	// Description of the managed hosting environment's virtual network
-	VirtualNetwork *VirtualNetworkProfileResponse `pulumi:"virtualNetwork"`
+	ApiManagementAccount *string                        `pulumi:"apiManagementAccount"`
+	DnsSuffix            *string                        `pulumi:"dnsSuffix"`
+	EnvironmentIsHealthy *bool                          `pulumi:"environmentIsHealthy"`
+	EnvironmentStatus    *string                        `pulumi:"environmentStatus"`
+	Id                   *string                        `pulumi:"id"`
+	IpsslAddressCount    *int                           `pulumi:"ipsslAddressCount"`
+	Kind                 *string                        `pulumi:"kind"`
+	Location             string                         `pulumi:"location"`
+	Name                 *string                        `pulumi:"name"`
+	ResourceGroup        *string                        `pulumi:"resourceGroup"`
+	Status               string                         `pulumi:"status"`
+	SubscriptionId       *string                        `pulumi:"subscriptionId"`
+	Suspended            *bool                          `pulumi:"suspended"`
+	Tags                 map[string]string              `pulumi:"tags"`
+	Type                 *string                        `pulumi:"type"`
+	VirtualNetwork       *VirtualNetworkProfileResponse `pulumi:"virtualNetwork"`
 }

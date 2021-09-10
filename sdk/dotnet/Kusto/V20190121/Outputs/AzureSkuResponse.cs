@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.Kusto.V20190121.Outputs
 {
 
+    /// <summary>
+    /// Azure SKU definition.
+    /// </summary>
     [OutputType]
     public sealed class AzureSkuResponse
     {

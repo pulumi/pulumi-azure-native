@@ -11,32 +11,20 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Class representing a Kusto cluster.
 type Cluster struct {
 	pulumi.CustomResourceState
 
-	// The cluster data ingestion URI.
-	DataIngestionUri pulumi.StringOutput `pulumi:"dataIngestionUri"`
-	// An ETag of the resource created.
-	Etag pulumi.StringOutput `pulumi:"etag"`
-	// The geo-location where the resource lives
-	Location pulumi.StringOutput `pulumi:"location"`
-	// The name of the resource
-	Name pulumi.StringOutput `pulumi:"name"`
-	// The provisioned state of the resource.
-	ProvisioningState pulumi.StringOutput `pulumi:"provisioningState"`
-	// The SKU of the cluster.
-	Sku AzureSkuResponseOutput `pulumi:"sku"`
-	// The state of the resource.
-	State pulumi.StringOutput `pulumi:"state"`
-	// Resource tags.
-	Tags pulumi.StringMapOutput `pulumi:"tags"`
-	// The cluster's external tenants.
+	DataIngestionUri       pulumi.StringOutput                      `pulumi:"dataIngestionUri"`
+	Etag                   pulumi.StringOutput                      `pulumi:"etag"`
+	Location               pulumi.StringOutput                      `pulumi:"location"`
+	Name                   pulumi.StringOutput                      `pulumi:"name"`
+	ProvisioningState      pulumi.StringOutput                      `pulumi:"provisioningState"`
+	Sku                    AzureSkuResponseOutput                   `pulumi:"sku"`
+	State                  pulumi.StringOutput                      `pulumi:"state"`
+	Tags                   pulumi.StringMapOutput                   `pulumi:"tags"`
 	TrustedExternalTenants TrustedExternalTenantResponseArrayOutput `pulumi:"trustedExternalTenants"`
-	// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
-	Type pulumi.StringOutput `pulumi:"type"`
-	// The cluster URI.
-	Uri pulumi.StringOutput `pulumi:"uri"`
+	Type                   pulumi.StringOutput                      `pulumi:"type"`
+	Uri                    pulumi.StringOutput                      `pulumi:"uri"`
 }
 
 // NewCluster registers a new resource with the given unique name, arguments, and options.
@@ -156,33 +144,21 @@ func (ClusterState) ElementType() reflect.Type {
 }
 
 type clusterArgs struct {
-	// The name of the Kusto cluster.
-	ClusterName *string `pulumi:"clusterName"`
-	// The geo-location where the resource lives
-	Location *string `pulumi:"location"`
-	// The name of the resource group containing the Kusto cluster.
-	ResourceGroupName string `pulumi:"resourceGroupName"`
-	// The SKU of the cluster.
-	Sku AzureSku `pulumi:"sku"`
-	// Resource tags.
-	Tags map[string]string `pulumi:"tags"`
-	// The cluster's external tenants.
+	ClusterName            *string                 `pulumi:"clusterName"`
+	Location               *string                 `pulumi:"location"`
+	ResourceGroupName      string                  `pulumi:"resourceGroupName"`
+	Sku                    AzureSku                `pulumi:"sku"`
+	Tags                   map[string]string       `pulumi:"tags"`
 	TrustedExternalTenants []TrustedExternalTenant `pulumi:"trustedExternalTenants"`
 }
 
 // The set of arguments for constructing a Cluster resource.
 type ClusterArgs struct {
-	// The name of the Kusto cluster.
-	ClusterName pulumi.StringPtrInput
-	// The geo-location where the resource lives
-	Location pulumi.StringPtrInput
-	// The name of the resource group containing the Kusto cluster.
-	ResourceGroupName pulumi.StringInput
-	// The SKU of the cluster.
-	Sku AzureSkuInput
-	// Resource tags.
-	Tags pulumi.StringMapInput
-	// The cluster's external tenants.
+	ClusterName            pulumi.StringPtrInput
+	Location               pulumi.StringPtrInput
+	ResourceGroupName      pulumi.StringInput
+	Sku                    AzureSkuInput
+	Tags                   pulumi.StringMapInput
 	TrustedExternalTenants TrustedExternalTenantArrayInput
 }
 
@@ -209,9 +185,7 @@ func (i *Cluster) ToClusterOutputWithContext(ctx context.Context) ClusterOutput 
 	return pulumi.ToOutputWithContext(ctx, i).(ClusterOutput)
 }
 
-type ClusterOutput struct {
-	*pulumi.OutputState
-}
+type ClusterOutput struct{ *pulumi.OutputState }
 
 func (ClusterOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*Cluster)(nil))

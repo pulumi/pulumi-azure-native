@@ -7,7 +7,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Class that represents a BizTalk Hybrid Connection
 func LookupSiteRelayServiceConnectionSlot(ctx *pulumi.Context, args *LookupSiteRelayServiceConnectionSlotArgs, opts ...pulumi.InvokeOption) (*LookupSiteRelayServiceConnectionSlotResult, error) {
 	var rv LookupSiteRelayServiceConnectionSlotResult
 	err := ctx.Invoke("azure-native:web/v20150801:getSiteRelayServiceConnectionSlot", args, &rv, opts...)
@@ -18,35 +17,25 @@ func LookupSiteRelayServiceConnectionSlot(ctx *pulumi.Context, args *LookupSiteR
 }
 
 type LookupSiteRelayServiceConnectionSlotArgs struct {
-	// The name by which the Hybrid Connection is identified
-	EntityName string `pulumi:"entityName"`
-	// The name of the web app
-	Name string `pulumi:"name"`
-	// The resource group name
+	EntityName        string `pulumi:"entityName"`
+	Name              string `pulumi:"name"`
 	ResourceGroupName string `pulumi:"resourceGroupName"`
-	// The name of the slot for the web app.
-	Slot string `pulumi:"slot"`
+	Slot              string `pulumi:"slot"`
 }
 
 // Class that represents a BizTalk Hybrid Connection
 type LookupSiteRelayServiceConnectionSlotResult struct {
-	BiztalkUri             *string `pulumi:"biztalkUri"`
-	EntityConnectionString *string `pulumi:"entityConnectionString"`
-	EntityName             *string `pulumi:"entityName"`
-	Hostname               *string `pulumi:"hostname"`
-	// Resource Id
-	Id *string `pulumi:"id"`
-	// Kind of resource
-	Kind *string `pulumi:"kind"`
-	// Resource Location
-	Location string `pulumi:"location"`
-	// Resource Name
-	Name                     *string `pulumi:"name"`
-	Port                     *int    `pulumi:"port"`
-	ResourceConnectionString *string `pulumi:"resourceConnectionString"`
-	ResourceType             *string `pulumi:"resourceType"`
-	// Resource tags
-	Tags map[string]string `pulumi:"tags"`
-	// Resource type
-	Type *string `pulumi:"type"`
+	BiztalkUri               *string           `pulumi:"biztalkUri"`
+	EntityConnectionString   *string           `pulumi:"entityConnectionString"`
+	EntityName               *string           `pulumi:"entityName"`
+	Hostname                 *string           `pulumi:"hostname"`
+	Id                       *string           `pulumi:"id"`
+	Kind                     *string           `pulumi:"kind"`
+	Location                 string            `pulumi:"location"`
+	Name                     *string           `pulumi:"name"`
+	Port                     *int              `pulumi:"port"`
+	ResourceConnectionString *string           `pulumi:"resourceConnectionString"`
+	ResourceType             *string           `pulumi:"resourceType"`
+	Tags                     map[string]string `pulumi:"tags"`
+	Type                     *string           `pulumi:"type"`
 }

@@ -253,9 +253,7 @@ func (i *SqlResourceSqlDatabase) ToSqlResourceSqlDatabaseOutputWithContext(ctx c
 	return pulumi.ToOutputWithContext(ctx, i).(SqlResourceSqlDatabaseOutput)
 }
 
-type SqlResourceSqlDatabaseOutput struct {
-	*pulumi.OutputState
-}
+type SqlResourceSqlDatabaseOutput struct{ *pulumi.OutputState }
 
 func (SqlResourceSqlDatabaseOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*SqlResourceSqlDatabase)(nil))

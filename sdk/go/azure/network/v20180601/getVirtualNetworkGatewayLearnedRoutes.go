@@ -7,7 +7,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// List of virtual network gateway routes
 func GetVirtualNetworkGatewayLearnedRoutes(ctx *pulumi.Context, args *GetVirtualNetworkGatewayLearnedRoutesArgs, opts ...pulumi.InvokeOption) (*GetVirtualNetworkGatewayLearnedRoutesResult, error) {
 	var rv GetVirtualNetworkGatewayLearnedRoutesResult
 	err := ctx.Invoke("azure-native:network/v20180601:getVirtualNetworkGatewayLearnedRoutes", args, &rv, opts...)
@@ -18,14 +17,11 @@ func GetVirtualNetworkGatewayLearnedRoutes(ctx *pulumi.Context, args *GetVirtual
 }
 
 type GetVirtualNetworkGatewayLearnedRoutesArgs struct {
-	// The name of the resource group.
-	ResourceGroupName string `pulumi:"resourceGroupName"`
-	// The name of the virtual network gateway.
+	ResourceGroupName         string `pulumi:"resourceGroupName"`
 	VirtualNetworkGatewayName string `pulumi:"virtualNetworkGatewayName"`
 }
 
 // List of virtual network gateway routes
 type GetVirtualNetworkGatewayLearnedRoutesResult struct {
-	// List of gateway routes
 	Value []GatewayRouteResponse `pulumi:"value"`
 }

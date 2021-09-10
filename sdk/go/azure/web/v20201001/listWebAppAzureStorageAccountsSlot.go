@@ -7,7 +7,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// AzureStorageInfo dictionary resource.
 func ListWebAppAzureStorageAccountsSlot(ctx *pulumi.Context, args *ListWebAppAzureStorageAccountsSlotArgs, opts ...pulumi.InvokeOption) (*ListWebAppAzureStorageAccountsSlotResult, error) {
 	var rv ListWebAppAzureStorageAccountsSlotResult
 	err := ctx.Invoke("azure-native:web/v20201001:listWebAppAzureStorageAccountsSlot", args, &rv, opts...)
@@ -18,26 +17,17 @@ func ListWebAppAzureStorageAccountsSlot(ctx *pulumi.Context, args *ListWebAppAzu
 }
 
 type ListWebAppAzureStorageAccountsSlotArgs struct {
-	// Name of the app.
-	Name string `pulumi:"name"`
-	// Name of the resource group to which the resource belongs.
+	Name              string `pulumi:"name"`
 	ResourceGroupName string `pulumi:"resourceGroupName"`
-	// Name of the deployment slot. If a slot is not specified, the API will update the Azure storage account configurations for the production slot.
-	Slot string `pulumi:"slot"`
+	Slot              string `pulumi:"slot"`
 }
 
 // AzureStorageInfo dictionary resource.
 type ListWebAppAzureStorageAccountsSlotResult struct {
-	// Resource Id.
-	Id string `pulumi:"id"`
-	// Kind of resource.
-	Kind *string `pulumi:"kind"`
-	// Resource Name.
-	Name string `pulumi:"name"`
-	// Azure storage accounts.
+	Id         string                                   `pulumi:"id"`
+	Kind       *string                                  `pulumi:"kind"`
+	Name       string                                   `pulumi:"name"`
 	Properties map[string]AzureStorageInfoValueResponse `pulumi:"properties"`
-	// The system metadata relating to this resource.
-	SystemData SystemDataResponse `pulumi:"systemData"`
-	// Resource type.
-	Type string `pulumi:"type"`
+	SystemData SystemDataResponse                       `pulumi:"systemData"`
+	Type       string                                   `pulumi:"type"`
 }

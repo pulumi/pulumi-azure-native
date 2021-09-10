@@ -11,30 +11,19 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Resource information with extended details.
 type DedicatedHsm struct {
 	pulumi.CustomResourceState
 
-	// The supported Azure location where the dedicated HSM should be created.
-	Location pulumi.StringOutput `pulumi:"location"`
-	// The name of the dedicated HSM.
-	Name pulumi.StringOutput `pulumi:"name"`
-	// Specifies the network interfaces of the dedicated hsm.
-	NetworkProfile NetworkProfileResponsePtrOutput `pulumi:"networkProfile"`
-	// Provisioning state.
-	ProvisioningState pulumi.StringOutput `pulumi:"provisioningState"`
-	// SKU details
-	Sku SkuResponseOutput `pulumi:"sku"`
-	// This field will be used when RP does not support Availability zones.
-	StampId pulumi.StringPtrOutput `pulumi:"stampId"`
-	// Resource Status Message.
-	StatusMessage pulumi.StringOutput `pulumi:"statusMessage"`
-	// Resource tags
-	Tags pulumi.StringMapOutput `pulumi:"tags"`
-	// The resource type of the dedicated HSM.
-	Type pulumi.StringOutput `pulumi:"type"`
-	// The Dedicated Hsm zones.
-	Zones pulumi.StringArrayOutput `pulumi:"zones"`
+	Location          pulumi.StringOutput             `pulumi:"location"`
+	Name              pulumi.StringOutput             `pulumi:"name"`
+	NetworkProfile    NetworkProfileResponsePtrOutput `pulumi:"networkProfile"`
+	ProvisioningState pulumi.StringOutput             `pulumi:"provisioningState"`
+	Sku               SkuResponseOutput               `pulumi:"sku"`
+	StampId           pulumi.StringPtrOutput          `pulumi:"stampId"`
+	StatusMessage     pulumi.StringOutput             `pulumi:"statusMessage"`
+	Tags              pulumi.StringMapOutput          `pulumi:"tags"`
+	Type              pulumi.StringOutput             `pulumi:"type"`
+	Zones             pulumi.StringArrayOutput        `pulumi:"zones"`
 }
 
 // NewDedicatedHsm registers a new resource with the given unique name, arguments, and options.
@@ -94,42 +83,26 @@ func (DedicatedHsmState) ElementType() reflect.Type {
 }
 
 type dedicatedHsmArgs struct {
-	// The supported Azure location where the dedicated HSM should be created.
-	Location *string `pulumi:"location"`
-	// Name of the dedicated Hsm
-	Name *string `pulumi:"name"`
-	// Specifies the network interfaces of the dedicated hsm.
-	NetworkProfile *NetworkProfile `pulumi:"networkProfile"`
-	// The name of the Resource Group to which the resource belongs.
-	ResourceGroupName string `pulumi:"resourceGroupName"`
-	// SKU details
-	Sku Sku `pulumi:"sku"`
-	// This field will be used when RP does not support Availability zones.
-	StampId *string `pulumi:"stampId"`
-	// Resource tags
-	Tags map[string]string `pulumi:"tags"`
-	// The Dedicated Hsm zones.
-	Zones []string `pulumi:"zones"`
+	Location          *string           `pulumi:"location"`
+	Name              *string           `pulumi:"name"`
+	NetworkProfile    *NetworkProfile   `pulumi:"networkProfile"`
+	ResourceGroupName string            `pulumi:"resourceGroupName"`
+	Sku               Sku               `pulumi:"sku"`
+	StampId           *string           `pulumi:"stampId"`
+	Tags              map[string]string `pulumi:"tags"`
+	Zones             []string          `pulumi:"zones"`
 }
 
 // The set of arguments for constructing a DedicatedHsm resource.
 type DedicatedHsmArgs struct {
-	// The supported Azure location where the dedicated HSM should be created.
-	Location pulumi.StringPtrInput
-	// Name of the dedicated Hsm
-	Name pulumi.StringPtrInput
-	// Specifies the network interfaces of the dedicated hsm.
-	NetworkProfile NetworkProfilePtrInput
-	// The name of the Resource Group to which the resource belongs.
+	Location          pulumi.StringPtrInput
+	Name              pulumi.StringPtrInput
+	NetworkProfile    NetworkProfilePtrInput
 	ResourceGroupName pulumi.StringInput
-	// SKU details
-	Sku SkuInput
-	// This field will be used when RP does not support Availability zones.
-	StampId pulumi.StringPtrInput
-	// Resource tags
-	Tags pulumi.StringMapInput
-	// The Dedicated Hsm zones.
-	Zones pulumi.StringArrayInput
+	Sku               SkuInput
+	StampId           pulumi.StringPtrInput
+	Tags              pulumi.StringMapInput
+	Zones             pulumi.StringArrayInput
 }
 
 func (DedicatedHsmArgs) ElementType() reflect.Type {
@@ -155,9 +128,7 @@ func (i *DedicatedHsm) ToDedicatedHsmOutputWithContext(ctx context.Context) Dedi
 	return pulumi.ToOutputWithContext(ctx, i).(DedicatedHsmOutput)
 }
 
-type DedicatedHsmOutput struct {
-	*pulumi.OutputState
-}
+type DedicatedHsmOutput struct{ *pulumi.OutputState }
 
 func (DedicatedHsmOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*DedicatedHsm)(nil))

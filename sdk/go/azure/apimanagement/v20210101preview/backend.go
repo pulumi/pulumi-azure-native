@@ -11,32 +11,20 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Backend details.
 type Backend struct {
 	pulumi.CustomResourceState
 
-	// Backend Credentials Contract Properties
 	Credentials BackendCredentialsContractResponsePtrOutput `pulumi:"credentials"`
-	// Backend Description.
-	Description pulumi.StringPtrOutput `pulumi:"description"`
-	// Resource name.
-	Name pulumi.StringOutput `pulumi:"name"`
-	// Backend Properties contract
-	Properties BackendPropertiesResponseOutput `pulumi:"properties"`
-	// Backend communication protocol.
-	Protocol pulumi.StringOutput `pulumi:"protocol"`
-	// Backend Proxy Contract Properties
-	Proxy BackendProxyContractResponsePtrOutput `pulumi:"proxy"`
-	// Management Uri of the Resource in External System. This url can be the Arm Resource Id of Logic Apps, Function Apps or API Apps.
-	ResourceId pulumi.StringPtrOutput `pulumi:"resourceId"`
-	// Backend Title.
-	Title pulumi.StringPtrOutput `pulumi:"title"`
-	// Backend TLS Properties
-	Tls BackendTlsPropertiesResponsePtrOutput `pulumi:"tls"`
-	// Resource type for API Management resource.
-	Type pulumi.StringOutput `pulumi:"type"`
-	// Runtime Url of the Backend.
-	Url pulumi.StringOutput `pulumi:"url"`
+	Description pulumi.StringPtrOutput                      `pulumi:"description"`
+	Name        pulumi.StringOutput                         `pulumi:"name"`
+	Properties  BackendPropertiesResponseOutput             `pulumi:"properties"`
+	Protocol    pulumi.StringOutput                         `pulumi:"protocol"`
+	Proxy       BackendProxyContractResponsePtrOutput       `pulumi:"proxy"`
+	ResourceId  pulumi.StringPtrOutput                      `pulumi:"resourceId"`
+	Title       pulumi.StringPtrOutput                      `pulumi:"title"`
+	Tls         BackendTlsPropertiesResponsePtrOutput       `pulumi:"tls"`
+	Type        pulumi.StringOutput                         `pulumi:"type"`
+	Url         pulumi.StringOutput                         `pulumi:"url"`
 }
 
 // NewBackend registers a new resource with the given unique name, arguments, and options.
@@ -162,58 +150,34 @@ func (BackendState) ElementType() reflect.Type {
 }
 
 type backendArgs struct {
-	// Identifier of the Backend entity. Must be unique in the current API Management service instance.
-	BackendId *string `pulumi:"backendId"`
-	// Backend Credentials Contract Properties
-	Credentials *BackendCredentialsContract `pulumi:"credentials"`
-	// Backend Description.
-	Description *string `pulumi:"description"`
-	// Backend Properties contract
-	Properties *BackendProperties `pulumi:"properties"`
-	// Backend communication protocol.
-	Protocol string `pulumi:"protocol"`
-	// Backend Proxy Contract Properties
-	Proxy *BackendProxyContract `pulumi:"proxy"`
-	// The name of the resource group.
-	ResourceGroupName string `pulumi:"resourceGroupName"`
-	// Management Uri of the Resource in External System. This url can be the Arm Resource Id of Logic Apps, Function Apps or API Apps.
-	ResourceId *string `pulumi:"resourceId"`
-	// The name of the API Management service.
-	ServiceName string `pulumi:"serviceName"`
-	// Backend Title.
-	Title *string `pulumi:"title"`
-	// Backend TLS Properties
-	Tls *BackendTlsProperties `pulumi:"tls"`
-	// Runtime Url of the Backend.
-	Url string `pulumi:"url"`
+	BackendId         *string                     `pulumi:"backendId"`
+	Credentials       *BackendCredentialsContract `pulumi:"credentials"`
+	Description       *string                     `pulumi:"description"`
+	Properties        *BackendProperties          `pulumi:"properties"`
+	Protocol          string                      `pulumi:"protocol"`
+	Proxy             *BackendProxyContract       `pulumi:"proxy"`
+	ResourceGroupName string                      `pulumi:"resourceGroupName"`
+	ResourceId        *string                     `pulumi:"resourceId"`
+	ServiceName       string                      `pulumi:"serviceName"`
+	Title             *string                     `pulumi:"title"`
+	Tls               *BackendTlsProperties       `pulumi:"tls"`
+	Url               string                      `pulumi:"url"`
 }
 
 // The set of arguments for constructing a Backend resource.
 type BackendArgs struct {
-	// Identifier of the Backend entity. Must be unique in the current API Management service instance.
-	BackendId pulumi.StringPtrInput
-	// Backend Credentials Contract Properties
-	Credentials BackendCredentialsContractPtrInput
-	// Backend Description.
-	Description pulumi.StringPtrInput
-	// Backend Properties contract
-	Properties BackendPropertiesPtrInput
-	// Backend communication protocol.
-	Protocol pulumi.StringInput
-	// Backend Proxy Contract Properties
-	Proxy BackendProxyContractPtrInput
-	// The name of the resource group.
+	BackendId         pulumi.StringPtrInput
+	Credentials       BackendCredentialsContractPtrInput
+	Description       pulumi.StringPtrInput
+	Properties        BackendPropertiesPtrInput
+	Protocol          pulumi.StringInput
+	Proxy             BackendProxyContractPtrInput
 	ResourceGroupName pulumi.StringInput
-	// Management Uri of the Resource in External System. This url can be the Arm Resource Id of Logic Apps, Function Apps or API Apps.
-	ResourceId pulumi.StringPtrInput
-	// The name of the API Management service.
-	ServiceName pulumi.StringInput
-	// Backend Title.
-	Title pulumi.StringPtrInput
-	// Backend TLS Properties
-	Tls BackendTlsPropertiesPtrInput
-	// Runtime Url of the Backend.
-	Url pulumi.StringInput
+	ResourceId        pulumi.StringPtrInput
+	ServiceName       pulumi.StringInput
+	Title             pulumi.StringPtrInput
+	Tls               BackendTlsPropertiesPtrInput
+	Url               pulumi.StringInput
 }
 
 func (BackendArgs) ElementType() reflect.Type {
@@ -239,9 +203,7 @@ func (i *Backend) ToBackendOutputWithContext(ctx context.Context) BackendOutput 
 	return pulumi.ToOutputWithContext(ctx, i).(BackendOutput)
 }
 
-type BackendOutput struct {
-	*pulumi.OutputState
-}
+type BackendOutput struct{ *pulumi.OutputState }
 
 func (BackendOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*Backend)(nil))

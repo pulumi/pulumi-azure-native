@@ -11,16 +11,12 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Description of a namespace authorization rule.
 type WCFRelayAuthorizationRule struct {
 	pulumi.CustomResourceState
 
-	// Resource name.
-	Name pulumi.StringOutput `pulumi:"name"`
-	// The rights associated with the rule.
+	Name   pulumi.StringOutput      `pulumi:"name"`
 	Rights pulumi.StringArrayOutput `pulumi:"rights"`
-	// Resource type.
-	Type pulumi.StringOutput `pulumi:"type"`
+	Type   pulumi.StringOutput      `pulumi:"type"`
 }
 
 // NewWCFRelayAuthorizationRule registers a new resource with the given unique name, arguments, and options.
@@ -92,30 +88,20 @@ func (WCFRelayAuthorizationRuleState) ElementType() reflect.Type {
 }
 
 type wcfrelayAuthorizationRuleArgs struct {
-	// The authorization rule name.
-	AuthorizationRuleName *string `pulumi:"authorizationRuleName"`
-	// The namespace name
-	NamespaceName string `pulumi:"namespaceName"`
-	// The relay name.
-	RelayName string `pulumi:"relayName"`
-	// Name of the Resource group within the Azure subscription.
-	ResourceGroupName string `pulumi:"resourceGroupName"`
-	// The rights associated with the rule.
-	Rights []string `pulumi:"rights"`
+	AuthorizationRuleName *string        `pulumi:"authorizationRuleName"`
+	NamespaceName         string         `pulumi:"namespaceName"`
+	RelayName             string         `pulumi:"relayName"`
+	ResourceGroupName     string         `pulumi:"resourceGroupName"`
+	Rights                []AccessRights `pulumi:"rights"`
 }
 
 // The set of arguments for constructing a WCFRelayAuthorizationRule resource.
 type WCFRelayAuthorizationRuleArgs struct {
-	// The authorization rule name.
 	AuthorizationRuleName pulumi.StringPtrInput
-	// The namespace name
-	NamespaceName pulumi.StringInput
-	// The relay name.
-	RelayName pulumi.StringInput
-	// Name of the Resource group within the Azure subscription.
-	ResourceGroupName pulumi.StringInput
-	// The rights associated with the rule.
-	Rights AccessRightsArrayInput
+	NamespaceName         pulumi.StringInput
+	RelayName             pulumi.StringInput
+	ResourceGroupName     pulumi.StringInput
+	Rights                AccessRightsArrayInput
 }
 
 func (WCFRelayAuthorizationRuleArgs) ElementType() reflect.Type {
@@ -141,9 +127,7 @@ func (i *WCFRelayAuthorizationRule) ToWCFRelayAuthorizationRuleOutputWithContext
 	return pulumi.ToOutputWithContext(ctx, i).(WCFRelayAuthorizationRuleOutput)
 }
 
-type WCFRelayAuthorizationRuleOutput struct {
-	*pulumi.OutputState
-}
+type WCFRelayAuthorizationRuleOutput struct{ *pulumi.OutputState }
 
 func (WCFRelayAuthorizationRuleOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*WCFRelayAuthorizationRule)(nil))

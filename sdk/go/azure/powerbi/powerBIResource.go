@@ -138,9 +138,7 @@ func (i *PowerBIResource) ToPowerBIResourceOutputWithContext(ctx context.Context
 	return pulumi.ToOutputWithContext(ctx, i).(PowerBIResourceOutput)
 }
 
-type PowerBIResourceOutput struct {
-	*pulumi.OutputState
-}
+type PowerBIResourceOutput struct{ *pulumi.OutputState }
 
 func (PowerBIResourceOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*PowerBIResource)(nil))

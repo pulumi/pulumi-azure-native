@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.Aad.Outputs
 {
 
+    /// <summary>
+    /// Domain Security Settings
+    /// </summary>
     [OutputType]
     public sealed class DomainSecuritySettingsResponse
     {

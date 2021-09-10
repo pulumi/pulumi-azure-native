@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.PolicyInsights.V20180701Preview.Outputs
 {
 
+    /// <summary>
+    /// Details of a single deployment created by the remediation.
+    /// </summary>
     [OutputType]
     public sealed class RemediationDeploymentResponse
     {

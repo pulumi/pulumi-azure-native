@@ -146,9 +146,7 @@ func (i *DicomService) ToDicomServiceOutputWithContext(ctx context.Context) Dico
 	return pulumi.ToOutputWithContext(ctx, i).(DicomServiceOutput)
 }
 
-type DicomServiceOutput struct {
-	*pulumi.OutputState
-}
+type DicomServiceOutput struct{ *pulumi.OutputState }
 
 func (DicomServiceOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*DicomService)(nil))

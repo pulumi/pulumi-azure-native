@@ -162,9 +162,7 @@ func (i *WorkloadNetworkSegment) ToWorkloadNetworkSegmentOutputWithContext(ctx c
 	return pulumi.ToOutputWithContext(ctx, i).(WorkloadNetworkSegmentOutput)
 }
 
-type WorkloadNetworkSegmentOutput struct {
-	*pulumi.OutputState
-}
+type WorkloadNetworkSegmentOutput struct{ *pulumi.OutputState }
 
 func (WorkloadNetworkSegmentOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*WorkloadNetworkSegment)(nil))

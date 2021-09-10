@@ -11,17 +11,12 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Represents a blueprint artifact.
-//
 // Deprecated: Please use one of the variants: PolicyAssignmentArtifact, RoleAssignmentArtifact, TemplateArtifact.
 type Artifact struct {
 	pulumi.CustomResourceState
 
-	// Specifies the kind of blueprint artifact.
 	Kind pulumi.StringOutput `pulumi:"kind"`
-	// Name of this resource.
 	Name pulumi.StringOutput `pulumi:"name"`
-	// Type of this resource.
 	Type pulumi.StringOutput `pulumi:"type"`
 }
 
@@ -85,25 +80,17 @@ func (ArtifactState) ElementType() reflect.Type {
 }
 
 type artifactArgs struct {
-	// Name of the blueprint artifact.
-	ArtifactName *string `pulumi:"artifactName"`
-	// Name of the blueprint definition.
-	BlueprintName string `pulumi:"blueprintName"`
-	// Specifies the kind of blueprint artifact.
-	Kind string `pulumi:"kind"`
-	// The scope of the resource. Valid scopes are: management group (format: '/providers/Microsoft.Management/managementGroups/{managementGroup}'), subscription (format: '/subscriptions/{subscriptionId}').
-	ResourceScope string `pulumi:"resourceScope"`
+	ArtifactName  *string `pulumi:"artifactName"`
+	BlueprintName string  `pulumi:"blueprintName"`
+	Kind          string  `pulumi:"kind"`
+	ResourceScope string  `pulumi:"resourceScope"`
 }
 
 // The set of arguments for constructing a Artifact resource.
 type ArtifactArgs struct {
-	// Name of the blueprint artifact.
-	ArtifactName pulumi.StringPtrInput
-	// Name of the blueprint definition.
+	ArtifactName  pulumi.StringPtrInput
 	BlueprintName pulumi.StringInput
-	// Specifies the kind of blueprint artifact.
-	Kind pulumi.StringInput
-	// The scope of the resource. Valid scopes are: management group (format: '/providers/Microsoft.Management/managementGroups/{managementGroup}'), subscription (format: '/subscriptions/{subscriptionId}').
+	Kind          pulumi.StringInput
 	ResourceScope pulumi.StringInput
 }
 
@@ -130,9 +117,7 @@ func (i *Artifact) ToArtifactOutputWithContext(ctx context.Context) ArtifactOutp
 	return pulumi.ToOutputWithContext(ctx, i).(ArtifactOutput)
 }
 
-type ArtifactOutput struct {
-	*pulumi.OutputState
-}
+type ArtifactOutput struct{ *pulumi.OutputState }
 
 func (ArtifactOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*Artifact)(nil))

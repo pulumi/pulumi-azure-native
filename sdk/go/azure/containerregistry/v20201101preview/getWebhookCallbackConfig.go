@@ -7,7 +7,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// The configuration of service URI and custom headers for the webhook.
 func GetWebhookCallbackConfig(ctx *pulumi.Context, args *GetWebhookCallbackConfigArgs, opts ...pulumi.InvokeOption) (*GetWebhookCallbackConfigResult, error) {
 	var rv GetWebhookCallbackConfigResult
 	err := ctx.Invoke("azure-native:containerregistry/v20201101preview:getWebhookCallbackConfig", args, &rv, opts...)
@@ -18,18 +17,13 @@ func GetWebhookCallbackConfig(ctx *pulumi.Context, args *GetWebhookCallbackConfi
 }
 
 type GetWebhookCallbackConfigArgs struct {
-	// The name of the container registry.
-	RegistryName string `pulumi:"registryName"`
-	// The name of the resource group to which the container registry belongs.
+	RegistryName      string `pulumi:"registryName"`
 	ResourceGroupName string `pulumi:"resourceGroupName"`
-	// The name of the webhook.
-	WebhookName string `pulumi:"webhookName"`
+	WebhookName       string `pulumi:"webhookName"`
 }
 
 // The configuration of service URI and custom headers for the webhook.
 type GetWebhookCallbackConfigResult struct {
-	// Custom headers that will be added to the webhook notifications.
 	CustomHeaders map[string]string `pulumi:"customHeaders"`
-	// The service URI for the webhook to post notifications.
-	ServiceUri string `pulumi:"serviceUri"`
+	ServiceUri    string            `pulumi:"serviceUri"`
 }

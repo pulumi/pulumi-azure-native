@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.DataFactory.V20180601.Outputs
 {
 
+    /// <summary>
+    /// Azure ML Studio Web Service linked service.
+    /// </summary>
     [OutputType]
     public sealed class AzureMLLinkedServiceResponse
     {

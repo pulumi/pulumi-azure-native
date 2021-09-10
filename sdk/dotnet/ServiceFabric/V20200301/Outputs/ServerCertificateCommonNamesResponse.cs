@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.ServiceFabric.V20200301.Outputs
 {
 
+    /// <summary>
+    /// Describes a list of server certificates referenced by common name that are used to secure the cluster.
+    /// </summary>
     [OutputType]
     public sealed class ServerCertificateCommonNamesResponse
     {

@@ -7,7 +7,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Linked storage accounts top level resource container.
 func LookupLinkedStorageAccount(ctx *pulumi.Context, args *LookupLinkedStorageAccountArgs, opts ...pulumi.InvokeOption) (*LookupLinkedStorageAccountResult, error) {
 	var rv LookupLinkedStorageAccountResult
 	err := ctx.Invoke("azure-native:operationalinsights/v20200801:getLinkedStorageAccount", args, &rv, opts...)
@@ -18,24 +17,16 @@ func LookupLinkedStorageAccount(ctx *pulumi.Context, args *LookupLinkedStorageAc
 }
 
 type LookupLinkedStorageAccountArgs struct {
-	// Linked storage accounts type.
-	DataSourceType string `pulumi:"dataSourceType"`
-	// The name of the resource group. The name is case insensitive.
+	DataSourceType    string `pulumi:"dataSourceType"`
 	ResourceGroupName string `pulumi:"resourceGroupName"`
-	// The name of the workspace.
-	WorkspaceName string `pulumi:"workspaceName"`
+	WorkspaceName     string `pulumi:"workspaceName"`
 }
 
 // Linked storage accounts top level resource container.
 type LookupLinkedStorageAccountResult struct {
-	// Linked storage accounts type.
-	DataSourceType string `pulumi:"dataSourceType"`
-	// Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
-	Id string `pulumi:"id"`
-	// The name of the resource
-	Name string `pulumi:"name"`
-	// Linked storage accounts resources ids.
+	DataSourceType    string   `pulumi:"dataSourceType"`
+	Id                string   `pulumi:"id"`
+	Name              string   `pulumi:"name"`
 	StorageAccountIds []string `pulumi:"storageAccountIds"`
-	// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
-	Type string `pulumi:"type"`
+	Type              string   `pulumi:"type"`
 }

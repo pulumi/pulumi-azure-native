@@ -7,7 +7,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// The File Share.
 func LookupFileShare(ctx *pulumi.Context, args *LookupFileShareArgs, opts ...pulumi.InvokeOption) (*LookupFileShareResult, error) {
 	var rv LookupFileShareResult
 	err := ctx.Invoke("azure-native:storsimple/v20161001:getFileShare", args, &rv, opts...)
@@ -18,40 +17,24 @@ func LookupFileShare(ctx *pulumi.Context, args *LookupFileShareArgs, opts ...pul
 }
 
 type LookupFileShareArgs struct {
-	// The device name.
-	DeviceName string `pulumi:"deviceName"`
-	// The file server name.
-	FileServerName string `pulumi:"fileServerName"`
-	// The manager name
-	ManagerName string `pulumi:"managerName"`
-	// The resource group name
+	DeviceName        string `pulumi:"deviceName"`
+	FileServerName    string `pulumi:"fileServerName"`
+	ManagerName       string `pulumi:"managerName"`
 	ResourceGroupName string `pulumi:"resourceGroupName"`
-	// The file share name.
-	ShareName string `pulumi:"shareName"`
+	ShareName         string `pulumi:"shareName"`
 }
 
 // The File Share.
 type LookupFileShareResult struct {
-	// The user/group who will have full permission in this share. Active directory email address. Example: xyz@contoso.com or Contoso\xyz.
-	AdminUser string `pulumi:"adminUser"`
-	// The data policy
-	DataPolicy string `pulumi:"dataPolicy"`
-	// Description for file share
-	Description *string `pulumi:"description"`
-	// The identifier.
-	Id string `pulumi:"id"`
-	// The local used capacity in Bytes.
-	LocalUsedCapacityInBytes float64 `pulumi:"localUsedCapacityInBytes"`
-	// The monitoring status
-	MonitoringStatus string `pulumi:"monitoringStatus"`
-	// The name.
-	Name string `pulumi:"name"`
-	// The total provisioned capacity in Bytes
+	AdminUser                  string  `pulumi:"adminUser"`
+	DataPolicy                 string  `pulumi:"dataPolicy"`
+	Description                *string `pulumi:"description"`
+	Id                         string  `pulumi:"id"`
+	LocalUsedCapacityInBytes   float64 `pulumi:"localUsedCapacityInBytes"`
+	MonitoringStatus           string  `pulumi:"monitoringStatus"`
+	Name                       string  `pulumi:"name"`
 	ProvisionedCapacityInBytes float64 `pulumi:"provisionedCapacityInBytes"`
-	// The Share Status
-	ShareStatus string `pulumi:"shareStatus"`
-	// The type.
-	Type string `pulumi:"type"`
-	// The used capacity in Bytes.
-	UsedCapacityInBytes float64 `pulumi:"usedCapacityInBytes"`
+	ShareStatus                string  `pulumi:"shareStatus"`
+	Type                       string  `pulumi:"type"`
+	UsedCapacityInBytes        float64 `pulumi:"usedCapacityInBytes"`
 }

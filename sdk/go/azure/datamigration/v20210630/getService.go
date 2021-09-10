@@ -7,7 +7,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// A Database Migration Service resource
 func LookupService(ctx *pulumi.Context, args *LookupServiceArgs, opts ...pulumi.InvokeOption) (*LookupServiceResult, error) {
 	var rv LookupServiceResult
 	err := ctx.Invoke("azure-native:datamigration/v20210630:getService", args, &rv, opts...)
@@ -18,38 +17,23 @@ func LookupService(ctx *pulumi.Context, args *LookupServiceArgs, opts ...pulumi.
 }
 
 type LookupServiceArgs struct {
-	// Name of the resource group
-	GroupName string `pulumi:"groupName"`
-	// Name of the service
+	GroupName   string `pulumi:"groupName"`
 	ServiceName string `pulumi:"serviceName"`
 }
 
 // A Database Migration Service resource
 type LookupServiceResult struct {
-	// HTTP strong entity tag value. Ignored if submitted
-	Etag *string `pulumi:"etag"`
-	// Resource ID.
-	Id string `pulumi:"id"`
-	// The resource kind. Only 'vm' (the default) is supported.
-	Kind *string `pulumi:"kind"`
-	// Resource location.
-	Location string `pulumi:"location"`
-	// Resource name.
-	Name string `pulumi:"name"`
-	// The resource's provisioning state
-	ProvisioningState string `pulumi:"provisioningState"`
-	// The public key of the service, used to encrypt secrets sent to the service
-	PublicKey *string `pulumi:"publicKey"`
-	// Service SKU
-	Sku *ServiceSkuResponse `pulumi:"sku"`
-	// Metadata pertaining to creation and last modification of the resource.
-	SystemData SystemDataResponse `pulumi:"systemData"`
-	// Resource tags.
-	Tags map[string]string `pulumi:"tags"`
-	// Resource type.
-	Type string `pulumi:"type"`
-	// The ID of the Microsoft.Network/networkInterfaces resource which the service have
-	VirtualNicId *string `pulumi:"virtualNicId"`
-	// The ID of the Microsoft.Network/virtualNetworks/subnets resource to which the service should be joined
-	VirtualSubnetId string `pulumi:"virtualSubnetId"`
+	Etag              *string             `pulumi:"etag"`
+	Id                string              `pulumi:"id"`
+	Kind              *string             `pulumi:"kind"`
+	Location          string              `pulumi:"location"`
+	Name              string              `pulumi:"name"`
+	ProvisioningState string              `pulumi:"provisioningState"`
+	PublicKey         *string             `pulumi:"publicKey"`
+	Sku               *ServiceSkuResponse `pulumi:"sku"`
+	SystemData        SystemDataResponse  `pulumi:"systemData"`
+	Tags              map[string]string   `pulumi:"tags"`
+	Type              string              `pulumi:"type"`
+	VirtualNicId      *string             `pulumi:"virtualNicId"`
+	VirtualSubnetId   string              `pulumi:"virtualSubnetId"`
 }

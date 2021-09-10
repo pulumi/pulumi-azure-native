@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.RecoveryServices.V20210701.Outputs
 {
 
+    /// <summary>
+    /// InMageRcmFailback discovered VM details.
+    /// </summary>
     [OutputType]
     public sealed class InMageRcmFailbackDiscoveredProtectedVmDetailsResponse
     {

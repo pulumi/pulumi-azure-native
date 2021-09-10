@@ -193,9 +193,7 @@ func (i *ProtectionIntent) ToProtectionIntentOutputWithContext(ctx context.Conte
 	return pulumi.ToOutputWithContext(ctx, i).(ProtectionIntentOutput)
 }
 
-type ProtectionIntentOutput struct {
-	*pulumi.OutputState
-}
+type ProtectionIntentOutput struct{ *pulumi.OutputState }
 
 func (ProtectionIntentOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*ProtectionIntent)(nil))

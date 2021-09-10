@@ -7,7 +7,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Network Mapping model. Ideally it should have been possible to inherit this class from prev version in InheritedModels as long as there is no difference in structure or method signature. Since there were no base Models for certain fields and methods viz NetworkMappingProperties and Load with required return type, the class has been introduced in its entirety with references to base models to facilitate extensions in subsequent versions.
 func LookupReplicationNetworkMapping(ctx *pulumi.Context, args *LookupReplicationNetworkMappingArgs, opts ...pulumi.InvokeOption) (*LookupReplicationNetworkMappingResult, error) {
 	var rv LookupReplicationNetworkMappingResult
 	err := ctx.Invoke("azure-native:recoveryservices/v20210601:getReplicationNetworkMapping", args, &rv, opts...)
@@ -18,28 +17,18 @@ func LookupReplicationNetworkMapping(ctx *pulumi.Context, args *LookupReplicatio
 }
 
 type LookupReplicationNetworkMappingArgs struct {
-	// Primary fabric name.
-	FabricName string `pulumi:"fabricName"`
-	// Network mapping name.
+	FabricName         string `pulumi:"fabricName"`
 	NetworkMappingName string `pulumi:"networkMappingName"`
-	// Primary network name.
-	NetworkName string `pulumi:"networkName"`
-	// The name of the resource group where the recovery services vault is present.
-	ResourceGroupName string `pulumi:"resourceGroupName"`
-	// The name of the recovery services vault.
-	ResourceName string `pulumi:"resourceName"`
+	NetworkName        string `pulumi:"networkName"`
+	ResourceGroupName  string `pulumi:"resourceGroupName"`
+	ResourceName       string `pulumi:"resourceName"`
 }
 
 // Network Mapping model. Ideally it should have been possible to inherit this class from prev version in InheritedModels as long as there is no difference in structure or method signature. Since there were no base Models for certain fields and methods viz NetworkMappingProperties and Load with required return type, the class has been introduced in its entirety with references to base models to facilitate extensions in subsequent versions.
 type LookupReplicationNetworkMappingResult struct {
-	// Resource Id
-	Id string `pulumi:"id"`
-	// Resource Location
-	Location *string `pulumi:"location"`
-	// Resource Name
-	Name string `pulumi:"name"`
-	// The Network Mapping Properties.
+	Id         string                           `pulumi:"id"`
+	Location   *string                          `pulumi:"location"`
+	Name       string                           `pulumi:"name"`
 	Properties NetworkMappingPropertiesResponse `pulumi:"properties"`
-	// Resource Type
-	Type string `pulumi:"type"`
+	Type       string                           `pulumi:"type"`
 }

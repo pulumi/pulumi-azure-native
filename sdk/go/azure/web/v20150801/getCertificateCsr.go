@@ -7,7 +7,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Certificate signing request object
 func LookupCertificateCsr(ctx *pulumi.Context, args *LookupCertificateCsrArgs, opts ...pulumi.InvokeOption) (*LookupCertificateCsrResult, error) {
 	var rv LookupCertificateCsrResult
 	err := ctx.Invoke("azure-native:web/v20150801:getCertificateCsr", args, &rv, opts...)
@@ -18,36 +17,22 @@ func LookupCertificateCsr(ctx *pulumi.Context, args *LookupCertificateCsrArgs, o
 }
 
 type LookupCertificateCsrArgs struct {
-	// Name of the certificate.
-	Name string `pulumi:"name"`
-	// Name of the resource group
+	Name              string `pulumi:"name"`
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 }
 
 // Certificate signing request object
 type LookupCertificateCsrResult struct {
-	// Actual CSR string created
-	CsrString *string `pulumi:"csrString"`
-	// Distinguished name of certificate to be created
-	DistinguishedName *string `pulumi:"distinguishedName"`
-	// Hosting environment
-	HostingEnvironment *string `pulumi:"hostingEnvironment"`
-	// Resource Id
-	Id *string `pulumi:"id"`
-	// Kind of resource
-	Kind *string `pulumi:"kind"`
-	// Resource Location
-	Location string `pulumi:"location"`
-	// Resource Name
-	Name *string `pulumi:"name"`
-	// PFX password
-	Password *string `pulumi:"password"`
-	// PFX certificate of created certificate
-	PfxBlob *string `pulumi:"pfxBlob"`
-	// Hash of the certificates public key
-	PublicKeyHash *string `pulumi:"publicKeyHash"`
-	// Resource tags
-	Tags map[string]string `pulumi:"tags"`
-	// Resource type
-	Type *string `pulumi:"type"`
+	CsrString          *string           `pulumi:"csrString"`
+	DistinguishedName  *string           `pulumi:"distinguishedName"`
+	HostingEnvironment *string           `pulumi:"hostingEnvironment"`
+	Id                 *string           `pulumi:"id"`
+	Kind               *string           `pulumi:"kind"`
+	Location           string            `pulumi:"location"`
+	Name               *string           `pulumi:"name"`
+	Password           *string           `pulumi:"password"`
+	PfxBlob            *string           `pulumi:"pfxBlob"`
+	PublicKeyHash      *string           `pulumi:"publicKeyHash"`
+	Tags               map[string]string `pulumi:"tags"`
+	Type               *string           `pulumi:"type"`
 }

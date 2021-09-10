@@ -11,38 +11,23 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// The privateStore offer data structure.
 type PrivateStoreCollectionOffer struct {
 	pulumi.CustomResourceState
 
-	// Private store offer creation date
-	CreatedAt pulumi.StringOutput `pulumi:"createdAt"`
-	// Identifier for purposes of race condition
-	ETag pulumi.StringPtrOutput `pulumi:"eTag"`
-	// Icon File Uris
-	IconFileUris pulumi.StringMapOutput `pulumi:"iconFileUris"`
-	// Private store offer modification date
-	ModifiedAt pulumi.StringOutput `pulumi:"modifiedAt"`
-	// The name of the resource.
-	Name pulumi.StringOutput `pulumi:"name"`
-	// It will be displayed prominently in the marketplace
-	OfferDisplayName pulumi.StringOutput `pulumi:"offerDisplayName"`
-	// Offer plans
-	Plans PlanResponseArrayOutput `pulumi:"plans"`
-	// Private store unique id
-	PrivateStoreId pulumi.StringOutput `pulumi:"privateStoreId"`
-	// Publisher name that will be displayed prominently in the marketplace
-	PublisherDisplayName pulumi.StringOutput `pulumi:"publisherDisplayName"`
-	// Plan ids limitation for this offer
-	SpecificPlanIdsLimitation pulumi.StringArrayOutput `pulumi:"specificPlanIdsLimitation"`
-	// Metadata pertaining to creation and last modification of the resource
-	SystemData SystemDataResponseOutput `pulumi:"systemData"`
-	// The type of the resource.
-	Type pulumi.StringOutput `pulumi:"type"`
-	// Offers unique id
-	UniqueOfferId pulumi.StringOutput `pulumi:"uniqueOfferId"`
-	// Indicating whether the offer was not updated to db (true = not updated). If the allow list is identical to the existed one in db, the offer would not be updated.
-	UpdateSuppressedDueIdempotence pulumi.BoolPtrOutput `pulumi:"updateSuppressedDueIdempotence"`
+	CreatedAt                      pulumi.StringOutput      `pulumi:"createdAt"`
+	ETag                           pulumi.StringPtrOutput   `pulumi:"eTag"`
+	IconFileUris                   pulumi.StringMapOutput   `pulumi:"iconFileUris"`
+	ModifiedAt                     pulumi.StringOutput      `pulumi:"modifiedAt"`
+	Name                           pulumi.StringOutput      `pulumi:"name"`
+	OfferDisplayName               pulumi.StringOutput      `pulumi:"offerDisplayName"`
+	Plans                          PlanResponseArrayOutput  `pulumi:"plans"`
+	PrivateStoreId                 pulumi.StringOutput      `pulumi:"privateStoreId"`
+	PublisherDisplayName           pulumi.StringOutput      `pulumi:"publisherDisplayName"`
+	SpecificPlanIdsLimitation      pulumi.StringArrayOutput `pulumi:"specificPlanIdsLimitation"`
+	SystemData                     SystemDataResponseOutput `pulumi:"systemData"`
+	Type                           pulumi.StringOutput      `pulumi:"type"`
+	UniqueOfferId                  pulumi.StringOutput      `pulumi:"uniqueOfferId"`
+	UpdateSuppressedDueIdempotence pulumi.BoolPtrOutput     `pulumi:"updateSuppressedDueIdempotence"`
 }
 
 // NewPrivateStoreCollectionOffer registers a new resource with the given unique name, arguments, and options.
@@ -102,41 +87,25 @@ func (PrivateStoreCollectionOfferState) ElementType() reflect.Type {
 }
 
 type privateStoreCollectionOfferArgs struct {
-	// The collection ID
-	CollectionId string `pulumi:"collectionId"`
-	// Identifier for purposes of race condition
-	ETag *string `pulumi:"eTag"`
-	// Icon File Uris
-	IconFileUris map[string]string `pulumi:"iconFileUris"`
-	// The offer ID to update or delete
-	OfferId *string `pulumi:"offerId"`
-	// Offer plans
-	Plans []Plan `pulumi:"plans"`
-	// The store ID - must use the tenant ID
-	PrivateStoreId string `pulumi:"privateStoreId"`
-	// Plan ids limitation for this offer
-	SpecificPlanIdsLimitation []string `pulumi:"specificPlanIdsLimitation"`
-	// Indicating whether the offer was not updated to db (true = not updated). If the allow list is identical to the existed one in db, the offer would not be updated.
-	UpdateSuppressedDueIdempotence *bool `pulumi:"updateSuppressedDueIdempotence"`
+	CollectionId                   string            `pulumi:"collectionId"`
+	ETag                           *string           `pulumi:"eTag"`
+	IconFileUris                   map[string]string `pulumi:"iconFileUris"`
+	OfferId                        *string           `pulumi:"offerId"`
+	Plans                          []Plan            `pulumi:"plans"`
+	PrivateStoreId                 string            `pulumi:"privateStoreId"`
+	SpecificPlanIdsLimitation      []string          `pulumi:"specificPlanIdsLimitation"`
+	UpdateSuppressedDueIdempotence *bool             `pulumi:"updateSuppressedDueIdempotence"`
 }
 
 // The set of arguments for constructing a PrivateStoreCollectionOffer resource.
 type PrivateStoreCollectionOfferArgs struct {
-	// The collection ID
-	CollectionId pulumi.StringInput
-	// Identifier for purposes of race condition
-	ETag pulumi.StringPtrInput
-	// Icon File Uris
-	IconFileUris pulumi.StringMapInput
-	// The offer ID to update or delete
-	OfferId pulumi.StringPtrInput
-	// Offer plans
-	Plans PlanArrayInput
-	// The store ID - must use the tenant ID
-	PrivateStoreId pulumi.StringInput
-	// Plan ids limitation for this offer
-	SpecificPlanIdsLimitation pulumi.StringArrayInput
-	// Indicating whether the offer was not updated to db (true = not updated). If the allow list is identical to the existed one in db, the offer would not be updated.
+	CollectionId                   pulumi.StringInput
+	ETag                           pulumi.StringPtrInput
+	IconFileUris                   pulumi.StringMapInput
+	OfferId                        pulumi.StringPtrInput
+	Plans                          PlanArrayInput
+	PrivateStoreId                 pulumi.StringInput
+	SpecificPlanIdsLimitation      pulumi.StringArrayInput
 	UpdateSuppressedDueIdempotence pulumi.BoolPtrInput
 }
 
@@ -163,9 +132,7 @@ func (i *PrivateStoreCollectionOffer) ToPrivateStoreCollectionOfferOutputWithCon
 	return pulumi.ToOutputWithContext(ctx, i).(PrivateStoreCollectionOfferOutput)
 }
 
-type PrivateStoreCollectionOfferOutput struct {
-	*pulumi.OutputState
-}
+type PrivateStoreCollectionOfferOutput struct{ *pulumi.OutputState }
 
 func (PrivateStoreCollectionOfferOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*PrivateStoreCollectionOffer)(nil))

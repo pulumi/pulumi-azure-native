@@ -7,7 +7,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// The description of the IoT hub.
 func LookupIotHubResource(ctx *pulumi.Context, args *LookupIotHubResourceArgs, opts ...pulumi.InvokeOption) (*LookupIotHubResourceResult, error) {
 	var rv LookupIotHubResourceResult
 	err := ctx.Invoke("azure-native:devices/v20190322preview:getIotHubResource", args, &rv, opts...)
@@ -18,28 +17,18 @@ func LookupIotHubResource(ctx *pulumi.Context, args *LookupIotHubResourceArgs, o
 }
 
 type LookupIotHubResourceArgs struct {
-	// The name of the resource group that contains the IoT hub.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
-	// The name of the IoT hub.
-	ResourceName string `pulumi:"resourceName"`
+	ResourceName      string `pulumi:"resourceName"`
 }
 
 // The description of the IoT hub.
 type LookupIotHubResourceResult struct {
-	// The Etag field is *not* required. If it is provided in the response body, it must also be provided as a header per the normal ETag convention.
-	Etag *string `pulumi:"etag"`
-	// The resource identifier.
-	Id string `pulumi:"id"`
-	// The resource location.
-	Location string `pulumi:"location"`
-	// The resource name.
-	Name string `pulumi:"name"`
-	// IotHub properties
+	Etag       *string                  `pulumi:"etag"`
+	Id         string                   `pulumi:"id"`
+	Location   string                   `pulumi:"location"`
+	Name       string                   `pulumi:"name"`
 	Properties IotHubPropertiesResponse `pulumi:"properties"`
-	// IotHub SKU info
-	Sku IotHubSkuInfoResponse `pulumi:"sku"`
-	// The resource tags.
-	Tags map[string]string `pulumi:"tags"`
-	// The resource type.
-	Type string `pulumi:"type"`
+	Sku        IotHubSkuInfoResponse    `pulumi:"sku"`
+	Tags       map[string]string        `pulumi:"tags"`
+	Type       string                   `pulumi:"type"`
 }

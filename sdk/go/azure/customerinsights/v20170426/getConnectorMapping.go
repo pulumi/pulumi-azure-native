@@ -7,7 +7,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// The connector mapping resource format.
 func LookupConnectorMapping(ctx *pulumi.Context, args *LookupConnectorMappingArgs, opts ...pulumi.InvokeOption) (*LookupConnectorMappingResult, error) {
 	var rv LookupConnectorMappingResult
 	err := ctx.Invoke("azure-native:customerinsights/v20170426:getConnectorMapping", args, &rv, opts...)
@@ -18,52 +17,30 @@ func LookupConnectorMapping(ctx *pulumi.Context, args *LookupConnectorMappingArg
 }
 
 type LookupConnectorMappingArgs struct {
-	// The name of the connector.
-	ConnectorName string `pulumi:"connectorName"`
-	// The name of the hub.
-	HubName string `pulumi:"hubName"`
-	// The name of the connector mapping.
-	MappingName string `pulumi:"mappingName"`
-	// The name of the resource group.
+	ConnectorName     string `pulumi:"connectorName"`
+	HubName           string `pulumi:"hubName"`
+	MappingName       string `pulumi:"mappingName"`
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 }
 
 // The connector mapping resource format.
 type LookupConnectorMappingResult struct {
-	// The connector mapping name
-	ConnectorMappingName string `pulumi:"connectorMappingName"`
-	// The connector name.
-	ConnectorName string `pulumi:"connectorName"`
-	// Type of connector.
-	ConnectorType *string `pulumi:"connectorType"`
-	// The created time.
-	Created string `pulumi:"created"`
-	// The DataFormat ID.
-	DataFormatId string `pulumi:"dataFormatId"`
-	// The description of the connector mapping.
-	Description *string `pulumi:"description"`
-	// Display name for the connector mapping.
-	DisplayName *string `pulumi:"displayName"`
-	// Defines which entity type the file should map to.
-	EntityType string `pulumi:"entityType"`
-	// The mapping entity name.
-	EntityTypeName string `pulumi:"entityTypeName"`
-	// Resource ID.
-	Id string `pulumi:"id"`
-	// The last modified time.
-	LastModified string `pulumi:"lastModified"`
-	// The properties of the mapping.
-	MappingProperties ConnectorMappingPropertiesResponse `pulumi:"mappingProperties"`
-	// Resource name.
-	Name string `pulumi:"name"`
-	// The next run time based on customer's settings.
-	NextRunTime string `pulumi:"nextRunTime"`
-	// The RunId.
-	RunId string `pulumi:"runId"`
-	// State of connector mapping.
-	State string `pulumi:"state"`
-	// The hub name.
-	TenantId string `pulumi:"tenantId"`
-	// Resource type.
-	Type string `pulumi:"type"`
+	ConnectorMappingName string                             `pulumi:"connectorMappingName"`
+	ConnectorName        string                             `pulumi:"connectorName"`
+	ConnectorType        *string                            `pulumi:"connectorType"`
+	Created              string                             `pulumi:"created"`
+	DataFormatId         string                             `pulumi:"dataFormatId"`
+	Description          *string                            `pulumi:"description"`
+	DisplayName          *string                            `pulumi:"displayName"`
+	EntityType           string                             `pulumi:"entityType"`
+	EntityTypeName       string                             `pulumi:"entityTypeName"`
+	Id                   string                             `pulumi:"id"`
+	LastModified         string                             `pulumi:"lastModified"`
+	MappingProperties    ConnectorMappingPropertiesResponse `pulumi:"mappingProperties"`
+	Name                 string                             `pulumi:"name"`
+	NextRunTime          string                             `pulumi:"nextRunTime"`
+	RunId                string                             `pulumi:"runId"`
+	State                string                             `pulumi:"state"`
+	TenantId             string                             `pulumi:"tenantId"`
+	Type                 string                             `pulumi:"type"`
 }

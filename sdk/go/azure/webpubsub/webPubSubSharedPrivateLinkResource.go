@@ -162,9 +162,7 @@ func (i *WebPubSubSharedPrivateLinkResource) ToWebPubSubSharedPrivateLinkResourc
 	return pulumi.ToOutputWithContext(ctx, i).(WebPubSubSharedPrivateLinkResourceOutput)
 }
 
-type WebPubSubSharedPrivateLinkResourceOutput struct {
-	*pulumi.OutputState
-}
+type WebPubSubSharedPrivateLinkResourceOutput struct{ *pulumi.OutputState }
 
 func (WebPubSubSharedPrivateLinkResourceOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*WebPubSubSharedPrivateLinkResource)(nil))

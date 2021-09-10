@@ -10,26 +10,12 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// The billing information of the SignalR resource.
 type ResourceSku struct {
-	// Optional, integer. The unit count of SignalR resource. 1 by default.
-	//
-	// If present, following values are allowed:
-	//     Free: 1
-	//     Standard: 1,2,5,10,20,50,100
-	Capacity *int `pulumi:"capacity"`
-	// Optional string. For future use.
-	Family *string `pulumi:"family"`
-	// The name of the SKU. Required.
-	//
-	// Allowed values: Standard_S1, Free_F1
-	Name string `pulumi:"name"`
-	// Optional string. For future use.
-	Size *string `pulumi:"size"`
-	// Optional tier of this particular SKU. 'Standard' or 'Free'.
-	//
-	// `Basic` is deprecated, use `Standard` instead.
-	Tier *string `pulumi:"tier"`
+	Capacity *int    `pulumi:"capacity"`
+	Family   *string `pulumi:"family"`
+	Name     string  `pulumi:"name"`
+	Size     *string `pulumi:"size"`
+	Tier     *string `pulumi:"tier"`
 }
 
 // ResourceSkuInput is an input type that accepts ResourceSkuArgs and ResourceSkuOutput values.
@@ -43,26 +29,12 @@ type ResourceSkuInput interface {
 	ToResourceSkuOutputWithContext(context.Context) ResourceSkuOutput
 }
 
-// The billing information of the SignalR resource.
 type ResourceSkuArgs struct {
-	// Optional, integer. The unit count of SignalR resource. 1 by default.
-	//
-	// If present, following values are allowed:
-	//     Free: 1
-	//     Standard: 1,2,5,10,20,50,100
-	Capacity pulumi.IntPtrInput `pulumi:"capacity"`
-	// Optional string. For future use.
-	Family pulumi.StringPtrInput `pulumi:"family"`
-	// The name of the SKU. Required.
-	//
-	// Allowed values: Standard_S1, Free_F1
-	Name pulumi.StringInput `pulumi:"name"`
-	// Optional string. For future use.
-	Size pulumi.StringPtrInput `pulumi:"size"`
-	// Optional tier of this particular SKU. 'Standard' or 'Free'.
-	//
-	// `Basic` is deprecated, use `Standard` instead.
-	Tier pulumi.StringPtrInput `pulumi:"tier"`
+	Capacity pulumi.IntPtrInput    `pulumi:"capacity"`
+	Family   pulumi.StringPtrInput `pulumi:"family"`
+	Name     pulumi.StringInput    `pulumi:"name"`
+	Size     pulumi.StringPtrInput `pulumi:"size"`
+	Tier     pulumi.StringPtrInput `pulumi:"tier"`
 }
 
 func (ResourceSkuArgs) ElementType() reflect.Type {
@@ -118,7 +90,6 @@ func (i *resourceSkuPtrType) ToResourceSkuPtrOutputWithContext(ctx context.Conte
 	return pulumi.ToOutputWithContext(ctx, i).(ResourceSkuPtrOutput)
 }
 
-// The billing information of the SignalR resource.
 type ResourceSkuOutput struct{ *pulumi.OutputState }
 
 func (ResourceSkuOutput) ElementType() reflect.Type {
@@ -138,40 +109,27 @@ func (o ResourceSkuOutput) ToResourceSkuPtrOutput() ResourceSkuPtrOutput {
 }
 
 func (o ResourceSkuOutput) ToResourceSkuPtrOutputWithContext(ctx context.Context) ResourceSkuPtrOutput {
-	return o.ApplyT(func(v ResourceSku) *ResourceSku {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ResourceSku) *ResourceSku {
 		return &v
 	}).(ResourceSkuPtrOutput)
 }
 
-// Optional, integer. The unit count of SignalR resource. 1 by default.
-//
-// If present, following values are allowed:
-//     Free: 1
-//     Standard: 1,2,5,10,20,50,100
 func (o ResourceSkuOutput) Capacity() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v ResourceSku) *int { return v.Capacity }).(pulumi.IntPtrOutput)
 }
 
-// Optional string. For future use.
 func (o ResourceSkuOutput) Family() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ResourceSku) *string { return v.Family }).(pulumi.StringPtrOutput)
 }
 
-// The name of the SKU. Required.
-//
-// Allowed values: Standard_S1, Free_F1
 func (o ResourceSkuOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v ResourceSku) string { return v.Name }).(pulumi.StringOutput)
 }
 
-// Optional string. For future use.
 func (o ResourceSkuOutput) Size() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ResourceSku) *string { return v.Size }).(pulumi.StringPtrOutput)
 }
 
-// Optional tier of this particular SKU. 'Standard' or 'Free'.
-//
-// `Basic` is deprecated, use `Standard` instead.
 func (o ResourceSkuOutput) Tier() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ResourceSku) *string { return v.Tier }).(pulumi.StringPtrOutput)
 }
@@ -191,14 +149,15 @@ func (o ResourceSkuPtrOutput) ToResourceSkuPtrOutputWithContext(ctx context.Cont
 }
 
 func (o ResourceSkuPtrOutput) Elem() ResourceSkuOutput {
-	return o.ApplyT(func(v *ResourceSku) ResourceSku { return *v }).(ResourceSkuOutput)
+	return o.ApplyT(func(v *ResourceSku) ResourceSku {
+		if v != nil {
+			return *v
+		}
+		var ret ResourceSku
+		return ret
+	}).(ResourceSkuOutput)
 }
 
-// Optional, integer. The unit count of SignalR resource. 1 by default.
-//
-// If present, following values are allowed:
-//     Free: 1
-//     Standard: 1,2,5,10,20,50,100
 func (o ResourceSkuPtrOutput) Capacity() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *ResourceSku) *int {
 		if v == nil {
@@ -208,7 +167,6 @@ func (o ResourceSkuPtrOutput) Capacity() pulumi.IntPtrOutput {
 	}).(pulumi.IntPtrOutput)
 }
 
-// Optional string. For future use.
 func (o ResourceSkuPtrOutput) Family() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ResourceSku) *string {
 		if v == nil {
@@ -218,9 +176,6 @@ func (o ResourceSkuPtrOutput) Family() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The name of the SKU. Required.
-//
-// Allowed values: Standard_S1, Free_F1
 func (o ResourceSkuPtrOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ResourceSku) *string {
 		if v == nil {
@@ -230,7 +185,6 @@ func (o ResourceSkuPtrOutput) Name() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Optional string. For future use.
 func (o ResourceSkuPtrOutput) Size() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ResourceSku) *string {
 		if v == nil {
@@ -240,9 +194,6 @@ func (o ResourceSkuPtrOutput) Size() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Optional tier of this particular SKU. 'Standard' or 'Free'.
-//
-// `Basic` is deprecated, use `Standard` instead.
 func (o ResourceSkuPtrOutput) Tier() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ResourceSku) *string {
 		if v == nil {
@@ -252,26 +203,12 @@ func (o ResourceSkuPtrOutput) Tier() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The billing information of the SignalR resource.
 type ResourceSkuResponse struct {
-	// Optional, integer. The unit count of SignalR resource. 1 by default.
-	//
-	// If present, following values are allowed:
-	//     Free: 1
-	//     Standard: 1,2,5,10,20,50,100
-	Capacity *int `pulumi:"capacity"`
-	// Optional string. For future use.
-	Family *string `pulumi:"family"`
-	// The name of the SKU. Required.
-	//
-	// Allowed values: Standard_S1, Free_F1
-	Name string `pulumi:"name"`
-	// Optional string. For future use.
-	Size *string `pulumi:"size"`
-	// Optional tier of this particular SKU. 'Standard' or 'Free'.
-	//
-	// `Basic` is deprecated, use `Standard` instead.
-	Tier *string `pulumi:"tier"`
+	Capacity *int    `pulumi:"capacity"`
+	Family   *string `pulumi:"family"`
+	Name     string  `pulumi:"name"`
+	Size     *string `pulumi:"size"`
+	Tier     *string `pulumi:"tier"`
 }
 
 // ResourceSkuResponseInput is an input type that accepts ResourceSkuResponseArgs and ResourceSkuResponseOutput values.
@@ -285,26 +222,12 @@ type ResourceSkuResponseInput interface {
 	ToResourceSkuResponseOutputWithContext(context.Context) ResourceSkuResponseOutput
 }
 
-// The billing information of the SignalR resource.
 type ResourceSkuResponseArgs struct {
-	// Optional, integer. The unit count of SignalR resource. 1 by default.
-	//
-	// If present, following values are allowed:
-	//     Free: 1
-	//     Standard: 1,2,5,10,20,50,100
-	Capacity pulumi.IntPtrInput `pulumi:"capacity"`
-	// Optional string. For future use.
-	Family pulumi.StringPtrInput `pulumi:"family"`
-	// The name of the SKU. Required.
-	//
-	// Allowed values: Standard_S1, Free_F1
-	Name pulumi.StringInput `pulumi:"name"`
-	// Optional string. For future use.
-	Size pulumi.StringPtrInput `pulumi:"size"`
-	// Optional tier of this particular SKU. 'Standard' or 'Free'.
-	//
-	// `Basic` is deprecated, use `Standard` instead.
-	Tier pulumi.StringPtrInput `pulumi:"tier"`
+	Capacity pulumi.IntPtrInput    `pulumi:"capacity"`
+	Family   pulumi.StringPtrInput `pulumi:"family"`
+	Name     pulumi.StringInput    `pulumi:"name"`
+	Size     pulumi.StringPtrInput `pulumi:"size"`
+	Tier     pulumi.StringPtrInput `pulumi:"tier"`
 }
 
 func (ResourceSkuResponseArgs) ElementType() reflect.Type {
@@ -360,7 +283,6 @@ func (i *resourceSkuResponsePtrType) ToResourceSkuResponsePtrOutputWithContext(c
 	return pulumi.ToOutputWithContext(ctx, i).(ResourceSkuResponsePtrOutput)
 }
 
-// The billing information of the SignalR resource.
 type ResourceSkuResponseOutput struct{ *pulumi.OutputState }
 
 func (ResourceSkuResponseOutput) ElementType() reflect.Type {
@@ -380,40 +302,27 @@ func (o ResourceSkuResponseOutput) ToResourceSkuResponsePtrOutput() ResourceSkuR
 }
 
 func (o ResourceSkuResponseOutput) ToResourceSkuResponsePtrOutputWithContext(ctx context.Context) ResourceSkuResponsePtrOutput {
-	return o.ApplyT(func(v ResourceSkuResponse) *ResourceSkuResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ResourceSkuResponse) *ResourceSkuResponse {
 		return &v
 	}).(ResourceSkuResponsePtrOutput)
 }
 
-// Optional, integer. The unit count of SignalR resource. 1 by default.
-//
-// If present, following values are allowed:
-//     Free: 1
-//     Standard: 1,2,5,10,20,50,100
 func (o ResourceSkuResponseOutput) Capacity() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v ResourceSkuResponse) *int { return v.Capacity }).(pulumi.IntPtrOutput)
 }
 
-// Optional string. For future use.
 func (o ResourceSkuResponseOutput) Family() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ResourceSkuResponse) *string { return v.Family }).(pulumi.StringPtrOutput)
 }
 
-// The name of the SKU. Required.
-//
-// Allowed values: Standard_S1, Free_F1
 func (o ResourceSkuResponseOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v ResourceSkuResponse) string { return v.Name }).(pulumi.StringOutput)
 }
 
-// Optional string. For future use.
 func (o ResourceSkuResponseOutput) Size() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ResourceSkuResponse) *string { return v.Size }).(pulumi.StringPtrOutput)
 }
 
-// Optional tier of this particular SKU. 'Standard' or 'Free'.
-//
-// `Basic` is deprecated, use `Standard` instead.
 func (o ResourceSkuResponseOutput) Tier() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ResourceSkuResponse) *string { return v.Tier }).(pulumi.StringPtrOutput)
 }
@@ -433,14 +342,15 @@ func (o ResourceSkuResponsePtrOutput) ToResourceSkuResponsePtrOutputWithContext(
 }
 
 func (o ResourceSkuResponsePtrOutput) Elem() ResourceSkuResponseOutput {
-	return o.ApplyT(func(v *ResourceSkuResponse) ResourceSkuResponse { return *v }).(ResourceSkuResponseOutput)
+	return o.ApplyT(func(v *ResourceSkuResponse) ResourceSkuResponse {
+		if v != nil {
+			return *v
+		}
+		var ret ResourceSkuResponse
+		return ret
+	}).(ResourceSkuResponseOutput)
 }
 
-// Optional, integer. The unit count of SignalR resource. 1 by default.
-//
-// If present, following values are allowed:
-//     Free: 1
-//     Standard: 1,2,5,10,20,50,100
 func (o ResourceSkuResponsePtrOutput) Capacity() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *ResourceSkuResponse) *int {
 		if v == nil {
@@ -450,7 +360,6 @@ func (o ResourceSkuResponsePtrOutput) Capacity() pulumi.IntPtrOutput {
 	}).(pulumi.IntPtrOutput)
 }
 
-// Optional string. For future use.
 func (o ResourceSkuResponsePtrOutput) Family() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ResourceSkuResponse) *string {
 		if v == nil {
@@ -460,9 +369,6 @@ func (o ResourceSkuResponsePtrOutput) Family() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The name of the SKU. Required.
-//
-// Allowed values: Standard_S1, Free_F1
 func (o ResourceSkuResponsePtrOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ResourceSkuResponse) *string {
 		if v == nil {
@@ -472,7 +378,6 @@ func (o ResourceSkuResponsePtrOutput) Name() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Optional string. For future use.
 func (o ResourceSkuResponsePtrOutput) Size() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ResourceSkuResponse) *string {
 		if v == nil {
@@ -482,9 +387,6 @@ func (o ResourceSkuResponsePtrOutput) Size() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Optional tier of this particular SKU. 'Standard' or 'Free'.
-//
-// `Basic` is deprecated, use `Standard` instead.
 func (o ResourceSkuResponsePtrOutput) Tier() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ResourceSkuResponse) *string {
 		if v == nil {
@@ -494,9 +396,7 @@ func (o ResourceSkuResponsePtrOutput) Tier() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Cross-Origin Resource Sharing (CORS) settings.
 type SignalRCorsSettings struct {
-	// Gets or sets the list of origins that should be allowed to make cross-origin calls (for example: http://example.com:12345). Use "*" to allow all. If omitted, allow all by default.
 	AllowedOrigins []string `pulumi:"allowedOrigins"`
 }
 
@@ -511,9 +411,7 @@ type SignalRCorsSettingsInput interface {
 	ToSignalRCorsSettingsOutputWithContext(context.Context) SignalRCorsSettingsOutput
 }
 
-// Cross-Origin Resource Sharing (CORS) settings.
 type SignalRCorsSettingsArgs struct {
-	// Gets or sets the list of origins that should be allowed to make cross-origin calls (for example: http://example.com:12345). Use "*" to allow all. If omitted, allow all by default.
 	AllowedOrigins pulumi.StringArrayInput `pulumi:"allowedOrigins"`
 }
 
@@ -570,7 +468,6 @@ func (i *signalRCorsSettingsPtrType) ToSignalRCorsSettingsPtrOutputWithContext(c
 	return pulumi.ToOutputWithContext(ctx, i).(SignalRCorsSettingsPtrOutput)
 }
 
-// Cross-Origin Resource Sharing (CORS) settings.
 type SignalRCorsSettingsOutput struct{ *pulumi.OutputState }
 
 func (SignalRCorsSettingsOutput) ElementType() reflect.Type {
@@ -590,12 +487,11 @@ func (o SignalRCorsSettingsOutput) ToSignalRCorsSettingsPtrOutput() SignalRCorsS
 }
 
 func (o SignalRCorsSettingsOutput) ToSignalRCorsSettingsPtrOutputWithContext(ctx context.Context) SignalRCorsSettingsPtrOutput {
-	return o.ApplyT(func(v SignalRCorsSettings) *SignalRCorsSettings {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v SignalRCorsSettings) *SignalRCorsSettings {
 		return &v
 	}).(SignalRCorsSettingsPtrOutput)
 }
 
-// Gets or sets the list of origins that should be allowed to make cross-origin calls (for example: http://example.com:12345). Use "*" to allow all. If omitted, allow all by default.
 func (o SignalRCorsSettingsOutput) AllowedOrigins() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v SignalRCorsSettings) []string { return v.AllowedOrigins }).(pulumi.StringArrayOutput)
 }
@@ -615,10 +511,15 @@ func (o SignalRCorsSettingsPtrOutput) ToSignalRCorsSettingsPtrOutputWithContext(
 }
 
 func (o SignalRCorsSettingsPtrOutput) Elem() SignalRCorsSettingsOutput {
-	return o.ApplyT(func(v *SignalRCorsSettings) SignalRCorsSettings { return *v }).(SignalRCorsSettingsOutput)
+	return o.ApplyT(func(v *SignalRCorsSettings) SignalRCorsSettings {
+		if v != nil {
+			return *v
+		}
+		var ret SignalRCorsSettings
+		return ret
+	}).(SignalRCorsSettingsOutput)
 }
 
-// Gets or sets the list of origins that should be allowed to make cross-origin calls (for example: http://example.com:12345). Use "*" to allow all. If omitted, allow all by default.
 func (o SignalRCorsSettingsPtrOutput) AllowedOrigins() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *SignalRCorsSettings) []string {
 		if v == nil {
@@ -628,9 +529,7 @@ func (o SignalRCorsSettingsPtrOutput) AllowedOrigins() pulumi.StringArrayOutput 
 	}).(pulumi.StringArrayOutput)
 }
 
-// Cross-Origin Resource Sharing (CORS) settings.
 type SignalRCorsSettingsResponse struct {
-	// Gets or sets the list of origins that should be allowed to make cross-origin calls (for example: http://example.com:12345). Use "*" to allow all. If omitted, allow all by default.
 	AllowedOrigins []string `pulumi:"allowedOrigins"`
 }
 
@@ -645,9 +544,7 @@ type SignalRCorsSettingsResponseInput interface {
 	ToSignalRCorsSettingsResponseOutputWithContext(context.Context) SignalRCorsSettingsResponseOutput
 }
 
-// Cross-Origin Resource Sharing (CORS) settings.
 type SignalRCorsSettingsResponseArgs struct {
-	// Gets or sets the list of origins that should be allowed to make cross-origin calls (for example: http://example.com:12345). Use "*" to allow all. If omitted, allow all by default.
 	AllowedOrigins pulumi.StringArrayInput `pulumi:"allowedOrigins"`
 }
 
@@ -704,7 +601,6 @@ func (i *signalRCorsSettingsResponsePtrType) ToSignalRCorsSettingsResponsePtrOut
 	return pulumi.ToOutputWithContext(ctx, i).(SignalRCorsSettingsResponsePtrOutput)
 }
 
-// Cross-Origin Resource Sharing (CORS) settings.
 type SignalRCorsSettingsResponseOutput struct{ *pulumi.OutputState }
 
 func (SignalRCorsSettingsResponseOutput) ElementType() reflect.Type {
@@ -724,12 +620,11 @@ func (o SignalRCorsSettingsResponseOutput) ToSignalRCorsSettingsResponsePtrOutpu
 }
 
 func (o SignalRCorsSettingsResponseOutput) ToSignalRCorsSettingsResponsePtrOutputWithContext(ctx context.Context) SignalRCorsSettingsResponsePtrOutput {
-	return o.ApplyT(func(v SignalRCorsSettingsResponse) *SignalRCorsSettingsResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v SignalRCorsSettingsResponse) *SignalRCorsSettingsResponse {
 		return &v
 	}).(SignalRCorsSettingsResponsePtrOutput)
 }
 
-// Gets or sets the list of origins that should be allowed to make cross-origin calls (for example: http://example.com:12345). Use "*" to allow all. If omitted, allow all by default.
 func (o SignalRCorsSettingsResponseOutput) AllowedOrigins() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v SignalRCorsSettingsResponse) []string { return v.AllowedOrigins }).(pulumi.StringArrayOutput)
 }
@@ -749,10 +644,15 @@ func (o SignalRCorsSettingsResponsePtrOutput) ToSignalRCorsSettingsResponsePtrOu
 }
 
 func (o SignalRCorsSettingsResponsePtrOutput) Elem() SignalRCorsSettingsResponseOutput {
-	return o.ApplyT(func(v *SignalRCorsSettingsResponse) SignalRCorsSettingsResponse { return *v }).(SignalRCorsSettingsResponseOutput)
+	return o.ApplyT(func(v *SignalRCorsSettingsResponse) SignalRCorsSettingsResponse {
+		if v != nil {
+			return *v
+		}
+		var ret SignalRCorsSettingsResponse
+		return ret
+	}).(SignalRCorsSettingsResponseOutput)
 }
 
-// Gets or sets the list of origins that should be allowed to make cross-origin calls (for example: http://example.com:12345). Use "*" to allow all. If omitted, allow all by default.
 func (o SignalRCorsSettingsResponsePtrOutput) AllowedOrigins() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *SignalRCorsSettingsResponse) []string {
 		if v == nil {
@@ -762,20 +662,10 @@ func (o SignalRCorsSettingsResponsePtrOutput) AllowedOrigins() pulumi.StringArra
 	}).(pulumi.StringArrayOutput)
 }
 
-// Settings used to provision or configure the resource.
 type SignalRCreateOrUpdateProperties struct {
-	// Cross-Origin Resource Sharing (CORS) settings.
-	Cors *SignalRCorsSettings `pulumi:"cors"`
-	// List of SignalR featureFlags. e.g. ServiceMode.
-	//
-	// FeatureFlags that are not included in the parameters for the update operation will not be modified.
-	// And the response will only include featureFlags that are explicitly set.
-	// When a featureFlag is not explicitly set, SignalR service will use its globally default value.
-	// But keep in mind, the default value doesn't mean "false". It varies in terms of different FeatureFlags.
-	Features []SignalRFeature `pulumi:"features"`
-	// Prefix for the hostName of the SignalR service. Retained for future use.
-	// The hostname will be of format: &lt;hostNamePrefix&gt;.service.signalr.net.
-	HostNamePrefix *string `pulumi:"hostNamePrefix"`
+	Cors           *SignalRCorsSettings `pulumi:"cors"`
+	Features       []SignalRFeature     `pulumi:"features"`
+	HostNamePrefix *string              `pulumi:"hostNamePrefix"`
 }
 
 // SignalRCreateOrUpdatePropertiesInput is an input type that accepts SignalRCreateOrUpdatePropertiesArgs and SignalRCreateOrUpdatePropertiesOutput values.
@@ -789,20 +679,10 @@ type SignalRCreateOrUpdatePropertiesInput interface {
 	ToSignalRCreateOrUpdatePropertiesOutputWithContext(context.Context) SignalRCreateOrUpdatePropertiesOutput
 }
 
-// Settings used to provision or configure the resource.
 type SignalRCreateOrUpdatePropertiesArgs struct {
-	// Cross-Origin Resource Sharing (CORS) settings.
-	Cors SignalRCorsSettingsPtrInput `pulumi:"cors"`
-	// List of SignalR featureFlags. e.g. ServiceMode.
-	//
-	// FeatureFlags that are not included in the parameters for the update operation will not be modified.
-	// And the response will only include featureFlags that are explicitly set.
-	// When a featureFlag is not explicitly set, SignalR service will use its globally default value.
-	// But keep in mind, the default value doesn't mean "false". It varies in terms of different FeatureFlags.
-	Features SignalRFeatureArrayInput `pulumi:"features"`
-	// Prefix for the hostName of the SignalR service. Retained for future use.
-	// The hostname will be of format: &lt;hostNamePrefix&gt;.service.signalr.net.
-	HostNamePrefix pulumi.StringPtrInput `pulumi:"hostNamePrefix"`
+	Cors           SignalRCorsSettingsPtrInput `pulumi:"cors"`
+	Features       SignalRFeatureArrayInput    `pulumi:"features"`
+	HostNamePrefix pulumi.StringPtrInput       `pulumi:"hostNamePrefix"`
 }
 
 func (SignalRCreateOrUpdatePropertiesArgs) ElementType() reflect.Type {
@@ -858,7 +738,6 @@ func (i *signalRCreateOrUpdatePropertiesPtrType) ToSignalRCreateOrUpdateProperti
 	return pulumi.ToOutputWithContext(ctx, i).(SignalRCreateOrUpdatePropertiesPtrOutput)
 }
 
-// Settings used to provision or configure the resource.
 type SignalRCreateOrUpdatePropertiesOutput struct{ *pulumi.OutputState }
 
 func (SignalRCreateOrUpdatePropertiesOutput) ElementType() reflect.Type {
@@ -878,28 +757,19 @@ func (o SignalRCreateOrUpdatePropertiesOutput) ToSignalRCreateOrUpdateProperties
 }
 
 func (o SignalRCreateOrUpdatePropertiesOutput) ToSignalRCreateOrUpdatePropertiesPtrOutputWithContext(ctx context.Context) SignalRCreateOrUpdatePropertiesPtrOutput {
-	return o.ApplyT(func(v SignalRCreateOrUpdateProperties) *SignalRCreateOrUpdateProperties {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v SignalRCreateOrUpdateProperties) *SignalRCreateOrUpdateProperties {
 		return &v
 	}).(SignalRCreateOrUpdatePropertiesPtrOutput)
 }
 
-// Cross-Origin Resource Sharing (CORS) settings.
 func (o SignalRCreateOrUpdatePropertiesOutput) Cors() SignalRCorsSettingsPtrOutput {
 	return o.ApplyT(func(v SignalRCreateOrUpdateProperties) *SignalRCorsSettings { return v.Cors }).(SignalRCorsSettingsPtrOutput)
 }
 
-// List of SignalR featureFlags. e.g. ServiceMode.
-//
-// FeatureFlags that are not included in the parameters for the update operation will not be modified.
-// And the response will only include featureFlags that are explicitly set.
-// When a featureFlag is not explicitly set, SignalR service will use its globally default value.
-// But keep in mind, the default value doesn't mean "false". It varies in terms of different FeatureFlags.
 func (o SignalRCreateOrUpdatePropertiesOutput) Features() SignalRFeatureArrayOutput {
 	return o.ApplyT(func(v SignalRCreateOrUpdateProperties) []SignalRFeature { return v.Features }).(SignalRFeatureArrayOutput)
 }
 
-// Prefix for the hostName of the SignalR service. Retained for future use.
-// The hostname will be of format: &lt;hostNamePrefix&gt;.service.signalr.net.
 func (o SignalRCreateOrUpdatePropertiesOutput) HostNamePrefix() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SignalRCreateOrUpdateProperties) *string { return v.HostNamePrefix }).(pulumi.StringPtrOutput)
 }
@@ -919,10 +789,15 @@ func (o SignalRCreateOrUpdatePropertiesPtrOutput) ToSignalRCreateOrUpdatePropert
 }
 
 func (o SignalRCreateOrUpdatePropertiesPtrOutput) Elem() SignalRCreateOrUpdatePropertiesOutput {
-	return o.ApplyT(func(v *SignalRCreateOrUpdateProperties) SignalRCreateOrUpdateProperties { return *v }).(SignalRCreateOrUpdatePropertiesOutput)
+	return o.ApplyT(func(v *SignalRCreateOrUpdateProperties) SignalRCreateOrUpdateProperties {
+		if v != nil {
+			return *v
+		}
+		var ret SignalRCreateOrUpdateProperties
+		return ret
+	}).(SignalRCreateOrUpdatePropertiesOutput)
 }
 
-// Cross-Origin Resource Sharing (CORS) settings.
 func (o SignalRCreateOrUpdatePropertiesPtrOutput) Cors() SignalRCorsSettingsPtrOutput {
 	return o.ApplyT(func(v *SignalRCreateOrUpdateProperties) *SignalRCorsSettings {
 		if v == nil {
@@ -932,12 +807,6 @@ func (o SignalRCreateOrUpdatePropertiesPtrOutput) Cors() SignalRCorsSettingsPtrO
 	}).(SignalRCorsSettingsPtrOutput)
 }
 
-// List of SignalR featureFlags. e.g. ServiceMode.
-//
-// FeatureFlags that are not included in the parameters for the update operation will not be modified.
-// And the response will only include featureFlags that are explicitly set.
-// When a featureFlag is not explicitly set, SignalR service will use its globally default value.
-// But keep in mind, the default value doesn't mean "false". It varies in terms of different FeatureFlags.
 func (o SignalRCreateOrUpdatePropertiesPtrOutput) Features() SignalRFeatureArrayOutput {
 	return o.ApplyT(func(v *SignalRCreateOrUpdateProperties) []SignalRFeature {
 		if v == nil {
@@ -947,8 +816,6 @@ func (o SignalRCreateOrUpdatePropertiesPtrOutput) Features() SignalRFeatureArray
 	}).(SignalRFeatureArrayOutput)
 }
 
-// Prefix for the hostName of the SignalR service. Retained for future use.
-// The hostname will be of format: &lt;hostNamePrefix&gt;.service.signalr.net.
 func (o SignalRCreateOrUpdatePropertiesPtrOutput) HostNamePrefix() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SignalRCreateOrUpdateProperties) *string {
 		if v == nil {
@@ -958,16 +825,10 @@ func (o SignalRCreateOrUpdatePropertiesPtrOutput) HostNamePrefix() pulumi.String
 	}).(pulumi.StringPtrOutput)
 }
 
-// Feature of a SignalR resource, which controls the SignalR runtime behavior.
 type SignalRFeature struct {
-	// FeatureFlags is the supported features of Azure SignalR service.
-	// - ServiceMode: Flag for backend server for SignalR service. Values allowed: "Default": have your own backend server; "Serverless": your application doesn't have a backend server; "Classic": for backward compatibility. Support both Default and Serverless mode but not recommended; "PredefinedOnly": for future use.
-	// - EnableConnectivityLogs: "true"/"false", to enable/disable the connectivity log category respectively.
-	Flag string `pulumi:"flag"`
-	// Optional properties related to this feature.
+	Flag       string            `pulumi:"flag"`
 	Properties map[string]string `pulumi:"properties"`
-	// Value of the feature flag. See Azure SignalR service document https://docs.microsoft.com/azure/azure-signalr/ for allowed values.
-	Value string `pulumi:"value"`
+	Value      string            `pulumi:"value"`
 }
 
 // SignalRFeatureInput is an input type that accepts SignalRFeatureArgs and SignalRFeatureOutput values.
@@ -981,16 +842,10 @@ type SignalRFeatureInput interface {
 	ToSignalRFeatureOutputWithContext(context.Context) SignalRFeatureOutput
 }
 
-// Feature of a SignalR resource, which controls the SignalR runtime behavior.
 type SignalRFeatureArgs struct {
-	// FeatureFlags is the supported features of Azure SignalR service.
-	// - ServiceMode: Flag for backend server for SignalR service. Values allowed: "Default": have your own backend server; "Serverless": your application doesn't have a backend server; "Classic": for backward compatibility. Support both Default and Serverless mode but not recommended; "PredefinedOnly": for future use.
-	// - EnableConnectivityLogs: "true"/"false", to enable/disable the connectivity log category respectively.
-	Flag pulumi.StringInput `pulumi:"flag"`
-	// Optional properties related to this feature.
+	Flag       pulumi.StringInput    `pulumi:"flag"`
 	Properties pulumi.StringMapInput `pulumi:"properties"`
-	// Value of the feature flag. See Azure SignalR service document https://docs.microsoft.com/azure/azure-signalr/ for allowed values.
-	Value pulumi.StringInput `pulumi:"value"`
+	Value      pulumi.StringInput    `pulumi:"value"`
 }
 
 func (SignalRFeatureArgs) ElementType() reflect.Type {
@@ -1030,7 +885,6 @@ func (i SignalRFeatureArray) ToSignalRFeatureArrayOutputWithContext(ctx context.
 	return pulumi.ToOutputWithContext(ctx, i).(SignalRFeatureArrayOutput)
 }
 
-// Feature of a SignalR resource, which controls the SignalR runtime behavior.
 type SignalRFeatureOutput struct{ *pulumi.OutputState }
 
 func (SignalRFeatureOutput) ElementType() reflect.Type {
@@ -1045,19 +899,14 @@ func (o SignalRFeatureOutput) ToSignalRFeatureOutputWithContext(ctx context.Cont
 	return o
 }
 
-// FeatureFlags is the supported features of Azure SignalR service.
-// - ServiceMode: Flag for backend server for SignalR service. Values allowed: "Default": have your own backend server; "Serverless": your application doesn't have a backend server; "Classic": for backward compatibility. Support both Default and Serverless mode but not recommended; "PredefinedOnly": for future use.
-// - EnableConnectivityLogs: "true"/"false", to enable/disable the connectivity log category respectively.
 func (o SignalRFeatureOutput) Flag() pulumi.StringOutput {
 	return o.ApplyT(func(v SignalRFeature) string { return v.Flag }).(pulumi.StringOutput)
 }
 
-// Optional properties related to this feature.
 func (o SignalRFeatureOutput) Properties() pulumi.StringMapOutput {
 	return o.ApplyT(func(v SignalRFeature) map[string]string { return v.Properties }).(pulumi.StringMapOutput)
 }
 
-// Value of the feature flag. See Azure SignalR service document https://docs.microsoft.com/azure/azure-signalr/ for allowed values.
 func (o SignalRFeatureOutput) Value() pulumi.StringOutput {
 	return o.ApplyT(func(v SignalRFeature) string { return v.Value }).(pulumi.StringOutput)
 }
@@ -1082,16 +931,10 @@ func (o SignalRFeatureArrayOutput) Index(i pulumi.IntInput) SignalRFeatureOutput
 	}).(SignalRFeatureOutput)
 }
 
-// Feature of a SignalR resource, which controls the SignalR runtime behavior.
 type SignalRFeatureResponse struct {
-	// FeatureFlags is the supported features of Azure SignalR service.
-	// - ServiceMode: Flag for backend server for SignalR service. Values allowed: "Default": have your own backend server; "Serverless": your application doesn't have a backend server; "Classic": for backward compatibility. Support both Default and Serverless mode but not recommended; "PredefinedOnly": for future use.
-	// - EnableConnectivityLogs: "true"/"false", to enable/disable the connectivity log category respectively.
-	Flag string `pulumi:"flag"`
-	// Optional properties related to this feature.
+	Flag       string            `pulumi:"flag"`
 	Properties map[string]string `pulumi:"properties"`
-	// Value of the feature flag. See Azure SignalR service document https://docs.microsoft.com/azure/azure-signalr/ for allowed values.
-	Value string `pulumi:"value"`
+	Value      string            `pulumi:"value"`
 }
 
 // SignalRFeatureResponseInput is an input type that accepts SignalRFeatureResponseArgs and SignalRFeatureResponseOutput values.
@@ -1105,16 +948,10 @@ type SignalRFeatureResponseInput interface {
 	ToSignalRFeatureResponseOutputWithContext(context.Context) SignalRFeatureResponseOutput
 }
 
-// Feature of a SignalR resource, which controls the SignalR runtime behavior.
 type SignalRFeatureResponseArgs struct {
-	// FeatureFlags is the supported features of Azure SignalR service.
-	// - ServiceMode: Flag for backend server for SignalR service. Values allowed: "Default": have your own backend server; "Serverless": your application doesn't have a backend server; "Classic": for backward compatibility. Support both Default and Serverless mode but not recommended; "PredefinedOnly": for future use.
-	// - EnableConnectivityLogs: "true"/"false", to enable/disable the connectivity log category respectively.
-	Flag pulumi.StringInput `pulumi:"flag"`
-	// Optional properties related to this feature.
+	Flag       pulumi.StringInput    `pulumi:"flag"`
 	Properties pulumi.StringMapInput `pulumi:"properties"`
-	// Value of the feature flag. See Azure SignalR service document https://docs.microsoft.com/azure/azure-signalr/ for allowed values.
-	Value pulumi.StringInput `pulumi:"value"`
+	Value      pulumi.StringInput    `pulumi:"value"`
 }
 
 func (SignalRFeatureResponseArgs) ElementType() reflect.Type {
@@ -1154,7 +991,6 @@ func (i SignalRFeatureResponseArray) ToSignalRFeatureResponseArrayOutputWithCont
 	return pulumi.ToOutputWithContext(ctx, i).(SignalRFeatureResponseArrayOutput)
 }
 
-// Feature of a SignalR resource, which controls the SignalR runtime behavior.
 type SignalRFeatureResponseOutput struct{ *pulumi.OutputState }
 
 func (SignalRFeatureResponseOutput) ElementType() reflect.Type {
@@ -1169,19 +1005,14 @@ func (o SignalRFeatureResponseOutput) ToSignalRFeatureResponseOutputWithContext(
 	return o
 }
 
-// FeatureFlags is the supported features of Azure SignalR service.
-// - ServiceMode: Flag for backend server for SignalR service. Values allowed: "Default": have your own backend server; "Serverless": your application doesn't have a backend server; "Classic": for backward compatibility. Support both Default and Serverless mode but not recommended; "PredefinedOnly": for future use.
-// - EnableConnectivityLogs: "true"/"false", to enable/disable the connectivity log category respectively.
 func (o SignalRFeatureResponseOutput) Flag() pulumi.StringOutput {
 	return o.ApplyT(func(v SignalRFeatureResponse) string { return v.Flag }).(pulumi.StringOutput)
 }
 
-// Optional properties related to this feature.
 func (o SignalRFeatureResponseOutput) Properties() pulumi.StringMapOutput {
 	return o.ApplyT(func(v SignalRFeatureResponse) map[string]string { return v.Properties }).(pulumi.StringMapOutput)
 }
 
-// Value of the feature flag. See Azure SignalR service document https://docs.microsoft.com/azure/azure-signalr/ for allowed values.
 func (o SignalRFeatureResponseOutput) Value() pulumi.StringOutput {
 	return o.ApplyT(func(v SignalRFeatureResponse) string { return v.Value }).(pulumi.StringOutput)
 }

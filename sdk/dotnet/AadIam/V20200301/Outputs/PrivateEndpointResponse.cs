@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.AadIam.V20200301.Outputs
 {
 
+    /// <summary>
+    /// Private endpoint object properties.
+    /// </summary>
     [OutputType]
     public sealed class PrivateEndpointResponse
     {

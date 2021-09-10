@@ -11,26 +11,17 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Single item in List or Get Alias(Disaster Recovery configuration) operation
 type DisasterRecoveryConfig struct {
 	pulumi.CustomResourceState
 
-	// Primary/Secondary eventhub namespace name, which is part of GEO DR pairing
-	AlternateName pulumi.StringPtrOutput `pulumi:"alternateName"`
-	// Resource name
-	Name pulumi.StringOutput `pulumi:"name"`
-	// ARM Id of the Primary/Secondary eventhub namespace name, which is part of GEO DR pairing
-	PartnerNamespace pulumi.StringPtrOutput `pulumi:"partnerNamespace"`
-	// Number of entities pending to be replicated.
-	PendingReplicationOperationsCount pulumi.Float64Output `pulumi:"pendingReplicationOperationsCount"`
-	// Provisioning state of the Alias(Disaster Recovery configuration) - possible values 'Accepted' or 'Succeeded' or 'Failed'
-	ProvisioningState pulumi.StringOutput `pulumi:"provisioningState"`
-	// role of namespace in GEO DR - possible values 'Primary' or 'PrimaryNotReplicating' or 'Secondary'
-	Role pulumi.StringOutput `pulumi:"role"`
-	// The system meta data relating to this resource.
-	SystemData SystemDataResponseOutput `pulumi:"systemData"`
-	// Resource type
-	Type pulumi.StringOutput `pulumi:"type"`
+	AlternateName                     pulumi.StringPtrOutput   `pulumi:"alternateName"`
+	Name                              pulumi.StringOutput      `pulumi:"name"`
+	PartnerNamespace                  pulumi.StringPtrOutput   `pulumi:"partnerNamespace"`
+	PendingReplicationOperationsCount pulumi.Float64Output     `pulumi:"pendingReplicationOperationsCount"`
+	ProvisioningState                 pulumi.StringOutput      `pulumi:"provisioningState"`
+	Role                              pulumi.StringOutput      `pulumi:"role"`
+	SystemData                        SystemDataResponseOutput `pulumi:"systemData"`
+	Type                              pulumi.StringOutput      `pulumi:"type"`
 }
 
 // NewDisasterRecoveryConfig registers a new resource with the given unique name, arguments, and options.
@@ -108,29 +99,19 @@ func (DisasterRecoveryConfigState) ElementType() reflect.Type {
 }
 
 type disasterRecoveryConfigArgs struct {
-	// The Disaster Recovery configuration name
-	Alias *string `pulumi:"alias"`
-	// Primary/Secondary eventhub namespace name, which is part of GEO DR pairing
-	AlternateName *string `pulumi:"alternateName"`
-	// The namespace name
-	NamespaceName string `pulumi:"namespaceName"`
-	// ARM Id of the Primary/Secondary eventhub namespace name, which is part of GEO DR pairing
-	PartnerNamespace *string `pulumi:"partnerNamespace"`
-	// Name of the Resource group within the Azure subscription.
-	ResourceGroupName string `pulumi:"resourceGroupName"`
+	Alias             *string `pulumi:"alias"`
+	AlternateName     *string `pulumi:"alternateName"`
+	NamespaceName     string  `pulumi:"namespaceName"`
+	PartnerNamespace  *string `pulumi:"partnerNamespace"`
+	ResourceGroupName string  `pulumi:"resourceGroupName"`
 }
 
 // The set of arguments for constructing a DisasterRecoveryConfig resource.
 type DisasterRecoveryConfigArgs struct {
-	// The Disaster Recovery configuration name
-	Alias pulumi.StringPtrInput
-	// Primary/Secondary eventhub namespace name, which is part of GEO DR pairing
-	AlternateName pulumi.StringPtrInput
-	// The namespace name
-	NamespaceName pulumi.StringInput
-	// ARM Id of the Primary/Secondary eventhub namespace name, which is part of GEO DR pairing
-	PartnerNamespace pulumi.StringPtrInput
-	// Name of the Resource group within the Azure subscription.
+	Alias             pulumi.StringPtrInput
+	AlternateName     pulumi.StringPtrInput
+	NamespaceName     pulumi.StringInput
+	PartnerNamespace  pulumi.StringPtrInput
 	ResourceGroupName pulumi.StringInput
 }
 
@@ -157,9 +138,7 @@ func (i *DisasterRecoveryConfig) ToDisasterRecoveryConfigOutputWithContext(ctx c
 	return pulumi.ToOutputWithContext(ctx, i).(DisasterRecoveryConfigOutput)
 }
 
-type DisasterRecoveryConfigOutput struct {
-	*pulumi.OutputState
-}
+type DisasterRecoveryConfigOutput struct{ *pulumi.OutputState }
 
 func (DisasterRecoveryConfigOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*DisasterRecoveryConfig)(nil))

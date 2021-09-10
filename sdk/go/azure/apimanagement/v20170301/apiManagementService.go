@@ -11,60 +11,34 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// A single API Management service resource in List or Get response.
 type ApiManagementService struct {
 	pulumi.CustomResourceState
 
-	// Additional datacenter locations of the API Management service.
-	AdditionalLocations AdditionalLocationResponseArrayOutput `pulumi:"additionalLocations"`
-	// List of Certificates that need to be installed in the API Management service. Max supported certificates that can be installed is 10.
-	Certificates CertificateConfigurationResponseArrayOutput `pulumi:"certificates"`
-	// Creation UTC date of the API Management service.The date conforms to the following format: `yyyy-MM-ddTHH:mm:ssZ` as specified by the ISO 8601 standard.
-	CreatedAtUtc pulumi.StringOutput `pulumi:"createdAtUtc"`
-	// Custom properties of the API Management service. Setting `Microsoft.WindowsAzure.ApiManagement.Gateway.Security.Ciphers.TripleDes168` will disable the cipher TLS_RSA_WITH_3DES_EDE_CBC_SHA for all TLS(1.0, 1.1 and 1.2). Setting `Microsoft.WindowsAzure.ApiManagement.Gateway.Security.Protocols.Tls11` can be used to disable just TLS 1.1 and setting `Microsoft.WindowsAzure.ApiManagement.Gateway.Security.Protocols.Tls10` can be used to disable TLS 1.0 on an API Management service.
-	CustomProperties pulumi.StringMapOutput `pulumi:"customProperties"`
-	// ETag of the resource.
-	Etag pulumi.StringOutput `pulumi:"etag"`
-	// Gateway URL of the API Management service in the Default Region.
-	GatewayRegionalUrl pulumi.StringOutput `pulumi:"gatewayRegionalUrl"`
-	// Gateway URL of the API Management service.
-	GatewayUrl pulumi.StringOutput `pulumi:"gatewayUrl"`
-	// Custom hostname configuration of the API Management service.
-	HostnameConfigurations HostnameConfigurationResponseArrayOutput `pulumi:"hostnameConfigurations"`
-	// Managed service identity of the Api Management service.
-	Identity ApiManagementServiceIdentityResponsePtrOutput `pulumi:"identity"`
-	// Resource location.
-	Location pulumi.StringOutput `pulumi:"location"`
-	// Management API endpoint URL of the API Management service.
-	ManagementApiUrl pulumi.StringOutput `pulumi:"managementApiUrl"`
-	// Resource name.
-	Name pulumi.StringOutput `pulumi:"name"`
-	// Email address from which the notification will be sent.
-	NotificationSenderEmail pulumi.StringPtrOutput `pulumi:"notificationSenderEmail"`
-	// Publisher portal endpoint Url of the API Management service.
-	PortalUrl pulumi.StringOutput `pulumi:"portalUrl"`
-	// The current provisioning state of the API Management service which can be one of the following: Created/Activating/Succeeded/Updating/Failed/Stopped/Terminating/TerminationFailed/Deleted.
-	ProvisioningState pulumi.StringOutput `pulumi:"provisioningState"`
-	// Publisher email.
-	PublisherEmail pulumi.StringOutput `pulumi:"publisherEmail"`
-	// Publisher name.
-	PublisherName pulumi.StringOutput `pulumi:"publisherName"`
-	// SCM endpoint URL of the API Management service.
-	ScmUrl pulumi.StringOutput `pulumi:"scmUrl"`
-	// SKU properties of the API Management service.
-	Sku ApiManagementServiceSkuPropertiesResponseOutput `pulumi:"sku"`
-	// Static IP addresses of the API Management service virtual machines. Available only for Standard and Premium SKU.
-	StaticIps pulumi.StringArrayOutput `pulumi:"staticIps"`
-	// Resource tags.
-	Tags pulumi.StringMapOutput `pulumi:"tags"`
-	// The provisioning state of the API Management service, which is targeted by the long running operation started on the service.
-	TargetProvisioningState pulumi.StringOutput `pulumi:"targetProvisioningState"`
-	// Resource type for API Management resource is set to Microsoft.ApiManagement.
-	Type pulumi.StringOutput `pulumi:"type"`
-	// Virtual network configuration of the API Management service.
-	VirtualNetworkConfiguration VirtualNetworkConfigurationResponsePtrOutput `pulumi:"virtualNetworkConfiguration"`
-	// The type of VPN in which API Management service needs to be configured in. None (Default Value) means the API Management service is not part of any Virtual Network, External means the API Management deployment is set up inside a Virtual Network having an Internet Facing Endpoint, and Internal means that API Management deployment is setup inside a Virtual Network having an Intranet Facing Endpoint only.
-	VirtualNetworkType pulumi.StringPtrOutput `pulumi:"virtualNetworkType"`
+	AdditionalLocations         AdditionalLocationResponseArrayOutput           `pulumi:"additionalLocations"`
+	Certificates                CertificateConfigurationResponseArrayOutput     `pulumi:"certificates"`
+	CreatedAtUtc                pulumi.StringOutput                             `pulumi:"createdAtUtc"`
+	CustomProperties            pulumi.StringMapOutput                          `pulumi:"customProperties"`
+	Etag                        pulumi.StringOutput                             `pulumi:"etag"`
+	GatewayRegionalUrl          pulumi.StringOutput                             `pulumi:"gatewayRegionalUrl"`
+	GatewayUrl                  pulumi.StringOutput                             `pulumi:"gatewayUrl"`
+	HostnameConfigurations      HostnameConfigurationResponseArrayOutput        `pulumi:"hostnameConfigurations"`
+	Identity                    ApiManagementServiceIdentityResponsePtrOutput   `pulumi:"identity"`
+	Location                    pulumi.StringOutput                             `pulumi:"location"`
+	ManagementApiUrl            pulumi.StringOutput                             `pulumi:"managementApiUrl"`
+	Name                        pulumi.StringOutput                             `pulumi:"name"`
+	NotificationSenderEmail     pulumi.StringPtrOutput                          `pulumi:"notificationSenderEmail"`
+	PortalUrl                   pulumi.StringOutput                             `pulumi:"portalUrl"`
+	ProvisioningState           pulumi.StringOutput                             `pulumi:"provisioningState"`
+	PublisherEmail              pulumi.StringOutput                             `pulumi:"publisherEmail"`
+	PublisherName               pulumi.StringOutput                             `pulumi:"publisherName"`
+	ScmUrl                      pulumi.StringOutput                             `pulumi:"scmUrl"`
+	Sku                         ApiManagementServiceSkuPropertiesResponseOutput `pulumi:"sku"`
+	StaticIps                   pulumi.StringArrayOutput                        `pulumi:"staticIps"`
+	Tags                        pulumi.StringMapOutput                          `pulumi:"tags"`
+	TargetProvisioningState     pulumi.StringOutput                             `pulumi:"targetProvisioningState"`
+	Type                        pulumi.StringOutput                             `pulumi:"type"`
+	VirtualNetworkConfiguration VirtualNetworkConfigurationResponsePtrOutput    `pulumi:"virtualNetworkConfiguration"`
+	VirtualNetworkType          pulumi.StringPtrOutput                          `pulumi:"virtualNetworkType"`
 }
 
 // NewApiManagementService registers a new resource with the given unique name, arguments, and options.
@@ -193,70 +167,40 @@ func (ApiManagementServiceState) ElementType() reflect.Type {
 }
 
 type apiManagementServiceArgs struct {
-	// Additional datacenter locations of the API Management service.
-	AdditionalLocations []AdditionalLocation `pulumi:"additionalLocations"`
-	// List of Certificates that need to be installed in the API Management service. Max supported certificates that can be installed is 10.
-	Certificates []CertificateConfiguration `pulumi:"certificates"`
-	// Custom properties of the API Management service. Setting `Microsoft.WindowsAzure.ApiManagement.Gateway.Security.Ciphers.TripleDes168` will disable the cipher TLS_RSA_WITH_3DES_EDE_CBC_SHA for all TLS(1.0, 1.1 and 1.2). Setting `Microsoft.WindowsAzure.ApiManagement.Gateway.Security.Protocols.Tls11` can be used to disable just TLS 1.1 and setting `Microsoft.WindowsAzure.ApiManagement.Gateway.Security.Protocols.Tls10` can be used to disable TLS 1.0 on an API Management service.
-	CustomProperties map[string]string `pulumi:"customProperties"`
-	// Custom hostname configuration of the API Management service.
-	HostnameConfigurations []HostnameConfiguration `pulumi:"hostnameConfigurations"`
-	// Managed service identity of the Api Management service.
-	Identity *ApiManagementServiceIdentity `pulumi:"identity"`
-	// Resource location.
-	Location *string `pulumi:"location"`
-	// Email address from which the notification will be sent.
-	NotificationSenderEmail *string `pulumi:"notificationSenderEmail"`
-	// Publisher email.
-	PublisherEmail string `pulumi:"publisherEmail"`
-	// Publisher name.
-	PublisherName string `pulumi:"publisherName"`
-	// The name of the resource group.
-	ResourceGroupName string `pulumi:"resourceGroupName"`
-	// The name of the API Management service.
-	ServiceName *string `pulumi:"serviceName"`
-	// SKU properties of the API Management service.
-	Sku ApiManagementServiceSkuProperties `pulumi:"sku"`
-	// Resource tags.
-	Tags map[string]string `pulumi:"tags"`
-	// Virtual network configuration of the API Management service.
-	VirtualNetworkConfiguration *VirtualNetworkConfiguration `pulumi:"virtualNetworkConfiguration"`
-	// The type of VPN in which API Management service needs to be configured in. None (Default Value) means the API Management service is not part of any Virtual Network, External means the API Management deployment is set up inside a Virtual Network having an Internet Facing Endpoint, and Internal means that API Management deployment is setup inside a Virtual Network having an Intranet Facing Endpoint only.
-	VirtualNetworkType *string `pulumi:"virtualNetworkType"`
+	AdditionalLocations         []AdditionalLocation              `pulumi:"additionalLocations"`
+	Certificates                []CertificateConfiguration        `pulumi:"certificates"`
+	CustomProperties            map[string]string                 `pulumi:"customProperties"`
+	HostnameConfigurations      []HostnameConfiguration           `pulumi:"hostnameConfigurations"`
+	Identity                    *ApiManagementServiceIdentity     `pulumi:"identity"`
+	Location                    *string                           `pulumi:"location"`
+	NotificationSenderEmail     *string                           `pulumi:"notificationSenderEmail"`
+	PublisherEmail              string                            `pulumi:"publisherEmail"`
+	PublisherName               string                            `pulumi:"publisherName"`
+	ResourceGroupName           string                            `pulumi:"resourceGroupName"`
+	ServiceName                 *string                           `pulumi:"serviceName"`
+	Sku                         ApiManagementServiceSkuProperties `pulumi:"sku"`
+	Tags                        map[string]string                 `pulumi:"tags"`
+	VirtualNetworkConfiguration *VirtualNetworkConfiguration      `pulumi:"virtualNetworkConfiguration"`
+	VirtualNetworkType          *string                           `pulumi:"virtualNetworkType"`
 }
 
 // The set of arguments for constructing a ApiManagementService resource.
 type ApiManagementServiceArgs struct {
-	// Additional datacenter locations of the API Management service.
-	AdditionalLocations AdditionalLocationArrayInput
-	// List of Certificates that need to be installed in the API Management service. Max supported certificates that can be installed is 10.
-	Certificates CertificateConfigurationArrayInput
-	// Custom properties of the API Management service. Setting `Microsoft.WindowsAzure.ApiManagement.Gateway.Security.Ciphers.TripleDes168` will disable the cipher TLS_RSA_WITH_3DES_EDE_CBC_SHA for all TLS(1.0, 1.1 and 1.2). Setting `Microsoft.WindowsAzure.ApiManagement.Gateway.Security.Protocols.Tls11` can be used to disable just TLS 1.1 and setting `Microsoft.WindowsAzure.ApiManagement.Gateway.Security.Protocols.Tls10` can be used to disable TLS 1.0 on an API Management service.
-	CustomProperties pulumi.StringMapInput
-	// Custom hostname configuration of the API Management service.
-	HostnameConfigurations HostnameConfigurationArrayInput
-	// Managed service identity of the Api Management service.
-	Identity ApiManagementServiceIdentityPtrInput
-	// Resource location.
-	Location pulumi.StringPtrInput
-	// Email address from which the notification will be sent.
-	NotificationSenderEmail pulumi.StringPtrInput
-	// Publisher email.
-	PublisherEmail pulumi.StringInput
-	// Publisher name.
-	PublisherName pulumi.StringInput
-	// The name of the resource group.
-	ResourceGroupName pulumi.StringInput
-	// The name of the API Management service.
-	ServiceName pulumi.StringPtrInput
-	// SKU properties of the API Management service.
-	Sku ApiManagementServiceSkuPropertiesInput
-	// Resource tags.
-	Tags pulumi.StringMapInput
-	// Virtual network configuration of the API Management service.
+	AdditionalLocations         AdditionalLocationArrayInput
+	Certificates                CertificateConfigurationArrayInput
+	CustomProperties            pulumi.StringMapInput
+	HostnameConfigurations      HostnameConfigurationArrayInput
+	Identity                    ApiManagementServiceIdentityPtrInput
+	Location                    pulumi.StringPtrInput
+	NotificationSenderEmail     pulumi.StringPtrInput
+	PublisherEmail              pulumi.StringInput
+	PublisherName               pulumi.StringInput
+	ResourceGroupName           pulumi.StringInput
+	ServiceName                 pulumi.StringPtrInput
+	Sku                         ApiManagementServiceSkuPropertiesInput
+	Tags                        pulumi.StringMapInput
 	VirtualNetworkConfiguration VirtualNetworkConfigurationPtrInput
-	// The type of VPN in which API Management service needs to be configured in. None (Default Value) means the API Management service is not part of any Virtual Network, External means the API Management deployment is set up inside a Virtual Network having an Internet Facing Endpoint, and Internal means that API Management deployment is setup inside a Virtual Network having an Intranet Facing Endpoint only.
-	VirtualNetworkType pulumi.StringPtrInput
+	VirtualNetworkType          pulumi.StringPtrInput
 }
 
 func (ApiManagementServiceArgs) ElementType() reflect.Type {
@@ -282,9 +226,7 @@ func (i *ApiManagementService) ToApiManagementServiceOutputWithContext(ctx conte
 	return pulumi.ToOutputWithContext(ctx, i).(ApiManagementServiceOutput)
 }
 
-type ApiManagementServiceOutput struct {
-	*pulumi.OutputState
-}
+type ApiManagementServiceOutput struct{ *pulumi.OutputState }
 
 func (ApiManagementServiceOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*ApiManagementService)(nil))

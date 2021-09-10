@@ -11,20 +11,14 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Compute role.
-//
 // Deprecated: Please use one of the variants: CloudEdgeManagementRole, IoTRole, KubernetesRole, MECRole.
 type Role struct {
 	pulumi.CustomResourceState
 
-	// Role type.
-	Kind pulumi.StringOutput `pulumi:"kind"`
-	// The object name.
-	Name pulumi.StringOutput `pulumi:"name"`
-	// Role configured on ASE resource
+	Kind       pulumi.StringOutput      `pulumi:"kind"`
+	Name       pulumi.StringOutput      `pulumi:"name"`
 	SystemData SystemDataResponseOutput `pulumi:"systemData"`
-	// The hierarchical type of the object.
-	Type pulumi.StringOutput `pulumi:"type"`
+	Type       pulumi.StringOutput      `pulumi:"type"`
 }
 
 // NewRole registers a new resource with the given unique name, arguments, and options.
@@ -135,25 +129,17 @@ func (RoleState) ElementType() reflect.Type {
 }
 
 type roleArgs struct {
-	// The device name.
-	DeviceName string `pulumi:"deviceName"`
-	// Role type.
-	Kind string `pulumi:"kind"`
-	// The role name.
-	Name *string `pulumi:"name"`
-	// The resource group name.
-	ResourceGroupName string `pulumi:"resourceGroupName"`
+	DeviceName        string  `pulumi:"deviceName"`
+	Kind              string  `pulumi:"kind"`
+	Name              *string `pulumi:"name"`
+	ResourceGroupName string  `pulumi:"resourceGroupName"`
 }
 
 // The set of arguments for constructing a Role resource.
 type RoleArgs struct {
-	// The device name.
-	DeviceName pulumi.StringInput
-	// Role type.
-	Kind pulumi.StringInput
-	// The role name.
-	Name pulumi.StringPtrInput
-	// The resource group name.
+	DeviceName        pulumi.StringInput
+	Kind              pulumi.StringInput
+	Name              pulumi.StringPtrInput
 	ResourceGroupName pulumi.StringInput
 }
 
@@ -180,9 +166,7 @@ func (i *Role) ToRoleOutputWithContext(ctx context.Context) RoleOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(RoleOutput)
 }
 
-type RoleOutput struct {
-	*pulumi.OutputState
-}
+type RoleOutput struct{ *pulumi.OutputState }
 
 func (RoleOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*Role)(nil))

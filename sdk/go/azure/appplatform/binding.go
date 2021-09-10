@@ -151,9 +151,7 @@ func (i *Binding) ToBindingOutputWithContext(ctx context.Context) BindingOutput 
 	return pulumi.ToOutputWithContext(ctx, i).(BindingOutput)
 }
 
-type BindingOutput struct {
-	*pulumi.OutputState
-}
+type BindingOutput struct{ *pulumi.OutputState }
 
 func (BindingOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*Binding)(nil))

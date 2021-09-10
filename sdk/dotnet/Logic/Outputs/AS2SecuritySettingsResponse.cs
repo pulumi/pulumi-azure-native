@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.Logic.Outputs
 {
 
+    /// <summary>
+    /// The AS2 agreement security settings.
+    /// </summary>
     [OutputType]
     public sealed class AS2SecuritySettingsResponse
     {

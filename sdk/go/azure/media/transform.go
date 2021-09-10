@@ -165,9 +165,7 @@ func (i *Transform) ToTransformOutputWithContext(ctx context.Context) TransformO
 	return pulumi.ToOutputWithContext(ctx, i).(TransformOutput)
 }
 
-type TransformOutput struct {
-	*pulumi.OutputState
-}
+type TransformOutput struct{ *pulumi.OutputState }
 
 func (TransformOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*Transform)(nil))

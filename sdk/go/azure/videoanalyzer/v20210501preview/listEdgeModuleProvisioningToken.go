@@ -7,7 +7,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Provisioning token properties. A provisioning token allows for a single instance of Azure Video analyzer IoT edge module to be initialized and authorized to the cloud account. The provisioning token itself is short lived and it is only used for the initial handshake between IoT edge module and the cloud. After the initial handshake, the IoT edge module will agree on a set of authentication keys which will be auto-rotated as long as the module is able to periodically connect to the cloud. A new provisioning token can be generated for the same IoT edge module in case the module state lost or reset.
 func ListEdgeModuleProvisioningToken(ctx *pulumi.Context, args *ListEdgeModuleProvisioningTokenArgs, opts ...pulumi.InvokeOption) (*ListEdgeModuleProvisioningTokenResult, error) {
 	var rv ListEdgeModuleProvisioningTokenResult
 	err := ctx.Invoke("azure-native:videoanalyzer/v20210501preview:listEdgeModuleProvisioningToken", args, &rv, opts...)
@@ -18,20 +17,14 @@ func ListEdgeModuleProvisioningToken(ctx *pulumi.Context, args *ListEdgeModulePr
 }
 
 type ListEdgeModuleProvisioningTokenArgs struct {
-	// The Azure Video Analyzer account name.
-	AccountName string `pulumi:"accountName"`
-	// The name of the edge module used to create a new provisioning token.
-	EdgeModuleName string `pulumi:"edgeModuleName"`
-	// The desired expiration date of the registration token. The Azure Video Analyzer IoT edge module must be initialized and connected to the Internet prior to the token expiration date.
-	ExpirationDate string `pulumi:"expirationDate"`
-	// The name of the resource group. The name is case insensitive.
+	AccountName       string `pulumi:"accountName"`
+	EdgeModuleName    string `pulumi:"edgeModuleName"`
+	ExpirationDate    string `pulumi:"expirationDate"`
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 }
 
 // Provisioning token properties. A provisioning token allows for a single instance of Azure Video analyzer IoT edge module to be initialized and authorized to the cloud account. The provisioning token itself is short lived and it is only used for the initial handshake between IoT edge module and the cloud. After the initial handshake, the IoT edge module will agree on a set of authentication keys which will be auto-rotated as long as the module is able to periodically connect to the cloud. A new provisioning token can be generated for the same IoT edge module in case the module state lost or reset.
 type ListEdgeModuleProvisioningTokenResult struct {
-	// The expiration date of the registration token. The Azure Video Analyzer IoT edge module must be initialized and connected to the Internet prior to the token expiration date.
 	ExpirationDate string `pulumi:"expirationDate"`
-	// The token blob to be provided to the Azure Video Analyzer IoT edge module through the Azure IoT Edge module twin properties.
-	Token string `pulumi:"token"`
+	Token          string `pulumi:"token"`
 }

@@ -11,35 +11,22 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// PublicIPAddress resource
 type PublicIPAddress struct {
 	pulumi.CustomResourceState
 
-	// Gets or sets FQDN of the DNS record associated with the public IP address
-	DnsSettings PublicIPAddressDnsSettingsResponsePtrOutput `pulumi:"dnsSettings"`
-	// Gets a unique read-only string that changes whenever the resource is updated
-	Etag pulumi.StringPtrOutput `pulumi:"etag"`
-	// Gets or sets the idle timeout of the public IP address
-	IdleTimeoutInMinutes pulumi.IntPtrOutput    `pulumi:"idleTimeoutInMinutes"`
-	IpAddress            pulumi.StringPtrOutput `pulumi:"ipAddress"`
-	// IPConfiguration
-	IpConfiguration IPConfigurationResponseOutput `pulumi:"ipConfiguration"`
-	// Resource location
-	Location pulumi.StringPtrOutput `pulumi:"location"`
-	// Resource name
-	Name pulumi.StringOutput `pulumi:"name"`
-	// Gets provisioning state of the PublicIP resource Updating/Deleting/Failed
-	ProvisioningState pulumi.StringPtrOutput `pulumi:"provisioningState"`
-	// Gets or sets PublicIP address version (IPv4/IPv6)
-	PublicIPAddressVersion pulumi.StringPtrOutput `pulumi:"publicIPAddressVersion"`
-	// Gets or sets PublicIP allocation method (Static/Dynamic)
-	PublicIPAllocationMethod pulumi.StringPtrOutput `pulumi:"publicIPAllocationMethod"`
-	// Gets or sets resource guid property of the PublicIP resource
-	ResourceGuid pulumi.StringPtrOutput `pulumi:"resourceGuid"`
-	// Resource tags
-	Tags pulumi.StringMapOutput `pulumi:"tags"`
-	// Resource type
-	Type pulumi.StringOutput `pulumi:"type"`
+	DnsSettings              PublicIPAddressDnsSettingsResponsePtrOutput `pulumi:"dnsSettings"`
+	Etag                     pulumi.StringPtrOutput                      `pulumi:"etag"`
+	IdleTimeoutInMinutes     pulumi.IntPtrOutput                         `pulumi:"idleTimeoutInMinutes"`
+	IpAddress                pulumi.StringPtrOutput                      `pulumi:"ipAddress"`
+	IpConfiguration          IPConfigurationResponseOutput               `pulumi:"ipConfiguration"`
+	Location                 pulumi.StringPtrOutput                      `pulumi:"location"`
+	Name                     pulumi.StringOutput                         `pulumi:"name"`
+	ProvisioningState        pulumi.StringPtrOutput                      `pulumi:"provisioningState"`
+	PublicIPAddressVersion   pulumi.StringPtrOutput                      `pulumi:"publicIPAddressVersion"`
+	PublicIPAllocationMethod pulumi.StringPtrOutput                      `pulumi:"publicIPAllocationMethod"`
+	ResourceGuid             pulumi.StringPtrOutput                      `pulumi:"resourceGuid"`
+	Tags                     pulumi.StringMapOutput                      `pulumi:"tags"`
+	Type                     pulumi.StringOutput                         `pulumi:"type"`
 }
 
 // NewPublicIPAddress registers a new resource with the given unique name, arguments, and options.
@@ -318,60 +305,36 @@ func (PublicIPAddressState) ElementType() reflect.Type {
 }
 
 type publicIPAddressArgs struct {
-	// Gets or sets FQDN of the DNS record associated with the public IP address
-	DnsSettings *PublicIPAddressDnsSettings `pulumi:"dnsSettings"`
-	// Gets a unique read-only string that changes whenever the resource is updated
-	Etag *string `pulumi:"etag"`
-	// Resource Id
-	Id *string `pulumi:"id"`
-	// Gets or sets the idle timeout of the public IP address
-	IdleTimeoutInMinutes *int    `pulumi:"idleTimeoutInMinutes"`
-	IpAddress            *string `pulumi:"ipAddress"`
-	// Resource location
-	Location *string `pulumi:"location"`
-	// Gets provisioning state of the PublicIP resource Updating/Deleting/Failed
-	ProvisioningState *string `pulumi:"provisioningState"`
-	// Gets or sets PublicIP address version (IPv4/IPv6)
-	PublicIPAddressVersion *string `pulumi:"publicIPAddressVersion"`
-	// Gets or sets PublicIP allocation method (Static/Dynamic)
-	PublicIPAllocationMethod *string `pulumi:"publicIPAllocationMethod"`
-	// The name of the publicIpAddress.
-	PublicIpAddressName *string `pulumi:"publicIpAddressName"`
-	// The name of the resource group.
-	ResourceGroupName string `pulumi:"resourceGroupName"`
-	// Gets or sets resource guid property of the PublicIP resource
-	ResourceGuid *string `pulumi:"resourceGuid"`
-	// Resource tags
-	Tags map[string]string `pulumi:"tags"`
+	DnsSettings              *PublicIPAddressDnsSettings `pulumi:"dnsSettings"`
+	Etag                     *string                     `pulumi:"etag"`
+	Id                       *string                     `pulumi:"id"`
+	IdleTimeoutInMinutes     *int                        `pulumi:"idleTimeoutInMinutes"`
+	IpAddress                *string                     `pulumi:"ipAddress"`
+	Location                 *string                     `pulumi:"location"`
+	ProvisioningState        *string                     `pulumi:"provisioningState"`
+	PublicIPAddressVersion   *string                     `pulumi:"publicIPAddressVersion"`
+	PublicIPAllocationMethod *string                     `pulumi:"publicIPAllocationMethod"`
+	PublicIpAddressName      *string                     `pulumi:"publicIpAddressName"`
+	ResourceGroupName        string                      `pulumi:"resourceGroupName"`
+	ResourceGuid             *string                     `pulumi:"resourceGuid"`
+	Tags                     map[string]string           `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a PublicIPAddress resource.
 type PublicIPAddressArgs struct {
-	// Gets or sets FQDN of the DNS record associated with the public IP address
-	DnsSettings PublicIPAddressDnsSettingsPtrInput
-	// Gets a unique read-only string that changes whenever the resource is updated
-	Etag pulumi.StringPtrInput
-	// Resource Id
-	Id pulumi.StringPtrInput
-	// Gets or sets the idle timeout of the public IP address
-	IdleTimeoutInMinutes pulumi.IntPtrInput
-	IpAddress            pulumi.StringPtrInput
-	// Resource location
-	Location pulumi.StringPtrInput
-	// Gets provisioning state of the PublicIP resource Updating/Deleting/Failed
-	ProvisioningState pulumi.StringPtrInput
-	// Gets or sets PublicIP address version (IPv4/IPv6)
-	PublicIPAddressVersion pulumi.StringPtrInput
-	// Gets or sets PublicIP allocation method (Static/Dynamic)
+	DnsSettings              PublicIPAddressDnsSettingsPtrInput
+	Etag                     pulumi.StringPtrInput
+	Id                       pulumi.StringPtrInput
+	IdleTimeoutInMinutes     pulumi.IntPtrInput
+	IpAddress                pulumi.StringPtrInput
+	Location                 pulumi.StringPtrInput
+	ProvisioningState        pulumi.StringPtrInput
+	PublicIPAddressVersion   pulumi.StringPtrInput
 	PublicIPAllocationMethod pulumi.StringPtrInput
-	// The name of the publicIpAddress.
-	PublicIpAddressName pulumi.StringPtrInput
-	// The name of the resource group.
-	ResourceGroupName pulumi.StringInput
-	// Gets or sets resource guid property of the PublicIP resource
-	ResourceGuid pulumi.StringPtrInput
-	// Resource tags
-	Tags pulumi.StringMapInput
+	PublicIpAddressName      pulumi.StringPtrInput
+	ResourceGroupName        pulumi.StringInput
+	ResourceGuid             pulumi.StringPtrInput
+	Tags                     pulumi.StringMapInput
 }
 
 func (PublicIPAddressArgs) ElementType() reflect.Type {
@@ -397,9 +360,7 @@ func (i *PublicIPAddress) ToPublicIPAddressOutputWithContext(ctx context.Context
 	return pulumi.ToOutputWithContext(ctx, i).(PublicIPAddressOutput)
 }
 
-type PublicIPAddressOutput struct {
-	*pulumi.OutputState
-}
+type PublicIPAddressOutput struct{ *pulumi.OutputState }
 
 func (PublicIPAddressOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*PublicIPAddress)(nil))

@@ -11,22 +11,15 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// A long term retention policy.
 type LongTermRetentionPolicy struct {
 	pulumi.CustomResourceState
 
-	// The monthly retention policy for an LTR backup in an ISO 8601 format.
 	MonthlyRetention pulumi.StringPtrOutput `pulumi:"monthlyRetention"`
-	// Resource name.
-	Name pulumi.StringOutput `pulumi:"name"`
-	// Resource type.
-	Type pulumi.StringOutput `pulumi:"type"`
-	// The week of year to take the yearly backup in an ISO 8601 format.
-	WeekOfYear pulumi.IntPtrOutput `pulumi:"weekOfYear"`
-	// The weekly retention policy for an LTR backup in an ISO 8601 format.
-	WeeklyRetention pulumi.StringPtrOutput `pulumi:"weeklyRetention"`
-	// The yearly retention policy for an LTR backup in an ISO 8601 format.
-	YearlyRetention pulumi.StringPtrOutput `pulumi:"yearlyRetention"`
+	Name             pulumi.StringOutput    `pulumi:"name"`
+	Type             pulumi.StringOutput    `pulumi:"type"`
+	WeekOfYear       pulumi.IntPtrOutput    `pulumi:"weekOfYear"`
+	WeeklyRetention  pulumi.StringPtrOutput `pulumi:"weeklyRetention"`
+	YearlyRetention  pulumi.StringPtrOutput `pulumi:"yearlyRetention"`
 }
 
 // NewLongTermRetentionPolicy registers a new resource with the given unique name, arguments, and options.
@@ -113,42 +106,26 @@ func (LongTermRetentionPolicyState) ElementType() reflect.Type {
 }
 
 type longTermRetentionPolicyArgs struct {
-	// The name of the database.
-	DatabaseName string `pulumi:"databaseName"`
-	// The monthly retention policy for an LTR backup in an ISO 8601 format.
-	MonthlyRetention *string `pulumi:"monthlyRetention"`
-	// The policy name. Should always be Default.
-	PolicyName *string `pulumi:"policyName"`
-	// The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
-	ResourceGroupName string `pulumi:"resourceGroupName"`
-	// The name of the server.
-	ServerName string `pulumi:"serverName"`
-	// The week of year to take the yearly backup in an ISO 8601 format.
-	WeekOfYear *int `pulumi:"weekOfYear"`
-	// The weekly retention policy for an LTR backup in an ISO 8601 format.
-	WeeklyRetention *string `pulumi:"weeklyRetention"`
-	// The yearly retention policy for an LTR backup in an ISO 8601 format.
-	YearlyRetention *string `pulumi:"yearlyRetention"`
+	DatabaseName      string  `pulumi:"databaseName"`
+	MonthlyRetention  *string `pulumi:"monthlyRetention"`
+	PolicyName        *string `pulumi:"policyName"`
+	ResourceGroupName string  `pulumi:"resourceGroupName"`
+	ServerName        string  `pulumi:"serverName"`
+	WeekOfYear        *int    `pulumi:"weekOfYear"`
+	WeeklyRetention   *string `pulumi:"weeklyRetention"`
+	YearlyRetention   *string `pulumi:"yearlyRetention"`
 }
 
 // The set of arguments for constructing a LongTermRetentionPolicy resource.
 type LongTermRetentionPolicyArgs struct {
-	// The name of the database.
-	DatabaseName pulumi.StringInput
-	// The monthly retention policy for an LTR backup in an ISO 8601 format.
-	MonthlyRetention pulumi.StringPtrInput
-	// The policy name. Should always be Default.
-	PolicyName pulumi.StringPtrInput
-	// The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
+	DatabaseName      pulumi.StringInput
+	MonthlyRetention  pulumi.StringPtrInput
+	PolicyName        pulumi.StringPtrInput
 	ResourceGroupName pulumi.StringInput
-	// The name of the server.
-	ServerName pulumi.StringInput
-	// The week of year to take the yearly backup in an ISO 8601 format.
-	WeekOfYear pulumi.IntPtrInput
-	// The weekly retention policy for an LTR backup in an ISO 8601 format.
-	WeeklyRetention pulumi.StringPtrInput
-	// The yearly retention policy for an LTR backup in an ISO 8601 format.
-	YearlyRetention pulumi.StringPtrInput
+	ServerName        pulumi.StringInput
+	WeekOfYear        pulumi.IntPtrInput
+	WeeklyRetention   pulumi.StringPtrInput
+	YearlyRetention   pulumi.StringPtrInput
 }
 
 func (LongTermRetentionPolicyArgs) ElementType() reflect.Type {
@@ -174,9 +151,7 @@ func (i *LongTermRetentionPolicy) ToLongTermRetentionPolicyOutputWithContext(ctx
 	return pulumi.ToOutputWithContext(ctx, i).(LongTermRetentionPolicyOutput)
 }
 
-type LongTermRetentionPolicyOutput struct {
-	*pulumi.OutputState
-}
+type LongTermRetentionPolicyOutput struct{ *pulumi.OutputState }
 
 func (LongTermRetentionPolicyOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*LongTermRetentionPolicy)(nil))

@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.BotService.Outputs
 {
 
+    /// <summary>
+    /// The parameters to provide for the Alexa channel.
+    /// </summary>
     [OutputType]
     public sealed class AlexaChannelPropertiesResponse
     {

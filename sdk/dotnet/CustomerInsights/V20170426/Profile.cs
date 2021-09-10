@@ -195,14 +195,14 @@ namespace Pulumi.AzureNative.CustomerInsights.V20170426
         public Input<string>? ApiEntitySetName { get; set; }
 
         [Input("attributes")]
-        private InputMap<ImmutableArray<Input<string>>>? _attributes;
+        private InputMap<ImmutableArray<string>>? _attributes;
 
         /// <summary>
         /// The attributes for the Type.
         /// </summary>
-        public InputMap<ImmutableArray<Input<string>>> Attributes
+        public InputMap<ImmutableArray<string>> Attributes
         {
-            get => _attributes ?? (_attributes = new InputMap<ImmutableArray<Input<string>>>());
+            get => _attributes ?? (_attributes = new InputMap<ImmutableArray<string>>());
             set => _attributes = value;
         }
 
@@ -267,14 +267,14 @@ namespace Pulumi.AzureNative.CustomerInsights.V20170426
         public Input<string>? LargeImage { get; set; }
 
         [Input("localizedAttributes")]
-        private InputMap<ImmutableDictionary<string, Input<string>>>? _localizedAttributes;
+        private InputMap<ImmutableDictionary<string, string>>? _localizedAttributes;
 
         /// <summary>
         /// Any custom localized attributes for the Type.
         /// </summary>
-        public InputMap<ImmutableDictionary<string, Input<string>>> LocalizedAttributes
+        public InputMap<ImmutableDictionary<string, string>> LocalizedAttributes
         {
-            get => _localizedAttributes ?? (_localizedAttributes = new InputMap<ImmutableDictionary<string, Input<string>>>());
+            get => _localizedAttributes ?? (_localizedAttributes = new InputMap<ImmutableDictionary<string, string>>());
             set => _localizedAttributes = value;
         }
 

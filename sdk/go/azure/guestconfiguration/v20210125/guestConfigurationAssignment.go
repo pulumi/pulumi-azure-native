@@ -11,20 +11,14 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Guest configuration assignment is an association between a machine and guest configuration.
 type GuestConfigurationAssignment struct {
 	pulumi.CustomResourceState
 
-	// Region where the VM is located.
-	Location pulumi.StringPtrOutput `pulumi:"location"`
-	// Name of the guest configuration assignment.
-	Name pulumi.StringPtrOutput `pulumi:"name"`
-	// Properties of the Guest configuration assignment.
+	Location   pulumi.StringPtrOutput                               `pulumi:"location"`
+	Name       pulumi.StringPtrOutput                               `pulumi:"name"`
 	Properties GuestConfigurationAssignmentPropertiesResponseOutput `pulumi:"properties"`
-	// Azure Resource Manager metadata containing createdBy and modifiedBy information.
-	SystemData SystemDataResponseOutput `pulumi:"systemData"`
-	// The type of the resource.
-	Type pulumi.StringOutput `pulumi:"type"`
+	SystemData SystemDataResponseOutput                             `pulumi:"systemData"`
+	Type       pulumi.StringOutput                                  `pulumi:"type"`
 }
 
 // NewGuestConfigurationAssignment registers a new resource with the given unique name, arguments, and options.
@@ -102,34 +96,22 @@ func (GuestConfigurationAssignmentState) ElementType() reflect.Type {
 }
 
 type guestConfigurationAssignmentArgs struct {
-	// Name of the guest configuration assignment.
-	GuestConfigurationAssignmentName *string `pulumi:"guestConfigurationAssignmentName"`
-	// Region where the VM is located.
-	Location *string `pulumi:"location"`
-	// Name of the guest configuration assignment.
-	Name *string `pulumi:"name"`
-	// Properties of the Guest configuration assignment.
-	Properties *GuestConfigurationAssignmentProperties `pulumi:"properties"`
-	// The resource group name.
-	ResourceGroupName string `pulumi:"resourceGroupName"`
-	// The name of the virtual machine.
-	VmName string `pulumi:"vmName"`
+	GuestConfigurationAssignmentName *string                                 `pulumi:"guestConfigurationAssignmentName"`
+	Location                         *string                                 `pulumi:"location"`
+	Name                             *string                                 `pulumi:"name"`
+	Properties                       *GuestConfigurationAssignmentProperties `pulumi:"properties"`
+	ResourceGroupName                string                                  `pulumi:"resourceGroupName"`
+	VmName                           string                                  `pulumi:"vmName"`
 }
 
 // The set of arguments for constructing a GuestConfigurationAssignment resource.
 type GuestConfigurationAssignmentArgs struct {
-	// Name of the guest configuration assignment.
 	GuestConfigurationAssignmentName pulumi.StringPtrInput
-	// Region where the VM is located.
-	Location pulumi.StringPtrInput
-	// Name of the guest configuration assignment.
-	Name pulumi.StringPtrInput
-	// Properties of the Guest configuration assignment.
-	Properties GuestConfigurationAssignmentPropertiesPtrInput
-	// The resource group name.
-	ResourceGroupName pulumi.StringInput
-	// The name of the virtual machine.
-	VmName pulumi.StringInput
+	Location                         pulumi.StringPtrInput
+	Name                             pulumi.StringPtrInput
+	Properties                       GuestConfigurationAssignmentPropertiesPtrInput
+	ResourceGroupName                pulumi.StringInput
+	VmName                           pulumi.StringInput
 }
 
 func (GuestConfigurationAssignmentArgs) ElementType() reflect.Type {
@@ -155,9 +137,7 @@ func (i *GuestConfigurationAssignment) ToGuestConfigurationAssignmentOutputWithC
 	return pulumi.ToOutputWithContext(ctx, i).(GuestConfigurationAssignmentOutput)
 }
 
-type GuestConfigurationAssignmentOutput struct {
-	*pulumi.OutputState
-}
+type GuestConfigurationAssignmentOutput struct{ *pulumi.OutputState }
 
 func (GuestConfigurationAssignmentOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*GuestConfigurationAssignment)(nil))

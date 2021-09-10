@@ -11,28 +11,18 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Represents an instance of a Dedicated Capacity resource.
 type CapacityDetails struct {
 	pulumi.CustomResourceState
 
-	// A collection of Dedicated capacity administrators
-	Administration DedicatedCapacityAdministratorsResponsePtrOutput `pulumi:"administration"`
-	// Location of the PowerBI Dedicated resource.
-	Location pulumi.StringOutput `pulumi:"location"`
-	// The capacity mode.
-	Mode pulumi.StringOutput `pulumi:"mode"`
-	// The name of the PowerBI Dedicated resource.
-	Name pulumi.StringOutput `pulumi:"name"`
-	// The current deployment state of PowerBI Dedicated resource. The provisioningState is to indicate states for resource provisioning.
-	ProvisioningState pulumi.StringOutput `pulumi:"provisioningState"`
-	// The SKU of the PowerBI Dedicated resource.
-	Sku ResourceSkuResponseOutput `pulumi:"sku"`
-	// The current state of PowerBI Dedicated resource. The state is to indicate more states outside of resource provisioning.
-	State pulumi.StringOutput `pulumi:"state"`
-	// Key-value pairs of additional resource provisioning properties.
-	Tags pulumi.StringMapOutput `pulumi:"tags"`
-	// The type of the PowerBI Dedicated resource.
-	Type pulumi.StringOutput `pulumi:"type"`
+	Administration    DedicatedCapacityAdministratorsResponsePtrOutput `pulumi:"administration"`
+	Location          pulumi.StringOutput                              `pulumi:"location"`
+	Mode              pulumi.StringOutput                              `pulumi:"mode"`
+	Name              pulumi.StringOutput                              `pulumi:"name"`
+	ProvisioningState pulumi.StringOutput                              `pulumi:"provisioningState"`
+	Sku               ResourceSkuResponseOutput                        `pulumi:"sku"`
+	State             pulumi.StringOutput                              `pulumi:"state"`
+	Tags              pulumi.StringMapOutput                           `pulumi:"tags"`
+	Type              pulumi.StringOutput                              `pulumi:"type"`
 }
 
 // NewCapacityDetails registers a new resource with the given unique name, arguments, and options.
@@ -98,34 +88,22 @@ func (CapacityDetailsState) ElementType() reflect.Type {
 }
 
 type capacityDetailsArgs struct {
-	// A collection of Dedicated capacity administrators
-	Administration *DedicatedCapacityAdministrators `pulumi:"administration"`
-	// The name of the Dedicated capacity. It must be a minimum of 3 characters, and a maximum of 63.
-	DedicatedCapacityName *string `pulumi:"dedicatedCapacityName"`
-	// Location of the PowerBI Dedicated resource.
-	Location *string `pulumi:"location"`
-	// The name of the Azure Resource group of which a given PowerBIDedicated capacity is part. This name must be at least 1 character in length, and no more than 90.
-	ResourceGroupName string `pulumi:"resourceGroupName"`
-	// The SKU of the PowerBI Dedicated resource.
-	Sku ResourceSku `pulumi:"sku"`
-	// Key-value pairs of additional resource provisioning properties.
-	Tags map[string]string `pulumi:"tags"`
+	Administration        *DedicatedCapacityAdministrators `pulumi:"administration"`
+	DedicatedCapacityName *string                          `pulumi:"dedicatedCapacityName"`
+	Location              *string                          `pulumi:"location"`
+	ResourceGroupName     string                           `pulumi:"resourceGroupName"`
+	Sku                   ResourceSku                      `pulumi:"sku"`
+	Tags                  map[string]string                `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a CapacityDetails resource.
 type CapacityDetailsArgs struct {
-	// A collection of Dedicated capacity administrators
-	Administration DedicatedCapacityAdministratorsPtrInput
-	// The name of the Dedicated capacity. It must be a minimum of 3 characters, and a maximum of 63.
+	Administration        DedicatedCapacityAdministratorsPtrInput
 	DedicatedCapacityName pulumi.StringPtrInput
-	// Location of the PowerBI Dedicated resource.
-	Location pulumi.StringPtrInput
-	// The name of the Azure Resource group of which a given PowerBIDedicated capacity is part. This name must be at least 1 character in length, and no more than 90.
-	ResourceGroupName pulumi.StringInput
-	// The SKU of the PowerBI Dedicated resource.
-	Sku ResourceSkuInput
-	// Key-value pairs of additional resource provisioning properties.
-	Tags pulumi.StringMapInput
+	Location              pulumi.StringPtrInput
+	ResourceGroupName     pulumi.StringInput
+	Sku                   ResourceSkuInput
+	Tags                  pulumi.StringMapInput
 }
 
 func (CapacityDetailsArgs) ElementType() reflect.Type {
@@ -151,9 +129,7 @@ func (i *CapacityDetails) ToCapacityDetailsOutputWithContext(ctx context.Context
 	return pulumi.ToOutputWithContext(ctx, i).(CapacityDetailsOutput)
 }
 
-type CapacityDetailsOutput struct {
-	*pulumi.OutputState
-}
+type CapacityDetailsOutput struct{ *pulumi.OutputState }
 
 func (CapacityDetailsOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*CapacityDetails)(nil))
